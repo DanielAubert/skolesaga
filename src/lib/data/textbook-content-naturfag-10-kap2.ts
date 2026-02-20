@@ -1339,6 +1339,381 @@ Dette forklarer hvorfor edelgasser (He, Ne, Ar, osv.) er stabile, mens alkalimet
       },
     },
 
+    // ========== EKSTRA EKSEMPEL: BESTEMME ANTALL SUBATOMÆRE PARTIKLER ==========
+    {
+      id: 'nat10-2-1-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Bestemme antall subatomære partikler i jern',
+      problem: `Jern (Fe) har atomnummer 26 og massetall 56.
+
+a) Hvor mange protoner har et jernatom?
+b) Hvor mange nøytroner har et jernatom?
+c) Hvor mange elektroner har et nøytralt jernatom?
+d) Skriv elektronkonfigurasjonen til jern (fordeling i K-, L-, M- og N-skall).`,
+      solution: `**a) Protoner:**
+
+Atomnummer Z = 26
+
+Atomnummeret er alltid lik antall protoner.
+
+**Svar:** Jern har **26 protoner**.
+
+---
+
+**b) Nøytroner:**
+
+Nøytroner = Massetall - Atomnummer = A - Z
+
+Nøytroner = 56 - 26 = 30
+
+**Svar:** Jern har **30 nøytroner**.
+
+---
+
+**c) Elektroner:**
+
+I et **nøytralt atom** er antall elektroner = antall protoner.
+
+**Svar:** Et nøytralt jernatom har **26 elektroner**.
+
+---
+
+**d) Elektronkonfigurasjon:**
+
+Vi fyller skallene fra innerst til ytterst:
+
+**K-skall (maks 2):** 2 elektroner
+Gjenstående: 26 - 2 = 24
+
+**L-skall (maks 8):** 8 elektroner
+Gjenstående: 24 - 8 = 16
+
+**M-skall (maks 18):** 16 elektroner? Nei, for de første 20 grunnstoffene legger vi maks 8 i M-skallet, men jern har Z=26, så M-skallet kan ha opptil 18.
+
+For jern: M-skall tar 14 elektroner
+Gjenstående: 16 - 14 = 2
+
+**N-skall:** 2 elektroner
+
+**Elektronkonfigurasjon:** K=2, L=8, M=14, N=2
+
+**Merk:** I videregående kjemi lærer du at elektronkonfigurasjonen til jern er mer komplisert (med underskall), men for 10. klasse holder det med denne forenklingen.`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: ELEKTRONKONFIGURASJON OG KJEMISKE EGENSKAPER ==========
+    {
+      id: 'nat10-2-1-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Fra elektronkonfigurasjon til kjemiske egenskaper',
+      problem: `Kalsium (Ca) har atomnummer 20.
+
+a) Skriv elektronkonfigurasjonen til kalsium.
+b) Hvor mange valenselektroner har kalsium?
+c) Vil kalsium helst avgi eller ta opp elektroner for å oppnå edelgass-konfigurasjon?
+d) Hvilket ion danner kalsium, og hva blir ladningen?`,
+      solution: `**a) Elektronkonfigurasjon:**
+
+Kalsium har 20 elektroner.
+
+K-skall: 2
+L-skall: 8
+M-skall: 8
+N-skall: 2
+
+**Elektronkonfigurasjon:** K=2, L=8, M=8, N=2
+
+---
+
+**b) Valenselektroner:**
+
+Valenselektroner = elektroner i ytterste skall = N-skallet.
+
+Kalsium har **2 valenselektroner**.
+
+---
+
+**c) Avgi eller ta opp elektroner?**
+
+Kalsium har bare **2 elektroner i ytterste skall**. Det er mye lettere å **avgi 2 elektroner** enn å ta opp 6 elektroner for å få fullt N-skall.
+
+Når kalsium avgir 2 elektroner, blir M-skallet det ytterste skallet med 8 elektroner (fullt!). Da har kalsium edelgass-konfigurasjonen til **argon (Ar)**: K=2, L=8, M=8.
+
+**Svar:** Kalsium vil helst **avgi 2 elektroner**.
+
+---
+
+**d) Ion og ladning:**
+
+Når kalsium avgir 2 elektroner:
+- Starter med 20 protoner (+) og 20 elektroner (-)
+- Mister 2 elektroner
+- Har nå 20 protoner (+) og 18 elektroner (-)
+- Netto ladning: 20 - 18 = +2
+
+**Svar:** Kalsium danner **Ca²⁺** (kalsiumion med ladning +2).
+
+Dette forklarer hvorfor kalsium ofte finnes i forbindelser som CaCl₂ (kalsiumklorid), CaCO₃ (kalsiumkarbonat/kalkstein) og CaO (kalsiumoksid).`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - NØYTRONER ==========
+    {
+      id: 'nat10-2-1-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-1',
+        number: '2.1.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Et atom har atomnummer 15 og massetall 31. Hvor mange nøytroner har det?',
+        options: [
+          { id: 'a', text: '15', isCorrect: false },
+          { id: 'b', text: '16', isCorrect: true },
+          { id: 'c', text: '31', isCorrect: false },
+          { id: 'd', text: '46', isCorrect: false },
+        ],
+        solution: `**Riktig svar: 16 nøytroner**
+
+Nøytroner = Massetall - Atomnummer = A - Z
+
+Nøytroner = 31 - 15 = **16**
+
+**Vanlige feil:**
+- 15: Det er antall protoner (atomnummeret), ikke nøytroner
+- 31: Det er massetallet (protoner + nøytroner), ikke bare nøytroner
+- 46: Det er summen av massetall og atomnummer, ikke noe meningsfullt
+
+**Grunnstoffet** med atomnummer 15 er fosfor (P).`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - IDENTIFISERE GRUNNSTOFF ==========
+    {
+      id: 'nat10-2-1-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-2',
+        number: '2.1.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Et ukjent atom har følgende egenskaper:
+- Det har 12 protoner
+- Det har 12 nøytroner
+- Det er et nøytralt atom
+
+a) Hva er atomnummeret?
+b) Hva er massetallet?
+c) Hvilket grunnstoff er dette? (Bruk periodesystemet)
+d) Skriv elektronkonfigurasjonen.
+e) Hvor mange valenselektroner har det?`,
+        solution: `**a) Atomnummer:**
+
+Z = antall protoner = **12**
+
+---
+
+**b) Massetall:**
+
+A = protoner + nøytroner = 12 + 12 = **24**
+
+---
+
+**c) Grunnstoff:**
+
+Atomnummer 12 = **Magnesium (Mg)**
+
+---
+
+**d) Elektronkonfigurasjon:**
+
+12 elektroner (nøytralt atom, så elektroner = protoner):
+
+K-skall: 2
+L-skall: 8
+M-skall: 2
+
+**Elektronkonfigurasjon:** K=2, L=8, M=2
+
+---
+
+**e) Valenselektroner:**
+
+Ytterste skall (M) har **2 valenselektroner**.
+
+Magnesium er et metall i gruppe 2, og alle grunnstoffer i gruppe 2 har 2 valenselektroner.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - ISOTOPER OG GJENNOMSNITTLIG ATOMMASSE ==========
+    {
+      id: 'nat10-2-1-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-3',
+        number: '2.1.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Bor (B) har atomnummer 5 og finnes som to naturlige isotoper:
+- Bor-10 (¹⁰B): Utgjør ca. 20% av alle boratomer
+- Bor-11 (¹¹B): Utgjør ca. 80% av alle boratomer
+
+a) Hvor mange protoner, nøytroner og elektroner har hver isotop?
+b) Hvorfor har begge isotopene like kjemiske egenskaper?
+c) Den gjennomsnittlige atommassen til bor er 10,8 u. Forklar hvorfor dette tallet er nærmere 11 enn 10.`,
+        solution: `**a) Partikler i hver isotop:**
+
+**Bor-10 (¹⁰B):**
+- Protoner: 5 (atomnummer = 5)
+- Nøytroner: A - Z = 10 - 5 = 5
+- Elektroner: 5 (nøytralt atom)
+
+**Bor-11 (¹¹B):**
+- Protoner: 5 (atomnummer = 5)
+- Nøytroner: A - Z = 11 - 5 = 6
+- Elektroner: 5 (nøytralt atom)
+
+---
+
+**b) Like kjemiske egenskaper:**
+
+Begge isotopene har **5 protoner** og dermed **5 elektroner** i nøytral tilstand.
+
+Elektronkonfigurasjon for begge: K=2, L=3
+
+Kjemiske egenskaper bestemmes av **valenselektronene** (3 i L-skallet), og disse er identiske for begge isotopene. Forskjellen i nøytroner påvirker bare massen, ikke kjemien.
+
+---
+
+**c) Gjennomsnittlig atommasse:**
+
+Den gjennomsnittlige atommassen er et **vektet gjennomsnitt** basert på hvor mye av hver isotop som finnes:
+
+Gjennomsnitt = (20% × 10) + (80% × 11)
+= (0,20 × 10) + (0,80 × 11)
+= 2,0 + 8,8
+= **10,8 u**
+
+Siden det er **mye mer Bor-11 (80%)** enn Bor-10 (20%), trekkes gjennomsnittet **nærmere 11** enn 10.
+
+Dette er grunnen til at atommassen i periodesystemet sjelden er et helt tall – den reflekterer blandingen av naturlige isotoper.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - ELEKTRONSKAL ==========
+    {
+      id: 'nat10-2-1-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-4',
+        number: '2.1.14',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er maksimalt antall elektroner som kan befinne seg i K-skallet?',
+        options: [
+          { id: 'a', text: '1', isCorrect: false },
+          { id: 'b', text: '2', isCorrect: true },
+          { id: 'c', text: '8', isCorrect: false },
+          { id: 'd', text: '18', isCorrect: false },
+        ],
+        solution: `**Riktig svar: 2 elektroner**
+
+K-skallet er det innerste elektronskallet og kan maksimalt romme **2 elektroner**.
+
+**Oversikt over elektronskall:**
+- K-skall: maks 2 elektroner
+- L-skall: maks 8 elektroner
+- M-skall: maks 18 elektroner (eller 8 for de første 20 grunnstoffene)
+
+**Eksempler:**
+- Hydrogen (H): K=1 (1 av maks 2)
+- Helium (He): K=2 (fullt K-skall!)
+- Litium (Li): K=2, L=1 (K-skallet er fullt, neste elektron går til L)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - ATOM SOM HAR MISTET ELEKTRON ==========
+    {
+      id: 'nat10-2-1-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-5',
+        number: '2.1.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Litium (Li) har atomnummer 3 og massetall 7.
+
+a) Hvor mange protoner, nøytroner og elektroner har et nøytralt litiumatom?
+b) Skriv elektronkonfigurasjonen til litium.
+c) Hvor mange valenselektroner har litium?
+d) Hvis litium mister sitt valenselektron og danner Li⁺, hvor mange elektroner har ionet da? Hva er elektronkonfigurasjonen?`,
+        solution: `**a) Partikler:**
+
+- Protoner: Z = 3
+- Nøytroner: A - Z = 7 - 3 = 4
+- Elektroner: 3 (nøytralt atom, elektroner = protoner)
+
+---
+
+**b) Elektronkonfigurasjon:**
+
+3 elektroner:
+K-skall: 2
+L-skall: 1
+
+**Elektronkonfigurasjon:** K=2, L=1
+
+---
+
+**c) Valenselektroner:**
+
+Ytterste skall (L) har **1 valenselektron**.
+
+---
+
+**d) Li⁺-ionet:**
+
+Litium har 3 elektroner. Når det mister 1 elektron:
+3 - 1 = **2 elektroner**
+
+Elektronkonfigurasjon for Li⁺: **K=2**
+
+Dette er den samme elektronkonfigurasjonen som **helium (He)**, en edelgass. Dermed har Li⁺ fullt ytterste skall og er svært stabilt.
+
+**Merk:** Li⁺ har fortsatt 3 protoner (det er fortsatt litium!), men bare 2 elektroner. Derfor er netto ladning +1.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - GRUNNSTOFFER VS FORBINDELSER ==========
+    {
+      id: 'nat10-2-1-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-1-oppg-extra-6',
+        number: '2.1.16',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er et grunnstoff?',
+        options: [
+          { id: 'a', text: 'Vann (H₂O)', isCorrect: false },
+          { id: 'b', text: 'Karbondioksid (CO₂)', isCorrect: false },
+          { id: 'c', text: 'Jern (Fe)', isCorrect: true },
+          { id: 'd', text: 'Bordsalt (NaCl)', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Jern (Fe)**
+
+Et **grunnstoff** består av bare én type atomer. Jern (Fe) består kun av jernatomer.
+
+**Hvorfor de andre er feil:**
+
+- **Vann (H₂O):** Består av hydrogen- og oksygenatomer = en **forbindelse** (to ulike grunnstoffer)
+- **Karbondioksid (CO₂):** Består av karbon- og oksygenatomer = en **forbindelse**
+- **Bordsalt (NaCl):** Består av natrium- og kloratomer = en **forbindelse**
+
+**Huskeregel:**
+- Grunnstoff: bare én type atom (Fe, O₂, H₂, Au)
+- Forbindelse: to eller flere typer atomer (H₂O, CO₂, NaCl)`,
+      },
+    },
+
     // ========== OPPGAVE 10: VANSKELIG - ELEKTRONKONFIGURASJON OG KJEMI ==========
     {
       id: 'nat10-2-1-exercise-10',
@@ -2138,6 +2513,442 @@ Mendelejevs periodesystem var revolusjonerende fordi:
 Da Mendelejevs forutsigelser viste seg å stemme (med germanium, gallium, skandium), ble periodesystemet allment akseptert.
 
 **I dag** er periodesystemet fundamentet for all kjemi – det er et av de viktigste verktøyene i naturvitenskapen!`,
+      },
+    },
+
+    // ========== EKSTRA EKSEMPEL: FORUTSI EGENSKAPER FRA POSISJON ==========
+    {
+      id: 'nat10-2-2-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Forutsi egenskaper fra plassering i periodesystemet',
+      problem: `Kalium (K) befinner seg i periode 4, gruppe 1.
+
+a) Hvor mange elektronskall har kalium?
+b) Hvor mange valenselektroner har kalium?
+c) Er kalium et metall eller ikke-metall?
+d) Forutsi: Vil kalium reagere kraftig eller svakt med vann? Sammenlikn med natrium (Na, periode 3, gruppe 1).`,
+      solution: `**a) Elektronskall:**
+
+Periodenummeret forteller antall elektronskall.
+
+Kalium er i **periode 4**, derfor har det **4 elektronskall** (K, L, M, N).
+
+---
+
+**b) Valenselektroner:**
+
+Gruppenummeret (for hovedgruppene) forteller antall valenselektroner.
+
+Kalium er i **gruppe 1**, derfor har det **1 valenselektron**.
+
+---
+
+**c) Metall eller ikke-metall:**
+
+Kalium er i **gruppe 1** (alkalimetaller) på venstre side av periodesystemet.
+
+**Svar:** Kalium er et **metall**.
+
+---
+
+**d) Reaksjon med vann:**
+
+Alle alkalimetaller (gruppe 1) reagerer med vann. Reaktiviteten **øker nedover** i gruppen fordi valenselektronet er lenger fra kjernen og lettere å miste.
+
+- Natrium (Na) er i periode 3 → reagerer kraftig med vann
+- Kalium (K) er i periode 4 → en periode lenger ned
+
+**Forutsigelse:** Kalium reagerer **kraftigere** med vann enn natrium!
+
+**Og det stemmer:** Kalium reagerer eksplosivt med vann, mens natrium reagerer kraftig, men litt mindre voldsomt.
+
+Dette viser styrken til periodesystemet – vi kan forutsi egenskaper basert på plassering!`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: IDENTIFISERE GRUPPETRENDER ==========
+    {
+      id: 'nat10-2-2-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Trender i halogengruppen (gruppe 17)',
+      problem: `Halogenene er grunnstoffene i gruppe 17: Fluor (F), Klor (Cl), Brom (Br) og Jod (I).
+
+a) Hvor mange valenselektroner har halogenene?
+b) I hvilken tilstand (fast, flytende, gass) er hvert halogen ved romtemperatur?
+   - Fluor og klor er gasser
+   - Brom er flytende
+   - Jod er fast
+c) Hva forteller dette oss om trenden i kokepunkt nedover i gruppen?
+d) Hvilken halogen er mest reaktiv? Hvorfor?`,
+      solution: `**a) Valenselektroner:**
+
+Alle halogenene er i gruppe 17 og har **7 valenselektroner**.
+
+De trenger alle bare **1 elektron** for å oppnå fullt ytterste skall (oktett).
+
+---
+
+**b) Tilstand ved romtemperatur:**
+
+- **Fluor (F₂):** Gass (lysegul)
+- **Klor (Cl₂):** Gass (grønngul)
+- **Brom (Br₂):** Flytende (rødbrunt)
+- **Jod (I₂):** Fast stoff (mørklilla)
+
+---
+
+**c) Trend i kokepunkt:**
+
+Vi ser at tilstanden endres fra gass → flytende → fast nedover i gruppen.
+
+Dette betyr at **kokepunktet øker nedover** i gruppen:
+
+- Fluor koker ved -188°C
+- Klor koker ved -34°C
+- Brom koker ved 59°C
+- Jod koker ved 184°C
+
+**Forklaring:** Nedover i gruppen blir atomene **større** og **tyngre**. Tyngre molekyler har sterkere tiltrekningskrefter mellom seg, noe som krever mer energi (høyere temperatur) for å bryte dem løs.
+
+---
+
+**d) Mest reaktivt halogen:**
+
+**Fluor (F)** er det mest reaktive halogenet.
+
+**Forklaring:**
+
+Reaktiviteten i halogengruppen **avtar nedover** (motsatt av alkalimetallene!).
+
+- Fluor har ytterste skall **nærmest kjernen** (bare 2 skall)
+- Kjernen tiltrekker det ekstra elektronet **sterkere**
+- Derfor er fluor mest ivrig etter å ta opp et elektron
+- Jod har ytterste skall lenger fra kjernen → svakere tiltrekningskraft → mindre reaktivt
+
+**Sammendrag:**
+Fluor > Klor > Brom > Jod (reaktivitet)`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: SAMMENLIGNE GRUNNSTOFFER I SAMME PERIODE ==========
+    {
+      id: 'nat10-2-2-example-extra-3',
+      type: 'example',
+      title: 'Eksempel: Sammenligne grunnstoffer i periode 3',
+      problem: `Se på de første grunnstoffene i periode 3:
+
+| Grunnstoff | Na | Mg | Al | Si | P | S | Cl | Ar |
+|---|---|---|---|---|---|---|---|---|
+| Gruppe | 1 | 2 | 13 | 14 | 15 | 16 | 17 | 18 |
+
+a) Hvor mange valenselektroner har natrium (Na), silisium (Si) og klor (Cl)?
+b) Hvilke av disse er metaller, ikke-metaller og halvmetaller?
+c) Hvilket grunnstoff i denne perioden er mest reaktivt av metallene?
+d) Hvilket grunnstoff er minst reaktivt? Hvorfor?`,
+      solution: `**a) Valenselektroner:**
+
+- **Natrium (Na), gruppe 1:** 1 valenselektron
+- **Silisium (Si), gruppe 14:** 4 valenselektroner
+- **Klor (Cl), gruppe 17:** 7 valenselektroner
+
+**Huskeregel:** For hovedgruppene (1, 2, 13-18): valenselektroner = siste siffer i gruppenummeret.
+
+---
+
+**b) Metaller, ikke-metaller og halvmetaller:**
+
+**Metaller:** Na (natrium), Mg (magnesium), Al (aluminium)
+- Ligger til venstre i periodesystemet
+
+**Halvmetall:** Si (silisium)
+- Ligger langs trappetrinnslinja
+- Brukes i elektronikk (databrikker)
+
+**Ikke-metaller:** P (fosfor), S (svovel), Cl (klor), Ar (argon)
+- Ligger til høyre i periodesystemet
+
+---
+
+**c) Mest reaktivt metall i periode 3:**
+
+**Natrium (Na)** er det mest reaktive metallet i periode 3.
+
+**Forklaring:** Natrium har bare 1 valenselektron og avgir dette lett. Magnesium har 2 og aluminium har 3 valenselektroner, som er vanskeligere å avgi. Jo færre valenselektroner et metall har, jo lettere reagerer det.
+
+---
+
+**d) Minst reaktivt grunnstoff:**
+
+**Argon (Ar)** er minst reaktivt.
+
+**Forklaring:** Argon er en **edelgass** (gruppe 18) med fullt ytterste skall (8 valenselektroner). Det trenger verken å avgi eller ta opp elektroner, så det reagerer nesten ikke med noe.`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - GRUPPE OG VALENSELEKTRONER ==========
+    {
+      id: 'nat10-2-2-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-1',
+        number: '2.2.9',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Et grunnstoff befinner seg i gruppe 2 i periodesystemet. Hvor mange valenselektroner har det?',
+        options: [
+          { id: 'a', text: '1', isCorrect: false },
+          { id: 'b', text: '2', isCorrect: true },
+          { id: 'c', text: '8', isCorrect: false },
+          { id: 'd', text: '18', isCorrect: false },
+        ],
+        solution: `**Riktig svar: 2 valenselektroner**
+
+For hovedgruppene i periodesystemet gjelder: gruppenummeret forteller antall valenselektroner.
+
+Gruppe 2 (jordalkalimetallene) har **2 valenselektroner**.
+
+**Eksempler:** Beryllium (Be), Magnesium (Mg), Kalsium (Ca) – alle har 2 valenselektroner.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - METALLER OG IKKE-METALLER ==========
+    {
+      id: 'nat10-2-2-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-2',
+        number: '2.2.10',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilket av disse grunnstoffene er et ikke-metall?',
+        options: [
+          { id: 'a', text: 'Natrium (Na)', isCorrect: false },
+          { id: 'b', text: 'Jern (Fe)', isCorrect: false },
+          { id: 'c', text: 'Svovel (S)', isCorrect: true },
+          { id: 'd', text: 'Aluminium (Al)', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Svovel (S)**
+
+Svovel er et **ikke-metall** som befinner seg i gruppe 16, på høyre side av periodesystemet.
+
+**De andre er metaller:**
+- Natrium (Na): Alkalimetall, gruppe 1
+- Jern (Fe): Overgangsmetall, midten av periodesystemet
+- Aluminium (Al): Metall, gruppe 13
+
+**Huskeregel:** Ikke-metaller befinner seg til høyre i periodesystemet (gruppe 14-18, pluss hydrogen).`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - TREND I REAKTIVITET ==========
+    {
+      id: 'nat10-2-2-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-3',
+        number: '2.2.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Litium (Li), natrium (Na) og kalium (K) er alle alkalimetaller i gruppe 1.
+
+a) Hvor mange valenselektroner har hvert av disse grunnstoffene?
+b) I hvilken periode befinner hvert grunnstoff seg?
+c) Ordne grunnstoffene etter økende reaktivitet med vann.
+d) Forklar hvorfor reaktiviteten øker nedover i gruppe 1.`,
+        solution: `**a) Valenselektroner:**
+
+Alle tre er i gruppe 1 og har **1 valenselektron** hver.
+
+---
+
+**b) Periode:**
+
+- Litium (Li): **Periode 2** (2 elektronskall)
+- Natrium (Na): **Periode 3** (3 elektronskall)
+- Kalium (K): **Periode 4** (4 elektronskall)
+
+---
+
+**c) Økende reaktivitet:**
+
+**Li < Na < K** (litium er minst reaktiv, kalium er mest reaktiv)
+
+---
+
+**d) Forklaring:**
+
+Alle tre ønsker å **avgi 1 valenselektron** for å få fullt ytterste skall.
+
+Nedover i gruppen:
+- Atomene blir **større** (flere elektronskall)
+- Valenselektronet er **lenger fra kjernen**
+- Tiltrekningskraften mellom kjernen og valenselektronet er **svakere**
+- Det er **lettere** å miste valenselektronet
+
+**Kalium** har valenselektronet i 4. skall (langt fra kjernen) → lett å miste → mest reaktiv.
+
+**Litium** har valenselektronet i 2. skall (nær kjernen) → vanskeligere å miste → minst reaktiv.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - PLASSERE UKJENT GRUNNSTOFF ==========
+    {
+      id: 'nat10-2-2-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-4',
+        number: '2.2.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Et ukjent grunnstoff X har følgende egenskaper:
+- Det er en giftig gass med sterk lukt
+- Det er svært reaktivt
+- Det har 7 valenselektroner
+- Det befinner seg i periode 2
+
+a) Hvilken gruppe tilhører grunnstoff X?
+b) Identifiser grunnstoff X (navn og symbol).
+c) Hva slags ion danner X når det reagerer med et metall?
+d) Skriv formelen for forbindelsen som dannes når X reagerer med natrium (Na).`,
+        solution: `**a) Gruppe:**
+
+7 valenselektroner → **Gruppe 17** (halogenene)
+
+---
+
+**b) Identifisering:**
+
+Gruppe 17, periode 2 → **Fluor (F)**
+
+Fluor er den mest reaktive av alle halogenene og er en svært giftig gass.
+
+---
+
+**c) Ion:**
+
+Fluor har 7 valenselektroner og trenger **1 elektron** for å få fullt ytterste skall.
+
+Når fluor tar opp 1 elektron, danner det **F⁻** (fluoridion) med ladning -1.
+
+F + e⁻ → F⁻
+
+---
+
+**d) Formel med natrium:**
+
+Natrium (Na) avgir 1 elektron → Na⁺
+Fluor (F) tar opp 1 elektron → F⁻
+
+Forholdet er 1:1 (1 elektron avgitt = 1 elektron tatt opp)
+
+**Formel: NaF** (natriumfluorid)
+
+NaF brukes i tannkrem for å styrke tannemaljen!`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - ELEKTRONEGATIVITET ==========
+    {
+      id: 'nat10-2-2-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-5',
+        number: '2.2.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Elektronegativitet beskriver hvor sterkt et atom trekker til seg elektroner.
+
+Se på disse grunnstoffene og deres elektronegativitet:
+- Natrium (Na): 0,9
+- Magnesium (Mg): 1,3
+- Klor (Cl): 3,2
+- Fluor (F): 4,0
+- Oksygen (O): 3,4
+
+a) Hvilket grunnstoff har høyest elektronegativitet?
+b) Beskriv trenden i elektronegativitet bortover i en periode (fra venstre til høyre).
+c) Forklar hvorfor fluor har høyere elektronegativitet enn klor (begge er i gruppe 17).
+d) Hva tror du skjer med elektronene i en binding mellom Na og Cl? Hvem tiltrekker dem mest?`,
+        solution: `**a) Høyest elektronegativitet:**
+
+**Fluor (F)** med elektronegativitet 4,0 er det mest elektronegative grunnstoffet.
+
+Fluor trekker til seg elektroner sterkere enn noe annet grunnstoff i periodesystemet.
+
+---
+
+**b) Trend bortover i en periode:**
+
+Elektronegativiteten **øker** fra venstre til høyre i en periode.
+
+I periode 3: Na (0,9) < Mg (1,3) < ... < Cl (3,2)
+
+**Forklaring:** Bortover i perioden øker antall protoner i kjernen, mens elektronene legges til i **samme skall**. Flere protoner trekker elektronene sterkere → høyere elektronegativitet.
+
+---
+
+**c) Fluor vs. klor:**
+
+Fluor (4,0) > Klor (3,2)
+
+Begge er i gruppe 17 med 7 valenselektroner, men:
+
+- Fluor har ytterste skall i **L-skallet** (nært kjernen)
+- Klor har ytterste skall i **M-skallet** (lenger fra kjernen)
+
+Jo **nærmere kjernen**, jo sterkere tiltrekning → fluor trekker elektroner sterkere.
+
+**Generell trend:** Elektronegativiteten **øker oppover** i en gruppe.
+
+---
+
+**d) Binding mellom Na og Cl:**
+
+Na har elektronegativitet 0,9 og Cl har 3,2.
+
+**Stor forskjell** (3,2 - 0,9 = 2,3) betyr at klor trekker elektronene **mye sterkere** enn natrium.
+
+Resultatet er at elektronet fra natrium **overføres helt** til klor:
+
+Na → Na⁺ + e⁻
+Cl + e⁻ → Cl⁻
+
+Dette danner en **ionebinding**. Klor "vinner" elektronet fullstendig fordi den har mye høyere elektronegativitet.
+
+**Huskeregel:** Stor forskjell i elektronegativitet → ionebinding. Liten forskjell → kovalent binding.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - HALVMETALLER ==========
+    {
+      id: 'nat10-2-2-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-2-oppg-extra-6',
+        number: '2.2.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Silisium (Si) brukes i databrikker og solceller. Hva slags grunnstoff er silisium?',
+        options: [
+          { id: 'a', text: 'Metall', isCorrect: false },
+          { id: 'b', text: 'Ikke-metall', isCorrect: false },
+          { id: 'c', text: 'Halvmetall', isCorrect: true },
+          { id: 'd', text: 'Edelgass', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Halvmetall**
+
+Silisium (Si) er et **halvmetall** (også kalt metalloid).
+
+**Egenskaper:**
+- Ligger langs "trappetrinnslinja" i periodesystemet mellom metaller og ikke-metaller
+- Leder elektrisitet **delvis** (halvleder)
+- Har egenskaper fra både metaller og ikke-metaller
+
+**Hvorfor er dette viktig?**
+
+Silisiums halvledende egenskaper gjør det perfekt for:
+- **Databrikker** (prosessorer i datamaskiner og telefoner)
+- **Solceller** (omdanner sollys til elektrisitet)
+- **Transistorer** (byggesteinene i elektronikk)
+
+Andre halvmetaller: Germanium (Ge), Arsen (As), Bor (B)`,
       },
     },
 
@@ -2979,6 +3790,414 @@ O = C = O
 - Totalt 2 dobbeltbindinger i CO₂
 
 **Kjemisk formel:** CO₂ (karbondioksid – den gassen vi puster ut)`,
+      },
+    },
+
+    // ========== EKSTRA EKSEMPEL: TEGNE LEWIS-STRUKTUR FOR AMMONIAKK ==========
+    {
+      id: 'nat10-2-3-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Lewis-struktur for ammoniakk (NH₃)',
+      problem: `Nitrogen (N) har 5 valenselektroner.
+Hydrogen (H) har 1 valenselektron.
+
+a) Hvor mange elektroner trenger nitrogen for å oppfylle oktettregelen?
+b) Tegn Lewis-strukturen for ammoniakk (NH₃).
+c) Hvor mange bindingspar og frie elektronpar har nitrogen i NH₃?`,
+      solution: `**a) Elektroner nitrogen trenger:**
+
+Nitrogen har 5 valenselektroner og trenger 8 for å oppfylle oktettregelen.
+
+8 - 5 = **3 elektroner**
+
+---
+
+**b) Lewis-struktur for NH₃:**
+
+\`\`\`
+       H
+       |
+  H — N :
+       |
+       H
+\`\`\`
+
+**Forklaring:**
+
+1. Nitrogen deler 1 elektronpar med hvert av de 3 hydrogenatomene
+2. Hvert H bidrar med 1 elektron, N bidrar med 1 elektron per binding
+3. N har nå: 3 delte par + 1 fritt par = 8 elektroner rundt seg
+4. Hvert H har: 1 delt par = 2 elektroner (fullt K-skall)
+
+---
+
+**c) Bindingspar og frie elektronpar:**
+
+**Bindingspar:** 3 (N-H, N-H, N-H)
+- 3 kovalente enkeltbindinger
+
+**Frie elektronpar (ensomme par):** 1
+- Nitrogen har 1 fritt elektronpar som ikke deles med noe annet atom
+
+**Totalt rundt nitrogen:**
+- 3 bindingspar + 1 fritt par = 4 elektronpar = 8 elektroner
+
+Oktettregelen er oppfylt!
+
+**Merk:** Det frie elektronparet gir ammoniakk en **pyramideform** (ikke flat), og gjør at ammoniakk kan fungere som en **base** (det frie paret kan ta opp et H⁺).`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: FORUTSI BINDINGSTYPE FRA ELEKTRONEGATIVITET ==========
+    {
+      id: 'nat10-2-3-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Forutsi bindingstype',
+      problem: `Bestem hvilken type binding som dannes mellom atomene i følgende forbindelser:
+
+a) Kaliumklorid (KCl) – kalium er et metall, klor er et ikke-metall
+b) Klorgass (Cl₂) – to kloratomer
+c) Kobber (Cu) – rent kobbermetall
+d) Karbondioksid (CO₂) – karbon og oksygen er begge ikke-metaller`,
+      solution: `**a) Kaliumklorid (KCl):**
+
+**Ionebinding**
+
+Kalium (K) er et **metall** og klor (Cl) er et **ikke-metall**.
+Metall + ikke-metall → ionebinding.
+
+K avgir 1 elektron → K⁺
+Cl tar opp 1 elektron → Cl⁻
+
+---
+
+**b) Klorgass (Cl₂):**
+
+**Kovalent binding**
+
+Begge atomene er **ikke-metaller** (klor + klor).
+Ikke-metall + ikke-metall → kovalent binding.
+
+De to kloratomene deler 1 elektronpar (enkeltbinding).
+
+---
+
+**c) Kobber (Cu):**
+
+**Metallbinding**
+
+Kobber er et **metall** som binder seg til andre kobberatomer.
+Metall + metall → metallbinding.
+
+Frie elektroner flyter mellom positive kobberioner.
+
+---
+
+**d) Karbondioksid (CO₂):**
+
+**Kovalent binding**
+
+Karbon (C) og oksygen (O) er begge **ikke-metaller**.
+Ikke-metall + ikke-metall → kovalent binding.
+
+Karbon deler 2 elektronpar med hvert oksygenatom (dobbeltbindinger).
+
+---
+
+**Oppsummering:**
+
+| Forbindelse | Atomtyper | Bindingstype |
+|---|---|---|
+| KCl | Metall + ikke-metall | Ionebinding |
+| Cl₂ | Ikke-metall + ikke-metall | Kovalent binding |
+| Cu | Metall + metall | Metallbinding |
+| CO₂ | Ikke-metall + ikke-metall | Kovalent binding |
+
+**Huskeregel:**
+- Metall + ikke-metall → ionebinding
+- Ikke-metall + ikke-metall → kovalent binding
+- Metall + metall → metallbinding`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - IONEBINDING ==========
+    {
+      id: 'nat10-2-3-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-1',
+        number: '2.3.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva skjer med elektronene i en ionebinding?',
+        options: [
+          { id: 'a', text: 'Elektronene deles likt mellom atomene', isCorrect: false },
+          { id: 'b', text: 'Elektronene overføres fra et atom til et annet', isCorrect: true },
+          { id: 'c', text: 'Elektronene beveger seg fritt mellom alle atomene', isCorrect: false },
+          { id: 'd', text: 'Elektronene forsvinner', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Elektronene overføres fra et atom til et annet**
+
+I en ionebinding:
+1. **Metallatomer** avgir elektroner og blir positive ioner (kationer)
+2. **Ikke-metallatomer** tar opp elektroner og blir negative ioner (anioner)
+3. De motsatt ladede ionene tiltrekker hverandre
+
+**Eksempel:** Na → Na⁺ + e⁻ (natrium avgir 1 elektron)
+Cl + e⁻ → Cl⁻ (klor tar opp 1 elektron)
+
+De andre alternativene beskriver:
+- a) Kovalent binding (deling av elektroner)
+- c) Metallbinding (elektronsky)
+- d) Bryter loven om bevaring av materie`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - LEWIS-STRUKTUR FOR HF ==========
+    {
+      id: 'nat10-2-3-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-2',
+        number: '2.3.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Hydrogenfluorid (HF) er en forbindelse av hydrogen (H) og fluor (F).
+
+a) Er H og F metaller eller ikke-metaller?
+b) Hvilken type binding dannes mellom H og F?
+c) Hvor mange valenselektroner har fluor?
+d) Tegn en forenklet Lewis-struktur for HF.
+e) Hvor mange bindingspar og frie elektronpar har fluor i HF?`,
+        solution: `**a) Metall eller ikke-metall:**
+
+- Hydrogen (H): **Ikke-metall**
+- Fluor (F): **Ikke-metall**
+
+---
+
+**b) Bindingstype:**
+
+Ikke-metall + ikke-metall → **Kovalent binding**
+
+H og F deler elektroner for å oppfylle oktettregelen.
+
+---
+
+**c) Valenselektroner for fluor:**
+
+Fluor har atomnummer 9, elektronkonfigurasjon K=2, L=7.
+
+**7 valenselektroner**
+
+---
+
+**d) Lewis-struktur:**
+
+\`\`\`
+H — F :
+\`\`\`
+
+- En strek (—) representerer ett delt elektronpar (bindingspar)
+- Prikkene (:) representerer frie elektronpar på fluor
+
+---
+
+**e) Bindingspar og frie par:**
+
+**Bindingspar:** 1 (H-F enkeltbinding)
+**Frie elektronpar på fluor:** 3
+
+Totalt rundt fluor: 1 bindingspar + 3 frie par = 4 par = 8 elektroner
+Hydrogen har: 1 bindingspar = 2 elektroner (fullt K-skall)
+
+Begge atomer oppfyller oktettregelen (eller duettregelen for H).`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - KALSIUMKLORID ==========
+    {
+      id: 'nat10-2-3-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-3',
+        number: '2.3.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Kalsiumklorid (CaCl₂) dannes når kalsium (Ca) reagerer med klor (Cl).
+
+Kalsium er et metall i gruppe 2 med 2 valenselektroner.
+Klor er et ikke-metall i gruppe 17 med 7 valenselektroner.
+
+a) Hvilken type binding dannes?
+b) Hvilket ion danner kalsium? Hvilken ladning?
+c) Hvilket ion danner klor? Hvilken ladning?
+d) Hvorfor er formelen CaCl₂ og ikke CaCl?`,
+        solution: `**a) Bindingstype:**
+
+**Ionebinding** (metall + ikke-metall)
+
+---
+
+**b) Kalsiumion:**
+
+Kalsium har 2 valenselektroner og avgir begge for å få fullt ytterste skall.
+
+Ca → Ca²⁺ + 2e⁻
+
+**Ladning: +2**
+
+---
+
+**c) Klorion:**
+
+Klor har 7 valenselektroner og trenger 1 til for å få fullt skall.
+
+Cl + e⁻ → Cl⁻
+
+**Ladning: -1**
+
+---
+
+**d) Hvorfor CaCl₂?**
+
+Kalsium avgir **2 elektroner**, men hvert kloratom tar bare opp **1 elektron**.
+
+Derfor trengs det **2 kloratomer** for å ta opp de 2 elektronene fra kalsium:
+
+Ca → Ca²⁺ + 2e⁻
+Cl + e⁻ → Cl⁻  (x2)
+
+**Balanse:** Ladningen må gå opp:
+- Ca²⁺: ladning +2
+- 2 × Cl⁻: ladning 2 × (-1) = -2
+- Totalt: +2 + (-2) = 0 (nøytralt)
+
+Derfor er formelen **CaCl₂**, ikke CaCl.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - ENKELT- VS DOBBELTBINDING ==========
+    {
+      id: 'nat10-2-3-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-4',
+        number: '2.3.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Nitrogengass (N₂) har en trippelbinding mellom de to nitrogenatomene. Hvor mange elektronpar deles i en trippelbinding?',
+        options: [
+          { id: 'a', text: '1 elektronpar', isCorrect: false },
+          { id: 'b', text: '2 elektronpar', isCorrect: false },
+          { id: 'c', text: '3 elektronpar', isCorrect: true },
+          { id: 'd', text: '6 elektronpar', isCorrect: false },
+        ],
+        solution: `**Riktig svar: 3 elektronpar**
+
+- **Enkeltbinding:** 1 delt elektronpar (2 elektroner)
+- **Dobbeltbinding:** 2 delte elektronpar (4 elektroner)
+- **Trippelbinding:** 3 delte elektronpar (6 elektroner)
+
+**For N₂:**
+Nitrogen har 5 valenselektroner og trenger 3 til for å oppnå oktett (8).
+
+De to nitrogenatomene deler 3 elektronpar (trippelbinding):
+
+N ≡ N
+
+Hvert nitrogen har nå 8 elektroner rundt seg:
+- 3 bindingspar (6 elektroner) delt med det andre N
+- 1 fritt elektronpar (2 elektroner)
+
+Trippelbindingen gjør at N₂ er svært stabilt og vanskelig å bryte opp. Derfor er nitrogengass i luften ganske ureaktiv.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - EGENSKAPER OG BINDINGSTYPE ==========
+    {
+      id: 'nat10-2-3-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-5',
+        number: '2.3.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Du har fire stoffer med følgende egenskaper:
+
+**Stoff A:** Fast stoff, høyt smeltepunkt, leder strøm i vandig løsning, sprøtt
+**Stoff B:** Gass ved romtemperatur, leder ikke strøm, lavt smeltepunkt
+**Stoff C:** Fast stoff, leder strøm, formbart, glinsende overflate
+**Stoff D:** Fast stoff, leder ikke strøm, løser seg i vann
+
+a) Bestem bindingstypen for hvert stoff.
+b) Gi et eksempel på hvert stoff.
+c) Forklar hvorfor stoff C leder strøm, men stoff A bare leder strøm i vandig løsning.`,
+        solution: `**a) Bindingstyper:**
+
+**Stoff A:** Ionebinding
+- Høyt smeltepunkt + leder strøm i løsning + sprøtt = typisk ioneforbindelse
+
+**Stoff B:** Kovalent binding
+- Gass + lavt smeltepunkt + leder ikke strøm = typisk kovalent forbindelse
+
+**Stoff C:** Metallbinding
+- Leder strøm + formbart + glinsende = typisk metall
+
+**Stoff D:** Kovalent binding
+- Leder ikke strøm + løser seg i vann = typisk molekylær forbindelse
+
+---
+
+**b) Eksempler:**
+
+- **Stoff A:** Natriumklorid (NaCl/bordsalt)
+- **Stoff B:** Karbondioksid (CO₂) eller oksygengass (O₂)
+- **Stoff C:** Kobber (Cu) eller jern (Fe)
+- **Stoff D:** Sukker (C₁₂H₂₂O₁₁)
+
+---
+
+**c) Strømledning:**
+
+**Stoff C (metall):**
+Metallbindingen gir **frie elektroner** som kan bevege seg gjennom metallet. Disse frie elektronene er alltid tilgjengelige, uansett om metallet er fast eller flytende. Derfor leder metaller strøm **i alle tilstander**.
+
+**Stoff A (ioneforbindelse):**
+I **fast form** er ionene (f.eks. Na⁺ og Cl⁻) fastlåst i et krystallgitter. De kan ikke bevege seg, så stoffet leder **ikke** strøm.
+
+I **vandig løsning** brytes krystallgitteret opp av vannmolekylene. Ionene blir frie og kan bevege seg → de transporterer ladning → stoffet **leder strøm**.
+
+**Nøkkelforskjell:**
+- Metaller: Frie **elektroner** leder strøm (alltid)
+- Ioneforbindelser: Frie **ioner** leder strøm (bare i oppløsning eller smeltet)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - MOLEKYLFORMEL ==========
+    {
+      id: 'nat10-2-3-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-3-oppg-extra-6',
+        number: '2.3.16',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva forteller formelen H₂SO₄ oss om svovelsyre?',
+        options: [
+          { id: 'a', text: 'Den inneholder 2 hydrogen, 1 svovel og 4 oksygen', isCorrect: true },
+          { id: 'b', text: 'Den inneholder 2 hydrogen, 1 svovel og 1 oksygen', isCorrect: false },
+          { id: 'c', text: 'Den inneholder 2 hydrogen, 4 svovel og 1 oksygen', isCorrect: false },
+          { id: 'd', text: 'Den inneholder 7 atomer av et ukjent stoff', isCorrect: false },
+        ],
+        solution: `**Riktig svar: 2 hydrogen, 1 svovel og 4 oksygen**
+
+I formelen H₂SO₄:
+- **H₂:** 2 hydrogenatomer
+- **S:** 1 svovelatom (ingen tall betyr 1)
+- **O₄:** 4 oksygenatomer
+
+**Totalt:** 7 atomer i hvert molekyl av svovelsyre
+
+**Huskeregel:** Tallet etter symbolet (indeksen) viser antall atomer av det grunnstoffet. Ingen tall betyr 1.`,
       },
     },
 
@@ -3943,6 +5162,371 @@ Legg merke til at fotosyntese og forbrenning er **motsatte reaksjoner**!
 - Forbrenning: C₆H₁₂O₆ + O₂ → CO₂ + H₂O + energi
 
 Planter lagrer solenergi i glukose, og vi frigjør denne energien når vi forbrenner ved eller fordøyer mat!`,
+      },
+    },
+
+    // ========== EKSTRA EKSEMPEL: IDENTIFISERE REAKSJONSTYPER ==========
+    {
+      id: 'nat10-2-4-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Identifisere ulike reaksjonstyper',
+      problem: `Klassifiser følgende reaksjoner som forbrenning, oksidasjon, syre-base-reaksjon, eller annet:
+
+a) 2Fe + 3Cl₂ → 2FeCl₃
+b) CH₄ + 2O₂ → CO₂ + 2H₂O (med flamme)
+c) HCl + NaOH → NaCl + H₂O
+d) 4Fe + 3O₂ → 2Fe₂O₃ (langsom prosess uten flamme)`,
+      solution: `**a) 2Fe + 3Cl₂ → 2FeCl₃**
+
+**Type:** Syntesereaksjon (to stoffer danner ett nytt stoff)
+
+Jern reagerer med klor og danner jernklorid. Dette er også en **redoksreaksjon** (elektronoverføring), men det er ikke forbrenning fordi det ikke involverer oksygen og flamme.
+
+---
+
+**b) CH₄ + 2O₂ → CO₂ + 2H₂O**
+
+**Type:** Forbrenning
+
+**Kjennetegn:**
+- Reagerer med **oksygen (O₂)**
+- Avgir **varme og lys** (flamme)
+- Produktene er **CO₂ og H₂O** (typisk for fullstendig forbrenning av hydrokarboner)
+
+Metan (naturgass) brenner – dette er det som skjer på gasskomfyren!
+
+---
+
+**c) HCl + NaOH → NaCl + H₂O**
+
+**Type:** Syre-base-reaksjon (nøytralisering)
+
+**Kjennetegn:**
+- **Syre** (HCl) + **base** (NaOH) → **salt** (NaCl) + **vann** (H₂O)
+- H⁺ fra syren + OH⁻ fra basen → H₂O
+
+---
+
+**d) 4Fe + 3O₂ → 2Fe₂O₃**
+
+**Type:** Oksidasjon (rusting)
+
+**Kjennetegn:**
+- Jern tar opp **oksygen**
+- Skjer **langsomt** over tid (ikke forbrenning)
+- Ingen flamme, men det er fortsatt en reaksjon med oksygen
+- Produktet er **jernoksid** (rust)
+
+**Forskjell fra forbrenning:** Rusting er en **langsom** oksidasjon, mens forbrenning er en **rask** oksidasjon med flamme.`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: SKRIVE ORDLIKNINGER ==========
+    {
+      id: 'nat10-2-4-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Skrive ordlikninger og kjemiske likninger',
+      problem: `Skriv både ordlikning og kjemisk likning for følgende reaksjoner:
+
+a) Natrium reagerer med vann og danner natriumhydroksid og hydrogengass.
+b) Sink reagerer med saltsyre og danner sinkklorid og hydrogengass.`,
+      solution: `**a) Natrium + vann:**
+
+**Ordlikning:**
+Natrium + Vann → Natriumhydroksid + Hydrogen
+
+**Kjemisk likning (ubalansert):**
+Na + H₂O → NaOH + H₂
+
+**Kjemisk likning (balansert):**
+2Na + 2H₂O → 2NaOH + H₂
+
+**Sjekk:**
+- Venstre: 2 Na, 4 H, 2 O
+- Høyre: 2 Na, 4 H, 2 O ✓
+
+**Tegn på reaksjon:** Bobling (H₂-gass), varme, natrium smelter og spinner på vannoverflaten.
+
+---
+
+**b) Sink + saltsyre:**
+
+**Ordlikning:**
+Sink + Saltsyre → Sinkklorid + Hydrogen
+
+**Kjemisk likning (ubalansert):**
+Zn + HCl → ZnCl₂ + H₂
+
+**Kjemisk likning (balansert):**
+Zn + 2HCl → ZnCl₂ + H₂
+
+**Sjekk:**
+- Venstre: 1 Zn, 2 H, 2 Cl
+- Høyre: 1 Zn, 2 H, 2 Cl ✓
+
+**Tegn på reaksjon:** Bobling (H₂-gass dannes), sinken løses opp gradvis.`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - TEGN PÅ REAKSJON ==========
+    {
+      id: 'nat10-2-4-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-1',
+        number: '2.4.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er IKKE et tegn på at en kjemisk reaksjon har skjedd?',
+        options: [
+          { id: 'a', text: 'Fargeendring', isCorrect: false },
+          { id: 'b', text: 'Gassutvikling (bobling)', isCorrect: false },
+          { id: 'c', text: 'Endring i form (klipping, knusing)', isCorrect: true },
+          { id: 'd', text: 'Temperaturendring', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Endring i form (klipping, knusing)**
+
+Klipping og knusing er **fysiske endringer**, ikke kjemiske reaksjoner. Stoffet forblir det samme – bare formen endres.
+
+**Tegn på kjemisk reaksjon:**
+1. Fargeendring (nye stoffer med annen farge)
+2. Gassutvikling (nye gasser dannes)
+3. Temperaturendring (energi frigjøres eller tas opp)
+4. Bunnfall (nye faste stoffer dannes i løsning)
+
+**Eksempel:** Når du klipper papir i biter, er det fysisk. Når du brenner papir, er det kjemisk (nye stoffer som CO₂ og H₂O dannes).`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - ORDLIKNINGER ==========
+    {
+      id: 'nat10-2-4-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-2',
+        number: '2.4.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Skriv ordlikninger for følgende reaksjoner:
+
+a) Magnesium brenner i oksygen og danner magnesiumoksid.
+b) Kalsiumkarbonat (kalkstein) reagerer med saltsyre og danner kalsiumklorid, vann og karbondioksid.
+c) Planter gjennomfører fotosyntese: karbondioksid og vann omdannes til glukose og oksygen ved hjelp av sollys.`,
+        solution: `**a) Forbrenning av magnesium:**
+
+**Ordlikning:**
+Magnesium + Oksygen → Magnesiumoksid
+
+**Kjemisk formel:** 2Mg + O₂ → 2MgO
+
+---
+
+**b) Kalkstein + saltsyre:**
+
+**Ordlikning:**
+Kalsiumkarbonat + Saltsyre → Kalsiumklorid + Vann + Karbondioksid
+
+**Kjemisk formel:** CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂
+
+Dette er en vanlig reaksjon. Den skjer for eksempel når sur nedbør løser opp kalkstein i naturen.
+
+---
+
+**c) Fotosyntese:**
+
+**Ordlikning:**
+Karbondioksid + Vann + Sollys → Glukose + Oksygen
+
+**Kjemisk formel:** 6CO₂ + 6H₂O + energi → C₆H₁₂O₆ + 6O₂
+
+Fotosyntesen er en **endotherm** reaksjon – den tar opp energi fra sollyset.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - EKSOTHERM/ENDOTHERM ==========
+    {
+      id: 'nat10-2-4-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-3',
+        number: '2.4.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er en endotherm reaksjon?',
+        options: [
+          { id: 'a', text: 'Forbrenning av ved', isCorrect: false },
+          { id: 'b', text: 'Fotosyntese', isCorrect: true },
+          { id: 'c', text: 'Rusting av jern', isCorrect: false },
+          { id: 'd', text: 'Dynamitteksplosjon', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Fotosyntese**
+
+**Endotherm reaksjon** = tar opp energi fra omgivelsene.
+
+Fotosyntese tar opp energi fra **sollyset** for å omdanne CO₂ og H₂O til glukose og O₂.
+
+6CO₂ + 6H₂O + **energi** → C₆H₁₂O₆ + 6O₂
+
+**De andre er eksotherme** (frigjør energi):
+- Forbrenning av ved → frigjør varme og lys
+- Rusting av jern → frigjør litt varme (langsomt)
+- Dynamitteksplosjon → frigjør mye energi raskt
+
+**Huskeregel:**
+- Endo = inn (energi går inn i reaksjonen)
+- Ekso = ut (energi går ut av reaksjonen)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - KATALYSATOR ==========
+    {
+      id: 'nat10-2-4-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-4',
+        number: '2.4.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `I et forsøk studerer du nedbrytingen av hydrogenperoksid (H₂O₂) til vann og oksygengass:
+
+2H₂O₂ → 2H₂O + O₂
+
+Du gjør to forsøk:
+- **Forsøk A:** Hydrogenperoksid alene (uten tilsetning)
+- **Forsøk B:** Hydrogenperoksid + litt mangansdioksid (MnO₂)
+
+I forsøk B bobler det mye raskere, og MnO₂ er uendret etter reaksjonen.
+
+a) Hva kalles MnO₂ i denne sammenhengen?
+b) Hva betyr det at MnO₂ er "uendret etter reaksjonen"?
+c) Nevn et annet eksempel på en katalysator fra hverdagen.`,
+        solution: `**a) Hva kalles MnO₂:**
+
+**Katalysator**
+
+MnO₂ er en **katalysator** i denne reaksjonen. Den øker reaksjonshastigheten uten å bli brukt opp selv.
+
+---
+
+**b) "Uendret etter reaksjonen":**
+
+En katalysator deltar i reaksjonen, men gjenvinnes. Etter reaksjonen har du like mye MnO₂ som du startet med.
+
+Det betyr at katalysatoren:
+- Ikke forbrukes
+- Kan brukes om igjen
+- Endrer bare **hastigheten**, ikke produktene
+
+---
+
+**c) Eksempel fra hverdagen:**
+
+**Enzymer** i kroppen er biologiske katalysatorer!
+
+- **Amylase** i spyttet bryter ned stivelse til sukker
+- **Pepsin** i magesaften bryter ned proteiner
+- **Lipase** bryter ned fett
+
+Uten enzymer ville fordøyelsen tatt **hundrevis av år** i stedet for timer!
+
+Andre eksempler:
+- Katalysator i bilens eksosanlegg (renser avgasser)
+- Gjær i brødbaking (enzymene i gjæren er katalysatorer)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - UFULLSTENDIG FORBRENNING ==========
+    {
+      id: 'nat10-2-4-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-5',
+        number: '2.4.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forbrenning av metan (CH₄) kan skje på to måter:
+
+**Fullstendig forbrenning:** CH₄ + 2O₂ → CO₂ + 2H₂O
+**Ufullstendig forbrenning:** 2CH₄ + 3O₂ → 2CO + 4H₂O
+
+a) Hva er forskjellen mellom fullstendig og ufullstendig forbrenning?
+b) Hvorfor er ufullstendig forbrenning farlig?
+c) Gi et hverdagseksempel der ufullstendig forbrenning kan skje.
+d) Hvordan kan man sikre at forbrenningen er fullstendig?`,
+        solution: `**a) Forskjellen:**
+
+**Fullstendig forbrenning:**
+- Det er **nok oksygen** tilgjengelig
+- Produkter: **CO₂** (karbondioksid) og H₂O
+- All karbon omdannes til CO₂
+
+**Ufullstendig forbrenning:**
+- Det er **for lite oksygen** tilgjengelig
+- Produkter: **CO** (karbonmonoksid) og/eller sot (C) og H₂O
+- Ikke all karbon omdannes fullstendig
+
+---
+
+**b) Hvorfor farlig:**
+
+**Karbonmonoksid (CO) er svært giftig!**
+
+- CO er en fargeløs og luktfri gass
+- Du kan ikke se eller lukte den
+- CO binder seg til hemoglobin i blodet (sterkere enn oksygen)
+- Blodet kan ikke transportere oksygen → kvelning
+- Kan være dødelig i lukkede rom
+
+---
+
+**c) Hverdagseksempel:**
+
+- **Gasspeis eller gassovn** med dårlig ventilasjon
+- **Bilmotor** i lukket garasje
+- **Parafinkamin** i dårlig ventilert rom
+- **Grill** med kull innendørs
+
+Alle disse kan produsere CO ved ufullstendig forbrenning.
+
+---
+
+**d) Sikre fullstendig forbrenning:**
+
+- Sørg for **god tilgang på luft/oksygen**
+- **God ventilasjon** i rommet
+- Regelmessig **service** på forbrenningsovner og gasskaminer
+- Installere **CO-alarm** (karbonmonoksidalarm)
+- Aldri bruk grill eller forbrenningsapparater innendørs uten ventilasjon`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - REAKSJONSHASTIGHET ==========
+    {
+      id: 'nat10-2-4-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-4-oppg-extra-6',
+        number: '2.4.16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken faktor øker IKKE reaksjonshastigheten?',
+        options: [
+          { id: 'a', text: 'Øke temperaturen', isCorrect: false },
+          { id: 'b', text: 'Øke konsentrasjonen av reaktantene', isCorrect: false },
+          { id: 'c', text: 'Minske overflatearealet på et fast stoff', isCorrect: true },
+          { id: 'd', text: 'Tilsette en katalysator', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Minske overflatearealet på et fast stoff**
+
+Å **minske** overflatearealet gjør reaksjonen **tregere**, ikke raskere.
+
+**Forklaring:** Med mindre overflateareal er det færre steder hvor reaktantene kan komme i kontakt, noe som gir færre kollisjoner og dermed saktere reaksjon.
+
+**Faktorer som øker reaksjonshastigheten:**
+1. **Øke temperaturen** → molekyler beveger seg raskere → flere kollisjoner
+2. **Øke konsentrasjonen** → flere molekyler per volum → flere kollisjoner
+3. **Øke overflatearealet** (f.eks. knuse til pulver) → flere kontaktpunkter
+4. **Tilsette katalysator** → senker energibarrieren
+
+**Eksempel:** En sukkerbite løser seg saktere i vann enn pulverisert sukker, fordi sukkerbiten har **mindre overflateareal**.`,
       },
     },
 
@@ -5364,6 +6948,452 @@ b) 96 liter karbondioksid`,
       },
     },
 
+    // ========== EKSTRA EKSEMPEL: BALANSERE EN FORBRENNINGSREAKSJON ==========
+    {
+      id: 'nat10-2-5-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Balansere forbrenning av etyn (acetylen)',
+      problem: `Etyn (C₂H₂) er gassen som brukes i sveising (acetylenbranner). Når den brenner fullstendig, dannes karbondioksid og vann.
+
+Balanser reaksjonslikningen:
+
+\`\`\`
+C₂H₂ + O₂ → CO₂ + H₂O
+\`\`\``,
+      solution: `**Balansert likning:**
+
+\`\`\`
+2 C₂H₂ + 5 O₂ → 4 CO₂ + 2 H₂O
+\`\`\`
+
+**Fremgangsmåte:**
+
+**Steg 1: Tell atomer (ubalansert)**
+
+Venstre: C=2, H=2, O=2
+Høyre: C=1, H=2, O=3
+
+**Steg 2: Balanser karbon**
+Sett 2 foran CO₂:
+C₂H₂ + O₂ → 2CO₂ + H₂O
+
+**Steg 3: Sjekk hydrogen**
+H: 2 til venstre, 2 til høyre ✓
+
+**Steg 4: Balanser oksygen**
+Høyre: 4 (i 2CO₂) + 1 (i H₂O) = 5 O-atomer
+Venstre: O₂ → trenger 5/2 = 2,5 O₂
+
+\`\`\`
+C₂H₂ + 2,5 O₂ → 2 CO₂ + H₂O
+\`\`\`
+
+**Steg 5: Fjern desimaler (gang med 2)**
+
+\`\`\`
+2 C₂H₂ + 5 O₂ → 4 CO₂ + 2 H₂O
+\`\`\`
+
+**Kontrollsjekk:**
+
+Venstre: C=4, H=4, O=10
+Høyre: C=4, H=4, O=10 (8 i 4CO₂ + 2 i 2H₂O)
+
+**Balansert!** ✓`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: STØKIOMETRI - MASSEBEREGNING ==========
+    {
+      id: 'nat10-2-5-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Beregne masse av produkter',
+      problem: `Jern reagerer med svovel og danner jernsulfid:
+
+\`\`\`
+Fe + S → FeS
+\`\`\`
+
+Hvis du har 28 g jern og nok svovel:
+
+a) Hvor mange gram svovel reagerer?
+b) Hvor mange gram jernsulfid dannes?
+
+(Molar masse: Fe = 56 g/mol, S = 32 g/mol)`,
+      solution: `**a) Masse svovel:**
+
+**Steg 1: Finn mol jern**
+n(Fe) = 28 g ÷ 56 g/mol = 0,5 mol
+
+**Steg 2: Bruk molforholdet**
+Fra likningen: 1 mol Fe reagerer med 1 mol S (forholdet er 1:1)
+
+n(S) = 0,5 mol
+
+**Steg 3: Finn masse svovel**
+m(S) = 0,5 mol × 32 g/mol = **16 g svovel**
+
+---
+
+**b) Masse jernsulfid:**
+
+**Metode 1: Bruk loven om massebevaring**
+
+m(FeS) = m(Fe) + m(S) = 28 g + 16 g = **44 g jernsulfid**
+
+**Metode 2: Beregn med molarmasse**
+
+Molar masse FeS = 56 + 32 = 88 g/mol
+n(FeS) = 0,5 mol
+m(FeS) = 0,5 × 88 = **44 g** ✓
+
+**Sjekk med massebevaring:**
+Før: 28 g + 16 g = 44 g
+Etter: 44 g
+44 = 44 ✓`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: BALANSERE MED FLERE GRUNNSTOFF ==========
+    {
+      id: 'nat10-2-5-example-extra-3',
+      type: 'example',
+      title: 'Eksempel: Balansere reaksjon med natriumhydroksid og svovelsyre',
+      problem: `Balanser reaksjonslikningen:
+
+\`\`\`
+NaOH + H₂SO₄ → Na₂SO₄ + H₂O
+\`\`\`
+
+(Nøytralisering av natriumhydroksid med svovelsyre)`,
+      solution: `**Balansert likning:**
+
+\`\`\`
+2 NaOH + H₂SO₄ → Na₂SO₄ + 2 H₂O
+\`\`\`
+
+**Fremgangsmåte:**
+
+**Steg 1: Tell atomer (ubalansert)**
+
+Venstre: Na=1, O=1+4=5, H=1+2=3, S=1
+Høyre: Na=2, S=1, O=4+1=5, H=2
+
+**Steg 2: Balanser natrium**
+Sett 2 foran NaOH:
+
+\`\`\`
+2 NaOH + H₂SO₄ → Na₂SO₄ + H₂O
+\`\`\`
+
+**Steg 3: Tell på nytt**
+
+Venstre: Na=2, O=2+4=6, H=2+2=4, S=1
+Høyre: Na=2, S=1, O=4+1=5, H=2
+
+**Steg 4: Balanser hydrogen og oksygen**
+Sett 2 foran H₂O:
+
+\`\`\`
+2 NaOH + H₂SO₄ → Na₂SO₄ + 2 H₂O
+\`\`\`
+
+**Kontrollsjekk:**
+
+Venstre: Na=2, O=6 (2+4), H=4 (2+2), S=1
+Høyre: Na=2, S=1, O=6 (4+2), H=4 (i 2H₂O)
+
+**Balansert!** ✓
+
+**Merk:** Svovelsyre (H₂SO₄) er en toprotisk syre, som betyr at hvert molekyl kan gi fra seg 2 H⁺-ioner. Derfor trengs det 2 NaOH (som gir 2 OH⁻) for å nøytralisere 1 H₂SO₄.`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - KOEFFISIENTER ==========
+    {
+      id: 'nat10-2-5-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-1',
+        number: '2.5.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'I reaksjonslikningen 2H₂ + O₂ → 2H₂O, hva betyr tallet 2 foran H₂O?',
+        options: [
+          { id: 'a', text: 'Det er 2 oksygenatomer i hvert vannmolekyl', isCorrect: false },
+          { id: 'b', text: 'Det dannes 2 vannmolekyler', isCorrect: true },
+          { id: 'c', text: 'Vannet har dobbelt så stor masse', isCorrect: false },
+          { id: 'd', text: 'Det er 2 hydrogenatomer i vann', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Det dannes 2 vannmolekyler**
+
+Tallet foran en kjemisk formel (koeffisienten) forteller hvor mange molekyler/enheter som deltar i reaksjonen.
+
+**2H₂O** betyr 2 vannmolekyler.
+
+**Viktig forskjell:**
+- **2** foran H₂O (koeffisient): betyr 2 molekyler
+- **2** som indeks i H₂O: betyr 2 hydrogenatomer per molekyl
+
+**I likningen 2H₂ + O₂ → 2H₂O:**
+- 2 hydrogenmolekyler + 1 oksygenmolekyl → 2 vannmolekyler
+- Totalt: 4 H-atomer + 2 O-atomer → 4 H-atomer + 2 O-atomer ✓`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - ENKEL BALANSERING ==========
+    {
+      id: 'nat10-2-5-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-2',
+        number: '2.5.14',
+        type: 'classic',
+        difficulty: 'lett',
+        task: `Balanser følgende reaksjonslikninger:
+
+a) Na + Cl₂ → NaCl
+b) Mg + O₂ → MgO
+c) H₂ + Cl₂ → HCl`,
+        solution: `**a) Na + Cl₂ → NaCl**
+
+Tell: Venstre: Na=1, Cl=2 | Høyre: Na=1, Cl=1
+
+Cl er ubalansert. Sett 2 foran NaCl:
+Na + Cl₂ → 2NaCl
+
+Nå: Na=1 til venstre, Na=2 til høyre. Sett 2 foran Na:
+
+**2Na + Cl₂ → 2NaCl** ✓
+(Na=2, Cl=2 på begge sider)
+
+---
+
+**b) Mg + O₂ → MgO**
+
+Tell: Venstre: Mg=1, O=2 | Høyre: Mg=1, O=1
+
+Sett 2 foran MgO:
+Mg + O₂ → 2MgO
+
+Nå: Mg=1 til venstre, Mg=2 til høyre. Sett 2 foran Mg:
+
+**2Mg + O₂ → 2MgO** ✓
+(Mg=2, O=2 på begge sider)
+
+---
+
+**c) H₂ + Cl₂ → HCl**
+
+Tell: Venstre: H=2, Cl=2 | Høyre: H=1, Cl=1
+
+Sett 2 foran HCl:
+
+**H₂ + Cl₂ → 2HCl** ✓
+(H=2, Cl=2 på begge sider)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - MASSEBEREGNING ==========
+    {
+      id: 'nat10-2-5-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-3',
+        number: '2.5.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Ved forbrenning av karbon dannes karbondioksid:
+
+C + O₂ → CO₂
+
+Hvis 6 g karbon forbrenner fullstendig:
+
+a) Hvor mange mol karbon er 6 g?
+b) Hvor mange mol CO₂ dannes?
+c) Hvor mange gram CO₂ dannes?
+d) Bruk loven om massebevaring til å finne hvor mange gram oksygen som reagerer.
+
+(Molar masse: C = 12 g/mol, O₂ = 32 g/mol, CO₂ = 44 g/mol)`,
+        solution: `**a) Mol karbon:**
+
+n(C) = m/M = 6 g ÷ 12 g/mol = **0,5 mol**
+
+---
+
+**b) Mol CO₂:**
+
+Fra likningen: 1 mol C gir 1 mol CO₂ (forholdet er 1:1)
+
+n(CO₂) = 0,5 mol
+
+**Svar: 0,5 mol CO₂**
+
+---
+
+**c) Masse CO₂:**
+
+m(CO₂) = n × M = 0,5 mol × 44 g/mol = **22 g CO₂**
+
+---
+
+**d) Masse oksygen (med massebevaring):**
+
+Loven om massebevaring:
+m(C) + m(O₂) = m(CO₂)
+
+6 g + m(O₂) = 22 g
+
+m(O₂) = 22 - 6 = **16 g oksygen**
+
+**Sjekk:** 0,5 mol O₂ × 32 g/mol = 16 g ✓`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - VANLIGE FEIL ==========
+    {
+      id: 'nat10-2-5-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-4',
+        number: '2.5.16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er FEIL å gjøre når man balanserer en reaksjonslikning?',
+        options: [
+          { id: 'a', text: 'Sette koeffisienter foran formlene', isCorrect: false },
+          { id: 'b', text: 'Endre indeksene (tallene inni formlene)', isCorrect: true },
+          { id: 'c', text: 'Telle atomer på begge sider', isCorrect: false },
+          { id: 'd', text: 'Sjekke svaret til slutt', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Endre indeksene (tallene inni formlene)**
+
+Indeksene i en kjemisk formel beskriver **hvilke stoffer** vi har. Hvis du endrer indeksene, endrer du stoffet!
+
+**Eksempel:**
+- H₂O er **vann** → trygt å drikke
+- H₂O₂ er **hydrogenperoksid** → farlig å drikke!
+
+Hvis du endrer indeksen fra O til O₂, har du endret stoffet fullstendig.
+
+**Regel:** ALDRI endre indekser – bare bruk koeffisienter (tall FORAN formlene).
+
+**Riktig:** 2H₂O (2 vannmolekyler)
+**Feil:** H₂O₂ (et helt annet stoff)`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - KOMPLEKS BALANSERING ==========
+    {
+      id: 'nat10-2-5-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-5',
+        number: '2.5.17',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Balanser følgende reaksjonslikning:
+
+\`\`\`
+Fe₃O₄ + H₂ → Fe + H₂O
+\`\`\`
+
+(Reduksjon av jernoksid med hydrogen)`,
+        solution: `**Balansert likning:**
+
+\`\`\`
+Fe₃O₄ + 4 H₂ → 3 Fe + 4 H₂O
+\`\`\`
+
+**Fremgangsmåte:**
+
+**Steg 1: Tell atomer (ubalansert)**
+Venstre: Fe=3, O=4, H=2
+Høyre: Fe=1, H=2, O=1
+
+**Steg 2: Balanser jern**
+Sett 3 foran Fe:
+Fe₃O₄ + H₂ → 3Fe + H₂O
+
+**Steg 3: Balanser oksygen**
+Sett 4 foran H₂O:
+Fe₃O₄ + H₂ → 3Fe + 4H₂O
+
+**Steg 4: Balanser hydrogen**
+Høyre: 4 × 2 = 8 H-atomer. Trenger 8 H til venstre.
+Sett 4 foran H₂:
+Fe₃O₄ + 4H₂ → 3Fe + 4H₂O
+
+**Kontrollsjekk:**
+Venstre: Fe=3, O=4, H=8
+Høyre: Fe=3, O=4, H=8
+
+**Balansert!** ✓`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - MASSEBEREGNING MED FOTOSYNTESE ==========
+    {
+      id: 'nat10-2-5-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-5-oppg-extra-6',
+        number: '2.5.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forbrenning av etanol (alkohol):
+
+C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O
+
+Hvis 46 g etanol forbrenner fullstendig:
+
+a) Hvor mange mol etanol er dette? (Molar masse C₂H₅OH = 46 g/mol)
+b) Hvor mange mol CO₂ dannes?
+c) Hvor mange gram CO₂ dannes? (Molar masse CO₂ = 44 g/mol)
+d) Hvor mange gram vann dannes? (Molar masse H₂O = 18 g/mol)
+e) Sjekk svaret med loven om massebevaring.`,
+        solution: `**a) Mol etanol:**
+
+n(C₂H₅OH) = 46 g ÷ 46 g/mol = **1 mol**
+
+---
+
+**b) Mol CO₂:**
+
+Fra likningen: 1 mol C₂H₅OH gir 2 mol CO₂
+
+n(CO₂) = 1 × 2 = **2 mol**
+
+---
+
+**c) Masse CO₂:**
+
+m(CO₂) = 2 mol × 44 g/mol = **88 g**
+
+---
+
+**d) Masse H₂O:**
+
+Fra likningen: 1 mol C₂H₅OH gir 3 mol H₂O
+
+n(H₂O) = 1 × 3 = 3 mol
+m(H₂O) = 3 mol × 18 g/mol = **54 g**
+
+---
+
+**e) Sjekk med massebevaring:**
+
+Masse oksygen brukt:
+n(O₂) = 1 × 3 = 3 mol
+m(O₂) = 3 × 32 = 96 g
+
+**Total masse før:**
+m(C₂H₅OH) + m(O₂) = 46 + 96 = **142 g**
+
+**Total masse etter:**
+m(CO₂) + m(H₂O) = 88 + 54 = **142 g**
+
+142 = 142 ✓ **Massebevaring bekreftet!**`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-2-5-oppsummering',
@@ -6383,6 +8413,416 @@ Dette er en **nøytraliseringsreaksjon**.
 - **Resultat:** pH øker mot 6-7, plantene vokser bedre
 
 Dette er et praktisk eksempel på hvordan nøytralisering brukes i landbruket!`,
+      },
+    },
+
+    // ========== EKSTRA EKSEMPEL: PH OG KONSENTRASJON ==========
+    {
+      id: 'nat10-2-6-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Forstå pH-skalaen og surhet',
+      problem: `Du har tre løsninger:
+- Løsning A: pH 2
+- Løsning B: pH 4
+- Løsning C: pH 6
+
+a) Hvilken løsning er mest sur?
+b) Hvor mange ganger surere er løsning A enn løsning B?
+c) Hva skjer med pH hvis du fortynner løsning A med mye vann?`,
+      solution: `**a) Mest sur:**
+
+**Løsning A (pH 2)** er mest sur.
+
+Jo **lavere pH**, jo **surere** er løsningen.
+
+---
+
+**b) Hvor mange ganger surere:**
+
+pH-skalaen er **logaritmisk**. For hvert steg i pH er forskjellen **10 ganger**.
+
+- Fra pH 4 til pH 3: 10 ganger surere
+- Fra pH 3 til pH 2: 10 ganger surere
+- Totalt fra pH 4 til pH 2: 10 × 10 = **100 ganger surere**
+
+**Svar:** Løsning A er **100 ganger surere** enn løsning B!
+
+---
+
+**c) Fortynning med vann:**
+
+Når du fortynner en sur løsning med vann:
+- Konsentrasjonen av H⁺-ioner **synker**
+- pH **øker** (beveger seg mot 7)
+- Kan nærme seg pH 7 (nøytral) med nok vann
+- Kan aldri bli over pH 7 bare ved fortynning`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: NØYTRALISERINGSREAKSJON ==========
+    {
+      id: 'nat10-2-6-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Nøytraliseringsreaksjon med svovelsyre',
+      problem: `Svovelsyre (H₂SO₄) reagerer med kaliumhydroksid (KOH) i en nøytraliseringsreaksjon.
+
+a) Skriv den balanserte reaksjonslikningen.
+b) Hva er produktene?
+c) Hvorfor trengs det 2 mol KOH for hvert mol H₂SO₄?`,
+      solution: `**a) Balansert reaksjonslikning:**
+
+H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O
+
+---
+
+**b) Produktene:**
+
+- **K₂SO₄** (kaliumsulfat) – et salt
+- **H₂O** (vann)
+
+Generell regel: Syre + Base → Salt + Vann
+
+---
+
+**c) Hvorfor 2 mol KOH?**
+
+Svovelsyre (H₂SO₄) er en **toprotisk syre** – hvert molekyl gir fra seg **2 H⁺-ioner**:
+
+H₂SO₄ → 2H⁺ + SO₄²⁻
+
+KOH gir fra seg **1 OH⁻-ion** per molekyl:
+
+KOH → K⁺ + OH⁻
+
+For å nøytralisere begge H⁺: 2H⁺ + 2OH⁻ → 2H₂O
+
+Derfor trengs **2 mol KOH** per mol H₂SO₄.`,
+    },
+
+    // ========== EKSTRA EKSEMPEL: SYRER OG BASER I KROPPEN ==========
+    {
+      id: 'nat10-2-6-example-extra-3',
+      type: 'example',
+      title: 'Eksempel: pH i kroppen – hvorfor er det viktig?',
+      problem: `Blodet har pH ca. 7,4. Magesaften har pH ca. 1,5.
+
+a) Er blodet surt, nøytralt eller basisk?
+b) Er magesaften surt, nøytralt eller basisk?
+c) Hvor mange ganger surere er magesaften enn blodet?
+d) Hvorfor er det viktig at blodets pH holdes konstant?`,
+      solution: `**a) Blodet:**
+
+pH 7,4 er over 7, derfor er blodet **svakt basisk**.
+
+---
+
+**b) Magesaften:**
+
+pH 1,5 er langt under 7, derfor er magesaften **sterkt sur**. Den inneholder saltsyre (HCl).
+
+---
+
+**c) Hvor mye surere:**
+
+Forskjellen: 7,4 - 1,5 = ca. 6 pH-enheter
+
+For hvert pH-steg: 10 ganger surere
+
+10⁶ = **ca. 1 000 000 ganger surere!**
+
+---
+
+**d) Hvorfor konstant blod-pH er viktig:**
+
+Blodet **må** holde pH mellom 7,35 og 7,45:
+
+**Acidose (pH < 7,35):** Enzymer fungerer dårlig, hjertet slår uregelmessig, kan føre til koma.
+
+**Alkalose (pH > 7,45):** Muskelkramper, svimmelhet, kan være livstruende.
+
+**Kroppen regulerer pH med:**
+- Buffersystemer i blodet
+- Lungene (regulerer CO₂)
+- Nyrene (skiller ut overskudd av syre/base)`,
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - NØYTRALISERING ==========
+    {
+      id: 'nat10-2-6-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-1',
+        number: '2.6.9',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva dannes alltid i en nøytraliseringsreaksjon?',
+        options: [
+          { id: 'a', text: 'Hydrogen og oksygen', isCorrect: false },
+          { id: 'b', text: 'Salt og vann', isCorrect: true },
+          { id: 'c', text: 'Karbondioksid og vann', isCorrect: false },
+          { id: 'd', text: 'Bare vann', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Salt og vann**
+
+Syre + Base → Salt + Vann
+
+H⁺ (fra syre) + OH⁻ (fra base) → H₂O
+
+De øvrige ionene danner saltet.
+
+Eksempler:
+- HCl + NaOH → NaCl + H₂O
+- H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - STERK VS SVAK SYRE ==========
+    {
+      id: 'nat10-2-6-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-2',
+        number: '2.6.10',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken av disse syrene er en sterk syre?',
+        options: [
+          { id: 'a', text: 'Sitronsyre (i sitron)', isCorrect: false },
+          { id: 'b', text: 'Eddiksyre (i eddik)', isCorrect: false },
+          { id: 'c', text: 'Saltsyre (HCl)', isCorrect: true },
+          { id: 'd', text: 'Karbonsyre (i brus)', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Saltsyre (HCl)**
+
+**Sterke syrer** gir fra seg nesten alle H⁺-ioner i vann: HCl, H₂SO₄, HNO₃
+
+**Svake syrer** gir bare fra seg noen H⁺-ioner: Sitronsyre, Eddiksyre, Karbonsyre
+
+"Sterk/svak" handler om spalting i vann, ikke konsentrasjon.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - PH-VERDIER ==========
+    {
+      id: 'nat10-2-6-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-3',
+        number: '2.6.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Plasser disse stoffene i rekkefølge fra mest surt til mest basisk:
+
+- Blod (pH 7,4)
+- Magesaft (pH 1,5)
+- Rent vann (pH 7)
+- Ammoniakk (pH 11)
+- Sitronsaft (pH 2,5)
+- Såpevann (pH 9)`,
+        solution: `**Rekkefølge fra mest sur til mest basisk:**
+
+1. Magesaft (pH 1,5) – sterkt sur
+2. Sitronsaft (pH 2,5) – sur
+3. Rent vann (pH 7) – nøytral
+4. Blod (pH 7,4) – svakt basisk
+5. Såpevann (pH 9) – basisk
+6. Ammoniakk (pH 11) – sterkt basisk
+
+**Sure (pH < 7):** Magesaft, Sitronsaft
+**Nøytral (pH = 7):** Rent vann
+**Basiske (pH > 7):** Blod, Såpevann, Ammoniakk`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - SYRE + METALL ==========
+    {
+      id: 'nat10-2-6-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-4',
+        number: '2.6.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Når sink (Zn) reagerer med saltsyre (HCl), dannes sinkklorid (ZnCl₂) og hydrogengass (H₂).
+
+a) Skriv den balanserte reaksjonslikningen.
+b) Hva observerer du under reaksjonen?
+c) Hvordan kan du teste om gassen er hydrogen?`,
+        solution: `**a) Balansert likning:**
+
+Zn + 2HCl → ZnCl₂ + H₂
+
+Sjekk: Zn=1, H=2, Cl=2 på begge sider ✓
+
+---
+
+**b) Observasjoner:**
+- Bobling (H₂-gass dannes)
+- Sinken løses opp gradvis
+- Temperaturen øker (eksotherm)
+
+---
+
+**c) Teste for hydrogen – Knallgassprøven:**
+
+1. Samle opp gassen i et prøverør (åpningen ned)
+2. Hold brennende fyrstikk mot åpningen
+3. Hydrogen gir et karakteristisk **"pop"** (knall)
+
+Reaksjon: 2H₂ + O₂ → 2H₂O`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - NØYTRALISERINGSLIKNINGER ==========
+    {
+      id: 'nat10-2-6-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-5',
+        number: '2.6.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Skriv balanserte reaksjonslikninger for disse nøytraliseringsreaksjonene, og navngi saltet:
+
+a) Saltsyre (HCl) + Natriumhydroksid (NaOH)
+b) Svovelsyre (H₂SO₄) + Natriumhydroksid (NaOH)
+c) Salpetersyre (HNO₃) + Kaliumhydroksid (KOH)`,
+        solution: `**a) HCl + NaOH → NaCl + H₂O**
+
+Salt: **Natriumklorid** (bordsalt)
+
+---
+
+**b) H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O**
+
+Salt: **Natriumsulfat**
+
+Merk: 2 NaOH trengs fordi H₂SO₄ avgir 2 H⁺.
+
+---
+
+**c) HNO₃ + KOH → KNO₃ + H₂O**
+
+Salt: **Kaliumnitrat**`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: MULTIPLE CHOICE - BTB ==========
+    {
+      id: 'nat10-2-6-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-6',
+        number: '2.6.14',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Du tilsetter BTB til en løsning, og den blir grønn. Hva forteller dette?',
+        options: [
+          { id: 'a', text: 'Løsningen er sur', isCorrect: false },
+          { id: 'b', text: 'Løsningen er nøytral (pH ca. 7)', isCorrect: true },
+          { id: 'c', text: 'Løsningen er basisk', isCorrect: false },
+          { id: 'd', text: 'BTB fungerer ikke her', isCorrect: false },
+        ],
+        solution: `**Riktig svar: Nøytral (pH ca. 7)**
+
+BTB-farger:
+- **Gul:** Sur (pH < 6)
+- **Grønn:** Nøytral (pH ca. 7)
+- **Blå:** Basisk (pH > 8)
+
+Grønn = nøytral løsning.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - SUR NEDBØR ==========
+    {
+      id: 'nat10-2-6-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-7',
+        number: '2.6.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Sur nedbør er et miljøproblem.
+
+a) Hva er normalt pH for naturlig regn, og hvorfor er det litt surt?
+b) Nevn to gasser som forårsaker sur nedbør.
+c) Hvilke skader kan sur nedbør forårsake?
+d) Hvordan kan man motvirke effektene i innsjøer?`,
+        solution: `**a) Naturlig regn: pH ca. 5,6**
+
+Litt surt fordi CO₂ i lufta løser seg og danner karbonsyre:
+CO₂ + H₂O → H₂CO₃
+
+---
+
+**b) Gasser som gir sur nedbør:**
+
+1. **SO₂ (svoveldioksid):** Fra forbrenning av kull/olje → danner svovelsyre
+2. **NOₓ (nitrogenoksider):** Fra biltrafikk/industri → danner salpetersyre
+
+---
+
+**c) Skader:**
+- Fisk dør i sure innsjøer
+- Skog svekkes (næringsstoffer vaskes ut)
+- Bygninger av kalkstein ødelegges
+- Giftige metaller frigjøres i jorda
+
+---
+
+**d) Motvirke i innsjøer:**
+
+**Kalking:** Tilsette kalk (CaCO₃) eller Ca(OH)₂ for å nøytralisere syren og heve pH mot 6-7.
+
+Langsiktig: Redusere utslipp av SO₂ og NOₓ.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: KLASSISK - HAVFORSURING ==========
+    {
+      id: 'nat10-2-6-oppg-extra-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-2-6-oppg-extra-8',
+        number: '2.6.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Havforsuring: Havets pH har sunket fra ca. 8,2 til 8,1 siden 1800-tallet.
+
+a) Er havet surt eller basisk?
+b) Forklar sammenhengen mellom CO₂ i atmosfæren og havets pH.
+c) Hvorfor er en endring på 0,1 pH-enhet alvorlig?
+d) Hvordan påvirkes korallrev av havforsuring?`,
+        solution: `**a) Havet er basisk** (pH 8,1 > 7).
+
+---
+
+**b) CO₂ og havets pH:**
+
+CO₂ fra fossile brensler → atmosfæren → havet absorberer 25-30%
+
+CO₂ + H₂O → H₂CO₃ (karbonsyre)
+H₂CO₃ → H⁺ + HCO₃⁻
+
+Flere H⁺-ioner → lavere pH.
+
+---
+
+**c) Hvorfor 0,1 er alvorlig:**
+
+pH-skalaen er logaritmisk. 0,1 enhet = ca. **26% økning** i H⁺-konsentrasjon. For organismer tilpasset over millioner av år er dette en enorm endring på bare 200 år.
+
+---
+
+**d) Korallrev:**
+
+- Koraller bygger skjelett av CaCO₃ (kalsiumkarbonat)
+- Surere vann gjør det vanskeligere å danne CaCO₃
+- Eksisterende skjelett kan løse seg opp
+- Fører til korallbleking og død
+- Korallrev er hjem for 25% av marine arter
+
+Havforsuring er en av de mest alvorlige konsekvensene av økte CO₂-utslipp.`,
       },
     },
   ],

@@ -150,6 +150,30 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       competenceGoals: ['identifisere syrer og baser', 'forklare nøytralisering'],
       coverImage: 'https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=800&h=400&fit=crop',
     },
+    {
+      id: 'naturfag-10-2-7',
+      number: '2.7',
+      title: 'Organisk kjemi I: Hydrokarboner og fossile brensler',
+      description: 'Karbon som grunnstoff, alkaner, alkener, alkyner, og fossile brenslers kjemi.',
+      estimatedMinutes: 50,
+      exerciseCount: 15,
+      topics: ['Organisk kjemi', 'Hydrokarboner', 'Alkaner', 'Alkener', 'Alkyner', 'Fossile brensler', 'Forbrenning'],
+      prerequisites: ['naturfag-10-2-4'],
+      competenceGoals: ['gjøre rede for organisk kjemi', 'beskrive hydrokarboner og fossile brensler'],
+      coverImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-2-8',
+      number: '2.8',
+      title: 'Organisk kjemi II: Alkoholer, syrer og polymerer',
+      description: 'Funksjonelle grupper, alkoholer, karboksylsyrer, estere, karbohydrater, fett, proteiner og polymerer.',
+      estimatedMinutes: 55,
+      exerciseCount: 16,
+      topics: ['Funksjonelle grupper', 'Alkoholer', 'Karboksylsyrer', 'Estere', 'Karbohydrater', 'Proteiner', 'Polymerer'],
+      prerequisites: ['naturfag-10-2-7'],
+      competenceGoals: ['gjøre rede for organisk kjemi', 'beskrive organiske forbindelser i hverdagen'],
+      coverImage: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?w=800&h=400&fit=crop',
+    },
 
     // Kapittel 3: Fysikk
     {
@@ -293,6 +317,30 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       competenceGoals: ['beskrive jordens struktur', 'forklare platetektonikk og konsekvenser'],
       coverImage: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=400&fit=crop',
     },
+    {
+      id: 'naturfag-10-4-7',
+      number: '4.7',
+      title: 'Stoffenes kretsløp',
+      description: 'Karbonkretsløpet, nitrogenkretsløpet, vannets kretsløp og fosforkretsløpet.',
+      estimatedMinutes: 50,
+      exerciseCount: 10,
+      topics: ['Karbonkretsløp', 'Nitrogenkretsløp', 'Vannets kretsløp', 'Fosforkretsløp', 'Eutrofiering'],
+      prerequisites: ['naturfag-10-4-4'],
+      competenceGoals: ['gjøre rede for stoffenes kretsløp i naturen'],
+      coverImage: 'https://images.unsplash.com/photo-1500534314263-0869cceafd23?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-4-8',
+      number: '4.8',
+      title: 'Naturressurser, bærekraft og samisk naturkunnskap',
+      description: 'Bærekraftig forvaltning av naturressurser, energiproduksjonens miljøpåvirkning og samisk tradisjonell kunnskap.',
+      estimatedMinutes: 55,
+      exerciseCount: 10,
+      topics: ['Naturressurser', 'Bærekraft', 'Energiproduksjon', 'Samisk naturkunnskap', 'Sirkulærøkonomi'],
+      prerequisites: ['naturfag-10-4-7'],
+      competenceGoals: ['gi eksempler på samisk naturkunnskap', 'drøfte energiproduksjonens miljøpåvirkning'],
+      coverImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
+    },
 
     // Kapittel 5: Kropp og helse
     {
@@ -350,6 +398,18 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       topics: ['Kosthold', 'Ernæring', 'Fysisk aktivitet', 'Søvn', 'Rus', 'Livsstilssykdommer'],
       competenceGoals: ['forklare sammenheng mellom livsstil og helse', 'vurdere helsefremmende valg'],
       coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-5-6',
+      number: '5.6',
+      title: 'Rusmidler, legemidler og doping',
+      description: 'Hvordan rusmidler, legemidler, miljøgifter og doping påvirker nervesystemet og hormonsystemet.',
+      estimatedMinutes: 50,
+      exerciseCount: 18,
+      topics: ['Rusmidler', 'Legemidler', 'Doping', 'Miljøgifter', 'Nervesystem', 'Avhengighet'],
+      prerequisites: ['naturfag-10-5-1', 'naturfag-10-5-2'],
+      competenceGoals: ['beskrive hvordan rusmidler, legemidler, miljøgifter og doping påvirker signalsystemene'],
+      coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=400&fit=crop',
     },
 
     // Kapittel 6: Teknologi og programmering

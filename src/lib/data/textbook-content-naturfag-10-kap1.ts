@@ -515,6 +515,494 @@ Bruk kritisk tenkning og forklar hvorfor du bør være skeptisk til denne påsta
 Vær kritisk til overdrevne påstander. Sjekk alltid kildene og søk etter informasjon fra pålitelige, vitenskapelige kilder før du tror på slike påstander.`,
       },
     },
+
+    // ========== NY DEFINISJON: EMPIRISME ==========
+    {
+      id: 'nat10-1-1-def-extra-1',
+      type: 'definition',
+      title: 'Empirisme',
+      content: `**Empirisme** er en filosofisk retning som sier at kunnskap må bygge på observasjoner og erfaringer, ikke bare på tanker og ideer.
+
+I naturvitenskap betyr dette at:
+- Vi må **observere** og **måle** for å lære om verden
+- Påstander må kunne **testes** og **bekreftes** med sansene våre (eller måleinstrumenter)
+- En ide som ikke kan testes gjennom observasjon, er ikke naturvitenskap
+
+**Eksempel:** Vi vet at vann koker ved 100°C fordi vi har **målt** det gjentatte ganger – ikke bare fordi noen har tenkt seg til det.`,
+    },
+
+    // ========== NY DEFINISJON: TEORI ==========
+    {
+      id: 'nat10-1-1-def-extra-2',
+      type: 'definition',
+      title: 'Vitenskapelig teori',
+      content: `En **vitenskapelig teori** er en godt underbygget forklaring på et naturfenomen, basert på mange observasjoner, eksperimenter og bevis over lang tid.
+
+**Viktig:** I dagligtale betyr "teori" ofte bare en gjetning. I vitenskap betyr teori noe mye sterkere:
+- Det er den **beste forklaringen** vi har, støttet av **massive mengder bevis**
+- En teori har blitt **testet gjentatte ganger** uten å bli motbevist
+
+**Eksempler på vitenskapelige teorier:**
+- **Evolusjonsteorien:** Forklarer hvordan arter endrer seg over tid
+- **Gravitasjonsteorien:** Forklarer tiltrekningskraften mellom masser
+- **Celleteorien:** Alle levende organismer er bygd opp av celler`,
+    },
+
+    // ========== NY DEFINISJON: DEN VITENSKAPELIGE METODEN ==========
+    {
+      id: 'nat10-1-1-def-extra-3',
+      type: 'definition',
+      title: 'Den vitenskapelige metoden',
+      content: `**Den vitenskapelige metoden** er en systematisk fremgangsmåte for å undersøke naturen og bygge kunnskap.
+
+**Hovedstegene:**
+1. **Observasjon** – Legg merke til noe interessant
+2. **Spørsmål** – Still et spørsmål om det du observerte
+3. **Hypotese** – Lag en testbar forklaring
+4. **Eksperiment** – Test hypotesen
+5. **Analyse** – Undersøk resultatene
+6. **Konklusjon** – Vurder om hypotesen ble støttet
+7. **Kommunikasjon** – Del funnene med andre
+
+**Merk:** I praksis er forskning ofte mer rotete enn disse stegene antyder. Forskere hopper fram og tilbake, gjør feil, og begynner på nytt – og det er helt normalt!`,
+    },
+
+    // ========== NYTT EKSEMPEL: VITENSKAPELIG VS IKKE-VITENSKAPELIG SPØRSMÅL ==========
+    {
+      id: 'nat10-1-1-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Vitenskapelige vs. ikke-vitenskapelige spørsmål',
+      problem: `Avgjør om følgende spørsmål er vitenskapelige (kan testes) eller ikke-vitenskapelige (kan ikke testes):
+
+a) Påvirker pH-verdien i jorda hvor fort bønner spirer?
+b) Er blåfarge den peneste fargen?
+c) Lever det bakterier på mobiltelefonen din?
+d) Er det riktig å spise kjøtt?
+e) Vokser håret raskere om sommeren enn om vinteren?`,
+      solution: `**Vitenskapelige spørsmål** (kan testes):
+
+a) **Ja, vitenskapelig.** Vi kan plante bønner i jord med ulik pH og måle spiretiden.
+
+c) **Ja, vitenskapelig.** Vi kan ta prøver fra mobilen og dyrke dem i petriskåler for å se om det vokser bakterier.
+
+e) **Ja, vitenskapelig.** Vi kan måle hårvekst systematisk gjennom årstidene.
+
+**Ikke-vitenskapelige spørsmål** (kan ikke testes):
+
+b) **Nei, ikke vitenskapelig.** "Peneste" er en subjektiv mening – det finnes ikke et objektivt mål på skjønnhet.
+
+d) **Nei, ikke vitenskapelig.** "Riktig" er et etisk/moralsk spørsmål, ikke et spørsmål som kan besvares med eksperimenter.
+
+**Konklusjon:** Vitenskapelige spørsmål handler om ting vi kan **observere, måle og teste**. Spørsmål om verdier, meninger og moral er viktige, men hører til andre fagfelt (filosofi, etikk).`,
+    },
+
+    // ========== NYTT EKSEMPEL: IDENTIFISERE FAGOMRÅDE ==========
+    {
+      id: 'nat10-1-1-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Hvilket fagområde hører dette til?',
+      problem: `Koble hvert spørsmål til riktig naturvitenskapelig fagområde (fysikk, kjemi, biologi, geologi eller astronomi):
+
+1. Hvorfor lyser stjernene om natten?
+2. Hva skjer når vi blander eddik og natron?
+3. Hvorfor har sjiraffen så lang hals?
+4. Hvorfor skjer det jordskjelv i Japan oftere enn i Norge?
+5. Hvorfor flyter is på vann?`,
+      solution: `**1. Astronomi** – Stjerner er enorme gassballer som produserer lys gjennom kjernefysiske reaksjoner. Dette studeres av astronomer.
+
+**2. Kjemi** – Reaksjonen mellom eddik (syre) og natron (base) er en kjemisk reaksjon som produserer karbondioksid-gass. Dette er kjemi.
+
+**3. Biologi** – Sjiraffens lange hals er et resultat av evolusjon og naturlig utvalg. Dette er et biologisk spørsmål.
+
+**4. Geologi** – Jordskjelv skjer langs tektoniske plategrenser. Japan ligger på en slik grense, mens Norge ikke gjør det. Dette er geologi.
+
+**5. Fysikk (og kjemi)** – Is flyter fordi det er lettere (lavere tetthet) enn flytende vann. Vannmolekylenes struktur gjør at is utvider seg. Dette kan forklares med fysikk og kjemi.
+
+**Legg merke til:** Noen spørsmål kan berøre flere fagområder. Naturfagene henger tett sammen!`,
+    },
+
+    // ========== NY OPPGAVE: OBSERVASJON VS TOLKNING ==========
+    {
+      id: 'nat10-1-1-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-1',
+        number: '1.7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av følgende setninger er en observasjon (ikke en tolkning)?',
+        options: [
+          {
+            id: 'a',
+            text: 'Planten er trist fordi den ikke får nok vann',
+            isCorrect: false,
+            feedback: 'Feil. "Trist" er en tolkning – planter har ikke følelser. En observasjon ville beskrevet hva du faktisk ser.',
+          },
+          {
+            id: 'b',
+            text: 'Bladene på planten har blitt gule og hengende',
+            isCorrect: true,
+            feedback: 'Riktig! Dette er en ren observasjon – en beskrivelse av det du faktisk kan se.',
+          },
+          {
+            id: 'c',
+            text: 'Planten trenger mer gjødsel',
+            isCorrect: false,
+            feedback: 'Feil. Dette er en konklusjon eller antakelse, ikke en observasjon.',
+          },
+          {
+            id: 'd',
+            text: 'Planten kommer til å dø snart',
+            isCorrect: false,
+            feedback: 'Feil. Dette er en forutsigelse, ikke en observasjon.',
+          },
+        ],
+        solution: 'Alternativ B er riktig. En observasjon beskriver bare det du faktisk kan se, høre, lukte, smake eller føle – uten å legge til tolkninger.',
+      },
+    },
+
+    // ========== NY OPPGAVE: IDENTIFISER EMPIRISKE BEVIS ==========
+    {
+      id: 'nat10-1-1-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-2',
+        number: '1.8',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Bestem hvilke av de følgende påstandene som er basert på empiriske bevis (observasjoner og data), og hvilke som er basert på annet:
+
+a) "Jorden går i bane rundt solen."
+b) "Grønn er den fineste fargen."
+c) "Vann fryser ved 0°C ved normalt trykk."
+d) "Det finnes liv på andre planeter."
+e) "DNA inneholder arvelig informasjon."
+f) "Astrologi kan forutsi framtiden din."`,
+        solution: `**Basert på empiriske bevis:**
+
+a) **Ja.** Dette er bekreftet gjennom astronomiske observasjoner, satellittdata og fysikkens lover. Tusenvis av målinger støtter dette.
+
+c) **Ja.** Vi har målt frysepunktet til vann utallige ganger og alltid fått 0°C ved normalt trykk.
+
+e) **Ja.** Watson og Crick oppdaget DNAs struktur i 1953, og siden da har enorme mengder forskning bekreftet at DNA bærer arvelig informasjon.
+
+**Ikke basert på empiriske bevis:**
+
+b) **Nei.** Dette er en subjektiv mening. "Finest" kan ikke måles vitenskapelig.
+
+d) **Nei (ennå).** Vi har foreløpig ikke funnet empiriske bevis for liv utenfor jorden. Det er en hypotese som ennå ikke er bekreftet.
+
+f) **Nei.** Astrologi har blitt testet vitenskapelig gjentatte ganger, og ingen studier har funnet bevis for at stjernetegn kan forutsi framtiden. Det er pseudovitenskap.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: NATURVITENSKAPELIG FAGOMRÅDE ==========
+    {
+      id: 'nat10-1-1-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-3',
+        number: '1.9',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'En forsker studerer hvordan vulkanutbrudd påvirker bergarter over millioner av år. Hvilket fagområde jobber denne forskeren innenfor?',
+        options: [
+          {
+            id: 'a',
+            text: 'Biologi',
+            isCorrect: false,
+            feedback: 'Feil. Biologi studerer levende organismer, ikke bergarter og vulkaner.',
+          },
+          {
+            id: 'b',
+            text: 'Kjemi',
+            isCorrect: false,
+            feedback: 'Feil. Selv om kjemiske prosesser er involvert, handler dette primært om jordens prosesser.',
+          },
+          {
+            id: 'c',
+            text: 'Geologi',
+            isCorrect: true,
+            feedback: 'Riktig! Geologi studerer jorden, bergarter, mineraler og prosesser som vulkanutbrudd.',
+          },
+          {
+            id: 'd',
+            text: 'Astronomi',
+            isCorrect: false,
+            feedback: 'Feil. Astronomi studerer verdensrommet, ikke prosesser på jorden.',
+          },
+        ],
+        solution: 'Geologi er fagområdet som studerer vulkaner, bergarter og jordens prosesser over tid.',
+      },
+    },
+
+    // ========== NY OPPGAVE: VITENSKAPELIG METODE REKKEFØLGE ==========
+    {
+      id: 'nat10-1-1-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-4',
+        number: '1.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Sett stegene i den vitenskapelige metoden i riktig rekkefølge:
+
+A) Formuler en hypotese
+B) Del resultatene med andre
+C) Gjennomfør et eksperiment
+D) Gjør en observasjon
+E) Analyser dataene
+F) Still et spørsmål
+G) Trekk en konklusjon`,
+        solution: `**Riktig rekkefølge:**
+
+1. **D) Gjør en observasjon** – Legg merke til noe interessant i naturen.
+2. **F) Still et spørsmål** – Hva lurer du på? Hvorfor skjer dette?
+3. **A) Formuler en hypotese** – Lag en testbar forklaring eller forutsigelse.
+4. **C) Gjennomfør et eksperiment** – Test hypotesen din under kontrollerte forhold.
+5. **E) Analyser dataene** – Undersøk resultatene og se etter mønstre.
+6. **G) Trekk en konklusjon** – Stemte hypotesen? Hva lærte du?
+7. **B) Del resultatene med andre** – Kommuniser funnene dine til andre.
+
+**Merk:** I virkeligheten er den vitenskapelige metoden ikke alltid lineær. Forskere hopper ofte tilbake og gjentar steg. Hvis hypotesen ikke støttes, formulerer de en ny hypotese og tester igjen!`,
+      },
+    },
+
+    // ========== NY OPPGAVE: SKILLE VITENSKAP FRA PSEUDOVITENSKAP ==========
+    {
+      id: 'nat10-1-1-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-5',
+        number: '1.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Avgjør om hvert utsagn beskriver vitenskap eller pseudovitenskap, og begrunn svaret ditt:
+
+a) "Vaksiner forebygger smittsomme sykdommer. Dette er vist i hundrevis av kontrollerte studier med millioner av deltakere."
+
+b) "Krystaller har helbredende energier som balanserer chakraene dine. Jeg vet det fordi bestevenninna mi ble frisk etter å ha brukt en."
+
+c) "Gravitasjon gjør at gjenstander faller ned mot jorden. Vi kan beregne nøyaktig hvor raskt de faller med formelen F = mg."`,
+        solution: `**a) VITENSKAP**
+- Basert på **kontrollerte studier** (vitenskapelig metode)
+- **Millioner av deltakere** gir pålitelige resultater
+- Resultater kan **verifiseres** av andre forskere
+- Publisert i **fagfellevurderte tidsskrifter**
+
+**b) PSEUDOVITENSKAP**
+- "Helbredende energier" og "chakraer" er **ikke vitenskapelig definerte** begreper
+- Bruker **anekdotisk bevis** (én persons erfaring) i stedet for data
+- **Ikke testbart** – hvordan måler vi "chakra-balanse"?
+- Mangler **kontrollerte studier**
+
+**c) VITENSKAP**
+- Basert på **observasjoner og målinger** som hvem som helst kan gjenta
+- Har en **matematisk modell** (F = mg) som gir presise forutsigelser
+- Er **falsifiserbar** – hvis noe faller oppover, er teorien motbevist
+- Bekreftet gjennom **utallige eksperimenter** over hundrevis av år`,
+      },
+    },
+
+    // ========== NY OPPGAVE: DAGSAKTUELL FORSKNING ==========
+    {
+      id: 'nat10-1-1-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-6',
+        number: '1.12',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Tenk på et dagsaktuelt tema der forskning er viktig (f.eks. klimaendringer, nye medisiner, kunstig intelligens, romforskning).
+
+a) Velg et tema og forklar kort hva forskningen handler om.
+b) Forklar hvorfor naturvitenskapelig metode er viktig for dette temaet.
+c) Gi et eksempel på hvordan feilinformasjon om dette temaet kan være skadelig.
+d) Hvordan kan du sjekke om informasjonen du finner om temaet er pålitelig?`,
+        solution: `**Eksempel: Klimaendringer**
+
+**a) Hva forskningen handler om:**
+Klimaforskning undersøker hvordan menneskelig aktivitet (utslipp av CO₂ og andre klimagasser) påvirker jordens gjennomsnittstemperatur, havnivå, ekstremvær og økosystemer. Forskere samler inn data fra isbreer, havtemperaturer, atmosfæremålinger og mer.
+
+**b) Hvorfor vitenskapelig metode er viktig:**
+- Vi trenger **nøyaktige målinger** over lang tid for å se trender
+- **Kontrollerte analyser** hjelper oss å skille menneskeskapt oppvarming fra naturlige variasjoner
+- **Modeller** lar oss forutsi framtidige endringer
+- **Fagfellevurdering** sikrer at resultatene er pålitelige
+- Uten vitenskapelig metode ville vi bare hatt synsing og anekdoter
+
+**c) Hvordan feilinformasjon kan være skadelig:**
+- Hvis folk tror at klimaendringer er en myte, kan de motarbeide nødvendige tiltak (redusere utslipp, beskytte natur)
+- Politikere kan ta feil beslutninger basert på feil informasjon
+- Vi kan tape verdifull tid i kampen mot global oppvarming
+- Sårbare samfunn som rammes hardest av klimaendringer, får ikke den hjelpen de trenger
+
+**d) Sjekke pålitelighet:**
+- Se etter informasjon fra anerkjente kilder: FNs klimapanel (IPCC), Meteorologisk institutt, NASA
+- Sjekk om påstandene er basert på fagfellevurdert forskning
+- Se om det er vitenskapelig konsensus (over 97% av klimaforskere er enige)
+- Vær skeptisk til enkeltstudier som motsier tusenvis av andre studier
+- Sjekk om kilden har økonomiske interesser (f.eks. oljeindustri som benekter klimaendringer)`,
+      },
+    },
+
+    // ========== NY OPPGAVE: KLASSIFISERING ==========
+    {
+      id: 'nat10-1-1-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-7',
+        number: '1.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av de naturvitenskapelige praksisene bruker du mest når du sorterer steiner i grupper etter farge, størrelse og form?',
+        options: [
+          {
+            id: 'a',
+            text: 'Eksperimentere',
+            isCorrect: false,
+            feedback: 'Feil. Eksperimentering handler om å teste en hypotese under kontrollerte forhold.',
+          },
+          {
+            id: 'b',
+            text: 'Måle',
+            isCorrect: false,
+            feedback: 'Feil. Måling bruker tall og enheter, men sortering i grupper handler om noe annet.',
+          },
+          {
+            id: 'c',
+            text: 'Klassifisere',
+            isCorrect: true,
+            feedback: 'Riktig! Klassifisering handler om å sortere og gruppere ting basert på likheter og forskjeller.',
+          },
+          {
+            id: 'd',
+            text: 'Kommunisere',
+            isCorrect: false,
+            feedback: 'Feil. Kommunikasjon handler om å dele funnene sine med andre.',
+          },
+        ],
+        solution: 'Klassifisering er praksisen der vi sorterer og grupperer objekter basert på deres egenskaper, som farge, størrelse og form.',
+      },
+    },
+
+    // ========== NY OPPGAVE: VITENSKAP OVER TID ==========
+    {
+      id: 'nat10-1-1-oppg-extra-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-8',
+        number: '1.14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Naturvitenskap endrer seg over tid etter hvert som vi får ny kunnskap. Gi et eksempel på noe forskere trodde var sant før, men som vi nå vet er feil.
+
+a) Hva trodde man? Hva vet vi nå?
+b) Hva var det som fikk forskere til å endre mening?
+c) Hva forteller dette oss om naturvitenskap som prosess?`,
+        solution: `**Eksempel: Jordens posisjon i universet**
+
+**a) Hva trodde man vs. hva vi vet nå:**
+- **Før (geosentrisk modell):** Helt fram til 1500-tallet trodde de fleste at jorden var sentrum av universet, og at solen, månen, planetene og stjernene kretset rundt jorden.
+- **Nå (heliosentrisk modell):** Vi vet at jorden og de andre planetene kretser rundt solen. Solen er bare én av milliarder av stjerner i Melkeveien.
+
+**b) Hva fikk forskere til å endre mening?**
+- **Kopernikus (1543)** foreslo at solen var i sentrum, basert på matematiske beregninger
+- **Galileo (tidlig 1600-tall)** brukte sitt teleskop og observerte at Jupiter har måner som kretser rundt Jupiter (ikke jorden), at Venus har faser som bare gir mening i heliosentrisk modell
+- **Kepler** viste med presise beregninger at planetbanene er ellipser rundt solen
+- **Newton** forklarte bevegelsene med gravitasjonsloven
+
+Nye **observasjoner og bedre instrumenter** førte til at den gamle modellen ikke kunne forklare det forskerne så.
+
+**c) Hva forteller dette om naturvitenskap?**
+- Naturvitenskap er **selvkorrigerende** – feil blir rettet opp over tid
+- Ny teknologi (som teleskopet) gir oss **bedre data** som kan endre forståelsen vår
+- Det er **styrken** til vitenskapen at den endrer seg basert på nye bevis
+- Ingen vitenskapelig idé er hellig – alt kan utfordres med bedre data
+- Det som anses som "sant" i dag, kan bli revidert i framtiden
+
+**Denne egenskapen – at vitenskap er åpen for endring – er det som gjør den så kraftfull og pålitelig over tid.**`,
+      },
+    },
+
+    // ========== NY OPPGAVE: TEORI VS LOV ==========
+    {
+      id: 'nat10-1-1-oppg-extra-10',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-10',
+        number: '1.16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er forskjellen mellom en vitenskapelig teori og en vitenskapelig lov?',
+        options: [
+          {
+            id: 'a',
+            text: 'En lov er bevist sann, mens en teori bare er en gjetning',
+            isCorrect: false,
+            feedback: 'Feil. I vitenskap er en teori mye mer enn en gjetning – den er en godt underbygget forklaring med massive mengder bevis.',
+          },
+          {
+            id: 'b',
+            text: 'En lov beskriver HVA som skjer (f.eks. gjenstander faller), mens en teori forklarer HVORFOR det skjer',
+            isCorrect: true,
+            feedback: 'Riktig! En lov beskriver et observert mønster, mens en teori gir en forklaring på hvorfor mønsteret oppstår.',
+          },
+          {
+            id: 'c',
+            text: 'En teori blir til en lov når den er bevist nok ganger',
+            isCorrect: false,
+            feedback: 'Feil. Teorier og lover er forskjellige ting – en teori "oppgraderes" ikke til en lov. De svarer på ulike spørsmål.',
+          },
+          {
+            id: 'd',
+            text: 'Det er ingen forskjell – begrepene betyr det samme',
+            isCorrect: false,
+            feedback: 'Feil. Teori og lov har ulike roller i vitenskapen.',
+          },
+        ],
+        solution: `**Vitenskapelig lov:** Beskriver et observert mønster i naturen – HVA som skjer.
+- Eksempel: Gravitasjonsloven sier at gjenstander tiltrekkes av hverandre.
+
+**Vitenskapelig teori:** Forklarer HVORFOR mønsteret oppstår.
+- Eksempel: Einsteins generelle relativitetsteori forklarer at gravitasjon skyldes krumming av rom-tid.
+
+Begge er like "sterke" i vitenskap – de svarer bare på forskjellige spørsmål!`,
+      },
+    },
+
+    // ========== NY OPPGAVE: NATURVITENSKAPELIGE PRAKSISER ==========
+    {
+      id: 'nat10-1-1-oppg-extra-9',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-1-oppg-extra-9',
+        number: '1.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Koble hver handling til riktig naturvitenskapelig praksis (observere, klassifisere, måle, eksperimentere, analysere data, kommunisere):
+
+a) Du bruker et termometer for å sjekke temperaturen i vannet.
+b) Du legger merke til at noen fugler er større enn andre.
+c) Du sorterer bergarter i grupper etter hardhet.
+d) Du lager en graf som viser planters vekst over tid.
+e) Du presenterer forsøksresultatene dine for klassen.
+f) Du tester om salt påvirker kokepunktet til vann.`,
+        solution: `**a) Måle** – Du bruker et instrument (termometer) for å få en nøyaktig tallverdi.
+
+**b) Observere** – Du bruker sansene til å legge merke til noe i naturen.
+
+**c) Klassifisere** – Du sorterer og grupperer objekter basert på en egenskap (hardhet).
+
+**d) Analysere data** – Du bruker dataene dine til å lage en visuell framstilling og se mønstre.
+
+**e) Kommunisere** – Du deler funnene dine med andre.
+
+**f) Eksperimentere** – Du gjennomfører en kontrollert test for å sjekke en påstand.
+
+**Legg merke til:** I en ekte undersøkelse bruker du ofte ALLE disse praksisene i løpet av samme prosjekt!`,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -1531,6 +2019,567 @@ c) Kan eleven konkludere med sikkerhet basert på disse dataene? Hvorfor/hvorfor
       },
     },
 
+    // ========== NY DEFINISJON: KONTROLLGRUPPE ==========
+    {
+      id: 'nat10-1-2-def-extra-1',
+      type: 'definition',
+      title: 'Kontrollgruppe',
+      content: `En **kontrollgruppe** er en gruppe i et eksperiment som IKKE utsettes for den variabelen du tester. Den brukes som referanse for å sammenligne med testgruppen.
+
+**Hvorfor er kontrollgruppen viktig?**
+- Den viser hva som ville skjedd **uten** den endringen du tester
+- Den lar deg se om endringer i testgruppen faktisk skyldes det du testet
+- Uten kontrollgruppe vet du ikke om resultatet ville skjedd uansett
+
+**Eksempel:**
+- **Testgruppe:** Planter som får gjødsel
+- **Kontrollgruppe:** Planter som IKKE får gjødsel
+- Begge grupper behandles ellers helt likt (samme vann, lys, temperatur)`,
+    },
+
+    // ========== NY DEFINISJON: FALSIFISERBARHET ==========
+    {
+      id: 'nat10-1-2-def-extra-2',
+      type: 'definition',
+      title: 'Falsifiserbarhet',
+      content: `**Falsifiserbarhet** betyr at en påstand kan motbevises gjennom observasjoner eller eksperimenter.
+
+En hypotese MÅ være falsifiserbar for å være vitenskapelig. Det betyr at det må finnes et mulig resultat som ville vist at hypotesen er gal.
+
+**Falsifiserbar (god hypotese):**
+"Planter vokser raskere med mer lys." → Hvis planten IKKE vokser raskere med mer lys, er hypotesen falsifisert.
+
+**Ikke falsifiserbar (dårlig hypotese):**
+"Usynlige enhjørninger styrer planteveksten." → Det finnes ingen måte å motbevise dette på, fordi enhjørningene er "usynlige".
+
+**Viktig:** At en hypotese er falsifiserbar, betyr ikke at den er feil – bare at den KAN testes!`,
+    },
+
+    // ========== NY DEFINISJON: REPLIKASJON ==========
+    {
+      id: 'nat10-1-2-def-extra-3',
+      type: 'definition',
+      title: 'Replikasjon',
+      content: `**Replikasjon** (repetisjon) betyr å gjenta et eksperiment flere ganger for å sjekke om resultatene er pålitelige.
+
+**Hvorfor er replikasjon viktig?**
+- Ett enkelt resultat kan skyldes tilfeldigheter
+- Flere gjentakelser gir mer pålitelige resultater
+- Andre forskere bør også kunne gjenta eksperimentet og få lignende resultater
+
+**To typer replikasjon:**
+1. **Intern replikasjon:** Du gjentar eksperimentet selv (f.eks. bruker 10 planter i stedet for 1)
+2. **Ekstern replikasjon:** Andre forskere gjentar eksperimentet uavhengig av deg
+
+En vitenskapelig oppdagelse regnes ikke som sikker før den er **replikert av flere uavhengige forskergrupper**.`,
+    },
+
+    // ========== NYTT EKSEMPEL: GOD VS DÅRLIG HYPOTESE ==========
+    {
+      id: 'nat10-1-2-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: God vs. dårlig hypotese',
+      problem: `Vurder følgende hypoteser og avgjør om de er gode (testbare og falsifiserbare) eller dårlige:
+
+1. "Jo mer sukker du tilsetter vannet, desto raskere vil gjærceller produsere CO₂-gass."
+2. "Naturen er vakker."
+3. "Planter føler smerte når de klippes."
+4. "Elever som sover mer enn 8 timer, vil huske flere gloser enn elever som sover under 6 timer."
+5. "Skjebnen bestemmer om eksperimentet lykkes."`,
+      solution: `**1. GOD HYPOTESE**
+- Testbar: Vi kan gi gjærceller ulike mengder sukker og måle CO₂-produksjon
+- Falsifiserbar: Hvis CO₂-mengden ikke endres med mer sukker, er hypotesen falsifisert
+- Har klar uavhengig variabel (sukker) og avhengig variabel (CO₂)
+
+**2. DÅRLIG HYPOTESE**
+- Ikke testbar: "Vakker" er en subjektiv mening, ikke noe som kan måles
+- Ikke falsifiserbar: Det finnes ingen måte å bevise at naturen IKKE er vakker
+- Dette er et verdispørsmål, ikke et vitenskapelig spørsmål
+
+**3. DÅRLIG HYPOTESE (vanskelig å teste)**
+- "Smerte" slik vi kjenner det krever et nervesystem – planter har ikke dette
+- Planter reagerer på skade, men vi kan ikke vite om det er "smerte"
+- Vanskelig å definere og måle "smerte" hos planter
+
+**4. GOD HYPOTESE**
+- Testbar: Vi kan sammenligne glosehusking hos grupper med ulik søvnmengde
+- Falsifiserbar: Hvis gruppen med mer søvn IKKE husker flere gloser, er hypotesen falsifisert
+- Klare variabler: søvnmengde (uavhengig) og antall gloser husket (avhengig)
+
+**5. DÅRLIG HYPOTESE**
+- Ikke testbar: "Skjebnen" kan ikke måles eller observeres
+- Ikke falsifiserbar: Uansett utfall kan man si at "det var skjebnen"
+- Ikke vitenskapelig – dette er overtro`,
+    },
+
+    // ========== NYTT EKSEMPEL: FEIL I EKSPERIMENTDESIGN ==========
+    {
+      id: 'nat10-1-2-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Finne feil i eksperimentdesign',
+      problem: `En elev vil teste om musikk påvirker hukommelsen. Eleven gjør følgende:
+
+- 5 elever hører på heavy metal-musikk mens de leser 20 gloser i 10 minutter (testgruppe)
+- 5 andre elever leser de samme glosene i stillhet i 5 minutter (kontrollgruppe)
+- Testgruppen leser glosene i et varmt rom, kontrollgruppen i et kaldt rom
+- Eleven tester etterpå hvor mange gloser hver gruppe husker
+
+Hva er feil med dette eksperimentdesignet?`,
+      solution: `**Feil i eksperimentet:**
+
+**1. Ulik tid**
+- Testgruppen fikk 10 minutter, kontrollgruppen bare 5 minutter
+- Den ekstra tiden kan forklare forskjeller i hukommelse, ikke musikken
+- **Løsning:** Begge grupper bør få like lang tid (f.eks. 10 minutter)
+
+**2. Ulik temperatur**
+- Testgruppen var i et varmt rom, kontrollgruppen i et kaldt rom
+- Temperatur kan påvirke konsentrasjon og dermed hukommelse
+- **Løsning:** Begge grupper bør være i samme rom eller rom med lik temperatur
+
+**3. For få deltakere**
+- 5 elever per gruppe er for lite til å trekke pålitelige konklusjoner
+- **Løsning:** Bruk minst 20-30 deltakere per gruppe
+
+**4. Musikken er for spesifikk**
+- Heavy metal er bare én type musikk – resultatene kan ikke generaliseres til "musikk" generelt
+- **Løsning:** Test flere musikktyper, eller vær tydelig på at du bare tester heavy metal
+
+**5. Flere ukontrollerte variabler**
+- Elevene i gruppene kan ha ulik studieteknikk, konsentrasjon eller motivasjon
+- **Løsning:** Tilfeldig fordeling av elever til gruppene
+
+**Riktig oppsett ville vært:**
+- Like mange deltakere i hver gruppe (helst 20+)
+- Tilfeldig fordeling til gruppene
+- Lik tid for begge grupper
+- Samme rom og temperatur
+- Den ENESTE forskjellen: musikk vs. stillhet`,
+    },
+
+    // ========== NY OPPGAVE: IDENTIFISER VARIABLER ==========
+    {
+      id: 'nat10-1-2-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-1',
+        number: '1.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En forsker tester om fargen på lys påvirker plantevekst. Hun bruker tre grupper planter:
+- Gruppe 1: Vokser under rødt lys
+- Gruppe 2: Vokser under blått lys
+- Gruppe 3: Vokser under hvitt lys (kontroll)
+
+Alle plantene får 200 ml vann per dag, står i lik jord og potter, og får lys i 12 timer per dag.
+
+a) Hva er den uavhengige variabelen?
+b) Hva er den avhengige variabelen?
+c) Nevn tre kontrollerte variabler.
+d) Hvilken gruppe er kontrollgruppen, og hvorfor?`,
+        solution: `**a) Uavhengig variabel:**
+Fargen på lyset (rødt, blått, hvitt). Dette er det forskeren bevisst endrer.
+
+**b) Avhengig variabel:**
+Plantevekst (f.eks. målt i centimeter vekst per uke, eller antall nye blader). Dette er det som måles.
+
+**c) Kontrollerte variabler (tre eksempler):**
+1. Mengde vann (200 ml per dag for alle grupper)
+2. Type jord og potter (lik for alle)
+3. Varighet av lys (12 timer per dag for alle grupper)
+- Andre kontrollerte variabler: temperatur, type plante, startshøyde, gjødsel
+
+**d) Kontrollgruppe:**
+**Gruppe 3 (hvitt lys)** er kontrollgruppen. Hvitt lys er det "normale" lyset planter får, og fungerer som referanse. Ved å sammenligne de andre gruppene med hvitt lys, kan forskeren se om rødt eller blått lys gir annerledes vekst enn normalt.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: FORMULER HYPOTESE FRA OBSERVASJON ==========
+    {
+      id: 'nat10-1-2-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-2',
+        number: '1.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Du legger merke til at brødskiver som ligger i en plastpose mugner raskere enn brødskiver som ligger åpent i rommet.
+
+a) Formuler en testbar hypotese.
+b) Identifiser uavhengig og avhengig variabel.
+c) Beskriv kort hvordan du ville testet hypotesen.`,
+        solution: `**a) Hypotese:**
+"Brød som oppbevares i lukkede plastposer mugner raskere enn brød som oppbevares åpent, fordi plastposen holder på fuktighet som muggsoppen trenger for å vokse."
+
+Alternativt: "Jo høyere fuktigheten er rundt brødet, desto raskere vil muggsopp vokse."
+
+**b) Variabler:**
+- **Uavhengig variabel:** Oppbevaringsmetode (i plastpose vs. åpent)
+- **Avhengig variabel:** Tid til mugg viser seg / mengde mugg etter en bestemt tid
+
+**c) Testmetode:**
+1. Kjøp et brød og del det i like store biter (minst 6 biter)
+2. Legg 3 biter i separate plastposer som lukkes godt
+3. Legg 3 biter åpent på en tallerken
+4. Plasser alle bitene i samme rom (lik temperatur)
+5. Observer daglig og noter når mugg først viser seg
+6. Etter 7 dager, vurder mengden mugg på alle bitene
+7. Sammenlign gjennomsnittlig tid til mugg i de to gruppene
+
+**Kontrollerte variabler:** Type brød, størrelse på biter, temperatur, startdato, plassering i rommet.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: VURDER HYPOTESE-KVALITET ==========
+    {
+      id: 'nat10-1-2-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-3',
+        number: '1.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av følgende er den BESTE hypotesen?',
+        options: [
+          {
+            id: 'a',
+            text: 'Planter trenger vann.',
+            isCorrect: false,
+            feedback: 'Feil. Dette er et kjent faktum, ikke en testbar hypotese med klare variabler.',
+          },
+          {
+            id: 'b',
+            text: 'Jo varmere vannet er, desto raskere vil et sukkertøy løse seg opp.',
+            isCorrect: true,
+            feedback: 'Riktig! Denne er testbar, falsifiserbar, har klare variabler (temperatur og oppløsningstid), og gir en spesifikk forutsigelse.',
+          },
+          {
+            id: 'c',
+            text: 'Naturen er fantastisk.',
+            isCorrect: false,
+            feedback: 'Feil. Dette er en mening, ikke en testbar vitenskapelig hypotese.',
+          },
+          {
+            id: 'd',
+            text: 'Usynlige krefter styrer alt som skjer.',
+            isCorrect: false,
+            feedback: 'Feil. "Usynlige krefter" er vagt og ikke-testbart. En god hypotese er presis og kan testes.',
+          },
+        ],
+        solution: 'Alternativ B er den beste hypotesen fordi den er testbar, har klare variabler, og gir en spesifikk forutsigelse som kan bekreftes eller avkreftes.',
+      },
+    },
+
+    // ========== NY OPPGAVE: EKSPERIMENTDESIGN MED FEIL ==========
+    {
+      id: 'nat10-1-2-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-4',
+        number: '1.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En elev vil teste om type jord påvirker plantevekst. Hun setter opp følgende eksperiment:
+
+- Plante A: Vanlig hagejord, 200 ml vann daglig, ved vinduet
+- Plante B: Sandjord, 100 ml vann daglig, i et mørkt hjørne
+- Plante C: Kompostjord, 300 ml vann daglig, under en lampe
+
+Etter 3 uker måler hun høyden på plantene.
+
+a) Hva er feil med dette eksperimentdesignet?
+b) Hvordan bør eksperimentet forbedres?`,
+        solution: `**a) Feil med eksperimentdesignet:**
+
+**For mange variabler endres samtidig:**
+1. **Type jord** varierer (hagejord, sand, kompost) – dette er greit, det er det hun vil teste
+2. **Mengde vann** varierer (200, 100, 300 ml) – dette BURDE vært likt
+3. **Lysforhold** varierer (vindu, mørkt hjørne, lampe) – dette BURDE vært likt
+
+**Resultat:** Hvis plante C vokser best, vet hun ikke om det skyldes kompostjorden, det ekstra vannet, eller lampen!
+
+**Andre problemer:**
+- Bare 1 plante per gruppe – ingen replikasjon
+- Bare 3 uker – kanskje for kort tid
+
+**b) Forbedret eksperimentdesign:**
+
+- **3 grupper med 4-5 planter i hver** (replikasjon)
+- Alle planter av **samme type og alder**
+- **Type jord varierer** (det er det vi tester): hagejord, sandjord, kompostjord
+- **Alt annet holdes likt:**
+  - Alle får 200 ml vann daglig
+  - Alle står ved samme vindu
+  - Alle i like store potter
+  - Samme temperatur
+- Mål høyde **ukentlig** i 4-6 uker
+- **Den ENESTE forskjellen** er jordtypen`,
+      },
+    },
+
+    // ========== NY OPPGAVE: ETIKK I EKSPERIMENTER ==========
+    {
+      id: 'nat10-1-2-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-5',
+        number: '1.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Tenk deg at du vil teste om energidrikk påvirker reaksjonstiden til elever.
+
+a) Hvorfor ville det være problematisk å gi noen elever energidrikk og andre ikke, uten at de vet om det?
+b) Hva er etiske hensyn forskere må ta når de eksperimenterer med mennesker?
+c) Hvordan kan du tilpasse eksperimentet for å være etisk forsvarlig?`,
+        solution: `**a) Etiske problemer:**
+- Å gi noen et produkt uten at de vet det, bryter med **informert samtykke** – deltakere må vite hva de deltar i
+- Energidrikk inneholder koffein og sukker som kan ha bivirkninger (hjertebank, uro)
+- Det er spesielt problematisk med ungdom som kan være mer sårbare for koffein
+- Det bryter med grunnleggende rettigheter å eksperimentere på noen uten deres viten
+
+**b) Etiske hensyn for forskning med mennesker:**
+1. **Informert samtykke:** Deltakere (og foreldre for mindreårige) må vite hva studien handler om og samtykke frivillig
+2. **Frivillighet:** Ingen skal tvinges til å delta, og man kan trekke seg når som helst
+3. **Ikke-skading:** Eksperimentet skal ikke utsette deltakere for unødig risiko
+4. **Konfidensialitet:** Personlige data skal beskyttes
+5. **Godkjenning:** Forskning med mennesker må godkjennes av en etisk komité
+6. **Rettferdig behandling:** Alle deltakere skal behandles rettferdig
+
+**c) Etisk forsvarlig tilpasning:**
+- Informer alle elever og foreldre om studien og få skriftlig samtykke
+- La deltakere velge selv om de vil delta (frivillig)
+- Del deltakerne tilfeldig i to grupper: én som drikker energidrikk, én som drikker en lignende drikk uten koffein (placebo)
+- Informer om potensielle bivirkninger
+- Ekskluder elever med hjerteproblemer eller koffeinsensitivitet
+- Gjennomfør studien under tilsyn av en voksen
+- Rapporter resultatene uten å identifisere enkeltpersoner`,
+      },
+    },
+
+    // ========== NY OPPGAVE: FEILKILDER IDENTIFISERING ==========
+    {
+      id: 'nat10-1-2-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-6',
+        number: '1.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: `En elev kaster en ball 10 ganger og måler hvor langt den flyr. De fleste kastene er mellom 15-18 meter, men ett kast var bare 5 meter fordi ballen traff en gren. Hva bør eleven gjøre med målingen på 5 meter?`,
+        options: [
+          {
+            id: 'a',
+            text: 'Inkludere den i gjennomsnittet fordi alle data er viktige',
+            isCorrect: false,
+            feedback: 'Feil. Når vi vet årsaken til avviket (ballen traff en gren), er det riktig å fjerne denne uteliggeren.',
+          },
+          {
+            id: 'b',
+            text: 'Fjerne den og kaste om igjen, og forklare i rapporten hvorfor',
+            isCorrect: true,
+            feedback: 'Riktig! Når en måling er åpenbart påvirket av en kjent feil (ballen traff en gren), bør den fjernes og erstattes. Viktig å dokumentere dette!',
+          },
+          {
+            id: 'c',
+            text: 'Endre tallet til 16 meter for å matche de andre målingene',
+            isCorrect: false,
+            feedback: 'Feil! Man skal ALDRI endre data til noe man tror de "burde" være. Det er vitenskapelig juks.',
+          },
+          {
+            id: 'd',
+            text: 'Kaste bort alle dataene og begynne helt på nytt',
+            isCorrect: false,
+            feedback: 'Feil. De andre 9 målingene er helt fine. Det er bare den ene målingen som er problematisk.',
+          },
+        ],
+        solution: 'Eleven bør fjerne den åpenbart feilaktige målingen (5 m), gjøre et nytt kast som erstatning, og forklare i forsøksrapporten hvorfor denne målingen ble fjernet (ballen traff en gren).',
+      },
+    },
+
+    // ========== NY OPPGAVE: DOBBELTBLIND STUDIE ==========
+    {
+      id: 'nat10-1-2-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-7',
+        number: '1.15',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: `I en medisinsk studie gis halvparten av pasientene et nytt medikament, og den andre halvparten en sukkerpille (placebo). Verken pasientene eller legene som deler ut medisinene vet hvem som får hva. Hva kalles denne typen studie?`,
+        options: [
+          {
+            id: 'a',
+            text: 'Enkel studie',
+            isCorrect: false,
+            feedback: 'Feil. En enkel studie betyr bare at deltakerne ikke vet om de får medisin eller placebo.',
+          },
+          {
+            id: 'b',
+            text: 'Dobbeltblind studie',
+            isCorrect: true,
+            feedback: 'Riktig! Dobbeltblind betyr at verken deltakerne ELLER forskerne vet hvem som får hva. Dette forhindrer bias.',
+          },
+          {
+            id: 'c',
+            text: 'Observasjonsstudie',
+            isCorrect: false,
+            feedback: 'Feil. En observasjonsstudie innebærer ikke å gi noen behandling – man bare observerer.',
+          },
+          {
+            id: 'd',
+            text: 'Kvalitativ studie',
+            isCorrect: false,
+            feedback: 'Feil. En kvalitativ studie fokuserer på beskrivelser og forståelse, ikke på måling av effekt av et medikament.',
+          },
+        ],
+        solution: 'En dobbeltblind studie er der verken deltakerne eller forskerne vet hvem som får den ekte behandlingen og hvem som får placebo. Dette er gullstandarden for kliniske forsøk fordi det minimerer bias.',
+      },
+    },
+
+    // ========== NY OPPGAVE: PLANLEGG ET HJEMMEEKSPERIMENT ==========
+    {
+      id: 'nat10-1-2-oppg-extra-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-8',
+        number: '1.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Design et enkelt eksperiment du kan gjøre hjemme for å teste følgende hypotese:
+"Varmt vann fryser raskere enn kaldt vann" (kjent som Mpemba-effekten).
+
+Beskriv:
+a) Hypotese
+b) Utstyr du trenger
+c) Steg-for-steg metode
+d) Variabler (uavhengig, avhengig, kontrollerte)
+e) Hva du vil måle og hvordan
+f) Mulige feilkilder`,
+        solution: `**a) Hypotese:**
+"Varmt vann (ca. 70°C) vil fryse til is raskere enn kaldt vann (ca. 20°C) når de plasseres i en fryser under like forhold."
+
+**b) Utstyr:**
+- 2 identiske kopper eller glass (samme materiale, størrelse)
+- Termometer (kjøkkentermometer)
+- Stoppeklokke eller telefon med timer
+- Målebeger for å måle nøyaktig vannmengde
+- Fryser
+- Kjele for å varme opp vann
+- Papir og penn for notater
+
+**c) Steg-for-steg metode:**
+1. Mål opp 200 ml vann i hvert glass
+2. Varm det ene glasset til ca. 70°C (mål med termometer)
+3. La det andre glasset være ved romtemperatur (ca. 20°C, mål med termometer)
+4. Plasser begge glassene i fryseren SAMTIDIG, ved siden av hverandre
+5. Sjekk hvert 30. minutt om vannet har frosset
+6. Noter nøyaktig tidspunkt for når hvert glass er helt frossent
+7. Gjenta eksperimentet 3 ganger for pålitelighet
+
+**d) Variabler:**
+- **Uavhengig:** Starttemperatur på vannet (70°C vs. 20°C)
+- **Avhengig:** Tid til vannet fryser helt
+- **Kontrollerte:** Mengde vann (200 ml), type glass, plassering i fryser, frysertemperatur
+
+**e) Måling:**
+- Mål starttemperatur med termometer
+- Mål tid med stoppeklokke
+- Sjekk frysestatus visuelt hvert 30. minutt (er det is? Delvis is? Helt frosset?)
+
+**f) Mulige feilkilder:**
+- Glassene kan stå på ulike steder i fryseren (ulik temperatur)
+- Vanskelig å vite nøyaktig når vannet er "helt" frossent
+- Å åpne fryseren for å sjekke påvirker temperaturen
+- Glassene kan ha ulik isolerende effekt
+- Starttemperaturen kan endre seg mens du gjør klart
+
+**Bonus:** Mpemba-effekten er faktisk et omstridt fenomen – noen eksperimenter viser det, andre ikke. Ditt resultat kan gå begge veier!`,
+      },
+    },
+
+    // ========== NY OPPGAVE: OPERASJONALISERING ==========
+    {
+      id: 'nat10-1-2-oppg-extra-10',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-10',
+        number: '1.18',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `"Operasjonalisering" betyr å gjøre en vag idé om til noe konkret og målbart.
+
+Forklar hvordan du ville operasjonalisert (gjort målbare) hver av disse variablene:
+
+a) "Helsen" til en plante
+b) "Hvor godt" en elev presterer på skolen
+c) "Kvaliteten" på vannet i en innsjø`,
+        solution: `**a) Helsen til en plante – mulige målbare indikatorer:**
+- Høyde (cm) – vekst er tegn på god helse
+- Antall blader – flere blader = sunnere plante
+- Farge på blader (grønn = sunn, gul/brun = syk) – kan vurderes med fargeskala
+- Vekt av planten (gram)
+- Antall blomster eller frukter
+- Om stengelen er rett eller hengende
+
+**b) Skoleprestasjoner – mulige målbare indikatorer:**
+- Gjennomsnittskarakter (tallverdi)
+- Poeng på en standardisert test
+- Antall riktige svar på en prøve
+- Prosentpoeng på eksamen
+
+**c) Vannkvalitet – mulige målbare indikatorer:**
+- pH-verdi (surhetsgrad)
+- Oksygennivå i vannet (mg/l)
+- Mengde bakterier per ml
+- Siktedyp (hvor langt ned man kan se)
+- Konsentrasjon av forurensende stoffer (f.eks. nitrat, fosfat)
+- Temperatur
+
+**Viktig poeng:**
+Mange begreper vi bruker i dagligtale er vage ("god helse", "dårlig vær"). I vitenskap MÅ vi gjøre dem målbare for å kunne teste hypoteser og analysere data. Å operasjonalisere variabler er et viktig steg i eksperimentplanlegging!`,
+      },
+    },
+
+    // ========== NY OPPGAVE: SIKKERHET PÅ LAB ==========
+    {
+      id: 'nat10-1-2-oppg-extra-9',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-2-oppg-extra-9',
+        number: '1.17',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er det VIKTIGSTE å gjøre før du starter et forsøk med ukjente kjemikalier?',
+        options: [
+          {
+            id: 'a',
+            text: 'Lukte på kjemikaliene for å identifisere dem',
+            isCorrect: false,
+            feedback: 'Feil! Du skal ALDRI lukte direkte på ukjente kjemikalier – noen kan være giftige å puste inn.',
+          },
+          {
+            id: 'b',
+            text: 'Sjekke sikkerhetsdatablad og bruke verneutstyr',
+            isCorrect: true,
+            feedback: 'Riktig! Sikkerhetsdatablad (SDS) forteller om farene med kjemikaliene, og verneutstyr (briller, hansker) beskytter deg.',
+          },
+          {
+            id: 'c',
+            text: 'Blande alle kjemikaliene for å se hva som skjer',
+            isCorrect: false,
+            feedback: 'Feil! Å blande ukjente kjemikalier kan føre til farlige reaksjoner, giftige gasser eller eksplosjoner.',
+          },
+          {
+            id: 'd',
+            text: 'Smake på kjemikaliene for å teste dem',
+            isCorrect: false,
+            feedback: 'Feil! Du skal ALDRI smake på kjemikalier – mange er giftige selv i små mengder.',
+          },
+        ],
+        solution: 'Sikkerhet først! Sjekk alltid sikkerhetsdatablad og bruk riktig verneutstyr (vernebriller, labfrakk, hansker) før du jobber med kjemikalier.',
+      },
+    },
+
     // ========== OPPGAVE 8: REFLEKSJON ==========
     {
       id: 'nat10-1-2-ex-8-block',
@@ -2259,6 +3308,138 @@ En god konklusjon er **detaljert og reflektert**. Den viser ikke bare hva du fan
 Dette viser at du tenker som en ekte forsker!`,
     },
 
+    // ========== NY DEFINISJON: GJENNOMSNITT ==========
+    {
+      id: 'nat10-1-3-def-extra-1',
+      type: 'definition',
+      title: 'Gjennomsnitt (middelverdi)',
+      content: `**Gjennomsnitt** (middelverdi) er summen av alle verdier delt på antall verdier. Det gir oss en "typisk" verdi for et datasett.
+
+**Formel:** Gjennomsnitt = (Sum av alle verdier) / (Antall verdier)
+
+**Eksempel:** Målinger: 10, 12, 11, 13, 14
+Gjennomsnitt = (10 + 12 + 11 + 13 + 14) / 5 = 60 / 5 = 12
+
+**Når er gjennomsnittet nyttig?**
+- Når du vil oppsummere et datasett med ett tall
+- Når du vil sammenligne grupper
+
+**Når kan gjennomsnittet være misvisende?**
+- Når det finnes uteliggere (ekstremverdier) som trekker gjennomsnittet opp eller ned
+- **Eksempel:** Lønn: 300 000, 350 000, 320 000, 310 000, 5 000 000
+  Gjennomsnitt = 1 256 000 – men de fleste tjener rundt 320 000! Medianen ville vært mer representativ her.`,
+    },
+
+    // ========== NY DEFINISJON: UTELIGGER ==========
+    {
+      id: 'nat10-1-3-def-extra-2',
+      type: 'definition',
+      title: 'Uteligger',
+      content: `En **uteligger** er en datapunkt som avviker kraftig fra resten av dataene.
+
+**Eksempel:** Målinger: 5,2 - 5,4 - 5,3 - 5,5 - **9,1** - 5,1
+Her er 9,1 en uteligger fordi den er mye høyere enn de andre verdiene.
+
+**Hva gjør vi med uteliggere?**
+1. **Undersøk årsaken** – Skyldes den en feil? (f.eks. feil avlesning, defekt utstyr)
+2. **Hvis det er en kjent feil:** Fjern uteliggeren og gjenta målingen. Dokumenter dette!
+3. **Hvis årsaken er ukjent:** Rapporter uteliggeren, men vis resultater både med og uten den
+4. **Aldri fjern data bare fordi de ikke passer** – det ville vært vitenskapelig uærlig`,
+    },
+
+    // ========== NY DEFINISJON: KORRELASJON ==========
+    {
+      id: 'nat10-1-3-def-extra-3',
+      type: 'definition',
+      title: 'Korrelasjon',
+      content: `**Korrelasjon** betyr at to variabler henger sammen – når den ene endres, endres den andre også.
+
+**Positiv korrelasjon:** Begge variablene øker sammen.
+- Eksempel: Jo høyere temperatur, desto raskere smelter isen.
+
+**Negativ korrelasjon:** Når den ene øker, synker den andre.
+- Eksempel: Jo kaldere det er, desto tykkere is dannes det på innsjøen.
+
+**Ingen korrelasjon:** Variablene henger ikke sammen.
+- Eksempel: Skostørrelse og mattekarakter.
+
+**VIKTIG:** Korrelasjon betyr IKKE kausalitet (årsakssammenheng)!
+Bare fordi to ting henger sammen, betyr det ikke at den ene forårsaker den andre.`,
+    },
+
+    // ========== NYTT EKSEMPEL: BEREGNE GJENNOMSNITT OG MEDIAN ==========
+    {
+      id: 'nat10-1-3-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Beregne gjennomsnitt, median og spredning',
+      problem: `I et forsøk målte en klasse reaksjonstiden sin (i millisekunder) ved å fange en linjal som ble sluppet. Her er resultatene for 9 elever:
+
+210, 185, 230, 195, 450, 200, 215, 190, 205
+
+a) Beregn gjennomsnittet
+b) Finn medianen
+c) Finn spredningen (range)
+d) Er det noen uteliggere? Hvordan påvirker det gjennomsnittet?`,
+      solution: `**a) Gjennomsnitt:**
+Sum = 210 + 185 + 230 + 195 + 450 + 200 + 215 + 190 + 205 = 2080
+Gjennomsnitt = 2080 / 9 = 231,1 ms
+
+**b) Median:**
+Først sorterer vi verdiene: 185, 190, 195, 200, **205**, 210, 215, 230, 450
+Medianen er verdien i midten: **205 ms**
+
+**c) Spredning (range):**
+Spredning = Høyeste - Laveste = 450 - 185 = 265 ms
+
+**d) Uteliggere:**
+Ja, **450 ms** er en tydelig uteligger – den er mye høyere enn de andre verdiene (som ligger mellom 185-230 ms). Kanskje denne eleven var ukonsentrert eller misforsto instruksjonen.
+
+**Påvirkning på gjennomsnittet:**
+- Med uteliggeren: Gjennomsnitt = 231,1 ms
+- Uten uteliggeren: Gjennomsnitt = (2080 - 450) / 8 = 1630 / 8 = 203,8 ms
+
+Uteliggeren trekker gjennomsnittet opp med nesten 30 ms! Medianen (205 ms) er mer representativ for den "typiske" reaksjonstiden fordi den ikke påvirkes like mye av uteliggere.`,
+    },
+
+    // ========== NYTT EKSEMPEL: TOLKE EN GRAF ==========
+    {
+      id: 'nat10-1-3-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Tolke data fra en tabell',
+      problem: `En elev har målt temperaturen i to glass vann som varmes opp. Glass A inneholder rent vann, Glass B inneholder saltvann.
+
+| Tid (min) | Glass A - rent vann (°C) | Glass B - saltvann (°C) |
+|-----------|--------------------------|-------------------------|
+| 0         | 20                       | 20                      |
+| 2         | 35                       | 34                      |
+| 4         | 52                       | 50                      |
+| 6         | 68                       | 66                      |
+| 8         | 83                       | 80                      |
+| 10        | 95                       | 92                      |
+| 12        | 100 (koker)              | 98                      |
+| 14        | 100                      | 102 (koker)             |
+
+a) Beskriv trenden i dataene.
+b) Hvilket vann koker først?
+c) Hvilket vann har høyest kokepunkt?
+d) Hva kan du konkludere?`,
+      solution: `**a) Trend:**
+Begge glassene varmes opp jevnt over tid. Rent vann varmes opp litt raskere enn saltvann, men forskjellen er liten (1-3°C gjennom hele forsøket). Begge glassene følger en jevn stigende trend.
+
+**b) Hvilket koker først?**
+**Glass A (rent vann)** koker først – ved 12 minutter (100°C).
+Glass B (saltvann) koker ved 14 minutter (102°C).
+
+**c) Høyest kokepunkt?**
+**Glass B (saltvann)** har høyest kokepunkt: 102°C.
+Rent vann koker ved 100°C.
+
+**d) Konklusjon:**
+Salt øker kokepunktet til vann. Dette betyr at saltvann trenger høyere temperatur for å koke, og bruker litt lengre tid på å nå kokepunktet. Rent vann koker raskere, men ved en lavere temperatur.
+
+Dette er fordi saltpartikler "forstyrrer" vannmolekylenes evne til å fordampe, slik at det trengs mer energi for å nå kokepunktet. Dette er et eksempel på en **kolligativ egenskap**.`,
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-1-3-oppsummering',
@@ -2658,6 +3839,283 @@ I praktisk bruk (ingeniørarbeid, medisin) må vi vite hvor sikre målingene er.
 **Huskeregel:**
 Usikkerhet = "hvor god er målingen min?"
 Jo lavere usikkerhet, desto bedre!`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-1',
+      type: 'classic',
+      task: `I et eksperiment måler en elev volumet av en væske med tre forskjellige beger: et målebeger, en sprøyte og en medisinkopp.
+
+Målebeger: 50 ml, 52 ml, 49 ml
+Sprøyte: 50,2 ml, 50,1 ml, 50,3 ml
+Medisinkopp: 45 ml, 55 ml, 48 ml
+
+a) Beregn gjennomsnittet for hvert instrument.
+b) Hvilket instrument gir de mest presise målingene? Forklar.
+c) Hvilket instrument gir de minst presise målingene? Forklar.`,
+      answer: `**a) Gjennomsnitt:**
+- Målebeger: (50 + 52 + 49) / 3 = 50,3 ml
+- Sprøyte: (50,2 + 50,1 + 50,3) / 3 = 50,2 ml
+- Medisinkopp: (45 + 55 + 48) / 3 = 49,3 ml
+
+**b) Mest presist: Sprøyte**
+Målingene med sprøyten varierer minst (50,1 – 50,3 ml, spredning = 0,2 ml). Det betyr at sprøyten gir de mest **konsistente** målingene.
+
+**c) Minst presist: Medisinkopp**
+Målingene med medisinkoppen varierer mest (45 – 55 ml, spredning = 10 ml). Den gir svært inkonsistente resultater og er ikke egnet for presise målinger.
+
+**Presisjon vs. nøyaktighet:**
+- **Presisjon** = hvor nært målingene er til hverandre
+- **Nøyaktighet** = hvor nært målingene er til den sanne verdien
+Sprøyten er både presis (lite variasjon) og sannsynligvis nøyaktig (nær den sanne verdien).`,
+      explanation: `Valg av måleinstrument er viktig i eksperimenter. Instrumenter med høy presisjon gir mer pålitelige data. Bruk alltid det mest nøyaktige instrumentet som er tilgjengelig!`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-2',
+      type: 'multiple-choice',
+      task: `En graf viser at antall solbriller solgt i et land øker samtidig som antall drukningsulykker øker. Hva er den mest sannsynlige forklaringen?
+
+A) Solbriller forårsaker drukningsulykker
+B) Drukningsulykker gjør at folk kjøper solbriller
+C) En tredje faktor (varmt vær/sommer) forårsaker begge deler
+D) Det er bare tilfeldig at de øker samtidig`,
+      answer: 'C) En tredje faktor (varmt vær/sommer) forårsaker begge deler',
+      explanation: `Dette er et klassisk eksempel på **korrelasjon uten kausalitet**. Om sommeren:
+- Flere folk kjøper solbriller (fordi solen skinner)
+- Flere folk bader og drukner (fordi det er varmt)
+
+Varmt vær er den **tredje variabelen** (konfunderende variabel) som forårsaker begge trendene. Solbriller forårsaker IKKE drukning!
+
+**Lærdom:** Når to ting øker eller synker sammen, er det fristende å tro at den ene forårsaker den andre. Men ofte er det en felles årsak som forklarer begge deler.`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-3',
+      type: 'classic',
+      task: `En klasse har gjennomført et eksperiment der de målte hvor mange frø som spirte i ulike temperaturer. Resultatene:
+
+- 10°C: 2 av 20 frø spirte (10%)
+- 15°C: 8 av 20 frø spirte (40%)
+- 20°C: 16 av 20 frø spirte (80%)
+- 25°C: 18 av 20 frø spirte (90%)
+- 30°C: 14 av 20 frø spirte (70%)
+- 35°C: 4 av 20 frø spirte (20%)
+
+a) Beskriv trenden i dataene.
+b) Ved hvilken temperatur spirer flest frø?
+c) Hvilken type diagram ville du brukt for å vise disse dataene? Forklar valget.
+d) Hva kan du konkludere om temperaturens effekt på spiring?`,
+      answer: `**a) Trend:**
+Andelen frø som spirer øker med temperaturen fra 10°C til 25°C, og synker igjen ved 30°C og 35°C. Kurven har en toppverdi ved ca. 25°C og danner en klokkeformet (bueformet) kurve.
+
+**b) Optimalt:** 25°C – her spirte 90% av frøene (18 av 20).
+
+**c) Diagramtype:** Et **linjediagram** eller **søylediagram** ville passet:
+- **Linjediagram:** Viser tydelig den bueformede trenden og gjør det lett å se den optimale temperaturen. Temperaturen er en kontinuerlig variabel, så linjediagram passer godt.
+- **Søylediagram:** Viser de eksakte prosentandelene tydelig for hver temperatur.
+
+Begge er gode valg, men linjediagram viser trenden best.
+
+**d) Konklusjon:**
+Frø har en **optimal spiringstemperatur** rundt 25°C. Både for lave (<15°C) og for høye (>30°C) temperaturer hemmer spiringen. Dette gir en klokkeformet sammenheng mellom temperatur og spiring.
+
+Forklaring: Ved lave temperaturer skjer kjemiske prosesser for sakte. Ved for høye temperaturer kan enzymer bli skadet. Plantene er tilpasset å spire ved moderate temperaturer.`,
+      explanation: `Mange biologiske prosesser viser denne bueformede sammenhengen med temperatur. Enzymer (proteiner som styrer kjemiske reaksjoner i celler) fungerer best ved en bestemt temperatur og blir ødelagt ved for høye temperaturer.`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-4',
+      type: 'multiple-choice',
+      task: `Hva er medianen av følgende datasett: 3, 7, 2, 9, 5?
+
+A) 5
+B) 5,2
+C) 7
+D) 3`,
+      answer: 'A) 5',
+      explanation: `For å finne medianen:
+1. Sorter verdiene: 2, 3, **5**, 7, 9
+2. Finn verdien i midten: **5**
+
+Medianen er 5.
+
+Gjennomsnittet ville vært (2 + 3 + 5 + 7 + 9) / 5 = 26 / 5 = 5,2 (alternativ B).
+Men medianen er den midterste verdien etter sortering, ikke gjennomsnittet!
+
+**Huskeregel:** Median = Midten (etter sortering)`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-5',
+      type: 'classic',
+      task: `En forsker viser en graf der det ser ut som at salget av økologisk mat har økt dramatisk de siste 10 årene. Men y-aksen starter på 80 millioner kroner (ikke 0), og slutter på 100 millioner.
+
+a) Hvorfor kan denne grafen være misvisende?
+b) Hvordan ville grafen sett ut hvis y-aksen startet på 0?
+c) Hva bør du alltid sjekke når du leser en graf?`,
+      answer: `**a) Hvorfor misvisende?**
+Når y-aksen ikke starter på 0, blir endringer **visuelt overdrevet**. En økning fra 80 til 100 millioner ser ut som en dramatisk stigning (grafen stiger bratt), men i virkeligheten er det en økning på 25% (fra 80 til 100).
+
+Hvis y-aksen startet på 0 og gikk til 100, ville hele kurven ligge i den øverste delen av grafen, og økningen ville se mye mer moderat ut.
+
+**b) Med y-akse fra 0:**
+Grafen ville vist en mye flatere kurve. Økningen fra 80 til 100 millioner er bare en liten del av hele y-aksen (0-100), så den ville sett mye mindre dramatisk ut.
+
+**c) Hva bør du alltid sjekke:**
+1. **Starter y-aksen på 0?** – Avkortede akser kan overdrive endringer
+2. **Er aksene merket med enheter?** – Uten enheter er grafen meningsløs
+3. **Er skalaen jevn?** – Ujevn skala kan forvrenge dataene
+4. **Hvem har laget grafen?** – Har de en agenda?
+5. **Hva viser grafen IKKE?** – Er det utelatt informasjon?
+6. **Er tidsperioden rimelig?** – Kort tidsperiode kan vise tilfeldige svingninger`,
+      explanation: `Manipulering av grafer er en vanlig teknikk brukt i reklame, politikk og media for å overdrive eller underdrive trender. Lær deg å se etter avkortede akser og andre triks!`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-6',
+      type: 'classic',
+      task: `Du gjennomfører et eksperiment der du måler pulsen til 10 elever før og etter å ha løpt i 5 minutter.
+
+Puls før løping: 68, 72, 65, 70, 75, 71, 69, 73, 67, 70
+Puls etter løping: 120, 135, 118, 128, 140, 132, 125, 138, 122, 130
+
+a) Beregn gjennomsnittlig puls før og etter løping.
+b) Beregn gjennomsnittlig økning i puls.
+c) Trekk en konklusjon basert på dataene.
+d) Nevn to feilkilder som kan ha påvirket resultatene.`,
+      answer: `**a) Gjennomsnittlig puls:**
+Før: (68+72+65+70+75+71+69+73+67+70) / 10 = 700 / 10 = 70,0 slag/min
+Etter: (120+135+118+128+140+132+125+138+122+130) / 10 = 1288 / 10 = 128,8 slag/min
+
+**b) Gjennomsnittlig økning:**
+128,8 - 70,0 = 58,8 slag/min økning (ca. 84% økning)
+
+**c) Konklusjon:**
+Fysisk aktivitet (løping i 5 minutter) øker pulsen betydelig. Gjennomsnittlig puls økte fra 70,0 til 128,8 slag/min, en økning på 58,8 slag/min. Dette viser at hjertet må slå raskere for å pumpe mer oksygenrikt blod til musklene under aktivitet.
+
+**d) Feilkilder:**
+1. **Unøyaktig pulsmåling:** Elevene kan ha talt feil når de målte puls manuelt (f.eks. ved å telle slag i 15 sekunder og gange med 4)
+2. **Ulik treningsform:** Noen elever kan være i bedre form enn andre, noe som påvirker hvor mye pulsen øker
+3. **Ulik innsats:** Ikke alle løp like fort i de 5 minuttene
+4. **Stressfaktor:** Noen kan ha hatt høyere puls før start på grunn av nervøsitet`,
+      explanation: `Dette er et eksempel på et før-og-etter-eksperiment, der vi sammenligner målinger tatt før og etter en behandling (i dette tilfellet løping). Det er viktig å standardisere forholdene så mye som mulig for å få pålitelige resultater.`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-7',
+      type: 'multiple-choice',
+      task: `Hva er hovedforskjellen mellom en systematisk feil og en tilfeldig feil?
+
+A) Systematiske feil er alltid større enn tilfeldige feil
+B) Systematiske feil påvirker alle målinger likt, tilfeldige feil varierer fra måling til måling
+C) Tilfeldige feil skyldes alltid menneskelige feil
+D) Systematiske feil kan fjernes ved å gjøre flere målinger`,
+      answer: 'B) Systematiske feil påvirker alle målinger likt, tilfeldige feil varierer fra måling til måling',
+      explanation: `**Systematiske feil:**
+- Påvirker alle målinger i **samme retning** (alltid for høy eller for lav)
+- Kan IKKE fjernes ved å gjøre flere målinger (gjennomsnittet vil fortsatt være feil)
+- Eksempel: Et termometer som alltid viser 2°C for mye
+
+**Tilfeldige feil:**
+- Varierer **tilfeldig** fra måling til måling (noen for høye, noen for lave)
+- KAN reduseres ved å gjøre mange målinger og ta gjennomsnittet
+- Eksempel: Små variasjoner i avlesning av en linjal
+
+Forstå forskjellen for å håndtere feilkilder riktig i eksperimenter!`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-8',
+      type: 'classic',
+      task: `En forsker presenterer følgende data i et søylediagram:
+
+Gjennomsnittlig antall epler per tre:
+- Sort A: 45 epler
+- Sort B: 52 epler
+- Sort C: 38 epler
+- Sort D: 49 epler
+
+Forskeren brukte bare 2 trær av hver sort.
+
+a) Kan forskeren konkludere med at Sort B er den beste eplsorten? Begrunn svaret.
+b) Hva ville gjort denne undersøkelsen mer pålitelig?
+c) Hvilken ekstra informasjon ville vært nyttig å ha for å tolke disse dataene?`,
+      answer: `**a) Kan forskeren konkludere?**
+**Nei, ikke med sikkerhet.** Med bare 2 trær per sort er datagrunnlaget for lite. Forskjellene kan skyldes tilfeldige variasjoner mellom individuelle trær (genetikk, plassering, jordkvalitet) og ikke sortens egenskaper.
+
+**b) Hva ville gjort det mer pålitelig?**
+- Bruke **minst 10-20 trær** per sort (replikasjon)
+- Gjenta målingen over **flere år** (eliminerer årsvariasjoner)
+- Sørge for at alle trær har **like vekstforhold** (jord, vann, sollys)
+- Bruke **statistiske tester** for å sjekke om forskjellene er signifikante
+- Inkludere **spredning/standardavvik** – ikke bare gjennomsnitt
+
+**c) Ekstra nyttig informasjon:**
+- **Spredning innenfor hver gruppe:** Var det stor variasjon mellom de to trærne? (Hvis Sort B hadde 30 og 74 epler, er gjennomsnittet 52, men spredningen er enorm)
+- **Alder på trærne:** Eldre trær gir ofte mer frukt
+- **Vekstforhold:** Sto noen trær bedre til enn andre?
+- **Eplenes kvalitet:** Antall sier ingenting om størrelse, smak eller kvalitet
+- **Konfidensintervall:** Statistisk usikkerhet i tallene`,
+      explanation: `Et gjennomsnitt uten informasjon om spredning og utvalgsstørrelse kan være svært misvisende. Alltid spør: "Hvor mange målinger er dette basert på?" og "Hvor mye varierer dataene?"`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-9',
+      type: 'classic',
+      task: `Du har samlet inn data om temperaturen i klasserommet gjennom en skoledag (kl 08-15). Dataene er:
+
+| Klokkeslett | Temperatur (°C) |
+|-------------|----------------|
+| 08:00       | 18,5           |
+| 09:00       | 20,2           |
+| 10:00       | 21,8           |
+| 11:00       | 22,5           |
+| 12:00       | 23,1           |
+| 13:00       | 22,8           |
+| 14:00       | 22,0           |
+| 15:00       | 21,3           |
+
+a) Hva er gjennomsnittlig temperatur gjennom dagen?
+b) Når var temperaturen høyest og lavest?
+c) Beskriv trenden i dataene.
+d) Hva kan forklare mønsteret du ser?`,
+      answer: `**a) Gjennomsnitt:**
+(18,5 + 20,2 + 21,8 + 22,5 + 23,1 + 22,8 + 22,0 + 21,3) / 8 = 172,2 / 8 = 21,5°C
+
+**b) Høyest og lavest:**
+- Høyest: 23,1°C kl. 12:00
+- Lavest: 18,5°C kl. 08:00
+- Spredning: 23,1 - 18,5 = 4,6°C
+
+**c) Trend:**
+Temperaturen stiger jevnt fra morgen (18,5°C) til midt på dagen (23,1°C kl. 12:00), og synker deretter gradvis mot slutten av dagen (21,3°C kl. 15:00). Kurven har en toppverdi rundt lunsjtid.
+
+**d) Mulige forklaringer:**
+1. **Kroppsvarme fra elever:** Når mange elever er i rommet, varmes luften opp av kroppene deres
+2. **Soloppvarming:** Solen varmer rommet gjennom vinduer, spesielt midt på dagen
+3. **Oppvarming fra utstyr:** Datamaskiner, lys og annet elektrisk utstyr produserer varme
+4. **Friminutt/lunsj:** Temperaturen kan synke litt når elever forlater rommet i pausene
+5. **Utendørstemperatur:** Den generelle dagtemperaturen følger også en lignende kurve
+6. **Ventilasjon:** Ventilasjonsanlegget kan påvirke temperaturen gjennom dagen`,
+      explanation: `Denne typen datainnsamling og analyse er vanlig i naturfag. Ved å se etter mønstre i dataene og tenke på mulige forklaringer, trener du vitenskapelig tenkning. Et linjediagram ville vært perfekt for å visualisere disse dataene!`,
+    },
+    {
+      id: 'nat10-1-3-oppg-extra-10',
+      type: 'multiple-choice',
+      task: `Hva er den viktigste forskjellen mellom gjennomsnitt og median?
+
+A) Gjennomsnitt er alltid høyere enn median
+B) Median påvirkes mindre av ekstremverdier (uteliggere) enn gjennomsnitt
+C) Median kan bare brukes for kvalitative data
+D) Gjennomsnitt og median er alltid like`,
+      answer: 'B) Median påvirkes mindre av ekstremverdier (uteliggere) enn gjennomsnitt',
+      explanation: `**Median** er verdien i midten når data er sortert. Den påvirkes lite av ekstremverdier.
+
+**Gjennomsnitt** er summen delt på antall. Det trekkes mot ekstremverdier.
+
+**Eksempel:**
+Data: 10, 12, 13, 14, **100**
+
+- Gjennomsnitt: (10+12+13+14+100) / 5 = 149 / 5 = 29,8
+- Median: 13 (midtverdien)
+
+Her er medianen (13) mye mer "representativ" for de fleste verdiene. Gjennomsnittet (29,8) er trukket kraftig opp av uteliggeren 100.
+
+**Når bruke hva?**
+- **Gjennomsnitt:** Når dataene er jevnt fordelt uten store uteliggere
+- **Median:** Når det finnes uteliggere eller dataene er skjevt fordelt (f.eks. inntektsdata)`,
     },
   ],
 };
@@ -3180,6 +4638,468 @@ Alle trinn er koblet sammen med piler som viser bevegelsen av vann gjennom syste
 
 **Konklusjon:**
 Modellen er god for å forstå de grunnleggende prosessene i vannets kretsløp, men den forenkler mange detaljer. Den er mest nyttig for å lære hovedprinsippene.`,
+      },
+    },
+
+    // ========== NY DEFINISJON: SIMULERING ==========
+    {
+      id: 'nat10-1-4-def-extra-1',
+      type: 'definition',
+      title: 'Simulering',
+      content: `En **simulering** er en datastyrt modell som etterligner et virkelig system eller fenomen over tid.
+
+**Hva skiller en simulering fra en vanlig modell?**
+- En simulering er **dynamisk** – den viser hvordan noe endrer seg over tid
+- Den kan kjøre **mange scenarioer** raskt
+- Den lar oss teste "hva skjer hvis..." uten å gjøre ekte eksperimenter
+
+**Eksempler:**
+- **Klimasimuleringer:** Hva skjer med temperaturen om 50 år hvis vi dobler CO₂-utslippene?
+- **Flomsimuleringer:** Hvilke områder oversvømmes hvis elven stiger 2 meter?
+- **Trafikksimuering:** Hva skjer med trafikkflyten hvis vi bygger en ekstra kjørefelt?
+- **Flugsimulator:** Lar piloter trene uten å fly et ekte fly
+
+**Begrensninger:** En simulering er bare så god som modellen den bygger på. "Garbage in, garbage out" – feil data inn gir feil resultater ut.`,
+    },
+
+    // ========== NY DEFINISJON: ANALOGI ==========
+    {
+      id: 'nat10-1-4-def-extra-2',
+      type: 'definition',
+      title: 'Analogi',
+      content: `En **analogi** er en sammenligning mellom noe ukjent og noe kjent for å gjøre det lettere å forstå.
+
+Analogier brukes ofte som uformelle modeller i naturfag:
+- **Atomet som et lite solsystem:** Elektroner (planeter) kretser rundt kjernen (solen)
+- **DNA som en oppskriftsbok:** DNA inneholder "oppskrifter" for å bygge proteiner
+- **Cellemembranen som en dørvakt:** Slipper noen stoffer inn og holder andre ute
+
+**Styrker:** Analogier gjør abstrakte konsepter lett forståelige.
+
+**Svakheter:** Ingen analogi er perfekt. Atomet er IKKE et solsystem – elektroner oppfører seg helt annerledes enn planeter. Det er viktig å vite hvor analogien bryter sammen.`,
+    },
+
+    // ========== NY DEFINISJON: SKALA ==========
+    {
+      id: 'nat10-1-4-def-extra-3',
+      type: 'definition',
+      title: 'Skala',
+      content: `**Skala** i en modell beskriver forholdet mellom størrelsen i modellen og størrelsen i virkeligheten.
+
+**Eksempler:**
+- En globus med skala 1:40 000 000 betyr at 1 cm på globusen tilsvarer 400 km i virkeligheten
+- En modell av en celle som er 10 000 ganger forstørret viser detaljer som er usynlige for øyet
+
+**Hvorfor er skala viktig?**
+- Fysiske modeller kan sjelden vise riktig størrelse OG riktig avstand
+- Noen modeller forstørrer det lille (celler, atomer), andre forminsker det store (solsystem, galakser)
+- Det er viktig å forstå at skalaen er en forenkling
+
+**Utfordring:** I en modell av solsystemet – hvis solen er en fotball (22 cm), ville jorden vært et sennepsfrø 24 meter unna, og Pluto ville vært nesten 1 km unna!`,
+    },
+
+    // ========== NYTT EKSEMPEL: ANALOGIER I BIOLOGI ==========
+    {
+      id: 'nat10-1-4-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Analogier som modeller',
+      problem: `I undervisningen brukes ofte analogier for å forklare biologiske prosesser. Vurder følgende analogi:
+
+"Cellen er som en fabrikk. Kjernen er direktørkontoret som styrer alt. Mitokondriene er kraftverkene som produserer energi. Cellemembranen er fabrikkens vegger og porter."
+
+a) Hva er styrkene med denne analogien?
+b) Hvor bryter analogien sammen (hva stemmer IKKE)?`,
+      solution: `**a) Styrker:**
+
+1. **Gjør noe usynlig forståelig** – de fleste kan se for seg en fabrikk, men ikke en celle
+2. **Viser funksjonene** til cellens deler på en intuitiv måte:
+   - Kjernen styrer (som et kontor)
+   - Mitokondriene produserer energi (som et kraftverk)
+   - Cellemembranen kontrollerer hva som kommer inn og ut (som vegger med porter)
+3. **Viser at delene jobber sammen** som et system
+4. **God for introduksjon** – gir en første forståelse som kan bygges videre
+
+**b) Hvor analogien bryter sammen:**
+
+1. **Celler er levende, fabrikker er ikke** – celler kan vokse, dele seg og dø
+2. **Celler reparerer seg selv** – en fabrikk gjør ikke det
+3. **Skala** – en celle er millioner ganger mindre enn en fabrikk
+4. **DNA** – det finnes ingen fabrikkdel som tilsvarer et DNA-molekyl med sin evne til å kopiere seg selv
+5. **Cellemembranen** er mye mer kompleks enn en vegg – den er selektivt permeabel, flytende, og aktiv
+6. **Ribosomer, ER, Golgi-apparat** osv. har ikke åpenbare fabrikkanalogier
+
+**Konklusjon:** Analogien er et godt startpunkt, men man må lære cellens virkelige egenskaper for å forstå den fullt ut.`,
+    },
+
+    // ========== NYTT EKSEMPEL: MODELLER SOM ENDRER SEG ==========
+    {
+      id: 'nat10-1-4-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Modellen av jordens form',
+      problem: `Gjennom historien har mennesker brukt ulike modeller for å beskrive jordens form. Hvilke modeller har blitt brukt, og hvorfor endret de seg?`,
+      solution: `**Modeller av jordens form gjennom historien:**
+
+**1. Flat jord (antikken og før)**
+- Mange tidlige kulturer trodde jorden var flat
+- Basert på daglig observasjon – jorden SER flat ut når du står på den
+- Modellen fungerte for daglig navigasjon over korte avstander
+
+**2. Perfekt kule (antikkens Hellas, ca. 500 f.Kr.)**
+- Greske filosofer (bl.a. Pythagoras) foreslo at jorden er en kule
+- Bevis: Skipet "synker" under horisonten, jordens sirkelformede skygge på månen under måneformørkelse
+- Eratosthenes beregnet jordens omkrets rundt 240 f.Kr. (og kom forbløffende nær!)
+
+**3. Oblat sfæroide (1600-1700-tallet)**
+- Newton foreslo at jorden er litt flattrykt ved polene og bulende ved ekvator
+- Årsak: Jordens rotasjon
+- Bekreftet av målinger på ekspedisjoner
+
+**4. Geoide (moderne modell)**
+- Jordens form er uregelmessig – ikke en perfekt kule eller ellipsoide
+- Overflaten varierer pga. fjell, daler, og variasjoner i tyngdekraften
+- Bruker satellittdata for å kartlegge den nøyaktige formen
+
+**Hvorfor endret modellene seg?**
+- **Bedre observasjonsmetoder:** Teleskoper, sjøfart, satellitter
+- **Nye data:** Presise målinger viste at den gamle modellen ikke stemte helt
+- **Bedre matematikk:** Gjorde det mulig å beskrive mer komplekse former
+
+**Hva lærer vi?**
+Alle modellene var nyttige i sin tid. En flat jord fungerer fint for å navigere i en by, men ikke for å seile rundt kloden. Vitenskapelige modeller forbedres kontinuerlig når vi får bedre data og verktøy.`,
+    },
+
+    // ========== NY OPPGAVE: VELG RIKTIG MODELLTYPE ==========
+    {
+      id: 'nat10-1-4-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-1',
+        number: '1.7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Velg den beste modelltypen (fysisk, matematisk, konseptuell eller datasimulering) for hvert formål, og begrunn svaret:
+
+a) Vise elevene hvordan hjertet ser ut innvendig
+b) Forutsi hvordan en pandemi vil spre seg i en by
+c) Forklare sammenhengen mellom rovdyr og byttedyr i et økosystem
+d) Beregne nøyaktig hvor langt en ball faller på 3 sekunder`,
+        solution: `**a) Fysisk modell**
+En 3D-modell av hjertet som kan åpnes og vise kamrene, klaffene og blodårene. Elevene kan holde den, snu den og se innvendig.
+*Begrunnelse:* Hjertet er et tredimensjonalt organ – en fysisk modell lar elevene se strukturen fra alle vinkler.
+
+**b) Datasimulering**
+Et dataprogram som simulerer hvordan smitte sprer seg mellom mennesker basert på kontaktmønstre, smittsomhet og tiltak.
+*Begrunnelse:* En pandemi er et ekstremt komplekst system med millioner av variabler. Bare en datamaskin kan håndtere alle beregningene, og simuleringen lar oss teste ulike scenarioer (f.eks. vaksiner vs. lockdown).
+
+**c) Konseptuell modell (begrepsmodell)**
+Et diagram med piler som viser hvordan rovdyrpopulasjonen øker når byttedyrpopulasjonen er stor, og omvendt.
+*Begrunnelse:* Sammenhengen mellom rovdyr og byttedyr er en prosess/relasjon som best vises med et diagram med piler og forklaringer.
+
+**d) Matematisk modell**
+Bruk formelen s = ½gt² der g = 9,81 m/s² og t = 3 s: s = ½ × 9,81 × 9 = 44,1 meter.
+*Begrunnelse:* Fritt fall beskrives presist med en formel som gir et nøyaktig tall. Matematiske modeller er best når vi trenger eksakte beregninger.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: MODELLENS BEGRENSNINGER ==========
+    {
+      id: 'nat10-1-4-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-2',
+        number: '1.8',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er den viktigste begrensningen med alle modeller i naturfag?',
+        options: [
+          {
+            id: 'a',
+            text: 'De er alltid for dyre å lage',
+            isCorrect: false,
+            feedback: 'Feil. Mange modeller er gratis (tegninger, diagrammer). Kostnad er ikke den viktigste begrensningen.',
+          },
+          {
+            id: 'b',
+            text: 'De er alltid forenklinger av virkeligheten og kan ikke vise alt',
+            isCorrect: true,
+            feedback: 'Riktig! Alle modeller er forenklinger. De viser noen aspekter av virkeligheten godt, men utelater nødvendigvis detaljer.',
+          },
+          {
+            id: 'c',
+            text: 'De fungerer bare i klasserommet',
+            isCorrect: false,
+            feedback: 'Feil. Modeller brukes overalt – i forskning, industri, medisin og mer.',
+          },
+          {
+            id: 'd',
+            text: 'De kan aldri forbedres',
+            isCorrect: false,
+            feedback: 'Feil. Modeller forbedres hele tiden etter hvert som vi får ny kunnskap og bedre verktøy.',
+          },
+        ],
+        solution: 'Alle modeller er forenklinger. De viser noen viktige aspekter av virkeligheten, men utelater detaljer. Det er viktig å forstå hva en modell viser OG hva den ikke viser.',
+      },
+    },
+
+    // ========== NY OPPGAVE: SAMMENLIGN MODELLER ==========
+    {
+      id: 'nat10-1-4-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-3',
+        number: '1.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `To lærere forklarer fotosyntesen på ulike måter:
+
+**Lærer A** tegner et diagram på tavlen som viser: Sol → Blad → CO₂ + H₂O → Glukose + O₂
+
+**Lærer B** viser den kjemiske ligningen: 6CO₂ + 6H₂O + lysenergi → C₆H₁₂O₆ + 6O₂
+
+a) Hvilken type modell bruker hver lærer?
+b) Hva er styrken med hver modell?
+c) Hva mangler i hver modell?
+d) Hvilken modell foretrekker du for å lære, og hvorfor?`,
+        solution: `**a) Modelltyper:**
+- Lærer A: **Konseptuell modell** (diagram med piler)
+- Lærer B: **Matematisk/kjemisk modell** (balansert kjemisk ligning)
+
+**b) Styrker:**
+**Lærer A:**
+- Visuelt og lett å forstå
+- Viser prosessen som en helhet
+- Tydelig at solen gir energi til bladet
+- God for elever som er nye til temaet
+
+**Lærer B:**
+- Viser nøyaktig hvilke stoffer som reagerer og dannes
+- Viser at ligningen er balansert (like mange atomer på begge sider)
+- Kvantifiserer forholdet mellom stoffene
+- Viktig for kjemiforståelse
+
+**c) Hva mangler:**
+**Lærer A:**
+- Viser ikke nøyaktige mengder
+- Forklarer ikke prosessen inni bladet (kloroplaster, klorofyll)
+- Kan gi inntrykk av at det er enklere enn det er
+
+**Lærer B:**
+- Viser ikke at dette skjer i blader med klorofyll
+- Forklarer ikke HOW prosessen fungerer
+- Kan virke skremmende for elever som ikke kan kjemi
+
+**d) Personlig preferanse:**
+Det er individuelt! For nybegynnere er Lærer As modell bedre som introduksjon. For dypere forståelse trenger man Lærer Bs modell. Ideelt: Bruk begge – start med A, gå videre til B.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: LAG MODELL FOR FENOMEN ==========
+    {
+      id: 'nat10-1-4-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-4',
+        number: '1.10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Du skal forklare for en 5-åring hvordan blodet strømmer gjennom kroppen (blodomløpet).
+
+a) Lag en enkel modell eller analogi du kan bruke.
+b) Hva er de viktigste elementene som MÅ være med?
+c) Hva må du forenkle eller utelate?
+d) Hvor kan modellen din skape misforståelser?`,
+        solution: `**a) Modell/Analogi:**
+"Kroppen din er som en by, og blodet er som små biler som kjører rundt på veiene (blodårene). Hjertet er den store pumpen midt i byen som skyver bilene rundt. Bilene henter oksygen (som er drivstoff) fra lungene og leverer det til alle husene (cellene) i kroppen. Så henter de avfallet (CO₂) og kjører det tilbake til lungene for å bli kvitt det."
+
+**b) Viktigste elementer som MÅ med:**
+1. Hjertet som pumpe – det som driver blodet rundt
+2. Blodårene som transportveier – blodet strømmer i rør
+3. Oksygen-levering – blodet bringer oksygen fra lungene til kroppen
+4. Det er et kretsløp – blodet går rundt og rundt hele tiden
+
+**c) Forenklinger/utelatelser:**
+- Skiller ikke mellom arterier (fra hjertet) og vener (til hjertet)
+- Utelater kapillærer (de minste blodårene)
+- Forklarer ikke det lille og store kretsløpet
+- Utelater hvite blodceller, blodplater, næringsstoffer
+- Forklarer ikke hvordan hjertet har fire kamre
+- Forenkler gassutveksling i lungene
+
+**d) Mulige misforståelser:**
+- Barn kan tro at det er ekte biler inne i kroppen
+- Kan gi inntrykk av at blodceller velger hvor de kjører (i virkeligheten drives de av trykk)
+- Kan skape forvirring om at blodårene er som veier med asfalt
+- Kan gi inntrykk av at alt blod inneholder oksygen (i virkeligheten har venøst blod lite oksygen)
+
+**Viktig:** Modellen er et godt startpunkt for en 5-åring. Etter hvert kan den utvides med mer nøyaktige detaljer.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: MODELLER I HVERDAGEN ==========
+    {
+      id: 'nat10-1-4-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-5',
+        number: '1.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilke av følgende er eksempler på modeller vi bruker i hverdagen?',
+        options: [
+          {
+            id: 'a',
+            text: 'Et kart over byen',
+            isCorrect: false,
+            feedback: 'Et kart er absolutt en modell, men det er ikke det eneste riktige svaret.',
+          },
+          {
+            id: 'b',
+            text: 'Værmelding på TV',
+            isCorrect: false,
+            feedback: 'En værmelding bygger på matematiske modeller, men det er ikke det eneste riktige svaret.',
+          },
+          {
+            id: 'c',
+            text: 'En plantegning av et hus',
+            isCorrect: false,
+            feedback: 'En plantegning er en modell av et hus, men det er ikke det eneste riktige svaret.',
+          },
+          {
+            id: 'd',
+            text: 'Alle alternativene over er modeller',
+            isCorrect: true,
+            feedback: 'Riktig! Kart, værmeldinger og plantegninger er alle modeller – forenklede representasjoner av virkeligheten som vi bruker daglig.',
+          },
+        ],
+        solution: 'Vi omgir oss med modeller hele tiden! Kart forenkler terrenget, værmeldinger bruker datamodeller for å forutsi været, og plantegninger viser et hus i 2D. Alle er forenklinger av virkeligheten som hjelper oss å forstå og ta beslutninger.',
+      },
+    },
+
+    // ========== NY OPPGAVE: FORBEDRE EN MODELL ==========
+    {
+      id: 'nat10-1-4-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-6',
+        number: '1.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En lærebok bruker en næringskjede som modell for å vise energiflyt i et økosystem:
+
+Gress → Hare → Rev → Ørn
+
+a) Hva viser denne modellen godt?
+b) Hva er begrensningene med denne modellen?
+c) Hvordan kan modellen forbedres for å gi et mer realistisk bilde?`,
+        solution: `**a) Hva modellen viser godt:**
+- Retningen energien flyter (fra produsent til konsumenter)
+- Enkel å forstå – hvem spiser hvem
+- Viser at dyr er avhengige av hverandre
+- Viser trofiske nivåer (produsent → primærkonsument → sekundærkonsument → tertiærkonsument)
+
+**b) Begrensninger:**
+- Viser bare ÉN "linje" – i virkeligheten spiser harer også andre planter, og reven spiser mye mer enn bare harer
+- Viser ikke at organismer kan være mat for flere arter
+- Utelater nedbrytere (sopp, bakterier) som bryter ned døde organismer
+- Viser ikke at energi tapes som varme i hvert ledd
+- Viser ikke at ørnen til slutt dør og brytes ned
+
+**c) Forbedring – næringsnett:**
+En **næringsnett** er en bedre modell fordi den viser mange sammenkoblede næringskjeder:
+
+- Gress → Hare → Rev → Ørn
+- Gress → Mus → Rev
+- Gress → Mus → Ugle
+- Bær → Hare → Ørn
+- Insekter → Fugler → Ørn
+- Alle → Nedbrytere (sopp, bakterier)
+
+**Ytterligere forbedring:** En energipyramide som viser at bare ca. 10% av energien overføres fra ett nivå til neste, og resten tapes som varme.
+
+**Konklusjon:** Næringskjeden er en nyttig, men svært forenklet modell. Næringsnett og energipyramider gir et mer realistisk bilde av energiflyt i økosystemer.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: KRITISK VURDERING AV MODELL ==========
+    {
+      id: 'nat10-1-4-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-7',
+        number: '1.13',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'En elev sier: "Bohrs atommodell er helt feil fordi elektroner ikke beveger seg i faste baner. Vi bør aldri bruke den." Hva er den beste responsen?',
+        options: [
+          {
+            id: 'a',
+            text: 'Eleven har helt rett – Bohrs modell er ubrukelig',
+            isCorrect: false,
+            feedback: 'Feil. Selv om Bohrs modell har begrensninger, er den fortsatt nyttig for å forstå grunnleggende atomstruktur.',
+          },
+          {
+            id: 'b',
+            text: 'Eleven tar feil – Bohrs modell er 100% korrekt',
+            isCorrect: false,
+            feedback: 'Feil. Bohrs modell er en forenkling og er ikke fullstendig korrekt for alle atomer.',
+          },
+          {
+            id: 'c',
+            text: 'Bohrs modell er en nyttig forenkling for å lære grunnleggende, selv om den ikke er helt nøyaktig',
+            isCorrect: true,
+            feedback: 'Riktig! En modell trenger ikke være perfekt for å være nyttig. Bohrs modell er et godt verktøy for å forstå grunnleggende atomstruktur, selv om den ikke forklarer alt.',
+          },
+          {
+            id: 'd',
+            text: 'Vi bør bruke bare den nyeste modellen og glemme alle eldre modeller',
+            isCorrect: false,
+            feedback: 'Feil. Eldre modeller kan fortsatt være nyttige som læringsverktøy og gir historisk forståelse.',
+          },
+        ],
+        solution: 'Ingen modell er perfekt, men en modell trenger ikke være perfekt for å være nyttig. Bohrs modell er en god introduksjon til atomstruktur, og den fungerer godt for enkle atomer som hydrogen.',
+      },
+    },
+
+    // ========== NY OPPGAVE: MODELLER OG VITENSKAP ==========
+    {
+      id: 'nat10-1-4-oppg-extra-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-4-oppg-extra-8',
+        number: '1.14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forklar hvorfor klimamodeller ikke kan gi oss en 100% sikker forutsigelse om framtidens klima, men likevel er verdifulle verktøy for samfunnet.
+
+Bruk det du har lært om modellers styrker og svakheter i svaret ditt.`,
+        solution: `**Hvorfor ikke 100% sikker forutsigelse:**
+
+1. **Forenklinger:** Klimamodeller forenkler ekstremt komplekse systemer. Atmosfæren, havene, iskappene og biosfæren samhandler på måter som er vanskelige å simulere perfekt.
+
+2. **Usikre inngangsdata:** Vi vet ikke nøyaktig hvor mye CO₂ menneskene vil slippe ut i framtiden – det avhenger av politiske beslutninger og teknologiutvikling.
+
+3. **Kaotiske systemer:** Klimasystemet er delvis kaotisk – små endringer i startforhold kan gi store forskjeller over tid.
+
+4. **Ukjente prosesser:** Det finnes prosesser vi ennå ikke forstår fullt ut (f.eks. skyenes rolle, tilbakekoblingsmekanismer).
+
+5. **Beregningsbegrensninger:** Selv superdatamaskiner kan ikke beregne alle detaljer – modellene må bruke forenklinger.
+
+**Hvorfor de likevel er verdifulle:**
+
+1. **Beste verktøy vi har:** Uten modeller ville vi bare gjette om framtiden. Modeller gir oss informerte estimater.
+
+2. **Scenarioanalyse:** De lar oss teste "hva skjer hvis..." – f.eks. hva skjer med temperaturen ved ulike utslippsnivåer?
+
+3. **Historisk nøyaktighet:** Modellene har vist seg å forutsi fortiden ganske godt – det gir tillit til framtidsforutsigelsene.
+
+4. **Konsensus:** Når mange ulike modeller fra ulike forskergrupper viser lignende trender, øker tilliten.
+
+5. **Beslutningsgrunnlag:** Selv usikre forutsigelser er bedre enn ingen forutsigelser. De hjelper politikere og samfunn å planlegge.
+
+6. **Risikovurdering:** De viser oss spennet av mulige utfall, slik at vi kan forberede oss på ulike scenarioer.
+
+**Konklusjon:**
+Klimamodeller er som et værkart – de gir ikke perfekte forutsigelser, men de gir oss den beste tilgjengelige informasjonen for å ta gode beslutninger. Vi bør verken overvurdere eller undervurdere dem.`,
       },
     },
 
@@ -3757,6 +5677,487 @@ Den har høy troverdighet, god objektivitet, høy nøyaktighet og er egnet for s
       },
     },
 
+    // ========== NY DEFINISJON: KILDEKRITIKK ==========
+    {
+      id: 'nat10-1-5-def-extra-1',
+      type: 'definition',
+      title: 'Kildekritikk',
+      content: `**Kildekritikk** er evnen til å vurdere om en informasjonskilde er pålitelig, nøyaktig og relevant.
+
+Kildekritikk innebærer å spørre:
+- **Hvem** har skrevet eller publisert informasjonen?
+- **Hvorfor** ble den publisert? (Informere, selge, overbevise?)
+- **Når** ble den publisert? (Er den oppdatert?)
+- **Hvor** er den publisert? (Fagfellevurdert tidsskrift, blogg, sosiale medier?)
+- **Hva** er bevisene for påstandene?
+
+Kildekritikk er en av de viktigste ferdighetene i det moderne informasjonssamfunnet, der vi daglig møter enorme mengder informasjon av varierende kvalitet.`,
+    },
+
+    // ========== NY DEFINISJON: VITENSKAPELIG KONSENSUS ==========
+    {
+      id: 'nat10-1-5-def-extra-2',
+      type: 'definition',
+      title: 'Vitenskapelig konsensus',
+      content: `**Vitenskapelig konsensus** er det som de fleste eksperter på et fagområde er enige om, basert på den samlede forskningen.
+
+**Eksempler på vitenskapelig konsensus:**
+- Klimaendringer er hovedsakelig forårsaket av menneskelig aktivitet (97%+ av klimaforskere)
+- Vaksiner er trygge og effektive (støttet av overveldende forskning)
+- Evolusjonsteorien forklarer artenes utvikling (akseptert av biologer globalt)
+
+**Viktig:**
+- Konsensus betyr ikke at ALLE er enige – det betyr at det store flertallet er enige
+- Konsensus kan endre seg over tid hvis nye bevis kommer fram
+- En enkelt studie som motsier konsensus, betyr IKKE at konsensus er feil
+- Konsensus bygges over tid gjennom tusenvis av uavhengige studier
+
+**Analogi:** Vitenskapelig konsensus er som et bygg med tusenvis av murstein. Én løs murstein gjør ikke at bygget raser.`,
+    },
+
+    // ========== NY DEFINISJON: ANEKDOTISK BEVIS ==========
+    {
+      id: 'nat10-1-5-def-extra-3',
+      type: 'definition',
+      title: 'Anekdotisk bevis',
+      content: `**Anekdotisk bevis** er personlige historier eller enkeltopplevelser som brukes som "bevis" for en påstand.
+
+**Eksempel:**
+"Min bestemor røykte hele livet og ble 95 år gammel, så røyking kan ikke være farlig."
+
+**Hvorfor er anekdotisk bevis upålitelig?**
+1. **Unntak, ikke regelen:** Én person som ikke blir syk av røyking, endrer ikke at røyking øker risikoen for kreft dramatisk
+2. **Ikke kontrollert:** Vi vet ikke om andre faktorer spilte inn (gener, livsstil)
+3. **Selektiv hukommelse:** Vi husker historiene som passer med det vi allerede tror
+4. **Liten utvalgsstørrelse:** Én person er ikke nok til å konkludere
+
+**Vitenskapelig bevis** er mye sterkere fordi det:
+- Bruker **store grupper** av mennesker
+- **Kontrollerer** for andre faktorer
+- Kan **gjentas** av andre forskere
+- Bruker **statistikk** for å vurdere sikkerhet`,
+    },
+
+    // ========== NYTT EKSEMPEL: VURDERE EN KILDE ==========
+    {
+      id: 'nat10-1-5-example-extra-1',
+      type: 'example',
+      title: 'Eksempel: Vurdere troverdigheten til informasjonskilder',
+      problem: `Du søker etter informasjon om effekten av kosttilskudd. Du finner tre kilder:
+
+**Kilde 1:** En Instagram-influencer som sier: "Disse vitaminpillene endret livet mitt! Bruk rabattkoden min for 20% avslag!"
+
+**Kilde 2:** En artikkel på Folkehelseinstituttets (FHI) nettside som refererer til flere forskningsstudier og sier: "Det er begrenset dokumentasjon for at kosttilskudd har helseffekt for personer som allerede har et balansert kosthold."
+
+**Kilde 3:** En nettside som selger kosttilskudd og sier: "Vitenskapelig bevist at våre produkter styrker immunforsvaret med 500%!"
+
+Vurder hver kilde med TONE-prinsippet.`,
+      solution: `**Kilde 1: Instagram-influencer**
+
+**T (Troverdighet):** LAV – Influenceren er sannsynligvis ikke medisinsk ekspert
+**O (Objektivitet):** LAV – Har økonomisk interesse (rabattkode = tjener penger på salg)
+**N (Nøyaktighet):** USIKKER – Personlig erfaring er ikke vitenskapelig bevis (anekdotisk)
+**E (Egnethet):** LAV – Sosiale medier er ikke en vitenskapelig kilde
+
+**Vurdering:** Ikke pålitelig. Kombinasjonen av manglende ekspertise og økonomisk interesse gjør dette til en upålitelig kilde.
+
+---
+
+**Kilde 2: FHI**
+
+**T (Troverdighet):** HØY – FHI er Norges fremste helsemyndighet med fagfolk
+**O (Objektivitet):** HØY – Offentlig finansiert, ingen produkter å selge
+**N (Nøyaktighet):** HØY – Refererer til forskningsstudier, forsiktig med påstander
+**E (Egnethet):** HØY – Relevant, oppdatert og på riktig faglig nivå
+
+**Vurdering:** Svært pålitelig. FHI har ingen agenda utover folkehelse og baserer seg på forskning.
+
+---
+
+**Kilde 3: Nettbutikk**
+
+**T (Troverdighet):** LAV – Selger produktene de omtaler
+**O (Objektivitet):** LAV – Sterk økonomisk interessekonflikt
+**N (Nøyaktighet):** LAV – "500% styrking av immunforsvar" er en overdrevet og tvilsom påstand. Ingen seriøs forskning bruker slike tall.
+**E (Egnethet):** LAV – Reklame, ikke vitenskapelig kilde
+
+**Vurdering:** Ikke pålitelig. Overdrevne påstander kombinert med økonomisk motiv er røde flagg.`,
+    },
+
+    // ========== NYTT EKSEMPEL: IDENTIFISERE LOGISKE FEILSLUTNINGER ==========
+    {
+      id: 'nat10-1-5-example-extra-2',
+      type: 'example',
+      title: 'Eksempel: Vanlige feilslutninger',
+      problem: `Identifiser feilen i hvert av disse argumentene:
+
+1. "Min nabo tok C-vitamin og ble frisk fra forkjølelsen på 7 dager. Altså kurerer C-vitamin forkjølelse!"
+
+2. "9 av 10 tannleger anbefaler dette tankremet. Derfor er det det beste kremen."
+
+3. "Forskeren er bare 25 år gammel, så hun kan umulig ha rett om klimaendringer."
+
+4. "Vi har brukt dette naturlegemiddelet i 500 år, så det MÅ fungere."`,
+      solution: `**1. Forveksling av korrelasjon og kausalitet + anekdotisk bevis**
+- Forkjølelse varer typisk 7-10 dager UANSETT – de fleste blir friske uten noen behandling
+- Dette er bare én persons erfaring (anekdotisk bevis)
+- Uten en kontrollgruppe (folk som IKKE tok C-vitamin) kan man ikke vite om C-vitaminet hadde effekt
+- **Riktig tilnærming:** Se på kontrollerte studier med mange deltakere
+
+**2. Appell til autoritet + ufullstendig informasjon**
+- Hvem er disse tannlegene? Er de uavhengige?
+- Fikk de betalt av firmaet?
+- Hva anbefaler den 10. tannlegen?
+- Er 10 tannleger nok til å representere alle tannleger?
+- **Riktig tilnærming:** Se på uavhengige studier av produktets effekt
+
+**3. Ad hominem (angrep på personen i stedet for argumentet)**
+- Alderen til forskeren er irrelevant – det som teller er kvaliteten på forskningen
+- Unge forskere kan ha like gode (eller bedre) data som eldre forskere
+- **Riktig tilnærming:** Vurder argumentene og bevisene, ikke personen
+
+**4. Appell til tradisjon**
+- At noe har blitt gjort lenge, betyr ikke at det fungerer
+- I 500 år trodde man også at årelating (tappe blod) kurerte sykdom – det gjør det ikke
+- Uten vitenskapelig testing vet vi ikke om det har effekt
+- **Riktig tilnærming:** Test med moderne vitenskapelige metoder`,
+    },
+
+    // ========== NY OPPGAVE: VURDER OVERSKRIFT ==========
+    {
+      id: 'nat10-1-5-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-1',
+        number: '1.5.7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Les disse overskriftene og vurder om de er pålitelige eller villedende:
+
+a) "Ny studie: Sjokolade kan redusere risikoen for hjertesykdom"
+b) "SJOKK! Forskere avslører at vann er GIFTIG!"
+c) "WHO: Antibiotikaresistens er en av de største helsetruslene globalt"
+d) "Hemmelig kur som legene ikke vil at du skal vite om!"
+
+For hver overskrift, forklar hva som gjør den pålitelig eller upålitelig.`,
+        solution: `**a) "Ny studie: Sjokolade kan redusere risikoen for hjertesykdom"**
+**Mulig pålitelig, men vær forsiktig:**
+- Bruker forsiktig språk ("kan redusere") – bra!
+- Men: Én studie er ikke nok til å konkludere
+- Sjekk: Hvem finansierte studien? (Sjokoladeprodusent?)
+- Sjekk: Hvor stor var effekten? Hvor mange deltakere?
+- Sannsynligvis en forenklet versjon av et mer nyansert funn
+
+**b) "SJOKK! Forskere avslører at vann er GIFTIG!"**
+**Villedende clickbait:**
+- Overdrevne ord: "SJOKK", "avslører", store bokstaver
+- Teknisk sett KAN vann være giftig i ekstremt store mengder (hyponatremi), men dette er ekstrem forenkling
+- Designet for å skape frykt og få klikk, ikke for å informere
+- Typisk clickbait som tar et marginalt faktum ut av kontekst
+
+**c) "WHO: Antibiotikaresistens er en av de største helsetruslene globalt"**
+**Pålitelig:**
+- Kilden er WHO (Verdens helseorganisasjon) – anerkjent ekspertorganisasjon
+- Nøkternt språk, ingen overdrivelser
+- Støttet av bred vitenskapelig konsensus
+- Presist formulert ("en av de største")
+
+**d) "Hemmelig kur som legene ikke vil at du skal vite om!"**
+**Svært upålitelig:**
+- Konspirasjonsteori-språk ("hemmelig", "vil ikke at du skal vite")
+- Leger HAR som jobb å helbrede folk – hvorfor skulle de skjule noe?
+- Typisk for pseudovitenskap og kvakksalveri
+- Sannsynligvis forsøk på å selge et produkt`,
+      },
+    },
+
+    // ========== NY OPPGAVE: TONE I PRAKSIS ==========
+    {
+      id: 'nat10-1-5-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-2',
+        number: '1.5.8',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Du leter etter informasjon om bivirkninger av en medisin. Hvilken kilde bør du stole mest på?',
+        options: [
+          {
+            id: 'a',
+            text: 'En YouTube-video der en person forteller om sin personlige erfaring',
+            isCorrect: false,
+            feedback: 'Feil. Personlige erfaringer er anekdotisk bevis og kan ikke generaliseres. Bivirkninger varierer sterkt mellom personer.',
+          },
+          {
+            id: 'b',
+            text: 'En nettside som selger en alternativ behandling som "erstatning"',
+            isCorrect: false,
+            feedback: 'Feil. Denne nettsiden har økonomisk interesse i å få deg til å droppe medisinen og kjøpe deres produkt i stedet.',
+          },
+          {
+            id: 'c',
+            text: 'Pakningsvedlegget og informasjon fra Felleskatalogen (legemiddeldatabase)',
+            isCorrect: true,
+            feedback: 'Riktig! Felleskatalogen og pakningsvedlegg inneholder faglig korrekt informasjon om alle dokumenterte bivirkninger, godkjent av legemiddelmyndigheter.',
+          },
+          {
+            id: 'd',
+            text: 'Et innlegg på et diskusjonsforum',
+            isCorrect: false,
+            feedback: 'Feil. Diskusjonsforum er fulle av anekdotiske erfaringer og feilinformasjon. Bruk offisielle kilder.',
+          },
+        ],
+        solution: 'Felleskatalogen og pakningsvedlegg er de mest pålitelige kildene for medisininformasjon fordi de er godkjent av legemiddelmyndigheter og basert på omfattende klinisk forskning.',
+      },
+    },
+
+    // ========== NY OPPGAVE: IDENTIFISER BIAS ==========
+    {
+      id: 'nat10-1-5-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-3',
+        number: '1.5.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Identifiser hvilken type bias som kan påvirke hvert av disse scenarioene:
+
+a) Et sukkerfirma finansierer en studie som konkluderer med at sukker ikke er skadelig.
+b) En forsker publiserer bare resultatene som støtter hypotesen sin, og utelater de som ikke gjør det.
+c) En journalist skriver bare om én ny studie som sier at kaffe er sunt, og ignorerer 20 studier som viser noe annet.
+d) Du husker bare gangene det regnet etter at du vasket bilen, og glemmer alle gangene det IKKE regnet.`,
+        solution: `**a) Økonomisk bias / interessekonflikt**
+- Firmaet som finansierer studien tjener penger på at sukker selges
+- Forskerne kan (bevisst eller ubevisst) tolke resultater i favør av finansiøren
+- Studiedesignet kan være tilpasset for å gi "gode" resultater
+- **Løsning:** Se etter uavhengig finansierte studier
+
+**b) Publiseringsbias / cherry-picking**
+- Forskeren velger bare data som passer med det hun allerede tror
+- Dette er vitenskapelig uærlig og bryter med god forskningspraksis
+- **Løsning:** Alle resultater skal rapporteres, også de som ikke støtter hypotesen
+
+**c) Mediebias / sensasjonsjournalistikk**
+- Medier foretrekker overraskende og oppsiktsvekkende funn
+- Én studie som sier det motsatte av flertallet, er "mer spennende" enn 20 som bekrefter det kjente
+- **Løsning:** Sjekk hva vitenskapelig konsensus sier, ikke bare én studie
+
+**d) Bekreftelsebias (confirmation bias)**
+- Du legger merke til (og husker) hendelser som bekrefter det du allerede tror
+- Du overser hendelser som motsier troen din
+- Dette er en av de vanligste kognitive skjevhetene
+- **Løsning:** Skriv ned alle gangene du vasker bilen og om det regner etterpå – du vil se at det ikke er en sammenheng`,
+      },
+    },
+
+    // ========== NY OPPGAVE: KORRELASJON VS KAUSALITET ==========
+    {
+      id: 'nat10-1-5-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-4',
+        number: '1.5.10',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: `En studie finner at barn som leser mer bøker, gjør det bedre på skolen. Hva kan vi konkludere?`,
+        options: [
+          {
+            id: 'a',
+            text: 'Lesing gjør barn smartere',
+            isCorrect: false,
+            feedback: 'Feil. Vi kan ikke konkludere med kausalitet (årsak) basert på en korrelasjonsstudie. Det kan være andre faktorer som forklarer sammenhengen.',
+          },
+          {
+            id: 'b',
+            text: 'Det er en sammenheng mellom lesing og skoleprestasjoner, men vi vet ikke om lesing er årsaken',
+            isCorrect: true,
+            feedback: 'Riktig! Studien viser en korrelasjon (sammenheng), men vi kan ikke si om lesing forårsaker bedre skoleprestasjoner. Kanskje flinke elever også liker å lese?',
+          },
+          {
+            id: 'c',
+            text: 'Barn som gjør det bra på skolen, liker ikke å lese',
+            isCorrect: false,
+            feedback: 'Feil. Studien viser det motsatte – det er en positiv sammenheng mellom lesing og skoleprestasjoner.',
+          },
+          {
+            id: 'd',
+            text: 'Lesing har ingen effekt på skoleprestasjoner',
+            isCorrect: false,
+            feedback: 'Feil. Studien viser at det ER en sammenheng, men vi vet ikke om det er en årsakssammenheng.',
+          },
+        ],
+        solution: 'Studien viser en korrelasjon, ikke nødvendigvis kausalitet. Alternative forklaringer: kanskje barn fra familier som verdsetter utdanning, både leser mer OG gjør det bedre på skolen. Eller kanskje barn som er flinke på skolen blir motivert til å lese mer.',
+      },
+    },
+
+    // ========== NY OPPGAVE: SOSIALE MEDIER OG VITENSKAP ==========
+    {
+      id: 'nat10-1-5-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-5',
+        number: '1.5.11',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `En TikTok-video med 2 millioner visninger hevder at 5G-stråling fra mobilmaster forårsaker kreft.
+
+a) Betyr det at påstanden er sann fordi mange har sett den?
+b) Forklar hva du kan gjøre for å sjekke om påstanden er riktig.
+c) Hva sier vitenskapelig forskning om 5G og helse?
+d) Hvorfor spres slike påstander lett på sosiale medier?`,
+        solution: `**a) Er popularitet = sannhet?**
+**Absolutt IKKE!** Antall visninger sier ingenting om sannhetsgehalten. Feilaktig og sensasjonelt innhold spres ofte raskere enn nøktern, sann informasjon fordi det trigger følelser (frykt, sjokk).
+
+**b) Sjekke påstanden:**
+1. **Søk etter vitenskapelige kilder:** Google Scholar, Folkehelseinstituttet, WHO
+2. **Sjekk faktasjekknettsider:** Faktisk.no, Snopes
+3. **Les hva eksperter sier:** Hva sier strålevernmyndigheter (DSA – Direktoratet for strålevern og atomsikkerhet)?
+4. **Se på den samlede forskningen:** Ikke bare én studie, men hva vitenskapelig konsensus sier
+5. **Vurder kilden:** Er personen i videoen ekspert på stråling og helse?
+
+**c) Hva sier forskningen?**
+- 5G bruker radiofrekvente bølger, som er en form for **ikke-ioniserende stråling**
+- Ikke-ioniserende stråling har IKKE nok energi til å skade DNA (i motsetning til røntgen eller UV)
+- Flere store studier (WHO, ICNIRP) har IKKE funnet bevis for at mobilstråling ved tillatte nivåer forårsaker kreft
+- 5G-frekvensene er innenfor det som allerede har blitt brukt i årevis (TV-signaler, WiFi)
+- Vitenskapelig konsensus: Ingen bevist helserisiko ved normale eksponeringsnivåer
+
+**d) Hvorfor spres det lett?**
+1. **Frykt selger:** Folk deler innhold som gjør dem redde
+2. **Algoritmer:** Sosiale medier viser deg mer av det som engasjerer (ofte kontroversielt innhold)
+3. **Enkel forklaring:** "5G = kreft" er lettere å forstå enn den komplekse virkeligheten
+4. **Mistillit til autoriteter:** Noen stoler mer på "vanlige folk" enn eksperter
+5. **Manglende kunnskap:** Mange forstår ikke forskjellen mellom ioniserende og ikke-ioniserende stråling
+6. **Bekreftelsebias:** Folk som allerede er skeptiske til teknologi, deler slike videoer`,
+      },
+    },
+
+    // ========== NY OPPGAVE: VITENSKAP OG ETIKK ==========
+    {
+      id: 'nat10-1-5-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-6',
+        number: '1.5.12',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Vitenskapelige oppdagelser kan ha både positive og negative konsekvenser for samfunnet.
+
+Velg én av disse oppdagelsene og diskuter:
+- Kjernefysikk (atomkraft/atomvåpen)
+- Genteknologi (CRISPR/genmodifisering)
+- Kunstig intelligens
+
+a) Hva er de positive mulighetene?
+b) Hva er de potensielle farene?
+c) Hvem bør bestemme hvordan teknologien brukes?
+d) Hvorfor er det viktig at samfunnet forstår vitenskapen bak?`,
+        solution: `**Eksempel: Genteknologi (CRISPR)**
+
+**a) Positive muligheter:**
+- **Medisin:** Kan potensielt kurere genetiske sykdommer som cystisk fibrose, sigdcelleanemi
+- **Landbruk:** Kan gjøre avlinger mer motstandsdyktige mot sykdommer og tørke, noe som kan redusere sult
+- **Forskning:** Lar forskere forstå genenes funksjon bedre
+- **Miljø:** Kan hjelpe truede arter eller fjerne invasive arter
+
+**b) Potensielle farer:**
+- **"Designer-babyer":** Risiko for at rike foreldre genetisk forbedrer barna sine, noe som skaper ulikhet
+- **Uforutsette konsekvenser:** Vi forstår ikke fullt ut alle genenes funksjoner – endringer kan ha uventede effekter
+- **Økosystemet:** Genetisk modifiserte organismer kan påvirke naturen på uforutsigbare måter
+- **Etiske grenser:** Hvor går grensen for hva som er "behandling" og hva som er "forbedring"?
+
+**c) Hvem bør bestemme?**
+- **Forskere** bør gi kunnskap og råd
+- **Etiske komiteer** bør vurdere grensene
+- **Politikere** bør lage lover og regler basert på faglige råd
+- **Samfunnet/folket** bør være involvert gjennom demokratiske prosesser
+- **Internasjonalt samarbeid** er nødvendig fordi genteknologi påvirker hele menneskeheten
+- Ingen enkelt gruppe bør ha all makt – det trengs en balanse
+
+**d) Hvorfor må samfunnet forstå vitenskapen?**
+- **Demokrati:** Folk stemmer over lover om genteknologi – de må forstå hva de stemmer om
+- **Beskyttelse mot feilinformasjon:** Uten forståelse er folk sårbare for overdrivelser og frykt
+- **Informerte valg:** Pasienter kan måtte velge om de vil bruke genterapi
+- **Ansvarlig utvikling:** Samfunnet må stille krav til hvordan teknologien brukes
+- **Kritisk tenkning:** Forståelse av vitenskap gjør folk bedre i stand til å vurdere påstander`,
+      },
+    },
+
+    // ========== NY OPPGAVE: FALSKE NYHETER ==========
+    {
+      id: 'nat10-1-5-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-7',
+        number: '1.5.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av følgende er den BESTE strategien for å unngå å bli lurt av falske nyheter om vitenskap?',
+        options: [
+          {
+            id: 'a',
+            text: 'Bare tro på det vennene dine deler på sosiale medier',
+            isCorrect: false,
+            feedback: 'Feil. Vennene dine kan også bli lurt av falske nyheter. Alle trenger å sjekke kilder kritisk.',
+          },
+          {
+            id: 'b',
+            text: 'Ikke tro på noen vitenskapelige nyheter i det hele tatt',
+            isCorrect: false,
+            feedback: 'Feil. Det er for ekstremt. Mye vitenskapelig informasjon er pålitelig – nøkkelen er å vite hvordan du vurderer kvaliteten.',
+          },
+          {
+            id: 'c',
+            text: 'Sjekke flere uavhengige kilder og se etter vitenskapelig konsensus',
+            isCorrect: true,
+            feedback: 'Riktig! Ved å sjekke flere kilder, spesielt anerkjente vitenskapelige institusjoner, og se hva det store flertallet av eksperter sier, kan du skille pålitelig informasjon fra feilinformasjon.',
+          },
+          {
+            id: 'd',
+            text: 'Bare tro på den nyeste studien som publiseres',
+            isCorrect: false,
+            feedback: 'Feil. Nye studier kan inneholde feil eller være motstridende. Vitenskapelig konsensus bygger på MANGE studier over tid.',
+          },
+        ],
+        solution: 'Den beste strategien er å sjekke flere uavhengige kilder, se etter vitenskapelig konsensus, og bruke TONE-prinsippet for å vurdere kvaliteten på informasjonen.',
+      },
+    },
+
+    // ========== NY OPPGAVE: PÅSTANDER OM HELSE ==========
+    {
+      id: 'nat10-1-5-oppg-extra-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-8',
+        number: '1.5.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Du hører noen si: "Vaksinasjon er unødvendig fordi de fleste sykdommene vi vaksinerer mot nesten ikke finnes lenger."
+
+a) Hva er feilen i dette argumentet?
+b) Hva ville sannsynligvis skje hvis folk sluttet å vaksinere seg?
+c) Bruk kritisk tenkning for å forklare hvorfor dette argumentet er problematisk.`,
+        solution: `**a) Feilen i argumentet:**
+Argumentet forveksler **årsak og virkning**. Grunnen til at sykdommene "nesten ikke finnes" er NETTOPP fordi folk vaksinerer seg. Vaksinene er årsaken til at sykdommene er sjeldne, ikke bevis for at vaksinene er unødvendige.
+
+Det er som å si: "Jeg har aldri hatt en bilulykke, så jeg trenger ikke sikkerhetsbelte." Sikkerhetsbeltet beskytter deg – det at du ikke har hatt en ulykke betyr ikke at risikoen er borte.
+
+**b) Hva ville skje uten vaksinasjon?**
+- Sykdommene ville komme tilbake. Dette har faktisk skjedd:
+  - Meslinger hadde en stor oppblomstring i Europa i 2019 da vaksinasjonsgraden sank
+  - Polio har kommet tilbake i land der vaksinasjon ble stoppet
+- Uten vaksinasjon mister vi **flokkimmunitet** – den beskyttelsen som oppstår når nok mennesker i samfunnet er immune
+- Sårbare grupper (spedbarn, eldre, syke) som ikke kan vaksineres, ville blitt spesielt utsatt
+
+**c) Kritisk tenkning:**
+1. **Logisk feil:** Argumentet ignorerer at vaksinene FORÅRSAKER de lave sykdomstallene
+2. **Historisk bevis:** Sykdommene var vanlige og dødelige FØR vaksinene kom (f.eks. kopper drepte millioner)
+3. **Vitenskapelig konsensus:** Overveldende flertall av leger og forskere støtter vaksinasjon
+4. **Risikovurdering:** Risikoen ved sykdommene er MYE større enn risikoen ved vaksinebivirkninger
+5. **Samfunnsansvar:** Vaksinasjon beskytter ikke bare deg, men også andre som ikke kan vaksinere seg`,
+      },
+    },
+
     // ========== OPPGAVE 5: IDENTIFISER PSEUDOVITENSKAP ==========
     {
       id: 'nat10-1-5-ex-5-block',
@@ -3897,6 +6298,196 @@ Det kan være en sammenheng mellom frokost og skoleprestasjoner, men artikkelen 
 Det kan være mange andre faktorer som forklarer sammenhengen. For å si at frokost *forårsaker* bedre prestasjoner, trenger vi mer solide bevis fra kontrollerte studier.
 
 **Lærdom:** Vær kritisk til påstander om årsak og virkning – bare fordi to ting henger sammen, betyr ikke det at den ene forårsaker den andre!`,
+      },
+    },
+
+    // ========== NY OPPGAVE: FAKTASJEKKING PRAKTISK ==========
+    {
+      id: 'nat10-1-5-oppg-extra-9',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-9',
+        number: '1.5.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En medelev sier følgende i en presentasjon: "Alle vet at mobilstråling gir hjernekreft. Det er bevist av forskere."
+
+a) Hvordan bør du reagere på denne påstanden?
+b) Beskriv tre steg du kan ta for å faktasjekke påstanden.
+c) Hva er forskjellen mellom "alle vet" og vitenskapelig bevis?`,
+        solution: `**a) Hvordan reagere:**
+Vær høflig, men kritisk. Du kan si: "Det er interessant – kan du vise til studien som beviser dette? Jeg har lest at forskningen er mer nyansert." Du bør ikke avvise påstanden blindt, men heller undersøke den.
+
+**b) Tre steg for faktasjekking:**
+
+**Steg 1: Sjekk anerkjente helseorganisasjoner**
+- Se hva WHO, Folkehelseinstituttet (FHI) og Kreftforeningen sier
+- Disse baserer seg på den samlede forskningen, ikke enkeltstudier
+
+**Steg 2: Søk etter vitenskapelig konsensus**
+- Bruk Google Scholar for å finne oversiktsartikler (systematic reviews)
+- Se etter meta-analyser som oppsummerer mange studier
+- Sjekk hva IARC (International Agency for Research on Cancer) klassifiserer mobilstråling som
+
+**Steg 3: Vurder kvaliteten på bevisene**
+- Er påstanden basert på kontrollerte studier med mennesker?
+- Hvor store var studiene (antall deltakere)?
+- Er resultatene replikert av uavhengige forskere?
+
+**c) "Alle vet" vs. vitenskapelig bevis:**
+- "Alle vet" er en **appell til folkemening** – det at mange tror noe, gjør det ikke sant
+- Vitenskapelig bevis krever systematiske studier, kontrollerte eksperimenter og fagfellevurdering
+- Historisk har "alle visst" mange ting som var feil (f.eks. at jorden var flat)
+- Den vitenskapelige statusen (per i dag): IARC klassifiserer radiofrekvente felt som "mulig kreftfremkallende" (gruppe 2B) – samme kategori som syltet grønnsaker. Det betyr IKKE at det er bevist, bare at det ikke kan utelukkes helt.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: NATURVITENSKAP OG SAMFUNN ==========
+    {
+      id: 'nat10-1-5-oppg-extra-10',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-10',
+        number: '1.5.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Naturvitenskap og samfunn påvirker hverandre gjensidig.
+
+a) Gi to eksempler på hvordan vitenskapelige oppdagelser har endret samfunnet.
+b) Gi to eksempler på hvordan samfunnet har påvirket hvilken forskning som gjøres.
+c) Diskuter: Er det noe forskning som IKKE bør gjøres, selv om det er mulig?`,
+        solution: `**a) Vitenskap som endret samfunnet:**
+
+**1. Oppdagelsen av antibiotika (1928)**
+- Alexander Flemings oppdagelse av penicillin revolusjonerte medisinen
+- Millioner av liv som tidligere ville gått tapt til infeksjoner, ble reddet
+- Forventet levealder økte dramatisk
+- Kirurgi ble tryggere fordi infeksjoner kunne behandles
+
+**2. Utviklingen av internett (1960-90-tallet)**
+- Basert på forskning innen fysikk, informatikk og telekommunikasjon
+- Endret fundamentalt hvordan vi kommuniserer, jobber, handler og lærer
+- Skapte nye industrier og arbeidsplasser
+- Men også nye utfordringer (feilinformasjon, personvern, avhengighet)
+
+**b) Samfunnet påvirker forskning:**
+
+**1. Krig driver teknologisk forskning**
+- Radar, atomenergi og rakettmotorer ble utviklet under andre verdenskrig
+- GPS ble opprinnelig utviklet for militære formål
+- Krigsfinansiering har akselerert mange vitenskapelige gjennombrudd
+
+**2. Klimakrisen styrer forskning mot fornybar energi**
+- Økt finansiering av sol-, vind- og battteriforskning
+- Politiske vedtak (Parisavtalen) påvirker hva det forskes på
+- Samfunnets bekymring for klimaet har gjort klimaforskning til et prioritert felt
+
+**c) Er det forskning som IKKE bør gjøres?**
+
+**Argumenter for å begrense forskning:**
+- Utvikling av biologiske våpen – farlig for hele menneskeheten
+- Genetisk modifisering av mennesker for ikke-medisinske formål – etisk problematisk
+- Forskning som påfører unødvendig lidelse på dyr eller mennesker
+- Forskning som bryter med grunnleggende menneskerettigheter
+
+**Argumenter mot begrensninger:**
+- Grunnforskning gir uventet kunnskap som kan vise seg verdifull
+- Å forby forskning kan hindre viktige oppdagelser
+- Hvem skal bestemme hva som er "lov" å forske på?
+
+**Konklusjon:**
+De fleste er enige om at forskning må ha **etiske grenser**, men det er vanskelig å trekke nøyaktige linjer. Derfor har vi **etiske komiteer** som vurderer hver enkelt forskningsstudie.`,
+      },
+    },
+
+    // ========== NY OPPGAVE: HELHETLIG VURDERING ==========
+    {
+      id: 'nat10-1-5-oppg-extra-11',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-11',
+        number: '1.5.17',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av følgende påstander er et eksempel på anekdotisk bevis?',
+        options: [
+          {
+            id: 'a',
+            text: 'En studie med 10 000 deltakere viser at trening reduserer risikoen for hjertesykdom',
+            isCorrect: false,
+            feedback: 'Feil. En studie med 10 000 deltakere er vitenskapelig bevis, ikke anekdotisk.',
+          },
+          {
+            id: 'b',
+            text: 'Min onkel begynte å trene og ble mye friskere, så trening kurerer alle sykdommer',
+            isCorrect: true,
+            feedback: 'Riktig! Dette er anekdotisk bevis – én persons erfaring som brukes til å trekke en altfor bred konklusjon.',
+          },
+          {
+            id: 'c',
+            text: 'WHO anbefaler minst 150 minutter moderat fysisk aktivitet per uke',
+            isCorrect: false,
+            feedback: 'Feil. En anbefaling fra WHO er basert på omfattende vitenskapelig forskning, ikke anekdoter.',
+          },
+          {
+            id: 'd',
+            text: 'En meta-analyse av 50 studier konkluderer med at regelmessig trening er gunstig for helsen',
+            isCorrect: false,
+            feedback: 'Feil. En meta-analyse er en av de sterkeste formene for vitenskapelig bevis.',
+          },
+        ],
+        solution: 'Alternativ B er anekdotisk bevis – det er basert på én persons personlige erfaring. Vitenskapelig bevis krever systematiske studier med mange deltakere og kontrollerte betingelser.',
+      },
+    },
+
+    // ========== NY OPPGAVE: PRIMÆRKILDE VS SEKUNDÆRKILDE ==========
+    {
+      id: 'nat10-1-5-oppg-extra-12',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-1-5-oppg-extra-12',
+        number: '1.5.18',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar forskjellen mellom primærkilder og sekundærkilder i vitenskap, og gi eksempler på hver.
+
+Ranger deretter disse kildene fra mest til minst pålitelig:
+a) En originalartikkel i Nature som beskriver forskerens egne eksperimenter
+b) En Wikipedia-artikkel om samme tema
+c) En populærvitenskapelig artikkel i Illustrert Vitenskap
+d) En Facebook-post fra en venn som beskriver artikkelen
+e) En nyhetsartikkel fra NRK om den vitenskapelige oppdagelsen`,
+        solution: `**Primærkilde vs. sekundærkilde:**
+
+**Primærkilde:** Den opprinnelige kilden der forskningen først ble publisert. Forskeren beskriver sine egne eksperimenter, data og konklusjoner.
+- Eksempel: Forskningsartikkel i fagfellevurdert tidsskrift
+
+**Sekundærkilde:** En kilde som refererer til, oppsummerer eller tolker primærkilden.
+- Eksempel: Nyhetsartikkel, lærebok, populærvitenskapelig artikkel
+
+**Rangering fra mest til minst pålitelig:**
+
+**1. a) Originalartikkel i Nature** (primærkilde)
+- Fagfellevurdert, originalforskning, detaljert metode og data
+- Den mest pålitelige kilden
+
+**2. c) Illustrert Vitenskap** (sekundærkilde, men kvalitetssikret)
+- Populærvitenskapelig, men skrevet av journalister som forstår vitenskap
+- Forenklet, men generelt nøyaktig
+
+**3. e) NRK nyhetsartikkel** (sekundærkilde)
+- Journalister med varierende vitenskapskompetanse
+- Kan forenkle for mye eller overdrive
+- Generelt pålitelig, men sjekk primærkilden
+
+**4. b) Wikipedia** (tertiærkilde)
+- Refererer ofte til pålitelige kilder, men kan redigeres av hvem som helst
+- God som startpunkt, men ikke egnet som eneste kilde i en oppgave
+
+**5. d) Facebook-post fra venn** (upålitelig sekundærkilde)
+- Subjektiv tolkning, mulig misforståelse
+- Ingen kvalitetskontroll
+- Kan ha misforstått eller overdrevet den opprinnelige forskningen`,
       },
     },
   ],

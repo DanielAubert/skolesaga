@@ -1231,6 +1231,260 @@ Baade nytteverdi og egenverdi tilsier at vi boer beskytte bier. Nytteverdien er 
 };
 
 // ============================================================================
+// Kapittel 8.5: Taksonomi i endring – teknologiens rolle i klassifisering
+// ============================================================================
+
+export const CHAPTER_BIOLOGI_1_8_5: TextbookChapter = {
+  id: 'biologi-1-8-5',
+  courseId: 'biologi-1',
+  chapterNumber: '8.5',
+  title: 'Taksonomi i endring – teknologiens rolle i klassifisering',
+  description: 'Korleis taksonomiske kriterier har endra seg med teknologisk utvikling, fraa morfologi til DNA-sekvensering og genomikk.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'utforske korleis dei taksonomiske kriteria har endra seg i traad med den teknologiske utviklinga',
+    'samanlikne organismar med omsyn til fellestrekk og variasjon',
+    'vurdere korleis nye metodar endrar vaar forstaaeelse av slektskap mellom organismar',
+  ],
+  content: [
+    {
+      id: 'bio1-8-5-intro',
+      type: 'text',
+      content: `# Taksonomi i endring – teknologiens rolle
+
+Heilt sidan Carl von Linne i 1735 la grunnlaget for moderne systematikk, har forskarar proevd aa klassifisere livet paa jorda. Men kriteria for korleis vi grupperer organismar har endra seg dramatisk – drive av ny teknologi.
+
+## Fraa ytre likskap til indre slektskap
+
+Linne klassifiserte organismar basert paa korleis dei saag ut – **morfologiske** kjenneteikn. I dag brukar vi **DNA-sekvensering** for aa avdekkje evolusjonaert slektskap. Denne overgangen har ført til mange overraskande funn:
+
+- Sopp vart flytta fraa planteriket til eit eige rike
+- Kvalar viste seg aa vaere naerare slekt med flodhest enn med andre marine pattedyr
+- Gribb i Europa og Amerika er ikkje naert beslekta, trass i nesten identisk utsjaanad
+
+Kvar ny teknologi har opna nye doerer for aa forstaa livets mangfald og evolusjonaere historie.`,
+    },
+    {
+      id: 'bio1-8-5-def-1',
+      type: 'definition',
+      title: 'Taksonomiske kriterier',
+      content: '**Taksonomiske kriterier** er eigenskapar som vert brukte for aa klassifisere og gruppere organismar. Desse kriteria har endra seg over tid: fraa **morfologi** (ytre form, 1700–1900-talet), via **biokjemi** (protein og enzym, 1960–70-talet), til **molekylaer fylogeni** (DNA- og RNA-sekvensanalyse, 1990-talet–i dag). Kvar ny teknologi har gjort det mogleg aa avdekkje slektskap som ikkje var synlege med tidlegare metodar.',
+    },
+    {
+      id: 'bio1-8-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Soppane – fraa plantar til eige rike',
+      problem: 'Sopp vart lenge klassifisert som plantar. Forklar kvifor, og kva som endra denne klassifiseringa.',
+      solution: `**Loesning:**
+
+**Kvifor sopp vart rekna som plantar:**
+- Sopp er fastsitjande (veks paa ein stad) – som plantar
+- Dei har celleveggar – som plantar
+- Dei kan sjaa plantaktige ut (stilk og hatt)
+
+**Kva som endra klassifiseringa:**
+1. **Biokjemiske studiar (1960-talet)**: Viste at soppcelleveggen bestaar av **kitin** (som i insekt), ikkje cellulose (som i plantar)
+2. **Ernaeering**: Sopp er heterotrofe (bryt ned organisk materiale), ikkje autotrofe som plantar
+3. **DNA-analyse (1990-talet)**: Samanlikning av ribosomalt RNA og seinare heile genom viste at sopp er **naarare beslekta med dyr** enn med plantar!
+
+**Resultat**: I 1969 foreslo Robert Whittaker fem riker, der sopp (Fungi) fekk sitt eige rike. DNA-data har seinare bekrefta at sopp og dyr deler ein felles stamfar som levde for ca. 1 milliard aar sidan.
+
+**Laerdomen**: Ytre likskap (morfologi) kan vaere villeiiande. Konvergent evolusjon – der ulike organismar utviklar liknande trekk uavhengig av kvarandre – kan maskere ekte slektskap.`,
+    },
+    {
+      id: 'bio1-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-8-5-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kva er hovudgrunnen til at sopp vart flytta fraa planteriket til eit eige rike?',
+        options: [
+          { id: 'a', text: 'Biokjemiske og DNA-analysar viste at sopp er naerare beslekta med dyr enn plantar', isCorrect: true },
+          { id: 'b', text: 'Sopp manglar klorofyll og kan difor ikkje vaere plantar', isCorrect: false },
+          { id: 'c', text: 'Sopp veks raskare enn plantar', isCorrect: false },
+          { id: 'd', text: 'Sopp finst berre paa land, ikkje i vatn', isCorrect: false },
+        ],
+        solution: 'Sjolv om mangel paa klorofyll var eit tidleg teikn, var det biokjemiske funn (kitin i celleveggen, heterotof ernaeering) og seinare DNA-analysar som definitivt viste at sopp er naarare beslekta med dyr enn med plantar. DNA-sekvensering av ribosomalt RNA og seinare heile genom bekrefta dette slektskapet.',
+      },
+    },
+    {
+      id: 'bio1-8-5-def-2',
+      type: 'definition',
+      title: 'Historisk utvikling av taksonomiske metodar',
+      content: `Dei taksonomiske metodane har utvikla seg i takt med teknologien:
+
+| Periode | Metode | Teknologi | Avgrensingar |
+|---------|--------|-----------|-------------|
+| 1700–1900 | **Morfologi** | Lupe, mikroskop | Konvergent evolusjon villeier |
+| 1960–1980 | **Biokjemi** | Proteinelektroforese, immunologi | Berre grove samanlikningar |
+| 1980–2000 | **DNA-hybridisering og Sanger-sekvensering** | PCR, sekvenseringsmaskinar | Berre korte DNA-fragment |
+| 2000–i dag | **Genomikk** | Neste-generasjons-sekvensering (NGS) | Store datamengder krev bioinformatikk |
+| 2010–i dag | **Metagenomikk og eDNA** | Miljoe-DNA-analyse | Kan oppdage arter utan aa sjaa dei |
+
+Kvar ny teknologi har gjort det mogleg aa oppdage slektskap som tidlegare var usynlege.`,
+    },
+    {
+      id: 'bio1-8-5-example-2',
+      type: 'example',
+      title: 'Eksempel: DNA-strekkoding – artskort for livet',
+      problem: 'Kva er DNA-strekkoding (DNA barcoding), og korleis har denne teknologien revolusjonert artsidentifikasjon?',
+      solution: `**Loesning:**
+
+**Kva er DNA-strekkoding?**
+DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere kva art ein organisme tilhoeyrer – paa same maate som ein strekkode identifiserer ein vare i butikken.
+
+**Standardregionar:**
+- **Dyr**: COI-genet (cytokrom c oksidase I) i mitokondrielt DNA (~650 basepar)
+- **Plantar**: rbcL og matK i kloroplast-DNA
+- **Sopp**: ITS-regionen (Internal Transcribed Spacer) i ribosomalt DNA
+
+**Korleis det fungerer:**
+1. Samle ein proeve (blad, haar, insektbein – sjolv smaa restar)
+2. Isolere DNA
+3. Amplifisere strekkoderegionen med PCR
+4. Sekvensere DNA-fragmentet
+5. Samanlikne med ein database (t.d. BOLD – Barcode of Life Data Systems)
+6. Identifisere arten
+
+**Revolusjonerande bruksomraade:**
+- Identifisere artar fraa fragment (t.d. haiar fraa finnar, tre fraa sagflis)
+- Oppdage kryptiske artar (artar som ser identiske ut, men er genetisk ulike)
+- Avsloere matsvindel (kva fisk er eigentleg i sushien?)
+- Overvake biodiversitet raskt og billig
+
+**Eksempel**: Forskarar fann at det som vart rekna som éin art nattfuglar i tropane eigentleg var 15 separate artar – usynlege for det blotte auget, men tydeleg ulike i DNA.`,
+    },
+    {
+      id: 'bio1-8-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-8-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar kvifor morfologisk klassifisering kan gje feil bilde av slektskap mellom artar. Bruk omgrepet konvergent evolusjon i svaret ditt.',
+        hints: ['Tenk paa korleis ulike artar kan utvikle liknande trekk uavhengig av kvarandre'],
+        solution: 'Morfologisk klassifisering baserer seg paa ytre likskapar mellom organismar. Men konvergent evolusjon – der ulike artar utviklar liknande trekk som tilpassing til liknande miljoe – kan gjere at fjernt beslekta artar ser svært like ut. Eksempel: Europeiske gribb (ordenen Accipitriformes) og amerikanske gribb (ordenen Cathartiformes) ser naesten identiske ut med nakne hovud, kraftige nebb og brede venger, men er ikkje naert beslekta. Dei har utvikla liknande trekk uavhengig fordi dei har same levemaate (aatseleting). DNA-analysar avsloerete dette. Difor er DNA-basert klassifisering meir paaliteleg – DNA avspeglar faktisk evolusjonaer historie, ikkje berre tilpassingar til miljoe.',
+      },
+    },
+    {
+      id: 'bio1-8-5-def-3',
+      type: 'definition',
+      title: 'Miljoe-DNA (eDNA)',
+      content: '**Miljoe-DNA (eDNA)** er DNA som organismar etterlet seg i miljoeet, til doeemes i vatn, jord eller luft – gjennom hudceller, avfoering, slim eller pollen. Ved aa filtrere vatn fraa ein innsjoe og analysere DNA-et kan forskarar identifisere kva artar som lever der, utan aa sjaa eller fange ein einaste organisme. Denne metoden har revolusjonert overvaking av biodiversitet, spesielt for sjeldne og usynlege artar.',
+    },
+    {
+      id: 'bio1-8-5-example-3',
+      type: 'example',
+      title: 'Eksempel: eDNA avsloeerte skjult mangfald i Mjosa',
+      problem: 'Forskarar tok vassproevar fraa Mjosa og analyserte eDNA. Korleis kan dette gje meir informasjon om fiskebestandane enn tradisjonelle metodar?',
+      solution: `**Loesning:**
+
+**Tradisjonelle metodar:**
+- Garnfiske, elfiske, ekkolodd
+- Tidkrevjande og kostbart
+- Kan misse sjeldne artar
+- Forstyrrar dyrelivet
+- Gir berre overblikk over vanlege artar
+
+**eDNA-analyse:**
+1. Forskarane tek vassproevar (1-2 liter) fraa ulike stader i Mjosa
+2. Vatnet filtrerast for aa fange opp DNA-fragment
+3. DNA-et amplifisr med PCR (spesifikke primerar for fisk)
+4. Sekvensering identifiserer alle fiskeartar i proeven
+
+**Fordelar med eDNA:**
+- Kan oppdage sjeldne artar som tradisjonelle metodar missar
+- Ikkje-invasivt – ingen dyr vert fanga eller skadd
+- Raskt og kostnadseffektivt for store omraade
+- Kan oppdage framande artar tidleg (t.d. signalkreps)
+- Gir eit meir komplett bilete av artsmangfaldet
+
+**Avgrensingar:**
+- Kan ikkje seie kor mange individ det er (berre kva artar)
+- DNA brytes ned – gir oeyeblikksbilde, ikkje historikk
+- Kan fange opp DNA fraa doede organismar
+- Krev gode referansedatabasar for aa identifisere artar`,
+    },
+    {
+      id: 'bio1-8-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-8-5-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva er ein fordel med eDNA-analyse samanlikna med tradisjonelle feltmetodar?',
+        options: [
+          { id: 'a', text: 'eDNA kan oppdage artar utan aa fange eller forstyrre dei', isCorrect: true },
+          { id: 'b', text: 'eDNA gir eksakt tal paa individ av kvar art', isCorrect: false },
+          { id: 'c', text: 'eDNA kan berre brukast i ferskvatn', isCorrect: false },
+          { id: 'd', text: 'eDNA krev ikkje laboratoriumutstyr', isCorrect: false },
+        ],
+        solution: 'Den stoerste fordelen med eDNA er at det er ein ikkje-invasiv metode – ein treng berre ei vassproeve for aa identifisere kva artar som lever i eit omraade. Tradisjonelle metodar (garnfiske, elfiske) forstyrrar dyrelivet og kan misse sjeldne artar. eDNA kan ikkje gje eksakte bestandstal og krev spesialisert laboratorieutstyr for DNA-ekstraksjon og sekvensering.',
+      },
+    },
+    {
+      id: 'bio1-8-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+Taksonomiske kriterier har endra seg dramatisk med ny teknologi:
+
+- **Morfologi** (1700-talet): Klassifisering basert paa ytre likskap – saarbar for konvergent evolusjon
+- **Biokjemi** (1960-talet): Samanlikning av protein og enzym avsloeerte nye slektskap
+- **DNA-sekvensering** (1990-talet): Revolusjonerte systematikken – avdekka at sopp er naerare dyr enn plantar
+- **Genomikk** (2000-talet): Samanlikning av heile genom gir detaljert evolusjonaer historie
+- **eDNA og metagenomikk** (2010-talet): Artsidentifikasjon utan aa sjaa organismen
+
+### Noekkeleksempel paa omklassifisering
+| Organisme | Gammal klassifisering | Ny klassifisering | Metode |
+|-----------|----------------------|-------------------|--------|
+| Sopp | Planteriket | Eige rike (naerare dyr) | DNA/biokjemi |
+| Kvalar | Eigen pattedyrorden | Naerast flodhest (Artiodactyla) | DNA |
+| Gribb (Amerika vs. Europa) | Same gruppe | To ulike ordenar | DNA |
+| Raude pandaen | Bjoernefamilien | Eigen familie (Ailuridae) | DNA |`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-8-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-8-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Eit forskingsteam har oppdaga ein ny insektart i regnskogen. Forklar korleis dei ville brukt baade morfologiske og molekylaere metodar for aa bestemme kvar arten hoeyrer heime i det taksonomiske systemet.',
+        hints: ['Kva kan morfologien fortelje?', 'Kva ekstra informasjon gir DNA?'],
+        solution: 'Forskarane ville brukt ei tostegs-tilnaeming: (1) Morfologisk analyse: Undersoeeke ytre kjenneteikn (antal bein, vengetype, munndelar, antenner) for aa plassere insektet i riktig orden og familie. Lage detaljerte teikningar og foto. (2) Molekylær analyse: Sekvensere COI-genet (DNA-strekkode) og samanlikne med BOLD-databasen for aa sjaa kva kjende artar det er naerast beslekta med. Eventuelt sekvensere fleire genar for aa bygge eit fylogenetisk tre. Kombinasjonen er viktig fordi: morfologien gir rask oversikt og identifiserer tydelege trekk, medan DNA avsloeerer evolusjonaert slektskap som ikkje er synleg i ytre form. Dersom DNA-data viser at den nye arten er svært ulik alt i databasen, kan det hende den representerer ein heilt ny slekt eller familie.',
+      },
+    },
+    {
+      id: 'bio1-8-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-8-5-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Droeeft korleis utviklinga fraa morfologisk til molekylær klassifisering illustrerer eit viktig prinsipp i naturvitskap: at vitskaplege modellar vert reviderte naar ny kunnskap og teknologi blir tilgjengeleg.',
+        hints: ['Kva skjedde med det gamle systemet med to riker (plantar og dyr)?', 'Er dagens system «endeleg», eller kan det endre seg igjen?'],
+        solution: 'Den taksonomiske historia illustrerer korleis vitskap er ein dynamisk prosess: Linne sitt system med to riker (plantar og dyr) var basert paa den beste kunnskapen som fanst. Mikroskopet avsloeerte eincellaorganismar → tre riker. Biokjemi viste at sopp ikkje er plantar → fem riker. DNA-analyse avsloeerte arkebakteriar → tre domene (Woese, 1990). Kvar gong ny teknologi gav ny kunnskap, vart klassifiseringa revidert. Dette er ikkje ein svakheit ved vitskapen – det er styrken. Vitskapleg kunnskap er provisorisk: den representerer den beste forklaringa vi har akkurat no, men er open for revisjon naar betre data kjem. Dagens tre-domene-system kan ogso bli revidert – t.d. diskuterer forskarar om virus boer ha si eiga grein, og metagenomikk avdekkjer stadig nye grupper av organismar som ikkje passar inn i eksisterande kategoriar.',
+      },
+    },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Morfologisk klassifisering', definition: 'Gruppering av organismar basert paa ytre form og kjenneteikn' },
+    { term: 'Molekylær fylogeni', definition: 'Bruk av DNA- og proteinsekvensanalyse for aa avdekkje evolusjonaert slektskap' },
+    { term: 'DNA-strekkoding', definition: 'Bruk av ein kort, standardisert DNA-sekvens for aa identifisere artar' },
+    { term: 'eDNA (miljoe-DNA)', definition: 'DNA som organismar etterlet i miljoeet, kan analyserast for artsidentifikasjon' },
+    { term: 'Konvergent evolusjon', definition: 'Naar ulike artar utviklar liknande trekk uavhengig av kvarandre' },
+    { term: 'Genomikk', definition: 'Studiet av heile genom for aa forstaa genetisk variasjon og evolusjon' },
+    { term: 'Metagenomikk', definition: 'Analyse av alt DNA i ei miljoeeproeve for aa kartleggje alle organismar' },
+  ],
+};
+
+// ============================================================================
 // Eksport alle delkapitler
 // ============================================================================
 
@@ -1239,6 +1493,7 @@ export const BIOLOGI_1_DEL8_CHAPTERS: TextbookChapter[] = [
   CHAPTER_BIOLOGI_1_8_2,
   CHAPTER_BIOLOGI_1_8_3,
   CHAPTER_BIOLOGI_1_8_4,
+  CHAPTER_BIOLOGI_1_8_5,
 ];
 
 export function getBiologi1Del8Chapter(chapterId: string): TextbookChapter | undefined {

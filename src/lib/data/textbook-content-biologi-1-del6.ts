@@ -2,1554 +2,1527 @@
 // @ts-nocheck
 
 /**
- * Tekstbok innhold for Biologi 1 VG2 - Kapittel 6 Delkapitler
+ * Tekstbok innhold for Biologi 1 VG2 - Kapittel 6: Mikroorganismer og smittevern
  *
- * Utvider Kapittel 6: Evolusjon og naturlig utvalg til 5 delkapitler
- * Dekker LK20-kompetansemål for biologi 1 (BIO01-02)
+ * Dekker LK20-kompetansemaal for biologi 1 (BIO01-02):
+ * - kompetansemaal 7: gjore rede for virale og mikrobielle sykdommer
+ * - kompetansemaal 9: gjore rede for antibiotika og antibiotikaresistens
+ *
+ * 5 delkapitler: 6.1-6.5
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 6.1: Evolusjonsteoriens historie
+// Kapittel 6.1: Mikroorganismenes mangfold
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_6_1: TextbookChapter = {
   id: 'biologi-1-6-1',
   courseId: 'biologi-1',
   chapterNumber: '6.1',
-  title: 'Evolusjonsteoriens historie',
-  description: 'Fra Lamarck til Darwin og Wallace - utviklingen av evolusjonsteorien og dens historiske kontekst.',
+  title: 'Mikroorganismenes mangfold',
+  description: 'Oversikt over mikroorganismer: bakterier, virus, sopp og protister. Stoerrelse, organisering og roller i naturen.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for tidlige evolusjonsteorier',
-    'beskrive Darwins vitenskapelige reise og observasjoner',
-    'forklare Wallace sitt bidrag til evolusjonsteori',
-    'drøfte evolusjonsteoriens historiske betydning',
+    'gjore rede for hovedgruppene av mikroorganismer og deres kjennetegn',
+    'beskrive mikroorganismers roller i naturen som nedbrytere, symbionter og patogener',
+    'forklare hva normalfloraen er og hvorfor den er viktig for helsen',
   ],
   content: [
     {
       id: 'bio1-6-1-intro',
       type: 'text',
-      content: `# Evolusjonsteoriens historie
+      content: `# Mikroorganismenes mangfold
 
-Tanken om at arter forandrer seg over tid er ikke ny, men det tok lang tid før forskere utviklet en vitenskapelig teori som kunne forklare hvordan dette skjer. I dette kapittelet ser vi på hvordan evolusjonsteorien utviklet seg fra tidlige spekulasjoner til moderne vitenskap.
+Mikroorganismer er livets usynlige arbeidere. De finnes overalt – i jorda, i havet, i lufta og inne i kroppen vaar. De fleste mikroorganismer er helt ufarlige, og mange er livsnodvendige for oekosystemene og for vaar egen helse. Likevel er det noen faa som kan foraarsake alvorlig sykdom.
 
-## Tidlige tanker om livets mangfold
+I dette kapittelet faar du en oversikt over de viktigste gruppene av mikroorganismer: bakterier, virus, sopp og protister. Du laerer om hvordan de skiller seg fra hverandre, og hvilke roller de spiller i naturen og i kroppen vaar.
 
-Gjennom historien har mennesker undret seg over livets mangfold. Lenge dominerte tanken om at artene var skapt perfekte og uforanderlige. Det var først på 1700- og 1800-tallet at forskere begynte å utfordre denne ideen systematisk.`,
+## Hva er en mikroorganisme?
+
+En mikroorganisme er en organisme som er saa liten at den ikke kan sees med det blotte oeyet. For aa se mikroorganismer trenger vi et mikroskop. De viktigste gruppene er:
+
+- **Bakterier** – encellede prokaryoter
+- **Virus** – partikler som ikke er celler (diskuteres om de er «levende»)
+- **Sopp** – inkluderer gjaersopp og muggsopp
+- **Protister** – encellede eukaryoter (f.eks. amober, malaria-parasitter)`,
     },
     {
-      id: 'bio1-6-1-def-evolusjon',
+      id: 'bio1-6-1-def-1',
       type: 'definition',
-      title: 'Evolusjon',
-      content: 'Evolusjon er endringer i arvelige egenskaper i en populasjon over generasjoner. Disse endringene skyldes prosesser som naturlig utvalg, genetisk drift, mutasjoner og genflyt. Evolusjon forklarer livets mangfold og tilpasninger til ulike miljøer.',
-    },
-    {
-      id: 'bio1-6-1-lamarck',
-      type: 'text',
-      content: `## Jean-Baptiste Lamarck (1744-1829)
-
-Lamarck var en av de første som foreslo en sammenhengende teori om evolusjon. Han publiserte sine ideer i verket "Philosophie Zoologique" i 1809.
-
-### Lamarcks hovedideer
-
-**1. Bruk og ikke-bruk**
-- Organer som brukes mye, utvikles og styrkes
-- Organer som ikke brukes, forfaller og reduseres
-
-**2. Arv av ervervede egenskaper**
-- Egenskaper som et individ utvikler i løpet av livet, kan arves til avkommet
-- Eksempel: Smedens sterke armer arves til barna
-
-**3. Indre streben mot kompleksitet**
-- Organismer har en naturlig tendens til å bli mer komplekse
-- Enklere organismer utvikler seg stadig mot høyere former
-
-### Hvorfor Lamarck tok feil
-
-Selv om Lamarck bidro til å etablere evolusjon som vitenskapelig tema, var hans mekanismer feil:
-
-- **Arvede egenskaper virker ikke slik**: Trening endrer ikke DNA
-- **Ingen molekylær mekanisme**: Ervervede egenskaper kan ikke overføres til kjønnsceller
-- **Modern genetikk**: Vi vet nå at arv skjer gjennom gener, ikke bruk/ikke-bruk`,
-    },
-    {
-      id: 'bio1-6-1-def-lamarckisme',
-      type: 'definition',
-      title: 'Lamarckisme',
-      content: 'Lamarckisme er teorien om at egenskaper som et individ erverver i løpet av livet kan arves til avkommet. Denne teorien er forkastet i moderne biologi. Et klassisk eksempel er ideen om at sjiraffens hals ble lang fordi forfedrene strakk seg etter blader, og denne lange halsen ble arvet. Vi vet nå at dette ikke stemmer - kun genetiske endringer kan arves.',
-    },
-    {
-      id: 'bio1-6-1-darwin',
-      type: 'text',
-      content: `## Charles Darwin (1809-1882)
-
-Charles Darwin regnes som den moderne evolusjonsteoriens far. Hans bidrag var ikke bare å foreslå at evolusjon skjer, men å identifisere mekanismen: naturlig utvalg.
-
-### Beagle-reisen (1831-1836)
-
-Darwin deltok som naturvitenskapsmann på HMS Beagle, et kartleggingsfartøy som reiste rundt verden i fem år.
-
-**Viktige observasjoner:**
-
-1. **Galapagosøyene**
-   - Hver øy hadde egne varianter av finker
-   - Nebbene var tilpasset ulike matkilder
-   - Øyene hadde lignende, men distinkte skilpadder
-
-2. **Sør-Amerika**
-   - Fossiler av utdødde kjempedovendyr
-   - Likhet mellom fossiler og nålevende arter
-   - Geografisk distribusjon av arter
-
-3. **Australia**
-   - Unike pungdyr som ikke fantes andre steder
-   - Konvergent evolusjon med placentale pattedyr
-
-### Etter reisen
-
-Darwin brukte over 20 år på å utvikle sin teori:
-- Samlet bevis fra avl, fossiler, biogeografi og anatomi
-- Korresponderte med andre forskere
-- Utsatte publisering fordi han fryktet kontrovers`,
-    },
-    {
-      id: 'bio1-6-1-wallace',
-      type: 'text',
-      content: `## Alfred Russel Wallace (1823-1913)
-
-Wallace var en britisk naturvitenskapsmann som uavhengig utviklet en teori om evolusjon ved naturlig utvalg.
-
-### Wallace sitt bidrag
-
-**Feltarbeid i Amazonas og Sørøst-Asia:**
-- Samlet tusenvis av arter
-- Observerte geografisk distribusjon av arter
-- Identifiserte "Wallace-linjen" som skiller asiatisk og australsk fauna
-
-**1858: Brevet til Darwin**
-- Wallace sendte Darwin et essay som beskrev naturlig utvalg
-- Darwin ble sjokkert over likheten med sine egne ideer
-- De ble enige om å presentere teorien sammen
-
-### Felles presentasjon
-
-1. juli 1858 ble Darwins og Wallace sine arbeider presentert sammen for Linnean Society i London. Dette var det offisielle startskuddet for evolusjonsteorien.
-
-### "On the Origin of Species" (1859)
-
-Darwin publiserte sitt hovedverk året etter:
-- Presenterte omfattende bevis for evolusjon
-- Beskrev naturlig utvalg som hovedmekanisme
-- Ble raskt en vitenskapelig sensasjon
-- Solgte ut første opplag på én dag`,
-    },
-    {
-      id: 'bio1-6-1-def-naturlig-utvalg',
-      type: 'definition',
-      title: 'Naturlig utvalg (Darwin-Wallace)',
-      content: 'Naturlig utvalg er prosessen der individer med arvelige egenskaper som gir bedre overlevelse og reproduksjon i et gitt miljø, får flere overlevende avkom. Over generasjoner øker frekvensen av disse gunstige egenskapene i populasjonen. Darwin og Wallace utviklet denne teorien uavhengig av hverandre.',
+      title: 'Mikroorganisme',
+      content: 'En mikroorganisme (mikrobe) er en organisme som er for liten til aa sees med det blotte oeyet. Gruppen inkluderer bakterier, arker, virus, sopp (gjaersopp og muggsopp) og protister. Mikroorganismer finnes i nesten alle miljoer paa jorda, fra dyphavskildene til is paa Antarktis.',
     },
     {
       id: 'bio1-6-1-example-1',
       type: 'example',
-      title: 'Eksempel: Darwins finker',
-      problem: 'Forklar hvordan Darwins observasjoner av finker på Galapagosøyene bidro til utviklingen av evolusjonsteorien.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Stoerrelsesskala for mikroorganismer',
+      content: `**Stoerrelsesskala:**
 
-**Observasjoner på Galapagosøyene:**
-- Darwin fant 13 ulike finkearter fordelt på øyene
-- Hver art hadde ulikt nebb tilpasset sin føde
-- Store, kraftige nebb for å knekke nøtter
-- Lange, tynne nebb for å fange insekter
-- Spisse nebb for å spise frø
+| Organisme | Typisk stoerrelse | Synlig for? |
+|-----------|-------------------|-------------|
+| Virus | 20–300 nm | Elektronmikroskop |
+| Bakterier | 0,5–5 μm | Lysmikroskop |
+| Gjaersopp | 5–10 μm | Lysmikroskop |
+| Protister (amoebe) | 100–700 μm | Lysmikroskop / lupeglass |
+| Menneskecelle | 10–100 μm | Lysmikroskop |
 
-**Darwins konklusjoner:**
-1. Alle finkene stammet fra en felles forfader fra fastlandet
-2. Etter ankomst til øyene spredde de seg til ulike nisjer
-3. Naturlig utvalg favoriserte ulike nebbtyper på ulike øyer
-4. Over tid ble populasjonene så forskjellige at de ble egne arter
+**Stoerrelsesforhold:**
+1 mm = 1000 μm (mikrometer) = 1 000 000 nm (nanometer).
+Det betyr at du kan stable ca. 1000 bakterier etter hverandre langs 1 mm, mens du trenger ca. 50 000 virus for det samme.`,
+    },
+    {
+      id: 'bio1-6-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Hvilken type mikroorganisme er minst?',
+        options: [
+          { id: 'a', text: 'Bakterier', isCorrect: false },
+          { id: 'b', text: 'Virus', isCorrect: true },
+          { id: 'c', text: 'Gjaersopp', isCorrect: false },
+          { id: 'd', text: 'Protister', isCorrect: false },
+        ],
+        solution: 'Virus er de minste «mikroorganismene» med en typisk stoerrelse paa 20–300 nanometer. Bakterier er vanligvis 0,5–5 mikrometer, altsaa rundt 10–100 ganger stoerre enn virus. Sopp og protister er enda stoerre.',
+      },
+    },
+    {
+      id: 'bio1-6-1-roller',
+      type: 'text',
+      content: `## Mikroorganismers roller i naturen
 
-**Betydning:**
-- Viste at arter ikke er statiske, men kan endre seg
-- Demonstrerte tilpasning til lokale miljøer
-- Illustrerte adaptiv radiasjon (én art gir opphav til mange)
+Mikroorganismer spiller mange viktige roller i oekosystemene:
 
-**Modern forskning:**
-Peter og Rosemary Grant har studert Darwins finker siden 1973 og dokumentert naturlig utvalg i sanntid under tørkeperioder.`,
+### Nedbrytere (dekomponenter)
+Bakterier og sopp bryter ned dodt organisk materiale og resirkulerer naeringsstoffer tilbake til jorda. Uten nedbrytere ville doede planter og dyr hope seg opp, og naeringsstoffene ville vaere utilgjengelige for nye organismer. Nedbrytning er en forutsetning for alt liv paa jorda.
+
+### Symbionter
+Mange mikroorganismer lever i naert samarbeid med andre organismer:
+- **Nitrogenfikserende bakterier** i rotknoller hos belgplanter omdanner nitrogen fra lufta til ammonium som plantene kan bruke
+- **Tarmbakterier** hos mennesker og dyr hjelper med fordoeyelsen og produserer vitaminer (f.eks. vitamin K og B12)
+- **Mykorrhiza-sopp** lever i symbiose med plantetoetter og hjelper plantene med aa ta opp vann og mineraler
+
+### Patogener
+Noen faa mikroorganismer kan foraarsake sykdom. Disse kalles patogener. Eksempler er bakterien *Salmonella* (matforgiftning), viruset SARS-CoV-2 (COVID-19) og soppen *Candida* (soppinfeksjon).`,
+    },
+    {
+      id: 'bio1-6-1-def-2',
+      type: 'definition',
+      title: 'Patogen',
+      content: 'Et patogen er en mikroorganisme eller et agens som kan foraarsake sykdom hos en vert. Patogener omfatter visse bakterier, virus, sopp og parasitter. Evnen til aa foraarsake sykdom kalles virulens. Ikke alle mikroorganismer er patogene – de aller fleste er ufarlige eller nyttige.',
     },
     {
       id: 'bio1-6-1-example-2',
       type: 'example',
-      title: 'Eksempel: Sammenligning Lamarck vs Darwin',
-      problem: 'Hvordan ville Lamarck og Darwin forklare sjiraffens lange hals?',
-      solution: `**Løsning:**
+      title: 'Eksempel: Nitrogenfiksering – samarbeid mellom bakterier og planter',
+      problem: 'Kvitkloever dyrkes ofte sammen med gras paa beitemarkene i Norge. Hvorfor er dette gunstig for graset?',
+      solution: `**Svar:**
 
-**Lamarcks forklaring:**
-1. Sjiraffer strakk seg etter blader høyt oppe i trærne
-2. Denne strekkingen forlenget halsen litt i løpet av livet
-3. Den forlengede halsen ble arvet til avkommet
-4. Over generasjoner ble halsen stadig lengre
-*Problem: Ervervede egenskaper arves ikke*
+Kvitkloever er en belgplante som har **nitrogenfikserende bakterier** (Rhizobium) i rotknoller. Disse bakteriene omdanner nitrogengass (N₂) fra lufta til ammonium (NH₄⁺), som plantene kan bruke.
 
-**Darwins forklaring:**
-1. Sjiraffens forfedre hadde variasjon i halslengde (naturlig variasjon)
-2. Individer med lengre hals nådde flere blader
-3. Disse overlevde bedre og fikk flere avkom (naturlig utvalg)
-4. Avkommet arvet genene for lang hals (arv)
-5. Over generasjoner økte halslengden i populasjonen (evolusjon)
+Nitrogen er et viktig naeringsstoff som ofte begrenser plantevekst. Naar kvitkloever vokser sammen med gras, lekker noe av det fikserte nitrogenet ut i jorda og gjoer det tilgjengelig for graset. Dette er et eksempel paa **symbiose** mellom bakterier og planter, og det reduserer behovet for kunstgjoedsel.`,
+    },
+    {
+      id: 'bio1-6-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom en nedbryterrolle og en patogenrolle for mikroorganismer. Gi ett eksempel paa hver.',
+        hints: ['Tenk paa hva mikroorganismen «lever av» og hvem som paavirkes.'],
+        solution: 'Nedbrytere bryter ned dodt organisk materiale og resirkulerer naeringsstoffer i oekosystemet. Eksempel: Sopparter som bryter ned loevfall paa skogbunnen. Patogener lever paa eller i levende organismer og foraarsaker sykdom. Eksempel: Bakterien Mycobacterium tuberculosis som foraarsaker tuberkulose. Hovedforskjellen er at nedbrytere lever av dodt materiale, mens patogener angriper levende organismer.',
+      },
+    },
+    {
+      id: 'bio1-6-1-normalflora',
+      type: 'text',
+      content: `## Normalfloraen – nyttige mikroorganismer i og paa kroppen
 
-**Nøkkelforskjell:**
-- Lamarck: Individet tilpasser seg, og tilpasningen arves
-- Darwin: Variasjon finnes allerede, utvalg velger gunstige varianter
+Kroppen vaar er hjem for billioner av mikroorganismer, saerlig bakterier. Til sammen kalles disse for **normalfloraen** (eller mikrobiomet). De fleste befinner seg i tarmen, paa huden, i munnen og i de oevre luftveiene.
 
-**Hvorfor Darwin har rett:**
-- Genetikken støtter Darwin: Kun DNA-endringer arves
-- Trening endrer ikke genene i kjønnscellene
-- Moderne forskning bekrefter naturlig utvalg`,
+### Normalfloraens funksjoner
+
+1. **Beskyttelse mot patogener**: Normalfloraen konkurrerer med sykdomsfremkallende bakterier om plass og naeringsstoffer. Dette kalles **koloniseringsresistens**.
+2. **Fordoeyelse**: Tarmbakterier hjelper med aa bryte ned naeringsfiber og produserer kortkjedede fettsyrer som tarmcellene bruker som energi.
+3. **Vitaminproduksjon**: Noen tarmbakterier produserer vitamin K og B-vitaminer.
+4. **Immunsystemet**: Normalfloraen stimulerer immunsystemet og bidrar til at det utvikler seg normalt.
+
+### Hva kan forstyrre normalfloraen?
+
+- **Antibiotikabehandling** dreper baade patogener og normalfloraen, noe som kan foere til ubalanse
+- **Endret kosthold** paavirker sammensetningen av tarmbakterier
+- **Stress og sykdom** kan endre normalfloraen`,
+    },
+    {
+      id: 'bio1-6-1-def-3',
+      type: 'definition',
+      title: 'Normalflora (mikrobiom)',
+      content: 'Normalfloraen er alle mikroorganismene som normalt lever i og paa kroppen vaar uten aa foraarsake sykdom. Tarmens normalflora alene bestaar av anslagsvis 100 billioner bakterier – det er ca. ti ganger saa mange som kroppens egne celler. Normalfloraen spiller en viktig rolle for fordoeyelsen, immunforsvaret og beskyttelse mot patogener.',
+    },
+    {
+      id: 'bio1-6-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Clostridium difficile – naar normalfloraen svikter',
+      content: `Etter langvarig antibiotikabehandling kan normalfloraen i tarmen bli kraftig redusert. Dette gir mulighet for den sykdomsfremkallende bakterien *Clostridioides difficile* (C. diff) til aa formere seg uhemmet.
+
+**Hva skjer?**
+1. Antibiotika dreper bade patogener og normalflorabakterier
+2. Normalfloraens koloniseringsresistens forsvinner
+3. *C. difficile*-sporer spirer og bakterien formerer seg
+4. Bakterien produserer toksiner som gir alvorlig diaré og tarmbetennelse
+
+**Behandling:**
+I alvorlige tilfeller kan fekaltransplantasjon (overforing av normalflora fra en frisk donor) vaere effektivt – dette viser hvor viktig en sunn normalflora er.`,
+    },
+    {
+      id: 'bio1-6-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Hva er koloniseringsresistens?',
+        options: [
+          { id: 'a', text: 'Normalfloraen beskytter mot patogener ved aa konkurrere om plass og naering', isCorrect: true },
+          { id: 'b', text: 'Evnen en bakterie har til aa motstaa antibiotika', isCorrect: false },
+          { id: 'c', text: 'Immunsystemets evne til aa drepe virus', isCorrect: false },
+          { id: 'd', text: 'Hudens evne til aa stoppe alle bakterier fra aa trenge inn', isCorrect: false },
+        ],
+        solution: 'Koloniseringsresistens er normalfloraens evne til aa hindre patogene mikroorganismer i aa etablere seg. Normalflorabakteriene konkurrerer med patogener om plass paa slimhinner og hud, om naeringsstoffer, og kan ogsa produsere antimikrobielle stoffer. Naar normalfloraen reduseres (f.eks. av antibiotika), svekkes koloniseringsresistensen, og patogener kan lettere faa fotfeste.',
+      },
+    },
+    {
+      id: 'bio1-6-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar kort hva som menes med at normalfloraen kan «forstyrres» av antibiotikabruk, og gi et konkret eksempel paa en mulig konsekvens.',
+        hints: ['Tenk paa hvilke bakterier antibiotika dreper – bare de sykdomsfremkallende?'],
+        solution: 'Antibiotika skiller ikke mellom nyttige normalflorabakterier og patogene bakterier. Naar man tar antibiotika, dreper man derfor baade sykdomsbakteriene og store deler av normalfloraen. Dette kan gi plass til sykdomsfremkallende mikroorganismer som normalt holdes i sjakk. Et konkret eksempel er Clostridioides difficile-infeksjon: etter antibiotikabehandling kan denne bakterien ta over i tarmen og foraarsake alvorlig diaré og tarmbetennelse.',
+      },
+    },
+    {
+      id: 'bio1-6-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Mikroorganismer er organismer som er for smaa til aa sees med det blotte oeyet
+- De viktigste gruppene er bakterier, virus, sopp og protister
+- Virus er minst (nm), bakterier er stoerre (μm), sopp og protister er stoerst
+- Mikroorganismer spiller roller som nedbrytere, symbionter og patogener
+- De fleste mikroorganismer er ufarlige eller nyttige – kun noen faa er sykdomsfremkallende
+- Normalfloraen bestaar av billioner av mikroorganismer som lever paa og i kroppen
+- Normalfloraen beskytter mot patogener, hjelper fordoeyelsen og stimulerer immunsystemet`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-6-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Lag en oversiktstabell som sammenligner bakterier, virus, sopp og protister med hensyn til: celletype (prokaryot/eukaryot/ingen), stoerrelse, formering og et eksempel paa sykdom foraarsaket av gruppen.',
+        hints: ['Husk at virus ikke har celler, mens bakterier er prokaryoter og sopp/protister er eukaryoter.'],
+        solution: 'Bakterier: prokaryot, 0,5–5 μm, binaer fisjon, tuberkulose. Virus: ikke celle, 20–300 nm, vertscelle (replikasjon), influensa. Sopp: eukaryot, 5–100 μm, knoppskyting/sporer, ringorm. Protister: eukaryot, 10–700 μm, celledeling, malaria. Virus er spesielle fordi de ikke har egen cellulae struktur og maa bruke vertsceller for aa formere seg.',
+      },
+    },
+    {
+      id: 'bio1-6-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Droeft paastanden: «Uten mikroorganismer ville livet paa jorda stoppet opp.» Bruk minst tre konkrete eksempler i svaret ditt.',
+        hints: ['Tenk paa naeringskretslop, symbiose med planter og fordoeyelse.'],
+        solution: 'Paastanden er riktig. Eksempler: 1) Nedbrytere (bakterier og sopp) resirkulerer naeringsstoffer fra dodt organisk materiale tilbake til jorda – uten dem ville naeringsstoffene vaere utilgjengelige for nye organismer. 2) Nitrogenfikserende bakterier omdanner nitrogengass fra atmosfaeren til former plantene kan bruke – uten dette ville plantevekst vaere sterkt begrenset. 3) Tarmbakterier hos mennesker og dyr hjelper med fordoeyelsen og produserer livsviktige vitaminer. 4) Fotosyntetiske cyanobakterier produserer en betydelig del av jordens oksygen. Uten mikroorganismer ville naeringskretslop bryte sammen, planter faa for lite nitrogen, og vi ville mangle viktige vitaminer og fordoeyelseshjelp.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-6-1-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hvem foreslo at ervervede egenskaper kunne arves?',
-      options: [
-        { id: 'a', text: 'Jean-Baptiste Lamarck', isCorrect: true },
-        { id: 'b', text: 'Charles Darwin', isCorrect: false },
-        { id: 'c', text: 'Alfred Russel Wallace', isCorrect: false },
-        { id: 'd', text: 'Gregor Mendel', isCorrect: false },
-      ],
-      solution: 'Lamarck foreslo at egenskaper som et individ erverver i løpet av livet (som sterkere muskler fra trening) kunne arves til avkommet. Dette kalles lamarckisme og er forkastet i moderne biologi.',
-    },
-    {
-      id: 'bio1-6-1-ex2',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hvilken reise var avgjørende for utviklingen av Darwins evolusjonsteori?',
-      options: [
-        { id: 'a', text: 'HMS Beagle-reisen (1831-1836)', isCorrect: true },
-        { id: 'b', text: 'Endeavour-reisen (1768-1771)', isCorrect: false },
-        { id: 'c', text: 'Discovery-reisen (1901-1904)', isCorrect: false },
-        { id: 'd', text: 'Challenger-ekspedisjonen (1872-1876)', isCorrect: false },
-      ],
-      solution: 'Darwin deltok som naturvitenskapsmann på HMS Beagle, som kartla kysten av Sør-Amerika. Under reisen besøkte han blant annet Galapagosøyene, der han gjorde viktige observasjoner som senere bidro til evolusjonsteorien.',
-    },
-    {
-      id: 'bio1-6-1-ex3',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar hvorfor Lamarcks teori om arv av ervervede egenskaper ikke stemmer med moderne genetikk.',
-      solution: 'Lamarcks teori stemmer ikke fordi: 1) Kun endringer i DNA i kjønnscellene kan arves til avkommet. 2) Trening eller bruk av organer endrer ikke DNA-sekvensen i kjønnscellene. 3) Somatiske celler (kroppsceller) og kjønnsceller har separate utviklingsveier. 4) Epigenetiske endringer kan i noen tilfeller arves, men dette skiller seg fra Lamarcks teori og er begrenset til få generasjoner.',
-    },
-    {
-      id: 'bio1-6-1-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Beskriv minst tre viktige observasjoner Darwin gjorde på Beagle-reisen som bidro til hans teori.',
-      solution: '1) Galapagosøyene: Ulike finkearter med forskjellige nebb tilpasset ulike matkilder på hver øy, som viste tilpasning til lokale forhold. 2) Fossiler i Sør-Amerika: Fossiler av utdødde kjempedovendyr som lignet nålevende former, noe som tydet på endring over tid. 3) Biogeografisk distribusjon: Lignende, men distinkte arter på nærliggende øyer eller landmasser, som tydet på felles opphav med påfølgende divergens. 4) Australske pungdyr som fylte samme roller som placentale pattedyr andre steder (konvergent evolusjon).',
-    },
-    {
-      id: 'bio1-6-1-ex5',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hva var Alfred Russel Wallace sitt bidrag til evolusjonsteorien?',
-      options: [
-        { id: 'a', text: 'Han utviklet uavhengig en teori om naturlig utvalg', isCorrect: true },
-        { id: 'b', text: 'Han oppdaget DNA-molekylets struktur', isCorrect: false },
-        { id: 'c', text: 'Han motbeviste Darwins teori', isCorrect: false },
-        { id: 'd', text: 'Han fant fossilbevis som støttet lamarckisme', isCorrect: false },
-      ],
-      solution: 'Wallace utviklet uavhengig av Darwin en teori om evolusjon ved naturlig utvalg basert på sitt feltarbeid i Sørøst-Asia. Hans essay til Darwin i 1858 førte til at de presenterte teorien sammen for Linnean Society.',
-    },
-    {
-      id: 'bio1-6-1-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Diskuter hvorfor det tok over 20 år fra Beagle-reisen til Darwin publiserte "On the Origin of Species". Hvilke faktorer bidro til forsinkelsen?',
-      solution: 'Flere faktorer bidro til forsinkelsen: 1) Darwin ønsket omfattende bevis før han publiserte - han samlet data fra avl, fossiler, biogeografi og anatomi. 2) Han fryktet kontrovers og motstand, spesielt fra kirken, da teorien utfordret religiøse skapelsesberetninger. 3) Hans kone Emma var religiøs, og han var bekymret for hvordan teorien ville påvirke henne. 4) Darwin hadde kronisk sykdom som begrenset hans arbeidskapasitet. 5) Han ville være helt sikker på at teorien var vanntett. Først da han mottok Wallace sitt essay i 1858 og innså at andre hadde kommet til samme konklusjoner, bestemte han seg for å publisere.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Mikroorganisme', definition: 'Organisme for liten til aa sees med det blotte oeyet' },
+    { term: 'Patogen', definition: 'Sykdomsfremkallende mikroorganisme' },
+    { term: 'Normalflora', definition: 'Mikroorganismer som normalt lever paa og i kroppen' },
+    { term: 'Koloniseringsresistens', definition: 'Normalfloraens evne til aa hindre patogener i aa etablere seg' },
+    { term: 'Symbiose', definition: 'Naert samspill mellom to arter som lever tett sammen' },
+    { term: 'Nedbryting', definition: 'Omdanning av dodt organisk materiale til uorganiske stoffer' },
   ],
 };
 
 // ============================================================================
-// Kapittel 6.2: Naturlig utvalg
+// Kapittel 6.2: Bakterier – oppbygning, formering og betydning
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_6_2: TextbookChapter = {
   id: 'biologi-1-6-2',
   courseId: 'biologi-1',
   chapterNumber: '6.2',
-  title: 'Naturlig utvalg',
-  description: 'Mekanismene bak naturlig utvalg: variasjon, arv, overlevelse og reproduksjon. Fitness, adaptasjon og ulike typer utvalg.',
+  title: 'Bakterier – oppbygning, formering og betydning',
+  description: 'Bakteriecellens struktur, gram-positiv vs. gram-negativ, binaer fisjon, vekstkurve og bakteriers roller i natur og samfunn.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'forklare betingelsene for naturlig utvalg',
-    'beskrive begrepene fitness og adaptasjon',
-    'gjøre rede for ulike typer naturlig utvalg',
-    'anvende naturlig utvalg på konkrete eksempler',
+    'beskrive bakteriecellens oppbygning og sammenligne med eukaryote celler',
+    'forklare forskjellen mellom gram-positive og gram-negative bakterier',
+    'gjore rede for binaer fisjon og bakteriell vekstkurve',
+    'gi eksempler paa nyttige og sykdomsfremkallende bakterier',
   ],
   content: [
     {
       id: 'bio1-6-2-intro',
       type: 'text',
-      content: `# Naturlig utvalg
+      content: `# Bakterier – oppbygning, formering og betydning
 
-Naturlig utvalg er hovedmekanismen for evolusjonær tilpasning. Det er en prosess der miljøet "velger" hvilke individer som overlever og reproduserer, basert på deres egenskaper. Over tid fører dette til at populasjoner blir bedre tilpasset sine miljøer.
+Bakterier er de mest tallrike organismene paa jorda. De har vaert her i over 3,5 milliarder aar og finnes i nesten alle miljoer – fra varme kilder til isbreer, fra dypt nede i jordskorpa til hoyt oppe i atmosfaeren. Bakterier er prokaryoter, som betyr at de mangler cellekjerne og andre membranbundne organeller.
 
-## Betingelser for naturlig utvalg
-
-For at naturlig utvalg skal kunne virke, må fire betingelser være oppfylt:
-
-1. **Variasjon** - Individer i populasjonen må variere i egenskaper
-2. **Arv** - Variasjonen må være arvelig
-3. **Overlevelse** - Noen egenskaper må gi bedre overlevelse
-4. **Reproduksjon** - De som overlever må reprodusere mer`,
+I dette kapittelet ser vi naermere paa bakteriecellens oppbygning, hvordan bakterier formerer seg, og hvilken betydning de har baade som sykdomsfremkallere og som nyttige organismer.`,
     },
     {
-      id: 'bio1-6-2-def-fitness',
+      id: 'bio1-6-2-def-1',
       type: 'definition',
-      title: 'Biologisk fitness',
-      content: 'Biologisk fitness er et mål på et individs evne til å overleve og reprodusere i et gitt miljø. Det måles ofte som antall overlevende avkom som selv reproduserer. Høy fitness betyr at individet bidrar med mange gener til neste generasjon. Fitness er relativt - det avhenger av miljøet og konkurrentene.',
+      title: 'Bakterie',
+      content: 'Bakterier er encellede prokaryote mikroorganismer. De mangler cellekjerne og membranbundne organeller, men har sitt DNA i et kromosom som ligger fritt i cytoplasmaet (i et omraade kalt nukleoiden). Bakterier har cellevegg, plasmamembran og ribosomer for proteinsyntese. De formerer seg vanligvis ved binaer fisjon.',
     },
     {
-      id: 'bio1-6-2-variasjon',
+      id: 'bio1-6-2-oppbygning',
       type: 'text',
-      content: `## Variasjon i populasjoner
+      content: `## Bakteriecellens oppbygning
 
-Variasjon er råmaterialet for evolusjon. Uten variasjon kan ikke naturlig utvalg virke.
+En typisk bakteriecelle har foelgende strukturer:
 
-### Kilder til genetisk variasjon
+### Obligatoriske strukturer (alle bakterier har disse)
 
-**1. Mutasjoner**
-- Tilfeldige endringer i DNA
-- Skaper nye alleler
-- De fleste er nøytrale eller skadelige
-- Sjelden fordelaktige, men viktige for evolusjon
+**Plasmamembran**
+Et dobbelt lipidlag som omgir cytoplasmaet. Regulerer transport av stoffer inn og ut av cellen. Inneholder proteiner for energiproduksjon (elektrontransportkjeden).
 
-**2. Seksuell reproduksjon**
-- Overkrysning under meiose
-- Uavhengig assortiment av kromosomer
-- Tilfeldig befruktning
-- Gir enorm variasjon i avkom
+**Cellevegg**
+Ligger utenfor plasmamembranen. Gir cellen form og beskyttelse mot osmotisk stress. Hovedkomponenten er **peptidoglykan** – et nettverk av sukker- og aminosyrekjeder som er unikt for bakterier.
 
-**3. Genflyt**
-- Innvandring av nye alleler fra andre populasjoner
-- Kan introdusere ny variasjon
+**Ribosomer**
+Smaa partikler (70S-type) der proteinsyntese foregaar. Bakterielle ribosomer er mindre enn eukaryote ribosomer (80S), noe som er viktig for antibiotikas virkning.
 
-### Typer variasjon
+**Kromosom (DNA)**
+Et enkelt, sirkulaert DNA-molekyl som inneholder bakteriens gener. Ligger i et omraade kalt nukleoiden (ikke omgitt av membran).
 
-**Kontinuerlig variasjon:**
-- Gradvise forskjeller (høyde, vekt)
-- Påvirkes av mange gener og miljø
-- Normalfordelt i populasjonen
+### Valgfrie strukturer (noen bakterier har disse)
 
-**Diskontinuerlig variasjon:**
-- Klare kategorier (blodtype, øyenfarge)
-- Ofte kontrollert av få gener
-- Ingen mellomformer`,
-    },
-    {
-      id: 'bio1-6-2-adaptasjon',
-      type: 'text',
-      content: `## Adaptasjon (tilpasning)
+**Kapsel**
+Et slimlag utenfor celleveggen som beskytter mot immunforsvaret og uttorking.
 
-Adaptasjoner er arvelige egenskaper som øker fitness i et bestemt miljø. De er resultatet av naturlig utvalg over mange generasjoner.
+**Flageller**
+Lange piskeformede strukturer som brukes til bevegelse. Noen bakterier har en flagell, andre har mange.
 
-### Typer adaptasjoner
+**Pili (fimbriae)**
+Korte, haarlignende strukturer som brukes til aa feste seg til overflater eller til genoverfoering mellom bakterier (konjugasjon).
 
-**Morfologiske (strukturelle):**
-- Kamuflasje (isbjørnens hvite pels)
-- Spesialiserte kroppsdeler (kolibrienes lange nebb)
-- Beskyttende strukturer (pigger, skall)
-
-**Fysiologiske:**
-- Giftproduksjon (slanger, edderkopper)
-- Temperaturregulering (svetting, skjelving)
-- Vannkonservering (kamelens nyrer)
-
-**Atferdsmessige:**
-- Migrasjon (trekkfugler)
-- Parringsritualer (påfuglens hale)
-- Sosial organisering (ulveflokker)
-
-### Begrensninger for adaptasjon
-
-- **Trade-offs**: Forbedring i én egenskap kan koste i en annen
-- **Historiske begrensninger**: Evolusjon bygger på eksisterende strukturer
-- **Genetiske begrensninger**: Ikke all variasjon er tilgjengelig
-- **Tidsbegrensninger**: Miljøet kan endre seg raskere enn evolusjon`,
-    },
-    {
-      id: 'bio1-6-2-def-adaptasjon',
-      type: 'definition',
-      title: 'Adaptasjon',
-      content: 'En adaptasjon er en arvelig egenskap som har utviklet seg gjennom naturlig utvalg fordi den øker organismens fitness i et bestemt miljø. Adaptasjoner kan være strukturelle (som kamuflasje), fysiologiske (som giftproduksjon) eller atferdsmessige (som migrasjon). Alle adaptasjoner representerer kompromisser og er tilpasset spesifikke miljøforhold.',
-    },
-    {
-      id: 'bio1-6-2-typer-utvalg',
-      type: 'text',
-      content: `## Typer naturlig utvalg
-
-Naturlig utvalg kan virke på ulike måter avhengig av hvilke fenotyper som favoriseres.
-
-### 1. Retningsbestemt utvalg (Directional selection)
-
-**Kjennetegn:**
-- Favoriserer én ekstrem fenotype
-- Flytter populasjonens gjennomsnitt i én retning
-- Vanlig når miljøet endrer seg
-
-**Eksempler:**
-- Økt antibiotikaresistens hos bakterier
-- Større hjerner hos menneskelinjen
-- Mørkere bjørkemålere under industrialiseringen
-
-### 2. Stabiliserende utvalg (Stabilizing selection)
-
-**Kjennetegn:**
-- Favoriserer gjennomsnittlig fenotype
-- Ekstreme fenotyper selekteres mot
-- Vanlig i stabile miljøer
-
-**Eksempler:**
-- Fødselsvekt hos mennesker (middels vekt gir best overlevelse)
-- Eggstørrelse hos fugler
-- Blomstringstid hos planter
-
-### 3. Disruptivt utvalg (Disruptive selection)
-
-**Kjennetegn:**
-- Favoriserer begge ekstremer
-- Gjennomsnittlig fenotype selekteres mot
-- Kan føre til artsdannelse
-
-**Eksempler:**
-- Nebbstørrelse hos afrikanske finkpopulasjoner
-- Kroppsstørrelse hos laksefisk (store og små hanner)
-- Blomsterfarger ved ulike pollinatorer`,
-    },
-    {
-      id: 'bio1-6-2-def-utvalgstyper',
-      type: 'definition',
-      title: 'De tre utvalgstyper',
-      content: 'Retningsbestemt utvalg favoriserer én ekstrem og flytter gjennomsnittet. Stabiliserende utvalg favoriserer gjennomsnittet og reduserer variasjon. Disruptivt utvalg favoriserer begge ekstremer og kan øke variasjon eller føre til splitting av populasjonen. Hvilken type som virker avhenger av miljøforholdene og hvilke fenotyper som gir høyest fitness.',
+**Plasmider**
+Smaa, sirkulaere DNA-molekyler utenom kromosomet. Baerer ofte gener for antibiotikaresistens.`,
     },
     {
       id: 'bio1-6-2-example-1',
       type: 'example',
-      title: 'Eksempel: Bjørkemåleren og retningsbestemt utvalg',
-      problem: 'Forklar hvordan bjørkemåleren (Biston betularia) illustrerer retningsbestemt utvalg i to ulike retninger.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Sammenligning av prokaryot og eukaryot celle',
+      content: `| Egenskap | Bakterie (prokaryot) | Dyrecelle (eukaryot) |
+|----------|---------------------|---------------------|
+| Cellekjerne | Nei (nukleoid) | Ja |
+| Kromosom | 1, sirkulaert | Flere, lineaere |
+| Ribosomer | 70S | 80S |
+| Organeller med membran | Nei | Ja (mitokondrier, ER osv.) |
+| Cellevegg | Ja (peptidoglykan) | Nei |
+| Plasmider | Ofte | Nei |
+| Stoerrelse | 0,5–5 μm | 10–100 μm |
+| Formering | Binaer fisjon | Mitose |
 
-Bjørkemåleren er et klassisk eksempel på retningsbestemt utvalg observert i sanntid.
+**Hovedforskjell:** Bakterier mangler cellekjerne og membranbundne organeller. DNA-et ligger fritt i cytoplasmaet. Denne enkle oppbygningen gjoer at bakterier kan formere seg raskt.`,
+    },
+    {
+      id: 'bio1-6-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Hva er peptidoglykan?',
+        options: [
+          { id: 'a', text: 'Et nettverk av sukker- og aminosyrekjeder i bakteriens cellevegg', isCorrect: true },
+          { id: 'b', text: 'Arvematerialet i bakteriens cellekjerne', isCorrect: false },
+          { id: 'c', text: 'Et enzym som bryter ned antibiotika', isCorrect: false },
+          { id: 'd', text: 'En type protein i bakteriens flageller', isCorrect: false },
+        ],
+        solution: 'Peptidoglykan er hovedkomponenten i bakteriers cellevegg. Det bestaar av et nettverk av sukker- og aminosyrekjeder som gir cellen form og styrke. Peptidoglykan er unikt for bakterier og finnes ikke i eukaryote celler, noe som gjoer det til et viktig maal for antibiotika.',
+      },
+    },
+    {
+      id: 'bio1-6-2-gram',
+      type: 'text',
+      content: `## Gram-positiv og gram-negativ
 
-**Fase 1: Før industrialiseringen**
-- Bjørkebark var lys og dekket av lav
-- Lys form (typica) var godt kamuflert
-- Mørk form (carbonaria) var sjelden (<2%)
-- Utvalget favoriserte lys form
+I 1884 utviklet den danske bakteriologen Hans Christian Gram en fargemetode som deler bakterier i to hovedgrupper basert paa celleveggens oppbygning:
 
-**Fase 2: Under industrialiseringen (1850-1950)**
-- Sot fra fabrikker drepte laven og svertet barken
-- Mørk form ble bedre kamuflert
-- Lys form ble lett bytte for fugler
-- Mørk form økte til over 90% i industriområder
-- Retningsbestemt utvalg mot mørkere fenotype
+### Gram-positive bakterier
+- **Tykk cellevegg** med mye peptidoglykan
+- Farges **lilla/blaa** i gramfarging
+- Mangler ytre membran
+- Eksempler: *Staphylococcus aureus*, *Streptococcus*, *Bacillus*
 
-**Fase 3: Etter Clean Air Act (1956)**
-- Luftforurensningen ble redusert
-- Laven vokste tilbake, barken ble lysere
-- Lys form ble igjen bedre kamuflert
-- Mørk form begynte å synke i frekvens
-- Retningsbestemt utvalg tilbake mot lysere fenotype
+### Gram-negative bakterier
+- **Tynn cellevegg** med lite peptidoglykan
+- Har en **ytre membran** med lipopolysakkarid (LPS)
+- Farges **rosa/roed** i gramfarging
+- LPS kan foraarsake kraftig immunrespons (endotoksin)
+- Eksempler: *Escherichia coli*, *Salmonella*, *Neisseria*
 
-**Konklusjon:**
-Dette viser at naturlig utvalg er pågående og responsen avhenger av miljøet. Samme populasjon kan oppleve utvalg i motsatte retninger når miljøet endres.`,
+### Klinisk betydning
+
+Skillet mellom gram-positiv og gram-negativ er viktig i medisin fordi:
+1. Den ytre membranen hos gram-negative bakterier gjoer dem mer motstandsdyktige mot mange antibiotika
+2. Gramfarging hjelper legen med aa velge riktig antibiotika raskt
+3. LPS hos gram-negative bakterier kan utloese septisk sjokk`,
+    },
+    {
+      id: 'bio1-6-2-def-2',
+      type: 'definition',
+      title: 'Gramfarging',
+      content: 'Gramfarging er en fargemetode for bakterier utviklet av Hans Christian Gram. Bakterier farges foerst med krystallfiolett og deretter med safranin. Gram-positive bakterier har tykk cellevegg og beholder den lilla fargen, mens gram-negative bakterier har tynn cellevegg med ytre membran og farges rosa. Metoden er et viktig foerste steg i identifisering av ukjente bakterier.',
+    },
+    {
+      id: 'bio1-6-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Hvorfor er gram-negative bakterier ofte vanskeligere aa behandle med antibiotika enn gram-positive?',
+        options: [
+          { id: 'a', text: 'Fordi de har en ytre membran som blokkerer mange antibiotika', isCorrect: true },
+          { id: 'b', text: 'Fordi de formerer seg raskere enn gram-positive', isCorrect: false },
+          { id: 'c', text: 'Fordi de har stoerre ribosomer', isCorrect: false },
+          { id: 'd', text: 'Fordi de ikke har cellevegg', isCorrect: false },
+        ],
+        solution: 'Gram-negative bakterier har en ytre membran utenpaa den tynne celleveggen. Denne ytre membranen fungerer som en ekstra barriere som hindrer mange antibiotikamolekyler i aa naa inn til cellens indre. Antibiotika som maa trenge gjennom celleveggen for aa virke, blokkeres derfor ofte av den ytre membranen.',
+      },
+    },
+    {
+      id: 'bio1-6-2-formering',
+      type: 'text',
+      content: `## Binaer fisjon og vekstkurve
+
+### Binaer fisjon
+
+Bakterier formerer seg ukjoennet ved **binaer fisjon** (toedeling):
+
+1. DNA-et kopieres (replikasjon)
+2. Cellen vokser i stoerrelse
+3. En cellevegg dannes paa midten
+4. Cellen deles i to identiske datterceller
+
+Under optimale forhold kan noen bakterier (som *E. coli*) dele seg hvert 20. minutt. Det betyr at en enkelt bakterie teoretisk kan bli til over 16 millioner paa 8 timer!
+
+### Bakteriell vekstkurve
+
+Naar bakterier dyrkes i et lukket system (f.eks. et reagensglads med naeringsmedium), folger populasjonsveksten et karakteristisk monster:
+
+**1. Lagfase** – Bakteriene tilpasser seg det nye miljoet. Lite celledeling, men aktiv metabolisme.
+
+**2. Eksponentiell fase (log-fase)** – Bakteriene deler seg med konstant hastighet. Populasjonen vokser eksponentielt.
+
+**3. Stasjonaer fase** – Veksten bremser fordi naeringsstoffer brukes opp og avfallsstoffer hoper seg opp. Antall nye celler ≈ antall doede celler.
+
+**4. Doedsfase** – Naeringsstoffene er oppbrukt. Flere celler doer enn som dannes. Populasjonen avtar.`,
+    },
+    {
+      id: 'bio1-6-2-def-3',
+      type: 'definition',
+      title: 'Binaer fisjon',
+      content: 'Binaer fisjon er bakteriers vanligste formeringsmetode. Prosessen innebærer at bakteriens DNA kopieres, cellen vokser, og en ny cellevegg dannes paa midten slik at cellen deles i to genetisk identiske datterceller. Under optimale forhold kan dette skje svært raskt – noen bakterier deler seg hvert 20. minutt.',
     },
     {
       id: 'bio1-6-2-example-2',
       type: 'example',
-      title: 'Eksempel: Fødselsvekt og stabiliserende utvalg',
-      problem: 'Hvorfor er gjennomsnittlig fødselsvekt hos mennesker et resultat av stabiliserende utvalg?',
-      solution: `**Løsning:**
+      title: 'Eksempel: Eksponentiell vekst av bakterier',
+      problem: 'En bakteriekultur starter med 100 bakterier. Bakteriene deler seg hvert 30. minutt. Hvor mange bakterier er det etter 3 timer?',
+      solution: `**Losning:**
 
-Fødselsvekt hos mennesker viser klassisk stabiliserende utvalg.
+Antall delinger paa 3 timer = 180 min / 30 min = **6 delinger**
 
-**Data fra studier:**
-- Optimal fødselsvekt: ca. 3.2-3.8 kg
-- Lavest spedbarnsdødelighet ved gjennomsnittlig vekt
-- Både lave og høye vekter har høyere risiko
+Etter binaer fisjon dobles antallet for hver deling:
 
-**Problemer med lav fødselsvekt:**
-- Underutviklede organer
-- Svakt immunforsvar
-- Problemer med temperaturregulering
-- Økt risiko for komplikasjoner
+| Tid (min) | Delinger | Antall bakterier |
+|-----------|----------|-----------------|
+| 0 | 0 | 100 |
+| 30 | 1 | 200 |
+| 60 | 2 | 400 |
+| 90 | 3 | 800 |
+| 120 | 4 | 1 600 |
+| 150 | 5 | 3 200 |
+| 180 | 6 | 6 400 |
 
-**Problemer med høy fødselsvekt:**
-- Vanskeligere fødsel
-- Økt risiko for fødselsskader
-- Komplikasjoner for mor
-- Historisk høyere dødelighet
+**Formel:** N = N₀ × 2ⁿ = 100 × 2⁶ = 100 × 64 = **6 400 bakterier**
 
-**Resultat:**
-- Ekstremer (både for lave og for høye) har lavere overlevelse
-- Middelverdi favoriseres generasjon etter generasjon
-- Variasjonen i populasjonen holdes relativt stabil
+Denne eksponentielle veksten forklarer hvorfor bakterielle infeksjoner kan utvikle seg raskt.`,
+    },
+    {
+      id: 'bio1-6-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'En bakterie deler seg hvert 20. minutt. Etter 4 timer deler man populasjonen i to like store kulturer og lar dem vokse i ytterligere 1 time. Hvor mange bakterier er det i hver kultur til slutt, dersom man startet med 1 bakterie?',
+        hints: ['Regn ut antall delinger i 4 timer foerst, del saa populasjonen paa to, og regn ut videre vekst i 1 time.'],
+        solution: 'Etter 4 timer (240 min / 20 min = 12 delinger): N = 1 × 2¹² = 4096 bakterier. Deler populasjonen i to: 4096 / 2 = 2048 bakterier i hver kultur. Etter 1 time til (60 min / 20 min = 3 delinger): N = 2048 × 2³ = 2048 × 8 = 16 384 bakterier i hver kultur.',
+      },
+    },
+    {
+      id: 'bio1-6-2-nyttige',
+      type: 'text',
+      content: `## Bakteriers betydning for mennesker
 
-**Moderne medisin:**
-Keisersnitt og moderne nyfødtmedisin har redusert dette utvalgspresset, men historisk har stabiliserende utvalg formet fødselsvekt hos mennesker.`,
+### Sykdomsfremkallende bakterier
+- *Mycobacterium tuberculosis* – tuberkulose
+- *Staphylococcus aureus* – hudinfeksjoner, blodforgiftning
+- *Salmonella* – matforgiftning
+- *Streptococcus pneumoniae* – lungebetennelse
+- *Borrelia burgdorferi* – borreliose (flaattpaafoert)
+
+### Nyttige bakterier
+- **Matproduksjon**: Melkesyrebakterier brukes til aa lage yoghurt, ost, surkaal og sylteagurk
+- **Bioteknologi**: *E. coli* brukes til aa produsere insulin og andre proteiner ved hjelp av genteknologi
+- **Nitrogenkretslop**: Nitrogenfikserende bakterier omdanner N₂ til ammoniakk, og nitrifikasjonsbakterier omdanner ammoniakk til nitrat
+- **Biorensning**: Bakterier brukes til aa rense avlopsvann
+- **Kompostering**: Bakterier er sentrale i nedbrytning av matavfall til jord`,
+    },
+    {
+      id: 'bio1-6-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom gram-positive og gram-negative bakterier med hensyn til cellevegg-oppbygning, fargereaksjon og klinisk betydning.',
+        hints: ['Husk aa nevne peptidoglykantykkelse, ytre membran og LPS.'],
+        solution: 'Gram-positive bakterier har tykk cellevegg med mye peptidoglykan og mangler ytre membran. De farges lilla/blaa i gramfarging. Gram-negative bakterier har tynn cellevegg med lite peptidoglykan, men har en ytre membran som inneholder lipopolysakkarid (LPS). De farges rosa/roede. Klinisk er skillet viktig fordi den ytre membranen hos gram-negative bakterier gjoer dem mer motstandsdyktige mot mange antibiotika. LPS kan dessuten utloese kraftig immunrespons og septisk sjokk ved alvorlige infeksjoner. Gramfarging er derfor et viktig foerste steg i aa velge riktig antibiotikabehandling.',
+      },
+    },
+    {
+      id: 'bio1-6-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Bakterier er prokaryote encellede organismer uten cellekjerne
+- Bakteriecellen har cellevegg (peptidoglykan), plasmamembran, ribosomer (70S) og sirkulaert DNA
+- Valgfrie strukturer inkluderer kapsel, flageller, pili og plasmider
+- Gram-positive bakterier har tykk cellevegg, gram-negative har tynn cellevegg pluss ytre membran
+- Bakterier formerer seg ved binaer fisjon og kan dele seg svært raskt
+- Vekstkurven har fire faser: lagfase, eksponentiell fase, stasjonaer fase og doedsfase
+- Bakterier er baade sykdomsfremkallere og nyttige i matproduksjon, bioteknologi og oekosystemer`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-6-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'I hvilken fase av vekstkurven deler bakteriene seg raskest?',
+        options: [
+          { id: 'a', text: 'Lagfasen', isCorrect: false },
+          { id: 'b', text: 'Eksponentiell fase (log-fase)', isCorrect: true },
+          { id: 'c', text: 'Stasjonaer fase', isCorrect: false },
+          { id: 'd', text: 'Doedsfase', isCorrect: false },
+        ],
+        solution: 'I den eksponentielle fasen (log-fasen) deler bakteriene seg med konstant, maksimal hastighet. Naeringsstoffer er rikelig tilgjengelige og avfallsstoffer har ikke bygget seg opp. Populasjonen dobles med jevne mellomrom, og veksten er eksponentiell.',
+      },
+    },
+    {
+      id: 'bio1-6-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Droeft hvorfor bakterier er viktige baade for jordbruket og for matindustrien. Gi minst to eksempler fra hvert omraade.',
+        hints: ['Tenk paa nitrogenfikseking, nedbrytning, fermentering og konservering.'],
+        solution: 'Jordbruk: 1) Nitrogenfikserende bakterier (Rhizobium) i rotknoller hos belgplanter omdanner N₂ til ammoniakk, noe som reduserer behovet for kunstgjoedsel. 2) Nedbryterbakterier i jorda omdanner dodt organisk materiale til naeringsstoffer som plantene kan ta opp. 3) Bakterier brukes i biogjoedsel og kompostering. Matindustri: 1) Melkesyrebakterier (Lactobacillus) brukes i produksjon av yoghurt, ost og kefir gjennom fermentering. 2) Bakterier brukes til aa lage surkaal, kimchi og andre fermenterte groennssaker. 3) Eddiksyrebakterier brukes i eddikproduksjon. Bakterier er altsaa uunnvaerlige baade for matproduksjon og for aa opprettholde fruktbar jord.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-6-2-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva er biologisk fitness?',
-      options: [
-        { id: 'a', text: 'Et mål på evne til å overleve og reprodusere', isCorrect: true },
-        { id: 'b', text: 'Et mål på fysisk styrke', isCorrect: false },
-        { id: 'c', text: 'Hvor godt et individ er tilpasset trening', isCorrect: false },
-        { id: 'd', text: 'Hvor mange år et individ lever', isCorrect: false },
-      ],
-      solution: 'Biologisk fitness måler et individs evne til å bidra med gener til neste generasjon. Det handler ikke om fysisk styrke, men om overlevelse og reproduktiv suksess i et gitt miljø.',
-    },
-    {
-      id: 'bio1-6-2-ex2',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hvilken type utvalg favoriserer gjennomsnittlig fenotype?',
-      options: [
-        { id: 'a', text: 'Stabiliserende utvalg', isCorrect: true },
-        { id: 'b', text: 'Retningsbestemt utvalg', isCorrect: false },
-        { id: 'c', text: 'Disruptivt utvalg', isCorrect: false },
-        { id: 'd', text: 'Seksuelt utvalg', isCorrect: false },
-      ],
-      solution: 'Stabiliserende utvalg favoriserer den gjennomsnittlige fenotypen og selekterer mot ekstremer. Dette er vanlig i stabile miljøer der eksisterende tilpasninger fungerer godt.',
-    },
-    {
-      id: 'bio1-6-2-ex3',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Nevn og forklar de fire betingelsene som må være oppfylt for at naturlig utvalg skal kunne virke.',
-      solution: '1) Variasjon: Individer må variere i egenskaper - uten forskjeller kan ikke utvalg skje. 2) Arv: Variasjonen må være arvelig, slik at egenskaper kan overføres til avkom. 3) Differensiell overlevelse: Noen varianter må overleve bedre enn andre i det gjeldende miljøet. 4) Differensiell reproduksjon: De som overlever må reprodusere, slik at genene deres overføres. Alle fire betingelser må være oppfylt for at naturlig utvalg skal drive evolusjon.',
-    },
-    {
-      id: 'bio1-6-2-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar forskjellen mellom retningsbestemt, stabiliserende og disruptivt utvalg.',
-      solution: 'Retningsbestemt utvalg favoriserer én ekstrem fenotype og flytter populasjonens gjennomsnitt i én retning (f.eks. økende kroppsstørrelse). Stabiliserende utvalg favoriserer gjennomsnittlig fenotype og reduserer variasjon ved å selektere mot ekstremer (f.eks. optimal fødselsvekt). Disruptivt utvalg favoriserer begge ekstremer og selekterer mot gjennomsnittet (f.eks. nebbstørrelse der både store og små nebb er fordelaktige, men mellomstørrelse ikke er det). Dette kan føre til splitting av populasjonen.',
-    },
-    {
-      id: 'bio1-6-2-ex5',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hvilken type utvalg kan potensielt føre til artsdannelse?',
-      options: [
-        { id: 'a', text: 'Disruptivt utvalg', isCorrect: true },
-        { id: 'b', text: 'Stabiliserende utvalg', isCorrect: false },
-        { id: 'c', text: 'Retningsbestemt utvalg', isCorrect: false },
-        { id: 'd', text: 'Ingen av typene', isCorrect: false },
-      ],
-      solution: 'Disruptivt utvalg favoriserer begge ekstremer og kan føre til at populasjonen deles i to grupper med ulike fenotyper. Hvis disse gruppene utvikler reproduktive barrierer over tid, kan det føre til artsdannelse.',
-    },
-    {
-      id: 'bio1-6-2-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Diskuter hvorfor adaptasjoner alltid representerer kompromisser (trade-offs). Gi eksempler.',
-      solution: 'Adaptasjoner innebærer trade-offs fordi forbedring i én egenskap ofte har kostnader i andre egenskaper. Eksempler: 1) Påfuglens hale øker reproduksjonssuksess, men gjør hannen mer sårbar for rovdyr. 2) Store gevir hos hjort hjelper i konkurranse om hunner, men krever mye energi og kan hindre flukt. 3) Mørk hudpigmentering beskytter mot UV-stråling, men reduserer vitamin D-produksjon i områder med lite sol. 4) Rask vekst gir konkurransefortrinn, men kan redusere levetid. Hver adaptasjon representerer et kompromiss mellom fordeler og kostnader i det spesifikke miljøet.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Prokaryot', definition: 'Celle uten cellekjerne og membranbundne organeller' },
+    { term: 'Peptidoglykan', definition: 'Hovedkomponent i bakteriers cellevegg, unikt for bakterier' },
+    { term: 'Gramfarging', definition: 'Fargemetode som skiller gram-positive og gram-negative bakterier' },
+    { term: 'Binaer fisjon', definition: 'Bakteriers formeringsmetode der cellen deles i to identiske datterceller' },
+    { term: 'Plasmid', definition: 'Lite, sirkulaert DNA-molekyl utenom kromosomet' },
+    { term: 'Flagell', definition: 'Lang, piskeformet struktur for bevegelse' },
   ],
 };
 
 // ============================================================================
-// Kapittel 6.3: Bevis for evolusjon
+// Kapittel 6.3: Virus – struktur, livssyklus og sykdom
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_6_3: TextbookChapter = {
   id: 'biologi-1-6-3',
   courseId: 'biologi-1',
   chapterNumber: '6.3',
-  title: 'Bevis for evolusjon',
-  description: 'Omfattende bevis for evolusjon fra fossiler, komparativ anatomi, molekylærbiologi og direkte observasjon.',
+  title: 'Virus – struktur, livssyklus og sykdom',
+  description: 'Virusstruktur (kapsid, arvemateriale, kappe), lytisk og lysogen syklus, viktige virussykdommer og diskusjonen om virus er levende.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'beskrive hvordan fossiler gir bevis for evolusjon',
-    'forklare forskjellen mellom homologe og analoge strukturer',
-    'gjøre rede for molekylære bevis for evolusjon',
-    'drøfte sammenhengen mellom ulike bevistyper',
+    'beskrive virusets oppbygning og sammenligne med celler',
+    'forklare lytisk og lysogen syklus',
+    'gi eksempler paa viktige virussykdommer og hvordan de smitter',
+    'drofte om virus er levende organismer',
   ],
   content: [
     {
       id: 'bio1-6-3-intro',
       type: 'text',
-      content: `# Bevis for evolusjon
+      content: `# Virus – struktur, livssyklus og sykdom
 
-Evolusjon er en av de best dokumenterte vitenskapelige teoriene. Bevisene kommer fra mange ulike kilder som alle peker i samme retning: livet på jorden har utviklet seg over milliarder av år fra felles forfedre.
+Virus er blant de enkleste biologiske enhetene vi kjenner. De befinner seg i grenseland mellom det levende og det ikke-levende: de har arvemateriale og kan evolve, men de kan ikke formere seg uten aa kapre en vertscelle. Virus er ansvarlige for mange alvorlige sykdommer, fra forkjoelelse til COVID-19 og AIDS.
 
-## Bevistyper
-
-1. **Fossilrekord** - Direkte spor av tidligere liv
-2. **Komparativ anatomi** - Likheter i kroppsbygning
-3. **Molekylærbiologi** - DNA- og proteinsammenligninger
-4. **Biogeografi** - Geografisk fordeling av arter
-5. **Direkte observasjon** - Evolusjon i sanntid`,
+I dette kapittelet laerer du om virusets oppbygning, hvordan virus formerer seg, og hvilke sykdommer de foraarsaker.`,
     },
     {
-      id: 'bio1-6-3-fossiler',
-      type: 'text',
-      content: `## Fossiler og stratigrafi
-
-Fossiler er bevarte rester eller spor av tidligere liv. De gir direkte bevis for at livet har endret seg over tid.
-
-### Hvordan fossiler dannes
-
-**Betingelser for fossilisering:**
-- Rask begravelse (før nedbrytning)
-- Hardt materiale (bein, skall, tenner)
-- Anaerobe forhold (lite oksygen)
-
-**Fossiliseringstyper:**
-- Permineralisering (mineraler erstatter vev)
-- Avtrykk og støpninger
-- Frysing (mammuter)
-- Innkapsling i rav (insekter)
-
-### Stratigrafi og datering
-
-**Relativ datering:**
-- Eldre lag ligger under yngre lag
-- Ledefossiler hjelper med korrelasjon
-- Gir rekkefølge, ikke eksakt alder
-
-**Absolutt datering:**
-- Radiometrisk datering (isotopnedbrytning)
-- Karbon-14 for unge fossiler (<50 000 år)
-- Kalium-argon for eldre fossiler
-
-### Hva fossilrekorden viser
-
-1. **Utdøde arter**: >99% av alle arter er utdødd
-2. **Overgangsformer**: Viser gradvise endringer
-3. **Kronologisk rekkefølge**: Enkle former før komplekse
-4. **Masseutryddelser**: Dramatiske endringer i artsmangfold`,
-    },
-    {
-      id: 'bio1-6-3-def-overgangsform',
+      id: 'bio1-6-3-def-1',
       type: 'definition',
-      title: 'Overgangsform (transisjonsfossil)',
-      content: 'En overgangsform er et fossil som viser egenskaper fra to ulike grupper og representerer et evolusjonært mellomstadium. Eksempler inkluderer Archaeopteryx (dinosaur til fugl), Tiktaalik (fisk til tetrapod) og tidlige hvaler med bakbein. Overgangsformer er sterke bevis for evolusjon fordi de viser gradvise endringer mellom store grupper.',
+      title: 'Virus',
+      content: 'Et virus er en submikroskopisk, infektioes partikkel som bestaar av arvemateriale (DNA eller RNA) omgitt av et proteinskall (kapsid). Virus har ikke egen metabolisme og kan kun formere seg inne i en levende vertscelle. De er derfor obligate intracellulare parasitter. Virus er mye mindre enn bakterier (20–300 nm).',
     },
     {
-      id: 'bio1-6-3-anatomi',
+      id: 'bio1-6-3-struktur',
       type: 'text',
-      content: `## Komparativ anatomi
+      content: `## Virusets oppbygning
 
-Sammenligning av kroppsbygning hos ulike arter avslører evolusjonære sammenhenger.
+Et virus er mye enklere enn en celle. Det bestaar av bare noen faa komponenter:
 
-### Homologe strukturer
+### 1. Arvemateriale (genom)
+- Kan vaere **DNA** eller **RNA** (aldri begge)
+- Kan vaere enkeltttraadet eller dobbeltttraadet
+- Kan vaere lineaert eller sirkulaert
 
-**Definisjon:** Strukturer med samme evolusjonære opprinnelse, men som kan ha ulik funksjon.
+### 2. Kapsid (proteinskall)
+- Proteinlag som omgir og beskytter arvematerialet
+- Bygd opp av mange like proteinenheter kalt **kapsomerer**
+- Tre vanlige former:
+  - **Ikosaedrisk** (20-sidet, kulelignende) – f.eks. adenovirus
+  - **Helikal** (spiralformet, stavlignende) – f.eks. tobakksmosaikkvirus
+  - **Kompleks** (sammensatt form) – f.eks. bakteriofager (T4)
 
-**Klassisk eksempel - Fempålingslemmene:**
-| Dyr | Funksjon | Beinstruktur |
-|-----|----------|--------------|
-| Menneske | Gripe | Samme |
-| Hval | Svømme | Samme |
-| Flaggermus | Fly | Samme |
-| Hest | Løpe | Samme |
-
-Alle har: Overarm - underarm (radius/ulna) - håndledd - fingre
-
-**Hva det viser:**
-- Felles forfader med denne strukturen
-- Modifikasjon over tid til ulike funksjoner
-- Ikke nydesign, men tilpasning
-
-### Analoge strukturer
-
-**Definisjon:** Strukturer med ulik evolusjonær opprinnelse, men lik funksjon.
-
-**Eksempel - Vinger:**
-- Insektvinger: Utposning av eksoskjelettet
-- Fuglevinger: Modifiserte forlemmmer
-- Flaggermusvinger: Hudfold mellom fingre
-
-**Hva det viser:**
-- Konvergent evolusjon
-- Liknende miljøpress gir liknende løsninger
-- Ikke bevis for slektskap`,
-    },
-    {
-      id: 'bio1-6-3-def-homolog-analog',
-      type: 'definition',
-      title: 'Homologe vs analoge strukturer',
-      content: 'Homologe strukturer har samme utviklingsmessige opprinnelse og viser felles avstamning (f.eks. arm, vinge, finne fra samme urstruktur). Analoge strukturer har ulik opprinnelse men lik funksjon, og viser konvergent evolusjon (f.eks. insekt- og fuglevinger). Homologi indikerer slektskap, analogi indikerer lignende miljøpress.',
-    },
-    {
-      id: 'bio1-6-3-molekylaer',
-      type: 'text',
-      content: `## Molekylære bevis
-
-DNA- og proteinsammenligninger gir kvantitative mål på evolusjonært slektskap.
-
-### DNA-sammenligninger
-
-**Prinsipp:**
-- Nært beslektede arter har likere DNA
-- Mutasjoner akkumuleres over tid
-- Forskjeller korrelerer med tid siden felles forfader
-
-**Metoder:**
-- Sekvenssammenligning av gener
-- Helgenomsammenligninger
-- DNA-hybridisering
-
-**Eksempler:**
-| Sammenligning | DNA-likhet |
-|---------------|------------|
-| Menneske - Sjimpanse | ~98.8% |
-| Menneske - Gorilla | ~98.4% |
-| Menneske - Orangutang | ~96.9% |
-| Menneske - Mus | ~85% |
-
-### Proteinsammenligninger
-
-**Cytokrom c:**
-- Protein i alle aerobe organismer
-- Konservert gjennom evolusjonen
-- Antall aminosyreforskjeller korrelerer med slektskap
-
-### Molekylær klokke
-
-- Mutasjonsraten er relativt konstant
-- Kan brukes til å estimere divergenstider
-- Kalibreres med fossildata
-
-### Universell genetisk kode
-
-- Nesten alle organismer bruker samme genetiske kode
-- DNA → RNA → Protein via samme kodon-system
-- Sterkt bevis for felles opphav`,
-    },
-    {
-      id: 'bio1-6-3-def-molekylaer-klokke',
-      type: 'definition',
-      title: 'Molekylær klokke',
-      content: 'Molekylær klokke er en metode for å estimere når to arter divergerte fra en felles forfader. Den baseres på antakelsen om at mutasjoner akkumuleres med relativt konstant hastighet i nøytrale gener. Ved å sammenligne DNA-sekvenser og kalibrere med fossildata kan man beregne divergenstider. Metoden har usikkerheter, men gir verdifulle estimater.',
+### 3. Kappe (konvolutt) – hos noen virus
+- Lipidmembran som stammer fra vertscellens membran
+- Inneholder virale proteiner (f.eks. spike-proteiner)
+- **Kappekledde virus** (f.eks. influensa, SARS-CoV-2) er saarbare for saape og alkohol, fordi disse oedelegger lipidlaget
+- **Nakne virus** (f.eks. norovirus) mangler kappe og er mer motstandsdyktige`,
     },
     {
       id: 'bio1-6-3-example-1',
       type: 'example',
-      title: 'Eksempel: Archaeopteryx som overgangsform',
-      problem: 'Forklar hvorfor Archaeopteryx regnes som en viktig overgangsform og hvilke egenskaper den viser.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Hvorfor virker haandvask mot SARS-CoV-2?',
+      content: `SARS-CoV-2 (viruset som foraarsaker COVID-19) er et kappekledd virus. Kappen bestaar av et lipidlag hentet fra vertscellens membran.
 
-Archaeopteryx levde for ca. 150 millioner år siden og regnes som en av de viktigste overgangsformene.
+**Saape oedelaegger viruset:**
+1. Saapemolekyler har en fettloeselig del og en vannloeselig del
+2. Den fettloeselige delen traenger inn i virusets lipidkappe
+3. Lipidlaget loeses opp og faller fra hverandre
+4. Uten kappe kan viruset ikke lenger binde seg til vertscellens reseptorer
+5. Viruset er dermed inaktivert
 
-**Reptilske egenskaper:**
-- Tenner (moderne fugler har nebb)
-- Lang, benet hale
-- Klør på vingene
-- Ingen brystbein (sternum) for flymuskelefeste
-- Beinstruktur lik små theropode dinosaurer
+**Derfor er haandvask med saape og vann svært effektivt** mot kappekledde virus. Nakne virus (som norovirus) er vanskeligere aa fjerne fordi de mangler lipidlag.`,
+    },
+    {
+      id: 'bio1-6-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Hva er korrekt om virusets oppbygning?',
+        options: [
+          { id: 'a', text: 'Virus har enten DNA eller RNA som arvemateriale, omgitt av et proteinskall (kapsid)', isCorrect: true },
+          { id: 'b', text: 'Virus har bade DNA og RNA, pluss en cellekjerne', isCorrect: false },
+          { id: 'c', text: 'Virus har ribosomer for aa lage egne proteiner', isCorrect: false },
+          { id: 'd', text: 'Virus har plasmamembran og egen metabolisme', isCorrect: false },
+        ],
+        solution: 'Et virus bestaar av arvemateriale (DNA eller RNA, aldri begge) omgitt av et proteinskall kalt kapsid. Noen virus har i tillegg en lipidkappe. Virus har IKKE ribosomer, plasmamembran eller egen metabolisme – de er avhengige av vertsceller for aa formere seg.',
+      },
+    },
+    {
+      id: 'bio1-6-3-sykluser',
+      type: 'text',
+      content: `## Virusets livssyklus
 
-**Fugle-egenskaper:**
-- Fjær (tydelige avtrykk i fossiler)
-- Vingestruktur
-- Gaffelbein (furcula/wishbone)
-- Delvis hul beinstruktur
+Virus kan ikke formere seg paa egen haand. De maa infisere en vertscelle og bruke cellens maskineri til aa lage nye viruskopier. Det finnes to hovedtyper av formering:
 
-**Betydning:**
-1. Viser gradvis overgang fra dinosaurer til fugler
-2. Fjær utviklet seg før aktiv flukt (kanskje for isolasjon først)
-3. Bekrefter at fugler er dinosauretterkommere
-4. Oppdaget kort etter Darwins "Origin" (1861) - perfekt timing
+### Lytisk syklus (dreper vertscellen)
 
-**Nyere funn:**
-Flere fjærkledde dinosaurer er funnet i Kina som fyller ut bildet ytterligere (Sinosauropteryx, Microraptor).`,
+1. **Festing**: Viruset binder seg til spesifikke reseptorer paa vertscellens overflate
+2. **Injeksjon/penetrasjon**: Virusets arvemateriale foeres inn i vertscellen
+3. **Replikasjon**: Vertscellens maskineri kopierer virusets DNA/RNA og produserer virale proteiner
+4. **Sammensetting**: Nye viruspartikler settes sammen inne i cellen
+5. **Frigjoring (lysis)**: Cellen sprekker og frigjoer hundrevis av nye virus som kan infisere nye celler
+
+### Lysogen syklus (viruset «gjemmer seg»)
+
+1. **Festing og injeksjon**: Som i lytisk syklus
+2. **Integrasjon**: Virusets DNA bygges inn i vertscellens kromosom (kalles naa **profag**)
+3. **Replikasjon med verten**: Naar vertscellen deler seg, kopieres ogsa virusets DNA
+4. **Aktivering**: Under stress (UV-lys, kjemikalier) kan profagen aktiveres og gaa over i lytisk syklus
+
+### Betydning av de to syklusene
+
+- **Lytisk syklus**: Gir rask infeksjon og celledoed – typisk for akutte sykdommer
+- **Lysogen syklus**: Viruset kan vaere latent i aarevispaa – typisk for kroniske infeksjoner (f.eks. herpesvirus)`,
+    },
+    {
+      id: 'bio1-6-3-def-2',
+      type: 'definition',
+      title: 'Lytisk syklus',
+      content: 'Den lytiske syklusen er en virusvermering der viruset tar over vertscellens maskineri, produserer mange nye viruspartikler, og til slutt sprenger (lyserer) vertscellen. De nye virusene frigjoeres og kan infisere nye celler. Denne syklusen gir rask spredning og celledoed.',
+    },
+    {
+      id: 'bio1-6-3-def-3',
+      type: 'definition',
+      title: 'Lysogen syklus',
+      content: 'Den lysogene syklusen er en virusvermering der virusets DNA integreres i vertscellens kromosom og kalles en profag. Profagen kopieres passivt naar vertscellen deler seg, uten aa drepe cellen. Under visse forhold (stress, UV-straaling) kan profagen aktiveres og gaa over til lytisk syklus.',
     },
     {
       id: 'bio1-6-3-example-2',
       type: 'example',
-      title: 'Eksempel: DNA-bevis for menneskets slektskap med aper',
-      problem: 'Hvordan støtter DNA-sammenligninger det evolusjonære slektskapet mellom mennesker og andre primater?',
-      solution: `**Løsning:**
+      title: 'Eksempel: Herpesvirus – lytisk og lysogen syklus i praksis',
+      problem: 'Forklar hvorfor herpes-blemmer kommer tilbake gjentatte ganger gjennom livet.',
+      solution: `**Svar:**
 
-DNA-sammenligninger gir kvantitative bevis for evolusjonært slektskap.
+Herpesvirus (f.eks. HSV-1 som gir munnsaar) illustrerer begge livssyklusene:
 
-**Helgenom-sammenligninger:**
-- Menneske og sjimpanse: 98.8% identisk DNA
-- Vi deler mer DNA med sjimpanser enn sjimpanser deler med gorillaer
-- Dette stemmer med morfologiske og fossilbaserte slektskapsforhold
+**Foerste infeksjon (lytisk):**
+- Viruset infiserer hudceller rundt munnen
+- Lytisk syklus gir blemmer og saar
+- Immunsystemet begrenser infeksjonen, og saarene leges
 
-**Spesifikke gener:**
-- Hemoglobingener: Nesten identiske mellom menneske og sjimpanse
-- HOX-gener: Svært konserverte på tvers av alle dyr
-- Cytokrom c: Kun 1 aminosyreforskjell mellom menneske og sjimpanse
+**Latent fase (lysogen):**
+- Viruset trekker seg tilbake til nerveceller (sensoriske ganglier)
+- Virusets DNA integreres og forblir latent i nervecellen
+- Immunsystemet kan ikke naa viruset her
 
-**Pseudogener:**
-- Mennesker og sjimpanser deler de samme "ødelagte" genene
-- Vitamin C-genet (GULO) er defekt på samme måte hos begge
-- Vanskelig å forklare uten felles opphav
+**Reaktivering (tilbake til lytisk):**
+- Ved stress, sollys, feber eller svekket immunforsvar aktiveres viruset
+- Det vandrer tilbake langs nerven til huden
+- Ny lytisk syklus gir nye blemmer paa samme sted
 
-**Retroviralt DNA:**
-- Begge arter har rester av samme virus innebygd i genomet
-- Virusene infiserte felles forfedre for millioner av år siden
-- Plassering i genomet er identisk
+Derfor faar man gjentatte utbrudd av munnsaar – viruset er aldri helt borte fra kroppen.`,
+    },
+    {
+      id: 'bio1-6-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv trinnene i den lytiske syklusen og forklar hvorfor denne syklusen dreper vertscellen.',
+        hints: ['Start med festing til reseptorer og avslutt med lysis.'],
+        solution: 'Trinnene i lytisk syklus: 1) Festing – viruset binder til spesifikke reseptorer paa vertscellens overflate. 2) Penetrasjon – virusets arvemateriale injiseres inn i vertscellen. 3) Replikasjon – vertscellens eget maskineri (ribosomer, enzymer) brukes til aa kopiere virusets DNA/RNA og produsere virale proteiner. 4) Sammensetting – nye viruspartikler settes sammen inne i cellen. 5) Lysis – cellen sprekker og hundrevis av nye virus frigjoeres. Cellen doer fordi viruset tar fullstendig kontroll over cellens maskineri, slutter aa produsere cellens egne proteiner, og til slutt sprenger cellemembranen for aa slippe ut nye viruspartikler.',
+      },
+    },
+    {
+      id: 'bio1-6-3-sykdommer',
+      type: 'text',
+      content: `## Viktige virussykdommer
 
-**Konklusjon:**
-DNA-bevisene bekrefter uavhengig det morfologi og fossiler forteller: mennesker og andre primater deler felles forfedre, med sjimpanser som våre nærmeste nålevende slektninger.`,
+### Influensa
+- **Virus**: Influensavirus (type A, B, C)
+- **Smitte**: Draapeinfeksjon (hoste, nyse) og kontaktsmitte
+- **Symptomer**: Feber, muskelsmerter, hoste, utmattelse
+- **Saerpreg**: Viruset muterer raskt (antigendrift og antigenshift), derfor trengs ny vaksine hvert aar
+
+### COVID-19
+- **Virus**: SARS-CoV-2 (koronavirus)
+- **Smitte**: Draapeinfeksjon og aerosoler, kontaktsmitte
+- **Symptomer**: Feber, hoste, tap av smak/lukt, pustebesveer
+- **Saerpreg**: Spike-protein binder til ACE2-reseptorer paa menneskeceller
+
+### HIV/AIDS
+- **Virus**: Humant immunsviktvirus (HIV)
+- **Smitte**: Seksuell kontakt, blodoverfoering, mor-til-barn
+- **Saerpreg**: Angriper T-hjelpeceller (CD4+) i immunsystemet
+- **Konsekvens**: Uten behandling utvikles AIDS – immunsystemet oedelegges og pasienten doer av opportunistiske infeksjoner
+
+### HPV (humant papillomavirus)
+- **Smitte**: Seksuell kontakt og hudkontakt
+- **Saerpreg**: Noen HPV-typer kan foraarsake livmorhalskreft
+- **Forebygging**: HPV-vaksinen gis til alle ungdommer i Norge (barnevaksinasjonsprogrammet)`,
+    },
+    {
+      id: 'bio1-6-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Hvorfor maa influensavaksinen fornyes hvert aar?',
+        options: [
+          { id: 'a', text: 'Fordi influensaviruset muterer raskt og endrer sine overflateproteiner', isCorrect: true },
+          { id: 'b', text: 'Fordi vaksinen oedelegges i kroppen etter ett aar', isCorrect: false },
+          { id: 'c', text: 'Fordi immunsystemet glemmer alle virus etter 12 maaneder', isCorrect: false },
+          { id: 'd', text: 'Fordi influensa bare finnes om vinteren', isCorrect: false },
+        ],
+        solution: 'Influensaviruset endrer stadig sine overflateproteiner gjennom antigendrift (smaa mutasjoner) og antigenshift (stoerre endringer ved utbytting av gensegmenter). Immunsystemet gjenkjenner virus via overflateproteiner, saa naar disse endres, virker ikke fjorets immunitet. Derfor maa WHO hvert aar analysere hvilke virusstammer som sirkulerer og tilpasse vaksinen.',
+      },
+    },
+    {
+      id: 'bio1-6-3-levende',
+      type: 'text',
+      content: `## Er virus levende organismer?
+
+Dette er et av biologiens store graensespoersmaal. Svaret avhenger av hvordan vi definerer «liv».
+
+### Argumenter FOR at virus er levende:
+- De har arvemateriale (DNA eller RNA) og kan evolve
+- De gjennomgaar naturlig utvalg
+- De har genetisk kode som ligner alle andre organismer
+- De kan tilpasse seg nye verter
+
+### Argumenter MOT at virus er levende:
+- De har **ikke egen metabolisme** – ingen energiproduksjon
+- De kan **ikke formere seg uten vertscelle**
+- De har **ingen celler** – de er partikler, ikke celler
+- De har **ikke ribosomer** og kan ikke lage proteiner selv
+- Utenfor en vertscelle er de inaktive «krystaller»
+
+### Konklusjon
+De fleste biologer regner virus som **ikke-levende biologiske enheter**. De befinner seg i et grenseland og utfordrer vaar definisjon av liv. Virus er helt avhengige av levende celler for aa «leve», men de paavirker livets utvikling enormt gjennom evolusjon og sykdom.`,
+    },
+    {
+      id: 'bio1-6-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Droeft om virus boer regnes som levende organismer. Gi minst to argumenter for og to mot.',
+        hints: ['Tenk paa kjennetegn paa liv: metabolisme, formering, celler, evolusjon.'],
+        solution: 'For: 1) Virus har arvemateriale (DNA eller RNA) og kan evolve gjennom mutasjoner og naturlig utvalg. 2) De kan tilpasse seg nye verter og utvikle resistens mot medisiner, noe som viser evolusjonsevne. Mot: 1) Virus har ikke egen metabolisme – de kan ikke produsere energi eller utfoere kjemiske reaksjoner paa egen haand. 2) De kan ikke formere seg uten aa bruke en vertscelles maskineri – alene er de inaktive partikler. Konklusjon: Virus har noen, men ikke alle, kjennetegnene paa liv. De fleste biologer klassifiserer dem som ikke-levende biologiske enheter som befinner seg i et grenseland mellom det levende og det ikke-levende.',
+      },
+    },
+    {
+      id: 'bio1-6-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Virus bestaar av arvemateriale (DNA eller RNA) omgitt av et proteinskall (kapsid), noen har ogsa lipidkappe
+- Virus har ikke egen metabolisme og kan bare formere seg inne i vertsceller
+- Lytisk syklus: viruset overtar cellen, lager nye virus og sprenger cellen
+- Lysogen syklus: virusets DNA integreres i vertens kromosom og forblir latent
+- Viktige virussykdommer: influensa, COVID-19, HIV/AIDS og HPV
+- Kappekledde virus (influensa, SARS-CoV-2) oedelegges av saape – nakne virus er mer motstandsdyktige
+- Virus regnes vanligvis ikke som levende organismer fordi de mangler metabolisme og celler`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-6-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Lag en sammenligning av bakterier og virus i tabellform. Inkluder foelgende punkter: stoerrelse, celletype, arvemateriale, formering, metabolisme og behandling.',
+        hints: ['Husk at antibiotika ikke virker mot virus.'],
+        solution: 'Bakterier: 0,5–5 μm, prokaryot celle, DNA (sirkulaert), binaer fisjon, egen metabolisme, behandles med antibiotika. Virus: 20–300 nm, ingen celle, DNA eller RNA, krever vertscelle (lytisk/lysogen syklus), ingen metabolisme, behandles med antivirale midler (antibiotika virker IKKE). Viktigste forskjeller: Virus er mye mindre, har ingen celler og ingen metabolisme, og kan ikke formere seg uten vertscelle. Derfor virker antibiotika bare mot bakterier.',
+      },
+    },
+    {
+      id: 'bio1-6-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'HIV angriper T-hjelpeceller (CD4+) i immunsystemet. Forklar hvorfor dette gjoer HIV saerlig farlig, og hvorfor ubehandlet HIV til slutt foerer til AIDS.',
+        hints: ['Tenk paa hva T-hjelpeceller gjoer i immunforsvaret – hva skjer naar de forsvinner?'],
+        solution: 'T-hjelpeceller (CD4+) er sentrale i immunforsvaret. De koordinerer immunresponsen ved aa aktivere B-celler (antistoffproduksjon), cytotoksiske T-celler (dreper infiserte celler) og makrofager. Naar HIV infiserer og dreper T-hjelpeceller, svekkes hele immunforsvaret gradvis. Nar antallet T-hjelpeceller faller under et kritisk nivaa (under ca. 200 per μL blod), har pasienten AIDS. Immunsystemet er da saa svekket at kroppen ikke kan bekjempe infeksjoner som friske mennesker lett klarer (opportunistiske infeksjoner). Pasienten doer altsaa ikke av HIV direkte, men av andre infeksjoner og kreftsykdommer som immunsystemet ikke lenger kan holde i sjakk.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-6-3-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva er en homolog struktur?',
-      options: [
-        { id: 'a', text: 'En struktur med samme opprinnelse men som kan ha ulik funksjon', isCorrect: true },
-        { id: 'b', text: 'En struktur med ulik opprinnelse men lik funksjon', isCorrect: false },
-        { id: 'c', text: 'En struktur som ikke lenger har noen funksjon', isCorrect: false },
-        { id: 'd', text: 'En struktur som bare finnes hos virveldyr', isCorrect: false },
-      ],
-      solution: 'Homologe strukturer har samme evolusjonære opprinnelse, noe som indikerer felles forfader. Et eksempel er forlemmene hos mennesker, hvaler og flaggermus - de har ulik funksjon (gripe, svømme, fly) men samme beinstruktur.',
-    },
-    {
-      id: 'bio1-6-3-ex2',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva viser en overgangsform (transisjonsfossil)?',
-      options: [
-        { id: 'a', text: 'Egenskaper fra to ulike grupper som viser gradvis evolusjon', isCorrect: true },
-        { id: 'b', text: 'At evolusjon skjer i store sprang', isCorrect: false },
-        { id: 'c', text: 'At arter ikke er beslektet', isCorrect: false },
-        { id: 'd', text: 'At fossiler er upålitelige', isCorrect: false },
-      ],
-      solution: 'Overgangsformer har egenskaper fra to ulike grupper og representerer evolusjonære mellomstadier. Archaeopteryx har både dinosaur- og fugletrekk, noe som viser den gradvise utviklingen av fugler fra dinosaurer.',
-    },
-    {
-      id: 'bio1-6-3-ex3',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar hvorfor menneskets og sjimpansens DNA-likhet på ca. 98.8% regnes som bevis for evolusjon.',
-      solution: 'Den høye DNA-likheten indikerer nært slektskap og felles opphav: 1) Hvis artene var uavhengig skapt, ville vi ikke forvente så stor likhet. 2) Likheten stemmer med fossilbevis og anatomi som også peker på nært slektskap. 3) Vi deler også de samme "ødelagte" genene (pseudogener), noe som vanskelig kan forklares uten felles forfader. 4) DNA-sammenligninger med andre primater viser mønster som stemmer med kjent evolusjonær historie.',
-    },
-    {
-      id: 'bio1-6-3-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Beskriv forskjellen mellom relativ og absolutt datering av fossiler.',
-      solution: 'Relativ datering bestemmer rekkefølgen av fossiler basert på stratigrafi - eldre lag ligger dypere enn yngre. Ledefossiler med kjent tidsfordeling hjelper med korrelasjon mellom områder. Relativ datering gir ikke eksakt alder. Absolutt datering bruker radiometriske metoder som måler nedbrytning av radioaktive isotoper (f.eks. C-14, K-Ar). Halveringstiden er kjent, så mengden gjenværende isotop gir alder i år. Begge metodene brukes sammen for å bygge et komplett bilde av livets historie.',
-    },
-    {
-      id: 'bio1-6-3-ex5',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Insektvinger og fuglevinger er et eksempel på:',
-      options: [
-        { id: 'a', text: 'Analoge strukturer (konvergent evolusjon)', isCorrect: true },
-        { id: 'b', text: 'Homologe strukturer', isCorrect: false },
-        { id: 'c', text: 'Vestigiale strukturer', isCorrect: false },
-        { id: 'd', text: 'Overgangsformer', isCorrect: false },
-      ],
-      solution: 'Insektvinger og fuglevinger har ulik evolusjonær opprinnelse (insektvinger er utposninger av eksoskjelettet, fuglevinger er modifiserte forlemmer) men lik funksjon (flukt). Dette er et eksempel på konvergent evolusjon der lignende miljøpress har ført til lignende løsninger.',
-    },
-    {
-      id: 'bio1-6-3-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Hvordan støtter den universelle genetiske koden teorien om felles opphav for alt liv?',
-      solution: 'Den genetiske koden (forholdet mellom kodon og aminosyre) er nesten identisk hos alle levende organismer, fra bakterier til mennesker. Dette er sterkt bevis for felles opphav fordi: 1) Det er ingen kjemisk nødvendighet for at bestemte kodoner skal kode for bestemte aminosyrer - det kunne vært mange andre systemer. 2) At alle organismer bruker samme system tyder på at det ble etablert hos en felles forfader. 3) Små unntak (f.eks. i mitokondrier) viser at koden kan endre seg, men dette skjer sjelden. 4) Hvis liv hadde oppstått flere ganger uavhengig, ville vi forvente ulike koder.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Kapsid', definition: 'Proteinskallet som omgir virusets arvemateriale' },
+    { term: 'Kappe (konvolutt)', definition: 'Lipidmembran rundt noen virus, hentet fra vertscellen' },
+    { term: 'Lytisk syklus', definition: 'Virusvermering som ender med at vertscellen sprekker' },
+    { term: 'Lysogen syklus', definition: 'Virusets DNA integreres i vertens kromosom og forblir latent' },
+    { term: 'Profag', definition: 'Virusets DNA naar det er integrert i vertscellens kromosom' },
+    { term: 'Obligat intracellulae parasitt', definition: 'Organisme som kun kan formere seg inne i en vertscelle' },
   ],
 };
 
 // ============================================================================
-// Kapittel 6.4: Artsdannelse
+// Kapittel 6.4: Antibiotika – virkemate og bruk
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_6_4: TextbookChapter = {
   id: 'biologi-1-6-4',
   courseId: 'biologi-1',
   chapterNumber: '6.4',
-  title: 'Artsdannelse',
-  description: 'Biologisk artsbegrep, reproduktiv isolasjon, og mekanismer for allopatrisk og sympatrisk artsdannelse.',
+  title: 'Antibiotika – virkemate og bruk',
+  description: 'Historien om antibiotika, ulike virkemater, bredspektret vs. smalspektret antibiotika, og riktig antibiotikabruk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forklare det biologiske artsbegrepet',
-    'beskrive ulike typer reproduktive barrierer',
-    'gjøre rede for allopatrisk og sympatrisk artsdannelse',
-    'drøfte hva som skiller populasjoner fra arter',
+    'gjore rede for hva antibiotika er og hvordan det virker',
+    'forklare ulike virkemater for antibiotika',
+    'beskrive forskjellen mellom bredspektret og smalspektret antibiotika',
+    'argumentere for riktig bruk av antibiotika',
   ],
   content: [
     {
       id: 'bio1-6-4-intro',
       type: 'text',
-      content: `# Artsdannelse (speciasjon)
+      content: `# Antibiotika – virkemate og bruk
 
-Artsdannelse er prosessen der én art gir opphav til to eller flere nye arter. Dette er nøkkelen til livets mangfold - over millioner av år har artsdannelse produsert millioner av ulike arter.
+Antibiotika er blant de viktigste medisinske oppdagelsene i historien. Foer antibiotika var selv en enkel saarinfeksjon potensielt doedelig. I dag kan vi behandle de fleste bakterielle infeksjoner effektivt – men denne evnen er truet av antibiotikaresistens.
 
-## Hva er en art?
+I dette kapittelet laerer du om hvordan antibiotika ble oppdaget, hvordan ulike typer antibiotika virker, og hvorfor det er saa viktig aa bruke antibiotika riktig.
 
-Dette høres ut som et enkelt spørsmål, men definisjonen av "art" er faktisk omdiskutert blant biologer. Det finnes flere artsbegreper som brukes i ulike sammenhenger.`,
+## En revolusjon i medisin
+
+Foer antibiotika ble tatt i bruk paa 1940-tallet, var bakterielle infeksjoner den vanligste doedsaarsaken. Lungebetennelse, tuberkulose, blodforgiftning og saarinfeksjoner tok millioner av liv hvert aar. Oppdagelsen av antibiotika forandret dette fullstendig.`,
     },
     {
-      id: 'bio1-6-4-def-art',
+      id: 'bio1-6-4-def-1',
       type: 'definition',
-      title: 'Biologisk artsbegrep',
-      content: 'Det biologiske artsbegrepet definerer en art som en gruppe organismer som kan forplante seg med hverandre og produsere fruktbart avkom, og som er reproduktivt isolert fra andre slike grupper. Denne definisjonen fungerer godt for seksuelt reproduserende organismer, men har begrensninger for aseksuelt reproduserende arter, fossiler og hybridiserende arter.',
+      title: 'Antibiotika',
+      content: 'Antibiotika er legemidler som dreper bakterier (baktericide) eller hemmer bakterievekst (bakteriostatiske). Antibiotika virker ved aa angripe strukturer eller prosesser som er spesifikke for bakterier, slik at kroppens egne celler ikke skades. Antibiotika virker IKKE mot virus.',
     },
     {
-      id: 'bio1-6-4-artsbegrep',
+      id: 'bio1-6-4-historie',
       type: 'text',
-      content: `## Artsbegreper
+      content: `## Historien om antibiotika
 
-### Det biologiske artsbegrepet (Mayr, 1942)
-- Art = reproduktivt isolert gruppe
-- Mest brukt for dyr
-- Problem: Fungerer ikke for aseksuelle organismer
+### Alexander Flemings oppdagelse (1928)
 
-### Morfologisk artsbegrep
-- Art = gruppe med karakteristiske fysiske trekk
-- Brukes for fossiler
-- Problem: Ignorerer skjult variasjon
+Den skotske bakteriologen Alexander Fleming gjorde en av medisinhistoriens viktigste oppdagelser – delvis ved en tilfeldighet.
 
-### Fylogenetisk artsbegrep
-- Art = minste monofyletiske gruppe
-- Basert på DNA og slektskap
-- Problem: Kan splitte "gode" arter
+**Hva skjedde:**
+1. Fleming dro paa ferie og glemte aa rydde bort noen bakteriekulturer (stafylokokker)
+2. Da han kom tilbake, oppdaget han at en muggsopp (*Penicillium notatum*) hadde forurenset en av skaelene
+3. Rundt muggsoppen var det en sone der bakteriene ikke vokste
+4. Fleming innSaa at muggsoppen produserte et stoff som drepte bakterier
+5. Han kalte stoffet **penicillin**
 
-### Økologisk artsbegrep
-- Art = gruppe med egen økologisk nisje
-- Vektlegger tilpasning
-- Problem: Nisjer er vanskelige å definere
+### Fra oppdagelse til medisin
 
-I praksis brukes ofte flere begreper sammen, avhengig av situasjonen.`,
-    },
-    {
-      id: 'bio1-6-4-barrierer',
-      type: 'text',
-      content: `## Reproduktive barrierer
+Det tok over ti aar foer penicillin ble tilgjengelig som medisin:
+- **1928**: Fleming oppdager penicillin
+- **1940**: Howard Florey og Ernst Boris Chain renser og konsentrerer penicillin
+- **1941**: Foerste kliniske forsoek paa mennesker
+- **1943**: Masseproduksjon starter – brukt paa slagmarkene i andre verdenskrig
+- **1945**: Fleming, Florey og Chain faar Nobelprisen i medisin
 
-For at arter skal forbli distinkte, må det finnes mekanismer som hindrer genutvekling. Disse kalles reproduktive barrierer.
+### Penicillinets «gullalper»
 
-### Pre-zygotiske barrierer
-*Hindrer befruktning*
-
-**1. Habitatisolasjon**
-- Artene lever i ulike habitater
-- Møtes ikke, selv i samme område
-
-**2. Temporal isolasjon**
-- Artene reproduserer på ulike tidspunkt
-- Ulik sesong eller tid på døgnet
-
-**3. Atferdsisolasjon**
-- Ulike parringsritualer
-- Signaler gjenkjennes ikke
-
-**4. Mekanisk isolasjon**
-- Kjønnsorganene passer ikke sammen
-- Vanlig hos insekter
-
-**5. Gametisk isolasjon**
-- Egg og sperm er inkompatible
-- Befruktning mislykkes
-
-### Post-zygotiske barrierer
-*Hindrer levedyktig/fruktbart avkom*
-
-**1. Hybrid-inviabilitet**
-- Hybriden utvikler seg ikke normalt
-- Dør før reproduktiv alder
-
-**2. Hybrid-sterilitet**
-- Hybriden er steril
-- Eksempel: Muldyr (hest × esel)
-
-**3. Hybrid-nedbryting**
-- Første generasjon er OK
-- Senere generasjoner har redusert fitness`,
-    },
-    {
-      id: 'bio1-6-4-def-reproduktiv-isolasjon',
-      type: 'definition',
-      title: 'Reproduktiv isolasjon',
-      content: 'Reproduktiv isolasjon er tilstedeværelsen av biologiske barrierer som hindrer genutvekling mellom populasjoner. Barrierene kan være pre-zygotiske (hindrer befruktning) eller post-zygotiske (hindrer levedyktig/fruktbart avkom). Reproduktiv isolasjon er nødvendig for at arter skal forbli distinkte og for at nye arter skal dannes.',
-    },
-    {
-      id: 'bio1-6-4-allopatrisk',
-      type: 'text',
-      content: `## Allopatrisk artsdannelse
-
-"Allopatrisk" betyr "annet fedreland" - artsdannelse skjer når populasjoner er geografisk separert.
-
-### Prosessen
-
-1. **Geografisk separasjon**
-   - Fjell, hav, elver, ørken
-   - Populasjonen deles i to eller flere
-
-2. **Genetisk divergens**
-   - Ulike mutasjoner akkumuleres
-   - Ulike utvalgstrykk
-   - Genetisk drift (spesielt i små populasjoner)
-
-3. **Reproduktiv isolasjon**
-   - Over tid blir populasjonene så forskjellige at de ikke kan krysse seg
-
-4. **Sekundær kontakt**
-   - Hvis barrieren forsvinner, forblir de atskilte arter
-
-### Eksempler
-
-**Darwins finker:**
-- Forfedre koloniserte Galapagos
-- Spredte seg til ulike øyer
-- Ulike nisjer på hver øy
-- 13+ arter utviklet
-
-**Havsnegler over Panama-eidet:**
-- Dannelsen av landbroen for 3 millioner år siden
-- Skilte populasjoner i Atlanterhavet og Stillehavet
-- Genetisk divergens og artsdannelse
-
-Allopatrisk speciasjon regnes som den vanligste formen for artsdannelse.`,
-    },
-    {
-      id: 'bio1-6-4-sympatrisk',
-      type: 'text',
-      content: `## Sympatrisk artsdannelse
-
-"Sympatrisk" betyr "samme fedreland" - artsdannelse skjer uten geografisk separasjon.
-
-### Mekanismer
-
-**1. Polyploidi (vanligst hos planter)**
-- Feil under celledeling gir ekstra kromosomsett
-- Polyploid kan ikke krysse seg med diploid forelder
-- Øyeblikkelig reproduktiv isolasjon
-- Autopolyploidi: Fra samme art
-- Allopolyploidi: Fra hybridisering
-
-**2. Habitatspesialisering**
-- Individer foretrekker ulike habitater
-- Parer seg hovedsakelig innen habitatet
-- Over tid: genetisk divergens
-
-**3. Seksuell seleksjon**
-- Ulike preferanser i partnervalt
-- Assortativ paring (liker parer med liker)
-- Kan drive divergens
-
-### Eksempler
-
-**Cichlider i afrikanske sjøer:**
-- Hundrevis av arter i Victoriasjøen
-- Svært raske artsdannelse
-- Seksuell seleksjon spiller viktig rolle
-
-**Hvalkjefteeplet (Rhagoletis):**
-- Opprinnelig på hagtorn
-- Noen individer begynte å bruke epler
-- Ulike vertsplanter = ulik parringstid
-- Genetisk divergens pågår
-
-Sympatrisk speciasjon er mer omdiskutert og trolig sjeldnere enn allopatrisk.`,
+Etter krigen ble mange nye typer antibiotika oppdaget. Perioden 1940–1960 kalles antibiotikaalderens «gullalder». Sykdommer som foer var doedelige, kunne naa behandles enkelt.`,
     },
     {
       id: 'bio1-6-4-example-1',
       type: 'example',
-      title: 'Eksempel: Muldyr og hybrid-sterilitet',
-      problem: 'Forklar hvorfor muldyr (krysning mellom hest og esel) er sterile, og hva dette forteller oss om artsskiller.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Flemings tilfeldige oppdagelse',
+      content: `Flemings oppdagelse illustrerer at tilfeldigheter kan spille en rolle i vitenskap, men at det ogsaa kreves et forberedt sinn for aa gjenkjenne viktigheten av det man observerer.
 
-**Bakgrunn:**
-- Hest (Equus caballus): 64 kromosomer
-- Esel (Equus asinus): 62 kromosomer
-- Muldyr: 63 kromosomer
+**Fleming sa selv:** *«One sometimes finds what one is not looking for.»*
 
-**Hvorfor muldyr er sterile:**
-1. Ujevnt kromosomtall (63) gir problemer i meiose
-2. Kromosomene kan ikke parre seg korrekt
-3. Kjønnscellene blir ikke funksjonelle
-4. Muldyret kan ikke produsere levedyktige egg/sperm
+Mange foer ham hadde trolig sett lignende muggsoppvekst paa bakteriekulturer, men ingen hadde stoppet opp og undersoeekt fenomenet naermere. Fleming hadde bakgrunnen og nysgjerrigheten til aa forstaa at dette kunne vaere medisinsk viktig.
 
-**Hva dette viser:**
-- Hest og esel har divergert genetisk
-- De er fortsatt nære nok til å produsere avkom
-- Men avkommet er ikke fruktbart
-- Post-zygotisk barriere: hybrid-sterilitet
+**Laerdom:** Vitenskap handler ikke bare om planlagte eksperimenter, men ogsa om aa vaere oppmerksom paa uventede observasjoner og forfolgee dem videre.`,
+    },
+    {
+      id: 'bio1-6-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Hva oppdaget Alexander Fleming i 1928?',
+        options: [
+          { id: 'a', text: 'At en muggsopp (Penicillium) produserte et stoff som drepte bakterier', isCorrect: true },
+          { id: 'b', text: 'At virus kan bruke bakterier som vertsceller', isCorrect: false },
+          { id: 'c', text: 'At bakterier kan overfoere gener seg imellom', isCorrect: false },
+          { id: 'd', text: 'At immunsystemet produserer antistoffer mot bakterier', isCorrect: false },
+        ],
+        solution: 'Fleming oppdaget at muggsoppen Penicillium notatum produserte et stoff som hemmet veksten av stafylokokk-bakterier. Han kalte stoffet penicillin. Dette ble utgangspunktet for det foerste antibiotikumet, men det tok over ti aar foer Florey og Chain klarte aa rense og masseprodusere penicillin til klinisk bruk.',
+      },
+    },
+    {
+      id: 'bio1-6-4-virkemater',
+      type: 'text',
+      content: `## Hvordan virker antibiotika?
 
-**Biologisk betydning:**
-- Genene blandes, men spres ikke videre
-- Artene forblir distinkte
-- Illustrerer det biologiske artsbegrepet
+Antibiotika utnytter forskjeller mellom bakterieceller og menneskeceller. De angriper strukturer eller prosesser som finnes i bakterier, men ikke i vare celler. Dette kalles **selektiv toksisitet**.
 
-**Merknad:**
-I svært sjeldne tilfeller kan hunnmuldyr produsere avkom, men dette er ekstremt uvanlig.`,
+### Hovedtyper av virkemater
+
+**1. Hemmer celleveggsyntese**
+- Eksempel: Penicilliner, cefalosporiner
+- Hindrer bakterien i aa bygge opp celleveggen (peptidoglykan)
+- Bakterien sprekker paa grunn av osmotisk trykk
+- Menneskeceller har ikke cellevegg og paavirkes ikke
+
+**2. Hemmer proteinsyntese**
+- Eksempel: Tetracyklin, erytromycin, gentamicin
+- Binder til bakterielle ribosomer (70S) og stopper proteinproduksjonen
+- Menneskelige ribosomer (80S) paavirkes ikke
+
+**3. Hemmer DNA-replikasjon eller -reparasjon**
+- Eksempel: Fluorokinoloner (ciprofloksacin)
+- Blokkerer enzymer som er nodvendige for aa kopiere eller reparere bakteriens DNA
+
+**4. Hemmer folsyresyntese**
+- Eksempel: Sulfonamider, trimetoprim
+- Bakterier maa lage sin egen folsyre (vitamin B9), mens mennesker faar det gjennom kosten
+- Uten folsyre kan ikke bakterien lage DNA
+
+**5. Oedelegger cellemembranens funksjon**
+- Eksempel: Polymyksiner
+- Forstyrrer bakteriens plasmamembran saa den lekker`,
+    },
+    {
+      id: 'bio1-6-4-def-2',
+      type: 'definition',
+      title: 'Selektiv toksisitet',
+      content: 'Selektiv toksisitet betyr at et legemiddel (som antibiotika) skader maalorganismen (bakterien) uten aa skade verten (mennesket). Dette er mulig fordi bakterier har strukturer og prosesser som er forskjellige fra menneskecellene – for eksempel cellevegg (peptidoglykan) og 70S-ribosomer. Jo stoerre forskjellen er mellom bakterie- og menneskecelle, jo bedre selektiv toksisitet.',
     },
     {
       id: 'bio1-6-4-example-2',
       type: 'example',
-      title: 'Eksempel: Allopatrisk speciasjon hos egernarter',
-      problem: 'Grand Canyon deler habitatet til Kaibab-ekorn og Abert-ekorn. Forklar hvordan dette illustrerer allopatrisk speciasjon.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Hvorfor virker penicillin?',
+      problem: 'Forklar trinn for trinn hvorfor penicillin dreper bakterier, men ikke skader menneskeceller.',
+      solution: `**Svar:**
 
-**Geografisk situasjon:**
-- Grand Canyon: 1.6 km dyp, 16 km bred
-- Nordrim: Kaibab-ekornet (Sciurus aberti kaibabensis)
-- Sørrim: Abert-ekornet (Sciurus aberti aberti)
-- Bare canyon i mellom - ingen krysning mulig
+**Penicillinets virkemate:**
+1. Penicillin binder til enzymet **transpeptidase** (ogsa kalt penicillinbindende protein, PBP)
+2. Transpeptidase er ansvarlig for aa tverrbinde peptidoglykantrader i celleveggen
+3. Naar transpeptidase blokkeres, kan bakterien ikke bygge ny cellevegg
+4. Bakterien fortsetter aa vokse, men celleveggen svekkes
+5. Osmotisk trykk faar vannet til aa stroemme inn i cellen
+6. Uten en sterk cellevegg svulmer cellen opp og sprekker (**lysis**)
 
-**Historisk utvikling:**
-1. For millioner av år siden: én sammenhengende populasjon
-2. Colorado River gravde ut Grand Canyon
-3. Populasjonen ble delt i to
-4. Genflyt stoppet
+**Hvorfor skades ikke menneskeceller?**
+Menneskeceller har **ingen cellevegg** og dermed heller ingen peptidoglykan eller transpeptidase. Penicillin har ingen virkning paa menneskeceller – dette er et godt eksempel paa selektiv toksisitet.`,
+    },
+    {
+      id: 'bio1-6-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Hvorfor virker ikke antibiotika mot virus?',
+        options: [
+          { id: 'a', text: 'Fordi virus mangler de strukturene antibiotika angriper (cellevegg, ribosomer, DNA-replikasjonsenzymer)', isCorrect: true },
+          { id: 'b', text: 'Fordi virus er for smaa til at antibiotika kan naa dem', isCorrect: false },
+          { id: 'c', text: 'Fordi virus har allerede utviklet resistens mot alle antibiotika', isCorrect: false },
+          { id: 'd', text: 'Fordi antibiotika bare virker i blodet, og virus befinner seg i cellene', isCorrect: false },
+        ],
+        solution: 'Antibiotika angriper spesifikke strukturer i bakterier: cellevegg (peptidoglykan), 70S-ribosomer, bakterielle enzymer osv. Virus har INGEN av disse strukturene – de har verken cellevegg, ribosomer eller egen metabolisme. Derfor har antibiotika ingenting aa angripe i et virus. Mot virusinfeksjoner brukes i stedet antivirale legemidler som angriper virusets egne prosesser (f.eks. replikasjon av virus-DNA/RNA).',
+      },
+    },
+    {
+      id: 'bio1-6-4-spekter',
+      type: 'text',
+      content: `## Bredspektret og smalspektret antibiotika
 
-**Divergens:**
-- Ulike miljøforhold på nord- og sørrim
-- Ulike utvalgspress (temperatur, vegetasjon)
-- Genetisk drift
-- Mutasjoner akkumulerer uavhengig
+### Smalspektret antibiotika
+- Virker mot et **begrenset utvalg** av bakteriearter
+- Eksempel: Penicillin G (hovedsakelig mot gram-positive)
+- **Fordel**: Skaaner normalfloraen, mindre risiko for resistensutvikling
+- **Ulempe**: Krever at legen vet hvilken bakterie som foraarsaker infeksjonen
 
-**Morfologiske forskjeller:**
-- Kaibab: Mørkere pels, helt hvit hale
-- Abert: Lysere pels, grå hale med hvit underside
+### Bredspektret antibiotika
+- Virker mot **mange forskjellige** bakteriearter (baade gram-positive og gram-negative)
+- Eksempel: Amoksicillin, tetracyklin, ciprofloksacin
+- **Fordel**: Kan brukes naar man ikke vet noyaktig hvilken bakterie det er
+- **Ulempe**: Dreper ogsa mye av normalfloraen, stoerre risiko for resistensutvikling
 
-**Nåværende status:**
-- Regnes som underarter, ikke fullstendige arter
-- Kan fortsatt krysse seg i fangenskap
-- Men geografisk barriere hindrer dette i naturen
-- Speciasjonsprosessen er "pågående"
+### Riktig bruk av antibiotika
 
-**Konklusjon:**
-Dette er et klassisk eksempel på allopatrisk speciasjon i tidlig fase, der vi kan observere divergens som følge av geografisk isolasjon.`,
+For aa bevare antibiotikaenes effekt er det viktig aa foelge disse reglene:
+
+1. **Bruk antibiotika bare naar legen foreskriver det** – ikke for virusinfeksjoner
+2. **Fullfloer hele kuren** – selv om du foeler deg frisk etter noen dager
+3. **Ikke del antibiotika med andre** – dosen er tilpasset deg
+4. **Ikke bruk antibiotika «i reserve»** fra tidligere behandlinger
+5. **Ikke krev antibiotika for forkjoelelse eller influensa** – dette er virusinfeksjoner`,
+    },
+    {
+      id: 'bio1-6-4-def-3',
+      type: 'definition',
+      title: 'Bredspektret antibiotika',
+      content: 'Bredspektret antibiotika er legemidler som virker mot mange ulike bakteriearter, baade gram-positive og gram-negative. De brukes naar man ikke vet noyaktig hvilken bakterie som foraarsaker infeksjonen. Ulempen er at de ogsa dreper normalflorabakterier og bidrar til oeekt risiko for antibiotikaresistens. Smalspektret antibiotika virker mot faerre arter og er aa foretrekke naar bakterien er identifisert.',
+    },
+    {
+      id: 'bio1-6-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom bredspektret og smalspektret antibiotika. Naar er det mest hensiktsmessig aa bruke smalspektret antibiotika?',
+        hints: ['Tenk paa fordeler og ulemper for baade pasienten og for antibiotikaresistens.'],
+        solution: 'Bredspektret antibiotika virker mot mange ulike bakteriearter (baade gram-positive og gram-negative), mens smalspektret antibiotika virker mot et begrenset utvalg. Smalspektret antibiotika er mest hensiktsmessig naar legen har identifisert hvilken bakterie som foraarsaker infeksjonen (f.eks. ved hjelp av dyrking og resistensbestemmelse). Fordelen med smalspektret antibiotika er at det skaaner normalfloraen (ferre bivirkninger som diaré) og reduserer risikoen for resistensutvikling. Bredspektret brukes naar man ennaa ikke vet hvilken bakterie det er, eller naar infeksjonen er alvorlig og man maa starte behandling raskt.',
+      },
+    },
+    {
+      id: 'bio1-6-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'En pasient med forkjoelelse ber legen om antibiotika. Forklar hvorfor legen boer si nei, og hva pasienten heller boer gjoere.',
+        hints: ['Hva foraarsaker forkjoelelse – bakterier eller virus?'],
+        solution: 'Legen boer si nei fordi forkjoelelse foraarsakes av virus (rhinovirus, koronavirus o.a.), og antibiotika virker bare mot bakterier. Aa ta antibiotika mot virusinfeksjon har ingen effekt paa sykdommen, men kan gi bivirkninger (som diaré og soppinfeksjon) og bidra til antibiotikaresistens. Pasienten boer i stedet hvile, drikke nok vaeske, og eventuelt bruke smertestillende/febernedsettende midler (paracetamol/ibuprofen). Forkjoelelse gaar over av seg selv i loepet av 1–2 uker.',
+      },
+    },
+    {
+      id: 'bio1-6-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Antibiotika er legemidler som dreper bakterier eller hemmer bakterievekst
+- Alexander Fleming oppdaget penicillin i 1928 – Florey og Chain utviklet det til medisin
+- Antibiotika utnytter selektiv toksisitet: angriper bakterielle strukturer som ikke finnes i menneskeceller
+- Hovedvirkemater: hemmer celleveggsyntese, proteinsyntese, DNA-replikasjon, folsyresyntese
+- Antibiotika virker IKKE mot virus
+- Smalspektret antibiotika skaaner normalfloraen og gir mindre resistens
+- Bredspektret antibiotika virker mot mange arter men dreper ogsa normalfloraen
+- Riktig bruk: bare ved bakteriell infeksjon, fullfloer kuren, ikke del med andre`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-6-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Hvilken virkemate har penicillin?',
+        options: [
+          { id: 'a', text: 'Hemmer celleveggsyntese (peptidoglykan) slik at bakterien sprekker', isCorrect: true },
+          { id: 'b', text: 'Oedelegger bakteriens DNA direkte', isCorrect: false },
+          { id: 'c', text: 'Hemmer bakteriens ribosomer saa proteinsyntesen stopper', isCorrect: false },
+          { id: 'd', text: 'Hindrer bakterien i aa ta opp naering', isCorrect: false },
+        ],
+        solution: 'Penicillin hemmer celleveggsyntesen ved aa binde til enzymet transpeptidase (PBP), som er ansvarlig for aa tverrbinde peptidoglykantrader. Uten en intakt cellevegg kan bakterien ikke motstaa det osmotiske trykket, og den svulmer opp og sprekker (lysis). Menneskeceller har ingen cellevegg, saa penicillin er ufarlig for oss.',
+      },
+    },
+    {
+      id: 'bio1-6-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Droeft paastaanden: «Det er ikke farlig aa slutte med antibiotikakuren naar man foeler seg frisk.» Forklar hvorfor det er viktig aa fullfloere hele kuren.',
+        hints: ['Tenk paa hva som skjer med bakteriene som ennaa er igjen naar man slutter for tidlig.'],
+        solution: 'Paastaanden er feil og kan vaere farlig. Naar man foeler seg frisk, betyr det at immunsystemet og antibiotika har redusert bakteriemengden kraftig, men det kan fortsatt vaere bakterier igjen. Hvis man slutter for tidlig, kan de gjenvaerende bakteriene – som kanskje er de mest motstandsdyktige – overleve, formere seg og foraarsake ny infeksjon. I tillegg oeker risikoen for resistensutvikling: de bakteriene som overlevde den ufullstendige behandlingen, kan vaere delvis resistente. Ved aa fullfloere kuren sikrer man at alle bakteriene drepes, noe som reduserer baade risiko for tilbakefall og for resistensutvikling.',
+      },
+    },
+    {
+      id: 'bio1-6-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Lag en oversikt over fire ulike virkemater for antibiotika. For hver virkemate, nevn maalet i bakterien og gi ett eksempel paa et antibiotikum.',
+        hints: ['De fire vanligste: celleveggsyntese, proteinsyntese, DNA-replikasjon og folsyresyntese.'],
+        solution: '1) Hemmer celleveggsyntese – maal: transpeptidase/peptidoglykan – eksempel: penicillin. 2) Hemmer proteinsyntese – maal: 70S-ribosomer – eksempel: tetracyklin. 3) Hemmer DNA-replikasjon – maal: DNA-gyrase – eksempel: ciprofloksacin (fluorokinolon). 4) Hemmer folsyresyntese – maal: enzymer for folsyreproduksjon – eksempel: trimetoprim. Alle disse virker fordi de angriper strukturer/prosesser som er forskjellige fra de tilsvarende i menneskeceller (selektiv toksisitet).',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-6-4-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva er det biologiske artsbegrepet?',
-      options: [
-        { id: 'a', text: 'En gruppe som kan forplante seg og produsere fruktbart avkom', isCorrect: true },
-        { id: 'b', text: 'En gruppe med like fysiske trekk', isCorrect: false },
-        { id: 'c', text: 'En gruppe som lever i samme område', isCorrect: false },
-        { id: 'd', text: 'En gruppe med samme DNA', isCorrect: false },
-      ],
-      solution: 'Det biologiske artsbegrepet definerer en art som en gruppe organismer som kan forplante seg med hverandre og produsere fruktbart (ikke bare levedyktig) avkom, og som er reproduktivt isolert fra andre slike grupper.',
-    },
-    {
-      id: 'bio1-6-4-ex2',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Muldyret (hest x esel) er et eksempel på hvilken type reproduktiv barriere?',
-      options: [
-        { id: 'a', text: 'Hybrid-sterilitet (post-zygotisk)', isCorrect: true },
-        { id: 'b', text: 'Temporal isolasjon (pre-zygotisk)', isCorrect: false },
-        { id: 'c', text: 'Gametisk isolasjon (pre-zygotisk)', isCorrect: false },
-        { id: 'd', text: 'Hybrid-inviabilitet (post-zygotisk)', isCorrect: false },
-      ],
-      solution: 'Muldyr er sterile fordi de har 63 kromosomer (hest 64 + esel 62), som ikke kan parre seg korrekt under meiose. Dette er hybrid-sterilitet - avkommet overlever men kan ikke reprodusere.',
-    },
-    {
-      id: 'bio1-6-4-ex3',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar forskjellen mellom allopatrisk og sympatrisk artsdannelse.',
-      solution: 'Allopatrisk artsdannelse skjer når populasjoner er geografisk separert (f.eks. av fjell, hav) og divergerer genetisk over tid til de blir reproduktivt isolert. Dette er den vanligste formen for speciasjon. Sympatrisk artsdannelse skjer uten geografisk separasjon, ofte via polyploidi hos planter (øyeblikkelig reproduktiv isolasjon) eller habitatspesialisering og seksuell seleksjon. Sympatrisk speciasjon er sjeldnere og mer omdiskutert.',
-    },
-    {
-      id: 'bio1-6-4-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Nevn og forklar tre ulike pre-zygotiske barrierer.',
-      solution: '1) Habitatisolasjon: Artene lever i ulike habitater og møtes ikke, selv i samme geografiske område. 2) Temporal isolasjon: Artene reproduserer på ulike tidspunkt (sesong, tid på døgnet) og kan ikke pare seg. 3) Atferdsisolasjon: Artene har ulike parringsritualer eller signaler som ikke gjenkjennes av den andre arten. Andre pre-zygotiske barrierer inkluderer mekanisk isolasjon (kjønnsorganer passer ikke) og gametisk isolasjon (egg og sperm inkompatible).',
-    },
-    {
-      id: 'bio1-6-4-ex5',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Polyploidi som mekanisme for artsdannelse er vanligst hos:',
-      options: [
-        { id: 'a', text: 'Planter', isCorrect: true },
-        { id: 'b', text: 'Pattedyr', isCorrect: false },
-        { id: 'c', text: 'Fugler', isCorrect: false },
-        { id: 'd', text: 'Fisk', isCorrect: false },
-      ],
-      solution: 'Polyploidi (ekstra kromosomsett) er en viktig mekanisme for sympatrisk speciasjon hos planter. Mange kulturplanter er polyploide (hvete, potet, banan). Hos dyr er polyploidi sjeldent fordi det forstyrrer kjønnsbestemmelse og utvikling.',
-    },
-    {
-      id: 'bio1-6-4-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Diskuter begrensningene ved det biologiske artsbegrepet og forklar hvorfor andre artsbegreper noen ganger er nødvendige.',
-      solution: 'Begrensninger ved det biologiske artsbegrepet: 1) Fungerer ikke for aseksuelle organismer (bakterier, noen planter) som ikke reproduserer seksuelt. 2) Kan ikke anvendes på fossiler der reproduktiv atferd er ukjent. 3) Mange arter hybridiserer i naturen (ulv/hund, ulike plantearter) uten å miste sin distinkthet. 4) Vanskelig å teste i praksis - vi kan ikke pare alle individer. Alternative begreper brukes derfor: Morfologisk artsbegrep for fossiler og museumseksemplarer, fylogenetisk artsbegrep for molekylære studier, økologisk artsbegrep for å forstå tilpasninger. I praksis kombineres ofte flere tilnærminger.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Antibiotika', definition: 'Legemidler som dreper eller hemmer vekst av bakterier' },
+    { term: 'Selektiv toksisitet', definition: 'At et legemiddel skader bakterier uten aa skade menneskeceller' },
+    { term: 'Penicillin', definition: 'Det foerste antibiotikumet, oppdaget av Fleming i 1928' },
+    { term: 'Baktericid', definition: 'Antibiotikum som dreper bakterier' },
+    { term: 'Bakteriostatisk', definition: 'Antibiotikum som hemmer bakterievekst uten aa drepe dem' },
+    { term: 'Bredspektret', definition: 'Antibiotika som virker mot mange ulike bakteriearter' },
+    { term: 'Smalspektret', definition: 'Antibiotika som virker mot faa, spesifikke bakteriearter' },
   ],
 };
 
 // ============================================================================
-// Kapittel 6.5: Evolusjonens mekanismer
+// Kapittel 6.5: Antibiotikaresistens – aarsaker, konsekvenser og tiltak
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_6_5: TextbookChapter = {
   id: 'biologi-1-6-5',
   courseId: 'biologi-1',
   chapterNumber: '6.5',
-  title: 'Evolusjonens mekanismer',
-  description: 'Evolusjonære mekanismer utover naturlig utvalg: genetisk drift, genflyt og mutasjoner som råmateriale for evolusjon.',
+  title: 'Antibiotikaresistens – aarsaker, konsekvenser og tiltak',
+  description: 'Mekanismer bak antibiotikaresistens, MRSA, horisontal genoverfoering, og globale og norske tiltak mot resistens.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'forklare genetisk drift og dens effekt på populasjoner',
-    'beskrive genflyt og dens evolusjonære betydning',
-    'gjøre rede for mutasjoner som kilde til genetisk variasjon',
-    'drøfte samspillet mellom ulike evolusjonære mekanismer',
+    'gjore rede for hva antibiotikaresistens er og hvordan det oppstaar',
+    'forklare mekanismene for horisontal genoverfoering hos bakterier',
+    'beskrive konsekvensene av antibiotikaresistens for folkehelsen',
+    'drofte globale og norske tiltak mot antibiotikaresistens',
   ],
   content: [
     {
       id: 'bio1-6-5-intro',
       type: 'text',
-      content: `# Evolusjonens mekanismer
+      content: `# Antibiotikaresistens – aarsaker, konsekvenser og tiltak
 
-Evolusjon defineres som endringer i allelfrekvenser i en populasjon over tid. Naturlig utvalg er den viktigste mekanismen for adaptasjon, men det finnes flere andre mekanismer som driver evolusjon.
+Antibiotikaresistens regnes av Verdens helseorganisasjon (WHO) som en av de stoerste truslene mot global folkehelse. Bakterier som er resistente mot antibiotika, kan ikke behandles paa vanlig maate, og infeksjoner som vi i dag behandler enkelt, kan igjen bli doedelige.
 
-## De fire hovedmekanismene
+I dette kapittelet laerer du om hvordan resistens oppstaar, hvordan bakterier sprer resistensgener, og hva vi kan gjoere for aa bremse utviklingen.
 
-1. **Naturlig utvalg** - Ikke-tilfeldig overlevelse og reproduksjon
-2. **Genetisk drift** - Tilfeldige endringer i allelfrekvenser
-3. **Genflyt** - Utveksling av alleler mellom populasjoner
-4. **Mutasjoner** - Nye genetiske varianter
+## Problemets omfang
 
-Disse mekanismene kan virke sammen eller mot hverandre, og forståelse av dem alle er nødvendig for å forstå evolusjon fullt ut.`,
+- I 2019 doede anslagsvis **1,27 millioner mennesker** direkte av infeksjoner med antibiotikaresistente bakterier globalt
+- Uten tiltak kan antibiotikaresistens foraarsake **10 millioner doedsfall per aar** innen 2050
+- Utviklingen av nye antibiotika har naesten stoppet opp – det er for lite loennsomt for legemiddelselskapene`,
     },
     {
-      id: 'bio1-6-5-def-evolusjon',
+      id: 'bio1-6-5-def-1',
       type: 'definition',
-      title: 'Evolusjon (populasjonsgenetisk)',
-      content: 'I populasjonsgenetisk forstand er evolusjon enhver endring i allelfrekvenser i en populasjon fra én generasjon til neste. Dette inkluderer både adaptive endringer (naturlig utvalg) og ikke-adaptive endringer (genetisk drift). En populasjon som ikke evolverer, er i Hardy-Weinberg-likevekt.',
+      title: 'Antibiotikaresistens',
+      content: 'Antibiotikaresistens betyr at bakterier har utviklet evnen til aa overleve i naevaeret av antibiotika som normalt ville drept dem eller hemmet veksten deres. Resistens oppstaar gjennom genetiske endringer (mutasjoner) eller ved at bakterier mottar resistensgener fra andre bakterier (horisontal genoverfoering). Resistens er et naturlig biologisk fenomen som akselereres kraftig av overforbruk og feilbruk av antibiotika.',
     },
     {
-      id: 'bio1-6-5-genetisk-drift',
+      id: 'bio1-6-5-evolusjon',
       type: 'text',
-      content: `## Genetisk drift
+      content: `## Hvordan oppstaar antibiotikaresistens?
 
-Genetisk drift er tilfeldige endringer i allelfrekvenser fra generasjon til generasjon. Den skyldes at ikke alle alleler i en generasjon nødvendigvis overføres til neste.
+Antibiotikaresistens er et eksempel paa **naturlig utvalg** (evolusjon) i praksis:
 
-### Kjennetegn ved genetisk drift
+### Trinn for trinn
 
-- **Tilfeldig, ikke retningsbestemt**
-- **Sterkere effekt i små populasjoner**
-- **Kan fjerne variasjon over tid**
-- **Uavhengig av allelenes fitness**
+1. **Variasjon**: I en bakteriepopulasjon finnes det naturlig variasjon. Noen faa bakterier kan ha mutasjoner som gir dem en viss motstandsdyktighet mot antibiotika.
 
-### Simulering
+2. **Seleksjon**: Naar antibiotika tilfoeres, drepes de fleste bakteriene. Men de faa som har resistensmutasjoner, overlever.
 
-Tenk deg en boks med 50% røde og 50% blå kuler. Du trekker 10 kuler tilfeldig for neste generasjon:
-- Med 50/50 ville vi forvente 5 røde og 5 blå
-- Men tilfeldig kan vi få 7 røde og 3 blå
-- Neste generasjon starter da med 70% røde
-- Over tid kan én farge dominere helt
+3. **Formering**: De overlevende resistente bakteriene har naa lite konkurranse og rikelig med naeringsstoffer. De formerer seg raskt.
 
-### Spesialtilfeller
+4. **Dominans**: Etter kort tid bestaar hele populasjonen av resistente bakterier.
 
-**Flaskehalseffekten:**
-- Dramatisk populasjonsreduksjon (katastrofe, sykdom)
-- De overlevende er et tilfeldig utvalg
-- Genetisk variasjon reduseres drastisk
-- Eksempel: Geparden (lav genetisk variasjon)
+### Viktig: Antibiotika skaper ikke resistens
 
-**Grunnleggereffekten:**
-- Ny populasjon grunnlagt av få individer
-- Begrenset genetisk variasjon fra starten
-- Sjeldne alleler kan bli vanlige
-- Eksempel: Amish-populasjonen (høy frekvens av visse genetiske sykdommer)`,
-    },
-    {
-      id: 'bio1-6-5-def-genetisk-drift',
-      type: 'definition',
-      title: 'Genetisk drift',
-      content: 'Genetisk drift er tilfeldige endringer i allelfrekvenser som skyldes sampling-effekter fra én generasjon til neste. Effekten er størst i små populasjoner. Flaskehalseffekten oppstår når en populasjon reduseres drastisk, mens grunnleggereffekten oppstår når få individer grunnlegger en ny populasjon. Begge reduserer genetisk variasjon.',
-    },
-    {
-      id: 'bio1-6-5-genflyt',
-      type: 'text',
-      content: `## Genflyt (migrasjon)
-
-Genflyt er overføring av alleler mellom populasjoner gjennom migrasjon av individer eller gameter (pollen).
-
-### Effekter av genflyt
-
-**1. Homogenisering**
-- Gjør populasjoner genetisk likere
-- Motvirker divergens og artsdannelse
-- Kan spre fordelaktige alleler
-
-**2. Introduksjon av variasjon**
-- Bringer nye alleler til populasjonen
-- Kan øke genetisk mangfold
-- Viktig for isolerte populasjoner
-
-**3. Motvirkning av drift og utvalg**
-- Kan hindre lokal tilpasning
-- Opprettholder variasjon som drift ville fjernet
-- Kan "swampe" lokale adaptasjoner
-
-### Eksempler
-
-**Plantepollinering:**
-- Pollen spres mellom populasjoner
-- Viktig genflyt hos vindpollinerte arter
-- Kan skje over lange avstander
-
-**Dyremigrasjon:**
-- Fugler, fisk, pattedyr flytter mellom områder
-- Spreder gener over store områder
-- Sesongmessige mønstre
-
-**Menneskelig migrasjon:**
-- Historisk genflyt mellom populasjoner
-- Har formet genetisk variasjon globalt
-- Reduserer genetiske forskjeller mellom grupper`,
-    },
-    {
-      id: 'bio1-6-5-mutasjoner',
-      type: 'text',
-      content: `## Mutasjoner som råmateriale
-
-Mutasjoner er den ultimate kilden til all genetisk variasjon. Uten mutasjoner ville det ikke vært noe råmateriale for evolusjon.
-
-### Typer mutasjoner
-
-**Punktmutasjoner:**
-- Endring i enkelt nukleotid
-- Kan være silent, missense eller nonsense
-- Vanligste type mutasjon
-
-**Innskudd og delesjoner (indels):**
-- Tillegg eller tap av nukleotider
-- Kan forårsake leserammeforskyvning
-- Ofte mer alvorlige konsekvenser
-
-**Kromosommutasjoner:**
-- Delesjoner, duplikasjoner, inversjoner
-- Translokasjoner mellom kromosomer
-- Polyploidi (hele ekstra kromosomsett)
-
-### Mutasjoners skjebne
-
-**De fleste mutasjoner er:**
-- **Nøytrale** (~95%): Ingen effekt på fitness
-- **Skadelige** (~5%): Reduserer fitness
-- **Fordelaktige** (<1%): Øker fitness
-
-**Faktorer som påvirker skjebne:**
-- Populasjonsstørrelse (drift vs utvalg)
-- Seleksjonsstyrke
-- Dominansforhold
-- Miljøforhold
-
-### Mutasjonsrater
-
-- Typisk: 10⁻⁸ til 10⁻⁹ per basepar per generasjon
-- Mennesker: ~100 nye mutasjoner per generasjon
-- Varierer mellom arter og genomregioner
-- DNA-reparasjon holder raten lav`,
-    },
-    {
-      id: 'bio1-6-5-def-mutasjon',
-      type: 'definition',
-      title: 'Mutasjon (evolusjonær betydning)',
-      content: 'Mutasjoner er tilfeldige, arvelige endringer i DNA-sekvensen. De er den ultimate kilden til all genetisk variasjon og dermed råmaterialet for evolusjon. De fleste mutasjoner er nøytrale eller skadelige, men sjeldne fordelaktige mutasjoner gir materiale for naturlig utvalg. Uten mutasjoner ville evolusjon til slutt stoppe opp.',
-    },
-    {
-      id: 'bio1-6-5-samspill',
-      type: 'text',
-      content: `## Samspill mellom mekanismer
-
-De fire evolusjonære mekanismene virker ikke isolert, men i komplekst samspill.
-
-### Mutasjon + Naturlig utvalg
-
-- Mutasjon skaper variasjon
-- Naturlig utvalg sorterer variantene
-- "Mutasjon foreslår, utvalg bestemmer"
-- Uten mutasjon: Utvalg tømmer variasjon
-- Uten utvalg: Mutasjoner akkumuleres tilfeldig
-
-### Drift vs Utvalg
-
-- I store populasjoner: Utvalg dominerer
-- I små populasjoner: Drift kan overstyre utvalg
-- Svakt fordelaktige alleler kan gå tapt ved drift
-- Svakt skadelige alleler kan fikseres ved drift
-
-### Genflyt vs Lokal tilpasning
-
-- Genflyt homogeniserer populasjoner
-- Lokalt utvalg differensierer populasjoner
-- Balansen avgjør grad av lokal tilpasning
-- For mye genflyt hindrer spesialisering
-
-### Hardy-Weinberg-likevekt
-
-En populasjon er i Hardy-Weinberg-likevekt hvis:
-- Ingen mutasjoner
-- Ingen utvalg
-- Ingen drift (uendelig stor populasjon)
-- Ingen genflyt
-- Tilfeldig paring
-
-I virkeligheten er ingen populasjon helt i likevekt - evolusjon skjer alltid.`,
+Et vanlig missforstaaelse er at antibiotika «foraarsaker» resistens. I virkeligheten **selekterer** antibiotika for allerede eksisterende resistente varianter. Resistensmutasjoner oppstaar tilfeldig og uavhengig av antibiotika. Men antibiotika gir de resistente bakteriene en enorm fordel, slik at de overtar populasjonen.`,
     },
     {
       id: 'bio1-6-5-example-1',
       type: 'example',
-      title: 'Eksempel: Flaskehalseffekten hos geparden',
-      problem: 'Geparden har svært lav genetisk variasjon. Forklar hvordan flaskehalseffekten kan forklare dette.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Naturlig utvalg og antibiotikaresistens',
+      content: `**Tenk deg en bakteriepopulasjon:**
 
-**Observasjoner hos gepard:**
-- Ekstremt lav genetisk variasjon
-- Hudtransplantasjoner aksepteres mellom individer
-- Høy forekomst av reproduksjonsproblemer
-- Lav spermmotilitet og mange misdannede sperm
+- 1 000 000 bakterier i en infeksjon
+- 999 990 er foelsome for antibiotika (blaa)
+- 10 har en tilfeldig mutasjon som gir resistens (roede)
 
-**Genetisk bevis:**
-- DNA-analyser viser variasjon tilsvarende én familie
-- Alle nålevende geparden stammer fra svært få forfedre
-- Estimert flaskehals for 10 000-12 000 år siden
+**Foer antibiotika:**
+De 10 resistente bakteriene har ingen fordel – de vokser like raskt som de andre.
 
-**Mulige årsaker til flaskehalsen:**
-1. Slutten av siste istid - klimaendringer
-2. Overkjakt av mennesker
-3. Konkurranse med andre rovdyr
-4. Sykdomsepidemier
+**Under antibiotika-behandling:**
+- 999 990 foelsome bakterier dreper → pasienten foeler seg bedre
+- 10 resistente bakterier overlever og begynner aa formere seg
 
-**Konsekvenser:**
-- Nesten all genetisk variasjon gikk tapt
-- Skadelige recessive alleler ble homozygote
-- Redusert evne til å tilpasse seg nye sykdommer
-- Populasjonen er sårbar for fremtidige miljøendringer
+**Etter ufullstendig behandling:**
+- De 10 resistente bakteriene formerer seg eksponentielt
+- Etter noen dager: millioner av resistente bakterier
+- Samme antibiotikum virker ikke lenger
 
-**Sammenlikning:**
-Afrikansk løve har 10x mer genetisk variasjon enn gepard, til tross for lignende leveområder.
+**Laerdom:** Det er viktig aa fullfloere antibiotikakaur for aa drepe ALLE bakterier, inkludert de faa som er delvis resistente.`,
+    },
+    {
+      id: 'bio1-6-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Hva er riktig om hvordan antibiotikaresistens oppstaar?',
+        options: [
+          { id: 'a', text: 'Resistensmutasjoner oppstaar tilfeldig, og antibiotika selekterer for de resistente bakteriene', isCorrect: true },
+          { id: 'b', text: 'Antibiotika foraarsaker mutasjoner i bakterienes DNA som gjoer dem resistente', isCorrect: false },
+          { id: 'c', text: 'Bakterier laerer aa motstaa antibiotika etter gjentatt eksponering', isCorrect: false },
+          { id: 'd', text: 'Resistens oppstaar bare i sykehus og aldri i naturen', isCorrect: false },
+        ],
+        solution: 'Resistensmutasjoner oppstaar tilfeldig og uavhengig av antibiotika – de finnes i populasjonen foer behandling starter. Naar antibiotika tilfoeres, drepes de foelsome bakteriene, men de resistente overlever og formerer seg. Dette er naturlig utvalg (evolusjon) i aksjon. Antibiotika «skaper» altsaa ikke resistens, men selekterer for resistente varianter.',
+      },
+    },
+    {
+      id: 'bio1-6-5-mekanismer',
+      type: 'text',
+      content: `## Resistensmekanismer
 
-**Lærdom:**
-Flaskehalseffekten viser hvorfor bevaringsgenetikk er viktig - genetisk variasjon som går tapt, kommer aldri tilbake.`,
+Bakterier kan vaere resistente mot antibiotika paa flere maater:
+
+### 1. Enzymatisk nedbrytning
+Bakterien produserer enzymer som bryter ned antibiotikumet. Eksempel: **beta-laktamaser** klipper opp penicillinets kjemiske struktur slik at det ikke virker.
+
+### 2. Endret maalmolekyl
+Bakterien endrer proteinet som antibiotikumet normalt binder til, slik at antibiotikumet ikke lenger fester seg. Eksempel: Endret transpeptidase (PBP) hos MRSA.
+
+### 3. Utpumping (efflukspumper)
+Bakterien har proteiner i cellemembranen som aktivt pumper antibiotikumet ut av cellen foer det rekker aa virke.
+
+### 4. Redusert opptak
+Bakterien endrer poriner (proteinkanaler) i den ytre membranen slik at antibiotikumet ikke kommer inn.
+
+### 5. Alternativ metabolsk vei
+Bakterien utvikler en alternativ biokjemisk vei som omgaar det steget antibiotikumet blokkerer.`,
+    },
+    {
+      id: 'bio1-6-5-def-2',
+      type: 'definition',
+      title: 'Horisontal genoverfoering',
+      content: 'Horisontal genoverfoering er overfoering av genetisk materiale mellom bakterier som ikke er forelder og avkom. I motsetning til vertikal genoverfoering (fra mor til datter ved celledeling), kan horisontal genoverfoering spree gener – inkludert resistensgener – mellom ubeslektede bakteriearter. De tre hovedmekanismene er konjugasjon, transformasjon og transduksjon.',
+    },
+    {
+      id: 'bio1-6-5-horisontal',
+      type: 'text',
+      content: `## Horisontal genoverfoering – slik sprer resistens seg
+
+Det som gjoer antibiotikaresistens saerlig farlig, er at resistensgener kan spres mellom bakterier – ogsa mellom helt ulike arter. Dette skjer gjennom tre hovedmekanismer:
+
+### 1. Konjugasjon («bakteriell sex»)
+- To bakterier kobles sammen gjennom en **pilus** (sexpilus)
+- Et **plasmid** med resistensgener kopieres og overfoeres til mottakerbakterien
+- Svært effektiv spredning – kan skje mellom ulike arter
+- Viktigste mekanisme for spredning av resistensgener
+
+### 2. Transformasjon (opptak av fritt DNA)
+- En bakterie tar opp fritt DNA fra miljoet (fra doede bakterier)
+- Hvis DNA-et inneholder resistensgener, kan bakterien bli resistent
+- Skjer naturlig hos noen bakteriearter
+
+### 3. Transduksjon (virusmidlet overfoering)
+- En **bakteriofag** (bakterievirus) infiserer en bakterie
+- Ved et uhell pakkes bakteriens DNA (inkl. resistensgener) inn i nye viruspartikler
+- Naar disse virusene infiserer en ny bakterie, overfoeres resistensgenene
+- Kan spree resistens mellom ubeslektede bakterier`,
     },
     {
       id: 'bio1-6-5-example-2',
       type: 'example',
-      title: 'Eksempel: Grunnleggereffekten og Ellis-van Creveld syndrom hos Amish',
-      problem: 'Ellis-van Creveld syndrom er svært sjeldent globalt, men vanlig blant Amish i Pennsylvania. Forklar hvordan grunnleggereffekten kan forklare dette.',
-      solution: `**Løsning:**
+      title: 'Eksempel: Konjugasjon – plasmidoverfoering mellom bakterier',
+      problem: 'Forklar hvordan et resistensgen kan spree seg fra en resistent E. coli-bakterie til en foelsom Salmonella-bakterie.',
+      solution: `**Svar:**
 
-**Om Ellis-van Creveld syndrom:**
-- Autosomal recessiv lidelse
-- Kortvoksthet, ekstra fingre, hjertefeil
-- Global frekvens: ~1 per 150 000
+1. En **E. coli**-bakterie har et **plasmid** som baerer et gen for antibiotikaresistens (f.eks. et gen for beta-laktamase)
+2. E. coli danner en **sexpilus** som fester seg til en naevarende **Salmonella**-bakterie
+3. Gjennom pilus dannes en **konjugasjonskanal** mellom de to cellene
+4. Plasmidet kopieres og en kopi overfoeres til Salmonella-cellen
+5. Salmonella har naa resistensgenet og kan produsere beta-laktamase
+6. Salmonella er naa **resistent mot penicillin**
 
-**Blant Lancaster Amish:**
-- Frekvens: ~1 per 5 000 (30x høyere)
-- Bærere: ~13% av populasjonen
+**Viktig:** Dette viser at resistens ikke bare spres ved celledeling (vertikalt), men ogsa mellom helt ulike bakteriearter (horisontalt). Eén resistent bakterie kan gjoere mange andre arter resistente.`,
+    },
+    {
+      id: 'bio1-6-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Hva er konjugasjon hos bakterier?',
+        options: [
+          { id: 'a', text: 'Overfoering av plasmid-DNA mellom to bakterier gjennom en sexpilus', isCorrect: true },
+          { id: 'b', text: 'Opptak av fritt DNA fra miljoet', isCorrect: false },
+          { id: 'c', text: 'Overfoering av DNA via bakteriofager', isCorrect: false },
+          { id: 'd', text: 'Binaer fisjon der en bakterie deler seg i to', isCorrect: false },
+        ],
+        solution: 'Konjugasjon er overfoering av genetisk materiale (vanligvis et plasmid) fra en donorbakterie til en mottakerbakterie gjennom en sexpilus. Dette er den viktigste mekanismen for horisontal spredning av resistensgener. Alternativ b (transformasjon) er opptak av fritt DNA fra miljoet, og alternativ c (transduksjon) er DNA-overfoering via bakteriofager.',
+      },
+    },
+    {
+      id: 'bio1-6-5-mrsa',
+      type: 'text',
+      content: `## MRSA og andre resistente bakterier
 
-**Historisk bakgrunn:**
-1. 1744: ~200 tyske immigranter grunnla Amish-samfunnet i Pennsylvania
-2. Én eller flere av grunnleggerne bar genet
-3. Liten, isolert populasjon med lite genflyt
-4. Høy grad av ekteskap innenfor gruppen
+### MRSA – meticillinresistent Staphylococcus aureus
 
-**Genetisk mekanisme:**
-- Tilfeldigvis var en sjelden allel overrepresentert blant grunnleggerne
-- Ingen genflyt inn til å "fortynne" allelen
-- Genetisk drift forsterket effekten i liten populasjon
-- Innavl økte sannsynligheten for homozygoti
+MRSA er kanskje den mest kjente resistente bakterien:
 
-**Sporet tilbake:**
-Genealogisk forskning har sporet nesten alle tilfeller tilbake til ett ektepar blant de opprinnelige immigrantene.
+- *Staphylococcus aureus* er en vanlig bakterie som finnes paa huden hos ca. 30 % av befolkningen
+- MRSA har ervervet genet **mecA**, som koder for et endret penicillinbindende protein (PBP2a)
+- PBP2a binder ikke penicillin eller andre beta-laktam-antibiotika
+- Dermed er MRSA resistent mot nesten alle penicilliner og cefalosporiner
+- MRSA-infeksjoner maa behandles med andre (ofte dyrere og mer toksiske) antibiotika
 
-**Andre eksempler hos Amish:**
-- Maple syrup urine disease
-- Glutaric aciduria
-- Alle sjeldne globalt, men vanlige i Amish-samfunnet
+### Andre resistente bakterier
 
-**Konklusjon:**
-Grunnleggereffekten kan dramatisk endre allelfrekvenser når en liten gruppe koloniserer et nytt område.`,
+- **VRE** (vankomycinresistente enterokokker) – resistent mot «siste utvei»-antibiotikumet vankomycin
+- **ESBL-produserende bakterier** – gram-negative bakterier med enzymer som bryter ned bredspektrede antibiotika
+- **Multiresistent tuberkulose (MDR-TB)** – resistent mot de to viktigste tuberkulosemedisinene
+- **Karbapenemresistente Enterobacterales (CRE)** – resistente mot karbapenemer, som er blant de sterkeste antibiotika vi har
+
+### «Superbakterier»
+
+Bakterier som er resistente mot naer sagt alle tilgjengelige antibiotika, kalles noen ganger «superbakterier». I verste fall finnes det ingen effektiv behandling, og vi er tilbake til tilstander som foer antibiotikas tid.`,
+    },
+    {
+      id: 'bio1-6-5-def-3',
+      type: 'definition',
+      title: 'MRSA',
+      content: 'MRSA (meticillinresistent Staphylococcus aureus) er en variant av den vanlige hudbakterien S. aureus som er resistent mot beta-laktam-antibiotika (penicilliner og cefalosporiner). Resistensen skyldes genet mecA, som koder for et endret penicillinbindende protein. MRSA er et alvorlig problem paa sykehus og sykehjem, der saarbare pasienter kan faa vanskelig behandlbare infeksjoner.',
+    },
+    {
+      id: 'bio1-6-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hvorfor MRSA er vanskelig aa behandle, og beskriv mekanismen som gjoer bakterien resistent mot penicilliner.',
+        hints: ['Stikkord: mecA-genet, endret penicillinbindende protein (PBP2a), beta-laktam.'],
+        solution: 'MRSA har ervervet genet mecA som koder for et endret penicillinbindende protein kalt PBP2a. Normalt binder penicillin til PBP (transpeptidase) og blokkerer celleveggsyntesen. Men PBP2a har en annerledes form slik at penicillin ikke kan binde seg til det. Dermed kan MRSA bygge cellevegg selv i naevaeret av penicillin og andre beta-laktam-antibiotika. Dette gjoer MRSA resistent mot en hel klasse antibiotika (penicilliner og cefalosporiner) som normalt er foerstevalgbehandling for stafylokokkinfeksjoner. Behandling maa i stedet bruke dyrere og mer toksiske alternativer som vankomycin.',
+      },
+    },
+    {
+      id: 'bio1-6-5-tiltak',
+      type: 'text',
+      content: `## Globale og norske tiltak mot antibiotikaresistens
+
+### One Health – en samlet tilnaerming
+
+Antibiotikaresistens er et problem som krysser grenser mellom mennesker, dyr og miljo. **One Health**-tilnaermingen anerkjenner at:
+
+- Resistente bakterier kan spree seg mellom mennesker og dyr
+- Antibiotikabruk i landbruket bidrar til resistensutvikling
+- Resistensgener finnes i miljoet (jord, vann)
+- Effektive tiltak maa adressere alle tre omraadene samtidig
+
+### Globale tiltak
+1. **Redusere unodvendig antibiotikabruk** – baade hos mennesker og i landbruket
+2. **Bedre diagnostikk** – raskere identifisering av bakterier slik at smalspektret antibiotika kan brukes
+3. **Forskning paa nye antibiotika** – oekonomiske insentiver for legemiddelselskaper
+4. **Vaksineutvikling** – forebygge infeksjoner saa antibiotika ikke trengs
+5. **Bedre hygiene og smittevern** – hindre spredning av resistente bakterier
+
+### Norges strategi
+
+Norge har et av verdens laveste forbruk av antibiotika og relativt lite resistens sammenlignet med mange andre land. Norske tiltak inkluderer:
+
+- **Nasjonal strategi mot antibiotikaresistens (2015–2020, forlenget)** – maal om 30 % reduksjon i antibiotikabruk
+- **NORM/NORM-VET** – overvaakingsprogrammer for resistens hos mennesker og dyr
+- **Restriktiv forskrivning** – leger oppfordres til aa bruke smalspektret antibiotika
+- **Forbud mot vekstfremmende antibiotika** i husdyrproduksjon (Norge var tidlig ute)
+- **Smitteverntiltak paa sykehus** – screening for MRSA, isolering av baerera
+
+### Hvorfor Norge lykkes bedre
+
+- Lav befolkningstetthet
+- Godt utbygd helsevesen med god tilgang til diagnostikk
+- Tradisjon for restriktiv antibiotikaforskrivning
+- Strengt regulert landbruk med lavt antibiotikaforbruk
+- Hoey tillit til helsemyndighetenes raad`,
+    },
+    {
+      id: 'bio1-6-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Antibiotikabruk i landbruket – et globalt problem',
+      content: `I mange land brukes antibiotika i enorme mengder i husdyrproduksjon – ikke bare for aa behandle syke dyr, men ogsa som **vekstfremmere** (for aa faa dyrene til aa vokse raskere).
+
+**Stoerrelsen paa problemet:**
+- Globalt gaar ca. **73 % av all antibiotika** til husdyr, ikke til mennesker
+- I noen land tilsettes antibiotika rutinemessig i foerikr
+- Resistente bakterier fra dyr kan overfoeres til mennesker gjennom mat, direkte kontakt eller miljoet
+
+**Norsk tilnaerming:**
+- Norge forboed vekstfremmende antibiotika i 1995
+- Norske bonder bruker ca. 90 % mindre antibiotika enn mange europeiske land
+- Likevel: gjennom importert mat og reisevirksomhet kan resistente bakterier komme til Norge
+
+**Laerdom:** Kampen mot antibiotikaresistens er global – det hjelper lite om Norge er flinke dersom andre land fortsetter med hoert forbruk.`,
+    },
+    {
+      id: 'bio1-6-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva er One Health-tilnaermingen til antibiotikaresistens?',
+        options: [
+          { id: 'a', text: 'En tilnaerming som ser paa sammenhengen mellom helse hos mennesker, dyr og miljo', isCorrect: true },
+          { id: 'b', text: 'Et nytt antibiotikum som virker mot alle typer bakterier', isCorrect: false },
+          { id: 'c', text: 'En vaksine som beskytter mot alle resistente bakterier', isCorrect: false },
+          { id: 'd', text: 'En metode for aa teste antibiotikaresistens i laboratoriet', isCorrect: false },
+        ],
+        solution: 'One Health er en tilnaerming som anerkjenner at helsen til mennesker, dyr og miljo henger sammen. For antibiotikaresistens betyr dette at tiltak maa rettes mot alle tre omraadene: redusere antibiotikabruk baade hos mennesker og i landbruket, overvake resistens i miljoet, og hindre spredning av resistente bakterier mellom mennesker, dyr og miljo.',
+      },
+    },
+    {
+      id: 'bio1-6-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar de tre mekanismene for horisontal genoverfoering (konjugasjon, transformasjon og transduksjon) og beskriv hvorfor horisontal genoverfoering er saerlig farlig for spredning av antibiotikaresistens.',
+        hints: ['Tenk paa hvordan horisontal overfoering skiller seg fra vanlig arv (vertikal), og hva det betyr at resistensgener kan sprees mellom ULIKE arter.'],
+        solution: 'Konjugasjon: En bakterie overfører et plasmid (med resistensgener) til en annen bakterie gjennom en sexpilus. Transformasjon: En bakterie tar opp fritt DNA fra miljoet, f.eks. fra doede bakterier. Transduksjon: En bakteriofag (virus) overforer DNA fra en bakterie til en annen. Horisontal genoverfoering er saerlig farlig fordi resistensgener kan sprees mellom ULIKE bakteriearter – ikke bare fra forelder til avkom. Det betyr at en resistent tarmbakterie kan overfoere resistensgener til en sykdomsfremkallende bakterie av en helt annen art. Paa denne maaten kan resistens sprees raskt gjennom et helt bakteriesamfunn.',
+      },
+    },
+    {
+      id: 'bio1-6-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Antibiotikaresistens oppstaar gjennom naturlig utvalg: antibiotika selekterer for allerede resistente bakterier
+- Resistensmekanismer: enzymatisk nedbrytning, endret maalmolekyl, efflukspumper, redusert opptak
+- Horisontal genoverfoering (konjugasjon, transformasjon, transduksjon) sprer resistensgener mellom arter
+- MRSA, VRE, ESBL og MDR-TB er eksempler paa farlige resistente bakterier
+- One Health-tilnaermingen ser menneske-, dyre- og miljoehelse i sammenheng
+- Norge har lavt antibiotikaforbruk og streng regulering, men er ikke isolert fra globale trender
+- Viktige tiltak: riktig antibiotikabruk, ny forskning, bedre diagnostikk, vaksinasjon og hygiene`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-6-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Droeft paastanden: «Antibiotikaresistens er et evolusjonaert problem som ikke kan loeses med mer antibiotika.» Bruk begreper som naturlig utvalg, mutasjon, seleksjon og horisontal genoverfoering i svaret.',
+        hints: ['Tenk paa at jo mer antibiotika vi bruker, jo staerkere er seleksjonstrykket for resistens.'],
+        solution: 'Paastaanden er i stor grad riktig. Antibiotikaresistens er et evolusjonaert fenomen drevet av naturlig utvalg: naar antibiotika er til stede, har bakterier med resistensmutasjoner en enorm seleksjonsfordel og overlever mens foelsome bakterier doer. Jo mer antibiotika vi bruker, jo staerkere er dette seleksjonstrykket. I tillegg kan resistensgener sprees raskt gjennom horisontal genoverfoering (konjugasjon, transformasjon, transduksjon) – ogsa mellom ulike bakteriearter. Aa utvikle flere antibiotika er viktig som midlertidig loesning, men det loser ikke grunnproblemet: bakterier vil alltid utvikle resistens mot nye antibiotika gjennom mutasjoner og naturlig utvalg. Derfor maa vi ogsa satse paa forebygging (vaksiner, hygiene), redusert antibiotikabruk og alternativ forskning (f.eks. fagterapi, antimikrobielle peptider).',
+      },
+    },
+    {
+      id: 'bio1-6-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-6-5-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Norge har et av verdens laveste antibiotikaforbruk. Forklar minst tre grunner til dette, og droeft om Norge likevel kan bli paavirket av antibiotikaresistens fra andre land.',
+        hints: ['Tenk paa reiser, matimport og bakterienes evne til aa spree seg globalt.'],
+        solution: 'Tre grunner til lavt norsk forbruk: 1) Streng forskrivningspraksis – norske leger er opplaert til aa bruke smalspektret antibiotika og unngaa unodvendig forskrivning. 2) Forbud mot vekstfremmende antibiotika i landbruket siden 1995, noe som har redusert resistensutvikling hos husdyr drastisk. 3) Gode overvaakingsprogrammer (NORM/NORM-VET) som overvaker resistensnivaaer og gir tidlig varsling. Norge kan likevel bli paavirket fordi: 1) Nordmenn reiser mye og kan bringe med seg resistente bakterier hjem (saerlig fra land med hoert antibiotikaforbruk). 2) Import av mat fra land med stoerre antibiotikabruk i landbruket kan introdusere resistente bakterier. 3) Bakterier kjenner ingen landegrenser – resistensgener kan sprees gjennom migrasjon, handel og miljoet. Antibiotikaresistens er derfor et globalt problem som krever internasjonalt samarbeid.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-6-5-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva er genetisk drift?',
-      options: [
-        { id: 'a', text: 'Tilfeldige endringer i allelfrekvenser', isCorrect: true },
-        { id: 'b', text: 'Retningsbestemt endring mot bedre tilpasning', isCorrect: false },
-        { id: 'c', text: 'Utveksling av alleler mellom populasjoner', isCorrect: false },
-        { id: 'd', text: 'Nye mutasjoner i DNA', isCorrect: false },
-      ],
-      solution: 'Genetisk drift er tilfeldige (ikke-retningsbestemmte) endringer i allelfrekvenser fra generasjon til generasjon. Effekten er størst i små populasjoner der tilfeldigheter har større innvirkning.',
-    },
-    {
-      id: 'bio1-6-5-ex2',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Flaskehalseffekten oppstår når:',
-      options: [
-        { id: 'a', text: 'En populasjon reduseres drastisk og mister genetisk variasjon', isCorrect: true },
-        { id: 'b', text: 'Få individer grunnlegger en ny populasjon', isCorrect: false },
-        { id: 'c', text: 'Genflyt mellom populasjoner øker', isCorrect: false },
-        { id: 'd', text: 'Mutasjonsraten øker', isCorrect: false },
-      ],
-      solution: 'Flaskehalseffekten oppstår når en populasjon reduseres dramatisk (f.eks. av katastrofe eller sykdom) og de overlevende representerer et tilfeldig utvalg av den genetiske variasjonen. Mye variasjon går tapt. Grunnleggereffekten er lignende, men gjelder når få individer koloniserer et nytt område.',
-    },
-    {
-      id: 'bio1-6-5-ex3',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar hvorfor mutasjoner kalles "råmaterialet for evolusjon".',
-      solution: 'Mutasjoner er den ultimate kilden til all genetisk variasjon. Uten mutasjoner ville det ikke finnes forskjellige alleler, og naturlig utvalg ville ikke ha noe å "velge" mellom. Selv om de fleste mutasjoner er nøytrale eller skadelige, er de sjeldne fordelaktige mutasjonene nødvendige for at nye adaptasjoner skal kunne utvikles. Seksuell reproduksjon og genflyt kan omfordele eksisterende variasjon, men bare mutasjoner kan skape helt ny variasjon.',
-    },
-    {
-      id: 'bio1-6-5-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Beskriv hvordan genflyt kan både hindre og fremme evolusjon.',
-      solution: 'Genflyt kan hindre evolusjon ved å: 1) Homogenisere populasjoner slik at lokale tilpasninger "swampes" av innkommende gener. 2) Motvirke divergens mellom populasjoner og dermed hindre artsdannelse. Genflyt kan fremme evolusjon ved å: 1) Introdusere nye fordelaktige alleler til en populasjon. 2) Øke genetisk variasjon i isolerte populasjoner. 3) Spre adaptive gener mellom populasjoner. Nettoeffekten avhenger av balansen mellom lokal seleksjon og mengden genflyt.',
-    },
-    {
-      id: 'bio1-6-5-ex5',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'I en svært liten populasjon, hva er mest sannsynlig å skje med en svakt fordelaktig mutasjon?',
-      options: [
-        { id: 'a', text: 'Den kan gå tapt på grunn av genetisk drift', isCorrect: true },
-        { id: 'b', text: 'Den vil alltid fikseres på grunn av naturlig utvalg', isCorrect: false },
-        { id: 'c', text: 'Den vil holde seg på konstant frekvens', isCorrect: false },
-        { id: 'd', text: 'Den vil umiddelbart spres til hele populasjonen', isCorrect: false },
-      ],
-      solution: 'I små populasjoner er genetisk drift sterk nok til å overstyre svak seleksjon. En svakt fordelaktig mutasjon har god sjanse for å gå tapt tilfeldig, selv om den gir en liten fitnessfordel. Utvalg dominerer bare når populasjonen er stor nok til at tilfeldigheter jevner seg ut.',
-    },
-    {
-      id: 'bio1-6-5-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Forklar Hardy-Weinberg-likevekt og hvorfor ingen naturlige populasjoner er i perfekt likevekt.',
-      solution: 'Hardy-Weinberg-likevekt er en teoretisk tilstand der allelfrekvensene i en populasjon forblir konstante over generasjoner. For at dette skal gjelde, må fem betingelser være oppfylt: 1) Ingen mutasjoner, 2) Ingen naturlig utvalg, 3) Uendelig stor populasjon (ingen drift), 4) Ingen genflyt, 5) Tilfeldig paring. Ingen naturlige populasjoner oppfyller alle disse betingelsene: Mutasjoner skjer alltid, utvalg virker på de fleste egenskaper, alle populasjoner har begrenset størrelse, noe genflyt forekommer, og paring er sjelden helt tilfeldig. Hardy-Weinberg brukes som nullmodell - avvik fra likevekten indikerer at evolusjon skjer.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Antibiotikaresistens', definition: 'Bakteriers evne til aa overleve i naevaeret av antibiotika' },
+    { term: 'Horisontal genoverfoering', definition: 'Overfoering av genetisk materiale mellom ubeslektede bakterier' },
+    { term: 'Konjugasjon', definition: 'Overfoering av plasmid via sexpilus mellom bakterier' },
+    { term: 'Transformasjon', definition: 'Bakteriers opptak av fritt DNA fra miljoet' },
+    { term: 'Transduksjon', definition: 'DNA-overfoering mellom bakterier via bakteriofager' },
+    { term: 'MRSA', definition: 'Meticillinresistent Staphylococcus aureus – resistent mot beta-laktam-antibiotika' },
+    { term: 'One Health', definition: 'Tilnaerming som ser menneske-, dyre- og miljoehelse i sammenheng' },
   ],
 };
 

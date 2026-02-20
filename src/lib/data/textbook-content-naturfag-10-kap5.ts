@@ -334,6 +334,28 @@ Nerveimpulser følger **alt-eller-ingenting-prinsippet**:
 - Sterkere stimuli gir flere impulser (høyere frekvens), ikke sterkere impulser`,
     },
 
+    // ========== EKSEMPEL: NERVESIGNALOVERFØRING ==========
+    {
+      id: 'nat10-5-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Hastigheten til nervesignaler',
+      problem: 'Et nervesignal sendes fra hånden din til hjernen. Avstanden er ca. 1 meter. Nerven har myelinskjede, og signalet beveger seg med ca. 100 m/s.\n\na) Hvor lang tid tar det for signalet å nå hjernen?\nb) Hvor lang tid ville det tatt uten myelinskjede (hastighet ca. 1 m/s)?',
+      solution: `**a) Med myelinskjede:**
+
+$$\\text{Tid} = \\frac{\\text{avstand}}{\\text{hastighet}} = \\frac{1 \\text{ m}}{100 \\text{ m/s}} = 0{,}01 \\text{ sekunder} = 10 \\text{ millisekunder}$$
+
+Signalet bruker bare **0,01 sekunder** (10 millisekunder) fra hånden til hjernen.
+
+**b) Uten myelinskjede:**
+
+$$\\text{Tid} = \\frac{1 \\text{ m}}{1 \\text{ m/s}} = 1 \\text{ sekund}$$
+
+Uten myelinskjede ville signalet brukt **1 helt sekund** fra hånden til hjernen.
+
+**Konklusjon:**
+Myelinskjeden gjør nervesignalet **100 ganger raskere**! Forskjellen mellom 10 millisekunder og 1 sekund er enorm. Uten myelinskjede ville alt vi gjør gå mye saktere, og reflekser ville ikke beskytte oss effektivt.`,
+    },
+
     // ========== DEFINISJON: NERVEIMPULS ==========
     {
       id: 'nat10-5-1-def-nerveimpuls',
@@ -467,6 +489,37 @@ En synapse består av:
 - Signaler kan **forsterkes** eller **dempes**
 - Signaler kan gå til **mange celler samtidig** (én nervecelle kan sende til tusenvis av andre)
 - Gir **fleksibilitet** og **kontroll**`,
+    },
+
+    // ========== EKSEMPEL: SIGNALOVERFØRING I SYNAPSE ==========
+    {
+      id: 'nat10-5-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Hvordan koffein påvirker synapsene',
+      problem: 'Koffein (i kaffe, te og energidrikk) gjør deg mer våken. Forklar hvordan dette fungerer ved hjelp av det du vet om nevrotransmittere og synapser.',
+      solution: `**Slik virker koffein på synapsene:**
+
+**Normalt (uten koffein):**
+- Hjernen produserer nevrotransmitteren **adenosin** etter hvert som du er våken
+- Adenosin binder seg til reseptorer i hjernen
+- Adenosin-binding gjør deg **trøtt** og søvnig
+- Jo lenger du er våken, desto mer adenosin → desto trøttere
+
+**Med koffein:**
+- Koffein har en form som **ligner på adenosin**
+- Koffein binder seg til de samme reseptorene som adenosin
+- Men koffein **aktiverer ikke** søvnighets-responsen
+- Adenosin kan ikke binde seg fordi koffein allerede sitter der (som en feil nøkkel i låsen)
+
+**Resultat:**
+- Du føler deg **mindre trøtt** og mer våken
+- Effekten varer i noen timer
+- Når koffeinet brytes ned, kan adenosinet binde seg igjen → du blir trøtt
+
+**Viktig å vite:**
+- Koffein fjerner ikke trøttheten, den bare **maskerer** den
+- Kroppen kan bli vant til koffein (toleranse)
+- For mye koffein kan gi hjertebank, uro og søvnproblemer`,
     },
 
     // ========== DEFINISJON: SYNAPSE ==========
@@ -737,6 +790,41 @@ En refleks følger en **refleksbue** – en fast rute gjennom nervesystemet.
 - **Automatisk:** Hjernen trenger ikke å bruke energi på enkle, repetitive oppgaver`,
     },
 
+    // ========== EKSEMPEL: REFLEKSBUEN I PRAKSIS ==========
+    {
+      id: 'nat10-5-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Knehaserefleksen hos legen',
+      problem: 'Når du er hos legen, kan legen teste refleksene dine ved å slå lett under kneskålen med en reflekshammer. Forklar steg for steg hva som skjer i refleksbuen.',
+      solution: `**Knehaserefleksen steg for steg:**
+
+**1. Reseptor (sansecelle):**
+- Reflekshammeren slår på senen under kneskålen
+- **Strekkreseptorer** i muskelen (quadriceps) oppfatter at muskelen plutselig strekkes
+
+**2. Sanseneuron:**
+- Strekkreseptorene sender et elektrisk signal via sanseneuron til **ryggmargen**
+- Signalet går IKKE til hjernen først
+
+**3. Mellomnevron i ryggmargen:**
+- I ryggmargen kobles sanseneuron direkte til motorneuron
+- (Knehaserefleksen er faktisk en spesiell refleks med bare én synapse – monosynaptisk!)
+
+**4. Motorneuron:**
+- Signal sendes fra ryggmargen tilbake til quadriceps-muskelen (lårmuskel)
+
+**5. Effektor (muskel):**
+- Quadriceps-muskelen trekker seg sammen
+- Foten sparker framover
+
+**Etterpå:** Signalet sendes også til hjernen, og du blir bevisst på at foten har sparket. Men refleksen har allerede skjedd!
+
+**Hvorfor tester legen dette?**
+- Refleksen viser at nervene mellom benet og ryggmargen fungerer
+- Hvis refleksen mangler, kan det tyde på nerveskade
+- Hvis refleksen er for sterk, kan det tyde på annen sykdom`,
+    },
+
     // ========== DEFINISJON: REFLEKS ==========
     {
       id: 'nat10-5-1-def-refleks',
@@ -968,6 +1056,41 @@ Reflekser går via ryggmargen fordi det er **raskere** og **beskytter** kroppen 
 - Hjernen kan også lagre informasjonen (hukommelse)
 
 **Viktig:** Vi oppfatter ikke virkeligheten direkte. Vi oppfatter hva **hjernen tolker** basert på signalene fra sansene!`,
+    },
+
+    // ========== EKSEMPEL: HJERNENS ULIKE OMRÅDER ==========
+    {
+      id: 'nat10-5-1-example-4',
+      type: 'example',
+      title: 'Eksempel: Hvorfor ulike hjerneområder styrer ulike funksjoner',
+      problem: 'En person får en skade i bakre del av hjernen (synssenteret). Personen kan fremdeles berøre og føle ting, men har problemer med å se. Forklar hvorfor skaden gir synsproblemer, men ikke problemer med følesansen.',
+      solution: `**Forklaring:**
+
+Hjernen er organisert slik at ulike områder har ansvar for ulike funksjoner:
+
+**Synssenteret** (bakre del av storehjernen – occipitallappen):
+- Mottar og tolker signaler fra øynene via synsnerven
+- Skade her → Synsproblemer eller blindhet
+- Øynene kan fungere normalt, men hjernen klarer ikke å tolke signalene
+
+**Sansesenteret** (en stripe langs midten av storehjernen – parietallappen):
+- Mottar signaler om berøring, trykk, temperatur og smerte fra huden
+- Skade her → Problemer med følesans
+- Ligger i en annen del av hjernen enn synssenteret
+
+**Derfor:**
+- Skade i bakre del (synssenteret) påvirker synet
+- Følesanssignalene sendes til et annet område og er **upåvirket** av skaden
+- Hvert sanseorgan sender signaler til sitt eget dedikerte område i hjernen
+
+**Analogi:**
+Tenk på hjernen som et kontor med ulike avdelinger. Hvis "synsavdelingen" skades, fungerer de andre avdelingene (berøring, hørsel, lukt) fremdeles normalt.
+
+**Andre viktige hjerneområder:**
+- **Frontallappen:** Tenking, planlegging, personlighet
+- **Temporallappen:** Hørsel, hukommelse
+- **Lillehjernen:** Balanse og koordinering
+- **Hjernestammen:** Pusting, hjerteslag (livsviktige funksjoner)`,
     },
 
     // ========== DEFINISJON: SANSER ==========
@@ -1296,6 +1419,391 @@ Nervesystemet er utrolig raskt!
 Alt dette skjer automatisk og utrolig raskt – en fantastisk prestasjon av nervesystemet!`,
       },
     },
+
+    // ========== OPPGAVE 11: MYELINSKJEDE OG MS ==========
+    {
+      id: 'nat10-5-1-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-11',
+        number: '5.1.11',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Multippel sklerose (MS) er en sykdom der kroppens immunforsvar angriper myelinskjeden rundt nervefibrene.
+
+a) Forklar hva myelinskjeden gjør normalt.
+b) Hva tror du skjer med nervesignalene hos en person med MS?
+c) Hvilke symptomer kan dette føre til?`,
+        solution: `**a) Myelinskjedens funksjon:**
+
+Myelinskjeden er et isolerende fettlag som omgir aksonet (nervefiberen). Den har to viktige funksjoner:
+- **Isolerer** nerven slik at det elektriske signalet ikke "lekker" ut
+- **Øker hastigheten** på nervesignalet fra ca. 1 m/s til opptil 120 m/s
+- Signalet "hopper" fra gap til gap langs myelinskjeden (saltatorisk ledning)
+
+---
+
+**b) Hva skjer med nervesignalene ved MS:**
+
+Når myelinskjeden brytes ned:
+- **Signalene går mye saktere** – fordi de ikke kan "hoppe" langs nerven
+- **Signalene kan stoppe helt** – uten isolasjon kan det elektriske signalet forsvinne
+- **Signalene blir upålitelige** – de kommer kanskje fram noen ganger, men ikke alltid
+- Det er som å ha en strømkabel uten isolasjon – strømmen lekker ut
+
+---
+
+**c) Symptomer ved MS:**
+
+- **Muskelsvakhet** – signalene fra hjernen når ikke musklene effektivt
+- **Nummenhet og prikking** – sansenervesignaler forstyrres
+- **Synsproblemer** – synsnerven kan rammes
+- **Balanse- og koordineringsproblemer** – signaler til lillehjernen forstyrres
+- **Tretthet** – nervesystemet bruker mye mer energi
+- **Kognitive problemer** – konsentrasjon og hukommelse kan påvirkes
+
+MS-symptomene varierer fordi ulike nerver kan rammes hos ulike personer.`,
+      },
+    },
+
+    // ========== OPPGAVE 12: NEVROTRANSMITTERE OG SYKDOM ==========
+    {
+      id: 'nat10-5-1-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-12',
+        number: '5.1.12',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'En person med Parkinsons sykdom har for lite av nevrotransmitteren dopamin i hjernen. Hvilke symptomer vil dette mest sannsynlig føre til?',
+        options: [
+          'Skjelving, stive muskler og trege bevegelser',
+          'Hallusinasjoner og kraftig hodepine',
+          'Feber og betennelse i leddene',
+          'Høy puls og svetting',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Skjelving, stive muskler og trege bevegelser
+
+**Forklaring:**
+
+**Dopamin** er en nevrotransmitter som er viktig for:
+- **Bevegelse** – kontroll av muskler
+- **Belønning og motivasjon**
+- **Koordinering** av bevegelser
+
+**Ved Parkinsons sykdom:**
+- Nervecellene som produserer dopamin i hjernen dør gradvis
+- Mindre dopamin betyr dårligere kontroll over bevegelser
+
+**Typiske symptomer:**
+- **Skjelving (tremor)** – ukontrollert risting, ofte i hendene
+- **Stive muskler (rigiditet)** – musklene spenner seg
+- **Trege bevegelser (bradykinesi)** – alt går saktere
+- **Balansevansker** – vanskeligere å holde balansen
+
+**Behandling:**
+Legemidler som øker dopamin-nivået i hjernen (f.eks. L-dopa) kan lindre symptomene.`,
+      },
+    },
+
+    // ========== OPPGAVE 13: REFLEKSER VS BEVISSTE HANDLINGER ==========
+    {
+      id: 'nat10-5-1-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-13',
+        number: '5.1.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er hovedforskjellen mellom en refleks og en bevisst handling?',
+        options: [
+          'En refleks går via ryggmargen og er automatisk, en bevisst handling styres av hjernen',
+          'En refleks er raskere men svakere enn en bevisst handling',
+          'Reflekser bruker bare sanseneuroner, bevisste handlinger bruker bare motorneuroner',
+          'Det er ingen forskjell – begge styres av hjernen',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** En refleks går via ryggmargen og er automatisk, en bevisst handling styres av hjernen
+
+**Forklaring:**
+
+**Refleks:**
+- Signal går via **ryggmargen** (ikke hjernen)
+- **Automatisk** – skjer uten at du tenker
+- **Rask** – ca. 0,05 sekunder
+- Bruker refleksbuen: Reseptor → Sanseneuron → Ryggmarg → Motorneuron → Muskel
+- Eksempel: Trekke hånden fra noe varmt
+
+**Bevisst handling:**
+- Signal går via **hjernen**
+- **Viljestyrt** – du bestemmer deg for å gjøre det
+- **Langsommere** – ca. 0,2-0,3 sekunder
+- Hjernen må prosessere informasjon og ta beslutning
+- Eksempel: Bestemme deg for å løfte et glass
+
+**Viktig:**
+Begge bruker både sanseneuroner og motorneuroner. Forskjellen er om signalet prosesseres i ryggmargen (refleks) eller hjernen (bevisst handling).`,
+      },
+    },
+
+    // ========== OPPGAVE 14: TYPER NEVRONER ==========
+    {
+      id: 'nat10-5-1-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-14',
+        number: '5.1.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Lag en tabell som viser de tre typene nevroner (sanseneuron, mellomnevron og motorneuron). For hver type, oppgi:
+- Hvor finnes den?
+- Retning på signalet
+- Funksjon
+- Et eksempel`,
+        solution: `**Tabell over de tre typene nevroner:**
+
+| **Egenskap** | **Sanseneuron** | **Mellomnevron** | **Motorneuron** |
+|---|---|---|---|
+| **Plassering** | Fra sanseorganer til CNS | I sentralnervesystemet (hjerne og ryggmarg) | Fra CNS til muskler og kjertler |
+| **Retning** | Fra kroppen **til** CNS | Mellom andre nevroner i CNS | Fra CNS **til** kroppen |
+| **Funksjon** | Sender informasjon fra sanseorganer til hjernen/ryggmargen | Behandler informasjon, kobler sanseneuroner til motorneuroner | Sender kommandoer fra hjernen/ryggmargen til muskler |
+| **Eksempel** | Føler varme fra kokeplate → sender signal til ryggmarg | I ryggmargen under en refleks: mottar signal fra sanseneuron, sender videre til motorneuron | Hjernen sender signal til armmuskelen om å løfte armen |
+
+**Signalflyt ved en bevisst handling:**
+Sanseneuron → Mellomnevron (i hjernen) → Motorneuron
+
+**Signalflyt ved en refleks:**
+Sanseneuron → Mellomnevron (i ryggmargen) → Motorneuron
+
+**Huskeregel:**
+- **S**anseneuron = **S**ender inn (til CNS)
+- **M**ellomnevron = **M**idt i CNS
+- **M**otorneuron = **M**uskler (ut fra CNS)`,
+      },
+    },
+
+    // ========== OPPGAVE 15: SENTRALNERVESYSTEMET OG PERIFERT ==========
+    {
+      id: 'nat10-5-1-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-15',
+        number: '5.1.15',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Det autonome nervesystemet styrer funksjoner som hjerteslag, fordøyelse og pusting. Hva kjennetegner disse funksjonene?',
+        options: [
+          'De skjer automatisk uten at vi tenker på det',
+          'De krever bevisst kontroll fra hjernen hele tiden',
+          'De styres bare under søvn',
+          'De er de samme som reflekser',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** De skjer automatisk uten at vi tenker på det
+
+**Forklaring:**
+
+Det **autonome nervesystemet** (også kalt det ubevisste nervesystemet) styrer kroppsfunksjoner som foregår **automatisk**:
+- **Hjerteslag** – hjertet slår uten at du styrer det
+- **Pusting** – du puster selv når du sover
+- **Fordøyelse** – magen og tarmene jobber uten at du tenker på det
+- **Svetting** – kroppen regulerer temperatur automatisk
+- **Pupillstørrelse** – endres med lysforholdene
+
+**Viktig forskjell fra reflekser:**
+- Reflekser er **enkeltreaksjoner** på stimuli (f.eks. trekke hånden fra noe varmt)
+- Autonome funksjoner er **kontinuerlige prosesser** som pågår hele tiden
+
+**Fordel:**
+Hjernen trenger ikke bruke energi på å styre disse funksjonene bevisst. Tenk om du måtte huske å slå hjertet 100 000 ganger om dagen!`,
+      },
+    },
+
+    // ========== OPPGAVE 16: ALKOHOL OG NERVESYSTEMET ==========
+    {
+      id: 'nat10-5-1-oppg-extra-6b',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-16b',
+        number: '5.1.16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Alkohol demper nervesystemets aktivitet. Hvilken effekt har dette på en person som har drukket mye?',
+        options: [
+          'Langsommere reaksjonstid, dårligere koordinasjon og svekket dømmekraft',
+          'Raskere reflekser og bedre konsentrasjon',
+          'Sterkere muskler og bedre balanse',
+          'Bedre hukommelse og raskere informasjonsbehandling',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Langsommere reaksjonstid, dårligere koordinasjon og svekket dømmekraft
+
+**Forklaring:**
+
+Alkohol påvirker nervesystemet på flere måter:
+
+**1. Demper synapsene:**
+- Alkohol hemmer nevrotransmitteroverføring i synapsene
+- Spesielt påvirkes det hemmende signalstoffet GABA (forsterkes) og det stimulerende glutamat (hemmes)
+- Resultat: Hjernen arbeider saktere
+
+**2. Effekter på hjernen:**
+- **Frontallappen** (dømmekraft, impulskontroll) påvirkes først → Dårligere beslutninger
+- **Lillehjernen** (balanse, koordinasjon) → Ustødig gange, klønete bevegelser
+- **Hjernestammen** (livsviktige funksjoner) → Ved store mengder kan pusting stoppe (alkoholforgiftning!)
+
+**3. Konkrete symptomer:**
+- Langsommere reaksjonstid (nervesignalene går saktere)
+- Dårligere koordinasjon (lillehjernen hemmes)
+- Utydelig tale (muskelkontroll svekkes)
+- Svekket hukommelse ("blackout")
+- Dårlig dømmekraft (frontallappen hemmes)
+
+**Viktig:**
+Alkohol hemmer ALLE funksjoner i nervesystemet – den gjør oss ikke raskere, sterkere eller smartere. Den gjør alt saktere og dårligere.`,
+      },
+    },
+
+    // ========== OPPGAVE 17: HJERNENS PLASTISITET ==========
+    {
+      id: 'nat10-5-1-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-18',
+        number: '5.1.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Nevroplastisitet betyr at hjernen kan endre seg gjennom livet – den kan danne nye forbindelser mellom nerveceller og styrke eller svekke eksisterende forbindelser.
+
+a) Forklar hva som skjer i hjernen når du øver på en ferdighet (for eksempel å spille piano eller dribling med fotball).
+b) Hvorfor er det lettere å lære nye ting som barn enn som voksen?
+c) En person har fått en skade i venstre hjernehalvdel og mistet talefunksjonen. Likevel kan personen etter lang trening gradvis gjenvinne noe av talefunksjonen. Forklar hvordan dette er mulig med utgangspunkt i nevroplastisitet.`,
+        solution: `**a) Hva skjer i hjernen ved øving:**
+
+Når du øver på en ferdighet, skjer følgende i nervesystemet:
+
+**1. Synapsestyrking:**
+- Nervecellene som brukes ved ferdigheten sender stadig flere signaler mellom seg
+- Synapsene mellom disse cellene blir **sterkere** (flere reseptorer, mer nevrotransmitter)
+- Dette kalles «langvarig potensiering» (LTP)
+
+**2. Nye forbindelser:**
+- Hjernen danner **nye synapser** mellom nerveceller som samarbeider
+- Nettverk av nerveceller som jobber sammen blir mer effektive
+- Signalene sendes raskere og mer presist
+
+**3. Myelinisering:**
+- Aksonene som brukes mye får tykkere **myelinskjede**
+- Nervesignalene sendes raskere langs myeliniserte aksoner
+- Derfor blir bevegelser mer presise og automatiske med øving
+
+**Resultat:**
+Jo mer du øver, desto sterkere og raskere blir nervebanene. Det som først krevde full konsentrasjon blir til slutt automatisk – som å gå, sykle eller skrive.
+
+---
+
+**b) Hvorfor barn lærer lettere:**
+
+**Høy plastisitet i barndommen:**
+- Barns hjerner er i sterk utvikling og har svært **høy plastisitet**
+- De danner nye synapser mye raskere enn voksne
+- Barn har en «kritisk periode» for språklæring (0-7 år) der hjernens språkområder er ekstra mottakelige
+
+**Synaptisk beskjæring:**
+- Barn produserer et overskudd av synapser
+- Synapser som brukes mye beholdes, de som ikke brukes fjernes ("use it or lose it")
+- Denne prosessen gjør hjernen mer effektiv for de ferdighetene barnet faktisk trenger
+
+**Voksne hjerner:**
+- Voksne kan fortsatt lære, men plastisiteten er lavere
+- Nye forbindelser dannes langsommere
+- Eksisterende nettverk er mer "fastlåste"
+- Krever mer bevisst innsats og repetisjon
+
+---
+
+**c) Gjenvinning av talefunksjon etter skade:**
+
+**Omorganisering av hjernen:**
+- Selv om venstre hjernehalvdels taleområde (Brocas område) er skadet, kan **andre deler av hjernen** gradvis overta noe av funksjonen
+- Friske nerveceller i nærliggende områder kan danne nye forbindelser og lære å styre talen
+- Også **høyre hjernehalvdel** kan delvis kompensere
+
+**Prosessen krever intensiv trening:**
+- Nye nervebanener må dannes fra bunnen av
+- Synapsene må styrkes gjennom gjentatt bruk
+- Dette tar lang tid (måneder til år) og krever logopedisk trening
+
+**Begrensninger:**
+- Fullstendig gjenvinning er sjelden mulig
+- Jo yngre personen er, desto bedre er muligheten (høyere plastisitet)
+- Tidlig og intensiv rehabilitering gir best resultat
+
+**Konklusjon:**
+Nevroplastisitet gjør at hjernen kan tilpasse seg skader ved å la andre områder overta funksjoner. Dette viser hvor fleksibelt nervesystemet er, selv om det tar tid og krever mye trening.`,
+      },
+    },
+
+    // ========== OPPGAVE 18: SAMMENSATT OPPGAVE ==========
+    {
+      id: 'nat10-5-1-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-1-ex-17',
+        number: '5.1.17',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forklar forskjellen mellom det somatiske nervesystemet og det autonome nervesystemet. Gi eksempler på hva hvert system styrer, og forklar hvorfor kroppen trenger begge.`,
+        solution: `**Det somatiske nervesystemet:**
+
+- Styrer **bevisste** handlinger
+- Du bestemmer selv hva som skal skje
+- Kontrollerer **skjelettmuskulatur** (muskler festet til skjelettet)
+
+**Eksempler:**
+- Løfte armen
+- Gå, løpe, hoppe
+- Skrive med pennen
+- Snakke
+
+---
+
+**Det autonome nervesystemet:**
+
+- Styrer **ubevisste** funksjoner
+- Skjer automatisk uten at du tenker på det
+- Kontrollerer **indre organer** og glatt muskulatur
+
+**Eksempler:**
+- Hjerteslag
+- Pusting (delvis autonom, kan også styres bevisst)
+- Fordøyelse
+- Svetting
+- Pupillstørrelse
+
+---
+
+**Hvorfor trenger kroppen begge?**
+
+**1. Effektivitet:**
+- Hvis hjernen måtte styre alt bevisst (også hjerteslag og fordøyelse), ville den bli overbelastet
+- Det autonome systemet frigjør hjernens kapasitet til bevisst tenking
+
+**2. Livsnødvendighet:**
+- Noen funksjoner må alltid pågå (hjerteslag, pusting)
+- Hvis disse stoppet fordi vi ble distrahert eller falt i søvn, ville vi dø
+- Det autonome systemet sikrer at livsnødvendige funksjoner alltid fungerer
+
+**3. Fleksibilitet:**
+- Det somatiske systemet gir oss mulighet til å handle bevisst og kreativt
+- Vi kan planlegge, kommunisere og tilpasse oss nye situasjoner
+- Det autonome systemet tar seg av rutineoppgavene
+
+**Konklusjon:**
+Begge systemer er nødvendige: Det autonome systemet holder oss i live automatisk, mens det somatiske systemet gir oss bevisst kontroll over kroppen.`,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -1375,6 +1883,41 @@ I dette kapitlet lærer du:
 **Små mengder:**
 - Hormoner virker i veldig små konsentrasjoner
 - Måles ofte i milliarddeler gram (nanogram)`,
+    },
+
+    // ========== EKSEMPEL: INSULINREGULERING AV BLODSUKKER ==========
+    {
+      id: 'nat10-5-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Nøkkel-lås-prinsippet for hormoner',
+      problem: 'Insulin er et hormon som senker blodsukkeret. Forklar ved hjelp av nøkkel-lås-prinsippet hvorfor insulin bare påvirker visse celler (f.eks. muskel- og fettceller), men ikke andre celler (f.eks. nerveceller i hjernen).',
+      solution: `**Nøkkel-lås-prinsippet for hormoner:**
+
+**Hormonet er "nøkkelen":**
+- Insulin har en bestemt tredimensjonal form
+- Denne formen er unik for insulin
+
+**Reseptoren er "låsen":**
+- Muskel- og fettceller har **insulinreseptorer** på overflaten
+- Disse reseptorene har en form som passer nøyaktig til insulin
+- Når insulin binder seg til reseptoren, "åpnes" cellen for glukose
+
+**Celler uten insulinreseptor:**
+- Nerveceller i hjernen har IKKE insulinreseptorer av samme type
+- Hjernen tar opp glukose **uten** hjelp av insulin
+- Derfor påvirkes ikke hjernens glukoseopptak av insulin
+
+**Analogi:**
+Tenk på det som nøkkelkort på et hotell:
+- Ditt nøkkelkort (insulin) åpner bare **ditt rom** (muskel-/fettceller)
+- Du kan ikke åpne andres rom (nerveceller) med ditt kort
+- Andre gjester har egne kort som åpner sine rom
+
+**Viktig konsekvens:**
+- Ved diabetes type 1 mangler "nøkkelen" (insulin)
+- Muskel- og fettceller kan ikke ta opp glukose
+- Men hjernen fortsetter å fungere fordi den ikke trenger insulin for glukoseopptak
+- Blodsukkeret stiger fordi glukosen forblir i blodet`,
     },
 
     // ========== DEFINISJON: HORMON ==========
@@ -1874,6 +2417,90 @@ En termostat i et rom fungerer på samme måte:
 - Tyroksin: Stabilt nivå`,
     },
 
+    // ========== EKSEMPEL: STRESSRESPONS ==========
+    {
+      id: 'nat10-5-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Stressresponsen – kamp eller flukt',
+      problem: 'Du går alene i en mørk gate og hører plutselig raske skritt bak deg. Beskriv hva som skjer i hormonsystemet og kroppen din de neste sekundene.',
+      solution: `**Stressresponsen steg for steg:**
+
+**1. Hjernen oppfatter fare (0-1 sekund):**
+- Øret oppfatter lyden av skritt
+- Hjernen (amygdala) tolker dette som en potensiell trussel
+- Hypotalamus i hjernen aktiverer stressresponsen
+
+**2. Nervesystemet reagerer først (1-2 sekunder):**
+- Det sympatiske nervesystemet aktiveres umiddelbart
+- Hjertet begynner å slå raskere
+- Pustingen øker
+
+**3. Binyrene frigjør adrenalin (3-10 sekunder):**
+- Binyrene får signal om å frigjøre **adrenalin**
+- Adrenalin strømmer ut i blodet
+
+**4. Adrenalin forbereder kroppen (10-30 sekunder):**
+
+| **Organ** | **Effekt av adrenalin** | **Hvorfor** |
+|---|---|---|
+| Hjerte | Slår raskere og kraftigere | Pumpe mer blod til musklene |
+| Lunger | Puster raskere, luftveier åpnes | Mer oksygen |
+| Lever | Frigjør glukose (sukker) | Mer energi til musklene |
+| Blodårer | Mer blod til muskler, mindre til fordøyelse | Prioritere muskelarbeid |
+| Pupiller | Utvides | Bedre syn i mørket |
+| Svettekjertler | Begynner å svette | Forhåndskjøling |
+
+**5. Du er klar til å reagere:**
+- Kroppen er nå forberedt på enten å **kjempe** (kamp) eller **flykte** (flukt)
+- Du er mer våken, fokusert og fysisk klar
+- Alt dette har skjedd på under ett minutt!
+
+**Etterpå (minutter til timer):**
+- Hvis faren er borte, roer kroppen seg ned gradvis
+- Adrenalin brytes ned
+- Hjertet normaliserer seg
+- Ved langvarig stress frigjøres også **kortisol** som holder kroppen i beredskap lenger`,
+    },
+
+    // ========== EKSEMPEL: PUBERTETSHORMONENE ==========
+    {
+      id: 'nat10-5-2-example-3',
+      type: 'example',
+      title: 'Eksempel: Hvordan hypofysen starter puberteten',
+      problem: 'Puberteten starter vanligvis mellom 8-14 år. Forklar hvilken rolle hypofysen spiller i å starte puberteten, og hvorfor hypofysen kalles "mesterkjertelen".',
+      solution: `**Hypofysens rolle i puberteten:**
+
+**Steg 1: Signalet fra hjernen**
+- Hypotalamus (en del av hjernen) "bestemmer" at det er tid for pubertet
+- Hypotalamus sender signalstoffer til hypofysen
+
+**Steg 2: Hypofysen sender hormoner**
+- Hypofysen frigjør hormonene **FSH** og **LH** i blodet
+- Disse hormonene kalles gonadotropiner (kjønnsstimulerende hormoner)
+
+**Steg 3: Kjønnskjertlene aktiveres**
+- FSH og LH transporteres via blodet til kjønnskjertlene
+
+**Hos jenter:**
+- FSH og LH stimulerer **eggstokker** til å produsere **østrogen** og **progesteron**
+- Østrogen gir: Brystutvikling, bredere hofter, menstruasjon
+
+**Hos gutter:**
+- FSH og LH stimulerer **testikler** til å produsere **testosteron**
+- Testosteron gir: Dypere stemme, skjeggvekst, muskelvekst, sædproduksjon
+
+**Hvorfor kalles hypofysen "mesterkjertelen"?**
+
+Hypofysen kontrollerer mange andre kjertler:
+- Sender TSH → Skjoldbruskkjertelen produserer tyroksin
+- Sender ACTH → Binyrene produserer kortisol
+- Sender FSH/LH → Kjønnskjertlene produserer kjønnshormoner
+- Produserer veksthormon → Styrer vekst
+
+**Analogi:**
+Hypofysen er som en **dirigent** i et orkester. Den produserer ikke all musikken selv, men den styrer når og hvor mye de andre instrumentene (kjertlene) skal spille.`,
+    },
+
     // ========== DEFINISJON: TILBAKEKOBLING ==========
     {
       id: 'nat10-5-2-def-tilbakekobling',
@@ -1964,6 +2591,35 @@ Blodsukkerregulering er et perfekt eksempel på negativ tilbakekobling:
 | **Virkning** | Senker blodsukkeret | Øker blodsukkeret |
 | **Hvordan** | Celler tar opp glukose, lever lagrer | Lever frigjør glukose |
 | **Når frigjøres** | Etter måltider | Mellom måltider/om natten |`,
+    },
+
+    // ========== EKSEMPEL: BLODSUKKERREGULERING SOM TERMOSTAT ==========
+    {
+      id: 'nat10-5-2-example-4',
+      type: 'example',
+      title: 'Eksempel: Blodsukkerregulering som en termostat',
+      problem: 'Sammenlign blodsukkerreguleringen med en termostat som regulerer temperaturen i et rom. Forklar likhetene mellom de to systemene.',
+      solution: `**Sammenligning: Blodsukker og termostat**
+
+| **Termostat** | **Blodsukkerregulering** |
+|---|---|
+| Måler romtemperaturen | Bukspyttkjertelen måler blodsukkernivået |
+| Ønsket temperatur: 21°C | Ønsket blodsukker: 4-6 mmol/L |
+| For kaldt → Varmeren slås PÅ | For lavt blodsukker → Glukagon frigjøres |
+| Temperaturen stiger | Blodsukkeret stiger (lever frigjør glukose) |
+| Ønsket temperatur nådd → Varmen slås AV | Normalt blodsukker → Glukagon stopper |
+| For varmt → Kjølingen slås PÅ | For høyt blodsukker → Insulin frigjøres |
+| Temperaturen synker | Blodsukkeret synker (celler tar opp glukose) |
+| Ønsket temperatur nådd → Kjøling slås AV | Normalt blodsukker → Insulin stopper |
+
+**Likheter:**
+1. Begge bruker **negativ tilbakekobling** – resultatet av prosessen stopper prosessen
+2. Begge holder verdien rundt et **settpunkt** (21°C / 4-6 mmol/L)
+3. Begge har **to motstridende mekanismer** (varme/kjøling og glukagon/insulin)
+4. Begge jobber **kontinuerlig** for å opprettholde balanse
+
+**Hovedprinsipp:**
+Negativ tilbakekobling = Når noe avviker fra normalen, settes det i gang prosesser som bringer det **tilbake** til normalen. Dette kalles **homeostase**.`,
     },
 
     // ========== DEFINISJON: BLODSUKKERREGULERING ==========
@@ -2478,6 +3134,254 @@ Hvis stresset vedvarer, frigjøres også **kortisol** fra binyrene:
       },
     },
 
+    // ========== OPPGAVE 9: NEGATIV TILBAKEKOBLING ==========
+    {
+      id: 'nat10-5-2-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-9',
+        number: '5.2.9',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva menes med negativ tilbakekobling i hormonsystemet?',
+        options: [
+          'Høye hormonnivåer hemmer produksjonen, lave nivåer stimulerer produksjonen',
+          'Hormoner har negativ effekt på kroppen over tid',
+          'Hormoner sendes tilbake til kjertelen som produserte dem',
+          'Hormoner brytes ned og gir negative bivirkninger',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Høye hormonnivåer hemmer produksjonen, lave nivåer stimulerer produksjonen
+
+**Forklaring:**
+
+Negativ tilbakekobling er kroppens viktigste reguleringsmekanisme:
+
+**Prinsippet:**
+1. Hormonnivået er for lavt → Produksjonen øker
+2. Hormonnivået stiger til normalen
+3. Hormonnivået er høyt nok → Produksjonen bremses
+4. Hormonnivået holder seg stabilt
+
+**Eksempel med skjoldbruskkjertelen:**
+- Lite tyroksin → Hypofysen sender TSH → Skjoldbruskkjertelen produserer mer tyroksin
+- Nok tyroksin → Hypofysen reduserer TSH → Skjoldbruskkjertelen produserer mindre
+
+**Analogien med termostaten:**
+Termostaten slår av varmen når rommet er varmt nok, og slår den på igjen når det blir for kaldt. Slik holder hormonsystemet hormonnivåene stabile.
+
+Negativ tilbakekobling sikrer **homeostase** – en stabil indre balanse i kroppen.`,
+      },
+    },
+
+    // ========== OPPGAVE 10: PUBERTETSHORMONER ==========
+    {
+      id: 'nat10-5-2-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-10',
+        number: '5.2.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar hvilke hormoner som er viktige i puberteten hos gutter og jenter.
+
+a) Hvilke hormoner produseres i testiklene og hva gjør de?
+b) Hvilke hormoner produseres i eggstokkene og hva gjør de?
+c) Hvilken rolle spiller hypofysen i å starte puberteten?`,
+        solution: `**a) Hormoner fra testiklene (hos gutter):**
+
+**Testosteron** er det viktigste mannlige kjønnshormonet:
+- Utvikler muskulatur
+- Gir dypere stemme (stemmeomslag)
+- Gir hårvekst i ansikt, under armene og i skrittet
+- Starter produksjon av sædceller
+- Øker beinmasse
+- Påvirker humør og atferd
+
+---
+
+**b) Hormoner fra eggstokkene (hos jenter):**
+
+**Østrogen:**
+- Utvikler bryster
+- Gir kvinnelige kroppsformer (bredere hofter)
+- Starter menstruasjonssyklusen
+- Bygger opp slimhinnen i livmoren
+
+**Progesteron:**
+- Regulerer menstruasjonssyklusen
+- Forbereder livmoren på graviditet
+- Opprettholder slimhinnen i lutealfasen
+
+---
+
+**c) Hypofysens rolle:**
+
+Hypofysen er "mesterkjertelen" som starter hele puberteten:
+1. Hypotalamus i hjernen sender signal til hypofysen
+2. Hypofysen frigjør FSH og LH (gonadotropiner)
+3. FSH og LH transporteres via blodet til kjønnskjertlene
+4. Kjønnskjertlene aktiveres og produserer kjønnshormoner
+
+Uten signal fra hypofysen ville ikke kjønnskjertlene starte puberteten.`,
+      },
+    },
+
+    // ========== OPPGAVE 11: HORMONER OG KJERTLER KOBLING ==========
+    {
+      id: 'nat10-5-2-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-11',
+        number: '5.2.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken kjertel produserer insulin og glukagon?',
+        options: [
+          'Bukspyttkjertelen',
+          'Skjoldbruskkjertelen',
+          'Hypofysen',
+          'Binyrene',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Bukspyttkjertelen
+
+**Forklaring:**
+
+**Bukspyttkjertelen** produserer to viktige hormoner for blodsukkerregulering:
+
+- **Insulin:** Senker blodsukkeret (frigjøres etter måltider)
+- **Glukagon:** Øker blodsukkeret (frigjøres mellom måltider)
+
+**De andre kjertlene:**
+- **Skjoldbruskkjertelen:** Produserer tyroksin (regulerer stoffskiftet)
+- **Hypofysen:** Produserer veksthormon og kontrollhormoner
+- **Binyrene:** Produserer adrenalin og kortisol (stresshormoner)`,
+      },
+    },
+
+    // ========== OPPGAVE 12: KORTISOL OG KRONISK STRESS ==========
+    {
+      id: 'nat10-5-2-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-12',
+        number: '5.2.12',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forklar forskjellen mellom adrenalin og kortisol. Hvorfor kan langvarig, kronisk stress være skadelig for helsen?`,
+        solution: `**Forskjellen mellom adrenalin og kortisol:**
+
+| **Egenskap** | **Adrenalin** | **Kortisol** |
+|---|---|---|
+| **Produseres i** | Binyrenes marg (indre del) | Binyrenes bark (ytre del) |
+| **Frigjøres ved** | Akutt stress (plutselig fare) | Langvarig stress |
+| **Virkningstid** | Kort (minutter) | Lang (timer til dager) |
+| **Hovedeffekt** | Kamp-eller-flukt-respons | Opprettholde energitilførsel |
+| **Eksempel** | En bil som nesten treffer deg | Eksamensperiode, mobbing |
+
+**Adrenalin (akutt stress):**
+- Øker hjertefrekvens raskt
+- Frigjør glukose for umiddelbar energi
+- Åpner luftveier
+- Effekten er kortvarig og positiv – beskytter deg i farlige situasjoner
+
+**Kortisol (langvarig stress):**
+- Øker blodsukkeret over lang tid
+- Bryter ned proteiner for å lage glukose
+- Demper immunforsvaret
+- Øker blodtrykket
+
+---
+
+**Hvorfor kronisk stress er skadelig:**
+
+**1. Svekket immunforsvar:**
+- Kortisol demper immunforsvaret over tid
+- Du blir lettere syk
+- Infeksjoner tar lengre tid å helbrede
+
+**2. Økt risiko for sykdom:**
+- Høyt blodsukker over tid → Økt risiko for diabetes type 2
+- Høyt blodtrykk → Økt risiko for hjerte-kar-sykdommer
+
+**3. Psykiske problemer:**
+- Økt risiko for depresjon og angst
+- Søvnproblemer
+- Hukommelses- og konsentrasjonsproblemer
+
+**4. Vektøkning:**
+- Kortisol øker appetitten
+- Fett lagres spesielt rundt magen
+
+**Konklusjon:**
+Akutt stress (adrenalin) er nyttig og beskyttende. Men kronisk stress (kortisol over lang tid) er skadelig fordi kroppen aldri får roe seg ned, og immunforsvaret og andre systemer svekkes.`,
+      },
+    },
+
+    // ========== OPPGAVE 13: HOMEOSTASE ==========
+    {
+      id: 'nat10-5-2-oppg-extra-5b',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-13b',
+        number: '5.2.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Homeostase betyr at kroppen opprettholder et stabilt indre miljø. Gi tre eksempler på homeostase i kroppen og forklar kort hvordan hvert eksempel reguleres.`,
+        solution: `**Tre eksempler på homeostase:**
+
+**1. Blodsukkerregulering:**
+- **Normalnivå:** 4-6 mmol/L
+- **For høyt blodsukker:** Bukspyttkjertelen frigjør **insulin** → Cellene tar opp glukose → Blodsukkeret synker
+- **For lavt blodsukker:** Bukspyttkjertelen frigjør **glukagon** → Leveren frigjør glukose → Blodsukkeret stiger
+- **Mekanisme:** Negativ tilbakekobling
+
+**2. Kroppstemperatur:**
+- **Normalnivå:** Ca. 37°C
+- **For høy temperatur:** Blodårene i huden utvides → Mer varmetap → Svetting → Temperaturen synker
+- **For lav temperatur:** Blodårene i huden trekker seg sammen → Mindre varmetap → Skjelving (produserer varme) → Temperaturen stiger
+- **Mekanisme:** Negativ tilbakekobling via hypotalamus
+
+**3. Vannbalanse:**
+- **Normalnivå:** Stabilt vanninnhold i blodet
+- **For lite vann:** Hypofysen frigjør **ADH** (antidiuretisk hormon) → Nyrene holder tilbake mer vann → Konsentrert urin
+- **For mye vann:** Mindre ADH → Nyrene skiller ut mer vann → Fortynnet urin
+- **Mekanisme:** Negativ tilbakekobling
+
+**Fellesnevner:**
+Alle tre eksemplene bruker **negativ tilbakekobling** for å opprettholde et stabilt nivå. Avvik fra normalen settes det i gang prosesser som bringer verdien tilbake.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: DIABETES SAMMENLIGNING ==========
+    {
+      id: 'nat10-5-2-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-2-ex-13',
+        number: '5.2.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Lag en sammenligning mellom diabetes type 1 og diabetes type 2. Inkluder årsak, alder ved debut, behandling og om sykdommen kan forebygges.`,
+        solution: `**Sammenligning mellom diabetes type 1 og type 2:**
+
+| **Egenskap** | **Diabetes type 1** | **Diabetes type 2** |
+|---|---|---|
+| **Årsak** | Immunforsvaret ødelegger insulin-produserende celler i bukspyttkjertelen | Cellene reagerer dårlig på insulin (insulinresistens) |
+| **Insulinproduksjon** | Ingen eller svært lite | Normal i starten, reduseres over tid |
+| **Alder ved debut** | Vanligvis barn/ungdom | Vanligvis voksen (men også ungdom) |
+| **Utvikling** | Plutselig debut | Gradvis utvikling over år |
+| **Risikofaktorer** | Genetikk, ukjent utløser | Overvekt, inaktivitet, usunt kosthold, genetikk |
+| **Behandling** | Insulinsprøyter daglig | Livsstilsendringer, medisiner, eventuelt insulin |
+| **Kan forebygges?** | Nei | Ofte ja, med sunn livsstil |
+| **Andel av diabetikere** | Ca. 5-10 % | Ca. 90-95 % |
+
+**Fellesnevner:**
+Begge typene fører til høyt blodsukker fordi glukose ikke tas opp effektivt av cellene. Begge kan gi alvorlige komplikasjoner som hjerte-kar-sykdom, nerveskader og synsskader hvis de ikke behandles.`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-5-2-summary',
@@ -2610,6 +3514,70 @@ Kroppen har et flerlags forsvarssystem mot sykdom. Hvis den første forsvarslinj
 - Eksempler: B-celler (lager antistoffer), T-celler (dreper infiserte celler)`,
     },
 
+    // ========== EKSEMPEL: IMMUNRESPONS VED KUTT ==========
+    {
+      id: 'nat10-5-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Hva skjer når du skjærer deg i fingeren?',
+      problem: 'Du skjærer deg i fingeren med en skitten kniv. Beskriv steg for steg hvordan kroppens tre forsvarslinjer reagerer for å beskytte deg mot infeksjon.',
+      solution: `**Kroppens forsvar mot infeksjon etter et kutt:**
+
+**Første forsvarslinje brytes:**
+- Huden er brutt – bakterier kan komme inn
+- Normalt er huden den viktigste barrieren
+- Kuttet betyr at første forsvarslinje har sviktet
+
+---
+
+**Andre forsvarslinje aktiveres (minutter til timer):**
+
+**1. Blødning:**
+- Blodet vasker ut noen bakterier fra såret
+- Blodplater begynner å stoppe blødningen (koagulering)
+
+**2. Betennelsesreaksjon:**
+- Skadede celler sender ut kjemiske signaler
+- Blodårer i området utvider seg → **rødhet** og **varme**
+- Væske lekker ut → **hevelse**
+- Nervene stimuleres → **smerte** (varsler hjernen)
+
+**3. Fagocytter ankommer:**
+- Hvite blodceller (fagocytter) strømmer til skadestedet
+- De spiser og fordøyer bakterier (**fagocytose**)
+- NK-celler dreper eventuelle infiserte celler
+
+**4. Feber (ved alvorlig infeksjon):**
+- Hvis infeksjonen er kraftig, kan kroppstemperaturen øke
+- Feber hemmer bakterienes vekst
+
+---
+
+**Tredje forsvarslinje aktiveres (dager):**
+
+**Hvis infeksjonen ikke stoppes av andre forsvarslinje:**
+
+**1. Antigener presenteres:**
+- Fagocytter som har spist bakterier, viser bakterienes antigener til T-celler og B-celler
+
+**2. B-celler aktiveres:**
+- B-celler gjenkjenner antigenene
+- Produserer spesifikke antistoffer
+- Antistoffene merker bakteriene for fagocytose
+
+**3. T-celler aktiveres:**
+- Hjelpe-T-celler koordinerer immunforsvaret
+- Cytotoksiske T-celler dreper infiserte celler
+
+**4. Hukommelsesceller dannes:**
+- Noen B-celler og T-celler blir til hukommelsesceller
+- Neste gang du møter samme bakterie, reagerer kroppen raskere
+
+---
+
+**Resultat:**
+Infeksjonen bekjempes og såret heles. Hele prosessen kan ta noen dager til uker avhengig av alvorlighetsgraden.`,
+    },
+
     // ========== DEFINISJON: IMMUNFORSVAR ==========
     {
       id: 'nat10-5-3-def-immunforsvar',
@@ -2716,6 +3684,59 @@ Feber er en økning i kroppstemperaturen.
 **Normal kroppstemperatur:** 36,5-37,5°C
 **Lett feber:** 37,5-38,5°C
 **Høy feber:** Over 38,5°C`,
+    },
+
+    // ========== EKSEMPEL: FEBER SOM FORSVARSSTRATEGI ==========
+    {
+      id: 'nat10-5-3-example-4',
+      type: 'example',
+      title: 'Eksempel: Hvorfor får vi feber?',
+      problem: 'Et barn har fått influensa og har feber på 39°C. Foreldrene er bekymret. Forklar hvorfor kroppen lager feber, og om det alltid er nødvendig å senke feberen med medisiner.',
+      solution: `**Hvorfor kroppen lager feber:**
+
+Feber er **ikke** en feil eller sykdom i seg selv. Det er kroppens **bevisste forsvarsstrategi** mot infeksjon.
+
+**Slik oppstår feber:**
+1. Hvite blodceller oppdager bakterier eller virus
+2. De frigjør signalstoffer (pyrogener) i blodet
+3. Signalstoffene når hypotalamus i hjernen (kroppens termostat)
+4. Hypotalamus "skrur opp" settpunktet for kroppstemperatur
+5. Kroppen frisser og skjelver for å produsere varme
+6. Temperaturen stiger til det nye settpunktet
+
+**Hvorfor er feber nyttig?**
+
+1. **Hemmer mikroorganismer:**
+   - Mange bakterier og virus formerer seg best ved 37°C
+   - Ved 39-40°C vokser de mye saktere
+   - Feber gir immunforsvaret et forsprang
+
+2. **Styrker immunforsvaret:**
+   - Hvite blodceller jobber mer effektivt ved litt høyere temperatur
+   - Antistoffproduksjonen øker
+   - Fagocytose (spising av bakterier) går raskere
+
+3. **Signaliserer sykdom:**
+   - Feber er et tydelig tegn på at kroppen kjemper mot en infeksjon
+   - Gjør at vi hviler (sparer energi til immunforsvaret)
+
+**Bør man alltid senke feberen?**
+
+**Nei, ikke nødvendigvis:**
+- Mild feber (37,5-38,5°C) er nyttig og trenger ofte ikke behandling
+- Kroppen bruker feberen som forsvarsvåpen
+
+**Ja, i noen tilfeller:**
+- Høy feber (over 39,5°C) kan behandles med febernedsettende (paracetamol)
+- Hvis barnet er svært ukomfortabelt
+- Feberkramper hos små barn (sjeldent)
+- Vedvarende feber over flere dager – kontakt lege
+
+**Når bør man kontakte lege?**
+- Feber over 40°C
+- Feber som varer mer enn 3 dager
+- Feber hos spedbarn under 3 måneder
+- Feber med stiv nakke, utslett eller alvorlige symptomer`,
     },
 
     // ========== DEFINISJON: ANDRE FORSVARSLINJE ==========
@@ -2979,6 +4000,110 @@ Cytotoksiske T-celler dreper de infiserte cellene før viruset kan formere seg o
 2. T-cellen binder seg til den infiserte cellen
 3. T-cellen frigjør giftstoffer som dreper cellen
 4. Viruset kommer ut og blir spist av fagocytter`,
+    },
+
+    // ========== EKSEMPEL: HVORDAN VAKSINER VIRKER ==========
+    {
+      id: 'nat10-5-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Første vs. andre møte med en sykdom',
+      problem: 'Forklar forskjellen på hva som skjer i immunforsvaret første gang du møter meslingviruset sammenlignet med andre gang (etter vaksinering).',
+      solution: `**Første møte med meslingviruset (uten vaksine):**
+
+**Dag 1-3: Viruset formerer seg**
+- Meslingviruset kommer inn i kroppen
+- Viruset begynner å formere seg i cellene
+- Immunforsvaret har aldri sett dette viruset før
+
+**Dag 3-7: Immunforsvaret aktiveres sakte**
+- Medfødt immunforsvar (andre forsvarslinje) kjemper, men er ikke spesifikt nok
+- B-celler må finne riktig antistoff blant millioner av muligheter
+- T-celler må aktiveres
+- Alt dette tar **tid** – dager
+
+**Dag 7-14: Du er syk**
+- Du har feber, utslett og er veldig syk
+- Immunforsvaret produserer endelig nok antistoffer
+- Viruset bekjempes gradvis
+- Hukommelsesceller dannes
+
+**Dag 14-21: Du blir frisk**
+- Immunforsvaret har kontroll
+- Du blir gradvis frisk
+
+---
+
+**Andre møte med meslingviruset (etter vaksinering):**
+
+**Dag 1: Viruset gjenkjennes umiddelbart!**
+- Meslingviruset kommer inn i kroppen
+- **Hukommelsesceller** (fra vaksinen) gjenkjenner antigenet med en gang!
+
+**Dag 1-2: Rask immunrespons**
+- Hukommelsesceller deler seg raskt
+- Store mengder antistoffer produseres på timer i stedet for dager
+- T-celler aktiveres umiddelbart
+
+**Dag 2-3: Viruset stoppes**
+- Infeksjonen stoppes FØR du rekker å bli syk
+- Du merker kanskje ingenting i det hele tatt!
+
+---
+
+**Sammenligning:**
+
+| **Aspekt** | **Første møte** | **Andre møte (etter vaksine)** |
+|---|---|---|
+| **Tid til immunrespons** | 7-14 dager | 1-2 dager |
+| **Antistoffproduksjon** | Langsom oppstart | Umiddelbar og massiv |
+| **Sykdom** | Alvorlig sykdom i uker | Ingen eller mild sykdom |
+| **Hukommelsesceller** | Dannes etter infeksjon | Allerede på plass |`,
+    },
+
+    // ========== EKSEMPEL: ALLERGI ==========
+    {
+      id: 'nat10-5-3-example-3',
+      type: 'example',
+      title: 'Eksempel: Allergi – når immunforsvaret overreagerer',
+      problem: 'En person nyser, har rennende nese og kløende øyne hver vår på grunn av pollenallergi. Forklar hva som skjer i immunforsvaret og hvorfor dette er en "feil" i immunforsvaret.',
+      solution: `**Hva er allergi?**
+
+Allergi er en tilstand der immunforsvaret **overreagerer** på ufarlige stoffer (allergener).
+
+**Hva skjer ved pollenallergi:**
+
+**1. Første eksponering (sensibilisering):**
+- Pollen kommer inn i nesen
+- Immunforsvaret feiltolker pollen som en farlig inntrenger
+- B-celler produserer antistoffer (IgE) mot pollenet
+- Kroppen er nå "sensibilisert" – immunforsvaret husker pollenet
+
+**2. Neste eksponering (allergisk reaksjon):**
+- Pollen kommer inn igjen neste vår
+- IgE-antistoffer gjenkjenner pollenet umiddelbart
+- Antistoffene aktiverer **mastceller** i slimhinnene
+- Mastcellene frigjør **histamin** og andre kjemikalier
+
+**3. Symptomer (histamins effekter):**
+- **Nysing** – kroppen prøver å fjerne allergenet
+- **Rennende nese** – slimhinnene produserer mer slim
+- **Kløende øyne** – histamin irriterer øynene
+- **Hevelse** – væske lekker ut i vevet
+- **Tett nese** – slimhinnene hovner opp
+
+**Hvorfor er dette en "feil"?**
+
+- Pollen er **helt ufarlig** for kroppen
+- Immunforsvaret behandler det som om det var en farlig bakterie eller virus
+- Reaksjonen er **unødvendig** og gir ubehagelige symptomer
+- Immunforsvaret "feilvurderer" trusselen
+
+**Behandling:**
+- **Antihistaminer:** Blokkerer histaminets effekt → Mindre symptomer
+- **Nesespray:** Reduserer hevelse i slimhinnene
+- **Allergivaksinering:** Gradvis tilvenning til allergenet slik at immunforsvaret slutter å overreagere
+
+**Viktig:** Allergi er IKKE det samme som svakt immunforsvar. Det er et **overaktivt** immunforsvar som reagerer på feil ting.`,
     },
 
     // ========== DEFINISJON: SPESIFIKK IMMUNITET ==========
@@ -3256,6 +4381,22 @@ I Norge tilbyr det offentlige gratis vaksiner mot mange alvorlige sykdommer:
 Norge har nesten ingen tilfeller av sykdommer vi vaksinerer mot, takket være høy vaksinasjonsdekning.`,
     },
 
+    // ========== DEFINISJON: ALLERGI ==========
+    {
+      id: 'nat10-5-3-def-allergi',
+      type: 'definition',
+      title: 'Allergi',
+      content: `**Allergi:** Tilstand der immunforsvaret overreagerer på ufarlige stoffer (allergener) som pollen, støv, dyrehår eller matvarer.
+
+**Allergen:** Stoff som utløser en allergisk reaksjon. Ufarlig for de fleste, men immunforsvaret til allergikere reagerer på det.
+
+**Histamin:** Signalstoff som frigjøres av mastceller ved allergisk reaksjon. Gir symptomer som nysing, kløe, hevelse og rennende nese.
+
+**Antihistaminer:** Legemidler som blokkerer histaminets effekt og lindrer allergisymptomer.
+
+**Anafylaksi:** Livstruende allergisk reaksjon som påvirker hele kroppen. Krever umiddelbar behandling med adrenalin (EpiPen).`,
+    },
+
     // ========== DEFINISJON: VAKSINER ==========
     {
       id: 'nat10-5-3-def-vaksiner',
@@ -3530,6 +4671,326 @@ Når du fullfører kuren:
 
 **Konklusjon:**
 Antibiotikaresistens oppstår gjennom mutasjon og naturlig utvalg. Ved å fullføre antibiotikakuren sikrer du at alle bakterier dør, ikke bare de svakeste, og reduserer risikoen for resistens.`,
+      },
+    },
+
+    // ========== OPPGAVE 11: MER OM VAKSINER ==========
+    {
+      id: 'nat10-5-3-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-11',
+        number: '5.3.11',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er hovedfordelen med mRNA-vaksiner (som COVID-19-vaksinene) sammenlignet med tradisjonelle vaksiner?',
+        options: [
+          'De kan utvikles raskere fordi man ikke trenger å dyrke selve viruset',
+          'De gir sterkere beskyttelse enn alle andre vaksiner',
+          'De trenger bare én dose for livslang beskyttelse',
+          'De har ingen bivirkninger overhodet',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** De kan utvikles raskere fordi man ikke trenger å dyrke selve viruset
+
+**Forklaring:**
+
+**mRNA-vaksiner:**
+- Inneholder **genetisk kode** (mRNA) som instruerer cellene dine til å lage et virusprotein (f.eks. piggproteinet fra SARS-CoV-2)
+- Kroppen lager selv antigenet som immunforsvaret reagerer på
+- Immunforsvaret gjenkjenner proteinet som fremmed og lager antistoffer og hukommelsesceller
+
+**Hvorfor kan de utvikles raskere?**
+- Man trenger bare den genetiske koden til viruset (kan avleses på dager)
+- Trenger ikke å dyrke store mengder virus i laboratoriet (tar måneder med tradisjonelle vaksiner)
+- Produksjonen kan skaleres opp raskt
+- Dermed kunne COVID-19-vaksiner utvikles i løpet av måneder i stedet for år
+
+**Viktig å vite:**
+- mRNA-vaksiner endrer IKKE ditt eget DNA
+- mRNA brytes ned av kroppen etter kort tid
+- De er like trygge som andre vaksiner – gjennomgår strenge tester
+- De kan trenge oppfriskningsdoser`,
+      },
+    },
+
+    // ========== OPPGAVE 12: ALLERGI ==========
+    {
+      id: 'nat10-5-3-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-12',
+        number: '5.3.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar hva allergi er og hvordan det er relatert til immunforsvaret. Hvorfor nyser personer med pollenallergi når de er utendørs om våren?`,
+        solution: `**Hva er allergi?**
+
+Allergi er en tilstand der immunforsvaret **overreagerer** på ufarlige stoffer som pollen, støv, dyrehår eller matvarer. Disse stoffene kalles **allergener**.
+
+**Hva skjer ved pollenallergi:**
+
+**1. Sensibilisering (første gang):**
+- Pollen kommer inn i nesen
+- Immunforsvaret behandler det feilaktig som en trussel
+- B-celler produserer spesielle antistoffer (IgE) mot pollenet
+- IgE-antistoffene fester seg på mastceller i slimhinnene
+
+**2. Allergisk reaksjon (neste gang):**
+- Pollen kommer inn igjen
+- Pollenet binder seg til IgE-antistoffene på mastcellene
+- Mastcellene frigjører **histamin**
+
+**3. Histamin gir symptomer:**
+- **Nysing:** Kroppen prøver å fjerne allergenet fra nesen
+- **Rennende nese:** Slimhinnene produserer mer slim
+- **Kløende øyne:** Histamin irriterer øyeslimhinnene
+- **Tett nese:** Slimhinnene hovner opp
+
+**Sammenheng med immunforsvaret:**
+- Allergi er en feil i immunforsvaret – det overreagerer på noe ufarlig
+- De samme mekanismene som beskytter mot bakterier og virus (antistoffer, betennelse) brukes mot ufarlige stoffer
+- Behandling med antihistaminer blokkerer histaminets effekt og lindrer symptomene`,
+      },
+    },
+
+    // ========== OPPGAVE 13: FORSVARSLINJER ==========
+    {
+      id: 'nat10-5-3-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-13',
+        number: '5.3.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Lag en tabell som sammenligner de tre forsvarslinjene. Inkluder type forsvar, hastighet, spesifisitet (om den er spesifikk eller uspecifik) og eksempler.',
+        solution: `**Sammenligning av de tre forsvarslinjene:**
+
+| **Egenskap** | **1. forsvarslinje** | **2. forsvarslinje** | **3. forsvarslinje** |
+|---|---|---|---|
+| **Type** | Fysiske og kjemiske barrierer | Medfødt immunitet | Spesifikk (adaptiv) immunitet |
+| **Spesifisitet** | Ikke spesifikk – blokkerer alt | Ikke spesifikk – angriper alt fremmed | Spesifikk – målrettet mot bestemte inntrengere |
+| **Hastighet** | Alltid aktiv (forebyggende) | Rask (minutter til timer) | Langsom (dager ved første møte) |
+| **Hukommelse** | Ingen | Ingen | Ja – hukommelsesceller |
+| **Eksempler** | Hud, slimhinner, tårer, magesyre | Fagocytter, betennelse, feber, NK-celler | B-celler (antistoffer), T-celler (dreper infiserte celler) |
+| **Når aktiveres** | Alltid på plass | Når inntrengere kommer forbi 1. linje | Når 2. linje ikke klarer å stoppe infeksjonen |
+
+**Viktig sammenheng:**
+Forsvarslinjene jobber **sammen**, ikke separat. Fagocytter fra 2. forsvarslinje presenterer antigener til 3. forsvarslinje. Antistoffer fra 3. forsvarslinje merker inntrengere for fagocytose i 2. forsvarslinje.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: ANTIBIOTIKA VS VIRUS ==========
+    {
+      id: 'nat10-5-3-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-14',
+        number: '5.3.14',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'En person har influensa (virussykdom) og spør legen om antibiotika. Hva bør legen svare?',
+        options: [
+          'Antibiotika virker ikke mot virus, bare mot bakterier. Kroppen må bekjempe influensaviruset selv.',
+          'Antibiotika kan hjelpe mot influensa hvis dosen er høy nok.',
+          'Antibiotika bør gis for sikkerhets skyld, selv om det er virus.',
+          'Man kan ta antibiotika for å forebygge bakterieinfeksjon under influensaen.',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Antibiotika virker ikke mot virus, bare mot bakterier. Kroppen må bekjempe influensaviruset selv.
+
+**Forklaring:**
+
+**Antibiotika vs. virus:**
+- Antibiotika dreper bakterier eller hindrer dem i å vokse
+- Antibiotika virker ved å angripe strukturer som er unike for bakterier (cellevegg, proteinsyntese)
+- Virus har IKKE disse strukturene – de bruker kroppens egne celler til å formere seg
+- Derfor kan antibiotika IKKE drepe virus
+
+**Ved influensa:**
+- Kroppen må bruke sitt eget immunforsvar til å bekjempe viruset
+- Hvile, drikke nok væske og eventuelt febernedsettende medisiner hjelper
+- Immunforsvaret produserer antistoffer og T-celler som bekjemper viruset
+- De fleste blir friske etter 1-2 uker
+
+**Hvorfor er dette viktig?**
+- Å ta antibiotika mot virus er bortkastet – det hjelper ikke
+- Unødvendig bruk av antibiotika bidrar til **antibiotikaresistens**
+- Resistente bakterier er et alvorlig globalt helseproblem`,
+      },
+    },
+
+    // ========== OPPGAVE 15: TREDJE FORSVARSLINJE ==========
+    {
+      id: 'nat10-5-3-oppg-extra-5b',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-15b',
+        number: '5.3.15',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er hovedforskjellen mellom medfødt (uspecifikt) immunforsvar og spesifikt immunforsvar?',
+        options: [
+          'Medfødt immunforsvar reagerer likt på alle inntrengere, spesifikt immunforsvar gjenkjenner og husker bestemte inntrengere',
+          'Medfødt immunforsvar er sterkere enn spesifikt immunforsvar',
+          'Spesifikt immunforsvar er alltid raskere enn medfødt immunforsvar',
+          'Medfødt immunforsvar bruker antistoffer, spesifikt immunforsvar bruker fagocytter',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Medfødt immunforsvar reagerer likt på alle inntrengere, spesifikt immunforsvar gjenkjenner og husker bestemte inntrengere
+
+**Forklaring:**
+
+**Medfødt (uspecifikt) immunforsvar:**
+- Andre forsvarslinje
+- Reagerer **likt** på alle typer inntrengere
+- Raskt (minutter til timer)
+- Har **ingen hukommelse** – reagerer like sakte hver gang
+- Eksempler: Fagocytter, betennelse, feber, NK-celler
+
+**Spesifikt (adaptivt) immunforsvar:**
+- Tredje forsvarslinje
+- Gjenkjenner **spesifikke** antigener på bestemte inntrengere
+- Langsommere første gang (dager), men raskere ved gjentatte møter
+- Har **immunologisk hukommelse** – husker sykdommer
+- Eksempler: B-celler (antistoffer), T-celler, hukommelsesceller
+
+**Viktig samspill:**
+Begge systemer jobber sammen. Medfødt immunforsvar holder infeksjonen i sjakk mens spesifikt immunforsvar mobiliseres. Fagocytter presenterer antigener til B- og T-celler, slik at disse kan aktiveres.`,
+      },
+    },
+
+    // ========== OPPGAVE 16: ANTIBIOTIKARESISTENS ==========
+    {
+      id: 'nat10-5-3-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-16',
+        number: '5.3.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Antibiotikaresistens er et økende globalt helseproblem. WHO har kalt det en av de største truslene mot folkehelsen.
+
+a) Forklar hva antibiotikaresistens er og hvordan det oppstår.
+b) Hvorfor virker ikke antibiotika mot virus?
+c) Gi tre konkrete eksempler på tiltak som kan bremse utviklingen av antibiotikaresistens.`,
+        solution: `**a) Hva antibiotikaresistens er og hvordan det oppstår:**
+
+**Definisjon:**
+Antibiotikaresistens betyr at bakterier har utviklet evnen til å **overleve og formere seg** selv når de utsettes for antibiotika som tidligere drepte dem.
+
+**Hvordan det oppstår (naturlig seleksjon):**
+
+1. **Naturlig variasjon:** I en bakteriepopulasjon finnes det naturlig noen bakterier med mutasjoner som gjør dem litt motstandsdyktige mot antibiotika
+2. **Seleksjon:** Når antibiotika brukes, dør de fleste bakteriene – men de **resistente overlever**
+3. **Formering:** De resistente bakteriene har nå lite konkurranse og formerer seg raskt
+4. **Spredning:** De resistente bakteriene dominerer populasjonen og kan overføre resistensgener til andre bakterier
+
+**Resultat:** Over tid blir flere og flere bakterier resistente, og antibiotikaen slutter å virke.
+
+**Faktorer som fremskynder resistens:**
+- Overforbruk av antibiotika (mot forkjølelse/influensa som er virus)
+- Feilbruk (ikke fullføre kuren)
+- Bruk av antibiotika i landbruket (dyrefôr)
+- Spredning av resistente bakterier mellom pasienter på sykehus
+
+---
+
+**b) Hvorfor antibiotika ikke virker mot virus:**
+
+**Antibiotika er designet for å angripe bakterier:**
+- De virker ved å ødelegge **celleveggen** (som virus ikke har)
+- Eller hemme **bakterienes proteinsyntese** (som er forskjellig fra menneskets)
+- Eller forstyrre **bakterienes DNA-kopiering**
+
+**Virus er fundamentalt forskjellige fra bakterier:**
+- Virus har **ingen cellevegg** (antibiotika har ingenting å angripe)
+- Virus har **ikke eget stoffskifte** – de bruker vertscellens maskineri
+- Virus er **ikke levende celler** – de er bare genetisk materiale omgitt av en proteinkappe
+- Siden virus gjemmer seg inne i menneskecellene, ville antibiotika måtte ødelegge menneskets egne celler for å nå dem
+
+**Konklusjon:** Antibiotika mot virus er som å bruke en nøkkel i feil lås – verktøyet passer simpelthen ikke.
+
+---
+
+**c) Tre tiltak for å bremse antibiotikaresistens:**
+
+**1. Riktig bruk av antibiotika:**
+- Bruk antibiotika **kun når legen forskriver det** (ikke mot virus)
+- **Fullfør alltid hele kuren**, selv om du føler deg bedre
+- Fordi: Å avbryte kuren dreper bare de svakeste bakteriene, mens de sterkeste (potensielt resistente) overlever
+
+**2. Bedre hygiene og smittevern:**
+- God håndhygiene (håndvask, antibac) reduserer spredning av resistente bakterier
+- Spesielt viktig på sykehus og helseinstitusjoner
+- Isolering av pasienter med resistente infeksjoner
+
+**3. Redusere antibiotika i landbruket:**
+- Slutte med forebyggende bruk av antibiotika i dyrefôr
+- Kun bruke antibiotika til syke dyr
+- Resistente bakterier fra dyr kan overføres til mennesker via mat`,
+      },
+    },
+
+    // ========== OPPGAVE 17: VAKSINASJON OG SAMFUNN ==========
+    {
+      id: 'nat10-5-3-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-3-ex-15',
+        number: '5.3.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `I et land er 95 % av befolkningen vaksinert mot meslinger, og sykdommen er nesten utryddet. Noen foreldre velger å ikke vaksinere barna sine.
+
+a) Hva skjer med flokkimmuniteten hvis mange foreldre slutter å vaksinere barna sine?
+b) Hvem rammes hardest hvis vaksinasjonsdekningen synker?
+c) Diskuter ansvaret den enkelte har overfor samfunnet når det gjelder vaksinasjon.`,
+        solution: `**a) Hva skjer med flokkimmuniteten:**
+
+Flokkimmunitet mot meslinger krever ca. **95 % vaksinasjonsdekning** (fordi meslinger er ekstremt smittsomt).
+
+**Hvis mange slutter å vaksinere:**
+- Vaksinasjonsdekningen synker under den kritiske terskelen (95 %)
+- Viruset kan igjen finne uvaksinerte personer å infisere
+- Smitten kan spre seg mellom uvaksinerte
+- **Utbrudd** kan oppstå – slik vi har sett i flere europeiske land
+
+**Eksempel:**
+Hvis dekningen synker til 85 %:
+- 15 % er uvaksinert
+- Viruset kan spre seg blant dem
+- Flokkimmuniteten bryter sammen
+
+---
+
+**b) Hvem rammes hardest:**
+
+De som rammes hardest er de mest sårbare:
+- **Spedbarn under 12 måneder** – for unge til å vaksineres
+- **Immunsvake personer** – kreftpasienter, transplanterte, HIV-positive
+- **Personer med medisinske grunner** til ikke å kunne vaksineres
+- **Eldre med svakt immunforsvar**
+
+Disse personene er avhengige av at andre rundt dem er vaksinert for å være beskyttet. Når flokkimmuniteten svikter, mister de sin beskyttelse.
+
+---
+
+**c) Ansvar overfor samfunnet:**
+
+**Argumenter for vaksinering som samfunnsansvar:**
+- Ved å vaksinere deg selv, beskytter du også de som ikke kan vaksineres
+- Vaksinering er en "solidarisk handling" – du bidrar til flokkimmunitet
+- Meslinger kan gi alvorlige komplikasjoner (hjernebetennelse, død) – spesielt hos små barn
+- Historisk har vaksinasjonsprogrammer utryddet farlige sykdommer (kopper)
+
+**Balanse mellom individ og samfunn:**
+- Vaksinering er frivillig i Norge
+- Men med frihet følger ansvar
+- Valget om å ikke vaksinere påvirker ikke bare deg selv, men også sårbare mennesker rundt deg
+
+**Konklusjon:**
+Vaksinering er både en individuell og en samfunnsmessig handling. Høy vaksinasjonsdekning beskytter hele samfunnet, spesielt de mest sårbare.`,
       },
     },
 
@@ -3891,6 +5352,82 @@ Menstruasjon er en månedlig syklus hvor kroppen forbereder seg på en mulig gra
 - Kroppens største celle
 - Diameter: ca. 0,1 mm (synlig med blotte øyet)
 - Inneholder næring til det tidlige embryoet`,
+    },
+
+    // ========== EKSEMPEL: MENSTRUASJONSSYKLUS ==========
+    {
+      id: 'nat10-5-4-example-1',
+      type: 'example',
+      title: 'Eksempel: En typisk menstruasjonssyklus dag for dag',
+      problem: 'Sara har en menstruasjonssyklus på 28 dager. Menstruasjonen hennes startet 1. mars. Forklar hva som skjer i kroppen hennes gjennom de ulike fasene, og beregn når eggløsningen sannsynligvis skjer.',
+      solution: `**Saras menstruasjonssyklus (28 dager fra 1. mars):**
+
+**Dag 1-5 (1.-5. mars): Menstruasjon**
+- Slimhinnen i livmoren støtes ut
+- Sara har menstruasjonsblødning i ca. 5 dager
+- Østrogen- og progesteronnivåene er lave
+- Hypofysen sender ut FSH som starter modning av et nytt egg
+
+**Dag 6-13 (6.-13. mars): Follikelfasen**
+- Et egg modnes i en follikkel i en av eggstokkene
+- Follikelen produserer økende mengder **østrogen**
+- Østrogen bygger opp slimhinnen i livmoren (forbereder for mulig graviditet)
+- Slimhinnen blir tykkere og mer blodrik
+
+**Dag 14 (14. mars): Eggløsning (ovulasjon)**
+- Høye østrogennivåer trigger en stigning i LH fra hypofysen
+- Den modne eggcellen frigjøres fra eggstokken
+- Egget fanges opp av egglederen
+- Egget kan befruktes i de neste **12-24 timene**
+- **Dette er den mest fertile perioden**
+
+**Dag 15-28 (15.-28. mars): Lutealfasen**
+- Det tømte follikelet blir til det **gule legemet** (corpus luteum)
+- Det gule legemet produserer **progesteron**
+- Progesteron opprettholder slimhinnen og gjør den klar til innfesting
+- Hvis befruktning IKKE skjer: Det gule legemet dør etter ca. 14 dager
+- Progesteron og østrogen faller → Slimhinnen støtes ut → Ny menstruasjon
+
+**Beregning av eggløsning:**
+- Syklus: 28 dager
+- Eggløsning: Ca. dag 14 (midten av syklusen)
+- Start: 1. mars + 14 dager = **ca. 14. mars**
+
+**Merk:** Denne beregningen er omtrentlig. I virkeligheten kan eggløsningen variere med noen dager, og sykluslengden varierer mellom kvinner.`,
+    },
+
+    // ========== EKSEMPEL: PREVENSJON SAMMENLIGNING ==========
+    {
+      id: 'nat10-5-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Sammenligning av prevensjonsmetoder',
+      problem: 'Mari og Jonas er kjærester og ønsker å velge prevensjon. Mari vurderer p-piller, mens Jonas sier de kan bruke kondom. Sammenlign de to metodene med tanke på sikkerhet, beskyttelse mot SOI, og praktisk bruk.',
+      solution: `**Sammenligning: P-piller vs. Kondom**
+
+| **Egenskap** | **P-piller** | **Kondom** |
+|---|---|---|
+| **Sikkerhet mot graviditet** | 99 % (riktig bruk), 91 % (typisk bruk) | 98 % (riktig bruk), 85 % (typisk bruk) |
+| **Beskyttelse mot SOI** | Nei | Ja – eneste metode som beskytter mot SOI |
+| **Hormoner** | Ja (østrogen og progesteron) | Nei |
+| **Bruk** | Tas daglig (én tablett) | Brukes ved hvert samleie |
+| **Tilgjengelighet** | Krever resept fra lege | Kjøpes i butikk/apotek |
+| **Bivirkninger** | Mulige: kvalme, humørsvingninger | Ingen hormonelle bivirkninger |
+| **Ekstra fordeler** | Regelmessig menstruasjon, mindre smerter | Ingen bivirkninger, lett tilgjengelig |
+
+**Den beste løsningen for Mari og Jonas:**
+
+**Dobbel beskyttelse** anbefales:
+- **Mari tar p-piller** → Svært sikker beskyttelse mot graviditet (99 %)
+- **Jonas bruker kondom** → Beskyttelse mot SOI
+
+**Hvorfor dobbel beskyttelse?**
+- P-piller er mer sikre mot graviditet enn kondom alene
+- Men p-piller beskytter IKKE mot klamydia, gonoré, HPV eller andre SOI
+- Kondom gir denne ekstra beskyttelsen
+- Sammen gir de best mulig beskyttelse på begge områder
+
+**Viktig:**
+Valg av prevensjon er personlig. Snakk med helsesykepleier eller lege for råd tilpasset din situasjon.`,
     },
 
     // ========== DEFINISJON: KVINNELIG REPRODUKSJON ==========
@@ -4402,6 +5939,58 @@ Mange bruker hormonal prevensjon (p-piller, spiral) for å beskytte mot gravidit
 - Prevensjon fram til 20 år er gratis i Norge`,
     },
 
+    // ========== EKSEMPEL: TVILLINGER OG BEFRUKTNING ==========
+    {
+      id: 'nat10-5-4-example-4',
+      type: 'example',
+      title: 'Eksempel: Hvordan oppstår tvillinger?',
+      problem: 'Forklar forskjellen mellom eneggede og toeggede tvillinger. Hvordan oppstår de, og hvorfor er eneggede tvillinger identiske mens toeggede tvillinger ikke er det?',
+      solution: `**Eneggede (identiske) tvillinger:**
+
+**Hvordan de oppstår:**
+1. Ett egg befruktes av én sædcelle → Én befruktet eggcelle (zygote)
+2. Zygoten deler seg normalt
+3. I et tidlig stadium **deler celleklumpen seg i to**
+4. Hver halvdel utvikler seg til et eget foster
+5. Begge fostrene har **nøyaktig samme DNA**
+
+**Kjennetegn:**
+- Alltid samme kjønn
+- Ser (nesten) helt like ut
+- Har identisk DNA
+- Forekommer tilfeldig (ikke arvelig)
+- Ca. 3-4 av 1000 fødsler
+
+---
+
+**Toeggede (ikke-identiske) tvillinger:**
+
+**Hvordan de oppstår:**
+1. **To egg** frigjøres ved eggløsning (i stedet for ett)
+2. Hvert egg befruktes av **sin egen sædcelle**
+3. To separate zygoteer dannes
+4. Hvert foster har **forskjellig DNA** (som vanlige søsken)
+
+**Kjennetegn:**
+- Kan være samme eller ulikt kjønn
+- Ligner hverandre som vanlige søsken
+- Har forskjellig DNA
+- Kan være arvelig (fra mors side)
+- Vanligere enn eneggede
+
+---
+
+**Hvorfor er eneggede identiske?**
+- De kommer fra **én befruktet eggcelle** med ett sett DNA
+- Når celleklumpen deler seg, får begge halvdelene **nøyaktig samme DNA**
+- Derfor har de samme hårfarge, øyenfarge, blodtype osv.
+
+**Hvorfor er toeggede forskjellige?**
+- De kommer fra **to forskjellige egg og to forskjellige sædceller**
+- Hvert egg og hver sædcelle inneholder et tilfeldig utvalg av foreldrenes gener
+- Derfor er de genetisk like forskjellige som vanlige søsken (ca. 50 % felles DNA)`,
+    },
+
     // ========== DEFINISJON: PREVENSJON ==========
     {
       id: 'nat10-5-4-def-prevensjon',
@@ -4625,6 +6214,46 @@ SOI kan overføres ved:
 
 **4. Unngå sex:**
 - Ikke ha sex før behandlingen er ferdig og infeksjonen er borte`,
+    },
+
+    // ========== EKSEMPEL: SOI-FOREBYGGING ==========
+    {
+      id: 'nat10-5-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Klamydia – den stille infeksjonen',
+      problem: 'En 17-åring har hatt sex uten kondom med en ny partner. Personen har ingen symptomer, men venner anbefaler testing. Forklar hvorfor testing er viktig selv uten symptomer, og hva som skjer hvis klamydia forblir ubehandlet.',
+      solution: `**Hvorfor teste seg uten symptomer?**
+
+**Klamydia er en "stille infeksjon":**
+- Ca. **70 % av kvinner** og **50 % av menn** med klamydia har INGEN symptomer
+- Du kan være smittet uten å vite det
+- Du kan smitte partnere uten å vite det
+- Klamydia er den vanligste SOI i Norge, spesielt blant unge (15-25 år)
+
+**Hva skjer hvis klamydia forblir ubehandlet?**
+
+**Hos kvinner:**
+- Infeksjonen kan spre seg til eggledere og bekken
+- **Bekkeninfeksjon (PID):** Betennelse i indre kjønnsorganer
+- Arrvev i egglederne kan blokkere dem
+- **Ufrivillig barnløshet (infertilitet):** Eggcellen kan ikke nå livmoren
+- Økt risiko for **ektopisk graviditet** (graviditet i egglederen – farlig!)
+
+**Hos menn:**
+- Infeksjonen kan spre seg til bitestiklene
+- **Bitestikkelbetennelse:** Smerte og hevelse
+- Kan også føre til infertilitet
+
+**Behandling:**
+- Klamydia kureres **enkelt** med antibiotika (vanligvis én uke)
+- Partner(e) må også behandles for å forhindre gjensmitting
+- Ingen varige skader hvis behandlet tidlig
+
+**Lærdommer:**
+1. Test deg etter ubeskyttet sex med ny partner
+2. Testing er **gratis og anonymt** på helsestasjon for ungdom
+3. Bruk **alltid kondom** med nye partnere
+4. Snakk åpent med partner om SOI og testing`,
     },
 
     // ========== DEFINISJON: SOI ==========
@@ -5080,6 +6709,234 @@ Konfidensielle helsetjenester er avgjørende for at ungdom skal kunne ta vare p�
       },
     },
 
+    // ========== OPPGAVE 9: HORMONER I MENSTRUASJONSSYKLUSEN ==========
+    {
+      id: 'nat10-5-4-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-4-ex-9',
+        number: '5.4.9',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva skjer hormonelt rundt dag 14 i menstruasjonssyklusen som utløser eggløsning?',
+        options: [
+          'En kraftig stigning i LH (luteiniserende hormon) fra hypofysen trigger eggløsning',
+          'Progesteronnivået når sitt høyeste punkt og presser egget ut',
+          'Østrogennivået faller plutselig og egget frigjøres',
+          'Testosteron fra binyrene trigger eggløsning',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** En kraftig stigning i LH (luteiniserende hormon) fra hypofysen trigger eggløsning
+
+**Forklaring:**
+
+**Hendelsesforløpet:**
+1. I dagene før eggløsning stiger østrogennivået gradvis
+2. Når østrogennivået når en topp, sender det et signal til hypofysen
+3. Hypofysen reagerer med en kraftig stigning i **LH** (LH-toppen)
+4. LH-toppen trigger eggløsning – det modne egget frigjøres fra eggstokken
+5. Egget fanges opp av egglederen
+
+**Etter eggløsning:**
+- Det tømte follikelet (gult legeme) begynner å produsere progesteron
+- Progesteron forbereder livmorslimhinnen på mulig innfesting
+- Hvis befruktning ikke skjer, dør det gule legemet etter ca. 14 dager
+- Hormonene faller → Menstruasjonen starter
+
+**Praktisk betydning:**
+LH-toppen kan måles med ovulasjonstester. Dette brukes av kvinner som ønsker å bli gravide (vet når de er mest fertile) eller som vil unngå graviditet (vet når de bør unngå sex).`,
+      },
+    },
+
+    // ========== OPPGAVE 10: PREVENSJON OG SOI ==========
+    {
+      id: 'nat10-5-4-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-4-ex-10',
+        number: '5.4.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En venninne sier: "Jeg tar p-piller, så jeg trenger ikke bruke kondom." Forklar hvorfor dette kan være risikabelt, og hva du ville anbefalt.`,
+        solution: `**Hvorfor dette kan være risikabelt:**
+
+**P-piller beskytter kun mot graviditet:**
+- P-piller er svært effektive mot graviditet (99 % ved riktig bruk)
+- MEN de gir **ingen beskyttelse mot seksuelt overførbare infeksjoner (SOI)**
+- SOI overføres ved direkte kontakt mellom slimhinner og kroppsvæsker
+
+**Risiko uten kondom:**
+- Klamydia (vanligste SOI, ofte uten symptomer, kan gi infertilitet)
+- Gonoré (bakterieinfeksjon, økende antibiotikaresistens)
+- HPV (kan gi kjønnsvorter og kreft)
+- Herpes (kan ikke kureres, kommer tilbake)
+- HIV (livslang behandling)
+
+**Mange SOI gir ingen symptomer:**
+- Du kan være smittet uten å vite det
+- Du kan smitte videre uten å vite det
+
+---
+
+**Anbefaling:**
+
+**Bruk dobbel beskyttelse:**
+- P-piller for effektiv beskyttelse mot graviditet
+- Kondom for beskyttelse mot SOI
+
+**Spesielt viktig med kondom:**
+- Med nye partnere
+- Hvis du eller partneren ikke er testet
+- Kondom er eneste metode som beskytter mot SOI
+
+**Når kan man vurdere å droppe kondom:**
+- I et fast forhold
+- Begge er testet for SOI
+- Begge er trofaste (monogamt forhold)
+- Men husk: p-piller må fremdeles brukes for å unngå graviditet`,
+      },
+    },
+
+    // ========== OPPGAVE 11: BEFRUKTNING ==========
+    {
+      id: 'nat10-5-4-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-4-ex-11',
+        number: '5.4.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvor i kroppen skjer befruktning (sammensmeltning av egg og sædcelle) vanligvis?',
+        options: [
+          'I egglederen',
+          'I livmoren',
+          'I eggstokken',
+          'I skjeden',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** I egglederen
+
+**Forklaring:**
+
+**Befruktningens reise:**
+1. Sædceller frigjøres i skjeden
+2. De svømmer oppover gjennom livmorhalsen og livmoren
+3. De når egglederen
+4. Hvis det er et egg i egglederen (etter eggløsning), kan **befruktning skje her**
+5. Én sædcelle trenger inn i egget → Befruktet eggcelle (zygote)
+
+**Etter befruktning:**
+- Den befruktede eggcellen begynner å dele seg
+- Celleklumpen vandrer ned egglederen mot livmoren (3-5 dager)
+- Etter 5-7 dager fester den seg i livmorslimhinnen (innfesting)
+- Graviditeten er etablert
+
+**Merk:**
+- Befruktning skjer i egglederen, IKKE i livmoren
+- Innfesting skjer i livmoren
+- Hvis den befruktede eggcellen fester seg i egglederen i stedet, kalles det ektopisk (utenforlivmorlig) graviditet – dette er en medisinsk nødsituasjon`,
+      },
+    },
+
+    // ========== OPPGAVE 12: HPV-VAKSINE ==========
+    {
+      id: 'nat10-5-4-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-4-ex-12',
+        number: '5.4.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `HPV-vaksinen tilbys gratis til alle jenter og gutter i 7. klasse i Norge.
+
+a) Hva er HPV, og hvorfor er det viktig å vaksinere seg?
+b) Hvorfor vaksineres man allerede i 7. klasse?`,
+        solution: `**a) Hva er HPV og hvorfor vaksinere?**
+
+**HPV (Humant papillomavirus):**
+- Svært vanlig virus – de fleste får HPV i løpet av livet
+- Overføres ved seksuell kontakt (hud-til-hud)
+- Det finnes over 200 ulike HPV-typer
+- De fleste er ufarlige og forsvinner av seg selv
+
+**Farlige typer:**
+- Noen HPV-typer (16 og 18) kan forårsake **kreft:**
+  - Livmorhalskreft
+  - Kreft i munn/svelg
+  - Kreft i endetarm
+  - Kreft i penis
+- Andre typer (6 og 11) gir **kjønnsvorter**
+
+**HPV-vaksinen beskytter mot:**
+- HPV-typene som oftest gir kreft (type 16, 18 og flere)
+- HPV-typene som gir kjønnsvorter (type 6, 11)
+- Reduserer risikoen for livmorhalskreft med over 90 %
+
+---
+
+**b) Hvorfor vaksineres man i 7. klasse?**
+
+**Vaksinen virker best FØR man blir smittet:**
+- HPV smitter ved seksuell kontakt
+- De fleste smittes i løpet av de første årene etter seksuell debut
+- Ved å vaksinere i 7. klasse (12-13 år) er de aller fleste ennå ikke seksuelt aktive
+- Immunforsvaret får tid til å bygge opp beskyttelse FØR de møter viruset
+
+**Tidlig alder gir bedre immunrespons:**
+- Unge har sterkere immunrespons på vaksinen
+- Ungdom trenger bare 2 doser (voksne trenger 3)
+
+**Konklusjon:**
+HPV-vaksinen er mest effektiv hvis den gis før seksuell debut, og immunresponsen er bedre hos unge. Derfor tilbys den i 7. klasse.`,
+      },
+    },
+
+    // ========== OPPGAVE 13: MORKAKENS FUNKSJON ==========
+    {
+      id: 'nat10-5-4-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-4-ex-13',
+        number: '5.4.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er morkakens (placentas) viktigste funksjon under graviditeten?',
+        options: [
+          'Den sørger for utveksling av oksygen, næring og avfallsstoffer mellom mor og foster',
+          'Den beskytter fosteret mot alle sykdommer',
+          'Den produserer blod til fosteret',
+          'Den sørger for at fosteret kan puste luft',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Den sørger for utveksling av oksygen, næring og avfallsstoffer mellom mor og foster
+
+**Forklaring:**
+
+**Morkakens (placentas) funksjoner:**
+
+**1. Oksygentilførsel:**
+- Oksygen fra morens blod overføres til fosterets blod via morkaken
+- Fosteret kan ikke puste luft – det er omgitt av fostervann
+- All oksygen kommer via morkaken og navlesnoren
+
+**2. Næringstilførsel:**
+- Glukose, aminosyrer, fettsyrer og vitaminer overføres fra mors blod til fosteret
+- Fosteret får all næring det trenger for vekst og utvikling
+
+**3. Avfallsfjerning:**
+- Karbondioksid og andre avfallsstoffer fra fosteret overføres til morens blod
+- Morens kropp kvitter seg med avfallet
+
+**4. Hormonproduksjon:**
+- Morkaken produserer hormoner (progesteron, hCG) som opprettholder graviditeten
+
+**Viktig:**
+- Morens og fosterets blod blandes IKKE direkte
+- Utvekslingen skjer gjennom tynne membraner i morkaken
+- Navlesnoren kobler fosteret til morkaken`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-5-4-oppsummering',
@@ -5324,6 +7181,83 @@ Helsedirektoratets råd for et sunt kosthold:
 - Vekst og utvikling`,
     },
 
+    // ========== EKSEMPEL: BMI-BEREGNING ==========
+    {
+      id: 'nat10-5-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregning av BMI',
+      problem: 'BMI (Body Mass Index) er et mål på forholdet mellom vekt og høyde. En person veier 70 kg og er 1,75 m høy.\n\na) Beregn personens BMI.\nb) Vurder resultatet ut fra BMI-tabellen.\nc) Diskuter begrensningene ved BMI som mål på helse.',
+      solution: `**a) Beregning av BMI:**
+
+$$\\text{BMI} = \\frac{\\text{vekt (kg)}}{\\text{høyde (m)}^2} = \\frac{70}{1{,}75^2} = \\frac{70}{3{,}0625} \\approx 22{,}9$$
+
+Personens BMI er **22,9**.
+
+---
+
+**b) Vurdering ut fra BMI-tabellen:**
+
+| **BMI-verdi** | **Kategori** |
+|---|---|
+| Under 18,5 | Undervekt |
+| 18,5-24,9 | Normalvekt |
+| 25-29,9 | Overvekt |
+| Over 30 | Fedme |
+
+BMI 22,9 er innenfor **normalvekt**-området (18,5-24,9).
+
+---
+
+**c) Begrensninger ved BMI:**
+
+BMI er et **grovt mål** og har flere begrensninger:
+
+1. **Skiller ikke mellom muskler og fett:**
+   - En muskuløs idrettsutøver kan ha høy BMI uten å være overvektig
+   - Eksempel: En fotballspiller på 90 kg og 1,80 m har BMI 27,8 (overvekt), men er veldig fit
+
+2. **Tar ikke hensyn til fettfordeling:**
+   - Fett rundt magen (magefett) er farligere enn fett på hofter og lår
+   - BMI forteller ikke hvor fettet sitter
+
+3. **Passer ikke for alle:**
+   - Barn og ungdom i vekst har egne BMI-kurver
+   - Eldre har naturlig annen kroppssammensetning
+   - Varierer mellom etniske grupper
+
+**Konklusjon:** BMI gir en grov indikasjon, men bør ikke brukes alene for å vurdere helse. Andre faktorer som livsstil, kosthold og fysisk aktivitet er minst like viktige.`,
+    },
+
+    // ========== EKSEMPEL: ENERGIBEREGNING ==========
+    {
+      id: 'nat10-5-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Energiinnhold i et måltid',
+      problem: 'Et måltid inneholder 80 g karbohydrater, 30 g proteiner og 15 g fett. Beregn det totale energiinnholdet i måltidet i kilojoule (kJ).',
+      solution: `**Energiinnhold per gram:**
+- Karbohydrater: 1 gram = 17 kJ
+- Proteiner: 1 gram = 17 kJ
+- Fett: 1 gram = 38 kJ
+
+**Beregning:**
+
+$$\\text{Karbohydrater: } 80 \\text{ g} \\times 17 \\text{ kJ/g} = 1360 \\text{ kJ}$$
+$$\\text{Proteiner: } 30 \\text{ g} \\times 17 \\text{ kJ/g} = 510 \\text{ kJ}$$
+$$\\text{Fett: } 15 \\text{ g} \\times 38 \\text{ kJ/g} = 570 \\text{ kJ}$$
+
+$$\\text{Totalt: } 1360 + 510 + 570 = \\mathbf{2440 \\text{ kJ}}$$
+
+**Forklaring:**
+- Karbohydrater bidrar mest (56 % av energien)
+- Fett bidrar 23 % av energien, men er bare 15 g (fett er energirikt per gram!)
+- Proteiner bidrar 21 % av energien
+
+**Sammenhengen:**
+- En ungdom trenger ca. 8000-10 000 kJ per dag
+- Dette måltidet dekker ca. 25-30 % av dagsbehovet
+- Resten må dekkes av andre måltider og mellommåltider`,
+    },
+
     // ========== DEFINISJON: NÆRINGSSTOFFER ==========
     {
       id: 'nat10-5-5-def-naring',
@@ -5537,6 +7471,101 @@ Helsedirektoratet anbefaler at ungdom er fysisk aktive:
 - Beinene blir sterkere
 - Bedre utholdenhet
 - Lavere risiko for livsstilssykdommer`,
+    },
+
+    // ========== EKSEMPEL: SØVNSYKLUSER ==========
+    {
+      id: 'nat10-5-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Søvnsykluser og søvnkvalitet',
+      problem: 'Søvnen er organisert i sykluser som varer ca. 90 minutter hver. Hver syklus inneholder ulike søvnfaser. En ungdom som legger seg kl. 22:30 og skal stå opp kl. 07:00, vil ha ca. 8,5 timer søvn.\n\na) Hvor mange komplette søvnsykluser får ungdommen?\nb) Forklar hva som skjer i de ulike søvnfasene.',
+      solution: `**a) Antall søvnsykluser:**
+
+$$\\text{Søvntid} = 8{,}5 \\text{ timer} = 510 \\text{ minutter}$$
+$$\\text{Antall sykluser} = \\frac{510}{90} \\approx 5{,}7$$
+
+Ungdommen får ca. **5-6 komplette søvnsykluser** per natt.
+
+---
+
+**b) De ulike søvnfasene i hver syklus:**
+
+**Fase 1: Lett søvn (5-10 minutter)**
+- Overgang fra våken til sovende
+- Lett å vekke
+- Musklene begynner å slappe av
+
+**Fase 2: Moderat søvn (20 minutter)**
+- Hjertefrekvens og kroppstemperatur synker
+- Hjernen sorterer informasjon
+- Vanskeligere å vekke
+
+**Fase 3: Dyp søvn (20-40 minutter)**
+- Viktigste fasen for fysisk restitusjon
+- Kroppen reparerer celler og vev
+- Veksthormon produseres (viktig for ungdom!)
+- Immunforsvaret styrkes
+- Svært vanskelig å vekke
+
+**REM-søvn (20-30 minutter)**
+- REM = Rapid Eye Movement (raske øyebevegelser)
+- Hjernen er svært aktiv – vi drømmer
+- Viktig for **læring og hukommelse**
+- Hjernen behandler følelser og opplevelser
+- Kroppen er "lammet" (hindrer at vi utfører drømmene)
+
+**Viktig mønster:**
+- Tidlig på natten: Mer dyp søvn
+- Sent på natten: Mer REM-søvn
+- Derfor er det viktig å sove HELE natten – sen søvn er viktig for hukommelse og læring
+
+**Tips:**
+Prøv å våkne mellom sykluser (etter 7,5 eller 9 timer) i stedet for midt i en syklus – da føler du deg mer uthvilt.`,
+    },
+
+    // ========== EKSEMPEL: KOSTHOLDSANALYSE ==========
+    {
+      id: 'nat10-5-5-example-4',
+      type: 'example',
+      title: 'Eksempel: Vurdering av en dagsmeny',
+      problem: 'En ungdom spiser følgende i løpet av en dag:\n- Frokost: To hvite brødskiver med Nugatti, juice\n- Lunsj: Pizza fra kantina, brus\n- Middag: Taco med kjøttdeig, salat, ost, rømme\n- Kveldsmat: Chips og sjokolade\n\nVurder dette kostholdet i forhold til Helsedirektoratets anbefalinger.',
+      solution: `**Vurdering av dagsmenyen:**
+
+**Positive sider:**
+- Tacomiddagen inneholder salat (grønnsaker) ✓
+- Kjøttdeig gir proteiner ✓
+- Tre måltider pluss kveldsmat gir jevn energi ✓
+
+**Forbedringspunkter:**
+
+**1. For lite frukt og grønnsaker:**
+- Anbefalt: Minst 5 porsjoner om dagen
+- Denne menyen: Kun salat til taco (ca. 1 porsjon)
+- **Forslag:** Legg til frukt til frokost, grønnsaker i matpakken, frukt som mellommåltid
+
+**2. For mye sukker:**
+- Nugatti, juice, brus, sjokolade = mye tilsatt sukker
+- Gir raskt blodsukkerfall og sult
+- **Forslag:** Bytt Nugatti med ost/skinke, juice med vann, brus med vann, sjokolade med frukt
+
+**3. For lite fullkorn:**
+- Hvitt brød gir lite fiber
+- **Forslag:** Velg grovbrød (minst 75 % fullkorn)
+
+**4. For mye mettet fett:**
+- Chips, ost, rømme og Nugatti inneholder mye mettet fett
+- **Forslag:** Velg lett rømme, mindre ost, bytt chips med nøtter
+
+**5. Mangler fisk:**
+- Anbefalt: 2-3 ganger per uke
+- **Forslag:** Bytt ut noen middager med fisk
+
+**Forbedret dagsmeny:**
+- Frokost: Grovbrød med ost og paprika, et glass melk
+- Lunsj: Matpakke med grovbrød, skinke, agurk
+- Mellommåltid: Et eple og noen nøtter
+- Middag: Laks med ris og brokkoli
+- Kveldsmat: Yoghurt med bær`,
     },
 
     // ========== OPPGAVE 4: FYSISK AKTIVITET ==========
@@ -5955,6 +7984,36 @@ Narkotika er **ulovlige rusmidler** som påvirker hjernen.
 **Cannabis og ungdom:**
 
 Ungdommens hjerner er ekstra sårbare for cannabis. Regelmessig bruk kan føre til **permanente hjerneskader** og redusert IQ.`,
+    },
+
+    // ========== DEFINISJON: SØVN ==========
+    {
+      id: 'nat10-5-5-def-sovn',
+      type: 'definition',
+      title: 'Søvn',
+      content: `**Søvn:** Livsviktig tilstand der kroppen og hjernen reparerer seg, lagrer informasjon og styrker immunforsvaret.
+
+**Søvnbehov for ungdom:** 8-10 timer per natt.
+
+**Søvnsyklus:** En syklus på ca. 90 minutter som gjennomgår lett søvn, moderat søvn, dyp søvn og REM-søvn.
+
+**REM-søvn (Rapid Eye Movement):** Søvnfase der hjernen er aktiv og vi drømmer. Viktig for læring og hukommelse.
+
+**Melatonin:** Søvnhormon som produseres i hjernen og regulerer søvn-våken-syklusen. Hemmes av blått lys fra skjermer.`,
+    },
+
+    // ========== DEFINISJON: FYSISK AKTIVITET ==========
+    {
+      id: 'nat10-5-5-def-fysisk',
+      type: 'definition',
+      title: 'Fysisk aktivitet',
+      content: `**Fysisk aktivitet:** All bevegelse som bruker energi. Inkluderer trening, lek, gange og daglige aktiviteter.
+
+**Anbefaling for ungdom:** Minst 60 minutter moderat til høy fysisk aktivitet daglig.
+
+**Endorfiner:** Kroppens naturlige "lykkehormoner" som frigjøres under fysisk aktivitet. Gir følelse av velvære.
+
+**Grunnforbrenning (basalmetabolisme):** Energien kroppen bruker i hvile for å opprettholde livsviktige funksjoner.`,
     },
 
     // ========== DEFINISJON: RUS ==========
@@ -6544,6 +8603,357 @@ Diabetes type 2 er i stor grad forårsaket av livsstilsfaktorer som overvekt, us
 **Oppsummering:**
 
 Små, daglige valg har stor betydning over tid. Ved å spise sunt, være aktiv, sove nok og unngå rus, kan du **forebygge** de fleste livsstilssykdommer og leve et lengre og sunnere liv!`,
+      },
+    },
+
+    // ========== OPPGAVE 11: BMI OG ENERGI ==========
+    {
+      id: 'nat10-5-5-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-11',
+        number: '5.5.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En person veier 85 kg og er 1,80 m høy.
+
+a) Beregn personens BMI.
+b) Hvilken BMI-kategori tilhører personen?
+c) Nevn to begrensninger ved å bruke BMI som mål på helse.`,
+        solution: `**a) Beregning av BMI:**
+
+$$\\text{BMI} = \\frac{\\text{vekt}}{\\text{høyde}^2} = \\frac{85}{1{,}80^2} = \\frac{85}{3{,}24} \\approx 26{,}2$$
+
+Personens BMI er **26,2**.
+
+---
+
+**b) BMI-kategori:**
+
+| **BMI** | **Kategori** |
+|---|---|
+| Under 18,5 | Undervekt |
+| 18,5-24,9 | Normalvekt |
+| **25-29,9** | **Overvekt** |
+| Over 30 | Fedme |
+
+BMI 26,2 plasserer personen i kategorien **overvekt**.
+
+---
+
+**c) To begrensninger ved BMI:**
+
+**1. Skiller ikke mellom muskler og fett:**
+En muskuløs person kan ha høy BMI uten å ha for mye fett. Eksempel: En idrettsutøver kan ha BMI 26 på grunn av mye muskelmasse, ikke fordi vedkommende er overvektig.
+
+**2. Tar ikke hensyn til fettfordeling:**
+Fett rundt magen (visceralt fett) er mye farligere for helsen enn fett på hofter og lår. BMI forteller ingenting om hvor fettet sitter i kroppen.
+
+**Konklusjon:** BMI er et nyttig screeningverktøy, men bør alltid brukes sammen med andre vurderinger som midjemål, fysisk aktivitetsnivå og generell helsestatus.`,
+      },
+    },
+
+    // ========== OPPGAVE 12: SØVN OG SKJERMBRUK ==========
+    {
+      id: 'nat10-5-5-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-12',
+        number: '5.5.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Mange ungdommer bruker mobilen rett før de legger seg og sover dårlig som følge av dette.
+
+a) Forklar hvorfor skjermbruk om kvelden kan gjøre det vanskeligere å sovne.
+b) Gi tre konkrete tips for bedre søvnhygiene.`,
+        solution: `**a) Hvorfor skjermbruk gjør det vanskeligere å sovne:**
+
+**Blått lys:**
+- Skjermer (mobil, nettbrett, PC) sender ut **blått lys**
+- Blått lys hemmer produksjonen av **melatonin** – søvnhormonet
+- Melatonin forteller kroppen at det er natt og tid for å sove
+- Mindre melatonin = kroppen tror det fortsatt er dag → Vanskelig å sovne
+
+**Mental stimulering:**
+- Sosiale medier, spill og nyheter holder hjernen **aktiv og våken**
+- Hjernen er stimulert og har vanskelig for å "skru seg av"
+- Bekymring over innhold (f.eks. sosiale medier) kan øke stress
+
+**Tidsforskyvning:**
+- "Bare fem minutter til" → Det går ofte mye lenger
+- Man legger seg senere enn planlagt
+- Mindre total søvntid
+
+---
+
+**b) Tre tips for bedre søvnhygiene:**
+
+**1. Legg bort mobilen 1 time før sengetid:**
+- Reduserer blått lys-eksponering
+- Hjernen får tid til å roe seg ned
+- Melatoninproduksjonen kan starte naturlig
+- La mobilen lade i et annet rom enn soverommet
+
+**2. Ha faste søvnrutiner:**
+- Gå til sengs og stå opp til omtrent samme tid hver dag
+- Også i helgene (maks 1 times variasjon)
+- Kroppen lager en "biologisk klokke" som gjør det lettere å sovne
+
+**3. Gjør soverommet til en sovesone:**
+- Mørk ned rommet (bruk blendingsgardiner)
+- Hold rommet kjølig (16-18°C er ideelt)
+- Unngå å spise tungt like før sengetid
+- Bruk sengen bare til søvn (ikke til å se på mobilen)`,
+      },
+    },
+
+    // ========== OPPGAVE 13: E-SIGARETTER ==========
+    {
+      id: 'nat10-5-5-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-13',
+        number: '5.5.13',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Noen ungdommer tror at e-sigaretter (damp/vape) er ufarlige fordi det ikke er tobakk. Hva stemmer om e-sigaretter?',
+        options: [
+          'E-sigaretter inneholder nikotin som er avhengighetsskapende, og dampen kan inneholde skadelige stoffer',
+          'E-sigaretter er helt ufarlige og inneholder bare vannamp',
+          'E-sigaretter er like skadelige som vanlige sigaretter',
+          'E-sigaretter hjelper alltid med å slutte å røyke',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** E-sigaretter inneholder nikotin som er avhengighetsskapende, og dampen kan inneholde skadelige stoffer
+
+**Forklaring:**
+
+**Hva inneholder e-sigaretter?**
+- De fleste inneholder **nikotin** – like avhengighetsskapende som i vanlige sigaretter
+- Propylenglykol og vegetabilsk glyserin (lager dampen)
+- Smaksstoffer (som kan være skadelige å inhalere)
+- Noen inneholder tungmetaller fra varmeelementer
+
+**Er de farlige?**
+- **Nikotin er avhengighetsskapende** – ungdommer kan bli avhengige raskt
+- **Dampen er IKKE bare vanndamp** – den inneholder kjemikalier
+- **Lungeskader:** Rapporter om alvorlig lungesykdom (EVALI)
+- **Hjerneutvikling:** Nikotin skader den utviklende hjernen hos ungdom
+- **Langtidseffekter er ukjente** – e-sigaretter er relativt nye
+
+**Sammenlignet med vanlige sigaretter:**
+- E-sigaretter er trolig MINDRE skadelige enn vanlige sigaretter
+- Men de er IKKE ufarlige
+- For ungdom som aldri har røykt: Å begynne med e-sigaretter er å starte med nikotinavhengighet
+
+**Viktig budskap:**
+Den tryggeste tilnærmingen er å ikke bruke verken sigaretter eller e-sigaretter. Nikotinavhengighet er vanskelig å kvitte seg med uansett kilde.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: ENERGIINNHOLD ==========
+    {
+      id: 'nat10-5-5-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-14',
+        number: '5.5.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Beregn energiinnholdet i følgende måltid:
+- 60 g karbohydrater
+- 25 g proteiner
+- 20 g fett
+
+Er dette et stort eller lite måltid for en ungdom som trenger ca. 9000 kJ per dag?`,
+        solution: `**Beregning av energiinnhold:**
+
+**Energi per gram:**
+- Karbohydrater: 17 kJ/g
+- Proteiner: 17 kJ/g
+- Fett: 38 kJ/g
+
+**Beregning:**
+$$\\text{Karbohydrater: } 60 \\times 17 = 1020 \\text{ kJ}$$
+$$\\text{Proteiner: } 25 \\times 17 = 425 \\text{ kJ}$$
+$$\\text{Fett: } 20 \\times 38 = 760 \\text{ kJ}$$
+
+$$\\text{Totalt: } 1020 + 425 + 760 = \\mathbf{2205 \\text{ kJ}}$$
+
+---
+
+**Vurdering:**
+
+$$\\text{Andel av dagsbehov: } \\frac{2205}{9000} \\times 100 \\approx 24{,}5 \\%$$
+
+Måltidet dekker ca. **25 %** av dagsbehovet.
+
+**Er det stort eller lite?**
+- Hvis man spiser 3 hovedmåltider og 2 mellommåltider per dag
+- Hvert hovedmåltid bør dekke ca. 25-30 % av dagsbehovet
+- Dette er et **normalt hovedmåltid** – passende størrelse
+
+**Fordeling:**
+- Karbohydrater: 46 % av energien
+- Fett: 35 % av energien
+- Proteiner: 19 % av energien
+
+Anbefalte verdier: 45-60 % karbohydrater, 25-40 % fett, 10-20 % proteiner. Denne fordelingen er innenfor normalområdet.`,
+      },
+    },
+
+    // ========== OPPGAVE 15: MENTAL HELSE ==========
+    {
+      id: 'nat10-5-5-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-15',
+        number: '5.5.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar sammenhengen mellom fysisk aktivitet og mental helse. Hvorfor anbefales trening som et tiltak mot stress, angst og depresjon?`,
+        solution: `**Sammenhengen mellom fysisk aktivitet og mental helse:**
+
+**1. Endorfiner (lykkehormoner):**
+- Fysisk aktivitet stimulerer produksjonen av **endorfiner** i hjernen
+- Endorfiner gir en følelse av velvære og glede
+- Effekten merkes allerede etter 20-30 minutters aktivitet
+- Kalles ofte "runner's high" (løpergleden)
+
+**2. Stressreduksjon:**
+- Trening senker nivået av stresshormoner (adrenalin og kortisol)
+- Kroppen spenner seg av etter aktivitet
+- Fysisk utlading av stress (kroppen "bruker opp" stressresponsen)
+
+**3. Bedre søvn:**
+- Regelmessig fysisk aktivitet bedrer søvnkvaliteten
+- God søvn er viktig for mental helse
+- Reduserer risiko for søvnproblemer
+
+**4. Økt selvtillit:**
+- Mestring av fysiske utfordringer gir selvtillit
+- Bedre fysisk form gir mer energi i hverdagen
+- Sosial kontakt gjennom idrett og aktivitet
+
+**5. Biologiske mekanismer:**
+- Trening øker produksjonen av serotonin (humørregulering)
+- Forbedrer blodgjennomstrømningen til hjernen
+- Stimulerer vekst av nye hjerneceller (nevroplastisitet)
+
+---
+
+**Hvorfor anbefales trening mot stress, angst og depresjon?**
+
+- Forskning viser at regelmessig trening kan være **like effektiv som medisiner** mot mild til moderat depresjon
+- Trening gir umiddelbare positive effekter (endorfiner) og langsiktige (bedre hjernehelsel)
+- Ingen negative bivirkninger (i motsetning til medisiner)
+- Kan kombineres med terapi og medisiner for bedre effekt
+- Helsedirektoratet anbefaler fysisk aktivitet som del av behandlingen for psykiske plager
+
+**Anbefaling:** Minst 60 minutter moderat fysisk aktivitet daglig for ungdom – det hjelper ikke bare kroppen, men også hjernen!`,
+      },
+    },
+
+    // ========== OPPGAVE 16: HELHETLIG LIVSSTILSVURDERING ==========
+    {
+      id: 'nat10-5-5-oppg-extra-6b',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-16b',
+        number: '5.5.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `En 15-åring har følgende livsstil:
+- Sover 6 timer per natt (bruker mobilen sent)
+- Spiser sjelden frokost, mye brus og godteri
+- Sitter mye stille (gaming 3-4 timer daglig)
+- Er ofte trøtt og irritabel på skolen
+
+Analyser denne livsstilen og gi minst fire konkrete råd for forbedring. Forklar den biologiske bakgrunnen for hvert råd.`,
+        solution: `**Analyse av livsstilen:**
+
+Denne ungdommen har flere risikofaktorer som kan påvirke helsen negativt:
+- Søvnmangel (6 timer vs anbefalt 8-10)
+- Usunt kosthold (manglende frokost, mye sukker)
+- Inaktivitet (mye stillesitting, lite bevegelse)
+- Mye skjermtid sent (påvirker søvn)
+
+---
+
+**Fire konkrete råd med biologisk bakgrunn:**
+
+**1. Sov 8-10 timer per natt:**
+- **Råd:** Legg deg kl. 22:00 og legg bort mobilen kl. 21:00
+- **Biologisk bakgrunn:** Søvn er nødvendig for at hjernen skal prosessere informasjon og lagre minner (viktig for skoleprestasjoner). Veksthormon produseres hovedsakelig under dyp søvn. Søvnmangel svekker immunforsvaret og øker risiko for overvekt. Blått lys fra mobilen hemmer melatonin (søvnhormonet).
+
+**2. Spis frokost hver dag:**
+- **Råd:** Spis grovbrød med pålegg og et glass melk før skolen
+- **Biologisk bakgrunn:** Etter en natts faste er blodsukkeret lavt. Hjernen trenger glukose for å fungere optimalt. Uten frokost vil konsentrasjon og læring bli dårligere. Karbohydrater fra grovbrød gir jevn energi gjennom formiddagen.
+
+**3. Vær fysisk aktiv minst 60 minutter daglig:**
+- **Råd:** Gå eller sykle til skolen, delta i en idrettsaktivitet
+- **Biologisk bakgrunn:** Fysisk aktivitet styrker hjerte og lunger, bygger muskler og bein, og produserer endorfiner (lykkehormoner). Endorfiner gir bedre humør og reduserer irritabilitet. Trening bedrer også søvnkvaliteten og hjelper kroppen å opprettholde energibalanse.
+
+**4. Reduser sukkerinntaket:**
+- **Råd:** Bytt brus med vann, velg frukt i stedet for godteri
+- **Biologisk bakgrunn:** Mye sukker gir raskt blodsukkerfall etter at insulinet har virket. Dette gir trøtthet og irritabilitet ("sukkercrash"). Langvarig høyt sukkerinntak øker risiko for overvekt og diabetes type 2. Vann og frukt gir bedre energi og viktige vitaminer.
+
+---
+
+**Forventet effekt av endringene:**
+- Bedre konsentrasjon og læring på skolen
+- Mer energi og bedre humør
+- Bedre fysisk helse (sterkere hjerte, muskler, bein)
+- Redusert risiko for livsstilssykdommer
+- Bedre søvnkvalitet og generell velvære`,
+      },
+    },
+
+    // ========== OPPGAVE 17: LIVSSTILSSYKDOMMER OVERSIKT ==========
+    {
+      id: 'nat10-5-5-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-5-5-ex-16',
+        number: '5.5.16',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse sykdommene er IKKE en typisk livsstilssykdom?',
+        options: [
+          'Diabetes type 1',
+          'Diabetes type 2',
+          'KOLS',
+          'Hjerte-kar-sykdommer',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Diabetes type 1
+
+**Forklaring:**
+
+**Diabetes type 1 er IKKE en livsstilssykdom:**
+- Skyldes at immunforsvaret angriper og ødelegger insulin-produserende celler
+- Årsaken er **autoimmun** – kroppens eget immunforsvar gjør feilen
+- Kan IKKE forebygges med livsstilsendringer
+- Rammer vanligvis barn og unge
+- Genetiske og ukjente miljøfaktorer spiller inn
+
+**De andre ER livsstilssykdommer:**
+
+**Diabetes type 2:**
+- Skyldes insulinresistens, ofte forårsaket av overvekt og inaktivitet
+- Kan forebygges med sunt kosthold og fysisk aktivitet
+
+**KOLS:**
+- Kronisk lungesykdom
+- Ca. 85 % skyldes røyking
+- Forebygges ved å ikke røyke
+
+**Hjerte-kar-sykdommer:**
+- Hjerteinfarkt, hjerneslag, etc.
+- Risikofaktorer: Røyking, usunt kosthold, inaktivitet, overvekt
+- Kan i stor grad forebygges med sunn livsstil
+
+**Huskeregel:** Livsstilssykdommer er sykdommer som i stor grad skyldes **hvordan vi lever** (kosthold, aktivitet, røyking, alkohol). Sykdommer som skyldes feil i immunforsvaret eller genetikk er ikke livsstilssykdommer.`,
       },
     },
 

@@ -2,1521 +2,1346 @@
 // @ts-nocheck
 
 /**
- * Tekstbok innhold for Biologi 1 VG2 - Kapittel 3: DNA og gener (delkapitler)
+ * Tekstbok innhold for Biologi 1 VG2 - Del 3: Anatomi og fysiologi
  *
- * Dekker LK20-kompetansemål for biologi 1 (BIO01-02)
- * DNA-struktur, replikasjon, transkripsjon, translasjon og genregulering
+ * Dekker LK20-kompetansemaal for biologi 1 (BIO01-02)
+ * Kapittel 3.1-3.5: Kroppens organisering, fordoeyelse og ernaering,
+ * sirkulasjon og gassutveksling, muskel- og skjelettsystemet,
+ * hud, sanser og kroppens beskyttelse
+ *
+ * Kompetansemaal: Eleven skal kunne gjore rede for oppbygningen og
+ * funksjonen til sentrale organsystemer i menneskekroppen og
+ * forklare samspillet mellom dem.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 3.1: DNA-strukturen
+// Kapittel 3.1: Kroppens organisering
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_3_1: TextbookChapter = {
   id: 'biologi-1-3-1',
   courseId: 'biologi-1',
   chapterNumber: '3.1',
-  title: 'DNA-strukturen',
-  description: 'Nukleotider og basepar, dobbeltheliks-strukturen oppdaget av Watson og Crick, og hvordan DNA organiseres i kromatin og kromosomer.',
+  title: 'Kroppens organisering',
+  description: 'Fra celler til organsystemer – dei fire vevstypane og korleis kroppen er bygd opp i organisasjonsnivaaer.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'beskrive DNA-molekylets struktur og kjemiske oppbygning',
-    'forklare baseparingsreglene og hydrogenbroenes rolle',
-    'gjore rede for hvordan DNA organiseres i kromosomer',
-    'beskrive forskjellen mellom kromatin og kromosomer',
+    'beskrive organisasjonsnivaaene i kroppen: celler, vev, organer, organsystemer, organisme',
+    'gjore rede for dei fire hovudtypane av vev og deira funksjonar',
+    'forklare samanhengen mellom struktur og funksjon i ulike vevstypar',
   ],
   content: [
     {
       id: 'bio1-3-1-intro',
       type: 'text',
-      content: `# DNA-strukturen
+      content: `# Kroppens organisering
 
-DNA (deoksyribonukleinsyre) er molekylet som baerer den genetiske informasjonen i alle levende organismer. Oppdagelsen av DNA-strukturen i 1953 var et av de storste gjennombruddene i biologiens historie.
+Menneskekroppen er bygd opp av omtrent 37 billionar celler. Desse cellene er ikkje tilfeldig plasserte – dei er organiserte i lag paa lag av strukturar med aukande kompleksitet. For aa forstaa korleis kroppen fungerer, maa vi kjenne til organisasjonsnivaaene som bygger opp kroppen.
 
-## Historisk bakgrunn
+## Organisasjonsnivaaene
 
-Allerede i 1869 isolerte Friedrich Miescher et stoff han kalte "nuklein" fra cellekjerner. Det tok nesten et arhundre for forskerne kunne avdekke DNA-molekylets fantastiske struktur.
+Kroppen kan beskrivast paa fem nivaaer:
 
-I 1953 publiserte James Watson og Francis Crick sin banebrytende artikkel som beskrev DNA som en dobbeltheliks. Dette arbeidet bygget pa rontgenkrystallografi-data fra Rosalind Franklin og Maurice Wilkins.`,
+1. **Celler** – den minste levande eininga i kroppen. Ulike celletypar har ulik form og funksjon.
+2. **Vev** – grupper av like celler som samarbeider om ei felles oppgaave. Det finst fire hovudtypar av vev.
+3. **Organer** – strukturar som bestaar av to eller fleire vevstypar som samarbeider. Eksempel: hjartet bestaar av muskelvev, bindevev, nervevev og epitelcvev.
+4. **Organsystem** – grupper av organer som samarbeider om ein overordna funksjon. Eksempel: fordoeygelsessystemet.
+5. **Organisme** – alle organsystema fungerer saman og utgjer ein heil organisme.
+
+Kvart nivaa bygger paa det foregaaande. Celler med liknande funksjon dannar vev, ulike vev bygger opp organer, og organer samarbeider i organsystem. Denne hierarkiske organiseringa er ein grunntanke i anatomien.
+
+## Cellens tilpassing
+
+Cellene i kroppen er spesialiserte – det betyr at dei har utvikla saerlege eigenskapar som gjer dei eigna til bestemte oppgaaver. Ei muskelcelle er lang og tynn slik at ho kan trekke seg saman, medan ei nervecelle har lange utloepar for aa sende signal over store avstandar. Ei epitelcelle i tarmen har mikrovilli paa overflata for aa auke absorpsjonsarealet. Denne spesialiseringa er avgjerande for at kroppen skal fungere.
+
+## Dei fire vevstypane
+
+Alt vev i menneskekroppen kan klassifiserast i fire hovudtypar:
+
+- **Epitelcvev** (dekkevev) – dekker overflater og kler holrom
+- **Bindevev** – gjev stoette, samanbinding og transport
+- **Muskelvev** – kan trekke seg saman og gjev bevegelse
+- **Nervevev** – sender elektriske signal og koordinerer kroppsfunksjonar
+
+Alle organer i kroppen er bygde opp av kombinasjonar av desse fire vevstypane, men i ulike mengdeforhold avhengig av organets funksjon.`,
     },
     {
-      id: 'bio1-3-1-def-dna',
+      id: 'bio1-3-1-def-1',
       type: 'definition',
-      title: 'DNA (Deoksyribonukleinsyre)',
-      content: 'DNA er et langt, traadformet molekyl som inneholder den genetiske informasjonen i celler. Det bestar av to komplementaere polynukleotidkjeder som er tvunnet rundt hverandre i en dobbeltheliks. DNA finnes i cellekjernen hos eukaryoter, samt i mitokondrier og kloroplaster.',
-    },
-    {
-      id: 'bio1-3-1-nukleotider',
-      type: 'text',
-      content: `## Nukleotider - DNAs byggesteiner
-
-DNA er bygget opp av enheter kalt nukleotider. Hver nukleotid bestar av tre deler:
-
-### 1. Fosfatgruppe
-- Negativt ladet gruppe (PO₄³⁻)
-- Binder nukleotider sammen i kjeden
-- Gir DNA negativ ladning
-
-### 2. Deoksyribose (sukker)
-- Femkarbon-sukker (pentose)
-- "Deoksy" betyr at det mangler en oksygengruppe sammenlignet med ribose
-- Danner ryggraden i DNA-molekylet sammen med fosfatgrupper
-
-### 3. Nitrogenbase
-Fire forskjellige baser i DNA:
-- **Adenin (A)** - purin (dobbeltring)
-- **Guanin (G)** - purin (dobbeltring)
-- **Cytosin (C)** - pyrimidin (enkeltring)
-- **Tymin (T)** - pyrimidin (enkeltring)
-
-### Sukker-fosfat-ryggraden
-Nukleotidene kobles sammen ved at fosfatgruppen pa en nukleotid binder seg til sukkeret pa neste nukleotid gjennom fosfodiesterbindinger. Dette danner en lang kjede med alternerende sukker og fosfat - kalt sukker-fosfat-ryggraden.`,
-    },
-    {
-      id: 'bio1-3-1-def-basepar',
-      type: 'definition',
-      title: 'Baseparing',
-      content: 'Baseparing er den spesifikke bindingen mellom komplementaere nitrogenbaser i DNA. Adenin (A) parer alltid med tymin (T) via to hydrogenbrobindinger, mens guanin (G) parer alltid med cytosin (C) via tre hydrogenbrobindinger. Denne komplementariteten er grunnlaget for DNA-replikasjon og genetisk informasjonsoverforsel.',
-    },
-    {
-      id: 'bio1-3-1-dobbeltheliks',
-      type: 'text',
-      content: `## Dobbeltheliks-strukturen
-
-Watson og Crick beskrev DNA som en dobbeltheliks - to polynukleotidkjeder som er tvunnet rundt hverandre.
-
-### Nøkkelegenskaper
-
-**Antiparallelle kjeder:**
-- De to kjedene loper i motsatt retning
-- En kjede gar fra 5'-ende til 3'-ende
-- Den andre gar fra 3'-ende til 5'-ende
-- Tallene refererer til karbonatomene i deoksyribose
-
-**Komplementaer baseparing:**
-- A parer med T (2 hydrogenbrobindinger)
-- G parer med C (3 hydrogenbrobindinger)
-- Chargrffs regler: mengden A = T og G = C
-
-**Heliks-dimensjoner:**
-- Diameter: ca. 2 nm
-- En full omdreining: ca. 3,4 nm (10 basepar)
-- Avstand mellom basepar: 0,34 nm
-
-**Furer i heliksen:**
-- Stor fur (major groove) - viktig for proteinbinding
-- Liten fur (minor groove)
-
-### Stabiliserende krefter
-1. **Hydrogenbrobindinger** mellom basene
-2. **Hydrofobe interaksjoner** (base stacking) mellom stablede baser
-3. **Ionebindinger** mellom fosfatgrupper og kationer`,
-    },
-    {
-      id: 'bio1-3-1-def-kromosom',
-      type: 'definition',
-      title: 'Kromosom',
-      content: 'Et kromosom er en organisert struktur av DNA og proteiner (histoner) som baerer genetisk informasjon. Mennesker har 46 kromosomer (23 par) i hver kroppscelle. Under celledeling kondenserer kromatin til synlige kromosomer. Hvert kromosom bestar av en lang, sammenhengende DNA-molekyl som kan inneholde tusenvis av gener.',
-    },
-    {
-      id: 'bio1-3-1-organisering',
-      type: 'text',
-      content: `## DNA-organisering: Fra kromatin til kromosomer
-
-DNA i eukaryote celler er enormt langt - menneskets totale DNA strekker seg over 2 meter! Dette ma pakkes effektivt for a fa plass i cellekjernen.
-
-### Histoner og nukleosomer
-
-**Histoner:**
-- Sma, basiske proteiner
-- Positivt ladet - binder negativt ladet DNA
-- Fem hovedtyper: H1, H2A, H2B, H3, H4
-
-**Nukleosomer:**
-- DNA-traad viklet rundt histonkjerne
-- Histonkjernen: 8 histoner (2 av hver: H2A, H2B, H3, H4)
-- Ca. 147 basepar DNA rundt hver kjerne
-- "Perler pa en snor"-struktur
-
-### Kromatinets organisering
-
-**Eukromatin:**
-- Los, aktiv form
-- Gener kan transkriberes
-- Lys i mikroskop
-
-**Heterokromatin:**
-- Tett, inaktiv form
-- Gener er "slatt av"
-- Mork i mikroskop
-
-### Fra kromatin til kromosom
-
-1. **DNA-dobbeltheliks** (2 nm)
-2. **Nukleosomer** (11 nm fiber)
-3. **30 nm kromatinfiber** (nukleosomer pakket sammen)
-4. **Looped domains** (300 nm)
-5. **Kondensert kromosom** (700-1400 nm)
-
-Under celledeling kondenserer kromatinet til synlige kromosomer for sikker fordeling til datterceller.`,
+      title: 'Vev',
+      content: 'Vev er ei samling av celler med lik struktur og funksjon, saman med mellomcellesubstans (ekstracellulaermatriks). Kroppen har fire hovudtypar av vev: epitelcvev (dekkevev), bindevev, muskelvev og nervevev. Alle organer er bygde opp av kombinasjonar av desse fire vevstypane. Mellomcellesubstansen varierer sterkt mellom vevstypane – fraa nesten fråverande i epitelcvev til dominerande i bindevev.',
     },
     {
       id: 'bio1-3-1-example-1',
       type: 'example',
-      title: 'Eksempel: Beregning av basesammensetning',
-      problem: 'I et DNA-molekyl utgjor adenin 30% av basene. Beregn prosentandelen av de andre basene.',
-      solution: `**Losning:**
+      title: 'Eksempel: Magesekken som organ',
+      problem: 'Forklar korleis magesekken illustrerer samspelet mellom ulike vevstypar i eit organ.',
+      solution: `**Loesning:**
 
-Ifølge Chargrffs regler:
-- A parer med T, sa A = T
-- G parer med C, sa G = C
-- A + T + G + C = 100%
+Magesekken er eit organ som inneheld alle fire vevstypar:
 
-**Steg 1:** Finn andel tymin
-- A = T = 30%
+- **Epitelcvev**: Kler innsida av magesekken. Epitelcellene produserer slim som vernar slimhinna mot saltsyre, og kjertleceller skil ut saltsyre og enzymet pepsinogen.
+- **Bindevev**: Gjev stoette og held dei andre vevstypane saman. Inneheld blodaarer som forsyner magesekken med naering og oksygen.
+- **Muskelvev**: Tre lag med glatt muskulatur (laangs, sirkulaert og skraat) som blandar og eltar maten (peristaltikk).
+- **Nervevev**: Nervefibre i veggen styrer muskelkontraksjonen og regulerer kjertelsekresjon via det autonome nervesystemet.
 
-**Steg 2:** Beregn andel G og C
-- A + T = 30% + 30% = 60%
-- G + C = 100% - 60% = 40%
-- G = C = 40% / 2 = 20%
-
-**Svar:**
-- Adenin (A): 30%
-- Tymin (T): 30%
-- Guanin (G): 20%
-- Cytosin (C): 20%`,
+Samspelet mellom desse fire vevstypane gjer at magesekken kan utfoere sin funksjon: mekanisk og kjemisk nedbryting av mat.`,
+    },
+    {
+      id: 'bio1-3-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kva er riktig rekkjefoelgje av organisasjonsnivaaene i kroppen, fraa laagest til hoegst?',
+        options: [
+          { id: 'a', text: 'Celle → vev → organ → organsystem → organisme', isCorrect: true },
+          { id: 'b', text: 'Vev → celle → organ → organisme → organsystem', isCorrect: false },
+          { id: 'c', text: 'Celle → organ → vev → organsystem → organisme', isCorrect: false },
+          { id: 'd', text: 'Organsystem → organ → vev → celle → organisme', isCorrect: false },
+        ],
+        solution: 'Den riktige rekkjefoelgja er celle → vev → organ → organsystem → organisme. Celler er den minste levande eininga. Celler med same funksjon dannar vev, ulike vev bygger opp organer, organer samarbeider i organsystem, og alle organsystema saman utgjer organismen.',
+      },
+    },
+    {
+      id: 'bio1-3-1-def-2',
+      type: 'definition',
+      title: 'Epitelcvev (dekkevev)',
+      content: 'Epitelcvev dekker overflater og kler holrom i kroppen. Det dannar huda, slimhinner og kjertlar. Epitelcvev er tett pakka med lite mellomcellesubstans, og cellene sit paa ei basalmembran. Epitelcvev har inga eigne blodaarer – naering diffunderer fraa underliggjande bindevev. Epitelcvev har hoeg fornyingsevne fordi cellene deler seg hyppig. Typar epitelcvev inkluderer fleirlagd plateepitel (hud), einlagd sylinderepitel (tarm) og einlagd kubisk epitel (nyretubuli).',
     },
     {
       id: 'bio1-3-1-example-2',
       type: 'example',
-      title: 'Eksempel: DNA-lengde og pakkingsgrad',
-      problem: 'Et menneske har ca. 6 milliarder basepar i sitt DNA. Hvor langt ville DNA-molekylet vaere hvis det ble strukket ut?',
-      solution: `**Losning:**
+      title: 'Eksempel: Bindevev – stor variasjon',
+      problem: 'Forklar kvifor blod, bein og feittvev alle reknast som bindevev, trass i at dei ser svart ulike ut.',
+      solution: `**Loesning:**
 
-**Gitt informasjon:**
-- Antall basepar: 6 × 10⁹ bp
-- Avstand mellom basepar: 0,34 nm
+Alle tre vevstypar deler det viktigaste kjenneteiknet til bindevev: cellene ligg spreidde i ein stor mengde mellomcellesubstans (ekstracellulaermatriks).
 
-**Beregning:**
-Lengde = Antall basepar × Avstand per basepar
-Lengde = 6 × 10⁹ × 0,34 nm
-Lengde = 2,04 × 10⁹ nm
+- **Blod**: Cellene (raude og kvite blodceller, blodplater) flyt fritt i ei flytande mellomcellesubstans – plasma. Blod vert difor kalla flytande bindevev.
+- **Bein**: Beincellene (osteocyttar) er innleira i ei hard, mineralisert mellomcellesubstans av kalsiumfosfat og kollagenfibre. Den harde matriksen gjev skjelettet styrke.
+- **Feittvev**: Feittcellene (adipocyttar) er store celler fylte med feitdropar, omgjevne av laust bindevev med kollagenfibre.
 
-**Konvertering til meter:**
-2,04 × 10⁹ nm = 2,04 × 10⁹ × 10⁻⁹ m = 2,04 m
+Fellesnemaren er at cellene utgjer ein relativt liten del av vevet, og mellomcellesubstansen dominerer – men matriksen har svart ulik konsistens (flytande, halvfast eller hard) avhengig av funksjonen.`,
+    },
+    {
+      id: 'bio1-3-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gjer greie for dei tre typane muskelvev: skjelettmuskulatur, glatt muskulatur og hjartemuskulatur. For kvar type, beskriv korleis cellene ser ut, kvar vevet finst, og om det er viljestyrt eller ikkje.',
+        hints: ['Viljestyrt betyr at du kan styre det med viljen – tenk paa kva musklar du kan kontrollere bevisst', 'Tverrstripet betyr at cellene har eit stripemoester under mikroskop'],
+        solution: 'Skjelettmuskulatur: Lange, fleirckjerna celler med tverrstripet moernster. Festa til skjelettet via sener. Viljestyrt – vi kan bevisst bestemme aa bevege armane, beina osv. Ansvarleg for viljestyrte bevegelsar. Glatt muskulatur: Spolforma celler med eitt kjerne, utan tydelege striper. Finst i veggen til indre organ som magesekk, tarm, blodaarer og urinblore. Ikkje-viljestyrt – styrt av det autonome nervesystemet. Ansvarleg for t.d. peristaltikk. Hjartemuskulatur: Forgreina celler med eitt eller to kjerner, tverrstripete. Cellene er knytte saman med intercalerte skivar som overforer elektriske signal. Finst berre i hjartet. Ikkje-viljestyrt – hjartet slaar automatisk. Kombinerer eigenskapar fraa begge dei andre typane: tverrstripet som skjelettmuskel, men sjolvstartande som glatt muskel.',
+      },
+    },
+    {
+      id: 'bio1-3-1-def-3',
+      type: 'definition',
+      title: 'Organsystem',
+      content: 'Eit organsystem er ei samling av organer som samarbeider om ein overordna funksjon. Menneskekroppen har fleire organsystem, mellom anna: sirkulasjonssystemet (hjarte og blodaarer), respirasjonssystemet (lunger og luftvegar), fordoeygelsessystemet (fraa munn til endetarm), nervesystemet (hjerne, ryggmarg og nervar), hormonsystemet (endokrine kjertlar), muskel-skjelettsystemet, urinsystemet (nyrer og urinvegar), immunsystemet, og det integumentaere systemet (hud). Organsystema er ikkje uavhengige – dei paaverkar kvarandre stadig.',
+    },
+    {
+      id: 'bio1-3-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva for ein vevstype har inga eigne blodaarer og faar naering ved diffusjon?',
+        options: [
+          { id: 'a', text: 'Epitelcvev', isCorrect: true },
+          { id: 'b', text: 'Bindevev', isCorrect: false },
+          { id: 'c', text: 'Muskelvev', isCorrect: false },
+          { id: 'd', text: 'Nervevev', isCorrect: false },
+        ],
+        solution: 'Epitelcvev har inga eigne blodaarer (det er avaskulaert). Naering og oksygen diffunderer fraa blodaarene i det underliggjande bindevevet, gjennom basalmembranen og inn i epitelcellene. Difor kan epitelcvev ikkje vere for tjukt – cellene lengst fraa blodforsyninga maa framleis faa nok naering.',
+      },
+    },
+    {
+      id: 'bio1-3-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nervevev bestaar av nerveceller og stoetteceller. Beskriv oppbygningen av ei nervecelle og forklar kvifor nerveceller er forma slik dei er.',
+        hints: ['Nerveceller har ein cellekropp, dendrittar og eit akson', 'Tenk paa samanhengen mellom struktur og funksjon'],
+        solution: 'Nervevev bestaar av nerveceller (nevronar) og stoetteceller (gliaceller). Ei nervecelle har ein cellekropp med cellekjerne, korte utloepar kalla dendrittar som tek imot signal fraa andre celler, og eitt langt utloepar kalla akson som sender signal vidare. Nokre akson er dekte av ei myelinskjede (danna av gliaceller) som aukar signalhastigheita. Forma er tilpassa funksjonen: dei lange aksona gjer at signal kan sendast over store avstandar (opptil 1 meter fraa ryggmarg til fot), og forgreininga av dendrittane gjer at ei nervecelle kan ta imot signal fraa mange hundre andre celler samstundes. Gliacellene stottar, isolerer og naerer nervecellene.',
+      },
+    },
+    {
+      id: 'bio1-3-1-summary',
+      type: 'text',
+      content: `## Oppsummering
 
-**Svar:** DNA-molekylet ville vaere ca. 2 meter langt!
+Kroppen er organisert i fem nivaaer: celler, vev, organer, organsystem og organisme. Dei fire hovudtypane av vev er:
 
-**Refleksjon:**
-Dette viser hvor utrolig effektivt DNA er pakket. 2 meter DNA er komprimert inn i en cellekjerne med diameter pa bare ca. 6 mikrometer - en komprimeringsgrad pa over 300 000 ganger!`,
+| Vevstype | Kjenneteikn | Eksempel |
+|----------|-------------|----------|
+| Epitelcvev | Tett pakka celler, dekker overflater | Hud, slimhinner, kjertlar |
+| Bindevev | Mykje mellomcellesubstans | Bein, brusk, blod, feittvev |
+| Muskelvev | Celler som kan trekke seg saman | Skjelettmuskel, glatt muskel, hjartemuskel |
+| Nervevev | Celler som sender elektriske signal | Hjerne, ryggmarg, nervar |
+
+Kvart organ er bygd opp av fleire vevstypar. Organer med relaterte funksjonar dannar organsystem. Alle organsystema samarbeider for aa oppretthalde liv og helse.
+
+Forstainga av desse organisasjonsnivaaene er grunnleggjande for resten av anatomien og fysiologien. I dei neste kapitla skal vi sjaa naermare paa korleis kvart enkelt organsystem er bygd opp og fungerer.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-3-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Vel eit organ du kjenner til (t.d. hjartet, lungene eller huda) og forklar korleis alle fire vevstypar er representerte i dette organet.',
+        hints: ['Tenk paa kva funksjonar organet har, og kva vevstypar som trengst for kvar funksjon'],
+        solution: 'Eksempel med hjartet: Epitelcvev (endokard) kler innsida av hjartekammera og hindrar blodpropp. Muskelvev (myokard) utgjer hovuddelen av hjartveggen – hjartamuskelceller trekkjer seg saman rytmisk og pumpar blod. Bindevev dannar hjartesekkjen (perikard), hjarteventilane og inneheld blodaarer (koronaraarene) som forsyner hjartamuskelen. Nervevev styrer hjarterytmen via det autonome nervesystemet og leidingssystemet (sinusknuten, AV-knuten). Samspelet mellom desse fire vevstypane gjer at hjartet kan pumpe blod effektivt.',
+      },
+    },
+    {
+      id: 'bio1-3-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Kva kjenneteiknar muskelvev?',
+        options: [
+          { id: 'a', text: 'Cellene kan trekke seg saman (kontrahera) og gjev bevegelse', isCorrect: true },
+          { id: 'b', text: 'Cellene er tett pakka og dekker overflater i kroppen', isCorrect: false },
+          { id: 'c', text: 'Cellene har stor mengde mellomcellesubstans', isCorrect: false },
+          { id: 'd', text: 'Cellene sender elektriske signal over lange avstandar', isCorrect: false },
+        ],
+        solution: 'Muskelvev kjennest paa at cellene (muskelfibre) kan trekke seg saman (kontrahera) og dermed skape bevegelse. Det finst tre typar muskelvev: skjelettmuskulatur (viljestyrt, tverrstripet), glatt muskulatur (ikkje-viljestyrt, finst i indre organ) og hjartemuskulatur (tverrstripet, ikkje-viljestyrt, finst berre i hjartet).',
+      },
+    },
+    {
+      id: 'bio1-3-1-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-1-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar kvifor cellespesialisering er noedvendig i ein fleircella organisme som mennesket. Kva hadde skjedd om alle cellene var like?',
+        hints: ['Tenk paa effektivitet og arbeidsdeling', 'Samanlikn med eit samfunn der alle har ulike yrke kontra eitt der alle gjer det same'],
+        solution: 'Cellespesialisering er noedvendig fordi ulike oppgaaver krev ulike eigenskapar. Ei muskelcelle maa kunne trekke seg saman, ei nervecelle maa sende signal raskt, og ei epitelcelle maa danne ein tett barriere. Dersom alle cellene var like, ville ingen av dei utfoere nokon av desse oppgaavene optimalt. Spesialisering gjev arbeidsdeling – kvar celletype er ekstremt god paa sin oppgaave. Kostnaden ved spesialisering er at cellene vert avhengige av kvarandre – ei nervecelle kan ikkje sjolv skaffe seg naering, og ei muskelcelle kan ikkje sende signal. Difor treng kroppen eit transportsystem (blod) og kommunikasjonssystem (nervar og hormon) for aa koordinere alle dei spesialiserte cellene.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-3-1-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hvilke to baser er puriner?',
-      options: [
-        { id: 'a', text: 'Adenin og guanin', isCorrect: true },
-        { id: 'b', text: 'Cytosin og tymin', isCorrect: false },
-        { id: 'c', text: 'Adenin og tymin', isCorrect: false },
-        { id: 'd', text: 'Guanin og cytosin', isCorrect: false },
-      ],
-      solution: 'Adenin (A) og guanin (G) er puriner med dobbel ringstruktur. Cytosin (C) og tymin (T) er pyrimidiner med enkel ringstruktur. En purin parer alltid med et pyrimidin.',
-    },
-    {
-      id: 'bio1-3-1-ex2',
-      type: 'classic',
-      difficulty: 'lett',
-      task: 'Hva er de tre komponentene i en nukleotid?',
-      solution: 'En nukleotid bestar av: 1) En fosfatgruppe (PO₄³⁻), 2) Et sukker (deoksyribose i DNA), og 3) En nitrogenbase (A, T, G eller C). Fosfatgruppen og sukkeret danner ryggraden, mens basen stikker ut og kan pare med komplementaer base.',
-    },
-    {
-      id: 'bio1-3-1-ex3',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hvor mange hydrogenbrobindinger dannes mellom guanin og cytosin?',
-      options: [
-        { id: 'a', text: '3', isCorrect: true },
-        { id: 'b', text: '2', isCorrect: false },
-        { id: 'c', text: '4', isCorrect: false },
-        { id: 'd', text: '1', isCorrect: false },
-      ],
-      solution: 'Guanin og cytosin (G-C) danner tre hydrogenbrobindinger, mens adenin og tymin (A-T) danner kun to. Dette gjor G-C-bindinger sterkere, og DNA med hoy G-C-andel har hoyere smeltepunkt.',
-    },
-    {
-      id: 'bio1-3-1-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar hva som menes med at DNA-kjedene er antiparallelle.',
-      solution: 'Antiparallell betyr at de to DNA-kjedene loper i motsatt retning. Den ene kjeden gar fra 5\'-enden til 3\'-enden, mens den komplementaere kjeden gar fra 3\'-enden til 5\'-enden. Tallene 5\' og 3\' refererer til karbonatomene i deoksyribosesukkeret der fosfatgrupper og hydrokylgrupper er festet. Denne orienteringen er viktig for DNA-replikasjon og transkripsjon.',
-    },
-    {
-      id: 'bio1-3-1-ex5',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Beskriv forskjellen mellom eukromatin og heterokromatin.',
-      solution: 'Eukromatin er en los, aktiv form av kromatin der DNA er tilgjengelig for transkripsjon. Det ser lyst ut i mikroskop og inneholder aktivt transkriberte gener. Heterokromatin er tett pakket, inaktiv form der genene er "slatt av". Det ser morkt ut i mikroskop. Celler kan regulere genaktivitet ved a endre mellom disse tilstandene.',
-    },
-    {
-      id: 'bio1-3-1-ex6',
-      type: 'multiple-choice',
-      difficulty: 'vanskelig',
-      task: 'Hva er hovedfunksjonen til histonproteiner?',
-      options: [
-        { id: 'a', text: 'Pakke DNA effektivt og regulere gentilgang', isCorrect: true },
-        { id: 'b', text: 'Katalysere DNA-replikasjon', isCorrect: false },
-        { id: 'c', text: 'Transportere mRNA ut av kjernen', isCorrect: false },
-        { id: 'd', text: 'Spalte DNA under celledeling', isCorrect: false },
-      ],
-      solution: 'Histoner er basiske proteiner som pakker DNA i kompakte strukturer kalt nukleosomer. De hjelper med a komprimere 2 meter DNA inn i en liten cellekjerne. I tillegg regulerer kjemiske modifikasjoner av histoner (acetylering, metylering osv.) hvilke gener som er tilgjengelige for transkripsjon.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Vev', definition: 'Samling av celler med lik struktur og funksjon pluss mellomcellesubstans' },
+    { term: 'Epitelcvev', definition: 'Dekkevev som kler overflater og holrom, tett pakka celler paa basalmembran' },
+    { term: 'Bindevev', definition: 'Vev med mykje mellomcellesubstans som gjev stoette og samanbinding' },
+    { term: 'Muskelvev', definition: 'Vev med celler som kan trekke seg saman og skape bevegelse' },
+    { term: 'Nervevev', definition: 'Vev med nerveceller som sender elektriske signal' },
+    { term: 'Organsystem', definition: 'Gruppe av organer som samarbeider om ein overordna funksjon' },
+    { term: 'Cellespesialisering', definition: 'At celler utviklar saerlege eigenskapar tilpassa bestemte oppgaaver' },
   ],
 };
 
 // ============================================================================
-// Kapittel 3.2: DNA-replikasjon
+// Kapittel 3.2: Fordoeyelse og ernaering
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_3_2: TextbookChapter = {
   id: 'biologi-1-3-2',
   courseId: 'biologi-1',
   chapterNumber: '3.2',
-  title: 'DNA-replikasjon',
-  description: 'Semikonservativ replikasjon, replikasjonsgaffelen og de viktige enzymene som deltar i DNA-kopiering.',
+  title: 'Fordoeyelse og ernaering',
+  description: 'Fordoeyelseskanalen fraa munn til endetarm, enzymer, naeringsopptak og regulering av fordoeyelsen.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'forklare prinsippet om semikonservativ replikasjon',
-    'beskrive replikasjonsgaffelens struktur og funksjon',
-    'gjore rede for hovedenzymene i DNA-replikasjon',
-    'forklare forskjellen mellom ledende og etterslepende trad',
+    'beskrive fordoeyelseskanalens oppbygning og funksjonen til dei ulike delane',
+    'forklare korleis enzymer bryt ned naeringstoffer og korleis naeringsopptak skjer i tynntarmen',
+    'gjore rede for dei ulike naeringsstoffgruppene og deira funksjonar i kroppen',
+    'forklare korleis fordoeyelsen vert regulert av nervar og hormon',
   ],
   content: [
     {
       id: 'bio1-3-2-intro',
       type: 'text',
-      content: `# DNA-replikasjon
+      content: `# Fordoeyelse og ernaering
 
-For at en celle skal kunne dele seg, ma den forst kopiere sitt DNA. Denne prosessen kalles DNA-replikasjon. Det er essensielt at kopieringen er noyaktig for a sikre at genetisk informasjon overføres korrekt til dattercellene.
+Maten vi et inneheld store, komplekse molekyl som kroppen ikkje kan ta opp direkte. Fordoeyelsessystemet har som hovudoppgaave aa bryte ned naeringstoffer til smaa nok molekyl til at dei kan absorberast gjennom tarmveggen og fraktast til cellene der dei trengst.
 
-## Hvorfor er replikasjon viktig?
+## Fordoeyelseskanalens oppbygning
 
-- **Celledeling:** Hver dattercelle trenger en komplett kopi av DNA
-- **Vekst:** Organismen vokser ved at celler deler seg
-- **Reparasjon:** Skadet vev erstattes med nye celler
-- **Reproduksjon:** Arvestoff overføres til neste generasjon
+Fordoeyelseskanalen er eit samanhengande roer som strekkjer seg fraa munnen til endetarmen – omtrent 9 meter langt. Langs kanalen vert maten behandla paa ulike maatar:
 
-Menneskets DNA bestar av ca. 6 milliarder basepar, og hele genomet kopieres pa bare noen timer med en feilrate pa kun 1 feil per milliard basepar!`,
+### Munnhola
+- **Mekanisk nedbryting**: Tennene tygg maten til smaa bitar, og tunga blandar maten med spytt.
+- **Kjemisk nedbryting**: Spyttkjertlane produserer spytt med enzymet amylase, som byrjar nedbrytinga av stivelse til maltose.
+- Maten formast til ein bolus (matklump) som svelgjast.
+
+### Spiseroyret (oesophagus)
+- Eit muskuloest roer (ca. 25 cm) som fraktar maten fraa svelget til magesekken.
+- Peristaltikk – boelgjeforma muskelkontraksjoner – driv maten nedover uavhengig av tyngdekrafta.
+
+### Magesekken (ventriculus)
+- Produserer **magesaft** som inneheld saltsyre (HCl) og enzymet pepsinogen.
+- Saltsyra drep bakteriar, aktiverer pepsinogen til pepsin, og denaturerer protein.
+- **Pepsin** byrjar nedbrytinga av proteinar til kortare peptidkjeder.
+- Glatte musklar i mageveggen blandar maten til ein halvflytande masse kalla **chyme** (naeringsbrei).
+- Slimceller produserer eit beskyttande slimlag som hindrar at saltsyra skadar mageveggen.
+
+### Tynntarmen (intestinum tenue)
+- Ca. 6 meter lang, delt i duodenum (tolvfingertarmen), jejunum og ileum.
+- **Duodenum**: Mottek bukspytt fraa bukspyttkjertelen (pankreas) og galle fraa levra/galleblora.
+- Bukspyttet inneheld enzyma **trypsin** (protein), **lipase** (fett) og **amylase** (stivelse), pluss bikarbonat som noeytraliserer saltsyra fraa magesekken.
+- Galle emulgerer fett – det vil seie at feittdropane vert brotne opp i mindre dropar, slik at lipase faar storre angrepsflate.
+- **Naeringsopptaket** skjer hovudsakleg i jejunum og ileum. Tarmveggen har tarmtottar (villi) og mikrovilli som aukar overflata enormt – totalt ca. 250 m².
+
+### Tjukktarmen (colon)
+- Ca. 1,5 meter lang. Absorberer vatn, salt og nokre vitaminar.
+- Inneheld ein rik tarmflora (mikrobiom) som bryt ned fiberrikt materiale og produserer K-vitamin og B-vitaminar.
+- Restavfallet vert komprimert til avfoering (feces).
+
+### Endetarmen (rectum) og anus
+- Lagrar avfoering til den vert eliminert gjennom defekasjon.`,
     },
     {
-      id: 'bio1-3-2-def-replikasjon',
+      id: 'bio1-3-2-def-1',
       type: 'definition',
-      title: 'DNA-replikasjon',
-      content: 'DNA-replikasjon er prosessen der DNA-molekylet kopierer seg selv for celledeling. Prosessen er semikonservativ, noe som betyr at hvert nytt DNA-molekyl bestar av en original (foreldrerad) og en nysyntetisert trad. Replikasjon skjer i S-fasen av cellesyklus.',
-    },
-    {
-      id: 'bio1-3-2-semikonservativ',
-      type: 'text',
-      content: `## Semikonservativ replikasjon
-
-I 1958 beviste Matthew Meselson og Franklin Stahl at DNA-replikasjon er semikonservativ.
-
-### Tre mulige modeller ble vurdert:
-
-**1. Konservativ replikasjon:**
-- Det originale DNA forblir intakt
-- Et helt nytt DNA-molekyl dannes
-- FEIL modell
-
-**2. Semikonservativ replikasjon:**
-- DNA-heliksen apnes
-- Hver original trad tjener som mal for en ny trad
-- Hvert nytt DNA har en gammel og en ny trad
-- KORREKT modell
-
-**3. Dispersiv replikasjon:**
-- Bade gammelt og nytt DNA blandes tilfeldig
-- Begge trader inneholder blanding av gammelt og nytt
-- FEIL modell
-
-### Meselson-Stahl-eksperimentet
-
-De dyrket bakterier i medium med tungt nitrogen (¹⁵N), deretter i lett nitrogen (¹⁴N), og analyserte DNA-tettheten etter ulike cellegenerasjoner. Resultatene bekreftet semikonservativ replikasjon.`,
-    },
-    {
-      id: 'bio1-3-2-def-repgaffel',
-      type: 'definition',
-      title: 'Replikasjonsgaffel',
-      content: 'Replikasjonsgaffelen er Y-formet struktur som dannes nar DNA-dobbeltheliks apnes under replikasjon. Her skjer selve kopieringen av DNA. Replikasjonen gar i begge retninger fra startpunktet (origin of replication), sa det dannes to replikasjonsgafler som beveger seg i motsatte retninger.',
-    },
-    {
-      id: 'bio1-3-2-repgaffel',
-      type: 'text',
-      content: `## Replikasjonsgaffelen
-
-Replikasjon starter ved spesielle sekvenser kalt origins of replication (replikasjonsopphav).
-
-### Struktur
-
-Ved replikasjonsgaffelen skjer folgende:
-1. DNA-dobbeltheliks apnes og separeres
-2. Enkeltradede omrader stabiliseres
-3. Nye komplementaere trader syntetiseres
-
-### Ledende og etterslepende trad
-
-Fordi DNA-polymerase kun kan syntetisere i 5' → 3' retning, oppstar et problem:
-
-**Ledende trad (leading strand):**
-- Syntetiseres kontinuerlig
-- Gar i samme retning som replikasjonsgaffelen beveger seg
-- 5' → 3' retning mot gaffelen
-
-**Etterslepende trad (lagging strand):**
-- Syntetiseres diskontinuerlig
-- Gar mot replikasjonsgaffelens bevegelse
-- Dannes i korte fragmenter kalt Okazaki-fragmenter
-- Fragmentene skjotes senere sammen
-
-### Okazaki-fragmenter
-
-- Korte DNA-biter (100-200 bp i eukaryoter)
-- Hver starter med en RNA-primer
-- Skjotes sammen av DNA-ligase etter at primer er fjernet`,
-    },
-    {
-      id: 'bio1-3-2-enzymer',
-      type: 'text',
-      content: `## Enzymer i DNA-replikasjon
-
-Flere enzymer arbeider koordinert for a kopiere DNA noyaktig og effektivt.
-
-### Helikase
-- **Funksjon:** Apner DNA-dobbeltheliks
-- **Mekanisme:** Bryter hydrogenbrobindinger mellom basene
-- **Energi:** Bruker ATP
-- **Resultat:** Skaper enkeltradede maler
-
-### Primase
-- **Funksjon:** Lager RNA-primere
-- **Hvorfor nodvendig:** DNA-polymerase kan ikke starte syntese uten primer
-- **Primer:** Kort RNA-sekvens (ca. 10 nukleotider)
-- **Viktig:** Gir 3'-OH-gruppe for DNA-polymerase a bygge pa
-
-### DNA-polymerase
-- **Hovedfunksjon:** Syntetiserer ny DNA-trad
-- **Retning:** Kun 5' → 3'
-- **Proofreading:** Kan korrigere feil (3' → 5' exonuklease-aktivitet)
-- **Ulike typer:** DNA pol I, II, III (prokaryoter), Pol α, δ, ε (eukaryoter)
-
-**DNA-polymerase III (prokaryoter):**
-- Hovedenzym for replikasjon
-- Hoy prosessivitet (syntetiserer lange strekk)
-- Lav feilrate
-
-**DNA-polymerase I:**
-- Fjerner RNA-primere
-- Fyller inn hull med DNA
-
-### Ligase
-- **Funksjon:** Skjøter DNA-fragmenter sammen
-- **Mekanisme:** Danner fosfodiesterbindinger
-- **Viktig for:** Koble Okazaki-fragmenter pa etterslepende trad
-
-### Andre viktige proteiner
-
-**Single-strand binding proteins (SSB):**
-- Stabiliserer enkeltradede DNA
-- Hindrer at tradene folder seg eller parer igjen
-
-**Topoisomerase/Gyrase:**
-- Lser spenninger i DNA foran gaffelen
-- Hindrer supercoiling`,
-    },
-    {
-      id: 'bio1-3-2-def-polymerase',
-      type: 'definition',
-      title: 'DNA-polymerase',
-      content: 'DNA-polymerase er enzymet som syntetiserer nye DNA-trader ved a legge til nukleotider komplementaert til maltråden. Enzymet kan kun syntetisere i 5\' til 3\' retning og trenger en primer med fri 3\'-OH-gruppe for a starte. De fleste DNA-polymeraser har ogsa korrekturlesingsaktivitet for a rette opp feil.',
+      title: 'Enzymer i fordoeyelsen',
+      content: 'Fordoeyelsesenzymane er biologiske katalysatorar som aukar farten paa dei kjemiske reaksjonane som bryt ned naeringstoffer. Kvart enzym er spesifikt – det verkar berre paa eitt bestemt substrat. Amylase bryt ned stivelse, proteaser (pepsin, trypsin) bryt ned proteinar, og lipase bryt ned fett. Enzymane verkar optimalt ved bestemt pH og temperatur.',
     },
     {
       id: 'bio1-3-2-example-1',
       type: 'example',
-      title: 'Eksempel: Identifisere trad-retninger',
-      problem: 'I en replikasjonsgaffel har maltråden sekvensen 5\'-ATGCCGTA-3\'. Hva blir sekvensen til den nysyntetiserte traden?',
-      solution: `**Losning:**
+      title: 'Eksempel: Nedbrytinga av eit broedstykkje',
+      problem: 'Beskriv kva som skjer med stivelsen i eit broedstykkje fraa du tek den foerste biten til glukosen er teken opp i blodet.',
+      solution: `**Loesning:**
 
-**Steg 1:** Husk baseparingsreglene
-- A parer med T
-- T parer med A
-- G parer med C
-- C parer med G
+1. **Munnhola**: Tennene tygg broedet til smaa bitar. Amylase i spyttet byrjar aa bryte ned stivelse til maltose (eit disakkarid).
 
-**Steg 2:** Finn komplementaer sekvens
-Maltrad: 5'-ATGCCGTA-3'
-Ny trad: 3'-TACGGCAT-5'
+2. **Magesekken**: Amylasen vert inaktivert av den sure pH-en (ca. 2). Stivelsen vert ikkje vidare broten ned her, men maten vert blanda til chyme.
 
-**Steg 3:** Skriv i konvensjonell retning (5' → 3')
-Ny trad: 5'-TACGGCAT-3' (reversert)
+3. **Duodenum (tolvfingertarmen)**: Bikarbonat fraa bukspyttkjertelen noeytraliserer syra. Pankreatisk amylase held fram med aa bryte ned stivelse til maltose.
 
-Vent! La oss vaere noyaktige:
-- Maltrad: 5'-ATGCCGTA-3'
-- Komplementaer: 3'-TACGGCAT-5'
+4. **Tynntarmen (jejunum)**: Enzymet maltase, som sit fast i cellemembranen paa tarmepitelet, bryt maltose ned til to glukosemolekyl.
 
-Nar vi skriver den nye traden i 5' → 3' retning:
-**Ny trad: 5'-TACGGCAT-3'**
+5. **Absorpsjon**: Glukose vert teken opp gjennom tarmepitelet via aktiv transport (med natrium-glukose-kotransportoer) og passerer inn i blodkapillaera i tarmtottane.
 
-Siden DNA-polymerase leser maltrad 3' → 5' og syntetiserer 5' → 3', vil syntesen ga fra venstre mot hoyre pa maltråden.`,
+6. **Transport**: Blodet fraa tarmen gaar via portvena til levra, der glukosen vert prosessert foer den naar resten av kroppen.
+
+Heile prosessen fraa munn til absorpsjon tek ca. 4-6 timar.`,
+    },
+    {
+      id: 'bio1-3-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kvar skjer det meste av naeringsopptaket i fordoeyelseskanalen?',
+        options: [
+          { id: 'a', text: 'I tynntarmen (jejunum og ileum)', isCorrect: true },
+          { id: 'b', text: 'I magesekken', isCorrect: false },
+          { id: 'c', text: 'I tjukktarmen', isCorrect: false },
+          { id: 'd', text: 'I munnhola', isCorrect: false },
+        ],
+        solution: 'Det meste av naeringsopptaket skjer i tynntarmen, saerleg i jejunum og ileum. Tynntarmen har ein enorm overflate (ca. 250 m²) takka vaere tarmtottar (villi) og mikrovilli. Magesekken bryt ned maten, men absorberer lite (berre vatn, alkohol og nokre medikament). Tjukktarmen absorberer hovudsakleg vatn og salt.',
+      },
+    },
+    {
+      id: 'bio1-3-2-def-2',
+      type: 'definition',
+      title: 'Naeringsstoffer',
+      content: 'Naeringsstoffa kan delast i makronaeringstoffer og mikronaeringstoffer. Makronaeringstoffa er karbohydrat, proteinar og fett – desse gjev energi og byggjemateriale. Mikronaeringstoffa er vitaminar og mineralar – desse trengst i smaa mengder, men er avgjerande for enzymfunksjon, beinbygging og mange andre prosessar. Vatn er ogso eit essensielt naeringsstoff.',
     },
     {
       id: 'bio1-3-2-example-2',
       type: 'example',
-      title: 'Eksempel: Okazaki-fragmenter',
-      problem: 'Forklar hvorfor Okazaki-fragmenter dannes pa den etterslepende tråden og ikke pa den ledende traden.',
-      solution: `**Losning:**
+      title: 'Eksempel: Energiinnhaldet i naeringsstoffa',
+      problem: 'Eit maaltid inneheld 80 g karbohydrat, 30 g protein og 20 g fett. Rekn ut det totale energiinnhaldet i kilojoule (kJ). Bruk foelgjande verdiar: karbohydrat gjev 17 kJ/g, protein gjev 17 kJ/g, fett gjev 38 kJ/g.',
+      solution: `**Loesning:**
 
-**Bakgrunn:**
-DNA-polymerase kan KUN syntetisere i 5' → 3' retning. Dette skaper et problem fordi DNA-tradene er antiparallelle.
+- Karbohydrat: 80 g x 17 kJ/g = 1 360 kJ
+- Protein: 30 g x 17 kJ/g = 510 kJ
+- Fett: 20 g x 38 kJ/g = 760 kJ
 
-**Ledende trad:**
-- Maltrad gar 3' → 5' i gaffelens bevegelsesretning
-- Ny trad syntetiseres 5' → 3' mot gaffelen
-- Dette er SAMME retning som gaffelen beveger seg
-- Syntese kan vaere KONTINUERLIG
+**Totalt energiinnhald: 1 360 + 510 + 760 = 2 630 kJ**
 
-**Etterslepende trad:**
-- Maltrad gar 5' → 3' i gaffelens bevegelsesretning
-- Ny trad ma syntetiseres 5' → 3' BORT fra gaffelen
-- Dette er MOTSATT retning av gaffelens bevegelse
-- Nar gaffelen beveger seg, eksponeres nytt maltrad BAK polymerasen
-- Ma starte nye syntesepunkter - DISKONTINUERLIG
+Legg merke til at fett gjev meir enn dobbelt saa mykje energi per gram som karbohydrat og protein. Dette forklarar kvifor feittrik mat er energitett. Eit dagleg energibehov for ein ungdom ligg typisk paa ca. 8 000–12 000 kJ, avhengig av aktivitetsnivaa og kjoenn.`,
+    },
+    {
+      id: 'bio1-3-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar kva rolle galle spelar i fordoeyelsen av fett. Kvifor er galle noedvendig sjolv om galle ikkje er eit enzym?',
+        hints: ['Tenk paa kva som skjer naar du blandar olje og vatn', 'Lipase er eit vassloeyseleg enzym – korleis kan det verke paa feittdropar?'],
+        solution: 'Galle er ikkje eit enzym – ho bryt ikkje ned fett kjemisk. I staden emulgerer ho fett, det vil seie at store feittdropar vert brotne opp i mange smaa dropar. Dette er noedvendig fordi lipase (det feittspaltande enzymet) er vassloeyseleg og kan berre verke paa overflata av feittdropane. Naar store dropar vert delte i mange smaa dropar, aukar den totale overflata enormt, og lipase faar tilgang til mykje meir fett samstundes. Utan galle ville feittfordoeyinga gaa svart sakte. Galle vert produsert i levra, lagra i galleblora, og frigjort til duodenum naar feitthaldig mat naar tolvfingertarmen.',
+      },
+    },
+    {
+      id: 'bio1-3-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva for eit enzym byrjar nedbrytinga av protein i magesekken?',
+        options: [
+          { id: 'a', text: 'Pepsin', isCorrect: true },
+          { id: 'b', text: 'Trypsin', isCorrect: false },
+          { id: 'c', text: 'Amylase', isCorrect: false },
+          { id: 'd', text: 'Lipase', isCorrect: false },
+        ],
+        solution: 'Pepsin er enzymet som byrjar proteinnedbrytinga i magesekken. Det vert utskilt som den inaktive forloeparen pepsinogen, som aktiverast til pepsin av saltsyra (HCl). Pepsin verkar best ved svart sur pH (ca. 2). Trypsin er ogso ein protease, men verkar i tynntarmen ved noytral pH. Amylase bryt ned stivelse og lipase bryt ned fett.',
+      },
+    },
+    {
+      id: 'bio1-3-2-def-3',
+      type: 'definition',
+      title: 'Peristaltikk',
+      content: 'Peristaltikk er boelgjeforma muskelkontraksjoner i veggen til fordoeyelseskanalen som driv maten framover. Ringmuskulaturen bak matklumpen trekkjer seg saman, medan muskulaturen framfor slappar av. Denne koordinerte kontraksjonen flyttar innhaldet i ein retning – fraa munn mot endetarm. Peristaltikk vert styrt av det enteriske nervesystemet (tarmnervesystemet) og det autonome nervesystemet.',
+    },
+    {
+      id: 'bio1-3-2-example-3',
+      type: 'example',
+      title: 'Eksempel: Regulering av fordoeyelsen',
+      problem: 'Forklar korleis hormonet sekretin regulerer fordoeyelsen i tynntarmen.',
+      solution: `**Loesning:**
 
-**Resultat:**
-Pa etterslepende trad dannes korte fragmenter (Okazaki-fragmenter) som hver starter med en RNA-primer. Disse skjotes senere sammen av DNA-ligase etter at primerne er fjernet og erstattet med DNA.`,
+Naar sur chyme fraa magesekken naar duodenum, skjer foelgjande:
+
+1. **Stimulus**: Den sure pH-en i duodenum stimulerer S-celler i tarmveggen.
+2. **Hormonproduksjon**: S-cellene skil ut hormonet **sekretin** til blodet.
+3. **Verknader av sekretin**:
+   - Stimulerer bukspyttkjertelen til aa produsere bikarbonatrik vaske som noeytraliserer syra i duodenum
+   - Hemmer saltsyreproduksjonen i magesekken (negativ tilbakekobling)
+   - Stimulerer galleproduksjonen i levra
+
+4. **Resultat**: pH i duodenum stig til eit nivaa (ca. 7-8) der fordoeyelsesenzyma i tynntarmen fungerer optimalt.
+
+Dette er eit godt eksempel paa hormonell regulering med negativ tilbakekobling: sur chyme utloeser ein respons (bikarbonat) som motverkar det opphavlege problemet (for sur pH).`,
+    },
+    {
+      id: 'bio1-3-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv oppbygningen til ein tarmtotte (villus) og forklar korleis strukturen er tilpassa naeringsopptak.',
+        hints: ['Tenk paa overflateauke', 'Kva ligg inni ein tarmtotte?'],
+        solution: 'Ein tarmtotte (villus) er eit fingerforma utspring fraa tarmveggen, ca. 0,5–1 mm hoegt. Kvar tarmtotte er dekt av eit lag sylinderepitel med mikrovilli (boerstesaum) paa overflata. Inni tarmtotten finst eit nettverk av blodkapillaarar og eit lymfekar (mjolkekar). Strukturen er tilpassa naeringsopptak paa fleire maatar: (1) Tarmtottane og mikrovilli aukar absorpsjonsoverflata enormt (ca. 250 m²). (2) Blodkapillaarnettverket gjev kort diffusjonsavstand – naeringstoffer treng berre passere epitelet for aa naa blodet. (3) Mjolkekaret tek opp fett i form av kylomikronar. (4) Epitelcellene har transportprotein for aktiv transport av glukose, aminosyrer og andre naeringstoffer.',
+      },
+    },
+    {
+      id: 'bio1-3-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+Fordoeyelsessystemet bryt ned mat mekanisk og kjemisk, og tek opp naeringstoffer til kroppen:
+
+| Del | Hovudfunksjon | Viktige enzym/stoff |
+|-----|---------------|---------------------|
+| Munnhola | Tygging, start stivelsenedbryting | Amylase i spytt |
+| Magesekken | Proteinnedbyting, desinfeksjon | HCl, pepsin |
+| Tynntarmen | Hovudnedbryting og naeringsopptak | Trypsin, lipase, amylase, galle |
+| Tjukktarmen | Vatnopptak, tarmflora | Bakterielle enzym |
+
+Naeringsstoffa delast i makronaeringstoffer (karbohydrat, protein, fett) og mikronaeringstoffer (vitaminar, mineralar). Fordoeyelsen vert regulert av baade nervar (det enteriske nervesystemet) og hormon (gastrin, sekretin, CCK).
+
+Tynntarmen er hovudstaden for naeringsopptak, med ein overflate paa ca. 250 m² takka vaere tarmtottar og mikrovilli.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-3-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Ein person har faatt fjerna galleblora. Forklar korleis dette kan paaverke fordoeyelsen og kva for naeringstoffer som vert hardast ramma.',
+        hints: ['Galleblora lagrar galle – men kva organ produserer gallen?', 'Tenk paa kva galle gjer med fett'],
+        solution: 'Galleblora lagrar og konsentrerer galle, men det er levra som produserer henne. Utan galleblore vil galle framleis produserast, men ho vert dryppa kontinuerleg inn i tynntarmen i staden for aa frigjerast i ein stor dose naar det trengst. Ved feittrike maaltid vil det ikkje vere nok galle tilgjengeleg til aa emulgere alt fettet. Resultatet er at feittfordoeyinga vert mindre effektiv, saerleg ved store maaltid. Fett er det naeringstoffet som vert hardast ramma. Personen kan oppleve ubehag, oppblaastring og feittrik avfoering (steatorre) etter feittrike maaltid. Feittloeyelege vitaminar (A, D, E og K) kan ogso verte daarlegare absorbert.',
+      },
+    },
+    {
+      id: 'bio1-3-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Kva for ein paastand om tjukktarmen er riktig?',
+        options: [
+          { id: 'a', text: 'Tjukktarmen absorberer vatn og salt, og inneheld ein rik tarmflora', isCorrect: true },
+          { id: 'b', text: 'Tjukktarmen er hovudstaden for nedbryting av protein og karbohydrat', isCorrect: false },
+          { id: 'c', text: 'Tjukktarmen produserer fordoeyelsesenzym som lipase og amylase', isCorrect: false },
+          { id: 'd', text: 'Tjukktarmen har tarmtottar for effektivt naeringsopptak', isCorrect: false },
+        ],
+        solution: 'Tjukktarmen (colon) absorberer hovudsakleg vatn og salt fraa det ufordoeyelege materialet. Ho inneheld ein rik tarmflora (ca. 100 billionar bakteriar) som bryt ned fiber og produserer nokre vitaminar (K og B). Tjukktarmen har ikkje tarmtottar og produserer ikkje fordoeyelsesenzym – naeringsnedbryting og -opptak skjer hovudsakleg i tynntarmen.',
+      },
+    },
+    {
+      id: 'bio1-3-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-2-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar kvifor det er viktig at pepsin vert produsert som den inaktive forloeparen pepsinogen, og fyrst aktiverast i magesekken.',
+        hints: ['Kva hadde skjedd dersom pepsin var aktivt allereie inne i cellene som produserer det?', 'Pepsin bryt ned protein – kva er cellene sjolve bygde opp av?'],
+        solution: 'Pepsin er ein protease – eit enzym som bryt ned protein. Cellene som produserer pepsin er sjolve bygde opp av protein. Dersom pepsin var aktivt allereie inne i cellene, ville enzymet byrje aa bryte ned cellenes eigne protein og oydeleggje dei. Ved aa produsere den inaktive forloeparen pepsinogen, beskytar cellene seg sjolve. Pepsinogen vert fyrst aktivert til pepsin av saltsyra (HCl) ute i magesekken, der det beskyttande slimlaget vernar mageveggen. Dette er eit viktig prinsipp i biologi: mange potensielt farlege enzym vert produsert som inaktive forloeparar (zymogen) og aktiverast fyrst der dei trengst.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-3-2-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva betyr det at DNA-replikasjon er semikonservativ?',
-      options: [
-        { id: 'a', text: 'Hvert nytt DNA-molekyl har en gammel og en ny trad', isCorrect: true },
-        { id: 'b', text: 'Bare halvparten av DNA kopieres', isCorrect: false },
-        { id: 'c', text: 'Det originale DNA forblir helt intakt', isCorrect: false },
-        { id: 'd', text: 'Gammelt og nytt DNA blandes tilfeldig', isCorrect: false },
-      ],
-      solution: 'Semikonservativ betyr "halvveis bevart". Nar DNA kopieres, separeres de to originale tradene, og hver tjener som mal for en ny trad. Resultatet er to DNA-molekyler som hver har en original (bevart) trad og en nysyntetisert trad.',
-    },
-    {
-      id: 'bio1-3-2-ex2',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Nevn fire viktige enzymer i DNA-replikasjon og beskriv funksjonen til hver.',
-      solution: '1) Helikase - apner DNA-dobbeltheliks ved a bryte hydrogenbrobindingene mellom basene. 2) Primase - syntetiserer korte RNA-primere som gir DNA-polymerase et startpunkt. 3) DNA-polymerase - syntetiserer ny DNA-trad ved a legge til nukleotider komplementaert til maltråden (5\' → 3\'). 4) Ligase - skjoter Okazaki-fragmenter sammen ved a danne fosfodiesterbindinger.',
-    },
-    {
-      id: 'bio1-3-2-ex3',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'I hvilken retning syntetiserer DNA-polymerase?',
-      options: [
-        { id: 'a', text: '5\' til 3\'', isCorrect: true },
-        { id: 'b', text: '3\' til 5\'', isCorrect: false },
-        { id: 'c', text: 'Begge retninger', isCorrect: false },
-        { id: 'd', text: 'Tilfeldig retning', isCorrect: false },
-      ],
-      solution: 'DNA-polymerase kan KUN syntetisere nye trader i 5\' til 3\' retning. Dette er fordi enzymet legger til nye nukleotider pa 3\'-enden av den voksende kjeden. Denne begrensningen er grunnen til at det dannes en ledende og en etterslepende trad.',
-    },
-    {
-      id: 'bio1-3-2-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar forskjellen mellom ledende trad og etterslepende trad.',
-      solution: 'Ledende trad syntetiseres kontinuerlig i samme retning som replikasjonsgaffelen beveger seg. Etterslepende trad syntetiseres diskontinuerlig i korte fragmenter (Okazaki-fragmenter) fordi DNA-polymerase ma jobbe bort fra gaffelen. Begge trader syntetiseres 5\' → 3\', men pa grunn av de antiparallelle tradene og gaffelens bevegelse, ma den etterslepende traden lages stykkevis.',
-    },
-    {
-      id: 'bio1-3-2-ex5',
-      type: 'multiple-choice',
-      difficulty: 'vanskelig',
-      task: 'Hvorfor trenger DNA-polymerase en primer?',
-      options: [
-        { id: 'a', text: 'Den kan ikke starte syntese uten en fri 3\'-OH-gruppe', isCorrect: true },
-        { id: 'b', text: 'Primeren gir energi til reaksjonen', isCorrect: false },
-        { id: 'c', text: 'Primeren apner DNA-heliksen', isCorrect: false },
-        { id: 'd', text: 'Primeren beskytter DNA mot nedbrytning', isCorrect: false },
-      ],
-      solution: 'DNA-polymerase kan ikke initiere ny syntese de novo. Enzymet kan bare legge til nukleotider pa en eksisterende 3\'-OH-gruppe. Primase lager en kort RNA-primer som gir denne frie 3\'-OH-gruppen. Etter replikasjon fjernes RNA-primerne og erstattes med DNA.',
-    },
-    {
-      id: 'bio1-3-2-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Beskriv hvordan DNA-polymerase oppnar hoy noyaktighet i kopieringen.',
-      solution: 'DNA-polymerase oppnar hoy noyaktighet gjennom flere mekanismer: 1) Selektiv nukleotidinnsetting - enzymet velger nukleotider basert pa korrekt baseparing. 2) Proofreading (korrekturlesing) - 3\' → 5\' exonuklease-aktivitet fjerner feil innsatte nukleotider. 3) Mismatch repair - cellen har reparasjonssystemer som oppdager og retter feil etter replikasjon. Disse mekanismene sammen gir en feilrate pa kun ca. 1 per 10⁹-10¹⁰ basepar.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Fordoeyelseskanalen', definition: 'Samanhengande roer fraa munn til endetarm som bryt ned og absorberer naering' },
+    { term: 'Peristaltikk', definition: 'Boelgjeforma muskelkontraksjoner som driv maten framover i fordoeyelseskanalen' },
+    { term: 'Chyme', definition: 'Halvflytande naeringsbrei som magesekken sender vidare til tynntarmen' },
+    { term: 'Emulgering', definition: 'Oppbrytning av store feittdropar til smaa dropar ved hjelp av galle' },
+    { term: 'Tarmtotte (villus)', definition: 'Fingerforma utspring i tynntarmen som aukar overflata for naeringsopptak' },
+    { term: 'Makronaeringstoffer', definition: 'Karbohydrat, protein og fett – gjev energi og byggjemateriale' },
+    { term: 'Sekretin', definition: 'Tarmhormon som stimulerer bikarbonatproduksjon i bukspyttkjertelen' },
   ],
 };
 
 // ============================================================================
-// Kapittel 3.3: Transkripsjon
+// Kapittel 3.3: Sirkulasjon og gassutveksling
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_3_3: TextbookChapter = {
   id: 'biologi-1-3-3',
   courseId: 'biologi-1',
   chapterNumber: '3.3',
-  title: 'Transkripsjon',
-  description: 'mRNA-syntese, RNA-polymerase og prosessering av mRNA inkludert capping, polyadenylering og spleising.',
+  title: 'Sirkulasjon og gassutveksling',
+  description: 'Hjartets oppbygning, det doble kretsloepet, blodets sammensetning og gassutveksling i lungene.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'forklare transkripsjonsprosessen fra DNA til mRNA',
-    'beskrive RNA-polymerasens funksjon og transkripsjonens faser',
-    'gjøre rede for mRNA-prosessering i eukaryoter',
-    'forklare betydningen av spleising og alternative spleisingsmoenstre',
+    'beskrive hjartets oppbygning og forklare korleis det pumpar blod gjennom kroppen',
+    'gjore rede for det doble kretsloepet: litle og store krinsloepet',
+    'forklare blodets sammensetning og oppgaaver',
+    'beskrive gassutveksling i lungene og i veva',
   ],
   content: [
     {
       id: 'bio1-3-3-intro',
       type: 'text',
-      content: `# Transkripsjon
+      content: `# Sirkulasjon og gassutveksling
 
-Transkripsjon er forste steg i genekspresjon - prosessen der genetisk informasjon i DNA omsettes til funksjonelle produkter. Under transkripsjon kopieres informasjonen fra ett gen til et RNA-molekyl.
+Alle cellene i kroppen treng ein kontinuerleg tilfoersel av oksygen og naeringstoffer, og avfallsstoff som karbondioksid maa fraktast bort. Sirkulasjonssystemet og respirasjonssystemet samarbeider taett for aa loeyse desse oppgaavene.
 
-## Det sentrale dogme
+## Hjartets oppbygning
 
-Francis Crick formulerte det sentrale dogme i molekylaerbiologien:
+Hjartet er ein muskuloes pumpe paa storleik med ein knyttneve, plassert midt i brystkassa, litt til venstre. Det veg ca. 300 g og pumpar omlag 5 liter blod per minutt i kvile – det vil seie over 7 000 liter per doegn.
 
-**DNA → RNA → Protein**
+Hjartet har fire kammer:
+- **Hoegre forkammer (atrium)**: Tek imot oksygenfattig blod fraa kroppen via oevre og nedre holevene (vena cava superior og inferior).
+- **Hoegre hovudkammer (ventrikkel)**: Pumpar blod til lungene via lungearterien (arteria pulmonalis).
+- **Venstre forkammer (atrium)**: Tek imot oksygenrikt blod fraa lungene via lungevenane.
+- **Venstre hovudkammer (ventrikkel)**: Pumpar oksygenrikt blod ut i kroppen via aorta.
 
-- **DNA → RNA:** Transkripsjon
-- **RNA → Protein:** Translasjon
+Mellom forkammera og hovudkammera ligg **seglventilane** (mitralventilen paa venstre side, trikuspidalventilen paa hoegre side) som hindrar tilbakestroyming. Mellom hovudkammera og dei store arteriane ligg **lommeventilane** (aortaventilen og pulmonalventilen).
 
-Transkripsjon foregår i cellekjernen hos eukaryoter, mens translasjon skjer i cytoplasma pa ribosomene.`,
+Venstre hovudkammer har tjukkare vegg enn hoegre fordi det maa pumpe blod med hoegt trykk til heile kroppen, medan hoegre berre pumpar til lungene (kort avstand, laaegt trykk).
+
+## Hjarterytme og leidingssystem
+
+Hjartet slaar rytmisk utan ytre stimulering – det er **myogent** (sjolvstartande). Signalet startar i **sinusknuten** (SA-knuten) i hoegre forkammer, som fungerer som hjartets naturlege pacemaker. Fraa sinusknuten spreier det elektriske signalet seg gjennom forkammera og vidare til **AV-knuten** (atrioventrikulaerknuten), deretter gjennom **His-bunten** og **Purkinje-fibrene** til hovudkammera.
+
+Normal kvilefrekvens er 60–80 slag per minutt. Hjarterytmen vert regulert av det autonome nervesystemet: sympatikus aukar frekvensen (t.d. ved fysisk aktivitet), parasympatikus (vagusnerven) senkar den.`,
     },
     {
-      id: 'bio1-3-3-def-transkripsjon',
+      id: 'bio1-3-3-def-1',
       type: 'definition',
-      title: 'Transkripsjon',
-      content: 'Transkripsjon er prosessen der genetisk informasjon i DNA kopieres til RNA. RNA-polymerase leser DNA-maltråden og syntetiserer et komplementaert RNA-molekyl. I eukaryoter transkriberes mRNA-forloperen (pre-mRNA) som deretter prosesseres for transport ut av kjernen.',
-    },
-    {
-      id: 'bio1-3-3-rna-typer',
-      type: 'text',
-      content: `## RNA-typer
-
-Transkripsjon produserer flere typer RNA:
-
-### mRNA (messenger RNA)
-- Baerer genetisk informasjon fra DNA til ribosomene
-- Koder for proteiner
-- Relativt kort levetid
-
-### rRNA (ribosomal RNA)
-- Strukturell komponent i ribosomer
-- Katalyserer peptidbindingsdannelse
-- Mesteparten av cellens RNA
-
-### tRNA (transfer RNA)
-- Frakter aminosyrer til ribosomet
-- Har antikodon som matcher mRNA-kodon
-- Adaptermoekyl mellom mRNA og protein
-
-### Andre RNA-typer
-- **snRNA:** Involvert i spleising
-- **miRNA:** Regulerer genekspresjon
-- **lncRNA:** Lang ikke-kodende RNA med regulatoriske funksjoner`,
-    },
-    {
-      id: 'bio1-3-3-def-rnapol',
-      type: 'definition',
-      title: 'RNA-polymerase',
-      content: 'RNA-polymerase er enzymet som katalyserer transkripsjon. Det leser DNA-maltråden 3\' → 5\' og syntetiserer RNA 5\' → 3\'. I motsetning til DNA-polymerase trenger RNA-polymerase ingen primer. Eukaryoter har tre hovedtyper: RNA pol I (rRNA), RNA pol II (mRNA), og RNA pol III (tRNA og sma RNA).',
-    },
-    {
-      id: 'bio1-3-3-prosess',
-      type: 'text',
-      content: `## Transkripsjonsprosessen
-
-### Initiering
-
-**1. Promotorgjenkjenning:**
-- RNA-polymerase binder til promotorregionen
-- Promotor: DNA-sekvens som signaliserer transkripsjonsstart
-- Viktige sekvenser: TATA-boks (eukaryoter), -10 og -35 boks (prokaryoter)
-
-**2. Transkripsjonsfaktorer (eukaryoter):**
-- Generelle transkripsjonsfaktorer (GTF) hjelper RNA pol II
-- Danner pre-initieringskompleks
-- TFIID gjenkjenner TATA-boks
-
-**3. DNA-apning:**
-- RNA-polymerase apner DNA-dobbeltheliks
-- Danner transkripsjonboble (ca. 17 bp)
-
-### Elongering
-
-**Syntese av RNA-trad:**
-- RNA-polymerase beveger seg langs maltråden
-- Leser DNA 3' → 5', syntetiserer RNA 5' → 3'
-- Legger til ribonukleotider komplementaert til maltrad
-- A i DNA → U i RNA (uracil erstatter tymin)
-- Hastighet: ca. 40 nukleotider per sekund
-
-**Maltrad vs. kodende trad:**
-- Maltrad: DNA-traden som leses (antisense)
-- Kodende trad: DNA-traden med samme sekvens som mRNA (sense)
-
-### Terminering
-
-**Prokaryoter:**
-- Rho-avhengig: Rho-protein lser RNA fra DNA
-- Rho-uavhengig: Hairpin-struktur i RNA forårsaker frigjoring
-
-**Eukaryoter:**
-- Polyadenyleringssignal (AAUAAA) gjenkjennes
-- RNA klippes og poly(A)-hale legges til
-- RNA-polymerase fortsetter kort for sa a falle av`,
-    },
-    {
-      id: 'bio1-3-3-prosessering',
-      type: 'text',
-      content: `## mRNA-prosessering i eukaryoter
-
-pre-mRNA ma prosesseres for det blir funksjonelt mRNA. Tre hovedmodifikasjoner:
-
-### 1. 5'-capping
-
-**Hva skjer:**
-- 7-metylguanosin (m7G) legges til 5'-enden
-- Kobles via uvanlig 5'-5' trifosfatbinding
-
-**Funksjoner:**
-- Beskytter mRNA mot nedbrytning
-- Nodvendig for ribosom-gjenkjenning
-- Hjelper eksport fra kjernen
-
-### 2. 3'-polyadenylering
-
-**Hva skjer:**
-- 100-250 adeninnukleotider legges til 3'-enden
-- Poly(A)-hale lages av poly(A)-polymerase
-- Signal: AAUAAA-sekvens i pre-mRNA
-
-**Funksjoner:**
-- Stabiliserer mRNA
-- Viktig for eksport fra kjernen
-- Nodvendig for effektiv translasjon
-
-### 3. Spleising
-
-**Hva fjernes:**
-- Introner: Ikke-kodende sekvenser inne i genet
-- Lages av spleiseosom (snRNP-kompleks)
-
-**Hva beholdes:**
-- Eksoner: Kodende sekvenser
-- Skjotes sammen til ferdig mRNA
-
-**Alternativ spleising:**
-- Samme gen kan gi flere ulike proteiner
-- Ulike kombinasjoner av eksoner
-- Oker proteindiversitet dramatisk`,
-    },
-    {
-      id: 'bio1-3-3-def-spleising',
-      type: 'definition',
-      title: 'Spleising',
-      content: 'Spleising er prosessen der introner (ikke-kodende sekvenser) fjernes fra pre-mRNA og eksoner (kodende sekvenser) skjotes sammen. Prosessen katalyseres av spleisosomet, et kompleks av snRNA og proteiner. Alternativ spleising gjor at ett gen kan kode for flere ulike proteiner.',
+      title: 'Det doble kretsloepet',
+      content: 'Mennesket har eit dobbelt kretsloep: (1) Det litle krinsloepet (lungekrinsloepet) gaar fraa hoegre hovudkammer til lungene og tilbake til venstre forkammer. Her vert blodet oksygenert. (2) Det store krinsloepet (systemkrinsloepet) gaar fraa venstre hovudkammer ut til heile kroppen og tilbake til hoegre forkammer. Her vert oksygen levert til cellene og karbondioksid henta opp. Det doble kretsloepet gjer at oksygenrikt og oksygenfattig blod vert halde adskilt, noko som gjev effektiv oksygentransport.',
     },
     {
       id: 'bio1-3-3-example-1',
       type: 'example',
-      title: 'Eksempel: Fra DNA til mRNA',
-      problem: 'DNA-maltråden har sekvensen 3\'-TACGGCAAATTT-5\'. Skriv sekvensen til det transkriberte mRNA.',
-      solution: `**Losning:**
+      title: 'Eksempel: Blodets veg gjennom kroppen',
+      problem: 'Foelg ein raud blodcelle gjennom ein komplett runde i kroppen, fraa hoegre forkammer og tilbake dit igjen.',
+      solution: `**Loesning:**
 
-**Steg 1:** Husk transkripsjonsprinsippene
-- RNA-polymerase leser maltrad 3' → 5'
-- Syntetiserer RNA 5' → 3'
-- Baseparingsregler: A→U, T→A, G→C, C→G
+1. Raud blodcelle med lite oksygen ligg i **hoegre forkammer**.
+2. Passerer gjennom **trikuspidalventilen** til **hoegre hovudkammer**.
+3. Pumpast gjennom **pulmonalventilen** og ut i **lungearterien**.
+4. Naar kapillaarane rundt alveolane i **lungene**.
+5. **Gassutveksling**: CO₂ diffunderer ut, O₂ diffunderer inn – blodcella er no oksygenrik.
+6. Reiser tilbake via **lungevenane** til **venstre forkammer**.
+7. Passerer gjennom **mitralventilen** til **venstre hovudkammer**.
+8. Pumpast gjennom **aortaventilen** ut i **aorta**.
+9. Reiser via arteriar og arterioler til eit **kapillaernettverk** i kroppens vev.
+10. **Gassutveksling**: O₂ diffunderer ut til cellene, CO₂ diffunderer inn – blodcella er no oksygenfattig igjen.
+11. Reiser tilbake via venoler og vener til **oevre/nedre holevene**.
+12. Tilbake i **hoegre forkammer** – ein full runde er fullfoert.
 
-**Steg 2:** Oversett hver base
-- Maltrad: 3'-TACGGCAAATTT-5'
-
-| DNA (maltrad) | T | A | C | G | G | C | A | A | A | T | T | T |
-|---------------|---|---|---|---|---|---|---|---|---|---|---|---|
-| mRNA          | A | U | G | C | C | G | U | U | U | A | A | A |
-
-**Steg 3:** Skriv mRNA med riktig orientering
-- mRNA: 5'-AUGCCGUUUAAA-3'
-
-**Sjekk:**
-- mRNA-sekvensen er identisk med den kodende DNA-traden, bare med U istedenfor T
-- Kodende trad: 5'-ATGCCGTTTAAA-3' (samme som mRNA, men med T)`,
+Merk: I lungearterien stroeymer oksygenfattig blod, og i lungevenane stroeymer oksygenrikt blod. Arteriar foerer blod bort fraa hjartet, vener foerer blod mot hjartet – uavhengig av oksygeninnhald.`,
+    },
+    {
+      id: 'bio1-3-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kvifor har venstre hovudkammer tjukkare vegg enn hoegre hovudkammer?',
+        options: [
+          { id: 'a', text: 'Fordi det maa pumpe blod med hoegre trykk til heile kroppen', isCorrect: true },
+          { id: 'b', text: 'Fordi det pumpar meir blod per slag enn hoegre', isCorrect: false },
+          { id: 'c', text: 'Fordi det tek imot blod fraa lungene under hoegt trykk', isCorrect: false },
+          { id: 'd', text: 'Fordi oksygenrikt blod krev sterkare pumping', isCorrect: false },
+        ],
+        solution: 'Venstre hovudkammer maa generere hoegt trykk for aa pumpe blod gjennom det store krinsloepet – heile kroppen fraa hovud til taa. Hoegre hovudkammer pumpar berre til lungene, som ligg rett ved sida av hjartet og har eit laagtrykkssystem. Begge kammera pumpar same mengde blod per slag (slagvolum), men venstre krev meir kraft (og dermed tjukkare muskelvegg) paa grunn av den lengre transportvegen.',
+      },
+    },
+    {
+      id: 'bio1-3-3-def-2',
+      type: 'definition',
+      title: 'Blodets sammensetning',
+      content: 'Blod bestaar av blodplasma (ca. 55 %) og blodceller (ca. 45 %). Plasma er ei gulaktig vaeske som inneheld vatn, protein (albumin, antistoff, koagulasjonsfaktorar), naeringstoffer, hormon og avfallsstoff. Blodcellene omfattar raude blodceller (erytrocyttar) som transporterer oksygen ved hjelp av hemoglobin, kvite blodceller (leukocyttar) som er del av immunforsvaret, og blodplater (trombocyttar) som er viktige for blodkoagulering. Ein vaksen person har ca. 5 liter blod.',
     },
     {
       id: 'bio1-3-3-example-2',
       type: 'example',
-      title: 'Eksempel: Alternativ spleising',
-      problem: 'Et gen har 5 eksoner. Vis hvordan alternativ spleising kan gi forskjellige proteiner fra samme gen.',
-      solution: `**Losning:**
+      title: 'Eksempel: Gassutveksling i lungene',
+      problem: 'Forklar korleis gassutveksling skjer i lungealveolane og kva som driv prosessen.',
+      solution: `**Loesning:**
 
-**Genets struktur:**
-Ekson 1 - Intron - Ekson 2 - Intron - Ekson 3 - Intron - Ekson 4 - Intron - Ekson 5
+Gassutveksling i lungene skjer i **alveolane** – dei ca. 300 millionar smaa luftsekkjane i lungene. Den totale alveoloverflata er ca. 70 m².
 
-**Mulige mRNA-varianter gjennom alternativ spleising:**
+**Kva driv gassutvekslinga?**
+Prosessen vert driven av **diffusjon** langs konsentrasjonsgradientar (partialtrykk):
 
-**Variant A (alle eksoner):**
-Ekson 1 + Ekson 2 + Ekson 3 + Ekson 4 + Ekson 5
-→ Fullengde protein
+- **Oksygen (O₂)**: Partialtrycket av O₂ er hoegt i alveolelufta (ca. 100 mmHg) og laaegt i det oksygenfattige blodet som kjem til lungene (ca. 40 mmHg). O₂ diffunderer difor fraa alveolelufta inn i blodet.
 
-**Variant B (hopper over ekson 3):**
-Ekson 1 + Ekson 2 + Ekson 4 + Ekson 5
-→ Kortere protein uten domene kodet av ekson 3
+- **Karbondioksid (CO₂)**: Partialtrycket av CO₂ er hoegt i det venoese blodet (ca. 46 mmHg) og laaegt i alveolelufta (ca. 40 mmHg). CO₂ diffunderer difor fraa blodet ut i alveolelufta og pustast ut.
 
-**Variant C (hopper over ekson 2 og 4):**
-Ekson 1 + Ekson 3 + Ekson 5
-→ Protein med kun sentrale domener
+**Strukturelle tilpassingar for effektiv diffusjon:**
+1. Svart tynn barriere – berre to cellelag (alveolvegg + kapillaarvegg), tilsaman ca. 0,5 μm
+2. Enorm overflate – ca. 70 m² (storleiken av ei lita leilegheit)
+3. Rik blodforsyning – tett kapillaernettverk rundt kvar alveol
+4. Fuktig overflate – gassar loeyser seg i vaeskelaget foer diffusjon`,
+    },
+    {
+      id: 'bio1-3-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar skilnaden mellom arteriar, vener og kapillaarar med omsyn til struktur og funksjon.',
+        hints: ['Tenk paa veggtjukkleik, trykk og kva retning blodet stroeymer', 'Kva for blodaarer er tilpassa utveksling av stoff?'],
+        solution: 'Arteriar foerer blod bort fraa hjartet. Dei har tjukk, elastisk vegg med mykje glatt muskulatur fordi dei maa tole hoegt blodtrykk. Dei storste arteriane (t.d. aorta) er saerleg elastiske for aa jamne ut trykkpulsane fraa hjartet. Vener foerer blod tilbake mot hjartet. Dei har tynnare vegg og laaegare trykk. Mange vener har veneklappar som hindrar tilbakestroyming. Kapillaarar er dei minste blodaarene – berre eitt cellelag tjukke. Dei dannar eit nettverk mellom arteriar og vener og er staden der utveksling av oksygen, naeringstoffer og avfallsstoff skjer mellom blod og vev. Den tynne veggen gjer at stoff lett kan passere gjennom.',
+      },
+    },
+    {
+      id: 'bio1-3-3-def-3',
+      type: 'definition',
+      title: 'Hemoglobin',
+      content: 'Hemoglobin (Hb) er eit protein i raude blodceller som transporterer oksygen. Kvart hemoglobinmolekyl bestaar av fire polypeptidkjeder (to alfa og to beta), kvar med ei hemgruppe som inneheld eit jernatom. Kvart jernatom kan binde eitt O₂-molekyl, saa eitt hemoglobinmolekyl kan bere fire O₂-molekyl. Naar hemoglobin er bunde til oksygen kallast det oksyhemoglobin (HbO₂) og har ein klar raud farge. Utan oksygen (deoksyhemoglobin) er fargen moerkare raud.',
+    },
+    {
+      id: 'bio1-3-3-example-3',
+      type: 'example',
+      title: 'Eksempel: Kvifor andpusten ved fysisk aktivitet?',
+      problem: 'Forklar kva som skjer i sirkulasjonssystemet og respirasjonssystemet naar du spring raskt.',
+      solution: `**Loesning:**
 
-**Betydning:**
-- Ett gen kan produsere mange ulike proteiner
-- Mennesket har ca. 20 000 gener, men over 100 000 ulike proteiner
-- Ulike vev kan produsere ulike proteinvarianter fra samme gen
-- Gir enorm biologisk kompleksitet`,
+Naar du spring, aukar muskelcellene sitt behov for oksygen dramatisk og produserer meir CO₂. Kroppen responderer med fleire tilpassingar:
+
+**Hjartet:**
+- Hjartefrekvensen aukar (fraa ca. 70 til opptil 180 slag/min)
+- Slagvolumet aukar (meir blod per slag)
+- Hjartets minuttvolum (cardiac output) kan auke fraa ca. 5 L/min til 25 L/min
+
+**Blodomfordeling:**
+- Blodaarene i aktive musklar utvidar seg (vasodilatasjon) → meir blod til musklane
+- Blodaarene til fordoeyelsesorgana og huda trekkjer seg saman (vasokonstriksjon) → blod omdirigerast
+
+**Lungene:**
+- Pustefrekvensen og pustevolumet aukar
+- Meir luft naar alveolane → betre gassutveksling
+- Aukt blodstraum gjennom lungekapillaarane
+
+**Kvifor andpusten?**
+Du kjenner deg andpusten fordi kjemoreseptorar i hjernen og blodaarene registrerer aukande CO₂-nivaa i blodet. Respirasjonssenteret i hjernestammen aukar pustesignala for aa kvitte seg med CO₂ raskare. Det er primaert aukt CO₂ (ikkje laaegt O₂) som driv pusterefleksen.`,
+    },
+    {
+      id: 'bio1-3-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva for ein paastand om lungearterien er riktig?',
+        options: [
+          { id: 'a', text: 'Lungearterien foerer oksygenfattig blod fraa hjartet til lungene', isCorrect: true },
+          { id: 'b', text: 'Lungearterien foerer oksygenrikt blod fraa lungene til hjartet', isCorrect: false },
+          { id: 'c', text: 'Lungearterien foerer oksygenrikt blod fraa hjartet til kroppen', isCorrect: false },
+          { id: 'd', text: 'Lungearterien foerer oksygenfattig blod fraa kroppen til hjartet', isCorrect: false },
+        ],
+        solution: 'Lungearterien (arteria pulmonalis) foerer oksygenfattig blod fraa hoegre hovudkammer til lungene for gassutveksling. Sjolv om arteriar vanlegvis assosierast med oksygenrikt blod, er definisjonen av ei arterie eit blodkar som foerer blod BORT fraa hjartet – uavhengig av oksygeninnhaldet. Lungearterien er det viktigaste eksempelet paa ei arterie med oksygenfattig blod.',
+      },
+    },
+    {
+      id: 'bio1-3-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hemoglobin kan binde baade oksygen og karbonmonoksid (CO). Karbonmonoksid bind seg ca. 200 gonger sterkare til hemoglobin enn oksygen. Forklar kvifor CO-forgifting er saa farleg.',
+        hints: ['Tenk paa kva som skjer med oksygentransporten naar CO tek opp plassane paa hemoglobin', 'Kor lett er det aa fjerne CO fraa hemoglobin?'],
+        solution: 'Karbonmonoksid (CO) bind seg til dei same jernatomia paa hemoglobin som oksygen, men med ca. 200 gonger hoegare affinitet. Det betyr at sjolv smaa mengder CO i pusteluft vil fortrengje oksygen fraa hemoglobin. CO-hemoglobin (karboksyhemoglobin, HbCO) kan ikkje transportere oksygen. Sidan bindinga er saa sterk, slepper CO svart langsamt fraa hemoglobin. Resultatet er at cellene ikkje faar nok oksygen (hypoksi), sjolv om ein pustar normal luft. Hjernen er saerleg saarbar. CO-forgifting er ekstra farleg fordi CO er luktfri og fargelaus, saa ein merkar det ikkje foer det er for seint. Behandling er aa puste rein O₂ (eller hyperbar O₂) for aa fortrengje CO fraa hemoglobin.',
+      },
+    },
+    {
+      id: 'bio1-3-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+Sirkulasjonssystemet og respirasjonssystemet samarbeider om aa forsyne cellene med oksygen og fjerne karbondioksid:
+
+**Hjartet:**
+- Fire kammer: to forkammer og to hovudkammer
+- Ventilane hindrar tilbakestroyming
+- Sinusknuten styrer hjarterytmen
+
+**Det doble kretsloepet:**
+- Litle krinsloepet: Hjarte → lunger → hjarte (gassutveksling)
+- Store krinsloepet: Hjarte → kroppen → hjarte (levering av O₂, opptak av CO₂)
+
+**Blodet:**
+- Plasma (55 %) + blodceller (45 %)
+- Raude blodceller med hemoglobin transporterer O₂
+- Kvite blodceller forsvarar mot infeksjon
+- Blodplater er viktige for koagulering
+
+**Gassutveksling:**
+- Skjer ved diffusjon i alveolane (lunger) og i veva
+- Drives av partialtrykksforskjellar
+- Alveolane har enorm overflate og svart tynn barriere
+
+Forstainga av sirkulasjon og gassutveksling er sentral for aa forstaa korleis kroppen responderer paa fysisk aktivitet, sjukdom og miljoeendringar.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-3-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar korleis gassutveksling i veva (systemisk gassutveksling) skil seg fraa gassutveksling i lungene. Bruk omgrepa partialtrykk og diffusjon.',
+        hints: ['I lungene gaar O₂ inn i blodet – kva skjer i veva?', 'Tenk paa konsentrasjonsgradientane paa dei to stadene'],
+        solution: 'I lungene er partialtrycket av O₂ hoegare i alveolelufta enn i blodet, saa O₂ diffunderer inn i blodet. CO₂ gaar motsett veg. I veva er situasjonen omvendt: cellene brukar O₂ og produserer CO₂, saa partialtrycket av O₂ er laaegare i veva enn i blodet. O₂ diffunderer difor fraa blodet ut til cellene. CO₂-partialtrycket er hoegare i cellene enn i blodet, saa CO₂ diffunderer fraa cellene og inn i blodet. Begge stader drives prosessen av diffusjon langs konsentrasjonsgradientar, men retningane er motsette: inn i blodet i lungene, ut av blodet i veva.',
+      },
+    },
+    {
+      id: 'bio1-3-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Kva er hovudfunksjonen til blodplatene (trombocyttane)?',
+        options: [
+          { id: 'a', text: 'Dei spelar ein sentral rolle i blodkoagulering (stoppar blodningar)', isCorrect: true },
+          { id: 'b', text: 'Dei transporterer oksygen til cellene', isCorrect: false },
+          { id: 'c', text: 'Dei produserer antistoff mot bakteriar', isCorrect: false },
+          { id: 'd', text: 'Dei regulerer blodtrykket', isCorrect: false },
+        ],
+        solution: 'Blodplater (trombocyttar) er cellefragment fraa megakaryocyttar i beinmargen. Hovudfunksjonen deira er blodkoagulering (hemostase). Naar eit blodkar vert skadd, festar blodplatene seg til skadestaden (adhesjon), klumpar seg saman (aggregering) og dannar ein mellombels plateplugg. Dei frigjer ogso stoff som aktiverer koagulasjonskaskaden, som lagar eit fibrinnettverk som forsterkar pluggen til ein stabil blodpropp.',
+      },
+    },
+    {
+      id: 'bio1-3-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-3-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Eit foster har ei opning mellom hoegre og venstre forkammer kalla foramen ovale, og ein kanal mellom lungearterien og aorta kalla ductus arteriosus. Forklar kvifor desse strukturane er noedvendige foer foedsel og kva som ville skjedd dersom dei ikkje lukkast etter foedsel.',
+        hints: ['Fosteret bruker ikkje lungene sine – kvar faar det oksygen fraa?', 'Kva skjer med blodstraumen dersom blodet kan gaa utanom lungene etter foedsel?'],
+        solution: 'Foer foedsel faar fosteret oksygen fraa morkaka via navlestrengen – lungene er ikkje i bruk og er fylte med vaske. Det ville vaere bortkasta aa pumpe alt blodet gjennom lungene. Foramen ovale let blod stroyme direkte fraa hoegre til venstre forkammer, og ductus arteriosus let blod gaa fraa lungearterien direkte over til aorta. Begge shuntane omgaar lungekrinsloepet. Ved foedsel tek babyen sine foerste andedrag, lungeblodkara utvidar seg, og trykket i venstre forkammer stig. Dette trykkjer foramen ovale att (lukkast vanlegvis i loepet av dagar). Ductus arteriosus trekkjer seg saman og lukkast (vanlegvis innan 24–48 timar). Dersom dei ikkje lukkast, vil oksygenfattig blod blande seg med oksygenrikt, og kroppen faar for lite oksygen – ein tilstand som kan krevje kirurgisk behandling.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-3-3-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hvilket enzym utforer transkripsjon?',
-      options: [
-        { id: 'a', text: 'RNA-polymerase', isCorrect: true },
-        { id: 'b', text: 'DNA-polymerase', isCorrect: false },
-        { id: 'c', text: 'Helikase', isCorrect: false },
-        { id: 'd', text: 'Ligase', isCorrect: false },
-      ],
-      solution: 'RNA-polymerase er enzymet som katalyserer transkripsjon. Det leser DNA-maltråden og syntetiserer et komplementaert RNA-molekyl. DNA-polymerase brukes i DNA-replikasjon, ikke transkripsjon.',
-    },
-    {
-      id: 'bio1-3-3-ex2',
-      type: 'classic',
-      difficulty: 'lett',
-      task: 'Hva er de tre hovedtypene mRNA-prosessering i eukaryoter?',
-      solution: 'De tre hovedtypene mRNA-prosessering er: 1) 5\'-capping - en 7-metylguanosin-kappe legges til 5\'-enden for beskyttelse og ribosom-gjenkjenning. 2) 3\'-polyadenylering - en poly(A)-hale pa 100-250 adeniner legges til 3\'-enden for stabilitet. 3) Spleising - introner fjernes og eksoner skjotes sammen av spleisosomet.',
-    },
-    {
-      id: 'bio1-3-3-ex3',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hvilken base i RNA erstatter tymin fra DNA?',
-      options: [
-        { id: 'a', text: 'Uracil (U)', isCorrect: true },
-        { id: 'b', text: 'Adenin (A)', isCorrect: false },
-        { id: 'c', text: 'Guanin (G)', isCorrect: false },
-        { id: 'd', text: 'Cytosin (C)', isCorrect: false },
-      ],
-      solution: 'RNA inneholder uracil (U) istedenfor tymin (T). Nar adenin i DNA-maltråden transkriberes, legges uracil inn i RNA. Ellers er baseparingsreglene like: G parer med C, og A parer med U i RNA.',
-    },
-    {
-      id: 'bio1-3-3-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar forskjellen mellom eksoner og introner.',
-      solution: 'Eksoner er de kodende sekvensene i et gen som beholdes i det ferdige mRNA og oversettes til protein. Introner er ikke-kodende sekvenser som ligger mellom eksonene og fjernes under spleising. Introner finnes hovedsakelig i eukaryote gener. Gjennom alternativ spleising kan ulike kombinasjoner av eksoner inkluderes, noe som gir flere proteinvarianter fra samme gen.',
-    },
-    {
-      id: 'bio1-3-3-ex5',
-      type: 'multiple-choice',
-      difficulty: 'vanskelig',
-      task: 'Hva er funksjonen til TATA-boksen?',
-      options: [
-        { id: 'a', text: 'Promotorelement som posisjonerer RNA-polymerase', isCorrect: true },
-        { id: 'b', text: 'Startkodon for translasjon', isCorrect: false },
-        { id: 'c', text: 'Spleisingsignal for intronfjening', isCorrect: false },
-        { id: 'd', text: 'Polyadenyleringssignal', isCorrect: false },
-      ],
-      solution: 'TATA-boksen er et promotorelement som finnes ca. 25-30 basepar oppstrøms for transkripsjonsstart i mange eukaryote gener. Den gjenkjennes av TFIID (en generell transkripsjonsfaktor), som hjelper med a posisjonere RNA-polymerase II korrekt for transkripsjonsinitiering.',
-    },
-    {
-      id: 'bio1-3-3-ex6',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Forklar hvordan alternativ spleising oker proteindiversiteten hos eukaryoter.',
-      solution: 'Alternativ spleising tillater at ulike kombinasjoner av eksoner inkluderes i ferdig mRNA fra samme gen. For eksempel kan et gen med 5 eksoner produsere mRNA med alle 5, eller hoppe over enkelte eksoner. Dette gir flere ulike proteiner fra ett gen. Mennesket har ca. 20 000 gener, men produserer over 100 000 ulike proteiner takket vaere alternativ spleising. Ulike celletyper kan bruke ulike spleisingsmoenstre, noe som bidrar til cellespesialisering.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Det doble kretsloepet', definition: 'To krinsloep: litle (lunger) og store (kroppen) som held oksygenrikt og oksygenfattig blod adskilt' },
+    { term: 'Sinusknuten', definition: 'Hjartets naturlege pacemaker i hoegre forkammer som startar kvart hjarteslag' },
+    { term: 'Hemoglobin', definition: 'Protein i raude blodceller som bind og transporterer oksygen' },
+    { term: 'Alveol', definition: 'Liten luftsekk i lungene der gassutveksling skjer' },
+    { term: 'Diffusjon', definition: 'Passiv transport av stoff fraa hoeg til laag konsentrasjon' },
+    { term: 'Slagvolum', definition: 'Mengda blod hjartet pumpar per slag' },
+    { term: 'Arterie', definition: 'Blodkar som foerer blod bort fraa hjartet' },
   ],
 };
 
 // ============================================================================
-// Kapittel 3.4: Translasjon
+// Kapittel 3.4: Muskel- og skjelettsystemet
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_3_4: TextbookChapter = {
   id: 'biologi-1-3-4',
   courseId: 'biologi-1',
   chapterNumber: '3.4',
-  title: 'Translasjon',
-  description: 'Proteinsyntese pa ribosomer med tRNA, kodon-antikodon-gjenkjenning og de tre fasene: initiering, elongering og terminering.',
-  estimatedMinutes: 55,
+  title: 'Muskel- og skjelettsystemet',
+  description: 'Skjelettet, leddtypar, muskeltypar og korleis musklar og skjelett samarbeider om bevegelse.',
+  estimatedMinutes: 50,
   competenceGoals: [
-    'forklare ribosomets struktur og funksjon i translasjon',
-    'beskrive tRNAs rolle som adaptermoekyl',
-    'gjore rede for kodon-antikodon-interaksjon',
-    'forklare de tre fasene i translasjon',
+    'beskrive hovuddelane av skjelettet og skilje mellom aksialskjelettet og appendikulaerskjelettet',
+    'gjore rede for ulike leddtypar og korleis dei mogeleggjer ulike bevegelsar',
+    'forklare oppbygningen av skjelettmuskulatur og mekanismen bak muskelkontraksjon',
+    'forklare prinsippet om agonist og antagonist i muskelsamarbeid',
   ],
   content: [
     {
       id: 'bio1-3-4-intro',
       type: 'text',
-      content: `# Translasjon
+      content: `# Muskel- og skjelettsystemet
 
-Translasjon er prosessen der genetisk informasjon i mRNA oversettes til en aminosyresekvens - et protein. Dette er det andre steget i genekspresjon etter transkripsjon.
+Muskel- og skjelettsystemet gjev kroppen form, stoette og evne til bevegelse. Skjelettet dannar rammeverket, ledda gjev fleksibilitet, og musklane produserer kreftene som driv bevegelsane. Saman utgjer dei eit elegant samarbeid mellom passive og aktive strukturar.
 
-## Oversikt
+## Skjelettet
 
-**Sted:** Ribosomer i cytoplasma (og pa ru ER)
-**Input:** mRNA med kodonsekvens
-**Output:** Polypeptidkjede (protein)
-**Adaptermolekyl:** tRNA
+Det vaksne menneskeskjelettet bestaar av 206 bein. Skjelettet har fleire viktige funksjonar:
 
-Ribosomet fungerer som en molekylaer maskin som leser mRNA tre baser om gangen (kodon) og kobler pa riktig aminosyre via tRNA.`,
+- **Stoette**: Gjev kroppen form og held den oppreist
+- **Bevegelse**: Fungerer som heftestadar og vektarmar for musklane
+- **Vern**: Beskytar vitale organ (kraniet vernar hjernen, ribbena vernar hjartet og lungene)
+- **Blodcelleproduksjon**: Raud beinmarg i dei store beina produserer blodceller (hematopoese)
+- **Minerallagring**: Lagrar kalsium og fosfor som kan frigjerast naar kroppen treng det
+
+### Aksialskjelettet og appendikulaerskjelettet
+
+Skjelettet kan delast i to hovuddelar:
+
+**Aksialskjelettet** (80 bein) utgjer kroppens sentrale akse:
+- Kraniet (22 bein) – vernar hjernen og sanseorgana
+- Ryggsoeyla (33 ryggvirvlar, inkludert korsbeinet og halebeinet) – ber kroppsvekta og vernar ryggmargen
+- Brystkassa (brystbeinet + 12 par ribbein) – vernar hjarte og lunger, og hjelper med pustebevegelsane
+
+**Appendikulaerskjelettet** (126 bein) omfattar lemmene og festepunkta deira:
+- Skulderbeltet (kragebein og skulderblad) og armane
+- Hoftebeltet (hoftebein) og beina
+
+Ryggsoeyla er S-forma og bestar av virvlar skilde av mellomvirvelskiver (diskar) av brusk. Diskane fungerer som stoetdemparar og gjev ryggsoeyla fleksibilitet.`,
     },
     {
-      id: 'bio1-3-4-def-translasjon',
+      id: 'bio1-3-4-def-1',
       type: 'definition',
-      title: 'Translasjon',
-      content: 'Translasjon er prosessen der ribosomer leser mRNA-sekvensen og syntetiserer et protein. mRNA leses tre nukleotider om gangen (kodon), og hvert kodon spesifiserer en bestemt aminosyre. tRNA-molekyler frakter aminosyrene til ribosomet der de kobles sammen i en polypeptidkjede.',
-    },
-    {
-      id: 'bio1-3-4-ribosom',
-      type: 'text',
-      content: `## Ribosomet
-
-Ribosomer er komplekse molekylmaskiner bygd av rRNA og proteiner.
-
-### Struktur
-
-**To subenheter:**
-- **Stor subenhet:** Katalyserer peptidbindingsdannelse
-- **Liten subenhet:** mRNA-binding og kodon-avlesning
-
-**Storrelser:**
-- Prokaryoter: 70S (50S + 30S)
-- Eukaryoter: 80S (60S + 40S)
-- S = Svedberg-enheter (sedimentasjonshastighet)
-
-### Bindingsseter
-
-Ribosomet har tre tRNA-bindingsseter:
-
-**A-sete (Aminoacyl):**
-- Innkommende aminoacyl-tRNA binder her
-- Kodon-antikodon-gjenkjenning skjer her
-
-**P-sete (Peptidyl):**
-- Holder tRNA med voksende polypeptidkjede
-- Peptidbindingsdannelse skjer mellom P- og A-sete
-
-**E-sete (Exit):**
-- Tomt tRNA forlater ribosomet herfra
-- Siste stopp for utbrukt tRNA`,
-    },
-    {
-      id: 'bio1-3-4-trna',
-      type: 'text',
-      content: `## tRNA - Adaptermoleylet
-
-tRNA (transfer-RNA) er broen mellom mRNA-kodon og aminosyre.
-
-### Struktur
-
-**Kleverbladform:**
-- 75-95 nukleotider langt
-- Folder seg til karakteristisk L-form
-- Flere sløyfer og stilker
-
-**Viktige regioner:**
-
-**1. Antikodon-sløyfe:**
-- 3 nukleotider som baseparer med mRNA-kodon
-- Komplementaer til kodon (antiparallell)
-
-**2. Akseptorstilk:**
-- 3'-enden med sekvensen CCA
-- Her festes aminosyren
-
-**3. D-løkke og T-løkke:**
-- Inneholder modifiserte baser
-- Viktig for tRNA-folding og gjenkjenning
-
-### Aminoacyl-tRNA-syntaser
-
-**Funksjon:**
-- Kobler riktig aminosyre til riktig tRNA
-- 20 ulike syntaser (en for hver aminosyre)
-- Kritisk for translasjons nøyaktighet
-
-**Reaksjon:**
-Aminosyre + tRNA + ATP → Aminoacyl-tRNA + AMP + PPi
-
-**Proofreading:**
-- Syntasene har korrekturlesingsmekanismer
-- Sikrer at riktig aminosyre festes`,
-    },
-    {
-      id: 'bio1-3-4-def-kodon',
-      type: 'definition',
-      title: 'Kodon og antikodon',
-      content: 'Et kodon er en sekvens pa tre nukleotider i mRNA som spesifiserer en bestemt aminosyre (eller stoppsingal). Det finnes 64 mulige kodoner. Et antikodon er den komplementaere trebasesekvensen pa tRNA som gjenkjenner og baseparer med kodon. Kodon-antikodon-interaksjon sikrer at riktig aminosyre settes inn i proteinet.',
-    },
-    {
-      id: 'bio1-3-4-faser',
-      type: 'text',
-      content: `## Translasjonens tre faser
-
-### 1. Initiering
-
-**Hos eukaryoter:**
-
-**Steg 1:** Initieringsfaktorer og liten ribosom-subenhet binder mRNA
-- Gjenkjenner 5'-cap
-- Scanner etter startkodon AUG
-
-**Steg 2:** Initiator-tRNA binder
-- Baerer metionin (Met)
-- Binder til P-setet
-- Antikodon: UAC (parer med AUG)
-
-**Steg 3:** Stor subenhet kobles pa
-- Danner komplett 80S ribosom
-- Klar for elongering
-
-### 2. Elongering
-
-En syklus per aminosyre som legges til:
-
-**Steg 1: Kodongjenkjenning**
-- Aminoacyl-tRNA binder til A-sete
-- Antikodon ma matche kodon
-- Krever GTP-hydrolyse (EF-Tu)
-
-**Steg 2: Peptidbindingsdannelse**
-- Katalyseres av 23S rRNA (ribozym)
-- Polypeptidkjeden overføres fra P-sete-tRNA til A-sete-aminosyre
-- Peptidbinding dannes
-
-**Steg 3: Translokasjon**
-- Ribosomet beveger seg ett kodon (3 baser) langs mRNA
-- A-sete-tRNA → P-sete
-- P-sete-tRNA → E-sete
-- Krever EF-G og GTP
-
-**Hastighet:** Ca. 15-20 aminosyrer per sekund
-
-### 3. Terminering
-
-**Nar stoppkodon nar A-sete:**
-- Stoppkodoner: UAA, UAG, UGA
-- Ingen tRNA med matchende antikodon
-
-**Frigjøringsfaktorer (RF):**
-- Gjenkjenner stoppkodon
-- Trigger hydrolyse av polypeptidkjeden
-- Ribosom-subenhetene dissosierer
-
-**Resultat:**
-- Ferdig polypeptidkjede frigjøres
-- Ribosom deles og resirkuleres
-- mRNA kan translateres pa nytt`,
-    },
-    {
-      id: 'bio1-3-4-def-peptidbinding',
-      type: 'definition',
-      title: 'Peptidbinding',
-      content: 'En peptidbinding er den kovalente bindingen mellom aminosyrer i et protein. Den dannes mellom karboksylgruppen (-COOH) pa en aminosyre og aminogruppen (-NH₂) pa neste aminosyre, med frigjoring av vann. Pa ribosomet katalyseres peptidbindingsdannelse av rRNA i den store subenheten.',
+      title: 'Ledd',
+      content: 'Eit ledd er ein stad der to eller fleire bein moeter kvarandre. Ledd kan klassifiserast etter bevegelsegrad: Fibrose ledd (ubevegelegge, t.d. skallesoemer), bruskledds (lite bevegelegge, t.d. mellomvirvelskivene) og synovialledd (fritt bevegelegge, t.d. kne og skulder). Synovialledd har ein leddkapsel fylt med synovialvaeske (leddvaeske) som smoerer og naerer leddbrusken. Leddband (ligament) stabiliserer ledda, medan sener festar musklar til bein.',
     },
     {
       id: 'bio1-3-4-example-1',
       type: 'example',
-      title: 'Eksempel: Fra mRNA til aminosyresekvens',
-      problem: 'mRNA har sekvensen 5\'-AUGGCUUACUAA-3\'. Oversett denne til en aminosyresekvens ved hjelp av kodontabellen.',
-      solution: `**Losning:**
+      title: 'Eksempel: Ulike leddtypar og bevegelsar',
+      problem: 'Beskriv tre ulike typar synovialledd og kva for bevegelsar kvar av dei tillet.',
+      solution: `**Loesning:**
 
-**Steg 1:** Del mRNA inn i kodoner (3 baser)
-5'-AUG-GCU-UAC-UAA-3'
+1. **Hengselledd** (t.d. kneet og albogen): Tillater bevegelse i berre eitt plan – boeyging (fleksjon) og strekning (ekstensjon). Fungerer som eit doerhengsle. Kneet kan boeyast og strekkjast, men ikkje roterast nemneverdig.
 
-**Steg 2:** Oversett hvert kodon (bruk standardkodontabell)
-- AUG = Metionin (Met) - startkodon
-- GCU = Alanin (Ala)
-- UAC = Tyrosin (Tyr)
-- UAA = STOPP
+2. **Kuleledd** (t.d. skulder og hofte): Tillater bevegelse i alle retningar – fleksjon, ekstensjon, abduksjon (fraa kroppen), adduksjon (mot kroppen) og rotasjon. Skulderleddet er kroppens mest bevegelegge ledd, noko som ogso gjer det meir utsett for skadar.
 
-**Steg 3:** Skriv aminosyresekvensen
-Met-Ala-Tyr (eller M-A-Y i enkeltbokstavkode)
+3. **Dreieledd** (t.d. mellom foerste og andre halsvirvel, og mellom radius og ulna i underarmen): Tillater rotasjon rundt ei akse. Leddet mellom atlas og axis (dei to oeverste halsvirvlane) leet deg dreje hovudet fraa side til side.
 
-**Svar:** Peptidet er: Metionin - Alanin - Tyrosin
-
-**Merk:**
-- Translasjon starter alltid med AUG (metionin)
-- UAA er et stoppkodon, sa translasjon stopper her
-- Det ferdige proteinet har 3 aminosyrer`,
+Kvar leddtype har ein form som er tilpassa den bevegelsetypen som trengst paa den aktuelle staden i kroppen.`,
+    },
+    {
+      id: 'bio1-3-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kva for ein del av skjelettet høyrer til aksialskjelettet?',
+        options: [
+          { id: 'a', text: 'Ryggsoeyla, kraniet og brystkassa', isCorrect: true },
+          { id: 'b', text: 'Armane, beina og hoftebeinet', isCorrect: false },
+          { id: 'c', text: 'Skulderbeltet og hoftebeltet', isCorrect: false },
+          { id: 'd', text: 'Hendene, foettene og kneledda', isCorrect: false },
+        ],
+        solution: 'Aksialskjelettet utgjer kroppens sentrale akse og bestaar av kraniet (22 bein), ryggsoeyla (33 virvlar) og brystkassa (brystbeinet og 12 par ribbein). Appendikulaerskjelettet omfattar lemmene (armar og bein) og belta som festar dei til aksialskjelettet (skulderbeltet og hoftebeltet).',
+      },
+    },
+    {
+      id: 'bio1-3-4-def-2',
+      type: 'definition',
+      title: 'Skjelettmuskelfiber',
+      content: 'Ein skjelettmuskelfiber er ei lang, sylindrisk celle med fleire cellekjerner. Kvar fiber inneheld mange myofibrillar – lange traadforma strukturar som bestaar av dei kontraktile proteina aktin (tynne filament) og myosin (tjukke filament). Myofibrillane er organiserte i repeterte einingar kalla sarkomerar, som er den funksjonelle kontraksjonseininga i muskelen. Naar muskelen kontraherer, glir aktinfilamenta langs myosinfilamenta – dette kallast glidefialmentmodellen.',
     },
     {
       id: 'bio1-3-4-example-2',
       type: 'example',
-      title: 'Eksempel: Antikodon-identifisering',
-      problem: 'Hva er antikodon-sekvensen pa tRNA som frakter aminosyren kodet av kodon 5\'-GCU-3\'?',
-      solution: `**Losning:**
+      title: 'Eksempel: Agonist og antagonist – biceps og triceps',
+      problem: 'Forklar korleis biceps og triceps samarbeider naar du boeyger og strekkjer albogen.',
+      solution: `**Loesning:**
 
-**Steg 1:** Husk baseparingsreglene
-- G parer med C
-- C parer med G
-- A parer med U
-- U parer med A
+Musklar kan berre trekke – dei kan ikkje dytte. Difor maa musklar jobbe i par der dei har motsett verknad:
 
-**Steg 2:** Antikodon er komplementaer og antiparallell til kodon
+**Boeyging av albogen (fleksjon):**
+- **Agonist** (utfoerer bevegelesa): Biceps brachii kontraherer og boeyger armen
+- **Antagonist** (motverkar agonisten): Triceps brachii slappar av og vert strekt
 
-Kodon:    5'-GCU-3'
-Antikodon: 3'-CGA-5'
+**Strekning av albogen (ekstensjon):**
+- **Agonist**: Triceps brachii kontraherer og strekkjer armen
+- **Antagonist**: Biceps brachii slappar av og vert strekt
 
-**Steg 3:** Skriv antikodon i 5' → 3' retning (konvensjon)
-Antikodon: 5'-AGC-3'
+Rollene er altsaa bytte om – kva muskel som er agonist avheng av kva bevegelse som utfoerast. Denne organiseringa i agonist-antagonist-par er noedvendig fordi ein muskel som har trukke seg saman, treng ein annan muskel for aa strekke seg tilbake til utgangslengda.
 
-**Svar:** Antikodonet er 5'-AGC-3' (eller 3'-CGA-5')
+I tillegg finst det **synergister** – musklar som hjelper agonisten med bevegelesa – og **fiksatorar** – musklar som stabiliserer eit naboledd slik at agonisten kan jobbe effektivt.`,
+    },
+    {
+      id: 'bio1-3-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar korleis muskelkontraksjon skjer paa molekylaert nivaa. Bruk omgrepa aktin, myosin, sarkomer og kalsiumion i svaret ditt.',
+        hints: ['Tenk paa kva som utloeser kontraksjonen og kva som skjer med filamenta', 'Kva rolle spelar ATP?'],
+        solution: 'Muskelkontraksjon startar med eit nervesignal som faar muskelcella til aa frigjere kalsiumion (Ca²⁺) fraa sarkoplasmatisk retikulum. Kalsiumiona bind seg til proteinet troponin paa aktinfilamenta, noko som avdekkjer bindingsstadene paa aktin. Myosinhovuda (paa dei tjukke filamenta) bind seg til aktin og utfoerer ein kraftslag som dreg aktinfilamenta mot midten av sarkomeren. ATP bind seg til myosinhovudet, faar det til aa losne fraa aktin, og gjev energi til eit nytt kraftslag. Denne syklusen gjentek seg saa lenge Ca²⁺ og ATP er tilgjengelege. Resultatet er at sarkomeren forkortar seg – aktin- og myosinfilamenta glir langs kvarandre (glidefilamentmodellen). Naar nervestimuleringa stoppar, pumpast Ca²⁺ tilbake til sarkoplasmatisk retikulum, og muskelen slappar av.',
+      },
+    },
+    {
+      id: 'bio1-3-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva for ein paastand om muskelkontraksjon er riktig?',
+        options: [
+          { id: 'a', text: 'Aktin- og myosinfilamenta glir langs kvarandre slik at sarkomeren vert kortare', isCorrect: true },
+          { id: 'b', text: 'Aktin- og myosinfilamenta vert sjolve kortare under kontraksjon', isCorrect: false },
+          { id: 'c', text: 'Muskelkontraksjon krev ikkje energi (ATP)', isCorrect: false },
+          { id: 'd', text: 'Kalsiumion hemmar muskelkontraksjon', isCorrect: false },
+        ],
+        solution: 'Ifoelje glidefilamentmodellen glir aktin- og myosinfilamenta langs kvarandre – sjolve filamenta vert ikkje kortare. Sarkomeren (kontraksjonseininga) vert kortare fordi aktinfilamenta vert dregne mot midten. Prosessen krev ATP (energi) og vert utloest av kalsiumion som frigjerast fraa sarkoplasmatisk retikulum.',
+      },
+    },
+    {
+      id: 'bio1-3-4-def-3',
+      type: 'definition',
+      title: 'Sener og leddband',
+      content: 'Sener er sterke baand av tett, fiberrikt bindevev som festar musklar til bein. Dei overforer kreftene fraa muskelkontraksjonen til skjelettet og moegeleggjer bevegelse. Leddband (ligament) er ogso baand av bindevev, men dei festar bein til bein over eit ledd. Leddbanda stabiliserer ledda og avgrensar bevegelsa slik at ledda ikkje vert overbevegde. Baade sener og leddband bestaar hovudsakleg av kollagenfibre, som gjev dei stor strekkstyrke.',
+    },
+    {
+      id: 'bio1-3-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Bein som levande vev',
+      problem: 'Mange trur at bein er doedt materiale, men bein er faktisk levande vev. Forklar kvifor.',
+      solution: `**Loesning:**
 
-**Merk:**
-- Kodon GCU koder for alanin
-- tRNA med dette antikodonet baerer alanin
-- Antikodon-kodon-paring skjer antiparallelt i A-setet pa ribosomet`,
+Bein er levande vev som stadig vert brote ned og bygd opp att (remodellering):
+
+**Levande komponentar:**
+- **Osteoblastar** – celler som bygger nytt bein ved aa produsere kollagen og mineralisere det med kalsiumfosfat
+- **Osteocyttar** – modne beinceller innleira i beinmatriksen som kommuniserer med andre celler
+- **Osteoklastar** – store celler som bryt ned bein ved aa frigjere syrer og enzym
+
+**Beinets oppbygning:**
+- **Organisk komponent** (ca. 35 %): Hovudsakleg kollagenfibre som gjev bein fleksibilitet og slagfastheit
+- **Uorganisk komponent** (ca. 65 %): Hovudsakleg hydroksyapatitt (kalsiumfosfat) som gjev bein hardheit og trykkstyrke
+
+**Remodellering:**
+Osteoklastar bryt ned gammalt bein, og osteoblastar bygger nytt – ca. 10 % av skjelettet vert fornya kvart aar. Denne prosessen er regulert av hormon (paratyroideahormon, kalsitonin, vitamin D) og mekanisk belasting. Fysisk aktivitet stimulerer beinbygging – difor er veketberande trening viktig for aa forebyggje beinskjoerheit (osteoporose).`,
+    },
+    {
+      id: 'bio1-3-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Samanlikn dei tre typane muskelvev: skjelettmuskulatur, glatt muskulatur og hjartemuskulatur. Lag ei tabell som viser skilnader i utsjaanad, plassering og styring (viljestyrt/ikkje-viljestyrt).',
+        hints: ['Tenk paa kvar kvar type finst, og om du kan styre dei bevisst'],
+        solution: 'Skjelettmuskulatur: Tverrstripet moernster, lange fleirckjerna celler. Festa til skjelettet via sener. Viljestyrt – styrt av somatiske nervar. Eksempel: biceps, quadriceps. Glatt muskulatur: Ingen striper, spolforma celler med eitt kjerne. Finst i veggen til indre organ (tarm, blodaarer, urinblore, livmor). Ikkje-viljestyrt – styrt av det autonome nervesystemet. Eksempel: peristaltikk i tarmen. Hjartemuskulatur: Tverrstripet, forgreina celler med eitt–to kjerne, knytte saman av intercalerte skivar. Finst berre i hjartet. Ikkje-viljestyrt – sjolvstartande (sinusknuten), men regulert av autonome nervar. Hjartemuskulatur har unike eigenskapar: den er tverrstripet som skjelettmuskel, men automatisk som glatt muskel.',
+      },
+    },
+    {
+      id: 'bio1-3-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+Muskel- og skjelettsystemet gjev stoette, vern og bevegelse:
+
+**Skjelettet (206 bein):**
+- Aksialskjelettet: kraniet, ryggsoeyla, brystkassa
+- Appendikulaerskjelettet: armar, bein og belta
+- Bein er levande vev som stadig vert remodellert
+
+**Ledd:**
+- Synovialledd (fritt bevegelegge) er viktigast for bevegelse
+- Typar: hengselledd, kuleledd, dreieledd m.fl.
+- Leddband stabiliserer, sener festar muskel til bein
+
+**Skjelettmuskulatur:**
+- Kontraktile protein: aktin og myosin organisert i sarkomerar
+- Glidefilamentmodellen: filamenta glir langs kvarandre
+- Krev Ca²⁺ og ATP for kontraksjon
+
+**Muskelsamarbeid:**
+- Agonist utfoerer bevegelsa, antagonist motverkar
+- Musklar jobbar alltid i par (t.d. biceps/triceps)
+
+Forstainga av muskel- og skjelettsystemet er viktig for aa forstaa bevegelse, skadar og korleis fysisk aktivitet paaverkar kroppen.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-3-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Ein person bryt laarbeinet (femur) og faar gips i 8 veker. Etter at gipsen er fjerna, er musklane i det skadde beinet tydeleg tynnare enn i det friske beinet. Forklar kvifor dette skjer og kva som maa til for aa bygge opp musklane igjen.',
+        hints: ['Tenk paa kva som skjer med musklar som ikkje vert brukte', 'Kva stimulerer muskeloppbygging?'],
+        solution: 'Naar musklar ikkje vert brukte (immobilisert i gips), skjer muskelatrofi – muskelfibrene vert tynnare og svakare. Proteinnedbrytinga aukar og proteinoppbygginga minkar. Etter 8 veker kan muskelstorleiken vere betydeleg redusert. For aa bygge opp musklane igjen (rehabilitering) trengst progressiv styrketrening. Fysisk belasting stimulerer muskelcellene til aa auke proteinsyntesen, saerleg av aktin og myosin. Muskelfibrene vert tjukkare (hypertrofi), ikkje fleire. Full rehabilitering tek typisk 2–3 gonger saa lang tid som immobiliseringsperioden. I tillegg til muskelatrofi kan beintettheita i det immobiliserte beinet ha minka (bruksosteoporose), fordi bein ogso treng mekanisk belasting for aa oppretthalde styrken.',
+      },
+    },
+    {
+      id: 'bio1-3-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Kva er funksjonen til synovialvaeske (leddvaeske) i eit synovialledd?',
+        options: [
+          { id: 'a', text: 'Ho smoerer leddflata og reduserer friksjon mellom beina', isCorrect: true },
+          { id: 'b', text: 'Ho festar beina til kvarandre over leddet', isCorrect: false },
+          { id: 'c', text: 'Ho produserer raud blodceller for sirkulasjonssystemet', isCorrect: false },
+          { id: 'd', text: 'Ho sender nervsignal mellom beina i leddet', isCorrect: false },
+        ],
+        solution: 'Synovialvaeske (leddvaeske) er ein viskoes vaeske som finst inne i leddkapselen i synovialledd. Hovudfunksjonane er: (1) Smoeering – reduserer friksjon mellom leddflatene ved bevegelse. (2) Stoetdemping – absorberer stoeyt og trykk. (3) Naering – leverer naeringstoffer til leddbrusken, som ikkje har eigne blodaarer. Leddbrusken faar naering ved diffusjon fraa synovialvaesken, og denne prosessen vert stimulert av bevegelse – endaa ein grunn til at fysisk aktivitet er viktig for leddhelse.',
+      },
+    },
+    {
+      id: 'bio1-3-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar kvifor rigor mortis (doedssstivheit) oppstaar etter doeden. Bruk kunnskapen din om muskelkontraksjon til aa forklare fenomenet.',
+        hints: ['Tenk paa kva som trengst for at myosin skal loesne fraa aktin', 'Kva skjer med ATP-produksjonen naar ein person doer?'],
+        solution: 'Etter doeden stoppar ATP-produksjonen fordi cellene ikkje lenger faar oksygen og naering. Ved muskelkontraksjon bind myosinhovuda seg til aktin og utfoerer eit kraftslag. For at myosinhovuda skal loesne fraa aktin og gjere muskelen klar for eit nytt slag (eller relaksasjon), maa eit nytt ATP-molekyl binde seg til myosinhovudet. Utan ATP forblir myosinhovuda fastklistra til aktin i ein permanent kontraksjon – dette er rigor mortis. Stivheita byrjar typisk 2–6 timar etter doeden og forsvinn att etter 24–72 timar naar nedbrytingsprosessar (autolyse) bryt ned muskelproteina.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-3-4-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hva er startkodonet for translasjon?',
-      options: [
-        { id: 'a', text: 'AUG', isCorrect: true },
-        { id: 'b', text: 'UAA', isCorrect: false },
-        { id: 'c', text: 'UAG', isCorrect: false },
-        { id: 'd', text: 'UGA', isCorrect: false },
-      ],
-      solution: 'AUG er startkodonet som initierer translasjon og koder for aminosyren metionin. UAA, UAG og UGA er stoppkodoner som avslutter translasjon.',
-    },
-    {
-      id: 'bio1-3-4-ex2',
-      type: 'classic',
-      difficulty: 'lett',
-      task: 'Nevn de tre bindingssetene pa ribosomet og beskriv kort funksjonen til hvert.',
-      solution: 'A-sete (Aminoacyl): Her binder innkommende aminoacyl-tRNA med sin aminosyre. Kodon-antikodon-gjenkjenning skjer her. P-sete (Peptidyl): Holder tRNA med den voksende polypeptidkjeden. Peptidbindingsdannelse skjer mellom aminosyren i A-sete og peptidkjeden i P-sete. E-sete (Exit): Her forlater tomme tRNA-molekyler ribosomet etter at de har avgitt sin aminosyre.',
-    },
-    {
-      id: 'bio1-3-4-ex3',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hvilke av folgende er stoppkodoner?',
-      options: [
-        { id: 'a', text: 'UAA, UAG, UGA', isCorrect: true },
-        { id: 'b', text: 'AUG, UAA, UAG', isCorrect: false },
-        { id: 'c', text: 'UGG, UGA, UAA', isCorrect: false },
-        { id: 'd', text: 'UAU, UAC, UGA', isCorrect: false },
-      ],
-      solution: 'De tre stoppkodonene er UAA, UAG og UGA. De koder ikke for noen aminosyre, men signaliserer at translasjon skal avsluttes. Frigjøringsfaktorer gjenkjenner disse kodonene og trigger frigjoring av den ferdige polypeptidkjeden.',
-    },
-    {
-      id: 'bio1-3-4-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Forklar hva som skjer under elongeringsfasen av translasjon.',
-      solution: 'Under elongering skjer en syklisk prosess for hver aminosyre som legges til: 1) Kodongjenkjenning - aminoacyl-tRNA med riktig antikodon binder til A-setet. 2) Peptidbindingsdannelse - polypeptidkjeden overføres fra tRNA i P-sete til aminosyren i A-sete, og ny peptidbinding dannes. 3) Translokasjon - ribosomet beveger seg ett kodon langs mRNA; tRNA i A-sete flyttes til P-sete, og tRNA i P-sete flyttes til E-sete og forlater ribosomet. Syklusen gjentas ca. 15-20 ganger per sekund.',
-    },
-    {
-      id: 'bio1-3-4-ex5',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Forklar aminoacyl-tRNA-syntasenes rolle og hvorfor de er kritiske for proteinsyntesenøyaktighet.',
-      solution: 'Aminoacyl-tRNA-syntaser er enzymer som kobler riktig aminosyre til riktig tRNA. Det finnes 20 ulike syntaser, en for hver aminosyre. De er kritiske fordi de sikrer at den genetiske koden oversettes korrekt - feil aminosyre pa et tRNA ville fore til feil protein. Syntasene har dobbel spesifisitet: de gjenkjenner bade aminosyren og tRNA. Mange syntaser har ogsa korrekturlesingsmekanismer som fjerner feilaktig festede aminosyrer. Uten noyaktige syntaser ville hele oversettelsen fra kodon til aminosyre bryte sammen.',
-    },
-    {
-      id: 'bio1-3-4-ex6',
-      type: 'multiple-choice',
-      difficulty: 'vanskelig',
-      task: 'Hva katalyserer peptidbindingsdannelse i ribosomet?',
-      options: [
-        { id: 'a', text: 'rRNA i den store subenheten (ribozym)', isCorrect: true },
-        { id: 'b', text: 'Ribosomale proteiner', isCorrect: false },
-        { id: 'c', text: 'tRNA', isCorrect: false },
-        { id: 'd', text: 'mRNA', isCorrect: false },
-      ],
-      solution: 'Peptidbindingsdannelse katalyseres av 23S rRNA (i prokaryoter) eller 28S rRNA (i eukaryoter) i den store ribosom-subenheten. Dette RNA-molekylet fungerer som et ribozym - et RNA-molekyl med enzymatisk aktivitet. Dette var et viktig funn som støtter ideen om en "RNA-verden" tidlig i livets historie.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Aksialskjelettet', definition: 'Kroppens sentrale akse: kraniet, ryggsoeyla og brystkassa' },
+    { term: 'Appendikulaerskjelettet', definition: 'Lemmene (armar og bein) og belta som festar dei til aksialskjelettet' },
+    { term: 'Synovialledd', definition: 'Fritt bevegelegge ledd med leddkapsel og synovialvaeske' },
+    { term: 'Sarkomer', definition: 'Den funksjonelle kontraksjonseininga i skjelettmuskel, mellom to Z-liner' },
+    { term: 'Glidefilamentmodellen', definition: 'Modell som forklarer kontraksjon ved at aktin og myosin glir langs kvarandre' },
+    { term: 'Agonist', definition: 'Muskelen som utfoerer ein bestemt bevegelse' },
+    { term: 'Antagonist', definition: 'Muskelen som motverkar agonisten og moegeleggjer motsett bevegelse' },
   ],
 };
 
 // ============================================================================
-// Kapittel 3.5: Den genetiske koden og genregulering
+// Kapittel 3.5: Hud, sanser og kroppens beskyttelse
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_3_5: TextbookChapter = {
   id: 'biologi-1-3-5',
   courseId: 'biologi-1',
   chapterNumber: '3.5',
-  title: 'Den genetiske koden og genregulering',
-  description: 'Kodontabellen, geners oppbygning med eksoner, introner og promotor, samt epigenetiske mekanismer for genregulering.',
+  title: 'Hud, sanser og kroppens beskyttelse',
+  description: 'Hudens oppbygning og funksjonar, sanseceller og sanseorgan, temperaturregulering og refleksbuar.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forsta den genetiske kodens egenskaper og bruke kodontabellen',
-    'beskrive et gens oppbygning med regulatoriske og kodende sekvenser',
-    'forklare hvordan genekspresjon reguleres pa ulike nivaer',
-    'gjore rede for epigenetiske mekanismer',
+    'beskrive hudens oppbygning og forklare dei viktigaste funksjonane til huda',
+    'gjore rede for ulike typar sanseceller og sansereseeptorar i huda',
+    'forklare korleis huda bidreg til temperaturregulering og beskyttelse',
+    'beskrive refleksbuen og forklare betydninga av refleksar for kroppens beskyttelse',
   ],
   content: [
     {
       id: 'bio1-3-5-intro',
       type: 'text',
-      content: `# Den genetiske koden og genregulering
+      content: `# Hud, sanser og kroppens beskyttelse
 
-Den genetiske koden er "ordlisten" som oversetter DNA-sekvens til protein. Men a ha en kode er ikke nok - celler ma ogsa regulere hvilke gener som uttrykkes, nar og hvor mye.
+Huda er kroppens stoerste organ – hos ein vaksen person dekker ho ca. 1,5–2 m² og veg 3–4 kg. Huda er langt meir enn berre eit dekke – ho er ein aktiv barriere som vernar kroppen, regulerer temperaturen, produserer vitamin D og inneheld eit rikt nettverk av sansereseeptorar.
 
-## Genetisk informasjonsstrøm
+## Hudens oppbygning
 
-DNA → (transkripsjon) → mRNA → (translasjon) → Protein
+Huda bestaar av tre hovudlag:
 
-Hvert steg i denne prosessen kan reguleres, noe som gir cellen fin kontroll over hvilke proteiner som produseres.`,
+### Overhuda (epidermis)
+- Det ytste laget, 0,05–1,5 mm tjukt (tjukkast paa handflater og fotsolar).
+- Bestaar av fleirlagd plateepitel. Cellene vert danna i det djupaste laget (basallaget) og skyva oppover etter kvart som nye celler vert danna under.
+- Paa veg oppover fylst cellene med proteinet **keratin** og doer – det ytste laget (hornlaget) bestaar av doede, keratinfylte celler som stadig skallast av.
+- Inneheld **melanocyttar** som produserer pigmentet melanin, som gjev huda farge og vernar mot UV-straaling.
+- Har ingen blodaarer – faar naering fraa laederhuda under.
+
+### Laederhuda (dermis)
+- Under overhuda, 1–4 mm tjukt.
+- Bestaar av bindevev med kollagen- og elastinfibre som gjev huda styrke og elastisitet.
+- Inneheld blodaarer, nervar, haarsekker, svettekjertlar, talgkjertlar og sansereseeptorar.
+- Fingeravtrykka vaare skuldast moensteret av papillar (utbuktningar) i overgangen mellom overhud og laederhud.
+
+### Underhuda (subcutis/hypodermis)
+- Det djupaste laget, bestaar hovudsakleg av feittvev.
+- Fungerer som isolasjon mot varmetap, stoetdempar og energireserve.
+- Festar huda til underliggjande musklar og bein.
+
+## Hudens funksjonar
+
+Huda har mange viktige funksjonar:
+
+- **Barriere**: Vernar mot mikroorganismar, kjemikaliar, UV-straaling og mekanisk skade
+- **Temperaturregulering**: Blodaarene og svettekjertlane regulerer varmetap
+- **Sensorisk organ**: Inneheld reseeptorar for beroring, trykk, temperatur og smerte
+- **Vitamin D-syntese**: UV-B-straaling i sollys omdannar eit forstadie i huda til vitamin D
+- **Uttskiljing**: Svette inneheld vatn, salt og noko avfallsstoff
+- **Immunforsvar**: Langerhansceller i epidermis er del av immunforsvaret`,
     },
     {
-      id: 'bio1-3-5-koden',
-      type: 'text',
-      content: `## Kodontabellen
-
-Den genetiske koden er forholdet mellom mRNA-kodoner og aminosyrer.
-
-### Kodens egenskaper
-
-**1. Triplett-kode:**
-- 3 nukleotider = 1 kodon = 1 aminosyre
-- 4³ = 64 mulige kodoner
-- 20 aminosyrer + 3 stoppkodoner
-
-**2. Degenerert (redundant):**
-- Flere kodoner kan kode for samme aminosyre
-- F.eks. leucin: UUA, UUG, CUU, CUC, CUA, CUG (6 kodoner)
-- Gir "buffer" mot mutasjoner
-
-**3. Ikke-overlappende:**
-- Hvert nukleotid tilhører kun ett kodon
-- Leserammen er kritisk
-
-**4. Universell (nesten):**
-- Samme kode brukes av nesten alle organismer
-- Sma unntak i mitokondrier og noen organismer
-- Bevis for felles opprinnelse
-
-**5. Entydig:**
-- Hvert kodon koder for kun én aminosyre
-- (Men en aminosyre kan ha flere kodoner)
-
-### Spesielle kodoner
-
-**Startkodon:** AUG (metionin)
-- Initierer translasjon
-- Bestemmer leserammen
-
-**Stoppkodoner:** UAA, UAG, UGA
-- Avslutter translasjon
-- Koder ikke for aminosyre`,
-    },
-    {
-      id: 'bio1-3-5-def-genkode',
+      id: 'bio1-3-5-def-1',
       type: 'definition',
-      title: 'Den genetiske koden',
-      content: 'Den genetiske koden er settet av regler som oversetter nukleotidsekvensen i mRNA til aminosyresekvensen i et protein. Koden bestar av 64 kodoner (triplett av nukleotider): 61 koder for aminosyrer og 3 er stoppkodoner. Koden er degenerert (flere kodoner per aminosyre), entydig og nesten universell.',
-    },
-    {
-      id: 'bio1-3-5-genstruktur',
-      type: 'text',
-      content: `## Geners oppbygning
-
-Et typisk eukaryot gen bestar av regulatoriske og kodende regioner.
-
-### Oppstrøms regulatoriske elementer
-
-**Promotor:**
-- DNA-sekvens der transkripsjon initieres
-- Gjenkjennes av transkripsjonsfaktorer og RNA-polymerase
-- Inneholder ofte TATA-boks (~25 bp oppstrøms)
-- Bestemmer transkripsjonsretning og -start
-
-**Enhancere:**
-- Forsterker transkripsjonen
-- Kan vaere langt fra genet (tusenvis av bp)
-- Fungerer i begge orienteringer
-- Binder spesifikke transkripsjonsfaktorer
-
-**Silencere:**
-- Hemmer transkripsjonen
-- Binder repressorproteiner
-
-### Genets kropp
-
-**5'-UTR (untranslated region):**
-- Transkriberes, men translateres ikke
-- Inneholder ribosom-bindingssete
-- Viktig for translasjonsregulering
-
-**Eksoner:**
-- Kodende sekvenser
-- Beholdes i ferdig mRNA
-- Inneholder proteinkodonsekvens
-
-**Introner:**
-- Ikke-kodende sekvenser
-- Fjernes ved spleising
-- Kan inneholde regulatoriske elementer
-
-**3'-UTR:**
-- Transkriberes, men translateres ikke
-- Inneholder polyadenyleringssignal
-- Viktig for mRNA-stabilitet
-
-### Nedstrøms elementer
-
-**Poly(A)-signal:**
-- AAUAAA-sekvens
-- Signaliserer klipping og polyadenylering`,
-    },
-    {
-      id: 'bio1-3-5-def-promotor',
-      type: 'definition',
-      title: 'Promotor',
-      content: 'En promotor er en DNA-sekvens som ligger oppstrøms for et gen og kontrollerer transkripsjonsinitiering. Promotoren gjenkjennes av transkripsjonsfaktorer og RNA-polymerase. Den bestemmer nar, hvor og hvor mye et gen transkriberes. TATA-boksen er et vanlig promotorelement i eukaryoter.',
-    },
-    {
-      id: 'bio1-3-5-genregulering',
-      type: 'text',
-      content: `## Genregulering
-
-Celler ma regulere hvilke gener som uttrykkes for a:
-- Tilpasse seg miljøet
-- Utvikle seg korrekt
-- Opprettholde celletypers identitet
-
-### Reguleringsnivaer
-
-**1. Kromatinniva:**
-- Apne/lukke kromatinstruktur
-- Histonmodifikasjoner
-- DNA-metylering
-
-**2. Transkripsjonsniva:**
-- Transkripsjonsfaktorer
-- Enhancere og silencere
-- Mediator-kompleks
-
-**3. Post-transkripsjonelt:**
-- mRNA-prosessering
-- Alternativ spleising
-- mRNA-stabilitet
-- microRNA-regulering
-
-**4. Translasjonsniva:**
-- Initieringskontroll
-- Ribosomtilgjengelighet
-
-**5. Post-translasjonelt:**
-- Proteinmodifikasjoner
-- Proteinnedbrytning
-- Proteintransport`,
-    },
-    {
-      id: 'bio1-3-5-epigenetikk',
-      type: 'text',
-      content: `## Epigenetikk
-
-Epigenetikk handler om arvelige endringer i genekspresjon som IKKE skyldes endringer i DNA-sekvensen.
-
-### DNA-metylering
-
-**Hva:**
-- Metylgruppe (-CH₃) legges til cytosin
-- Hovedsakelig pa CpG-dinukleotider
-- Utføres av DNA-metyltransferaser
-
-**Effekt:**
-- Metylert promotor = gen slatt av
-- Stabil, arvelig modifikasjon
-- Viktig for genomisk imprinting
-
-### Histonmodifikasjoner
-
-**Typer:**
-- Acetylering (Ac): Apner kromatin → aktiv
-- Metylering (Me): Kan apne eller lukke
-- Fosforylering (P): Involverer i DNA-reparasjon
-- Ubiquitinering (Ub): Kan aktivere eller inaktivere
-
-**Histonkode-hypotesen:**
-- Kombinasjoner av modifikasjoner gir spesifikke effekter
-- "Leses" av proteiner med spesielle domener
-
-### Epigenetisk arv
-
-**Gjennom celledeling:**
-- Modifikasjoner kopieres til datterceller
-- Opprettholder celleidentitet
-
-**Generasjoner:**
-- Noen epigenetiske merker kan arves
-- Miljopavirkning pa epigenetikk (f.eks. ernaering, stress)
-
-### Epigenetikk og sykdom
-
-- **Kreft:** Feil epigenetisk regulering
-- **Utviklingsforstyrrelser:** Imprinting-defekter
-- **Nevrologiske sykdommer:** Epigenetisk dysregulering`,
-    },
-    {
-      id: 'bio1-3-5-def-epigenetikk',
-      type: 'definition',
-      title: 'Epigenetikk',
-      content: 'Epigenetikk er studiet av arvelige endringer i genekspresjon som ikke involverer endringer i DNA-sekvensen. Viktige mekanismer inkluderer DNA-metylering og histonmodifikasjoner. Epigenetiske merker pavirker om gener er "pa" eller "av", og kan arves gjennom celledeling og noen ganger mellom generasjoner.',
+      title: 'Sansereseeptorar i huda',
+      content: 'Huda inneheld fleire typar sansereseeptorar (sanseceller) som registrerer ulike stimuli: Meissners legeme registrerer lett beroring (finst i papillane, saerleg i fingertuppar). Pacinis legeme registrerer djupt trykk og vibrasjon (finst i laederhuda og underhuda). Ruffinis legeme registrerer strekk i huda. Frie nerveendar registrerer smerte (nocireseptorar) og temperatur (termoreseptorar). Merkelceller registrerer vedvarande trykk. Tettleiken av reseptorar varierer – fingertuppane og leppene har flest, medan ryggen har faerrest.',
     },
     {
       id: 'bio1-3-5-example-1',
       type: 'example',
-      title: 'Eksempel: Bruk av kodontabellen',
-      problem: 'Gitt mRNA-sekvensen 5\'-AUGUUUGGCAGUUGA-3\', bestem aminosyresekvensen og identifiser eventuelle stoppkodoner.',
-      solution: `**Losning:**
+      title: 'Eksempel: Temperaturregulering via huda',
+      problem: 'Forklar korleis huda bidreg til temperaturregulering naar kroppstemperaturen stig (t.d. ved trening) og naar den synk (t.d. i kulde).',
+      solution: `**Loesning:**
 
-**Steg 1:** Del sekvensen inn i kodoner fra startkodon
-5'-AUG-UUU-GGC-AGU-UGA-3'
+**Naar kroppstemperaturen stig:**
+Hypothalamus registrerer at blodtemperaturen er over setpunktet (ca. 37 °C) og sender signal som utloeser:
 
-**Steg 2:** Oversett hvert kodon
-- AUG = Metionin (Met, M) - START
-- UUU = Fenylalanin (Phe, F)
-- GGC = Glycin (Gly, G)
-- AGU = Serin (Ser, S)
-- UGA = STOPP
+1. **Vasodilatasjon** – blodaarene i laederhuda utvidar seg. Meir blod stroeymer nair hudoverflata, og varme avgjevast til omgjevnadene via straaling og konveksjon. Huda vert raudare.
+2. **Svetteproduksjon** – svettekjertlane produserer svette som fordampar fraa hudoverflata. Fordamping krev energi (varme), saa kroppen kjoelast ned. Ein person kan svette opptil 2 liter per time ved intens aktivitet.
 
-**Steg 3:** Skriv aminosyresekvensen
-Met-Phe-Gly-Ser
+**Naar kroppstemperaturen synk:**
+Hypothalamus registrerer at blodtemperaturen er under setpunktet og sender signal som utloeser:
 
-I enkeltbokstavkode: MFGS
+1. **Vasokonstriksjon** – blodaarene i laederhuda trekkjer seg saman. Mindre blod naar hudoverflata, saa mindre varme tapast. Huda vert blakare.
+2. **Gaasehud** – smaa musklar (arrector pili) trekkjer haarsekkjane opp. Hos dyr fangar oppreist pels eit isolerande luftlag, men hos menneske er effekten minimal.
+3. **Skjelving** – ufrivillige, raske muskelkontraksjoner som produserer varme.
 
-**Svar:**
-- Aminosyresekvens: Met-Phe-Gly-Ser
-- Startkodon: AUG
-- Stoppkodon: UGA (avslutter translasjon)
-- Det ferdige peptidet har 4 aminosyrer`,
+Dette er eit klassisk eksempel paa negativ tilbakekobling i homeostase.`,
+    },
+    {
+      id: 'bio1-3-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kva for eit lag av huda inneheld blodaarer, svettekjertlar og sansereseeptorar?',
+        options: [
+          { id: 'a', text: 'Laederhuda (dermis)', isCorrect: true },
+          { id: 'b', text: 'Overhuda (epidermis)', isCorrect: false },
+          { id: 'c', text: 'Underhuda (subcutis)', isCorrect: false },
+          { id: 'd', text: 'Hornlaget', isCorrect: false },
+        ],
+        solution: 'Laederhuda (dermis) er det midterste laget av huda og inneheld blodaarer, nervar, haarsekker, svettekjertlar, talgkjertlar og sansereseeptorar. Overhuda (epidermis) har ingen blodaarer og bestaar hovudsakleg av epitelceller. Underhuda (subcutis) bestaar hovudsakleg av feittvev og fungerer som isolasjon og energilager.',
+      },
+    },
+    {
+      id: 'bio1-3-5-def-2',
+      type: 'definition',
+      title: 'Refleksbue',
+      content: 'Ein refleksbue er den nervebanen som ligg til grunn for ein refleks – ein rask, automatisk og uvilleleg respons paa ein stimulus. Ein enkel refleksbue bestaar av fem komponentar: (1) Reseptor – sansecelle som registrerer stimulus (t.d. smertereseeptor i fingeren). (2) Sensorisk nerve (afferent) – foerer signalet til sentralnervesystemet. (3) Integrasjonssenter – vanlegvis i ryggmargen, der signalet vert prosessert. (4) Motorisk nerve (efferent) – foerer responssignalet til effektoren. (5) Effektor – utfoerer responsen (t.d. ein muskel som trekkjer handa bort).',
     },
     {
       id: 'bio1-3-5-example-2',
       type: 'example',
-      title: 'Eksempel: Epigenetisk regulering',
-      problem: 'Forklar hvordan DNA-metylering kan "sla av" et gen, og hvorfor dette er viktig for celledifferensiering.',
-      solution: `**Losning:**
+      title: 'Eksempel: Trekkje-bort-refleksen',
+      problem: 'Du rorer ved ein varm komfyr og trekkjer handa bort foer du kjenner smerte. Forklar korleis denne refleksen fungerer.',
+      solution: `**Loesning:**
 
-**Mekanismen:**
+Trekkje-bort-refleksen (withdrawal reflex) er ein beskyttelsesrefleks som hindrar vevsksade:
 
-1. **Normal tilstand (umetylert):**
-   - Promotorregionen er tilgjengelig
-   - Transkripsjonsfaktorer kan binde
-   - RNA-polymerase kan starte transkripsjon
-   - Genet er AKTIVT
+1. **Reseptor**: Smertereseeptorar (nocireseptorar) i fingerhuda registrerer den skadelege varmen.
 
-2. **Etter metylering:**
-   - Metylgrupper legges til cytosiner i promotor (CpG-oyer)
-   - Metyl-CpG-bindende proteiner (MBP) gjenkjenner metylert DNA
-   - MBP rekrutterer histonmodifiserende enzymer
-   - Kromatinet kondenserer
-   - Transkripsjonsfaktorer kan ikke lenger binde
-   - Genet er INAKTIVERT
+2. **Sensorisk nerve**: Signalet sendast langs ein sensorisk nervefiber til ryggmargen.
 
-**Betydning for differensiering:**
+3. **Integrasjonssenter**: I ryggmargen koplar den sensoriske nerva seg paa ein internervon (mellomnervcelle), som koplar vidare til ein motorisk nervecelle. Signalet treng ikkje gaa via hjernen – det prosesserast lokalt i ryggmargen.
 
-- Alle celler har samme DNA, men ulik genekspresjon
-- DNA-metylering hjelper med a "lase" vevsspesifikke gener
-- Eksempel: Muskelcelle har insulin-genet metylert (av), mens beta-celler i bukspyttkjertelen har det umetylert (pa)
-- Metyleringspattermet kopieres ved celledeling
-- Sikrer at datterceller beholder celletypeidentitet
+4. **Motorisk nerve**: Den motoriske nervcella sender signal til musklane i armen.
 
-**Konklusjon:** DNA-metylering er en stabil mekanisme for a opprettholde celleidentitet uten a endre DNA-sekvensen.`,
+5. **Effektor**: Boeygjemusklane i armen kontraherer og trekkjer handa bort fraa den varme flata.
+
+**Kvifor kjenner du smerta foerst etterpaa?**
+Refleksen gaar direkte gjennom ryggmargen og tek berre ca. 0,05 sekund. Samstundes vert signalet ogso sendt vidare opp til hjernen via stigande nervebaner, men dette tek lenger tid. Difor trekkjer du handa bort foer du bevisst opplever smerta. Denne organiseringa er livsviktig – aa vente paa at hjernen prosesserer smerta foer du handlar, ville gi alvorlegare brannskadar.`,
+    },
+    {
+      id: 'bio1-3-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar kvifor melanin er viktig for huda, og beskriv samanhengen mellom UV-straaling og melaninproduksjon.',
+        hints: ['Tenk paa kva UV-straaling kan gjere med DNA i hudcellene', 'Kvifor vert folk brunare i sola?'],
+        solution: 'Melanin er eit pigment som produserast av melanocyttar i basallaget av epidermis. Melanin absorberer UV-straaling og hindrar at den trengjer djupt inn i huda og skadar DNA i dei delande cellene. Naar huda vert eksponert for UV-straaling, aukar melanocyttane produksjonen av melanin – dette er bruninga vi ser etter soling. Melaninet vert overfoert til naboande keratinocyttar og legg seg som ein «parasoll» over cellekjernane for aa verne DNA. Menneske med meir melanin (moerkare hudtype) har betre naturleg vern mot UV-skadar. Utan tilstrekkeleg melaninvern kan UV-straaling skade DNA og auke risikoen for hudkreft (melanom). Solkrem vernar ved aa absorbere eller reflektere UV-straaling.',
+      },
+    },
+    {
+      id: 'bio1-3-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kva skjer med blodaarene i huda naar kroppstemperaturen stig?',
+        options: [
+          { id: 'a', text: 'Dei utvidar seg (vasodilatasjon) slik at meir varme avgjevast', isCorrect: true },
+          { id: 'b', text: 'Dei trekkjer seg saman (vasokonstriksjon) for aa halde paa varmen', isCorrect: false },
+          { id: 'c', text: 'Dei vert ikkje paaverka av endringar i kroppstemperaturen', isCorrect: false },
+          { id: 'd', text: 'Dei sluttar aa frakte blod til huda', isCorrect: false },
+        ],
+        solution: 'Naar kroppstemperaturen stig, utvidar blodaarene i laederhuda seg (vasodilatasjon). Dette aukar blodstraumen til hudoverflata, slik at meir varme kan avgjevast til omgjevnadene via straaling og konveksjon. Huda vert raudare og varmare. Dette er ein av kroppens viktigaste mekanismar for aa kjoele seg ned. Naar temperaturen synk, skjer det motsette – vasokonstriksjon reduserer blodstraumen til huda og minimerer varmetapet.',
+      },
+    },
+    {
+      id: 'bio1-3-5-def-3',
+      type: 'definition',
+      title: 'Nocireseptorar (smertereseeptorar)',
+      content: 'Nocireseptorar er frie nerveendar som registrerer potensielt skadelege stimuli – sterk varme eller kulde, mekanisk skade og kjemiske stoff fraa skadd vev. Smerte er eit viktig varselssignal som motiverer oss til aa trekke oss bort fraa faren. Det finst to hovudtypar smertefibre: A-delta-fibre (raske, skarpe smerter – «foerste smerte») og C-fibre (langsame, verkande smerter – «andre smerte»). Nocireseptorar finst i huda, musklar, ledd, indre organ og dei fleste andre vev.',
+    },
+    {
+      id: 'bio1-3-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Sansar i samspel – aa halde ein kaffekopp',
+      problem: 'Forklar kva for sansereseptorar i handa som er aktive naar du held ein kaffekopp, og kvifor dette samspelet er viktig.',
+      solution: `**Loesning:**
+
+Naar du held ein kaffekopp, er fleire typar sansereseeptorar aktive samstundes:
+
+1. **Meissners legeme og Merkelceller** – registrerer beroring og trykk fraa koppen mot fingrane. Gjev deg informasjon om koppens overflate og kor hardt du grip.
+
+2. **Termoreseptorar** – registrerer temperaturen paa koppen. Varmereseptorar fortel deg at koppen er varm, slik at du kan justere grepet eller skifte hand.
+
+3. **Pacinis legeme** – registrerer vibrasjonar. Dersom koppen byrjar aa gli, registrerer desse reseptoane vibrasjonane og sender signal som faar deg til aa stramme grepet.
+
+4. **Proprioreseptorar** (i musklar og sener) – gjev informasjon om posisjonen til handa og kor mykje kraft musklane brukar.
+
+5. **Nocireseptorar** – dersom koppen er for varm, utloeser smertesignala ein refleks som faar deg til aa sleppe eller skifte grep.
+
+**Kvifor er samspelet viktig?**
+Utan dette samspelet ville du ikkje kunne regulere grepstyrken, du ville brenne deg utan aa merke det, eller du ville miste koppen fordi du ikkje registrerte at den glei. Sanseintegrasjon – hjernens evne til aa kombinere informasjon fraa mange reseptorar samstundes – er avgjerande for daglegdagse handlingar vi tek for gjevne.`,
+    },
+    {
+      id: 'bio1-3-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Teikn eller beskriv ein refleksbue for knerefleksen (patellarefleksen). Identifiser alle fem komponentane.',
+        hints: ['Knerefleksen er ein strekkjefleks – kva skjer naar legen slaar under kneskjela?', 'Denne refleksen har berre to nevronar – det er ein monosynaptisk refleks'],
+        solution: 'Knerefleksen (patellarefleksen): (1) Reseptor: Muskelspolar i quadricepsmuskelen registrerer at muskelen vert strekt naar legen slaar paa patellasena rett under kneskjela. (2) Sensorisk nerve: Eit sensorisk nevron foerer signalet fraa muskelspolen til ryggmargen. (3) Integrasjonssenter: I ryggmargen koplar den sensoriske nervecella seg direkte paa ein motorisk nervecelle – ingen internervon (monosynaptisk refleks). (4) Motorisk nerve: Den motoriske nervecella sender signal tilbake til quadricepsmuskelen. (5) Effektor: Quadricepsmuskelen kontraherer og strekkjer kneet – beinet sparkar framover. Knerefleksen er ein viktig klinisk test fordi den viser at dei sensoriske og motoriske nervane og ryggmargen fungerer normalt paa det aktuelle nivaet.',
+      },
+    },
+    {
+      id: 'bio1-3-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+Huda er kroppens stoerste organ og har mange viktige funksjonar:
+
+**Hudens oppbygning:**
+- Overhuda (epidermis) – keratinisert epitelcvev, melanocyttar
+- Laederhuda (dermis) – bindevev med blodaarer, nervar, kjertlar
+- Underhuda (subcutis) – feittvev for isolasjon og energi
+
+**Sansereseeptorar i huda:**
+| Reseptor | Stimulus | Plassering |
+|----------|----------|------------|
+| Meissners legeme | Lett beroring | Papillar i dermis |
+| Pacinis legeme | Djupt trykk, vibrasjon | Djup dermis/subcutis |
+| Ruffinis legeme | Strekk | Dermis |
+| Merkelceller | Vedvarande trykk | Basallaget av epidermis |
+| Frie nerveendar | Smerte, temperatur | Overalt i huda |
+
+**Temperaturregulering:**
+- Varme: vasodilatasjon + svetteproduksjon
+- Kulde: vasokonstriksjon + gaasehud + skjelving
+
+**Refleksar:**
+- Raske, automatiske responsar via refleksbuar
+- Vernar kroppen mot skade (t.d. trekkje-bort-refleksen)
+- Prosesserast i ryggmargen – raskare enn bevisst respons
+
+Huda, saman med sansecellene, utgjer kroppens fyrste forsvarslinje og eit viktig grensesnitt mellom den indre og ytre verda.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-3-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Ein person med diabetes kan utvikle nedsett foelesans i foettene (diabetisk nevropati). Forklar kvifor dette er farleg og korleis det heng saman med sansereseeptorane i huda.',
+        hints: ['Tenk paa kva sansereseeptorane normalt varslar om', 'Kva skjer dersom du ikkje kjenner smerte i foten?'],
+        solution: 'Ved diabetisk nevropati skader hoegt blodsukker over tid dei perifere nervane, saerleg dei smaa nervefibrene i foettene. Nocireseptorane (smertereseeptorane) og termoreseptoane fungerer ikkje lenger normalt. Dette er farleg fordi personen ikkje kjenner smerte fraa trykkpunkt, skavankar i sko, smaa saar eller brannskadar. Utan smertesignalet oppdagar ikkje personen skaden, og saara kan bli infiserte og forverrast. I kombinasjon med daarleg blodsirkulasjon (som ogso er vanleg ved diabetes) heler saara sakte. I alvorlege tilfelle kan dette foere til alvorlege infeksjonar og i verste fall amputasjon. Difor er dagleg fotinspeksjon og godt fottoy svart viktig for personar med diabetes.',
+      },
+    },
+    {
+      id: 'bio1-3-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Kva for ein komponent i refleksbuen prosesserer signalet og bestemmer responsen?',
+        options: [
+          { id: 'a', text: 'Integrasionssenteret (vanlegvis ryggmargen)', isCorrect: true },
+          { id: 'b', text: 'Reseptoren', isCorrect: false },
+          { id: 'c', text: 'Den sensoriske nerva', isCorrect: false },
+          { id: 'd', text: 'Effektoren', isCorrect: false },
+        ],
+        solution: 'Integrasjonssenteret (vanlegvis i ryggmargen for spinale refleksar) er der det sensoriske signalet vert prosessert og ein respons vert bestemt. I ein enkel refleks kopler den sensoriske nervecella seg paa ein motorisk nervecelle (eventuelt via ein internervon). Reseptoren registrerer stimulus, den sensoriske nerva foerer signalet til integrasjonssenteret, den motoriske nerva foerer responssignalet ut, og effektoren utfoerer responsen.',
+      },
+    },
+    {
+      id: 'bio1-3-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-3-5-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar kvifor vi "venner oss til" kleda vi har paa oss – det vil seie at vi etter ei stund ikkje lenger kjenner kontakten mellom kleda og huda. Bruk omgrepet sensorisk adaptasjon i svaret ditt.',
+        hints: ['Tenk paa kva som skjer med sansereseeptorane naar dei vert stimulerte over lang tid', 'Kvifor er det hensiktsmessig at vi ikkje stadig kjenner kleda vaare?'],
+        solution: 'Sensorisk adaptasjon er fenomenet der sansereseeptorar gradvis reduserer sin respons paa ein vedvarande, uendra stimulus. Naar du tek paa deg klede, registrerer beroeringsreseptorane i huda (Meissners legeme, Merkelceller) kontakten mellom stoff og hud. Men ettersom stimulusen er konstant og uendra, sluttar reseptoane gradvis aa sende signal – dei adapterer. Etter kort tid merkar du ikkje lenger kleda. Dette er hensiktsmessig fordi det gjer at nervesystemet kan fokusere paa nye og potensielt viktige stimuli i staden for aa verte oversvoemd med irrelevant informasjon. Merk at nocireseptorar (smertereseeptorar) adapterer svart lite – dette er viktig fordi smerte varslar om potensiell skade og bor ikkje ignorerast.',
+      },
     },
   ],
-  exercises: [
-    {
-      id: 'bio1-3-5-ex1',
-      type: 'multiple-choice',
-      difficulty: 'lett',
-      task: 'Hvor mange kodoner finnes i den genetiske koden?',
-      options: [
-        { id: 'a', text: '64', isCorrect: true },
-        { id: 'b', text: '20', isCorrect: false },
-        { id: 'c', text: '61', isCorrect: false },
-        { id: 'd', text: '4', isCorrect: false },
-      ],
-      solution: 'Det finnes 64 kodoner (4³ = 64 mulige kombinasjoner av 4 baser i tripletter). Av disse koder 61 for aminosyrer, mens 3 (UAA, UAG, UGA) er stoppkodoner. 20 fordi det er 20 aminosyrer, og 61 er antall aminosyrekodende kodoner.',
-    },
-    {
-      id: 'bio1-3-5-ex2',
-      type: 'classic',
-      difficulty: 'lett',
-      task: 'Hva betyr det at den genetiske koden er degenerert?',
-      solution: 'At den genetiske koden er degenerert (eller redundant) betyr at flere kodoner kan kode for samme aminosyre. For eksempel koder 6 ulike kodoner for leucin (UUA, UUG, CUU, CUC, CUA, CUG). Dette gir en "buffer" mot mutasjoner, da en endring i tredje posisjon ofte ikke endrer aminosyren. Det betyr IKKE at koden er defekt eller unøyaktig.',
-    },
-    {
-      id: 'bio1-3-5-ex3',
-      type: 'multiple-choice',
-      difficulty: 'medium',
-      task: 'Hva er hovedfunksjonen til en promotor?',
-      options: [
-        { id: 'a', text: 'Kontrollere nar og hvor mye et gen transkriberes', isCorrect: true },
-        { id: 'b', text: 'Kode for aminosyrer', isCorrect: false },
-        { id: 'c', text: 'Fjerne introner', isCorrect: false },
-        { id: 'd', text: 'Starte translasjon', isCorrect: false },
-      ],
-      solution: 'Promotoren er en DNA-sekvens oppstrøms for genet som kontrollerer transkripsjonsinitiering. Den gjenkjennes av transkripsjonsfaktorer og RNA-polymerase. Promotoren bestemmer nar, hvor og hvor mye et gen transkriberes - den er derfor kritisk for genregulering.',
-    },
-    {
-      id: 'bio1-3-5-ex4',
-      type: 'classic',
-      difficulty: 'medium',
-      task: 'Beskriv forskjellen mellom eksoner og introner, og forklar hva som skjer med dem under mRNA-prosessering.',
-      solution: 'Eksoner er de kodende sekvensene i et gen som inneholder informasjon for proteinsyntese. Introner er ikke-kodende sekvenser som ligger mellom eksonene. Under mRNA-prosessering fjernes intronene ved spleising utfort av spleisosomet. Eksonene skjøtes deretter sammen for a danne ferdig mRNA. Gjennom alternativ spleising kan ulike eksoner inkluderes, noe som gir flere proteinvarianter fra samme gen.',
-    },
-    {
-      id: 'bio1-3-5-ex5',
-      type: 'classic',
-      difficulty: 'vanskelig',
-      task: 'Forklar hva epigenetikk er og gi to eksempler pa epigenetiske mekanismer.',
-      solution: 'Epigenetikk er studiet av arvelige endringer i genekspresjon som ikke involverer endringer i DNA-sekvensen selv. To viktige mekanismer: 1) DNA-metylering - metylgrupper legges til cytosin i CpG-omrader, noe som vanligvis "slår av" gener ved a hindre transkripsjonsfaktorbinding. 2) Histonmodifikasjoner - kjemiske grupper (acetyl, metyl, fosfat) legges til eller fjernes fra histonproteiner, noe som endrer kromatinstruktur og gentilgjengelighet. Acetylering åpner vanligvis kromatin (aktive gener), mens visse metyleringsmønstre lukker det (inaktive gener).',
-    },
-    {
-      id: 'bio1-3-5-ex6',
-      type: 'multiple-choice',
-      difficulty: 'vanskelig',
-      task: 'Hvilken histonmodifikasjon er typisk assosiert med aktiv genekspresjon?',
-      options: [
-        { id: 'a', text: 'Histonacetylering', isCorrect: true },
-        { id: 'b', text: 'DNA-metylering av promotor', isCorrect: false },
-        { id: 'c', text: 'Histondeacetylering', isCorrect: false },
-        { id: 'd', text: 'Kromatinkondensering', isCorrect: false },
-      ],
-      solution: 'Histonacetylering er assosiert med aktiv genekspresjon. Acetylgrupper nøytraliserer de positive ladningene pa histoner, noe som svekker DNA-histonbindingen og apner kromatinstrukturen. Dette gir transkripsjonsfaktorer og RNA-polymerase tilgang til DNA. Deacetylering (fjerning av acetylgrupper) og DNA-metylering er derimot assosiert med geninaktivering.',
-    },
+  exercises: [],
+  keyTerms: [
+    { term: 'Epidermis', definition: 'Overhuda – det ytste hudlaget med keratiniserte epitelceller og melanocyttar' },
+    { term: 'Dermis', definition: 'Laederhuda – bindevev med blodaarer, nervar, kjertlar og sansereseeptorar' },
+    { term: 'Melanin', definition: 'Pigment produsert av melanocyttar som vernar huda mot UV-straaling' },
+    { term: 'Nocireseptor', definition: 'Smertereseeptor – fri nerveende som registrerer potensielt skadelege stimuli' },
+    { term: 'Refleksbue', definition: 'Nervebanen fraa reseptor via integrasjonssenter til effektor i ein refleks' },
+    { term: 'Sensorisk adaptasjon', definition: 'Gradvis redusert respons fraa sansereseeptorar paa ein vedvarande stimulus' },
+    { term: 'Vasodilatasjon', definition: 'Utvidning av blodaarer – aukar blodstraum og varmetap gjennom huda' },
   ],
 };
 
 // ============================================================================
-// Eksport av alle kapitler
+// Eksporter alle kapitler
 // ============================================================================
 
 export const BIOLOGI_1_DEL3_CHAPTERS: TextbookChapter[] = [

@@ -27,23 +27,23 @@ import { BIOLOGI_1_DEL10_CHAPTERS } from './textbook-content-biologi-1-del10';
 // ============================================================================
 
 export const BIOLOGI_1_CHAPTERS: TextbookChapter[] = [
-  // Kapittel 1: Cellebiologi (1.1-1.5)
+  // Kapittel 1: Cellebiologi (1.1-1.6)
   ...BIOLOGI_1_DEL1_CHAPTERS,
   // Kapittel 2: Energi i celler (2.1-2.5)
   ...BIOLOGI_1_DEL2_CHAPTERS,
-  // Kapittel 3: DNA og gener (3.1-3.5)
+  // Kapittel 3: Anatomi og fysiologi (3.1-3.5)
   ...BIOLOGI_1_DEL3_CHAPTERS,
   // Kapittel 4: Celledeling (4.1-4.4)
   ...BIOLOGI_1_DEL4_CHAPTERS,
-  // Kapittel 5: Arv og genetikk (5.1-5.5)
+  // Kapittel 5: Homeostase og regulering (5.1-5.5)
   ...BIOLOGI_1_DEL5_CHAPTERS,
-  // Kapittel 6: Evolusjon (6.1-6.5)
+  // Kapittel 6: Mikroorganismer og smittevern (6.1-6.5)
   ...BIOLOGI_1_DEL6_CHAPTERS,
   // Kapittel 7: Økologi (7.1-7.5)
   ...BIOLOGI_1_DEL7_CHAPTERS,
-  // Kapittel 8: Biodiversitet (8.1-8.4)
+  // Kapittel 8: Biodiversitet (8.1-8.5)
   ...BIOLOGI_1_DEL8_CHAPTERS,
-  // Kapittel 9: Bioteknologi (9.1-9.5)
+  // Kapittel 9: Vitenskapelig metode (9.1-9.5)
   ...BIOLOGI_1_DEL9_CHAPTERS,
   // Kapittel 10: Kropp og helse (10.1-10.5)
   ...BIOLOGI_1_DEL10_CHAPTERS,

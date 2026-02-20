@@ -414,6 +414,119 @@ Lysosomer er som avfallsstasjoner som bryter ned og resirkulerer avfall.
 **Cellevegg (planter):** Gir støtte, laget av cellulose.`,
     },
 
+    // ========== EKSEMPEL: SAMMENLIGN PLANTECELLE OG DYRECELLE ==========
+    {
+      id: 'nat10-4-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Sammenlign plantecelle og dyrecelle',
+      problem: `Du ser på to celler i et mikroskop. Celle A er firkantet og har en tydelig grønn farge. Celle B er rund og uten farge. Hvilken celle er en plantecelle og hvilken er en dyrecelle? Begrunn svaret.`,
+      solution: `**Celle A er en plantecelle** og **Celle B er en dyrecelle**. Begrunnelse:
+
+**Celle A (plantecelle):**
+- **Firkantet form** → tyder på at cellen har en **cellevegg** som gir stiv, kantet form. Celleveggen er laget av cellulose og finnes bare i planteceller.
+- **Grønn farge** → tyder på at cellen har **kloroplaster** med klorofyll (grønt pigment). Kloroplaster finnes bare i planteceller og brukes til fotosyntese.
+
+**Celle B (dyrecelle):**
+- **Rund form** → dyreceller mangler cellevegg og har bare en fleksibel cellemembranen, som gir en rund eller varierende form.
+- **Ingen farge** → dyreceller har ikke kloroplaster, og har derfor ingen grønn farge.
+
+**Huskeregel:**
+- Firkantet + grønn = plantecelle (cellevegg + kloroplaster)
+- Rund + fargeløs = dyrecelle (ingen cellevegg, ingen kloroplaster)`,
+    },
+
+    // ========== EKSEMPEL: IDENTIFISER ORGANELL FRA BESKRIVELSE ==========
+    {
+      id: 'nat10-4-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Identifiser organellen',
+      problem: `En elev beskriver en organell slik: "Det er en struktur med dobbel membran som bryter ned glukose og lager energi i form av ATP. Den finnes i både plante- og dyreceller." Hvilken organell er dette?`,
+      solution: `Organellen er **mitokondriet**.
+
+**Hvordan vi kan identifisere det:**
+
+1. **"Dobbel membran"** → Mitokondrier har en ytre og en indre membran. Den indre membranen er foldet (cristae) for å øke overflatearealet.
+
+2. **"Bryter ned glukose og lager energi (ATP)"** → Dette er celleånding, som er mitokondriens hovedfunksjon:
+   - Glukose + O₂ → CO₂ + H₂O + energi (ATP)
+
+3. **"Finnes i både plante- og dyreceller"** → Mitokondrier finnes i alle eukaryote celler.
+
+**Kunne det vært noe annet?**
+- **Kloroplaster** har også dobbel membran, men de lager glukose (fotosyntese), de bryter den ikke ned. Dessuten finnes kloroplaster bare i planteceller.
+- **Cellekjernen** har også dobbel membran (kjernemembranen), men den lagrer DNA og styrer cellen, den lager ikke ATP.
+
+**Konklusjon:** Mitokondriet er cellens "kraftverk" som produserer energi.`,
+    },
+
+    // ========== EKSEMPEL: CELLEVEGG OG TURGOR ==========
+    {
+      id: 'nat10-4-1-example-4',
+      type: 'example',
+      title: 'Eksempel: Hvorfor visner planter uten vann?',
+      problem: `Når du glemmer å vanne en potteplante, visner bladene og stengelen bøyer seg ned. Men når du vanner igjen, retter planten seg opp. Forklar dette med utgangspunkt i cellens oppbygning – spesielt vakuolen og celleveggen.`,
+      solution: `**Forklaring med cellens oppbygning:**
+
+**Når planten har nok vann:**
+1. Plantecellens store sentrale **vakuole** er fylt med vann
+2. Vannet presser ut mot **cellemembranen** og **celleveggen**
+3. Dette vanntrykket kalles **turgor** (turgortrykk)
+4. Celleveggen er stiv og holder igjen → cellen blir **stram og stiv**
+5. Mange stive celler sammen → planten er **oppreist og stiv**
+
+**Når planten mangler vann (visning):**
+1. Cellen mister vann (osmose – vann beveger seg ut av cellen)
+2. **Vakuolen** krymper
+3. Cellemembranen trekker seg bort fra celleveggen (**plasmolyse**)
+4. **Turgortrykket** synker
+5. Cellene er ikke lenger stive → planten **visner**
+
+**Når du vanner igjen:**
+1. Vann tas opp gjennom røttene
+2. Vann fyller vakuolene igjen (osmose – vann beveger seg inn i cellen)
+3. Turgortrykket øker
+4. Cellene blir stive igjen
+5. Planten retter seg opp!
+
+**Hvorfor visner IKKE trevirke?**
+- Trevirke har ekstra tykke cellevegger med **lignin** (et stivt stoff)
+- Disse cellene er stive uavhengig av vanntrykk
+- Derfor holder trestammen seg oppreist selv i tørke
+
+**Konklusjon:** Plantens stivhet avhenger av turgortrykk – vanntrykk inne i cellene som presser mot celleveggen. Uten vann mister cellene turgor, og planten visner.`,
+    },
+
+    // ========== EKSEMPEL: MIKROSKOPI ==========
+    {
+      id: 'nat10-4-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Bruk av mikroskop',
+      problem: `En elev ser på løkceller i et lysmikroskop med 400x forstørrelse. Hun kan se celleveggen, cellekjernen og en stor sentral vakuole, men hun kan IKKE se mitokondrier. Forklar hvorfor.`,
+      solution: `**Hvorfor eleven ikke kan se mitokondrier:**
+
+**Størrelse er avgjørende:**
+- **Mitokondrier** er veldig små: ca. 1-10 µm (mikrometer) lange og 0,5-1 µm brede
+- Et vanlig **lysmikroskop** med 400x forstørrelse kan oppløse detaljer ned til ca. 0,2 µm
+- Selv om mitokondrier teknisk sett er store nok til å sees, er de vanskelige å skille ut uten spesialfarging
+
+**Hva hun KAN se med lysmikroskop:**
+- **Celleveggen** – tykk og tydelig struktur (flere µm)
+- **Cellekjernen** – stor (5-10 µm), ofte farget mørkere
+- **Stor sentral vakuole** – kan fylle 90% av cellen
+
+**Hva hun IKKE kan se med lysmikroskop (uten farging):**
+- **Mitokondrier** – for små og gjennomsiktige
+- **Ribosomer** – altfor små (ca. 25 nm), krever elektronmikroskop
+- **Endoplasmatisk retikulum** – tynne membraner, vanskelig å se
+- **Golgiapparatet** – krever spesialfarging
+
+**For å se mitokondrier trenger man:**
+- Spesialfarginger (f.eks. Janus Green B som farger mitokondrier blå-grønn)
+- Eller et **elektronmikroskop** som kan forstørre opptil 1 000 000x
+
+**Konklusjon:** Lysmikroskop er nyttige for å se de store strukturene i cellen, men mange organeller er for små eller gjennomsiktige til å sees uten spesialteknikker.`,
+    },
+
     // ========== CELLEMEMBRANEN ==========
     {
       id: 'nat10-4-1-cellemembranen',
@@ -1123,6 +1236,316 @@ Alle organeller er **essensielle** og **avhengige av hverandre**. Cellen fungere
       },
     },
 
+    // ========== OPPGAVE EKSTRA 1: OSMOSE ==========
+    {
+      id: 'nat10-4-1-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-1',
+        number: '4.1.11',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er osmose?',
+        options: [
+          {
+            id: 'a',
+            text: 'Transport av vann gjennom en selektiv permeabel membran fra lav til høy konsentrasjon av oppløste stoffer',
+            isCorrect: true,
+            feedback: 'Riktig! Osmose er bevegelse av vann fra et område med lite oppløst stoff (lav konsentrasjon) til et område med mye oppløst stoff (høy konsentrasjon) gjennom cellemembranen.',
+          },
+          {
+            id: 'b',
+            text: 'Aktiv transport av ioner gjennom cellemembranen',
+            isCorrect: false,
+            feedback: 'Feil. Aktiv transport av ioner krever energi (ATP), mens osmose er en passiv prosess som ikke krever energi.',
+          },
+          {
+            id: 'c',
+            text: 'Bevegelse av oksygen inn i cellen',
+            isCorrect: false,
+            feedback: 'Feil. Bevegelse av oksygen skjer ved diffusjon, ikke osmose. Osmose gjelder spesifikt vannmolekyler.',
+          },
+          {
+            id: 'd',
+            text: 'Produksjon av ATP i mitokondrier',
+            isCorrect: false,
+            feedback: 'Feil. ATP-produksjon i mitokondrier er celleånding, ikke osmose.',
+          },
+        ],
+        solution: 'Alternativ A er riktig. Osmose er passiv transport av vann gjennom en selektiv permeabel membran. Vannet beveger seg fra et område med lav konsentrasjon av oppløste stoffer til et område med høy konsentrasjon, for å utjevne forskjellen.',
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: DIFFUSJON ==========
+    {
+      id: 'nat10-4-1-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-2',
+        number: '4.1.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar hva diffusjon er og gi et eksempel fra hverdagen. Hvorfor er diffusjon viktig for celler?`,
+        multipleChoiceOptions: [
+          'Diffusjon er bevegelse av molekyler fra høy til lav konsentrasjon; eksempel: parfyme sprer seg i et rom; viktig for at oksygen og næringsstoffer kommer inn i cellene',
+          'Diffusjon er transport som krever energi for å flytte stoffer mot konsentrasjonsgradienten',
+          'Diffusjon skjer bare i faste stoffer og har ingenting med celler å gjøre',
+          'Diffusjon er det samme som celledeling og skjer bare i cellekjernen',
+        ],
+        solution: `**Hva er diffusjon?**
+
+**Diffusjon** er bevegelse av molekyler fra et område med **høy konsentrasjon** til et område med **lav konsentrasjon** – altså fra der det er mye til der det er lite.
+
+**Eksempler fra hverdagen:**
+- **Parfyme:** Når du sprayer parfyme, sprer duftmolekylene seg fra flasken (høy konsentrasjon) til resten av rommet (lav konsentrasjon)
+- **Tepose i vann:** Farge og smak sprer seg fra teposen (høy konsentrasjon) til vannet (lav konsentrasjon)
+- **Matlukt:** Lukten av mat sprer seg fra kjøkkenet til resten av huset
+
+**Hvorfor er diffusjon viktig for celler?**
+
+1. **Oksygen (O₂):** Diffunderer fra blodet (høy konsentrasjon) inn i cellene (lav konsentrasjon) for celleånding
+2. **Karbondioksid (CO₂):** Diffunderer fra cellene (høy konsentrasjon) ut til blodet (lav konsentrasjon) for å bli pustet ut
+3. **Næringsstoffer:** Små molekyler kan diffundere gjennom cellemembranen
+
+**Viktig:** Diffusjon er en **passiv** prosess – den krever ingen energi (ATP). Molekylene beveger seg naturlig fra høy til lav konsentrasjon.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: SPESIALISERTE CELLER ==========
+    {
+      id: 'nat10-4-1-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-3',
+        number: '4.1.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `I kroppen finnes det mange ulike typer celler som er spesialiserte for ulike oppgaver. Nevn tre typer spesialiserte celler og forklar hva som gjør dem tilpasset sin funksjon.`,
+        multipleChoiceOptions: [
+          'Røde blodceller (flat disk, mye hemoglobin for O2-transport), nerveceller (lange utløpere for signaler), muskelceller (mange mitokondrier for energi)',
+          'Alle celler i kroppen er identiske og har ingen spesialisering',
+          'Bare planter har spesialiserte celler, dyreceller er alle like',
+          'Spesialiserte celler har mer DNA enn vanlige celler',
+        ],
+        solution: `**Tre typer spesialiserte celler:**
+
+**1. Røde blodceller (erytrocytter)**
+- **Funksjon:** Frakter oksygen fra lungene til resten av kroppen
+- **Tilpasninger:**
+  - Flat, bikkonkav disk-form → stor overflate i forhold til volum → tar opp mer O₂
+  - Fylt med **hemoglobin** (protein som binder O₂)
+  - Mangler cellekjerne → mer plass til hemoglobin
+  - Små og fleksible → kan presses gjennom trange blodkar
+
+**2. Nerveceller (nevroner)**
+- **Funksjon:** Sender elektriske signaler gjennom kroppen
+- **Tilpasninger:**
+  - **Lange utløpere (aksoner)** → kan sende signaler over lange avstander (opptil 1 meter!)
+  - **Mange forgreninger (dendritter)** → kan motta signaler fra mange andre celler
+  - **Myelinskjede** (isolasjon) → signalene sendes raskere
+  - Mange mitokondrier → mye energi til signaloverføring
+
+**3. Muskelceller (myocytter)**
+- **Funksjon:** Trekker seg sammen for å skape bevegelse
+- **Tilpasninger:**
+  - Lange og sylindriske → kan trekke seg sammen
+  - **Veldig mange mitokondrier** → produserer mye ATP (energi) for muskelarbeid
+  - Inneholder **myofibriller** (kontraktile filamenter)
+  - Kan ha flere cellekjerner
+
+**Konklusjon:** Spesialisering gjør at celler kan utføre spesifikke oppgaver svært effektivt. Dette er mulig fordi alle cellene har samme DNA, men ulike gener er "slått på" i ulike celletyper.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: VIRUS OG CELLER ==========
+    {
+      id: 'nat10-4-1-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-4',
+        number: '4.1.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvorfor regnes ikke virus som levende organismer ifølge celleteorien?',
+        options: [
+          {
+            id: 'a',
+            text: 'Fordi virus er for store til å være levende',
+            isCorrect: false,
+            feedback: 'Feil. Virus er faktisk mye mindre enn celler (10-300 nm). Størrelse er ikke grunnen.',
+          },
+          {
+            id: 'b',
+            text: 'Fordi virus ikke består av celler og kan ikke reprodusere seg uten en vertscelle',
+            isCorrect: true,
+            feedback: 'Riktig! Celleteorien sier at alle levende organismer består av celler. Virus har ikke celler, cellemembranen, organeller, eller eget stoffskifte. De kan bare formere seg ved å kapre en vertscelle.',
+          },
+          {
+            id: 'c',
+            text: 'Fordi virus ikke inneholder DNA eller RNA',
+            isCorrect: false,
+            feedback: 'Feil. Virus inneholder enten DNA eller RNA, men de mangler andre kjennetegn ved levende organismer.',
+          },
+          {
+            id: 'd',
+            text: 'Fordi virus lever under vann og ikke på land',
+            isCorrect: false,
+            feedback: 'Feil. Virus finnes overalt – i luft, vann, jord, og inne i levende organismer.',
+          },
+        ],
+        solution: 'Alternativ B er riktig. Ifølge celleteorien er cellen den minste levende enheten, og alle levende organismer består av celler. Virus består ikke av celler, har ingen egen cellemembranen, ingen organeller, og kan ikke drive celleånding eller formere seg på egen hånd. De må kapre en levende vertscelle for å lage kopier av seg selv.',
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: CELLEORGANELLER OG SYKDOM ==========
+    {
+      id: 'nat10-4-1-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-5',
+        number: '4.1.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Lysosomer inneholder fordøyelsesenzymer som bryter ned avfall og gamle organeller.
+
+a) Hva tror du ville skje med en celle hvis lysosomene ikke fungerte?
+b) Lysosomal lagringssykdom er en gruppe genetiske sykdommer der lysosomene mangler et bestemt enzym. Forklar med utgangspunkt i lysosomenes funksjon hvorfor dette gir sykdom.`,
+        multipleChoiceOptions: [
+          'a) Avfall hoper seg opp i cellen og cellen fungerer dårlig; b) Uten enzymet kan lysosomene ikke bryte ned bestemte stoffer, som hoper seg opp og skader cellene',
+          'a) Cellen fungerer normalt uten lysosomer; b) Lysosomal lagringssykdom påvirker bare planteceller',
+          'a) Cellen deler seg raskere uten lysosomer; b) Lysosomale sykdommer skyldes for mange enzymer',
+          'a) Lysosomer er ikke viktige for cellen; b) Sykdommen skyldes problemer med cellekjernen',
+        ],
+        solution: `**a) Hva skjer hvis lysosomene ikke fungerer?**
+
+Lysosomer er cellens "søppelforbrenning" – de bryter ned avfall, gamle organeller, og skadelige stoffer.
+
+**Uten fungerende lysosomer:**
+1. **Avfall hoper seg opp:** Ødelagte proteiner, gamle organeller, og andre avfallsstoffer brytes ikke ned
+2. **Cellen fylles opp:** Avfallet tar stadig mer plass i cellen
+3. **Organeller fungerer dårligere:** Opphopet avfall forstyrrer andre organellers arbeid
+4. **Cellen kan dø:** Til slutt kan cellen ikke fungere normalt og dør
+
+**b) Lysosomal lagringssykdom:**
+
+Ved lysosomal lagringssykdom mangler lysosomene et bestemt enzym.
+
+**Hvordan dette gir sykdom:**
+1. Hvert enzym bryter ned et **spesifikt stoff** (f.eks. lipider, karbohydrater)
+2. Uten enzymet kan dette stoffet **ikke brytes ned**
+3. Stoffet **hoper seg opp** inne i lysosomene
+4. Lysosomene svulmer opp og fyller cellen
+5. Cellen fungerer **stadig dårligere**
+6. Mange celler rammes → **organet skades**
+
+**Eksempel: Tay-Sachs sykdom**
+- Mangler enzymet som bryter ned et spesielt fettmolekyl i hjerneceller
+- Fettmolekylet hoper seg opp i lysosomene
+- Hjernecellene ødelegges gradvis
+- Alvorlige nevrologiske symptomer
+
+**Konklusjon:** Lysosomer er essensielle for å holde cellene "rene". Uten fungerende lysosomer hoper avfall seg opp og skader cellene – dette er grunnlaget for lysosomal lagringssykdom.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 6: CELLESTØRRELSE ==========
+    {
+      id: 'nat10-4-1-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-7',
+        number: '4.1.17',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Celler er vanligvis svært små (10-100 µm for eukaryote celler). Forklar hvorfor celler ikke kan bli veldig store. Hint: Tenk på forholdet mellom overflate og volum.`,
+        multipleChoiceOptions: [
+          'Når en celle vokser, øker volumet raskere enn overflaten → for lite membran til å ta opp nok næring og kvitte seg med nok avfall for det store volumet',
+          'Celler kan bli så store de vil, det finnes ingen begrensning',
+          'Store celler har for mye DNA og eksploderer',
+          'Cellemembranen kan bare strekke seg til en viss størrelse før den sprekker',
+        ],
+        solution: `**Hvorfor celler ikke kan bli veldig store:**
+
+**Problemet: Overflate/volum-forholdet**
+
+Når en celle vokser, øker volumet mye raskere enn overflaten:
+- Hvis radius dobles: overflaten øker 4x, men volumet øker 8x
+- Jo større cellen blir, jo mindre overflate har den i forhold til volum
+
+**Hvorfor er dette et problem?**
+
+**1. Næring inn:**
+- Alle næringsstoffer må passere gjennom **cellemembranen** (overflaten)
+- Et stort volum trenger mye næring
+- Men overflaten vokser ikke raskt nok → for lite membran til å ta opp nok
+
+**2. Avfall ut:**
+- CO₂ og andre avfallsstoffer må ut gjennom cellemembranen
+- Et stort volum produserer mye avfall
+- For lite overflate til å kvitte seg med alt → avfall hoper seg opp
+
+**3. Transport inne i cellen:**
+- I en stor celle tar det lang tid for stoffer å bevege seg fra membranen til midten
+- Diffusjon er for langsom over store avstander
+
+**Løsningen i naturen:**
+I stedet for å lage én stor celle, lager organismer **mange små celler**.
+- Mennesker har 37 billioner små celler, ikke én stor celle
+- Hver liten celle har god kontakt med omgivelsene
+
+**Unntak:** Noen celler er store (f.eks. strutseegg, nerveceller), men de har spesielle tilpasninger (mye plomme, lange tynne utløpere).`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 7: ENDOSYMBIOSE ==========
+    {
+      id: 'nat10-4-1-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-1-oppg-extra-6',
+        number: '4.1.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Mitokondrier og kloroplaster har noen uvanlige egenskaper: de har sitt eget DNA, sine egne ribosomer, og en dobbel membran. Forskere mener dette tyder på at de opprinnelig var selvstendige bakterier som ble "slukt" av en større celle for ca. 2 milliarder år siden. Denne teorien kalles endosymbioseteorien.
+
+Forklar hvorfor de tre egenskapene (eget DNA, egne ribosomer, dobbel membran) støtter denne teorien.`,
+        multipleChoiceOptions: [
+          'Eget DNA og ribosomer tyder på at de en gang var selvstendige organismer; dobbel membran forklares ved at den ytre membranen stammer fra vertscellen som "slukte" dem',
+          'Disse egenskapene er tilfeldige og har ingen sammenheng med evolusjon',
+          'Mitokondrier og kloroplaster har alltid vært en del av eukaryote celler',
+          'Bare kloroplaster var opprinnelig bakterier, ikke mitokondrier',
+        ],
+        solution: `**Endosymbioseteorien – hvordan bevisene passer:**
+
+**1. Eget DNA:**
+- Mitokondrier og kloroplaster har sitt **eget DNA**, uavhengig av cellekjernens DNA
+- Dette DNA-et er **sirkulært** (ringformet) – akkurat som bakterie-DNA
+- Cellekjernens DNA er lineært (tråder)
+- **Forklaring:** De beholdt sitt opprinnelige bakterie-DNA da de ble en del av cellen
+
+**2. Egne ribosomer:**
+- Mitokondrier og kloroplaster har **egne ribosomer** som lager proteiner
+- Disse ribosomene er **mindre** enn cellens vanlige ribosomer
+- De ligner på **bakterie-ribosomer** i størrelse og struktur
+- **Forklaring:** De beholdt sine opprinnelige bakterie-ribosomer
+
+**3. Dobbel membran:**
+- Mitokondrier og kloroplaster har **to membraner** (dobbel membran)
+- **Indre membran:** Den opprinnelige bakteriens egen membran
+- **Ytre membran:** Stammer fra vertscellens membran som omsluttet bakterien da den ble "slukt" (fagocytose)
+- **Forklaring:** Dobbelmembranen er et "fossil" fra selve "sluking"-hendelsen
+
+**Hva skjedde ifølge teorien:**
+1. En stor prokaryot celle "slukte" en liten aerob bakterie (som ble til mitokondriet)
+2. Bakterien ble ikke fordøyd, men levde videre inne i cellen
+3. Begge hadde fordel: bakterien fikk beskyttelse, cellen fikk energi
+4. Over tid ble de avhengige av hverandre → symbiose
+5. Noe lignende skjedde med cyanobakterier (som ble til kloroplaster)
+
+**Konklusjon:** Endosymbioseteorien er godt støttet av bevisene og forklarer hvorfor mitokondrier og kloroplaster har så mange "bakterie-lignende" egenskaper.`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-4-1-oppsummering',
@@ -1354,6 +1777,161 @@ Fotosyntesen skjer i **kloroplaster** – små grønne strukturer i planteceller
 **Hvor:** I kloroplaster (grønne celledeleler som inneholder klorofyll).
 
 **Huskeregel:** Fotosyntese = "lage mat fra lys"`,
+    },
+
+    // ========== EKSEMPEL: SKRIV REAKSJONSLIKNINGEN FOR FOTOSYNTESE ==========
+    {
+      id: 'nat10-4-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Forstå fotosyntesens reaksjonslikning',
+      problem: `En elev skriver følgende reaksjonslikning for fotosyntese:
+
+CO₂ + H₂O → C₆H₁₂O₆ + O₂
+
+Likningen er ikke balansert. Balanser reaksjonslikningen og forklar hva hvert ledd betyr.`,
+      solution: `**Balansert reaksjonslikning:**
+
+**6CO₂ + 6H₂O + lysenergi → C₆H₁₂O₆ + 6O₂**
+
+**Forklaring av hvert ledd:**
+
+**Venstre side (råvarer/reaktanter):**
+- **6CO₂** = 6 molekyler karbondioksid (tas inn fra luften gjennom spalteåpninger i bladene)
+- **6H₂O** = 6 molekyler vann (tas opp fra jorda gjennom røttene)
+- **Lysenergi** = sollys fanges opp av klorofyll i kloroplastene
+
+**Høyre side (produkter):**
+- **C₆H₁₂O₆** = 1 molekyl glukose (sukker som lagrer kjemisk energi)
+- **6O₂** = 6 molekyler oksygen (avgis til luften)
+
+**Sjekk at den er balansert:**
+- Karbon (C): 6 på hver side ✓
+- Hydrogen (H): 12 på hver side ✓
+- Oksygen (O): 12 + 6 = 18 på venstre side, 6 + 12 = 18 på høyre side ✓
+
+**Oppsummering:** Planter bruker karbondioksid, vann og lysenergi til å lage glukose (mat) og oksygen (som vi puster inn).`,
+    },
+
+    // ========== EKSEMPEL: CO₂/O₂-SYKLUS ==========
+    {
+      id: 'nat10-4-2-example-2',
+      type: 'example',
+      title: 'Eksempel: CO₂- og O₂-syklusen mellom planter og dyr',
+      problem: `I et lukket akvarium med fisk og vannplanter kan livet opprettholdes over lang tid uten å tilføre oksygen eller karbondioksid utenfra. Forklar hvordan dette er mulig.`,
+      solution: `**Forklaring:**
+
+I akvariet skjer det en **syklus** mellom fotosyntese og celleånding:
+
+**Vannplantene driver fotosyntese:**
+- Tar inn CO₂ (fra fisken) og H₂O
+- Bruker lysenergi (fra lampen/dagslys)
+- Produserer O₂ og glukose
+- Reaksjon: 6CO₂ + 6H₂O + lysenergi → C₆H₁₂O₆ + 6O₂
+
+**Fisken driver celleånding:**
+- Tar inn O₂ (fra plantene) og glukose (fra maten)
+- Produserer CO₂ og H₂O
+- Reaksjon: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energi
+
+**Syklusen:**
+1. Plantene produserer O₂ → fisken bruker O₂
+2. Fisken produserer CO₂ → plantene bruker CO₂
+3. Stoffene sirkulerer mellom plantene og fisken
+4. Energien kommer fra lys (lampe/sol)
+
+**Derfor kan akvariet opprettholde seg selv:**
+- Så lenge det er nok lys (energikilde)
+- Plantene og fisken holder balansen i O₂ og CO₂
+- Det er et miniøkosystem!
+
+**Viktig:** Uten lys ville plantene slutte med fotosyntese, alt oksygenet ville bli brukt opp av celleånding, og fisken ville dø.`,
+    },
+
+    // ========== EKSEMPEL: FORSØK MED VANNPLANTE ==========
+    {
+      id: 'nat10-4-2-example-4',
+      type: 'example',
+      title: 'Eksempel: Forsøk – måle fotosyntesens hastighet',
+      problem: `I et forsøk legges en vannplante (Elodea) i et glass med vann. En lampe lyser på planten, og eleven teller antall oksygenbobler som stiger opp per minutt. Eleven gjør forsøket med lampen på ulike avstander:
+
+| Avstand fra lampe | Bobler per minutt |
+|---|---|
+| 10 cm | 45 |
+| 20 cm | 28 |
+| 40 cm | 12 |
+| 80 cm | 4 |
+
+Forklar resultatene.`,
+      solution: `**Forklaring av resultatene:**
+
+**Hva skjer i forsøket:**
+- Vannplanten driver fotosyntese: CO₂ + H₂O + lysenergi → C₆H₁₂O₆ + **O₂**
+- **Oksygen (O₂)** er et biprodukt av fotosyntese
+- Oksygenboblene som stiger opp er et mål på **fotosyntesens hastighet**
+- Flere bobler = raskere fotosyntese
+
+**Analyse av resultatene:**
+
+| Avstand | Bobler/min | Forklaring |
+|---|---|---|
+| 10 cm | 45 | Sterk lysintensitet → rask fotosyntese |
+| 20 cm | 28 | Mindre lys → saktere fotosyntese |
+| 40 cm | 12 | Enda mindre lys → mye saktere |
+| 80 cm | 4 | Svakt lys → nesten ingen fotosyntese |
+
+**Mønster:**
+- Jo **nærmere** lampen (mer lys), jo **raskere** fotosyntese
+- Jo **lenger** fra lampen (mindre lys), jo **saktere** fotosyntese
+
+**Fysisk forklaring:**
+- Lysintensiteten avtar med kvadratet av avstanden (invers kvadratlov)
+- Dobler du avstanden → lysintensiteten blir 1/4
+- Fra 10 cm til 20 cm: dobbelt avstand → ca. 1/4 lys → men 28/45 ≈ 62% (ikke helt 25% fordi fotosyntesen ikke er helt lineær)
+
+**Begrensende faktorer:**
+- Ved svært sterkt lys (f.eks. 5 cm) ville fotosyntesen nå et **metningspunkt**
+- Da er det CO₂-konsentrasjonen eller temperatur som begrenser, ikke lys
+
+**Konklusjon:** Lysintensitet er en viktig faktor som påvirker fotosyntesens hastighet. Mer lys gir raskere fotosyntese, opp til et metningspunkt.`,
+    },
+
+    // ========== EKSEMPEL: ENERGIFLYT I NATUREN ==========
+    {
+      id: 'nat10-4-2-example-3',
+      type: 'example',
+      title: 'Eksempel: Spor energiflyten fra sol til menneske',
+      problem: `Du spiser et eple. Forklar steg for steg hvordan energien i eplet opprinnelig kom fra solen, og hva som skjer med energien etter at du har spist eplet.`,
+      solution: `**Energiens reise fra sol til menneske:**
+
+**Steg 1: Solenergi treffer epletreet**
+- Solen sender ut lysenergi (elektromagnetisk stråling)
+- Bladene på epletreet fanger opp lysenergien med klorofyll i kloroplastene
+
+**Steg 2: Fotosyntese i epletreet**
+- Lysenergi omdannes til **kjemisk energi** i glukose
+- 6CO₂ + 6H₂O + lysenergi → C₆H₁₂O₆ + 6O₂
+- Glukosen brukes til å bygge opp eplet (fruktose, stivelse, cellulose)
+
+**Steg 3: Du spiser eplet**
+- Kroppen fordøyer eplet i mage og tarm
+- Karbohydratene (fruktose, stivelse) brytes ned til glukose
+- Glukosen tas opp i blodet og fraktes til cellene
+
+**Steg 4: Celleånding i dine celler**
+- Cellene dine bryter ned glukosen med oksygen
+- C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energi (ATP)
+- Kjemisk energi i glukose omdannes til ATP
+
+**Steg 5: ATP brukes til livsaktiviteter**
+- **Bevegelse:** Muskelceller bruker ATP til å trekke seg sammen
+- **Tenkning:** Hjerneceller bruker ATP til å sende signaler
+- **Vekst:** Celler bruker ATP til å bygge nye proteiner
+- **Varme:** Mye energi frigjøres som kroppsvarme
+
+**Energikjeden:**
+Lysenergi (sol) → kjemisk energi (glukose i eple) → kjemisk energi (ATP i celler) → bevegelse + varme
+
+**All energi kom opprinnelig fra solen!**`,
     },
 
     // ========== OPPGAVE 1: MULTIPLE CHOICE - FOTOSYNTESE ==========
@@ -1906,6 +2484,192 @@ For å bryte ned 180 g glukose (1 mol) trenger kroppen 6 mol (144 liter) oksygen
       },
     },
 
+    // ========== OPPGAVE EKSTRA 1: ANAEROB VS AEROB ==========
+    {
+      id: 'nat10-4-2-oppg-extra-1',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 11: Aerob vs. anaerob celleånding',
+      difficulty: 'medium',
+      estimatedMinutes: 3,
+      content: {
+        task: 'Hva er forskjellen mellom aerob og anaerob celleånding?',
+        options: [
+          'Aerob krever oksygen og gir 30-32 ATP; anaerob trenger ikke oksygen og gir bare 2 ATP',
+          'Anaerob krever oksygen og gir mer energi enn aerob',
+          'Begge prosessene krever oksygen, men anaerob er raskere',
+          'Det er ingen forskjell mellom aerob og anaerob celleånding',
+        ],
+        answer: 0,
+        hint: 'Aerob betyr "med luft/oksygen", anaerob betyr "uten luft/oksygen".',
+        feedback: `**Riktig svar:** Aerob krever oksygen og gir 30-32 ATP; anaerob trenger ikke oksygen og gir bare 2 ATP.
+
+**Forklaring:**
+
+**Aerob celleånding (med oksygen):**
+- C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + **30-32 ATP**
+- Skjer i mitokondrier
+- Effektiv – frigjør mye energi
+
+**Anaerob celleånding/gjæring (uten oksygen):**
+- C₆H₁₂O₆ → 2 melkesyre + **2 ATP** (i muskler)
+- C₆H₁₂O₆ → 2 etanol + 2CO₂ + **2 ATP** (i gjærsopp)
+- Skjer i cytoplasma
+- Lite effektiv – lite energi
+
+**Når brukes anaerob celleånding?**
+- Ved intens trening når musklene ikke får nok oksygen
+- Resulterer i melkesyre → stiv og sår muskel`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: FAKTORER SOM PÅVIRKER FOTOSYNTESE ==========
+    {
+      id: 'nat10-4-2-oppg-extra-2',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 12: Faktorer som påvirker fotosyntesens hastighet',
+      difficulty: 'medium',
+      estimatedMinutes: 5,
+      content: {
+        task: 'Nevn tre faktorer som påvirker hastigheten på fotosyntesen, og forklar hvordan hver faktor virker. Hva skjer hvis en av faktorene er begrenset?',
+        placeholder: 'Beskriv faktorene...',
+        hint: 'Tenk på hva planter trenger for fotosyntese: lysenergi, CO₂, vann, og temperatur.',
+        modelAnswer: `**Tre faktorer som påvirker fotosyntesens hastighet:**
+
+**1. Lysintensitet**
+- **Økt lys → raskere fotosyntese** (opp til et punkt)
+- Mer lys = mer energi til lysreaksjonene
+- Ved et visst punkt nås **metning** – fotosyntesen kan ikke gå raskere (begrenset av CO₂ eller enzymer)
+- **Om natten:** Ingen fotosyntese (ingen lysenergi)
+
+**2. CO₂-konsentrasjon**
+- **Mer CO₂ → raskere fotosyntese** (opp til et punkt)
+- CO₂ er råvare i Calvin-syklusen
+- I normale forhold er CO₂-nivået i luften (0,04%) ofte en begrensende faktor
+- **I drivhus:** Tilsetter man CO₂, vokser plantene raskere
+
+**3. Temperatur**
+- **Høyere temperatur → raskere fotosyntese** (opp til optimum)
+- Enzymene i fotosyntesen jobber raskere ved høyere temperatur
+- **Optimum:** Ca. 25-35°C for de fleste planter
+- **For høy temperatur (>40°C):** Enzymene denaturerer (ødelegges) → fotosyntesen stopper
+
+**Begrensende faktor:**
+Fotosyntesens hastighet bestemmes av den faktoren som er **mest begrenset**. Selv om det er mye lys og CO₂, vil fotosyntesen ikke gå raskere hvis temperaturen er for lav.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: DRIVHUSEFFEKTEN ==========
+    {
+      id: 'nat10-4-2-oppg-extra-3',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 13: Karbonkretsløpet og klimaendringer',
+      difficulty: 'vanskelig',
+      estimatedMinutes: 6,
+      content: {
+        task: 'Forklar hvordan forbrenning av fossilt brensel (olje, kull, gass) forstyrrer karbonkretsløpet og bidrar til klimaendringer. Bruk begrepene fotosyntese, celleånding og karbonkretsløp i svaret ditt.',
+        placeholder: 'Skriv forklaringen din...',
+        hint: 'Fossilt brensel er karbon som ble lagret for millioner av år siden. Hva skjer når vi frigjør dette karbonet raskt?',
+        modelAnswer: `**Hvordan fossilt brensel forstyrrer karbonkretsløpet:**
+
+**Naturlig karbonkretsløp (i balanse):**
+- **Fotosyntese:** Planter tar opp CO₂ fra atmosfæren → lagrer karbon i glukose
+- **Celleånding:** Planter og dyr frigjør CO₂ tilbake til atmosfæren
+- **Nedbrytning:** Døde organismer brytes ned → CO₂ frigis
+- **Balanse:** Like mye CO₂ tas opp som frigis → stabilt CO₂-nivå
+
+**Fossilt brensel – lagret karbon:**
+- For 100-300 millioner år siden døde planter og plankton
+- De ble begravet og omdannet til olje, kull og gass over millioner av år
+- Karbonet ble **tatt ut av sirkulasjon** og lagret i jordskorpen
+
+**Problemet med forbrenning:**
+- Når vi brenner fossilt brensel, frigir vi CO₂ som ble lagret for millioner av år siden
+- Fossilt brensel + O₂ → CO₂ + H₂O + energi
+- Vi frigir **enormt mye CO₂** på kort tid (200 år)
+- Fotosyntesen kan **ikke ta opp CO₂ raskt nok** til å kompensere
+
+**Konsekvenser:**
+1. **CO₂-nivået i atmosfæren øker** (fra 280 ppm → over 420 ppm)
+2. CO₂ er en **drivhusgass** som holder på varme
+3. **Global oppvarming:** Gjennomsnittstemperaturen stiger
+4. **Klimaendringer:** Issmelting, havnivåstigning, ekstremvær
+
+**Konklusjon:** Vi frigjør karbon som naturen brukte millioner av år på å lagre, og fotosyntesen klarer ikke å kompensere. Dette forstyrrer karbonkretsløpets balanse og fører til klimaendringer.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: GJÆRING ==========
+    {
+      id: 'nat10-4-2-oppg-extra-4',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 14: Gjæring i hverdagen',
+      difficulty: 'medium',
+      estimatedMinutes: 4,
+      content: {
+        task: 'Gjærsopp brukes til å lage brød og øl. Forklar hvilken prosess gjærsoppene utfører, og hvorfor brøddeigen hever seg.',
+        placeholder: 'Skriv forklaringen din...',
+        hint: 'Gjærsopp driver anaerob celleånding (gjæring). Hva er produktene?',
+        modelAnswer: `**Gjæring i brødbaking:**
+
+**Prosessen:**
+Gjærsopp driver **alkoholgjæring** (anaerob celleånding):
+
+C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + 2 ATP
+(glukose → etanol + karbondioksid + energi)
+
+**Hvorfor brøddeigen hever seg:**
+1. Gjærsoppene bryter ned sukker (glukose) i deigen
+2. De produserer **CO₂-gass** (karbondioksid) som biprodukt
+3. CO₂-boblene **fanges i deigen** av gluten (et klebrig protein i hvetemel)
+4. Boblene utvider seg → deigen **hever seg** og blir luftig
+5. Når brødet stekes, fordamper CO₂ og etterlater **luftlommer** i brødet
+6. Etanolen fordamper under steking
+
+**I ølbrygging:**
+- Samme prosess, men her er det **etanolen** (alkoholen) som er ønsket
+- CO₂ gir brusende bobler i ølet
+
+**Konklusjon:** Gjæring er anaerob celleånding der glukose brytes ned til etanol og CO₂. I brødbaking er det CO₂-gassen som er nyttig (hever deigen), i ølbrygging er det etanolen (alkoholen).`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: KOMPENSASJONSPUNKTET ==========
+    {
+      id: 'nat10-4-2-oppg-extra-5',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 15: Kompensasjonspunktet',
+      difficulty: 'vanskelig',
+      estimatedMinutes: 3,
+      content: {
+        task: 'I skumringen er det et punkt der fotosyntesen og celleåndingen i en plante er akkurat like raske – dette kalles kompensasjonspunktet. Hva skjer med gassutvekslingen ved kompensasjonspunktet?',
+        options: [
+          'Planten tar opp like mye CO₂ som den avgir, og avgir like mye O₂ som den tar opp – netto gassutveksling er null',
+          'Planten tar bare opp CO₂ og avgir bare O₂',
+          'Planten slutter å puste helt',
+          'Planten produserer ekstra mye O₂ for å kompensere for natten',
+        ],
+        answer: 0,
+        hint: 'Tenk på hva som skjer når fotosyntese og celleånding er like raske – netto resultat?',
+        feedback: `**Riktig svar:** Planten tar opp like mye CO₂ som den avgir, og avgir like mye O₂ som den tar opp.
+
+**Forklaring:**
+
+Ved kompensasjonspunktet:
+- **Fotosyntese** tar opp CO₂ og produserer O₂ med samme hastighet som
+- **Celleånding** produserer CO₂ og bruker O₂
+
+Netto gassutveksling = 0 (alt som produseres, brukes opp)
+
+**Under kompensasjonspunktet (mørkt):** Celleånding dominerer → planten avgir CO₂
+**Over kompensasjonspunktet (lyst):** Fotosyntese dominerer → planten avgir O₂`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-4-2-oppsummering',
@@ -2395,6 +3159,122 @@ Gregor Mendel var en munk som studerte arv hos erter på 1800-tallet. Han oppdag
 - BB → Brune øyne
 - Bb → Brune øyne (B er dominant)
 - bb → Blå øyne`,
+    },
+
+    // ========== EKSEMPEL: PUNNETT-RUTER ==========
+    {
+      id: 'nat10-4-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Bruke Punnett-ruter for å forutsi avkom',
+      problem: `En far med brune øyne (genotype Bb) og en mor med blå øyne (genotype bb) får barn. Bruk en Punnett-rute til å finne ut hvilke genotyper og fenotyper barna kan få, og sannsynligheten for hver.`,
+      solution: `**Punnett-rute for Bb × bb:**
+
+**Foreldregenotyper:**
+- Far: Bb (brun øyenfarge, bærer av blå)
+- Mor: bb (blå øyenfarge)
+
+**Mulige kjønnsceller:**
+- Far kan gi: B eller b
+- Mor kan gi: b eller b
+
+**Punnett-rute:**
+
+|  | **b (fra mor)** | **b (fra mor)** |
+|---|---|---|
+| **B (fra far)** | Bb | Bb |
+| **b (fra far)** | bb | bb |
+
+**Resultater:**
+
+| Genotype | Fenotype | Antall | Sannsynlighet |
+|----------|----------|--------|---------------|
+| Bb | Brune øyne | 2 av 4 | 50% |
+| bb | Blå øyne | 2 av 4 | 50% |
+
+**Konklusjon:**
+- **50% sjanse** for brune øyne (Bb)
+- **50% sjanse** for blå øyne (bb)
+- Ingen barn kan få genotype BB (mor har ingen B-allel å gi)
+
+**Merk:** Dette er forenklet. I virkeligheten styres øyenfarge av flere gener.`,
+    },
+
+    // ========== EKSEMPEL: NATURLIG UTVALG SCENARIO ==========
+    {
+      id: 'nat10-4-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Naturlig utvalg – peppermal i England',
+      problem: `Før den industrielle revolusjonen (1800-tallet) var de fleste peppermaler i England lyse (hvite/grå). Under den industrielle revolusjonen, da fabrikker slapp ut mye sot som farget trær og bygninger mørke, ble mørke peppermaler plutselig mye vanligere. Etter at forurensningen ble redusert på 1900-tallet, ble lyse peppermaler igjen vanligst. Forklar dette med naturlig utvalg.`,
+      solution: `**Forklaring med naturlig utvalg:**
+
+**Før industrialiseringen:**
+- Trær og bygninger var lyse (dekket av lav)
+- **Lyse peppermaler:** Godt kamuflert på lyse overflater → overlever → får avkom
+- **Mørke peppermaler:** Synlige for fugler → spises oftere → færre avkom
+- **Resultat:** Mest lyse peppermaler i populasjonen
+
+**Under industrialiseringen:**
+- Fabrikker slapp ut sot som farget trær og bygninger **mørke**
+- **Mørke peppermaler:** Nå godt kamuflert på mørke overflater → overlever → får avkom
+- **Lyse peppermaler:** Synlige på mørke overflater → spises oftere → færre avkom
+- **Resultat:** Mest mørke peppermaler i populasjonen
+
+**Etter at forurensningen ble redusert:**
+- Trær og bygninger ble lyse igjen (lav vokste tilbake)
+- **Lyse peppermaler:** Igjen godt kamuflert → overlever → får avkom
+- **Mørke peppermaler:** Igjen synlige → spises oftere → færre avkom
+- **Resultat:** Mest lyse peppermaler igjen
+
+**Darwins fire steg i dette eksemplet:**
+1. **Variasjon:** Det fantes både lyse og mørke peppermaler (genetisk variasjon)
+2. **Konkurranse:** Fugler spiser peppermaler som er synlige
+3. **Arv:** Fargen er arvelig (styrt av gener)
+4. **Endring over tid:** Populasjonen endret seg i takt med miljøendringene
+
+**Viktig:** Peppermálene "valgte" ikke å endre farge. De som tilfeldigvis hadde riktig farge overlever bedre.`,
+    },
+
+    // ========== EKSEMPEL: DNA-MUTASJON ==========
+    {
+      id: 'nat10-4-3-example-3',
+      type: 'example',
+      title: 'Eksempel: Konsekvenser av en DNA-mutasjon',
+      problem: `Sigdcellesykdom skyldes en punktmutasjon i genet for hemoglobin (proteinet i røde blodceller som frakter oksygen). Én enkelt nukleotid er endret, noe som gjør at hemoglobinet får feil form. Forklar hvordan én liten endring i DNA kan gi en alvorlig sykdom.`,
+      solution: `**Fra DNA-mutasjon til sykdom:**
+
+**Normal hemoglobin:**
+- Genet for hemoglobin koder for riktig aminosyrerekkefølge
+- Hemoglobinet folder seg til riktig form
+- Røde blodceller er runde og fleksible
+- Frakter oksygen effektivt
+
+**Mutert hemoglobin (sigdcellesykdom):**
+
+**Steg 1: Punktmutasjon i DNA**
+- Én nukleotid er endret i hemoglobin-genet
+- Original: ...GAG... → Mutert: ...GTG...
+
+**Steg 2: Feil aminosyre**
+- Endringen i DNA gir feil aminosyre i proteinkjeden
+- Glutaminsyre (polar) erstattes med valin (upolar)
+
+**Steg 3: Feil proteinfolding**
+- Hemoglobinmolekylene klumper seg sammen
+- Danner lange fibre inne i de røde blodcellene
+
+**Steg 4: Deformerte røde blodceller**
+- Røde blodceller blir **sigdformede** (halvmåneformet) i stedet for runde
+- Stive og lite fleksible
+
+**Steg 5: Sykdom**
+- Sigdcellene setter seg fast i små blodårer → blokkerer blodstrøm
+- Mindre oksygen når vevene → smerter, organskader
+- Sigdceller ødelegges raskt → blodmangel (anemi)
+
+**Viktig lærdom:**
+Én eneste endring i DNA (av 6 milliarder basepar) kan endre ett protein, som endrer en celle, som gir en alvorlig sykdom. Dette viser hvor viktig DNA-sekvensen er!
+
+**Interessant:** Bærere (Bb – én normal og én mutert allel) har mild form og er mer motstandsdyktige mot malaria. Derfor er sigdcelle-allelen vanlig i malariaområder – et eksempel på naturlig utvalg!`,
     },
 
     // ========== OPPGAVE 5: DOMINANT OG RECESSIV (MULTIPLE CHOICE) ==========
@@ -3313,6 +4193,265 @@ Evolusjonsteorien er **ikke bare en gjetning** – den er en av de best støtted
       },
     },
 
+    // ========== OPPGAVE EKSTRA 1: PUNNETT-RUTE ==========
+    {
+      id: 'nat10-4-3-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-1',
+        number: '4.3.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Hos erter er gul frøfarge (G) dominant over grønn frøfarge (g). En erteplante med genotype Gg krysses med en erteplante med genotype gg.
+
+a) Sett opp en Punnett-rute for denne krysningen.
+b) Hva er sannsynligheten for at avkommet får gule frø?
+c) Hva er sannsynligheten for at avkommet får grønne frø?`,
+        multipleChoiceOptions: [
+          'a) Gg×gg gir Gg og gg; b) 50% gule; c) 50% grønne',
+          'a) Alle avkom blir Gg; b) 100% gule; c) 0% grønne',
+          'a) Gg×gg gir GG og gg; b) 25% gule; c) 75% grønne',
+          'a) Alle avkom blir gg; b) 0% gule; c) 100% grønne',
+        ],
+        solution: `**a) Punnett-rute for Gg × gg:**
+
+|  | **g (fra forelder 2)** | **g (fra forelder 2)** |
+|---|---|---|
+| **G (fra forelder 1)** | Gg | Gg |
+| **g (fra forelder 1)** | gg | gg |
+
+**b) Sannsynlighet for gule frø:**
+- Gule frø = genotype Gg eller GG
+- Fra Punnett-ruten: 2 av 4 er Gg (gule)
+- **Sannsynlighet: 50% (1/2)**
+
+**c) Sannsynlighet for grønne frø:**
+- Grønne frø = genotype gg
+- Fra Punnett-ruten: 2 av 4 er gg (grønne)
+- **Sannsynlighet: 50% (1/2)**
+
+**Oppsummering:** Halvparten av avkommet forventes å ha gule frø (Gg) og halvparten grønne frø (gg).`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: KJØNNSBESTEMMELSE ==========
+    {
+      id: 'nat10-4-3-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-2',
+        number: '4.3.14',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Mennesker har 23 par kromosomer. Det siste paret er kjønnskromosomene. Hva bestemmer om et barn blir gutt eller jente?',
+        options: [
+          'Kjønnskromosomene fra faren bestemmer: X gir jente, Y gir gutt',
+          'Kjønnskromosomene fra moren bestemmer kjønnet',
+          'Antall kromosomer bestemmer kjønnet',
+          'Kjønn bestemmes av miljøet, ikke av gener',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Kjønnskromosomene fra faren bestemmer kjønnet.
+
+**Forklaring:**
+
+**Kjønnskromosomer:**
+- Kvinner har **XX** (to X-kromosomer)
+- Menn har **XY** (ett X-kromosom og ett Y-kromosom)
+
+**Ved befruktning:**
+- Mor gir alltid et **X**-kromosom (siden hun er XX)
+- Far gir enten et **X** eller et **Y**-kromosom (siden han er XY)
+
+**Resultat:**
+- Egg (X) + Sæd (X) = **XX** → jente
+- Egg (X) + Sæd (Y) = **XY** → gutt
+
+**Sannsynlighet:**
+- 50% sjanse for jente (XX)
+- 50% sjanse for gutt (XY)
+
+Det er altså **farens kjønnscelle** som avgjør barnets kjønn!`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: ANTIBIOTIKARESISTENS ==========
+    {
+      id: 'nat10-4-3-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-3',
+        number: '4.3.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Bakterier kan utvikle resistens mot antibiotika. Forklar med naturlig utvalg hvordan dette skjer, og hvorfor leger advarer mot unødvendig bruk av antibiotika.`,
+        multipleChoiceOptions: [
+          'Mutasjoner gir noen bakterier resistens; antibiotika dreper ikke-resistente → resistente overlever og formerer seg → hele populasjonen blir resistent; overforbruk akselererer dette',
+          'Bakterier lærer seg å motstå antibiotika etter gjentatt eksponering',
+          'Antibiotika gjør bakterier sterkere ved å stimulere vekst',
+          'Resistens skyldes at bakterier bytter DNA med virus',
+        ],
+        solution: `**Hvordan antibiotikaresistens utvikler seg – naturlig utvalg i praksis:**
+
+**Steg 1: Variasjon (mutasjoner)**
+- I en stor bakteriepopulasjon oppstår tilfeldige **mutasjoner**
+- Noen mutasjoner gir tilfeldigvis **resistens** mot antibiotika
+- Disse mutasjonene oppstår **før** antibiotika brukes (tilfeldig!)
+
+**Steg 2: Antibiotika introduseres**
+- Personen tar antibiotika mot en infeksjon
+- Antibiotika dreper de **fleste** bakteriene (de ikke-resistente)
+- Men noen få bakterier med resistens-mutasjonen **overlever**
+
+**Steg 3: Naturlig utvalg**
+- De resistente bakteriene har nå **ingen konkurranse** (de andre er drept)
+- De har tilgang til alle ressurser
+- De formerer seg raskt (bakterier kan doble seg hvert 20. minutt)
+
+**Steg 4: Resistens sprer seg**
+- Etter kort tid er hele populasjonen **resistent**
+- Antibiotika virker ikke lenger!
+
+**Hvorfor advares det mot overforbruk?**
+1. Jo oftere antibiotika brukes, jo flere "runder" med naturlig utvalg
+2. Flere muligheter for resistente bakterier å overleve og formere seg
+3. Multiresistente bakterier ("superbakterier") kan oppstå
+4. Disse er ekstremt vanskelige å behandle
+5. Antibiotika er et av medisinens viktigste verktøy – vi risikerer å miste det
+
+**Konklusjon:** Antibiotikaresistens er evolusjon i sanntid og viser naturlig utvalg i praksis.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: DNA-LIKHETER ==========
+    {
+      id: 'nat10-4-3-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-4',
+        number: '4.3.16',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Tabellen viser hvor mye likt DNA mennesker har med andre arter:
+
+| Art | DNA-likhet med menneske |
+|-----|------------------------|
+| Sjimpanse | 98,7% |
+| Mus | 85% |
+| Bananflue | 60% |
+| Banan | 50% |
+
+a) Hva forteller disse DNA-likhetene oss om evolusjon?
+b) Hvorfor har vi så mye likt DNA med en bananflue (60%)?`,
+        multipleChoiceOptions: [
+          'a) Mer likt DNA = nærmere i slekt = nyligere felles forfader; b) Alle levende organismer deler grunnleggende gener for basale celleprosesser',
+          'a) DNA-likhet har ingenting med evolusjon å gjøre; b) Det er bare tilfeldig',
+          'a) Vi nedstammer direkte fra sjimpanser; b) Vi nedstammer fra bananfluer',
+          'a) Alle arter har nøyaktig likt DNA; b) Tabellen er feil',
+        ],
+        solution: `**a) Hva DNA-likhetene forteller om evolusjon:**
+
+DNA-likheter mellom arter er **sterke bevis for evolusjon** og felles avstamning:
+
+- **Mer likt DNA → nærmere slektskap → nyligere felles forfader**
+- Mennesker og sjimpanser (98,7% likt) delte en felles forfader for ca. 6-7 millioner år siden
+- Mennesker og mus (85% likt) delte en felles forfader for ca. 80 millioner år siden
+- Alle levende organismer har en **felles stamfar** langt tilbake i tid
+
+**b) Hvorfor 60% likt DNA med bananflue:**
+
+Selv om vi ser veldig forskjellige ut, deler vi **grunnleggende biologiske prosesser** med bananfluer:
+
+1. **Cellenes basale funksjoner:** Celleånding, DNA-kopiering, celledeling, proteinsyntese
+2. **Samme genetiske kode:** Alle levende organismer bruker samme DNA-kode (A, T, G, C)
+3. **Felles forfader:** Vi delte en felles forfader for ca. 600-800 millioner år siden
+4. **Konserverte gener:** Genene for basale prosesser har vært så viktige at de har blitt bevart gjennom evolusjon
+
+De 40% som er forskjellige gir de tydelige forskjellene: kroppsbygning, hjernestørrelse, levemåte, osv.
+
+**Konklusjon:** DNA-likheter viser at alle levende organismer er i slekt og deler en felles evolusjonær historie.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: HOMOLOGE STRUKTURER ==========
+    {
+      id: 'nat10-4-3-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-5',
+        number: '4.3.17',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er homologe strukturer, og hva forteller de oss om evolusjon?',
+        options: [
+          'Kroppsdeler hos ulike arter som har samme grunnstruktur men ulik funksjon – viser felles forfader',
+          'Kroppsdeler som ser like ut men har ulik oppbygning – viser tilpasning til samme miljø',
+          'Organer som ikke lenger har noen funksjon – viser at arter ikke utvikler seg',
+          'Strukturer som bare finnes hos mennesker og ingen andre arter',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Kroppsdeler hos ulike arter som har samme grunnstruktur men ulik funksjon – viser felles forfader.
+
+**Forklaring:**
+
+**Homologe strukturer** er kroppsdeler hos ulike arter som har **samme grunnleggende oppbygning** (samme knokler, muskler, nerver), men som brukes til **forskjellige formål**.
+
+**Eksempel – forlemmer hos pattedyr:**
+- **Menneskets arm:** Gå, gripe, skrive
+- **Hvalens brystfinne:** Svømme
+- **Flaggermusens vinge:** Fly
+- **Kattens forben:** Gå, klatre, jakte
+
+Alle har: overarmsben, underarmsbein (radius + ulna), håndrotsbein, fingerbein
+
+**Hvorfor dette er bevis for evolusjon:**
+De har en **felles forfader** som hadde denne grunnstrukturen. Over tid har naturlig utvalg tilpasset strukturen til ulike funksjoner i ulike miljøer.`,
+      },
+    },
+
+    // ========== EKSTRA OPPGAVE: Mutasjoner og sykdom ==========
+    {
+      id: 'nat10-4-3-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-3-oppg-extra-6',
+        number: '4.3.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Mutasjoner i DNA kan ha ulike konsekvenser – noen er skadelige, noen er nøytrale, og noen kan til og med være fordelaktige.
+
+a) Forklar hva en mutasjon er, og gi et eksempel på en skadelig og en fordelaktig mutasjon.
+
+b) Cystisk fibrose er en arvelig sykdom som skyldes en mutasjon i ett bestemt gen. Sykdommen er recessiv, noe som betyr at man må arve det muterte genet fra begge foreldrene for å bli syk. Bruk en Punnett-rute til å vise hva som skjer når to bærere (Ff × Ff) får barn.
+
+c) Forklar hvorfor bæreregenskaper (Ff) kan overleve i en populasjon gjennom mange generasjoner uten at noen merker det.`,
+        hints: [
+          'En mutasjon er en varig endring i DNA-sekvensen.',
+          'Fordelaktig mutasjon: Laktosetoleranse hos voksne mennesker utviklet seg etter at mennesket begynte med husdyrhold.',
+          'I en Punnett-rute for Ff × Ff: 25% FF, 50% Ff, 25% ff. Bare ff gir sykdom.',
+        ],
+        solution: `**a) Mutasjon:**
+En **mutasjon** er en varig endring i DNA-sekvensen. Dette kan skje tilfeldig under celledeling eller forårsaket av ytre faktorer som UV-stråling eller kjemikalier.
+
+- **Skadelig mutasjon:** Sigdcelleanemi – en endring i ett enkelt nukleotid gjør at hemoglobinet i røde blodceller får feil form, slik at cellene blir sigdformet og blokkerer blodårer.
+- **Fordelaktig mutasjon:** Laktosetoleranse – en mutasjon som lar voksne mennesker fordøye melkesukker. Denne spredde seg i befolkninger som drev med husdyrhold, fordi det ga en ernæringsmessig fordel.
+
+**b) Punnett-rute for Ff × Ff:**
+
+|  | **F** | **f** |
+|--|-------|-------|
+| **F** | FF | Ff |
+| **f** | Ff | ff |
+
+- **FF (25%):** Frisk, ikke bærer
+- **Ff (50%):** Frisk bærer
+- **ff (25%):** Syk (cystisk fibrose)
+
+**c) Hvorfor bæreregenskaper overlever:**
+Bærere (Ff) har **ingen symptomer** fordi det friske allelet (F) er dominant og produserer nok funksjonelt protein. De lever helt normalt og kan få barn uten å vite at de bærer det muterte genet. Statistisk vil to bærere kun få 25% syke barn, og mange av barna vil igjen være bærere (50%) som fører genet videre. Slik kan en recessiv sykdomsmutasjon «gjemme seg» i en populasjon i mange generasjoner.`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-4-3-oppsummering',
@@ -3768,6 +4907,186 @@ Næringsnett gjør økosystemer mer **stabile**:
 - Hvis én matressurs forsvinner, har dyrene andre alternativer
 - Økosystemet kan tåle forstyrrelser bedre
 - Artsmangfold gir mer robuste økosystemer`,
+    },
+
+    // ========== EKSEMPEL: BYGG ET NÆRINGSNETT ==========
+    {
+      id: 'nat10-4-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Bygg et næringsnett',
+      problem: `Du har følgende organismer fra en norsk skog: gran, blåbær, hare, rype, rødrev, mus, gaupe, ørn, sopp og bakterier. Lag et næringsnett som viser hvem som spiser hvem.`,
+      solution: `**Næringsnett for norsk skog:**
+
+**Produsenter:**
+- Gran (fotosyntese)
+- Blåbær (fotosyntese)
+
+**Primærkonsumenter (planteetere):**
+- Hare (spiser blåbær, gress, bark)
+- Rype (spiser blåbær, knopper)
+- Mus (spiser frø, bær, røtter)
+
+**Sekundærkonsumenter (kjøttetere):**
+- Rødrev (spiser hare, mus, rype)
+- Ørn (spiser hare, rype, mus)
+
+**Tertiærkonsumenter (toppredatorer):**
+- Gaupe (spiser hare, rype, rødrev)
+- Ørn (spiser også rødrev – er både sekundær og tertiær)
+
+**Nedbrytere:**
+- Sopp og bakterier (bryter ned alle døde organismer)
+
+**Næringsnett (forenklet):**
+
+Gran/Blåbær → Hare → Rødrev → Gaupe
+                ↓         ↑
+Gran/Blåbær → Mus  → Rødrev
+                ↓         ↑
+Gran/Blåbær → Rype → Ørn → (spiser også rødrev)
+
+Alle døde organismer → Sopp/Bakterier → Næringsstoffer tilbake til jord → Planter
+
+**Legg merke til:**
+- Rødrev spiser flere typer byttedyr (mus, hare, rype) → fleksibel
+- Ørn er toppredator men spiser på flere nivåer
+- Nettverket gjør økosystemet mer stabilt`,
+    },
+
+    // ========== EKSEMPEL: POPULASJONSDYNAMIKK ==========
+    {
+      id: 'nat10-4-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Populasjonsdynamikk – rovdyr og byttedyr',
+      problem: `I en skog lever hare (byttedyr) og gaupe (rovdyr). Forskere har telt antall hare og gaupe over tid og sett at bestandene svinger i sykluser. Forklar hvorfor.`,
+      solution: `**Populasjonssykluser – hare og gaupe:**
+
+**Syklusen i fire faser:**
+
+**Fase 1: Mange harer, få gauper**
+- Harebestanden er stor (mye mat, få rovdyr)
+- Gaupene har god tilgang på mat (mange harer)
+- Gaupene overlever godt og formerer seg
+
+**Fase 2: Mange harer, mange gauper**
+- Gaupebestanden vokser (god mattilgang)
+- Flere gauper jakter → flere harer blir spist
+- Harebestanden begynner å synke
+
+**Fase 3: Få harer, mange gauper**
+- Gaupene har spist ned harebestanden
+- Nå er det for lite mat til alle gaupene
+- Gaupene sulter, får færre unger
+- Gaupebestanden begynner å synke
+
+**Fase 4: Få harer, få gauper**
+- Færre gauper → mindre jaktpress
+- Harebestanden begynner å vokse igjen
+- → Tilbake til fase 1!
+
+**Syklusen gjentar seg** med ca. 8-11 års mellomrom.
+
+**Viktige prinsipper:**
+1. Byttedyrbestanden (hare) svinger **først**
+2. Rovdyrbestanden (gaupe) følger **etter** med en forsinkelse
+3. Systemet er **selvregulerende** – men aldri helt i balanse
+4. Andre faktorer (mattilgang, sykdom, vær) påvirker også
+
+**Konklusjon:** Rovdyr og byttedyr regulerer hverandres bestander i en syklisk dynamikk.`,
+    },
+
+    // ========== EKSEMPEL: KASKADEEFFEKTER I ØKOSYSTEMER ==========
+    {
+      id: 'nat10-4-4-example-4',
+      type: 'example',
+      title: 'Eksempel: Kaskadeeffekt – når en art forsvinner',
+      problem: `I et havøkosystem lever: planteplankton, raudåte (krepsdyr), sild, torsk, og sel. En sykdom utrydder all sild. Beskriv kaskadeeffektene – hva skjer med de andre artene?`,
+      solution: `**Kaskadeeffekter når sild forsvinner:**
+
+**Opprinnelig næringsnett:**
+Planteplankton → Raudåte → **Sild** → Torsk → Sel
+
+**Umiddelbare effekter (direkte):**
+
+**Torsk (spiser sild):**
+- Mister en viktig matkilde
+- Torskbestanden synker (sult, færre avkom)
+- Torsken kan delvis kompensere ved å spise annen fisk
+
+**Raudåte (spises av sild):**
+- Ingen sild som spiser dem → raudåtebestanden **eksploderer**
+- Mye mer raudåte enn normalt
+
+**Indirekte effekter (kaskade):**
+
+**Planteplankton:**
+- Mer raudåte spiser mer planteplankton
+- Planteplanktonbestanden **synker dramatisk**
+- Mindre fotosyntese i havet → mindre oksygen
+
+**Sel (spiser torsk):**
+- Færre torsk → mindre mat for sel
+- Selbestanden synker
+- Selen kan prøve å spise annet (raudåte direkte)
+
+**Langsiktige effekter:**
+
+| Art | Bestandsendring | Årsak |
+|---|---|---|
+| Sild | Forsvunnet | Sykdom |
+| Raudåte | Sterkt økt | Ingen predator |
+| Planteplankton | Sterkt redusert | Overbeiting av raudåte |
+| Torsk | Redusert | Matmangel |
+| Sel | Redusert | Matmangel (færre torsk) |
+
+**Hele økosystemet påvirkes** av at én art forsvinner:
+- Arter under sild: øker (mindre predasjon)
+- Arter over sild: synker (mindre mat)
+- Arter to nivåer under sild: synker (indirekte effekt)
+
+**Lærdom:** I et næringsnett er alle arter koblet sammen. Fjerning av én art kan utløse en kaskade av endringer gjennom hele systemet.`,
+    },
+
+    // ========== EKSEMPEL: ENERGIPYRAMIDE-BEREGNING ==========
+    {
+      id: 'nat10-4-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Beregning med energipyramiden',
+      problem: `En ørn (toppredator) trenger 500 kJ energi per dag. Bruk 10%-regelen til å beregne hvor mye energi som må fanges av planter (produsenter) for å holde denne ene ørnen i live. Næringskjeden er: Gress → Kanin → Rødrev → Ørn.`,
+      solution: `**Beregning med 10%-regelen (baklengs):**
+
+Vi jobber oss bakover fra ørnen:
+
+**Steg 1: Ørn trenger 500 kJ**
+- Ørnen får bare 10% av energien fra rødrev
+- Rødrev må altså inneholde: 500 kJ ÷ 0,10 = **5 000 kJ**
+
+**Steg 2: Rødrev trenger 5 000 kJ**
+- Rødreven får bare 10% av energien fra kanin
+- Kaniner må altså inneholde: 5 000 kJ ÷ 0,10 = **50 000 kJ**
+
+**Steg 3: Kaniner trenger 50 000 kJ**
+- Kaninene får bare 10% av energien fra gress
+- Gress må altså inneholde: 50 000 kJ ÷ 0,10 = **500 000 kJ**
+
+**Resultat:**
+
+| Trofisk nivå | Energi |
+|---|---|
+| Gress (produsenter) | 500 000 kJ |
+| Kanin (primærkonsument) | 50 000 kJ |
+| Rødrev (sekundærkonsument) | 5 000 kJ |
+| Ørn (tertiærkonsument) | 500 kJ |
+
+**Konklusjon:**
+For å holde én ørn i live med 500 kJ per dag, må planter fange **500 000 kJ** solenergi.
+
+Det betyr at ørnen trenger **1000 ganger** så mye energi som den selv bruker, bare fordi energi tapes ved hvert ledd.
+
+**Dette forklarer hvorfor:**
+- Toppredatorer trenger enorme territorier
+- Det er langt færre ørner enn kaniner i naturen
+- Lange næringskjeder (med mange ledd) er sjeldne`,
     },
 
     // ========== OPPGAVE 4: NÆRINGSKJEDE (KLASSISK) ==========
@@ -4686,6 +6005,241 @@ Gress/korn → Ku → Menneske
       },
     },
 
+    // ========== OPPGAVE EKSTRA 1: KLASSIFISER ORGANISMER ==========
+    {
+      id: 'nat10-4-4-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-4-oppg-extra-1',
+        number: '4.4.11',
+        type: 'classic',
+        difficulty: 'lett',
+        task: `Klassifiser følgende organismer som produsent, primærkonsument, sekundærkonsument, tertiærkonsument, eller nedbryter:
+
+1. Eik (tre)
+2. Meitemark
+3. Ørn
+4. Rådyr
+5. Ulv
+6. Sopparter i skogen
+7. Planteplankton
+8. Frosk (spiser insekter)`,
+        multipleChoiceOptions: [
+          'Eik og planteplankton = produsenter; rådyr = primær; frosk og ulv = sekundær; ørn = tertiær; meitemark og sopp = nedbrytere',
+          'Alle dyrene er konsumenter og alle plantene er nedbrytere',
+          'Ørn og ulv er produsenter fordi de er på toppen av næringskjeden',
+          'Det finnes bare to kategorier: levende og døde organismer',
+        ],
+        solution: `**Klassifisering:**
+
+| Organisme | Rolle | Forklaring |
+|-----------|-------|------------|
+| **Eik** | Produsent | Lager sin egen mat via fotosyntese |
+| **Planteplankton** | Produsent | Mikroskopiske alger som driver fotosyntese |
+| **Rådyr** | Primærkonsument | Spiser planter (herbivor) |
+| **Frosk** | Sekundærkonsument | Spiser insekter (som spiser planter) |
+| **Ulv** | Sekundærkonsument | Spiser planteetere (rådyr, hare) |
+| **Ørn** | Tertiærkonsument | Toppredator – spiser andre kjøttetere |
+| **Sopp** | Nedbryter | Bryter ned dødt organisk materiale |
+| **Meitemark** | Nedbryter | Bryter ned dødt plantemateriale i jorda |
+
+**Merk:** Noen organismer kan ha flere roller. For eksempel kan bjørn være både primær- (spiser bær) og sekundærkonsument (spiser fisk).`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: NØKKELARTER ==========
+    {
+      id: 'nat10-4-4-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-4-oppg-extra-2',
+        number: '4.4.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Hva er en "nøkkelart" (keystone species)? Forklar med et eksempel hvorfor fjerning av en nøkkelart kan få store konsekvenser for hele økosystemet.`,
+        multipleChoiceOptions: [
+          'En art som har uforholdsmessig stor betydning for økosystemet sammenlignet med sitt antall; f.eks. havotere som kontrollerer sjøpiggsvin og bevarer tangskogene',
+          'Den arten det finnes flest individer av i et økosystem',
+          'En art som bare finnes på ett sted i verden',
+          'En art som ikke påvirker andre arter i økosystemet',
+        ],
+        solution: `**Nøkkelart (keystone species):**
+
+En nøkkelart er en art som har **uforholdsmessig stor innvirkning** på økosystemet sammenlignet med sitt antall. Hvis nøkkelarten forsvinner, endres hele økosystemet dramatisk.
+
+**Eksempel: Havoter i Stillehavet**
+
+**Med havoter (normalt økosystem):**
+1. Havoter spiser sjøpiggsvin (sjøurchins)
+2. Sjøpiggsvinbestanden holdes i sjakk
+3. Tangskogene (kelp) vokser fritt
+4. Tangskogene gir habitat for hundrevis av arter (fisk, krabber, etc.)
+5. Rikt og variert økosystem
+
+**Uten havoter (kollapset økosystem):**
+1. Havoterne jaktes bort (pelsjakt på 1800-tallet)
+2. Sjøpiggsvinbestanden eksploderer (ingen kontroll)
+3. Sjøpiggsvin spiser opp alle tangskogene
+4. Tangskogene forsvinner → "ørken" på havbunnen
+5. Hundrevis av arter mister levested og mat
+6. Hele økosystemet kollapser
+
+**Da havoterne ble beskyttet og kom tilbake:**
+- Sjøpiggsvinbestanden gikk ned
+- Tangskogene vokste tilbake
+- Artsmangfoldet økte igjen
+
+**Konklusjon:** Havoteren er en nøkkelart fordi den regulerer hele økosystemet ved å kontrollere sjøpiggsvinbestanden.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: ENERGIBEREGNING ==========
+    {
+      id: 'nat10-4-4-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-4-oppg-extra-3',
+        number: '4.4.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `I et økosystem produserer planter 10 000 000 kJ energi per år via fotosyntese.
+
+a) Hvor mye energi er tilgjengelig for primærkonsumenter?
+b) Hvor mye energi er tilgjengelig for sekundærkonsumenter?
+c) Hvor mange trofiske nivåer tror du det maksimalt kan være i dette økosystemet? Forklar.`,
+        multipleChoiceOptions: [
+          'a) 1 000 000 kJ; b) 100 000 kJ; c) Maks 4-5 nivåer fordi energien blir for lav til å støtte høyere nivåer',
+          'a) 5 000 000 kJ; b) 2 500 000 kJ; c) Uendelig mange nivåer',
+          'a) 10 000 000 kJ; b) 10 000 000 kJ; c) Det er bare 2 nivåer mulig',
+          'a) 9 000 000 kJ; b) 8 100 000 kJ; c) Maks 100 nivåer',
+        ],
+        solution: `**a) Energi for primærkonsumenter:**
+- 10%-regelen: 10% av 10 000 000 kJ
+- = 0,10 × 10 000 000 = **1 000 000 kJ**
+
+**b) Energi for sekundærkonsumenter:**
+- 10% av 1 000 000 kJ
+- = 0,10 × 1 000 000 = **100 000 kJ**
+
+**c) Maksimalt antall trofiske nivåer:**
+
+La oss beregne videre:
+
+| Nivå | Energi |
+|------|--------|
+| Produsenter | 10 000 000 kJ |
+| Primærkonsumenter | 1 000 000 kJ |
+| Sekundærkonsumenter | 100 000 kJ |
+| Tertiærkonsumenter | 10 000 kJ |
+| Kvaternærkonsumenter | 1 000 kJ |
+| Kvintærkonsumenter | 100 kJ |
+
+Ved 5-6 trofiske nivåer er energien blitt **så lav** at den ikke kan støtte levedyktige populasjoner.
+
+**Derfor finnes det sjelden mer enn 4-5 trofiske nivåer** i en næringskjede.
+
+**Forklaring:** Med 90% energitap per nivå er det ikke nok energi igjen til å opprettholde en populasjon av dyr på de høyeste nivåene.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: BIOMAGNIFIKASJON ==========
+    {
+      id: 'nat10-4-4-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-4-oppg-extra-4',
+        number: '4.4.14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Giftstoffer som DDT (et pesticid) og kvikksølv oppkonsentreres i næringskjeden – dette kalles biomagnifikasjon. Konsentrasjonen av giftstoffet øker for hvert trofisk nivå. Forklar hvorfor toppredatorer som ørn og isbjørn har de høyeste konsentrasjonene av giftstoffer.`,
+        multipleChoiceOptions: [
+          'Giftstoffer brytes ikke ned og lagres i fett; hvert rovdyr spiser mange byttedyr og samler opp all giften → konsentrasjonen øker for hvert ledd i næringskjeden',
+          'Toppredatorer er mest utsatt for forurensning fordi de lever lengst',
+          'Giftstoffene produseres av toppredatorer selv',
+          'Biomagnifikasjon er det samme som energipyramiden',
+        ],
+        solution: `**Biomagnifikasjon – oppkonsentrering av giftstoffer:**
+
+**Hvordan det fungerer:**
+
+**1. Giftstoffet tas opp av produsenter:**
+- Planteplankton tar opp en liten mengde gift fra vannet
+- Konsentrasjon: 0,001 ppm (parts per million)
+
+**2. Primærkonsumenter spiser mange produsenter:**
+- Raudåte spiser tusenvis av planteplankton
+- Giften lagres i fettvevet (brytes ikke ned)
+- Konsentrasjon: 0,01 ppm (10x høyere)
+
+**3. Sekundærkonsumenter spiser mange primærkonsumenter:**
+- Sild spiser tusenvis av raudåte
+- All giften fra alle byttedyrene samles opp
+- Konsentrasjon: 0,1 ppm (100x høyere enn plankton)
+
+**4. Tertiærkonsumenter spiser mange sekundærkonsumenter:**
+- Sel spiser tusenvis av sild over sin levetid
+- Konsentrasjon: 1 ppm (1000x høyere)
+
+**5. Toppredator:**
+- Isbjørn spiser mange sel
+- Konsentrasjon: 10 ppm (10 000x høyere enn plankton!)
+
+**Hvorfor øker konsentrasjonen?**
+1. **Giftstoffer brytes ikke ned** – de er persistente (motstandsdyktige mot nedbrytning)
+2. **Giftstoffer lagres i fett** – de skilles ikke ut av kroppen
+3. **Hvert rovdyr spiser mange byttedyr** – og samler all giften fra alle byttedyrene
+4. **Energi tapes, men gift beholdes** – energien brukes opp (90%), men giften forblir
+
+**Konsekvenser for toppredatorer:**
+- Reproduksjonsproblemer (tynne eggeskall hos fugler)
+- Forgiftning og død
+- Hormonforstyrrelser
+
+**Eksempel:** DDT førte til at ørnebestander nesten døde ut på 1960-70-tallet.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: NITROGENKRETSLØPET ==========
+    {
+      id: 'nat10-4-4-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-4-oppg-extra-5',
+        number: '4.4.15',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Nitrogen er et viktig grunnstoff i proteiner og DNA. Selv om 78% av luften er nitrogen (N₂), kan ikke planter bruke nitrogen direkte fra luften. Hvorfor ikke, og hvordan får planter tak i nitrogen?',
+        options: [
+          'N₂-molekylet er for stabilt til at planter kan bryte det; bakterier i jorda omdanner N₂ til nitrat/ammonium som planter kan ta opp gjennom røttene',
+          'Planter tar opp N₂-gass direkte gjennom bladene',
+          'Planter trenger ikke nitrogen i det hele tatt',
+          'Nitrogen er giftig for planter og de unngår det aktivt',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** N₂-molekylet er for stabilt, og bakterier omdanner det til brukbar form.
+
+**Forklaring:**
+
+**Problemet:**
+- N₂ i luften har en **trippelbinding** mellom de to nitrogenatomene (N≡N)
+- Denne bindingen er svært sterk og vanskelig å bryte
+- Planter mangler enzymer til å bryte N₂-molekylet
+
+**Løsningen – nitrogenfiksering:**
+- Spesielle **bakterier** (f.eks. Rhizobium i belgvekster) kan bryte trippelbindingen
+- De omdanner N₂ til **ammonium (NH₄⁺)** og **nitrat (NO₃⁻)**
+- Planter tar opp ammonium og nitrat gjennom røttene
+- Bruker nitrogen til å bygge **aminosyrer, proteiner og DNA**
+
+**Nitrogenkretsløpet:**
+1. Bakterier fikserer N₂ → NH₄⁺/NO₃⁻
+2. Planter tar opp nitrogen fra jorda
+3. Dyr spiser planter → får nitrogen (proteiner)
+4. Døde organismer brytes ned av nedbrytere → nitrogen tilbake til jorda
+5. Noen bakterier frigjør N₂ tilbake til atmosfæren`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-4-4-oppsummering',
@@ -5100,6 +6654,143 @@ Biologisk mangfold er truet over hele verden. Arter dør ut 100–1000 ganger ra
 **Konsekvenser:**
 - Populasjoner reduseres eller dør ut
 - Økosystemer bryter sammen når nøkkelarter forsvinner`,
+    },
+
+    // ========== EKSEMPEL: KLASSIFISER TRUSLER MOT ARTER ==========
+    {
+      id: 'nat10-4-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Klassifiser trusler mot arter',
+      problem: `For hver av følgende situasjoner, identifiser hvilken hovedtrussel mot biologisk mangfold det dreier seg om (bruk HIPCO: Habitatødeleggelse, Invasive arter, Forurensning, Klimaendringer, Overutnyttelse):
+
+a) Regnskogen i Borneo hogges for å lage palmeolje-plantasjer
+b) Plastposer i havet spises av skilpadder
+c) Isbjørnens habitat smelter bort
+d) Havabbor innført i Victoriasjøen i Afrika utrydder hundrevis av lokale fiskearter`,
+      solution: `**Klassifisering av trusler (HIPCO):**
+
+**a) Regnskoghogst for palmeolje:**
+→ **Habitatødeleggelse (H)**
+- Regnskogen ødelegges permanent
+- Orangutanger, tigre og tusenvis av andre arter mister levested
+- Monokultur (palmeolje) erstatter rikt økosystem
+
+**b) Plastposer i havet spises av skilpadder:**
+→ **Forurensning (P)**
+- Plast forveksles med maneter (skilpadders mat)
+- Plasten blokkerer fordøyelsessystemet
+- Skilpadden dør av sult eller indre skader
+- 8 millioner tonn plast havner i havet hvert år
+
+**c) Isbjørnens habitat smelter:**
+→ **Klimaendringer (C)**
+- Global oppvarming smelter havisen i Arktis
+- Isbjørn bruker isen til å jakte sel
+- Uten is kan isbjørnen ikke jakte effektivt
+- Bestanden synker
+
+**d) Havabbor i Victoriasjøen:**
+→ **Invasive arter (I)**
+- Nilabbor ble innført på 1950-tallet for fiske
+- Nilabbor er en aggressiv rovfisk
+- Spiste opp hundrevis av unike cichlide-arter
+- En av de verste økologiske katastrofene i historien
+
+**Huskeregel HIPCO:**
+- **H**abitat loss
+- **I**nvasive species
+- **P**ollution
+- **C**limate change
+- **O**verexploitation`,
+    },
+
+    // ========== EKSEMPEL: ANALYSERE ØKOSYSTEMENDRING ==========
+    {
+      id: 'nat10-4-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av økosystemendring',
+      problem: `En innsjø i Norge hadde tidligere klart vann og rike fiskebestander. De siste 20 årene har det skjedd store endringer: vannet er blitt grønt og grumsete, det er mye alger, fisken har blitt færre, og mange arter har forsvunnet. Jordbruksarealer ligger tett inntil innsjøen. Hva har mest sannsynlig skjedd?`,
+      solution: `**Diagnose: Eutrofiering (overgjødsling)**
+
+**Hva har skjedd – steg for steg:**
+
+**1. Gjødsel fra jordbruket renner ut i innsjøen**
+- Bønder bruker nitrogenholdig og fosforholdig gjødsel
+- Regn vasker gjødselen ut i bekker som renner til innsjøen
+- Avrenning tilfører store mengder nitrogen (N) og fosfor (P)
+
+**2. Algeoppblomstring**
+- Nitrogen og fosfor er "mat" for alger
+- Med mye næring vokser algene eksplosivt (algeoppblomstring)
+- Vannet blir **grønt og grumsete** (full av alger)
+
+**3. Lyset blokkeres**
+- Alger dekker overflaten og gjør vannet uklart
+- Vannplanter på bunnen får ikke lys → dør
+
+**4. Algene dør og brytes ned**
+- Algene lever kort → store mengder døde alger
+- Nedbrytere (bakterier) bryter ned de døde algene
+- Nedbrytning bruker **oksygen**
+
+**5. Oksygenmangel**
+- Bakteriene bruker opp det meste av oksygenet i vannet
+- Fisken og andre dyr kveles av oksygenmangel
+- Fiskebestanden **kollapser**
+
+**6. Økosystemet endres**
+- Fra klart vann med rikt artsmangfold
+- Til grønt, oksygenfattig vann med få arter
+
+**Tiltak for å løse problemet:**
+1. Redusere gjødselbruk langs innsjøen
+2. Lage buffersoner med vegetasjon mellom jordene og vannet
+3. Rense avløpsvann fra gårder
+4. Over tid kan innsjøen gjenopprettes
+
+**Konklusjon:** Eutrofiering er et alvorlig forurensningsproblem som viser hvordan menneskelig aktivitet kan ødelegge økosystemer.`,
+    },
+
+    // ========== EKSEMPEL: INVASIVE ARTER ==========
+    {
+      id: 'nat10-4-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Invasive arter i Norge',
+      problem: `Kjempebjørnekjeks er en fremmed plante som ble innført til Norge som prydplante. Nå regnes den som en av Norges verste invasive arter. Forklar hvorfor fremmede arter kan bli et problem, og hvilke konsekvenser kjempebjørnekjeks har.`,
+      solution: `**Invasive arter – kjempebjørnekjeks i Norge:**
+
+**Hvorfor fremmede arter kan bli et problem:**
+1. De har **ingen naturlige fiender** i det nye landet (ingen dyr/insekter som spiser dem)
+2. De kan **fortrenge stedegne arter** ved å ta plassen og ressursene
+3. De kan **formere seg raskt** uten kontroll
+4. De endrer økosystemet
+
+**Kjempebjørnekjeks – konsekvenser:**
+
+**For naturen:**
+- Vokser opptil 3-5 meter høy
+- Skygger ut alle andre planter under seg
+- Fortrenger norske plantearter
+- Reduserer artsmangfoldet dramatisk
+- Kan danne tette bestander der ingenting annet vokser
+
+**For mennesker:**
+- Plantesaften inneholder **fototoksiske stoffer**
+- Kontakt med saften + sollys gir **alvorlige brannskader** (blemmer som kan vare i uker)
+- Farlig for barn som leker i naturen
+
+**Spredning:**
+- Produserer opptil 50 000 frø per plante
+- Frøene spres med vann, vind og menneskelig aktivitet
+- Svært vanskelig å bli kvitt
+
+**Tiltak:**
+- Fjerne planter FØR frøsetting
+- Grave opp røttene (kutting alene hjelper ikke)
+- Melde funn til kommunen
+- Aldri flytte jord som kan inneholde frø
+
+**Konklusjon:** Invasive arter som kjempebjørnekjeks viser hvor viktig det er å ikke innføre fremmede arter, og å bekjempe dem tidlig.`,
     },
 
     // ========== EKSEMPEL: KORALLREV TRUES ==========
@@ -5540,6 +7231,221 @@ Biologisk mangfold er uvurderlig og kan ikke erstattes. Vi har bare én jord, og
       },
     },
 
+    // ========== OPPGAVE EKSTRA 1: RØDLISTE-KATEGORIER ==========
+    {
+      id: 'nat10-4-5-oppg-extra-1',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 9: Rødliste-kategorier',
+      difficulty: 'lett',
+      estimatedMinutes: 2,
+      content: {
+        task: 'En art klassifiseres som "CR – Critically Endangered" på Rødlista. Hva betyr dette?',
+        options: [
+          'Arten er livskraftig og ikke truet',
+          'Arten har ekstremt høy risiko for utryddelse',
+          'Arten er allerede utdødd',
+          'Arten finnes bare i dyreparker',
+        ],
+        answer: 1,
+        hint: 'CR står for Critically Endangered. Hva betyr "critically"?',
+        feedback: `**Riktig svar:** Arten har ekstremt høy risiko for utryddelse.
+
+**Forklaring:**
+CR (Critically Endangered) er den høyeste trusselnivået for arter som fortsatt finnes i naturen.
+
+**Rødliste-kategoriene (fra minst til mest truet):**
+- LC (Least Concern) – Livskraftig
+- NT (Near Threatened) – Nær truet
+- VU (Vulnerable) – Sårbar
+- EN (Endangered) – Sterkt truet
+- **CR (Critically Endangered) – Kritisk truet** ← denne
+- EW (Extinct in the Wild) – Utdødd i vill tilstand
+- EX (Extinct) – Utdødd
+
+Eksempler på CR-arter: Sumatra-neshorn, vaquita (Californias nise).`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: GENETISK MANGFOLD ==========
+    {
+      id: 'nat10-4-5-oppg-extra-2',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 10: Hvorfor er genetisk mangfold viktig?',
+      difficulty: 'medium',
+      estimatedMinutes: 4,
+      content: {
+        task: 'En populasjon av gepard har svært lavt genetisk mangfold – individene er nesten genetisk identiske. Forklar hvorfor dette er et problem for artens overlevelse.',
+        placeholder: 'Skriv forklaringen din...',
+        hint: 'Tenk på hva som skjer hvis en sykdom rammer en populasjon der alle er genetisk like.',
+        sampleAnswer: `**Hvorfor lavt genetisk mangfold er farlig:**
+
+**Problemet med genetisk ensformighet:**
+
+Når individer er nesten identiske genetisk, betyr det at de har:
+- Samme styrker
+- Men også **samme svakheter**
+
+**Konkrete farer:**
+
+**1. Sykdom kan utrydde hele populasjonen:**
+- Hvis alle individer er genetisk like, er de sårbare for samme sykdommer
+- Én sykdom kan ramme alle → hele populasjonen kan dø ut
+- Med genetisk variasjon ville noen individer hatt naturlig motstandskraft
+
+**2. Dårlig tilpasning til endringer:**
+- Hvis klimaet endrer seg, trenger populasjonen variasjon for å tilpasse seg
+- Uten genetisk variasjon har naturlig utvalg ingenting å "velge fra"
+- Arten kan ikke tilpasse seg → dør ut
+
+**3. Innavlsproblemer:**
+- Parring mellom nært beslektede gir svakere avkom
+- Flere genetiske sykdommer
+- Lavere fruktbarhet
+- Svakere immunforsvar
+
+**Geparden i dag:**
+- Gepardpopulasjonen ble redusert til svært få individer under siste istid
+- Alle dagens geparder stammer fra denne lille gruppen ("flaskehals")
+- De er nesten genetisk identiske → sårbare for sykdom
+- Et av argumentene for å bevare store, varierte populasjoner
+
+**Konklusjon:** Genetisk mangfold er artens "forsikring" mot uforutsette hendelser.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: ØKOSYSTEMTJENESTER I HVERDAGEN ==========
+    {
+      id: 'nat10-4-5-oppg-extra-3',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 11: Økosystemtjenester i din hverdag',
+      difficulty: 'medium',
+      estimatedMinutes: 5,
+      content: {
+        task: 'Gi et konkret eksempel fra din hverdag for hver av de fire typene økosystemtjenester: forsyningstjenester, reguleringstjenester, kulturelle tjenester og støttetjenester.',
+        placeholder: 'Skriv eksemplene dine...',
+        hint: 'Tenk på mat du spiser, luft du puster, turer du går, og naturprosesser som skjer rundt deg.',
+        sampleAnswer: `**Økosystemtjenester i min hverdag:**
+
+**1. Forsyningstjenester (direkte produkter):**
+- **Eksempel:** Laksen jeg spiser til middag
+- Laksen er en naturressurs fra havet/elver
+- Uten sunne fiskebestander har vi ingen fisk å spise
+- Andre eksempler: tømmeret i huset mitt, vannet fra springen
+
+**2. Reguleringstjenester (naturlige prosesser):**
+- **Eksempel:** Trærne utenfor vinduet mitt renser luften
+- Trær absorberer CO₂ og produserer O₂ (fotosyntese)
+- De filtrerer også forurensning og støv
+- Andre eksempler: Bier pollinerer epletreét i hagen, røtter hindrer jordras
+
+**3. Kulturelle tjenester (opplevelser):**
+- **Eksempel:** Søndagsturen i skogen
+- Natur gir oss ro, trivsel og fysisk aktivitet
+- Naturoplevelser er viktige for mental helse
+- Andre eksempler: fuglesang om morgenen, bading i innsjøen om sommeren
+
+**4. Støttetjenester (grunnleggende prosesser):**
+- **Eksempel:** Jordsmonnet i hagen der vi dyrker grønnsaker
+- Meitemark, bakterier og sopp bryter ned organisk materiale og skaper fruktbar jord
+- Uten denne prosessen kunne ingen planter vokse
+- Andre eksempler: oksygenproduksjon fra planter, vannkretsløpet
+
+**Konklusjon:** Vi er helt avhengige av naturen i hverdagen, selv om vi ikke alltid tenker over det.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: SVALBARD FRØHVELV ==========
+    {
+      id: 'nat10-4-5-oppg-extra-4',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 12: Svalbard globale frøhvelv',
+      difficulty: 'lett',
+      estimatedMinutes: 2,
+      content: {
+        task: 'Svalbard globale frøhvelv lagrer frø fra over 1 million plantesorter dypt inne i en fjellside på Svalbard. Hvorfor er dette viktig for biologisk mangfold?',
+        options: [
+          'Det bevarer genetisk mangfold av matplanter som forsikring mot katastrofer, klimaendringer og utryddelse',
+          'Det er bare en turistattraksjon uten vitenskapelig betydning',
+          'Frøene lagres for å plantes ut og dekke Svalbard med skog',
+          'Det er et forsøk på å skape nye plantearter gjennom genmanipulering',
+        ],
+        answer: 0,
+        hint: 'Frøhvelvet kalles "dommedagshvelvet". Hvorfor tror du det?',
+        feedback: `**Riktig svar:** Bevarer genetisk mangfold som forsikring mot katastrofer.
+
+**Forklaring:**
+
+Svalbard globale frøhvelv er verdens viktigste "backup" for matplanter:
+
+**Hva lagres:**
+- Over 1,1 millioner frøprøver fra hele verden
+- Alle viktige matplanter (hvete, ris, mais, etc.)
+- Tusenvis av sorter av hver plante
+
+**Hvorfor det er viktig:**
+1. **Klimaendringer** kan gjøre noen plantesortene ubrukelige → vi trenger alternative sorter
+2. **Sykdommer** kan utrydde en plantesort → vi har backup-frø
+3. **Krig og katastrofer** kan ødelegge nasjonale frøbanker → Svalbard er "sikkerhetskoyen"
+4. **Genetisk mangfold** i matplanter er avgjørende for matsikkerhet
+
+**Hvorfor Svalbard?**
+- Kaldt klima (naturlig frysing)
+- Stabil permafrost
+- Politisk nøytralt
+- Langt fra konfliktsoner`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: HANDLING I HVERDAGEN ==========
+    {
+      id: 'nat10-4-5-oppg-extra-5',
+      type: 'exercise',
+      exerciseType: 'open-ended',
+      title: 'Oppgave 13: Hva kan du gjøre for biologisk mangfold?',
+      difficulty: 'lett',
+      estimatedMinutes: 4,
+      content: {
+        task: 'Nevn fem konkrete ting du kan gjøre i hverdagen for å bidra til å bevare biologisk mangfold.',
+        placeholder: 'Skriv forslagene dine...',
+        hint: 'Tenk på forbruk, mat, natur, søppel, og hva du kan gjøre lokalt.',
+        sampleAnswer: `**Fem ting jeg kan gjøre for biologisk mangfold:**
+
+**1. Redusere plastbruk**
+- Bruke handlenett i stedet for plastposer
+- Unngå engangsplast (sugerør, bestikk)
+- Resirkulere plast riktig
+- **Effekt:** Mindre plast i havet → færre dyr skades
+
+**2. Spise mer bærekraftig**
+- Velge bærekraftig fisk (se etter MSC-merket)
+- Spise mer plantebasert (mindre kjøtt → mindre avskoging)
+- Velge lokale og sesongbaserte matvarer
+- **Effekt:** Reduserer press på økosystemer og artsmangfold
+
+**3. Plante insektvennlige planter**
+- La en del av hagen "gro vilt" med ville blomster
+- Plante blomster som tiltrekker bier og sommerfugler
+- Sette opp insekthotell
+- **Effekt:** Støtter pollinerende insekter som er truet
+
+**4. Ikke forsøple i naturen**
+- Alltid ta med søppel hjem fra turer
+- Delta i strandrydding eller skogrydding
+- Resirkulere riktig
+- **Effekt:** Renere natur, færre dyr skades av søppel
+
+**5. Spre kunnskap og engasjement**
+- Lære andre om biologisk mangfold
+- Støtte naturvernorganisasjoner
+- Melde fra om invasive arter til kommunen
+- **Effekt:** Jo flere som bryr seg, jo større endring kan vi oppnå`,
+      },
+    },
+
     // ========== OPPSUMMERING ==========
     {
       id: 'nat10-4-5-oppsummering',
@@ -5930,6 +7836,127 @@ b) **Kollisjon:** To kontinentalplater støter sammen
 - Store spenninger, kraftige jordskjelv
 - Eksempel: San Andreas-forkastningen
 - Jordskjelv: Kraftige | Vulkaner: Nei`,
+    },
+
+    // ========== EKSEMPEL: IDENTIFISER PLATEGRENSETYPEN ==========
+    {
+      id: 'nat10-4-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Identifiser type plategrense',
+      problem: `For hvert av følgende steder, identifiser hvilken type plategrense det dreier seg om, og forklar hva som skjer der:
+
+a) Himalaya (Asia)
+b) Midt-Atlanterhavsryggen
+c) San Andreas-forkastningen (California)
+d) Andesfjellene (Sør-Amerika)`,
+      solution: `**a) Himalaya:**
+→ **Konvergerende plategrense – kollisjon**
+- Indiske plata kolliderer med Eurasiske plata
+- Begge er kontinentalskorpe (for lette til å dykke ned)
+- Fjellet presses opp → verdens høyeste fjellkjede (8849 m)
+- Ingen vulkaner, men kraftige jordskjelv
+- Himalaya vokser fortsatt ca. 1 cm per år!
+
+**b) Midt-Atlanterhavsryggen:**
+→ **Divergerende plategrense (sprekkesone)**
+- Eurasiske plata og Nordamerikanske plata beveger seg fra hverandre
+- Magma stiger opp og danner ny havbunn
+- Atlanterhavet blir ca. 2-3 cm bredere per år
+- Island ligger på denne ryggen
+- Moderate jordskjelv og vulkansk aktivitet
+
+**c) San Andreas-forkastningen:**
+→ **Transform plategrense (glir langs hverandre)**
+- Stillehavsplata glir nordvestover forbi Nordamerikanske plata
+- Enorme spenninger bygger seg opp
+- Plutselig frigjøring → kraftige jordskjelv (f.eks. San Francisco 1906)
+- Ingen vulkaner
+
+**d) Andesfjellene:**
+→ **Konvergerende plategrense – subduksjon**
+- Nazca-plata (havskorpe) dykker under Søramerikanske plata (kontinentskorpe)
+- Havskorpen smelter → magma stiger opp → mange aktive vulkaner
+- Verdens nest høyeste fjellkjede
+- Kraftige jordskjelv og eksplosive vulkanutbrudd`,
+    },
+
+    // ========== EKSEMPEL: FOSSILBEVIS FOR KONTINENTALDRIFT ==========
+    {
+      id: 'nat10-4-6-example-2',
+      type: 'example',
+      title: 'Eksempel: Fossilbevis for Pangea',
+      problem: `Fossiler av Mesosaurus, et lite ferskvannsdyr som levde for ca. 270 millioner år siden, er funnet BARE i Sør-Amerika og i Afrika. Mesosaurus levde i ferskvann og kunne ikke svømme over saltvann/havet. Forklar hvordan dette er bevis for at Sør-Amerika og Afrika en gang var koblet sammen.`,
+      solution: `**Fossilbevis for Pangea:**
+
+**Fakta:**
+- Mesosaurus-fossiler er funnet i østlige Sør-Amerika og vestlige Afrika
+- Mesosaurus var et lite ferskvannsdyr (ca. 1 m langt)
+- Det levde i innsjøer og elver, IKKE i havet
+- Det kunne IKKE svømme over Atlanterhavet
+
+**Logisk slutning:**
+
+**Mulighet 1: Kontinentene var alltid adskilt**
+- Da måtte Mesosaurus ha svømt over Atlanterhavet (tusenvis av km salt vann)
+- Men Mesosaurus var et ferskvannsdyr → dette er umulig
+- Denne muligheten forkastes
+
+**Mulighet 2: Kontinentene var koblet sammen (Pangea)**
+- Sør-Amerika og Afrika hang sammen for 270 millioner år siden
+- Mesosaurus levde i ferskvann i området der kontinentene møttes
+- Senere ble kontinentene skilt → Atlanterhavet åpnet seg
+- Fossilene ble "delt" mellom de to kontinentene
+
+**Konklusjon:**
+Mesosaurus-fossiler på begge sider av Atlanterhavet er sterke bevis for at:
+1. Sør-Amerika og Afrika en gang var ett sammenhengende landområde
+2. Pangea eksisterte
+3. Kontinentaldrift har funnet sted
+
+**Andre fossile bevis:**
+- **Glossopteris** (bregne): Fossiler i Sør-Amerika, Afrika, India, Australia og Antarktis
+- **Cynognathus** (reptil): Sør-Amerika og Afrika
+- **Lystrosaurus** (reptil): Afrika, India og Antarktis
+
+Alle disse organismene kunne ikke krysse hav → kontinentene MÅ ha hengt sammen.`,
+    },
+
+    // ========== EKSEMPEL: GEOLOGISK TIDSLINJE ==========
+    {
+      id: 'nat10-4-6-example-3',
+      type: 'example',
+      title: 'Eksempel: Jordens alder i perspektiv',
+      problem: `Jorden er ca. 4,6 milliarder år gammel. Det er vanskelig å forestille seg så lang tid. Forestill deg at hele jordens historie er komprimert til ett døgn (24 timer), der midnatt (00:00) er da jorden ble dannet. Når ville de viktigste hendelsene ha skjedd?`,
+      solution: `**Jordens historie på 24 timer:**
+
+Skala: 4 600 000 000 år = 24 timer
+1 time = ca. 192 millioner år
+1 minutt = ca. 3,2 millioner år
+1 sekund = ca. 53 000 år
+
+**Tidslinje:**
+
+| Klokkeslett | Hendelse | Virkelig tid |
+|---|---|---|
+| **00:00** | Jorden dannes | 4,6 mrd. år siden |
+| **04:00** | Første liv (bakterier) | 3,5 mrd. år siden |
+| **14:00** | Første eukaryote celler | 2,0 mrd. år siden |
+| **18:40** | Første flercellede organismer | 1,0 mrd. år siden |
+| **21:12** | Kambrium – "livets eksplosjon" | 541 mill. år siden |
+| **21:50** | Første landdyr | 400 mill. år siden |
+| **22:14** | Kaledonske fjellkjeden (Norge) | 400 mill. år siden |
+| **22:48** | Dinosaurene dukker opp | 230 mill. år siden |
+| **23:39** | Dinosaurene dør ut | 66 mill. år siden |
+| **23:59:43** | Første menneske (Homo sapiens) | 300 000 år siden |
+| **23:59:59,7** | Den industrielle revolusjonen | 250 år siden |
+
+**Perspektiv:**
+- Livet har eksistert i **20 timer** av døgnet
+- Dinosaurene levde i nesten **1 time**
+- Mennesket har eksistert i **17 sekunder**
+- Hele den menneskelige sivilisasjon er **0,3 sekunder**
+
+**Konklusjon:** Jordens historie er enormt lang. Mennesket er en svært ny art – vi har vært her i bare en brøkdel av jordens historie.`,
     },
 
     // ========== OPPGAVE 3: PLATEGRENSER 1 ==========
@@ -6633,6 +8660,290 @@ Den kaledonske fjellkjeden ble dannet på samme måte som Himalaya (kollisjon me
 1. Den er 350 millioner år eldre
 2. 400 millioner år med erosjon har slitt ned fjellet
 3. Det vi ser i dag er "røttene" av den opprinnelige fjellkjeden`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 1: RING OF FIRE ==========
+    {
+      id: 'nat10-4-6-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-1',
+        number: '4.6.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `"Ring of Fire" (Ildringen) er et belte av vulkaner og jordskjelvsoner som omgir Stillehavet. Forklar hvorfor det er så mye geologisk aktivitet akkurat her.`,
+        multipleChoiceOptions: [
+          'Stillehavsplata subdukterer under omkringliggende plater langs hele kanten → smelting → vulkaner og kraftige jordskjelv',
+          'Stillehavet er varmt og det er varmt vann som lager vulkaner',
+          'Ring of Fire skyldes hot spots under hele Stillehavet',
+          'Jordskjelv i Ring of Fire skyldes tidevannet, ikke platetektonikk',
+        ],
+        solution: `**Hvorfor Ring of Fire har så mye geologisk aktivitet:**
+
+**Hva er Ring of Fire?**
+- Et hesteskoformet belte rundt Stillehavet
+- Strekker seg fra New Zealand → Asia → Alaska → Nord-/Sør-Amerika
+- Ca. 40 000 km langt
+- 75% av verdens vulkaner og 90% av verdens jordskjelv
+
+**Årsaken: Subduksjon rundt hele Stillehavet**
+
+Stillehavsplata (havskorpe) er omgitt av flere kontinentalplater:
+- Eurasiske plata (Japan, Filippinene)
+- Australske plata (New Zealand, Indonesia)
+- Nordamerikanske plata (Alaska, vestkysten av Nord-Amerika)
+- Søramerikanske plata (Andesfjellene)
+
+**Hva skjer:**
+1. Stillehavsplata (tung havskorpe) **dykker under** kontinentalplatene langs hele kanten
+2. Dette er **subduksjon** (konvergerende plategrenser)
+3. Havskorpen smelter i kappen → **magma** dannes
+4. Magma stiger opp → **vulkaner** dannes
+5. Enorme spenninger bygges opp → **kraftige jordskjelv**
+
+**Eksempler fra Ring of Fire:**
+- **Japan:** Jordskjelv og tsunamier (2011)
+- **Indonesia:** Vulkaner (Krakatoa) og jordskjelv
+- **Filippinene:** Mount Pinatubo (utbrudd 1991)
+- **Chile:** Kraftigste jordskjelv noensinne (1960, magnitude 9,5)
+- **Cascadia (USA/Canada):** Potensiale for mega-jordskjelv
+
+**Konklusjon:** Ring of Fire skyldes at Stillehavsplata subdukterer under omkringliggende plater langs hele sin kant, noe som skaper verdens mest geologisk aktive sone.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 2: BERGARTER ==========
+    {
+      id: 'nat10-4-6-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-2',
+        number: '4.6.10',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Det finnes tre hovedtyper bergarter. Hvilken bergart dannes når magma avkjøles og størkner?',
+        options: [
+          'Magmatisk (eruptiv) bergart',
+          'Sedimentær bergart',
+          'Metamorf bergart',
+          'Mineralbergart',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** Magmatisk (eruptiv) bergart.
+
+**De tre hovedtypene bergarter:**
+
+**1. Magmatiske (eruptive) bergarter:**
+- Dannes når magma avkjøles og størkner
+- **Intrusiv:** Størkner sakte dypt inne i jordskorpen → store krystaller (f.eks. granitt)
+- **Ekstrusiv:** Størkner raskt på overflaten (lava) → små krystaller (f.eks. basalt)
+
+**2. Sedimentære bergarter:**
+- Dannes når løsmateriale (sand, leire, skjell) avleires i lag og presses sammen
+- Eksempler: Sandstein, kalkstein, skifer
+- Fossiler finnes nesten bare i sedimentære bergarter
+
+**3. Metamorfe bergarter:**
+- Dannes når eksisterende bergarter utsettes for høyt trykk og/eller temperatur
+- Endrer form uten å smelte helt
+- Eksempler: Marmor (fra kalkstein), gneis (fra granitt)`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 3: TSUNAMIER ==========
+    {
+      id: 'nat10-4-6-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-3',
+        number: '4.6.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar steg for steg hvordan et jordskjelv under havet kan skape en tsunami. Hvorfor er tsunamier spesielt farlige for kystbefolkninger?`,
+        multipleChoiceOptions: [
+          'Jordskjelv løfter havbunnen → vann forskyves → bølger sprer seg → bølgene vokser nær land → oversvømmer kysten; farlig pga. kort varslingstid og enorm vannmengde',
+          'Tsunamier er bare store vanlige bølger skapt av vind, ikke jordskjelv',
+          'Tsunamier skjer bare i innsjøer, ikke i havet',
+          'Jordskjelv skaper tsunamier ved å varme opp vannet til det koker',
+        ],
+        solution: `**Hvordan tsunamier oppstår – steg for steg:**
+
+**Steg 1: Jordskjelv under havet**
+- Et kraftig jordskjelv (magnitude 7+) oppstår under havbunnen
+- Vanligvis ved en **subduksjonszone** (konvergerende plategrense)
+- Havbunnen løftes eller senkes plutselig
+
+**Steg 2: Vann forskyves**
+- Bevegelsen i havbunnen forskyver **enorme mengder vann**
+- Vannet "dyttes opp" (eller ned) av havbunnen
+- En bølge starter
+
+**Steg 3: Bølgen sprer seg over havet**
+- På dypt hav: bølgen er **lav** (< 1 meter høy) og **lang** (100+ km mellom toppene)
+- Men bølgen beveger seg **ekstremt raskt** (600-800 km/t – like fort som et fly!)
+- Skip på åpent hav merker nesten ingenting
+
+**Steg 4: Bølgen når kysten**
+- Når bølgen kommer til grunt vann, bremses den
+- Vannet "stables opp" → bølgen blir **høyere og høyere**
+- Bølger kan bli **10-30 meter høye** (eller mer)
+
+**Steg 5: Oversvømmelse**
+- Den enorme bølgen skyller inn over land
+- Ødelegger alt i sin vei: bygninger, veier, vegetasjon
+- Vannet trekker seg tilbake med enorm kraft (like farlig!)
+
+**Hvorfor tsunamier er spesielt farlige:**
+1. **Kort varslingstid:** Bølgen kan nå kysten på minutter
+2. **Enorm vannmengde:** Ikke én bølge, men mange bølger over timer
+3. **Kraft:** Vannmassen knuser bygninger og ødelegger infrastruktur
+4. **Stor rekkevidde:** Kan treffe kyster tusenvis av km unna
+5. **Vanskelig å forutsi nøyaktig:** Vanskelig å beregne bølgehøyde
+
+**Eksempel:** Indiahavet 2004 – jordskjelv (9,1) → tsunami → over 230 000 døde i 14 land.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 4: FJORDER OG ISTID ==========
+    {
+      id: 'nat10-4-6-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-4',
+        number: '4.6.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Norges fjorder er blant de mest kjente geologiske formasjonene i verden. Forklar hvordan fjordene ble dannet, og hvorfor de er dype og smale.`,
+        multipleChoiceOptions: [
+          'Isbreer gravde dype U-formede daler under istidene; da isen smeltet, ble dalene fylt med sjøvann og ble til fjorder',
+          'Fjordene ble skapt av elver som eroderte gjennom fjellet',
+          'Fjordene ble dannet av jordskjelv som knekte fjellet',
+          'Fjordene er gamle vulkankratere fylt med vann',
+        ],
+        solution: `**Hvordan Norges fjorder ble dannet:**
+
+**1. Elvedaler (før istidene):**
+- Opprinnelig hadde Norge V-formede daler gravd ut av elver
+- Disse dalene fulgte sprekker og svakhetssoner i fjellet
+
+**2. Istidene (siste 2,6 millioner år):**
+- Norge ble dekket av enorme isbreer (opptil 3 km tykke)
+- Isbreene fulgte de eksisterende dalene
+- Isen eroderte med enorm kraft:
+  - Plukket løs fjellblokker (plukking)
+  - Slipte fjellet glatt (abrasjon)
+  - Gravde dalene **dypere og bredere**
+
+**3. U-formede daler:**
+- Isbreene omdannet V-formede daler til **U-formede daler**
+- Bratte fjellsider og flat bunn
+- Dalene ble gravd ned **under havnivå**
+
+**4. Isen smelter:**
+- Da isen smeltet for ca. 10 000 år siden, ble dalene fylt med sjøvann
+- Resultatet: **Fjorder** – dype, smale havfjorder omgitt av bratte fjell
+
+**Hvorfor fjordene er dype og smale:**
+- **Dype:** Isen gravde seg ned hundrevis av meter under havnivå
+  - Sognefjorden er 1308 m dyp (dypeste i Norge)
+- **Smale:** Isen fulgte eksisterende daler og gravde dem rett ned
+- **Terskler:** Ved fjordmunningen er det ofte grunnere (terskel) fordi isen bredte seg ut og mistet kraft
+
+**Konklusjon:** Fjordene er et resultat av millioner av år med iserosjon, og er et unikt geologisk trekk ved Norges landskap.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 5: HOT SPOTS ==========
+    {
+      id: 'nat10-4-6-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-5',
+        number: '4.6.13',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hawaii-øyene ligger midt på Stillehavsplata, langt fra plategrenser. Hvordan kan det da finnes vulkaner der?',
+        options: [
+          'En stasjonær "hot spot" (varm plume) i kappen smelter hull i plata; plata beveger seg over hot spoten og danner en rekke vulkanøyer',
+          'Hawaii ligger på en plategrense mellom to plater',
+          'Vulkanene på Hawaii skyldes jordskjelv som smelter fjellet',
+          'Hawaii-vulkanene er menneskeskapte',
+        ],
+        answer: 0,
+        solution: `**Riktig svar:** En stasjonær hot spot i kappen.
+
+**Forklaring:**
+
+**Hva er en hot spot?**
+- En **varm plume** (søyle av ekstra varmt materiale) stiger opp fra dyp i kappen
+- Plumen er **stasjonær** (beveger seg ikke)
+- Den smelter hull i plata over og skaper vulkaner
+
+**Hvordan Hawaii-øyene ble dannet:**
+
+1. En hot spot eksisterer under Stillehavet
+2. Varmen smelter gjennom Stillehavsplata → vulkanutbrudd → øy dannes
+3. Stillehavsplata beveger seg nordvestover (ca. 7 cm/år)
+4. Den aktive øya flyttes bort fra hot spoten → vulkanen slukker
+5. En ny øy dannes over hot spoten
+6. Over tid: en **kjede av øyer** som er stadig eldre jo lenger nordvest
+
+**Hawaii-øyene i rekkefølge (yngst til eldst):**
+- **Big Island (Hawaii):** Aktiv vulkan (over hot spoten nå)
+- **Maui:** Litt eldre, vulkanen er sluknet
+- **Oahu:** Enda eldre
+- **Kauai:** Eldst av de store øyene
+
+Nordvest for Kauai finnes en lang rekke under undervannsvulkaner – alle dannet av samme hot spot over millioner av år.
+
+**Andre hot spots:** Yellowstone (USA), Island (delvis), Galápagos.`,
+      },
+    },
+
+    // ========== OPPGAVE EKSTRA 6: SAMMENKOBLING GEOLOGI OG BIOLOGI ==========
+    {
+      id: 'nat10-4-6-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-4-6-oppg-extra-6',
+        number: '4.6.14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forklar sammenhengen mellom platetektonikk og biologisk mangfold. Hvordan kan bevegelsen av kontinenter påvirke evolusjon og artsmangfold?`,
+        multipleChoiceOptions: [
+          'Kontinentaldrift skaper geografisk isolasjon som fører til artsdannelse; nye habitater og klimasoner oppstår; barrierer og broer mellom kontinenter endrer artsfordelingen',
+          'Platetektonikk har ingen innvirkning på biologisk mangfold',
+          'Kontinentaldrift bare ødelegger arter og reduserer mangfold',
+          'Artsmangfold styres bare av klima, ikke geologi',
+        ],
+        solution: `**Sammenhengen mellom platetektonikk og biologisk mangfold:**
+
+**1. Geografisk isolasjon → Artsdannelse**
+- Når Pangea splittet opp, ble populasjoner **isolert** på ulike kontinenter
+- Isolerte populasjoner utviklet seg forskjellig over tid
+- **Eksempel:** Pungdyr (kenguruer, koala) finnes bare i Australia fordi kontinentet ble isolert for 45 millioner år siden
+
+**2. Nye habitater**
+- Kontinentaldrift skaper nye fjellkjeder, havområder og klimasoner
+- Nye habitater → nye nisjer → nye arter evolusjonererer
+- **Eksempel:** Da Himalaya ble dannet, skapte det nye klimasoner og habitater
+
+**3. Landbroer mellom kontinenter**
+- Når kontinenter kolliderer, kan arter vandre mellom dem
+- **Eksempel:** Landbroen mellom Nord- og Sør-Amerika (for 3 mill. år siden) tillot utveksling av arter ("Great American Interchange")
+
+**4. Endrede havstrømmer og klima**
+- Kontinentenes plassering påvirker havstrømmer og vind
+- Endrede havstrømmer endrer klimaet → påvirker artsmangfold
+- **Eksempel:** Da Antarktis ble isolert, ble det omgitt av kalde havstrømmer → frosset til → unikt økosystem
+
+**5. Masseutryddelser**
+- Store vulkanutbrudd (knyttet til platetektonikk) kan forårsake masseutryddelser
+- **Eksempel:** Sibirtrapputbruddet for 252 mill. år siden drepte 96% av alle arter (den store døden)
+- Men etter masseutryddelser: nye arter evolusjonererer og fyller de ledige nisjene
+
+**Konklusjon:** Platetektonikk er en av de viktigste drivkreftene bak evolusjon og biologisk mangfold, fordi den skaper isolasjon, nye habitater og endrede miljøforhold over geologisk tid.`,
       },
     },
 

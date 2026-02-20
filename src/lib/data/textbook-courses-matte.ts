@@ -4496,7 +4496,7 @@ export const COURSE_2PY: TextbookCourse = {
   description: 'Praktisk matematikk for yrkesfaglige utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔧',
-  coverImage: '/images/subjects/matematikk-2py-hero.webp',
+  coverImage: 'https://images.unsplash.com/photo-1635372722656-389f87a941b7?w=1200&h=600&fit=crop',
   chapters: [
     // Seksjon 1: Økonomi i hverdagen
     {

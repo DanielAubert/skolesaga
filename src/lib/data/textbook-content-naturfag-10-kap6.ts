@@ -47,6 +47,38 @@ I dette kapitlet lærer du:
 - Sikkerhet og personvern i teknologiske systemer`,
     },
 
+    // ========== DEFINISJON: TEKNOLOGISK SYSTEM ==========
+    {
+      id: 'nat10-6-1-def-teknologisk-system',
+      type: 'definition',
+      title: 'Teknologisk system',
+      content: 'Et teknologisk system er en samling av deler (komponenter) som jobber sammen for å utføre en bestemt oppgave. Systemet tar inn informasjon (input), behandler den (prosess), og gir et resultat (output). Eksempler er mobiltelefoner, datamaskiner, GPS-systemer og smarte hjem-enheter.',
+    },
+
+    // ========== DEFINISJON: INPUT OG OUTPUT ==========
+    {
+      id: 'nat10-6-1-def-input-output',
+      type: 'definition',
+      title: 'Input og output',
+      content: 'Input (inndata) er informasjon, energi eller signaler som kommer inn i et teknologisk system. Output (utdata) er resultatet systemet produserer etter å ha behandlet inputen. Mellom input og output skjer en prosess der systemet bearbeider informasjonen. For eksempel: Når du trykker på en knapp (input), behandler systemet kommandoen (prosess), og TV-en bytter kanal (output).',
+    },
+
+    // ========== DEFINISJON: TILBAKEKOBLING ==========
+    {
+      id: 'nat10-6-1-def-tilbakekobling',
+      type: 'definition',
+      title: 'Tilbakekobling (feedback)',
+      content: 'Tilbakekobling (feedback) er når output fra et system sendes tilbake som ny input, slik at systemet kan justere seg selv. Positiv tilbakekobling forsterker endringen (f.eks. en mikrofon som lager hvinelyd), mens negativ tilbakekobling motvirker endringen og skaper stabilitet (f.eks. en termostat som holder temperaturen stabil). De fleste reguleringsmekanismer i teknologi bruker negativ tilbakekobling.',
+    },
+
+    // ========== DEFINISJON: SYSTEMTENKNING ==========
+    {
+      id: 'nat10-6-1-def-systemtenkning',
+      type: 'definition',
+      title: 'Systemtenkning',
+      content: 'Systemtenkning er en tilnærming der man ser på helheten i et system, i stedet for bare enkeltdelene. Man undersøker hvordan komponentene påvirker hverandre, og forstår at helheten ofte er mer enn summen av delene. Systemtenkning er viktig for å forstå komplekse teknologiske systemer der mange deler samarbeider.',
+    },
+
     // ========== HVA ER ET TEKNOLOGISK SYSTEM? ==========
     {
       id: 'nat10-6-1-hva-er-system',
@@ -124,6 +156,79 @@ Et system er mer enn bare summen av delene:
         ],
         solution: 'De tre hoveddelene er: **Input** (informasjon inn i systemet), **Prosess** (behandling av informasjonen), og **Output** (resultatet som kommer ut).',
       },
+    },
+
+    // ========== EKSEMPEL: TERMOSTAT SOM TILBAKEKOBLING ==========
+    {
+      id: 'nat10-6-1-example-termostat',
+      type: 'example',
+      title: 'Eksempel: Tilbakekobling i en termostat',
+      problem: 'Forklar hvordan tilbakekobling fungerer i en termostat som holder romtemperaturen på 21°C.',
+      solution: `**Løsning:**
+
+En termostat bruker **negativ tilbakekobling** for å holde temperaturen stabil:
+
+1. **Input:** Temperatursensoren måler romtemperaturen (f.eks. 19°C)
+2. **Prosess:** Termostaten sammenligner målt temperatur med ønsket temperatur (21°C)
+3. **Output:** Siden 19°C < 21°C, slår termostaten på varmen
+4. **Tilbakekobling:** Når temperaturen stiger til 21°C, registrerer sensoren dette (output → ny input)
+5. **Ny beslutning:** Termostaten slår av varmen fordi ønsket temperatur er nådd
+
+Systemet regulerer seg selv hele tiden. Hvis temperaturen faller under 21°C, slås varmen på igjen. Hvis den stiger over, slås varmen av. Dette er et klassisk eksempel på negativ tilbakekobling.`,
+    },
+
+    // ========== EKSEMPEL: VASKEMASKIN SOM SYSTEM ==========
+    {
+      id: 'nat10-6-1-example-vaskemaskin',
+      type: 'example',
+      title: 'Eksempel: Vaskemaskin som teknologisk system',
+      problem: 'Beskriv input, prosess og output i en vaskemaskin.',
+      solution: `**Løsning:**
+
+**Input:**
+- Skitne klær legges i trommelen
+- Vaskemiddel tilsettes
+- Du velger vaskeprogram og temperatur (brukerinput)
+- Vann strømmer inn
+
+**Prosess:**
+- Vaskemaskinen varmer opp vannet til valgt temperatur
+- Trommelen roterer og agiterer klærne
+- Vaskemiddelet løser opp smuss og flekker
+- Vannet pumpes ut og nytt vann skyller klærne
+- Sentrifugen spinner ut vannet
+
+**Output:**
+- Rene, nesten tørre klær
+
+**Tilbakekobling:** Mange moderne vaskemaskiner har sensorer som måler vannets renhet. Hvis vannet fortsatt er skittent etter skylling, legger maskinen til en ekstra skyllerunde. Dette er tilbakekobling i praksis.`,
+    },
+
+    // ========== EKSEMPEL: ALARM SOM SYSTEM ==========
+    {
+      id: 'nat10-6-1-example-alarm',
+      type: 'example',
+      title: 'Eksempel: Brannalarmsystem',
+      problem: 'Et kontor har et brannalarmsystem. Beskriv dette som et teknologisk system med input, prosess og output.',
+      solution: `**Løsning:**
+
+**Input:**
+- Røyksensorer registrerer røykpartikler i luften
+- Varmesensorer registrerer unormalt høye temperaturer
+
+**Prosess:**
+- Sentralenheten mottar signal fra sensorene
+- Systemet analyserer om signalet skyldes ekte brann (unngå falsk alarm)
+- Dersom røyk og varme overskrider terskelverdier, utløses alarmen
+
+**Output:**
+- Alarmsirener spiller høy lyd for å varsle alle i bygningen
+- Nødlys lyser opp rømningsveier
+- Signal sendes automatisk til brannvesenet
+- Automatisk sprinkleranlegg kan aktiveres
+- Ventilasjonen slås av for å unngå at røyken spres
+
+Dette systemet har flere sensorer (input), en intelligent sentral (prosess) og flere ulike responser (output).`,
     },
 
     // ========== SENDER-MOTTAKER-SYSTEMER ==========
@@ -705,6 +810,503 @@ En smartklokke kan være nyttig for å fremme helse og aktivitet, MEN:
 **Viktigst:** Du må selv bestemme hva du er komfortabel med å dele av data om deg selv.`,
       },
     },
+    // ========== EKSEMPEL: TILBAKEKOBLING I HVERDAGEN ==========
+    {
+      id: 'nat10-6-1-example-feedback-hverdagen',
+      type: 'example',
+      title: 'Eksempel: Tilbakekobling i hverdagsteknologi',
+      problem: 'Gi tre eksempler på negativ tilbakekobling i hverdagslige teknologiske systemer, og forklar hvordan tilbakekoblingen fungerer i hvert tilfelle.',
+      solution: `**Løsning:**
+
+**1. Kjøleskapets termostat:**
+- Temperatursensor måler temperaturen inne i kjøleskapet
+- Hvis temperaturen stiger over 6°C → kompressoren slår på → kjøleskapet avkjøles
+- Hvis temperaturen synker under 4°C → kompressoren slår av → strømsparing
+- Output (temperatur) sendes tilbake som input (sensoravlesning)
+- Resultat: Stabil temperatur mellom 4-6°C
+
+**2. Lydkontroll i øretelefoner (støydemping):**
+- Mikrofon registrerer støy fra omgivelsene (input)
+- Prosessor lager et "motsignal" som nøytraliserer støyen (prosess)
+- Høyttaleren spiller musikk + motsignal (output)
+- Mikrofon sjekker om det fortsatt er støy (tilbakekobling)
+- Systemet justerer kontinuerlig for å holde støyen borte
+
+**3. Cruisekontroll i bilen:**
+- Du setter ønsket hastighet til 80 km/t
+- Hastighetssensor måler bilens faktiske hastighet (input)
+- Hvis bilen sakker ned (oppover bakke) → systemet gir mer gass
+- Hvis bilen akselererer (nedover bakke) → systemet reduserer gass
+- Hastigheten holdes stabil på 80 km/t
+
+Alle tre eksemplene bruker negativ tilbakekobling: Systemet motvirker avvik fra ønsket tilstand for å opprettholde stabilitet.`,
+    },
+
+    // ========== OPPGAVE 9: TILBAKEKOBLING ==========
+    {
+      id: 'nat10-6-1-ex-9-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-9',
+        number: '6.9',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er tilbakekobling (feedback) i et teknologisk system?',
+        options: [
+          {
+            id: 'a',
+            text: 'Når output fra systemet sendes tilbake som ny input for å regulere systemet',
+            isCorrect: true,
+            feedback: 'Riktig! Tilbakekobling gjør at systemet kan justere seg selv basert på resultatet.',
+          },
+          {
+            id: 'b',
+            text: 'Når systemet mottar input fra brukeren',
+            isCorrect: false,
+            feedback: 'Feil. Brukerinput er vanlig input, ikke tilbakekobling.',
+          },
+          {
+            id: 'c',
+            text: 'Når systemet slår seg av automatisk',
+            isCorrect: false,
+            feedback: 'Feil. Automatisk avslåing kan være et resultat av tilbakekobling, men er ikke selve definisjonen.',
+          },
+          {
+            id: 'd',
+            text: 'Når to systemer er koblet sammen med en kabel',
+            isCorrect: false,
+            feedback: 'Feil. Tilbakekobling handler om informasjonsflyt, ikke fysisk tilkobling.',
+          },
+        ],
+        solution: 'Tilbakekobling (feedback) betyr at output fra et system sendes tilbake som ny input. Dette gjør at systemet kan regulere seg selv. Et godt eksempel er en termostat: den måler temperaturen (output blir input) og justerer varmen deretter.',
+      },
+    },
+
+    // ========== OPPGAVE 10: IDENTIFISER DELER ==========
+    {
+      id: 'nat10-6-1-ex-10-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-10',
+        number: '6.10',
+        type: 'exercise',
+        difficulty: 'medium',
+        task: 'En automatisk døråpner ved en butikk åpner døren når noen nærmer seg, og lukker den igjen etter noen sekunder. Beskriv input, prosess, output og tilbakekobling i dette systemet.',
+        solution: `**Input:**
+- Bevegelsessensor (IR-sensor) registrerer at en person nærmer seg døren
+- Sensoren sender et elektrisk signal til kontrollenheten
+
+**Prosess:**
+- Kontrollenheten mottar signal fra bevegelsessensoren
+- Den bestemmer at døren skal åpnes
+- Etter en innstilt tid (f.eks. 5 sekunder) sjekker den om noen fortsatt er i sensorens felt
+
+**Output:**
+- Elektrisk motor åpner dørene
+- Dørene holdes åpne i noen sekunder
+- Dørene lukkes igjen
+
+**Tilbakekobling:**
+- Sensoren overvåker kontinuerlig om det er noen i døråpningen
+- Hvis noen fortsatt står i døren, holdes den åpen (output → ny input)
+- Først når sensoren ikke registrerer bevegelse, sendes signal om å lukke døren
+- Sikkerhetssensor i dørkanten hindrer at døren lukkes på noen
+
+Dette er et eksempel på negativ tilbakekobling der systemet justerer seg etter omgivelsene.`,
+      },
+    },
+
+    // ========== OPPGAVE 11: POSITIVT VS NEGATIVT FEEDBACK ==========
+    {
+      id: 'nat10-6-1-ex-11-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-11',
+        number: '6.11',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er forskjellen mellom positiv og negativ tilbakekobling?',
+        options: [
+          {
+            id: 'a',
+            text: 'Positiv tilbakekobling forsterker endringen, negativ tilbakekobling motvirker endringen',
+            isCorrect: true,
+            feedback: 'Riktig! Positiv tilbakekobling gjør at endringer vokser, mens negativ tilbakekobling skaper stabilitet.',
+          },
+          {
+            id: 'b',
+            text: 'Positiv tilbakekobling er bra, negativ tilbakekobling er dårlig',
+            isCorrect: false,
+            feedback: 'Feil. Positiv og negativ refererer ikke til om det er bra eller dårlig, men til om endringen forsterkes eller motvirkes.',
+          },
+          {
+            id: 'c',
+            text: 'Positiv tilbakekobling brukes i teknologi, negativ tilbakekobling brukes i biologi',
+            isCorrect: false,
+            feedback: 'Feil. Begge typer finnes i både teknologi og biologi.',
+          },
+          {
+            id: 'd',
+            text: 'Det er ingen forskjell mellom dem',
+            isCorrect: false,
+            feedback: 'Feil. De har helt motsatt effekt på systemet.',
+          },
+        ],
+        solution: '**Negativ tilbakekobling** motvirker endringer og skaper stabilitet (f.eks. termostat). **Positiv tilbakekobling** forsterker endringer (f.eks. en mikrofon for nær en høyttaler som lager hvinelyd). I teknologiske systemer brukes oftest negativ tilbakekobling for å opprettholde stabilitet.',
+      },
+    },
+
+    // ========== OPPGAVE 12: DESIGN EGET SYSTEM ==========
+    {
+      id: 'nat10-6-1-ex-12-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-12',
+        number: '6.12',
+        type: 'exercise',
+        difficulty: 'vanskelig',
+        task: 'Du skal designe et enkelt IoT-system for et klasserom som automatisk regulerer luftkvaliteten. Beskriv hvilke sensorer du trenger, hvordan systemet fungerer (input, prosess, output, tilbakekobling), og forklar hvorfor dette er nyttig.',
+        solution: `**IoT-system for luftkvalitet i klasserom:**
+
+**Sensorer (input):**
+- CO₂-sensor: Måler konsentrasjonen av karbondioksid i luften
+- Temperatursensor: Måler romtemperaturen
+- Fuktighetssensor: Måler luftfuktigheten
+
+**Prosess:**
+- En mikrokontroller (f.eks. Arduino) leser data fra alle sensorene hvert minutt
+- Dataene sendes til en skyserver via WiFi
+- Algoritmen sammenligner verdiene med anbefalte grenseverdier:
+  - CO₂ > 1000 ppm → Luft klasserommet
+  - Temperatur > 24°C → Skru ned varmen
+  - Fuktighet < 30% → Varsle om tørr luft
+
+**Output:**
+- Automatisk åpning av ventilasjon eller vinduer
+- Varsel til lærerens telefon med melding om å lufte
+- Dashboard på skjerm i klasserommet viser luftkvalitet i sanntid
+- Fargeindikator: Grønn (god luft), gul (bør luftes snart), rød (luft nå!)
+
+**Tilbakekobling:**
+- Etter at vinduer er åpnet, fortsetter sensorene å måle
+- Når CO₂-nivået synker under 800 ppm, sendes melding om at luften er god igjen
+- Systemet lærer over tid når CO₂ pleier å stige (f.eks. ved start av undervisning)
+
+**Hvorfor er dette nyttig?**
+- Bedre konsentrasjon og læring for elevene
+- Reduserer hodepine og tretthet
+- Automatisk overvåking uten at noen trenger å tenke på det
+- Data kan brukes til å forbedre ventilasjonssystemet i bygningen
+- Sparer energi ved å kun ventilere når det er nødvendig`,
+      },
+    },
+
+    // ========== OPPGAVE 13: KODING OG DEKODING ==========
+    {
+      id: 'nat10-6-1-ex-13a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-13a',
+        number: '6.13a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar hva koding og dekoding betyr i et sender-mottaker-system. Gi et eksempel fra hverdagen der informasjon kodes, sendes og dekodes.',
+        solution: `**Koding og dekoding:**
+
+**Koding** betyr å omforme informasjon til et signal som kan sendes. **Dekoding** betyr å omforme signalet tilbake til forståelig informasjon.
+
+**Hverdagseksempel: Telefonsamtale**
+
+1. **Koding (sender):**
+   - Du snakker inn i mikrofonen (lydbølger)
+   - Telefonen omformer lydbølgene til et digitalt signal (tallkode)
+   - Signalet komprimeres for å bruke mindre data
+   - Signalet sendes som radiosignal til en basestasjon
+
+2. **Sending:**
+   - Radiosignalet sendes fra din telefon til nærmeste basestasjon
+   - Basestasjonen sender signalet videre gjennom nettverket
+   - Signalet ankommer mottakerens basestasjon
+   - Basestasjonen sender radiosignal til mottakerens telefon
+
+3. **Dekoding (mottaker):**
+   - Mottakerens telefon mottar radiosignalet
+   - Det digitale signalet dekomprimeres
+   - Signalet omformes tilbake til lydbølger
+   - Høyttaleren spiller av lyden slik at mottakeren kan høre deg
+
+**Analogi:**
+Koding er som å oversette fra norsk til morsekode, og dekoding er som å oversette fra morsekode tilbake til norsk. Både sender og mottaker må "snakke samme språk" for at kommunikasjonen skal fungere.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: IoT-SIKKERHET ==========
+    {
+      id: 'nat10-6-1-ex-14-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-14',
+        number: '6.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken av disse er den største sikkerhetsrisikoen ved IoT-enheter?',
+        options: [
+          {
+            id: 'a',
+            text: 'Standardpassord som ikke endres av brukeren',
+            isCorrect: true,
+            feedback: 'Riktig! Mange IoT-enheter leveres med standardpassord som "admin" eller "1234" som brukere ofte ikke endrer, noe som gjør dem enkle å hacke.',
+          },
+          {
+            id: 'b',
+            text: 'At enhetene bruker for mye strøm',
+            isCorrect: false,
+            feedback: 'Feil. Strømforbruk er et praktisk problem, men ikke en sikkerhetsrisiko.',
+          },
+          {
+            id: 'c',
+            text: 'At enhetene er for store',
+            isCorrect: false,
+            feedback: 'Feil. Fysisk størrelse har ingenting med sikkerhet å gjøre.',
+          },
+          {
+            id: 'd',
+            text: 'At WiFi-signalet er for svakt',
+            isCorrect: false,
+            feedback: 'Feil. Signalstyrke påvirker funksjonalitet, ikke sikkerhet direkte.',
+          },
+        ],
+        solution: 'Standardpassord er den største sikkerhetsrisikoen fordi hackere kjenner til de vanligste standardpassordene og kan enkelt ta kontroll over enheter som ikke har fått endret passord. I 2016 tok Mirai-botnett kontroll over hundretusenvis av IoT-enheter med standardpassord og brukte dem til store nettangrep. Alltid endre standardpassord til et sterkt, unikt passord!',
+      },
+    },
+
+    // ========== OPPGAVE 15: SMARTBY-SYSTEMER ==========
+    {
+      id: 'nat10-6-1-ex-15a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-15a',
+        number: '6.15a',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En smartby bruker mange teknologiske systemer som kommuniserer med hverandre. Beskriv hvordan tre ulike smartby-systemer (trafikkstyring, avfallshåndtering og energi) kan samarbeide for å gjøre byen mer effektiv. Bruk begrepene input, prosess, output og tilbakekobling i forklaringen din.',
+        solution: `**Tre samarbeidende smartby-systemer:**
+
+**System 1: Smart trafikkstyring**
+
+- **Input:** Sensorer i veibanen teller biler, kameraer registrerer trafikktetthet, GPS-data fra busser og biler
+- **Prosess:** Sentralcomputer analyserer trafikkdata i sanntid
+- **Output:** Trafikklys justerer grønntid, varselskilt oppdateres, navigasjonsapper foreslår alternative ruter
+- **Tilbakekobling:** Etter endring av lysene måler sensorene om trafikken flyter bedre
+
+**System 2: Smart avfallshåndtering**
+
+- **Input:** Fyllsensorer i søppelbeholdere måler hvor fulle de er
+- **Prosess:** Sentral server samler data fra alle beholdere, planlegger optimale tømmeruter
+- **Output:** Renovasjonsbilene får optimaliserte ruter (tømmer bare beholdere som trenger det)
+- **Tilbakekobling:** GPS i renovasjonsbilene bekrefter at beholdere er tømt, fyllsensoren nullstilles
+
+**System 3: Smart energi**
+
+- **Input:** Strømmålere i alle bygninger, værsensorer, solcelle-produksjonsdata
+- **Prosess:** Energiselskapet analyserer forbruk vs. produksjon, forutsier behov
+- **Output:** Justerer strømproduksjon, styrer smartbelysning, sender prisinfo til forbrukere
+- **Tilbakekobling:** Strømmålere verifiserer at forbruket justeres som forventet
+
+**Samarbeid mellom systemene:**
+
+1. **Trafikk + Energi:**
+   - Trafikksystemet vet når det er mange biler → Energisystemet dimmer gatelysene der det er færre biler
+   - Trafikklys slår seg av om natten der det ikke er trafikk
+
+2. **Avfall + Trafikk:**
+   - Renovasjonsbilene unngår rushtidstrafikk (data fra trafikksystemet)
+   - Trafikklys gir renovasjonsbiler prioritet i grønn bølge
+
+3. **Alle tre:**
+   - Alle systemer deler data via en felles plattform
+   - Kommunen får dashboard med oversikt over alle systemer
+   - Innbyggere kan se status via en app (bussruter, søppelhenting, strømpris)
+
+**Resultat:** Byen sparer energi, reduserer utslipp, forbedrer trafikkflyt og gir bedre tjenester til innbyggerne.`,
+      },
+    },
+
+    // ========== OPPGAVE 16: HVERDAGSSYSTEM ==========
+    {
+      id: 'nat10-6-1-ex-16-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-16',
+        number: '6.16',
+        type: 'exercise',
+        difficulty: 'lett',
+        task: 'Velg en teknologisk enhet du bruker daglig (for eksempel en vaskemaskin, kaffemaskin, eller automatisk garasjeport). Beskriv denne som et teknologisk system med input, prosess og output.',
+        solution: `**Eksempelsvar: Kaffemaskin**
+
+**Input:**
+- Du fyller på vann i tanken
+- Du legger i kaffekapsel eller malt kaffe
+- Du trykker på knappen for ønsket kaffetype (espresso, lungo, etc.)
+
+**Prosess:**
+- Maskinen varmer opp vannet til riktig temperatur (ca. 90-96°C)
+- Pumpen presser varmt vann gjennom kaffegruten under høyt trykk
+- Vannet trekker ut smaksstoffer, oljer og koffein fra kaffen
+- Brukt grut samles opp i avfallsbeholder
+
+**Output:**
+- Ferdig kaffe i koppen din
+- Signal (lys/lyd) som forteller at kaffen er klar
+
+Mer avanserte kaffemaskiner har også tilbakekobling: temperatursensor sikrer at vannet holder riktig temperatur gjennom hele bryggeprosessen.`,
+      },
+    },
+
+    // ========== EKSEMPEL: ROBOTSTØVSUGER ==========
+    {
+      id: 'nat10-6-1-example-robotstovsuger',
+      type: 'example',
+      title: 'Eksempel: Robotstøvsuger som teknologisk system',
+      problem: 'En robotstøvsuger kjører rundt i et hus og støvsuger automatisk. Beskriv robotstøvsugeren som et teknologisk system med input, prosess, output og tilbakekobling. Hvilke sensorer bruker den?',
+      solution: `**Løsning:**
+
+**Input:**
+- Infrarøde sensorer oppdager hindringer (møbler, vegger)
+- Fallsensorer oppdager trapper og kanter
+- Støvsensor måler mengden støv som suges opp
+- Hjulrotasjonssensorer måler avstand kjørt
+- Brukerinput via app eller knapper (start, stopp, tidspunkt)
+- Ladestasjonens infrarøde signal (for å finne tilbake)
+
+**Prosess:**
+- Prosessoren lager et kart over rommet ved hjelp av sensordata
+- Algoritmen beregner den mest effektive ruten for å dekke hele gulvet
+- Motorer styrer hjulene og sugeenheten
+- Programmet bestemmer sugekraft basert på støvnivå
+
+**Output:**
+- Rent gulv (hovedformålet)
+- Bevegelse i beregnet mønster
+- Lyd- og lyssignaler (ferdig, feil, lav battery)
+- Statusrapport til app (rengjort areal, tid brukt)
+
+**Tilbakekobling:**
+1. **Hindring oppdaget:** Sensoren melder fra → prosessoren beregner ny rute → roboten snur
+2. **Mye støv:** Støvsensoren måler høyt nivå → roboten øker sugekraften → sensoren sjekker om nivået synker
+3. **Lavt batteri:** Batterisensoren melder fra → roboten navigerer tilbake til ladestasjonen → lading starter → sensoren sjekker batterinivå
+4. **Kartoppdatering:** Hjulsensorene måler bevegelse → kartet oppdateres → ruten justeres
+
+**Sensorer brukt:**
+| Sensor | Type | Funksjon |
+|--------|------|----------|
+| Infrarød | Avstand | Oppdager hindringer |
+| Fallsensor | Bevegelse | Forhindrer fall fra trapper |
+| Støvsensor | Optisk | Måler støvmengde |
+| Hjulencoder | Rotasjon | Måler avstand og posisjon |
+| Batterisensor | Spenning | Overvåker batterinivå |
+| Gyrosensor | Orientering | Holder styr på retning |`,
+    },
+
+    // ========== OPPGAVE 17: ROBOTSTØVSUGER ==========
+    {
+      id: 'nat10-6-1-ex-17-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-17',
+        number: '6.17',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'En robotstøvsuger oppdager at den nærmer seg en trapp. Hva er riktig rekkefølge i tilbakekoblingssløyfen?',
+        options: [
+          { id: 'a', text: 'Roboten snur → Fallsensoren registrerer kanten → Prosessoren bestemmer ny retning', isCorrect: false, feedback: 'Feil rekkefølge. Sensoren må registrere faren før roboten kan reagere.' },
+          { id: 'b', text: 'Fallsensoren registrerer kanten → Prosessoren bestemmer ny retning → Roboten snur', isCorrect: true, feedback: 'Riktig! Først registrerer sensoren (input), deretter behandler prosessoren informasjonen, og til slutt utføres handlingen (output).' },
+          { id: 'c', text: 'Prosessoren bestemmer ny retning → Fallsensoren registrerer kanten → Roboten snur', isCorrect: false, feedback: 'Prosessoren kan ikke bestemme retning uten først å få informasjon fra sensoren.' },
+          { id: 'd', text: 'Roboten snur → Prosessoren bestemmer ny retning → Fallsensoren registrerer kanten', isCorrect: false, feedback: 'Feil. Handlingen kan ikke skje før informasjonen er mottatt og behandlet.' },
+        ],
+        solution: 'I et teknologisk system følger tilbakekobling alltid mønsteret: **sensor registrerer** (input) → **prosessor behandler** (prosess) → **handling utføres** (output). Fallsensoren oppdager kanten, prosessoren beregner ny retning, og motorene snur roboten.',
+      },
+    },
+
+    // ========== OPPGAVE 18: POSITIV VS. NEGATIV TILBAKEKOBLING ==========
+    {
+      id: 'nat10-6-1-ex-18-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-18',
+        number: '6.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Forklar forskjellen mellom positiv og negativ tilbakekobling i teknologiske systemer. Gi minst ett eksempel på hver type. Hvorfor er negativ tilbakekobling mye vanligere i teknologiske systemer enn positiv tilbakekobling?',
+        hints: ['Tenk på hva som skjer med systemet over tid ved hver type tilbakekobling.', 'Negativ tilbakekobling motvirker endringer, mens positiv tilbakekobling forsterker dem.'],
+        solution: `**Negativ tilbakekobling** motvirker endringer og holder systemet stabilt. Outputen fra systemet påvirker inputen slik at avviket fra ønsket verdi reduseres.
+
+**Eksempel:** Termostat i et oppvarmingssystem
+- Temperaturen synker under 20°C → varmen slås PÅ
+- Temperaturen stiger over 22°C → varmen slås AV
+- Systemet holder seg stabilt rundt ønsket temperatur
+
+**Positiv tilbakekobling** forsterker endringer. Outputen fra systemet påvirker inputen slik at avviket fra utgangspunktet øker.
+
+**Eksempel:** Mikrofon foran høyttaler (akustisk tilbakekobling)
+- Mikrofonen fanger opp lyd fra høyttaleren → lyden forsterkes → høyttaleren spiller den forsterkede lyden → mikrofonen fanger opp enda sterkere lyd → lyden blir sterkere og sterkere → hylende lyd (feedback)
+
+**Hvorfor negativ tilbakekobling er vanligst:**
+
+1. **Stabilitet:** De fleste teknologiske systemer er designet for å holde verdier stabile (temperatur, hastighet, trykk). Negativ tilbakekobling sørger for dette.
+2. **Kontroll:** Med negativ tilbakekobling kan systemet korrigere seg selv. Positiv tilbakekobling fører til ukontrollert vekst.
+3. **Sikkerhet:** Positiv tilbakekobling kan føre til farlige situasjoner (overoppheting, eksplosjon, etc.) hvis den ikke stoppes.
+4. **Eksempel fra kjernekraft:** Positiv tilbakekobling i en kjernereaktor ville føre til ukontrollert kjedereaksjon. Derfor bruker reaktorer negativ tilbakekobling (kontrollstaver) for å holde reaksjonen stabil.
+
+Positiv tilbakekobling brukes bevisst i noen systemer, for eksempel i oscillatorer (klokker, radiosendere) der man ønsker at et signal skal bygge seg opp.`,
+      },
+    },
+
+    // ========== OPPGAVE 19: BLOKKDIAGRAM ==========
+    {
+      id: 'nat10-6-1-ex-19-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-1-ex-19',
+        number: '6.19',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Tegn et blokkdiagram (input → prosess → output med tilbakekobling) for en automatisk lysstyrkeregulering i en smarttelefon. Beskriv hva som skjer i hvert steg når du tar telefonen med deg fra et mørkt rom ut i solen.',
+        hints: ['Tenk på hvilken sensor som brukes og hva som justeres.'],
+        solution: `**Blokkdiagram for automatisk lysstyrkeregulering:**
+
+\`\`\`
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│   SENSOR     │───▶│  PROSESSOR   │───▶│   SKJERM     │
+│ (lyssensor)  │    │  (beregner   │    │ (justerer    │
+│              │    │   lysstyrke) │    │  lysstyrke)  │
+└──────────────┘    └──────────────┘    └──────────────┘
+       ▲                                       │
+       │            TILBAKEKOBLING             │
+       └───────────────────────────────────────┘
+\`\`\`
+
+**Hva skjer steg for steg (mørkt rom → sollys):**
+
+1. **Input (sensor):** Lyssensoren på telefonen måler omgivelseslyset. I det mørke rommet registrerer den lavt lysnivå (f.eks. 10 lux).
+
+2. **Prosess:** Prosessoren mottar verdien fra lyssensoren. Den beregner at skjermen bør ha lav lysstyrke (f.eks. 20%) for å spare batteri og ikke blende brukeren.
+
+3. **Output (skjerm):** Skjermens bakgrunnsbelysning settes til 20%.
+
+4. **Du går ut i solen:**
+
+5. **Input (sensor):** Lyssensoren registrerer plutselig mye høyere lysnivå (f.eks. 50 000 lux i direkte sollys).
+
+6. **Prosess:** Prosessoren beregner at skjermen må være mye lysere for å være lesbar i sollys (f.eks. 100%).
+
+7. **Output (skjerm):** Skjermens bakgrunnsbelysning økes gradvis til 100%.
+
+8. **Tilbakekobling:** Lyssensoren fortsetter å måle. Hvis du går i skyggen igjen, registrerer den lavere lysnivå, og prosessoren reduserer lysstyrken tilsvarende.
+
+**Type tilbakekobling:** Negativ tilbakekobling – systemet motvirker endringer i lysforhold ved å justere skjermens lysstyrke motsatt av omgivelseslyset.`,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -747,6 +1349,38 @@ I dette kapitlet lærer du:
 - Dataanalyse med kode
 - Visualisering av data
 - Enkle simuleringer av naturprosesser`,
+    },
+
+    // ========== DEFINISJON: ALGORITME ==========
+    {
+      id: 'nat10-6-3-def-algoritme',
+      type: 'definition',
+      title: 'Algoritme',
+      content: 'En algoritme er en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses. Algoritmer er grunnlaget for all programmering. Et hverdagseksempel er en oppskrift for å bake en kake: den beskriver rekkefølgen av steg du må utføre for å nå resultatet. I programmering skrives algoritmene som kode som datamaskinen kan utføre.',
+    },
+
+    // ========== DEFINISJON: VARIABEL ==========
+    {
+      id: 'nat10-6-3-def-variabel',
+      type: 'definition',
+      title: 'Variabel',
+      content: 'En variabel er et navngitt lagringssted i datamaskinen der du kan lagre en verdi. Verdien kan være et tall, tekst, en liste, eller sann/usann (boolsk verdi). Du kan tenke på en variabel som en merket boks som inneholder informasjon. Variabelen kan endres underveis i programmet. Eksempel: temperatur = 20 lagrer tallet 20 i variabelen kalt "temperatur".',
+    },
+
+    // ========== DEFINISJON: LØKKE ==========
+    {
+      id: 'nat10-6-3-def-lokke',
+      type: 'definition',
+      title: 'Løkke (loop)',
+      content: 'En løkke er en programmeringsstruktur som gjentar en blokk med kode et bestemt antall ganger, eller så lenge en betingelse er oppfylt. En for-løkke brukes når du vet hvor mange ganger koden skal gjentas, mens en while-løkke brukes når du vil gjenta koden så lenge en betingelse er sann. Løkker er essensielle for å behandle store datasett effektivt.',
+    },
+
+    // ========== DEFINISJON: FUNKSJON ==========
+    {
+      id: 'nat10-6-3-def-funksjon',
+      type: 'definition',
+      title: 'Funksjon',
+      content: 'En funksjon er en gjenbrukbar blokk med kode som utfører en bestemt oppgave. Du definerer funksjonen én gang, og kan deretter kalle (bruke) den mange ganger i programmet. Funksjoner tar ofte inn parametre (input) og returnerer et resultat (output). Eksempel: en funksjon celsius_til_fahrenheit(celsius) tar inn en temperatur i Celsius og returnerer verdien i Fahrenheit.',
     },
 
     // ========== HVORFOR PROGRAMMERING I NATURFAG? ==========
@@ -894,6 +1528,131 @@ print(f"Laveste: {laveste}°C")
 # Høyeste: 23°C
 # Laveste: 18°C
 \`\`\``,
+    },
+
+    // ========== DEFINISJON: BIBLIOTEK ==========
+    {
+      id: 'nat10-6-3-def-bibliotek',
+      type: 'definition',
+      title: 'Bibliotek (i programmering)',
+      content: 'Et bibliotek (library) er en samling ferdig-skrevet kode som du kan bruke i dine egne programmer. I stedet for å skrive alt fra bunnen av, kan du importere et bibliotek som allerede har den funksjonaliteten du trenger. I Python er Matplotlib et bibliotek for å lage grafer, NumPy er et bibliotek for beregninger, og Pandas er et bibliotek for dataanalyse. Å bruke biblioteker er som å bruke ferdige byggesteiner i stedet for å lage alt selv.',
+    },
+
+    // ========== EKSEMPEL: ALGORITME FOR GJENNOMSNITT ==========
+    {
+      id: 'nat10-6-3-example-algoritme',
+      type: 'example',
+      title: 'Eksempel: Algoritme for å beregne gjennomsnitt',
+      problem: 'Skriv en algoritme (steg-for-steg) for å beregne gjennomsnittstemperaturen fra en liste med temperaturer, og vis deretter Python-koden.',
+      solution: `**Algoritme (steg-for-steg):**
+
+1. Start med en liste med temperaturer
+2. Legg sammen alle temperaturene (finn summen)
+3. Tell hvor mange temperaturer det er
+4. Del summen på antallet
+5. Skriv ut resultatet
+
+**Python-kode:**
+
+\`\`\`python
+# Steg 1: Liste med temperaturer
+temperaturer = [18, 20, 22, 19, 21, 23, 20]
+
+# Steg 2: Finn summen
+total = sum(temperaturer)  # total = 143
+
+# Steg 3: Tell antall
+antall = len(temperaturer)  # antall = 7
+
+# Steg 4: Beregn gjennomsnitt
+gjennomsnitt = total / antall  # gjennomsnitt = 20.43
+
+# Steg 5: Skriv ut
+print(f"Gjennomsnitt: {gjennomsnitt:.1f}°C")
+# Output: Gjennomsnitt: 20.4°C
+\`\`\`
+
+Legg merke til at hvert steg i algoritmen tilsvarer en linje i koden. Å skrive algoritmen først gjør det lettere å programmere!`,
+    },
+
+    // ========== EKSEMPEL: FOR-LØKKE TIL FILTRERING ==========
+    {
+      id: 'nat10-6-3-example-filter',
+      type: 'example',
+      title: 'Eksempel: Bruke løkke til å filtrere data',
+      problem: 'Du har målt nedbør i mm for 10 dager: [0, 5, 12, 0, 3, 0, 8, 0, 15, 2]. Skriv Python-kode som finner alle dager med nedbør (mer enn 0 mm) og beregner gjennomsnittlig nedbørsmengde for regnværsdagene.',
+      solution: `**Løsning:**
+
+\`\`\`python
+# Data: Nedbør i mm for 10 dager
+nedbor = [0, 5, 12, 0, 3, 0, 8, 0, 15, 2]
+
+# Finn dager med nedbør
+regnvarsdager = []
+for mm in nedbor:
+    if mm > 0:
+        regnvarsdager.append(mm)
+
+# Beregn gjennomsnitt for regnværsdager
+gjennomsnitt = sum(regnvarsdager) / len(regnvarsdager)
+
+print(f"Antall regnværsdager: {len(regnvarsdager)}")
+print(f"Gjennomsnittlig nedbør på regnværsdager: {gjennomsnitt:.1f} mm")
+
+# Output:
+# Antall regnværsdager: 6
+# Gjennomsnittlig nedbør på regnværsdager: 7.5 mm
+\`\`\`
+
+**Forklaring:**
+- Løkken går gjennom hver dag
+- \`if mm > 0\` filtrerer ut dager uten nedbør
+- \`append()\` legger til verdien i den nye listen
+- Til slutt beregner vi gjennomsnittet bare for regnværsdagene`,
+    },
+
+    // ========== EKSEMPEL: FUNKSJON FOR BMI ==========
+    {
+      id: 'nat10-6-3-example-funksjon-bmi',
+      type: 'example',
+      title: 'Eksempel: Funksjon for å beregne BMI',
+      problem: 'Skriv en Python-funksjon som beregner kroppsmasseindeks (BMI). Formelen er: BMI = vekt / (høyde)², der vekt er i kg og høyde er i meter.',
+      solution: `**Løsning:**
+
+\`\`\`python
+def beregn_bmi(vekt_kg, hoyde_m):
+    """Beregner BMI fra vekt (kg) og høyde (m)"""
+    bmi = vekt_kg / (hoyde_m ** 2)
+    return bmi
+
+def bmi_kategori(bmi):
+    """Returnerer BMI-kategori basert på verdi"""
+    if bmi < 18.5:
+        return "Undervekt"
+    elif bmi < 25:
+        return "Normalvekt"
+    elif bmi < 30:
+        return "Overvekt"
+    else:
+        return "Fedme"
+
+# Test funksjonen
+vekt = 70
+hoyde = 1.75
+bmi = beregn_bmi(vekt, hoyde)
+kategori = bmi_kategori(bmi)
+
+print(f"BMI: {bmi:.1f}")
+print(f"Kategori: {kategori}")
+# Output:
+# BMI: 22.9
+# Kategori: Normalvekt
+\`\`\`
+
+**Forklaring:**
+- \`beregn_bmi()\` tar inn vekt og høyde som parametre og returnerer BMI
+- \`bmi_kategori()\` bruker if-elif-else for å klassifisere BMI
+- Funksjoner gjør koden ryddigere og gjenbrukbar`,
     },
 
     // ========== OPPGAVE 1: VARIABLER ==========
@@ -1783,6 +2542,413 @@ Nå som du forstår grunnleggende programmering i naturfag, kan du:
 
 Programmering åpner døren til moderne naturvitenskap!`,
     },
+    // ========== EKSEMPEL: WHILE-LØKKE I NATURFAG ==========
+    {
+      id: 'nat10-6-3-example-while',
+      type: 'example',
+      title: 'Eksempel: While-løkke for å simulere radioaktiv halveringstid',
+      problem: 'Du har 1000 atomer av et radioaktivt stoff med halveringstid 10 minutter. Skriv Python-kode som simulerer nedbrytningen til det er færre enn 10 atomer igjen.',
+      solution: `**Løsning:**
+
+\`\`\`python
+# Startbetingelser
+atomer = 1000
+halveringstid = 10  # minutter
+tid = 0
+
+print(f"Tid: {tid} min → {atomer} atomer")
+
+# Simuler med while-løkke
+while atomer >= 10:
+    tid = tid + halveringstid
+    atomer = atomer / 2
+    print(f"Tid: {tid} min → {atomer:.0f} atomer")
+
+# Output:
+# Tid: 0 min → 1000 atomer
+# Tid: 10 min → 500 atomer
+# Tid: 20 min → 250 atomer
+# Tid: 30 min → 125 atomer
+# Tid: 40 min → 63 atomer
+# Tid: 50 min → 31 atomer
+# Tid: 60 min → 16 atomer
+# Tid: 70 min → 8 atomer (stopper fordi 8 < 10)
+\`\`\`
+
+**Forklaring:**
+- \`while atomer >= 10:\` → Fortsett så lenge det er 10 eller flere atomer
+- \`atomer = atomer / 2\` → Halvparten av atomene brytes ned hvert 10. minutt
+- Etter 70 minutter (7 halveringstider) er det kun 8 atomer igjen
+
+**Læringspoeng:**
+- While-løkken er perfekt når vi ikke vet på forhånd hvor mange ganger vi skal gjenta
+- Simuleringen viser eksponentiell nedbrytning - hvert tidssteg halveres antallet`,
+    },
+
+    // ========== OPPGAVE 13: FEILSØKING ==========
+    {
+      id: 'nat10-6-3-ex-13-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-13',
+        number: '6.3.13',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er feilen i denne koden?\n\n```python\ntemperaturer = [18, 20, 22, 19, 21]\ngjennomsnitt = sum(temperaturer) / len(temperaturer)\nprint(f"Gjennomsnittet er {gjenomsnitt}°C")\n```',
+        options: [
+          'Variabelnavnet er feilstavet i print-setningen (gjenomsnitt i stedet for gjennomsnitt)',
+          'sum()-funksjonen fungerer ikke på lister',
+          'f-strenger er ikke gyldig Python-syntaks',
+          'len()-funksjonen gir feil resultat for denne listen',
+        ],
+        answer: 0,
+        solution: `**Svar: Variabelnavnet er feilstavet i print-setningen**
+
+I Python må variabelnavn skrives nøyaktig likt overalt. Koden definerer variabelen som \`gjennomsnitt\` (med dobbelt n), men i print-setningen brukes \`gjenomsnitt\` (med enkelt n).
+
+**Feil:** \`gjenomsnitt\` (feil)
+**Riktig:** \`gjennomsnitt\` (riktig)
+
+**Rettet kode:**
+\`\`\`python
+temperaturer = [18, 20, 22, 19, 21]
+gjennomsnitt = sum(temperaturer) / len(temperaturer)
+print(f"Gjennomsnittet er {gjennomsnitt}°C")
+\`\`\`
+
+Denne typen feil er svært vanlig i programmering og kalles en **stavefeil** (typo). Python gir en \`NameError\` fordi variabelen \`gjenomsnitt\` aldri ble definert.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: LESE KODE ==========
+    {
+      id: 'nat10-6-3-ex-14-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-14',
+        number: '6.3.14',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva skriver denne koden ut?\n\n```python\ntall = [3, 7, 2, 9, 4]\nresultat = 0\nfor t in tall:\n    if t > 5:\n        resultat = resultat + t\nprint(resultat)\n```',
+        options: [
+          '25',
+          '16',
+          '9',
+          '7',
+        ],
+        answer: 1,
+        solution: `**Svar: 16**
+
+La oss gå gjennom koden steg for steg:
+
+1. \`tall = [3, 7, 2, 9, 4]\` → Liste med tall
+2. \`resultat = 0\` → Startverdien er 0
+3. Løkken går gjennom hvert tall:
+   - t = 3: Er 3 > 5? NEI → resultat forblir 0
+   - t = 7: Er 7 > 5? JA → resultat = 0 + 7 = 7
+   - t = 2: Er 2 > 5? NEI → resultat forblir 7
+   - t = 9: Er 9 > 5? JA → resultat = 7 + 9 = 16
+   - t = 4: Er 4 > 5? NEI → resultat forblir 16
+4. \`print(resultat)\` → Skriver ut 16
+
+Koden summerer alle tall som er større enn 5. Tallene 7 og 9 oppfyller betingelsen, og 7 + 9 = 16.`,
+      },
+    },
+
+    // ========== OPPGAVE 15: SKRIVE ENKEL KODE ==========
+    {
+      id: 'nat10-6-3-ex-15-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-15',
+        number: '6.3.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du har målt høyden til 8 elever i cm: [155, 162, 170, 148, 175, 160, 168, 158]\n\nSkriv Python-kode som:\na) Finner gjennomsnittshøyden\nb) Teller hvor mange som er over 165 cm\nc) Finner forskjellen mellom den høyeste og den laveste eleven',
+        solution: `**Løsning:**
+
+\`\`\`python
+# Data
+hoyder = [155, 162, 170, 148, 175, 160, 168, 158]
+
+# a) Gjennomsnittshøyde
+gjennomsnitt = sum(hoyder) / len(hoyder)
+print(f"a) Gjennomsnittshøyde: {gjennomsnitt:.1f} cm")
+# Output: Gjennomsnittshøyde: 162.0 cm
+
+# b) Antall over 165 cm
+antall_over_165 = 0
+for h in hoyder:
+    if h > 165:
+        antall_over_165 += 1
+print(f"b) Antall over 165 cm: {antall_over_165}")
+# Output: Antall over 165 cm: 3
+
+# c) Forskjell mellom høyeste og laveste
+forskjell = max(hoyder) - min(hoyder)
+print(f"c) Forskjell: {forskjell} cm ({max(hoyder)} - {min(hoyder)})")
+# Output: Forskjell: 27 cm (175 - 148)
+\`\`\`
+
+**Forklaring:**
+a) Sum = 1296, antall = 8, gjennomsnitt = 1296/8 = 162.0 cm
+b) Elevene med 170, 175 og 168 cm er over 165 → 3 elever
+c) Høyeste = 175, laveste = 148, forskjell = 175 - 148 = 27 cm`,
+      },
+    },
+
+    // ========== OPPGAVE 16: KOMBINERE KONSEPTER ==========
+    {
+      id: 'nat10-6-3-ex-16-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-16',
+        number: '6.3.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en Python-funksjon kalt analysere_data som tar inn en liste med tall og returnerer en ordbok (dictionary) med gjennomsnitt, høyeste verdi, laveste verdi og antall verdier. Test funksjonen med temperaturdata.',
+        solution: `**Løsning:**
+
+\`\`\`python
+def analysere_data(verdier):
+    """Analyserer en liste med tall og returnerer statistikk"""
+    resultat = {
+        "gjennomsnitt": sum(verdier) / len(verdier),
+        "hogste": max(verdier),
+        "laveste": min(verdier),
+        "antall": len(verdier),
+        "spenn": max(verdier) - min(verdier),
+    }
+    return resultat
+
+# Test med temperaturdata
+temperaturer = [18, 22, 20, 25, 19, 21, 23, 17, 24, 20]
+statistikk = analysere_data(temperaturer)
+
+print("Temperaturanalyse:")
+print(f"  Gjennomsnitt: {statistikk['gjennomsnitt']:.1f}°C")
+print(f"  Høyeste: {statistikk['hogste']}°C")
+print(f"  Laveste: {statistikk['laveste']}°C")
+print(f"  Antall målinger: {statistikk['antall']}")
+print(f"  Temperaturspenn: {statistikk['spenn']}°C")
+
+# Output:
+# Temperaturanalyse:
+#   Gjennomsnitt: 20.9°C
+#   Høyeste: 25°C
+#   Laveste: 17°C
+#   Antall målinger: 10
+#   Temperaturspenn: 8°C
+\`\`\`
+
+**Forklaring:**
+- Funksjonen er **gjenbrukbar**: den fungerer for alle typer talldata
+- En ordbok (dictionary) samler all statistikk på ett sted
+- Funksjonen kan brukes for temperatur, nedbør, pH, eller andre data`,
+      },
+    },
+
+    // ========== OPPGAVE 17: LISTE-OPERASJONER ==========
+    {
+      id: 'nat10-6-3-ex-17a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-17a',
+        number: '6.3.17a',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva gjør denne koden?\n\n```python\ndata = [5, 12, 8, 3, 15, 7, 20, 1]\nfiltrert = []\nfor verdi in data:\n    if verdi >= 10:\n        filtrert.append(verdi)\nprint(filtrert)\n```',
+        options: [
+          '[12, 15, 20] - den filtrerer ut verdier som er 10 eller høyere',
+          '[5, 8, 3, 7, 1] - den filtrerer ut verdier under 10',
+          '[5, 12, 8, 3, 15, 7, 20, 1] - den kopierer hele listen',
+          '[] - den lager en tom liste',
+        ],
+        answer: 0,
+        solution: `**Svar: [12, 15, 20] - den filtrerer ut verdier som er 10 eller høyere**
+
+La oss gå gjennom koden steg for steg:
+
+1. \`data = [5, 12, 8, 3, 15, 7, 20, 1]\` → Opprinnelig liste
+2. \`filtrert = []\` → Tom liste som skal fylles
+3. Løkken går gjennom hvert element:
+   - 5: Er 5 >= 10? NEI → hoppes over
+   - 12: Er 12 >= 10? JA → legges til i filtrert
+   - 8: Er 8 >= 10? NEI → hoppes over
+   - 3: Er 3 >= 10? NEI → hoppes over
+   - 15: Er 15 >= 10? JA → legges til i filtrert
+   - 7: Er 7 >= 10? NEI → hoppes over
+   - 20: Er 20 >= 10? JA → legges til i filtrert
+   - 1: Er 1 >= 10? NEI → hoppes over
+4. \`print(filtrert)\` → Skriver ut [12, 15, 20]
+
+Denne teknikken med å gå gjennom en liste og velge ut elementer som oppfyller et vilkår kalles **filtrering** og er svært vanlig i dataanalyse.`,
+      },
+    },
+
+    // ========== EKSEMPEL: DATAANALYSE AV VIRKELIG DATASETT ==========
+    {
+      id: 'nat10-6-3-example-virkelig-data',
+      type: 'example',
+      title: 'Eksempel: Analyse av virkelige temperaturdata med Python',
+      problem: 'Du har temperaturdata for Oslo over 12 måneder. Skriv et komplett Python-program som analyserer dataene og lager en graf.',
+      solution: `**Løsning:**
+
+\`\`\`python
+import matplotlib.pyplot as plt
+
+# Virkelige gjennomsnittstemperaturer for Oslo (°C)
+maneder = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun',
+           'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des']
+temperaturer = [-4.3, -4.0, 0.2, 5.6, 11.3, 15.0,
+                16.4, 15.2, 10.8, 6.3, 0.7, -3.1]
+
+# Analyse
+gjennomsnitt = sum(temperaturer) / len(temperaturer)
+varmeste = max(temperaturer)
+kaldeste = min(temperaturer)
+varmeste_maned = maneder[temperaturer.index(varmeste)]
+kaldeste_maned = maneder[temperaturer.index(kaldeste)]
+
+# Beregn antall måneder under 0°C
+frostmaneder = sum(1 for t in temperaturer if t < 0)
+
+# Skriv ut analyse
+print("=== Temperaturanalyse for Oslo ===")
+print(f"Gjennomsnitt: {gjennomsnitt:.1f}°C")
+print(f"Varmeste måned: {varmeste_maned} ({varmeste}°C)")
+print(f"Kaldeste måned: {kaldeste_maned} ({kaldeste}°C)")
+print(f"Antall frostmåneder: {frostmaneder}")
+print(f"Temperaturspenn: {varmeste - kaldeste:.1f}°C")
+
+# Lag graf
+fig, ax = plt.subplots(figsize=(10, 6))
+farger = ['blue' if t < 0 else 'red' for t in temperaturer]
+ax.bar(maneder, temperaturer, color=farger)
+ax.axhline(y=0, color='black', linestyle='-', linewidth=0.5)
+ax.axhline(y=gjennomsnitt, color='green', linestyle='--',
+           label=f'Gjennomsnitt ({gjennomsnitt:.1f}°C)')
+ax.set_xlabel('Måned')
+ax.set_ylabel('Temperatur (°C)')
+ax.set_title('Gjennomsnittstemperatur i Oslo')
+ax.legend()
+ax.grid(axis='y', alpha=0.3)
+plt.show()
+\`\`\`
+
+**Output:**
+\`\`\`
+=== Temperaturanalyse for Oslo ===
+Gjennomsnitt: 5.8°C
+Varmeste måned: Jul (16.4°C)
+Kaldeste måned: Jan (-4.3°C)
+Antall frostmåneder: 4
+Temperaturspenn: 20.7°C
+\`\`\`
+
+**Forklaring:**
+- Blå søyler viser måneder under 0°C, røde viser over 0°C
+- Grønn stiplet linje viser årsgjennomsnitt
+- Programmet kombinerer dataanalyse (beregninger) med visualisering (graf)
+- Dette er typisk for hvordan forskere analyserer klimadata`,
+    },
+
+    // ========== OPPGAVE 18: SIMULERING MED TILFELDIG TALL ==========
+    {
+      id: 'nat10-6-3-ex-18-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-18',
+        number: '6.3.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Du vil simulere 100 kast med en vanlig terning (1-6) og finne ut hvor mange ganger hvert tall kommer opp. Skriv Python-kode som gjennomfører simuleringen og viser resultatet.',
+        solution: `**Løsning:**
+
+\`\`\`python
+import random
+
+# Simuler 100 terningkast
+antall_kast = 100
+resultater = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+
+for i in range(antall_kast):
+    kast = random.randint(1, 6)
+    resultater[kast] = resultater[kast] + 1
+
+# Vis resultater
+print(f"Resultater etter {antall_kast} kast:")
+for tall, antall in resultater.items():
+    prosent = antall / antall_kast * 100
+    stolpe = "#" * antall
+    print(f"  {tall}: {antall:3d} ganger ({prosent:.1f}%) {stolpe}")
+
+# Forventet resultat: ca. 16-17 ganger per tall
+# Eksempel output:
+#   1:  18 ganger (18.0%) ##################
+#   2:  14 ganger (14.0%) ##############
+#   3:  17 ganger (17.0%) #################
+#   4:  19 ganger (19.0%) ###################
+#   5:  15 ganger (15.0%) ###############
+#   6:  17 ganger (17.0%) #################
+\`\`\`
+
+**Forklaring:**
+- \`random.randint(1, 6)\` gir et tilfeldig tall mellom 1 og 6
+- Ordboken \`resultater\` teller opp hvert utfall
+- Med 100 kast bør hvert tall komme opp ca. 16-17 ganger (100/6 ≈ 16,7)
+- Men på grunn av tilfeldighet kan det variere
+
+**Utvidelse:**
+- Prøv med 10 000 kast - da blir fordelingen mye jevnere!
+- Dette kalles "loven om store tall" i statistikk
+- Jo flere kast, jo nærmere kommer vi den teoretiske sannsynligheten (1/6)`,
+      },
+    },
+
+    // ========== OPPGAVE 19: ALGORITME I HVERDAGEN ==========
+    {
+      id: 'nat10-6-3-ex-19-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-3-ex-19',
+        number: '6.3.19',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Hva er en algoritme? Forklar begrepet med et hverdagseksempel og et programmeringseksempel.',
+        solution: `**Svar:**
+
+En **algoritme** er en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses.
+
+**Hverdagseksempel: Lage en kopp te**
+1. Fyll kjelen med vann
+2. Sett kjelen på komfyren og kok vannet
+3. Legg en tepose i koppen
+4. Hell det kokende vannet over teposen
+5. Vent 3-5 minutter
+6. Ta ut teposen
+7. Tilsett eventuelt sukker eller melk
+
+Hvert steg er klart definert og rekkefølgen er viktig (du kan ikke helle vann før det er kokt).
+
+**Programmeringseksempel: Finn det største tallet i en liste**
+1. Start med å anta at det første tallet er det største
+2. Gå gjennom hvert tall i listen
+3. Hvis det nåværende tallet er større enn det antatt største, oppdater det største tallet
+4. Når du har gått gjennom alle tallene, er det største funnet
+
+\`\`\`python
+def finn_storste(liste):
+    storste = liste[0]        # Steg 1
+    for tall in liste:         # Steg 2
+        if tall > storste:     # Steg 3
+            storste = tall
+    return storste             # Steg 4
+
+print(finn_storste([3, 7, 2, 9, 4]))  # Output: 9
+\`\`\``,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -1822,6 +2988,38 @@ I dette kapitlet lærer du:
 - Hvordan sensorer brukes i hverdagen
 - Hvordan datalogger samler data over tid
 - Hvordan sensorer brukes i naturfagsforsøk`,
+    },
+
+    // ========== DEFINISJON: SENSOR ==========
+    {
+      id: 'nat10-6-2-def-sensor',
+      type: 'definition',
+      title: 'Sensor',
+      content: 'En sensor er et instrument som registrerer (oppdager) en fysisk eller kjemisk egenskap i omgivelsene, måler størrelsen på denne egenskapen, og omformer informasjonen til et elektrisk signal som kan leses av et elektronisk system. Sensorer er grunnleggende byggesteiner i alle teknologiske systemer som samhandler med den fysiske verden.',
+    },
+
+    // ========== DEFINISJON: ANALOG OG DIGITAL ==========
+    {
+      id: 'nat10-6-2-def-analog-digital',
+      type: 'definition',
+      title: 'Analog og digital',
+      content: 'Analog betyr at signalet varierer kontinuerlig og kan ha uendelig mange verdier (som kvikksølvet i et gammelt termometer). Digital betyr at signalet er omgjort til bestemte tallverdier (digitalisert). Moderne sensorer er som regel digitale, noe som gjør det enkelt å lagre, behandle og analysere dataene med datamaskiner.',
+    },
+
+    // ========== DEFINISJON: DATALOGGER ==========
+    {
+      id: 'nat10-6-2-def-datalogger',
+      type: 'definition',
+      title: 'Datalogger',
+      content: 'En datalogger er et elektronisk system som automatisk samler inn data fra en eller flere sensorer over tid. Dataene lagres med tidsstempel og kan senere analyseres som grafer eller tabeller. Datalogger brukes i forsøk der man vil følge endringer over tid uten å måtte måle manuelt, for eksempel temperaturendring over et døgn eller pH-endring i en kjemisk reaksjon.',
+    },
+
+    // ========== DEFINISJON: KALIBRERING ==========
+    {
+      id: 'nat10-6-2-def-kalibrering',
+      type: 'definition',
+      title: 'Kalibrering',
+      content: 'Kalibrering er prosessen med å justere en sensor eller et måleinstrument slik at det gir nøyaktige målinger. Man sammenligner sensorens avlesning med en kjent standardverdi og justerer deretter. For eksempel kalibreres en pH-sensor ved å senke den i løsninger med kjent pH (f.eks. pH 4 og pH 7). Regelmessig kalibrering er viktig for pålitelige måleresultater.',
     },
 
     // ========== HVA ER EN SENSOR? ==========
@@ -2010,6 +3208,102 @@ pH-sensor kan måle at sitronsaft har pH 2 (sur), mens såpevann har pH 10 (basi
 
 **Eksempel:**
 En fuktighetssensor i et drivhus kan automatisk slå på vanningsanlegget når luften blir for tørr.`,
+    },
+
+    // ========== EKSEMPEL: VELGE RIKTIG SENSOR ==========
+    {
+      id: 'nat10-6-2-example-velge-sensor',
+      type: 'example',
+      title: 'Eksempel: Velge riktig sensor til et forsøk',
+      problem: 'Du skal undersøke hvordan temperaturen i en kopp med varmt vann endrer seg over 30 minutter. Hvilken sensor og utstyr trenger du, og hvordan setter du opp forsøket?',
+      solution: `**Løsning:**
+
+**Sensor:** Temperatursensor (termistor eller digitalt termometer)
+
+**Utstyr:**
+- Temperatursensor
+- Datalogger (eller datamaskin med programvare)
+- Kopp med varmt vann (f.eks. 80°C)
+- Stativ for å holde sensoren
+
+**Oppsett:**
+1. Fyll koppen med varmt vann
+2. Fest temperatursensoren i stativet slik at den er nedsenket i vannet
+3. Koble sensoren til dataloggeren
+4. Still inn dataloggeren til å måle hvert 30. sekund i 30 minutter
+5. Start målingen
+
+**Forventet resultat:**
+Grafen vil vise en kurve som starter høyt (80°C) og gradvis synker mot romtemperatur. Avkjølingen er raskest i starten og avtar etter hvert (eksponentiell avkjøling ifølge Newtons avkjølingslov).`,
+    },
+
+    // ========== EKSEMPEL: ANALOG VS DIGITAL ==========
+    {
+      id: 'nat10-6-2-example-analog-digital',
+      type: 'example',
+      title: 'Eksempel: Analog vs. digital måling',
+      problem: 'Forklar forskjellen mellom å måle temperatur med et gammelt kvikksølvtermometer (analogt) og en digital temperatursensor.',
+      solution: `**Løsning:**
+
+**Analogt kvikksølvtermometer:**
+- Kvikksølvet utvider seg når temperaturen øker
+- Du leser av verdien på en skala med øynene
+- Resultatet er kontinuerlig (kvikksølvet kan stoppe mellom to streker)
+- Nøyaktigheten avhenger av hvor godt du klarer å lese av
+- Kan ikke kobles til en datalogger
+
+**Digital temperatursensor:**
+- En elektronisk komponent (termistor) endrer elektrisk motstand ved temperaturendring
+- Motstanden omregnes til et eksakt tall av en mikroprosessor
+- Resultatet vises som et nøyaktig tall (f.eks. 22,3°C)
+- Samme nøyaktighet uavhengig av hvem som leser av
+- Kan kobles til datalogger og lagre tusenvis av målinger
+
+**Fordeler med digital:**
+- Mer nøyaktig og konsistent
+- Kan lagre og analysere data automatisk
+- Kan kobles til datamaskiner for visualisering
+
+**Fordeler med analog:**
+- Enklere, krever ikke strøm
+- Gir god oversikt over temperaturendring (du ser kvikksølvet flytte seg)`,
+    },
+
+    // ========== EKSEMPEL: KALIBRERE EN SENSOR ==========
+    {
+      id: 'nat10-6-2-example-kalibrering',
+      type: 'example',
+      title: 'Eksempel: Kalibrering av pH-sensor',
+      problem: 'Før du bruker en pH-sensor i et forsøk, må den kalibreres. Forklar hvordan du kalibrerer en pH-sensor.',
+      solution: `**Løsning:**
+
+**Steg for å kalibrere en pH-sensor:**
+
+1. **Klargjør bufferløsninger:**
+   - Bufferløsning med pH 4,0 (sur)
+   - Bufferløsning med pH 7,0 (nøytral)
+   - Eventuelt bufferløsning med pH 10,0 (basisk)
+
+2. **Første kalibreringspunkt (pH 7):**
+   - Skyll sensoren med destillert vann
+   - Senk sensoren ned i pH 7-bufferløsningen
+   - Vent til avlesningen stabiliserer seg
+   - Juster sensoren til den viser nøyaktig 7,0
+
+3. **Andre kalibreringspunkt (pH 4):**
+   - Skyll sensoren igjen med destillert vann
+   - Senk sensoren i pH 4-bufferløsningen
+   - Vent til avlesningen stabiliserer seg
+   - Juster sensoren til den viser nøyaktig 4,0
+
+4. **Verifiser:**
+   - Skyll sensoren og test i pH 7-løsningen igjen
+   - Avlesningen bør vise 7,0 (eller svært nær)
+
+**Hvorfor er kalibrering viktig?**
+- Uten kalibrering kan sensoren vise feil verdier
+- Kalibrering sikrer at målingene er nøyaktige
+- Bør gjøres før hvert forsøk og regelmessig ved lange forsøk`,
     },
 
     // ========== OPPGAVE 2: TEMPERATURSENSOR ==========
@@ -3312,6 +4606,358 @@ Nå som du forstår sensorer og hvordan de brukes, er du klar til å:
 - Analysere data fra datalogger
 - Forstå hvordan teknologien rundt deg fungerer`,
     },
+    // ========== EKSEMPEL: SENSORDATA I FORSØK ==========
+    {
+      id: 'nat10-6-2-example-sensordata',
+      type: 'example',
+      title: 'Eksempel: Tolke sensordata fra et forsøk',
+      problem: 'En elev bruker en temperatursensor med datalogger for å måle avkjøling av en kopp te. Etter 30 minutter ser dataene slik ut:\n\nMinutt 0: 85°C, Minutt 5: 72°C, Minutt 10: 63°C, Minutt 15: 56°C, Minutt 20: 50°C, Minutt 25: 46°C, Minutt 30: 42°C\n\nHva kan vi observere om avkjølingshastigheten?',
+      solution: `**Løsning:**
+
+**Beregning av temperaturfall per 5-minutters intervall:**
+
+| Periode | Temperaturfall | Fall per minutt |
+|---------|---------------|-----------------|
+| 0-5 min | 85→72 = 13°C | 2,6°C/min |
+| 5-10 min | 72→63 = 9°C | 1,8°C/min |
+| 10-15 min | 63→56 = 7°C | 1,4°C/min |
+| 15-20 min | 56→50 = 6°C | 1,2°C/min |
+| 20-25 min | 50→46 = 4°C | 0,8°C/min |
+| 25-30 min | 46→42 = 4°C | 0,8°C/min |
+
+**Observasjoner:**
+1. Avkjølingshastigheten er **størst i starten** (13°C de første 5 minuttene)
+2. Hastigheten **avtar gradvis** (bare 4°C de siste 5 minuttene)
+3. Dette skyldes at temperaturforskjellen mellom teen og rommet minker
+4. Jo nærmere teen er romtemperatur, jo saktere avkjøles den
+
+**Naturvitenskapelig forklaring:**
+Dette er i tråd med **Newtons avkjølingslov**: Avkjølingshastigheten er proporsjonal med temperaturforskjellen mellom objektet og omgivelsene.
+
+**Fordel med datalogger:**
+Uten datalogger ville eleven måttet sitte og lese av termometeret hvert 5. minutt. Med datalogger ble alle 30 datapunktene samlet automatisk med nøyaktige tidsstempler!`,
+    },
+
+    // ========== OPPGAVE 11: ANALOG VS DIGITAL ==========
+    {
+      id: 'nat10-6-2-ex-11-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-11',
+        number: '6.2.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er forskjellen mellom en analog og en digital sensor?',
+        options: [
+          'En analog sensor gir et kontinuerlig signal, en digital sensor gir diskrete tallverdier',
+          'En analog sensor er nyere teknologi enn en digital sensor',
+          'En analog sensor bruker strøm, en digital sensor bruker batteri',
+          'Det er ingen forskjell mellom analog og digital sensor',
+        ],
+        answer: 0,
+        solution: `**Svar: En analog sensor gir et kontinuerlig signal, en digital sensor gir diskrete tallverdier**
+
+**Analog sensor:**
+- Gir et kontinuerlig signal (f.eks. kvikksølv i et termometer som stiger gradvis)
+- Kan ha uendelig mange verdier
+- Avlesningen er mer subjektiv (du leser av med øynene)
+
+**Digital sensor:**
+- Signalet omformes til bestemte tallverdier (diskrete verdier)
+- Viser eksakte tall på en skjerm (f.eks. 22,3°C)
+- Kan enkelt kobles til datamaskiner og datalogger
+- Mer nøyaktig og konsistent avlesning`,
+      },
+    },
+
+    // ========== OPPGAVE 12: KALIBRERING ==========
+    {
+      id: 'nat10-6-2-ex-12-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-12',
+        number: '6.2.12',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvorfor er det viktig å kalibrere en sensor før bruk?',
+        options: [
+          'For å sikre at sensoren gir nøyaktige målinger ved å justere den mot kjente verdier',
+          'For å gjøre sensoren vanntett',
+          'For å forlenge batterilevetiden',
+          'Kalibrering er ikke nødvendig for moderne sensorer',
+        ],
+        answer: 0,
+        solution: `**Svar: For å sikre at sensoren gir nøyaktige målinger ved å justere den mot kjente verdier**
+
+**Forklaring:**
+
+Kalibrering betyr å justere sensoren slik at den viser riktige verdier. Over tid kan sensorer "drifte" og gi unøyaktige avlesninger.
+
+**Eksempel med pH-sensor:**
+- Uten kalibrering kan sensoren vise pH 6,5 når den egentlige verdien er pH 7,0
+- Ved å kalibrere mot bufferløsninger med kjent pH, justerer du sensoren
+- Etter kalibrering gir sensoren korrekte avlesninger
+
+**Når bør man kalibrere?**
+- Før hvert forsøk
+- Regelmessig ved lange forsøk
+- Hvis sensoren har ligget ubrukt lenge
+- Hvis resultatene virker urimelige`,
+      },
+    },
+
+    // ========== OPPGAVE 13: PLANLEGGE FORSØK ==========
+    {
+      id: 'nat10-6-2-ex-13-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-13',
+        number: '6.2.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du vil undersøke om fargen på en kopp (svart vs. hvit) påvirker hvor raskt varmt vann avkjøles. Beskriv hvordan du setter opp forsøket med temperatursensorer og datalogger.',
+        solution: `**Forsøk: Avkjøling i svart vs. hvit kopp**
+
+**Hypotese:** Vann i den svarte koppen avkjøles raskere fordi mørke overflater stråler ut mer varme.
+
+**Utstyr:**
+- 2 identiske kopper (en svart, en hvit)
+- 2 temperatursensorer
+- 1 datalogger med 2 kanaler
+- Kokende vann
+- Målesylinder (for lik vannmengde)
+
+**Oppsett:**
+1. Mål opp 200 ml kokende vann i hver kopp
+2. Plasser en temperatursensor i hver kopp
+3. Koble begge sensorene til dataloggeren
+4. Still inn datalogger: mål hvert 30. sekund i 60 minutter
+5. Start målingen samtidig
+
+**Kontrollerte variabler:**
+- Lik mengde vann (200 ml)
+- Lik starttemperatur
+- Lik romtemperatur
+- Like kopper (bortsett fra fargen)
+
+**Analyse:**
+- Lag en graf med to linjer (svart kopp og hvit kopp)
+- Sammenlign avkjølingshastigheten
+- Sjekk om den svarte koppen faktisk avkjøles raskere
+
+**Forventet resultat:**
+Den svarte koppen vil avkjøles litt raskere fordi mørke overflater er bedre til å utstråle varmeenergi (infrarød stråling).`,
+      },
+    },
+
+    // ========== OPPGAVE 14: SENSORER I MOBIL ==========
+    {
+      id: 'nat10-6-2-ex-14-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-14',
+        number: '6.2.14',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Hva er en røykvarsler, og hvilken type sensor bruker den? Forklar hvordan den fungerer steg for steg.',
+        solution: `**Røykvarsler:**
+
+En røykvarsler er en sikkerhetsenhet som registrerer røyk i luften og gir alarm ved brannfare.
+
+**Type sensor:** Optisk røyksensor (fotocelle)
+
+**Steg-for-steg:**
+
+1. **Normal tilstand:**
+   - En LED sender ut et lysstråle inne i røykvarsleren
+   - Lysstrålen treffer normalt ikke fotocellen (lyssensoren)
+   - Ingen alarm
+
+2. **Når røyk kommer inn:**
+   - Røykpartikler slipper inn gjennom små åpninger
+   - Røykpartiklene sprer lyset fra LED-en i ulike retninger
+   - Noe av det spredte lyset treffer nå fotocellen
+
+3. **Deteksjon:**
+   - Fotocellen registrerer lyset som er spredt av røyken
+   - Elektronikken i røykvarsleren tolker dette som "røyk oppdaget"
+
+4. **Alarm:**
+   - Sirenen slår på med høy lyd (minst 85 dB)
+   - Varsler alle i boligen om potensiell brann
+
+**Viktig:** Test røykvarsleren månedlig med testknappen, og skift batteri minst en gang i året!`,
+      },
+    },
+
+    // ========== OPPGAVE 15: NØYAKTIGHET OG PRESISJON ==========
+    {
+      id: 'nat10-6-2-ex-15a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-15a',
+        number: '6.2.15a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'En elev måler temperaturen i et rom fem ganger med to ulike termometre. Termometer A gir: 21,5 - 21,3 - 21,7 - 21,4 - 21,6°C. Termometer B gir: 20,1 - 22,3 - 19,8 - 23,0 - 20,3°C. Den faktiske temperaturen er 21,5°C.\n\na) Hvilket termometer er mest nøyaktig (nærmest sann verdi)?\nb) Hvilket termometer er mest presist (gir like verdier hver gang)?\nc) Hvilket termometer er best å bruke i et forsøk?',
+        solution: `**Løsning:**
+
+**a) Nøyaktighet (nærmest sann verdi):**
+
+Termometer A: Gjennomsnitt = (21,5 + 21,3 + 21,7 + 21,4 + 21,6) / 5 = **21,5°C**
+Termometer B: Gjennomsnitt = (20,1 + 22,3 + 19,8 + 23,0 + 20,3) / 5 = **21,1°C**
+
+Termometer A er mest nøyaktig fordi gjennomsnittet (21,5°C) er identisk med den faktiske temperaturen.
+
+**b) Presisjon (gir like verdier):**
+
+Termometer A: Spenn = 21,7 - 21,3 = **0,4°C** (lite spenn → høy presisjon)
+Termometer B: Spenn = 23,0 - 19,8 = **3,2°C** (stort spenn → lav presisjon)
+
+Termometer A er mye mer presist fordi målingene varierer veldig lite.
+
+**c) Hvilket er best?**
+
+**Termometer A er klart best** fordi det er BÅDE nøyaktig OG presist.
+
+Termometer B er verken nøyaktig nok (avvik på 0,4°C) eller presist (målinger varierer med 3,2°C).
+
+**Viktige begreper:**
+- **Nøyaktighet:** Hvor nær sann verdi vi måler (systematisk feil)
+- **Presisjon:** Hvor like gjentatte målinger er (tilfeldig feil)
+- Det beste instrumentet er BÅDE nøyaktig OG presist`,
+      },
+    },
+
+    // ========== OPPGAVE 16: SENSORER OG MILJØ ==========
+    {
+      id: 'nat10-6-2-ex-16-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-16',
+        number: '6.2.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En kommune ønsker å overvåke vannkvaliteten i en lokal elv. Hvilke sensorer bør de installere, og hva bør de måle? Forklar hvorfor hver måling er viktig for å vurdere vannkvaliteten.',
+        solution: `**Sensoroppsett for vannkvalitetsovervåking:**
+
+**1. Temperatursensor**
+- **Måler:** Vanntemperatur
+- **Hvorfor viktig:** Temperatur påvirker oksygeninnhold, biologisk aktivitet og fiskenes helse. Unormalt høy temperatur kan tyde på industrielt utslipp.
+
+**2. pH-sensor**
+- **Måler:** Vannets surhet (pH 0-14)
+- **Hvorfor viktig:** De fleste fisk trives ved pH 6,5-8,5. Sur nedbør kan senke pH. Industriutslipp kan endre pH drastisk.
+
+**3. Oksygensensor (løst oksygen)**
+- **Måler:** Mengden oksygen oppløst i vannet (mg/L)
+- **Hvorfor viktig:** Fisk og andre organismer trenger oksygen. Lavt oksygennivå (under 5 mg/L) er farlig for livet i elven. Organisk forurensning (kloakk) bruker opp oksygen.
+
+**4. Turbiditetssensor**
+- **Måler:** Vannets grumshet (mengden partikler)
+- **Hvorfor viktig:** Grumsete vann kan skyldes erosjon, avrenning fra jordbruk eller utslipp. Partikler blokkerer lys og påvirker plantevekst og fotosyntes.
+
+**5. Ledningsevnesensor (konduktivitet)**
+- **Måler:** Vannets evne til å lede strøm (påvirkes av oppløste salter og mineraler)
+- **Hvorfor viktig:** Høy ledningsevne kan tyde på forurensning (kjemikalier, salt fra veivedlikehold). Normal ferskvannsledning er 50-500 μS/cm.
+
+**6. Nitrat/fosfatsensor**
+- **Måler:** Næringssstoffer i vannet
+- **Hvorfor viktig:** Høye nivåer tyder på gjødselavrenning fra jordbruk. For mye næringsstoffer fører til algeoppblomstring som kan drepe fisk (eutrofiering).
+
+**Oppsett:**
+- Sensorer kobles til en datalogger som sender data trådløst til kommunens server
+- Måling hvert 15. minutt, 24 timer i døgnet
+- Automatisk alarm hvis verdier overskrider grenseverdier
+- Dashboard på nett der innbyggere kan se vannkvaliteten i sanntid
+
+**Fordeler:**
+- Kontinuerlig overvåking uten manuell prøvetaking
+- Rask respons ved forurensning
+- Langsiktige data for å spore trender
+- Åpenhet overfor innbyggerne`,
+      },
+    },
+
+    // ========== OPPGAVE 17: SENSORER OG BÆREKRAFT ==========
+    {
+      id: 'nat10-6-2-ex-17a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-17a',
+        number: '6.2.17a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar hvordan sensorer kan bidra til å redusere energiforbruk i en skolebygning. Gi minst tre konkrete eksempler på sensorer og hvordan de sparer energi.',
+        solution: `**Sensorer for energisparing i en skolebygning:**
+
+**1. Bevegelsessensorer for belysning:**
+- **Sensor:** Passiv infrarød (PIR) bevegelsessensor
+- **Plassering:** I klasserom, korridorer, toaletter
+- **Funksjon:** Slår av lyset automatisk når ingen er i rommet
+- **Energisparing:** Lyset er av i timer der rommet er tomt (friminutt, etter skoletid)
+- **Estimert sparing:** 30-50% reduksjon i strømforbruk til belysning
+
+**2. Lyssensorer for dagslystilpasning:**
+- **Sensor:** Fotocelle (lyssensor)
+- **Plassering:** Ved vinduene i klasserom
+- **Funksjon:** Dimmer kunstig belysning når det er mye dagslys
+- **Energisparing:** På solrike dager kan kunstlyset reduseres kraftig
+- **Estimert sparing:** 20-40% reduksjon i belysningsenergi
+
+**3. Temperatursensorer for smart oppvarming:**
+- **Sensor:** Digital temperatursensor + utendørs værsensor
+- **Plassering:** I hvert rom + utendørs
+- **Funksjon:**
+  - Reduserer temperaturen om natten og i helger (fra 21°C til 15°C)
+  - Tilpasser oppvarming basert på utendørstemperatur
+  - Registrerer om vinduer er åpne og slår av varmen
+- **Energisparing:** 15-30% reduksjon i oppvarmingskostnader
+
+**Tilleggseksempler:**
+- CO₂-sensor styrer ventilasjon (ventilerer bare når det trengs)
+- Vindussensor oppdager åpne vinduer og slår av varmen
+- Strømmåler viser energiforbruk i sanntid på en skjerm i aulaen
+
+**Total estimert besparelse:** En smartstyrt skole kan spare 30-50% energi sammenlignet med en uten sensorer.`,
+      },
+    },
+
+    // ========== OPPGAVE 18: SAMMENLIGNE MÅLETEKNIKKER ==========
+    {
+      id: 'nat10-6-2-ex-18-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-2-ex-18',
+        number: '6.2.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En elev gjør to forsøk for å måle pH i ulike løsninger:\n\nForsøk A: Bruker pH-papir (lakmuspapir) og sammenligner fargen med en fargekart.\nForsøk B: Bruker en digital pH-sensor koblet til en datalogger.\n\nSammenlign de to metodene. Hvilken metode er best egnet hvis du skal følge pH-endringer over tid i en kjemisk reaksjon? Begrunn svaret.',
+        solution: `**Sammenligning av pH-papir og digital pH-sensor:**
+
+**pH-papir (forsøk A):**
+- Fordeler: Billig, enkelt, krever ikke strøm, bærbart
+- Ulemper: Unøyaktig (avlesning avhenger av øyet), kan bare avleses til nærmeste hele pH-verdi, kan ikke brukes kontinuerlig, vanskelig å dokumentere nøyaktig
+- Nøyaktighet: ca. ±0,5-1 pH-enhet
+
+**Digital pH-sensor (forsøk B):**
+- Fordeler: Nøyaktig (±0,01 pH), kan logge kontinuerlig, gir eksakte tallverdier, data kan lagres og analyseres som grafer
+- Ulemper: Dyrere, krever strøm, må kalibreres, mer komplisert oppsett
+- Nøyaktighet: ca. ±0,01-0,1 pH-enhet
+
+**Hvilken metode er best for å følge pH-endringer over tid?**
+
+**Digital pH-sensor (forsøk B) er klart best fordi:**
+
+1. **Kontinuerlig måling:** Sensoren kan måle pH hvert sekund eller oftere, noe som er umulig med pH-papir
+2. **Nøyaktighet:** Kan registrere små pH-endringer (f.eks. fra 4,52 til 4,58) som pH-papir ikke kan se
+3. **Datalagring:** Alle målinger lagres med tidsstempel for senere analyse
+4. **Visualisering:** Dataene kan vises som en graf som tydelig viser pH-endringen over tid
+5. **Hands-free:** Du slipper å ta prøver manuelt under reaksjonen
+
+**Konklusjon:** For engangsmålinger kan pH-papir være nok, men for å følge endringer over tid er en digital pH-sensor med datalogger mye bedre.`,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -3351,6 +4997,38 @@ I dette kapitlet lærer du:
 - Fordeler med simuleringer
 - Begrensninger ved simuleringer
 - Hvordan lage enkle simuleringer selv`,
+    },
+
+    // ========== DEFINISJON: SIMULERING ==========
+    {
+      id: 'nat10-6-4-def-simulering',
+      type: 'definition',
+      title: 'Simulering',
+      content: 'En simulering er en digital etterlikning av et virkelig system eller fenomen, utført ved hjelp av en datamaskin. Simuleringen bruker matematiske modeller og regler for å beregne hvordan systemet oppfører seg over tid. Simuleringer gjør det mulig å teste scenarioer som ville vært for farlige, dyre eller tidkrevende å utføre i virkeligheten.',
+    },
+
+    // ========== DEFINISJON: MODELL ==========
+    {
+      id: 'nat10-6-4-def-modell',
+      type: 'definition',
+      title: 'Modell (i naturfag)',
+      content: 'En modell er en forenklet representasjon av virkeligheten som fokuserer på de viktigste egenskapene til et system. En modell utelater detaljer som ikke er nødvendige for formålet. Modeller kan være fysiske (som en globus), matematiske (som formler), eller digitale (som datasimuleringer). Ingen modell er perfekt, men gode modeller gir nyttig innsikt i hvordan virkelige systemer fungerer.',
+    },
+
+    // ========== DEFINISJON: VALIDERING ==========
+    {
+      id: 'nat10-6-4-def-validering',
+      type: 'definition',
+      title: 'Validering',
+      content: 'Validering er prosessen med å sjekke om en modell eller simulering gir resultater som stemmer overens med virkeligheten. Man sammenligner simuleringens resultater med virkelige målinger eller observasjoner. En modell som er validert gir mer pålitelige resultater enn en uvalidert modell. Validering er et viktig steg i all vitenskapelig bruk av simuleringer.',
+    },
+
+    // ========== DEFINISJON: STARTBETINGELSER ==========
+    {
+      id: 'nat10-6-4-def-startbetingelser',
+      type: 'definition',
+      title: 'Startbetingelser (initialbetingelser)',
+      content: 'Startbetingelser er de verdiene og forholdene som gjelder ved starten av en simulering. De beskriver tilstanden til systemet ved tidspunkt null. For eksempel: i en værsimulering er startbetingelsene dagens temperatur, lufttrykk, vind og fuktighet målt over hele kloden. Nøyaktige startbetingelser er avgjørende for pålitelige simuleringsresultater.',
     },
 
     // ========== HVA ER EN SIMULERING? ==========
@@ -3560,6 +5238,119 @@ Simuleringer hjelper oss å **visualisere** og **forstå** kompliserte fenomener
 **Bruksområder:** Forstå hvordan solsystemer dannes, hvordan galakser kolliderer
 
 **Eksempel:** Simulering viser at vår galakse (Melkeveien) og Andromedagalaksen vil kollidere om ca. 4 milliarder år.`,
+    },
+
+    // ========== EKSEMPEL: ENKEL POPULASJONSSIMULERING ==========
+    {
+      id: 'nat10-6-4-example-populasjon',
+      type: 'example',
+      title: 'Eksempel: Simulering av populasjonsvekst med bæreevne',
+      problem: 'En innsjø har plass til maksimalt 500 fisk (bæreevne). Det er 50 fisk i starten, og populasjonen vokser med 20% per år. Simuler populasjonen over 20 år. Hva skjer?',
+      solution: `**Løsning:**
+
+\`\`\`python
+# Startbetingelser
+populasjon = 50
+baereevne = 500
+vekstrate = 0.20
+
+# Simuler 20 år
+for aar in range(21):
+    print(f"År {aar}: {populasjon:.0f} fisk")
+
+    # Logistisk vekst: veksten avtar når populasjonen nærmer seg bæreevne
+    vekst = vekstrate * populasjon * (1 - populasjon / baereevne)
+    populasjon = populasjon + vekst
+\`\`\`
+
+**Resultat (forkortet):**
+- År 0: 50 fisk
+- År 5: 117 fisk
+- År 10: 244 fisk
+- År 15: 411 fisk
+- År 20: 482 fisk
+
+**Observasjoner:**
+- Populasjonen vokser raskt i starten (mye plass og mat)
+- Veksten avtar gradvis når populasjonen nærmer seg bæreevne (500)
+- Populasjonen stabiliserer seg nær bæreevnen
+
+Denne modellen kalles **logistisk vekst** og er mer realistisk enn ubegrenset eksponentiell vekst.`,
+    },
+
+    // ========== EKSEMPEL: FLYSIMULATOR ==========
+    {
+      id: 'nat10-6-4-example-flysimulator',
+      type: 'example',
+      title: 'Eksempel: Flysimulator som simulering',
+      problem: 'Forklar hvordan en flysimulator er et eksempel på en simulering. Hva er modellen, startbetingelsene, og hva kan simulatoren teste?',
+      solution: `**Løsning:**
+
+**Hva er en flysimulator?**
+En flysimulator er et datasystem som etterlikner opplevelsen av å fly et ekte fly. Piloten sitter i en kopi av cockpiten med ekte instrumenter og skjermer.
+
+**Modellen:**
+- Flyets aerodynamikk (hvordan vinger, motor og vekt påvirker flyet)
+- Værforhold (vind, turbulens, regn, is)
+- Instrumenter og navigasjon
+- Terreng (fjell, rullebaner, byer)
+- Motorytelse og drivstofforbruk
+
+**Startbetingelser:**
+- Flytype (Boeing 737, Airbus A320, etc.)
+- Vekt (passasjerer, drivstoff, last)
+- Flyplass og rullebane
+- Værforhold (klar himmel, tåke, storm)
+- Tid på døgnet
+
+**Hva kan testes?**
+- Normal avgang og landing
+- Nødprosedyrer (motorhavari, brann)
+- Landing i vanskelige forhold (tåke, sidevind)
+- Instrumentfeil
+- Ukjente flyplasser
+
+**Fordeler:**
+- Trygt: Ingen fare for piloten
+- Billig: Billigere enn å fly et ekte fly
+- Gjentagbart: Kan øve samme situasjon mange ganger
+- Kan simulere farlige scenarier som aldri burde skje i virkeligheten
+
+**Begrensninger:**
+- Kan aldri 100% gjenskape følelsen av å fly
+- G-krefter er begrenset
+- Modellen kan ha feil som gjør opplevelsen urealistisk`,
+    },
+
+    // ========== EKSEMPEL: KLIMA VS. VÆR ==========
+    {
+      id: 'nat10-6-4-example-klima-vaer',
+      type: 'example',
+      title: 'Eksempel: Forskjellen mellom værsimulering og klimasimulering',
+      problem: 'Forklar forskjellen mellom en værsimulering og en klimasimulering. Hvorfor kan vi forutsi klimaet 50 år frem, men ikke været 2 uker frem?',
+      solution: `**Løsning:**
+
+**Værsimulering:**
+- Forutsier **spesifikt vær** for de neste dagene
+- Eksempel: "Det blir 18°C og sol i Oslo i morgen"
+- Tidshorisont: 1-10 dager
+- Krever nøyaktige startbetingelser (dagens vær)
+- Kaotisk system: Små feil i startdata vokser raskt
+
+**Klimasimulering:**
+- Forutsier **gjennomsnittlige forhold** over lang tid
+- Eksempel: "Gjennomsnittstemperaturen i Norge vil øke med 2°C innen 2070"
+- Tidshorisont: 10-100+ år
+- Fokuserer på trender og gjennomsnitt, ikke enkeltdager
+- Drevet av kjente fysiske lover (drivhuseffekt, solinnstråling)
+
+**Hvorfor kan vi forutsi klima, men ikke vær?**
+
+Analogi: Tenk på en kopp med kokende vann.
+- Du kan **ikke** forutsi nøyaktig hvilken boble som dukker opp neste sekund (= vær)
+- Du **kan** forutsi at vannet koker ved 100°C og avgir damp (= klima)
+
+Klima handler om gjennomsnitt og trender, som er mer forutsigbare enn enkeltdager. Været er kaotisk og uforutsigbart over lang tid, men klimaet følger fysiske lover som vi forstår godt.`,
     },
 
     // ========== OPPGAVE 3: FORDELER ==========
@@ -4159,6 +5950,614 @@ Nå som du forstår simuleringer, kan du:
 - Forstå hvordan forskere bruker simuleringer til å forutsi fremtiden
 - Bruke simuleringer til å teste hypoteser i naturfag`,
     },
+    // ========== EKSEMPEL: MODELL AV SOLSYSTEMET ==========
+    {
+      id: 'nat10-6-4-example-solsystem',
+      type: 'example',
+      title: 'Eksempel: Forenklet modell av solsystemet',
+      problem: 'Forklar hvorfor en fysisk modell av solsystemet (som en skoleplansje) og en datasimulering av solsystemet gir ulik type innsikt. Hva er fordelene og ulempene med hver type modell?',
+      solution: `**Løsning:**
+
+**Fysisk modell (skoleplansje/planetarium):**
+
+Fordeler:
+- Lett å se plasseringen av planetene i forhold til hverandre
+- Visuelt forståelig - du kan peke og se
+- God for å lære navnene og rekkefølgen på planetene
+- Krever ingen teknologi
+
+Ulemper:
+- **Skala er helt feil:** Hvis Solen er en fotball, er Jorden en ert 25 meter unna. Pluto ville vært over 1 km unna! Ingen skoleplansje viser riktig avstand
+- Kan ikke vise bevegelse over tid
+- Kan ikke simulere hva som skjer hvis vi endrer noe (f.eks. fjerner Jupiter)
+- Viser bare ett øyeblikk, ikke utvikling
+
+**Datasimulering:**
+
+Fordeler:
+- **Riktige avstander og størrelser** (kan zoome inn og ut)
+- Viser planetenes bevegelse over tid (baner, hastigheter)
+- Kan "spole fremover" millioner av år
+- Kan teste scenarioer: Hva skjer hvis en asteroid nærmer seg?
+- Kan beregne nøyaktige posisjoner for navigasjon av romsonder
+
+Ulemper:
+- Krever datamaskin og programvare
+- Modellen er fortsatt en forenkling (utelater f.eks. støv mellom planetene)
+- Kan være vanskelig å forstå for nybegynnere
+- Beregningsfeil kan akkumulere over lange tidsperioder
+
+**Konklusjon:**
+Begge modelltyper er nyttige, men for ulike formål. Fysiske modeller er gode for å introdusere begreper, mens simuleringer er nødvendige for nøyaktige beregninger og "hva-om"-eksperimenter.`,
+    },
+
+    // ========== EKSEMPEL: SMITTESPREDNING SIMULERING ==========
+    {
+      id: 'nat10-6-4-example-smitte',
+      type: 'example',
+      title: 'Eksempel: Simulering av smittespredning med og uten tiltak',
+      problem: 'Sammenlign smittespredning med og uten karantensetiltak i en skole med 200 elever. Uten tiltak smitter hver syk person 3 nye per dag. Med karantene smitter hver syk person bare 1 ny per dag. Start med 1 syk person. Hva skjer etter 5 dager?',
+      solution: `**Løsning:**
+
+**Uten tiltak (smitterate = 3):**
+
+| Dag | Nye syke | Totalt syke |
+|-----|----------|-------------|
+| 0   | -        | 1           |
+| 1   | 3        | 4           |
+| 2   | 12       | 16          |
+| 3   | 48       | 64          |
+| 4   | 136*     | 200         |
+| 5   | -        | 200 (alle)  |
+
+*Begrenset av skolens størrelse (200 elever)
+
+**Med karantene (smitterate = 1):**
+
+| Dag | Nye syke | Totalt syke |
+|-----|----------|-------------|
+| 0   | -        | 1           |
+| 1   | 1        | 2           |
+| 2   | 2        | 4           |
+| 3   | 4        | 8           |
+| 4   | 8        | 16          |
+| 5   | 16       | 32          |
+
+**Sammenligning etter 5 dager:**
+- **Uten tiltak:** 200 syke (hele skolen!)
+- **Med karantene:** 32 syke (16% av skolen)
+
+**Hva lærer vi?**
+- Smitteraten har enorm betydning for spredningshastigheten
+- Å redusere smitteraten fra 3 til 1 kan forhindre en epidemi
+- Små endringer i atferd (håndvask, holde avstand) gir stor effekt
+- Dette er den samme logikken som ble brukt under COVID-19-pandemien
+
+**Begrensninger i modellen:**
+- Alle smitter like mye (urealistisk)
+- Ingen inkubasjonstid
+- Ingen immunitet etter sykdom
+- Forenklet kontaktmønster`,
+    },
+
+    // ========== OPPGAVE 11: VALIDERING ==========
+    {
+      id: 'nat10-6-4-ex-11-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-11',
+        number: '6.4.11',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva betyr det å validere en simulering?',
+        options: [
+          'Å sjekke om simuleringens resultater stemmer overens med virkeligheten',
+          'Å gjøre simuleringen raskere',
+          'Å dele simuleringen med andre forskere',
+          'Å kjøre simuleringen flere ganger med samme data',
+        ],
+        answer: 0,
+        solution: `**Svar: Å sjekke om simuleringens resultater stemmer overens med virkeligheten**
+
+**Forklaring:**
+
+Validering betyr å teste om modellen gir realistiske resultater ved å sammenligne med virkelige data.
+
+**Eksempel:**
+- En værsimulering kan valideres ved å sammenligne forutsigelsene med det været som faktisk inntraff
+- En klimamodell kan valideres ved å "simulere fortiden" og se om resultatene stemmer med historiske klimadata
+
+**Hvorfor er validering viktig?**
+- Uten validering vet vi ikke om simuleringen gir meningsfulle resultater
+- En uvalidert modell kan gi helt feil svar
+- Validering bygger tillit til resultatene`,
+      },
+    },
+
+    // ========== OPPGAVE 12: STARTBETINGELSER ==========
+    {
+      id: 'nat10-6-4-ex-12-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-12',
+        number: '6.4.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du skal simulere en ball som triller nedover en bakke. Hvilke startbetingelser trenger du for simuleringen? Nevn minst fire.',
+        solution: `**Nødvendige startbetingelser:**
+
+1. **Ballens startposisjon:** Hvor på bakken starter ballen? (meters fra toppen)
+
+2. **Starthastighet:** Ligger ballen stille ved start, eller har den fått et dytt? (m/s)
+
+3. **Bakkens helning:** Hvor bratt er bakken? (vinkel i grader)
+
+4. **Ballens masse:** Hvor tung er ballen? (kg) Påvirker tregheten.
+
+5. **Ballens radius:** Størrelsen på ballen påvirker rullemotstanden.
+
+6. **Friksjon:** Hvor glatt er overflaten? (friskjonskoeffisient)
+
+7. **Luftmotstand:** Er ballen stor nok til at luftmotstand spiller en rolle?
+
+8. **Tyngdeakselerasjon:** g = 9,81 m/s² (konstant på jordens overflate)
+
+**Forenklinger vi kan gjøre:**
+- Ignorere luftmotstand (liten ball, lav hastighet)
+- Anta jevn helning (ikke en ujevn bakke)
+- Anta at ballen ruller uten å gli
+
+Jo flere detaljer vi inkluderer, jo mer nøyaktig blir simuleringen, men den blir også mer komplisert å beregne.`,
+      },
+    },
+
+    // ========== OPPGAVE 13: SAMMENLIGNE SIMULERINGER ==========
+    {
+      id: 'nat10-6-4-ex-13-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-13',
+        number: '6.4.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En forsker bruker to ulike klimamodeller for å forutsi temperaturen i 2050. Modell A sier +2,5°C, modell B sier +3,8°C. Forklar hvorfor to modeller kan gi forskjellige resultater, og hvordan forskeren kan vurdere hvilken modell som er mest pålitelig.',
+        solution: `**Hvorfor kan to modeller gi forskjellige resultater?**
+
+1. **Ulike forenklinger:**
+   - Modell A og B kan ha gjort forskjellige antagelser om f.eks. skyers påvirkning
+   - Den ene kan inkludere mer detaljerte havmodeller enn den andre
+   - Ulike måter å beregne tilbakekobling mellom atmosfære og hav
+
+2. **Ulike startbetingelser:**
+   - Modellene kan bruke litt forskjellige klimadata som utgangspunkt
+   - Forskjellige måter å fylle inn data der målinger mangler
+
+3. **Ulike utslippsscenarier:**
+   - Modellene kan anta forskjellig fremtidig CO₂-utslipp
+   - Ulike antakelser om politiske beslutninger og teknologiutvikling
+
+4. **Ulik oppløsning:**
+   - Modell A kan dele atmosfæren i 10x10 km ruter
+   - Modell B kan bruke 50x50 km ruter
+   - Finere oppløsning gir ofte mer nøyaktige resultater
+
+**Hvordan vurdere pålitelighet?**
+
+1. **Sammenligne med historiske data:**
+   - Kjør begge modellene for fortiden (f.eks. 1950-2020)
+   - Sjekk hvilken modell som best gjengir observert temperaturutvikling
+   - Modellen som treffer best på fortiden, er trolig mest pålitelig for fremtiden
+
+2. **Se på mange modeller:**
+   - Forskere bruker ofte 20-30 modeller og tar gjennomsnittet
+   - Gjennomsnittet er ofte bedre enn enkeltstående modeller
+
+3. **Sjekk peer review:**
+   - Er modellene publisert i anerkjente tidsskrifter?
+   - Har andre forskere vurdert dem?
+
+4. **Vurder usikkerhet:**
+   - Gode modeller rapporterer usikkerhet (f.eks. 2,5°C ± 0,5°C)
+   - Bred usikkerhet betyr at vi er mindre sikre
+
+**Konklusjon:** Det er normalt at modeller gir forskjellige resultater. Forskere bruker mange modeller for å finne det mest sannsynlige resultatet.`,
+      },
+    },
+
+    // ========== OPPGAVE 14: ENKEL REGNEARK-SIMULERING ==========
+    {
+      id: 'nat10-6-4-ex-14-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-14',
+        number: '6.4.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du har et glass med varmt vann (80°C) i et rom med temperatur 20°C. Vannet avkjøles med omtrent 10% av temperaturforskjellen hvert minutt. Simuler temperaturen for de første 10 minuttene. Hvilken temperatur har vannet etter 10 minutter?',
+        solution: `**Løsning:**
+
+**Modell:** Avkjøling = 10% av (vanntemperatur - romtemperatur) per minutt
+
+| Minutt | Vanntemp | Romtemp | Differanse | Avkjøling (10%) | Ny temp |
+|--------|----------|---------|------------|-----------------|---------|
+| 0      | 80,0°C   | 20°C    | 60,0       | 6,0             | 74,0°C  |
+| 1      | 74,0°C   | 20°C    | 54,0       | 5,4             | 68,6°C  |
+| 2      | 68,6°C   | 20°C    | 48,6       | 4,9             | 63,7°C  |
+| 3      | 63,7°C   | 20°C    | 43,7       | 4,4             | 59,3°C  |
+| 4      | 59,3°C   | 20°C    | 39,3       | 3,9             | 55,4°C  |
+| 5      | 55,4°C   | 20°C    | 35,4       | 3,5             | 51,9°C  |
+| 6      | 51,9°C   | 20°C    | 31,9       | 3,2             | 48,7°C  |
+| 7      | 48,7°C   | 20°C    | 28,7       | 2,9             | 45,8°C  |
+| 8      | 45,8°C   | 20°C    | 25,8       | 2,6             | 43,2°C  |
+| 9      | 43,2°C   | 20°C    | 23,2       | 2,3             | 40,9°C  |
+| 10     | 40,9°C   | 20°C    | 20,9       | 2,1             | 38,8°C  |
+
+**Svar:** Etter 10 minutter er vanntemperaturen ca. **38,8°C**
+
+**Observasjoner:**
+- Avkjølingen er raskest i starten (stor temperaturforskjell)
+- Etter hvert som vannet nærmer seg romtemperatur, avtar avkjølingen
+- Vannet vil aldri bli kaldere enn romtemperatur (20°C)
+- Dette er en forenklet modell av Newtons avkjølingslov`,
+      },
+    },
+
+    // ========== OPPGAVE 15: TYPER MODELLER ==========
+    {
+      id: 'nat10-6-4-ex-15a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-15a',
+        number: '6.4.15a',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er IKKE en type modell brukt i naturfag?',
+        options: [
+          'Fysisk modell (f.eks. en globus)',
+          'Matematisk modell (f.eks. formler)',
+          'Digital modell (f.eks. datasimulering)',
+          'Emosjonell modell (f.eks. følelser)',
+        ],
+        answer: 3,
+        solution: `**Svar: Emosjonell modell (f.eks. følelser)**
+
+"Emosjonell modell" er ikke en type vitenskapelig modell brukt i naturfag.
+
+**Typer modeller i naturfag:**
+
+1. **Fysiske modeller:**
+   - Konkrete objekter som representerer noe
+   - Eksempler: Globus (jorden), DNA-modell, atommodell
+   - Fordel: Lett å visualisere
+
+2. **Matematiske modeller:**
+   - Formler og ligninger som beskriver sammenhenger
+   - Eksempel: F = ma (Newtons andre lov)
+   - Fordel: Nøyaktige beregninger
+
+3. **Digitale modeller (simuleringer):**
+   - Dataprogrammer som etterlikner virkeligheten
+   - Eksempel: Værsimulering, klimamodell
+   - Fordel: Kan teste mange scenarioer raskt
+
+4. **Konseptuelle modeller:**
+   - Diagrammer og illustrasjoner som forklarer begreper
+   - Eksempel: Næringskjede, cellesyklus-diagram
+   - Fordel: Forenkler komplekse prosesser`,
+      },
+    },
+
+    // ========== OPPGAVE 16: FORBEDRE EN MODELL ==========
+    {
+      id: 'nat10-6-4-ex-16a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-16a',
+        number: '6.4.16a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'En enkel modell for populasjonsvekst sier at en kaninpopulasjon dobler seg hvert år. Modellen starter med 10 kaniner.\n\na) Beregn antall kaniner etter 5 år med denne enkle modellen.\nb) Nevn tre faktorer som gjør denne modellen urealistisk.\nc) Forklar hvordan du kan forbedre modellen ved å legge til en bæreevne på 200 kaniner.',
+        solution: `**a) Enkel modell (dobling hvert år):**
+
+| År | Kaniner |
+|----|---------|
+| 0  | 10      |
+| 1  | 20      |
+| 2  | 40      |
+| 3  | 80      |
+| 4  | 160     |
+| 5  | 320     |
+
+Etter 5 år: **320 kaniner** (ubegrenset eksponentiell vekst)
+
+**b) Tre faktorer som gjør modellen urealistisk:**
+
+1. **Begrenset mat:** I virkeligheten er det begrenset med mat og ressurser. Når populasjonen vokser, blir det konkurranse om maten.
+
+2. **Rovdyr:** Kaniner har rovdyr (rev, ørn, ugle) som begrenser populasjonen.
+
+3. **Sykdommer:** Tette populasjoner er mer utsatt for sykdomsutbrudd som kan drepe mange kaniner.
+
+**c) Forbedret modell med bæreevne:**
+
+Bæreevne (K) = 200 kaniner. Vekstraten reduseres når populasjonen nærmer seg bæreevnen:
+
+Ny formel: vekst = vekstrate × populasjon × (1 - populasjon/bæreevne)
+
+| År | Kaniner | Vekst |
+|----|---------|-------|
+| 0  | 10      | -     |
+| 1  | 19      | 9,5   |
+| 2  | 35      | 15,7  |
+| 3  | 60      | 25,2  |
+| 4  | 96      | 35,5  |
+| 5  | 137     | 41,3  |
+
+Med bæreevne stopper populasjonen ved ca. 200 i stedet for å vokse ubegrenset. Dette er **logistisk vekst** og er mye mer realistisk.`,
+      },
+    },
+
+    // ========== OPPGAVE 17: REGNEARK-SIMULERING ==========
+    {
+      id: 'nat10-6-4-ex-17a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-17a',
+        number: '6.4.17a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du har et lån på 10 000 kr med 1% rente per måned. Du betaler 1000 kr per måned. Lag en regneark-simulering (tabell) som viser saldo, rente og betaling for de første 6 månedene. Hvor mange måneder tar det å betale ned lånet?',
+        solution: `**Regneark-simulering:**
+
+| Måned | Saldo start | Rente (1%) | Betaling | Saldo slutt |
+|-------|-------------|------------|----------|-------------|
+| 1     | 10 000      | 100        | 1 000    | 9 100       |
+| 2     | 9 100       | 91         | 1 000    | 8 191       |
+| 3     | 8 191       | 82         | 1 000    | 7 273       |
+| 4     | 7 273       | 73         | 1 000    | 6 346       |
+| 5     | 6 346       | 63         | 1 000    | 5 409       |
+| 6     | 5 409       | 54         | 1 000    | 4 463       |
+| 7     | 4 463       | 45         | 1 000    | 3 508       |
+| 8     | 3 508       | 35         | 1 000    | 2 543       |
+| 9     | 2 543       | 25         | 1 000    | 1 568       |
+| 10    | 1 568       | 16         | 1 000    | 584         |
+| 11    | 584         | 6          | 590      | 0           |
+
+**Formler i regneark:**
+- Rente = Saldo start × 0,01
+- Saldo slutt = Saldo start + Rente - Betaling
+
+**Svar:** Det tar **11 måneder** å betale ned lånet.
+
+**Observasjoner:**
+- Total betalt: 10 000 + 590 = 10 590 kr (590 kr i renter)
+- Renten synker for hver måned fordi saldoen synker
+- Siste betaling er bare 590 kr (resten av gjelden + siste rente)
+
+**Læringspoeng:**
+- Simuleringer i regneark er et kraftig verktøy for å forstå økonomi
+- Du kan endre parametrene: Hva skjer med 2% rente? Eller 500 kr betaling?
+- Formler i regneark er egentlig en form for programmering!`,
+      },
+    },
+
+    // ========== OPPGAVE 18: EPIDEMISIMULERING ==========
+    {
+      id: 'nat10-6-4-ex-18-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-18',
+        number: '6.4.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En enkel epidemimodell sier at hver syk person smitter i gjennomsnitt 1,5 nye personer per dag. Etter 5 dager med sykdom blir man frisk og immun.\n\nHvis det starter med 1 syk person i en by med 10 000 innbyggere:\na) Hvor mange nye smittede er det etter dag 1, 2 og 3?\nb) Hvilke forenklinger gjør denne modellen?\nc) Hva kan vi gjøre for å gjøre modellen mer realistisk?',
+        solution: `**a) Nye smittede:**
+
+- Dag 0: 1 syk person
+- Dag 1: 1 × 1,5 = 1,5 → ca. 2 nye smittede (totalt 3)
+- Dag 2: 3 × 1,5 = 4,5 → ca. 5 nye smittede (totalt 8)
+- Dag 3: 8 × 1,5 = 12 nye smittede (totalt 20)
+
+Merk: Smitteraten avtar etter hvert fordi:
+- Noen er allerede immune (har vært syke)
+- Sjansen for å treffe en mottakelig person synker
+
+**b) Forenklinger i modellen:**
+
+1. Alle smitter like mye (i virkeligheten varierer dette)
+2. Ingen tiltak (karantene, vaksinering)
+3. Alle er like mottakelige for smitte
+4. Ingen forsinkelse mellom smitte og symptomer (inkubasjonstid)
+5. Alle blir friske etter nøyaktig 5 dager
+6. Ingen dør av sykdommen
+7. Alle personer møter like mange andre (i virkeligheten varierer kontaktmønsteret)
+
+**c) Gjøre modellen mer realistisk:**
+
+1. **Inkubasjonstid:** Legge til 2-3 dager der man er smittet men ikke syk
+2. **Varierende smitterater:** Noen smitter mer enn andre (superspreders)
+3. **Tiltak:** Modellere effekten av karantene, munnbind, vaksinering
+4. **Aldersgrupper:** Ulike aldersgrupper har ulik kontaktrate og sårbarhet
+5. **Geografisk spredning:** Folk i samme nabolag smitter hverandre mer
+6. **Sesongvariasjoner:** Noen sykdommer sprer seg mer om vinteren
+7. **Sykehuskapasitet:** Hva skjer hvis sykehusene blir overbelastet?
+
+Denne oppgaven illustrerer hvordan alle modeller er forenklinger, men kan gjøres mer realistiske ved å legge til flere faktorer.`,
+      },
+    },
+
+    // ========== EKSEMPEL: SIMULERING AV RADIOAKTIV NEDBRYTING ==========
+    {
+      id: 'nat10-6-4-example-radioaktiv',
+      type: 'example',
+      title: 'Eksempel: Simulering av radioaktiv nedbryting',
+      problem: 'Karbon-14 har en halveringstid på 5730 år. En arkeolog finner en trebjelke som inneholder 25% av den opprinnelige mengden karbon-14. Bruk simulering til å beregne alderen til trebjelken.',
+      solution: `**Løsning med simulering:**
+
+Vi vet at etter hver halveringstid er mengden halvert:
+
+| Tid (år) | Andel C-14 gjenstående |
+|----------|----------------------|
+| 0 | 100% |
+| 5 730 | 50% |
+| 11 460 | 25% |
+| 17 190 | 12,5% |
+| 22 920 | 6,25% |
+
+**Svar:** Trebjelken har 25% C-14 igjen, noe som tilsvarer 2 halveringstider.
+
+Alder = 2 × 5 730 år = **11 460 år**
+
+**Python-simulering:**
+
+\`\`\`python
+halveringstid = 5730  # år
+mengde = 100          # prosent
+tid = 0               # år
+
+while mengde > 25:
+    mengde = mengde / 2
+    tid = tid + halveringstid
+    print(f"Etter {tid} år: {mengde}% gjenstår")
+
+print(f"Trebjelken er ca. {tid} år gammel")
+\`\`\`
+
+**Output:**
+\`\`\`
+Etter 5730 år: 50.0% gjenstår
+Etter 11460 år: 25.0% gjenstår
+Trebjelken er ca. 11460 år gammel
+\`\`\`
+
+**Læringspoeng:**
+- Radioaktiv nedbryting følger et eksponentielt mønster
+- Halveringstiden er konstant uansett startmengde
+- Simulering gjør det enkelt å beregne alder på gamle gjenstander
+- C-14-metoden brukes i arkeologi for å datere organisk materiale opptil ca. 50 000 år`,
+    },
+
+    // ========== OPPGAVE 19: RADIOAKTIV NEDBRYTING ==========
+    {
+      id: 'nat10-6-4-ex-19-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-19',
+        number: '6.4.19',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'En prøve av et radioaktivt stoff har halveringstid på 10 dager. Etter 30 dager, hvor stor andel av det opprinnelige stoffet er igjen?',
+        options: [
+          { id: 'a', text: '33%', isCorrect: false, feedback: 'Feil. Radioaktiv nedbryting er ikke lineær. Man deler ikke 100% på 3.' },
+          { id: 'b', text: '25%', isCorrect: false, feedback: 'Nesten! Men 30 dager er 3 halveringstider, ikke 2.' },
+          { id: 'c', text: '12,5%', isCorrect: true, feedback: 'Riktig! 3 halveringstider: 100% → 50% → 25% → 12,5%.' },
+          { id: 'd', text: '6,25%', isCorrect: false, feedback: 'Det ville vært etter 4 halveringstider (40 dager).' },
+        ],
+        solution: 'Etter 30 dager har det gått 30/10 = 3 halveringstider. For hver halveringstid halveres mengden: 100% → 50% → 25% → 12,5%. Svaret er **12,5%**.',
+      },
+    },
+
+    // ========== DEFINISJON: EKSPONENTIELL VEKST OG NEDBRYTING ==========
+    {
+      id: 'nat10-6-4-def-eksponentiell',
+      type: 'definition',
+      title: 'Eksponentiell vekst og nedbryting',
+      content: `**Eksponentiell vekst** betyr at en mengde øker med en fast prosent per tidsenhet. Jo større mengden er, desto raskere øker den.
+
+**Eksponentiell nedbryting** betyr at en mengde minker med en fast prosent per tidsenhet. Jo større mengden er, desto raskere minker den, men den når aldri helt null.
+
+**Eksempler:**
+- **Vekst:** Bakteriekoloni som dobler seg hver time: 1 → 2 → 4 → 8 → 16 → ...
+- **Nedbryting:** Radioaktivt stoff med halveringstid: 100 → 50 → 25 → 12,5 → ...
+
+**Matematisk formel:**
+- Vekst: $N(t) = N_0 \\cdot 2^{t/T}$ (T = doblingstid)
+- Nedbryting: $N(t) = N_0 \\cdot (1/2)^{t/T}$ (T = halveringstid)
+
+Simuleringer er spesielt nyttige for å modellere eksponentielle prosesser fordi de kan bli svært store eller svært små.`,
+    },
+
+    // ========== OPPGAVE 20: BAKTERIEVEKST ==========
+    {
+      id: 'nat10-6-4-ex-20-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-20',
+        number: '6.4.20',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En bakteriekultur starter med 100 bakterier og dobler seg hver 20. minutt.\n\na) Lag en tabell som viser antall bakterier etter 0, 20, 40, 60, 80 og 100 minutter.\nb) Hvor mange bakterier er det etter 4 timer?\nc) Forklar hvorfor denne modellen ikke kan stemme i virkeligheten over lang tid. Hvilke faktorer vil begrense veksten?',
+        hints: ['Dobling betyr at antallet ganges med 2 for hvert tidsintervall.', 'Etter 4 timer har det gått 4 × 60 / 20 = 12 doblingstider.'],
+        solution: `**a) Tabell over bakterievekst:**
+
+| Tid (min) | Antall bakterier |
+|-----------|-----------------|
+| 0 | 100 |
+| 20 | 200 |
+| 40 | 400 |
+| 60 | 800 |
+| 80 | 1 600 |
+| 100 | 3 200 |
+
+**b) Etter 4 timer:**
+
+4 timer = 240 minutter
+Antall doblinger = 240 / 20 = 12
+
+Antall = 100 × 2^12 = 100 × 4096 = **409 600 bakterier**
+
+**c) Begrensninger i virkeligheten:**
+
+Eksponentiell vekst kan ikke fortsette uendelig fordi:
+
+1. **Næringsbegrensning:** Bakteriene bruker opp næringsstoffene i omgivelsene
+2. **Plass:** Det blir for trangt, og bakteriene konkurrerer om plassen
+3. **Avfallsstoffer:** Bakteriene produserer avfallsstoffer som forgifter omgivelsene
+4. **Temperatur:** Temperaturen kan endre seg
+5. **Immunforsvar:** I en levende organisme vil immunforsvaret bekjempe bakteriene
+
+I virkeligheten følger bakterieveksten en **S-kurve** (logistisk vekst):
+- Først langsom vekst (få bakterier)
+- Deretter rask eksponentiell vekst
+- Til slutt flater veksten ut og stabiliserer seg på et bærekraftig nivå
+
+Denne begrensningen kalles **bærekapasiteten** til miljøet.`,
+      },
+    },
+
+    // ========== OPPGAVE 21: MODELLKRITIKK ==========
+    {
+      id: 'nat10-6-4-ex-21-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-4-ex-21',
+        number: '6.4.21',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En værvarsling sier at det er 80% sjanse for regn i morgen. Det ble ikke regn.\n\na) Betyr dette at værvarslingen var feil? Begrunn svaret.\nb) Hvordan kan du vurdere om en værtjeneste lager gode varsler?\nc) Forklar forskjellen mellom en enkeltprognose og modellens totale nøyaktighet.',
+        solution: `**a) Var værvarslingen feil?**
+
+**Nei, ikke nødvendigvis.** 80% sjanse for regn betyr at i 10 av 10 lignende situasjoner vil det regne 8 ganger. De 2 resterende gangene vil det IKKE regne. Å si 80% og ikke få regn er som å kaste en terning og ikke få 6 – det er usannsynlig men ikke umulig.
+
+En enkelt hendelse kan ikke bevise at en sannsynlighetsprognose er feil. Man må se på mange prognoser over tid.
+
+**b) Hvordan vurdere en værtjenestes kvalitet:**
+
+1. **Kalibrering:** Av alle gangene tjenesten sier 80% sjanse for regn, skal det faktisk regne ca. 80% av gangene
+2. **Brier-score:** Et matematisk mål som sammenligner prognoser med faktisk vær over mange dager
+3. **Sammenligning:** Sammenlign med andre værtjenester eller med "naiv prognose" (alltid gjette gårsdagens vær)
+4. **Langsiktig track record:** Se på hundrevis av prognoser, ikke enkelttilfeller
+
+**c) Enkeltprognose vs. total nøyaktighet:**
+
+- **Enkeltprognose:** "Det er 80% sjanse for regn i morgen" – kan vi aldri verifisere som riktig/feil ut fra én dag
+- **Total nøyaktighet:** "Av 100 dager der modellen sa 80% regnsjanse, regnet det 79 dager" – dette viser at modellen er godt kalibrert
+
+**Analogi:** En pokersspiller som gjør riktige valg vil vinne over tid, selv om de taper enkelthender. Modellens kvalitet måles over mange prognoser, ikke enkelttilfeller.
+
+Dette er et viktig poeng om modellering: **en god modell kan gi "feil" resultat i enkelttilfeller, men er riktig over mange tilfeller.**`,
+      },
+    },
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -4200,6 +6599,38 @@ I dette kapitlet lærer du:
 - Hvordan forskning fører til innovasjon
 - Eksempler på dagsaktuell forskning
 - Hvordan du kan følge med på forskning og vurdere kilder`,
+    },
+
+    // ========== DEFINISJON: FORSKNING ==========
+    {
+      id: 'nat10-6-5-def-forskning',
+      type: 'definition',
+      title: 'Forskning',
+      content: 'Forskning er systematisk og kritisk arbeid for å skape ny kunnskap om verden. Forskning kjennetegnes ved at den følger en planlagt metode, er transparent (åpen om metoder og resultater), og at resultatene kan etterprøves av andre. Forskningen bygger alltid på eksisterende kunnskap og følger etiske retningslinjer.',
+    },
+
+    // ========== DEFINISJON: INNOVASJON ==========
+    {
+      id: 'nat10-6-5-def-innovasjon',
+      type: 'definition',
+      title: 'Innovasjon',
+      content: 'Innovasjon er prosessen med å omsette ny kunnskap eller ideer til praktiske produkter, tjenester eller løsninger som skaper verdi for samfunnet. Innovasjon bygger ofte på forskning, men krever også kreativitet, samarbeid og ressurser. Eksempler på innovasjon er utviklingen av smarttelefonen, mRNA-vaksiner og solcellepaneler.',
+    },
+
+    // ========== DEFINISJON: HYPOTESE ==========
+    {
+      id: 'nat10-6-5-def-hypotese',
+      type: 'definition',
+      title: 'Hypotese',
+      content: 'En hypotese er en testbar påstand eller antakelse om hva svaret på et forskningsspørsmål kan være. Hypotesen formuleres før forsøket gjennomføres, og forsøket er designet for å teste om hypotesen stemmer eller ikke. En god hypotese er spesifikk, målbar og kan motbevises. Eksempel: "Planter som vannes med 50 ml vann daglig vokser høyere enn planter som vannes med 20 ml."',
+    },
+
+    // ========== DEFINISJON: FAGFELLEVURDERING ==========
+    {
+      id: 'nat10-6-5-def-fagfellevurdering',
+      type: 'definition',
+      title: 'Fagfellevurdering (peer review)',
+      content: 'Fagfellevurdering er en kvalitetssikringsprosess der andre eksperter innenfor samme fagfelt vurderer en vitenskapelig artikkel før den publiseres. Fagfellene sjekker metodene, analysen og konklusjonene, og gir tilbakemelding til forfatterne. Artikler som har gjennomgått fagfellevurdering regnes som mer pålitelige enn artikler som ikke har det.',
     },
 
     // ========== HVA ER FORSKNING? ==========
@@ -4451,6 +6882,111 @@ Norge er god på innovasjon innen:
 - **Havbruk** (oppdrett av laks)
 - **Maritim teknologi** (skip, offshore)
 - **Helseteknologi** (medisinsk utstyr)`,
+    },
+
+    // ========== EKSEMPEL: FRA GRUNNFORSKNING TIL PRODUKT ==========
+    {
+      id: 'nat10-6-5-example-gps',
+      type: 'example',
+      title: 'Eksempel: Fra relativitetsteori til GPS',
+      problem: 'Forklar hvordan Einsteins relativitetsteori (grunnforskning fra 1905/1915) ble nødvendig for å lage GPS-systemet (anvendt teknologi fra 1970-tallet).',
+      solution: `**Løsning:**
+
+**Grunnforskning (1905-1915):**
+- Einstein utviklet relativitetsteorien, som blant annet sier at:
+  - Tid går litt saktere jo raskere du beveger deg (spesiell relativitetsteori)
+  - Tid går litt raskere jo lenger unna en tung masse du er (generell relativitetsteori)
+- På Einsteins tid hadde dette ingen praktisk nytte
+
+**Anvendt forskning og innovasjon (1970-2000):**
+- GPS-satellitter kretser rundt jorden i ca. 20 200 km høyde med hastighet 14 000 km/t
+- Spesiell relativitet: Klokken i satellitten tikker ca. 7 mikrosekunder saktere per dag (på grunn av hastigheten)
+- Generell relativitet: Klokken i satellitten tikker ca. 45 mikrosekunder raskere per dag (på grunn av svakere gravitasjon)
+- Nettoresultat: Satellittklokken er 38 mikrosekunder raskere per dag
+
+**Hvorfor er dette viktig?**
+- GPS bruker nøyaktig tid til å beregne din posisjon
+- 38 mikrosekunder feil per dag gir en posisjonsfeil på ca. 10 km per dag!
+- Uten korreksjon for relativistiske effekter ville GPS vært ubrukelig
+
+**Lærdom:**
+Grunnforskning som virker "unyttig" kan vise seg å være helt avgjørende mange år senere. Einstein kunne ikke forestille seg GPS, men hans forskning gjør det mulig.`,
+    },
+
+    // ========== EKSEMPEL: FORSKNINGSPROSESSEN I PRAKSIS ==========
+    {
+      id: 'nat10-6-5-example-forskningsprosess',
+      type: 'example',
+      title: 'Eksempel: Forskningsprosessen - mRNA-vaksiner',
+      problem: 'Beskriv hvordan forskningsprosessen førte til utviklingen av mRNA-vaksiner mot COVID-19.',
+      solution: `**Løsning:**
+
+**1. Grunnforskning (1960-2000):**
+- Forskere studerte mRNA (budbringer-RNA) og hvordan det instruerer celler til å lage proteiner
+- Katalin Karikó forsket i årevis på hvordan mRNA kunne brukes til medisinsk behandling
+- Mange skeptikere trodde det aldri ville fungere
+
+**2. Hypotese:**
+"Hvis vi sprøyter inn syntetisk mRNA som koder for et virusprotein, vil kroppens celler lage proteinet, og immunforsvaret vil lære å gjenkjenne det."
+
+**3. Eksperimenter og testing (2005-2019):**
+- Karikó og Drew Weissman oppdaget hvordan man kunne modifisere mRNA for å unngå at immunforsvaret ødela det
+- Tidlige forsøk på dyr viste lovende resultater
+- BioNTech og Moderna utviklet mRNA-plattformer
+
+**4. COVID-19 (2020):**
+- Januar: COVID-19 virusets DNA-sekvens ble publisert
+- Februar: mRNA-vaksiner ble designet på bare dager
+- Mars-November: Kliniske studier på tusenvis av frivillige
+- Desember: Vaksinen ble godkjent etter fagfellevurdering
+
+**5. Publisering og fagfellevurdering:**
+- Resultater publisert i New England Journal of Medicine
+- Fagfeller vurderte data og metoder
+- Over 95% effektivitet mot alvorlig sykdom
+
+**6. Innovasjon og samfunnsnytte:**
+- Milliarder av doser gitt globalt
+- Millioner av liv reddet
+- Karikó og Weissman fikk Nobelprisen i medisin 2023
+
+**Lærdom:** 60 års grunnforskning la grunnlaget for en vaksine som ble utviklet på rekordtid.`,
+    },
+
+    // ========== EKSEMPEL: KILDEKRITIKK ==========
+    {
+      id: 'nat10-6-5-example-kildekritikk',
+      type: 'example',
+      title: 'Eksempel: Vurdere en nyhetssak om forskning',
+      problem: 'Du leser en overskrift i en nettavis: "Ny studie: Sjokolade gjør deg smartere!" Hvordan vurderer du påliteligheten til denne påstanden?',
+      solution: `**Løsning - Sjekkliste for kildekritikk:**
+
+**1. Hvem står bak studien?**
+- Er det forskere ved anerkjente universiteter?
+- Er studien publisert i et fagfellevurdert tidsskrift?
+- Ble studien finansiert av sjokoladeindustrien? (interessekonflikt)
+
+**2. Hva viste studien egentlig?**
+- Les selve artikkelen, ikke bare overskriften
+- Kanskje studien viste en liten sammenheng, men overskriften overdriver
+- Korrelasjon betyr ikke årsak-virkning (folk som spiser sjokolade KAN være smartere, uten at sjokoladen er årsaken)
+
+**3. Hvor stor var studien?**
+- Ble den gjort på 10 personer eller 10 000?
+- Større studier gir mer pålitelige resultater
+- Ble det brukt kontrollgruppe?
+
+**4. Er resultatene gjentatt?**
+- Har andre forskere funnet det samme?
+- Én studie beviser ingenting alene
+- Vitenskap krever at resultater kan gjentas
+
+**5. Hva sier andre eksperter?**
+- Kommenterer uavhengige forskere studien?
+- Er de enige eller skeptiske?
+
+**Vurdering av denne saken:**
+Sannsynligvis er overskriften overdrevet. Kanskje studien fant at kakao inneholder stoffer som kan påvirke blodgjennomstrømning til hjernen, men det betyr ikke at "sjokolade gjør deg smartere". Avisoverskrifter forenkler ofte forskning for å få klikk.`,
     },
 
     // ========== OPPGAVE 3: FORSKNINGSPROSESSEN ==========
@@ -5051,6 +7587,518 @@ Nå som du forstår forskning og innovasjon, er du klar til å:
 - Forstå hvordan ny kunnskap skapes
 - Diskutere etiske dilemmaer i forskning
 - Kanskje bli forsker selv en dag?`,
+    },
+
+    // ========== EKSEMPEL: VITENSKAPELIG METODE I PRAKSIS ==========
+    {
+      id: 'nat10-6-5-example-metode',
+      type: 'example',
+      title: 'Eksempel: Den vitenskapelige metoden - Ignaz Semmelweis',
+      problem: 'I 1847 oppdaget legen Ignaz Semmelweis at barselfeber (en dødelig infeksjon hos nybakte mødre) kunne reduseres drastisk ved at leger vasket hendene. Forklar hvordan han brukte den vitenskapelige metoden.',
+      solution: `**Løsning: Semmelweis og den vitenskapelige metoden**
+
+**1. Observasjon og spørsmål:**
+- Semmelweis observerte at dødeligheten var mye høyere på avdelingen der leger arbeidet (10%) enn på avdelingen der jordmødre arbeidet (4%)
+- Spørsmål: Hvorfor dør flere kvinner på legeavdelingen?
+
+**2. Hypotese:**
+- Legene kom ofte direkte fra obduksjonsrom (likskjæring) til fødselssalen
+- Hypotese: "Leger overfører 'likpartikler' fra obduksjonsrommet til fødende kvinner, som forårsaker barselfeber."
+
+**3. Eksperiment:**
+- Semmelweis innførte obligatorisk håndvask med kloroppløsning for alle leger før de gikk til fødeavdelingen
+- Han sammenlignet dødeligheten før og etter innføringen
+
+**4. Resultat:**
+- Dødeligheten falt fra 10% til under 2% på legeavdelingen
+- Resultatet støttet hypotesen sterkt
+
+**5. Konklusjon:**
+- Håndvask med desinfiserende middel reduserer smitte dramatisk
+- Usynlige partikler på hendene kan overføre sykdom
+
+**Tragisk vending:**
+Til tross for overbevisende data ble Semmelweis avvist av det medisinske miljøet. Legene nektet å tro at de selv var årsaken til pasientenes død. Først mange år senere, da Louis Pasteur beviste at bakterier forårsaker sykdom, ble Semmelweis rehabilitert.
+
+**Lærdom:**
+- Vitenskapelig metode kan avdekke viktige sannheter
+- Data og bevis bør veie tyngre enn tradisjon og meninger
+- Selv gode forskere kan møte motstand fra etablerte autoriteter`,
+    },
+
+    // ========== OPPGAVE 7: GRUNNFORSKNING VS ANVENDT ==========
+    {
+      id: 'nat10-6-5-ex-7-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-7',
+        number: '6.5.7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er et eksempel på grunnforskning?',
+        options: [
+          {
+            id: 'a',
+            text: 'Studere sort materie i universet for å forstå universets struktur',
+            isCorrect: true,
+            feedback: 'Riktig! Grunnforskning handler om å forstå verden uten et umiddelbart praktisk mål.',
+          },
+          {
+            id: 'b',
+            text: 'Utvikle en ny vaksine mot influensa',
+            isCorrect: false,
+            feedback: 'Feil. Dette er anvendt forskning fordi det har et konkret praktisk mål (lage en vaksine).',
+          },
+          {
+            id: 'c',
+            text: 'Lage en mer energieffektiv solcelle',
+            isCorrect: false,
+            feedback: 'Feil. Dette er anvendt forskning fordi det handler om å forbedre et eksisterende produkt.',
+          },
+          {
+            id: 'd',
+            text: 'Teste en ny medisin på pasienter',
+            isCorrect: false,
+            feedback: 'Feil. Kliniske studier er en del av anvendt forskning med konkret medisinsk mål.',
+          },
+        ],
+        solution: 'Grunnforskning handler om å forstå verden uten nødvendigvis å ha et umiddelbart praktisk mål. Å studere sort materie er et eksempel fordi målet er å forstå universets struktur, ikke å lage et produkt. De andre alternativene er alle eksempler på anvendt forskning med konkrete praktiske mål.',
+      },
+    },
+
+    // ========== OPPGAVE 8: FAGFELLEVURDERING ==========
+    {
+      id: 'nat10-6-5-ex-8-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-8',
+        number: '6.5.8',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er fagfellevurdering (peer review)?',
+        options: [
+          {
+            id: 'a',
+            text: 'Andre eksperter vurderer kvaliteten på forskningen før den publiseres',
+            isCorrect: true,
+            feedback: 'Riktig! Fagfellevurdering sikrer at forskning holder høy kvalitet ved at andre eksperter sjekker metoder, analyser og konklusjoner.',
+          },
+          {
+            id: 'b',
+            text: 'Forskeren vurderer sin egen forskning',
+            isCorrect: false,
+            feedback: 'Feil. Fagfellevurdering innebærer at ANDRE eksperter, ikke forskeren selv, vurderer arbeidet.',
+          },
+          {
+            id: 'c',
+            text: 'Studenter gir tilbakemelding på en oppgave',
+            isCorrect: false,
+            feedback: 'Feil. Fagfellevurdering er en vitenskapelig prosess utført av eksperter innenfor fagfeltet.',
+          },
+          {
+            id: 'd',
+            text: 'En avis skriver om forskningsresultater',
+            isCorrect: false,
+            feedback: 'Feil. Det er populærvitenskapelig formidling, ikke fagfellevurdering.',
+          },
+        ],
+        solution: 'Fagfellevurdering (peer review) er en prosess der uavhengige eksperter innenfor det aktuelle fagfeltet gjennomgår og vurderer en vitenskapelig artikkel før den publiseres. Fagfellene sjekker om metodene er riktige, analysen er korrekt, og konklusjonene er berettigede. Denne prosessen er en av de viktigste kvalitetssikringsmekanismene i vitenskapen.',
+      },
+    },
+
+    // ========== OPPGAVE 9: KILDEKRITIKK ==========
+    {
+      id: 'nat10-6-5-ex-9-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-9',
+        number: '6.5.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Du finner to artikler om klimaendringer:\n\nKilde A: En artikkel på Forskning.no som refererer til en studie publisert i Nature, med intervjuer av tre uavhengige klimaforskere.\n\nKilde B: Et blogginnlegg av en anonym person som hevder at klimaendringer ikke er menneskeskapte, uten lenker til vitenskapelige kilder.\n\nVurder påliteligheten til begge kildene. Hvilken er mest pålitelig, og hvorfor?',
+        solution: `**Vurdering av kilde A:**
+
+**Pålitelighet: Høy**
+
+Grunner:
+1. **Forskning.no** er en anerkjent norsk nettside for forskningsformidling
+2. Refererer til en studie publisert i **Nature** - et av verdens mest prestisjefylte vitenskapelige tidsskrifter
+3. Studien er **fagfellevurdert** (peer reviewed)
+4. **Tre uavhengige forskere** kommenterer - dette gir balanse og kvalitetssikring
+5. Kilden er **transparent** om hvor informasjonen kommer fra
+
+**Vurdering av kilde B:**
+
+**Pålitelighet: Lav**
+
+Grunner:
+1. **Anonym** forfatter - vi vet ikke hvem som skriver
+2. **Blogginnlegg** - ingen redaksjonell kvalitetskontroll
+3. **Ingen vitenskapelige kilder** - påstandene er ikke dokumentert
+4. Går mot det **vitenskapelige konsensus** (97% av klimaforskere er enige om menneskeskapte klimaendringer)
+5. Mulige **skjulte motiver** (hvem tjener på å benekte klimaendringer?)
+
+**Konklusjon:**
+
+Kilde A er klart mest pålitelig fordi den:
+- Bygger på fagfellevurdert forskning
+- Er transparent om kilder
+- Inkluderer uavhengige ekspertuttalelser
+- Kommer fra en anerkjent formidlingskanal
+
+**Viktig prinsipp:** I vitenskap er det ikke hvem som roper høyest som har rett, men hvem som har best dokumentasjon og metoder.`,
+      },
+    },
+
+    // ========== OPPGAVE 10: INNOVASJON I NORGE ==========
+    {
+      id: 'nat10-6-5-ex-10-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-10',
+        number: '6.5.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Norge er kjent for innovasjon innen fornybar energi og havbruk. Velg ett av disse områdene og forklar:\na) Hvilken forskning ligger bak innovasjonen?\nb) Hva er innovasjonen (produktet/løsningen)?\nc) Hvordan gagner innovasjonen samfunnet?',
+        solution: `**Eksempelsvar: Flytende havvind (fornybar energi)**
+
+**a) Forskning bak innovasjonen:**
+- Grunnforskning på vindkraft og aerodynamikk (1970-tallet)
+- Forskning på flytestrukturer for offshore plattformer (norsk oljeindustri)
+- Forskning på materialer som tåler salt sjøvann og bølger
+- Studier av vindforhold til havs (mer vind enn på land)
+- Utvikling av forankringssystemer som holder turbinene på plass
+
+**b) Innovasjonen:**
+- **Hywind** - verdens første flytende vindturbin (utviklet av norske Equinor)
+- Turbinen flyter på havet i stedet for å stå fast på havbunnen
+- Kan plasseres på dypt vann (over 60 meter) der vanlige turbiner ikke kan stå
+- Hywind Scotland (2017) var verdens første flytende vindpark
+
+**c) Samfunnsnytte:**
+- **Mer fornybar energi:** Flytende vindturbiner åpner enorme havområder for vindkraft
+- **Reduserte CO₂-utslipp:** Erstatter fossil energi
+- **Arbeidsplasser:** Ny industri som kan erstatte olje- og gassindustrien
+- **Eksport:** Norge kan eksportere teknologien til andre land
+- **Bruke norsk kompetanse:** Bygger på erfaringen fra offshore olje og gass
+- **Mindre visuell forurensning:** Turbinene kan plasseres langt til havs, usynlige fra land
+
+**Lærdom:** Norges erfaring fra oljeindustrien kan omsettes til fornybar energi - et godt eksempel på hvordan forskning og kompetanse fra ett felt kan overføres til et annet.`,
+      },
+    },
+
+    // ========== OPPGAVE 11: FORMULERE HYPOTESE ==========
+    {
+      id: 'nat10-6-5-ex-11-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-11',
+        number: '6.5.11',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Formuler en hypotese for hvert av disse forskningsspørsmålene. Husk at en hypotese skal være testbar og spesifikk.\n\na) "Påvirker mengden søvn elevenes prøveresultater?"\nb) "Vokser planter raskere med eller uten musikk?"\nc) "Er det renere luft i parken enn langs hovedveien?"',
+        solution: `**a) Søvn og prøveresultater:**
+
+Hypotese: "Elever som sover minst 8 timer natten før en prøve, scorer i gjennomsnitt høyere enn elever som sover mindre enn 6 timer."
+
+- **Testbar:** Ja, vi kan måle søvn og prøveresultater
+- **Spesifikk:** Ja, den angir konkrete timer og hva som måles
+
+**b) Planter og musikk:**
+
+Hypotese: "Planter som eksponeres for klassisk musikk 2 timer per dag i 4 uker, vokser gjennomsnittlig høyere enn planter som vokser i stillhet."
+
+- **Testbar:** Ja, vi kan måle plantehøyde
+- **Spesifikk:** Ja, den angir type musikk, varighet og målemetode
+
+**c) Luftkvalitet:**
+
+Hypotese: "Konsentrasjonen av NO₂ (nitrogendioksid) er minst 50% lavere i parken enn ved hovedveien målt på samme tidspunkt."
+
+- **Testbar:** Ja, vi kan måle NO₂ begge steder
+- **Spesifikk:** Ja, den angir hvilket stoff, hvor mye, og sammenligningssted
+
+**Tips for gode hypoteser:**
+- Vær spesifikk om hva du skal måle
+- Angi retningen (høyere, lavere, raskere, etc.)
+- Gjør det mulig å motbevise hypotesen (falsifiserbar)`,
+      },
+    },
+
+    // ========== OPPGAVE 12: KONTROLLGRUPPE ==========
+    {
+      id: 'nat10-6-5-ex-12a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-12a',
+        number: '6.5.12a',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvorfor er det viktig å ha en kontrollgruppe i et forsøk?',
+        options: [
+          {
+            id: 'a',
+            text: 'For å ha noe å sammenligne resultatene med og sikre at endringene skyldes det vi tester',
+            isCorrect: true,
+            feedback: 'Riktig! Kontrollgruppen viser hva som ville skjedd uten behandlingen/endringen, slik at vi kan isolere effekten av det vi tester.',
+          },
+          {
+            id: 'b',
+            text: 'For å ha flere forsøkspersoner i studien',
+            isCorrect: false,
+            feedback: 'Feil. Kontrollgruppen handler ikke om antall, men om å ha en referanse å sammenligne med.',
+          },
+          {
+            id: 'c',
+            text: 'For å spare tid og penger på forsøket',
+            isCorrect: false,
+            feedback: 'Feil. Kontrollgruppen er faktisk en ekstra kostnad, men den er nødvendig for pålitelige resultater.',
+          },
+          {
+            id: 'd',
+            text: 'Kontrollgruppe er egentlig ikke nødvendig i gode forsøk',
+            isCorrect: false,
+            feedback: 'Feil. Kontrollgruppe er essensielt i de fleste forsøk for å kunne trekke gyldige konklusjoner.',
+          },
+        ],
+        solution: `En **kontrollgruppe** er en gruppe som ikke mottar den behandlingen eller endringen du tester. Den fungerer som en referanse å sammenligne med.
+
+**Eksempel:**
+Du vil teste om en ny gjødsel gir bedre plantevekst.
+- **Forsøksgruppe:** 10 planter med ny gjødsel
+- **Kontrollgruppe:** 10 planter uten gjødsel (eller med vanlig gjødsel)
+
+**Uten kontrollgruppe** vet du ikke om plantene vokste bra på grunn av gjødselen, eller på grunn av godt vær, god jord eller andre faktorer.
+
+**Med kontrollgruppe** kan du sammenligne: Hvis forsøksgruppen vokser bedre enn kontrollgruppen, og alt annet er likt, kan du konkludere med at gjødselen er årsaken.`,
+      },
+    },
+
+    // ========== OPPGAVE 13: KORRELASJON VS ÅRSAK ==========
+    {
+      id: 'nat10-6-5-ex-13-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-13',
+        number: '6.5.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En studie viser at barn som spiser frokost ofte, har bedre skoleresultater enn barn som hopper over frokost. Noen aviser skriver: "Frokost gjør barn smartere!"\n\na) Er denne konklusjonen korrekt? Forklar forskjellen mellom korrelasjon og årsak-virkning.\nb) Gi minst to alternative forklaringer på sammenhengen.',
+        solution: `**a) Er konklusjonen korrekt?**
+
+**Nei, konklusjonen er ikke nødvendigvis korrekt.** Studien viser en **korrelasjon** (sammenheng) mellom frokost og skoleresultater, men det betyr ikke automatisk at frokost **forårsaker** bedre resultater.
+
+**Korrelasjon vs. årsak-virkning:**
+- **Korrelasjon:** To ting skjer sammen (frokost og gode resultater henger sammen)
+- **Årsak-virkning (kausalitet):** Det ene forårsaker det andre (frokost fører til bedre resultater)
+
+Korrelasjon beviser IKKE årsak-virkning! Det kan finnes andre forklaringer.
+
+**b) Alternative forklaringer:**
+
+1. **Familieforhold:**
+   - Familier som prioriterer frokost, kan også prioritere lekser, søvn og skole generelt
+   - Det er kanskje de gode hjemmeforholdene (ikke frokosten alene) som gir bedre resultater
+
+2. **Økonomisk bakgrunn:**
+   - Familier med god økonomi har råd til frokost og andre ressurser
+   - De kan også ha råd til ekstraundervisning, bøker og rolige studieforhold
+   - Økonomi kan være den egentlige årsaken til bedre skoleresultater
+
+3. **Søvnmønster:**
+   - Barn som spiser frokost, står kanskje opp tidsnok til å få god søvn
+   - God søvn er viktig for læring og konsentrasjon
+   - Søvn kan være den egentlige årsaken
+
+4. **Selvseleksjon:**
+   - Kanskje barn som allerede er motiverte for skolen, også er mer bevisste på å spise frokost
+   - Motivasjonen (ikke frokosten) driver begge deler
+
+**Lærdom:**
+Vær forsiktig med å trekke årsak-virkning-konklusjoner fra korrelasjonsstudier. Aviser forenkler ofte forskning og presenterer korrelasjon som årsak. Kritisk tenkning er viktig!`,
+      },
+    },
+
+    // ========== OPPGAVE 14: VURDERE FORSKNINGSRESULTATER ==========
+    {
+      id: 'nat10-6-5-ex-14a-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-14a',
+        number: '6.5.14a',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'En forsker publiserer en studie som viser at en ny type solcelle er 5% mer effektiv enn eksisterende solceller. Studien er publisert i et fagfellevurdert tidsskrift, men er finansiert av selskapet som lager solcellene.\n\na) Hva er positivt med denne studien?\nb) Hva bør du være kritisk til?\nc) Hva kan gjøres for å øke tilliten til resultatene?',
+        solution: `**a) Positivt med studien:**
+
+1. **Fagfellevurdert:** Andre eksperter har vurdert metoder og resultater
+2. **Publisert:** Transparent og tilgjengelig for alle å lese
+3. **Konkret resultat:** 5% forbedring er et målbart og spesifikt resultat
+4. **Potensiell nytte:** Bedre solceller kan bidra til mer fornybar energi
+
+**b) Hva bør du være kritisk til:**
+
+1. **Interessekonflikt:** Selskapet som lager solcellene finansierte studien
+   - De har økonomisk interesse av positive resultater
+   - Kan ha påvirket designet av studien (bevisst eller ubevisst)
+
+2. **Testforhold:**
+   - Ble solcellene testet under ideelle laboratorieforhold?
+   - Fungerer de like bra utendørs over tid?
+
+3. **Utvalg og statistikk:**
+   - Hvor mange solceller ble testet?
+   - Er 5% forbedring statistisk signifikant?
+
+4. **Langtidshold:**
+   - Beholder solcellene effektiviteten over mange år?
+   - Er de like holdbare som eksisterende solceller?
+
+**c) Hva kan øke tilliten:**
+
+1. **Uavhengig replikering:** La et uavhengig laboratorium gjenta forsøket
+2. **Langtidstesting:** Test solcellene over minst ett år under reelle forhold
+3. **Tredjeparts finansiering:** Få støtte fra en uavhengig organisasjon
+4. **Sammenligning:** Test mot solceller fra flere produsenter
+5. **Åpne data:** Gjør all rå-data tilgjengelig for andre forskere
+
+**Konklusjon:** Studien gir lovende resultater, men interessekonflikten gjør det ekstra viktig med uavhengig verifisering.`,
+      },
+    },
+
+    // ========== OPPGAVE 15: FORSKNING OG BÆREKRAFT ==========
+    {
+      id: 'nat10-6-5-ex-15-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-15',
+        number: '6.5.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'FNs bærekraftsmål nr. 7 handler om "ren energi til alle". Beskriv hvordan forskning og innovasjon kan bidra til å nå dette målet. Gi tre konkrete eksempler på forskning som er relevant.',
+        solution: `**FNs bærekraftsmål 7: Ren energi til alle**
+
+Forskning og innovasjon er avgjørende for å gjøre ren energi tilgjengelig, pålitelig og rimelig for alle mennesker i verden.
+
+**Eksempel 1: Billige solceller for utviklingsland**
+
+**Forskning:** Perovskitt-solceller
+- Tradisjonelle silisium-solceller er dyre å produsere
+- Forskere utvikler perovskitt-solceller som er billigere å lage
+- Kan trykkes på tynne ark, nesten som aviser
+- Potensialt 50-80% billigere enn dagens solceller
+
+**Innovasjon:** Bærbare solcellepaneler for off-grid områder
+- 1,2 milliarder mennesker mangler tilgang til elektrisitet
+- Billige solceller + batterier kan gi strøm til lys og mobillading
+- Erstatter dyre og forurensende dieselgeneratorer
+
+**Samfunnsnytte:** Barn kan gjøre lekser etter mørket. Helsestasjoner får kjølekjeder for vaksiner. Mobilbanking gir tilgang til økonomi.
+
+**Eksempel 2: Batterilagring av fornybar energi**
+
+**Forskning:** Neste generasjons batterier
+- Litium-ion-batterier er dyre og krever sjeldne mineraler
+- Forskere utvikler natrium-ion-batterier (natrium er billig og vanlig)
+- Forskning på jernluft-batterier og andre alternativer
+- Mål: Batterier som er billige, sikre og miljøvennlige
+
+**Innovasjon:** Storskalanettverksbatterier
+- Lagrer solenergi om dagen for bruk om natten
+- Utjevner forskjeller mellom produksjon og forbruk
+- Gjør det mulig å ha 100% fornybar energiforsyning
+
+**Samfunnsnytte:** Stabil strømforsyning selv når solen ikke skinner eller vinden ikke blåser.
+
+**Eksempel 3: Havenergi**
+
+**Forskning:** Bølgekraft og tidevannsenergi
+- Havet inneholder enorme mengder energi i bølger og tidevann
+- Forskere utvikler teknologi for å utnytte denne energien
+- Norsk forskning på bølgekraftverk og tidevannsanlegg
+
+**Innovasjon:** Flytende vindmøller + bølgekraft-kombinasjoner
+- Kombinerer vindkraft og bølgekraft på samme plattform
+- Dobbelt så mye energi fra samme areal
+- Utnyttes i kystområder over hele verden
+
+**Samfunnsnytte:** Kystnasjoner kan produsere store mengder ren energi fra havet.
+
+**Konklusjon:**
+Forskning gir oss ny kunnskap og teknologi, innovasjon omsetter dette til produkter og løsninger, og sammen gjør de det mulig å nå FNs bærekraftsmål om ren energi til alle.`,
+      },
+    },
+
+    // ========== OPPGAVE 16: FORSKNING I HVERDAGEN ==========
+    {
+      id: 'nat10-6-5-ex-16-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-6-5-ex-16',
+        number: '6.5.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Kunstig intelligens (AI) brukes stadig mer i samfunnet - i helse, utdanning og arbeidsliv. Drøft fordeler og ulemper ved bruk av AI i skolen. Ta stilling til om AI bør brukes mer eller mindre i undervisningen, og begrunn svaret ditt.',
+        solution: `**Drøfting: AI i skolen**
+
+**Fordeler:**
+
+1. **Tilpasset undervisning:**
+   - AI kan tilpasse oppgaver til hver elevs nivå
+   - Elever som sliter kan få enklere oppgaver, flinke elever kan utfordres mer
+   - Umiddelbar tilbakemelding på oppgaver
+
+2. **Effektiv læring:**
+   - AI kan identifisere kunnskapshull hos eleven
+   - Foreslå spesifikke emner å øve mer på
+   - Tilgjengelig 24/7 (ikke bare i skoletiden)
+
+3. **Avlaste læreren:**
+   - AI kan rette enkle oppgaver automatisk
+   - Læreren får mer tid til veiledning og personlig kontakt
+
+4. **Nye muligheter:**
+   - Oversettelse i sanntid for flerspråklige elever
+   - Visualisering av komplekse begreper
+   - Tilgang til enorme kunnskapsbaser
+
+**Ulemper:**
+
+1. **Juks og avhengighet:**
+   - Elever kan la AI gjøre oppgavene for seg
+   - Risiko for at elever ikke lærer å tenke selv
+   - Vanskelig å skille elevens eget arbeid fra AI-generert
+
+2. **Personvern:**
+   - AI samler data om elevens prestasjoner og atferd
+   - Hvem har tilgang til disse dataene?
+   - Lagres de trygt?
+
+3. **Ulikhet:**
+   - Ikke alle skoler har like god tilgang til teknologi
+   - Kan forsterke forskjeller mellom rike og fattige skoler
+
+4. **Feil og skjevheter:**
+   - AI kan gi feil svar og presentere dem overbevisende
+   - AI kan ha skjevheter fra treningsdata
+   - Kritisk tenkning hos eleven er avgjørende
+
+5. **Sosiale ferdigheter:**
+   - For mye skjermbruk kan redusere sosial interaksjon
+   - Samarbeid og diskusjon med medelever er viktig
+
+**Min mening:**
+
+AI bør brukes som et **verktøy** i skolen, men ikke erstatte læreren eller elevens egen tenkning.
+
+**Konkret forslag:**
+- Bruk AI som hjelp ved oppgaveløsning, men krev at eleven forklarer løsningen
+- Lær elever kildekritikk: AI kan ta feil, og man må sjekke svarene
+- Forbud mot AI på prøver og eksamener (test hva eleven selv kan)
+- Åpne diskusjoner om etikk og AI i samfunnet
+
+AI er et kraftfullt verktøy som kan forbedre undervisningen, men det må brukes med bevissthet og klare regler.`,
+      },
     },
   ],
   exercises: [], // Oppgavene er embedded i content

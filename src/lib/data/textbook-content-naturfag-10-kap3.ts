@@ -262,6 +262,145 @@ En sjokoladeplate kan ha et energiinnhold på 2000 kJ (eller ca. 480 kcal).
 - En lyspære (60 W) på i 1 time: 216 kJ`,
     },
 
+    // ========== EKSEMPEL: ENERGIOMFORMINGER I HVERDAGEN ==========
+    {
+      id: 'nat10-3-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Identifisere energiomforminger i hverdagen',
+      problem: `Beskriv energiomformingene som skjer når du lader mobiltelefonen din med en lader koblet til stikkontakten.`,
+      solution: `**Energikjede: Stikkontakt → Ladet mobil**
+
+**Trinn 1:** Elektrisk energi fra strømnettet (230 V) kommer inn i laderen.
+
+**Trinn 2:** Laderen transformerer spenningen ned (fra 230 V til 5 V) og sender elektrisk energi til mobilen.
+
+**Trinn 3:** I mobilens batteri omdannes elektrisk energi til **kjemisk energi** som lagres i batteriet.
+
+**Energiomforminger:**
+$$\\text{Elektrisk energi} \\rightarrow \\text{Elektrisk energi (lavere spenning)} \\rightarrow \\text{Kjemisk energi (batteri)}$$
+
+**Energitap:**
+- Laderen blir **varm** → noe energi tapes som termisk energi
+- Batteriet blir **litt varmt** under lading → litt energi tapes
+
+**Virkningsgrad:**
+Typisk virkningsgrad for mobillading er ca. 80-85%. Det betyr at 15-20% av strømmen blir til varme i stedet for lagret energi i batteriet.
+
+**I hverdagen merker du dette:** Laderen er varm etter å ha ladet mobilen. Denne varmen er "tapt" energi.`,
+    },
+
+    // ========== EKSEMPEL: BEREGNE KINETISK ENERGI ==========
+    {
+      id: 'nat10-3-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Beregne kinetisk energi',
+      problem: `En fotball med masse 0,45 kg sparkes med en hastighet på 20 m/s (ca. 72 km/t).
+
+Beregn den kinetiske energien til fotballen.`,
+      solution: `**Gitt:**
+- Masse: m = 0,45 kg
+- Hastighet: v = 20 m/s
+
+**Formel:**
+$$E_k = \\frac{1}{2}mv^2$$
+
+**Utregning:**
+$$E_k = \\frac{1}{2} \\cdot 0,45 \\cdot 20^2$$
+
+$$E_k = \\frac{1}{2} \\cdot 0,45 \\cdot 400$$
+
+$$E_k = 0,225 \\cdot 400$$
+
+$$E_k = 90 \\text{ J}$$
+
+**Svar:** Fotballen har **90 J** kinetisk energi.
+
+**Tolkning:**
+90 J er omtrent energien som trengs for å løfte en masse på 9 kg opp 1 meter. Det er nok energi til å gjøre vondt hvis ballen treffer deg!
+
+**Viktig observasjon:** Kinetisk energi er proporsjonal med v². Hvis hastigheten dobles (til 40 m/s), firedobles energien til 360 J.`,
+    },
+
+    // ========== EKSEMPEL: ENERGIKJEDE ==========
+    {
+      id: 'nat10-3-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Tegne en energikjede',
+      problem: `Beskriv energikjeden for en elektrisk sykkel (elsykkel) fra stikkontakten til du sykler opp en bakke.`,
+      solution: `**Energikjede for elsykkel:**
+
+**1. Stikkontakt → Lader**
+Elektrisk energi fra strømnettet.
+
+**2. Lader → Batteri**
+Elektrisk energi → Kjemisk energi (lagres i litium-ion-batteri)
+
+**3. Batteri → Elektrisk motor**
+Kjemisk energi → Elektrisk energi → Kinetisk energi (motor snurrer)
+
+**4. Motor → Hjul**
+Kinetisk energi (motor) → Kinetisk energi (sykkel beveger seg)
+
+**5. Hjul → Bakke opp**
+Kinetisk energi → Potensiell energi (du er høyere opp)
+
+**Komplett energikjede:**
+
+$$\\text{Elektrisk} \\rightarrow \\text{Kjemisk} \\rightarrow \\text{Elektrisk} \\rightarrow \\text{Kinetisk} \\rightarrow \\text{Potensiell}$$
+
+**Energitap i hvert trinn:**
+- Lading: ~10% tap (varme i lader)
+- Batteri → Motor: ~5% tap (varme i ledninger)
+- Motor: ~10% tap (friksjon, varme i motor)
+- Sykkel: ~20% tap (friksjon mot veien, luftmotstand)
+
+**Total virkningsgrad:** ca. 60-70% (veldig bra!)
+
+**Din kropp bidrar også:** Du tramper med musklene → kjemisk energi i kroppen → kinetisk energi. Elsykkelen er et supplement.`,
+    },
+
+    // ========== EKSEMPEL: BEREGNE POTENSIELL ENERGI ==========
+    {
+      id: 'nat10-3-1-example-4',
+      type: 'example',
+      title: 'Eksempel: Sammenligne potensiell energi',
+      problem: `To gjenstander ligger på et bord 1,5 meter over bakken:
+- Gjenstand A: masse 2 kg
+- Gjenstand B: masse 8 kg
+
+a) Beregn den potensielle energien til hver gjenstand.
+b) Hvilken gjenstand treffer bakken med størst hastighet hvis begge faller ned?`,
+      solution: `**a) Potensiell energi:**
+
+**Gjenstand A:**
+$$E_p = mgh = 2 \\cdot 9,8 \\cdot 1,5 = 29,4 \\text{ J}$$
+
+**Gjenstand B:**
+$$E_p = mgh = 8 \\cdot 9,8 \\cdot 1,5 = 117,6 \\text{ J}$$
+
+Gjenstand B har **4 ganger mer** potensiell energi.
+
+---
+
+**b) Hastighet ved bakken:**
+
+Overraskende nok treffer begge gjenstandene bakken med **samme hastighet**!
+
+**Forklaring med energibevaring:**
+
+For gjenstand A:
+$$E_p = E_k \\Rightarrow mgh = \\frac{1}{2}mv^2$$
+
+Massen $m$ forkortes bort:
+$$gh = \\frac{1}{2}v^2 \\Rightarrow v = \\sqrt{2gh}$$
+
+$$v = \\sqrt{2 \\cdot 9,8 \\cdot 1,5} = \\sqrt{29,4} \\approx 5,42 \\text{ m/s}$$
+
+Formelen avhenger IKKE av massen! Derfor faller alle gjenstander like raskt (uten luftmotstand).
+
+**Svar:** Begge treffer bakken med **5,42 m/s**, men gjenstand B treffer med mer kinetisk energi (117,6 J vs. 29,4 J).`,
+    },
+
     // ========== OPPGAVE 1: MULTIPLE-CHOICE - ENERGI ==========
     {
       id: 'nat10-3-1-ex-1-block',
@@ -846,6 +985,315 @@ $$v = \\sqrt{2 \\cdot 9,8 \\cdot 1,2} = \\sqrt{23,52} \\approx 4,85 \\text{ m/s}
 Samme svar!`,
       },
     },
+    // ========== OPPGAVE EXTRA 1: ENERGIENHETER OMREGNING ==========
+    {
+      id: 'nat10-3-1-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-1',
+        number: '3.1.9',
+        type: 'classic',
+        difficulty: 'lett',
+        task: `Gjør om mellom energienheter:
+
+a) 5000 J = ? kJ
+b) 3,5 kJ = ? J
+c) 2 MJ = ? kJ
+d) Et eple har energiinnhold på 200 kJ. Hvor mange joule er det?`,
+        solution: `**a)** 5000 J = 5000 / 1000 = **5 kJ**
+
+**b)** 3,5 kJ = 3,5 × 1000 = **3500 J**
+
+**c)** 2 MJ = 2 × 1000 = **2000 kJ** (= 2 000 000 J)
+
+**d)** 200 kJ = 200 × 1000 = **200 000 J**
+
+**Huskeregel:**
+- 1 kJ = 1000 J (kilo = tusen)
+- 1 MJ = 1000 kJ = 1 000 000 J (mega = million)
+- 1 GJ = 1000 MJ = 1 000 000 000 J (giga = milliard)`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: KJEMISK ENERGI ==========
+    {
+      id: 'nat10-3-1-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-2',
+        number: '3.1.10',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvor lagres den kjemiske energien i mat?',
+        options: [
+          'I de kjemiske bindingene mellom atomene i molekylene',
+          'I temperaturen til maten',
+          'I tyngdekraften som virker på maten',
+          'I bevegelsen til matmolekylene',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: I de kjemiske bindingene mellom atomene i molekylene**
+
+**Forklaring:**
+
+Kjemisk energi er lagret i **bindingene** mellom atomer. Når kroppen bryter ned matmolekylene (f.eks. sukker, fett, protein), brytes noen bindinger og nye dannes.
+
+**Eksempel med sukker (glukose):**
+
+$$\\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2 \\rightarrow 6\\text{CO}_2 + 6\\text{H}_2\\text{O} + \\text{energi}$$
+
+Kroppen "brenner" sukker med oksygen og frigjør energi som brukes til:
+- Holde kroppen varm (termisk energi)
+- Bevege muskler (kinetisk energi)
+- Sende nervesignaler (elektrisk energi)
+
+**De andre alternativene:**
+- Temperatur = termisk energi (ikke kjemisk)
+- Tyngdekraft = potensiell energi (ikke kjemisk)
+- Bevegelse av molekyler = termisk energi (ikke kjemisk)`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: KINETISK ENERGI SAMMENLIGNING ==========
+    {
+      id: 'nat10-3-1-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-3',
+        number: '3.1.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `To biler kjører på motorveien:
+- Bil A: masse 1000 kg, hastighet 30 m/s (108 km/t)
+- Bil B: masse 2000 kg, hastighet 20 m/s (72 km/t)
+
+a) Beregn kinetisk energi for begge bilene.
+b) Hvilken bil har mest kinetisk energi?
+c) Hva betyr dette for bremsestrekningene?`,
+        solution: `**a) Kinetisk energi:**
+
+**Bil A:**
+$$E_k = \\frac{1}{2} \\cdot 1000 \\cdot 30^2 = \\frac{1}{2} \\cdot 1000 \\cdot 900 = 450\\,000 \\text{ J} = 450 \\text{ kJ}$$
+
+**Bil B:**
+$$E_k = \\frac{1}{2} \\cdot 2000 \\cdot 20^2 = \\frac{1}{2} \\cdot 2000 \\cdot 400 = 400\\,000 \\text{ J} = 400 \\text{ kJ}$$
+
+---
+
+**b) Mest kinetisk energi:**
+
+**Bil A** har mest kinetisk energi (450 kJ vs. 400 kJ), til tross for at den er lettere!
+
+---
+
+**c) Betydning for bremsestrekning:**
+
+Bilen med mest kinetisk energi trenger lengst bremsestrekning, fordi mer energi må omdannes til varme i bremsene.
+
+**Bil A trenger lengre bremsestrekning** enn Bil B.
+
+**Viktig lærdom:** Hastigheten er viktigere enn massen for kinetisk energi, fordi $v^2$ (hastigheten i andre potens) inngår i formelen. Å doble hastigheten firedobler den kinetiske energien!
+
+**Trafikksikkerhet:** Derfor er fartsgrenser så viktige – litt høyere fart gir mye mer kinetisk energi og mye lenger bremsestrekning.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: ENERGI I MAT ==========
+    {
+      id: 'nat10-3-1-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-4',
+        number: '3.1.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En elev spiser en sjokoladeplate som inneholder 2200 kJ energi. Hun vil brenne av denne energien ved å gå opp trapper.
+
+Eleven har masse 50 kg, og hvert trinn i trappen er 20 cm (0,2 m) høyt.
+
+a) Hvor stor potensiell energi får eleven for hvert trinn hun går opp? (Bruk g = 10 m/s²)
+b) Hvor mange trinn må hun gå opp for å brenne av hele sjokoladeplaten?
+c) Hvis hvert etasje har 15 trinn, hvor mange etasjer tilsvarer det?`,
+        solution: `**a) Potensiell energi per trinn:**
+
+$$E_p = mgh = 50 \\cdot 10 \\cdot 0,2 = 100 \\text{ J}$$
+
+**Svar:** Hvert trinn gir 100 J potensiell energi.
+
+---
+
+**b) Antall trinn for å brenne av sjokoladeplaten:**
+
+Total energi = 2200 kJ = 2 200 000 J
+
+Antall trinn = 2 200 000 J / 100 J = **22 000 trinn!**
+
+---
+
+**c) Antall etasjer:**
+
+Antall etasjer = 22 000 / 15 = **ca. 1467 etasjer**
+
+---
+
+**Tolkning:**
+Det er nesten umulig å brenne av all energien i en sjokoladeplate bare ved å gå i trapper! 1467 etasjer tilsvarer ca. 4,5 km oppover – høyere enn mange fjell.
+
+**Viktig:** I virkeligheten bruker kroppen energi med bare ca. 20-25% virkningsgrad for muskelarbeid. Resten blir varme. Så du trenger "bare" ca. 5000-6000 trinn i praksis.
+
+**Lærdom:** Mat inneholder enormt mye kjemisk energi!`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: ELASTISK POTENSIELL ENERGI ==========
+    {
+      id: 'nat10-3-1-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-5',
+        number: '3.1.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilke av følgende gjenstander har elastisk potensiell energi?',
+        options: [
+          'En spent buestreng og en sammenpresset fjær',
+          'En ball som ligger på et bord',
+          'En lyspære som lyser',
+          'Et glass vann på et bord',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: En spent buestreng og en sammenpresset fjær**
+
+**Forklaring:**
+
+Elastisk potensiell energi er energi lagret i gjenstander som er strukket, bøyd, tvunnet eller sammenpresset.
+
+**Eksempler på elastisk potensiell energi:**
+- Spent buestreng → slipper pilen av gårde
+- Sammenpresset fjær → spretter opp
+- Strukket strikk → skyter av gårde
+- Bøyd grein → spretter tilbake
+
+**Hvorfor de andre er feil:**
+- Ball på bord → har tyngdepotensiell energi (ikke elastisk)
+- Lyspære → omdanner elektrisk til lys/varme (ikke lagret energi)
+- Glass vann → har tyngdepotensiell energi (bordets høyde)
+
+**Huskeregel:** Elastisk energi finnes i ting som er "spent" eller "tvunnet" og kan sprette tilbake.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: ENERGI OMREGNING KCAL ==========
+    {
+      id: 'nat10-3-1-oppg-extra-6a',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-6a',
+        number: '3.1.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `På en müsliboks står det at 100 g müsli inneholder 1600 kJ (383 kcal).
+
+a) Gjør om 1600 kJ til joule.
+b) Vis at 1600 kJ ≈ 383 kcal ved å bruke omregningsfaktoren 1 kcal = 4,18 kJ.
+c) Hvor høyt kunne du løfte en stein på 10 kg med energien fra 100 g müsli? (Bruk g = 10 m/s²)`,
+        solution: `**a) 1600 kJ til joule:**
+
+$$1600 \\text{ kJ} = 1600 \\times 1000 = 1\\,600\\,000 \\text{ J} = 1,6 \\text{ MJ}$$
+
+---
+
+**b) Omregning kJ til kcal:**
+
+$$\\frac{1600 \\text{ kJ}}{4,18 \\text{ kJ/kcal}} = 382,8 \\text{ kcal} \\approx 383 \\text{ kcal}$$ ✓
+
+---
+
+**c) Løfte stein med müsli-energi:**
+
+$$E_p = mgh \\Rightarrow h = \\frac{E_p}{mg}$$
+
+$$h = \\frac{1\\,600\\,000 \\text{ J}}{10 \\text{ kg} \\times 10 \\text{ m/s}^2} = \\frac{1\\,600\\,000}{100} = 16\\,000 \\text{ m}$$
+
+**Svar:** Energien i 100 g müsli kunne i teorien løfte en 10 kg stein **16 000 meter** – nesten dobbelt så høyt som Mount Everest!
+
+**Tolkning:** Mat inneholder utrolig mye kjemisk energi. I praksis kan kroppen bare bruke 20-25% av energien til muskelarbeid (resten blir varme), men det ville fortsatt tilsvare 3000-4000 meter.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 7: ENERGI I SPORT ==========
+    {
+      id: 'nat10-3-1-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-1-oppg-extra-7',
+        number: '3.1.15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `En strekhopper (bungee-jumping) hopper fra en bro 50 meter over elven. Strekkhopperen har masse 70 kg. (Bruk g = 10 m/s²)
+
+a) Beregn den potensielle energien i starten (øverst).
+b) Halvveis ned (25 meter), hva er den potensielle og kinetiske energien? (Anta at strikken ikke er stram ennå)
+c) Hva er hastigheten halvveis ned?
+d) Beskriv energiomformingene gjennom hele hoppet (fra start til strikken strekker seg og drar deg tilbake).`,
+        solution: `**a) Potensiell energi øverst:**
+
+$$E_p = mgh = 70 \\cdot 10 \\cdot 50 = 35\\,000 \\text{ J} = 35 \\text{ kJ}$$
+
+---
+
+**b) Halvveis ned (h = 25 m):**
+
+**Potensiell energi:**
+$$E_p = mgh = 70 \\cdot 10 \\cdot 25 = 17\\,500 \\text{ J}$$
+
+**Kinetisk energi (energibevaring):**
+$$E_k = E_{p,start} - E_{p,nå} = 35\\,000 - 17\\,500 = 17\\,500 \\text{ J}$$
+
+Halvparten er potensiell, halvparten er kinetisk.
+
+---
+
+**c) Hastighet halvveis ned:**
+
+$$E_k = \\frac{1}{2}mv^2$$
+
+$$17\\,500 = \\frac{1}{2} \\cdot 70 \\cdot v^2$$
+
+$$v^2 = \\frac{2 \\cdot 17\\,500}{70} = 500$$
+
+$$v = \\sqrt{500} \\approx 22,4 \\text{ m/s} \\approx 80 \\text{ km/t}$$
+
+---
+
+**d) Energiomforminger gjennom hoppet:**
+
+**Fase 1: Fritt fall (strikken er slakk)**
+- Potensiell energi → Kinetisk energi
+- Hastigheten øker, høyden minker
+
+**Fase 2: Strikken strekkes (bremsing)**
+- Kinetisk energi → Elastisk potensiell energi (i strikken)
+- Hastigheten avtar, strikken strekkes
+
+**Fase 3: Laveste punkt**
+- All energi er elastisk potensiell energi i strikken
+- Hastighet = 0 (et øyeblikk)
+
+**Fase 4: Strikken trekker deg opp**
+- Elastisk potensiell energi → Kinetisk energi + Potensiell energi
+- Du beveger deg oppover igjen
+
+**Fase 5: Pendling**
+- Energi veksler mellom kinetisk, potensiell og elastisk
+- Litt energi tapes til varme (friksjon, luftmotstand) for hver pendling
+- Til slutt stopper du i ro
+
+**Komplett energikjede:**
+Potensiell → Kinetisk → Elastisk → Kinetisk → Potensiell → ... → Varme (til slutt)`,
+      },
+    },
+
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -1232,6 +1680,134 @@ I Norge har elektriske apparater **energimerking** (A-G):
 - **G (rød):** Minst energieffektiv
 
 Å velge A-merkede apparater kan spare mye energi (og penger) over tid.`,
+    },
+
+    // ========== EKSEMPEL: SANKEY-DIAGRAM ==========
+    {
+      id: 'nat10-3-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Tegne et Sankey-diagram',
+      problem: `En bilmotor forbrenner bensin med 50 000 J energi. Av dette blir:
+- 12 500 J nyttig bevegelse (kjøring)
+- 30 000 J varme (avgasser og kjølesystem)
+- 5 000 J friksjon i bevegelige deler
+- 2 500 J lydenergi (motorstøy)
+
+Beskriv hvordan dette ville sett ut i et Sankey-diagram, og beregn virkningsgraden.`,
+      solution: `**Sankey-diagram (beskrivelse):**
+
+Et Sankey-diagram er en pil-figur som viser energistrøm. Bredden på pilene er proporsjonal med energimengden.
+
+Hovedpil inn (venstre): **50 000 J kjemisk energi (bensin)**
+
+Piler ut (høyre):
+→ **12 500 J** nyttig bevegelse (25%) – bredeste "nyttige" pil
+→ **30 000 J** varme i avgasser/kjøling (60%) – bredeste pil (energitap)
+→ **5 000 J** friksjon/varme (10%)
+→ **2 500 J** lyd (5%) – tynneste pil
+
+**Kontroll:** 12 500 + 30 000 + 5 000 + 2 500 = 50 000 J ✓
+
+---
+
+**Virkningsgrad:**
+
+$$\\eta = \\frac{\\text{Nyttig energi}}{\\text{Total energi inn}} \\times 100\\%$$
+
+$$\\eta = \\frac{12\\,500}{50\\,000} \\times 100\\% = 25\\%$$
+
+**Tolkning:**
+Bare 25% av bensinen blir til nyttig bevegelse. Hele 75% av energien "kastes bort" som varme, friksjon og lyd. Dette er typisk for forbrenningsmotorer.
+
+**Sammenligning:** En elektrisk motor har η ≈ 90%, altså mye mer effektiv!`,
+    },
+
+    // ========== EKSEMPEL: ENERGIKVALITET ==========
+    {
+      id: 'nat10-3-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Energikvalitet og degradering',
+      problem: `Forklar hva som skjer med energikvaliteten gjennom følgende energikjede:
+
+Kjemisk energi (bensin) → Kinetisk energi (bil) → Termisk energi (bremser) → Varme spredt i luften`,
+      solution: `**Trinn 1: Kjemisk energi (bensin) – HØY kvalitet**
+
+Bensinen inneholder konsentrert kjemisk energi. Den er:
+- Lett å lagre og transportere
+- Lett å omdanne til andre energiformer
+- Energien er "samlet" på ett sted
+
+**Trinn 2: Kinetisk energi (bil i bevegelse) – HØY kvalitet**
+
+Bilens bevegelsesenergi er fortsatt nyttig:
+- Kan brukes til å drive bilen
+- Kan omdannes til elektrisk energi (regenerativ bremsing)
+- Energien er "organisert" (alle deler beveger seg samme vei)
+
+**Trinn 3: Termisk energi (varme bremser) – MIDDELS kvalitet**
+
+Når du bremser, omdannes kinetisk energi til varme i bremsene:
+- Bremseskivene kan bli 300-500°C varme
+- Varmen er konsentrert (høy temperatur)
+- Kan i teorien brukes til noe (men gjøres sjelden)
+
+**Trinn 4: Varme spredt i luften – LAV kvalitet**
+
+Varmen fra bremsene spres til den kalde luften:
+- Temperaturen er lav (bare litt over lufttemperaturen)
+- Varmen er spredt over et stort volum
+- Praktisk umulig å samle og bruke igjen
+- Entropien er høy
+
+**Konklusjon:**
+
+Med hvert trinn blir energien:
+- Mer spredt og uordnet
+- Vanskeligere å bruke til nyttig arbeid
+- Kvaliteten synker
+
+Dette er **termodynamikkens 2. lov** i praksis: Energi degraderes alltid mot lavkvalitets varme. Vi kan aldri "samle opp" all varmen og gjøre den nyttig igjen.`,
+    },
+
+    // ========== EKSEMPEL: BEREGNE TOTAL VIRKNINGSGRAD ==========
+    {
+      id: 'nat10-3-2-example-3',
+      type: 'example',
+      title: 'Eksempel: Total virkningsgrad i en energikjede',
+      problem: `Et kullkraftverk har følgende virkningsgrader for hvert trinn:
+- Forbrenning → damp: 90%
+- Damp → turbin: 50%
+- Turbin → generator: 95%
+- Overføring (ledninger): 92%
+
+Hva er den totale virkningsgraden?`,
+      solution: `**Total virkningsgrad i en kjede:**
+
+Når energi omdannes gjennom flere trinn, multipliserer vi virkningsgradene:
+
+$$\\eta_{total} = \\eta_1 \\times \\eta_2 \\times \\eta_3 \\times \\eta_4$$
+
+**Utregning:**
+
+$$\\eta_{total} = 0,90 \\times 0,50 \\times 0,95 \\times 0,92$$
+
+$$\\eta_{total} = 0,90 \\times 0,50 = 0,45$$
+
+$$\\eta_{total} = 0,45 \\times 0,95 = 0,4275$$
+
+$$\\eta_{total} = 0,4275 \\times 0,92 = 0,3933$$
+
+$$\\eta_{total} \\approx 39\\%$$
+
+**Svar:** Total virkningsgrad er ca. **39%**.
+
+**Tolkning:**
+Selv om hvert enkelt trinn har god virkningsgrad, blir den totale virkningsgraden lav fordi tapene akkumuleres.
+
+Av 100 J kull-energi ender bare 39 J opp som nyttig elektrisitet hos forbrukeren!
+
+**Viktig lærdom:**
+Jo færre omformingstrinn, jo bedre total virkningsgrad. Derfor er solceller (1 trinn: lys → strøm) potensielt mer effektive enn kullkraftverk (mange trinn).`,
     },
 
     // ========== OPPGAVE 1: MULTIPLE CHOICE - ENERGIBEVARING ==========
@@ -1623,6 +2199,323 @@ For å få samme lysstyrke (3 W lys):
 LED "kaster bort" mye mindre energi som varme, derfor trengs det mindre strøm for samme lys.
 
 Dette er et godt eksempel på hvorfor **energieffektivitet** er viktig!`,
+    },
+
+    // ========== OPPGAVE EXTRA 1: ENERGIOMFORMINGER I HVERDAGEN ==========
+    {
+      id: 'nat10-3-2-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-1',
+        number: '3.2.9',
+        type: 'classic',
+        difficulty: 'lett',
+        task: `Beskriv energiomformingene som skjer i følgende situasjoner:
+
+a) Du slår på en lommelykt
+b) Du koker vann på komfyren
+c) En vindturbin produserer strøm`,
+        solution: `**a) Lommelykt:**
+
+Kjemisk energi (batteri) → Elektrisk energi (ledninger) → Lysenergi + Termisk energi (lyspæren)
+
+Hovedomformingen: **Kjemisk → Elektrisk → Lys**
+
+---
+
+**b) Koking av vann på komfyren:**
+
+Elektrisk energi (strømnettet) → Termisk energi (varmeelement) → Termisk energi (vannet varmes opp)
+
+Hovedomformingen: **Elektrisk → Termisk**
+
+(Noe energi tapes til oppvarming av luft, gryte osv.)
+
+---
+
+**c) Vindturbin:**
+
+Kinetisk energi (vind) → Rotasjonsenergi (turbin) → Elektrisk energi (generator)
+
+Hovedomformingen: **Kinetisk → Elektrisk**
+
+(Noe energi tapes til friksjon i lager og varme i generatoren)
+
+**Oppsummering:** I alle disse eksemplene gjelder energibevaringsprinsippet – energi forsvinner ikke, den bare omdannes.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: VIRKNINGSGRAD SAMMENLIGNING ==========
+    {
+      id: 'nat10-3-2-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-2',
+        number: '3.2.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `To ovner varmer opp et rom:
+- Ovn A bruker 3000 J energi og leverer 2700 J varme til rommet.
+- Ovn B bruker 2000 J energi og leverer 1900 J varme til rommet.
+
+a) Beregn virkningsgraden for begge ovnene.
+b) Hvilken ovn er mest effektiv?
+c) Hvilken ovn leverer mest varme?`,
+        solution: `**a) Virkningsgrad:**
+
+**Ovn A:**
+$$\\eta_A = \\frac{2700}{3000} \\times 100\\% = 90\\%$$
+
+**Ovn B:**
+$$\\eta_B = \\frac{1900}{2000} \\times 100\\% = 95\\%$$
+
+---
+
+**b) Mest effektiv:**
+
+Ovn B er mest effektiv med **95%** virkningsgrad (vs. 90% for Ovn A).
+
+---
+
+**c) Mest varme:**
+
+Ovn A leverer mest varme: **2700 J** (vs. 1900 J for Ovn B).
+
+---
+
+**Viktig poeng:**
+
+Mest effektiv ≠ mest varme!
+
+- Ovn B er mer **effektiv** (bruker energien bedre)
+- Ovn A leverer mer **total varme** (fordi den bruker mer energi)
+
+For å varme opp rommet raskest velger du Ovn A. For å spare energi velger du Ovn B.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: ENERGIKJEDE ELBIL ==========
+    {
+      id: 'nat10-3-2-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-3',
+        number: '3.2.11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Beskriv energikjeden for en elbil som lades med strøm fra et vannkraftverk.
+
+Start: Vann i magasinet
+Slutt: Bilen kjører
+
+List opp alle energiomformingene og typisk virkningsgrad for hvert trinn.`,
+        solution: `**Energikjede: Vannkraft → Elbil i bevegelse**
+
+**1. Vann i magasinet → Turbin**
+- Potensiell energi → Kinetisk energi → Rotasjonsenergi
+- Virkningsgrad: ca. 90%
+
+**2. Generator → Strømnett**
+- Rotasjonsenergi → Elektrisk energi
+- Inkludert tap i ledninger: ca. 90%
+
+**3. Lading av batteri**
+- Elektrisk energi → Kjemisk energi (batteri)
+- Virkningsgrad: ca. 90%
+
+**4. Batteri → Motor**
+- Kjemisk energi → Elektrisk energi → Kinetisk energi
+- Virkningsgrad: ca. 85%
+
+---
+
+**Total virkningsgrad:**
+$$\\eta_{total} = 0,90 \\times 0,90 \\times 0,90 \\times 0,85 = 0,62 = 62\\%$$
+
+---
+
+**Sammenligning med bensinbil:**
+Bensinbil: Raffinering (95%) × Motor (25%) = ca. 24%
+
+**Elbil er over dobbelt så effektiv som en bensinbil!**
+
+Det betyr at selv om vi tar hensyn til alle tap fra kraftverk til hjul, bruker elbilen bare halvparten så mye energi.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: TERMODYNAMIKKENS 2. LOV ==========
+    {
+      id: 'nat10-3-2-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-4',
+        number: '3.2.12',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva sier termodynamikkens 2. lov?',
+        options: [
+          'Energi kan ikke skapes eller ødelegges',
+          'Energikvaliteten synker alltid over tid (entropien øker)',
+          'Energi beveger seg fra kalde til varme objekter',
+          'Temperaturen i universet er konstant',
+        ],
+        answer: 1,
+        solution: `**Riktig svar: Energikvaliteten synker alltid over tid (entropien øker)**
+
+**Forklaring:**
+
+Termodynamikkens **1. lov** sier at energi bevares (kan ikke skapes/ødelegges).
+
+Termodynamikkens **2. lov** sier at energikvaliteten alltid synker over tid. Entropien (uorden) i et lukket system øker alltid.
+
+**Hva betyr det i praksis?**
+- Varme strømmer alltid fra varmt til kaldt (aldri motsatt av seg selv)
+- Ved hver energiomforming tapes noe energi som "ubrukelig" varme
+- Vi kan aldri lage en maskin med 100% virkningsgrad
+- Energien i universet blir stadig mer spredt og uordnet
+
+**Eksempel:**
+En kopp varm kaffe avkjøles over tid. Varmen spres til rommet. Du kan ikke samle tilbake varmen og gjøre kaffen varm igjen uten å tilføre ny energi.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: VARMEPUMPE ==========
+    {
+      id: 'nat10-3-2-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-5',
+        number: '3.2.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `En varmepumpe bruker 1000 J elektrisk energi og henter 2000 J varme fra uteluften. Totalt leverer den 3000 J varme til huset.
+
+a) Hva er virkningsgraden (COP = nyttig varme / elektrisk energi)?
+b) Hvorfor kan COP være over 100%? Er det brudd på energiloven?
+c) Hvorfor er varmepumper mer effektive enn elektriske panelovner?`,
+        solution: `**a) COP (Coefficient of Performance):**
+
+$$COP = \\frac{\\text{Nyttig varme ut}}{\\text{Elektrisk energi inn}} = \\frac{3000 \\text{ J}}{1000 \\text{ J}} = 3,0$$
+
+COP = 3,0 betyr at for hver 1 J strøm får du 3 J varme.
+
+Det tilsvarer en "virkningsgrad" på **300%**!
+
+---
+
+**b) Er det brudd på energiloven?**
+
+**Nei!** Det er ikke brudd på energibevaringsprinsippet fordi:
+
+Energi inn = Energi ut:
+- Elektrisk energi inn: 1000 J
+- Varme hentet fra uteluft: 2000 J (dette er OGSÅ energi inn!)
+- Total energi inn: 3000 J
+- Varme levert til huset: 3000 J
+
+Energibalanse: 1000 + 2000 = 3000 ✓
+
+Varmepumpen "lager" ikke energi – den **flytter** varme fra uteluften til huset. Den bruker strøm til å drive denne prosessen.
+
+---
+
+**c) Hvorfor varmepumpe er bedre enn panelovn:**
+
+**Panelovn:** 1000 J strøm → 1000 J varme (COP = 1,0)
+**Varmepumpe:** 1000 J strøm → 3000 J varme (COP = 3,0)
+
+Varmepumpen gir **3 ganger mer varme** for samme mengde strøm! Den er mer effektiv fordi den henter ekstra varme fra uteluften, i stedet for å bare omdanne strøm til varme.
+
+**I praksis:** En god varmepumpe kan spare 50-75% av oppvarmingskostnadene sammenlignet med panelovner.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: ENERGI I KAFFE ==========
+    {
+      id: 'nat10-3-2-oppg-extra-6a',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-6a',
+        number: '3.2.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En vannkoker har effekt 2000 W og bruker 3 minutter på å koke 1 liter vann.
+
+a) Hvor mye elektrisk energi bruker vannkokeren (i joule)?
+b) Det trengs ca. 336 000 J for å varme 1 liter vann fra 20°C til 100°C. Hva er virkningsgraden til vannkokeren?
+c) Hvor mye energi tapes til omgivelsene?`,
+        solution: `**a) Elektrisk energi brukt:**
+
+P = 2000 W, t = 3 min = 180 s
+
+$$E = P \\times t = 2000 \\times 180 = 360\\,000 \\text{ J} = 360 \\text{ kJ}$$
+
+---
+
+**b) Virkningsgrad:**
+
+Nyttig energi (varme til vann) = 336 000 J
+Total energi inn = 360 000 J
+
+$$\\eta = \\frac{336\\,000}{360\\,000} \\times 100\\% = 93,3\\%$$
+
+**Svar:** Virkningsgraden er **93,3%** – svært bra!
+
+---
+
+**c) Energi tapt:**
+
+$$E_{tap} = 360\\,000 - 336\\,000 = 24\\,000 \\text{ J} = 24 \\text{ kJ}$$
+
+Denne energien varmer opp vannkokerens kropp og luften rundt. Du kan kjenne dette ved at vannkokeren er varm på utsiden.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 7: ENERGIREGNSKAPET ==========
+    {
+      id: 'nat10-3-2-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-2-oppg-extra-7',
+        number: '3.2.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En elektrisk motor på 500 W brukes i 2 minutter. Motoren har 80% virkningsgrad.
+
+a) Hvor mye energi tilføres motoren totalt?
+b) Hvor mye energi blir til nyttig arbeid?
+c) Hvor mye energi tapes som varme?`,
+        solution: `**a) Total energi tilført:**
+
+P = 500 W, t = 2 min = 120 s
+
+$$E_{inn} = P \\times t = 500 \\text{ W} \\times 120 \\text{ s} = 60\\,000 \\text{ J} = 60 \\text{ kJ}$$
+
+---
+
+**b) Nyttig arbeid (80% av total):**
+
+$$E_{nyttig} = E_{inn} \\times \\eta = 60\\,000 \\times 0,80 = 48\\,000 \\text{ J} = 48 \\text{ kJ}$$
+
+---
+
+**c) Energi tapt som varme:**
+
+$$E_{varme} = E_{inn} - E_{nyttig} = 60\\,000 - 48\\,000 = 12\\,000 \\text{ J} = 12 \\text{ kJ}$$
+
+---
+
+**Kontroll (energibevaring):**
+E_inn = E_nyttig + E_varme
+60 000 = 48 000 + 12 000 = 60 000 ✓
+
+**Oppsummering:**
+| | Energi | Andel |
+|--|--------|-------|
+| Total inn | 60 kJ | 100% |
+| Nyttig arbeid | 48 kJ | 80% |
+| Varmetap | 12 kJ | 20% |`,
+      },
     },
 
     // ========== OPPSUMMERING ==========
@@ -2317,6 +3210,141 @@ Elektrisitet er nyttig, men kan være **farlig**!
 **Typer:**
 - **Gamle sikringer:** Må byttes etter de har gått
 - **Automatsikring:** Kan slås på igjen`,
+    },
+
+    // ========== EKSEMPEL: SERIEKOBLING BEREGNING ==========
+    {
+      id: 'nat10-3-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregne verdier i seriekobling',
+      problem: `Tre motstander er koblet i serie til et 15 V batteri:
+- R₁ = 2 Ω
+- R₂ = 3 Ω
+- R₃ = 5 Ω
+
+Finn total motstand, strøm og spenning over hver motstand.`,
+      solution: `**1. Total motstand (seriekobling):**
+
+$$R_{total} = R_1 + R_2 + R_3 = 2 + 3 + 5 = 10 \\text{ Ω}$$
+
+---
+
+**2. Strøm (lik overalt i serie):**
+
+$$I = \\frac{U}{R_{total}} = \\frac{15 \\text{ V}}{10 \\text{ Ω}} = 1,5 \\text{ A}$$
+
+---
+
+**3. Spenning over hver motstand:**
+
+$$U_1 = R_1 \\cdot I = 2 \\cdot 1,5 = 3 \\text{ V}$$
+
+$$U_2 = R_2 \\cdot I = 3 \\cdot 1,5 = 4,5 \\text{ V}$$
+
+$$U_3 = R_3 \\cdot I = 5 \\cdot 1,5 = 7,5 \\text{ V}$$
+
+---
+
+**Kontroll:**
+$$U_1 + U_2 + U_3 = 3 + 4,5 + 7,5 = 15 \\text{ V}$$ ✓
+
+**Oppsummering:**
+| Komponent | Motstand | Strøm | Spenning |
+|-----------|----------|-------|----------|
+| R₁ | 2 Ω | 1,5 A | 3 V |
+| R₂ | 3 Ω | 1,5 A | 4,5 V |
+| R₃ | 5 Ω | 1,5 A | 7,5 V |
+| **Total** | **10 Ω** | **1,5 A** | **15 V** |`,
+    },
+
+    // ========== EKSEMPEL: PARALLELLKOBLING BEREGNING ==========
+    {
+      id: 'nat10-3-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Beregne verdier i parallellkobling',
+      problem: `To motstander er koblet parallelt til et 12 V batteri:
+- R₁ = 4 Ω
+- R₂ = 12 Ω
+
+Finn total motstand, strøm gjennom hver motstand, og total strøm.`,
+      solution: `**1. Total motstand (parallellkobling):**
+
+$$\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} = \\frac{1}{4} + \\frac{1}{12} = \\frac{3}{12} + \\frac{1}{12} = \\frac{4}{12} = \\frac{1}{3}$$
+
+$$R_{total} = 3 \\text{ Ω}$$
+
+**Merk:** Total motstand (3 Ω) er lavere enn den minste enkeltmotstanden (4 Ω). Dette stemmer alltid for parallellkobling!
+
+---
+
+**2. Spenning (lik overalt i parallell):**
+
+$$U_1 = U_2 = U_{total} = 12 \\text{ V}$$
+
+---
+
+**3. Strøm gjennom hver motstand:**
+
+$$I_1 = \\frac{U}{R_1} = \\frac{12}{4} = 3 \\text{ A}$$
+
+$$I_2 = \\frac{U}{R_2} = \\frac{12}{12} = 1 \\text{ A}$$
+
+---
+
+**4. Total strøm:**
+
+$$I_{total} = I_1 + I_2 = 3 + 1 = 4 \\text{ A}$$
+
+---
+
+**Kontroll med total motstand:**
+$$I_{total} = \\frac{U}{R_{total}} = \\frac{12}{3} = 4 \\text{ A}$$ ✓
+
+**Oppsummering:**
+- Mest strøm går gjennom den minste motstanden (R₁ = 4 Ω → 3 A)
+- Minst strøm gjennom den største motstanden (R₂ = 12 Ω → 1 A)`,
+    },
+
+    // ========== EKSEMPEL: EFFEKT I STRØMKRETS ==========
+    {
+      id: 'nat10-3-3-example-3',
+      type: 'example',
+      title: 'Eksempel: Beregne effekt og energi',
+      problem: `En elektrisk varmeovn er koblet til 230 V og trekker 10 A.
+
+a) Hva er effekten til varmeovnen?
+b) Hva er motstanden i varmeelementet?
+c) Hvor mye energi bruker ovnen på 3 timer (i kWh)?
+d) Hva koster det hvis strømprisen er 1,50 kr/kWh?`,
+      solution: `**a) Effekt:**
+
+$$P = U \\cdot I = 230 \\text{ V} \\cdot 10 \\text{ A} = 2300 \\text{ W} = 2,3 \\text{ kW}$$
+
+---
+
+**b) Motstand:**
+
+$$R = \\frac{U}{I} = \\frac{230}{10} = 23 \\text{ Ω}$$
+
+---
+
+**c) Energi på 3 timer:**
+
+$$E = P \\cdot t = 2,3 \\text{ kW} \\cdot 3 \\text{ h} = 6,9 \\text{ kWh}$$
+
+---
+
+**d) Kostnad:**
+
+$$\\text{Kostnad} = 6,9 \\text{ kWh} \\cdot 1,50 \\text{ kr/kWh} = 10,35 \\text{ kr}$$
+
+**Oppsummering:**
+- Effekt: 2300 W (2,3 kW)
+- Motstand: 23 Ω
+- Energi på 3 timer: 6,9 kWh
+- Kostnad: 10,35 kr
+
+**Tips:** En varmeovn på 2300 W bruker mye strøm! Over en hel dag (24 timer) ville den kostet ca. 83 kr.`,
     },
 
     // ========== OPPGAVE 1: MULTIPLE CHOICE - STRØM ==========
@@ -3185,6 +4213,333 @@ Sikringer er livsviktige for å forhindre brann og beskytte både mennesker og u
 - Sikringer beskytter mot brann`,
       },
     },
+    // ========== OPPGAVE EXTRA 1: LEDERE OG ISOLATORER ==========
+    {
+      id: 'nat10-3-3-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-1',
+        number: '3.3.13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilke av følgende materialer er gode ledere av elektrisitet?',
+        options: [
+          'Kobber og aluminium',
+          'Tre og plast',
+          'Glass og gummi',
+          'Papir og bomull',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: Kobber og aluminium**
+
+**Forklaring:**
+
+**Gode ledere (lav motstand):**
+- Kobber – brukes i de fleste elektriske ledninger
+- Aluminium – brukes i kraftledninger (lettere enn kobber)
+- Gull – brukes i elektronikk (kontakter)
+- Sølv – den beste lederen, men dyr
+
+**Isolatorer (høy motstand):**
+- Plast – brukes som isolasjon rundt ledninger
+- Gummi – brukes i hansker og beskyttelse
+- Glass – brukes i isolatorer på kraftledninger
+- Tre, papir, bomull – leder ikke strøm
+
+**Hvorfor er metaller gode ledere?**
+Metaller har "frie elektroner" som kan bevege seg lett mellom atomene. Isolatorer har elektroner som er tett bundet og ikke kan bevege seg fritt.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: EFFEKT OG ENERGI ==========
+    {
+      id: 'nat10-3-3-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-2',
+        number: '3.3.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En familie har følgende elektriske apparater hjemme:
+- TV: 100 W, brukes 4 timer/dag
+- PC: 200 W, brukes 3 timer/dag
+- Lys (LED): 40 W totalt, brukes 6 timer/dag
+
+a) Beregn daglig energiforbruk for hvert apparat (i Wh).
+b) Beregn totalt daglig energiforbruk (i kWh).
+c) Hva koster strømmen for disse apparatene per måned (30 dager) hvis prisen er 1,20 kr/kWh?`,
+        solution: `**a) Daglig energiforbruk per apparat:**
+
+TV: E = P × t = 100 W × 4 h = **400 Wh**
+PC: E = P × t = 200 W × 3 h = **600 Wh**
+LED-lys: E = P × t = 40 W × 6 h = **240 Wh**
+
+---
+
+**b) Totalt daglig energiforbruk:**
+
+E_total = 400 + 600 + 240 = **1240 Wh = 1,24 kWh per dag**
+
+---
+
+**c) Månedlig kostnad:**
+
+Energi per måned = 1,24 kWh/dag × 30 dager = 37,2 kWh
+
+Kostnad = 37,2 kWh × 1,20 kr/kWh = **44,64 kr per måned**
+
+**Tolkning:**
+Disse tre apparatene koster under 50 kr per måned. Det er relativt lite! De store strømforbrukerne i et hjem er oppvarming, varmtvann, komfyr og tørketrommel.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: SAMMENLIGNE SERIE OG PARALLELL ==========
+    {
+      id: 'nat10-3-3-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-3',
+        number: '3.3.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Du har to lyspærer med motstand 10 Ω hver og et 20 V batteri.
+
+a) Beregn strømmen hvis lyspærene kobles i serie.
+b) Beregn strømmen hvis lyspærene kobles parallelt.
+c) Hvilken kobling gir sterkest lys i hver lyspære? Forklar.`,
+        solution: `**a) Seriekobling:**
+
+Total motstand: R_total = 10 + 10 = 20 Ω
+
+Strøm: I = U/R = 20 V / 20 Ω = **1 A**
+
+Spenning over hver pære: U = R × I = 10 × 1 = **10 V**
+
+---
+
+**b) Parallellkobling:**
+
+Total motstand: 1/R = 1/10 + 1/10 = 2/10 → R_total = 5 Ω
+
+Total strøm: I_total = U/R = 20 V / 5 Ω = **4 A**
+
+Strøm gjennom hver pære: I = U/R = 20/10 = **2 A** (hver)
+
+Spenning over hver pære: **20 V** (lik batteriets spenning)
+
+---
+
+**c) Sterkest lys i parallellkobling:**
+
+Effekt i serie: P = U × I = 10 V × 1 A = **10 W per pære**
+
+Effekt parallelt: P = U × I = 20 V × 2 A = **40 W per pære**
+
+**Parallellkobling gir 4 ganger sterkere lys!** Fordi hver pære får full spenning (20 V) i parallell, men bare halv spenning (10 V) i serie.
+
+**Oppsummering:**
+| Egenskap | Serie | Parallell |
+|----------|-------|-----------|
+| R_total | 20 Ω | 5 Ω |
+| I_total | 1 A | 4 A |
+| U per pære | 10 V | 20 V |
+| P per pære | 10 W | 40 W |`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: KORTSLUTNING ==========
+    {
+      id: 'nat10-3-3-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-4',
+        number: '3.3.16',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En kortslutning oppstår når strømmen får en vei med svært lav motstand (f.eks. hvis to ledninger berører hverandre).
+
+a) Hva skjer med strømmen ved en kortslutning ifølge Ohms lov?
+b) Hvorfor er kortslutning farlig?
+c) Hvordan beskytter en sikring mot kortslutning?`,
+        solution: `**a) Strøm ved kortslutning (Ohms lov):**
+
+Ved kortslutning er motstanden nesten null (R ≈ 0).
+
+Ifølge Ohms lov: I = U/R
+
+Hvis R er svært liten: I = 230 V / 0,01 Ω = **23 000 A!**
+
+Strømmen blir ekstremt høy fordi det nesten ikke er noe som bremser elektronene.
+
+---
+
+**b) Hvorfor kortslutning er farlig:**
+
+1. **Enorm varme** – Høy strøm i ledningene gir enorm varmeutvikling (P = I²R)
+2. **Brannfare** – Ledningene kan bli så varme at de smelter og antennes
+3. **Skade på utstyr** – Elektriske apparater kan ødelegges
+4. **Lysbuer** – Ved veldig høy strøm kan det oppstå elektriske lysbuer (som lyn)
+5. **Livsfare** – Hvis en person er i kontakt med kretsen
+
+---
+
+**c) Hvordan sikringen beskytter:**
+
+1. Kortslutning oppstår → Strømmen stiger dramatisk
+2. Sikringen registrerer den høye strømmen
+3. Sikringens ledning smelter (eller automatsikringen slår av)
+4. Kretsen åpnes → Strømmen stoppes
+5. Brannen forhindres
+
+**Tidsperspektiv:** En sikring reagerer på millisekunder – raskere enn du kan reagere!
+
+**Derfor er sikringer livsviktige – de er den siste forsvarslinjen mot brann fra elektriske feil.**`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: STATISK ELEKTRISITET ==========
+    {
+      id: 'nat10-3-3-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-5',
+        number: '3.3.17',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva forårsaker at du får støt når du tar i et dørhåndtak etter å ha gått på et syntetisk teppe?',
+        options: [
+          'Statisk elektrisitet – elektroner har hopet seg opp på kroppen din',
+          'Dørhåndtaket er ladet av batterier i veggen',
+          'Magneter i gulvet tiltrekker elektronene',
+          'Varme fra friksjonen mot teppet lager elektrisitet',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: Statisk elektrisitet – elektroner har hopet seg opp på kroppen din**
+
+**Forklaring:**
+
+1. Når du går på et syntetisk teppe, gnir skoene mot teppet (friksjon)
+2. Friksjonen overfører elektroner fra teppet til kroppen din
+3. Du blir negativt ladet (for mange elektroner)
+4. Når du tar i et ledende objekt (dørhåndtak av metall), hopper elektronene over
+5. Denne "hoppingen" oppleves som et lite elektrisk støt
+
+**Statisk elektrisitet** er elektrisk ladning som har hopet seg opp uten å strømme. Det er forskjellig fra vanlig strøm (dynamisk elektrisitet) som strømmer kontinuerlig.
+
+**Andre eksempler på statisk elektrisitet:**
+- Lyn (enormt utlading av statisk elektrisitet mellom sky og bakke)
+- Hår som "reiser seg" når du tar av en genser
+- Ballonger som klistrer seg til veggen etter å ha blitt gnidd`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: STRØM I HJEMMET ==========
+    {
+      id: 'nat10-3-3-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-6',
+        number: '3.3.18',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `I Norge bruker vi 230 V vekselstrøm (AC) i stikkontaktene, mens mange andre land (f.eks. USA) bruker 120 V.
+
+a) En hårtørker har effekt 2000 W og kobles til 230 V. Beregn strømmen.
+b) Samme hårtørker (2000 W) kobles til 120 V i USA. Beregn strømmen.
+c) Hvorfor er det en fordel å bruke 230 V i stedet for 120 V?`,
+        solution: `**a) Strøm ved 230 V:**
+
+P = U × I → I = P/U
+
+$$I = \\frac{2000 \\text{ W}}{230 \\text{ V}} = 8,7 \\text{ A}$$
+
+---
+
+**b) Strøm ved 120 V:**
+
+$$I = \\frac{2000 \\text{ W}}{120 \\text{ V}} = 16,7 \\text{ A}$$
+
+---
+
+**c) Fordelen med 230 V:**
+
+Ved 230 V er strømmen **nesten halvparten** (8,7 A vs. 16,7 A) for samme effekt.
+
+**Fordeler med lavere strøm:**
+
+1. **Tynnere ledninger** – lavere strøm betyr at man kan bruke tynnere (og billigere) kobberledninger
+2. **Mindre varmetap** – varmetap i ledninger er proporsjonal med I² (P_tap = I²R). Halv strøm gir bare 1/4 av varmetapet!
+3. **Flere apparater per sikring** – med 16 A sikring kan man bruke 3680 W ved 230 V, men bare 1920 W ved 120 V
+
+**Ulempe med 230 V:**
+Høyere spenning er farligere ved elektrisk støt. 230 V kan gi dødelig støt lettere enn 120 V.
+
+**Oppsummering:**
+| Egenskap | Norge (230 V) | USA (120 V) |
+|----------|--------------|-------------|
+| Strøm for 2000 W | 8,7 A | 16,7 A |
+| Ledningstykkelse | Tynnere | Tykkere |
+| Varmetap | Lavere | Høyere |
+| Støtfare | Høyere | Lavere |`,
+      },
+    },
+
+    {
+      id: 'nat10-3-3-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-3-oppg-extra-7',
+        number: '3.3.19',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `En bolig har et elektrisk anlegg med hovedsikring på 40 A og 230 V nettspenning.
+
+a) Beregn den maksimale totale effekten boligen kan bruke samtidig.
+b) Forklar hva som skjer dersom den totale effekten overskrider denne grensen.
+c) En familie bruker følgende apparater samtidig: komfyr (6000 W), vaskemaskin (2200 W), oppvaskmaskin (1800 W), varmtvannsbereder (3000 W) og tre varmeovner à 1500 W. Beregn total effekt og strøm. Vil hovedsikringen ryke?
+d) Foreslå hvilke tiltak familien kan gjøre for å unngå at sikringen ryker.`,
+        solution: `**a) Maksimal effekt:**
+
+$$P_{maks} = U \\times I = 230 \\text{ V} \\times 40 \\text{ A} = 9200 \\text{ W} = 9,2 \\text{ kW}$$
+
+---
+
+**b) Hva skjer ved overbelastning?**
+
+Når strømmen overstiger 40 A, vil hovedsikringen (automatsikringen) **slå ut**. Dette er en sikkerhetsmekanisme som beskytter mot:
+
+- **Overoppheting av ledninger** – for mye strøm gir varme som kan forårsake brann
+- **Brannfare** – uten sikring kan isolasjonen på ledningene smelte
+- **Skade på apparater** – overstrøm kan ødelegge elektroniske komponenter
+
+---
+
+**c) Beregning av total effekt og strøm:**
+
+| Apparat | Effekt |
+|---------|--------|
+| Komfyr | 6000 W |
+| Vaskemaskin | 2200 W |
+| Oppvaskmaskin | 1800 W |
+| Varmtvannsbereder | 3000 W |
+| 3 × varmeovn | 3 × 1500 = 4500 W |
+| **Totalt** | **17 500 W** |
+
+$$I = \\frac{P}{U} = \\frac{17500 \\text{ W}}{230 \\text{ V}} = 76,1 \\text{ A}$$
+
+Strømmen (76,1 A) er **nesten dobbelt** så høy som hovedsikringen (40 A). **Ja, hovedsikringen vil ryke!**
+
+---
+
+**d) Tiltak for å unngå overbelastning:**
+
+1. **Unngå å bruke alt samtidig** – kjør vaskemaskin og oppvaskmaskin på ulike tidspunkt
+2. **Bruk tidsstyring** – still inn varmtvannsberederen til å varme om natten
+3. **Senk varmeovnene** – sett termostat lavere eller slå av noen ovner når komfyren er i bruk
+4. **Oppgrader anlegget** – installer høyere hovedsikring (63 A) med tykkere kabling (krever elektriker)`,
+      },
+    },
+
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -3737,6 +5092,104 @@ Ikke all stråling er farlig, men noen typer kan skade kroppen vår.
 - Avstand, avskjerming, begrens tid`,
     },
 
+    // ========== EKSEMPEL: BEREGNE FREKVENS ==========
+    {
+      id: 'nat10-3-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregne frekvens fra bølgelengde',
+      problem: `En radiostasjon sender med bølgelengde 3 meter. Radiobølger beveger seg med lysets hastighet (c = 3·10⁸ m/s).
+
+Hva er frekvensen til radiosignalet?`,
+      solution: `**Gitt:**
+- Bølgelengde: λ = 3 m
+- Hastighet: c = 3·10⁸ m/s
+
+**Formel:**
+$$c = f \\cdot \\lambda$$
+
+**Løsning:**
+Vi løser for f:
+
+$$f = \\frac{c}{\\lambda} = \\frac{3 \\cdot 10^8 \\text{ m/s}}{3 \\text{ m}} = 1 \\cdot 10^8 \\text{ Hz} = 100 \\text{ MHz}$$
+
+**Svar:**
+Frekvensen er 100 MHz (megahertz).
+
+**Tolkning:**
+100 MHz er i FM-radiobåndet (88-108 MHz). Det betyr at radiobølgen svinger 100 millioner ganger per sekund!
+
+**Huskeregel:** Jo kortere bølgelengde, jo høyere frekvens.`,
+    },
+
+    // ========== EKSEMPEL: LYDBØLGER I ULIKE MEDIER ==========
+    {
+      id: 'nat10-3-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Lydens hastighet i ulike materialer',
+      problem: `Du er under vann og hører en lyd. Lydens hastighet i vann er 1480 m/s. Lyden har frekvens 500 Hz.
+
+a) Hva er bølgelengden til lyden under vann?
+b) Hva ville bølgelengden vært i luft (hastighet 340 m/s) ved samme frekvens?
+c) Hvorfor er bølgelengden forskjellig?`,
+      solution: `**a) Bølgelengde under vann:**
+
+$$\\lambda = \\frac{v}{f} = \\frac{1480 \\text{ m/s}}{500 \\text{ Hz}} = 2,96 \\text{ m}$$
+
+**Svar:** Bølgelengden under vann er ca. **3,0 m**.
+
+---
+
+**b) Bølgelengde i luft:**
+
+$$\\lambda = \\frac{v}{f} = \\frac{340 \\text{ m/s}}{500 \\text{ Hz}} = 0,68 \\text{ m}$$
+
+**Svar:** Bølgelengden i luft er **0,68 m** (68 cm).
+
+---
+
+**c) Hvorfor forskjellen?**
+
+Bølgelengden er forskjellig fordi lydens **hastighet** er forskjellig i ulike medier:
+
+- I vann: v = 1480 m/s → λ = 3,0 m (lang bølgelengde)
+- I luft: v = 340 m/s → λ = 0,68 m (kort bølgelengde)
+
+**Frekvensen er den samme** (500 Hz) uansett medium. Det er hastigheten og bølgelengden som endres.
+
+Formel: v = f · λ → Når v øker (ved konstant f), øker λ.`,
+    },
+
+    // ========== EKSEMPEL: ELEKTROMAGNETISK SPEKTER ==========
+    {
+      id: 'nat10-3-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Sortere stråling etter energi',
+      problem: `Sorter følgende typer elektromagnetisk stråling fra lavest til høyest energi:
+
+Synlig lys, Gammastråler, Radiobølger, UV-stråling, Røntgen, Infrarød, Mikrobølger`,
+      solution: `**Sortert fra lavest til høyest energi:**
+
+1. **Radiobølger** (lavest energi, lengst bølgelengde)
+2. **Mikrobølger**
+3. **Infrarød stråling** (varmestråling)
+4. **Synlig lys** (det vi kan se)
+5. **UV-stråling** (ultrafiolett)
+6. **Røntgenstråler**
+7. **Gammastråler** (høyest energi, kortest bølgelengde)
+
+**Huskeregel:**
+Kortere bølgelengde → Høyere frekvens → Høyere energi
+
+**Sammenheng med fare:**
+- Nr. 1-4: Ikke-ioniserende (trygg ved normale nivåer)
+- Nr. 5-7: Ioniserende (kan skade DNA, farlig)
+
+**Formel for energi:**
+$$E = h \\cdot f$$
+hvor h = Plancks konstant og f = frekvens.
+Høyere frekvens = høyere energi.`,
+    },
+
     // ========== OPPGAVE 1: MULTIPLE CHOICE - BØLGER ==========
     {
       id: 'nat10-3-4-oppg1',
@@ -4019,6 +5472,249 @@ Mellom kl. 11 og 15 står solen **høyest på himmelen**.
 
 **Oppsummering:**
 Moderat soleksponering er bra, men for mye UV-stråling er farlig og kan gi hudkreft.`,
+    },
+
+    // ========== OPPGAVE EXTRA 1: BØLGEBEREGNING ==========
+    {
+      id: 'nat10-3-4-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-1',
+        number: '3.4.9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En gitarstreng vibrerer med frekvens 440 Hz (tonen A). Lydens hastighet i luft er 340 m/s.
+
+a) Beregn bølgelengden til lydbølgen.
+b) Hvis gitaristen spiller en oktav høyere (dobbel frekvens, 880 Hz), hva blir bølgelengden?
+c) Forklar sammenhengen mellom frekvens og tonehøyde.`,
+        solution: `**a) Bølgelengde ved 440 Hz:**
+
+$$\\lambda = \\frac{v}{f} = \\frac{340 \\text{ m/s}}{440 \\text{ Hz}} = 0,77 \\text{ m} = 77 \\text{ cm}$$
+
+**Svar:** Bølgelengden er ca. 77 cm.
+
+---
+
+**b) Bølgelengde ved 880 Hz:**
+
+$$\\lambda = \\frac{v}{f} = \\frac{340 \\text{ m/s}}{880 \\text{ Hz}} = 0,39 \\text{ m} = 39 \\text{ cm}$$
+
+**Svar:** Bølgelengden halveres til ca. 39 cm.
+
+---
+
+**c) Sammenheng frekvens og tonehøyde:**
+
+- Høy frekvens → høy tone (fløyte, pipetone)
+- Lav frekvens → lav tone (bass, tromme)
+
+Når frekvensen dobles (én oktav opp), halveres bølgelengden. Hastigheten er fortsatt den samme (340 m/s i luft).`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: LYDENS HASTIGHET ==========
+    {
+      id: 'nat10-3-4-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-2',
+        number: '3.4.10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Du roper mot en fjellvegg og hører ekkoet etter 4 sekunder. Lydens hastighet er 340 m/s.
+
+a) Hvor langt har lyden reist totalt (fram og tilbake)?
+b) Hvor langt unna er fjellveggen?`,
+        solution: `**a) Total avstand (fram og tilbake):**
+
+$$s_{total} = v \\cdot t = 340 \\text{ m/s} \\cdot 4 \\text{ s} = 1360 \\text{ m}$$
+
+**Svar:** Lyden har reist **1360 meter** totalt.
+
+---
+
+**b) Avstand til fjellveggen:**
+
+Lyden går **fram til veggen og tilbake**. Derfor er avstanden til veggen halvparten av total avstand:
+
+$$s = \\frac{s_{total}}{2} = \\frac{1360}{2} = 680 \\text{ m}$$
+
+**Svar:** Fjellveggen er **680 meter** unna.
+
+**Tips:** Ekko-formelen er:
+$$s = \\frac{v \\cdot t}{2}$$
+
+der s er avstand til objektet, v er lydens hastighet, og t er tiden fra du roper til du hører ekkoet.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: BØLGELENGDE LYS ==========
+    {
+      id: 'nat10-3-4-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-3',
+        number: '3.4.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken farge av synlig lys har lengst bølgelengde?',
+        options: [
+          'Fiolett (ca. 400 nm)',
+          'Grønn (ca. 550 nm)',
+          'Rød (ca. 700 nm)',
+          'Blå (ca. 450 nm)',
+        ],
+        answer: 2,
+        solution: `**Riktig svar: Rød (ca. 700 nm)**
+
+**Synlig lys, sortert fra kort til lang bølgelengde:**
+
+| Farge | Bølgelengde |
+|-------|------------|
+| Fiolett | 400 nm (kortest) |
+| Blå | 450 nm |
+| Grønn | 550 nm |
+| Gul | 580 nm |
+| Oransje | 600 nm |
+| Rød | 700 nm (lengst) |
+
+**Huskeregel:** Rødt lys har lengst bølgelengde og lavest frekvens av synlig lys. Fiolett har kortest bølgelengde og høyest frekvens.
+
+**Utenfor synlig lys:**
+- Lengre enn rødt → Infrarød (IR)
+- Kortere enn fiolett → Ultrafiolett (UV)`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: MEKANISKE VS EM BØLGER ==========
+    {
+      id: 'nat10-3-4-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-4',
+        number: '3.4.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Avgjør om følgende bølger er mekaniske eller elektromagnetiske. Begrunn svarene dine.
+
+a) Lydbølger
+b) Røntgenstråler
+c) Vannbølger
+d) WiFi-signaler
+e) Jordskjelvbølger`,
+        solution: `**a) Lydbølger: MEKANISK**
+Lydbølger er trykkbølger som trenger et medium (luft, vann, fast stoff). De kan ikke bevege seg i vakuum.
+
+**b) Røntgenstråler: ELEKTROMAGNETISK**
+Røntgenstråler er elektromagnetisk stråling med kort bølgelengde. De trenger ikke medium og beveger seg med lysets hastighet.
+
+**c) Vannbølger: MEKANISK**
+Vannbølger er forstyrrelser i vannoverflaten. De trenger vann (medium) for å eksistere.
+
+**d) WiFi-signaler: ELEKTROMAGNETISK**
+WiFi bruker radiobølger (ca. 2,4 GHz eller 5 GHz), som er elektromagnetisk stråling. De trenger ikke medium.
+
+**e) Jordskjelvbølger: MEKANISK**
+Jordskjelvbølger (seismiske bølger) beveger seg gjennom jordskorpen. De trenger et fast medium.
+
+**Oppsummering:**
+| Bølge | Type | Trenger medium? |
+|-------|------|----------------|
+| Lyd | Mekanisk | Ja |
+| Røntgen | Elektromagnetisk | Nei |
+| Vann | Mekanisk | Ja |
+| WiFi | Elektromagnetisk | Nei |
+| Jordskjelv | Mekanisk | Ja |`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: DOPPLER-EFFEKTEN ==========
+    {
+      id: 'nat10-3-4-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-5',
+        number: '3.4.13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Har du lagt merke til at en ambulansesirene høres høyere (lysere tone) når den kjører mot deg, og lavere (dypere tone) når den kjører bort fra deg?
+
+a) Hva heter dette fenomenet?
+b) Forklar hvorfor tonen endres med egne ord.
+c) Gjelder dette også for lys? Gi et eksempel.`,
+        solution: `**a) Fenomenets navn:**
+
+Dette kalles **Doppler-effekten**, oppkalt etter fysikeren Christian Doppler.
+
+---
+
+**b) Forklaring:**
+
+Når ambulansen kjører mot deg:
+- Lydbølgene "presses sammen" foran ambulansen
+- Bølgelengden blir kortere
+- Kortere bølgelengde = høyere frekvens = høyere tone
+
+Når ambulansen kjører bort fra deg:
+- Lydbølgene "strekkes ut" bak ambulansen
+- Bølgelengden blir lengre
+- Lengre bølgelengde = lavere frekvens = dypere tone
+
+Selve sirenen endrer seg ikke – det er bare din opplevelse av lyden som endres!
+
+---
+
+**c) Gjelder det for lys?**
+
+**Ja!** Doppler-effekten gjelder for alle bølger, inkludert lys:
+
+- **Rødforskyvning:** Galakser som beveger seg bort fra oss ser rødere ut (lengre bølgelengde). Dette er beviset for at universet utvider seg!
+- **Blåforskyvning:** Objekter som beveger seg mot oss ser blåere ut (kortere bølgelengde).
+
+Astronomen Edwin Hubble brukte rødforskyvning til å oppdage at universet ekspanderer.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: SOLKREM OG UV-STRÅLING ==========
+    {
+      id: 'nat10-3-4-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-4-oppg-extra-6',
+        number: '3.4.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En solkrem har SPF 30 (Sun Protection Factor). Det betyr at den filtrerer bort ca. 97% av UV-B-strålingen.
+
+a) Hvor mange prosent av UV-B slipper gjennom?
+b) Hvis du normalt blir solbrent etter 10 minutter uten solkrem, hvor lenge kan du være i solen med SPF 30?
+c) Hvorfor bør man smøre seg på nytt etter 2 timer, selv med høy SPF?`,
+        solution: `**a) Prosent UV-B som slipper gjennom:**
+
+100% - 97% = **3% av UV-B slipper gjennom**
+
+---
+
+**b) Tid i solen med SPF 30:**
+
+SPF-tallet forteller hvor mange ganger lenger du kan være i solen:
+
+Tid med solkrem = Normal tid × SPF = 10 min × 30 = **300 minutter = 5 timer**
+
+**Men dette er teoretisk!** I praksis bør man smøre seg på nytt mye oftere.
+
+---
+
+**c) Hvorfor smøre på nytt etter 2 timer?**
+
+1. **Solkremen slites av** – svette, friksjon fra klær og håndklær fjerner solkrem
+2. **Bading/svømming** – vann vasker bort solkrem, selv "vannavvisende" typer
+3. **Kjemisk nedbrytning** – UV-strålingen bryter ned de aktive stoffene i solkremen over tid
+4. **For lite påført** – de fleste smører på seg for lite solkrem (bare halvparten av anbefalt mengde)
+
+**Anbefaling:** Smør på nytt minst hver 2. time, og etter bading/svetting, uansett SPF-verdi.`,
+      },
     },
 
     // ========== OPPSUMMERING ==========
@@ -4582,6 +6278,102 @@ Hva kan **du** gjøre for en bærekraftig energiframtid?
 - **Gå, sykkel, kollektiv** – mindre bil
 - **Kjøp bevisst** – velg energieffektive produkter
 - **Snakk om det** – påvirk andre`,
+    },
+
+    // ========== EKSEMPEL: SAMMENLIGNE ENERGIKILDER ==========
+    {
+      id: 'nat10-3-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Sammenligne energikilder',
+      problem: `Lag en oversiktlig sammenligning av tre energikilder: vannkraft, vindkraft og kull. Vurder fornybarhet, CO₂-utslipp, pålitelighet og miljøpåvirkning.`,
+      solution: `**Sammenligning av energikilder:**
+
+| Egenskap | Vannkraft | Vindkraft | Kull |
+|----------|-----------|-----------|------|
+| **Fornybar?** | Ja | Ja | Nei |
+| **CO₂-utslipp** | 24 g/kWh | 11 g/kWh | 820 g/kWh |
+| **Pålitelighet** | Svært god (regulerbar) | Ustabil (avhengig av vind) | Svært god (kan kjøre hele tiden) |
+| **Virkningsgrad** | 85-90% | 35-45% | 35-40% |
+| **Naturinngrep** | Demninger, endret elveløp | Visuell, fugler/flaggermus | Gruvedrift, luftforurensning |
+| **Levetid** | 100+ år | 20-30 år | 30-50 år |
+| **Norsk relevans** | 95% av strømproduksjonen | Økende utbygging | Ikke brukt i Norge |
+
+**Konklusjon:**
+Vannkraft er den beste helhetlige løsningen for Norge: fornybar, regulerbar, lav CO₂ og lang levetid. Vindkraft er et godt supplement. Kull bør fases ut globalt.`,
+    },
+
+    // ========== EKSEMPEL: BEREGNE CO₂-UTSLIPP ==========
+    {
+      id: 'nat10-3-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Beregne CO₂-utslipp fra energiproduksjon',
+      problem: `Et kullkraftverk produserer 500 000 kWh energi per dag. Kullkraft slipper ut 820 g CO₂ per kWh.
+
+a) Beregn daglige CO₂-utslipp i tonn.
+b) Beregn årlige CO₂-utslipp i tonn.
+c) Hvor mye CO₂ ville blitt spart hvis kullkraftverket ble erstattet med vindkraft (11 g CO₂/kWh)?`,
+      solution: `**a) Daglige CO₂-utslipp:**
+
+Daglig produksjon = 500 000 kWh
+CO₂ per kWh = 820 g = 0,82 kg
+
+Daglig CO₂ = 500 000 × 0,82 kg = 410 000 kg = **410 tonn CO₂ per dag**
+
+---
+
+**b) Årlige CO₂-utslipp:**
+
+Årlig CO₂ = 410 tonn/dag × 365 dager = **149 650 tonn CO₂ per år**
+
+Det er nesten 150 000 tonn CO₂!
+
+---
+
+**c) Besparelse med vindkraft:**
+
+CO₂ fra vindkraft per dag = 500 000 × 0,011 kg = 5500 kg = 5,5 tonn/dag
+CO₂ fra kull per dag = 410 tonn/dag
+
+Daglig besparelse = 410 - 5,5 = **404,5 tonn CO₂ per dag**
+
+Årlig besparelse = 404,5 × 365 = **147 643 tonn CO₂ per år**
+
+**Konklusjon:** Ved å erstatte kullkraft med vindkraft spares nesten 150 000 tonn CO₂ per år. Det tilsvarer utslippene fra ca. 18 000 nordmenn!`,
+    },
+
+    // ========== EKSEMPEL: VIRKNINGSGRAD VANNKRAFTVERK ==========
+    {
+      id: 'nat10-3-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Virkningsgrad i vannkraftverk',
+      problem: `Et vannkraftverk har et magasin 300 meter over turbinene. Per sekund renner 200 kg vann ned. Kraftverket produserer 530 kW elektrisk effekt.
+
+a) Beregn den potensielle energien per sekund (bruk g = 10 m/s²).
+b) Beregn virkningsgraden til kraftverket.`,
+      solution: `**a) Potensiell energi per sekund:**
+
+E_p = mgh = 200 kg × 10 m/s² × 300 m = **600 000 J per sekund = 600 kW**
+
+(Energi per sekund = effekt, altså 600 kW tilgjengelig effekt)
+
+---
+
+**b) Virkningsgrad:**
+
+η = (Nyttig energi ut / Total energi inn) × 100%
+
+η = (530 kW / 600 kW) × 100% = **88,3%**
+
+**Tolkning:**
+88,3% av vannets potensielle energi blir til nyttig elektrisitet. Resten (11,7%) tapes til friksjon i rør, turbiner og generator, samt varme.
+
+**Sammenligning:**
+- Vannkraft: 88% (svært høy)
+- Vindkraft: 35-45%
+- Kullkraft: 35-40%
+- Solceller: 15-25%
+
+Vannkraft er en av de mest effektive energikildene!`,
     },
 
     // ========== OPPGAVE 1: FORNYBARE VS. IKKE-FORNYBARE (LETT) ==========
@@ -5377,6 +7169,297 @@ Ingen enkelt energikilde er perfekt – men sammen kan de dekke behovet døgnet 
 - Best løsning: Energimiks (vind + sol + lagring + backup)`,
       },
     },
+    // ========== OPPGAVE EXTRA 1: ENERGITETTHET ==========
+    {
+      id: 'nat10-3-5-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-1',
+        number: '3.5.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken energikilde har høyest energitetthet (mest energi per kg brennstoff)?',
+        options: [
+          'Kull',
+          'Naturgass',
+          'Kjernekraft (uran)',
+          'Tre (bioenergi)',
+        ],
+        answer: 2,
+        solution: `**Riktig svar: Kjernekraft (uran)**
+
+**Forklaring:**
+Uran har enormt høy energitetthet. 1 kg uran kan gi like mye energi som ca. 20 000 kg kull!
+
+**Energitetthet (omtrentlig):**
+- Tre: 15 MJ/kg
+- Kull: 24 MJ/kg
+- Naturgass: 55 MJ/kg
+- Uran (kjernekraft): 80 000 000 MJ/kg (80 millioner!)
+
+Dette er grunnen til at kjernekraftverk trenger svært lite brennstoff sammenlignet med kullkraftverk.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: SOLCELLER BEREGNING ==========
+    {
+      id: 'nat10-3-5-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-2',
+        number: '3.5.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `En familie installerer solceller på taket. Solcellene har et areal på 20 m² og en virkningsgrad på 20%. På en solrik dag i Norge mottar solcellene gjennomsnittlig 800 W/m² sollys i 6 timer.
+
+a) Hvor mye solenergi treffer solcellene totalt per dag (i kWh)?
+b) Hvor mye elektrisitet produserer solcellene per dag?
+c) Hvis familien bruker 20 kWh strøm per dag, hvor stor andel dekker solcellene?`,
+        solution: `**a) Total solenergi per dag:**
+
+Effekt fra solen = 800 W/m² × 20 m² = 16 000 W = 16 kW
+
+Energi per dag = 16 kW × 6 timer = **96 kWh**
+
+---
+
+**b) Elektrisitet produsert per dag:**
+
+Virkningsgrad = 20% = 0,20
+
+Elektrisitet = 96 kWh × 0,20 = **19,2 kWh per dag**
+
+---
+
+**c) Andel av familiens forbruk:**
+
+Andel = (19,2 kWh / 20 kWh) × 100% = **96%**
+
+**Tolkning:**
+På en god solrik dag kan solcellene nesten dekke hele familiens strømbehov! Men husk at dette er en ideell sommerdag. Om vinteren i Norge er det mye mindre sol, og produksjonen kan være under 1 kWh/dag.
+
+**Gjennomsnittlig årlig produksjon i Norge:**
+Solceller i Sør-Norge produserer typisk ca. 150-200 kWh per m² per år.
+20 m² × 175 kWh/m²/år = 3500 kWh/år (dekker ca. 48% av årsforbruk på 7300 kWh).`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: ENERGIMIKS ==========
+    {
+      id: 'nat10-3-5-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-3',
+        number: '3.5.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Forklar hvorfor et land bør bruke en kombinasjon av energikilder (energimiks) i stedet for å satse på bare én kilde. Gi eksempler.`,
+        solution: `**Hvorfor energimiks er viktig:**
+
+**1. Ingen energikilde er perfekt**
+Alle energikilder har fordeler og ulemper. Ved å kombinere flere kilder kan vi utnytte fordelene og kompensere for ulempene.
+
+**2. Forsyningssikkerhet**
+Hvis landet bare bruker vindkraft og det er vindstille i en uke, mister vi all strøm. Med en miks kan andre kilder ta over.
+
+**3. Eksempler på hvordan kilder utfyller hverandre:**
+
+- **Vindkraft + Solenergi:** Vind blåser ofte mer om vinteren, sol skinner mer om sommeren. Sammen gir de jevnere produksjon.
+- **Vannkraft + Vindkraft:** Vannkraft kan reguleres opp og ned raskt, og kompensere for ustabil vindkraft.
+- **Kjernekraft + Fornybart:** Kjernekraft gir stabil grunnlast, fornybart varierer med været.
+
+**4. Norges energimiks:**
+- 95% vannkraft (regulerbar grunnlast)
+- Økende vindkraft (supplement)
+- Noe bioenergi og varmepumper
+
+**Konklusjon:**
+En god energimiks gir pålitelig, ren og rimelig energi. Nøkkelen er å kombinere regulerbare kilder (vannkraft) med variable kilder (vind, sol) og energilagring (batterier).`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: BIOENERGI ==========
+    {
+      id: 'nat10-3-5-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-4',
+        number: '3.5.14',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvorfor regnes bioenergi (tre, biogass) som fornybar, selv om det slippes ut CO₂ ved forbrenning?',
+        options: [
+          'Fordi trær vokser opp igjen og tar opp like mye CO₂ som de slipper ut',
+          'Fordi bioenergi ikke slipper ut CO₂',
+          'Fordi CO₂ fra tre er annerledes enn CO₂ fra kull',
+          'Fordi bioenergi bare brukes i små mengder',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: Fordi trær vokser opp igjen og tar opp like mye CO₂ som de slipper ut**
+
+**Forklaring:**
+Bioenergi er karbonnøytral i et kretsløpsperspektiv:
+
+1. **Trær vokser** og tar opp CO₂ gjennom fotosyntese (20-100 år)
+2. **Trær brennes** og slipper ut CO₂
+3. **Nye trær plantes** og tar opp like mye CO₂
+
+Det totale CO₂-nivået endres ikke over tid (forutsatt at nye trær plantes).
+
+**Forskjellen fra fossile brennstoff:**
+- Fossile brennstoff frigjør CO₂ som har vært lagret i millioner av år
+- Denne CO₂-en er "ny" i kretsløpet og øker totalen
+
+**Viktig forbehold:**
+Bioenergi er bare karbonnøytralt hvis vi planter like mye skog som vi bruker!`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: GEOTERMISK ENERGI ==========
+    {
+      id: 'nat10-3-5-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-5',
+        number: '3.5.15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Geotermisk energi bruker varme fra jordens indre. Island bruker geotermisk energi til oppvarming og elektrisitetsproduksjon.
+
+a) Hvor kommer varmen fra i jordens indre?
+b) Hvorfor er geotermisk energi mer tilgjengelig på Island enn i Norge?
+c) Er geotermisk energi fornybar? Begrunn svaret.`,
+        solution: `**a) Hvor kommer varmen fra?**
+
+Varmen i jordens indre kommer fra:
+1. **Radioaktiv nedbryting** – radioaktive stoffer (uran, thorium) i jordskorpen brytes ned og frigjør varme
+2. **Restvarme fra jordas dannelse** – varme som ble til da jorda ble dannet for 4,5 milliarder år siden
+
+Temperaturen øker med ca. 25-30°C per kilometer ned i jordskorpen.
+
+---
+
+**b) Hvorfor Island har mer tilgjengelig geotermisk energi:**
+
+Island ligger på den **midtatlantiske ryggen** – grensen mellom to tektoniske plater. Her er:
+- **Vulkansk aktivitet** – magma nær overflaten
+- **Varme kilder og geysirer** – vann varmes opp naturlig
+- **Kort avstand til varmen** – man trenger ikke bore dypt
+
+Norge ligger midt på en tektonisk plate, langt fra plategrenser, så varmen er dypere nede og vanskeligere å nå.
+
+---
+
+**c) Er geotermisk energi fornybar?**
+
+**Ja, geotermisk energi regnes som fornybar fordi:**
+- Varmen fra jordens indre er praktisk talt uuttømmelig (varer i milliarder av år)
+- Varmen fornyes kontinuerlig av radioaktiv nedbryting
+- Ingen CO₂-utslipp under drift
+
+**Forbehold:** Lokale geotermiske reservoarer kan kjøles ned ved overutnyttelse, men globalt er varmen uuttømmelig.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: ENERGIFORBRUK I NORGE ==========
+    {
+      id: 'nat10-3-5-oppg-extra-6a',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-6a',
+        number: '3.5.16',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Norges totale strømproduksjon er ca. 150 TWh per år. Av dette kommer ca. 95% fra vannkraft.
+
+a) Beregn hvor mye strøm som kommer fra vannkraft (i TWh).
+b) Gjør om svaret i a) til GWh og kWh.
+c) Norge har ca. 5,5 millioner innbyggere. Beregn gjennomsnittlig strømforbruk per innbygger per år (i kWh).
+d) Sammenlign dette med verdensgnomsnitt (ca. 3500 kWh/person/år).`,
+        solution: `**a) Strøm fra vannkraft:**
+
+$$150 \\text{ TWh} \\times 0,95 = 142,5 \\text{ TWh}$$
+
+---
+
+**b) Omregning:**
+
+$$142,5 \\text{ TWh} = 142\\,500 \\text{ GWh} = 142\\,500\\,000\\,000 \\text{ kWh}$$
+
+(Tera = 10¹², Giga = 10⁹, kilo = 10³)
+
+---
+
+**c) Forbruk per innbygger:**
+
+$$\\frac{150\\,000\\,000\\,000 \\text{ kWh}}{5\\,500\\,000 \\text{ personer}} \\approx 27\\,273 \\text{ kWh/person/år}$$
+
+**Svar:** Ca. **27 000 kWh per person per år**.
+
+---
+
+**d) Sammenligning:**
+
+Norge: 27 000 kWh/person/år
+Verdensgjennomsnitt: 3 500 kWh/person/år
+
+Norge bruker ca. **7,7 ganger mer** strøm per person enn verdensgjenom snittet!
+
+**Grunner:**
+- Kaldt klima krever mye oppvarming
+- Mye energikrevende industri (aluminium, silisium)
+- Høy levestandard
+- Billig vannkraft gjør strøm rimelig
+- Elektrisk oppvarming er vanlig (i motsetning til gass/olje i andre land)`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 7: HYDROGEN SOM ENERGIBÆRER ==========
+    {
+      id: 'nat10-3-5-oppg-extra-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-5-oppg-extra-7',
+        number: '3.5.17',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Hydrogen brukes som energibærer i fremtidens energisystem. Hydrogen kan produseres ved elektrolyse av vann:
+
+2H₂O → 2H₂ + O₂ (krever elektrisk energi)
+
+a) Hvorfor kalles hydrogen en energibærer og ikke en energikilde?
+b) Forklar hvorfor det er viktig at elektrisiteten som brukes til å produsere hydrogen kommer fra fornybare kilder.
+c) Nevn to bruksområder for hydrogen.`,
+        solution: `**a) Energibærer vs. energikilde:**
+
+Hydrogen er en **energibærer** fordi det ikke finnes fritt i naturen – det må produseres ved å bruke energi fra en annen kilde.
+
+- **Energikilde:** Noe som finnes naturlig og kan gi energi (sol, vind, kull)
+- **Energibærer:** Et stoff som lagrer energi fra en annen kilde (hydrogen, batterier)
+
+Hydrogen er som et "batteri" – det lagrer energi som kan brukes senere.
+
+---
+
+**b) Hvorfor fornybar elektrisitet er viktig:**
+
+Elektrolyse krever mye elektrisk energi. Hvis denne energien kommer fra kullkraft, blir det totale CO₂-utslippet høyt.
+
+- **Grønn hydrogen:** Produsert med fornybar energi → Ingen CO₂-utslipp
+- **Grå hydrogen:** Produsert med fossil energi → Høye CO₂-utslipp
+
+For at hydrogen skal være klimavennlig, MÅ det produseres med fornybar energi. Norge har et fortrinn her med sin vannkraft!
+
+---
+
+**c) To bruksområder for hydrogen:**
+
+1. **Transport:** Hydrogenbiler (brenselcellebiler) bruker hydrogen som drivstoff. Brenselcellen omdanner hydrogen til elektrisitet, og eneste utslipp er vanndamp (H₂O).
+
+2. **Industri:** Hydrogen kan erstatte fossile brennstoff i industrielle prosesser som stålproduksjon og sementproduksjon, som i dag er store CO₂-utslippere.`,
+      },
+    },
+
   ],
   exercises: [], // Oppgavene er embedded i content
 };
@@ -5585,6 +7668,112 @@ Dette betyr at selv om vi slutter å slippe ut CO₂ i dag, vil den allerede uts
 5. **Fluorholdige gasser** – fra kjølesystemer
 
 **Viktig:** Alle disse gassene finnes naturlig, men menneskelig aktivitet har økt mengdene dramatisk.`,
+    },
+
+    // ========== EKSEMPEL: DRIVHUSEFFEKTENS MEKANISME ==========
+    {
+      id: 'nat10-3-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Hvordan drivhuseffekten fungerer',
+      problem: `Forklar trinn for trinn hva som skjer med solstrålingen fra den forlater solen til varmen holdes igjen i jordas atmosfære.`,
+      solution: `**Trinn for trinn:**
+
+**1. Solen sender ut kortbølget stråling**
+Solen sender ut elektromagnetisk stråling, hovedsakelig synlig lys og UV-stråling. Denne strålingen har kort bølgelengde og høy energi.
+
+**2. Strålingen når jordas atmosfære**
+Ca. 30% av solstrålingen reflekteres tilbake til verdensrommet av skyer, is og lyse overflater (albedo-effekten). Ca. 70% absorberes av jordoverflaten.
+
+**3. Jordoverflaten varmes opp**
+Overflaten absorberer solstrålingen og varmes opp. Varmere overflate sender ut langbølget infrarød stråling (varmestråling) tilbake mot verdensrommet.
+
+**4. Drivhusgassene absorberer varmestrålingen**
+CO₂, vanndamp, metan og andre drivhusgasser i atmosfæren absorberer mye av den infrarøde strålingen.
+
+**5. Strålingen sendes tilbake**
+Drivhusgassene sender varmestrålingen i alle retninger – inkludert tilbake ned mot jordoverflaten.
+
+**6. Jorda holdes varm**
+Resultatet er at mer varme holdes igjen i atmosfæren, og jordas gjennomsnittstemperatur blir ca. 33°C varmere enn uten drivhuseffekten.
+
+**Oppsummering:**
+Kortbølget stråling inn → Overflaten varmes opp → Langbølget varmestråling ut → Drivhusgasser fanger varmen → Jorda holdes varm.`,
+    },
+
+    // ========== EKSEMPEL: ANALYSE AV TEMPERATURDATA ==========
+    {
+      id: 'nat10-3-6-example-2',
+      type: 'example',
+      title: 'Eksempel: Tolke temperaturdata',
+      problem: `Her er gjennomsnittstemperaturer (avvik fra normalen 1850-1900) for noen utvalgte år:
+
+| År | Avvik fra normalen |
+|-----|-------------------|
+| 1900 | -0,1°C |
+| 1950 | +0,1°C |
+| 1980 | +0,3°C |
+| 2000 | +0,6°C |
+| 2020 | +1,2°C |
+
+a) Hva viser tallene?
+b) Beregn temperaturøkningen fra 1900 til 2020.
+c) Beregn gjennomsnittlig økning per tiår mellom 1980 og 2020.`,
+      solution: `**a) Hva tallene viser:**
+
+Tallene viser at jordas gjennomsnittstemperatur har økt jevnt siden 1900, med en akselererende økning de siste tiårene.
+
+**b) Temperaturøkning fra 1900 til 2020:**
+
+Økning = (+1,2°C) - (-0,1°C) = **1,3°C** over 120 år.
+
+**c) Gjennomsnittlig økning per tiår mellom 1980 og 2020:**
+
+Økning fra 1980 til 2020 = 1,2°C - 0,3°C = 0,9°C
+Antall tiår = (2020 - 1980) / 10 = 4 tiår
+
+Gjennomsnittlig økning per tiår = 0,9°C / 4 = **0,225°C per tiår**
+
+**Tolkning:**
+Temperaturen øker med omtrent 0,2°C per tiår, noe som er svært raskt i geologisk sammenheng. Denne økningen skyldes hovedsakelig økte utslipp av drivhusgasser.`,
+    },
+
+    // ========== EKSEMPEL: KARBONFOTAVTRYKK ==========
+    {
+      id: 'nat10-3-6-example-3',
+      type: 'example',
+      title: 'Eksempel: Beregne karbonfotavtrykk',
+      problem: `En familie ønsker å beregne sitt karbonfotavtrykk for transport i ett år. De bruker:
+- Bil (bensin): 15 000 km/år, forbruk 0,08 liter/km, utslipp 2,3 kg CO₂/liter
+- Flyreise (tur-retur Oslo-London): 2 reiser/år, ca. 500 kg CO₂/reise
+
+Beregn totale CO₂-utslipp fra transport.`,
+      solution: `**Bilkjøring:**
+
+Drivstofforbruk per år = 15 000 km × 0,08 liter/km = 1200 liter
+
+CO₂-utslipp fra bil = 1200 liter × 2,3 kg CO₂/liter = **2760 kg CO₂**
+
+---
+
+**Flyreiser:**
+
+CO₂-utslipp fra fly = 2 reiser × 500 kg CO₂/reise = **1000 kg CO₂**
+
+---
+
+**Totalt karbonfotavtrykk (transport):**
+
+Totalt = 2760 + 1000 = **3760 kg CO₂** = **3,76 tonn CO₂**
+
+---
+
+**Sammenligning:**
+Norges gjennomsnittlige utslipp per person er ca. 8 tonn CO₂ per år (totalt). Denne familiens transport alene står for ca. 3,76 tonn per person (hvis vi antar 2 familiemedlemmer reiser).
+
+**Tiltak for å redusere:**
+- Bytte til elbil: Reduserer bilutslipp med ca. 80%
+- Ta tog i stedet for fly: Reduserer flyutslipp med ca. 90%
+- Med elbil og tog: 2760 × 0,2 + 1000 × 0,1 = 552 + 100 = 652 kg CO₂ (83% reduksjon!)`,
     },
 
     // ========== OPPGAVE 1: VÆR VS KLIMA (MULTIPLE CHOICE) ==========
@@ -6510,6 +8699,247 @@ Gi argumenter både for og mot påstanden, og konkluder med din egen mening.`,
 "Vi er for små" er **ikke en god unnskyldning**. Hvis alle tenkte slik, ville ingen gjort noe. Norge bør ta ansvar, både fordi vi har råd til det, og fordi vi kan inspirere andre.
 
 **Klimaendringene løses ikke av ett land alene, men hvert land må bidra.**`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 1: DRIVHUSGASSER IDENTIFISERE ==========
+    {
+      id: 'nat10-3-6-oppg-extra-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-1',
+        number: '3.6.11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av følgende gasser er IKKE en drivhusgass?',
+        options: [
+          'Karbondioksid (CO₂)',
+          'Metan (CH₄)',
+          'Nitrogen (N₂)',
+          'Lystgass (N₂O)',
+        ],
+        answer: 2,
+        solution: `**Riktig svar: Nitrogen (N₂)**
+
+**Forklaring:**
+Nitrogen utgjør ca. 78% av atmosfæren, men er IKKE en drivhusgass. N₂-molekylet absorberer ikke infrarød stråling.
+
+**Drivhusgasser er:**
+- CO₂ (karbondioksid)
+- CH₄ (metan)
+- N₂O (lystgass)
+- Vanndamp (H₂O)
+- Fluorholdige gasser
+
+**Ikke drivhusgasser:**
+- N₂ (nitrogen) – 78% av atmosfæren
+- O₂ (oksygen) – 21% av atmosfæren
+- Argon (Ar) – ca. 1% av atmosfæren`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 2: CO₂-NIVÅ TOLKNING ==========
+    {
+      id: 'nat10-3-6-oppg-extra-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-2',
+        number: '3.6.12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `CO₂-nivået i atmosfæren var 280 ppm i 1750 og er nå over 420 ppm.
+
+a) Beregn den prosentvise økningen i CO₂-nivå.
+b) Hva er hovedårsaken til denne økningen?
+c) Hvorfor er økningen bekymringsfull selv om CO₂ bare utgjør 0,042% av atmosfæren?`,
+        solution: `**a) Prosentvis økning:**
+
+Økning = 420 - 280 = 140 ppm
+
+Prosentvis økning = (140 / 280) × 100% = **50%**
+
+CO₂-nivået har økt med 50% siden industrialiseringen.
+
+---
+
+**b) Hovedårsak:**
+
+Hovedårsaken er **forbrenning av fossile brennstoff** (kull, olje, naturgass). Når vi brenner fossile brennstoff frigjøres karbon som har vært lagret under bakken i millioner av år, som CO₂ til atmosfæren.
+
+Andre bidragende årsaker:
+- Avskoging (frigjør CO₂, reduserer opptak)
+- Sementproduksjon
+- Landbruk
+
+---
+
+**c) Hvorfor er det bekymringsfullt?**
+
+Selv om CO₂ bare utgjør 0,042% av atmosfæren, er den en svært effektiv drivhusgass:
+
+1. **CO₂ absorberer infrarød stråling** – selv små mengder har stor effekt
+2. **Lang levetid** – CO₂ blir i atmosfæren i 100-300 år
+3. **50% økning er enorm** – dette er den høyeste konsentrasjonen på 800 000 år
+4. **Liten endring, stor effekt** – global temperatur har allerede økt 1,2°C
+
+Tenk på det som medisin: Selv en liten dose gift kan ha stor effekt!`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 3: KARBONKRETSLØPET ==========
+    {
+      id: 'nat10-3-6-oppg-extra-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-3',
+        number: '3.6.13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Beskriv hvordan karbon beveger seg mellom atmosfæren, planter, havet og fossile brennstoff. Forklar hvorfor forbrenning av fossile brennstoff forstyrrer denne balansen.`,
+        solution: `**Karbonkretsløpet:**
+
+**1. Atmosfæren → Planter (fotosyntese)**
+Planter tar opp CO₂ fra luften gjennom fotosyntese:
+CO₂ + H₂O + sollys → glukose + O₂
+
+**2. Planter → Atmosfæren (respirasjon og forråtnelse)**
+Når planter puster (cellerespirasjon) eller dør og råtner, frigjøres CO₂ tilbake.
+
+**3. Atmosfæren → Havet (oppløsning)**
+CO₂ løses i havoverflaten. Havet er et stort karbonlager.
+
+**4. Havet → Atmosfæren (utgassing)**
+Varmt vann holder mindre CO₂, og noe CO₂ slippes tilbake til atmosfæren.
+
+**5. Fossile brennstoff (langtidslagring)**
+Over millioner av år ble døde planter og dyr begravd og omdannet til kull, olje og gass. Karbonet ble lagret under bakken.
+
+---
+
+**Hvorfor forbrenning forstyrrer balansen:**
+
+I det naturlige kretsløpet er det **balanse** – like mye CO₂ tas opp som slippes ut.
+
+Når vi brenner fossile brennstoff, frigjøres karbon som har vært lagret i millioner av år, tilbake til atmosfæren **på bare noen tiår**. Dette er som å ta penger fra en langsiktig sparekonto og bruke dem alle på en gang.
+
+Naturen kan ikke ta opp alt det ekstra CO₂ raskt nok, og derfor øker CO₂-nivået i atmosfæren.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 4: METANS DRIVHUSEFFEKT ==========
+    {
+      id: 'nat10-3-6-oppg-extra-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-4',
+        number: '3.6.14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: `Metan (CH₄) er ca. 28 ganger sterkere som drivhusgass enn CO₂ per molekyl, men det er mye mindre metan i atmosfæren.
+
+a) Nevn tre kilder til metanutslipp.
+b) Hvorfor er metan likevel mindre bekymringsfull enn CO₂ på lang sikt?
+c) Et norsk kubruk har 50 kyr. Hver ku slipper ut ca. 100 kg metan per år. Beregn den totale drivhuseffekten i CO₂-ekvivalenter.`,
+        solution: `**a) Tre kilder til metanutslipp:**
+
+1. **Husdyr (drøvtyggere)** – kyr, sauer og geiter produserer metan gjennom fordøyelsen (raping og promp)
+2. **Søppelfyllinger** – organisk avfall som råtner uten oksygen produserer metan
+3. **Olje- og gassproduksjon** – lekkasjer fra rørledninger og produksjonsanlegg
+
+---
+
+**b) Hvorfor metan er mindre bekymringsfull på lang sikt:**
+
+Metan har kort **levetid i atmosfæren** – ca. 12 år, mens CO₂ varer i 100-300 år.
+
+Det betyr at hvis vi slutter å slippe ut metan, vil nivåene synke relativt raskt. CO₂ derimot hoper seg opp over tid fordi det varer så mye lenger.
+
+Men: Metan gir sterk oppvarming på kort sikt (20-årsperiode), så å kutte metanutslipp kan gi rask klimaeffekt.
+
+---
+
+**c) CO₂-ekvivalenter fra kubruket:**
+
+Metanutslipp totalt = 50 kyr × 100 kg metan/ku = **5000 kg metan per år**
+
+CO₂-ekvivalenter = 5000 kg × 28 = **140 000 kg CO₂-ekvivalenter** = **140 tonn CO₂-ekvivalenter**
+
+**Tolkning:**
+50 kyr gir like stor drivhuseffekt som 140 tonn CO₂ per år. Til sammenligning er gjennomsnittlig utslipp per nordmann ca. 8 tonn CO₂/år. Kubruket tilsvarer altså utslippene fra ca. 17-18 personer.`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 5: PARISAVTALEN ==========
+    {
+      id: 'nat10-3-6-oppg-extra-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-5',
+        number: '3.6.15',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er målet i Parisavtalen?',
+        options: [
+          'Holde global oppvarming godt under 2°C, helst 1,5°C',
+          'Stoppe all bruk av fossil energi innen 2025',
+          'Fjerne all CO₂ fra atmosfæren',
+          'Bygge en skjerm rundt jorda som blokkerer sollys',
+        ],
+        answer: 0,
+        solution: `**Riktig svar: Holde global oppvarming godt under 2°C, helst 1,5°C**
+
+**Forklaring:**
+
+Parisavtalen ble vedtatt i 2015 av nesten alle verdens land. Hovedmålet er å begrense global oppvarming til **godt under 2°C**, og helst **1,5°C**, sammenlignet med før-industrielt nivå.
+
+**Viktige punkter:**
+- Alle land skal sette egne utslippsmål
+- Rike land skal hjelpe fattige land med klimatiltak
+- Målene skal skjerpes hvert femte år
+- Global temperatur har allerede økt med ca. 1,2°C
+
+**Status:** Vi er på vei mot 2,5-3°C oppvarming med dagens politikk. Mye mer må gjøres!`,
+      },
+    },
+
+    // ========== OPPGAVE EXTRA 6: TIPPING POINTS ==========
+    {
+      id: 'nat10-3-6-oppg-extra-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-3-6-oppg-extra-6',
+        number: '3.6.16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: `Forklar hva et "vippepunkt" (tipping point) er i klimasammenheng. Gi to eksempler på mulige vippepunkter og forklar hvorfor de er farlige.`,
+        solution: `**Hva er et vippepunkt?**
+
+Et vippepunkt (tipping point) er et punkt der en liten ytterligere endring fører til en stor, ofte irreversibel endring i klimasystemet. Når et vippepunkt er passert, kan prosessen ikke stoppes selv om vi slutter å slippe ut drivhusgasser.
+
+**Eksempel 1: Smelting av Grønlands isbre**
+
+Grønlands isbre inneholder nok is til å heve havnivået med ca. 7 meter. Hvis temperaturen stiger nok, starter en selvforsterkende prosess:
+- Is smelter → Overflaten synker til lavere, varmere høyder
+- Varmere luft ved lavere høyde → Mer smelting
+- Prosessen akselererer og kan ikke stoppes
+
+Hvis isbreen smelter helt, vil den ikke komme tilbake selv om temperaturen synker – fordi overflaten er for lav til å få ny is.
+
+**Eksempel 2: Amazonas-regnskogen dør ut**
+
+Regnskogen lager sitt eget klima gjennom fordampning (trærne frigjør vanndamp). Hvis for mye skog hugges eller tørken blir for sterk:
+- Mindre skog → Mindre nedbør → Enda mer skog dør
+- Regnskogen kan bli savanne (gressletter)
+- Enormt mye CO₂ frigjøres fra trærne
+
+**Hvorfor vippepunkter er farlige:**
+
+1. **Irreversible** – kan ikke angres
+2. **Selvforsterkende** – settes i gang av seg selv
+3. **Kaskadering** – ett vippepunkt kan utløse andre
+4. **Uforutsigbare** – vanskelig å vite nøyaktig når de inntreffer
+
+**Konklusjon:** Vippepunkter er grunnen til at vi må handle raskt for å begrense oppvarmingen.`,
       },
     },
 

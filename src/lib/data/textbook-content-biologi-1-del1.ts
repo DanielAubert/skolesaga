@@ -1627,6 +1627,253 @@ I dette kapittelet har du laert:
 };
 
 // ============================================================================
+// Kapittel 1.6: Cellekommunikasjon og signaloverfoering
+// ============================================================================
+
+export const CHAPTER_BIOLOGI_1_1_6: TextbookChapter = {
+  id: 'biologi-1-1-6',
+  courseId: 'biologi-1',
+  chapterNumber: '1.6',
+  title: 'Cellekommunikasjon og signaloverfoering',
+  description: 'Hvordan celler kommuniserer via signalmolekyler og membranreseptorer, signaltransduksjon og sekundaere budbringere.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'gjoere rede for hvordan cellulaere membraner danner grunnlag for kommunikasjon mellom celler',
+    'beskrive ulike typer cellekommunikasjon og signaloverfoering',
+    'forklare signaltransduksjon med reseptorer, sekundaere budbringere og cellulaer respons',
+  ],
+  content: [
+    {
+      id: 'bio1-1-6-intro',
+      type: 'text',
+      content: `# Cellekommunikasjon og signaloverfoering
+
+Cellene i kroppen maa kommunisere med hverandre for at organismen skal fungere som en helhet. En muskelcelle maa vite naar den skal trekke seg sammen, en immunforsvarcelle maa vite naar det er en infeksjon, og en celle maa vite naar den skal dele seg – eller slutte aa dele seg.
+
+## Hvorfor er cellekommunikasjon viktig?
+
+Cellekommunikasjon er grunnlaget for:
+- **Utvikling**: Fra befruktet egg til ferdig organisme – cellene maa koordinere differensiering og vekst
+- **Homeostase**: Regulering av blodsukker, temperatur og pH krever signaler mellom celler
+- **Immunforsvar**: Immunceller maa kommunisere for aa koordinere angrep paa patogener
+- **Nervesystemet**: Nervesignaler er en spesialisert form for cellekommunikasjon
+- **Kreft**: Naar cellekommunikasjonen svikter, kan celler dele seg ukontrollert
+
+Cellemembranen spiller en sentral rolle i kommunikasjonen fordi den baade mottar signaler utenfra (via reseptorer) og sender signaler videre inn i cellen (via signaltransduksjon).`,
+    },
+    {
+      id: 'bio1-1-6-def-1',
+      type: 'definition',
+      title: 'Cellekommunikasjon',
+      content: '**Cellekommunikasjon** (cellesignalering) er prosessen der celler sender, mottar og tolker kjemiske signaler. Den foelger vanligvis tre trinn: (1) **Signalering** – en celle sender ut et signalmolekyl (ligand). (2) **Mottak** – en maalcelle gjenkjenner signalet via en spesifikk reseptor. (3) **Respons** – cellen endrer atferd, for eksempel ved aa aktivere enzymer, endre genekspresjon eller dele seg.',
+    },
+    {
+      id: 'bio1-1-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Adrenalin og kamp-eller-flukt-responsen',
+      problem: 'Naar du plutselig blir skremt, frigjor binyrene adrenalin. Forklar hvordan dette signalet naar fram til og paavirker hjertemuskelcellene.',
+      solution: `**Loesning:**
+
+1. **Signalering**: Binyremargen (signalcellen) skiller ut adrenalin til blodet
+2. **Transport**: Adrenalin transporteres med blodet til hele kroppen (endokrin signalering)
+3. **Mottak**: Hjertemuskelcellene har beta-adrenerge reseptorer (G-proteinkoblede reseptorer) paa cellemembranen
+4. **Gjenkjenning**: Adrenalin binder seg til reseptoren – kun celler med riktig reseptor responderer
+5. **Signaltransduksjon**: Reseptoren aktiverer et G-protein → adenylatsyklase → cAMP dannes (sekundaer budbringer)
+6. **Respons**: cAMP aktiverer proteinkinaser som oeker hjertets slagfrekvens og slagkraft
+
+Celler uten beta-adrenerge reseptorer (f.eks. mange benceller) paavirkes ikke av adrenalinet, selv om det naar dem via blodet. Det er reseptoren som avgjoer om cellen responderer.`,
+    },
+    {
+      id: 'bio1-1-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        task: 'Kva er dei tre hovudtrinna i cellekommunikasjon?',
+        options: [
+          { id: 'a', text: 'Signalering, mottak (resepsjon) og respons', isCorrect: true },
+          { id: 'b', text: 'Diffusjon, osmose og aktiv transport', isCorrect: false },
+          { id: 'c', text: 'Transkripsjon, translasjon og modifisering', isCorrect: false },
+          { id: 'd', text: 'Mitose, meiose og cytokinese', isCorrect: false },
+        ],
+        solution: 'Cellekommunikasjon foelger tre trinn: (1) Signalering – cellen sender ut et signalmolekyl (ligand). (2) Mottak – maalcellen gjenkjenner signalet via en reseptor. (3) Respons – cellen endrer atferd basert paa signalet. Alle tre trinna er noedvendige for at kommunikasjonen skal fungere.',
+      },
+    },
+    {
+      id: 'bio1-1-6-def-2',
+      type: 'definition',
+      title: 'Typer cellekommunikasjon',
+      content: `Celler kommuniserer paa ulike maater avhengig av avstanden mellom sender og mottaker:
+
+- **Endokrin signalering**: Signalmolekyler (hormoner) fraktes med blodet til fjerne maalceller. Eksempel: insulin fra bukspyttkjertelen paavirker lever- og muskelceller.
+- **Parakrin signalering**: Signalmolekyler paavirker naerliggende celler. Eksempel: vekstfaktorer som stimulerer saarheling.
+- **Autokrin signalering**: Cellen sender signaler til seg selv. Eksempel: T-celler som produserer interleukin-2 for aa stimulere sin egen deling.
+- **Synaptisk signalering**: Nevrotransmittere frigjores i synapsen og paavirker naerliggende nerveceller. Eksempel: acetylkolin ved nerve-muskel-overgangen.
+- **Direkte kontakt (juxtakrin)**: Celler kommuniserer gjennom direkte membran-til-membran-kontakt eller via gap junctions. Eksempel: immunresponsen der T-celler gjenkjenner antigener paa andre cellers overflate.`,
+    },
+    {
+      id: 'bio1-1-6-example-2',
+      type: 'example',
+      title: 'Eksempel: Parakrin vs. endokrin signalering',
+      problem: 'Forklar forskjellen mellom parakrin og endokrin signalering med eksempler fra kroppen.',
+      solution: `**Loesning:**
+
+**Parakrin signalering:**
+- Signalet naar kun naerliggende celler
+- Signalmolekylene brytes raskt ned og naar ikke langt
+- Eksempel: Ved en skade frigjor skadde celler histamin, som faar naerliggende blodaarer til aa utvide seg (betennelsesreaksjon). Histaminet paavirker bare det lokale omraadet
+- Rask, lokal effekt
+
+**Endokrin signalering:**
+- Signalet (hormonet) transporteres med blodet til hele kroppen
+- Kun celler med riktig reseptor paavirkes
+- Eksempel: Skjoldbruskkjertelen skiller ut tyroksin som transporteres til alle kroppens celler og regulerer stoffskiftet
+- Langsommere, men global effekt
+
+**Hovudforskjell**: Parakrin signalering er lokal (naerliggende celler), endokrin er global (hele kroppen via blodet). Begge bruker kjemiske signalmolekyler, men rekkevidden er ulik.`,
+    },
+    {
+      id: 'bio1-1-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar med eigne ord kvifor det er viktig at signalmolekyler i parakrin signalering brytes raskt ned.',
+        hints: ['Tenk paa kva som hadde skjedd dersom signalet spreidde seg til heile kroppen'],
+        solution: 'Dersom parakrine signalmolekyler ikkje vart brotne ned raskt, ville dei spreie seg med blodet og paaverke celler langt fraa det opphavlege omraadet. Histamin ved ein liten skade ville daa foere til betennelsesreaksjon i heile kroppen, ikkje berre lokalt. Rask nedbrytning sikrar at signalet er presist og lokalt – berre cellene i naerleiken responderer. Dette er ein vesentleg forskjell fraa endokrin signalering, der hormona nettopp er laga for aa overleve lang transport i blodet.',
+      },
+    },
+    {
+      id: 'bio1-1-6-def-3',
+      type: 'definition',
+      title: 'Signaltransduksjon og membranreseptorer',
+      content: `**Signaltransduksjon** er prosessen der eit ytre signal (ligand) blir omsett til ein intracellulær respons. Membranen speler ein noekkelrolle fordi dei fleste signalmolekyler ikkje kan passere lipiddobbeltlaget – dei treng reseptorer i membranen.
+
+Tre hovudtypar membranreseptorer:
+
+1. **G-proteinkopla reseptorar (GPCR)**: Den stoerste reseptorfamilien. Liganden aktiverer eit G-protein paa innsida av membranen, som igjen aktiverer enzym (t.d. adenylatsyklase → cAMP). Eksempel: adrenalinreseptoren.
+
+2. **Reseptor-tyrosinkinasar (RTK)**: Enzymkopla reseptorar som fosforylerer seg sjolv og aktiverer intracellulaere signalvegar. Viktig for vekstfaktorar (t.d. insulinreseptoren).
+
+3. **Ligandstyrt ionekanalerr**: Opnar seg naar ein ligand bind seg og slepper ionar gjennom. Forer til rask endring i membranpotensialet. Eksempel: acetylkolinreseptoren ved synapse.`,
+    },
+    {
+      id: 'bio1-1-6-example-3',
+      type: 'example',
+      title: 'Eksempel: cAMP som sekundaer budbringer',
+      problem: 'Forklar korleis cAMP fungerer som sekundaer budbringer i ein signaltransduksjonskaskade.',
+      solution: `**Loesning:**
+
+**Steg-for-steg signalkaskade:**
+
+1. **Ligand bind reseptor**: Eit hormon (foerstebodbringer) bind seg til ein G-proteinkopla reseptor i cellemembranen
+2. **G-protein aktiverast**: Reseptoren endrar form og aktiverer eit G-protein paa innsida av membranen
+3. **Adenylatsyklase aktiverast**: G-proteinet aktiverer enzymet adenylatsyklase i membranen
+4. **cAMP dannast**: Adenylatsyklase omdannar ATP til cAMP (syklisk adenosinmonofosfat) – dette er den sekundaere budbringaren
+5. **Signalforsterking**: Eitt aktivert enzym lagar mange cAMP-molekyl → forsterking av signalet
+6. **Proteinkinase A aktiverast**: cAMP aktiverer proteinkinase A (PKA)
+7. **Cellulær respons**: PKA fosforylerer maolprotein → endrar cellens oppfoersel
+
+**Kvifor «sekundaer budbringer»?**
+Hormonet (foerstebodbringaren) naar ikkje inn i cellen. cAMP er den intracellulaere budbringaren som overforer signalet vidare inne i cellen. Eitt hormolmolekyl kan via denne kaskaden aktivere tusenvis av enzym – enorm signalforsterking.
+
+**Nedregulering**: Enzymet fosfodiesterase bryt ned cAMP, slik at signalet ikkje varer for lenge.`,
+    },
+    {
+      id: 'bio1-1-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Kvifor kan ikkje vassloeyselege hormon (som insulin) passere cellemembranen direkte?',
+        options: [
+          { id: 'a', text: 'Fordi det hydrofobe indre av lipiddobbeltlaget avviser polare molekyl', isCorrect: true },
+          { id: 'b', text: 'Fordi dei er for smaa til aa bli gjenkjent', isCorrect: false },
+          { id: 'c', text: 'Fordi membranen ikkje har plass til dei', isCorrect: false },
+          { id: 'd', text: 'Fordi dei mangler energi til aktiv transport', isCorrect: false },
+        ],
+        solution: 'Cellemembranen har eit hydrofobt (vasskyande) indre bestaande av fettsyrehalane i fosfolipida. Vassloeyselege (hydrofile/polare) molekyl som peptidhormon (insulin, adrenalin) kan ikkje passere denne hydrofobe barrieren. Dei treng difor reseptorar paa celleoverflata for aa sende signalet vidare inn i cellen via signaltransduksjon. Feittloeyselege hormon (som steroidhormon) kan derimot passere membranen direkte og bind seg til intracellulaere reseptorar.',
+      },
+    },
+    {
+      id: 'bio1-1-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar kvifor signalforsterking er ein viktig eigenskap ved signaltransduksjonskaskader.',
+        hints: ['Tenk paa kva som skjer i kvart trinn av kaskaden', 'Eit enzym kan omdanne mange substratmolekyl'],
+        solution: 'I ein signalkaskade aktiverer kvart trinn mange molekyl i neste trinn: Eitt hormolmolekyl aktiverer ein reseptor → ein reseptor aktiverer fleire G-protein → kvart G-protein aktiverer eit adenylatsyklase → kvart adenylatsyklase lagar mange cAMP → mange cAMP aktiverer mange proteinkinasar → kvar proteinkinase fosforylerer mange maolprotein. Slik kan eitt enkelt hormolmolekyl paa celleoverflata utloeyse ein massiv respons inne i cellen. Dette er viktig fordi hormonkonsentrasjonane i blodet er svært laage (nanomolaar), og utan forsterking ville signalet vaere for svakt til aa ha effekt.',
+      },
+    },
+    {
+      id: 'bio1-1-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Cellekommunikasjon** folger tre hovudtrinn: signalering, mottak og respons
+- **Fem typar signalering**: endokrin (blodet), parakrin (lokalt), autokrin (seg sjolv), synaptisk (synapse) og juxtakrin (direkte kontakt)
+- **Membranreseptorar** er noedvendige fordi dei fleste signalmolekyl ikkje kan passere lipiddobbeltlaget
+- **Tre reseptortypar**: G-proteinkopla (GPCR), reseptor-tyrosinkinasar (RTK) og ligandstyrt ionekanalar
+- **Signaltransduksjon**: ytre signal → membranreseptor → intracellulaer kaskade → cellulær respons
+- **Sekundaere budbringarar** (cAMP, kalsium) forsterkar signalet enormt inne i cellen
+- **Signalforsterking**: Ein ligand kan aktivere tusenvis av effektormolekyl gjennom kaskaden
+
+| Signaltype | Rekkevidde | Hastigheit | Eksempel |
+|------------|-----------|------------|----------|
+| Endokrin | Global (blod) | Sekund–minutt | Insulin, adrenalin |
+| Parakrin | Lokal | Sekund | Histamin, vekstfaktorar |
+| Autokrin | Sjolv | Sekund | Interleukin-2 |
+| Synaptisk | Synapse | Millisekund | Acetylkolin |
+| Juxtakrin | Kontakt | Varierer | T-celle–antigenpresentasjon |`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'bio1-1-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Samanlikn korleis vassloeyselege hormon (t.d. adrenalin) og fettloeyselege hormon (t.d. oestrogen) sender signala sine til cella. Kvifor treng vassloeyselege hormon membranreseptorar, medan fettloeyselege ikkje gjer det?',
+        hints: ['Tenk paa oppbygginga av cellemembranen', 'Kva for eigenskap avgjer om eit molekyl kan passere lipiddobbeltlaget?'],
+        solution: 'Vassloeyselege hormon (peptidhormon som adrenalin og insulin) er polare molekyl som ikkje kan passere det hydrofobe indre av lipiddobbeltlaget. Dei bind seg til reseptorar paa celleoverflata (t.d. GPCR) og utloeser signaltransduksjon via sekundaere budbringarar (cAMP). Signalet er raskt men kortvarig. Fettloeyselege hormon (steroidhormon som oestrogen, testosteron, kortisol) er hydrofobe og kan passere direkte gjennom cellemembranen. Dei bind seg til intracellulaere reseptorar (ofte i cellekjernen) og paaverkar genekspresjon direkte. Signalet er langsommare men meir langvarig. Skilnaden kjem av membranens oppbygging: det hydrofobe indre slepp berre gjennom hydrofobe molekyl.',
+      },
+    },
+    {
+      id: 'bio1-1-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'bio1-1-6-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Mange kreftceller har mutasjonar i gen som kodar for vekstfaktorreseptorar eller protein i signalkaskaden. Forklar korleis ein mutasjon som gjer ein reseptor konstant aktiv (utan ligand) kan bidra til kreftutvikling.',
+        hints: ['Kva signal gir vekstfaktorar normalt?', 'Kva skjer naar signalet aldri stoppar?'],
+        solution: 'Normalt bind vekstfaktorar seg til reseptorar (t.d. RTK) og sender eit signal om celledeling. Naar vekstfaktoren forsvinn, stoppar signalet og cella sluttar aa dele seg. Ein mutasjon som gjer reseptoren konstant aktiv betyr at cella heile tida faar signal om aa dele seg – sjolv utan vekstfaktor. Dette forer til ukontrollert celledeling, eit kjenneteikn ved kreft. Eksempel: HER2-reseptoren er overuttrykt i ca. 20% av brystkreft-tilfelle, noko som gir konstant vekstsignal. Kreftmedisinen trastuzumab (Herceptin) blokkerer denne reseptoren. Dette viser korleis forstaaing av cellekommunikasjon er direkte relevant for kreftbehandling.',
+      },
+    },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Ligand', definition: 'Signalmolekyl som bind seg til ein spesifikk reseptor og utloeser ein respons' },
+    { term: 'Reseptor', definition: 'Protein som gjenkjenner og bind eit spesifikt signalmolekyl' },
+    { term: 'Signaltransduksjon', definition: 'Prosessen der eit ytre signal vert omsett til ein intracellulær respons' },
+    { term: 'GPCR', definition: 'G-proteinkopla reseptor – den stoerste familien av membranreseptorar' },
+    { term: 'Sekundaer budbringer', definition: 'Intracellulaert signalmolekyl (t.d. cAMP, kalsium) som formidlar og forsterkar signalet' },
+    { term: 'Signalforsterking', definition: 'Kaskadeeffekt der eitt signalmolekyl aktiverer mange effektormolekyl' },
+    { term: 'Parakrin signalering', definition: 'Kommunikasjon med naerliggjande celler via lokale signalmolekyl' },
+  ],
+};
+
+// ============================================================================
 // Eksport av alle kapitler
 // ============================================================================
 
@@ -1636,4 +1883,5 @@ export const BIOLOGI_1_DEL1_CHAPTERS: TextbookChapter[] = [
   CHAPTER_BIOLOGI_1_1_3,
   CHAPTER_BIOLOGI_1_1_4,
   CHAPTER_BIOLOGI_1_1_5,
+  CHAPTER_BIOLOGI_1_1_6,
 ];
