@@ -6,11 +6,13 @@
  * Dekker LK20 laereplan for fremmedsprak niva 3
  * Avansert tysk for elever som har fullfort niva 1 og 2
  *
- * Innholdet er delt opp i 4 filer:
+ * Innholdet er delt opp i 6 filer:
  * - textbook-content-tysk-3-kap1-3.ts (Setningsstrukturer, Litteratur, Akademisk skriving)
  * - textbook-content-tysk-3-kap4-6.ts (Idiomer, Medier, Politikk)
  * - textbook-content-tysk-3-kap7-8.ts (Filosofi, Oekonomi)
  * - textbook-content-tysk-3-kap9-10.ts (Vitenskap, Eksamensforbredelse)
+ * - textbook-content-tysk-3-kap11-13.ts (Historie/Minnekultur, Miljø/Bærekraft, Kunst/Musikk/Film)
+ * - textbook-content-tysk-3-kap14-16.ts (Oversettelse, Interkulturell kommunikasjon, Eksamen)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,6 +22,8 @@ import { TYSK_3_CHAPTERS_1_3 } from './textbook-content-tysk-3-kap1-3';
 import { TYSK_3_CHAPTERS_4_6 } from './textbook-content-tysk-3-kap4-6';
 import { TYSK_3_CHAPTERS_7_8 } from './textbook-content-tysk-3-kap7-8';
 import { TYSK_3_CHAPTERS_9_10 } from './textbook-content-tysk-3-kap9-10';
+import { TYSK_3_CHAPTERS_11_13 } from './textbook-content-tysk-3-kap11-13';
+import { TYSK_3_CHAPTERS_14_16 } from './textbook-content-tysk-3-kap14-16';
 
 // Re-eksporter individuelle kapitler for bakoverkompatibilitet
 export {
@@ -74,6 +78,36 @@ export {
   CHAPTER_TYSK_3_10_4,
 } from './textbook-content-tysk-3-kap9-10';
 
+export {
+  CHAPTER_TYSK_3_11_1,
+  CHAPTER_TYSK_3_11_2,
+  CHAPTER_TYSK_3_11_3,
+  CHAPTER_TYSK_3_11_4,
+  CHAPTER_TYSK_3_12_1,
+  CHAPTER_TYSK_3_12_2,
+  CHAPTER_TYSK_3_12_3,
+  CHAPTER_TYSK_3_12_4,
+  CHAPTER_TYSK_3_13_1,
+  CHAPTER_TYSK_3_13_2,
+  CHAPTER_TYSK_3_13_3,
+  CHAPTER_TYSK_3_13_4,
+} from './textbook-content-tysk-3-kap11-13';
+
+export {
+  CHAPTER_TYSK_3_14_1,
+  CHAPTER_TYSK_3_14_2,
+  CHAPTER_TYSK_3_14_3,
+  CHAPTER_TYSK_3_14_4,
+  CHAPTER_TYSK_3_15_1,
+  CHAPTER_TYSK_3_15_2,
+  CHAPTER_TYSK_3_15_3,
+  CHAPTER_TYSK_3_15_4,
+  CHAPTER_TYSK_3_16_1,
+  CHAPTER_TYSK_3_16_2,
+  CHAPTER_TYSK_3_16_3,
+  CHAPTER_TYSK_3_16_4,
+} from './textbook-content-tysk-3-kap14-16';
+
 // ============================================================================
 // Eksporter alle kapitler samlet
 // ============================================================================
@@ -83,4 +117,6 @@ export const TYSK_3_CHAPTERS: TextbookChapter[] = [
   ...TYSK_3_CHAPTERS_4_6,
   ...TYSK_3_CHAPTERS_7_8,
   ...TYSK_3_CHAPTERS_9_10,
+  ...TYSK_3_CHAPTERS_11_13,
+  ...TYSK_3_CHAPTERS_14_16,
 ];
