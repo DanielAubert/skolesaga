@@ -36,26 +36,26 @@ I dette kapittelet skal du lære om:
 
 - Hvordan celleteori utviklet seg historisk
 - Hva som gjor cellen til livets minste funksjonelle enhet
-- Hvordan vi observerer celler og deres storrelsesorden
+- Hvordan vi observerer celler og deres størrelsesorden
 
-Cellen er grunnlaget for alt liv. Fra de minste bakteriene til de storste blahvalene - alle levende organismer er bygd opp av celler. Dette enkle, men revolusjonerende prinsippet danner grunnlaget for moderne biologi.`,
+Cellen er grunnlaget for alt liv. Fra de minste bakteriene til de største blåhvalene - alle levende organismer er bygd opp av celler. Dette enkle, men revolusjonerende prinsippet danner grunnlaget for moderne biologi.`,
     },
     {
       id: 'bio1-1-1-historie',
       type: 'text',
       content: `## Celleteoriens historiske utvikling
 
-### De forste observasjonene
+### De første observasjonene
 
-Cellens historie begynner med oppfinnelsen av mikroskopet pa 1600-tallet.
+Cellens historie begynner med oppfinnelsen av mikroskopet på 1600-tallet.
 
-**Robert Hooke (1665)** var den forste som brukte ordet "celle" (latin: *cellula* = lite rom). Han observerte dodt korkvev og sa de tomme cellehulrommene som minnet ham om klosterceller.
+**Robert Hooke (1665)** var den første som brukte ordet "celle" (latin: *cellula* = lite rom). Han observerte dødt korkvev og så de tomme cellehulrommene som minnet ham om klosterceller.
 
-**Anton van Leeuwenhoek (1670-tallet)** bygde bedre mikroskoper og var den forste som observerte levende celler - bakterier og encellete organismer som han kalte "dyreanimalcules".
+**Anton van Leeuwenhoek (1670-tallet)** bygde bedre mikroskoper og var den første som observerte levende celler - bakterier og encellede organismer som han kalte "dyreanimalcules".
 
 ### Celleteoriens etablering
 
-Pa 1800-tallet ble celleteori formelt etablert:
+På 1800-tallet ble celleteori formelt etablert:
 
 **Matthias Schleiden (1838)** - botaniker som fastslo at alle planter er bygd opp av celler.
 
@@ -67,31 +67,31 @@ Pa 1800-tallet ble celleteori formelt etablert:
       id: 'bio1-1-1-def-celleteori',
       type: 'definition',
       title: 'Celleteori',
-      content: 'Celleteori er et av biologiens grunnleggende prinsipper og fastslår at: 1) Alle levende organismer bestar av en eller flere celler. 2) Cellen er livets minste funksjonelle enhet. 3) Alle celler oppstar fra eksisterende celler gjennom celledeling. Denne teorien ble utviklet pa 1800-tallet og er fortsatt gyldig i dag.',
+      content: 'Celleteori er et av biologiens grunnleggende prinsipper og fastslår at: 1) Alle levende organismer består av en eller flere celler. 2) Cellen er livets minste funksjonelle enhet. 3) Alle celler oppstår fra eksisterende celler gjennom celledeling. Denne teorien ble utviklet på 1800-tallet og er fortsatt gyldig i dag.',
     },
     {
       id: 'bio1-1-1-funksjonell',
       type: 'text',
       content: `## Cellen som minste funksjonelle enhet
 
-Hva betyr det egentlig at cellen er livets minste funksjonelle enhet? Det betyr at cellen er den minste strukturen som kan utfore alle livsprosesser:
+Hva betyr det egentlig at cellen er livets minste funksjonelle enhet? Det betyr at cellen er den minste strukturen som kan utføre alle livsprosesser:
 
-### Kjennetegn pa liv
+### Kjennetegn på liv
 
 En celle kan:
-- **Ta opp naering** - transportere stoffer over membranen
-- **Omsette energi** - bryte ned naering for a fa energi (ATP)
-- **Vokse** - oke i storrelse ved a bygge nye molekyler
-- **Reprodusere** - dele seg for a lage nye celler
-- **Reagere pa omgivelsene** - respondere pa stimuli
-- **Holde homeostase** - opprettholde stabilt indre miljo
+- **Ta opp næring** - transportere stoffer over membranen
+- **Omsette energi** - bryte ned næring for å få energi (ATP)
+- **Vokse** - øke i størrelse ved å bygge nye molekyler
+- **Reprodusere** - dele seg for å lage nye celler
+- **Reagere på omgivelsene** - respondere på stimuli
+- **Holde homeostase** - opprettholde stabilt indre miljø
 - **Evolusjon** - endre seg over generasjoner
 
 ### Kan noe mindre enn en celle leve?
 
-Molekyler og organeller kan ikke utfore alle disse funksjonene alene. For eksempel:
+Molekyler og organeller kan ikke utføre alle disse funksjonene alene. For eksempel:
 - Mitokondrier kan produsere ATP, men kan ikke reprodusere seg uten resten av cellen
-- DNA inneholder genetisk informasjon, men trenger cellens maskineri for a fungere
+- DNA inneholder genetisk informasjon, men trenger cellens maskineri for å fungere
 - Virus har genetisk materiale, men kan bare formere seg inne i vertsceller
 
 Derfor regnes cellen som grensen for liv.`,
@@ -100,89 +100,89 @@ Derfor regnes cellen som grensen for liv.`,
       id: 'bio1-1-1-def-homeostase',
       type: 'definition',
       title: 'Homeostase',
-      content: 'Homeostase er cellens (og organismens) evne til a opprettholde et stabilt indre miljo til tross for endringer i omgivelsene. Dette inkluderer regulering av temperatur, pH, ionkonsentrasjoner og vannbalanse. Homeostase er avgjorende for at cellens enzymer og prosesser skal fungere optimalt.',
+      content: 'Homeostase er cellens (og organismens) evne til å opprettholde et stabilt indre miljø til tross for endringer i omgivelsene. Dette inkluderer regulering av temperatur, pH, ionkonsentrasjoner og vannbalanse. Homeostase er avgjørende for at cellens enzymer og prosesser skal fungere optimalt.',
     },
     {
       id: 'bio1-1-1-storrelse',
       type: 'text',
-      content: `## Storrelsesorden og observasjon
+      content: `## Størrelsesorden og observasjon
 
-### Cellestorrelser
+### Cellestørrelser
 
-Celler varierer enormt i storrelse:
+Celler varierer enormt i størrelse:
 
-| Type | Storrelse | Eksempel |
+| Type | Størrelse | Eksempel |
 |------|-----------|----------|
 | Bakterier | 0,2-10 $\\mu m$ | *E. coli* (ca. 2 $\\mu m$) |
 | Dyreceller | 10-30 $\\mu m$ | Hvite blodceller (ca. 15 $\\mu m$) |
-| Planteceller | 10-100 $\\mu m$ | Lokeceller (ca. 50 $\\mu m$) |
+| Planteceller | 10-100 $\\mu m$ | Løkceller (ca. 50 $\\mu m$) |
 | Eggceller | 100-1000 $\\mu m$ | Menneskets eggcelle (120 $\\mu m$) |
 | Nerveceller | Opptil 1 m lang | Motoriske nevroner |
 
 ### Enheter
 
-For a beskrive cellestorrelser bruker vi:
+For å beskrive cellestørrelser bruker vi:
 - **Mikrometer ($\\mu m$)**: $1 \\mu m = 10^{-6}$ m = 0,000001 m
 - **Nanometer (nm)**: $1 nm = 10^{-9}$ m = 0,000000001 m
 
 ### Observasjonsmetoder
 
 **Lysmikroskop**
-- Forstorrelse: ca. 1000x
-- Opplosning: ca. 200 nm
-- Kan se celler og storre organeller (kjerne, kloroplaster)
+- Forstørrelse: ca. 1000x
+- Oppløsning: ca. 200 nm
+- Kan se celler og større organeller (kjerne, kloroplaster)
 - Bruker synlig lys
 
 **Elektronmikroskop**
-- Forstorrelse: opptil 1 000 000x
-- Opplosning: ca. 0,2 nm
+- Forstørrelse: opptil 1 000 000x
+- Oppløsning: ca. 0,2 nm
 - Kan se alle organeller, membraner, ribosomer
-- Bruker elektronstrale`,
+- Bruker elektronstråle`,
     },
     {
-      id: 'bio1-1-1-def-opplosning',
+      id: 'bio1-1-1-def-oppløsning',
       type: 'definition',
-      title: 'Opplosning (resolusjon)',
-      content: 'Opplosning er mikroskopets evne til a skille to punkter som ligger nart hverandre. Et mikroskop med hoy opplosning kan se finere detaljer. Lysmikroskop har en teoretisk opplosningsgrense pa ca. 200 nm (begrenset av lysets bolgelengde), mens elektronmikroskop kan oppna opplosning pa under 1 nm.',
+      title: 'Oppløsning (resolusjon)',
+      content: 'Oppløsning er mikroskopets evne til å skille to punkter som ligger nært hverandre. Et mikroskop med høy oppløsning kan se finere detaljer. Lysmikroskop har en teoretisk oppløsningsgrense på ca. 200 nm (begrenset av lysets bølgelengde), mens elektronmikroskop kan oppnå oppløsning på under 1 nm.',
     },
     {
       id: 'bio1-1-1-example-1',
       type: 'example',
-      title: 'Eksempel: Beregning av forstorrelse',
-      problem: 'Et mikroskop har et okular med 10x forstorrelse og et objektiv med 40x forstorrelse. Hva er den totale forstorrelsen? Hvis en celle maler 50 $\\mu m$ i virkeligheten, hvor stor vil den se ut i mikroskopet?',
-      solution: `**Losning:**
+      title: 'Eksempel: Beregning av forstørrelse',
+      problem: 'Et mikroskop har et okular med 10x forstørrelse og et objektiv med 40x forstørrelse. Hva er den totale forstørrelsen? Hvis en celle måler 50 $\\mu m$ i virkeligheten, hvor stor vil den se ut i mikroskopet?',
+      solution: `**Løsning:**
 
-**Total forstorrelse:**
-$$\\text{Total forstorrelse} = \\text{okular} \\times \\text{objektiv} = 10 \\times 40 = 400\\text{x}$$
+**Total forstørrelse:**
+$$\\text{Total forstørrelse} = \\text{okular} \\times \\text{objektiv} = 10 \\times 40 = 400\\text{x}$$
 
-**Tilsynelatende storrelse:**
-$$\\text{Tilsynelatende storrelse} = \\text{virkelig storrelse} \\times \\text{forstorrelse}$$
+**Tilsynelatende størrelse:**
+$$\\text{Tilsynelatende størrelse} = \\text{virkelig størrelse} \\times \\text{forstørrelse}$$
 $$= 50 \\mu m \\times 400 = 20\\,000 \\mu m = 20 mm = 2 cm$$
 
-Cellen vil altsa se ut som den er 2 cm stor nar du ser gjennom mikroskopet.`,
+Cellen vil altså se ut som den er 2 cm stor når du ser gjennom mikroskopet.`,
     },
     {
       id: 'bio1-1-1-example-2',
       type: 'example',
-      title: 'Eksempel: Storrelsessammenligning',
-      problem: 'En bakterie er 2 $\\mu m$ lang og en menneskecelle er 20 $\\mu m$ i diameter. Hvor mange bakterier kan teoretisk fa plass pa tvers av menneskecellen?',
-      solution: `**Losning:**
+      title: 'Eksempel: Størrelsessammenligning',
+      problem: 'En bakterie er 2 $\\mu m$ lang og en menneskecelle er 20 $\\mu m$ i diameter. Hvor mange bakterier kan teoretisk få plass på tvers av menneskecellen?',
+      solution: `**Løsning:**
 
 $$\\text{Antall bakterier} = \\frac{\\text{diameter menneskecelle}}{\\text{lengde bakterie}} = \\frac{20 \\mu m}{2 \\mu m} = 10$$
 
-Omtrent 10 bakterier kan teoretisk ligge pa rekke over diameteren til en menneskecelle. Dette illustrerer den enorme storrelsesforskjellen mellom prokaryote og eukaryote celler.`,
+Omtrent 10 bakterier kan teoretisk ligge på rekke over diameteren til en menneskecelle. Dette illustrerer den enorme størrelsesforskjellen mellom prokaryote og eukaryote celler.`,
     },
     {
       id: 'bio1-1-1-oppsummering',
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du lart:
+I dette kapittelet har du lært:
 
-- **Celleteoriens historie**: Fra Hooke og Leeuwenhoeks forste observasjoner til Schleiden, Schwann og Virchows formulering av de tre prinsippene
-- **Celleteoriens tre prinsipper**: Alle organismer bestar av celler, cellen er livets minste funksjonelle enhet, og alle celler kommer fra eksisterende celler
-- **Livets kjennetegn**: Naeringsopptak, energiomsetning, vekst, reproduksjon, respons, homeostase og evolusjon
-- **Cellestorrelser**: Fra bakterier (mikrometerskala) til spesialiserte celler (nerveceller kan bli over en meter)
+- **Celleteoriens historie**: Fra Hooke og Leeuwenhoeks første observasjoner til Schleiden, Schwann og Virchows formulering av de tre prinsippene
+- **Celleteoriens tre prinsipper**: Alle organismer består av celler, cellen er livets minste funksjonelle enhet, og alle celler kommer fra eksisterende celler
+- **Livets kjennetegn**: Næringsopptak, energiomsetning, vekst, reproduksjon, respons, homeostase og evolusjon
+- **Cellestørrelser**: Fra bakterier (mikrometerskala) til spesialiserte celler (nerveceller kan bli over en meter)
 - **Mikroskopi**: Lysmikroskop for celler og store organeller, elektronmikroskop for finere strukturer`,
     },
   ],
@@ -191,61 +191,61 @@ I dette kapittelet har du lart:
       id: 'bio1-1-1-ex1',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hvem brukte forst ordet "celle" om biologiske strukturer?',
+      task: 'Hvem brukte først ordet "celle" om biologiske strukturer?',
       options: [
         { id: 'a', text: 'Robert Hooke', isCorrect: true },
         { id: 'b', text: 'Anton van Leeuwenhoek', isCorrect: false },
         { id: 'c', text: 'Matthias Schleiden', isCorrect: false },
         { id: 'd', text: 'Rudolf Virchow', isCorrect: false },
       ],
-      solution: 'Robert Hooke brukte forst ordet "celle" i 1665 da han observerte dodt korkvev. De tomme hulrommene minnet ham om munkeenes celler (rom) i et kloster.',
+      solution: 'Robert Hooke brukte først ordet "celle" i 1665 da han observerte dødt korkvev. De tomme hulrommene minnet ham om munkenes celler (rom) i et kloster.',
     },
     {
       id: 'bio1-1-1-ex2',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hvilket av folgende er IKKE et av celleteoriens tre hovedprinsipper?',
+      task: 'Hvilket av følgende er IKKE et av celleteoriens tre hovedprinsipper?',
       options: [
         { id: 'a', text: 'Alle celler inneholder DNA', isCorrect: true },
-        { id: 'b', text: 'Alle levende organismer bestar av celler', isCorrect: false },
+        { id: 'b', text: 'Alle levende organismer består av celler', isCorrect: false },
         { id: 'c', text: 'Cellen er livets minste funksjonelle enhet', isCorrect: false },
         { id: 'd', text: 'Alle celler kommer fra eksisterende celler', isCorrect: false },
       ],
-      solution: 'De tre hovedprinsippene er: 1) Alle organismer bestar av celler, 2) Cellen er livets minste funksjonelle enhet, 3) Alle celler kommer fra eksisterende celler. At alle celler inneholder DNA er sant, men er ikke et av de opprinnelige prinsippene.',
+      solution: 'De tre hovedprinsippene er: 1) Alle organismer består av celler, 2) Cellen er livets minste funksjonelle enhet, 3) Alle celler kommer fra eksisterende celler. At alle celler inneholder DNA er sant, men er ikke et av de opprinnelige prinsippene.',
     },
     {
       id: 'bio1-1-1-ex3',
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar hvorfor virus ikke regnes som levende organismer i henhold til celleteori.',
-      solution: 'Virus regnes ikke som levende fordi de: 1) Ikke er celler - de mangler cellulare strukturer som membran og organeller. 2) Kan ikke reprodusere seg selv - de ma bruke vertscellens maskineri. 3) Har ikke egen metabolisme - de kan ikke omsette energi eller ta opp naering pa egen hand. 4) Viser ingen livstegn utenfor en vertscelle. Selv om virus har genetisk materiale (DNA eller RNA), oppfyller de ikke kriteriene for liv definert av celleteori.',
+      solution: 'Virus regnes ikke som levende fordi de: 1) Ikke er celler - de mangler cellulære strukturer som membran og organeller. 2) Kan ikke reprodusere seg selv - de må bruke vertscellens maskineri. 3) Har ikke egen metabolisme - de kan ikke omsette energi eller ta opp næring på egen hånd. 4) Viser ingen livstegn utenfor en vertscelle. Selv om virus har genetisk materiale (DNA eller RNA), oppfyller de ikke kriteriene for liv definert av celleteori.',
     },
     {
       id: 'bio1-1-1-ex4',
       type: 'multiple-choice',
       difficulty: 'medium',
-      task: 'Hva er opplosningsgrensen for et lysmikroskop?',
+      task: 'Hva er oppløsningsgrensen for et lysmikroskop?',
       options: [
         { id: 'a', text: 'Ca. 200 nm', isCorrect: true },
         { id: 'b', text: 'Ca. 2 nm', isCorrect: false },
         { id: 'c', text: 'Ca. 2 mm', isCorrect: false },
         { id: 'd', text: 'Ca. 0,2 nm', isCorrect: false },
       ],
-      solution: 'Lysmikroskopets teoretiske opplosningsgrense er ca. 200 nm, som er omtrent halvparten av bolgelengden til synlig lys. Dette er grunnen til at vi ikke kan se ribosomer eller membranens dobbeltlag i et lysmikroskop - de er for sma.',
+      solution: 'Lysmikroskopets teoretiske oppløsningsgrense er ca. 200 nm, som er omtrent halvparten av bølgelengden til synlig lys. Dette er grunnen til at vi ikke kan se ribosomer eller membranens dobbeltlag i et lysmikroskop - de er for små.',
     },
     {
       id: 'bio1-1-1-ex5',
       type: 'classic',
       difficulty: 'medium',
-      task: 'En celle males til a vaere 30 mm i diameter nar du ser gjennom et mikroskop med total forstorrelse 400x. Beregn cellens virkelige diameter.',
-      solution: 'Vi bruker formelen: Virkelig storrelse = Tilsynelatende storrelse / Forstorrelse\n\nVirkelig diameter = 30 mm / 400 = 0,075 mm = 75 $\\mu m$\n\nCellen er altsa 75 mikrometer i diameter, noe som er typisk for en storre plantecelle eller eggcelle.',
+      task: 'En celle måles til å være 30 mm i diameter når du ser gjennom et mikroskop med total forstørrelse 400x. Beregn cellens virkelige diameter.',
+      solution: 'Vi bruker formelen: Virkelig størrelse = Tilsynelatende størrelse / Forstørrelse\n\nVirkelig diameter = 30 mm / 400 = 0,075 mm = 75 $\\mu m$\n\nCellen er altså 75 mikrometer i diameter, noe som er typisk for en større plantecelle eller eggcelle.',
     },
     {
       id: 'bio1-1-1-ex6',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Forklar hva det betyr at cellen er "livets minste funksjonelle enhet". Gi minst tre eksempler pa livsprosesser som cellen kan utfore.',
-      solution: 'At cellen er livets minste funksjonelle enhet betyr at det er den minste strukturen som kan utfore alle prosesser som kjennetegner liv. Eksempler pa livsprosesser:\n\n1) **Naeringsopptak**: Cellen kan ta opp stoffer fra omgivelsene gjennom passiv eller aktiv transport over cellemembranen.\n\n2) **Energiomsetning**: Cellen bryter ned naering gjennom celleanding for a produsere ATP som gir energi til alle prosesser.\n\n3) **Reproduksjon**: Cellen kan dele seg for a produsere nye celler gjennom mitose eller meiose.\n\n4) **Respons pa stimuli**: Cellen kan oppdage og reagere pa endringer i omgivelsene, for eksempel kjemiske signaler.\n\n5) **Homeostase**: Cellen opprettholder stabilt indre miljo ved a regulere ionkonsentrasjoner, pH og vannbalanse.',
+      task: 'Forklar hva det betyr at cellen er "livets minste funksjonelle enhet". Gi minst tre eksempler på livsprosesser som cellen kan utføre.',
+      solution: 'At cellen er livets minste funksjonelle enhet betyr at det er den minste strukturen som kan utføre alle prosesser som kjennetegner liv. Eksempler på livsprosesser:\n\n1) **Næringsopptak**: Cellen kan ta opp stoffer fra omgivelsene gjennom passiv eller aktiv transport over cellemembranen.\n\n2) **Energiomsetning**: Cellen bryter ned næring gjennom celleånding for å produsere ATP som gir energi til alle prosesser.\n\n3) **Reproduksjon**: Cellen kan dele seg for å produsere nye celler gjennom mitose eller meiose.\n\n4) **Respons på stimuli**: Cellen kan oppdage og reagere på endringer i omgivelsene, for eksempel kjemiske signaler.\n\n5) **Homeostase**: Cellen opprettholder stabilt indre miljø ved å regulere ionkonsentrasjoner, pH og vannbalanse.',
     },
   ],
 };
@@ -259,12 +259,12 @@ export const CHAPTER_BIOLOGI_1_1_2: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '1.2',
   title: 'Prokaryote og eukaryote celler',
-  description: 'Strukturelle forskjeller mellom prokaryoter og eukaryoter, bakterier og arkeer, samt evolusjonaer opprinnelse.',
+  description: 'Strukturelle forskjeller mellom prokaryoter og eukaryoter, bakterier og arkeer, samt evolusjonær opprinnelse.',
   estimatedMinutes: 50,
   competenceGoals: [
     'forklare forskjellen mellom prokaryote og eukaryote celler',
     'beskrive cellens oppbygging og organellenes funksjoner',
-    'gjore rede for endosymbioseteorien',
+    'gjøre rede for endosymbioseteorien',
   ],
   content: [
     {
@@ -272,19 +272,19 @@ export const CHAPTER_BIOLOGI_1_1_2: TextbookChapter = {
       type: 'text',
       content: `# Prokaryote og eukaryote celler
 
-I dette kapittelet skal du laere om:
+I dette kapittelet skal du lære om:
 
 - De strukturelle forskjellene mellom prokaryote og eukaryote celler
 - Bakterier og arkeer som de to domenene av prokaryoter
 - Hvordan eukaryote celler oppsto gjennom evolusjon
 
-Alle celler pa jorda kan deles inn i to hovedkategorier basert pa deres indre struktur: prokaryoter (celler uten ekte kjerne) og eukaryoter (celler med ekte kjerne).`,
+Alle celler på jorda kan deles inn i to hovedkategorier basert på deres indre struktur: prokaryoter (celler uten ekte kjerne) og eukaryoter (celler med ekte kjerne).`,
     },
     {
       id: 'bio1-1-2-def-prokaryot',
       type: 'definition',
       title: 'Prokaryot celle',
-      content: 'En prokaryot celle (gresk: *pro* = for, *karyon* = kjerne) er en celle uten membranomsluttet kjerne. DNA-et ligger fritt i cytoplasma i et omrade kalt nukleoid. Prokaryoter mangler ogsa andre membranbundne organeller som mitokondrier og endoplasmatisk retikulum. Prokaryoter inkluderer bakterier og arkeer.',
+      content: 'En prokaryot celle (gresk: *pro* = før, *karyon* = kjerne) er en celle uten membranomsluttet kjerne. DNA-et ligger fritt i cytoplasma i et område kalt nukleoid. Prokaryoter mangler også andre membranbundne organeller som mitokondrier og endoplasmatisk retikulum. Prokaryoter inkluderer bakterier og arkeer.',
     },
     {
       id: 'bio1-1-2-def-eukaryot',
@@ -301,18 +301,18 @@ Alle celler pa jorda kan deles inn i to hovedkategorier basert pa deres indre st
 
 | Egenskap | Prokaryoter | Eukaryoter |
 |----------|-------------|------------|
-| **Storrelse** | 0,2-10 $\\mu m$ | 10-100 $\\mu m$ |
-| **Kjerne** | Ingen kjernememran | Ekte kjerne med dobbel membran |
-| **DNA-organisering** | Sirkulaert kromosom i nukleoid | Lineaere kromosomer i kjernen |
+| **Størrelse** | 0,2-10 $\\mu m$ | 10-100 $\\mu m$ |
+| **Kjerne** | Ingen kjernemembran | Ekte kjerne med dobbel membran |
+| **DNA-organisering** | Sirkulært kromosom i nukleoid | Lineære kromosomer i kjernen |
 | **Membranbundne organeller** | Ingen | Mitokondrier, ER, Golgi, m.fl. |
 | **Ribosomer** | 70S | 80S (cytoplasma), 70S (organeller) |
 | **Cellevegg** | Peptidoglykan (bakterier) | Cellulose (planter), kitin (sopp) |
-| **Celledeling** | Binaer fisjon | Mitose/meiose |
+| **Celledeling** | Binær fisjon | Mitose/meiose |
 | **Flageller** | Enkel struktur (flagellin) | Kompleks struktur (9+2 mikrotubuli) |
 
 ### Hva betyr 70S og 80S?
 
-S star for Svedberg-enheter, som maler sedimenteringshastighet ved sentrifugering. Jo hoyere tall, jo storre partikkel. Prokaryote ribosomer (70S) er mindre enn eukaryote ribosomer (80S), men begge har samme funksjon - proteinsyntese.`,
+S står for Svedberg-enheter, som måler sedimenteringshastighet ved sentrifugering. Jo høyere tall, jo større partikkel. Prokaryote ribosomer (70S) er mindre enn eukaryote ribosomer (80S), men begge har samme funksjon - proteinsyntese.`,
     },
     {
       id: 'bio1-1-2-bakterier-arkeer',
@@ -323,7 +323,7 @@ Prokaryotene deles inn i to domener: **Bacteria** (bakterier) og **Archaea** (ar
 
 ### Bakterier (Bacteria)
 
-Bakterier er den mest tallrike gruppen av organismer pa jorda.
+Bakterier er den mest tallrike gruppen av organismer på jorda.
 
 **Cellevegg:**
 - De fleste bakterier har cellevegg av peptidoglykan
@@ -331,7 +331,7 @@ Bakterier er den mest tallrike gruppen av organismer pa jorda.
 - Gramnegativ: tynn peptidoglykanvegg + ytre membran (farges rosa)
 
 **Formvariasjon:**
-- Kokker (kulefomrede)
+- Kokker (kuleformede)
 - Staver (stavformede)
 - Spiriller (spiralformede)
 - Vibrio (kommaformede)
@@ -344,61 +344,61 @@ Bakterier er den mest tallrike gruppen av organismer pa jorda.
 
 ### Arkeer (Archaea)
 
-Arkeer ligner pa bakterier i storrelse og form, men har unike trekk:
+Arkeer ligner på bakterier i størrelse og form, men har unike trekk:
 
 **Viktige forskjeller fra bakterier:**
 - Cellemembraner med eterbindinger (ikke esterbindinger)
 - Ingen peptidoglykan i cellevegg
 - Gener og proteinsyntese mer lik eukaryoter
-- Mange lever i ekstreme miljoer
+- Mange lever i ekstreme miljøer
 
 **Ekstremofiler:**
 - **Termofiler**: Lever i varme kilder (opptil 122°C)
-- **Halofiler**: Lever i salt miljo (som Dode havet)
-- **Acidofiler**: Lever i svart surt miljo (pH < 2)
+- **Halofiler**: Lever i salt miljø (som Døde havet)
+- **Acidofiler**: Lever i svært surt miljø (pH < 2)
 - **Metanogener**: Produserer metan, lever anaerobt`,
     },
     {
       id: 'bio1-1-2-def-nukleoid',
       type: 'definition',
       title: 'Nukleoid',
-      content: 'Nukleoid er omradet i en prokaryot celle der det sirkulaere kromosomet befinner seg. Til forskjell fra eukaryotenes kjerne er nukleoiden ikke omgitt av en membran - DNA-et ligger direkte i cytoplasma. I tillegg til hovedkromosomet kan prokaryoter ha plasmider - sma sirkulaere DNA-molekyler.',
+      content: 'Nukleoid er området i en prokaryot celle der det sirkulære kromosomet befinner seg. Til forskjell fra eukaryotenes kjerne er nukleoiden ikke omgitt av en membran - DNA-et ligger direkte i cytoplasma. I tillegg til hovedkromosomet kan prokaryoter ha plasmider - små sirkulære DNA-molekyler.',
     },
     {
       id: 'bio1-1-2-evolusjon',
       type: 'text',
-      content: `## Evolusjonaer opprinnelse
+      content: `## Evolusjonær opprinnelse
 
 ### Livets opprinnelse
 
-De forste cellene pa jorda var trolig enkle prokaryoter som oppsto for omtrent 3,8 milliarder ar siden. Eukaryote celler dukket opp mye senere, for ca. 2 milliarder ar siden.
+De første cellene på jorda var trolig enkle prokaryoter som oppsto for omtrent 3,8 milliarder år siden. Eukaryote celler dukket opp mye senere, for ca. 2 milliarder år siden.
 
 ### Endosymbioseteorien
 
-Lynn Margulis foreslo pa 1960-tallet at mitokondrier og kloroplaster opprinnelig var frittlevende prokaryoter som ble "spist" av storre celler, men i stedet for a bli fordoyd, innledet de et symbiotisk forhold.
+Lynn Margulis foreslo på 1960-tallet at mitokondrier og kloroplaster opprinnelig var frittlevende prokaryoter som ble "spist" av større celler, men i stedet for å bli fordøyd, innledet de et symbiotisk forhold.
 
 **Bevis for endosymbiose:**
 
-1. **Eget DNA**: Mitokondrier og kloroplaster har eget sirkulaert DNA, lik bakterier
+1. **Eget DNA**: Mitokondrier og kloroplaster har eget sirkulært DNA, lik bakterier
 2. **70S-ribosomer**: Organellene har prokaryotiske ribosomer
 3. **Dobbel membran**: Indre membran fra den opprinnelige bakterien, ytre fra vertscellen
-4. **Binaer fisjon**: De formerer seg uavhengig av cellen ved deling
-5. **Lignende storrelse**: Omtrent samme storrelse som bakterier
+4. **Binær fisjon**: De formerer seg uavhengig av cellen ved deling
+5. **Lignende størrelse**: Omtrent samme størrelse som bakterier
 
 ### Tidslinje
 
-1. Forste prokaryoter (3,8 mrd ar)
-2. Fotosynteserende cyanobakterier (3,5 mrd ar) - begynte a produsere oksygen
-3. "Great Oxidation Event" (2,4 mrd ar) - oksygen i atmosfaeren
-4. Forste eukaryoter (2 mrd ar) - endosymbiose
-5. Flercellete organismer (1 mrd ar)`,
+1. Første prokaryoter (3,8 mrd år)
+2. Fotosynteserende cyanobakterier (3,5 mrd år) - begynte å produsere oksygen
+3. "Great Oxidation Event" (2,4 mrd år) - oksygen i atmosfæren
+4. Første eukaryoter (2 mrd år) - endosymbiose
+5. Flercellete organismer (1 mrd år)`,
     },
     {
       id: 'bio1-1-2-example-1',
       type: 'example',
       title: 'Eksempel: Gramfarging',
       problem: 'Du gramfarger en bakterieprove og observerer at cellene farges lilla. Hva forteller dette deg om bakterienes celleveggstruktur?',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Bakteriene er **grampositiv**.
 
@@ -406,10 +406,10 @@ Bakteriene er **grampositiv**.
 - Grampositive bakterier har tykk cellevegg med mye peptidoglykan
 - Ved gramfarging trenger krystallviolett (lilla farge) inn i celleveggen
 - Jodbehandling fikser fargen
-- Ved alkoholskylling: den tykke peptidoglykanveggen holder pa fargen
-- Safranin (rod kontrastfarge) har ingen effekt - cellene forblir lilla
+- Ved alkoholskylling: den tykke peptidoglykanveggen holder på fargen
+- Safranin (rød kontrastfarge) har ingen effekt - cellene forblir lilla
 
-**Gramnegative bakterier** derimot har tynn peptidoglykanvegg og ytre membran. Alkoholen loser opp den ytre membranen, og den tynne peptidoglykanveggen holder ikke pa krystallviolett. De farges derfor rosa av safranin.
+**Gramnegative bakterier** derimot har tynn peptidoglykanvegg og ytre membran. Alkoholen løser opp den ytre membranen, og den tynne peptidoglykanveggen holder ikke på krystallviolett. De farges derfor rosa av safranin.
 
 Eksempler pa grampositive bakterier: *Staphylococcus*, *Streptococcus*
 Eksempler pa gramnegative bakterier: *E. coli*, *Salmonella*`,
@@ -419,7 +419,7 @@ Eksempler pa gramnegative bakterier: *E. coli*, *Salmonella*`,
       type: 'example',
       title: 'Eksempel: Endosymbiosebevis',
       problem: 'Forklar hvorfor det faktum at mitokondrier har egne ribosomer av 70S-typen stotter endosymbioseteorien.',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **Observasjon:** Mitokondrier har 70S-ribosomer, ikke 80S som resten av den eukaryote cellen.
 
@@ -429,8 +429,8 @@ Eksempler pa gramnegative bakterier: *E. coli*, *Salmonella*`,
 2. **80S-ribosomer er eukaryotiske**: Cytoplasmaet i eukaryote celler har 80S-ribosomer
 3. **Logisk slutning**: Hvis mitokondrier opprinnelig var frittlevende bakterier, forklarer dette hvorfor de har beholdt bakterietype ribosomer
 
-**Ytterligere stotte:**
-- Antibiotika som hemmer 70S-ribosomer (som streptomycin) hemmer ogsa mitokondrienes proteinsyntese
+**Ytterligere støtte:**
+- Antibiotika som hemmer 70S-ribosomer (som streptomycin) hemmer også mitokondrienes proteinsyntese
 - Dette viser at mitokondriene har samme type translasjonsmaskineri som bakterier
 
 Samme argument gjelder for kloroplaster, som ogsa har 70S-ribosomer.`,
@@ -440,15 +440,15 @@ Samme argument gjelder for kloroplaster, som ogsa har 70S-ribosomer.`,
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert:
+I dette kapittelet har du lært:
 
-- **To celletyper**: Prokaryoter (uten kjernememran) og eukaryoter (med ekte kjerne)
-- **Hovedforskjeller**: Storrelse, DNA-organisering, organeller, ribosomtype og cellevegg
+- **To celletyper**: Prokaryoter (uten kjernemembran) og eukaryoter (med ekte kjerne)
+- **Hovedforskjeller**: Størrelse, DNA-organisering, organeller, ribosomtype og cellevegg
 - **To prokaryotdomener**: Bakterier og arkeer med ulike celleveggstrukturer og metabolisme
 - **Bakteriemangfold**: Former (kokker, staver, spiriller) og metabolisme (hetero/autotrofe, anaerobe/aerobe)
 - **Arkeer**: Ofte ekstremofiler med unike membranstrukturer
 - **Endosymbioseteorien**: Mitokondrier og kloroplaster oppsto fra frittlevende prokaryoter
-- **Bevis for endosymbiose**: Eget DNA, 70S-ribosomer, dobbel membran, binaer fisjon`,
+- **Bevis for endosymbiose**: Eget DNA, 70S-ribosomer, dobbel membran, binær fisjon`,
     },
   ],
   exercises: [
@@ -483,20 +483,20 @@ I dette kapittelet har du laert:
       type: 'classic',
       difficulty: 'medium',
       task: 'Gi minst fire bevis som stotter endosymbioseteorien for mitokondriene.',
-      solution: 'Bevis for endosymbioseteorien:\n\n1) **Eget DNA**: Mitokondrier har eget sirkulaert DNA, lik bakteriers kromosom.\n\n2) **70S-ribosomer**: Mitokondriene har samme type ribosomer som prokaryoter, ikke 80S som resten av cellen.\n\n3) **Dobbel membran**: Den indre membranen stammer fra den opprinnelige bakterien, den ytre fra vertscellens fagosom.\n\n4) **Binaer fisjon**: Mitokondrier formerer seg ved deling, uavhengig av cellens cellesyklus.\n\n5) **Lignende storrelse**: Mitokondrier er omtrent samme storrelse som bakterier (1-10 $\\mu m$).\n\n6) **Antibiotikasensitivitet**: Antibiotika som hemmer bakteriell proteinsyntese hemmer ogsa mitokondriene.',
+      solution: 'Bevis for endosymbioseteorien:\n\n1) **Eget DNA**: Mitokondrier har eget sirkulært DNA, lik bakteriers kromosom.\n\n2) **70S-ribosomer**: Mitokondriene har samme type ribosomer som prokaryoter, ikke 80S som resten av cellen.\n\n3) **Dobbel membran**: Den indre membranen stammer fra den opprinnelige bakterien, den ytre fra vertscellens fagosom.\n\n4) **Binær fisjon**: Mitokondrier formerer seg ved deling, uavhengig av cellens cellesyklus.\n\n5) **Lignende størrelse**: Mitokondrier er omtrent samme størrelse som bakterier (1-10 $\\mu m$).\n\n6) **Antibiotikasensitivitet**: Antibiotika som hemmer bakteriell proteinsyntese hemmer også mitokondriene.',
     },
     {
       id: 'bio1-1-2-ex4',
       type: 'multiple-choice',
       difficulty: 'medium',
-      task: 'Hvilken type mikroorganisme vil du forvente a finne i en varm kilde med temperatur over 80°C?',
+      task: 'Hvilken type mikroorganisme vil du forvente å finne i en varm kilde med temperatur over 80°C?',
       options: [
         { id: 'a', text: 'Termofil arkee', isCorrect: true },
         { id: 'b', text: 'E. coli', isCorrect: false },
         { id: 'c', text: 'Plantecelle', isCorrect: false },
         { id: 'd', text: 'Dyrecelle', isCorrect: false },
       ],
-      solution: 'Termofiler arkeer er tilpasset liv ved svart hoye temperaturer og kan finnes i varme kilder. Noen kan overleve ved temperaturer over 100°C. Vanlige bakterier som E. coli dor ved slike temperaturer, og plante- og dyreceller taler ikke temperaturer over ca. 45°C.',
+      solution: 'Termofiler arkeer er tilpasset liv ved svært høye temperaturer og kan finnes i varme kilder. Noen kan overleve ved temperaturer over 100°C. Vanlige bakterier som E. coli dør ved slike temperaturer, og plante- og dyreceller tåler ikke temperaturer over ca. 45°C.',
     },
     {
       id: 'bio1-1-2-ex5',
@@ -509,8 +509,8 @@ I dette kapittelet har du laert:
       id: 'bio1-1-2-ex6',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Hvorfor tror man at eukaryote celler oppsto etter prokaryote celler i evolusjonshistorien? Gi bade tidsmessige og strukturelle argumenter.',
-      solution: '**Tidsmessige argumenter:**\n- Fossiler av prokaryoter (stromatolitter) er datert til 3,5 milliarder ar\n- De eldste eukaryote fossilene er ca. 2 milliarder ar gamle\n- Det er altsa et gap pa 1,5 milliarder ar der bare prokaryoter eksisterte\n\n**Strukturelle argumenter:**\n1) **Okende kompleksitet**: Eukaryoter er mer komplekse med mange organeller - det er enklere a evolusjonere fra enkelt til komplekst\n\n2) **Endosymbiose**: Mitokondrier og kloroplaster stammer fra prokaryoter, sa disse prokaryotene matte eksistere for\n\n3) **Oksygen-avhengighet**: Mitokondrier krever oksygen for celleanding. Oksygen ble produsert av fotosynteserende prokaryoter (cyanobakterier) som oppsto for 3,5 milliarder ar siden. "Great Oxidation Event" skjedde for 2,4 milliarder ar siden.\n\n4) **Genetisk bevis**: Genanalyser viser at eukaryoter har gener fra bade bakterier og arkeer, noe som tyder pa en fusjonshendelse mellom prokaryotgrupper.',
+      task: 'Hvorfor tror man at eukaryote celler oppsto etter prokaryote celler i evolusjonshistorien? Gi både tidsmessige og strukturelle argumenter.',
+      solution: '**Tidsmessige argumenter:**\n- Fossiler av prokaryoter (stromatolitter) er datert til 3,5 milliarder år\n- De eldste eukaryote fossilene er ca. 2 milliarder år gamle\n- Det er altså et gap på 1,5 milliarder år der bare prokaryoter eksisterte\n\n**Strukturelle argumenter:**\n1) **Økende kompleksitet**: Eukaryoter er mer komplekse med mange organeller - det er enklere å evolusjonere fra enkelt til komplekst\n\n2) **Endosymbiose**: Mitokondrier og kloroplaster stammer fra prokaryoter, så disse prokaryotene måtte eksistere før\n\n3) **Oksygen-avhengighet**: Mitokondrier krever oksygen for celleånding. Oksygen ble produsert av fotosynteserende prokaryoter (cyanobakterier) som oppsto for 3,5 milliarder år siden. "Great Oxidation Event" skjedde for 2,4 milliarder år siden.\n\n4) **Genetisk bevis**: Genanalyser viser at eukaryoter har gener fra både bakterier og arkeer, noe som tyder på en fusjonshendelse mellom prokaryotgrupper.',
     },
   ],
 };
@@ -529,7 +529,7 @@ export const CHAPTER_BIOLOGI_1_1_3: TextbookChapter = {
   competenceGoals: [
     'beskrive cellens oppbygging og organellenes funksjoner',
     'forklare sammenhengen mellom organellenes struktur og funksjon',
-    'gjore rede for endosymbioseteorien',
+    'gjøre rede for endosymbioseteorien',
   ],
   content: [
     {
@@ -537,7 +537,7 @@ export const CHAPTER_BIOLOGI_1_1_3: TextbookChapter = {
       type: 'text',
       content: `# Cellens organeller
 
-I dette kapittelet skal du laere om:
+I dette kapittelet skal du lære om:
 
 - Kjernen som cellens kontrollsenter og ribosomer som proteinfabrikker
 - Endoplasmatisk retikulum og golgiapparatet som protein- og lipidbearbeidingssystemer
@@ -678,7 +678,7 @@ Mitokondrier er cellens kraftverk som produserer ATP.
 
 ### Struktur
 - **Ytre og indre membran**
-- **Stroma**: Vannholdig losning med enzymer
+- **Stroma**: Vannholdig løsning med enzymer
 - **Tylakoider**: Flate membraner stablet i grana
 - **Thylakoidmembran**: Inneholder klorofyll og fotosystemer
 
@@ -691,7 +691,7 @@ Mitokondrier er cellens kraftverk som produserer ATP.
       id: 'bio1-1-3-def-mitokondrie',
       type: 'definition',
       title: 'Mitokondrier',
-      content: 'Mitokondrier er dobbelsmembranerte organeller som produserer mesteparten av cellens ATP gjennom celleanding. De har eget sirkulaert DNA og 70S-ribosomer, noe som stotter endosymbioseteorien. Antall mitokondrier varierer med cellens energibehov - muskelceller har tusenvis, mens rolige celler har faerre.',
+      content: 'Mitokondrier er dobbelmembranerte organeller som produserer mesteparten av cellens ATP gjennom celleånding. De har eget sirkulært DNA og 70S-ribosomer, noe som støtter endosymbioseteorien. Antall mitokondrier varierer med cellens energibehov - muskelceller har tusenvis, mens rolige celler har færre.',
     },
     {
       id: 'bio1-1-3-andre',
@@ -709,7 +709,7 @@ Mitokondrier er cellens kraftverk som produserer ATP.
 - Intracellular fordoyelse av makromolekyler
 - Autofagi: nedbrytning av utslitte organeller
 - Fagocytose: nedbrytning av opptatte partikler
-- Apoptose: frigjoring av enzymer forer til celledod
+- Apoptose: frigjøring av enzymer forer til celledod
 
 ### Peroksisomer
 
@@ -743,7 +743,7 @@ Mitokondrier er cellens kraftverk som produserer ATP.
       type: 'example',
       title: 'Eksempel: Proteinets vei gjennom cellen',
       problem: 'Beskriv veien et protein tar fra det syntetiseres til det skilles ut av cellen (eksocytose).',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **1. Transkripsjon (i kjernen)**
 - Genet for proteinet transkriberes til mRNA
@@ -774,14 +774,14 @@ Mitokondrier er cellens kraftverk som produserer ATP.
 **7. Eksocytose**
 - Vesikkelen beveger seg til cellemembranen
 - Fusjonerer med membranen
-- Proteinet frigjores utenfor cellen`,
+- Proteinet frigjøres utenfor cellen`,
     },
     {
       id: 'bio1-1-3-example-2',
       type: 'example',
       title: 'Eksempel: Lysosom og autofagi',
       problem: 'Forklar hvordan en celle bruker lysosomer til a resirkulere et utslitt mitokondrium.',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **Autofagiprosessen:**
 
@@ -803,7 +803,7 @@ Mitokondrier er cellens kraftverk som produserer ATP.
 - Proteiner, lipider, DNA brytes ned til monomerer
 
 **5. Resirkulering**
-- Aminosyrer, fettsyrer, nukleotider frigjores til cytoplasma
+- Aminosyrer, fettsyrer, nukleotider frigjøres til cytoplasma
 - Kan brukes til a bygge nye molekyler
 - Cellen sparer energi og ressurser
 
@@ -815,7 +815,7 @@ Autofagi er viktig for cellefornyelse og hindrer akkumulering av skadede organel
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert om organellenes struktur og funksjon:
+I dette kapittelet har du lært om organellenes struktur og funksjon:
 
 | Organelle | Hovedfunksjon |
 |-----------|---------------|
@@ -865,7 +865,7 @@ Organellene samarbeider i komplekse prosesser som proteinsekresjon og celleforny
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar strukturen til et mitokondrium og relater hver del til funksjon.',
-      solution: '**Mitokondriestruktur og funksjon:**\n\n1) **Ytre membran**: Relativt permeabel, lar sma molekyler passere. Skiller mitokondriet fra cytoplasma.\n\n2) **Intermembranrom**: Rommet mellom membranene. Her akkumuleres H+-ioner som pumpes fra matrise, og skaper protongradient for ATP-syntese.\n\n3) **Indre membran**: Sterkt foldet i cristae for stor overflate. Inneholder elektrontransportkjeden og ATP-syntase. Her foregår oksidativ fosforylering.\n\n4) **Cristae**: Folder i indre membran som oker overflaten for mer elektrontransport og ATP-produksjon.\n\n5) **Matrise**: Den indre losningen. Inneholder sirkulaert DNA, 70S-ribosomer, og enzymer for sitronsyresyklus. Her brytes acetyl-CoA ned og elektronbærere (NADH, FADH2) dannes.',
+      solution: '**Mitokondriestruktur og funksjon:**\n\n1) **Ytre membran**: Relativt permeabel, lar små molekyler passere. Skiller mitokondriet fra cytoplasma.\n\n2) **Intermembranrom**: Rommet mellom membranene. Her akkumuleres H+-ioner som pumpes fra matrise, og skaper protongradient for ATP-syntese.\n\n3) **Indre membran**: Sterkt foldet i cristae for stor overflate. Inneholder elektrontransportkjeden og ATP-syntase. Her foregår oksidativ fosforylering.\n\n4) **Cristae**: Folder i indre membran som øker overflaten for mer elektrontransport og ATP-produksjon.\n\n5) **Matrise**: Den indre løsningen. Inneholder sirkulært DNA, 70S-ribosomer, og enzymer for sitronsyresyklus. Her brytes acetyl-CoA ned og elektronbærere (NADH, FADH2) dannes.',
     },
     {
       id: 'bio1-1-3-ex4',
@@ -892,7 +892,7 @@ Organellene samarbeider i komplekse prosesser som proteinsekresjon og celleforny
       type: 'classic',
       difficulty: 'vanskelig',
       task: 'Et protein som skal skilles ut av cellen syntetiseres i cytoplasma. Beskriv trinnvis veien proteinet tar gjennom cellen fra syntese til sekresjon, og nevn hvilke organeller som er involvert.',
-      solution: '**Proteinets sekretoriske vei:**\n\n**1. Kjernen:**\n- Genet transkriberes til mRNA\n- mRNA prosesseres og eksporteres gjennom kjerneporer\n\n**2. Ribosom pa ru ER:**\n- mRNA binder til fritt ribosom\n- Signalsekvens i proteinet gjenkjennes av SRP (signalgjenkjenningspartikkel)\n- Ribosom dirigeres til ru ER\n- Proteinet translateres og skyves inn i ER-lumen\n\n**3. ER-lumen:**\n- Signalsekvensen klippes av\n- Proteinet folder seg korrekt\n- Sukkerkjeder legges til (N-glykosylering)\n- Kvalitetskontroll - feilfoldede proteiner degraderes\n\n**4. Transportvesikkel:**\n- Protein pakkes i COPII-vesikkel\n- Transporteres til Golgiapparatet\n\n**5. Golgiapparat:**\n- Ankommer cis-Golgi\n- Beveger seg gjennom cisternene mot trans-Golgi\n- Ytterligere modifisering av sukkerkjeder\n- Sortering og pakking i sekretorisk vesikkel\n\n**6. Sekretorisk vesikkel:**\n- Transporteres langs cytoskjelettet til cellemembranen\n\n**7. Eksocytose:**\n- Vesikkelen fusjonerer med plasmamembranen\n- Innholdet frigjores utenfor cellen',
+      solution: '**Proteinets sekretoriske vei:**\n\n**1. Kjernen:**\n- Genet transkriberes til mRNA\n- mRNA prosesseres og eksporteres gjennom kjerneporer\n\n**2. Ribosom pa ru ER:**\n- mRNA binder til fritt ribosom\n- Signalsekvens i proteinet gjenkjennes av SRP (signalgjenkjenningspartikkel)\n- Ribosom dirigeres til ru ER\n- Proteinet translateres og skyves inn i ER-lumen\n\n**3. ER-lumen:**\n- Signalsekvensen klippes av\n- Proteinet folder seg korrekt\n- Sukkerkjeder legges til (N-glykosylering)\n- Kvalitetskontroll - feilfoldede proteiner degraderes\n\n**4. Transportvesikkel:**\n- Protein pakkes i COPII-vesikkel\n- Transporteres til Golgiapparatet\n\n**5. Golgiapparat:**\n- Ankommer cis-Golgi\n- Beveger seg gjennom cisternene mot trans-Golgi\n- Ytterligere modifisering av sukkerkjeder\n- Sortering og pakking i sekretorisk vesikkel\n\n**6. Sekretorisk vesikkel:**\n- Transporteres langs cytoskjelettet til cellemembranen\n\n**7. Eksocytose:**\n- Vesikkelen fusjonerer med plasmamembranen\n- Innholdet frigjøres utenfor cellen',
     },
   ],
 };
@@ -909,7 +909,7 @@ export const CHAPTER_BIOLOGI_1_1_4: TextbookChapter = {
   description: 'Fluid mosaikk-modellen, fosfolipider og membranproteiner, kolesterolets rolle i membranen.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for cellemembranes struktur og transport',
+    'gjøre rede for cellemembranes struktur og transport',
     'forklare fluid mosaikk-modellen',
     'beskrive membranproteiners ulike funksjoner',
   ],
@@ -919,7 +919,7 @@ export const CHAPTER_BIOLOGI_1_1_4: TextbookChapter = {
       type: 'text',
       content: `# Cellemembranen
 
-I dette kapittelet skal du laere om:
+I dette kapittelet skal du lære om:
 
 - Fluid mosaikk-modellen som beskriver membranens struktur
 - Fosfolipidenes oppbygging og organisering i dobbeltlaget
@@ -1018,7 +1018,7 @@ Proteiner utgjor ca. 50% av membranens masse og utforer de fleste av membranens 
 
 Gar helt gjennom membranen:
 - Hydrofobe regioner i lipidlaget
-- Hydrofile regioner i vandig losning pa begge sider
+- Hydrofile regioner i vandig løsning pa begge sider
 - Forankret i membranen
 
 **Typer:**
@@ -1094,7 +1094,7 @@ Ved lav temperatur:
       type: 'example',
       title: 'Eksempel: Membranflytenhet og temperatur',
       problem: 'En bakterie lever i et miljo der temperaturen varierer mellom 10°C og 40°C. Hvordan kan bakterien tilpasse membranens sammensetning for a opprettholde riktig flytenhet?',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Bakterien kan justere membransammensetningen for a opprettholde optimal flytenhet - dette kalles **homeoviskosk adaptasjon**.
 
@@ -1107,23 +1107,23 @@ For a oke flytenhet kan bakterien:
 
 **Ved hoye temperaturer (40°C):**
 For a redusere flytenhet kan bakterien:
-- Oke andelen mettede fettsyrer
+- Øke andelen mettede fettsyrer
 - Bruke lengre fettsyrekjeder
-- Oke hopanoidinnhold (i noen bakterier)
+- Øke hopanoidinnhold (i noen bakterier)
 
 **Mekanisme:**
 - Enzymer som desaturaser kan legge til dobbeltbindinger
 - Syntetisere nye fosfolipider med annen fettsyresammensetning
 - Omdirigere eksisterende biosynteseveier
 
-Dette sikrer at membranen forblir funksjonell ved a opprettholde riktig balanse mellom flytenhet og stabilitet.`,
+Dette sikrer at membranen forblir funksjonell ved å opprettholde riktig balanse mellom flytenhet og stabilitet.`,
     },
     {
       id: 'bio1-1-4-example-2',
       type: 'example',
       title: 'Eksempel: Membranproteiner og funksjon',
       problem: 'Nevn tre ulike funksjoner membranproteiner kan ha, og gi et eksempel pa hver.',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **1. Transport**
 - **Eksempel**: Na+/K+-ATPase (natrium-kalium-pumpen)
@@ -1138,7 +1138,7 @@ Dette sikrer at membranen forblir funksjonell ved a opprettholde riktig balanse 
 **3. Enzymaktivitet**
 - **Eksempel**: Adenylylsyklase
 - **Funksjon**: Produserer cAMP fra ATP
-- **Betydning**: cAMP er et viktig signalmolekyl (sekundaer budbringer)
+- **Betydning**: cAMP er et viktig signalmolekyl (sekundær budbringer)
 
 **Andre funksjoner inkluderer:**
 - Forankring til cytoskjelettet (integriner)
@@ -1150,13 +1150,13 @@ Dette sikrer at membranen forblir funksjonell ved a opprettholde riktig balanse 
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert:
+I dette kapittelet har du lært:
 
 - **Fluid mosaikk-modellen**: Membranen er et flytende fosfolipiddobbeltlag med innebygde proteiner som kan bevege seg
 - **Fosfolipider**: Amfipatiske molekyler med hydrofilt hode og hydrofobe haler, organisert i dobbeltlag
-- **Membranflytenhet**: Pavirkes av fettsyresammensetning, temperatur og kolesterol
-- **Integrale proteiner**: Gar gjennom membranen, utforer transport, reseptor- og enzymfunksjoner
-- **Perifere proteiner**: Ligger pa overflaten, involvert i signalering
+- **Membranflytenhet**: Påvirkes av fettsyresammensetning, temperatur og kolesterol
+- **Integrale proteiner**: Går gjennom membranen, utfører transport, reseptor- og enzymfunksjoner
+- **Perifere proteiner**: Ligger på overflaten, involvert i signalering
 - **Kolesterol**: Regulerer flytenhet ("fluiditetsbuffer"), stabiliserer membranen, danner lipidraft
 - **Asymmetri**: De to halvdelene av membranen har ulik sammensetning`,
     },
@@ -1186,20 +1186,20 @@ I dette kapittelet har du laert:
         { id: 'c', text: 'Glyserol', isCorrect: false },
         { id: 'd', text: 'Kolingruppen', isCorrect: false },
       ],
-      solution: 'Fettsyrehalene er hydrofobe (fettloskelige) og peker innover i membranen, vekk fra vannet. Hodet med fosfatgruppe er hydrofilt og peker ut mot den vandige losningen.',
+      solution: 'Fettsyrehalene er hydrofobe (fettloskelige) og peker innover i membranen, vekk fra vannet. Hodet med fosfatgruppe er hydrofilt og peker ut mot den vandige løsningen.',
     },
     {
       id: 'bio1-1-4-ex3',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar hvordan kolesterol pavirker membranens flytenhet ved ulike temperaturer.',
-      solution: 'Kolesterol fungerer som en "fluiditetsbuffer" i membranen:\n\n**Ved hoye temperaturer:**\n- Kolesterol begrenser fosfolipidenes bevegelse\n- Hindrer at membranen blir for flytende\n- Gjor membranen mer rigid og stabil\n- Forhindrer lekkasje av sma molekyler\n\n**Ved lave temperaturer:**\n- Kolesterol plasserer seg mellom fosfolipidene\n- Hindrer at fosfolipidenes haler pakkes for tett\n- Forhindrer at membranen "fryser"\n- Opprettholder nodvendig flytenhet for membranproteiners funksjon\n\nDermed holder kolesterol membranens flytenhet relativt konstant over et temperaturomrade, noe som er viktig for celler som utsettes for temperaturvariasjoner.',
+      task: 'Forklar hvordan kolesterol påvirker membranens flytenhet ved ulike temperaturer.',
+      solution: 'Kolesterol fungerer som en "fluiditetsbuffer" i membranen:\n\n**Ved høye temperaturer:**\n- Kolesterol begrenser fosfolipidenes bevegelse\n- Hindrer at membranen blir for flytende\n- Gjør membranen mer rigid og stabil\n- Forhindrer lekkasje av små molekyler\n\n**Ved lave temperaturer:**\n- Kolesterol plasserer seg mellom fosfolipidene\n- Hindrer at fosfolipidenes haler pakkes for tett\n- Forhindrer at membranen "fryser"\n- Opprettholder nødvendig flytenhet for membranproteiners funksjon\n\nDermed holder kolesterol membranens flytenhet relativt konstant over et temperaturområde, noe som er viktig for celler som utsettes for temperaturvariasjoner.',
     },
     {
       id: 'bio1-1-4-ex4',
       type: 'multiple-choice',
       difficulty: 'medium',
-      task: 'Hvilken type protein gar helt gjennom cellemembranen?',
+      task: 'Hvilken type protein går helt gjennom cellemembranen?',
       options: [
         { id: 'a', text: 'Integralt (transmembrant) protein', isCorrect: true },
         { id: 'b', text: 'Perifert protein', isCorrect: false },
@@ -1213,14 +1213,14 @@ I dette kapittelet har du laert:
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar hva som menes med at cellemembranen er asymmetrisk.',
-      solution: 'Membranasymmetri betyr at de to halvdelene (bladene) av fosfolipiddobbeltlaget har ulik sammensetning:\n\n**Ulik lipidsammensetning:**\n- Fosfatidylkolin og sfingomyelin dominerer pa utsiden\n- Fosfatidylserin og fosfatidyletanolamin dominerer pa innsiden\n\n**Glykosylering:**\n- Sukkerkjeder (glykaner) finnes bare pa membranens utside\n- Glykoproteiner og glykolipider danner glykocalyx\n- Viktig for cellegjenkjenning\n\n**Proteinorientering:**\n- Transmembrane proteiner har spesifikk orientering\n- Reseptorers bindingssete er pa utsiden\n- Enzymatiske domener kan vaere pa innsiden\n\n**Betydning:**\n- Nodvendig for cellefunksjon (f.eks. signalering)\n- Opprettholdes av flippaser og floppaser\n- Fosfatidylserin pa utsiden er et apoptose-signal',
+      solution: 'Membranasymmetri betyr at de to halvdelene (bladene) av fosfolipiddobbeltlaget har ulik sammensetning:\n\n**Ulik lipidsammensetning:**\n- Fosfatidylkolin og sfingomyelin dominerer på utsiden\n- Fosfatidylserin og fosfatidyletanolamin dominerer på innsiden\n\n**Glykosylering:**\n- Sukkerkjeder (glykaner) finnes bare på membranens utside\n- Glykoproteiner og glykolipider danner glykocalyx\n- Viktig for cellegjenkjenning\n\n**Proteinorientering:**\n- Transmembrane proteiner har spesifikk orientering\n- Reseptorers bindingssete er på utsiden\n- Enzymatiske domener kan være på innsiden\n\n**Betydning:**\n- Nødvendig for cellefunksjon (f.eks. signalering)\n- Opprettholdes av flippaser og floppaser\n- Fosfatidylserin på utsiden er et apoptose-signal',
     },
     {
       id: 'bio1-1-4-ex6',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Hvordan ville en okning i andelen umettede fettsyrer i fosfolipidene pavirke membranens egenskaper? Forklar pa molekylniva.',
-      solution: '**Effekt av okt andel umettede fettsyrer:**\n\n**Strukturell forklaring:**\n- Mettede fettsyrer er rette og kan pakke tett\n- Umettede fettsyrer har cis-dobbeltbindinger som lager en "knekk"\n- Knekken hindrer tett pakking av fettsyrehalene\n\n**Konsekvenser for membranen:**\n\n1) **Okt flytenhet:**\n- Mer plass mellom fosfolipidene\n- Lettere for lipider a bevege seg sideveis\n- Proteiner kan bevege seg friere\n\n2) **Lavere smeltepunkt:**\n- Membranen forblir flytende ved lavere temperaturer\n- Viktig for organismer i kalde miljoer\n\n3) **Okt permeabilitet:**\n- Losere pakking gjor membranen noe mer permeabel\n- Sma molekyler kan passere lettere\n\n4) **Endret tykkelse:**\n- Membranen kan bli noe tynnere\n- Kan pavirke hvordan transmembrane proteiner passer\n\n**Biologisk relevans:**\n- Fisk i kaldt vann har mer umettede fettsyrer\n- Planter justerer metningsgrad med arstidene\n- Viktig for homeoviskos adaptasjon',
+      task: 'Hvordan ville en økning i andelen umettede fettsyrer i fosfolipidene påvirke membranens egenskaper? Forklar på molekylnivå.',
+      solution: '**Effekt av økt andel umettede fettsyrer:**\n\n**Strukturell forklaring:**\n- Mettede fettsyrer er rette og kan pakke tett\n- Umettede fettsyrer har cis-dobbeltbindinger som lager en "knekk"\n- Knekken hindrer tett pakking av fettsyrehalene\n\n**Konsekvenser for membranen:**\n\n1) **Økt flytenhet:**\n- Mer plass mellom fosfolipidene\n- Lettere for lipider å bevege seg sideveis\n- Proteiner kan bevege seg friere\n\n2) **Lavere smeltepunkt:**\n- Membranen forblir flytende ved lavere temperaturer\n- Viktig for organismer i kalde miljøer\n\n3) **Økt permeabilitet:**\n- Løsere pakking gjør membranen noe mer permeabel\n- Små molekyler kan passere lettere\n\n4) **Endret tykkelse:**\n- Membranen kan bli noe tynnere\n- Kan påvirke hvordan transmembrane proteiner passer\n\n**Biologisk relevans:**\n- Fisk i kaldt vann har mer umettede fettsyrer\n- Planter justerer metningsgrad med årstidene\n- Viktig for homeoviskos adaptasjon',
     },
   ],
 };
@@ -1237,7 +1237,7 @@ export const CHAPTER_BIOLOGI_1_1_5: TextbookChapter = {
   description: 'Passiv transport (diffusjon, osmose, fasilitert diffusjon), aktiv transport (pumper, endocytose, eksocytose) og praktiske eksempler.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'gjore rede for cellemembranes struktur og transport',
+    'gjøre rede for cellemembranes struktur og transport',
     'forklare forskjellen mellom passiv og aktiv transport',
     'beskrive osmose og dens betydning for celler',
   ],
@@ -1247,14 +1247,14 @@ export const CHAPTER_BIOLOGI_1_1_5: TextbookChapter = {
       type: 'text',
       content: `# Transport over cellemembranen
 
-I dette kapittelet skal du laere om:
+I dette kapittelet skal du lære om:
 
 - Passiv transport: diffusjon, osmose og fasilitert diffusjon
-- Aktiv transport: primaer og sekundaer, pumper og transportorer
+- Aktiv transport: primær og sekundær, pumper og transportører
 - Vesikkeltrafikk: endocytose og eksocytose
-- Praktiske eksempler pa transport i kroppen
+- Praktiske eksempler på transport i kroppen
 
-Cellemembranen er selektivt permeabel - den slipper noen stoffer gjennom, men ikke andre. Ulike transportmekanismer lar cellen kontrollere hva som gar inn og ut.`,
+Cellemembranen er selektivt permeabel - den slipper noen stoffer gjennom, men ikke andre. Ulike transportmekanismer lar cellen kontrollere hva som går inn og ut.`,
     },
     {
       id: 'bio1-1-5-oversikt',
@@ -1277,8 +1277,8 @@ Cellemembranen er selektivt permeabel - den slipper noen stoffer gjennom, men ik
 - Cellen bruker energi til a "pumpe" stoffer
 
 **Typer:**
-- Primaer aktiv transport (bruker ATP direkte)
-- Sekundaer aktiv transport (utnytter iongradienter)
+- Primær aktiv transport (bruker ATP direkte)
+- Sekundær aktiv transport (utnytter iongradienter)
 - Endocytose og eksocytose`,
     },
     {
@@ -1332,22 +1332,22 @@ Osmose er diffusjon av vann gjennom en semipermeabel membran.
 
 ### Osmotisk trykk
 - Trykket som ma til for a stoppe osmosen
-- Losninger med hoyt lostoffinnhold har hoyt osmotisk trykk
+- Løsninger med hoyt lostoffinnhold har hoyt osmotisk trykk
 - Malt i osmol eller Pascal
 
-### Tonitisitet - losningens virkning pa celler
+### Tonitisitet - løsningens virkning pa celler
 
-**Isoton losning:**
+**Isoton løsning:**
 - Samme osmolaritet som cellen
 - Ingen netto vannflyt
 - Cellen holder formen
 
-**Hypoton losning:**
+**Hypoton løsning:**
 - Lavere osmolaritet enn cellen
 - Vann stromme INN i cellen
 - Cellen sveller (kan lysere/sprekke)
 
-**Hyperton losning:**
+**Hyperton løsning:**
 - Hoyere osmolaritet enn cellen
 - Vann stromme UT av cellen
 - Cellen krymper (krenasjon/plasmolysis)`,
@@ -1356,7 +1356,7 @@ Osmose er diffusjon av vann gjennom en semipermeabel membran.
       id: 'bio1-1-5-def-osmose',
       type: 'definition',
       title: 'Osmose',
-      content: 'Osmose er diffusjon av vann (eller annet losemiddel) gjennom en semipermeabel membran, fra et omrade med hoy vannkonsentrasjon til et omrade med lav vannkonsentrasjon. Osmose er avgjorende for cellens vannbalanse og pavirkes av konsentrasjonen av loste stoffer pa hver side av membranen.',
+      content: 'Osmose er diffusjon av vann (eller annet losemiddel) gjennom en semipermeabel membran, fra et omrade med hoy vannkonsentrasjon til et omrade med lav vannkonsentrasjon. Osmose er avgjørende for cellens vannbalanse og pavirkes av konsentrasjonen av loste stoffer pa hver side av membranen.',
     },
     {
       id: 'bio1-1-5-fasilitert',
@@ -1374,9 +1374,9 @@ Fasilitert diffusjon er passiv transport gjennom membranproteiner.
 
 **Kanalproteiner:**
 - Danner vannfylt pore gjennom membranen
-- Hoy transporthastighe (opptil $10^8$ ioner/sek)
+- Høy transporthastighet (opptil $10^8$ ioner/sek)
 - Ofte selektive (f.eks. $K^+$-kanaler, $Na^+$-kanaler)
-- Kan vaere regulerte (apnes/lukkes ved stimuli)
+- Kan være regulerte (åpnes/lukkes ved stimuli)
 - Eksempel: Akvaporiner (vannkanaler)
 
 **Transportorproteiner (carriers):**
@@ -1398,7 +1398,7 @@ Fasilitert diffusjon er passiv transport gjennom membranproteiner.
 
 Aktiv transport bruker energi til a flytte stoffer mot konsentrasjonsgradienten.
 
-### Primaer aktiv transport
+### Primær aktiv transport
 
 Bruker ATP direkte:
 
@@ -1412,9 +1412,9 @@ Bruker ATP direkte:
 - $Ca^{2+}$-ATPase: pumper kalsium ut eller inn i ER
 - $H^+$-ATPase: pumper protoner (f.eks. i magesekken)
 
-### Sekundaer aktiv transport
+### Sekundær aktiv transport
 
-Utnytter iongradienter skapt av primaer aktiv transport:
+Utnytter iongradienter skapt av primær aktiv transport:
 
 **Symport (kotransport):**
 - To stoffer transporteres i SAMME retning
@@ -1430,7 +1430,7 @@ Utnytter iongradienter skapt av primaer aktiv transport:
       id: 'bio1-1-5-def-aktivtransport',
       type: 'definition',
       title: 'Aktiv transport',
-      content: 'Aktiv transport er bevegelse av stoffer over cellemembranen mot konsentrasjonsgradienten (fra lav til hoy konsentrasjon). Dette krever energi, vanligvis i form av ATP. Primaer aktiv transport bruker ATP direkte (f.eks. Na+/K+-pumpen), mens sekundaer aktiv transport utnytter iongradienter skapt av primaer transport.',
+      content: 'Aktiv transport er bevegelse av stoffer over cellemembranen mot konsentrasjonsgradienten (fra lav til høy konsentrasjon). Dette krever energi, vanligvis i form av ATP. Primær aktiv transport bruker ATP direkte (f.eks. Na+/K+-pumpen), mens sekundær aktiv transport utnytter iongradienter skapt av primær transport.',
     },
     {
       id: 'bio1-1-5-vesikler',
@@ -1460,7 +1460,7 @@ For store partikler og mengder som ikke kan passere gjennom membranproteiner.
 ### Eksocytose (ut av cellen)
 
 - Vesikler fusjonerer med plasmamembranen
-- Innholdet frigjores utenfor cellen
+- Innholdet frigjøres utenfor cellen
 
 **Funksjoner:**
 - Sekresjon av proteiner (f.eks. hormoner, enzymer)
@@ -1471,14 +1471,14 @@ For store partikler og mengder som ikke kan passere gjennom membranproteiner.
       id: 'bio1-1-5-example-1',
       type: 'example',
       title: 'Eksempel: Osmose i rode blodceller',
-      problem: 'Hva skjer med rode blodceller (erytrocytter) nar de plasseres i a) destillert vann, b) 0,9% NaCl-losning (fysiologisk saltvann), og c) 10% NaCl-losning?',
-      solution: `**Losning:**
+      problem: 'Hva skjer med rode blodceller (erytrocytter) nar de plasseres i a) destillert vann, b) 0,9% NaCl-løsning (fysiologisk saltvann), og c) 10% NaCl-løsning?',
+      solution: `**Løsning:**
 
 **a) Destillert vann (hypotont):**
 - Vannkonsentrasjonen er hoyere utenfor cellen
 - Vann strommer INN i cellen via osmose
 - Cellen sveller og kan til slutt sprekke (hemolysis)
-- Hemoglobin frigjores til losningen
+- Hemoglobin frigjøres til løsningen
 
 **b) 0,9% NaCl (isotont):**
 - Samme osmolaritet som cellens cytoplasma
@@ -1493,16 +1493,16 @@ For store partikler og mengder som ikke kan passere gjennom membranproteiner.
 - Cellens funksjoner hemmes
 
 **Klinisk relevans:**
-- Intravenose vaesker ma vaere isotone (0,9% NaCl eller 5% glukose)
-- Hypertone losninger brukes for a trekke ut vaeske (f.eks. ved hjerneødem)
-- Hypotone losninger kan vaere farlige ved rask infusjon`,
+- Intravenøse væsker må være isotone (0,9% NaCl eller 5% glukose)
+- Hypertone løsninger brukes for å trekke ut væske (f.eks. ved hjerneødem)
+- Hypotone løsninger kan være farlige ved rask infusjon`,
     },
     {
       id: 'bio1-1-5-example-2',
       type: 'example',
       title: 'Eksempel: Na+/K+-pumpen og nerveceller',
       problem: 'Forklar hvorfor Na+/K+-pumpen er sa viktig for nervecellers funksjon.',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **Na+/K+-pumpens aktivitet:**
 - Pumper 3 $Na^+$ ut av cellen
@@ -1580,14 +1580,14 @@ I dette kapittelet har du laert:
       id: 'bio1-1-5-ex2',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva skjer med en dyrecelle i en hyperton losning?',
+      task: 'Hva skjer med en dyrecelle i en hyperton løsning?',
       options: [
         { id: 'a', text: 'Cellen krymper', isCorrect: true },
         { id: 'b', text: 'Cellen sveller', isCorrect: false },
         { id: 'c', text: 'Cellen forblir uendret', isCorrect: false },
         { id: 'd', text: 'Cellen deler seg', isCorrect: false },
       ],
-      solution: 'I en hyperton losning (hoyere lostoffkonsentrasjon enn cellen) vil vann stromme UT av cellen via osmose. Dette forer til at cellen krymper (krenasjon i rode blodceller).',
+      solution: 'I en hyperton løsning (hoyere lostoffkonsentrasjon enn cellen) vil vann stromme UT av cellen via osmose. Dette forer til at cellen krymper (krenasjon i rode blodceller).',
     },
     {
       id: 'bio1-1-5-ex3',
@@ -1627,61 +1627,61 @@ I dette kapittelet har du laert:
 };
 
 // ============================================================================
-// Kapittel 1.6: Cellekommunikasjon og signaloverfoering
+// Kapittel 1.6: Cellekommunikasjon og signaloverføring
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_1_6: TextbookChapter = {
   id: 'biologi-1-1-6',
   courseId: 'biologi-1',
   chapterNumber: '1.6',
-  title: 'Cellekommunikasjon og signaloverfoering',
+  title: 'Cellekommunikasjon og signaloverføring',
   description: 'Hvordan celler kommuniserer via signalmolekyler og membranreseptorer, signaltransduksjon og sekundaere budbringere.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'gjoere rede for hvordan cellulaere membraner danner grunnlag for kommunikasjon mellom celler',
-    'beskrive ulike typer cellekommunikasjon og signaloverfoering',
-    'forklare signaltransduksjon med reseptorer, sekundaere budbringere og cellulaer respons',
+    'gjøre rede for hvordan cellulære membraner danner grunnlag for kommunikasjon mellom celler',
+    'beskrive ulike typer cellekommunikasjon og signaloverføring',
+    'forklare signaltransduksjon med reseptorer, sekundaere budbringere og cellulær respons',
   ],
   content: [
     {
       id: 'bio1-1-6-intro',
       type: 'text',
-      content: `# Cellekommunikasjon og signaloverfoering
+      content: `# Cellekommunikasjon og signaloverføring
 
-Cellene i kroppen maa kommunisere med hverandre for at organismen skal fungere som en helhet. En muskelcelle maa vite naar den skal trekke seg sammen, en immunforsvarcelle maa vite naar det er en infeksjon, og en celle maa vite naar den skal dele seg – eller slutte aa dele seg.
+Cellene i kroppen må kommunisere med hverandre for at organismen skal fungere som en helhet. En muskelcelle må vite når den skal trekke seg sammen, en immunforsvarscelle må vite når det er en infeksjon, og en celle må vite når den skal dele seg – eller slutte å dele seg.
 
 ## Hvorfor er cellekommunikasjon viktig?
 
 Cellekommunikasjon er grunnlaget for:
-- **Utvikling**: Fra befruktet egg til ferdig organisme – cellene maa koordinere differensiering og vekst
+- **Utvikling**: Fra befruktet egg til ferdig organisme – cellene må koordinere differensiering og vekst
 - **Homeostase**: Regulering av blodsukker, temperatur og pH krever signaler mellom celler
-- **Immunforsvar**: Immunceller maa kommunisere for aa koordinere angrep paa patogener
+- **Immunforsvar**: Immunceller må kommunisere for å koordinere angrep på patogener
 - **Nervesystemet**: Nervesignaler er en spesialisert form for cellekommunikasjon
-- **Kreft**: Naar cellekommunikasjonen svikter, kan celler dele seg ukontrollert
+- **Kreft**: Når cellekommunikasjonen svikter, kan celler dele seg ukontrollert
 
-Cellemembranen spiller en sentral rolle i kommunikasjonen fordi den baade mottar signaler utenfra (via reseptorer) og sender signaler videre inn i cellen (via signaltransduksjon).`,
+Cellemembranen spiller en sentral rolle i kommunikasjonen fordi den både mottar signaler utenfra (via reseptorer) og sender signaler videre inn i cellen (via signaltransduksjon).`,
     },
     {
       id: 'bio1-1-6-def-1',
       type: 'definition',
       title: 'Cellekommunikasjon',
-      content: '**Cellekommunikasjon** (cellesignalering) er prosessen der celler sender, mottar og tolker kjemiske signaler. Den foelger vanligvis tre trinn: (1) **Signalering** – en celle sender ut et signalmolekyl (ligand). (2) **Mottak** – en maalcelle gjenkjenner signalet via en spesifikk reseptor. (3) **Respons** – cellen endrer atferd, for eksempel ved aa aktivere enzymer, endre genekspresjon eller dele seg.',
+      content: '**Cellekommunikasjon** (cellesignalering) er prosessen der celler sender, mottar og tolker kjemiske signaler. Den følger vanligvis tre trinn: (1) **Signalering** – en celle sender ut et signalmolekyl (ligand). (2) **Mottak** – en målcelle gjenkjenner signalet via en spesifikk reseptor. (3) **Respons** – cellen endrer atferd, for eksempel ved å aktivere enzymer, endre genekspresjon eller dele seg.',
     },
     {
       id: 'bio1-1-6-example-1',
       type: 'example',
       title: 'Eksempel: Adrenalin og kamp-eller-flukt-responsen',
-      problem: 'Naar du plutselig blir skremt, frigjor binyrene adrenalin. Forklar hvordan dette signalet naar fram til og paavirker hjertemuskelcellene.',
-      solution: `**Loesning:**
+      problem: 'Når du plutselig blir skremt, frigjør binyrene adrenalin. Forklar hvordan dette signalet når fram til og påvirker hjertemuskelcellene.',
+      solution: `**Løsning:**
 
 1. **Signalering**: Binyremargen (signalcellen) skiller ut adrenalin til blodet
 2. **Transport**: Adrenalin transporteres med blodet til hele kroppen (endokrin signalering)
-3. **Mottak**: Hjertemuskelcellene har beta-adrenerge reseptorer (G-proteinkoblede reseptorer) paa cellemembranen
+3. **Mottak**: Hjertemuskelcellene har beta-adrenerge reseptorer (G-proteinkoblede reseptorer) på cellemembranen
 4. **Gjenkjenning**: Adrenalin binder seg til reseptoren – kun celler med riktig reseptor responderer
-5. **Signaltransduksjon**: Reseptoren aktiverer et G-protein → adenylatsyklase → cAMP dannes (sekundaer budbringer)
-6. **Respons**: cAMP aktiverer proteinkinaser som oeker hjertets slagfrekvens og slagkraft
+5. **Signaltransduksjon**: Reseptoren aktiverer et G-protein → adenylatsyklase → cAMP dannes (sekundær budbringer)
+6. **Respons**: cAMP aktiverer proteinkinaser som øker hjertets slagfrekvens og slagkraft
 
-Celler uten beta-adrenerge reseptorer (f.eks. mange benceller) paavirkes ikke av adrenalinet, selv om det naar dem via blodet. Det er reseptoren som avgjoer om cellen responderer.`,
+Celler uten beta-adrenerge reseptorer (f.eks. mange benceller) påvirkes ikke av adrenalinet, selv om det når dem via blodet. Det er reseptoren som avgjør om cellen responderer.`,
     },
     {
       id: 'bio1-1-6-ex-1',
@@ -1697,41 +1697,41 @@ Celler uten beta-adrenerge reseptorer (f.eks. mange benceller) paavirkes ikke av
           { id: 'c', text: 'Transkripsjon, translasjon og modifisering', isCorrect: false },
           { id: 'd', text: 'Mitose, meiose og cytokinese', isCorrect: false },
         ],
-        solution: 'Cellekommunikasjon foelger tre trinn: (1) Signalering – cellen sender ut et signalmolekyl (ligand). (2) Mottak – maalcellen gjenkjenner signalet via en reseptor. (3) Respons – cellen endrer atferd basert paa signalet. Alle tre trinna er noedvendige for at kommunikasjonen skal fungere.',
+        solution: 'Cellekommunikasjon følger tre trinn: (1) Signalering – cellen sender ut et signalmolekyl (ligand). (2) Mottak – målcellen gjenkjenner signalet via en reseptor. (3) Respons – cellen endrer atferd basert på signalet. Alle tre trinna er nødvendige for at kommunikasjonen skal fungere.',
       },
     },
     {
       id: 'bio1-1-6-def-2',
       type: 'definition',
       title: 'Typer cellekommunikasjon',
-      content: `Celler kommuniserer paa ulike maater avhengig av avstanden mellom sender og mottaker:
+      content: `Celler kommuniserer på ulike måter avhengig av avstanden mellom sender og mottaker:
 
-- **Endokrin signalering**: Signalmolekyler (hormoner) fraktes med blodet til fjerne maalceller. Eksempel: insulin fra bukspyttkjertelen paavirker lever- og muskelceller.
-- **Parakrin signalering**: Signalmolekyler paavirker naerliggende celler. Eksempel: vekstfaktorer som stimulerer saarheling.
-- **Autokrin signalering**: Cellen sender signaler til seg selv. Eksempel: T-celler som produserer interleukin-2 for aa stimulere sin egen deling.
-- **Synaptisk signalering**: Nevrotransmittere frigjores i synapsen og paavirker naerliggende nerveceller. Eksempel: acetylkolin ved nerve-muskel-overgangen.
-- **Direkte kontakt (juxtakrin)**: Celler kommuniserer gjennom direkte membran-til-membran-kontakt eller via gap junctions. Eksempel: immunresponsen der T-celler gjenkjenner antigener paa andre cellers overflate.`,
+- **Endokrin signalering**: Signalmolekyler (hormoner) fraktes med blodet til fjerne målceller. Eksempel: insulin fra bukspyttkjertelen påvirker lever- og muskelceller.
+- **Parakrin signalering**: Signalmolekyler påvirker nærliggende celler. Eksempel: vekstfaktorer som stimulerer sårheling.
+- **Autokrin signalering**: Cellen sender signaler til seg selv. Eksempel: T-celler som produserer interleukin-2 for å stimulere sin egen deling.
+- **Synaptisk signalering**: Nevrotransmittere frigjøres i synapsen og påvirker nærliggende nerveceller. Eksempel: acetylkolin ved nerve-muskel-overgangen.
+- **Direkte kontakt (juxtakrin)**: Celler kommuniserer gjennom direkte membran-til-membran-kontakt eller via gap junctions. Eksempel: immunresponsen der T-celler gjenkjenner antigener på andre cellers overflate.`,
     },
     {
       id: 'bio1-1-6-example-2',
       type: 'example',
       title: 'Eksempel: Parakrin vs. endokrin signalering',
       problem: 'Forklar forskjellen mellom parakrin og endokrin signalering med eksempler fra kroppen.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Parakrin signalering:**
-- Signalet naar kun naerliggende celler
-- Signalmolekylene brytes raskt ned og naar ikke langt
-- Eksempel: Ved en skade frigjor skadde celler histamin, som faar naerliggende blodaarer til aa utvide seg (betennelsesreaksjon). Histaminet paavirker bare det lokale omraadet
+- Signalet når kun nærliggende celler
+- Signalmolekylene brytes raskt ned og når ikke langt
+- Eksempel: Ved en skade frigjør skadde celler histamin, som får nærliggende blodårer til å utvide seg (betennelsesreaksjon). Histaminet påvirker bare det lokale området
 - Rask, lokal effekt
 
 **Endokrin signalering:**
 - Signalet (hormonet) transporteres med blodet til hele kroppen
-- Kun celler med riktig reseptor paavirkes
+- Kun celler med riktig reseptor påvirkes
 - Eksempel: Skjoldbruskkjertelen skiller ut tyroksin som transporteres til alle kroppens celler og regulerer stoffskiftet
 - Langsommere, men global effekt
 
-**Hovudforskjell**: Parakrin signalering er lokal (naerliggende celler), endokrin er global (hele kroppen via blodet). Begge bruker kjemiske signalmolekyler, men rekkevidden er ulik.`,
+**Hovudforskjell**: Parakrin signalering er lokal (nærliggende celler), endokrin er global (hele kroppen via blodet). Begge bruker kjemiske signalmolekyler, men rekkevidden er ulik.`,
     },
     {
       id: 'bio1-1-6-ex-2',
@@ -1741,43 +1741,43 @@ Celler uten beta-adrenerge reseptorer (f.eks. mange benceller) paavirkes ikke av
         number: '2',
         type: 'classic',
         task: 'Forklar med eigne ord kvifor det er viktig at signalmolekyler i parakrin signalering brytes raskt ned.',
-        hints: ['Tenk paa kva som hadde skjedd dersom signalet spreidde seg til heile kroppen'],
-        solution: 'Dersom parakrine signalmolekyler ikkje vart brotne ned raskt, ville dei spreie seg med blodet og paaverke celler langt fraa det opphavlege omraadet. Histamin ved ein liten skade ville daa foere til betennelsesreaksjon i heile kroppen, ikkje berre lokalt. Rask nedbrytning sikrar at signalet er presist og lokalt – berre cellene i naerleiken responderer. Dette er ein vesentleg forskjell fraa endokrin signalering, der hormona nettopp er laga for aa overleve lang transport i blodet.',
+        hints: ['Tenk på kva som hadde skjedd dersom signalet spreidde seg til heile kroppen'],
+        solution: 'Dersom parakrine signalmolekyler ikkje vart brotne ned raskt, ville dei spreie seg med blodet og påverke celler langt frå det opphavlege området. Histamin ved ein liten skade ville då føre til betennelsesreaksjon i heile kroppen, ikkje berre lokalt. Rask nedbrytning sikrar at signalet er presist og lokalt – berre cellene i nærleiken responderer. Dette er ein vesentleg forskjell frå endokrin signalering, der hormona nettopp er laga for å overleve lang transport i blodet.',
       },
     },
     {
       id: 'bio1-1-6-def-3',
       type: 'definition',
       title: 'Signaltransduksjon og membranreseptorer',
-      content: `**Signaltransduksjon** er prosessen der eit ytre signal (ligand) blir omsett til ein intracellulær respons. Membranen speler ein noekkelrolle fordi dei fleste signalmolekyler ikkje kan passere lipiddobbeltlaget – dei treng reseptorer i membranen.
+      content: `**Signaltransduksjon** er prosessen der eit ytre signal (ligand) blir omsett til ein intracellulær respons. Membranen speler ein nøkkelrolle fordi dei fleste signalmolekyler ikkje kan passere lipiddobbeltlaget – dei treng reseptorer i membranen.
 
 Tre hovudtypar membranreseptorer:
 
-1. **G-proteinkopla reseptorar (GPCR)**: Den stoerste reseptorfamilien. Liganden aktiverer eit G-protein paa innsida av membranen, som igjen aktiverer enzym (t.d. adenylatsyklase → cAMP). Eksempel: adrenalinreseptoren.
+1. **G-proteinkopla reseptorar (GPCR)**: Den største reseptorfamilien. Liganden aktiverer eit G-protein på innsida av membranen, som igjen aktiverer enzym (t.d. adenylatsyklase → cAMP). Eksempel: adrenalinreseptoren.
 
-2. **Reseptor-tyrosinkinasar (RTK)**: Enzymkopla reseptorar som fosforylerer seg sjolv og aktiverer intracellulaere signalvegar. Viktig for vekstfaktorar (t.d. insulinreseptoren).
+2. **Reseptor-tyrosinkinasar (RTK)**: Enzymkopla reseptorar som fosforylerer seg sjølv og aktiverer intracellulære signalvegar. Viktig for vekstfaktorar (t.d. insulinreseptoren).
 
-3. **Ligandstyrt ionekanalerr**: Opnar seg naar ein ligand bind seg og slepper ionar gjennom. Forer til rask endring i membranpotensialet. Eksempel: acetylkolinreseptoren ved synapse.`,
+3. **Ligandstyrt ionekanalerr**: Opnar seg når ein ligand bind seg og slepper ionar gjennom. Fører til rask endring i membranpotensialet. Eksempel: acetylkolinreseptoren ved synapse.`,
     },
     {
       id: 'bio1-1-6-example-3',
       type: 'example',
-      title: 'Eksempel: cAMP som sekundaer budbringer',
-      problem: 'Forklar korleis cAMP fungerer som sekundaer budbringer i ein signaltransduksjonskaskade.',
-      solution: `**Loesning:**
+      title: 'Eksempel: cAMP som sekundær budbringer',
+      problem: 'Forklar korleis cAMP fungerer som sekundær budbringer i ein signaltransduksjonskaskade.',
+      solution: `**Løsning:**
 
 **Steg-for-steg signalkaskade:**
 
-1. **Ligand bind reseptor**: Eit hormon (foerstebodbringer) bind seg til ein G-proteinkopla reseptor i cellemembranen
-2. **G-protein aktiverast**: Reseptoren endrar form og aktiverer eit G-protein paa innsida av membranen
+1. **Ligand bind reseptor**: Eit hormon (førstebudbringer) bind seg til ein G-proteinkopla reseptor i cellemembranen
+2. **G-protein aktiverast**: Reseptoren endrar form og aktiverer eit G-protein på innsida av membranen
 3. **Adenylatsyklase aktiverast**: G-proteinet aktiverer enzymet adenylatsyklase i membranen
-4. **cAMP dannast**: Adenylatsyklase omdannar ATP til cAMP (syklisk adenosinmonofosfat) – dette er den sekundaere budbringaren
+4. **cAMP dannast**: Adenylatsyklase omdannar ATP til cAMP (syklisk adenosinmonofosfat) – dette er den sekundære budbringaren
 5. **Signalforsterking**: Eitt aktivert enzym lagar mange cAMP-molekyl → forsterking av signalet
 6. **Proteinkinase A aktiverast**: cAMP aktiverer proteinkinase A (PKA)
-7. **Cellulær respons**: PKA fosforylerer maolprotein → endrar cellens oppfoersel
+7. **Cellulær respons**: PKA fosforylerer målprotein → endrar cellens oppførsel
 
-**Kvifor «sekundaer budbringer»?**
-Hormonet (foerstebodbringaren) naar ikkje inn i cellen. cAMP er den intracellulaere budbringaren som overforer signalet vidare inne i cellen. Eitt hormolmolekyl kan via denne kaskaden aktivere tusenvis av enzym – enorm signalforsterking.
+**Kvifor «sekundær budbringer»?**
+Hormonet (førstebudbringaren) når ikkje inn i cellen. cAMP er den intracellulære budbringaren som overfører signalet vidare inne i cellen. Eitt hormolmolekyl kan via denne kaskaden aktivere tusenvis av enzym – enorm signalforsterking.
 
 **Nedregulering**: Enzymet fosfodiesterase bryt ned cAMP, slik at signalet ikkje varer for lenge.`,
     },
@@ -1788,14 +1788,14 @@ Hormonet (foerstebodbringaren) naar ikkje inn i cellen. cAMP er den intracellula
         id: 'bio1-1-6-ex-3',
         number: '3',
         type: 'multiple-choice',
-        task: 'Kvifor kan ikkje vassloeyselege hormon (som insulin) passere cellemembranen direkte?',
+        task: 'Kvifor kan ikkje vassløyselege hormon (som insulin) passere cellemembranen direkte?',
         options: [
           { id: 'a', text: 'Fordi det hydrofobe indre av lipiddobbeltlaget avviser polare molekyl', isCorrect: true },
-          { id: 'b', text: 'Fordi dei er for smaa til aa bli gjenkjent', isCorrect: false },
+          { id: 'b', text: 'Fordi dei er for små til å bli gjenkjent', isCorrect: false },
           { id: 'c', text: 'Fordi membranen ikkje har plass til dei', isCorrect: false },
           { id: 'd', text: 'Fordi dei mangler energi til aktiv transport', isCorrect: false },
         ],
-        solution: 'Cellemembranen har eit hydrofobt (vasskyande) indre bestaande av fettsyrehalane i fosfolipida. Vassloeyselege (hydrofile/polare) molekyl som peptidhormon (insulin, adrenalin) kan ikkje passere denne hydrofobe barrieren. Dei treng difor reseptorar paa celleoverflata for aa sende signalet vidare inn i cellen via signaltransduksjon. Feittloeyselege hormon (som steroidhormon) kan derimot passere membranen direkte og bind seg til intracellulaere reseptorar.',
+        solution: 'Cellemembranen har eit hydrofobt (vasskyande) indre beståande av fettsyrehalane i fosfolipida. Vassløyselege (hydrofile/polare) molekyl som peptidhormon (insulin, adrenalin) kan ikkje passere denne hydrofobe barrieren. Dei treng difor reseptorar på celleoverflata for å sende signalet vidare inn i cellen via signaltransduksjon. Feittløyselege hormon (som steroidhormon) kan derimot passere membranen direkte og bind seg til intracellulære reseptorar.',
       },
     },
     {
@@ -1806,8 +1806,8 @@ Hormonet (foerstebodbringaren) naar ikkje inn i cellen. cAMP er den intracellula
         number: '4',
         type: 'classic',
         task: 'Forklar kvifor signalforsterking er ein viktig eigenskap ved signaltransduksjonskaskader.',
-        hints: ['Tenk paa kva som skjer i kvart trinn av kaskaden', 'Eit enzym kan omdanne mange substratmolekyl'],
-        solution: 'I ein signalkaskade aktiverer kvart trinn mange molekyl i neste trinn: Eitt hormolmolekyl aktiverer ein reseptor → ein reseptor aktiverer fleire G-protein → kvart G-protein aktiverer eit adenylatsyklase → kvart adenylatsyklase lagar mange cAMP → mange cAMP aktiverer mange proteinkinasar → kvar proteinkinase fosforylerer mange maolprotein. Slik kan eitt enkelt hormolmolekyl paa celleoverflata utloeyse ein massiv respons inne i cellen. Dette er viktig fordi hormonkonsentrasjonane i blodet er svært laage (nanomolaar), og utan forsterking ville signalet vaere for svakt til aa ha effekt.',
+        hints: ['Tenk på kva som skjer i kvart trinn av kaskaden', 'Eit enzym kan omdanne mange substratmolekyl'],
+        solution: 'I ein signalkaskade aktiverer kvart trinn mange molekyl i neste trinn: Eitt hormolmolekyl aktiverer ein reseptor → ein reseptor aktiverer fleire G-protein → kvart G-protein aktiverer eit adenylatsyklase → kvart adenylatsyklase lagar mange cAMP → mange cAMP aktiverer mange proteinkinasar → kvar proteinkinase fosforylerer mange målprotein. Slik kan eitt enkelt hormolmolekyl på celleoverflata utløyse ein massiv respons inne i cellen. Dette er viktig fordi hormonkonsentrasjonane i blodet er svært låge (nanomolaar), og utan forsterking ville signalet være for svakt til å ha effekt.',
       },
     },
     {
@@ -1815,14 +1815,14 @@ Hormonet (foerstebodbringaren) naar ikkje inn i cellen. cAMP er den intracellula
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert:
+I dette kapittelet har du lært:
 
-- **Cellekommunikasjon** folger tre hovudtrinn: signalering, mottak og respons
-- **Fem typar signalering**: endokrin (blodet), parakrin (lokalt), autokrin (seg sjolv), synaptisk (synapse) og juxtakrin (direkte kontakt)
-- **Membranreseptorar** er noedvendige fordi dei fleste signalmolekyl ikkje kan passere lipiddobbeltlaget
+- **Cellekommunikasjon** følger tre hovudtrinn: signalering, mottak og respons
+- **Fem typar signalering**: endokrin (blodet), parakrin (lokalt), autokrin (seg sjølv), synaptisk (synapse) og juxtakrin (direkte kontakt)
+- **Membranreseptorar** er nødvendige fordi dei fleste signalmolekyl ikkje kan passere lipiddobbeltlaget
 - **Tre reseptortypar**: G-proteinkopla (GPCR), reseptor-tyrosinkinasar (RTK) og ligandstyrt ionekanalar
-- **Signaltransduksjon**: ytre signal → membranreseptor → intracellulaer kaskade → cellulær respons
-- **Sekundaere budbringarar** (cAMP, kalsium) forsterkar signalet enormt inne i cellen
+- **Signaltransduksjon**: ytre signal → membranreseptor → intracellulær kaskade → cellulær respons
+- **Sekundære budbringarar** (cAMP, kalsium) forsterkar signalet enormt inne i cellen
 - **Signalforsterking**: Ein ligand kan aktivere tusenvis av effektormolekyl gjennom kaskaden
 
 | Signaltype | Rekkevidde | Hastigheit | Eksempel |
@@ -1842,9 +1842,9 @@ I dette kapittelet har du laert:
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samanlikn korleis vassloeyselege hormon (t.d. adrenalin) og fettloeyselege hormon (t.d. oestrogen) sender signala sine til cella. Kvifor treng vassloeyselege hormon membranreseptorar, medan fettloeyselege ikkje gjer det?',
-        hints: ['Tenk paa oppbygginga av cellemembranen', 'Kva for eigenskap avgjer om eit molekyl kan passere lipiddobbeltlaget?'],
-        solution: 'Vassloeyselege hormon (peptidhormon som adrenalin og insulin) er polare molekyl som ikkje kan passere det hydrofobe indre av lipiddobbeltlaget. Dei bind seg til reseptorar paa celleoverflata (t.d. GPCR) og utloeser signaltransduksjon via sekundaere budbringarar (cAMP). Signalet er raskt men kortvarig. Fettloeyselege hormon (steroidhormon som oestrogen, testosteron, kortisol) er hydrofobe og kan passere direkte gjennom cellemembranen. Dei bind seg til intracellulaere reseptorar (ofte i cellekjernen) og paaverkar genekspresjon direkte. Signalet er langsommare men meir langvarig. Skilnaden kjem av membranens oppbygging: det hydrofobe indre slepp berre gjennom hydrofobe molekyl.',
+        task: 'Samanlikn korleis vassløyselege hormon (t.d. adrenalin) og fettløyselege hormon (t.d. østrogen) sender signala sine til cella. Kvifor treng vassløyselege hormon membranreseptorar, medan fettløyselege ikkje gjer det?',
+        hints: ['Tenk på oppbygginga av cellemembranen', 'Kva for eigenskap avgjer om eit molekyl kan passere lipiddobbeltlaget?'],
+        solution: 'Vassløyselege hormon (peptidhormon som adrenalin og insulin) er polare molekyl som ikkje kan passere det hydrofobe indre av lipiddobbeltlaget. Dei bind seg til reseptorar på celleoverflata (t.d. GPCR) og utløyser signaltransduksjon via sekundære budbringarar (cAMP). Signalet er raskt men kortvarig. Fettløyselege hormon (steroidhormon som østrogen, testosteron, kortisol) er hydrofobe og kan passere direkte gjennom cellemembranen. Dei bind seg til intracellulære reseptorar (ofte i cellekjernen) og påverkar genekspresjon direkte. Signalet er langsommare men meir langvarig. Skilnaden kjem av membranens oppbygging: det hydrofobe indre slepp berre gjennom hydrofobe molekyl.',
       },
     },
     {
@@ -1856,20 +1856,20 @@ I dette kapittelet har du laert:
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Mange kreftceller har mutasjonar i gen som kodar for vekstfaktorreseptorar eller protein i signalkaskaden. Forklar korleis ein mutasjon som gjer ein reseptor konstant aktiv (utan ligand) kan bidra til kreftutvikling.',
-        hints: ['Kva signal gir vekstfaktorar normalt?', 'Kva skjer naar signalet aldri stoppar?'],
-        solution: 'Normalt bind vekstfaktorar seg til reseptorar (t.d. RTK) og sender eit signal om celledeling. Naar vekstfaktoren forsvinn, stoppar signalet og cella sluttar aa dele seg. Ein mutasjon som gjer reseptoren konstant aktiv betyr at cella heile tida faar signal om aa dele seg – sjolv utan vekstfaktor. Dette forer til ukontrollert celledeling, eit kjenneteikn ved kreft. Eksempel: HER2-reseptoren er overuttrykt i ca. 20% av brystkreft-tilfelle, noko som gir konstant vekstsignal. Kreftmedisinen trastuzumab (Herceptin) blokkerer denne reseptoren. Dette viser korleis forstaaing av cellekommunikasjon er direkte relevant for kreftbehandling.',
+        hints: ['Kva signal gir vekstfaktorar normalt?', 'Kva skjer når signalet aldri stoppar?'],
+        solution: 'Normalt bind vekstfaktorar seg til reseptorar (t.d. RTK) og sender eit signal om celledeling. Når vekstfaktoren forsvinn, stoppar signalet og cella sluttar å dele seg. Ein mutasjon som gjer reseptoren konstant aktiv betyr at cella heile tida får signal om å dele seg – sjølv utan vekstfaktor. Dette fører til ukontrollert celledeling, eit kjenneteikn ved kreft. Eksempel: HER2-reseptoren er overuttrykt i ca. 20% av brystkreft-tilfelle, noko som gir konstant vekstsignal. Kreftmedisinen trastuzumab (Herceptin) blokkerer denne reseptoren. Dette viser korleis forståing av cellekommunikasjon er direkte relevant for kreftbehandling.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Ligand', definition: 'Signalmolekyl som bind seg til ein spesifikk reseptor og utloeser ein respons' },
+    { term: 'Ligand', definition: 'Signalmolekyl som bind seg til ein spesifikk reseptor og utløyser ein respons' },
     { term: 'Reseptor', definition: 'Protein som gjenkjenner og bind eit spesifikt signalmolekyl' },
     { term: 'Signaltransduksjon', definition: 'Prosessen der eit ytre signal vert omsett til ein intracellulær respons' },
-    { term: 'GPCR', definition: 'G-proteinkopla reseptor – den stoerste familien av membranreseptorar' },
-    { term: 'Sekundaer budbringer', definition: 'Intracellulaert signalmolekyl (t.d. cAMP, kalsium) som formidlar og forsterkar signalet' },
+    { term: 'GPCR', definition: 'G-proteinkopla reseptor – den største familien av membranreseptorar' },
+    { term: 'Sekundær budbringer', definition: 'Intracellulært signalmolekyl (t.d. cAMP, kalsium) som formidlar og forsterkar signalet' },
     { term: 'Signalforsterking', definition: 'Kaskadeeffekt der eitt signalmolekyl aktiverer mange effektormolekyl' },
-    { term: 'Parakrin signalering', definition: 'Kommunikasjon med naerliggjande celler via lokale signalmolekyl' },
+    { term: 'Parakrin signalering', definition: 'Kommunikasjon med nærliggjande celler via lokale signalmolekyl' },
   ],
 };
 

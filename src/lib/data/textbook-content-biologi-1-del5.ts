@@ -4,11 +4,11 @@
 /**
  * Tekstbok innhold for Biologi 1 VG2 - Del 5: Homeostase og regulering
  *
- * Dekker LK20-kompetansemaal for biologi 1 (BIO01-02)
+ * Dekker LK20-kompetansemål for biologi 1 (BIO01-02)
  * Kapittel 5.1-5.5: Homeostase, nervesystemet, hormonsystemet,
  * temperatur- og blodsukkerregulering, nyrene og osmoregulering
  *
- * Kompetansemaal: Eleven skal kunne gjore rede for kroppens
+ * Kompetansemål: Eleven skal kunne gjøre rede for kroppens
  * homeostatiske reguleringsmekanismer og forklare samspillet
  * mellom nervesystemet og hormonsystemet.
  */
@@ -29,7 +29,7 @@ export const CHAPTER_BIOLOGI_1_5_1: TextbookChapter = {
   competenceGoals: [
     'forklare hva homeostase er og hvorfor det er viktig for kroppen',
     'beskrive negativ og positiv tilbakekobling med eksempler',
-    'gjore rede for komponentene i et reguleringssystem: sensor, kontrollsenter, effektor',
+    'gjøre rede for komponentene i et reguleringssystem: sensor, kontrollsenter, effektor',
   ],
   content: [
     {
@@ -37,49 +37,49 @@ export const CHAPTER_BIOLOGI_1_5_1: TextbookChapter = {
       type: 'text',
       content: `# Homeostase – kroppens indre balanse
 
-Kroppen vaar er et komplekst system som hele tiden maa tilpasse seg endringer i omgivelsene. Enten vi loper i stekende sol eller sitter stille i kulden, maa det indre miljoet holdes stabilt for at cellene skal fungere optimalt. Denne evnen til aa opprettholde stabile indre forhold kalles homeostase.
+Kroppen vår er et komplekst system som hele tiden må tilpasse seg endringer i omgivelsene. Enten vi løper i stekende sol eller sitter stille i kulden, må det indre miljøet holdes stabilt for at cellene skal fungere optimalt. Denne evnen til å opprettholde stabile indre forhold kalles homeostase.
 
 ## Hvorfor er homeostase viktig?
 
-Cellene vaare er avhengige av bestemte betingelser for aa fungere:
+Cellene våre er avhengige av bestemte betingelser for å fungere:
 
 - **Temperatur**: Enzymer fungerer best ved ca. 37 °C
-- **pH**: Blodet maa holdes mellom 7,35 og 7,45
-- **Blodsukker**: Cellene trenger jevn tilgang paa glukose
-- **Vaeskebalanse**: Riktig konsentrasjon av salter og vann
+- **pH**: Blodet må holdes mellom 7,35 og 7,45
+- **Blodsukker**: Cellene trenger jevn tilgang på glukose
+- **Væskebalanse**: Riktig konsentrasjon av salter og vann
 
-Hvis disse forholdene avviker for mye fra det normale, kan det foere til alvorlig sykdom eller doed. Homeostase er derfor en grunnleggende forutsetning for liv.
+Hvis disse forholdene avviker for mye fra det normale, kan det føre til alvorlig sykdom eller død. Homeostase er derfor en grunnleggende forutsetning for liv.
 
 ## Historisk bakgrunn
 
-Begrepet homeostase ble foerst brukt av den amerikanske fysiologen Walter B. Cannon i 1926, men ideen stammer fra den franske fysiologen Claude Bernard som paa 1800-tallet beskrev «le milieu intérieur» – det indre miljoet. Bernard forsto at cellene i kroppen lever i et indre miljoe (blod og vevsvaesker) som maa holdes stabilt, uavhengig av hva som skjer utenpaa kroppen. Hans beroemte utsagn var at «stabiliteten i det indre miljoet er betingelsen for et fritt og uavhengig liv» – en innsikt som fortsatt er grunnleggende i fysiologien.
+Begrepet homeostase ble først brukt av den amerikanske fysiologen Walter B. Cannon i 1926, men ideen stammer fra den franske fysiologen Claude Bernard som på 1800-tallet beskrev «le milieu intérieur» – det indre miljøet. Bernard forsto at cellene i kroppen lever i et indre miljø (blod og vevsvæsker) som må holdes stabilt, uavhengig av hva som skjer utenfor kroppen. Hans berømte utsagn var at «stabiliteten i det indre miljøet er betingelsen for et fritt og uavhengig liv» – en innsikt som fortsatt er grunnleggende i fysiologien.
 
 ## Dynamisk likevekt
 
-Homeostase er ikke en statisk tilstand, men en dynamisk likevekt. Verdiene svinger hele tiden litt over og under setpunktet – dette er normalt. Reguleringsmekanismene jobber kontinuerlig for aa holde svingningene innenfor akseptable grenser. Hvis reguleringsmekanismene svikter, kan svingningene bli saa store at de truer helsen.`,
+Homeostase er ikke en statisk tilstand, men en dynamisk likevekt. Verdiene svinger hele tiden litt over og under setpunktet – dette er normalt. Reguleringsmekanismene jobber kontinuerlig for å holde svingningene innenfor akseptable grenser. Hvis reguleringsmekanismene svikter, kan svingningene bli så store at de truer helsen.`,
     },
     {
       id: 'bio1-5-1-def-1',
       type: 'definition',
       title: 'Homeostase',
-      content: 'Homeostase (fra gresk homoios = lik, stasis = tilstand) er kroppens evne til aa opprettholde et stabilt indre miljoe til tross for endringer i ytre eller indre forhold. Det betyr ikke at forholdene er helt konstante, men at de svinger innenfor et smalt normalomraade rundt et setpunkt.',
+      content: 'Homeostase (fra gresk homoios = lik, stasis = tilstand) er kroppens evne til å opprettholde et stabilt indre miljø til tross for endringer i ytre eller indre forhold. Det betyr ikke at forholdene er helt konstante, men at de svinger innenfor et smalt normalområde rundt et setpunkt.',
     },
     {
       id: 'bio1-5-1-example-1',
       type: 'example',
       title: 'Eksempel: Kroppstemperatur som homeostase',
-      problem: 'Normal kroppstemperatur er ca. 37 °C. Forklar hvorfor temperaturen ikke er eksakt 37,0 °C hele tiden, og hva som skjer naar den avviker.',
-      solution: `**Loesning:**
+      problem: 'Normal kroppstemperatur er ca. 37 °C. Forklar hvorfor temperaturen ikke er eksakt 37,0 °C hele tiden, og hva som skjer når den avviker.',
+      solution: `**Løsning:**
 
-Kroppstemperaturen svinger normalt mellom ca. 36,1 °C og 37,2 °C gjennom doegnet. Den er lavest om morgenen og hoeyest om ettermiddagen. Dette er normalt og viser at homeostase handler om aa holde verdier innenfor et **normalomraade**, ikke paa en fast verdi.
+Kroppstemperaturen svinger normalt mellom ca. 36,1 °C og 37,2 °C gjennom døgnet. Den er lavest om morgenen og høyest om ettermiddagen. Dette er normalt og viser at homeostase handler om å holde verdier innenfor et **normalområde**, ikke på en fast verdi.
 
-Naar temperaturen stiger over setpunktet (f.eks. ved fysisk aktivitet):
-- Blodaarene i huden utvider seg (vasodilatasjon) → mer varme avgis
-- Svettekjertlene aktiveres → fordampning kjoeler kroppen
+Når temperaturen stiger over setpunktet (f.eks. ved fysisk aktivitet):
+- Blodårene i huden utvider seg (vasodilatasjon) → mer varme avgis
+- Svettekjertlene aktiveres → fordampning kjøler kroppen
 
-Naar temperaturen synker under setpunktet (f.eks. i kulde):
-- Blodaarene i huden trekker seg sammen (vasokonstriksjon) → mindre varmetap
-- Skjelving oeker varmeproduksjonen i musklene
+Når temperaturen synker under setpunktet (f.eks. i kulde):
+- Blodårene i huden trekker seg sammen (vasokonstriksjon) → mindre varmetap
+- Skjelving øker varmeproduksjonen i musklene
 
 Resultatet er at temperaturen hele tiden korrigeres tilbake mot setpunktet.`,
     },
@@ -92,36 +92,36 @@ Resultatet er at temperaturen hele tiden korrigeres tilbake mot setpunktet.`,
         type: 'multiple-choice',
         task: 'Hva menes med homeostase?',
         options: [
-          { id: 'a', text: 'At kroppens indre miljoe holdes stabilt innenfor et normalomraade', isCorrect: true },
+          { id: 'a', text: 'At kroppens indre miljø holdes stabilt innenfor et normalområde', isCorrect: true },
           { id: 'b', text: 'At alle verdier i kroppen er helt konstante til enhver tid', isCorrect: false },
           { id: 'c', text: 'At kroppen alltid har samme temperatur som omgivelsene', isCorrect: false },
-          { id: 'd', text: 'At kroppen ikke paavirkes av ytre forhold', isCorrect: false },
+          { id: 'd', text: 'At kroppen ikke påvirkes av ytre forhold', isCorrect: false },
         ],
-        solution: 'Homeostase betyr at kroppen opprettholder et stabilt indre miljoe. Verdiene er ikke helt konstante, men svinger rundt et setpunkt innenfor et smalt normalomraade. Kroppen har aktive reguleringsmekanismer som korrigerer avvik.',
+        solution: 'Homeostase betyr at kroppen opprettholder et stabilt indre miljø. Verdiene er ikke helt konstante, men svinger rundt et setpunkt innenfor et smalt normalområde. Kroppen har aktive reguleringsmekanismer som korrigerer avvik.',
       },
     },
     {
       id: 'bio1-5-1-def-2',
       type: 'definition',
       title: 'Negativ tilbakekobling (feedback)',
-      content: 'Negativ tilbakekobling er den viktigste reguleringsmekanismen i kroppen. Naar en verdi avviker fra setpunktet, setter kroppen i gang tiltak som motvirker endringen og bringer verdien tilbake mot normalt. Navnet \"negativ\" viser til at responsen gaar i motsatt retning av avviket. De fleste homeostatiske prosesser bruker negativ tilbakekobling.',
+      content: 'Negativ tilbakekobling er den viktigste reguleringsmekanismen i kroppen. Når en verdi avviker fra setpunktet, setter kroppen i gang tiltak som motvirker endringen og bringer verdien tilbake mot normalt. Navnet "negativ" viser til at responsen går i motsatt retning av avviket. De fleste homeostatiske prosesser bruker negativ tilbakekobling.',
     },
     {
       id: 'bio1-5-1-example-2',
       type: 'example',
       title: 'Eksempel: Negativ tilbakekobling ved blodsukkerregulering',
-      problem: 'Forklar hvordan negativ tilbakekobling virker naar blodsukkeret stiger etter et maaltid.',
-      solution: `**Loesning:**
+      problem: 'Forklar hvordan negativ tilbakekobling virker når blodsukkeret stiger etter et måltid.',
+      solution: `**Løsning:**
 
-Etter et maaltid stiger blodsukkeret over setpunktet:
+Etter et måltid stiger blodsukkeret over setpunktet:
 
-1. **Sensor**: Betaceller i bukspyttkjertelen registrerer oekt blodsukker
-2. **Kontrollsenter**: Betacellene fungerer ogsa som kontrollsenter
+1. **Sensor**: Betaceller i bukspyttkjertelen registrerer økt blodsukker
+2. **Kontrollsenter**: Betacellene fungerer også som kontrollsenter
 3. **Respons**: Betacellene skiller ut hormonet insulin
-4. **Effektor**: Insulin faar celler (spesielt lever- og muskelceller) til aa ta opp glukose fra blodet
+4. **Effektor**: Insulin får celler (spesielt lever- og muskelceller) til å ta opp glukose fra blodet
 5. **Resultat**: Blodsukkeret synker tilbake mot normalt
 
-Dette er negativ tilbakekobling fordi responsen (senke blodsukker) gaar i **motsatt retning** av endringen (oekt blodsukker). Naar blodsukkeret naar normalnivaet, reduseres insulinutskillelsen – systemet regulerer seg selv.`,
+Dette er negativ tilbakekobling fordi responsen (senke blodsukker) går i **motsatt retning** av endringen (økt blodsukker). Når blodsukkeret når normalnivået, reduseres insulinutskillelsen – systemet regulerer seg selv.`,
     },
     {
       id: 'bio1-5-1-ex-2',
@@ -130,40 +130,40 @@ Dette er negativ tilbakekobling fordi responsen (senke blodsukker) gaar i **mots
         id: 'bio1-5-1-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Forklar med egne ord hva som er forskjellen mellom negativ og positiv tilbakekobling. Gi ett eksempel paa hver.',
-        hints: ['Tenk paa hvilken retning responsen gaar i forhold til endringen'],
-        solution: 'Negativ tilbakekobling motvirker endringen og bringer verdien tilbake mot setpunktet – dette stabiliserer systemet. Eksempel: Naar kroppstemperaturen stiger, aktiveres svetting som senker temperaturen. Positiv tilbakekobling forsterker endringen – responsen gaar i samme retning som den opprinnelige endringen. Eksempel: Under foedsel forsterker oksytocin sammentrekningene i livmoren, som igjen utloeser mer oksytocin, helt til barnet er foedt.',
+        task: 'Forklar med egne ord hva som er forskjellen mellom negativ og positiv tilbakekobling. Gi ett eksempel på hver.',
+        hints: ['Tenk på hvilken retning responsen går i forhold til endringen'],
+        solution: 'Negativ tilbakekobling motvirker endringen og bringer verdien tilbake mot setpunktet – dette stabiliserer systemet. Eksempel: Når kroppstemperaturen stiger, aktiveres svetting som senker temperaturen. Positiv tilbakekobling forsterker endringen – responsen går i samme retning som den opprinnelige endringen. Eksempel: Under fødsel forsterker oksytocin sammentrekningene i livmoren, som igjen utløser mer oksytocin, helt til barnet er født.',
       },
     },
     {
       id: 'bio1-5-1-def-3',
       type: 'definition',
       title: 'Reguleringssystemets komponenter',
-      content: 'Et homeostatisk reguleringssystem bestaar av fire hoveddeler: (1) Setpunkt – den oenskede verdien. (2) Sensor (reseptor) – registrerer den faktiske verdien og sender informasjon til kontrollsenteret. (3) Kontrollsenter – sammenligner faktisk verdi med setpunktet og sender signaler til effektoren. (4) Effektor – utfoerer responsen som korrigerer avviket. Eksempel: En termostat har et setpunkt (oensket temperatur), en sensor (termometer), et kontrollsenter (termostaten) og en effektor (ovnen eller viften).',
+      content: 'Et homeostatisk reguleringssystem består av fire hoveddeler: (1) Setpunkt – den ønskede verdien. (2) Sensor (reseptor) – registrerer den faktiske verdien og sender informasjon til kontrollsenteret. (3) Kontrollsenter – sammenligner faktisk verdi med setpunktet og sender signaler til effektoren. (4) Effektor – utfører responsen som korrigerer avviket. Eksempel: En termostat har et setpunkt (ønsket temperatur), en sensor (termometer), et kontrollsenter (termostaten) og en effektor (ovnen eller viften).',
     },
     {
       id: 'bio1-5-1-example-3',
       type: 'example',
       title: 'Eksempel: Positiv tilbakekobling ved foedsel',
-      problem: 'Forklar hvordan positiv tilbakekobling virker under en foedsel, og hvorfor dette er hensiktsmessig.',
-      solution: `**Loesning:**
+      problem: 'Forklar hvordan positiv tilbakekobling virker under en fødsel, og hvorfor dette er hensiktsmessig.',
+      solution: `**Løsning:**
 
-Under foedsel trykker barnets hode mot livmorhalsen:
+Under fødsel trykker barnets hode mot livmorhalsen:
 
 1. **Sensor**: Strekkreseptorer i livmorhalsen registrerer trykket
 2. **Kontrollsenter**: Hypothalamus i hjernen mottar signalet
-3. **Respons**: Hypothalamus faar hypofysen til aa skille ut oksytocin
-4. **Effektor**: Oksytocin faar livmormuskulaturen til aa trekke seg kraftigere sammen
+3. **Respons**: Hypothalamus får hypofysen til å skille ut oksytocin
+4. **Effektor**: Oksytocin får livmormuskulaturen til å trekke seg kraftigere sammen
 5. **Forsterkning**: Sterkere sammentrekninger presser barnet hardere mot livmorhalsen → enda mer oksytocin → enda sterkere sammentrekninger
 
-Denne positive tilbakekoblingssloeyfen fortsetter med oekende intensitet til barnet er foedt. Da forsvinner trykket paa livmorhalsen, og sloeyfen brytes.
+Denne positive tilbakekoblingssløyfen fortsetter med økende intensitet til barnet er født. Da forsvinner trykket på livmorhalsen, og sløyfen brytes.
 
-**Hvorfor hensiktsmessig?** Foedselen krever stadig sterkere sammentrekninger. Negativ tilbakekobling ville dempet prosessen, mens positiv tilbakekobling driver den fremover til maal.
+**Hvorfor hensiktsmessig?** Fødselen krever stadig sterkere sammentrekninger. Negativ tilbakekobling ville dempet prosessen, mens positiv tilbakekobling driver den fremover til mål.
 
-**Andre eksempler paa positiv tilbakekobling:**
+**Andre eksempler på positiv tilbakekobling:**
 - Blodkoagulering: Aktiverte koagulasjonsfaktorer forsterker aktiveringen av flere faktorer
-- Modning av frukt: Etylen fra modnende frukt stimulerer nabo-frukt til aa modnes raskere
-- Nervesignal: Aapning av natriumkanaler under depolarisering stimulerer aapning av nabokanalene`,
+- Modning av frukt: Etylen fra modnende frukt stimulerer nabo-frukt til å modnes raskere
+- Nervesignal: Åpning av natriumkanaler under depolarisering stimulerer åpning av nabokanalene`,
     },
     {
       id: 'bio1-5-1-ex-3',
@@ -179,7 +179,7 @@ Denne positive tilbakekoblingssloeyfen fortsetter med oekende intensitet til bar
           { id: 'c', text: 'Kontrollsenteret', isCorrect: false },
           { id: 'd', text: 'Setpunktet', isCorrect: false },
         ],
-        solution: 'Sensoren (reseptoren) registrerer den faktiske verdien av en variabel (f.eks. temperatur eller blodsukker) og sender denne informasjonen til kontrollsenteret. Kontrollsenteret sammenligner med setpunktet og sender signal til effektoren som utfoerer korrigeringen.',
+        solution: 'Sensoren (reseptoren) registrerer den faktiske verdien av en variabel (f.eks. temperatur eller blodsukker) og sender denne informasjonen til kontrollsenteret. Kontrollsenteret sammenligner med setpunktet og sender signal til effektoren som utfører korrigeringen.',
       },
     },
     {
@@ -189,9 +189,9 @@ Denne positive tilbakekoblingssloeyfen fortsetter med oekende intensitet til bar
         id: 'bio1-5-1-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Tegn og beskriv en negativ tilbakekoblingssloyfe for regulering av blodets pH. Blodets normale pH er mellom 7,35 og 7,45. Bruk begrepene sensor, kontrollsenter, effektor og setpunkt.',
-        hints: ['Tenk paa hva som skjer naar pH synker (blodet blir for surt)', 'Pustehastigheten paavirker mengden CO₂ i blodet, som igjen paavirker pH'],
-        solution: 'Setpunkt: pH mellom 7,35 og 7,45. Hvis pH synker under 7,35 (for surt): Sensor: Kjemoreseptorer i blodaarene registrerer lav pH. Kontrollsenter: Respirasjonssenteret i hjernestammen oeker pustesignaler. Effektor: Pustemusklene oeker respirasjonsfrekvensen. Raskere pusting fjerner mer CO₂ fra blodet, noe som hever pH tilbake mot normalt. Naar pH naar normalomraadet, reduseres pustesignalene – negativ tilbakekobling.',
+        task: 'Tegn og beskriv en negativ tilbakekoblingssløyfe for regulering av blodets pH. Blodets normale pH er mellom 7,35 og 7,45. Bruk begrepene sensor, kontrollsenter, effektor og setpunkt.',
+        hints: ['Tenk på hva som skjer når pH synker (blodet blir for surt)', 'Pustehastigheten påvirker mengden CO₂ i blodet, som igjen påvirker pH'],
+        solution: 'Setpunkt: pH mellom 7,35 og 7,45. Hvis pH synker under 7,35 (for surt): Sensor: Kjemoreseptorer i blodårene registrerer lav pH. Kontrollsenter: Respirasjonssenteret i hjernestammen øker pustesignaler. Effektor: Pustemusklene øker respirasjonsfrekvensen. Raskere pusting fjerner mer CO₂ fra blodet, noe som hever pH tilbake mot normalt. Når pH når normalområdet, reduseres pustesignalene – negativ tilbakekobling.',
       },
     },
     {
@@ -199,29 +199,29 @@ Denne positive tilbakekoblingssloeyfen fortsetter med oekende intensitet til bar
       type: 'text',
       content: `## Oppsummering
 
-Homeostase er kroppens evne til aa opprettholde stabile indre forhold. De viktigste prinsippene er:
+Homeostase er kroppens evne til å opprettholde stabile indre forhold. De viktigste prinsippene er:
 
-- **Setpunkt**: Den oenskede normalverdien for en variabel
+- **Setpunkt**: Den ønskede normalverdien for en variabel
 - **Negativ tilbakekobling**: Motvirker endringer og bringer verdien tilbake mot setpunktet (vanligst)
-- **Positiv tilbakekobling**: Forsterker endringer – brukes i spesielle situasjoner (foedsel, blodkoagulering)
+- **Positiv tilbakekobling**: Forsterker endringer – brukes i spesielle situasjoner (fødsel, blodkoagulering)
 - **Sensor → Kontrollsenter → Effektor**: Komponentene i reguleringssystemet
 
-Nesten alle fysiologiske reguleringsmekanismer vi skal laere om i de neste kapitlene – nervesignaler, hormoner, temperaturregulering, blodsukker og vaeskebalanse – er eksempler paa homeostase.
+Nesten alle fysiologiske reguleringsmekanismer vi skal lære om i de neste kapitlene – nervesignaler, hormoner, temperaturregulering, blodsukker og væskebalanse – er eksempler på homeostase.
 
-### Hva skjer naar homeostase svikter?
+### Hva skjer når homeostase svikter?
 
 Mange sykdommer kan forstas som svikt i homeostatisk regulering:
 
-| Variabel | Normal | For lav | For hoey |
+| Variabel | Normal | For lav | For høy |
 |----------|--------|---------|----------|
 | Temperatur | 37 °C | Hypotermi (< 35 °C) | Hypertermi (> 40 °C) |
 | Blodsukker | 4–6 mmol/L | Hypoglykemi | Hyperglykemi (diabetes) |
 | Blod-pH | 7,35–7,45 | Acidose | Alkalose |
 | Kalsium | 2,2–2,6 mmol/L | Hypokalsemi (kramper) | Hyperkalsemi |
 
-Jo lenger en verdi er utenfor normalomraadet, desto alvorligere er konsekvensene. Kroppens reguleringsmekanismer har grenser – ved ekstreme paavirkkninger kan de overbelastes.
+Jo lenger en verdi er utenfor normalområdet, desto alvorligere er konsekvensene. Kroppens reguleringsmekanismer har grenser – ved ekstreme påvirkninger kan de overbelastes.
 
-Aldring svekker ogsa kroppens evne til homeostase. Eldre mennesker har redusert kapasitet for temperaturregulering, vaeskeregulering og blodsukkerregulering, noe som gjor dem mer saarbare for ekstreme vaerforhold, dehydrering og metabolske forstyrrelser. Dette er en av grunnene til at eldre har oekt risiko for heteslag om sommeren og hypotermi om vinteren.`,
+Aldring svekker også kroppens evne til homeostase. Eldre mennesker har redusert kapasitet for temperaturregulering, væskeregulering og blodsukkerregulering, noe som gjør dem mer sårbare for ekstreme værforhold, dehydrering og metabolske forstyrrelser. Dette er en av grunnene til at eldre har økt risiko for heteslag om sommeren og hypotermi om vinteren.`,
     },
     // --- Samleoppgaver ---
     {
@@ -232,8 +232,8 @@ Aldring svekker ogsa kroppens evne til homeostase. Eldre mennesker har redusert 
         number: '5',
         type: 'classic',
         task: 'Sammenlign negativ tilbakekobling med en termostat i et hus. Identifiser sensor, kontrollsenter, effektor og setpunkt i begge systemene for temperaturregulering.',
-        hints: ['Tenk paa hva som registrerer temperaturen, hva som bestemmer hva som skal skje, og hva som faktisk endrer temperaturen'],
-        solution: 'Termostat: Setpunkt = oensket romtemperatur (f.eks. 22 °C). Sensor = termometeret i termostaten. Kontrollsenter = termostatens elektronikk som sammenligner maalt temperatur med setpunktet. Effektor = ovnen (varmer) eller viften (kjoeler). Kroppen: Setpunkt = ca. 37 °C. Sensor = temperaturreseptorer i huden og hypothalamus. Kontrollsenter = hypothalamus i hjernen. Effektor = blodaarer i huden (vasodilatasjon/vasokonstriksjon), svettekjertler, skjelving. Begge bruker negativ tilbakekobling: avvik fra setpunkt utloeser en respons som motvirker avviket.',
+        hints: ['Tenk på hva som registrerer temperaturen, hva som bestemmer hva som skal skje, og hva som faktisk endrer temperaturen'],
+        solution: 'Termostat: Setpunkt = ønsket romtemperatur (f.eks. 22 °C). Sensor = termometeret i termostaten. Kontrollsenter = termostatens elektronikk som sammenligner målt temperatur med setpunktet. Effektor = ovnen (varmer) eller viften (kjøler). Kroppen: Setpunkt = ca. 37 °C. Sensor = temperaturreseptorer i huden og hypothalamus. Kontrollsenter = hypothalamus i hjernen. Effektor = blodårer i huden (vasodilatasjon/vasokonstriksjon), svettekjertler, skjelving. Begge bruker negativ tilbakekobling: avvik fra setpunkt utløser en respons som motvirker avviket.',
       },
     },
     {
@@ -243,14 +243,14 @@ Aldring svekker ogsa kroppens evne til homeostase. Eldre mennesker har redusert 
         id: 'bio1-5-1-ex-6',
         number: '6',
         type: 'multiple-choice',
-        task: 'Hvilken paastand om positiv tilbakekobling er riktig?',
+        task: 'Hvilken påstand om positiv tilbakekobling er riktig?',
         options: [
           { id: 'a', text: 'Responsen forsterker den opprinnelige endringen', isCorrect: true },
           { id: 'b', text: 'Responsen motvirker den opprinnelige endringen', isCorrect: false },
           { id: 'c', text: 'Positiv tilbakekobling er den vanligste reguleringsmekanismen i kroppen', isCorrect: false },
-          { id: 'd', text: 'Positiv tilbakekobling faar alltid verdien tilbake til setpunktet', isCorrect: false },
+          { id: 'd', text: 'Positiv tilbakekobling får alltid verdien tilbake til setpunktet', isCorrect: false },
         ],
-        solution: 'Ved positiv tilbakekobling forsterker responsen den opprinnelige endringen – systemet beveger seg lenger bort fra utgangspunktet. Dette er sjeldnere i kroppen enn negativ tilbakekobling og brukes kun i spesielle situasjoner der en prosess maa drives til fullfoering (f.eks. foedsel, blodkoagulering).',
+        solution: 'Ved positiv tilbakekobling forsterker responsen den opprinnelige endringen – systemet beveger seg lenger bort fra utgangspunktet. Dette er sjeldnere i kroppen enn negativ tilbakekobling og brukes kun i spesielle situasjoner der en prosess må drives til fullføring (f.eks. fødsel, blodkoagulering).',
       },
     },
     {
@@ -260,48 +260,48 @@ Aldring svekker ogsa kroppens evne til homeostase. Eldre mennesker har redusert 
         id: 'bio1-5-1-ex-7',
         number: '7',
         type: 'classic',
-        task: 'Forklar hvorfor det ville vaert problematisk dersom kroppstemperaturen ble regulert av positiv tilbakekobling i stedet for negativ tilbakekobling.',
-        hints: ['Tenk paa hva som ville skjedd hvis en temperaturoekning utloeste respons som oekte temperaturen ytterligere'],
-        solution: 'Med positiv tilbakekobling ville en liten temperaturoekning utloest en respons som oekte temperaturen enda mer, som igjen ville forsterket responsen videre. Temperaturen ville raskt stige ukontrollert og kunne naa livstruende nivaaer. Paa samme maate ville en liten temperatursenkning foert til stadig lavere temperatur. Systemet ville vaert helt ustabilt. Negativ tilbakekobling er noedvendig fordi den motvirker avvik og holder temperaturen innenfor trygge grenser.',
+        task: 'Forklar hvorfor det ville vært problematisk dersom kroppstemperaturen ble regulert av positiv tilbakekobling i stedet for negativ tilbakekobling.',
+        hints: ['Tenk på hva som ville skjedd hvis en temperaturøkning utløste respons som økte temperaturen ytterligere'],
+        solution: 'Med positiv tilbakekobling ville en liten temperaturøkning utløst en respons som økte temperaturen enda mer, som igjen ville forsterket responsen videre. Temperaturen ville raskt stige ukontrollert og kunne nå livstruende nivåer. På samme måte ville en liten temperatursenkning ført til stadig lavere temperatur. Systemet ville vært helt ustabilt. Negativ tilbakekobling er nødvendig fordi den motvirker avvik og holder temperaturen innenfor trygge grenser.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Homeostase', definition: 'Kroppens evne til aa opprettholde stabilt indre miljoe' },
-    { term: 'Setpunkt', definition: 'Den oenskede normalverdien for en fysiologisk variabel' },
+    { term: 'Homeostase', definition: 'Kroppens evne til å opprettholde stabilt indre miljø' },
+    { term: 'Setpunkt', definition: 'Den ønskede normalverdien for en fysiologisk variabel' },
     { term: 'Negativ tilbakekobling', definition: 'Regulering der responsen motvirker den opprinnelige endringen' },
     { term: 'Positiv tilbakekobling', definition: 'Regulering der responsen forsterker den opprinnelige endringen' },
     { term: 'Sensor', definition: 'Komponenten som registrerer den faktiske verdien av en variabel' },
-    { term: 'Effektor', definition: 'Komponenten som utfoerer korrigeringen' },
-    { term: 'Kontrollsenter', definition: 'Sammenligner maalt verdi med setpunktet og styrer effektoren' },
+    { term: 'Effektor', definition: 'Komponenten som utfører korrigeringen' },
+    { term: 'Kontrollsenter', definition: 'Sammenligner målt verdi med setpunktet og styrer effektoren' },
   ],
 };
 
 // ============================================================================
-// Kapittel 5.2: Nervesystemet og signaloverfoering
+// Kapittel 5.2: Nervesystemet og signaloverføring
 // ============================================================================
 
 export const CHAPTER_BIOLOGI_1_5_2: TextbookChapter = {
   id: 'biologi-1-5-2',
   courseId: 'biologi-1',
   chapterNumber: '5.2',
-  title: 'Nervesystemet og signaloverfoering',
+  title: 'Nervesystemet og signaloverføring',
   description: 'Nerveceller, aksjonspotensial, synapser og organisering av nervesystemet.',
   estimatedMinutes: 55,
   competenceGoals: [
     'beskrive oppbygningen av en nervecelle og forklare funksjonen til de ulike delene',
-    'forklare hvordan et aksjonspotensial oppstaar og ledes langs et akson',
-    'gjore rede for signaloverfoering over en synapse',
+    'forklare hvordan et aksjonspotensial oppstår og ledes langs et akson',
+    'gjøre rede for signaloverføring over en synapse',
     'gi en oversikt over sentralnervesystemet og det perifere nervesystemet',
   ],
   content: [
     {
       id: 'bio1-5-2-intro',
       type: 'text',
-      content: `# Nervesystemet og signaloverfoering
+      content: `# Nervesystemet og signaloverføring
 
-Nervesystemet er kroppens raske kommunikasjonssystem. Det gjor oss i stand til aa sanse omgivelsene, tenke, fole og reagere paa stimuli – alt paa broekdelen av et sekund. Mens hormonsystemet sender langsomme, langvarige signaler gjennom blodet, sender nervesystemet raske, presise elektriske signaler langs nerveceller.
+Nervesystemet er kroppens raske kommunikasjonssystem. Det gjør oss i stand til å sanse omgivelsene, tenke, føle og reagere på stimuli – alt på brøkdelen av et sekund. Mens hormonsystemet sender langsomme, langvarige signaler gjennom blodet, sender nervesystemet raske, presise elektriske signaler langs nerveceller.
 
 ## Oversikt over nervesystemet
 
@@ -312,26 +312,26 @@ Nervesystemet deles i to hoveddeler:
 
 Det perifere nervesystemet kan videre deles i:
 - **Somatisk nervesystem**: Styrer viljestyrte bevegelser (skjelettmuskulatur)
-- **Autonomt nervesystem**: Styrer ufrivillige funksjoner (hjerteslag, fordoeyelse)
-  - Sympatisk del: «Kamp eller flukt» – forbereder kroppen paa aktivitet
-  - Parasympatisk del: «Hvile og fordoey» – roer kroppen ned
+- **Autonomt nervesystem**: Styrer ufrivillige funksjoner (hjerteslag, fordøyelse)
+  - Sympatisk del: «Kamp eller flukt» – forbereder kroppen på aktivitet
+  - Parasympatisk del: «Hvile og fordøy» – roer kroppen ned
 
 ## Nervevev
 
-Nervevev bestaar av to hovedtyper celler:
-- **Nevroner**: De signalfoerende cellene (~100 milliarder i hjernen)
-- **Gliaceller**: Stoetteceller som beskytter, ernaerer og isolerer nevronene (ca. 10 ganger saa mange som nevroner)
+Nervevev består av to hovedtyper celler:
+- **Nevroner**: De signalførende cellene (~100 milliarder i hjernen)
+- **Gliaceller**: Støtteceller som beskytter, ernærer og isolerer nevronene (ca. 10 ganger så mange som nevroner)
 
 Viktige gliaceller inkluderer:
 - **Schwannske celler**: Danner myelinskjede i PNS
 - **Oligodendrocytter**: Danner myelinskjede i SNS
-- **Astrocytter**: Naerer nevroner og danner blod-hjerne-barrieren
+- **Astrocytter**: Nærer nevroner og danner blod-hjerne-barrieren
 - **Mikroglia**: Immunceller i nervesystemet
 
-Til sammen utgjor nervevev det mest komplekse vevet i kroppen. Hjernen alene inneholder ca. 100 milliarder nevroner med over 100 billioner ($10^{14}$) synaptiske forbindelser – det er flere enn antall stjerner i Melkeveien.
+Til sammen utgjør nervevev det mest komplekse vevet i kroppen. Hjernen alene inneholder ca. 100 milliarder nevroner med over 100 billioner ($10^{14}$) synaptiske forbindelser – det er flere enn antall stjerner i Melkeveien.
 
 Sykdommer som rammer gliaceller kan ha alvorlige konsekvenser:
-- **Multippel sklerose (MS)**: Immunforsvaret angriper myelinskjeden → nedsatt signaloverfoering
+- **Multippel sklerose (MS)**: Immunforsvaret angriper myelinskjeden → nedsatt signaloverføring
 - **Glioblastom**: Kreft i gliaceller – den vanligste og mest aggressive hjernekrefttypen
 - **Guillain-Barrés syndrom**: Immunforsvaret angriper myelinet i perifere nerver → muskelsvakhet`,
     },
@@ -339,28 +339,28 @@ Sykdommer som rammer gliaceller kan ha alvorlige konsekvenser:
       id: 'bio1-5-2-def-1',
       type: 'definition',
       title: 'Nevron (nervecelle)',
-      content: 'Et nevron er en spesialisert celle som kan motta, bearbeide og sende elektriske signaler. Et typisk nevron bestaar av: (1) Cellekropp (soma) med cellekjerne og organeller, (2) Dendritter som mottar signaler fra andre celler, (3) Akson – en lang utloeper som leder signalet videre, og (4) Aksonterminaler (synaptiske endeknapper) som overforer signalet til neste celle. Mange aksoner er dekket av en myelinskjede som oeker signalhastigheten.',
+      content: 'Et nevron er en spesialisert celle som kan motta, bearbeide og sende elektriske signaler. Et typisk nevron består av: (1) Cellekropp (soma) med cellekjerne og organeller, (2) Dendritter som mottar signaler fra andre celler, (3) Akson – en lang utløper som leder signalet videre, og (4) Aksonterminaler (synaptiske endeknapper) som overfører signalet til neste celle. Mange aksoner er dekket av en myelinskjede som øker signalhastigheten.',
     },
     {
       id: 'bio1-5-2-example-1',
       type: 'example',
       title: 'Eksempel: Signalveien i en refleks',
-      problem: 'Beskriv signalveien naar du trekker haanden bort fra en varm plate, og identifiser de ulike typene nevroner som er involvert.',
-      solution: `**Loesning:**
+      problem: 'Beskriv signalveien når du trekker hånden bort fra en varm plate, og identifiser de ulike typene nevroner som er involvert.',
+      solution: `**Løsning:**
 
-Naar du beroerer en varm plate, skjer foelgende:
+Når du berører en varm plate, skjer følgende:
 
 1. **Sensoriske nevroner**: Varmereseptorer i huden aktiveres og sender elektriske signaler via sensoriske nevroner til ryggmargen
 2. **Internevroner**: I ryggmargen mottar internevroner signalet og kobler det til motoriske nevroner
 3. **Motoriske nevroner**: Sender signal fra ryggmargen til musklene i armen
-4. **Effektor**: Musklene trekker haanden bort
+4. **Effektor**: Musklene trekker hånden bort
 
-Denne refleksbuen gaar via ryggmargen, IKKE via hjernen. Det er derfor reaksjonen er saa rask (ca. 50 millisekunder). Signalet naar hjernen foerst etterpaa – da kjenner du smerten.
+Denne refleksbuen går via ryggmargen, IKKE via hjernen. Det er derfor reaksjonen er så rask (ca. 50 millisekunder). Signalet når hjernen først etterpå – da kjenner du smerten.
 
 De tre typene nevroner:
-- **Sensoriske (afferente)**: Forer signal FRA kroppen TIL SNS
+- **Sensoriske (afferente)**: Fører signal FRA kroppen TIL SNS
 - **Internevroner**: Kobler nevroner i SNS
-- **Motoriske (efferente)**: Forer signal FRA SNS TIL effektorer`,
+- **Motoriske (efferente)**: Fører signal FRA SNS TIL effektorer`,
     },
     {
       id: 'bio1-5-2-ex-1',
@@ -376,38 +376,38 @@ De tre typene nevroner:
           { id: 'c', text: 'Myelinskjeden', isCorrect: false },
           { id: 'd', text: 'Aksonterminalen', isCorrect: false },
         ],
-        solution: 'Dendrittene er korte, forgrenede utloepere fra cellekroppen som mottar signaler fra andre nevroner eller fra sansereseptorer. Signalet ledes deretter gjennom cellekroppen og videre langs aksonet til aksonterminalen, der det overfoeres til neste celle.',
+        solution: 'Dendrittene er korte, forgrenede utløpere fra cellekroppen som mottar signaler fra andre nevroner eller fra sansereseptorer. Signalet ledes deretter gjennom cellekroppen og videre langs aksonet til aksonterminalen, der det overføres til neste celle.',
       },
     },
     {
       id: 'bio1-5-2-def-2',
       type: 'definition',
       title: 'Aksjonspotensial',
-      content: 'Et aksjonspotensial er en rask, kortvarig endring i spenningsforskjellen over cellemembranen i et nevron. I hvile er innsiden av nevronet negativt ladet (ca. $-70$ mV) sammenlignet med utsiden – dette kalles hvilemembranpotensialet. Naar nevronet stimuleres tilstrekkelig, aapnes natriumkanaler og positive natriumioner ($\\text{Na}^+$) stroemmer inn. Dette gir en rask depolarisering til ca. $+30$ mV. Deretter aapnes kaliumkanaler og $\\text{K}^+$ stroemmer ut, slik at membranen repolariseres. Aksjonspotensialtet folger «alt-eller-ingenting-prinsippet».',
+      content: 'Et aksjonspotensial er en rask, kortvarig endring i spenningsforskjellen over cellemembranen i et nevron. I hvile er innsiden av nevronet negativt ladet (ca. $-70$ mV) sammenlignet med utsiden – dette kalles hvilemembranpotensialet. Når nevronet stimuleres tilstrekkelig, åpnes natriumkanaler og positive natriumioner ($\\text{Na}^+$) strømmer inn. Dette gir en rask depolarisering til ca. $+30$ mV. Deretter åpnes kaliumkanaler og $\\text{K}^+$ strømmer ut, slik at membranen repolariseres. Aksjonspotensialet følger «alt-eller-ingenting-prinsippet».',
     },
     {
       id: 'bio1-5-2-example-2',
       type: 'example',
       title: 'Eksempel: Aksjonspotensialets faser',
-      problem: 'Beskriv de ulike fasene i et aksjonspotensial og forklar hva som skjer med ionestroemmer i hver fase.',
-      solution: `**Loesning:**
+      problem: 'Beskriv de ulike fasene i et aksjonspotensial og forklar hva som skjer med ionestrømmer i hver fase.',
+      solution: `**Løsning:**
 
-Et aksjonspotensial har foelgende faser:
+Et aksjonspotensial har følgende faser:
 
 **1. Hvile ($-70$ mV)**
 - Na/K-pumpen opprettholder ulik ionefordeling
 - Innsiden er negativ relativt til utsiden
 
 **2. Depolarisering ($-70$ → $+30$ mV)**
-- Et stimulus naar terskelverdien (ca. $-55$ mV)
-- Spenningsstyrte $\\text{Na}^+$-kanaler aapnes
-- $\\text{Na}^+$ stroemmer raskt inn i cellen
+- Et stimulus når terskelverdien (ca. $-55$ mV)
+- Spenningsstyrte $\\text{Na}^+$-kanaler åpnes
+- $\\text{Na}^+$ strømmer raskt inn i cellen
 - Membranen blir positivt ladet (depolarisert)
 
 **3. Repolarisering ($+30$ → $-70$ mV)**
 - $\\text{Na}^+$-kanalene lukkes (inaktiveres)
-- Spenningsstyrte $\\text{K}^+$-kanaler aapnes
-- $\\text{K}^+$ stroemmer ut av cellen
+- Spenningsstyrte $\\text{K}^+$-kanaler åpnes
+- $\\text{K}^+$ strømmer ut av cellen
 - Membranen blir negativ igjen
 
 **4. Hyperpolarisering (litt under $-70$ mV)**
@@ -419,7 +419,7 @@ Et aksjonspotensial har foelgende faser:
 
 Hele prosessen tar ca. 1–2 millisekunder.
 
-**Viktig:** Under refraktaerperioden (rett etter et aksjonspotensial) kan nevronet IKKE fyre et nytt signal. Dette sikrer at aksjonspotensialtet bare beveger seg i en retning langs aksonet, og setter en ovre grense for signalfrekvensen (ca. 500–1000 Hz).`,
+**Viktig:** Under refraktærperioden (rett etter et aksjonspotensial) kan nevronet IKKE fyre et nytt signal. Dette sikrer at aksjonspotensialet bare beveger seg i en retning langs aksonet, og setter en øvre grense for signalfrekvensen (ca. 500–1000 Hz).`,
     },
     {
       id: 'bio1-5-2-ex-2',
@@ -429,31 +429,31 @@ Hele prosessen tar ca. 1–2 millisekunder.
         number: '2',
         type: 'classic',
         task: 'Forklar hva «alt-eller-ingenting-prinsippet» betyr for aksjonspotensial, og hvordan kroppen likevel kan skille mellom svake og sterke stimuli.',
-        hints: ['Tenk paa hva som skjer med frekvensen av aksjonspotensialer naar stimulus oeker'],
-        solution: 'Alt-eller-ingenting-prinsippet betyr at et aksjonspotensial enten fyres fullt av (naar terskelverdien naas) eller ikke i det hele tatt. Alle aksjonspotensialer i et nevron har samme styrke og varighet. Kroppen skiller mellom svake og sterke stimuli paa to maater: (1) Sterkere stimuli gir hoeyere frekvens av aksjonspotensialer (flere signaler per sekund), og (2) Sterkere stimuli aktiverer flere nevroner samtidig. Slik koder nervesystemet signalstyrke uten aa endre selve aksjonspotensialets amplitude.',
+        hints: ['Tenk på hva som skjer med frekvensen av aksjonspotensialer når stimulus øker'],
+        solution: 'Alt-eller-ingenting-prinsippet betyr at et aksjonspotensial enten fyres fullt av (når terskelverdien nås) eller ikke i det hele tatt. Alle aksjonspotensialer i et nevron har samme styrke og varighet. Kroppen skiller mellom svake og sterke stimuli på to måter: (1) Sterkere stimuli gir høyere frekvens av aksjonspotensialer (flere signaler per sekund), og (2) Sterkere stimuli aktiverer flere nevroner samtidig. Slik koder nervesystemet signalstyrke uten å endre selve aksjonspotensialets amplitude.',
       },
     },
     {
       id: 'bio1-5-2-def-3',
       type: 'definition',
       title: 'Synapse',
-      content: 'En synapse er koblingspunktet mellom to nevroner, eller mellom et nevron og en effektorcelle (f.eks. en muskelcelle). De fleste synapser er kjemiske: signalet overfoeres ved at nevrotransmittere frigjores fra det presynaptiske nevronet, diffunderer over den synaptiske spalten, og binder til reseptorer paa det postsynaptiske nevronet. Eksempler paa nevrotransmittere er acetylkolin, dopamin, serotonin og noradrenalin.',
+      content: 'En synapse er koblingspunktet mellom to nevroner, eller mellom et nevron og en effektorcelle (f.eks. en muskelcelle). De fleste synapser er kjemiske: signalet overføres ved at nevrotransmittere frigjøres fra det presynaptiske nevronet, diffunderer over den synaptiske spalten, og binder til reseptorer på det postsynaptiske nevronet. Eksempler på nevrotransmittere er acetylkolin, dopamin, serotonin og noradrenalin.',
     },
     {
       id: 'bio1-5-2-example-3',
       type: 'example',
-      title: 'Eksempel: Signaloverfoering over en synapse',
-      problem: 'Beskriv trinnvis hva som skjer naar et nervesignal naar enden av et akson og skal overfoeres til neste nevron.',
-      solution: `**Loesning:**
+      title: 'Eksempel: Signaloverføring over en synapse',
+      problem: 'Beskriv trinnvis hva som skjer når et nervesignal når enden av et akson og skal overføres til neste nevron.',
+      solution: `**Løsning:**
 
-Signaloverfoering over en kjemisk synapse skjer i foelgende trinn:
+Signaloverføring over en kjemisk synapse skjer i følgende trinn:
 
 1. **Aksjonspotensial ankommer** aksonterminalen (presynaptisk ende)
-2. **Kalsiumkanaler aapnes**: Spenningsstyrte $\\text{Ca}^{2+}$-kanaler aapnes, og kalsiumioner stroemmer inn
-3. **Vesikler fusjonerer**: $\\text{Ca}^{2+}$ faar synaptiske vesikler (smaa blærer fylt med nevrotransmitter) til aa smelte sammen med cellemembranen
-4. **Eksocytose**: Nevrotransmittere frigjores ut i den synaptiske spalten (ca. 20 nm bred)
-5. **Binding**: Nevrotransmitterne binder til spesifikke reseptorer paa det postsynaptiske nevronet
-6. **Respons**: Ionkanaler aapnes i postsynaptisk membran – kan vaere eksitatorisk (depolarisering) eller inhibitorisk (hyperpolarisering)
+2. **Kalsiumkanaler åpnes**: Spenningsstyrte $\\text{Ca}^{2+}$-kanaler åpnes, og kalsiumioner strømmer inn
+3. **Vesikler fusjonerer**: $\\text{Ca}^{2+}$ får synaptiske vesikler (små blærer fylt med nevrotransmitter) til å smelte sammen med cellemembranen
+4. **Eksocytose**: Nevrotransmittere frigjøres ut i den synaptiske spalten (ca. 20 nm bred)
+5. **Binding**: Nevrotransmitterne binder til spesifikke reseptorer på det postsynaptiske nevronet
+6. **Respons**: Ionkanaler åpnes i postsynaptisk membran – kan være eksitatorisk (depolarisering) eller inhibitorisk (hyperpolarisering)
 7. **Avslutning**: Nevrotransmitterne fjernes ved enzymatisk nedbrytning, reopptak eller diffusjon
 
 Hele prosessen tar ca. 0,5–1 millisekund.
@@ -462,12 +462,12 @@ Hele prosessen tar ca. 0,5–1 millisekund.
 
 | Nevrotransmitter | Hovedfunksjon | Klinisk relevans |
 |-----------------|---------------|------------------|
-| Acetylkolin | Muskelaktivering, laering | Mangel ved Alzheimers |
-| Dopamin | Beloening, motorikk | Mangel ved Parkinsons |
-| Serotonin | Humor, soven, appetitt | Lav ved depresjon |
-| Noradrenalin | Vaakhet, oppmerksomhet | Stressrespons |
+| Acetylkolin | Muskelaktivering, læring | Mangel ved Alzheimers |
+| Dopamin | Belønning, motorikk | Mangel ved Parkinsons |
+| Serotonin | Humør, søvn, appetitt | Lav ved depresjon |
+| Noradrenalin | Våkenhet, oppmerksomhet | Stressrespons |
 | GABA | Hemming av nervesignal | Angstdempende medisiner |
-| Glutamat | Aktivering, laering | Den vanligste eksitatoriske |`,
+| Glutamat | Aktivering, læring | Den vanligste eksitatoriske |`,
     },
     {
       id: 'bio1-5-2-ex-3',
@@ -478,12 +478,12 @@ Hele prosessen tar ca. 0,5–1 millisekund.
         type: 'multiple-choice',
         task: 'Hva er funksjonen til myelinskjeden rundt et akson?',
         options: [
-          { id: 'a', text: 'Den oeker hastigheten paa signaloverfoering ved saltatorisk ledning', isCorrect: true },
+          { id: 'a', text: 'Den øker hastigheten på signaloverføring ved saltatorisk ledning', isCorrect: true },
           { id: 'b', text: 'Den produserer nevrotransmittere', isCorrect: false },
           { id: 'c', text: 'Den mottar signaler fra andre nevroner', isCorrect: false },
           { id: 'd', text: 'Den bryter ned nevrotransmittere i synapsespalten', isCorrect: false },
         ],
-        solution: 'Myelinskjeden er et isolerende fettlag som omgir aksoner. Den gjor at aksjonspotensialtet \"hopper\" fra en Ranviersk innsnoring til neste (saltatorisk ledning), noe som oeker signalhastigheten dramatisk – fra ca. 1 m/s uten myelin til opptil 120 m/s med myelin. Sykdommer som rammer myelin (f.eks. multippel sklerose) gir derfor nedsatt nervefunksjon.',
+        solution: 'Myelinskjeden er et isolerende fettlag som omgir aksoner. Den gjør at aksjonspotensialet "hopper" fra en Ranviersk innsnøring til neste (saltatorisk ledning), noe som øker signalhastigheten dramatisk – fra ca. 1 m/s uten myelin til opptil 120 m/s med myelin. Sykdommer som rammer myelin (f.eks. multippel sklerose) gir derfor nedsatt nervefunksjon.',
       },
     },
     {
@@ -493,9 +493,9 @@ Hele prosessen tar ca. 0,5–1 millisekund.
         id: 'bio1-5-2-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Forklar forskjellen mellom det sympatiske og det parasympatiske nervesystemet. Gi eksempler paa hvordan de paavirker hjertet, pupillene og fordoeyelsen.',
-        hints: ['Tenk paa «kamp eller flukt» vs. «hvile og fordoey»'],
-        solution: 'Det sympatiske nervesystemet aktiveres i stressituasjoner og forbereder kroppen paa handling: hjertefrekvensen oeker, pupillene utvider seg (mydriasis), og fordoeyelsen hemmes. Det parasympatiske nervesystemet er aktivt i hvile og fremmer restitusjon: hjertefrekvensen senkes, pupillene trekker seg sammen (miose), og fordoeyelsen stimuleres. De to systemene virker som motspillere (antagonister) og balanserer hverandre gjennom negativ tilbakekobling.',
+        task: 'Forklar forskjellen mellom det sympatiske og det parasympatiske nervesystemet. Gi eksempler på hvordan de påvirker hjertet, pupillene og fordøyelsen.',
+        hints: ['Tenk på «kamp eller flukt» vs. «hvile og fordøy»'],
+        solution: 'Det sympatiske nervesystemet aktiveres i stressituasjoner og forbereder kroppen på handling: hjertefrekvensen øker, pupillene utvider seg (mydriasis), og fordøyelsen hemmes. Det parasympatiske nervesystemet er aktivt i hvile og fremmer restitusjon: hjertefrekvensen senkes, pupillene trekker seg sammen (miose), og fordøyelsen stimuleres. De to systemene virker som motspillere (antagonister) og balanserer hverandre gjennom negativ tilbakekobling.',
       },
     },
     {
@@ -505,13 +505,13 @@ Hele prosessen tar ca. 0,5–1 millisekund.
 
 Nervesystemet sørger for rask kommunikasjon i kroppen:
 
-- **Nevroner** bestaar av cellekropp, dendritter, akson og aksonterminaler
+- **Nevroner** består av cellekropp, dendritter, akson og aksonterminaler
 - **Aksjonspotensial**: Rask depolarisering/repolarisering som ledes langs aksonet
-- **Synapser**: Koblingspunkter der nevrotransmittere overforer signalet kjemisk
+- **Synapser**: Koblingspunkter der nevrotransmittere overfører signalet kjemisk
 - **SNS** (hjerne og ryggmarg) og **PNS** (perifere nerver) samarbeider
 - **Sympatisk** og **parasympatisk** nervesystem balanserer kroppens funksjoner
 
-Nervesystemet er avgjorende for homeostase fordi det gir raske justeringer av kroppens funksjoner.
+Nervesystemet er avgjørende for homeostase fordi det gir raske justeringer av kroppens funksjoner.
 
 ### Tre typer nevroner
 
@@ -521,9 +521,9 @@ Nervesystemet er avgjorende for homeostase fordi det gir raske justeringer av kr
 | Interneuron | Innen SNS | Kobler nevroner, bearbeider info | I ryggmargen og hjernen |
 | Motorisk (efferent) | Fra SNS til kropp | Styrer muskler og kjertler | Nerven til biceps |
 
-De fleste nervebaner involverer alle tre typene. I en refleksbue gaar signalet fra sensorisk nevron via interneuron til motorisk nevron. I mer komplekse handlinger involveres mange internevroner i hjernen for bevisst bearbeiding.
+De fleste nervebaner involverer alle tre typene. I en refleksbue går signalet fra sensorisk nevron via interneuron til motorisk nevron. I mer komplekse handlinger involveres mange internevroner i hjernen for bevisst bearbeiding.
 
-Nervesystemet er ogsaa viktig for homeostase paa en mer direkte maate: det autonome nervesystemet regulerer kontinuerlig hjertefrekvens, blodtrykk, pustefrekvens, fordoeyelse og kroppstemperatur – alt uten at vi tenker bevisst over det.`,
+Nervesystemet er også viktig for homeostase på en mer direkte måte: det autonome nervesystemet regulerer kontinuerlig hjertefrekvens, blodtrykk, pustefrekvens, fordøyelse og kroppstemperatur – alt uten at vi tenker bevisst over det.`,
     },
     // --- Samleoppgaver ---
     {
@@ -533,9 +533,9 @@ Nervesystemet er ogsaa viktig for homeostase paa en mer direkte maate: det auton
         id: 'bio1-5-2-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Mange nervegifter og rusmidler virker paa synapsen. Forklar hvordan en gift som hemmer nedbrytning av nevrotransmittere i synapsespalten vil paavirke signaloverfoering.',
-        hints: ['Tenk paa hva som skjer naar nevrotransmitteren forblir i synapsespalten lenger enn normalt'],
-        solution: 'Hvis nedbrytningen av nevrotransmittere hemmes, vil nevrotransmitterne forbli i synapsespalten lenger og fortsette aa stimulere det postsynaptiske nevronet. Dette gir forsterket og forlenget signaloverfoering. Eksempel: Nervegassen sarin hemmer enzymet acetylkolinesterase som bryter ned acetylkolin. Resultatet er konstant stimulering av muskler, noe som forer til kramper og kan vaere dødelig. Lignende prinsipp brukes i medisinsk behandling: ved Alzheimers brukes kolinesterasehemmere for aa oeke acetylkolinnivaet i hjernen og forbedre hukommelsen.',
+        task: 'Mange nervegifter og rusmidler virker på synapsen. Forklar hvordan en gift som hemmer nedbrytning av nevrotransmittere i synapsespalten vil påvirke signaloverføring.',
+        hints: ['Tenk på hva som skjer når nevrotransmitteren forblir i synapsespalten lenger enn normalt'],
+        solution: 'Hvis nedbrytningen av nevrotransmittere hemmes, vil nevrotransmitterne forbli i synapsespalten lenger og fortsette å stimulere det postsynaptiske nevronet. Dette gir forsterket og forlenget signaloverføring. Eksempel: Nervegassen sarin hemmer enzymet acetylkolinesterase som bryter ned acetylkolin. Resultatet er konstant stimulering av muskler, noe som fører til kramper og kan være dødelig. Lignende prinsipp brukes i medisinsk behandling: ved Alzheimers brukes kolinesterasehemmere for å øke acetylkolinnivået i hjernen og forbedre hukommelsen.',
       },
     },
     {
@@ -545,14 +545,14 @@ Nervesystemet er ogsaa viktig for homeostase paa en mer direkte maate: det auton
         id: 'bio1-5-2-ex-6',
         number: '6',
         type: 'multiple-choice',
-        task: 'Hvilken rekkefoelge beskriver korrekt signaloveringen i et nevron?',
+        task: 'Hvilken rekkefølge beskriver korrekt signaloverføringen i et nevron?',
         options: [
           { id: 'a', text: 'Dendritt → cellekropp → akson → aksonterminaler → synapse', isCorrect: true },
           { id: 'b', text: 'Akson → dendritt → cellekropp → synapse → aksonterminaler', isCorrect: false },
           { id: 'c', text: 'Synapse → aksonterminaler → akson → cellekropp → dendritt', isCorrect: false },
           { id: 'd', text: 'Cellekropp → dendritt → synapse → akson → aksonterminaler', isCorrect: false },
         ],
-        solution: 'Signalet i et nevron gaar fra dendrittene (mottar signal) via cellekroppen og langs aksonet til aksonterminalen. Der frigjores nevrotransmittere i synapsen for aa overfoere signalet til neste celle. Denne enveiskjoringen sikres blant annet av at vesiklene med nevrotransmittere kun finnes i aksonterminalen. I tillegg finnes reseptorene for nevrotransmitterne hovedsakelig paa den postsynaptiske membranen, slik at signalet kun kan gaa i en retning over synapsen.',
+        solution: 'Signalet i et nevron går fra dendrittene (mottar signal) via cellekroppen og langs aksonet til aksonterminalen. Der frigjøres nevrotransmittere i synapsen for å overføre signalet til neste celle. Denne enveiskjøringen sikres blant annet av at vesiklene med nevrotransmittere kun finnes i aksonterminalen. I tillegg finnes reseptorene for nevrotransmitterne hovedsakelig på den postsynaptiske membranen, slik at signalet kun kan gå i en retning over synapsen.',
       },
     },
     {
@@ -562,9 +562,9 @@ Nervesystemet er ogsaa viktig for homeostase paa en mer direkte maate: det auton
         id: 'bio1-5-2-ex-7',
         number: '7',
         type: 'classic',
-        task: 'Et myelinisert nevron leder signaler med 120 m/s, mens et umyelinisert nevron leder med 1 m/s. Hvor lang tid tar det for signalet aa naa fra ryggmargen til taarne (avstand ca. 1 m) i hvert tilfelle?',
+        task: 'Et myelinisert nevron leder signaler med 120 m/s, mens et umyelinisert nevron leder med 1 m/s. Hvor lang tid tar det for signalet å nå fra ryggmargen til tårne (avstand ca. 1 m) i hvert tilfelle?',
         hints: ['Bruk formelen $t = \\frac{d}{v}$'],
-        solution: 'Myelinisert nevron: $t = \\frac{1 \\text{ m}}{120 \\text{ m/s}} \\approx 0,0083 \\text{ s} = 8,3 \\text{ ms}$. Umyelinisert nevron: $t = \\frac{1 \\text{ m}}{1 \\text{ m/s}} = 1 \\text{ s} = 1000 \\text{ ms}$. Forskjellen er enorm – myelinskjeden gjor signalet ca. 120 ganger raskere. Dette forklarer hvorfor sykdommer som multippel sklerose, der myelinet brytes ned, gir trege reflekser og nedsatt motorisk kontroll.',
+        solution: 'Myelinisert nevron: $t = \\frac{1 \\text{ m}}{120 \\text{ m/s}} \\approx 0,0083 \\text{ s} = 8,3 \\text{ ms}$. Umyelinisert nevron: $t = \\frac{1 \\text{ m}}{1 \\text{ m/s}} = 1 \\text{ s} = 1000 \\text{ ms}$. Forskjellen er enorm – myelinskjeden gjør signalet ca. 120 ganger raskere. Dette forklarer hvorfor sykdommer som multippel sklerose, der myelinet brytes ned, gir trege reflekser og nedsatt motorisk kontroll.',
       },
     },
   ],
@@ -572,12 +572,12 @@ Nervesystemet er ogsaa viktig for homeostase paa en mer direkte maate: det auton
   keyTerms: [
     { term: 'Nevron', definition: 'Nervecelle som kan motta, bearbeide og sende elektriske signaler' },
     { term: 'Aksjonspotensial', definition: 'Rask elektrisk impuls som ledes langs aksonet' },
-    { term: 'Synapse', definition: 'Koblingspunkt mellom to nevroner der signalet overfoeres kjemisk' },
-    { term: 'Nevrotransmitter', definition: 'Kjemisk signalstoff som overforer nervesignal over en synapse' },
-    { term: 'Myelinskjede', definition: 'Isolerende fettlag rundt aksoner som oeker signalhastigheten' },
+    { term: 'Synapse', definition: 'Koblingspunkt mellom to nevroner der signalet overføres kjemisk' },
+    { term: 'Nevrotransmitter', definition: 'Kjemisk signalstoff som overfører nervesignal over en synapse' },
+    { term: 'Myelinskjede', definition: 'Isolerende fettlag rundt aksoner som øker signalhastigheten' },
     { term: 'Sentralnervesystemet', definition: 'Hjernen og ryggmargen' },
     { term: 'Det perifere nervesystemet', definition: 'Alle nerver utenfor hjernen og ryggmargen' },
-    { term: 'Saltatorisk ledning', definition: 'Signaloverfoering som hopper mellom Ranvierske innsnoringer langs myeliniserte aksoner' },
+    { term: 'Saltatorisk ledning', definition: 'Signaloverføring som hopper mellom Ranvierske innsnøringer langs myeliniserte aksoner' },
   ],
 };
 
@@ -596,7 +596,7 @@ export const CHAPTER_BIOLOGI_1_5_3: TextbookChapter = {
     'forklare hva hormoner er og hvordan de transporteres i kroppen',
     'skille mellom peptidhormoner og steroidhormoner og forklare virkningsmekanismene',
     'beskrive de viktigste endokrine kjertlene og deres hormoner',
-    'gjore rede for samspillet mellom nervesystemet og hormonsystemet',
+    'gjøre rede for samspillet mellom nervesystemet og hormonsystemet',
   ],
   content: [
     {
@@ -604,7 +604,7 @@ export const CHAPTER_BIOLOGI_1_5_3: TextbookChapter = {
       type: 'text',
       content: `# Hormonsystemet
 
-Hormonsystemet (det endokrine systemet) er kroppens langsomme, men langvarige kommunikasjonssystem. Mens nervesystemet sender raske, presise signaler langs nerver, sender hormonsystemet kjemiske budbringere – hormoner – gjennom blodet. Hormonene naar alle deler av kroppen, men paavirker bare celler som har riktig reseptor.
+Hormonsystemet (det endokrine systemet) er kroppens langsomme, men langvarige kommunikasjonssystem. Mens nervesystemet sender raske, presise signaler langs nerver, sender hormonsystemet kjemiske budbringere – hormoner – gjennom blodet. Hormonene når alle deler av kroppen, men påvirker bare celler som har riktig reseptor.
 
 ## Sammenligning: Nervesystem vs. hormonsystem
 
@@ -620,22 +620,22 @@ Begge systemene samarbeider tett for aa opprettholde homeostase.
 
 ## Hormonsystemets generelle prinsipper
 
-Hormoner virker etter noekkel-og-laas-prinsippet: hormonet (nokkelen) passer bare til sin spesifikke reseptor (laasen). En maalcelle maa ha den rette reseptoren for aa reagere paa hormonet. Antallet reseptorer paa en celle kan reguleres opp eller ned avhengig av behov – dette kalles henholdsvis oppregulering og nedregulering.
+Hormoner virker etter nøkkel-og-laas-prinsippet: hormonet (nokkelen) passer bare til sin spesifikke reseptor (låsen). En målcelle må ha den rette reseptoren for aa reagere på hormonet. Antallet reseptorer på en celle kan reguleres opp eller ned avhengig av behov – dette kalles henholdsvis oppregulering og nedregulering.
 
-Hormonkonsentrasjonen i blodet er typisk svart lav (nanomolar eller pikomolar), men effekten kan vaere stor fordi signalet forsterkes i flere trinn inne i cellen. Hormoner brytes ned over tid, saa effekten avtar gradvis naar sekresjonen opphorer.
+Hormonkonsentrasjonen i blodet er typisk svart lav (nanomolar eller pikomolar), men effekten kan være stor fordi signalet forsterkes i flere trinn inne i cellen. Hormoner brytes ned over tid, så effekten avtar gradvis når sekresjonen opphører.
 
 Hormoner kan ha ulike virkningsmonstre:
-- **Endokrin**: Hormonet transporteres med blodet til fjerne maalceller (klassisk hormonvirkning)
-- **Parakrin**: Hormonet virker paa naboceller uten aa gaa via blodet (f.eks. veksthormoner i vev)
-- **Autokrin**: Hormonet virker tilbake paa cellen som produserte det (f.eks. i immunforsvaret)
+- **Endokrin**: Hormonet transporteres med blodet til fjerne målceller (klassisk hormonvirkning)
+- **Parakrin**: Hormonet virker på naboceller uten aa gå via blodet (f.eks. veksthormoner i vev)
+- **Autokrin**: Hormonet virker tilbake på cellen som produserte det (f.eks. i immunforsvaret)
 
-Halveringstiden til hormoner i blodet varierer enormt: adrenalin har halveringstid paa ca. 2 minutter, mens tyroksin har halveringstid paa ca. 6–7 dager. Dette paavirker hvor raskt hormonets effekt starter og slutter, og hvor ofte det maa doseres ved medisinsk behandling.`,
+Halveringstiden til hormoner i blodet varierer enormt: adrenalin har halveringstid på ca. 2 minutter, mens tyroksin har halveringstid på ca. 6–7 dager. Dette påvirker hvor raskt hormonets effekt starter og slutter, og hvor ofte det må doseres ved medisinsk behandling.`,
     },
     {
       id: 'bio1-5-3-def-1',
       type: 'definition',
       title: 'Hormon',
-      content: 'Et hormon er et kjemisk signalstoff som produseres i endokrine kjertler (eller endokrine celler), transporteres med blodet, og paavirker maalceller andre steder i kroppen. Hormonets virkning avhenger av at maalcellen har den rette reseptoren. Selv svært smaa mengder hormon kan ha stor effekt fordi signalet forsterkes gjennom intracellulaere signalkaskader.',
+      content: 'Et hormon er et kjemisk signalstoff som produseres i endokrine kjertler (eller endokrine celler), transporteres med blodet, og påvirker målceller andre steder i kroppen. Hormonets virkning avhenger av at målcellen har den rette reseptoren. Selv svært smaa mengder hormon kan ha stor effekt fordi signalet forsterkes gjennom intracellulære signalkaskader.',
     },
     {
       id: 'bio1-5-3-example-1',
@@ -646,7 +646,7 @@ Halveringstiden til hormoner i blodet varierer enormt: adrenalin har halveringst
 
 | Kjertel | Plassering | Viktige hormoner |
 |---------|-----------|-----------------|
-| Hypothalamus | Hjernen | Frigjoeringshormoner (styrer hypofysen) |
+| Hypothalamus | Hjernen | Frigjøringshormoner (styrer hypofysen) |
 | Hypofysen | Under hypothalamus | Veksthormon, ADH, oksytocin, TSH |
 | Skjoldbruskkjertelen | Halsen | Tyroksin ($\\text{T}_4$), trijodtyronin ($\\text{T}_3$) |
 | Biskjoldbruskkjertlene | Bak skjoldbruskkjertelen | Parathormon (PTH) |
@@ -667,44 +667,44 @@ Hypothalamus og hypofysen kalles ofte «det overordnede kontrollsenteret» fordi
         type: 'multiple-choice',
         task: 'Hvilken paastand om hormoner er riktig?',
         options: [
-          { id: 'a', text: 'Hormoner transporteres med blodet og paavirker kun celler med riktig reseptor', isCorrect: true },
-          { id: 'b', text: 'Hormoner virker bare paa celler i naerheten av kjertelen som produserer dem', isCorrect: false },
-          { id: 'c', text: 'Alle celler i kroppen reagerer paa alle hormoner', isCorrect: false },
-          { id: 'd', text: 'Hormoner overfoeres via nervene, ikke blodet', isCorrect: false },
+          { id: 'a', text: 'Hormoner transporteres med blodet og påvirker kun celler med riktig reseptor', isCorrect: true },
+          { id: 'b', text: 'Hormoner virker bare på celler i nærheten av kjertelen som produserer dem', isCorrect: false },
+          { id: 'c', text: 'Alle celler i kroppen reagerer på alle hormoner', isCorrect: false },
+          { id: 'd', text: 'Hormoner overføres via nervene, ikke blodet', isCorrect: false },
         ],
-        solution: 'Hormoner skilles ut i blodet og transporteres til hele kroppen, men bare celler med den spesifikke reseptoren for hormonet (maalceller) paavirkes. Celler uten reseptoren ignorerer hormonet. Dette er likt et radiosignal som sendes ut bredt, men bare radioer innstilt paa riktig frekvens fanger det opp.',
+        solution: 'Hormoner skilles ut i blodet og transporteres til hele kroppen, men bare celler med den spesifikke reseptoren for hormonet (målceller) påvirkes. Celler uten reseptoren ignorerer hormonet. Dette er likt et radiosignal som sendes ut bredt, men bare radioer innstilt på riktig frekvens fanger det opp.',
       },
     },
     {
       id: 'bio1-5-3-def-2',
       type: 'definition',
       title: 'Peptidhormoner og steroidhormoner',
-      content: 'Hormoner deles i to hovedgrupper basert paa kjemisk struktur: (1) Peptidhormoner er vannloeselige hormoner laget av aminosyrer. De kan ikke passere cellemembranen og binder til reseptorer paa celleoverflaten. Signalet overfoeres via intracellulaere budbringere (second messengers). Eksempler: insulin, glukagon, ADH. (2) Steroidhormoner er fettloeselige hormoner laget av kolesterol. De passerer fritt gjennom cellemembranen og binder til reseptorer inne i cellen, ofte i cellekjernen. Der paavirker de genekspresjon direkte. Eksempler: oestrogen, testosteron, kortisol.',
+      content: 'Hormoner deles i to hovedgrupper basert på kjemisk struktur: (1) Peptidhormoner er vannløselige hormoner laget av aminosyrer. De kan ikke passere cellemembranen og binder til reseptorer på celleoverflaten. Signalet overføres via intracellulære budbringere (second messengers). Eksempler: insulin, glukagon, ADH. (2) Steroidhormoner er fettløselige hormoner laget av kolesterol. De passerer fritt gjennom cellemembranen og binder til reseptorer inne i cellen, ofte i cellekjernen. Der påvirker de genekspresjon direkte. Eksempler: østrogen, testosteron, kortisol.',
     },
     {
       id: 'bio1-5-3-example-2',
       type: 'example',
       title: 'Eksempel: Virkningsmekanisme for peptidhormoner vs. steroidhormoner',
-      problem: 'Sammenlign hvordan insulin (peptidhormon) og testosteron (steroidhormon) virker paa maalcellen.',
+      problem: 'Sammenlign hvordan insulin (peptidhormon) og testosteron (steroidhormon) virker på målcellen.',
       solution: `**Loesning:**
 
 **Insulin (peptidhormon):**
-1. Insulin er vannloeselig og kan IKKE passere cellemembranen
-2. Binder til reseptor paa celleoverflaten
+1. Insulin er vannløselig og kan IKKE passere cellemembranen
+2. Binder til reseptor på celleoverflaten
 3. Reseptoren aktiverer en intracellulær signalkaskade (second messengers)
 4. Signalkaskaden utloeser raske effekter: glukostransportoerer flyttes til cellemembranen
 5. Rask virkning (sekunder til minutter), kortvarig effekt
 
 **Testosteron (steroidhormon):**
-1. Testosteron er fettloeselig og passerer fritt gjennom cellemembranen
+1. Testosteron er fettløselig og passerer fritt gjennom cellemembranen
 2. Binder til reseptor inne i cellen (i cytoplasma eller cellekjernen)
 3. Hormon-reseptor-komplekset binder til DNA
-4. Paavirker genekspresjon – oeker transkripsjonen av bestemte gener
+4. Påvirker genekspresjon – øker transkripsjonen av bestemte gener
 5. Langsom virkning (timer til dager), men langvarig effekt (f.eks. muskelvekst)
 
-**Hovedforskjell:** Peptidhormoner gir rask, kortvarig respons via second messengers paa celleoverflaten. Steroidhormoner gir langsom, langvarig respons ved aa endre genekspresjon direkte.
+**Hovedforskjell:** Peptidhormoner gir rask, kortvarig respons via second messengers på celleoverflaten. Steroidhormoner gir langsom, langvarig respons ved aa endre genekspresjon direkte.
 
-**Klinisk relevans:** Denne forskjellen paavirker hvordan hormoner brukes medisinsk. Insulin (peptidhormon) maa injiseres fordi det ville blitt brutt ned i fordoeyelsessystemet. Steroidhormoner som p-piller (oestrogen/progesteron) kan derimot tas som tabletter fordi de er stabile nok til aa overleve fordoeyelsen og kan tas opp i tarmen.`,
+**Klinisk relevans:** Denne forskjellen påvirker hvordan hormoner brukes medisinsk. Insulin (peptidhormon) må injiseres fordi det ville blitt brutt ned i fordøyelsessystemet. Steroidhormoner som p-piller (østrogen/progesteron) kan derimot tas som tabletter fordi de er stabile nok til aa overleve fordøyelsen og kan tas opp i tarmen.`,
     },
     {
       id: 'bio1-5-3-ex-2',
@@ -714,47 +714,47 @@ Hypothalamus og hypofysen kalles ofte «det overordnede kontrollsenteret» fordi
         number: '2',
         type: 'classic',
         task: 'Forklar hvorfor steroidhormoner kan passere cellemembranen mens peptidhormoner ikke kan det. Knytt svaret til membranens oppbygning.',
-        hints: ['Tenk paa cellemembranen som et dobbelt lipidlag'],
-        solution: 'Cellemembranen bestaar av et dobbelt lag av fosfolipider med hydrofobt (fettloeselig) indre. Steroidhormoner er laget av kolesterol og er fettloeselige (hydrofobe), saa de kan loese seg i det hydrofobe laget og passere fritt gjennom membranen. Peptidhormoner er laget av aminosyrer og er vannloeselige (hydrofile), saa de kan ikke passere det hydrofobe barriérelaget i membranen. Derfor maa peptidhormoner binde til reseptorer paa utsiden av cellen.',
+        hints: ['Tenk på cellemembranen som et dobbelt lipidlag'],
+        solution: 'Cellemembranen består av et dobbelt lag av fosfolipider med hydrofobt (fettløselig) indre. Steroidhormoner er laget av kolesterol og er fettløselige (hydrofobe), så de kan løse seg i det hydrofobe laget og passere fritt gjennom membranen. Peptidhormoner er laget av aminosyrer og er vannløselige (hydrofile), så de kan ikke passere det hydrofobe barriérelaget i membranen. Derfor må peptidhormoner binde til reseptorer på utsiden av cellen.',
       },
     },
     {
       id: 'bio1-5-3-def-3',
       type: 'definition',
       title: 'Hypothalamus–hypofyse-aksen',
-      content: 'Hypothalamus er en del av hjernen som fungerer som bindeledd mellom nervesystemet og hormonsystemet. Den mottar nervesignaler fra hjernen og reagerer med aa skille ut frigjoeringshormoner som styrer hypofysen. Hypofysen (den «overordnede kjertelen») skiller deretter ut hormoner som stimulerer andre endokrine kjertler i kroppen. Dette hierarkiske systemet gjor at hjernen kan styre hormonproduksjonen. Regulering skjer gjennom negativ tilbakekobling: naar hormonnivaet i blodet er hoyt nok, hemmes frigjoeringen fra hypothalamus og hypofysen.',
+      content: 'Hypothalamus er en del av hjernen som fungerer som bindeledd mellom nervesystemet og hormonsystemet. Den mottar nervesignaler fra hjernen og reagerer med aa skille ut frigjøringshormoner som styrer hypofysen. Hypofysen (den «overordnede kjertelen») skiller deretter ut hormoner som stimulerer andre endokrine kjertler i kroppen. Dette hierarkiske systemet gjør at hjernen kan styre hormonproduksjonen. Regulering skjer gjennom negativ tilbakekobling: når hormonnivået i blodet er høyt nok, hemmes frigjøringen fra hypothalamus og hypofysen.',
     },
     {
       id: 'bio1-5-3-example-3',
       type: 'example',
       title: 'Eksempel: Regulering av skjoldbruskkjertelen',
-      problem: 'Beskriv den negative tilbakekoblingsloeyfen som regulerer tyroksinnivaet i blodet via hypothalamus–hypofyse-aksen.',
+      problem: 'Beskriv den negative tilbakekoblingsloeyfen som regulerer tyroksinnivået i blodet via hypothalamus–hypofyse-aksen.',
       solution: `**Loesning:**
 
-Regulering av tyroksin ($\\text{T}_4$) skjer i tre nivaaer:
+Regulering av tyroksin ($\\text{T}_4$) skjer i tre nivåer:
 
-1. **Hypothalamus** registrerer lavt tyroksinnivaae i blodet
-   → Skiller ut TRH (tyrotropinfrigjorende hormon)
+1. **Hypothalamus** registrerer lavt tyroksinnivåe i blodet
+   → Skiller ut TRH (tyrotropinfrigjørende hormon)
 
 2. **Hypofysen** mottar TRH
    → Skiller ut TSH (tyreoideastimulerende hormon) til blodet
 
 3. **Skjoldbruskkjertelen** mottar TSH
-   → Oeker produksjonen av tyroksin ($\\text{T}_4$) og trijodtyronin ($\\text{T}_3$)
+   → Øker produksjonen av tyroksin ($\\text{T}_4$) og trijodtyronin ($\\text{T}_3$)
 
 **Negativ tilbakekobling:**
-Naar $\\text{T}_4$-nivaet i blodet er hoyt nok:
-- $\\text{T}_4$ hemmer frigjoeringen av TRH fra hypothalamus
-- $\\text{T}_4$ hemmer frigjoeringen av TSH fra hypofysen
+Når $\\text{T}_4$-nivået i blodet er høyt nok:
+- $\\text{T}_4$ hemmer frigjøringen av TRH fra hypothalamus
+- $\\text{T}_4$ hemmer frigjøringen av TSH fra hypofysen
 - Resultatet: Skjoldbruskkjertelen produserer mindre tyroksin
 
-Slik holdes tyroksinnivaet stabilt innenfor normalomraadet. Tyroksin er viktig for stoffskiftet, vekst og utvikling.
+Slik holdes tyroksinnivået stabilt innenfor normalomraadet. Tyroksin er viktig for stoffskiftet, vekst og utvikling.
 
 **Sykdommer knyttet til skjoldbruskkjertelen:**
 - **Hypotyreose** (for lite tyroksin): Lavt stoffskifte, vektoekning, trøtthet, kuldefølsomhet. Vanlig aarsak: Hashimotos sykdom (autoimmun)
 - **Hypertyreose** (for mye tyroksin): Hoyt stoffskifte, vekttap, hjertebank, varmeintolerance. Vanlig aarsak: Graves sykdom (autoimmun)
 
-Begge tilstandene illustrerer hva som skjer naar den negative tilbakekoblingen forstyrres.`,
+Begge tilstandene illustrerer hva som skjer når den negative tilbakekoblingen forstyrres.`,
     },
     {
       id: 'bio1-5-3-ex-3',
@@ -765,12 +765,12 @@ Begge tilstandene illustrerer hva som skjer naar den negative tilbakekoblingen f
         type: 'multiple-choice',
         task: 'Hva skiller peptidhormoner fra steroidhormoner?',
         options: [
-          { id: 'a', text: 'Peptidhormoner binder til reseptorer paa celleoverflaten, steroidhormoner virker inne i cellen', isCorrect: true },
+          { id: 'a', text: 'Peptidhormoner binder til reseptorer på celleoverflaten, steroidhormoner virker inne i cellen', isCorrect: true },
           { id: 'b', text: 'Peptidhormoner virker langsommere enn steroidhormoner', isCorrect: false },
           { id: 'c', text: 'Steroidhormoner er laget av aminosyrer, peptidhormoner av kolesterol', isCorrect: false },
           { id: 'd', text: 'Peptidhormoner kan passere cellemembranen, steroidhormoner kan ikke', isCorrect: false },
         ],
-        solution: 'Peptidhormoner er vannloeselige og kan ikke passere den hydrofobe cellemembranen. De binder til reseptorer paa celleoverflaten og virker via intracellulære budbringere (raskt). Steroidhormoner er fettloeselige (laget av kolesterol), passerer cellemembranen og binder til reseptorer inne i cellen for aa paavirke genekspresjon (langsomt men langvarig).',
+        solution: 'Peptidhormoner er vannløselige og kan ikke passere den hydrofobe cellemembranen. De binder til reseptorer på celleoverflaten og virker via intracellulære budbringere (raskt). Steroidhormoner er fettløselige (laget av kolesterol), passerer cellemembranen og binder til reseptorer inne i cellen for aa påvirke genekspresjon (langsomt men langvarig).',
       },
     },
     {
@@ -781,24 +781,24 @@ Begge tilstandene illustrerer hva som skjer naar den negative tilbakekoblingen f
 Hormonsystemet er kroppens langsomme, langvarige kommunikasjonssystem:
 
 - **Hormoner** er kjemiske signalstoffer som transporteres med blodet
-- **Peptidhormoner** (vannloeselige) virker via reseptorer paa celleoverflaten – rask, kortvarig
-- **Steroidhormoner** (fettloeselige) virker inne i cellen paa genekspresjon – langsom, langvarig
+- **Peptidhormoner** (vannløselige) virker via reseptorer på celleoverflaten – rask, kortvarig
+- **Steroidhormoner** (fettløselige) virker inne i cellen på genekspresjon – langsom, langvarig
 - **Hypothalamus–hypofyse-aksen** er det overordnede kontrollsenteret
 - **Negativ tilbakekobling** holder hormonnivaene stabile
 - Nerve- og hormonsystemet samarbeider tett for aa opprettholde homeostase
 
 ### Samspill mellom nervesystemet og hormonsystemet
 
-Nerve- og hormonsystemet er ikke isolerte – de paavirker hverandre kontinuerlig:
+Nerve- og hormonsystemet er ikke isolerte – de påvirker hverandre kontinuerlig:
 
 1. **Hypothalamus** er selve bindeleddet: den mottar nervesignaler og svarer med hormonproduksjon
 2. **Binyremedulla** er i praksis en del av begge systemene: nervesignaler fra det sympatiske nervesystemet utloeser adrenalinproduksjon
 3. **Nevroendokrine celler** i hjernen produserer hormoner som pavirker nervefunksjonen
-4. Mange hormoner paavirker hjernen direkte – for eksempel paavirker oestrogen og testosteron adferd og humor
+4. Mange hormoner påvirker hjernen direkte – for eksempel påvirker østrogen og testosteron adferd og humor
 
-Denne integrasjonen gjor at kroppen kan reagere bade raskt (nervesystem) og langvarig (hormonsystem) paa endringer i miljoet.
+Denne integrasjonen gjør at kroppen kan reagere både raskt (nervesystem) og langvarig (hormonsystem) på endringer i miljøet.
 
-Et godt eksempel paa dette samspillet er stressresponsen: Naar du opplever fare, sender nervesystemet umiddelbart signaler til binyrene (via det sympatiske nervesystemet) som frigjor adrenalin innen sekunder. Samtidig aktiverer hypothalamus-hypofyse-binyre-aksen (HPA-aksen) og frigjor kortisol, som gir langvarig energimobilisering over timer. Slik faar kroppen bade en rask og en vedvarende respons paa trusselen.`,
+Et godt eksempel på dette samspillet er stressresponsen: Når du opplever fare, sender nervesystemet umiddelbart signaler til binyrene (via det sympatiske nervesystemet) som frigjør adrenalin innen sekunder. Samtidig aktiverer hypothalamus-hypofyse-binyre-aksen (HPA-aksen) og frigjør kortisol, som gir langvarig energimobilisering over timer. Slik får kroppen både en rask og en vedvarende respons på trusselen.`,
     },
     // --- Samleoppgaver ---
     {
@@ -808,9 +808,9 @@ Et godt eksempel paa dette samspillet er stressresponsen: Naar du opplever fare,
         id: 'bio1-5-3-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Adrenalin er et peptidhormon fra binyremargen som frigjores naar vi er stresset eller redd. Beskriv minst fire effekter adrenalin har paa kroppen, og forklar hvordan disse effektene forbereder kroppen paa «kamp eller flukt».',
-        hints: ['Tenk paa hva kroppen trenger naar den maa reagere raskt: energi, oksygen, blodtilforsel'],
-        solution: 'Adrenalin har foelgende effekter: (1) Oeker hjertefrekvens og blodtrykk – mer blod pumpes til muskler. (2) Utvider luftveiene (bronkodilatasjon) – mer oksygen tas opp. (3) Oeker nedbrytning av glykogen til glukose i leveren – mer energi tilgjengelig. (4) Hemmer fordoeyelsen – blod omdirigeres fra tarm til muskler. (5) Utvider pupillene – bedre syn. (6) Oeker svetteproduksjon – kjoeling ved aktivitet. Alle disse effektene forbereder kroppen paa rask fysisk handling, enten det er aa flykte eller forsvare seg.',
+        task: 'Adrenalin er et peptidhormon fra binyremargen som frigjøres når vi er stresset eller redd. Beskriv minst fire effekter adrenalin har på kroppen, og forklar hvordan disse effektene forbereder kroppen på «kamp eller flukt».',
+        hints: ['Tenk på hva kroppen trenger når den må reagere raskt: energi, oksygen, blodtilforsel'],
+        solution: 'Adrenalin har følgende effekter: (1) Øker hjertefrekvens og blodtrykk – mer blod pumpes til muskler. (2) Utvider luftveiene (bronkodilatasjon) – mer oksygen tas opp. (3) Øker nedbrytning av glykogen til glukose i leveren – mer energi tilgjengelig. (4) Hemmer fordøyelsen – blod omdirigeres fra tarm til muskler. (5) Utvider pupillene – bedre syn. (6) Øker svetteproduksjon – kjøling ved aktivitet. Alle disse effektene forbereder kroppen på rask fysisk handling, enten det er aa flykte eller forsvare seg.',
       },
     },
     {
@@ -837,18 +837,18 @@ Et godt eksempel paa dette samspillet er stressresponsen: Naar du opplever fare,
         id: 'bio1-5-3-ex-6',
         number: '6',
         type: 'classic',
-        task: 'En pasient har en svulst i hypofysen som gjor at den produserer for mye TSH. Forklar hvordan dette paavirker skjoldbruskkjertelen og nivaet av tyroksin i blodet, og hvilke symptomer pasienten kan faa.',
-        hints: ['TSH stimulerer skjoldbruskkjertelen', 'For mye tyroksin oeker stoffskiftet'],
-        solution: 'For mye TSH fra hypofysen vil overstimulere skjoldbruskkjertelen, som produserer for mye tyroksin. Hoyt tyroksin gir hypertyreose (overaktiv skjoldbruskkjertel). Normalt ville hoyt tyroksin hemme TSH gjennom negativ tilbakekobling, men siden svulsten produserer TSH ukontrollert, fungerer ikke denne reguleringen. Symptomer paa for mye tyroksin: oekt stoffskifte, vekttap, hjertebank, uro/nervositet, svetting, varmeintolerance og skjelvinger.',
+        task: 'En pasient har en svulst i hypofysen som gjør at den produserer for mye TSH. Forklar hvordan dette påvirker skjoldbruskkjertelen og nivået av tyroksin i blodet, og hvilke symptomer pasienten kan få.',
+        hints: ['TSH stimulerer skjoldbruskkjertelen', 'For mye tyroksin øker stoffskiftet'],
+        solution: 'For mye TSH fra hypofysen vil overstimulere skjoldbruskkjertelen, som produserer for mye tyroksin. Hoyt tyroksin gir hypertyreose (overaktiv skjoldbruskkjertel). Normalt ville høyt tyroksin hemme TSH gjennom negativ tilbakekobling, men siden svulsten produserer TSH ukontrollert, fungerer ikke denne reguleringen. Symptomer på for mye tyroksin: oekt stoffskifte, vekttap, hjertebank, uro/nervositet, svetting, varmeintolerance og skjelvinger.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Hormon', definition: 'Kjemisk signalstoff som transporteres med blodet til maalceller' },
+    { term: 'Hormon', definition: 'Kjemisk signalstoff som transporteres med blodet til målceller' },
     { term: 'Endokrin kjertel', definition: 'Kjertel som skiller ut hormoner direkte i blodet' },
-    { term: 'Peptidhormon', definition: 'Vannloeselig hormon som virker via reseptorer paa celleoverflaten' },
-    { term: 'Steroidhormon', definition: 'Fettloeselig hormon som virker paa genekspresjon inne i cellen' },
+    { term: 'Peptidhormon', definition: 'Vannløselig hormon som virker via reseptorer på celleoverflaten' },
+    { term: 'Steroidhormon', definition: 'Fettløselig hormon som virker på genekspresjon inne i cellen' },
     { term: 'Hypothalamus', definition: 'Hjernedel som binder nervesystemet og hormonsystemet sammen' },
     { term: 'Hypofysen', definition: 'Den overordnede endokrine kjertelen styrt av hypothalamus' },
     { term: 'Tyroksin', definition: 'Hormon fra skjoldbruskkjertelen som regulerer stoffskiftet' },
@@ -879,44 +879,44 @@ export const CHAPTER_BIOLOGI_1_5_4: TextbookChapter = {
       type: 'text',
       content: `# Temperatur- og blodsukkerregulering
 
-I dette kapittelet skal vi se naermere paa to av kroppens viktigste homeostatiske reguleringsmekanismer: temperatur og blodsukker. Begge bruker negativ tilbakekobling og involverer samspill mellom nervesystemet og hormonsystemet.
+I dette kapittelet skal vi se nærmere på to av kroppens viktigste homeostatiske reguleringsmekanismer: temperatur og blodsukker. Begge bruker negativ tilbakekobling og involverer samspill mellom nervesystemet og hormonsystemet.
 
 ## Hvorfor er presis regulering viktig?
 
-- **Temperatur**: Enzymer fungerer optimalt ved ca. 37 °C. Ved for hoey temperatur denaturerer de, ved for lav temperatur arbeider de for sakte
-- **Blodsukker**: Cellene trenger jevn tilfoersel av glukose som energikilde. For hoyt blodsukker skader blodaarene, for lavt blodsukker gir energisvikt i hjernen
+- **Temperatur**: Enzymer fungerer optimalt ved ca. 37 °C. Ved for høy temperatur denaturerer de, ved for lav temperatur arbeider de for sakte
+- **Blodsukker**: Cellene trenger jevn tilførsel av glukose som energikilde. For høyt blodsukker skader blodårene, for lavt blodsukker gir energisvikt i hjernen
 
-Bade temperatur og blodsukker reguleres gjennom negativ tilbakekobling med involvering av bade nervesystemet og hormonsystemet. Vi skal naa gaa i detalj paa begge systemene og se paa hva som skjer naar reguleringen svikter.`,
+Både temperatur og blodsukker reguleres gjennom negativ tilbakekobling med involvering av både nervesystemet og hormonsystemet. Vi skal nå gå i detalj på begge systemene og se på hva som skjer når reguleringen svikter.`,
     },
     {
       id: 'bio1-5-4-def-1',
       type: 'definition',
       title: 'Termoregulering',
-      content: 'Termoregulering er kroppens evne til aa holde kjernetemperaturen stabil paa ca. 37 °C. Hypothalamus i hjernen fungerer som kroppens termostat: den mottar informasjon fra temperaturreseptorer i huden (perifer temperatur) og i blodet (kjernetemperatur), og setter i gang tiltak for aa oeke eller redusere varmeproduksjon og varmetap. Mennesker er homeoterme (varmblodige) – vi produserer egen varme gjennom stoffskiftet.',
+      content: 'Termoregulering er kroppens evne til aa holde kjernetemperaturen stabil på ca. 37 °C. Hypothalamus i hjernen fungerer som kroppens termostat: den mottar informasjon fra temperaturreseptorer i huden (perifer temperatur) og i blodet (kjernetemperatur), og setter i gang tiltak for aa øke eller redusere varmeproduksjon og varmetap. Mennesker er homeoterme (varmblodige) – vi produserer egen varme gjennom stoffskiftet.',
     },
     {
       id: 'bio1-5-4-example-1',
       type: 'example',
-      title: 'Eksempel: Kroppens respons paa kulde og varme',
-      problem: 'Beskriv de fysiologiske responsene kroppen setter i gang naar (a) kjernetemperaturen synker under 37 °C og (b) naar den stiger over 37 °C.',
-      solution: `**Loesning:**
+      title: 'Eksempel: Kroppens respons på kulde og varme',
+      problem: 'Beskriv de fysiologiske responsene kroppen setter i gang når (a) kjernetemperaturen synker under 37 °C og (b) når den stiger over 37 °C.',
+      solution: `**Løsning:**
 
-**(a) Respons paa kulde (temperatur under setpunkt):**
+**(a) Respons på kulde (temperatur under setpunkt):**
 
-- **Vasokonstriksjon**: Blodaarene i huden trekker seg sammen → mindre blod naer overflaten → redusert varmetap
+- **Vasokonstriksjon**: Blodårene i huden trekker seg sammen → mindre blod nær overflaten → redusert varmetap
 - **Skjelving**: Ufrivillige muskelsammentrekninger som produserer varme
-- **Gaasehud**: Haarene reiser seg (lite effektiv hos mennesker, men viktig hos pelsdyr)
-- **Oekt stoffskifte**: Tyroksin og adrenalin oeker forbrenningen
-- **Atferdsrespons**: Vi tar paa oss klær, soeker ly, beveger oss
+- **Gåsehud**: Hårene reiser seg (lite effektiv hos mennesker, men viktig hos pelsdyr)
+- **Økt stoffskifte**: Tyroksin og adrenalin øker forbrenningen
+- **Atferdsrespons**: Vi tar på oss klær, søker ly, beveger oss
 
-**(b) Respons paa varme (temperatur over setpunkt):**
+**(b) Respons på varme (temperatur over setpunkt):**
 
-- **Vasodilatasjon**: Blodaarene i huden utvider seg → mer blod naer overflaten → oekt varmetap ved straling
-- **Svetting**: Svettekjertlene produserer svette → fordampning kjoeler huden
+- **Vasodilatasjon**: Blodårene i huden utvider seg → mer blod nær overflaten → økt varmetap ved stråling
+- **Svetting**: Svettekjertlene produserer svette → fordampning kjøler huden
 - **Redusert stoffskifte**: Mindre varmeproduksjon
-- **Atferdsrespons**: Vi soeker skygge, tar av klær, drikker kaldt
+- **Atferdsrespons**: Vi søker skygge, tar av klær, drikker kaldt
 
-Begge responsene er eksempler paa negativ tilbakekobling styrt av hypothalamus.
+Begge responsene er eksempler på negativ tilbakekobling styrt av hypothalamus.
 
 ### Varmeproduksjon og varmetap
 
@@ -926,12 +926,12 @@ Kroppen produserer varme gjennom stoffskiftet (metabolsk varme). De viktigste ki
 - **Brun fettvev**: Viktig hos spedbarn, produserer varme direkte (termogenese uten skjelving)
 
 Varmetap skjer gjennom fire fysiske mekanismer:
-- **Straling**: Varme avgis som infraroed straling (ca. 60% av varmetapet)
-- **Konveksjon**: Varme overfoeres til luft som stroember forbi huden
-- **Ledning**: Direkte varmeoverfoering til kalde gjenstander
+- **Stråling**: Varme avgis som infrarød stråling (ca. 60% av varmetapet)
+- **Konveksjon**: Varme overføres til luft som strømmer forbi huden
+- **Ledning**: Direkte varmeoverføring til kalde gjenstander
 - **Fordampning**: Svette fordamper og forbruker varmeenergi
 
-Paa en kald dag kan kroppen tape opptil 90% av varmen gjennom straling. Paa en varm dag, eller under intens aktivitet, blir fordampning (svetting) den viktigste mekanismen for varmetap. Ved 100% luftfuktighet kan ikke svette fordampe effektivt, noe som gjor fuktig varme mye farligere enn torr varme.`,
+På en kald dag kan kroppen tape opptil 90% av varmen gjennom stråling. På en varm dag, eller under intens aktivitet, blir fordampning (svetting) den viktigste mekanismen for varmetap. Ved 100% luftfuktighet kan ikke svette fordampe effektivt, noe som gjør fuktig varme mye farligere enn tørr varme.`,
     },
     {
       id: 'bio1-5-4-ex-1',
@@ -940,53 +940,53 @@ Paa en kald dag kan kroppen tape opptil 90% av varmen gjennom straling. Paa en v
         id: 'bio1-5-4-ex-1',
         number: '1',
         type: 'multiple-choice',
-        task: 'Hva skjer med blodaarene i huden naar kroppstemperaturen stiger?',
+        task: 'Hva skjer med blodårene i huden når kroppstemperaturen stiger?',
         options: [
           { id: 'a', text: 'De utvider seg (vasodilatasjon) slik at mer varme avgis gjennom huden', isCorrect: true },
-          { id: 'b', text: 'De trekker seg sammen (vasokonstriksjon) for aa holde paa varmen', isCorrect: false },
-          { id: 'c', text: 'De paavirkes ikke av temperaturendringer', isCorrect: false },
+          { id: 'b', text: 'De trekker seg sammen (vasokonstriksjon) for å holde på varmen', isCorrect: false },
+          { id: 'c', text: 'De påvirkes ikke av temperaturendringer', isCorrect: false },
           { id: 'd', text: 'De lukkes helt slik at huden blir blek', isCorrect: false },
         ],
-        solution: 'Naar kroppstemperaturen stiger, sender hypothalamus signaler som faar blodaarene i huden til aa utvide seg (vasodilatasjon). Mer blod stroember naer hudoverflaten, og varme stiller fra blodet til omgivelsene gjennom straling og konveksjon. Dette er grunnen til at vi blir roede i ansiktet naar vi er varme.',
+        solution: 'Når kroppstemperaturen stiger, sender hypothalamus signaler som får blodårene i huden til å utvide seg (vasodilatasjon). Mer blod strømmer nær hudoverflaten, og varme stråler fra blodet til omgivelsene gjennom stråling og konveksjon. Dette er grunnen til at vi blir røde i ansiktet når vi er varme.',
       },
     },
     {
       id: 'bio1-5-4-def-2',
       type: 'definition',
       title: 'Hypotermi, hypertermi og feber',
-      content: 'Hypotermi oppstaar naar kjernetemperaturen synker under 35 °C. Symptomer er skjelving, forvirring og til slutt organsvikt. Hypertermi oppstaar naar kjernetemperaturen stiger over 40 °C uten at setpunktet er endret (f.eks. heteslag). Feber skiller seg fra hypertermi ved at setpunktet i hypothalamus er hevet – kroppen «oensker» hoeyere temperatur som forsvar mot infeksjon. Pyrogener (stoffer fra immunceller eller bakterier) hever setpunktet, slik at kroppen skjelver og produserer varme for aa naa det nye, hoeyere setpunktet.',
+      content: 'Hypotermi oppstår når kjernetemperaturen synker under 35 °C. Symptomer er skjelving, forvirring og til slutt organsvikt. Hypertermi oppstår når kjernetemperaturen stiger over 40 °C uten at setpunktet er endret (f.eks. heteslag). Feber skiller seg fra hypertermi ved at setpunktet i hypothalamus er hevet – kroppen «ønsker» høyere temperatur som forsvar mot infeksjon. Pyrogener (stoffer fra immunceller eller bakterier) hever setpunktet, slik at kroppen skjelver og produserer varme for å nå det nye, høyere setpunktet.',
     },
     {
       id: 'bio1-5-4-example-2',
       type: 'example',
       title: 'Eksempel: Feber vs. hypertermi',
-      problem: 'Forklar den vesentlige forskjellen mellom feber og hypertermi, med tanke paa hva som skjer med setpunktet i hypothalamus.',
-      solution: `**Loesning:**
+      problem: 'Forklar den vesentlige forskjellen mellom feber og hypertermi, med tanke på hva som skjer med setpunktet i hypothalamus.',
+      solution: `**Løsning:**
 
 **Feber:**
 - Setpunktet i hypothalamus HEVES (f.eks. fra 37 °C til 39 °C)
-- Arsak: Pyrogener (f.eks. interleukin-1 fra immunceller) paavirker hypothalamus
-- Kroppen «oensker» hoeyere temperatur og setter i gang varmeoekning: skjelving, vasokonstriksjon
-- Formaal: Hoeyere temperatur hemmer vekst av bakterier og virus, og stimulerer immunforsvaret
-- Naar infeksjonen bekaempes, senkes setpunktet igjen → svetting for aa avkjoele
+- Årsak: Pyrogener (f.eks. interleukin-1 fra immunceller) påvirker hypothalamus
+- Kroppen «ønsker» høyere temperatur og setter i gang varmeøkning: skjelving, vasokonstriksjon
+- Formål: Høyere temperatur hemmer vekst av bakterier og virus, og stimulerer immunforsvaret
+- Når infeksjonen bekjempes, senkes setpunktet igjen → svetting for å avkjøle
 
 **Hypertermi:**
-- Setpunktet er UENDRET paa 37 °C
-- Arsak: Kroppen klarer ikke aa kvitte seg med nok varme (f.eks. heteslag, varmt miljoe)
-- Kroppens kjoelemekanismer er overbelastet
+- Setpunktet er UENDRET på 37 °C
+- Årsak: Kroppen klarer ikke å kvitte seg med nok varme (f.eks. heteslag, varmt miljø)
+- Kroppens kjølemekanismer er overbelastet
 - Er potensielt farligere enn feber fordi det ikke er en kontrollert prosess
 
-**Noekkelforskjell:** Ved feber er reguleringssystemet intakt – setpunktet er bare flyttet. Ved hypertermi svikter selve reguleringen.
+**Nøkkelforskjell:** Ved feber er reguleringssystemet intakt – setpunktet er bare flyttet. Ved hypertermi svikter selve reguleringen.
 
 **Grader av hypotermi:**
 
 | Grad | Kjernetemperatur | Symptomer |
 |------|-----------------|-----------|
 | Mild | 35–32 °C | Skjelving, forvirring, klossete bevegelser |
-| Moderat | 32–28 °C | Skjelving opphorer, alvorlig forvirring, soevnighet |
-| Alvorlig | Under 28 °C | Bevisstlosthet, hjerterytmeforstyrrelser, livsfare |
+| Moderat | 32–28 °C | Skjelving opphører, alvorlig forvirring, søvnighet |
+| Alvorlig | Under 28 °C | Bevisstløshet, hjerterytmeforstyrrelser, livsfare |
 
-Ved alvorlig hypotermi kan hjertet gaa i ventrikkelflimmer og stoppe. Foerstehjelp: Unngaa raske oppvarmingsmetoder – oppvarm pasienten langsomt og forsiktig.`,
+Ved alvorlig hypotermi kan hjertet gå i ventrikkelflimmer og stoppe. Førstehjelp: Unngå raske oppvarmingsmetoder – oppvarm pasienten langsomt og forsiktig.`,
     },
     {
       id: 'bio1-5-4-ex-2',
@@ -995,9 +995,9 @@ Ved alvorlig hypotermi kan hjertet gaa i ventrikkelflimmer og stoppe. Foerstehje
         id: 'bio1-5-4-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Forklar hvorfor en person med feber foeler seg kald og skjelver i starten av en infeksjon, selv om kroppstemperaturen faktisk er hoeyere enn normalt.',
-        hints: ['Tenk paa hva som skjer med setpunktet'],
-        solution: 'Naar infeksjonen starter, hever pyrogener setpunktet i hypothalamus (f.eks. til 39 °C). Den faktiske kroppstemperaturen er fortsatt naer 37 °C, altsaa UNDER det nye setpunktet. Hypothalamus oppfatter dette som \"for kaldt\" og setter i gang varmeproduserende tiltak: skjelving, vasokonstriksjon og frysningsfoelelse. Personen foeler seg kald fordi kroppen aktivt prover aa heve temperaturen til det nye, hoeyere setpunktet – ikke fordi kroppstemperaturen faktisk er lav.',
+        task: 'Forklar hvorfor en person med feber føler seg kald og skjelver i starten av en infeksjon, selv om kroppstemperaturen faktisk er høyere enn normalt.',
+        hints: ['Tenk på hva som skjer med setpunktet'],
+        solution: 'Når infeksjonen starter, hever pyrogener setpunktet i hypothalamus (f.eks. til 39 °C). Den faktiske kroppstemperaturen er fortsatt nær 37 °C, altså UNDER det nye setpunktet. Hypothalamus oppfatter dette som "for kaldt" og setter i gang varmeproduserende tiltak: skjelving, vasokonstriksjon og frysningsfølelse. Personen føler seg kald fordi kroppen aktivt prøver å heve temperaturen til det nye, høyere setpunktet – ikke fordi kroppstemperaturen faktisk er lav.',
       },
     },
     {
@@ -1009,30 +1009,30 @@ Ved alvorlig hypotermi kan hjertet gaa i ventrikkelflimmer og stoppe. Foerstehje
     {
       id: 'bio1-5-4-example-3',
       type: 'example',
-      title: 'Eksempel: Blodsukkernivaa gjennom en dag',
-      problem: 'Beskriv hva som skjer med blodsukkeret, insulin og glukagon i foelgende situasjoner: (a) etter et maaltid, (b) mellom maaltider, (c) under intens trening.',
-      solution: `**Loesning:**
+      title: 'Eksempel: Blodsukkernivå gjennom en dag',
+      problem: 'Beskriv hva som skjer med blodsukkeret, insulin og glukagon i følgende situasjoner: (a) etter et måltid, (b) mellom måltider, (c) under intens trening.',
+      solution: `**Løsning:**
 
-**(a) Etter et maaltid (blodsukkeret stiger):**
+**(a) Etter et måltid (blodsukkeret stiger):**
 - Glukose absorberes fra tarmen → blodsukkeret stiger
-- Betaceller registrerer hoyt blodsukker → insulin frigjores
+- Betaceller registrerer høyt blodsukker → insulin frigjøres
 - Insulin stimulerer: celler tar opp glukose, leveren lagrer glykogen, fettceller lagrer fett
 - Blodsukkeret synker tilbake til normalt → insulinsekresjonen avtar
 
-**(b) Mellom maaltider (blodsukkeret synker):**
+**(b) Mellom måltider (blodsukkeret synker):**
 - Blodsukkeret synker gradvis ettersom cellene bruker glukose
-- Alfaceller registrerer lavt blodsukker → glukagon frigjores
-- Glukagon stimulerer leveren til aa bryte ned glykogen til glukose (glykogenolyse)
+- Alfaceller registrerer lavt blodsukker → glukagon frigjøres
+- Glukagon stimulerer leveren til å bryte ned glykogen til glukose (glykogenolyse)
 - Blodsukkeret stiger tilbake til normalt → glukagonsekresjonen avtar
 
 **(c) Under intens trening:**
 - Musklene bruker mye glukose → blodsukkeret synker raskt
-- Glukagon oeker, insulin synker
-- Leveren bryter ned glykogen og frigjor glukose
-- Adrenalin forsterker effekten ved aa mobilisere energilagre
-- Ved langvarig trening oeker ogsa nedbrytning av fett (lipolyse)
+- Glukagon øker, insulin synker
+- Leveren bryter ned glykogen og frigjør glukose
+- Adrenalin forsterker effekten ved å mobilisere energilagre
+- Ved langvarig trening øker også nedbrytning av fett (lipolyse)
 
-**Hypoglykemi** (lavt blodsukker, under ca. 3,5 mmol/L) er farlig fordi hjernen er nesten helt avhengig av glukose som energikilde. Symptomer inkluderer svetting, skjelving, forvirring og i alvorlige tilfeller bevisstlosthet. Diabetikere som tar for mye insulin kan oppleve hypoglykemi og maa da raskt innta sukker.`,
+**Hypoglykemi** (lavt blodsukker, under ca. 3,5 mmol/L) er farlig fordi hjernen er nesten helt avhengig av glukose som energikilde. Symptomer inkluderer svetting, skjelving, forvirring og i alvorlige tilfeller bevisstløshet. Diabetikere som tar for mye insulin kan oppleve hypoglykemi og må da raskt innta sukker.`,
     },
     {
       id: 'bio1-5-4-ex-3',
@@ -1048,14 +1048,14 @@ Ved alvorlig hypotermi kan hjertet gaa i ventrikkelflimmer og stoppe. Foerstehje
           { id: 'c', text: 'Adrenalin', isCorrect: false },
           { id: 'd', text: 'Kortisol', isCorrect: false },
         ],
-        solution: 'Insulin, produsert av betaceller i bukspyttkjertelen, er det eneste hormonet som senker blodsukkeret. Det stimulerer celler til aa ta opp glukose fra blodet og leveren til aa lagre glukose som glykogen. Glukagon, adrenalin og kortisol hever alle blodsukkeret. Insulin er derfor et livsnoedvendig hormon – uten det stiger blodsukkeret ukontrollert.',
+        solution: 'Insulin, produsert av betaceller i bukspyttkjertelen, er det eneste hormonet som senker blodsukkeret. Det stimulerer celler til å ta opp glukose fra blodet og leveren til å lagre glukose som glykogen. Glukagon, adrenalin og kortisol hever alle blodsukkeret. Insulin er derfor et livsnødvendig hormon – uten det stiger blodsukkeret ukontrollert.',
       },
     },
     {
       id: 'bio1-5-4-def-4',
       type: 'definition',
       title: 'Diabetes mellitus type 1 og type 2',
-      content: 'Diabetes mellitus er en sykdom der blodsukkeret er kronisk for hoyt. Type 1-diabetes er en autoimmun sykdom der immunforsvaret oedelegger betacellene i bukspyttkjertelen, slik at kroppen ikke kan produsere insulin. Behandling krever daglige insulininjeksjoner. Type 2-diabetes skyldes at cellene blir mindre folsomme for insulin (insulinresistens), ofte kombinert med redusert insulinproduksjon over tid. Risikofaktorer inkluderer overvekt, inaktivitet og arv. Behandling inkluderer livsstilsendringer og eventuelt medisiner.',
+      content: 'Diabetes mellitus er en sykdom der blodsukkeret er kronisk for høyt. Type 1-diabetes er en autoimmun sykdom der immunforsvaret ødelegger betacellene i bukspyttkjertelen, slik at kroppen ikke kan produsere insulin. Behandling krever daglige insulininjeksjoner. Type 2-diabetes skyldes at cellene blir mindre følsomme for insulin (insulinresistens), ofte kombinert med redusert insulinproduksjon over tid. Risikofaktorer inkluderer overvekt, inaktivitet og arv. Behandling inkluderer livsstilsendringer og eventuelt medisiner.',
     },
     {
       id: 'bio1-5-4-diabetes-detalj',
@@ -1066,27 +1066,27 @@ Diabetes type 2 er en av de raskest voksende folkesykdommene i verden. I Norge h
 
 ### Langtidskomplikasjoner ved diabetes
 
-Kronisk hoyt blodsukker skader blodaarene over tid og kan foere til:
+Kronisk høyt blodsukker skader blodårene over tid og kan føre til:
 
-- **Hjerte- og karsykdom**: Oekt risiko for hjerteinfarkt og hjerneslag
-- **Nyresykdom** (diabetisk nefropati): Skade paa nyrenes filtreringssystem
-- **Oeyesykdom** (diabetisk retinopati): Skade paa blodaarene i netthinnen, kan gi blindhet
-- **Nerveskade** (diabetisk nevropati): Nedsatt foelelse, spesielt i foettene
-- **Saar som ikke gror**: Spesielt paa foettene, kan i verste fall foere til amputasjon
+- **Hjerte- og karsykdom**: Økt risiko for hjerteinfarkt og hjerneslag
+- **Nyresykdom** (diabetisk nefropati): Skade på nyrenes filtreringssystem
+- **Øyesykdom** (diabetisk retinopati): Skade på blodårene i netthinnen, kan gi blindhet
+- **Nerveskade** (diabetisk nevropati): Nedsatt følelse, spesielt i føttene
+- **Sår som ikke gror**: Spesielt på føttene, kan i verste fall føre til amputasjon
 
 ### Forebygging av type 2-diabetes
 
 Livsstilsfaktorer spiller en stor rolle:
-- Regelmessig fysisk aktivitet oeker insulinfolsomheten
+- Regelmessig fysisk aktivitet øker insulinfølsomheten
 - Sunt kosthold med jevnt karbohydratinntak
 - Normalvekt reduserer risikoen betydelig
-- Roykeslutt og begrenset alkoholinntak
+- Røykeslutt og begrenset alkoholinntak
 
 Studier viser at moderate livsstilsendringer kan redusere risikoen for type 2-diabetes med opptil 58% hos personer i risikogruppen. Dette understreker betydningen av forebygging fremfor behandling.
 
-### HbA1c – langtidsmaal for blodsukker
+### HbA1c – langtidsmål for blodsukker
 
-I klinisk praksis brukes HbA1c (glykosylert hemoglobin) for aa maale gjennomsnittlig blodsukkernivaa over de siste 2–3 maanedene. Normal HbA1c er under 6,0% (42 mmol/mol). Diabetikere bruker dette maalingen for aa vurdere hvor godt blodsukkeret er kontrollert over tid, i motsetning til enkeltmaalinger som bare viser oeyeblikksbildet.`,
+I klinisk praksis brukes HbA1c (glykosylert hemoglobin) for å måle gjennomsnittlig blodsukkernivå over de siste 2–3 månedene. Normal HbA1c er under 6,0% (42 mmol/mol). Diabetikere bruker dette målingen for å vurdere hvor godt blodsukkeret er kontrollert over tid, i motsetning til enkeltmålinger som bare viser øyeblikksbildet.`,
     },
     {
       id: 'bio1-5-4-ex-4',
@@ -1095,9 +1095,9 @@ I klinisk praksis brukes HbA1c (glykosylert hemoglobin) for aa maale gjennomsnit
         id: 'bio1-5-4-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Sammenlign diabetes type 1 og type 2 med hensyn til: (a) aarsak, (b) typisk debut-alder, (c) insulinproduksjon, og (d) behandling.',
+        task: 'Sammenlign diabetes type 1 og type 2 med hensyn til: (a) årsak, (b) typisk debut-alder, (c) insulinproduksjon, og (d) behandling.',
         hints: ['Type 1 er autoimmun, type 2 er knyttet til livsstil'],
-        solution: '(a) Aarsak: Type 1 – autoimmun oedeleggelse av betaceller; Type 2 – insulinresistens, ofte knyttet til overvekt og inaktivitet. (b) Debutalder: Type 1 – oftest i barne- og ungdomsaar; Type 2 – oftest hos voksne (men oekende hos unge pga. overvekt). (c) Insulinproduksjon: Type 1 – ingen eller svært lite insulin; Type 2 – normal eller oekt i starten, men cellene reagerer ikke paa det. (d) Behandling: Type 1 – insulininjeksjoner livet ut; Type 2 – livsstilsendringer (kosthold, fysisk aktivitet), eventuelt tabletter eller insulin.',
+        solution: '(a) Årsak: Type 1 – autoimmun ødeleggelse av betaceller; Type 2 – insulinresistens, ofte knyttet til overvekt og inaktivitet. (b) Debutalder: Type 1 – oftest i barne- og ungdomsår; Type 2 – oftest hos voksne (men økende hos unge pga. overvekt). (c) Insulinproduksjon: Type 1 – ingen eller svært lite insulin; Type 2 – normal eller økt i starten, men cellene reagerer ikke på det. (d) Behandling: Type 1 – insulininjeksjoner livet ut; Type 2 – livsstilsendringer (kosthold, fysisk aktivitet), eventuelt tabletter eller insulin.',
       },
     },
     {
@@ -1105,22 +1105,22 @@ I klinisk praksis brukes HbA1c (glykosylert hemoglobin) for aa maale gjennomsnit
       type: 'text',
       content: `## Oppsummering
 
-Bade temperatur og blodsukker reguleres gjennom negativ tilbakekobling:
+Både temperatur og blodsukker reguleres gjennom negativ tilbakekobling:
 
 **Temperaturregulering:**
 - Hypothalamus er kroppens termostat
-- Respons paa kulde: vasokonstriksjon, skjelving, oekt stoffskifte
-- Respons paa varme: vasodilatasjon, svetting, redusert stoffskifte
+- Respons på kulde: vasokonstriksjon, skjelving, økt stoffskifte
+- Respons på varme: vasodilatasjon, svetting, redusert stoffskifte
 - Feber = hevet setpunkt; hypertermi = svikt i reguleringen
 
 **Blodsukkerregulering:**
 - Insulin (betaceller) senker blodsukkeret
 - Glukagon (alfaceller) hever blodsukkeret
 - De virker som antagonister gjennom negativ tilbakekobling
-- Diabetes type 1: mangel paa insulin; type 2: insulinresistens
-- Langtidskomplikasjoner ved diabetes: hjerte-karsykdom, nyresykdom, nerveskade, oeyesykdom
+- Diabetes type 1: mangel på insulin; type 2: insulinresistens
+- Langtidskomplikasjoner ved diabetes: hjerte-karsykdom, nyresykdom, nerveskade, øyesykdom
 
-Forstaaelsen av disse reguleringsmekanismene er grunnleggende i medisin og biologi. Mange av de vanligste sykdommene i samfunnet – diabetes, hjerte-karsykdom, stoffskifteforstyrrelser – kan forstas som forstyrrelser i homeostatisk regulering.`,
+Forståelsen av disse reguleringsmekanismene er grunnleggende i medisin og biologi. Mange av de vanligste sykdommene i samfunnet – diabetes, hjerte-karsykdom, stoffskifteforstyrrelser – kan forstås som forstyrrelser i homeostatisk regulering.`,
     },
     // --- Samleoppgaver ---
     {
@@ -1130,9 +1130,9 @@ Forstaaelsen av disse reguleringsmekanismene er grunnleggende i medisin og biolo
         id: 'bio1-5-4-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Tegn en detaljert negativ tilbakekoblingssloyfe for blodsukkerregulering som viser bade hva som skjer naar blodsukkeret stiger (etter maaltid) og naar det synker (mellom maaltider). Inkluder sensor, kontrollsenter, effektor og setpunkt.',
-        hints: ['Bukspyttkjertelen fungerer bade som sensor og kontrollsenter', 'Tegn to parallelle sloeyfer – en for insulin og en for glukagon'],
-        solution: 'Setpunkt: Blodsukker ca. 5 mmol/L. SLOYFE 1 (etter maaltid): Blodsukker stiger over setpunkt → Sensor/kontrollsenter: Betaceller i bukspyttkjertelen registrerer hoyt blodsukker → Hormon: Insulin frigjores → Effektor: Lever- og muskelceller tar opp glukose, lagrer glykogen → Blodsukker synker mot normalt → Insulinsekresjonen avtar. SLOYFE 2 (mellom maaltider): Blodsukker synker under setpunkt → Sensor/kontrollsenter: Alfaceller i bukspyttkjertelen registrerer lavt blodsukker → Hormon: Glukagon frigjores → Effektor: Leveren bryter ned glykogen, frigjor glukose → Blodsukker stiger mot normalt → Glukagonsekresjonen avtar. Begge sloeyfer er negativ tilbakekobling fordi responsen motvirker den opprinnelige endringen.',
+        task: 'Tegn en detaljert negativ tilbakekoblingssløyfe for blodsukkerregulering som viser både hva som skjer når blodsukkeret stiger (etter måltid) og når det synker (mellom måltider). Inkluder sensor, kontrollsenter, effektor og setpunkt.',
+        hints: ['Bukspyttkjertelen fungerer både som sensor og kontrollsenter', 'Tegn to parallelle sløyfer – en for insulin og en for glukagon'],
+        solution: 'Setpunkt: Blodsukker ca. 5 mmol/L. SLØYFE 1 (etter måltid): Blodsukker stiger over setpunkt → Sensor/kontrollsenter: Betaceller i bukspyttkjertelen registrerer høyt blodsukker → Hormon: Insulin frigjøres → Effektor: Lever- og muskelceller tar opp glukose, lagrer glykogen → Blodsukker synker mot normalt → Insulinsekresjonen avtar. SLØYFE 2 (mellom måltider): Blodsukker synker under setpunkt → Sensor/kontrollsenter: Alfaceller i bukspyttkjertelen registrerer lavt blodsukker → Hormon: Glukagon frigjøres → Effektor: Leveren bryter ned glykogen, frigjør glukose → Blodsukker stiger mot normalt → Glukagonsekresjonen avtar. Begge sløyfer er negativ tilbakekobling fordi responsen motvirker den opprinnelige endringen.',
       },
     },
     {
@@ -1149,7 +1149,7 @@ Forstaaelsen av disse reguleringsmekanismene er grunnleggende i medisin og biolo
           { id: 'c', text: 'Ved hypertermi er setpunktet hevet, ved feber er reguleringen overbelastet', isCorrect: false },
           { id: 'd', text: 'Det er ingen forskjell – begge betyr det samme', isCorrect: false },
         ],
-        solution: 'Ved feber hever pyrogener setpunktet i hypothalamus, saa kroppen aktivt prover aa oeke temperaturen som en forsvarsrespons. Reguleringssystemet fungerer normalt, bare med et hoeyere maal. Ved hypertermi er setpunktet uendret, men kroppen klarer ikke aa kvitte seg med nok varme (f.eks. heteslag), saa temperaturen stiger ukontrollert.',
+        solution: 'Ved feber hever pyrogener setpunktet i hypothalamus, så kroppen aktivt prøver å øke temperaturen som en forsvarsrespons. Reguleringssystemet fungerer normalt, bare med et høyere mål. Ved hypertermi er setpunktet uendret, men kroppen klarer ikke å kvitte seg med nok varme (f.eks. heteslag), så temperaturen stiger ukontrollert.',
       },
     },
     {
@@ -1159,9 +1159,9 @@ Forstaaelsen av disse reguleringsmekanismene er grunnleggende i medisin og biolo
         id: 'bio1-5-4-ex-7',
         number: '7',
         type: 'classic',
-        task: 'En person med ubehandlet diabetes type 1 maaler blodsukkeret sitt til 18 mmol/L (normalt 4–6 mmol/L i faste). Forklar hvorfor blodsukkeret er saa hoyt, og beskriv minst tre symptomer denne personen kan oppleve.',
+        task: 'En person med ubehandlet diabetes type 1 måler blodsukkeret sitt til 18 mmol/L (normalt 4–6 mmol/L i faste). Forklar hvorfor blodsukkeret er så høyt, og beskriv minst tre symptomer denne personen kan oppleve.',
         hints: ['Ved type 1 produseres ikke insulin', 'Uten insulin kan ikke cellene ta opp glukose'],
-        solution: 'Ved diabetes type 1 er betacellene oedelagt av immunforsvaret, saa kroppen produserer ikke insulin. Uten insulin kan ikke celler ta opp glukose fra blodet, selv om det er rikelig med glukose tilgjengelig. Derfor hoper glukose seg opp i blodet. Symptomer: (1) Hyppig vannlating (polyuri) – nyrene kan ikke reabsorbere all glukosen, og glukose drar med seg vann ut i urinen. (2) Tørste (polydipsi) – vaesketapet utloeser toerste. (3) Vekttap – cellene faar ikke glukose og maa i stedet bryte ned fett og protein for energi. (4) Trøtthet – cellene mangler energi. (5) Ketonlegemer i blodet (ketoacidose) – ved kraftig fettnedbrytning dannes syrer som kan vaere livstruende.',
+        solution: 'Ved diabetes type 1 er betacellene ødelagt av immunforsvaret, så kroppen produserer ikke insulin. Uten insulin kan ikke celler ta opp glukose fra blodet, selv om det er rikelig med glukose tilgjengelig. Derfor hoper glukose seg opp i blodet. Symptomer: (1) Hyppig vannlating (polyuri) – nyrene kan ikke reabsorbere all glukosen, og glukose drar med seg vann ut i urinen. (2) Tørste (polydipsi) – væsketapet utløser tørste. (3) Vekttap – cellene får ikke glukose og må i stedet bryte ned fett og protein for energi. (4) Trøtthet – cellene mangler energi. (5) Ketonlegemer i blodet (ketoacidose) – ved kraftig fettnedbrytning dannes syrer som kan være livstruende.',
       },
     },
   ],
@@ -1172,10 +1172,10 @@ Forstaaelsen av disse reguleringsmekanismene er grunnleggende i medisin og biolo
     { term: 'Feber', definition: 'Hevet setpunkt i hypothalamus som forsvar mot infeksjon' },
     { term: 'Insulin', definition: 'Hormon fra betaceller som senker blodsukkeret' },
     { term: 'Glukagon', definition: 'Hormon fra alfaceller som hever blodsukkeret' },
-    { term: 'Diabetes mellitus', definition: 'Sykdom med kronisk for hoyt blodsukker' },
+    { term: 'Diabetes mellitus', definition: 'Sykdom med kronisk for høyt blodsukker' },
     { term: 'Hypertermi', definition: 'Kjernetemperatur over 40 °C der reguleringen er overbelastet' },
-    { term: 'Vasokonstriksjon', definition: 'Sammentrekning av blodaarer som reduserer varmetap' },
-    { term: 'Vasodilatasjon', definition: 'Utvidelse av blodaarer som oeker varmetap' },
+    { term: 'Vasokonstriksjon', definition: 'Sammentrekning av blodårer som reduserer varmetap' },
+    { term: 'Vasodilatasjon', definition: 'Utvidelse av blodårer som øker varmetap' },
   ],
 };
 
@@ -1187,59 +1187,59 @@ export const CHAPTER_BIOLOGI_1_5_5: TextbookChapter = {
   id: 'biologi-1-5-5',
   courseId: 'biologi-1',
   chapterNumber: '5.5',
-  title: 'Nyrene, vaeskebalanse og osmoregulering',
-  description: 'Nyrenes oppbygning, ultrafiltrasjon, reabsorpsjon, og hormonell regulering av vaeske- og saltbalansen.',
+  title: 'Nyrene, væskebalanse og osmoregulering',
+  description: 'Nyrenes oppbygning, ultrafiltrasjon, reabsorpsjon, og hormonell regulering av væske- og saltbalansen.',
   estimatedMinutes: 55,
   competenceGoals: [
     'beskrive nyrenes oppbygning med nyrebekken, nefron og glomerulus',
     'forklare prosessene ultrafiltrasjon og reabsorpsjon',
-    'gjore rede for ADH og aldosterons rolle i vaeskeregulering',
+    'gjøre rede for ADH og aldosterons rolle i væskeregulering',
     'forklare sammenhengen mellom salt-vann-balanse og blodtrykksregulering',
   ],
   content: [
     {
       id: 'bio1-5-5-intro',
       type: 'text',
-      content: `# Nyrene, vaeskebalanse og osmoregulering
+      content: `# Nyrene, væskebalanse og osmoregulering
 
-Nyrene er kroppens viktigste organ for aa regulere vaeskebalansen og fjerne avfallsstoffer fra blodet. Hver dag filtrerer nyrene ca. 180 liter blodplasma, men bare ca. 1,5 liter skilles ut som urin. Resten reabsorberes tilbake til blodet. Denne presise reguleringen er avgjorende for homeostase.
+Nyrene er kroppens viktigste organ for å regulere væskebalansen og fjerne avfallsstoffer fra blodet. Hver dag filtrerer nyrene ca. 180 liter blodplasma, men bare ca. 1,5 liter skilles ut som urin. Resten reabsorberes tilbake til blodet. Denne presise reguleringen er avgjørende for homeostase.
 
 ## Nyrenes funksjoner
 
 - **Filtrering**: Fjerner avfallsstoffer (urea, kreatinin, urinsyre) fra blodet
-- **Vaeskebalanse**: Regulerer mengden vann i kroppen
+- **Væskebalanse**: Regulerer mengden vann i kroppen
 - **Elektrolyttbalanse**: Regulerer konsentrasjonen av ioner ($\\text{Na}^+$, $\\text{K}^+$, $\\text{Ca}^{2+}$)
 - **pH-regulering**: Skiller ut overskudd av $\\text{H}^+$-ioner
-- **Blodtrykksregulering**: Paavirker blodvolum og kartonus
-- **Hormonproduksjon**: Erytropoietin (EPO) stimulerer produksjon av roede blodceller
+- **Blodtrykksregulering**: Påvirker blodvolum og kartonus
+- **Hormonproduksjon**: Erytropoietin (EPO) stimulerer produksjon av røde blodceller
 
 ## Plassering og blodforsyning
 
-Nyrene ligger i bakre del av bukhulen, en paa hver side av ryggraden. Til tross for at de bare utgjor ca. 0,5% av kroppsvekten, mottar nyrene ca. 20–25% av hjertets minuttvolum. Denne enorme blodtilfoerselen er noedvendig for filtreringsfunksjonen. Blodet tilfoeres via nyrearteriene (direkte fra aorta) og forlater via nyrevenene (til nedre hulvene).
+Nyrene ligger i bakre del av bukhulen, en på hver side av ryggraden. Til tross for at de bare utgjør ca. 0,5% av kroppsvekten, mottar nyrene ca. 20–25% av hjertets minuttvolum. Denne enorme blodtilførselen er nødvendig for filtreringsfunksjonen. Blodet tilføres via nyrearteriene (direkte fra aorta) og forlater via nyrevenene (til nedre hulvene).
 
 ## Osmoregulering
 
-Osmoregulering er regulering av kroppens osmotiske trykk – konsentrasjonen av loeste stoffer i kroppen. Nyrene spiller hovedrollen ved aa justere mengden vann og salter som skilles ut eller holdes tilbake. Maalcellen er aa holde blodets osmolaritet paa ca. 300 mOsm/L. Hvis osmolariteten avviker, kan cellene enten svelle (for mye vann stroemmer inn ved osmose) eller krympe (vann stroemmer ut). Begge deler kan forstyrre cellenes funksjon alvorlig og i verste fall foere til celledoed.
+Osmoregulering er regulering av kroppens osmotiske trykk – konsentrasjonen av løste stoffer i kroppen. Nyrene spiller hovedrollen ved å justere mengden vann og salter som skilles ut eller holdes tilbake. Målcellen er å holde blodets osmolaritet på ca. 300 mOsm/L. Hvis osmolariteten avviker, kan cellene enten svelle (for mye vann strømmer inn ved osmose) eller krympe (vann strømmer ut). Begge deler kan forstyrre cellenes funksjon alvorlig og i verste fall føre til celledød.
 
-Hjernen er spesielt saarbar for osmotiske forstyrrelser fordi den er omsluttet av kraniet og har lite plass til aa svelle. Rask endring i blodets osmolaritet (f.eks. ved for rask intravenoes vaesketilfoersel) kan gi hjerneoedem med potensielt dødelig utfall.`,
+Hjernen er spesielt sårbar for osmotiske forstyrrelser fordi den er omsluttet av kraniet og har lite plass til å svelle. Rask endring i blodets osmolaritet (f.eks. ved for rask intravenøs væsketilførsel) kan gi hjerneødem med potensielt dødelig utfall.`,
     },
     {
       id: 'bio1-5-5-def-1',
       type: 'definition',
       title: 'Nyrens oppbygning',
-      content: 'Hver nyre er boennformet (ca. 12 cm lang) og bestaar av tre hoveddeler: (1) Nyrebarken (cortex) – det ytterste laget, inneholder glomeruli og deler av nefronene. (2) Nyremargen (medulla) – det indre laget, inneholder Henles sloeyfe og samleroor, organisert i pyramider. (3) Nyrebekkenet (pelvis) – samler opp urinen og leder den videre via urinlederen til urinblaeren. Nyrens funksjonelle enhet er nefronet – hvert nyre inneholder ca. 1 million nefroner.',
+      content: 'Hver nyre er bønneformet (ca. 12 cm lang) og består av tre hoveddeler: (1) Nyrebarken (cortex) – det ytterste laget, inneholder glomeruli og deler av nefronene. (2) Nyremargen (medulla) – det indre laget, inneholder Henles sløyfe og samlerør, organisert i pyramider. (3) Nyrebekkenet (pelvis) – samler opp urinen og leder den videre via urinlederen til urinblæren. Nyrens funksjonelle enhet er nefronet – hvert nyre inneholder ca. 1 million nefroner.',
     },
     {
       id: 'bio1-5-5-example-1',
       type: 'example',
       title: 'Eksempel: Nefronets oppbygning og funksjon',
       problem: 'Beskriv de ulike delene av et nefron og hva som skjer i hver del.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-Et nefron bestaar av foelgende deler:
+Et nefron består av følgende deler:
 
 **1. Bowmans kapsel med glomerulus (i barken)**
-- Glomerulus: Et noeste av kapillaerer der blodet filtreres
+- Glomerulus: Et nøste av kapillærer der blodet filtreres
 - Bowmans kapsel: Omgir glomerulus og samler opp filtratet
 - Her skjer **ultrafiltrasjon**: vann, salter, glukose, aminosyrer og avfallsstoffer presses ut av blodet
 - Store molekyler (proteiner) og blodceller holdes tilbake
@@ -1249,9 +1249,9 @@ Et nefron bestaar av foelgende deler:
 - All glukose og aminosyrer tas tilbake til blodet
 - Mye $\\text{Na}^+$, vann og bikarbonat reabsorberes
 
-**3. Henles sloyfe (ned i margen og tilbake)**
-- Nedadgaaende del: Gjennomtrengelig for vann, men ikke salter → vann reabsorberes
-- Oppadgaaende del: Gjennomtrengelig for salter, men ikke vann → $\\text{Na}^+$ og $\\text{Cl}^-$ pumpes ut
+**3. Henles sløyfe (ned i margen og tilbake)**
+- Nedadgående del: Gjennomtrengelig for vann, men ikke salter → vann reabsorberes
+- Oppadgående del: Gjennomtrengelig for salter, men ikke vann → $\\text{Na}^+$ og $\\text{Cl}^-$ pumpes ut
 - Skaper en konsentrasjonsgradient i nyremargen
 
 **4. Distale tubulus og samlerør (i bark og marg)**
@@ -1273,35 +1273,35 @@ Et nefron bestaar av foelgende deler:
           { id: 'c', text: 'Nyrebekkenet', isCorrect: false },
           { id: 'd', text: 'Urinlederen', isCorrect: false },
         ],
-        solution: 'Nefronet er nyrens funksjonelle enhet – den minste delen av nyren som kan utfoere alle nyrens funksjoner. Hvert nefron bestaar av glomerulus med Bowmans kapsel, proksimal tubulus, Henles sloyfe, distal tubulus og samleroor. Hver nyre har ca. 1 million nefroner.',
+        solution: 'Nefronet er nyrens funksjonelle enhet – den minste delen av nyren som kan utføre alle nyrens funksjoner. Hvert nefron består av glomerulus med Bowmans kapsel, proksimal tubulus, Henles sløyfe, distal tubulus og samlerør. Hver nyre har ca. 1 million nefroner.',
       },
     },
     {
       id: 'bio1-5-5-def-2',
       type: 'definition',
       title: 'Ultrafiltrasjon og reabsorpsjon',
-      content: 'Ultrafiltrasjon er prosessen der blodplasma filtreres gjennom kapillaerveggene i glomerulus inn i Bowmans kapsel. Blodtrykket driver filtrasjonen, og filtratet inneholder vann, ioner, glukose, aminosyrer og avfallsstoffer – men ikke proteiner eller blodceller. Reabsorpsjon er prosessen der nyttige stoffer (glukose, aminosyrer, vann, salter) tas tilbake fra filtratet i tubulussystemet og foeres tilbake til blodet. Ca. 99% av filtratet reabsorberes – bare 1% blir til urin.',
+      content: 'Ultrafiltrasjon er prosessen der blodplasma filtreres gjennom kapillærveggene i glomerulus inn i Bowmans kapsel. Blodtrykket driver filtrasjonen, og filtratet inneholder vann, ioner, glukose, aminosyrer og avfallsstoffer – men ikke proteiner eller blodceller. Reabsorpsjon er prosessen der nyttige stoffer (glukose, aminosyrer, vann, salter) tas tilbake fra filtratet i tubulussystemet og føres tilbake til blodet. Ca. 99% av filtratet reabsorberes – bare 1% blir til urin.',
     },
     {
       id: 'bio1-5-5-example-2',
       type: 'example',
       title: 'Eksempel: Mengder i nyrene',
-      problem: 'Nyrene filtrerer ca. 180 liter per doegn, men vi produserer bare ca. 1,5 liter urin. Beregn (a) hvor stor andel av filtratet som reabsorberes, og (b) hvor mye som filtreres per minutt.',
-      solution: `**Loesning:**
+      problem: 'Nyrene filtrerer ca. 180 liter per døgn, men vi produserer bare ca. 1,5 liter urin. Beregn (a) hvor stor andel av filtratet som reabsorberes, og (b) hvor mye som filtreres per minutt.',
+      solution: `**Løsning:**
 
 **(a) Andel reabsorbert:**
-Filtrert: 180 L/doegn
-Urin: 1,5 L/doegn
-Reabsorbert: 180 - 1,5 = 178,5 L/doegn
+Filtrert: 180 L/døgn
+Urin: 1,5 L/døgn
+Reabsorbert: 180 - 1,5 = 178,5 L/døgn
 
 Andel = $\\frac{178,5}{180} \\times 100\\% = 99,2\\%$
 
-Altsaa reabsorberes over 99% av filtratet tilbake til blodet!
+Altså reabsorberes over 99% av filtratet tilbake til blodet!
 
 **(b) Filtrasjonsrate (GFR):**
 $\\text{GFR} = \\frac{180 \\text{ L}}{24 \\text{ t} \\times 60 \\text{ min/t}} = \\frac{180}{1440} \\approx 0,125 \\text{ L/min} = 125 \\text{ mL/min}$
 
-Den glomerulaere filtrasjonsraten (GFR) er ca. 125 mL/min. GFR brukes klinisk for aa vurdere nyrefunksjonen – en GFR under 60 mL/min over tid kan tyde paa nyresvikt.`,
+Den glomerulære filtrasjonsraten (GFR) er ca. 125 mL/min. GFR brukes klinisk for å vurdere nyrefunksjonen – en GFR under 60 mL/min over tid kan tyde på nyresvikt.`,
     },
     {
       id: 'bio1-5-5-ex-2',
@@ -1310,53 +1310,53 @@ Den glomerulaere filtrasjonsraten (GFR) er ca. 125 mL/min. GFR brukes klinisk fo
         id: 'bio1-5-5-ex-2',
         number: '2',
         type: 'classic',
-        task: 'En pasient har glukose i urinen. Forklar hva dette kan tyde paa, og knytt det til nyrenes funksjon og blodsukkerregulering.',
-        hints: ['Normalt reabsorberes all glukose i proksimale tubulus', 'Tenk paa hva som skjer naar blodsukkeret er svart hoyt'],
-        solution: 'Normalt reabsorberer proksimale tubulus all glukose fra filtratet tilbake til blodet. Men glukose-transportoerene har en maksimumskapasitet (transportmaximum). Naar blodsukkeret er svart hoyt (over ca. 10 mmol/L), filtreres mer glukose enn transportoerene klarer aa ta tilbake, og overskuddet havner i urinen (glukosuri). Dette er et klassisk tegn paa diabetes mellitus. Glukosen i urinen trekker med seg ekstra vann (osmotisk effekt), noe som forklarer den oekte vannlatingen (polyuri) hos diabetikere.',
+        task: 'En pasient har glukose i urinen. Forklar hva dette kan tyde på, og knytt det til nyrenes funksjon og blodsukkerregulering.',
+        hints: ['Normalt reabsorberes all glukose i proksimale tubulus', 'Tenk på hva som skjer når blodsukkeret er svært høyt'],
+        solution: 'Normalt reabsorberer proksimale tubulus all glukose fra filtratet tilbake til blodet. Men glukose-transportørene har en maksimumskapasitet (transportmaximum). Når blodsukkeret er svært høyt (over ca. 10 mmol/L), filtreres mer glukose enn transportørene klarer å ta tilbake, og overskuddet havner i urinen (glukosuri). Dette er et klassisk tegn på diabetes mellitus. Glukosen i urinen trekker med seg ekstra vann (osmotisk effekt), noe som forklarer den økte vannlatingen (polyuri) hos diabetikere.',
       },
     },
     {
       id: 'bio1-5-5-def-3',
       type: 'definition',
       title: 'ADH og aldosteron',
-      content: 'ADH (antidiuretisk hormon, ogsa kalt vasopressin) produseres i hypothalamus og frigjores fra hypofysens baklapp. ADH oeker vannreabsorpsjonen i samleroorene ved aa gjore dem mer gjennomtrengelige for vann. Naar kroppen er dehydrert, oeker ADH-sekresjonen og urinen blir konsentrert. Aldosteron produseres i binyrebarken og stimulerer reabsorpsjon av $\\text{Na}^+$ (og dermed vann) i distale tubulus og samleroor. Aldosteron reguleres gjennom renin-angiotensin-aldosteron-systemet (RAAS) og er viktig for blodtrykksregulering.',
+      content: 'ADH (antidiuretisk hormon, også kalt vasopressin) produseres i hypothalamus og frigjøres fra hypofysens baklapp. ADH øker vannreabsorpsjonen i samlerørene ved å gjøre dem mer gjennomtrengelige for vann. Når kroppen er dehydrert, øker ADH-sekresjonen og urinen blir konsentrert. Aldosteron produseres i binyrebarken og stimulerer reabsorpsjon av $\\text{Na}^+$ (og dermed vann) i distale tubulus og samlerør. Aldosteron reguleres gjennom renin-angiotensin-aldosteron-systemet (RAAS) og er viktig for blodtrykksregulering.',
     },
     {
       id: 'bio1-5-5-example-3',
       type: 'example',
-      title: 'Eksempel: ADH og vaeskebalanse',
-      problem: 'Beskriv hva som skjer i kroppen naar du drikker svart lite vann paa en varm dag, og hvordan ADH regulerer vaeskebalansen.',
-      solution: `**Loesning:**
+      title: 'Eksempel: ADH og væskebalanse',
+      problem: 'Beskriv hva som skjer i kroppen når du drikker svært lite vann på en varm dag, og hvordan ADH regulerer væskebalansen.',
+      solution: `**Løsning:**
 
-Naar du drikker lite vann og svetter mye paa en varm dag:
+Når du drikker lite vann og svetter mye på en varm dag:
 
 **1. Deteksjon:**
-- Blodets osmolaritet oeker (mer konsentrert)
-- Osmoreseptorer i hypothalamus registrerer oekningen
+- Blodets osmolaritet øker (mer konsentrert)
+- Osmoreseptorer i hypothalamus registrerer økningen
 - Blodvolumet synker, blodtrykket synker
 
 **2. Respons:**
-- Hypothalamus stimulerer frigjoring av ADH fra hypofysens baklapp
+- Hypothalamus stimulerer frigjøring av ADH fra hypofysens baklapp
 - ADH transporteres med blodet til nyrene
 
 **3. Effekt i nyrene:**
-- ADH gjor samleroorene mer gjennomtrengelige for vann
+- ADH gjør samlerørene mer gjennomtrengelige for vann
 - Mer vann reabsorberes fra urinen tilbake til blodet
-- Urinen blir mer konsentrert (moerkere og mindre volum)
+- Urinen blir mer konsentrert (mørkere og mindre volum)
 
 **4. Resultat:**
 - Blodets osmolaritet synker tilbake mot normalt
 - Mindre vann tapes i urinen
-- Toerstesenteret i hypothalamus aktiveres ogsa → du foeler toerste
+- Tørstesenteret i hypothalamus aktiveres også → du føler tørste
 
 **5. Negativ tilbakekobling:**
-- Naar osmolariteten er normal igjen, reduseres ADH-sekresjonen
-- Samleroorene blir mindre gjennomtrengelige → urinen blir mer fortynnet
+- Når osmolariteten er normal igjen, reduseres ADH-sekresjonen
+- Samlerørene blir mindre gjennomtrengelige → urinen blir mer fortynnet
 
-Motsatt: Naar du drikker mye vann, synker ADH-nivaet og nyrene skiller ut mer fortynnet urin.
+Motsatt: Når du drikker mye vann, synker ADH-nivået og nyrene skiller ut mer fortynnet urin.
 
 **Diabetes insipidus:**
-Denne sjeldne tilstanden oppstaar naar kroppen ikke produserer nok ADH (sentral type) eller naar nyrene ikke reagerer paa ADH (nefrogen type). Uten ADH reabsorberer nyrene svart lite vann, og pasienten kan produsere opptil 20 liter fortynnet urin per doegn. Til tross for lignende navn har diabetes insipidus ingenting aa gjore med diabetes mellitus (blodsukker) – de deler bare symptomet med oekt vannlating.`,
+Denne sjeldne tilstanden oppstår når kroppen ikke produserer nok ADH (sentral type) eller når nyrene ikke reagerer på ADH (nefrogen type). Uten ADH reabsorberer nyrene svært lite vann, og pasienten kan produsere opptil 20 liter fortynnet urin per døgn. Til tross for lignende navn har diabetes insipidus ingenting å gjøre med diabetes mellitus (blodsukker) – de deler bare symptomet med økt vannlating.`,
     },
     {
       id: 'bio1-5-5-ex-3',
@@ -1365,14 +1365,14 @@ Denne sjeldne tilstanden oppstaar naar kroppen ikke produserer nok ADH (sentral 
         id: 'bio1-5-5-ex-3',
         number: '3',
         type: 'multiple-choice',
-        task: 'Hva er effekten av oekt ADH-sekresjon?',
+        task: 'Hva er effekten av økt ADH-sekresjon?',
         options: [
           { id: 'a', text: 'Mer vann reabsorberes og urinen blir mer konsentrert', isCorrect: true },
           { id: 'b', text: 'Mer vann skilles ut og urinen blir mer fortynnet', isCorrect: false },
           { id: 'c', text: 'Mer natrium skilles ut i urinen', isCorrect: false },
           { id: 'd', text: 'Blodtrykket synker', isCorrect: false },
         ],
-        solution: 'ADH (antidiuretisk hormon) gjor samleroorene i nyrene mer gjennomtrengelige for vann. Mer vann reabsorberes fra urinen tilbake til blodet, slik at urinen blir konsentrert (moerk, litet volum) og blodvolumet oeker. \"Anti-diuretisk\" betyr bokstavelig \"mot vannlating\" – hormonet reduserer urinproduksjonen.',
+        solution: 'ADH (antidiuretisk hormon) gjør samlerørene i nyrene mer gjennomtrengelige for vann. Mer vann reabsorberes fra urinen tilbake til blodet, slik at urinen blir konsentrert (mørk, litet volum) og blodvolumet øker. "Anti-diuretisk" betyr bokstavelig "mot vannlating" – hormonet reduserer urinproduksjonen.',
       },
     },
     {
@@ -1382,9 +1382,9 @@ Denne sjeldne tilstanden oppstaar naar kroppen ikke produserer nok ADH (sentral 
         id: 'bio1-5-5-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Forklar hvordan aldosteron og renin-angiotensin-aldosteron-systemet (RAAS) bidrar til aa regulere blodtrykket naar det er for lavt.',
-        hints: ['RAAS aktiveres naar blodtrykket synker', 'Aldosteron paavirker natriumreabsorpsjonen i nyrene'],
-        solution: 'Naar blodtrykket synker: (1) Nyrene registrerer lavt blodtrykk og skiller ut enzymet renin. (2) Renin omdanner angiotensinogen (fra leveren) til angiotensin I. (3) ACE (angiotensin-converting enzyme, hovedsakelig i lungene) omdanner angiotensin I til angiotensin II. (4) Angiotensin II har to viktige effekter: det trekker sammen blodaarene (vasokonstriksjon → hoeyere blodtrykk) og stimulerer binyrebarken til aa produsere aldosteron. (5) Aldosteron oeker reabsorpsjon av $\\text{Na}^+$ i nyrenes tubuli. Vann foelger natriumet osmotisk, saa blodvolumet oeker → blodtrykket stiger. Naar blodtrykket er normalisert, reduseres renin-sekresjonen – negativ tilbakekobling.',
+        task: 'Forklar hvordan aldosteron og renin-angiotensin-aldosteron-systemet (RAAS) bidrar til å regulere blodtrykket når det er for lavt.',
+        hints: ['RAAS aktiveres når blodtrykket synker', 'Aldosteron påvirker natriumreabsorpsjonen i nyrene'],
+        solution: 'Når blodtrykket synker: (1) Nyrene registrerer lavt blodtrykk og skiller ut enzymet renin. (2) Renin omdanner angiotensinogen (fra leveren) til angiotensin I. (3) ACE (angiotensin-converting enzyme, hovedsakelig i lungene) omdanner angiotensin I til angiotensin II. (4) Angiotensin II har to viktige effekter: det trekker sammen blodårene (vasokonstriksjon → høyere blodtrykk) og stimulerer binyrebarken til å produsere aldosteron. (5) Aldosteron øker reabsorpsjon av $\\text{Na}^+$ i nyrenes tubuli. Vann følger natriumet osmotisk, så blodvolumet øker → blodtrykket stiger. Når blodtrykket er normalisert, reduseres renin-sekresjonen – negativ tilbakekobling.',
       },
     },
     {
@@ -1392,26 +1392,26 @@ Denne sjeldne tilstanden oppstaar naar kroppen ikke produserer nok ADH (sentral 
       type: 'text',
       content: `## Oppsummering
 
-Nyrene er sentrale for vaeskebalanse, avfallsfjerning og blodtrykksregulering:
+Nyrene er sentrale for væskebalanse, avfallsfjerning og blodtrykksregulering:
 
-- **Nefronet** er nyrens funksjonelle enhet med glomerulus, tubuli og samleroor
+- **Nefronet** er nyrens funksjonelle enhet med glomerulus, tubuli og samlerør
 - **Ultrafiltrasjon** i glomerulus filtrerer plasma; **reabsorpsjon** i tubuli tar tilbake nyttige stoffer
 - Ca. 180 L filtreres daglig, men bare ca. 1,5 L skilles ut som urin
-- **ADH** regulerer vannreabsorpsjon – oeker ved dehydrering, synker ved overhydrering
+- **ADH** regulerer vannreabsorpsjon – øker ved dehydrering, synker ved overhydrering
 - **Aldosteron** og **RAAS** regulerer natrium- og vannbalanse, og dermed blodtrykket
-- Nyrene samarbeider med hjerte-karsystemet og hormonsystemet for aa opprettholde homeostase
+- Nyrene samarbeider med hjerte-karsystemet og hormonsystemet for å opprettholde homeostase
 
 ### Klinisk betydning
 
-Nyresykdom er et alvorlig helseproblem. Kronisk nyresykdom (KNS) rammer ca. 10% av verdens befolkning og kan foere til behov for dialyse eller nyretransplantasjon. De vanligste aarsakene til kronisk nyresykdom er:
+Nyresykdom er et alvorlig helseproblem. Kronisk nyresykdom (KNS) rammer ca. 10% av verdens befolkning og kan føre til behov for dialyse eller nyretransplantasjon. De vanligste årsakene til kronisk nyresykdom er:
 
-- **Diabetes**: Hoyt blodsukker skader glomeruli over tid
-- **Hoyt blodtrykk**: Oeker belastningen paa nyrenes blodaarer
+- **Diabetes**: Høyt blodsukker skader glomeruli over tid
+- **Høyt blodtrykk**: Øker belastningen på nyrenes blodårer
 - **Glomerulonefritt**: Betennelse i glomeruli
 
-GFR (glomerulær filtrasjonsrate) brukes for aa vurdere nyrefunksjon. Normal GFR er ca. 125 mL/min. Ved GFR under 15 mL/min (nyresvikt stadium 5) trenger pasienten vanligvis dialyse.
+GFR (glomerulær filtrasjonsrate) brukes for å vurdere nyrefunksjon. Normal GFR er ca. 125 mL/min. Ved GFR under 15 mL/min (nyresvikt stadium 5) trenger pasienten vanligvis dialyse.
 
-**Dialyse** er en kunstig erstatning for nyrefunksjonen der blodet filtreres gjennom en maskin (hemodialyse) eller gjennom bukhinnen (peritonealdialyse). Pasienten maa vanligvis til behandling 3 ganger per uke, og hver behandling tar ca. 4 timer. Nyretransplantasjon er den beste langsiktige loesningen for pasienter med alvorlig nyresvikt.`,
+**Dialyse** er en kunstig erstatning for nyrefunksjonen der blodet filtreres gjennom en maskin (hemodialyse) eller gjennom bukhinnen (peritonealdialyse). Pasienten må vanligvis til behandling 3 ganger per uke, og hver behandling tar ca. 4 timer. Nyretransplantasjon er den beste langsiktige løsningen for pasienter med alvorlig nyresvikt.`,
     },
     // --- Samleoppgaver ---
     {
@@ -1421,9 +1421,9 @@ GFR (glomerulær filtrasjonsrate) brukes for aa vurdere nyrefunksjon. Normal GFR
         id: 'bio1-5-5-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Alkohol hemmer utskillelsen av ADH fra hypofysen. Forklar hvilken effekt dette har paa urinproduksjonen og vaeskebalansen, og hvorfor man kan bli dehydrert av aa drikke alkohol.',
-        hints: ['Hva skjer med vannreabsorpsjonen naar ADH-nivaet synker?'],
-        solution: 'Naar alkohol hemmer ADH-utskillelsen, synker ADH-nivaet i blodet. Uten ADH blir samleroorene i nyrene mindre gjennomtrengelige for vann, saa mindre vann reabsorberes tilbake til blodet. Resultatet er stor produksjon av fortynnet urin (diurese). Man taper mer vaesker enn man tar inn, noe som foerer til dehydrering. Dette forklarer hvorfor man maa late vannet ofte etter aa ha drukket alkohol, og hvorfor man kan faa hodepine og toerste (symptomer paa dehydrering) dagen etter. Radet om aa drikke vann mellom alkoholholdige drikker er basert paa dette prinsippet.',
+        task: 'Alkohol hemmer utskillelsen av ADH fra hypofysen. Forklar hvilken effekt dette har på urinproduksjonen og væskebalansen, og hvorfor man kan bli dehydrert av å drikke alkohol.',
+        hints: ['Hva skjer med vannreabsorpsjonen når ADH-nivået synker?'],
+        solution: 'Når alkohol hemmer ADH-utskillelsen, synker ADH-nivået i blodet. Uten ADH blir samlerørene i nyrene mindre gjennomtrengelige for vann, så mindre vann reabsorberes tilbake til blodet. Resultatet er stor produksjon av fortynnet urin (diurese). Man taper mer væsker enn man tar inn, noe som fører til dehydrering. Dette forklarer hvorfor man må late vannet ofte etter å ha drukket alkohol, og hvorfor man kan få hodepine og tørste (symptomer på dehydrering) dagen etter. Rådet om å drikke vann mellom alkoholholdige drikker er basert på dette prinsippet.',
       },
     },
     {
@@ -1440,7 +1440,7 @@ GFR (glomerulær filtrasjonsrate) brukes for aa vurdere nyrefunksjon. Normal GFR
           { id: 'c', text: 'Sekresjon', isCorrect: false },
           { id: 'd', text: 'Osmose', isCorrect: false },
         ],
-        solution: 'Ultrafiltrasjon i glomerulus drives av det hoye blodtrykket i glomerulus-kapillærene. Trykket presser vann og smaa loeste stoffer (glukose, salter, avfallsstoffer) gjennom kapillaerveggene og inn i Bowmans kapsel, mens store molekyler (proteiner) og blodceller holdes tilbake. Reabsorpsjon skjer senere i tubulussystemet og drives av aktiv transport og osmose.',
+        solution: 'Ultrafiltrasjon i glomerulus drives av det høye blodtrykket i glomerulus-kapillærene. Trykket presser vann og små løste stoffer (glukose, salter, avfallsstoffer) gjennom kapillærveggene og inn i Bowmans kapsel, mens store molekyler (proteiner) og blodceller holdes tilbake. Reabsorpsjon skjer senere i tubulussystemet og drives av aktiv transport og osmose.',
       },
     },
     {
@@ -1450,9 +1450,9 @@ GFR (glomerulær filtrasjonsrate) brukes for aa vurdere nyrefunksjon. Normal GFR
         id: 'bio1-5-5-ex-7',
         number: '7',
         type: 'classic',
-        task: 'En person spiser et svart salt maaltid. Beskriv trinn for trinn hva som skjer med vaeskebalansen og blodtrykket i timene etterpaa, og hvordan kroppen regulerer dette tilbake til normalt.',
-        hints: ['Salt ($\\text{Na}^+$) oeker blodets osmolaritet', 'Tenk paa bade ADH, toerste og RAAS'],
-        solution: 'Etter et salt maaltid: (1) $\\text{Na}^+$ absorberes fra tarmen og oeker blodets osmolaritet (blodkonsentrasjonen). (2) Osmoreseptorer i hypothalamus registrerer dette og stimulerer: (a) ADH-frigjoring → mer vann reabsorberes i nyrene, (b) Toerstefoelelse → personen drikker mer. (3) Oekt vanninntak og vannretensjon oeker blodvolumet → blodtrykket stiger. (4) Hoeyere blodtrykk og blodvolum hemmer RAAS-systemet: mindre renin → mindre angiotensin II → mindre aldosteron. (5) Uten aldosteron reabsorberer nyrene mindre $\\text{Na}^+$ og vann → mer natrium og vann skilles ut i urinen. (6) Blodvolumet og osmolariteten synker tilbake mot normalt → ADH-sekresjonen avtar, toersten forsvinner. Alt styres av negativ tilbakekobling.',
+        task: 'En person spiser et svært salt måltid. Beskriv trinn for trinn hva som skjer med væskebalansen og blodtrykket i timene etterpå, og hvordan kroppen regulerer dette tilbake til normalt.',
+        hints: ['Salt ($\\text{Na}^+$) øker blodets osmolaritet', 'Tenk på både ADH, tørste og RAAS'],
+        solution: 'Etter et salt måltid: (1) $\\text{Na}^+$ absorberes fra tarmen og øker blodets osmolaritet (blodkonsentrasjonen). (2) Osmoreseptorer i hypothalamus registrerer dette og stimulerer: (a) ADH-frigjøring → mer vann reabsorberes i nyrene, (b) Tørstefølelse → personen drikker mer. (3) Økt vanninntak og vannretensjon øker blodvolumet → blodtrykket stiger. (4) Høyere blodtrykk og blodvolum hemmer RAAS-systemet: mindre renin → mindre angiotensin II → mindre aldosteron. (5) Uten aldosteron reabsorberer nyrene mindre $\\text{Na}^+$ og vann → mer natrium og vann skilles ut i urinen. (6) Blodvolumet og osmolariteten synker tilbake mot normalt → ADH-sekresjonen avtar, tørsten forsvinner. Alt styres av negativ tilbakekobling.',
       },
     },
     {
@@ -1462,29 +1462,29 @@ GFR (glomerulær filtrasjonsrate) brukes for aa vurdere nyrefunksjon. Normal GFR
         id: 'bio1-5-5-ex-8',
         number: '8',
         type: 'multiple-choice',
-        task: 'Hva er rollen til Henles sloyfe i nefronet?',
+        task: 'Hva er rollen til Henles sløyfe i nefronet?',
         options: [
-          { id: 'a', text: 'Den skaper en konsentrasjonsgradient i nyremargen som gjor det mulig aa lage konsentrert urin', isCorrect: true },
+          { id: 'a', text: 'Den skaper en konsentrasjonsgradient i nyremargen som gjør det mulig å lage konsentrert urin', isCorrect: true },
           { id: 'b', text: 'Den filtrerer blodet ved ultrafiltrasjon', isCorrect: false },
           { id: 'c', text: 'Den produserer ADH', isCorrect: false },
           { id: 'd', text: 'Den fjerner proteiner fra urinen', isCorrect: false },
         ],
-        solution: 'Henles sloyfe har en kritisk rolle: den skaper en konsentrasjonsgradient (oekende saltkonsentrasjon) i nyremargen. Den nedadgaaende delen slipper vann ut (men ikke salt), mens den oppadgaaende delen pumper salt ut (men holder paa vann). Denne gradienten gjor at samleroorene, naar de paavirkes av ADH, kan reabsorbere vann ved osmose og lage konsentrert urin. Uten Henles sloyfe kunne vi ikke lage urin som er mer konsentrert enn blodplasma. Dyr som lever i toerre omraader, som oerkenrotter, har svart lange Henles sloeyfer og kan derfor lage ekstremt konsentrert urin for aa spare vann.',
+        solution: 'Henles sløyfe har en kritisk rolle: den skaper en konsentrasjonsgradient (økende saltkonsentrasjon) i nyremargen. Den nedadgående delen slipper vann ut (men ikke salt), mens den oppadgående delen pumper salt ut (men holder på vann). Denne gradienten gjør at samlerørene, når de påvirkes av ADH, kan reabsorbere vann ved osmose og lage konsentrert urin. Uten Henles sløyfe kunne vi ikke lage urin som er mer konsentrert enn blodplasma. Dyr som lever i tørre områder, som ørkenrotter, har svært lange Henles sløyfer og kan derfor lage ekstremt konsentrert urin for å spare vann.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'Nefron', definition: 'Nyrens funksjonelle enhet som filtrerer blodet og danner urin' },
-    { term: 'Glomerulus', definition: 'Kapillaernoeste i nefronet der ultrafiltrasjon skjer' },
+    { term: 'Glomerulus', definition: 'Kapillærnøste i nefronet der ultrafiltrasjon skjer' },
     { term: 'Ultrafiltrasjon', definition: 'Trykkdrevet filtrering av blodplasma i glomerulus' },
-    { term: 'Reabsorpsjon', definition: 'Tilbakefoering av nyttige stoffer fra filtratet til blodet' },
-    { term: 'ADH', definition: 'Hormon som oeker vannreabsorpsjonen i nyrenes samleroor' },
-    { term: 'Aldosteron', definition: 'Hormon som oeker natriumreabsorpsjonen i nyrene' },
+    { term: 'Reabsorpsjon', definition: 'Tilbakeføring av nyttige stoffer fra filtratet til blodet' },
+    { term: 'ADH', definition: 'Hormon som øker vannreabsorpsjonen i nyrenes samlerør' },
+    { term: 'Aldosteron', definition: 'Hormon som øker natriumreabsorpsjonen i nyrene' },
     { term: 'RAAS', definition: 'Renin-angiotensin-aldosteron-systemet for blodtrykksregulering' },
-    { term: 'Osmolaritet', definition: 'Konsentrasjonen av loeste stoffer i en loesning, maalt i mOsm/L' },
-    { term: 'Henles sloyfe', definition: 'Del av nefronet som skaper konsentrasjonsgradient i nyremargen' },
-    { term: 'GFR', definition: 'Glomerulær filtrasjonsrate – maal paa nyrenes filtreringskapasitet' },
+    { term: 'Osmolaritet', definition: 'Konsentrasjonen av løste stoffer i en løsning, målt i mOsm/L' },
+    { term: 'Henles sløyfe', definition: 'Del av nefronet som skaper konsentrasjonsgradient i nyremargen' },
+    { term: 'GFR', definition: 'Glomerulær filtrasjonsrate – mål på nyrenes filtreringskapasitet' },
   ],
 };
 

@@ -19,12 +19,12 @@ export const CHAPTER_BIOLOGI_1_8_1: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '8.1',
   title: 'Hva er biologisk mangfold?',
-  description: 'Genetisk diversitet, artsdiversitet og okosystemdiversitet - de tre nivaene av biodiversitet.',
+  description: 'Genetisk diversitet, artsdiversitet og økosystemdiversitet - de tre nivåene av biodiversitet.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'beskrive biodiversitet pa ulike nivaer',
+    'beskrive biodiversitet på ulike nivåer',
     'forklare betydningen av genetisk variasjon',
-    'gjore rede for sammenhengen mellom artsdiversitet og okosystemfunksjoner',
+    'gjøre rede for sammenhengen mellom artsdiversitet og økosystemfunksjoner',
   ],
   content: [
     {
@@ -32,15 +32,15 @@ export const CHAPTER_BIOLOGI_1_8_1: TextbookChapter = {
       type: 'text',
       content: `# Hva er biologisk mangfold?
 
-Biologisk mangfold, eller biodiversitet, er et begrep som favner all variasjon i livet pa jorden. Fra de minste genetiske forskjellene mellom individer av samme art, til den enorme variasjonen av arter og okosystemer som finnes pa planeten var.
+Biologisk mangfold, eller biodiversitet, er et begrep som favner all variasjon i livet på jorden. Fra de minste genetiske forskjellene mellom individer av samme art, til den enorme variasjonen av arter og økosystemer som finnes på planeten vår.
 
 ## Hvorfor er biologisk mangfold viktig?
 
-Biologisk mangfold er grunnlaget for livet pa jorden. Det gir oss:
-- **Mat og ressurser**: Alle var mat kommer fra biologiske systemer
+Biologisk mangfold er grunnlaget for livet på jorden. Det gir oss:
+- **Mat og ressurser**: Alle vår mat kommer fra biologiske systemer
 - **Medisiner**: Mange medisiner er utviklet fra naturlige stoffer
-- **Okosystemtjenester**: Pollinering, vannrensing, klimaregulering
-- **Resiliens**: Varierte okosystemer taler forstyrrelser bedre
+- **Økosystemtjenester**: Pollinering, vannrensing, klimaregulering
+- **Resiliens**: Varierte økosystemer tåler forstyrrelser bedre
 
 FNs konvensjon om biologisk mangfold (CBD) ble undertegnet i 1992 og er det viktigste internasjonale rammeverket for bevaring av biodiversitet.`,
     },
@@ -48,147 +48,147 @@ FNs konvensjon om biologisk mangfold (CBD) ble undertegnet i 1992 og er det vikt
       id: 'bio1-8-1-def-biodiversitet',
       type: 'definition',
       title: 'Biologisk mangfold (biodiversitet)',
-      content: 'Biologisk mangfold omfatter all variasjon i livet pa jorden, inkludert mangfoldet av gener, arter og okosystemer. Begrepet ble popularisert av biologen E.O. Wilson pa 1980-tallet og har siden blitt et sentralt konsept i bade biologi og miljopolitikk.',
+      content: 'Biologisk mangfold omfatter all variasjon i livet på jorden, inkludert mangfoldet av gener, arter og økosystemer. Begrepet ble popularisert av biologen E.O. Wilson på 1980-tallet og har siden blitt et sentralt konsept i både biologi og miljøpolitikk.',
     },
     {
       id: 'bio1-8-1-genetisk',
       type: 'text',
       content: `## Genetisk diversitet
 
-Genetisk diversitet er variasjonen i arvestoff innen en art eller populasjon. Dette er det mest grunnleggende nivaet av biodiversitet.
+Genetisk diversitet er variasjonen i arvestoff innen en art eller populasjon. Dette er det mest grunnleggende nivået av biodiversitet.
 
 ### Hvorfor er genetisk variasjon viktig?
 
-- **Tilpasningsevne**: Populasjoner med hoy genetisk variasjon har storre sjanse for a overleve miljoeendringer
-- **Evolusjon**: Naturlig utvalg virker pa genetisk variasjon
-- **Helse**: Innavl (lite genetisk variasjon) kan fore til genetiske sykdommer
+- **Tilpasningsevne**: Populasjoner med høy genetisk variasjon har større sjanse for å overleve miljøendringer
+- **Evolusjon**: Naturlig utvalg virker på genetisk variasjon
+- **Helse**: Innavl (lite genetisk variasjon) kan føre til genetiske sykdommer
 
-### Eksempler pa lav genetisk diversitet
+### Eksempler på lav genetisk diversitet
 
-**Geparder** har svart lav genetisk variasjon pa grunn av en populasjonsflaskehals for ca. 10 000 ar siden. Dette gjor dem sarbare for sykdommer og miljoeendringer.
+**Geparder** har svært lav genetisk variasjon på grunn av en populasjonsflaskehals for ca. 10 000 år siden. Dette gjør dem sårbare for sykdommer og miljøendringer.
 
-**Irsk potet** - Pa 1840-tallet var nasten alle poteter i Irland genetisk like. Da en soppsykdom kom, odela den nasten hele avlingen og forarsket hungersnode.`,
+**Irsk potet** - På 1840-tallet var nesten alle poteter i Irland genetisk like. Da en soppsykdom kom, ødela den nesten hele avlingen og forårsaket hungersnød.`,
     },
     {
       id: 'bio1-8-1-def-genetisk',
       type: 'definition',
       title: 'Genetisk diversitet',
-      content: 'Genetisk diversitet er variasjonen i DNA-sekvenser og alleler innen og mellom populasjoner av samme art. Hoey genetisk diversitet oker en arts evne til a tilpasse seg endringer i miljoet og motstander press fra sykdommer og parasitter.',
+      content: 'Genetisk diversitet er variasjonen i DNA-sekvenser og alleler innen og mellom populasjoner av samme art. Høy genetisk diversitet øker en arts evne til å tilpasse seg endringer i miljøet og motstander press fra sykdommer og parasitter.',
     },
     {
       id: 'bio1-8-1-artsdiversitet',
       type: 'text',
       content: `## Artsdiversitet
 
-Artsdiversitet handler om antall og variasjon av arter i et omrade. Dette er det nivaet av biodiversitet folk flest tenker pa.
+Artsdiversitet handler om antall og variasjon av arter i et område. Dette er det nivået av biodiversitet folk flest tenker på.
 
-### Maling av artsdiversitet
+### Måling av artsdiversitet
 
-Artsdiversitet males ofte pa to mater:
+Artsdiversitet måles ofte på to måter:
 
-1. **Artsrikdom**: Antall arter i et omrade
+1. **Artsrikdom**: Antall arter i et område
 2. **Jevnhet (evenness)**: Hvor jevnt fordelt individene er mellom artene
 
-Et omrade med 100 arter der en art dominerer (99% av individene) har lavere faktisk diversitet enn et omrade med 50 arter som er jevnt fordelt.
+Et område med 100 arter der en art dominerer (99% av individene) har lavere faktisk diversitet enn et område med 50 arter som er jevnt fordelt.
 
-### Globale moenstre i artsdiversitet
+### Globale mønstre i artsdiversitet
 
-- **Breddegrad**: Artsdiversiteten oker mot ekvator (tropene har flest arter)
-- **Hoeyde**: Diversiteten avtar med okende hoyde over havet
-- **Areal**: Storre omrader har flere arter (art-areal-forholdet)
-- **Habitatheterogenitet**: Varierende habitater stotter flere arter`,
+- **Breddegrad**: Artsdiversiteten øker mot ekvator (tropene har flest arter)
+- **Høyde**: Diversiteten avtar med økende høyde over havet
+- **Areal**: Større områder har flere arter (art-areal-forholdet)
+- **Habitatheterogenitet**: Varierende habitater støtter flere arter`,
     },
     {
       id: 'bio1-8-1-def-artsdiversitet',
       type: 'definition',
       title: 'Artsdiversitet',
-      content: 'Artsdiversitet er variasjonen i antall arter (artsrikdom) og fordelingen av individer mellom arter (jevnhet) i et gitt omrade eller okosystem. Tropiske regnskoger har hoeyest artsdiversitet pa land, mens korallrev har hoeyest i havet.',
+      content: 'Artsdiversitet er variasjonen i antall arter (artsrikdom) og fordelingen av individer mellom arter (jevnhet) i et gitt område eller økosystem. Tropiske regnskoger har høyest artsdiversitet på land, mens korallrev har høyest i havet.',
     },
     {
       id: 'bio1-8-1-okosystem',
       type: 'text',
-      content: `## Okosystemdiversitet
+      content: `## Økosystemdiversitet
 
-Okosystemdiversitet er variasjonen i okosystemer, habitater og okologiske prosesser pa ulike skalaer.
+Økosystemdiversitet er variasjonen i økosystemer, habitater og økologiske prosesser på ulike skalær.
 
-### Eksempler pa okosystemtyper
+### Eksempler på økosystemtyper
 
-**Terrestriske okosystemer:**
+**Terrestriske økosystemer:**
 - Tropisk regnskog
-- Temperert lovskog
+- Temperert løvskog
 - Taiga (boreal skog)
 - Savanne
 - Tundra
-- Orken
+- Ørken
 
-**Akvatiske okosystemer:**
+**Akvatiske økosystemer:**
 - Korallrev
 - Mangroveskog
-- Havsokkel
+- Havshøkkel
 - Dyphav
-- Ferskvannssjoeer
+- Ferskvannssjøer
 - Elver og bekker
 
-### Okosystemenes betydning
+### Økosystemenes betydning
 
-Ulike okosystemer har ulike funksjoner og tjenester:
-- **Vatomrader** renser vann og demper flom
+Ulike økosystemer har ulike funksjoner og tjenester:
+- **Våtområder** renser vann og demper flom
 - **Skoger** binder karbon og regulerer klima
-- **Korallrev** beskytter kyster og er oppvekstomrader for fisk`,
+- **Korallrev** beskytter kyster og er oppvekstområder for fisk`,
     },
     {
       id: 'bio1-8-1-example-1',
       type: 'example',
       title: 'Eksempel: Biodiversitetshotspots',
-      problem: 'Hva kjennetegner et biodiversitetshotspot, og hvorfor er disse omradene saerlig viktige for bevaring?',
-      solution: `**Losning:**
+      problem: 'Hva kjennetegner et biodiversitetshotspot, og hvorfor er disse områdene særlig viktige for bevaring?',
+      solution: `**Løsning:**
 
 Et biodiversitetshotspot er definert ved to kriterier:
 
-1. **Hoey endemisme**: Omradet ma ha minst 1500 endemiske plantearter (arter som bare finnes der)
-2. **Stor trussel**: Omradet ma ha mistet minst 70% av sin opprinnelige vegetasjon
+1. **Høy endemisme**: Området må ha minst 1500 endemiske plantearter (arter som bare finnes der)
+2. **Stor trussel**: Området må ha mistet minst 70% av sin opprinnelige vegetasjon
 
 **De 36 anerkjente hotspots dekker kun 2.5% av jordens landareal, men inneholder:**
 - Over 50% av alle plantearter
 - Ca. 43% av alle pattedyr, fugler, krypdyr og amfibier
 
-**Eksempler pa hotspots:**
-- Middelhavsomradet (inkludert Norge sor for Dovre)
+**Eksempler på hotspots:**
+- Middelhavsområdet (inkludert Norge sør for Dovre)
 - Madagaskar
 - Atlantisk regnskog i Brasil
-- Soerost-Asia (Sundaland)
+- Sørøst-Asia (Sundaland)
 
 **Betydning for bevaring:**
-Fokus pa hotspots gir maksimal beskyttelse av arter per investert krone. Imidlertid ma man ogsa ta hensyn til okosystemtjenester og genetisk diversitet i bevaringsarbeid.`,
+Fokus på hotspots gir maksimal beskyttelse av arter per investert krone. Imidlertid må man også ta hensyn til økosystemtjenester og genetisk diversitet i bevaringsarbeid.`,
     },
     {
       id: 'bio1-8-1-example-2',
       type: 'example',
       title: 'Eksempel: Genetisk diversitet i landbruket',
-      problem: 'Hvorfor er det viktig a bevare genetisk variasjon i matplanter, og hvordan gjores dette i praksis?',
-      solution: `**Losning:**
+      problem: 'Hvorfor er det viktig å bevare genetisk variasjon i matplanter, og hvordan gjøres dette i praksis?',
+      solution: `**Løsning:**
 
 **Viktigheten av genetisk variasjon i landbruket:**
 
-Moderne landbruk har fort til sterk ensretting - fa sorter dyrkes pa store arealer. Dette gjor matproduksjonen sarbar for:
+Moderne landbruk har ført til sterk ensretting - få sorter dyrkes på store arealer. Dette gjør matproduksjonen sårbar for:
 - Nye plantesykdommer
-- Klimaendringer
+- Klimændringer
 - Skadedyr som utvikler resistens
 
 **Historisk eksempel:**
-Pa 1970-tallet ble store deler av den amerikanske maisavlingen odelt av soppsykdom fordi de fleste sorter var genetisk like.
+På 1970-tallet ble store deler av den amerikanske maisavlingen ødelagt av soppsykdom fordi de fleste sorter var genetisk like.
 
 **Bevaringsstrategier:**
 
-1. **Genbanker**: Svalbart globale frohvelv lagrer over 1 million froeprover fra hele verden ved -18degC
+1. **Genbanker**: Svalbard globale frøhvelv lagrer over 1 million frøprøver fra hele verden ved -18°C
 2. **In-situ bevaring**: Bevaring av tradisjonelle sorter i landbruket der de dyrkes
-3. **Seedbanks**: Regionale og nasjonale froesamlinger
+3. **Seedbanks**: Regionale og nasjonale frøsamlinger
 
-**Svalbard globale frohvelv:**
-- Apnet i 2008
-- Kapasitet: 4.5 millioner froeprover
+**Svalbard globale frøhvelv:**
+- Åpnet i 2008
+- Kapasitet: 4.5 millioner frøprøver
 - Fungerer som "backup" for verdens genbanker
-- Permafrost sikrer langtidslagring selv uten stroem`,
+- Permafrost sikrer langtidslagring selv uten strøm`,
     },
   ],
   exercises: [
@@ -196,21 +196,21 @@ Pa 1970-tallet ble store deler av den amerikanske maisavlingen odelt av soppsykd
       id: 'bio1-8-1-ex1',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva er det mest grunnleggende nivaet av biologisk mangfold?',
+      task: 'Hva er det mest grunnleggende nivået av biologisk mangfold?',
       options: [
         { id: 'a', text: 'Genetisk diversitet', isCorrect: true },
         { id: 'b', text: 'Artsdiversitet', isCorrect: false },
-        { id: 'c', text: 'Okosystemdiversitet', isCorrect: false },
+        { id: 'c', text: 'Økosystemdiversitet', isCorrect: false },
         { id: 'd', text: 'Populasjonsdiversitet', isCorrect: false },
       ],
-      solution: 'Genetisk diversitet er det mest grunnleggende nivaet fordi det er variasjonen i DNA som ligger til grunn for all annen variasjon. Uten genetisk variasjon kan ikke evolusjon skje.',
+      solution: 'Genetisk diversitet er det mest grunnleggende nivået fordi det er variasjonen i DNA som ligger til grunn for all annen variasjon. Uten genetisk variasjon kan ikke evolusjon skje.',
     },
     {
       id: 'bio1-8-1-ex2',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar hvorfor geparden er sarbar pa grunn av lav genetisk diversitet, og gi et annet eksempel pa en art eller situasjon med lignende problematikk.',
-      solution: 'Geparder har ekstremt lav genetisk variasjon pa grunn av en populasjonsflaskehals. Dette gjor dem sarbare for sykdommer (alle individer er like mottakelige), reduserer fruktbarheten, og gir liten tilpasningsevne til miljoeendringer. Andre eksempler: Tasmaniatiger for utryddelse, Florida-puma (innavlsproblemer), og bananer (Cavendish-sorten dominerer global produksjon og er truet av soppsykdom).',
+      task: 'Forklar hvorfor geparden er sårbar på grunn av lav genetisk diversitet, og gi et annet eksempel på en art eller situasjon med lignende problematikk.',
+      solution: 'Geparder har ekstremt lav genetisk variasjon på grunn av en populasjonsflaskehals. Dette gjør dem sårbare for sykdommer (alle individer er like mottakelige), reduserer fruktbarheten, og gir liten tilpasningsevne til miljøendringer. Andre eksempler: Tasmaniatiger før utryddelse, Florida-puma (innavlsproblemer), og bananer (Cavendish-sorten dominerer global produksjon og er truet av soppsykdom).',
     },
     {
       id: 'bio1-8-1-ex3',
@@ -218,26 +218,26 @@ Pa 1970-tallet ble store deler av den amerikanske maisavlingen odelt av soppsykd
       difficulty: 'medium',
       task: 'Hvilken pastand om artsdiversitet er RIKTIG?',
       options: [
-        { id: 'a', text: 'Artsdiversiteten oker mot polene', isCorrect: false },
-        { id: 'b', text: 'Artsdiversiteten er hoeyest i tropene', isCorrect: true },
+        { id: 'a', text: 'Artsdiversiteten øker mot polene', isCorrect: false },
+        { id: 'b', text: 'Artsdiversiteten er høyest i tropene', isCorrect: true },
         { id: 'c', text: 'Artsdiversiteten er lik over hele jorden', isCorrect: false },
-        { id: 'd', text: 'Artsdiversiteten oker med hoeyde over havet', isCorrect: false },
+        { id: 'd', text: 'Artsdiversiteten øker med høyde over havet', isCorrect: false },
       ],
-      solution: 'Artsdiversiteten er hoeyest i tropene og avtar mot polene (breddegradsgradient). Dette skyldes blant annet hoeyere energitilgang, stabilt klima over lang tid, og mer komplekse naeringsnettverk.',
+      solution: 'Artsdiversiteten er høyest i tropene og avtar mot polene (breddegradsgradient). Dette skyldes blant annet høyere energitilgang, stabilt klima over lang tid, og mer komplekse næringsnettverk.',
     },
     {
       id: 'bio1-8-1-ex4',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar forskjellen mellom artsrikdom og jevnhet (evenness) som mal pa artsdiversitet. Gi et eksempel som illustrerer hvorfor begge er viktige.',
-      solution: 'Artsrikdom er antall arter i et omrade, mens jevnhet beskriver hvor likt fordelt individene er mellom artene. Et omrade med 10 arter der en art utgjor 91% av individene har hoey artsrikdom men lav jevnhet. Et omrade med 8 arter jevnt fordelt kan ha hoeyere faktisk diversitet. Eksempel: En granskog med kun gran i tresjiktet men mange bunnplanter vs. en blandingsskog med flere trearter men ferrer bunnplanter.',
+      task: 'Forklar forskjellen mellom artsrikdom og jevnhet (evenness) som mål på artsdiversitet. Gi et eksempel som illustrerer hvorfor begge er viktige.',
+      solution: 'Artsrikdom er antall arter i et område, mens jevnhet beskriver hvor likt fordelt individene er mellom artene. Et område med 10 arter der en art utgjør 91% av individene har høy artsrikdom men lav jevnhet. Et område med 8 arter jevnt fordelt kan ha høyere faktisk diversitet. Eksempel: En granskog med kun gran i tresjiktet men mange bunnplanter vs. en blandingsskog med flere trearter men færre bunnplanter.',
     },
     {
       id: 'bio1-8-1-ex5',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Drofet sammenhengen mellom de tre nivaene av biodiversitet. Hvordan pavirker genetisk diversitet artsdiversitet, og hvordan pavirker artsdiversitet okosystemdiversitet?',
-      solution: 'Genetisk diversitet er grunnlaget - det gir arter mulighet til a tilpasse seg og overleve, noe som pavirker artenes utbredelse og mengde. Hoey genetisk diversitet kan fore til artsdannelse over tid (ny artsdiversitet). Artsdiversitet pavirker okosystemfunksjoner - flere arter gir mer komplekse naeringsnettverk og okter motstandskraften mot forstyrrelser. Okosystemdiversitet gir rom for flere nisjer og dermed potensial for hoeyere artsdiversitet. Samlet danner de tre nivaene et hierarki der endringer pa ett niva pavirker de andre.',
+      task: 'Drøft sammenhengen mellom de tre nivåene av biodiversitet. Hvordan påvirker genetisk diversitet artsdiversitet, og hvordan påvirker artsdiversitet økosystemdiversitet?',
+      solution: 'Genetisk diversitet er grunnlaget - det gir arter mulighet til å tilpasse seg og overleve, nø som påvirker artenes utbredelse og mengde. Høy genetisk diversitet kan føre til artsdannelse over tid (ny artsdiversitet). Artsdiversitet påvirker økosystemfunksjoner - flere arter gir mer komplekse næringsnettverk og øker motstandskraften mot forstyrrelser. Økosystemdiversitet gir rom for flere nisjer og dermed potensial for høyere artsdiversitet. Samlet danner de tre nivåene et hierarki der endringer på ett nivå påvirker de andre.',
     },
     {
       id: 'bio1-8-1-ex6',
@@ -245,12 +245,12 @@ Pa 1970-tallet ble store deler av den amerikanske maisavlingen odelt av soppsykd
       difficulty: 'lett',
       task: 'Hva er et biodiversitetshotspot?',
       options: [
-        { id: 'a', text: 'Et omrade med hoey endemisme og stor trussel mot habitatet', isCorrect: true },
-        { id: 'b', text: 'Et omrade med flest arter i verden', isCorrect: false },
+        { id: 'a', text: 'Et område med høy endemisme og stor trussel mot habitatet', isCorrect: true },
+        { id: 'b', text: 'Et område med flest arter i verden', isCorrect: false },
         { id: 'c', text: 'Et naturreservat med streng beskyttelse', isCorrect: false },
-        { id: 'd', text: 'Et omrade med hoeyt antall rovdyr', isCorrect: false },
+        { id: 'd', text: 'Et område med høyt antall rovdyr', isCorrect: false },
       ],
-      solution: 'Et biodiversitetshotspot ma ha minst 1500 endemiske plantearter og ha mistet minst 70% av sin opprinnelige vegetasjon. Disse omradene prioriteres fordi de inneholder mange unike arter som ikke finnes andre steder.',
+      solution: 'Et biodiversitetshotspot må ha minst 1500 endemiske plantearter og ha mistet minst 70% av sin opprinnelige vegetasjon. Disse områdene prioriteres fordi de inneholder mange unike arter som ikke finnes andre steder.',
     },
   ],
 };
@@ -264,13 +264,13 @@ export const CHAPTER_BIOLOGI_1_8_2: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '8.2',
   title: 'Systematikk og klassifisering',
-  description: 'Binomisk nomenklatur, taksonomiske nivaer, fylogenetiske traer og kladistikk.',
+  description: 'Binomisk nomenklatur, taksonomiske nivåer, fylogenetiske trær og kladistikk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for binomisk nomenklatur',
+    'gjøre rede for binomisk nomenklatur',
     'forklare det taksonomiske hierarkiet',
-    'lese og tolke fylogenetiske traer',
-    'forstae grunnprinsippene i kladistikk',
+    'lese og tolke fylogenetiske trær',
+    'forstå grunnprinsippene i kladistikk',
   ],
   content: [
     {
@@ -278,38 +278,38 @@ export const CHAPTER_BIOLOGI_1_8_2: TextbookChapter = {
       type: 'text',
       content: `# Systematikk og klassifisering
 
-Systematikk er vitenskapen om a identifisere, navngi og klassifisere organismer. Det handler om a organisere livets mangfold pa en logisk og vitenskapelig mate.
+Systematikk er vitenskapen om å identifisere, navngi og klassifisere organismer. Det handler om å organisere livets mangfold på en logisk og vitenskapelig måte.
 
 ## Hvorfor klassifisere?
 
-Klassifisering tjener flere viktige formal:
+Klassifisering tjener flere viktige formål:
 
 1. **Kommunikasjon**: Et universelt navnesystem sikrer at forskere i alle land snakker om samme art
-2. **Informasjonslagring**: Gjor det mulig a organisere kunnskap om millioner av arter
-3. **Evolusjonsforstaaelse**: Avdekker slektskapsforhold mellom organismer
-4. **Forutsigelser**: Naert beslektede arter har ofte like egenskaper
+2. **Informasjonslagring**: Gjør det mulig å organisere kunnskap om millioner av arter
+3. **Evolusjonforståelse**: Avdekker slektskapsforhold mellom organismer
+4. **Forutsigelser**: Nært beslektede arter har ofte like egenskaper
 
-Moderne systematikk kombinerer Linnes klassiske system med evolusjonsteori for a lage klassifiseringer som gjenspeiler artenes evolusjonare historie.`,
+Moderne systematikk kombinerer Linnes klassiske system med evolusjonsteori for å lage klassifiseringer som gjenspeiler artenes evolusjonære historie.`,
     },
     {
       id: 'bio1-8-2-def-binomisk',
       type: 'definition',
       title: 'Binomisk nomenklatur',
-      content: 'Binomisk nomenklatur er systemet for vitenskapelig navngiving av arter, utviklet av Carl von Linne pa 1700-tallet. Hver art far et toleddet latinsk navn bestaende av slektsnavn (genus) med stor forbokstav og artsnavn (epithet) med liten forbokstav. Navnet skrives i kursiv: Homo sapiens (menneske), Canis lupus (ulv).',
+      content: 'Binomisk nomenklatur er systemet for vitenskapelig navngiving av arter, utviklet av Carl von Linné på 1700-tallet. Hver art får et toleddet latinsk navn bestående av slektsnavn (genus) med stor forbokstav og artsnavn (epithet) med liten forbokstav. Navnet skrives i kursiv: Homo sapiens (menneske), Canis lupus (ulv).',
     },
     {
       id: 'bio1-8-2-linne',
       type: 'text',
-      content: `## Carl von Linne og binomisk nomenklatur
+      content: `## Carl von Linné og binomisk nomenklatur
 
-Den svenske naturforskeren Carl von Linne (1707-1778) revolusjonerte biologien med sitt navngivingssystem. For Linne brukte man lange, beskrivende latinske navn som var vanskelige a huske og varierte mellom forfattere.
+Den svenske naturforskeren Carl von Linné (1707-1778) revolusjonerte biologien med sitt navngivingssystem. Før Linné brukte man lange, beskrivende latinske navn som var vanskelige å huske og varierte mellom forfattere.
 
 ### Regler for vitenskapelige navn
 
 1. **Todelt navn**: Slektsnavn + artsnavn
-2. **Latin eller latinisert**: Navnene er pa latin eller latinisert form
+2. **Latin eller latinisert**: Navnene er på latin eller latinisert form
 3. **Kursiv**: Vitenskapelige navn skrives alltid i kursiv
-4. **Forfatterhenvisning**: Ofte folger navnet pa den som forst beskrev arten: *Homo sapiens* Linnaeus, 1758
+4. **Forfatterhenvisning**: Ofte følger navnet på den som først beskrev arten: *Homo sapiens* Linnæus, 1758
 
 ### Eksempler
 
@@ -318,25 +318,25 @@ Den svenske naturforskeren Carl von Linne (1707-1778) revolusjonerte biologien m
 | Menneske | *Homo sapiens* |
 | Ulv | *Canis lupus* |
 | Hund | *Canis familiaris* |
-| Roed rev | *Vulpes vulpes* |
+| Rød rev | *Vulpes vulpes* |
 | Vanlig gran | *Picea abies* |
 
-Legg merke til at ulv og hund er i samme slekt (*Canis*), noe som viser at de er naert beslektet.`,
+Legg merke til at ulv og hund er i samme slekt (*Canis*), nø som viser at de er nært beslektet.`,
     },
     {
       id: 'bio1-8-2-taksonomi',
       type: 'text',
-      content: `## Taksonomiske nivaer
+      content: `## Taksonomiske nivåer
 
 Organismer klassifiseres i et hierarkisk system med stadig mer inkluderende grupper. Fra minst til mest inkluderende:
 
-### Hovednivaene
+### Hovednivåene
 
-| Niva | Latinsk | Eksempel (menneske) |
+| Nivå | Latinsk | Eksempel (menneske) |
 |------|---------|-------------------|
 | Art | Species | *Homo sapiens* |
 | Slekt | Genus | *Homo* |
-| Familie | Familia | Hominidae |
+| Familie | Familia | Hominidæ |
 | Orden | Ordo | Primates |
 | Klasse | Classis | Mammalia |
 | Rekke | Phylum | Chordata |
@@ -345,15 +345,15 @@ Organismer klassifiseres i et hierarkisk system med stadig mer inkluderende grup
 
 ### De tre domenene
 
-All liv deles inn i tre domener basert pa fundamentale forskjeller i cellestruktur og biokjemi:
+All liv deles inn i tre domener basert på fundamentale forskjeller i cellestruktur og biokjemi:
 
 1. **Bacteria** (bakterier)
    - Prokaryoter med peptidoglykan-cellevegg
    - E. coli, Streptococcus
 
-2. **Archaea** (arkeer)
+2. **Archæa** (arkeer)
    - Prokaryoter med unike membranlipider
-   - Ofte ekstremofiler (lever i ekstreme miljoer)
+   - Ofte ekstremofiler (lever i ekstreme miljøer)
 
 3. **Eukarya** (eukaryoter)
    - Celler med kjerne og organeller
@@ -363,31 +363,31 @@ All liv deles inn i tre domener basert pa fundamentale forskjeller i cellestrukt
       id: 'bio1-8-2-def-taksonomi',
       type: 'definition',
       title: 'Taksonomi',
-      content: 'Taksonomi er vitenskapen om a klassifisere organismer i hierarkiske grupper (taxa). Et takson (flertall: taxa) er en gruppe organismer pa et gitt niva i hierarkiet. For eksempel er "Mammalia" (pattedyr) et takson pa klasseniva.',
+      content: 'Taksonomi er vitenskapen om å klassifisere organismer i hierarkiske grupper (taxa). Et takson (flertall: taxa) er en gruppe organismer på et gitt nivå i hierarkiet. For eksempel er "Mammalia" (pattedyr) et takson på klassenivå.',
     },
     {
       id: 'bio1-8-2-fylogeni',
       type: 'text',
-      content: `## Fylogenetiske traer
+      content: `## Fylogenetiske trær
 
-Et fylogenetisk tre er et diagram som viser evolusjonare slektskapsforhold mellom arter eller grupper av organismer.
+Et fylogenetisk tre er et diagram som viser evolusjonære slektskapsforhold mellom arter eller grupper av organismer.
 
 ### Hvordan lese et fylogenetisk tre
 
 **Komponenter:**
-- **Greiner (branches)**: Representerer evolusjonare linjer
+- **Greiner (branches)**: Representerer evolusjonære linjer
 - **Noder (nodes)**: Forgreningspunkter der en art deler seg i to
 - **Tips/blader**: Moderne arter eller grupper
 - **Rot**: Den eldste felles stamfaren
 
 **Viktige prinsipper:**
-- Arter som deler en nyere felles stamfar er naermere beslektet
-- Lengden pa greiner kan representere tid eller evolusjonar endring
-- Traer kan roteres rundt nodene uten a endre betydningen
+- Arter som deler en nyere felles stamfar er nærmere beslektet
+- Lengden på greiner kan representere tid eller evolusjonær endring
+- Trær kan roteres rundt nodene uten å endre betydningen
 
 ### Monofyletiske grupper
 
-En **monofyletisk gruppe** (eller klade) inkluderer en felles stamfar og alle dens etterkommere. Moderne klassifisering forsooker a lage kun monofyletiske grupper.
+En **monofyletisk gruppe** (eller klade) inkluderer en felles stamfar og alle dens etterkommere. Moderne klassifisering forsøker å lage kun monofyletiske grupper.
 
 Eksempel: "Reptiler" i tradisjonell forstand er IKKE monofyletisk fordi fugler (som stammer fra dinosaurer) ikke er inkludert.`,
     },
@@ -396,14 +396,14 @@ Eksempel: "Reptiler" i tradisjonell forstand er IKKE monofyletisk fordi fugler (
       type: 'text',
       content: `## Kladistikk
 
-Kladistikk er en metode for a rekonstruere fylogenetiske traer basert pa delte evolusjonare nyvinninger.
+Kladistikk er en metode for å rekonstruere fylogenetiske trær basert på delte evolusjonære nyvinninger.
 
 ### Grunnprinsipper
 
 **Synapomorfi**: En delt, avledet egenskap som indikerer felles opphav
-- Eksempel: Har blant pattedyr
+- Eksempel: Hår blant pattedyr
 
-**Plesiomorfi**: En primitiv/opprinnelig egenskap som ikke gir informasjon om naert slektskap
+**Plesiomorfi**: En primitiv/opprinnelig egenskap som ikke gir informasjon om nært slektskap
 - Eksempel: Ryggvirvler finnes hos alle virveldyr
 
 **Homoplasi**: Likheter som IKKE skyldes felles opphav, men uavhengig evolusjon
@@ -412,51 +412,51 @@ Kladistikk er en metode for a rekonstruere fylogenetiske traer basert pa delte e
 ### Eksempel: Klassifisering av virveldyr
 
 Tradisjonelt ble "fisk" betraktet som en gruppe. Kladistisk analyse viser imidlertid at:
-- Lungefisk er naermere beslektet med pattedyr enn med laks
+- Lungefisk er nærmere beslektet med pattedyr enn med laks
 - "Fisk" er derfor ikke en naturlig (monofyletisk) gruppe
 
-### Molekylaer fylogeni
+### Molekylær fylogeni
 
 Moderne kladistikk bruker ofte DNA-sekvenser:
 - Sammenligner DNA fra ulike arter
-- Flere likheter = naermere slektskap
+- Flere likheter = nærmere slektskap
 - Gir mer objektive data enn morfologi alene`,
     },
     {
       id: 'bio1-8-2-def-klade',
       type: 'definition',
       title: 'Klade',
-      content: 'En klade er en monofyletisk gruppe som bestar av en felles stamfar og alle dens etterkommere. I kladistikk er malet a identifisere og navngi klader basert pa delte, avledede egenskaper (synapomorfier). Eksempel: Alle fugler utgjor en klade innenfor dinosaurene.',
+      content: 'En klade er en monofyletisk gruppe som består av en felles stamfar og alle dens etterkommere. I kladistikk er målet å identifisere og navngi klader basert på delte, avledede egenskaper (synapomorfier). Eksempel: Alle fugler utgjør en klade innenfor dinosaurene.',
     },
     {
       id: 'bio1-8-2-example-1',
       type: 'example',
-      title: 'Eksempel: Klassifisering av den rode reven',
-      problem: 'Angi den fullstendige klassifiseringen av rod rev (Vulpes vulpes) fra domene til art, og forklar hva hvert niva forteller oss om reven.',
-      solution: `**Losning:**
+      title: 'Eksempel: Klassifisering av den røde reven',
+      problem: 'Angi den fullstendige klassifiseringen av rød rev (Vulpes vulpes) fra domene til art, og forklar hva hvert nivå forteller oss om reven.',
+      solution: `**Løsning:**
 
-| Niva | Takson | Betydning |
+| Nivå | Takson | Betydning |
 |------|--------|-----------|
 | Domene | Eukarya | Celler med kjerne |
 | Rike | Animalia | Flercellet, heterotroft, bevegelig |
 | Rekke | Chordata | Har notochord/ryggstreng |
-| Klasse | Mammalia | Pattedyr: har, melkekjertler, varmblodige |
-| Orden | Carnivora | Rovdyr: tilpasset kjottspising |
-| Familie | Canidae | Hundefamilien: langbeinte, loper |
+| Klasse | Mammalia | Pattedyr: hår, melkekjertler, varmblodige |
+| Orden | Carnivora | Rovdyr: tilpasset kjøttspising |
+| Familie | Canidæ | Hundefamilien: langbeinte, løper |
 | Slekt | *Vulpes* | Ekte rever: spiss snute, stor hale |
-| Art | *Vulpes vulpes* | Rod rev spesifikt |
+| Art | *Vulpes vulpes* | Rød rev spesifikt |
 
 **Hva dette forteller oss:**
 - Reven deler felles forfar med alle pattedyr (klasse Mammalia)
-- Den er naermere beslektet med hunder og ulver (familie Canidae) enn med katter
-- Det vitenskapelige navnet *Vulpes vulpes* bruker slektsnavnet to ganger, noe som indikerer at dette er typearten for slekten`,
+- Den er nærmere beslektet med hunder og ulver (familie Canidæ) enn med katter
+- Det vitenskapelige navnet *Vulpes vulpes* bruker slektsnavnet to ganger, nø som indikerer at dette er typearten for slekten`,
     },
     {
       id: 'bio1-8-2-example-2',
       type: 'example',
       title: 'Eksempel: Tolke et fylogenetisk tre',
-      problem: 'Gitt et fylogenetisk tre som viser hai, lungefisk, salamander og menneske - hvilke par er naermest beslektet?',
-      solution: `**Losning:**
+      problem: 'Gitt et fylogenetisk tre som viser hai, lungefisk, salamander og menneske - hvilke par er nærmest beslektet?',
+      solution: `**Løsning:**
 
 I et typisk fylogenetisk tre for disse artene:
 
@@ -471,12 +471,12 @@ I et typisk fylogenetisk tre for disse artene:
 \`\`\`
 
 **Analyse:**
-1. **Menneske og salamander** er naermest beslektet - de deler en nyere felles stamfar (begge er tetrapoder/firbeinte)
-2. **Lungefisk** er naermere beslektet med menneske/salamander enn med hai - lungefisk og tetrapoder deler felles stamfar med lappefinner
-3. **Hai** er mest fjerntstaende - den skilte seg fra de andre for lengst tid siden
+1. **Menneske og salamander** er nærmest beslektet - de deler en nyere felles stamfar (begge er tetrapoder/firbeinte)
+2. **Lungefisk** er nærmere beslektet med menneske/salamander enn med hai - lungefisk og tetrapoder deler felles stamfar med lappefinner
+3. **Hai** er mest fjerntståen de - den skilte seg fra de andre for lengst tid siden
 
 **Overraskende funn:**
-Selv om hai og lungefisk begge lever i vann og ofte kalles "fisk", er lungefisk faktisk naermere beslektet med mennesker! Dette viser hvorfor tradisjonelle grupperinger basert pa livsstil kan vaere misvisende evolusjonart sett.`,
+Selv om hai og lungefisk begge lever i vann og ofte kalles "fisk", er lungefisk faktisk nærmere beslektet med mennesker! Dette viser hvorfor tradisjonelle grupperinger basert på livsstil kan være misvisende evolusjonært sett.`,
     },
   ],
   exercises: [
@@ -484,7 +484,7 @@ Selv om hai og lungefisk begge lever i vann og ofte kalles "fisk", er lungefisk 
       id: 'bio1-8-2-ex1',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva bestar et vitenskapelig artsnavn av i binomisk nomenklatur?',
+      task: 'Hva består et vitenskapelig artsnavn av i binomisk nomenklatur?',
       options: [
         { id: 'a', text: 'Slektsnavn + artsnavn', isCorrect: true },
         { id: 'b', text: 'Familienavn + slektsnavn', isCorrect: false },
@@ -498,47 +498,47 @@ Selv om hai og lungefisk begge lever i vann og ofte kalles "fisk", er lungefisk 
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar hva som menes med at "fisk" ikke er en naturlig (monofyletisk) gruppe.',
-      solution: 'En monofyletisk gruppe ma inkludere en felles stamfar og ALLE dens etterkommere. Tradisjonelle "fisk" inkluderer ikke tetrapoder (amfibier, reptiler, pattedyr, fugler), selv om disse stammer fra fiskektige forfedre. Faktisk er lungefisk naermere beslektet med pattedyr enn med hai. For a vaere monofyletisk matte "fisk" enten inkludere alle virveldyr, eller deles opp i flere separate grupper.',
+      solution: 'En monofyletisk gruppe må inkludere en felles stamfar og ALLE dens etterkommere. Tradisjonelle "fisk" inkluderer ikke tetrapoder (amfibier, reptiler, pattedyr, fugler), selv om disse stammer fra fiskektige forfedre. Faktisk er lungefisk nærmere beslektet med pattedyr enn med hai. For å være monofyletisk måtte "fisk" enten inkludere alle virveldyr, eller deles opp i flere separate grupper.',
     },
     {
       id: 'bio1-8-2-ex3',
       type: 'multiple-choice',
       difficulty: 'medium',
-      task: 'Hvilken rekkefoeelge av taksonomiske nivaer er riktig fra mest til minst inkluderende?',
+      task: 'Hvilken rekkefølge av taksonomiske nivåer er riktig fra mest til minst inkluderende?',
       options: [
         { id: 'a', text: 'Domene - Rike - Rekke - Klasse - Orden - Familie - Slekt - Art', isCorrect: true },
         { id: 'b', text: 'Art - Slekt - Familie - Orden - Klasse - Rekke - Rike - Domene', isCorrect: false },
         { id: 'c', text: 'Rike - Domene - Rekke - Orden - Klasse - Familie - Slekt - Art', isCorrect: false },
         { id: 'd', text: 'Domene - Rekke - Rike - Klasse - Orden - Familie - Art - Slekt', isCorrect: false },
       ],
-      solution: 'Huskeregel: "Dansen Rundt Rosenborg Koster Oss For Seks Ar" (Domene, Rike, Rekke, Klasse, Orden, Familie, Slekt, Art). Fra storst til minst gruppe.',
+      solution: 'Huskeregel: "Dansen Rundt Rosenborg Koster Oss For Seks År" (Domene, Rike, Rekke, Klasse, Orden, Familie, Slekt, Art). Fra størst til minst gruppe.',
     },
     {
       id: 'bio1-8-2-ex4',
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar forskjellen mellom synapomorfi og homoplasi, og hvorfor denne forskjellen er viktig i kladistikk.',
-      solution: 'Synapomorfi er en delt, avledet egenskap som arter har arvet fra en felles stamfar - den indikerer ekte slektskap. Homoplasi er likhet som har oppstatt uavhengig (konvergent evolusjon) - den indikerer IKKE naert slektskap. Eksempel: Vinger hos flaggermus og fugler er homoplasi - de har utviklet seg uavhengig. Melkekjertler hos pattedyr er synapomorfi - arvet fra felles stamfar. I kladistikk ma man skille disse for a lage korrekte fylogenetiske traer.',
+      solution: 'Synapomorfi er en delt, avledet egenskap som arter har arvet fra en felles stamfar - den indikerer ekte slektskap. Homoplasi er likhet som har oppstått uavhengig (konvergent evolusjon) - den indikerer IKKE nært slektskap. Eksempel: Vinger hos flaggermus og fugler er homoplasi - de har utviklet seg uavhengig. Melkekjertler hos pattedyr er synapomorfi - arvet fra felles stamfar. I kladistikk må man skille disse for å lage korrekte fylogenetiske trær.',
     },
     {
       id: 'bio1-8-2-ex5',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Droeeft fordeler og ulemper ved a bruke molekylare data (DNA-sekvenser) versus morfologiske data (ytre kjennetegn) i fylogenetisk analyse.',
-      solution: 'Fordeler med molekylare data: Mer objektive (ikke pavirket av forskerens tolkning), kan brukes pa alle organismer (ogsa de uten synlige saertrekk), gir kvantitative mal pa forskjeller, kan avdekke skjult mangfold. Ulemper: Krever laboratorium og teknisk utstyr, dyrere, kan ikke brukes pa fossiler (vanligvis), ulike gener kan gi ulike traer. Fordeler med morfologi: Kan brukes pa fossiler, billigere, gir informasjon om funksjon. Ulemper: Subjektiv tolkning, konvergent evolusjon kan villede, mange arter mangler tydelige morfologiske forskjeller. Beste praksis: Kombiner begge tilnaerminger.',
+      task: 'Drøft fordeler og ulemper ved å bruke molekylære data (DNA-sekvenser) versus morfologiske data (ytre kjennetegn) i fylogenetisk analyse.',
+      solution: 'Fordeler med molekylære data: Mer objektive (ikke påvirket av forskerens tolkning), kan brukes på alle organismer (også de uten synlige særtrekk), gir kvantitative mål på forskjeller, kan avdekke skjult mangfold. Ulemper: Krever laboratorium og teknisk utstyr, dyrere, kan ikke brukes på fossiler (vanligvis), ulike gener kan gi ulike trær. Fordeler med morfologi: Kan brukes på fossiler, billigere, gir informasjon om funksjon. Ulemper: Subjektiv tolkning, konvergent evolusjon kan villede, mange arter mangler tydelige morfologiske forskjeller. Beste praksis: Kombiner begge tilnærminger.',
     },
     {
       id: 'bio1-8-2-ex6',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hvilket domene tilhoerer mennesket?',
+      task: 'Hvilket domene tilhører mennesket?',
       options: [
         { id: 'a', text: 'Eukarya', isCorrect: true },
         { id: 'b', text: 'Bacteria', isCorrect: false },
-        { id: 'c', text: 'Archaea', isCorrect: false },
+        { id: 'c', text: 'Archæa', isCorrect: false },
         { id: 'd', text: 'Animalia', isCorrect: false },
       ],
-      solution: 'Mennesket tilhoerer domene Eukarya fordi vi har celler med ekte kjerne og organeller. Animalia er et rike innenfor Eukarya, ikke et domene.',
+      solution: 'Mennesket tilhører domene Eukarya fordi vi har celler med ekte kjerne og organeller. Animalia er et rike innenfor Eukarya, ikke et domene.',
     },
   ],
 };
@@ -552,13 +552,13 @@ export const CHAPTER_BIOLOGI_1_8_3: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '8.3',
   title: 'Trusler mot biologisk mangfold',
-  description: 'Habitatoedeleggelse, fremmede arter, klimaendringer og overbeskatning som trusler mot biodiversitet.',
+  description: 'Habitatødeleggelse, fremmede arter, klimændringer og overbeskatning som trusler mot biodiversitet.',
   estimatedMinutes: 50,
   competenceGoals: [
     'identifisere og forklare hovedtruslene mot biologisk mangfold',
-    'gjore rede for HIPPO-faktorene',
-    'droefte hvordan klimaendringer pavirker arter og oekosystemer',
-    'forstaa samspillet mellom ulike trusselfaktorer',
+    'gjøre rede for HIPPO-faktorene',
+    'drøfte hvordan klimændringer påvirker arter og økosystemer',
+    'forstå samspillet mellom ulike trusselfaktorer',
   ],
   content: [
     {
@@ -566,61 +566,61 @@ export const CHAPTER_BIOLOGI_1_8_3: TextbookChapter = {
       type: 'text',
       content: `# Trusler mot biologisk mangfold
 
-Vi lever i en tid med betydelig tap av biologisk mangfold. Studier viser at utryddelsesraten er 100-1000 ganger hoeyere enn den naturlige bakgrunnsraten. Dette har faatt forskere til aa karakterisere situasjonen som den sjette masseutryddelsen i jordens historie.
+Vi lever i en tid med betydelig tap av biologisk mangfold. Studier viser at utryddelsesraten er 100-1000 ganger høyere enn den naturlige bakgrunnsraten. Dette har fått forskere til å karakterisere situasjonen som den sjette masseutryddelsen i jordens historie.
 
 ## Den sjette masseutryddelse
 
-De fem tidligere masseutryddelsene var foraarsaket av naturlige hendelser (vulkanutbrudd, asteroidenedslag, klimaendringer). Den naaværende situasjonen skiller seg fra disse ved at den:
+De fem tidligere masseutryddelsene var forårsaket av naturlige hendelser (vulkanutbrudd, asteroidenedslag, klimændringer). Den nåværende situasjonen skiller seg fra disse ved at den:
 
-- Skjer ekstremt raskt (over tiaar, ikke millioner av aar)
+- Skjer ekstremt raskt (over tiår, ikke millioner av år)
 - Er drevet av menneskelig aktivitet
 - Potensielt kan stoppes eller bremses gjennom handling
 
 ## HIPPO - Hovedtruslene
 
-Biologen E.O. Wilson har oppsummert de storste truslene mot biodiversitet i akronymet HIPPO:
+Biologen E.O. Wilson har oppsummert de største truslene mot biodiversitet i akronymet HIPPO:
 
-- **H**abitat-oeodeleggelse
+- **H**abitat-ødeleggelse
 - **I**nvasive (fremmede) arter
 - **P**ollution (forurensning)
 - **P**opulasjonsvekst (menneskelig)
-- **O**verbeskatning (overhoeesting)`,
+- **O**verbeskatning (overhøsting)`,
     },
     {
       id: 'bio1-8-3-def-utryddelse',
       type: 'definition',
       title: 'Utryddelse',
-      content: 'Utryddelse inntraeer naar den siste individet av en art doer. Funksjonell utryddelse skjer naar en populasjon er for liten til aa overleve pa lang sikt. Lokal utryddelse (extirpation) er naar en art forsvinner fra et omraade men overlever andre steder. Bakgrunnsutryddelsesraten er ca. 1 art per million arter per aar.',
+      content: 'Utryddelse inntreffer når den siste individet av en art dør. Funksjonell utryddelse skjer når en populasjon er for liten til å overleve på lang sikt. Lokal utryddelse (extirpation) er når en art forsvinner fra et område men overlever andre steder. Bakgrunnsutryddelsesraten er ca. 1 art per million arter per år.',
     },
     {
       id: 'bio1-8-3-habitat',
       type: 'text',
-      content: `## Habitatoedeleggelse
+      content: `## Habitatødeleggelse
 
-Oedeleggelse og fragmentering av habitater er den storste trusselen mot biologisk mangfold globalt.
+Ødeleggelse og fragmentering av habitater er den største trusselen mot biologisk mangfold globalt.
 
-### Typer habitatoedeleggelse
+### Typer habitatødeleggelse
 
-**Direkte oedeleggelse:**
+**Direkte ødeleggelse:**
 - Avskoging for jordbruk og bebyggelse
-- Drenering av vaatmarker
-- Oedeleggelse av korallrev
+- Drenering av våtmarker
+- Ødeleggelse av korallrev
 
 **Fragmentering:**
 - Store, sammenhengende habitater deles i mindre, isolerte flekker
-- Kanteffekter oeker (endrede forhold langs kantene)
-- Arter med store territorier far ikke plass
+- Kanteffekter øker (endrede forhold langs kantene)
+- Arter med store territorier får ikke plass
 - Genetisk isolasjon mellom populasjoner
 
 ### Eksempler
 
 **Tropisk regnskog:**
 - Opprinnelig: 14% av jordens landareal
-- Na: ca. 6%
-- Tapes: ca. 10 millioner hektar/aar
+- Nå: ca. 6%
+- Tapes: ca. 10 millioner hektar/år
 
-**Vaatmarker i Norge:**
-- Over 50% av norske myrer er groeftet eller drenert
+**Våtmarker i Norge:**
+- Over 50% av norske myrer er grøftet eller drenert
 - Viktige for karbon-lagring og artsmangfold`,
     },
     {
@@ -628,13 +628,13 @@ Oedeleggelse og fragmentering av habitater er den storste trusselen mot biologis
       type: 'text',
       content: `## Fremmede arter
 
-Fremmede (invasive) arter er organismer som er introdusert til omraader utenfor sitt naturlige utbredelsesomraade og som sprer seg pa bekostning av stedegne arter.
+Fremmede (invasive) arter er organismer som er introdusert til områder utenfor sitt naturlige utbredelsesområde og som sprer seg på bekostning av stedegne arter.
 
 ### Hvordan sprer de seg?
 
-- **Bevisst innfoering**: Hageplanter, oppdrettsarter
-- **Utilsiktet**: Blindpassasjerer i ballastvann, pa transportmidler
-- **Roemminger**: Fra oppdrett eller hold
+- **Bevisst innføring**: Hageplanter, oppdrettsarter
+- **Utilsiktet**: Blindpassasjerer i ballastvann, på transportmidler
+- **Rømminger**: Fra oppdrett eller hold
 
 ### Hvorfor er de problematiske?
 
@@ -642,7 +642,7 @@ Fremmede (invasive) arter er organismer som er introdusert til omraader utenfor 
 2. **Konkurranse**: Utkonkurrerer stedegne arter om ressurser
 3. **Predasjon**: Spiser stedegne arter som ikke er tilpasset
 4. **Sykdommer**: Bringer med seg nye patogener
-5. **Hybridisering**: Krysser seg med naerbeslektede stedegne arter
+5. **Hybridisering**: Krysser seg med nærbeslektede stedegne arter
 
 ### Eksempler fra Norge
 
@@ -650,48 +650,48 @@ Fremmede (invasive) arter er organismer som er introdusert til omraader utenfor 
 |-----|---------|
 | Brunsnegl | Spiser hageplanters og utkonkurrerer stedegne snegler |
 | Lakseparasitt Gyrodactylus | Dreper villaks i norske elver |
-| Stillehavsosters | Tar over fra blaaSkjell |
-| Kanadagaas | Konkurrerer med stedegne gjess |
+| Stillehavsosters | Tar over fra blåskjell |
+| Kanadagås | Konkurrerer med stedegne gjess |
 | Brunskogsnegl | Skader jord- og hagebruk |`,
     },
     {
       id: 'bio1-8-3-def-invasiv',
       type: 'definition',
       title: 'Invasiv art',
-      content: 'En invasiv art er en fremmed art som har etablert seg utenfor sitt naturlige utbredelsesomraade og som sprer seg slik at den utgjor en trussel mot stedegne arter, oekosystemer eller menneskelige interesser. Ikke alle fremmede arter blir invasive - mange klarer ikke aa etablere seg eller sprer seg ikke problematisk.',
+      content: 'En invasiv art er en fremmed art som har etablert seg utenfor sitt naturlige utbredelsesområde og som sprer seg slik at den utgjør en trussel mot stedegne arter, økosystemer eller menneskelige interesser. Ikke alle fremmede arter blir invasive - mange klarer ikke å etablere seg eller sprer seg ikke problematisk.',
     },
     {
       id: 'bio1-8-3-klima',
       type: 'text',
-      content: `## Klimaendringer
+      content: `## Klimændringer
 
-Klimaendringene er en voksende trussel mot biologisk mangfold og forsterker effekten av andre trusselfaktorer.
+Klimændringene er en voksende trussel mot biologisk mangfold og forsterker effekten av andre trusselfaktorer.
 
-### Direkte effekter pa arter
+### Direkte effekter på arter
 
 **Temperaturstress:**
-- Mange arter toler bare et visst temperaturomraade
-- Korallbleking skyldes for hoey temperatur
+- Mange arter tåler bare et visst temperaturområde
+- Korallbleking skyldes for høy temperatur
 - Arktiske arter mister habitat
 
 **Fenologiske forskyvninger:**
-- Tidspunktet for aarstidsbestemte hendelser endres
-- Eksempel: Traer loeves ut for, men insektene kommer ikke for
+- Tidspunktet for årstidsbestemte hendelser endres
+- Eksempel: Trær løves ut før, men insektene kommer ikke før
 - Mismatch mellom pollinatorer og planter
 
 ### Habitatendringer
 
-- Isbreer smelter - polararter mister leveomrader
-- Skoggrensen kryper oppover - fjellarter far mindre plass
-- Havnivaet stiger - kystoekosystemer trues
-- Oerkener utvider seg
+- Isbreer smelter - polararter mister leveområder
+- Skoggrensen kryper oppover - fjellarter får mindre plass
+- Havnivået stiger - kystøkosystemer trues
+- Ørkener utvider seg
 
 ### Arter som "vinnere" og "tapere"
 
 **Vinnere (kortsiktig):**
 - Arter med stor spredningsevne
-- Generalister som toler varierte forhold
-- Noen skadedyr og parasitter
+- Generalister som tåler varierte forhold
+- Nøn skadedyr og parasitter
 
 **Tapere:**
 - Arter med spesialiserte habitatkrav
@@ -703,7 +703,7 @@ Klimaendringene er en voksende trussel mot biologisk mangfold og forsterker effe
       type: 'text',
       content: `## Overbeskatning
 
-Overbeskatning inntraeer naar arter hoeestes raskere enn de kan reprodusere seg.
+Overbeskatning inntreffer når arter høstes raskere enn de kan reprodusere seg.
 
 ### Historiske eksempler
 
@@ -712,41 +712,41 @@ Overbeskatning inntraeer naar arter hoeestes raskere enn de kan reprodusere seg.
 - Utryddet i 1914 pga. massejakt
 - Demonstrerer at selv tallrike arter kan utryddes
 
-**Stellers sjokoku:**
-- Oppdaget 1741, utryddet 1768 (27 aar!)
-- Stor, tillit og lett aa fange
+**Stellers sjøku:**
+- Oppdaget 1741, utryddet 1768 (27 år!)
+- Stor, tillitsfull og lett å fange
 
 ### Moderne overbeskatning
 
 **Overfiske:**
 - 90% av store rovfisk (tunfisk, sverdfisk, hai) er borte siden 1950
-- Torskebestanden kollapset i Atlanterhavet paa 1990-tallet
-- Bunntrauling oedelegger havbunnshabitater
+- Torskebestanden kollapset i Atlanterhavet på 1990-tallet
+- Bunntråling ødelegger havbunnshabitater
 
-**Jakt og krypskytteri:**
+**Jakt og krypskyting:**
 - Neshorn: Drept for hornet (tradisjonell medisin)
 - Elefanter: Elfenben
 - Tigre: Kroppsdeler til tradisjonell medisin
 
 ### Bush meat-handel
 
-I tropiske omraader er jakt pa ville dyr for kjott (bush meat) en betydelig trussel. Dette pavirker spesielt store pattedyr og primater.`,
+I tropiske områder er jakt på ville dyr for kjøtt (bush meat) en betydelig trussel. Dette påvirker spesielt store pattedyr og primater.`,
     },
     {
       id: 'bio1-8-3-def-overbeskatning',
       type: 'definition',
       title: 'Overbeskatning',
-      content: 'Overbeskatning er hoeesting av en art i et tempo som overstiger artens evne til reproduksjon og gjenvekst. Dette foerer til populasjonsnedgang og kan ende i lokal eller global utryddelse. Begrepet omfatter overfiske, overjakt og overhoesting av planter.',
+      content: 'Overbeskatning er høsting av en art i et tempo som overstiger artens evne til reproduksjon og gjenvekst. Dette fører til populasjonsnedgang og kan ende i lokal eller global utryddelse. Begrepet omfatter overfiske, overjakt og overhøsting av planter.',
     },
     {
       id: 'bio1-8-3-example-1',
       type: 'example',
       title: 'Eksempel: Brunsneglens invasjon i Norge',
       problem: 'Hvordan ble brunsneglen et problem i Norge, og hvilke tiltak kan begrense skadene?',
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 **Bakgrunn:**
-Iberiaskogsnegl (brunsnegl) kom til Norge pa 1980-tallet, trolig som blindpassasjer med importerte planter. Den har siden spredt seg over store deler av landet.
+Iberiaskogsnegl (brunsnegl) kom til Norge på 1980-tallet, trolig som blindpassasjer med importerte planter. Den har siden spredt seg over store deler av landet.
 
 **Hvorfor er den problematisk?**
 1. Mangler naturlige fiender (pinnsvin spiser sjelden denne arten)
@@ -757,41 +757,41 @@ Iberiaskogsnegl (brunsnegl) kom til Norge pa 1980-tallet, trolig som blindpassas
 
 **Tiltak:**
 - **Mekanisk fjerning**: Plukke snegler manuelt
-- **Faeller**: Med oelel eller andre lokkemidler
+- **Feller**: Med øl eller andre lokkemidler
 - **Naturlige predatorer**: Oppmuntre pinnsvin og andefugler
 - **Forebygging**: Sjekke importerte planter
-- **Barraierer**: Kobberband rundt saarbare omraader
+- **Barrierer**: Kobberband rundt sårbare områder
 
-**Laerdom:**
-Eksempelet viser hvor vanskelig det er aa bli kvitt en etablert invasiv art. Forebygging er langt mer effektivt enn bekaempelse i etterkant.`,
+**Lærdom:**
+Eksempelet viser hvor vanskelig det er å bli kvitt en etablert invasiv art. Forebygging er langt mer effektivt enn bekjempelse i etterkant.`,
     },
     {
       id: 'bio1-8-3-example-2',
       type: 'example',
-      title: 'Eksempel: Klimaendringer og fjellrev',
-      problem: 'Hvordan truer klimaendringer fjellreven (Vulpes lagopus) i Skandinavia?',
-      solution: `**Losning:**
+      title: 'Eksempel: Klimændringer og fjellrev',
+      problem: 'Hvordan truer klimændringer fjellreven (Vulpes lagopus) i Skandinavia?',
+      solution: `**Løsning:**
 
 **Fjellrevens situasjon:**
-Fjellreven er kritisk truet i Skandinavia med kun ca. 300 individer. Klimaendringer forverrer situasjonen gjennom flere mekanismer:
+Fjellreven er kritisk truet i Skandinavia med kun ca. 300 individer. Klimændringer forverrer situasjonen gjennom flere mekanismer:
 
 **Direkte effekter:**
-1. **Roedrreven ekspanderer nordover**: Hoeyere temperaturer lar roedrrev leve i fjellomraader der den for var for kald. Roedrrev er stoerre og dreper eller utkonkurrerer fjellrev.
+1. **Rødreven ekspanderer nordover**: Høyere temperaturer lar rødrev leve i fjellområder der den før var for kald. Rødrev er større og dreper eller utkonkurrerer fjellrev.
 
-2. **Endret naeringstilgang**: Lemen har uregelmessige sykluser, og klimaendringer kan forstyrre disse syklusene. Fjellrev er avhengig av lemenaar for god reproduksjon.
+2. **Endret næringstilgang**: Lemen har uregelmessige sykluser, og klimændringer kan forstyrre disse syklusene. Fjellrev er avhengig av lemenår for god reproduksjon.
 
 **Indirekte effekter:**
-1. Endret snoedekning pavirker kamuflasje (hvit vinterpels synes bedre)
+1. Endret snødekning påvirker kamuflasje (hvit vinterpels synes bedre)
 2. Endringer i byttedyrbestandene
 
 **Bevaringstiltak:**
-- Fodring i daarlige aar
-- Jakt pa roedrrev i kjerneomraader
+- Fodring i dårlige år
+- Jakt på rødrev i kjerneområder
 - Avlsprogram og utsetting
-- Vern av leveomraader
+- Vern av leveområder
 
-**Laerdom:**
-Klimaendringer virker ofte indirekte gjennom aa endre artenes interaksjoner, ikke bare gjennom direkte temperatureffekter.`,
+**Lærdom:**
+Klimændringer virker ofte indirekte gjennom å endre artenes interaksjoner, ikke bare gjennom direkte temperatureffekter.`,
     },
   ],
   exercises: [
@@ -799,21 +799,21 @@ Klimaendringer virker ofte indirekte gjennom aa endre artenes interaksjoner, ikk
       id: 'bio1-8-3-ex1',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva staar HIPPO for i sammenheng med trusler mot biologisk mangfold?',
+      task: 'Hva står HIPPO for i sammenheng med trusler mot biologisk mangfold?',
       options: [
-        { id: 'a', text: 'Habitat-oedeleggelse, Invasive arter, Pollution, Populasjonsvekst, Overbeskatning', isCorrect: true },
-        { id: 'b', text: 'Habitat-oedeleggelse, Industri, Pollution, Plantasjer, Ozonhull', isCorrect: false },
+        { id: 'a', text: 'Habitat-ødeleggelse, Invasive arter, Pollution, Populasjonsvekst, Overbeskatning', isCorrect: true },
+        { id: 'b', text: 'Habitat-ødeleggelse, Industri, Pollution, Plantasjer, Ozonhull', isCorrect: false },
         { id: 'c', text: 'Hogst, Invasive arter, Plast, Pesticider, Olje', isCorrect: false },
         { id: 'd', text: 'Habitatfragmentering, Innavl, Parasitter, Predasjon, Overbefolkning', isCorrect: false },
       ],
-      solution: 'HIPPO er et akronym laget av E.O. Wilson: Habitat-oedeleggelse, Invasive arter, Pollution (forurensning), Populasjonsvekst (menneskelig), Overbeskatning. Dette oppsummerer de storste menneskeskapte truslene mot biodiversitet.',
+      solution: 'HIPPO er et akronym laget av E.O. Wilson: Habitat-ødeleggelse, Invasive arter, Pollution (forurensning), Populasjonsvekst (menneskelig), Overbeskatning. Dette oppsummerer de største menneskeskapte truslene mot biodiversitet.',
     },
     {
       id: 'bio1-8-3-ex2',
       type: 'classic',
       difficulty: 'medium',
       task: 'Forklar hvorfor habitatfragmentering ofte er mer skadelig for biologisk mangfold enn kun reduksjon i habitatareal.',
-      solution: 'Fragmentering skaper flere problemer enn bare arealtap: 1) Kanteffekter - forhold langs kanter er annerledes (mer lys, vind, temperatursvingninger), noe som pavirker arter tilpasset indre skogforhold. 2) Isolasjon - populasjoner kan ikke utveksle individer, noe som foerer til innavl og genetisk utarming. 3) Areaalkrav - store dyr trenger sammenhengende omraader. 4) Barrierer - veier og bebyggelse hindrer forflytning. 5) Oekt sarbarhet - sma populasjoner er mer utsatt for tilfeldige hendelser.',
+      solution: 'Fragmentering skaper flere problemer enn bare arealtap: 1) Kanteffekter - forhold langs kanter er annerledes (mer lys, vind, temperatursvingninger), nø som påvirker arter tilpasset indre skogforhold. 2) Isolasjon - populasjoner kan ikke utveksle individer, nø som fører til innavl og genetisk utarming. 3) Arealkrav - store dyr trenger sammenhengende områder. 4) Barrierer - veier og bebyggelse hindrer forflytning. 5) Økt sårbarhet - små populasjoner er mer utsatt for tilfeldige hendelser.',
     },
     {
       id: 'bio1-8-3-ex3',
@@ -822,38 +822,38 @@ Klimaendringer virker ofte indirekte gjennom aa endre artenes interaksjoner, ikk
       task: 'Hvilken pastand om invasive arter er RIKTIG?',
       options: [
         { id: 'a', text: 'Alle fremmede arter blir invasive', isCorrect: false },
-        { id: 'b', text: 'Invasive arter mangler ofte naturlige fiender i det nye omraadet', isCorrect: true },
+        { id: 'b', text: 'Invasive arter mangler ofte naturlige fiender i det nye området', isCorrect: true },
         { id: 'c', text: 'Invasive arter er alltid introdusert med vilje', isCorrect: false },
-        { id: 'd', text: 'Invasive arter er lett aa utrydde etter etablering', isCorrect: false },
+        { id: 'd', text: 'Invasive arter er lett å utrydde etter etablering', isCorrect: false },
       ],
-      solution: 'Invasive arter lykkes ofte fordi de mangler naturlige fiender (predatorer, parasitter, sykdommer) i det nye omraadet. De fleste fremmede arter klarer ikke aa etablere seg eller bli invasive. Mange kommer utilsiktet (blindpassasjerer). Naarr de foerst er etablert, er de ofte ekstremt vanskelige aa fjerne.',
+      solution: 'Invasive arter lykkes ofte fordi de mangler naturlige fiender (predatorer, parasitter, sykdommer) i det nye området. De fleste fremmede arter klarer ikke å etablere seg eller bli invasive. Mange kommer utilsiktet (blindpassasjerer). Når de først er etablert, er de ofte ekstremt vanskelige å fjerne.',
     },
     {
       id: 'bio1-8-3-ex4',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar hvordan klimaendringer kan foere til "mismatch" mellom arter, og gi et konkret eksempel.',
-      solution: 'Klimaendringer pavirker ulike arter forskjellig, noe som kan foere til at arter som er avhengige av hverandre ikke lenger er synkronisert i tid eller rom. Eksempel: Kjoettmeiser legger egg slik at ungene klekker naar laarvemengden er paa topp. Traer loeves ut tidligere pga. vaarme vaarer, og laarvene kommer tidligere. Meisene responderer ikke like raskt, saa ungene klekkes etter larvetoppen og faar mindre mat. Lignende mismatch kan skje mellom blomstrende planter og deres pollinatorer.',
+      task: 'Forklar hvordan klimændringer kan føre til "mismatch" mellom arter, og gi et konkret eksempel.',
+      solution: 'Klimændringer påvirker ulike arter forskjellig, nø som kan føre til at arter som er avhengige av hverandre ikke lenger er synkronisert i tid eller rom. Eksempel: Kjøttmeiser legger egg slik at ungene klekker når larvemengden er på topp. Trær løves ut tidligere pga. varme vårer, og larvene kommer tidligere. Meisene responderer ikke like raskt, så ungene klekkes etter larvetoppen og får mindre mat. Lignende mismatch kan skje mellom blomstrende planter og deres pollinatorer.',
     },
     {
       id: 'bio1-8-3-ex5',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Drooeft hvordan de ulike HIPPO-faktorene kan forsterke hverandres effekter. Gi eksempler paa slike synergieffekter.',
-      solution: 'HIPPO-faktorene virker sjelden isolert: 1) Habitatfragmentering + klimaendringer: Arter kan ikke flytte til nye omraader naar habitatene er isolert og veier blokkerer migrasjon. 2) Invasive arter + habitatfragmentering: Fragmenterte habitater er lettere aa invadere; kantomraader er spesielt saarbare. 3) Forurensning + overbeskatning: Forurensning sveekker populasjoner som allerede er presset av overhoesting. 4) Klimaendringer + invasive arter: Varmere klima lar nye arter etablere seg lengre nord. 5) Populasjonsvekst forsterker alle andre faktorer gjennom oekt ressursbehov. Eksempel: Korallrev trues av varmere hav (bleking), havforsuring (CO2), overfiske (fjerner viktige arter), forurensning (avrenning), og turisme (fysisk skade).',
+      task: 'Drøft hvordan de ulike HIPPO-faktorene kan forsterke hverandres effekter. Gi eksempler på slike synergieffekter.',
+      solution: 'HIPPO-faktorene virker sjelden isolert: 1) Habitatfragmentering + klimændringer: Arter kan ikke flytte til nye områder når habitatene er isolert og veier blokkerer migrasjon. 2) Invasive arter + habitatfragmentering: Fragmenterte habitater er lettere å invadere; kantområder er spesielt sårbare. 3) Forurensning + overbeskatning: Forurensning svekker populasjoner som allerede er presset av overhøsting. 4) Klimændringer + invasive arter: Varmere klima lar nye arter etablere seg lengre nord. 5) Populasjonsvekst forsterker alle andre faktorer gjennom økt ressursbehov. Eksempel: Korallrev trues av varmere hav (bleking), havforsuring (CO2), overfiske (fjerner viktige arter), forurensning (avrenning), og turisme (fysisk skade).',
     },
     {
       id: 'bio1-8-3-ex6',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva er den stoerste enkelttrusselen mot biologisk mangfold globalt?',
+      task: 'Hva er den største enkelttrusselen mot biologisk mangfold globalt?',
       options: [
-        { id: 'a', text: 'Habitatoedeleggelse', isCorrect: true },
-        { id: 'b', text: 'Klimaendringer', isCorrect: false },
+        { id: 'a', text: 'Habitatødeleggelse', isCorrect: true },
+        { id: 'b', text: 'Klimændringer', isCorrect: false },
         { id: 'c', text: 'Invasive arter', isCorrect: false },
         { id: 'd', text: 'Forurensning', isCorrect: false },
       ],
-      solution: 'Habitatoedeleggelse (inkludert fragmentering) er den stoerste trusselen og ansvarlig for flest utryddelser. Klimaendringer er en voksende trussel som forventes aa bli mer dominant i fremtiden. De ulike truslene virker ofte sammen.',
+      solution: 'Habitatødeleggelse (inkludert fragmentering) er den største trusselen og ansvarlig for flest utryddelser. Klimændringer er en voksende trussel som forventes å bli mer dominant i fremtiden. De ulike truslene virker ofte sammen.',
     },
   ],
 };
@@ -867,12 +867,12 @@ export const CHAPTER_BIOLOGI_1_8_4: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '8.4',
   title: 'Bevaring av biologisk mangfold',
-  description: 'Verneomraader, roedlister og CITES, baerekraftig forvaltning, samt naturens egenverdi versus nytteverdi.',
+  description: 'Verneområder, rødlister og CITES, bærekraftig forvaltning, samt naturens egenverdi versus nytteverdi.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'gjore rede for ulike bevaringsstrategier',
-    'forstaa roedlister og CITES',
-    'droefte baerekraftig forvaltning av naturressurser',
+    'gjøre rede for ulike bevaringsstrategier',
+    'forstå rødlister og CITES',
+    'drøfte bærekraftig forvaltning av naturressurser',
     'reflektere over etiske aspekter ved naturvern',
   ],
   content: [
@@ -881,7 +881,7 @@ export const CHAPTER_BIOLOGI_1_8_4: TextbookChapter = {
       type: 'text',
       content: `# Bevaring av biologisk mangfold
 
-Bevaring av biologisk mangfold (bevaringsbiologi) er en vitenskapelig disiplin som kombinerer oekologi, genetikk og andre fagfelt for aa beskytte arter og oekosystemer. Det er ogsa et politisk og etisk felt som handler om hvordan vi verdsetter og forvalter naturen.
+Bevaring av biologisk mangfold (bevaringsbiologi) er en vitenskapelig disiplin som kombinerer økologi, genetikk og andre fagfelt for å beskytte arter og økosystemer. Det er også et politisk og etisk felt som handler om hvordan vi verdsetter og forvalter naturen.
 
 ## Bevaringsstrategier
 
@@ -893,66 +893,66 @@ Bevaringstiltak deles ofte inn i to hovedkategorier:
 Ideelt sett kombineres disse, der ex-situ fungerer som sikkerhetskopi og kilde for reintroduksjon.`,
     },
     {
-      id: 'bio1-8-4-verneomraader',
+      id: 'bio1-8-4-verneområder',
       type: 'text',
-      content: `## Verneomraader
+      content: `## Verneområder
 
-Verneomraader er den viktigste in-situ bevaringsstrategien. De beskytter habitater og de artene som lever der.
+Verneområder er den viktigste in-situ bevaringsstrategien. De beskytter habitater og de artene som lever der.
 
-### Typer verneomraader i Norge
+### Typer verneområder i Norge
 
 | Type | Beskyttelsesgrad | Eksempel |
 |------|-----------------|----------|
 | Naturreservat | Streng | Fokstumyra |
-| Nasjonalpark | Hoey | Jotunheimen |
-| Landskapsvernomraade | Moderat | Setesdal Vesthei |
-| Biotopvernomraade | Spesifikk | Sjoeefuglreservat |
-| Marine verneomraader | Varierer | Ytre Hvaler |
+| Nasjonalpark | Høy | Jotunheimen |
+| Landskapsvernområde | Moderat | Setesdal Vesthei |
+| Biotopvernområde | Spesifikk | Sjøfuglreservat |
+| Marine verneområder | Varierer | Ytre Hvaler |
 
-### Utfordringer med verneomraader
+### Utfordringer med verneområder
 
-**Stoerrelse og form:**
-- Smaaa omraader beskytter faerre arter
-- Kanteffekter er sterkere i smaa omraader
+**Størrelse og form:**
+- Små områder beskytter færre arter
+- Kanteffekter er sterkere i små områder
 - Runde former er bedre enn avlange
 
-**Oeyeffekten:**
-- Isolerte verneomraader fungerer som oyer
-- Arter kan ikke spre seg mellom omraader
-- Losning: Korridorer og buffersoner
+**Øyeffekten:**
+- Isolerte verneområder fungerer som øyer
+- Arter kan ikke spre seg mellom områder
+- Løsning: Korridorer og buffersoner
 
 **Representativitet:**
-- Verneomraader er skjevt fordelt (fjell > lavland)
-- Produktive omraader er underrepresentert
+- Verneområder er skjevt fordelt (fjell > lavland)
+- Produktive områder er underrepresentert
 - Viktige habitater kan mangle vern
 
-### "30 by 30"-maalet
+### "30 by 30"-målet
 
-Det globale biodiversitetsrammeverket fra 2022 setter maal om aa verne 30% av land og hav innen 2030.`,
+Det globale biodiversitetsrammeverket fra 2022 setter mål om å verne 30% av land og hav innen 2030.`,
     },
     {
       id: 'bio1-8-4-def-insitu',
       type: 'definition',
       title: 'In-situ bevaring',
-      content: 'In-situ bevaring er beskyttelse av arter og oekosystemer i deres naturlige habitat. Dette inkluderer opprettelse av verneomraader, baerekraftig forvaltning av ressurser, og restaurering av degraderte habitater. In-situ bevaring bevarer ikke bare arter, men ogsa oekologiske prosesser og evolusjonaert potensial.',
+      content: 'In-situ bevaring er beskyttelse av arter og økosystemer i deres naturlige habitat. Dette inkluderer opprettelse av verneområder, bærekraftig forvaltning av ressurser, og restaurering av degraderte habitater. In-situ bevaring bevarer ikke bare arter, men også økologiske prosesser og evolusjonært potensial.',
     },
     {
-      id: 'bio1-8-4-roedlister',
+      id: 'bio1-8-4-rødlister',
       type: 'text',
-      content: `## Roedlister og truethetsvurderinger
+      content: `## Rødlister og truethetsvurderinger
 
-Roedlister er oversikter over arter vurdert etter risiko for utryddelse. Den viktigste er IUCNs globale roedliste.
+Rødlister er oversikter over arter vurdert etter risiko for utryddelse. Den viktigste er IUCNs globale rødliste.
 
 ### IUCNs kategorier
 
 | Kategori | Forkortelse | Beskrivelse |
 |----------|------------|-------------|
 | Livskraftig | LC | Ikke truet |
-| Naer truet | NT | Naer grensen for truet |
-| Saarbar | VU | Hoey risiko for utryddelse |
-| Sterkt truet | EN | Sveart hoey risiko |
-| Kritisk truet | CR | Ekstremt hoey risiko |
-| Regionalt utryddet | RE | Utryddet i omraadet |
+| Nær truet | NT | Nær grensen for truet |
+| Sårbar | VU | Høy risiko for utryddelse |
+| Sterkt truet | EN | Svært høy risiko |
+| Kritisk truet | CR | Ekstremt høy risiko |
+| Regionalt utryddet | RE | Utryddet i området |
 | Utryddet | EX | Globalt utryddet |
 
 ### Kriterier for vurdering
@@ -960,14 +960,14 @@ Roedlister er oversikter over arter vurdert etter risiko for utryddelse. Den vik
 Arter vurderes etter:
 - Populasjonsreduksjon
 - Begrenset utbredelse
-- Liten populasjonstsoerrrelse
+- Liten populasjonsstørrelse
 - Kvantitativ analyse av utryddelsesrisiko
 
-### Norsk roedliste
+### Norsk rødliste
 
-Artsdatabanken utgir Norsk roedliste for arter. I 2021-utgaven var:
+Artsdatabanken utgir Norsk rødliste for arter. I 2021-utgaven var:
 - 4957 arter vurdert
-- 2752 arter paa roedlisten
+- 2752 arter på rødlisten
 - 468 kritisk truet (CR)
 - 90 arter regionalt utryddet`,
     },
@@ -982,108 +982,108 @@ CITES (Convention on International Trade in Endangered Species) regulerer intern
 
 **Vedlegg I**: Strengt beskyttede arter
 - Handel er generelt forbudt
-- Eksempler: Tiger, neshorn, mange papegoyearter
+- Eksempler: Tiger, neshorn, mange papegøyearter
 
 **Vedlegg II**: Arter som krever kontroll
 - Handel tillatt med tillatelse
-- Eksempler: Alle primater ikke paa Vedlegg I, mange koraller
+- Eksempler: Alle primater ikke på Vedlegg I, mange koraller
 
 **Vedlegg III**: Nasjonalt beskyttede arter
-- Ett land ber om hjelp til aa kontrollere handel
+- Ett land ber om hjelp til å kontrollere handel
 - Krever eksporttillatelse
 
 ### Betydning
 
 - 184 land er medlemmer
 - Dekker over 38 000 arter
-- Viktig for aa begrense krypskyting
+- Viktig for å begrense krypskyting
 - Utfordringer: Smugling, hevning av beskyttelse
 
 ### Eksempel: Elfenbenhandel
 
-CITES forbod internasjonal handel med elefantelfenben i 1989. Dette bidro til aa stabilisere bestandene, men krypskyting er fortsatt et stort problem i Afrika.`,
+CITES forbød internasjonal handel med elefantelfenben i 1989. Dette bidro til å stabilisere bestandene, men krypskyting er fortsatt et stort problem i Afrika.`,
     },
     {
       id: 'bio1-8-4-def-exsitu',
       type: 'definition',
       title: 'Ex-situ bevaring',
-      content: 'Ex-situ bevaring er beskyttelse av arter utenfor deres naturlige habitat. Dette inkluderer zoologiske hager, akvarium, botaniske hager, froebanker og kryokonservering av genetisk materiale. Ex-situ bevaring fungerer som sikkerhetskopi og kan brukes til avl og reintroduksjon, men bevarer ikke oekologiske sammenhenger.',
+      content: 'Ex-situ bevaring er beskyttelse av arter utenfor deres naturlige habitat. Dette inkluderer zoologiske hager, akvarium, botaniske hager, frøbanker og kryokonservering av genetisk materiale. Ex-situ bevaring fungerer som sikkerhetskopi og kan brukes til avl og reintroduksjon, men bevarer ikke økologiske sammenhenger.',
     },
     {
-      id: 'bio1-8-4-baerekraft',
+      id: 'bio1-8-4-bærekraft',
       type: 'text',
-      content: `## Baerekraftig forvaltning
+      content: `## Bærekraftig forvaltning
 
-Baerekraftig forvaltning handler om aa bruke naturressurser paa en maate som dekker dagens behov uten aa oedelegge for fremtidige generasjoner.
+Bærekraftig forvaltning handler om å bruke naturressurser på en måte som dekker dagens behov uten å ødelegge for fremtidige generasjoner.
 
-### Prinsipper for baerekraftig hoeesting
+### Prinsipper for bærekraftig høsting
 
-1. **Maksimal baerekraftig avkastning (MSY)**
-   - Hoeste slik at populasjonen opprettholdes
-   - Populasjonen maa kunne erstatte det som hoestes
+1. **Maksimal bærekraftig avkastning (MSY)**
+   - Høste slik at populasjonen opprettholdes
+   - Populasjonen må kunne erstatte det som høstes
 
-2. **Foersoektighetsproinsippet**
-   - Ved usikkerhet, vaer forsiktig
-   - Bedre aa underhoeste enn overhoeste
+2. **Føre-var-prinsippet**
+   - Ved usikkerhet, vær forsiktig
+   - Bedre å underhøste enn overhøste
 
-3. **Oekosystembasert forvaltning**
-   - Ta hensyn til hele oekosystemet
-   - Ikke bare fokus paa enkeltarter
+3. **Økosystembasert forvaltning**
+   - Ta hensyn til hele økosystemet
+   - Ikke bare fokus på enkeltarter
 
-### Eksempler paa baerekraftig forvaltning
+### Eksempler på bærekraftig forvaltning
 
 **Norsk villaks:**
 - Regulert fiske med kvoter
 - Fredningsperioder
-- Overvaakning av bestandene
+- Overvåkning av bestandene
 
-**Sertifisert toemmer:**
+**Sertifisert tømmer:**
 - FSC og PEFC sertifisering
-- Sikrer at skog forvaltes baerekraftig
+- Sikrer at skog forvaltes bærekraftig
 
-**MSC-sertifisert sjoemat:**
+**MSC-sertifisert sjømat:**
 - Marine Stewardship Council
-- Garanterer baerekraftig fiske`,
+- Garanterer bærekraftig fiske`,
     },
     {
       id: 'bio1-8-4-verdier',
       type: 'text',
       content: `## Naturens verdi - Egenverdi vs. nytteverdi
 
-Begrunnelser for aa bevare biologisk mangfold kan deles i to hovedkategorier:
+Begrunnelser for å bevare biologisk mangfold kan deles i to hovedkategorier:
 
 ### Instrumentell verdi (nytteverdi)
 
 Naturen har verdi fordi den er nyttig for mennesker:
 
-**Oekosystemtjenester:**
+**Økosystemtjenester:**
 - Provisjonerende: Mat, vann, materialer
 - Regulerende: Klimaregulering, flomdemping, pollinering
 - Kulturelle: Rekreasjon, inspirasjon, identitet
-- Stoettende: Naeeringssirkulering, jorddannelse
+- Støttende: Næringssirkulering, jorddannelse
 
-**Oekonomisk verdi:**
+**Økonomisk verdi:**
 - Naturbasert turisme
 - Genetiske ressurser for medisin og landbruk
-- Biooekonomi
+- Bioøkonomi
 
-### Iboende verdi (egenverdi)
+### Ibønde verdi (egenverdi)
 
 Naturen har verdi i seg selv, uavhengig av nytte for mennesker:
 
 **Etiske perspektiver:**
-- Alle arter har rett til aa eksistere
-- Mennesket har ikke rett til aa utrydde andre arter
-- Naturens kompleksitet og skjoennhet har verdi
+- Alle arter har rett til å eksistere
+- Mennesket har ikke rett til å utrydde andre arter
+- Naturens kompleksitet og skjønnhet har verdi
 
-**Biosentrikk etikk:**
+**Biosentrisk etikk:**
 - Alt liv har moralsk status
 - Ikke bare mennesker fortjener hensyn
 
 ### Praktisk betydning
 
 I praksis brukes ofte begge typer argumenter:
-- Nytteverdier er lettere aa kvantifisere
+- Nytteverdier er lettere å kvantifisere
 - Egenverdi appellerer til moralske intuisjoner
 - Kombinasjonen gir sterkere begrunnelse for bevaring`,
     },
@@ -1091,55 +1091,55 @@ I praksis brukes ofte begge typer argumenter:
       id: 'bio1-8-4-example-1',
       type: 'example',
       title: 'Eksempel: Avlsprogram for fjellrev',
-      problem: 'Beskriv hvordan avlsprogrammet for fjellrev i Norge fungerer, og droeeft styrker og svakheter ved denne tilnaermingen.',
-      solution: `**Losning:**
+      problem: 'Beskriv hvordan avlsprogrammet for fjellrev i Norge fungerer, og drøft styrker og svakheter ved denne tilnærmingen.',
+      solution: `**Løsning:**
 
 **Bakgrunn:**
 Fjellreven er kritisk truet i Skandinavia. Avlsprogrammet startet i 2005 som en del av en helhetlig bevaringsstrategi.
 
 **Hvordan det fungerer:**
-1. **Avlsstasjon**: Sentralt avlsanlegg paa Oppdal
-2. **Genetisk forvaltning**: Stamboek sikrer genetisk variasjon
-3. **Oppfoering**: Valpene laerer aa jakte og overleve
-4. **Utsetting**: Valper settes ut i egnede omraader
-5. **Oppfoelging**: GPS-merking og overvaakning
+1. **Avlsstasjon**: Sentralt avlsanlegg på Oppdal
+2. **Genetisk forvaltning**: Stambok sikrer genetisk variasjon
+3. **Oppføring**: Valpene lærer å jakte og overleve
+4. **Utsetting**: Valper settes ut i egnede områder
+5. **Oppfølging**: GPS-merking og overvåkning
 
 **Resultater:**
 - Over 300 valper satt ut siden 2006
 - Dokumentert vellykket reproduksjon i vill tilstand
-- Populasjonen har oekt
+- Populasjonen har økt
 
 **Styrker:**
-- Raskt oeke populasjonen
+- Raskt øke populasjonen
 - Kontrollere genetisk variasjon
-- Supplere svaake aar (naar lemen mangler)
+- Supplere svake år (når lemen mangler)
 
 **Svakheter:**
 - Dyrt og ressurskrevende
-- Loser ikke grunnleggende problemer (roedrrev, klimaendringer)
+- Løser ikke grunnleggende problemer (rødrev, klimændringer)
 - Avhengighet av menneskelig innsats
 - Tilpasning til fangenskap kan redusere overlevelse
 
 **Konklusjon:**
-Ex-situ avl er verdifullt som del av en bredere strategi, men maa kombineres med in-situ tiltak som roedjaktjakt og habitatvern.`,
+Ex-situ avl er verdifullt som del av en bredere strategi, men må kombineres med in-situ tiltak som rødrevjakt og habitatvern.`,
     },
     {
       id: 'bio1-8-4-example-2',
       type: 'example',
       title: 'Eksempel: Verdien av bier',
-      problem: 'Hvordan kan vi argumentere for aa bevare bier bade ut fra nytteverdi og egenverdi?',
-      solution: `**Losning:**
+      problem: 'Hvordan kan vi argumentere for å bevare bier både ut fra nytteverdi og egenverdi?',
+      solution: `**Løsning:**
 
 **Nytteverdi-argumenter:**
 
-**Oekonomisk verdi:**
-- Pollinering er verdt anslagsvis 200 milliarder dollar globalt aarlig
+**Økonomisk verdi:**
+- Pollinering er verdt anslagsvis 200 milliarder dollar globalt årlig
 - 75% av matplanter er avhengig av pollinering
 - Honningproduksjon og andre biprodukter
 
-**Oekosystemtjenester:**
+**Økosystemtjenester:**
 - Pollinering av ville planter
-- Naeringsgrunnlag for andre dyr
+- Næringsgrunnlag for andre dyr
 - Bidrar til genetisk variasjon i planter
 
 **Forskning og medisin:**
@@ -1148,10 +1148,10 @@ Ex-situ avl er verdifullt som del av en bredere strategi, men maa kombineres med
 
 **Egenverdi-argumenter:**
 
-**Artenes rett til aa eksistere:**
-- Bier har eksistert i over 100 millioner aar
-- De har evolusjonaer historie og unike tilpasninger
-- Mennesket har ikke rett til aa utrydde dem
+**Artenes rett til å eksistere:**
+- Bier har eksistert i over 100 millioner år
+- De har evolusjonær historie og unike tilpasninger
+- Mennesket har ikke rett til å utrydde dem
 
 **Kompleksitet og fascinasjon:**
 - Avansert sosial organisering
@@ -1159,11 +1159,11 @@ Ex-situ avl er verdifullt som del av en bredere strategi, men maa kombineres med
 - Navigasjonsevner
 
 **Del av naturens helhet:**
-- Integrert del av oekosystemer
-- Oedeleggelse av en art pavirker mange andre
+- Integrert del av økosystemer
+- Ødeleggelse av en art påvirker mange andre
 
 **Kombinert argument:**
-Baade nytteverdi og egenverdi tilsier at vi boer beskytte bier. Nytteverdien er lett aa forstaa og motiverer handling, mens egenverdien gir en dypere etisk begrunnelse som ikke er avhengig av direkte nytte for mennesker.`,
+Både nytteverdi og egenverdi tilsier at vi bør beskytte bier. Nytteverdien er lett å forstå og motiverer handling, mens egenverdien gir en dypere etisk begrunnelse som ikke er avhengig av direkte nytte for mennesker.`,
     },
   ],
   exercises: [
@@ -1175,57 +1175,57 @@ Baade nytteverdi og egenverdi tilsier at vi boer beskytte bier. Nytteverdien er 
       options: [
         { id: 'a', text: 'Kritisk truet', isCorrect: true },
         { id: 'b', text: 'Sterkt truet', isCorrect: false },
-        { id: 'c', text: 'Saarbar', isCorrect: false },
-        { id: 'd', text: 'Naer truet', isCorrect: false },
+        { id: 'c', text: 'Sårbar', isCorrect: false },
+        { id: 'd', text: 'Nær truet', isCorrect: false },
       ],
-      solution: 'CR staar for "Critically Endangered" (kritisk truet) og betyr at arten har ekstremt hoey risiko for utryddelse. Dette er det hoeyeste trusselnivaet foer "utryddet i vill tilstand" (EW) og "utryddet" (EX).',
+      solution: 'CR står for "Critically Endangered" (kritisk truet) og betyr at arten har ekstremt høy risiko for utryddelse. Dette er det høyeste trusselnivæt før "utryddet i vill tilstand" (EW) og "utryddet" (EX).',
     },
     {
       id: 'bio1-8-4-ex2',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar forskjellen mellom in-situ og ex-situ bevaring, og gi eksempler paa hver.',
-      solution: 'In-situ bevaring beskytter arter i deres naturlige habitat gjennom verneomraader, baerekraftig forvaltning og restaurering. Eksempler: Nasjonalparker, naturreservat, marine verneomraader. Ex-situ bevaring beskytter arter utenfor naturlig habitat. Eksempler: Dyreparker, botaniske hager, froebanker (som Svalbard globale frohvelv), avlsprogrammer. In-situ bevarer ogsa oekologiske samspill og evolusjonaert potensial, mens ex-situ fungerer som "forsikring" og kilde for reintroduksjon.',
+      task: 'Forklar forskjellen mellom in-situ og ex-situ bevaring, og gi eksempler på hver.',
+      solution: 'In-situ bevaring beskytter arter i deres naturlige habitat gjennom verneområder, bærekraftig forvaltning og restaurering. Eksempler: Nasjonalparker, naturreservat, marine verneområder. Ex-situ bevaring beskytter arter utenfor naturlig habitat. Eksempler: Dyreparker, botaniske hager, frøbanker (som Svalbard globale frøhvelv), avlsprogrammer. In-situ bevarer også økologiske samspill og evolusjonært potensial, mens ex-situ fungerer som "forsikring" og kilde for reintroduksjon.',
     },
     {
       id: 'bio1-8-4-ex3',
       type: 'multiple-choice',
       difficulty: 'medium',
-      task: 'Hva er hovedformaalet med CITES?',
+      task: 'Hva er hovedformålet med CITES?',
       options: [
         { id: 'a', text: 'Regulere internasjonal handel med truede arter', isCorrect: true },
-        { id: 'b', text: 'Opprette verneomraader i alle land', isCorrect: false },
-        { id: 'c', text: 'Vurdere arters truethet paa roedlister', isCorrect: false },
+        { id: 'b', text: 'Opprette verneområder i alle land', isCorrect: false },
+        { id: 'c', text: 'Vurdere arters truethet på rødlister', isCorrect: false },
         { id: 'd', text: 'Drive avlsprogrammer for truede arter', isCorrect: false },
       ],
-      solution: 'CITES (Convention on International Trade in Endangered Species) regulerer internasjonal handel med ville dyr og planter for aa hindre at handel truer arters overlevelse. Det er IUCN som vurderer truethet paa roedlister.',
+      solution: 'CITES (Convention on International Trade in Endangered Species) regulerer internasjonal handel med ville dyr og planter for å hindre at handel truer arters overlevelse. Det er IUCN som vurderer truethet på rødlister.',
     },
     {
       id: 'bio1-8-4-ex4',
       type: 'classic',
       difficulty: 'medium',
-      task: 'Forklar begrepet "maksimal baerekraftig avkastning" (MSY) og droeeft hvorfor dette prinsippet kan vaere vanskelig aa folge i praksis.',
-      solution: 'MSY er det hoeestenivaet som en populasjon kan opprettholde over tid - man hoester akkurat det populasjonen kan erstatte gjennom reproduksjon. Utfordringer: 1) Usikkerhet - vi kjenner sjelden populasjonstsoerrrelsen noeyaktig. 2) Variasjon - miljoeforhold varierer aar for aar. 3) Oekonomisk press - kortsiktig profitt frister til overhoesting. 4) Kompleksitet - arter pavirker hverandre i naeeringsnett. 5) Klimaendringer - endrer baerekraftig nivaa. Derfor anbefales ofte forsiktigere hoeesting enn MSY (foersoektighetsproinsippet).',
+      task: 'Forklar begrepet "maksimal bærekraftig avkastning" (MSY) og drøft hvorfor dette prinsippet kan være vanskelig å følge i praksis.',
+      solution: 'MSY er det høstingsnivået som en populasjon kan opprettholde over tid - man høster akkurat det populasjonen kan erstatte gjennom reproduksjon. Utfordringer: 1) Usikkerhet - vi kjenner sjelden populasjonsstørrelsen nøyaktig. 2) Variasjon - miljøforhold varierer år for år. 3) Økonomisk press - kortsiktig profitt frister til overhøsting. 4) Kompleksitet - arter påvirker hverandre i næringsnettverk. 5) Klimændringer - endrer bærekraftig nivå. Derfor anbefales ofte forsiktigere høsting enn MSY (føre-var-prinsippet).',
     },
     {
       id: 'bio1-8-4-ex5',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: 'Droeeft styrker og svakheter ved aa bruke oekonomisk verdsetting av oekosystemtjenester som argument for naturvern.',
-      solution: 'Styrker: 1) Gjor verdien av natur synlig for oekonomer og politikere. 2) Muliggjor sammenligning med andre investeringer. 3) Kan motivere naeringsliv til baerekraftig praksis. 4) Setter tap av natur paa agendaen. Svakheter: 1) Mange verdier er vanskelige aa sette pris paa (skjoennhet, spirituell verdi). 2) Kan gi inntrykk av at natur kan erstattes med penger. 3) Verdier endres med marked og teknologi. 4) Kan ignorere arters egenverdi og rettigheter. 5) Privilegerer det som er nyttig for mennesker. Konklusjon: Oekonomisk verdsetting er et nyttig verktoeey, men boer kombineres med andre argumenter (etiske, kulturelle) for et helhetlig naturvernsyn.',
+      task: 'Drøft styrker og svakheter ved å bruke økonomisk verdsetting av økosystemtjenester som argument for naturvern.',
+      solution: 'Styrker: 1) Gjør verdien av natur synlig for økonomer og politikere. 2) Muliggjør sammenligning med andre investeringer. 3) Kan motivere næringsliv til bærekraftig praksis. 4) Setter tap av natur på agendæn. Svakheter: 1) Mange verdier er vanskelige å sette pris på (skjønnhet, spirituell verdi). 2) Kan gi inntrykk av at natur kan erstattes med penger. 3) Verdier endres med marked og teknologi. 4) Kan ignorere arters egenverdi og rettigheter. 5) Privilegerer det som er nyttig for mennesker. Konklusjon: Økonomisk verdsetting er et nyttig verktøy, men bør kombineres med andre argumenter (etiske, kulturelle) for et helhetlig naturvernsyn.',
     },
     {
       id: 'bio1-8-4-ex6',
       type: 'multiple-choice',
       difficulty: 'lett',
-      task: 'Hva er formaaelet med "30 by 30"-maalet?',
+      task: 'Hva er formålet med "30 by 30"-målet?',
       options: [
         { id: 'a', text: 'Verne 30% av land og hav innen 2030', isCorrect: true },
         { id: 'b', text: 'Redusere utryddelsesraten med 30% innen 2030', isCorrect: false },
-        { id: 'c', text: 'Oeke antall truede arter med 30% innen 2030', isCorrect: false },
-        { id: 'd', text: 'Plante 30 milliarder traeer innen 2030', isCorrect: false },
+        { id: 'c', text: 'Øke antall truede arter med 30% innen 2030', isCorrect: false },
+        { id: 'd', text: 'Plante 30 milliarder trær innen 2030', isCorrect: false },
       ],
-      solution: '"30 by 30" er et maal fra det globale biodiversitetsrammeverket (Kunming-Montreal 2022) om aa verne minst 30% av jordens land- og havomraader innen 2030. Dette er en ambisioes okning fra dagens ca. 17% vernet land og 8% vernet hav.',
+      solution: '"30 by 30" er et mål fra det globale biodiversitetsrammeverket (Kunming-Montreal 2022) om å verne minst 30% av jordens land- og havområder innen 2030. Dette er en ambisiøs økning fra dagens ca. 17% vernet land og 8% vernet hav.',
     },
   ],
 };
@@ -1239,12 +1239,12 @@ export const CHAPTER_BIOLOGI_1_8_5: TextbookChapter = {
   courseId: 'biologi-1',
   chapterNumber: '8.5',
   title: 'Taksonomi i endring – teknologiens rolle i klassifisering',
-  description: 'Korleis taksonomiske kriterier har endra seg med teknologisk utvikling, fraa morfologi til DNA-sekvensering og genomikk.',
+  description: 'Korleis taksonomiske kriterier har endra seg med teknologisk utvikling, frå morfologi til DNA-sekvensering og genomikk.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'utforske korleis dei taksonomiske kriteria har endra seg i traad med den teknologiske utviklinga',
+    'utforske korleis dei taksonomiske kriteria har endra seg i tråd med den teknologiske utviklinga',
     'samanlikne organismar med omsyn til fellestrekk og variasjon',
-    'vurdere korleis nye metodar endrar vaar forstaaeelse av slektskap mellom organismar',
+    'vurdere korleis nye metodar endrar vår forståeelse av slektskap mellom organismar',
   ],
   content: [
     {
@@ -1252,44 +1252,44 @@ export const CHAPTER_BIOLOGI_1_8_5: TextbookChapter = {
       type: 'text',
       content: `# Taksonomi i endring – teknologiens rolle
 
-Heilt sidan Carl von Linne i 1735 la grunnlaget for moderne systematikk, har forskarar proevd aa klassifisere livet paa jorda. Men kriteria for korleis vi grupperer organismar har endra seg dramatisk – drive av ny teknologi.
+Heilt sidan Carl von Linne i 1735 la grunnlaget for moderne systematikk, har forskarar prøvd å klassifisere livet på jorda. Men kriteria for korleis vi grupperer organismar har endra seg dramatisk – drive av ny teknologi.
 
-## Fraa ytre likskap til indre slektskap
+## Frå ytre likskap til indre slektskap
 
-Linne klassifiserte organismar basert paa korleis dei saag ut – **morfologiske** kjenneteikn. I dag brukar vi **DNA-sekvensering** for aa avdekkje evolusjonaert slektskap. Denne overgangen har ført til mange overraskande funn:
+Linne klassifiserte organismar basert på korleis dei såg ut – **morfologiske** kjenneteikn. I dag brukar vi **DNA-sekvensering** for å avdekkje evolusjonært slektskap. Denne overgangen har ført til mange overraskande funn:
 
-- Sopp vart flytta fraa planteriket til eit eige rike
-- Kvalar viste seg aa vaere naerare slekt med flodhest enn med andre marine pattedyr
-- Gribb i Europa og Amerika er ikkje naert beslekta, trass i nesten identisk utsjaanad
+- Sopp vart flytta frå planteriket til eit eige rike
+- Kvalar viste seg å være nærare slekt med flodhest enn med andre marine pattedyr
+- Gribb i Europa og Amerika er ikkje nært beslekta, trass i nesten identisk utsjånad
 
-Kvar ny teknologi har opna nye doerer for aa forstaa livets mangfald og evolusjonaere historie.`,
+Kvar ny teknologi har opna nye dører for å forstå livets mangfald og evolusjonære historie.`,
     },
     {
       id: 'bio1-8-5-def-1',
       type: 'definition',
       title: 'Taksonomiske kriterier',
-      content: '**Taksonomiske kriterier** er eigenskapar som vert brukte for aa klassifisere og gruppere organismar. Desse kriteria har endra seg over tid: fraa **morfologi** (ytre form, 1700–1900-talet), via **biokjemi** (protein og enzym, 1960–70-talet), til **molekylaer fylogeni** (DNA- og RNA-sekvensanalyse, 1990-talet–i dag). Kvar ny teknologi har gjort det mogleg aa avdekkje slektskap som ikkje var synlege med tidlegare metodar.',
+      content: '**Taksonomiske kriterier** er eigenskapar som vert brukte for å klassifisere og gruppere organismar. Desse kriteria har endra seg over tid: frå **morfologi** (ytre form, 1700–1900-talet), via **biokjemi** (protein og enzym, 1960–70-talet), til **molekylær fylogeni** (DNA- og RNA-sekvensanalyse, 1990-talet–i dag). Kvar ny teknologi har gjort det mogleg å avdekkje slektskap som ikkje var synlege med tidlegare metodar.',
     },
     {
       id: 'bio1-8-5-example-1',
       type: 'example',
-      title: 'Eksempel: Soppane – fraa plantar til eige rike',
+      title: 'Eksempel: Soppane – frå plantar til eige rike',
       problem: 'Sopp vart lenge klassifisert som plantar. Forklar kvifor, og kva som endra denne klassifiseringa.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Kvifor sopp vart rekna som plantar:**
-- Sopp er fastsitjande (veks paa ein stad) – som plantar
+- Sopp er fastsitjande (veks på ein stad) – som plantar
 - Dei har celleveggar – som plantar
-- Dei kan sjaa plantaktige ut (stilk og hatt)
+- Dei kan sjå plantaktige ut (stilk og hatt)
 
 **Kva som endra klassifiseringa:**
-1. **Biokjemiske studiar (1960-talet)**: Viste at soppcelleveggen bestaar av **kitin** (som i insekt), ikkje cellulose (som i plantar)
-2. **Ernaeering**: Sopp er heterotrofe (bryt ned organisk materiale), ikkje autotrofe som plantar
-3. **DNA-analyse (1990-talet)**: Samanlikning av ribosomalt RNA og seinare heile genom viste at sopp er **naarare beslekta med dyr** enn med plantar!
+1. **Biokjemiske studiar (1960-talet)**: Viste at soppcelleveggen består av **kitin** (som i insekt), ikkje cellulose (som i plantar)
+2. **Ernæering**: Sopp er heterotrofe (bryt ned organisk materiale), ikkje autotrofe som plantar
+3. **DNA-analyse (1990-talet)**: Samanlikning av ribosomalt RNA og seinare heile genom viste at sopp er **nårare beslekta med dyr** enn med plantar!
 
-**Resultat**: I 1969 foreslo Robert Whittaker fem riker, der sopp (Fungi) fekk sitt eige rike. DNA-data har seinare bekrefta at sopp og dyr deler ein felles stamfar som levde for ca. 1 milliard aar sidan.
+**Resultat**: I 1969 foreslo Robert Whittaker fem riker, der sopp (Fungi) fekk sitt eige rike. DNA-data har seinare bekrefta at sopp og dyr deler ein felles stamfar som levde for ca. 1 milliard år sidan.
 
-**Laerdomen**: Ytre likskap (morfologi) kan vaere villeiiande. Konvergent evolusjon – der ulike organismar utviklar liknande trekk uavhengig av kvarandre – kan maskere ekte slektskap.`,
+**Lærdomen**: Ytre likskap (morfologi) kan være villeiiande. Konvergent evolusjon – der ulike organismar utviklar liknande trekk uavhengig av kvarandre – kan maskere ekte slektskap.`,
     },
     {
       id: 'bio1-8-5-ex-1',
@@ -1298,14 +1298,14 @@ Kvar ny teknologi har opna nye doerer for aa forstaa livets mangfald og evolusjo
         id: 'bio1-8-5-ex-1',
         number: '1',
         type: 'multiple-choice',
-        task: 'Kva er hovudgrunnen til at sopp vart flytta fraa planteriket til eit eige rike?',
+        task: 'Kva er hovudgrunnen til at sopp vart flytta frå planteriket til eit eige rike?',
         options: [
-          { id: 'a', text: 'Biokjemiske og DNA-analysar viste at sopp er naerare beslekta med dyr enn plantar', isCorrect: true },
-          { id: 'b', text: 'Sopp manglar klorofyll og kan difor ikkje vaere plantar', isCorrect: false },
+          { id: 'a', text: 'Biokjemiske og DNA-analysar viste at sopp er nærare beslekta med dyr enn plantar', isCorrect: true },
+          { id: 'b', text: 'Sopp manglar klorofyll og kan difor ikkje være plantar', isCorrect: false },
           { id: 'c', text: 'Sopp veks raskare enn plantar', isCorrect: false },
-          { id: 'd', text: 'Sopp finst berre paa land, ikkje i vatn', isCorrect: false },
+          { id: 'd', text: 'Sopp finst berre på land, ikkje i vatn', isCorrect: false },
         ],
-        solution: 'Sjolv om mangel paa klorofyll var eit tidleg teikn, var det biokjemiske funn (kitin i celleveggen, heterotof ernaeering) og seinare DNA-analysar som definitivt viste at sopp er naarare beslekta med dyr enn med plantar. DNA-sekvensering av ribosomalt RNA og seinare heile genom bekrefta dette slektskapet.',
+        solution: 'Sjolv om mangel på klorofyll var eit tidleg teikn, var det biokjemiske funn (kitin i celleveggen, heterotof ernæering) og seinare DNA-analysar som definitivt viste at sopp er nårare beslekta med dyr enn med plantar. DNA-sekvensering av ribosomalt RNA og seinare heile genom bekrefta dette slektskapet.',
       },
     },
     {
@@ -1320,19 +1320,19 @@ Kvar ny teknologi har opna nye doerer for aa forstaa livets mangfald og evolusjo
 | 1960–1980 | **Biokjemi** | Proteinelektroforese, immunologi | Berre grove samanlikningar |
 | 1980–2000 | **DNA-hybridisering og Sanger-sekvensering** | PCR, sekvenseringsmaskinar | Berre korte DNA-fragment |
 | 2000–i dag | **Genomikk** | Neste-generasjons-sekvensering (NGS) | Store datamengder krev bioinformatikk |
-| 2010–i dag | **Metagenomikk og eDNA** | Miljoe-DNA-analyse | Kan oppdage arter utan aa sjaa dei |
+| 2010–i dag | **Metagenomikk og eDNA** | Miljø-DNA-analyse | Kan oppdage arter utan å sjå dei |
 
-Kvar ny teknologi har gjort det mogleg aa oppdage slektskap som tidlegare var usynlege.`,
+Kvar ny teknologi har gjort det mogleg å oppdage slektskap som tidlegare var usynlege.`,
     },
     {
       id: 'bio1-8-5-example-2',
       type: 'example',
       title: 'Eksempel: DNA-strekkoding – artskort for livet',
       problem: 'Kva er DNA-strekkoding (DNA barcoding), og korleis har denne teknologien revolusjonert artsidentifikasjon?',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Kva er DNA-strekkoding?**
-DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere kva art ein organisme tilhoeyrer – paa same maate som ein strekkode identifiserer ein vare i butikken.
+DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for å identifisere kva art ein organisme tilhøyrer – på same måte som ein strekkode identifiserer ein vare i butikken.
 
 **Standardregionar:**
 - **Dyr**: COI-genet (cytokrom c oksidase I) i mitokondrielt DNA (~650 basepar)
@@ -1340,17 +1340,17 @@ DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere k
 - **Sopp**: ITS-regionen (Internal Transcribed Spacer) i ribosomalt DNA
 
 **Korleis det fungerer:**
-1. Samle ein proeve (blad, haar, insektbein – sjolv smaa restar)
+1. Samle ein prøve (blad, hår, insektbein – sjolv små restar)
 2. Isolere DNA
 3. Amplifisere strekkoderegionen med PCR
 4. Sekvensere DNA-fragmentet
 5. Samanlikne med ein database (t.d. BOLD – Barcode of Life Data Systems)
 6. Identifisere arten
 
-**Revolusjonerande bruksomraade:**
-- Identifisere artar fraa fragment (t.d. haiar fraa finnar, tre fraa sagflis)
+**Revolusjonerande bruksområde:**
+- Identifisere artar frå fragment (t.d. haiar frå finnar, tre frå sagflis)
 - Oppdage kryptiske artar (artar som ser identiske ut, men er genetisk ulike)
-- Avsloere matsvindel (kva fisk er eigentleg i sushien?)
+- Avsløre matsvindel (kva fisk er eigentleg i sushien?)
 - Overvake biodiversitet raskt og billig
 
 **Eksempel**: Forskarar fann at det som vart rekna som éin art nattfuglar i tropane eigentleg var 15 separate artar – usynlege for det blotte auget, men tydeleg ulike i DNA.`,
@@ -1363,22 +1363,22 @@ DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere k
         number: '2',
         type: 'classic',
         task: 'Forklar kvifor morfologisk klassifisering kan gje feil bilde av slektskap mellom artar. Bruk omgrepet konvergent evolusjon i svaret ditt.',
-        hints: ['Tenk paa korleis ulike artar kan utvikle liknande trekk uavhengig av kvarandre'],
-        solution: 'Morfologisk klassifisering baserer seg paa ytre likskapar mellom organismar. Men konvergent evolusjon – der ulike artar utviklar liknande trekk som tilpassing til liknande miljoe – kan gjere at fjernt beslekta artar ser svært like ut. Eksempel: Europeiske gribb (ordenen Accipitriformes) og amerikanske gribb (ordenen Cathartiformes) ser naesten identiske ut med nakne hovud, kraftige nebb og brede venger, men er ikkje naert beslekta. Dei har utvikla liknande trekk uavhengig fordi dei har same levemaate (aatseleting). DNA-analysar avsloerete dette. Difor er DNA-basert klassifisering meir paaliteleg – DNA avspeglar faktisk evolusjonaer historie, ikkje berre tilpassingar til miljoe.',
+        hints: ['Tenk på korleis ulike artar kan utvikle liknande trekk uavhengig av kvarandre'],
+        solution: 'Morfologisk klassifisering baserer seg på ytre likskapar mellom organismar. Men konvergent evolusjon – der ulike artar utviklar liknande trekk som tilpassing til liknande miljø – kan gjere at fjernt beslekta artar ser svært like ut. Eksempel: Europeiske gribb (ordenen Accipitriformes) og amerikanske gribb (ordenen Cathartiformes) ser næsten identiske ut med nakne hovud, kraftige nebb og brede venger, men er ikkje nært beslekta. Dei har utvikla liknande trekk uavhengig fordi dei har same levemåte (åtseleting). DNA-analysar avslørete dette. Difor er DNA-basert klassifisering meir påliteleg – DNA avspeglar faktisk evolusjonær historie, ikkje berre tilpassingar til miljø.',
       },
     },
     {
       id: 'bio1-8-5-def-3',
       type: 'definition',
-      title: 'Miljoe-DNA (eDNA)',
-      content: '**Miljoe-DNA (eDNA)** er DNA som organismar etterlet seg i miljoeet, til doeemes i vatn, jord eller luft – gjennom hudceller, avfoering, slim eller pollen. Ved aa filtrere vatn fraa ein innsjoe og analysere DNA-et kan forskarar identifisere kva artar som lever der, utan aa sjaa eller fange ein einaste organisme. Denne metoden har revolusjonert overvaking av biodiversitet, spesielt for sjeldne og usynlege artar.',
+      title: 'Miljø-DNA (eDNA)',
+      content: '**Miljø-DNA (eDNA)** er DNA som organismar etterlet seg i miljøet, til døemes i vatn, jord eller luft – gjennom hudceller, avføring, slim eller pollen. Ved å filtrere vatn frå ein innsjø og analysere DNA-et kan forskarar identifisere kva artar som lever der, utan å sjå eller fange ein einaste organisme. Denne metoden har revolusjonert overvaking av biodiversitet, spesielt for sjeldne og usynlege artar.',
     },
     {
       id: 'bio1-8-5-example-3',
       type: 'example',
-      title: 'Eksempel: eDNA avsloeerte skjult mangfald i Mjosa',
-      problem: 'Forskarar tok vassproevar fraa Mjosa og analyserte eDNA. Korleis kan dette gje meir informasjon om fiskebestandane enn tradisjonelle metodar?',
-      solution: `**Loesning:**
+      title: 'Eksempel: eDNA avsløerte skjult mangfald i Mjosa',
+      problem: 'Forskarar tok vassprøvar frå Mjosa og analyserte eDNA. Korleis kan dette gje meir informasjon om fiskebestandane enn tradisjonelle metodar?',
+      solution: `**Løsning:**
 
 **Tradisjonelle metodar:**
 - Garnfiske, elfiske, ekkolodd
@@ -1388,23 +1388,23 @@ DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere k
 - Gir berre overblikk over vanlege artar
 
 **eDNA-analyse:**
-1. Forskarane tek vassproevar (1-2 liter) fraa ulike stader i Mjosa
-2. Vatnet filtrerast for aa fange opp DNA-fragment
+1. Forskarane tek vassprøvar (1-2 liter) frå ulike stader i Mjosa
+2. Vatnet filtrerast for å fange opp DNA-fragment
 3. DNA-et amplifisr med PCR (spesifikke primerar for fisk)
-4. Sekvensering identifiserer alle fiskeartar i proeven
+4. Sekvensering identifiserer alle fiskeartar i prøven
 
 **Fordelar med eDNA:**
 - Kan oppdage sjeldne artar som tradisjonelle metodar missar
 - Ikkje-invasivt – ingen dyr vert fanga eller skadd
-- Raskt og kostnadseffektivt for store omraade
+- Raskt og kostnadseffektivt for store område
 - Kan oppdage framande artar tidleg (t.d. signalkreps)
 - Gir eit meir komplett bilete av artsmangfaldet
 
 **Avgrensingar:**
 - Kan ikkje seie kor mange individ det er (berre kva artar)
-- DNA brytes ned – gir oeyeblikksbilde, ikkje historikk
-- Kan fange opp DNA fraa doede organismar
-- Krev gode referansedatabasar for aa identifisere artar`,
+- DNA brytes ned – gir øyeblikksbilde, ikkje historikk
+- Kan fange opp DNA frå døde organismar
+- Krev gode referansedatabasar for å identifisere artar`,
     },
     {
       id: 'bio1-8-5-ex-3',
@@ -1415,12 +1415,12 @@ DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere k
         type: 'multiple-choice',
         task: 'Kva er ein fordel med eDNA-analyse samanlikna med tradisjonelle feltmetodar?',
         options: [
-          { id: 'a', text: 'eDNA kan oppdage artar utan aa fange eller forstyrre dei', isCorrect: true },
-          { id: 'b', text: 'eDNA gir eksakt tal paa individ av kvar art', isCorrect: false },
+          { id: 'a', text: 'eDNA kan oppdage artar utan å fange eller forstyrre dei', isCorrect: true },
+          { id: 'b', text: 'eDNA gir eksakt tal på individ av kvar art', isCorrect: false },
           { id: 'c', text: 'eDNA kan berre brukast i ferskvatn', isCorrect: false },
           { id: 'd', text: 'eDNA krev ikkje laboratoriumutstyr', isCorrect: false },
         ],
-        solution: 'Den stoerste fordelen med eDNA er at det er ein ikkje-invasiv metode – ein treng berre ei vassproeve for aa identifisere kva artar som lever i eit omraade. Tradisjonelle metodar (garnfiske, elfiske) forstyrrar dyrelivet og kan misse sjeldne artar. eDNA kan ikkje gje eksakte bestandstal og krev spesialisert laboratorieutstyr for DNA-ekstraksjon og sekvensering.',
+        solution: 'Den største fordelen med eDNA er at det er ein ikkje-invasiv metode – ein treng berre ei vassprøve for å identifisere kva artar som lever i eit område. Tradisjonelle metodar (garnfiske, elfiske) forstyrrar dyrelivet og kan misse sjeldne artar. eDNA kan ikkje gje eksakte bestandstal og krev spesialisert laboratorieutstyr for DNA-ekstraksjon og sekvensering.',
       },
     },
     {
@@ -1430,19 +1430,19 @@ DNA-strekkoding brukar ein kort, standardisert DNA-sekvens for aa identifisere k
 
 Taksonomiske kriterier har endra seg dramatisk med ny teknologi:
 
-- **Morfologi** (1700-talet): Klassifisering basert paa ytre likskap – saarbar for konvergent evolusjon
-- **Biokjemi** (1960-talet): Samanlikning av protein og enzym avsloeerte nye slektskap
-- **DNA-sekvensering** (1990-talet): Revolusjonerte systematikken – avdekka at sopp er naerare dyr enn plantar
-- **Genomikk** (2000-talet): Samanlikning av heile genom gir detaljert evolusjonaer historie
-- **eDNA og metagenomikk** (2010-talet): Artsidentifikasjon utan aa sjaa organismen
+- **Morfologi** (1700-talet): Klassifisering basert på ytre likskap – sårbar for konvergent evolusjon
+- **Biokjemi** (1960-talet): Samanlikning av protein og enzym avsløerte nye slektskap
+- **DNA-sekvensering** (1990-talet): Revolusjonerte systematikken – avdekka at sopp er nærare dyr enn plantar
+- **Genomikk** (2000-talet): Samanlikning av heile genom gir detaljert evolusjonær historie
+- **eDNA og metagenomikk** (2010-talet): Artsidentifikasjon utan å sjå organismen
 
-### Noekkeleksempel paa omklassifisering
+### Nøkkeleksempel på omklassifisering
 | Organisme | Gammal klassifisering | Ny klassifisering | Metode |
 |-----------|----------------------|-------------------|--------|
-| Sopp | Planteriket | Eige rike (naerare dyr) | DNA/biokjemi |
-| Kvalar | Eigen pattedyrorden | Naerast flodhest (Artiodactyla) | DNA |
+| Sopp | Planteriket | Eige rike (nærare dyr) | DNA/biokjemi |
+| Kvalar | Eigen pattedyrorden | Nærast flodhest (Artiodactyla) | DNA |
 | Gribb (Amerika vs. Europa) | Same gruppe | To ulike ordenar | DNA |
-| Raude pandaen | Bjoernefamilien | Eigen familie (Ailuridae) | DNA |`,
+| Raude pandæn | Bjørnefamilien | Eigen familie (Ailuridæ) | DNA |`,
     },
     // --- Samleoppgaver ---
     {
@@ -1453,9 +1453,9 @@ Taksonomiske kriterier har endra seg dramatisk med ny teknologi:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Eit forskingsteam har oppdaga ein ny insektart i regnskogen. Forklar korleis dei ville brukt baade morfologiske og molekylaere metodar for aa bestemme kvar arten hoeyrer heime i det taksonomiske systemet.',
+        task: 'Eit forskingsteam har oppdaga ein ny insektart i regnskogen. Forklar korleis dei ville brukt både morfologiske og molekylære metodar for å bestemme kvar arten høyrer heime i det taksonomiske systemet.',
         hints: ['Kva kan morfologien fortelje?', 'Kva ekstra informasjon gir DNA?'],
-        solution: 'Forskarane ville brukt ei tostegs-tilnaeming: (1) Morfologisk analyse: Undersoeeke ytre kjenneteikn (antal bein, vengetype, munndelar, antenner) for aa plassere insektet i riktig orden og familie. Lage detaljerte teikningar og foto. (2) Molekylær analyse: Sekvensere COI-genet (DNA-strekkode) og samanlikne med BOLD-databasen for aa sjaa kva kjende artar det er naerast beslekta med. Eventuelt sekvensere fleire genar for aa bygge eit fylogenetisk tre. Kombinasjonen er viktig fordi: morfologien gir rask oversikt og identifiserer tydelege trekk, medan DNA avsloeerer evolusjonaert slektskap som ikkje er synleg i ytre form. Dersom DNA-data viser at den nye arten er svært ulik alt i databasen, kan det hende den representerer ein heilt ny slekt eller familie.',
+        solution: 'Forskarane ville brukt ei tostegs-tilnæming: (1) Morfologisk analyse: Undersøeke ytre kjenneteikn (antal bein, vengetype, munndelar, antenner) for å plassere insektet i riktig orden og familie. Lage detaljerte teikningar og foto. (2) Molekylær analyse: Sekvensere COI-genet (DNA-strekkode) og samanlikne med BOLD-databasen for å sjå kva kjende artar det er nærast beslekta med. Eventuelt sekvensere fleire genar for å bygge eit fylogenetisk tre. Kombinasjonen er viktig fordi: morfologien gir rask oversikt og identifiserer tydelege trekk, medan DNA avsløerer evolusjonært slektskap som ikkje er synleg i ytre form. Dersom DNA-data viser at den nye arten er svært ulik alt i databasen, kan det hende den representerer ein heilt ny slekt eller familie.',
       },
     },
     {
@@ -1466,21 +1466,21 @@ Taksonomiske kriterier har endra seg dramatisk med ny teknologi:
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Droeeft korleis utviklinga fraa morfologisk til molekylær klassifisering illustrerer eit viktig prinsipp i naturvitskap: at vitskaplege modellar vert reviderte naar ny kunnskap og teknologi blir tilgjengeleg.',
+        task: 'Drøeft korleis utviklinga frå morfologisk til molekylær klassifisering illustrerer eit viktig prinsipp i naturvitskap: at vitskaplege modellar vert reviderte når ny kunnskap og teknologi blir tilgjengeleg.',
         hints: ['Kva skjedde med det gamle systemet med to riker (plantar og dyr)?', 'Er dagens system «endeleg», eller kan det endre seg igjen?'],
-        solution: 'Den taksonomiske historia illustrerer korleis vitskap er ein dynamisk prosess: Linne sitt system med to riker (plantar og dyr) var basert paa den beste kunnskapen som fanst. Mikroskopet avsloeerte eincellaorganismar → tre riker. Biokjemi viste at sopp ikkje er plantar → fem riker. DNA-analyse avsloeerte arkebakteriar → tre domene (Woese, 1990). Kvar gong ny teknologi gav ny kunnskap, vart klassifiseringa revidert. Dette er ikkje ein svakheit ved vitskapen – det er styrken. Vitskapleg kunnskap er provisorisk: den representerer den beste forklaringa vi har akkurat no, men er open for revisjon naar betre data kjem. Dagens tre-domene-system kan ogso bli revidert – t.d. diskuterer forskarar om virus boer ha si eiga grein, og metagenomikk avdekkjer stadig nye grupper av organismar som ikkje passar inn i eksisterande kategoriar.',
+        solution: 'Den taksonomiske historia illustrerer korleis vitskap er ein dynamisk prosess: Linne sitt system med to riker (plantar og dyr) var basert på den beste kunnskapen som fanst. Mikroskopet avsløerte eincellaorganismar → tre riker. Biokjemi viste at sopp ikkje er plantar → fem riker. DNA-analyse avsløerte arkebakteriar → tre domene (Wøse, 1990). Kvar gong ny teknologi gav ny kunnskap, vart klassifiseringa revidert. Dette er ikkje ein svakheit ved vitskapen – det er styrken. Vitskapleg kunnskap er provisorisk: den representerer den beste forklaringa vi har akkurat no, men er open for revisjon når betre data kjem. Dagens tre-domene-system kan ogso bli revidert – t.d. diskuterer forskarar om virus bør ha si eiga grein, og metagenomikk avdekkjer stadig nye grupper av organismar som ikkje passar inn i eksisterande kategoriar.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Morfologisk klassifisering', definition: 'Gruppering av organismar basert paa ytre form og kjenneteikn' },
-    { term: 'Molekylær fylogeni', definition: 'Bruk av DNA- og proteinsekvensanalyse for aa avdekkje evolusjonaert slektskap' },
-    { term: 'DNA-strekkoding', definition: 'Bruk av ein kort, standardisert DNA-sekvens for aa identifisere artar' },
-    { term: 'eDNA (miljoe-DNA)', definition: 'DNA som organismar etterlet i miljoeet, kan analyserast for artsidentifikasjon' },
-    { term: 'Konvergent evolusjon', definition: 'Naar ulike artar utviklar liknande trekk uavhengig av kvarandre' },
-    { term: 'Genomikk', definition: 'Studiet av heile genom for aa forstaa genetisk variasjon og evolusjon' },
-    { term: 'Metagenomikk', definition: 'Analyse av alt DNA i ei miljoeeproeve for aa kartleggje alle organismar' },
+    { term: 'Morfologisk klassifisering', definition: 'Gruppering av organismar basert på ytre form og kjenneteikn' },
+    { term: 'Molekylær fylogeni', definition: 'Bruk av DNA- og proteinsekvensanalyse for å avdekkje evolusjonært slektskap' },
+    { term: 'DNA-strekkoding', definition: 'Bruk av ein kort, standardisert DNA-sekvens for å identifisere artar' },
+    { term: 'eDNA (miljø-DNA)', definition: 'DNA som organismar etterlet i miljøet, kan analyserast for artsidentifikasjon' },
+    { term: 'Konvergent evolusjon', definition: 'Når ulike artar utviklar liknande trekk uavhengig av kvarandre' },
+    { term: 'Genomikk', definition: 'Studiet av heile genom for å forstå genetisk variasjon og evolusjon' },
+    { term: 'Metagenomikk', definition: 'Analyse av alt DNA i ei miljøeprøve for å kartleggje alle organismar' },
   ],
 };
 
