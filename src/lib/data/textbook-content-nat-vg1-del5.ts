@@ -20,6 +20,22 @@ export const CHAPTER_NAT_VG1_9_1: TextbookChapter = {
   competenceGoals: ['gi eksempler på bruk av bioteknologi og drøfte etiske spørsmål knyttet til bioteknologi'],
   content: [
     {
+      id: 'nat-vg1-9-1-intro',
+      type: 'text',
+      content: `## Genteknologiske metoder – verktøykassen for fremtiden
+
+Tenk deg at du kan redigere DNA like enkelt som du redigerer en tekst på datamaskinen. Hva om du kunne klippe ut et gen som forårsaker sykdom og erstatte det med et friskt gen? Dette høres ut som science fiction, men det er faktisk hva moderne bioteknologi kan gjøre.
+
+Bioteknologi er et av de raskest voksende fagfeltene i verden, og det påvirker alt fra maten vi spiser til medisinene vi tar. For å forstå denne teknologien trenger vi å kjenne verktøyene – de molekylære saksene, kopimaskinene og avlesningsapparatene som gjør det mulig å arbeide med DNA på helt nye måter.
+
+I dette kapittelet skal du lære:
+- Hva bioteknologi er og hvordan det har utviklet seg fra gammel til moderne tid
+- Hvordan restriksjonsenzymer og DNA-ligase fungerer som molekylære verktøy
+- Hva PCR er og hvorfor metoden er revolusjonerende for DNA-kopiering
+- Hvordan gelelektroforese og gensekvensering brukes til å analysere DNA
+- Hvordan rekombinant DNA-teknologi brukes til å produsere medisiner som insulin`,
+    },
+    {
       id: 'nat-vg1-9-1-text-1',
       type: 'text',
       content: `## Hva er bioteknologi?
@@ -54,6 +70,23 @@ Overgangen fra gammel til moderne bioteknologi skjedde på 1970-tallet, da forsk
       },
     },
     {
+      id: 'nat-vg1-9-1-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva skjedde på 1970-tallet som markerte overgangen fra gammel til moderne bioteknologi?',
+        options: [
+          { id: 'a', text: 'Forskere oppdaget at bakterier kunne gjære sukker til alkohol', isCorrect: false },
+          { id: 'b', text: 'Forskere lærte seg å klippe og lime DNA fra ulike organismer', isCorrect: true },
+          { id: 'c', text: 'Det ble mulig å avle dyr med bedre egenskaper', isCorrect: false },
+          { id: 'd', text: 'Mikroskopet ble oppfunnet slik at man kunne se celler', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. På 1970-tallet lærte forskere seg å bruke restriksjonsenzymer og DNA-ligase til å klippe ut gener fra én organisme og lime dem inn i en annen. Dette var starten på rekombinant DNA-teknologi og markerte overgangen fra tradisjonell bruk av organismer (gjæring, avl) til direkte manipulering av arvematerialet.',
+      },
+    },
+    {
       id: 'nat-vg1-9-1-def-1',
       type: 'definition',
       title: 'Restriksjonsenzymer og DNA-ligase',
@@ -70,6 +103,24 @@ Overgangen fra gammel til moderne bioteknologi skjedde på 1970-tallet, da forsk
 - Avgjørende for å bygge rekombinant DNA
 
 Sammen gjør restriksjonsenzymer og DNA-ligase det mulig å klippe ut et gen fra en organisme og lime det inn i en annen.`,
+    },
+    // Oppgave om restriksjonsenzymer – tester def-1
+    {
+      id: 'nat-vg1-9-1-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Hva er funksjonen til restriksjonsenzymer i genteknologien?',
+        options: [
+          { id: 'a', text: 'De kopierer DNA-molekyler i stor skala', isCorrect: false },
+          { id: 'b', text: 'De limer sammen DNA-fragmenter fra ulike organismer', isCorrect: false },
+          { id: 'c', text: 'De klipper DNA på bestemte steder i sekvensen', isCorrect: true },
+          { id: 'd', text: 'De oversetter DNA til proteiner i cellen', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. Restriksjonsenzymer er molekylære sakser som gjenkjenner spesifikke DNA-sekvenser og klipper DNA-tråden der. De kan lage enten butte ender eller klebrige ender. Alternativ b beskriver DNA-ligase, alternativ a beskriver PCR, og alternativ d beskriver ribosomer.',
+      },
     },
     {
       id: 'nat-vg1-9-1-def-2',
@@ -125,6 +176,37 @@ Sammen gjør restriksjonsenzymer og DNA-ligase det mulig å klippe ut et gen fra
 - En **vektor** er et DNA-molekyl som kan frakte et fremmed gen inn i en celle
 - **Plasmider** er små, sirkulære DNA-molekyler i bakterier som ofte brukes som vektorer
 - Genet som skal overføres, settes inn i plasmidet med restriksjonsenzymer og DNA-ligase`,
+    },
+    // Oppgave om gelelektroforese og vektorer – tester def-3
+    {
+      id: 'nat-vg1-9-1-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-6',
+        number: '6',
+        type: 'classic',
+        task: 'Forklar prinsippet bak gelelektroforese. Hvorfor vandrer DNA-fragmenter mot den positive polen, og hvorfor beveger små fragmenter seg raskere enn store?',
+        solution: 'Gelelektroforese utnytter at DNA er negativt ladet på grunn av fosfatgruppene i DNA-ryggraden. Når DNA plasseres i en gel og utsettes for et elektrisk felt, vil de negativt ladede fragmentene trekkes mot den positive polen (anoden). Gelen fungerer som et nettverk av porer. Små fragmenter beveger seg lettere gjennom porene og vandrer derfor raskere enn store fragmenter, som bremses mer av gelstrukturen. Resultatet er at fragmentene sorteres etter størrelse, med de minste lengst fra startpunktet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-9-1-exercise-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-7',
+        number: '7',
+        type: 'multiple-choice',
+        task: 'Et plasmid brukes som vektor i genteknologi. Hva er et plasmid?',
+        options: [
+          { id: 'a', text: 'Et enzym som klipper DNA på bestemte steder', isCorrect: false },
+          { id: 'b', text: 'Et lite, sirkulært DNA-molekyl som finnes i bakterier', isCorrect: true },
+          { id: 'c', text: 'En type virus som infiserer menneskeceller', isCorrect: false },
+          { id: 'd', text: 'En metode for å sortere DNA-fragmenter etter størrelse', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. Et plasmid er et lite, sirkulært DNA-molekyl som finnes naturlig i bakterier, adskilt fra bakteriens hovedkromosom. Plasmider kan replikeres uavhengig og overføres mellom bakterier. I genteknologien brukes plasmider som vektorer – transportmolekyler som frakter fremmede gener inn i bakterieceller. Et gen settes inn i plasmidet med restriksjonsenzymer og DNA-ligase, og det rekombinante plasmidet overføres til bakterien.',
+      },
     },
     {
       id: 'nat-vg1-9-1-example-1',
@@ -193,6 +275,23 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-9-1-exercise-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-8',
+        number: '8',
+        type: 'multiple-choice',
+        task: 'Etter 20 sykluser med PCR, hvor mange kopier av DNA-målsekvensen har man teoretisk?',
+        options: [
+          { id: 'a', text: '20 kopier', isCorrect: false },
+          { id: 'b', text: '400 kopier', isCorrect: false },
+          { id: 'c', text: 'Ca. 1 million kopier', isCorrect: true },
+          { id: 'd', text: 'Ca. 1 milliard kopier', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. I PCR fordobles antall DNA-kopier i hver syklus, så etter n sykluser har man 2^n kopier. Etter 20 sykluser: 2^20 = 1 048 576, altså omtrent 1 million kopier. Alternativ d (1 milliard) tilsvarer omtrent 2^30, altså 30 sykluser.',
+      },
+    },
     // --- Kilder ---
     {
       id: 'nat-vg1-9-1-kilder',
@@ -219,6 +318,22 @@ export const CHAPTER_NAT_VG1_9_2: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['gi eksempler på bruk av bioteknologi og drøfte etiske spørsmål knyttet til bioteknologi'],
   content: [
+    {
+      id: 'nat-vg1-9-2-intro',
+      type: 'text',
+      content: `## CRISPR og genredigering – livets egen tekstbehandler
+
+Forestill deg at genomet er en bok med over tre milliarder bokstaver. Frem til nylig kunne vi bare legge til nye sider i boken, uten å vite nøyaktig hvor de havnet. Med CRISPR kan vi for første gang finne akkurat den setningen vi vil endre, og redigere den med kirurgisk presisjon.
+
+CRISPR-teknologien har blitt kalt den viktigste biologiske oppdagelsen siden DNA-strukturen ble kartlagt i 1953. Den er så enkel og billig at den har demokratisert genteknologien og gjort den tilgjengelig for forskningslaboratorier over hele verden. Men med stor makt følger stort ansvar – og debatten om hvordan vi bør bruke CRISPR, er bare så vidt i gang.
+
+I dette kapittelet skal du lære:
+- Hva CRISPR-Cas9 er og hvordan systemet opprinnelig ble oppdaget i bakterier
+- Hvordan guide-RNA og Cas9-proteinet samarbeider for å redigere DNA
+- Forskjellen mellom knock-out og knock-in av gener
+- Hvilke fordeler CRISPR har sammenlignet med eldre genteknologiske metoder
+- Hva gendrivere er og hvilke muligheter og risikoer de innebærer`,
+    },
     {
       id: 'nat-vg1-9-2-text-1',
       type: 'text',
@@ -278,6 +393,40 @@ export const CHAPTER_NAT_VG1_9_2: TextbookChapter = {
       },
     },
     {
+      id: 'nat-vg1-9-2-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-2-exercise-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva skjer når Cas9 klipper DNA-et og cellen reparerer kuttet UTEN en mal-DNA-sekvens?',
+        options: [
+          { id: 'a', text: 'Et nytt gen settes inn på det klippede stedet (knock-in)', isCorrect: false },
+          { id: 'b', text: 'DNA-et repareres perfekt og ingenting endres', isCorrect: false },
+          { id: 'c', text: 'Genet blir ødelagt og mister sin funksjon (knock-out)', isCorrect: true },
+          { id: 'd', text: 'Hele kromosomet brytes ned og cellen dør', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. Når Cas9 klipper begge DNA-trådene og cellen reparerer kuttet uten en mal, skjer reparasjonen ofte upresist. Det kan legges til eller fjernes noen baser, som gjør at genet ikke lenger kan leses riktig. Genet mister dermed sin funksjon – dette kalles knock-out. Dersom en mal-DNA-sekvens tilføres, kan cellen i stedet sette inn en ny sekvens (knock-in).',
+      },
+    },
+    {
+      id: 'nat-vg1-9-2-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-2-exercise-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Hvilken komponent i CRISPR-Cas9-systemet fungerer som en «GPS» som finner riktig sted i genomet?',
+        options: [
+          { id: 'a', text: 'Cas9-proteinet', isCorrect: false },
+          { id: 'b', text: 'DNA-polymerase', isCorrect: false },
+          { id: 'c', text: 'Restriksjonsenzymet', isCorrect: false },
+          { id: 'd', text: 'Guide-RNA (gRNA)', isCorrect: true },
+        ],
+        solution: 'Riktig svar er d. Guide-RNA er en kort RNA-sekvens (ca. 20 baser) som er komplementær til målsekvensen i DNA. Den leder Cas9-proteinet til riktig sted i genomet ved komplementær baseparing. Cas9 er selve saksen som klipper, men det er guide-RNA som bestemmer hvor klippingen skjer.',
+      },
+    },
+    {
       id: 'nat-vg1-9-2-def-2',
       type: 'definition',
       title: 'Fordeler over eldre metoder',
@@ -296,6 +445,20 @@ export const CHAPTER_NAT_VG1_9_2: TextbookChapter = {
 - Reparasjon av kuttet er ikke alltid presis
 - Leveranse inn i celler kan være utfordrende
 - Etiske spørsmål om bruk på mennesker`,
+    },
+    // Oppgave om fordeler og begrensninger – tester def-2
+    {
+      id: 'nat-vg1-9-2-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-2-exercise-6',
+        number: '6',
+        type: 'classic',
+        task: 'En forsker vil bruke CRISPR-Cas9 til å studere funksjonen til et bestemt gen i mus. Forklar hvordan forskeren kan bruke knock-out-teknikken, og nevn en mulig begrensning ved metoden.',
+        solution: 'Forskeren designer et guide-RNA som er komplementært til sekvensen i genet som skal studeres. Guide-RNA og Cas9-protein settes inn i museceller (for eksempel embryonale celler). Cas9 klipper begge DNA-trådene i målgenet. Uten en reparasjonsmal vil cellens reparasjonsmekanisme introdusere feil (innsetting eller fjerning av baser), slik at genet mister sin funksjon (knock-out). Ved å studere musen uten dette genet kan forskeren finne ut hva genet gjør. En mulig begrensning er off-target-effekter: Cas9 kan av og til klippe på feil sted i genomet, noe som kan påvirke andre gener og gi misvisende resultater.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-9-2-def-3',
@@ -373,6 +536,19 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-9-2-exercise-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-2-exercise-7',
+        number: '7',
+        type: 'classic',
+        task: 'Jennifer Doudna og Emmanuelle Charpentier fikk Nobelprisen i kjemi i 2020 for utviklingen av CRISPR-Cas9. Forklar opprinnelsen til CRISPR-systemet i naturen, og beskriv hvordan forskere har tilpasset det til bruk som genredigeringsverktøy.',
+        solution: 'CRISPR-systemet ble opprinnelig oppdaget som et immunforsvar i bakterier. Når en bakterie overlever en virusinfeksjon, lagrer den korte DNA-sekvenser fra viruset mellom gjentatte sekvenser (CRISPR-sekvensene) i sitt eget genom. Ved en ny infeksjon lager bakterien RNA-kopier av disse lagrede sekvensene, som leder Cas-proteiner til å gjenkjenne og kutte det invaderende virus-DNA. Forskere har tilpasset dette systemet ved å designe syntetiske guide-RNA som matcher en hvilken som helst ønsket DNA-sekvens, ikke bare virussekvenser. Sammen med Cas9-proteinet kan de dermed redigere DNA presist i alle typer celler og organismer, ikke bare i bakterier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Kilder ---
     {
       id: 'nat-vg1-9-2-kilder',
@@ -399,6 +575,23 @@ export const CHAPTER_NAT_VG1_9_3: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['gi eksempler på bruk av bioteknologi og drøfte etiske spørsmål knyttet til bioteknologi'],
   content: [
+    {
+      id: 'nat-vg1-9-3-intro',
+      type: 'text',
+      content: `## Bioteknologi i medisin – fra laboratoriet til pasienten
+
+Visste du at insulinet som millioner av diabetespasienter bruker hver dag, produseres av genmodifiserte bakterier? Eller at vaksinene som beskyttet verden mot COVID-19, ble laget ved hjelp av syntetisk mRNA? Medisinsk bioteknologi har revolusjonert helsevesenet og gir oss stadig nye muligheter til å behandle sykdommer som tidligere var uhelbredelige.
+
+Fra rekombinante proteiner og mRNA-vaksiner til genterapi og stamceller – bioteknologien har gitt legene helt nye verktøy. Samtidig reiser de nye mulighetene viktige spørsmål om tilgang, kostnad og prioritering i helsevesenet.
+
+I dette kapittelet skal du lære:
+- Hva rekombinante proteiner er og hvordan de brukes som medisiner
+- Hvordan mRNA-vaksiner virker og hvorfor de kunne utvikles så raskt
+- Hva genterapi er og forskjellen mellom somatisk genterapi og kimbaneterapi
+- Hvordan monoklonale antistoffer brukes i kreftbehandling
+- Hva stamceller er og hvordan de kan brukes i medisin
+- Hva persontilpasset medisin innebærer`,
+    },
     {
       id: 'nat-vg1-9-3-text-1',
       type: 'text',
@@ -451,6 +644,23 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
       },
     },
     {
+      id: 'nat-vg1-9-3-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva er riktig om mRNA-vaksiner?',
+        options: [
+          { id: 'a', text: 'De inneholder levende, svekkede virus som gir immunitet', isCorrect: false },
+          { id: 'b', text: 'De endrer mottakerens DNA permanent', isCorrect: false },
+          { id: 'c', text: 'De inneholder mRNA som instruerer celler til å lage et virusprotein, slik at immunforsvaret lærer å gjenkjenne det', isCorrect: true },
+          { id: 'd', text: 'De inneholder ferdiglagde antistoffer som bekjemper viruset direkte', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. mRNA-vaksiner inneholder syntetisk mRNA som koder for et protein fra viruset (for eksempel piggproteinet til SARS-CoV-2). Kroppens celler leser mRNA-et og produserer proteinet, som deretter gjenkjennes av immunforsvaret. mRNA-et brytes raskt ned og endrer ikke DNA (alternativ b er feil). Vaksinen inneholder ikke levende virus (alternativ a er feil) og ikke ferdige antistoffer (alternativ d er feil).',
+      },
+    },
+    {
       id: 'nat-vg1-9-3-def-2',
       type: 'definition',
       title: 'Genterapi og monoklonale antistoffer',
@@ -468,6 +678,37 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
 - Brukes i kreftbehandling: Binder seg til kreftceller og markerer dem for immunforsvaret
 - Brukes mot autoimmune sykdommer som revmatoid artritt
 - Eksempler: Herceptin (brystkreft), Keytruda (immunterapi)`,
+    },
+    // Oppgave om genterapi – tester def-2
+    {
+      id: 'nat-vg1-9-3-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hva somatisk genterapi er. Hvorfor er denne typen genterapi etisk enklere å forsvare enn kimbaneterapi?',
+        solution: 'Somatisk genterapi er behandling der man korrigerer eller erstatter defekte gener i kroppsceller (ikke kjønnsceller). En virusvektor brukes ofte til å frakte det friske genet inn i pasientens celler. Endringene påvirker bare pasienten selv og arves ikke til neste generasjon. Dette gjør det etisk enklere å forsvare enn kimbaneterapi, der man endrer gener i kjønnsceller slik at endringene arves. Ved kimbaneterapi kan fremtidige generasjoner som ikke har samtykket bli påvirket, og eventuelle feil eller uventede konsekvenser vil også arves videre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-9-3-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Monoklonale antistoffer brukes i kreftbehandling. Hvordan virker de?',
+        options: [
+          { id: 'a', text: 'De dreper alle celler som deler seg raskt, inkludert friske celler', isCorrect: false },
+          { id: 'b', text: 'De binder seg spesifikt til kreftceller og markerer dem for immunforsvaret', isCorrect: true },
+          { id: 'c', text: 'De reparerer mutasjonene i kreftcellenes DNA slik at de blir normale igjen', isCorrect: false },
+          { id: 'd', text: 'De hindrer alle celler i kroppen fra å dele seg', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. Monoklonale antistoffer er designet for å gjenkjenne ett spesifikt molekyl som finnes på overflaten av kreftceller. Når antistoffet binder seg til kreftcellen, markerer det cellen slik at immunforsvaret kan oppdage og angripe den. Dette er en mer målrettet behandling enn tradisjonell cellegift (alternativ a), som dreper alle celler som deler seg raskt.',
+      },
     },
     {
       id: 'nat-vg1-9-3-def-3',
@@ -563,6 +804,36 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-9-3-exercise-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-7',
+        number: '7',
+        type: 'multiple-choice',
+        task: 'Hvilken type stamceller unngår de etiske problemene knyttet til bruk av embryoer?',
+        options: [
+          { id: 'a', text: 'Embryonale stamceller fra blastocyster', isCorrect: false },
+          { id: 'b', text: 'Adulte stamceller fra benmarg', isCorrect: false },
+          { id: 'c', text: 'Induserte pluripotente stamceller (iPSC)', isCorrect: true },
+          { id: 'd', text: 'Stamceller fra navlestrengsblod', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. Induserte pluripotente stamceller (iPSC) lages ved å omprogrammere vanlige kroppsceller til å oppføre seg som embryonale stamceller. Siden man bruker pasientens egne celler og ikke trenger å ødelegge embryoer, unngår man de etiske problemene knyttet til embryonale stamceller. iPSC ble oppdaget av Shinya Yamanaka, som fikk Nobelprisen i 2012 for dette.',
+      },
+    },
+    {
+      id: 'nat-vg1-9-3-exercise-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-8',
+        number: '8',
+        type: 'classic',
+        task: 'Forklar hvordan persontilpasset medisin kan forbedre kreftbehandling sammenlignet med tradisjonell behandling.',
+        solution: 'Ved tradisjonell kreftbehandling får alle pasienter med samme krefttype ofte den samme behandlingen. Med persontilpasset medisin analyseres mutasjonene i den enkelte pasientens svulst ved hjelp av gensekvensering. Basert på denne analysen kan legen velge medisiner som er rettet mot akkurat de mutasjonene som driver kreften. For eksempel virker brystkreftmedisinen Herceptin bare på svulster som er HER2-positive. Pasienter med andre genforandringer trenger andre medisiner. Dette gir bedre behandlingsresultater og færre unødvendige bivirkninger, fordi pasienten får den behandlingen som faktisk passer for deres spesifikke krefttype.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Kilder ---
     {
       id: 'nat-vg1-9-3-kilder',
@@ -590,6 +861,22 @@ export const CHAPTER_NAT_VG1_9_4: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['gi eksempler på bruk av bioteknologi og drøfte etiske spørsmål knyttet til bioteknologi'],
   content: [
+    {
+      id: 'nat-vg1-9-4-intro',
+      type: 'text',
+      content: `## Bioteknologi i landbruk og industri – fra åker til fabrikk
+
+Neste gang du vasker klær, tenk på dette: Vaskemiddelet ditt inneholder sannsynligvis enzymer produsert av genmodifiserte bakterier. Og maten du spiser? I mange land dyrkes genmodifiserte avlinger på enorme arealer for å brødfø en voksende verdensbefolkning.
+
+Bioteknologi er ikke bare noe som foregår i medisinske laboratorier. Den påvirker hverdagen vår gjennom maten vi spiser, klærne vi vasker og miljøet vi lever i. Noen av de mest spennende bruksområdene handler om å lage bionedbrytbar plast, rense forurenset jord og produsere drivstoff fra planter i stedet for olje.
+
+I dette kapittelet skal du lære:
+- Forskjellen mellom tradisjonell avl, genmodifisering og genredigering av planter
+- Hva GM-planter er og eksempler som Bt-mais, gylden ris og tørketolerante planter
+- Hvordan enzymer og mikroorganismer brukes i industriell produksjon
+- Hva bioremediering er og hvordan det kan brukes til å rense opp forurensning
+- Hvordan bioteknologi kan bidra til en mer bærekraftig fremtid`,
+    },
     {
       id: 'nat-vg1-9-4-text-1',
       type: 'text',
@@ -646,6 +933,37 @@ Mennesker har i tusenvis av år krysset planter og avlet dyr for å få ønskede
 - Planter som er modifisert for å tåle tørke og ugunstige forhold
 - Viktig for matsikkerhet i en tid med klimaendringer`,
     },
+    // Oppgave om GM-planter – tester def-1
+    {
+      id: 'nat-vg1-9-4-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva er gylden ris (Golden Rice), og hvorfor ble den utviklet?',
+        options: [
+          { id: 'a', text: 'En ristype som er avlet frem for å gi større avlinger i tørre områder', isCorrect: false },
+          { id: 'b', text: 'En genmodifisert ris som produserer betakaroten for å motvirke vitamin A-mangel', isCorrect: true },
+          { id: 'c', text: 'En naturlig risvariant med gul farge som tåler herbicider', isCorrect: false },
+          { id: 'd', text: 'En ris som er genmodifisert til å produsere insektgift mot skadedyr', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. Gylden ris er genmodifisert til å produsere betakaroten, som er et forstadie til vitamin A. Den ble utviklet for å motvirke vitamin A-mangel, som er et alvorlig helseproblem i mange utviklingsland. Ca. 250 000 barn blir blinde hvert år på grunn av vitamin A-mangel. Alternativ d beskriver Bt-planter, ikke gylden ris.',
+      },
+    },
+    {
+      id: 'nat-vg1-9-4-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvordan Bt-planter virker. Hvorfor er Bt-toksinet ufarlig for mennesker, men dødelig for visse insekter?',
+        solution: 'Bt-planter inneholder et gen fra jordbakterien Bacillus thuringiensis som koder for Bt-toksinet (Cry-proteinet). Planten produserer dette toksinet i bladene og stengelen. Når et skadeinsekt spiser planten, aktiveres toksinet i insektets tarm. Toksinet lager hull i tarmveggen, og insektet dør. Bt-toksinet er ufarlig for mennesker fordi det krever basisk pH for å aktiveres. I insektenes tarm er pH svært basisk, mens menneskers magesyre er sterkt sur. I sur pH brytes toksinet ned uten å aktiveres. Dessuten mangler mennesker de spesifikke reseptorene i tarmveggen som toksinet binder seg til hos insekter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-4-def-2',
       type: 'definition',
@@ -670,6 +988,24 @@ Mennesker har i tusenvis av år krysset planter og avlet dyr for å få ønskede
 **Fermentering:**
 - Bruk av mikroorganismer til å omdanne råstoffer til nyttige produkter
 - Eksempler: produksjon av antibiotika, vitaminer, aminosyrer og organiske syrer`,
+    },
+    // Oppgave om bionedbrytbar plast – tester def-2
+    {
+      id: 'nat-vg1-9-4-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hvordan kan bioteknologi bidra til å løse plastproblemet?',
+        options: [
+          { id: 'a', text: 'Ved å utvikle bakterier som spiser all plast i havet på kort tid', isCorrect: false },
+          { id: 'b', text: 'Ved å lage bionedbrytbar plast fra fornybare ressurser ved hjelp av bakterier', isCorrect: true },
+          { id: 'c', text: 'Ved å genmodifisere mennesker slik at plast ikke er skadelig for oss', isCorrect: false },
+          { id: 'd', text: 'Ved å lage plast som er enda sterkere og varer for alltid', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. Bioteknologi kan bidra til å løse plastproblemet ved å lage bionedbrytbar plast. PLA (polymelkesyre) lages fra maisstivelse ved hjelp av bakterier, og PHA (polyhydroksyalkanoater) produseres direkte av bakterier. Disse plastypene brytes ned i naturen, i motsetning til vanlig plast som kan ta hundrevis av år å brytes ned.',
+      },
     },
     // Oppgave om enzymer i industri – tester def-2
     {
@@ -770,6 +1106,36 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-9-4-exercise-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-7',
+        number: '7',
+        type: 'classic',
+        task: 'Diskuter fordeler og ulemper ved bruk av herbicidtolerante GM-planter (for eksempel Roundup Ready-soya). Vurder konsekvenser for bonden, miljøet og forbrukeren.',
+        solution: 'Fordeler for bonden: Enklere ugressbekjempelse – kan sprøyte hele åkeren med ett herbicid uten å skade avlingen, noe som sparer tid og arbeid. Kan gi høyere avlinger. Fordeler for miljøet: Kan i noen tilfeller redusere totalt herbicidforbruk. Ulemper for miljøet: Kan føre til økt bruk av ett enkelt herbicid (glyfosat), noe som kan selektere for resistente ugress (superugress). Herbicidresistens kan overføres til ville planter gjennom pollinering. Ulemper for bonden: Avhengighet av ett selskap som selger både frø og herbicid, høyere kostnader. For forbrukeren: Bekymring for herbicidrester i maten, selv om godkjente GM-planter er vurdert som trygge.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-9-4-exercise-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-8',
+        number: '8',
+        type: 'multiple-choice',
+        task: 'Hva brukes bioremediering til?',
+        options: [
+          { id: 'a', text: 'Produksjon av biodrivstoff fra alger', isCorrect: false },
+          { id: 'b', text: 'Fremstilling av enzymer til vaskemidler', isCorrect: false },
+          { id: 'c', text: 'Opprensing av forurensning i miljøet ved hjelp av levende organismer', isCorrect: true },
+          { id: 'd', text: 'Genmodifisering av planter for å tåle tørke', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. Bioremediering er bruk av levende organismer, som bakterier og planter, til å rense opp forurensning i miljøet. Eksempler inkluderer oljenedbrytende bakterier som bryter ned oljesøl, planter som tar opp tungmetaller fra forurenset jord, og mikroorganismer som bryter ned pesticider. Det er et miljøvennlig alternativ til kjemisk opprensing.',
+      },
+    },
     // --- Kilder ---
     {
       id: 'nat-vg1-9-4-kilder',
@@ -797,6 +1163,23 @@ export const CHAPTER_NAT_VG1_9_5: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['gi eksempler på bruk av bioteknologi og drøfte etiske spørsmål knyttet til bioteknologi'],
   content: [
+    {
+      id: 'nat-vg1-9-5-intro',
+      type: 'text',
+      content: `## Etiske spørsmål i bioteknologi – makt, ansvar og fremtiden
+
+I 2018 sjokkerte den kinesiske forskeren He Jiankui verden da han annonserte at han hadde redigert genene til to tvillingjenter. Forskersamfunnet reagerte med fordømmelse, og He ble dømt til fengsel. Men hendelsen tvang oss alle til å stille et grunnleggende spørsmål: Bare fordi vi *kan* endre genene våre, betyr det at vi *bør* gjøre det?
+
+Bioteknologi gir oss muligheter som var utenkelige for bare noen tiår siden. Vi kan kurere arvelige sykdommer, lage mat som redder millioner fra sult, og rense opp forurensning med levende organismer. Men teknologien reiser også vanskelige spørsmål om rettferdighet, sikkerhet og hva det vil si å være menneske.
+
+I dette kapittelet skal du lære:
+- Hvilke fire etiske prinsipper som brukes i bioetiske vurderinger
+- Hvordan føre-var-prinsippet brukes i GMO-debatten
+- Hva som skiller somatisk genterapi fra kimbaneterapi – og hvorfor det er etisk viktig
+- Hva debatten om designer-babyer handler om
+- Hvordan den norske bioteknologiloven regulerer bioteknologi
+- Å drøfte etiske dilemmaer ved hjelp av argumenter og prinsipper`,
+    },
     {
       id: 'nat-vg1-9-5-text-1',
       type: 'text',
@@ -854,6 +1237,23 @@ Etikk handler om å reflektere over hva som er rett og galt, og å begrunne valg
       },
     },
     {
+      id: 'nat-vg1-9-5-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilket etisk prinsipp handler om at alle skal ha lik tilgang til behandling og teknologi?',
+        options: [
+          { id: 'a', text: 'Autonomi', isCorrect: false },
+          { id: 'b', text: 'Ikke skade', isCorrect: false },
+          { id: 'c', text: 'Gjøre godt', isCorrect: false },
+          { id: 'd', text: 'Rettferdighet', isCorrect: true },
+        ],
+        solution: 'Riktig svar er d. Rettferdighetsprinsippet handler om lik tilgang til behandling og teknologi, rettferdig fordeling av fordeler og byrder, og et globalt perspektiv der man vurderer forskjeller mellom rike og fattige land. Autonomi handler om selvbestemmelse, ikke skade handler om å unngå å påføre skade, og gjøre godt handler om å handle til det beste for andre.',
+      },
+    },
+    {
       id: 'nat-vg1-9-5-def-2',
       type: 'definition',
       title: 'GMO-etikk og føre-var-prinsippet',
@@ -897,6 +1297,36 @@ Etikk handler om å reflektere over hva som er rett og galt, og å begrunne valg
       },
     },
     {
+      id: 'nat-vg1-9-5-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Den norske genteknologiloven krever at genmodifiserte organismer vurderes etter flere kriterier. Hvilket av følgende er IKKE et av disse kriteriene?',
+        options: [
+          { id: 'a', text: 'Helse og miljø', isCorrect: false },
+          { id: 'b', text: 'Bærekraft og samfunnsnytte', isCorrect: false },
+          { id: 'c', text: 'Økonomisk fortjeneste for produsenten', isCorrect: true },
+          { id: 'd', text: 'Miljøpåvirkning', isCorrect: false },
+        ],
+        solution: 'Riktig svar er c. Den norske genteknologiloven krever at genmodifiserte organismer vurderes ut fra helse, miljø, bærekraft og samfunnsnytte. Økonomisk fortjeneste for produsenten er ikke et kriterium i loven. Norge har en av verdens strengeste GMO-lovgivninger, og ingen GM-planter er godkjent for dyrking i Norge.',
+      },
+    },
+    {
+      id: 'nat-vg1-9-5-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-6',
+        number: '6',
+        type: 'classic',
+        task: 'Gylden ris kan redde hundretusenvis av barn fra blindhet, men motstandere av GMO er skeptiske til å godkjenne den. Drøft dette dilemmaet ved å bruke minst to av de fire etiske prinsippene.',
+        solution: 'Gjøre godt: Gylden ris kan forebygge vitamin A-mangel og hindre blindhet hos opptil 250 000 barn årlig. Å holde tilbake en teknologi som kan redde liv, kan stride mot plikten til å gjøre godt. Ikke skade: Motstandere mener vi ikke vet nok om langsiktige helseeffekter av GMO og at vi bør bruke føre-var-prinsippet for å unngå skade. Rettferdighet: Er det rettferdig at barn i fattige land lider fordi rike land er skeptiske til GMO? Samtidig: Er det rettferdig å bruke fattige som «testkaniner» for ny teknologi? Autonomi: Bønder og forbrukere bør ha rett til å velge om de vil dyrke og spise GMO. Dette er et genuint dilemma der ulike etiske prinsipper kan trekke i ulike retninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-9-5-def-3',
       type: 'definition',
       title: 'Etikk rundt genterapi, designer-babyer og kloning',
@@ -928,6 +1358,37 @@ Etikk handler om å reflektere over hva som er rett og galt, og å begrunne valg
 - Skal selskaper kunne patentere gener, organismer eller genteknologiske metoder?
 - Kan hemme forskning og begrense tilgang til viktige behandlinger
 - Balanse mellom å belønne innovasjon og sikre allmenn tilgang`,
+    },
+    // Oppgave om designer-babyer og kimbaneterapi – tester def-3
+    {
+      id: 'nat-vg1-9-5-exercise-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-7',
+        number: '7',
+        type: 'multiple-choice',
+        task: 'Hva er den viktigste etiske forskjellen mellom somatisk genterapi og kimbaneterapi?',
+        options: [
+          { id: 'a', text: 'Somatisk genterapi er dyrere enn kimbaneterapi', isCorrect: false },
+          { id: 'b', text: 'Kimbaneterapi endrer gener som arves til fremtidige generasjoner som ikke har samtykket', isCorrect: true },
+          { id: 'c', text: 'Somatisk genterapi bruker CRISPR, mens kimbaneterapi bruker eldre metoder', isCorrect: false },
+          { id: 'd', text: 'Kimbaneterapi kan bare brukes på planter, ikke mennesker', isCorrect: false },
+        ],
+        solution: 'Riktig svar er b. Den viktigste etiske forskjellen er at kimbaneterapi endrer gener i kjønnscellene, slik at endringene arves til alle fremtidige generasjoner. Disse menneskene har ikke kunnet samtykke til endringene. Ved somatisk genterapi endres bare genene i pasientens kroppsceller, og endringene arves ikke. Dette gjør somatisk genterapi etisk enklere å forsvare.',
+      },
+    },
+    {
+      id: 'nat-vg1-9-5-exercise-8',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-8',
+        number: '8',
+        type: 'classic',
+        task: 'Diskuter begrepet «designer-babyer». Hva er forskjellen mellom å bruke genteknologi til å kurere en alvorlig sykdom hos et ufødt barn og å bruke den til å velge barnets øyefarge eller intelligens?',
+        solution: 'Å bruke genteknologi til å kurere en alvorlig arvelig sykdom (for eksempel sigdcelleanemi eller cystisk fibrose) handler om å fjerne lidelse og gi barnet et friskere liv. De fleste vil si dette er etisk forsvarlig, fordi det er behandling av sykdom. Å velge egenskaper som øyefarge, intelligens eller sportsevne er derimot forbedring (enhancement) – ikke behandling. Dette er etisk problematisk av flere grunner: 1) Det kan forsterke sosiale forskjeller dersom bare rike familier har tilgang. 2) Det reduserer menneskelig mangfold ved å definere noen egenskaper som bedre enn andre. 3) Barnet kan ikke samtykke til valgene foreldrene gjør. 4) Grensen mellom behandling og forbedring er vanskelig å trekke. Hvem bestemmer hva som er en «sykdom» og hva som er «normal variasjon»?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-9-5-text-2',

@@ -88,6 +88,24 @@ Grensen mellom organisk og uorganisk er ikke alltid skarp, men organiske forbind
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: MC-oppgave om organisk vs. uorganisk
+    {
+      id: 'nat-vg1-5-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken av disse forbindelsene regnes som en organisk forbindelse?',
+        options: [
+          { id: 'a', text: 'Karbondioksid (CO₂)', isCorrect: false },
+          { id: 'b', text: 'Kalsiumkarbonat (CaCO₃)', isCorrect: false },
+          { id: 'c', text: 'Etanol (C₂H₅OH)', isCorrect: true },
+          { id: 'd', text: 'Karbonmonoksid (CO)', isCorrect: false },
+        ],
+        solution: 'Etanol (C₂H₅OH) er en organisk forbindelse fordi den inneholder karbon-hydrogenbindinger og karbon-karbonbindinger. CO₂, CaCO₃ og CO regnes alle som uorganiske karbonforbindelser fordi de mangler C-H-bindinger og har enklere struktur.',
+      },
+    },
     {
       id: 'nat-vg1-5-1-def-2',
       type: 'definition',
@@ -108,6 +126,24 @@ Grensen mellom organisk og uorganisk er ikke alltid skarp, men organiske forbind
 Prefiksene angir antall karbonatomer:
 - 1C: met- | 2C: et- | 3C: prop- | 4C: but-
 - 5C: pent- | 6C: heks- | 7C: hept- | 8C: okt-`,
+    },
+    // Oppgave: Tester forståelse av strukturformler og navnsetting fra def-2
+    {
+      id: 'nat-vg1-5-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Et organisk molekyl har 5 karbonatomer i en rett kjede. Hva er det riktige IUPAC-prefikset?',
+        options: [
+          { id: 'a', text: 'But-', isCorrect: false },
+          { id: 'b', text: 'Pent-', isCorrect: true },
+          { id: 'c', text: 'Heks-', isCorrect: false },
+          { id: 'd', text: 'Prop-', isCorrect: false },
+        ],
+        solution: 'Prefikset pent- brukes for 5 karbonatomer i IUPAC-navnsettingen. But- er 4C, heks- er 6C, og prop- er 3C.',
+      },
     },
     {
       id: 'nat-vg1-5-1-def-3',
@@ -144,6 +180,20 @@ Jo flere karbonatomer et molekyl har, desto flere mulige isomerer finnes.
 - De to ytterkarbonene er bundet til 3 hydrogen og 1 karbon
 - Midtkarbonatomet er bundet til 2 hydrogen og 2 karbon`,
     },
+    // Oppgave: Tester forståelse av isomeri og navnsetting etter example-1
+    {
+      id: 'nat-vg1-5-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Tegn strukturformlene for de to isomerene av C₄H₁₀ (butan og 2-metylpropan). Forklar hvorfor de har ulike kokepunkter.',
+        solution: 'Butan har en rett kjede: CH₃-CH₂-CH₂-CH₃. 2-metylpropan har en forgreinet kjede: CH₃-CH(CH₃)-CH₃ (tre karbonatomer i hovedkjeden med en metylgruppe på det midterste). Butan har høyere kokepunkt (-1°C) enn 2-metylpropan (-12°C) fordi det rette molekylet har større kontaktflate med nabomolekylene. Større kontaktflate gir sterkere van der Waals-krefter mellom molekylene, og det kreves mer energi for å få dem over i gassfase.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-5-1-oppsummering',
@@ -178,6 +228,23 @@ I dette kapittelet har du lært:
         solution: 'Isomerer er molekyler som har samme molekylformel, men ulik strukturformel — atomene er bundet sammen på forskjellig måte. Eksempel: C₄H₁₀ kan være butan (rett kjede med 4 karbonatomer) eller 2-metylpropan (forgreinet med 3 karbonatomer i hovedkjeden og en metylgruppe). Selv om de har samme antall av hvert atom, har de forskjellige egenskaper som kokepunkt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-1-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-7',
+        number: '7',
+        type: 'multiple-choice',
+        task: 'Hvor mange kovalente bindinger kan et karbonatom danne?',
+        options: [
+          { id: 'a', text: '2', isCorrect: false },
+          { id: 'b', text: '3', isCorrect: false },
+          { id: 'c', text: '4', isCorrect: true },
+          { id: 'd', text: '6', isCorrect: false },
+        ],
+        solution: 'Karbon har 4 valenselektroner og kan derfor danne 4 kovalente bindinger. Dette er en av grunnene til at karbon kan danne så mange ulike forbindelser.',
       },
     },
     // --- Kilder ---
@@ -289,6 +356,24 @@ Dobbeltbindingen hindrer fri rotasjon. Når to grupper kan sitte på samme side 
 
 Cis- og trans-isomerer har ulike fysiske egenskaper (kokepunkt, smeltepunkt).`,
     },
+    // Oppgave: MC-oppgave om cis/trans-isomeri fra def-2
+    {
+      id: 'nat-vg1-5-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvorfor kan alkener ha cis/trans-isomeri, mens alkaner ikke kan det?',
+        options: [
+          { id: 'a', text: 'Alkaner har for mange hydrogenatomer', isCorrect: false },
+          { id: 'b', text: 'Dobbeltbindingen i alkener hindrer fri rotasjon rundt C=C-bindingen', isCorrect: true },
+          { id: 'c', text: 'Alkaner er for korte til å ha isomerer', isCorrect: false },
+          { id: 'd', text: 'Alkener har høyere kokepunkt enn alkaner', isCorrect: false },
+        ],
+        solution: 'Cis/trans-isomeri skyldes at dobbeltbindingen (C=C) i alkener hindrer fri rotasjon. Grupper kan derfor sitte fast på samme side (cis) eller motsatt side (trans) av dobbeltbindingen. I alkaner er det fri rotasjon rundt enkeltbindingene (C-C), så slik isomeri oppstår ikke.',
+      },
+    },
     {
       id: 'nat-vg1-5-2-def-3',
       type: 'definition',
@@ -311,6 +396,20 @@ Cis- og trans-isomerer har ulike fysiske egenskaper (kokepunkt, smeltepunkt).`,
 | C=C | 134 pm | 614 kJ/mol | Middels |
 | C≡C | 120 pm | 839 kJ/mol | Høy |`,
     },
+    // Oppgave: Tester forståelse av alkyner fra def-3
+    {
+      id: 'nat-vg1-5-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Acetylen (etyn) brukes til sveising. Forklar hvorfor denne gassen er spesielt egnet til dette formålet.',
+        solution: 'Acetylen (HC≡CH) har en trippelbinding mellom de to karbonatomene. Trippelbindingen inneholder mye lagret kjemisk energi. Ved forbrenning av acetylen frigis denne energien, og flammetemperaturen kan nå over 3000°C. Dette er mye høyere enn ved forbrenning av alkaner eller alkener, og gjør acetylen ideell til sveising og skjæring av metall.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-2-example-1',
       type: 'example',
@@ -331,6 +430,24 @@ Cis- og trans-isomerer har ulike fysiske egenskaper (kokepunkt, smeltepunkt).`,
    - But-1-en: CH₂=CH-CH₂-CH₃
    - But-2-en: CH₃-CH=CH-CH₃ (finnes som cis og trans)
    - 2-metylpropen: CH₂=C(CH₃)-CH₃`,
+    },
+    // Oppgave: Anvende generelle formler etter example-1
+    {
+      id: 'nat-vg1-5-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Et hydrokarbon har molekylformelen C₅H₁₂. Hvilken type hydrokarbon er dette?',
+        options: [
+          { id: 'a', text: 'Alken', isCorrect: false },
+          { id: 'b', text: 'Alkyn', isCorrect: false },
+          { id: 'c', text: 'Alkan', isCorrect: true },
+          { id: 'd', text: 'Kan ikke avgjøres ut fra formelen', isCorrect: false },
+        ],
+        solution: 'Vi sjekker alkan-formelen CₙH₂ₙ₊₂: For n=5 gir det C₅H₁₂, som stemmer med den oppgitte formelen. Forbindelsen er altså et alkan, nærmere bestemt pentan.',
+      },
     },
     // --- Oppsummering ---
     {
@@ -365,6 +482,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Et hydrokarbon har molekylformelen C₃H₄. Er det et alkan, alken eller alkyn? Navngi forbindelsen og tegn strukturformelen.',
         solution: 'Sjekker formlene: Alkan CₙH₂ₙ₊₂ → C₃H₈ (nei). Alken CₙH₂ₙ → C₃H₆ (nei). Alkyn CₙH₂ₙ₋₂ → C₃H₄ (ja!). Det er et alkyn. Navnet er propyn. Strukturformel: CH₃-C≡CH (med en trippelbinding mellom karbon 2 og 3).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Propan brukes som gass i campingovner. Skriv molekylformelen og strukturformelen for propan, og forklar hvorfor det er en gass ved romtemperatur.',
+        solution: 'Propan har molekylformelen C₃H₈ og strukturformelen CH₃-CH₂-CH₃. Propan er en gass ved romtemperatur fordi den har et lavt kokepunkt (-42°C). Det skyldes at propanmolekylene er relativt små og har svake van der Waals-krefter mellom seg. Det kreves derfor lite energi for å bryte disse kreftene og få molekylene over i gassfase.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -458,6 +588,24 @@ En **funksjonell gruppe** er en bestemt atomgruppe i et organisk molekyl som gir
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: MC-oppgave om alkoholer fra def-1
+    {
+      id: 'nat-vg1-5-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvorfor er metanol (CH₃OH) giftig for mennesker, mens etanol (C₂H₅OH) er drikkbar i moderate mengder?',
+        options: [
+          { id: 'a', text: 'Metanol har høyere kokepunkt og fordamper saktere', isCorrect: false },
+          { id: 'b', text: 'Metanol brytes ned til formaldehyd og maursyre i kroppen, som er svært giftige', isCorrect: true },
+          { id: 'c', text: 'Metanol har flere OH-grupper enn etanol', isCorrect: false },
+          { id: 'd', text: 'Metanol er uløselig i vann og kan ikke tas opp av kroppen', isCorrect: false },
+        ],
+        solution: 'Metanol er giftig fordi kroppen bryter den ned (via enzymet alkoholdehydrogenase) til formaldehyd og deretter maursyre. Disse nedbrytningsproduktene er svært giftige og kan forårsake blindhet og død. Etanol brytes ned til acetaldehyd og videre til eddiksyre, som er mindre skadelig.',
+      },
+    },
     {
       id: 'nat-vg1-5-3-def-2',
       type: 'definition',
@@ -479,6 +627,20 @@ Karboksylsyre + alkohol → ester + vann
 - **Fruktestere:** Gir frukt og bær deres karakteristiske aroma
   - Etylbutanoat lukter ananas
   - Pentylacetat lukter banan`,
+    },
+    // Oppgave: Tester forståelse av esterdannelse fra def-2
+    {
+      id: 'nat-vg1-5-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Estere gir ofte frukt og bær deres karakteristiske lukt. Beskriv den kjemiske reaksjonen som danner en ester, og forklar hvilke to stoffklasser som reagerer.',
+        solution: 'En ester dannes ved en kondensasjonsreaksjon mellom en karboksylsyre (-COOH) og en alkohol (-OH). Under reaksjonen spaltes det av et vannmolekyl (H₂O). Generell reaksjon: karboksylsyre + alkohol → ester + vann. For eksempel: eddiksyre (CH₃COOH) + etanol (C₂H₅OH) → etylacetat (CH₃COOC₂H₅) + H₂O. Etylacetat har en fruktig lukt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-3-def-3',
@@ -522,6 +684,24 @@ c) **CH₃COCH₃** (propanon / aceton)
    - Funksjonell gruppe: C=O inne i kjeden (ketogruppe)
    - Stoffklasse: Keton`,
     },
+    // Oppgave: MC-oppgave om identifisering av funksjonelle grupper
+    {
+      id: 'nat-vg1-5-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'En forbindelse har formelen CH₃CH₂CHO. Hvilken stoffklasse tilhører den?',
+        options: [
+          { id: 'a', text: 'Alkohol', isCorrect: false },
+          { id: 'b', text: 'Karboksylsyre', isCorrect: false },
+          { id: 'c', text: 'Aldehyd', isCorrect: true },
+          { id: 'd', text: 'Keton', isCorrect: false },
+        ],
+        solution: 'Forbindelsen inneholder en -CHO-gruppe (aldehydgruppe) ytterst i kjeden. Dette gjør den til et aldehyd. Forbindelsen heter propanal (3 karbonatomer + endelsen -al for aldehyd). En alkohol ville hatt -OH, en karboksylsyre -COOH, og et keton C=O inne i kjeden.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-5-3-oppsummering',
@@ -554,6 +734,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Gi tre eksempler på hvordan organiske forbindelser med ulike funksjonelle grupper brukes i hverdagen.',
         solution: 'Eksempler: 1) Etanol (alkohol, -OH) brukes som desinfeksjonsmiddel og i alkoholholdige drikkevarer. 2) Eddiksyre (karboksylsyre, -COOH) brukes i matlaging og konservering. 3) Aceton (keton, C=O) brukes som løsemiddel, blant annet i neglelakkfjerner. Andre eksempler: estere gir frukt aroma, formaldehyd brukes til konservering, og aminer er byggesteiner i proteiner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Ranger følgende stoffer etter stigende kokepunkt og begrunn rekkefølgen: propan (C₃H₈), propan-1-ol (C₃H₇OH) og propansyre (C₂H₅COOH).',
+        solution: 'Rekkefølge etter stigende kokepunkt: propan (-42°C) < propan-1-ol (97°C) < propansyre (141°C). Propan er et alkan med bare svake van der Waals-krefter. Propan-1-ol har en OH-gruppe som gir hydrogenbindinger og dermed høyere kokepunkt. Propansyre har en COOH-gruppe som kan danne enda sterkere hydrogenbindinger (og dimerstrukturer), og har dermed det høyeste kokepunktet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -632,6 +825,24 @@ Eksempel:
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: MC-oppgave om forbrenning fra def-1
+    {
+      id: 'nat-vg1-5-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva er produktene ved fullstendig forbrenning av et hydrokarbon?',
+        options: [
+          { id: 'a', text: 'CO og H₂O', isCorrect: false },
+          { id: 'b', text: 'CO₂ og H₂', isCorrect: false },
+          { id: 'c', text: 'CO₂ og H₂O', isCorrect: true },
+          { id: 'd', text: 'C og H₂O', isCorrect: false },
+        ],
+        solution: 'Ved fullstendig forbrenning av et hydrokarbon reagerer stoffet med tilstrekkelig oksygen (O₂). Alt karbonet oksideres til CO₂ (karbondioksid) og alt hydrogenet oksideres til H₂O (vann). CO dannes kun ved ufullstendig forbrenning (for lite O₂), og C (sot) dannes ved svært mangelfull oksygentilgang.',
+      },
+    },
     {
       id: 'nat-vg1-5-4-def-2',
       type: 'definition',
@@ -653,6 +864,24 @@ CH₄ + Cl₂ → CH₃Cl + HCl
 (et H-atom erstattes av et Cl-atom)
 
 Alkaner reagerer med halogener ved substitusjon fordi de mangler dobbeltbindinger for addisjon.`,
+    },
+    // Oppgave: Tester forståelse av addisjon vs. substitusjon fra def-2
+    {
+      id: 'nat-vg1-5-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        task: 'Hvorfor reagerer alkaner med halogener (f.eks. Cl₂) ved substitusjon i stedet for addisjon?',
+        options: [
+          { id: 'a', text: 'Fordi alkaner har lavt kokepunkt', isCorrect: false },
+          { id: 'b', text: 'Fordi alkaner bare har enkeltbindinger og mangler dobbeltbindinger å addere over', isCorrect: true },
+          { id: 'c', text: 'Fordi halogener er for store til å adderes', isCorrect: false },
+          { id: 'd', text: 'Fordi alkaner er uløselige i vann', isCorrect: false },
+        ],
+        solution: 'Addisjonsreaksjoner krever en dobbelt- eller trippelbinding som kan brytes opp for å gi plass til nye atomer. Alkaner har bare enkeltbindinger (de er mettede), og kan derfor ikke gjennomgå addisjon. I stedet skjer substitusjon, der et hydrogenatom byttes ut med et halogenatom (f.eks. Cl).',
+      },
     },
     {
       id: 'nat-vg1-5-4-def-3',
@@ -713,6 +942,20 @@ Mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer).
 
 **Balansert ligning: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O**`,
     },
+    // Oppgave: Tester evne til å anvende balansering etter example-1
+    {
+      id: 'nat-vg1-5-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Polyetylen (PE) er den vanligste plasten i verden. Forklar hvordan polyetylen lages fra eten (CH₂=CH₂), og beskriv hvilken type polymerisering dette er.',
+        solution: 'Polyetylen lages ved addisjonspolymerisering av eten. Dobbeltbindingen i hvert etenmolekyl (CH₂=CH₂) brytes opp, og de to ledige bindingene brukes til å koble etenmolekylene sammen i en lang kjede: n CH₂=CH₂ → (-CH₂-CH₂-)ₙ. Ingen biprodukter dannes — alle atomene fra monomerene er med i polymeren. Polyetylen brukes i plastposer, flasker, rør og emballasje.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-5-4-oppsummering',
@@ -746,6 +989,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Sett opp en balansert reaksjonsligning for fullstendig forbrenning av butan (C₄H₁₀).',
         solution: 'C₄H₁₀ + O₂ → CO₂ + H₂O. Balanser karbon: 4 CO₂. Balanser hydrogen: 5 H₂O. Tell oksygen: 4×2 + 5×1 = 13 O-atomer, altså 13/2 O₂. Ganger med 2: 2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom en addisjonsreaksjon og en kondensasjonsreaksjon. Gi et eksempel på hver.',
+        solution: 'I en addisjonsreaksjon adderes atomer over en dobbelt- eller trippelbinding, slik at den brytes opp. Alle atomene fra reaktantene havner i produktet. Eksempel: Eten + H₂ → Etan (CH₂=CH₂ + H₂ → CH₃-CH₃). I en kondensasjonsreaksjon kobles to molekyler sammen, og et lite molekyl (vanligvis vann) spaltes av. Eksempel: Eddiksyre + metanol → metylacetat + vann (CH₃COOH + CH₃OH → CH₃COOCH₃ + H₂O).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -809,6 +1065,24 @@ Disse forbindelsene spiller viktige roller i naturen, industrien og hverdagen.`,
 
 **Menneskelig påvirkning:**
 CO₂-konsentrasjonen har økt fra 280 ppm (førindustriell tid) til over 420 ppm i dag, hovedsakelig fra forbrenning av fossile brensler.`,
+    },
+    // Oppgave: MC-oppgave om CO₂s rolle i naturen fra def-1
+    {
+      id: 'nat-vg1-5-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-5-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva skjer når CO₂ løses i vann?',
+        options: [
+          { id: 'a', text: 'Det dannes karbonmonoksid (CO)', isCorrect: false },
+          { id: 'b', text: 'Det dannes karbonsyre (H₂CO₃)', isCorrect: true },
+          { id: 'c', text: 'Det dannes kalkstein (CaCO₃)', isCorrect: false },
+          { id: 'd', text: 'Det skjer ingen kjemisk reaksjon', isCorrect: false },
+        ],
+        solution: 'Når CO₂ løses i vann, reagerer det med vannet og danner karbonsyre: CO₂ + H₂O ⇌ H₂CO₃. Dette er en likevektsreaksjon. Karbonsyre er en svak syre som gjør vannet svakt surt. Dette er grunnen til at havvann blir surere (havforsuring) når atmosfæren inneholder mer CO₂.',
+      },
     },
     {
       id: 'nat-vg1-5-5-def-2',
@@ -882,6 +1156,20 @@ CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: Tester forståelse av CO-forgiftning fra def-2
+    {
+      id: 'nat-vg1-5-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'En familie har en vedovn i stua. Forklar hvorfor det er viktig med god ventilasjon og CO-varsler, og beskriv symptomene på CO-forgiftning.',
+        solution: 'Ved ufullstendig forbrenning i vedovnen kan det dannes CO (karbonmonoksid). CO er fargeløs og luktfri, så man merker ikke at den er til stede. CO binder seg til hemoglobin i blodet ca. 200 ganger sterkere enn oksygen, og blokkerer oksygentransporten til cellene. Symptomer inkluderer hodepine, svimmelhet, kvalme, forvirring og i alvorlige tilfeller bevisstløshet og død. God ventilasjon sørger for nok oksygen til fullstendig forbrenning, og en CO-varsler gir alarm ved farlige konsentrasjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-5-5-oppsummering',
@@ -915,6 +1203,36 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Forklar hvordan CO₂ fungerer som drivhusgass. Hvorfor er økt CO₂-konsentrasjon et problem?',
         solution: 'CO₂ absorberer langbølget varmestråling (infrarød stråling) som jorden sender ut, og sender noe av den tilbake mot jordoverflaten. Dette er en del av den naturlige drivhuseffekten som gjør jorden beboelig. Problemet er at menneskelig aktivitet (fossile brensler, avskoging) har økt CO₂-konsentrasjonen fra 280 ppm til over 420 ppm. Mer CO₂ betyr at mer varmestråling fanges opp, noe som fører til global oppvarming med konsekvenser som stigende havnivå, mer ekstremvær og tap av biologisk mangfold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-5-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hvilken av disse metodene kan brukes til å teste om en bergart inneholder karbonat?',
+        options: [
+          { id: 'a', text: 'Legge den i vann og se om den flyter', isCorrect: false },
+          { id: 'b', text: 'Varme den opp og se om den smelter', isCorrect: false },
+          { id: 'c', text: 'Dryppe syre på den og se om det bobler', isCorrect: true },
+          { id: 'd', text: 'Holde den nær en magnet og se om den tiltrekkes', isCorrect: false },
+        ],
+        solution: 'Karbonater reagerer med syrer og frigjør CO₂-gass, som vises som bobler: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑. Denne «syretesten» er en enkel felttest som geologer bruker for å identifisere kalkstein og andre karbonatbergarter.',
+      },
+    },
+    {
+      id: 'nat-vg1-5-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-5-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar sammenhengen mellom sur nedbør og skader på kalksteinsbygninger og statuer.',
+        solution: 'Sur nedbør inneholder syrer som svovelsyre (H₂SO₄) og salpetersyre (HNO₃), dannet fra industriutslipp av SO₂ og NOₓ. Når sur nedbør treffer kalkstein (CaCO₃), reagerer syren med karbonatet og løser det opp: CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂. Over tid bryter dette ned overflaten på bygninger, statuer og skulpturer laget av kalkstein eller marmor. Skadene er irreversible og kan sees som forvitring og utvisking av detaljer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -973,6 +1291,24 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: MC-oppgave om karbonkretsløpets prosesser fra introen
+    {
+      id: 'nat-vg1-5-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken prosess fjerner CO₂ fra atmosfæren?',
+        options: [
+          { id: 'a', text: 'Celleånding', isCorrect: false },
+          { id: 'b', text: 'Forbrenning av fossile brensler', isCorrect: false },
+          { id: 'c', text: 'Fotosyntese', isCorrect: true },
+          { id: 'd', text: 'Nedbrytning av dødt materiale', isCorrect: false },
+        ],
+        solution: 'Fotosyntese er prosessen der planter, alger og noen bakterier tar opp CO₂ fra atmosfæren og bygger det inn i organiske molekyler (glukose) ved hjelp av solenergi: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Celleånding, forbrenning og nedbrytning frigjør alle CO₂ tilbake til atmosfæren.',
+      },
+    },
     {
       id: 'nat-vg1-5-6-def-1',
       type: 'definition',
@@ -994,6 +1330,20 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
 - Fossile brensler: ~4 000
 - Vegetasjon: ~450
 - Jord: ~2 500`,
+    },
+    // Oppgave: Tester forståelse av karbonreservoarer fra def-1
+    {
+      id: 'nat-vg1-5-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom korttids- og langtidslagring av karbon? Gi to eksempler på hvert.',
+        solution: 'Korttidslagring av karbon varer fra år til tiår. Eksempler: 1) Levende biomasse (trær, dyr) som lagrer karbon i organiske molekyler mens de lever. 2) CO₂ oppløst i havoverflaten. Langtidslagring varer millioner av år. Eksempler: 1) Fossile brensler (kull, olje, gass) som er rester av organismer begravet og omdannet over geologisk tid. 2) Kalkstein (CaCO₃) dannet fra skjell og skjeletter av marine organismer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-6-def-2',
@@ -1066,6 +1416,24 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
 
 **Sirkelen er sluttet:** Karbon resirkuleres kontinuerlig, men skifter form mellom organiske og uorganiske forbindelser.`,
     },
+    // Oppgave: MC-oppgave om tilbakekoblingsmekanismer
+    {
+      id: 'nat-vg1-5-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hva menes med en positiv tilbakekoblingsmekanisme i klimasystemet?',
+        options: [
+          { id: 'a', text: 'En mekanisme som er positiv for miljøet', isCorrect: false },
+          { id: 'b', text: 'En mekanisme der en endring forsterker seg selv', isCorrect: true },
+          { id: 'c', text: 'En mekanisme som bremser klimaendringene', isCorrect: false },
+          { id: 'd', text: 'En mekanisme som bare påvirker polområdene', isCorrect: false },
+        ],
+        solution: 'En positiv tilbakekoblingsmekanisme betyr at en endring forsterker seg selv i en selvforsterkende spiral. Eksempel: Oppvarming → permafrost tiner → frigjør metan (drivhusgass) → mer oppvarming → mer permafrost tiner osv. Ordet «positiv» betyr ikke at det er bra for miljøet, men at prosessen forsterkes.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-5-6-oppsummering',
@@ -1098,6 +1466,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Forklar hvorfor karbon er helt nødvendig for alt liv på jorden. Nevn minst fire biologiske makromolekyler som inneholder karbon.',
         solution: 'Karbon er nødvendig for alt liv fordi alle biologiske makromolekyler er karbonbaserte. De fire typene er: 1) Karbohydrater (glukose, stivelse) — energikilder. 2) Lipider/fett — energilagring og cellemembraner. 3) Proteiner — enzymer, strukturmolekyler, antistoffer. 4) Nukleinsyrer (DNA og RNA) — lagrer og overfører genetisk informasjon. Karbons evne til å danne fire stabile bindinger, lange kjeder og ringstrukturer gjør det mulig å bygge de komplekse molekylene som livet krever.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-5-6-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Skogplanting brukes ofte som et klimatiltak. Forklar hvordan trær bidrar til karbonkretsløpet, og diskuter om skogplanting alene kan løse klimaproblemet.',
+        solution: 'Trær tar opp CO₂ fra atmosfæren gjennom fotosyntese og lagrer karbonet i biomasse (stamme, greiner, røtter, blader). En voksen skog kan lagre store mengder karbon. Men skogplanting alene kan ikke løse klimaproblemet fordi: 1) Det tar tiår før nye trær er store nok til å ta opp betydelige mengder CO₂. 2) Mengden CO₂ vi slipper ut fra fossile brensler er mye større enn det ny skog kan ta opp. 3) Trær binder karbon midlertidig — ved skogbrann eller hogst frigjøres det igjen. 4) Det finnes begrenset areal tilgjengelig for ny skog. Skogplanting er et viktig supplement, men må kombineres med utslippskutt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1160,6 +1541,24 @@ Eksempler på økosystemer: skog, innsjø, korallrev, eng, fjæresone.`,
 
 **Nedbrytere:** Sopp og bakterier som bryter ned dødt organisk materiale og frigjør næringsstoffer`,
     },
+    // Oppgave: MC-oppgave om roller i økosystemet fra def-1
+    {
+      id: 'nat-vg1-6-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-1-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken organisme er en produsent i et økosystem?',
+        options: [
+          { id: 'a', text: 'Kanin (planteetende)', isCorrect: false },
+          { id: 'b', text: 'Sopp (nedbryter)', isCorrect: false },
+          { id: 'c', text: 'Eik (tre)', isCorrect: true },
+          { id: 'd', text: 'Hauk (rovfugl)', isCorrect: false },
+        ],
+        solution: 'En eik er en produsent fordi den lager sin egen mat gjennom fotosyntese. Produsenter bruker solenergi, CO₂ og vann til å bygge organiske molekyler. Kanin er en primærkonsument (planteeter), sopp er en nedbryter, og hauk er en sekundær- eller tertiærkonsument (rovdyr).',
+      },
+    },
     {
       id: 'nat-vg1-6-1-def-2',
       type: 'definition',
@@ -1185,6 +1584,20 @@ Eksempel: Gress → Gresshoppe → Frosk → Slange → Hauk
         type: 'classic',
         task: 'Forklar forskjellen mellom en næringskjede og et næringsnett.',
         solution: 'En næringskjede viser en lineær forbindelse mellom organismer i rekkefølgen hvem som spiser hvem. Et næringsnett er sammenfletningen av mange næringskjeder og viser det komplekse spisemønsteret i et økosystem, der mange arter spiser flere typer byttedyr.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // Oppgave: Tester forståelse av trofiske nivåer fra def-2
+    {
+      id: 'nat-vg1-6-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'I en norsk skog finnes blant annet blåbærlyng, elg, ulv, mark, sopp og gran. Sett opp et forenklet næringsnett med minst to næringskjeder som deler en felles art.',
+        solution: 'Et forenklet næringsnett: Næringskjede 1: Gran → Elg → Ulv. Næringskjede 2: Blåbærlyng → Elg → Ulv. Her er elg felles art i begge kjedene. Sopp og mark fungerer som nedbrytere som bryter ned dødt organisk materiale fra alle nivåer og frigjør næringsstoffer tilbake til jordsmonnet. Næringsnettet viser at økosystemet er mer komplekst enn enkle næringskjeder — elgen spiser flere plantearter, og ulven kan også spise andre byttedyr.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1215,6 +1628,24 @@ Resten tapes som varme gjennom celleånding.
 **Svar:** Gresshoppene har tilgang til 100 kJ, og froskene har tilgang til bare 10 kJ.
 
 Dette forklarer hvorfor det er mange flere planter enn planteetere, og enda færre rovdyr.`,
+    },
+    // Oppgave: MC-oppgave om 10%-regelen fra def-3
+    {
+      id: 'nat-vg1-6-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-1-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Ifølge 10%-regelen overføres bare ca. 10% av energien fra ett trofisk nivå til det neste. Hva skjer med de resterende 90%?',
+        options: [
+          { id: 'a', text: 'De lagres i jordsmonnet', isCorrect: false },
+          { id: 'b', text: 'De tapes som varme gjennom celleånding', isCorrect: true },
+          { id: 'c', text: 'De omdannes til næringsstoffer', isCorrect: false },
+          { id: 'd', text: 'De reflekteres tilbake til sola', isCorrect: false },
+        ],
+        solution: 'Omtrent 90% av energien på hvert trofisk nivå brukes av organismene selv til celleånding (livsprosesser som bevegelse, vekst, temperaturregulering) og tapes som varme til omgivelsene. Bare ca. 10% lagres i biomasse og er tilgjengelig som mat for neste nivå. Derfor er det mindre og mindre energi tilgjengelig oppover i næringskjeden.',
+      },
     },
     // --- Oppsummering ---
     {
@@ -1265,6 +1696,19 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-6-1-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-1-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar hvilken rolle nedbryterne har i et økosystem. Hva ville skjedd dersom alle nedbryterne forsvant?',
+        solution: 'Nedbrytere (sopp og bakterier) bryter ned dødt organisk materiale og frigjør næringsstoffer (mineraler, nitrogen, fosfor) tilbake til jordsmonnet. Disse næringsstoffene tas opp av plantene og resirkuleres i økosystemet. Hvis alle nedbryterne forsvant, ville dødt materiale hope seg opp, næringsstoffer ville bli bundet i døde organismer og ikke tilgjengelig for plantene. Etter hvert ville jordsmonnet bli utarmet, plantene ville ikke få nok næring, og hele økosystemet ville bryte sammen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Kilder ---
     {
       id: 'nat-vg1-6-1-kilder',
@@ -1308,6 +1752,24 @@ export const CHAPTER_NAT_VG1_6_2: TextbookChapter = {
 - Dioksiner
 - PFAS (per- og polyfluorerte stoffer)`,
     },
+    // Oppgave: MC-oppgave om kjennetegn på miljøgifter fra introen
+    {
+      id: 'nat-vg1-6-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-2-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilket av disse kjennetegnene er IKKE typisk for en miljøgift?',
+        options: [
+          { id: 'a', text: 'Persistent (brytes ikke lett ned)', isCorrect: false },
+          { id: 'b', text: 'Bioakkumulerende (hopes opp i organismer)', isCorrect: false },
+          { id: 'c', text: 'Vannløselig (løses lett opp og skilles ut)', isCorrect: true },
+          { id: 'd', text: 'Giftig selv i lave konsentrasjoner', isCorrect: false },
+        ],
+        solution: 'Miljøgifter er typisk fettløselige, ikke vannløselige. Fettløselighet gjør at de lagres i fettvev og er vanskelige å skille ut gjennom urin (som er vannbasert). De tre hovedkjennetegnene for miljøgifter er: persistente (brytes ikke ned), bioakkumulerende (hopes opp) og giftige. Vannløselige stoffer skilles lett ut og hoper seg derfor ikke opp.',
+      },
+    },
     {
       id: 'nat-vg1-6-2-def-1',
       type: 'definition',
@@ -1346,6 +1808,20 @@ Konsentrasjonen øker ca. 10 millioner ganger fra vann til topprovdyr!`,
         type: 'classic',
         task: 'Forklar forskjellen mellom bioakkumulering og biomagnifisering.',
         solution: 'Bioakkumulering er når et stoff hoper seg opp inne i én organisme over tid fordi den tar opp stoffet raskere enn den kan kvitte seg med det. Biomagnifisering er når konsentrasjonen av stoffet øker for hvert ledd oppover i næringskjeden, slik at topprovdyr får høyest konsentrasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // Oppgave: Tester forståelse av biomagnifisering med talleksempel fra def-2
+    {
+      id: 'nat-vg1-6-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'I en innsjø er konsentrasjonen av en miljøgift 0,001 ppm i vannet. Plankton har 0,05 ppm, småfisk 1 ppm, stor fisk 10 ppm og fiskeørn 100 ppm. Beregn hvor mange ganger konsentrasjonen øker fra vann til fiskeørn, og forklar mønsteret.',
+        solution: 'Konsentrasjonsøkning fra vann til fiskeørn: 100 / 0,001 = 100 000 ganger (hundre tusen ganger). Mønsteret viser biomagnifisering: konsentrasjonen øker for hvert ledd i næringskjeden. Fra vann til plankton: 50× økning, fra plankton til småfisk: 20× økning, fra småfisk til stor fisk: 10× økning, fra stor fisk til fiskeørn: 10× økning. Årsaken er at hvert rovdyr spiser mange byttedyr og akkumulerer miljøgiften fra alle dem. Fiskeørnen på toppen får den høyeste konsentrasjonen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1394,6 +1870,24 @@ Konsentrasjonen øker ca. 10 millioner ganger fra vann til topprovdyr!`,
 
 4. **Fettløselig:** Kvikksølv lagres i fettvev, og arktiske dyr har mye fett for å holde varmen.`,
     },
+    // Oppgave: MC-oppgave om helseeffekter fra def-3
+    {
+      id: 'nat-vg1-6-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-2-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hvilken helseeffekt er DDT mest kjent for å ha forårsaket hos fugler?',
+        options: [
+          { id: 'a', text: 'Blindhet', isCorrect: false },
+          { id: 'b', text: 'Tynnere eggeskall som knuste før klekking', isCorrect: true },
+          { id: 'c', text: 'Tap av fjærdrakt', isCorrect: false },
+          { id: 'd', text: 'Nedsatt flygeevne', isCorrect: false },
+        ],
+        solution: 'DDT og nedbrytningsproduktet DDE forstyrret kalsiumstoffskiftet hos rovfugler, noe som førte til at eggeskallene ble for tynne. Eggene knuste under ruging før ungene var ferdig utviklet. Dette rammet spesielt fiskeørn, havørn og vandrefalk, og førte til dramatisk bestandsnedgang. Forbudet mot DDT (i Norge fra 1970) har gjort at bestandene har tatt seg opp igjen.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-6-2-oppsummering',
@@ -1439,6 +1933,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Nevn tre tiltak som kan redusere problemet med miljøgifter.',
         solution: 'Mulige tiltak: 1) Forbud mot bruk og produksjon av de farligste stoffene (som DDT-forbudet). 2) Rensing av industriutslipp. 3) Sikker håndtering og destruksjon av avfall som inneholder miljøgifter. 4) Internasjonale avtaler (Stockholmkonvensjonen). 5) Redusere forbruk av produkter som inneholder miljøgifter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-6-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-2-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'PFAS (per- og polyfluorerte stoffer) er en gruppe miljøgifter som har fått mye oppmerksomhet de siste årene. De finnes i blant annet vannavvisende klær, stekepanner og brannskum. Forklar hvorfor PFAS er problematiske som miljøgifter.',
+        solution: 'PFAS er problematiske fordi de oppfyller alle de tre kjennetegnene for miljøgifter: 1) Persistente: Karbon-fluor-bindingen er en av de sterkeste bindingene i kjemien og gjør at PFAS nesten ikke brytes ned i naturen. De kalles derfor «evighetskjemikalier». 2) Bioakkumulerende: PFAS hoper seg opp i organismer og i næringskjeder. 3) Giftige: De mistenkes å forårsake kreft, hormonforstyrrelser, leverskader og immunsvikt. I tillegg er de svært utbredt — de finnes i drikkevann, jord og organismer over hele verden, selv i Arktis.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1494,6 +2001,24 @@ Miljøproblemer løses best gjennom en kombinasjon av tiltak på ulike nivåer:
 - Transport
 - Energibruk`,
     },
+    // Oppgave: MC-oppgave om nivåer for miljøtiltak fra introen
+    {
+      id: 'nat-vg1-6-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Parisavtalen er et eksempel på miljøtiltak på hvilket nivå?',
+        options: [
+          { id: 'a', text: 'Individuelt nivå', isCorrect: false },
+          { id: 'b', text: 'Lokalt nivå', isCorrect: false },
+          { id: 'c', text: 'Nasjonalt nivå', isCorrect: false },
+          { id: 'd', text: 'Internasjonalt nivå', isCorrect: true },
+        ],
+        solution: 'Parisavtalen er en internasjonal klimaavtale fra 2015 der nesten alle verdens land har forpliktet seg til å begrense global oppvarming til godt under 2°C, helst 1,5°C over førindustrielt nivå. Den er et eksempel på tiltak på internasjonalt nivå, der land samarbeider om felles mål.',
+      },
+    },
     {
       id: 'nat-vg1-6-3-def-1',
       type: 'definition',
@@ -1524,6 +2049,20 @@ Miljøproblemer løses best gjennom en kombinasjon av tiltak på ulike nivåer:
         type: 'classic',
         task: 'Forklar forskjellen mellom klimatiltak og klimatilpasning, og gi eksempler på begge.',
         solution: 'Klimatiltak (mitigering) handler om å redusere utslipp av klimagasser for å begrense oppvarmingen (eks: overgang til elbil, vindkraft, energieffektivisering). Klimatilpasning handler om å tilpasse samfunnet til de klimaendringene som allerede skjer (eks: bygge flomvoller, flytte bebyggelse vekk fra flomutsatte områder, tilpasse landbruket til nye vekstsesonger).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // Oppgave: Tester forståelse av klimatiltak fra def-1
+    {
+      id: 'nat-vg1-6-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Karbonfangst og -lagring (CCS) er en teknologi som brukes for å redusere CO₂-utslipp fra industrien. Forklar kort hvordan teknologien fungerer, og nevn en fordel og en ulempe.',
+        solution: 'CCS fungerer ved at CO₂ fanges opp fra røykgass ved industrianlegg (f.eks. sementfabrikker eller gasskraftverk) før den slipper ut i atmosfæren. CO₂-en komprimeres og transporteres (via rør eller skip) til et lagringssted, vanligvis i geologiske formasjoner under havbunnen. Fordel: Kan redusere utslipp fra industri som er vanskelig å elektrifisere. Ulempe: Teknologien er dyr og energikrevende, og det er usikkert om lagringen er permanent over tusenvis av år.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1582,6 +2121,24 @@ På 1980-tallet oppdaget forskere at ozonlaget ble tynnere, spesielt over Antark
 - Vitenskap må ligge til grunn
 - Erstatningsteknologi må være tilgjengelig`,
     },
+    // Oppgave: MC-oppgave om avfallshierarkiet fra def-2
+    {
+      id: 'nat-vg1-6-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'I avfallshierarkiet er det fem nivåer. Hva er det mest foretrukne tiltaket (øverst i hierarkiet)?',
+        options: [
+          { id: 'a', text: 'Materialgjenvinning (resirkulering)', isCorrect: false },
+          { id: 'b', text: 'Energigjenvinning (forbrenning)', isCorrect: false },
+          { id: 'c', text: 'Forebygge (redusere forbruk)', isCorrect: true },
+          { id: 'd', text: 'Ombruk (bruke på nytt)', isCorrect: false },
+        ],
+        solution: 'Forebygging er øverst i avfallshierarkiet fordi det beste avfallet er det som aldri oppstår. Ved å redusere forbruket unngår man hele prosessen med produksjon, transport og avfallshåndtering. Rekkefølgen er: 1) Forebygge, 2) Ombruk, 3) Materialgjenvinning, 4) Energigjenvinning, 5) Deponi.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-6-3-oppsummering',
@@ -1614,6 +2171,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Diskuter fordeler og ulemper med karbonavgifter som klimatiltak.',
         solution: 'Fordeler: Gir økonomisk insentiv til å redusere utslipp, inntektene kan brukes til grønn omstilling, markedsbasert løsning som ikke krever detaljregulering. Ulemper: Kan ramme lavinntektsgrupper uforholdsmessig hardt, kan føre til karbonlekkasje (at produksjon flyttes til land uten avgift), kan møte politisk motstand, vanskelig å sette riktig prisnivå.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-6-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Sammenlign lineær økonomi og sirkulær økonomi. Forklar hvorfor overgangen til sirkulær økonomi er viktig for bærekraftig utvikling.',
+        solution: 'Lineær økonomi følger modellen «ta ut → produser → bruk → kast», der ressurser brukes én gang og ender som avfall. Sirkulær økonomi følger modellen «produser → bruk → reparer/gjenbruk → resirkuler → tilbake til produksjon», der materialer holdes i kretsløp lengst mulig. Overgangen er viktig fordi: 1) Jordens ressurser er begrensede, og lineær økonomi tømmer dem. 2) Avfall skaper forurensning og tar opp plass. 3) Produksjon krever mye energi og gir klimagassutslipp — ved å gjenbruke reduseres behovet for ny produksjon. 4) Sirkulær økonomi kan også skape nye arbeidsplasser innen reparasjon og gjenvinning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1672,6 +2242,24 @@ export const CHAPTER_NAT_VG1_6_4: TextbookChapter = {
         allowsCanvasDrawing: true,
       },
     },
+    // Oppgave: MC-oppgave om drivhuseffektens mekanisme fra introen
+    {
+      id: 'nat-vg1-6-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva ville gjennomsnittlig jordtemperatur vært uten den naturlige drivhuseffekten?',
+        options: [
+          { id: 'a', text: 'Ca. +5°C', isCorrect: false },
+          { id: 'b', text: 'Ca. 0°C', isCorrect: false },
+          { id: 'c', text: 'Ca. -18°C', isCorrect: true },
+          { id: 'd', text: 'Ca. -50°C', isCorrect: false },
+        ],
+        solution: 'Uten den naturlige drivhuseffekten ville gjennomsnittlig jordtemperatur vært ca. -18°C, noe som ville gjort jorden ubeboelig for de fleste livsformer. Drivhuseffekten hever temperaturen til ca. +15°C, altså en forskjell på ca. 33°C. Det er den forsterkede drivhuseffekten (fra menneskeskapte utslipp) som er problemet, ikke den naturlige.',
+      },
+    },
     {
       id: 'nat-vg1-6-4-def-1',
       type: 'definition',
@@ -1685,6 +2273,20 @@ export const CHAPTER_NAT_VG1_6_4: TextbookChapter = {
 **Lystgass (N₂O):** Fra landbruk, gjødsel. Ca. 265× sterkere enn CO₂.
 
 **Fluorholdige gasser:** Industrigasser, svært potente men lavere konsentrasjoner.`,
+    },
+    // Oppgave: Tester forståelse av drivhusgassenes relative styrke fra def-1
+    {
+      id: 'nat-vg1-6-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Metan (CH₄) er ca. 28 ganger sterkere drivhusgass enn CO₂ over 100 år. Likevel er CO₂ den viktigste menneskeskapte drivhusgassen. Forklar hvorfor.',
+        solution: 'Selv om metan er en sterkere drivhusgass per molekyl, er CO₂ den viktigste fordi: 1) Vi slipper ut mye mer CO₂ enn metan — fossile brensler er den dominerende energikilden globalt. 2) CO₂ har mye lenger levetid i atmosfæren (hundrevis av år) enn metan (ca. 12 år). 3) Den totale oppvarmingseffekten avhenger av både konsentrasjon og styrke, og CO₂ dominerer i sum. Likevel er reduksjon av metanutslipp viktig fordi effekten per tonn er stor og resultater merkes raskt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-6-4-def-2',
@@ -1749,6 +2351,24 @@ Global gjennomsnittstemperatur har økt ca. 1,1°C siden førindustriell tid.`,
 
 5. **Resultat:** Tynnere bjørner, lavere ungeproduksjon, økt dødelighet. Arten er klassifisert som sårbar.`,
     },
+    // Oppgave: MC-oppgave om konsekvenser av klimaendringer fra def-3
+    {
+      id: 'nat-vg1-6-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hva er hovedårsaken til at havnivået stiger som følge av global oppvarming?',
+        options: [
+          { id: 'a', text: 'Mer nedbør som samler seg i havet', isCorrect: false },
+          { id: 'b', text: 'Smelting av landis og termisk ekspansjon av havvann', isCorrect: true },
+          { id: 'c', text: 'Smelting av havis (flytende is) i Arktis', isCorrect: false },
+          { id: 'd', text: 'Vulkansk aktivitet under havet', isCorrect: false },
+        ],
+        solution: 'Havnivåstigning skyldes to hovedfaktorer: 1) Smelting av landis (isbreer på Grønland, Antarktis og fjellbreer) tilfører nytt vann til havet. 2) Termisk ekspansjon — varmere vann tar mer plass fordi molekylene beveger seg raskere og fyller et større volum. Smelting av havis (flytende is i Arktis) bidrar ikke til havnivåstigning fordi isen allerede fortrenger vann.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-6-4-oppsummering',
@@ -1781,6 +2401,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'CO₂-konsentrasjonen i atmosfæren har økt fra 280 ppm til 420 ppm. Beregn den prosentvise økningen.',
         solution: 'Økning = 420 - 280 = 140 ppm. Prosentvis økning = (140/280) × 100% = 50%. CO₂-konsentrasjonen har økt med 50% siden førindustriell tid.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-6-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom den naturlige drivhuseffekten og den forsterkede (menneskeskapte) drivhuseffekten. Hvorfor er den forsterkede drivhuseffekten et problem?',
+        solution: 'Den naturlige drivhuseffekten er en prosess der drivhusgasser (hovedsakelig vanndamp og CO₂) fanger opp varmestråling og holder jordtemperaturen på et nivå som gjør livet mulig (+15°C i stedet for -18°C). Den forsterkede drivhuseffekten skyldes at menneskelig aktivitet (fossile brensler, avskoging, landbruk) har økt konsentrasjonen av drivhusgasser. Mer CO₂ og metan betyr at mer varmestråling fanges, og jordtemperaturen stiger. Problemet er at oppvarmingen skjer raskt og fører til stigende havnivå, mer ekstremvær, tap av arter, og kan true matproduksjon og menneskelige samfunn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1826,6 +2459,24 @@ Klimaendringene skjer raskere enn noen gang i jordas historie, og dette har stor
 **Den sjette masseutryddelsen:**
 Forskere advarer om at vi er inne i den sjette store masseutryddelsen i jordas historie. Denne gangen er det menneskelig aktivitet — inkludert klimaendringer, habitatødeleggelse og forurensning — som driver artsutryddelsen.`,
     },
+    // Oppgave: MC-oppgave om arters respons på klimaendringer fra introen
+    {
+      id: 'nat-vg1-6-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hva er de tre måtene en art kan reagere på klimaendringer?',
+        options: [
+          { id: 'a', text: 'Vokse, formere seg og dø', isCorrect: false },
+          { id: 'b', text: 'Tilpasse seg, flytte seg eller dø ut', isCorrect: true },
+          { id: 'c', text: 'Spise mer, spise mindre eller faste', isCorrect: false },
+          { id: 'd', text: 'Bli større, bli mindre eller forbli uendret', isCorrect: false },
+        ],
+        solution: 'Arter kan reagere på klimaendringer på tre måter: 1) Tilpasse seg gjennom evolusjon eller akklimering, 2) Flytte seg (migrere) til nye, mer egnede områder, eller 3) Dø ut dersom de verken klarer å tilpasse seg eller flytte. Problemet er at dagens klimaendringer skjer så raskt at mange arter ikke rekker å tilpasse seg.',
+      },
+    },
     {
       id: 'nat-vg1-6-5-def-1',
       type: 'definition',
@@ -1857,6 +2508,20 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
         type: 'classic',
         task: 'Forklar hva fenologisk mismatch er og gi et eksempel på hvordan dette kan påvirke en art.',
         solution: 'Fenologisk mismatch oppstår når tidspunktet for viktige hendelser i ulike arters livssyklus ikke lenger stemmer overens på grunn av klimaendringer. Ulike arter reagerer ulikt på temperaturendringer, slik at det økologiske samspillet forstyrres. Eksempel: Reinsdyrkalver fødes på samme tidspunkt som før, men plantene de er avhengige av for å vokse har allerede passert sitt mest næringsrike stadium på grunn av tidligere vår. Resultatet er dårligere ernæring og lavere overlevelse blant kalvene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // Oppgave: Tester forståelse av fenologisk mismatch og artskonflikter fra def-1
+    {
+      id: 'nat-vg1-6-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Rødreven sprer seg nordover i Norge og konkurrerer med fjellreven. Forklar hvordan klimaendringer bidrar til dette, og hva konsekvensene kan bli for fjellreven.',
+        solution: 'Når temperaturen stiger, kan rødreven leve i områder som tidligere var for kalde, inkludert fjellrevens leveområder. Rødreven er større, sterkere og mer aggressiv enn fjellreven, og utkonkurrerer den om mat og hi. Fjellreven kan ikke flytte lenger nord eller høyere opp fordi den allerede lever i yttergrensen av habitatet. Konsekvensene er at fjellrevbestanden presses ytterligere, og arten kan bli utryddet fra deler av sitt opprinnelige leveområde. Fjellreven er allerede kritisk truet i Norge.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1939,6 +2604,24 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
 
 5. **Viktig poeng:** Det er ikke temperaturen i seg selv som er problemet, men at tidspunktene for ulike hendelser i økosystemet ikke lenger stemmer overens.`,
     },
+    // Oppgave: MC-oppgave om korallbleking fra def-2
+    {
+      id: 'nat-vg1-6-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        task: 'Hva er korallbleking?',
+        options: [
+          { id: 'a', text: 'Koraller som vokser ekstra raskt i varmt vann', isCorrect: false },
+          { id: 'b', text: 'Koraller som støter ut sine symbiotiske alger på grunn av for høy vanntemperatur', isCorrect: true },
+          { id: 'c', text: 'Koraller som blekes av sollys i grunt vann', isCorrect: false },
+          { id: 'd', text: 'Koraller som dør av forurensning fra plast', isCorrect: false },
+        ],
+        solution: 'Korallbleking skjer når vanntemperaturen blir for høy og korallene støter ut sine symbiotiske alger (zooxantheller). Algene gir korallene farge og næring gjennom fotosyntese. Uten algene mister korallene sin fargepraktige fremtoning (de «blekes») og mister en viktig næringskilde. Hvis høy temperatur vedvarer, kan korallene dø. Korallrev er blant verdens mest artsrike økosystemer og huser ca. 25% av alle marine arter.',
+      },
+    },
     // --- Oppsummering ---
     {
       id: 'nat-vg1-6-5-oppsummering',
@@ -1971,6 +2654,19 @@ I dette kapittelet har du lært:
         type: 'classic',
         task: 'Diskuter om evolusjon kan «redde» arter fra klimaendringene. Hvilke faktorer avgjør om en art kan tilpasse seg raskt nok?',
         solution: 'Evolusjon kan i noen tilfeller hjelpe arter med å tilpasse seg, men for de fleste arter skjer klimaendringene for raskt. Faktorer som avgjør tilpasningsevnen: 1) Generasjonstid — arter med kort generasjonstid (insekter, bakterier) kan tilpasse seg raskere enn arter med lang generasjonstid (elefanter, hvaler). 2) Genetisk variasjon — populasjoner med stor genetisk variasjon har flere varianter som naturlig utvalg kan virke på. 3) Populasjonsstørrelse — store populasjoner har mer genetisk variasjon. 4) Hastigheten på endringene — dagens endringer skjer 10-100 ganger raskere enn de fleste arter kan tilpasse seg. 5) Migrasjonsmuligheter — arter som kan flytte til nye områder har en fordel.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-6-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Bakterier har generasjonstid på minutter, mens elefanter har generasjonstid på flere tiår. Forklar hvordan generasjonstid påvirker en arts evne til å tilpasse seg klimaendringer gjennom evolusjon.',
+        solution: 'Evolusjon gjennom naturlig utvalg krever mange generasjoner for å endre en populasjons genetiske sammensetning. Arter med kort generasjonstid (som bakterier) gjennomgår mange generasjoner på kort tid, og gunstige mutasjoner kan spres raskt i populasjonen. Bakterier kan derfor tilpasse seg nye forhold i løpet av dager eller uker. Arter med lang generasjonstid (som elefanter) gjennomgår få generasjoner per århundre, og evolusjonær tilpasning tar tusenvis av år. Siden klimaendringene skjer raskt (i løpet av tiår), er arter med lang generasjonstid spesielt sårbare fordi de ikke rekker å tilpasse seg gjennom evolusjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
