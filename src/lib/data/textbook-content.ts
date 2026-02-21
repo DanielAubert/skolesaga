@@ -57,6 +57,7 @@ import { NORSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg1-narrat
 import { ENGELSK_VG1_CHAPTERS } from './textbook-content-engelsk-vg1';
 import { ENGELSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-engelsk-vg1-narrativ';
 import { SAMFUNNSKUNNSKAP_CHAPTERS } from './textbook-content-samfunnskunnskap';
+import { SAMFUNNSKUNNSKAP_NARRATIV_CHAPTERS } from './textbook-content-samfunnskunnskap-narrativ';
 import { GEOGRAFI_CHAPTERS } from './textbook-content-geografi';
 import { GEOGRAFI_NARRATIV_CHAPTERS } from './textbook-content-geografi-narrativ';
 import { KROPPSOVING_VG1_CHAPTERS } from './textbook-content-kroppsoving-vg1';
@@ -142,6 +143,7 @@ import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
 import { TYSK_2_CHAPTERS } from './textbook-content-tysk-2';
 import { TYSK_3_CHAPTERS } from './textbook-content-tysk-3';
+import { TYSK_3_NARRATIV_CHAPTERS } from './textbook-content-tysk-3-narrativ';
 import { FRANSK_2_CHAPTERS } from './textbook-content-fransk-2';
 import { FRANSK_3_CHAPTERS } from './textbook-content-fransk-3';
 import { CHAPTERS_5KLASSE } from './textbook-content-5klasse';
@@ -546,6 +548,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Samfunnskunnskap
   ...Object.fromEntries(SAMFUNNSKUNNSKAP_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SAMFUNNSKUNNSKAP_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Geografi
   ...Object.fromEntries(GEOGRAFI_CHAPTERS.map(c => [c.id, c])),
@@ -719,6 +722,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Tysk nivå 3
   ...Object.fromEntries(TYSK_3_CHAPTERS.map(c => [c.id, c])),
+
+  // Tysk nivå 3 - narrative versjoner
+  ...Object.fromEntries(TYSK_3_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Fransk nivå 2
   ...Object.fromEntries(FRANSK_2_CHAPTERS.map(c => [c.id, c])),

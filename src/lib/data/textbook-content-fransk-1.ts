@@ -13,6 +13,8 @@
  * - textbook-content-fransk-1-kap9-10.ts (Reise, Grammatikk)
  * - textbook-content-fransk-1-kap11-13.ts (Frankofoni, Kultur, Autentiske tekster)
  * - textbook-content-fransk-1-kap14-16.ts (Muntlig, Skriftlig, Grammatikk og strategier)
+ * - textbook-content-fransk-1-kap17-18.ts (Passé composé, Modalverb)
+ * - textbook-content-fransk-1-kap19-20.ts (Digital kommunikasjon, Praktiske dialoger)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -24,6 +26,8 @@ import { FRANSK_1_CHAPTERS_7_8 } from './textbook-content-fransk-1-kap7-8';
 import { FRANSK_1_CHAPTERS_9_10 } from './textbook-content-fransk-1-kap9-10';
 import { FRANSK_1_CHAPTERS_11_13 } from './textbook-content-fransk-1-kap11-13';
 import { FRANSK_1_CHAPTERS_14_16 } from './textbook-content-fransk-1-kap14-16';
+import { FRANSK_1_CHAPTERS_17_18 } from './textbook-content-fransk-1-kap17-18';
+import { FRANSK_1_CHAPTERS_19_20 } from './textbook-content-fransk-1-kap19-20';
 
 // Re-eksporter individuelle kapitler for bakoverkompatibilitet
 export {
@@ -108,6 +112,28 @@ export {
   CHAPTER_FRANSK_1_16_4,
 } from './textbook-content-fransk-1-kap14-16';
 
+export {
+  CHAPTER_FRANSK_1_17_1,
+  CHAPTER_FRANSK_1_17_2,
+  CHAPTER_FRANSK_1_17_3,
+  CHAPTER_FRANSK_1_17_4,
+  CHAPTER_FRANSK_1_18_1,
+  CHAPTER_FRANSK_1_18_2,
+  CHAPTER_FRANSK_1_18_3,
+  CHAPTER_FRANSK_1_18_4,
+} from './textbook-content-fransk-1-kap17-18';
+
+export {
+  CHAPTER_FRANSK_1_19_1,
+  CHAPTER_FRANSK_1_19_2,
+  CHAPTER_FRANSK_1_19_3,
+  CHAPTER_FRANSK_1_19_4,
+  CHAPTER_FRANSK_1_20_1,
+  CHAPTER_FRANSK_1_20_2,
+  CHAPTER_FRANSK_1_20_3,
+  CHAPTER_FRANSK_1_20_4,
+} from './textbook-content-fransk-1-kap19-20';
+
 // ============================================================================
 // Eksporter alle kapitler samlet
 // ============================================================================
@@ -119,4 +145,6 @@ export const FRANSK_1_CHAPTERS: TextbookChapter[] = [
   ...FRANSK_1_CHAPTERS_9_10,
   ...FRANSK_1_CHAPTERS_11_13,
   ...FRANSK_1_CHAPTERS_14_16,
+  ...FRANSK_1_CHAPTERS_17_18,
+  ...FRANSK_1_CHAPTERS_19_20,
 ];
