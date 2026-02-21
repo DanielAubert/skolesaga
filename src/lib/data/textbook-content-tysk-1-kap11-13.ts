@@ -20,7 +20,7 @@ export const CHAPTER_TYSK_1_11_1: TextbookChapter = {
   chapterNumber: '11.1',
   title: 'Die DACH-Länder',
   subtitle: 'DACH-landene',
-  description: 'Laer om de tysktalende landene: Tyskland, Osterrike, Sveits og flere.',
+  description: 'Laer om de tysktalende landene: Tyskland, Østerrike, Sveits og flere.',
   estimatedMinutes: 45,
   competenceGoals: [
     'utforske geografi og levemater i tysktalende omrader',
@@ -32,7 +32,7 @@ export const CHAPTER_TYSK_1_11_1: TextbookChapter = {
       type: 'text',
       content: `## Die DACH-Länder
 
-DACH er en forkortelse for de tre store tysktalende landene: **D**eutschland (Tyskland), **A**usterreich (Osterrike) og die **CH** (Sveits - CH star for Confoederatio Helvetica). I tillegg snakkes tysk i Liechtenstein, Luxembourg og deler av Belgia og Italia.
+DACH er en forkortelse for de tre store tysktalende landene: **D**eutschland (Tyskland), **A**usterreich (Østerrike) og die **CH** (Sveits - CH star for Confoederatio Helvetica). I tillegg snakkes tysk i Liechtenstein, Luxembourg og deler av Belgia og Italia.
 
 Til sammen har de tysktalende landene over 100 millioner innbyggere, og tysk er det mest talte morsmalet i Europa.`,
     },
@@ -45,7 +45,7 @@ Til sammen har de tysktalende landene over 100 millioner innbyggere, og tysk er 
 | Land | Tysk navn | Hovedstad | Innbyggere |
 |------|-----------|-----------|------------|
 | Tyskland | Deutschland | Berlin | ca. 83 millioner |
-| Osterrike | Österreich | Wien | ca. 9 millioner |
+| Østerrike | Österreich | Wien | ca. 9 millioner |
 | Sveits | die Schweiz | Bern | ca. 8,7 millioner |
 | Liechtenstein | Liechtenstein | Vaduz | ca. 39 000 |
 | Luxembourg | Luxemburg | Luxemburg | ca. 650 000 |`,
@@ -170,14 +170,14 @@ Tips: Wien heter Vienna pa engelsk, og Bern er bare hovedstad administrativt - d
 
 - **DACH** star for Deutschland, Österreich og die Schweiz (Confoederatio Helvetica).
 - Tyskland er det største tysktalende landet med ca. 83 millioner innbyggere og hovedstad Berlin.
-- Osterrike har ca. 9 millioner innbyggere med hovedstad Wien.
+- Østerrike har ca. 9 millioner innbyggere med hovedstad Wien.
 - Sveits har ca. 8,7 millioner innbyggere med hovedstad Bern.
 - Tysk er det mest talte morsmalet i Europa med over 100 millioner morsmalstalere.`,
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'die DACH-Länder', definition: 'DACH-landene (Tyskland, Osterrike, Sveits)' },
+    { term: 'die DACH-Länder', definition: 'DACH-landene (Tyskland, Østerrike, Sveits)' },
     { term: 'die Hauptstadt', definition: 'hovedstaden' },
     { term: 'das Bundesland', definition: 'delstaten' },
     { term: 'der Einwohner', definition: 'innbyggeren' },
@@ -186,7 +186,7 @@ Tips: Wien heter Vienna pa engelsk, og Bern er bare hovedstad administrativt - d
 };
 
 // ============================================================================
-// Kapittel 11.2: Österreich - Osterrike
+// Kapittel 11.2: Österreich - Østerrike
 // ============================================================================
 
 export const CHAPTER_TYSK_1_11_2: TextbookChapter = {
@@ -194,12 +194,12 @@ export const CHAPTER_TYSK_1_11_2: TextbookChapter = {
   courseId: 'tysk-1',
   chapterNumber: '11.2',
   title: 'Österreich',
-  subtitle: 'Osterrike',
-  description: 'Laer om Osterrike - landet med Alpene, Wien, Salzburg og Wiener Schnitzel.',
+  subtitle: 'Østerrike',
+  description: 'Laer om Østerrike - landet med Alpene, Wien, Salzburg og Wiener Schnitzel.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'beskrive osterriksk kultur og geografi pa tysk',
-    'kjenne til viktige byer og tradisjoner i Osterrike',
+    'beskrive østerriksk kultur og geografi pa tysk',
+    'kjenne til viktige byer og tradisjoner i Østerrike',
   ],
   content: [
     {
@@ -207,17 +207,17 @@ export const CHAPTER_TYSK_1_11_2: TextbookChapter = {
       type: 'text',
       content: `## Österreich - landet i Alpene
 
-Osterrike (Österreich) er et vakkert land i hjertet av Europa. Landet er kjent for sine imponerende fjell (die Alpen), sin klassiske musikk og sin deilige mat. Med rundt 9 millioner innbyggere er Osterrike mye mindre enn Tyskland, men har en rik kultur og historie.
+Østerrike (Österreich) er et vakkert land i hjertet av Europa. Landet er kjent for sine imponerende fjell (die Alpen), sin klassiske musikk og sin deilige mat. Med rundt 9 millioner innbyggere er Østerrike mye mindre enn Tyskland, men har en rik kultur og historie.
 
 Hovedstaden **Wien** (Vienna) er en av Europas mest kulturelle byer, kjent for operaen, kaffehusene og Schönbrunn-slottet.`,
     },
     {
       id: 'tysk-1-11-2-def-1',
       type: 'definition',
-      title: 'Viktige ord om Osterrike',
+      title: 'Viktige ord om Østerrike',
       content: `| Tysk | Norsk |
 |------|-------|
-| Österreich | Osterrike |
+| Österreich | Østerrike |
 | Wien | Wien (Vienna) |
 | Salzburg | Salzburg |
 | die Alpen | Alpene |
@@ -231,31 +231,31 @@ Hovedstaden **Wien** (Vienna) er en av Europas mest kulturelle byer, kjent for o
     {
       id: 'tysk-1-11-2-text-1',
       type: 'text',
-      content: `## Wien - Osterrikes hovedstad
+      content: `## Wien - Østerrikes hovedstad
 
 Wien er en av Europas eldste og mest kulturelle byer. Byen er kjent for:
 
 - **Musikk**: Wien var hjemby for Mozart, Beethoven, Schubert og Strauss. Wiener Philharmonikerne er et av verdens mest kjente orkestre.
 - **Kaffehuskultur**: Wiens kaffehus er pa UNESCOs verdensarvliste. Her sitter folk i timevis og nyter kaffe og kaker.
-- **Arkitektur**: Schönbrunn-slottet, Stephansdom (Stefansdomen) og Ringstrasse er imponerende severdigheter.
+- **Arkitektur**: Schönbrunn-slottet, Stephansdom (Stefansdomen) og Ringstraße er imponerende severdigheter.
 
-## Salzburg - Mozarts fodeby
+## Salzburg - Mozarts fødeby
 
-Salzburg ligger ved foten av Alpene og er kjent som Mozarts fodeby. Byen er ogsa kjent for Salzburg-festivalen, en arlig musikk- og teaterfestival.`,
+Salzburg ligger ved foten av Alpene og er kjent som Mozarts fødeby. Byen er ogsa kjent for Salzburg-festivalen, en arlig musikk- og teaterfestival.`,
     },
     {
       id: 'tysk-1-11-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Snakke om Osterrike',
+      title: 'Eksempel 1: Snakke om Østerrike',
       problem: `Oversett til norsk:
 a) Wien ist die Hauptstadt von Österreich.
 b) Mozart wurde in Salzburg geboren.
 c) Die Alpen sind sehr schön.`,
-      solution: `a) Wien er hovedstaden i Osterrike.
-b) Mozart ble fodt i Salzburg.
+      solution: `a) Wien er hovedstaden i Østerrike.
+b) Mozart ble født i Salzburg.
 c) Alpene er veldig vakre.
 
-**wurde geboren** = ble fodt (preteritum av "werden geboren")`,
+**wurde geboren** = ble født (preteritum av "werden geboren")`,
     },
     {
       id: 'tysk-1-11-2-ex-block-1',
@@ -265,14 +265,14 @@ c) Alpene er veldig vakre.
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva er hovedstaden i Osterrike?',
+        task: 'Hva er hovedstaden i Østerrike?',
         options: [
           { id: 'a', text: 'Salzburg', isCorrect: false },
           { id: 'b', text: 'Wien', isCorrect: true },
           { id: 'c', text: 'Graz', isCorrect: false },
           { id: 'd', text: 'Innsbruck', isCorrect: false },
         ],
-        solution: 'Wien (Vienna) er hovedstaden i Osterrike.',
+        solution: 'Wien (Vienna) er hovedstaden i Østerrike.',
       },
     },
     {
@@ -283,14 +283,14 @@ c) Alpene er veldig vakre.
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilken beremt komponist ble fodt i Salzburg?',
+        task: 'Hvilken berømt komponist ble født i Salzburg?',
         options: [
           { id: 'a', text: 'Beethoven', isCorrect: false },
           { id: 'b', text: 'Bach', isCorrect: false },
           { id: 'c', text: 'Mozart', isCorrect: true },
           { id: 'd', text: 'Brahms', isCorrect: false },
         ],
-        solution: 'Wolfgang Amadeus Mozart ble fodt i Salzburg i 1756.',
+        solution: 'Wolfgang Amadeus Mozart ble født i Salzburg i 1756.',
       },
     },
     {
@@ -332,7 +332,7 @@ c) Alpene er veldig vakre.
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort tekst (4-5 setninger) der du later som du er pa ferie i Osterrike. Fortell hva du ser og gjor.',
+        task: 'Skriv en kort tekst (4-5 setninger) der du later som du er pa ferie i Østerrike. Fortell hva du ser og gjor.',
         solution: 'Eksempel:\nIch bin in Wien. Die Stadt ist sehr schön. Ich besuche das Schloss Schönbrunn. Dann gehe ich in ein Kaffeehaus und trinke Kaffee mit Apfelstrudel. Die Musik in Wien ist wunderbar!',
         hints: ['Bruk "Ich bin in ..." (Jeg er i ...)', 'Bruk "Ich besuche ..." (Jeg besøker ...)'],
       },
@@ -342,16 +342,16 @@ c) Alpene er veldig vakre.
       type: 'text',
       content: `## Oppsummering
 
-- Osterrike har ca. 9 millioner innbyggere med Wien som hovedstad.
+- Østerrike har ca. 9 millioner innbyggere med Wien som hovedstad.
 - Wien er kjent for klassisk musikk, kaffehuskultur og vakker arkitektur.
-- Salzburg er Mozarts fodeby og huser en beremt musikkfestival.
+- Salzburg er Mozarts fødeby og huser en berømt musikkfestival.
 - Osterriksk mat inkluderer Wiener Schnitzel og Apfelstrudel.
-- Alpene dekker store deler av Osterrike og tiltrekker mange turister.`,
+- Alpene dekker store deler av Østerrike og tiltrekker mange turister.`,
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Österreich', definition: 'Osterrike' },
+    { term: 'Österreich', definition: 'Østerrike' },
     { term: 'die Alpen', definition: 'Alpene' },
     { term: 'das Kaffeehaus', definition: 'kaffehuset' },
     { term: 'das Schloss', definition: 'slottet' },
@@ -382,7 +382,7 @@ export const CHAPTER_TYSK_1_11_3: TextbookChapter = {
       type: 'text',
       content: `## Die Schweiz - landet med fire sprak
 
-Sveits (die Schweiz) er et unikt land i Europa. Selv om landet bare har ca. 8,7 millioner innbyggere, har det fire offisielle sprak: **Deutsch** (tysk), **Franzosisch** (fransk), **Italienisch** (italiensk) og **Ratoromanisch** (retoromansk).
+Sveits (die Schweiz) er et unikt land i Europa. Selv om landet bare har ca. 8,7 millioner innbyggere, har det fire offisielle sprak: **Deutsch** (tysk), **Französisch** (fransk), **Italienisch** (italiensk) og **Rätoromanisch** (retoromansk).
 
 Omtrent 63 % av befolkningen snakker tysk, 23 % snakker fransk, 8 % snakker italiensk og under 1 % snakker retoromansk. Hovedstaden er **Bern**, men den største byen er **Zurich**.`,
     },
@@ -394,10 +394,10 @@ Omtrent 63 % av befolkningen snakker tysk, 23 % snakker fransk, 8 % snakker ital
 |------|-------|
 | die Schweiz | Sveits |
 | die Schokolade | sjokoladen |
-| der Kase | osten |
+| der Käse | osten |
 | die Uhr (pl. Uhren) | klokken (klokkene) |
 | der Berg (pl. Berge) | fjellet |
-| die Neutralitat | noytraliteten |
+| die Neutralität | noytraliteten |
 | der Kanton | kantonen (delstaten) |
 | die Sprache | spraket |
 | viersprachig | firespraklig |
@@ -408,13 +408,13 @@ Omtrent 63 % av befolkningen snakker tysk, 23 % snakker fransk, 8 % snakker ital
       type: 'text',
       content: `## Sveits er kjent for...
 
-**Sjokolade (die Schokolade):** Sveits er verdensberemt for sin sjokolade. Merker som Lindt, Toblerone og Nestle kommer fra Sveits.
+**Sjokolade (die Schokolade):** Sveits er verdensberømt for sin sjokolade. Merker som Lindt, Toblerone og Nestle kommer fra Sveits.
 
-**Ost (der Kase):** Sveitsisk ost, spesielt Emmentaler og Gruyere, er kjent over hele verden.
+**Ost (der Käse):** Sveitsisk ost, spesielt Emmentaler og Gruyere, er kjent over hele verden.
 
 **Klokker (die Uhren):** Sveitsiske klokker fra merker som Rolex, Omega og Swatch er kjent for sin kvalitet.
 
-**Noytralitet (die Neutralitat):** Sveits har vaert noytral siden 1815 og er ikke medlem av EU. Mange internasjonale organisasjoner har hovedkvarter i Sveits, blant annet Rode Kors og FN-kontoret i Geneve.
+**Noytralitet (die Neutralität):** Sveits har vaert noytral siden 1815 og er ikke medlem av EU. Mange internasjonale organisasjoner har hovedkvarter i Sveits, blant annet Rode Kors og FN-kontoret i Geneve.
 
 **Fjell (die Berge):** Alpene dekker omtrent 60 % av Sveits. Matterhorn er et av verdens mest kjente fjell.`,
     },
@@ -479,11 +479,11 @@ Merk: "aus der Schweiz" = fra Sveits. Vi bruker "der" fordi "die Schweiz" er hun
         task: 'Oversett til tysk. Husk artikkel!',
         subTasks: [
           { label: 'a', task: 'sjokoladen', solution: 'die Schokolade' },
-          { label: 'b', task: 'osten', solution: 'der Kase' },
+          { label: 'b', task: 'osten', solution: 'der Käse' },
           { label: 'c', task: 'klokken', solution: 'die Uhr' },
           { label: 'd', task: 'fjellet', solution: 'der Berg' },
         ],
-        solution: 'a) die Schokolade, b) der Kase, c) die Uhr, d) der Berg',
+        solution: 'a) die Schokolade, b) der Käse, c) die Uhr, d) der Berg',
       },
     },
     {
@@ -496,7 +496,7 @@ Merk: "aus der Schweiz" = fra Sveits. Vi bruker "der" fordi "die Schweiz" er hun
         difficulty: 'medium',
         task: 'Skriv tre ting Sveits er kjent for pa tysk. Bruk "Die Schweiz ist bekannt für ..."',
         solution: 'Eksempel:\n- Die Schweiz ist bekannt für Schokolade.\n- Die Schweiz ist bekannt für Uhren.\n- Die Schweiz ist bekannt für die Berge.',
-        hints: ['bekannt für = kjent for', 'Schokolade, Kase, Uhren, Berge, Neutralitat'],
+        hints: ['bekannt für = kjent for', 'Schokolade, Käse, Uhren, Berge, Neutralität'],
       },
     },
     {
@@ -528,9 +528,9 @@ Merk: "aus der Schweiz" = fra Sveits. Vi bruker "der" fordi "die Schweiz" er hun
   keyTerms: [
     { term: 'die Schweiz', definition: 'Sveits' },
     { term: 'die Schokolade', definition: 'sjokoladen' },
-    { term: 'der Kase', definition: 'osten' },
+    { term: 'der Käse', definition: 'osten' },
     { term: 'die Uhr', definition: 'klokken' },
-    { term: 'die Neutralitat', definition: 'noytraliteten' },
+    { term: 'die Neutralität', definition: 'noytraliteten' },
     { term: 'viersprachig', definition: 'firespraklig' },
   ],
 };
@@ -545,11 +545,11 @@ export const CHAPTER_TYSK_1_11_4: TextbookChapter = {
   chapterNumber: '11.4',
   title: 'Dialekte und Varietäten',
   subtitle: 'Dialekter og varianter',
-  description: 'Laer om forskjellene mellom Hochdeutsch, osterriksk tysk og sveitsisk tysk.',
+  description: 'Laer om forskjellene mellom Hochdeutsch, østerriksk tysk og sveitsisk tysk.',
   estimatedMinutes: 40,
   competenceGoals: [
     'kjenne til at tysk har mange dialekter og varianter',
-    'gjenkjenne typiske osterrikske og sveitsiske ord',
+    'gjenkjenne typiske østerrikske og sveitsiske ord',
   ],
   content: [
     {
@@ -557,7 +557,7 @@ export const CHAPTER_TYSK_1_11_4: TextbookChapter = {
       type: 'text',
       content: `## Hochdeutsch og dialekter
 
-Pa skolen laerer du **Hochdeutsch** (standardtysk), som er det offisielle skriftspraket i alle tysktalende land. Men i dagliglivet snakker mange mennesker dialekt, spesielt i Sor-Tyskland, Osterrike og Sveits.
+Pa skolen laerer du **Hochdeutsch** (standardtysk), som er det offisielle skriftspraket i alle tysktalende land. Men i dagliglivet snakker mange mennesker dialekt, spesielt i Sør-Tyskland, Østerrike og Sveits.
 
 Akkurat som vi i Norge har bokmal, nynorsk og mange dialekter, har tysk et enormt mangfold av dialekter. En person fra Hamburg snakker helt annerledes enn en person fra München eller Zurich.`,
     },
@@ -570,10 +570,10 @@ Akkurat som vi i Norge har bokmal, nynorsk og mange dialekter, har tysk et enorm
 | Region | Hilsen | Betyr |
 |--------|--------|-------|
 | Nord-Tyskland | **Moin!** | Hei! |
-| Sor-Tyskland / Osterrike | **Servus!** | Hei! / Ha det! |
-| Sveits | **Gruezi!** | God dag! |
+| Sør-Tyskland / Østerrike | **Servus!** | Hei! / Ha det! |
+| Sveits | **Grüezi!** | God dag! |
 | Standard (Hochdeutsch) | **Guten Tag!** | God dag! |
-| Osterrike (uformelt) | **Gruss Gott!** | Guds hilsen! |
+| Østerrike (uformelt) | **Grüß Gott!** | Guds hilsen! |
 | Ungdom overalt | **Hallo!** | Hei! |`,
     },
     {
@@ -602,11 +602,11 @@ Dette er litt som at vi pa norsk sier "brunost" mens noen sier "mysost", eller a
       title: 'Eksempel 1: Gjenkjenne varianter',
       problem: `Hvilken region horer disse hilsenene til?
 a) Moin!
-b) Gruezi!
+b) Grüezi!
 c) Servus!`,
       solution: `a) **Moin!** - Nord-Tyskland (spesielt Hamburg og omegn)
-b) **Gruezi!** - Sveits (fra "Gott grueze" = Gud hilse)
-c) **Servus!** - Sor-Tyskland og Osterrike (fra latin "servus" = tjener)
+b) **Grüezi!** - Sveits (fra "Gott grüeze" = Gud hilse)
+c) **Servus!** - Sør-Tyskland og Østerrike (fra latin "servus" = tjener)
 
 Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
     },
@@ -622,10 +622,10 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
         options: [
           { id: 'a', text: 'Moin!', isCorrect: false },
           { id: 'b', text: 'Servus!', isCorrect: false },
-          { id: 'c', text: 'Gruezi!', isCorrect: true },
-          { id: 'd', text: 'Tschuss!', isCorrect: false },
+          { id: 'c', text: 'Grüezi!', isCorrect: true },
+          { id: 'd', text: 'Tschüss!', isCorrect: false },
         ],
-        solution: 'Gruezi er den typiske hilsenen i den tysktalende delen av Sveits.',
+        solution: 'Grüezi er den typiske hilsenen i den tysktalende delen av Sveits.',
       },
     },
     {
@@ -636,14 +636,14 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
         number: '2',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Hva heter "potet" pa osterriksk tysk?',
+        task: 'Hva heter "potet" pa østerriksk tysk?',
         options: [
           { id: 'a', text: 'die Kartoffel', isCorrect: false },
           { id: 'b', text: 'der Erdapfel', isCorrect: true },
           { id: 'c', text: 'der Hardopfel', isCorrect: false },
           { id: 'd', text: 'die Tomate', isCorrect: false },
         ],
-        solution: 'I Osterrike sier man "der Erdapfel" (jord-eple) for potet, mens standardtysk er "die Kartoffel".',
+        solution: 'I Østerrike sier man "der Erdapfel" (jord-eple) for potet, mens standardtysk er "die Kartoffel".',
       },
     },
     {
@@ -654,12 +654,12 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Koble det osterrikske/sveitsiske ordet med Hochdeutsch-varianten.',
+        task: 'Koble det østerrikske/sveitsiske ordet med Hochdeutsch-varianten.',
         subTasks: [
-          { label: 'a', task: 'die Semmel (osterriksk) = ?', solution: 'das Brötchen' },
+          { label: 'a', task: 'die Semmel (østerriksk) = ?', solution: 'das Brötchen' },
           { label: 'b', task: 'das Velo (sveitsisk) = ?', solution: 'das Fahrrad' },
-          { label: 'c', task: 'der Paradeiser (osterriksk) = ?', solution: 'die Tomate' },
-          { label: 'd', task: 'der Lift (osterriksk/sveitsisk) = ?', solution: 'der Aufzug' },
+          { label: 'c', task: 'der Paradeiser (østerriksk) = ?', solution: 'die Tomate' },
+          { label: 'd', task: 'der Lift (østerriksk/sveitsisk) = ?', solution: 'der Aufzug' },
         ],
         solution: 'a) das Brötchen, b) das Fahrrad, c) die Tomate, d) der Aufzug',
       },
@@ -685,7 +685,7 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort dialog (6-8 setninger) der en person fra Nord-Tyskland (bruker "Moin") moter en person fra Osterrike (bruker "Servus"). De diskuterer hva de skal spise, men bruker ulike ord (f.eks. Kartoffel vs. Erdapfel).',
+        task: 'Skriv en kort dialog (6-8 setninger) der en person fra Nord-Tyskland (bruker "Moin") møter en person fra Østerrike (bruker "Servus"). De diskuterer hva de skal spise, men bruker ulike ord (f.eks. Kartoffel vs. Erdapfel).',
         solution: 'Eksempel:\nPerson A: Moin! Wie gehts?\nPerson B: Servus! Mir gehts gut, danke!\nPerson A: Möchtest du Kartoffeln zum Mittagessen?\nPerson B: Kartoffeln? Ach, du meinst Erdapfel! Ja, gerne.\nPerson A: Und dazu ein Brötchen?\nPerson B: Bei uns sagt man Semmel! Aber ja, bitte.\nPerson A: Ihr Österreicher habt lustige Wörter!\nPerson B: Das sagen wir auch über euch!',
         hints: ['Bruk "Moin" og "Servus" som hilsener', 'Bruk Kartoffel/Erdapfel og Brötchen/Semmel'],
       },
@@ -696,8 +696,8 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
       content: `## Oppsummering
 
 - **Hochdeutsch** er standardspraket som brukes i skrift og formelle sammenhenger.
-- Hilsener varierer: **Moin** (nord), **Guten Tag** (standard), **Servus/Gruss Gott** (sor/Osterrike), **Gruezi** (Sveits).
-- Mange dagligdagse ord er forskjellige i Tyskland, Osterrike og Sveits (f.eks. Kartoffel/Erdapfel/Hardopfel).
+- Hilsener varierer: **Moin** (nord), **Guten Tag** (standard), **Servus/Grüß Gott** (sør/Østerrike), **Grüezi** (Sveits).
+- Mange dagligdagse ord er forskjellige i Tyskland, Østerrike og Sveits (f.eks. Kartoffel/Erdapfel/Hardopfel).
 - Dialektmangfoldet i tysk ligner pa det vi har i norsk.`,
     },
   ],
@@ -706,8 +706,8 @@ Alle tre betyr omtrent "hei" eller "god dag", men brukes i ulike regioner.`,
     { term: 'Hochdeutsch', definition: 'standardtysk / høytidelig tysk' },
     { term: 'der Dialekt', definition: 'dialekten' },
     { term: 'die Varietät', definition: 'varianten (av et sprak)' },
-    { term: 'Gruezi', definition: 'hei (sveitsisk)' },
-    { term: 'Servus', definition: 'hei / ha det (osterriksk/sor-tysk)' },
+    { term: 'Grüezi', definition: 'hei (sveitsisk)' },
+    { term: 'Servus', definition: 'hei / ha det (østerriksk/sør-tysk)' },
     { term: 'Moin', definition: 'hei (nord-tysk)' },
   ],
 };
@@ -722,7 +722,7 @@ export const CHAPTER_TYSK_1_12_1: TextbookChapter = {
   chapterNumber: '12.1',
   title: 'Deutsche Musik',
   subtitle: 'Tysk musikk',
-  description: 'Laer om beremt tysk musikk - fra Beethoven og Bach til Rammstein og Nena.',
+  description: 'Laer om berømt tysk musikk - fra Beethoven og Bach til Rammstein og Nena.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kjenne til viktige tyske komponister og musikere',
@@ -747,22 +747,22 @@ I dette kapittelet laerer du om viktige tyske musikere og ord som brukes nar vi 
 | die Musik | musikken |
 | das Lied (pl. Lieder) | sangen |
 | der Komponist | komponisten |
-| der Sanger / die Sangerin | sangeren |
+| der Sänger / die Sängerin | sangeren |
 | die Band | bandet |
 | das Klavier | pianoet |
 | die Geige | fiolinen |
 | das Orchester | orkesteret |
 | die Oper | operaen |
-| beruhmt | beremt |`,
+| berühmt | berømt |`,
     },
     {
       id: 'tysk-1-12-1-text-1',
       type: 'text',
       content: `## Klassiske komponister
 
-**Ludwig van Beethoven (1770-1827):** Fodt i Bonn, Tyskland. Skrev ni symfonier, inkludert den beremte femte symfonien (da-da-da-DAAA). Han ble dov mot slutten av livet, men fortsatte a komponere. EUs hymne er fra hans niende symfoni ("Ode an die Freude" - Ode til gleden).
+**Ludwig van Beethoven (1770-1827):** Født i Bonn, Tyskland. Skrev ni symfonier, inkludert den berømte femte symfonien (da-da-da-DAAA). Han ble døv mot slutten av livet, men fortsatte a komponere. EUs hymne er fra hans niende symfoni ("Ode an die Freude" - Ode til gleden).
 
-**Johann Sebastian Bach (1685-1750):** Fodt i Eisenach, Tyskland. Regnes som en av historiens største komponister. Kjent for orgelmusikk, kantater og "Die Brandenburgischen Konzerte".
+**Johann Sebastian Bach (1685-1750):** Født i Eisenach, Tyskland. Regnes som en av historiens største komponister. Kjent for orgelmusikk, kantater og "Die Brandenburgischen Konzerte".
 
 ## Moderne musikk
 
@@ -777,10 +777,10 @@ I dette kapittelet laerer du om viktige tyske musikere og ord som brukes nar vi 
       type: 'example',
       title: 'Eksempel 1: Snakke om musikk',
       problem: `Oversett til norsk:
-a) Beethoven ist ein beruhmter Komponist.
+a) Beethoven ist ein berühmter Komponist.
 b) Ich hore gern deutsche Musik.
 c) "99 Luftballons" ist ein bekanntes Lied.`,
-      solution: `a) Beethoven er en beremt komponist.
+      solution: `a) Beethoven er en berømt komponist.
 b) Jeg liker a hore pa tysk musikk.
 c) "99 Luftballons" er en kjent sang.
 
@@ -862,9 +862,9 @@ c) "99 Luftballons" er en kjent sang.
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Velg en tysk artist eller komponist og skriv en kort presentasjon (5-6 setninger) pa tysk. Inkluder: navn, fodested, sjanger, og hvorfor de er beremte.',
-        solution: 'Eksempel:\nLudwig van Beethoven wurde 1770 in Bonn geboren. Er war ein beruhmter Komponist. Er schrieb neun Sinfonien. Die funfte Sinfonie ist sehr bekannt. Beethoven wurde taub, aber er komponierte weiter. Die "Ode an die Freude" ist die Hymne der EU.',
-        hints: ['wurde ... geboren = ble fodt', 'Er war = han var', 'Er schrieb = han skrev'],
+        task: 'Velg en tysk artist eller komponist og skriv en kort presentasjon (5-6 setninger) pa tysk. Inkluder: navn, fødested, sjanger, og hvorfor de er berømte.',
+        solution: 'Eksempel:\nLudwig van Beethoven wurde 1770 in Bonn geboren. Er war ein berühmter Komponist. Er schrieb neun Sinfonien. Die fünfte Sinfonie ist sehr bekannt. Beethoven wurde taub, aber er komponierte weiter. Die "Ode an die Freude" ist die Hymne der EU.',
+        hints: ['wurde ... geboren = ble født', 'Er war = han var', 'Er schrieb = han skrev'],
       },
     },
     {
@@ -885,7 +885,7 @@ c) "99 Luftballons" er en kjent sang.
     { term: 'die Musik', definition: 'musikken' },
     { term: 'das Lied', definition: 'sangen' },
     { term: 'der Komponist', definition: 'komponisten' },
-    { term: 'beruhmt', definition: 'beremt' },
+    { term: 'berühmt', definition: 'berømt' },
     { term: 'das Klavier', definition: 'pianoet' },
     { term: 'das Orchester', definition: 'orkesteret' },
   ],
@@ -901,7 +901,7 @@ export const CHAPTER_TYSK_1_12_2: TextbookChapter = {
   chapterNumber: '12.2',
   title: 'Deutsches Kino',
   subtitle: 'Tysk film',
-  description: 'Laer om beremte tyske filmer og filmhistorie - fra Fritz Lang til moderne klassikere.',
+  description: 'Laer om berømte tyske filmer og filmhistorie - fra Fritz Lang til moderne klassikere.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kjenne til viktige tyske filmer og regissorer',
@@ -939,7 +939,7 @@ I dette kapittelet laerer du om viktige tyske filmer og ord du trenger for a sna
       type: 'text',
       content: `## Beremte tyske filmer
 
-**Fritz Lang - Metropolis (1927):** En av de forste og viktigste science fiction-filmene noensinne. Fritz Lang var en osterriksk-tysk regissor som ogsa laget "M" (1931) med Peter Lorre.
+**Fritz Lang - Metropolis (1927):** En av de første og viktigste science fiction-filmene noensinne. Fritz Lang var en østerriksk-tysk regissor som ogsa laget "M" (1931) med Peter Lorre.
 
 **Das Boot (1981):** En intens krigsfilm om en tysk ubatbesetning under andre verdenskrig. Regissert av Wolfgang Petersen. Filmen er kjent for sin realistiske framstilling.
 
@@ -1048,7 +1048,7 @@ c) Jeg liker a ga pa kino.
       content: `## Oppsummering
 
 - Tysk film har en lang tradisjon fra Fritz Langs **Metropolis** (1927).
-- **Das Boot** (1981) er en beremt krigsfilm om en ubat.
+- **Das Boot** (1981) er en berømt krigsfilm om en ubat.
 - **Good Bye, Lenin!** (2003) er en komedie om gjenforeningen av Tyskland.
 - **Das Leben der Anderen** (2006) vant Oscar og handler om Stasi-overvaking.
 - Viktige filmord: der Film, das Kino, der Regisseur, der Schauspieler, spannend.`,
@@ -1087,7 +1087,7 @@ export const CHAPTER_TYSK_1_12_3: TextbookChapter = {
       type: 'text',
       content: `## Comics und Literatur
 
-Tyskland har en rik litteraturtradisjon og en overraskende levende tegneseriekultur. Fra brodre Grimms eventyr som alle kjenner, til morsomme tegneserier som Werner, finnes det mye spennende a utforske.
+Tyskland har en rik litteraturtradisjon og en overraskende levende tegneseriekultur. Fra brødre Grimms eventyr som alle kjenner, til morsomme tegneserier som Werner, finnes det mye spennende a utforske.
 
 I dette kapittelet laerer du om viktige tyske boker, tegneserier og forfattere, og ord som brukes nar vi snakker om litteratur.`,
     },
@@ -1115,8 +1115,8 @@ I dette kapittelet laerer du om viktige tyske boker, tegneserier og forfattere, 
 
 **Bruder Grimm** (Jacob og Wilhelm Grimm) samlet inn tyske folkeeventyr pa 1800-tallet. Mange av eventyrene vi kjenner godt, kommer fra deres samling:
 
-- **Rotkäppchen** = Rodhette
-- **Schneewittchen** = Snohvit
+- **Rotkäppchen** = Rødhette
+- **Schneewittchen** = Snøhvit
 - **Hansel und Gretel** = Hans og Grete
 - **Dornröschen** = Tornerose
 - **Aschenputtel** = Askepott
@@ -1124,11 +1124,11 @@ I dette kapittelet laerer du om viktige tyske boker, tegneserier og forfattere, 
 
 ## Der Struwwelpeter
 
-**Der Struwwelpeter** (1845) av Heinrich Hoffmann er en beremt tysk barnebok med moralske historier. Den handler om barn som ikke oppforer seg - for eksempel "Suppenkaspar" som ikke vil spise suppen sin, og "Der Daumenlutscher" som suger pa tommelen.
+**Der Struwwelpeter** (1845) av Heinrich Hoffmann er en berømt tysk barnebok med moralske historier. Den handler om barn som ikke oppforer seg - for eksempel "Suppenkaspar" som ikke vil spise suppen sin, og "Der Daumenlutscher" som suger pa tommelen.
 
 ## Werner
 
-**Werner** er en populaer tysk tegneserie av Brotsel (Rötger Feldmann). Den handler om Werner, en rorleggerlaerling fra Nord-Tyskland, og hans morsomme eventyr med motorsykler, ol og venner. Tegneserien er veldig populaer i Tyskland og har ogsa blitt til flere filmer.`,
+**Werner** er en populaer tysk tegneserie av Brøtsel (Rötger Feldmann). Den handler om Werner, en rorleggerlaerling fra Nord-Tyskland, og hans morsomme eventyr med motorsykler, ol og venner. Tegneserien er veldig populaer i Tyskland og har ogsa blitt til flere filmer.`,
     },
     {
       id: 'tysk-1-12-3-example-1',
@@ -1138,11 +1138,11 @@ I dette kapittelet laerer du om viktige tyske boker, tegneserier og forfattere, 
 a) Rotkäppchen
 b) Schneewittchen
 c) Aschenputtel`,
-      solution: `a) Rotkäppchen = **Rodhette** (Rot = rod, Kappchen = liten hette)
-b) Schneewittchen = **Snohvit** (Schnee = sno, wittchen = hvitchen)
+      solution: `a) Rotkäppchen = **Rødhette** (Rot = rød, Käppchen = liten hette)
+b) Schneewittchen = **Snøhvit** (Schnee = snø, wittchen = hvitchen)
 c) Aschenputtel = **Askepott** (Asche = aske, Puttel = en som roter i asken)
 
-Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
+Disse eventyrene ble samlet av brødre Grimm og er kjent over hele verden.`,
     },
     {
       id: 'tysk-1-12-3-ex-block-1',
@@ -1152,11 +1152,11 @@ Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvem samlet inn de beremte tyske folkeeventyrene?',
+        task: 'Hvem samlet inn de berømte tyske folkeeventyrene?',
         options: [
           { id: 'a', text: 'Heinrich Hoffmann', isCorrect: false },
           { id: 'b', text: 'Brødre Grimm (Bruder Grimm)', isCorrect: true },
-          { id: 'c', text: 'Brotsel (Rotger Feldmann)', isCorrect: false },
+          { id: 'c', text: 'Brøtsel (Rötger Feldmann)', isCorrect: false },
           { id: 'd', text: 'Johann Wolfgang von Goethe', isCorrect: false },
         ],
         solution: 'Brødre Grimm (Jacob og Wilhelm Grimm) samlet inn tyske folkeeventyr pa 1800-tallet.',
@@ -1172,12 +1172,12 @@ Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
         difficulty: 'lett',
         task: 'Hva betyr "Schneewittchen" pa norsk?',
         options: [
-          { id: 'a', text: 'Rodhette', isCorrect: false },
+          { id: 'a', text: 'Rødhette', isCorrect: false },
           { id: 'b', text: 'Askepott', isCorrect: false },
-          { id: 'c', text: 'Snohvit', isCorrect: true },
+          { id: 'c', text: 'Snøhvit', isCorrect: true },
           { id: 'd', text: 'Tornerose', isCorrect: false },
         ],
-        solution: 'Schneewittchen = Snohvit. "Schnee" betyr sno og "wittchen" betyr liten hvit.',
+        solution: 'Schneewittchen = Snøhvit. "Schnee" betyr snø og "wittchen" betyr liten hvit.',
       },
     },
     {
@@ -1190,12 +1190,12 @@ Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
         difficulty: 'medium',
         task: 'Oversett eventyrtitlene til norsk.',
         subTasks: [
-          { label: 'a', task: 'Rotkäppchen', solution: 'Rodhette' },
+          { label: 'a', task: 'Rotkäppchen', solution: 'Rødhette' },
           { label: 'b', task: 'Hansel und Gretel', solution: 'Hans og Grete' },
           { label: 'c', task: 'Dornröschen', solution: 'Tornerose' },
           { label: 'd', task: 'Der Froschkönig', solution: 'Froskekongen' },
         ],
-        solution: 'a) Rodhette, b) Hans og Grete, c) Tornerose, d) Froskekongen',
+        solution: 'a) Rødhette, b) Hans og Grete, c) Tornerose, d) Froskekongen',
       },
     },
     {
@@ -1224,7 +1224,7 @@ Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort gjenfortelling av et Grimm-eventyr pa tysk (5-6 setninger). Velg for eksempel Rotkäppchen (Rodhette).',
+        task: 'Skriv en kort gjenfortelling av et Grimm-eventyr pa tysk (5-6 setninger). Velg for eksempel Rotkäppchen (Rødhette).',
         solution: 'Eksempel (Rotkäppchen):\nEs war einmal ein Mädchen namens Rotkäppchen. Ihre Mutter sagte: "Geh zu deiner Großmutter!" Rotkäppchen ging in den Wald. Dort traf sie den bösen Wolf. Der Wolf ging zuerst zur Großmutter und fraß sie. Dann kam Rotkäppchen und der Jager rettete sie.',
         hints: ['Es war einmal = Det var en gang', 'der böse Wolf = den slemme ulven', 'der Jager = jegeren', 'rettete = reddet'],
       },
@@ -1234,7 +1234,7 @@ Disse eventyrene ble samlet av brodre Grimm og er kjent over hele verden.`,
       type: 'text',
       content: `## Oppsummering
 
-- **Brødre Grimm** samlet inn beremte folkeeventyr som Rotkäppchen, Schneewittchen og Hansel und Gretel.
+- **Brødre Grimm** samlet inn berømte folkeeventyr som Rotkäppchen, Schneewittchen og Hansel und Gretel.
 - **Der Struwwelpeter** er en klassisk tysk barnebok med moralske historier.
 - **Werner** er en populaer tysk tegneserie om en rorleggerlaerling.
 - Viktige litteraturord: das Buch, das Märchen, der Comic, der Autor, die Geschichte.`,
@@ -1306,12 +1306,12 @@ I dette kapittelet laerer du om de viktigste tyske høytidene og tradisjonene.`,
 Tysk jul har mange fine tradisjoner:
 - **Nikolaustag (6. desember):** Barna setter skoene utenfor doren, og St. Nikolaus fyller dem med godteri og smaa gaver.
 - **Adventskranz:** En krans med fire lys - ett lys tennes hver sondag i advent.
-- **Weihnachtsmarkt:** Julemarkeder finnes i nesten alle tyske byer. Her selges det glogg (Gluhwein), pepperkaker (Lebkuchen) og julepynt.
+- **Weihnachtsmarkt:** Julemarkeder finnes i nesten alle tyske byer. Her selges det glogg (Glühwein), pepperkaker (Lebkuchen) og julepynt.
 - **Heiligabend (24. desember):** Julaften, den viktigste juledagen i Tyskland.
 
 ## Karneval
 
-Karneval feires spesielt i Köln, Düsseldorf og Mainz. Hoydepunktet er **Rosenmontag** (mandag for askeonsdagen). Folk kler seg ut, det er parader, musikk og mye moro.
+Karneval feires spesielt i Köln, Düsseldorf og Mainz. Høydepunktet er **Rosenmontag** (mandag for askeonsdagen). Folk kler seg ut, det er parader, musikk og mye moro.
 
 ## Ostern - Paske
 
@@ -1395,7 +1395,7 @@ c) Karneval er veldig morsomt.
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign tysk og norsk jul. Skriv 3-4 setninger pa tysk om likheter og forskjeller.',
-        solution: 'Eksempel:\nIn Deutschland und Norwegen feiert man Weihnachten am 24. Dezember. In Deutschland gibt es Weihnachtsmarkte, aber in Norwegen nicht so viele. In Deutschland bringt der Weihnachtsmann oder das Christkind die Geschenke. In Norwegen bringt der "Julenisse" die Geschenke.',
+        solution: 'Eksempel:\nIn Deutschland und Norwegen feiert man Weihnachten am 24. Dezember. In Deutschland gibt es Weihnachtsmärkte, aber in Norwegen nicht so viele. In Deutschland bringt der Weihnachtsmann oder das Christkind die Geschenke. In Norwegen bringt der "Julenisse" die Geschenke.',
         hints: ['man feiert = man feirer', 'die Geschenke = gavene', 'es gibt = det finnes'],
       },
     },
@@ -1458,7 +1458,7 @@ export const CHAPTER_TYSK_1_13_1: TextbookChapter = {
       type: 'text',
       content: `## Speisekarten lesen - a lese menyer
 
-Nar du besøker en restaurant i Tyskland, Osterrike eller Sveits, far du en **Speisekarte** (meny). Tyske menyer er vanligvis delt inn i flere kategorier: forrett, hovedrett, dessert, tilbehor og drikke.
+Nar du besøker en restaurant i Tyskland, Østerrike eller Sveits, far du en **Speisekarte** (meny). Tyske menyer er vanligvis delt inn i flere kategorier: forrett, hovedrett, dessert, tilbehor og drikke.
 
 A forsta en meny er en nyttig ferdighet - bade for reiser og for a laere matord pa tysk. I dette kapittelet laerer du a lese og forsta en ekte tysk meny.`,
     },
@@ -1473,7 +1473,7 @@ A forsta en meny er en nyttig ferdighet - bade for reiser og for a laere matord 
 | das Hauptgericht | hovedretten |
 | die Nachspeise / das Dessert | desserten |
 | die Beilage | tilbehoret |
-| das Getrank (pl. Getranke) | drikken |
+| das Getränk (pl. Getränke) | drikken |
 | die Tagessuppe | dagens suppe |
 | der Preis | prisen |
 | bestellen | a bestille |
@@ -1512,7 +1512,7 @@ Her er et eksempel pa en meny fra en tysk restaurant:
 - Schokoladenkuchen .................. 5,90 EUR
 - Eis (3 Kugeln) ..................... 4,50 EUR
 
-**Getranke** (Drikke)
+**Getränke** (Drikke)
 - Mineralwasser (0,3 l) .............. 2,50 EUR
 - Apfelsaft (0,3 l) .................. 3,20 EUR
 - Cola (0,3 l) ........................ 3,00 EUR
@@ -1603,10 +1603,10 @@ c) "Gemischter Salat" betyr **blandet salat** (gemischt = blandet, der Salat = s
           { label: 'a', task: 'forretter', solution: 'Vorspeisen' },
           { label: 'b', task: 'hovedretter', solution: 'Hauptgerichte' },
           { label: 'c', task: 'desserter', solution: 'Nachspeisen' },
-          { label: 'd', task: 'drikke', solution: 'Getranke' },
+          { label: 'd', task: 'drikke', solution: 'Getränke' },
           { label: 'e', task: 'tilbehor', solution: 'Beilagen' },
         ],
-        solution: 'a) Vorspeisen, b) Hauptgerichte, c) Nachspeisen, d) Getranke, e) Beilagen',
+        solution: 'a) Vorspeisen, b) Hauptgerichte, c) Nachspeisen, d) Getränke, e) Beilagen',
       },
     },
     {
@@ -1631,7 +1631,7 @@ c) "Gemischter Salat" betyr **blandet salat** (gemischt = blandet, der Salat = s
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Lag din egen lille meny pa tysk med minst 2 forretter, 3 hovedretter, 2 desserter og 3 drikker. Gi restauranten et tysk navn og sett priser i euro.',
-        solution: 'Eksempel:\n\n**Restaurant Zum Bären**\n\nVorspeisen:\n- Tomatensuppe .......... 5,00 EUR\n- Brot mit Butter ....... 3,50 EUR\n\nHauptgerichte:\n- Hamburger mit Pommes .. 12,90 EUR\n- Pizza Margherita ...... 10,50 EUR\n- Hahnchen mit Reis ..... 13,90 EUR\n\nNachspeisen:\n- Vanilleeis ............ 4,00 EUR\n- Obstsalat ............. 5,50 EUR\n\nGetranke:\n- Wasser ................ 2,00 EUR\n- Orangensaft ........... 3,50 EUR\n- Kaffee ................ 2,90 EUR',
+        solution: 'Eksempel:\n\n**Restaurant Zum Bären**\n\nVorspeisen:\n- Tomatensuppe .......... 5,00 EUR\n- Brot mit Butter ....... 3,50 EUR\n\nHauptgerichte:\n- Hamburger mit Pommes .. 12,90 EUR\n- Pizza Margherita ...... 10,50 EUR\n- Hähnchen mit Reis ..... 13,90 EUR\n\nNachspeisen:\n- Vanilleeis ............ 4,00 EUR\n- Obstsalat ............. 5,50 EUR\n\nGetränke:\n- Wasser ................ 2,00 EUR\n- Orangensaft ........... 3,50 EUR\n- Kaffee ................ 2,90 EUR',
         hints: ['Bruk ordene du har laert', 'Se pa eksempelmenyen for inspirasjon'],
       },
     },
@@ -1640,7 +1640,7 @@ c) "Gemischter Salat" betyr **blandet salat** (gemischt = blandet, der Salat = s
       type: 'text',
       content: `## Oppsummering
 
-- En tysk **Speisekarte** (meny) er delt inn i: **Vorspeisen** (forretter), **Hauptgerichte** (hovedretter), **Nachspeisen** (desserter), **Beilagen** (tilbehor) og **Getranke** (drikke).
+- En tysk **Speisekarte** (meny) er delt inn i: **Vorspeisen** (forretter), **Hauptgerichte** (hovedretter), **Nachspeisen** (desserter), **Beilagen** (tilbehor) og **Getränke** (drikke).
 - Typiske tyske retter inkluderer Wiener Schnitzel, Bratwurst, Schweinebraten og Apfelstrudel.
 - For a bestille sier du: **"Ich möchte bitte ..."** (Jeg vil gjerne ha ...).
 - For a be om regningen: **"Die Rechnung, bitte!"** (Regningen, takk!).`,
@@ -1653,21 +1653,21 @@ c) "Gemischter Salat" betyr **blandet salat** (gemischt = blandet, der Salat = s
     { term: 'das Hauptgericht', definition: 'hovedretten' },
     { term: 'die Nachspeise', definition: 'desserten' },
     { term: 'die Beilage', definition: 'tilbehoret' },
-    { term: 'das Getrank', definition: 'drikken' },
+    { term: 'das Getränk', definition: 'drikken' },
     { term: 'bestellen', definition: 'a bestille' },
     { term: 'die Rechnung', definition: 'regningen' },
   ],
 };
 
 // ============================================================================
-// Kapittel 13.2: Fahrplane lesen - Lese rutetabeller
+// Kapittel 13.2: Fahrpläne lesen - Lese rutetabeller
 // ============================================================================
 
 export const CHAPTER_TYSK_1_13_2: TextbookChapter = {
   id: 'tysk-1-13-2',
   courseId: 'tysk-1',
   chapterNumber: '13.2',
-  title: 'Fahrplane lesen',
+  title: 'Fahrpläne lesen',
   subtitle: 'Lese rutetabeller',
   description: 'Laer a lese tyske togrutetabeller - Deutsche Bahn, avganger, ankomster og togtyper.',
   estimatedMinutes: 45,
@@ -1679,7 +1679,7 @@ export const CHAPTER_TYSK_1_13_2: TextbookChapter = {
     {
       id: 'tysk-1-13-2-intro',
       type: 'text',
-      content: `## Fahrplane lesen - a lese rutetabeller
+      content: `## Fahrpläne lesen - a lese rutetabeller
 
 I Tyskland er toget et av de viktigste transportmidlene. **Deutsche Bahn** (DB) er det tyske jernbaneselskapet, og det har et enormt nettverk av tog som dekker hele landet. Nar du reiser med tog i Tyskland, ma du kunne lese en **Fahrplan** (rutetabell).
 
@@ -1700,7 +1700,7 @@ I dette kapittelet laerer du a forsta avgangstider, ankomsttider, spornumre og t
 | der Hauptbahnhof (Hbf) | hovedjernbanestasjonen |
 | umsteigen | a bytte (tog) |
 | die Fahrkarte | togbilletten |
-| die Verspatung | forsinkelsen |`,
+| die Verspätung | forsinkelsen |`,
     },
     {
       id: 'tysk-1-13-2-text-1',
@@ -1725,7 +1725,7 @@ Her er en rutetabell for togreisen **Berlin Hbf til München Hbf**:
 |-----|---------|---------|-------|-----------|-------|
 | ICE 1001 | 06:15 | 10:22 | 4t 07min | 0 | 8 |
 | ICE 1505 | 08:30 | 12:45 | 4t 15min | 0 | 11 |
-| IC 2067 / RE 340 | 09:00 | 14:35 | 5t 35min | 1 (Nurnberg) | 5 |
+| IC 2067 / RE 340 | 09:00 | 14:35 | 5t 35min | 1 (Nürnberg) | 5 |
 | ICE 1209 | 12:00 | 16:12 | 4t 12min | 0 | 14 |
 
 **Dauer** = varighet, **Umsteigen** = antall bytter`,
@@ -1735,12 +1735,12 @@ Her er en rutetabell for togreisen **Berlin Hbf til München Hbf**:
       type: 'example',
       title: 'Eksempel 1: Lese rutetabellen',
       problem: `Bruk rutetabellen ovenfor til a svare:
-a) Nar gar det forste toget fra Berlin til München?
+a) Nar gar det første toget fra Berlin til München?
 b) Hvilket tog er raskest?
 c) Hvilket tog krever bytte, og hvor ma du bytte?`,
-      solution: `a) Det forste toget gar kl. **06:15** (ICE 1001).
+      solution: `a) Det første toget gar kl. **06:15** (ICE 1001).
 b) Det raskeste toget er **ICE 1001** med en reisetid pa 4 timer og 7 minutter.
-c) **IC 2067 / RE 340** krever ett bytte i **Nurnberg**. Reisetiden er 5 timer og 35 minutter.
+c) **IC 2067 / RE 340** krever ett bytte i **Nürnberg**. Reisetiden er 5 timer og 35 minutter.
 
 Tips: Direkte tog (0 Umsteigen) er vanligvis raskere, men kan vaere dyrere.`,
     },
@@ -1794,9 +1794,9 @@ Tips: Direkte tog (0 Umsteigen) er vanligvis raskere, men kan vaere dyrere.`,
           { label: 'b', task: 'togstasjonen', solution: 'der Bahnhof' },
           { label: 'c', task: 'sporet', solution: 'das Gleis' },
           { label: 'd', task: 'a bytte (tog)', solution: 'umsteigen' },
-          { label: 'e', task: 'forsinkelsen', solution: 'die Verspatung' },
+          { label: 'e', task: 'forsinkelsen', solution: 'die Verspätung' },
         ],
-        solution: 'a) der Fahrplan, b) der Bahnhof, c) das Gleis, d) umsteigen, e) die Verspatung',
+        solution: 'a) der Fahrplan, b) der Bahnhof, c) das Gleis, d) umsteigen, e) die Verspätung',
       },
     },
     {
@@ -1873,7 +1873,7 @@ export const CHAPTER_TYSK_1_13_3: TextbookChapter = {
 
 **Kleinanzeigen** (smaannonser) er korte annonser der folk tilbyr eller soker etter boliger, jobber, ting til salgs og mye mer. I Tyskland er **eBay Kleinanzeigen** (na "Kleinanzeigen") en av de mest populaere plattformene.
 
-Tyske smaannonser bruker mange **forkortelser** (Abkurzungen) for a spare plass. I dette kapittelet laerer du a lese og forsta disse annonsene.`,
+Tyske smaannonser bruker mange **forkortelser** (Abkürzungen) for a spare plass. I dette kapittelet laerer du a lese og forsta disse annonsene.`,
     },
     {
       id: 'tysk-1-13-3-def-1',
@@ -1892,7 +1892,7 @@ Tyske smaannonser bruker mange **forkortelser** (Abkurzungen) for a spare plass.
 | Warmmiete (WM) | Warmmiete | husleie inkludert strom/varme |
 | qm / m² | Quadratmeter | kvadratmeter |
 | EG / OG / DG | Erdgeschoss / Obergeschoss / Dachgeschoss | 1. etasje / overetasje / loftsetasje |
-| mobliert (mobl.) | mobliert | mobert |
+| möbliert (mobl.) | möbliert | møblert |
 | ab sofort | ab sofort | fra umiddelbart |
 
 **Kjop/salg:**
@@ -1914,7 +1914,7 @@ Tyske smaannonser bruker mange **forkortelser** (Abkurzungen) for a spare plass.
 **Boligannonse:**
 
 > **2-Zi.-Whg. in Berlin-Kreuzberg**
-> Schone 2-Zimmer-Wohnung, 55 qm, 3. OG, Balkon, Einbaukuche. KM 650 EUR + NK 150 EUR. KT 1.950 EUR. Ab 01.04. Kontakt: Herr Muller, Tel. 030-12345678.
+> Schöne 2-Zimmer-Wohnung, 55 qm, 3. OG, Balkon, Einbauküche. KM 650 EUR + NK 150 EUR. KT 1.950 EUR. Ab 01.04. Kontakt: Herr Müller, Tel. 030-12345678.
 
 Oversatt: Pen 2-roms leilighet, 55 kvm, 3. etasje, balkong, integrert kjokken. Husleie 650 EUR + tilleggskostnader 150 EUR. Depositum 1.950 EUR. Fra 1. april.
 
@@ -1947,7 +1947,7 @@ c) Hva er total manedlig husleie (KM + NK)?`,
 b) Den er **72 kvadratmeter** (72 qm).
 c) Total manedlig husleie er **800 + 200 = 1.000 EUR** (KM 800 + NK 200).
 
-Ekstra info: "EG" betyr Erdgeschoss (1. etasje), "mobl." betyr mobliert (mobert), og "ab sofort" betyr fra umiddelbart (ledig na).`,
+Ekstra info: "EG" betyr Erdgeschoss (1. etasje), "mobl." betyr möbliert (møblert), og "ab sofort" betyr fra umiddelbart (ledig na).`,
     },
     {
       id: 'tysk-1-13-3-ex-block-1',
@@ -2025,7 +2025,7 @@ Ekstra info: "EG" betyr Erdgeschoss (1. etasje), "mobl." betyr mobliert (mobert)
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv din egen smaannonse pa tysk. Velg en av disse: a) Du vil leie ut et rom i leiligheten din, b) Du vil selge en gjenstand (telefon, sykkel, osv.), c) Du soker en deltidsjobb. Bruk forkortelser der det passer.',
-        solution: 'Eksempel (selge telefon):\n\n"iPhone 14 zu verkaufen\nGebraucht, 1 Jahr alt, 128 GB, schwarz, sehr guter Zustand. Originalverpackung und Ladekabel dabei. Preis: 450 EUR VB. Abholung in Berlin oder Versand moglich. Kontakt: 0170-55566677."',
+        solution: 'Eksempel (selge telefon):\n\n"iPhone 14 zu verkaufen\nGebraucht, 1 Jahr alt, 128 GB, schwarz, sehr guter Zustand. Originalverpackung und Ladekabel dabei. Preis: 450 EUR VB. Abholung in Berlin oder Versand möglich. Kontakt: 0170-55566677."',
         hints: ['zu verkaufen = til salgs', 'gebraucht = brukt', 'der Zustand = tilstanden', 'Abholung = henting', 'Versand = forsendelse'],
       },
     },
@@ -2064,7 +2064,7 @@ export const CHAPTER_TYSK_1_13_4: TextbookChapter = {
   chapterNumber: '13.4',
   title: 'Gedichte und Lieder',
   subtitle: 'Dikt og sanger',
-  description: 'Laer om enkle tyske dikt og sanger, diminutiver med -chen/-lein, og Goethes "Heidenroslein".',
+  description: 'Laer om enkle tyske dikt og sanger, diminutiver med -chen/-lein, og Goethes "Heidenröslein".',
   estimatedMinutes: 45,
   competenceGoals: [
     'lese og forsta enkle tyske dikt',
@@ -2078,7 +2078,7 @@ export const CHAPTER_TYSK_1_13_4: TextbookChapter = {
 
 Tyskland har en lang tradisjon for poesi og sang. Beremte diktere som **Goethe**, **Schiller** og **Heine** har skrevet noen av verdenslitteraturens mest kjente dikt. Mange tyske dikt har ogsa blitt til sanger.
 
-I dette kapittelet leser vi enkle tyske dikt, laerer om diminutiver (-chen/-lein), og ser pa Goethes beremte dikt "Heidenroslein".`,
+I dette kapittelet leser vi enkle tyske dikt, laerer om diminutiver (-chen/-lein), og ser pa Goethes berømte dikt "Heidenröslein".`,
     },
     {
       id: 'tysk-1-13-4-def-1',
@@ -2106,15 +2106,15 @@ I tysk kan du gjore noe lite og sodt ved a legge til **-chen** eller **-lein** p
 
 | Grunnord | Med -chen | Med -lein | Norsk |
 |----------|-----------|-----------|-------|
-| die Blume (blomsten) | das Blümchen | das Blumlein | den lille blomsten |
-| das Haus (huset) | das Hauschen | das Hauslein | det lille huset |
-| der Vogel (fuglen) | das Vögelchen | das Voglein | den lille fuglen |
-| die Rose (rosen) | das Roschen | das Roslein | den lille rosen |
+| die Blume (blomsten) | das Blümchen | das Blümlein | den lille blomsten |
+| das Haus (huset) | das Häuschen | das Häuslein | det lille huset |
+| der Vogel (fuglen) | das Vögelchen | das Vöglein | den lille fuglen |
+| die Rose (rosen) | das Röschen | das Röslein | den lille rosen |
 | das Brot (brodet) | das Brötchen | - | rundstykket (det lille brodet) |
 | das Kind (barnet) | das Kindchen | das Kindlein | det lille barnet |
 
 **Regler:**
-- Diminutiver far ofte omlyd (a -> a, o -> o, u -> u): Haus -> Hauschen
+- Diminutiver far ofte omlyd (a -> ä, o -> ö, u -> ü): Haus -> Häuschen
 - Alle diminutiver er **das** (intetkjonn), uansett opprinnelig kjonn
 - **-chen** er mest brukt i dagligtale, **-lein** er mer poetisk/gammeldags
 - Noen diminutiver brukes som egne ord: das Brötchen (rundstykke), das Mädchen (jente)`,
@@ -2122,26 +2122,26 @@ I tysk kan du gjore noe lite og sodt ved a legge til **-chen** eller **-lein** p
     {
       id: 'tysk-1-13-4-text-2',
       type: 'text',
-      content: `## Goethes "Heidenroslein"
+      content: `## Goethes "Heidenröslein"
 
-Johann Wolfgang von Goethe (1749-1832) er Tysklands mest beremte dikter. Her er hans kjente dikt "Heidenroslein" (Den lille lyng-rosen):
+Johann Wolfgang von Goethe (1749-1832) er Tysklands mest berømte dikter. Her er hans kjente dikt "Heidenröslein" (Den lille lyng-rosen):
 
 ---
 
-**Heidenroslein** (1799)
+**Heidenröslein** (1799)
 *av Johann Wolfgang von Goethe*
 
-Sah ein Knab ein Roslein stehn,
-Roslein auf der Heiden,
-War so jung und morgenschon,
+Sah ein Knab ein Röslein stehn,
+Röslein auf der Heiden,
+War so jung und morgenschön,
 Lief er schnell, es nah zu sehn,
 Sahs mit vielen Freuden.
-Roslein, Roslein, Roslein rot,
-Roslein auf der Heiden.
+Röslein, Röslein, Röslein rot,
+Röslein auf der Heiden.
 
 ---
 
-**Oversettelse av forste strofe:**
+**Oversettelse av første strofe:**
 
 En gutt sa en liten rose sta,
 liten rose pa heden (lyngen),
@@ -2154,9 +2154,9 @@ lille rose pa heden.
 **Ordforklaring:**
 - **Sah** = sa (preteritum av "sehen")
 - **der Knab(e)** = gutten
-- **das Roslein** = den lille rosen (diminutiv av Rose)
+- **das Röslein** = den lille rosen (diminutiv av Rose)
 - **die Heiden** = heden/lyngen
-- **morgenschon** = vakker som morgenen
+- **morgenschön** = vakker som morgenen
 - **lief** = lop (preteritum av "laufen")
 - **die Freude** = gleden`,
     },
@@ -2169,10 +2169,10 @@ a) der Hund (hunden)
 b) die Katze (katten)
 c) das Buch (boken)`,
       solution: `a) der Hund -> **das Hündchen** (den lille hunden)
-b) die Katze -> **das Katzchen** (den lille katten)
-c) das Buch -> **das Buchchen** (den lille boken)
+b) die Katze -> **das Kätzchen** (den lille katten)
+c) das Buch -> **das Büchchen** (den lille boken)
 
-Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch" far omlyd: u -> u (Buchchen).`,
+Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch" far omlyd: u -> ü (Büchchen).`,
     },
     {
       id: 'tysk-1-13-4-ex-block-1',
@@ -2189,7 +2189,7 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
           { id: 'c', text: 'Intetkjonn (das)', isCorrect: true },
           { id: 'd', text: 'Det kommer an pa grunnordet', isCorrect: false },
         ],
-        solution: 'Alle diminutiver er intetkjonn (das), uansett hvilket kjonn grunnordet har. Eksempel: die Rose (hunkjonn) -> das Roslein (intetkjonn).',
+        solution: 'Alle diminutiver er intetkjonn (das), uansett hvilket kjonn grunnordet har. Eksempel: die Rose (hunkjonn) -> das Röslein (intetkjonn).',
       },
     },
     {
@@ -2200,14 +2200,14 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvem skrev diktet "Heidenroslein"?',
+        task: 'Hvem skrev diktet "Heidenröslein"?',
         options: [
           { id: 'a', text: 'Friedrich Schiller', isCorrect: false },
           { id: 'b', text: 'Heinrich Heine', isCorrect: false },
           { id: 'c', text: 'Johann Wolfgang von Goethe', isCorrect: true },
           { id: 'd', text: 'Brødre Grimm', isCorrect: false },
         ],
-        solution: 'Johann Wolfgang von Goethe (1749-1832) skrev "Heidenroslein". Goethe er Tysklands mest beremte dikter.',
+        solution: 'Johann Wolfgang von Goethe (1749-1832) skrev "Heidenröslein". Goethe er Tysklands mest berømte dikter.',
       },
     },
     {
@@ -2223,9 +2223,9 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
           { label: 'a', task: 'der Tisch (bordet)', solution: 'das Tischchen' },
           { label: 'b', task: 'die Blume (blomsten)', solution: 'das Blümchen' },
           { label: 'c', task: 'der Stern (stjernen)', solution: 'das Sternchen' },
-          { label: 'd', task: 'das Haus (huset)', solution: 'das Hauschen' },
+          { label: 'd', task: 'das Haus (huset)', solution: 'das Häuschen' },
         ],
-        solution: 'a) das Tischchen, b) das Blümchen, c) das Sternchen, d) das Hauschen',
+        solution: 'a) das Tischchen, b) das Blümchen, c) das Sternchen, d) das Häuschen',
       },
     },
     {
@@ -2236,8 +2236,8 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Les forste strofe av "Heidenroslein" og svar pa sporsmalene pa norsk:\na) Hva sa gutten (der Knabe)?\nb) Hvor sto rosen?\nc) Hvordan reagerte gutten da han sa rosen?',
-        solution: 'a) Gutten sa en liten rose (ein Roslein).\nb) Rosen sto pa heden/lyngen (auf der Heiden).\nc) Han lop raskt bort for a se den naermere og sa den med stor glede (mit vielen Freuden).',
+        task: 'Les første strofe av "Heidenröslein" og svar pa sporsmalene pa norsk:\na) Hva sa gutten (der Knabe)?\nb) Hvor sto rosen?\nc) Hvordan reagerte gutten da han sa rosen?',
+        solution: 'a) Gutten sa en liten rose (ein Röslein).\nb) Rosen sto pa heden/lyngen (auf der Heiden).\nc) Han lop raskt bort for a se den naermere og sa den med stor glede (mit vielen Freuden).',
         hints: ['Sah = sa', 'die Heiden = heden/lyngen', 'Freude = glede'],
       },
     },
@@ -2250,7 +2250,7 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv et kort dikt pa tysk (4-6 linjer). Det trenger ikke rime perfekt, men prov a bruke minst ett diminutiv (-chen eller -lein) og enkle ord du har laert. Tema: natur, dyr eller arstider.',
-        solution: 'Eksempel:\n\nEin Vögelchen singt im Baum,\ndie Sonne scheint so schön.\nEin Blümchen wachst im Garten,\nder Frühling ist zu sehn.\nDas Hündchen spielt im Gras,\nwie schön die Welt doch ist!\n\n(En liten fugl synger i treet, solen skinner sa vakkert. En liten blomst vokser i hagen, varen er a se. Den lille hunden leker i gresset, hvor vakker verden er!)',
+        solution: 'Eksempel:\n\nEin Vögelchen singt im Baum,\ndie Sonne scheint so schön.\nEin Blümchen wächst im Garten,\nder Frühling ist zu sehn.\nDas Hündchen spielt im Gras,\nwie schön die Welt doch ist!\n\n(En liten fugl synger i treet, solen skinner sa vakkert. En liten blomst vokser i hagen, våren er å se. Den lille hunden leker i gresset, hvor vakker verden er!)',
         hints: ['Bruk enkle setninger', 'singt = synger, scheint = skinner', 'wachst = vokser'],
       },
     },
@@ -2260,10 +2260,10 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
       content: `## Oppsummering
 
 - **Diminutiver** lages med **-chen** (vanlig) eller **-lein** (poetisk) og er alltid **das** (intetkjonn).
-- Diminutiver far ofte omlyd: Haus -> Hauschen, Vogel -> Vögelchen.
+- Diminutiver far ofte omlyd: Haus -> Häuschen, Vogel -> Vögelchen.
 - Noen diminutiver er egne ord: **das Brötchen** (rundstykke), **das Mädchen** (jente).
 - **Johann Wolfgang von Goethe** (1749-1832) er Tysklands største dikter.
-- **"Heidenroslein"** er et beremt Goethe-dikt om en gutt som ser en liten rose pa heden.
+- **"Heidenröslein"** er et berømt Goethe-dikt om en gutt som ser en liten rose pa heden.
 - Viktige diktord: das Gedicht, der Vers, die Strophe, der Reim, der Dichter.`,
     },
   ],
@@ -2273,7 +2273,7 @@ Merk: Alle far artikkelen **das** fordi diminutiver alltid er intetkjonn. "Buch"
     { term: 'das Lied', definition: 'sangen' },
     { term: 'der Dichter', definition: 'dikteren' },
     { term: '-chen / -lein', definition: 'diminutivendelser (forminskelsesform)' },
-    { term: 'das Roslein', definition: 'den lille rosen (diminutiv)' },
+    { term: 'das Röslein', definition: 'den lille rosen (diminutiv)' },
     { term: 'der Reim', definition: 'rimet' },
     { term: 'die Strophe', definition: 'strofen' },
   ],

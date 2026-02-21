@@ -1501,7 +1501,7 @@ Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han t
         subTasks: [
           { label: 'a', task: 'Miguel de Cervantes (Don Quijote)', solution: 'España' },
           { label: 'b', task: 'Quino (Mafalda)', solution: 'Argentina' },
-          { label: 'c', task: 'Gabriel Garcia Marquez (Cien anos de soledad)', solution: 'Colombia' },
+          { label: 'c', task: 'Gabriel García Márquez (Cien años de soledad)', solution: 'Colombia' },
           { label: 'd', task: 'Pablo Neruda (Poesia)', solution: 'Chile' },
         ],
         solution: 'a) Spania, b) Argentina, c) Colombia, d) Chile.',
@@ -1513,9 +1513,9 @@ Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han t
       content: `## Kjente spanskspråklige forfattere
 
 - **Miguel de Cervantes** (Spania, 1547-1616) - Skrev Don Quijote, regnet som den første moderne roman.
-- **Gabriel Garcia Marquez** (Colombia, 1927-2014) - Nobelpris i litteratur 1982. Kjent for \"Cien anos de soledad\" (Hundre års ensomhet).
+- **Gabriel García Márquez** (Colombia, 1927-2014) - Nobelpris i litteratur 1982. Kjent for \"Cien años de soledad\" (Hundre års ensomhet).
 - **Pablo Neruda** (Chile, 1904-1973) - Nobelpris i litteratur 1971. En av verdens mest kjente poeter.
-- **Isabel Allende** (Chile, f. 1942) - Kjent for \"La casa de los espiritus\" (Andenes hus).
+- **Isabel Allende** (Chile, f. 1942) - Kjent for \"La casa de los espíritus\" (Andenes hus).
 - **Jorge Luis Borges** (Argentina, 1899-1986) - En av 1900-tallets viktigste forfattere, kjent for korte fortellinger.
 - **Federico Garcia Lorca** (Spania, 1898-1936) - Poet og dramatiker, en av Spanias viktigste forfattere.`,
     },
@@ -1531,9 +1531,9 @@ Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han t
         subTasks: [
           { label: 'a', task: 'Hvem skrev Don Quijote, og når ble den publisert?', solution: 'Miguel de Cervantes, 1605.' },
           { label: 'b', task: 'Hva betyr uttrykket \"luchar contra molinos de viento\"?', solution: 'A kjempe mot innbilte fiender (a kjempe mot vindmøller).' },
-          { label: 'c', task: 'Hvilken colombiansk forfatter vant Nobelprisen i litteratur?', solution: 'Gabriel Garcia Marquez (1982).' },
+          { label: 'c', task: 'Hvilken colombiansk forfatter vant Nobelprisen i litteratur?', solution: 'Gabriel García Márquez (1982).' },
         ],
-        solution: 'a) Miguel de Cervantes, publisert i 1605. b) A kjempe mot innbilte fiender. c) Gabriel Garcia Marquez (1982).',
+        solution: 'a) Miguel de Cervantes, publisert i 1605. b) A kjempe mot innbilte fiender. c) Gabriel García Márquez (1982).',
         hints: ['Don Quijote kjemper mot vindmøller fordi han tror de er kjemper.'],
       },
     },
@@ -1545,7 +1545,7 @@ Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han t
 - Den spansktalende verden har en rik litterær tradisjon.
 - Don Quijote (1605) av Cervantes regnes som den første moderne roman.
 - Mafalda er en populær argentinsk tegneserie skapt av Quino.
-- Gabriel Garcia Marquez og Pablo Neruda er Nobelprisvinnere i litteratur.
+- Gabriel García Márquez og Pablo Neruda er Nobelprisvinnere i litteratur.
 - A lese enkle tekster, tegneserier og bøker på spansk er en flott måte å lære språket på.
 
 **Litterært ordforråd:** el libro (boken), la novela (romanen), el cuento (fortellingen), el poema (diktet), leer (å lese), el/la escritor(a) (forfatteren).`,
@@ -1571,14 +1571,14 @@ Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han t
         number: '6',
         type: 'multiple-choice',
         difficulty: 'vanskelig',
-        task: 'Hvilket av disse verkene ble skrevet av Gabriel Garcia Marquez?',
+        task: 'Hvilket av disse verkene ble skrevet av Gabriel García Márquez?',
         options: [
           { id: 'a', text: 'Don Quijote de la Mancha', isCorrect: false },
           { id: 'b', text: 'La casa de los espíritus', isCorrect: false },
           { id: 'c', text: 'Cien años de soledad', isCorrect: true },
           { id: 'd', text: 'Veinte poemas de amor', isCorrect: false },
         ],
-        solution: '\"Cien anos de soledad\" (Hundre års ensomhet) ble skrevet av Gabriel Garcia Marquez. \"Don Quijote\" er av Cervantes, \"La casa de los espiritus\" av Isabel Allende, og \"Veinte poemas de amor\" av Pablo Neruda.',
+        solution: '\"Cien años de soledad\" (Hundre års ensomhet) ble skrevet av Gabriel García Márquez. \"Don Quijote\" er av Cervantes, \"La casa de los espíritus\" av Isabel Allende, og \"Veinte poemas de amor\" av Pablo Neruda.',
       },
     },
   ],
@@ -2351,7 +2351,7 @@ export const CHAPTER_SPANSK_1_13_3: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: [
     'lese og forstå autentiske tekster',
-    'forstaa forkortelser og uttrykk i annonser',
+    'forstå forkortelser og uttrykk i annonser',
   ],
   content: [
     {
@@ -2463,7 +2463,7 @@ Lonnen er 1.200 euro per måned pluss tips (propinas).`,
         difficulty: 'lett',
         task: 'Oversett disse annonseutrykkene til norsk.',
         subTasks: [
-          { label: 'a', task: 'Se busca profesør de inglés', solution: 'Sokes engelsklarer' },
+          { label: 'a', task: 'Se busca profesor de inglés', solution: 'Søkes engelsklærer' },
           { label: 'b', task: 'Media jornada', solution: 'Deltid' },
           { label: 'c', task: 'Incorporación inmediata', solution: 'Umiddelbar tiltredelse' },
           { label: 'd', task: 'Se vende casa con jardín', solution: 'Hus med hage til salgs' },

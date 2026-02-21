@@ -853,7 +853,7 @@ c) **Désolé(e), je suis en retard !** (Beklager, jeg er forsinket!)`,
       problem: `Les dette postkortet og svar på spørsmålene under:
 
 *Chère Marie,*
-*Je suis a Nice, dans le sud de la France. Il fait très beau et chaud ! Je me baigne dans la mer tous les jours. Hier, j'ai visite le Vieux Nice et j'ai mange une salade niçoise. C'est délicieux !*
+*Je suis a Nice, dans le sud de la France. Il fait très beau et chaud ! Je me baigne dans la mer tous les jours. Hier, j'ai visité le Vieux Nice et j'ai mangé une salade niçoise. C'est délicieux !*
 *À bientôt !*
 *Emma*
 
@@ -946,10 +946,10 @@ b) **Salut ! C'est mon anniversaire samedi. Tu es invité(e) à ma fête ! On se
         subTasks: [
           { label: 'a', task: 'Start med en hilsen (Cher/Chère + navn)', solution: 'Chère Sophie,' },
           { label: 'b', task: 'Fortell hvor du er og hvordan været er', solution: 'Je suis a Barcelone. Il fait très chaud !' },
-          { label: 'c', task: 'Fortell om noe du har gjort eller gjør', solution: "Hier, j'ai visite la Sagrada Familia. Aujourd'hui, je me baigne a la plage." },
+          { label: 'c', task: 'Fortell om noe du har gjort eller gjør', solution: "Hier, j'ai visité la Sagrada Familia. Aujourd'hui, je me baigne a la plage." },
           { label: 'd', task: 'Avslutt postkortet', solution: 'À bientôt ! Bisous, [ditt navn]' },
         ],
-        solution: "Eksempel: Chère Sophie, Je suis a Barcelone en Espagne. Il fait très chaud ! Hier, j'ai visite la Sagrada Familia. C'est magnifique ! Aujourd'hui, je me baigne a la plage. La nourriture est délicieuse. À bientôt ! Bisous, Emma",
+        solution: "Eksempel: Chère Sophie, Je suis a Barcelone en Espagne. Il fait très chaud ! Hier, j'ai visité la Sagrada Familia. C'est magnifique ! Aujourd'hui, je me baigne a la plage. La nourriture est délicieuse. À bientôt ! Bisous, Emma",
         hints: ['Bruk strukturen: hilsen, sted, vær, aktiviteter, avslutning', 'Skriv korte, enkle setninger'],
       },
     },
@@ -1218,7 +1218,7 @@ export const CHAPTER_FRANSK_1_15_3: TextbookChapter = {
 - En oppsummering eller tanke om dagen
 
 **Viktig:** I dagboken skriver vi ofte i **passé composé** fordi vi forteller om ting som allerede har skjedd:
-- J'ai mange... (Jeg spiste...)
+- J'ai mangé... (Jeg spiste...)
 - Je suis allé(e)... (Jeg gikk/dro til...)
 - J'ai vu... (Jeg sa...)
 - J'ai fait... (Jeg gjorde...)`,
@@ -1233,7 +1233,7 @@ export const CHAPTER_FRANSK_1_15_3: TextbookChapter = {
 
 *Cher journal,*
 
-*Aujourd'hui, c'était une bonne journée ! Ce matin, je suis allé(e) à l'école. J'ai eu un examen de maths, et je pense que ça s'est bien passe. A midi, j'ai mange a la cantine avec mes amis. L'après-midi, on a joue au football. Je suis un peu fatigue(e), mais content(e).*
+*Aujourd'hui, c'était une bonne journée ! Ce matin, je suis allé(e) à l'école. J'ai eu un examen de maths, et je pense que ça s'est bien passé. À midi, j'ai mangé à la cantine avec mes amis. L'après-midi, on a joué au football. Je suis un peu fatigué(e), mais content(e).*
 
 *Demain, c'est le week-end. Super !*
 
@@ -1351,8 +1351,8 @@ For a fortelle om dagen bruker du tidsuttrykk:
       title: 'Eksempel 3: Bruke tidsuttrykk',
       problem: `Sett inn riktige tidsuttrykk i dette dagboknotatet:
 
-"___ (I morges), je suis allé(e) à l'école. ___ (Deretter), j'ai mange avec mes amis. ___ (Om ettermiddagen), j'ai fait du sport. ___ (Til slutt), j'ai regarde la tele ___ (i kveld)."`,
-      solution: `"**Ce matin**, je suis allé(e) à l'école. **Ensuite**, j'ai mange avec mes amis. **Cet après-midi**, j'ai fait du sport. **Finalement**, j'ai regarde la tele **ce soir**."`,
+"___ (I morges), je suis allé(e) à l'école. ___ (Deretter), j'ai mangé avec mes amis. ___ (Om ettermiddagen), j'ai fait du sport. ___ (Til slutt), j'ai regardé la tele ___ (i kveld)."`,
+      solution: `"**Ce matin**, je suis allé(e) à l'école. **Ensuite**, j'ai mangé avec mes amis. **Cet après-midi**, j'ai fait du sport. **Finalement**, j'ai regardé la tele **ce soir**."`,
     },
     {
       id: 'fransk-1-15-3-ex-block-3',
@@ -1389,7 +1389,7 @@ For a fortelle om dagen bruker du tidsuttrykk:
           { label: 'c', task: 'Fortell hva du gjorde om ettermiddagen', solution: "Cet après-midi, j'ai fait du sport avec mes amis." },
           { label: 'd', task: 'Avslutt med hvordan du føler deg', solution: 'Je suis un peu fatigue(e), mais très content(e) de ma journée !' },
         ],
-        solution: "Eksempel: Lundi 17 février. Cher journal, Aujourd'hui, c'était une bonne journée. Ce matin, je suis allé(e) à l'école. J'ai eu un cours de français - c'était intéressant ! Ensuite, j'ai mange a la cantine. Cet après-midi, j'ai fait du sport. Je suis fatigue(e) mais content(e). Demain, j'ai un examen. Je suis un peu stresse(e) !",
+        solution: "Eksempel: Lundi 17 février. Cher journal, Aujourd'hui, c'était une bonne journée. Ce matin, je suis allé(e) à l'école. J'ai eu un cours de français - c'était intéressant ! Ensuite, j'ai mangé a la cantine. Cet après-midi, j'ai fait du sport. Je suis fatigue(e) mais content(e). Demain, j'ai un examen. Je suis un peu stresse(e) !",
         hints: ['Bruk tidsuttrykkene: ce matin, ensuite, cet après-midi, ce soir', 'Bruk passé composé: j\'ai fait, je suis allé(e)', 'Avslutt med en følelse: je suis content(e), fatigue(e), etc.'],
       },
     },

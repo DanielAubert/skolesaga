@@ -43,21 +43,21 @@ I dette kapittelet lærer du ordene for de vanligste transportmidlene og hvordan
 
 | Spansk | Norsk | Artikkel |
 |--------|-------|----------|
-| el autobus | bussen | hankjønn |
+| el autobús | bussen | hankjønn |
 | el tren | toget | hankjønn |
-| el avion | flyet | hankjønn |
+| el avión | flyet | hankjønn |
 | el coche | bilen | hankjønn |
 | la bicicleta | sykkelen | hunkjønn |
 | el metro | t-banen | hankjønn |
 | el taxi | taxien | hankjønn |
-| el barco | baten | hankjønn |
+| el barco | båten | hankjønn |
 | la moto | motorsykkelen | hunkjønn |
 | a pie | til fots | - |`,
     },
     {
       id: 'spansk-1-9-1-def-1',
       type: 'definition',
-      title: 'Ir en... (A reise med...)',
+      title: 'Ir en... (Å reise med...)',
       content: `På spansk bruker vi uttrykket **ir en** + transportmiddel for å si hvordan vi reiser:
 
 - Voy **en** autobus. (Jeg reiser med buss.)
@@ -70,12 +70,12 @@ I dette kapittelet lærer du ordene for de vanligste transportmidlene og hvordan
       type: 'example',
       title: 'Eksempel 1: Transportmidler',
       problem: `Oversett til norsk:
-a) el autobus
+a) el autobús
 b) el tren
-c) el avion`,
-      solution: `a) el autobus = bussen
+c) el avión`,
+      solution: `a) el autobús = bussen
 b) el tren = toget
-c) el avion = flyet
+c) el avión = flyet
 
 Husk at alle spanske substantiver har en artikkel (el/la) som viser kjønnet!`,
     },
@@ -89,12 +89,12 @@ Husk at alle spanske substantiver har en artikkel (el/la) som viser kjønnet!`,
         difficulty: 'lett',
         task: 'Oversett disse transportmidlene til spansk. Husk artikkel!',
         subTasks: [
-          { label: 'a', task: 'bussen', solution: 'el autobus' },
+          { label: 'a', task: 'bussen', solution: 'el autobús' },
           { label: 'b', task: 'toget', solution: 'el tren' },
-          { label: 'c', task: 'flyet', solution: 'el avion' },
+          { label: 'c', task: 'flyet', solution: 'el avión' },
           { label: 'd', task: 'sykkelen', solution: 'la bicicleta' },
         ],
-        solution: 'a) el autobus, b) el tren, c) el avion, d) la bicicleta',
+        solution: 'a) el autobús, b) el tren, c) el avión, d) la bicicleta',
         hints: ['Husk artikkel foran substantivet: el (hankjønn) eller la (hunkjønn)', 'Bicicleta er hunkjønn (la)'],
       },
     },
@@ -114,7 +114,7 @@ Husk at alle spanske substantiver har en artikkel (el/la) som viser kjønnet!`,
 | ellos/ellas/ustedes | van | de går |
 
 **Eksempler:**
-- Yo voy en autobus. (Jeg reiser med buss.)
+- Yo voy en autobús. (Jeg reiser med buss.)
 - Ella va en metro. (Hun tar t-banen.)
 - Nosotros vamos a pie. (Vi går til fots.)`,
     },
@@ -145,7 +145,7 @@ Husk: yo -> voy, tu -> vas, el/ella -> va`,
           { label: 'a', task: 'Yo ___ en coche.', solution: 'voy' },
           { label: 'b', task: 'Tu ___ en metro.', solution: 'vas' },
           { label: 'c', task: 'Nosotros ___ en avion.', solution: 'vamos' },
-          { label: 'd', task: 'Ellos ___ en autobus.', solution: 'van' },
+          { label: 'd', task: 'Ellos ___ en autobús.', solution: 'van' },
         ],
         solution: 'a) voy, b) vas, c) vamos, d) van',
         hints: ['yo -> voy', 'tu -> vas', 'nosotros -> vamos', 'ellos -> van'],
@@ -158,19 +158,19 @@ Husk: yo -> voy, tu -> vas, el/ella -> va`,
 
 | Spansk | Norsk |
 |--------|-------|
-| ?Como vas al colegio? | Hvordan reiser du til skolen? |
-| Voy en autobus. | Jeg tar bussen. |
+| ¿Cómo vas al colegio? | Hvordan reiser du til skolen? |
+| Voy en autobús. | Jeg tar bussen. |
 | Voy a pie. | Jeg går til fots. |
 | El tren sale a las 10. | Toget går klokken 10. |
-| ?Donde esta la parada de autobus? | Hvor er bussholdeplassen? |
-| ?Cuando llega el proximo tren? | Når kommer neste tog? |`,
+| ¿Dónde está la parada de autobus? | Hvor er bussholdeplassen? |
+| ¿Cuándo llega el próximo tren? | Når kommer neste tog? |`,
     },
     {
       id: 'spansk-1-9-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Spørre om transport',
       problem: `Oversett til norsk:
-a) ?Como vas al trabajo?
+a) ¿Cómo vas al trabajo?
 b) Voy en bicicleta.
 c) El autobus llega en 5 minutos.`,
       solution: `a) Hvordan reiser du til jobb?
@@ -187,11 +187,11 @@ c) Bussen kommer om 5 minutter.`,
         difficulty: 'medium',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'Hvordan reiser du til skolen?', solution: '?Como vas al colegio?' },
+          { label: 'a', task: 'Hvordan reiser du til skolen?', solution: '¿Cómo vas al colegio?' },
           { label: 'b', task: 'Jeg går til fots.', solution: 'Voy a pie.' },
-          { label: 'c', task: 'Vi tar bussen.', solution: 'Vamos en autobus.' },
+          { label: 'c', task: 'Vi tar bussen.', solution: 'Vamos en autobús.' },
         ],
-        solution: 'a) ?Como vas al colegio? b) Voy a pie. c) Vamos en autobus.',
+        solution: 'a) ¿Cómo vas al colegio? b) Voy a pie. c) Vamos en autobús.',
         hints: ['como = hvordan', 'a pie = til fots', 'nosotros -> vamos'],
       },
     },
@@ -206,7 +206,7 @@ c) Bussen kommer om 5 minutter.`,
 | llegar | å komme/ankomme |
 | salir | å dra/ga ut |
 | la parada | holdeplassen |
-| la estacion | stasjonen |
+| la estación | stasjonen |
 | el aeropuerto | flyplassen |
 | el billete | billetten |
 
@@ -222,7 +222,7 @@ c) Bussen kommer om 5 minutter.`,
         difficulty: 'lett',
         task: 'Hva betyr disse ordene på norsk?',
         subTasks: [
-          { label: 'a', task: 'la estacion', solution: 'stasjonen' },
+          { label: 'a', task: 'la estación', solution: 'stasjonen' },
           { label: 'b', task: 'el aeropuerto', solution: 'flyplassen' },
           { label: 'c', task: 'llegar', solution: 'å komme/ankomme' },
           { label: 'd', task: 'la parada', solution: 'holdeplassen' },
@@ -267,7 +267,7 @@ Når du er i en spansktalende by, er det nyttig å kunne navngi ulike steder og 
 
 | Spansk | Norsk | Artikkel |
 |--------|-------|----------|
-| la estacion | stasjonen | hunkjønn |
+| la estación | stasjonen | hunkjønn |
 | el aeropuerto | flyplassen | hankjønn |
 | el hospital | sykehuset | hankjønn |
 | la farmacia | apoteket | hunkjønn |
@@ -320,11 +320,11 @@ Når du vil finne frem i byen, kan du bruke disse frasene:
 
 | Spansk | Norsk |
 |--------|-------|
-| ?Donde esta...? | Hvor er...? |
-| ?Como llego a...? | Hvordan kommer jeg til...? |
+| ¿Dónde está...? | Hvor er...? |
+| ¿Cómo llego a...? | Hvordan kommer jeg til...? |
 | Perdone, ?puede ayudarme? | Unnskyld, kan De hjelpe meg? |
-| ?Esta lejos? | Er det langt? |
-| ?Esta cerca? | Er det nærme? |
+| ¿Está lejos? | Er det langt? |
+| ¿Está cerca? | Er det nærme? |
 
 **Veibeskrivelser:**
 
@@ -341,7 +341,7 @@ Når du vil finne frem i byen, kan du bruke disse frasene:
       type: 'example',
       title: 'Eksempel 2: Spørre om veien',
       problem: `Oversett til norsk:
-a) ?Donde esta el banco?
+a) ¿Dónde está el banco?
 b) Siga todo recto y despues a la derecha.
 c) Esta en la esquina.`,
       solution: `a) Hvor er banken?
@@ -358,12 +358,12 @@ c) Det er på hjørnet.`,
         difficulty: 'medium',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'Hvor er sykehuset?', solution: '?Donde esta el hospital?' },
+          { label: 'a', task: 'Hvor er sykehuset?', solution: '¿Dónde está el hospital?' },
           { label: 'b', task: 'Gå rett fram.', solution: 'Siga todo recto.' },
           { label: 'c', task: 'Gå til venstre.', solution: 'Gire a la izquierda.' },
           { label: 'd', task: 'Det er på hjørnet.', solution: 'Esta en la esquina.' },
         ],
-        solution: 'a) ?Donde esta el hospital? b) Siga todo recto. c) Gire a la izquierda. d) Esta en la esquina.',
+        solution: 'a) ¿Dónde está el hospital? b) Siga todo recto. c) Gire a la izquierda. d) Esta en la esquina.',
         hints: ['donde = hvor', 'todo recto = rett fram', 'izquierda = venstre'],
       },
     },
@@ -406,11 +406,11 @@ Merk: "enfrente del" = overfor (enfrente de + el = enfrente del)`,
         difficulty: 'medium',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'Hvordan kommer jeg til museet?', solution: '?Como llego al museo?' },
+          { label: 'a', task: 'Hvordan kommer jeg til museet?', solution: '¿Cómo llego al museo?' },
           { label: 'b', task: 'Ta forste gate til venstre.', solution: 'Tome la primera calle a la izquierda.' },
           { label: 'c', task: 'Det er ved siden av kirken.', solution: 'Esta al lado de la iglesia.' },
         ],
-        solution: 'a) ?Como llego al museo? b) Tome la primera calle a la izquierda. c) Esta al lado de la iglesia.',
+        solution: 'a) ¿Cómo llego al museo? b) Tome la primera calle a la izquierda. c) Esta al lado de la iglesia.',
         hints: ['al = a + el (til + den)', 'primera = forste', 'al lado de = ved siden av'],
       },
     },
@@ -552,12 +552,12 @@ Nyttige fraser når du kjoper billett:
 | Spansk | Norsk |
 |--------|-------|
 | Quiero un billete a Madrid, por favor. | Jeg vil ha en billett til Madrid, takk. |
-| ?Ida y vuelta? | Tur-retur? |
+| ¿Ida y vuelta? | Tur-retur? |
 | Solo ida, por favor. | Bare en vei, takk. |
-| ?Cuanto cuesta? | Hva koster det? |
-| ?A que hora sale el tren? | Når går toget? |
-| ?De que anden sale? | Fra hvilken perrong går det? |
-| ?Hay que hacer transbordo? | Må man bytte? |`,
+| ¿Cuánto cuesta? | Hva koster det? |
+| ¿A qué hora sale el tren? | Når går toget? |
+| ¿De qué anden sale? | Fra hvilken perrong går det? |
+| ¿Hay que hacer transbordo? | Må man bytte? |`,
     },
     {
       id: 'spansk-1-9-3-example-2',
@@ -565,8 +565,8 @@ Nyttige fraser når du kjoper billett:
       title: 'Eksempel 2: På togstasjonen',
       problem: `Les dialogen og svar på sporsmalene:
 
-*Cliente: Buenos dias. Quiero un billete a Barcelona, por favor.*
-*Taquillero: ?Ida y vuelta?*
+*Cliente: Buenos días. Quiero un billete a Barcelona, por favor.*
+*Taquillero: ¿Ida y vuelta?*
 *Cliente: No, solo ida.*
 *Taquillero: Son 35 euros. El tren sale a las 10:30 del anden 5.*
 
@@ -588,11 +588,11 @@ c) Billetten koster 35 euro.`,
         task: 'Oversett til spansk.',
         subTasks: [
           { label: 'a', task: 'En billett til Sevilla, takk.', solution: 'Un billete a Sevilla, por favor.' },
-          { label: 'b', task: 'Hva koster det?', solution: '?Cuanto cuesta?' },
-          { label: 'c', task: 'Når går toget?', solution: '?A que hora sale el tren?' },
-          { label: 'd', task: 'Må man bytte?', solution: '?Hay que hacer transbordo?' },
+          { label: 'b', task: 'Hva koster det?', solution: '¿Cuánto cuesta?' },
+          { label: 'c', task: 'Når går toget?', solution: '¿A qué hora sale el tren?' },
+          { label: 'd', task: 'Må man bytte?', solution: '¿Hay que hacer transbordo?' },
         ],
-        solution: 'a) Un billete a Sevilla, por favor. b) ?Cuanto cuesta? c) ?A que hora sale el tren? d) ?Hay que hacer transbordo?',
+        solution: 'a) Un billete a Sevilla, por favor. b) ¿Cuánto cuesta? c) ¿A qué hora sale el tren? d) ¿Hay que hacer transbordo?',
         hints: ['a = til (med byer)', 'por favor = vær så snill/takk'],
       },
     },
@@ -606,7 +606,7 @@ c) Billetten koster 35 euro.`,
 | Voy a viajar a Espana. | Jeg skal reise til Spania. |
 | Vamos a visitar Barcelona. | Vi skal besøke Barcelona. |
 | Van a quedarse en un hotel. | De skal bo på et hotell. |
-| ?Que vas a hacer en vacaciones? | Hva skal du gjore i ferien? |
+| ¿Qué vas a hacer en vacaciones? | Hva skal du gjøre i ferien? |
 | Voy a hacer la maleta. | Jeg skal pakke kofferten. |
 
 **Tips:** Denne strukturen er veldig nyttig og enkel å bruke. Du trenger bare å kunne bøyningen av "ir" + a + verbets infinitiv (grunnform).`,
@@ -651,12 +651,12 @@ Husk: riktig form av "ir" + a + infinitiv`,
 | Situasjon | Spansk | Norsk |
 |-----------|--------|-------|
 | Kjope billett | Un billete, por favor. | En billett, takk. |
-| Spørre om pris | ?Cuanto cuesta? | Hva koster det? |
-| Spørre om tid | ?A que hora sale...? | Når går...? |
-| Spørre om perrong | ?De que anden? | Fra hvilken perrong? |
+| Spørre om pris | ¿Cuánto cuesta? | Hva koster det? |
+| Spørre om tid | ¿A qué hora sale...? | Når går...? |
+| Spørre om perrong | ¿De qué anden? | Fra hvilken perrong? |
 | Framtidsplaner | Voy a viajar... | Jeg skal reise... |
 
-**Tips:** Øv på å lage hele setninger om reiseplanene dine. For eksempel: "El proximo verano voy a viajar a Espana. Voy a visitar Madrid y Barcelona." (Neste sommer skal jeg reise til Spania. Jeg skal besøke Madrid og Barcelona.)`,
+**Tips:** Øv på å lage hele setninger om reiseplanene dine. For eksempel: "El próximo verano voy a viajar a Espana. Voy a visitar Madrid y Barcelona." (Neste sommer skal jeg reise til Spania. Jeg skal besøke Madrid og Barcelona.)`,
     },
     {
       id: 'spansk-1-9-3-ex-block-4',
@@ -668,11 +668,11 @@ Husk: riktig form av "ir" + a + infinitiv`,
         difficulty: 'medium',
         task: 'Skriv ferdig setningene på spansk.',
         subTasks: [
-          { label: 'a', task: 'Si "God dag" og be om en billett til Valencia', solution: 'Buenos dias. Un billete a Valencia, por favor.' },
-          { label: 'b', task: 'Spør hva det koster', solution: '?Cuanto cuesta?' },
-          { label: 'c', task: 'Spør når toget går', solution: '?A que hora sale el tren?' },
+          { label: 'a', task: 'Si "God dag" og be om en billett til Valencia', solution: 'Buenos días. Un billete a Valencia, por favor.' },
+          { label: 'b', task: 'Spør hva det koster', solution: '¿Cuánto cuesta?' },
+          { label: 'c', task: 'Spør når toget går', solution: '¿A qué hora sale el tren?' },
         ],
-        solution: 'a) Buenos dias. Un billete a Valencia, por favor. b) ?Cuanto cuesta? c) ?A que hora sale el tren?',
+        solution: 'a) Buenos días. Un billete a Valencia, por favor. b) ¿Cuánto cuesta? c) ¿A qué hora sale el tren?',
         hints: ['Buenos dias = God dag', 'por favor = takk/vær så snill'],
       },
     },
@@ -713,10 +713,10 @@ Når du reiser til Spania eller Latin-Amerika, er det nyttig å kunne sjekke inn
 | Spansk | Norsk |
 |--------|-------|
 | el hotel | hotellet |
-| la habitacion | rommet |
-| la habitacion individual | enkeltrom |
-| la habitacion doble | dobbeltrom |
-| la recepcion | resepsjonen |
+| la habitación | rommet |
+| la habitación individual | enkeltrom |
+| la habitación doble | dobbeltrom |
+| la recepción | resepsjonen |
 | la llave | nøkkelen |
 | la cama | sengen |
 | la cama individual | enkeltseng |
@@ -730,11 +730,11 @@ Når du reiser til Spania eller Latin-Amerika, er det nyttig å kunne sjekke inn
       type: 'example',
       title: 'Eksempel 1: Hotellord',
       problem: `Oversett til norsk:
-a) la habitacion doble
-b) la recepcion
+a) la habitación doble
+b) la recepción
 c) el desayuno incluido`,
-      solution: `a) la habitacion doble = dobbeltrom
-b) la recepcion = resepsjonen
+      solution: `a) la habitación doble = dobbeltrom
+b) la recepción = resepsjonen
 c) el desayuno incluido = frokost inkludert`,
     },
     {
@@ -747,12 +747,12 @@ c) el desayuno incluido = frokost inkludert`,
         difficulty: 'lett',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'enkeltrom', solution: 'la habitacion individual' },
+          { label: 'a', task: 'enkeltrom', solution: 'la habitación individual' },
           { label: 'b', task: 'nøkkelen', solution: 'la llave' },
           { label: 'c', task: 'heisen', solution: 'el ascensor' },
           { label: 'd', task: 'bassenget', solution: 'la piscina' },
         ],
-        solution: 'a) la habitacion individual, b) la llave, c) el ascensor, d) la piscina',
+        solution: 'a) la habitación individual, b) la llave, c) el ascensor, d) la piscina',
         hints: ['individual = enkelt', 'llave = nøkkel'],
       },
     },
@@ -766,13 +766,13 @@ Nyttige fraser på hotellet:
 | Spansk | Norsk |
 |--------|-------|
 | Tengo una reserva a nombre de... | Jeg har en reservasjon i navnet... |
-| Quiero reservar una habitacion. | Jeg vil bestille et rom. |
-| ?Hay habitaciones libres? | Er det ledige rom? |
-| ?Para cuantas noches? | For hvor mange netter? |
+| Quiero reservar una habitación. | Jeg vil bestille et rom. |
+| ¿Hay habitaciones libres? | Er det ledige rom? |
+| ¿Para cuántas noches? | For hvor mange netter? |
 | Para dos noches, por favor. | For to netter, takk. |
-| ?Cuanto cuesta la habitacion por noche? | Hva koster rommet per natt? |
-| ?El desayuno esta incluido? | Er frokost inkludert? |
-| ?A que hora es el desayuno? | Når er frokosten? |`,
+| ¿Cuánto cuesta la habitación por noche? | Hva koster rommet per natt? |
+| ¿El desayuno está incluido? | Er frokost inkludert? |
+| ¿A qué hora es el desayuno? | Når er frokosten? |`,
     },
     {
       id: 'spansk-1-9-4-example-2',
@@ -780,15 +780,15 @@ Nyttige fraser på hotellet:
       title: 'Eksempel 2: På resepsjonen',
       problem: `Les dialogen og svar på sporsmalene:
 
-*Huesped: Buenas tardes. Tengo una reserva a nombre de Garcia.*
-*Recepcionista: Si, una habitacion doble para tres noches. ?Correcto?*
-*Huesped: Si, correcto. ?A que hora es el desayuno?*
-*Recepcionista: El desayuno es de 7 a 10. Su habitacion es la numero 302. Aqui tiene la llave.*
+*Huésped: Buenas tardes. Tengo una reserva a nombre de Garcia.*
+*Recepcionista: Si, una habitación doble para tres noches. ¿Correcto?*
+*Huésped: Si, correcto. ¿A qué hora es el desayuno?*
+*Recepcionista: El desayuno es de 7 a 10. Su habitación es la numero 302. Aqui tiene la llave.*
 
 a) Hva slags rom har gjesten bestilt?
 b) Hvor mange netter?
 c) Når er frokosten?`,
-      solution: `a) Gjesten har bestilt et dobbeltrom (habitacion doble).
+      solution: `a) Gjesten har bestilt et dobbeltrom (habitación doble).
 b) Tre netter (tres noches).
 c) Frokosten er fra 7 til 10.`,
     },
@@ -802,12 +802,12 @@ c) Frokosten er fra 7 til 10.`,
         difficulty: 'medium',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'Er det ledige rom?', solution: '?Hay habitaciones libres?' },
+          { label: 'a', task: 'Er det ledige rom?', solution: '¿Hay habitaciones libres?' },
           { label: 'b', task: 'For to netter, takk.', solution: 'Para dos noches, por favor.' },
-          { label: 'c', task: 'Hva koster rommet per natt?', solution: '?Cuanto cuesta la habitacion por noche?' },
-          { label: 'd', task: 'Er frokost inkludert?', solution: '?El desayuno esta incluido?' },
+          { label: 'c', task: 'Hva koster rommet per natt?', solution: '¿Cuánto cuesta la habitación por noche?' },
+          { label: 'd', task: 'Er frokost inkludert?', solution: '¿El desayuno está incluido?' },
         ],
-        solution: 'a) ?Hay habitaciones libres? b) Para dos noches, por favor. c) ?Cuanto cuesta la habitacion por noche? d) ?El desayuno esta incluido?',
+        solution: 'a) ¿Hay habitaciones libres? b) Para dos noches, por favor. c) ¿Cuánto cuesta la habitación por noche? d) ¿El desayuno está incluido?',
         hints: ['libre = ledig', 'por noche = per natt', 'incluido = inkludert'],
       },
     },
@@ -827,7 +827,7 @@ Noen ganger fungerer ikke alt som det skal. Her er nyttige fraser:
 | Necesito... | Jeg trenger... |
 | Necesito mas toallas. | Jeg trenger flere håndklær. |
 | Necesito otra llave. | Jeg trenger en ny nøkkel. |
-| La habitacion esta sucia. | Rommet er skittent. |`,
+| La habitación esta sucia. | Rommet er skittent. |`,
     },
     {
       id: 'spansk-1-9-4-example-3',
@@ -836,7 +836,7 @@ Noen ganger fungerer ikke alt som det skal. Her er nyttige fraser:
       problem: `Oversett til norsk:
 a) No funciona el ascensor.
 b) Necesito mas toallas.
-c) ?Puede cambiar la habitacion?`,
+c) ¿Puede cambiar la habitación?`,
       solution: `a) Heisen fungerer ikke.
 b) Jeg trenger flere håndklær.
 c) Kan De bytte rommet?`,
@@ -869,9 +869,9 @@ c) Kan De bytte rommet?`,
 | Quiero hacer el check-in. | Jeg vil sjekke inn. |
 | Quiero hacer el check-out. | Jeg vil sjekke ut. |
 | Aqui tiene su llave. | Her er nøkkelen Deres. |
-| Su habitacion es la numero 205. | Rommet Deres er nummer 205. |
-| ?A que hora es el check-out? | Når er utsjekking? |
-| ?Puede pedir un taxi? | Kan De bestille en taxi? |
+| Su habitación es la numero 205. | Rommet Deres er nummer 205. |
+| ¿A qué hora es el check-out? | Når er utsjekking? |
+| ¿Puede pedir un taxi? | Kan De bestille en taxi? |
 
 **Fasiliteter (Servicios):**
 
@@ -955,8 +955,8 @@ På spansk finnes det to verb som betyr "a være": **ser** og **estar**. I dette
 - **Nasjonalitet:** Soy noruego. (Jeg er norsk.)
 - **Yrke:** Es profesora. (Hun er lærer.)
 - **Opprinnelse:** Somos de Oslo. (Vi er fra Oslo.)
-- **Personlighet:** Eres muy simpatico. (Du er veldig hyggelig.)
-- **Fysiske trekk:** Es alto. (Han er hoy.)
+- **Personlighet:** Eres muy simpático. (Du er veldig hyggelig.)
+- **Fysiske trekk:** Es alto. (Han er høy.)
 - **Klokkeslett:** Son las tres. (Klokken er tre.)
 - **Materiale:** La mesa es de madera. (Bordet er av tre.)`,
     },
@@ -966,11 +966,11 @@ På spansk finnes det to verb som betyr "a være": **ser** og **estar**. I dette
       title: 'Eksempel 1: Bøyning av ser',
       problem: `Fyll inn riktig form av "ser":
 a) Yo ___ estudiante.
-b) Tu ___ amable.
-c) Ella ___ espanola.`,
+b) Tú ___ amable.
+c) Ella ___ española.`,
       solution: `a) Yo **soy** estudiante. (Jeg er student.)
-b) Tu **eres** amable. (Du er snill.)
-c) Ella **es** espanola. (Hun er spansk.)`,
+b) Tú **eres** amable. (Du er snill.)
+c) Ella **es** española. (Hun er spansk.)`,
     },
     {
       id: 'spansk-1-10-1-ex-block-1',
@@ -1002,17 +1002,17 @@ c) Ella **es** espanola. (Hun er spansk.)`,
 - Es mexicana. (Hun er meksikansk.)
 
 **2. Yrke:**
-- Es medico. (Han er lege.)
+- Es médico. (Han er lege.)
 - Soy estudiante. (Jeg er student.)
 - Son profesores. (De er lærere.)
 
 **3. Personlighet og utseende:**
 - Eres muy inteligente. (Du er veldig intelligent.)
-- Es alta y delgada. (Hun er hoy og tynn.)
-- Somos simpaticos. (Vi er hyggelige.)
+- Es alta y delgada. (Hun er høy og tynn.)
+- Somos simpáticos. (Vi er hyggelige.)
 
 **4. Klokkeslett:**
-- ?Que hora es? - Es la una. (Hva er klokken? - Klokken er ett.)
+- ¿Qué hora es? - Es la una. (Hva er klokken? - Klokken er ett.)
 - Son las cinco. (Klokken er fem.)`,
     },
     {
@@ -1025,9 +1025,9 @@ b) Hun er lærer.
 c) Vi er hyggelige.`,
       solution: `a) Soy de Noruega.
 b) Ella es profesora.
-c) Somos simpaticos/simpaticas.
+c) Somos simpáticos/simpáticas.
 
-Merk: Adjektiver må bøyes etter kjønn. Simpaticos (hankjønn/blandet), simpaticas (hunkjønn).`,
+Merk: Adjektiver må bøyes etter kjønn. Simpáticos (hankjønn/blandet), simpáticas (hunkjønn).`,
     },
     {
       id: 'spansk-1-10-1-ex-block-2',
@@ -1039,26 +1039,26 @@ Merk: Adjektiver må bøyes etter kjønn. Simpaticos (hankjønn/blandet), simpat
         difficulty: 'medium',
         task: 'Oversett til spansk. Bruk riktig form av "ser".',
         subTasks: [
-          { label: 'a', task: 'Han er 20 år gammel.', solution: 'El tiene 20 anos.' },
-          { label: 'b', task: 'De er fra Spania.', solution: 'Ellos son de Espana.' },
-          { label: 'c', task: 'Du er veldig snill.', solution: 'Tu eres muy amable.' },
+          { label: 'a', task: 'Han er 20 år gammel.', solution: 'Él tiene 20 años.' },
+          { label: 'b', task: 'De er fra Spania.', solution: 'Ellos son de España.' },
+          { label: 'c', task: 'Du er veldig snill.', solution: 'Tú eres muy amable.' },
         ],
-        solution: 'a) El tiene 20 anos. (Merk: alder uttrykkes med "tener"!) b) Ellos son de Espana. c) Tu eres muy amable.',
+        solution: 'a) Él tiene 20 años. (Merk: alder uttrykkes med "tener"!) b) Ellos son de España. c) Tú eres muy amable.',
         hints: ['Husk: alder uttrykkes med "tener" på spansk, ikke "ser"!', 'muy = veldig'],
       },
     },
     {
       id: 'spansk-1-10-1-text-3',
       type: 'text',
-      content: `## Ser vs. Estår - En kort introduksjon
+      content: `## Ser vs. Estar - En kort introduksjon
 
 På spansk er det viktig å forstå forskjellen mellom **ser** og **estar**:
 
-| Ser | Estår |
+| Ser | Estar |
 |-----|-------|
 | Faste/permanente egenskaper | Midlertidige tilstander |
 | Soy noruego. (Jeg er norsk.) | Estoy cansado. (Jeg er trøtt.) |
-| Es inteligente. (Hun er intelligent.) | Esta enfermo. (Han er syk.) |
+| Es inteligente. (Hun er intelligent.) | Está enfermo. (Han er syk.) |
 | Somos estudiantes. (Vi er studenter.) | Estamos contentos. (Vi er glade.) |
 
 **Huskeregel:**
@@ -1070,11 +1070,11 @@ På spansk er det viktig å forstå forskjellen mellom **ser** og **estar**:
       type: 'example',
       title: 'Eksempel 3: Ser eller estar?',
       problem: `Velg riktig verb (ser/estar):
-a) Maria ___ espanola. (Maria er spansk.)
+a) María ___ española. (Maria er spansk.)
 b) Hoy Juan ___ enfermo. (I dag er Juan syk.)
 c) Nosotros ___ estudiantes. (Vi er studenter.)`,
-      solution: `a) Maria **es** espanola. (nasjonalitet = ser)
-b) Hoy Juan **esta** enfermo. (midlertidig tilstand = estar)
+      solution: `a) María **es** española. (nasjonalitet = ser)
+b) Hoy Juan **está** enfermo. (midlertidig tilstand = estar)
 c) Nosotros **somos** estudiantes. (yrke/rolle = ser)`,
     },
     {
@@ -1091,7 +1091,7 @@ c) Nosotros **somos** estudiantes. (yrke/rolle = ser)`,
           { label: 'b', task: 'Yo ___ cansado. (trøtt - midlertidig)', solution: 'estoy' },
           { label: 'c', task: 'Nosotros ___ de Noruega. (opprinnelse)', solution: 'somos' },
         ],
-        solution: 'a) es (ser - yrke), b) estoy (estår - midlertidig tilstand), c) somos (ser - opprinnelse)',
+        solution: 'a) es (ser - yrke), b) estoy (estar - midlertidig tilstand), c) somos (ser - opprinnelse)',
         hints: ['Yrke og nasjonalitet = ser', 'Midlertidige tilstander = estar', 'Opprinnelse = ser'],
       },
     },
@@ -1103,13 +1103,13 @@ c) Nosotros **somos** estudiantes. (yrke/rolle = ser)`,
 | Spansk | Norsk |
 |--------|-------|
 | Soy yo. | Det er meg. |
-| ?Quien es? | Hvem er det? |
+| ¿Quién es? | Hvem er det? |
 | Es importante. | Det er viktig. |
 | Es posible. | Det er mulig. |
 | Es necesario. | Det er nødvendig. |
 | Es verdad. | Det er sant. |
-| ?De donde eres? | Hvor er du fra? |
-| ?Que hora es? | Hva er klokken? |`,
+| ¿De dónde eres? | Hvor er du fra? |
+| ¿Qué hora es? | Hva er klokken? |`,
     },
     {
       id: 'spansk-1-10-1-ex-block-4',
@@ -1121,9 +1121,9 @@ c) Nosotros **somos** estudiantes. (yrke/rolle = ser)`,
         difficulty: 'lett',
         task: 'Hva betyr disse uttrykkene?',
         subTasks: [
-          { label: 'a', task: '?Quien es?', solution: 'Hvem er det?' },
+          { label: 'a', task: '¿Quién es?', solution: 'Hvem er det?' },
           { label: 'b', task: 'Es importante.', solution: 'Det er viktig.' },
-          { label: 'c', task: '?De donde eres?', solution: 'Hvor er du fra?' },
+          { label: 'c', task: '¿De dónde eres?', solution: 'Hvor er du fra?' },
           { label: 'd', task: 'Es verdad.', solution: 'Det er sant.' },
         ],
         solution: 'a) Hvem er det? b) Det er viktig. c) Hvor er du fra? d) Det er sant.',
@@ -1157,7 +1157,7 @@ export const CHAPTER_SPANSK_1_10_2: TextbookChapter = {
       type: 'text',
       content: `## Verbet "tener" - a ha
 
-"Tener" er et av de viktigste verbene på spansk. Det brukes til å si hva man har, hvor gammel man er, og i mange faste uttrykk. "Tener" er uregelmessig, sa bøyningen må læres utenat.`,
+"Tener" er et av de viktigste verbene på spansk. Det brukes til å si hva man har, hvor gammel man er, og i mange faste uttrykk. "Tener" er uregelmessig, så bøyningen må læres utenat.`,
     },
     {
       id: 'spansk-1-10-2-text-1',
@@ -1177,10 +1177,10 @@ export const CHAPTER_SPANSK_1_10_2: TextbookChapter = {
     {
       id: 'spansk-1-10-2-def-1',
       type: 'definition',
-      title: 'Bruksomrader for "tener"',
+      title: 'Bruksområder for "tener"',
       content: `"Tener" brukes til å uttrykke:
 - **Eierskap:** Tengo un perro. (Jeg har en hund.)
-- **Alder:** Tengo 15 anos. (Jeg er 15 år gammel.)
+- **Alder:** Tengo 15 años. (Jeg er 15 år gammel.)
 - **Tilstander:** Tengo hambre. (Jeg er sulten - bokstavelig: Jeg har sult.)
 - **Plikt:** Tengo que estudiar. (Jeg må studere.)`,
     },
@@ -1190,10 +1190,10 @@ export const CHAPTER_SPANSK_1_10_2: TextbookChapter = {
       title: 'Eksempel 1: Bøyning av tener',
       problem: `Fyll inn riktig form av "tener":
 a) Yo ___ un gato.
-b) Tu ___ 16 anos.
+b) Tú ___ 16 años.
 c) Ella ___ dos hermanos.`,
       solution: `a) Yo **tengo** un gato. (Jeg har en katt.)
-b) Tu **tienes** 16 anos. (Du er 16 år gammel.)
+b) Tú **tienes** 16 años. (Du er 16 år gammel.)
 c) Ella **tiene** dos hermanos. (Hun har to brødre.)`,
     },
     {
@@ -1224,10 +1224,10 @@ På spansk bruker man **tener** for å si hvor gammel man er (ikke "ser"!):
 
 | Spansk | Norsk |
 |--------|-------|
-| ?Cuantos anos tienes? | Hvor gammel er du? |
-| Tengo 15 anos. | Jeg er 15 år (gammel). |
-| Mi madre tiene 45 anos. | Moren min er 45 år. |
-| El bebe tiene 6 meses. | Babyen er 6 måneder. |
+| ¿Cuántos años tienes? | Hvor gammel er du? |
+| Tengo 15 años. | Jeg er 15 år (gammel). |
+| Mi madre tiene 45 años. | Moren min er 45 år. |
+| El bebé tiene 6 meses. | Babyen er 6 måneder. |
 
 **Merk:** På spansk sier man bokstavelig "Jeg har 15 år" i stedet for "Jeg er 15 år gammel".
 
@@ -1237,11 +1237,11 @@ På spansk bruker man **tener** for å si hvor gammel man er (ikke "ser"!):
 |--------|--------------------|--------------------|
 | tener hambre | ha sult | være sulten |
 | tener sed | ha torst | være torst |
-| tener frio | ha kulde | fryse |
+| tener frío | ha kulde | fryse |
 | tener calor | ha varme | være varm |
-| tener sueno | ha søvn | være trøtt/søvnig |
+| tener sueño | ha søvn | være trøtt/søvnig |
 | tener miedo | ha frykt | være redd |
-| tener razon | ha rett | ha rett |
+| tener razón | ha rett | ha rett |
 | tener prisa | ha hastverk | ha det travelt |`,
     },
     {
@@ -1250,11 +1250,11 @@ På spansk bruker man **tener** for å si hvor gammel man er (ikke "ser"!):
       title: 'Eksempel 2: Uttrykk med tener',
       problem: `Oversett til norsk:
 a) Tengo hambre.
-b) ?Tienes frio?
-c) El tiene mucho sueno.`,
+b) ¿Tienes frío?
+c) Él tiene mucho sueño.`,
       solution: `a) Tengo hambre. = Jeg er sulten.
-b) ?Tienes frio? = Fryser du?
-c) El tiene mucho sueno. = Han er veldig søvnig.
+b) ¿Tienes frío? = Fryser du?
+c) Él tiene mucho sueño. = Han er veldig søvnig.
 
 Merk: "mucho" (mye/veldig) brukes med tener-uttrykk, ikke "muy".`,
     },
@@ -1268,12 +1268,12 @@ Merk: "mucho" (mye/veldig) brukes med tener-uttrykk, ikke "muy".`,
         difficulty: 'medium',
         task: 'Oversett til spansk. Bruk riktig form av "tener".',
         subTasks: [
-          { label: 'a', task: 'Jeg er 16 år gammel.', solution: 'Tengo 16 anos.' },
+          { label: 'a', task: 'Jeg er 16 år gammel.', solution: 'Tengo 16 años.' },
           { label: 'b', task: 'Hun er sulten.', solution: 'Ella tiene hambre.' },
           { label: 'c', task: 'Vi er torste.', solution: 'Nosotros tenemos sed.' },
         ],
-        solution: 'a) Tengo 16 anos. b) Ella tiene hambre. c) Nosotros tenemos sed.',
-        hints: ['Alder = tener + ar', 'Sulten = tener hambre', 'Torst = tener sed'],
+        solution: 'a) Tengo 16 años. b) Ella tiene hambre. c) Nosotros tenemos sed.',
+        hints: ['Alder = tener + años', 'Sulten = tener hambre', 'Torst = tener sed'],
       },
     },
     {
@@ -1287,11 +1287,11 @@ For å si at man **må** gjøre noe, bruker vi **tener que + infinitivo**:
 |--------|-------|
 | Tengo que estudiar. | Jeg må studere. |
 | Tienes que comer. | Du må spise. |
-| Tiene que ir al medico. | Han/hun må gå til legen. |
-| Tenemos que hacer los deberes. | Vi må gjore leksene. |
+| Tiene que ir al médico. | Han/hun må gå til legen. |
+| Tenemos que hacer los deberes. | Vi må gjøre leksene. |
 | Tienen que dormir. | De må sove. |
 
-**Struktur:** tener (boyget) + que + infinitiv
+**Struktur:** tener (bøyd) + que + infinitiv
 
 Denne strukturen er veldig nyttig for å uttrykke plikt og nødvendighet.`,
     },
@@ -1302,7 +1302,7 @@ Denne strukturen er veldig nyttig for å uttrykke plikt og nødvendighet.`,
       problem: `Oversett til spansk med "tener que":
 a) Jeg må studere.
 b) Du må sove.
-c) Vi må ga til butikken.`,
+c) Vi må gå til butikken.`,
       solution: `a) Tengo que estudiar.
 b) Tienes que dormir.
 c) Tenemos que ir a la tienda.`,
@@ -1317,12 +1317,12 @@ c) Tenemos que ir a la tienda.`,
         difficulty: 'medium',
         task: 'Oversett til spansk. Bruk "tener que + infinitivo".',
         subTasks: [
-          { label: 'a', task: 'Jeg må gjore leksene.', solution: 'Tengo que hacer los deberes.' },
-          { label: 'b', task: 'Han må gå til legen.', solution: 'El tiene que ir al medico.' },
+          { label: 'a', task: 'Jeg må gjøre leksene.', solution: 'Tengo que hacer los deberes.' },
+          { label: 'b', task: 'Han må gå til legen.', solution: 'Él tiene que ir al médico.' },
           { label: 'c', task: 'Vi må spise.', solution: 'Tenemos que comer.' },
         ],
-        solution: 'a) Tengo que hacer los deberes. b) El tiene que ir al medico. c) Tenemos que comer.',
-        hints: ['hacer = å gjøre', 'los deberes = leksene', 'ir al medico = gå til legen'],
+        solution: 'a) Tengo que hacer los deberes. b) Él tiene que ir al médico. c) Tenemos que comer.',
+        hints: ['hacer = å gjøre', 'los deberes = leksene', 'ir al médico = gå til legen'],
       },
     },
     {
@@ -1333,15 +1333,15 @@ c) Tenemos que ir a la tienda.`,
 | Bruk | Eksempel | Norsk |
 |------|----------|-------|
 | Eierskap | Tengo un perro. | Jeg har en hund. |
-| Alder | Tiene 30 anos. | Han/hun er 30 år. |
-| Tilstand | Tenemos frio. | Vi fryser. |
+| Alder | Tiene 30 años. | Han/hun er 30 år. |
+| Tilstand | Tenemos frío. | Vi fryser. |
 | Plikt | Tienes que estudiar. | Du må studere. |
 
 **Tips:** Øv deg på å bruke "tener" i daglige setninger:
 - Si hvor gammel du er
 - Si hva du har
 - Si hva du føler (sulten, trøtt, kald)
-- Si hva du må gjore`,
+- Si hva du må gjøre`,
     },
     {
       id: 'spansk-1-10-2-ex-block-4',
@@ -1354,12 +1354,12 @@ c) Tenemos que ir a la tienda.`,
         task: 'Hva betyr disse uttrykkene?',
         subTasks: [
           { label: 'a', task: 'Tengo hambre.', solution: 'Jeg er sulten.' },
-          { label: 'b', task: 'Tiene 20 anos.', solution: 'Han/hun er 20 år.' },
-          { label: 'c', task: 'Tenemos que ir.', solution: 'Vi må dra/ga.' },
-          { label: 'd', task: 'Tienes sueno.', solution: 'Du er søvnig/trøtt.' },
+          { label: 'b', task: 'Tiene 20 años.', solution: 'Han/hun er 20 år.' },
+          { label: 'c', task: 'Tenemos que ir.', solution: 'Vi må dra/gå.' },
+          { label: 'd', task: 'Tienes sueño.', solution: 'Du er søvnig/trøtt.' },
         ],
-        solution: 'a) Jeg er sulten. b) Han/hun er 20 år. c) Vi må dra/ga. d) Du er søvnig/trøtt.',
-        hints: ['hambre = sult', 'anos = ar', 'tener que = å måtte', 'sueno = søvn'],
+        solution: 'a) Jeg er sulten. b) Han/hun er 20 år. c) Vi må dra/gå. d) Du er søvnig/trøtt.',
+        hints: ['hambre = sult', 'años = år', 'tener que = å måtte', 'sueño = søvn'],
       },
     },
   ],
@@ -1413,9 +1413,9 @@ Når du kan bøyningsmønsteret for hver gruppe, kan du bøye hundrevis av verb 
 - hablar (snakke)
 - estudiar (studere)
 - trabajar (jobbe)
-- comprar (kjope)
+- comprar (kjøpe)
 - cocinar (lage mat)
-- escuchar (hore/lytte)
+- escuchar (høre/lytte)
 - viajar (reise)
 - bailar (danse)
 - cantar (synge)
@@ -1424,7 +1424,7 @@ Når du kan bøyningsmønsteret for hver gruppe, kan du bøye hundrevis av verb 
     {
       id: 'spansk-1-10-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Boye -ar verb',
+      title: 'Eksempel 1: Bøye -ar verb',
       problem: `Bøy verbet "estudiar" (å studere) i alle personer:
 - Stamme: estudi-
 - Legg til endelsene: -o, -as, -a, -amos, -an`,
@@ -1446,7 +1446,7 @@ Når du kan bøyningsmønsteret for hver gruppe, kan du bøye hundrevis av verb 
         difficulty: 'lett',
         task: 'Fyll inn riktig form av "hablar" (å snakke).',
         subTasks: [
-          { label: 'a', task: 'Yo ___ espanol.', solution: 'hablo' },
+          { label: 'a', task: 'Yo ___ español.', solution: 'hablo' },
           { label: 'b', task: 'Tu ___ ingles.', solution: 'hablas' },
           { label: 'c', task: 'Ella ___ frances.', solution: 'habla' },
           { label: 'd', task: 'Nosotros ___ noruego.', solution: 'hablamos' },
@@ -1473,8 +1473,8 @@ Når du kan bøyningsmønsteret for hver gruppe, kan du bøye hundrevis av verb 
 - beber (drikke)
 - leer (lese)
 - aprender (lære)
-- comprender (forsta)
-- correr (lope)
+- comprender (forstå)
+- correr (løpe)
 - creer (tro)
 - vender (selge)
 
@@ -1494,7 +1494,7 @@ Når du kan bøyningsmønsteret for hver gruppe, kan du bøye hundrevis av verb 
 - abrir (åpne)
 - decidir (bestemme)
 - recibir (motta)
-- subir (ga opp)`,
+- subir (gå opp)`,
     },
     {
       id: 'spansk-1-10-3-example-2',
@@ -1553,7 +1553,7 @@ Merk: For "yo" er endelsen alltid **-o** uansett gruppe!`,
 2. **-er** og **-ir** verb har **like endelser** bortsett fra nosotros (-emos vs -imos)
 3. **-ar** verb har **a** i endelsene, **-er/-ir** har **e**
 
-**Tips:** Lær -ar-verbene forst, de er de vanligste!`,
+**Tips:** Lær -ar-verbene først, de er de vanligste!`,
     },
     {
       id: 'spansk-1-10-3-example-3',
@@ -1563,7 +1563,7 @@ Merk: For "yo" er endelsen alltid **-o** uansett gruppe!`,
 a) Jeg studerer spansk.
 b) Hun bor i Madrid.
 c) Vi spiser middag klokken åtte.`,
-      solution: `a) Yo estudio espanol.
+      solution: `a) Yo estudio español.
 b) Ella vive en Madrid.
 c) Nosotros cenamos a las ocho.
 
@@ -1579,11 +1579,11 @@ Merk: "cenar" (å spise middag/kveldsmat) er også et regelmessig -ar verb.`,
         difficulty: 'medium',
         task: 'Oversett til spansk. Bruk riktig verbform.',
         subTasks: [
-          { label: 'a', task: 'Jeg snakker spansk.', solution: 'Yo hablo espanol.' },
+          { label: 'a', task: 'Jeg snakker spansk.', solution: 'Yo hablo español.' },
           { label: 'b', task: 'Hun skriver et brev.', solution: 'Ella escribe una carta.' },
           { label: 'c', task: 'Vi leser en bok.', solution: 'Nosotros leemos un libro.' },
         ],
-        solution: 'a) Yo hablo espanol. b) Ella escribe una carta. c) Nosotros leemos un libro.',
+        solution: 'a) Yo hablo español. b) Ella escribe una carta. c) Nosotros leemos un libro.',
         hints: ['hablar -> hablo (yo)', 'escribir -> escribe (ella)', 'leer -> leemos (nosotros)'],
       },
     },
@@ -1594,10 +1594,10 @@ Merk: "cenar" (å spise middag/kveldsmat) er også et regelmessig -ar verb.`,
 
 | Spansk | Norsk |
 |--------|-------|
-| Hablo espanol y noruego. | Jeg snakker spansk og norsk. |
-| El estudia matematicas. | Han studerer matematikk. |
+| Hablo español y noruego. | Jeg snakker spansk og norsk. |
+| Él estudia matemáticas. | Han studerer matematikk. |
 | Vivimos en una casa grande. | Vi bor i et stort hus. |
-| ?Comes fruta? | Spiser du frukt? |
+| ¿Comes fruta? | Spiser du frukt? |
 | Ella escribe en su diario. | Hun skriver i dagboken sin. |
 | Ellos trabajan en un hospital. | De jobber på et sykehus. |
 
@@ -1613,12 +1613,12 @@ Merk: "cenar" (å spise middag/kveldsmat) er også et regelmessig -ar verb.`,
         difficulty: 'medium',
         task: 'Oversett til spansk.',
         subTasks: [
-          { label: 'a', task: 'Jeg lærer spansk.', solution: 'Yo aprendo espanol.' },
+          { label: 'a', task: 'Jeg lærer spansk.', solution: 'Yo aprendo español.' },
           { label: 'b', task: 'Hun bor i Barcelona.', solution: 'Ella vive en Barcelona.' },
           { label: 'c', task: 'Vi lager mat.', solution: 'Nosotros cocinamos.' },
-          { label: 'd', task: 'Han kjoper en bok.', solution: 'El compra un libro.' },
+          { label: 'd', task: 'Han kjøper en bok.', solution: 'El compra un libro.' },
         ],
-        solution: 'a) Yo aprendo espanol. b) Ella vive en Barcelona. c) Nosotros cocinamos. d) El compra un libro.',
+        solution: 'a) Yo aprendo español. b) Ella vive en Barcelona. c) Nosotros cocinamos. d) El compra un libro.',
         hints: ['aprender (-er) = å lære', 'vivir (-ir) = å bo', 'cocinar (-ar) = å lage mat', 'comprar (-ar) = å kjøpe'],
       },
     },
@@ -1649,14 +1649,14 @@ export const CHAPTER_SPANSK_1_10_4: TextbookChapter = {
       type: 'text',
       content: `## Repetisjon av Spansk nivå 1
 
-Felicidades! (Gratulerer!) Du har nådd slutten av Spansk nivå 1. I dette kapittelet repeterer vi de viktigste temaene du har lært. Bruk dette kapittelet til å teste deg selv og befeste kunnskapene dine.`,
+¡Felicidades! (Gratulerer!) Du har nådd slutten av Spansk nivå 1. I dette kapittelet repeterer vi de viktigste temaene du har lært. Bruk dette kapittelet til å teste deg selv og befeste kunnskapene dine.`,
     },
     {
       id: 'spansk-1-10-4-text-1',
       type: 'text',
       content: `## Oversikt over viktige verb
 
-**ser (a være - permanente egenskaper)**
+**ser (å være - permanente egenskaper)**
 | Person | Form |
 |--------|------|
 | yo | soy |
@@ -1705,9 +1705,9 @@ c) Nosotros **vamos** a la playa. (Vi drar til stranden.)`,
         difficulty: 'lett',
         task: 'Fyll inn riktig form av "ser", "tener" eller "ir".',
         subTasks: [
-          { label: 'a', task: 'Tu ___ muy simpatico. (ser)', solution: 'eres' },
-          { label: 'b', task: 'Ella ___ 17 anos. (tener)', solution: 'tiene' },
-          { label: 'c', task: 'Yo ___ en autobus. (ir)', solution: 'voy' },
+          { label: 'a', task: 'Tú ___ muy simpático. (ser)', solution: 'eres' },
+          { label: 'b', task: 'Ella ___ 17 años. (tener)', solution: 'tiene' },
+          { label: 'c', task: 'Yo ___ en autobús. (ir)', solution: 'voy' },
           { label: 'd', task: 'Nosotros ___ de Noruega. (ser)', solution: 'somos' },
         ],
         solution: 'a) eres, b) tiene, c) voy, d) somos',
@@ -1717,7 +1717,7 @@ c) Nosotros **vamos** a la playa. (Vi drar til stranden.)`,
     {
       id: 'spansk-1-10-4-text-2',
       type: 'text',
-      content: `## Regelmessige verb - Bøyningsmonster
+      content: `## Regelmessige verb - Bøyningsmønster
 
 | Person | -ar (hablar) | -er (comer) | -ir (vivir) |
 |--------|-------------|-------------|-------------|
@@ -1759,7 +1759,7 @@ c) nosotros viv**imos** (vi bor)`,
         subTasks: [
           { label: 'a', task: 'Ella ___ musica. (escuchar)', solution: 'escucha' },
           { label: 'b', task: 'Yo ___ en Oslo. (vivir)', solution: 'vivo' },
-          { label: 'c', task: 'Tu ___ bien el espanol. (aprender)', solution: 'aprendes' },
+          { label: 'c', task: 'Tu ___ bien el español. (aprender)', solution: 'aprendes' },
           { label: 'd', task: 'Nosotros ___ en un restaurante. (comer)', solution: 'comemos' },
         ],
         solution: 'a) escucha, b) vivo, c) aprendes, d) comemos',
@@ -1772,7 +1772,7 @@ c) nosotros viv**imos** (vi bor)`,
       content: `## Viktig ordforråd - Oppsummering
 
 **Hilsener:**
-- Hola, Buenos dias, Buenas tardes, Buenas noches, Adios, Hasta luego
+- Hola, Buenos días, Buenas tardes, Buenas noches, Adios, Hasta luego
 
 **Familie:**
 - la madre, el padre, la hermana, el hermano, los abuelos
@@ -1781,29 +1781,29 @@ c) nosotros viv**imos** (vi bor)`,
 - el pan, el queso, el agua, la leche, la fruta, la carne
 
 **Transport:**
-- el autobus, el tren, el avion, el coche, la bicicleta
+- el autobús, el tren, el avión, el coche, la bicicleta
 
 **I byen:**
-- la estacion, el hospital, la farmacia, el banco, el museo
+- la estación, el hospital, la farmacia, el banco, el museo
 
 **På hotellet:**
-- la habitacion, la recepcion, la llave, el desayuno
+- la habitación, la recepción, la llave, el desayuno
 
 **Nyttige uttrykk:**
 - Por favor (vær så snill), Gracias (takk), De nada (ingen årsak)
-- ?Cuanto cuesta? (Hva koster det?)
-- ?Donde esta...? (Hvor er...?)
+- ¿Cuánto cuesta? (Hva koster det?)
+- ¿Dónde está...? (Hvor er...?)
 - Me gusta... (Jeg liker...)`,
     },
     {
       id: 'spansk-1-10-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Ordforrad',
+      title: 'Eksempel 3: Ordforråd',
       problem: `Oversett til norsk:
-a) la estacion
+a) la estación
 b) el desayuno
 c) la hermana`,
-      solution: `a) la estacion = stasjonen
+      solution: `a) la estación = stasjonen
 b) el desayuno = frokosten
 c) la hermana = søsteren`,
     },
@@ -1820,9 +1820,9 @@ c) la hermana = søsteren`,
           { label: 'a', task: 'bilen', solution: 'el coche' },
           { label: 'b', task: 'apoteket', solution: 'la farmacia' },
           { label: 'c', task: 'billetten', solution: 'el billete' },
-          { label: 'd', task: 'resepsjonen', solution: 'la recepcion' },
+          { label: 'd', task: 'resepsjonen', solution: 'la recepción' },
         ],
-        solution: 'a) el coche, b) la farmacia, c) el billete, d) la recepcion',
+        solution: 'a) el coche, b) la farmacia, c) el billete, d) la recepción',
         hints: ['Husk artikkel: el (hankjønn) eller la (hunkjønn)'],
       },
     },
@@ -1834,21 +1834,21 @@ c) la hermana = søsteren`,
 **Presentere seg:**
 - Me llamo... (Jeg heter...)
 - Soy de Noruega. (Jeg er fra Norge.)
-- Tengo 16 anos. (Jeg er 16 år.)
+- Tengo 16 años. (Jeg er 16 år.)
 
 **På togstasjonen:**
 - Un billete a..., por favor. (En billett til..., takk.)
-- ?A que hora sale el tren? (Når går toget?)
-- ?Cuanto cuesta? (Hva koster det?)
+- ¿A qué hora sale el tren? (Når går toget?)
+- ¿Cuánto cuesta? (Hva koster det?)
 
 **På hotellet:**
 - Tengo una reserva. (Jeg har en reservasjon.)
-- ?Hay habitaciones libres? (Er det ledige rom?)
-- ?El desayuno esta incluido? (Er frokost inkludert?)
+- ¿Hay habitaciones libres? (Er det ledige rom?)
+- ¿El desayuno está incluido? (Er frokost inkludert?)
 
 **Spørre om veien:**
-- ?Donde esta...? (Hvor er...?)
-- ?Como llego a...? (Hvordan kommer jeg til...?)
+- ¿Dónde está...? (Hvor er...?)
+- ¿Cómo llego a...? (Hvordan kommer jeg til...?)
 - Siga todo recto. (Gå rett fram.)`,
     },
     {
@@ -1862,11 +1862,11 @@ c) la hermana = søsteren`,
         task: 'Oversett til spansk.',
         subTasks: [
           { label: 'a', task: 'En billett til Barcelona, takk.', solution: 'Un billete a Barcelona, por favor.' },
-          { label: 'b', task: 'Er det ledige rom?', solution: '?Hay habitaciones libres?' },
-          { label: 'c', task: 'Hvor er museet?', solution: '?Donde esta el museo?' },
+          { label: 'b', task: 'Er det ledige rom?', solution: '¿Hay habitaciones libres?' },
+          { label: 'c', task: 'Hvor er museet?', solution: '¿Dónde está el museo?' },
           { label: 'd', task: 'Gå rett fram.', solution: 'Siga todo recto.' },
         ],
-        solution: 'a) Un billete a Barcelona, por favor. b) ?Hay habitaciones libres? c) ?Donde esta el museo? d) Siga todo recto.',
+        solution: 'a) Un billete a Barcelona, por favor. b) ¿Hay habitaciones libres? c) ¿Dónde está el museo? d) Siga todo recto.',
         hints: ['a = til (med byer)', 'libre = ledig', 'donde = hvor', 'todo recto = rett fram'],
       },
     },
@@ -1877,18 +1877,18 @@ c) la hermana = søsteren`,
 
 I Spansk nivå 1 har du lært:
 
-1. **Hilsener og høflighetsfraser** - Hola, Buenos dias, Gracias, Por favor
-2. **Presentere deg selv** - Me llamo..., Soy de..., Tengo... anos
+1. **Hilsener og høflighetsfraser** - Hola, Buenos días, Gracias, Por favor
+2. **Presentere deg selv** - Me llamo..., Soy de..., Tengo... años
 3. **Tall og farger** - uno, dos, tres... rojo, azul, verde...
 4. **Familie** - madre, padre, hermana, hermano, abuelos
 5. **Tid og dager** - lunes, martes... Son las tres.
-6. **Mat og restaurantbesok** - Quiero..., La cuenta, por favor.
+6. **Mat og restaurantbesøk** - Quiero..., La cuenta, por favor.
 7. **Transport og reise** - el tren, el billete, Voy en...
-8. **I byen** - la estacion, la farmacia, ?Donde esta...?
-9. **På hotellet** - la habitacion, ?Hay habitaciones libres?
+8. **I byen** - la estación, la farmacia, ¿Dónde está...?
+9. **På hotellet** - la habitación, ¿Hay habitaciones libres?
 10. **Verb** - ser, tener, ir, regelmessige verb (-ar, -er, -ir)
 
-**Muy bien hecho! Sigue asi!** (Veldig bra gjort! Fortsett slik!)`,
+**¡Muy bien hecho! ¡Sigue así!** (Veldig bra gjort! Fortsett slik!)`,
     },
     {
       id: 'spansk-1-10-4-note-1',
@@ -1901,7 +1901,7 @@ I Spansk nivå 1 har du lært:
 - Bruk språkappar som Duolingo eller Babbel
 - Finn en språkpartner å øve med
 - Les enkle tekster på spansk (barnebøker, nyheter for unge)
-- Folg spanskspraklige sider på sosiale medier`,
+- Følg spanskspråklige sider på sosiale medier`,
     },
   ],
   exercises: [],

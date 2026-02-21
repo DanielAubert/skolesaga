@@ -2095,8 +2095,8 @@ Vi går gjennom: ser og estar, presens av regelmessige og uregelmessige verb, ar
     {
       id: 'spansk-1-16-1-def-1',
       type: 'definition',
-      title: 'Ser vs. Estår (A være)',
-      content: `Bade **ser** og **estar** betyr «a være», men de brukes ulikt:
+      title: 'Ser vs. Estar (Å være)',
+      content: `Både **ser** og **estar** betyr «å være», men de brukes ulikt:
 
 **SER** brukes for:
 - Identitet: Soy Emma. (Jeg er Emma.)
@@ -2120,7 +2120,7 @@ Vi går gjennom: ser og estar, presens av regelmessige og uregelmessige verb, ar
 - Folelser: Está contenta. (Hun er glad.)
 - Vaer: Está lloviendo. (Det regner.)
 
-| Pronomen | Estår |
+| Pronomen | Estar |
 |----------|-------|
 | yo | estoy |
 | tú | estás |
@@ -2310,7 +2310,7 @@ Adjektiv som ender på **-e** eller konsonant endres ikke i kjønn:
           { label: 'd', task: 'La fiesta ___ el sábado. (tid)', solution: 'es (ser - tid)' },
         ],
         solution: 'a) son (ser - yrke), b) está (estar - sted), c) Estás (estar - tilstand), d) es (ser - tid). Husk: ser = permanent/identitet, estar = sted/midlertidig.',
-        hints: ['Ser = identitet, nasjonalitet, yrke, tid. Estår = sted, tilstand, følelse.'],
+        hints: ['Ser = identitet, nasjonalitet, yrke, tid. Estar = sted, tilstand, følelse.'],
       },
     },
     {

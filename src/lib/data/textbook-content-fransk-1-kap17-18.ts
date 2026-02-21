@@ -59,7 +59,7 @@ Partisippet dannes av infinitiven:
 
 | Infinitiv-endelse | Partisipp-endelse | Eksempel |
 |--------------------|-------------------|----------|
-| -er | -e | parler -> parle |
+| -er | -é | parler -> parlé |
 | -ir | -i | finir -> fini |
 | -re | -u | vendre -> vendu |`,
     },
@@ -70,10 +70,10 @@ Partisippet dannes av infinitiven:
 
 | Infinitiv | Partisipp | Passé composé (je) | Norsk |
 |-----------|-----------|--------------------|----|
-| parler | parle | j'ai parle | jeg har snakket |
-| manger | mange | j'ai mange | jeg har spist |
-| regarder | regarde | j'ai regarde | jeg har sett på |
-| travailler | travaille | j'ai travaille | jeg har jobbet |
+| parler | parlé | j'ai parlé | jeg har snakket |
+| manger | mangé | j'ai mangé | jeg har spist |
+| regarder | regardé | j'ai regardé | jeg har sett på |
+| travailler | travaillé | j'ai travaillé | jeg har jobbet |
 | écouter | écouté | j'ai écouté | jeg har lyttet |
 | finir | fini | j'ai fini | jeg har fullført |
 | choisir | choisi | j'ai choisi | jeg har valgt |
@@ -90,11 +90,11 @@ Partisippet dannes av infinitiven:
 a) Je ___ (manger) une pizza.
 b) Tu ___ (parler) avec Marie.
 c) Ils ___ (finir) les devoirs.`,
-      solution: `a) J'**ai mange** une pizza. (Jeg har spist en pizza.)
-b) Tu **as parle** avec Marie. (Du har snakket med Marie.)
+      solution: `a) J'**ai mangé** une pizza. (Jeg har spist en pizza.)
+b) Tu **as parlé** avec Marie. (Du har snakket med Marie.)
 c) Ils **ont fini** les devoirs. (De har fullført leksene.)
 
-**Fremgangsmate:** 1) Bøy avoir til riktig person. 2) Legg til partisippet (-er -> -e, -ir -> -i).`,
+**Fremgangsmate:** 1) Bøy avoir til riktig person. 2) Legg til partisippet (-er -> -é, -ir -> -i).`,
     },
     {
       id: 'fransk-1-17-1-ex-block-1',
@@ -106,13 +106,13 @@ c) Ils **ont fini** les devoirs. (De har fullført leksene.)
         difficulty: 'lett',
         task: 'Skriv partisippet (participe passe) av disse verbene.',
         subTasks: [
-          { label: 'a', task: 'parler', solution: 'parle' },
+          { label: 'a', task: 'parler', solution: 'parlé' },
           { label: 'b', task: 'finir', solution: 'fini' },
           { label: 'c', task: 'vendre', solution: 'vendu' },
-          { label: 'd', task: 'manger', solution: 'mange' },
+          { label: 'd', task: 'manger', solution: 'mangé' },
         ],
-        solution: 'a) parle, b) fini, c) vendu, d) mange',
-        hints: ['-er -> -e, -ir -> -i, -re -> -u'],
+        solution: 'a) parlé, b) fini, c) vendu, d) mangé',
+        hints: ['-er -> -é, -ir -> -i, -re -> -u'],
       },
     },
     {
@@ -126,14 +126,14 @@ Her ser du passé composé bøyd i alle personer:
 
 | Person | Passé composé | Norsk |
 |--------|---------------|-------|
-| je | j'ai parle | jeg har snakket |
-| tu | tu as parle | du har snakket |
-| il/elle | il/elle a parle | han/hun har snakket |
-| nous | nous avons parle | vi har snakket |
-| vous | vous avez parle | dere har snakket |
-| ils/elles | ils/elles ont parle | de har snakket |
+| je | j'ai parlé | jeg har snakket |
+| tu | tu as parlé | du har snakket |
+| il/elle | il/elle a parlé | han/hun har snakket |
+| nous | nous avons parlé | vi har snakket |
+| vous | vous avez parlé | dere har snakket |
+| ils/elles | ils/elles ont parlé | de har snakket |
 
-Legg merke til at det kun er **avoir** som forandrer seg. Partisippet **parle** er likt i alle personene.`,
+Legg merke til at det kun er **avoir** som forandrer seg. Partisippet **parlé** er likt i alle personene.`,
     },
     {
       id: 'fransk-1-17-1-example-2',
@@ -143,9 +143,9 @@ Legg merke til at det kun er **avoir** som forandrer seg. Partisippet **parle** 
 a) Je ___ la tele.
 b) Nous ___ un film.
 c) Elle ___ les photos.`,
-      solution: `a) J'**ai regarde** la tele. (Jeg har sett på TV.)
-b) Nous **avons regarde** un film. (Vi har sett på en film.)
-c) Elle **a regarde** les photos. (Hun har sett på bildene.)`,
+      solution: `a) J'**ai regardé** la tele. (Jeg har sett på TV.)
+b) Nous **avons regardé** un film. (Vi har sett på en film.)
+c) Elle **a regardé** les photos. (Hun har sett på bildene.)`,
     },
     {
       id: 'fransk-1-17-1-ex-block-2',
@@ -157,13 +157,13 @@ c) Elle **a regarde** les photos. (Hun har sett på bildene.)`,
         difficulty: 'medium',
         task: 'Sett verbet i parentes i passé composé.',
         subTasks: [
-          { label: 'a', task: 'Nous ___ (travailler) hier.', solution: 'avons travaille' },
+          { label: 'a', task: 'Nous ___ (travailler) hier.', solution: 'avons travaillé' },
           { label: 'b', task: 'Vous ___ (choisir) un livre.', solution: 'avez choisi' },
           { label: 'c', task: 'Elles ___ (attendre) le bus.', solution: 'ont attendu' },
           { label: 'd', task: 'Il ___ (écouter) la musique.', solution: 'a écouté' },
         ],
-        solution: 'a) avons travaille, b) avez choisi, c) ont attendu, d) a écouté',
-        hints: ['Bøy avoir til riktig person forst', 'Finn partisippet: -er -> -e, -ir -> -i, -re -> -u'],
+        solution: 'a) avons travaillé, b) avez choisi, c) ont attendu, d) a écouté',
+        hints: ['Bøy avoir til riktig person forst', 'Finn partisippet: -er -> -é, -ir -> -i, -re -> -u'],
       },
     },
     {
@@ -183,8 +183,8 @@ c) Elle **a regarde** les photos. (Hun har sett på bildene.)`,
 | déjà | allerede |
 
 **Eksempler:**
-- **Hier**, j'ai mange au restaurant. (I går spiste jeg på restaurant.)
-- **La semaine dernière**, nous avons visite Paris. (Forrige uke besøkte vi Paris.)`,
+- **Hier**, j'ai mangé au restaurant. (I går spiste jeg på restaurant.)
+- **La semaine dernière**, nous avons visité Paris. (Forrige uke besøkte vi Paris.)`,
     },
     {
       id: 'fransk-1-17-1-example-3',
@@ -194,7 +194,7 @@ c) Elle **a regarde** les photos. (Hun har sett på bildene.)`,
 a) I går spiste jeg en croissant.
 b) Forrige uke jobbet vi mye.
 c) De har allerede fullført.`,
-      solution: `a) Hier, j'ai mange un croissant.
+      solution: `a) Hier, j'ai mangé un croissant.
 b) La semaine dernière, nous avons beaucoup travaille.
 c) Ils ont déjà fini.
 
@@ -210,11 +210,11 @@ c) Ils ont déjà fini.
         difficulty: 'medium',
         task: 'Oversett til fransk. Bruk passé composé.',
         subTasks: [
-          { label: 'a', task: 'I går kveld sa jeg på en film.', solution: 'Hier soir, j\'ai regarde un film.' },
+          { label: 'a', task: 'I går kveld sa jeg på en film.', solution: 'Hier soir, j\'ai regardé un film.' },
           { label: 'b', task: 'Hun har ventet i to timer.', solution: 'Elle a attendu deux heures.' },
-          { label: 'c', task: 'Vi spiste på restaurant forrige uke.', solution: 'Nous avons mange au restaurant la semaine dernière.' },
+          { label: 'c', task: 'Vi spiste på restaurant forrige uke.', solution: 'Nous avons mangé au restaurant la semaine dernière.' },
         ],
-        solution: "a) Hier soir, j'ai regarde un film. b) Elle a attendu deux heures. c) Nous avons mange au restaurant la semaine dernière.",
+        solution: "a) Hier soir, j'ai regardé un film. b) Elle a attendu deux heures. c) Nous avons mangé au restaurant la semaine dernière.",
         hints: ['Bruk tidsuttrykkene fra tabellen', 'Husk: avoir (bøyd) + partisipp'],
       },
     },
@@ -229,11 +229,11 @@ c) Ils ont déjà fini.
         difficulty: 'medium',
         task: 'Samleoppgave: Skriv en kort tekst (3-4 setninger) om hva du gjorde i går. Bruk passé composé med avoir og minst to tidsuttrykk.',
         subTasks: [
-          { label: 'a', task: 'Skriv hva du spiste i går.', solution: 'Eksempel: Hier, j\'ai mange une pizza pour le diner.' },
-          { label: 'b', task: 'Skriv hva du sa på i går kveld.', solution: 'Eksempel: Hier soir, j\'ai regarde un film avec mes amis.' },
+          { label: 'a', task: 'Skriv hva du spiste i går.', solution: 'Eksempel: Hier, j\'ai mangé une pizza pour le diner.' },
+          { label: 'b', task: 'Skriv hva du sa på i går kveld.', solution: 'Eksempel: Hier soir, j\'ai regardé un film avec mes amis.' },
           { label: 'c', task: 'Skriv hva du fullførte i går.', solution: 'Eksempel: J\'ai fini mes devoirs a cinq heures.' },
         ],
-        solution: "Eksempel: Hier, j'ai mange une pizza pour le diner. Hier soir, j'ai regarde un film avec mes amis. J'ai fini mes devoirs a cinq heures.",
+        solution: "Eksempel: Hier, j'ai mangé une pizza pour le diner. Hier soir, j'ai regardé un film avec mes amis. J'ai fini mes devoirs a cinq heures.",
         hints: ['Bruk verb som manger, regarder, finir, travailler, écouter', 'Husk tidsuttrykk: hier, hier soir, ce matin'],
       },
     },
@@ -285,9 +285,9 @@ En kjent huskeregel for disse verbene er **DR & MRS VANDERTRAMP**.`,
 | **D** | Descendre | descendu | gå ned |
 | **E** | Entrer | entre | gå inn |
 | **R** | Rentrer | rentre | komme hjem |
-| **T** | Tomber | tombe | falle |
+| **T** | Tomber | tombé | falle |
 | **R** | Retourner | retourne | dra tilbake |
-| **A** | Arriver | arrive | ankomme |
+| **A** | Arriver | arrivé | ankomme |
 | **M** | Mourir | mort | do |
 | **P** | Partir | parti | dra |
 
@@ -407,9 +407,9 @@ c) Les garcons sont **partis** tot. (-s: hankjønn flertall)`,
 
 | Avoir (de fleste verb) | Être (DR MRS VANDERTRAMP) |
 |-------------------------|---------------------------|
-| j'ai mange | je suis allé(e) |
-| tu as parle | tu es parti(e) |
-| il a travaille | il est venu |
+| j'ai mangé | je suis allé(e) |
+| tu as parlé | tu es parti(e) |
+| il a travaillé | il est venu |
 | elle a fini | elle est arrivee |
 | Partisipp endrer seg **ikke** | Partisipp samsvarer med **subjektet** |`,
     },
@@ -421,9 +421,9 @@ c) Les garcons sont **partis** tot. (-s: hankjønn flertall)`,
 a) Nous ___ (manger) au restaurant. (blandet gruppe)
 b) Elles ___ (partir) à midi.
 c) Vous ___ (travailler) hier.`,
-      solution: `a) Nous **avons mange** au restaurant. (avoir - manger er ikke et être-verb)
+      solution: `a) Nous **avons mangé** au restaurant. (avoir - manger er ikke et être-verb)
 b) Elles **sont parties** à midi. (être - partir, hunkjønn flertall = -es)
-c) Vous **avez travaille** hier. (avoir - travailler er ikke et être-verb)`,
+c) Vous **avez travaillé** hier. (avoir - travailler er ikke et être-verb)`,
     },
     {
       id: 'fransk-1-17-2-ex-block-3',
@@ -436,10 +436,10 @@ c) Vous **avez travaille** hier. (avoir - travailler er ikke et être-verb)`,
         task: 'Oversett til fransk. Velg riktig hjelpeverb (avoir/être).',
         subTasks: [
           { label: 'a', task: 'Hun gikk til skolen. (aller)', solution: "Elle est allee a l'école." },
-          { label: 'b', task: 'Vi spiste middag. (manger)', solution: 'Nous avons mange le diner.' },
+          { label: 'b', task: 'Vi spiste middag. (manger)', solution: 'Nous avons mangé le diner.' },
           { label: 'c', task: 'De (jenter) ankom i går. (arriver)', solution: 'Elles sont arrivees hier.' },
         ],
-        solution: "a) Elle est allee a l'école. b) Nous avons mange le diner. c) Elles sont arrivees hier.",
+        solution: "a) Elle est allee a l'école. b) Nous avons mangé le diner. c) Elles sont arrivees hier.",
         hints: ['Sjekk DR MRS VANDERTRAMP-listen', 'Husk samsvarsbøyning med être'],
       },
     },
@@ -454,11 +454,11 @@ c) Vous **avez travaille** hier. (avoir - travailler er ikke et être-verb)`,
         difficulty: 'medium',
         task: 'Samleoppgave: Skriv disse setningene i passé composé. Velg avoir eller être, og pass på samsvarsbøyning.',
         subTasks: [
-          { label: 'a', task: 'Marie (aller) au cinéma et elle (regarder) un film.', solution: 'Marie est allee au cinéma et elle a regarde un film.' },
-          { label: 'b', task: 'Les garcons (arriver) a l\'école et ils (travailler) toute la journée.', solution: "Les garcons sont arrives a l'école et ils ont travaille toute la journée." },
-          { label: 'c', task: 'Sophie et Julie (partir) en vacances et elles (visiter) Paris.', solution: 'Sophie et Julie sont parties en vacances et elles ont visite Paris.' },
+          { label: 'a', task: 'Marie (aller) au cinéma et elle (regarder) un film.', solution: 'Marie est allee au cinéma et elle a regardé un film.' },
+          { label: 'b', task: 'Les garcons (arriver) a l\'école et ils (travailler) toute la journée.', solution: "Les garcons sont arrives a l'école et ils ont travaillé toute la journée." },
+          { label: 'c', task: 'Sophie et Julie (partir) en vacances et elles (visiter) Paris.', solution: 'Sophie et Julie sont parties en vacances et elles ont visité Paris.' },
         ],
-        solution: "a) Marie est allee au cinéma et elle a regarde un film. b) Les garcons sont arrives a l'école et ils ont travaille toute la journée. c) Sophie et Julie sont parties en vacances et elles ont visite Paris.",
+        solution: "a) Marie est allee au cinéma et elle a regardé un film. b) Les garcons sont arrives a l'école et ils ont travaillé toute la journée. c) Sophie et Julie sont parties en vacances et elles ont visité Paris.",
         hints: ['Noen setninger har både avoir-verb og être-verb', 'Aller, arriver, partir = être. Regarder, travailler, visiter = avoir'],
       },
     },
@@ -487,7 +487,7 @@ export const CHAPTER_FRANSK_1_17_3: TextbookChapter = {
       type: 'text',
       content: `## Uregelmessige partisipper
 
-Mange av de vanligste franske verbene har uregelmessige partisipper. Det betyr at de **ikke** følger reglene -er -> -e, -ir -> -i, -re -> -u. Du må lære disse utenat!
+Mange av de vanligste franske verbene har uregelmessige partisipper. Det betyr at de **ikke** følger reglene -er -> -é, -ir -> -i, -re -> -u. Du må lære disse utenat!
 
 Den gode nyheten er at de fleste brukes svart ofte, så du vil raskt bli vant til dem.`,
     },
@@ -660,10 +660,10 @@ Legg merke til at -u-gruppen er storst!`,
         subTasks: [
           { label: 'a', task: 'Ce matin, j\' ___ (prendre) le bus et j\' ___ (arriver) a l\'école.', solution: "j'ai pris le bus et je suis arrive(e) à l'école" },
           { label: 'b', task: 'Hier, elle ___ (faire) ses devoirs et elle ___ (lire) un livre.', solution: 'elle a fait ses devoirs et elle a lu un livre' },
-          { label: 'c', task: 'Nous ___ (voir) un film et nous ___ (manger) du popcorn.', solution: 'nous avons vu un film et nous avons mange du popcorn' },
+          { label: 'c', task: 'Nous ___ (voir) un film et nous ___ (manger) du popcorn.', solution: 'nous avons vu un film et nous avons mangé du popcorn' },
           { label: 'd', task: 'Ils ___ (boire) du the et ils ___ (écrire) des lettres.', solution: 'ils ont bu du the et ils ont écrit des lettres' },
         ],
-        solution: "a) j'ai pris / je suis arrive(e), b) a fait / a lu, c) avons vu / avons mange, d) ont bu / ont écrit",
+        solution: "a) j'ai pris / je suis arrive(e), b) a fait / a lu, c) avons vu / avons mangé, d) ont bu / ont écrit",
         hints: ['Husk at arriver bruker être som hjelpeverb', 'De andre verbene bruker avoir'],
       },
     },
@@ -706,7 +706,7 @@ Du lærer også hvordan nektelse (ne...pas) fungerer i passé composé.`,
 
 | Bekreftende | Nektende |
 |-------------|----------|
-| J'ai mange. | Je **n'ai pas** mange. |
+| J'ai mangé. | Je **n'ai pas** mange. |
 | Elle est allee. | Elle **n'est pas** allee. |
 | Nous avons vu. | Nous **n'avons pas** vu. |
 | Ils sont partis. | Ils **ne sont pas** partis. |
@@ -718,7 +718,7 @@ Du lærer også hvordan nektelse (ne...pas) fungerer i passé composé.`,
       type: 'example',
       title: 'Eksempel 1: Nektelse i passé composé',
       problem: `Gjør setningene nektende:
-a) J'ai mange.
+a) J'ai mangé.
 b) Elle est partie.
 c) Nous avons fait les devoirs.`,
       solution: `a) Je **n'ai pas** mange. (Jeg har ikke spist.)
@@ -737,12 +737,12 @@ c) Nous **n'avons pas** fait les devoirs. (Vi har ikke gjort leksene.)
         difficulty: 'lett',
         task: 'Gjør disse setningene nektende.',
         subTasks: [
-          { label: 'a', task: 'Il a travaille hier.', solution: "Il n'a pas travaille hier." },
+          { label: 'a', task: 'Il a travaillé hier.', solution: "Il n'a pas travaillé hier." },
           { label: 'b', task: 'Tu as vu ce film.', solution: "Tu n'as pas vu ce film." },
           { label: 'c', task: 'Elles sont arrivees.', solution: 'Elles ne sont pas arrivees.' },
           { label: 'd', task: "J'ai compris.", solution: "Je n'ai pas compris." },
         ],
-        solution: "a) Il n'a pas travaille hier. b) Tu n'as pas vu ce film. c) Elles ne sont pas arrivees. d) Je n'ai pas compris.",
+        solution: "a) Il n'a pas travaillé hier. b) Tu n'as pas vu ce film. c) Elles ne sont pas arrivees. d) Je n'ai pas compris.",
         hints: ['ne/n\'...pas rundt hjelpeverbet (avoir eller être)', 'Partisippet kommer etter pas'],
       },
     },
@@ -777,11 +777,11 @@ Disse uttrykkene er nyttige når du forteller om fortiden:
       title: 'Eksempel 2: Fortelle om helgen',
       problem: `Les denne teksten og svar på spørsmålet:
 
-"Le week-end dernier, je suis allé(e) à Paris avec ma famille. D'abord, nous avons visite la tour Eiffel. Ensuite, nous avons mange dans un restaurant français. L'après-midi, nous avons fait une promenade sur les Champs-Élysées. Finalement, nous sommes rentres a l'hôtel."
+"Le week-end dernier, je suis allé(e) à Paris avec ma famille. D'abord, nous avons visité la tour Eiffel. Ensuite, nous avons mangé dans un restaurant français. L'après-midi, nous avons fait une promenade sur les Champs-Élysées. Finalement, nous sommes rentres a l'hôtel."
 
 Spørsmål: Nevn fire ting personen gjorde i Paris.`,
-      solution: `1. Besokte Eiffeltarnet (nous avons visite la tour Eiffel)
-2. Spiste på en fransk restaurant (nous avons mange dans un restaurant)
+      solution: `1. Besokte Eiffeltarnet (nous avons visité la tour Eiffel)
+2. Spiste på en fransk restaurant (nous avons mangé dans un restaurant)
 3. Gikk tur på Champs-Élysées (nous avons fait une promenade)
 4. Dro tilbake til hotellet (nous sommes rentres a l'hôtel)
 
@@ -799,9 +799,9 @@ Spørsmål: Nevn fire ting personen gjorde i Paris.`,
         subTasks: [
           { label: 'a', task: 'Forrige helg gikk jeg på kino.', solution: 'Le week-end dernier, je suis allé(e) au cinéma.' },
           { label: 'b', task: 'Vi har ikke sett den filmen.', solution: "Nous n'avons pas vu ce film." },
-          { label: 'c', task: 'Først spiste hun frokost, deretter gikk hun til skolen.', solution: "D'abord, elle a mange le petit déjeuner. Ensuite, elle est allee a l'école." },
+          { label: 'c', task: 'Først spiste hun frokost, deretter gikk hun til skolen.', solution: "D'abord, elle a mangé le petit déjeuner. Ensuite, elle est allee a l'école." },
         ],
-        solution: "a) Le week-end dernier, je suis allé(e) au cinéma. b) Nous n'avons pas vu ce film. c) D'abord, elle a mange le petit déjeuner. Ensuite, elle est allee a l'école.",
+        solution: "a) Le week-end dernier, je suis allé(e) au cinéma. b) Nous n'avons pas vu ce film. c) D'abord, elle a mangé le petit déjeuner. Ensuite, elle est allee a l'école.",
         hints: ['aller = être-verb', 'voir -> vu, manger -> mange', 'Bruk d\'abord og ensuite for a binde setningene sammen'],
       },
     },
@@ -814,8 +814,8 @@ For a stille spørsmål i passé composé har du flere muligheter:
 
 | Spørremåte | Eksempel | Norsk |
 |------------|----------|-------|
-| Intonasjon (heve stemmen) | Tu as mange ? | Har du spist? |
-| Est-ce que | Est-ce que tu as mange ? | Har du spist? |
+| Intonasjon (heve stemmen) | Tu as mangé ? | Har du spist? |
+| Est-ce que | Est-ce que tu as mangé ? | Har du spist? |
 | Inversjon | As-tu mange ? | Har du spist? |
 
 **Vanlige spørsmål om fortiden:**
@@ -853,11 +853,11 @@ For a stille spørsmål i passé composé har du flere muligheter:
         difficulty: 'medium',
         task: 'Svar på sporsmaalene på fransk med fulle setninger i passé composé.',
         subTasks: [
-          { label: 'a', task: 'Qu\'est-ce que tu as mange hier soir ? (pizza)', solution: "Hier soir, j'ai mange une pizza." },
+          { label: 'a', task: 'Qu\'est-ce que tu as mangé hier soir ? (pizza)', solution: "Hier soir, j'ai mangé une pizza." },
           { label: 'b', task: 'Ou est-ce que tu es allé(e) le week-end dernier ? (parc)', solution: 'Le week-end dernier, je suis allé(e) au parc.' },
           { label: 'c', task: 'Tu as fait tes devoirs ? (nei)', solution: "Non, je n'ai pas fait mes devoirs." },
         ],
-        solution: "a) Hier soir, j'ai mange une pizza. b) Le week-end dernier, je suis allé(e) au parc. c) Non, je n'ai pas fait mes devoirs.",
+        solution: "a) Hier soir, j'ai mangé une pizza. b) Le week-end dernier, je suis allé(e) au parc. c) Non, je n'ai pas fait mes devoirs.",
         hints: ['Bruk tidsuttrykk i svaret', 'Husk nektelse: ne...pas rundt hjelpeverbet'],
       },
     },
@@ -873,11 +873,11 @@ For a stille spørsmål i passé composé har du flere muligheter:
         task: 'Samleoppgave: Skriv en kort fortelling (5-6 setninger) om din forrige helg på fransk. Bruk passé composé med både avoir og être, minst ett uregelmessig partisipp, tidsuttrykk, og en nektende setning.',
         subTasks: [
           { label: 'a', task: 'Fortell hvor du gikk. (bruk aller)', solution: 'Eksempel: Le week-end dernier, je suis allé(e) en ville avec mes amis.' },
-          { label: 'b', task: 'Fortell hva du gjorde og spiste. (bruk faire, manger)', solution: "Eksempel: D'abord, nous avons fait les magasins. Ensuite, nous avons mange au restaurant." },
+          { label: 'b', task: 'Fortell hva du gjorde og spiste. (bruk faire, manger)', solution: "Eksempel: D'abord, nous avons fait les magasins. Ensuite, nous avons mangé au restaurant." },
           { label: 'c', task: 'Fortell noe du IKKE gjorde. (bruk nektelse)', solution: "Eksempel: Je n'ai pas fait mes devoirs." },
           { label: 'd', task: 'Fortell når du kom hjem. (bruk rentrer)', solution: 'Eksempel: Finalement, je suis rentre(e) à la maison a neuf heures du soir.' },
         ],
-        solution: "Eksempel på komplett tekst: Le week-end dernier, je suis allé(e) en ville avec mes amis. D'abord, nous avons fait les magasins. Ensuite, nous avons mange au restaurant. J'ai vu un beau film au cinéma. Je n'ai pas fait mes devoirs. Finalement, je suis rentre(e) à la maison a neuf heures du soir.",
+        solution: "Eksempel på komplett tekst: Le week-end dernier, je suis allé(e) en ville avec mes amis. D'abord, nous avons fait les magasins. Ensuite, nous avons mangé au restaurant. J'ai vu un beau film au cinéma. Je n'ai pas fait mes devoirs. Finalement, je suis rentre(e) à la maison a neuf heures du soir.",
         hints: ['Bruk d\'abord, ensuite, puis, finalement for a strukturere', 'Husk: aller, partir, arriver, rentrer = être. Manger, faire, voir = avoir'],
       },
     },

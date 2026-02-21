@@ -426,7 +426,7 @@ Det viktigste er a tore a snakke - selv om du gjoer feil!`
       id: 'tysk-1-14-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Sich vorstellen (A presentere seg)',
-      problem: `Her er en dialog der to personer moetes for forste gang:
+      problem: `Her er en dialog der to personer møtes for første gang:
 
 **Anna:** Hallo! Ich bin Anna. Und du?
 **Ben:** Hi, ich heiße Ben. Woher kommst du?
@@ -501,7 +501,7 @@ I dette kapittelet har vi oevd pa dialoger i tre viktige situasjoner:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Samleoppgave: Oversett hele denne korte dialogen til tysk. To venner moetes tilfeldig pa gata.',
+        task: 'Samleoppgave: Oversett hele denne korte dialogen til tysk. To venner møtes tilfeldig pa gata.',
         subTasks: [
           { label: 'a', task: 'Hei! Hvordan har du det?', solution: 'Hallo! Wie geht es dir?' },
           { label: 'b', task: 'Bra, takk! Og du? Hva gjoer du her?', solution: 'Gut, danke! Und dir? Was machst du hier?' },
@@ -1437,7 +1437,7 @@ Eure Emma
 
 **Vanlige meldingsfraser:**
 - *Hast du Lust auf ...?* - Har du lyst pa ...?
-- *Wann und wo treffen wir uns?* - Nar og hvor moetes vi?
+- *Wann und wo treffen wir uns?* - Nar og hvor møtes vi?
 - *Bin in 5 Min da.* - Er der om 5 min.
 - *Geht klar!* - Det ordner seg! / OK!`
     },
@@ -1477,7 +1477,7 @@ Eure Emma
         subTasks: [
           { label: 'a', task: 'Har du tid i morgen?', solution: 'Hast du morgen Zeit?' },
           { label: 'b', task: 'Skal vi ga pa kino?', solution: 'Wollen wir ins Kino gehen?' },
-          { label: 'c', task: 'Vi moetes klokka 15 foran kinoen.', solution: 'Wir treffen uns um 15 Uhr vor dem Kino.' },
+          { label: 'c', task: 'Vi møtes klokka 15 foran kinoen.', solution: 'Wir treffen uns um 15 Uhr vor dem Kino.' },
           { label: 'd', task: 'Sees i morgen!', solution: 'Bis morgen!' },
         ],
         solution: 'a) Hast du morgen Zeit? b) Wollen wir ins Kino gehen? c) Wir treffen uns um 15 Uhr vor dem Kino. d) Bis morgen!',

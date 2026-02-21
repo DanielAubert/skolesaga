@@ -1655,8 +1655,8 @@ d) j'**habite**, nous **habitons**
 Passé composé brukes for handlinger som er ferdige. Det dannes med **avoir/être + partisipp**.
 
 **Med avoir (de fleste verb):**
-- J'ai mange (Jeg spiste/har spist)
-- Tu as parle (Du snakket)
+- J'ai mangé (Jeg spiste/har spist)
+- Tu as parlé (Du snakket)
 - Il a fini (Han avsluttet)
 
 **Med être (bevegelsesverb + refleksive verb):**
@@ -1668,8 +1668,8 @@ Passé composé brukes for handlinger som er ferdige. Det dannes med **avoir/êt
 **Vanlige partisipper:**
 | Infinitiv | Partisipp | Norsk |
 |-----------|-----------|-------|
-| manger | mange | spist |
-| parler | parle | snakket |
+| manger | mangé | spist |
+| parler | parlé | snakket |
 | finir | fini | avsluttet |
 | faire | fait | gjort |
 | voir | vu | sett |
@@ -1686,7 +1686,7 @@ Passé composé brukes for handlinger som er ferdige. Det dannes med **avoir/êt
 a) Je mange une pizza.
 b) Elle va a Paris.
 c) Nous faisons les devoirs.`,
-      solution: `a) J'**ai mange** une pizza. (Jeg spiste en pizza.)
+      solution: `a) J'**ai mangé** une pizza. (Jeg spiste en pizza.)
 (manger -> mange, bruker avoir)
 
 b) Elle **est allee** à Paris. (Hun dro til Paris.)
@@ -1707,12 +1707,12 @@ c) Nous **avons fait** les devoirs. (Vi gjorde leksene.)
         difficulty: 'medium',
         task: 'Skriv setningene i passé composé.',
         subTasks: [
-          { label: 'a', task: 'Je (parler) avec Marie.', solution: "J'ai parle avec Marie." },
+          { label: 'a', task: 'Je (parler) avec Marie.', solution: "J'ai parlé avec Marie." },
           { label: 'b', task: 'Elle (aller) au cinéma.', solution: 'Elle est allee au cinéma.' },
           { label: 'c', task: 'Nous (faire) un gâteau.', solution: 'Nous avons fait un gâteau.' },
           { label: 'd', task: 'Tu (voir) le film ?', solution: 'Tu as vu le film ?' },
         ],
-        solution: "a) J'ai parle. b) Elle est allee. c) Nous avons fait. d) Tu as vu.",
+        solution: "a) J'ai parlé. b) Elle est allee. c) Nous avons fait. d) Tu as vu.",
         hints: ['De fleste verb bruker avoir', 'Bevegelsesverb (aller, venir, partir...) bruker être'],
       },
     },
