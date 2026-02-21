@@ -52,6 +52,19 @@ Energiinnholdet i karbohydrater er **17 kJ per gram** (4 kcal/g).`,
 - **Maltose** (maltsukker) = glukose + glukose. Dannes når stivelse brytes ned.`,
     },
     {
+      id: 'nat-vg1-7-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom monosakkarider, disakkarider og polysakkarider. Gi et eksempel på hver.',
+        solution: 'Monosakkarider er enkle sukkerarter som best&aring;r av ett sukkermolelkyl, for eksempel glukose (druesukker). Disakkarider er satt sammen av to monosakkarider, for eksempel sukrose (bordsukker) som er satt sammen av glukose og fruktose. Polysakkarider er lange kjeder av mange monosakkarider, for eksempel stivelse som finnes i poteter og korn og fungerer som energilager i planter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-1-def-2',
       type: 'definition',
       title: 'Polysakkarider',
@@ -92,33 +105,6 @@ Hormonet **insulin** (fra bukspyttkjertelen) senker blodsukkeret ved å hjelpe c
 Et mål på hvor raskt et karbohydrat øker blodsukkeret. Lav GI (fullkorn, belgfrukter) gir jevnere blodsukker enn høy GI (hvitt brød, sukker).`,
     },
     {
-      id: 'nat-vg1-7-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Beregning av energi fra karbohydrater',
-      problem: 'En skive grovbrød inneholder ca. 20 g karbohydrater. Hvor mye energi gir dette i kJ?',
-      solution: `**Løsning:**
-
-Energiinnhold i karbohydrater: 17 kJ/g
-
-Energi = mengde x energiinnhold per gram
-Energi = 20 g x 17 kJ/g = **340 kJ**
-
-Til sammenligning: Daglig energibehov for en ungdom er ca. 9000-11 000 kJ. En skive grovbrød dekker altså ca. 3-4 % av dagsbehovet.`,
-    },
-    {
-      id: 'nat-vg1-7-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom monosakkarider, disakkarider og polysakkarider. Gi et eksempel på hver.',
-        solution: 'Monosakkarider er enkle sukkerarter som best&aring;r av ett sukkermolelkyl, for eksempel glukose (druesukker). Disakkarider er satt sammen av to monosakkarider, for eksempel sukrose (bordsukker) som er satt sammen av glukose og fruktose. Polysakkarider er lange kjeder av mange monosakkarider, for eksempel stivelse som finnes i poteter og korn og fungerer som energilager i planter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-7-1-ex-2',
       type: 'exercise',
       exercise: {
@@ -132,6 +118,44 @@ Til sammenligning: Daglig energibehov for en ungdom er ca. 9000-11 000 kJ. En sk
       },
     },
     {
+      id: 'nat-vg1-7-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregning av energi fra karbohydrater',
+      problem: 'En skive grovbrød inneholder ca. 20 g karbohydrater. Hvor mye energi gir dette i kJ?',
+      solution: `**Løsning:**
+
+Energiinnhold i karbohydrater: 17 kJ/g
+
+Energi = mengde x energiinnhold per gram
+Energi = 20 g x 17 kJ/g = **340 kJ**
+
+Til sammenligning: Daglig energibehov for en ungdom er ca. 9000-11 000 kJ. En skive grovbrød dekker altså ca. 3-4 % av dagsbehovet.`,
+    },
+    // --- Oppsummering ---
+    {
+      id: 'nat-vg1-7-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Karbohydrater er kroppens viktigste energikilde**: De gir 17 kJ per gram og brytes ned til glukose som cellene bruker i celleånding.
+- **Tre typer karbohydrater**: Monosakkarider (enkle sukkerarter som glukose), disakkarider (doble sukkerarter som sukrose) og polysakkarider (sammensatte som stivelse og glykogen).
+- **Fiber er ufordøyelige karbohydrater**: Løselig fiber senker blodsukker og kolesterol, uløselig fiber fremmer tarmhelse. Anbefalt inntak er 25-35 g per dag.
+- **Blodsukkerregulering**: Insulin senker blodsukkeret, glukagon øker det. Glykemisk indeks (GI) måler hvor raskt mat øker blodsukkeret.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Monosakkarid | Enkel sukkerart, f.eks. glukose og fruktose |
+| Disakkarid | To monosakkarider koblet sammen, f.eks. sukrose |
+| Polysakkarid | Lang kjede av monosakkarider, f.eks. stivelse og glykogen |
+| Fiber | Ufordøyelige karbohydrater fra plantemat |
+| Glykemisk indeks (GI) | Mål på hvor raskt karbohydrater øker blodsukkeret |
+| Insulin | Hormon som senker blodsukkeret |`,
+    },
+    // --- Samleoppgaver ---
+    {
       id: 'nat-vg1-7-1-ex-3',
       type: 'exercise',
       exercise: {
@@ -143,6 +167,16 @@ Til sammenligning: Daglig energibehov for en ungdom er ca. 9000-11 000 kJ. En sk
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Karbohydrater](https://snl.no/karbohydrater)
+- Helsedirektoratet: [Kostråd om karbohydrater og fiber](https://www.helsedirektoratet.no/faglige-rad/kostradene)
+- Folkehelseinstituttet: [Kosthold og helse](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
+- Bærug, A. m.fl. (2019). *Biologi for helse- og oppvekstfag*. Gyldendal.`,
     },
   ],
   exercises: [],
@@ -187,6 +221,19 @@ Det finnes 20 ulike aminosyrer. Av disse er **8-9 essensielle**, det vil si at k
 Leucin, isoleucin, valin, lysin, metionin, fenylalanin, treonin, tryptofan (+ histidin for barn)`,
     },
     {
+      id: 'nat-vg1-7-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er essensielle aminosyrer, og hvorfor er det viktig å få dem gjennom maten?',
+        solution: 'Essensielle aminosyrer er aminosyrer som kroppen ikke kan lage selv og som derfor må tilføres gjennom kostholdet. Det finnes 8-9 essensielle aminosyrer. De er nødvendige for å bygge proteiner som kroppen trenger for vekst, reparasjon av vev, enzymer, hormoner og immunforsvar. Mangler man essensielle aminosyrer over tid, kan kroppen ikke lage viktige proteiner, noe som kan føre til svekket muskelmasse, dårligere immunforsvar og hemmet vekst hos barn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-2-def-2',
       type: 'definition',
       title: 'Proteinenes funksjoner',
@@ -203,6 +250,19 @@ Leucin, isoleucin, valin, lysin, metionin, fenylalanin, treonin, tryptofan (+ hi
 **Transportproteiner:** Frakter stoffer i kroppen. Eksempel: Hemoglobin frakter oksygen i blodet.
 
 **Kontraktile proteiner:** Gir muskler evnen til å trekke seg sammen. Aktin og myosin.`,
+    },
+    {
+      id: 'nat-vg1-7-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn fire ulike funksjoner proteiner har i kroppen, og gi et eksempel på et protein for hver funksjon.',
+        solution: '1) Enzymer: Proteiner som fremskynder kjemiske reaksjoner, f.eks. amylase som bryter ned stivelse i munnen. 2) Antistoffer: Proteiner i immunforsvaret som bekjemper infeksjoner, f.eks. immunglobuliner som binder seg til virus. 3) Strukturproteiner: Gir styrke til vev, f.eks. kollagen som er hovedproteinet i hud, sener og knokler. 4) Transportproteiner: Frakter stoffer i kroppen, f.eks. hemoglobin som frakter oksygen i blodet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-7-2-def-3',
@@ -223,32 +283,29 @@ Ved å kombinere ulike plantekilder kan man få inn alle essensielle aminosyrer:
 **Animalsk vs. vegetabilsk protein:**
 Animalsk protein er som regel komplett, mens vegetabilsk protein ofte krever kombinasjoner. Et vegetarisk eller vegansk kosthold kan dekke proteinbehovet, men krever mer bevisst sammensetning av måltidene.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-7-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn fire ulike funksjoner proteiner har i kroppen, og gi et eksempel på et protein for hver funksjon.',
-        solution: '1) Enzymer: Proteiner som fremskynder kjemiske reaksjoner, f.eks. amylase som bryter ned stivelse i munnen. 2) Antistoffer: Proteiner i immunforsvaret som bekjemper infeksjoner, f.eks. immunglobuliner som binder seg til virus. 3) Strukturproteiner: Gir styrke til vev, f.eks. kollagen som er hovedproteinet i hud, sener og knokler. 4) Transportproteiner: Frakter stoffer i kroppen, f.eks. hemoglobin som frakter oksygen i blodet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-7-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Proteiner er bygget opp av aminosyrer**: 20 ulike aminosyrer kobles sammen med peptidbindinger til lange kjeder som folder seg til tredimensjonale strukturer.
+- **Essensielle aminosyrer**: 8-9 aminosyrer kan ikke kroppen lage selv og må tilføres gjennom maten.
+- **Proteiner har mange funksjoner**: Enzymer, antistoffer, hormoner, strukturproteiner (kollagen), transportproteiner (hemoglobin) og kontraktile proteiner (aktin, myosin).
+- **Komplette vs. ufullstendige proteiner**: Animalske kilder er som regel komplette, mens vegetabilske kilder ofte krever kombinasjoner for å dekke alle essensielle aminosyrer.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Aminosyre | Byggestein i proteiner, har aminogruppe og karboksylgruppe |
+| Peptidbinding | Kjemisk binding mellom to aminosyrer |
+| Essensielle aminosyrer | Aminosyrer kroppen ikke kan lage selv |
+| Enzym | Protein som fremskynder kjemiske reaksjoner |
+| Komplett protein | Inneholder alle essensielle aminosyrer |`,
     },
-    {
-      id: 'nat-vg1-7-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er essensielle aminosyrer, og hvorfor er det viktig å få dem gjennom maten?',
-        solution: 'Essensielle aminosyrer er aminosyrer som kroppen ikke kan lage selv og som derfor må tilføres gjennom kostholdet. Det finnes 8-9 essensielle aminosyrer. De er nødvendige for å bygge proteiner som kroppen trenger for vekst, reparasjon av vev, enzymer, hormoner og immunforsvar. Mangler man essensielle aminosyrer over tid, kan kroppen ikke lage viktige proteiner, noe som kan føre til svekket muskelmasse, dårligere immunforsvar og hemmet vekst hos barn.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-7-2-ex-3',
       type: 'exercise',
@@ -261,6 +318,16 @@ Animalsk protein er som regel komplett, mens vegetabilsk protein ofte krever kom
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Proteiner](https://snl.no/proteiner)
+- Helsedirektoratet: [Kostråd om proteiner](https://www.helsedirektoratet.no/faglige-rad/kostradene)
+- Folkehelseinstituttet: [Næringsstoffer i kostholdet](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
+- Henriksen, P. & Drevon, C.A. (2017). *Mat og medisin*. Cappelen Damm Akademisk.`,
     },
   ],
   exercises: [],
@@ -314,6 +381,19 @@ Fettsyrenes egenskaper avhenger av lengden på karbonkjeden og om det finnes **d
 - Kilder: Fet fisk, linfrø, valnøtter, solsikkeolje`,
     },
     {
+      id: 'nat-vg1-7-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom mettet, enumettet og flerumettet fett. Gi eksempler på matvarer som inneholder de ulike typene.',
+        solution: 'Mettet fett har ingen dobbeltbindinger mellom karbonatomene, er fast ved romtemperatur og finnes i smør, ost og kjøttfett. Enumettet fett har én dobbeltbinding, er flytende ved romtemperatur og finnes i olivenolje, avokado og nøtter. Flerumettet fett har to eller flere dobbeltbindinger, er flytende ved romtemperatur og finnes i fet fisk (omega-3), linfrø og solsikkeolje (omega-6). Generelt anbefales det å bytte ut mettet fett med umettet fett for bedre hjertehelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-3-def-2',
       type: 'definition',
       title: 'Omega-3, omega-6 og transfett',
@@ -335,6 +415,19 @@ Fettsyrenes egenskaper avhenger av lengden på karbonkjeden og om det finnes **d
 - Øker risikoen for hjerte- og karsykdommer
 - Bør unngås helt
 - Finnes i noe hurtigmat, kjeks, kaker og snacks`,
+    },
+    {
+      id: 'nat-vg1-7-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er omega-3-fettsyrer viktige, og hvilke matvarer er gode kilder?',
+        solution: 'Omega-3-fettsyrer er essensielle fettsyrer som kroppen ikke kan lage selv. De er viktige for hjernens utvikling og funksjon, for synet, og for hjertehelsen. Omega-3 demper betennelsesreaksjoner i kroppen og kan redusere risikoen for hjerte- og karsykdommer. De beste kildene er fet fisk som laks, makrell, sild og sardiner. Vegetabilske kilder inkluderer linfrø, chiafrø og valnøtter, men disse inneholder en annen type omega-3 (ALA) som kroppen må omdanne til de mest aktive formene (EPA og DHA).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-7-3-def-3',
@@ -373,32 +466,31 @@ Energi = 10 g x 17 kJ/g = 170 kJ
 
 Smøret gir nesten dobbelt så mye energi per vektenhet, selv om det bare er 80 % fett. Dette illustrerer hvorfor fett er en så effektiv energikilde (37 kJ/g vs. 17 kJ/g).`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-7-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom mettet, enumettet og flerumettet fett. Gi eksempler på matvarer som inneholder de ulike typene.',
-        solution: 'Mettet fett har ingen dobbeltbindinger mellom karbonatomene, er fast ved romtemperatur og finnes i smør, ost og kjøttfett. Enumettet fett har én dobbeltbinding, er flytende ved romtemperatur og finnes i olivenolje, avokado og nøtter. Flerumettet fett har to eller flere dobbeltbindinger, er flytende ved romtemperatur og finnes i fet fisk (omega-3), linfrø og solsikkeolje (omega-6). Generelt anbefales det å bytte ut mettet fett med umettet fett for bedre hjertehelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-7-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Fett er den mest energitette næringsstoffgruppen**: 37 kJ per gram, mer enn dobbelt så mye som karbohydrater og proteiner.
+- **Tre typer fettsyrer**: Mettede (ingen dobbeltbindinger, bør begrenses), enumettede (én dobbeltbinding, gunstige) og flerumettede (flere dobbeltbindinger, inkludert essensielle omega-3 og omega-6).
+- **Transfett bør unngås**: Industrielt fremstilt fett som øker risikoen for hjerte- og karsykdommer.
+- **Fett har mange funksjoner**: Energireserve, cellemembranbygging, vitaminopptak (A, D, E, K), isolasjon og beskyttelse av organer.
+- **Kolesterol**: LDL frakter kolesterol til cellene (kan avleires i blodårer), HDL frakter det tilbake til leveren.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Triglyserid | Fettmolekyl: glyserol + tre fettsyrer |
+| Mettet fettsyre | Ingen dobbeltbindinger, fast ved romtemperatur |
+| Umettet fettsyre | Har dobbeltbindinger, flytende ved romtemperatur |
+| Omega-3 | Essensiell flerumettet fettsyre, viktig for hjerne og hjerte |
+| Transfett | Industrielt herdet fett, bør unngås |
+| LDL-kolesterol | Frakter kolesterol til cellene, kan gi åreforkalkning |`,
     },
-    {
-      id: 'nat-vg1-7-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvorfor er omega-3-fettsyrer viktige, og hvilke matvarer er gode kilder?',
-        solution: 'Omega-3-fettsyrer er essensielle fettsyrer som kroppen ikke kan lage selv. De er viktige for hjernens utvikling og funksjon, for synet, og for hjertehelsen. Omega-3 demper betennelsesreaksjoner i kroppen og kan redusere risikoen for hjerte- og karsykdommer. De beste kildene er fet fisk som laks, makrell, sild og sardiner. Vegetabilske kilder inkluderer linfrø, chiafrø og valnøtter, men disse inneholder en annen type omega-3 (ALA) som kroppen må omdanne til de mest aktive formene (EPA og DHA).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-7-3-ex-3',
       type: 'exercise',
@@ -411,6 +503,16 @@ Smøret gir nesten dobbelt så mye energi per vektenhet, selv om det bare er 80 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Fettsyrer](https://snl.no/fettsyrer)
+- Helsedirektoratet: [Kostråd om fett](https://www.helsedirektoratet.no/faglige-rad/kostradene)
+- Folkehelseinstituttet: [Fett og helse](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
+- WHO: [Healthy diet - facts on fats](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)`,
     },
   ],
   exercises: [],
@@ -469,6 +571,19 @@ Et **variert kosthold** er den beste måten å sikre at vi får alle mikronærin
 **NB:** Fettløselige vitaminer krever fett i kosten for å tas opp i tarmen.`,
     },
     {
+      id: 'nat-vg1-7-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er vitamin D-mangel et spesielt problem i Norge? Hva kan man gjøre for å få nok vitamin D?',
+        solution: 'Norge ligger langt nord, og om vinteren (oktober-mars) er solen så lavt på himmelen at huden ikke kan produsere vitamin D fra sollys. I tillegg tilbringer mange mye tid innendørs. Tiltak: 1) Spise mat som er rik på vitamin D, som fet fisk (laks, makrell), tran og beriket melk og margarin. 2) Ta tran eller vitamin D-tilskudd, spesielt om vinteren. 3) Få sollys om sommeren (men beskytte seg mot forbrenning). Helsedirektoratet anbefaler vitamin D-tilskudd til alle i Norge om vinteren.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-4-def-2',
       type: 'definition',
       title: 'Vannløselige vitaminer og mineraler',
@@ -487,6 +602,19 @@ Et **variert kosthold** er den beste måten å sikre at vi får alle mikronærin
 - **Jern:** Oksygentransport (i hemoglobin). Kilder: Rødt kjøtt, belgfrukter, spinat. Mangel: Anemi (blodmangel).
 - **Jod:** Skjoldbruskkjertelfunksjon (stoffskifte). Kilder: Sjømat, jodert salt, melk.
 - **Natrium:** Væskebalanse, nervefunksjon. For mye gir høyt blodtrykk.`,
+    },
+    {
+      id: 'nat-vg1-7-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom fettløselige og vannløselige vitaminer, og gi eksempler på hver.',
+        solution: 'Fettløselige vitaminer (A, D, E, K) løses i fett og lagres i kroppens fettvev og lever. De krever fett i kosten for å tas opp i tarmen. Fordi de lagres, kan man i teorien få for mye av dem. Vannløselige vitaminer (B-vitaminene og C) løses i vann og lagres ikke i kroppen. Overskudd skilles ut med urinen, og de må derfor tilføres regelmessig. Eksempler: Vitamin D (fettløselig) er viktig for benhelse og lages i huden ved sollys. Vitamin C (vannløselig) er viktig for immunforsvaret og finnes i sitrusfrukter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-7-4-def-3',
@@ -526,32 +654,29 @@ På lange sjøreiser (1500-1800-tallet) hadde sjøfolk begrenset tilgang på fer
 **Løsningen:**
 Den britiske marinekirurgen James Lind viste i 1747 at sitrusfrukter kurerte skjørbuk. Senere ble det påbudt å ha sitroner og lime om bord på britiske skip. Vitamin C trengs for å lage kollagen, et strukturprotein i hud, blodårer og bindevev. Uten vitamin C brytes disse vevene ned.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-7-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom fettløselige og vannløselige vitaminer, og gi eksempler på hver.',
-        solution: 'Fettløselige vitaminer (A, D, E, K) løses i fett og lagres i kroppens fettvev og lever. De krever fett i kosten for å tas opp i tarmen. Fordi de lagres, kan man i teorien få for mye av dem. Vannløselige vitaminer (B-vitaminene og C) løses i vann og lagres ikke i kroppen. Overskudd skilles ut med urinen, og de må derfor tilføres regelmessig. Eksempler: Vitamin D (fettløselig) er viktig for benhelse og lages i huden ved sollys. Vitamin C (vannløselig) er viktig for immunforsvaret og finnes i sitrusfrukter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-7-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Vitaminer og mineraler er mikronæringsstoffer**: Kroppen trenger dem i små mengder, men de er avgjørende for normal funksjon.
+- **Fettløselige vitaminer (A, D, E, K)** lagres i fettvev og lever, og krever fett for opptak. Vitamin D er spesielt viktig i Norge pga. lite vintersol.
+- **Vannløselige vitaminer (B-vitaminer og C)** lagres ikke i kroppen og må tilføres jevnlig. B12 er viktig for veganere å supplementere.
+- **Viktige mineraler**: Kalsium (benhelse), jern (oksygentransport), jod (stoffskifte).
+- **Kostholdsanbefalinger**: Helsedirektoratet anbefaler variert kosthold med mye grønnsaker, fullkorn og fisk. EAT-Lancet viser at sunt kosthold og klimavennlig kosthold er mye av det samme.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Fettløselig vitamin | Vitamin som lagres i fettvev (A, D, E, K) |
+| Vannløselig vitamin | Vitamin som ikke lagres, skilles ut i urin (B, C) |
+| Mangelsykdom | Sykdom forårsaket av vitaminmangel, f.eks. skjørbuk (C-mangel) |
+| EAT-Lancet | Vitenskapelig rapport om bærekraftig og sunt kosthold |`,
     },
-    {
-      id: 'nat-vg1-7-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvorfor er vitamin D-mangel et spesielt problem i Norge? Hva kan man gjøre for å få nok vitamin D?',
-        solution: 'Norge ligger langt nord, og om vinteren (oktober-mars) er solen så lavt på himmelen at huden ikke kan produsere vitamin D fra sollys. I tillegg tilbringer mange mye tid innendørs. Tiltak: 1) Spise mat som er rik på vitamin D, som fet fisk (laks, makrell), tran og beriket melk og margarin. 2) Ta tran eller vitamin D-tilskudd, spesielt om vinteren. 3) Få sollys om sommeren (men beskytte seg mot forbrenning). Helsedirektoratet anbefaler vitamin D-tilskudd til alle i Norge om vinteren.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-7-4-ex-3',
       type: 'exercise',
@@ -564,6 +689,16 @@ Den britiske marinekirurgen James Lind viste i 1747 at sitrusfrukter kurerte skj
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Vitaminer](https://snl.no/vitaminer)
+- Helsedirektoratet: [Kostrådene](https://www.helsedirektoratet.no/faglige-rad/kostradene)
+- Folkehelseinstituttet: [Vitamin D-status i Norge](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
+- Willett, W. m.fl. (2019). Food in the Anthropocene: the EAT-Lancet Commission. *The Lancet*, 393(10170), 447-492.`,
     },
   ],
   exercises: [],
@@ -627,6 +762,19 @@ Mange av disse sykdommene kan forebygges gjennom sunne livsstilsvalg. Samfunnet 
 - Økt risiko for psykiske plager`,
     },
     {
+      id: 'nat-vg1-7-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hvordan fysisk aktivitet påvirker helsen positivt, og nevn helseeffekter for både kropp og psyke.',
+        solution: 'Fysisk aktivitet styrker hjerte og kretsløp, forbedrer lungekapasiteten, bygger muskler og styrker skjelettet. Det hjelper å holde normal vekt, reduserer risikoen for type 2-diabetes og hjertesykdom. Psykisk sett bedrer fysisk aktivitet psykisk helse ved å frigjøre endorfiner, reduserer stress, angst og depresjon, og forbedrer søvnkvalitet, selvfølelse, konsentrasjon og læring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-5-def-2',
       type: 'definition',
       title: 'Søvn og psykisk helse',
@@ -674,6 +822,19 @@ Psykisk helse er like viktig som fysisk helse. Risikofaktorer for psykiske plage
 - Begrense skjermtid og sosiale medier`,
     },
     {
+      id: 'nat-vg1-7-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er kronisk stress skadelig for helsen? Nevn minst tre helsekonsekvenser og forklar hva man kan gjøre for å håndtere stress.',
+        solution: 'Kronisk stress holder kroppen i konstant beredskap, noe som sliter på systemene. Konsekvenser: 1) Økt risiko for hjerte- og karsykdommer (høyt blodtrykk, betennelse). 2) Svekket immunforsvar (mer sårbar for infeksjoner). 3) Psykiske problemer (angst, depresjon, utbrenthet). 4) Søvnproblemer. 5) Fordøyelsesproblemer. Stressmestring: Fysisk aktivitet, god søvnhygiene, sosial støtte fra familie og venner, avslapningsteknikker som pusteøvelser og mindfulness, og å sette realistiske grenser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-7-5-example-1',
       type: 'example',
       title: 'Eksempel: Sammenhengen mellom livsstil og type 2-diabetes',
@@ -697,32 +858,30 @@ Kroppen produserer insulin, men cellene reagerer ikke godt nok på det (insulinr
 - Balansert kosthold med fiber og fullkorn
 - Tilstrekkelig søvn`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-7-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hvordan fysisk aktivitet påvirker helsen positivt, og nevn helseeffekter for både kropp og psyke.',
-        solution: 'Fysisk aktivitet styrker hjerte og kretsløp, forbedrer lungekapasiteten, bygger muskler og styrker skjelettet. Det hjelper å holde normal vekt, reduserer risikoen for type 2-diabetes og hjertesykdom. Psykisk sett bedrer fysisk aktivitet psykisk helse ved å frigjøre endorfiner, reduserer stress, angst og depresjon, og forbedrer søvnkvalitet, selvfølelse, konsentrasjon og læring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-7-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Livsstilssykdommer** som hjerte- og karsykdommer, type 2-diabetes og fedme påvirkes sterkt av kosthold, fysisk aktivitet, søvn og stressnivå.
+- **Fysisk aktivitet** styrker hjerte, lunger, muskler og skjelett, og bedrer psykisk helse gjennom frigjøring av endorfiner. Ungdom anbefales minst 60 minutter daglig.
+- **Søvn** (8-10 timer for ungdom) er avgjørende for hukommelse, immunforsvar, hormonbalanse og vekst.
+- **Stress** kan være nyttig kortvarig (akutt), men kronisk stress svekker immunforsvaret og øker risikoen for sykdom.
+- **Psykisk helse** påvirkes av sosiale relasjoner, mestring, søvn og fysisk aktivitet.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Livsstilssykdom | Sykdom påvirket av livsstilsvalg (kosthold, aktivitet, rusmidler) |
+| Endorfiner | Kroppens egne «lykkestoffer», frigjøres ved fysisk aktivitet |
+| Akutt stress | Kortvarig, naturlig stressrespons |
+| Kronisk stress | Langvarig stress som er skadelig for helsen |
+| Insulinresistens | Cellene reagerer dårlig på insulin, gir høyt blodsukker |`,
     },
-    {
-      id: 'nat-vg1-7-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvorfor er kronisk stress skadelig for helsen? Nevn minst tre helsekonsekvenser og forklar hva man kan gjøre for å håndtere stress.',
-        solution: 'Kronisk stress holder kroppen i konstant beredskap, noe som sliter på systemene. Konsekvenser: 1) Økt risiko for hjerte- og karsykdommer (høyt blodtrykk, betennelse). 2) Svekket immunforsvar (mer sårbar for infeksjoner). 3) Psykiske problemer (angst, depresjon, utbrenthet). 4) Søvnproblemer. 5) Fordøyelsesproblemer. Stressmestring: Fysisk aktivitet, god søvnhygiene, sosial støtte fra familie og venner, avslapningsteknikker som pusteøvelser og mindfulness, og å sette realistiske grenser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-7-5-ex-3',
       type: 'exercise',
@@ -735,6 +894,16 @@ Kroppen produserer insulin, men cellene reagerer ikke godt nok på det (insulinr
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Helsedirektoratet: [Anbefalinger om fysisk aktivitet](https://www.helsedirektoratet.no/faglige-rad/fysisk-aktivitet-for-barn-unge-voksne-eldre-og-gravide)
+- Folkehelseinstituttet: [Folkehelserapporten - Fysisk aktivitet](https://www.fhi.no/nettpub/hin/levevaner/fysisk-aktivitet/)
+- Folkehelseinstituttet: [Psykisk helse hos barn og unge](https://www.fhi.no/nettpub/hin/grupper/psykisk-helse-hos-barn-og-unge/)
+- Helsenorge: [Søvn og søvnproblemer](https://www.helsenorge.no/sovn/)`,
     },
   ],
   exercises: [],
@@ -791,6 +960,19 @@ Er kilden relevant for det du leter etter? Er informasjonen oppdatert?
 - Når ble informasjonen publisert?
 - Hvem finansierte forskningen?
 - Er studien fagfellevurdert (peer reviewed)?`,
+    },
+    {
+      id: 'nat-vg1-7-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-7-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva TONE-kriteriene er, og bruk dem til å vurdere en helsepåstand du har sett i sosiale medier eller aviser.',
+        solution: 'TONE-kriteriene er en metode for å vurdere pålitelighet: T (Troverdighet) - hvem står bak informasjonen? O (Objektivitet) - er informasjonen balansert? N (Nøyaktighet) - stemmer påstandene med andre kilder? E (Egnethet) - er kilden relevant og oppdatert? Eksempel: En avisartikkel om at "kaffe forårsaker kreft" - Troverdighet: Hvem er journalisten og avisen? Objektivitet: Er artikkelen balansert eller sensasjonspreget? Nøyaktighet: Hva sier originalstudien og andre kilder (WHO)? Egnethet: Er artikkelen nylig publisert?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-7-6-def-2',
@@ -862,19 +1044,6 @@ Er kilden relevant for det du leter etter? Er informasjonen oppdatert?
 **Bedre tilnærming:** Søk informasjon hos Helsedirektoratet om sunt vekttap.`,
     },
     {
-      id: 'nat-vg1-7-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-7-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva TONE-kriteriene er, og bruk dem til å vurdere en helsepåstand du har sett i sosiale medier eller aviser.',
-        solution: 'TONE-kriteriene er en metode for å vurdere pålitelighet: T (Troverdighet) - hvem står bak informasjonen? O (Objektivitet) - er informasjonen balansert? N (Nøyaktighet) - stemmer påstandene med andre kilder? E (Egnethet) - er kilden relevant og oppdatert? Eksempel: En avisartikkel om at "kaffe forårsaker kreft" - Troverdighet: Hvem er journalisten og avisen? Objektivitet: Er artikkelen balansert eller sensasjonspreget? Nøyaktighet: Hva sier originalstudien og andre kilder (WHO)? Egnethet: Er artikkelen nylig publisert?',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-7-6-ex-2',
       type: 'exercise',
       exercise: {
@@ -887,6 +1056,30 @@ Er kilden relevant for det du leter etter? Er informasjonen oppdatert?
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
+    {
+      id: 'nat-vg1-7-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Kildekritikk er avgjørende** for å skille pålitelig helseinformasjon fra feilinformasjon og reklame.
+- **TONE-kriteriene** (Troverdighet, Objektivitet, Nøyaktighet, Egnethet) er et nyttig verktøy for å vurdere kilder.
+- **Korrelasjon er ikke kausalitet**: At to ting skjer samtidig betyr ikke at det ene forårsaker det andre.
+- **Vitenskap vs. pseudovitenskap**: Vitenskap er etterprøvbar, fagfellevurdert og åpen for revisjon. Pseudovitenskap mangler vitenskapelig grunnlag og selger ofte produkter.
+- **Pålitelige helsekilder** inkluderer Helsedirektoratet, FHI, Helsenorge og fagfellevurderte tidsskrifter.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| TONE-kriteriene | Troverdighet, Objektivitet, Nøyaktighet, Egnethet |
+| Korrelasjon | Sammenheng mellom to variabler (ikke nødvendigvis årsak) |
+| Kausalitet | Årsakssammenheng mellom to variabler |
+| Fagfellevurdering | Kvalitetskontroll der andre forskere vurderer en studie |
+| Pseudovitenskap | Påstander som fremstår som vitenskap uten vitenskapelig grunnlag |`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-7-6-ex-3',
       type: 'exercise',
@@ -899,6 +1092,16 @@ Er kilden relevant for det du leter etter? Er informasjonen oppdatert?
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-7-6-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Kildekritikk](https://snl.no/kildekritikk)
+- Folkehelseinstituttet: [Helsestatistikk og forskning](https://www.fhi.no/)
+- Helsenorge: [Pålitelig helseinformasjon](https://www.helsenorge.no/)
+- Kolstø, S.D. & Knain, E. (2020). *Elever som forskere i naturfag*. Universitetsforlaget.`,
     },
   ],
   exercises: [],
@@ -955,6 +1158,19 @@ Hver nukleotid består av:
 A-T og G-C holder de to DNA-trådene sammen med hydrogenbindinger. Sukker-fosfat-kjedene danner "stolpene" i stigen, mens baseparene danner "trinnene".`,
     },
     {
+      id: 'nat-vg1-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv strukturen til DNA-molekylet.',
+        solution: 'DNA er bygget opp som en dobbelheliks - to tråder som snor seg rundt hverandre. Hver tråd består av nukleotider, som igjen er bygget opp av et sukkermolekyl (deoksyribose), en fosfatgruppe og en nitrogenbase. Det finnes fire baser: adenin (A), tymin (T), guanin (G) og cytosin (C). De to trådene holdes sammen av hydrogenbindinger mellom basene: A parer med T, og G parer med C. Sukker-fosfat-kjedene danner sidene i stigen, mens baseparene danner trinnene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-1-def-2',
       type: 'definition',
       title: 'Gener og genom',
@@ -967,6 +1183,19 @@ A-T og G-C holder de to DNA-trådene sammen med hydrogenbindinger. Sukker-fosfat
 **Genotype:** En organismes genetiske sammensetning - hvilke alleler den har.
 
 **Fenotype:** De observerbare egenskapene (utseende, blodtype osv.) - resultat av genotype + miljø.`,
+    },
+    {
+      id: 'nat-vg1-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom gen, kromosom og genom.',
+        solution: 'Et gen er et avgrenset område på DNA som inneholder oppskriften på ett protein. Et kromosom er en lang DNA-tråd pakket sammen med proteiner, og inneholder mange gener. Genomet er hele arvematerialet til en organisme, altså summen av alle genene fordelt på alle kromosomene. Mennesker har ca. 20 000 gener fordelt på 46 kromosomer (23 par).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-8-1-def-3',
@@ -1001,32 +1230,33 @@ Komplementær:  3'-T A C G G C A T-5'
 - A parer alltid med T (og omvendt)
 - G parer alltid med C (og omvendt)`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-8-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv strukturen til DNA-molekylet.',
-        solution: 'DNA er bygget opp som en dobbelheliks - to tråder som snor seg rundt hverandre. Hver tråd består av nukleotider, som igjen er bygget opp av et sukkermolekyl (deoksyribose), en fosfatgruppe og en nitrogenbase. Det finnes fire baser: adenin (A), tymin (T), guanin (G) og cytosin (C). De to trådene holdes sammen av hydrogenbindinger mellom basene: A parer med T, og G parer med C. Sukker-fosfat-kjedene danner sidene i stigen, mens baseparene danner trinnene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-8-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **DNA (deoksyribonukleinsyre)** er arvematerialet i alle levende celler og har formen av en dobbelheliks.
+- **Nukleotider** er byggesteinene i DNA, bestående av deoksyribose, fosfatgruppe og en av fire baser (A, T, G, C).
+- **Komplementær baseparing**: A parer alltid med T, og G parer alltid med C.
+- **Gen, kromosom og genom**: Et gen koder for ett protein, et kromosom er en pakket DNA-tråd med mange gener, og genomet er alt arvemateriale.
+- **Genotype vs. fenotype**: Genotype er den genetiske sammensetningen, fenotype er de observerbare egenskapene.
+- **DNA-replikasjon** er nøyaktig kopiering av DNA før celledeling, utført av DNA-polymerase.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| DNA | Deoksyribonukleinsyre, bærer av arveinformasjon |
+| Nukleotid | Byggestein i DNA: sukker + fosfat + base |
+| Gen | Avgrenset DNA-område som koder for ett protein |
+| Kromosom | Pakket DNA-tråd med mange gener |
+| Genom | Alt arvemateriale i en organisme |
+| Genotype | Genetisk sammensetning (hvilke alleler) |
+| Fenotype | Observerbare egenskaper (genotype + miljø) |`,
     },
-    {
-      id: 'nat-vg1-8-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom gen, kromosom og genom.',
-        solution: 'Et gen er et avgrenset område på DNA som inneholder oppskriften på ett protein. Et kromosom er en lang DNA-tråd pakket sammen med proteiner, og inneholder mange gener. Genomet er hele arvematerialet til en organisme, altså summen av alle genene fordelt på alle kromosomene. Mennesker har ca. 20 000 gener fordelt på 46 kromosomer (23 par).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-8-1-ex-3',
       type: 'exercise',
@@ -1039,6 +1269,16 @@ Komplementær:  3'-T A C G G C A T-5'
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-8-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [DNA](https://snl.no/DNA)
+- Store norske leksikon: [Gen](https://snl.no/gen)
+- Norsk biografisk leksikon: [Rosalind Franklin](https://snl.no/Rosalind_Franklin)
+- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
     },
   ],
   exercises: [],
@@ -1105,6 +1345,19 @@ Med 4 baser og 3 posisjoner: 4 x 4 x 4 = 64 mulige kodoner
 Eksempler: UUU = fenylalanin, GCA = alanin, AAA = lysin, GGG = glycin`,
     },
     {
+      id: 'nat-vg1-8-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er et kodon, og hvorfor trenger vi tre baser for å kode for en aminosyre?',
+        solution: 'Et kodon er en sekvens av tre nukleotidbaser i mRNA som koder for en bestemt aminosyre. Vi trenger tre baser fordi det finnes 20 ulike aminosyrer, men bare 4 ulike baser. Med bare en base kunne vi kode for 4 aminosyrer (4 i 1. = 4), med to baser 16 aminosyrer (4 i 2. = 16). Først med tre baser får vi 64 muligheter (4 i 3. = 64), nok til å dekke alle 20 aminosyrer pluss start- og stoppkodoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-2-def-3',
       type: 'definition',
       title: 'Translasjon',
@@ -1122,6 +1375,19 @@ Eksempler: UUU = fenylalanin, GCA = alanin, AAA = lysin, GGG = glycin`,
 4. Ribosomet beveger seg langs mRNA kodon for kodon
 5. Prosessen stopper når ribosomet når et stoppkodon
 6. Den ferdige proteinkjeden frigjøres og folder seg til sin tredimensjonale form`,
+    },
+    {
+      id: 'nat-vg1-8-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom transkripsjon og translasjon.',
+        solution: 'Transkripsjon er prosessen der DNA-sekvensen kopieres over til mRNA. Dette skjer i cellekjernen, og enzymet RNA-polymerase bygger mRNA-tråden. Translasjon er prosessen der mRNA-sekvensen oversettes til en aminosyresekvens (protein). Dette skjer ved ribosomene i cytoplasma, der tRNA bringer aminosyrer som kobles sammen basert på mRNA-kodonene. Kort sagt: transkripsjon = DNA til mRNA (avskrift), translasjon = mRNA til protein (oversettelse).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-8-2-example-1',
@@ -1144,32 +1410,31 @@ Bruk kodetabellen:
 
 **Svar:** Aminosyresekvensen blir Met-Arg-Phe (metionin-arginin-fenylalanin)`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-8-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom transkripsjon og translasjon.',
-        solution: 'Transkripsjon er prosessen der DNA-sekvensen kopieres over til mRNA. Dette skjer i cellekjernen, og enzymet RNA-polymerase bygger mRNA-tråden. Translasjon er prosessen der mRNA-sekvensen oversettes til en aminosyresekvens (protein). Dette skjer ved ribosomene i cytoplasma, der tRNA bringer aminosyrer som kobles sammen basert på mRNA-kodonene. Kort sagt: transkripsjon = DNA til mRNA (avskrift), translasjon = mRNA til protein (oversettelse).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-8-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Det sentrale dogme**: Informasjonsflyten i cellen går fra DNA til RNA til protein.
+- **Transkripsjon**: DNA kopieres til mRNA i cellekjernen av RNA-polymerase. RNA bruker uracil (U) i stedet for tymin (T).
+- **Den genetiske koden**: Tre baser (kodon) koder for en aminosyre. Koden er universal og degenerert (64 kodoner for 20 aminosyrer).
+- **Translasjon**: mRNA oversettes til protein ved ribosomene. tRNA bringer aminosyrer, og ribosomet kobler dem sammen med peptidbindinger.
+- **Start- og stoppkodoner**: AUG starter proteinsyntesen, UAA/UAG/UGA avslutter den.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Transkripsjon | Kopiering av DNA til mRNA i cellekjernen |
+| Translasjon | Oversettelse av mRNA til protein ved ribosomene |
+| Kodon | Tre baser i mRNA som koder for en aminosyre |
+| mRNA | Budbringer-RNA, bærer genetisk informasjon fra DNA |
+| tRNA | Transfer-RNA, transporterer aminosyrer til ribosomet |
+| Ribosom | Cellens proteinfabrikk |`,
     },
-    {
-      id: 'nat-vg1-8-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er et kodon, og hvorfor trenger vi tre baser for å kode for en aminosyre?',
-        solution: 'Et kodon er en sekvens av tre nukleotidbaser i mRNA som koder for en bestemt aminosyre. Vi trenger tre baser fordi det finnes 20 ulike aminosyrer, men bare 4 ulike baser. Med bare en base kunne vi kode for 4 aminosyrer (4 i 1. = 4), med to baser 16 aminosyrer (4 i 2. = 16). Først med tre baser får vi 64 muligheter (4 i 3. = 64), nok til å dekke alle 20 aminosyrer pluss start- og stoppkodoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-8-2-ex-3',
       type: 'exercise',
@@ -1182,6 +1447,16 @@ Bruk kodetabellen:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-8-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Proteinsyntese](https://snl.no/proteinsyntese)
+- Store norske leksikon: [Genetisk kode](https://snl.no/genetisk_kode)
+- NDLA: [Fra gen til protein](https://ndla.no/subject:1:f18b3af0-e8c0-4e32-b577-50e5c6e394f3)
+- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
     },
   ],
   exercises: [],
@@ -1214,6 +1489,19 @@ Gregor Mendel oppdaget grunnleggende arveregler på 1800-tallet ved å studere e
 - **Recessiv:** Allel som bare kommer til uttrykk i homozygot tilstand (a)`,
     },
     {
+      id: 'nat-vg1-8-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom genotype og fenotype, og gi et eksempel.',
+        solution: 'Genotype er organismens genetiske sammensetning - hvilke alleler den har for et gen (f.eks. Aa eller AA). Fenotype er de observerbare egenskapene som kommer til uttrykk (f.eks. brun øyefarge). Fenotypen er resultatet av genotypen pluss påvirkning fra miljøet. Eksempel: To planter med genotypene AA (homozygot dominant) og Aa (heterozygot) kan ha samme fenotype (gule erter) fordi A er dominant over a.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-3-def-1',
       type: 'definition',
       title: 'Kilder til genetisk variasjon',
@@ -1232,6 +1520,19 @@ Ved meiose (dannelse av kjønnsceller) blandes gener fra mor og far
 
 **3. Tilfeldig befruktning:**
 Hvilken sædcelle som befrukter hvilken eggcelle er tilfeldig, noe som gir unike genkombinasjoner i hvert avkom`,
+    },
+    {
+      id: 'nat-vg1-8-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre kilder til genetisk variasjon og forklar kort hver av dem.',
+        solution: '1) Mutasjoner: Tilfeldige endringer i DNA-sekvensen som kan gi nye alleler. De er den ultimate kilden til ny genetisk variasjon. 2) Genetisk rekombinasjon: Ved meiose blandes gener fra mor og far gjennom overkrysning (utveksling av DNA mellom homologe kromosomer) og tilfeldig kromosomfordeling. 3) Tilfeldig befruktning: Hvilke kjønnsceller som møtes ved befruktning er tilfeldig, noe som gir nye genkombinasjoner i hvert avkom.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-8-3-def-2',
@@ -1278,32 +1579,31 @@ Fenotyper: **3 gule : 1 gronn** (75 % gule, 25 % gronne)
 
 Dette er det klassiske 3:1-forholdet Mendel oppdaget.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-8-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom genotype og fenotype, og gi et eksempel.',
-        solution: 'Genotype er organismens genetiske sammensetning - hvilke alleler den har for et gen (f.eks. Aa eller AA). Fenotype er de observerbare egenskapene som kommer til uttrykk (f.eks. brun øyefarge). Fenotypen er resultatet av genotypen pluss påvirkning fra miljøet. Eksempel: To planter med genotypene AA (homozygot dominant) og Aa (heterozygot) kan ha samme fenotype (gule erter) fordi A er dominant over a.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-8-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Mendels lover** beskriver grunnleggende arveregler med dominante og recessive alleler, og forklarer 3:1-forholdet i F2-generasjonen.
+- **Genotype og fenotype**: Genotype er de genetiske allelene, fenotype er det som observeres (genotype + miljø).
+- **Genetisk variasjon** oppstår gjennom mutasjoner, genetisk rekombinasjon ved meiose og tilfeldig befruktning.
+- **Mutasjoner** kan være stille, missense, nonsense eller frameshift, og forårsakes av replikasjonsfeil, kjemiske stoffer eller stråling.
+- **Genetisk variasjon er en forutsetning for evolusjon**: Uten variasjon har naturlig utvalg ingenting å virke på.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Allel | Ulike varianter av samme gen |
+| Dominant | Allel som uttrykkes i heterozygot tilstand |
+| Recessiv | Allel som bare uttrykkes i homozygot tilstand |
+| Mutasjon | Tilfeldig endring i DNA-sekvensen |
+| Meiose | Celledeling som gir kjønnsceller med halvt kromosomtall |
+| Overkrysning | Utveksling av DNA mellom homologe kromosomer |`,
     },
-    {
-      id: 'nat-vg1-8-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre kilder til genetisk variasjon og forklar kort hver av dem.',
-        solution: '1) Mutasjoner: Tilfeldige endringer i DNA-sekvensen som kan gi nye alleler. De er den ultimate kilden til ny genetisk variasjon. 2) Genetisk rekombinasjon: Ved meiose blandes gener fra mor og far gjennom overkrysning (utveksling av DNA mellom homologe kromosomer) og tilfeldig kromosomfordeling. 3) Tilfeldig befruktning: Hvilke kjønnsceller som møtes ved befruktning er tilfeldig, noe som gir nye genkombinasjoner i hvert avkom.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-8-3-ex-3',
       type: 'exercise',
@@ -1316,6 +1616,16 @@ Dette er det klassiske 3:1-forholdet Mendel oppdaget.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-8-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Genetikk](https://snl.no/genetikk)
+- Store norske leksikon: [Gregor Mendel](https://snl.no/Gregor_Mendel)
+- Store norske leksikon: [Mutasjon](https://snl.no/mutasjon)
+- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
     },
   ],
   exercises: [],
@@ -1367,6 +1677,19 @@ Dette fører til at fordelaktige egenskaper blir mer vanlige i populasjonen over
 **Viktig:** Naturlig utvalg virker på fenotyper (de synlige egenskapene), men det er genotypene (genene) som arves. Naturlig utvalg skaper ikke nye egenskaper, det favoriserer de som allerede finnes.`,
     },
     {
+      id: 'nat-vg1-8-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva naturlig utvalg er og hvilke forutsetninger som må være til stede.',
+        solution: 'Naturlig utvalg er prosessen der individer med egenskaper som gir bedre overlevelse og reproduksjon, etterlater seg flere avkom. Forutsetninger: 1) Det må finnes variasjon i populasjonen. 2) Variasjonen må være arvelig (genetisk grunnlag). 3) Ikke alle individer overlever til reproduksjon (kamp om ressurser). 4) De best tilpassede individene får flere avkom som arver de fordelaktige egenskapene. Over tid fører dette til at fordelaktige egenskaper blir vanligere i populasjonen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-4-def-2',
       type: 'definition',
       title: 'Evolusjonære mekanismer',
@@ -1407,6 +1730,19 @@ Gir nye alleler som utvalg kan virke på. Er det ultimate råmaterialet for all 
 - Tilpasning er alltid til et bestemt miljø - endrer miljøet seg, kan tilpasningen bli ugunstig`,
     },
     {
+      id: 'nat-vg1-8-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi et eksempel på en tilpasning hos et dyr eller en plante, og forklar hvordan denne tilpasningen kan ha utviklet seg gjennom naturlig utvalg.',
+        solution: 'Eksempel: Sjiraffens lange hals. Opprinnelig varierte halslengden i sjiraffpopulasjonen på grunn av genetisk variasjon. I perioder med konkurranse om mat kunne sjiraffer med litt lengre hals nå blader høyere opp i trærne som andre ikke kunne nå. Disse overlevde bedre og fikk flere avkom som arvet genene for lengre hals. Over mange generasjoner ble lengre hals stadig vanligere i populasjonen, fordi individer med kortere hals fikk færre avkom.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-4-example-1',
       type: 'example',
       title: 'Eksempel: Bjørkemåleren (peppered moth)',
@@ -1429,32 +1765,30 @@ Bjørkemålere finnes i lys og mørk variant. Før industrialiseringen var den l
 
 **Dette er evolusjon i aksjon:** Endring i genfrekvenser (mørk/lys) drevet av naturlig utvalg (fuglenes predasjon) som respons på miljøendringer.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-8-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva naturlig utvalg er og hvilke forutsetninger som må være til stede.',
-        solution: 'Naturlig utvalg er prosessen der individer med egenskaper som gir bedre overlevelse og reproduksjon, etterlater seg flere avkom. Forutsetninger: 1) Det må finnes variasjon i populasjonen. 2) Variasjonen må være arvelig (genetisk grunnlag). 3) Ikke alle individer overlever til reproduksjon (kamp om ressurser). 4) De best tilpassede individene får flere avkom som arver de fordelaktige egenskapene. Over tid fører dette til at fordelaktige egenskaper blir vanligere i populasjonen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-8-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Evolusjon** er endring i genfrekvenser i en populasjon over generasjoner, først beskrevet av Charles Darwin i 1859.
+- **Naturlig utvalg** krever variasjon, arv, konkurranse og differensiell reproduksjon. Det favoriserer egenskaper som øker overlevelse og reproduksjon.
+- **Evolusjonære mekanismer**: Naturlig utvalg, seksuelt utvalg, genetisk drift, genflyt og mutasjoner driver evolusjon.
+- **Tilpasning** er en arvelig egenskap som øker overlevelsesevnen. Den oppstår over mange generasjoner og er ikke planlagt.
+- **Bjørkemåleren** er et klassisk eksempel på evolusjon i aksjon, der endringer i miljøet endret seleksjonstrykket.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Evolusjon | Endring i genfrekvenser i en populasjon over tid |
+| Naturlig utvalg | De best tilpassede overlever og formerer seg mest |
+| Seksuelt utvalg | Seleksjon for egenskaper som øker parringssuksess |
+| Genetisk drift | Tilfeldige endringer i genfrekvenser |
+| Tilpasning | Arvelig egenskap som øker overlevelse i et bestemt miljø |`,
     },
-    {
-      id: 'nat-vg1-8-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi et eksempel på en tilpasning hos et dyr eller en plante, og forklar hvordan denne tilpasningen kan ha utviklet seg gjennom naturlig utvalg.',
-        solution: 'Eksempel: Sjiraffens lange hals. Opprinnelig varierte halslengden i sjiraffpopulasjonen på grunn av genetisk variasjon. I perioder med konkurranse om mat kunne sjiraffer med litt lengre hals nå blader høyere opp i trærne som andre ikke kunne nå. Disse overlevde bedre og fikk flere avkom som arvet genene for lengre hals. Over mange generasjoner ble lengre hals stadig vanligere i populasjonen, fordi individer med kortere hals fikk færre avkom.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-8-4-ex-3',
       type: 'exercise',
@@ -1467,6 +1801,16 @@ Bjørkemålere finnes i lys og mørk variant. Før industrialiseringen var den l
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-8-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Evolusjon](https://snl.no/evolusjon)
+- Store norske leksikon: [Naturlig utvalg](https://snl.no/naturlig_utvalg)
+- Store norske leksikon: [Charles Darwin](https://snl.no/Charles_Darwin)
+- Darwin, C. (1859). *On the Origin of Species*. John Murray.`,
     },
   ],
   exercises: [],
@@ -1515,6 +1859,19 @@ Artsdannelse innenfor samme geografiske område. Kan skje gjennom:
 - Genetisk inkompatibilitet (avkom er sterile, f.eks. muldyr)`,
     },
     {
+      id: 'nat-vg1-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva allopatrisk artsdannelse er, og gi et eksempel.',
+        solution: 'Allopatrisk artsdannelse skjer når en populasjon deles i to eller flere grupper av en geografisk barriere (fjellkjede, elv, hav) slik at gruppene ikke lenger kan utveksle gener. Over tid utsettes gruppene for ulike seleksjonstrykk og akkumulerer genetiske forskjeller gjennom naturlig utvalg, drift og mutasjoner. Til slutt blir de så forskjellige at de ikke kan formere seg med hverandre - de har blitt separate arter. Eksempel: Darwins finker på Galapagosøyene stammet fra en felles forfader fra fastlandet, men utviklet seg til ulike arter med ulike nebbformer tilpasset ulike matkilder på de forskjellige øyene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-5-def-2',
       type: 'definition',
       title: 'Bevis for evolusjon',
@@ -1553,6 +1910,19 @@ Fostere hos virveldyr ligner hverandre i tidlige stadier (f.eks. gjellespalter, 
 - **Divergent:** Nærbeslektede arter utvikler ulike egenskaper i ulike miljøer (f.eks. Darwins finker med ulike nebbformer)`,
     },
     {
+      id: 'nat-vg1-8-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-8-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn og forklar tre ulike typer bevis for evolusjon.',
+        solution: '1) Fossiler: Bevarte rester av utdødde organismer viser hvordan arter har endret seg over tid. Overgangsfossiler som Archaeopteryx (mellom dinosaur og fugl) viser evolusjonære mellomformer. 2) Sammenlignende anatomi: Homologe strukturer (f.eks. armen til menneske, vingen til fugl og luffen til hval) har samme grunnleggende oppbygning men ulik funksjon, noe som tyder på felles forfader. 3) DNA-bevis: Alle organismer bruker DNA og den samme genetiske koden. Nært beslektede arter har likere DNA, f.eks. deler mennesker og sjimpanser ca. 98,7 % av DNA-sekvensene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-8-5-example-1',
       type: 'example',
       title: 'Eksempel: Homologe strukturer som evolusjonsbevis',
@@ -1571,32 +1941,33 @@ Alle har de samme knoklene: overarmsben, to underarmsben (radius og ulna), hånd
 **Konklusjon:**
 Denne likheten i grunnstruktur tyder på at alle disse dyrene stammer fra en felles forfader som hadde dette grunnleggende knokkelmønsteret. Over tid har naturlig utvalg formet forlemmene til ulike funksjoner i ulike miljøer. Hadde de vært skapt uavhengig av hverandre, ville det ikke vært noen grunn til at de hadde samme grunnstruktur.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-8-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva allopatrisk artsdannelse er, og gi et eksempel.',
-        solution: 'Allopatrisk artsdannelse skjer når en populasjon deles i to eller flere grupper av en geografisk barriere (fjellkjede, elv, hav) slik at gruppene ikke lenger kan utveksle gener. Over tid utsettes gruppene for ulike seleksjonstrykk og akkumulerer genetiske forskjeller gjennom naturlig utvalg, drift og mutasjoner. Til slutt blir de så forskjellige at de ikke kan formere seg med hverandre - de har blitt separate arter. Eksempel: Darwins finker på Galapagosøyene stammet fra en felles forfader fra fastlandet, men utviklet seg til ulike arter med ulike nebbformer tilpasset ulike matkilder på de forskjellige øyene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-8-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Artsdannelse (speciasjon)** skjer når populasjoner blir reproduktivt isolert og akkumulerer genetiske forskjeller over tid.
+- **Allopatrisk artsdannelse** er den vanligste formen, der geografiske barrierer isolerer populasjoner (f.eks. Darwins finker).
+- **Bevis for evolusjon** kommer fra fossiler, sammenlignende anatomi, embryologi, DNA-sammenligninger og biogeografi.
+- **Homologe strukturer** (samme oppbygning, ulik funksjon) tyder på felles forfader (divergent evolusjon).
+- **Analoge strukturer** (lik funksjon, ulik oppbygning) viser konvergent evolusjon i lignende miljøer.
+- **Molekylære bevis**: Alle organismer deler DNA og den genetiske koden, og nært beslektede arter har likere DNA.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Artsdannelse | Prosessen der nye arter oppstår |
+| Allopatrisk | Artsdannelse ved geografisk isolasjon |
+| Sympatrisk | Artsdannelse uten geografisk isolasjon |
+| Homologe strukturer | Samme grunnstruktur, ulik funksjon (felles opphav) |
+| Analoge strukturer | Lik funksjon, ulik oppbygning (uavhengig utvikling) |
+| Konvergent evolusjon | Ubeslektede arter utvikler lignende egenskaper |
+| Divergent evolusjon | Beslektede arter utvikler ulike egenskaper |`,
     },
-    {
-      id: 'nat-vg1-8-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-8-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn og forklar tre ulike typer bevis for evolusjon.',
-        solution: '1) Fossiler: Bevarte rester av utdødde organismer viser hvordan arter har endret seg over tid. Overgangsfossiler som Archaeopteryx (mellom dinosaur og fugl) viser evolusjonære mellomformer. 2) Sammenlignende anatomi: Homologe strukturer (f.eks. armen til menneske, vingen til fugl og luffen til hval) har samme grunnleggende oppbygning men ulik funksjon, noe som tyder på felles forfader. 3) DNA-bevis: Alle organismer bruker DNA og den samme genetiske koden. Nært beslektede arter har likere DNA, f.eks. deler mennesker og sjimpanser ca. 98,7 % av DNA-sekvensene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-8-5-ex-3',
       type: 'exercise',
@@ -1609,6 +1980,16 @@ Denne likheten i grunnstruktur tyder på at alle disse dyrene stammer fra en fel
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-8-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Artsdannelse](https://snl.no/artsdannelse)
+- Store norske leksikon: [Evolusjonære bevis](https://snl.no/evolusjon)
+- Naturhistorisk museum, UiO: [Evolusjonsbiologi](https://www.nhm.uio.no/)
+- Futuyma, D.J. & Kirkpatrick, M. (2017). *Evolution*. Sinauer Associates.`,
     },
   ],
   exercises: [],

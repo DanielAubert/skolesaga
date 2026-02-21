@@ -39,6 +39,20 @@ export const CHAPTER_NAT_VG1_9_1: TextbookChapter = {
 
 Overgangen fra gammel til moderne bioteknologi skjedde på 1970-tallet, da forskere lærte seg å klippe og lime DNA fra ulike organismer.`,
     },
+    // Oppgave om gammel vs. moderne bioteknologi – tester text-1
+    {
+      id: 'nat-vg1-9-1-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom gammel og moderne bioteknologi. Gi minst to eksempler på hver.',
+        solution: 'Gammel bioteknologi bruker levende organismer uten å endre arvematerialet direkte. Eksempler: gjæring for å lage brød og øl, og avl av husdyr for å få ønskede egenskaper. Moderne bioteknologi bruker genteknologiske metoder for å endre DNA direkte. Eksempler: innsetting av insulingenet i bakterier for å produsere insulin, og genmodifisering av planter for å gi motstandskraft mot skadedyr.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-1-def-1',
       type: 'definition',
@@ -75,6 +89,20 @@ Sammen gjør restriksjonsenzymer og DNA-ligase det mulig å klippe ut et gen fra
 - Diagnostikk (påvise virus og bakterier)
 - Forskning
 - Slektsforskning`,
+    },
+    // Oppgave om PCR – tester def-2
+    {
+      id: 'nat-vg1-9-1-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-1-exercise-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv de tre stegene i en PCR-syklus, og forklar hvorfor metoden gir en eksponentiell økning i antall DNA-kopier.',
+        solution: 'De tre stegene i PCR er: 1) Denaturering ved 95 °C, der dobbelheliksen åpnes. 2) Annealing ved 50-65 °C, der primere binder seg til målsekvensen. 3) Elongering ved 72 °C, der DNA-polymerase kopierer DNA fra primerne. I hver syklus fordobles antall DNA-kopier fordi hver tråd fungerer som mal for en ny kopi. Etter n sykluser har man 2^n kopier. For eksempel gir 30 sykluser over 1 milliard kopier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-9-1-def-3',
@@ -123,32 +151,34 @@ Før 1982 ble insulin til diabetespasienter hentet fra griser og kyr. Med gentek
 - Billigere enn å utvinne fra dyr
 - Ingen etiske problemer knyttet til dyreslakting for insulin`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-9-1-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-1-exercise-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom gammel og moderne bioteknologi. Gi minst to eksempler på hver.',
-        solution: 'Gammel bioteknologi bruker levende organismer uten å endre arvematerialet direkte. Eksempler: gjæring for å lage brød og øl, og avl av husdyr for å få ønskede egenskaper. Moderne bioteknologi bruker genteknologiske metoder for å endre DNA direkte. Eksempler: innsetting av insulingenet i bakterier for å produsere insulin, og genmodifisering av planter for å gi motstandskraft mot skadedyr.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-9-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Bioteknologi**: Bruk av levende organismer eller biologiske prosesser for å lage produkter, løse problemer eller utvikle ny teknologi – fra eldgammel gjæring til moderne genteknologi.
+- **Restriksjonsenzymer og DNA-ligase**: Molekylære verktøy som henholdsvis klipper og limer DNA, og som gjør rekombinant DNA-teknologi mulig.
+- **PCR**: En metode for å lage millioner av kopier av et bestemt DNA-område ved gjentatte sykluser av denaturering, annealing og elongering.
+- **Gelelektroforese og gensekvensering**: Metoder for å sortere DNA-fragmenter etter størrelse og lese av basesekvensen i DNA.
+- **Vektorer og plasmider**: DNA-molekyler som frakter fremmede gener inn i celler, sentralt i rekombinant DNA-teknologi.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Bioteknologi | Bruk av organismer eller biologiske prosesser til å lage produkter |
+| Restriksjonsenzymer | Enzymer som klipper DNA på bestemte sekvenser |
+| DNA-ligase | Enzym som limer sammen DNA-fragmenter |
+| Rekombinant DNA | DNA satt sammen fra ulike kilder |
+| PCR | Polymerasekjedereaksjon – kopierer DNA eksponentielt |
+| Gelelektroforese | Metode for å sortere DNA-fragmenter etter størrelse |
+| Gensekvensering | Avlesning av baserekkefølgen i DNA |
+| Vektor | DNA-molekyl som frakter gener inn i celler |
+| Plasmid | Sirkulært DNA-molekyl i bakterier, brukt som vektor |`,
     },
-    {
-      id: 'nat-vg1-9-1-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-1-exercise-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv de tre stegene i en PCR-syklus, og forklar hvorfor metoden gir en eksponentiell økning i antall DNA-kopier.',
-        solution: 'De tre stegene i PCR er: 1) Denaturering ved 95 °C, der dobbelheliksen åpnes. 2) Annealing ved 50-65 °C, der primere binder seg til målsekvensen. 3) Elongering ved 72 °C, der DNA-polymerase kopierer DNA fra primerne. I hver syklus fordobles antall DNA-kopier fordi hver tråd fungerer som mal for en ny kopi. Etter n sykluser har man 2^n kopier. For eksempel gir 30 sykluser over 1 milliard kopier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-9-1-exercise-3',
       type: 'exercise',
@@ -162,6 +192,19 @@ Før 1982 ble insulin til diabetespasienter hentet fra griser og kyr. Med gentek
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-9-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Bioteknologirådet: «Hva er bioteknologi?» – bioteknologiradet.no
+- Store norske leksikon: «Bioteknologi» – snl.no/bioteknologi
+- Store norske leksikon: «Polymerasekjedereaksjon (PCR)» – snl.no/polymerasekjedereaksjon
+- Naturfag.no: «Genteknologi» – naturfag.no
+- NDLA: «Genteknologiske metoder» – ndla.no
+- Alberts, B. et al.: *Molecular Biology of the Cell*, Garland Science`,
     },
   ],
   exercises: [],
@@ -220,6 +263,20 @@ export const CHAPTER_NAT_VG1_9_2: TextbookChapter = {
    - **Uten mal:** Genet blir ødelagt (knock-out)
    - **Med mal-DNA:** Et nytt gen eller en endring settes inn (knock-in)`,
     },
+    // Oppgave om CRISPR-Cas9-komponentene – tester def-1
+    {
+      id: 'nat-vg1-9-2-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-2-exercise-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv de to hovedkomponentene i CRISPR-Cas9-systemet og forklar hvordan de samarbeider for å redigere DNA.',
+        solution: 'De to hovedkomponentene er guide-RNA (gRNA) og Cas9-proteinet. Guide-RNA er en kort RNA-sekvens som er komplementær til den DNA-sekvensen man vil redigere. Det fungerer som en GPS som finner riktig sted i genomet. Cas9 er et enzym som fungerer som en molekylær saks. Cas9 binder seg til guide-RNA-et og føres til målsekvensen. Når guide-RNA binder seg til komplementært DNA, klipper Cas9 begge trådene i dobbelheliksen. Cellens reparasjonssystemer reparerer deretter kuttet, enten ved å ødelegge genet eller ved å sette inn en ny sekvens.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-2-def-2',
       type: 'definition',
@@ -262,19 +319,7 @@ En gendriver er en teknikk der CRISPR brukes til å sikre at en genendring arves
 - **GMO:** Setter inn DNA fra en annen art
 - Noen mener genredigerte organismer bør reguleres mildere enn tradisjonelle GMO-er`,
     },
-    {
-      id: 'nat-vg1-9-2-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-2-exercise-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv de to hovedkomponentene i CRISPR-Cas9-systemet og forklar hvordan de samarbeider for å redigere DNA.',
-        solution: 'De to hovedkomponentene er guide-RNA (gRNA) og Cas9-proteinet. Guide-RNA er en kort RNA-sekvens som er komplementær til den DNA-sekvensen man vil redigere. Det fungerer som en GPS som finner riktig sted i genomet. Cas9 er et enzym som fungerer som en molekylær saks. Cas9 binder seg til guide-RNA-et og føres til målsekvensen. Når guide-RNA binder seg til komplementært DNA, klipper Cas9 begge trådene i dobbelheliksen. Cellens reparasjonssystemer reparerer deretter kuttet, enten ved å ødelegge genet eller ved å sette inn en ny sekvens.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave om gendrivere – tester def-3
     {
       id: 'nat-vg1-9-2-exercise-2',
       type: 'exercise',
@@ -288,6 +333,33 @@ En gendriver er en teknikk der CRISPR brukes til å sikre at en genendring arves
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
+    {
+      id: 'nat-vg1-9-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **CRISPR-Cas9**: Et revolusjonerende genredigeringsverktøy utviklet i 2012, basert på bakteriers naturlige immunforsvar mot virus.
+- **Guide-RNA og Cas9**: De to hovedkomponentene i systemet – guide-RNA finner målsekvensen, mens Cas9 klipper DNA-et.
+- **Knock-out og knock-in**: Cellen kan enten ødelegge et gen (knock-out) eller sette inn en ny sekvens (knock-in) etter at DNA-et er klippet.
+- **Fordeler over eldre metoder**: CRISPR er billigere, raskere, mer presis og kan brukes i nesten alle organismer.
+- **Gendrivere**: En teknikk for å spre genendringer gjennom hele populasjoner, med potensiale for blant annet malariabekjempelse.
+- **Genredigering vs. GMO**: Genredigering endrer organismens eget DNA, mens GMO innebærer innsetting av fremmed DNA.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| CRISPR | Clustered Regularly Interspaced Short Palindromic Repeats – genredigeringsverktøy |
+| Cas9 | Enzym som klipper DNA på et bestemt sted styrt av guide-RNA |
+| Guide-RNA (gRNA) | Kort RNA-sekvens som leder Cas9 til målsekvensen i DNA |
+| Knock-out | Ødellegging av et gen ved å kutte DNA uten reparasjonsmal |
+| Knock-in | Innsetting av nytt DNA ved hjelp av en reparasjonsmal |
+| Gendriver | Teknikk som sikrer at en genendring arves av nesten alle avkom |
+| Off-target-effekt | Utilsiktet klipping av DNA på feil sted |`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-9-2-exercise-3',
       type: 'exercise',
@@ -300,6 +372,19 @@ En gendriver er en teknikk der CRISPR brukes til å sikre at en genendring arves
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-9-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Bioteknologirådet: «CRISPR» – bioteknologiradet.no/temaer/crispr
+- Store norske leksikon: «CRISPR» – snl.no/CRISPR
+- Nobelprize.org: «The Nobel Prize in Chemistry 2020» – nobelprize.org
+- Doudna, J. A. & Sternberg, S. H.: *A Crack in Creation*, Houghton Mifflin Harcourt, 2017
+- Nature Reviews Genetics: «CRISPR–Cas9 genome editing» – nature.com
+- NDLA: «CRISPR – genredigering» – ndla.no`,
     },
   ],
   exercises: [],
@@ -351,6 +436,20 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
 - Kan utvikles raskt når virusets gensekvens er kjent
 - Kan potensielt brukes mot kreft, influensa og andre sykdommer`,
     },
+    // Oppgave om rekombinante proteiner – tester def-1
+    {
+      id: 'nat-vg1-9-3-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-1',
+        number: '1',
+        type: 'classic',
+        task: 'Gi tre eksempler på rekombinante proteiner som brukes i medisin, og forklar hvordan de produseres.',
+        solution: 'Tre eksempler er: 1) Insulin - genet for menneskelig insulin er satt inn i E. coli-bakterier som produserer insulinet. Brukes av diabetespasienter. 2) Veksthormon - produseres i bakterier og brukes til å behandle vekstforstyrrelser. 3) Koagulasjonsfaktorer - produseres i dyreceller og brukes til å behandle hemofili (blødersykdom). Produksjonen skjer ved at det menneskelige genet settes inn i en vertsorganisme (bakterie eller cellekultur) ved hjelp av rekombinant DNA-teknologi. Vertsorganismen leser genet og produserer det ønskede proteinet, som deretter renses og brukes som medisin.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-3-def-2',
       type: 'definition',
@@ -387,6 +486,20 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
 - Kreftbehandling kan tilpasses basert på mutasjoner i svulsten
 - Fostersdiagnostikk: Blodprøve fra mor kan avdekke kromosomfeil hos fosteret (NIPT-test)`,
     },
+    // Oppgave om stamceller – tester def-3
+    {
+      id: 'nat-vg1-9-3-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-3-exercise-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom embryonale stamceller, adulte stamceller og induserte pluripotente stamceller (iPSC). Hvilke fordeler har iPSC sammenlignet med embryonale stamceller?',
+        solution: 'Embryonale stamceller hentes fra tidlige embryoer og kan bli alle celletyper i kroppen (pluripotente). Adulte stamceller finnes i voksne kropper, for eksempel i benmarg, men kan bare bli noen få celletyper. Induserte pluripotente stamceller (iPSC) er vanlige kroppsceller som er omprogrammert til å oppføre seg som embryonale stamceller. Fordelene med iPSC er: 1) Man slipper å bruke embryoer, noe som unngår de etiske problemene knyttet til ødeleggelse av embryoer. 2) iPSC kan lages fra pasientens egne celler, slik at man unngår avstøtningsreaksjoner ved transplantasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-3-example-1',
       type: 'example',
@@ -409,32 +522,34 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
 - Kliniske studier ble gjennomført parallelt med produksjonsoppstart
 - Resultatet: Vaksiner ble godkjent under ett år etter pandemien startet`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-9-3-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-3-exercise-1',
-        number: '1',
-        type: 'classic',
-        task: 'Gi tre eksempler på rekombinante proteiner som brukes i medisin, og forklar hvordan de produseres.',
-        solution: 'Tre eksempler er: 1) Insulin - genet for menneskelig insulin er satt inn i E. coli-bakterier som produserer insulinet. Brukes av diabetespasienter. 2) Veksthormon - produseres i bakterier og brukes til å behandle vekstforstyrrelser. 3) Koagulasjonsfaktorer - produseres i dyreceller og brukes til å behandle hemofili (blødersykdom). Produksjonen skjer ved at det menneskelige genet settes inn i en vertsorganisme (bakterie eller cellekultur) ved hjelp av rekombinant DNA-teknologi. Vertsorganismen leser genet og produserer det ønskede proteinet, som deretter renses og brukes som medisin.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-9-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Rekombinante proteiner**: Medisiner som insulin, veksthormon og koagulasjonsfaktorer kan produseres av genmodifiserte bakterier eller celler.
+- **mRNA-vaksiner**: En ny vaksineteknologi der syntetisk mRNA instruerer kroppens celler til å produsere et virusprotein, slik at immunforsvaret lærer å gjenkjenne viruset.
+- **Genterapi**: Behandling der defekte gener korrigeres eller erstattes – somatisk genterapi påvirker bare pasienten selv.
+- **Monoklonale antistoffer**: Spesialtilpassede antistoffer som brukes i kreft- og autoimmunbehandling.
+- **Stamceller**: Celler med evne til å bli ulike celletyper – embryonale, adulte og induserte pluripotente stamceller (iPSC).
+- **Persontilpasset medisin**: Bruk av genetisk informasjon til å skreddersy behandling for den enkelte pasient.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Rekombinante proteiner | Proteiner produsert av genmodifiserte organismer |
+| mRNA-vaksine | Vaksine basert på syntetisk mRNA som koder for et virusprotein |
+| Genterapi | Behandling der defekte gener korrigeres eller erstattes |
+| Somatisk genterapi | Genterapi i kroppsceller – arves ikke |
+| Monoklonale antistoffer | Laboratorieproduserte antistoffer rettet mot ett spesifikt molekyl |
+| Stamceller | Celler som kan utvikle seg til mange ulike celletyper |
+| iPSC | Omprogrammerte kroppsceller som ligner embryonale stamceller |
+| Persontilpasset medisin | Behandling tilpasset pasientens genetiske profil |`,
     },
-    {
-      id: 'nat-vg1-9-3-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-3-exercise-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom embryonale stamceller, adulte stamceller og induserte pluripotente stamceller (iPSC). Hvilke fordeler har iPSC sammenlignet med embryonale stamceller?',
-        solution: 'Embryonale stamceller hentes fra tidlige embryoer og kan bli alle celletyper i kroppen (pluripotente). Adulte stamceller finnes i voksne kropper, for eksempel i benmarg, men kan bare bli noen få celletyper. Induserte pluripotente stamceller (iPSC) er vanlige kroppsceller som er omprogrammert til å oppføre seg som embryonale stamceller. Fordelene med iPSC er: 1) Man slipper å bruke embryoer, noe som unngår de etiske problemene knyttet til ødeleggelse av embryoer. 2) iPSC kan lages fra pasientens egne celler, slik at man unngår avstøtningsreaksjoner ved transplantasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-9-3-exercise-3',
       type: 'exercise',
@@ -447,6 +562,20 @@ Bioteknologi har gjort det mulig å behandle sykdommer som tidligere var uhelbre
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-9-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Folkehelseinstituttet (FHI): «mRNA-vaksiner» – fhi.no
+- Bioteknologirådet: «Genterapi» – bioteknologiradet.no/temaer/genterapi
+- Store norske leksikon: «Stamceller» – snl.no/stamcelle
+- Store norske leksikon: «Monoklonale antistoffer» – snl.no/monoklonale_antistoffer
+- Kreftforeningen: «Immunterapi» – kreftforeningen.no
+- NDLA: «Bioteknologi i medisin» – ndla.no
+- Nature Medicine: «The promise and challenge of therapeutic genome editing» – nature.com`,
     },
   ],
   exercises: [],
@@ -474,6 +603,20 @@ Mennesker har i tusenvis av år krysset planter og avlet dyr for å få ønskede
 - **Tradisjonell avl:** Velge ut individer med ønskede egenskaper og krysse dem over mange generasjoner. Tar lang tid, og man får med seg mange uønskede gener.
 - **Genmodifisering (GMO):** Sette inn et bestemt gen direkte, enten fra samme eller en annen art. Raskt og presist, men reiser etiske og regulatoriske spørsmål.
 - **Genredigering (CRISPR):** Endre organismens eget DNA uten å tilføre fremmed DNA. Ligner mer på naturlige mutasjoner.`,
+    },
+    // Oppgave om tradisjonell avl vs. GMO vs. genredigering – tester text-1
+    {
+      id: 'nat-vg1-9-4-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-1',
+        number: '1',
+        type: 'classic',
+        task: 'Sammenlign tradisjonell avl, genmodifisering og genredigering som metoder for å forbedre planter. Nevn en fordel og en ulempe ved hver metode.',
+        solution: 'Tradisjonell avl: Man krysser planter med ønskede egenskaper over mange generasjoner. Fordel: Naturlig og akseptert prosess med lang erfaring. Ulempe: Tar lang tid og er upresis - mange uønskede gener følger med. Genmodifisering (GMO): Man setter inn et bestemt gen fra en annen organisme. Fordel: Raskt og kan tilføre egenskaper som ikke finnes i arten naturlig. Ulempe: Reiser etiske bekymringer og er strengt regulert. Genredigering (CRISPR): Man endrer organismens eget DNA uten å tilføre fremmed DNA. Fordel: Svært presis og ligner naturlige mutasjoner. Ulempe: Relativt ny teknologi med ukjente langsiktige effekter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-9-4-def-1',
@@ -528,6 +671,20 @@ Mennesker har i tusenvis av år krysset planter og avlet dyr for å få ønskede
 - Bruk av mikroorganismer til å omdanne råstoffer til nyttige produkter
 - Eksempler: produksjon av antibiotika, vitaminer, aminosyrer og organiske syrer`,
     },
+    // Oppgave om enzymer i industri – tester def-2
+    {
+      id: 'nat-vg1-9-4-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-4-exercise-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi tre eksempler på hvordan enzymer fra genmodifiserte organismer brukes i industri eller hverdagen.',
+        solution: '1) Proteaser i vaskemidler: Enzymer som bryter ned proteinflekker som blod og gress ved lave temperaturer, noe som sparer energi. 2) Chymosin i osteproduksjon: Enzymet som får melk til å koagulere, produsert av genmodifiserte gjærceller i stedet for å utvinnes fra kalvemager. 3) Amylaser i brødbaking: Enzymer som bryter ned stivelse og forbedrer brødets konsistens og holdbarhet. Alle disse enzymene produseres i stor skala av genmodifiserte mikroorganismer som bakterier eller gjærceller.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-4-def-3',
       type: 'definition',
@@ -575,32 +732,31 @@ Bt-mais er en genmodifisert maistype som inneholder et gen fra jordbakterien *Ba
 - Gir høyere avlinger på grunn av mindre skadedyrangrep
 - Mindre eksponering av bønder for farlige sprøytemidler`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-9-4-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-4-exercise-1',
-        number: '1',
-        type: 'classic',
-        task: 'Sammenlign tradisjonell avl, genmodifisering og genredigering som metoder for å forbedre planter. Nevn en fordel og en ulempe ved hver metode.',
-        solution: 'Tradisjonell avl: Man krysser planter med ønskede egenskaper over mange generasjoner. Fordel: Naturlig og akseptert prosess med lang erfaring. Ulempe: Tar lang tid og er upresis - mange uønskede gener følger med. Genmodifisering (GMO): Man setter inn et bestemt gen fra en annen organisme. Fordel: Raskt og kan tilføre egenskaper som ikke finnes i arten naturlig. Ulempe: Reiser etiske bekymringer og er strengt regulert. Genredigering (CRISPR): Man endrer organismens eget DNA uten å tilføre fremmed DNA. Fordel: Svært presis og ligner naturlige mutasjoner. Ulempe: Relativt ny teknologi med ukjente langsiktige effekter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-9-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Tradisjonell foredling vs. genmodifisering vs. genredigering**: Tre ulike tilnærminger for å forbedre organismer, med ulik grad av presisjon, tidsbruk og regulering.
+- **GM-planter**: Genmodifiserte planter som Bt-mais, herbicidtolerante planter, gylden ris og tørketolerante sorter bidrar til økt matproduksjon og ernæring.
+- **Industriell bioteknologi**: Enzymer og mikroorganismer brukes til å produsere alt fra vaskemidler og ost til biodrivstoff og bionedbrytbar plast.
+- **Bioremediering**: Bruk av levende organismer til å rense opp forurensning, for eksempel oljenedbrytende bakterier etter oljeutslipp.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| GM-plante | Plante der arvematerialet er endret med genteknologi |
+| Bt-plante | GM-plante med gen fra Bacillus thuringiensis som gir insektresistens |
+| Gylden ris | GM-ris som produserer betakaroten (vitamin A-forstadie) |
+| Industriell bioteknologi | Bruk av enzymer og mikroorganismer i industriell produksjon |
+| Bioremediering | Bruk av levende organismer til å rense opp forurensning |
+| Fermentering | Mikroorganismer omdanner råstoffer til nyttige produkter |
+| Bionedbrytbar plast | Plast produsert av mikroorganismer som brytes ned i naturen |`,
     },
-    {
-      id: 'nat-vg1-9-4-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-4-exercise-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi tre eksempler på hvordan enzymer fra genmodifiserte organismer brukes i industri eller hverdagen.',
-        solution: '1) Proteaser i vaskemidler: Enzymer som bryter ned proteinflekker som blod og gress ved lave temperaturer, noe som sparer energi. 2) Chymosin i osteproduksjon: Enzymet som får melk til å koagulere, produsert av genmodifiserte gjærceller i stedet for å utvinnes fra kalvemager. 3) Amylaser i brødbaking: Enzymer som bryter ned stivelse og forbedrer brødets konsistens og holdbarhet. Alle disse enzymene produseres i stor skala av genmodifiserte mikroorganismer som bakterier eller gjærceller.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-9-4-exercise-3',
       type: 'exercise',
@@ -613,6 +769,20 @@ Bt-mais er en genmodifisert maistype som inneholder et gen fra jordbakterien *Ba
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-9-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Bioteknologirådet: «Genmodifisert mat» – bioteknologiradet.no/temaer/genmodifisert-mat
+- Store norske leksikon: «Genmodifiserte organismer» – snl.no/genmodifiserte_organismer
+- Mattilsynet: «Genmodifisert mat og fôr (GMO)» – mattilsynet.no
+- Golden Rice Project – goldenrice.org
+- Miljødirektoratet: «Genmodifiserte organismer» – miljodirektoratet.no
+- NDLA: «Bioteknologi i landbruk og industri» – ndla.no
+- Science: «Biodegradation of oil spills» – science.org`,
     },
   ],
   exercises: [],
@@ -669,6 +839,20 @@ Etikk handler om å reflektere over hva som er rett og galt, og å begrunne valg
 - Rettferdig fordeling av fordeler og byrder
 - Globalt perspektiv: Rike vs. fattige land`,
     },
+    // Oppgave om de fire etiske prinsippene – tester def-1
+    {
+      id: 'nat-vg1-9-5-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-1',
+        number: '1',
+        type: 'classic',
+        task: 'Gjør rede for de fire etiske prinsippene (autonomi, ikke skade, gjøre godt, rettferdighet) og gi et eksempel på hvordan hvert prinsipp er relevant i bioteknologi.',
+        solution: '1) Autonomi (selvbestemmelse): Rett til å ta egne valg. Eksempel: En person bør selv bestemme om de vil ta en gentest som kan avsløre risiko for arvelige sykdommer. 2) Ikke skade: Plikt til å unngå å påføre skade. Eksempel: Man bør være forsiktig med å slippe genmodifiserte organismer ut i naturen fordi det kan ha uforutsette konsekvenser for økosystemer. 3) Gjøre godt: Handle til det beste for andre. Eksempel: Utvikling av gylden ris for å forebygge vitamin A-mangel i utviklingsland. 4) Rettferdighet: Lik tilgang og rettferdig fordeling. Eksempel: Dyre genterapier bør gjøres tilgjengelige for alle, ikke bare de rike.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-9-5-def-2',
       type: 'definition',
@@ -697,6 +881,20 @@ Etikk handler om å reflektere over hva som er rett og galt, og å begrunne valg
 - Genteknologiloven krever vurdering av: helse, miljø, bærekraft og samfunnsnytte
 - Strengere enn de fleste andre land
 - Ingen GM-planter er godkjent for dyrking i Norge`,
+    },
+    // Oppgave om føre-var-prinsippet – tester def-2
+    {
+      id: 'nat-vg1-9-5-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-9-5-exercise-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hva føre-var-prinsippet innebærer, og diskuter om det bør brukes strengt på genmodifiserte matvarer. Gi argumenter for og mot.',
+        solution: 'Føre-var-prinsippet sier at når det er vitenskapelig usikkerhet om mulige skadevirkninger, bør man være forsiktig og ikke innføre teknologien før den er bevist trygg. For streng bruk: Vi vet ikke nok om langsiktige effekter av GMO på helse og miljø, genspredning til ville arter kan være irreversibelt, og det er bedre å være forsiktig enn å oppdage skader for sent. Mot streng bruk: Vitenskapelig konsensus sier at godkjente GMO-er er trygge å spise, for streng bruk av prinsippet kan hindre utvikling av avlinger som kan redde liv (f.eks. gylden ris), og all matproduksjon innebærer en viss risiko.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-9-5-def-3',
@@ -768,32 +966,33 @@ Behandlingen er svært kostbar. Hvem får tilgang? Sigdcelleanemi rammer særlig
 **Konklusjon:**
 De fleste vil si at somatisk genterapi mot en alvorlig arvelig sykdom er etisk forsvarlig, forutsatt informert samtykke og akseptabel risiko. Den største utfordringen er rettferdig tilgang globalt.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-9-5-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-5-exercise-1',
-        number: '1',
-        type: 'classic',
-        task: 'Gjør rede for de fire etiske prinsippene (autonomi, ikke skade, gjøre godt, rettferdighet) og gi et eksempel på hvordan hvert prinsipp er relevant i bioteknologi.',
-        solution: '1) Autonomi (selvbestemmelse): Rett til å ta egne valg. Eksempel: En person bør selv bestemme om de vil ta en gentest som kan avsløre risiko for arvelige sykdommer. 2) Ikke skade: Plikt til å unngå å påføre skade. Eksempel: Man bør være forsiktig med å slippe genmodifiserte organismer ut i naturen fordi det kan ha uforutsette konsekvenser for økosystemer. 3) Gjøre godt: Handle til det beste for andre. Eksempel: Utvikling av gylden ris for å forebygge vitamin A-mangel i utviklingsland. 4) Rettferdighet: Lik tilgang og rettferdig fordeling. Eksempel: Dyre genterapier bør gjøres tilgjengelige for alle, ikke bare de rike.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-9-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Etikk i bioteknologi**: Bioteknologi reiser vanskelige spørsmål om hva som er rett og galt, fordi teknologien utvikles raskere enn lovverket og konsekvensene kan være irreversible.
+- **Fire etiske prinsipper**: Autonomi (selvbestemmelse), ikke skade, gjøre godt og rettferdighet er grunnleggende prinsipper i bioetiske vurderinger.
+- **GMO-etikk og føre-var-prinsippet**: Det finnes gode argumenter for og mot genmodifisert mat, og føre-var-prinsippet brukes for å håndtere vitenskapelig usikkerhet.
+- **Genterapi og kimbaneterapi**: Somatisk genterapi er akseptert, mens kimbaneterapi som endrer arvematerialet er forbudt i de fleste land.
+- **Designer-babyer og CRISPR-babyer**: He Jiankui-saken i 2018 viste farene ved uregulert bruk av genredigering på mennesker.
+- **Bioteknologiloven**: Norsk lovgivning regulerer fosterdiagnostikk, genterapi, genetiske undersøkelser, kloning og forskning på embryoer.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Bioetikk | Etiske vurderinger knyttet til bioteknologi og medisin |
+| Autonomi | Retten til selvbestemmelse og informert samtykke |
+| Føre-var-prinsippet | Forsiktighet ved vitenskapelig usikkerhet om mulige skadevirkninger |
+| Somatisk genterapi | Genterapi i kroppsceller – arves ikke til neste generasjon |
+| Kimbaneterapi | Genterapi i kjønnsceller – arves til fremtidige generasjoner |
+| Designer-baby | Å velge eller endre egenskaper hos ufødte barn |
+| Genteknologiloven | Norsk lov som regulerer bruk av bioteknologi |`,
     },
-    {
-      id: 'nat-vg1-9-5-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-9-5-exercise-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva føre-var-prinsippet innebærer, og diskuter om det bør brukes strengt på genmodifiserte matvarer. Gi argumenter for og mot.',
-        solution: 'Føre-var-prinsippet sier at når det er vitenskapelig usikkerhet om mulige skadevirkninger, bør man være forsiktig og ikke innføre teknologien før den er bevist trygg. For streng bruk: Vi vet ikke nok om langsiktige effekter av GMO på helse og miljø, genspredning til ville arter kan være irreversibelt, og det er bedre å være forsiktig enn å oppdage skader for sent. Mot streng bruk: Vitenskapelig konsensus sier at godkjente GMO-er er trygge å spise, for streng bruk av prinsippet kan hindre utvikling av avlinger som kan redde liv (f.eks. gylden ris), og all matproduksjon innebærer en viss risiko.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-9-5-exercise-3',
       type: 'exercise',
@@ -818,6 +1017,20 @@ De fleste vil si at somatisk genterapi mot en alvorlig arvelig sykdom er etisk f
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-9-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Bioteknologirådet: «Etikk og bioteknologi» – bioteknologiradet.no
+- Store norske leksikon: «Bioetikk» – snl.no/bioetikk
+- Lovdata: «Lov om bioteknologi (bioteknologiloven)» – lovdata.no
+- Bioteknologirådet: «Genteknologiloven» – bioteknologiradet.no/temaer/genteknologiloven
+- Nature: «CRISPR-baby scientist sentenced to three years in prison» – nature.com
+- Nuffield Council on Bioethics: «Genome editing: an ethical review» – nuffieldbioethics.org
+- NDLA: «Etikk og bioteknologi» – ndla.no`,
     },
   ],
   exercises: [],

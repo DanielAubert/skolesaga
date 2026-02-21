@@ -16,6 +16,7 @@ import { CHAPTERS_8KLASSE } from './textbook-content-8klasse';
 import { CHAPTERS_9KLASSE } from './textbook-content-9klasse';
 import { CHAPTERS_10KLASSE } from './textbook-content-10klasse';
 import { CHAPTERS_NAT_VG1 } from './textbook-content-nat-vg1';
+import { NAT_VG1_NARRATIV_CHAPTERS } from './textbook-content-nat-vg1-narrativ';
 import { CHAPTERS_BI_OKONOMI } from './textbook-content-bi-okonomi';
 import { NATURFAG_10_CHAPTERS } from './textbook-content-naturfag-10';
 import { FYSIKK1_CHAPTERS } from './textbook-content-fysikk1';
@@ -415,6 +416,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Naturfag VG1 (fra egen fil)
   ...CHAPTERS_NAT_VG1,
+
+  // Naturfag VG1 - narrative versjoner
+  ...Object.fromEntries(NAT_VG1_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Naturfag VG1 - enkeltstående kapitler (override med mer detaljerte versjoner)
   'nat-vg1-2-3': CHAPTER_NAT_VG1_2_3,

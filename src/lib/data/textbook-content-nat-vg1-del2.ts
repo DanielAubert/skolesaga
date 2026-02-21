@@ -332,6 +332,40 @@ Bare hydrogenet (i vannet i kroppen) kommer direkte fra big bang. Alt annet er b
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-3-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Big bang-teorien**: Universet oppsto for 13,8 milliarder ar siden fra et ekstremt lite, varmt og tett punkt. Rommet og tiden selv ble til med big bang.
+- **Tidslinjen etter big bang**: Fra Planck-tiden via inflasjon, nukleosyntese og rekombinasjon til dannelsen av stjerner, galakser og solsystemet.
+- **Universets sammensetning**: Vanlig materie utgjor bare 5 %, mens mork materie (27 %) og mork energi (68 %) dominerer.
+- **Grunnstoffenes opprinnelse**: Big bang produserte kun hydrogen og helium. Alle tyngre grunnstoffer ble dannet i stjerner.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Big bang | Universets opprinnelse for 13,8 milliarder ar siden |
+| Singularitet | Det opprinnelige punktet med uendelig tetthet |
+| Inflasjon | Ekstremt rask utvidelse i universets forste brokdel av et sekund |
+| Nukleosyntese | Dannelsen av hydrogen og helium i de forste minuttene |
+| Rekombinasjon | Da elektroner bandt seg til kjerner og universet ble gjennomsiktig |
+| Mork materie | Usynlig materie som pavirker gjennom gravitasjon (~27 %) |
+| Mork energi | Mystisk energi som driver universets akselererende utvidelse (~68 %) |`,
+    },
+    {
+      id: 'nat-vg1-3-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NASA: «Universe» - nasa.gov/universe
+- Store norske leksikon: «Big bang» - snl.no/big_bang
+- ESA: «The history of the Universe» - esa.int/Science_Exploration/Space_Science
+- Fagbokforlaget: «Kosmos SF» larebok i naturfag VG1
+- Norsk Romsenter: «Universet» - romsenter.no`,
+    },
   ],
   exercises: [],
 };
@@ -690,6 +724,40 @@ I en vanlig stjernekjerne er det ikke nok energi til dette. Men i det korte øye
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-3-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Kjernefusjon**: Sammenslaaing av lette atomkjerner til tyngre kjerner frigjor enorme mengder energi (E = mc\u00B2). Fusjon krever ekstremt hoy temperatur og trykk.
+- **Stjernedannelse**: Stjerner dannes fra gasskyer gjennom gravitasjonskollaps, fragmentering, protostjerne-fasen og tenning av fusjon.
+- **Stjernenes livssyklus**: Fra hovedserien (hydrogenfusjon) til rod kjempe/superkjempe, og deretter dod som hvit dverg, noytronstjerne eller svart hull - avhengig av massen.
+- **Nukleosyntese i stjerner**: Stjerner lager grunnstoffer opp til jern gjennom fusjon. Grunnstoffer tyngre enn jern dannes kun i supernovaeksplosjoner.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Fusjon | Sammenslaaing av lette atomkjerner som frigjor energi |
+| Protostjerne | Tidlig fase for fusjon har startet |
+| Hovedserien | Stabil fase med hydrogenfusjon, ca. 90 % av stjernens levetid |
+| Rod kjempe | Utviklingsfase etter at hydrogen er brukt opp i kjernen |
+| Hvit dverg | Kompakt sluttrest etter en liten stjernes dod |
+| Supernova | Eksplosiv dod av en massiv stjerne |
+| Nukleosyntese | Dannelse av nye grunnstoffer gjennom fusjon i stjerner |`,
+    },
+    {
+      id: 'nat-vg1-3-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NASA: «Stars» - nasa.gov/stars
+- Store norske leksikon: «Stjerne» - snl.no/stjerne
+- ESA/Hubble: «The life cycle of stars» - esahubble.org
+- Fagbokforlaget: «Kosmos SF» larebok i naturfag VG1
+- Norsk Romsenter: «Stjerner og galakser» - romsenter.no`,
+    },
   ],
   exercises: [],
 };
@@ -1042,6 +1110,40 @@ Strukturen kommer fra små tetthetsvariasjoner like etter big bang. Områder med
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-3-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Lysar som avstandsmal**: Et lysar er avstanden lys reiser pa ett ar, ca. 9,5 billioner kilometer. Det brukes fordi vanlige enheter er upraktiske for kosmiske avstander.
+- **Galaksetyper**: Spiralgalakser (som Melkeveien), elliptiske galakser og irregulare galakser har ulike former, stjerneinnhold og grad av stjernedannelse.
+- **Universets hierarkiske struktur**: Fra stjerner til galakser, galaksegrupper, galaksehoper, superhoper og det kosmiske vevet.
+- **Det kosmiske vevet**: Galakser er fordelt i filamenter med enorme tomrom mellom, dannet fra tetthetsvariasjoner i det tidlige universet.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Lysar | Avstanden lys reiser pa ett ar (~9,5 billioner km) |
+| Galakse | Enorm samling av stjerner, gass, stov og mork materie |
+| Spiralgalakse | Flat skive med spiralarmer og aktiv stjernedannelse |
+| Elliptisk galakse | Kuleformet galakse med hovedsakelig gamle stjerner |
+| Galaksehop | Samling av hundrevis til tusenvis av galakser |
+| Superhop | Samling av galaksehoper |
+| Kosmisk vev | Nettverksstrukturen av filamenter og tomrom i universet |`,
+    },
+    {
+      id: 'nat-vg1-3-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NASA: «Galaxies» - nasa.gov/galaxies
+- Store norske leksikon: «Galakse» - snl.no/galakse
+- ESA: «The Milky Way» - esa.int/Science_Exploration/Space_Science
+- Sloan Digital Sky Survey: «The Cosmic Web» - sdss.org
+- Fagbokforlaget: «Kosmos SF» larebok i naturfag VG1`,
+    },
   ],
   exercises: [],
 };
@@ -1387,6 +1489,39 @@ Big bang er like godt bekreftet som evolusjonsteorien eller gravitasjonsteorien 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-3-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Universets utvidelse**: Hubble oppdaget at fjerne galakser beveger seg bort fra oss, og jo lenger unna de er, jo raskere beveger de seg (v = H\u2080 \u00D7 d). Rodforskyvning av lys bekrefter dette.
+- **Kosmisk bakgrunnsstraling (CMB)**: Mikrobolgstraling fra alle retninger med temperatur 2,725 K er reststrale fra da universet ble gjennomsiktig, 380 000 ar etter big bang.
+- **Grunnstoffenes forekomst**: Big bang forutsa at universet skulle bestaa av ca. 75 % hydrogen og 25 % helium, noe observasjoner bekrefter.
+- **Vitenskapelig teori**: Big bang er en vitenskapelig teori som gjor testbare forutsigelser og har bestatt alle tester.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Rodforskyvning | Lysets bolgelengde strekkes nar rommet utvider seg |
+| Hubbles lov | v = H\u2080 \u00D7 d - hastighet proporsjonal med avstand |
+| CMB | Kosmisk mikrobolgebakgrunn, 2,725 K, fra 380 000 ar etter big bang |
+| Rekombinasjon | Da elektroner bandt seg til kjerner og universet ble gjennomsiktig |
+| Big bang-nukleosyntese | Dannelse av hydrogen, helium og litium i de forste minuttene |
+| Metallisitet | Andelen av grunnstoffer tyngre enn helium i en stjerne |`,
+    },
+    {
+      id: 'nat-vg1-3-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NASA: «Cosmic Microwave Background» - nasa.gov/mission_pages/planck
+- Store norske leksikon: «Kosmisk bakgrunnsstraling» - snl.no/kosmisk_bakgrunnsstr%C3%A5ling
+- ESA Planck: «Planck and the cosmic microwave background» - esa.int/Planck
+- Fagbokforlaget: «Kosmos SF» larebok i naturfag VG1
+- Nobel Prize: «Penzias og Wilson - CMB-oppdagelsen» - nobelprize.org`,
     },
   ],
   exercises: [],
@@ -1780,6 +1915,41 @@ Natrium og klor reagerer lett fordi de kan "hjelpe hverandre": Natrium gir sitt 
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-4-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Atomets bestanddeler**: Protoner (positive, i kjernen), noytroner (noytrale, i kjernen) og elektroner (negative, rundt kjernen). Protonene bestemmer grunnstoffet.
+- **Atomnummer og massetall**: Atomnummeret (Z) er antall protoner, massetallet (A) er summen av protoner og noytroner. A = Z + N.
+- **Isotoper**: Atomer av samme grunnstoff med ulikt antall noytroner. De har nesten identiske kjemiske egenskaper.
+- **Elektronkonfigurasjon**: Elektroner er ordnet i skall (K, L, M, N) med kapasitet 2, 8, 18 og 32. Valenselektronene i ytterste skall bestemmer kjemiske egenskaper.
+- **Edelgasskonfigurasjon**: Atomer streber etter fullt ytterste skall (8 elektroner, eller 2 for de minste), som gir ekstra stabilitet.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Atomnummer (Z) | Antall protoner i kjernen - grunnstoffets identitet |
+| Massetall (A) | Summen av protoner og noytroner i kjernen |
+| Isotoper | Atomer med samme protonantall, men ulikt antall noytroner |
+| Elektronkonfigurasjon | Fordelingen av elektroner i skall rundt kjernen |
+| Valenselektroner | Elektroner i ytterste skall, avgjor kjemiske egenskaper |
+| Edelgasskonfigurasjon | Fullt ytterste skall (8 elektroner), svart stabilt |
+| Oktetregelen | Atomer streber etter 8 elektroner i ytterste skall |`,
+    },
+    {
+      id: 'nat-vg1-4-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: «Atom» - snl.no/atom
+- Periodesystemet.no - interaktivt periodesystem med informasjon om hvert grunnstoff
+- Cappelen Damm: «Kjemi for samfunnet» larebok i naturfag
+- UiO Kjemisk institutt: «Atomets oppbygning» - mn.uio.no/kjemi
+- Store norske leksikon: «Isotop» - snl.no/isotop`,
+    },
   ],
   exercises: [],
 };
@@ -2169,6 +2339,40 @@ H₂O (vann) er livsnødvendig, mens H₂S (hydrogensulfid) er giftig med råtte
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-4-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Periodesystemets struktur**: Perioder (rader) angir antall elektronskall, og grupper (kolonner) angir antall valenselektroner for hovedgruppene.
+- **Viktige grupper**: Alkalimetaller (gruppe 1), jordalkalimetaller (gruppe 2), halogener (gruppe 17) og edelgasser (gruppe 18) har karakteristiske egenskaper.
+- **Metaller, ikke-metaller og halvmetaller**: Periodesystemet deles inn etter plassering - metaller til venstre, ikke-metaller til hoyre, og halvmetaller langs grensen.
+- **Periodetrender**: Atomradius oker nedover og minker bortover. Ioniseringsenergi og elektronegativitet folger motsatt trend.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Periode | Vannrett rad i periodesystemet, angir antall elektronskall |
+| Gruppe | Loddrett kolonne, elementer med like valenselektroner |
+| Alkalimetaller | Gruppe 1 - svart reaktive metaller med 1 valenselektron |
+| Halogener | Gruppe 17 - reaktive ikke-metaller med 7 valenselektroner |
+| Atomradius | Atomets storrelse, oker nedover og minker bortover |
+| Ioniseringsenergi | Energi som trengs for aa fjerne et elektron |
+| Elektronegativitet | Et atoms evne til aa tiltrekke seg elektroner i en binding |`,
+    },
+    {
+      id: 'nat-vg1-4-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Periodesystemet.no - interaktivt periodesystem med egenskaper og trender
+- Store norske leksikon: «Periodesystemet» - snl.no/periodesystemet
+- Cappelen Damm: «Kjemi for samfunnet» larebok i naturfag
+- UiO Kjemisk institutt: «Periodesystemet» - mn.uio.no/kjemi
+- Store norske leksikon: «Dmitrij Mendelejev» - snl.no/Dmitrij_Mendelejev`,
     },
   ],
   exercises: [],
@@ -2563,6 +2767,41 @@ Faktiske smeltepunkter: NaCl 801°C, CaO 2572°C, AlN 2200°C (sublimerer)`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-4-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Ionebinding**: Dannes ved overforing av elektroner fra metaller til ikke-metaller. Metaller danner positive kationer, ikke-metaller danner negative anioner.
+- **Edelgasskonfigurasjon**: Bade kationer og anioner oppnar fullt ytterste skall gjennom elektronoverforing.
+- **Ionegitteret**: Ioneforbindelser danner tredimensjonale gitterstrukturer der hvert ion er omgitt av ioner med motsatt ladning. Det finnes ingen individuelle molekyler.
+- **Egenskaper**: Ioneforbindelser har hoyt smeltepunkt, er harde men spro, leder strom kun nar smeltet eller lost, og er ofte loselige i vann.
+- **Formelenheter**: Summen av ladninger i en ioneforbindelse ma vaere null.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Ionebinding | Binding dannet ved overforing av elektroner mellom metall og ikke-metall |
+| Kation | Positivt ion, dannet nar et metall gir fra seg elektroner |
+| Anion | Negativt ion, dannet nar en ikke-metall tar opp elektroner |
+| Ionegitter | Tredimensjonalt monster av vekslende positive og negative ioner |
+| Gitterenergi | Energi som frigjores nar gassformige ioner danner fast ionegitter |
+| Elektrolytt | Stoff som leder strom nar det er smeltet eller lost i vann |
+| Hydratisering | Prosessen der vannmolekyler omgir ioner og trekker dem ut av gitteret |`,
+    },
+    {
+      id: 'nat-vg1-4-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: «Ionebinding» - snl.no/ionebinding
+- Cappelen Damm: «Kjemi for samfunnet» larebok i naturfag
+- UiO Kjemisk institutt: «Kjemisk binding» - mn.uio.no/kjemi
+- Periodesystemet.no - informasjon om ionedannelse og ladninger
+- Store norske leksikon: «Ion» - snl.no/ion`,
     },
   ],
   exercises: [],
@@ -3021,6 +3260,41 @@ Hovedforskjellen er at ioneforbindelser danner utstrakte gitterstrukturer med st
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-4-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Kovalent binding**: Dannes nar atomer deler elektronpar med hverandre, typisk mellom ikke-metaller. Begge atomene oppnar edelgasskonfigurasjon ved aa telle de delte elektronene.
+- **Lewis-strukturer**: Diagrammer som viser alle valenselektroner, bade bindende og frie elektronpar. Oktetregelen (8 elektroner rundt hvert atom) brukes som rettesnor.
+- **Enkelt-, dobbelt- og trippelbindinger**: Atomer kan dele 1, 2 eller 3 elektronpar. Flere delte par gir sterkere og kortere binding.
+- **Polare og upolare bindinger**: Elektronegativitetsforskjell avgjar om en binding er upolar (<0,5), polar kovalent (0,5-1,7) eller ionisk (>1,7).
+- **Egenskaper**: Kovalente forbindelser har lavt smeltepunkt, leder ikke strom og danner diskrete molekyler.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Kovalent binding | Binding der atomer deler elektronpar |
+| Lewis-struktur | Diagram som viser alle valenselektroner i et molekyl |
+| Bindende elektronpar | Elektronpar delt mellom to atomer |
+| Frie elektronpar | Elektronpar som tilhorer bare ett atom |
+| Dobbeltbinding | Deling av to elektronpar mellom to atomer |
+| Elektronegativitet | Et atoms evne til aa tiltrekke seg elektroner i en binding |
+| Polart molekyl | Molekyl med ujevn ladningsfordeling og en dipol |`,
+    },
+    {
+      id: 'nat-vg1-4-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: «Kovalent binding» - snl.no/kovalent_binding
+- Cappelen Damm: «Kjemi for samfunnet» larebok i naturfag
+- UiO Kjemisk institutt: «Kjemisk binding» - mn.uio.no/kjemi
+- Store norske leksikon: «Elektronegativitet» - snl.no/elektronegativitet
+- Periodesystemet.no - elektronegativitetsverdier for alle grunnstoffer`,
+    },
   ],
   exercises: [],
 };
@@ -3417,6 +3691,41 @@ Stoff C: KOVALENT BINDING
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-4-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du laert:
+
+- **Metallbinding**: Valenselektroner deles av alle atomene i metallet og danner et fritt bevegelig elektronsjoe. Positive metallioner holdes sammen av tiltrekningen til dette elektronsjeet.
+- **Metallers egenskaper forklart**: Elektronsjoe-modellen forklarer elektrisk ledningsevne, varmeledning, metallglans og formbarhet.
+- **Bindingsstyrke**: Sterkere metallbinding oppstar med flere valenselektroner, hoyere ioneladning og mindre ionradius (Na < Mg < Al).
+- **Sammenligning av bindingstyper**: Ionebinding (overforing), kovalent binding (deling i par) og metallbinding (felles elektronsjoe) gir ulike stoffegenskaper.
+- **Gjenkjenne bindingstype**: Ved aa observere ledningsevne, smeltepunkt, hardhet og losbarhet kan man identifisere bindingstypen.
+
+### Nokkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Metallbinding | Binding der valenselektroner deles av alle atomer i et elektronsjoe |
+| Elektronsjoe | De fritt bevegelige valenselektronene i et metall |
+| Metallgitter | Ordnet struktur av positive metallioner |
+| Duktilitet | Evnen til aa trekkes til traader uten aa brytes |
+| Malleabilitet | Evnen til aa hamres til plater uten aa brytes |
+| Metallglans | Blank overflate fordi frie elektroner reflekterer lys |
+| Intermolekylare krefter | Svake krefter mellom molekyler i kovalente forbindelser |`,
+    },
+    {
+      id: 'nat-vg1-4-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: «Metallbinding» - snl.no/metallbinding
+- Cappelen Damm: «Kjemi for samfunnet» larebok i naturfag
+- UiO Kjemisk institutt: «Kjemiske bindingstyper» - mn.uio.no/kjemi
+- Store norske leksikon: «Kjemisk binding» - snl.no/kjemisk_binding
+- Periodesystemet.no - oversikt over metaller og deres egenskaper`,
     },
   ],
   exercises: [],

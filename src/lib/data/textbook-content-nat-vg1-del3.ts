@@ -40,6 +40,20 @@ Resultatet er en enorm mangfold av karbonforbindelser — det finnes over **10 m
 - I mat, klær, plast og legemidler
 - I fossile brensler (olje, gass, kull)`,
     },
+    // Oppgave: Tester forståelse av karbons egenskaper fra introen
+    {
+      id: 'nat-vg1-5-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hvorfor karbon kan danne så mange forskjellige forbindelser. Nevn minst tre egenskaper ved karbon som gjør dette mulig.',
+        solution: 'Karbon har 4 valenselektroner og kan derfor danne 4 kovalente bindinger. Det kan binde seg til seg selv og danne lange kjeder, forgreinede kjeder og ringstrukturer. Det kan danne enkelt-, dobbelt- og trippelbindinger. I tillegg kan karbon binde seg til mange andre grunnstoffer som hydrogen, oksygen, nitrogen og svovel. Alt dette gir et enormt mangfold av mulige molekylstrukturer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-1-def-1',
       type: 'definition',
@@ -59,6 +73,20 @@ Resultatet er en enorm mangfold av karbonforbindelser — det finnes over **10 m
 - Cyanider (f.eks. HCN)
 
 Grensen mellom organisk og uorganisk er ikke alltid skarp, men organiske forbindelser har typisk karbon-hydrogenbindinger og/eller karbon-karbonbindinger.`,
+    },
+    // Oppgave: Tester skillet mellom organisk og uorganisk fra def-1
+    {
+      id: 'nat-vg1-5-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom organiske og uorganiske karbonforbindelser. Gi to eksempler på hver.',
+        solution: 'Organiske karbonforbindelser inneholder karbon bundet til hydrogen og ofte andre grunnstoffer, og har typisk C-H-bindinger og/eller C-C-bindinger. Eksempler: metan (CH₄) og etanol (C₂H₅OH). Uorganiske karbonforbindelser er enklere forbindelser der karbon ofte er bundet til oksygen eller metaller. Eksempler: karbondioksid (CO₂) og kalsiumkarbonat (CaCO₃).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-1-def-2',
@@ -116,32 +144,29 @@ Jo flere karbonatomer et molekyl har, desto flere mulige isomerer finnes.
 - De to ytterkarbonene er bundet til 3 hydrogen og 1 karbon
 - Midtkarbonatomet er bundet til 2 hydrogen og 2 karbon`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-5-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hvorfor karbon kan danne så mange forskjellige forbindelser. Nevn minst tre egenskaper ved karbon som gjør dette mulig.',
-        solution: 'Karbon har 4 valenselektroner og kan derfor danne 4 kovalente bindinger. Det kan binde seg til seg selv og danne lange kjeder, forgreinede kjeder og ringstrukturer. Det kan danne enkelt-, dobbelt- og trippelbindinger. I tillegg kan karbon binde seg til mange andre grunnstoffer som hydrogen, oksygen, nitrogen og svovel. Alt dette gir et enormt mangfold av mulige molekylstrukturer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-5-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Karbons unike egenskaper**: Karbon har fire valenselektroner og kan danne fire kovalente bindinger, noe som gir grunnlag for et enormt mangfold av forbindelser.
+- **Organisk vs. uorganisk**: Organisk kjemi handler om karbonforbindelser med C-H- og C-C-bindinger, mens uorganiske karbonforbindelser (CO₂, CO, karbonater) har enklere struktur.
+- **Strukturformler og navnsetting**: Molekylformel, strukturformel og forkortet strukturformel er ulike måter å representere molekyler på. IUPAC-systemet bruker prefikser for antall karbonatomer.
+- **Isomeri**: Molekyler med samme molekylformel kan ha ulik struktur og dermed ulike egenskaper.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Organisk kjemi | Kjemien til karbonforbindelser med C-H- og/eller C-C-bindinger |
+| Strukturformel | Viser hvordan atomene i et molekyl er bundet til hverandre |
+| Isomerer | Molekyler med samme molekylformel men ulik struktur |
+| IUPAC-navnsetting | Internasjonalt system for navnsetting av kjemiske forbindelser |
+| Valenselektroner | Elektroner i ytterste skall som deltar i bindinger |`,
     },
-    {
-      id: 'nat-vg1-5-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom organiske og uorganiske karbonforbindelser. Gi to eksempler på hver.',
-        solution: 'Organiske karbonforbindelser inneholder karbon bundet til hydrogen og ofte andre grunnstoffer, og har typisk C-H-bindinger og/eller C-C-bindinger. Eksempler: metan (CH₄) og etanol (C₂H₅OH). Uorganiske karbonforbindelser er enklere forbindelser der karbon ofte er bundet til oksygen eller metaller. Eksempler: karbondioksid (CO₂) og kalsiumkarbonat (CaCO₃).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-1-ex-3',
       type: 'exercise',
@@ -154,6 +179,17 @@ Jo flere karbonatomer et molekyl har, desto flere mulige isomerer finnes.
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
+- Store norske leksikon: [Organisk kjemi](https://snl.no/organisk_kjemi)
+- NDLA: [Organisk kjemi – karbonforbindelser](https://ndla.no/subject:naturfag)
+- Universitetsforlaget: *Tellus 11 Naturfag* (2022).`,
     },
   ],
   exercises: [],
@@ -185,6 +221,20 @@ export const CHAPTER_NAT_VG1_5_2: TextbookChapter = {
 - **Mettede (alkaner):** Bare enkeltbindinger, alle bindingsplasser er «mettet» med hydrogen
 - **Umettede (alkener og alkyner):** Inneholder dobbelt- eller trippelbindinger og kan ta opp flere hydrogen`,
     },
+    // Oppgave: Tester forståelse av mettede vs. umettede fra introen
+    {
+      id: 'nat-vg1-5-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom mettede og umettede hydrokarboner. Gi et eksempel på hvert.',
+        solution: 'Mettede hydrokarboner (alkaner) har bare enkeltbindinger mellom karbonatomene, og alle bindingsplasser er fylt med hydrogen. Eksempel: etan (C₂H₆). Umettede hydrokarboner har minst én dobbeltbinding (alkener) eller trippelbinding (alkyner), og kan derfor ta opp flere hydrogenatomer. Eksempel: eten (C₂H₄) med en dobbeltbinding.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-2-def-1',
       type: 'definition',
@@ -205,6 +255,20 @@ export const CHAPTER_NAT_VG1_5_2: TextbookChapter = {
 **Trend:** Kokepunktet øker med antall karbonatomer fordi van der Waals-kreftene blir sterkere med større molekyler.
 
 **Homolog serie:** Alkanene utgjør en homolog serie der hvert påfølgende molekyl skiller seg med en CH₂-enhet.`,
+    },
+    // Oppgave: Tester forståelse av kokepunktstrend i alkaner fra def-1
+    {
+      id: 'nat-vg1-5-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor kokepunktet øker når karbonkjeden i alkaner blir lengre.',
+        solution: 'Når karbonkjeden blir lengre, blir molekylet større og får større overflate. Dette fører til sterkere van der Waals-krefter (London-krefter) mellom molekylene. Sterkere intermolekylære krefter betyr at det kreves mer energi for å få molekylene til å gå over i gassfase, og dermed stiger kokepunktet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-2-def-2',
@@ -268,32 +332,30 @@ Cis- og trans-isomerer har ulike fysiske egenskaper (kokepunkt, smeltepunkt).`,
    - But-2-en: CH₃-CH=CH-CH₃ (finnes som cis og trans)
    - 2-metylpropen: CH₂=C(CH₃)-CH₃`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-5-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom mettede og umettede hydrokarboner. Gi et eksempel på hvert.',
-        solution: 'Mettede hydrokarboner (alkaner) har bare enkeltbindinger mellom karbonatomene, og alle bindingsplasser er fylt med hydrogen. Eksempel: etan (C₂H₆). Umettede hydrokarboner har minst én dobbeltbinding (alkener) eller trippelbinding (alkyner), og kan derfor ta opp flere hydrogenatomer. Eksempel: eten (C₂H₄) med en dobbeltbinding.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-5-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Hydrokarboner**: Organiske forbindelser som bare inneholder karbon og hydrogen, delt inn i alkaner, alkener og alkyner.
+- **Alkaner**: Mettede hydrokarboner med bare enkeltbindinger (CₙH₂ₙ₊₂). Kokepunktet øker med kjedens lengde på grunn av sterkere van der Waals-krefter.
+- **Alkener**: Umettede hydrokarboner med minst én dobbeltbinding (CₙH₂ₙ). Kan ha cis/trans-isomeri.
+- **Alkyner**: Umettede hydrokarboner med minst én trippelbinding (CₙH₂ₙ₋₂). Svært reaktive.
+- **Bestemmelse av type**: Ved å sjekke molekylformelen mot de generelle formlene kan man avgjøre hvilken gruppe et hydrokarbon tilhører.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Mettede hydrokarboner | Hydrokarboner med bare enkeltbindinger (alkaner) |
+| Umettede hydrokarboner | Hydrokarboner med dobbelt- eller trippelbindinger |
+| Homolog serie | Serie der hvert molekyl skiller seg med en CH₂-enhet |
+| Cis/trans-isomeri | Isomeri pga. ulik plassering rundt en dobbeltbinding |
+| Van der Waals-krefter | Svake tiltrekningskrefter mellom molekyler |`,
     },
-    {
-      id: 'nat-vg1-5-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvorfor kokepunktet øker når karbonkjeden i alkaner blir lengre.',
-        solution: 'Når karbonkjeden blir lengre, blir molekylet større og får større overflate. Dette fører til sterkere van der Waals-krefter (London-krefter) mellom molekylene. Sterkere intermolekylære krefter betyr at det kreves mer energi for å få molekylene til å gå over i gassfase, og dermed stiger kokepunktet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-2-ex-3',
       type: 'exercise',
@@ -306,6 +368,17 @@ Cis- og trans-isomerer har ulike fysiske egenskaper (kokepunkt, smeltepunkt).`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
+- Store norske leksikon: [Hydrokarboner](https://snl.no/hydrokarboner)
+- NDLA: [Hydrokarboner – alkaner, alkener og alkyner](https://ndla.no/subject:naturfag)
+- Brandt, H. et al. (2020). *Tellus 11 Naturfag*. Aschehoug.`,
     },
   ],
   exercises: [],
@@ -338,6 +411,20 @@ En **funksjonell gruppe** er en bestemt atomgruppe i et organisk molekyl som gir
 | Aldehydgruppe | -CHO | Aldehyder | -al |
 | Ketogruppe | -CO- | Ketoner | -on |`,
     },
+    // Oppgave: Tester grunnleggende forståelse av funksjonelle grupper fra introen
+    {
+      id: 'nat-vg1-5-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva en funksjonell gruppe er, og hvorfor den er viktig for stoffets egenskaper.',
+        solution: 'En funksjonell gruppe er en bestemt atomgruppe i et organisk molekyl som bestemmer stoffets karakteristiske kjemiske egenskaper. Karbonkjeden er «skjelettet» i molekylet, men det er den funksjonelle gruppen som avgjør hvordan stoffet reagerer kjemisk, løselighet, kokepunkt og lukt/smak. For eksempel gir -OH-gruppen alkoholegenskaper, mens -COOH gir sure egenskaper.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-3-def-1',
       type: 'definition',
@@ -356,6 +443,20 @@ En **funksjonell gruppe** er en bestemt atomgruppe i et organisk molekyl som gir
 - Hydrogenbindinger gir høyere kokepunkt enn alkaner med tilsvarende størrelse
 - Kokepunktet øker med karbonkjedens lengde
 - Lange alkoholer blir mindre løselige i vann (den upolare kjeden dominerer)`,
+    },
+    // Oppgave: Tester forståelse av alkoholers egenskaper (hydrogenbindinger) fra def-1
+    {
+      id: 'nat-vg1-5-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor etanol (C₂H₅OH) har mye høyere kokepunkt enn etan (C₂H₆), selv om molekylene er omtrent like store.',
+        solution: 'Etanol har en polar -OH-gruppe som kan danne hydrogenbindinger med andre etanolmolekyler. Hydrogenbindinger er mye sterkere enn van der Waals-kreftene som holder etanmolekylene sammen. Fordi det kreves mer energi for å bryte hydrogenbindingene, har etanol et mye høyere kokepunkt (78°C) enn etan (-89°C).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-3-def-2',
@@ -421,32 +522,29 @@ c) **CH₃COCH₃** (propanon / aceton)
    - Funksjonell gruppe: C=O inne i kjeden (ketogruppe)
    - Stoffklasse: Keton`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-5-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva en funksjonell gruppe er, og hvorfor den er viktig for stoffets egenskaper.',
-        solution: 'En funksjonell gruppe er en bestemt atomgruppe i et organisk molekyl som bestemmer stoffets karakteristiske kjemiske egenskaper. Karbonkjeden er «skjelettet» i molekylet, men det er den funksjonelle gruppen som avgjør hvordan stoffet reagerer kjemisk, løselighet, kokepunkt og lukt/smak. For eksempel gir -OH-gruppen alkoholegenskaper, mens -COOH gir sure egenskaper.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-5-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Funksjonelle grupper**: Bestemte atomgrupper som gir organiske molekyler sine karakteristiske egenskaper.
+- **Alkoholer (-OH)**: Har hydrogenbindinger som gir høyt kokepunkt og vannløselighet for korte kjeder.
+- **Karboksylsyrer (-COOH) og estere (-COO-)**: Karboksylsyrer er svake syrer. Estere dannes fra karboksylsyre + alkohol og gir ofte fruktaroma.
+- **Aminer, aldehyder og ketoner**: Aminer er byggesteiner i proteiner, mens aldehyder og ketoner har karbonylgrupper med ulike plassering i kjeden.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Funksjonell gruppe | Atomgruppe som bestemmer stoffets kjemiske oppførsel |
+| Alkohol | Organisk forbindelse med -OH-gruppe |
+| Karboksylsyre | Organisk forbindelse med -COOH-gruppe |
+| Ester | Dannes ved reaksjon mellom karboksylsyre og alkohol |
+| Hydrogenbinding | Sterk intermolekylær binding mellom H og O/N/F |`,
     },
-    {
-      id: 'nat-vg1-5-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvorfor etanol (C₂H₅OH) har mye høyere kokepunkt enn etan (C₂H₆), selv om molekylene er omtrent like store.',
-        solution: 'Etanol har en polar -OH-gruppe som kan danne hydrogenbindinger med andre etanolmolekyler. Hydrogenbindinger er mye sterkere enn van der Waals-kreftene som holder etanmolekylene sammen. Fordi det kreves mer energi for å bryte hydrogenbindingene, har etanol et mye høyere kokepunkt (78°C) enn etan (-89°C).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-3-ex-3',
       type: 'exercise',
@@ -459,6 +557,17 @@ c) **CH₃COCH₃** (propanon / aceton)
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
+- Store norske leksikon: [Funksjonell gruppe](https://snl.no/funksjonell_gruppe)
+- NDLA: [Funksjonelle grupper i organisk kjemi](https://ndla.no/subject:naturfag)
+- Steen, B.G. & Finholt, A. (2019). *Grunnleggende kjemi*. Universitetsforlaget.`,
     },
   ],
   exercises: [],
@@ -509,6 +618,20 @@ Eksempel:
 - Binder seg til hemoglobin 200× sterkere enn oksygen
 - Kan oppstå i dårlig ventilerte rom med gasskaminer eller vedovner`,
     },
+    // Oppgave: Tester forståelse av forbrenning fra def-1
+    {
+      id: 'nat-vg1-5-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom fullstendig og ufullstendig forbrenning. Hvorfor er ufullstendig forbrenning farlig?',
+        solution: 'Ved fullstendig forbrenning er det nok oksygen til at alt karbon omdannes til CO₂ og alt hydrogen til H₂O. Ved ufullstendig forbrenning er det for lite oksygen, og det dannes CO (karbonmonoksid) og/eller sot (C) i tillegg. Ufullstendig forbrenning er farlig fordi CO er en luktfri, fargeløs gass som binder seg til hemoglobin i blodet 200 ganger sterkere enn oksygen, og dermed hindrer oksygentransport. CO-forgiftning kan føre til bevisstløshet og død.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-4-def-2',
       type: 'definition',
@@ -555,6 +678,20 @@ Mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer).
 - Eksempel: Nylon, polyester
 - Også naturlig: Proteiner (aminosyrer), DNA (nukleotider)`,
     },
+    // Oppgave: Tester forståelse av polymerisering fra def-3
+    {
+      id: 'nat-vg1-5-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er polymerisering? Forklar forskjellen mellom addisjonspolymerisering og kondensasjonspolymerisering, og gi et eksempel på hvert.',
+        solution: 'Polymerisering er en prosess der mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer). Ved addisjonspolymerisering åpnes dobbeltbindingene i monomerene og de kobles direkte sammen uten at noe annet produkt dannes. Eksempel: Eten polymeriseres til polyetylen (plast). Ved kondensasjonspolymerisering kobles monomerer sammen mens et lite molekyl (vanligvis vann) spaltes av i hvert trinn. Eksempel: Aminosyrer polymeriseres til proteiner, og vann frigjøres.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-4-example-1',
       type: 'example',
@@ -576,32 +713,30 @@ Mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer).
 
 **Balansert ligning: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O**`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-5-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom fullstendig og ufullstendig forbrenning. Hvorfor er ufullstendig forbrenning farlig?',
-        solution: 'Ved fullstendig forbrenning er det nok oksygen til at alt karbon omdannes til CO₂ og alt hydrogen til H₂O. Ved ufullstendig forbrenning er det for lite oksygen, og det dannes CO (karbonmonoksid) og/eller sot (C) i tillegg. Ufullstendig forbrenning er farlig fordi CO er en luktfri, fargeløs gass som binder seg til hemoglobin i blodet 200 ganger sterkere enn oksygen, og dermed hindrer oksygentransport. CO-forgiftning kan føre til bevisstløshet og død.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-5-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Forbrenning**: Fullstendig forbrenning gir CO₂ og H₂O, mens ufullstendig forbrenning gir giftig CO og/eller sot.
+- **Addisjonsreaksjoner**: Atomer adderes over dobbelt- eller trippelbindinger. Brukes bl.a. til herding av fett.
+- **Substitusjonsreaksjoner**: Et atom byttes ut med et annet. Typisk for alkaner som mangler dobbeltbindinger.
+- **Kondensasjon**: To molekyler kobles sammen mens vann spaltes av (f.eks. esterdannelse).
+- **Polymerisering**: Monomerer kobles til lange polymerkjeder, enten ved addisjon eller kondensasjon.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Fullstendig forbrenning | Forbrenning med nok O₂, gir CO₂ og H₂O |
+| Ufullstendig forbrenning | For lite O₂, gir CO og/eller sot |
+| Addisjonsreaksjon | Atomer adderes over en flerdobbeltbinding |
+| Substitusjonsreaksjon | Et atom/gruppe byttes ut med en annen |
+| Polymerisering | Monomerer kobles til en lang polymerkjede |`,
     },
-    {
-      id: 'nat-vg1-5-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er polymerisering? Forklar forskjellen mellom addisjonspolymerisering og kondensasjonspolymerisering, og gi et eksempel på hvert.',
-        solution: 'Polymerisering er en prosess der mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer). Ved addisjonspolymerisering åpnes dobbeltbindingene i monomerene og de kobles direkte sammen uten at noe annet produkt dannes. Eksempel: Eten polymeriseres til polyetylen (plast). Ved kondensasjonspolymerisering kobles monomerer sammen mens et lite molekyl (vanligvis vann) spaltes av i hvert trinn. Eksempel: Aminosyrer polymeriseres til proteiner, og vann frigjøres.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-4-ex-3',
       type: 'exercise',
@@ -614,6 +749,17 @@ Mange små molekyler (monomerer) kobles sammen til en lang kjede (polymer).
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
+- Store norske leksikon: [Forbrenning](https://snl.no/forbrenning)
+- NDLA: [Reaksjoner i organisk kjemi](https://ndla.no/subject:naturfag)
+- Plastindustrien: [Polymerisering og plastproduksjon](https://www.plastindustrien.no)`,
     },
   ],
   exercises: [],
@@ -686,6 +832,20 @@ CO₂-konsentrasjonen har økt fra 280 ppm (førindustriell tid) til over 420 pp
 - Finnes i små mengder i bittermandelkjerner og kassava
 - Brukes industrielt i gullutvinning og plastproduksjon`,
     },
+    // Oppgave: Tester forståelse av CO₂ vs CO fra def-1 og def-2
+    {
+      id: 'nat-vg1-5-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom CO₂ og CO. Hvorfor er CO farligere å puste inn enn CO₂?',
+        solution: 'CO₂ (karbondioksid) er en naturlig del av atmosfæren og er ikke giftig i lave konsentrasjoner. CO (karbonmonoksid) er derimot svært giftig. CO binder seg til hemoglobin i blodet ca. 200 ganger sterkere enn oksygen, og blokkerer dermed blodets evne til å transportere oksygen til cellene. CO er også fargeløs og luktfri, så man merker ikke at man puster den inn. CO₂ i høye konsentrasjoner kan også være farlig, men kroppen registrerer dette lettere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-5-def-3',
       type: 'definition',
@@ -708,19 +868,7 @@ CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑
 - Forsuring av innsjøer påvirker livet i vannet
 - Kalking av innsjøer brukes som mottiltak`,
     },
-    {
-      id: 'nat-vg1-5-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom CO₂ og CO. Hvorfor er CO farligere å puste inn enn CO₂?',
-        solution: 'CO₂ (karbondioksid) er en naturlig del av atmosfæren og er ikke giftig i lave konsentrasjoner. CO (karbonmonoksid) er derimot svært giftig. CO binder seg til hemoglobin i blodet ca. 200 ganger sterkere enn oksygen, og blokkerer dermed blodets evne til å transportere oksygen til cellene. CO er også fargeløs og luktfri, så man merker ikke at man puster den inn. CO₂ i høye konsentrasjoner kan også være farlig, men kroppen registrerer dette lettere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave: Tester forståelse av karbonatreaksjoner fra def-3
     {
       id: 'nat-vg1-5-5-ex-2',
       type: 'exercise',
@@ -734,6 +882,30 @@ CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
+    {
+      id: 'nat-vg1-5-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Karbondioksid (CO₂)**: En naturlig drivhusgass som spiller sentral rolle i fotosyntese og celleånding. Menneskelig aktivitet har økt konsentrasjonen betydelig.
+- **Karbonmonoksid (CO)**: En svært giftig gass som dannes ved ufullstendig forbrenning og binder seg til hemoglobin.
+- **Cyanider**: Ekstremt giftige forbindelser som blokkerer cellenes oksygenbruk.
+- **Karbonater (CO₃²⁻)**: Salter som finnes i kalkstein, marmor og eggeskall. Reagerer med syrer og frigjør CO₂.
+- **Sur nedbør**: Løser opp karbonater i bergarter og bygninger, og forsurer innsjøer.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| CO₂ | Karbondioksid, drivhusgass, produkt av forbrenning |
+| CO | Karbonmonoksid, giftig gass fra ufullstendig forbrenning |
+| Karbonater | Salter med CO₃²⁻-ionet (f.eks. CaCO₃) |
+| Drivhuseffekten | CO₂ absorberer varmestråling og varmer opp atmosfæren |
+| Sur nedbør | Nedbør med lavere pH som løser opp kalkstein |`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-5-ex-3',
       type: 'exercise',
@@ -746,6 +918,17 @@ CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Karbondioksid](https://snl.no/karbondioksid)
+- Folkehelseinstituttet: [Karbonmonoksid (CO) – helseeffekter](https://www.fhi.no)
+- NDLA: [Uorganiske karbonforbindelser](https://ndla.no/subject:naturfag)
+- Miljødirektoratet: [Klimagassutslipp i Norge](https://www.miljodirektoratet.no)`,
     },
   ],
   exercises: [],
@@ -775,6 +958,20 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
 - **Forbrenning:** Fossil energi og biomasse frigjør CO₂
 - **Havopptak:** Havet løser store mengder CO₂
 - **Nedbrytning:** Bakterier og sopp bryter ned dødt materiale og frigjør CO₂`,
+    },
+    // Oppgave: Tester forståelse av fotosyntese og celleånding i karbonkretsløpet fra introen
+    {
+      id: 'nat-vg1-5-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hvordan fotosyntese og celleånding sammen utgjør en viktig del av karbonets kretsløp.',
+        solution: 'Fotosyntesen tar opp CO₂ fra atmosfæren og bygger det inn i organiske molekyler (glukose) ved hjelp av solenergi: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Celleåndingen gjør det motsatte — den bryter ned organiske molekyler og frigir CO₂ tilbake til atmosfæren: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O. Sammen sørger disse prosessene for at karbon sirkulerer mellom atmosfæren og levende organismer. I et naturlig system er det balanse mellom opptak og frigjøring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-5-6-def-1',
@@ -819,6 +1016,20 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
 - **Havforsuring:** Mer CO₂ i havet gjør det surere → påvirker koraller og skalldyr
 - **Redusert havopptak:** Varmere hav tar opp mindre CO₂`,
     },
+    // Oppgave: Tester forståelse av menneskelig påvirkning fra def-2
+    {
+      id: 'nat-vg1-5-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-5-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor forbrenning av fossile brensler forstyrrer karbonets kretsløp.',
+        solution: 'Fossile brensler (kull, olje, gass) inneholder karbon som har vært lagret i jordskorpen i millioner av år. Når vi brenner dem, frigjør vi dette karbonet som CO₂ på kort tid. Naturen brukte millioner av år på å lagre dette karbonet, men vi frigjør det på hundre år. De naturlige prosessene (fotosyntese, havopptak) klarer ikke å ta opp alt det ekstra CO₂-et raskt nok, og konsentrasjonen i atmosfæren øker. Dette forsterker drivhuseffekten og fører til global oppvarming.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-5-6-def-3',
       type: 'definition',
@@ -855,32 +1066,29 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
 
 **Sirkelen er sluttet:** Karbon resirkuleres kontinuerlig, men skifter form mellom organiske og uorganiske forbindelser.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-5-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hvordan fotosyntese og celleånding sammen utgjør en viktig del av karbonets kretsløp.',
-        solution: 'Fotosyntesen tar opp CO₂ fra atmosfæren og bygger det inn i organiske molekyler (glukose) ved hjelp av solenergi: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Celleåndingen gjør det motsatte — den bryter ned organiske molekyler og frigir CO₂ tilbake til atmosfæren: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O. Sammen sørger disse prosessene for at karbon sirkulerer mellom atmosfæren og levende organismer. I et naturlig system er det balanse mellom opptak og frigjøring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-5-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Karbonets kretsløp**: Karbon sirkulerer mellom atmosfæren, havet, levende organismer og jordskorpen gjennom fotosyntese, celleånding, forbrenning og nedbrytning.
+- **Korttids- og langtidslagring**: Karbon lagres i biomasse og atmosfære (kort tid) og i fossile brensler, kalkstein og permafrost (lang tid).
+- **Menneskelig påvirkning**: Forbrenning av fossile brensler og avskoging frigjør lagret karbon raskere enn naturen kan ta det opp, noe som forsterker drivhuseffekten.
+- **Karbonets betydning for livet**: Alle biologiske makromolekyler (karbohydrater, lipider, proteiner, nukleinsyrer) er karbonbaserte. Alt kjent liv er avhengig av karbon.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Karbonets kretsløp | Karbons sirkulasjon mellom ulike reservoarer i naturen |
+| Fotosyntese | Planter tar opp CO₂ og bygger organiske molekyler |
+| Celleånding | Organismer bryter ned organisk stoff og frigjør CO₂ |
+| Fossile brensler | Langtidslagre av karbon (olje, kull, gass) |
+| Tilbakekoblingsmekanismer | Prosesser som forsterker oppvarmingen (f.eks. permafrost-tining) |`,
     },
-    {
-      id: 'nat-vg1-5-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-5-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvorfor forbrenning av fossile brensler forstyrrer karbonets kretsløp.',
-        solution: 'Fossile brensler (kull, olje, gass) inneholder karbon som har vært lagret i jordskorpen i millioner av år. Når vi brenner dem, frigjør vi dette karbonet som CO₂ på kort tid. Naturen brukte millioner av år på å lagre dette karbonet, men vi frigjør det på hundre år. De naturlige prosessene (fotosyntese, havopptak) klarer ikke å ta opp alt det ekstra CO₂-et raskt nok, og konsentrasjonen i atmosfæren øker. Dette forsterker drivhuseffekten og fører til global oppvarming.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-5-6-ex-3',
       type: 'exercise',
@@ -893,6 +1101,17 @@ Karbon sirkulerer konstant mellom atmosfæren, havet, levende organismer og jord
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-5-6-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- CICERO Senter for klimaforskning: [Karbonkretsløpet](https://www.cicero.oslo.no)
+- Store norske leksikon: [Karbonets kretsløp](https://snl.no/karbonets_kretsløp)
+- NASA: [The Carbon Cycle](https://earthobservatory.nasa.gov/features/CarbonCycle)
+- NDLA: [Karbonkretsløpet og klimaendringer](https://ndla.no/subject:naturfag)`,
     },
   ],
   exercises: [],
@@ -956,6 +1175,20 @@ Eksempel: Gress → Gresshoppe → Frosk → Slange → Hauk
 - 3. nivå: Sekundærkonsumenter
 - osv.`,
     },
+    // Oppgave: Tester forståelse av næringskjede vs. næringsnett fra def-2
+    {
+      id: 'nat-vg1-6-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom en næringskjede og et næringsnett.',
+        solution: 'En næringskjede viser en lineær forbindelse mellom organismer i rekkefølgen hvem som spiser hvem. Et næringsnett er sammenfletningen av mange næringskjeder og viser det komplekse spisemønsteret i et økosystem, der mange arter spiser flere typer byttedyr.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-6-1-def-3',
       type: 'definition',
@@ -983,19 +1216,29 @@ Resten tapes som varme gjennom celleånding.
 
 Dette forklarer hvorfor det er mange flere planter enn planteetere, og enda færre rovdyr.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-6-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom en næringskjede og et næringsnett.',
-        solution: 'En næringskjede viser en lineær forbindelse mellom organismer i rekkefølgen hvem som spiser hvem. Et næringsnett er sammenfletningen av mange næringskjeder og viser det komplekse spisemønsteret i et økosystem, der mange arter spiser flere typer byttedyr.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-6-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Økosystemer**: Avgrensede områder der biotiske (levende) og abiotiske (ikke-levende) faktorer samspiller.
+- **Roller**: Produsenter lager mat gjennom fotosyntese, konsumenter spiser andre organismer, og nedbrytere resirkulerer næringsstoffer.
+- **Næringskjeder og næringsnett**: Næringskjeder viser lineære spiserelasjoner, mens næringsnett viser de komplekse sammenhengene.
+- **Energistrøm**: Bare ca. 10 % av energien overføres mellom hvert trofisk nivå, noe som begrenser lengden på næringskjeder.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Økosystem | Samspill mellom levende organismer og deres miljø |
+| Produsent | Organisme som lager sin egen mat (fotosyntese) |
+| Konsument | Organisme som spiser andre organismer |
+| Næringskjede | Lineær fremstilling av hvem som spiser hvem |
+| 10 %-regelen | Ca. 10 % av energien overføres per trofisk nivå |`,
     },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-6-1-ex-2',
       type: 'exercise',
@@ -1021,6 +1264,17 @@ Dette forklarer hvorfor det er mange flere planter enn planteetere, og enda fær
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-6-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Økosystem](https://snl.no/økosystem)
+- NDLA: [Økosystemer og næringskjeder](https://ndla.no/subject:naturfag)
+- Miljølære: [Næringskjeder og energistrøm](https://www.miljolare.no)
+- Artsdatabanken: [Norske økosystemer](https://www.artsdatabanken.no)`,
     },
   ],
   exercises: [],
@@ -1082,6 +1336,20 @@ Vann: 0,000003 ppm → Plankton: 0,04 ppm → Småfisk: 0,5 ppm → Stor fisk: 2
 
 Konsentrasjonen øker ca. 10 millioner ganger fra vann til topprovdyr!`,
     },
+    // Oppgave: Tester forståelse av bioakkumulering vs. biomagnifisering fra def-1 og def-2
+    {
+      id: 'nat-vg1-6-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom bioakkumulering og biomagnifisering.',
+        solution: 'Bioakkumulering er når et stoff hoper seg opp inne i én organisme over tid fordi den tar opp stoffet raskere enn den kan kvitte seg med det. Biomagnifisering er når konsentrasjonen av stoffet øker for hvert ledd oppover i næringskjeden, slik at topprovdyr får høyest konsentrasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-6-2-def-3',
       type: 'definition',
@@ -1126,19 +1394,29 @@ Konsentrasjonen øker ca. 10 millioner ganger fra vann til topprovdyr!`,
 
 4. **Fettløselig:** Kvikksølv lagres i fettvev, og arktiske dyr har mye fett for å holde varmen.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-6-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom bioakkumulering og biomagnifisering.',
-        solution: 'Bioakkumulering er når et stoff hoper seg opp inne i én organisme over tid fordi den tar opp stoffet raskere enn den kan kvitte seg med det. Biomagnifisering er når konsentrasjonen av stoffet øker for hvert ledd oppover i næringskjeden, slik at topprovdyr får høyest konsentrasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-6-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Miljøgifter**: Stoffer som er persistente, bioakkumulerende og giftige (f.eks. kvikksølv, PCB, DDT, PFAS).
+- **Bioakkumulering**: Et stoff hoper seg opp i en enkelt organisme over tid fordi det tas opp raskere enn det skilles ut.
+- **Biomagnifisering**: Konsentrasjonen av et miljøgift øker for hvert ledd oppover i næringskjeden. Topprovdyr rammes hardest.
+- **Helseeffekter**: Miljøgifter kan forårsake nerveskader, hormonforstyrrelser, kreft og fosterskader hos mennesker og dyr.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Miljøgift | Stoff som er skadelig selv i lave konsentrasjoner |
+| Persistent | Brytes ikke lett ned i naturen |
+| Bioakkumulering | Opphopning av et stoff i en enkelt organisme |
+| Biomagnifisering | Konsentrasjonsøkning oppover i næringskjeden |
+| Topprovdyr | Dyr øverst i næringskjeden (f.eks. isbjørn, havørn) |`,
     },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-6-2-ex-2',
       type: 'exercise',
@@ -1164,6 +1442,17 @@ Konsentrasjonen øker ca. 10 millioner ganger fra vann til topprovdyr!`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-6-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Miljødirektoratet: [Miljøgifter](https://www.miljodirektoratet.no/ansvarsomrader/kjemikalier/miljogifter/)
+- Folkehelseinstituttet: [Miljøgifter og helse](https://www.fhi.no)
+- Store norske leksikon: [Bioakkumulering](https://snl.no/bioakkumulering)
+- Stockholmkonvensjonen: [Om persistente organiske miljøgifter](https://www.pops.int)`,
     },
   ],
   exercises: [],
@@ -1225,6 +1514,20 @@ Miljøproblemer løses best gjennom en kombinasjon av tiltak på ulike nivåer:
 - Klimatilpasset bygging
 - Endret arealbruk`,
     },
+    // Oppgave: Tester forståelse av klimatiltak vs. klimatilpasning fra def-1
+    {
+      id: 'nat-vg1-6-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom klimatiltak og klimatilpasning, og gi eksempler på begge.',
+        solution: 'Klimatiltak (mitigering) handler om å redusere utslipp av klimagasser for å begrense oppvarmingen (eks: overgang til elbil, vindkraft, energieffektivisering). Klimatilpasning handler om å tilpasse samfunnet til de klimaendringene som allerede skjer (eks: bygge flomvoller, flytte bebyggelse vekk fra flomutsatte områder, tilpasse landbruket til nye vekstsesonger).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-6-3-def-2',
       type: 'definition',
@@ -1241,6 +1544,20 @@ Råvarer → Produser → Bruk → Reparer/Gjenbruk → Resirkuler → tilbake t
 3. Materialgjenvinning (resirkulering)
 4. Energigjenvinning (forbrenning)
 5. Deponi (siste utvei)`,
+    },
+    // Oppgave: Tester forståelse av individuelle tiltak og sirkulær økonomi fra intro og def-2
+    {
+      id: 'nat-vg1-6-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Gi eksempler på miljøtiltak du kan gjøre i hverdagen, og vurder effekten av dem.',
+        solution: 'Eksempler: 1) Spise mindre kjøtt (stor effekt, kjøttproduksjon har høye klimagassutslipp). 2) Sykle/gå i stedet for bil (moderat effekt på utslipp, stor på lokalt miljø). 3) Kildesortere (moderat effekt, avhenger av gjenvinningssystemet). 4) Kjøpe brukt (stor effekt, reduserer produksjon av nye varer). 5) Spare strøm (liten effekt i Norge der strømmen er ren, større i land med fossil kraftproduksjon).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-6-3-example-1',
@@ -1265,32 +1582,29 @@ På 1980-tallet oppdaget forskere at ozonlaget ble tynnere, spesielt over Antark
 - Vitenskap må ligge til grunn
 - Erstatningsteknologi må være tilgjengelig`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-6-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Gi eksempler på miljøtiltak du kan gjøre i hverdagen, og vurder effekten av dem.',
-        solution: 'Eksempler: 1) Spise mindre kjøtt (stor effekt, kjøttproduksjon har høye klimagassutslipp). 2) Sykle/gå i stedet for bil (moderat effekt på utslipp, stor på lokalt miljø). 3) Kildesortere (moderat effekt, avhenger av gjenvinningssystemet). 4) Kjøpe brukt (stor effekt, reduserer produksjon av nye varer). 5) Spare strøm (liten effekt i Norge der strømmen er ren, større i land med fossil kraftproduksjon).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-6-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Tiltak på ulike nivåer**: Miljøproblemer krever innsats internasjonalt, nasjonalt, lokalt og individuelt.
+- **Klimatiltak vs. klimatilpasning**: Klimatiltak reduserer utslipp (fornybar energi, karbonfangst), mens klimatilpasning forbereder samfunnet på endringer som allerede skjer (flomsikring, arealplanlegging).
+- **Sirkulær økonomi**: Overgang fra «bruk og kast» til gjenbruk, reparasjon og resirkulering reduserer ressursforbruk og avfall.
+- **Internasjonalt samarbeid**: Montrealprotokollen viser at internasjonale avtaler kan løse globale miljøproblemer.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Klimatiltak (mitigering) | Tiltak for å redusere utslipp av klimagasser |
+| Klimatilpasning | Tilpasning til klimaendringer som allerede skjer |
+| Sirkulær økonomi | Økonomisk modell basert på gjenbruk og resirkulering |
+| Avfallshierarkiet | Prioriteringsrekkefølge fra forebygging til deponi |
+| Parisavtalen | Internasjonal klimaavtale med mål om maks 1,5-2°C oppvarming |`,
     },
-    {
-      id: 'nat-vg1-6-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom klimatiltak og klimatilpasning, og gi eksempler på begge.',
-        solution: 'Klimatiltak (mitigering) handler om å redusere utslipp av klimagasser for å begrense oppvarmingen (eks: overgang til elbil, vindkraft, energieffektivisering). Klimatilpasning handler om å tilpasse samfunnet til de klimaendringene som allerede skjer (eks: bygge flomvoller, flytte bebyggelse vekk fra flomutsatte områder, tilpasse landbruket til nye vekstsesonger).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-6-3-ex-3',
       type: 'exercise',
@@ -1303,6 +1617,17 @@ På 1980-tallet oppdaget forskere at ozonlaget ble tynnere, spesielt over Antark
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-6-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Miljødirektoratet: [Klimatiltak i Norge](https://www.miljodirektoratet.no)
+- FN-sambandet: [Parisavtalen](https://www.fn.no/om-fn/avtaler/miljoe-og-klima/parisavtalen)
+- NDLA: [Bærekraftig utvikling](https://ndla.no/subject:naturfag)
+- Regjeringen.no: [Sirkulær økonomi](https://www.regjeringen.no)`,
     },
   ],
   exercises: [],
@@ -1332,6 +1657,20 @@ export const CHAPTER_NAT_VG1_6_4: TextbookChapter = {
 
 **Uten drivhuseffekt:** Gjennomsnittlig jordtemperatur ville vært ca. -18°C
 **Med naturlig drivhuseffekt:** Ca. +15°C`,
+    },
+    // Oppgave: Tester forståelse av drivhuseffektens mekanisme fra introen
+    {
+      id: 'nat-vg1-6-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar med egne ord hvordan drivhuseffekten virker.',
+        solution: 'Sola sender ut kortbølget stråling som passerer gjennom atmosfæren og varmer opp jordoverflaten. Jorden sender ut langbølget varmestråling, men drivhusgasser i atmosfæren absorberer deler av denne strålingen og sender den tilbake mot jorda. Dermed blir jorden varmere enn den ellers ville vært.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-6-4-def-1',
@@ -1379,6 +1718,20 @@ Global gjennomsnittstemperatur har økt ca. 1,1°C siden førindustriell tid.`,
 - Utryddelse av arter som ikke kan tilpasse seg
 - Endrede økosystemer`,
     },
+    // Oppgave: Tester forståelse av biologiske konsekvenser fra def-3
+    {
+      id: 'nat-vg1-6-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre konsekvenser klimaendringer kan ha for biologisk mangfold i Norge.',
+        solution: 'Mulige svar: 1) Arter som villrein og fjellrev kan miste leveområder når skoggrensen kryper oppover. 2) Sørlige arter som hjort og villsvin sprer seg nordover. 3) Fremmede arter som harlekinmarihøne kan etablere seg og utkonkurrere norske arter. 4) Ørret kan tape konkurransen mot karpe i varmere vann. 5) Laks kan få problemer med for varmt vann i elvene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-6-4-example-1',
       type: 'example',
@@ -1396,32 +1749,29 @@ Global gjennomsnittstemperatur har økt ca. 1,1°C siden førindustriell tid.`,
 
 5. **Resultat:** Tynnere bjørner, lavere ungeproduksjon, økt dødelighet. Arten er klassifisert som sårbar.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-6-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar med egne ord hvordan drivhuseffekten virker.',
-        solution: 'Sola sender ut kortbølget stråling som passerer gjennom atmosfæren og varmer opp jordoverflaten. Jorden sender ut langbølget varmestråling, men drivhusgasser i atmosfæren absorberer deler av denne strålingen og sender den tilbake mot jorda. Dermed blir jorden varmere enn den ellers ville vært.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-6-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Drivhuseffekten**: En naturlig prosess der drivhusgasser fanger opp varmestråling og holder jorden varm nok for liv (+15 °C i stedet for -18 °C).
+- **Viktige drivhusgasser**: CO₂ (hovedårsak til menneskeskapt oppvarming), metan, lystgass og vanndamp.
+- **Forsterket drivhuseffekt**: Menneskelig aktivitet har økt konsentrasjonen av drivhusgasser betydelig, noe som gir global oppvarming.
+- **Konsekvenser**: Stigende temperaturer, havnivåstigning, mer ekstremvær, og store endringer i biologisk mangfold.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Drivhuseffekten | Naturlig oppvarming av jorda pga. drivhusgasser |
+| Forsterket drivhuseffekt | Ekstra oppvarming pga. menneskeskapte utslipp |
+| CO₂ (ppm) | Konsentrasjon av karbondioksid, nå over 420 ppm |
+| Global oppvarming | Økning i gjennomsnittlig jordtemperatur (~1,1 °C) |
+| Korallbleking | Koraller støter ut alger pga. for varmt vann |`,
     },
-    {
-      id: 'nat-vg1-6-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre konsekvenser klimaendringer kan ha for biologisk mangfold i Norge.',
-        solution: 'Mulige svar: 1) Arter som villrein og fjellrev kan miste leveområder når skoggrensen kryper oppover. 2) Sørlige arter som hjort og villsvin sprer seg nordover. 3) Fremmede arter som harlekinmarihøne kan etablere seg og utkonkurrere norske arter. 4) Ørret kan tape konkurransen mot karpe i varmere vann. 5) Laks kan få problemer med for varmt vann i elvene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-6-4-ex-3',
       type: 'exercise',
@@ -1434,6 +1784,17 @@ Global gjennomsnittstemperatur har økt ca. 1,1°C siden førindustriell tid.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-6-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- IPCC: [Sjette hovedrapport (AR6)](https://www.ipcc.ch/assessment-report/ar6/)
+- CICERO Senter for klimaforskning: [Klimaendringer](https://www.cicero.oslo.no)
+- Meteorologisk institutt: [Klima i Norge](https://www.met.no)
+- Store norske leksikon: [Drivhuseffekten](https://snl.no/drivhuseffekten)`,
     },
   ],
   exercises: [],
@@ -1486,6 +1847,20 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
 - Rødreven sprer seg nordover og konkurrerer med fjellreven i Norge
 - Arter fra varmere strøk bringer med seg nye sykdommer og parasitter`,
     },
+    // Oppgave: Tester forståelse av fenologisk mismatch fra def-1
+    {
+      id: 'nat-vg1-6-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva fenologisk mismatch er og gi et eksempel på hvordan dette kan påvirke en art.',
+        solution: 'Fenologisk mismatch oppstår når tidspunktet for viktige hendelser i ulike arters livssyklus ikke lenger stemmer overens på grunn av klimaendringer. Ulike arter reagerer ulikt på temperaturendringer, slik at det økologiske samspillet forstyrres. Eksempel: Reinsdyrkalver fødes på samme tidspunkt som før, men plantene de er avhengige av for å vokse har allerede passert sitt mest næringsrike stadium på grunn av tidligere vår. Resultatet er dårligere ernæring og lavere overlevelse blant kalvene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'nat-vg1-6-5-def-2',
       type: 'definition',
@@ -1508,6 +1883,20 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
 - Skoggrensen kryper oppover → fjellplanter og dyr får mindre plass
 - Arter som lever på toppen har ingen steder å flytte
 - Norsk eksempel: Fjellreven mister terreng til rødreven`,
+    },
+    // Oppgave: Tester forståelse av sårbare fjelløkosystemer fra def-2
+    {
+      id: 'nat-vg1-6-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-6-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor arter som lever i fjellområder er spesielt sårbare for klimaendringer.',
+        solution: 'Fjellarter er spesielt sårbare fordi de allerede lever i et begrenset område nær toppen. Når temperaturen stiger, kryper skoggrensen oppover og presser fjellartene enda høyere. Til slutt har de ingen steder å flytte — de kan ikke komme høyere enn toppen. I tillegg blir habitatet stadig mindre jo høyere opp man kommer (fjelltopper er smalere). Sørlige arter som rødrev konkurrerer med tilpassede fjellarter som fjellrev. Resultatet er at fjellarter presses mot utryddelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-6-5-def-3',
@@ -1550,32 +1939,29 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
 
 5. **Viktig poeng:** Det er ikke temperaturen i seg selv som er problemet, men at tidspunktene for ulike hendelser i økosystemet ikke lenger stemmer overens.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-6-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva fenologisk mismatch er og gi et eksempel på hvordan dette kan påvirke en art.',
-        solution: 'Fenologisk mismatch oppstår når tidspunktet for viktige hendelser i ulike arters livssyklus ikke lenger stemmer overens på grunn av klimaendringer. Ulike arter reagerer ulikt på temperaturendringer, slik at det økologiske samspillet forstyrres. Eksempel: Reinsdyrkalver fødes på samme tidspunkt som før, men plantene de er avhengige av for å vokse har allerede passert sitt mest næringsrike stadium på grunn av tidligere vår. Resultatet er dårligere ernæring og lavere overlevelse blant kalvene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-6-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Arters respons på klimaendringer**: Arter kan tilpasse seg, flytte seg eller dø ut. Dagens endringer skjer for raskt for de fleste arter.
+- **Endret utbredelse**: Arter flytter nordover og oppover i fjellet. Fenologisk mismatch oppstår når arter reagerer ulikt på temperaturendringer.
+- **Truede økosystemer**: Korallrev, arktiske områder og fjelløkosystemer er spesielt sårbare fordi artene der har begrensede fluktmuligheter.
+- **Evolusjon og tilpasning**: Arter med kort generasjonstid kan tilpasse seg raskere, men de fleste arter klarer ikke å holde tritt med tempoet i klimaendringene.
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Fenologisk mismatch | Tidspunkt for hendelser i ulike arters livssyklus stemmer ikke overens |
+| Korallbleking | Koraller støter ut alger pga. for varmt vann |
+| Sjette masseutryddelsen | Pågående artsutryddelse drevet av menneskelig aktivitet |
+| Generasjonstid | Tid det tar for en art å produsere neste generasjon |
+| Naturlig utvalg | Individer med gunstige egenskaper overlever og formerer seg best |`,
     },
-    {
-      id: 'nat-vg1-6-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-6-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvorfor arter som lever i fjellområder er spesielt sårbare for klimaendringer.',
-        solution: 'Fjellarter er spesielt sårbare fordi de allerede lever i et begrenset område nær toppen. Når temperaturen stiger, kryper skoggrensen oppover og presser fjellartene enda høyere. Til slutt har de ingen steder å flytte — de kan ikke komme høyere enn toppen. I tillegg blir habitatet stadig mindre jo høyere opp man kommer (fjelltopper er smalere). Sørlige arter som rødrev konkurrerer med tilpassede fjellarter som fjellrev. Resultatet er at fjellarter presses mot utryddelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'nat-vg1-6-5-ex-3',
       type: 'exercise',
@@ -1588,6 +1974,17 @@ Eksempel: Insekter klekkes tidligere om våren, men trekkfugler som spiser dem a
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-6-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Artsdatabanken: [Norsk rødliste for arter](https://www.artsdatabanken.no/rodliste)
+- IPBES: [Global Assessment Report on Biodiversity](https://www.ipbes.net)
+- Store norske leksikon: [Biologisk mangfold](https://snl.no/biologisk_mangfold)
+- Norsk institutt for naturforskning (NINA): [Klimaendringer og norsk natur](https://www.nina.no)`,
     },
   ],
   exercises: [],

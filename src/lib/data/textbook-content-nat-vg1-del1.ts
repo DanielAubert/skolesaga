@@ -368,6 +368,39 @@ Merk: Korrelasjon ≠ kausalitet!`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-1-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Den naturvitenskapelige metoden**: En systematisk fremgangsmåte med stegene observasjon, problemstilling, hypotese, eksperiment, datainnsamling/analyse og konklusjon
+- **Variabler**: Uavhengig variabel (det vi endrer), avhengig variabel (det vi måler) og kontrollvariabler (det vi holder konstant)
+- **Hypoteser**: Testbare og falsifiserbare påstander som kan støttes eller forkastes gjennom eksperimenter
+- **Kontrollgrupper og gjentakelser**: Nødvendig for å sikre at resultatene er pålitelige og ikke skyldes tilfeldigheter
+- **Blindforsøk og placebo**: Metoder for å redusere forventningseffekter i forsøk
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Reproduserbarhet | At andre kan gjenta forsøket og få samme resultat |
+| Falsifiserbarhet | At en hypotese må kunne motbevises for å være vitenskapelig |
+| Kontrollgruppe | Gruppe som ikke utsettes for testvariabelen, brukes som referansepunkt |
+| Placeboeffekt | Effekt forårsaket av troen på at man får behandling |
+| Dobbeltblind | Hverken forsøksperson eller forsker vet hvem som er i hvilken gruppe |`
+    },
+    {
+      id: 'nat-vg1-1-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Naturfag.no – Nasjonalt senter for naturfag i opplæringen: «Den naturvitenskapelige metoden»
+- Viten.no – Nettressurs for naturfag, undervisningsopplegg om vitenskapelig metode`
+    },
   ],
   exercises: [],
 };
@@ -792,6 +825,40 @@ Slike funn er aldri gjort. Evolusjonsteorien har tvert imot blitt styrket av hve
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-1-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Hypotese**: En testbar og falsifiserbar påstand som er utgangspunkt for vitenskapelig undersøkelse
+- **Modell**: En forenklet representasjon av virkeligheten som hjelper oss å forstå, forklare og forutsi fenomener (fysisk, matematisk eller konseptuell)
+- **Teori**: Den sterkeste formen for vitenskapelig kunnskap, støttet av mange uavhengige bevis over lang tid
+- **Modellers styrker og begrensninger**: Alle modeller er forenklinger, men mange er nyttige verktøy
+- **Vitenskapelig utvikling**: Kunnskap utvikles kontinuerlig gjennom testing, revisjon og forbedring
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Hypotese | Testbar påstand som kan støttes eller forkastes |
+| Modell | Forenklet fremstilling av virkeligheten |
+| Teori | Veletablert vitenskapelig forklaring med omfattende bevismateriale |
+| Fysisk modell | Tredimensjonal representasjon (f.eks. globus, molekylmodell) |
+| Matematisk modell | Bruker ligninger og formler (f.eks. klimamodeller) |
+| Konseptuell modell | Diagrammer og ideer som viser sammenhenger (f.eks. næringskjeder) |`
+    },
+    {
+      id: 'nat-vg1-1-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Naturfag.no – «Modeller i naturfag» og «Vitenskapelig tenkemåte»
+- Store norske leksikon (snl.no) – «Vitenskapsteori» og «Naturvitenskapelig metode»`
+    },
   ],
   exercises: [],
 };
@@ -1185,6 +1252,39 @@ En feilkilde kan være at temperaturkontroll ikke var perfekt. For å forbedre f
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-1-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **IMRaD-strukturen**: Den standardiserte oppbygningen av vitenskapelige rapporter med Introduksjon, Metode, Resultater, Analyse/Diskusjon og Konklusjon
+- **Presentasjon av data**: Valg av riktig graftype (linjediagram, stolpediagram, sektordiagram, punktdiagram) for ulike typer data
+- **Argumentere for metodevalg**: Hvordan beskrive og begrunne valg av utstyr, variabler og fremgangsmåte
+- **Kildekritikk**: Vurdere troverdigheten til kilder basert på hvem, når, hvordan, hva og samsvar med andre kilder
+- **Primær- og sekundærkilder**: Skille mellom originalforskning og tolkninger/oppsummeringer
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| IMRaD | Introduksjon, Metode, Resultater, Analyse, Diskusjon/Konklusjon |
+| Primærkilde | Original, førstehånds kilde (f.eks. vitenskapelig artikkel) |
+| Sekundærkilde | Tolker eller oppsummerer primærkilder (f.eks. lærebok) |
+| Fagfellevurdering | Kvalitetskontroll der andre eksperter vurderer forskning |
+| Kildekritikk | Systematisk vurdering av en kildes troverdighet og relevans |`
+    },
+    {
+      id: 'nat-vg1-1-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Naturfag.no – «Rapportskriving i naturfag» og «Presentasjon av data»
+- Viten.no – Undervisningsressurser om vitenskapelig kommunikasjon og kildekritikk`
     },
   ],
   exercises: [],
@@ -1629,6 +1729,39 @@ Nøytralisert løsning (pH 6-8) kan skylles i vasken med mye vann.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-1-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **HMS i laboratoriet**: Grunnleggende sikkerhetsregler som å bruke verneutstyr, lese sikkerhetsdatablad og kjenne til nødutstyr
+- **GHS-faresymboler**: De ni internasjonale symbolene for merking av kjemikalier (brannfarlig, etsende, giftig, miljøfarlig m.fl.)
+- **Sikkerhetsdatablad (SDS)**: Dokumenter med detaljert informasjon om kjemikalier, fareidentifikasjon, verneutstyr og avfallshåndtering
+- **Risikovurdering**: Systematisk identifisering av farer, vurdering av sannsynlighet og konsekvens, og planlegging av tiltak
+- **Avfallshåndtering**: Riktig sortering og håndtering av ufarlig, kjemisk og biologisk avfall
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| HMS | Helse, Miljø og Sikkerhet |
+| GHS | Globally Harmonized System – internasjonalt merkesystem for kjemikalier |
+| SDS | Sikkerhetsdatablad – informasjon om kjemikaliers farer og håndtering |
+| Risikovurdering | Systematisk gjennomgang: Risiko = Sannsynlighet x Konsekvens |
+| Kontrollgruppe | Kjemisk avfall som syrer, baser, løsemidler og tungmetaller krever spesialhåndtering |`
+    },
+    {
+      id: 'nat-vg1-1-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Arbeidstilsynet (arbeidstilsynet.no) – Forskrift om utførelse av arbeid, bruk og håndtering av kjemikalier
+- EcoOnline (ecoonline.no) – Sikkerhetsdatablad og stoffkartotek for norske skoler
+- Naturfag.no – «Sikkerhet i naturfagundervisningen» og «Risikovurdering i skolen»`
     },
   ],
   exercises: [],
@@ -2237,6 +2370,41 @@ Forbedringer:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-1-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Programmering i naturfag**: Hvordan Python brukes som verktøy for beregninger, visualisering og modellering av naturfaglige fenomener
+- **Grunnleggende Python**: Variabler, matematiske operatorer, print-funksjonen og nyttige importerte funksjoner
+- **Løkker og lister**: For-løkker, while-løkker og lister for å gjenta beregninger og samle data
+- **Betingelser**: If/elif/else-setninger for å ta beslutninger i programmet
+- **Visualisering med matplotlib**: Lage grafer og diagrammer for å presentere data
+- **Modellering**: Simulere naturvitenskapelige fenomener som radioaktiv nedbrytning og befolkningsvekst
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Variabel | En «boks» som lagrer verdier (tall, tekst, lister) |
+| For-løkke | Gjenta kode et bestemt antall ganger |
+| While-løkke | Gjenta kode så lenge en betingelse er sann |
+| Matplotlib | Python-bibliotek for å lage grafer og diagrammer |
+| Modellering | Bruke programkode til å simulere naturfaglige fenomener |`
+    },
+    {
+      id: 'nat-vg1-1-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål om programmering og modellering
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Python.org – Offisiell dokumentasjon for Python-programmeringsspråket
+- Matplotlib.org – Dokumentasjon for matplotlib-biblioteket
+- Naturfag.no – «Programmering i naturfag» – undervisningsressurser og eksempler`
+    },
   ],
   exercises: [],
 };
@@ -2589,6 +2757,40 @@ Ulempe: Høyere frekvens absorberes raskere, så rekkevidden blir kortere. For d
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Hva en bølge er**: En forstyrrelse som forplanter seg og overfører energi uten å flytte materie permanent
+- **Typer bølger**: Tverrbølger (svingninger vinkelrett på bevegelsesretningen) og lengdebølger (svingninger parallelt)
+- **Bølgeegenskaper**: Bølgelengde (λ), frekvens (f), periode (T), amplitude (A) og hastighet (v)
+- **Bølgeformelen**: v = f · λ – den viktigste sammenhengen for alle bølger
+- **Bølgefenomener**: Refleksjon, brytning, interferens (konstruktiv og destruktiv), diffraksjon og stående bølger
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Bølgelengde (λ) | Avstanden mellom to påfølgende bølgetopper, måles i meter |
+| Frekvens (f) | Antall svingninger per sekund, måles i Hertz (Hz) |
+| Amplitude (A) | Maksimalt utslag fra likevektsposisjonen |
+| Interferens | Når to bølger møtes og forsterker eller svekker hverandre |
+| Diffraksjon | Bølger som bøyer seg rundt hindringer eller gjennom åpninger |
+| Mekaniske bølger | Trenger et medium (lyd, vannbølger) |`
+    },
+    {
+      id: 'nat-vg1-2-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon (snl.no) – «Bølger», «Bølgelengde», «Interferens» og «Diffraksjon»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- NTNU – Institutt for fysikk: Undervisningsressurser om bølgefysikk
+- Naturfag.no – «Bølger og bølgefenomener» – undervisningsopplegg for VG1`
     },
   ],
   exercises: [],
@@ -2992,6 +3194,40 @@ Derfor brukes ultralyd rutinemessig for å overvåke svangerskap, mens røntgen 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Lyd som lengdebølge**: Mekaniske trykkbølger som forplanter seg gjennom et medium – kan ikke bevege seg i vakuum
+- **Lydegenskaper**: Tonehøyde bestemmes av frekvens, lydstyrke av amplitude (målt i desibel), og klangfarge av overtoner
+- **Lydhastighet**: Varierer med mediet – raskere i faste stoffer (stål: 5960 m/s) enn i luft (343 m/s)
+- **Hørbart område**: 20 Hz – 20 000 Hz for mennesker; infralyd under 20 Hz og ultralyd over 20 000 Hz
+- **Støy og helse**: Langvarig eksponering over 85 dB kan gi permanent hørselsskade
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Desibel (dB) | Logaritmisk enhet for lydstyrke; +10 dB oppleves som dobling |
+| Infralyd | Lyd med frekvens under 20 Hz (uhørbar for mennesker) |
+| Ultralyd | Lyd med frekvens over 20 000 Hz (brukes medisinsk, ekkolodd) |
+| Ekko | Refleksjon av lyd fra en overflate |
+| Klangfarge | Bestemt av overtoner – gjør at instrumenter høres forskjellig ut |
+| Kompresjon | Område med høyt trykk i en lydbølge |`
+    },
+    {
+      id: 'nat-vg1-2-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon (snl.no) – «Lyd», «Lydhastighet», «Desibel» og «Ultralyd»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Arbeidstilsynet (arbeidstilsynet.no) – «Støy på arbeidsplassen» og grenseverdier for støyeksponering
+- NTNU – Institutt for fysikk: Akustikk og lydbølger – undervisningsressurser`
     },
   ],
   exercises: [],
@@ -3400,6 +3636,39 @@ WHO klassifiserer mobilstråling som "mulig kreftfremkallende" (gruppe 2B), samm
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Elektromagnetisk stråling**: Bølger av oscillerende elektriske og magnetiske felt som beveger seg med lyshastigheten (c = 3 × 10⁸ m/s)
+- **Det elektromagnetiske spekteret**: Fra radiobølger (lav energi) via mikrobølger, infrarød, synlig lys, UV til røntgen og gammastråling (høy energi)
+- **Synlig lys**: Det smale båndet 400–700 nm som øynene våre kan oppfatte, fra fiolett (kort bølgelengde) til rødt (lang bølgelengde)
+- **Ioniserende vs. ikke-ioniserende stråling**: Ioniserende stråling (UV-C, røntgen, gamma) har nok energi til å skade DNA
+- **Sammenhengen energi og bølgelengde**: E = h · f – kortere bølgelengde betyr høyere frekvens og høyere energi
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Elektromagnetisk stråling | Bølger av elektriske og magnetiske felt som kan bevege seg i vakuum |
+| Ioniserende stråling | Stråling med nok energi til å slå løs elektroner fra atomer |
+| Foton | Partikkelen som bærer elektromagnetisk stråling |
+| Bølge-partikkel-dualitet | EM-stråling oppfører seg både som bølger og partikler |
+| Rayleigh-spredning | Lysavhengig spredning i atmosfæren – årsaken til blå himmel |`
+    },
+    {
+      id: 'nat-vg1-2-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon (snl.no) – «Elektromagnetisk stråling», «Synlig lys» og «Ioniserende stråling»
+- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Hva er stråling?» og «Ikke-ioniserende stråling»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- WHO (who.int) – «Electromagnetic fields and public health» – faktaark om mobilstråling og helse`
     },
   ],
   exercises: [],
@@ -3851,6 +4120,41 @@ Dette gjør polonium til et "perfekt" giftstoff - det er dødelig i minimale dos
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'nat-vg1-2-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Radioaktivitet**: Ustabile atomkjerner sender ut stråling (alfa, beta, gamma) for å bli mer stabile
+- **Isotoper**: Varianter av samme grunnstoff med ulikt antall nøytroner og dermed ulik stabilitet
+- **Alfastråling (α)**: Heliumkjerne (2p + 2n) – kort rekkevidde, høy ioniseringsevne, stoppes av papir/hud
+- **Betastråling (β)**: Elektron fra nøytron-til-proton-omdanning – middels rekkevidde, stoppes av aluminium
+- **Gammastråling (γ)**: Høyenergetisk foton – lang rekkevidde, krever bly/betong for skjerming
+- **Kjernereaksjoner**: Må balanseres med hensyn til atomnummer og massetall
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Isotop | Variant av et grunnstoff med ulikt antall nøytroner |
+| Alfapartikkel | Heliumkjerne (⁴₂He) sendt ut ved alfanedbryting |
+| Betapartikkel | Elektron sendt ut når et nøytron omdannes til proton |
+| Gammastråling | Elektromagnetisk stråling med svært høy energi |
+| Massetall (A) | Antall protoner + nøytroner i kjernen |
+| Atomnummer (Z) | Antall protoner – bestemmer grunnstoffet |`
+    },
+    {
+      id: 'nat-vg1-2-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Radioaktivitet» og «Typer ioniserende stråling»
+- Store norske leksikon (snl.no) – «Radioaktivitet», «Alfastråling», «Betastråling» og «Gammastråling»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- Naturfag.no – «Radioaktivitet og stråling» – undervisningsressurser`
+    },
   ],
   exercises: [],
 };
@@ -4277,6 +4581,40 @@ c) **Hvorfor C-14 ikke fungerer for gamle fossiler:**
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Halveringstid (t½)**: Tiden det tar før halvparten av atomene i et radioaktivt stoff har brutt ned – konstant og upåvirkelig
+- **Beregninger med halveringstid**: N = N₀ · (1/2)^n der n = t/t½ – brukes for å finne gjenstående mengde
+- **Måleenheter**: Becquerel (Bq) for aktivitet, Gray (Gy) for absorbert dose, og Sievert (Sv) for ekvivalent dose
+- **Vektingsfaktorer**: Alfa har faktor 20, beta/gamma har faktor 1 – alfastråling er mest skadelig per energienhet
+- **Karbondatering**: Bruker C-14 (t½ = 5730 år) til å bestemme alderen på organisk materiale opptil ca. 50 000 år
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Halveringstid (t½) | Tiden det tar før halvparten av atomene har brutt ned |
+| Becquerel (Bq) | Enhet for aktivitet – nedbrytninger per sekund |
+| Gray (Gy) | Enhet for absorbert dose – joule per kg |
+| Sievert (Sv) | Enhet for ekvivalent dose – tar hensyn til stråletype |
+| Karbondatering | Dateringsmetode basert på nedbrytning av C-14 |
+| Vektingsfaktor | Korreksjon for ulike stråletypers biologiske virkning |`
+    },
+    {
+      id: 'nat-vg1-2-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Stråledoser og enheter» og «Naturlig stråling i Norge»
+- Store norske leksikon (snl.no) – «Halveringstid», «Karbondatering» og «Stråledose»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- IAEA (iaea.org) – International Atomic Energy Agency: Ressurser om radioaktivitet og strålemåling`
     },
   ],
   exercises: [],
@@ -4718,6 +5056,41 @@ c) **Tiltak for å redusere arbeidsrelatert dose:**
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Ioniserende stråling og celleskade**: Stråling kan skade DNA direkte eller indirekte via frie radikaler, noe som kan føre til celledød eller kreft
+- **ALARA-prinsippet**: Hold stråledosen så lav som praktisk mulig (As Low As Reasonably Achievable)
+- **Tre pilarer for strålevern**: Tid (reduser eksponering), avstand (dose synker med 1/r²) og skjerming (materialer som stopper stråling)
+- **Radon i boliger**: Norges nest største årsak til lungekreft etter røyking, med tiltaksgrense på 200 Bq/m³
+- **UV-stråling og hudkreft**: UV-A forårsaker aldring, UV-B forårsaker solbrenthet og hudkreft
+- **Medisinsk stråling**: Nytten av diagnostikk og behandling overgår nesten alltid risikoen
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| ALARA | As Low As Reasonably Achievable – grunnprinsipp for strålevern |
+| Deterministisk effekt | Garantert effekt over en terskelverdi (f.eks. strålesyke) |
+| Stokastisk effekt | Økt sannsynlighet for skade (f.eks. kreft), usikkert om den inntreffer |
+| Radon | Radioaktiv edelgass som siver inn i bygninger fra berggrunnen |
+| UV-indeks | Mål på styrken til UV-stråling fra solen |
+| Frie radikaler | Reaktive molekyler som dannes ved strålingens ionisering av vann |`
+    },
+    {
+      id: 'nat-vg1-2-6-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Radon i boliger», «UV-stråling» og «Medisinsk strålebruk»
+- WHO (who.int) – «Ionizing radiation, health effects and protective measures» og «Radon and health»
+- Kreftregisteret (kreftregisteret.no) – «Hudkreft i Norge» og «Stråling og kreftrisiko»
+- Store norske leksikon (snl.no) – «Strålevern», «Radon» og «UV-stråling»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.`
     },
   ],
   exercises: [],
@@ -5222,6 +5595,41 @@ Mange moderne systemer veksler automatisk mellom frekvensene basert på signalkv
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'nat-vg1-2-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Grunnprinsipp for trådløs kommunikasjon**: Digitalisering, modulasjon, sending/mottak via antenne, og demodulasjon/dekoding
+- **Modulasjonsmetoder**: AM (amplitude), FM (frekvens) og PM (fase) – samt avanserte digitale metoder som QAM
+- **Trådløse teknologier**: WiFi, Bluetooth, mobilnett (2G–5G) og GPS – med ulike frekvenser, rekkevidder og bruksområder
+- **Sammenhengen frekvens og rekkevidde**: Høy frekvens gir kort bølgelengde, kort rekkevidde, men høy kapasitet
+- **GPS**: Bruker trilaterasjon med signaler fra 4+ satellitter for å beregne 3D-posisjon og korrigere tidsfeil
+- **5G-teknologi**: Muliggjør høyere hastighet, lavere forsinkelse og mange flere enheter enn tidligere generasjoner
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Modulasjon | Teknikk for å «legge» informasjon på en bærebølge |
+| Bærebølge | Høyfrekvent radiobølge som transporterer informasjonen |
+| Trilaterasjon | Posisjonsbestemmelse basert på avstandsmåling til flere punkter |
+| Latency | Forsinkelse i signaloverføring (viktig for sanntidsapplikasjoner) |
+| Millimeterbølger | Bølger med bølgelengde på noen millimeter (brukt i 5G) |
+| IoT | Internet of Things – trådløs kommunikasjon mellom gjenstander |`
+    },
+    {
+      id: 'nat-vg1-2-7-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Nasjonal kommunikasjonsmyndighet, NKOM (nkom.no) – «Frekvensforvaltning», «5G i Norge» og «Trådløs kommunikasjon»
+- Store norske leksikon (snl.no) – «Radiokommunikasjon», «GPS» og «5G»
+- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
+- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
+- ESA (esa.int) – European Space Agency: «How satellite navigation works» – om GPS og Galileo`
     },
   ],
   exercises: [],

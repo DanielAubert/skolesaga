@@ -68,6 +68,19 @@ Der m = masse (kg), g = tyngdeakselerasjon (9,81 m/s²), h = høyde (m)
 Ep = 2 × 9,81 × 10 = 196 J`,
     },
     {
+      id: 'nat-vg1-10-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'En bil på 1200 kg kjører i 30 m/s. Beregn bilens kinetiske energi. Hvor høyt kunne denne energien løfte bilen hvis den ble omdannet til potensiell energi?',
+        solution: 'Ek = ½mv² = 0,5 × 1200 × 30² = 540 000 J = 540 kJ. Høyde: Ep = Ek → mgh = Ek → h = Ek/(mg) = 540 000/(1200 × 9,81) = 45,9 m ≈ 46 m.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-1-def-2',
       type: 'definition',
       title: 'Energibevaring og energioverganger',
@@ -85,6 +98,19 @@ Energi kan ikke skapes eller ødelegges, bare omdannes fra en form til en annen.
 Kjemisk energi → Termisk energi + Lysenergi
 
 **Viktig:** Ved alle energioverganger går noe energi tapt som varme til omgivelsene. Dette er ikke brudd på energibevaring - energien forsvinner ikke, men spres utover og blir mindre nyttig.`,
+    },
+    {
+      id: 'nat-vg1-10-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar energibevaringsloven med egne ord. Gi et eksempel på en energiovergang der det ser ut som energi forsvinner, og forklar hvor energien faktisk blir av.',
+        solution: 'Energibevaringsloven sier at energi ikke kan skapes eller ødelegges, bare omdannes fra en form til en annen. Total energi i et lukket system er alltid konstant. Eksempel: Når en ball spretter og til slutt stopper, ser det ut som energien forsvinner. Men den kinetiske energien omdannes til termisk energi (varme) i ballen, gulvet og luften på grunn av friksjon og deformasjon. Energien er ikke borte, bare spredt utover som varme.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-1-def-3',
@@ -112,6 +138,19 @@ Måles i watt (W). 1 W = 1 J/s
 **Kilowattime (kWh):**
 1 kWh = effekt på 1000 W i 1 time = 3,6 MJ
 Brukes til å måle strømforbruk.`,
+    },
+    {
+      id: 'nat-vg1-10-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'En varmtvannsbereder på 2000 W varmer vann i 3 timer. Hvor mye energi bruker den? Gi svaret i kWh og i MJ.',
+        solution: 'Effekt = 2000 W = 2 kW. Tid = 3 timer. Energi = P × t = 2 kW × 3 h = 6 kWh. I MJ: 6 kWh × 3,6 MJ/kWh = 21,6 MJ.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-1-example-1',
@@ -152,44 +191,30 @@ NB: Massen kanselleres ut - farten avhenger bare av høyden!`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'En bil på 1200 kg kjører i 30 m/s. Beregn bilens kinetiske energi. Hvor høyt kunne denne energien løfte bilen hvis den ble omdannet til potensiell energi?',
-        solution: 'Ek = ½mv² = 0,5 × 1200 × 30² = 540 000 J = 540 kJ. Høyde: Ep = Ek → mgh = Ek → h = Ek/(mg) = 540 000/(1200 × 9,81) = 45,9 m ≈ 46 m.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar energibevaringsloven med egne ord. Gi et eksempel på en energiovergang der det ser ut som energi forsvinner, og forklar hvor energien faktisk blir av.',
-        solution: 'Energibevaringsloven sier at energi ikke kan skapes eller ødelegges, bare omdannes fra en form til en annen. Total energi i et lukket system er alltid konstant. Eksempel: Når en ball spretter og til slutt stopper, ser det ut som energien forsvinner. Men den kinetiske energien omdannes til termisk energi (varme) i ballen, gulvet og luften på grunn av friksjon og deformasjon. Energien er ikke borte, bare spredt utover som varme.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'En varmtvannsbereder på 2000 W varmer vann i 3 timer. Hvor mye energi bruker den? Gi svaret i kWh og i MJ.',
-        solution: 'Effekt = 2000 W = 2 kW. Tid = 3 timer. Energi = P × t = 2 kW × 3 h = 6 kWh. I MJ: 6 kWh × 3,6 MJ/kWh = 21,6 MJ.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Energiformer**: Energi finnes som kinetisk, potensiell, termisk, kjemisk, elektrisk, strålings- og kjerneenergi
+- **Energibevaring**: Energi kan ikke skapes eller ødelegges, bare omdannes fra en form til en annen
+- **Kinetisk og potensiell energi**: Kan beregnes med formlene Ek = ½mv² og Ep = mgh
+- **Arbeid og effekt**: Arbeid er energioverføring (W = Fs), effekt er arbeid per tid (P = W/t)
+- **Kilowattime**: Praktisk energienhet der 1 kWh = 3,6 MJ
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Energi | Evnen til å utføre arbeid eller skape forandring, målt i joule (J) |
+| Kinetisk energi | Bevegelsesenergi, Ek = ½mv² |
+| Potensiell energi | Stillingsenergi i tyngdefelt, Ep = mgh |
+| Energibevaringsloven | Total energi i et lukket system er konstant |
+| Arbeid | Energi overført via kraft over strekning, W = Fs |
+| Effekt | Energi per tid, P = W/t, målt i watt (W) |
+| Kilowattime (kWh) | 1000 W i 1 time = 3,6 MJ |`,
     },
     // --- Samleoppgaver ---
     {
@@ -222,6 +247,17 @@ NB: Massen kanselleres ut - farten avhenger bare av høyden!`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-1-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Store norske leksikon: [Energi](https://snl.no/energi) og [Kinetisk energi](https://snl.no/kinetisk_energi)
+- NDLA Naturfag: [Energi og energiovergang](https://ndla.no/subject:naturfag)
+- Universitetet i Oslo: [Fysikkformler - energi](https://www.mn.uio.no/fysikk/)
+- NVE: [Energifakta Norge](https://energifaktanorge.no/)`,
     },
   ],
   exercises: [],
@@ -260,6 +296,19 @@ Verden trenger store mengder energi til transport, oppvarming, industri og elekt
 - Fossile ressurser er begrensede
 - Luftforurensning fra forbrenning
 - Energisikkerhet og uavhengighet`,
+    },
+    {
+      id: 'nat-vg1-10-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom fornybare og ikke-fornybare energikilder. Gi tre eksempler på hver.',
+        solution: 'Ikke-fornybare energikilder tar millioner av år å danne og finnes i begrensede mengder - de vil ta slutt. Eksempler: kull, olje, naturgass, uran. Fornybare energikilder fornyes naturlig i menneskelig tidsskala og vil ikke ta slutt. Eksempler: vannkraft, vindkraft, solenergi, bioenergi, geotermisk energi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-2-def-1',
@@ -322,6 +371,19 @@ Verden trenger store mengder energi til transport, oppvarming, industri og elekt
 - Begrenset til vulkanske områder (Island, Kenya)`,
     },
     {
+      id: 'nat-vg1-10-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Diskuter fordeler og ulemper ved vindkraft som energikilde. Vurder både miljømessige, økonomiske og sosiale aspekter.',
+        solution: 'Fordeler: Ingen CO₂-utslipp under drift, fornybar og uuttømmelig ressurs, synkende priser, kan kombineres med landbruk. Ulemper: Variabel produksjon (avhengig av vind), visuell påvirkning på landskap, støy for naboer, fugledød og påvirkning på flaggermus, behov for kraftlinjer til avsidesliggende områder. Sosiale aspekter: Lokale konflikter om utbygging, arbeidsplasser, energiuavhengighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-2-def-3',
       type: 'definition',
       title: 'Kjernekraft',
@@ -347,6 +409,19 @@ Sammenslåing av lette kjerner (hydrogen → helium). Solens energikilde. Ikke k
 Er kjernekraft en del av løsningen på klimakrisen? Noen mener ja (lav CO₂), andre mener nei (avfall, risiko, kostnad).`,
     },
     {
+      id: 'nat-vg1-10-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Diskuter om kjernekraft bør være en del av løsningen på klimakrisen. Presenter argumenter for og mot.',
+        solution: 'For kjernekraft: Svært lave CO₂-utslipp, stabil og pålitelig strømforsyning, høy energitetthet, liten arealbruk, kan erstatte kullkraftverk. Mot kjernekraft: Radioaktivt avfall som er farlig i tusenvis av år, risiko for alvorlige ulykker, høye byggekostnader og lang byggetid, uranutvinning har miljøkostnader, kan brukes til atomvåpen (spredningsfare). Konklusjon: Det finnes ikke ett riktig svar - det avhenger av hvordan man vekter ulike risikoer og verdier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-2-example-1',
       type: 'example',
       title: 'Eksempel: Sammenligning av CO₂-utslipp',
@@ -369,32 +444,6 @@ Er kjernekraft en del av løsningen på klimakrisen? Noen mener ja (lav CO₂), 
 - Norge har svært lav CO₂-intensitet i strømmen (vannkraft)`,
     },
     {
-      id: 'nat-vg1-10-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom fornybare og ikke-fornybare energikilder. Gi tre eksempler på hver.',
-        solution: 'Ikke-fornybare energikilder tar millioner av år å danne og finnes i begrensede mengder - de vil ta slutt. Eksempler: kull, olje, naturgass, uran. Fornybare energikilder fornyes naturlig i menneskelig tidsskala og vil ikke ta slutt. Eksempler: vannkraft, vindkraft, solenergi, bioenergi, geotermisk energi.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Diskuter fordeler og ulemper ved vindkraft som energikilde. Vurder både miljømessige, økonomiske og sosiale aspekter.',
-        solution: 'Fordeler: Ingen CO₂-utslipp under drift, fornybar og uuttømmelig ressurs, synkende priser, kan kombineres med landbruk. Ulemper: Variabel produksjon (avhengig av vind), visuell påvirkning på landskap, støy for naboer, fugledød og påvirkning på flaggermus, behov for kraftlinjer til avsidesliggende områder. Sosiale aspekter: Lokale konflikter om utbygging, arbeidsplasser, energiuavhengighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-10-2-ex-3',
       type: 'exercise',
       exercise: {
@@ -407,18 +456,29 @@ Er kjernekraft en del av løsningen på klimakrisen? Noen mener ja (lav CO₂), 
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-2-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Diskuter om kjernekraft bør være en del av løsningen på klimakrisen. Presenter argumenter for og mot.',
-        solution: 'For kjernekraft: Svært lave CO₂-utslipp, stabil og pålitelig strømforsyning, høy energitetthet, liten arealbruk, kan erstatte kullkraftverk. Mot kjernekraft: Radioaktivt avfall som er farlig i tusenvis av år, risiko for alvorlige ulykker, høye byggekostnader og lang byggetid, uranutvinning har miljøkostnader, kan brukes til atomvåpen (spredningsfare). Konklusjon: Det finnes ikke ett riktig svar - det avhenger av hvordan man vekter ulike risikoer og verdier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Fossile energikilder**: Kull, olje og naturgass er dannet over millioner av år og gir høye CO₂-utslipp
+- **Fornybare energikilder**: Vannkraft, vindkraft, solenergi, bioenergi og geotermisk energi fornyes naturlig
+- **Kjernekraft**: Svært lav CO₂ men utfordringer med radioaktivt avfall og risiko
+- **Norges energisituasjon**: Ca. 96 % vannkraft gir svært lav CO₂-intensitet
+- **Energiskiftet**: Overgang fra fossile til fornybare kilder er nødvendig for å begrense klimaendringer
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Fossile brensler | Kull, olje og naturgass dannet av døde organismer over millioner av år |
+| Fornybare energikilder | Energikilder som fornyes naturlig i menneskelig tidsskala |
+| Kjernekraft (fisjon) | Energi frigjort ved spalting av tunge atomkjerner |
+| Kjernefusjon | Energi frigjort ved sammenslåing av lette atomkjerner |
+| Livsløpsutslipp | Totale utslipp fra produksjon, drift og avvikling av en energikilde |
+| Energitetthet | Mengde energi per masse- eller volumenhet |`,
     },
     // --- Samleoppgaver ---
     {
@@ -446,6 +506,18 @@ Er kjernekraft en del av løsningen på klimakrisen? Noen mener ja (lav CO₂), 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-2-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NVE: [Energifakta Norge](https://energifaktanorge.no/)
+- SSB: [Energistatistikk](https://www.ssb.no/energi-og-industri)
+- Store norske leksikon: [Fornybar energi](https://snl.no/fornybar_energi)
+- IPCC: [AR6 Working Group III - Mitigation](https://www.ipcc.ch/report/ar6/wg3/)
+- Norsk Petroleumsforening / Norskpetroleum.no: [Norges energiressurser](https://www.norskpetroleum.no/)`,
     },
   ],
   exercises: [],
@@ -478,6 +550,19 @@ export const CHAPTER_NAT_VG1_10_3: TextbookChapter = {
 Menneskelige aktiviteter øker konsentrasjonen av drivhusgasser, noe som forsterker den naturlige drivhuseffekten og fører til global oppvarming.`,
     },
     {
+      id: 'nat-vg1-10-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar den naturlige drivhuseffekten steg for steg, og beskriv hvorfor den er viktig for livet på jorden.',
+        solution: '1) Sollys (kortbølget stråling) passerer gjennom atmosfæren og treffer jordoverflaten. 2) Bakken absorberer lyset og varmes opp. 3) Den varme bakken sender ut varmestråling (langbølget infrarød stråling). 4) Drivhusgasser (CO₂, H₂O, CH₄) absorberer noe av denne varmestrålingen. 5) Gassene sender strålingen i alle retninger, inkludert tilbake mot bakken. 6) Dette varmer opp atmosfæren og overflaten. Betydning: Uten drivhuseffekten ville jordens gjennomsnittstemperatur vært ca. -18°C i stedet for +15°C. Vann ville fryse og livet som vi kjenner det ville ikke eksistere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-3-def-1',
       type: 'definition',
       title: 'Drivhusgasser',
@@ -508,6 +593,19 @@ Menneskelige aktiviteter øker konsentrasjonen av drivhusgasser, noe som forster
 Måler hvor mye en gass bidrar til oppvarming sammenlignet med CO₂ over en tidsperiode.`,
     },
     {
+      id: 'nat-vg1-10-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn de fire viktigste menneskeskapte drivhusgassene og forklar for hver hvor de kommer fra.',
+        solution: '1) Karbondioksid (CO₂): Forbrenning av fossile brensler (kull, olje, gass), avskoging, sementproduksjon. 2) Metan (CH₄): Husdyrhold (drøvtyggere), rismarker, lekkasjer fra naturgass og olje, avfallsdeponier. 3) Lystgass (N₂O): Landbruk (nitrogengjødsel), forbrenning av fossile brensler, industriprosesser. 4) Fluorerte gasser (HFK, PFK, SF₆): Kjøleanlegg, klimaanlegg, isolasjonsmaterialer, industriprosesser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-3-def-2',
       type: 'definition',
       title: 'Observerte klimaendringer',
@@ -531,6 +629,19 @@ Måler hvor mye en gass bidrar til oppvarming sammenlignet med CO₂ over en tid
 - Isbreer smelter
 - Endret snøsesong
 - Påvirkning på fiske og landbruk`,
+    },
+    {
+      id: 'nat-vg1-10-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nevn tre observerte konsekvenser av klimaendringene vi allerede ser i dag, både globalt og i Norge.',
+        solution: 'Globalt: 1) Økt global gjennomsnittstemperatur med ca. 1,1°C. 2) Stigende havnivå (ca. 20 cm siden 1900). 3) Smelting av isbreer og haviser, spesielt i Arktis. 4) Hyppigere og mer intense ekstremværhendelser. 5) Surere hav og korallbleking. I Norge: 1) Raskere oppvarming enn globalt gjennomsnitt. 2) Økt nedbør, spesielt på Vestlandet. 3) Smelting av norske isbreer. 4) Kortere snøsesong og endret vintersesong. 5) Endringer i fiskebestander (nye arter trekker nordover).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-3-def-3',
@@ -562,6 +673,19 @@ Irreversible endringer som kan utløses ved viss oppvarming:
 - Permanent tap av korallrev`,
     },
     {
+      id: 'nat-vg1-10-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar is-albedo-tilbakekoblingen og hvorfor den er et eksempel på positiv tilbakekobling.',
+        solution: 'Is-albedo-tilbakekobling: Når temperaturen stiger, smelter is og snø. Hvit is og snø reflekterer ca. 80-90 % av sollyset, mens mørk bakke eller hav bare reflekterer 10-30 %. Når is erstattes av mørke flater, absorberes mer sollys, noe som gir mer oppvarming, som smelter mer is, osv. Dette er en positiv tilbakekobling fordi den forsterker den opprinnelige endringen (oppvarming fører til mer oppvarming). "Positiv" betyr her selvforsterkende, ikke at det er positivt for oss.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-3-example-1',
       type: 'example',
       title: 'Eksempel: Karbonbudsjettet',
@@ -584,57 +708,30 @@ Mengden CO₂ vi kan slippe ut og fortsatt holde oss under et gitt oppvarmingsm�
 - Forsinket handling krever brattere kutt senere
 - Hver tiendedels grad oppvarming betyr mer skade`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar den naturlige drivhuseffekten steg for steg, og beskriv hvorfor den er viktig for livet på jorden.',
-        solution: '1) Sollys (kortbølget stråling) passerer gjennom atmosfæren og treffer jordoverflaten. 2) Bakken absorberer lyset og varmes opp. 3) Den varme bakken sender ut varmestråling (langbølget infrarød stråling). 4) Drivhusgasser (CO₂, H₂O, CH₄) absorberer noe av denne varmestrålingen. 5) Gassene sender strålingen i alle retninger, inkludert tilbake mot bakken. 6) Dette varmer opp atmosfæren og overflaten. Betydning: Uten drivhuseffekten ville jordens gjennomsnittstemperatur vært ca. -18°C i stedet for +15°C. Vann ville fryse og livet som vi kjenner det ville ikke eksistere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn de fire viktigste menneskeskapte drivhusgassene og forklar for hver hvor de kommer fra.',
-        solution: '1) Karbondioksid (CO₂): Forbrenning av fossile brensler (kull, olje, gass), avskoging, sementproduksjon. 2) Metan (CH₄): Husdyrhold (drøvtyggere), rismarker, lekkasjer fra naturgass og olje, avfallsdeponier. 3) Lystgass (N₂O): Landbruk (nitrogengjødsel), forbrenning av fossile brensler, industriprosesser. 4) Fluorerte gasser (HFK, PFK, SF₆): Kjøleanlegg, klimaanlegg, isolasjonsmaterialer, industriprosesser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar is-albedo-tilbakekoblingen og hvorfor den er et eksempel på positiv tilbakekobling.',
-        solution: 'Is-albedo-tilbakekobling: Når temperaturen stiger, smelter is og snø. Hvit is og snø reflekterer ca. 80-90 % av sollyset, mens mørk bakke eller hav bare reflekterer 10-30 %. Når is erstattes av mørke flater, absorberes mer sollys, noe som gir mer oppvarming, som smelter mer is, osv. Dette er en positiv tilbakekobling fordi den forsterker den opprinnelige endringen (oppvarming fører til mer oppvarming). "Positiv" betyr her selvforsterkende, ikke at det er positivt for oss.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Nevn tre observerte konsekvenser av klimaendringene vi allerede ser i dag, både globalt og i Norge.',
-        solution: 'Globalt: 1) Økt global gjennomsnittstemperatur med ca. 1,1°C. 2) Stigende havnivå (ca. 20 cm siden 1900). 3) Smelting av isbreer og haviser, spesielt i Arktis. 4) Hyppigere og mer intense ekstremværhendelser. 5) Surere hav og korallbleking. I Norge: 1) Raskere oppvarming enn globalt gjennomsnitt. 2) Økt nedbør, spesielt på Vestlandet. 3) Smelting av norske isbreer. 4) Kortere snøsesong og endret vintersesong. 5) Endringer i fiskebestander (nye arter trekker nordover).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Drivhuseffekten**: En naturlig prosess der drivhusgasser holder på varme og gjør jorden beboelig
+- **Forsterket drivhuseffekt**: Menneskelig aktivitet øker konsentrasjonen av drivhusgasser og forsterker oppvarmingen
+- **Drivhusgasser**: CO₂, metan, lystgass og fluorerte gasser med ulik styrke og oppholdstid
+- **Observerte endringer**: 1,1°C oppvarming, issmelting, havnivåstigning, mer ekstremvær
+- **Tilbakekoblinger**: Selvforsterkende prosesser som is-albedo og permafrost-tining
+- **Karbonbudsjettet**: Begrenset mengde CO₂ vi kan slippe ut for å holde oss under oppvarmingsmålene
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Drivhuseffekten | Atmosfærens evne til å holde på varmestråling fra jorden |
+| Drivhusgasser | Gasser som absorberer varmestråling (CO₂, CH₄, N₂O, HFK) |
+| GWP | Global oppvarmingspotensial - styrken til en klimagass sammenlignet med CO₂ |
+| Positiv tilbakekobling | Selvforsterkende prosess som øker den opprinnelige endringen |
+| Vippepunkter | Terskler der irreversible endringer i klimasystemet utløses |
+| Karbonbudsjettet | Total mengde CO₂ som kan slippes ut innenfor et oppvarmingsmål |`,
     },
     // --- Samleoppgaver ---
     {
@@ -662,6 +759,18 @@ Mengden CO₂ vi kan slippe ut og fortsatt holde oss under et gitt oppvarmingsm�
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-3-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- IPCC: [Sixth Assessment Report (AR6)](https://www.ipcc.ch/assessment-report/ar6/)
+- Miljødirektoratet: [Klimaendringer og konsekvenser](https://www.miljodirektoratet.no/ansvarsomrader/klima/)
+- Meteorologisk institutt: [Klimaendringer i Norge](https://www.met.no/vaer-og-klima/klima)
+- NASA: [Climate Change Evidence](https://climate.nasa.gov/evidence/)
+- FN: [Klimakonvensjonen og Parisavtalen](https://www.fn.no/tema/klima-og-miljoe/klimaendringer)`,
     },
   ],
   exercises: [],
@@ -722,6 +831,36 @@ Energien er ikke borte, men spredt som varme i rommet. Den er ikke lenger nyttig
 Varmemotorer (f.eks. biler) har en teoretisk maksimal virkningsgrad som avhenger av temperaturforskjellen mellom varm og kald side. Ingen varmemaskin kan være 100 % effektiv.`,
     },
     {
+      id: 'nat-vg1-10-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'En bilmotor tilføres 150 kJ kjemisk energi fra bensin. Motoren har 28 % virkningsgrad. Hvor mye nyttig mekanisk energi leverer motoren, og hvor mye energi går tapt som varme?',
+        solution: 'Nyttig energi = 150 kJ × 0,28 = 42 kJ. Varmetap = 150 kJ - 42 kJ = 108 kJ. Motoren leverer 42 kJ mekanisk energi, mens 108 kJ (72 %) går tapt som varme til kjølesystem og eksos.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-10-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Sammenlign energibruken til en glødelampe (60 W, 5 % lys) og en LED-lampe som gir like mye lys (12 W, 50 % lys). Begge brukes 4 timer daglig i ett år.',
+        subTasks: [
+          { label: 'a', task: 'Beregn årlig energiforbruk for begge lampene i kWh.', solution: 'Glødelampe: 60 W × 4 t × 365 = 87 600 Wh = 87,6 kWh. LED: 12 W × 4 t × 365 = 17 520 Wh = 17,5 kWh.' },
+          { label: 'b', task: 'Beregn årlig strømkostnad ved 1,50 kr/kWh.', solution: 'Glødelampe: 87,6 × 1,50 = 131,40 kr. LED: 17,5 × 1,50 = 26,25 kr. Sparing: 105,15 kr per lampe per år.' },
+        ],
+        solution: 'a) Glødelampe: 87,6 kWh, LED: 17,5 kWh. b) Glødelampe: 131,40 kr, LED: 26,25 kr. LED-lampen sparer 80 % energi og 105 kr årlig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-4-def-2',
       type: 'definition',
       title: 'Varmepumper',
@@ -748,6 +887,19 @@ COP = Varme ut / Elektrisk energi inn
 - Luft-luft: Billigst, lavere COP i kulde
 - Luft-vann: Varmer radiator/gulvvarme
 - Bergvarme/jordvarme: Høyest COP, dyreste installasjon`,
+    },
+    {
+      id: 'nat-vg1-10-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor en varmepumpe kan ha COP over 100 %, mens dette er umulig for en motor eller en glødelampe.',
+        solution: 'En varmepumpe bryter ikke energibevaringen - den skaper ikke energi. Den bruker elektrisk energi til å flytte varme fra ett sted (ute) til et annet (inne). Med 1 kWh elektrisitet kan den flytte for eksempel 3 kWh varme fra uteluften inn i huset, og avgir totalt 4 kWh varme (1 kWh fra elektrisiteten + 3 kWh fra uteluften). COP = 4 (400 %). En motor eller lampe derimot omdanner energi fra en form til en annen, og kan aldri få ut mer nyttig energi enn det som tilføres på grunn av termodynamikkens lover.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-4-def-3',
@@ -779,6 +931,19 @@ COP = Varme ut / Elektrisk energi inn
 Når noe blir mer effektivt, bruker vi ofte mer av det. Eksempel: Mer drivstoffgjerrig bil → kjører lengre. Dette motvirker noe av gevinsten.`,
     },
     {
+      id: 'nat-vg1-10-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hva rebound-effekten (energispareparadokset) er, og gi et eksempel på hvordan det kan motvirke energisparingstiltak.',
+        solution: 'Rebound-effekten oppstår når energieffektivisering fører til økt bruk, slik at en del av besparelsen går tapt. Eksempel: En familie kjøper en mer drivstoffeffektiv bil som bruker 40 % mindre bensin per mil. Fordi det nå er billigere å kjøre, kjører de 30 % lengre distanser enn før. Nettobesparelsen blir da ikke 40 %, men mindre. Et annet eksempel: LED-lys er billigere å bruke, så folk lar lyset stå på oftere. Løsning: Kombinere effektivisering med bevissthet, priser eller reguleringer som motvirker økt forbruk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-4-example-1',
       type: 'example',
       title: 'Eksempel: Sammenligning av oppvarming',
@@ -802,61 +967,29 @@ Når noe blir mer effektivt, bruker vi ofte mer av det. Eksempel: Mer drivstoffg
 
 Dette illustrerer hvorfor varmepumper er så populære - de gir betydelig lavere strømregning.`,
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'En bilmotor tilføres 150 kJ kjemisk energi fra bensin. Motoren har 28 % virkningsgrad. Hvor mye nyttig mekanisk energi leverer motoren, og hvor mye energi går tapt som varme?',
-        solution: 'Nyttig energi = 150 kJ × 0,28 = 42 kJ. Varmetap = 150 kJ - 42 kJ = 108 kJ. Motoren leverer 42 kJ mekanisk energi, mens 108 kJ (72 %) går tapt som varme til kjølesystem og eksos.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvorfor en varmepumpe kan ha COP over 100 %, mens dette er umulig for en motor eller en glødelampe.',
-        solution: 'En varmepumpe bryter ikke energibevaringen - den skaper ikke energi. Den bruker elektrisk energi til å flytte varme fra ett sted (ute) til et annet (inne). Med 1 kWh elektrisitet kan den flytte for eksempel 3 kWh varme fra uteluften inn i huset, og avgir totalt 4 kWh varme (1 kWh fra elektrisiteten + 3 kWh fra uteluften). COP = 4 (400 %). En motor eller lampe derimot omdanner energi fra en form til en annen, og kan aldri få ut mer nyttig energi enn det som tilføres på grunn av termodynamikkens lover.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Sammenlign energibruken til en glødelampe (60 W, 5 % lys) og en LED-lampe som gir like mye lys (12 W, 50 % lys). Begge brukes 4 timer daglig i ett år.',
-        subTasks: [
-          { label: 'a', task: 'Beregn årlig energiforbruk for begge lampene i kWh.', solution: 'Glødelampe: 60 W × 4 t × 365 = 87 600 Wh = 87,6 kWh. LED: 12 W × 4 t × 365 = 17 520 Wh = 17,5 kWh.' },
-          { label: 'b', task: 'Beregn årlig strømkostnad ved 1,50 kr/kWh.', solution: 'Glødelampe: 87,6 × 1,50 = 131,40 kr. LED: 17,5 × 1,50 = 26,25 kr. Sparing: 105,15 kr per lampe per år.' },
-        ],
-        solution: 'a) Glødelampe: 87,6 kWh, LED: 17,5 kWh. b) Glødelampe: 131,40 kr, LED: 26,25 kr. LED-lampen sparer 80 % energi og 105 kr årlig.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-4-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar hva rebound-effekten (energispareparadokset) er, og gi et eksempel på hvordan det kan motvirke energisparingstiltak.',
-        solution: 'Rebound-effekten oppstår når energieffektivisering fører til økt bruk, slik at en del av besparelsen går tapt. Eksempel: En familie kjøper en mer drivstoffeffektiv bil som bruker 40 % mindre bensin per mil. Fordi det nå er billigere å kjøre, kjører de 30 % lengre distanser enn før. Nettobesparelsen blir da ikke 40 %, men mindre. Et annet eksempel: LED-lys er billigere å bruke, så folk lar lyset stå på oftere. Løsning: Kombinere effektivisering med bevissthet, priser eller reguleringer som motvirker økt forbruk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Virkningsgrad**: Andelen av tilført energi som omdannes til nyttig arbeid (η = nyttig energi / tilført energi)
+- **Energitap**: Ved alle energioverganger tapes energi som varme, i tråd med termodynamikkens 2. lov
+- **Varmepumper**: Flytter varme fra omgivelsene og kan ha COP over 100 % uten å bryte energibevaring
+- **Energieffektivisering**: Tiltak i bygninger, transport og industri som reduserer energibruk
+- **Rebound-effekten**: Effektivisering kan føre til økt bruk som delvis motvirker besparelsen
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Virkningsgrad (η) | Andel tilført energi som blir nyttig energi, i prosent |
+| Termodynamikkens 2. lov | Energi spres naturlig og blir mer uordnet |
+| COP | Coefficient of Performance - forholdet mellom avgitt varme og tilført elektrisitet |
+| Varmepumpe | Maskin som flytter varme fra kaldt til varmt sted ved hjelp av elektrisitet |
+| Rebound-effekt | Økt forbruk som følge av energieffektivisering |
+| Carnot-grensen | Teoretisk maksimal virkningsgrad for en varmemaskin |`,
     },
     // --- Samleoppgaver ---
     {
@@ -884,6 +1017,18 @@ Dette illustrerer hvorfor varmepumper er så populære - de gir betydelig lavere
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-4-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NVE: [Energimerking og energieffektivisering](https://www.nve.no/energi/energieffektivisering/)
+- Enova: [Tiltak for energisparing i boliger](https://www.enova.no/)
+- Store norske leksikon: [Virkningsgrad](https://snl.no/virkningsgrad) og [Varmepumpe](https://snl.no/varmepumpe)
+- SSB: [Energiforbruk i husholdninger](https://www.ssb.no/energi-og-industri/energi/statistikk/energiforbruk-i-husholdninger)
+- SINTEF: [Energieffektivisering i bygninger](https://www.sintef.no/)`,
     },
   ],
   exercises: [],
@@ -918,6 +1063,19 @@ Alle målinger har en grad av usikkerhet. Å forstå og kommunisere denne usikke
 Man kan være presis uten å være nøyaktig (systematisk feil), eller nøyaktig i gjennomsnitt uten å være presis (tilfeldig feil).`,
     },
     {
+      id: 'nat-vg1-10-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom nøyaktighet og presisjon med et eksempel fra skyting på blink.',
+        solution: 'Nøyaktighet handler om hvor nær man treffer sentrum (den sanne verdien). Presisjon handler om hvor tett sammen skuddene er (liten spredning). En presis, men unøyaktig skytter treffer tett samlet, men langt fra sentrum (f.eks. alle skudd i øvre venstre hjørne) - dette er en systematisk feil. En nøyaktig, men upresis skytter har skudd spredt rundt sentrum, med gjennomsnitt i sentrum, men enkeltskudd langt fra hverandre. Ideelt er man både nøyaktig og presis: alle skudd i sentrum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-5-def-1',
       type: 'definition',
       title: 'Systematiske og tilfeldige feil',
@@ -948,6 +1106,25 @@ Man kan være presis uten å være nøyaktig (systematisk feil), eller nøyaktig
 - Dokumentere og kontrollere forhold`,
     },
     {
+      id: 'nat-vg1-10-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Identifiser om følgende er systematiske eller tilfeldige feil:',
+        subTasks: [
+          { label: 'a', task: 'En vekt er feil kalibrert og viser alltid 2 g for lite', solution: 'Systematisk feil - konsekvent avvik i samme retning' },
+          { label: 'b', task: 'Ulike personer har litt ulik reaksjonstid når de starter stoppeklokken', solution: 'Tilfeldig feil - varierer tilfeldig rundt gjennomsnittet' },
+          { label: 'c', task: 'En elev leser alltid termometeret fra en vinkel som gir litt høyere verdi', solution: 'Systematisk feil (parallaksefeil) - konsekvent for høyt' },
+          { label: 'd', task: 'Temperaturen i laboratoriet varierer litt gjennom dagen', solution: 'Tilfeldig feil - påvirker målingene tilfeldig' },
+        ],
+        solution: 'a) Systematisk, b) Tilfeldig, c) Systematisk, d) Tilfeldig',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-5-def-2',
       type: 'definition',
       title: 'Gjeldende siffer og avrunding',
@@ -970,6 +1147,19 @@ Antall siffer i et tall som har betydning og er målt.
 
 **Eksempel:**
 3,24 m × 1,5 m = 4,86 m² → rundes til 4,9 m² (2 gjeldende siffer som 1,5)`,
+    },
+    {
+      id: 'nat-vg1-10-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvor mange gjeldende siffer har følgende tall? a) 0,00340  b) 5,200  c) 8,0 × 10⁵  d) 1200',
+        solution: 'a) 0,00340 har 3 gjeldende siffer (3, 4, 0 - ledende nuller teller ikke). b) 5,200 har 4 gjeldende siffer (etterfølgende nuller etter komma er gjeldende). c) 8,0 × 10⁵ har 2 gjeldende siffer. d) 1200 er tvetydig - kan være 2, 3 eller 4 gjeldende siffer. Bedre skrivemåte: 1,2 × 10³ (2), 1,20 × 10³ (3), eller 1,200 × 10³ (4).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-5-def-3',
@@ -1021,19 +1211,6 @@ Usikkerhet: 0,2 / 10 = 0,02 s
 T = 1,25 ± 0,02 s`,
     },
     {
-      id: 'nat-vg1-10-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom nøyaktighet og presisjon med et eksempel fra skyting på blink.',
-        solution: 'Nøyaktighet handler om hvor nær man treffer sentrum (den sanne verdien). Presisjon handler om hvor tett sammen skuddene er (liten spredning). En presis, men unøyaktig skytter treffer tett samlet, men langt fra sentrum (f.eks. alle skudd i øvre venstre hjørne) - dette er en systematisk feil. En nøyaktig, men upresis skytter har skudd spredt rundt sentrum, med gjennomsnitt i sentrum, men enkeltskudd langt fra hverandre. Ideelt er man både nøyaktig og presis: alle skudd i sentrum.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-10-5-ex-2',
       type: 'exercise',
       exercise: {
@@ -1046,37 +1223,30 @@ T = 1,25 ± 0,02 s`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Identifiser om følgende er systematiske eller tilfeldige feil:',
-        subTasks: [
-          { label: 'a', task: 'En vekt er feil kalibrert og viser alltid 2 g for lite', solution: 'Systematisk feil - konsekvent avvik i samme retning' },
-          { label: 'b', task: 'Ulike personer har litt ulik reaksjonstid når de starter stoppeklokken', solution: 'Tilfeldig feil - varierer tilfeldig rundt gjennomsnittet' },
-          { label: 'c', task: 'En elev leser alltid termometeret fra en vinkel som gir litt høyere verdi', solution: 'Systematisk feil (parallaksefeil) - konsekvent for høyt' },
-          { label: 'd', task: 'Temperaturen i laboratoriet varierer litt gjennom dagen', solution: 'Tilfeldig feil - påvirker målingene tilfeldig' },
-        ],
-        solution: 'a) Systematisk, b) Tilfeldig, c) Systematisk, d) Tilfeldig',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvor mange gjeldende siffer har følgende tall? a) 0,00340  b) 5,200  c) 8,0 × 10⁵  d) 1200',
-        solution: 'a) 0,00340 har 3 gjeldende siffer (3, 4, 0 - ledende nuller teller ikke). b) 5,200 har 4 gjeldende siffer (etterfølgende nuller etter komma er gjeldende). c) 8,0 × 10⁵ har 2 gjeldende siffer. d) 1200 er tvetydig - kan være 2, 3 eller 4 gjeldende siffer. Bedre skrivemåte: 1,2 × 10³ (2), 1,20 × 10³ (3), eller 1,200 × 10³ (4).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Usikkerhet**: Alle målinger har usikkerhet som må vurderes og kommuniseres
+- **Nøyaktighet vs. presisjon**: Nøyaktighet er nærhet til sann verdi, presisjon er reproduserbarhet
+- **Feiltyper**: Systematiske feil gir konsekvent avvik, tilfeldige feil varierer rundt sann verdi
+- **Gjeldende siffer**: Antall siffer med reell måleinformasjon i et tall
+- **Usikkerhetsangivelse**: Kan uttrykkes som absolutt (± enhet) eller relativ (%)
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Nøyaktighet | Hvor nær en måling er den sanne verdien |
+| Presisjon | Hvor tett gjentatte målinger ligger sammen |
+| Systematisk feil | Konsekvent avvik i én retning, kan ikke reduseres ved flere målinger |
+| Tilfeldig feil | Tilfeldig variasjon rundt sann verdi, reduseres ved gjennomsnitt |
+| Gjeldende siffer | Antall meningsfulle siffer i en måling |
+| Absolutt usikkerhet | Usikkerhet oppgitt i målingens enhet (f.eks. ± 0,1 g) |
+| Relativ usikkerhet | Usikkerhet oppgitt som prosent av målt verdi |`,
     },
     // --- Samleoppgaver ---
     {
@@ -1110,6 +1280,17 @@ T = 1,25 ± 0,02 s`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-5-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- NDLA: [Usikkerhet i målinger](https://ndla.no/subject:naturfag)
+- Store norske leksikon: [Måleusikkerhet](https://snl.no/m%C3%A5leusikkerhet)
+- Universitetet i Oslo: [Feilkilder og usikkerhet i fysikkforsøk](https://www.mn.uio.no/fysikk/)
+- UDIR: [Kompetansemål for naturfag - utforskende arbeid](https://www.udir.no/lk20/nat01-04)`,
+    },
   ],
   exercises: [],
 };
@@ -1139,6 +1320,19 @@ Naturvitenskap og teknologi henger tett sammen. Vitenskapelig kunnskap danner gr
 - Den har både tilsiktede og utilsiktede konsekvenser
 - Bruken avhenger av sosiale, økonomiske og politiske forhold
 - Teknologivalg er også verdivalg`,
+    },
+    {
+      id: 'nat-vg1-10-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Gi tre eksempler på hvordan vitenskapelige oppdagelser har ført til teknologisk utvikling, og tre eksempler på hvordan ny teknologi har gjort ny vitenskap mulig.',
+        solution: 'Vitenskap → teknologi: 1) Forståelse av elektromagnetisme → elektromotorer, generatorer, strømnett. 2) Oppdagelsen av antibiotika (penicillin) → medisinsk behandling av infeksjoner. 3) Kvantemekanikk → transistorer og datamaskiner. Teknologi → vitenskap: 1) Teleskoper → oppdagelse av planeter, galakser, universets struktur. 2) DNA-sekvenseringsteknologi → genomforskning og forståelse av evolusjon. 3) Satellitter → klimaforskning og værprognoser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-6-def-1',
@@ -1185,6 +1379,32 @@ Ulike grupper har ulike interesser: forskere, industri, forbrukere, miljøorgani
 - Trusler: Havforurensning, mikroplast, helsepåvirkning`,
     },
     {
+      id: 'nat-vg1-10-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gjennomfør en enkel SWOT-analyse av elektriske biler (elbiler) sammenlignet med bensin/dieselbiler.',
+        solution: 'Styrker: Null utslipp under kjøring, lavere driftskostnader, stille, rask akselerasjon, kan lades hjemme. Svakheter: Høyere innkjøpspris, begrenset rekkevidde, lang ladetid, behov for ladeinfrastruktur. Muligheter: Fallende batteripriser, fornybar strøm, energilagring til nettet, ny industri. Trusler: Produksjon av batterier krever sjeldne mineraler (gruvedrift), behov for mer strømproduksjon, gjenvinning av batterier, arbeidsplasser i fossilindustrien.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-10-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-6-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Diskuter påstanden: "Teknologi er nøytral - det kommer an på hvordan vi bruker den."',
+        solution: 'Påstanden er delvis riktig, men forenklet. Bruken av teknologi er viktig - et kjøkkenkniv kan brukes til matlaging eller vold. Men teknologi er ikke helt nøytral: Den utvikles av mennesker med verdier, interesser og makt. Designvalg bestemmer hva som er mulig og hva som er vanskelig. Noen teknologier har innebygde tendenser (sosiale medier designet for avhengighet, biler designet for hastighet). Fordeling av teknologi er ujevn (hvem har tilgang?). Teknologivalg lukker noen muligheter og åpner andre. Konklusjon: Både teknologiens design og dens bruk er viktig for konsekvensene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-6-def-3',
       type: 'definition',
       title: 'Bærekraftig teknologiutvikling',
@@ -1207,32 +1427,6 @@ Ved usikkerhet om konsekvensene, handle med forsiktighet.
 Teknologivalg i Norge påvirker resten av verden (utvinning av råvarer, produksjon, avfallshåndtering).`,
     },
     {
-      id: 'nat-vg1-10-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Gi tre eksempler på hvordan vitenskapelige oppdagelser har ført til teknologisk utvikling, og tre eksempler på hvordan ny teknologi har gjort ny vitenskap mulig.',
-        solution: 'Vitenskap → teknologi: 1) Forståelse av elektromagnetisme → elektromotorer, generatorer, strømnett. 2) Oppdagelsen av antibiotika (penicillin) → medisinsk behandling av infeksjoner. 3) Kvantemekanikk → transistorer og datamaskiner. Teknologi → vitenskap: 1) Teleskoper → oppdagelse av planeter, galakser, universets struktur. 2) DNA-sekvenseringsteknologi → genomforskning og forståelse av evolusjon. 3) Satellitter → klimaforskning og værprognoser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gjennomfør en enkel SWOT-analyse av elektriske biler (elbiler) sammenlignet med bensin/dieselbiler.',
-        solution: 'Styrker: Null utslipp under kjøring, lavere driftskostnader, stille, rask akselerasjon, kan lades hjemme. Svakheter: Høyere innkjøpspris, begrenset rekkevidde, lang ladetid, behov for ladeinfrastruktur. Muligheter: Fallende batteripriser, fornybar strøm, energilagring til nettet, ny industri. Trusler: Produksjon av batterier krever sjeldne mineraler (gruvedrift), behov for mer strømproduksjon, gjenvinning av batterier, arbeidsplasser i fossilindustrien.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-10-6-ex-3',
       type: 'exercise',
       exercise: {
@@ -1245,18 +1439,29 @@ Teknologivalg i Norge påvirker resten av verden (utvinning av råvarer, produks
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummering ---
     {
-      id: 'nat-vg1-10-6-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-6-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Diskuter påstanden: "Teknologi er nøytral - det kommer an på hvordan vi bruker den."',
-        solution: 'Påstanden er delvis riktig, men forenklet. Bruken av teknologi er viktig - et kjøkkenkniv kan brukes til matlaging eller vold. Men teknologi er ikke helt nøytral: Den utvikles av mennesker med verdier, interesser og makt. Designvalg bestemmer hva som er mulig og hva som er vanskelig. Noen teknologier har innebygde tendenser (sosiale medier designet for avhengighet, biler designet for hastighet). Fordeling av teknologi er ujevn (hvem har tilgang?). Teknologivalg lukker noen muligheter og åpner andre. Konklusjon: Både teknologiens design og dens bruk er viktig for konsekvensene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+      id: 'nat-vg1-10-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Samspillet mellom vitenskap og teknologi**: Vitenskap gir grunnlag for teknologi, og teknologi muliggjør ny vitenskap
+- **Teknologivurdering**: Systematisk vurdering av en teknologis virkninger på samfunn, miljø og individ
+- **SWOT-analyse**: Verktøy for å vurdere styrker, svakheter, muligheter og trusler ved en teknologi
+- **Bærekraftig utvikling**: Teknologi må vurderes ut fra miljømessige, sosiale og økonomiske dimensjoner
+- **Sirkulær økonomi**: Holde ressurser i bruk lengst mulig gjennom gjenbruk og resirkulering
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Teknologivurdering | Systematisk vurdering av en teknologis konsekvenser |
+| SWOT-analyse | Rammeverk: Styrker, Svakheter, Muligheter, Trusler |
+| Bærekraftig utvikling | Dekke dagens behov uten å ødelegge for fremtidige generasjoner |
+| Sirkulær økonomi | Ressurser holdes i kretsløp gjennom gjenbruk og resirkulering |
+| Føre-var-prinsippet | Handle forsiktig ved usikkerhet om konsekvenser |
+| Interessenter | Ulike grupper som påvirkes av en teknologi |`,
     },
     // --- Samleoppgaver ---
     {
@@ -1284,6 +1489,18 @@ Teknologivalg i Norge påvirker resten av verden (utvinning av råvarer, produks
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-6-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- Teknologirådet: [Teknologivurdering for Stortinget](https://teknologiradet.no/)
+- FN: [Bærekraftsmålene](https://www.fn.no/om-fn/fns-baerekraftsmaal)
+- Miljødirektoratet: [Sirkulær økonomi](https://www.miljodirektoratet.no/ansvarsomrader/avfall/sirkular-okonomi/)
+- Store norske leksikon: [Bærekraftig utvikling](https://snl.no/b%C3%A6rekraftig_utvikling)
+- NDLA: [Teknologi og samfunn](https://ndla.no/subject:naturfag)`,
     },
   ],
   exercises: [],
@@ -1321,6 +1538,19 @@ I et demokrati må borgere og politikere ta beslutninger om kompliserte saker so
 At 97 % av klimaforskere mener at klimaendringene er menneskeskapte, sier oss hva som er sannsynlig. Hvordan vi skal handle, er et politisk og etisk spørsmål.`,
     },
     {
+      id: 'nat-vg1-10-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom vitenskapens og politikkens rolle i å håndtere klimaendringer.',
+        solution: 'Vitenskapens rolle: Samle observasjoner og data om klimaet, modellere hvordan klimasystemet fungerer, forutsi konsekvenser av ulike utslippsnivåer, utvikle teknologier for lavutslippssamfunnet, og vurdere effekten av tiltak. Politikkens rolle: Sette mål for utslippskutt basert på verdivalg (hvor mye risiko godtar vi?), vedta lover og avgifter, fordele byrder mellom land, sektorer og generasjoner, prioritere mellom klimatiltak og andre behov. Vitenskap forteller oss hva som sannsynligvis skjer; politikken bestemmer hva vi gjør med det.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-7-def-1',
       type: 'definition',
       title: 'Vitenskapelig usikkerhet i samfunnsdebatten',
@@ -1345,6 +1575,19 @@ Når det store flertallet av eksperter, basert på mange uavhengige studier, er 
 
 **Forsiktighetsprinsippet:**
 Ved usikkerhet om alvorlige konsekvenser, handle forsiktig selv uten fullstendig kunnskap.`,
+    },
+    {
+      id: 'nat-vg1-10-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hva vitenskapelig konsensus betyr, og hvorfor det er viktig å skille mellom konsensus og enkeltstudier.',
+        solution: 'Vitenskapelig konsensus betyr at det store flertallet av eksperter på et felt, basert på mange uavhengige studier over tid, er enige om en konklusjon. Enkeltstudier kan ha feil, tilfeldige resultater, eller dekke bare en del av bildet. Konsensus oppstår når mange studier, gjort med ulike metoder av ulike forskere, peker i samme retning. Eksempel: Én studie som viser at en vaksine har bivirkninger veier lite mot tusenvis av studier som viser at den er trygg. Å fokusere på enkeltstudier som motsier konsensus er ofte cherrypicking og kan villede folk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'nat-vg1-10-7-def-2',
@@ -1376,6 +1619,19 @@ Evnen til å vurdere påstander, argumenter og bevis på en systematisk måte.
 - Oppslagsverk som Store Norske Leksikon`,
     },
     {
+      id: 'nat-vg1-10-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-10-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'En politiker sier: "Forskerne er uenige om klimaendringene, så vi bør vente med å handle til vi vet mer." Vurder dette argumentet kritisk.',
+        solution: 'Argumentet er problematisk av flere grunner: 1) Det er misvisende om enigheten - over 97 % av klimaforskere er enige om at klimaendringene er menneskeskapte. Uenighet finnes om detaljer og konsekvenser, ikke om hovedbildet. 2) Det misforstår vitenskapelig usikkerhet - all vitenskap har usikkerhet, men det betyr ikke at vi ikke kan handle. 3) Det ignorerer forsiktighetsprinsippet - når konsekvensene av å ta feil er alvorlige og irreversible, bør vi handle forsiktig selv med usikkerhet. 4) Det er et forsinkelsesargument - vi vet nok til å handle, og å vente gjør problemet verre. Å kreve "mer forskning" kan være en strategi for å unngå upopulære beslutninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'nat-vg1-10-7-def-3',
       type: 'definition',
       title: 'Vitenskap og verdier',
@@ -1402,45 +1658,6 @@ Vitenskap kan fortelle oss at vi KAN redigere gener i mennesker.
 Vitenskap kan IKKE fortelle oss om vi BØR gjøre det - det er et etisk og politisk spørsmål.`,
     },
     {
-      id: 'nat-vg1-10-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom vitenskapens og politikkens rolle i å håndtere klimaendringer.',
-        solution: 'Vitenskapens rolle: Samle observasjoner og data om klimaet, modellere hvordan klimasystemet fungerer, forutsi konsekvenser av ulike utslippsnivåer, utvikle teknologier for lavutslippssamfunnet, og vurdere effekten av tiltak. Politikkens rolle: Sette mål for utslippskutt basert på verdivalg (hvor mye risiko godtar vi?), vedta lover og avgifter, fordele byrder mellom land, sektorer og generasjoner, prioritere mellom klimatiltak og andre behov. Vitenskap forteller oss hva som sannsynligvis skjer; politikken bestemmer hva vi gjør med det.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva vitenskapelig konsensus betyr, og hvorfor det er viktig å skille mellom konsensus og enkeltstudier.',
-        solution: 'Vitenskapelig konsensus betyr at det store flertallet av eksperter på et felt, basert på mange uavhengige studier over tid, er enige om en konklusjon. Enkeltstudier kan ha feil, tilfeldige resultater, eller dekke bare en del av bildet. Konsensus oppstår når mange studier, gjort med ulike metoder av ulike forskere, peker i samme retning. Eksempel: Én studie som viser at en vaksine har bivirkninger veier lite mot tusenvis av studier som viser at den er trygg. Å fokusere på enkeltstudier som motsier konsensus er ofte cherrypicking og kan villede folk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'nat-vg1-10-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'nat-vg1-10-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'En politiker sier: "Forskerne er uenige om klimaendringene, så vi bør vente med å handle til vi vet mer." Vurder dette argumentet kritisk.',
-        solution: 'Argumentet er problematisk av flere grunner: 1) Det er misvisende om enigheten - over 97 % av klimaforskere er enige om at klimaendringene er menneskeskapte. Uenighet finnes om detaljer og konsekvenser, ikke om hovedbildet. 2) Det misforstår vitenskapelig usikkerhet - all vitenskap har usikkerhet, men det betyr ikke at vi ikke kan handle. 3) Det ignorerer forsiktighetsprinsippet - når konsekvensene av å ta feil er alvorlige og irreversible, bør vi handle forsiktig selv med usikkerhet. 4) Det er et forsinkelsesargument - vi vet nok til å handle, og å vente gjør problemet verre. Å kreve "mer forskning" kan være en strategi for å unngå upopulære beslutninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'nat-vg1-10-7-ex-4',
       type: 'exercise',
       exercise: {
@@ -1452,6 +1669,30 @@ Vitenskap kan IKKE fortelle oss om vi BØR gjøre det - det er et etisk og polit
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Oppsummering ---
+    {
+      id: 'nat-vg1-10-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Vitenskapens og politikkens roller**: Vitenskap beskriver og forklarer, politikken bestemmer mål og verdivalg
+- **Vitenskapelig konsensus**: Bred enighet blant eksperter basert på mange uavhengige studier
+- **Kritisk tenkning**: Systematisk vurdering av påstander, argumenter og bevis
+- **Kildekritikk**: Evnen til å identifisere pålitelig informasjon og gjenkjenne feilinformasjon
+- **Vitenskap og verdier**: Forskning er ikke helt verdifri - spørsmål, metoder og tolkning påvirkes av verdier
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Vitenskapelig konsensus | Bred enighet blant eksperter basert på mange studier |
+| Kritisk tenkning | Systematisk vurdering av påstander og argumenter |
+| Kildekritikk | Evne til å vurdere påliteligheten til informasjonskilder |
+| Forsiktighetsprinsippet | Handle forsiktig ved usikkerhet om alvorlige konsekvenser |
+| Fagfellevurdering | Kvalitetskontroll der eksperter vurderer andres forskning |
+| Cherrypicking | Selektiv bruk av data som støtter en bestemt konklusjon |`,
     },
     // --- Samleoppgaver ---
     {
@@ -1479,6 +1720,19 @@ Vitenskap kan IKKE fortelle oss om vi BØR gjøre det - det er et etisk og polit
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- Kilder ---
+    {
+      id: 'nat-vg1-10-7-kilder',
+      type: 'text',
+      content: `### Kilder og videre lesning
+
+- IPCC: [Klimapanelets rapporter](https://www.ipcc.ch/)
+- FHI: [Folkehelseinstituttet - Vaksiner](https://www.fhi.no/sv/vaksine/)
+- Store norske leksikon: [Vitenskapsteori](https://snl.no/vitenskapsteori)
+- UDIR: [Kompetansemål for naturfag - kritisk tenkning](https://www.udir.no/lk20/nat01-04)
+- Forskningsrådet: [Forskning og samfunn](https://www.forskningsradet.no/)
+- Faktisk.no: [Norsk faktasjekktjeneste](https://www.faktisk.no/)`,
     },
   ],
   exercises: [],
