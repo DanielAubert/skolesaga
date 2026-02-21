@@ -398,6 +398,31 @@ else:
 \`\`\``,
       },
     },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-3-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Variabler** er navn som refererer til verdier i minnet, og opprettes med \`=\`
+- **Datatyper** i Python inkluderer \`int\` (heltall), \`float\` (desimaltall), \`str\` (tekst) og \`bool\` (sant/usant)
+- **Aritmetiske operatorer** (\`+\`, \`-\`, \`*\`, \`/\`, \`//\`, \`%\`, \`**\`) brukes til beregninger
+- **Sammenligningsoperatorer** (\`==\`, \`!=\`, \`<\`, \`>\`) gir boolske verdier
+- **Typekonvertering** med \`int()\`, \`float()\` og \`str()\` lar deg endre datatype
+- **Input** fra brukeren leses med \`input()\` og returnerer alltid en streng
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Variabel | Navn som peker til en verdi i minnet |
+| Datatype | Kategorien en verdi tilhører (int, float, str, bool) |
+| Operator | Symbol som utfører en operasjon (+, -, *, /) |
+| Tilordning | Å gi en variabel en verdi med = |
+| Typekonvertering | Endre en verdi fra en datatype til en annen |`,
+    },
   ],
   exercises: [],
   keyTerms: [
@@ -856,6 +881,32 @@ Output: \`2 3 5 7 11 13 17 19 23 29 31 37 41 43 47\``,
         hints: ['Tenk på hva `range(i + 1)` gir for i=0, i=1 og i=2.'],
         solution: 'Når i=0: `range(1)` gir 1 print. Når i=1: `range(2)` gir 2 prints. Når i=2: `range(3)` gir 3 prints. Totalt: 1 + 2 + 3 = **6** ganger.',
       },
+    },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-3-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **If-setninger** lar deg styre programflyten basert på betingelser
+- **Elif** og **else** gir flere forgreninger i beslutningslogikken
+- **For-løkker** med \`range()\` gjentar kode et bestemt antall ganger
+- **While-løkker** gjentar kode så lenge en betingelse er sann
+- **Break** avbryter en løkke, mens **continue** hopper til neste iterasjon
+- **Nøstede løkker** er løkker inne i andre løkker, nyttig for tabeller og matriser
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| If-setning | Utfører kode kun når en betingelse er sann |
+| For-løkke | Itererer over en sekvens eller et bestemt antall ganger |
+| While-løkke | Gjentar kode så lenge betingelsen holder |
+| Break | Avbryter en løkke umiddelbart |
+| Continue | Hopper til neste iterasjon |
+| Nøstet løkke | En løkke inne i en annen løkke |`,
     },
   ],
   exercises: [],

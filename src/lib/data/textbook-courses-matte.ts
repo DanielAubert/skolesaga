@@ -2596,7 +2596,7 @@ export const COURSE_1P: TextbookCourse = {
       description: 'Sannsynlighet for sammensatte hendelser.',
       estimatedMinutes: 50,
       exerciseCount: 1,
-      topics: ['Sammensatte hendelser', 'Og-sannsynlighet', 'Eller-sannsynlighet', 'Tredjagram'],
+      topics: ['Sammensatte hendelser', 'Og-sannsynlighet', 'Eller-sannsynlighet', 'Trediagram'],
       prerequisites: ['1p-6-1'],
       coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.webp',
       wip: true,

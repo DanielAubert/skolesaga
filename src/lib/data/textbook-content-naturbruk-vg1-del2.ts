@@ -2199,60 +2199,60 @@ export const CHAPTER_NATURBRUK_VG1_4_1: TextbookChapter = {
     {
       id: 'naturbruk-vg1-4-1-intro',
       type: 'text',
-      content: `## Dyrevelferd - a ivareta dyras behov
+      content: `## Dyrevelferd - å ivareta dyras behov
 
 Dyrevelferd handler om hvordan dyr har det - deres fysiske og mentale tilstand. God dyrevelferd betyr at dyra er friske, har det de trenger, og kan utfolde naturlig atferd. I Norge har vi strenge krav til dyrehold, og dyrevelferd er en viktig del av all husdyrproduksjon.
 
 **Hvorfor er dyrevelferd viktig?**
-- Etisk ansvar for dyr i var varetekt
-- Friske, fornoyde dyr produserer bedre
+- Etisk ansvar for dyr i vår varetekt
+- Friske, fornøyde dyr produserer bedre
 - Forbrukere forventer god dyrevelferd
-- Lovpalagt gjennom dyrevelferdsloven
-- Del av barekraftig matproduksjon`,
+- Lovpålagt gjennom dyrevelferdsloven
+- Del av bærekraftig matproduksjon`,
     },
     {
       id: 'naturbruk-vg1-4-1-def-1',
       type: 'definition',
       title: 'Dyrevelferd',
-      content: `Dyrevelferd beskriver dyrets tilstand over tid - hvordan det har det fysisk og mentalt. God dyrevelferd innebarer at dyret er friskt, har tilgang pa mat, vann og ly, kan utfore naturlig atferd, og ikke opplever frykt, smerte eller stress. Dyrevelferd vurderes ut fra dyrets perspektiv.`,
+      content: `Dyrevelferd beskriver dyrets tilstand over tid - hvordan det har det fysisk og mentalt. God dyrevelferd innebærer at dyret er friskt, har tilgang på mat, vann og ly, kan utføre naturlig atferd, og ikke opplever frykt, smerte eller stress. Dyrevelferd vurderes ut fra dyrets perspektiv.`,
     },
     {
       id: 'naturbruk-vg1-4-1-text-1',
       type: 'text',
       content: `## De fem friheter
 
-De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utviklet i Storbritannia pa 1960-tallet. De beskriver minimumskrav for god dyrevelferd:
+De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utviklet i Storbritannia på 1960-tallet. De beskriver minimumskrav for god dyrevelferd:
 
-**1. Frihet fra sult og torst**
+**1. Frihet fra sult og tørst**
 - Tilgang til friskt vann
-- Tilstrekkelig og riktig for
-- Foring tilpasset dyrets behov
+- Tilstrekkelig og riktig fôr
+- Fôring tilpasset dyrets behov
 
 **2. Frihet fra ubehag**
-- Egnet miljo med ly og hvileomrade
+- Egnet miljø med ly og hvileområde
 - Riktig temperatur og ventilasjon
-- Rent og tort underlag
+- Rent og tørt underlag
 
 **3. Frihet fra smerte, skade og sykdom**
 - Forebygging av sykdom
 - Rask behandling ved behov
-- Tilgang til veterinaer
+- Tilgang til veterinær
 
-**4. Frihet til a utove normal atferd**
+**4. Frihet til å utøve normal atferd**
 - Tilstrekkelig plass
 - Mulighet for sosial kontakt
-- Berikelse av miljoet
+- Berikelse av miljøet
 
 **5. Frihet fra frykt og stress**
-- Unnga situasjoner som skaper frykt
-- Skansom handtering
+- Unngå situasjoner som skaper frykt
+- Skånsom håndtering
 - Forutsigbare rutiner`,
     },
     {
       id: 'naturbruk-vg1-4-1-def-2',
       type: 'definition',
       title: 'Dyrevelferdsloven',
-      content: `Dyrevelferdsloven (Lov om dyrevelferd) er den norske loven som regulerer behandling av dyr. Loven slar fast at dyr har egenverdi, at de skal behandles godt og beskyttes mot fare for unodige pakjenninger og belastninger, og at de skal holdes i et godt miljo tilpasset artens behov.`,
+      content: `Dyrevelferdsloven (Lov om dyrevelferd) er den norske loven som regulerer behandling av dyr. Loven slår fast at dyr har egenverdi, at de skal behandles godt og beskyttes mot fare for unødige påkjenninger og belastninger, og at de skal holdes i et godt miljø tilpasset artens behov.`,
     },
     {
       id: 'naturbruk-vg1-4-1-text-2',
@@ -2263,26 +2263,26 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
 - Dyr har egenverdi uavhengig av nytteverdi
 - Dyr skal behandles godt og beskyttes
 - Dyreeier har ansvar for dyras velferd
-- Dyr skal ikke utsettes for unodige pakjenninger
+- Dyr skal ikke utsettes for unødige påkjenninger
 
 **Krav til dyrehold:**
 - Tilsyn med dyr minst en gang daglig
-- Tilstrekkelig for, vann og stell
+- Tilstrekkelig fôr, vann og stell
 - Egnet oppholdssted
-- Nodvendig veterinaerbehandling
+- Nødvendig veterinærbehandling
 - Kompetanse hos dyreeier
 
 **Mattilsynets rolle:**
-- Forer tilsyn med dyrehold
-- Kan gi palegg og vedtak
-- Kan frata dyr ved alvorlig vanskjotsel
-- Behandler varsler om darlig dyrehold`,
+- Fører tilsyn med dyrehold
+- Kan gi pålegg og vedtak
+- Kan frata dyr ved alvorlig vanskjøtsel
+- Behandler varsler om dårlig dyrehold`,
     },
     {
       id: 'naturbruk-vg1-4-1-def-3',
       type: 'definition',
       title: 'Egenverdi',
-      content: `Egenverdi betyr at noe har verdi i seg selv, uavhengig av nytten det har for andre. Dyrevelferdsloven slar fast at dyr har egenverdi - de har verdi bare ved a eksistere, ikke bare som ressurs for mennesker. Dette er et viktig etisk prinsipp som pavirker hvordan vi skal behandle dyr.`,
+      content: `Egenverdi betyr at noe har verdi i seg selv, uavhengig av nytten det har for andre. Dyrevelferdsloven slår fast at dyr har egenverdi - de har verdi bare ved å eksistere, ikke bare som ressurs for mennesker. Dette er et viktig etisk prinsipp som påvirker hvordan vi skal behandle dyr.`,
     },
     {
       id: 'naturbruk-vg1-4-1-ex-1',
@@ -2291,8 +2291,8 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         id: 'naturbruk-vg1-4-1-ex-1',
         number: '1',
         type: 'classic',
-        task: 'List opp de fem friheter og forklar kort hva hver av dem innebarer.',
-        solution: '1) Frihet fra sult og torst - tilgang til nok mat og vann. 2) Frihet fra ubehag - egnet miljo med ly og hvileomrade. 3) Frihet fra smerte, skade og sykdom - forebygging og behandling. 4) Frihet til a utove normal atferd - plass og mulighet for naturlig atferd. 5) Frihet fra frykt og stress - skansom handtering og trygge forhold.',
+        task: 'List opp de fem friheter og forklar kort hva hver av dem innebærer.',
+        solution: '1) Frihet fra sult og tørst - tilgang til nok mat og vann. 2) Frihet fra ubehag - egnet miljø med ly og hvileområde. 3) Frihet fra smerte, skade og sykdom - forebygging og behandling. 4) Frihet til å utøve normal atferd - plass og mulighet for naturlig atferd. 5) Frihet fra frykt og stress - skånsom håndtering og trygge forhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2306,12 +2306,12 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         type: 'multiple-choice',
         task: 'Hva menes med at dyr har egenverdi?',
         options: [
-          { id: 'a', text: 'At dyr har okonomisk verdi', isCorrect: false },
+          { id: 'a', text: 'At dyr har økonomisk verdi', isCorrect: false },
           { id: 'b', text: 'At dyr har verdi i seg selv, uavhengig av nytte', isCorrect: true },
           { id: 'c', text: 'At dyr eier seg selv', isCorrect: false },
           { id: 'd', text: 'At dyr er like mye verdt som mennesker', isCorrect: false },
         ],
-        solution: 'Egenverdi betyr at dyr har verdi i seg selv, bare ved a eksistere, ikke bare som ressurs for mennesker.',
+        solution: 'Egenverdi betyr at dyr har verdi i seg selv, bare ved å eksistere, ikke bare som ressurs for mennesker.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2324,7 +2324,7 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         number: '3',
         type: 'classic',
         task: 'Hva er Mattilsynets rolle i forhold til dyrevelferd?',
-        solution: 'Mattilsynet forer tilsyn med dyrehold i Norge. De inspiserer garder, kan gi palegg og vedtak ved brudd pa reglene, kan ta dyr fra eier ved alvorlig vanskjotsel, og behandler varsler om darlig dyrehold.',
+        solution: 'Mattilsynet fører tilsyn med dyrehold i Norge. De inspiserer gårder, kan gi pålegg og vedtak ved brudd på reglene, kan ta dyr fra eier ved alvorlig vanskjøtsel, og behandler varsler om dårlig dyrehold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2332,8 +2332,8 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
     {
       id: 'naturbruk-vg1-4-1-tip-1',
       type: 'tip',
-      title: 'Varsle om darlig dyrehold',
-      content: `Hvis du ser dyr som lider eller ikke far stell, kan du varsle Mattilsynet. De har en egen varslingstelefon og nettskjema. Du kan vaere anonym. Varsling er viktig for a hjelpe dyr som ikke kan hjelpe seg selv, og det er ikke det samme som a sladre - det er a ta ansvar.`,
+      title: 'Varsle om dårlig dyrehold',
+      content: `Hvis du ser dyr som lider eller ikke får stell, kan du varsle Mattilsynet. De har en egen varslingstelefon og nettskjema. Du kan være anonym. Varsling er viktig for å hjelpe dyr som ikke kan hjelpe seg selv, og det er ikke det samme som å sladre - det er å ta ansvar.`,
     },
     {
       id: 'naturbruk-vg1-4-1-example-1',
@@ -2342,20 +2342,20 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
       problem: 'Hvordan kan du vurdere om en besetning med melkekyr oppfyller de fem friheter?',
       solution: `**Vurdering av de fem friheter for melkekyr:**
 
-**1. Frihet fra sult og torst:**
+**1. Frihet fra sult og tørst:**
 - Er det nok drikkenipler/kar?
 - Er vannet rent og friskt?
-- Far alle kyr tilgang til forbrettet?
+- Får alle kyr tilgang til fôrbrettet?
 
 **2. Frihet fra ubehag:**
-- Er fjoset rent og tort?
-- Er det nok plass i liggebasene?
+- Er fjøset rent og tørt?
+- Er det nok plass i liggebåsene?
 - Er temperaturen behagelig?
 
 **3. Frihet fra smerte, skade og sykdom:**
-- Har kyrne skader eller sar?
+- Har kyrne skader eller sår?
 - Er det tegn til halthet?
-- Far syke dyr behandling?
+- Får syke dyr behandling?
 
 **4. Frihet til normal atferd:**
 - Kan kyrne bevege seg fritt?
@@ -2363,8 +2363,8 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
 - Har de tilgang til beite?
 
 **5. Frihet fra frykt og stress:**
-- Hvordan reagerer kyrne pa mennesker?
-- Er handteringen rolig?`,
+- Hvordan reagerer kyrne på mennesker?
+- Er håndteringen rolig?`,
     },
     // --- Samleoppgaver ---
     {
@@ -2374,7 +2374,7 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         id: 'naturbruk-vg1-4-1-ex-4',
         number: '4',
         type: 'multiple-choice',
-        task: 'Hvor ofte skal husdyr ha tilsyn ifolge dyrevelferdsloven?',
+        task: 'Hvor ofte skal husdyr ha tilsyn ifølge dyrevelferdsloven?',
         options: [
           { id: 'a', text: 'Minst en gang i uken', isCorrect: false },
           { id: 'b', text: 'Minst en gang daglig', isCorrect: true },

@@ -75,7 +75,7 @@ For å gå **oppover** (fra liten til stor enhet) **deler** vi.
 a) 3,5 km til meter
 b) 4200 mm til meter
 c) 85 cm til meter`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) $3{,}5 \\text{ km} = 3{,}5 \\cdot 1000 \\text{ m} = 3500 \\text{ m}$
 
@@ -147,7 +147,7 @@ Noen nyttige mål:
 b) Et stykke stoff er 4500 cm². Hvor mange dm² er det?
 
 c) En tomt er 850 m². Hvor mange dekar er det?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) $24 \\text{ m}^2 = 24 \\cdot 10\\,000 \\text{ cm}^2 = 240\\,000 \\text{ cm}^2$
 
@@ -214,7 +214,7 @@ $$1 \\text{ m}^3 = 1000 \\text{ L}$$
 
 a) Finn volumet i cm³.
 b) Hvor mange liter vann rommer akvariet?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) $V = 60 \\cdot 30 \\cdot 40 = 72\\,000 \\text{ cm}^3$
 
@@ -306,7 +306,7 @@ For å gjore om minutter til timer, deler vi på 60. For å gjore om timer til m
       problem: `a) Gjor om 2 timer og 45 minutter til bare minutter.
 b) Gjor om 195 minutter til timer og minutter.
 c) Gjor om 1,75 timer til timer og minutter.`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) $2 \\text{ h } 45 \\text{ min} = 2 \\cdot 60 + 45 = 120 + 45 = 165 \\text{ min}$
 
@@ -346,7 +346,7 @@ Dermed:
       problem: `a) En bil kjorer i 90 km/h. Hva er farten i m/s?
 b) En sprinter loper med en fart på 10 m/s. Hva er det i km/h?
 c) Fartsgrensen i et boligområde er 30 km/h. Hva er det i m/s?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) $90 \\text{ km/h} = \\frac{90}{3{,}6} \\text{ m/s} = 25 \\text{ m/s}$
 
@@ -487,7 +487,7 @@ Hvis $k > 1$, er figuren forstoret. Hvis $0 < k < 1$, er figuren forminsket.`,
       problem: `To rektangler er formlike. Det lille rektangelet har sider 3 cm og 5 cm. Det store rektangelet har sider 9 cm og 15 cm.
 
 Finn formlikhetsfaktoren.`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Vi finner forholdet mellom tilsvarende sider:
 
@@ -536,7 +536,7 @@ Fra dette kan vi finne den ukjente siden ved kryssregning.`,
       type: 'example',
       title: 'Eksempel 2: Finne en ukjent side',
       problem: `To trekanter er formlike. I den forste trekanten er sidene 5 cm, 8 cm og 10 cm. I den andre trekanten er den korteste siden 7,5 cm. Finn de to andre sidene i den andre trekanten.`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Forst finner vi formlikhetsfaktoren med den kjente siden:
 
@@ -587,7 +587,7 @@ Vi kan bruke dette til å beregne hoyden på gjenstander vi ikke kan måle direk
       type: 'example',
       title: 'Eksempel 3: Skyggeberegning',
       problem: `En stolpe kaster en skygge som er 12 m lang. Samtidig kaster en person som er 1,8 m hoy en skygge som er 2,4 m lang. Hvor hoy er stolpen?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Personen og stolpen med sine skygger danner formlike trekanter. Vi setter opp forholdet:
 
@@ -659,7 +659,7 @@ Eksempel med $k = 3$:
 a) En vegg på modellen er 16 cm lang. Hvor lang er den virkelige veggen?
 b) Taket på modellen har et areal på 120 cm². Hva er arealet av det virkelige taket?
 c) Modellhuset har et volum på 4800 cm³. Hva er volumet av det virkelige huset?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 Formlikhetsfaktoren er $k = 50$ (fra modell til virkelighet).
 
@@ -713,7 +713,7 @@ Generelt: Målestokk $1 : n$ betyr at formlikhetsfaktoren er $k = n$.
 a) Avstanden mellom to hytter er 6 cm på kartet. Hvor langt er det i virkeligheten?
 b) En innsjø er 800 m lang i virkeligheten. Hvor lang er innsjoen på kartet?
 c) Et skogsområde måler 2 cm $\\times$ 3 cm på kartet. Hva er det virkelige arealet i m²?`,
-      solution: `**Losning:**
+      solution: `**Løsning:**
 
 a) Virkelig avstand $= 6 \\cdot 25\\,000 = 150\\,000 \\text{ cm} = 1500 \\text{ m} = 1{,}5 \\text{ km}$
 
