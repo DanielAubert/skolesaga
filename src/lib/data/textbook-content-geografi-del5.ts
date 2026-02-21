@@ -167,6 +167,28 @@ Den globale befolkningsveksten har avtatt fra toppen på rundt 2,1 % per år i 1
 
 FN opererer med ulike scenarier for fremtidig befolkningsvekst, avhengig av antakelser om fruktbarhet. I middelvarianten antas en topp på rundt **10,4 milliarder** mot 2080-tallet, etterfulgt av en gradvis nedgang.`,
     },
+  
+    {
+      id: 'geo-5-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Verdens befolkning har vokst fra ca. 1 milliard i 1800 til over 8 milliarder i dag
+- **Naturlig tilvekst** er forskjellen mellom fodselsrate og dodsrate
+- Den **demografiske overgangsmodellen** beskriver fire faser fra hoye til lave fodsels- og dodsrater
+- Malthus advarte om at befolkningsvekst ville overgaa matproduksjonen, men teknologisk utvikling har motbevist de mest pessimistiske spaadommmene
+- FN anslaar at verdens befolkning vil naa ca. 10 milliarder mot slutten av dette aarhundret`,
+    },
+    {
+      id: 'geo-5-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- SSB (Statistisk sentralbyraa): ssb.no
+- FN Befolkningsdivisjonen: population.un.org
+- Gapminder: gapminder.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -369,6 +391,28 @@ Dersom et land klarer å gi ungdommen utdanning og arbeid, kan ungdomsbølgen bl
 5. **Høy barneforsørgelsesbyrde**: Mange unge som skal forsørges av en relativt liten yrkesaktiv gruppe
 6. **Utfordringer**: Landet trenger investeringer i utdanning, helse og jobbskaping for å håndtere ungdomsbølgen
 7. **Muligheter**: Dersom landet investerer riktig, kan den unge befolkningen bli en demografisk dividende`,
+    },
+  
+    {
+      id: 'geo-5-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Befolkningspyramider** viser alders- og kjoennsfordelingen i en befolkning
+- Unge befolkninger har bred base (mange barn), aldrende befolkninger har smal base
+- **Forsoergelsesbyrden** maalerr forholdet mellom yrkesaktive og de som forsoerges (barn og eldre)
+- **Demografisk dividende** oppstaar naar andelen yrkesaktive er hoey
+- Befolkningsstrukturen pavirker behov for helsetjenester, utdanning, arbeidsplasser og pensjoner`,
+    },
+    {
+      id: 'geo-5-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- SSB: ssb.no
+- FN Befolkningsdivisjonen: population.un.org
+- Verdensbanken: data.worldbank.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -613,6 +657,28 @@ Migranter sender ofte penger tilbake til familien i hjemlandet. Disse pengeoverf
 - Press på boliger, skoler og velferdsordninger
 - Potensielle sosiale spenninger`,
     },
+  
+    {
+      id: 'geo-5-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Migrasjon er permanent eller langvarig flytting mellom steder
+- **Push-faktorer** (krig, fattigdom, naturkatastrofer) driver folk bort fra hjemstedet
+- **Pull-faktorer** (arbeid, utdanning, sikkerhet) trekker folk til nye steder
+- **Brain drain** oppstaar naar hoyt utdannede forlater hjemlandet
+- Migrasjon har baade positive og negative konsekvenser for baade avsender- og mottakerland`,
+    },
+    {
+      id: 'geo-5-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- IOM (Den internasjonale organisasjonen for migrasjon): iom.int
+- SSB: ssb.no
+- UDI (Utlendingsdirektoratet): udi.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -845,6 +911,28 @@ Når en person kommer til et land og ber om beskyttelse, kalles vedkommende en *
 **Urettferdig fordeling:**
 Rundt 76 % av verdens flyktninger bor i lav- og mellominntektsland. De rikeste landene tar imot en relativt liten andel, noe som skaper debatt om byrdefordeling.`,
     },
+  
+    {
+      id: 'geo-5-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- En **flyktning** er en person som har flyktet fra hjemlandet paa grunn av forfolgelse, krig eller vold
+- **FNs flyktningkonvensjon** (1951) definerer flyktningers rettigheter
+- **UNHCR** (FNs hoykommissar for flyktninger) beskytter og bistaar flyktninger globalt
+- De fleste flyktninger befinner seg i naboland til konfliktomraadet, ikke i Europa
+- **Internt fordrevne** (IDPs) har flyktet innenfor eget land og har ofte svakere rettsbeskyttelse`,
+    },
+    {
+      id: 'geo-5-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- UNHCR: unhcr.org
+- UDI (Utlendingsdirektoratet): udi.no
+- Flyktninghjelpen: flyktninghjelpen.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -1075,6 +1163,28 @@ Norsk planpolitikk forsøker å styre byveksten gjennom **fortetting** – å by
 - Mange innvandrere til Norge i dag kommer fra kulturelt svært forskjellige samfunn, mens nordmenn reiste til et land med kulturelle likheter
 - Kommunikasjon med hjemlandet var nesten umulig for utvandrerne, mens dagens migranter har telefon og internett
 - Det finnes et velferdsapparat i Norge i dag som ikke eksisterte i 1800-tallets Amerika`,
+    },
+  
+    {
+      id: 'geo-5-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Norges befolkning har vokst fra ca. 1,7 millioner i 1800 til over 5,5 millioner i dag
+- **Innvandring** har vaert den viktigste drivkraften for befolkningsvekst de siste tiaarene
+- **Sentralisering** betyr at flere bor i og rundt de stoerste byene
+- SSB lager befolkningsprognoser som brukes til planlegging av velferdsordninger
+- Befolkningsfordelingen i Norge preges av geografi, med konsentrasjon langs kysten og i byomraadene`,
+    },
+    {
+      id: 'geo-5-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- SSB: ssb.no
+- UDI: udi.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Regjeringen: regjeringen.no`,
     },
   ],
   exercises: [
@@ -1341,6 +1451,28 @@ De demografiske utfordringene verden står overfor krever ulike løsninger i uli
 - Familiepolitikk som gjør det lettere å kombinere arbeid og barn
 
 Felles for alle er behovet for **bærekraftig utvikling** – å møte dagens behov uten å ødelegge fremtidige generasjoners muligheter.`,
+    },
+  
+    {
+      id: 'geo-5-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Verdens befolkningsutvikling haenger tett sammen med ressursbruk og baerekraft
+- **Overbefolkning** handler ikke bare om antall mennesker, men ogsaa om forbruksmoenstre
+- Kinas ettbarnspolitikk (1979-2015) reduserte befolkningsveksten, men hadde alvorlige bivirkninger
+- **Aldrende befolkninger** i Europa og Oest-Asia skaper utfordringer for velferdssystemer
+- Utdanning av jenter er det mest effektive tiltaket for aa redusere befolkningsvekst`,
+    },
+    {
+      id: 'geo-5-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN Befolkningsdivisjonen: population.un.org
+- Verdensbanken: data.worldbank.org
+- Gapminder: gapminder.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [

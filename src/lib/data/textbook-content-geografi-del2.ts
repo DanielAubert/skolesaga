@@ -142,6 +142,17 @@ Denne sammenligningen illustrerer ogsaa at skorpen er ekstremt tynn i forhold ti
 - Kjernen har en **flytende ytre del** (skaper magnetfeltet) og en **fast indre del**
 - Vi kartlegger jordens indre ved hjelp av **seismiske boelger**`,
     },
+  
+    {
+      id: 'geo-2-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (geologi)
+- USGS (United States Geological Survey): usgs.gov
+- Christopherson, R. W. (2018). *Geosystems*. Pearson.`,
+    },
   ],
   exercises: [
     {
@@ -340,6 +351,17 @@ Fossiler av sjoelilje og andre marine organismer paa toppen av Himalaya viser at
 - Bevisene for kontinentaldrift inkluderer kystlinjer, fossiler, bergarter og klimaspor
 - Konveksjonsstroemmer i mantelen driver platebevegelsene`,
     },
+  
+    {
+      id: 'geo-2-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- USGS: usgs.gov/science/earth-science
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (platetektonikk)
+- Tarbuck, E. J. & Lutgens, F. K. (2020). *Earth Science*. Pearson.`,
+    },
   ],
   exercises: [
     {
@@ -530,6 +552,17 @@ Norge har ingen aktive vulkaner i dag, men landets geologiske historie inkludere
 - **Hotspots** gir vulkanisme midt paa plater (f.eks. Hawaii)
 - Vulkanutbrudd kan vaere svart farlige, men gir ogsaa fruktbar jord og geotermisk energi
 - Norges eneste aktive vulkan er **Beerenberg** paa Jan Mayen`,
+    },
+  
+    {
+      id: 'geo-2-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- USGS Volcano Hazards Program: usgs.gov/volcanoes
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Global Volcanism Program: volcano.si.edu
+- Store norske leksikon: snl.no (vulkaner)`,
     },
   ],
   exercises: [
@@ -729,6 +762,17 @@ Selv om Norge ikke ligger ved en aktiv plategrense, maa vi ta jordskjelvfaren pa
 - **Tsunamier** utloeses av undersjoeiske jordskjelv som forskyver havbunnen vertikalt
 - Norge opplever smaa jordskjelv paa grunn av postglasial landheving og gamle forkastninger`,
     },
+  
+    {
+      id: 'geo-2-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- USGS Earthquake Hazards: earthquake.usgs.gov
+- NORSAR: norsar.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (jordskjelv)`,
+    },
   ],
   exercises: [
     {
@@ -927,6 +971,17 @@ Klimaet bestemmer hvilke forvitringsprosesser som dominerer:
 - De tre hovedagentene for erosjon er **vann**, **vind** og **is**
 - Klimaet avgjoer hvilke forvitringsprosesser som dominerer: frostforvitring i kalde omraader, kjemisk forvitring i tropene
 - I Norge er **frostforvitring** den viktigste mekaniske forvitringsprosessen`,
+    },
+  
+    {
+      id: 'geo-2-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NGU (Norges geologiske undersokelse): ngu.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (forvitring, erosjon)
+- Christopherson, R. W. (2018). *Geosystems*. Pearson.`,
     },
   ],
   exercises: [
@@ -1157,6 +1212,17 @@ Norges elver og vassdrag er en enorm energiressurs. Ca. 90 % av norsk stroemmpro
 - **Delta** dannes der elver moeter stillestaaende vann
 - **Flom** skyldes snoesmelting, kraftig nedbor eller isoppdemming
 - Norge faar ca. **90 % av stroemmen** fra vannkraft`,
+    },
+  
+    {
+      id: 'geo-2-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NVE (Norges vassdrags- og energidirektorat): nve.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (elver, vassdrag)
+- Christopherson, R. W. (2018). *Geosystems*. Pearson.`,
     },
   ],
   exercises: [
@@ -1390,6 +1456,17 @@ Etter at isen smeltet, begynte landet aa heve seg. Denne prosessen paagaar forts
 - **Fjordene** er oversvoemte glasiale U-daler - Sognefjorden er 1 308 m dyp
 - **Postglasial landheving** paagaar fortsatt etter at istidens enorme ismasser smeltet
 - Norges landformer er resultatet av samspillet mellom indre krefter (fjellkjededannelse) og ytre krefter (erosjon av is, vann og boelger)`,
+    },
+  
+    {
+      id: 'geo-2-7-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NVE: nve.no (isbreer)
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Kartverket: kartverket.no
+- Store norske leksikon: snl.no (fjorder, isbreer, kystlandskap)`,
     },
   ],
   exercises: [

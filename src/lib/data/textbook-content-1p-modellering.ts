@@ -113,13 +113,13 @@ Vi legger inn dataene i GeoGebra eller et regneark og bruker funksjonen for line
 
 Regresjonslinjen blir:
 
-$$y = 9{,}5x + 230$$
+$$y = 9{,}5x + 237$$
 
 Her betyr:
 - $a = 9{,}5$: for hver ekstra kg gjødsel per dekar øker avlingen med ca. $9{,}5$ kg per dekar.
-- $b = 230$: modellen anslår en avling på $230$ kg/daa uten gjødsel.
+- $b = 237$: modellen anslår en avling på $237$ kg/daa uten gjødsel.
 
-**Kontroll:** For $x = 20$: $y = 9{,}5 \\cdot 20 + 230 = 190 + 230 = 420$. Den faktiske verdien var $450$, så avviket er $30$ kg.`,
+**Kontroll:** For $x = 20$: $y = 9{,}5 \\cdot 20 + 237 = 190 + 237 = 427$. Den faktiske verdien var $450$, så avviket er $23$ kg.`,
     },
 
     // --- Blokk 6: Korrelasjon ---
@@ -165,16 +165,16 @@ Det finnes tre hovedtyper:
       id: '1p-7-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Tolke korrelasjonskoeffisienten',
-      problem: `For gjødsel-avling-dataene finner vi $r = 0{,}997$ med et digitalt verktøy.
+      problem: `For gjødsel-avling-dataene finner vi $r = 0{,}992$ med et digitalt verktøy.
 
 a) Er korrelasjonen positiv eller negativ?
 b) Hvor sterk er den lineære sammenhengen?
 c) Hva betyr dette i praksis?`,
       solution: `**Løsning:**
 
-a) $r = 0{,}997 > 0$, så korrelasjonen er **positiv**. Det betyr at mer gjødsel henger sammen med høyere avling.
+a) $r = 0{,}992 > 0$, så korrelasjonen er **positiv**. Det betyr at mer gjødsel henger sammen med høyere avling.
 
-b) $|r| = 0{,}997$ er svært nær $1$, noe som betyr en **svært sterk** lineær sammenheng.
+b) $|r| = 0{,}992$ er svært nær $1$, noe som betyr en **svært sterk** lineær sammenheng.
 
 c) I praksis betyr dette at det er en nesten perfekt lineær sammenheng mellom gjødselmengde og avling i dette området. Regresjonslinjen gir svært gode estimater.`,
     },
@@ -234,9 +234,9 @@ c) I praksis betyr dette at det er en nesten perfekt lineær sammenheng mellom g
 
 Når vi har funnet regresjonslinjen $y = ax + b$, kan vi bruke den til å **forutsi** (predikere) $y$-verdier for nye $x$-verdier.
 
-**Eksempel:** Hvis regresjonslinjen for gjødsel og avling er $y = 9{,}5x + 230$, kan vi anslå avlingen ved $45$ kg gjødsel per dekar:
+**Eksempel:** Hvis regresjonslinjen for gjødsel og avling er $y = 9{,}5x + 237$, kan vi anslå avlingen ved $45$ kg gjødsel per dekar:
 
-$$y = 9{,}5 \\cdot 45 + 230 = 427{,}5 + 230 = 657{,}5 \\text{ kg/daa}$$
+$$y = 9{,}5 \\cdot 45 + 237 = 427{,}5 + 237 = 664{,}5 \\text{ kg/daa}$$
 
 Men vi må være forsiktige med å bruke modellen utenfor datasettet vi har brukt til å lage den.`,
     },
@@ -286,21 +286,21 @@ d) Ville det vært fornuftig å bruke modellen for å anslå salget ved $25\\,°
 
 a) Vi legger inn dataene i GeoGebra eller et regneark og gjør lineær regresjon. Regresjonslinjen blir:
 
-$$y = -4{,}6x + 28$$
+$$y = -4{,}7x + 28$$
 
-b) Korrelasjonskoeffisienten er $r = -0{,}99$.
+b) Korrelasjonskoeffisienten er $r \\approx -1{,}00$.
 
 - Korrelasjonen er **negativ**: lavere temperatur gir flere solgte varmepumper.
-- $|r| = 0{,}99$ betyr en **svært sterk** lineær sammenheng.
+- $|r| \\approx 1{,}00$ betyr en **svært sterk** lineær sammenheng.
 
 c) For $x = -7$:
-$$y = -4{,}6 \\cdot (-7) + 28 = 32{,}2 + 28 = 60{,}2$$
-Modellen anslår ca. $60$ solgte varmepumper.
+$$y = -4{,}7 \\cdot (-7) + 28 = 32{,}9 + 28 = 60{,}9$$
+Modellen anslår ca. $61$ solgte varmepumper.
 
 Dette er interpolering (innenfor dataområdet $-12$ til $2$), så estimatet er rimelig.
 
 d) $25\\,°C$ er langt utenfor dataområdet. Dette er ekstrapolering:
-$y = -4{,}6 \\cdot 25 + 28 = -115 + 28 = -87$
+$y = -4{,}7 \\cdot 25 + 28 = -117{,}5 + 28 = -89{,}5$
 
 Et negativt antall gir ingen mening. Modellen bryter ned utenfor dataområdet, og ekstrapolering er ikke fornuftig her.`,
     },
@@ -323,7 +323,7 @@ Et negativt antall gir ingen mening. Modellen bryter ned utenfor dataområdet, o
           {
             label: 'a',
             task: 'Bruk et digitalt verktøy til å finne regresjonslinjen.',
-            solution: 'Regresjonslinjen blir omtrent $y = 11{,}7x + 62$.',
+            solution: 'Regresjonslinjen blir omtrent $y = 11{,}9x + 59$.',
           },
           {
             label: 'b',
@@ -335,7 +335,7 @@ Et negativt antall gir ingen mening. Modellen bryter ned utenfor dataområdet, o
             label: 'c',
             task: 'Bruk modellen til å anslå omsetningen dersom bedriften bruker 18 000 kr på annonser.',
             solution:
-              '$y = 11{,}7 \\cdot 18 + 62 = 210{,}6 + 62 = 272{,}6$. Omsetningen anslås til ca. 273 000 kr. Dette er interpolering.',
+              '$y = 11{,}9 \\cdot 18 + 59 = 214{,}2 + 59 = 273{,}2$. Omsetningen anslås til ca. 273 000 kr. Dette er interpolering.',
           },
           {
             label: 'd',
@@ -345,7 +345,7 @@ Et negativt antall gir ingen mening. Modellen bryter ned utenfor dataområdet, o
           },
         ],
         solution:
-          'a) $y \\approx 11{,}7x + 62$  b) $r \\approx 0{,}998$, svært sterk positiv korrelasjon  c) ca. 273 000 kr  d) Nei, ekstrapolering er upålitelig.',
+          'a) $y \\approx 11{,}9x + 59$  b) $r \\approx 0{,}998$, svært sterk positiv korrelasjon  c) ca. 273 000 kr  d) Nei, ekstrapolering er upålitelig.',
         hints: [
           'Bruk regneark eller GeoGebra til å finne regresjonslinjen.',
           'Sjekk om $x = 18$ ligger innenfor dataområdet for å avgjøre om det er interpolering eller ekstrapolering.',
@@ -642,11 +642,11 @@ b) Prøv eksponentiell regresjon. Hva blir $r$?
 c) Hvilken modell passer best?`,
       solution: `**Løsning:**
 
-a) Lineær regresjon gir: $y = 48x - 23$ med $r \\approx 0{,}97$.
+a) Lineær regresjon gir: $y = 49x - 37$ med $r \\approx 0{,}96$.
 
-b) Eksponentiell regresjon gir: $y = 26{,}5 \\cdot 1{,}48^x$ med $r \\approx 0{,}999$.
+b) Eksponentiell regresjon gir: $y = 26{,}5 \\cdot 1{,}49^x$ med $r \\approx 1{,}00$.
 
-c) Begge modellene gir høy korrelasjon, men den eksponentielle modellen har $|r|$ nærmere $1$ ($0{,}999$ vs. $0{,}97$).
+c) Begge modellene gir høy korrelasjon, men den eksponentielle modellen har $|r|$ nærmere $1$ ($1{,}00$ vs. $0{,}96$).
 
 I tillegg ser vi at differansene mellom påfølgende $y$-verdier øker ($18, 30, 42, 66, 94$), mens forholdstallene er mer konstante ($1{,}45;\\; 1{,}52;\\; 1{,}48;\\; 1{,}51;\\; 1{,}48$). Eksponentiell modell passer best.
 
@@ -684,7 +684,7 @@ I tillegg ser vi at differansene mellom påfølgende $y$-verdier øker ($18, 30,
             label: 'c',
             task: 'Hva anslår modellen at bilen er verdt etter 7 år?',
             solution:
-              '$y = 349 \\cdot 0{,}833^7 = 349 \\cdot 0{,}271 \\approx 95$. Bilen er verdt ca. 95 000 kr.',
+              '$y = 349 \\cdot 0{,}833^7 = 349 \\cdot 0{,}278 \\approx 97$. Bilen er verdt ca. 97 000 kr.',
           },
           {
             label: 'd',
@@ -694,7 +694,7 @@ I tillegg ser vi at differansene mellom påfølgende $y$-verdier øker ($18, 30,
           },
         ],
         solution:
-          'a) Eksponentiell (konstant forholdstall ca. 0,83)  b) $y \\approx 349 \\cdot 0{,}833^x$  c) Ca. 95 000 kr  d) Ca. 16,7 % per år.',
+          'a) Eksponentiell (konstant forholdstall ca. 0,83)  b) $y \\approx 349 \\cdot 0{,}833^x$  c) Ca. 97 000 kr  d) Ca. 16,7 % per år.',
         hints: [
           'Regn ut forholdstallet mellom påfølgende $y$-verdier.',
           'Vekstfaktor $b < 1$ betyr nedgang. Prosentvis nedgang $= (1 - b) \\cdot 100\\%$.',

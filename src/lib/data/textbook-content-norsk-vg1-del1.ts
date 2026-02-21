@@ -1470,6 +1470,26 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       },
     },
     {
+      id: 'norsk-vg1-1-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Kronikk:** Lengre, argumenterende tekst i avis/tidsskrift der forfatteren drøfter et tema i dybden
+- **Leserinnlegg:** Kortere meningsytring i avisen som tar stilling til en aktuell sak
+- **Argumenttyper:** Fakta-, verdi-, konsekvens-, ekspert- og eksempelargumenter
+- **Kildebruk:** Bruk av kilder for å underbygge egne påstander
+- **Disposisjon:** Plan for tekstens oppbygning med innledning, hoveddel og avslutning
+
+**Det viktigste å huske:**
+1. En kronikk har en klar tese som drøftes med varierte argumenttyper
+2. Leserinnlegg er kortere og mer direkte enn kronikker
+3. God kildebruk styrker troverdigheten og gir teksten autoritet
+
+**Kompetansemål dette kapittelet dekker:**
+- Gjøre rede for og reflektere over bruken av retoriske appellformer og språklige virkemidler i sakprosatekster`,
+    },
+    {
       id: 'norsk-vg1-1-4-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -2152,6 +2172,26 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
       },
     },
     {
+      id: 'norsk-vg1-1-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Retorisk analyse:** Systematisk undersøkelse av hvordan tekster og taler forsøker å påvirke mottakeren
+- **Kairos:** Å si rett ting til rett tid - timing og kontekst i kommunikasjon
+- **Aptum:** At det er samsvar mellom innhold, form og situasjon
+- **Retorisk situasjon:** Samspillet mellom avsender, mottaker, budskap, kontekst og medium
+- **Retoriske virkemidler:** Konkrete språklige grep som forsterker budskapet
+
+**Det viktigste å huske:**
+1. En retorisk analyse ser på helheten - ikke bare enkeltgrep, men hvordan de virker i kontekst
+2. Kairos og aptum er like viktige som etos, patos og logos
+3. Konteksten påvirker hvordan budskapet mottas og tolkes
+
+**Kompetansemål dette kapittelet dekker:**
+- Gjøre rede for og reflektere over bruken av retoriske appellformer og språklige virkemidler i sakprosatekster`,
+    },
+    {
       id: 'norsk-vg1-1-5-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -2758,6 +2798,26 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         allowsCanvasDrawing: true,
         competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Novelle:** Kort fortellende tekst som fokuserer på ett vendepunkt eller én hendelse
+- **SVIRP-modellen:** Analyseverktøy: Sjanger, Virkemidler, Innhold, Ramme, Perspektiv
+- **Fortelleteknikk:** Valg av synsvinkel, fortellerstemme, tempus og komposisjon
+- **Vendepunkt:** Det avgjørende øyeblikket i novellen der noe endres
+- **Episk kile:** Spenningskurve i novellen fra innledning til klimaks
+
+**Det viktigste å huske:**
+1. Novelleanalyse krever oppmerksomhet på både form og innhold
+2. Fortellerens synsvinkel påvirker hva leseren får vite
+3. Virkemidler som symbolikk og frampek skaper dypere mening
+
+**Kompetansemål dette kapittelet dekker:**
+- Lese, analysere og tolke nyere skjønnlitteratur på bokmål og nynorsk og i oversettelse fra samiske og andre språk`,
     },
     {
       id: 'norsk-vg1-2-1-se-ogsa',
@@ -3403,6 +3463,26 @@ Selv om diktet er i frie vers, har det fortsatt form:
         allowsCanvasDrawing: true,
         competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Lyrikk:** Litterær sjanger der form, rytme og billedspråk er sentralt
+- **Billedspråk:** Metafor, simile, personifikasjon og andre bildlige uttrykk
+- **Rytme og rim:** Musikalske elementer som påvirker leseopplevelsen
+- **Rimskjema:** Mønstre som parrim (aabb), kryssrim (abab) og omsluttende rim (abba)
+- **Diktanalyse:** Systematisk undersøkelse av diktets form, innhold og virkemidler
+
+**Det viktigste å huske:**
+1. I lyrikk er formen like viktig som innholdet - hvordan noe sies, er del av budskapet
+2. Billedspråk skaper assosiasjoner og dypere meningslag
+3. Moderne lyrikk bryter ofte med tradisjonelle formkrav
+
+**Kompetansemål dette kapittelet dekker:**
+- Lese, analysere og tolke nyere skjønnlitteratur på bokmål og nynorsk og i oversettelse fra samiske og andre språk`,
     },
     {
       id: 'norsk-vg1-2-2-se-ogsa',
@@ -4056,6 +4136,26 @@ Tittelen spiller på fordommer og viser hvordan det er å vokse opp med blikket 
       },
     },
     {
+      id: 'norsk-vg1-2-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Roman:** Lengre fortellende tekst med kompleks handling, persongalleri og tematikk
+- **Fortellerstemme:** Førstepersonsforteller, tredjepersonsforteller, allvitende eller begrenset synsvinkel
+- **Komposisjon:** Hvordan romanen er bygd opp - kronologisk, in medias res, rammefortelling
+- **Tematikk:** De overordnede spørsmålene og ideene romanen utforsker
+- **Karakterutvikling:** Hvordan personer endres gjennom handlingen
+
+**Det viktigste å huske:**
+1. Romananalyse krever oppmerksomhet på samspillet mellom form og innhold
+2. Fortellerens synsvinkel styrer leserens forståelse og sympati
+3. Tematikken i en roman kan tolkes på flere plan
+
+**Kompetansemål dette kapittelet dekker:**
+- Lese, analysere og tolke nyere skjønnlitteratur på bokmål og nynorsk og i oversettelse fra samiske og andre språk`,
+    },
+    {
       id: 'norsk-vg1-2-4-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -4612,6 +4712,26 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
       },
     },
     {
+      id: 'norsk-vg1-2-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Metafor:** Billedlig uttrykk der noe beskrives som noe annet uten bruk av "som"
+- **Symbol:** Konkret ting som representerer noe abstrakt (f.eks. due = fred)
+- **Ironi:** Motsetning mellom det som sies og det som menes; finnes som verbal, dramatisk og situasjonsironi
+- **Allegori:** Utvidet symbol der hele fortellingen har en overført betydning
+- **Intertekstualitet:** Referanser og forbindelser mellom tekster
+
+**Det viktigste å huske:**
+1. Litterære virkemidler skaper dypere meningslag i teksten
+2. Samme virkemiddel kan ha ulik effekt i ulike kontekster
+3. Intertekstualitet beriker lesningen ved å koble tekster sammen
+
+**Kompetansemål dette kapittelet dekker:**
+- Lese, analysere og tolke nyere skjønnlitteratur på bokmål og nynorsk og i oversettelse fra samiske og andre språk`,
+    },
+    {
       id: 'norsk-vg1-2-5-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -5129,6 +5249,26 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
       },
     },
     {
+      id: 'norsk-vg1-2-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Grafisk roman:** Lengre fortelling i tegneserieformat med kompleks handling og tematikk
+- **Bildebøker:** Bøker der tekst og bilde samspiller for å skape mening
+- **Multimodalitet:** Samspill mellom ulike uttrykksmåter som tekst, bilde, farge og layout
+- **Rute og renne:** Grunnelementene i tegneserien - selve bildet og rommet mellom bildene
+- **Visuell fortelling:** Bruk av visuelle elementer for å drive handlingen fremover
+
+**Det viktigste å huske:**
+1. I grafiske romaner fortelles historien gjennom samspill mellom tekst og bilde
+2. Visuelle virkemidler som perspektiv, farge og layout har meningsbærende funksjoner
+3. Rennen (mellomrommet mellom ruter) krever at leseren fyller inn handlingen selv
+
+**Kompetansemål dette kapittelet dekker:**
+- Lese, analysere og tolke nyere skjønnlitteratur på bokmål og nynorsk og i oversettelse fra samiske og andre språk`,
+    },
+    {
       id: 'norsk-vg1-2-6-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -5573,6 +5713,26 @@ Maria skriver ett kort per hovedpunkt med bare nøkkelord - ikke hele setninger.
       },
     },
     {
+      id: 'norsk-vg1-5-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Presentasjonsteknikk:** Planlegging og gjennomføring av muntlige fremlegg
+- **Kroppsspråk:** Non-verbal kommunikasjon gjennom gester, holdning og blikk
+- **Disposisjon:** Innledning med krok, strukturert hoveddel og tydelig avslutning
+- **Formidlingsevne:** Å tilpasse språk og innhold til mottaker og situasjon
+- **Diskusjon:** Å delta i faglige samtaler med aktiv lytting og saklig argumentasjon
+
+**Det viktigste å huske:**
+1. God muntlig kommunikasjon krever både planlegging og øvelse
+2. Kroppsspråk og stemmebruk er like viktig som innholdet
+3. Tilpasning til mottaker og situasjon er avgjørende for effektiv kommunikasjon
+
+**Kompetansemål dette kapittelet dekker:**
+- Greie ut om og drøfte norskfaglige eller tverrfaglige temaer muntlig`,
+    },
+    {
       id: 'norsk-vg1-5-1-se-ogsa',
       type: 'note',
       title: 'Se også',
@@ -6008,6 +6168,26 @@ Alle tre vekker leserens interesse på ulike måter.`,
         allowsCanvasDrawing: true,
       competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Kreativ skriving:** Tekstskaping der fantasi, virkemidler og personlig uttrykk står sentralt
+- **Fortellerstemme:** Den unike stemmen som preger teksten - valg av perspektiv og tone
+- **Beskrivelser:** Bruk av sanseinntrykk og detaljer for å skape bilder hos leseren
+- **Dialog:** Samtaler mellom personer som driver handlingen og avslører karakter
+- **Virkemidler:** Bevisst bruk av språklige grep for å skape effekt
+
+**Det viktigste å huske:**
+1. Kreativ skriving handler om å kombinere virkemidler og uttrykksformer bevisst
+2. Les mye for å utvikle egen skrivestemme
+3. Skriving er en prosess - første utkast er bare begynnelsen
+
+**Kompetansemål dette kapittelet dekker:**
+- Kombinere virkemidler og uttrykksformer kreativt i egen tekstskaping`,
     },
     {
       id: 'norsk-vg1-5-2-se-ogsa',

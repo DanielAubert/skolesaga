@@ -1787,6 +1787,16 @@ Both require critical thinking and depth - analysis digs beneath texts, reflecti
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-6-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Gibbs, G. (1988). *Learning by Doing: A Guide to Teaching and Learning Methods*. Oxford Polytechnic.
+- McMillan, K. & Weyers, J. (2013). *How to Write Essays and Assignments*. Pearson.
+- Purdue Online Writing Lab (OWL): owl.purdue.edu`,
+    },
   ],
   exercises: [],
 };
@@ -2238,6 +2248,16 @@ When describing, often three details are enough - not so few as to be vague, not
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-6-5-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Morley, D. (2007). *The Cambridge Introduction to Creative Writing*. Cambridge University Press.
+- King, S. (2000). *On Writing: A Memoir of the Craft*. Scribner.
+- Strunk, W. & White, E.B. (2000). *The Elements of Style*. Longman.`,
     },
   ],
   exercises: [],
@@ -2720,6 +2740,16 @@ As English continues to spread, it is also changing. Non-native speakers are sha
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-7-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Crystal, D. (2003). *English as a Global Language*. Cambridge University Press.
+- Kachru, B.B. (1990). *The Alchemy of English: The Spread, Functions and Models of Non-Native Englishes*. University of Illinois Press.
+- British Council: britishcouncil.org/english`,
     },
   ],
   exercises: [],

@@ -411,6 +411,16 @@ Examples:
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-3-1-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Swan, M. (2016). *Practical English Usage*. Oxford University Press.
+- Murphy, R. (2019). *English Grammar in Use*. Cambridge University Press.
+- Cambridge Dictionary Grammar: dictionary.cambridge.org/grammar`,
+    },
   ],
   exercises: [],
 };
@@ -810,6 +820,16 @@ Your writing should feel natural and engaging. Variety serves the reader - it ke
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-3-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Kolln, M. & Gray, L. (2016). *Rhetorical Grammar*. Pearson.
+- Hacker, D. & Sommers, N. (2021). *A Writer's Reference*. Bedford/St. Martin's.
+- Purdue Online Writing Lab (OWL): owl.purdue.edu`,
     },
   ],
   exercises: [],
@@ -2284,6 +2304,125 @@ Short stories pack a complete narrative into a compact form. Every word must ear
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-4-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Character analysis using the STEAL method. Choose a character from a short story and find evidence for each category.',
+        subTasks: [
+          { label: 'a', task: 'Speech: What does the character say, and what does it reveal?', solution: 'Direct quotes from dialogue reveal personality, education level, attitudes, and values.' },
+          { label: 'b', task: 'Thoughts: What does the character think?', solution: 'Internal monologue or narrator\'s insight into thoughts reveals motivation and inner conflict.' },
+          { label: 'c', task: 'Effect on others: How do other characters react to them?', solution: 'Other characters\' reactions reveal social status, likeability, and power dynamics.' },
+          { label: 'd', task: 'Actions: What does the character do?', solution: 'Actions reveal character more reliably than words; look for consistency or contradiction.' },
+        ],
+        hints: ['Use specific quotes and page references', 'Look for contradictions between what the character says and does'],
+        solution: 'The STEAL method provides a comprehensive framework for character analysis.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Theme identification. For a short story you have read, identify the theme and explain how it is developed through the story.',
+        subTasks: [
+          { label: 'a', task: 'State the theme in one sentence (e.g., "The story explores how prejudice can destroy communities").', solution: 'A theme is a universal idea, not just a topic. "Love" is a topic; "Love requires sacrifice" is a theme.' },
+          { label: 'b', task: 'Find at least two examples from the story that develop this theme.', solution: 'Look at events, dialogue, symbols, and character development that support the theme.' },
+          { label: 'c', task: 'How does the ending reinforce or complicate the theme?', solution: 'Endings may confirm the theme, add nuance, or even subvert expectations.' },
+        ],
+        solution: 'Strong thematic analysis connects specific textual evidence to abstract ideas.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Compare two short stories you have read on a specific element (character, theme, narrative technique, or setting).',
+        subTasks: [
+          { label: 'a', task: 'What element are you comparing, and what are the two stories?', solution: 'State the element clearly and identify both stories by title and author.' },
+          { label: 'b', task: 'How does each story handle this element?', solution: 'Provide specific examples from each story.' },
+          { label: 'c', task: 'What effect does the difference have on the reader?', solution: 'Consider how different approaches create different reader experiences.' },
+        ],
+        hints: ['A comparison should reveal something new about both stories', 'Use transitional language: similarly, in contrast, whereas'],
+        solution: 'Comparative analysis deepens understanding by highlighting how different authors approach similar elements.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Write a literary analysis paragraph (150-200 words) about a short story, focusing on how the author uses ONE literary technique (symbolism, irony, foreshadowing, or point of view) to develop the theme.',
+        hints: ['Start with a topic sentence stating your claim', 'Include at least two quotes or specific references', 'Explain how each example supports your point', 'Use literary analysis vocabulary'],
+        solution: 'A strong analytical paragraph follows the PEE structure: Point (claim), Evidence (quote), Explanation (analysis of how the quote supports the point).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Creative response. Choose a short story and write a continuation or alternative ending (200-300 words). Then explain how your version changes the theme or meaning.',
+        hints: ['Maintain the author\'s style and tone', 'Consider how your changes affect the theme', 'Your explanation should show understanding of the original'],
+        solution: 'Creative responses demonstrate understanding of the original text while showing your ability to write fiction.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-4-2-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Short stories** are compact narratives where every element serves a purpose. Analysis requires attention to plot, character, setting, theme, point of view, and style.
+
+2. **Plot structure** typically follows Freytag's Pyramid: exposition, rising action, climax, falling action, resolution.
+
+3. **Character analysis** can be done using the STEAL method: Speech, Thoughts, Effect on others, Actions, and Looks.
+
+4. **Theme** is the underlying message or universal truth, distinct from the topic. Strong analysis connects specific evidence to thematic claims.
+
+5. **Literary analysis** uses the PEE structure: Point, Evidence, Explanation.
+
+**Key Vocabulary:**
+- Protagonist/Antagonist - main character and their opponent
+- Dynamic/Static character - one who changes vs one who remains the same
+- Foreshadowing - hints about what will happen later
+- Irony - when reality differs from expectation`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-4-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- DiYanni, R. (2007). *Literature: Approaches to Fiction, Poetry, and Drama*. McGraw-Hill.
+- Mays, K. (2017). *The Norton Introduction to Literature*. Norton.
+- Prentice Hall Literature: Gold Level (textbook commonly used in VG1).`,
+    },
   ],
   exercises: [],
 };
@@ -2383,6 +2522,120 @@ A Gothic novel set in a decaying mansion creates:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-4-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Track the development of the main character in a novel you have read.',
+        subTasks: [
+          { label: 'a', task: 'How is the character introduced at the beginning?', solution: 'Describe personality, beliefs, and situation at the start.' },
+          { label: 'b', task: 'What key events cause the character to change?', solution: 'Identify turning points and challenges that drive development.' },
+          { label: 'c', task: 'How is the character different at the end?', solution: 'Compare beginning and end; identify what they have learned or how they have changed.' },
+        ],
+        solution: 'Character development is central to novels. Strong analysis traces change through specific evidence.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Analyze the opening chapter of a novel. How does the author establish character, setting, mood, and expectations?',
+        hints: ['Consider what information is given and what is withheld', 'How does the opening hook the reader?'],
+        solution: 'Openings establish the world of the novel and create expectations. Effective analysis examines the specific techniques used.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Historical and social context. Research the time period when your novel was written or set, and explain how context influences the text.',
+        subTasks: [
+          { label: 'a', task: 'What social or historical issues does the novel reflect?', solution: 'Connect specific elements of the novel to real historical events or social conditions.' },
+          { label: 'b', task: 'How would the novel be different if it were set today?', solution: 'Consider how changed social norms, technology, or values would alter the story.' },
+        ],
+        solution: 'Understanding context enriches literary analysis and helps explain characters\' choices.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Write a book review (250-350 words) of a novel you have read, covering plot, characters, themes, and your personal response.',
+        hints: ['Do not reveal the ending', 'Support opinions with specific examples', 'Consider who would enjoy this book and why'],
+        solution: 'A good book review balances summary, analysis, and personal evaluation.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Compare the novel to its film adaptation (if one exists) or discuss how you would adapt it for film.',
+        subTasks: [
+          { label: 'a', task: 'What would be the biggest challenges in adapting the novel to film?', solution: 'Consider: internal monologue, long time spans, complex subplots, unreliable narration.' },
+          { label: 'b', task: 'What scenes would be most effective on screen, and why?', solution: 'Visual and dramatic scenes translate well; internal reflection is harder to show.' },
+        ],
+        solution: 'Thinking about adaptation deepens understanding of both the novel form and visual storytelling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-4-3-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Novel analysis** requires attention to character development, point of view, setting, themes, motifs, and historical context.
+
+2. **Point of view** (first person, third person limited, omniscient) shapes the reader's understanding and creates different effects.
+
+3. **Setting** includes physical location, time period, social environment, and atmosphere, all of which contribute to meaning.
+
+4. **Character development** in novels is more complex than in short stories, allowing for gradual transformation through multiple events.
+
+5. **Historical and social context** enriches understanding of why characters behave as they do and what the author is commenting on.
+
+**Key Vocabulary:**
+- Motif - a recurring element that develops a theme
+- Unreliable narrator - a narrator whose account cannot be fully trusted
+- Bildungsroman - a novel about a character's growth from youth to maturity
+- Subtext - meaning that is implied rather than stated directly`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-4-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Eagleton, T. (2008). *How to Read Literature*. Yale University Press.
+- Foster, T. (2014). *How to Read Novels Like a Professor*. Harper Perennial.
+- SparkNotes and LitCharts for study guides on specific novels.`,
+    },
   ],
   exercises: [],
 };
@@ -2480,6 +2733,117 @@ AABBA rhyme scheme`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-4-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Read a poem of your choice and analyze its imagery. Find at least three examples of images that appeal to different senses (sight, sound, touch, taste, smell).',
+        hints: ['Imagery creates pictures in the reader\'s mind', 'Consider what effect each image creates'],
+        solution: 'Strong imagery analysis explains not just what the image is, but what feeling or meaning it creates.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Analyze the structure of a poem. How does the form contribute to the meaning?',
+        subTasks: [
+          { label: 'a', task: 'Describe the form (number of stanzas, line lengths, rhyme scheme).', solution: 'Be specific: "4 quatrains with ABAB rhyme scheme" rather than "it rhymes."' },
+          { label: 'b', task: 'How does the form support or contrast with the content?', solution: 'A poem about chaos in a strict sonnet form creates ironic contrast. A free verse poem about freedom mirrors its content.' },
+        ],
+        solution: 'Form and content work together in poetry. The best analysis shows how they interact.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Compare two poems on a similar theme (e.g., two love poems, two nature poems, or two poems about death).',
+        subTasks: [
+          { label: 'a', task: 'How does each poem approach the theme?', solution: 'Consider tone, imagery, and perspective.' },
+          { label: 'b', task: 'What techniques does each poet use?', solution: 'Compare use of rhyme, metre, imagery, and figurative language.' },
+          { label: 'c', task: 'Which poem do you find more effective, and why?', solution: 'Personal response supported by analysis of technique.' },
+        ],
+        solution: 'Comparing poems deepens understanding of how different poets approach universal themes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Write your own poem (at least 12 lines) using at least three different sound devices (alliteration, assonance, rhyme, onomatopoeia). Then annotate your poem, labelling the devices you used.',
+        hints: ['Choose a topic that matters to you', 'Read your poem aloud to test the sound effects', 'Consider both the sound and the meaning'],
+        solution: 'Writing poetry develops your understanding of poetic techniques from the inside.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Write a complete poetry analysis (200-300 words) of a poem you have studied. Include analysis of form, language, imagery, and theme.',
+        hints: ['Start with your overall interpretation', 'Support every claim with evidence from the poem', 'Discuss how form and language work together to create meaning'],
+        solution: 'A complete poetry analysis integrates discussion of form, language, and meaning into a coherent argument.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-4-4-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Poetry** uses concentrated language where every word, sound, and line break carries meaning.
+
+2. **Sound devices** (rhyme, alliteration, assonance, onomatopoeia) create the musical quality of poetry and contribute to meaning.
+
+3. **Poetic forms** (sonnet, haiku, ballad, free verse) each have their own conventions and effects.
+
+4. **Imagery** creates sensory experiences in the reader's mind, appealing to sight, sound, touch, taste, and smell.
+
+5. **Analysis** should always connect technique to meaning: not just what device is used, but why and to what effect.
+
+**Key Vocabulary:**
+- Stanza - a group of lines forming a unit in a poem
+- Metre - the rhythmic pattern of stressed and unstressed syllables
+- Enjambment - when a sentence continues from one line to the next without pause
+- Caesura - a pause in the middle of a line of poetry`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-4-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Fry, S. (2007). *The Ode Less Travelled: Unlocking the Poet Within*. Arrow Books.
+- Poetry Foundation: poetryfoundation.org
+- Poets.org: poets.org (Academy of American Poets)`,
+    },
   ],
   exercises: [],
 };
@@ -2575,6 +2939,117 @@ Drama is written to be performed. The script is just a blueprint.
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-4-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Read a scene from a Shakespeare play (or watch a performed version). Identify three examples of dramatic techniques (soliloquy, aside, dramatic irony, stage directions).',
+        hints: ['Accessible scenes: Hamlet\'s "To be or not to be," Romeo and Juliet balcony scene, Macbeth\'s dagger speech'],
+        solution: 'Shakespeare uses dramatic techniques that are still fundamental to drama and film today.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Film analysis: Watch a scene from an English-language film and analyze how cinematic techniques create meaning.',
+        subTasks: [
+          { label: 'a', task: 'What camera angles and shots are used?', solution: 'Close-up for emotion, wide shot for context, low angle for power, high angle for vulnerability.' },
+          { label: 'b', task: 'How does music or sound contribute to the mood?', solution: 'Score, sound effects, silence, and dialogue all create atmosphere.' },
+          { label: 'c', task: 'What is the lighting like, and what mood does it create?', solution: 'Bright lighting for optimism, dark for tension, colour temperature for warmth/coldness.' },
+        ],
+        solution: 'Film analysis connects visual and auditory techniques to meaning, just as literary analysis connects language to meaning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Write a short dramatic scene (1-2 pages) with dialogue, stage directions, and at least one dramatic technique (dramatic irony, foreshadowing, or subplot).',
+        hints: ['Include clear stage directions', 'Use dialogue to reveal character', 'Create tension or conflict between characters'],
+        solution: 'Writing a dramatic scene develops understanding of how drama works from the inside.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Discuss the challenges and opportunities of adapting literature to film. Use a specific example you know.',
+        subTasks: [
+          { label: 'a', task: 'What can film do that books cannot?', solution: 'Visual spectacle, musical score, actors\' performances, simultaneous action, pacing through editing.' },
+          { label: 'b', task: 'What can books do that film cannot?', solution: 'Internal thoughts, detailed backstory, reader\'s imagination, complex time structures, unreliable narration.' },
+        ],
+        solution: 'Understanding the strengths and limitations of each medium deepens appreciation of both.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-4-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-4-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Write a film review (200-300 words) of an English-language film. Discuss narrative, performance, cinematography, and theme.',
+        hints: ['Balance summary with analysis', 'Avoid spoiling the ending', 'Support your opinions with specific examples from the film'],
+        solution: 'A good film review demonstrates analytical skills and the ability to evaluate cultural products critically.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-4-5-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Drama** uses dialogue, stage directions, and dramatic techniques (soliloquy, aside, dramatic irony) to tell stories through performance.
+
+2. **Film** adds visual and auditory dimensions: camera angles, lighting, music, editing, and acting all contribute to meaning.
+
+3. **Adaptation** from text to film involves creative choices about what to keep, change, and add. Both mediums have unique strengths.
+
+4. **Analyzing both mediums** requires understanding their specific conventions and how technique creates meaning.
+
+5. **Shakespeare** remains foundational to English drama and continues to be adapted for modern audiences.
+
+**Key Vocabulary:**
+- Soliloquy - a speech in which a character reveals thoughts to the audience
+- Dramatic irony - when the audience knows something the characters do not
+- Cinematography - the art of camera work and visual composition in film
+- Mise-en-scene - everything visible in a frame (set, costumes, lighting, actors)`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-4-5-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Bordwell, D. & Thompson, K. (2017). *Film Art: An Introduction*. McGraw-Hill.
+- Crystal, D. & Crystal, B. (2002). *Shakespeare's Words*. Penguin.
+- British Film Institute - Film Education: bfi.org.uk/education`,
     },
   ],
   exercises: [],

@@ -2988,7 +2988,7 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
       title: 'Ledd',
       content: `Ledd er forbindelsen mellom to eller flere bein. De gjør bevegelse mulig.
 
-**Leddtyper etter beveg elsesmulighet:**
+**Leddtyper etter bevegelsesmulighet:**
 
 **1. Synoviale ledd (bevegelige):**
 - Mest vanlige ledd
@@ -3002,12 +3002,12 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
 - **Glidelledd:** Små glidende bevegelser (håndrot, fotrot)
 - **Dreieledd:** Rotasjon (mellom underarmsbeina)
 
-**2. Bruskforbihdelser (lite bevegelige):**
+**2. Bruskforbindelser (lite bevegelige):**
 - Bein forbundet med brusk
 - Begrenset bevegelse
 - Eksempel: Ryggrad (mellom virvler)
 
-**3. Seneforhindelser (ubevegelige):**
+**3. Benforbindelser (ubevegelige):**
 - Bein smeltet sammen
 - Ingen bevegelse
 - Eksempel: Hodeskalle (kranium)
@@ -3063,11 +3063,11 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
       type: 'definition',
       title: 'Sener og leddbånd',
       content: `**Sener (tendoner):**
-Sener er sterkt, fibr øst vev som forbinder muskel til bein.
+Sener er sterkt, fibrøst vev som forbinder muskel til bein.
 
 **Funksjoner:**
 - Overfører kraften fra muskel til bein
-- Skapert bevegelse
+- Skaper bevegelse
 - Kan lagre og frigjøre elastisk energi (plyometri)
 
 **Egenskaper:**
@@ -3081,7 +3081,7 @@ Sener er sterkt, fibr øst vev som forbinder muskel til bein.
 - Bicepssenen (skulder/albue)
 
 **Leddbånd (ligamenter):**
-Leddbånd er sterkt, fibøst vev som forbinder bein til bein.
+Leddbånd er sterkt, fibrøst vev som forbinder bein til bein.
 
 **Funksjoner:**
 - Stabiliserer ledd
@@ -3209,7 +3209,7 @@ Knebøy er en sammensatt bevegelse som involverer flere ledd, store muskelgruppe
       title: 'Skader i bevegelsesapparatet',
       content: `**Akutte skader:**
 - **Brudd (fraktur):** Bein knekker. Krever legehjelp umiddelbart.
-- **Forst påkjenning (distorsjon):** Leddbånd strekkes/rives. Vanlig i ankel og kne.
+- **Forstuing (distorsjon):** Leddbånd strekkes/rives. Vanlig i ankel og kne.
 - **Muskelskade:** Rift i muskel. Smerte og hevelse.
 
 **Overbelastningsskader:**
@@ -3422,10 +3422,10 @@ Et sterkt kardiovaskulært system er grunnlaget for god helse og god kondisjon.`
       title: 'Blodsirkulasjonen',
       content: `Blodsirkulasjonen består av to kretsløp:
 
-**1. Lungekrets løpet (liten kretsløp):**
+**1. Lungekretsløpet (liten kretsløp):**
 - Høyre hjertekammer → Lungearterie → Lunger → Lungevene → Venstre forkammer
 - Oksygenfattig blod → Lunger → Oksygenrikt blod
-- Korteste krets løp
+- Korteste kretsløp
 
 **2. Systemkretsløpet (store kretsløp):**
 - Venstre hjertekammer → Aorta → Arterier → Kapillærer → Vener → Høyre forkammer
@@ -3499,7 +3499,7 @@ Begge er blodårer som transporterer blod. De møtes i kapillærene hvor utveksl
 - **Luftrør (trachea):** Fører luft ned
 - **Bronkier:** Forgrener seg som et tre
 - **Bronkioler:** Minste luftveier
-- **Alveoler (lungeblærer):** Små sek ker hvor gassutveksling skjer (ca. 300 millioner!)
+- **Alveoler (lungeblærer):** Små sekker hvor gassutveksling skjer (ca. 300 millioner!)
 
 **Gassutveksling i alveolene:**
 1. Luft vi puster inn inneholder ca. 21% oksygen
@@ -3558,7 +3558,7 @@ Begge er blodårer som transporterer blod. De møtes i kapillærene hvor utveksl
 3. **Blodets oksygentransport:** Antall røde blodceller og hemoglobin
 4. **Musklenes evne:** Hvor effektivt musklene bruker oksygen
 
-**Likn ingen:**
+**Ligningen:**
 VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
 
 **Hvordan forbedre VO₂maks:**
@@ -3685,7 +3685,7 @@ VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
 - Håndter stress
 
 **Trening med astma:**
-- Bruk prevensjonsmedisin før trening
+- Bruk forebyggende astmamedisin før trening
 - Varm opp godt (15 min)
 - Unngå ekstremt kaldt vær
 - Ha inhalator tilgjengelig

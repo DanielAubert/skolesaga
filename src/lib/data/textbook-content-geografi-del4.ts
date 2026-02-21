@@ -192,6 +192,28 @@ Mange av jordens biomer er truet av menneskelig aktivitet:
 
 Klimaendringene fører til at vegetasjonssonene gradvis forskyves mot polene og oppover i fjellet.`,
     },
+  
+    {
+      id: 'geo-4-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Verdens vegetasjonssoner folger et moenster som hovedsakelig styres av klima
+- **Tropisk regnskog** har stoerst artsmangfold og finnes rundt ekvator
+- **Savanne** har veksling mellom regnperiode og torrperiode
+- **Temperert lauvskog**, **barskog (taiga)** og **tundra** dominerer paa hoeyere breddegrader
+- Vegetasjonssonene pavirkes av **temperatur**, **nedbor**, **jordsmonn** og **hoeyde over havet**`,
+    },
+    {
+      id: 'geo-4-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- WWF: worldwildlife.org/biomes
+- NASA Earth Observatory: earthobservatory.nasa.gov
+- Artsdatabanken: artsdatabanken.no`,
+    },
   ],
   exercises: [
     {
@@ -414,6 +436,28 @@ Norge har et sterkt juridisk jordvern. Omdisponering av dyrket og dyrkbar mark t
    - I ytterste konsekvens kan jorda bli ubrukelig
 
 4. **Tiltak**: Vekselbruk, terrengfølgende pløying, leplanting og dekkvekster kan redusere erosjonen betydelig.`,
+    },
+  
+    {
+      id: 'geo-4-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Jord dannes gjennom **forvitring** av berggrunn og nedbrytning av organisk materiale
+- **Jordprofilen** har lag (horisonter) fra overflaten ned til berggrunn
+- Jordbruk er avhengig av fruktbar jord, men jorderosjon truer matproduksjonen globalt
+- **Matsikkerhet** handler om at alle skal ha tilgang til nok og naeringsrik mat
+- Baerekraftig jordbruk og redusert matsvinn er noedvendig for aa mette en voksende befolkning`,
+    },
+    {
+      id: 'geo-4-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FAO (FNs mat- og landbruksorganisasjon): fao.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- NIBIO (Norsk institutt for biookonomi): nibio.no
+- Verdensbanken: data.worldbank.org`,
     },
   ],
   exercises: [
@@ -642,6 +686,28 @@ FN anslår at over 2 milliarder mennesker mangler tilgang til trygt drikkevann. 
 - **Investering i infrastruktur**: Vannledninger, brønner og sanitæranlegg i utviklingsland
 
 FNs bærekraftsmål nr. 6 er «Rent vann og gode sanitærforhold» for alle innen 2030.`,
+    },
+  
+    {
+      id: 'geo-4-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Bare ca. 2,5 % av jordens vann er ferskvann, og det meste er bundet i is
+- **Vannets kretslop** beskriver hvordan vann sirkulerer mellom hav, atmosfaere og land
+- Over 2 milliarder mennesker mangler tilgang til trygt drikkevann
+- **Vannkonflikter** oppstaar naar flere land deler samme vassdrag og det er knapphet
+- Klimaendringer forandrer nedborsmoenstre og forsterker vannknapphet i mange regioner`,
+    },
+    {
+      id: 'geo-4-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NVE (Norges vassdrags- og energidirektorat): nve.no
+- UN Water: unwater.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- WHO/UNICEF: washdata.org`,
     },
   ],
   exercises: [
@@ -881,6 +947,28 @@ Det internasjonale energibyrået (IEA) har pekt på flere trender for global ene
 - **Energieffektivisering** er like viktig som ny produksjon – den billigste energien er den vi ikke bruker
 
 Overgangen fra fossilt til fornybart vil kreve massive investeringer, men gir også enorme muligheter for innovasjon og nye arbeidsplasser.`,
+    },
+  
+    {
+      id: 'geo-4-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Fossile energikilder (kull, olje, gass) staar for ca. 80 % av verdens energiforbruk
+- Fornybare energikilder inkluderer **vannkraft**, **vindkraft**, **solenergi** og **bioenergi**
+- Norge er en stor produsent av baade olje/gass og fornybar energi (vannkraft)
+- **Energiomstillingen** innebarer overgang fra fossil til fornybar energi
+- Det er interessekonflikter mellom oekonomisk vekst, arbeidsplasser og klimahensyn`,
+    },
+    {
+      id: 'geo-4-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NVE (Norges vassdrags- og energidirektorat): nve.no
+- IEA (Det internasjonale energibyraaet): iea.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Norsk Petroleum: norskpetroleum.no`,
     },
   ],
   exercises: [
@@ -1123,6 +1211,28 @@ Havet står overfor store utfordringer i tiårene fremover:
 - **Tap av biologisk mangfold**: Korallrev, mangroveskog og andre viktige økosystemer er truet
 
 FNs havtiår (2021–2030) setter fokus på bærekraftig bruk og vern av havene. FNs bærekraftsmål nr. 14 er «Livet i havet» – å bevare og bruke hav- og marine ressurser bærekraftig.`,
+    },
+  
+    {
+      id: 'geo-4-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Havet dekker over 70 % av jordoverflaten og inneholder enorme ressurser
+- **Fiskeri** og **havbruk** er viktige naeringsveier, saerlig for kystnasjoner som Norge
+- **Overfiske** truer mange fiskebestander og marine oekosystemer
+- Norsk fiskerinering er regulert gjennom kvoter og forvaltningsplaner
+- Baerekraftig havforvaltning er avgjoerendes for aa bevare havets ressurser for fremtiden`,
+    },
+    {
+      id: 'geo-4-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Havforskningsinstituttet: hi.no
+- FAO (FNs mat- og landbruksorganisasjon): fao.org
+- Fiskeridirektoratet: fiskeridir.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -1399,6 +1509,28 @@ Norge har lang tradisjon for naturressursforvaltning og har vedtatt ambisiøse k
 
 ### Veien videre
 Norge har forpliktet seg til å kutte klimagassutslippene med minst 55 % innen 2030 (sammenlignet med 1990) og bli et lavutslippssamfunn innen 2050. Dette krever omstilling i alle sektorer – transport, industri, jordbruk og energi.`,
+    },
+  
+    {
+      id: 'geo-4-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Baerekraftig utvikling** betyr aa dekke dagens behov uten aa oedelegge for fremtidige generasjoner
+- FNs baerekraftsmaal gir et felles rammeverk for aa loeysne globale utfordringer
+- **Sirkulaerokonomi** handler om aa redusere avfall ved aa gjenbruke og resirkulere
+- **Oekosystemtjenester** er de godene naturen gir oss gratis (rensing av vann, pollinering, karbonlagring)
+- Norges forbruk per innbygger er blant verdens hoeyeste, noe som utfordrer baerekraften`,
+    },
+    {
+      id: 'geo-4-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN: fn.no/om-fn/fns-baerekraftsmaal
+- Miljodirektoratet: miljodirektoratet.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- WWF Living Planet Report: wwf.no`,
     },
   ],
   exercises: [

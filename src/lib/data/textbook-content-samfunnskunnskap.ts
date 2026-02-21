@@ -12135,6 +12135,940 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_11_2: TextbookChapter = {
   ],
 };
 
+// ============================================================================
+// KAPITTEL 12: Samfunnsfaglige metoder
+// ============================================================================
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_12_1: TextbookChapter = {
+  id: 'samfunnskunnskap-12-1',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '12.1',
+  title: 'Samfunnsfaglige metoder',
+  description: 'Lær om ulike samfunnsfaglige metoder som intervju, spørreundersøkelse, observasjon og statistikk, og forskjellen mellom kvantitative og kvalitative tilnærminger.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'bruke samfunnsfaglige metoder i egne undersøkelser',
+    'forstå forskjellen mellom kvantitative og kvalitative metoder',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-12-1-intro',
+      type: 'text',
+      content: `## Samfunnsfaglige metoder
+
+Når vi studerer samfunnet, trenger vi metoder for å samle inn, analysere og tolke informasjon systematisk. Samfunnsfaglige metoder gir oss verktøy for å undersøke spørsmål om mennesker, grupper og samfunn på en pålitelig måte.
+
+**Hvorfor trenger vi metoder?**
+- For å unngå å trekke slutninger basert på tilfeldigheter
+- For å kunne etterprøve funn
+- For å skille mellom påstander og dokumentert kunnskap
+- For å kunne sammenligne resultater på tvers av undersøkelser`,
+    },
+    {
+      id: 'samfunnskunnskap-12-1-def-1',
+      type: 'definition',
+      title: 'Kvantitative og kvalitative metoder',
+      content: `**Kvantitative metoder:**
+Samler inn data som kan telles og måles. Gir tall og statistikk.
+- Spørreundersøkelser med faste svaralternativer
+- Statistisk analyse av tallmateriale
+- Store utvalg gir generaliserbare resultater
+- Eksempel: SSBs befolkningsstatistikk
+
+**Kvalitative metoder:**
+Samler inn data som gir dypere forståelse av meninger og opplevelser. Gir tekst og beskrivelser.
+- Intervju med åpne spørsmål
+- Observasjon av sosiale situasjoner
+- Tekstanalyse og dokumentstudier
+- Mindre utvalg, men grundigere innsikt
+- Eksempel: Dybdeintervju med ungdom om identitet`,
+    },
+    {
+      id: 'samfunnskunnskap-12-1-def-2',
+      type: 'definition',
+      title: 'Vanlige datainnsamlingsmetoder',
+      content: `**Spørreundersøkelse:**
+Strukturerte spørsmål til mange respondenter. Egner seg for å kartlegge holdninger og mønstre i store grupper.
+
+**Intervju:**
+Samtale med en eller flere personer. Kan være strukturert, halvstrukturert eller åpent. Gir dypere innsikt.
+
+**Observasjon:**
+Systematisk iakttakelse av atferd og situasjoner. Kan være deltakende (forskeren deltar) eller ikke-deltakende.
+
+**Dokumentanalyse:**
+Systematisk gjennomgang av skriftlige kilder som lovtekster, avisartikler eller offentlige rapporter.
+
+**Statistikk:**
+Bruk av eksisterende tallmateriale fra SSB, forskningsinstitusjoner eller offentlige registre.`,
+    },
+    {
+      id: 'samfunnskunnskap-12-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Undersøke ungdoms medievaner',
+      problem: `Hvordan kan man bruke ulike metoder for å undersøke ungdoms medievaner?`,
+      solution: `**Kvantitativ tilnærming:**
+- Spørreundersøkelse til 500 elever: «Hvor mange timer bruker du sosiale medier daglig?»
+- Gir tall og statistikk, f.eks. gjennomsnittlig skjermtid
+- Kan sammenlignes med tidligere undersøkelser
+
+**Kvalitativ tilnærming:**
+- Dybdeintervju med 10 ungdommer: «Hva betyr sosiale medier for deg?»
+- Gir innsikt i opplevelser, motivasjon og følelser
+- Avdekker nyanser tallene ikke viser
+
+**Kombinasjon (metodetriangulering):**
+Bruk av begge metoder gir mest fullstendig bilde. Tallene viser omfanget, intervjuene forklarer hvorfor.`,
+    },
+    {
+      id: 'samfunnskunnskap-12-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom kvantitative og kvalitative metoder, og gi et eksempel på hver.',
+        solution: 'Kvantitative metoder samler inn data som kan telles og måles (tall og statistikk), f.eks. spørreundersøkelse med faste svaralternativer. Kvalitative metoder gir dypere forståelse av meninger og opplevelser (tekst og beskrivelser), f.eks. dybdeintervju. Kvantitative metoder gir bredde, kvalitative gir dybde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Du skal undersøke hva elever på skolen din mener om skolemiljøet. Beskriv hvordan du ville gjennomført undersøkelsen med bruk av minst to ulike metoder.',
+        hints: ['Tenk på både kvantitative og kvalitative tilnærminger'],
+        solution: 'Eksempel: 1) Spørreundersøkelse (kvantitativ) til alle elever med spørsmål om trivsel, mobbing og læringsmiljø med svaralternativer. 2) Gruppeintervju (kvalitativ) med utvalgte elever for å forstå hva som ligger bak svarene. Spørreundersøkelsen gir oversikt over omfang, intervjuene gir dypere forståelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-1-def-3',
+      type: 'definition',
+      title: 'Viktige begreper i forskning',
+      content: `**Reliabilitet (pålitelighet):**
+Ville man fått samme resultat hvis undersøkelsen ble gjentatt? Høy reliabilitet betyr at metoden er konsistent.
+
+**Validitet (gyldighet):**
+Måler undersøkelsen det den er ment å måle? Høy validitet betyr at resultatene er relevante for problemstillingen.
+
+**Representativitet:**
+Er utvalget representativt for hele gruppen vi ønsker å si noe om? Viktig for å kunne generalisere.
+
+**Etikk:**
+Forskning på mennesker krever informert samtykke, anonymitet og respekt for deltakerne.`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-12-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hva reliabilitet og validitet betyr, og hvorfor begge er viktige i en undersøkelse.',
+        solution: 'Reliabilitet betyr pålitelighet: Ville man fått samme resultat ved gjentakelse? Validitet betyr gyldighet: Måler man det man faktisk ønsker å måle? Begge er viktige fordi en undersøkelse uten reliabilitet gir tilfeldige resultater, mens en uten validitet måler feil ting - begge gjør resultatene ubrukelige.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Drøft fordeler og ulemper ved å bruke spørreundersøkelse kontra intervju som datainnsamlingsmetode.',
+        solution: 'Spørreundersøkelse: Fordeler - når mange, lett å sammenligne, anonymt. Ulemper - overflatedata, misforståelser i spørsmål, lav svarprosent. Intervju: Fordeler - dyptgående svar, oppfølgingsspørsmål, fleksibelt. Ulemper - tidkrevende, få respondenter, vanskelig å generalisere, intervjuereffekt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-12-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kvantitative metoder**: Samler inn data som kan telles og måles, gir tall og statistikk, egner seg for store utvalg\n- **Kvalitative metoder**: Gir dypere forståelse av meninger og opplevelser, egner seg for grundig innsikt\n- **Datainnsamlingsmetoder**: Spørreundersøkelse, intervju, observasjon, dokumentanalyse og statistikk\n- **Forskningskvalitet**: Reliabilitet (pålitelighet) og validitet (gyldighet) er avgjørende for gode undersøkelser` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Kvantitativ metode', definition: 'Forskningsmetode som samler inn data som kan telles og måles, gir tall og statistikk.' },
+    { term: 'Kvalitativ metode', definition: 'Forskningsmetode som gir dypere forståelse av meninger og opplevelser gjennom tekst og beskrivelser.' },
+    { term: 'Reliabilitet', definition: 'Påliteligheten til en undersøkelse - ville man fått samme resultat ved gjentakelse.' },
+    { term: 'Validitet', definition: 'Gyldigheten til en undersøkelse - måler man det man faktisk ønsker å måle.' },
+    { term: 'Representativitet', definition: 'Om utvalget er representativt for hele gruppen man ønsker å si noe om.' },
+    { term: 'Metodetriangulering', definition: 'Å bruke flere ulike metoder for å belyse samme problemstilling fra ulike vinkler.' },
+  ],
+};
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_12_2: TextbookChapter = {
+  id: 'samfunnskunnskap-12-2',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '12.2',
+  title: 'Kilder og kildekritikk i praksis',
+  description: 'Lær å skille mellom ulike kildetyper, bruke TONE-modellen for kildekritikk, og gjenkjenne bias og propaganda.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'vurdere kilder kritisk i egne undersøkelser',
+    'gjenkjenne bias og propaganda',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-12-2-intro',
+      type: 'text',
+      content: `## Kilder og kildekritikk
+
+Kildekritikk er evnen til å vurdere om informasjon er pålitelig, relevant og sann. I en verden med enorme mengder informasjon er dette en av de viktigste ferdighetene du kan utvikle.
+
+**Hvorfor er kildekritikk viktig?**
+- Alle har en agenda - bevisst eller ubevisst
+- Feilinformasjon spres raskt på nett
+- Beslutninger bør baseres på pålitelig informasjon
+- Demokratiet avhenger av informerte borgere`,
+    },
+    {
+      id: 'samfunnskunnskap-12-2-def-1',
+      type: 'definition',
+      title: 'Kildetyper',
+      content: `**Primærkilder:**
+Førstehånds vitnesbyrd og originaldokumenter. Eksempler: Øyenvitneberetninger, originale lovtekster, statistikk fra SSB, forskningsartikler.
+
+**Sekundærkilder:**
+Fortolkninger og analyser basert på primærkilder. Eksempler: Nyhetsartikler, lærebøker, dokumentarer.
+
+**Tertiærkilder:**
+Sammendrag og oversikter basert på sekundærkilder. Eksempler: Leksikon, Wikipedia, oppslagsverk.
+
+**Tommelfingerregel:**
+Jo nærmere kilden er den opprinnelige hendelsen, desto mer pålitelig er den som regel. Men alle kildetyper kan være nyttige hvis de brukes riktig.`,
+    },
+    {
+      id: 'samfunnskunnskap-12-2-def-2',
+      type: 'definition',
+      title: 'TONE-modellen for kildekritikk',
+      content: `**T - Troverdighet:**
+- Hvem står bak informasjonen?
+- Har avsenderen kompetanse på området?
+- Er avsenderen kjent og pålitelig?
+
+**O - Objektivitet:**
+- Er fremstillingen balansert?
+- Skilles det mellom fakta og meninger?
+- Finnes det skjulte motiver?
+
+**N - Nøyaktighet:**
+- Er påstander dokumentert med kilder?
+- Stemmer informasjonen med andre kilder?
+- Er det faktafeil?
+
+**E - Egnethet:**
+- Er kilden relevant for det du undersøker?
+- Er informasjonen oppdatert?
+- Passer kilden til formålet?`,
+    },
+    {
+      id: 'samfunnskunnskap-12-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom primær-, sekundær- og tertiærkilder og gi et eksempel på hver.',
+        solution: 'Primærkilder er førstehåndskilder, f.eks. en domstolsavgjørelse. Sekundærkilder er fortolkninger av primærkilder, f.eks. en nyhetsartikkel om dommen. Tertiærkilder er sammendrag av sekundærkilder, f.eks. et leksikon som omtaler saken. Primærkilder er som regel mest pålitelige.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-2-def-3',
+      type: 'definition',
+      title: 'Bias og propaganda',
+      content: `**Bias (skjevhet):**
+Alle kilder kan ha bias - en ubevisst eller bevisst skjevhet i fremstillingen. Vanlige typer:
+- **Bekreftelsestendens:** Vi leter etter informasjon som bekrefter det vi allerede tror
+- **Utvalgstendens:** Bare noen fakta presenteres
+- **Vinkling:** Samme hendelse fremstilles ulikt avhengig av avsenderens ståsted
+
+**Propaganda:**
+Bevisst spredning av informasjon for å påvirke holdninger. Kjennetegn:
+- Appell til følelser fremfor fornuft
+- Forenkling av komplekse spørsmål
+- Demonisering av motstandere
+- Gjentakelse av budskapet`,
+    },
+    {
+      id: 'samfunnskunnskap-12-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Kildekritikk i praksis',
+      problem: `Du finner en artikkel på nettet som hevder at «ungdom er mer ensomme enn noen gang». Hvordan kan du vurdere denne kilden?`,
+      solution: `**Bruk TONE-modellen:**
+
+**Troverdighet:** Hvem har skrevet artikkelen? Er det en forsker, en journalist, eller en ukjent blogg? Hvilken publiseringskanal? NRK, VG og forskning.no har redaksjonelt ansvar.
+
+**Objektivitet:** Er fremstillingen balansert? Viser artikkelen ulike perspektiver, eller bare én side? Er det sterkt følelsesladede formuleringer?
+
+**Nøyaktighet:** Henviser artikkelen til forskning? Kan du finne originalstudien? Stemmer tallene med andre kilder som SSB eller NOVA?
+
+**Egnethet:** Er artikkelen oppdatert? Er den relevant for akkurat det du undersøker?
+
+**Konklusjon:** Én enkelt artikkel er ikke nok til å trekke sikre slutninger. Sjekk alltid flere kilder.`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-12-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Bruk TONE-modellen til å vurdere en nyhetsartikkel du har lest nylig. Beskriv vurderingen din.',
+        hints: ['Gå gjennom alle fire bokstavene systematisk'],
+        solution: 'Svaret bør systematisk vurdere en konkret artikkel: Troverdighet (hvem står bak, hvilken kompetanse og publiseringskanal), Objektivitet (balanse, fakta vs. meninger), Nøyaktighet (dokumentasjon, samsvar med andre kilder), Egnethet (relevans, oppdatering).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er bias, og hvorfor er det viktig å være bevisst på bias når man leser kilder?',
+        solution: 'Bias er skjevhet i fremstillingen, bevisst eller ubevisst. Viktig å kjenne til fordi: 1) Alle kilder kan ha bias, 2) Bekreftelsestendens gjør at vi foretrekker informasjon som passer med det vi tror, 3) Vinkling kan gi et skjevt bilde av virkeligheten, 4) Uten bevissthet om bias risikerer vi å ta beslutninger på feil grunnlag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-12-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-12-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Drøft hvorfor kildekritikk er spesielt viktig i en tid med sosiale medier og kunstig intelligens.',
+        solution: 'Sosiale medier gjør det enkelt for alle å publisere, uavhengig av kompetanse. Algoritmer forsterker polarisering og ekkokamre. AI kan lage realistisk falskt innhold (deepfakes, kunstig tekst). Informasjon spres raskere enn den kan faktasjekkes. Alt dette gjør at borgere trenger sterkere kildekritisk kompetanse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-12-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kildetyper**: Primærkilder (førstehånd), sekundærkilder (fortolkninger) og tertiærkilder (sammendrag) har ulik pålitelighet\n- **TONE-modellen**: Troverdighet, Objektivitet, Nøyaktighet og Egnethet er fire kriterier for kildekritikk\n- **Bias**: Alle kilder kan ha skjevhet, og vi må være bevisste på vår egen bekreftelsestendens\n- **Propaganda**: Bevisst påvirkning gjennom følelsesappell, forenkling og gjentakelse` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Kildekritikk', definition: 'Evnen til å vurdere om informasjon er pålitelig, relevant og sann.' },
+    { term: 'Primærkilde', definition: 'Førstehånds vitnesbyrd og originaldokumenter.' },
+    { term: 'Sekundærkilde', definition: 'Fortolkninger og analyser basert på primærkilder.' },
+    { term: 'TONE-modellen', definition: 'Kildekritisk modell: Troverdighet, Objektivitet, Nøyaktighet, Egnethet.' },
+    { term: 'Bias', definition: 'Skjevhet i fremstillingen, bevisst eller ubevisst.' },
+    { term: 'Propaganda', definition: 'Bevisst spredning av informasjon for å påvirke holdninger.' },
+  ],
+};
+
+// ============================================================================
+// KAPITTEL 13: Økonomi, næringsliv og innovasjon
+// ============================================================================
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_13_1: TextbookChapter = {
+  id: 'samfunnskunnskap-13-1',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '13.1',
+  title: 'Norsk økonomi og næringsgrunnlag',
+  description: 'Forstå hva som skaper verdier i Norge, hvordan BNP måler økonomisk aktivitet, og hvilke næringer som er viktigst.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'forstå næringsgrunnlaget i Norge',
+    'drøfte sammenhengen mellom verdiskaping og ressurser',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-13-1-intro',
+      type: 'text',
+      content: `## Norsk økonomi og næringsgrunnlag
+
+Norges økonomi er blant verdens rikeste, målt i BNP per innbygger. Men hva er det som skaper verdier i Norge, og hvordan er næringslivet organisert?
+
+**Verdiskaping** betyr å skape varer og tjenester som har verdi for samfunnet. Norges verdiskaping hviler på en kombinasjon av naturressurser, kompetanse, kapital og teknologi.`,
+    },
+    {
+      id: 'samfunnskunnskap-13-1-def-1',
+      type: 'definition',
+      title: 'BNP - Bruttonasjonalprodukt',
+      content: `**BNP (Bruttonasjonalprodukt):**
+Den samlede verdien av alle varer og tjenester produsert i et land i løpet av et år. Det mest brukte målet på et lands økonomiske aktivitet.
+
+**BNP per innbygger:**
+BNP delt på antall innbyggere. Gir et bilde av gjennomsnittlig levestandard, men sier lite om fordeling.
+
+**Begrensninger ved BNP:**
+- Måler ikke ulønnet arbeid (husarbeid, frivillig arbeid)
+- Sier ikke noe om livskvalitet, helse eller miljø
+- Fordeling fanges ikke opp
+- Noen mener vi trenger bedre måleinstrumenter`,
+    },
+    {
+      id: 'samfunnskunnskap-13-1-def-2',
+      type: 'definition',
+      title: 'Norges viktigste næringer',
+      content: `**Olje og gass (petroleum):**
+Norges klart største eksportnæring. Har gitt enorme inntekter siden 1970-tallet. Statoil (nå Equinor) er viktigste aktør. Inntektene forvaltes gjennom Statens pensjonsfond utland (Oljefondet).
+
+**Sjømat og fiskeri:**
+Norge er en av verdens største eksportører av sjømat. Oppdrettsnæringen (laks) har vokst kraftig.
+
+**Maritim næring:**
+Skipsfart, verftsindustri og havteknologi. Lang tradisjon i Norge.
+
+**Teknologi og IT:**
+Voksende sektor med bedrifter innen programvare, fintech og grønn teknologi.
+
+**Offentlig sektor:**
+Helse, utdanning og offentlig administrasjon utgjør en stor del av norsk økonomi.
+
+**Reiseliv:**
+Turisme er en viktig næring, særlig i distriktene.`,
+    },
+    {
+      id: 'samfunnskunnskap-13-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er BNP, og hva er begrensningene ved å bruke BNP som mål på velstand?',
+        solution: 'BNP er den samlede verdien av alle varer og tjenester produsert i et land på et år. Begrensninger: Måler ikke ulønnet arbeid, sier ikke noe om fordeling eller livskvalitet, fanger ikke opp miljøkostnader, og gir bare et gjennomsnittsbilde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-13-1-text-2',
+      type: 'text',
+      content: `## Næringsstruktur i endring
+
+Norsk økonomi har endret seg over tid:
+- **Primærnæringer** (jordbruk, fiske) har gått ned som andel av BNP
+- **Sekundærnæringer** (industri) var viktigst på 1900-tallet
+- **Tertiærnæringer** (tjenester) dominerer i dag
+
+**Utfordringer:**
+- Avhengighet av olje og gass (omstilling til grønn økonomi)
+- Behov for innovasjon og nye næringer
+- Konkurranse fra lavkostland
+- Distriktene mister arbeidsplasser til byene`,
+    },
+    {
+      id: 'samfunnskunnskap-13-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn Norges viktigste næringer og forklar hvorfor avhengighet av olje og gass kan være en utfordring.',
+        solution: 'Viktigste næringer: Petroleum, sjømat, maritim, teknologi/IT, offentlig sektor og reiseliv. Oljeavhengighet er en utfordring fordi: Oljeinntektene vil avta over tid, klimapolitikk kan redusere etterspørselen, svingninger i oljeprisen gir ustabilitet, og Norge trenger nye næringer som kan erstatte petroleumsinntektene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-13-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hva som menes med primær-, sekundær- og tertiærnæringer, og gi eksempler på hver.',
+        solution: 'Primærnæringer: Utvinning av naturressurser (jordbruk, fiske, skogbruk). Sekundærnæringer: Foredling og industri (fabrikker, bygg, olje). Tertiærnæringer: Tjenesteyting (helse, utdanning, handel, IT). I Norge dominerer tertiærnæringene i dag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-13-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Drøft hva Norge kan leve av etter oljen. Hvilke næringer kan erstatte petroleumsinntektene?',
+        hints: ['Tenk på teknologi, havbruk, fornybar energi og kompetanse'],
+        solution: 'Mulige fremtidsnæringer: Fornybar energi (havvind, hydrogen), havbruk og sjømat, teknologi og IT, helseteknologi, reiseliv, maritim næring og grønn skipsfart. Norge har kompetanse, kapital og naturressurser som kan brukes i omstillingen. Det er uenighet om tempoet i omstillingen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-13-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **BNP**: Måler samlet verdiskaping, men har begrensninger som mål på velstand\n- **Norges næringsgrunnlag**: Petroleum, sjømat, maritim, teknologi og offentlig sektor er de viktigste næringene\n- **Næringsstruktur i endring**: Fra primærnæringer til dominans av tjenestesektoren\n- **Omstilling**: Norge må utvikle nye næringer for å erstatte petroleumsinntektene over tid` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'BNP', definition: 'Bruttonasjonalprodukt - samlet verdi av alle varer og tjenester produsert i et land på et år.' },
+    { term: 'Verdiskaping', definition: 'Å skape varer og tjenester som har verdi for samfunnet.' },
+    { term: 'Primærnæringer', definition: 'Næringer som utvinner naturressurser: jordbruk, fiske, skogbruk.' },
+    { term: 'Sekundærnæringer', definition: 'Næringer som foredler råvarer: industri, bygg, olje.' },
+    { term: 'Tertiærnæringer', definition: 'Tjenestenæringer: helse, utdanning, handel, IT.' },
+    { term: 'Næringsgrunnlag', definition: 'Ressursene og forutsetningene som danner grunnlaget for næringsvirksomhet i et område.' },
+  ],
+};
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_13_2: TextbookChapter = {
+  id: 'samfunnskunnskap-13-2',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '13.2',
+  title: 'Handel, innovasjon og teknologi',
+  description: 'Forstå hvordan internasjonal handel fungerer, og hvordan teknologi og innovasjon kan bidra til bærekraftig utvikling.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'drøfte hvordan handel og innovasjon former næringslivet',
+    'utforske hvordan teknologi kan bidra til bærekraftig utvikling',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-13-2-intro',
+      type: 'text',
+      content: `## Handel, innovasjon og teknologi
+
+Internasjonal handel, teknologisk utvikling og innovasjon er drivkrefter som former økonomien og samfunnet. Globalisering har gjort verdensøkonomien mer sammenkoblet enn noen gang.
+
+**Hva er innovasjon?**
+Innovasjon betyr å skape noe nytt eller forbedre noe eksisterende på en måte som har verdi. Det kan være nye produkter, tjenester, prosesser eller måter å organisere arbeid på.`,
+    },
+    {
+      id: 'samfunnskunnskap-13-2-def-1',
+      type: 'definition',
+      title: 'Internasjonal handel',
+      content: `**Hvorfor handler land med hverandre?**
+- Ulike land har ulike ressurser og kompetanse
+- Spesialisering gir effektiv produksjon
+- Handel gir tilgang til varer som ikke produseres hjemme
+- Økt konkurranse gir lavere priser og bedre kvalitet
+
+**Frihandel:**
+Handel uten hindringer som toll og kvoter. WTO (Verdens handelsorganisasjon) arbeider for friere handel.
+
+**Proteksjonisme:**
+Beskyttelse av egen industri gjennom toll, kvoter eller subsidier. Kan beskytte arbeidsplasser, men gir dyrere varer.
+
+**Norges handelsavtaler:**
+EØS-avtalen gir Norge tilgang til EUs indre marked. Norge har også handelsavtaler gjennom EFTA.`,
+    },
+    {
+      id: 'samfunnskunnskap-13-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom frihandel og proteksjonisme, og drøft fordeler og ulemper ved begge.',
+        solution: 'Frihandel: Handel uten hindringer. Fordeler - lavere priser, større utvalg, effektiv produksjon. Ulemper - kan ramme lokal industri, sosial dumping. Proteksjonisme: Beskyttelse av egen industri gjennom toll osv. Fordeler - beskytter arbeidsplasser, matsikkerhet. Ulemper - dyrere varer, mindre konkurranse, kan hindre utvikling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-13-2-def-2',
+      type: 'definition',
+      title: 'Innovasjon og teknologi',
+      content: `**Typer innovasjon:**
+- **Produktinnovasjon:** Nye eller forbedrede produkter (f.eks. elbiler)
+- **Prosessinnovasjon:** Nye produksjonsmetoder (f.eks. robotisering)
+- **Organisasjonsinnovasjon:** Nye måter å organisere arbeid (f.eks. hjemmekontor)
+- **Sosial innovasjon:** Nye løsninger på samfunnsproblemer (f.eks. nye velferdsmodeller)
+
+**Teknologi og bærekraft:**
+Teknologi kan bidra til bærekraftig utvikling gjennom:
+- Fornybar energi (sol, vind, hydrogen)
+- Energieffektivisering
+- Sirkulær økonomi og gjenbruk
+- Presisjonslandbruk
+- Karbonfangst og -lagring`,
+    },
+    {
+      id: 'samfunnskunnskap-13-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi eksempler på hvordan teknologi og innovasjon kan bidra til bærekraftig utvikling.',
+        solution: 'Eksempler: Fornybar energi (sol, vind) erstatter fossil energi. Elbiler reduserer utslipp fra transport. Presisjonslandbruk reduserer ressursbruk. Karbonfangst fjerner CO2. Sirkulær økonomi reduserer avfall. Digitalisering gjør produksjon mer effektiv. Havvind utnytter Norges kompetanse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-13-2-text-2',
+      type: 'text',
+      content: `## Globalisering og utfordringer
+
+**Globalisering** betyr at verden blir mer sammenkoblet gjennom handel, kommunikasjon og kulturutveksling. Dette har både fordeler og ulemper.
+
+**Fordeler:**
+- Økonomisk vekst og fattigdomsreduksjon
+- Tilgang til varer, tjenester og informasjon
+- Kulturutveksling og samarbeid
+
+**Utfordringer:**
+- Økende ulikhet mellom og innen land
+- Miljøbelastning fra transport og produksjon
+- Tap av arbeidsplasser i høykostland
+- Makt konsentreres hos store multinasjonale selskaper
+- Sårbarhet ved globale kriser (som pandemier)`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-13-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Drøft fordeler og ulemper ved globalisering.',
+        solution: 'Fordeler: Økonomisk vekst, fattigdomsreduksjon, tilgang til varer og informasjon, kulturutveksling. Ulemper: Økende ulikhet, miljøbelastning, tap av lokale arbeidsplasser, maktkonsentrasjon hos store selskaper, sårbarhet ved globale kriser. Folk har ulike syn på om fordelene oppveier ulempene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-13-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-13-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hva EØS-avtalen betyr for norsk handel, og drøft ulike syn på avtalen.',
+        solution: 'EØS-avtalen gir Norge tilgang til EUs indre marked med de fire frihetene (varer, tjenester, kapital, personer). Norge må følge EUs regler uten stemmerett. Tilhengere mener den sikrer markedstilgang. Kritikere mener den gir for lite medbestemmelse og at Norge bør forhandle en annen avtale.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-13-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Internasjonal handel**: Frihandel og proteksjonisme er to ulike tilnærminger med fordeler og ulemper\n- **Innovasjon**: Produkt-, prosess-, organisasjons- og sosial innovasjon driver samfunnsutviklingen\n- **Teknologi og bærekraft**: Fornybar energi, karbonfangst og sirkulær økonomi er eksempler på grønn teknologi\n- **Globalisering**: Økt sammenkobling gir vekst men også ulikhet, miljøbelastning og sårbarhet` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Innovasjon', definition: 'Å skape noe nytt eller forbedre noe eksisterende på en måte som har verdi.' },
+    { term: 'Frihandel', definition: 'Handel uten hindringer som toll og kvoter.' },
+    { term: 'Proteksjonisme', definition: 'Beskyttelse av egen industri gjennom toll, kvoter eller subsidier.' },
+    { term: 'Globalisering', definition: 'At verden blir mer sammenkoblet gjennom handel, kommunikasjon og kulturutveksling.' },
+    { term: 'WTO', definition: 'Verdens handelsorganisasjon, arbeider for friere internasjonal handel.' },
+    { term: 'Sirkulær økonomi', definition: 'Økonomisk modell der ressurser brukes, gjenbrukes og resirkuleres i et kretsløp.' },
+  ],
+};
+
+// ============================================================================
+// KAPITTEL 14: Makt i samfunnet
+// ============================================================================
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_14_1: TextbookChapter = {
+  id: 'samfunnskunnskap-14-1',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '14.1',
+  title: 'Hva er makt?',
+  description: 'Forstå maktbegrepet, ulike former for makt, Webers maktdefinisjon, legitimitet og forskjellen mellom autoritet og autoritær maktbruk.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'forstå maktbegrepet og ulike former for makt',
+    'drøfte sammenhengen mellom makt og legitimitet',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-14-1-intro',
+      type: 'text',
+      content: `## Hva er makt?
+
+Makt er et av de mest sentrale begrepene i samfunnsvitenskapen. Makt finnes overalt - i politikken, på arbeidsplassen, i familien og i relasjoner mellom mennesker.
+
+**Max Webers definisjon:**
+Makt er evnen til å få gjennomslag for sin vilje, selv mot andres motstand. Denne definisjonen er den mest brukte i samfunnsfag.
+
+**Makt handler om:**
+- Hvem bestemmer?
+- Hvem påvirker beslutninger?
+- Hvem setter dagsordenen?
+- Hvem har mulighet til å handle?`,
+    },
+    {
+      id: 'samfunnskunnskap-14-1-def-1',
+      type: 'definition',
+      title: 'Former for makt',
+      content: `**Tvangsmakt:**
+Bruk av vold, trusler eller straff for å tvinge gjennom viljen sin. Eksempel: Statens voldsmonopol (politi, militærvesen).
+
+**Byttemakt:**
+Makt basert på at man har noe den andre ønsker. Eksempel: Arbeidsgiver har makt fordi den tilbyr lønn.
+
+**Overtalelsesmakt:**
+Makt gjennom argumenter, retorikk og overbevisning. Eksempel: Politikere som vinner debatter.
+
+**Dagsordensmakt:**
+Makt til å bestemme hvilke saker som diskuteres og hvilke som ignoreres. Eksempel: Mediene velger hva som er nyheter.
+
+**Ideologisk makt:**
+Makt til å forme folks verdier og virkelighetsoppfatning. Eksempel: Utdanningssystemet, medier og kulturinstitusjoner.
+
+**Strukturell makt:**
+Makt som er innebygd i samfunnsstrukturer og systemer, uten at noen nødvendigvis bevisst utøver den. Eksempel: Økonomisk ulikhet gir systematisk ulike muligheter.`,
+    },
+    {
+      id: 'samfunnskunnskap-14-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar Webers maktdefinisjon og gi eksempler på tre ulike former for makt.',
+        solution: 'Webers definisjon: Makt er evnen til å få gjennomslag for sin vilje, selv mot andres motstand. Tre former: 1) Tvangsmakt - politi bruker fysisk makt ved lovbrudd. 2) Byttemakt - arbeidsgiver tilbyr lønn mot arbeid. 3) Dagsordensmakt - mediene bestemmer hva som er nyheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-1-def-2',
+      type: 'definition',
+      title: 'Legitimitet og autoritet',
+      content: `**Legitimitet:**
+Makten oppfattes som rettferdig og berettiget av dem den utøves over. Legitim makt aksepteres frivillig.
+
+**Webers tre typer legitim makt:**
+- **Tradisjonell autoritet:** Makt basert på tradisjon og sedvane (f.eks. kongehuset)
+- **Karismatisk autoritet:** Makt basert på lederens personlige egenskaper og utstråling
+- **Legal-rasjonell autoritet:** Makt basert på lover og regler i et byråkratisk system (f.eks. statsministeren)
+
+**Autoritær vs. autoritativ:**
+- **Autoritativ:** Har makt basert på kompetanse og tillit, respekterer andres rettigheter
+- **Autoritær:** Bruker makt uten hensyn til andres meninger og rettigheter, krever lydighet
+
+**Avmakt:**
+Følelsen av å ikke ha innflytelse over beslutninger som påvirker eget liv. Kan føre til frustrasjon og politisk apati.`,
+    },
+    {
+      id: 'samfunnskunnskap-14-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom autoritativ og autoritær maktbruk.',
+        solution: 'Autoritativ maktbruk: Basert på kompetanse, tillit og aksept. Lederen har legitimitet og respekterer andres rettigheter. Autoritær maktbruk: Basert på tvang, krever lydighet uten å ta hensyn til andres meninger. Mangler ofte legitimitet. Eksempel: En god lærer er autoritativ, en diktator er autoritær.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Makt i hverdagen',
+      problem: `Makt handler ikke bare om politikk. Hvordan viser makt seg i hverdagen?`,
+      solution: `**I familien:** Foreldre har makt over barn gjennom regler og omsorg.
+**På skolen:** Læreren har vurderingsmakt og dagsordensmakt.
+**Blant venner:** Sosiale gruppers uformelle leder har overtalelsesmakt.
+**I sosiale medier:** Influencere har ideologisk makt over sine følgere.
+**I arbeidslivet:** Arbeidsgiver har byttemakt gjennom lønn og ansettelsesforhold.
+
+**Viktig innsikt:** Makt er ikke nødvendigvis negativt. Makt kan brukes til å løse problemer, beskytte svake og organisere samfunnet. Det avgjørende er om makten er legitim og brukes ansvarlig.`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-14-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar Webers tre typer legitim makt og gi eksempler på hver.',
+        solution: 'Tradisjonell autoritet: Makt basert på tradisjon, f.eks. kongen. Karismatisk autoritet: Makt basert på personlige egenskaper, f.eks. Martin Luther King. Legal-rasjonell autoritet: Makt basert på lover og regler, f.eks. en statsminister valgt etter grunnloven. I moderne demokratier dominerer legal-rasjonell autoritet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Gi eksempler på makt i din egen hverdag og analyser hva slags type makt det er.',
+        hints: ['Tenk på skole, familie, venner, sosiale medier'],
+        solution: 'Svaret bør identifisere konkrete eksempler og knytte dem til makttyper. F.eks.: Lærerens vurderingsmakt er byttemakt (karakter mot innsats) og dagsordensmakt (bestemmer pensum). Foreldres makt er tradisjonell autoritet. Influenceres makt er ideologisk makt og overtalelsesmakt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-14-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Makt**: Evnen til å få gjennomslag for sin vilje, selv mot andres motstand (Weber)\n- **Former for makt**: Tvangsmakt, byttemakt, overtalelsesmakt, dagsordensmakt, ideologisk makt og strukturell makt\n- **Legitimitet**: Makt som oppfattes som rettferdig og berettiget aksepteres frivillig\n- **Autoritet**: Webers tre typer (tradisjonell, karismatisk, legal-rasjonell) og skillet mellom autoritativ og autoritær maktbruk` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Makt', definition: 'Evnen til å få gjennomslag for sin vilje, selv mot andres motstand (Max Weber).' },
+    { term: 'Legitimitet', definition: 'At makt oppfattes som rettferdig og berettiget av dem den utøves over.' },
+    { term: 'Tvangsmakt', definition: 'Makt basert på bruk av vold, trusler eller straff.' },
+    { term: 'Dagsordensmakt', definition: 'Makt til å bestemme hvilke saker som diskuteres og hvilke som ignoreres.' },
+    { term: 'Avmakt', definition: 'Følelsen av å ikke ha innflytelse over beslutninger som påvirker eget liv.' },
+    { term: 'Autoritet', definition: 'Makt som er akseptert og anerkjent av dem den utøves over.' },
+  ],
+};
+
+export const CHAPTER_SAMFUNNSKUNNSKAP_14_2: TextbookChapter = {
+  id: 'samfunnskunnskap-14-2',
+  courseId: 'samfunnskunnskap',
+  chapterNumber: '14.2',
+  title: 'Makt i demokratiet og i hverdagen',
+  description: 'Forstå hvordan makt fordeles i demokratiet, medienes og næringslivets makt, og maktmisbruk.',
+  estimatedMinutes: 30,
+  competenceGoals: [
+    'vurdere hvordan makt påvirker enkeltpersoner og samfunn',
+    'drøfte maktfordeling og kontrollmekanismer',
+  ],
+  content: [
+    {
+      id: 'samfunnskunnskap-14-2-intro',
+      type: 'text',
+      content: `## Makt i demokratiet
+
+I et demokrati er makten fordelt mellom ulike institusjoner og aktører. Maktfordelingen skal forhindre maktmisbruk og sikre at ulike interesser blir hørt.
+
+**Montesquieus maktfordelingsprinsipp:**
+Den franske filosofen Montesquieu foreslo at makten bør deles mellom tre uavhengige instanser:
+- **Lovgivende makt** (Stortinget): Lager lovene
+- **Utøvende makt** (Regjeringen): Gjennomfører lovene
+- **Dømmende makt** (Domstolene): Tolker og håndhever lovene
+
+Prinsippet er grunnlaget for moderne demokratier, inkludert Norges.`,
+    },
+    {
+      id: 'samfunnskunnskap-14-2-def-1',
+      type: 'definition',
+      title: 'Maktaktører i samfunnet',
+      content: `**Politisk makt:**
+Stortinget, regjeringen og kommunestyrene har formell politisk makt.
+
+**Medienes makt:**
+Mediene kalles «den fjerde statsmakt» fordi de overvåker de andre tre. De har dagsordensmakt og påvirker opinionen.
+
+**Næringslivets makt:**
+Store bedrifter og kapitalsterke aktører har økonomisk makt som kan påvirke politikk og samfunn.
+
+**Organisasjonenes makt:**
+Fagforeninger, arbeidsgiverorganisasjoner og interessegrupper påvirker gjennom lobbyisme og forhandlinger.
+
+**Opinionen:**
+Folkemeningen utøver makt gjennom valg, meningsmålinger, demonstrasjoner og debatt.
+
+**Teknologiselskapene:**
+Selskaper som Google, Meta og Apple har enorm makt gjennom kontroll over informasjonsflyt og data.`,
+    },
+    {
+      id: 'samfunnskunnskap-14-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar Montesquieus maktfordelingsprinsipp og hvorfor det er viktig i et demokrati.',
+        solution: 'Montesquieu foreslo at makten deles mellom lovgivende (Stortinget), utøvende (regjeringen) og dømmende (domstolene) makt. Viktig fordi: Forhindrer at én instans får all makt, institusjonene kontrollerer hverandre, beskytter borgernes rettigheter og forhindrer maktmisbruk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-2-def-2',
+      type: 'definition',
+      title: 'Maktmisbruk og kontrollmekanismer',
+      content: `**Maktmisbruk:**
+Når makt brukes på urettferdig eller ulovlig måte. Kan forekomme i politikken, næringslivet, organisasjoner og mellom enkeltpersoner.
+
+**Kontrollmekanismer i demokratiet:**
+- **Maktfordeling:** Tredeling mellom statsmaktene
+- **Frie valg:** Folket kan bytte ut makthavere
+- **Pressefrihet:** Medier overvåker maktbruk
+- **Rettssikkerhet:** Uavhengige domstoler
+- **Ytringsfrihet:** Borgere kan kritisere makten
+- **Kontrollorganer:** Riksrevisjonen, Sivilombudet
+- **Offentlighetsprinsippet:** Offentlige dokumenter er tilgjengelige
+
+**Maktmisbruk i hverdagen:**
+- Mobbing (sosial makt)
+- Seksuell trakassering (kroppslig makt)
+- Diskriminering (strukturell makt)
+- Manipulering i relasjoner (overtalelsesmakt)`,
+    },
+    {
+      id: 'samfunnskunnskap-14-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fire kontrollmekanismer som finnes i det norske demokratiet for å forhindre maktmisbruk.',
+        solution: 'Fire kontrollmekanismer: 1) Maktfordeling mellom Storting, regjering og domstoler. 2) Frie og rettferdige valg der folket kan bytte ut makthavere. 3) Pressefrihet som gjør at medier kan avdekke maktmisbruk. 4) Kontrollorganer som Riksrevisjonen og Sivilombudet. Andre: Ytringsfrihet, offentlighetsprinsippet, uavhengige domstoler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-2-text-2',
+      type: 'text',
+      content: `## Nye maktutfordringer
+
+Maktforholdene i samfunnet er i endring:
+
+**Teknologiselskapenes makt:**
+Store teknologiselskaper kontrollerer informasjonsflyt, samler data og påvirker politiske prosesser. Dette reiser spørsmål om demokratisk kontroll.
+
+**Lobbyisme og påvirkningsindustri:**
+Profesjonelle lobbyister arbeider for å påvirke politikere på vegne av næringsliv og interessegrupper. Debatt om åpenhet og regulering.
+
+**Internasjonale maktforskyvninger:**
+Globalisering har flyttet makt fra nasjonalstater til internasjonale organisasjoner og multinasjonale selskaper.
+
+**Borgernes makt:**
+Sosiale medier har gitt vanlige borgere nye muligheter til å organisere seg og utøve press på makthavere.`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-14-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Drøft hvorfor mediene kalles «den fjerde statsmakt» og vurder om dette begrepet er dekkende i dag.',
+        solution: 'Mediene kalles den fjerde statsmakt fordi de overvåker de tre andre (Storting, regjering, domstoler). De setter dagsorden, avdekker maktmisbruk og informerer borgerne. I dag utfordres dette: Sosiale medier omgår tradisjonelle medier, teknologiselskaper kontrollerer informasjonsflyt, økonomisk press svekker redaksjonene. Samtidig er uavhengige medier viktigere enn noen gang.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-14-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-14-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Drøft om teknologiselskapene har for mye makt. Bør de reguleres strengere?',
+        hints: ['Tenk på personvern, informasjonsflyt, demokrati og innovasjon'],
+        solution: 'For strengere regulering: Store selskaper kontrollerer data og informasjonsflyt, påvirker valg, kan spre desinformasjon, har monopollignende posisjon. Mot: Regulering kan hindre innovasjon, vanskelig å regulere internasjonale selskaper, brukerne har selv valgt tjenestene. Mulige tiltak: GDPR, antitrust-regulering, åpenhet om algoritmer. Det er politisk uenighet om reguleringsgraden.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    { id: 'samfunnskunnskap-14-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Maktfordeling**: Montesquieus prinsipp om tredeling mellom lovgivende, utøvende og dømmende makt\n- **Maktaktører**: Politikere, medier, næringsliv, organisasjoner, opinion og teknologiselskaper utøver ulike former for makt\n- **Kontrollmekanismer**: Frie valg, pressefrihet, rettssikkerhet og kontrollorganer forhindrer maktmisbruk\n- **Nye utfordringer**: Teknologiselskapenes makt, lobbyisme og internasjonale maktforskyvninger preger samfunnet` },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Maktfordeling', definition: 'Prinsippet om å dele makten mellom lovgivende, utøvende og dømmende myndighet.' },
+    { term: 'Den fjerde statsmakt', definition: 'Betegnelse på medienes rolle som overvåker av de tre statsmaktene.' },
+    { term: 'Lobbyisme', definition: 'Forsøk på å påvirke politiske beslutninger på vegne av bestemte interesser.' },
+    { term: 'Offentlighetsprinsippet', definition: 'Prinsippet om at offentlige dokumenter skal være tilgjengelige for borgerne.' },
+    { term: 'Maktmisbruk', definition: 'Når makt brukes på urettferdig, ulovlig eller uetisk måte.' },
+    { term: 'Voldsmonopol', definition: 'Statens enerett til å bruke fysisk tvang gjennom politi og militærvesen.' },
+  ],
+};
+
 // Eksporter alle kapitler
 export const SAMFUNNSKUNNSKAP_CHAPTERS: TextbookChapter[] = [
   CHAPTER_SAMFUNNSKUNNSKAP_1_1,
@@ -12213,4 +13147,10 @@ export const SAMFUNNSKUNNSKAP_CHAPTERS: TextbookChapter[] = [
   CHAPTER_SAMFUNNSKUNNSKAP_10_3,
   CHAPTER_SAMFUNNSKUNNSKAP_11_1,
   CHAPTER_SAMFUNNSKUNNSKAP_11_2,
+  CHAPTER_SAMFUNNSKUNNSKAP_12_1,
+  CHAPTER_SAMFUNNSKUNNSKAP_12_2,
+  CHAPTER_SAMFUNNSKUNNSKAP_13_1,
+  CHAPTER_SAMFUNNSKUNNSKAP_13_2,
+  CHAPTER_SAMFUNNSKUNNSKAP_14_1,
+  CHAPTER_SAMFUNNSKUNNSKAP_14_2,
 ];

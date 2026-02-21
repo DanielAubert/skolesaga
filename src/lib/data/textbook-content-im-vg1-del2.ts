@@ -85,6 +85,18 @@ b = 25
 print("Summen er:", a + b)  # Skriver ut: Summen er: 35
 \`\`\``,
     },
+    {
+      id: 'im-2-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Programmering er prosessen med å skrive instruksjoner som en datamaskin kan forstå og utføre.
+- Python er et tolket, nybegynnervennlig programmeringsspråk som vi bruker i dette kurset.
+- Kompilerte språk (C++, Go) oversetter hele koden på en gang, tolkede språk (Python, JavaScript) kjører linje for linje.
+- En IDE (Integrated Development Environment) er et verktøy for å skrive, kjøre og feilsøke kode.
+- \`print()\` er en innebygd funksjon i Python som skriver ut tekst til skjermen.
+- Kommentarer skrives med \`#\` og ignoreres av Python.`,
+    },
   ],
   exercises: [
     {
@@ -221,6 +233,18 @@ temperatur = float(input("Celsius: "))
 fahrenheit = temperatur * 9/5 + 32
 print(f"{temperatur}°C = {fahrenheit:.1f}°F")
 \`\`\``,
+    },
+    {
+      id: 'im-2-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Variabler er navngitte beholdere for å lagre data i et program.
+- Python har flere datatyper: heltall (int), desimaltall (float), tekst (str) og boolske verdier (bool).
+- Aritmetiske operatorer (+, -, *, /, //, %, **) brukes til beregninger.
+- Strengoperasjoner inkluderer sammenslåing (+), repetisjon (*) og f-strenger for formatering.
+- \`input()\` brukes til å lese data fra brukeren, og \`int()\`/\`float()\` konverterer tekst til tall.
+- Variabelnavn bør være beskrivende og følge Pythons navnekonvensjoner (snake_case).`,
     },
   ],
   exercises: [
@@ -379,6 +403,18 @@ else:
     print("Null")
 \`\`\``,
     },
+    {
+      id: 'im-2-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Kontrollstrukturer lar programmer ta beslutninger basert på betingelser.
+- \`if\`-setninger utfører kode bare hvis en betingelse er sann.
+- \`elif\` og \`else\` gir alternative veier dersom den første betingelsen er usann.
+- Sammenligningsoperatorer (==, !=, <, >, <=, >=) brukes til å sammenligne verdier.
+- Logiske operatorer (\`and\`, \`or\`, \`not\`) kombinerer flere betingelser.
+- Nøstede betingelser plasserer if-setninger inni hverandre for mer kompleks logikk.`,
+    },
   ],
   exercises: [
     {
@@ -533,6 +569,18 @@ for tall in range(1, 11):
 print(f"Sum 1-10: {total}")  # 55
 \`\`\``,
     },
+    {
+      id: 'im-2-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Løkker brukes til å gjenta kode et bestemt antall ganger eller så lenge en betingelse er sann.
+- \`for\`-løkker itererer over en sekvens (f.eks. \`range()\` eller en liste).
+- \`while\`-løkker kjører så lenge betingelsen er sann og krever at betingelsen til slutt blir usann.
+- \`break\` avbryter en løkke umiddelbart, \`continue\` hopper til neste iterasjon.
+- Akkumulatormønsteret bruker en variabel til å samle opp verdier gjennom løkken.
+- Nøstede løkker plasserer en løkke inni en annen og brukes blant annet for tabeller og mønstre.`,
+    },
   ],
   exercises: [
     {
@@ -679,6 +727,18 @@ test()     # 10 5
 # print(y) gir feil – y finnes bare i funksjonen
 \`\`\``,
     },
+    {
+      id: 'im-2-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Funksjoner er gjenbrukbare kodeblokker som utfører en bestemt oppgave.
+- En funksjon defineres med \`def\`, kan ta parametere og returnere verdier.
+- Parametere er verdier som sendes inn i funksjonen, returverdier sendes tilbake med \`return\`.
+- Lokale variabler finnes bare inne i funksjonen, globale variabler finnes utenfor.
+- Funksjoner gjør koden mer oversiktlig, gjenbrukbar og lettere å vedlikeholde.
+- Modularisering betyr å dele opp kode i mindre, selvstendige funksjoner.`,
+    },
   ],
   exercises: [
     {
@@ -814,6 +874,19 @@ x, y = koordinat     # Utpakking
 \`\`\`
 
 Bruk lister for data som endres, tupler for faste verdier.`,
+    },
+    {
+      id: 'im-2-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Lister er ordnede, foranderlige samlinger av elementer, opprettet med hakeparenteser \`[]\`.
+- Indeksering starter fra 0, og elementer kan legges til, fjernes og endres.
+- Ordbøker lagrer data som nøkkel-verdi-par og gir rask tilgang til verdier via nøkler.
+- \`for\`-løkker brukes til å iterere over lister og ordbøker.
+- Lister kan sorteres med \`.sort()\` og filtreres med listeforståelse (list comprehension).
+- Tupler er som lister, men kan ikke endres etter opprettelse.
+- Velg riktig datastruktur basert på hva du trenger: lister for ordnede samlinger, ordbøker for oppslag.`,
     },
   ],
   exercises: [
@@ -964,6 +1037,19 @@ print(boblesortering([64, 34, 25, 12]))  # [12, 25, 34, 64]
 
 Boblesortering er enkel men ineffektiv. I praksis bruker vi \`sorted()\`.`,
     },
+    {
+      id: 'im-2-7-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- En algoritme er en steg-for-steg-oppskrift for å løse et problem.
+- Algoritmisk tenkning innebærer å bryte ned problemer, finne mønstre og lage generelle løsninger.
+- Pseudokode beskriver en algoritme med vanlig tekst, uten å binde seg til et spesifikt programmeringsspråk.
+- Flytskjemaer visualiserer en algoritme med standardiserte symboler for start/slutt, prosess, beslutning og inn-/utdata.
+- Lineært søk sjekker hvert element i rekkefølge, binært søk halverer søkeområdet (krever sortert liste).
+- Boblesortering er en enkel sorteringsalgoritme som sammenligner og bytter nabopar.
+- Effektivitet måles i tidskompleksitet, og for store datasett er det viktig å velge gode algoritmer.`,
+    },
   ],
   exercises: [
     {
@@ -1110,6 +1196,19 @@ print("Alle tester bestått!")
 \`\`\`
 
 \`assert\` sjekker om uttrykket er True. Hvis False, krasjer programmet med feilmelding. Skriv tester for å fange feil tidlig.`,
+    },
+    {
+      id: 'im-2-8-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Syntaksfeil oppdages av Python og hindrer kjøring (f.eks. manglende kolon eller parentes).
+- Logiske feil gir feil resultat uten feilmelding og er vanskeligere å oppdage.
+- Kjøretidsfeil oppstår under kjøring (f.eks. deling på null eller ugyldig indeks).
+- Print-debugging bruker \`print()\` til å vise variabelverdier underveis for å finne feil.
+- \`try-except\` håndterer kjøretidsfeil og lar programmet fortsette selv om noe går galt.
+- Enhetstesting med \`assert\` sjekker at funksjoner gir forventet resultat og fanger feil tidlig.
+- Systematisk feilsøking innebærer å lese feilmeldingen, isolere problemet og teste en ting om gangen.`,
     },
   ],
   exercises: [

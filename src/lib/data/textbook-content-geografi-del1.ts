@@ -158,6 +158,28 @@ Geografi er et av verdens eldste fag. Allerede i antikken beskrev greske tenkere
 - **1900-tallet**: Geografi ble delt i naturgeografi og samfunnsgeografi
 - **I dag**: GIS, fjernanalyse og dataanalyse har revolusjonert faget`,
     },
+  
+    {
+      id: 'geo-1-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Geografi betyr "jordbeskrivelse" og studerer samspillet mellom natur og samfunn i et romlig perspektiv
+- Faget deles i **naturgeografi** (fysiske prosesser og landskap) og **samfunnsgeografi** (menneskelig aktivitet)
+- Geografiens kjernesporsmal handler om **sted** og **rom**: Hvor? Hvorfor der? Hva betyr det?
+- Samspillet mellom naturforhold og samfunnsforhold er det som gjoer geografi unikt
+- Baerekraftig utvikling er et sentralt tema i moderne geografi`,
+    },
+    {
+      id: 'geo-1-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Christopherson, R. W. & Birkeland, G. H. (2018). *Geosystems: An Introduction to Physical Geography*. Pearson.
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Statens kartverk: kartverket.no
+- FNs baerekraftsmaal: fn.no/om-fn/fns-baerekraftsmaal`,
+    },
   ],
   exercises: [
     {
@@ -374,6 +396,29 @@ Moderne kart er oftest digitale og interaktive:
 - Bruk norgeskart.no til aa oeve paa karttolkning
 - Sammenlign samme omraade i ulike maalestokker
 - Prov aa finne din skole paa kartet og les av koordinater`,
+    },
+  
+    {
+      id: 'geo-1-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Kart er forenklede modeller av virkeligheten
+- **Maalestokk** angir forholdet mellom avstand paa kartet og i virkeligheten
+- Jo stoerre tallet etter kolon, jo mindre er maalestokken
+- **Kartprojeksjoner** overforer jordoverflaten til et flatt kart, men gir alltid noe forvrengning
+- **Mercator** bevarer vinkler men forvrenger arealer, **Peters** bevarer arealer men forvrenger former
+- **UTM-koordinater** og **bredde-/lengdegrader** brukes til aa angi posisjon`,
+    },
+    {
+      id: 'geo-1-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Kartverket: kartverket.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- National Geographic: nationalgeographic.com/maps
+- Christopherson, R. W. (2018). *Geosystems*. Pearson.`,
     },
   ],
   exercises: [
@@ -606,6 +651,28 @@ GIS brukes i nesten alle sektorer i samfunnet:
 - SSB kart: Statistisk sentralbyraas kartdata
 - OpenStreetMap: Aapen kartdatabase laget av frivillige`,
     },
+  
+    {
+      id: 'geo-1-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **GIS** (geografiske informasjonssystemer) organiserer og analyserer geografiske data i digitale kartlag
+- Data kan vaere i **vektor**- (punkt, linje, polygon) eller **raster**-format (rutenett med piksler)
+- GIS brukes til arealplanlegging, miljoeovervaaking, helse, krisesituasjoner og mange andre formaal
+- **GPS** bruker satellitter til aa bestemme noyaktig posisjon
+- Digitale kart som Google Maps og Norgeskart gjoer geografisk informasjon tilgjengelig for alle`,
+    },
+    {
+      id: 'geo-1-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Kartverket: kartverket.no
+- Norgeskart: norgeskart.no
+- ESRI: esri.com (leverandoer av ArcGIS)
+- QGIS: qgis.org (aapen kildekode GIS-programvare)`,
+    },
   ],
   exercises: [
     {
@@ -820,6 +887,28 @@ NDVI brukes til aa:
 - Finn et omraade som har endret seg mye (nybygging, avskoging) og sammenlign bilder over tid
 - Finn forskjellen paa et omraade med og uten skydekke
 - Se etter isbreer og sammenlign stoerrelsen over flere aar`,
+    },
+  
+    {
+      id: 'geo-1-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Fjernanalyse** er innsamling av informasjon om jordoverflaten uten fysisk kontakt
+- **Passive sensorer** registrerer reflektert sollys eller utsendtt varmestraaling
+- **Aktive sensorer** (radar, lidar) sender ut egne signaler
+- Satellittbilder brukes til overvaaking av skog, is, byer, jordbruk og naturkatastrofer
+- Fjernanalyse er viktig for aa overvaake klimaendringer og miljoeendringer globalt`,
+    },
+    {
+      id: 'geo-1-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NASA Earth Observatory: earthobservatory.nasa.gov
+- ESA Copernicus: copernicus.eu
+- Norsk Romsenter: romsenter.no
+- Kartverket: kartverket.no`,
     },
   ],
   exercises: [
@@ -1066,6 +1155,28 @@ Hva vil du undersoeke? En god problemstilling er:
 - Lag rene tabeller, grafer og kart
 - Vurder feilkilder og begrensninger`,
     },
+  
+    {
+      id: 'geo-1-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Feltarbeid** gir foerstehaandskunnskap gjennom systematisk observasjon og datainnsamling
+- Vanlige metoder inkluderer **kartlegging**, **maaling**, **observasjon**, **intervju** og **telling**
+- God planlegging med klare problemstillinger og metodevalg er avgjoerendes for vellykket feltarbeid
+- Resultatene maa dokumenteres, analyseres og presenteres paa en oversiktlig maate
+- Feltarbeid er en viktig del av kompetansemaalene i geografi`,
+    },
+    {
+      id: 'geo-1-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Kartverket: kartverket.no
+- Norgeskart: norgeskart.no
+- yr.no (vaerdata for feltarbeid)`,
+    },
   ],
   exercises: [
     {
@@ -1307,6 +1418,18 @@ Statistikk kan vaere misvisende hvis den brukes ukritisk:
 - Bruk Gapminder (gapminder.org) til aa utforske global utvikling
 - Lag et diagram i Excel/Google Sheets basert paa data du finner
 - Sammenlign to nyhetsartikler som bruker statistikk - hvem presenterer dataene mest balansert?`,
+    },
+  
+    {
+      id: 'geo-1-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Statistikk hjelper oss med aa beskrive, sammenligne og oppdage moenstre i geografiske data
+- Viktige begreper er **gjennomsnitt**, **median**, **variasjon** og **indeks**
+- Ulike diagramtyper egner seg for ulike formaal: linjediagram for trender, stolpediagram for sammenligninger, sektordiagram for andeler
+- **Kildekritikk** er viktig - vurder hvem som staar bak, naar data ble samlet, metode og formaal
+- SSB, Verdensbanken og FN er viktige statistikkilder i geografi`,
     },
   ],
   exercises: [

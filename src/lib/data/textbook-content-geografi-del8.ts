@@ -163,6 +163,28 @@ I dag beveger vi oss mot en **multipolar** verden der flere stormakter konkurrer
 
 Denne utviklingen skaper både muligheter og farer. Flere maktsentre kan gi bedre representasjon, men øker også risikoen for rivalisering og konflikt.`,
     },
+  
+    {
+      id: 'geo-8-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Geopolitikk** studerer sammenhengen mellom geografi og politisk makt
+- Verdens geopolitiske landskap domineres av stormakter som USA, Kina, Russland og EU
+- **NATO** er den viktigste vestlige sikkerhetsalliansen med kollektivt forsvar (Artikkel 5)
+- **Innflytelsessfaerer** beskriver omraader der stormakter har dominerende innflytelse
+- Geopolitiske spenninger oppstaar ofte rundt strategiske omraader og handelsruter`,
+    },
+    {
+      id: 'geo-8-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NATO: nato.int
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Store norske leksikon: snl.no (geopolitikk)
+- NUPI (Norsk utenrikspolitisk institutt): nupi.no`,
+    },
   ],
   exercises: [
     {
@@ -356,6 +378,28 @@ Ressurskonflikter kan forebygges og løses gjennom internasjonalt samarbeid og b
 - **Diversifisering**: Land bør bygge opp annen industri for å redusere avhengigheten av én ressurs
 - **Sertifisering**: Ordninger som «konfliktfrie mineraler» skal sikre at mineraler ikke finansierer krig
 - **Fornybar energi**: Overgang fra fossile brensler kan redusere konflikter knyttet til olje og gass`,
+    },
+  
+    {
+      id: 'geo-8-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Ressurskonflikter oppstaar naar det er konkurranse om knappe naturressurser
+- **Vannkonflikter** er utbredt i Midtosten og Nord-Afrika der elver krysser landegrenser
+- **Ressursforbannelsen** beskriver paradokset der ressursrike land ofte har svak utvikling
+- **Sjeldne jordarter** er kritiske for moderne teknologi og skaper ny geopolitisk konkurranse
+- Klimaendringer kan forsterke ressurskonflikter gjennom oekt knapphet`,
+    },
+    {
+      id: 'geo-8-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- NUPI: nupi.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- SIPRI (Stockholm International Peace Research Institute): sipri.org
+- Store norske leksikon: snl.no (ressurskonflikter)`,
     },
   ],
   exercises: [
@@ -583,6 +627,28 @@ Framtiden til polarområdene avhenger av flere faktorer:
 
 Arktisk råd, der alle åtte arktiske stater er medlemmer, har vært et viktig forum for samarbeid. Men rådet har vært svekket siden Russland ble suspendert etter invasjonen av Ukraina i 2022.`,
     },
+  
+    {
+      id: 'geo-8-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Arktis** er et havomraade omgitt av land, mens **Antarktis** er et kontinent omgitt av hav
+- Klimaendringer pavirker polaromraadene kraftig med issmelting, tinende permafrost og artstrussel
+- **Svalbardtraktaten** gir Norge suverenitet over Svalbard med visse begrensninger
+- **Antarktistraktaten** freder Antarktis for vitenskapelig forskning og forbyr militaer aktivitet
+- Nordoeststpassasjen og Nordvestpassasjen aapner nye sjoruter naar isen smelter`,
+    },
+    {
+      id: 'geo-8-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Norsk Polarinstitutt: npolar.no
+- Sysselmeisteren paa Svalbard: sysselmesteren.no
+- Antarktistraktaten: ats.aq
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -786,6 +852,28 @@ Norge er ikke immun mot naturhendelser. De viktigste naturfarene i Norge er:
 - **Kvikkleire**: Særlig i Trøndelag og på Østlandet kan kvikkleireskred være svært ødeleggende
 
 NVE (Norges vassdrags- og energidirektorat) har ansvar for å kartlegge naturfare og gi råd om arealplanlegging for å redusere risiko.`,
+    },
+  
+    {
+      id: 'geo-8-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Naturkatastrofer** er hendelser der naturlige prosesser foraarsaker store skader paa mennesker og samfunn
+- **Saarbarhet** avhenger av oekonomiske, sosiale og politiske forhold - fattige land rammes hardest
+- **Risiko** = fare x saarbarhet x eksponering
+- **Sendai-rammeverket** (2015-2030) er FNs globale plan for katastrofeforebygging
+- Klimaendringer oeker frekvensen og intensiteten av mange typer naturkatastrofer`,
+    },
+    {
+      id: 'geo-8-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- UNDRR (FNs kontor for katastrofeforebygging): undrr.org
+- EM-DAT (International Disaster Database): emdat.be
+- DSB (Direktoratet for samfunnssikkerhet og beredskap): dsb.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -997,6 +1085,28 @@ Norges internasjonale rolle er ikke uten spenninger og dilemmaer:
 - **Våpeneksport**: Norge selger våpen til land som er involvert i konflikter, noe som kan stå i strid med fredsnasjonsrollen.
 - **EU-dilemmaet**: Norge følger mye av EUs regelverk uten stemmerett, noe som reiser spørsmål om demokratisk legitimitet.
 - **Stormaktspress**: Økt rivalisering mellom USA, Kina og Russland gjør det vanskeligere for et lite land å navigere.`,
+    },
+  
+    {
+      id: 'geo-8-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Norge profilerer seg som en **fredsnasjon** med aktiv rolle i fredsmekling og humanitaert arbeid
+- Norge er medlem av NATO, men ikke av EU (tilknyttet gjennom EOES-avtalen)
+- **Havrett** og **havretten** er viktig for Norge som kyst- og havnasjon
+- Norges interesser i **nordomraadene** knytter seg til ressurser, sikkerhet og miljoevern
+- Norge bidrar aktivt i FN, NATO og andre internasjonale organisasjoner`,
+    },
+    {
+      id: 'geo-8-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Regjeringen: regjeringen.no (utenrikspolitikk)
+- NUPI: nupi.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Forsvarsdepartementet: regjeringen.no/forsvarsdepartementet`,
     },
   ],
   exercises: [
@@ -1220,6 +1330,28 @@ Geografi har aldri vært mer relevant enn i dag. De store utfordringene verden s
 Å forstå **hvor** ting skjer, **hvorfor** de skjer akkurat der, og **hvordan** steder og regioner påvirker hverandre, er avgjørende kompetanse for framtiden. Geografi bygger bro mellom naturvitenskap og samfunnsvitenskap, og gir oss verktøyene til å analysere sammenhenger og finne løsninger.
 
 Framtidens geografer vil bruke avansert teknologi som GIS, fjernmåling og stordata for å analysere og visualisere verdens utfordringer. Men den grunnleggende geografiske kompetansen — evnen til å tenke romlig, forstå sammenhenger og se verden fra flere perspektiver — vil alltid være uerstattelig.`,
+    },
+  
+    {
+      id: 'geo-8-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Globale **megatrender** inkluderer befolkningsvekst, urbanisering, klimaendringer og teknologisk utvikling
+- Disse trendene haenger sammen og forsterker hverandre paa komplekse maater
+- Geografisk kompetanse er viktig for aa forstaa og haandtere globale utfordringer
+- Fremtiden krever tverrfaglig tenkning der natur, samfunn og teknologi ses i sammenheng
+- Geografi gir verktoy for aa analysere samspillet mellom mennesker og natur i en verden i endring`,
+    },
+    {
+      id: 'geo-8-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN: fn.no
+- IPCC: ipcc.ch
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Verdensbanken: data.worldbank.org`,
     },
   ],
   exercises: [

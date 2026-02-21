@@ -242,26 +242,26 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
     {
       id: 'norsk-vg1-4-1-example-2',
       type: 'example',
-      title: 'Eksempel: Analyse av spraakholdninger',
+      title: 'Eksempel: Analyse av språkholdninger',
       content: `**Oppgave/Situasjon:**
-En elev fra Nordland opplever at medelever i Oslo kommenterer dialekten hennes. Noen sier den er "koselig", andre spor om hun kan "snakke normalt".
+En elev fra Nordland opplever at medelever i Oslo kommenterer dialekten hennes. Noen sier den er "koselig", andre spør om hun kan "snakke normalt".
 
 **Analyse:**
-Dette eksemplet viser flere typer spraakholdninger:
+Dette eksemplet viser flere typer språkholdninger:
 
-1. **Stereotypisering:** Nordnorsk forbindes ofte med "koselig" - en positiv, men overfladisk holdning som kan fole reduserende.
+1. **Stereotypisering:** Nordnorsk forbindes ofte med "koselig" - en positiv, men overfladisk holdning som kan føle reduserende.
 
-2. **Normativitet:** Sparsmalet om aa "snakke normalt" avslorer en holdning om at ostlandsk er "normalspraak", mens andre dialekter er avvik.
+2. **Normativitet:** Spørsmålet om å "snakke normalt" avslører en holdning om at østlandsk er "normalspråk", mens andre dialekter er avvik.
 
-3. **Maktforhold:** Standardostlandsk har hoyere status i mange sammenhenger, noe som kan skape usikkerhet hos dialektbrukere.
+3. **Maktforhold:** Standardøstlandsk har høyere status i mange sammenhenger, noe som kan skape usikkerhet hos dialektbrukere.
 
 **Forklaring:**
-Spraakholdninger er ofte ubevisste. De formes av:
+Språkholdninger er ofte ubevisste. De formes av:
 - Media (hvem snakker i nyheter og TV-serier?)
 - Skole og arbeidsliv
 - Sosiale hierarkier
 
-Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig mangfold.`,
+Bevissthet om egne språkholdninger er første steg mot å verdsette språklig mangfold.`,
     },
 
     // ========== OPPGAVER til Språk, makt og holdninger ==========
@@ -565,15 +565,15 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
       id: 'norsk-vg1-4-2-image-indoeuropeisk-tre',
       type: 'image',
       src: '/images/textbook/norsk-vg1/norsk-vg1-4-2-indoeuropeisk-tre.png',
-      alt: 'Spraaktre som viser den indoeuropeiske spraakfamilien med forgreninger til germanske, romanske, slaviske og andre spraakgrupper',
-      caption: 'Det indoeuropeiske spraaktreet viser hvordan norsk er beslektet med andre europeiske spraak gjennom felles opphav.',
+      alt: 'Språktre som viser den indoeuropeiske språkfamilien med forgreninger til germanske, romanske, slaviske og andre språkgrupper',
+      caption: 'Det indoeuropeiske språktreet viser hvordan norsk er beslektet med andre europeiske språk gjennom felles opphav.',
     },
     {
       id: 'norsk-vg1-4-2-image-germansk',
       type: 'image',
       src: '/images/textbook/norsk-vg1/norsk-vg1-4-2-germansk.png',
-      alt: 'Oversikt over de germanske spraakene delt inn i nordgermansk, vestgermansk og ostgermansk',
-      caption: 'De germanske spraakene med norsk plassert i den nordgermanske grenen sammen med svensk, dansk, islandsk og faroysk.',
+      alt: 'Oversikt over de germanske språkene delt inn i nordgermansk, vestgermansk og østgermansk',
+      caption: 'De germanske språkene med norsk plassert i den nordgermanske grenen sammen med svensk, dansk, islandsk og færøysk.',
     },
 
     // ========== OPPGAVER til Germanske språk ==========
@@ -984,12 +984,12 @@ Identifiser opphavet til disse vanlige norske ordene og forklar hva de forteller
 | podcast | Engelsk | 2000-tallet - ny medieteknologi |
 
 **Forklaring:**
-Laanordene viser hvilke kulturer og nasjoner som har pavirket Norge gjennom historien:
-- **Tysk pavirkning:** Hanseatene dominerte handel i Bergen og andre byer
-- **Fransk pavirkning:** Fransk var kulturens og diplomatens spraak
-- **Engelsk pavirkning:** USA og Storbritannia dominerer teknologi og populaerkultur
+Lånordene viser hvilke kulturer og nasjoner som har påvirket Norge gjennom historien:
+- **Tysk påvirkning:** Hanseatene dominerte handel i Bergen og andre byer
+- **Fransk påvirkning:** Fransk var kulturens og diplomatens språk
+- **Engelsk påvirkning:** USA og Storbritannia dominerer teknologi og populærkultur
 
-Spraakhistorie er ogsaa kulturhistorie. Ordene vi bruker forteller hvem vi har vaert i kontakt med.`,
+Språkhistorie er også kulturhistorie. Ordene vi bruker forteller hvem vi har vært i kontakt med.`,
     },
 
     // --- Samleoppgaver ---
@@ -1326,24 +1326,24 @@ Analyser en typisk TikTok-video der en ungdom snakker om "studietips".
 **Modaliteter i bruk:**
 | Modalitet | Eksempel | Funksjon |
 |-----------|----------|----------|
-| Visuell | Ansikt i focus, estetisk rom | Skaper naerhet og troverdighet |
-| Verbal | Muntlig, uformelt spraak | Foler seg som en venn |
+| Visuell | Ansikt i fokus, estetisk rom | Skaper nærhet og troverdighet |
+| Verbal | Muntlig, uformelt språk | Føler seg som en venn |
 | Auditiv | Trendy bakgrunnsmusikk | Holder oppmerksomheten |
-| Tekstlig | Teksting paa skjermen | Forsterker budskapet |
+| Tekstlig | Teksting på skjermen | Forsterker budskapet |
 
 **Retorisk analyse:**
-- **Etos:** "Jeg fikk 6 paa alle prover" - bygger troverdighet
-- **Patos:** "Jeg skjonner at det er slitsomt" - viser empaati
+- **Etos:** "Jeg fikk 6 på alle prøver" - bygger troverdighet
+- **Patos:** "Jeg skjønner at det er slitsomt" - viser empati
 - **Logos:** "Forskning viser at..." - gir faglig tyngde
 
-**Kritiske sporsmal:**
+**Kritiske spørsmål:**
 1. Hvem er avsenderen? (Vanlig elev eller betalt innhold?)
-2. Hva er formalet? (Hjelpe, underholde, selge?)
-3. Er raadene faktisk forskningsbaserte?
-4. Hvem er maalgruppen? (Alder, interesser)
+2. Hva er formålet? (Hjelpe, underholde, selge?)
+3. Er rådene faktisk forskningsbaserte?
+4. Hvem er målgruppen? (Alder, interesser)
 
 **Forklaring:**
-Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange og holde oppmerksomheten. Som kritiske mediebrukere maa vi vaere bevisste paa:
+Korte videoer på sosiale medier bruker mange virkemidler samtidig for å fange og holde oppmerksomheten. Som kritiske mediebrukere må vi være bevisste på:
 - Skjult reklame (affiliate-lenker, sponsede produkter)
 - Filterbobler (algoritmen viser mer av det vi liker)
 - Forenklet informasjon (komplekse temaer presenteres enkelt)`,
@@ -2127,32 +2127,32 @@ Samsvarsbøying i nynorsk:
     {
       id: 'norsk-vg1-4-3-example-2',
       type: 'example',
-      title: 'Eksempel: Verbboying paa nynorsk',
+      title: 'Eksempel: Verbbøying på nynorsk',
       content: `**Oppgave/Situasjon:**
-Boy disse verbene paa nynorsk og sammenlign med bokmal.
+Bøy disse verbene på nynorsk og sammenlign med bokmål.
 
-**Losning:**
+**Løsning:**
 
 **Svake verb (a-verb):**
 | Infinitiv | Presens | Preteritum | Perfektum |
 |-----------|---------|------------|-----------|
-| aa kaste | kastar | kasta | har kasta |
-| aa snakke | snakkar | snakka | har snakka |
-| aa hoyre | hoyrer | hoyrde | har hoyrt |
+| å kaste | kastar | kasta | har kasta |
+| å snakke | snakkar | snakka | har snakka |
+| å høyre | høyrer | høyrde | har høyrt |
 
 **Sterke verb:**
 | Infinitiv | Presens | Preteritum | Perfektum |
 |-----------|---------|------------|-----------|
-| aa skrive | skriv | skreiv | har skrive |
-| aa finne | finn | fann | har funne |
-| aa drikke | drikk | drakk | har drukke |
+| å skrive | skriv | skreiv | har skrive |
+| å finne | finn | fann | har funne |
+| å drikke | drikk | drakk | har drukke |
 
 **Forklaring:**
-- Svake verb paa nynorsk har **-ar** i presens og **-a** i preteritum
+- Svake verb på nynorsk har **-ar** i presens og **-a** i preteritum
 - Sterke verb har **vokalskifte** (skrive-skreiv-skrive)
-- Bokmal har ofte **-er** i presens og **-et/-a** i preteritum for svake verb
+- Bokmål har ofte **-er** i presens og **-et/-a** i preteritum for svake verb
 
-**Tips:** Oev paa aa gjenkjenne monsteret. Naar du ser "-ar" i presens, vet du at det er nynorsk.`,
+**Tips:** Øv på å gjenkjenne mønsteret. Når du ser "-ar" i presens, vet du at det er nynorsk.`,
     },
 
     // ========== PRIMÆRTEKSTER ==========
@@ -2625,23 +2625,23 @@ Identifiser hvilket dialektomrade disse setningene kommer fra.
 **Analyse:**
 
 **Setning 1:** "Æ veit ikkje ka han sa, men det va nåkka om båtan."
-- **Dialektomrade:** Nordnorsk (Troms/Nordland)
-- **Kjennetegn:** Æ (jeg), veit (vet), ka (hva), nåkka (noe), båtan (batene)
+- **Dialektområde:** Nordnorsk (Troms/Nordland)
+- **Kjennetegn:** Æ (jeg), veit (vet), ka (hva), nåkka (noe), båtan (båtene)
 
 **Setning 2:** "Eg skjona ikkje kva ho meinte med det der."
-- **Dialektomrade:** Vestnorsk (Hordaland/Sogn)
-- **Kjennetegn:** Eg (jeg), skjona (skjonte), ikkje, kva, ho (hun)
+- **Dialektområde:** Vestnorsk (Hordaland/Sogn)
+- **Kjennetegn:** Eg (jeg), skjona (skjønte), ikkje, kva, ho (hun)
 
 **Setning 3:** "Ja, vi va' i byn i gaar, vi. Det va' morromt."
-- **Dialektomrade:** Trondelag
-- **Kjennetegn:** Apokope (va' i stedet for var), palatalisering hoeres i uttale, byn (byen)
+- **Dialektområde:** Trøndelag
+- **Kjennetegn:** Apokope (va' i stedet for var), palatalisering høres i uttale, byn (byen)
 
-**Setning 4:** "Jæ har vaert der mange ganger. Det er veldig fint der borte."
-- **Dialektomrade:** Ostlandsk (Oslo-omradet)
+**Setning 4:** "Jæ har vært der mange ganger. Det er veldig fint der borte."
+- **Dialektområde:** Østlandsk (Oslo-området)
 - **Kjennetegn:** Jæ (jeg), tjukk l i uttale, retroflekser
 
 **Forklaring:**
-Dialekter kjennetegnes av systematiske forskjeller i uttale, ordformer og grammatikk. Ved aa lytte etter bestemte trekk kan vi ofte plassere en dialekt geografisk.`,
+Dialekter kjennetegnes av systematiske forskjeller i uttale, ordformer og grammatikk. Ved å lytte etter bestemte trekk kan vi ofte plassere en dialekt geografisk.`,
     },
     {
       id: 'norsk-vg1-4-4-example-2',

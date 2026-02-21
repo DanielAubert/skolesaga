@@ -13711,11 +13711,11 @@ $$-2x^2 + 10x - 12 = -2(x^2 - 5x + 6) = -2(x - 2)(x - 3)$$
         task: 'Bruk fortegnsskjema til å løse ulikhetene',
         subTasks: [
           { label: 'a', task: '$(x - 2)(x + 3) > 0$', solution: 'Nullpunkter: $x = 2$ og $x = -3$. Produktet er positivt når $x < -3$ eller $x > 2$. Løsning: $x \\in \\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$' },
-          { label: 'b', task: '$-2(x - 1)(x + 4) < 0$', solution: 'Nullpunkter: $x = 1$ og $x = -4$. Produktet er negativt når $-4 < x < 1$. Løsning: $x \\in \\langle -4, 1 \\rangle$' },
+          { label: 'b', task: '$-2(x - 1)(x + 4) < 0$', solution: 'Nullpunkter: $x = 1$ og $x = -4$. Produktet er negativt når $x < -4$ eller $x > 1$. Løsning: $x \\in \\langle -\\infty, -4 \\rangle \\cup \\langle 1, \\infty \\rangle$' },
           { label: 'c', task: '$x^2 - 4 \\leq 0$', solution: '$(x-2)(x+2) \\leq 0$. Løsning: $x \\in [-2, 2]$' },
           { label: 'd', task: '$x^2 - 4 \\geq 0$', solution: '$(x-2)(x+2) \\geq 0$. Løsning: $x \\in \\langle -\\infty, -2] \\cup [2, \\infty \\rangle$' },
         ],
-        solution: 'a) x < −3 eller x > 2, b) −4 < x < 1, c) −2 ≤ x ≤ 2, d) x ≤ −2 eller x ≥ 2',
+        solution: 'a) x < −3 eller x > 2, b) x < −4 eller x > 1, c) −2 ≤ x ≤ 2, d) x ≤ −2 eller x ≥ 2',
         hints: ['Finn nullpunktene til hver faktor', 'Sett opp fortegnsskjema med én linje per faktor'],
         allowsUpload: true,
         allowsCanvasDrawing: true,

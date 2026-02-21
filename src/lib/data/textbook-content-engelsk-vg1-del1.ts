@@ -1102,7 +1102,7 @@ Often stressed on the SECOND syllable
 - CONtract (noun) vs conTRACT (verb)
 
 **Longer words:**
-- phoTOgraphy, phoTOgrapherr, photoGRAphic
+- phoTOgraphy, phoTOgrapher, photoGRAphic
 - The stress often shifts with suffixes`,
     },
     {
@@ -1189,6 +1189,100 @@ This shows how English uses stress to convey meaning!`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-1-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Listen to two different English accents (e.g., British RP and American General) reading the same text. You can find examples on YouTube or BBC Learning English.',
+        subTasks: [
+          { label: 'a', task: 'What differences do you notice in vowel sounds?', solution: 'British RP tends to use longer vowels in words like "bath" and "dance"; American English often uses a flatter "a" sound.' },
+          { label: 'b', task: 'How is the "r" sound handled differently?', solution: 'British RP is non-rhotic (drops "r" at end of syllables: "car" sounds like "cah"), while American English is rhotic (pronounces the "r").' },
+          { label: 'c', task: 'Which accent do you find easier to understand, and why?', solution: 'Personal reflection. Many Norwegian learners find one or the other easier depending on exposure through media, teachers, or travel.' },
+        ],
+        hints: ['Focus on specific sounds rather than overall impression', 'Listen to the same passage multiple times'],
+        solution: 'Both accents are equally valid. Awareness of accent differences improves comprehension.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Intonation practice. Read the following sentences aloud using rising and falling intonation as indicated, then explain how the intonation changes the meaning.',
+        subTasks: [
+          { label: 'a', task: '"You\'re coming to the party." (falling intonation = statement) vs. "You\'re coming to the party?" (rising intonation = question)', solution: 'Falling intonation signals a statement or certainty. Rising intonation signals a question or uncertainty.' },
+          { label: 'b', task: '"That\'s interesting." with genuine vs. sarcastic intonation', solution: 'Same words but different intonation patterns convey opposite meanings. Genuine interest uses a wider pitch range, while sarcasm uses a flatter, sometimes exaggerated pattern.' },
+        ],
+        hints: ['Record yourself and listen back', 'Exaggerate the intonation at first to feel the difference'],
+        solution: 'Intonation carries meaning beyond the words themselves. Mastering it is essential for natural communication.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Connected speech: When speaking naturally, English speakers connect words together. Practice reading these sentences naturally, paying attention to how words link together.',
+        subTasks: [
+          { label: 'a', task: '"Turn it off" - How do native speakers pronounce this in fast speech?', solution: '"Tur-ni-toff" - The words blend together, with the final consonant of one word linking to the vowel of the next.' },
+          { label: 'b', task: '"I would have gone" - What happens in casual speech?', solution: '"I would\'ve gone" or even "I woulda gone" - Unstressed words are reduced.' },
+          { label: 'c', task: 'Why is connected speech important for listening comprehension?', solution: 'If you only learn to recognize words spoken in isolation, you will struggle to understand natural conversation where words blend together.' },
+        ],
+        hints: ['Listen to natural speech in films or podcasts', 'Practice speaking at normal pace, not word by word'],
+        solution: 'Understanding connected speech patterns is crucial for both speaking fluently and understanding native speakers.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-1-3-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **English pronunciation** is challenging because spelling often does not match sound, but learning the patterns helps greatly.
+
+2. **Individual sounds:** Norwegian speakers should pay special attention to the "th" sounds (/θ/ and /ð/), the short "i" vs long "ee" distinction, and the "w" vs "v" difference.
+
+3. **Word stress** follows patterns: most two-syllable nouns are stressed on the first syllable, while many two-syllable verbs are stressed on the second. Stress can change meaning (REcord vs reCORD).
+
+4. **Sentence stress** determines emphasis and meaning. The same sentence can have different meanings depending on which word is stressed.
+
+5. **Intonation** (the melody of speech) conveys attitudes and distinguishes statements from questions.
+
+6. **Connected speech** means words blend together in natural conversation. Understanding this is essential for both fluency and listening comprehension.
+
+**Key Vocabulary:**
+- Phoneme - the smallest unit of sound in a language
+- Stress - emphasis placed on a syllable or word
+- Intonation - the rise and fall of pitch in speech
+- Connected speech - how words blend together in natural speech
+- Minimal pair - two words that differ by only one sound (ship/sheep)`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-1-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- BBC Learning English - Pronunciation: bbc.co.uk/learningenglish/english/features/pronunciation
+- Cambridge Dictionary Online (with audio pronunciation): dictionary.cambridge.org
+- Roach, P. (2009). *English Phonetics and Phonology*. Cambridge University Press.
+- Underhill, A. (2005). *Sound Foundations: Learning and Teaching Pronunciation*. Macmillan.`,
     },
   ],
   exercises: [],
@@ -1331,6 +1425,117 @@ Academic language is the formal language used in schools, universities, and prof
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-1-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Identify the register (formal/academic or informal/conversational) of each sentence and explain why.',
+        subTasks: [
+          { label: 'a', task: '"The study demonstrates a significant correlation between sleep deprivation and cognitive performance."', solution: 'Formal/academic - uses precise vocabulary (demonstrates, significant correlation, cognitive performance), no contractions, passive/impersonal tone.' },
+          { label: 'b', task: '"Not getting enough sleep really messes with your brain."', solution: 'Informal - uses phrasal verb (messes with), colloquial language, second person (your), simple structure.' },
+          { label: 'c', task: '"It\'s like, nobody even cares about that stuff anymore."', solution: 'Very informal/conversational - uses filler (like), contraction, vague language (that stuff), slang.' },
+          { label: 'd', task: '"Recent research suggests that public attitudes toward this issue have shifted considerably."', solution: 'Formal/academic - hedging (suggests), precise vocabulary (attitudes, shifted considerably), no contractions.' },
+        ],
+        solution: 'Being able to identify register helps you choose the right style for your own writing.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Academic language often uses "hedging" to show that claims are not absolute. Add appropriate hedging language to these overly strong claims.',
+        subTasks: [
+          { label: 'a', task: '"Climate change will destroy all coastal cities by 2100."', solution: '"Climate change may significantly impact many coastal cities by 2100." or "Research suggests that climate change could pose serious threats to coastal cities by 2100."' },
+          { label: 'b', task: '"Students who use phones in class always get worse grades."', solution: '"Studies indicate that phone use in class tends to be associated with lower academic performance." or "There appears to be a correlation between phone use in class and reduced grades."' },
+          { label: 'c', task: '"Exercise is the best cure for depression."', solution: '"Exercise has been shown to be an effective component in managing symptoms of depression." or "Research suggests that regular exercise may contribute to improved mental health."' },
+        ],
+        hints: ['Use modal verbs: may, might, could, can', 'Use hedging phrases: it appears that, research suggests, tends to', 'Avoid absolute words: always, never, all, none'],
+        solution: 'Academic hedging shows intellectual maturity by acknowledging uncertainty and complexity.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Build your academic vocabulary. For each everyday word, write the academic equivalent and use it in a sentence.',
+        subTasks: [
+          { label: 'a', task: 'big', solution: 'substantial, significant, considerable. Example: "The study found a substantial increase in reading scores."' },
+          { label: 'b', task: 'bad', solution: 'detrimental, adverse, negative. Example: "Pollution has detrimental effects on public health."' },
+          { label: 'c', task: 'help', solution: 'facilitate, assist, contribute to. Example: "Technology can facilitate language learning."' },
+          { label: 'd', task: 'use', solution: 'utilize, employ, apply. Example: "Researchers employed qualitative methods to analyze the data."' },
+        ],
+        hints: ['Think about the context you would use each word in', 'Try to vary your vocabulary in essays'],
+        solution: 'Building academic vocabulary is an ongoing process. Keep a vocabulary notebook for new academic words.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Write a short academic paragraph (100-150 words) about one of these topics. Focus on using academic register, hedging language, and formal vocabulary.',
+        subTasks: [
+          { label: 'Topic choices', task: 'a) The impact of social media on teenagers\nb) The importance of learning foreign languages\nc) Whether school uniforms should be introduced in Norway', solution: 'The paragraph should demonstrate: formal vocabulary, no contractions, hedging language, complex sentence structures, topic sentence, and supporting evidence or reasoning.' },
+        ],
+        hints: ['Start with a clear topic sentence', 'Use at least three academic vocabulary words', 'Include hedging language', 'Avoid contractions and slang'],
+        solution: 'A strong academic paragraph has a clear topic sentence, supporting details, and formal language throughout.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-1-4-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Academic language** is the formal language used in education, research, and professional contexts. It differs from everyday English in vocabulary, structure, and tone.
+
+2. **Register** refers to the level of formality. Academic register avoids contractions, slang, and first-person statements, favoring precise vocabulary and complex sentence structures.
+
+3. **Tier 2 words** are high-utility academic vocabulary used across subjects (analyze, demonstrate, significant, consequently). Building this vocabulary is essential for academic success.
+
+4. **Hedging** means softening claims to show uncertainty (may, might, suggests, tends to). It is a hallmark of academic writing.
+
+5. **Converting between registers** is a key skill. Understanding when to use formal vs. informal English helps you communicate effectively in different contexts.
+
+**Key Vocabulary:**
+- Register - the level of formality in language
+- Hedging - language that softens claims and shows uncertainty
+- Tier 2 words - academic vocabulary used across multiple subjects
+- Formal register - language appropriate for academic and professional contexts
+- Colloquialism - an informal word or expression used in everyday conversation`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-1-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Coxhead, A. (2000). "A New Academic Word List." *TESOL Quarterly*, 34(2), 213-238.
+- Academic Word List (AWL): victoria.ac.nz/lals/resources/academicwordlist
+- Oxford Learner's Dictionary of Academic English. Oxford University Press.
+- Bailey, S. (2018). *Academic Writing: A Handbook for International Students*. Routledge.`,
     },
   ],
   exercises: [],
@@ -1494,6 +1699,91 @@ When you encounter an unfamiliar English word, check if it has a Germanic (Norwe
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-1-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'False friends can cause confusion. Explain the difference in meaning between these Norwegian-English look-alikes.',
+        subTasks: [
+          { label: 'a', task: 'Norwegian "gift" vs English "gift"', solution: 'Norwegian: married or poison. English: a present/something given.' },
+          { label: 'b', task: 'Norwegian "barn" vs English "barn"', solution: 'Norwegian: child. English: a farm building for animals or storage.' },
+          { label: 'c', task: 'Norwegian "eventuelt" vs English "eventually"', solution: 'Norwegian: possibly/if applicable. English: in the end/after a long time.' },
+          { label: 'd', task: 'Norwegian "engasjert" vs English "engaged"', solution: 'Norwegian: enthusiastic/passionate. English: betrothed (to be married) or involved.' },
+        ],
+        hints: ['Think about how these could cause misunderstanding in conversation'],
+        solution: 'False friends are a common source of errors. Being aware of them helps you avoid embarrassing mistakes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'English has borrowed words from many languages. For each loanword, guess which language it originally came from.',
+        subTasks: [
+          { label: 'a', task: 'tsunami', solution: 'Japanese (tsu = harbour, nami = wave)' },
+          { label: 'b', task: 'kindergarten', solution: 'German (Kinder = children, Garten = garden)' },
+          { label: 'c', task: 'safari', solution: 'Swahili/Arabic (meaning journey)' },
+          { label: 'd', task: 'ski', solution: 'Norwegian (from Old Norse "skith" = piece of wood)' },
+          { label: 'e', task: 'piano', solution: 'Italian (short for pianoforte = soft-loud)' },
+        ],
+        hints: ['Think about where the activity or concept originated', 'English borrows from languages worldwide'],
+        solution: 'English is exceptionally open to borrowing from other languages, which is one reason for its enormous vocabulary.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Transfer strategies: Explain how knowledge of Norwegian or another language you know can help you learn each of these English words or structures.',
+        subTasks: [
+          { label: 'a', task: 'The English word "breathtaking" compared to Norwegian "fantastisk" or "slående"', solution: 'English compounds words like Norwegian does (breath + taking). Understanding this pattern helps decode unfamiliar compound words.' },
+          { label: 'b', task: 'The English phrase "it rains" compared to Norwegian "det regner"', solution: 'Both use a "dummy subject" (it/det) with weather verbs. This shared structure makes this grammar pattern easy to transfer.' },
+          { label: 'c', task: 'How can knowing German or French (if you study those) also help with English?', solution: 'German shares Germanic roots with English (haus/house, wasser/water). French contributed thousands of words to English (restaurant, government, justice). Knowledge of any related language provides useful transfer strategies.' },
+        ],
+        hints: ['Think about similar structures, word roots, and patterns', 'Consider both vocabulary and grammar'],
+        solution: 'Multilingual awareness helps you learn more efficiently by building on what you already know.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-1-5-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **English and Norwegian** are both Germanic languages that share a common ancestor, giving Norwegian speakers a natural advantage in learning English.
+
+2. **Cognates** are words in different languages that share a common origin (water/vann, house/hus). Recognizing cognates is a powerful vocabulary-building strategy.
+
+3. **False friends** are words that look similar but have different meanings (Norwegian "gift" = married/poison, English "gift" = present). Being aware of these prevents common errors.
+
+4. **Norse influence on English** is extensive. Vikings contributed over 2,000 everyday words to English, including "they," "egg," "sky," and "window," as well as many place names.
+
+5. **Transfer strategies** mean using your knowledge of Norwegian and other languages to understand and learn English more effectively. This works for both vocabulary and grammar patterns.
+
+**Key Vocabulary:**
+- Cognate - a word that has a common origin with a word in another language
+- False friend - a word that looks similar in two languages but has different meanings
+- Loanword - a word borrowed from another language
+- Language family - a group of languages with a shared ancestor
+- Transfer - using knowledge from one language to help learn another`,
+    },
   ],
   exercises: [],
 };
@@ -1616,6 +1906,116 @@ Speaking English well isn't just about being grammatically correct - it's about 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-2-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Adapt the following message for three different audiences. The message is: "We need to change the school lunch menu because students are not eating healthy food."',
+        subTasks: [
+          { label: 'a', task: 'Write this as a formal letter to the school principal.', solution: 'Use formal register, polite language, evidence-based arguments. Example: "Dear Principal, I am writing to propose a revision of the school lunch menu. Current offerings do not adequately support student nutrition..."' },
+          { label: 'b', task: 'Write this as a social media post to fellow students.', solution: 'Use informal register, engaging tone, call to action. Example: "Who else is tired of the cafeteria food? We need better options! Share if you agree..."' },
+          { label: 'c', task: 'Write this as part of a debate speech.', solution: 'Use persuasive language, rhetorical devices, structured argument. Example: "Ladies and gentlemen, our current lunch menu fails our students. Consider the evidence..."' },
+        ],
+        hints: ['Think about your audience in each case', 'Adjust vocabulary, tone, and structure accordingly'],
+        solution: 'Adapting your message to your audience is a key communication skill.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nuance practice: Replace the underlined word with a more precise synonym that better fits the context.',
+        subTasks: [
+          { label: 'a', task: 'The movie was "nice." (You want to express that it was emotionally moving)', solution: 'Touching, poignant, moving, heartfelt' },
+          { label: 'b', task: 'The food was "bad." (You want to say it tasted terrible)', solution: 'Revolting, unappetizing, tasteless, bland' },
+          { label: 'c', task: 'She "said" that she disagreed. (You want to show she was angry)', solution: 'Snapped, retorted, exclaimed, protested' },
+          { label: 'd', task: 'He "walked" into the room. (You want to show he was confident)', solution: 'Strode, marched, sauntered, swaggered' },
+        ],
+        solution: 'Precise word choice is what separates good communication from great communication.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Expressing degrees of certainty. Rank these statements from most certain to least certain and explain the differences.',
+        subTasks: [
+          { label: 'a', task: 'Rank: "It will rain tomorrow" / "It might rain tomorrow" / "It could rain tomorrow" / "It is likely to rain tomorrow" / "It may rain tomorrow"', solution: 'Most to least certain: will > is likely to > may > might > could. "Will" expresses certainty, "is likely to" expresses high probability, "may" expresses possibility, "might" expresses lower possibility, "could" expresses remote possibility.' },
+          { label: 'b', task: 'Write your own set of five sentences about a school topic, using different degrees of certainty.', solution: 'Example: "Technology will change education" / "Technology is likely to transform classrooms" / "AI may replace some teaching tasks" / "Virtual reality might become standard" / "Robots could teach classes someday."' },
+        ],
+        hints: ['Modal verbs express different levels of certainty', 'Context also matters for interpretation'],
+        solution: 'Mastering degrees of certainty is essential for nuanced academic and professional communication.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Prepare and deliver a 2-minute speech on a topic you care about. Focus on using varied sentence structures, precise vocabulary, and appropriate hedging.',
+        subTasks: [
+          { label: 'a', task: 'Choose a topic and write an outline with 3 main points.', solution: 'Good topics include: a social issue, a personal passion, or a school-related topic.' },
+          { label: 'b', task: 'Write the speech, using at least three different sentence types (simple, compound, complex).', solution: 'Vary sentence length and structure for engagement.' },
+          { label: 'c', task: 'Record yourself delivering the speech, then evaluate: Did you speak fluently? Did you use varied vocabulary?', solution: 'Self-evaluation is a metacognitive strategy that improves performance over time.' },
+        ],
+        hints: ['Practice before recording', 'Focus on clarity over speed', 'Use discourse markers to connect ideas'],
+        solution: 'Oral fluency improves with deliberate practice and self-reflection.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-2-1-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Nuanced expression** means conveying precise meaning by choosing the right words, tone, and structure for each situation.
+
+2. **Hedging** softens claims and shows awareness of complexity (may, might, it seems that). It is essential for academic and polite communication.
+
+3. **Sentence variety** (simple, compound, complex, compound-complex) makes communication more engaging and allows you to express relationships between ideas.
+
+4. **Audience awareness** means adapting your register, vocabulary, and tone to fit the context (formal letter vs. social media vs. debate speech).
+
+5. **Precise vocabulary** means choosing specific words rather than vague ones (strode instead of walked, poignant instead of nice).
+
+**Key Vocabulary:**
+- Hedging - softening language to show uncertainty or politeness
+- Register - level of formality in language use
+- Coherence - logical connection between ideas
+- Nuance - a subtle difference in meaning or expression
+- Discourse markers - words that organize speech (firstly, however, in conclusion)`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-2-1-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Thornbury, S. (2005). *How to Teach Speaking*. Longman.
+- Hughes, R. (2011). *Teaching and Researching Speaking*. Routledge.
+- BBC Learning English - Speaking Skills: bbc.co.uk/learningenglish`,
     },
   ],
   exercises: [],
@@ -1767,6 +2167,93 @@ Notice how the idioms make the conversation sound natural and expressive.`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-2-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Some English idioms have equivalents in Norwegian. Match these English idioms with their Norwegian counterparts and explain whether the images are similar or different.',
+        subTasks: [
+          { label: 'a', task: '"It\'s raining cats and dogs" (regner kraftig)', solution: 'Norwegian: "Det regner trollkjerringer" - Different images (animals vs. trolls) but same meaning.' },
+          { label: 'b', task: '"To kill two birds with one stone"', solution: 'Norwegian: "Slå to fluer i en smekk" (hit two flies in one swat) - Similar concept of achieving two things at once, different images.' },
+          { label: 'c', task: '"Don\'t count your chickens before they hatch"', solution: 'Norwegian: "Ikke selg skinnet før bjørnen er skutt" (don\'t sell the skin before the bear is shot) - Same meaning: don\'t assume success before it happens.' },
+        ],
+        hints: ['Think about Norwegian expressions with similar meanings', 'Consider why cultures use different images for the same ideas'],
+        solution: 'Comparing idioms across languages reveals both cultural differences and universal human experiences.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Complete each sentence with the correct phrasal verb from the list: bring up, come across, get along with, run into, turn down.',
+        subTasks: [
+          { label: 'a', task: 'I _______ an old friend at the shopping centre yesterday.', solution: 'ran into (= met unexpectedly)' },
+          { label: 'b', task: 'She decided to _______ the job offer because the salary was too low.', solution: 'turn down (= refuse/reject)' },
+          { label: 'c', task: 'I _______ an interesting article about climate change online.', solution: 'came across (= found unexpectedly)' },
+          { label: 'd', task: 'Don\'t _______ politics at the dinner table!', solution: 'bring up (= mention/introduce a topic)' },
+          { label: 'e', task: 'Do you _______ your new classmates?', solution: 'get along with (= have a good relationship with)' },
+        ],
+        solution: 'Phrasal verbs are essential for natural-sounding English. Learn them in context.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Create an "idiom dictionary" with at least 8 idioms. For each idiom, include: the idiom, its meaning, an example sentence, and (if possible) a Norwegian equivalent.',
+        hints: ['Include idioms from different categories (effort, success, emotions)', 'Make sure your example sentences show natural usage'],
+        solution: 'Building your own idiom dictionary is an effective way to learn and remember idiomatic expressions.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-2-2-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Idioms** are fixed expressions whose meaning cannot be deduced from the individual words. They make language colourful and natural.
+
+2. **Phrasal verbs** combine a verb with a preposition or adverb to create new meanings (look up, put off, figure out). They are extremely common in everyday English.
+
+3. **Context is key**: Both idioms and phrasal verbs should be learned and used in context, not just memorized as lists.
+
+4. **Cross-linguistic comparison** of idioms reveals both cultural differences and universal human themes.
+
+5. **Natural usage** requires practice. Overusing idioms sounds forced; using them appropriately shows language proficiency.
+
+**Key Vocabulary:**
+- Idiom - a fixed expression with a non-literal meaning
+- Phrasal verb - a verb combined with a particle that creates a new meaning
+- Collocation - words that naturally go together (make a decision, take a risk)
+- Figurative language - language that uses images or comparisons beyond literal meaning`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-2-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- McCarthy, M. & O'Dell, F. (2010). *English Idioms in Use*. Cambridge University Press.
+- Cambridge Dictionary Idioms: dictionary.cambridge.org/topics/idioms
+- Garner, B. (2022). *Garner's Modern English Usage*. Oxford University Press.`,
+    },
   ],
   exercises: [],
 };
@@ -1910,6 +2397,92 @@ Notice how each speaker acknowledges others' points before adding their own pers
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-2-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Active listening practice. Listen to a short TED Talk or podcast episode (5-10 minutes) in English. Then complete these tasks.',
+        subTasks: [
+          { label: 'a', task: 'Summarize the speaker\'s main argument in 2-3 sentences.', solution: 'A good summary captures the core message without unnecessary details.' },
+          { label: 'b', task: 'Identify one point you agree with and explain why.', solution: 'Show understanding of the argument and provide personal reasoning.' },
+          { label: 'c', task: 'Identify one point you would challenge and explain your alternative view.', solution: 'Respectful disagreement requires understanding the original argument first.' },
+        ],
+        hints: ['Take notes while listening', 'Focus on the main argument, not every detail'],
+        solution: 'Active listening means processing and evaluating what you hear, not just passively receiving information.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Summarizing others\' arguments is a key discussion skill. Read the two viewpoints below, then write a neutral summary that fairly represents both sides.\n\nViewpoint A: "Social media should be banned for under-16s because it harms mental health, promotes cyberbullying, and exposes children to inappropriate content."\n\nViewpoint B: "Social media helps young people develop digital literacy, maintain friendships, and access educational content."',
+        hints: ['Use phrases like "On one hand... on the other hand..." or "While some argue... others contend..."', 'Stay neutral - don\'t take sides in the summary'],
+        solution: 'A strong neutral summary might be: "This debate centres on whether social media access should be restricted for young people. Proponents of restrictions argue that social media poses risks to mental health and safety, while opponents maintain that it offers important social and educational benefits. Both sides raise valid concerns about the well-being and development of young people in the digital age."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Self-evaluation of discussion skills. Think about a recent discussion you had (in class or elsewhere) and evaluate yourself on these criteria.',
+        subTasks: [
+          { label: 'a', task: 'Did you listen actively to others? Give an example of when you built on someone else\'s point.', solution: 'Active listening is demonstrated by referencing and responding to what others said.' },
+          { label: 'b', task: 'Did you express disagreement respectfully? How?', solution: 'Respectful disagreement focuses on ideas, not people, and uses hedging language.' },
+          { label: 'c', task: 'What is one specific thing you want to improve for next time?', solution: 'Setting specific improvement goals is a metacognitive strategy for developing discussion skills.' },
+        ],
+        hints: ['Be honest in your self-assessment', 'Focus on specific behaviours rather than general impressions'],
+        solution: 'Regular self-reflection is key to improving your discussion skills over time.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-2-3-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+
+1. **Active listening** means truly hearing and processing what others say, not just waiting for your turn to speak.
+
+2. **Building on ideas** using phrases like "Building on what you said..." and "To add to that point..." creates a collaborative discussion.
+
+3. **Respectful disagreement** focuses on ideas rather than people: "I see your point, but I think..." rather than "You're wrong."
+
+4. **Summarizing** others' arguments demonstrates understanding and keeps discussions productive.
+
+5. **Discussion skills** improve with practice, self-reflection, and awareness of specific techniques.
+
+**Key Vocabulary:**
+- Active listening - fully concentrating on what is being said
+- Turn-taking - the practice of alternating who speaks in a conversation
+- Discourse marker - a word or phrase that organizes discussion (however, furthermore, in my view)
+- Counterargument - an argument made in opposition to another argument`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-2-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Mercer, N. (2000). *Words and Minds: How We Use Language to Think Together*. Routledge.
+- Fisher, R. (2009). *Creative Dialogue: Talk for Thinking in the Classroom*. Routledge.
+- TED Talks: ted.com (excellent for practising listening and discussion)`,
     },
   ],
   exercises: [],
@@ -2066,6 +2639,72 @@ Each hook immediately engages the audience and sets up the topic.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-2-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Body language and delivery. Watch a short TED Talk (5-10 minutes) and analyze the speaker\'s delivery.',
+        subTasks: [
+          { label: 'a', task: 'How does the speaker use body language (gestures, movement, eye contact)?', solution: 'Good speakers use open gestures, move purposefully, and maintain eye contact with the audience.' },
+          { label: 'b', task: 'How does the speaker vary their voice (pace, volume, pauses)?', solution: 'Effective speakers vary pace for emphasis, use pauses for dramatic effect, and adjust volume.' },
+          { label: 'c', task: 'What is the most effective technique the speaker uses? How could you apply it?', solution: 'Identify a specific technique and plan how to use it in your own presentations.' },
+        ],
+        hints: ['Watch the same section twice - once for content, once for delivery', 'Note specific moments that are particularly effective'],
+        solution: 'Learning from skilled speakers is one of the best ways to improve your own presentation skills.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Handling questions. Prepare responses to these challenging audience questions about your presentation topic.',
+        subTasks: [
+          { label: 'a', task: 'What would you say if someone asks a question you don\'t know the answer to?', solution: 'Honest responses like "That\'s a great question. I don\'t have the exact answer, but based on what I know, I would say..." show integrity and confidence.' },
+          { label: 'b', task: 'How would you respond if someone strongly disagrees with your main point?', solution: 'Acknowledge their perspective: "I understand your concern. While I see it differently, I appreciate you raising that point. My reasoning is based on..."' },
+          { label: 'c', task: 'What if someone asks a question that is not related to your topic?', solution: 'Politely redirect: "That\'s an interesting question, but it\'s a bit outside the scope of my presentation. Perhaps we could discuss it afterwards?"' },
+        ],
+        hints: ['Stay calm and composed', 'It is better to be honest than to make up an answer'],
+        solution: 'Handling questions well is often the most impressive part of a presentation.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-2-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-2-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Peer feedback. Give a short presentation (3-5 minutes) to a partner or small group, then give and receive feedback.',
+        subTasks: [
+          { label: 'a', task: 'As a listener, write constructive feedback using this format: "One thing I liked was... One thing that could be improved is... One suggestion I have is..."', solution: 'Constructive feedback is specific, balanced (positive and improvement), and actionable.' },
+          { label: 'b', task: 'As the presenter, reflect on the feedback. What will you change for next time?', solution: 'Acting on feedback demonstrates growth mindset and continuous improvement.' },
+        ],
+        hints: ['Be specific in your feedback - say exactly what worked well', 'Focus on behaviour, not personality'],
+        solution: 'Giving and receiving feedback is a valuable skill in itself.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-2-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Reynolds, G. (2019). *Presentation Zen*. New Riders.
+- TED Talks - Presentation techniques: ted.com/playlists/574/how_to_make_a_great_presentation
+- Duarte, N. (2010). *Resonate: Present Visual Stories that Transform Audiences*. Wiley.`,
     },
   ],
   exercises: [],

@@ -273,6 +273,43 @@ Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-7-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Forklar fjellvettreglene med egne ord. Velg tre av reglene og gi konkrete eksempler på hvorfor de er viktige for sikker ferdsel i norsk natur.',
+        solution: 'Fjellvettreglene er: 1) Planlegg turen og meld fra hvor du går. 2) Tilpass turen etter evne og forhold. 3) Ta hensyn til vær- og skredvarsel. 4) Vær forberedt på uvær og kulde, selv på korte turer. 5) Ta med nødvendig utstyr for å kunne hjelpe deg selv og andre. 6) Ta trygge veivalg. Kjenn igjen skredfarlig terreng og usikker is. 7) Bruk kart og kompass. Vit alltid hvor du er. 8) Vend i tide, det er ingen skam å snu. 9) Spar på kreftene og søk ly om nødvendig. Eksempel på regel 8: Hvis du planla å nå toppen men været blir dårligere, er det lurt å snu selv om du er nesten fremme. Eksempel på regel 4: Selv en kort tur i juni kan by på kaldt vær i fjellet, så du bør alltid ha med vindtett jakke og ekstra lag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Allemannsretten** gir oss rett til å ferdes fritt i utmark, men med ansvar
+- **Turplanlegging** er nøkkelen til trygge og gode turer - rute, vær, utstyr og tidspunkt
+- **Lagprinsippet** for bekledning med innerlag, mellomlag og ytterlag
+- **Fjellvettreglene** gir god veiledning for sikker ferdsel i norsk natur
+- Svakeste person setter farten, og det er ingen skam å snu
+- Praktisk erfaring er den beste måten å lære friluftsliv på`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Den Norske Turistforening (DNT): ut.no
+- Friluftsloven (lov om friluftslivet, 1957)
+- Fjellvettreglene, Røde Kors og DNT
+- yr.no og varsom.no for vær- og skredvarsling
+- Helsedirektoratet: Anbefalinger om fysisk aktivitet`,
+    },
   ],
   exercises: [],
 };
@@ -641,6 +678,43 @@ Vurder å bli med i en orienteringsklubb - en fantastisk måte å lære navigasj
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Sammenlign bruk av tradisjonelt kart og kompass med digitale navigasjonsverktøy (GPS/mobilapp). Hva er fordelene og ulempene med hver metode? Hvorfor bør du kunne begge?',
+        solution: 'Kart og kompass: Fordeler - trenger ikke batteri, fungerer alltid, gir god terrengforståelse, lette å ta med. Ulemper - krever opplæring, vanskeligere i dårlig vær, mindre presist for nøyaktig posisjon. Digitale verktøy (GPS/app): Fordeler - nøyaktig posisjon, enkelt å bruke, kan dele posisjon med andre, offline kart tilgjengelig. Ulemper - avhengig av batteri, kan fryse i kulde, kan gå i stykker, skjerm vanskelig å lese i regn/sol. Du bør kunne begge fordi elektronikk kan svikte (tomt batteri, frostskade, vannsprut), og da er kart og kompass eneste alternativ. Det er god praksis å alltid ha kart og kompass som backup.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kartlesing** med høydekurver, målestokk og karttegn
+- **Kompassbruk** for å ta ut retning og navigere i terrenget
+- **Trekantpeiing** for å finne posisjonen din
+- **Digitale verktøy** som GPS og kartapper som supplement
+- Viktigheten av å kunne bruke kart og kompass som backup når teknologi svikter
+- Praktiske navigasjonsøvelser som bygger erfaring og trygghet`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Kartverket: kartverket.no
+- Norges orienteringsforbund: orientering.no
+- Den Norske Turistforening (DNT): ut.no
+- Norgeskart.no - gratis digitale kart
+- Turplanlegger-appen til DNT`,
     },
   ],
   exercises: [],
@@ -1066,6 +1140,43 @@ Vinteren byr på mange andre spennende aktiviteter utover langrenn:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-7-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Forklar hvordan du forebygger hypotermi (nedkjøling) på vintertur. Beskriv symptomer, forebygging og førstehjelp.',
+        solution: 'Hypotermi oppstår når kjernetemperaturen faller under 35 grader. Symptomer i rekkefølge: Skjelving, forvirring, dårlig koordinasjon, sløvhet, bevisstløshet. Forebygging: Bruk lagprinsippet med ull innerst, spis og drikk jevnlig (kroppen trenger energi for å produsere varme), unngå å bli våt av svette (ventiler), hold hodet og hendene varme (mye varmetap), ta pauser i le. Førstehjelp: Kom i le, skift våte klær, isoler fra bakken, gi varm drikke og mat (hvis bevisst), del kroppvarme, ring 113 ved alvorlig hypotermi. Aldri gi alkohol da det utvider blodårene og øker varmetapet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Vinterfriluftsliv** med aktiviteter som langrenn, skøyter og snøskotur
+- **Kuldeforebygging** gjennom riktig bekledning og ernæring
+- **Issikkerhet** og hvordan vurdere om isen er trygg
+- **Snøskred** og viktigheten av å sjekke skredvarsel på varsom.no
+- **Lokale vintertradisjoner** som del av norsk kulturarv
+- Praktiske ferdigheter for trygg og god vinterferdsel`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Varsom.no - snøskredvarsling og issikkerhet
+- Røde Kors: Førstehjelp og forebygging av hypotermi
+- Den Norske Turistforening (DNT): Vinterturråd
+- Norges Skiforbund: langrenn.no
+- yr.no - værvarsel`,
+    },
   ],
   exercises: [],
 };
@@ -1461,6 +1572,54 @@ Selv om det er sommer kan været skifte raskt i fjellet:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-7-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar allemannsretten. Hva gir den deg lov til, og hvilke plikter følger med?',
+        solution: 'Allemannsretten gir alle rett til å ferdes fritt i utmark (skog, fjell, strand). Du kan gå, sykle, ri, padle og overnatte i telt (minst 150 m fra nærmeste bebodde hytte/hus, maks 2 netter på samme sted). Du kan plukke ville bær, sopp og blomster, og fiske fritt i saltvann. Plikter: Ikke skade naturen, ta med søppel, lukke grinder, respektere bålforbudet 15. april - 15. september, vise hensyn til andre og til dyr/planter, og ikke ferdes i innmark (dyrket jord) uten tillatelse. Allemannsretten er nedfelt i friluftsloven og er en unik norsk tradisjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Hvilke sikkerhetsregler gjelder for bading og vannsport? Beskriv badevettreglene og forklar hvorfor de er viktige.',
+        solution: 'Badevettreglene: 1) Lær deg å svømme. 2) Gå aldri alene i vannet. 3) Gå aldri ut i ukjent vann uten å sjekke dybde og strømmer. 4) Bade aldri med magen full av mat. 5) Avkjøl kroppen før du bader. 6) Bruk flytevest i båt og ved vannaktiviteter. 7) Dykk aldri i ukjent vann. 8) Unngå bading i kombinasjon med alkohol/rusmidler. Reglene er viktige fordi drukning er en av de vanligste ulykkesdødsfallene i Norge, og de fleste drukningsulykker skjer i forbindelse med bading, båt eller vannaktiviteter der disse reglene ikke ble fulgt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Vår- og sommeraktiviteter** som padling, sykling, bading og toppturer
+- **Vannsikkerhet** og badevettreglene
+- **Allemannsretten** og rettigheter og plikter i naturen
+- **Telting** i utmark og praktiske tips for overnatting
+- Sikkerhet ved sommeraktiviteter i varierende terreng og vær`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Friluftsloven (lov om friluftslivet, 1957)
+- Redningsselskapet: badevett og vannsikkerhet
+- Den Norske Turistforening (DNT): ut.no
+- Norsk Friluftsliv: friluftsliv.no`,
+    },
   ],
   exercises: [],
 };
@@ -1739,6 +1898,54 @@ Ved å høste ansvarlig sikrer vi at naturen kan brukes også i fremtiden!`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-7-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvorfor det er viktig å kunne identifisere arter riktig ved sanking av sopp og bær. Gi eksempler på farlige forvekslinger.',
+        solution: 'Feilidentifisering av sopp kan være livsfarlig. Hvit fluesopp (Amanita virosa) er en av verdens giftigste sopper og kan forveksles med sjampinjong av uerfarne. Rød fluesopp kan forveksles med spiselig keiserfluesopp. Traktkantarell kan forveksles med giftig spiss giftslørsopp. For bær: Trollbær (giftig) kan forveksles med blåbær for uerfarne. Slåpetorn og nyper er spiselige, men lignende bærbusker kan inneholde ufordøyelige eller giftige bær. Derfor: Plukk aldri sopp du ikke er 100 % sikker på, gå med erfarne sankere, og bruk soppkontroll om du er i tvil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Beskriv hvordan naturen endrer seg om høsten og hvilke muligheter dette gir for friluftsliv. Nevn minst fire høstaktiviteter.',
+        solution: 'Om høsten endres naturen med fargerike blader, modnende bær og sopp, kjøligere temperaturer, kortere dager og trekk av fugl. Muligheter: 1) Bærplukking (blåbær, tyttebær, molter i august-september). 2) Soppsanking (kantarell, steinsopp, traktkantarell fra august). 3) Fiske (ørret, røye, sjøfiske). 4) Vandring i høstfarger (spesielt flott i september-oktober). 5) Jakt (med jegerprøve). 6) Fugletitting (trekk av gjess, traner, vadere). 7) Fototur i høstlyset. Høsten er en rik tid for friluftsliv, men krever riktig bekledning for variabelt vær og kortere dagslys.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Høstaktiviteter** som bærplukking, soppsanking, fiske og vandring
+- **Sikker sanking** og viktigheten av korrekt artsidentifisering
+- **Bærekraftig høsting** med respekt for naturen
+- Høsten som en rik sesong for friluftsliv i Norge
+- Praktiske tips for trygg ferdsel i mørke og kjølige forhold`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norsk Sopp- og Nyttevekstforbund: soppognyttevekster.no
+- Artsdatabanken: artsdatabanken.no
+- Mattilsynet: Råd om sopp og sanking
+- Norges Jeger- og Fiskerforbund: njff.no`,
     },
   ],
   exercises: [],
@@ -2076,6 +2283,28 @@ Gruppen ankom gapahuken kl. 15. Emilie hjalp til med vedhugging mens andre hente
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-7-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Bålbrenning** med riktig teknikk, materialer og sikkerhet
+- **Bålforbudet** fra 15. april til 15. september og unntak
+- **Matlaging ute** med turkoker og bål
+- **Overnattingsformer** som telt, lavvo, gapahuk og tarp
+- Planlegging av pakkeliste og meny for overnattingstur`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Friluftsloven og bålforbudet
+- Den Norske Turistforening (DNT): ut.no
+- Direktoratet for samfunnssikkerhet og beredskap (DSB): Brannsikkerhet
+- Norsk Friluftsliv: friluftsliv.no`,
+    },
   ],
   exercises: [],
 };
@@ -2388,6 +2617,27 @@ I verneområder og over tregrensen kan reglene være strengere - sjekk på forh�
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-7-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Sporløs ferdsel** og prinsippet om å etterlate naturen slik du fant den
+- **Naturvern** og vern av sårbare naturområder
+- **Bærekraftig friluftsliv** som tar hensyn til plante- og dyreliv
+- Praktiske tiltak som plogging og avfallshåndtering i naturen`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-7-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Miljødirektoratet: miljodirektoratet.no
+- Norsk Friluftsliv: friluftsliv.no
+- Leave No Trace: lnt.org
+- Naturvernforbundet: naturvernforbundet.no`,
     },
   ],
   exercises: [],
@@ -2800,6 +3050,27 @@ Mange steder har også digitale arkiver med bilder og dokumenter fra tidligere t
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-7-8-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Lokale friluftslivstradisjoner** og deres betydning for kultur og identitet
+- Hvordan tradisjonelle aktiviteter varierer mellom ulike deler av Norge
+- Verdien av å bevare og videreføre friluftslivstradisjoner
+- Praktisk utforsking av lokale tradisjoner gjennom feltarbeid og intervjuer`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-8-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norsk Kulturråd: kulturradet.no
+- Lokale historielag og museer
+- Norsk Friluftsliv: friluftsliv.no
+- Immateriell kulturarv i Norge (UNESCO)`,
     },
   ],
   exercises: [],
@@ -4454,7 +4725,42 @@ Snakk alltid med lege før du bruker kosttilskudd eller medisiner ved trening.`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Hva er WADA og Antidoping Norge, og hvilken rolle spiller de i kampen mot doping? Beskriv hvordan dopingkontroll gjennomføres.',
+        solution: 'WADA (World Anti-Doping Agency) er det internasjonale organet som koordinerer kampen mot doping globalt. De vedlikeholder dopinglisten med forbudte stoffer og metoder. Antidoping Norge er det nasjonale organet som gjennomfører dopingkontroll i norsk idrett. Kontrollprosessen: 1) Utøvere kan bli valgt til kontroll under eller utenfor konkurranse. 2) En dopingkontrollør møter utøveren og følger vedkommende til kontrollen. 3) Utøveren avgir urinprøve (og eventuelt blodprøve) under observasjon. 4) Prøven deles i A- og B-prøve og sendes til WADA-akkreditert laboratorium. 5) Resultater analyseres. 6) Ved positiv prøve åpnes sak. Utøvere har whereabouts-plikt, dvs. de må melde fra om hvor de befinner seg for mulig testing.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
 
+I dette kapittelet har vi lært om:
+- **Doping** er bruk av forbudte stoffer eller metoder for å forbedre prestasjoner
+- **Helserisiko** ved doping kan være alvorlig og livstruende
+- **WADA og Antidoping Norge** jobber for ren idrett gjennom kontroll og forebygging
+- **Kosttilskudd** bør vurderes kritisk, og bare produkter fra sikre kilder bør brukes
+- **Etiske perspektiver** på hvorfor doping undergraver idrettens verdier
+- Lovlige prestasjonsfremmende metoder som god trening, søvn og kosthold`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Antidoping Norge: antidoping.no
+- WADA (World Anti-Doping Agency): wada-ama.org
+- Helsedirektoratet: Råd om kosttilskudd
+- Norges idrettsforbund: idrettsforbundet.no`,
+    },
   ],
   exercises: [],
 };
@@ -4726,7 +5032,41 @@ Hvis du opplever ekskludering, snakk med læreren, helsesykepleier eller en voks
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-6-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Lag et forslag til en kroppsøvingstime der alle kan delta, uavhengig av funksjonsevne. Beskriv aktiviteten, tilpasninger og hvordan du sikrer at alle føler seg inkludert.',
+        solution: 'Eksempel - Tilpasset stafett: Klassen deles i lag med blandede forutsetninger. Stafetten har ulike poster: balansestasjon, presisjonskast, samarbeidsoppgave og kunnskapspost. Tilpasninger: Rullestolbrukere får egne ruter uten trapper, synshemmede har ledsager, elever med redusert utholdenhet har kortere etapper. Alle bidrar til lagets resultat gjennom ulike oppgaver tilpasset egne styrker. Nøkkel til inkludering: Varierte oppgaver der ulike ferdigheter verdsettes, fokus på samarbeid fremfor individuell prestasjon, positive tilbakemeldinger, og at elevene selv er med på å utforme tilpasninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
 
+I dette kapittelet har vi lært om:
+- **Inkludering** betyr at alle skal ha mulighet til å delta og oppleve mestring
+- **Universell utforming** av aktiviteter gjør at flere kan delta
+- **Tilrettelegging** av regler, utstyr og organisering kan inkludere alle
+- **Mangfold** er en styrke som beriker kroppsøvingen
+- Praktiske eksempler på tilpasning av ulike idretter og aktiviteter`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges idrettsforbund: Paraidrett og inkludering
+- Utdanningsdirektoratet: Tilpasset opplæring i kroppsøving
+- Beitostølen Helsesportsenter: bhss.no
+- Valnesfjord Helsesportssenter: vhss.no`,
+    },
   ],
   exercises: [],
 };
@@ -5016,7 +5356,41 @@ Tenk på ulike aktiviteter som eiker i et hjul. Jo flere eiker, jo sterkere hjul
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-7-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-7-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Undersøk hvilke muligheter for fysisk aktivitet som finnes i ditt lokalmiljø. Lag en oversikt over tilbud og vurder hva som passer for ulike interesser og budsjetter.',
+        solution: 'Oversikten bør inneholde: Gratis alternativer (turstier, parker, treningsapparater utendørs, løyper), rimelige tilbud (idrettslag, studentrabatter), kommersielle tilbud (treningssenter, svømmehall). For ulike interesser: Lagspill (fotball, håndball, volleyball via lokale klubber), individuelt (løping, sykling, svømming), friluftsliv (DNT-turer, klatring, padling), dans (danseskoler), kampsport (judo, karate, boksing). Vurder også: Avstand fra hjemmet, åpningstider, pris, aldersgrupper, og sosialt miljø. Poenget er at det finnes noe for alle, og at pris ikke trenger å være en hindring for fysisk aktivitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
 
+I dette kapittelet har vi lært om:
+- **Livslang bevegelsesglede** som motivasjon for en aktiv livsstil
+- **Helsedirektoratets anbefalinger** for fysisk aktivitet for ungdom og voksne
+- **Barrierer** for fysisk aktivitet og løsninger for å overvinne dem
+- **Lokale muligheter** for trening og aktivitet i nærmiljøet
+- Viktigheten av å finne aktiviteter du trives med for varig motivasjon`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-7-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Anbefalinger om fysisk aktivitet
+- Folkehelseinstituttet: fhi.no
+- Norges idrettsforbund: idrettsforbundet.no
+- Den Norske Turistforening (DNT): ut.no`,
+    },
   ],
   exercises: [],
 };

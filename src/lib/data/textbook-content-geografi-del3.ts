@@ -166,6 +166,28 @@ For aa forstaa drivhuseffekten maa vi skille mellom to typer straaling:
 
 Drivhusgassene fungerer som et \"lokk\" som slipper solstraaling inn, men holder paa noe av varmestraalingen. Jo mer drivhusgass i atmosfaeren, jo mer varme holdes tilbake.`,
     },
+  
+    {
+      id: 'geo-3-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Atmosfaeren** bestaar av troposfaeren, stratosfaeren, mesosfaeren og termosfaeren
+- **Solinnstraaling** er den viktigste energikilden for jordas klimasystem
+- **Energibalansen** bestemmes av forholdet mellom innkommende solstraaling og utstrallt varme
+- **Albedo** angir hvor mye av solstraaling som reflekteres; snoe og is har hoey albedo
+- **Drivhuseffekten** er naturlig og noedvendig for liv paa jorda, men forsterkes av menneskelige utslipp`,
+    },
+    {
+      id: 'geo-3-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Meteorologisk institutt: met.no
+- IPCC (FNs klimapanel): ipcc.ch
+- NASA Earth Science: science.nasa.gov
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -376,6 +398,28 @@ I tillegg til det globale vindsystemet finnes det lokale vinder som pavirkes av 
 - Om dagen: Oppvarmet luft stiger oppover dalsidene (**dalvind**)
 - Om natten: Avkjoelt luft synker ned i dalbunnen (**fjellvind**)`,
     },
+  
+    {
+      id: 'geo-3-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Vind** oppstaar paa grunn av trykkforskjeller mellom omraader
+- **Corioliseffekten** avboyer vindretningen til hoeyre paa den nordlige halvkule
+- **Passatvinder**, **vestavinder** og **polare ostavinder** er de tre viktigste vindbeltene
+- **Lavtrykk** gir ustabilt vaer med nedbor, **hoeytrykk** gir stabilt og toerrere vaer
+- **Fronter** oppstaar der kald og varm luft moetes og gir typisk norsk vaer`,
+    },
+    {
+      id: 'geo-3-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Meteorologisk institutt: met.no
+- yr.no (vaervarsel og vaerdata)
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Lutgens, F. K. & Tarbuck, E. J. (2019). *The Atmosphere*. Pearson.`,
+    },
   ],
   exercises: [
     {
@@ -580,6 +624,28 @@ Bergen er kjent for aa ha ca. 2250 mm nedbor i aaret fordelt paa ca. 230 nedbord
 - Oestlandet faar 500-800 mm per aar
 
 Denne forskjellen er et klassisk eksempel paa **orografisk nedbor** og **regnsskyggeeffekten**.`,
+    },
+  
+    {
+      id: 'geo-3-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Nedbor** oppstaar naar fuktig luft stiger og avkjoeles til doggpunktet
+- Det finnes tre hovedtyper: **orografisk** (fjellnedbor), **konvektiv** (bygevaer) og **frontal** nedbor
+- **Skytyper** deles inn etter hoeyde: cirrus (hoey), alto (middels), stratus og cumulus (lav)
+- **Vannsyklusen** beskriver vannets kretslop mellom hav, atmosfaere og land
+- Nedborsmoensteret paa jorda varierer med breddegrader, terreng og naerhet til hav`,
+    },
+    {
+      id: 'geo-3-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Meteorologisk institutt: met.no
+- NVE (Norges vassdrags- og energidirektorat): nve.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- WMO (Verdens meteorologiorganisasjon): wmo.int`,
     },
   ],
   exercises: [
@@ -836,6 +902,28 @@ Avstanden fra havet pavirker klimaet dramatisk:
 - Eksempler: Roerosomraadet, Moskva, innlands-Canada
 
 **Aarsaken:** Vann har mye hoeyere varmekapasitet enn land. Havet varmes sakte opp og avgir varme sakte. Land varmes raskt opp og avkjoeles raskt. Derfor demper naerhet til havet temperatursvingningene.`,
+    },
+  
+    {
+      id: 'geo-3-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Koeppens klimaklassifikasjon** deler verdens klima inn i fem hovedgrupper: A (tropisk), B (toerrt), C (temperert), D (kaldtemperert) og E (polart)
+- **Klimasoner** bestemmes av breddegrad, hoyde over havet, naerhet til hav og havstroemmer
+- **Tropisk klima** har hoey temperatur og mye nedbor hele aaret
+- **Temperert klima** (som i Norge) har fire aarstider og vekslende vaer
+- **Polart klima** har lave temperaturer og lite nedbor`,
+    },
+    {
+      id: 'geo-3-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Meteorologisk institutt: met.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Koeppen Climate Classification: britannica.com
+- NASA Earth Observatory: earthobservatory.nasa.gov`,
     },
   ],
   exercises: [
@@ -1103,6 +1191,28 @@ Noen bemerkelssesverdige vaerrekorder i Norge:
 
 Disse rekordene illustrerer Norges enorme klimavariasjon - fra arktisk kulde i Finnmark til nesten tropiske temperaturer i Hallingdal, og fra knapmaal med nedbor paa Finnmarksvidda til noen av Europas vaateste steder paa Vestlandet.`,
     },
+  
+    {
+      id: 'geo-3-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Jordas klima har variert naturlig gjennom historien med istider og varmeperioder
+- **Milankovic-sykluser** (variasjoner i jordas bane) pavirker klimaet over titusenvis av aar
+- **Vulkanutbrudd** kan kjoele ned klimaet midlertidig ved aa blokkere solstraaling
+- **El Nino og La Nina** er naturlige klimasvingninger i Stillehavet med globale konsekvenser
+- **Havstroemmer** som Golfstroemmen har stor betydning for klimaet i kystomraader`,
+    },
+    {
+      id: 'geo-3-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- IPCC (FNs klimapanel): ipcc.ch
+- NASA Climate: climate.nasa.gov
+- Meteorologisk institutt: met.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
+    },
   ],
   exercises: [
     {
@@ -1367,6 +1477,29 @@ IPCC opererer med ulike scenarier (SSP):
 - **SSP5-8,5:** Ingen kutt, 4-5 °C oppvarming
 
 Hvilket scenario vi ender opp med avhenger av politiske beslutninger som tas naa.`,
+    },
+  
+    {
+      id: 'geo-3-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Menneskelig aktivitet er hovedaarsaken til den globale oppvarmingen siden midten av 1900-tallet
+- **CO2-konsentrasjonen** har oekt fra ca. 280 ppm (forindustriell tid) til over 420 ppm
+- De viktigste utslippskildene er fossile brensler, avskoging og jordbruk
+- Konsekvensene inkluderer stigende havnivaa, issmelting, ekstremvaer og truede oekosystemer
+- **Arktisk forsterkning** gjoer at Arktis varmes opp 2-3 ganger raskere enn resten av verden`,
+    },
+    {
+      id: 'geo-3-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- IPCC (FNs klimapanel): ipcc.ch
+- NASA Climate Change: climate.nasa.gov
+- Miljodirektoratet: miljodirektoratet.no
+- Cicero senter for klimaforskning: cicero.oslo.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -1660,6 +1793,29 @@ Klimaendringene krever handling paa alle nivaaer - fra internasjonale avtaler ti
 - Paavirke beslutninger paa skolen og i lokalsamfunnet
 
 **Viktig perspektiv:** Individuelle valg er viktige, men de stoerste endringene maa skje paa systemnivaa gjennom politiske beslutninger, naeringsliv og teknologiutvikling.`,
+    },
+  
+    {
+      id: 'geo-3-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Parisavtalen** (2015) har som maal aa begrense oppvarmingen til 1,5-2 °C over forindustrielt nivaa
+- Klimatiltak deles i **utslippsreduksjon** (mitigasjon) og **tilpasning** (adaptasjon)
+- Norges klimamaal er 55 % utslippsreduksjon innen 2030 og klimanoytralitet innen 2050
+- Klimarettferdighet handler om at rike land har stoerst historisk ansvar for utslipp
+- Overgang til fornybar energi, energieffektivisering og endret arealbruk er viktige tiltak`,
+    },
+    {
+      id: 'geo-3-7-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Parisavtalen: unfccc.int
+- Miljodirektoratet: miljodirektoratet.no
+- Regjeringens klimaplan: regjeringen.no
+- IPCC (FNs klimapanel): ipcc.ch
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [

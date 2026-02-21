@@ -4425,18 +4425,24 @@ Sett komma mellom ledd i en oppramsing.
 
 ---
 
-**2. Komma foran leddsetning:**
-Sett komma foran setninger som begynner med subjunksjoner (at, som, fordi, hvis, når, da, mens, selv om, osv.).
+**2. Komma ved leddsetninger:**
+I norsk er det **valgfritt** å sette komma foran leddsetninger (setninger innledet av subjunksjoner som at, fordi, hvis, når, da, mens, selv om, osv.).
 
-**Eksempler:**
+**Med komma:**
 - "Jeg kommer, hvis det ikke regner."
 - "Hun visste, at han hadde rett."
 - "De gikk hjem, fordi det var sent."
-- "Han leste boken, mens hun lagde mat."
 
-**Unntak:** Når leddsetningen kommer FØRST, er komma valgfritt:
-- "Hvis det regner(,) blir jeg hjemme."
-- "Da han kom hjem(,) var alle gått."
+**Uten komma (like riktig):**
+- "Jeg kommer hvis det ikke regner."
+- "Hun visste at han hadde rett."
+- "De gikk hjem fordi det var sent."
+
+**Tips:** Bruk komma der det letter lesingen eller hindrer misforståelse. Vær konsekvent i din egen tekst.
+
+**Når leddsetningen kommer FØRST**, settes vanligvis komma:
+- "Hvis det regner, blir jeg hjemme."
+- "Da han kom hjem, var alle gått."
 
 ---
 
@@ -4454,16 +4460,28 @@ Sett komma rundt innskutte ledd.
       exercise: {
         id: 'norsk-vg1-8-5-ex-1',
         number: '1',
-        type: 'multiple-choice',
+        type: 'classic',
         difficulty: 'lett',
-        task: 'Hvilken setning har riktig tegnsetting?',
-        options: [
-          { id: 'a', text: 'Han sa at, han ville komme.', isCorrect: false },
-          { id: 'b', text: 'Han sa, at han ville komme.', isCorrect: true },
-          { id: 'c', text: 'Han, sa at han ville komme.', isCorrect: false },
-          { id: 'd', text: 'Han sa at han, ville komme.', isCorrect: false },
+        task: 'Sett inn komma der det er nødvendig eller naturlig i disse setningene. Forklar hvilke kommaregler du bruker.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Han sa at han ville komme men hun trodde ham ikke."',
+            solution: '"Han sa at han ville komme, men hun trodde ham ikke." Komma foran "men" som binder sammen to hovedsetninger. Komma foran "at" er valgfritt.',
+          },
+          {
+            label: 'b',
+            task: '"Kari som er min beste venn kommer i morgen."',
+            solution: '"Kari, som er min beste venn, kommer i morgen." Komma rundt innskutt leddsetning (parentetisk relativsetning).',
+          },
+          {
+            label: 'c',
+            task: '"Vi kjøpte epler bananer appelsiner og druer."',
+            solution: '"Vi kjøpte epler, bananer, appelsiner og druer." Komma mellom ledd i en oppramsing. Ikke komma foran "og" i norsk.',
+          },
         ],
-        solution: 'Komma settes foran "at" når det innleder en leddsetning. "Han sa, at han ville komme." er korrekt. Alternativt kan komma utelates helt: "Han sa at han ville komme."',
+        hints: ['Les setningene høyt og kjenn etter hvor du tar pauser', 'Tenk på om det er oppramsing, innskudd eller sideordning'],
+        solution: 'Kommareglene handler om å gjøre teksten klar og lettlest. Komma ved oppramsing og innskudd er obligatorisk, mens komma foran leddsetninger i sluttposisjon er valgfritt.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
@@ -5351,7 +5369,7 @@ Samisk litteratur er en viktig del av Norges kulturelle mangfold. Som urfolk i N
 **Viktige samiske forfattere:**
 - Nils-Aslak Valkeapää (1943-2001)
 - Kirsti Paltto (f. 1947)
-- Laila Stien (f. 1946)
+- Synnøve Persen (f. 1950)
 - Sigbjørn Skåden (f. 1976)
 - Rawdna Carita Eira (f. 1970)
 

@@ -147,6 +147,28 @@ Urbanisering har både positive og negative sider:
 - Tap av jordbruksarealer og naturområder
 - Sårbarhet for naturkatastrofer i tettbygde områder`,
     },
+  
+    {
+      id: 'geo-6-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Urbanisering** er prosessen der en stadig stoerre andel av befolkningen bor i byer
+- Over halvparten av verdens befolkning bor i dag i byer, og andelen oeker
+- Urbanisering drives av **push-faktorer** fra bygda og **pull-faktorer** i byen
+- Urbaniseringsgraden varierer sterkt mellom verdensdeler, med Latin-Amerika og Europa hoeyest
+- Historisk urbanisering startet med den industrielle revolusjonen i Europa`,
+    },
+    {
+      id: 'geo-6-1-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN Habitat: unhabitat.org
+- SSB: ssb.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Verdensbanken: data.worldbank.org`,
+    },
   ],
   exercises: [
     {
@@ -343,6 +365,28 @@ Sonering er et viktig virkemiddel i byplanlegging. Det innebærer at ulike deler
 - **Samferdselsarealer** – veier, jernbane, flyplasser
 
 Utfordringen er å finne en god balanse mellom ulike behov og interesser, og sikre at byen fungerer godt for alle innbyggerne.`,
+    },
+  
+    {
+      id: 'geo-6-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Byer har ulike **funksjoner**: bolig, handel, industri, forvaltning og kultur
+- **Sonemodellen** (Burgess), **sektormodellen** (Hoyt) og **flerkjernemodellen** (Harris og Ullman) beskriver bystruktur
+- Byplanlegging handler om aa styre byens utvikling for aa skape gode boomraader
+- **Sentrum-periferi** beskriver forholdet mellom byens kjerne og ytteromraadene
+- Moderne byer har ofte en mer kompleks struktur enn de klassiske modellene antyder`,
+    },
+    {
+      id: 'geo-6-2-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- Plan- og bygningsloven: lovdata.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Kommunal- og distriktsdepartementet: regjeringen.no
+- FN Habitat: unhabitat.org`,
     },
   ],
   exercises: [
@@ -552,6 +596,28 @@ Ulike strategier brukes for å forbedre forholdene i slumområder:
 - Desentralisere veksten til mellomstore byer
 - Styrke offentlige tjenester i landlige områder for å redusere migrasjonspresset`,
     },
+  
+    {
+      id: 'geo-6-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Megabyer** har over 10 millioner innbyggere og finnes hovedsakelig i Asia og Latin-Amerika
+- **Slum** og uformelle bosettinger huser over 1 milliard mennesker globalt
+- Utfordringer inkluderer manglende infrastruktur, fattigdom, forurensning og helserisiko
+- Rask urbanisering i utviklingsland skjer uten tilstrekkelig planlegging og ressurser
+- Det er store kontraster mellom rike og fattige omraader innenfor samme by`,
+    },
+    {
+      id: 'geo-6-3-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN Habitat: unhabitat.org
+- Verdensbanken: data.worldbank.org
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- WHO: who.int`,
+    },
   ],
   exercises: [
     {
@@ -737,6 +803,28 @@ Grønn infrastruktur handler om å integrere natur i byplanleggingen:
 - **Blågrønn infrastruktur** – systemer som håndterer overvann naturlig gjennom grøntområder og permeable overflater
 
 Grønn infrastruktur gjør byene mer robuste mot klimaendringer, forbedrer luftkvaliteten og øker innbyggernes trivsel og helse.`,
+    },
+  
+    {
+      id: 'geo-6-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **FNs baerekraftsmaal 11** handler om aa gjore byer og lokalsamfunn baerekraftige
+- Baerekraftig byutvikling inkluderer **groenn transport**, **fortetting** og **blaagroenn infrastruktur**
+- **Smarte byer** bruker teknologi for aa effektivisere energi, transport og avfallshaandtering
+- Kompakt byutvikling reduserer transportbehov og arealforbruk
+- Klimatilpasning av byer er noedvendig for aa haandtere flom, heteboelger og havnivaasstigning`,
+    },
+    {
+      id: 'geo-6-4-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FNs baerekraftsmaal: fn.no/om-fn/fns-baerekraftsmaal
+- Miljodirektoratet: miljodirektoratet.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- FN Habitat: unhabitat.org`,
     },
   ],
   exercises: [
@@ -942,6 +1030,28 @@ Boligmarkedet er en sentral utfordring i norsk byutvikling:
 - **Eierskap**: Norge har en sterk eierkultur – omtrent 80 prosent eier sin egen bolig
 - **Boligsegregering**: I storbyer kan det oppstå sosiale forskjeller mellom bydeler basert på boligpriser
 - **Fortettingsdilemma**: Behovet for flere boliger i byene kan komme i konflikt med behovet for grøntområder og kvalitet i bomiljøet`,
+    },
+  
+    {
+      id: 'geo-6-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- Norges byer har historisk utviklet seg langs kysten og ved viktige handelsveier
+- **Sentralisering** betyr at befolkning og aktivitet konsentreres i og rundt stoerste byer
+- Oslo-regionen er Norges desidert stoerste byomraade med over 1 million innbyggere
+- **Regionalpolitikk** handler om aa sikre levekaar og tjenester ogsaa utenfor storbyene
+- Norsk byplanlegging fokuserer paa fortetting rundt kollektivknutepunkter`,
+    },
+    {
+      id: 'geo-6-5-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- SSB: ssb.no
+- Kommunal- og distriktsdepartementet: regjeringen.no
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Statsforvalteren: statsforvalteren.no`,
     },
   ],
   exercises: [
@@ -1170,6 +1280,17 @@ Framtidens byer vil formes av tre store krefter:
 3. **Teknologisk utvikling** – ny teknologi gir muligheter, men skaper også nye utfordringer
 
 De valgene vi gjør i dag – om transport, boliger, energi, grøntområder og sosial politikk – vil bestemme om framtidens byer blir gode steder å leve for alle, eller om de forsterker ulikheter og miljøproblemer. Byplanlegging handler til syvende og sist om hva slags samfunn vi ønsker å skape.`,
+    },
+  
+    {
+      id: 'geo-6-6-kilder',
+      type: 'text',
+      content: `## Kilder og ressurser
+
+- FN Habitat: unhabitat.org
+- IPCC (FNs klimapanel): ipcc.ch
+- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
+- Verdensbanken: data.worldbank.org`,
     },
   ],
   exercises: [

@@ -14,7 +14,7 @@ import type { TextbookChapter } from '@/lib/types/textbook';
 // Kapittel 3.1: Grunnleggende fargelære
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_1: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_1: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-1',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.1',
@@ -155,6 +155,20 @@ Resultatet er et rom som oppleves som rolig, sammenhengende og naturlig -- typis
       title: 'Test farger i rommet',
       content: `Farger ser forskjellige ut avhengig av lys og omgivelser. Mal alltid en fargeprøve på veggen og observer den i dagslys, kunstig lys og kveldslys før du bestemmer deg. Bruk store prøveflater (minst A3-størrelse) for å få et realistisk inntrykk.`,
     },
+    {
+      id: 'fb-3-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Fargesirkelen ordner farger i en sirkel basert på deres innbyrdes forhold og ble utviklet av Newton og videreutviklet av Itten.
+- Primærfargene (rød, gul, blå) kan ikke blandes av andre farger og danner grunnlaget for alle andre farger.
+- Sekundærfarger (oransje, grønn, fiolett) oppstår ved blanding av to primærfarger.
+- Tertiærfarger oppstår ved blanding av en primær- og en nærliggende sekundærfarge, og gir en fargesirkel med tolv farger.
+- Farge har tre egenskaper: kulør (selve fargen), valør (lyshet) og metning (intensitet).
+- De viktigste fargekontrastene i interiør er komplementærkontrast, kald-varm-kontrast, valøkontrast, kvantitetskontrast og simultankontrast.
+- Vanlige fargeharmonier er monokromatisk, analog, komplementær, splittet komplementær og triadisk.
+- 60-30-10-regelen er et praktisk verktøy: 60 % hovedfarge, 30 % sekundærfarge, 10 % aksentfarge.`,
+    },
   ],
   exercises: [
     {
@@ -231,7 +245,7 @@ Resultatet er et rom som oppleves som rolig, sammenhengende og naturlig -- typis
 // Kapittel 3.2: Fargenes psykologiske virkning
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_2: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_2: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-2',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.2',
@@ -373,6 +387,19 @@ Velg innbydende farger som skaper et godt førsteinntrykk: varm hvit, lys gul el
       title: 'Individuelle forskjeller',
       content: `Husk at fargepsykologi beskriver generelle tendenser, ikke absolutter. Personlige erfaringer, minner og preferanser spiller også en stor rolle. En farge som er beroligende for én person kan være stressende for en annen. Gode interiørdesignere lytter alltid til klientens personlige relasjoner til farger.`,
     },
+    {
+      id: 'fb-3-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Farger har sterk psykologisk virkning og påvirker stemning, følelser og opplevelse av rom.
+- Varme farger (rød, oransje, gul) oppleves som energigivende og stimulerende.
+- Kalde farger (blå, grønn, fiolett) virker beroligende og rolige.
+- Nøytrale farger (hvit, grå, beige, sort) danner base i interiør og lar andre farger komme til uttrykk.
+- Fargers symbolikk varierer mellom kulturer og må tas hensyn til i profesjonelt arbeid.
+- Riktig fargevalg i ulike rom kan støtte rommets funksjon og brukernes trivsel.
+- Fargepsykologi beskriver generelle tendenser, men personlige preferanser spiller alltid en rolle.`,
+    },
   ],
   exercises: [
     {
@@ -428,7 +455,7 @@ Velg innbydende farger som skaper et godt førsteinntrykk: varm hvit, lys gul el
 // Kapittel 3.3: Romforståelse og planløsning
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_3: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_3: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-3',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.3',
@@ -573,6 +600,19 @@ const CHAPTER_FB_VG1_3_3: TextbookChapter = {
       title: 'Bruk utklipte papirmøbler',
       content: `En enkel og effektiv metode er å tegne plantegningen og klippe ut møbler i riktig målestokk av papp. Da kan du flytte møblene rundt på tegningen og prøve ulike oppsett før du bestemmer deg. Digitale verktøy som RoomSketcher og Planner 5D gjør samme jobb på skjermen.`,
     },
+    {
+      id: 'fb-3-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Romforståelse handler om å analysere hvordan et rom fungerer med tanke på størrelse, form, lysforhold og bruk.
+- En plantegning er en tegning sett ovenfra som viser rommets form, mål og faste elementer (vinduer, dører).
+- Målestokk (vanligvis 1:50 eller 1:100) brukes for å forholde seg til virkelige mål i tegningen.
+- Funksjonssoner deler rommet inn i områder med ulike bruksformål.
+- Sirkulasjon (bevegelsesrom) må planlegges for å sikre god flyt og tilgjengelighet.
+- Møblering bør ta hensyn til fokuspunkter, lysforhold, gangsoner og rommets proporsjoner.
+- Digitale verktøy som RoomSketcher og Planner 5D kan brukes til planlegging og visualisering.`,
+    },
   ],
   exercises: [
     {
@@ -637,7 +677,7 @@ const CHAPTER_FB_VG1_3_3: TextbookChapter = {
 // Kapittel 3.4: Stilarter i interiørdesign
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_4: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_4: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-4',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.4',
@@ -794,6 +834,19 @@ Kjennetegnene som peker mot skandinavisk stil:
 
 Rommet viser de klassiske skandinaviske verdiene: funksjonalitet, naturlige materialer, lys estetikk og et fokus på trivsel. Det er tidløst, enkelt og innbydende.`,
     },
+    {
+      id: 'fb-3-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Stilhistorien i interiørdesign strekker seg fra klassisisme, via jugendstil og art deco til modernisme og samtidsdesign.
+- Klassisismen preges av symmetri, søyler og elegante proporsjoner inspirert av antikken.
+- Modernismen (Bauhaus) vektlegger funksjon, enkelhet og bruk av nye materialer som stål og glass.
+- Skandinavisk design kombinerer funksjonalitet, naturlige materialer og lys estetikk.
+- Minimalisme handler om å fjerne alt unødvendig og fokusere på det essensielle.
+- Industriell stil bruker rå materialer som synlig murstein, stål og betong.
+- Ulike stilarter kan kombineres i eklektisk design, men det krever bevisste valg for å skape helhet.`,
+    },
   ],
   exercises: [
     {
@@ -857,7 +910,7 @@ Rommet viser de klassiske skandinaviske verdiene: funksjonalitet, naturlige mate
 // Kapittel 3.5: Materialer og tekstiler i interiør
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_5: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_5: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-5',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.5',
@@ -1006,6 +1059,19 @@ Velg tre fra bærekraftig skogbruk (FSC- eller PEFC-sertifisert). Norsk tre er e
 
 **Materialene velges ut fra:** vanntålighet, slitestyrke, sklisikkerhet og enkel rengjøring.`,
     },
+    {
+      id: 'fb-3-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Tre er et varmt, naturlig materiale som finnes i mange varianter (furu, eik, ask, valnøtt) med ulike egenskaper.
+- Tekstiler tilfører mykhet, farge og tekstur til interiøret og inkluderer bomull, lin, ull og syntetiske stoffer.
+- Metaller som stål, messing og kobber brukes i møbler, lamper og detaljer og gir ulike estetiske uttrykk.
+- Keramikk, glass og stein er slitesterke materialer som brukes i fliser, benkeplater og dekorasjon.
+- Materialvalg påvirkes av funksjon, estetikk, slitestyrke, vedlikehold og bærekraft.
+- Ulike materialer har ulike krav til pleie og vedlikehold, noe som bør kommuniseres til kunder.
+- Bærekraftige materialer som resirkulert tre, bambus og resirkulert metall blir stadig viktigere i interiørdesign.`,
+    },
   ],
   exercises: [
     {
@@ -1067,7 +1133,7 @@ Velg tre fra bærekraftig skogbruk (FSC- eller PEFC-sertifisert). Norsk tre er e
 // Kapittel 3.6: Lyssetting og belysningsdesign
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_6: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_6: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-6',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.6',
@@ -1219,6 +1285,19 @@ const CHAPTER_FB_VG1_3_6: TextbookChapter = {
       title: 'Lys og helse',
       content: `Blålig lys (høy fargetemperatur) om kvelden kan forstyrre kroppens produksjon av søvnhormonet melatonin. Bruk derfor varmt lys (2700 K) i soverom og oppholdsrom om kvelden. Human Centric Lighting-systemer kan automatisk justere fargetemperaturen gjennom dagen for å støtte den naturlige døgnrytmen.`,
     },
+    {
+      id: 'fb-3-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Lys er et avgjørende virkemiddel i interiørdesign som påvirker stemning, funksjonalitet og fargeopplevelse.
+- Det finnes tre hovedtyper belysning: generell belysning (allment lys), arbeidsbelysning (rettet lys) og dekorativ belysning (stemningslys).
+- Fargetemperatur måles i Kelvin (K): varmt lys (2700 K) skaper intimitet, kaldt lys (5000+ K) gir oppmerksomhet.
+- CRI (fargegjengivelsesindeks) angir hvor godt en lyskilde gjengir farger, der 100 er best.
+- LED har erstattet glødelamper som den dominerende lyskilden på grunn av lavt energiforbruk og lang levetid.
+- En god belysningsplan kombinerer ulike lystyper, -nivåer og -temperaturer tilpasset rommets funksjon.
+- Dimmere og smartstyring gir fleksibilitet til å tilpasse lyset etter behov og tid på dagen.`,
+    },
   ],
   exercises: [
     {
@@ -1277,7 +1356,7 @@ const CHAPTER_FB_VG1_3_6: TextbookChapter = {
 // Kapittel 3.7: Interiørprosjekt fra idé til presentasjon
 // ============================================================================
 
-const CHAPTER_FB_VG1_3_7: TextbookChapter = {
+export const CHAPTER_FB_VG1_3_7: TextbookChapter = {
   id: 'frisor-blomster-vg1-3-7',
   courseId: 'frisor-blomster-vg1',
   chapterNumber: '3.7',
@@ -1486,6 +1565,19 @@ En god begrunnelse knytter alle valg tilbake til kundens behov og det overordned
 10. **Visualisering** med skisser eller 3D-bilder
 
 God dokumentasjon viser profesjonalitet og gjør det enkelt å gjennomføre prosjektet i praksis.`,
+    },
+    {
+      id: 'fb-3-7-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Et interiørprosjekt følger en strukturert designprosess fra behovsanalyse til ferdig presentasjon.
+- Behovsanalysen kartlegger kundens ønsker, rommets forutsetninger og praktiske krav.
+- Et moodboard samler inspirasjon, farger, materialer og stemning i en visuell presentasjon.
+- Konseptutvikling binder alle elementer sammen til en helhetlig idé med tydelig retning.
+- Fargeplan, materialplan, plantegning og lysplan er viktige dokumenter i et interiørprosjekt.
+- Digitale verktøy som Canva, Figma og 3D-programvare brukes til presentasjon og visualisering.
+- God prosjektdokumentasjon viser profesjonalitet og gjør det enkelt å gjennomføre prosjektet i praksis.`,
     },
   ],
   exercises: [
