@@ -60,14 +60,14 @@ For aa si hele timer bruker vi "Es ist ... Uhr":
 | 2:00 | Es ist zwei Uhr |
 | 3:00 | Es ist drei Uhr |
 | 4:00 | Es ist vier Uhr |
-| 5:00 | Es ist fuenf Uhr |
+| 5:00 | Es ist fünf Uhr |
 | 6:00 | Es ist sechs Uhr |
 | 7:00 | Es ist sieben Uhr |
 | 8:00 | Es ist acht Uhr |
 | 9:00 | Es ist neun Uhr |
 | 10:00 | Es ist zehn Uhr |
 | 11:00 | Es ist elf Uhr |
-| 12:00 | Es ist zwoelf Uhr |
+| 12:00 | Es ist zwölf Uhr |
 
 **Merk:** Ved klokka ett sier vi "ein Uhr" (ikke "eins Uhr").`,
     },
@@ -86,7 +86,7 @@ a) **Es ist drei Uhr.**
 
 b) **Es ist sieben Uhr.**
 
-c) **Es ist zwoelf Uhr.**`,
+c) **Es ist zwölf Uhr.**`,
     },
     {
       id: 'tysk-1-4-1-ex-block-1',
@@ -98,11 +98,11 @@ c) **Es ist zwoelf Uhr.**`,
         difficulty: 'lett',
         task: 'Si paa tysk:',
         subTasks: [
-          { label: 'a', task: 'Klokka er 5', solution: 'Es ist fuenf Uhr' },
+          { label: 'a', task: 'Klokka er 5', solution: 'Es ist fünf Uhr' },
           { label: 'b', task: 'Klokka er 9', solution: 'Es ist neun Uhr' },
           { label: 'c', task: 'Klokka er 1', solution: 'Es ist ein Uhr' },
         ],
-        solution: 'a) Es ist fuenf Uhr, b) Es ist neun Uhr, c) Es ist ein Uhr',
+        solution: 'a) Es ist fünf Uhr, b) Es ist neun Uhr, c) Es ist ein Uhr',
         hints: ['Bruk "Es ist ... Uhr"', 'Ved klokka 1: "ein Uhr" (ikke "eins")'],
       },
     },
@@ -147,7 +147,7 @@ c) Klokka er kvart paa seks (5:45)`,
 
 a) **Es ist Viertel nach vier.** (kvart over fire)
 
-b) **Es ist halb fuenf.** (halv fem = 4:30)
+b) **Es ist halb fünf.** (halv fem = 4:30)
 
 c) **Es ist Viertel vor sechs.** (kvart paa seks)`,
     },
@@ -164,9 +164,9 @@ c) **Es ist Viertel vor sechs.** (kvart paa seks)`,
           { label: 'a', task: '3:15', solution: 'Viertel nach drei' },
           { label: 'b', task: '6:30', solution: 'halb sieben' },
           { label: 'c', task: '8:45', solution: 'Viertel vor neun' },
-          { label: 'd', task: '11:30', solution: 'halb zwoelf' },
+          { label: 'd', task: '11:30', solution: 'halb zwölf' },
         ],
-        solution: 'a) Viertel nach drei, b) halb sieben, c) Viertel vor neun, d) halb zwoelf',
+        solution: 'a) Viertel nach drei, b) halb sieben, c) Viertel vor neun, d) halb zwölf',
         hints: ['Kvart over = Viertel nach', 'Halv = halb + NESTE time', 'Kvart paa = Viertel vor'],
       },
     },
@@ -179,19 +179,19 @@ For andre minutter bruker vi "nach" (over) og "vor" (paa):
 
 | Klokka | Tysk |
 |--------|------|
-| 3:05 | fuenf nach drei |
+| 3:05 | fünf nach drei |
 | 3:10 | zehn nach drei |
 | 3:20 | zwanzig nach drei |
 | 3:40 | zwanzig vor vier |
 | 3:50 | zehn vor vier |
-| 3:55 | fuenf vor vier |
+| 3:55 | fünf vor vier |
 
 **Offisiell tid (24-timers):**
 
 | Klokka | Tysk |
 |--------|------|
-| 14:30 | vierzehn Uhr dreissig |
-| 18:45 | achtzehn Uhr fuenfundvierzig |`,
+| 14:30 | vierzehn Uhr dreißig |
+| 18:45 | achtzehn Uhr fünfundvierzig |`,
     },
     {
       id: 'tysk-1-4-1-example-3',
@@ -208,7 +208,7 @@ a) **Es ist zehn nach vier.** (ti over fire)
 
 b) **Es ist zehn vor acht.** (ti paa aatte)
 
-c) **Es ist fuenfzehn Uhr fuenfundzwanzig.** (offisiell)`,
+c) **Es ist fünfzehn Uhr fünfundzwanzig.** (offisiell)`,
     },
     {
       id: 'tysk-1-4-1-ex-block-3',
@@ -354,7 +354,7 @@ a) Paa tirsdag spiller jeg fotball.
 b) Paa loerdag besoekervi bestemor.`,
       solution: `**Loesning:**
 
-a) **Am Dienstag spiele ich Fussball.**
+a) **Am Dienstag spiele ich Fußball.**
 
 b) **Am Samstag besuchen wir Oma.**`,
     },
@@ -465,7 +465,7 @@ Maanedene paa tysk ligner paa de norske:
 |------|-------|
 | Januar | januar |
 | Februar | februar |
-| Maerz | mars |
+| März | mars |
 | April | april |
 | Mai | mai |
 | Juni | juni |
@@ -489,7 +489,7 @@ b) august
 c) desember`,
       solution: `**Loesning:**
 
-a) **Maerz**
+a) **März**
 
 b) **August**
 
@@ -521,13 +521,13 @@ c) **Dezember**`,
 
 | Tysk | Norsk |
 |------|-------|
-| der Fruehling | vaaren |
+| der Frühling | vaaren |
 | der Sommer | sommeren |
 | der Herbst | hoesten |
 | der Winter | vinteren |
 
 **Maaneder i hver aarstid:**
-- **Fruehling:** Maerz, April, Mai
+- **Frühling:** März, April, Mai
 - **Sommer:** Juni, Juli, August
 - **Herbst:** September, Oktober, November
 - **Winter:** Dezember, Januar, Februar`,
@@ -556,12 +556,12 @@ b) **Im Winter schneit es.**`,
         difficulty: 'lett',
         task: 'Skriv aarstidene paa tysk:',
         subTasks: [
-          { label: 'a', task: 'vaaren', solution: 'der Fruehling' },
+          { label: 'a', task: 'vaaren', solution: 'der Frühling' },
           { label: 'b', task: 'sommeren', solution: 'der Sommer' },
           { label: 'c', task: 'hoesten', solution: 'der Herbst' },
           { label: 'd', task: 'vinteren', solution: 'der Winter' },
         ],
-        solution: 'a) der Fruehling, b) der Sommer, c) der Herbst, d) der Winter',
+        solution: 'a) der Frühling, b) der Sommer, c) der Herbst, d) der Winter',
         hints: ['Alle aarstidene er hankjoenn (der)'],
       },
     },
@@ -592,7 +592,7 @@ a) Bursdagen min er i mars.
 b) Naar har du bursdag?`,
       solution: `**Loesning:**
 
-a) **Mein Geburtstag ist im Maerz.**
+a) **Mein Geburtstag ist im März.**
 
 b) **Wann hast du Geburtstag?**`,
     },
@@ -607,10 +607,10 @@ b) **Wann hast du Geburtstag?**`,
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'Bursdagen min er i juli.', solution: 'Mein Geburtstag ist im Juli.' },
-          { label: 'b', task: 'Om vaaren blomstrer trærne.', solution: 'Im Fruehling bluehen die Baeume.' },
+          { label: 'b', task: 'Om vaaren blomstrer trærne.', solution: 'Im Frühling blühen die Bäume.' },
           { label: 'c', task: 'I desember feirer vi jul.', solution: 'Im Dezember feiern wir Weihnachten.' },
         ],
-        solution: 'a) Mein Geburtstag ist im Juli. b) Im Fruehling bluehen die Baeume. c) Im Dezember feiern wir Weihnachten.',
+        solution: 'a) Mein Geburtstag ist im Juli. b) Im Frühling blühen die Bäume. c) Im Dezember feiern wir Weihnachten.',
         hints: ['Bruk "im" + maaned/aarstid', 'Weihnachten = jul'],
       },
     },
@@ -659,7 +659,7 @@ Her er vanlige aktiviteter i loapert av en dag:
 |------|-------|
 | aufstehen | staa opp |
 | aufwachen | vaakne |
-| fruehstuecken | spise frokost |
+| frühstücken | spise frokost |
 | sich duschen | dusje |
 | sich anziehen | kle paa seg |
 | zur Schule gehen | gaa paa skolen |
@@ -682,7 +682,7 @@ c) Jeg gaar paa skolen.`,
 
 a) **Ich stehe um sieben Uhr auf.**
 
-b) **Ich fruehstuecke.**
+b) **Ich frühstücke.**
 
 c) **Ich gehe zur Schule.**`,
     },
@@ -778,7 +778,7 @@ b) **Er macht den Fernseher an.**`,
       problem: `Beskriv din dag paa tysk med minst 4 aktiviteter.`,
       solution: `**Eksempel paa loesning:**
 
-Ich stehe um sieben Uhr auf. Zuerst dusche ich mich. Dann fruehstuecke ich. Um acht Uhr gehe ich zur Schule. Am Nachmittag mache ich Hausaufgaben. Abends sehe ich fern. Um zehn Uhr gehe ich schlafen.
+Ich stehe um sieben Uhr auf. Zuerst dusche ich mich. Dann frühstücke ich. Um acht Uhr gehe ich zur Schule. Am Nachmittag mache ich Hausaufgaben. Abends sehe ich fern. Um zehn Uhr gehe ich schlafen.
 
 (Jeg staar opp klokka syv. Foerst dusjer jeg. Saa spiser jeg frokost. Klokka aatte gaar jeg paa skolen. Paa ettermiddagen gjoer jeg lekser. Om kvelden ser jeg paa TV. Klokka ti legger jeg meg.)`,
     },
@@ -792,11 +792,11 @@ Ich stehe um sieben Uhr auf. Zuerst dusche ich mich. Dann fruehstuecke ich. Um a
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Om morgenen spiser jeg frokost.', solution: 'Am Morgen fruehstuecke ich. / Morgens fruehstuecke ich.' },
+          { label: 'a', task: 'Om morgenen spiser jeg frokost.', solution: 'Am Morgen frühstücke ich. / Morgens frühstücke ich.' },
           { label: 'b', task: 'Foerst dusjer jeg, saa kler jeg paa meg.', solution: 'Zuerst dusche ich mich, dann ziehe ich mich an.' },
           { label: 'c', task: 'Om kvelden legger jeg meg klokka 10.', solution: 'Abends gehe ich um zehn Uhr schlafen.' },
         ],
-        solution: 'a) Morgens fruehstuecke ich. b) Zuerst dusche ich mich, dann ziehe ich mich an. c) Abends gehe ich um zehn Uhr schlafen.',
+        solution: 'a) Morgens frühstücke ich. b) Zuerst dusche ich mich, dann ziehe ich mich an. c) Abends gehe ich um zehn Uhr schlafen.',
         hints: ['Bruk tidsuttrykk i begynnelsen', 'zuerst = foerst, dann = saa'],
       },
     },
@@ -847,7 +847,7 @@ Mat er et viktig tema! Her er grunnleggende matvarer:
 | Tysk | Norsk |
 |------|-------|
 | das Brot | broedet |
-| das Broetchen | rundstykket |
+| das Brötchen | rundstykket |
 | der Toast | toasten |
 | der Kuchen | kaken |
 | die Brezel | kringlen |`,
@@ -862,10 +862,10 @@ Mat er et viktig tema! Her er grunnleggende matvarer:
 | das Fleisch | kjoettet |
 | die Wurst | poelsen |
 | der Schinken | skinken |
-| das Haehnchen | kyllingen |
+| das Hähnchen | kyllingen |
 | der Fisch | fisken |
 | das Ei / die Eier | egget / eggene |
-| der Kaese | osten |
+| der Käse | osten |
 | die Butter | smoeret |`,
     },
     {
@@ -881,7 +881,7 @@ c) egg`,
 
 a) **das Brot**
 
-b) **der Kaese**
+b) **der Käse**
 
 c) **das Ei** (flertall: die Eier)`,
     },
@@ -896,11 +896,11 @@ c) **das Ei** (flertall: die Eier)`,
         task: 'Skriv paa tysk med artikkel:',
         subTasks: [
           { label: 'a', task: 'poelse', solution: 'die Wurst' },
-          { label: 'b', task: 'kylling', solution: 'das Haehnchen' },
+          { label: 'b', task: 'kylling', solution: 'das Hähnchen' },
           { label: 'c', task: 'smoer', solution: 'die Butter' },
           { label: 'd', task: 'kake', solution: 'der Kuchen' },
         ],
-        solution: 'a) die Wurst, b) das Haehnchen, c) die Butter, d) der Kuchen',
+        solution: 'a) die Wurst, b) das Hähnchen, c) die Butter, d) der Kuchen',
         hints: ['Husk artikkelen (der, die, das)'],
       },
     },
@@ -916,7 +916,7 @@ c) **das Ei** (flertall: die Eier)`,
 | die Banane | bananen |
 | die Orange | appelsinen |
 | die Erdbeere | jordbaeret |
-| das Gemuese | groennsakene |
+| das Gemüse | groennsakene |
 | die Tomate | tomaten |
 | die Gurke | agurken |
 | die Kartoffel | poteten |
@@ -932,7 +932,7 @@ a) Jeg liker epler.
 b) Tomater er roede.`,
       solution: `**Loesning:**
 
-a) **Ich mag Aepfel.** (flertall av Apfel)
+a) **Ich mag Äpfel.** (flertall av Apfel)
 
 b) **Tomaten sind rot.**`,
     },
@@ -984,7 +984,7 @@ b) Vil du ha kaffe?`,
 
 a) **Ich trinke Wasser.**
 
-b) **Moechtest du Kaffee?**`,
+b) **Möchtest du Kaffee?**`,
     },
     {
       id: 'tysk-1-5-1-ex-block-3',
@@ -1001,7 +1001,7 @@ b) **Moechtest du Kaffee?**`,
           { label: 'c', task: 'Vi drikker appelsinjuice.', solution: 'Wir trinken Orangensaft.' },
         ],
         solution: 'a) Ich trinke Milch. b) Er mag Tee. c) Wir trinken Orangensaft.',
-        hints: ['trinken = drikke', 'moegen = like'],
+        hints: ['trinken = drikke', 'mögen = like'],
       },
     },
     {
@@ -1051,7 +1051,7 @@ Naar du besaeker en restaurant i Tyskland, er det nyttig aa kunne disse uttrykke
 
 | Tysk | Norsk |
 |------|-------|
-| Einen Tisch fuer zwei, bitte. | Et bord for to, takk. |
+| Einen Tisch für zwei, bitte. | Et bord for to, takk. |
 | Haben Sie einen Tisch frei? | Har dere et ledig bord? |
 | Ich habe reserviert. | Jeg har reservert. |`,
     },
@@ -1064,16 +1064,16 @@ Naar du besaeker en restaurant i Tyskland, er det nyttig aa kunne disse uttrykke
 
 | Tysk | Norsk |
 |------|-------|
-| Was moechten Sie bestellen? | Hva oensker De aa bestille? |
-| Moechten Sie etwas trinken? | Oensker De noe aa drikke? |
-| Haben Sie schon gewaehlt? | Har De valgt? |
+| Was möchten Sie bestellen? | Hva oensker De aa bestille? |
+| Möchten Sie etwas trinken? | Oensker De noe aa drikke? |
+| Haben Sie schon gewählt? | Har De valgt? |
 
 **Du svarer:**
 
 | Tysk | Norsk |
 |------|-------|
-| Ich haette gern... | Jeg vil gjerne ha... |
-| Ich moechte... | Jeg oensker... |
+| Ich hätte gern... | Jeg vil gjerne ha... |
+| Ich möchte... | Jeg oensker... |
 | Ich nehme... | Jeg tar... |
 | Die Speisekarte, bitte. | Menyen, takk. |`,
     },
@@ -1088,9 +1088,9 @@ b) et glass vann
 c) menyen`,
       solution: `**Loesning:**
 
-a) **Ich haette gern eine Pizza.** / **Ich moechte eine Pizza.**
+a) **Ich hätte gern eine Pizza.** / **Ich möchte eine Pizza.**
 
-b) **Ich haette gern ein Glas Wasser.**
+b) **Ich hätte gern ein Glas Wasser.**
 
 c) **Die Speisekarte, bitte.**`,
     },
@@ -1104,12 +1104,12 @@ c) **Die Speisekarte, bitte.**`,
         difficulty: 'lett',
         task: 'Bestill paa tysk:',
         subTasks: [
-          { label: 'a', task: 'en kaffe', solution: 'Ich haette gern einen Kaffee.' },
-          { label: 'b', task: 'en suppe', solution: 'Ich haette gern eine Suppe.' },
-          { label: 'c', task: 'en biff', solution: 'Ich haette gern ein Steak.' },
+          { label: 'a', task: 'en kaffe', solution: 'Ich hätte gern einen Kaffee.' },
+          { label: 'b', task: 'en suppe', solution: 'Ich hätte gern eine Suppe.' },
+          { label: 'c', task: 'en biff', solution: 'Ich hätte gern ein Steak.' },
         ],
-        solution: 'a) Ich haette gern einen Kaffee. b) Ich haette gern eine Suppe. c) Ich haette gern ein Steak.',
-        hints: ['Bruk "Ich haette gern..." eller "Ich moechte..."'],
+        solution: 'a) Ich hätte gern einen Kaffee. b) Ich hätte gern eine Suppe. c) Ich hätte gern ein Steak.',
+        hints: ['Bruk "Ich hätte gern..." eller "Ich möchte..."'],
       },
     },
     {
@@ -1181,14 +1181,14 @@ c) **Stimmt so.**`,
       title: 'Eksempel 3: Dialog paa restaurant',
       problem: `Fullfaer dialogen:
 
-Kellner: Guten Tag! Was moechten Sie?
+Kellner: Guten Tag! Was möchten Sie?
 Du: _____
 Kellner: Und zu trinken?
 Du: _____`,
       solution: `**Eksempel paa loesning:**
 
-Kellner: Guten Tag! Was moechten Sie?
-Du: **Ich haette gern eine Pizza Margherita, bitte.**
+Kellner: Guten Tag! Was möchten Sie?
+Du: **Ich hätte gern eine Pizza Margherita, bitte.**
 
 Kellner: Und zu trinken?
 Du: **Ein Glas Cola, bitte.**`,
@@ -1203,13 +1203,13 @@ Du: **Ein Glas Cola, bitte.**`,
         difficulty: 'medium',
         task: 'Oversett dialogen til tysk:',
         subTasks: [
-          { label: 'a', task: 'Servitaer: Hva oensker De?', solution: 'Was moechten Sie?' },
-          { label: 'b', task: 'Du: Jeg vil gjerne ha en salat.', solution: 'Ich haette gern einen Salat.' },
+          { label: 'a', task: 'Servitaer: Hva oensker De?', solution: 'Was möchten Sie?' },
+          { label: 'b', task: 'Du: Jeg vil gjerne ha en salat.', solution: 'Ich hätte gern einen Salat.' },
           { label: 'c', task: 'Servitaer: Smakte det?', solution: 'Hat es geschmeckt?' },
           { label: 'd', task: 'Du: Ja, veldig godt!', solution: 'Ja, sehr gut!' },
         ],
-        solution: 'a) Was moechten Sie? b) Ich haette gern einen Salat. c) Hat es geschmeckt? d) Ja, sehr gut!',
-        hints: ['moechten = oenske', 'geschmeckt = smakte'],
+        solution: 'a) Was möchten Sie? b) Ich hätte gern einen Salat. c) Hat es geschmeckt? d) Ja, sehr gut!',
+        hints: ['möchten = oenske', 'geschmeckt = smakte'],
       },
     },
     {
@@ -1251,8 +1251,8 @@ Viktige ord for aa handle:
 | Tysk | Norsk |
 |------|-------|
 | der Supermarkt | supermarkedet |
-| das Geschaeft | butikken |
-| die Baeckerei | bakeriet |
+| das Geschäft | butikken |
+| die Bäckerei | bakeriet |
 | die Metzgerei | slakterbutikken |
 | der Markt | markedet |
 | der Einkaufswagen | handlevogna |
@@ -1266,11 +1266,11 @@ Viktige ord for aa handle:
 
 | Tysk | Norsk |
 |------|-------|
-| ein Stueck | et stykke |
+| ein Stück | et stykke |
 | eine Scheibe | en skive |
 | eine Flasche | en flaske |
 | eine Dose | en boks |
-| eine Tuete | en pose |
+| eine Tüte | en pose |
 | ein Kilo | en kilo |
 | ein Pfund (500g) | et pund |
 | ein Liter | en liter |
@@ -1287,7 +1287,7 @@ b) Tre skiver skinke.
 c) En flaske melk.`,
       solution: `**Loesning:**
 
-a) **Ein Kilo Aepfel, bitte.**
+a) **Ein Kilo Äpfel, bitte.**
 
 b) **Drei Scheiben Schinken, bitte.**
 
@@ -1304,10 +1304,10 @@ c) **Eine Flasche Milch, bitte.**`,
         task: 'Si paa tysk:',
         subTasks: [
           { label: 'a', task: 'En flaske vann', solution: 'Eine Flasche Wasser' },
-          { label: 'b', task: 'Hundre gram ost', solution: 'Hundert Gramm Kaese' },
+          { label: 'b', task: 'Hundre gram ost', solution: 'Hundert Gramm Käse' },
           { label: 'c', task: 'To kilo poteter', solution: 'Zwei Kilo Kartoffeln' },
         ],
-        solution: 'a) Eine Flasche Wasser, b) Hundert Gramm Kaese, c) Zwei Kilo Kartoffeln',
+        solution: 'a) Eine Flasche Wasser, b) Hundert Gramm Käse, c) Zwei Kilo Kartoffeln',
         hints: ['Mengde + enhet + vare'],
       },
     },
@@ -1323,7 +1323,7 @@ c) **Eine Flasche Milch, bitte.**`,
 | Das kostet... Euro. | Det koster... euro. |
 | Das macht... Euro. | Det blir... euro. |
 | Das ist zu teuer. | Det er for dyrt. |
-| Das ist guenstig/billig. | Det er rimelig/billig. |`,
+| Das ist günstig/billig. | Det er rimelig/billig. |`,
     },
     {
       id: 'tysk-1-5-3-example-2',
@@ -1350,10 +1350,10 @@ b) **Das ist zu teuer.**`,
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'Hva koster det?', solution: 'Was kostet das?' },
-          { label: 'b', task: 'Det blir 5 euro.', solution: 'Das macht fuenf Euro.' },
-          { label: 'c', task: 'Det er billig.', solution: 'Das ist billig/guenstig.' },
+          { label: 'b', task: 'Det blir 5 euro.', solution: 'Das macht fünf Euro.' },
+          { label: 'c', task: 'Det er billig.', solution: 'Das ist billig/günstig.' },
         ],
-        solution: 'a) Was kostet das? b) Das macht fuenf Euro. c) Das ist billig/guenstig.',
+        solution: 'a) Was kostet das? b) Das macht fünf Euro. c) Das ist billig/günstig.',
         hints: ['kosten = koste', 'machen = bli (i prissammenheng)'],
       },
     },
@@ -1367,7 +1367,7 @@ b) **Das ist zu teuer.**`,
 | Bar oder mit Karte? | Kontant eller med kort? |
 | Ich zahle bar. | Jeg betaler kontant. |
 | Mit Karte, bitte. | Med kort, takk. |
-| Brauchen Sie eine Tuete? | Trenger De en pose? |
+| Brauchen Sie eine Tüte? | Trenger De en pose? |
 | Ja, bitte. / Nein, danke. | Ja, takk. / Nei, takk. |
 | Hier ist Ihr Wechselgeld. | Her er vekslepengene. |`,
     },
@@ -1378,7 +1378,7 @@ b) **Das ist zu teuer.**`,
       problem: `Hva svarer du?
 
 a) Bar oder mit Karte?
-b) Brauchen Sie eine Tuete?`,
+b) Brauchen Sie eine Tüte?`,
       solution: `**Mulige svar:**
 
 a) **Ich zahle bar.** eller **Mit Karte, bitte.**
@@ -1418,14 +1418,14 @@ b) **Ja, bitte.** eller **Nein, danke.**`,
 };
 
 // ----------------------------------------------------------------------------
-// 5.4 Deutsche Kueche - Tysk mat
+// 5.4 Deutsche Küche - Tysk mat
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_TYSK_1_5_4: TextbookChapter = {
   id: 'tysk-1-5-4',
   courseId: 'tysk-1',
   chapterNumber: '5.4',
-  title: 'Deutsche Kueche',
+  title: 'Deutsche Küche',
   subtitle: 'Tysk mat',
   description: 'Laer om tradisjonell tysk mat og matkultur.',
   estimatedMinutes: 40,
@@ -1455,7 +1455,7 @@ Tyskland er kjent for mange deilige retter! Her er noen av de mest kjente:
     {
       id: 'tysk-1-5-4-text-1',
       type: 'text',
-      content: `## Poelser (Wuerste)
+      content: `## Poelser (Würste)
 
 Tyskland har over 1500 forskjellige poelsetyper!
 
@@ -1463,9 +1463,9 @@ Tyskland har over 1500 forskjellige poelsetyper!
 |------|-------------|
 | die Bratwurst | stekepoelse |
 | die Currywurst | poelse med karrisaus |
-| die Weisswurst | hvit poelse (fra Bayern) |
+| die Weißwurst | hvit poelse (fra Bayern) |
 | die Bockwurst | kokepoelse |
-| die Nuernberger | smaa stekepoelser fra Nuernberg |`,
+| die Nürnberger | smaa stekepoelser fra Nürnberg |`,
     },
     {
       id: 'tysk-1-5-4-example-1',
@@ -1512,9 +1512,9 @@ c) **saltkringle / kringle**`,
 | die Kartoffeln | potetene |
 | die Pommes (frites) | pommes frites |
 | der Kartoffelsalat | potetsalat |
-| die Knoedel | melboller |
+| die Knödel | melboller |
 | der Rotkohl | raedkaal |
-| die Sosse | sausen |
+| die Soße | sausen |
 | der Senf | sennepen |`,
     },
     {
@@ -1527,7 +1527,7 @@ a) Jeg vil gjerne ha en bratwurst med surkaal.
 b) Med sennep, takk.`,
       solution: `**Loesning:**
 
-a) **Ich haette gern eine Bratwurst mit Sauerkraut.**
+a) **Ich hätte gern eine Bratwurst mit Sauerkraut.**
 
 b) **Mit Senf, bitte.**`,
     },
@@ -1541,11 +1541,11 @@ b) **Mit Senf, bitte.**`,
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Jeg vil gjerne ha schnitzel med pommes frites.', solution: 'Ich haette gern ein Schnitzel mit Pommes.' },
-          { label: 'b', task: 'Kan jeg faa saus, takk?', solution: 'Kann ich Sosse haben, bitte?' },
+          { label: 'a', task: 'Jeg vil gjerne ha schnitzel med pommes frites.', solution: 'Ich hätte gern ein Schnitzel mit Pommes.' },
+          { label: 'b', task: 'Kan jeg faa saus, takk?', solution: 'Kann ich Soße haben, bitte?' },
           { label: 'c', task: 'Surkaal smaker godt.', solution: 'Sauerkraut schmeckt gut.' },
         ],
-        solution: 'a) Ich haette gern ein Schnitzel mit Pommes. b) Kann ich Sosse haben, bitte? c) Sauerkraut schmeckt gut.',
+        solution: 'a) Ich hätte gern ein Schnitzel mit Pommes. b) Kann ich Soße haben, bitte? c) Sauerkraut schmeckt gut.',
         hints: ['mit = med', 'schmecken = smake'],
       },
     },
@@ -1564,7 +1564,7 @@ Tyskland er verdens broedland med over 300 broedsort!
 | der Kuchen | kake |
 | die Torte | blaakake |
 | der Apfelstrudel | eplestrudel |
-| die Schwarzwaelder Kirschtorte | Schwarzwald-kake |`,
+| die Schwarzwälder Kirschtorte | Schwarzwald-kake |`,
     },
     {
       id: 'tysk-1-5-4-example-3',
@@ -1576,7 +1576,7 @@ a) Et rundstykke
 b) En skive grovbroed`,
       solution: `**Loesning:**
 
-a) **Ein Broetchen, bitte.**
+a) **Ein Brötchen, bitte.**
 
 b) **Eine Scheibe Vollkornbrot, bitte.**`,
     },
@@ -1603,10 +1603,10 @@ b) **Eine Scheibe Vollkornbrot, bitte.**`,
       type: 'note',
       content: `**Visste du?**
 
-- Oktoberfest i Muenchen er verdens stoerste oelfestival
+- Oktoberfest i München er verdens stoerste oelfestival
 - Currywurst ble oppfunnet i Berlin i 1949
 - Det tyske ordet "Abendbrot" (kveldsbroed) viser hvor viktig broed er i Tyskland
-- Frokosten kalles "Fruehstueck" (tidlig stykke)`,
+- Frokosten kalles "Frühstück" (tidlig stykke)`,
     },
   ],
   exercises: [],
@@ -1654,7 +1654,7 @@ Et hus har mange rom. Her er de viktigste:
 
 | Tysk | Norsk |
 |------|-------|
-| die Kueche | kjoekkenet |
+| die Küche | kjoekkenet |
 | das Wohnzimmer | stua |
 | das Schlafzimmer | soverommet |
 | das Badezimmer / das Bad | badet |
@@ -1678,7 +1678,7 @@ b) stua
 c) soverommet`,
       solution: `**Loesning:**
 
-a) **die Kueche**
+a) **die Küche**
 
 b) **das Wohnzimmer**
 
@@ -1710,18 +1710,18 @@ c) **das Schlafzimmer**`,
 
 | Tysk | Norsk |
 |------|-------|
-| gross | stort |
+| groß | stort |
 | klein | lite |
 | hell | lyst |
 | dunkel | moerkt |
-| gemuetlich | koselig |
+| gemütlich | koselig |
 | modern | moderne |
 | alt | gammelt |
 | neu | nytt |
 
 **Setningsmal:**
-- Das Haus ist gross. (Huset er stort.)
-- Die Kueche ist modern. (Kjoekkenet er moderne.)`,
+- Das Haus ist groß. (Huset er stort.)
+- Die Küche ist modern. (Kjoekkenet er moderne.)`,
     },
     {
       id: 'tysk-1-6-1-example-2',
@@ -1734,11 +1734,11 @@ b) Badet er lite.
 c) Kjoekkenet er moderne.`,
       solution: `**Loesning:**
 
-a) **Das Wohnzimmer ist gross.**
+a) **Das Wohnzimmer ist groß.**
 
 b) **Das Badezimmer ist klein.**
 
-c) **Die Kueche ist modern.**`,
+c) **Die Küche ist modern.**`,
     },
     {
       id: 'tysk-1-6-1-ex-block-2',
@@ -1750,11 +1750,11 @@ c) **Die Kueche ist modern.**`,
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Hagen er stor.', solution: 'Der Garten ist gross.' },
-          { label: 'b', task: 'Soverommet er koselig.', solution: 'Das Schlafzimmer ist gemuetlich.' },
+          { label: 'a', task: 'Hagen er stor.', solution: 'Der Garten ist groß.' },
+          { label: 'b', task: 'Soverommet er koselig.', solution: 'Das Schlafzimmer ist gemütlich.' },
           { label: 'c', task: 'Huset er gammelt.', solution: 'Das Haus ist alt.' },
         ],
-        solution: 'a) Der Garten ist gross. b) Das Schlafzimmer ist gemuetlich. c) Das Haus ist alt.',
+        solution: 'a) Der Garten ist groß. b) Das Schlafzimmer ist gemütlich. c) Das Haus ist alt.',
         hints: ['Husk riktig artikkel', 'ist = er'],
       },
     },
@@ -1784,7 +1784,7 @@ a) Kjoekkenet er i foerste etasje.
 b) Soverommet er oppe.`,
       solution: `**Loesning:**
 
-a) **Die Kueche ist im Erdgeschoss.**
+a) **Die Küche ist im Erdgeschoss.**
 
 b) **Das Schlafzimmer ist oben.**`,
     },
@@ -1822,14 +1822,14 @@ I Tyskland teller man annerledes - det vi kaller foerste etasje er "Erdgeschoss"
 };
 
 // ----------------------------------------------------------------------------
-// 6.2 Die Moebel - Moeblene
+// 6.2 Die Möbel - Moeblene
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_TYSK_1_6_2: TextbookChapter = {
   id: 'tysk-1-6-2',
   courseId: 'tysk-1',
   chapterNumber: '6.2',
-  title: 'Die Moebel',
+  title: 'Die Möbel',
   subtitle: 'Moeblene',
   description: 'Laer navnene paa moebler paa tysk.',
   estimatedMinutes: 40,
@@ -1873,13 +1873,13 @@ Her er de vanligste moeblene:
 | der Nachttisch | nattbordet |
 | der Spiegel | speilet |
 
-**I kjoekkenet (in der Kueche):**
+**I kjoekkenet (in der Küche):**
 
 | Tysk | Norsk |
 |------|-------|
-| der Kuehlschrank | kjoeleskapet |
+| der Kühlschrank | kjoeleskapet |
 | der Herd | komfyren |
-| die Spuele | vasken |
+| die Spüle | vasken |
 | der Esstisch | spisebordet |
 | der Stuhl | stolen |`,
     },
@@ -1913,9 +1913,9 @@ c) **der Tisch**`,
           { label: 'a', task: 'stol', solution: 'der Stuhl' },
           { label: 'b', task: 'skap', solution: 'der Schrank' },
           { label: 'c', task: 'lampe', solution: 'die Lampe' },
-          { label: 'd', task: 'kjoeleskap', solution: 'der Kuehlschrank' },
+          { label: 'd', task: 'kjoeleskap', solution: 'der Kühlschrank' },
         ],
-        solution: 'a) der Stuhl, b) der Schrank, c) die Lampe, d) der Kuehlschrank',
+        solution: 'a) der Stuhl, b) der Schrank, c) die Lampe, d) der Kühlschrank',
         hints: ['Schrank = skap', 'Stuhl = stol'],
       },
     },
@@ -1963,10 +1963,10 @@ b) **Der Stuhl steht neben dem Sofa.**`,
         subTasks: [
           { label: 'a', task: 'TVen staar foran sofaen.', solution: 'Der Fernseher steht vor dem Sofa.' },
           { label: 'b', task: 'Senga staar i soverommet.', solution: 'Das Bett steht im Schlafzimmer.' },
-          { label: 'c', task: 'Speilet henger paa veggen.', solution: 'Der Spiegel haengt an der Wand.' },
+          { label: 'c', task: 'Speilet henger paa veggen.', solution: 'Der Spiegel hängt an der Wand.' },
         ],
-        solution: 'a) Der Fernseher steht vor dem Sofa. b) Das Bett steht im Schlafzimmer. c) Der Spiegel haengt an der Wand.',
-        hints: ['stehen = staa', 'haengen = henge'],
+        solution: 'a) Der Fernseher steht vor dem Sofa. b) Das Bett steht im Schlafzimmer. c) Der Spiegel hängt an der Wand.',
+        hints: ['stehen = staa', 'hängen = henge'],
       },
     },
     {
@@ -1992,7 +1992,7 @@ b) **Der Stuhl steht neben dem Sofa.**`,
       problem: `Beskriv stua paa tysk med minst 3 moebler.`,
       solution: `**Eksempel paa loesning:**
 
-Im Wohnzimmer steht ein grosses Sofa. Vor dem Sofa steht ein Couchtisch. An der Wand haengt ein Fernseher. Neben dem Sofa steht eine Lampe.
+Im Wohnzimmer steht ein großes Sofa. Vor dem Sofa steht ein Couchtisch. An der Wand hängt ein Fernseher. Neben dem Sofa steht eine Lampe.
 
 (I stua staar en stor sofa. Foran sofaen staar et sofabord. Paa veggen henger en TV. Ved siden av sofaen staar en lampe.)`,
     },
@@ -2007,21 +2007,21 @@ Im Wohnzimmer steht ein grosses Sofa. Vor dem Sofa steht ein Couchtisch. An der 
         task: 'Match moebelet med rommet:',
         subTasks: [
           { label: 'a', task: 'das Bett', solution: 'das Schlafzimmer' },
-          { label: 'b', task: 'der Kuehlschrank', solution: 'die Kueche' },
+          { label: 'b', task: 'der Kühlschrank', solution: 'die Küche' },
           { label: 'c', task: 'das Sofa', solution: 'das Wohnzimmer' },
         ],
-        solution: 'a) das Schlafzimmer, b) die Kueche, c) das Wohnzimmer',
-        hints: ['Bett = seng, Kuehlschrank = kjoeleskap, Sofa = sofa'],
+        solution: 'a) das Schlafzimmer, b) die Küche, c) das Wohnzimmer',
+        hints: ['Bett = seng, Kühlschrank = kjoeleskap, Sofa = sofa'],
       },
     },
     {
       id: 'tysk-1-6-2-tip-1',
       type: 'tip',
-      content: `**Stehen vs. liegen vs. haengen:**
+      content: `**Stehen vs. liegen vs. hängen:**
 
 - **stehen** (staa) - for moebler som staar paa gulvet: Der Stuhl steht.
 - **liegen** (ligge) - for ting som ligger: Das Buch liegt auf dem Tisch.
-- **haengen** (henge) - for ting som henger: Das Bild haengt an der Wand.`,
+- **hängen** (henge) - for ting som henger: Das Bild hängt an der Wand.`,
     },
   ],
   exercises: [],
@@ -2050,7 +2050,7 @@ export const CHAPTER_TYSK_1_6_3: TextbookChapter = {
       content: `## Beskrive rommet ditt
 
 Naar du skal beskrive rommet ditt, kan du fortelle om:
-- Stoerrelsen (gross/klein)
+- Stoerrelsen (groß/klein)
 - Fargene
 - Moeblene
 - Hva du gjoer der
@@ -2076,8 +2076,8 @@ Naar du skal beskrive rommet ditt, kan du fortelle om:
 | der Computer | datamaskinen |
 | der Laptop | laptopen |
 | das Poster | plakaten |
-| das Buecherregal | bokhylla |
-| die Buecher | boekene |
+| das Bücherregal | bokhylla |
+| die Bücher | boekene |
 | die Spielsachen | lekene |
 | das Bild | bildet |
 | die Pflanze | planten |`,
@@ -2093,11 +2093,11 @@ b) Jeg har en datamaskin.
 c) Paa veggen henger en plakat.`,
       solution: `**Loesning:**
 
-a) **Mein Zimmer ist gross.**
+a) **Mein Zimmer ist groß.**
 
 b) **Ich habe einen Computer.**
 
-c) **An der Wand haengt ein Poster.**`,
+c) **An der Wand hängt ein Poster.**`,
     },
     {
       id: 'tysk-1-6-3-ex-block-1',
@@ -2111,9 +2111,9 @@ c) **An der Wand haengt ein Poster.**`,
         subTasks: [
           { label: 'a', task: 'Rommet mitt er lite.', solution: 'Mein Zimmer ist klein.' },
           { label: 'b', task: 'Jeg har et skrivebord.', solution: 'Ich habe einen Schreibtisch.' },
-          { label: 'c', task: 'Senga mi er stor.', solution: 'Mein Bett ist gross.' },
+          { label: 'c', task: 'Senga mi er stor.', solution: 'Mein Bett ist groß.' },
         ],
-        solution: 'a) Mein Zimmer ist klein. b) Ich habe einen Schreibtisch. c) Mein Bett ist gross.',
+        solution: 'a) Mein Zimmer ist klein. b) Ich habe einen Schreibtisch. c) Mein Bett ist groß.',
         hints: ['mein = min/mitt', 'Zimmer er inkjekoenn'],
       },
     },
@@ -2124,12 +2124,12 @@ c) **An der Wand haengt ein Poster.**`,
 
 | Tysk | Norsk |
 |------|-------|
-| Die Waende sind... | Veggene er... |
+| Die Wände sind... | Veggene er... |
 | Der Teppich ist... | Teppet er... |
-| Die Moebel sind... | Moeblene er... |
+| Die Möbel sind... | Moeblene er... |
 
 **Farger:**
-weiss (hvit), schwarz (svart), blau (blaa), gruen (groenn), rot (roed), gelb (gul), braun (brun), grau (graa), rosa (rosa), lila (lilla)`,
+weiß (hvit), schwarz (svart), blau (blaa), grün (groenn), rot (roed), gelb (gul), braun (brun), grau (graa), rosa (rosa), lila (lilla)`,
     },
     {
       id: 'tysk-1-6-3-example-2',
@@ -2141,7 +2141,7 @@ a) Veggene er hvite.
 b) Teppet er blaatt.`,
       solution: `**Loesning:**
 
-a) **Die Waende sind weiss.**
+a) **Die Wände sind weiß.**
 
 b) **Der Teppich ist blau.**`,
     },
@@ -2155,12 +2155,12 @@ b) **Der Teppich ist blau.**`,
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Veggene er blaa.', solution: 'Die Waende sind blau.' },
-          { label: 'b', task: 'Skrivebordet er hvitt.', solution: 'Der Schreibtisch ist weiss.' },
+          { label: 'a', task: 'Veggene er blaa.', solution: 'Die Wände sind blau.' },
+          { label: 'b', task: 'Skrivebordet er hvitt.', solution: 'Der Schreibtisch ist weiß.' },
           { label: 'c', task: 'Stolen er brun.', solution: 'Der Stuhl ist braun.' },
         ],
-        solution: 'a) Die Waende sind blau. b) Der Schreibtisch ist weiss. c) Der Stuhl ist braun.',
-        hints: ['Waende er flertall', 'Fargen boeyes ikke etter "ist"'],
+        solution: 'a) Die Wände sind blau. b) Der Schreibtisch ist weiß. c) Der Stuhl ist braun.',
+        hints: ['Wände er flertall', 'Fargen boeyes ikke etter "ist"'],
       },
     },
     {
@@ -2174,7 +2174,7 @@ b) **Der Teppich ist blau.**`,
 | Ich lerne. | Jeg gjoer lekser. |
 | Ich lese. | Jeg leser. |
 | Ich spiele. | Jeg leker/spiller. |
-| Ich hoere Musik. | Jeg hoerer paa musikk. |
+| Ich höre Musik. | Jeg hörer paa musikk. |
 | Ich entspanne mich. | Jeg slapper av. |`,
     },
     {
@@ -2184,9 +2184,9 @@ b) **Der Teppich ist blau.**`,
       problem: `Skriv en kort beskrivelse av rommet ditt paa tysk (minst 4 setninger).`,
       solution: `**Eksempel paa loesning:**
 
-Mein Zimmer ist nicht sehr gross, aber gemuetlich. Die Waende sind hellblau. In meinem Zimmer steht ein Bett und ein Schreibtisch. An der Wand haengen viele Poster. Ich habe auch ein Buecherregal mit vielen Buechern. Auf meinem Zimmer mache ich Hausaufgaben und hoere Musik.
+Mein Zimmer ist nicht sehr groß, aber gemütlich. Die Wände sind hellblau. In meinem Zimmer steht ein Bett und ein Schreibtisch. An der Wand hängen viele Poster. Ich habe auch ein Bücherregal mit vielen Büchern. Auf meinem Zimmer mache ich Hausaufgaben und höre Musik.
 
-(Rommet mitt er ikke veldig stort, men koselig. Veggene er lyseblaa. I rommet mitt staar en seng og et skrivebord. Paa veggen henger mange plakater. Jeg har ogsaa en bokhylle med mange boeker. Paa rommet mitt gjoer jeg lekser og hoerer paa musikk.)`,
+(Rommet mitt er ikke veldig stort, men koselig. Veggene er lyseblaa. I rommet mitt staar en seng og et skrivebord. Paa veggen henger mange plakater. Jeg har ogsaa en bokhylle med mange boeker. Paa rommet mitt gjoer jeg lekser og hörer paa musikk.)`,
     },
     {
       id: 'tysk-1-6-3-ex-block-3',
@@ -2199,10 +2199,10 @@ Mein Zimmer ist nicht sehr gross, aber gemuetlich. Die Waende sind hellblau. In 
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'I rommet mitt er det en seng.', solution: 'In meinem Zimmer gibt es ein Bett.' },
-          { label: 'b', task: 'Paa rommet mitt leser jeg boeker.', solution: 'Auf meinem Zimmer lese ich Buecher.' },
-          { label: 'c', task: 'Rommet mitt er koselig.', solution: 'Mein Zimmer ist gemuetlich.' },
+          { label: 'b', task: 'Paa rommet mitt leser jeg boeker.', solution: 'Auf meinem Zimmer lese ich Bücher.' },
+          { label: 'c', task: 'Rommet mitt er koselig.', solution: 'Mein Zimmer ist gemütlich.' },
         ],
-        solution: 'a) In meinem Zimmer gibt es ein Bett. b) Auf meinem Zimmer lese ich Buecher. c) Mein Zimmer ist gemuetlich.',
+        solution: 'a) In meinem Zimmer gibt es ein Bett. b) Auf meinem Zimmer lese ich Bücher. c) Mein Zimmer ist gemütlich.',
         hints: ['es gibt = det er/finnes', 'in meinem Zimmer = i rommet mitt'],
       },
     },
@@ -2346,11 +2346,11 @@ c) **Das Haus hat einen Garten.**`,
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Leiligheten er stor.', solution: 'Die Wohnung ist gross.' },
+          { label: 'a', task: 'Leiligheten er stor.', solution: 'Die Wohnung ist groß.' },
           { label: 'b', task: 'Det er heis.', solution: 'Es gibt einen Aufzug.' },
           { label: 'c', task: 'Leiligheten ligger sentralt.', solution: 'Die Wohnung ist zentral.' },
         ],
-        solution: 'a) Die Wohnung ist gross. b) Es gibt einen Aufzug. c) Die Wohnung ist zentral.',
+        solution: 'a) Die Wohnung ist groß. b) Es gibt einen Aufzug. c) Die Wohnung ist zentral.',
         hints: ['es gibt = det er/finnes', 'Aufzug = heis'],
       },
     },
@@ -2363,7 +2363,7 @@ c) **Das Haus hat einen Garten.**`,
 |------|-------|
 | in der Stadt | i byen |
 | auf dem Land | paa landet |
-| in der Naehe von... | i naerheten av... |
+| in der Nähe von... | i naerheten av... |
 | im Zentrum | i sentrum |
 | am Stadtrand | i utkanten av byen |
 | in einem Vorort | i en forstad |`,
@@ -2383,7 +2383,7 @@ a) **Ich wohne in der Stadt.**
 
 b) **Wir wohnen auf dem Land.**
 
-c) **Das Haus liegt in der Naehe von der Schule.**`,
+c) **Das Haus liegt in der Nähe von der Schule.**`,
     },
     {
       id: 'tysk-1-6-4-ex-block-3',
@@ -2422,8 +2422,8 @@ c) **Das Haus liegt in der Naehe von der Schule.**`,
 |------|-------|
 | die Miete | husleien |
 | die Nebenkosten | tilleggsutgifter |
-| moebliert | moelert |
-| unmoebliert | umoelert |
+| möbliert | moelert |
+| unmöbliert | umoelert |
 | ab sofort | fra med en gang |
 | die Kaution | depositum |`,
     },

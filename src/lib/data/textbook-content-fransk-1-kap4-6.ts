@@ -25,34 +25,34 @@ export const CHAPTER_FRANSK_1_4_1: TextbookChapter = {
   chapterNumber: '4.1',
   title: "L'heure",
   subtitle: 'Klokkeslettet',
-  description: 'Laer aa si hva klokken er paa fransk.',
+  description: 'Lær å si hva klokken er på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'si hva klokken er',
-    'spoerre om klokkeslett',
+    'spørre om klokkeslett',
   ],
   content: [
     {
       id: 'fransk-1-4-1-intro',
       type: 'text',
-      content: `## Klokkeslett paa fransk
+      content: `## Klokkeslett på fransk
 
-Aa kunne si hva klokken er, er viktig i hverdagen. Paa fransk bruker vi uttrykket "Il est... heure(s)" for aa si klokkeslettet.
+Å kunne si hva klokken er, er viktig i hverdagen. På fransk bruker vi uttrykket "Il est... heure(s)" for å si klokkeslettet.
 
-**Spoerre om klokken:**
+**Spørre om klokken:**
 
 | Fransk | Norsk |
 |--------|-------|
 | Quelle heure est-il ? | Hva er klokka? |
 | Il est quelle heure ? | Hva er klokka? (uformell) |
-| A quelle heure ? | Naar? / Klokka hva? |`,
+| À quelle heure ? | Når? / Klokka hva? |`,
     },
     {
       id: 'fransk-1-4-1-text-1',
       type: 'text',
       content: `## Hele timer
 
-For aa si hele timer bruker vi "Il est ... heure(s)":
+For å si hele timer bruker vi "Il est ... heure(s)":
 
 | Klokka | Fransk |
 |--------|--------|
@@ -69,18 +69,18 @@ For aa si hele timer bruker vi "Il est ... heure(s)":
 | 11:00 | Il est onze heures |
 | 12:00 | Il est midi |
 
-**Merk:** Ved klokka ett sier vi "une heure" (entall). Klokka 12 er "midi" (midt paa dagen) og klokka 24/00 er "minuit" (midnatt).`,
+**Merk:** Ved klokka ett sier vi "une heure" (entall). Klokka 12 er "midi" (midt på dagen) og klokka 24/00 er "minuit" (midnatt).`,
     },
     {
       id: 'fransk-1-4-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Hele timer',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Klokka er 3
 b) Klokka er 7
 c) Klokka er 12`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Il est trois heures.**
 
@@ -96,7 +96,7 @@ c) **Il est midi.**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Si paa fransk:',
+        task: 'Si på fransk:',
         subTasks: [
           { label: 'a', task: 'Klokka er 5', solution: 'Il est cinq heures' },
           { label: 'b', task: 'Klokka er 9', solution: 'Il est neuf heures' },
@@ -111,42 +111,42 @@ c) **Il est midi.**`,
       type: 'text',
       content: `## Halv og kvart
 
-Paa fransk bruker vi spesielle uttrykk for halv og kvart:
+På fransk bruker vi spesielle uttrykk for halv og kvart:
 
 | Klokka | Fransk | Forklaring |
 |--------|--------|------------|
 | 2:15 | Il est deux heures et quart | Kvart over to |
 | 2:30 | Il est deux heures et demie | Halv tre |
-| 2:45 | Il est trois heures moins le quart | Kvart paa tre |
+| 2:45 | Il est trois heures moins le quart | Kvart på tre |
 
-**Viktig:** Ved "et demie" (halv) og "et quart" (kvart over) refererer man til den gjeldende timen. Ved "moins le quart" (kvart paa) refererer man til den kommende timen.`,
+**Viktig:** Ved "et demie" (halv) og "et quart" (kvart over) refererer man til den gjeldende timen. Ved "moins le quart" (kvart på) refererer man til den kommende timen.`,
     },
     {
       id: 'fransk-1-4-1-warning-1',
       type: 'warning',
-      content: `**Merk forskjellen paa "midi" og "minuit":**
+      content: `**Merk forskjellen på "midi" og "minuit":**
 
-- **midi** = midt paa dagen (kl. 12:00)
+- **midi** = midt på dagen (kl. 12:00)
 - **minuit** = midnatt (kl. 00:00)
 
-Ved "midi" og "minuit" sier vi: "Il est midi et demi" (uten -e paa demi, fordi midi er hankjoenn), men "Il est deux heures et demie" (med -e, fordi heure er hunkjoenn).`,
+Ved "midi" og "minuit" sier vi: "Il est midi et demi" (uten -e på demi, fordi midi er hankjønn), men "Il est deux heures et demie" (med -e, fordi heure er hunkjønn).`,
     },
     {
       id: 'fransk-1-4-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Halv og kvart',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Klokka er kvart over fire (4:15)
 b) Klokka er halv fem (4:30)
-c) Klokka er kvart paa seks (5:45)`,
-      solution: `**Loesning:**
+c) Klokka er kvart på seks (5:45)`,
+      solution: `**Løsning:**
 
 a) **Il est quatre heures et quart.** (kvart over fire)
 
 b) **Il est quatre heures et demie.** (halv fem = 4:30)
 
-c) **Il est six heures moins le quart.** (kvart paa seks)`,
+c) **Il est six heures moins le quart.** (kvart på seks)`,
     },
     {
       id: 'fransk-1-4-1-ex-block-2',
@@ -156,7 +156,7 @@ c) **Il est six heures moins le quart.** (kvart paa seks)`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Si paa fransk:',
+        task: 'Si på fransk:',
         subTasks: [
           { label: 'a', task: '3:15', solution: 'Il est trois heures et quart' },
           { label: 'b', task: '6:30', solution: 'Il est six heures et demie' },
@@ -164,7 +164,7 @@ c) **Il est six heures moins le quart.** (kvart paa seks)`,
           { label: 'd', task: '11:30', solution: 'Il est onze heures et demie' },
         ],
         solution: 'a) Il est trois heures et quart, b) Il est six heures et demie, c) Il est neuf heures moins le quart, d) Il est onze heures et demie',
-        hints: ['Kvart over = et quart', 'Halv = et demie', 'Kvart paa = moins le quart (bruk neste time)'],
+        hints: ['Kvart over = et quart', 'Halv = et demie', 'Kvart på = moins le quart (bruk neste time)'],
       },
     },
     {
@@ -194,16 +194,16 @@ For andre minutter legger vi til eller trekker fra:
       id: 'fransk-1-4-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Minutter',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) 4:10
 b) 7:50
 c) 15:25 (offisiell tid)`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Il est quatre heures dix.** (ti over fire)
 
-b) **Il est huit heures moins dix.** (ti paa aatte)
+b) **Il est huit heures moins dix.** (ti på aatte)
 
 c) **Il est quinze heures vingt-cinq.** (offisiell)`,
     },
@@ -215,25 +215,25 @@ c) **Il est quinze heures vingt-cinq.** (offisiell)`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Hva er klokka paa norsk?',
+        task: 'Hva er klokka på norsk?',
         subTasks: [
           { label: 'a', task: 'Il est neuf heures et demie', solution: '9:30 (halv ti)' },
           { label: 'b', task: 'Il est onze heures et quart', solution: '11:15 (kvart over elleve)' },
-          { label: 'c', task: 'Il est six heures moins vingt', solution: '5:40 (tjue paa seks)' },
+          { label: 'c', task: 'Il est six heures moins vingt', solution: '5:40 (tjue på seks)' },
         ],
         solution: 'a) 9:30, b) 11:15, c) 5:40',
-        hints: ['et demie = halv (gjeldende time + 30 min)', 'et quart = kvart over', 'moins = minus / paa'],
+        hints: ['et demie = halv (gjeldende time + 30 min)', 'et quart = kvart over', 'moins = minus / på'],
       },
     },
     {
       id: 'fransk-1-4-1-tip-1',
       type: 'tip',
-      content: `**Tips for aa huske klokkeslett:**
+      content: `**Tips for å huske klokkeslett:**
 
 1. "et quart" = kvart over (+ 15 min)
 2. "et demie" = halv (+ 30 min)
-3. "moins le quart" = kvart paa (- 15 min fra neste time)
-4. "moins" = minus / paa (trekk fra neste time)
+3. "moins le quart" = kvart på (- 15 min fra neste time)
+4. "moins" = minus / på (trekk fra neste time)
 5. "midi" = kl. 12, "minuit" = kl. 00`,
     },
   ],
@@ -250,19 +250,19 @@ export const CHAPTER_FRANSK_1_4_2: TextbookChapter = {
   chapterNumber: '4.2',
   title: 'Les jours de la semaine',
   subtitle: 'Ukedagene',
-  description: 'Laer ukedagene paa fransk og hvordan du bruker dem.',
+  description: 'Lær ukedagene på fransk og hvordan du bruker dem.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'si ukedagene paa fransk',
-    'snakke om hva som skjer paa ulike dager',
+    'si ukedagene på fransk',
+    'snakke om hva som skjer på ulike dager',
   ],
   content: [
     {
       id: 'fransk-1-4-2-intro',
       type: 'text',
-      content: `## Ukedagene paa fransk
+      content: `## Ukedagene på fransk
 
-Ukedagene er viktige ord som du bruker hver dag. Paa fransk begynner uka med mandag.
+Ukedagene er viktige ord som du bruker hver dag. På fransk begynner uka med mandag.
 
 | Fransk | Norsk |
 |--------|-------|
@@ -271,17 +271,17 @@ Ukedagene er viktige ord som du bruker hver dag. Paa fransk begynner uka med man
 | mercredi | onsdag |
 | jeudi | torsdag |
 | vendredi | fredag |
-| samedi | loerdag |
-| dimanche | soendag |
+| samedi | lørdag |
+| dimanche | søndag |
 
-**Merk:** Ukedagene skrives med liten forbokstav paa fransk (i motsetning til paa norsk og tysk).`,
+**Merk:** Ukedagene skrives med liten forbokstav på fransk (i motsetning til på norsk og tysk).`,
     },
     {
       id: 'fransk-1-4-2-note-1',
       type: 'note',
       content: `**Opprinnelsen til navnene:**
 
-- **lundi** - Maanens dag (la Lune = maanen)
+- **lundi** - Månens dag (la Lune = maanen)
 - **mardi** - Mars' dag (planeten Mars)
 - **mercredi** - Merkurs dag (planeten Merkur)
 - **jeudi** - Jupiters dag (planeten Jupiter)
@@ -293,12 +293,12 @@ Ukedagene er viktige ord som du bruker hver dag. Paa fransk begynner uka med man
       id: 'fransk-1-4-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Ukedagene',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) mandag
 b) onsdag
-c) loerdag`,
-      solution: `**Loesning:**
+c) lørdag`,
+      solution: `**Løsning:**
 
 a) **lundi**
 
@@ -314,15 +314,15 @@ c) **samedi**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv ukedagene paa fransk:',
+        task: 'Skriv ukedagene på fransk:',
         subTasks: [
           { label: 'a', task: 'tirsdag', solution: 'mardi' },
           { label: 'b', task: 'torsdag', solution: 'jeudi' },
           { label: 'c', task: 'fredag', solution: 'vendredi' },
-          { label: 'd', task: 'soendag', solution: 'dimanche' },
+          { label: 'd', task: 'søndag', solution: 'dimanche' },
         ],
         solution: 'a) mardi, b) jeudi, c) vendredi, d) dimanche',
-        hints: ['Liten forbokstav paa fransk', 'Torsdag = jeudi (Jupiter)'],
+        hints: ['Liten forbokstav på fransk', 'Torsdag = jeudi (Jupiter)'],
       },
     },
     {
@@ -330,17 +330,17 @@ c) **samedi**`,
       type: 'text',
       content: `## Bruke ukedagene i setninger
 
-For aa si "paa mandag" (en bestemt mandag) bruker vi bare ukedagen uten artikkel. For aa si "paa mandager" (vanligvis) bruker vi artikkelen **le**:
+For å si "på mandag" (en bestemt mandag) bruker vi bare ukedagen uten artikkel. For å si "på mandager" (vanligvis) bruker vi artikkelen **le**:
 
 | Fransk | Norsk |
 |--------|-------|
-| lundi | paa mandag (denne mandagen) |
-| le lundi | paa mandager (hver mandag) |
+| lundi | på mandag (denne mandagen) |
+| le lundi | på mandager (hver mandag) |
 | le week-end | i helgen |
 
 **Eksempler:**
-- Lundi, j'ai ecole. (Paa mandag har jeg skole.)
-- Le vendredi, je vais au cinema. (Paa fredager gaar jeg paa kino.)`,
+- Lundi, j'ai école. (På mandag har jeg skole.)
+- Le vendredi, je vais au cinéma. (På fredager går jeg på kino.)`,
     },
     {
       id: 'fransk-1-4-2-example-2',
@@ -348,13 +348,13 @@ For aa si "paa mandag" (en bestemt mandag) bruker vi bare ukedagen uten artikkel
       title: 'Eksempel 2: Setninger med ukedager',
       problem: `Oversett til fransk:
 
-a) Paa tirsdag spiller jeg fotball.
-b) Paa loerdager besoekervi bestemor.`,
-      solution: `**Loesning:**
+a) På tirsdag spiller jeg fotball.
+b) På lørdager besøkervi bestemor.`,
+      solution: `**Løsning:**
 
 a) **Mardi, je joue au football.**
 
-b) **Le samedi, nous visitons grand-mere.**`,
+b) **Le samedi, nous visitons grand-mère.**`,
     },
     {
       id: 'fransk-1-4-2-ex-block-2',
@@ -366,41 +366,41 @@ b) **Le samedi, nous visitons grand-mere.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Paa onsdag har jeg fransk.', solution: 'Mercredi, j\'ai francais.' },
-          { label: 'b', task: 'Paa soendager sover jeg lenge.', solution: 'Le dimanche, je dors longtemps.' },
+          { label: 'a', task: 'På onsdag har jeg fransk.', solution: 'Mercredi, j\'ai français.' },
+          { label: 'b', task: 'På søndager sover jeg lenge.', solution: 'Le dimanche, je dors longtemps.' },
         ],
-        solution: 'a) Mercredi, j\'ai francais. b) Le dimanche, je dors longtemps.',
+        solution: 'a) Mercredi, j\'ai français. b) Le dimanche, je dors longtemps.',
         hints: ['Uten artikkel = en bestemt dag', 'Med "le" = vanligvis / hver uke'],
       },
     },
     {
       id: 'fransk-1-4-2-text-2',
       type: 'text',
-      content: `## Spoerre om hvilken dag
+      content: `## Spørre om hvilken dag
 
 | Fransk | Norsk |
 |--------|-------|
 | Quel jour sommes-nous ? | Hvilken dag er det i dag? |
 | Aujourd'hui, c'est lundi. | I dag er det mandag. |
 | Demain, c'est mardi. | I morgen er det tirsdag. |
-| Hier, c'etait dimanche. | I gaar var det soendag. |`,
+| Hier, c'était dimanche. | I går var det søndag. |`,
     },
     {
       id: 'fransk-1-4-2-example-3',
       type: 'example',
-      title: 'Eksempel 3: Spoerre om dagen',
-      problem: `Svar paa fransk (i dag er onsdag):
+      title: 'Eksempel 3: Spørre om dagen',
+      problem: `Svar på fransk (i dag er onsdag):
 
 a) Quel jour sommes-nous ?
 b) Quel jour est demain ?
 c) Quel jour etait hier ?`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Aujourd'hui, c'est mercredi.** (I dag er det onsdag.)
 
 b) **Demain, c'est jeudi.** (I morgen er det torsdag.)
 
-c) **Hier, c'etait mardi.** (I gaar var det tirsdag.)`,
+c) **Hier, c'était mardi.** (I går var det tirsdag.)`,
     },
     {
       id: 'fransk-1-4-2-ex-block-3',
@@ -410,7 +410,7 @@ c) **Hier, c'etait mardi.** (I gaar var det tirsdag.)`,
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Svar paa fransk (i dag er fredag):',
+        task: 'Svar på fransk (i dag er fredag):',
         subTasks: [
           { label: 'a', task: 'Hvilken dag er det i dag?', solution: 'Aujourd\'hui, c\'est vendredi.' },
           { label: 'b', task: 'Hvilken dag er det i morgen?', solution: 'Demain, c\'est samedi.' },
@@ -425,8 +425,8 @@ c) **Hier, c'etait mardi.** (I gaar var det tirsdag.)`,
       type: 'tip',
       content: `**Huskeregel:**
 
-- Uten artikkel = en bestemt dag (lundi = paa mandag)
-- Med **le** = vanligvis (le lundi = paa mandager)
+- Uten artikkel = en bestemt dag (lundi = på mandag)
+- Med **le** = vanligvis (le lundi = på mandager)
 - **aujourd'hui** = i dag
 - **demain** = i morgen
 - **hier** = i gaar`,
@@ -436,7 +436,7 @@ c) **Hier, c'etait mardi.** (I gaar var det tirsdag.)`,
 };
 
 // ----------------------------------------------------------------------------
-// 4.3 Les mois et les saisons - Maaneder og aarstider
+// 4.3 Les mois et les saisons - Måneder og årstider
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_1_4_3: TextbookChapter = {
@@ -444,55 +444,55 @@ export const CHAPTER_FRANSK_1_4_3: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '4.3',
   title: 'Les mois et les saisons',
-  subtitle: 'Maaneder og aarstider',
-  description: 'Laer maanedene og aarstidene paa fransk.',
+  subtitle: 'Måneder og årstider',
+  description: 'Lær månedene og årstidene på fransk.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'si maanedene paa fransk',
-    'snakke om aarstider',
-    'si naar man har bursdag',
+    'si månedene på fransk',
+    'snakke om årstider',
+    'si når man har bursdag',
   ],
   content: [
     {
       id: 'fransk-1-4-3-intro',
       type: 'text',
-      content: `## Maanedene paa fransk
+      content: `## Månedene på fransk
 
-Maanedene paa fransk ligner paa de norske:
+Månedene på fransk ligner på de norske:
 
 | Fransk | Norsk |
 |--------|-------|
 | janvier | januar |
-| fevrier | februar |
+| février | februar |
 | mars | mars |
 | avril | april |
 | mai | mai |
 | juin | juni |
 | juillet | juli |
-| aout | august |
+| août | august |
 | septembre | september |
 | octobre | oktober |
 | novembre | november |
-| decembre | desember |
+| décembre | desember |
 
-**Merk:** Maanedene skrives med liten forbokstav paa fransk.`,
+**Merk:** Månedene skrives med liten forbokstav på fransk.`,
     },
     {
       id: 'fransk-1-4-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Maanedene',
-      problem: `Si paa fransk:
+      title: 'Eksempel 1: Månedene',
+      problem: `Si på fransk:
 
 a) mars
 b) august
 c) desember`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **mars**
 
-b) **aout**
+b) **août**
 
-c) **decembre**`,
+c) **décembre**`,
     },
     {
       id: 'fransk-1-4-3-ex-block-1',
@@ -502,7 +502,7 @@ c) **decembre**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv maanedene paa fransk:',
+        task: 'Skriv månedene på fransk:',
         subTasks: [
           { label: 'a', task: 'januar', solution: 'janvier' },
           { label: 'b', task: 'mai', solution: 'mai' },
@@ -510,38 +510,38 @@ c) **decembre**`,
           { label: 'd', task: 'oktober', solution: 'octobre' },
         ],
         solution: 'a) janvier, b) mai, c) juillet, d) octobre',
-        hints: ['Liten forbokstav', 'Ligner paa norsk'],
+        hints: ['Liten forbokstav', 'Ligner på norsk'],
       },
     },
     {
       id: 'fransk-1-4-3-text-1',
       type: 'text',
-      content: `## Aarstidene
+      content: `## Årstidene
 
 | Fransk | Norsk |
 |--------|-------|
-| le printemps | vaaren |
-| l'ete (m) | sommeren |
-| l'automne (m) | hoesten |
+| le printemps | våren |
+| l'été (m) | sommeren |
+| l'automne (m) | høsten |
 | l'hiver (m) | vinteren |
 
-**Maaneder i hver aarstid:**
+**Måneder i hver årstid:**
 - **le printemps :** mars, avril, mai
-- **l'ete :** juin, juillet, aout
+- **l'été :** juin, juillet, août
 - **l'automne :** septembre, octobre, novembre
-- **l'hiver :** decembre, janvier, fevrier`,
+- **l'hiver :** décembre, janvier, février`,
     },
     {
       id: 'fransk-1-4-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Aarstider',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Årstider',
+      problem: `Si på fransk:
 
 a) Sommeren er varm.
 b) Om vinteren snor det.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **L'ete est chaud.**
+a) **L'été est chaud.**
 
 b) **En hiver, il neige.**`,
     },
@@ -553,47 +553,47 @@ b) **En hiver, il neige.**`,
         number: '2',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv aarstidene paa fransk:',
+        task: 'Skriv årstidene på fransk:',
         subTasks: [
-          { label: 'a', task: 'vaaren', solution: 'le printemps' },
-          { label: 'b', task: 'sommeren', solution: "l'ete" },
-          { label: 'c', task: 'hoesten', solution: "l'automne" },
+          { label: 'a', task: 'våren', solution: 'le printemps' },
+          { label: 'b', task: 'sommeren', solution: "l'été" },
+          { label: 'c', task: 'høsten', solution: "l'automne" },
           { label: 'd', task: 'vinteren', solution: "l'hiver" },
         ],
-        solution: "a) le printemps, b) l'ete, c) l'automne, d) l'hiver",
-        hints: ['Alle aarstidene er hankjoenn', 'Vaaren har bestemt artikkel "le"'],
+        solution: "a) le printemps, b) l'été, c) l'automne, d) l'hiver",
+        hints: ['Alle årstidene er hankjønn', 'Våren har bestemt artikkel "le"'],
       },
     },
     {
       id: 'fransk-1-4-3-text-2',
       type: 'text',
-      content: `## Bruke maaneder og aarstider
+      content: `## Bruke måneder og årstider
 
-For aa si "i januar" bruker vi **en**. For aarstidene varierer preposisjonen:
+For å si "i januar" bruker vi **en**. For årstidene varierer preposisjonen:
 
 | Fransk | Norsk |
 |--------|-------|
 | en janvier | i januar |
 | en ete | om sommeren |
-| en automne | om hoesten |
+| en automne | om høsten |
 | en hiver | om vinteren |
-| au printemps | om vaaren |
+| au printemps | om våren |
 
-**Merk:** Vaaren bruker "au" (= a + le), de andre bruker "en".
+**Merk:** Våren bruker "au" (= a + le), de andre bruker "en".
 
 **Eksempel:**
 - Mon anniversaire est en mai. (Bursdagen min er i mai.)
-- En hiver, je fais du ski. (Om vinteren gaar jeg paa ski.)`,
+- En hiver, je fais du ski. (Om vinteren går jeg på ski.)`,
     },
     {
       id: 'fransk-1-4-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Bursdag',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Bursdagen min er i mars.
-b) Naar har du bursdag?`,
-      solution: `**Loesning:**
+b) Når har du bursdag?`,
+      solution: `**Løsning:**
 
 a) **Mon anniversaire est en mars.**
 
@@ -610,28 +610,28 @@ b) **Quand est ton anniversaire ? / C'est quand, ton anniversaire ?**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Bursdagen min er i juli.', solution: 'Mon anniversaire est en juillet.' },
-          { label: 'b', task: 'Om vaaren blomstrer traerne.', solution: 'Au printemps, les arbres fleurissent.' },
-          { label: 'c', task: 'I desember feirer vi jul.', solution: 'En decembre, nous fetons Noel.' },
+          { label: 'b', task: 'Om våren blomstrer traerne.', solution: 'Au printemps, les arbres fleurissent.' },
+          { label: 'c', task: 'I desember feirer vi jul.', solution: 'En décembre, nous fêtons Noël.' },
         ],
-        solution: 'a) Mon anniversaire est en juillet. b) Au printemps, les arbres fleurissent. c) En decembre, nous fetons Noel.',
-        hints: ['Bruk "en" + maaned', 'Vaaren = au printemps', 'Noel = jul'],
+        solution: 'a) Mon anniversaire est en juillet. b) Au printemps, les arbres fleurissent. c) En décembre, nous fêtons Noël.',
+        hints: ['Bruk "en" + måned', 'Våren = au printemps', 'Noël = jul'],
       },
     },
     {
       id: 'fransk-1-4-3-tip-1',
       type: 'tip',
-      content: `**Datoer paa fransk:**
+      content: `**Datoer på fransk:**
 
-Paa fransk bruker vi ordenstall for datoer, UNNTATT den foerste:
+På fransk bruker vi ordenstall for datoer, UNNTATT den første:
 
 | Fransk | Norsk |
 |--------|-------|
 | le premier janvier | 1. januar |
-| le deux fevrier | 2. februar |
+| le deux février | 2. februar |
 | le trois mars | 3. mars |
-| le vingt-cinq decembre | 25. desember |
+| le vingt-cinq décembre | 25. desember |
 
-"Le premier" (den foerste) er det eneste ordenstallet - ellers bruker vi vanlige tall.`,
+"Le premier" (den første) er det eneste ordenstallet - ellers bruker vi vanlige tall.`,
     },
   ],
   exercises: [],
@@ -647,7 +647,7 @@ export const CHAPTER_FRANSK_1_4_4: TextbookChapter = {
   chapterNumber: '4.4',
   title: 'Ma journee',
   subtitle: 'Min dagsrutine',
-  description: 'Laer aa fortelle om din daglige rutine.',
+  description: 'Lær å fortelle om din daglige rutine.',
   estimatedMinutes: 45,
   competenceGoals: [
     'fortelle om daglige aktiviteter',
@@ -660,38 +660,38 @@ export const CHAPTER_FRANSK_1_4_4: TextbookChapter = {
       type: 'text',
       content: `## Daglige aktiviteter
 
-Her er vanlige aktiviteter i loepet av en dag:
+Her er vanlige aktiviteter i løpet av en dag:
 
 | Fransk | Norsk |
 |--------|-------|
-| se reveiller | vaakne |
+| se réveiller | våkne |
 | se lever | staa opp |
 | se doucher | dusje |
-| s'habiller | kle paa seg |
-| prendre le petit dejeuner | spise frokost |
-| aller a l'ecole | gaa paa skolen |
-| dejeuner | spise lunsj |
+| s'habiller | kle på seg |
+| prendre le petit déjeuner | spise frokost |
+| aller à l'école | gaa på skolen |
+| déjeuner | spise lunsj |
 | faire les devoirs | gjore lekser |
 | diner | spise middag |
-| regarder la tele | se paa TV |
+| regarder la télé | se på TV |
 | se coucher | legge seg |`,
     },
     {
       id: 'fransk-1-4-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Morgenrutine',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Jeg staar opp klokka 7.
+a) Jeg står opp klokka 7.
 b) Jeg spiser frokost.
-c) Jeg gaar paa skolen.`,
-      solution: `**Loesning:**
+c) Jeg går på skolen.`,
+      solution: `**Løsning:**
 
 a) **Je me leve a sept heures.**
 
-b) **Je prends le petit dejeuner.**
+b) **Je prends le petit déjeuner.**
 
-c) **Je vais a l'ecole.**`,
+c) **Je vais à l'école.**`,
     },
     {
       id: 'fransk-1-4-4-ex-block-1',
@@ -703,12 +703,12 @@ c) **Je vais a l'ecole.**`,
         difficulty: 'lett',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg vaakner klokka 6.', solution: 'Je me reveille a six heures.' },
-          { label: 'b', task: 'Jeg spiser lunsj.', solution: 'Je dejeune.' },
-          { label: 'c', task: 'Jeg ser paa TV.', solution: 'Je regarde la tele.' },
+          { label: 'a', task: 'Jeg våkner klokka 6.', solution: 'Je me réveille a six heures.' },
+          { label: 'b', task: 'Jeg spiser lunsj.', solution: 'Je déjeune.' },
+          { label: 'c', task: 'Jeg ser på TV.', solution: 'Je regarde la télé.' },
         ],
-        solution: 'a) Je me reveille a six heures. b) Je dejeune. c) Je regarde la tele.',
-        hints: ['Se reveiller er et refleksivt verb (je me...)', 'a = klokka (tidsangivelse)'],
+        solution: 'a) Je me réveille a six heures. b) Je déjeune. c) Je regarde la télé.',
+        hints: ['Se réveiller er et refleksivt verb (je me...)', 'a = klokka (tidsangivelse)'],
       },
     },
     {
@@ -731,8 +731,8 @@ Refleksive verb har et ekstra pronomen som refererer tilbake til subjektet:
 - se lever (staa opp)
 - se coucher (legge seg)
 - se doucher (dusje)
-- s'habiller (kle paa seg)
-- se reveiller (vaakne)`,
+- s'habiller (kle på seg)
+- se réveiller (våkne)`,
     },
     {
       id: 'fransk-1-4-4-example-2',
@@ -742,7 +742,7 @@ Refleksive verb har et ekstra pronomen som refererer tilbake til subjektet:
 
 a) Je _____ a 8 heures. (se lever)
 b) Elle _____ vite. (s'habiller)`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je me leve a huit heures.**
 
@@ -756,14 +756,14 @@ b) **Elle s'habille vite.**`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer setningene med riktig verbform:',
+        task: 'Fullfør setningene med riktig verbform:',
         subTasks: [
           { label: 'a', task: 'Nous _____ a 6 heures. (se lever)', solution: 'nous levons' },
           { label: 'b', task: 'Tu _____ a quelle heure ? (se coucher)', solution: 'te couches' },
           { label: 'c', task: 'Il _____ rapidement. (s\'habiller)', solution: "s'habille" },
         ],
         solution: "a) nous levons, b) te couches, c) s'habille",
-        hints: ['Pronomenet endres etter subjektet', 'Verbet boeyes som vanlig'],
+        hints: ['Pronomenet endres etter subjektet', 'Verbet bøyes som vanlig'],
       },
     },
     {
@@ -774,26 +774,26 @@ b) **Elle s'habille vite.**`,
 | Fransk | Norsk |
 |--------|-------|
 | le matin | om morgenen |
-| l'apres-midi | paa ettermiddagen |
+| l'après-midi | på ettermiddagen |
 | le soir | om kvelden |
 | la nuit | om natta |
 | tot | tidlig |
 | tard | sent |
 | puis / ensuite | saa / deretter |
-| d'abord | foerst |
-| apres | etter / etterpaa |
+| d'abord | først |
+| après | etter / etterpå |
 | enfin | til slutt |`,
     },
     {
       id: 'fransk-1-4-4-example-3',
       type: 'example',
       title: 'Eksempel 3: En hel dag',
-      problem: `Beskriv din dag paa fransk med minst 4 aktiviteter.`,
-      solution: `**Eksempel paa loesning:**
+      problem: `Beskriv din dag på fransk med minst 4 aktiviteter.`,
+      solution: `**Eksempel på løsning:**
 
-Je me leve a sept heures. D'abord, je me douche. Ensuite, je prends le petit dejeuner. A huit heures, je vais a l'ecole. L'apres-midi, je fais mes devoirs. Le soir, je regarde la tele. A dix heures, je me couche.
+Je me leve a sept heures. D'abord, je me douche. Ensuite, je prends le petit déjeuner. A huit heures, je vais à l'école. L'après-midi, je fais mes devoirs. Le soir, je regarde la télé. A dix heures, je me couche.
 
-(Jeg staar opp klokka syv. Foerst dusjer jeg. Saa spiser jeg frokost. Klokka aatte gaar jeg paa skolen. Paa ettermiddagen gjoer jeg lekser. Om kvelden ser jeg paa TV. Klokka ti legger jeg meg.)`,
+(Jeg står opp klokka syv. Foerst dusjer jeg. Saa spiser jeg frokost. Klokka aatte går jeg på skolen. På ettermiddagen gjør jeg lekser. Om kvelden ser jeg på TV. Klokka ti legger jeg meg.)`,
     },
     {
       id: 'fransk-1-4-4-ex-block-3',
@@ -805,23 +805,23 @@ Je me leve a sept heures. D'abord, je me douche. Ensuite, je prends le petit dej
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Om morgenen spiser jeg frokost.', solution: 'Le matin, je prends le petit dejeuner.' },
-          { label: 'b', task: 'Foerst dusjer jeg, saa kler jeg paa meg.', solution: "D'abord, je me douche, ensuite, je m'habille." },
+          { label: 'a', task: 'Om morgenen spiser jeg frokost.', solution: 'Le matin, je prends le petit déjeuner.' },
+          { label: 'b', task: 'Foerst dusjer jeg, saa kler jeg på meg.', solution: "D'abord, je me douche, ensuite, je m'habille." },
           { label: 'c', task: 'Om kvelden legger jeg meg klokka 10.', solution: 'Le soir, je me couche a dix heures.' },
         ],
-        solution: "a) Le matin, je prends le petit dejeuner. b) D'abord, je me douche, ensuite, je m'habille. c) Le soir, je me couche a dix heures.",
-        hints: ['Bruk tidsuttrykk i begynnelsen', "d'abord = foerst, ensuite = saa"],
+        solution: "a) Le matin, je prends le petit déjeuner. b) D'abord, je me douche, ensuite, je m'habille. c) Le soir, je me couche a dix heures.",
+        hints: ['Bruk tidsuttrykk i begynnelsen', "d'abord = først, ensuite = saa"],
       },
     },
     {
       id: 'fransk-1-4-4-tip-1',
       type: 'tip',
-      content: `**Tips for aa fortelle om dagen din:**
+      content: `**Tips for å fortelle om dagen din:**
 
-1. Begynn med naar du staar opp
+1. Begynn med når du står opp
 2. Bruk tidsord som "d'abord", "ensuite", "puis"
-3. Husk refleksivpronomen paa refleksive verb
-4. Avslutt med naar du legger deg`,
+3. Husk refleksivpronomen på refleksive verb
+4. Avslutt med når du legger deg`,
     },
   ],
   exercises: [],
@@ -841,7 +841,7 @@ export const CHAPTER_FRANSK_1_5_1: TextbookChapter = {
   chapterNumber: '5.1',
   title: 'Manger et boire',
   subtitle: 'Mat og drikke',
-  description: 'Laer grunnleggende ord for mat og drikke paa fransk, samt delingsartikler.',
+  description: 'Lær grunnleggende ord for mat og drikke på fransk, samt delingsartikler.',
   estimatedMinutes: 45,
   competenceGoals: [
     'navngi vanlig mat og drikke',
@@ -851,53 +851,53 @@ export const CHAPTER_FRANSK_1_5_1: TextbookChapter = {
     {
       id: 'fransk-1-5-1-intro',
       type: 'text',
-      content: `## Mat paa fransk
+      content: `## Mat på fransk
 
 Mat er et viktig tema! Her er grunnleggende matvarer:
 
-**Broed og bakevarer:**
+**Brød og bakevarer:**
 
 | Fransk | Norsk |
 |--------|-------|
-| le pain | broedet |
+| le pain | brødet |
 | la baguette | baguetten |
 | le croissant | croissanten |
-| le gateau | kaken |
+| le gâteau | kaken |
 | la tarte | paien / terten |`,
     },
     {
       id: 'fransk-1-5-1-text-1',
       type: 'text',
-      content: `## Kjoett og paalegg
+      content: `## Kjoett og pålegg
 
 | Fransk | Norsk |
 |--------|-------|
-| la viande | kjoettet |
+| la viande | kjøttet |
 | le poulet | kyllingen |
-| le porc | svinekoett |
-| le boeuf | oksekjoett |
+| le porc | svinekjøtt |
+| le bœuf | oksekjøtt |
 | le jambon | skinken |
 | le poisson | fisken |
-| l'oeuf (m) / les oeufs | egget / eggene |
+| l'œuf (m) / les œufs | egget / eggene |
 | le fromage | osten |
-| le beurre | smoeret |`,
+| le beurre | smøret |`,
     },
     {
       id: 'fransk-1-5-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Matord',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) broed
+a) brød
 b) ost
 c) egg`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **le pain**
 
 b) **le fromage**
 
-c) **l'oeuf** (flertall: les oeufs)`,
+c) **l'œuf** (flertall: les œufs)`,
     },
     {
       id: 'fransk-1-5-1-ex-block-1',
@@ -907,21 +907,21 @@ c) **l'oeuf** (flertall: les oeufs)`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv paa fransk med artikkel:',
+        task: 'Skriv på fransk med artikkel:',
         subTasks: [
           { label: 'a', task: 'skinke', solution: 'le jambon' },
           { label: 'b', task: 'kylling', solution: 'le poulet' },
-          { label: 'c', task: 'smoer', solution: 'le beurre' },
-          { label: 'd', task: 'kake', solution: 'le gateau' },
+          { label: 'c', task: 'smør', solution: 'le beurre' },
+          { label: 'd', task: 'kake', solution: 'le gâteau' },
         ],
-        solution: 'a) le jambon, b) le poulet, c) le beurre, d) le gateau',
+        solution: 'a) le jambon, b) le poulet, c) le beurre, d) le gâteau',
         hints: ['Husk artikkelen (le / la / l\')'],
       },
     },
     {
       id: 'fransk-1-5-1-text-2',
       type: 'text',
-      content: `## Frukt og groennsaker
+      content: `## Frukt og grønnsaker
 
 | Fransk | Norsk |
 |--------|-------|
@@ -929,8 +929,8 @@ c) **l'oeuf** (flertall: les oeufs)`,
 | la pomme | eplet |
 | la banane | bananen |
 | l'orange (f) | appelsinen |
-| la fraise | jordbaeret |
-| les legumes (m) | groennsakene |
+| la fraise | jordbæret |
+| les legumes (m) | grønnsakene |
 | la tomate | tomaten |
 | le concombre | agurken |
 | la pomme de terre | poteten |
@@ -938,13 +938,13 @@ c) **l'oeuf** (flertall: les oeufs)`,
 
 ## Delingsartikler (articles partitifs)
 
-Paa fransk bruker vi delingsartikler for aa si "noe av":
+På fransk bruker vi delingsartikler for å si "noe av":
 
-| Delingsartikkel | Brukes foer |
+| Delingsartikkel | Brukes før |
 |-----------------|------------|
-| du | hankjoennsord (du pain = noe broed) |
-| de la | hunkjoennsord (de la viande = noe kjoett) |
-| de l' | ord som begynner paa vokal (de l'eau = noe vann) |
+| du | hankjønnsord (du pain = noe brød) |
+| de la | hunkjønnsord (de la viande = noe kjøtt) |
+| de l' | ord som begynner på vokal (de l'eau = noe vann) |
 | des | flertallsord (des fruits = noen frukter) |
 
 **Etter nektelse:** Alle delingsartikler blir **de** (eller **d'**):
@@ -954,11 +954,11 @@ Paa fransk bruker vi delingsartikler for aa si "noe av":
       id: 'fransk-1-5-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Delingsartikler',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Jeg spiser broed.
-b) Jeg spiser ikke kjoett.`,
-      solution: `**Loesning:**
+a) Jeg spiser brød.
+b) Jeg spiser ikke kjøtt.`,
+      solution: `**Løsning:**
 
 a) **Je mange du pain.**
 
@@ -980,7 +980,7 @@ b) **Je ne mange pas de viande.**`,
           { label: 'd', task: 'Nous mangeons ___ fruits.', solution: 'des' },
         ],
         solution: "a) du, b) de l', c) de la, d) des",
-        hints: ['Fromage = hankjoenn -> du', 'Eau begynner paa vokal -> de l\''],
+        hints: ['Fromage = hankjønn -> du', 'Eau begynner på vokal -> de l\''],
       },
     },
     {
@@ -994,25 +994,25 @@ b) **Je ne mange pas de viande.**`,
 | le lait | melka |
 | le jus | juicen |
 | le jus d'orange | appelsinjuicen |
-| le cafe | kaffen |
-| le the | teen |
+| le café | kaffen |
+| le thé | teen |
 | la limonade | brusen |
-| la biere | oelet |
+| la bière | ølet |
 | le vin | vinen |`,
     },
     {
       id: 'fransk-1-5-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Drikke',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg drikker vann.
 b) Vil du ha kaffe?`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je bois de l'eau.**
 
-b) **Tu veux du cafe ?** / **Vous voulez du cafe ?**`,
+b) **Tu veux du café ?** / **Vous voulez du café ?**`,
     },
     {
       id: 'fransk-1-5-1-ex-block-3',
@@ -1025,10 +1025,10 @@ b) **Tu veux du cafe ?** / **Vous voulez du cafe ?**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Jeg drikker melk.', solution: 'Je bois du lait.' },
-          { label: 'b', task: 'Han liker te.', solution: 'Il aime le the.' },
+          { label: 'b', task: 'Han liker te.', solution: 'Il aime le thé.' },
           { label: 'c', task: 'Vi drikker appelsinjuice.', solution: "Nous buvons du jus d'orange." },
         ],
-        solution: "a) Je bois du lait. b) Il aime le the. c) Nous buvons du jus d'orange.",
+        solution: "a) Je bois du lait. b) Il aime le thé. c) Nous buvons du jus d'orange.",
         hints: ['boire = drikke (je bois, nous buvons)', 'aimer = like (bruker bestemt artikkel: le/la/les)'],
       },
     },
@@ -1044,14 +1044,14 @@ b) **Tu veux du cafe ?** / **Vous voulez du cafe ?**`,
 | J'aime... | Jeg liker... |
 | Je n'aime pas... | Jeg liker ikke... |
 | J'ai faim | Jeg er sulten |
-| J'ai soif | Jeg er toerst |`,
+| J'ai soif | Jeg er tørst |`,
     },
   ],
   exercises: [],
 };
 
 // ----------------------------------------------------------------------------
-// 5.2 Au restaurant - Paa restauranten
+// 5.2 Au restaurant - På restauranten
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_1_5_2: TextbookChapter = {
@@ -1059,42 +1059,42 @@ export const CHAPTER_FRANSK_1_5_2: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '5.2',
   title: 'Au restaurant',
-  subtitle: 'Paa restauranten',
-  description: 'Laer aa bestille mat og kommunisere paa restaurant.',
+  subtitle: 'På restauranten',
+  description: 'Lær å bestille mat og kommunisere på restaurant.',
   estimatedMinutes: 45,
   competenceGoals: [
     'bestille mat og drikke',
-    'foerstaa servitoren',
+    'forstå servitoren',
     'betale regningen',
   ],
   content: [
     {
       id: 'fransk-1-5-2-intro',
       type: 'text',
-      content: `## Paa restauranten
+      content: `## På restauranten
 
-Naar du besoekerr en restaurant i Frankrike, er det nyttig aa kunne disse uttrykkene:
+Når du besøker en restaurant i Frankrike, er det nyttig å kunne disse uttrykkene:
 
 **Ankomst:**
 
 | Fransk | Norsk |
 |--------|-------|
-| Une table pour deux, s'il vous plait. | Et bord for to, takk. |
+| Une table pour deux, s'il vous plaît. | Et bord for to, takk. |
 | Avez-vous une table libre ? | Har dere et ledig bord? |
-| J'ai reserve. | Jeg har reservert. |`,
+| J'ai réservé. | Jeg har réservért. |`,
     },
     {
       id: 'fransk-1-5-2-text-1',
       type: 'text',
       content: `## Bestilling
 
-**Servitaeren sier:**
+**Servitøren sier:**
 
 | Fransk | Norsk |
 |--------|-------|
 | Vous avez choisi ? | Har De valgt? |
-| Qu'est-ce que vous desirez ? | Hva oensker De? |
-| Et comme boisson ? | Og aa drikke? |
+| Qu'est-ce que vous désirez ? | Hva ønsker De? |
+| Et comme boisson ? | Og å drikke? |
 
 **Du svarer:**
 
@@ -1103,24 +1103,24 @@ Naar du besoekerr en restaurant i Frankrike, er det nyttig aa kunne disse uttryk
 | Je voudrais... | Jeg vil gjerne ha... |
 | Je vais prendre... | Jeg tar... |
 | Pour moi... | For meg... |
-| La carte, s'il vous plait. | Menyen, takk. |`,
+| La carte, s'il vous plaît. | Menyen, takk. |`,
     },
     {
       id: 'fransk-1-5-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Bestilling',
-      problem: `Bestill paa fransk:
+      problem: `Bestill på fransk:
 
 a) en pizza
 b) et glass vann
 c) menyen`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **Je voudrais une pizza, s'il vous plait.**
+a) **Je voudrais une pizza, s'il vous plaît.**
 
-b) **Je voudrais un verre d'eau, s'il vous plait.**
+b) **Je voudrais un verre d'eau, s'il vous plaît.**
 
-c) **La carte, s'il vous plait.**`,
+c) **La carte, s'il vous plaît.**`,
     },
     {
       id: 'fransk-1-5-2-ex-block-1',
@@ -1130,13 +1130,13 @@ c) **La carte, s'il vous plait.**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Bestill paa fransk:',
+        task: 'Bestill på fransk:',
         subTasks: [
-          { label: 'a', task: 'en kaffe', solution: 'Je voudrais un cafe, s\'il vous plait.' },
+          { label: 'a', task: 'en kaffe', solution: 'Je voudrais un café, s\'il vous plait.' },
           { label: 'b', task: 'en suppe', solution: 'Je voudrais une soupe, s\'il vous plait.' },
           { label: 'c', task: 'en biff', solution: 'Je voudrais un steak, s\'il vous plait.' },
         ],
-        solution: 'a) Je voudrais un cafe. b) Je voudrais une soupe. c) Je voudrais un steak.',
+        solution: 'a) Je voudrais un café. b) Je voudrais une soupe. c) Je voudrais un steak.',
         hints: ['Bruk "Je voudrais..." (Jeg vil gjerne ha...)'],
       },
     },
@@ -1147,28 +1147,28 @@ c) **La carte, s'il vous plait.**`,
 
 | Fransk | Norsk |
 |--------|-------|
-| L'addition, s'il vous plait. | Regningen, takk. |
+| L'addition, s'il vous plaît. | Regningen, takk. |
 | Je peux payer ? | Kan jeg betale? |
-| On paie ensemble ou separement ? | Betaler vi sammen eller hver for seg? |
-| Ensemble, s'il vous plait. | Sammen, takk. |
-| Separement, s'il vous plait. | Hver for seg, takk. |
+| On paie ensemble ou séparément ? | Betaler vi sammen eller hver for seg? |
+| Ensemble, s'il vous plaît. | Sammen, takk. |
+| Séparément, s'il vous plaît. | Hver for seg, takk. |
 | Gardez la monnaie. | Behold resten (tips). |
-| Ca fait... euros. | Det blir... euro. |`,
+| Ça fait... euros. | Det blir... euro. |`,
     },
     {
       id: 'fransk-1-5-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Betaling',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Regningen, takk.
 b) Vi betaler sammen.
 c) Behold resten.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **L'addition, s'il vous plait.**
+a) **L'addition, s'il vous plaît.**
 
-b) **Ensemble, s'il vous plait.**
+b) **Ensemble, s'il vous plaît.**
 
 c) **Gardez la monnaie.**`,
     },
@@ -1180,25 +1180,25 @@ c) **Gardez la monnaie.**`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Hva sier du paa fransk?',
+        task: 'Hva sier du på fransk?',
         subTasks: [
-          { label: 'a', task: 'Du vil betale.', solution: "L'addition, s'il vous plait." },
-          { label: 'b', task: 'Dere vil betale hver for seg.', solution: "Separement, s'il vous plait." },
+          { label: 'a', task: 'Du vil betale.', solution: "L'addition, s'il vous plaît." },
+          { label: 'b', task: 'Dere vil betale hver for seg.', solution: "Séparément, s'il vous plaît." },
           { label: 'c', task: 'Du gir tips (behold resten).', solution: 'Gardez la monnaie.' },
         ],
-        solution: "a) L'addition, s'il vous plait. b) Separement, s'il vous plait. c) Gardez la monnaie.",
+        solution: "a) L'addition, s'il vous plaît. b) Séparément, s'il vous plaît. c) Gardez la monnaie.",
         hints: ["L'addition = regningen", 'la monnaie = vekslepenger/resten'],
       },
     },
     {
       id: 'fransk-1-5-2-text-3',
       type: 'text',
-      content: `## Hoeflige fraser
+      content: `## Høflige fraser
 
 | Fransk | Norsk |
 |--------|-------|
-| C'etait delicieux ! | Det var deilig! |
-| C'etait tres bon ! | Det var veldig godt! |
+| C'était délicieux ! | Det var deilig! |
+| C'était très bon ! | Det var veldig godt! |
 | Merci beaucoup ! | Tusen takk! |
 | Bon appetit ! | God appetitt! |
 | Merci, de meme ! | Takk, i like maate! |`,
@@ -1206,20 +1206,20 @@ c) **Gardez la monnaie.**`,
     {
       id: 'fransk-1-5-2-example-3',
       type: 'example',
-      title: 'Eksempel 3: Dialog paa restaurant',
-      problem: `Fullfaer dialogen:
+      title: 'Eksempel 3: Dialog på restaurant',
+      problem: `Fullfør dialogen:
 
 Serveur : Bonjour ! Vous avez choisi ?
 Du : _____
 Serveur : Et comme boisson ?
 Du : _____`,
-      solution: `**Eksempel paa loesning:**
+      solution: `**Eksempel på løsning:**
 
 Serveur : Bonjour ! Vous avez choisi ?
-Du : **Oui, je voudrais une pizza margherita, s'il vous plait.**
+Du : **Oui, je voudrais une pizza margherita, s'il vous plaît.**
 
 Serveur : Et comme boisson ?
-Du : **Un verre de coca, s'il vous plait.**`,
+Du : **Un verre de coca, s'il vous plaît.**`,
     },
     {
       id: 'fransk-1-5-2-ex-block-3',
@@ -1231,13 +1231,13 @@ Du : **Un verre de coca, s'il vous plait.**`,
         difficulty: 'medium',
         task: 'Oversett dialogen til fransk:',
         subTasks: [
-          { label: 'a', task: 'Servitaer: Hva oensker De?', solution: "Qu'est-ce que vous desirez ?" },
+          { label: 'a', task: 'Servitør: Hva ønsker De?', solution: "Qu'est-ce que vous désirez ?" },
           { label: 'b', task: 'Du: Jeg vil gjerne ha en salat.', solution: 'Je voudrais une salade, s\'il vous plait.' },
-          { label: 'c', task: 'Servitaer: Var det godt?', solution: "C'etait bon ?" },
-          { label: 'd', task: 'Du: Ja, veldig godt!', solution: 'Oui, c\'etait tres bon !' },
+          { label: 'c', task: 'Servitør: Var det godt?', solution: "C'était bon ?" },
+          { label: 'd', task: 'Du: Ja, veldig godt!', solution: 'Oui, c\'etait très bon !' },
         ],
-        solution: "a) Qu'est-ce que vous desirez ? b) Je voudrais une salade. c) C'etait bon ? d) Oui, c'etait tres bon !",
-        hints: ['voudrais = vil gjerne ha', "c'etait = det var"],
+        solution: "a) Qu'est-ce que vous désirez ? b) Je voudrais une salade. c) C'était bon ? d) Oui, c'était très bon !",
+        hints: ['voudrais = vil gjerne ha', "c'était = det var"],
       },
     },
     {
@@ -1245,27 +1245,27 @@ Du : **Un verre de coca, s'il vous plait.**`,
       type: 'note',
       content: `**Kulturell info:**
 
-I Frankrike er det vanlig at tips (le pourboire) er inkludert i regningen ("service compris"). Likevel kan du legge igjen litt ekstra for god service. Det er vanlig aa runde opp beloepet eller legge igjen 1-2 euro. I Frankrike er lunsj (le dejeuner) det viktigste maaltidet, og det er vanlig med en lang lunsjpause.`,
+I Frankrike er det vanlig at tips (le pourboire) er inkludert i regningen ("service compris"). Likevel kan du legge igjen litt ekstra for god service. Det er vanlig å runde opp beløpet eller legge igjen 1-2 euro. I Frankrike er lunsj (le déjeuner) det viktigste måltidet, og det er vanlig med en lang lunsjpause.`,
     },
   ],
   exercises: [],
 };
 
 // ----------------------------------------------------------------------------
-// 5.3 Au supermarche - Paa butikken
+// 5.3 Au supermarché - På butikken
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_1_5_3: TextbookChapter = {
   id: 'fransk-1-5-3',
   courseId: 'fransk-1',
   chapterNumber: '5.3',
-  title: 'Au supermarche',
-  subtitle: 'Paa butikken',
-  description: 'Laer aa handle og kommunisere i butikken.',
+  title: 'Au supermarché',
+  subtitle: 'På butikken',
+  description: 'Lær å handle og kommunisere i butikken.',
   estimatedMinutes: 40,
   competenceGoals: [
     'handle i butikken',
-    'spoerre om priser',
+    'spørre om priser',
     'snakke om mengder',
   ],
   content: [
@@ -1274,15 +1274,15 @@ export const CHAPTER_FRANSK_1_5_3: TextbookChapter = {
       type: 'text',
       content: `## I butikken
 
-Viktige ord for aa handle:
+Viktige ord for å handle:
 
 | Fransk | Norsk |
 |--------|-------|
-| le supermarche | supermarkedet |
+| le supermarché | supermarkedet |
 | le magasin | butikken |
 | la boulangerie | bakeriet |
 | la boucherie | slakterbutikken |
-| le marche | markedet |
+| le marché | markedet |
 | le caddie | handlevogna |
 | le panier | kurven |
 | la caisse | kassa |`,
@@ -1312,18 +1312,18 @@ Viktige ord for aa handle:
       id: 'fransk-1-5-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Bestille i butikken',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) En kilo epler, takk.
 b) Tre skiver skinke.
 c) En flaske melk.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **Un kilo de pommes, s'il vous plait.**
+a) **Un kilo de pommes, s'il vous plaît.**
 
-b) **Trois tranches de jambon, s'il vous plait.**
+b) **Trois tranches de jambon, s'il vous plaît.**
 
-c) **Une bouteille de lait, s'il vous plait.**`,
+c) **Une bouteille de lait, s'il vous plaît.**`,
     },
     {
       id: 'fransk-1-5-3-ex-block-1',
@@ -1333,41 +1333,41 @@ c) **Une bouteille de lait, s'il vous plait.**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Si paa fransk:',
+        task: 'Si på fransk:',
         subTasks: [
           { label: 'a', task: 'En flaske vann', solution: "Une bouteille d'eau" },
           { label: 'b', task: 'Hundre gram ost', solution: 'Cent grammes de fromage' },
           { label: 'c', task: 'To kilo poteter', solution: 'Deux kilos de pommes de terre' },
         ],
         solution: "a) Une bouteille d'eau, b) Cent grammes de fromage, c) Deux kilos de pommes de terre",
-        hints: ['Mengde + de + vare', 'Eau begynner paa vokal: d\'eau'],
+        hints: ['Mengde + de + vare', 'Eau begynner på vokal: d\'eau'],
       },
     },
     {
       id: 'fransk-1-5-3-text-2',
       type: 'text',
-      content: `## Spoerre om pris
+      content: `## Spørre om pris
 
 | Fransk | Norsk |
 |--------|-------|
 | C'est combien ? | Hva koster det? |
-| Combien coute... ? | Hvor mye koster...? |
-| Ca coute... euros. | Det koster... euro. |
-| Ca fait... euros. | Det blir... euro. |
+| Combien coûte... ? | Hvor mye koster...? |
+| Ça coûte... euros. | Det koster... euro. |
+| Ça fait... euros. | Det blir... euro. |
 | C'est trop cher. | Det er for dyrt. |
-| C'est pas cher. / C'est bon marche. | Det er billig. |`,
+| C'est pas cher. / C'est bon marché. | Det er billig. |`,
     },
     {
       id: 'fransk-1-5-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Spoerre om pris',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Spørre om pris',
+      problem: `Si på fransk:
 
-a) Hva koster broedet?
+a) Hva koster brødet?
 b) Det er for dyrt.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **Combien coute le pain ?** / **C'est combien, le pain ?**
+a) **Combien coûte le pain ?** / **C'est combien, le pain ?**
 
 b) **C'est trop cher.**`,
     },
@@ -1382,11 +1382,11 @@ b) **C'est trop cher.**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Hva koster det?', solution: "C'est combien ?" },
-          { label: 'b', task: 'Det blir 5 euro.', solution: 'Ca fait cinq euros.' },
-          { label: 'c', task: 'Det er billig.', solution: "C'est pas cher. / C'est bon marche." },
+          { label: 'b', task: 'Det blir 5 euro.', solution: 'Ça fait cinq euros.' },
+          { label: 'c', task: 'Det er billig.', solution: "C'est pas cher. / C'est bon marché." },
         ],
-        solution: "a) C'est combien ? b) Ca fait cinq euros. c) C'est pas cher.",
-        hints: ['couter = koste', 'ca fait = det blir'],
+        solution: "a) C'est combien ? b) Ça fait cinq euros. c) C'est pas cher.",
+        hints: ['coûter = koste', 'ca fait = det blir'],
       },
     },
     {
@@ -1396,11 +1396,11 @@ b) **C'est trop cher.**`,
 
 | Fransk | Norsk |
 |--------|-------|
-| En especes ou par carte ? | Kontant eller med kort? |
+| En espèces ou par carte ? | Kontant eller med kort? |
 | Je paie en especes. | Jeg betaler kontant. |
-| Par carte, s'il vous plait. | Med kort, takk. |
+| Par carte, s'il vous plaît. | Med kort, takk. |
 | Vous voulez un sac ? | Vil De ha en pose? |
-| Oui, s'il vous plait. / Non, merci. | Ja, takk. / Nei, takk. |
+| Oui, s'il vous plaît. / Non, merci. | Ja, takk. / Nei, takk. |
 | Voici votre monnaie. | Her er vekslepengene. |`,
     },
     {
@@ -1409,13 +1409,13 @@ b) **C'est trop cher.**`,
       title: 'Eksempel 3: Ved kassa',
       problem: `Hva svarer du?
 
-a) En especes ou par carte ?
+a) En espèces ou par carte ?
 b) Vous voulez un sac ?`,
       solution: `**Mulige svar:**
 
-a) **Je paie en especes.** eller **Par carte, s'il vous plait.**
+a) **Je paie en especes.** eller **Par carte, s'il vous plaît.**
 
-b) **Oui, s'il vous plait.** eller **Non, merci.**`,
+b) **Oui, s'il vous plaît.** eller **Non, merci.**`,
     },
     {
       id: 'fransk-1-5-3-ex-block-3',
@@ -1425,41 +1425,41 @@ b) **Oui, s'il vous plait.** eller **Non, merci.**`,
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Hva sier du paa fransk?',
+        task: 'Hva sier du på fransk?',
         subTasks: [
-          { label: 'a', task: 'Du vil betale med kort.', solution: "Par carte, s'il vous plait." },
+          { label: 'a', task: 'Du vil betale med kort.', solution: "Par carte, s'il vous plaît." },
           { label: 'b', task: 'Du trenger ikke pose.', solution: 'Non, merci.' },
           { label: 'c', task: 'Du vil betale kontant.', solution: 'Je paie en especes.' },
         ],
-        solution: "a) Par carte, s'il vous plait. b) Non, merci. c) Je paie en especes.",
+        solution: "a) Par carte, s'il vous plaît. b) Non, merci. c) Je paie en especes.",
         hints: ['especes = kontanter', 'carte = kort'],
       },
     },
     {
       id: 'fransk-1-5-3-tip-1',
       type: 'tip',
-      content: `**Tips for aa handle i Frankrike:**
+      content: `**Tips for å handle i Frankrike:**
 
 1. Ta med egen handlepose - plastposer koster penger
-2. Paa markedet (le marche) kan du kjoepere fersk frukt og groennsaker
-3. La boulangerie (bakeriet) er svart viktig i Frankrike - folk kjoeper fersk baguette hver dag
-4. Mange butikker er stengt paa soendager`,
+2. På markedet (le marché) kan du kjøpere fersk frukt og grønnsaker
+3. La boulangerie (bakeriet) er svart viktig i Frankrike - folk kjøper fersk baguette hver dag
+4. Mange butikker er stengt på søndager`,
     },
   ],
   exercises: [],
 };
 
 // ----------------------------------------------------------------------------
-// 5.4 La cuisine francaise - Fransk mat
+// 5.4 La cuisine française - Fransk mat
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_1_5_4: TextbookChapter = {
   id: 'fransk-1-5-4',
   courseId: 'fransk-1',
   chapterNumber: '5.4',
-  title: 'La cuisine francaise',
+  title: 'La cuisine française',
   subtitle: 'Fransk mat',
-  description: 'Laer om tradisjonell fransk mat og matkultur.',
+  description: 'Lær om tradisjonell fransk mat og matkultur.',
   estimatedMinutes: 40,
   competenceGoals: [
     'kjenne til fransk matkultur',
@@ -1471,18 +1471,18 @@ export const CHAPTER_FRANSK_1_5_4: TextbookChapter = {
       type: 'text',
       content: `## Tradisjonell fransk mat
 
-Frankrike er kjent for sitt fantastiske kjoekken! Fransk matkultur er paa UNESCOs verdensarvliste. Her er noen av de mest kjente rettene:
+Frankrike er kjent for sitt fantastiske kjoekken! Fransk matkultur er på UNESCOs verdensarvliste. Her er noen av de mest kjente rettene:
 
 **Klassiske retter:**
 
 | Fransk | Beskrivelse |
 |--------|-------------|
 | la crepe | tynn pannekake |
-| le croissant | smoerrull/halvmaane |
-| la baguette | langt, tynt broed |
+| le croissant | smørrull/halvmaane |
+| la baguette | langt, tynt brød |
 | la quiche lorraine | pai med egg, ost og skinke |
 | le croque-monsieur | varm ostetoast med skinke |
-| la ratatouille | groennsaksgryte fra Provence |`,
+| la ratatouille | grønnsaksgryte fra Provence |`,
     },
     {
       id: 'fransk-1-5-4-text-1',
@@ -1495,7 +1495,7 @@ Frankrike har over 400 forskjellige ostesort! Noen av de mest kjente:
 |--------|-------------|
 | le camembert | myk ost fra Normandie |
 | le brie | myk ost fra Ile-de-France |
-| le roquefort | blaamuggost fra Aveyron |
+| le roquefort | blåmuggost fra Aveyron |
 | le comte | hard ost fra Jura |
 | le chevre | geitost |
 
@@ -1505,18 +1505,18 @@ Ost serveres ofte som egen rett etter hovedretten i Frankrike.`,
       id: 'fransk-1-5-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Fransk mat',
-      problem: `Hva er dette paa norsk?
+      problem: `Hva er dette på norsk?
 
 a) la crepe
 b) la baguette
 c) le croissant`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **tynn pannekake**
 
-b) **langt, tynt broed (baguett)**
+b) **langt, tynt brød (baguett)**
 
-c) **smoerrull / halvmaaneformet bakverk (croissant)**`,
+c) **smørrull / halvmaaneformet bakverk (croissant)**`,
     },
     {
       id: 'fransk-1-5-4-ex-block-1',
@@ -1530,10 +1530,10 @@ c) **smoerrull / halvmaaneformet bakverk (croissant)**`,
         subTasks: [
           { label: 'a', task: 'la quiche lorraine', solution: 'pai med egg, ost og skinke' },
           { label: 'b', task: 'le croque-monsieur', solution: 'varm ostetoast med skinke' },
-          { label: 'c', task: 'la ratatouille', solution: 'groennsaksgryte fra Provence' },
+          { label: 'c', task: 'la ratatouille', solution: 'grønnsaksgryte fra Provence' },
         ],
-        solution: 'a) pai med egg, ost og skinke, b) varm ostetoast med skinke, c) groennsaksgryte fra Provence',
-        hints: ['Quiche = pai', 'Croque = sproed/knasende'],
+        solution: 'a) pai med egg, ost og skinke, b) varm ostetoast med skinke, c) grønnsaksgryte fra Provence',
+        hints: ['Quiche = pai', 'Croque = sprød/knasende'],
       },
     },
     {
@@ -1545,30 +1545,30 @@ I Frankrike er maaltidene svart viktige:
 
 | Fransk | Norsk | Tidspunkt |
 |--------|-------|-----------|
-| le petit dejeuner | frokosten | ca. 7-8 |
-| le dejeuner | lunsjen | ca. 12-14 |
-| le gouter | mellommaaltidet | ca. 16 |
+| le petit déjeuner | frokosten | ca. 7-8 |
+| le déjeuner | lunsjen | ca. 12-14 |
+| le gouter | mellommåltidet | ca. 16 |
 | le diner | middagen | ca. 19-21 |
 
 **Typisk fransk frokost:**
 - un croissant ou un pain au chocolat (sjokoladebolle)
-- du cafe au lait (kaffe med melk)
+- du café au lait (kaffe med melk)
 - du jus d'orange (appelsinjuice)
-- une tartine avec du beurre et de la confiture (broed med smoer og syltetoey)`,
+- une tartine avec du beurre et de la confiture (brød med smør og syltetoey)`,
     },
     {
       id: 'fransk-1-5-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Bestille fransk mat',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg vil gjerne ha en crepe med sjokolade.
 b) En kaffe med melk, takk.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **Je voudrais une crepe au chocolat, s'il vous plait.**
+a) **Je voudrais une crepe au chocolat, s'il vous plaît.**
 
-b) **Un cafe au lait, s'il vous plait.**`,
+b) **Un café au lait, s'il vous plaît.**`,
     },
     {
       id: 'fransk-1-5-4-ex-block-2',
@@ -1582,10 +1582,10 @@ b) **Un cafe au lait, s'il vous plait.**`,
         subTasks: [
           { label: 'a', task: 'Jeg vil gjerne ha en quiche med salat.', solution: 'Je voudrais une quiche avec une salade, s\'il vous plait.' },
           { label: 'b', task: 'Kan jeg faa en baguette, takk?', solution: 'Je peux avoir une baguette, s\'il vous plait ?' },
-          { label: 'c', task: 'Osten smaker godt.', solution: 'Le fromage est bon. / Le fromage est delicieux.' },
+          { label: 'c', task: 'Osten smaker godt.', solution: 'Le fromage est bon. / Le fromage est délicieux.' },
         ],
         solution: 'a) Je voudrais une quiche avec une salade. b) Je peux avoir une baguette ? c) Le fromage est bon.',
-        hints: ['avec = med', 'bon/delicieux = godt/deilig'],
+        hints: ['avec = med', 'bon/délicieux = godt/deilig'],
       },
     },
     {
@@ -1599,20 +1599,20 @@ Frankrike har mange regionale spesialiteter:
 |--------|-------------|
 | Bretagne | les crepes og les galettes (bokhvete-crepes) |
 | Provence | la ratatouille, la bouillabaisse (fiskesuppe) |
-| Bourgogne | le boeuf bourguignon (oksegryte i vin) |
+| Bourgogne | le bœuf bourguignon (oksegryte i vin) |
 | Alsace | la choucroute (surkaal med poelser) |
-| Normandie | le camembert, les moules (blaakoett) |
+| Normandie | le camembert, les moules (blåkoett) |
 | Lyon | les quenelles (fiskepolser), la salade lyonnaise |`,
     },
     {
       id: 'fransk-1-5-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Franske spesialiteter',
-      problem: `Svar paa spoersmaalene:
+      problem: `Svar på spørsmålene:
 
 a) Hvilken region er kjent for crepes?
 b) Hva er bouillabaisse?`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Bretagne** er kjent for crepes og galettes.
 
@@ -1626,13 +1626,13 @@ b) **La bouillabaisse** er en fiskesuppe fra Provence.`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Hva er dette paa fransk?',
+        task: 'Hva er dette på fransk?',
         subTasks: [
           { label: 'a', task: 'tynn pannekake', solution: 'la crepe' },
-          { label: 'b', task: 'oksegryte i vin', solution: 'le boeuf bourguignon' },
+          { label: 'b', task: 'oksegryte i vin', solution: 'le bœuf bourguignon' },
           { label: 'c', task: 'fiskesuppe fra Provence', solution: 'la bouillabaisse' },
         ],
-        solution: 'a) la crepe, b) le boeuf bourguignon, c) la bouillabaisse',
+        solution: 'a) la crepe, b) le bœuf bourguignon, c) la bouillabaisse',
         hints: ['Crepe = tynn pannekake', 'Bourguignon = fra Bourgogne (vinregion)'],
       },
     },
@@ -1641,10 +1641,10 @@ b) **La bouillabaisse** er en fiskesuppe fra Provence.`,
       type: 'note',
       content: `**Visste du?**
 
-- Frankrike er verdens mest besoekerland - maten er en stor grunn!
+- Frankrike er verdens mest besøkerland - maten er en stor grunn!
 - Baguetten er saa viktig at det finnes en lov om hvordan den skal lages
-- "Le gouter" (kl. 16-maaltidet) er spesielt viktig for barn
-- Fransk matkultur ble satt paa UNESCOs verdensarvliste i 2010
+- "Le gouter" (kl. 16-måltidet) er spesielt viktig for barn
+- Fransk matkultur ble satt på UNESCOs verdensarvliste i 2010
 - Det er over 400 ostesorter i Frankrike - Charles de Gaulle sa: "Hvordan kan man styre et land med 246 ostesorter?"`,
     },
   ],
@@ -1665,7 +1665,7 @@ export const CHAPTER_FRANSK_1_6_1: TextbookChapter = {
   chapterNumber: '6.1',
   title: 'La maison',
   subtitle: 'Huset',
-  description: 'Laer om rommene i et hus.',
+  description: 'Lær om rommene i et hus.',
   estimatedMinutes: 45,
   competenceGoals: [
     'navngi rom i et hus',
@@ -1710,12 +1710,12 @@ Et hus har mange rom. Her er de viktigste:
       id: 'fransk-1-6-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Rommene',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) kjoekkenet
 b) stua
 c) soverommet`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **la cuisine**
 
@@ -1731,7 +1731,7 @@ c) **la chambre**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv paa fransk:',
+        task: 'Skriv på fransk:',
         subTasks: [
           { label: 'a', task: 'badet', solution: 'la salle de bains' },
           { label: 'b', task: 'hagen', solution: 'le jardin' },
@@ -1739,7 +1739,7 @@ c) **la chambre**`,
           { label: 'd', task: 'gangen', solution: "le couloir / l'entree" },
         ],
         solution: "a) la salle de bains, b) le jardin, c) la cave, d) le couloir / l'entree",
-        hints: ['Salle de bains = badevaerelset', 'Jardin = hage'],
+        hints: ['Salle de bains = badeværelset', 'Jardin = hage'],
       },
     },
     {
@@ -1752,7 +1752,7 @@ c) **la chambre**`,
 | grand(e) | stor(t) |
 | petit(e) | lite(n) |
 | clair(e) | lys(t) |
-| sombre | moerkt |
+| sombre | mørkt |
 | confortable | komfortabelt |
 | moderne | moderne |
 | ancien(ne) | gammelt |
@@ -1771,7 +1771,7 @@ c) **la chambre**`,
 a) Stua er stor.
 b) Badet er lite.
 c) Kjoekkenet er moderne.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Le salon est grand.**
 
@@ -1794,7 +1794,7 @@ c) **La cuisine est moderne.**`,
           { label: 'c', task: 'Huset er gammelt.', solution: 'La maison est ancienne.' },
         ],
         solution: 'a) Le jardin est grand. b) La chambre est confortable. c) La maison est ancienne.',
-        hints: ['Husk at adjektivet maa samsvare i kjoenn', 'ancien -> ancienne (hunkjoenn)'],
+        hints: ['Husk at adjektivet maa samsvare i kjønn', 'ancien -> ancienne (hunkjønn)'],
       },
     },
     {
@@ -1805,23 +1805,23 @@ c) **La cuisine est moderne.**`,
 | Fransk | Norsk |
 |--------|-------|
 | Ou est... ? | Hvor er...? |
-| au rez-de-chaussee | i foerste etasje |
-| au premier etage | i andre etasje |
-| au deuxieme etage | i tredje etasje |
+| au rez-de-chaussee | i første etasje |
+| au premier étage | i andre etasje |
+| au deuxième étage | i tredje etasje |
 | en haut | oppe |
 | en bas | nede |
-| a gauche | til venstre |
-| a droite | til hoeyre |`,
+| à gauche | til venstre |
+| à droite | til høyre |`,
     },
     {
       id: 'fransk-1-6-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Hvor er rommet?',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Kjoekkenet er i foerste etasje.
+a) Kjoekkenet er i første etasje.
 b) Soverommet er oppe.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **La cuisine est au rez-de-chaussee.**
 
@@ -1837,11 +1837,11 @@ b) **La chambre est en haut.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Hvor er badet?', solution: 'Ou est la salle de bains ?' },
+          { label: 'a', task: 'Hvor er badet?', solution: 'Où est la salle de bains ?' },
           { label: 'b', task: 'Badet er oppe.', solution: 'La salle de bains est en haut.' },
-          { label: 'c', task: 'Stua er til venstre.', solution: 'Le salon est a gauche.' },
+          { label: 'c', task: 'Stua er til venstre.', solution: 'Le salon est à gauche.' },
         ],
-        solution: 'a) Ou est la salle de bains ? b) La salle de bains est en haut. c) Le salon est a gauche.',
+        solution: 'a) Où est la salle de bains ? b) La salle de bains est en haut. c) Le salon est à gauche.',
         hints: ['ou = hvor', 'en haut = oppe'],
       },
     },
@@ -1850,11 +1850,11 @@ b) **La chambre est en haut.**`,
       type: 'tip',
       content: `**Huskeregel for etasjer:**
 
-- **le rez-de-chaussee** = foerste etasje (bakkenivaa)
-- **le premier etage** = andre etasje
-- **le deuxieme etage** = tredje etasje
+- **le rez-de-chaussee** = første etasje (bakkenivaa)
+- **le premier étage** = andre etasje
+- **le deuxième étage** = tredje etasje
 
-I Frankrike teller man annerledes - det vi kaller foerste etasje er "le rez-de-chaussee" (gateplan). Paa fransk begynner man aa telle etasjer fra den foerste etasjen OVER bakkenivaa.`,
+I Frankrike teller man annerledes - det vi kaller første etasje er "le rez-de-chaussee" (gateplan). På fransk begynner man å telle etasjer fra den første etasjen OVER bakkenivaa.`,
     },
   ],
   exercises: [],
@@ -1870,11 +1870,11 @@ export const CHAPTER_FRANSK_1_6_2: TextbookChapter = {
   chapterNumber: '6.2',
   title: 'Les meubles',
   subtitle: 'Moeblene',
-  description: 'Laer navnene paa moebler og preposisjoner paa fransk.',
+  description: 'Lær navnene på moebler og preposisjoner på fransk.',
   estimatedMinutes: 40,
   competenceGoals: [
     'navngi vanlige moebler',
-    'bruke preposisjoner for aa si hvor ting er',
+    'bruke preposisjoner for å si hvor ting er',
   ],
   content: [
     {
@@ -1892,7 +1892,7 @@ Her er de vanligste moeblene:
 | le fauteuil | lenestolen |
 | la table | bordet |
 | la table basse | sofabordet |
-| la television / la tele | TVen |
+| la télévision / la télé | TVen |
 | l'etagere (f) | hylla |
 | la lampe | lampa |`,
     },
@@ -1925,12 +1925,12 @@ Her er de vanligste moeblene:
       id: 'fransk-1-6-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Moebler',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) sofa
 b) seng
 c) bord`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **le canape**
 
@@ -1946,7 +1946,7 @@ c) **la table**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv paa fransk med artikkel:',
+        task: 'Skriv på fransk med artikkel:',
         subTasks: [
           { label: 'a', task: 'stol', solution: 'la chaise' },
           { label: 'b', task: 'skap', solution: "l'armoire (f)" },
@@ -1954,7 +1954,7 @@ c) **la table**`,
           { label: 'd', task: 'kjoeleskap', solution: 'le refrigerateur / le frigo' },
         ],
         solution: "a) la chaise, b) l'armoire, c) la lampe, d) le frigo",
-        hints: ['Armoire = skap (hunkjoenn)', 'Chaise = stol'],
+        hints: ['Armoire = skap (hunkjønn)', 'Chaise = stol'],
       },
     },
     {
@@ -1962,28 +1962,28 @@ c) **la table**`,
       type: 'text',
       content: `## Preposisjoner (les prepositions de lieu)
 
-For aa si hvor moebler og ting befinner seg:
+For å si hvor moebler og ting befinner seg:
 
 | Fransk | Norsk |
 |--------|-------|
-| sur | paa |
+| sur | på |
 | sous | under |
 | dans | i |
 | devant | foran |
 | derriere | bak |
-| a cote de | ved siden av |
+| à côté de | ved siden av |
 | entre | mellom |
 | en face de | overfor |`,
     },
     {
       id: 'fransk-1-6-2-example-2',
       type: 'example',
-      title: 'Eksempel 2: Hvor staar moeblene?',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Hvor står moeblene?',
+      problem: `Si på fransk:
 
-a) Lampa staar paa bordet.
-b) Stolen staar ved siden av sofaen.`,
-      solution: `**Loesning:**
+a) Lampa står på bordet.
+b) Stolen står ved siden av sofaen.`,
+      solution: `**Løsning:**
 
 a) **La lampe est sur la table.**
 
@@ -2000,11 +2000,11 @@ b) **La chaise est a cote du canape.**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'TVen er foran sofaen.', solution: 'La tele est devant le canape.' },
-          { label: 'b', task: 'Senga staar i soverommet.', solution: 'Le lit est dans la chambre.' },
-          { label: 'c', task: 'Speilet henger paa veggen.', solution: 'Le miroir est sur le mur.' },
+          { label: 'b', task: 'Senga står i soverommet.', solution: 'Le lit est dans la chambre.' },
+          { label: 'c', task: 'Speilet henger på veggen.', solution: 'Le miroir est sur le mur.' },
         ],
         solution: 'a) La tele est devant le canape. b) Le lit est dans la chambre. c) Le miroir est sur le mur.',
-        hints: ['devant = foran', 'dans = i', 'sur = paa'],
+        hints: ['devant = foran', 'dans = i', 'sur = på'],
       },
     },
     {
@@ -2027,12 +2027,12 @@ b) **La chaise est a cote du canape.**`,
       id: 'fransk-1-6-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Beskrive et rom',
-      problem: `Beskriv stua paa fransk med minst 3 moebler.`,
-      solution: `**Eksempel paa loesning:**
+      problem: `Beskriv stua på fransk med minst 3 moebler.`,
+      solution: `**Eksempel på løsning:**
 
 Dans le salon, il y a un grand canape. Devant le canape, il y a une table basse. Sur le mur, il y a une television. A cote du canape, il y a une lampe.
 
-(I stua er det en stor sofa. Foran sofaen er det et sofabord. Paa veggen er det en TV. Ved siden av sofaen er det en lampe.)`,
+(I stua er det en stor sofa. Foran sofaen er det et sofabord. På veggen er det en TV. Ved siden av sofaen er det en lampe.)`,
     },
     {
       id: 'fransk-1-6-2-ex-block-3',
@@ -2057,12 +2057,12 @@ Dans le salon, il y a un grand canape. Devant le canape, il y a une table basse.
       type: 'tip',
       content: `**Sammentrekninger med preposisjoner:**
 
-Naar "a" eller "de" kommer foer bestemt artikkel, trekkes de sammen:
+Når "a" eller "de" kommer før bestemt artikkel, trekkes de sammen:
 
 - **a + le = au** (au salon = i stua)
-- **a + les = aux** (aux toilettes = paa toalettet)
+- **a + les = aux** (aux toilettes = på toalettet)
 - **de + le = du** (a cote du lit = ved siden av senga)
-- **de + les = des** (pres des fenetres = naer vinduene)
+- **de + les = des** (pres des fenêtres = naer vinduene)
 
 Men: **a la** og **de la** endres IKKE (a la cuisine, de la chambre).`,
     },
@@ -2080,7 +2080,7 @@ export const CHAPTER_FRANSK_1_6_3: TextbookChapter = {
   chapterNumber: '6.3',
   title: 'Ma chambre',
   subtitle: 'Rommet mitt',
-  description: 'Laer aa beskrive ditt eget rom med "il y a".',
+  description: 'Lær å beskrive ditt eget rom med "il y a".',
   estimatedMinutes: 45,
   competenceGoals: [
     'beskrive sitt eget rom',
@@ -2092,11 +2092,11 @@ export const CHAPTER_FRANSK_1_6_3: TextbookChapter = {
       type: 'text',
       content: `## Beskrive rommet ditt
 
-Naar du skal beskrive rommet ditt, kan du fortelle om:
-- Stoerrelsen (grand/petit)
+Når du skal beskrive rommet ditt, kan du fortelle om:
+- Størrelsen (grand/petit)
 - Fargene
 - Moeblene
-- Hva du gjoer der
+- Hva du gjør der
 
 **Nyttige uttrykk:**
 
@@ -2105,13 +2105,13 @@ Naar du skal beskrive rommet ditt, kan du fortelle om:
 | Ma chambre est... | Rommet mitt er... |
 | Dans ma chambre, il y a... | I rommet mitt er det... |
 | J'ai... | Jeg har... |
-| Sur le mur | Paa veggen |
-| Par terre / sur le sol | Paa gulvet |`,
+| Sur le mur | På veggen |
+| Par terre / sur le sol | På gulvet |`,
     },
     {
       id: 'fransk-1-6-3-text-1',
       type: 'text',
-      content: `## Ting paa rommet
+      content: `## Ting på rommet
 
 | Fransk | Norsk |
 |--------|-------|
@@ -2119,7 +2119,7 @@ Naar du skal beskrive rommet ditt, kan du fortelle om:
 | l'ordinateur (m) | datamaskinen |
 | le portable | laptopen / mobilen |
 | le poster / l'affiche (f) | plakaten |
-| la bibliotheque | bokhylla |
+| la bibliothèque | bokhylla |
 | les livres (m) | boekene |
 | les jouets (m) | lekene |
 | la photo | bildet/fotografiet |
@@ -2127,22 +2127,22 @@ Naar du skal beskrive rommet ditt, kan du fortelle om:
 
 ## "Il y a" (det er / det finnes)
 
-**Il y a** er et veldig nyttig uttrykk paa fransk. Det betyr "det er" eller "det finnes":
+**Il y a** er et veldig nyttig uttrykk på fransk. Det betyr "det er" eller "det finnes":
 
 - **Il y a** un lit. (Det er en seng.)
-- **Il y a** des livres. (Det er noen boeker.)
+- **Il y a** des livres. (Det er noen bøker.)
 - **Il n'y a pas de** television. (Det er ingen TV.)`,
     },
     {
       id: 'fransk-1-6-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Beskrive rommet',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Rommet mitt er stort.
 b) Jeg har en datamaskin.
-c) Paa veggen henger en plakat.`,
-      solution: `**Loesning:**
+c) På veggen henger en plakat.`,
+      solution: `**Løsning:**
 
 a) **Ma chambre est grande.**
 
@@ -2165,13 +2165,13 @@ c) **Sur le mur, il y a un poster.**`,
           { label: 'c', task: 'Senga mi er stor.', solution: 'Mon lit est grand.' },
         ],
         solution: "a) Ma chambre est petite. b) J'ai un bureau. c) Mon lit est grand.",
-        hints: ['ma = min (hunkjoenn)', 'mon = min (hankjoenn)'],
+        hints: ['ma = min (hunkjønn)', 'mon = min (hankjønn)'],
       },
     },
     {
       id: 'fransk-1-6-3-text-2',
       type: 'text',
-      content: `## Farger paa rommet
+      content: `## Farger på rommet
 
 | Fransk | Norsk |
 |--------|-------|
@@ -2180,22 +2180,22 @@ c) **Sur le mur, il y a un poster.**`,
 | Les meubles sont... | Moeblene er... |
 
 **Farger:**
-blanc/blanche (hvit), noir(e) (svart), bleu(e) (blaa), vert(e) (groenn), rouge (roed), jaune (gul), marron (brun), gris(e) (graa), rose (rosa), violet(te) (lilla)
+blanc/blanche (hvit), noir(e) (svart), bleu(e) (blå), vert(e) (grønn), rouge (rød), jaune (gul), marron (brun), gris(e) (grå), rose (rosa), violet(te) (lilla)
 
-**Merk:** De fleste fargene maa samsvare i kjoenn og tall:
-- Le mur est **blanc**. (hankjoenn)
-- La porte est **blanche**. (hunkjoenn)
+**Merk:** De fleste fargene maa samsvare i kjønn og tall:
+- Le mur est **blanc**. (hankjønn)
+- La porte est **blanche**. (hunkjønn)
 - Les murs sont **blancs**. (flertall)`,
     },
     {
       id: 'fransk-1-6-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Farger',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Veggene er hvite.
-b) Teppet er blaatt.`,
-      solution: `**Loesning:**
+b) Teppet er blått.`,
+      solution: `**Løsning:**
 
 a) **Les murs sont blancs.**
 
@@ -2211,7 +2211,7 @@ b) **Le tapis est bleu.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Veggene er blaa.', solution: 'Les murs sont bleus.' },
+          { label: 'a', task: 'Veggene er blå.', solution: 'Les murs sont bleus.' },
           { label: 'b', task: 'Skrivebordet er hvitt.', solution: 'Le bureau est blanc.' },
           { label: 'c', task: 'Stolen er brun.', solution: 'La chaise est marron.' },
         ],
@@ -2222,27 +2222,27 @@ b) **Le tapis est bleu.**`,
     {
       id: 'fransk-1-6-3-text-3',
       type: 'text',
-      content: `## Hva gjoer du paa rommet?
+      content: `## Hva gjør du på rommet?
 
 | Fransk | Norsk |
 |--------|-------|
 | Je dors. | Jeg sover. |
-| Je fais mes devoirs. | Jeg gjoer lekser. |
+| Je fais mes devoirs. | Jeg gjør lekser. |
 | Je lis. | Jeg leser. |
 | Je joue. | Jeg leker/spiller. |
-| J'ecoute de la musique. | Jeg hoerer paa musikk. |
+| J'écoute de la musique. | Jeg hører på musikk. |
 | Je me repose. | Jeg slapper av. |`,
     },
     {
       id: 'fransk-1-6-3-example-3',
       type: 'example',
       title: 'Eksempel 3: En beskrivelse av rommet',
-      problem: `Skriv en kort beskrivelse av rommet ditt paa fransk (minst 4 setninger).`,
-      solution: `**Eksempel paa loesning:**
+      problem: `Skriv en kort beskrivelse av rommet ditt på fransk (minst 4 setninger).`,
+      solution: `**Eksempel på løsning:**
 
-Ma chambre n'est pas tres grande, mais elle est confortable. Les murs sont bleu clair. Dans ma chambre, il y a un lit et un bureau. Sur le mur, il y a beaucoup de posters. J'ai aussi une bibliotheque avec beaucoup de livres. Dans ma chambre, je fais mes devoirs et j'ecoute de la musique.
+Ma chambre n'est pas très grande, mais elle est confortable. Les murs sont bleu clair. Dans ma chambre, il y a un lit et un bureau. Sur le mur, il y a beaucoup de posters. J'ai aussi une bibliothèque avec beaucoup de livres. Dans ma chambre, je fais mes devoirs et j'écoute de la musique.
 
-(Rommet mitt er ikke veldig stort, men det er komfortabelt. Veggene er lyseblaa. I rommet mitt er det en seng og et skrivebord. Paa veggen er det mange plakater. Jeg har ogsaa en bokhylle med mange boeker. Paa rommet mitt gjoer jeg lekser og hoerer paa musikk.)`,
+(Rommet mitt er ikke veldig stort, men det er komfortabelt. Veggene er lyseblå. I rommet mitt er det en seng og et skrivebord. På veggen er det mange plakater. Jeg har også en bokhylle med mange bøker. På rommet mitt gjør jeg lekser og hører på musikk.)`,
     },
     {
       id: 'fransk-1-6-3-ex-block-3',
@@ -2255,7 +2255,7 @@ Ma chambre n'est pas tres grande, mais elle est confortable. Les murs sont bleu 
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'I rommet mitt er det en seng.', solution: 'Dans ma chambre, il y a un lit.' },
-          { label: 'b', task: 'Paa rommet mitt leser jeg boeker.', solution: 'Dans ma chambre, je lis des livres.' },
+          { label: 'b', task: 'På rommet mitt leser jeg bøker.', solution: 'Dans ma chambre, je lis des livres.' },
           { label: 'c', task: 'Rommet mitt er koselig.', solution: 'Ma chambre est confortable.' },
         ],
         solution: 'a) Dans ma chambre, il y a un lit. b) Dans ma chambre, je lis des livres. c) Ma chambre est confortable.',
@@ -2265,12 +2265,12 @@ Ma chambre n'est pas tres grande, mais elle est confortable. Les murs sont bleu 
     {
       id: 'fransk-1-6-3-tip-1',
       type: 'tip',
-      content: `**Tips for aa beskrive rommet:**
+      content: `**Tips for å beskrive rommet:**
 
-1. Start med stoerrelse og form
-2. Nevn fargene paa vegger og moebler
-3. Bruk "il y a" for aa si hva som finnes i rommet
-4. Fortell hva du gjoer paa rommet
+1. Start med størrelse og form
+2. Nevn fargene på vegger og moebler
+3. Bruk "il y a" for å si hva som finnes i rommet
+4. Fortell hva du gjør på rommet
 5. Si hva du liker best med rommet: "Ce que j'aime le plus, c'est..."`,
     },
   ],
@@ -2287,7 +2287,7 @@ export const CHAPTER_FRANSK_1_6_4: TextbookChapter = {
   chapterNumber: '6.4',
   title: 'Habiter en France',
   subtitle: 'Bo i Frankrike',
-  description: 'Laer om hvordan folk bor i Frankrike.',
+  description: 'Lær om hvordan folk bor i Frankrike.',
   estimatedMinutes: 40,
   competenceGoals: [
     'kjenne til boformer i Frankrike',
@@ -2299,7 +2299,7 @@ export const CHAPTER_FRANSK_1_6_4: TextbookChapter = {
       type: 'text',
       content: `## Boformer i Frankrike
 
-I Frankrike bor folk paa ulike maater:
+I Frankrike bor folk på ulike maater:
 
 | Fransk | Norsk |
 |--------|-------|
@@ -2317,7 +2317,7 @@ I Frankrike bor folk paa ulike maater:
 
 | Fransk | Norsk |
 |--------|-------|
-| Ou habites-tu ? / Tu habites ou ? | Hvor bor du? |
+| Où habites-tu ? / Tu habites ou ? | Hvor bor du? |
 | J'habite a... | Jeg bor i... |
 | J'habite dans un appartement. | Jeg bor i en leilighet. |
 | J'habite dans une maison. | Jeg bor i et hus. |
@@ -2329,12 +2329,12 @@ I Frankrike bor folk paa ulike maater:
       id: 'fransk-1-6-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Hvor bor du?',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg bor i Oslo.
 b) Jeg bor i et hus.
 c) Jeg bor med familien min.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **J'habite a Oslo.**
 
@@ -2353,7 +2353,7 @@ c) **J'habite avec ma famille.**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Jeg bor i en leilighet.', solution: "J'habite dans un appartement." },
-          { label: 'b', task: 'Hvor bor du?', solution: 'Ou habites-tu ? / Tu habites ou ?' },
+          { label: 'b', task: 'Hvor bor du?', solution: 'Où habites-tu ? / Tu habites ou ?' },
           { label: 'c', task: 'Han bor i Paris.', solution: 'Il habite a Paris.' },
         ],
         solution: "a) J'habite dans un appartement. b) Tu habites ou ? c) Il habite a Paris.",
@@ -2379,12 +2379,12 @@ c) **J'habite avec ma famille.**`,
       id: 'fransk-1-6-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Beskrive boligen',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Leiligheten har 4 rom.
 b) Det er en balkong.
 c) Huset har en hage.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **L'appartement a quatre pieces.**
 
@@ -2418,8 +2418,8 @@ c) **La maison a un jardin.**`,
 | Fransk | Norsk |
 |--------|-------|
 | en ville | i byen |
-| a la campagne | paa landet |
-| pres de... | i naerheten av... |
+| a la campagne | på landet |
+| pres de... | i nærheten av... |
 | dans le centre-ville | i sentrum |
 | en banlieue | i forstaden |
 | dans un quartier | i en bydel |`,
@@ -2428,18 +2428,18 @@ c) **La maison a un jardin.**`,
       id: 'fransk-1-6-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Hvor ligger boligen?',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg bor i byen.
-b) Vi bor paa landet.
-c) Huset ligger i naerheten av skolen.`,
-      solution: `**Loesning:**
+b) Vi bor på landet.
+c) Huset ligger i nærheten av skolen.`,
+      solution: `**Løsning:**
 
 a) **J'habite en ville.**
 
 b) **Nous habitons a la campagne.**
 
-c) **La maison est pres de l'ecole.**`,
+c) **La maison est pres de l'école.**`,
     },
     {
       id: 'fransk-1-6-4-ex-block-3',
@@ -2452,11 +2452,11 @@ c) **La maison est pres de l'ecole.**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Jeg bor i sentrum.', solution: "J'habite dans le centre-ville." },
-          { label: 'b', task: 'De bor paa landet.', solution: 'Ils habitent a la campagne.' },
+          { label: 'b', task: 'De bor på landet.', solution: 'Ils habitent a la campagne.' },
           { label: 'c', task: 'Leiligheten er i forstaden.', solution: "L'appartement est en banlieue." },
         ],
         solution: "a) J'habite dans le centre-ville. b) Ils habitent a la campagne. c) L'appartement est en banlieue.",
-        hints: ['centre-ville = sentrum', 'a la campagne = paa landet'],
+        hints: ['centre-ville = sentrum', 'a la campagne = på landet'],
       },
     },
     {
@@ -2464,7 +2464,7 @@ c) **La maison est pres de l'ecole.**`,
       type: 'note',
       content: `**Visste du?**
 
-- I Frankrike er det svart vanlig aa bo i leilighet, spesielt i storbyene
+- I Frankrike er det svart vanlig å bo i leilighet, spesielt i storbyene
 - Paris er kjent for sine "immeubles haussmanniens" - elegante boligblokker fra 1800-tallet
 - Mange franske leiligheter har trepersiener (les volets) utenfor vinduene
 - "La colocation" (kollektiv) er svart populaert blant studenter i Frankrike

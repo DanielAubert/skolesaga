@@ -48,7 +48,7 @@ I dette kapittelet laerer du ordene for de vanligste transportmidlene og hvordan
 | der Bus | bussen | hankjonn |
 | das Flugzeug | flyet | intetkjonn |
 | das Fahrrad | sykkelen | intetkjonn |
-| die Strassenbahn | trikken | hunkjonn |
+| die Straßenbahn | trikken | hunkjonn |
 | die U-Bahn | t-banen | hunkjonn |
 | das Schiff | skipet | intetkjonn |
 | das Motorrad | motorsykkelen | intetkjonn |
@@ -80,10 +80,10 @@ Merk at alle substantiver pa tysk har stor forbokstav!`,
         subTasks: [
           { label: 'a', task: 'bussen', solution: 'der Bus' },
           { label: 'b', task: 'flyet', solution: 'das Flugzeug' },
-          { label: 'c', task: 'trikken', solution: 'die Strassenbahn' },
+          { label: 'c', task: 'trikken', solution: 'die Straßenbahn' },
           { label: 'd', task: 'taxien', solution: 'das Taxi' },
         ],
-        solution: 'a) der Bus, b) das Flugzeug, c) die Strassenbahn, d) das Taxi',
+        solution: 'a) der Bus, b) das Flugzeug, c) die Straßenbahn, d) das Taxi',
         hints: ['Husk at alle tyske substantiver har stor forbokstav', 'Artikkel er viktig: der (hankjonn), die (hunkjonn), das (intetkjonn)'],
       },
     },
@@ -101,7 +101,7 @@ Nar vi snakker om hvilket transportmiddel vi bruker, bruker vi preposisjonen **m
 **Eksempler:**
 - Ich fahre mit **dem** Auto. (Jeg kjorer med bilen.)
 - Ich fahre mit **dem** Zug. (Jeg reiser med toget.)
-- Ich fahre mit **der** Strassenbahn. (Jeg reiser med trikken.)`,
+- Ich fahre mit **der** Straßenbahn. (Jeg reiser med trikken.)`,
     },
     {
       id: 'tysk-1-9-1-example-2',
@@ -129,7 +129,7 @@ Husk: der/das -> dem, die -> der etter "mit"`,
         subTasks: [
           { label: 'a', task: 'Ich fahre mit ___ Auto.', solution: 'dem' },
           { label: 'b', task: 'Er kommt mit ___ Zug.', solution: 'dem' },
-          { label: 'c', task: 'Sie fahrt mit ___ Strassenbahn.', solution: 'der' },
+          { label: 'c', task: 'Sie fährtmit ___ Straßenbahn.', solution: 'der' },
           { label: 'd', task: 'Wir fliegen mit ___ Flugzeug.', solution: 'dem' },
         ],
         solution: 'a) dem, b) dem, c) der, d) dem',
@@ -145,10 +145,10 @@ Husk: der/das -> dem, die -> der etter "mit"`,
 |------|-------|
 | Wie kommst du zur Schule? | Hvordan kommer du til skolen? |
 | Ich fahre mit dem Bus. | Jeg reiser med bussen. |
-| Ich gehe zu Fuss. | Jeg gar til fots. |
-| Der Zug fahrt um 10 Uhr. | Toget gar klokken 10. |
+| Ich gehe zu Fuß. | Jeg gar til fots. |
+| Der Zug fährtum 10 Uhr. | Toget gar klokken 10. |
 | Wo ist die Bushaltestelle? | Hvor er bussholdeplassen? |
-| Wann kommt der nachste Bus? | Nar kommer neste buss? |`,
+| Wann kommt der nächste Bus? | Nar kommer neste buss? |`,
     },
     {
       id: 'tysk-1-9-1-example-3',
@@ -173,11 +173,11 @@ c) Bussen kommer om 5 minutter.`,
         task: 'Oversett til tysk.',
         subTasks: [
           { label: 'a', task: 'Hvordan kommer du til skolen?', solution: 'Wie kommst du zur Schule?' },
-          { label: 'b', task: 'Jeg gar til fots.', solution: 'Ich gehe zu Fuss.' },
-          { label: 'c', task: 'Toget gar klokken 8.', solution: 'Der Zug fahrt um 8 Uhr.' },
+          { label: 'b', task: 'Jeg gar til fots.', solution: 'Ich gehe zu Fuß.' },
+          { label: 'c', task: 'Toget gar klokken 8.', solution: 'Der Zug fährtum 8 Uhr.' },
         ],
-        solution: 'a) Wie kommst du zur Schule? b) Ich gehe zu Fuss. c) Der Zug fahrt um 8 Uhr.',
-        hints: ['zur = zu + der (til)', 'zu Fuss = til fots'],
+        solution: 'a) Wie kommst du zur Schule? b) Ich gehe zu Fuß. c) Der Zug fährtum 8 Uhr.',
+        hints: ['zur = zu + der (til)', 'zu Fuß = til fots'],
       },
     },
     {
@@ -305,9 +305,9 @@ Nar du vil finne frem i byen, kan du bruke disse frasene:
 |------|-------|
 | Wo ist...? | Hvor er...? |
 | Wie komme ich zum/zur...? | Hvordan kommer jeg til...? |
-| Entschuldigung, konnen Sie mir helfen? | Unnskyld, kan De hjelpe meg? |
+| Entschuldigung, können Sie mir helfen? | Unnskyld, kan De hjelpe meg? |
 | Ist es weit? | Er det langt? |
-| Ist es in der Nahe? | Er det i naerheten? |
+| Ist es in der Nähe? | Er det i naerheten? |
 
 **Zum eller zur?**
 - zum = zu + dem (hankjonn/intetkjonn)
@@ -354,8 +354,8 @@ c) Wie komme ich **zum** Rathaus? (das -> zum)`,
 | Gehen Sie geradeaus. | Ga rett fram. |
 | Gehen Sie nach links. | Ga til venstre. |
 | Gehen Sie nach rechts. | Ga til hoyre. |
-| Die erste Strasse links. | Forste gate til venstre. |
-| Die zweite Strasse rechts. | Andre gate til hoyre. |
+| Die erste Straßelinks. | Forste gate til venstre. |
+| Die zweite Straßerechts. | Andre gate til hoyre. |
 | Es ist auf der linken Seite. | Det er pa venstre side. |
 | Es ist auf der rechten Seite. | Det er pa hoyre side. |`,
     },
@@ -364,7 +364,7 @@ c) Wie komme ich **zum** Rathaus? (das -> zum)`,
       type: 'example',
       title: 'Eksempel 3: Veibeskrivelse',
       problem: `Oversett til norsk:
-"Gehen Sie geradeaus, dann die zweite Strasse links. Das Rathaus ist auf der rechten Seite."`,
+"Gehen Sie geradeaus, dann die zweite Straßelinks. Das Rathaus ist auf der rechten Seite."`,
       solution: `"Ga rett fram, sa andre gate til venstre. Radhuset er pa hoyre side."`,
     },
     {
@@ -379,9 +379,9 @@ c) Wie komme ich **zum** Rathaus? (das -> zum)`,
         subTasks: [
           { label: 'a', task: 'Ga rett fram.', solution: 'Gehen Sie geradeaus.' },
           { label: 'b', task: 'Ga til venstre.', solution: 'Gehen Sie nach links.' },
-          { label: 'c', task: 'Forste gate til hoyre.', solution: 'Die erste Strasse rechts.' },
+          { label: 'c', task: 'Forste gate til hoyre.', solution: 'Die erste Straßerechts.' },
         ],
-        solution: 'a) Gehen Sie geradeaus. b) Gehen Sie nach links. c) Die erste Strasse rechts.',
+        solution: 'a) Gehen Sie geradeaus. b) Gehen Sie nach links. c) Die erste Straßerechts.',
         hints: ['geradeaus = rett fram', 'links = venstre, rechts = hoyre'],
       },
     },
@@ -392,11 +392,11 @@ c) Wie komme ich **zum** Rathaus? (das -> zum)`,
 
 | Tysk | Norsk |
 |------|-------|
-| die Strasse | gaten |
+| die Straße | gaten |
 | die Ecke | hjornet |
 | die Kreuzung | krysset |
 | die Ampel | trafikklyset |
-| die Brucke | broen |
+| die Brücke | broen |
 | gegenüber | overfor |
 | neben | ved siden av |`,
     },
@@ -410,10 +410,10 @@ c) Wie komme ich **zum** Rathaus? (das -> zum)`,
         difficulty: 'lett',
         task: 'Hva betyr disse ordene?',
         subTasks: [
-          { label: 'a', task: 'die Strasse', solution: 'gaten' },
+          { label: 'a', task: 'die Straße', solution: 'gaten' },
           { label: 'b', task: 'die Ampel', solution: 'trafikklyset' },
           { label: 'c', task: 'gegenüber', solution: 'overfor' },
-          { label: 'd', task: 'die Brucke', solution: 'broen' },
+          { label: 'd', task: 'die Brücke', solution: 'broen' },
         ],
         solution: 'a) gaten, b) trafikklyset, c) overfor, d) broen',
         hints: ['Disse ordene er nyttige nar du far veibeskrivelser'],
@@ -456,7 +456,7 @@ Nar du skal reise i Tyskland, ma du kunne kjope billetter og sporre om avgangsti
 | Tysk | Norsk |
 |------|-------|
 | die Fahrkarte | billetten |
-| die Ruckfahrkarte | tur-retur-billett |
+| die Rückfahrkarte | tur-retur-billett |
 | die einfache Fahrt | enkeltbillett |
 | der Fahrplan | rutetabellen |
 | die Abfahrt | avgangen |
@@ -508,10 +508,10 @@ Nyttige fraser nar du kjoper billett:
 | Tysk | Norsk |
 |------|-------|
 | Eine Fahrkarte nach Berlin, bitte. | En billett til Berlin, takk. |
-| Hin und zuruck? | Tur-retur? |
+| Hin und zurück? | Tur-retur? |
 | Nur einfach, bitte. | Bare en vei, takk. |
 | Was kostet das? | Hva koster det? |
-| Wann fahrt der Zug? | Nar gar toget? |
+| Wann fährtder Zug? | Nar gar toget? |
 | Von welchem Gleis? | Fra hvilket spor? |
 | Muss ich umsteigen? | Ma jeg bytte? |`,
     },
@@ -521,15 +521,15 @@ Nyttige fraser nar du kjoper billett:
       title: 'Eksempel 2: Pa togstasjonen',
       problem: `Les dialogen og svar pa sporsmalene:
 
-*Kunde: Guten Tag! Eine Fahrkarte nach Munchen, bitte.*
-*Angestellter: Hin und zuruck?*
+*Kunde: Guten Tag! Eine Fahrkarte nach München, bitte.*
+*Angestellter: Hin und zurück?*
 *Kunde: Nein, nur einfach.*
-*Angestellter: Das macht 45 Euro. Der Zug fahrt um 10:30 von Gleis 3.*
+*Angestellter: Das macht 45 Euro. Der Zug fährtum 10:30 von Gleis 3.*
 
 a) Hvor vil kunden reise?
 b) Vil kunden ha tur-retur?
 c) Hva koster billetten?`,
-      solution: `a) Kunden vil reise til Munchen.
+      solution: `a) Kunden vil reise til München.
 b) Nei, kunden vil bare ha enkeltbillett (einfach).
 c) Billetten koster 45 Euro.`,
     },
@@ -545,10 +545,10 @@ c) Billetten koster 45 Euro.`,
         subTasks: [
           { label: 'a', task: 'En billett til Hamburg, takk.', solution: 'Eine Fahrkarte nach Hamburg, bitte.' },
           { label: 'b', task: 'Hva koster det?', solution: 'Was kostet das?' },
-          { label: 'c', task: 'Nar gar toget?', solution: 'Wann fahrt der Zug?' },
+          { label: 'c', task: 'Nar gar toget?', solution: 'Wann fährtder Zug?' },
           { label: 'd', task: 'Fra hvilket spor?', solution: 'Von welchem Gleis?' },
         ],
-        solution: 'a) Eine Fahrkarte nach Hamburg, bitte. b) Was kostet das? c) Wann fahrt der Zug? d) Von welchem Gleis?',
+        solution: 'a) Eine Fahrkarte nach Hamburg, bitte. b) Was kostet das? c) Wann fährtder Zug? d) Von welchem Gleis?',
         hints: ['nach = til (med byer)', 'bitte = takk/ver sa snill'],
       },
     },
@@ -559,20 +559,20 @@ c) Billetten koster 45 Euro.`,
 
 | Tysk | Norsk |
 |------|-------|
-| Der Zug fahrt um 9 Uhr. | Toget gar klokken 9. |
+| Der Zug fährtum 9 Uhr. | Toget gar klokken 9. |
 | Der Zug kommt um 11:30 an. | Toget ankommer klokken 11:30. |
 | Die Abfahrt ist um 14:15. | Avgangen er klokken 14:15. |
-| Der Zug hat Verspatung. | Toget er forsinket. |
-| Der Zug ist punktlich. | Toget er i rute. |`,
+| Der Zug hat Verspätung. | Toget er forsinket. |
+| Der Zug ist pünktlich. | Toget er i rute. |`,
     },
     {
       id: 'tysk-1-9-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Avgangstider',
       problem: `Oversett til norsk:
-a) Der Zug fahrt um 8:45 ab.
+a) Der Zug fährtum 8:45 ab.
 b) Die Ankunft ist um 12:30.
-c) Der Zug hat 10 Minuten Verspatung.`,
+c) Der Zug hat 10 Minuten Verspätung.`,
       solution: `a) Toget gar klokken 8:45.
 b) Ankomsten er klokken 12:30.
 c) Toget er 10 minutter forsinket.`,
@@ -587,12 +587,12 @@ c) Toget er 10 minutter forsinket.`,
         difficulty: 'medium',
         task: 'Oversett til tysk.',
         subTasks: [
-          { label: 'a', task: 'Toget gar klokken 10.', solution: 'Der Zug fahrt um 10 Uhr.' },
-          { label: 'b', task: 'Toget er forsinket.', solution: 'Der Zug hat Verspatung.' },
+          { label: 'a', task: 'Toget gar klokken 10.', solution: 'Der Zug fährtum 10 Uhr.' },
+          { label: 'b', task: 'Toget er forsinket.', solution: 'Der Zug hat Verspätung.' },
           { label: 'c', task: 'Ma jeg bytte?', solution: 'Muss ich umsteigen?' },
         ],
-        solution: 'a) Der Zug fahrt um 10 Uhr. b) Der Zug hat Verspatung. c) Muss ich umsteigen?',
-        hints: ['um + klokkeslett', 'Verspatung haben = vaere forsinket'],
+        solution: 'a) Der Zug fährtum 10 Uhr. b) Der Zug hat Verspätung. c) Muss ich umsteigen?',
+        hints: ['um + klokkeslett', 'Verspätung haben = vaere forsinket'],
       },
     },
     {
@@ -604,7 +604,7 @@ c) Toget er 10 minutter forsinket.`,
 |-----------|------|-------|
 | Kjope billett | Eine Fahrkarte, bitte. | En billett, takk. |
 | Sporre om pris | Was kostet das? | Hva koster det? |
-| Sporre om tid | Wann fahrt der Zug? | Nar gar toget? |
+| Sporre om tid | Wann fährtder Zug? | Nar gar toget? |
 | Sporre om spor | Von welchem Gleis? | Fra hvilket spor? |
 | Sporre om bytte | Muss ich umsteigen? | Ma jeg bytte? |`,
     },
@@ -620,9 +620,9 @@ c) Toget er 10 minutter forsinket.`,
         subTasks: [
           { label: 'a', task: 'Si "God dag" og be om en billett til Frankfurt', solution: 'Guten Tag! Eine Fahrkarte nach Frankfurt, bitte.' },
           { label: 'b', task: 'Spor hva det koster', solution: 'Was kostet das?' },
-          { label: 'c', task: 'Spor nar toget gar', solution: 'Wann fahrt der Zug?' },
+          { label: 'c', task: 'Spor nar toget gar', solution: 'Wann fährtder Zug?' },
         ],
-        solution: 'a) Guten Tag! Eine Fahrkarte nach Frankfurt, bitte. b) Was kostet das? c) Wann fahrt der Zug?',
+        solution: 'a) Guten Tag! Eine Fahrkarte nach Frankfurt, bitte. b) Was kostet das? c) Wann fährtder Zug?',
         hints: ['Guten Tag = God dag', 'bitte = takk'],
       },
     },
@@ -667,9 +667,9 @@ Nar du reiser til Tyskland eller andre tysktalende land, er det nyttig a kunne b
 | das Einzelzimmer | enkeltrom |
 | das Doppelzimmer | dobbeltrom |
 | die Rezeption | resepsjonen |
-| der Schlussel | nøkkelen |
-| das Fruhstuck | frokosten |
-| die Ubernachtung | overnatting |
+| der Schlüssel | nøkkelen |
+| das Frühstück | frokosten |
+| die Übernachtung | overnatting |
 | die Nacht | natten |
 | der Aufzug | heisen |
 | das Badezimmer | badet |`,
@@ -681,10 +681,10 @@ Nar du reiser til Tyskland eller andre tysktalende land, er det nyttig a kunne b
       problem: `Oversett til norsk:
 a) das Einzelzimmer
 b) die Rezeption
-c) das Fruhstuck`,
+c) das Frühstück`,
       solution: `a) das Einzelzimmer = enkeltrom
 b) die Rezeption = resepsjonen
-c) das Fruhstuck = frokosten`,
+c) das Frühstück = frokosten`,
     },
     {
       id: 'tysk-1-9-4-ex-block-1',
@@ -697,11 +697,11 @@ c) das Fruhstuck = frokosten`,
         task: 'Oversett til tysk.',
         subTasks: [
           { label: 'a', task: 'dobbeltrom', solution: 'das Doppelzimmer' },
-          { label: 'b', task: 'nokkelen', solution: 'der Schlussel' },
+          { label: 'b', task: 'nokkelen', solution: 'der Schlüssel' },
           { label: 'c', task: 'heisen', solution: 'der Aufzug' },
           { label: 'd', task: 'badet', solution: 'das Badezimmer' },
         ],
-        solution: 'a) das Doppelzimmer, b) der Schlussel, c) der Aufzug, d) das Badezimmer',
+        solution: 'a) das Doppelzimmer, b) der Schlüssel, c) der Aufzug, d) das Badezimmer',
         hints: ['Doppel = dobbel, Zimmer = rom', 'Aufzug = heis (lift)'],
       },
     },
@@ -714,12 +714,12 @@ Nyttige fraser nar du bestiller rom:
 
 | Tysk | Norsk |
 |------|-------|
-| Ich mochte ein Zimmer reservieren. | Jeg vil gjerne bestille et rom. |
+| Ich möchte ein Zimmer reservieren. | Jeg vil gjerne bestille et rom. |
 | Haben Sie ein freies Zimmer? | Har dere et ledig rom? |
-| Fur wie viele Nachte? | For hvor mange netter? |
-| Fur zwei Nachte, bitte. | For to netter, takk. |
+| Fürwie viele Nächte? | For hvor mange netter? |
+| Fürzwei Nächte, bitte. | For to netter, takk. |
 | Was kostet das Zimmer pro Nacht? | Hva koster rommet per natt? |
-| Ist Fruhstuck inklusive? | Er frokost inkludert? |`,
+| Ist Frühstück inklusive? | Er frokost inkludert? |`,
     },
     {
       id: 'tysk-1-9-4-example-2',
@@ -728,16 +728,16 @@ Nyttige fraser nar du bestiller rom:
       problem: `Les dialogen og svar pa sporsmalene:
 
 *Gast: Guten Tag! Haben Sie ein freies Zimmer?*
-*Rezeptionist: Ja, wir haben noch Zimmer frei. Mochten Sie ein Einzelzimmer oder ein Doppelzimmer?*
-*Gast: Ein Doppelzimmer, bitte. Fur drei Nachte.*
-*Rezeptionist: Das kostet 80 Euro pro Nacht, mit Fruhstuck.*
+*Rezeptionist: Ja, wir haben noch Zimmer frei. Möchten Sie ein Einzelzimmer oder ein Doppelzimmer?*
+*Gast: Ein Doppelzimmer, bitte. Fürdrei Nächte.*
+*Rezeptionist: Das kostet 80 Euro pro Nacht, mit Frühstück.*
 
 a) Hva slags rom vil gjesten ha?
 b) Hvor mange netter?
 c) Er frokost inkludert?`,
       solution: `a) Gjesten vil ha et dobbeltrom (Doppelzimmer).
-b) Tre netter (drei Nachte).
-c) Ja, frokost er inkludert (mit Fruhstuck).`,
+b) Tre netter (drei Nächte).
+c) Ja, frokost er inkludert (mit Frühstück).`,
     },
     {
       id: 'tysk-1-9-4-ex-block-2',
@@ -750,11 +750,11 @@ c) Ja, frokost er inkludert (mit Fruhstuck).`,
         task: 'Oversett til tysk.',
         subTasks: [
           { label: 'a', task: 'Har dere et ledig rom?', solution: 'Haben Sie ein freies Zimmer?' },
-          { label: 'b', task: 'For to netter, takk.', solution: 'Fur zwei Nachte, bitte.' },
+          { label: 'b', task: 'For to netter, takk.', solution: 'Fürzwei Nächte, bitte.' },
           { label: 'c', task: 'Hva koster rommet per natt?', solution: 'Was kostet das Zimmer pro Nacht?' },
-          { label: 'd', task: 'Er frokost inkludert?', solution: 'Ist Fruhstuck inklusive?' },
+          { label: 'd', task: 'Er frokost inkludert?', solution: 'Ist Frühstück inklusive?' },
         ],
-        solution: 'a) Haben Sie ein freies Zimmer? b) Fur zwei Nachte, bitte. c) Was kostet das Zimmer pro Nacht? d) Ist Fruhstuck inklusive?',
+        solution: 'a) Haben Sie ein freies Zimmer? b) Fürzwei Nächte, bitte. c) Was kostet das Zimmer pro Nacht? d) Ist Frühstück inklusive?',
         hints: ['frei = ledig', 'pro Nacht = per natt'],
       },
     },
@@ -765,12 +765,12 @@ c) Ja, frokost er inkludert (mit Fruhstuck).`,
 
 | Tysk | Norsk |
 |------|-------|
-| Ich mochte einchecken. | Jeg vil sjekke inn. |
-| Ich mochte auschecken. | Jeg vil sjekke ut. |
-| Hier ist Ihr Schlussel. | Her er nokkelen Deres. |
+| Ich möchte einchecken. | Jeg vil sjekke inn. |
+| Ich möchte auschecken. | Jeg vil sjekke ut. |
+| Hier ist Ihr Schlüssel. | Her er nokkelen Deres. |
 | Ihr Zimmer ist Nummer 205. | Rommet Deres er nummer 205. |
 | Wann ist Checkout? | Nar er utsjekking? |
-| Konnen Sie mir ein Taxi rufen? | Kan De ringe en taxi til meg? |`,
+| Können Sie mir ein Taxi rufen? | Kan De ringe en taxi til meg? |`,
     },
     {
       id: 'tysk-1-9-4-example-3',
@@ -778,8 +778,8 @@ c) Ja, frokost er inkludert (mit Fruhstuck).`,
       title: 'Eksempel 3: Pa resepsjonen',
       problem: `Oversett til norsk:
 a) Ihr Zimmer ist im zweiten Stock.
-b) Das Fruhstuck ist von 7 bis 10 Uhr.
-c) Der Aufzug ist dort druben.`,
+b) Das Frühstück ist von 7 bis 10 Uhr.
+c) Der Aufzug ist dort drüben.`,
       solution: `a) Rommet Deres er i andre etasje.
 b) Frokosten er fra 7 til 10.
 c) Heisen er der borte.`,
@@ -794,11 +794,11 @@ c) Heisen er der borte.`,
         difficulty: 'medium',
         task: 'Oversett til tysk.',
         subTasks: [
-          { label: 'a', task: 'Jeg vil sjekke inn.', solution: 'Ich mochte einchecken.' },
-          { label: 'b', task: 'Her er nokkelen Deres.', solution: 'Hier ist Ihr Schlussel.' },
+          { label: 'a', task: 'Jeg vil sjekke inn.', solution: 'Ich möchte einchecken.' },
+          { label: 'b', task: 'Her er nokkelen Deres.', solution: 'Hier ist Ihr Schlüssel.' },
           { label: 'c', task: 'Nar er utsjekking?', solution: 'Wann ist Checkout?' },
         ],
-        solution: 'a) Ich mochte einchecken. b) Hier ist Ihr Schlussel. c) Wann ist Checkout?',
+        solution: 'a) Ich möchte einchecken. b) Hier ist Ihr Schlüssel. c) Wann ist Checkout?',
         hints: ['einchecken = sjekke inn', 'Ihr = Deres (formal)'],
       },
     },
@@ -885,12 +885,12 @@ export const CHAPTER_TYSK_1_10_1: TextbookChapter = {
       type: 'example',
       title: 'Eksempel 1: Boyning',
       problem: `Fyll inn riktig form av "sein":
-a) Ich ___ Schuler.
+a) Ich ___ Schüler.
 b) Du ___ nett.
-c) Er ___ gross.`,
-      solution: `a) Ich **bin** Schuler. (Jeg er elev.)
+c) Er ___ groß.`,
+      solution: `a) Ich **bin** Schüler. (Jeg er elev.)
 b) Du **bist** nett. (Du er hyggelig.)
-c) Er **ist** gross. (Han er hoy.)`,
+c) Er **ist** groß. (Han er hoy.)`,
     },
     {
       id: 'tysk-1-10-1-ex-block-1',
@@ -920,13 +920,13 @@ c) Er **ist** gross. (Han er hoy.)`,
 
 1. **Si hvem man er:**
    - Ich bin Peter. (Jeg er Peter.)
-   - Sie ist Arztin. (Hun er lege.)
+   - Sie ist Ärztin. (Hun er lege.)
 
 2. **Si hvor man kommer fra:**
    - Wir sind aus Deutschland. (Vi er fra Tyskland.)
 
 3. **Beskrive egenskaper:**
-   - Das Wetter ist schon. (Vaeret er fint.)
+   - Das Wetter ist schön. (Vaeret er fint.)
    - Die Katze ist klein. (Katten er liten.)
 
 4. **Si alder:**
@@ -941,8 +941,8 @@ a) Jeg er fra Norge.
 b) Hun er lege.
 c) Vi er glade.`,
       solution: `a) Ich bin aus Norwegen.
-b) Sie ist Arztin.
-c) Wir sind froh/glucklich.`,
+b) Sie ist Ärztin.
+c) Wir sind froh/glücklich.`,
     },
     {
       id: 'tysk-1-10-1-ex-block-2',
@@ -969,9 +969,9 @@ c) Wir sind froh/glucklich.`,
 
 | Sporsmal | Svar |
 |----------|------|
-| Bist du mude? | Ja, ich bin mude. |
-| Ist er Schuler? | Ja, er ist Schuler. |
-| Sind Sie Herr Muller? | Ja, ich bin Herr Muller. |
+| Bist du müde? | Ja, ich bin müde. |
+| Ist er Schüler? | Ja, er ist Schüler. |
+| Sind Sie Herr Müller? | Ja, ich bin Herr Müller. |
 | Wie alt bist du? | Ich bin 16 Jahre alt. |
 | Woher seid ihr? | Wir sind aus Norwegen. |`,
     },
@@ -980,10 +980,10 @@ c) Wir sind froh/glucklich.`,
       type: 'example',
       title: 'Eksempel 3: Sporsmal og svar',
       problem: `Svar pa sporsmalene:
-a) Bist du Schuler? (Ja)
+a) Bist du Schüler? (Ja)
 b) Wie alt ist sie? (17)
 c) Sind Sie Frau Schmidt? (Ja)`,
-      solution: `a) Ja, ich bin Schuler.
+      solution: `a) Ja, ich bin Schüler.
 b) Sie ist 17 Jahre alt.
 c) Ja, ich bin Frau Schmidt.`,
     },
@@ -997,12 +997,12 @@ c) Ja, ich bin Frau Schmidt.`,
         difficulty: 'medium',
         task: 'Oversett sporsmalene til tysk.',
         subTasks: [
-          { label: 'a', task: 'Er du trott?', solution: 'Bist du mude?' },
+          { label: 'a', task: 'Er du trott?', solution: 'Bist du müde?' },
           { label: 'b', task: 'Hvor gammel er han?', solution: 'Wie alt ist er?' },
           { label: 'c', task: 'Er dere fra Norge?', solution: 'Seid ihr aus Norwegen?' },
         ],
-        solution: 'a) Bist du mude? b) Wie alt ist er? c) Seid ihr aus Norwegen?',
-        hints: ['I sporsmal star verbet forst', 'mude = trott'],
+        solution: 'a) Bist du müde? b) Wie alt ist er? c) Seid ihr aus Norwegen?',
+        hints: ['I sporsmal star verbet forst', 'müde = trott'],
       },
     },
     {
@@ -1015,7 +1015,7 @@ c) Ja, ich bin Frau Schmidt.`,
 | Wie geht es dir? - Mir geht es gut. | Hvordan har du det? - Jeg har det bra. |
 | Ich bin hungrig. | Jeg er sulten. |
 | Ich bin durstig. | Jeg er torst. |
-| Ich bin mude. | Jeg er trott. |
+| Ich bin müde. | Jeg er trott. |
 | Es ist kalt. | Det er kaldt. |
 | Es ist warm. | Det er varmt. |`,
     },
@@ -1031,11 +1031,11 @@ c) Ja, ich bin Frau Schmidt.`,
         subTasks: [
           { label: 'a', task: 'Ich bin hungrig.', solution: 'Jeg er sulten.' },
           { label: 'b', task: 'Es ist kalt.', solution: 'Det er kaldt.' },
-          { label: 'c', task: 'Sie ist mude.', solution: 'Hun er trott.' },
-          { label: 'd', task: 'Wir sind glucklich.', solution: 'Vi er lykkelige/glade.' },
+          { label: 'c', task: 'Sie ist müde.', solution: 'Hun er trott.' },
+          { label: 'd', task: 'Wir sind glücklich.', solution: 'Vi er lykkelige/glade.' },
         ],
         solution: 'a) Jeg er sulten. b) Det er kaldt. c) Hun er trott. d) Vi er lykkelige/glade.',
-        hints: ['hungrig = sulten', 'mude = trott', 'glucklich = lykkelig'],
+        hints: ['hungrig = sulten', 'müde = trott', 'glücklich = lykkelig'],
       },
     },
   ],
@@ -1123,7 +1123,7 @@ c) Sie **hat** eine Katze. (Hun har en katt.)`,
 
 1. **Snakke om eierskap:**
    - Ich habe ein Handy. (Jeg har en mobiltelefon.)
-   - Sie hat ein grosses Haus. (Hun har et stort hus.)
+   - Sie hat ein großes Haus. (Hun har et stort hus.)
 
 2. **Snakke om familie:**
    - Ich habe zwei Geschwister. (Jeg har to sosken.)
@@ -1225,7 +1225,7 @@ c) Er hat **ein** Buch. (intetkjonn -> ein)`,
 | Zeit haben | ha tid |
 | Recht haben | ha rett |
 | Angst haben | vaere redd |
-| Gluck haben | vaere heldig |
+| Glück haben | vaere heldig |
 | Lust haben | ha lyst |`,
     },
     {
@@ -1241,7 +1241,7 @@ c) Er hat **ein** Buch. (intetkjonn -> ein)`,
           { label: 'a', task: 'Ich habe Hunger.', solution: 'Jeg er sulten.' },
           { label: 'b', task: 'Du hast Recht.', solution: 'Du har rett.' },
           { label: 'c', task: 'Er hat Angst.', solution: 'Han er redd.' },
-          { label: 'd', task: 'Wir haben Gluck.', solution: 'Vi er heldige.' },
+          { label: 'd', task: 'Wir haben Glück.', solution: 'Vi er heldige.' },
         ],
         solution: 'a) Jeg er sulten. b) Du har rett. c) Han er redd. d) Vi er heldige.',
         hints: ['Pa tysk sier man "ha sult" i stedet for "vaere sulten"'],
@@ -1252,14 +1252,14 @@ c) Er hat **ein** Buch. (intetkjonn -> ein)`,
 };
 
 // ============================================================================
-// Kapittel 10.3: Regelmasige Verben - Regelmessige verb
+// Kapittel 10.3: Regelmäßige Verben - Regelmessige verb
 // ============================================================================
 
 export const CHAPTER_TYSK_1_10_3: TextbookChapter = {
   id: 'tysk-1-10-3',
   courseId: 'tysk-1',
   chapterNumber: '10.3',
-  title: 'Regelmasige Verben',
+  title: 'Regelmäßige Verben',
   subtitle: 'Regelmessige verb',
   description: 'Laer a boye regelmessige verb i presens.',
   estimatedMinutes: 45,
@@ -1322,7 +1322,7 @@ Vi tar verbet **spielen** (a spille) som eksempel:
         difficulty: 'lett',
         task: 'Fyll inn riktig form av "spielen".',
         subTasks: [
-          { label: 'a', task: 'Ich ___ Fussball.', solution: 'spiele' },
+          { label: 'a', task: 'Ich ___ Fußball.', solution: 'spiele' },
           { label: 'b', task: 'Du ___ Gitarre.', solution: 'spielst' },
           { label: 'c', task: 'Er ___ Tennis.', solution: 'spielt' },
           { label: 'd', task: 'Wir ___ Karten.', solution: 'spielen' },
@@ -1343,7 +1343,7 @@ Vi tar verbet **spielen** (a spille) som eksempel:
 | lernen | laere |
 | wohnen | bo |
 | kaufen | kjope |
-| horen | hore |
+| hören | hore |
 | fragen | sporre |
 | sagen | si |
 | arbeiten | arbeide |
@@ -1379,9 +1379,9 @@ Vi tar verbet **spielen** (a spille) som eksempel:
           { label: 'a', task: 'Ich ___ Deutsch. (lernen)', solution: 'lerne' },
           { label: 'b', task: 'Er ___ in Berlin. (wohnen)', solution: 'wohnt' },
           { label: 'c', task: 'Wir ___ ein Buch. (kaufen)', solution: 'kaufen' },
-          { label: 'd', task: 'Ihr ___ Musik. (horen)', solution: 'hort' },
+          { label: 'd', task: 'Ihr ___ Musik. (hören)', solution: 'hört' },
         ],
-        solution: 'a) lerne, b) wohnt, c) kaufen, d) hort',
+        solution: 'a) lerne, b) wohnt, c) kaufen, d) hört',
         hints: ['Finn stammen og legg til riktig endelse'],
       },
     },
@@ -1425,7 +1425,7 @@ Merk den ekstra -e- ved du, er/sie/es, og ihr!`,
         task: 'Fyll inn riktig form av "arbeiten".',
         subTasks: [
           { label: 'a', task: 'Du ___ viel.', solution: 'arbeitest' },
-          { label: 'b', task: 'Er ___ im Buro.', solution: 'arbeitet' },
+          { label: 'b', task: 'Er ___ im Büro.', solution: 'arbeitet' },
           { label: 'c', task: 'Ihr ___ zusammen.', solution: 'arbeitet' },
         ],
         solution: 'a) arbeitest, b) arbeitet, c) arbeitet',
@@ -1439,7 +1439,7 @@ Merk den ekstra -e- ved du, er/sie/es, og ihr!`,
 
 | Tysk | Norsk |
 |------|-------|
-| Ich spiele gern Fussball. | Jeg liker a spille fotball. |
+| Ich spiele gern Fußball. | Jeg liker a spille fotball. |
 | Er lernt Deutsch. | Han laerer tysk. |
 | Wir wohnen in Oslo. | Vi bor i Oslo. |
 | Sie kauft ein Buch. | Hun kjoper en bok. |
@@ -1542,7 +1542,7 @@ c) Wir **sind** aus Norwegen.`,
         subTasks: [
           { label: 'a', task: 'Du ___ nett. (sein)', solution: 'bist' },
           { label: 'b', task: 'Sie ___ eine Katze. (haben) (Hun...)', solution: 'hat' },
-          { label: 'c', task: 'Ihr ___ mude. (sein)', solution: 'seid' },
+          { label: 'c', task: 'Ihr ___ müde. (sein)', solution: 'seid' },
           { label: 'd', task: 'Wir ___ Zeit. (haben)', solution: 'haben' },
         ],
         solution: 'a) bist, b) hat, c) seid, d) haben',
@@ -1563,7 +1563,7 @@ c) Wir **sind** aus Norwegen.`,
 | ihr | -t | spielt |
 | sie/Sie | -en | spielen |
 
-**Vanlige verb:** lernen, machen, wohnen, kaufen, horen, arbeiten`,
+**Vanlige verb:** lernen, machen, wohnen, kaufen, hören, arbeiten`,
     },
     {
       id: 'tysk-1-10-4-example-2',
@@ -1587,12 +1587,12 @@ c) wir kauf**en**`,
         difficulty: 'medium',
         task: 'Fyll inn riktig verbform.',
         subTasks: [
-          { label: 'a', task: 'Er ___ Musik. (horen)', solution: 'hort' },
+          { label: 'a', task: 'Er ___ Musik. (hören)', solution: 'hört' },
           { label: 'b', task: 'Ich ___ in Oslo. (wohnen)', solution: 'wohne' },
           { label: 'c', task: 'Du ___ gut Deutsch. (lernen)', solution: 'lernst' },
-          { label: 'd', task: 'Sie ___ im Buro. (arbeiten) (Hun...)', solution: 'arbeitet' },
+          { label: 'd', task: 'Sie ___ im Büro. (arbeiten) (Hun...)', solution: 'arbeitet' },
         ],
-        solution: 'a) hort, b) wohne, c) lernst, d) arbeitet',
+        solution: 'a) hört, b) wohne, c) lernst, d) arbeitet',
         hints: ['Finn stammen og legg til riktig endelse', 'arbeiten far ekstra -e- (arbeitet)'],
       },
     },
@@ -1602,13 +1602,13 @@ c) wir kauf**en**`,
       content: `## Viktig ordforrad - Oppsummering
 
 **Hilsener:**
-- Guten Tag, Guten Morgen, Hallo, Tschuss, Auf Wiedersehen
+- Guten Tag, Guten Morgen, Hallo, Tschüss, Auf Wiedersehen
 
 **Familie:**
 - die Mutter, der Vater, die Schwester, der Bruder, die Eltern
 
 **Mat og drikke:**
-- das Brot, der Kase, das Wasser, die Milch, das Fruhstuck
+- das Brot, der Käse, das Wasser, die Milch, das Frühstück
 
 **Transport:**
 - das Auto, der Zug, der Bus, das Flugzeug, das Fahrrad
@@ -1622,7 +1622,7 @@ c) wir kauf**en**`,
       title: 'Eksempel 3: Ordforrad',
       problem: `Oversett til norsk:
 a) der Bahnhof
-b) das Fruhstuck
+b) das Frühstück
 c) die Schwester`,
       solution: `a) togstasjonen
 b) frokosten
@@ -1654,13 +1654,13 @@ c) sosteren`,
 
 **Pa togstasjonen:**
 - Eine Fahrkarte nach..., bitte.
-- Wann fahrt der Zug?
+- Wann fährtder Zug?
 - Von welchem Gleis?
 
 **Pa hotellet:**
 - Haben Sie ein freies Zimmer?
 - Was kostet das Zimmer pro Nacht?
-- Ist Fruhstuck inklusive?
+- Ist Frühstück inklusive?
 
 **Sporre om veien:**
 - Wie komme ich zum/zur...?
@@ -1695,13 +1695,13 @@ I Tysk Niva 1 har du laert:
 
 1. **Hilsener og hoflighetsfraser** - Guten Tag, Danke, Bitte
 2. **Presentere deg selv** - Ich heisse..., Ich komme aus...
-3. **Tall og farger** - eins, zwei, drei... rot, blau, grun...
+3. **Tall og farger** - eins, zwei, drei... rot, blau, grün...
 4. **Familie** - Mutter, Vater, Schwester, Bruder
 5. **Tid og dager** - Montag, Dienstag... Es ist 10 Uhr.
-6. **Mat og restaurantbesok** - Ich mochte..., Die Rechnung, bitte.
+6. **Mat og restaurantbesok** - Ich möchte..., Die Rechnung, bitte.
 7. **Transport og reise** - der Zug, die Fahrkarte, umsteigen
 8. **I byen** - der Bahnhof, die Post, Wo ist...?
-9. **Pa hotellet** - das Zimmer, Fruhstuck inklusive
+9. **Pa hotellet** - das Zimmer, Frühstück inklusive
 10. **Verb** - sein, haben, regelmessige verb
 
 **Viel Erfolg mit Niveau 2!** (Lykke til med Niva 2!)`,

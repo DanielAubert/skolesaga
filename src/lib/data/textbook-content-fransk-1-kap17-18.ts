@@ -1,16 +1,16 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Niva 1 - Kapittel 17-18
+ * Fransk Nivå 1 - Kapittel 17-18
  *
- * Kapittel 17: Le passe compose - Fortid (Past tense)
+ * Kapittel 17: Le passé composé - Fortid (Past tense)
  * Kapittel 18: Les verbes modaux - Modalverb (Modal verbs)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 17.1: Le passe compose avec avoir - Passe compose med avoir
+// Kapittel 17.1: Le passé composé avec avoir - Passé composé med avoir
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_17_1: TextbookChapter = {
@@ -18,33 +18,33 @@ export const CHAPTER_FRANSK_1_17_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '17.1',
   title: 'Le passé composé avec avoir',
-  subtitle: 'Passe compose med avoir',
-  description: 'Laer a danne fortidsformen passe compose med hjelpeverbet avoir og regelmessige partisipper.',
+  subtitle: 'Passé composé med avoir',
+  description: 'Lær a danne fortidsformen passé composé med hjelpeverbet avoir og regelmessige partisipper.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke fortidsformen passe compose med avoir',
+    'bruke fortidsformen passé composé med avoir',
   ],
   content: [
     {
       id: 'fransk-1-17-1-intro',
       type: 'text',
-      content: `## Fortid pa fransk: Le passe compose
+      content: `## Fortid på fransk: Le passé composé
 
-Pa norsk sier vi "jeg har spist" eller "jeg spiste". Pa fransk bruker vi **le passe compose** for a snakke om ting som har skjedd i fortiden. Denne formen bestar av to deler:
+På norsk sier vi "jeg har spist" eller "jeg spiste". På fransk bruker vi **le passé composé** for a snakke om ting som har skjedd i fortiden. Denne formen består av to deler:
 
-**hjelpeverb (avoir/etre) + partisipp (participe passe)**
+**hjelpeverb (avoir/être) + partisipp (participe passe)**
 
-I dette kapittelet laerer du a bruke passe compose med hjelpeverbet **avoir**, som er det vanligste.`,
+I dette kapittelet lærer du a bruke passé composé med hjelpeverbet **avoir**, som er det vanligste.`,
     },
     {
       id: 'fransk-1-17-1-def-1',
       type: 'definition',
-      title: 'Passe compose med avoir',
-      content: `**Le passe compose** dannes med:
+      title: 'Passé composé med avoir',
+      content: `**Le passé composé** dannes med:
 
-**avoir (boyd) + participe passe**
+**avoir (bøyd) + participe passe**
 
-Hjelpeverbet **avoir** boyes slik i presens:
+Hjelpeverbet **avoir** bøyes slik i presens:
 
 | Person | Avoir |
 |--------|-------|
@@ -66,35 +66,35 @@ Partisippet dannes av infinitiven:
     {
       id: 'fransk-1-17-1-text-1',
       type: 'text',
-      content: `## Vanlige verb i passe compose med avoir
+      content: `## Vanlige verb i passé composé med avoir
 
-| Infinitiv | Partisipp | Passe compose (je) | Norsk |
+| Infinitiv | Partisipp | Passé composé (je) | Norsk |
 |-----------|-----------|--------------------|----|
 | parler | parle | j'ai parle | jeg har snakket |
 | manger | mange | j'ai mange | jeg har spist |
-| regarder | regarde | j'ai regarde | jeg har sett pa |
+| regarder | regarde | j'ai regarde | jeg har sett på |
 | travailler | travaille | j'ai travaille | jeg har jobbet |
-| ecouter | ecoute | j'ai ecoute | jeg har lyttet |
-| finir | fini | j'ai fini | jeg har fullfort |
+| écouter | écouté | j'ai écouté | jeg har lyttet |
+| finir | fini | j'ai fini | jeg har fullført |
 | choisir | choisi | j'ai choisi | jeg har valgt |
 | vendre | vendu | j'ai vendu | jeg har solgt |
 | attendre | attendu | j'ai attendu | jeg har ventet |
 
-**Merk:** Partisippet forandrer seg **ikke** med avoir (ingen samsvarsboyning med subjektet).`,
+**Merk:** Partisippet forandrer seg **ikke** med avoir (ingen samsvarsbøyning med subjektet).`,
     },
     {
       id: 'fransk-1-17-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Danne passe compose',
-      problem: `Sett verbene i passe compose:
+      title: 'Eksempel 1: Danne passé composé',
+      problem: `Sett verbene i passé composé:
 a) Je ___ (manger) une pizza.
 b) Tu ___ (parler) avec Marie.
 c) Ils ___ (finir) les devoirs.`,
       solution: `a) J'**ai mange** une pizza. (Jeg har spist en pizza.)
 b) Tu **as parle** avec Marie. (Du har snakket med Marie.)
-c) Ils **ont fini** les devoirs. (De har fullfort leksene.)
+c) Ils **ont fini** les devoirs. (De har fullført leksene.)
 
-**Fremgangsmate:** 1) Boy avoir til riktig person. 2) Legg til partisippet (-er -> -e, -ir -> -i).`,
+**Fremgangsmate:** 1) Bøy avoir til riktig person. 2) Legg til partisippet (-er -> -e, -ir -> -i).`,
     },
     {
       id: 'fransk-1-17-1-ex-block-1',
@@ -120,11 +120,11 @@ c) Ils **ont fini** les devoirs. (De har fullfort leksene.)
       type: 'text',
       content: `## Fullstendige eksempler
 
-Her ser du passe compose boyd i alle personer:
+Her ser du passé composé bøyd i alle personer:
 
 **Parler (a snakke):**
 
-| Person | Passe compose | Norsk |
+| Person | Passé composé | Norsk |
 |--------|---------------|-------|
 | je | j'ai parle | jeg har snakket |
 | tu | tu as parle | du har snakket |
@@ -139,13 +139,13 @@ Legg merke til at det kun er **avoir** som forandrer seg. Partisippet **parle** 
       id: 'fransk-1-17-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Alle personer',
-      problem: `Fyll inn riktig form av passe compose med verbet "regarder" (a se pa):
+      problem: `Fyll inn riktig form av passé composé med verbet "regarder" (a se på):
 a) Je ___ la tele.
 b) Nous ___ un film.
 c) Elle ___ les photos.`,
-      solution: `a) J'**ai regarde** la tele. (Jeg har sett pa TV.)
-b) Nous **avons regarde** un film. (Vi har sett pa en film.)
-c) Elle **a regarde** les photos. (Hun har sett pa bildene.)`,
+      solution: `a) J'**ai regarde** la tele. (Jeg har sett på TV.)
+b) Nous **avons regarde** un film. (Vi har sett på en film.)
+c) Elle **a regarde** les photos. (Hun har sett på bildene.)`,
     },
     {
       id: 'fransk-1-17-1-ex-block-2',
@@ -155,48 +155,48 @@ c) Elle **a regarde** les photos. (Hun har sett pa bildene.)`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Sett verbet i parentes i passe compose.',
+        task: 'Sett verbet i parentes i passé composé.',
         subTasks: [
           { label: 'a', task: 'Nous ___ (travailler) hier.', solution: 'avons travaille' },
           { label: 'b', task: 'Vous ___ (choisir) un livre.', solution: 'avez choisi' },
           { label: 'c', task: 'Elles ___ (attendre) le bus.', solution: 'ont attendu' },
-          { label: 'd', task: 'Il ___ (ecouter) la musique.', solution: 'a ecoute' },
+          { label: 'd', task: 'Il ___ (écouter) la musique.', solution: 'a écouté' },
         ],
-        solution: 'a) avons travaille, b) avez choisi, c) ont attendu, d) a ecoute',
-        hints: ['Boy avoir til riktig person forst', 'Finn partisippet: -er -> -e, -ir -> -i, -re -> -u'],
+        solution: 'a) avons travaille, b) avez choisi, c) ont attendu, d) a écouté',
+        hints: ['Bøy avoir til riktig person forst', 'Finn partisippet: -er -> -e, -ir -> -i, -re -> -u'],
       },
     },
     {
       id: 'fransk-1-17-1-text-3',
       type: 'text',
-      content: `## Nyttige tidsuttrykk med passe compose
+      content: `## Nyttige tidsuttrykk med passé composé
 
 | Fransk | Norsk |
 |--------|-------|
-| hier | i gar |
-| hier soir | i gar kveld |
+| hier | i går |
+| hier soir | i går kveld |
 | ce matin | i dag morges |
-| la semaine derniere | forrige uke |
-| le mois dernier | forrige maned |
-| l'annee derniere | i fjor |
+| la semaine dernière | forrige uke |
+| le mois dernier | forrige måned |
+| l'année dernière | i fjor |
 | il y a deux jours | for to dager siden |
-| deja | allerede |
+| déjà | allerede |
 
 **Eksempler:**
-- **Hier**, j'ai mange au restaurant. (I gar spiste jeg pa restaurant.)
-- **La semaine derniere**, nous avons visite Paris. (Forrige uke besokte vi Paris.)`,
+- **Hier**, j'ai mange au restaurant. (I går spiste jeg på restaurant.)
+- **La semaine dernière**, nous avons visite Paris. (Forrige uke besøkte vi Paris.)`,
     },
     {
       id: 'fransk-1-17-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Med tidsuttrykk',
       problem: `Oversett til fransk:
-a) I gar spiste jeg en croissant.
+a) I går spiste jeg en croissant.
 b) Forrige uke jobbet vi mye.
-c) De har allerede fullfort.`,
+c) De har allerede fullført.`,
       solution: `a) Hier, j'ai mange un croissant.
-b) La semaine derniere, nous avons beaucoup travaille.
-c) Ils ont deja fini.
+b) La semaine dernière, nous avons beaucoup travaille.
+c) Ils ont déjà fini.
 
 **Tips:** Tidsuttrykkene star ofte forst eller sist i setningen.`,
     },
@@ -208,14 +208,14 @@ c) Ils ont deja fini.
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk. Bruk passe compose.',
+        task: 'Oversett til fransk. Bruk passé composé.',
         subTasks: [
-          { label: 'a', task: 'I gar kveld sa jeg pa en film.', solution: 'Hier soir, j\'ai regarde un film.' },
+          { label: 'a', task: 'I går kveld sa jeg på en film.', solution: 'Hier soir, j\'ai regarde un film.' },
           { label: 'b', task: 'Hun har ventet i to timer.', solution: 'Elle a attendu deux heures.' },
-          { label: 'c', task: 'Vi spiste pa restaurant forrige uke.', solution: 'Nous avons mange au restaurant la semaine derniere.' },
+          { label: 'c', task: 'Vi spiste på restaurant forrige uke.', solution: 'Nous avons mange au restaurant la semaine dernière.' },
         ],
-        solution: "a) Hier soir, j'ai regarde un film. b) Elle a attendu deux heures. c) Nous avons mange au restaurant la semaine derniere.",
-        hints: ['Bruk tidsuttrykkene fra tabellen', 'Husk: avoir (boyd) + partisipp'],
+        solution: "a) Hier soir, j'ai regarde un film. b) Elle a attendu deux heures. c) Nous avons mange au restaurant la semaine dernière.",
+        hints: ['Bruk tidsuttrykkene fra tabellen', 'Husk: avoir (bøyd) + partisipp'],
       },
     },
     // --- Samleoppgave ---
@@ -227,14 +227,14 @@ c) Ils ont deja fini.
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv en kort tekst (3-4 setninger) om hva du gjorde i gar. Bruk passe compose med avoir og minst to tidsuttrykk.',
+        task: 'Samleoppgave: Skriv en kort tekst (3-4 setninger) om hva du gjorde i går. Bruk passé composé med avoir og minst to tidsuttrykk.',
         subTasks: [
-          { label: 'a', task: 'Skriv hva du spiste i gar.', solution: 'Eksempel: Hier, j\'ai mange une pizza pour le diner.' },
-          { label: 'b', task: 'Skriv hva du sa pa i gar kveld.', solution: 'Eksempel: Hier soir, j\'ai regarde un film avec mes amis.' },
-          { label: 'c', task: 'Skriv hva du fullforte i gar.', solution: 'Eksempel: J\'ai fini mes devoirs a cinq heures.' },
+          { label: 'a', task: 'Skriv hva du spiste i går.', solution: 'Eksempel: Hier, j\'ai mange une pizza pour le diner.' },
+          { label: 'b', task: 'Skriv hva du sa på i går kveld.', solution: 'Eksempel: Hier soir, j\'ai regarde un film avec mes amis.' },
+          { label: 'c', task: 'Skriv hva du fullførte i går.', solution: 'Eksempel: J\'ai fini mes devoirs a cinq heures.' },
         ],
         solution: "Eksempel: Hier, j'ai mange une pizza pour le diner. Hier soir, j'ai regarde un film avec mes amis. J'ai fini mes devoirs a cinq heures.",
-        hints: ['Bruk verb som manger, regarder, finir, travailler, ecouter', 'Husk tidsuttrykk: hier, hier soir, ce matin'],
+        hints: ['Bruk verb som manger, regarder, finir, travailler, écouter', 'Husk tidsuttrykk: hier, hier soir, ce matin'],
       },
     },
   ],
@@ -242,7 +242,7 @@ c) Ils ont deja fini.
 };
 
 // ============================================================================
-// Kapittel 17.2: Le passe compose avec etre - Passe compose med etre
+// Kapittel 17.2: Le passé composé avec être - Passé composé med être
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_17_2: TextbookChapter = {
@@ -250,19 +250,19 @@ export const CHAPTER_FRANSK_1_17_2: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '17.2',
   title: 'Le passé composé avec être',
-  subtitle: 'Passe compose med etre',
-  description: 'Laer hvilke verb som bruker etre som hjelpeverb i passe compose, og reglene for samsvarsboyning.',
+  subtitle: 'Passé composé med être',
+  description: 'Lær hvilke verb som bruker être som hjelpeverb i passé composé, og reglene for samsvarsbøyning.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke passe compose med etre',
+    'bruke passé composé med être',
   ],
   content: [
     {
       id: 'fransk-1-17-2-intro',
       type: 'text',
-      content: `## Passe compose med etre
+      content: `## Passé composé med être
 
-De fleste verb bruker **avoir** som hjelpeverb i passe compose. Men en gruppe verb bruker **etre** i stedet. Disse er stort sett verb som handler om **bevegelse** eller **forandring av tilstand**.
+De fleste verb bruker **avoir** som hjelpeverb i passé composé. Men en gruppe verb bruker **être** i stedet. Disse er stort sett verb som handler om **bevegelse** eller **forandring av tilstand**.
 
 En kjent huskeregel for disse verbene er **DR & MRS VANDERTRAMP**.`,
     },
@@ -270,20 +270,20 @@ En kjent huskeregel for disse verbene er **DR & MRS VANDERTRAMP**.`,
       id: 'fransk-1-17-2-def-1',
       type: 'definition',
       title: 'DR & MRS VANDERTRAMP',
-      content: `Verbene som bruker **etre** i passe compose:
+      content: `Verbene som bruker **être** i passé composé:
 
 | Bokstav | Verb | Partisipp | Norsk |
 |---------|------|-----------|-------|
 | **D** | Devenir | devenu | bli |
 | **R** | Revenir | revenu | komme tilbake |
-| **M** | Monter | monte | ga opp |
-| **R** | Rester | reste | bli (vaere igjen) |
-| **S** | Sortir | sorti | ga ut |
+| **M** | Monter | monte | gå opp |
+| **R** | Rester | reste | bli (være igjen) |
+| **S** | Sortir | sorti | gå ut |
 | **V** | Venir | venu | komme |
-| **A** | Aller | alle | ga |
-| **N** | Naitre | ne | bli fodt |
-| **D** | Descendre | descendu | ga ned |
-| **E** | Entrer | entre | ga inn |
+| **A** | Aller | alle | gå |
+| **N** | Naître | ne | bli født |
+| **D** | Descendre | descendu | gå ned |
+| **E** | Entrer | entre | gå inn |
 | **R** | Rentrer | rentre | komme hjem |
 | **T** | Tomber | tombe | falle |
 | **R** | Retourner | retourne | dra tilbake |
@@ -291,46 +291,46 @@ En kjent huskeregel for disse verbene er **DR & MRS VANDERTRAMP**.`,
 | **M** | Mourir | mort | do |
 | **P** | Partir | parti | dra |
 
-**Viktig:** Med etre ma partisippet samsvare med subjektet i kjonn og tall!`,
+**Viktig:** Med être må partisippet samsvare med subjektet i kjønn og tall!`,
     },
     {
       id: 'fransk-1-17-2-text-1',
       type: 'text',
-      content: `## Samsvarsboyning med etre
+      content: `## Samsvarsboyning med être
 
-Nar vi bruker **etre** som hjelpeverb, ma partisippet samsvare med subjektet:
+Når vi bruker **être** som hjelpeverb, må partisippet samsvare med subjektet:
 
 | Subjekt | Endelse | Eksempel |
 |---------|---------|----------|
-| hankjonn entall | (ingen) | Il est **alle** |
-| hunkjonn entall | -e | Elle est **allee** |
-| hankjonn flertall | -s | Ils sont **alles** |
-| hunkjonn flertall | -es | Elles sont **allees** |
+| hankjønn entall | (ingen) | Il est **alle** |
+| hunkjønn entall | -e | Elle est **allee** |
+| hankjønn flertall | -s | Ils sont **alles** |
+| hunkjønn flertall | -es | Elles sont **allees** |
 
-**Etre i presens:**
+**Être i presens:**
 
-| Person | Etre |
+| Person | Être |
 |--------|------|
 | je | suis |
 | tu | es |
 | il/elle | est |
 | nous | sommes |
-| vous | etes |
+| vous | êtes |
 | ils/elles | sont |`,
     },
     {
       id: 'fransk-1-17-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Passe compose med etre',
-      problem: `Sett verbene i passe compose. Pass pa samsvarsboyning!
-a) Marie ___ (aller) au cinema.
-b) Pierre ___ (partir) a huit heures.
+      title: 'Eksempel 1: Passé composé med être',
+      problem: `Sett verbene i passé composé. Pass på samsvarsbøyning!
+a) Marie ___ (aller) au cinéma.
+b) Pierre ___ (partir) à huit heures.
 c) Les filles ___ (arriver) hier.`,
-      solution: `a) Marie **est allee** au cinema. (allee med -e fordi Marie er hunkjonn)
-b) Pierre **est parti** a huit heures. (parti uten ekstra endelse, hankjonn entall)
-c) Les filles **sont arrivees** hier. (arrivees med -es fordi les filles er hunkjonn flertall)
+      solution: `a) Marie **est allee** au cinéma. (allee med -e fordi Marie er hunkjønn)
+b) Pierre **est parti** à huit heures. (parti uten ekstra endelse, hankjønn entall)
+c) Les filles **sont arrivees** hier. (arrivees med -es fordi les filles er hunkjønn flertall)
 
-**Husk:** Med etre legger du til -e for hunkjonn, -s for flertall, -es for hunkjonn flertall.`,
+**Husk:** Med être legger du til -e for hunkjønn, -s for flertall, -es for hunkjønn flertall.`,
     },
     {
       id: 'fransk-1-17-2-ex-block-1',
@@ -340,12 +340,12 @@ c) Les filles **sont arrivees** hier. (arrivees med -es fordi les filles er hunk
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Velg riktig hjelpeverb: avoir eller etre?',
+        task: 'Velg riktig hjelpeverb: avoir eller être?',
         subTasks: [
-          { label: 'a', task: 'Il ___ mange une pomme.', solution: 'a (avoir - manger er ikke et etre-verb)' },
-          { label: 'b', task: 'Elle ___ allee au parc.', solution: 'est (etre - aller er et DR MRS VANDERTRAMP-verb)' },
-          { label: 'c', task: 'Nous ___ partis a midi.', solution: 'sommes (etre - partir er et DR MRS VANDERTRAMP-verb)' },
-          { label: 'd', task: 'Tu ___ regarde la tele.', solution: 'as (avoir - regarder er ikke et etre-verb)' },
+          { label: 'a', task: 'Il ___ mange une pomme.', solution: 'a (avoir - manger er ikke et être-verb)' },
+          { label: 'b', task: 'Elle ___ allee au parc.', solution: 'est (être - aller er et DR MRS VANDERTRAMP-verb)' },
+          { label: 'c', task: 'Nous ___ partis a midi.', solution: 'sommes (être - partir er et DR MRS VANDERTRAMP-verb)' },
+          { label: 'd', task: 'Tu ___ regarde la tele.', solution: 'as (avoir - regarder er ikke et être-verb)' },
         ],
         solution: 'a) a, b) est, c) sommes, d) as',
         hints: ['Sjekk om verbet star i DR MRS VANDERTRAMP-listen'],
@@ -356,30 +356,30 @@ c) Les filles **sont arrivees** hier. (arrivees med -es fordi les filles er hunk
       type: 'text',
       content: `## Eksempler i kontekst
 
-Her er noen vanlige setninger med etre-verb i passe compose:
+Her er noen vanlige setninger med être-verb i passé composé:
 
 | Fransk | Norsk |
 |--------|-------|
-| Je suis alle(e) a l'ecole. | Jeg gikk pa skolen. |
+| Je suis allé(e) à l'école. | Jeg gikk på skolen. |
 | Il est parti ce matin. | Han dro i dag morges. |
-| Elle est arrivee hier. | Hun ankom i gar. |
+| Elle est arrivee hier. | Hun ankom i går. |
 | Nous sommes restes a la maison. | Vi ble hjemme. |
 | Ils sont venus chez nous. | De kom hjem til oss. |
-| Elle est nee en 2008. | Hun ble fodt i 2008. |
+| Elle est née en 2008. | Hun ble født i 2008. |
 
-**Tips:** Nar du skriver om deg selv og du er jente, husk a legge til -e: *Je suis allee.*`,
+**Tips:** Når du skriver om deg selv og du er jente, husk a legge til -e: *Je suis allee.*`,
     },
     {
       id: 'fransk-1-17-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Samsvarsboyning',
       problem: `Skriv riktig form av partisippet:
-a) Marie et Sophie sont ___ (arriver) a Paris.
+a) Marie et Sophie sont ___ (arriver) à Paris.
 b) Pierre est ___ (venir) hier.
 c) Les garcons sont ___ (partir) tot.`,
-      solution: `a) Marie et Sophie sont **arrivees** a Paris. (-ees: hunkjonn flertall)
-b) Pierre est **venu** hier. (ingen ekstra endelse: hankjonn entall)
-c) Les garcons sont **partis** tot. (-s: hankjonn flertall)`,
+      solution: `a) Marie et Sophie sont **arrivees** à Paris. (-ees: hunkjønn flertall)
+b) Pierre est **venu** hier. (ingen ekstra endelse: hankjønn entall)
+c) Les garcons sont **partis** tot. (-s: hankjønn flertall)`,
     },
     {
       id: 'fransk-1-17-2-ex-block-2',
@@ -389,25 +389,25 @@ c) Les garcons sont **partis** tot. (-s: hankjonn flertall)`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Sett verbene i passe compose med etre. Pass pa samsvarsboyning!',
+        task: 'Sett verbene i passé composé med être. Pass på samsvarsbøyning!',
         subTasks: [
           { label: 'a', task: 'Elle ___ (aller) au magasin.', solution: 'est allee' },
           { label: 'b', task: 'Ils ___ (venir) de France.', solution: 'sont venus' },
-          { label: 'c', task: 'Nous (jenter) ___ (rester) a la maison.', solution: 'sommes restees' },
+          { label: 'c', task: 'Nous (jenter) ___ (rester) à la maison.', solution: 'sommes restees' },
           { label: 'd', task: 'Il ___ (tomber) dans la rue.', solution: 'est tombe' },
         ],
         solution: 'a) est allee, b) sont venus, c) sommes restees, d) est tombe',
-        hints: ['Boy etre til riktig person', 'Legg til -e (hunkjonn), -s (flertall) eller -es (hunkjonn flertall) pa partisippet'],
+        hints: ['Bøy être til riktig person', 'Legg til -e (hunkjønn), -s (flertall) eller -es (hunkjønn flertall) på partisippet'],
       },
     },
     {
       id: 'fransk-1-17-2-text-3',
       type: 'text',
-      content: `## Oppsummering: Avoir eller etre?
+      content: `## Oppsummering: Avoir eller être?
 
-| Avoir (de fleste verb) | Etre (DR MRS VANDERTRAMP) |
+| Avoir (de fleste verb) | Être (DR MRS VANDERTRAMP) |
 |-------------------------|---------------------------|
-| j'ai mange | je suis alle(e) |
+| j'ai mange | je suis allé(e) |
 | tu as parle | tu es parti(e) |
 | il a travaille | il est venu |
 | elle a fini | elle est arrivee |
@@ -416,14 +416,14 @@ c) Les garcons sont **partis** tot. (-s: hankjonn flertall)`,
     {
       id: 'fransk-1-17-2-example-3',
       type: 'example',
-      title: 'Eksempel 3: Avoir eller etre?',
-      problem: `Velg avoir eller etre og skriv setningen i passe compose:
+      title: 'Eksempel 3: Avoir eller être?',
+      problem: `Velg avoir eller être og skriv setningen i passé composé:
 a) Nous ___ (manger) au restaurant. (blandet gruppe)
-b) Elles ___ (partir) a midi.
+b) Elles ___ (partir) à midi.
 c) Vous ___ (travailler) hier.`,
-      solution: `a) Nous **avons mange** au restaurant. (avoir - manger er ikke et etre-verb)
-b) Elles **sont parties** a midi. (etre - partir, hunkjonn flertall = -es)
-c) Vous **avez travaille** hier. (avoir - travailler er ikke et etre-verb)`,
+      solution: `a) Nous **avons mange** au restaurant. (avoir - manger er ikke et être-verb)
+b) Elles **sont parties** à midi. (être - partir, hunkjønn flertall = -es)
+c) Vous **avez travaille** hier. (avoir - travailler er ikke et être-verb)`,
     },
     {
       id: 'fransk-1-17-2-ex-block-3',
@@ -433,14 +433,14 @@ c) Vous **avez travaille** hier. (avoir - travailler er ikke et etre-verb)`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk. Velg riktig hjelpeverb (avoir/etre).',
+        task: 'Oversett til fransk. Velg riktig hjelpeverb (avoir/être).',
         subTasks: [
-          { label: 'a', task: 'Hun gikk til skolen. (aller)', solution: "Elle est allee a l'ecole." },
+          { label: 'a', task: 'Hun gikk til skolen. (aller)', solution: "Elle est allee a l'école." },
           { label: 'b', task: 'Vi spiste middag. (manger)', solution: 'Nous avons mange le diner.' },
-          { label: 'c', task: 'De (jenter) ankom i gar. (arriver)', solution: 'Elles sont arrivees hier.' },
+          { label: 'c', task: 'De (jenter) ankom i går. (arriver)', solution: 'Elles sont arrivees hier.' },
         ],
-        solution: "a) Elle est allee a l'ecole. b) Nous avons mange le diner. c) Elles sont arrivees hier.",
-        hints: ['Sjekk DR MRS VANDERTRAMP-listen', 'Husk samsvarsboyning med etre'],
+        solution: "a) Elle est allee a l'école. b) Nous avons mange le diner. c) Elles sont arrivees hier.",
+        hints: ['Sjekk DR MRS VANDERTRAMP-listen', 'Husk samsvarsbøyning med être'],
       },
     },
     // --- Samleoppgave ---
@@ -452,14 +452,14 @@ c) Vous **avez travaille** hier. (avoir - travailler er ikke et etre-verb)`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv disse setningene i passe compose. Velg avoir eller etre, og pass pa samsvarsboyning.',
+        task: 'Samleoppgave: Skriv disse setningene i passé composé. Velg avoir eller être, og pass på samsvarsbøyning.',
         subTasks: [
-          { label: 'a', task: 'Marie (aller) au cinema et elle (regarder) un film.', solution: 'Marie est allee au cinema et elle a regarde un film.' },
-          { label: 'b', task: 'Les garcons (arriver) a l\'ecole et ils (travailler) toute la journee.', solution: "Les garcons sont arrives a l'ecole et ils ont travaille toute la journee." },
+          { label: 'a', task: 'Marie (aller) au cinéma et elle (regarder) un film.', solution: 'Marie est allee au cinéma et elle a regarde un film.' },
+          { label: 'b', task: 'Les garcons (arriver) a l\'école et ils (travailler) toute la journée.', solution: "Les garcons sont arrives a l'école et ils ont travaille toute la journée." },
           { label: 'c', task: 'Sophie et Julie (partir) en vacances et elles (visiter) Paris.', solution: 'Sophie et Julie sont parties en vacances et elles ont visite Paris.' },
         ],
-        solution: "a) Marie est allee au cinema et elle a regarde un film. b) Les garcons sont arrives a l'ecole et ils ont travaille toute la journee. c) Sophie et Julie sont parties en vacances et elles ont visite Paris.",
-        hints: ['Noen setninger har bade avoir-verb og etre-verb', 'Aller, arriver, partir = etre. Regarder, travailler, visiter = avoir'],
+        solution: "a) Marie est allee au cinéma et elle a regarde un film. b) Les garcons sont arrives a l'école et ils ont travaille toute la journée. c) Sophie et Julie sont parties en vacances et elles ont visite Paris.",
+        hints: ['Noen setninger har både avoir-verb og être-verb', 'Aller, arriver, partir = être. Regarder, travailler, visiter = avoir'],
       },
     },
   ],
@@ -476,7 +476,7 @@ export const CHAPTER_FRANSK_1_17_3: TextbookChapter = {
   chapterNumber: '17.3',
   title: 'Les participes passés irréguliers',
   subtitle: 'Uregelmessige partisipper',
-  description: 'Laer de vanligste uregelmessige partisippene i passe compose.',
+  description: 'Lær de vanligste uregelmessige partisippene i passé composé.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kjenne til uregelmessige partisipper',
@@ -487,9 +487,9 @@ export const CHAPTER_FRANSK_1_17_3: TextbookChapter = {
       type: 'text',
       content: `## Uregelmessige partisipper
 
-Mange av de vanligste franske verbene har uregelmessige partisipper. Det betyr at de **ikke** folger reglene -er -> -e, -ir -> -i, -re -> -u. Du ma laere disse utenat!
+Mange av de vanligste franske verbene har uregelmessige partisipper. Det betyr at de **ikke** følger reglene -er -> -e, -ir -> -i, -re -> -u. Du må lære disse utenat!
 
-Den gode nyheten er at de fleste brukes svart ofte, sa du vil raskt bli vant til dem.`,
+Den gode nyheten er at de fleste brukes svart ofte, så du vil raskt bli vant til dem.`,
     },
     {
       id: 'fransk-1-17-3-def-1',
@@ -499,24 +499,24 @@ Den gode nyheten er at de fleste brukes svart ofte, sa du vil raskt bli vant til
 
 | Infinitiv | Partisipp | Norsk |
 |-----------|-----------|-------|
-| etre | ete | vaere |
+| être | été | være |
 | avoir | eu | ha |
-| faire | fait | gjore |
+| faire | fait | gjøre |
 | prendre | pris | ta |
 | mettre | mis | legge/sette |
 | voir | vu | se |
 | boire | bu | drikke |
 | lire | lu | lese |
 | dire | dit | si |
-| ecrire | ecrit | skrive |
-| ouvrir | ouvert | apne |
+| écrire | écrit | skrive |
+| ouvrir | ouvert | åpne |
 | pouvoir | pu | kunne |
 | vouloir | voulu | ville |
 | devoir | du | matte |
 | savoir | su | vite |
-| connaitre | connu | kjenne |
+| connaître | connu | kjenne |
 
-**Tips:** Prov a lage huskesetninger, for eksempel: "J'ai **fait** mes devoirs, j'ai **pris** le bus, et j'ai **bu** un cafe."`,
+**Tips:** Prøv a lage huskesetninger, for eksempel: "J'ai **fait** mes devoirs, j'ai **pris** le bus, et j'ai **bu** un café."`,
     },
     {
       id: 'fransk-1-17-3-example-1',
@@ -543,13 +543,13 @@ d) boire -> **bu** (j'ai bu = jeg har drukket)`,
         task: 'Skriv partisippet til disse verbene.',
         subTasks: [
           { label: 'a', task: 'avoir', solution: 'eu' },
-          { label: 'b', task: 'etre', solution: 'ete' },
+          { label: 'b', task: 'être', solution: 'ete' },
           { label: 'c', task: 'faire', solution: 'fait' },
           { label: 'd', task: 'dire', solution: 'dit' },
-          { label: 'e', task: 'ecrire', solution: 'ecrit' },
+          { label: 'e', task: 'écrire', solution: 'écrit' },
         ],
-        solution: 'a) eu, b) ete, c) fait, d) dit, e) ecrit',
-        hints: ['Disse ma laeres utenat - se tabellen'],
+        solution: 'a) eu, b) ete, c) fait, d) dit, e) écrit',
+        hints: ['Disse må læres utenat - se tabellen'],
       },
     },
     {
@@ -561,25 +561,25 @@ d) boire -> **bu** (j'ai bu = jeg har drukket)`,
 |--------|-------|
 | J'ai fait mes devoirs. | Jeg har gjort leksene. |
 | Elle a pris le train. | Hun tok toget. |
-| Nous avons bu du cafe. | Vi drakk kaffe. |
+| Nous avons bu du café. | Vi drakk kaffe. |
 | Tu as vu ce film ? | Har du sett den filmen? |
 | Il a lu un livre. | Han leste en bok. |
 | Elles ont dit bonjour. | De sa hei. |
-| J'ai ecrit une lettre. | Jeg har skrevet et brev. |
-| Il a mis son manteau. | Han tok pa seg jakken. |
-| Tu as ouvert la porte ? | Apnet du doren? |`,
+| J'ai écrit une lettre. | Jeg har skrevet et brev. |
+| Il a mis son manteau. | Han tok på seg jakken. |
+| Tu as ouvert la porte ? | Åpnet du døren? |`,
     },
     {
       id: 'fransk-1-17-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Setninger med uregelmessige partisipper',
-      problem: `Fyll inn riktig form av passe compose:
+      problem: `Fyll inn riktig form av passé composé:
 a) Tu ___ (lire) ce livre ?
 b) Nous ___ (voir) un beau film.
 c) Elle ___ (mettre) une robe rouge.`,
       solution: `a) Tu **as lu** ce livre ? (Har du lest denne boken?)
 b) Nous **avons vu** un beau film. (Vi sa en fin film.)
-c) Elle **a mis** une robe rouge. (Hun tok pa seg en rod kjole.)`,
+c) Elle **a mis** une robe rouge. (Hun tok på seg en rød kjole.)`,
     },
     {
       id: 'fransk-1-17-3-ex-block-2',
@@ -589,15 +589,15 @@ c) Elle **a mis** une robe rouge. (Hun tok pa seg en rod kjole.)`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Sett verbet i parentes i passe compose.',
+        task: 'Sett verbet i parentes i passé composé.',
         subTasks: [
           { label: 'a', task: 'Ils ___ (boire) du jus d\'orange.', solution: 'ont bu' },
-          { label: 'b', task: 'J\' ___ (ecrire) un message.', solution: 'ai ecrit' },
+          { label: 'b', task: 'J\' ___ (écrire) un message.', solution: 'ai écrit' },
           { label: 'c', task: 'Vous ___ (prendre) le metro ?', solution: 'avez pris' },
-          { label: 'd', task: 'Elle ___ (ouvrir) la fenetre.', solution: 'a ouvert' },
+          { label: 'd', task: 'Elle ___ (ouvrir) la fenêtre.', solution: 'a ouvert' },
         ],
-        solution: 'a) ont bu, b) ai ecrit, c) avez pris, d) a ouvert',
-        hints: ['Husk: avoir (boyd) + uregelmessig partisipp', 'boire -> bu, ecrire -> ecrit, prendre -> pris, ouvrir -> ouvert'],
+        solution: 'a) ont bu, b) ai écrit, c) avez pris, d) a ouvert',
+        hints: ['Husk: avoir (bøyd) + uregelmessig partisipp', 'boire -> bu, écrire -> écrit, prendre -> pris, ouvrir -> ouvert'],
       },
     },
     {
@@ -609,20 +609,20 @@ c) Elle **a mis** une robe rouge. (Hun tok pa seg en rod kjole.)`,
 
 | Endelse | Verb |
 |---------|------|
-| -it | dit, ecrit, fait |
+| -it | dit, écrit, fait |
 | -is | pris, mis |
 | -u | vu, bu, lu, pu, voulu, du, su, connu, eu |
 | -ert | ouvert |
 
-De fleste uregelmessige partisippene slutter pa **-u**! Det er den storste gruppen.`,
+De fleste uregelmessige partisippene slutter på **-u**! Det er den største gruppen.`,
     },
     {
       id: 'fransk-1-17-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Gruppere partisippene',
       problem: `Sorter disse partisippene etter endelse (-it, -is, -u, annet):
-fait, vu, pris, bu, dit, mis, lu, ecrit, eu, ouvert`,
-      solution: `**-it:** fait, dit, ecrit
+fait, vu, pris, bu, dit, mis, lu, écrit, eu, ouvert`,
+      solution: `**-it:** fait, dit, écrit
 **-is:** pris, mis
 **-u:** vu, bu, lu, eu
 **Annet:** ouvert (-ert)
@@ -637,13 +637,13 @@ Legg merke til at -u-gruppen er storst!`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk med passe compose.',
+        task: 'Oversett til fransk med passé composé.',
         subTasks: [
           { label: 'a', task: 'Jeg har gjort leksene.', solution: "J'ai fait mes devoirs." },
           { label: 'b', task: 'Har du sett denne filmen?', solution: 'Tu as vu ce film ?' },
-          { label: 'c', task: 'Vi drakk kaffe i dag morges.', solution: 'Nous avons bu du cafe ce matin.' },
+          { label: 'c', task: 'Vi drakk kaffe i dag morges.', solution: 'Nous avons bu du café ce matin.' },
         ],
-        solution: "a) J'ai fait mes devoirs. b) Tu as vu ce film ? c) Nous avons bu du cafe ce matin.",
+        solution: "a) J'ai fait mes devoirs. b) Tu as vu ce film ? c) Nous avons bu du café ce matin.",
         hints: ['faire -> fait, voir -> vu, boire -> bu'],
       },
     },
@@ -656,15 +656,15 @@ Legg merke til at -u-gruppen er storst!`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Fyll inn riktig passe compose. Bade regelmessige og uregelmessige verb!',
+        task: 'Samleoppgave: Fyll inn riktig passé composé. Både regelmessige og uregelmessige verb!',
         subTasks: [
-          { label: 'a', task: 'Ce matin, j\' ___ (prendre) le bus et j\' ___ (arriver) a l\'ecole.', solution: "j'ai pris le bus et je suis arrive(e) a l'ecole" },
+          { label: 'a', task: 'Ce matin, j\' ___ (prendre) le bus et j\' ___ (arriver) a l\'école.', solution: "j'ai pris le bus et je suis arrive(e) à l'école" },
           { label: 'b', task: 'Hier, elle ___ (faire) ses devoirs et elle ___ (lire) un livre.', solution: 'elle a fait ses devoirs et elle a lu un livre' },
           { label: 'c', task: 'Nous ___ (voir) un film et nous ___ (manger) du popcorn.', solution: 'nous avons vu un film et nous avons mange du popcorn' },
-          { label: 'd', task: 'Ils ___ (boire) du the et ils ___ (ecrire) des lettres.', solution: 'ils ont bu du the et ils ont ecrit des lettres' },
+          { label: 'd', task: 'Ils ___ (boire) du the et ils ___ (écrire) des lettres.', solution: 'ils ont bu du the et ils ont écrit des lettres' },
         ],
-        solution: "a) j'ai pris / je suis arrive(e), b) a fait / a lu, c) avons vu / avons mange, d) ont bu / ont ecrit",
-        hints: ['Husk at arriver bruker etre som hjelpeverb', 'De andre verbene bruker avoir'],
+        solution: "a) j'ai pris / je suis arrive(e), b) a fait / a lu, c) avons vu / avons mange, d) ont bu / ont écrit",
+        hints: ['Husk at arriver bruker être som hjelpeverb', 'De andre verbene bruker avoir'],
       },
     },
   ],
@@ -672,7 +672,7 @@ Legg merke til at -u-gruppen er storst!`,
 };
 
 // ============================================================================
-// Kapittel 17.4: Raconter au passe - Fortelle i fortid
+// Kapittel 17.4: Raconter au passé - Fortelle i fortid
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_17_4: TextbookChapter = {
@@ -681,7 +681,7 @@ export const CHAPTER_FRANSK_1_17_4: TextbookChapter = {
   chapterNumber: '17.4',
   title: 'Raconter au passé',
   subtitle: 'Fortelle i fortid',
-  description: 'Laer a fortelle om hendelser i fortid ved a bruke passe compose i kontekst, med nektelse og tidsuttrykk.',
+  description: 'Lær a fortelle om hendelser i fortid ved a bruke passé composé i kontekst, med nektelse og tidsuttrykk.',
   estimatedMinutes: 50,
   competenceGoals: [
     'fortelle om hendelser i fortid',
@@ -692,15 +692,15 @@ export const CHAPTER_FRANSK_1_17_4: TextbookChapter = {
       type: 'text',
       content: `## Fortelle om fortiden
 
-Na som du kan danne passe compose med bade avoir og etre, og du kjenner de uregelmessige partisippene, er det pa tide a bruke dem i sammenheng! I dette kapittelet laerer du a fortelle om helgen din, ferien, og andre hendelser i fortiden.
+Na som du kan danne passé composé med både avoir og être, og du kjenner de uregelmessige partisippene, er det på tide a bruke dem i sammenheng! I dette kapittelet lærer du a fortelle om helgen din, ferien, og andre hendelser i fortiden.
 
-Du laerer ogsa hvordan nektelse (ne...pas) fungerer i passe compose.`,
+Du lærer også hvordan nektelse (ne...pas) fungerer i passé composé.`,
     },
     {
       id: 'fransk-1-17-4-def-1',
       type: 'definition',
-      title: 'Nektelse i passe compose',
-      content: `I passe compose plasseres **ne...pas** rundt **hjelpeverbet** (avoir/etre):
+      title: 'Nektelse i passé composé',
+      content: `I passé composé plasseres **ne...pas** rundt **hjelpeverbet** (avoir/être):
 
 **ne + hjelpeverb + pas + partisipp**
 
@@ -716,8 +716,8 @@ Du laerer ogsa hvordan nektelse (ne...pas) fungerer i passe compose.`,
     {
       id: 'fransk-1-17-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Nektelse i passe compose',
-      problem: `Gjor setningene nektende:
+      title: 'Eksempel 1: Nektelse i passé composé',
+      problem: `Gjør setningene nektende:
 a) J'ai mange.
 b) Elle est partie.
 c) Nous avons fait les devoirs.`,
@@ -735,7 +735,7 @@ c) Nous **n'avons pas** fait les devoirs. (Vi har ikke gjort leksene.)
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Gjor disse setningene nektende.',
+        task: 'Gjør disse setningene nektende.',
         subTasks: [
           { label: 'a', task: 'Il a travaille hier.', solution: "Il n'a pas travaille hier." },
           { label: 'b', task: 'Tu as vu ce film.', solution: "Tu n'as pas vu ce film." },
@@ -743,7 +743,7 @@ c) Nous **n'avons pas** fait les devoirs. (Vi har ikke gjort leksene.)
           { label: 'd', task: "J'ai compris.", solution: "Je n'ai pas compris." },
         ],
         solution: "a) Il n'a pas travaille hier. b) Tu n'as pas vu ce film. c) Elles ne sont pas arrivees. d) Je n'ai pas compris.",
-        hints: ['ne/n\'...pas rundt hjelpeverbet (avoir eller etre)', 'Partisippet kommer etter pas'],
+        hints: ['ne/n\'...pas rundt hjelpeverbet (avoir eller être)', 'Partisippet kommer etter pas'],
       },
     },
     {
@@ -751,39 +751,39 @@ c) Nous **n'avons pas** fait les devoirs. (Vi har ikke gjort leksene.)
       type: 'text',
       content: `## Tidsuttrykk for fortiden
 
-Disse uttrykkene er nyttige nar du forteller om fortiden:
+Disse uttrykkene er nyttige når du forteller om fortiden:
 
 | Fransk | Norsk |
 |--------|-------|
-| hier | i gar |
-| hier matin | i gar morges |
-| hier soir | i gar kveld |
-| avant-hier | i forgar |
+| hier | i går |
+| hier matin | i går morges |
+| hier soir | i går kveld |
+| avant-hier | i forgårs |
 | ce matin | i dag morges |
-| la semaine derniere | forrige uke |
+| la semaine dernière | forrige uke |
 | le week-end dernier | forrige helg |
-| le mois dernier | forrige maned |
-| l'annee derniere | i fjor |
+| le mois dernier | forrige måned |
+| l'année dernière | i fjor |
 | en 2023 | i 2023 |
 | il y a deux jours | for to dager siden |
 | il y a une semaine | for en uke siden |
 | d'abord | forst |
-| ensuite / puis | deretter / sa |
+| ensuite / puis | deretter / så |
 | enfin / finalement | til slutt |`,
     },
     {
       id: 'fransk-1-17-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Fortelle om helgen',
-      problem: `Les denne teksten og svar pa sporsmalet:
+      problem: `Les denne teksten og svar på spørsmålet:
 
-"Le week-end dernier, je suis alle(e) a Paris avec ma famille. D'abord, nous avons visite la tour Eiffel. Ensuite, nous avons mange dans un restaurant francais. L'apres-midi, nous avons fait une promenade sur les Champs-Elysees. Finalement, nous sommes rentres a l'hotel."
+"Le week-end dernier, je suis allé(e) à Paris avec ma famille. D'abord, nous avons visite la tour Eiffel. Ensuite, nous avons mange dans un restaurant français. L'après-midi, nous avons fait une promenade sur les Champs-Élysées. Finalement, nous sommes rentres a l'hôtel."
 
-Spoorsmal: Nevn fire ting personen gjorde i Paris.`,
+Spørsmål: Nevn fire ting personen gjorde i Paris.`,
       solution: `1. Besokte Eiffeltarnet (nous avons visite la tour Eiffel)
-2. Spiste pa en fransk restaurant (nous avons mange dans un restaurant)
-3. Gikk tur pa Champs-Elysees (nous avons fait une promenade)
-4. Dro tilbake til hotellet (nous sommes rentres a l'hotel)
+2. Spiste på en fransk restaurant (nous avons mange dans un restaurant)
+3. Gikk tur på Champs-Élysées (nous avons fait une promenade)
+4. Dro tilbake til hotellet (nous sommes rentres a l'hôtel)
 
 **Legg merke til bruken av:** d'abord (forst), ensuite (deretter), finalement (til slutt) for a strukturere fortellingen.`,
     },
@@ -795,53 +795,53 @@ Spoorsmal: Nevn fire ting personen gjorde i Paris.`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk. Bruk passe compose.',
+        task: 'Oversett til fransk. Bruk passé composé.',
         subTasks: [
-          { label: 'a', task: 'Forrige helg gikk jeg pa kino.', solution: 'Le week-end dernier, je suis alle(e) au cinema.' },
+          { label: 'a', task: 'Forrige helg gikk jeg på kino.', solution: 'Le week-end dernier, je suis allé(e) au cinéma.' },
           { label: 'b', task: 'Vi har ikke sett den filmen.', solution: "Nous n'avons pas vu ce film." },
-          { label: 'c', task: 'Forst spiste hun frokost, deretter gikk hun til skolen.', solution: "D'abord, elle a mange le petit dejeuner. Ensuite, elle est allee a l'ecole." },
+          { label: 'c', task: 'Først spiste hun frokost, deretter gikk hun til skolen.', solution: "D'abord, elle a mange le petit déjeuner. Ensuite, elle est allee a l'école." },
         ],
-        solution: "a) Le week-end dernier, je suis alle(e) au cinema. b) Nous n'avons pas vu ce film. c) D'abord, elle a mange le petit dejeuner. Ensuite, elle est allee a l'ecole.",
-        hints: ['aller = etre-verb', 'voir -> vu, manger -> mange', 'Bruk d\'abord og ensuite for a binde setningene sammen'],
+        solution: "a) Le week-end dernier, je suis allé(e) au cinéma. b) Nous n'avons pas vu ce film. c) D'abord, elle a mange le petit déjeuner. Ensuite, elle est allee a l'école.",
+        hints: ['aller = être-verb', 'voir -> vu, manger -> mange', 'Bruk d\'abord og ensuite for a binde setningene sammen'],
       },
     },
     {
       id: 'fransk-1-17-4-text-2',
       type: 'text',
-      content: `## Sporre om fortiden
+      content: `## Spørre om fortiden
 
-For a stille sporsmaal i passe compose har du flere muligheter:
+For a stille spørsmål i passé composé har du flere muligheter:
 
-| Sporremate | Eksempel | Norsk |
+| Spørremåte | Eksempel | Norsk |
 |------------|----------|-------|
 | Intonasjon (heve stemmen) | Tu as mange ? | Har du spist? |
 | Est-ce que | Est-ce que tu as mange ? | Har du spist? |
 | Inversjon | As-tu mange ? | Har du spist? |
 
-**Vanlige sporsmaal om fortiden:**
+**Vanlige spørsmål om fortiden:**
 
 | Fransk | Norsk |
 |--------|-------|
-| Qu'est-ce que tu as fait hier ? | Hva gjorde du i gar? |
-| Ou est-ce que tu es alle(e) ? | Hvor gikk du? |
-| Tu as passe un bon week-end ? | Hadde du en fin helg? |
-| Comment etait le voyage ? | Hvordan var reisen? |`,
+| Qu'est-ce que tu as fait hier ? | Hva gjorde du i går? |
+| Ou est-ce que tu es allé(e) ? | Hvor gikk du? |
+| Tu as passé un bon week-end ? | Hadde du en fin helg? |
+| Comment était le voyage ? | Hvordan var reisen? |`,
     },
     {
       id: 'fransk-1-17-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Dialog i fortid',
       problem: `Oversett denne dialogen til norsk:
-- Salut ! Tu as passe un bon week-end ?
-- Oui ! Je suis alle au cinema avec Sophie.
+- Salut ! Tu as passé un bon week-end ?
+- Oui ! Je suis alle au cinéma avec Sophie.
 - Qu'est-ce que vous avez vu ?
-- Nous avons vu un film d'action. C'etait super !`,
+- Nous avons vu un film d'action. C'était super !`,
       solution: `- Hei! Hadde du en fin helg?
-- Ja! Jeg gikk pa kino med Sophie.
+- Ja! Jeg gikk på kino med Sophie.
 - Hva sa dere?
 - Vi sa en actionfilm. Det var kjempebra!
 
-**Merk:** "C'etait" (det var) er imparfait, en annen fortidsform du laerer senere.`,
+**Merk:** "C'était" (det var) er imparfait, en annen fortidsform du lærer senere.`,
     },
     {
       id: 'fransk-1-17-4-ex-block-3',
@@ -851,13 +851,13 @@ For a stille sporsmaal i passe compose har du flere muligheter:
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Svar pa sporsmaalene pa fransk med fulle setninger i passe compose.',
+        task: 'Svar på sporsmaalene på fransk med fulle setninger i passé composé.',
         subTasks: [
           { label: 'a', task: 'Qu\'est-ce que tu as mange hier soir ? (pizza)', solution: "Hier soir, j'ai mange une pizza." },
-          { label: 'b', task: 'Ou est-ce que tu es alle(e) le week-end dernier ? (parc)', solution: 'Le week-end dernier, je suis alle(e) au parc.' },
+          { label: 'b', task: 'Ou est-ce que tu es allé(e) le week-end dernier ? (parc)', solution: 'Le week-end dernier, je suis allé(e) au parc.' },
           { label: 'c', task: 'Tu as fait tes devoirs ? (nei)', solution: "Non, je n'ai pas fait mes devoirs." },
         ],
-        solution: "a) Hier soir, j'ai mange une pizza. b) Le week-end dernier, je suis alle(e) au parc. c) Non, je n'ai pas fait mes devoirs.",
+        solution: "a) Hier soir, j'ai mange une pizza. b) Le week-end dernier, je suis allé(e) au parc. c) Non, je n'ai pas fait mes devoirs.",
         hints: ['Bruk tidsuttrykk i svaret', 'Husk nektelse: ne...pas rundt hjelpeverbet'],
       },
     },
@@ -870,15 +870,15 @@ For a stille sporsmaal i passe compose har du flere muligheter:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv en kort fortelling (5-6 setninger) om din forrige helg pa fransk. Bruk passe compose med bade avoir og etre, minst ett uregelmessig partisipp, tidsuttrykk, og en nektende setning.',
+        task: 'Samleoppgave: Skriv en kort fortelling (5-6 setninger) om din forrige helg på fransk. Bruk passé composé med både avoir og être, minst ett uregelmessig partisipp, tidsuttrykk, og en nektende setning.',
         subTasks: [
-          { label: 'a', task: 'Fortell hvor du gikk. (bruk aller)', solution: 'Eksempel: Le week-end dernier, je suis alle(e) en ville avec mes amis.' },
+          { label: 'a', task: 'Fortell hvor du gikk. (bruk aller)', solution: 'Eksempel: Le week-end dernier, je suis allé(e) en ville avec mes amis.' },
           { label: 'b', task: 'Fortell hva du gjorde og spiste. (bruk faire, manger)', solution: "Eksempel: D'abord, nous avons fait les magasins. Ensuite, nous avons mange au restaurant." },
           { label: 'c', task: 'Fortell noe du IKKE gjorde. (bruk nektelse)', solution: "Eksempel: Je n'ai pas fait mes devoirs." },
-          { label: 'd', task: 'Fortell nar du kom hjem. (bruk rentrer)', solution: 'Eksempel: Finalement, je suis rentre(e) a la maison a neuf heures du soir.' },
+          { label: 'd', task: 'Fortell når du kom hjem. (bruk rentrer)', solution: 'Eksempel: Finalement, je suis rentre(e) à la maison a neuf heures du soir.' },
         ],
-        solution: "Eksempel pa komplett tekst: Le week-end dernier, je suis alle(e) en ville avec mes amis. D'abord, nous avons fait les magasins. Ensuite, nous avons mange au restaurant. J'ai vu un beau film au cinema. Je n'ai pas fait mes devoirs. Finalement, je suis rentre(e) a la maison a neuf heures du soir.",
-        hints: ['Bruk d\'abord, ensuite, puis, finalement for a strukturere', 'Husk: aller, partir, arriver, rentrer = etre. Manger, faire, voir = avoir'],
+        solution: "Eksempel på komplett tekst: Le week-end dernier, je suis allé(e) en ville avec mes amis. D'abord, nous avons fait les magasins. Ensuite, nous avons mange au restaurant. J'ai vu un beau film au cinéma. Je n'ai pas fait mes devoirs. Finalement, je suis rentre(e) à la maison a neuf heures du soir.",
+        hints: ['Bruk d\'abord, ensuite, puis, finalement for a strukturere', 'Husk: aller, partir, arriver, rentrer = être. Manger, faire, voir = avoir'],
       },
     },
   ],
@@ -886,7 +886,7 @@ For a stille sporsmaal i passe compose har du flere muligheter:
 };
 
 // ============================================================================
-// Kapittel 18.1: Pouvoir - A kunne
+// Kapittel 18.1: Pouvoir - Å kunne
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_18_1: TextbookChapter = {
@@ -894,8 +894,8 @@ export const CHAPTER_FRANSK_1_18_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '18.1',
   title: 'Pouvoir',
-  subtitle: 'A kunne',
-  description: 'Laer a boye og bruke det modale verbet pouvoir (a kunne) for a uttrykke evne og tillatelse.',
+  subtitle: 'Å kunne',
+  description: 'Lær a bøye og bruke det modale verbet pouvoir (a kunne) for a uttrykke evne og tillatelse.',
   estimatedMinutes: 45,
   competenceGoals: [
     'bruke verbet pouvoir i presens',
@@ -904,13 +904,13 @@ export const CHAPTER_FRANSK_1_18_1: TextbookChapter = {
     {
       id: 'fransk-1-18-1-intro',
       type: 'text',
-      content: `## Modalverb pa fransk
+      content: `## Modalverb på fransk
 
-**Modalverb** er verb som star foran et annet verb i infinitiv. Pa norsk sier vi "jeg **kan** svomme", "jeg **vil** spise", "jeg **ma** ga". Pa fransk fungerer det pa samme mate:
+**Modalverb** er verb som star foran et annet verb i infinitiv. På norsk sier vi "jeg **kan** svømme", "jeg **vil** spise", "jeg **ma** gå". På fransk fungerer det på samme måte:
 
-- Je **peux** nager. (Jeg kan svomme.)
+- Je **peux** nager. (Jeg kan svømme.)
 - Je **veux** manger. (Jeg vil spise.)
-- Je **dois** partir. (Jeg ma dra.)
+- Je **dois** partir. (Jeg må dra.)
 
 I dette kapittelet begynner vi med **pouvoir** (a kunne).`,
     },
@@ -929,9 +929,9 @@ I dette kapittelet begynner vi med **pouvoir** (a kunne).`,
 | vous | pouvez | dere kan / De kan |
 | ils/elles | peuvent | de kan |
 
-**Struktur:** pouvoir (boyd) + infinitiv
+**Struktur:** pouvoir (bøyd) + infinitiv
 
-- Je **peux parler** francais. (Jeg kan snakke fransk.)
+- Je **peux parler** français. (Jeg kan snakke fransk.)
 - Tu **peux venir** demain ? (Kan du komme i morgen?)`,
     },
     {
@@ -941,35 +941,35 @@ I dette kapittelet begynner vi med **pouvoir** (a kunne).`,
 
 Pouvoir brukes for:
 
-**1. Evne (a vaere i stand til):**
+**1. Evne (a være i stand til):**
 | Fransk | Norsk |
 |--------|-------|
-| Je peux nager. | Jeg kan svomme. |
-| Elle peut courir vite. | Hun kan lope fort. |
+| Je peux nager. | Jeg kan svømme. |
+| Elle peut courir vite. | Hun kan løpe fort. |
 
-**2. Tillatelse (a fa lov til):**
+**2. Tillatelse (a få lov til):**
 | Fransk | Norsk |
 |--------|-------|
-| Tu peux sortir. | Du kan (far lov til a) ga ut. |
+| Tu peux sortir. | Du kan (får lov til a) gå ut. |
 | On peut manger ici ? | Kan vi spise her? |
 
-**3. Hoeflige foresporsler:**
+**3. Hoeflige forespørsler:**
 | Fransk | Norsk |
 |--------|-------|
 | Pouvez-vous m'aider ? | Kan De hjelpe meg? |
-| Tu peux repeter ? | Kan du gjenta? |
-| Est-ce que je peux aller aux toilettes ? | Kan jeg ga pa toalettet? |`,
+| Tu peux répéter ? | Kan du gjenta? |
+| Est-ce que je peux aller aux toilettes ? | Kan jeg gå på toalettet? |`,
     },
     {
       id: 'fransk-1-18-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Boyning av pouvoir',
       problem: `Fyll inn riktig form av pouvoir:
-a) Je ___ parler francais.
+a) Je ___ parler français.
 b) Tu ___ venir ce soir ?
 c) Nous ___ jouer au foot.
 d) Ils ___ chanter bien.`,
-      solution: `a) Je **peux** parler francais.
+      solution: `a) Je **peux** parler français.
 b) Tu **peux** venir ce soir ?
 c) Nous **pouvons** jouer au foot.
 d) Ils **peuvent** chanter bien.
@@ -987,8 +987,8 @@ d) Ils **peuvent** chanter bien.
         task: 'Fyll inn riktig form av pouvoir.',
         subTasks: [
           { label: 'a', task: 'Tu ___ m\'aider ?', solution: 'peux' },
-          { label: 'b', task: 'Elle ___ danser tres bien.', solution: 'peut' },
-          { label: 'c', task: 'Vous ___ repeter, s\'il vous plait ?', solution: 'pouvez' },
+          { label: 'b', task: 'Elle ___ danser très bien.', solution: 'peut' },
+          { label: 'c', task: 'Vous ___ répéter, s\'il vous plait ?', solution: 'pouvez' },
           { label: 'd', task: 'Nous ___ partir a midi.', solution: 'pouvons' },
         ],
         solution: 'a) peux, b) peut, c) pouvez, d) pouvons',
@@ -1009,7 +1009,7 @@ Nektelse med pouvoir: **ne + pouvoir + pas + infinitiv**
 | On peut manger. | On **ne peut pas** manger. |
 
 **Eksempler:**
-- Je ne peux pas nager. (Jeg kan ikke svomme.)
+- Je ne peux pas nager. (Jeg kan ikke svømme.)
 - Elle ne peut pas venir demain. (Hun kan ikke komme i morgen.)
 - Nous ne pouvons pas rester. (Vi kan ikke bli.)`,
     },
@@ -1017,7 +1017,7 @@ Nektelse med pouvoir: **ne + pouvoir + pas + infinitiv**
       id: 'fransk-1-18-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Nektelse med pouvoir',
-      problem: `Gjor setningene nektende:
+      problem: `Gjør setningene nektende:
 a) Je peux venir ce soir.
 b) Elle peut manger du gluten.
 c) Ils peuvent jouer dehors.`,
@@ -1035,12 +1035,12 @@ c) Ils **ne peuvent pas** jouer dehors. (De kan ikke leke ute.)`,
         difficulty: 'medium',
         task: 'Oversett til fransk med pouvoir.',
         subTasks: [
-          { label: 'a', task: 'Jeg kan snakke fransk.', solution: 'Je peux parler francais.' },
+          { label: 'a', task: 'Jeg kan snakke fransk.', solution: 'Je peux parler français.' },
           { label: 'b', task: 'Kan du hjelpe meg?', solution: "Tu peux m'aider ? / Est-ce que tu peux m'aider ?" },
           { label: 'c', task: 'Vi kan ikke komme i morgen.', solution: 'Nous ne pouvons pas venir demain.' },
-          { label: 'd', task: 'Kan jeg ga pa toalettet?', solution: 'Est-ce que je peux aller aux toilettes ?' },
+          { label: 'd', task: 'Kan jeg gå på toalettet?', solution: 'Est-ce que je peux aller aux toilettes ?' },
         ],
-        solution: "a) Je peux parler francais. b) Tu peux m'aider ? c) Nous ne pouvons pas venir demain. d) Est-ce que je peux aller aux toilettes ?",
+        solution: "a) Je peux parler français. b) Tu peux m'aider ? c) Nous ne pouvons pas venir demain. d) Est-ce que je peux aller aux toilettes ?",
         hints: ['pouvoir + infinitiv', 'Nektelse: ne + pouvoir + pas + infinitiv'],
       },
     },
@@ -1049,14 +1049,14 @@ c) Ils **ne peuvent pas** jouer dehors. (De kan ikke leke ute.)`,
       type: 'example',
       title: 'Eksempel 3: Pouvoir i dialog',
       problem: `Oversett dialogen til norsk:
-- Est-ce que tu peux venir a ma fete samedi ?
-- Desolee, je ne peux pas. Je dois travailler.
+- Est-ce que tu peux venir a ma fête samedi ?
+- Désolée, je ne peux pas. Je dois travailler.
 - Et dimanche, tu peux ?
 - Oui, dimanche je peux venir !`,
-      solution: `- Kan du komme i bursdagen min pa lordag?
-- Beklager, jeg kan ikke. Jeg ma jobbe.
-- Og pa sondag, kan du?
-- Ja, pa sondag kan jeg komme!`,
+      solution: `- Kan du komme i bursdagen min på lørdag?
+- Beklager, jeg kan ikke. Jeg må jobbe.
+- Og på søndag, kan du?
+- Ja, på søndag kan jeg komme!`,
     },
     {
       id: 'fransk-1-18-1-ex-block-3',
@@ -1066,13 +1066,13 @@ c) Ils **ne peuvent pas** jouer dehors. (De kan ikke leke ute.)`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv hva disse personene kan og ikke kan gjore.',
+        task: 'Skriv hva disse personene kan og ikke kan gjøre.',
         subTasks: [
-          { label: 'a', task: 'Marie / svomme (ja) og fly (nei)', solution: 'Marie peut nager. Elle ne peut pas voler.' },
-          { label: 'b', task: 'Vi / snakke fransk (ja) og snakke kinesisk (nei)', solution: 'Nous pouvons parler francais. Nous ne pouvons pas parler chinois.' },
+          { label: 'a', task: 'Marie / svømme (ja) og fly (nei)', solution: 'Marie peut nager. Elle ne peut pas voler.' },
+          { label: 'b', task: 'Vi / snakke fransk (ja) og snakke kinesisk (nei)', solution: 'Nous pouvons parler français. Nous ne pouvons pas parler chinois.' },
           { label: 'c', task: 'De / spille fotball (ja) og spille tennis (nei)', solution: 'Ils peuvent jouer au foot. Ils ne peuvent pas jouer au tennis.' },
         ],
-        solution: 'a) Marie peut nager. Elle ne peut pas voler. b) Nous pouvons parler francais. Nous ne pouvons pas parler chinois. c) Ils peuvent jouer au foot. Ils ne peuvent pas jouer au tennis.',
+        solution: 'a) Marie peut nager. Elle ne peut pas voler. b) Nous pouvons parler français. Nous ne pouvons pas parler chinois. c) Ils peuvent jouer au foot. Ils ne peuvent pas jouer au tennis.',
         hints: ['Bruk pouvoir + infinitiv for "kan"', 'ne + pouvoir + pas + infinitiv for "kan ikke"'],
       },
     },
@@ -1085,14 +1085,14 @@ c) Ils **ne peuvent pas** jouer dehors. (De kan ikke leke ute.)`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv en kort dialog (4-6 setninger) der du inviterer en venn til en aktivitet. Bruk pouvoir i bade bekreftende og nektende form.',
+        task: 'Samleoppgave: Skriv en kort dialog (4-6 setninger) der du inviterer en venn til en aktivitet. Bruk pouvoir i både bekreftende og nektende form.',
         subTasks: [
-          { label: 'a', task: 'Spor om vennen kan gjore noe pa lordag.', solution: 'Eksempel: Est-ce que tu peux aller au cinema samedi ?' },
-          { label: 'b', task: 'Vennen kan ikke pa lordag. Gi en grunn.', solution: 'Eksempel: Desolee, je ne peux pas samedi. Je dois etudier.' },
+          { label: 'a', task: 'Spor om vennen kan gjøre noe på lørdag.', solution: 'Eksempel: Est-ce que tu peux aller au cinéma samedi ?' },
+          { label: 'b', task: 'Vennen kan ikke på lørdag. Gi en grunn.', solution: 'Eksempel: Désolée, je ne peux pas samedi. Je dois étudier.' },
           { label: 'c', task: 'Foreslaa en annen dag og vennen sier ja.', solution: 'Eksempel: Et dimanche ? - Oui, dimanche je peux venir ! Super !' },
         ],
-        solution: "Eksempel: - Est-ce que tu peux aller au cinema samedi ? - Desolee, je ne peux pas samedi. Je dois etudier. - Et dimanche, tu peux ? - Oui, dimanche je peux venir ! Super !",
-        hints: ['Bruk est-ce que for a stille sporsmaal', 'Bruk ne...pas for nektelse', 'Foreslaa aktiviteter: aller au cinema, jouer au foot, faire une promenade'],
+        solution: "Eksempel: - Est-ce que tu peux aller au cinéma samedi ? - Désolée, je ne peux pas samedi. Je dois étudier. - Et dimanche, tu peux ? - Oui, dimanche je peux venir ! Super !",
+        hints: ['Bruk est-ce que for a stille spørsmål', 'Bruk ne...pas for nektelse', 'Foreslaa aktiviteter: aller au cinéma, jouer au foot, faire une promenade'],
       },
     },
   ],
@@ -1109,18 +1109,18 @@ export const CHAPTER_FRANSK_1_18_2: TextbookChapter = {
   chapterNumber: '18.2',
   title: 'Vouloir',
   subtitle: 'A ville',
-  description: 'Laer a boye og bruke det modale verbet vouloir (a ville) og den hoeflige formen je voudrais.',
+  description: 'Lær a bøye og bruke det modale verbet vouloir (a ville) og den høflige formen je voudrais.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke verbet vouloir og den hoeflige formen je voudrais',
+    'bruke verbet vouloir og den høflige formen je voudrais',
   ],
   content: [
     {
       id: 'fransk-1-18-2-intro',
       type: 'text',
-      content: `## Vouloir - a ville/onske
+      content: `## Vouloir - a ville/ønske
 
-**Vouloir** er et av de viktigste verbene pa fransk. Du bruker det for a uttrykke hva du vil, onsker eller har lyst til. Det er ogsa viktig a laere den hoeflige formen **je voudrais** (jeg ville gjerne), som brukes mye i butikker, restauranter og i hoeflige foresporsler.`,
+**Vouloir** er et av de viktigste verbene på fransk. Du bruker det for a uttrykke hva du vil, ønsker eller har lyst til. Det er også viktig a lære den høflige formen **je voudrais** (jeg ville gjerne), som brukes mye i butikker, restauranter og i høflige forespørsler.`,
     },
     {
       id: 'fransk-1-18-2-def-1',
@@ -1137,21 +1137,21 @@ export const CHAPTER_FRANSK_1_18_2: TextbookChapter = {
 | vous | voulez | dere vil / De vil |
 | ils/elles | veulent | de vil |
 
-**Struktur:** vouloir (boyd) + infinitiv / substantiv
+**Struktur:** vouloir (bøyd) + infinitiv / substantiv
 
 - Je **veux manger**. (Jeg vil spise.)
-- Tu **veux un cafe** ? (Vil du ha en kaffe?)`,
+- Tu **veux un café** ? (Vil du ha en kaffe?)`,
     },
     {
       id: 'fransk-1-18-2-text-1',
       type: 'text',
-      content: `## Je voudrais - den hoeflige formen
+      content: `## Je voudrais - den høflige formen
 
-Pa norsk er det hoefligere a si "jeg vil gjerne ha..." enn "jeg vil ha!". Pa fransk er det det samme:
+På norsk er det høfligere a si "jeg vil gjerne ha..." enn "jeg vil ha!". På fransk er det det samme:
 
-| Direkte (uhoflig) | Hoeflig |
+| Direkte (uhoflig) | Høflig |
 |--------------------|---------|
-| Je veux un cafe. | **Je voudrais** un cafe. |
+| Je veux un café. | **Je voudrais** un café. |
 | Je veux manger. | **Je voudrais** manger. |
 
 **Je voudrais** er kondisjonalis (betinget form) av vouloir og brukes svart mye:
@@ -1166,9 +1166,9 @@ Pa norsk er det hoefligere a si "jeg vil gjerne ha..." enn "jeg vil ha!". Pa fra
 | ils/elles | voudraient | de ville gjerne |
 
 **Vanlige situasjoner med je voudrais:**
-- Pa restaurant: Je voudrais le menu du jour. (Jeg vil gjerne ha dagens meny.)
+- På restaurant: Je voudrais le menu du jour. (Jeg vil gjerne ha dagens meny.)
 - I butikk: Je voudrais un kilo de pommes. (Jeg vil gjerne ha et kilo epler.)
-- Foresporsler: Je voudrais poser une question. (Jeg vil gjerne stille et sporsmaal.)`,
+- Foresporsler: Je voudrais poser une question. (Jeg vil gjerne stille et spørsmål.)`,
     },
     {
       id: 'fransk-1-18-2-example-1',
@@ -1177,11 +1177,11 @@ Pa norsk er det hoefligere a si "jeg vil gjerne ha..." enn "jeg vil ha!". Pa fra
       problem: `Fyll inn riktig form av vouloir:
 a) Je ___ un croissant.
 b) Tu ___ venir avec nous ?
-c) Elle ___ acheter une robe.
+c) Elle ___ achèter une robe.
 d) Ils ___ jouer au foot.`,
       solution: `a) Je **veux** un croissant.
 b) Tu **veux** venir avec nous ?
-c) Elle **veut** acheter une robe.
+c) Elle **veut** achèter une robe.
 d) Ils **veulent** jouer au foot.
 
 **Merk:** je/tu = veux, il/elle = veut (uten x), ils/elles = veulent.`,
@@ -1197,9 +1197,9 @@ d) Ils **veulent** jouer au foot.
         task: 'Fyll inn riktig form av vouloir.',
         subTasks: [
           { label: 'a', task: 'Nous ___ voyager en France.', solution: 'voulons' },
-          { label: 'b', task: 'Vous ___ du the ou du cafe ?', solution: 'voulez' },
-          { label: 'c', task: 'Il ___ devenir medecin.', solution: 'veut' },
-          { label: 'd', task: 'Elles ___ apprendre le francais.', solution: 'veulent' },
+          { label: 'b', task: 'Vous ___ du the ou du café ?', solution: 'voulez' },
+          { label: 'c', task: 'Il ___ devenir médecin.', solution: 'veut' },
+          { label: 'd', task: 'Elles ___ apprendre le français.', solution: 'veulent' },
         ],
         solution: 'a) voulons, b) voulez, c) veut, d) veulent',
         hints: ['nous = voulons, vous = voulez, il/elle = veut, ils/elles = veulent'],
@@ -1212,33 +1212,33 @@ d) Ils **veulent** jouer au foot.
 
 | Fransk | Norsk |
 |--------|-------|
-| Tu veux bien... ? | Kan du vaere sa snill a...? |
+| Tu veux bien... ? | Kan du være så snill a...? |
 | Je veux bien ! | Ja, gjerne! |
 | Qu'est-ce que tu veux ? | Hva vil du ha? |
-| Qu'est-ce que vous voulez ? | Hva onsker De? |
+| Qu'est-ce que vous voulez ? | Hva ønsker De? |
 | Je ne veux pas... | Jeg vil ikke... |
 | Comme tu veux. | Som du vil. |
 | Je voudrais savoir... | Jeg vil gjerne vite... |
 
-**Dialog pa restaurant:**
-- Bonjour, qu'est-ce que vous voulez ? (Hva onsker De?)
-- Je voudrais un steak-frites, s'il vous plait. (Jeg vil gjerne ha biff med pommes frites, takk.)
+**Dialog på restaurant:**
+- Bonjour, qu'est-ce que vous voulez ? (Hva ønsker De?)
+- Je voudrais un steak-frites, s'il vous plaît. (Jeg vil gjerne ha biff med pommes frites, takk.)
 - Et comme boisson ? (Og som drikke?)
-- Je voudrais un coca, s'il vous plait. (Jeg vil gjerne ha en cola, takk.)`,
+- Je voudrais un coca, s'il vous plaît. (Jeg vil gjerne ha en cola, takk.)`,
     },
     {
       id: 'fransk-1-18-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Vouloir vs. voudrais',
       problem: `Hvilken form er mest passende? Velg veux/veut eller voudrais/voudrait:
-a) Pa restaurant: Je ___ un cafe, s'il vous plait.
+a) På restaurant: Je ___ un café, s'il vous plaît.
 b) Til en venn: Tu ___ jouer au foot ?
-c) I butikk: Je ___ deux baguettes, s'il vous plait.`,
-      solution: `a) Je **voudrais** un cafe. (Hoeflig - pa restaurant bruker vi kondisjonalis)
+c) I butikk: Je ___ deux baguettes, s'il vous plaît.`,
+      solution: `a) Je **voudrais** un café. (Høflig - på restaurant bruker vi kondisjonalis)
 b) Tu **veux** jouer au foot ? (Uformelt - mellom venner er presens greit)
-c) Je **voudrais** deux baguettes. (Hoeflig - i butikk bruker vi kondisjonalis)
+c) Je **voudrais** deux baguettes. (Høflig - i butikk bruker vi kondisjonalis)
 
-**Tommelfingerregel:** Bruk voudrais nar du snakker med fremmede, i butikker og restauranter. Bruk veux med venner og familie.`,
+**Tommelfingerregel:** Bruk voudrais når du snakker med fremmede, i butikker og restauranter. Bruk veux med venner og familie.`,
     },
     {
       id: 'fransk-1-18-2-ex-block-2',
@@ -1248,30 +1248,30 @@ c) Je **voudrais** deux baguettes. (Hoeflig - i butikk bruker vi kondisjonalis)
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk. Velg mellom vouloir (presens) og voudrais (hoeflig).',
+        task: 'Oversett til fransk. Velg mellom vouloir (presens) og voudrais (høflig).',
         subTasks: [
           { label: 'a', task: 'Jeg vil gjerne ha en croissant, takk. (i bakeri)', solution: 'Je voudrais un croissant, s\'il vous plait.' },
           { label: 'b', task: 'Vil du se en film? (til en venn)', solution: 'Tu veux regarder un film ?' },
-          { label: 'c', task: 'Vi vil gjerne bestille. (pa restaurant)', solution: 'Nous voudrions commander, s\'il vous plait.' },
+          { label: 'c', task: 'Vi vil gjerne bestille. (på restaurant)', solution: 'Nous voudrions commander, s\'il vous plait.' },
           { label: 'd', task: 'De vil spille tennis. (om venner)', solution: 'Ils veulent jouer au tennis.' },
         ],
-        solution: "a) Je voudrais un croissant, s'il vous plait. b) Tu veux regarder un film ? c) Nous voudrions commander, s'il vous plait. d) Ils veulent jouer au tennis.",
-        hints: ['Bruk voudrais/voudrions i hoeflige situasjoner (butikk, restaurant)', 'Bruk veux/veut med venner'],
+        solution: "a) Je voudrais un croissant, s'il vous plaît. b) Tu veux regarder un film ? c) Nous voudrions commander, s'il vous plaît. d) Ils veulent jouer au tennis.",
+        hints: ['Bruk voudrais/voudrions i høflige situasjoner (butikk, restaurant)', 'Bruk veux/veut med venner'],
       },
     },
     {
       id: 'fransk-1-18-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Nektelse med vouloir',
-      problem: `Gjor setningene nektende:
+      problem: `Gjør setningene nektende:
 a) Je veux sortir.
 b) Elle veut manger.
 c) Nous voulons rester.`,
-      solution: `a) Je **ne veux pas** sortir. (Jeg vil ikke ga ut.)
+      solution: `a) Je **ne veux pas** sortir. (Jeg vil ikke gå ut.)
 b) Elle **ne veut pas** manger. (Hun vil ikke spise.)
 c) Nous **ne voulons pas** rester. (Vi vil ikke bli.)
 
-ne...pas rundt det boyede verbet, akkurat som med andre verb.`,
+ne...pas rundt det bøyede verbet, akkurat som med andre verb.`,
     },
     {
       id: 'fransk-1-18-2-ex-block-3',
@@ -1284,7 +1284,7 @@ ne...pas rundt det boyede verbet, akkurat som med andre verb.`,
         task: 'Skriv hva disse personene vil og ikke vil.',
         subTasks: [
           { label: 'a', task: 'Pierre vil spise pizza, men ikke salat.', solution: 'Pierre veut manger de la pizza. Il ne veut pas manger de la salade.' },
-          { label: 'b', task: 'Jeg vil gjerne ha vann, ikke brus. (hoeflig)', solution: "Je voudrais de l'eau, s'il vous plait. Je ne veux pas de soda." },
+          { label: 'b', task: 'Jeg vil gjerne ha vann, ikke brus. (høflig)', solution: "Je voudrais de l'eau, s'il vous plaît. Je ne veux pas de soda." },
           { label: 'c', task: 'De vil reise til Frankrike, men ikke til England.', solution: "Ils veulent voyager en France. Ils ne veulent pas voyager en Angleterre." },
         ],
         solution: "a) Pierre veut manger de la pizza. Il ne veut pas manger de la salade. b) Je voudrais de l'eau. Je ne veux pas de soda. c) Ils veulent voyager en France. Ils ne veulent pas voyager en Angleterre.",
@@ -1300,14 +1300,14 @@ ne...pas rundt det boyede verbet, akkurat som med andre verb.`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv en dialog pa en restaurant. Bruk bade vouloir og voudrais. Servitoren spor hva gjestene onsker, og to gjester bestiller.',
+        task: 'Samleoppgave: Skriv en dialog på en restaurant. Bruk både vouloir og voudrais. Servitoren spor hva gjestene ønsker, og to gjester bestiller.',
         subTasks: [
           { label: 'a', task: 'Servitoren spor hva de vil bestille.', solution: "Eksempel: Bonjour ! Qu'est-ce que vous voulez commander ?" },
-          { label: 'b', task: 'Gjest 1 bestiller mat og drikke hoeflig.', solution: "Eksempel: Je voudrais le poulet avec des frites et un verre d'eau, s'il vous plait." },
-          { label: 'c', task: 'Gjest 2 bestiller, men vil ikke ha dessert.', solution: "Eksempel: Je voudrais une salade nicoise et un coca. Je ne veux pas de dessert, merci." },
+          { label: 'b', task: 'Gjest 1 bestiller mat og drikke høflig.', solution: "Eksempel: Je voudrais le poulet avec des frites et un verre d'eau, s'il vous plaît." },
+          { label: 'c', task: 'Gjest 2 bestiller, men vil ikke ha dessert.', solution: "Eksempel: Je voudrais une salade niçoise et un coca. Je ne veux pas de dessert, merci." },
         ],
-        solution: "Eksempel: - Bonjour ! Qu'est-ce que vous voulez commander ? - Je voudrais le poulet avec des frites et un verre d'eau, s'il vous plait. - Et pour vous ? - Je voudrais une salade nicoise et un coca. Je ne veux pas de dessert, merci.",
-        hints: ['Servitoren kan bruke vouloir i presens', 'Gjestene bor bruke voudrais (hoeflig)', 'Bruk s\'il vous plait og merci'],
+        solution: "Eksempel: - Bonjour ! Qu'est-ce que vous voulez commander ? - Je voudrais le poulet avec des frites et un verre d'eau, s'il vous plaît. - Et pour vous ? - Je voudrais une salade niçoise et un coca. Je ne veux pas de dessert, merci.",
+        hints: ['Servitoren kan bruke vouloir i presens', 'Gjestene bor bruke voudrais (høflig)', 'Bruk s\'il vous plait og merci'],
       },
     },
   ],
@@ -1324,10 +1324,10 @@ export const CHAPTER_FRANSK_1_18_3: TextbookChapter = {
   chapterNumber: '18.3',
   title: 'Devoir',
   subtitle: 'A matte',
-  description: 'Laer a boye og bruke det modale verbet devoir (a matte) og uttrykket il faut for a uttrykke plikt og nodvendighet.',
+  description: 'Lær a bøye og bruke det modale verbet devoir (a matte) og uttrykket il faut for a uttrykke plikt og nødvendighet.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'uttrykke plikt og nodvendighet med devoir og il faut',
+    'uttrykke plikt og nødvendighet med devoir og il faut',
   ],
   content: [
     {
@@ -1335,9 +1335,9 @@ export const CHAPTER_FRANSK_1_18_3: TextbookChapter = {
       type: 'text',
       content: `## Devoir - a matte
 
-**Devoir** brukes for a uttrykke at noe er nodvendig, at man er forpliktet til noe, eller at man bor gjore noe. Pa norsk tilsvarer det "matte", "burde" eller "vaere nodt til".
+**Devoir** brukes for a uttrykke at noe er nødvendig, at man er forpliktet til noe, eller at man bor gjøre noe. På norsk tilsvarer det "matte", "burde" eller "være nodt til".
 
-I tillegg laerer du uttrykket **il faut** som betyr "man ma" eller "det er nodvendig".`,
+I tillegg lærer du uttrykket **il faut** som betyr "man ma" eller "det er nødvendig".`,
     },
     {
       id: 'fransk-1-18-3-def-1',
@@ -1347,41 +1347,41 @@ I tillegg laerer du uttrykket **il faut** som betyr "man ma" eller "det er nodve
 
 | Person | Devoir | Norsk |
 |--------|--------|-------|
-| je | dois | jeg ma |
-| tu | dois | du ma |
-| il/elle | doit | han/hun ma |
-| nous | devons | vi ma |
-| vous | devez | dere ma / De ma |
-| ils/elles | doivent | de ma |
+| je | dois | jeg må |
+| tu | dois | du må |
+| il/elle | doit | han/hun må |
+| nous | devons | vi må |
+| vous | devez | dere ma / De må |
+| ils/elles | doivent | de må |
 
-**Struktur:** devoir (boyd) + infinitiv
+**Struktur:** devoir (bøyd) + infinitiv
 
-- Je **dois partir**. (Jeg ma dra.)
-- Tu **dois etudier**. (Du ma studere.)`,
+- Je **dois partir**. (Jeg må dra.)
+- Tu **dois étudier**. (Du må studere.)`,
     },
     {
       id: 'fransk-1-18-3-text-1',
       type: 'text',
       content: `## Bruk av devoir
 
-**1. Plikt og nodvendighet:**
+**1. Plikt og nødvendighet:**
 | Fransk | Norsk |
 |--------|-------|
-| Je dois faire mes devoirs. | Jeg ma gjore leksene. |
-| Tu dois ranger ta chambre. | Du ma rydde rommet ditt. |
-| Nous devons arriver a l'heure. | Vi ma komme tidsnok. |
+| Je dois faire mes devoirs. | Jeg må gjøre leksene. |
+| Tu dois ranger ta chambre. | Du må rydde rommet ditt. |
+| Nous devons arriver a l'heure. | Vi må komme tidsnok. |
 
 **2. Rad (burde):**
 | Fransk | Norsk |
 |--------|-------|
-| Tu dois manger des legumes. | Du bor spise gronnsaker. |
+| Tu dois manger des legumes. | Du bor spise grønnsaker. |
 | Vous devez dormir plus. | Dere bor sove mer. |
 
-**3. Sannsynlighet (ma vaere):**
+**3. Sannsynlighet (må være):**
 | Fransk | Norsk |
 |--------|-------|
-| Il doit etre fatigue. | Han ma vaere trott. |
-| Elle doit avoir 16 ans. | Hun ma vaere 16 ar. |`,
+| Il doit être fatigue. | Han må være trøtt. |
+| Elle doit avoir 16 ans. | Hun må være 16 år. |`,
     },
     {
       id: 'fransk-1-18-3-example-1',
@@ -1389,13 +1389,13 @@ I tillegg laerer du uttrykket **il faut** som betyr "man ma" eller "det er nodve
       title: 'Eksempel 1: Boyning av devoir',
       problem: `Fyll inn riktig form av devoir:
 a) Je ___ partir maintenant.
-b) Tu ___ etudier pour l'examen.
-c) Nous ___ etre a l'ecole a 8 heures.
+b) Tu ___ étudier pour l'examen.
+c) Nous ___ être a l'école a 8 heures.
 d) Ils ___ finir le projet.`,
-      solution: `a) Je **dois** partir maintenant. (Jeg ma dra na.)
-b) Tu **dois** etudier pour l'examen. (Du ma studere til eksamen.)
-c) Nous **devons** etre a l'ecole a 8 heures. (Vi ma vaere pa skolen klokken 8.)
-d) Ils **doivent** finir le projet. (De ma fullfoere prosjektet.)`,
+      solution: `a) Je **dois** partir maintenant. (Jeg må dra nå.)
+b) Tu **dois** étudier pour l'examen. (Du må studere til eksamen.)
+c) Nous **devons** être a l'école a 8 heures. (Vi må være på skolen klokken 8.)
+d) Ils **doivent** finir le projet. (De må fullføre prosjektet.)`,
     },
     {
       id: 'fransk-1-18-3-ex-block-1',
@@ -1408,7 +1408,7 @@ d) Ils **doivent** finir le projet. (De ma fullfoere prosjektet.)`,
         task: 'Fyll inn riktig form av devoir.',
         subTasks: [
           { label: 'a', task: 'Elle ___ travailler ce soir.', solution: 'doit' },
-          { label: 'b', task: 'Vous ___ ecouter le professeur.', solution: 'devez' },
+          { label: 'b', task: 'Vous ___ écouter le professeur.', solution: 'devez' },
           { label: 'c', task: 'Ils ___ ranger la maison.', solution: 'doivent' },
           { label: 'd', task: 'Je ___ me lever tot demain.', solution: 'dois' },
         ],
@@ -1419,41 +1419,41 @@ d) Ils **doivent** finir le projet. (De ma fullfoere prosjektet.)`,
     {
       id: 'fransk-1-18-3-def-2',
       type: 'definition',
-      title: 'Il faut - Man ma / Det er nodvendig',
-      content: `**Il faut** er et upersonlig uttrykk som betyr "man ma" eller "det er nodvendig":
+      title: 'Il faut - Man ma / Det er nødvendig',
+      content: `**Il faut** er et upersonlig uttrykk som betyr "man ma" eller "det er nødvendig":
 
 **Il faut + infinitiv**
 
 | Fransk | Norsk |
 |--------|-------|
-| Il faut etudier. | Man ma studere. |
-| Il faut manger des legumes. | Man ma spise gronnsaker. |
-| Il faut etre a l'heure. | Man ma vaere tidsnok. |
+| Il faut étudier. | Man må studere. |
+| Il faut manger des legumes. | Man må spise grønnsaker. |
+| Il faut être a l'heure. | Man må være tidsnok. |
 
-**Nektelse:** Il **ne** faut **pas** + infinitiv = man ma ikke
+**Nektelse:** Il **ne** faut **pas** + infinitiv = man må ikke
 
 | Fransk | Norsk |
 |--------|-------|
-| Il ne faut pas tricher. | Man ma ikke jukse. |
-| Il ne faut pas courir ici. | Man ma ikke lope her. |
+| Il ne faut pas tricher. | Man må ikke jukse. |
+| Il ne faut pas courir ici. | Man må ikke løpe her. |
 
 **Forskjellen mellom devoir og il faut:**
-- **Devoir** har et personlig subjekt: **Je** dois partir. (Jeg ma dra.)
-- **Il faut** er upersonlig (generelt): Il faut partir. (Man ma dra.)`,
+- **Devoir** har et personlig subjekt: **Je** dois partir. (Jeg må dra.)
+- **Il faut** er upersonlig (generelt): Il faut partir. (Man må dra.)`,
     },
     {
       id: 'fransk-1-18-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Devoir vs. il faut',
       problem: `Velg den beste oversettelsen:
-a) Du ma gjore leksene.
-b) Man ma vaere hoeflig.
-c) Vi ma ga na.`,
+a) Du må gjøre leksene.
+b) Man må være høflig.
+c) Vi må gå nå.`,
       solution: `a) **Tu dois** faire tes devoirs. (Personlig - du bestemt)
-b) **Il faut** etre poli. (Upersonlig - generell regel)
+b) **Il faut** être poli. (Upersonlig - generell regel)
 c) **Nous devons** partir maintenant. (Personlig - vi bestemt)
 
-**Huskeregel:** Bruk devoir nar du vet **hvem** som ma gjore noe. Bruk il faut for generelle regler.`,
+**Huskeregel:** Bruk devoir når du vet **hvem** som må gjøre noe. Bruk il faut for generelle regler.`,
     },
     {
       id: 'fransk-1-18-3-ex-block-2',
@@ -1463,15 +1463,15 @@ c) **Nous devons** partir maintenant. (Personlig - vi bestemt)
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Velg devoir (boyd) eller il faut, og oversett til fransk.',
+        task: 'Velg devoir (bøyd) eller il faut, og oversett til fransk.',
         subTasks: [
-          { label: 'a', task: 'Jeg ma staa opp tidlig.', solution: 'Je dois me lever tot.' },
-          { label: 'b', task: 'Man ma vaere stille pa biblioteket.', solution: 'Il faut etre silencieux a la bibliotheque.' },
-          { label: 'c', task: 'De ma levere prosjektet i morgen.', solution: 'Ils doivent rendre le projet demain.' },
-          { label: 'd', task: 'Man ma ikke bruke telefon i timen.', solution: 'Il ne faut pas utiliser le telephone en classe.' },
+          { label: 'a', task: 'Jeg må stå opp tidlig.', solution: 'Je dois me lever tot.' },
+          { label: 'b', task: 'Man må være stille på biblioteket.', solution: 'Il faut être silencieux a la bibliotheque.' },
+          { label: 'c', task: 'De må levere prosjektet i morgen.', solution: 'Ils doivent rendre le projet demain.' },
+          { label: 'd', task: 'Man må ikke bruke telefon i timen.', solution: 'Il ne faut pas utiliser le téléphone en classe.' },
         ],
-        solution: 'a) Je dois me lever tot. b) Il faut etre silencieux a la bibliotheque. c) Ils doivent rendre le projet demain. d) Il ne faut pas utiliser le telephone en classe.',
-        hints: ['Personlig subjekt (je, tu, il...) -> devoir', 'Generell regel (man ma) -> il faut'],
+        solution: 'a) Je dois me lever tot. b) Il faut être silencieux a la bibliotheque. c) Ils doivent rendre le projet demain. d) Il ne faut pas utiliser le téléphone en classe.',
+        hints: ['Personlig subjekt (je, tu, il...) -> devoir', 'Generell regel (man må) -> il faut'],
       },
     },
     {
@@ -1483,24 +1483,24 @@ Her er typiske skoleregler:
 
 | Fransk | Norsk |
 |--------|-------|
-| Il faut arriver a l'heure. | Man ma komme tidsnok. |
-| Il ne faut pas tricher a l'examen. | Man ma ikke jukse pa eksamen. |
-| Les eleves doivent ecouter le professeur. | Elevene ma lytte til laereren. |
-| On doit lever la main pour parler. | Man ma rekke opp handen for a snakke. |
-| Il faut respecter les autres. | Man ma respektere andre. |
-| Vous devez faire vos devoirs chaque jour. | Dere ma gjore leksene hver dag. |`,
+| Il faut arriver a l'heure. | Man må komme tidsnok. |
+| Il ne faut pas tricher a l'examen. | Man må ikke jukse på eksamen. |
+| Les élèves doivent écouter le professeur. | Elevene må lytte til læreren. |
+| On doit lever la main pour parler. | Man må rekke opp hånden for a snakke. |
+| Il faut respecter les autres. | Man må respektere andre. |
+| Vous devez faire vos devoirs chaque jour. | Dere må gjøre leksene hver dag. |`,
     },
     {
       id: 'fransk-1-18-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Skoleregler',
       problem: `Oversett til norsk:
-a) Les eleves doivent porter un uniforme.
+a) Les élèves doivent porter un uniforme.
 b) Il ne faut pas manger en classe.
-c) Nous devons etre polis avec les professeurs.`,
-      solution: `a) Elevene ma ha pa seg uniform.
-b) Man ma ikke spise i klasserommet.
-c) Vi ma vaere hoeflige med laererne.`,
+c) Nous devons être polis avec les professeurs.`,
+      solution: `a) Elevene må ha på seg uniform.
+b) Man må ikke spise i klasserommet.
+c) Vi må være høflige med lærerne.`,
     },
     {
       id: 'fransk-1-18-3-ex-block-3',
@@ -1512,12 +1512,12 @@ c) Vi ma vaere hoeflige med laererne.`,
         difficulty: 'medium',
         task: 'Oversett disse skolereglene til fransk.',
         subTasks: [
-          { label: 'a', task: 'Man ma gjore leksene.', solution: 'Il faut faire les devoirs.' },
-          { label: 'b', task: 'Vi ma vaere stille i biblioteket.', solution: 'Nous devons etre silencieux a la bibliotheque.' },
-          { label: 'c', task: 'Man ma ikke lope i gangene.', solution: 'Il ne faut pas courir dans les couloirs.' },
+          { label: 'a', task: 'Man må gjøre leksene.', solution: 'Il faut faire les devoirs.' },
+          { label: 'b', task: 'Vi må være stille i biblioteket.', solution: 'Nous devons être silencieux a la bibliotheque.' },
+          { label: 'c', task: 'Man må ikke løpe i gangene.', solution: 'Il ne faut pas courir dans les couloirs.' },
         ],
-        solution: 'a) Il faut faire les devoirs. b) Nous devons etre silencieux a la bibliotheque. c) Il ne faut pas courir dans les couloirs.',
-        hints: ['Bruk il faut for generelle regler', 'Bruk devoir nar subjektet er spesifikt'],
+        solution: 'a) Il faut faire les devoirs. b) Nous devons être silencieux a la bibliotheque. c) Il ne faut pas courir dans les couloirs.',
+        hints: ['Bruk il faut for generelle regler', 'Bruk devoir når subjektet er spesifikt'],
       },
     },
     // --- Samleoppgave ---
@@ -1529,14 +1529,14 @@ c) Vi ma vaere hoeflige med laererne.`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Skriv 5 regler for din ideelle skole pa fransk. Bruk bade devoir og il faut, og inkluder minst en nektende regel.',
+        task: 'Samleoppgave: Skriv 5 regler for din ideelle skole på fransk. Bruk både devoir og il faut, og inkluder minst en nektende regel.',
         subTasks: [
-          { label: 'a', task: 'Skriv to regler med il faut (en positiv, en negativ).', solution: 'Eksempel: Il faut etre respectueux. Il ne faut pas utiliser le telephone en classe.' },
-          { label: 'b', task: 'Skriv to regler med devoir (bruk ulike subjekter).', solution: 'Eksempel: Les eleves doivent arriver a l\'heure. Le professeur doit etre juste.' },
-          { label: 'c', task: 'Skriv en regel som kombinerer pouvoir og devoir.', solution: 'Eksempel: Les eleves peuvent manger a la cantine, mais ils doivent ranger apres.' },
+          { label: 'a', task: 'Skriv to regler med il faut (en positiv, en negativ).', solution: 'Eksempel: Il faut être respectueux. Il ne faut pas utiliser le téléphone en classe.' },
+          { label: 'b', task: 'Skriv to regler med devoir (bruk ulike subjekter).', solution: 'Eksempel: Les élèves doivent arriver a l\'heure. Le professeur doit être juste.' },
+          { label: 'c', task: 'Skriv en regel som kombinerer pouvoir og devoir.', solution: 'Eksempel: Les élèves peuvent manger a la cantine, mais ils doivent ranger après.' },
         ],
-        solution: "Eksempel: Il faut etre respectueux. Il ne faut pas utiliser le telephone en classe. Les eleves doivent arriver a l'heure. Le professeur doit etre juste. Les eleves peuvent manger a la cantine, mais ils doivent ranger apres.",
-        hints: ['Bruk bade il faut og devoir', 'Husk il ne faut pas for nektende regler', 'Kombiner gjerne med pouvoir fra forrige kapittel'],
+        solution: "Eksempel: Il faut être respectueux. Il ne faut pas utiliser le téléphone en classe. Les élèves doivent arriver a l'heure. Le professeur doit être juste. Les élèves peuvent manger a la cantine, mais ils doivent ranger après.",
+        hints: ['Bruk både il faut og devoir', 'Husk il ne faut pas for nektende regler', 'Kombiner gjerne med pouvoir fra forrige kapittel'],
       },
     },
   ],
@@ -1544,7 +1544,7 @@ c) Vi ma vaere hoeflige med laererne.`,
 };
 
 // ============================================================================
-// Kapittel 18.4: Savoir et connaitre - To typer "a vite/kjenne"
+// Kapittel 18.4: Savoir et connaître - To typer "a vite/kjenne"
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_18_4: TextbookChapter = {
@@ -1553,10 +1553,10 @@ export const CHAPTER_FRANSK_1_18_4: TextbookChapter = {
   chapterNumber: '18.4',
   title: 'Savoir et connaître',
   subtitle: 'To typer "a vite/kjenne"',
-  description: 'Laer forskjellen mellom savoir (a vite fakta/ferdigheter) og connaitre (a kjenne personer/steder).',
+  description: 'Lær forskjellen mellom savoir (a vite fakta/ferdigheter) og connaître (a kjenne personer/steder).',
   estimatedMinutes: 45,
   competenceGoals: [
-    'skille mellom savoir og connaitre',
+    'skille mellom savoir og connaître',
   ],
   content: [
     {
@@ -1564,17 +1564,17 @@ export const CHAPTER_FRANSK_1_18_4: TextbookChapter = {
       type: 'text',
       content: `## To verb for "a vite" og "a kjenne"
 
-Pa norsk bruker vi "a vite" og "a kjenne" litt om hverandre. Pa fransk er det strengere regler! Fransk har **to ulike verb**:
+På norsk bruker vi "a vite" og "a kjenne" litt om hverandre. På fransk er det strengere regler! Fransk har **to ulike verb**:
 
-- **Savoir** = a vite (fakta, informasjon, ferdigheter)
-- **Connaitre** = a kjenne (personer, steder, ting man har erfaring med)
+- **Savoir** = å vite (fakta, informasjon, ferdigheter)
+- **Connaître** = å kjenne (personer, steder, ting man har erfaring med)
 
 Det er viktig a velge riktig verb!`,
     },
     {
       id: 'fransk-1-18-4-def-1',
       type: 'definition',
-      title: 'Boyning av savoir og connaitre',
+      title: 'Boyning av savoir og connaître',
       content: `**Savoir** (a vite):
 
 | Person | Savoir |
@@ -1586,23 +1586,23 @@ Det er viktig a velge riktig verb!`,
 | vous | savez |
 | ils/elles | savent |
 
-**Connaitre** (a kjenne):
+**Connaître** (a kjenne):
 
-| Person | Connaitre |
+| Person | Connaître |
 |--------|-----------|
 | je | connais |
 | tu | connais |
-| il/elle | connait |
+| il/elle | connaît |
 | nous | connaissons |
 | vous | connaissez |
 | ils/elles | connaissent |
 
-**Merk:** Connaitre har dobbelt-s i flertallsformene (nous, vous, ils/elles).`,
+**Merk:** Connaître har dobbelt-s i flertallsformene (nous, vous, ils/elles).`,
     },
     {
       id: 'fransk-1-18-4-text-1',
       type: 'text',
-      content: `## Nar bruker vi savoir?
+      content: `## Når bruker vi savoir?
 
 **Savoir** brukes for:
 
@@ -1611,18 +1611,18 @@ Det er viktig a velge riktig verb!`,
 |--------|-------|
 | Je sais que tu as raison. | Jeg vet at du har rett. |
 | Tu sais ou il habite ? | Vet du hvor han bor? |
-| Elle sait combien ca coute. | Hun vet hvor mye det koster. |
+| Elle sait combien ça coûte. | Hun vet hvor mye det koster. |
 
-**2. Ferdigheter (savoir + infinitiv = a kunne):**
+**2. Ferdigheter (savoir + infinitiv = å kunne):**
 | Fransk | Norsk |
 |--------|-------|
-| Je sais nager. | Jeg kan svomme. |
-| Tu sais conduire ? | Kan du kjore? |
-| Elle sait parler trois langues. | Hun kan snakke tre sprak. |
+| Je sais nager. | Jeg kan svømme. |
+| Tu sais conduire ? | Kan du kjøre? |
+| Elle sait parler trois langues. | Hun kan snakke tre språk. |
 
-**Merk:** Savoir + infinitiv = "a kunne" (laert ferdighet). Pouvoir + infinitiv = "a kunne" (mulighet/tillatelse).
-- Je **sais** nager. (Jeg har laert a svomme.)
-- Je **peux** nager ici. (Jeg har lov/mulighet til a svomme her.)`,
+**Merk:** Savoir + infinitiv = "a kunne" (lært ferdighet). Pouvoir + infinitiv = "a kunne" (mulighet/tillatelse).
+- Je **sais** nager. (Jeg har lært a svømme.)
+- Je **peux** nager ici. (Jeg har lov/mulighet til a svømme her.)`,
     },
     {
       id: 'fransk-1-18-4-example-1',
@@ -1631,12 +1631,12 @@ Det er viktig a velge riktig verb!`,
       problem: `Oversett til fransk med savoir:
 a) Jeg vet svaret.
 b) Vet du hvor hun bor?
-c) Han kan svomme.`,
-      solution: `a) Je **sais** la reponse.
+c) Han kan svømme.`,
+      solution: `a) Je **sais** la réponse.
 b) Tu **sais** ou elle habite ?
 c) Il **sait** nager.
 
-Savoir brukes fordi det handler om fakta (a, b) og en laert ferdighet (c).`,
+Savoir brukes fordi det handler om fakta (a, b) og en lært ferdighet (c).`,
     },
     {
       id: 'fransk-1-18-4-ex-block-1',
@@ -1648,9 +1648,9 @@ Savoir brukes fordi det handler om fakta (a, b) og en laert ferdighet (c).`,
         difficulty: 'lett',
         task: 'Fyll inn riktig form av savoir.',
         subTasks: [
-          { label: 'a', task: 'Je ___ parler francais.', solution: 'sais' },
+          { label: 'a', task: 'Je ___ parler français.', solution: 'sais' },
           { label: 'b', task: 'Tu ___ ou est la gare ?', solution: 'sais' },
-          { label: 'c', task: 'Nous ___ la reponse.', solution: 'savons' },
+          { label: 'c', task: 'Nous ___ la réponse.', solution: 'savons' },
           { label: 'd', task: 'Elles ___ jouer du piano.', solution: 'savent' },
         ],
         solution: 'a) sais, b) sais, c) savons, d) savent',
@@ -1660,9 +1660,9 @@ Savoir brukes fordi det handler om fakta (a, b) og en laert ferdighet (c).`,
     {
       id: 'fransk-1-18-4-text-2',
       type: 'text',
-      content: `## Nar bruker vi connaitre?
+      content: `## Når bruker vi connaître?
 
-**Connaitre** brukes for:
+**Connaître** brukes for:
 
 **1. Personer:**
 | Fransk | Norsk |
@@ -1682,23 +1682,23 @@ Savoir brukes fordi det handler om fakta (a, b) og en laert ferdighet (c).`,
 | Tu connais cette chanson ? | Kjenner du denne sangen? |
 | Je connais bien ce livre. | Jeg kjenner denne boken godt. |
 
-**Viktig:** Connaitre folges **alltid** av et substantiv (aldri av en setning eller infinitiv).`,
+**Viktig:** Connaître følges **alltid** av et substantiv (aldri av en setning eller infinitiv).`,
     },
     {
       id: 'fransk-1-18-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Savoir eller connaitre?',
-      problem: `Velg savoir eller connaitre:
+      title: 'Eksempel 2: Savoir eller connaître?',
+      problem: `Velg savoir eller connaître:
 a) Je ___ ou est la poste.
 b) Tu ___ Pierre ?
 c) Elle ___ faire du ski.
 d) Nous ___ bien cette ville.`,
       solution: `a) Je **sais** ou est la poste. (Fakta - savoir + ou)
-b) Tu **connais** Pierre ? (Person - connaitre)
+b) Tu **connais** Pierre ? (Person - connaître)
 c) Elle **sait** faire du ski. (Ferdighet - savoir + infinitiv)
-d) Nous **connaissons** bien cette ville. (Sted - connaitre)
+d) Nous **connaissons** bien cette ville. (Sted - connaître)
 
-**Huskeregel:** Connaitre + substantiv (person/sted/ting). Savoir + setning/infinitiv.`,
+**Huskeregel:** Connaître + substantiv (person/sted/ting). Savoir + setning/infinitiv.`,
     },
     {
       id: 'fransk-1-18-4-ex-block-2',
@@ -1708,7 +1708,7 @@ d) Nous **connaissons** bien cette ville. (Sted - connaitre)
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fyll inn riktig form av savoir eller connaitre.',
+        task: 'Fyll inn riktig form av savoir eller connaître.',
         subTasks: [
           { label: 'a', task: 'Tu ___ mon ami Paul ?', solution: 'connais (person)' },
           { label: 'b', task: 'Je ___ que c\'est difficile.', solution: 'sais (fakta - savoir + que)' },
@@ -1716,15 +1716,15 @@ d) Nous **connaissons** bien cette ville. (Sted - connaitre)
           { label: 'd', task: 'Ils ___ cuisiner.', solution: 'savent (ferdighet - savoir + infinitiv)' },
         ],
         solution: 'a) connais, b) sais, c) connaissez, d) savent',
-        hints: ['Person/sted/ting -> connaitre', 'Fakta (que, ou, comment...) eller ferdighet (+ infinitiv) -> savoir'],
+        hints: ['Person/sted/ting -> connaître', 'Fakta (que, ou, comment...) eller ferdighet (+ infinitiv) -> savoir'],
       },
     },
     {
       id: 'fransk-1-18-4-text-3',
       type: 'text',
-      content: `## Oppsummering: Savoir vs. connaitre
+      content: `## Oppsummering: Savoir vs. connaître
 
-| Savoir | Connaitre |
+| Savoir | Connaître |
 |--------|-----------|
 | Fakta: Je sais que... | Personer: Je connais Marie. |
 | Informasjon: Je sais ou/quand/comment... | Steder: Je connais Paris. |
@@ -1732,24 +1732,24 @@ d) Nous **connaissons** bien cette ville. (Sted - connaitre)
 | Folges av: que, ou, infinitiv | Folges av: substantiv (aldri infinitiv!) |
 
 **Huskeregler:**
-- Hvis det folger et **verb i infinitiv** -> savoir
-- Hvis det folger et **sporsmaalord** (ou, quand, comment...) -> savoir
-- Hvis det folger et **personnavn eller sted** -> connaitre
-- Hvis du kan erstatte med "a vaere kjent med" -> connaitre`,
+- Hvis det følger et **verb i infinitiv** -> savoir
+- Hvis det følger et **sporsmaalord** (ou, quand, comment...) -> savoir
+- Hvis det følger et **personnavn eller sted** -> connaître
+- Hvis du kan erstatte med "a være kjent med" -> connaître`,
     },
     {
       id: 'fransk-1-18-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Savoir vs. connaitre i kontekst',
+      title: 'Eksempel 3: Savoir vs. connaître i kontekst',
       problem: `Velg riktig verb og booy det:
-a) Est-ce que vous ___ (savoir/connaitre) la reponse ?
-b) Nous ___ (savoir/connaitre) un bon restaurant.
-c) Tu ___ (savoir/connaitre) a quelle heure commence le film ?`,
-      solution: `a) Est-ce que vous **savez** la reponse ? (Savoir - fakta/informasjon)
-b) Nous **connaissons** un bon restaurant. (Connaitre - sted/erfaring)
-c) Tu **sais** a quelle heure commence le film ? (Savoir - informasjon med sporsmaalord)
+a) Est-ce que vous ___ (savoir/connaître) la réponse ?
+b) Nous ___ (savoir/connaître) un bon restaurant.
+c) Tu ___ (savoir/connaître) à quelle heure commence le film ?`,
+      solution: `a) Est-ce que vous **savez** la réponse ? (Savoir - fakta/informasjon)
+b) Nous **connaissons** un bon restaurant. (Connaître - sted/erfaring)
+c) Tu **sais** à quelle heure commence le film ? (Savoir - informasjon med sporsmaalord)
 
-**Merk:** Med "la reponse" kan man bruke savoir (vite svaret) - det handler om informasjon, ikke et sted/person.`,
+**Merk:** Med "la réponse" kan man bruke savoir (vite svaret) - det handler om informasjon, ikke et sted/person.`,
     },
     {
       id: 'fransk-1-18-4-ex-block-3',
@@ -1759,7 +1759,7 @@ c) Tu **sais** a quelle heure commence le film ? (Savoir - informasjon med spors
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til fransk. Velg mellom savoir og connaitre.',
+        task: 'Oversett til fransk. Velg mellom savoir og connaître.',
         subTasks: [
           { label: 'a', task: 'Kjenner du Paris?', solution: 'Tu connais Paris ?' },
           { label: 'b', task: 'Vet du hvor han bor?', solution: 'Tu sais ou il habite ?' },
@@ -1767,7 +1767,7 @@ c) Tu **sais** a quelle heure commence le film ? (Savoir - informasjon med spors
           { label: 'd', task: 'Vi kjenner ikke denne sangen.', solution: 'Nous ne connaissons pas cette chanson.' },
         ],
         solution: 'a) Tu connais Paris ? b) Tu sais ou il habite ? c) Tu sais cuisiner ? d) Nous ne connaissons pas cette chanson.',
-        hints: ['Sted -> connaitre', 'Informasjon (ou) -> savoir', 'Ferdighet (+ infinitiv) -> savoir', 'Ting/erfaring -> connaitre'],
+        hints: ['Sted -> connaître', 'Informasjon (ou) -> savoir', 'Ferdighet (+ infinitiv) -> savoir', 'Ting/erfaring -> connaître'],
       },
     },
     // --- Samleoppgave ---
@@ -1779,15 +1779,15 @@ c) Tu **sais** a quelle heure commence le film ? (Savoir - informasjon med spors
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Samleoppgave: Fyll inn riktig modalverb (pouvoir, vouloir, devoir, savoir, connaitre) i riktig form. Alle fem verbene fra kapittel 18 er med!',
+        task: 'Samleoppgave: Fyll inn riktig modalverb (pouvoir, vouloir, devoir, savoir, connaître) i riktig form. Alle fem verbene fra kapittel 18 er med!',
         subTasks: [
           { label: 'a', task: 'Je ___ nager, mais je ne ___ pas nager ici. C\'est interdit. (ferdighet / tillatelse)', solution: 'sais / peux (savoir = ferdighet, pouvoir = tillatelse)' },
-          { label: 'b', task: 'Elle ___ aller a Paris parce qu\'elle ___ bien la ville. (onske / kjennskap)', solution: 'veut / connait (vouloir = onske, connaitre = kjenne sted)' },
-          { label: 'c', task: 'Nous ___ partir maintenant. Il ___ etre a l\'ecole avant 8 heures. (plikt / nodvendighet)', solution: 'devons / faut (devoir = personlig plikt, il faut = generell regel)' },
-          { label: 'd', task: 'Tu ___ ou est le cinema ? Je ___ y aller ce soir. (vite / onske)', solution: 'sais / veux (savoir = vite informasjon, vouloir = onske)' },
+          { label: 'b', task: 'Elle ___ aller a Paris parce qu\'elle ___ bien la ville. (ønske / kjennskap)', solution: 'veut / connaît (vouloir = ønske, connaître = kjenne sted)' },
+          { label: 'c', task: 'Nous ___ partir maintenant. Il ___ être a l\'école avant 8 heures. (plikt / nødvendighet)', solution: 'devons / faut (devoir = personlig plikt, il faut = generell regel)' },
+          { label: 'd', task: 'Tu ___ ou est le cinéma ? Je ___ y aller ce soir. (vite / ønske)', solution: 'sais / veux (savoir = vite informasjon, vouloir = ønske)' },
         ],
-        solution: 'a) sais / peux, b) veut / connait, c) devons / faut, d) sais / veux',
-        hints: ['Savoir = vite/kunne (ferdighet)', 'Pouvoir = kunne (evne/tillatelse)', 'Vouloir = ville/onske', 'Devoir = matte', 'Connaitre = kjenne (person/sted)'],
+        solution: 'a) sais / peux, b) veut / connaît, c) devons / faut, d) sais / veux',
+        hints: ['Savoir = vite/kunne (ferdighet)', 'Pouvoir = kunne (evne/tillatelse)', 'Vouloir = ville/ønske', 'Devoir = matte', 'Connaître = kjenne (person/sted)'],
       },
     },
   ],

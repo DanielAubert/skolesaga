@@ -1,11 +1,11 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Spansk niva 1 - Kapittel 14-16
+ * Spansk nivå 1 - Kapittel 14-16
  *
  * Kapittel 14: Comunicación oral (Muntlig kommunikasjon)
  * Kapittel 15: Comunicación escrita (Skriftlig kommunikasjon)
- * Kapittel 16: Gramática y estrategias (Grammatikk og laeringsstrategier)
+ * Kapittel 16: Gramática y estrategias (Grammatikk og læringsstrategier)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,18 +20,18 @@ export const CHAPTER_SPANSK_1_14_1: TextbookChapter = {
   chapterNumber: '14.1',
   title: 'La pronunciación',
   subtitle: 'Uttale',
-  description: 'Laer om spansk uttale og de viktigste lydene som skiller seg fra norsk.',
+  description: 'Lær om spansk uttale og de viktigste lydene som skiller seg fra norsk.',
   estimatedMinutes: 45,
-  competenceGoals: ['bruke regler for uttale for a kommunisere tydelig pa spansk'],
+  competenceGoals: ['bruke regler for uttale for å kommunisere tydelig på spansk'],
   content: [
     {
       id: 'spansk-1-14-1-intro',
       type: 'text',
       content: `## La pronunciación - Uttale
 
-Spansk uttale er enklere enn mange tror! Spansk er et fonetisk sprak, noe som betyr at ordene vanligvis uttales slik de skrives. Det finnes likevel noen lyder som er spesielle for spansk, og som vi ma oeve pa.
+Spansk uttale er enklere enn mange tror! Spansk er et fonetisk språk, noe som betyr at ordene vanligvis uttales slik de skrives. Det finnes likevel noen lyder som er spesielle for spansk, og som vi må øve på.
 
-I dette kapittelet laerer du om de viktigste spanske lydene, slik at du kan kommunisere tydelig og bli forstatt.`
+I dette kapittelet lærer du om de viktigste spanske lydene, slik at du kan kommunisere tydelig og bli forstått.`
     },
     {
       id: 'spansk-1-14-1-def-1',
@@ -51,8 +51,8 @@ I dette kapittelet laerer du om de viktigste spanske lydene, slik at du kan komm
       id: 'spansk-1-14-1-ex-1',
       type: 'example',
       title: 'Eksempel 1: Vokaler i ord',
-      problem: 'Les disse ordene hoyt og legg merke til de klare vokalene: amigo, escuela, isla, octubre, universidad.',
-      solution: 'Alle vokalene uttales tydelig og kort. I «escuela» (e-scue-la) horer du alle tre vokalene. I «universidad» (u-ni-ver-si-dad) horer du alle fem vokalene i ett ord!'
+      problem: 'Les disse ordene høyt og legg merke til de klare vokalene: amigo, escuela, isla, octubre, universidad.',
+      solution: 'Alle vokalene uttales tydelig og kort. I «escuela» (e-scue-la) hører du alle tre vokalene. I «universidad» (u-ni-ver-si-dad) hører du alle fem vokalene i ett ord!'
     },
     {
       id: 'spansk-1-14-1-def-2',
@@ -61,13 +61,13 @@ I dette kapittelet laerer du om de viktigste spanske lydene, slik at du kan komm
       content: `**R og RR** - Den spanske r-lyden er annerledes enn den norske:
 - **r** (enkel): Uttales med et lett slag av tungespissen mot ganen, som i *pero* (men)
 - **rr** (dobbel): Uttales med flere raske slag (rulle-r), som i *perro* (hund)
-- **r** i begynnelsen av et ord uttales som **rr**: *rojo* (rod)
+- **r** i begynnelsen av et ord uttales som **rr**: *rojo* (rød)
 
 **J** - Uttales som en sterk h-lyd (som norsk «h» men sterkere, nesten som et pust fra halsen): *junio* (juni), *trabajo* (arbeid)
 
 **LL** - Uttales som norsk «j» i Spania, eller som «lj/j» i Latin-Amerika: *calle* (gate), *lluvia* (regn)
 
-**Ñ** - Uttales som «nj» pa norsk: *España* (Spania), *niño* (gutt/barn), *año* (ar)`
+**Ñ** - Uttales som «nj» på norsk: *España* (Spania), *niño* (gutt/barn), *año* (ar)`
     },
     {
       id: 'spansk-1-14-1-ex-2',
@@ -84,7 +84,7 @@ I dette kapittelet laerer du om de viktigste spanske lydene, slik at du kan komm
 
 **I Spania:**
 - **c** foran e/i = «th» (som i engelsk «think»): *cena* (middag), *ciudad* (by)
-- **z** = «th»: *zapato* (sko), *azul* (bla)
+- **z** = «th»: *zapato* (sko), *azul* (blå)
 - **s** = vanlig s-lyd: *solo* (alene)
 
 **I Latin-Amerika:**
@@ -99,10 +99,10 @@ Denne forskjellen kalles **seseo** (Latin-Amerika) vs. **distinción** (Spania).
       type: 'definition',
       title: 'G og GU',
       content: `**G** har to forskjellige uttaler:
-- Foran **a, o, u**: som norsk «g» i «gat»: *gato* (katt), *gordo* (tykk), *gustar* (a like)
-- Foran **e, i**: som spansk «j» (sterk h-lyd): *gente* (folk), *girar* (a snu)
+- Foran **a, o, u**: som norsk «g» i «gat»: *gato* (katt), *gordo* (tykk), *gustar* (å like)
+- Foran **e, i**: som spansk «j» (sterk h-lyd): *gente* (folk), *girar* (å snu)
 
-For a fa hard g-lyd foran e/i bruker man **gu**:
+For å fa hard g-lyd foran e/i bruker man **gu**:
 - *guerra* (krig) - u-en er stum
 - *guitarra* (gitar) - u-en er stum
 
@@ -114,15 +114,15 @@ Hvis u-en skal uttales, bruker man **gü**:
       type: 'example',
       title: 'Eksempel 3: G-lyder',
       problem: 'Hvordan uttales disse ordene: gato, gente, guerra, pingüino?',
-      solution: '**Gato**: hard g (som norsk g) + a-to. **Gente**: «j»-lyd (sterk h) + en-te. **Guerra**: hard g + e-rra (u-en er stum). **Pingüino**: pin-gu-i-no (u-en uttales fordi det star trema over).'
+      solution: '**Gato**: hard g (som norsk g) + a-to. **Gente**: «j»-lyd (sterk h) + en-te. **Guerra**: hard g + e-rra (u-en er stum). **Pingüino**: pin-gu-i-no (u-en uttales fordi det står trema over).'
     },
     {
       id: 'spansk-1-14-1-def-5',
       type: 'definition',
       title: 'H og CH',
-      content: `**H** er alltid stum pa spansk! Den uttales aldri:
+      content: `**H** er alltid stum på spansk! Den uttales aldri:
 - *hola* (hei) = uttales «ola»
-- *hacer* (a gjore) = uttales «aser/ather»
+- *hacer* (å gjøre) = uttales «aser/ather»
 - *hotel* = uttales «otel»
 
 **CH** uttales som norsk «tsj» eller «kj»:
@@ -138,14 +138,14 @@ Hvis u-en skal uttales, bruker man **gü**:
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilken bokstav er alltid stum pa spansk?',
+        task: 'Hvilken bokstav er alltid stum på spansk?',
         options: [
           { id: 'a', text: 'J', isCorrect: false },
           { id: 'b', text: 'H', isCorrect: true },
           { id: 'c', text: 'R', isCorrect: false },
           { id: 'd', text: 'Ñ', isCorrect: false },
         ],
-        solution: 'H er alltid stum pa spansk. For eksempel uttales «hola» som «ola» og «hotel» som «otel».',
+        solution: 'H er alltid stum på spansk. For eksempel uttales «hola» som «ola» og «hotel» som «otel».',
       },
     },
     {
@@ -156,14 +156,14 @@ Hvis u-en skal uttales, bruker man **gü**:
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvordan uttales bokstaven «ñ» pa spansk?',
+        task: 'Hvordan uttales bokstaven «ñ» på spansk?',
         options: [
           { id: 'a', text: 'Som vanlig «n»', isCorrect: false },
-          { id: 'b', text: 'Som «ng» pa norsk', isCorrect: false },
-          { id: 'c', text: 'Som «nj» pa norsk', isCorrect: true },
+          { id: 'b', text: 'Som «ng» på norsk', isCorrect: false },
+          { id: 'c', text: 'Som «nj» på norsk', isCorrect: true },
           { id: 'd', text: 'Den er stum', isCorrect: false },
         ],
-        solution: 'Ñ uttales som «nj» pa norsk. For eksempel uttales «España» som «Espanja» og «niño» som «ninjo».',
+        solution: 'Ñ uttales som «nj» på norsk. For eksempel uttales «España» som «Espanja» og «niño» som «ninjo».',
       },
     },
     {
@@ -182,7 +182,7 @@ Hvis u-en skal uttales, bruker man **gü**:
           { label: 'd', task: 'junio', solution: '«hunio» (j uttales som sterk h)' },
         ],
         solution: 'a) «ola» - h er stum. b) «kalje» - ll uttales som j. c) «perro» med rulle-r. d) «hunio» - j er en sterk h-lyd.',
-        hints: ['Husk at h alltid er stum pa spansk', 'LL uttales som norsk j'],
+        hints: ['Husk at h alltid er stum på spansk', 'LL uttales som norsk j'],
       },
     },
     {
@@ -197,10 +197,10 @@ Hvis u-en skal uttales, bruker man **gü**:
         subTasks: [
           { label: 'a', task: 'pero / perro', solution: 'Pero (men) har enkel r med ett tungeslag. Perro (hund) har dobbel rr med rulle-r.' },
           { label: 'b', task: 'caro / carro', solution: 'Caro (dyr/kjaer) har enkel r. Carro (bil/vogn) har dobbel rr med rulle-r.' },
-          { label: 'c', task: 'gato / gente', solution: 'Gato har hard g-lyd (som norsk g). Gente har «j»-lyd (sterk h) fordi g star foran e.' },
+          { label: 'c', task: 'gato / gente', solution: 'Gato har hard g-lyd (som norsk g). Gente har «j»-lyd (sterk h) fordi g står foran e.' },
         ],
         solution: 'Enkel r og dobbel rr gir forskjellig betydning. G foran a/o/u er hard, men foran e/i er den en sterk h-lyd.',
-        hints: ['Tenk pa hva som kommer etter konsonanten'],
+        hints: ['Tenk på hva som kommer etter konsonanten'],
       },
     },
     {
@@ -208,7 +208,7 @@ Hvis u-en skal uttales, bruker man **gü**:
       type: 'text',
       content: `## Oppsummering
 
-Spansk uttale er ganske regelfast. De viktigste punktene a huske:
+Spansk uttale er ganske regelfast. De viktigste punktene å huske:
 
 - **Vokalene** er alltid korte og klare
 - **H** er alltid stum
@@ -245,12 +245,12 @@ Spansk uttale er ganske regelfast. De viktigste punktene a huske:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Les teksten hoyt og marker alle ord som inneholder spesielle spanske lyder (ñ, ll, rr, j, h, g foran e/i). Forklar uttalen av hvert markert ord.',
+        task: 'Les teksten høyt og marker alle ord som inneholder spesielle spanske lyder (ñ, ll, rr, j, h, g foran e/i). Forklar uttalen av hvert markert ord.',
         subTasks: [
-          { label: 'a', task: '«El niño juega en la calle con su perro. Hace mucho calor en julio.»', solution: 'niño (nj-lyd), juega (sterk h-lyd pa j), calle (ll = j-lyd), perro (rulle-r), Hace (stum h), mucho (tsj-lyd pa ch), julio (sterk h-lyd pa j)' },
+          { label: 'a', task: '«El niño juega en la calle con su perro. Hace mucho calor en julio.»', solution: 'niño (nj-lyd), juega (sterk h-lyd på j), calle (ll = j-lyd), perro (rulle-r), Hace (stum h), mucho (tsj-lyd på ch), julio (sterk h-lyd på j)' },
         ],
         solution: 'Ordene med spesielle lyder: niño (ñ = nj), juega (j = sterk h), calle (ll = j), perro (rr = rulle-r), Hace (h = stum), mucho (ch = tsj), julio (j = sterk h). Alle disse lydene skiller seg fra norsk uttale.',
-        hints: ['Let etter alle de spesielle konsonantene vi har laert om', 'Husk at h er stum'],
+        hints: ['Let etter alle de spesielle konsonantene vi har lært om', 'Husk at h er stum'],
       },
     },
   ],
@@ -271,18 +271,18 @@ export const CHAPTER_SPANSK_1_14_2: TextbookChapter = {
   chapterNumber: '14.2',
   title: 'Diálogos',
   subtitle: 'Samtaletrening',
-  description: 'Oev pa a fore samtaler pa spansk i vanlige hverdagssituasjoner.',
+  description: 'Øv på a fore samtaler på spansk i vanlige hverdagssituasjoner.',
   estimatedMinutes: 50,
-  competenceGoals: ['delta i enkle samtaler om dagligdagse emner pa spansk'],
+  competenceGoals: ['delta i enkle samtaler om dagligdagse emner på spansk'],
   content: [
     {
       id: 'spansk-1-14-2-intro',
       type: 'text',
       content: `## Diálogos - Samtaletrening
 
-A kunne fore en samtale pa spansk er et av de viktigste malene i sprakopplaeringen. I dette kapittelet skal du oeve pa samtaler i vanlige hverdagssituasjoner.
+Å kunne fore en samtale på spansk er et av de viktigste målene i språkopplæringen. I dette kapittelet skal du øve på samtaler i vanlige hverdagssituasjoner.
 
-Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og sporre om veien.`
+Vi ser på nyttige uttrykk for å hilse, presentere oss, bestille mat, handle og spørre om veien.`
     },
     {
       id: 'spansk-1-14-2-def-1',
@@ -290,13 +290,13 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
       title: 'Hilsener og avskjeder (Saludos y despedidas)',
       content: `**Hilsener:**
 
-| Spansk | Norsk | Nar brukes det |
+| Spansk | Norsk | Når brukes det |
 |--------|-------|----------------|
 | ¡Hola! | Hei! | Uformelt, hele dagen |
 | ¡Buenos días! | God morgen! | Morgen til ca. kl. 14 |
 | ¡Buenas tardes! | God ettermiddag! | Ca. kl. 14-21 |
 | ¡Buenas noches! | God kveld/natt! | Etter kl. 21 |
-| ¿Qué tal? | Hvordan gar det? | Uformelt |
+| ¿Qué tal? | Hvordan går det? | Uformelt |
 | ¿Cómo está usted? | Hvordan har De det? | Formelt |
 
 **Avskjeder:**
@@ -313,13 +313,13 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
       id: 'spansk-1-14-2-ex-1',
       type: 'example',
       title: 'Eksempel 1: Hilse og presentere seg',
-      problem: 'Lag en kort dialog der to personer moter hverandre for forste gang.',
+      problem: 'Lag en kort dialog der to personer møter hverandre for første gang.',
       solution: `— ¡Hola! ¿Qué tal? Me llamo María. ¿Cómo te llamas?
 — ¡Hola, María! Me llamo Carlos. Mucho gusto.
 — Mucho gusto, Carlos. ¿De dónde eres?
 — Soy de México. ¿Y tú?
 — Soy de Noruega.
-— ¡Qué interesante! ¿Hablas español?
+— ¡Qué interesante! ¿Hablås español?
 — Sí, un poco. Estudio español en el instituto.
 — ¡Muy bien! ¡Hasta luego!
 — ¡Hasta luego, Carlos!`
@@ -327,12 +327,12 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
     {
       id: 'spansk-1-14-2-def-2',
       type: 'definition',
-      title: 'Pa kafé og restaurant (En la cafetería / el restaurante)',
-      content: `**Nyttige uttrykk for a bestille:**
+      title: 'På kafé og restaurant (En la cafetería / el restaurante)',
+      content: `**Nyttige uttrykk for å bestille:**
 
 | Spansk | Norsk |
 |--------|-------|
-| ¿Qué desea? / ¿Qué le pongo? | Hva onsker du? / Hva skal det vaere? |
+| ¿Qué desea? / ¿Qué le pongo? | Hva ønsker du? / Hva skal det være? |
 | Quiero... / Me pone... | Jeg vil ha... / Kan jeg fa... |
 | Para mí, ... | Til meg, ... |
 | ¿Cuánto cuesta? / ¿Cuánto es? | Hvor mye koster det? |
@@ -344,8 +344,8 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
     {
       id: 'spansk-1-14-2-ex-2',
       type: 'example',
-      title: 'Eksempel 2: Pa kafé',
-      problem: 'Les denne dialogen pa en kafé.',
+      title: 'Eksempel 2: På kafé',
+      problem: 'Les denne dialogen på en kafé.',
       solution: `**Camarero:** ¡Buenos días! ¿Qué le pongo?
 **Cliente:** Buenos días. Quiero un café con leche, por favor.
 **Camarero:** ¿Grande o pequeño?
@@ -359,33 +359,33 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
     {
       id: 'spansk-1-14-2-def-3',
       type: 'definition',
-      title: 'Sporre om veien (Preguntar por el camino)',
-      content: `**For a sporre om veien:**
+      title: 'Spørre om veien (Preguntar por el camino)',
+      content: `**For å spørre om veien:**
 
 | Spansk | Norsk |
 |--------|-------|
 | ¿Dónde está...? | Hvor er...? |
 | ¿Cómo llego a...? | Hvordan kommer jeg til...? |
-| ¿Está lejos / cerca? | Er det langt / naert? |
+| ¿Está lejos / cerca? | Er det langt / nært? |
 | Perdone, ¿puede ayudarme? | Unnskyld, kan du hjelpe meg? |
 
 **Retningsangivelser:**
 
 | Spansk | Norsk |
 |--------|-------|
-| Siga todo recto | Ga rett fram |
-| Gire a la derecha | Sving til hoyre |
+| Siga todo recto | Gå rett fram |
+| Gire a la derecha | Sving til høyre |
 | Gire a la izquierda | Sving til venstre |
-| En la esquina | Pa hjornet |
+| En la esquina | På hjørnet |
 | Al lado de | Ved siden av |
 | Enfrente de | Rett overfor |
-| La primera / segunda calle | Forste / andre gate |`
+| La primera / segunda calle | Første / andre gate |`
     },
     {
       id: 'spansk-1-14-2-ex-3',
       type: 'example',
-      title: 'Eksempel 3: Sporre om veien',
-      problem: 'Lag en dialog der noen spor om veien til museet.',
+      title: 'Eksempel 3: Spørre om veien',
+      problem: 'Lag en dialog der noen spør om veien til museet.',
       solution: `— Perdone, ¿dónde está el museo?
 — El museo... Siga todo recto y gire a la derecha en la segunda calle. El museo está enfrente de la iglesia.
 — ¿Está lejos?
@@ -397,19 +397,19 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
       id: 'spansk-1-14-2-def-4',
       type: 'definition',
       title: 'I butikken (En la tienda)',
-      content: `**Nyttige uttrykk for a handle:**
+      content: `**Nyttige uttrykk for å handle:**
 
 | Spansk | Norsk |
 |--------|-------|
 | ¿En qué puedo ayudarle? | Hva kan jeg hjelpe deg med? |
 | Busco... | Jeg leter etter... |
 | ¿Tiene esto en otra talla? | Har dere dette i en annen storrelse? |
-| ¿Puedo probármelo? | Kan jeg prove det? |
+| ¿Puedo probármelo? | Kan jeg prøve det? |
 | ¿Cuánto cuesta? | Hvor mye koster det? |
 | Es demasiado caro. | Det er for dyrt. |
 | Me lo llevo. | Jeg tar det. |
 | ¿Acepta tarjeta? | Tar dere kort? |
-| ¿Dónde está el probador? | Hvor er proverommet? |`
+| ¿Dónde está el probador? | Hvor er prøverommet? |`
     },
     {
       id: 'spansk-1-14-2-ex-block-1',
@@ -424,9 +424,9 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
           { id: 'a', text: 'Hvor er det?', isCorrect: false },
           { id: 'b', text: 'Hva heter du?', isCorrect: false },
           { id: 'c', text: 'Hvor mye koster det?', isCorrect: true },
-          { id: 'd', text: 'Hva onsker du?', isCorrect: false },
+          { id: 'd', text: 'Hva ønsker du?', isCorrect: false },
         ],
-        solution: '«¿Cuánto cuesta?» betyr «Hvor mye koster det?» og er et av de viktigste uttrykkene a kunne nar du handler eller bestiller noe.',
+        solution: '«¿Cuánto cuesta?» betyr «Hvor mye koster det?» og er et av de viktigste uttrykkene å kunne når du handler eller bestiller noe.',
       },
     },
     {
@@ -457,8 +457,8 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
         difficulty: 'lett',
         task: 'Oversett disse uttrykkene til spansk.',
         subTasks: [
-          { label: 'a', task: 'Ga rett fram', solution: 'Siga todo recto' },
-          { label: 'b', task: 'Sving til hoyre', solution: 'Gire a la derecha' },
+          { label: 'a', task: 'Gå rett fram', solution: 'Siga todo recto' },
+          { label: 'b', task: 'Sving til høyre', solution: 'Gire a la derecha' },
           { label: 'c', task: 'Ved siden av', solution: 'Al lado de' },
           { label: 'd', task: 'Regningen, takk', solution: 'La cuenta, por favor' },
         ],
@@ -476,9 +476,9 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
         difficulty: 'medium',
         task: 'Skriv en kort dialog (6-8 replikker) der du handler i en klesbutikk. Bruk uttrykkene fra kapittelet.',
         subTasks: [
-          { label: 'a', task: 'Dialogen skal inneholde: hilsen, sporsmal om pris, prove klærne, og betaling.', solution: '— ¡Hola! ¿En qué puedo ayudarle?\n— Hola, busco una camiseta azul.\n— Tenemos estas. ¿Qué talla necesita?\n— La mediana, por favor. ¿Puedo probármela?\n— Sí, el probador está a la derecha.\n— Me queda bien. ¿Cuánto cuesta?\n— Cuesta veinte euros.\n— Me la llevo. ¿Acepta tarjeta?\n— Sí, por supuesto.' },
+          { label: 'a', task: 'Dialogen skal inneholde: hilsen, spørsmål om pris, prøve klærne, og betaling.', solution: '— ¡Hola! ¿En qué puedo ayudarle?\n— Hola, busco una camiseta azul.\n— Tenemos estas. ¿Qué talla necesita?\n— La mediana, por favor. ¿Puedo probármela?\n— Sí, el probador está a la derecha.\n— Me queda bien. ¿Cuánto cuesta?\n— Cuesta veinte euros.\n— Me la llevo. ¿Acepta tarjeta?\n— Sí, por supuesto.' },
         ],
-        solution: 'Dialogen bor inneholde hilsen, sporsmal om varen, prove den, sporre om pris og betale. Se losningen over for et eksempel.',
+        solution: 'Dialogen bør inneholde hilsen, spørsmål om varen, prøve den, spørre om pris og betale. Se løsningen over for et eksempel.',
         hints: ['Start med en hilsen', 'Bruk uttrykkene fra tabellen om handling'],
       },
     },
@@ -487,14 +487,14 @@ Vi ser pa nyttige uttrykk for a hilse, presentere oss, bestille mat, handle og s
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert uttrykk for vanlige samtalesituasjoner:
+I dette kapittelet har du lært uttrykk for vanlige samtalesituasjoner:
 
 - **Hilsener**: Buenos días / Buenas tardes / Buenas noches
-- **Pa kafé**: Quiero..., ¿Cuánto es?, La cuenta por favor
+- **På kafé**: Quiero..., ¿Cuánto es?, La cuenta por favor
 - **Retning**: Siga recto, gire a la derecha/izquierda
 - **I butikken**: ¿Cuánto cuesta?, ¿Puedo probármelo?, Me lo llevo
 
-Oev pa disse samtalene med en partner. Jo mer du oever, jo tryggere blir du i a snakke spansk!`
+Øv på disse samtalene med en partner. Jo mer du øver, jo tryggere blir du i å snakke spansk!`
     },
     {
       id: 'spansk-1-14-2-ex-block-5',
@@ -504,14 +504,14 @@ Oev pa disse samtalene med en partner. Jo mer du oever, jo tryggere blir du i a 
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Du er pa restaurant og vil bestille hovedretten. Hva sier du?',
+        task: 'Du er på restaurant og vil bestille hovedretten. Hva sier du?',
         options: [
           { id: 'a', text: 'De primero quiero la sopa.', isCorrect: false },
           { id: 'b', text: 'De segundo quiero el pollo.', isCorrect: true },
           { id: 'c', text: 'De postre quiero helado.', isCorrect: false },
           { id: 'd', text: 'La cuenta, por favor.', isCorrect: false },
         ],
-        solution: '«De segundo» brukes for a bestille hovedretten. «De primero» er forretten, «de postre» er desserten, og «la cuenta» er regningen.',
+        solution: '«De segundo» brukes for å bestille hovedretten. «De primero» er forretten, «de postre» er desserten, og «la cuenta» er regningen.',
       },
     },
     {
@@ -522,12 +522,12 @@ Oev pa disse samtalene med en partner. Jo mer du oever, jo tryggere blir du i a 
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en komplett dialog (10-12 replikker) pa en restaurant. Dialogen skal inkludere: hilsen, fa meny, bestille forrett, hovedrett og dessert, be om regningen, og ta avskjed.',
+        task: 'Skriv en komplett dialog (10-12 replikker) på en restaurant. Dialogen skal inkludere: hilsen, fa meny, bestille forrett, hovedrett og dessert, be om regningen, og ta avskjed.',
         subTasks: [
           { label: 'a', task: 'Skriv dialogen mellom kelneren (el camarero) og kunden (el cliente).', solution: '— Camarero: ¡Buenas tardes! Bienvenido. ¿Mesa para cuántos?\n— Cliente: Para dos, por favor.\n— Camarero: Aquí tienen la carta.\n— Cliente: Gracias. De primero, quiero la sopa del día. Y mi amigo quiere la ensalada.\n— Camarero: Muy bien. ¿Y de segundo?\n— Cliente: Para mí, el pollo con patatas. Y para mi amigo, el pescado.\n— Camarero: Perfecto. ¿Algo para beber?\n— Cliente: Una botella de agua, por favor.\n— Camarero: ¿Quieren postre?\n— Cliente: Sí, dos flanes, por favor.\n— Camarero: Aquí tienen.\n— Cliente: La cuenta, por favor. ¿Acepta tarjeta?\n— Camarero: Sí, por supuesto. ¡Gracias y buenas tardes!' },
         ],
         solution: 'En god restaurantdialog inkluderer hilsen, bestilling av forrett (de primero), hovedrett (de segundo), drikke, dessert (de postre) og betaling (la cuenta).',
-        hints: ['Bruk de primero, de segundo, de postre', 'Husk hogflighetsfraser som por favor og gracias'],
+        hints: ['Bruk de primero, de segundo, de postre', 'Husk høflighetsfraser som por favor og gracias'],
       },
     },
   ],
@@ -538,8 +538,8 @@ Oev pa disse samtalene med en partner. Jo mer du oever, jo tryggere blir du i a 
     { term: 'el camarero', definition: 'kelner' },
     { term: 'la cuenta', definition: 'regningen' },
     { term: 'la tienda', definition: 'butikk' },
-    { term: 'el probador', definition: 'proverom' },
-    { term: 'a la derecha', definition: 'til hoyre' },
+    { term: 'el probador', definition: 'prøverom' },
+    { term: 'a la derecha', definition: 'til høyre' },
     { term: 'a la izquierda', definition: 'til venstre' },
   ],
 };
@@ -550,16 +550,16 @@ export const CHAPTER_SPANSK_1_14_3: TextbookChapter = {
   chapterNumber: '14.3',
   title: 'Presentaciones cortas',
   subtitle: 'Korte presentasjoner',
-  description: 'Laer a holde korte presentasjoner pa spansk om deg selv, familien din og interessene dine.',
+  description: 'Lær å holde korte presentasjoner på spansk om deg selv, familien din og interessene dine.',
   estimatedMinutes: 45,
-  competenceGoals: ['gi en kort presentasjon pa spansk om kjente emner'],
+  competenceGoals: ['gi en kort presentasjon på spansk om kjente emner'],
   content: [
     {
       id: 'spansk-1-14-3-intro',
       type: 'text',
       content: `## Presentaciones cortas - Korte presentasjoner
 
-A kunne presentere seg selv og snakke om kjente emner er en viktig ferdighet. I dette kapittelet laerer du a holde korte presentasjoner pa spansk - om deg selv, familien din, hobbyer og hverdagen din.
+Å kunne presentere seg selv og snakke om kjente emner er en viktig ferdighet. I dette kapittelet lærer du å holde korte presentasjoner på spansk - om deg selv, familien din, hobbyer og hverdagen din.
 
 En god presentasjon har en klar struktur: innledning, hoveddel og avslutning.`
     },
@@ -567,19 +567,19 @@ En god presentasjon har en klar struktur: innledning, hoveddel og avslutning.`
       id: 'spansk-1-14-3-def-1',
       type: 'definition',
       title: 'Presentere seg selv (Presentarse)',
-      content: `**Nyttige uttrykk for a presentere seg:**
+      content: `**Nyttige uttrykk for å presentere seg:**
 
 | Spansk | Norsk |
 |--------|-------|
 | Me llamo... | Jeg heter... |
-| Tengo ... años. | Jeg er ... ar gammel. |
+| Tengo ... años. | Jeg er ... år gammel. |
 | Soy de... | Jeg er fra... |
 | Vivo en... | Jeg bor i... |
 | Soy estudiante. | Jeg er elev/student. |
-| Estudio en el instituto. | Jeg gar pa videregaende. |
+| Estudio en el instituto. | Jeg går på videregående. |
 | Me gusta... / Me gustan... | Jeg liker... |
 | Mi pasatiempo favorito es... | Min favorittfritidsaktivitet er... |
-| En mi tiempo libre... | Pa fritiden... |`
+| En mi tiempo libre... | På fritiden... |`
     },
     {
       id: 'spansk-1-14-3-ex-1',
@@ -600,22 +600,22 @@ Mi familia es pequeña. Tengo una hermana menor que se llama Sofie. Mi padre se 
       title: 'Struktur for en presentasjon',
       content: `**En god presentasjon har tre deler:**
 
-**1. Innledning (La introducción):**
+**1. Innledning (La intrøducción):**
 - ¡Hola a todos! (Hei alle sammen!)
 - Hoy voy a hablar de... (I dag skal jeg snakke om...)
 - Mi presentación es sobre... (Presentasjonen min handler om...)
 
 **2. Hoveddel (El desarrollo):**
-- Primero... (Forst...)
-- Luego... / Después... (Sa... / Etterpå...)
+- Primero... (Først...)
+- Luego... / Después... (Så... / Etterpå...)
 - También... (Ogsa...)
 - Además... (I tillegg...)
 - Por ejemplo... (For eksempel...)
 
 **3. Avslutning (La conclusión):**
 - En resumen... (Oppsummert...)
-- Para terminar... (Til slutt...)
-- ¿Tienen preguntas? (Har dere sporsmal?)
+- Para terminår... (Til slutt...)
+- ¿Tienen preguntas? (Har dere spørsmål?)
 - ¡Gracias por escuchar! (Takk for at dere lyttet!)`
     },
     {
@@ -646,10 +646,10 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
 | Mi hobby es... | Hobbyen min er... |
 | Juego al fútbol / baloncesto | Jeg spiller fotball / basketball |
 | Toco la guitarra / el piano | Jeg spiller gitar / piano |
-| Hago deporte / natación | Jeg driver med sport / svomming |
+| Hago deporte / natación | Jeg driver med sport / svømming |
 | Veo películas / series | Jeg ser filmer / serier |
-| Escucho música | Jeg horer pa musikk |
-| Leo libros / cómics | Jeg leser boker / tegneserier |
+| Escucho música | Jeg hører på musikk |
+| Leo libros / cómics | Jeg leser bøker / tegneserier |
 | Paso tiempo con mis amigos | Jeg er sammen med vennene mine |`
     },
     {
@@ -660,14 +660,14 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvordan sier du «I dag skal jeg snakke om...» pa spansk?',
+        task: 'Hvordan sier du «I dag skal jeg snakke om...» på spansk?',
         options: [
           { id: 'a', text: 'Hoy voy a hablar de...', isCorrect: true },
           { id: 'b', text: 'Ayer hablé de...', isCorrect: false },
           { id: 'c', text: 'Mañana voy a hablar de...', isCorrect: false },
           { id: 'd', text: 'Hoy quiero escuchar...', isCorrect: false },
         ],
-        solution: '«Hoy voy a hablar de...» betyr «I dag skal jeg snakke om...» og er en fin mate a innlede en presentasjon pa.',
+        solution: '«Hoy voy a hablar de...» betyr «I dag skal jeg snakke om...» og er en fin måte å innlede en presentasjon på.',
       },
     },
     {
@@ -678,14 +678,14 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva sier du pa slutten av en presentasjon for a takke publikum?',
+        task: 'Hva sier du på slutten av en presentasjon for å takke publikum?',
         options: [
           { id: 'a', text: '¡Buenos días!', isCorrect: false },
           { id: 'b', text: '¡Hasta luego!', isCorrect: false },
           { id: 'c', text: '¡Gracias por escuchar!', isCorrect: true },
           { id: 'd', text: '¡Mucho gusto!', isCorrect: false },
         ],
-        solution: '«¡Gracias por escuchar!» betyr «Takk for at dere lyttet!» og er en vanlig avslutning pa en presentasjon.',
+        solution: '«¡Gracias por escuchar!» betyr «Takk for at dere lyttet!» og er en vanlig avslutning på en presentasjon.',
       },
     },
     {
@@ -698,10 +698,10 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
         difficulty: 'lett',
         task: 'Oversett disse setningene til spansk.',
         subTasks: [
-          { label: 'a', task: 'Jeg heter Ola og jeg er 16 ar.', solution: 'Me llamo Ola y tengo dieciséis años.' },
+          { label: 'a', task: 'Jeg heter Ola og jeg er 16 år.', solution: 'Me llamo Ola y tengo dieciséis años.' },
           { label: 'b', task: 'Jeg er fra Norge og bor i Bergen.', solution: 'Soy de Noruega y vivo en Bergen.' },
-          { label: 'c', task: 'Pa fritiden liker jeg a spille fotball.', solution: 'En mi tiempo libre me gusta jugar al fútbol.' },
-          { label: 'd', task: 'Jeg elsker a hore pa musikk.', solution: 'Me encanta escuchar música.' },
+          { label: 'c', task: 'På fritiden liker jeg å spille fotball.', solution: 'En mi tiempo libre me gusta jugar al fútbol.' },
+          { label: 'd', task: 'Jeg elsker å høre på musikk.', solution: 'Me encanta escuchar música.' },
         ],
         solution: 'a) Me llamo Ola y tengo dieciséis años. b) Soy de Noruega y vivo en Bergen. c) En mi tiempo libre me gusta jugar al fútbol. d) Me encanta escuchar música.',
         hints: ['Bruk «tengo ... años» for alder', 'Husk «me gusta» + infinitiv'],
@@ -715,11 +715,11 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort presentasjon (8-10 setninger) om deg selv pa spansk. Inkluder: navn, alder, hvor du er fra, hvor du bor, hva du studerer, hobbyer og familie.',
+        task: 'Skriv en kort presentasjon (8-10 setninger) om deg selv på spansk. Inkluder: navn, alder, hvor du er fra, hvor du bor, hva du studerer, hobbyer og familie.',
         subTasks: [
           { label: 'a', task: 'Skriv presentasjonen med innledning, hoveddel og avslutning.', solution: '¡Hola a todos! Me llamo [navn] y tengo [alder] años. Soy de Noruega y vivo en [by]. Estudio en el instituto y mi asignatura favorita es el español. En mi tiempo libre me gusta [hobby 1] y [hobby 2]. También me encanta [hobby 3]. Mi familia es [stor/liten]. Tengo [sosken]. ¡Gracias por escuchar!' },
         ],
-        solution: 'Presentasjonen bor inneholde grunnleggende informasjon om deg selv, med en klar struktur.',
+        solution: 'Presentasjonen bør inneholde grunnleggende informasjon om deg selv, med en klar struktur.',
         hints: ['Start med ¡Hola a todos!', 'Bruk uttrykkene fra tabellene'],
       },
     },
@@ -728,7 +728,7 @@ Para terminar, Barcelona es una ciudad fantástica para visitar. ¡Gracias por e
       type: 'text',
       content: `## Oppsummering
 
-For a holde en god kort presentasjon pa spansk:
+For å holde en god kort presentasjon på spansk:
 
 1. **Innledning**: Si hei og presenter emnet (¡Hola! Hoy voy a hablar de...)
 2. **Hoveddel**: Bruk bindeord som primero, luego, también, además
@@ -751,7 +751,7 @@ Viktige uttrykk: Me llamo, tengo ... años, soy de, vivo en, me gusta, en mi tie
           { id: 'c', text: 'Innledning - Hoveddel - Avslutning', isCorrect: true },
           { id: 'd', text: 'Hoveddel - Innledning - Avslutning', isCorrect: false },
         ],
-        solution: 'En presentasjon folger alltid strukturen: Innledning (la introducción), Hoveddel (el desarrollo), Avslutning (la conclusión).',
+        solution: 'En presentasjon følger alltid strukturen: Innledning (la intrøducción), Hoveddel (el desarrollo), Avslutning (la conclusión).',
       },
     },
     {
@@ -762,19 +762,19 @@ Viktige uttrykk: Me llamo, tengo ... años, soy de, vivo en, me gusta, en mi tie
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en presentasjon pa spansk (10-12 setninger) om en spanskspraklig by eller et land du er interessert i. Bruk strukturen med innledning, hoveddel og avslutning.',
+        task: 'Skriv en presentasjon på spansk (10-12 setninger) om en spanskspråklig by eller et land du er interessert i. Bruk strukturen med innledning, hoveddel og avslutning.',
         subTasks: [
           { label: 'a', task: 'Velg by/land og skriv presentasjonen. Inkluder fakta om beliggenhet, innbyggertall, kjente steder og mat.', solution: '¡Hola a todos! Hoy voy a hablar de Madrid, la capital de España. Madrid está en el centro de España y tiene más de tres millones de habitantes. Es una ciudad muy grande y animada. Primero, Madrid es famosa por sus museos. El Museo del Prado es uno de los museos más importantes del mundo. También tiene el parque del Retiro, un parque muy bonito en el centro. Además, Madrid es conocida por su vida nocturna y sus bares de tapas. La comida típica es el cocido madrileño. Para terminar, Madrid es una ciudad increíble con mucha historia y cultura. ¡Gracias por escuchar! ¿Tienen preguntas?' },
         ],
         solution: 'En god presentasjon om en by inkluderer beliggenhet, innbyggertall, severdigheter, mat og en personlig mening.',
-        hints: ['Bruk bindeord: primero, también, además, para terminar', 'Husk a avslutte med takk og sporsmal'],
+        hints: ['Bruk bindeord: primero, también, además, para terminar', 'Husk å avslutte med takk og spørsmål'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'la presentación', definition: 'presentasjon' },
-    { term: 'la introducción', definition: 'innledning' },
+    { term: 'la intrøducción', definition: 'innledning' },
     { term: 'el desarrollo', definition: 'hoveddel' },
     { term: 'la conclusión', definition: 'avslutning' },
     { term: 'el pasatiempo', definition: 'fritidsaktivitet, hobby' },
@@ -788,24 +788,24 @@ export const CHAPTER_SPANSK_1_14_4: TextbookChapter = {
   chapterNumber: '14.4',
   title: 'Juego de roles',
   subtitle: 'Rollespill',
-  description: 'Oev pa spansk gjennom rollespill i ulike situasjoner som restaurant, butikk og reise.',
+  description: 'Øv på spansk gjennom rollespill i ulike situasjoner som restaurant, butikk og reise.',
   estimatedMinutes: 50,
-  competenceGoals: ['bruke spansk i ulike rollespillsituasjoner og tilpasse spraket etter kontekst'],
+  competenceGoals: ['bruke spansk i ulike rollespillsituasjoner og tilpasse språket etter kontekst'],
   content: [
     {
       id: 'spansk-1-14-4-intro',
       type: 'text',
       content: `## Juego de roles - Rollespill
 
-Rollespill er en av de beste matene a oeve pa muntlig spansk. Nar du later som du er i en ekte situasjon, oever du bade ordforrad, grammatikk og uttale pa en naturlig mate.
+Rollespill er en av de beste måtene å øve på muntlig spansk. Når du later som du er i en ekte situasjon, øver du både ordforråd, grammatikk og uttale på en naturlig måte.
 
-I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en partner.`
+I dette kapittelet får du ferdige rollespillsituasjoner du kan øve på med en partner.`
     },
     {
       id: 'spansk-1-14-4-def-1',
       type: 'definition',
-      title: 'Pa hotellet (En el hotel)',
-      content: `**Nyttige uttrykk pa hotellet:**
+      title: 'På hotellet (En el hotel)',
+      content: `**Nyttige uttrykk på hotellet:**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -814,7 +814,7 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
 | ¿Para cuántas noches? | For hvor mange netter? |
 | Una habitación individual / doble | Et enkeltrom / dobbeltrom |
 | ¿El desayuno está incluido? | Er frokosten inkludert? |
-| ¿A qué hora es el desayuno? | Nar er frokosten? |
+| ¿A qué hora es el desayuno? | Når er frokosten? |
 | ¿Tiene wifi? | Har dere wifi? |
 | ¿Dónde está el ascensor? | Hvor er heisen? |
 | La llave / la tarjeta | Nokkelen / kortet |
@@ -823,8 +823,8 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
     {
       id: 'spansk-1-14-4-ex-1',
       type: 'example',
-      title: 'Eksempel 1: Pa hotellet',
-      problem: 'Les denne dialogen pa et hotell.',
+      title: 'Eksempel 1: På hotellet',
+      problem: 'Les denne dialogen på et hotell.',
       solution: `**Recepcionista:** ¡Buenas tardes! ¿En qué puedo ayudarle?
 **Huésped:** Buenas tardes. Tengo una reserva a nombre de Olsen.
 **Recepcionista:** Un momento, por favor... Sí, una habitación doble para tres noches.
@@ -840,15 +840,15 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
     {
       id: 'spansk-1-14-4-def-2',
       type: 'definition',
-      title: 'Pa reise (De viaje)',
+      title: 'På reise (De viaje)',
       content: `**Nyttige uttrykk for reise:**
 
 | Spansk | Norsk |
 |--------|-------|
 | ¿Dónde está la estación de tren? | Hvor er togstasjonen? |
 | Un billete de ida / de ida y vuelta | En enveisbillett / tur-returbillett |
-| ¿A qué hora sale el tren? | Nar gar toget? |
-| ¿De qué andén sale? | Fra hvilken plattform gar det? |
+| ¿A qué hora sale el tren? | Når går toget? |
+| ¿De qué andén sale? | Fra hvilken plattform går det? |
 | ¿Cuánto tarda? | Hvor lang tid tar det? |
 | ¿Hay retraso? | Er det forsinkelse? |
 | Quiero alquilar un coche. | Jeg vil leie en bil. |
@@ -860,7 +860,7 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
       id: 'spansk-1-14-4-ex-2',
       type: 'example',
       title: 'Eksempel 2: Kjope togbillett',
-      problem: 'Les denne dialogen pa togstasjonen.',
+      problem: 'Les denne dialogen på togstasjonen.',
       solution: `**Viajero:** ¡Buenos días! Quiero un billete a Barcelona, por favor.
 **Taquillero:** ¿De ida o de ida y vuelta?
 **Viajero:** De ida y vuelta, por favor.
@@ -881,15 +881,15 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
 
 | Spansk | Norsk |
 |--------|-------|
-| No me siento bien. | Jeg foler meg ikke bra. |
+| No me siento bien. | Jeg føler meg ikke bra. |
 | Me duele la cabeza / el estómago. | Jeg har vondt i hodet / magen. |
 | Tengo fiebre. | Jeg har feber. |
-| Estoy resfriado/a. | Jeg er forkyolet. |
+| Estoy resfriado/a. | Jeg er forkjølet. |
 | Tengo tos. | Jeg har hoste. |
 | Me duele la garganta. | Jeg har vondt i halsen. |
 | ¿Desde cuándo tiene estos síntomas? | Hvor lenge har du hatt disse symptomene? |
-| Tiene que descansar. | Du ma hvile. |
-| Le receto... | Jeg skriver ut resept pa... |
+| Tiene que descansar. | Du må hvile. |
+| Le receto... | Jeg skriver ut resept på... |
 | Tome este medicamento. | Ta denne medisinen. |`
     },
     {
@@ -933,14 +933,14 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvordan sier du «Jeg har vondt i hodet» pa spansk?',
+        task: 'Hvordan sier du «Jeg har vondt i hodet» på spansk?',
         options: [
           { id: 'a', text: 'Tengo cabeza.', isCorrect: false },
-          { id: 'b', text: 'Mi cabeza es mal.', isCorrect: false },
+          { id: 'b', text: 'Mi cabeza es mål.', isCorrect: false },
           { id: 'c', text: 'Me duele la cabeza.', isCorrect: true },
           { id: 'd', text: 'La cabeza no funciona.', isCorrect: false },
         ],
-        solution: '«Me duele la cabeza» betyr «Jeg har vondt i hodet». Verbet «doler» (a gjore vondt) fungerer som «gustar» - du sier me duele + kroppsdel.',
+        solution: '«Me duele la cabeza» betyr «Jeg har vondt i hodet». Verbet «doler» (a gjøre vondt) fungerer som «gustar» - du sier me duele + kroppsdel.',
       },
     },
     {
@@ -953,11 +953,11 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
         difficulty: 'medium',
         task: 'Skriv en kort dialog (6-8 replikker) for en av disse situasjonene.',
         subTasks: [
-          { label: 'a', task: 'Pa hotellet: Du sjekker inn og spor om frokost og wifi.', solution: '— Recepcionista: ¡Buenas tardes! ¿En qué puedo ayudarle?\n— Huésped: Tengo una reserva a nombre de Hansen.\n— Recepcionista: Sí, habitación doble para dos noches.\n— Huésped: ¿El desayuno está incluido?\n— Recepcionista: Sí, de siete a diez.\n— Huésped: ¿Tiene wifi?\n— Recepcionista: Sí, la contraseña es «hotel2024». Habitación 210.\n— Huésped: Muchas gracias.' },
-          { label: 'b', task: 'Pa togstasjonen: Du kjoper billett til Sevilla.', solution: '— Viajero: Buenos días. Quiero un billete a Sevilla.\n— Taquillero: ¿De ida o de ida y vuelta?\n— Viajero: De ida, por favor. ¿A qué hora sale el próximo tren?\n— Taquillero: A las catorce y treinta.\n— Viajero: ¿Cuánto cuesta?\n— Taquillero: Treinta y cinco euros.\n— Viajero: Aquí tiene. Gracias.' },
+          { label: 'a', task: 'På hotellet: Du sjekker inn og spør om frokost og wifi.', solution: '— Recepcionista: ¡Buenas tardes! ¿En qué puedo ayudarle?\n— Huésped: Tengo una reserva a nombre de Hansen.\n— Recepcionista: Sí, habitación doble para dos noches.\n— Huésped: ¿El desayuno está incluido?\n— Recepcionista: Sí, de siete a diez.\n— Huésped: ¿Tiene wifi?\n— Recepcionista: Sí, la contraseña es «hotel2024». Habitación 210.\n— Huésped: Muchas gracias.' },
+          { label: 'b', task: 'På togstasjonen: Du kjøper billett til Sevilla.', solution: '— Viajero: Buenos días. Quiero un billete a Sevilla.\n— Taquillero: ¿De ida o de ida y vuelta?\n— Viajero: De ida, por favor. ¿A qué hora sale el próximo tren?\n— Taquillero: A las catorce y treinta.\n— Viajero: ¿Cuánto cuesta?\n— Taquillero: Treinta y cinco euros.\n— Viajero: Aquí tiene. Gracias.' },
         ],
-        solution: 'Bruk uttrykkene fra tabellene for a lage naturlige dialoger.',
-        hints: ['Bruk hogflighetsfraser', 'Inkluder sporsmal og svar'],
+        solution: 'Bruk uttrykkene fra tabellene for å lage naturlige dialoger.',
+        hints: ['Bruk høflighetsfraser', 'Inkluder spørsmål og svar'],
       },
     },
     {
@@ -968,11 +968,11 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en dialog hos legen (6-8 replikker). Du foler deg ikke bra og forklarer symptomene dine.',
+        task: 'Skriv en dialog hos legen (6-8 replikker). Du føler deg ikke bra og forklarer symptomene dine.',
         subTasks: [
           { label: 'a', task: 'Bruk minst tre symptomuttrykk fra tabellen.', solution: '— Médico: Buenos días. ¿Qué le pasa?\n— Paciente: No me siento bien. Me duele el estómago y tengo fiebre.\n— Médico: ¿Desde cuándo?\n— Paciente: Desde anoche. También estoy resfriado.\n— Médico: Tiene que descansar y beber mucha agua. Le receto este medicamento.\n— Paciente: ¿Cuántas veces al día?\n— Médico: Dos veces al día, después de comer.\n— Paciente: Gracias, doctor.' },
         ],
-        solution: 'En god legedialg inneholder symptomer, sporsmal om varighet, og legens rad.',
+        solution: 'En god legedialg inneholder symptomer, spørsmål om varighet, og legens rad.',
         hints: ['Start med «No me siento bien»', 'Bruk «me duele» for smerter'],
       },
     },
@@ -981,13 +981,13 @@ I dette kapittelet far du ferdige rollespillsituasjoner du kan oeve pa med en pa
       type: 'text',
       content: `## Oppsummering
 
-Rollespill hjelper deg a bruke spansk i realistiske situasjoner. Vi har sett pa:
+Rollespill hjelper deg å bruke spansk i realistiske situasjoner. Vi har sett på:
 
-- **Pa hotellet**: Sjekke inn, sporre om fasiliteter
-- **Pa reise**: Kjope billetter, sporre om avgangstider
-- **Hos legen**: Beskrive symptomer, forsta legens rad
+- **På hotellet**: Sjekke inn, spørre om fasiliteter
+- **På reise**: Kjope billetter, spørre om avgangstider
+- **Hos legen**: Beskrive symptomer, forstå legens rad
 
-Tips for rollespill: Bruk hogflighetsfraser (por favor, gracias), still sporsmal, og ikke vaer redd for a gjore feil!`
+Tips for rollespill: Bruk høflighetsfraser (por favor, gracias), still spørsmål, og ikke vær redd for å gjøre feil!`
     },
     {
       id: 'spansk-1-14-4-ex-block-5',
@@ -1004,7 +1004,7 @@ Tips for rollespill: Bruk hogflighetsfraser (por favor, gracias), still sporsmal
           { id: 'c', text: 'Lykke til!', isCorrect: false },
           { id: 'd', text: 'Velkommen tilbake!', isCorrect: false },
         ],
-        solution: '«¡Que se mejore pronto!» betyr «God bedring!» (bokstavelig: «Matte du bli bedre snart!»). Det er et vanlig uttrykk nar noen er syk.',
+        solution: '«¡Que se mejore pronto!» betyr «God bedring!» (bokstavelig: «Matte du bli bedre snart!»). Det er et vanlig uttrykk når noen er syk.',
       },
     },
     {
@@ -1015,19 +1015,19 @@ Tips for rollespill: Bruk hogflighetsfraser (por favor, gracias), still sporsmal
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Velg en av situasjonene under og skriv en komplett dialog (10-12 replikker). Bruk sa mange uttrykk fra kapittelet som mulig.',
+        task: 'Velg en av situasjonene under og skriv en komplett dialog (10-12 replikker). Bruk så mange uttrykk fra kapittelet som mulig.',
         subTasks: [
-          { label: 'a', task: 'Du er pa ferie i Madrid. Du tar taxi fra hotellet til museet Prado, men du har ogsa vondt i hodet og spor taxisjaforen om et apotek.', solution: '— Pasajero: ¡Hola! ¿Está libre?\n— Taxista: Sí, suba. ¿Adónde va?\n— Pasajero: Al Museo del Prado, por favor.\n— Taxista: Muy bien. ¿Es su primera vez en Madrid?\n— Pasajero: Sí, soy de Noruega. ¡Me encanta Madrid!\n— Taxista: ¡Bienvenido! El Prado es fantástico.\n— Pasajero: Perdone, ¿hay una farmacia cerca del museo? Me duele un poco la cabeza.\n— Taxista: Sí, hay una farmacia enfrente del museo, al lado de la cafetería.\n— Pasajero: Perfecto, gracias. ¿Cuánto tarda en llegar?\n— Taxista: Unos diez minutos. Ya llegamos. Son ocho euros.\n— Pasajero: Aquí tiene. Muchas gracias.\n— Taxista: ¡Gracias a usted! ¡Que se mejore!' },
+          { label: 'a', task: 'Du er på ferie i Madrid. Du tar taxi fra hotellet til museet Prado, men du har også vondt i hodet og spør taxisjåføren om et apotek.', solution: '— Pasajero: ¡Hola! ¿Está libre?\n— Taxista: Sí, suba. ¿Adónde va?\n— Pasajero: Al Museo del Prado, por favor.\n— Taxista: Muy bien. ¿Es su primera vez en Madrid?\n— Pasajero: Sí, soy de Noruega. ¡Me encanta Madrid!\n— Taxista: ¡Bienvenido! El Prado es fantástico.\n— Pasajero: Perdone, ¿hay una farmacia cerca del museo? Me duele un poco la cabeza.\n— Taxista: Sí, hay una farmacia enfrente del museo, al lado de la cafetería.\n— Pasajero: Perfecto, gracias. ¿Cuánto tarda en llegar?\n— Taxista: Unos diez minutos. Ya llegamos. Son ocho euros.\n— Pasajero: Aquí tiene. Muchas gracias.\n— Taxista: ¡Gracias a usted! ¡Que se mejore!' },
         ],
-        solution: 'En god dialog kombinerer uttrykk fra ulike situasjoner og viser at du kan bruke spraket fleksibelt.',
-        hints: ['Kombiner uttrykk fra ulike situasjoner', 'Vaer kreativ med historien'],
+        solution: 'En god dialog kombinerer uttrykk fra ulike situasjoner og viser at du kan bruke språket fleksibelt.',
+        hints: ['Kombiner uttrykk fra ulike situasjoner', 'Vær kreativ med historien'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'el juego de roles', definition: 'rollespill' },
-    { term: 'la habitación', definition: 'rom (pa hotell)' },
+    { term: 'la habitación', definition: 'rom (på hotell)' },
     { term: 'el billete', definition: 'billett' },
     { term: 'el andén', definition: 'plattform (togstasjon)' },
     { term: 'el médico', definition: 'lege' },
@@ -1046,29 +1046,29 @@ export const CHAPTER_SPANSK_1_15_1: TextbookChapter = {
   chapterNumber: '15.1',
   title: 'Correos electrónicos y cartas',
   subtitle: 'E-poster og brev',
-  description: 'Laer a skrive e-poster og brev pa spansk, bade formelle og uformelle.',
+  description: 'Lær å skrive e-poster og brev på spansk, både formelle og uformelle.',
   estimatedMinutes: 50,
-  competenceGoals: ['skrive enkle e-poster og brev pa spansk tilpasset mottaker og formal'],
+  competenceGoals: ['skrive enkle e-poster og brev på spansk tilpasset mottaker og formål'],
   content: [
     {
       id: 'spansk-1-15-1-intro',
       type: 'text',
       content: `## Correos electrónicos y cartas - E-poster og brev
 
-A kunne skrive e-poster og brev pa spansk er en viktig ferdighet. Enten du skriver til en venn, en laerer eller et hotell, ma du vite hvordan du tilpasser spraket til situasjonen.
+Å kunne skrive e-poster og brev på spansk er en viktig ferdighet. Enten du skriver til en venn, en lærer eller et hotell, må du vite hvordan du tilpasser språket til situasjonen.
 
-I dette kapittelet laerer du forskjellen mellom formelle og uformelle e-poster og brev, og hvilke uttrykk du bruker i hver type.`
+I dette kapittelet lærer du forskjellen mellom formelle og uformelle e-poster og brev, og hvilke uttrykk du bruker i hver type.`
     },
     {
       id: 'spansk-1-15-1-def-1',
       type: 'definition',
-      title: 'Uformelle e-poster (Correos informales)',
+      title: 'Uformelle e-poster (Correos informåles)',
       content: `**Struktur for en uformell e-post:**
 
 **Hilsen:**
 - ¡Hola, María! (Hei, María!)
 - Querido/a [navn] (Kjaere [navn])
-- ¡Hola! ¿Qué tal? (Hei! Hvordan gar det?)
+- ¡Hola! ¿Qué tal? (Hei! Hvordan går det?)
 
 **Innledning:**
 - ¿Cómo estás? (Hvordan har du det?)
@@ -1104,12 +1104,12 @@ Emma`
     {
       id: 'spansk-1-15-1-def-2',
       type: 'definition',
-      title: 'Formelle e-poster (Correos formales)',
+      title: 'Formelle e-poster (Correos formåles)',
       content: `**Struktur for en formell e-post:**
 
 **Hilsen:**
-- Estimado/a señor/a [etternavn]: (AErede herr/fru [etternavn]:)
-- Muy señor/a mío/a: (AErede herr/fru:)
+- Estimado/a señor/a [etternavn]: (Ærede herr/fru [etternavn]:)
+- Muy señor/a mío/a: (Ærede herr/fru:)
 - A quien corresponda: (Til rette vedkommende:)
 
 **Innledning:**
@@ -1119,7 +1119,7 @@ Emma`
 
 **Avslutning:**
 - Quedo a la espera de su respuesta. (Jeg ser frem til Deres svar.)
-- Le agradezco de antemano. (Takk pa forhand.)
+- Le agradezco de antemano. (Takk på forhånd.)
 - Atentamente, (Med vennlig hilsen,)
 - Cordialmente, (Hjertelig hilsen,)
 - Un cordial saludo, (Vennlig hilsen,)`
@@ -1148,7 +1148,7 @@ Ola Nordmann`
       id: 'spansk-1-15-1-def-3',
       type: 'definition',
       title: 'Forskjellen mellom tú og usted i e-poster',
-      content: `Nar du skriver e-poster pa spansk, er det viktig a velge riktig tiltaleform:
+      content: `Når du skriver e-poster på spansk, er det viktig å velge riktig tiltaleform:
 
 **Uformelt (tú) - brukes til:**
 - Venner og jevnaldrende
@@ -1158,7 +1158,7 @@ Ola Nordmann`
 **Formelt (usted) - brukes til:**
 - Ukjente voksne
 - Bedrifter og organisasjoner
-- Laerere og overordnede
+- Lærere og overordnede
 - Offisielle henvendelser
 
 | Uformelt | Formelt |
@@ -1201,7 +1201,7 @@ Ola Nordmann`
           { id: 'c', text: 'Jeg ser frem til Deres svar.', isCorrect: true },
           { id: 'd', text: 'Vennlig hilsen.', isCorrect: false },
         ],
-        solution: '«Quedo a la espera de su respuesta» betyr «Jeg ser frem til Deres svar» og brukes i slutten av formelle e-poster for a vise at du forventer svar.',
+        solution: '«Quedo a la espera de su respuesta» betyr «Jeg ser frem til Deres svar» og brukes i slutten av formelle e-poster for å vise at du forventer svar.',
       },
     },
     {
@@ -1233,7 +1233,7 @@ Ola Nordmann`
         difficulty: 'medium',
         task: 'Skriv en uformell e-post (6-8 setninger) til en spansk venn der du inviterer ham/henne til Norge.',
         subTasks: [
-          { label: 'a', task: 'Inkluder hilsen, fortell om planene, spor om datoer og avslutt passende.', solution: '¡Hola, Pablo!\n\n¿Cómo estás? Espero que estés bien. Te escribo porque quiero invitarte a Noruega este verano.\n\nPuedes quedarte en mi casa. Podemos visitar los fiordos, ir a la montaña y probar comida noruega. ¿Tienes tiempo en julio o agosto?\n\nEscríbeme pronto y dime qué fechas te vienen bien.\n\n¡Un abrazo!\nOla' },
+          { label: 'a', task: 'Inkluder hilsen, fortell om planene, spør om datoer og avslutt passende.', solution: '¡Hola, Pablo!\n\n¿Cómo estás? Espero que estés bien. Te escribo porque quiero invitarte a Noruega este verano.\n\nPuedes quedarte en mi casa. Podemos visitar los fiordos, ir a la montaña y probar comida noruega. ¿Tienes tiempo en julio o agosto?\n\nEscríbeme pronto y dime qué fechas te vienen bien.\n\n¡Un abrazo!\nOla' },
         ],
         solution: 'En uformell e-post til en venn bruker du tú-form, uformell hilsen og avslutning.',
         hints: ['Start med ¡Hola!', 'Avslutt med Un abrazo'],
@@ -1244,7 +1244,7 @@ Ola Nordmann`
       type: 'text',
       content: `## Oppsummering
 
-Nar du skriver e-poster og brev pa spansk:
+Når du skriver e-poster og brev på spansk:
 
 - **Uformelle e-poster**: Bruk ¡Hola!, tú-form, avslutt med Un abrazo / Besos
 - **Formelle e-poster**: Bruk Estimado/a, usted-form, avslutt med Atentamente
@@ -1260,14 +1260,14 @@ Nar du skriver e-poster og brev pa spansk:
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Du skriver en e-post til en laerer. Hvilken avslutning passer best?',
+        task: 'Du skriver en e-post til en lærer. Hvilken avslutning passer best?',
         options: [
           { id: 'a', text: 'Besos, Emma', isCorrect: false },
           { id: 'b', text: '¡Hasta luego!', isCorrect: false },
           { id: 'c', text: 'Un cordial saludo, Emma Olsen', isCorrect: true },
           { id: 'd', text: '¡Chao!', isCorrect: false },
         ],
-        solution: '«Un cordial saludo» er en passende formell avslutning for en e-post til en laerer. «Besos» og «Chao» er for uformelle, og «Hasta luego» brukes muntlig.',
+        solution: '«Un cordial saludo» er en passende formell avslutning for en e-post til en lærer. «Besos» og «Chao» er for uformelle, og «Hasta luego» brukes muntlig.',
       },
     },
     {
@@ -1278,7 +1278,7 @@ Nar du skriver e-poster og brev pa spansk:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en formell e-post (8-10 setninger) til en spansk skole der du spor om muligheten for utveksling. Inkluder informasjon om deg selv, skolen din og hva du onsker.',
+        task: 'Skriv en formell e-post (8-10 setninger) til en spansk skole der du spør om muligheten for utveksling. Inkluder informasjon om deg selv, skolen din og hva du ønsker.',
         subTasks: [
           { label: 'a', task: 'Bruk formell struktur med hilsen, innledning, hoveddel, avslutning og signatur.', solution: 'Estimado/a señor/a:\n\nMe dirijo a usted para obtener información sobre las posibilidades de intercambio en su instituto.\n\nMe llamo Emma Olsen y soy estudiante en un instituto en Noruega. Tengo dieciséis años y estudio español desde hace dos años. Me gustaría hacer un intercambio de dos semanas en su escuela para mejorar mi español.\n\n¿Sería posible visitar su instituto en el mes de abril? ¿Tienen familias de acogida para los estudiantes de intercambio?\n\nLe agradezco de antemano su atención y quedo a la espera de su respuesta.\n\nAtentamente,\nEmma Olsen\nInstituto de Oslo, Noruega' },
         ],
@@ -1292,7 +1292,7 @@ Nar du skriver e-poster og brev pa spansk:
     { term: 'el correo electrónico', definition: 'e-post' },
     { term: 'la carta', definition: 'brev' },
     { term: 'el asunto', definition: 'emne (i e-post)' },
-    { term: 'estimado/a', definition: 'aerverdig, aerede' },
+    { term: 'estimado/a', definition: 'ærverdig, aerede' },
     { term: 'atentamente', definition: 'med vennlig hilsen' },
     { term: 'el abrazo', definition: 'klem' },
   ],
@@ -1304,18 +1304,18 @@ export const CHAPTER_SPANSK_1_15_2: TextbookChapter = {
   chapterNumber: '15.2',
   title: 'Postales y mensajes',
   subtitle: 'Postkort og meldinger',
-  description: 'Laer a skrive postkort fra ferie og korte meldinger pa spansk.',
+  description: 'Lær å skrive postkort fra ferie og korte meldinger på spansk.',
   estimatedMinutes: 40,
-  competenceGoals: ['skrive korte meldinger og postkort pa spansk'],
+  competenceGoals: ['skrive korte meldinger og postkort på spansk'],
   content: [
     {
       id: 'spansk-1-15-2-intro',
       type: 'text',
       content: `## Postales y mensajes - Postkort og meldinger
 
-Postkort og korte meldinger er en fin mate a oeve pa skriftlig spansk. De er korte, personlige og bruker hverdagssprak.
+Postkort og korte meldinger er en fin måte å øve på skriftlig spansk. De er korte, personlige og bruker hverdagsspråk.
 
-I dette kapittelet laerer du a skrive postkort fra ferie og korte meldinger (SMS, chat) pa spansk.`
+I dette kapittelet lærer du å skrive postkort fra ferie og korte meldinger (SMS, chat) på spansk.`
     },
     {
       id: 'spansk-1-15-2-def-1',
@@ -1325,7 +1325,7 @@ I dette kapittelet laerer du a skrive postkort fra ferie og korte meldinger (SMS
 
 1. **Hilsen**: ¡Hola! / Querido/a...
 2. **Hvor du er**: Estoy en... / Estamos en...
-3. **Hva du gjor**: Hoy hemos visitado... / Ayer fuimos a...
+3. **Hva du gjør**: Hoy hemos visitado... / Ayer fuimos a...
 4. **Vaeret**: Hace sol / Hace calor / Llueve
 5. **Mening**: Me encanta... / Es muy bonito
 6. **Avslutning**: Un abrazo / Besos / ¡Hasta pronto!
@@ -1339,7 +1339,7 @@ I dette kapittelet laerer du a skrive postkort fra ferie og korte meldinger (SMS
 | El hotel es muy bonito. | Hotellet er veldig fint. |
 | La playa es fantástica. | Stranden er fantastisk. |
 | La comida es deliciosa. | Maten er deilig. |
-| ¡Ojalá estuvieras aquí! | Skulle onske du var her! |`
+| ¡Ojalá estuvieras aquí! | Skulle ønske du var her! |`
     },
     {
       id: 'spansk-1-15-2-ex-1',
@@ -1368,9 +1368,9 @@ Emma`
 | Forkortelse | Fullt ord | Norsk |
 |-------------|-----------|-------|
 | q | que | at/som |
-| tb | también | ogsa |
+| tb | también | også |
 | xq | porque | fordi |
-| xfa | por favor | vaer sa snill |
+| xfa | por favor | vær så snill |
 | tkm | te quiero mucho | jeg er glad i deg |
 | bss | besos | kyss |
 | genial | genial | supert |
@@ -1381,10 +1381,10 @@ Emma`
 
 | Spansk | Norsk |
 |--------|-------|
-| ¿Quedamos? | Skal vi motes? |
+| ¿Quedamos? | Skal vi møtes? |
 | ¿A qué hora? | Nar? (Klokka?) |
 | ¡Nos vemos! | Vi sees! |
-| ¿Dónde quedamos? | Hvor moter vi? |
+| ¿Dónde quedamos? | Hvor møter vi? |
 | Llego tarde. | Jeg blir sein. |
 | Lo siento, no puedo. | Beklager, jeg kan ikke. |`
     },
@@ -1407,7 +1407,7 @@ Emma`
       id: 'spansk-1-15-2-def-3',
       type: 'definition',
       title: 'Vaeret (El tiempo)',
-      content: `For a beskrive vaeret pa postkort og meldinger:
+      content: `For å beskrive været på postkort og meldinger:
 
 | Spansk | Norsk |
 |--------|-------|
@@ -1415,10 +1415,10 @@ Emma`
 | Hace calor. | Det er varmt. |
 | Hace frío. | Det er kaldt. |
 | Hace buen tiempo. | Det er fint vaer. |
-| Hace mal tiempo. | Det er darlig vaer. |
-| Hace viento. | Det blaser. |
+| Hace mål tiempo. | Det er dårlig vaer. |
+| Hace viento. | Det blåser. |
 | Llueve. / Está lloviendo. | Det regner. |
-| Nieva. / Está nevando. | Det snor. |
+| Nieva. / Está nevando. | Det snør. |
 | Está nublado. | Det er overskyet. |`
     },
     {
@@ -1431,12 +1431,12 @@ Emma`
         difficulty: 'lett',
         task: 'Hva betyr «Lo estamos pasando genial»?',
         options: [
-          { id: 'a', text: 'Vi gar forbi.', isCorrect: false },
+          { id: 'a', text: 'Vi går forbi.', isCorrect: false },
           { id: 'b', text: 'Vi har det supert.', isCorrect: true },
-          { id: 'c', text: 'Vi gar na.', isCorrect: false },
+          { id: 'c', text: 'Vi går na.', isCorrect: false },
           { id: 'd', text: 'Vi passerer genialt.', isCorrect: false },
         ],
-        solution: '«Lo estamos pasando genial» betyr «Vi har det supert» og brukes ofte pa postkort for a fortelle at ferien er fin. «Pasarlo bien/genial» er et uttrykk for a ha det bra.',
+        solution: '«Lo estamos pasando genial» betyr «Vi har det supert» og brukes ofte på postkort for å fortelle at ferien er fin. «Pasarlo bien/genial» er et uttrykk for å ha det bra.',
       },
     },
     {
@@ -1451,10 +1451,10 @@ Emma`
         options: [
           { id: 'a', text: 'por qué (hvorfor)', isCorrect: false },
           { id: 'b', text: 'porque (fordi)', isCorrect: true },
-          { id: 'c', text: 'por favor (vaer sa snill)', isCorrect: false },
+          { id: 'c', text: 'por favor (vær så snill)', isCorrect: false },
           { id: 'd', text: 'pequeño (liten)', isCorrect: false },
         ],
-        solution: '«xq» er en vanlig forkortelse for «porque» (fordi) i spanske meldinger. «x» brukes ofte for «por» (for) i chatsprak.',
+        solution: '«xq» er en vanlig forkortelse for «porque» (fordi) i spanske meldinger. «x» brukes ofte for «por» (for) i chatspråk.',
       },
     },
     {
@@ -1484,12 +1484,12 @@ Emma`
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv et postkort (5-7 setninger) fra en ferie i Spania. Fortell om stedet, vaeret, aktiviteter og maten.',
+        task: 'Skriv et postkort (5-7 setninger) fra en ferie i Spania. Fortell om stedet, været, aktiviteter og maten.',
         subTasks: [
           { label: 'a', task: 'Bruk uttrykkene fra kapittelet.', solution: '¡Hola, Sofie!\n\n¡Saludos desde Málaga! Lo estamos pasando muy bien. Hace mucho sol y calor. Ayer fuimos a la playa y el agua estaba perfecta. Hoy hemos visitado el centro histórico y la catedral. La comida es deliciosa — me encanta el gazpacho.\n\n¡Ojalá estuvieras aquí!\nBesos, Emma' },
         ],
         solution: 'Et godt postkort inneholder sted, vaer, aktiviteter og en personlig kommentar.',
-        hints: ['Start med ¡Saludos desde...!', 'Beskriv vaeret med hace...'],
+        hints: ['Start med ¡Saludos desde...!', 'Beskriv været med hace...'],
       },
     },
     {
@@ -1499,7 +1499,7 @@ Emma`
 
 - **Postkort**: Kort og personlig. Hilsen, sted, vaer, aktiviteter, avslutning.
 - **Meldinger**: Bruk vanlige forkortelser (q, tb, xq, xfa, vale, guay).
-- **Vaeret**: Hace sol / calor / frío / viento / buen tiempo / mal tiempo.
+- **Vaeret**: Hace sol / calor / frío / viento / buen tiempo / mål tiempo.
 - **Nyttige uttrykk**: ¡Saludos desde...!, Lo estamos pasando bien, ¡Ojalá estuvieras aquí!`
     },
     {
@@ -1517,7 +1517,7 @@ Emma`
           { id: 'c', text: 'Lo estamos pasando bien.', isCorrect: false },
           { id: 'd', text: 'Hace buen tiempo.', isCorrect: false },
         ],
-        solution: '«¿Quedamos esta tarde?» betyr «Skal vi motes i ettermiddag?» og er den vanligste maten a foreslaa a mote noen pa spansk.',
+        solution: '«¿Quedamos esta tarde?» betyr «Skal vi møtes i ettermiddag?» og er den vanligste måten å foreslå å møte noen på spansk.',
       },
     },
     {
@@ -1528,11 +1528,11 @@ Emma`
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en chatsamtale (8-10 meldinger) der du planlegger en helgeaktivitet med en venn. Bruk meldingssprak med forkortelser.',
+        task: 'Skriv en chatsamtale (8-10 meldinger) der du planlegger en helgeaktivitet med en venn. Bruk meldingsspråk med forkortelser.',
         subTasks: [
           { label: 'a', task: 'Inkluder: forslag, tidspunkt, sted, bekreftelse og eventuelle endringer.', solution: '— Tú: ¡Hola! ¿Quedamos el sábado? Quiero ir al cine.\n— Amigo: ¡Genial! ¿A qué hora?\n— Tú: ¿A las cuatro? Hay una peli nueva muy guay.\n— Amigo: Vale, perfecto. ¿Dónde quedamos?\n— Tú: En la entrada del cine a las cuatro menos diez.\n— Amigo: Ok. ¿Viene Laura tb?\n— Tú: Sí, le he escrito. Dice q sí.\n— Amigo: Guay. Después podemos ir a tomar algo, ¿no?\n— Tú: Sí, buena idea. ¡Nos vemos el sábado!\n— Amigo: ¡Hasta el sábado! Bss' },
         ],
-        solution: 'En naturlig chatsamtale bruker korte setninger, forkortelser og uformelt sprak.',
+        solution: 'En naturlig chatsamtale bruker korte setninger, forkortelser og uformelt språk.',
         hints: ['Bruk forkortelser som q, tb, xq', 'Hold meldingene korte og naturlige'],
       },
     },
@@ -1541,9 +1541,9 @@ Emma`
   keyTerms: [
     { term: 'la postal', definition: 'postkort' },
     { term: 'el mensaje', definition: 'melding' },
-    { term: 'el tiempo', definition: 'vaeret / tid' },
+    { term: 'el tiempo', definition: 'været / tid' },
     { term: 'las vacaciones', definition: 'ferie' },
-    { term: 'quedar', definition: 'a avtale a motes' },
+    { term: 'quedar', definition: 'a avtale å møtes' },
     { term: 'genial', definition: 'supert, kjempebra' },
   ],
 };
@@ -1554,18 +1554,18 @@ export const CHAPTER_SPANSK_1_15_3: TextbookChapter = {
   chapterNumber: '15.3',
   title: 'Escribir textos cortos',
   subtitle: 'Skrive korte tekster',
-  description: 'Laer a skrive korte tekster pa spansk, som beskrivelser, dagboknotater og korte fortellinger.',
+  description: 'Lær å skrive korte tekster på spansk, som beskrivelser, dagboknotater og korte fortellinger.',
   estimatedMinutes: 50,
-  competenceGoals: ['skrive korte, sammenhengende tekster pa spansk om kjente emner'],
+  competenceGoals: ['skrive korte, sammenhengende tekster på spansk om kjente emner'],
   content: [
     {
       id: 'spansk-1-15-3-intro',
       type: 'text',
       content: `## Escribir textos cortos - Skrive korte tekster
 
-A skrive korte tekster pa spansk hjelper deg a oeve pa ordforrad, grammatikk og setningsbygging. I dette kapittelet laerer du a skrive ulike typer korte tekster: beskrivelser, dagboknotater og korte fortellinger.
+Å skrive korte tekster på spansk hjelper deg å øve på ordforråd, grammatikk og setningsbygging. I dette kapittelet lærer du å skrive ulike typer korte tekster: beskrivelser, dagboknotater og korte fortellinger.
 
-Det viktigste er a bruke enkle setninger, variere ordforradet og bygge opp teksten med en logisk struktur.`
+Det viktigste er å bruke enkle setninger, variere ordforrådet og bygge opp teksten med en logisk struktur.`
     },
     {
       id: 'spansk-1-15-3-def-1',
@@ -1575,9 +1575,9 @@ Det viktigste er a bruke enkle setninger, variere ordforradet og bygge opp tekst
 
 | Spansk | Norsk |
 |--------|-------|
-| Es alto/a - bajo/a | Han/hun er hoy - lav |
-| Tiene el pelo rubio / moreno / pelirrojo | Han/hun har blondt / morkt / rodt har |
-| Tiene los ojos azules / verdes / marrones | Han/hun har bla / gronne / brune oyne |
+| Es alto/a - bajo/a | Han/hun er høy - lav |
+| Tiene el pelo rubio / moreno / pelirrojo | Han/hun har blondt / morkt / rødt har |
+| Tiene los ojos azules / verdes / marrones | Han/hun har blå / grønne / brune øyne |
 | Es simpático/a / amable / divertido/a | Han/hun er hyggelig / snill / morsom |
 | Lleva gafas / vaqueros / camiseta | Han/hun bruker briller / jeans / t-skjorte |
 
@@ -1588,7 +1588,7 @@ Det viktigste er a bruke enkle setninger, variere ordforradet og bygge opp tekst
 | Es grande / pequeño/a | Det er stort / lite |
 | Está en el centro / en las afueras | Det ligger i sentrum / i utkanten |
 | Hay muchos / pocos... | Det er mange / fa... |
-| Es un lugar tranquilo / animado | Det er et rolig / livlig sted |
+| Es un lugår tranquilo / animado | Det er et rolig / livlig sted |
 | Lo mejor es... | Det beste er... |`
     },
     {
@@ -1609,7 +1609,7 @@ Los fines de semana solemos ir al cine o pasear por el centro. Es una amiga fant
       content: `**Struktur for et dagboknotat:**
 
 1. **Dato**: Lunes, 15 de marzo
-2. **Innledning**: Hoy ha sido un día... (I dag har vaert en dag...)
+2. **Innledning**: Hoy ha sido un día... (I dag har vært en dag...)
 3. **Hva skjedde**: Por la mañana... Luego... Por la tarde...
 4. **Folelser**: Estoy contento/a / cansado/a / emocionado/a
 5. **Avslutning**: Mañana quiero... / Espero que mañana...
@@ -1619,11 +1619,11 @@ Los fines de semana solemos ir al cine o pasear por el centro. Es una amiga fant
 | Spansk | Norsk |
 |--------|-------|
 | por la mañana | om morgenen |
-| al mediodía | midt pa dagen |
+| al mediodía | midt på dagen |
 | por la tarde | om ettermiddagen |
 | por la noche | om kvelden |
-| primero | forst |
-| luego / después | sa / etterpå |
+| primero | først |
+| luego / después | så / etterpå |
 | al final | til slutt |`
     },
     {
@@ -1647,11 +1647,11 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
       id: 'spansk-1-15-3-def-3',
       type: 'definition',
       title: 'Bindeord for sammenhengende tekst (Conectores)',
-      content: `For a gjore teksten din mer sammenhengende, bruk bindeord:
+      content: `For å gjøre teksten din mer sammenhengende, bruk bindeord:
 
-**Rekkefolge:**
-- Primero... (Forst...)
-- Luego... / Después... (Sa... / Etterpå...)
+**Rekkefølge:**
+- Primero... (Først...)
+- Luego... / Después... (Så... / Etterpå...)
 - Al final... / Por último... (Til slutt...)
 
 **Legge til informasjon:**
@@ -1664,7 +1664,7 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
 - Sin embargo... (Likevel...)
 - Aunque... (Selv om...)
 
-**Arsak og grunn:**
+**Årsak og grunn:**
 - Porque... (Fordi...)
 - Por eso... (Derfor...)
 - Como... (Ettersom...)`
@@ -1677,14 +1677,14 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilket bindeord betyr «derfor» pa spansk?',
+        task: 'Hvilket bindeord betyr «derfor» på spansk?',
         options: [
           { id: 'a', text: 'Porque', isCorrect: false },
           { id: 'b', text: 'Pero', isCorrect: false },
           { id: 'c', text: 'Por eso', isCorrect: true },
           { id: 'd', text: 'También', isCorrect: false },
         ],
-        solution: '«Por eso» betyr «derfor». «Porque» betyr «fordi», «pero» betyr «men» og «también» betyr «ogsa».',
+        solution: '«Por eso» betyr «derfor». «Porque» betyr «fordi», «pero» betyr «men» og «también» betyr «også».',
       },
     },
     {
@@ -1695,14 +1695,14 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvordan sier du «Hun har brune oyne» pa spansk?',
+        task: 'Hvordan sier du «Hun har brune øyne» på spansk?',
         options: [
           { id: 'a', text: 'Tiene los ojos marrones.', isCorrect: true },
           { id: 'b', text: 'Es los ojos marrones.', isCorrect: false },
           { id: 'c', text: 'Está ojos marrones.', isCorrect: false },
           { id: 'd', text: 'Hay ojos marrones.', isCorrect: false },
         ],
-        solution: '«Tiene los ojos marrones» er riktig. Man bruker «tener» (a ha) for a beskrive fysiske trekk som oyne og har.',
+        solution: '«Tiene los ojos marrones» er riktig. Man bruker «tener» (å ha) for å beskrive fysiske trekk som øyne og har.',
       },
     },
     {
@@ -1716,11 +1716,11 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
         task: 'Fyll inn riktig bindeord i setningene.',
         subTasks: [
           { label: 'a', task: 'Me gusta mucho el fútbol. ___ juego todos los sábados. (derfor)', solution: 'Por eso' },
-          { label: 'b', task: '___ fui al instituto. ___ comí con mis amigos. (Forst... Sa...)', solution: 'Primero... Luego...' },
+          { label: 'b', task: '___ fui al instituto. ___ comí con mis amigos. (Først... Så...)', solution: 'Primero... Luego...' },
           { label: 'c', task: 'Quiero ir al cine, ___ no tengo dinero. (men)', solution: 'pero' },
           { label: 'd', task: 'Me gustan las películas. ___ me encanta la música. (Ogsa)', solution: 'También' },
         ],
-        solution: 'a) Por eso, b) Primero... Luego..., c) pero, d) También. Bindeord gjor teksten mer sammenhengende.',
+        solution: 'a) Por eso, b) Primero... Luego..., c) pero, d) También. Bindeord gjør teksten mer sammenhengende.',
         hints: ['Se tabellen over bindeord (conectores)'],
       },
     },
@@ -1750,10 +1750,10 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
         difficulty: 'medium',
         task: 'Skriv et dagboknotat (6-8 setninger) om en skoleddag. Bruk tidsuttrykk og bindeord.',
         subTasks: [
-          { label: 'a', task: 'Start med dato og beskriv hva som skjedde i lopet av dagen.', solution: 'Martes, 5 de febrero\n\nQuerido diario:\n\nHoy ha sido un día interesante. Primero, por la mañana tuve clase de matemáticas. Fue difícil, pero la profesora nos ayudó mucho. Luego, al mediodía, comí con mis amigos en la cafetería. Por la tarde tuve clase de español, que es mi asignatura favorita. Además, hicimos un juego de roles muy divertido. Estoy un poco cansada, pero contenta. ¡Buenas noches!' },
+          { label: 'a', task: 'Start med dato og beskriv hva som skjedde i løpet av dagen.', solution: 'Martes, 5 de febrero\n\nQuerido diario:\n\nHoy ha sido un día interesante. Primero, por la mañana tuve clase de matemáticas. Fue difícil, pero la profesora nos ayudó mucho. Luego, al mediodía, comí con mis amigos en la cafetería. Por la tarde tuve clase de español, que es mi asignatura favorita. Además, hicimos un juego de roles muy divertido. Estoy un poco cansada, pero contenta. ¡Buenas noches!' },
         ],
-        solution: 'Et dagboknotat bruker tidsuttrykk (por la mañana, luego, por la tarde) og bindeord for a skape flyt.',
-        hints: ['Bruk por la mañana, al mediodía, por la tarde', 'Inkluder folelser: estoy contento/a, cansado/a'],
+        solution: 'Et dagboknotat bruker tidsuttrykk (por la mañana, luego, por la tarde) og bindeord for å skape flyt.',
+        hints: ['Bruk por la mañana, al mediodía, por la tarde', 'Inkluder følelser: estoy contento/a, cansado/a'],
       },
     },
     {
@@ -1761,12 +1761,12 @@ Estoy muy contenta. Espero que mañana podamos hablar más. ¡Buenas noches!`
       type: 'text',
       content: `## Oppsummering
 
-For a skrive gode korte tekster pa spansk:
+For å skrive gode korte tekster på spansk:
 
 - **Beskrivelser**: Bruk ser for personlighet, tener for fysiske trekk, gustar for interesser
-- **Dagboknotater**: Bruk tidsuttrykk (por la mañana, luego, por la tarde) og beskriv folelser
-- **Bindeord**: Bruk primero, luego, también, además, pero, porque, por eso for a binde setninger sammen
-- **Tips**: Hold setningene enkle, varier ordforradet, og folg en logisk struktur`
+- **Dagboknotater**: Bruk tidsuttrykk (por la mañana, luego, por la tarde) og beskriv følelser
+- **Bindeord**: Bruk primero, luego, también, además, pero, porque, por eso for å binde setninger sammen
+- **Tips**: Hold setningene enkle, varier ordforrådet, og følg en logisk struktur`
     },
     {
       id: 'spansk-1-15-3-ex-block-6',
@@ -1776,11 +1776,11 @@ For a skrive gode korte tekster pa spansk:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en beskrivelse av hjembyen din (8-10 setninger). Inkluder beliggenhet, storrelse, severdigheter, vaer og hva du liker best.',
+        task: 'Skriv en beskrivelse av hjembyen din (8-10 setninger). Inkluder beliggenhet, storrelse, severdigheter, vær og hva du liker best.',
         subTasks: [
-          { label: 'a', task: 'Bruk bade beskrivende uttrykk og bindeord.', solution: 'Mi ciudad se llama Trondheim y está en el centro de Noruega. Es una ciudad mediana con aproximadamente 200.000 habitantes. Es un lugar bonito y tranquilo, pero también tiene mucha vida estudiantil porque tiene una universidad grande.\n\nPrimero, Trondheim es famosa por la catedral de Nidaros, que es muy antigua y bonita. También tiene un barrio antiguo con casas de madera de colores. Además, hay muchos cafés y restaurantes.\n\nEl tiempo es variable. En verano hace buen tiempo y hay mucha luz. Pero en invierno hace mucho frío y nieva a menudo.\n\nLo mejor de Trondheim es la naturaleza. Hay montañas y fiordos cerca de la ciudad. ¡Me encanta vivir aquí!' },
+          { label: 'a', task: 'Bruk både beskrivende uttrykk og bindeord.', solution: 'Mi ciudad se llama Trondheim y está en el centro de Noruega. Es una ciudad mediana con aproximadamente 200.000 habitantes. Es un lugår bonito y tranquilo, pero también tiene mucha vida estudiantil porque tiene una universidad grande.\n\nPrimero, Trondheim es famosa por la catedral de Nidaros, que es muy antigua y bonita. También tiene un barrio antiguo con casas de madera de colores. Además, hay muchos cafés y restaurantes.\n\nEl tiempo es variable. En verano hace buen tiempo y hay mucha luz. Pero en invierno hace mucho frío y nieva a menudo.\n\nLo mejor de Trondheim es la naturaleza. Hay montañas y fiordos cerca de la ciudad. ¡Me encanta vivir aquí!' },
         ],
-        solution: 'En stedbeskrivelse inneholder beliggenhet, storrelse, severdigheter, vaer og personlig mening.',
+        solution: 'En stedbeskrivelse inneholder beliggenhet, storrelse, severdigheter, vær og personlig mening.',
         hints: ['Bruk está en for beliggenhet', 'Bruk hay for hva som finnes der'],
       },
     },
@@ -1791,7 +1791,7 @@ For a skrive gode korte tekster pa spansk:
     { term: 'el diario', definition: 'dagbok' },
     { term: 'el conector', definition: 'bindeord' },
     { term: 'el pelo', definition: 'haret' },
-    { term: 'los ojos', definition: 'oynene' },
+    { term: 'los ojos', definition: 'øynene' },
     { term: 'por eso', definition: 'derfor' },
   ],
 };
@@ -1802,18 +1802,18 @@ export const CHAPTER_SPANSK_1_15_4: TextbookChapter = {
   chapterNumber: '15.4',
   title: 'Escritura creativa',
   subtitle: 'Kreativ skriving',
-  description: 'Utforsk kreativ skriving pa spansk gjennom korte historier, dikt og fantasifulle tekster.',
+  description: 'Utforsk kreativ skriving på spansk gjennom korte historier, dikt og fantasifulle tekster.',
   estimatedMinutes: 50,
-  competenceGoals: ['skrive kreative tekster pa spansk med fantasi og personlig uttrykk'],
+  competenceGoals: ['skrive kreative tekster på spansk med fantasi og personlig uttrykk'],
   content: [
     {
       id: 'spansk-1-15-4-intro',
       type: 'text',
       content: `## Escritura creativa - Kreativ skriving
 
-Kreativ skriving handler om a bruke fantasien og uttrykke seg fritt pa spansk. Du trenger ikke perfekt grammatikk - det viktigste er a vaere kreativ og tore a bruke spraket.
+Kreativ skriving handler om å bruke fantasien og uttrykke seg fritt på spansk. Du trenger ikke perfekt grammatikk - det viktigste er å være kreativ og tørre å bruke språket.
 
-I dette kapittelet far du prove deg pa korte historier, enkle dikt og fantasifulle tekster.`
+I dette kapittelet får du prøve deg på korte historier, enkle dikt og fantasifulle tekster.`
     },
     {
       id: 'spansk-1-15-4-def-1',
@@ -1821,7 +1821,7 @@ I dette kapittelet far du prove deg pa korte historier, enkle dikt og fantasiful
       title: 'Korte historier (Historias cortas)',
       content: `**Struktur for en kort historie:**
 
-1. **Innledning (Introducción)**: Presenter hovedpersonen og stedet
+1. **Innledning (Intrøducción)**: Presenter hovedpersonen og stedet
    - Había una vez... (Det var en gang...)
    - Un día... (En dag...)
    - Érase una vez... (Det var en gang...)
@@ -1829,7 +1829,7 @@ I dette kapittelet far du prove deg pa korte historier, enkle dikt og fantasiful
 2. **Handling (Desarrollo)**: Hva skjer?
    - De repente... (Plutselig...)
    - Entonces... (Da...)
-   - En ese momento... (I det oyeblikket...)
+   - En ese momento... (I det øyeblikket...)
 
 3. **Avslutning (Desenlace)**: Hvordan ender det?
    - Al final... (Til slutt...)
@@ -1901,7 +1901,7 @@ Luna`
 **G**uarda mis secretos
 **O**frece su corazón
 
-(Glad og morsom / Hjelper meg alltid / Smart og snill / Tar vare pa hemmelighetene mine / Gir sitt hjerte)`
+(Glad og morsom / Hjelper meg alltid / Smart og snill / Tar vare på hemmelighetene mine / Gir sitt hjerte)`
     },
     {
       id: 'spansk-1-15-4-def-3',
@@ -1909,7 +1909,7 @@ Luna`
       title: 'Fantasifulle tekster (Textos imaginativos)',
       content: `**Ideer for kreativ skriving:**
 
-1. **Si yo fuera...** (Hvis jeg var...): Skriv om hva du ville gjort
+1. **Si yo fuera...** (Hvis jeg var...): Skriv om hva du ville gjørt
    - Si yo fuera invisible... (Hvis jeg var usynlig...)
    - Si yo viviera en España... (Hvis jeg bodde i Spania...)
    - Si yo pudiera volar... (Hvis jeg kunne fly...)
@@ -1923,7 +1923,7 @@ Luna`
 
 4. **Fremtidsvisjon**: Skriv om fremtiden
    - En el año 2050... (I aret 2050...)
-   - El mundo del futuro será... (Fremtidens verden vil vaere...)`
+   - El mundo del futuro será... (Fremtidens verden vil være...)`
     },
     {
       id: 'spansk-1-15-4-ex-3',
@@ -1934,13 +1934,13 @@ Luna`
 
 Si yo fuera invisible por un día, primero iría a la cocina y comería todo el chocolate sin que nadie me viera. ¡Qué divertido!
 
-Luego, iría al zoo y entraría en las jaulas de los animales para acariciar a los leones y jugar con los pingüinos.
+Luego, iría al zoo y entraría en las jaulas de los animåles para acariciar a los leones y jugar con los pingüinos.
 
 Después, visitaría el Palacio Real en Madrid y exploraría todas las habitaciones secretas.
 
 Por la tarde, iría al estadio del Real Madrid y jugaría un partido con los jugadores. ¡Nadie vería el balón moverse solo!
 
-Al final del día, volvería a casa y haría ruidos extraños para asustar a mi hermano. Sería un día increíble.`
+Al final del día, volvería a casa y haría ruidos extraños para asustår a mi hermano. Sería un día increíble.`
     },
     {
       id: 'spansk-1-15-4-ex-block-1',
@@ -1950,14 +1950,14 @@ Al final del día, volvería a casa y haría ruidos extraños para asustar a mi 
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva betyr «Había una vez» pa norsk?',
+        task: 'Hva betyr «Había una vez» på norsk?',
         options: [
           { id: 'a', text: 'Det er en gang', isCorrect: false },
           { id: 'b', text: 'Det var en gang', isCorrect: true },
-          { id: 'c', text: 'Det vil vaere en gang', isCorrect: false },
+          { id: 'c', text: 'Det vil være en gang', isCorrect: false },
           { id: 'd', text: 'Det finnes en gang', isCorrect: false },
         ],
-        solution: '«Había una vez» betyr «Det var en gang» og er den klassiske apningen pa eventyr og historier pa spansk.',
+        solution: '«Había una vez» betyr «Det var en gang» og er den klassiske åpningen på eventyr og historier på spansk.',
       },
     },
     {
@@ -1975,7 +1975,7 @@ Al final del día, volvería a casa y haría ruidos extraños para asustar a mi 
           { id: 'c', text: 'Plutselig', isCorrect: true },
           { id: 'd', text: 'Dagen etter', isCorrect: false },
         ],
-        solution: '«De repente» betyr «plutselig» og brukes for a introdusere noe uventet i en historie.',
+        solution: '«De repente» betyr «plutselig» og brukes for å introdusere noe uventet i en historie.',
       },
     },
     {
@@ -1990,8 +1990,8 @@ Al final del día, volvería a casa y haría ruidos extraños para asustar a mi 
         subTasks: [
           { label: 'a', task: 'Skriv en linje for hver bokstav som handler om hjem.', solution: 'C - Cálida y acogedora\nA - Aquí vivo con mi familia\nS - Siempre me siento seguro\nA - Amo mi hogar' },
         ],
-        solution: 'Et akrostikon bruker forbokstavene i et ord som start pa hver linje. Vaer kreativ med innholdet!',
-        hints: ['Hver linje skal starte med C, A, S, A', 'Tenk pa hva hjem betyr for deg'],
+        solution: 'Et akrostikon bruker forbokstavene i et ord som start på hver linje. Vær kreativ med innholdet!',
+        hints: ['Hver linje skal starte med C, A, S, A', 'Tenk på hva hjem betyr for deg'],
       },
     },
     {
@@ -2002,12 +2002,12 @@ Al final del día, volvería a casa y haría ruidos extraños para asustar a mi 
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv begynnelsen pa en kort historie (5-7 setninger). Bruk «Había una vez» og presenter en hovedperson og en situasjon.',
+        task: 'Skriv begynnelsen på en kort historie (5-7 setninger). Bruk «Había una vez» og presenter en hovedperson og en situasjon.',
         subTasks: [
-          { label: 'a', task: 'Introduser hvem, hvor og hva som skal skje.', solution: 'Había una vez una chica que se llamaba Lucía. Vivía en un pueblo pequeño cerca del mar en el sur de España. Lucía era muy curiosa y le encantaba explorar. Un día, mientras caminaba por la playa, encontró una botella con un mensaje dentro. El mensaje decía: «Ven a la isla del tesoro.» Lucía decidió seguir las instrucciones del mapa que había dentro de la botella.' },
+          { label: 'a', task: 'Intrøduser hvem, hvor og hva som skal skje.', solution: 'Había una vez una chica que se llamaba Lucía. Vivía en un pueblo pequeño cerca del mar en el sur de España. Lucía era muy curiosa y le encantaba explorar. Un día, mientras caminaba por la playa, encontró una botella con un mensaje dentro. El mensaje decía: «Ven a la isla del tesoro.» Lucía decidió seguir las instrucciones del mapa que había dentro de la botella.' },
         ],
         solution: 'En god innledning presenterer hovedpersonen, stedet og en hendelse som setter i gang historien.',
-        hints: ['Start med Había una vez...', 'Presenter hvem og hvor forst'],
+        hints: ['Start med Había una vez...', 'Presenter hvem og hvor først'],
       },
     },
     {
@@ -2015,13 +2015,13 @@ Al final del día, volvería a casa y haría ruidos extraños para asustar a mi 
       type: 'text',
       content: `## Oppsummering
 
-Kreativ skriving pa spansk gir deg frihet til a bruke spraket pa nye mater:
+Kreativ skriving på spansk gir deg frihet til å bruke språket på nye måter:
 
 - **Korte historier**: Bruk Había una vez, De repente, Al final for struktur
 - **Enkle dikt**: Prov akrostikon, haiku eller diamant-dikt
-- **Fantasifulle tekster**: Bruk Si yo fuera... for a skrive om fantasier
+- **Fantasifulle tekster**: Bruk Si yo fuera... for å skrive om fantasier
 - **Viktige bindeord**: De repente, entonces, mientras tanto, al final
-- **Tips**: Vaer kreativ, ikke vaer redd for feil, og ha det goy med spraket!`
+- **Tips**: Vær kreativ, ikke vær redd for feil, og ha det goy med språket!`
     },
     {
       id: 'spansk-1-15-4-ex-block-5',
@@ -2031,14 +2031,14 @@ Kreativ skriving pa spansk gir deg frihet til a bruke spraket pa nye mater:
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Hvilken setning passer best til a avslutte en historie?',
+        task: 'Hvilken setning passer best til å avslutte en historie?',
         options: [
           { id: 'a', text: 'De repente, algo pasó.', isCorrect: false },
           { id: 'b', text: 'Había una vez un chico.', isCorrect: false },
           { id: 'c', text: 'Y desde entonces, vivieron felices.', isCorrect: true },
           { id: 'd', text: 'Un día, encontró un mapa.', isCorrect: false },
         ],
-        solution: '«Y desde entonces, vivieron felices» (Og siden den gang levde de lykkelig) er en klassisk historieavslutning. «Había una vez» er en apning, og «De repente» brukes midt i historien.',
+        solution: '«Y desde entonces, vivieron felices» (Og siden den gang levde de lykkelig) er en klassisk historieavslutning. «Había una vez» er en åpning, og «De repente» brukes midt i historien.',
       },
     },
     {
@@ -2053,8 +2053,8 @@ Kreativ skriving pa spansk gir deg frihet til a bruke spraket pa nye mater:
         subTasks: [
           { label: 'a', task: 'Skriv om et eventyr, en reise eller en overraskende hendelse. Bruk: Había una vez, un día, de repente, entonces, mientras tanto, al final.', solution: 'Había una vez un chico que se llamaba Pablo. Vivía en Madrid y trabajaba en una librería. Un día, encontró un libro muy antiguo detrás de una estantería. Cuando abrió el libro, de repente las páginas empezaron a brillar.\n\nEntonces, Pablo se encontró dentro del libro, en un bosque mágico. Mientras tanto, un pequeño dragón apareció y dijo: «¡Bienvenido! Te estaba esperando.» El dragón le explicó que el bosque necesitaba un héroe.\n\nPablo y el dragón caminaron juntos por el bosque. Después de muchas aventuras, encontraron un cristal mágico. Pablo tocó el cristal y el bosque se llenó de luz y color.\n\nAl final, Pablo volvió a la librería con el libro en las manos. Pero desde entonces, cada noche soñaba con el bosque mágico y su amigo el dragón.' },
         ],
-        solution: 'En komplett kort historie har tre deler: innledning (Había una vez), handling (de repente, entonces) og avslutning (al final). Bruk bindeord for a skape flyt.',
-        hints: ['Folg strukturen: innledning, handling, avslutning', 'Bruk mange bindeord og fortelleruttrykk'],
+        solution: 'En komplett kort historie har tre deler: innledning (Había una vez), handling (de repente, entonces) og avslutning (al final). Bruk bindeord for å skape flyt.',
+        hints: ['Følg strukturen: innledning, handling, avslutning', 'Bruk mange bindeord og fortelleruttrykk'],
       },
     },
   ],
@@ -2079,7 +2079,7 @@ export const CHAPTER_SPANSK_1_16_1: TextbookChapter = {
   chapterNumber: '16.1',
   title: 'Resumen de gramática',
   subtitle: 'Grammatikkoversikt',
-  description: 'En samlet oversikt over de viktigste grammatiske emnene i spansk niva 1: ser/estar, presens, artikler, adjektiv, preposisjoner, ir a + infinitiv og gustar.',
+  description: 'En samlet oversikt over de viktigste grammatiske emnene i spansk nivå 1: ser/estar, presens, artikler, adjektiv, preposisjoner, ir a + infinitiv og gustar.',
   estimatedMinutes: 55,
   competenceGoals: ['ha oversikt over grunnleggende spansk grammatikk og bruke den i praksis'],
   content: [
@@ -2088,20 +2088,20 @@ export const CHAPTER_SPANSK_1_16_1: TextbookChapter = {
       type: 'text',
       content: `## Resumen de gramática - Grammatikkoversikt
 
-I dette kapittelet far du en samlet oversikt over den viktigste grammatikken du har laert i spansk niva 1. Bruk dette kapittelet som et oppslagsverk nar du trenger a repetere.
+I dette kapittelet får du en samlet oversikt over den viktigste grammatikken du har lært i spansk nivå 1. Bruk dette kapittelet som et oppslagsverk når du trenger å repetere.
 
-Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, artikler, adjektivboying, preposisjoner, ir a + infinitiv og verbet gustar.`
+Vi går gjennom: ser og estar, presens av regelmessige og uregelmessige verb, artikler, adjektivbøying, preposisjoner, ir a + infinitiv og verbet gustar.`
     },
     {
       id: 'spansk-1-16-1-def-1',
       type: 'definition',
-      title: 'Ser vs. Estar (A vaere)',
-      content: `Bade **ser** og **estar** betyr «a vaere», men de brukes ulikt:
+      title: 'Ser vs. Estår (A være)',
+      content: `Bade **ser** og **estar** betyr «a være», men de brukes ulikt:
 
 **SER** brukes for:
 - Identitet: Soy Emma. (Jeg er Emma.)
 - Nasjonalitet: Soy noruega. (Jeg er norsk.)
-- Yrke: Es profesora. (Hun er laerer.)
+- Yrke: Es profesora. (Hun er lærer.)
 - Personlighet: Es simpático. (Han er hyggelig.)
 - Tid: Son las tres. (Klokka er tre.)
 
@@ -2116,11 +2116,11 @@ Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, art
 
 **ESTAR** brukes for:
 - Sted: Estoy en casa. (Jeg er hjemme.)
-- Midlertidig tilstand: Estoy cansado. (Jeg er trott.)
+- Midlertidig tilstand: Estoy cansado. (Jeg er trøtt.)
 - Folelser: Está contenta. (Hun er glad.)
 - Vaer: Está lloviendo. (Det regner.)
 
-| Pronomen | Estar |
+| Pronomen | Estår |
 |----------|-------|
 | yo | estoy |
 | tú | estás |
@@ -2142,8 +2142,8 @@ Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, art
       title: 'Presens av regelmessige verb',
       content: `Spanske verb deles i tre grupper etter endelse: **-ar**, **-er**, **-ir**.
 
-**Hablar (a snakke) - ar-verb:**
-| Pronomen | Boying |
+**Hablar (å snakke) - ar-verb:**
+| Pronomen | Bøying |
 |----------|--------|
 | yo | habl**o** |
 | tú | habl**as** |
@@ -2152,8 +2152,8 @@ Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, art
 | vosotros/as | habl**áis** |
 | ellos/ellas/ustedes | habl**an** |
 
-**Comer (a spise) - er-verb:**
-| Pronomen | Boying |
+**Comer (å spise) - er-verb:**
+| Pronomen | Bøying |
 |----------|--------|
 | yo | com**o** |
 | tú | com**es** |
@@ -2162,8 +2162,8 @@ Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, art
 | vosotros/as | com**éis** |
 | ellos/ellas/ustedes | com**en** |
 
-**Vivir (a bo) - ir-verb:**
-| Pronomen | Boying |
+**Vivir (å bo) - ir-verb:**
+| Pronomen | Bøying |
 |----------|--------|
 | yo | viv**o** |
 | tú | viv**es** |
@@ -2178,36 +2178,36 @@ Vi gar gjennom: ser og estar, presens av regelmessige og uregelmessige verb, art
       title: 'Vanlige uregelmessige verb i presens',
       content: `Noen av de mest brukte verbene er uregelmessige:
 
-**Tener (a ha):** tengo, tienes, tiene, tenemos, tenéis, tienen
-**Ir (a ga):** voy, vas, va, vamos, vais, van
-**Hacer (a gjore):** hago, haces, hace, hacemos, hacéis, hacen
-**Poder (a kunne):** puedo, puedes, puede, podemos, podéis, pueden
-**Querer (a ville/onske):** quiero, quieres, quiere, queremos, queréis, quieren
-**Decir (a si):** digo, dices, dice, decimos, decís, dicen
-**Saber (a vite):** sé, sabes, sabe, sabemos, sabéis, saben
-**Conocer (a kjenne):** conozco, conoces, conoce, conocemos, conocéis, conocen`
+**Tener (å ha):** tengo, tienes, tiene, tenemos, tenéis, tienen
+**Ir (å gå):** voy, vas, va, vamos, vais, van
+**Hacer (å gjøre):** hago, haces, hace, hacemos, hacéis, hacen
+**Poder (å kunne):** puedo, puedes, puede, podemos, podéis, pueden
+**Querer (a ville/ønske):** quiero, quieres, quiere, queremos, queréis, quieren
+**Decir (å si):** digo, dices, dice, decimos, decís, dicen
+**Saber (å vite):** sé, sabes, sabe, sabemos, sabéis, saben
+**Conocer (å kjenne):** conozco, conoces, conoce, conocemos, conocéis, conocen`
     },
     {
       id: 'spansk-1-16-1-def-4',
       type: 'definition',
-      title: 'Artikler og adjektivboying',
+      title: 'Artikler og adjektivbøying',
       content: `**Bestemte artikler (el/la/los/las):**
-| | Hankjonn | Hunkjonn |
+| | Hankjønn | Hunkjønn |
 |---|---------|----------|
 | Entall | el libro (boken) | la casa (huset) |
 | Flertall | los libros (bokene) | las casas (husene) |
 
 **Ubestemte artikler (un/una/unos/unas):**
-| | Hankjonn | Hunkjonn |
+| | Hankjønn | Hunkjønn |
 |---|---------|----------|
 | Entall | un libro (en bok) | una casa (et hus) |
-| Flertall | unos libros (noen boker) | unas casas (noen hus) |
+| Flertall | unos libros (noen bøker) | unas casas (noen hus) |
 
-**Adjektivboying** - adjektivet retter seg etter substantivet:
+**Adjektivbøying** - adjektivet retter seg etter substantivet:
 - El chico alt**o** / La chica alt**a** (den hoye gutten / jenta)
 - Los chicos alt**os** / Las chicas alt**as** (de hoye guttene / jentene)
 
-Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
+Adjektiv som ender på **-e** eller konsonant endres ikke i kjønn:
 - El chico intelligent**e** / La chica intelligent**e**
 - El examen difícil / La pregunta difícil`
     },
@@ -2220,14 +2220,14 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
 |--------|-------|
 | a | til |
 | de | av, fra |
-| en | i, pa |
+| en | i, på |
 | con | med |
 | sin | uten |
-| para | for, til (formal) |
-| por | for, gjennom (arsak) |
+| para | for, til (formål) |
+| por | for, gjennom (årsak) |
 | entre | mellom |
 
-**Ir a + infinitiv** (naer framtid):
+**Ir a + infinitiv** (nær framtid):
 - Voy a estudiar. (Jeg skal studere.)
 - Vamos a comer. (Vi skal spise.)
 - Va a llover. (Det skal regne.)
@@ -2235,8 +2235,8 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
 **Gustar** (a like - spesiell konstruksjon):
 - Me gusta el fútbol. (Jeg liker fotball.)
 - Me gustan las películas. (Jeg liker filmer.)
-- Te gusta leer. (Du liker a lese.)
-- Le gusta viajar. (Han/hun liker a reise.)
+- Te gusta leer. (Du liker å lese.)
+- Le gusta viajar. (Han/hun liker å reise.)
 - Nos gusta la música. (Vi liker musikk.)`
     },
     {
@@ -2254,7 +2254,7 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
           { id: 'c', text: 'Yo es en la escuela.', isCorrect: false },
           { id: 'd', text: 'Yo está en la escuela.', isCorrect: false },
         ],
-        solution: '«Yo estoy en la escuela» er riktig. Man bruker «estar» for sted (hvor man er), og «estoy» er forste person entall.',
+        solution: '«Yo estoy en la escuela» er riktig. Man bruker «estar» for sted (hvor man er), og «estoy» er første person entall.',
       },
     },
     {
@@ -2267,12 +2267,12 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
         difficulty: 'lett',
         task: 'Hva er riktig form av «hablar» for «nosotros»?',
         options: [
-          { id: 'a', text: 'hablais', isCorrect: false },
+          { id: 'a', text: 'habláis', isCorrect: false },
           { id: 'b', text: 'hablan', isCorrect: false },
           { id: 'c', text: 'hablamos', isCorrect: true },
           { id: 'd', text: 'hablo', isCorrect: false },
         ],
-        solution: '«Nosotros hablamos» er riktig. For ar-verb far nosotros endelsen -amos.',
+        solution: '«Nosotros hablamos» er riktig. For ar-verb får nosotros endelsen -amos.',
       },
     },
     {
@@ -2306,11 +2306,11 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
         subTasks: [
           { label: 'a', task: 'Mis padres ___ profesores. (identitet)', solution: 'son (ser - yrke/identitet)' },
           { label: 'b', task: 'El restaurante ___ en la calle Mayor. (sted)', solution: 'está (estar - sted)' },
-          { label: 'c', task: '¿___ (tú) contento hoy? (midlertidig tilstand)', solution: 'Estás (estar - folelse/tilstand)' },
+          { label: 'c', task: '¿___ (tú) contento hoy? (midlertidig tilstand)', solution: 'Estás (estar - følelse/tilstand)' },
           { label: 'd', task: 'La fiesta ___ el sábado. (tid)', solution: 'es (ser - tid)' },
         ],
         solution: 'a) son (ser - yrke), b) está (estar - sted), c) Estás (estar - tilstand), d) es (ser - tid). Husk: ser = permanent/identitet, estar = sted/midlertidig.',
-        hints: ['Ser = identitet, nasjonalitet, yrke, tid. Estar = sted, tilstand, folelse.'],
+        hints: ['Ser = identitet, nasjonalitet, yrke, tid. Estår = sted, tilstand, følelse.'],
       },
     },
     {
@@ -2318,14 +2318,14 @@ Adjektiv som ender pa **-e** eller konsonant endres ikke i kjonn:
       type: 'text',
       content: `## Oppsummering
 
-De viktigste grammatiske emnene i spansk niva 1:
+De viktigste grammatiske emnene i spansk nivå 1:
 
 1. **Ser vs. Estar**: Ser for identitet/permanente egenskaper, estar for sted/midlertidige tilstander
 2. **Presens**: Tre grupper (-ar, -er, -ir) med faste endelser + uregelmessige verb
 3. **Artikler**: el/la/los/las (bestemt), un/una/unos/unas (ubestemt)
-4. **Adjektiv**: Retter seg etter substantivet i kjonn og tall (-o/-a, -os/-as)
+4. **Adjektiv**: Retter seg etter substantivet i kjønn og tall (-o/-a, -os/-as)
 5. **Preposisjoner**: a, de, en, con, sin, para, por
-6. **Ir a + infinitiv**: For naer fremtid (Voy a estudiar)
+6. **Ir a + infinitiv**: For nær fremtid (Voy a estudiar)
 7. **Gustar**: Spesiell konstruksjon (Me gusta/gustan)`
     },
     {
@@ -2358,8 +2358,8 @@ De viktigste grammatiske emnene i spansk niva 1:
         subTasks: [
           { label: 'a', task: 'Marker hvilke grammatiske emner du bruker i hver setning.', solution: 'Me llamo Ola y soy de Noruega. [ser - nasjonalitet] Soy alto y tengo el pelo rubio. [ser - egenskap, tener - uregelmessig, artikkel] Estoy en el instituto ahora. [estar - sted, artikkel] Estudio español y me gustan mucho las clases. [regelmessig verb, gustar + flertall] También hago deporte los fines de semana. [uregelmessig verb hacer] Vivo en una casa grande con mi familia. [regelmessig verb, ubestemt artikkel, adjektiv] Hoy estoy un poco cansado porque tengo muchos deberes. [estar - tilstand, tener - uregelmessig] Pero mañana voy a ir al cine con mis amigos. [ir a + infinitiv, preposisjon] ¡Va a ser muy divertido! [ir a + infinitiv, adjektiv]' },
         ],
-        solution: 'En god tekst kombinerer alle grammatiske emner naturlig. Husk a variere mellom ser og estar, bruk bade regelmessige og uregelmessige verb.',
-        hints: ['Bruk minst ett eksempel av hvert grammatisk emne', 'Skriv om dagligdagse ting for a gjore det naturlig'],
+        solution: 'En god tekst kombinerer alle grammatiske emner naturlig. Husk å variere mellom ser og estar, bruk både regelmessige og uregelmessige verb.',
+        hints: ['Bruk minst ett eksempel av hvert grammatisk emne', 'Skriv om dagligdagse ting for å gjøre det naturlig'],
       },
     },
   ],
@@ -2370,7 +2370,7 @@ De viktigste grammatiske emnene i spansk niva 1:
     { term: 'el adjetivo', definition: 'adjektiv' },
     { term: 'la preposición', definition: 'preposisjon' },
     { term: 'el artículo', definition: 'artikkel' },
-    { term: 'la conjugación', definition: 'verboying' },
+    { term: 'la conjugación', definition: 'verbøying' },
     { term: 'el presente', definition: 'presens (natid)' },
   ],
 };
@@ -2381,24 +2381,24 @@ export const CHAPTER_SPANSK_1_16_2: TextbookChapter = {
   chapterNumber: '16.2',
   title: 'Formación de palabras',
   subtitle: 'Orddannelse',
-  description: 'Laer om kognater mellom spansk og andre sprak, og hvordan ordfamilier kan hjelpe deg a forsta nye ord.',
+  description: 'Lær om kognater mellom spansk og andre språk, og hvordan ordfamilier kan hjelpe deg å forstå nye ord.',
   estimatedMinutes: 40,
-  competenceGoals: ['gjenkjenne kognater og bruke ordfamilier for a utvide ordforradet'],
+  competenceGoals: ['gjenkjenne kognater og bruke ordfamilier for å utvide ordforrådet'],
   content: [
     {
       id: 'spansk-1-16-2-intro',
       type: 'text',
       content: `## Formación de palabras - Orddannelse
 
-Visste du at du allerede kan mange spanske ord uten a vite det? Mange spanske ord ligner pa ord i norsk, engelsk, fransk og andre sprak. Disse kalles **kognater**.
+Visste du at du allerede kan mange spanske ord uten å vite det? Mange spanske ord ligner på ord i norsk, engelsk, fransk og andre språk. Disse kalles **kognater**.
 
-I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a forsta nye ord uten a sla dem opp i ordboken.`
+I dette kapittelet lærer du å gjenkjenne kognater og bruke ordfamilier for å forstå nye ord uten å slå dem opp i ordboken.`
     },
     {
       id: 'spansk-1-16-2-def-1',
       type: 'definition',
       title: 'Kognater (Cognados)',
-      content: `**Kognater** er ord som ligner pa hverandre i ulike sprak fordi de har samme opprinnelse.
+      content: `**Kognater** er ord som ligner på hverandre i ulike språk fordi de har samme opprinnelse.
 
 **Spansk-engelske kognater:**
 | Spansk | Engelsk | Norsk |
@@ -2429,26 +2429,26 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
       type: 'example',
       title: 'Eksempel 1: Gjenkjenne kognater',
       problem: 'Hva tror du disse spanske ordene betyr? Bruk likheten med norsk og engelsk: la estación, el supermercado, la televisión, el problema, la experiencia.',
-      solution: '**La estación** = stasjon (eng: station). **El supermercado** = supermarked (eng: supermarket). **La televisión** = fjernsyn/TV (eng: television). **El problema** = problem (eng: problem). **La experiencia** = erfaring/opplevelse (eng: experience). Alle er kognater som er lette a gjenkjenne!'
+      solution: '**La estación** = stasjon (eng: station). **El supermercado** = supermarked (eng: supermarket). **La televisión** = fjernsyn/TV (eng: television). **El problema** = problem (eng: problem). **La experiencia** = erfaring/opplevelse (eng: experience). Alle er kognater som er lette å gjenkjenne!'
     },
     {
       id: 'spansk-1-16-2-def-2',
       type: 'definition',
       title: 'Falske venner (Falsos amigos)',
-      content: `**Falske venner** er ord som ligner pa ord i andre sprak, men betyr noe helt annet!
+      content: `**Falske venner** er ord som ligner på ord i andre språk, men betyr noe helt annet!
 
 | Spansk | Ser ut som | Betyr faktisk |
 |--------|-----------|---------------|
 | embarazada | embarrassed (flau) | gravid |
-| constipado | constipated (forstoppet) | forkyolet |
+| constipado | constipated (forstoppet) | forkjølet |
 | largo | large (stor) | lang |
 | éxito | exit (utgang) | suksess |
-| actual | actual (faktisk) | naavaerende |
-| sensible | sensible (fornuftig) | folsom |
-| realizar | realize (innse) | gjennomfore |
-| asistir | assist (hjelpe) | delta pa / vaere til stede |
+| actual | actual (faktisk) | naaværende |
+| sensible | sensible (fornuftig) | følsom |
+| realizar | realize (innse) | gjennomføre |
+| asistir | assist (hjelpe) | delta på / være til stede |
 
-**Tips:** Vaer ekstra oppmerksom pa ord som ser kjente ut - de betyr ikke alltid det du tror!`
+**Tips:** Vær ekstra oppmerksom på ord som ser kjente ut - de betyr ikke alltid det du tror!`
     },
     {
       id: 'spansk-1-16-2-ex-2',
@@ -2461,19 +2461,19 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
       id: 'spansk-1-16-2-def-3',
       type: 'definition',
       title: 'Ordfamilier (Familias de palabras)',
-      content: `Nar du kjenner ett ord, kan du ofte gjette betydningen av relaterte ord i samme **ordfamilie**:
+      content: `Når du kjenner ett ord, kan du ofte gjette betydningen av relaterte ord i samme **ordfamilie**:
 
 **Eksempel: Trabajo (arbeid)**
-- trabajar (a arbeide)
+- trabajar (å arbeide)
 - el trabajador / la trabajadora (arbeideren)
 - el trabajo (arbeidet/jobben)
 
-**Eksempel: Comer (a spise)**
-- la comida (maten/maltidet)
+**Eksempel: Comer (å spise)**
+- la comida (maten/måltidet)
 - el comedor (spisestuen)
 - comestible (spiselig)
 
-**Eksempel: Estudiar (a studere)**
+**Eksempel: Estudiar (å studere)**
 - el/la estudiante (studenten/eleven)
 - el estudio (studiet)
 - estudioso/a (flittig)
@@ -2483,7 +2483,7 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
 |---------|-----------|----------|
 | -ción / -sión | handling (substantiv) | información, televisión |
 | -dad / -tad | egenskap (substantiv) | universidad, libertad |
-| -mente | mate (adverb) | rápidamente, normalmente |
+| -mente | måte (adverb) | rápidamente, normalmente |
 | -oso/a | full av (adjektiv) | famoso, delicioso |
 | -ero/a | person som (substantiv) | camarero, enfermera |`
     },
@@ -2495,14 +2495,14 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva betyr «embarazada» pa spansk?',
+        task: 'Hva betyr «embarazada» på spansk?',
         options: [
           { id: 'a', text: 'Flau', isCorrect: false },
           { id: 'b', text: 'Gravid', isCorrect: true },
           { id: 'c', text: 'Forbauset', isCorrect: false },
           { id: 'd', text: 'Nervos', isCorrect: false },
         ],
-        solution: '«Embarazada» betyr «gravid» pa spansk, selv om det ligner pa engelske «embarrassed» (flau). Dette er en klassisk falsk venn!',
+        solution: '«Embarazada» betyr «gravid» på spansk, selv om det ligner på engelske «embarrassed» (flau). Dette er en klassisk falsk venn!',
       },
     },
     {
@@ -2513,14 +2513,14 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilket ord tilhorer samme ordfamilie som «trabajar» (a arbeide)?',
+        task: 'Hvilket ord tilhører samme ordfamilie som «trabajar» (å arbeide)?',
         options: [
           { id: 'a', text: 'el restaurante', isCorrect: false },
           { id: 'b', text: 'el trabajador', isCorrect: true },
           { id: 'c', text: 'el traductor', isCorrect: false },
           { id: 'd', text: 'el tranvía', isCorrect: false },
         ],
-        solution: '«El trabajador» (arbeideren) tilhorer samme ordfamilie som «trabajar» (a arbeide). De har samme stamme «trabaj-».',
+        solution: '«El trabajador» (arbeideren) tilhører samme ordfamilie som «trabajar» (å arbeide). De har samme stamme «trabaj-».',
       },
     },
     {
@@ -2538,7 +2538,7 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
           { label: 'c', task: 'la geografía', solution: 'geografi (eng: geography)' },
           { label: 'd', task: 'importante', solution: 'viktig (eng: important)' },
         ],
-        solution: 'a) apotek, b) ordbok, c) geografi, d) viktig. Alle disse er kognater som ligner pa engelske/norske ord.',
+        solution: 'a) apotek, b) ordbok, c) geografi, d) viktig. Alle disse er kognater som ligner på engelske/norske ord.',
         hints: ['Sammenlign med engelske og norske ord'],
       },
     },
@@ -2550,14 +2550,14 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Lag ordfamilier. Finn minst to ord som tilhorer samme familie.',
+        task: 'Lag ordfamilier. Finn minst to ord som tilhører samme familie.',
         subTasks: [
-          { label: 'a', task: 'cocinar (a lage mat)', solution: 'la cocina (kjokken), el cocinero (kokk), cocinado (tilberedt)' },
-          { label: 'b', task: 'cantar (a synge)', solution: 'la canción (sang), el/la cantante (sanger), el canto (sang/kvad)' },
-          { label: 'c', task: 'jugar (a spille/leke)', solution: 'el juego (spill), el jugador (spiller), el juguete (leketoy)' },
+          { label: 'a', task: 'cocinår (a lage mat)', solution: 'la cocina (kjøkken), el cocinero (kokk), cocinado (tilberedt)' },
+          { label: 'b', task: 'cantar (å synge)', solution: 'la canción (sang), el/la cantante (sanger), el canto (sang/kvad)' },
+          { label: 'c', task: 'jugar (a spille/leke)', solution: 'el juego (spill), el jugador (spiller), el juguete (leketøy)' },
         ],
-        solution: 'a) cocina, cocinero. b) canción, cantante. c) juego, jugador. Ordfamilier hjelper deg a utvide ordforradet!',
-        hints: ['Tenk pa substantiv, adjektiv og personbetegnelser relatert til verbet'],
+        solution: 'a) cocina, cocinero. b) canción, cantante. c) juego, jugador. Ordfamilier hjelper deg å utvide ordforrådet!',
+        hints: ['Tenk på substantiv, adjektiv og personbetegnelser relatert til verbet'],
       },
     },
     {
@@ -2565,12 +2565,12 @@ I dette kapittelet laerer du a gjenkjenne kognater og bruke ordfamilier for a fo
       type: 'text',
       content: `## Oppsummering
 
-Orddannelse er en kraftig strategi for a utvide ordforradet:
+Orddannelse er en kraftig strategi for å utvide ordforrådet:
 
-- **Kognater**: Mange spanske ord ligner pa norske og engelske ord (hospital, música, teléfono)
+- **Kognater**: Mange spanske ord ligner på norske og engelske ord (hospital, música, teléfono)
 - **Falske venner**: Visse ord ser like ut men betyr noe annet (embarazada ≠ flau, largo ≠ stor)
-- **Ordfamilier**: Nar du kan ett ord, kan du gjette beslektede ord (trabajar → trabajador → trabajo)
-- **Endelser**: Kjenn igjen endelser som -ción, -dad, -mente, -oso, -ero for a forsta nye ord`
+- **Ordfamilier**: Når du kan ett ord, kan du gjette beslektede ord (trabajar → trabajador → trabajo)
+- **Endelser**: Kjenn igjen endelser som -ción, -dad, -mente, -oso, -ero for å forstå nye ord`
     },
     {
       id: 'spansk-1-16-2-ex-block-5',
@@ -2580,14 +2580,14 @@ Orddannelse er en kraftig strategi for a utvide ordforradet:
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Hva betyr trolig «el cantante» basert pa ordfamilien til «cantar» (a synge)?',
+        task: 'Hva betyr trolig «el cantante» basert på ordfamilien til «cantar» (å synge)?',
         options: [
           { id: 'a', text: 'En sang', isCorrect: false },
           { id: 'b', text: 'En sanger', isCorrect: true },
           { id: 'c', text: 'En scene', isCorrect: false },
           { id: 'd', text: 'Et kor', isCorrect: false },
         ],
-        solution: '«El cantante» betyr «sanger». Endelsen -ante/-ente brukes ofte for a lage personbetegnelser av verb, som estudiante (student) fra estudiar (a studere).',
+        solution: '«El cantante» betyr «sanger». Endelsen -ante/-ente brukes ofte for å lage personbetegnelser av verb, som estudiante (student) fra estudiar (å studere).',
       },
     },
     {
@@ -2600,16 +2600,16 @@ Orddannelse er en kraftig strategi for a utvide ordforradet:
         difficulty: 'vanskelig',
         task: 'Les teksten og identifiser alle kognater og ordfamilier. Forklar hvordan du forstod ordene.',
         subTasks: [
-          { label: 'a', task: '«La universidad de Barcelona es una institución famosa e importante. Los estudiantes estudian diferentes materias como filosofía, literatura, medicina y biología. El campus es moderno y tiene una biblioteca fantástica.»', solution: 'Kognater: universidad (university), institución (institution), famosa (famous), importante (important), estudiantes (students), filosofía (philosophy), literatura (literature), medicina (medicine), biología (biology), campus (campus), moderno (modern), biblioteca (library - ligner pa bibliothek). Ordfamilier: estudiantes-estudian (studere-studenter). Nesten alle ordene i teksten kan forstast gjennom kognater!' },
+          { label: 'a', task: '«La universidad de Barcelona es una institución famosa e importante. Los estudiantes estudian diferentes materias como filosofía, literatura, medicina y biología. El campus es moderno y tiene una biblioteca fantástica.»', solution: 'Kognater: universidad (university), institución (institution), famosa (famous), importante (important), estudiantes (students), filosofía (philosophy), literatura (literature), medicina (medicine), biología (biology), campus (campus), moderno (modern), biblioteca (library - ligner på bibliothek). Ordfamilier: estudiantes-estudian (studere-studenter). Nesten alle ordene i teksten kan forstast gjennom kognater!' },
         ],
-        solution: 'Teksten inneholder mange kognater fordi akademisk sprak ofte har felles latinske/greske roter. Dette viser hvor kraftig kognat-strategien er!',
+        solution: 'Teksten inneholder mange kognater fordi akademisk språk ofte har felles latinske/greske roter. Dette viser hvor kraftig kognat-strategien er!',
         hints: ['Sammenlign hvert ord med norsk og engelsk', 'Se etter ord med latinske/greske endelser'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'el cognado', definition: 'kognat (ord som ligner i flere sprak)' },
+    { term: 'el cognado', definition: 'kognat (ord som ligner i flere språk)' },
     { term: 'el falso amigo', definition: 'falsk venn (ser likt ut men betyr noe annet)' },
     { term: 'la familia de palabras', definition: 'ordfamilie' },
     { term: 'la formación de palabras', definition: 'orddannelse' },
@@ -2623,37 +2623,37 @@ export const CHAPTER_SPANSK_1_16_3: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '16.3',
   title: 'Estrategias de aprendizaje',
-  subtitle: 'Laeringsstrategier',
-  description: 'Laer effektive strategier for a laere spansk bedre, fra ordinnlaering til lytteforstaelse.',
+  subtitle: 'Læringsstrategier',
+  description: 'Lær effektive strategier for å lære spansk bedre, fra ordinnlæring til lytteforståelse.',
   estimatedMinutes: 40,
-  competenceGoals: ['bruke hensiktsmessige laeringsstrategier for a utvikle sprakferdighetene sine'],
+  competenceGoals: ['bruke hensiktsmessige læringsstrategier for å utvikle språkferdighetene sine'],
   content: [
     {
       id: 'spansk-1-16-3-intro',
       type: 'text',
-      content: `## Estrategias de aprendizaje - Laeringsstrategier
+      content: `## Estrategias de aprendizaje - Læringsstrategier
 
-A laere et nytt sprak krever gode strategier. Det handler ikke bare om a pugge gloser og grammatikk - det handler ogsa om a bruke spraket aktivt, finne mater a oeve pa som passer for deg, og vaere bevisst pa hvordan du laerer.
+Å lære et nytt språk krever gode strategier. Det handler ikke bare om å pugge gloser og grammatikk - det handler også om å bruke språket aktivt, finne måter å øve på som passer for deg, og være bevisst på hvordan du lærer.
 
-I dette kapittelet far du tips og strategier for a laere spansk mer effektivt.`
+I dette kapittelet får du tips og strategier for å lære spansk mer effektivt.`
     },
     {
       id: 'spansk-1-16-3-def-1',
       type: 'definition',
-      title: 'Strategier for ordinnlaering (Aprender vocabulario)',
-      content: `**Effektive mater a laere nye ord pa:**
+      title: 'Strategier for ordinnlæring (Aprender vocabulario)',
+      content: `**Effektive måter å lære nye ord på:**
 
-1. **Ordkort (Tarjetas de vocabulario)**: Skriv spansk pa den ene siden og norsk pa den andre. Gjennom appen Quizlet eller fysiske kort.
+1. **Ordkort (Tarjetas de vocabulario)**: Skriv spansk på den ene siden og norsk på den andre. Gjennom appen Quizlet eller fysiske kort.
 
-2. **Kontekst**: Laer ord i setninger, ikke isolert.
+2. **Kontekst**: Lær ord i setninger, ikke isolert.
    - I stedet for bare «perro = hund», laer: «Tengo un perro que se llama Max.»
 
 3. **Ordkart (Mapas de palabras)**: Lag tankekart med temaer.
    - Eksempel: «La comida» i midten → frutas, verduras, carne, pescado, postres
 
-4. **Repetisjonsintervaller**: Repeter nye ord etter 1 dag, 3 dager, 1 uke, 1 maned.
+4. **Repetisjonsintervaller**: Repeter nye ord etter 1 dag, 3 dager, 1 uke, 1 måned.
 
-5. **Bruk sansene**: Se, hor, skriv og si ordene hoyt.
+5. **Bruk sansene**: Se, hor, skriv og si ordene høyt.
 
 6. **Grupper ord etter tema**: Mat, klær, skole, kropp, familie osv.`
     },
@@ -2670,7 +2670,7 @@ I dette kapittelet far du tips og strategier for a laere spansk mer effektivt.`
 - **Lugares**: el aula, la biblioteca, el patio, la cafetería, el gimnasio
 - **Acciones**: estudiar, aprender, leer, escribir, escuchar
 
-Et ordkart organiserer ordene logisk og gjor dem lettere a huske!`
+Et ordkart organiserer ordene logisk og gjør dem lettere å huske!`
     },
     {
       id: 'spansk-1-16-3-def-2',
@@ -2678,18 +2678,18 @@ Et ordkart organiserer ordene logisk og gjor dem lettere a huske!`
       title: 'Strategier for lytting og lesing',
       content: `**Lyttestrategier (Estrategias de escucha):**
 
-1. **For du lytter**: Tenk over temaet. Hva vet du om emnet? Hvilke ord forventer du a hore?
-2. **Forste gang**: Lytt etter hovedideen. Ikke prov a forsta alt.
+1. **For du lytter**: Tenk over temaet. Hva vet du om emnet? Hvilke ord forventer du å høre?
+2. **Første gang**: Lytt etter hovedideen. Ikke prov å forstå alt.
 3. **Andre gang**: Lytt etter detaljer og spesifikke ord.
 4. **Etter lytting**: Oppsummer det du forstod med egne ord.
 
 **Lesestrategier (Estrategias de lectura):**
 
-1. **Skumlese (Lectura rápida)**: Les raskt for a fa en oversikt.
-2. **Naerles (Lectura detallada)**: Les noyere for a forsta detaljer.
-3. **Gjett fra kontekst**: Hvis du ikke forstaar et ord, se pa ordene rundt.
+1. **Skumlese (Lectura rápida)**: Les raskt for å få en oversikt.
+2. **Naerles (Lectura detallada)**: Les nøyere for å forstå detaljer.
+3. **Gjett fra kontekst**: Hvis du ikke forstår et ord, se på ordene rundt.
 4. **Kognater**: Bruk likhet med norsk/engelsk (se kapittel 16.2).
-5. **Ikke sla opp alt**: Prov a forsta teksten uten a bruke ordbok for hvert ord.`
+5. **Ikke slå opp alt**: Prov å forstå teksten uten å bruke ordbok for hvert ord.`
     },
     {
       id: 'spansk-1-16-3-def-3',
@@ -2697,32 +2697,32 @@ Et ordkart organiserer ordene logisk og gjor dem lettere a huske!`
       title: 'Strategier for snakking og skriving',
       content: `**Snakkestrategier (Estrategias de comunicación):**
 
-1. **Ikke vaer redd for feil**: Feil er en naturlig del av laeringen.
+1. **Ikke vær redd for feil**: Feil er en naturlig del av læringen.
 2. **Omskriving**: Hvis du ikke kan et ord, beskriv det.
-   - «Den tingen man bruker for a spise suppe» = la cuchara (skje)
-3. **Bruk kroppssprak**: Pek, vis, bruk gester.
+   - «Den tingen man bruker for å spise suppe» = la cuchara (skje)
+3. **Bruk kroppsspråk**: Pek, vis, bruk gester.
 4. **Be om hjelp**: «¿Cómo se dice...?» (Hvordan sier man...?)
-5. **Repeter**: «¿Puede repetir, por favor?» (Kan du gjenta, vaer sa snill?)
+5. **Repeter**: «¿Puede repetir, por favor?» (Kan du gjenta, vær så snill?)
 
 **Skrivestrategier (Estrategias de escritura):**
 
 1. **Planlegg**: Lag en disposisjon for du skriver.
-2. **Bruk modeller**: Se pa eksempeltekster og bruk dem som mal.
-3. **Sjekk**: Les gjennom teksten din og sjekk grammatikk og stavemater.
-4. **Enkelt forst**: Start med enkle setninger og bygg ut.
-5. **Bindeord**: Bruk conectores for a binde setningene sammen.`
+2. **Bruk modeller**: Se på eksempeltekster og bruk dem som mål.
+3. **Sjekk**: Les gjennom teksten din og sjekk grammatikk og stavemåter.
+4. **Enkelt først**: Start med enkle setninger og bygg ut.
+5. **Bindeord**: Bruk conectores for å binde setningene sammen.`
     },
     {
       id: 'spansk-1-16-3-ex-2',
       type: 'example',
       title: 'Eksempel 2: Omskriving',
-      problem: 'Du husker ikke det spanske ordet for «kjoleskap». Hvordan kan du omskrive det?',
-      solution: `Her er noen mater a omskrive «kjoleskap» pa spansk:
+      problem: 'Du husker ikke det spanske ordet for «kjøleskap». Hvordan kan du omskrive det?',
+      solution: `Her er noen måter å omskrive «kjøleskap» på spansk:
 
-- «Es la cosa grande en la cocina para mantener la comida fría.» (Det er den store tingen pa kjokkenent for a holde maten kald.)
+- «Es la cosa grande en la cocina para mantener la comida fría.» (Det er den store tingen på kjøkkenet for å holde maten kald.)
 - «Es una máquina blanca donde ponemos la leche y la fruta.» (Det er en hvit maskin der vi legger melk og frukt.)
 
-Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men omskriving hjelper deg a kommunisere selv nar du mangler ord!`
+Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men omskriving hjelper deg å kommunisere selv når du mangler ord!`
     },
     {
       id: 'spansk-1-16-3-ex-block-1',
@@ -2732,14 +2732,14 @@ Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilken strategi er mest effektiv for a laere nye ord?',
+        task: 'Hvilken strategi er mest effektiv for å lære nye ord?',
         options: [
           { id: 'a', text: 'Bare lese ordlisten mange ganger', isCorrect: false },
-          { id: 'b', text: 'Laere ord i kontekst og bruke repetisjonsintervaller', isCorrect: true },
+          { id: 'b', text: 'Lære ord i kontekst og bruke repetisjonsintervaller', isCorrect: true },
           { id: 'c', text: 'Bare lytte til spansk musikk', isCorrect: false },
           { id: 'd', text: 'Skrive hvert ord hundre ganger', isCorrect: false },
         ],
-        solution: 'A laere ord i kontekst (i setninger) og bruke repetisjonsintervaller er den mest effektive strategien. Forskning viser at vi husker ord bedre nar vi bruker dem i meningsfulle sammenhenger.',
+        solution: 'A lære ord i kontekst (i setninger) og bruke repetisjonsintervaller er den mest effektive strategien. Forskning viser at vi husker ord bedre når vi bruker dem i meningsfulle sammenhenger.',
       },
     },
     {
@@ -2750,14 +2750,14 @@ Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva bor du gjore forste gang du lytter til en spansk tekst?',
+        task: 'Hva bør du gjøre første gang du lytter til en spansk tekst?',
         options: [
-          { id: 'a', text: 'Prøve a forsta hvert eneste ord', isCorrect: false },
+          { id: 'a', text: 'Prøve å forstå hvert eneste ord', isCorrect: false },
           { id: 'b', text: 'Lytte etter hovedideen', isCorrect: true },
           { id: 'c', text: 'Lese manuset samtidig', isCorrect: false },
           { id: 'd', text: 'Sla opp alle ukjente ord i ordboken', isCorrect: false },
         ],
-        solution: 'Forste gang du lytter, bor du fokusere pa hovedideen - hva handler teksten om generelt? Detaljer kan du fa med deg ved a lytte flere ganger.',
+        solution: 'Første gang du lytter, bør du fokusere på hovedideen - hva handler teksten om generelt? Detaljer kan du få med deg ved å lytte flere ganger.',
       },
     },
     {
@@ -2768,11 +2768,11 @@ Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Oev pa omskriving. Hvordan kan du beskrive disse ordene pa spansk uten a bruke selve ordet?',
+        task: 'Øv på omskriving. Hvordan kan du beskrive disse ordene på spansk uten å bruke selve ordet?',
         subTasks: [
-          { label: 'a', task: 'Briller (las gafas)', solution: 'Son cosas que pones en la cara para ver mejor. (Det er ting du setter pa ansiktet for a se bedre.)' },
-          { label: 'b', task: 'Paraply (el paraguas)', solution: 'Es una cosa que usas cuando llueve para no mojarte. (Det er en ting du bruker nar det regner for a ikke bli vat.)' },
-          { label: 'c', task: 'Laerer (el profesor)', solution: 'Es una persona que trabaja en la escuela y enseña a los estudiantes. (Det er en person som jobber pa skolen og underviser elevene.)' },
+          { label: 'a', task: 'Briller (las gafas)', solution: 'Son cosas que pones en la cara para ver mejor. (Det er ting du setter på ansiktet for å se bedre.)' },
+          { label: 'b', task: 'Paraply (el paraguas)', solution: 'Es una cosa que usas cuando llueve para no mojarte. (Det er en ting du bruker når det regner for å ikke bli vat.)' },
+          { label: 'c', task: 'Lærer (el profesor)', solution: 'Es una persona que trabaja en la escuela y enseña a los estudiantes. (Det er en person som jobber på skolen og underviser elevene.)' },
         ],
         solution: 'Omskriving er en viktig strategi: beskriv hva tingen er, hva den brukes til eller hvor den finnes.',
         hints: ['Bruk «es una cosa/persona que...» (det er en ting/person som...)'],
@@ -2790,8 +2790,8 @@ Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men
         subTasks: [
           { label: 'a', task: 'Lag minst fire kategorier med tre ord i hver.', solution: 'Mi tiempo libre:\n- Deportes: el fútbol, la natación, el baloncesto\n- Música: escuchar música, tocar la guitarra, cantar\n- En casa: leer, ver películas, jugar a videojuegos\n- Con amigos: ir al cine, pasear, tomar un café' },
         ],
-        solution: 'Et ordkart organiserer ord tematisk og gjor dem lettere a huske. Jo flere koblinger du lager, jo bedre husker du.',
-        hints: ['Tenk pa hva du gjor pa fritiden', 'Lag kategorier som sport, musikk, hjemme, med venner'],
+        solution: 'Et ordkart organiserer ord tematisk og gjør dem lettere å huske. Jo flere koblinger du lager, jo bedre husker du.',
+        hints: ['Tenk på hva du gjør på fritiden', 'Lag kategorier som sport, musikk, hjemme, med venner'],
       },
     },
     {
@@ -2799,14 +2799,14 @@ Det riktige ordet er **el frigorífico** (eller **la nevera** i mange land), men
       type: 'text',
       content: `## Oppsummering
 
-Gode laeringsstrategier gjor spansklaeringen mer effektiv:
+Gode læringsstrategier gjør spansklæringen mer effektiv:
 
-- **Ordinnlaering**: Bruk ordkort, kontekst, ordkart og repetisjonsintervaller
-- **Lytting**: Lytt etter hovedideen forst, detaljer etterpå
-- **Lesing**: Skumles forst, naerles etterpå, gjett fra kontekst
-- **Snakking**: Vaer modig, bruk omskriving, be om hjelp
+- **Ordinnlæring**: Bruk ordkort, kontekst, ordkart og repetisjonsintervaller
+- **Lytting**: Lytt etter hovedideen først, detaljer etterpå
+- **Lesing**: Skumles først, nærles etterpå, gjett fra kontekst
+- **Snakking**: Vær modig, bruk omskriving, be om hjelp
 - **Skriving**: Planlegg, bruk modeller, sjekk og bruk bindeord
-- **Generelt**: Feil er nyttige - de er en naturlig del av laeringen!`
+- **Generelt**: Feil er nyttige - de er en naturlig del av læringen!`
     },
     {
       id: 'spansk-1-16-3-ex-block-5',
@@ -2816,7 +2816,7 @@ Gode laeringsstrategier gjor spansklaeringen mer effektiv:
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Hvordan sier du «Hvordan sier man...?» pa spansk nar du trenger hjelp med et ord?',
+        task: 'Hvordan sier du «Hvordan sier man...?» på spansk når du trenger hjelp med et ord?',
         options: [
           { id: 'a', text: '¿Qué significa?', isCorrect: false },
           { id: 'b', text: '¿Cómo se dice...?', isCorrect: true },
@@ -2834,21 +2834,21 @@ Gode laeringsstrategier gjor spansklaeringen mer effektiv:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Lag din egen laeringsplan for spansk. Beskriv pa spansk (med norsk hjelp) hvilke strategier du vil bruke for a forbedre de fire ferdighetene: lytting, lesing, snakking og skriving.',
+        task: 'Lag din egen læringsplan for spansk. Beskriv på spansk (med norsk hjelp) hvilke strategier du vil bruke for å forbedre de fire ferdighetene: lytting, lesing, snakking og skriving.',
         subTasks: [
-          { label: 'a', task: 'Skriv minst to strategier for hver ferdighet.', solution: 'Mi plan de aprendizaje:\n\nEscuchar (lytte): Voy a escuchar canciones en español y ver series españolas con subtítulos. (Jeg skal hore pa spanske sanger og se spanske serier med undertekster.)\n\nLeer (lese): Voy a leer textos cortos en español y usar cognados para entender palabras nuevas. (Jeg skal lese korte tekster og bruke kognater for a forsta nye ord.)\n\nHablar (snakke): Voy a practicar diálogos con mis compañeros y no tener miedo de cometer errores. (Jeg skal oeve pa dialoger med medelever og ikke vaere redd for a gjore feil.)\n\nEscribir (skrive): Voy a escribir un diario en español y usar conectores para hacer textos mejores. (Jeg skal skrive dagbok pa spansk og bruke bindeord for a lage bedre tekster.)' },
+          { label: 'a', task: 'Skriv minst to strategier for hver ferdighet.', solution: 'Mi plan de aprendizaje:\n\nEscuchar (lytte): Voy a escuchar canciones en español y ver series españolas con subtítulos. (Jeg skal høre på spanske sanger og se spanske serier med undertekster.)\n\nLeer (lese): Voy a leer textos cortos en español y usar cognados para entender palabras nuevas. (Jeg skal lese korte tekster og bruke kognater for å forstå nye ord.)\n\nHablar (snakke): Voy a practicar diálogos con mis compañeros y no tener miedo de cometer errores. (Jeg skal øve på dialoger med medelever og ikke være redd for å gjøre feil.)\n\nEscribir (skrive): Voy a escribir un diario en español y usar conectores para hacer textos mejores. (Jeg skal skrive dagbok på spansk og bruke bindeord for å lage bedre tekster.)' },
         ],
-        solution: 'En god laeringsplan er konkret og realistisk. Velg strategier du faktisk vil bruke, og varier mellom de fire ferdighetene.',
-        hints: ['Bruk «Voy a...» (Jeg skal...) for a beskrive planene', 'Tenk pa hva du kan gjore hjemme og pa skolen'],
+        solution: 'En god læringsplan er konkret og realistisk. Velg strategier du faktisk vil bruke, og varier mellom de fire ferdighetene.',
+        hints: ['Bruk «Voy a...» (Jeg skal...) for å beskrive planene', 'Tenk på hva du kan gjøre hjemme og på skolen'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'la estrategia', definition: 'strategi' },
-    { term: 'el vocabulario', definition: 'ordforrad' },
+    { term: 'el vocabulario', definition: 'ordforråd' },
     { term: 'el mapa de palabras', definition: 'ordkart' },
-    { term: 'la comprensión', definition: 'forstaelse' },
+    { term: 'la comprensión', definition: 'forståelse' },
     { term: 'la comunicación', definition: 'kommunikasjon' },
     { term: 'el error', definition: 'feil' },
   ],
@@ -2860,46 +2860,46 @@ export const CHAPTER_SPANSK_1_16_4: TextbookChapter = {
   chapterNumber: '16.4',
   title: 'Autoevaluación',
   subtitle: 'Egenvurdering',
-  description: 'Vurder din egen fremgang i spansk og sett deg mal for videre laering.',
+  description: 'Vurder din egen fremgang i spansk og sett deg mål for videre læring.',
   estimatedMinutes: 40,
-  competenceGoals: ['vurdere egen spraklaering og sette seg realistiske mal for videre fremgang'],
+  competenceGoals: ['vurdere egen språklæring og sette seg realistiske mål for videre fremgang'],
   content: [
     {
       id: 'spansk-1-16-4-intro',
       type: 'text',
       content: `## Autoevaluación - Egenvurdering
 
-Egenvurdering er en viktig del av sprakopplaeringen. Nar du reflekterer over hva du kan, hva du har laert og hva du trenger a oeve mer pa, blir du en mer bevisst og effektiv sprakslaerer.
+Egenvurdering er en viktig del av språkopplæringen. Når du reflekterer over hva du kan, hva du har lært og hva du trenger å øve mer på, blir du en mer bevisst og effektiv språkslærer.
 
-I dette kapittelet vurderer du dine egne ferdigheter og setter deg mal for videre laering.`
+I dette kapittelet vurderer du dine egne ferdigheter og setter deg mål for videre læring.`
     },
     {
       id: 'spansk-1-16-4-def-1',
       type: 'definition',
       title: 'Hva kan jeg? (¿Qué sé hacer?)',
-      content: `Bruk denne sjekklisten for a vurdere hva du kan pa spansk:
+      content: `Bruk denne sjekklisten for å vurdere hva du kan på spansk:
 
 **Lytting (Escuchar):**
-- [ ] Jeg forstaar enkle hilsener og hverdagsuttrykk
-- [ ] Jeg kan forsta hovedinnholdet i korte samtaler
-- [ ] Jeg kan folge enkle instruksjoner pa spansk
+- [ ] Jeg forstår enkle hilsener og hverdagsuttrykk
+- [ ] Jeg kan forstå hovedinnholdet i korte samtaler
+- [ ] Jeg kan følge enkle instruksjoner på spansk
 - [ ] Jeg kan gjenkjenne viktige ord i en lengre tekst
 
 **Lesing (Leer):**
-- [ ] Jeg kan lese og forsta korte, enkle tekster
+- [ ] Jeg kan lese og forstå korte, enkle tekster
 - [ ] Jeg kan finne spesifikk informasjon i en tekst
-- [ ] Jeg kan forsta korte e-poster og meldinger
+- [ ] Jeg kan forstå korte e-poster og meldinger
 - [ ] Jeg kan gjette betydningen av ukjente ord fra konteksten
 
 **Snakking (Hablar):**
 - [ ] Jeg kan presentere meg selv og fortelle om familien min
 - [ ] Jeg kan delta i enkle samtaler om hverdagslige emner
-- [ ] Jeg kan bestille mat, handle og sporre om veien
+- [ ] Jeg kan bestille mat, handle og spørre om veien
 - [ ] Jeg kan gi en kort presentasjon om et kjent emne
 
 **Skriving (Escribir):**
 - [ ] Jeg kan skrive korte meldinger og postkort
-- [ ] Jeg kan skrive enkle e-poster (bade formelle og uformelle)
+- [ ] Jeg kan skrive enkle e-poster (både formelle og uformelle)
 - [ ] Jeg kan beskrive personer, steder og hendelser
 - [ ] Jeg kan skrive en kort fortelling med innledning og avslutning`
     },
@@ -2907,80 +2907,80 @@ I dette kapittelet vurderer du dine egne ferdigheter og setter deg mal for vider
       id: 'spansk-1-16-4-ex-1',
       type: 'example',
       title: 'Eksempel 1: Min vurdering',
-      problem: 'Les dette eksempelet pa en egenvurdering.',
+      problem: 'Les dette eksempelet på en egenvurdering.',
       solution: `**Mi autoevaluación - Min egenvurdering:**
 
-Lytting: Jeg forstaar de fleste hverdagslige samtalene vi har i klassen, men jeg synes det er vanskelig nar folk snakker fort. Jeg ma oeve pa a lytte til spansk utenfor klasserommet.
+Lytting: Jeg forstår de fleste hverdagslige samtalene vi har i klassen, men jeg synes det er vanskelig når folk snakker fort. Jeg må øve på å lytte til spansk utenfor klasserommet.
 
-Lesing: Jeg kan lese og forsta korte tekster ganske bra. Jeg bruker kognater for a gjette ord jeg ikke kjenner. Jeg vil gjerne lese en kort bok pa spansk.
+Lesing: Jeg kan lese og forstå korte tekster ganske bra. Jeg bruker kognater for å gjette ord jeg ikke kjenner. Jeg vil gjerne lese en kort bok på spansk.
 
-Snakking: Jeg kan presentere meg selv og forer enkle samtaler, men jeg er litt nervos. Jeg gjor feil med verbformene noen ganger. Jeg ma oeve mer pa a snakke spontant.
+Snakking: Jeg kan presentere meg selv og fører enkle samtaler, men jeg er litt nervøs. Jeg gjør feil med verbformene noen ganger. Jeg må øve mer på å snakke spontant.
 
-Skriving: Jeg kan skrive e-poster og postkort. Jeg trenger a oeve mer pa bindeord for a gjore tekstene mine bedre.
+Skriving: Jeg kan skrive e-poster og postkort. Jeg trenger å øve mer på bindeord for å gjøre tekstene mine bedre.
 
-**Mine mal:** Jeg vil bli flinkere til a snakke uten a tenke for mye. Jeg skal oeve pa dialoger med klassekameratene mine to ganger i uken.`
+**Mine mål:** Jeg vil bli flinkere til å snakke uten å tenke for mye. Jeg skal øve på dialoger med klassekameratene mine to ganger i uken.`
     },
     {
       id: 'spansk-1-16-4-def-2',
       type: 'definition',
-      title: 'Sette mal (Establecer objetivos)',
-      content: `**SMART-mal for spraklaering:**
+      title: 'Sette mål (Establecer objetivos)',
+      content: `**SMART-mål for språklæring:**
 
-Gode mal er **SMART**:
-- **S** - Spesifikke (Específicos): Hva noyaktig vil du laere?
-- **M** - Malbare (Medibles): Hvordan vet du at du har nadd malet?
-- **A** - Ambisiose men oppnaelige (Alcanzables): Er malet realistisk?
-- **R** - Relevante (Relevantes): Passer malet til dine behov?
-- **T** - Tidsbegrensede (Temporales): Nar skal du ha nadd malet?
+Gode mål er **SMART**:
+- **S** - Spesifikke (Específicos): Hva nøyaktig vil du lære?
+- **M** - Målbare (Medibles): Hvordan vet du at du har nådd målet?
+- **A** - Ambisiose men oppnåelige (Alcanzables): Er målet realistisk?
+- **R** - Relevante (Relevantes): Passer målet til dine behov?
+- **T** - Tidsbegrensede (Temporales): Når skal du ha nådd målet?
 
-**Eksempler pa SMART-mal:**
+**Eksempler på SMART-mål:**
 
-| Darlig mal | SMART-mal |
+| Dårlig mål | SMART-mål |
 |-----------|-----------|
-| Bli bedre i spansk | Laere 20 nye ord om mat innen to uker |
-| Snakke mer | Oeve pa en dialog med en partner 3 ganger denne uken |
-| Skrive bedre | Skrive et dagboknotat pa spansk hver søndag i en maned |
-| Forsta mer | Se en episode av en spansk serie med undertekster denne helgen |`
+| Bli bedre i spansk | Lære 20 nye ord om mat innen to uker |
+| Snakke mer | Øve på en dialog med en partner 3 ganger denne uken |
+| Skrive bedre | Skrive et dagboknotat på spansk hver søndag i en måned |
+| Forstå mer | Se en episode av en spansk serie med undertekster denne helgen |`
     },
     {
       id: 'spansk-1-16-4-def-3',
       type: 'definition',
-      title: 'Refleksjonssporsmal (Preguntas de reflexión)',
-      content: `Bruk disse sporsmaalene for a reflektere over laeringen din:
+      title: 'Refleksjonsspørsmål (Preguntas de reflexión)',
+      content: `Bruk disse spørsmålene for å reflektere over læringen din:
 
 **Om fremgangen din:**
-- ¿Qué he aprendido este semestre? (Hva har jeg laert dette semesteret?)
-- ¿Qué es lo que mejor hago en español? (Hva er jeg best pa i spansk?)
-- ¿Qué necesito mejorar? (Hva trenger jeg a forbedre?)
-- ¿Qué errores cometo frecuentemente? (Hvilke feil gjor jeg ofte?)
+- ¿Qué he aprendido este semestre? (Hva har jeg lært dette semesteret?)
+- ¿Qué es lo que mejor hago en español? (Hva er jeg best på i spansk?)
+- ¿Qué necesito mejorar? (Hva trenger jeg å forbedre?)
+- ¿Qué errores cometo frecuentemente? (Hvilke feil gjør jeg ofte?)
 
-**Om laeringsstrategiene dine:**
+**Om læringsstrategiene dine:**
 - ¿Qué estrategias me funcionan bien? (Hvilke strategier fungerer bra for meg?)
-- ¿Qué puedo hacer diferente? (Hva kan jeg gjore annerledes?)
-- ¿Cómo puedo practicar más fuera de clase? (Hvordan kan jeg oeve mer utenfor timen?)
+- ¿Qué puedo hacer diferente? (Hva kan jeg gjøre annerledes?)
+- ¿Cómo puedo practicar más fuera de clase? (Hvordan kan jeg øve mer utenfor timen?)
 
 **Om motivasjonen din:**
-- ¿Por qué estudio español? (Hvorfor laerer jeg spansk?)
+- ¿Por qué estudio español? (Hvorfor lærer jeg spansk?)
 - ¿Qué me motiva? (Hva motiverer meg?)
-- ¿Qué quiero lograr? (Hva onsker jeg a oppna?)`
+- ¿Qué quiero lograr? (Hva ønsker jeg a oppnå?)`
     },
     {
       id: 'spansk-1-16-4-ex-2',
       type: 'example',
-      title: 'Eksempel 2: SMART-mal',
-      problem: 'Lag et SMART-mal for spansklaeringen din.',
-      solution: `**Mal:** Jeg skal kunne bestille mat pa en restaurant pa spansk uten hjelp.
+      title: 'Eksempel 2: SMART-mål',
+      problem: 'Lag et SMART-mål for spansklæringen din.',
+      solution: `**Mål:** Jeg skal kunne bestille mat på en restaurant på spansk uten hjelp.
 
-- **Spesifikt**: Laere alle uttrykkene for a bestille mat (forrett, hovedrett, dessert, drikke, regning)
-- **Malbart**: Klare a gjennomfore et rollespill med laereren uten a stoppe opp
-- **Oppnaelig**: Jeg kan allerede noen uttrykk, sa dette er realistisk
-- **Relevant**: Jeg skal pa ferie til Spania i sommer
+- **Spesifikt**: Lære alle uttrykkene for å bestille mat (forrett, hovedrett, dessert, drikke, regning)
+- **Målbart**: Klare a gjennomføre et rollespill med læreren uten a stoppe opp
+- **Oppnåelig**: Jeg kan allerede noen uttrykk, så dette er realistisk
+- **Relevant**: Jeg skal på ferie til Spania i sommer
 - **Tidsbegrenset**: Innen tre uker
 
 **Min plan:**
-- Uke 1: Laere alle ordene og uttrykkene utenat
-- Uke 2: Oeve pa dialoger med en klassekamerat
-- Uke 3: Gjore rollespill med laereren som «test»`
+- Uke 1: Lære alle ordene og uttrykkene utenat
+- Uke 2: Øve på dialoger med en klassekamerat
+- Uke 3: Gjore rollespill med læreren som «test»`
     },
     {
       id: 'spansk-1-16-4-ex-block-1',
@@ -2990,14 +2990,14 @@ Gode mal er **SMART**:
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva star S for i SMART-mal?',
+        task: 'Hva står S for i SMART-mål?',
         options: [
           { id: 'a', text: 'Spennende', isCorrect: false },
           { id: 'b', text: 'Spesifikke', isCorrect: true },
           { id: 'c', text: 'Store', isCorrect: false },
           { id: 'd', text: 'Spontane', isCorrect: false },
         ],
-        solution: 'S i SMART star for Spesifikke (Específicos). Et godt mal er konkret og tydelig, ikke vagt. «Laere 20 nye ord» er spesifikt, mens «bli bedre i spansk» er for vagt.',
+        solution: 'S i SMART står for Spesifikke (Específicos). Et godt mål er konkret og tydelig, ikke vagt. «Lære 20 nye ord» er spesifikt, mens «bli bedre i spansk» er for vagt.',
       },
     },
     {
@@ -3010,12 +3010,12 @@ Gode mal er **SMART**:
         difficulty: 'lett',
         task: 'Hva betyr «¿Qué necesito mejorar?»?',
         options: [
-          { id: 'a', text: 'Hva har jeg laert?', isCorrect: false },
-          { id: 'b', text: 'Hva er jeg best pa?', isCorrect: false },
-          { id: 'c', text: 'Hva trenger jeg a forbedre?', isCorrect: true },
+          { id: 'a', text: 'Hva har jeg lært?', isCorrect: false },
+          { id: 'b', text: 'Hva er jeg best på?', isCorrect: false },
+          { id: 'c', text: 'Hva trenger jeg å forbedre?', isCorrect: true },
           { id: 'd', text: 'Hva motiverer meg?', isCorrect: false },
         ],
-        solution: '«¿Qué necesito mejorar?» betyr «Hva trenger jeg a forbedre?» og er et viktig refleksjonssporsmal for egenvurdering.',
+        solution: '«¿Qué necesito mejorar?» betyr «Hva trenger jeg å forbedre?» og er et viktig refleksjonsspørsmål for egenvurdering.',
       },
     },
     {
@@ -3026,15 +3026,15 @@ Gode mal er **SMART**:
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Vurder dine ferdigheter pa en skala fra 1-5 (1 = nybegynner, 5 = veldig god) og forklar kort.',
+        task: 'Vurder dine ferdigheter på en skala fra 1-5 (1 = nybegynner, 5 = veldig god) og forklar kort.',
         subTasks: [
-          { label: 'a', task: 'Lytting (Escuchar): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 3/5 - Jeg forstaar enkle samtaler i klassen, men har vansker med a forsta spansk utenfor klasserommet, spesielt nar folk snakker fort.' },
-          { label: 'b', task: 'Lesing (Leer): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 4/5 - Jeg kan lese og forsta korte tekster ganske bra. Jeg bruker kognater og kontekst for a gjette ukjente ord.' },
-          { label: 'c', task: 'Snakking (Hablar): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 2/5 - Jeg kan si enkle ting, men er nervos og gjor mange feil. Jeg trenger a oeve mer pa a snakke spontant.' },
-          { label: 'd', task: 'Skriving (Escribir): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 3/5 - Jeg kan skrive korte tekster som e-poster og postkort, men trenger a oeve pa bindeord og lengre tekster.' },
+          { label: 'a', task: 'Lytting (Escuchar): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 3/5 - Jeg forstår enkle samtaler i klassen, men har vansker med å forstå spansk utenfor klasserommet, spesielt når folk snakker fort.' },
+          { label: 'b', task: 'Lesing (Leer): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 4/5 - Jeg kan lese og forstå korte tekster ganske bra. Jeg bruker kognater og kontekst for å gjette ukjente ord.' },
+          { label: 'c', task: 'Snakking (Hablar): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 2/5 - Jeg kan si enkle ting, men er nervøs og gjør mange feil. Jeg trenger å øve mer på å snakke spontant.' },
+          { label: 'd', task: 'Skriving (Escribir): Gi deg selv en poengsum og forklar.', solution: 'Eksempel: 3/5 - Jeg kan skrive korte tekster som e-poster og postkort, men trenger å øve på bindeord og lengre tekster.' },
         ],
-        solution: 'Aerlig egenvurdering hjelper deg a fokusere pa det du trenger a oeve pa. Det er helt greit a ha ulike nivaer i ulike ferdigheter!',
-        hints: ['Vaer aerlig - det handler ikke om a fa hoye poeng, men om a kjenne ditt eget niva'],
+        solution: 'Ærlig egenvurdering hjelper deg a fokusere på det du trenger å øve på. Det er helt greit å ha ulike nivær i ulike ferdigheter!',
+        hints: ['Vær ærlig - det handler ikke om å fa hoye poeng, men om å kjenne ditt eget niva'],
       },
     },
     {
@@ -3045,13 +3045,13 @@ Gode mal er **SMART**:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Lag to SMART-mal for spansklaeringen din: ett for den naermeste uken og ett for det naermeste halvaret.',
+        task: 'Lag to SMART-mål for spansklæringen din: ett for den nærmeste uken og ett for det nærmeste halvåret.',
         subTasks: [
-          { label: 'a', task: 'Kort mal (denne uken): Skriv et konkret mal du kan na innen en uke.', solution: 'Eksempel: Denne uken skal jeg laere 10 nye spanske ord om reise (el avión, el tren, el hotel, la maleta, el pasaporte...) og bruke dem i tre setninger hver dag.' },
-          { label: 'b', task: 'Langt mal (dette halvaret): Skriv et storre mal du kan na innen seks maneder.', solution: 'Eksempel: Innen sommeren skal jeg klare a forer en 5-minutters samtale pa spansk om hverdagen min uten a bruke norsk. Jeg skal oeve ved a snakke med en partner i klassen to ganger i uken.' },
+          { label: 'a', task: 'Kort mål (denne uken): Skriv et konkret mål du kan nå innen en uke.', solution: 'Eksempel: Denne uken skal jeg lære 10 nye spanske ord om reise (el avión, el tren, el hotel, la maleta, el pasaporte...) og bruke dem i tre setninger hver dag.' },
+          { label: 'b', task: 'Langt mål (dette halvåret): Skriv et større mål du kan nå innen seks måneder.', solution: 'Eksempel: Innen sommeren skal jeg klare å føre en 5-minutters samtale på spansk om hverdagen min uten å bruke norsk. Jeg skal øve ved å snakke med en partner i klassen to ganger i uken.' },
         ],
-        solution: 'Gode mal er spesifikke, malbare, oppnaelige, relevante og tidsbegrensede (SMART).',
-        hints: ['Gjor malet konkret - hva, hvor mye, nar?', 'Husk at malet skal vaere oppnaelig!'],
+        solution: 'Gode mål er spesifikke, målbare, oppnåelige, relevante og tidsbegrensede (SMART).',
+        hints: ['Gjor målet konkret - hva, hvor mye, når?', 'Husk at målet skal være oppnåelig!'],
       },
     },
     {
@@ -3059,16 +3059,16 @@ Gode mal er **SMART**:
       type: 'text',
       content: `## Oppsummering
 
-Egenvurdering gjor deg til en bedre sprakslaerer:
+Egenvurdering gjør deg til en bedre språkslærer:
 
 - **Vurder ferdighetene dine** i lytting, lesing, snakking og skriving
-- **Vaer aerlig**: Identifiser bade styrker og svakheter
-- **Sett SMART-mal**: Spesifikke, malbare, oppnaelige, relevante og tidsbegrensede
-- **Reflekter**: Tenk over hva som fungerer og hva du kan gjore annerledes
-- **Ha en plan**: Lag konkrete planer for hva du skal gjore for a na malene dine
-- **Husk**: A laere et sprak er en reise - vær tålmodig med deg selv!
+- **Vær ærlig**: Identifiser både styrker og svakheter
+- **Sett SMART-mål**: Spesifikke, målbare, oppnåelige, relevante og tidsbegrensede
+- **Reflekter**: Tenk over hva som fungerer og hva du kan gjøre annerledes
+- **Ha en plan**: Lag konkrete planer for hva du skal gjøre for å na målene dine
+- **Husk**: A lære et språk er en reise - vær tålmodig med deg selv!
 
-¡Buena suerte con tu aprendizaje del español! (Lykke til med spansklaeringen din!)`
+¡Buena suerte con tu aprendizaje del español! (Lykke til med spansklæringen din!)`
     },
     {
       id: 'spansk-1-16-4-ex-block-5',
@@ -3078,14 +3078,14 @@ Egenvurdering gjor deg til en bedre sprakslaerer:
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Hvilket av disse er et godt SMART-mal?',
+        task: 'Hvilket av disse er et godt SMART-mål?',
         options: [
           { id: 'a', text: 'Bli flinkere i spansk.', isCorrect: false },
-          { id: 'b', text: 'Laere alt spansk ordforrad pa en uke.', isCorrect: false },
-          { id: 'c', text: 'Laere 15 nye ord om klær og bruke dem i setninger innen to uker.', isCorrect: true },
-          { id: 'd', text: 'Kanskje oeve litt pa spansk noen ganger.', isCorrect: false },
+          { id: 'b', text: 'Lære alt spansk ordforråd på en uke.', isCorrect: false },
+          { id: 'c', text: 'Lære 15 nye ord om klær og bruke dem i setninger innen to uker.', isCorrect: true },
+          { id: 'd', text: 'Kanskje øve litt på spansk noen ganger.', isCorrect: false },
         ],
-        solution: '«Laere 15 nye ord om klær og bruke dem i setninger innen to uker» er et SMART-mal fordi det er spesifikt (15 ord om klær), malbart (kan du ordene?), oppnaelig (realistisk), relevant (ordforrad) og tidsbegrenset (to uker).',
+        solution: '«Lære 15 nye ord om klær og bruke dem i setninger innen to uker» er et SMART-mål fordi det er spesifikt (15 ord om klær), målbart (kan du ordene?), oppnåelig (realistisk), relevant (ordforråd) og tidsbegrenset (to uker).',
       },
     },
     {
@@ -3096,19 +3096,19 @@ Egenvurdering gjor deg til en bedre sprakslaerer:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en refleksjonstekst pa spansk (med norsk hjelp) der du svarer pa disse tre sporsmaalene.',
+        task: 'Skriv en refleksjonstekst på spansk (med norsk hjelp) der du svarer på disse tre spørsmålene.',
         subTasks: [
-          { label: 'a', task: '1) ¿Qué he aprendido este año en español? 2) ¿Qué es lo más difícil para mí? 3) ¿Cuáles son mis objetivos para el próximo año?', solution: 'Este año he aprendido mucho español. (I ar har jeg laert mye spansk.) Ahora puedo presentarme, hablar de mi familia y mis hobbies, y escribir correos electrónicos. (Na kan jeg presentere meg, snakke om familien og hobbyene mine, og skrive e-poster.) También he aprendido mucho vocabulario nuevo y gramática básica. (Jeg har ogsa laert mye nytt ordforrad og grunnleggende grammatikk.)\n\nLo más difícil para mí es hablar espontáneamente. (Det vanskeligste for meg er a snakke spontant.) A veces me pongo nervioso/a y olvido las palabras. (Noen ganger blir jeg nervos og glemmer ordene.) También me resulta difícil la diferencia entre ser y estar. (Forskjellen mellom ser og estar er ogsa vanskelig.)\n\nMis objetivos para el próximo año son: (Malene mine for neste ar er:) Primero, quiero poder mantener una conversación de cinco minutos en español. (Forst vil jeg klare a forer en fem minutters samtale pa spansk.) Segundo, quiero leer un libro corto en español. (For det andre vil jeg lese en kort bok pa spansk.) ¡Voy a trabajar mucho para conseguirlo! (Jeg skal jobbe hardt for a klare det!)' },
+          { label: 'a', task: '1) ¿Qué he aprendido este año en español? 2) ¿Qué es lo más difícil para mí? 3) ¿Cuáles son mis objetivos para el próximo año?', solution: 'Este año he aprendido mucho español. (I år har jeg lært mye spansk.) Ahora puedo presentarme, hablar de mi familia y mis hobbies, y escribir correos electrónicos. (Nå kan jeg presentere meg, snakke om familien og hobbyene mine, og skrive e-poster.) También he aprendido mucho vocabulario nuevo y gramática básica. (Jeg har også lært mye nytt ordforråd og grunnleggende grammatikk.)\n\nLo más difícil para mí es hablar espontáneamente. (Det vanskeligste for meg er å snakke spontant.) A veces me pongo nervioso/a y olvido las palabras. (Noen ganger blir jeg nervøs og glemmer ordene.) También me resulta difícil la diferencia entre ser y estar. (Forskjellen mellom ser og estar er også vanskelig.)\n\nMis objetivos para el próximo año son: (Målene mine for neste år er:) Primero, quiero poder mantener una conversación de cinco minutos en español. (Først vil jeg klare å føre en fem minutters samtale på spansk.) Segundo, quiero leer un libro corto en español. (For det andre vil jeg lese en kort bok på spansk.) ¡Voy a trabajar mucho para conseguirlo! (Jeg skal jobbe hardt for å klare det!)' },
         ],
-        solution: 'En god refleksjonstekst er aerlig og konkret. Bruk bade spansk og norsk om du trenger det - det viktigste er a reflektere over laeringen din.',
-        hints: ['Det er greit a blande spansk og norsk', 'Vaer aerlig om hva som er vanskelig og hva du vil forbedre'],
+        solution: 'En god refleksjonstekst er ærlig og konkret. Bruk både spansk og norsk om du trenger det - det viktigste er å reflektere over læringen din.',
+        hints: ['Det er greit å blande spansk og norsk', 'Vær ærlig om hva som er vanskelig og hva du vil forbedre'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'la autoevaluación', definition: 'egenvurdering' },
-    { term: 'el objetivo', definition: 'mal' },
+    { term: 'el objetivo', definition: 'mål' },
     { term: 'la reflexión', definition: 'refleksjon' },
     { term: 'la mejora', definition: 'forbedring' },
     { term: 'el progreso', definition: 'fremgang' },

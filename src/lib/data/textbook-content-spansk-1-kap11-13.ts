@@ -1,11 +1,11 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Spansk niva 1 - Kapittel 11-13
+ * Spansk nivå 1 - Kapittel 11-13
  *
  * Kapittel 11: El mundo hispanohablante (Den spansktalende verden)
  * Kapittel 12: Arte y cultura (Kunst og kultur)
- * Kapittel 13: Textos autenticos (Autentiske tekster)
+ * Kapittel 13: Textos auténticos (Autentiske tekster)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,24 +20,24 @@ export const CHAPTER_SPANSK_1_11_1: TextbookChapter = {
   chapterNumber: '11.1',
   title: 'Los países hispanohablantes',
   subtitle: 'Spansktalende land',
-  description: 'Laer om de over 20 landene der spansk er offisielt sprak.',
+  description: 'Lær om de over 20 landene der spansk er offisielt språk.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske geografi og levemater i spansktalende omrader'],
+  competenceGoals: ['utforske geografi og levemåter i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-11-1-intro',
       type: 'text',
       content: `## Los países hispanohablantes - Spansktalende land
 
-Spansk er et av verdens mest talte sprak, med over 500 millioner morsmalsbrukere. Det er offisielt sprak i mer enn 20 land fordelt pa fire kontinenter: Europa, Nord-Amerika, Mellom-Amerika og Sor-Amerika. I tillegg snakkes spansk av store minoriteter i USA, Filippinene og andre land.
+Spansk er et av verdens mest talte språk, med over 500 millioner morsmålsbrukere. Det er offisielt språk i mer enn 20 land fordelt på fire kontinenter: Europa, Nord-Amerika, Mellom-Amerika og Sør-Amerika. I tillegg snakkes spansk av store minoriteter i USA, Filippinene og andre land.
 
-I dette kapittelet far du en oversikt over den spansktalende verden og laerer viktige uttrykk for a snakke om land, hovedsteder og nasjonaliteter.`,
+I dette kapittelet får du en oversikt over den spansktalende verden og lærer viktige uttrykk for å snakke om land, hovedsteder og nasjonaliteter.`,
     },
     {
       id: 'spansk-1-11-1-def-1',
       type: 'definition',
       title: 'Hispanohablante',
-      content: `**Hispanohablante** betyr \"spansktalende\". Ordet brukes om personer og land der spansk er hovedsprak. Man sier ogsa **el mundo hispano** (den spansktalende verden) eller **los países de habla hispana** (de spansktalende landene).`,
+      content: `**Hispanohablante** betyr \"spansktalende\". Ordet brukes om personer og land der spansk er hovedspråk. Man sier også **el mundo hispano** (den spansktalende verden) eller **los países de habla hispana** (de spansktalende landene).`,
     },
     {
       id: 'spansk-1-11-1-example-1',
@@ -63,10 +63,10 @@ I dette kapittelet far du en oversikt over den spansktalende verden og laerer vi
     {
       id: 'spansk-1-11-1-def-2',
       type: 'definition',
-      title: 'Nasjonaliteter pa spansk',
-      content: `Pa spansk boyes nasjonaliteter etter kjonn og tall:
+      title: 'Nasjonaliteter på spansk',
+      content: `På spansk bøyes nasjonaliteter etter kjønn og tall:
 
-| Land | Hankjonn (sg.) | Hunkjonn (sg.) | Flertall |
+| Land | Hankjønn (sg.) | Hunkjønn (sg.) | Flertall |
 |------|----------------|----------------|----------|
 | España | español | española | españoles / españolas |
 | México | mexicano | mexicana | mexicanos / mexicanas |
@@ -74,7 +74,7 @@ I dette kapittelet far du en oversikt over den spansktalende verden og laerer vi
 | Colombia | colombiano | colombiana | colombianos / colombianas |
 | Chile | chileno | chilena | chilenos / chilenas |
 
-Noen nasjonaliteter ender pa **-ense** og er like i hankjonn og hunkjonn: **costarricense**, **nicaragüense**, **estadounidense**.`,
+Noen nasjonaliteter ender på **-ense** og er like i hankjønn og hunkjønn: **costarricense**, **nicaragüense**, **estadounidense**.`,
     },
     {
       id: 'spansk-1-11-1-example-2',
@@ -89,7 +89,7 @@ Noen nasjonaliteter ender pa **-ense** og er like i hankjonn og hunkjonn: **cost
 2. Pablo es de Argentina. Él es **argentino**.
 3. Ana y Sofía son de México. Ellas son **mexicanas**.
 
-Husk: Nasjonaliteten ma samsvare med personens kjonn og tall.`,
+Husk: Nasjonaliteten må samsvare med personens kjønn og tall.`,
     },
     {
       id: 'spansk-1-11-1-ex-block-1',
@@ -99,14 +99,14 @@ Husk: Nasjonaliteten ma samsvare med personens kjonn og tall.`,
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvor mange land har spansk som offisielt sprak?',
+        task: 'Hvor mange land har spansk som offisielt språk?',
         options: [
           { id: 'a', text: '10 land', isCorrect: false },
           { id: 'b', text: 'Omtrent 15 land', isCorrect: false },
           { id: 'c', text: 'Mer enn 20 land', isCorrect: true },
           { id: 'd', text: 'Bare Spania og Mexico', isCorrect: false },
         ],
-        solution: 'Spansk er offisielt sprak i mer enn 20 land, inkludert Spania, Mexico, de fleste landene i Mellom- og Sor-Amerika, samt Ekvatorial-Guinea i Afrika og Puerto Rico.',
+        solution: 'Spansk er offisielt språk i mer enn 20 land, inkludert Spania, Mexico, de fleste landene i Mellom- og Sør-Amerika, samt Ekvatorial-Guinea i Afrika og Puerto Rico.',
       },
     },
     {
@@ -135,15 +135,15 @@ Husk: Nasjonaliteten ma samsvare med personens kjonn og tall.`,
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv nasjonaliteten til disse personene. Husk a boyse etter kjonn.',
+        task: 'Skriv nasjonaliteten til disse personene. Husk å bøyse etter kjønn.',
         subTasks: [
           { label: 'a', task: 'Pedro es de Perú. Él es ______.', solution: 'peruano' },
           { label: 'b', task: 'Lucía es de Chile. Ella es ______.', solution: 'chilena' },
           { label: 'c', task: 'Carlos es de Cuba. Él es ______.', solution: 'cubano' },
           { label: 'd', task: 'Elena es de España. Ella es ______.', solution: 'española' },
         ],
-        solution: 'a) peruano, b) chilena, c) cubano, d) española. Nasjonaliteter boyes etter kjonn: -o for hankjonn, -a for hunkjonn.',
-        hints: ['Husk at nasjonaliteter pa spansk har ulik ending for hankjonn (-o) og hunkjonn (-a).'],
+        solution: 'a) peruano, b) chilena, c) cubano, d) española. Nasjonaliteter bøyes etter kjønn: -o for hankjønn, -a for hunkjønn.',
+        hints: ['Husk at nasjonaliteter på spansk har ulik ending for hankjønn (-o) og hunkjønn (-a).'],
       },
     },
     {
@@ -161,11 +161,11 @@ Her er en komplett liste over de spansktalende landene, gruppert etter verdensde
 
 **Karibia:** Cuba, República Dominicana, Puerto Rico
 
-**Sor-Amerika:** Colombia, Venezuela, Ecuador, Perú, Bolivia, Chile, Argentina, Uruguay, Paraguay
+**Sør-Amerika:** Colombia, Venezuela, Ecuador, Perú, Bolivia, Chile, Argentina, Uruguay, Paraguay
 
 **Afrika:** Guinea Ecuatorial
 
-I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe som gjor USA til et av landene med flest spansktalende i verden.`,
+I tillegg snakker over 40 millioner mennesker i USA spansk som forstespråk, noe som gjør USA til et av landene med flest spansktalende i verden.`,
     },
     {
       id: 'spansk-1-11-1-ex-block-4',
@@ -181,10 +181,10 @@ I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe 
           { label: 'b', task: 'Nord-Amerika:', solution: 'México' },
           { label: 'c', task: 'Mellom-Amerika:', solution: 'Guatemala' },
           { label: 'd', task: 'Karibia:', solution: 'Cuba' },
-          { label: 'e', task: 'Sor-Amerika:', solution: 'Chile' },
+          { label: 'e', task: 'Sør-Amerika:', solution: 'Chile' },
           { label: 'f', task: 'Afrika:', solution: 'Guinea Ecuatorial' },
         ],
-        solution: 'a) España (Europa), b) México (Nord-Amerika), c) Guatemala (Mellom-Amerika), d) Cuba (Karibia), e) Chile (Sor-Amerika), f) Guinea Ecuatorial (Afrika).',
+        solution: 'a) España (Europa), b) México (Nord-Amerika), c) Guatemala (Mellom-Amerika), d) Cuba (Karibia), e) Chile (Sør-Amerika), f) Guinea Ecuatorial (Afrika).',
         hints: ['Guinea Ecuatorial er det eneste spansktalende landet i Afrika.'],
       },
     },
@@ -193,11 +193,11 @@ I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe 
       type: 'text',
       content: `## Oppsummering
 
-- Spansk er offisielt sprak i mer enn 20 land pa fire kontinenter.
-- Spansk er verdens nest mest talte morsmaal, med over 500 millioner morsmalsbrukere.
-- Nasjonaliteter pa spansk boyes etter kjonn og tall.
-- De fleste spansktalende land ligger i Latin-Amerika (Mellom- og Sor-Amerika).
-- USA har ogsa en svart stor spansktalende befolkning.
+- Spansk er offisielt språk i mer enn 20 land på fire kontinenter.
+- Spansk er verdens nest mest talte morsmål, med over 500 millioner morsmålsbrukere.
+- Nasjonaliteter på spansk bøyes etter kjønn og tall.
+- De fleste spansktalende land ligger i Latin-Amerika (Mellom- og Sør-Amerika).
+- USA har også en svært stor spansktalende befolkning.
 
 **Nyttige uttrykk:**
 - *¿De dónde eres?* - Hvor er du fra?
@@ -212,9 +212,9 @@ I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe 
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort tekst pa spansk (4-6 setninger) der du presenterer deg selv, sier hvor du er fra, og nevner to spansktalende land du gjerne vil besoke. Bruk uttrykkene fra kapittelet.',
+        task: 'Skriv en kort tekst på spansk (4-6 setninger) der du presenterer deg selv, sier hvor du er fra, og nevner to spansktalende land du gjerne vil besøke. Bruk uttrykkene fra kapittelet.',
         solution: 'Eksempel: Hola, me llamo Erik. Soy de Noruega, soy noruego. Me gusta mucho el español. Quiero visitar España porque quiero ver Madrid. También quiero visitar Colombia porque me gusta la música colombiana. ¡El mundo hispano es muy grande e interesante!',
-        hints: ['Bruk *Soy de...* for a si hvor du er fra.', 'Bruk *Quiero visitar...* for a si at du vil besoke et land.'],
+        hints: ['Bruk *Soy de...* for å si hvor du er fra.', 'Bruk *Quiero visitar...* for å si at du vil besøke et land.'],
       },
     },
     {
@@ -232,7 +232,7 @@ I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe 
           { id: 'c', text: 'Honduras', isCorrect: false },
           { id: 'd', text: 'Costa Rica', isCorrect: false },
         ],
-        solution: 'Ecuador ligger i Sor-Amerika, ikke i Mellom-Amerika. Guatemala, Honduras og Costa Rica er alle mellomamerikanske land.',
+        solution: 'Ecuador ligger i Sør-Amerika, ikke i Mellom-Amerika. Guatemala, Honduras og Costa Rica er alle mellomamerikanske land.',
       },
     },
   ],
@@ -242,7 +242,7 @@ I tillegg snakker over 40 millioner mennesker i USA spansk som forstesprak, noe 
     { term: 'la capital', definition: 'hovedstaden' },
     { term: 'el país', definition: 'landet' },
     { term: 'la nacionalidad', definition: 'nasjonaliteten' },
-    { term: 'el idioma', definition: 'spraket' },
+    { term: 'el idioma', definition: 'språket' },
     { term: '¿De dónde eres?', definition: 'Hvor er du fra?' },
   ],
 };
@@ -253,18 +253,18 @@ export const CHAPTER_SPANSK_1_11_2: TextbookChapter = {
   chapterNumber: '11.2',
   title: 'España',
   subtitle: 'Spania',
-  description: 'Utforsk spanske regioner, byer og kulturelle saertrekk.',
+  description: 'Utforsk spanske regioner, byer og kulturelle særtrekk.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske geografi og levemater i spansktalende omrader'],
+  competenceGoals: ['utforske geografi og levemåter i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-11-2-intro',
       type: 'text',
       content: `## España - Spania
 
-España esta en el suroeste de Europa, en la Península Ibérica. Spania er et mangfoldig land med ulike regioner, sprak og tradisjoner. Landet har rundt 47 millioner innbyggere og er kjent for sin rike historie, vakre arkitektur, fantastiske mat og livlige kultur.
+España esta en el suroeste de Europa, en la Península Ibérica. Spania er et mangfoldig land med ulike regioner, språk og tradisjoner. Landet har rundt 47 millioner innbyggere og er kjent for sin rike historie, vakre arkitektur, fantastiske mat og livlige kultur.
 
-Spania er delt inn i 17 autonome regioner (*comunidades autónomas*), og hver region har sitt eget saerpreg. I dette kapittelet laerer du om de viktigste regionene, byene og kulturelle trekkene i Spania.`,
+Spania er delt inn i 17 autonome regioner (*comunidades autónomas*), og hver region har sitt eget særpreg. I dette kapittelet lærer du om de viktigste regionene, byene og kulturelle trekkene i Spania.`,
     },
     {
       id: 'spansk-1-11-2-def-1',
@@ -295,23 +295,23 @@ Spania er delt inn i 17 autonome regioner (*comunidades autónomas*), og hver re
       id: 'spansk-1-11-2-def-2',
       type: 'definition',
       title: 'Sprak i Spania',
-      content: `I tillegg til spansk (castellano) har Spania flere offisielle regionale sprak:
+      content: `I tillegg til spansk (castellano) har Spania flere offisielle regionale språk:
 
 - **Catalán** - snakkes i Cataluña, Valencia og Balearene
 - **Gallego** - snakkes i Galicia (nordvest)
 - **Euskera (baskisk)** - snakkes i País Vasco og Navarra
 
-Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og historie.`,
+Disse er ikke dialekter av spansk, men helt egne språk med egen grammatikk og historie.`,
     },
     {
       id: 'spansk-1-11-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Beskrive Spania',
-      problem: `Oversett til spansk: \"Spania ligger i Sor-Europa. Hovedstaden er Madrid. Spania har mange vakre strender.\"`,
+      problem: `Oversett til spansk: \"Spania ligger i Sør-Europa. Hovedstaden er Madrid. Spania har mange vakre strender.\"`,
       solution: `**España está en el sur de Europa. La capital es Madrid. España tiene muchas playas bonitas.**
 
 - *está en* = ligger i
-- *el sur de Europa* = Sor-Europa
+- *el sur de Europa* = Sør-Europa
 - *tiene* = har
 - *muchas playas bonitas* = mange vakre strender`,
     },
@@ -322,9 +322,9 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
 
 **Madrid** - Hovedstaden, ligger midt i landet. Kjent for Prado-museet, Retiro-parken og et livlig natteliv. Befolkning: ca. 3,3 millioner.
 
-**Barcelona** - Nest storste by, hovedstad i Cataluña. Kjent for Gaudis arkitektur (La Sagrada Familia), La Rambla og stranden. Befolkning: ca. 1,6 millioner.
+**Barcelona** - Nest største by, hovedstad i Cataluña. Kjent for Gaudis arkitektur (La Sagrada Familia), La Ramblå og stranden. Befolkning: ca. 1,6 millioner.
 
-**Sevilla** - Hovedstad i Andalucía i sor. Kjent for flamenco, La Giralda og vakre palass. Her feires den beroemte Feria de Abril.
+**Sevilla** - Hovedstad i Andalucía i sor. Kjent for flamenco, La Giralda og vakre palass. Her feires den berømte Feria de Abril.
 
 **Valencia** - Kjent for Las Fallas-festivalen, Ciudad de las Artes y las Ciencias og paella.
 
@@ -345,7 +345,7 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
           { id: 'c', text: 'Madrid', isCorrect: true },
           { id: 'd', text: 'Valencia', isCorrect: false },
         ],
-        solution: 'Madrid er Spanias hovedstad og storste by. Den ligger midt i landet pa den kastiljanske hoyslatten.',
+        solution: 'Madrid er Spanias hovedstad og største by. Den ligger midt i landet på den kastiljanske høysletten.',
       },
     },
     {
@@ -356,14 +356,14 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilket sprak snakkes i Galicia i tillegg til spansk?',
+        task: 'Hvilket språk snakkes i Galicia i tillegg til spansk?',
         options: [
           { id: 'a', text: 'Catalán', isCorrect: false },
           { id: 'b', text: 'Gallego', isCorrect: true },
           { id: 'c', text: 'Euskera', isCorrect: false },
           { id: 'd', text: 'Portugués', isCorrect: false },
         ],
-        solution: 'Gallego (galisisk) snakkes i Galicia, nordvest i Spania. Det ligner pa portugisisk og er et eget offisielt sprak i regionen.',
+        solution: 'Gallego (galisisk) snakkes i Galicia, nordvest i Spania. Det ligner på portugisisk og er et eget offisielt språk i regionen.',
       },
     },
     {
@@ -393,9 +393,9 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
 | la playa | stranden |
 | la montaña | fjellet |
 | la costa | kysten |
-| la isla | oya |
+| la isla | øya |
 | el río | elven |
-| el norte / sur / este / oeste | nord / sor / ost / vest |
+| el norte / sur / este / oeste | nord / sør / øst / vest |
 | está en el norte de España | ligger nord i Spania |`,
     },
     {
@@ -408,12 +408,12 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
         difficulty: 'medium',
         task: 'Oversett setningene til spansk.',
         subTasks: [
-          { label: 'a', task: 'Barcelona ligger ost i Spania.', solution: 'Barcelona está en el este de España.' },
-          { label: 'b', task: 'Sevilla ligger sor i Spania.', solution: 'Sevilla está en el sur de España.' },
-          { label: 'c', task: 'Spania har mange oyer.', solution: 'España tiene muchas islas.' },
+          { label: 'a', task: 'Barcelona ligger øst i Spania.', solution: 'Barcelona está en el este de España.' },
+          { label: 'b', task: 'Sevilla ligger sør i Spania.', solution: 'Sevilla está en el sur de España.' },
+          { label: 'c', task: 'Spania har mange øyer.', solution: 'España tiene muchas islas.' },
         ],
         solution: 'a) Barcelona está en el este de España. b) Sevilla está en el sur de España. c) España tiene muchas islas.',
-        hints: ['Bruk *está en el + himmelretning + de España* for a angi beliggenhet.'],
+        hints: ['Bruk *está en el + himmelretning + de España* for å angi beliggenhet.'],
       },
     },
     {
@@ -421,11 +421,11 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
       type: 'text',
       content: `## Oppsummering
 
-- Spania har 17 autonome regioner med ulike kulturelle saerpreg.
+- Spania har 17 autonome regioner med ulike kulturelle særpreg.
 - Madrid er hovedstaden; Barcelona, Sevilla, Valencia og Bilbao er andre viktige byer.
 - I tillegg til spansk (castellano) snakkes catalan, gallego og euskera i ulike regioner.
 - Spania er kjent for flamenco, Gaudis arkitektur, paella og mange festivaler.
-- Landet har et variert landskap med strender, fjell, oyer og sletter.`,
+- Landet har et variert landskap med strender, fjell, øyer og sletter.`,
     },
     {
       id: 'spansk-1-11-2-ex-block-5',
@@ -435,9 +435,9 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort presentasjon pa spansk (5-7 setninger) om en spansk by du vil besoke. Si hvor den ligger, hva den er kjent for, og hvorfor du vil besoke den.',
+        task: 'Skriv en kort presentasjon på spansk (5-7 setninger) om en spansk by du vil besøke. Si hvor den ligger, hva den er kjent for, og hvorfor du vil besøke den.',
         solution: 'Eksempel: Quiero visitar Barcelona. Barcelona está en el noreste de España, en Cataluña. Es una ciudad muy bonita y grande. Barcelona es famosa por la arquitectura de Gaudí, como La Sagrada Familia. También tiene playas bonitas y buena comida. Me gusta mucho el fútbol, y quiero ver el Camp Nou. ¡Barcelona es una ciudad fantástica!',
-        hints: ['Bruk *Quiero visitar...* (Jeg vil besoke...)', 'Bruk *es famosa por...* (den er kjoent for...)'],
+        hints: ['Bruk *Quiero visitar...* (Jeg vil besøke...)', 'Bruk *es famosa por...* (den er kjønt for...)'],
       },
     },
     {
@@ -465,8 +465,8 @@ Disse er ikke dialekter av spansk, men helt egne sprak med egen grammatikk og hi
     { term: 'la capital', definition: 'hovedstaden' },
     { term: 'la playa', definition: 'stranden' },
     { term: 'la montaña', definition: 'fjellet' },
-    { term: 'la isla', definition: 'oya' },
-    { term: 'el castellano', definition: 'kastiljansk/spansk (spraket)' },
+    { term: 'la isla', definition: 'øya' },
+    { term: 'el castellano', definition: 'kastiljansk/spansk (språket)' },
   ],
 };
 
@@ -476,29 +476,29 @@ export const CHAPTER_SPANSK_1_11_3: TextbookChapter = {
   chapterNumber: '11.3',
   title: 'México y Centroamérica',
   subtitle: 'Mexico og Mellom-Amerika',
-  description: 'Laer om Mexico, Guatemala, Costa Rica og andre mellomamerikanske land.',
+  description: 'Lær om Mexico, Guatemala, Costa Rica og andre mellomamerikanske land.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske geografi og levemater i spansktalende omrader'],
+  competenceGoals: ['utforske geografi og levemåter i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-11-3-intro',
       type: 'text',
       content: `## México y Centroamérica - Mexico og Mellom-Amerika
 
-Mexico og Mellom-Amerika er en fargerik og mangfoldig del av den spansktalende verden. Mexico er det storste spansktalende landet i verden malt etter folketall (ca. 130 millioner), og de mellomamerikanske landene byr pa rik historie, fantastisk natur og levende kulturer.
+Mexico og Mellom-Amerika er en fargerik og mangfoldig del av den spansktalende verden. Mexico er det største spansktalende landet i verden malt etter folketall (ca. 130 millioner), og de mellomamerikanske landene byr på rik historie, fantastisk natur og levende kulturer.
 
-I dette kapittelet laerer du om de viktigste landene og kulturene i denne regionen.`,
+I dette kapittelet lærer du om de viktigste landene og kulturene i denne regionen.`,
     },
     {
       id: 'spansk-1-11-3-def-1',
       type: 'definition',
       title: 'México',
-      content: `**México** (offisielt: Estados Unidos Mexicanos) er det storste spansktalende landet i verden. Hovedstaden er **Ciudad de México** (CDMX), en av verdens storste byer med over 21 millioner innbyggere i storbyomradet. Mexico er kjent for:
+      content: `**México** (offisielt: Estados Unidos Mexicanos) er det største spansktalende landet i verden. Hovedstaden er **Ciudad de México** (CDMX), en av verdens største byer med over 21 millioner innbyggere i storbyområdet. Mexico er kjent for:
 
 - **La comida mexicana** - meksikansk mat (tacos, enchiladas, guacamole)
 - **Las pirámides** - pyramidene (Teotihuacán, Chichén Itzá)
 - **Los mariachis** - tradisjonelle musikkgrupper
-- **El Día de los Muertos** - De dodes dag (1.-2. november)`,
+- **El Día de los Muertos** - De dødes dag (1.-2. november)`,
     },
     {
       id: 'spansk-1-11-3-example-1',
@@ -527,20 +527,20 @@ I dette kapittelet laerer du om de viktigste landene og kulturene i denne region
       id: 'spansk-1-11-3-def-2',
       type: 'definition',
       title: 'Centroamérica',
-      content: `**Centroamérica** (Mellom-Amerika) er landbroen mellom Mexico og Sor-Amerika. Seks av de syv mellomamerikanske landene har spansk som offisielt sprak. Belize er unntaket - der er engelsk offisielt sprak.
+      content: `**Centroamérica** (Mellom-Amerika) er landbroen mellom Mexico og Sør-Amerika. Seks av de syv mellomamerikanske landene har spansk som offisielt språk. Belize er unntaket - der er engelsk offisielt språk.
 
 Mellom-Amerika er kjent for:
 - Tropisk natur og regnskog
 - Vulkaner og vakre strender
-- Maya-ruiner (saerlig i Guatemala og Honduras)
-- Kaffe-produksjon (Costa Rica, Guatemala, Honduras)
+- Maya-ruiner (særlig i Guatemala og Honduras)
+- Kaffe-prøduksjon (Costa Rica, Guatemala, Honduras)
 - Panamakanalen`,
     },
     {
       id: 'spansk-1-11-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Beskrive et land',
-      problem: `Les teksten og svar pa sporsmalene:
+      problem: `Les teksten og svar på spørsmålene:
 
 \"Costa Rica es un país pequeño en Centroamérica. Tiene costas en el océano Pacífico y en el mar Caribe. La capital es San José. Costa Rica es famosa por su naturaleza, sus parques nacionales y sus playas. No tiene ejército desde 1948.\"
 
@@ -551,7 +551,7 @@ Mellom-Amerika er kjent for:
 2. La capital se llama San José.
 3. Costa Rica es famosa por su naturaleza, sus parques nacionales y sus playas.
 
-Ekstra fakta: Costa Rica er et av fa land i verden uten militaere. Landet bruker pengene pa utdanning og helse i stedet.`,
+Ekstra fakta: Costa Rica er et av fa land i verden uten militære. Landet bruker pengene på utdanning og helse i stedet.`,
     },
     {
       id: 'spansk-1-11-3-ex-block-1',
@@ -568,7 +568,7 @@ Ekstra fakta: Costa Rica er et av fa land i verden uten militaere. Landet bruker
           { id: 'c', text: 'Ciudad de México', isCorrect: true },
           { id: 'd', text: 'Monterrey', isCorrect: false },
         ],
-        solution: 'Ciudad de Mexico (CDMX) er Mexicos hovedstad og en av verdens storste byer.',
+        solution: 'Ciudad de Mexico (CDMX) er Mexicos hovedstad og en av verdens største byer.',
       },
     },
     {
@@ -586,7 +586,7 @@ Ekstra fakta: Costa Rica er et av fa land i verden uten militaere. Landet bruker
           { id: 'c', text: 'Honduras', isCorrect: false },
           { id: 'd', text: 'Panamá', isCorrect: true },
         ],
-        solution: 'Panama er kjent for Panamakanalen, som forbinder Atlanterhavet og Stillehavet. Kanalen ble apnet i 1914.',
+        solution: 'Panama er kjent for Panamakanalen, som forbinder Atlanterhavet og Stillehavet. Kanalen ble åpnet i 1914.',
       },
     },
     {
@@ -597,10 +597,10 @@ Ekstra fakta: Costa Rica er et av fa land i verden uten militaere. Landet bruker
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Svar pa sporsmalene om Mexico og Mellom-Amerika.',
+        task: 'Svar på spørsmålene om Mexico og Mellom-Amerika.',
         subTasks: [
-          { label: 'a', task: 'Hva feires 1.-2. november i Mexico?', solution: 'El Día de los Muertos (De dodes dag).' },
-          { label: 'b', task: 'Hvilket mellomamerikansk land har ikke spansk som offisielt sprak?', solution: 'Belize (der er engelsk offisielt sprak).' },
+          { label: 'a', task: 'Hva feires 1.-2. november i Mexico?', solution: 'El Día de los Muertos (De dødes dag).' },
+          { label: 'b', task: 'Hvilket mellomamerikansk land har ikke spansk som offisielt språk?', solution: 'Belize (der er engelsk offisielt språk).' },
           { label: 'c', task: 'Nevn to ting Mexico er kjent for.', solution: 'For eksempel: meksikansk mat (tacos) og pyramidene (Chichen Itza), mariachi-musikk, Dia de los Muertos.' },
         ],
         solution: 'a) El Dia de los Muertos. b) Belize. c) For eksempel meksikansk mat og pyramidene.',
@@ -611,13 +611,13 @@ Ekstra fakta: Costa Rica er et av fa land i verden uten militaere. Landet bruker
       type: 'text',
       content: `## Meksikansk og mellomamerikansk kultur
 
-Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial pavirkning:
+Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial påvirkning:
 
-**Mat:** Meksikansk mat ble i 2010 oppfort pa UNESCOs liste over immateriell kulturarv. Viktige ingredienser er mais, bonner, chili og avokado. Kjente retter inkluderer tacos, tamales, enchiladas og mole.
+**Mat:** Meksikansk mat ble i 2010 oppført på UNESCOs liste over immateriell kulturarv. Viktige ingredienser er mais, bonner, chili og avokado. Kjente retter inkluderer tacos, tamåles, enchiladas og mole.
 
-**Maya-sivilisasjonen:** Mayaene hadde en avansert sivilisasjon i Mellom-Amerika og sor-Mexico. I dag kan man besoke Maya-ruiner i Mexico (Chichen Itza), Guatemala (Tikal) og Honduras (Copan).
+**Maya-sivilisasjonen:** Mayaene hadde en avansert sivilisasjon i Mellom-Amerika og sør-Mexico. I dag kan man besøke Maya-ruiner i Mexico (Chichen Itza), Guatemala (Tikal) og Honduras (Copan).
 
-**Natur:** Regionen har utrolig biologisk mangfold - fra regnskoger i Costa Rica til korallrev i Belize og orkener i nord-Mexico.`,
+**Natur:** Regionen har utrolig biologisk mangfold - fra regnskoger i Costa Rica til korallrev i Belize og ørkener i nord-Mexico.`,
     },
     {
       id: 'spansk-1-11-3-ex-block-4',
@@ -634,7 +634,7 @@ Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial
           { label: 'c', task: 'Costa Rica er kjent for sin natur. (famoso por = kjent for, naturaleza = natur)', solution: 'Costa Rica es famosa por su naturaleza.' },
         ],
         solution: 'a) México es un país grande. b) Guatemala tiene pirámides hermosas. c) Costa Rica es famosa por su naturaleza.',
-        hints: ['Husk at adjektiver pa spansk vanligvis star etter substantivet.'],
+        hints: ['Husk at adjektiver på spansk vanligvis står etter substantivet.'],
       },
     },
     {
@@ -642,10 +642,10 @@ Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial
       type: 'text',
       content: `## Oppsummering
 
-- Mexico er det storste spansktalende landet i verden (ca. 130 millioner innbyggere).
+- Mexico er det største spansktalende landet i verden (ca. 130 millioner innbyggere).
 - Mellom-Amerika bestar av seks spansktalende land pluss Belize (engelsktalende).
 - Regionen har en rik kulturarv preget av urfolkstradisjoner og spansk kolonial historie.
-- Meksikansk mat er pa UNESCOs liste over immateriell kulturarv.
+- Meksikansk mat er på UNESCOs liste over immateriell kulturarv.
 - Maya-ruiner finnes i Mexico, Guatemala og Honduras.
 
 **Nyttige ord:**
@@ -663,14 +663,14 @@ Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial
         number: '5',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'I hvilket ar ble meksikansk mat oppfort pa UNESCOs liste over immateriell kulturarv?',
+        task: 'I hvilket år ble meksikansk mat oppført på UNESCOs liste over immateriell kulturarv?',
         options: [
           { id: 'a', text: '2005', isCorrect: false },
           { id: 'b', text: '2010', isCorrect: true },
           { id: 'c', text: '2015', isCorrect: false },
           { id: 'd', text: '2020', isCorrect: false },
         ],
-        solution: 'Meksikansk mat ble oppfort pa UNESCOs liste over immateriell kulturarv i 2010. Det var det forste mattradisjonen som fikk denne statusen.',
+        solution: 'Meksikansk mat ble oppført på UNESCOs liste over immateriell kulturarv i 2010. Det var det første mattradisjonen som fikk denne statusen.',
       },
     },
     {
@@ -681,9 +681,9 @@ Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort tekst pa spansk (4-6 setninger) der du sammenligner to mellomamerikanske land. Nevn hovedstad, beliggenhet og hva landet er kjent for.',
+        task: 'Skriv en kort tekst på spansk (4-6 setninger) der du sammenligner to mellomamerikanske land. Nevn hovedstad, beliggenhet og hva landet er kjent for.',
         solution: 'Eksempel: Costa Rica y Guatemala son dos países en Centroamérica. La capital de Costa Rica es San José y la capital de Guatemala es Ciudad de Guatemala. Costa Rica es famosa por su naturaleza y sus parques nacionales. Guatemala es famosa por las ruinas mayas, como Tikal. Los dos países tienen playas bonitas. Me gustaría visitar los dos países.',
-        hints: ['Bruk *es famoso/famosa por...* for a si hva et land er kjent for.', 'Bruk *Los dos países* for a si \"begge landene\".'],
+        hints: ['Bruk *es famoso/famosa por...* for å si hva et land er kjent for.', 'Bruk *Los dos países* for å si \"begge landene\".'],
       },
     },
   ],
@@ -692,7 +692,7 @@ Regionen har en rik kulturarv som blander urfolkstradisjoner med spansk kolonial
     { term: 'la pirámide', definition: 'pyramiden' },
     { term: 'la comida', definition: 'maten' },
     { term: 'la naturaleza', definition: 'naturen' },
-    { term: 'el ejército', definition: 'haeren/militaeret' },
+    { term: 'el ejército', definition: 'hæren/militæret' },
     { term: 'las ruinas', definition: 'ruinene' },
     { term: 'famoso/famosa por', definition: 'kjent for' },
   ],
@@ -703,25 +703,25 @@ export const CHAPTER_SPANSK_1_11_4: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '11.4',
   title: 'Sudamérica',
-  subtitle: 'Sor-Amerika',
+  subtitle: 'Sør-Amerika',
   description: 'Utforsk Argentina, Colombia, Chile, Peru og andre soramerikanske land.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske geografi og levemater i spansktalende omrader'],
+  competenceGoals: ['utforske geografi og levemåter i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-11-4-intro',
       type: 'text',
-      content: `## Sudamérica - Sor-Amerika
+      content: `## Sudamérica - Sør-Amerika
 
-Sor-Amerika er et kontinent med enorm variasjon i natur, kultur og tradisjoner. Ni av de tolv landene pa kontinentet har spansk som offisielt sprak. De tre ovrige er Brasil (portugisisk), Guyana (engelsk) og Surinam (nederlandsk).
+Sør-Amerika er et kontinent med enorm variasjon i natur, kultur og tradisjoner. Ni av de tolv landene på kontinentet har spansk som offisielt språk. De tre øvrige er Brasil (portugisisk), Guyana (engelsk) og Surinam (nederlandsk).
 
-Fra Andesfjellene til Amazonas regnskog, fra tango i Buenos Aires til salsa i Cali - Sor-Amerika tilbyr en utrolig rik og mangfoldig spansktalende kultur.`,
+Fra Andesfjellene til Amazonas regnskog, fra tango i Buenos Aires til salsa i Cali - Sør-Amerika tilbyr en utrolig rik og mangfoldig spansktalende kultur.`,
     },
     {
       id: 'spansk-1-11-4-def-1',
       type: 'definition',
       title: 'Soramerikanske land og hovedsteder',
-      content: `De ni spansktalende landene i Sor-Amerika:
+      content: `De ni spansktalende landene i Sør-Amerika:
 
 | País | Capital | Innbyggere (ca.) |
 |------|---------|------------------|
@@ -740,38 +740,38 @@ Merk: Bolivia har to hovedsteder - Sucre (konstitusjonell) og La Paz (regjerings
     {
       id: 'spansk-1-11-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Geografi i Sor-Amerika',
+      title: 'Eksempel 1: Geografi i Sør-Amerika',
       problem: `Koble hvert geografisk fenomen med riktig land:
 
 1. Los Andes (Andesfjellene)
 2. El Amazonas (Amazonas-elven)
 3. Las cataratas del Iguazú (Iguazu-fossene)
-4. El desierto de Atacama (Atacama-orkenen)`,
+4. El desierto de Atacama (Atacama-ørkenen)`,
       solution: `1. **Los Andes** - strekker seg gjennom Venezuela, Colombia, Ecuador, Peru, Bolivia, Chile og Argentina
 2. **El Amazonas** - strekker seg gjennom Colombia, Ecuador og Peru (samt Brasil)
-3. **Las cataratas del Iguazú** - pa grensen mellom Argentina og Brasil
-4. **El desierto de Atacama** - i Chile (verdens torreste orken)`,
+3. **Las cataratas del Iguazú** - på grensen mellom Argentina og Brasil
+4. **El desierto de Atacama** - i Chile (verdens tørreste orken)`,
     },
     {
       id: 'spansk-1-11-4-def-2',
       type: 'definition',
-      title: 'Kulturelle saertrekk',
-      content: `Hvert soramerikansk land har sine egne kulturelle saertrekk:
+      title: 'Kulturelle særtrekk',
+      content: `Hvert soramerikansk land har sine egne kulturelle særtrekk:
 
 - **Argentina**: Tango, biff (asado), fotball, Patagonia
 - **Colombia**: Cumbia og salsa-musikk, kaffe, Cartagena
 - **Peru**: Machu Picchu, ceviche, Inka-sivilisasjonen
-- **Chile**: Vin, Atacama-orkenen, Patagonia, Pablo Neruda
+- **Chile**: Vin, Atacama-ørkenen, Patagonia, Pablo Neruda
 - **Uruguay**: Mate-te, karnevalet i Montevideo
-- **Ecuador**: Galapagosoyene, ekvatorlinjen
+- **Ecuador**: Galápagosøyene, ekvatorlinjen
 - **Bolivia**: Salar de Uyuni (saltslatten), urfolkskultur
-- **Venezuela**: Salto Ángel (verdens hoyeste foss), olje`,
+- **Venezuela**: Salto Ángel (verdens høyeste foss), olje`,
     },
     {
       id: 'spansk-1-11-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Leseforstaelse',
-      problem: `Les teksten og svar pa sporsmalene:
+      title: 'Eksempel 2: Leseforståelse',
+      problem: `Les teksten og svar på spørsmålene:
 
 \"Argentina es el segundo país más grande de Sudamérica. La capital es Buenos Aires, una ciudad muy grande y moderna. Argentina es famosa por el tango, la carne y el fútbol. Muchos argentinos beben mate, una bebida tradicional. En el sur del país está la Patagonia, una región con montañas, lagos y glaciares.\"
 
@@ -797,7 +797,7 @@ Merk: Bolivia har to hovedsteder - Sucre (konstitusjonell) og La Paz (regjerings
           { id: 'c', text: 'Perú', isCorrect: true },
           { id: 'd', text: 'Bolivia', isCorrect: false },
         ],
-        solution: 'Machu Picchu er en gammel Inka-by i Peru, hoyit oppe i Andesfjellene. Den ble bygd pa 1400-tallet og er et av verdens mest beroemte arkeologiske steder.',
+        solution: 'Machu Picchu er en gammel Inka-by i Peru, høyt oppe i Andesfjellene. Den ble bygd på 1400-tallet og er et av verdens mest berømte arkeologiske steder.',
       },
     },
     {
@@ -808,14 +808,14 @@ Merk: Bolivia har to hovedsteder - Sucre (konstitusjonell) og La Paz (regjerings
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvor mange spansktalende land er det i Sor-Amerika?',
+        task: 'Hvor mange spansktalende land er det i Sør-Amerika?',
         options: [
           { id: 'a', text: '7', isCorrect: false },
           { id: 'b', text: '9', isCorrect: true },
           { id: 'c', text: '11', isCorrect: false },
           { id: 'd', text: '12', isCorrect: false },
         ],
-        solution: 'Det er 9 spansktalende land i Sor-Amerika: Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile, Argentina, Uruguay og Paraguay.',
+        solution: 'Det er 9 spansktalende land i Sør-Amerika: Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile, Argentina, Uruguay og Paraguay.',
       },
     },
     {
@@ -840,11 +840,11 @@ Merk: Bolivia har to hovedsteder - Sucre (konstitusjonell) og La Paz (regjerings
     {
       id: 'spansk-1-11-4-text-2',
       type: 'text',
-      content: `## Spansk i Sor-Amerika
+      content: `## Spansk i Sør-Amerika
 
-Spansk i Sor-Amerika skiller seg fra spansk i Spania pa flere mater:
+Spansk i Sør-Amerika skiller seg fra spansk i Spania på flere måter:
 
-- I Sor-Amerika bruker man **ustedes** i stedet for **vosotros** (dere).
+- I Sør-Amerika bruker man **ustedes** i stedet for **vosotros** (dere).
 - I Argentina og Uruguay bruker man **vos** i stedet for **tu** (du): *Vos sos argentino* i stedet for *Tu eres argentino*.
 - Uttalen varierer: I Argentina uttales \"ll\" som \"sj\" (calle = \"kasje\"), mens i de fleste andre land uttales det som \"j\".
 - Det finnes mange lokale ord som varierer fra land til land. For eksempel heter \"buss\" **colectivo** i Argentina, **bus** i Colombia og **guagua** i Karibia.`,
@@ -857,14 +857,14 @@ Spansk i Sor-Amerika skiller seg fra spansk i Spania pa flere mater:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Svar pa sporsmalene om Sor-Amerika.',
+        task: 'Svar på spørsmålene om Sør-Amerika.',
         subTasks: [
-          { label: 'a', task: 'Hvilket land har verdens hoyeste foss?', solution: 'Venezuela (Salto Angel).' },
+          { label: 'a', task: 'Hvilket land har verdens høyeste foss?', solution: 'Venezuela (Salto Angel).' },
           { label: 'b', task: 'I hvilke land bruker man \"vos\" i stedet for \"tu\"?', solution: 'I Argentina og Uruguay.' },
-          { label: 'c', task: 'Hvilket land er kjent for Galapagosoyene?', solution: 'Ecuador.' },
+          { label: 'c', task: 'Hvilket land er kjent for Galápagosøyene?', solution: 'Ecuador.' },
         ],
         solution: 'a) Venezuela (Salto Angel). b) Argentina og Uruguay. c) Ecuador.',
-        hints: ['Salto Angel er 979 meter hoy.'],
+        hints: ['Salto Angel er 979 meter høy.'],
       },
     },
     {
@@ -872,10 +872,10 @@ Spansk i Sor-Amerika skiller seg fra spansk i Spania pa flere mater:
       type: 'text',
       content: `## Oppsummering
 
-- Sor-Amerika har ni spansktalende land.
-- Kontinentet har enorm variasjon i natur: Andesfjellene, Amazonas, orkener, isbreer.
-- Hvert land har sine egne kulturelle saertrekk, fra tango i Argentina til ceviche i Peru.
-- Spansk i Sor-Amerika skiller seg fra spansk i Spania, blant annet med bruk av *ustedes* i stedet for *vosotros*.
+- Sør-Amerika har ni spansktalende land.
+- Kontinentet har enorm variasjon i natur: Andesfjellene, Amazonas, ørkener, isbreer.
+- Hvert land har sine egne kulturelle særtrekk, fra tango i Argentina til ceviche i Peru.
+- Spansk i Sør-Amerika skiller seg fra spansk i Spania, blant annet med bruk av *ustedes* i stedet for *vosotros*.
 - Argentina og Uruguay bruker *vos* i stedet for *tu*.`,
     },
     {
@@ -886,9 +886,9 @@ Spansk i Sor-Amerika skiller seg fra spansk i Spania pa flere mater:
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Velg et soramerikansk land og skriv en kort presentasjon pa spansk (5-7 setninger). Nevn hovedstad, beliggenhet, hva landet er kjent for og noe du synes er interessant.',
+        task: 'Velg et soramerikansk land og skriv en kort presentasjon på spansk (5-7 setninger). Nevn hovedstad, beliggenhet, hva landet er kjent for og noe du synes er interessant.',
         solution: 'Eksempel: Perú es un país en el oeste de Sudamérica. La capital es Lima, una ciudad muy grande. Perú es famoso por Machu Picchu, una ciudad antigua de los incas. La comida peruana es muy buena, especialmente el ceviche. En Perú hay montañas muy altas, como los Andes. También hay selva tropical en el este del país. ¡Quiero visitar Perú algún día!',
-        hints: ['Bruk *es famoso/famosa por...* for a si hva landet er kjent for.', 'Bruk *hay* for a si \"det finnes\".'],
+        hints: ['Bruk *es famoso/famosa por...* for å si hva landet er kjent for.', 'Bruk *hay* for å si \"det finnes\".'],
       },
     },
     {
@@ -914,7 +914,7 @@ Spansk i Sor-Amerika skiller seg fra spansk i Spania pa flere mater:
   keyTerms: [
     { term: 'el tango', definition: 'tango (dans og musikkstil fra Argentina)' },
     { term: 'el mate', definition: 'mate (tradisjonell drikke i Argentina/Uruguay)' },
-    { term: 'el ceviche', definition: 'ceviche (ratt med raa fisk marinert i sitrus)' },
+    { term: 'el ceviche', definition: 'ceviche (ratt med rå fisk marinert i sitrus)' },
     { term: 'los Andes', definition: 'Andesfjellene' },
     { term: 'vos', definition: 'du (uformelt, brukt i Argentina/Uruguay)' },
     { term: 'ustedes', definition: 'dere (brukes i stedet for vosotros i Latin-Amerika)' },
@@ -930,28 +930,28 @@ export const CHAPTER_SPANSK_1_12_1: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '12.1',
   title: 'La música en español',
-  subtitle: 'Spanskspraklig musikk',
-  description: 'Utforsk reggaeton, flamenco, cumbia og kjente spanskspraklige artister.',
+  subtitle: 'Spanskspråklig musikk',
+  description: 'Utforsk reggaeton, flamenco, cumbia og kjente spanskspråklige artister.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende omrader'],
+  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-12-1-intro',
       type: 'text',
-      content: `## La música en español - Spanskspraklig musikk
+      content: `## La música en español - Spanskspråklig musikk
 
-Musikk er en viktig del av kulturen i den spansktalende verden. Fra flamenco i Spania til reggaeton i Puerto Rico, fra cumbia i Colombia til mariachi i Mexico - den spanskspraklige musikkscenen er utrolig variert og pavirker musikksmaken over hele verden.
+Musikk er en viktig del av kulturen i den spansktalende verden. Fra flamenco i Spania til reggaeton i Puerto Rico, fra cumbia i Colombia til mariachi i Mexico - den spanskspråklige musikkscenen er utrolig variert og påvirker musikksmaken over hele verden.
 
-I dag er spanskspraklig musikk blant den mest lyttede til pa streaming-plattformer globalt. I dette kapittelet laerer du om de viktigste musikksjangerne og kjente artister.`,
+I dag er spanskspråklig musikk blant den mest lyttede til på streaming-plattformer globalt. I dette kapittelet lærer du om de viktigste musikksjangerne og kjente artister.`,
     },
     {
       id: 'spansk-1-12-1-def-1',
       type: 'definition',
       title: 'El flamenco',
-      content: `**El flamenco** er en kunstform fra Andalucia i sor-Spania. Flamenco kombinerer sang (*el cante*), dans (*el baile*) og gitar (*la guitarra*). Flamenco har roetter i romakulturen og ble oppfort pa UNESCOs liste over immateriell kulturarv i 2010.
+      content: `**El flamenco** er en kunstform fra Andalucia i sør-Spania. Flamenco kombinerer sang (*el cante*), dans (*el baile*) og gitar (*la guitarra*). Flamenco har røtter i romakulturen og ble oppført på UNESCOs liste over immateriell kulturarv i 2010.
 
 Viktige begreper:
-- **El tablao** - et sted der man framforer flamenco
+- **El tablao** - et sted der man framfører flamenco
 - **Las palmas** - klapping som del av rytmen
 - **El zapateado** - fotarbeid/stamping i flamencodans`,
     },
@@ -963,7 +963,7 @@ Viktige begreper:
 |---------|-------------|------------|
 | **Reggaetón** | Puerto Rico | Elektronisk beat, dans, urbant |
 | **Cumbia** | Colombia | Folkemusikk, danserytme |
-| **Salsa** | Cuba/New York | Livlig dansemusikk, blasing |
+| **Salsa** | Cuba/New York | Livlig dansemusikk, blåsing |
 | **Bachata** | Rep. Dominicana | Romantisk, gitar |
 | **Mariachi** | México | Trompet, fiolin, sombrero |
 | **Tango** | Argentina | Melankoli, bandoneon |
@@ -1003,10 +1003,10 @@ Andre kjente artister: J Balvin (Colombia), Karol G (Colombia), Daddy Yankee (Pu
 3. **Nosotros bailamos salsa.**
 
 Nyttige verb:
-- *cantar* = a synge
-- *bailar* = a danse
-- *tocar* = a spille (et instrument)
-- *escuchar* = a lytte til`,
+- *cantar* = å synge
+- *bailar* = å danse
+- *tocar* = å spille (et instrument)
+- *escuchar* = å lytte til`,
     },
     {
       id: 'spansk-1-12-1-ex-block-1',
@@ -1023,7 +1023,7 @@ Nyttige verb:
           { id: 'c', text: 'Argentina', isCorrect: false },
           { id: 'd', text: 'Cuba', isCorrect: false },
         ],
-        solution: 'Flamenco kommer opprinnelig fra Andalucia i sor-Spania. Det er en kunstform som kombinerer sang, dans og gitar.',
+        solution: 'Flamenco kommer opprinnelig fra Andalucia i sør-Spania. Det er en kunstform som kombinerer sang, dans og gitar.',
       },
     },
     {
@@ -1034,14 +1034,14 @@ Nyttige verb:
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva betyr \"cantar\" pa norsk?',
+        task: 'Hva betyr \"cantar\" på norsk?',
         options: [
           { id: 'a', text: 'A danse', isCorrect: false },
           { id: 'b', text: 'A spille', isCorrect: false },
           { id: 'c', text: 'A synge', isCorrect: true },
           { id: 'd', text: 'A lytte', isCorrect: false },
         ],
-        solution: '\"Cantar\" betyr \"a synge\". \"Bailar\" = a danse, \"tocar\" = a spille (instrument), \"escuchar\" = a lytte.',
+        solution: '\"Cantar\" betyr \"a synge\". \"Bailar\" = å danse, \"tocar\" = å spille (instrument), \"escuchar\" = å lytte.',
       },
     },
     {
@@ -1065,14 +1065,14 @@ Nyttige verb:
     {
       id: 'spansk-1-12-1-text-2',
       type: 'text',
-      content: `## Musikk som laeringsverktoy
+      content: `## Musikk som læringsverktoy
 
-A lytte til spanskspraklig musikk er en flott mate a laere spansk pa! Her er noen tips:
+Å lytte til spanskspråklig musikk er en flott måte å lære spansk på! Her er noen tips:
 
 1. **Les sangtekstene** (*las letras*) mens du lytter
-2. **Skriv ned nye ord** og sla dem opp
+2. **Skriv ned nye ord** og slå dem opp
 3. **Syng med!** Det hjelper med uttale
-4. **Start med sakte sanger** (ballader) for de er lettere a forsta
+4. **Start med sakte sanger** (ballader) for de er lettere å forstå
 
 Noen gode sanger for nybegynnere:
 - \"Me gustas tú\" - Manu Chao (enkel og repetitiv)
@@ -1089,12 +1089,12 @@ Noen gode sanger for nybegynnere:
         difficulty: 'medium',
         task: 'Oversett setningene til spansk.',
         subTasks: [
-          { label: 'a', task: 'Jeg liker a lytte til musikk.', solution: 'Me gusta escuchar música.' },
+          { label: 'a', task: 'Jeg liker å lytte til musikk.', solution: 'Me gusta escuchar música.' },
           { label: 'b', task: 'Han spiller gitar.', solution: 'Él toca la guitarra.' },
-          { label: 'c', task: 'Vi danser salsa pa festen.', solution: 'Nosotros bailamos salsa en la fiesta.' },
+          { label: 'c', task: 'Vi danser salsa på festen.', solution: 'Nosotros bailamos salsa en la fiesta.' },
         ],
         solution: 'a) Me gusta escuchar musica. b) El toca la guitarra. c) Nosotros bailamos salsa en la fiesta.',
-        hints: ['Bruk *me gusta + infinitiv* for a si at du liker a gjore noe.'],
+        hints: ['Bruk *me gusta + infinitiv* for å si at du liker å gjøre noe.'],
       },
     },
     {
@@ -1104,8 +1104,8 @@ Noen gode sanger for nybegynnere:
 
 - Den spansktalende verden har et enormt mangfold av musikksjangre.
 - Flamenco fra Spania, tango fra Argentina, cumbia fra Colombia og reggaeton fra Puerto Rico er noen av de viktigste.
-- Spanskspraklig musikk er i dag blant verdens mest populaere.
-- A lytte til musikk pa spansk er en effektiv mate a laere spraket pa.
+- Spanskspråklig musikk er i dag blant verdens mest populære.
+- A lytte til musikk på spansk er en effektiv måte å lære språket på.
 
 **Musikkverb:** cantar (synge), bailar (danse), tocar (spille instrument), escuchar (lytte)`,
     },
@@ -1117,7 +1117,7 @@ Noen gode sanger for nybegynnere:
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort tekst pa spansk (4-5 setninger) om din musikksmak. Bruk uttrykkene: me gusta, mi música favorita es, me gusta escuchar/bailar.',
+        task: 'Skriv en kort tekst på spansk (4-5 setninger) om din musikksmak. Bruk uttrykkene: me gusta, mi música favorita es, me gusta escuchar/bailar.',
         solution: 'Eksempel: Me gusta mucho la música. Mi música favorita es el pop. Me gusta escuchar música cuando estudio. También me gusta bailar con mis amigos. Mi artista favorito es Bad Bunny porque su música es muy divertida.',
         hints: ['*Mi musica favorita es...* = Min favorittmusikk er...', '*Mi artista favorito/a es...* = Min favorittartist er...'],
       },
@@ -1159,18 +1159,18 @@ export const CHAPTER_SPANSK_1_12_2: TextbookChapter = {
   chapterNumber: '12.2',
   title: 'El cine en español',
   subtitle: 'Spansk film',
-  description: 'Laer om spansk og latinamerikansk film, kjente regissorer og filmvokabular.',
+  description: 'Lær om spansk og latinamerikansk film, kjente regissorer og filmvokabular.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende omrader'],
+  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-12-2-intro',
       type: 'text',
       content: `## El cine en español - Spansk film
 
-Den spansktalende filmindustrien har produsert mange internasjonalt anerkjente filmer og regissorer. Fra spanske regissorer som Pedro Almodóvar til meksikanske som Guillermo del Toro, har spanskspraklig film vunnet en rekke Oscar-priser og internasjonale priser.
+Den spansktalende filmindustrien har prødusert mange internasjonalt anerkjente filmer og regissorer. Fra spanske regissorer som Pedro Almodóvar til meksikanske som Guillermo del Toro, har spanskspråklig film vunnet en rekke Oscar-priser og internasjonale priser.
 
-I dette kapittelet laerer du om kjente filmer og regissorer, og du laerer filmvokabular pa spansk.`,
+I dette kapittelet lærer du om kjente filmer og regissorer, og du lærer filmvokabular på spansk.`,
     },
     {
       id: 'spansk-1-12-2-def-1',
@@ -1192,7 +1192,7 @@ I dette kapittelet laerer du om kjente filmer og regissorer, og du laerer filmvo
     {
       id: 'spansk-1-12-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Kjente spanskspraklige regissorer',
+      title: 'Eksempel 1: Kjente spanskspråklige regissorer',
       problem: `Koble regissoren med landet og en kjent film:
 
 | Director(a) | País | Película famosa |
@@ -1230,12 +1230,12 @@ Alle tre har vunnet Oscar-priser for sine filmer.`,
       problem: `Oversett til spansk:
 1. Jeg liker komedier.
 2. Filmen er veldig bra.
-3. Vil du ga pa kino?`,
+3. Vil du gå på kino?`,
       solution: `1. **Me gustan las comedias.**
 2. **La película es muy buena.**
 3. **¿Quieres ir al cine?**
 
-Merk: Nar du liker flere ting (flertall), bruker du *me gustan* (ikke *me gusta*).`,
+Merk: Når du liker flere ting (flertall), bruker du *me gustan* (ikke *me gusta*).`,
     },
     {
       id: 'spansk-1-12-2-ex-block-1',
@@ -1245,7 +1245,7 @@ Merk: Nar du liker flere ting (flertall), bruker du *me gustan* (ikke *me gusta*
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva betyr \"la pelicula\" pa norsk?',
+        task: 'Hva betyr \"la pelicula\" på norsk?',
         options: [
           { id: 'a', text: 'Kinoen', isCorrect: false },
           { id: 'b', text: 'Filmen', isCorrect: true },
@@ -1294,17 +1294,17 @@ Merk: Nar du liker flere ting (flertall), bruker du *me gustan* (ikke *me gusta*
     {
       id: 'spansk-1-12-2-text-2',
       type: 'text',
-      content: `## Anbefalte spanskspraklige filmer for nybegynnere
+      content: `## Anbefalte spanskspråklige filmer for nybegynnere
 
-Disse filmene er gode for a ove spansk forstaelse:
+Disse filmene er gode for å øve spansk forståelse:
 
 - **Coco** (2017) - Pixar-animasjonsfilm om Dia de los Muertos i Mexico. Lettfattelig og vakker.
-- **Diarios de motocicleta** (2004) - Om unge Che Guevaras reise gjennom Sor-Amerika.
+- **Diarios de motocicleta** (2004) - Om unge Che Guevaras reise gjennom Sør-Amerika.
 - **Volver** (2006) - Almodovar-film med Penélope Cruz. Spansk kultur og humor.
 - **Roma** (2018) - Oscar-vinnende film av Alfonso Cuaron, om en hushjelp i Mexico City.
 - **El secreto de sus ojos** (2009) - Argentinsk thriller, vant Oscar for beste utenlandske film.
 
-Tips: Se filmene med spanske undertekster (*subtitulos en español*) for a laere enda mer!`,
+Tips: Se filmene med spanske undertekster (*subtitulos en español*) for å lære enda mer!`,
     },
     {
       id: 'spansk-1-12-2-ex-block-4',
@@ -1321,7 +1321,7 @@ Tips: Se filmene med spanske undertekster (*subtitulos en español*) for a laere
           { label: 'c', task: 'Regissoren er fra Mexico.', solution: 'El director es de México.' },
         ],
         solution: 'a) Me gustan las peliculas de terror. b) La pelicula es muy interesante. c) El director es de Mexico.',
-        hints: ['Husk *me gustan* (flertall) nar du liker flere ting.'],
+        hints: ['Husk *me gustan* (flertall) når du liker flere ting.'],
       },
     },
     {
@@ -1331,13 +1331,13 @@ Tips: Se filmene med spanske undertekster (*subtitulos en español*) for a laere
 
 - Den spansktalende filmindustrien er stor og mangfoldig.
 - Kjente regissorer inkluderer Pedro Almodovar (Spania), Guillermo del Toro og Alfonso Cuaron (Mexico).
-- Det finnes mange gode spanskspraklige filmer for nybegynnere, som Coco og Roma.
-- A se filmer pa spansk med undertekster er en god mate a laere spraket pa.
+- Det finnes mange gode spanskspråklige filmer for nybegynnere, som Coco og Roma.
+- A se filmer på spansk med undertekster er en god måte å lære språket på.
 
 **Nyttige uttrykk:**
-- *¿Quieres ir al cine?* - Vil du ga pa kino?
+- *¿Quieres ir al cine?* - Vil du gå på kino?
 - *Me gusta/gustan...* - Jeg liker...
-- *La película es buena/mala/interesante* - Filmen er bra/darlig/interessant`,
+- *La película es buena/mala/interesante* - Filmen er bra/dårlig/interessant`,
     },
     {
       id: 'spansk-1-12-2-ex-block-5',
@@ -1347,7 +1347,7 @@ Tips: Se filmene med spanske undertekster (*subtitulos en español*) for a laere
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort filmanmeldelse pa spansk (4-6 setninger). Velg en film du har sett (kan vaere hvilken som helst film). Si hva filmen heter, hvilken sjanger det er, hva du synes om den.',
+        task: 'Skriv en kort filmanmeldelse på spansk (4-6 setninger). Velg en film du har sett (kan være hvilken som helst film). Si hva filmen heter, hvilken sjanger det er, hva du synes om den.',
         solution: 'Eksempel: Mi película favorita es Coco. Es una película de animación. La película es sobre un niño mexicano que quiere ser músico. Es muy bonita y divertida. Me gusta mucho la música en la película. ¡Recomiendo esta película a todos!',
         hints: ['*Mi pelicula favorita es...* = Min favorittfilm er...', '*Es sobre...* = Den handler om...', '*Recomiendo...* = Jeg anbefaler...'],
       },
@@ -1367,7 +1367,7 @@ Tips: Se filmene med spanske undertekster (*subtitulos en español*) for a laere
           { id: 'c', text: 'Volver', isCorrect: false },
           { id: 'd', text: 'El laberinto del fauno', isCorrect: false },
         ],
-        solution: 'Coco (2017) er en Pixar-animasjonsfilm som handler om Dia de los Muertos (De dodes dag) i Mexico. Filmen folger gutten Miguel som drommer om a bli musiker.',
+        solution: 'Coco (2017) er en Pixar-animasjonsfilm som handler om Dia de los Muertos (De dødes dag) i Mexico. Filmen følger gutten Miguel som drømmer om å bli musiker.',
       },
     },
   ],
@@ -1388,32 +1388,32 @@ export const CHAPTER_SPANSK_1_12_3: TextbookChapter = {
   chapterNumber: '12.3',
   title: 'Cómics y literatura',
   subtitle: 'Tegneserier og litteratur',
-  description: 'Bli kjent med Mafalda, Don Quijote og andre spanskspraklige litteraere verk.',
+  description: 'Bli kjent med Mafalda, Don Quijote og andre spanskspråklige litterære verk.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende omrader'],
+  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-12-3-intro',
       type: 'text',
       content: `## Cómics y literatura - Tegneserier og litteratur
 
-Den spansktalende verden har en rik litteraer tradisjon, fra verdens forste moderne roman (Don Quijote) til moderne tegneserier som Mafalda. A lese pa spansk - selv enkle tekster - er en av de beste matene a forbedre sprakferdighetene dine pa.
+Den spansktalende verden har en rik litterær tradisjon, fra verdens første moderne roman (Don Quijote) til moderne tegneserier som Mafalda. Å lese på spansk - selv enkle tekster - er en av de beste måtene å forbedre språkferdighetene dine på.
 
-I dette kapittelet far du en smakebit pa spanskspraklig litteratur og tegneserier tilpasset ditt niva.`,
+I dette kapittelet får du en smakebit på spanskspråklig litteratur og tegneserier tilpasset ditt nivå.`,
     },
     {
       id: 'spansk-1-12-3-def-1',
       type: 'definition',
       title: 'Mafalda',
-      content: `**Mafalda** er en argentinsk tegneserie (*historieta*) skapt av **Quino** (Joaquín Salvador Lavado). Mafalda er en liten jente som stiller store sporsmaal om verden, politikk og samfunn. Tegneserien ble publisert mellom 1964 og 1973 og er fortsatt enormt populaer i hele den spansktalende verden.
+      content: `**Mafalda** er en argentinsk tegneserie (*historieta*) skapt av **Quino** (Joaquín Salvador Lavado). Mafalda er en liten jente som stiller store spørsmål om verden, politikk og samfunn. Tegneserien ble publisert mellom 1964 og 1973 og er fortsatt enormt populær i hele den spansktalende verden.
 
-Mafalda er kjent for sin kritiske humor og sine refleksjoner om fred, rettferdighet og menneskerettigheter. Tegneserien er oversatt til over 30 sprak.`,
+Mafalda er kjent for sin kritiske humor og sine refleksjoner om fred, rettferdighet og menneskerettigheter. Tegneserien er oversatt til over 30 språk.`,
     },
     {
       id: 'spansk-1-12-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Litteraert ordforrad',
-      problem: `Oversett disse litteraere begrepene til norsk:
+      title: 'Eksempel 1: Litterært ordforråd',
+      problem: `Oversett disse litterære begrepene til norsk:
 
 1. el libro
 2. el cuento
@@ -1426,21 +1426,21 @@ Mafalda er kjent for sin kritiske humor og sine refleksjoner om fred, rettferdig
 4. **el poema** = diktet
 5. **el/la escritor(a)** = forfatteren
 
-Andre nyttige ord: *la biblioteca* (biblioteket), *la página* (siden), *el capítulo* (kapittelet), *leer* (a lese).`,
+Andre nyttige ord: *la biblioteca* (biblioteket), *la página* (siden), *el capítulo* (kapittelet), *leer* (å lese).`,
     },
     {
       id: 'spansk-1-12-3-def-2',
       type: 'definition',
       title: 'Don Quijote',
-      content: `**Don Quijote de la Mancha** er skrevet av **Miguel de Cervantes** og ble publisert i 1605. Den regnes som den forste moderne romanen og er et av de viktigste verkene i verdenslitteraturen.
+      content: `**Don Quijote de la Mancha** er skrevet av **Miguel de Cervantes** og ble publisert i 1605. Den regnes som den første moderne romanen og er et av de viktigste verkene i verdenslitteraturen.
 
-Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tror han selv er en ridder. Sammen med sin vaepner Sancho Panza drar han ut pa eventyr. Uttrykket *luchar contra molinos de viento* (a kjempe mot vindmoller) kommer fra denne boken og betyr a kjempe mot innbilte fiender.`,
+Boken handler om Don Quijote, en mann som leser så mange ridderromaner at han tror han selv er en ridder. Sammen med sin væpner Sancho Panza drar han ut på eventyr. Uttrykket *luchar contra molinos de viento* (a kjempe mot vindmøller) kommer fra denne boken og betyr å kjempe mot innbilte fiender.`,
     },
     {
       id: 'spansk-1-12-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Enkel lesetekst',
-      problem: `Les teksten og svar pa sporsmalene:
+      problem: `Les teksten og svar på spørsmålene:
 
 \"Me llamo Ana y me gusta mucho leer. Mi libro favorito es El Principito. Es un libro muy bonito sobre un niño que vive en un planeta pequeño. El Principito viaja a diferentes planetas y conoce a muchas personas interesantes. Mi parte favorita es cuando dice: 'Lo esencial es invisible a los ojos.'\"
 
@@ -1451,7 +1451,7 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
 2. Su libro favorito es El Principito (Den lille prinsen).
 3. El libro trata de un niño que vive en un planeta pequeño y viaja a diferentes planetas.
 
-\"El Principito\" (Den lille prinsen) av Antoine de Saint-Exupéry er en av verdens mest oversatte boker og er populaer som lesetekst for spanskstudenter.`,
+\"El Principito\" (Den lille prinsen) av Antoine de Saint-Exupéry er en av verdens mest oversatte bøker og er populær som lesetekst for spanskstudenter.`,
     },
     {
       id: 'spansk-1-12-3-ex-block-1',
@@ -1479,7 +1479,7 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva betyr \"el libro\" pa norsk?',
+        task: 'Hva betyr \"el libro\" på norsk?',
         options: [
           { id: 'a', text: 'Diktet', isCorrect: false },
           { id: 'b', text: 'Fortellingen', isCorrect: false },
@@ -1510,10 +1510,10 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
     {
       id: 'spansk-1-12-3-text-2',
       type: 'text',
-      content: `## Kjente spanskspraklige forfattere
+      content: `## Kjente spanskspråklige forfattere
 
-- **Miguel de Cervantes** (Spania, 1547-1616) - Skrev Don Quijote, regnet som den forste moderne roman.
-- **Gabriel Garcia Marquez** (Colombia, 1927-2014) - Nobelpris i litteratur 1982. Kjent for \"Cien anos de soledad\" (Hundre ars ensomhet).
+- **Miguel de Cervantes** (Spania, 1547-1616) - Skrev Don Quijote, regnet som den første moderne roman.
+- **Gabriel Garcia Marquez** (Colombia, 1927-2014) - Nobelpris i litteratur 1982. Kjent for \"Cien anos de soledad\" (Hundre års ensomhet).
 - **Pablo Neruda** (Chile, 1904-1973) - Nobelpris i litteratur 1971. En av verdens mest kjente poeter.
 - **Isabel Allende** (Chile, f. 1942) - Kjent for \"La casa de los espiritus\" (Andenes hus).
 - **Jorge Luis Borges** (Argentina, 1899-1986) - En av 1900-tallets viktigste forfattere, kjent for korte fortellinger.
@@ -1527,14 +1527,14 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Svar pa sporsmalene.',
+        task: 'Svar på spørsmålene.',
         subTasks: [
-          { label: 'a', task: 'Hvem skrev Don Quijote, og nar ble den publisert?', solution: 'Miguel de Cervantes, 1605.' },
-          { label: 'b', task: 'Hva betyr uttrykket \"luchar contra molinos de viento\"?', solution: 'A kjempe mot innbilte fiender (a kjempe mot vindmoller).' },
+          { label: 'a', task: 'Hvem skrev Don Quijote, og når ble den publisert?', solution: 'Miguel de Cervantes, 1605.' },
+          { label: 'b', task: 'Hva betyr uttrykket \"luchar contra molinos de viento\"?', solution: 'A kjempe mot innbilte fiender (a kjempe mot vindmøller).' },
           { label: 'c', task: 'Hvilken colombiansk forfatter vant Nobelprisen i litteratur?', solution: 'Gabriel Garcia Marquez (1982).' },
         ],
         solution: 'a) Miguel de Cervantes, publisert i 1605. b) A kjempe mot innbilte fiender. c) Gabriel Garcia Marquez (1982).',
-        hints: ['Don Quijote kjemper mot vindmoller fordi han tror de er kjemper.'],
+        hints: ['Don Quijote kjemper mot vindmøller fordi han tror de er kjemper.'],
       },
     },
     {
@@ -1542,13 +1542,13 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
       type: 'text',
       content: `## Oppsummering
 
-- Den spansktalende verden har en rik litteraer tradisjon.
-- Don Quijote (1605) av Cervantes regnes som den forste moderne roman.
-- Mafalda er en populaer argentinsk tegneserie skapt av Quino.
+- Den spansktalende verden har en rik litterær tradisjon.
+- Don Quijote (1605) av Cervantes regnes som den første moderne roman.
+- Mafalda er en populær argentinsk tegneserie skapt av Quino.
 - Gabriel Garcia Marquez og Pablo Neruda er Nobelprisvinnere i litteratur.
-- A lese enkle tekster, tegneserier og boker pa spansk er en flott mate a laere spraket pa.
+- A lese enkle tekster, tegneserier og bøker på spansk er en flott måte å lære språket på.
 
-**Litteraert ordforrad:** el libro (boken), la novela (romanen), el cuento (fortellingen), el poema (diktet), leer (a lese), el/la escritor(a) (forfatteren).`,
+**Litterært ordforråd:** el libro (boken), la novela (romanen), el cuento (fortellingen), el poema (diktet), leer (å lese), el/la escritor(a) (forfatteren).`,
     },
     {
       id: 'spansk-1-12-3-ex-block-5',
@@ -1558,7 +1558,7 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv pa spansk (4-5 setninger) om en bok du liker. Bruk: Me gusta leer, mi libro favorito es, es sobre, el/la autor(a) es.',
+        task: 'Skriv på spansk (4-5 setninger) om en bok du liker. Bruk: Me gusta leer, mi libro favorito es, es sobre, el/la autor(a) es.',
         solution: 'Eksempel: Me gusta mucho leer. Mi libro favorito es Harry Potter. Es sobre un chico que es mago. La autora es J.K. Rowling, es de Inglaterra. Los libros son muy interesantes y divertidos. Quiero leer más libros en español.',
         hints: ['*Mi libro favorito es...* = Min favorittbok er...', '*Es sobre...* = Den handler om...'],
       },
@@ -1578,7 +1578,7 @@ Boken handler om Don Quijote, en mann som leser sa mange ridderromaner at han tr
           { id: 'c', text: 'Cien años de soledad', isCorrect: true },
           { id: 'd', text: 'Veinte poemas de amor', isCorrect: false },
         ],
-        solution: '\"Cien anos de soledad\" (Hundre ars ensomhet) ble skrevet av Gabriel Garcia Marquez. \"Don Quijote\" er av Cervantes, \"La casa de los espiritus\" av Isabel Allende, og \"Veinte poemas de amor\" av Pablo Neruda.',
+        solution: '\"Cien anos de soledad\" (Hundre års ensomhet) ble skrevet av Gabriel Garcia Marquez. \"Don Quijote\" er av Cervantes, \"La casa de los espiritus\" av Isabel Allende, og \"Veinte poemas de amor\" av Pablo Neruda.',
       },
     },
   ],
@@ -1599,40 +1599,40 @@ export const CHAPTER_SPANSK_1_12_4: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '12.4',
   title: 'Fiestas y tradiciones',
-  subtitle: 'Hoytider og tradisjoner',
-  description: 'Utforsk Dia de los Muertos, La Tomatina, Semana Santa og andre spanskspraklige tradisjoner.',
+  subtitle: 'Høytider og tradisjoner',
+  description: 'Utforsk Dia de los Muertos, La Tomatina, Semana Santa og andre spanskspråklige tradisjoner.',
   estimatedMinutes: 45,
-  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende omrader'],
+  competenceGoals: ['utforske kunstneriske og kulturelle uttrykk i spansktalende områder'],
   content: [
     {
       id: 'spansk-1-12-4-intro',
       type: 'text',
-      content: `## Fiestas y tradiciones - Hoytider og tradisjoner
+      content: `## Fiestas y tradiciones - Høytider og tradisjoner
 
-Den spansktalende verden er kjent for sine fargerike og livlige fester og tradisjoner. Fra De dodes dag i Mexico til okselope i Pamplona - hoytidene gjenspeiler den rike kulturen og historien til hvert land.
+Den spansktalende verden er kjent for sine fargerike og livlige fester og tradisjoner. Fra De dødes dag i Mexico til okselope i Pamplona - høytidene gjenspeiler den rike kulturen og historien til hvert land.
 
-I dette kapittelet laerer du om noen av de viktigste festene og tradisjonene i Spania og Latin-Amerika.`,
+I dette kapittelet lærer du om noen av de viktigste festene og tradisjonene i Spania og Latin-Amerika.`,
     },
     {
       id: 'spansk-1-12-4-def-1',
       type: 'definition',
       title: 'El Día de los Muertos',
-      content: `**El Dia de los Muertos** (De dodes dag) feires 1. og 2. november i Mexico. Det er IKKE en sorgens dag - det er en fargerik feiring for a hedre de avdode.
+      content: `**El Dia de los Muertos** (De dødes dag) feires 1. og 2. november i Mexico. Det er IKKE en sorgens dag - det er en fargerik feiring for å hedre de avdøde.
 
 Viktige elementer:
 - **Las calaveras** - hodeskaller (ofte dekorert med farger)
-- **Las ofrendas** - offeraltere med mat, blomster og bilder av avdode
-- **El pan de muerto** - spesielt brod som bakes til feiringen
+- **Las ofrendas** - offeraltere med mat, blomster og bilder av avdøde
+- **El pan de muerto** - spesielt brød som bakes til feiringen
 - **Las flores de cempasúchil** - oransje ringblomster som dekorerer gravstedene
-- **Las catrinas** - dekorerte hodeskaller/skjeletter som er symbolet pa feiringen`,
+- **Las catrinas** - dekorerte hodeskaller/skjeletter som er symbolet på feiringen`,
     },
     {
       id: 'spansk-1-12-4-def-2',
       type: 'definition',
       title: 'La Semana Santa',
-      content: `**La Semana Santa** (Den stille uke / Paskeuka) er en av de viktigste religiose hoytidene i Spania og Latin-Amerika. Den feires uken for paske med prosesjoner, musikk og religiose seremonier.
+      content: `**La Semana Santa** (Den stille uke / Paskeuka) er en av de viktigste religiose høytidene i Spania og Latin-Amerika. Den feires uken for paske med prosesjoner, musikk og religiose seremonier.
 
-De mest beroemte Semana Santa-feiringene er i:
+De mest berømte Semana Santa-feiringene er i:
 - **Sevilla** (Spania) - Enorme prosesjoner med religiose figurer (*pasos*) som baeres gjennom gatene
 - **Guatemala** - Fargerike gatetepper laget av sagflis og blomster (*alfombras*)
 - **Ayacucho** (Peru) - Ti dagers feiring med prosesjoner og markeder`,
@@ -1666,12 +1666,12 @@ De mest beroemte Semana Santa-feiringene er i:
       type: 'example',
       title: 'Eksempel 2: Hoytidsvokabular',
       problem: `Oversett til spansk:
-1. festen / hoytiden
+1. festen / høytiden
 2. a feire
 3. tradisjonene
 4. prosesjonen`,
-      solution: `1. **la fiesta** (festen) / **la festividad** (hoytiden)
-2. **celebrar** (a feire)
+      solution: `1. **la fiesta** (festen) / **la festividad** (høytiden)
+2. **celebrar** (å feire)
 3. **las tradiciones** (tradisjonene)
 4. **la procesión** (prosesjonen)
 
@@ -1689,14 +1689,14 @@ Flere nyttige ord:
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Nar feires El Dia de los Muertos i Mexico?',
+        task: 'Når feires El Dia de los Muertos i Mexico?',
         options: [
           { id: 'a', text: '31. oktober', isCorrect: false },
           { id: 'b', text: '1. og 2. november', isCorrect: true },
           { id: 'c', text: '25. desember', isCorrect: false },
           { id: 'd', text: '6. januar', isCorrect: false },
         ],
-        solution: 'El Dia de los Muertos feires 1. og 2. november. Det er IKKE det samme som Halloween, men en meksikansk tradisjon for a hedre de avdode.',
+        solution: 'El Dia de los Muertos feires 1. og 2. november. Det er IKKE det samme som Halloween, men en meksikansk tradisjon for å hedre de avdøde.',
       },
     },
     {
@@ -1714,7 +1714,7 @@ Flere nyttige ord:
           { id: 'c', text: 'Buñol (Valencia)', isCorrect: true },
           { id: 'd', text: 'Sevilla', isCorrect: false },
         ],
-        solution: 'La Tomatina arrangeres i Bunol, nuer Valencia. Det er en tomatkrig der deltakerne kaster tomater pa hverandre. Festivalen holdes siste onsdag i august.',
+        solution: 'La Tomatina arrangeres i Buñol, nær Valencia. Det er en tomatkrig der deltakerne kaster tomater på hverandre. Festivalen holdes siste onsdag i august.',
       },
     },
     {
@@ -1725,13 +1725,13 @@ Flere nyttige ord:
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Svar pa sporsmalene om hoytider og tradisjoner.',
+        task: 'Svar på spørsmålene om høytider og tradisjoner.',
         subTasks: [
-          { label: 'a', task: 'Hva er \"las calaveras\" i forbindelse med Dia de los Muertos?', solution: 'Hodeskaller (ofte dekorert med farger), som er et symbol pa feiringen.' },
+          { label: 'a', task: 'Hva er \"las calaveras\" i forbindelse med Dia de los Muertos?', solution: 'Hodeskaller (ofte dekorert med farger), som er et symbol på feiringen.' },
           { label: 'b', task: 'Hva brenner man under Las Fallas i Valencia?', solution: 'Enorme papirfigurer (fallas/ninots).' },
           { label: 'c', task: 'Hva er San Fermin kjent for?', solution: 'Okselope i gatene i Pamplona (los encierros).' },
         ],
-        solution: 'a) Hodeskaller, symbol pa feiringen. b) Enorme papirfigurer. c) Okselope i gatene i Pamplona.',
+        solution: 'a) Hodeskaller, symbol på feiringen. b) Enorme papirfigurer. c) Okselope i gatene i Pamplona.',
       },
     },
     {
@@ -1741,15 +1741,15 @@ Flere nyttige ord:
 
 I tillegg til de spanske festivalene har Latin-Amerika mange unike tradisjoner:
 
-**El Carnaval** - Karneval feires i mange latinamerikanske land for fastetiden. De mest beroemte er i:
+**El Carnaval** - Karneval feires i mange latinamerikanske land for fastetiden. De mest berømte er i:
 - Barranquilla (Colombia) - UNESCOs immateriell kulturarv
-- Rio de Janeiro (Brasil) - verdens storste karneval
+- Rio de Janeiro (Brasil) - verdens største karneval
 
-**La Quinceañera** - En jentes 15-arsdag feires i hele Latin-Amerika med en stor fest, nesten som et bryllup. Det markerer overgangen fra barn til voksen.
+**La Quinceañera** - En jentes 15-årsdag feires i hele Latin-Amerika med en stor fest, nesten som et bryllup. Det markerer overgangen fra barn til voksen.
 
-**La Nochebuena** (Julaften) - I mange spansktalende land er julaften viktigere enn juledag. Familier samles til et stort maltid sent pa kvelden.
+**La Nochebuena** (Julaften) - I mange spansktalende land er julaften viktigere enn juledag. Familier samles til et stort måltid sent på kvelden.
 
-**El Día de los Reyes Magos** (Hellig tre kongers dag, 6. januar) - I Spania og Latin-Amerika far barna gaver denne dagen, ikke pa julaften.`,
+**El Día de los Reyes Magos** (Hellig tre kongers dag, 6. januar) - I Spania og Latin-Amerika får barna gaver denne dagen, ikke på julaften.`,
     },
     {
       id: 'spansk-1-12-4-ex-block-4',
@@ -1763,10 +1763,10 @@ I tillegg til de spanske festivalene har Latin-Amerika mange unike tradisjoner:
         subTasks: [
           { label: 'a', task: 'Vi feirer jul med familien.', solution: 'Celebramos la Navidad con la familia.' },
           { label: 'b', task: 'Festivalen er veldig morsom.', solution: 'La fiesta es muy divertida.' },
-          { label: 'c', task: 'I Mexico feirer de De dodes dag.', solution: 'En México celebran el Día de los Muertos.' },
+          { label: 'c', task: 'I Mexico feirer de De dødes dag.', solution: 'En México celebran el Día de los Muertos.' },
         ],
         solution: 'a) Celebramos la Navidad con la familia. b) La fiesta es muy divertida. c) En Mexico celebran el Dia de los Muertos.',
-        hints: ['*Celebrar* = a feire. Husk a boyse verbet riktig.'],
+        hints: ['*Celebrar* = å feire. Husk å bøyse verbet riktig.'],
       },
     },
     {
@@ -1774,12 +1774,12 @@ I tillegg til de spanske festivalene har Latin-Amerika mange unike tradisjoner:
       type: 'text',
       content: `## Oppsummering
 
-- Den spansktalende verden har mange unike hoytider og tradisjoner.
-- Dia de los Muertos i Mexico er en fargerik feiring av de avdode (1.-2. november).
+- Den spansktalende verden har mange unike høytider og tradisjoner.
+- Dia de los Muertos i Mexico er en fargerik feiring av de avdøde (1.-2. november).
 - Spania har mange festivaler: La Tomatina, Las Fallas, San Fermin, Feria de Abril.
 - Semana Santa feires med store prosesjoner i hele den spansktalende verden.
-- La Quinceañera er en viktig tradisjon for jenter som fyller 15 ar.
-- El Dia de los Reyes Magos (6. januar) er dagen da barn i mange spansktalende land far gaver.`,
+- La Quinceañera er en viktig tradisjon for jenter som fyller 15 år.
+- El Dia de los Reyes Magos (6. januar) er dagen da barn i mange spansktalende land får gaver.`,
     },
     {
       id: 'spansk-1-12-4-ex-block-5',
@@ -1789,7 +1789,7 @@ I tillegg til de spanske festivalene har Latin-Amerika mange unike tradisjoner:
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Sammenlign en norsk og en spanskspraklig tradisjon. Skriv 4-6 setninger pa spansk der du beskriver forskjeller og likheter.',
+        task: 'Sammenlign en norsk og en spanskspråklig tradisjon. Skriv 4-6 setninger på spansk der du beskriver forskjeller og likheter.',
         solution: 'Eksempel: En Noruega celebramos la Navidad el 24 de diciembre, como en muchos países hispanohablantes. Pero en España, los niños reciben regalos el 6 de enero, el Día de los Reyes Magos. En Noruega recibimos regalos el 24 de diciembre. En Noruega no tenemos una tradición como el Día de los Muertos. Es una tradición muy especial de México. Me gustaría ver la celebración algún día.',
         hints: ['*En Noruega celebramos...* = I Norge feirer vi...', '*Es diferente / es similar* = Det er forskjellig / det er likt'],
       },
@@ -1802,20 +1802,20 @@ I tillegg til de spanske festivalene har Latin-Amerika mange unike tradisjoner:
         number: '6',
         type: 'multiple-choice',
         difficulty: 'vanskelig',
-        task: 'Nar far barna i Spania tradisjonelt gaver?',
+        task: 'Når får barna i Spania tradisjonelt gaver?',
         options: [
           { id: 'a', text: '24. desember (Nochebuena)', isCorrect: false },
           { id: 'b', text: '25. desember (Navidad)', isCorrect: false },
           { id: 'c', text: '31. desember (Nochevieja)', isCorrect: false },
           { id: 'd', text: '6. januar (Dia de los Reyes Magos)', isCorrect: true },
         ],
-        solution: 'I Spania far barna tradisjonelt gaver 6. januar, pa Dia de los Reyes Magos (Hellig tre kongers dag). Kvelden for, 5. januar, er det store parader (cabalgatas) i byene.',
+        solution: 'I Spania får barna tradisjonelt gaver 6. januar, på Dia de los Reyes Magos (Hellig tre kongers dag). Kvelden før, 5. januar, er det store parader (cabalgatas) i byene.',
       },
     },
   ],
   exercises: [],
   keyTerms: [
-    { term: 'la fiesta', definition: 'festen/hoytiden' },
+    { term: 'la fiesta', definition: 'festen/høytiden' },
     { term: 'celebrar', definition: 'a feire' },
     { term: 'la tradición', definition: 'tradisjonen' },
     { term: 'la procesión', definition: 'prosesjonen' },
@@ -1835,18 +1835,18 @@ export const CHAPTER_SPANSK_1_13_1: TextbookChapter = {
   chapterNumber: '13.1',
   title: 'Leer un menú',
   subtitle: 'Lese en meny',
-  description: 'Laer a lese og forsta spanske restaurantmenyer og bestille mat.',
+  description: 'Lær å lese og forstå spanske restaurantmenyer og bestille mat.',
   estimatedMinutes: 45,
-  competenceGoals: ['lese og forsta enkle autentiske tekster pa spansk'],
+  competenceGoals: ['lese og forstå enkle autentiske tekster på spansk'],
   content: [
     {
       id: 'spansk-1-13-1-intro',
       type: 'text',
       content: `## Leer un menú - Lese en meny
 
-A kunne lese en meny pa spansk er en svart nyttig ferdighet, enten du er pa ferie i Spania eller pa en tapasrestaurant i Norge. Spanske menyer er ofte delt inn i kategorier, og mange retter har navn som ikke kan oversettes direkte.
+Å kunne lese en meny på spansk er en svært nyttig ferdighet, enten du er på ferie i Spania eller på en tapasrestaurant i Norge. Spanske menyer er ofte delt inn i kategorier, og mange retter har navn som ikke kan oversettes direkte.
 
-I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat pa en restaurant.`,
+I dette kapittelet lærer du å lese og forstå en spansk meny, og å bestille mat på en restaurant.`,
     },
     {
       id: 'spansk-1-13-1-def-1',
@@ -1856,28 +1856,28 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
 
 | Spansk | Norsk |
 |--------|-------|
-| **Entrantes / Aperitivos** | Forrett / Smaaretter |
-| **Primer plato** | Forste rett |
+| **Entrantes / Aperitivos** | Forrett / Ssmåretter |
+| **Primer plato** | Første rett |
 | **Segundo plato** | Andre rett / Hovedrett |
 | **Postres** | Dessert |
 | **Bebidas** | Drikke |
-| **Tapas** | Smaaretter (typisk spansk) |
+| **Tapas** | Ssmåretter (typisk spansk) |
 | **El menú del día** | Dagens meny (fast pris, inkluderer flere retter) |
 
-**El menú del dia** er et vanlig konsept i Spania - du far forrett, hovedrett, dessert og drikke til en fast pris (ofte 10-15 euro).`,
+**El menú del dia** er et vanlig konsept i Spania - du får forrett, hovedrett, dessert og drikke til en fast pris (ofte 10-15 euro).`,
     },
     {
       id: 'spansk-1-13-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Lese en meny',
-      problem: `Les denne menyen og svar pa sporsmalene:
+      problem: `Les denne menyen og svar på spørsmålene:
 
 **RESTAURANTE EL SOL - Menú del Día (12 €)**
 
 *Primer plato (velg en):*
 - Gazpacho andaluz (kald tomatsuppe)
 - Ensalada mixta (blandet salat)
-- Sopa de verduras (gronnsakssuppe)
+- Sopa de verduras (grønnsakssuppe)
 
 *Segundo plato (velg en):*
 - Paella valenciana (risrett med skalldyr)
@@ -1914,13 +1914,13 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
 | la ensalada | salaten |
 | el pollo | kyllingen |
 | el pescado | fisken |
-| la carne | kjoettet |
-| las verduras | gronnsakene |`,
+| la carne | kjøttet |
+| las verduras | grønnsakene |`,
     },
     {
       id: 'spansk-1-13-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Bestille pa en restaurant',
+      title: 'Eksempel 2: Bestille på en restaurant',
       problem: `Oversett denne dialogen til norsk:
 
 - Camarero: ¡Buenas tardes! ¿Qué van a tomar?
@@ -1936,15 +1936,15 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
 - Gjest: Til forrett vil jeg ha den blandede salaten.
 - Kelner: Og til hovedrett?
 - Gjest: Grillet kylling, takk.
-- Kelner: Og a drikke?
-- Gjest: En ol, takk.
+- Kelner: Og å drikke?
+- Gjest: En øl, takk.
 - Kelner: Flott. Noe mer?
 - Gjest: Nei, takk. Hvor mye koster dagens meny?
 - Kelner: Det blir tolv euro.
 
 **Nyttige bestillingsuttrykk:**
 - *Quiero...* / *Para mí...* = Jeg vil ha...
-- *Por favor* = Takk / Vaer sa snill
+- *Por favor* = Takk / Vær så snill
 - *La cuenta, por favor* = Regningen, takk`,
     },
     {
@@ -1962,7 +1962,7 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
           { id: 'c', text: 'Barnemenyen', isCorrect: false },
           { id: 'd', text: 'Dessertmenyen', isCorrect: false },
         ],
-        solution: '\"El menu del dia\" er dagens meny - et vanlig konsept pa spanske restauranter der du far forrett, hovedrett, dessert og drikke til en fast pris.',
+        solution: '\"El menu del dia\" er dagens meny - et vanlig konsept på spanske restauranter der du får forrett, hovedrett, dessert og drikke til en fast pris.',
       },
     },
     {
@@ -1980,7 +1980,7 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
           { id: 'c', text: 'Potetsuppe', isCorrect: false },
           { id: 'd', text: 'Pommes frites', isCorrect: false },
         ],
-        solution: 'Patatas bravas er stekte poteter som serveres med en krydret tomatsaus. Det er en av de mest populaere tapasrettene i Spania.',
+        solution: 'Patatas bravas er stekte poteter som serveres med en krydret tomatsaus. Det er en av de mest populære tapasrettene i Spania.',
       },
     },
     {
@@ -1995,11 +1995,11 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
         subTasks: [
           { label: 'a', task: 'el pollo', solution: 'kyllingen' },
           { label: 'b', task: 'el pescado', solution: 'fisken' },
-          { label: 'c', task: 'las verduras', solution: 'gronnsakene' },
+          { label: 'c', task: 'las verduras', solution: 'grønnsakene' },
           { label: 'd', task: 'el flan', solution: 'karamellpudding' },
-          { label: 'e', task: 'la cerveza', solution: 'olen' },
+          { label: 'e', task: 'la cerveza', solution: 'ølen' },
         ],
-        solution: 'a) kyllingen, b) fisken, c) gronnsakene, d) karamellpudding, e) olen.',
+        solution: 'a) kyllingen, b) fisken, c) grønnsakene, d) karamellpudding, e) ølen.',
       },
     },
     {
@@ -2007,18 +2007,18 @@ I dette kapittelet laerer du a lese og forsta en spansk meny, og a bestille mat 
       type: 'text',
       content: `## Tapas-kultur
 
-Tapas er smaaretter som er en viktig del av spansk matkultur. Ordet \"tapa\" betyr \"lokk\" - ifoolge legenden ble smaa tallerker med mat lagt som lokk over glass for a holde fluene borte.
+Tapas er ssmåretter som er en viktig del av spansk matkultur. Ordet \"tapa\" betyr \"lokk\" - ifølge legenden ble smaa tallerker med mat lagt som lokk over glass for å holde fluene borte.
 
-Populaere tapas:
+Populære tapas:
 - **Patatas bravas** - stekte poteter med krydret saus
 - **Gambas al ajillo** - hvitloksreker
 - **Jamón serrano** - lufttorket skinke
 - **Tortilla española** - potetomelett
 - **Croquetas** - friterte krokettar (ofte med skinke eller torsk)
 - **Aceitunas** - oliven
-- **Pan con tomate** - brood med tomat
+- **Pan con tomate** - brød med tomat
 
-I Spania er det vanlig a ga fra bar til bar og spise ulike tapas - dette kalles *ir de tapas* eller *tapeo*.`,
+I Spania er det vanlig å gå fra bar til bar og spise ulike tapas - dette kalles *ir de tapas* eller *tapeo*.`,
     },
     {
       id: 'spansk-1-13-1-ex-block-4',
@@ -2028,9 +2028,9 @@ I Spania er det vanlig a ga fra bar til bar og spise ulike tapas - dette kalles 
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en dialog pa spansk der du bestiller mat pa en restaurant. Bruk minst 6 replikker.',
+        task: 'Skriv en dialog på spansk der du bestiller mat på en restaurant. Bruk minst 6 replikker.',
         solution: 'Eksempel:\n- Camarero: ¡Buenas noches! ¿Qué desea?\n- Yo: Buenas noches. ¿Tiene el menú del día?\n- Camarero: Sí, hoy tenemos sopa de verduras o ensalada, y de segundo, paella o pollo asado.\n- Yo: Quiero la sopa de verduras y la paella, por favor.\n- Camarero: ¿Y para beber?\n- Yo: Un agua con gas, por favor.\n- Camarero: Perfecto. ¿Algo más?\n- Yo: No, gracias. ¡Ah! Y la cuenta después, por favor.',
-        hints: ['Bruk *Quiero...* eller *Para mi...* for a bestille.', 'Avslutt med *La cuenta, por favor* for a be om regningen.'],
+        hints: ['Bruk *Quiero...* eller *Para mi...* for å bestille.', 'Avslutt med *La cuenta, por favor* for å be om regningen.'],
       },
     },
     {
@@ -2040,10 +2040,10 @@ I Spania er det vanlig a ga fra bar til bar og spise ulike tapas - dette kalles 
 
 - Spanske menyer er delt inn i entrantes, primer plato, segundo plato, postres og bebidas.
 - El menu del dia er et fast pristrinn med flere retter, drikke inkludert.
-- Tapas er smaaretter som er en viktig del av spansk matkultur.
+- Tapas er ssmåretter som er en viktig del av spansk matkultur.
 - Viktige bestillingsuttrykk: *Quiero...*, *Para mi...*, *Por favor*, *La cuenta, por favor*.
 
-**Nyttige matord:** el pollo (kylling), el pescado (fisk), la carne (kjott), las verduras (gronnsaker), el postre (dessert), la bebida (drikke).`,
+**Nyttige matord:** el pollo (kylling), el pescado (fisk), la carne (kjøtt), las verduras (grønnsaker), el postre (dessert), la bebida (drikke).`,
     },
     {
       id: 'spansk-1-13-1-ex-block-5',
@@ -2060,7 +2060,7 @@ I Spania er det vanlig a ga fra bar til bar og spise ulike tapas - dette kalles 
           { id: 'c', text: 'Mer vann, takk', isCorrect: false },
           { id: 'd', text: 'En til, takk', isCorrect: false },
         ],
-        solution: '\"La cuenta, por favor\" betyr \"Regningen, takk\". Det er det du sier nar du vil betale pa en restaurant.',
+        solution: '\"La cuenta, por favor\" betyr \"Regningen, takk\". Det er det du sier når du vil betale på en restaurant.',
       },
     },
     {
@@ -2071,21 +2071,21 @@ I Spania er det vanlig a ga fra bar til bar og spise ulike tapas - dette kalles 
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Lag din egen tapas-meny pa spansk med minst 5 retter og priser. Bruk ordforradet fra kapittelet.',
+        task: 'Lag din egen tapas-meny på spansk med minst 5 retter og priser. Bruk ordforrådet fra kapittelet.',
         solution: 'Eksempel:\n\n**BAR NORUEGA - Menú de Tapas**\n\nPatatas bravas - 4,50 €\nGambas al ajillo - 7,00 €\nTortilla española - 5,00 €\nJamón serrano - 8,50 €\nCroquetas de jamón - 5,50 €\nAceitunas - 3,00 €\nPan con tomate - 3,50 €\n\nBebidas: Cerveza (3 €), Vino tinto (3,50 €), Agua mineral (2 €)',
-        hints: ['Bruk europriser (€).', 'Husk a inkludere drikke (bebidas) ogsa.'],
+        hints: ['Bruk europriser (€).', 'Husk å inkludere drikke (bebidas) også.'],
       },
     },
   ],
   exercises: [],
   keyTerms: [
     { term: 'la carta / el menú', definition: 'menyen' },
-    { term: 'el primer plato', definition: 'forretten / forste rett' },
+    { term: 'el primer plato', definition: 'forretten / første rett' },
     { term: 'el segundo plato', definition: 'hovedretten / andre rett' },
     { term: 'el postre', definition: 'desserten' },
     { term: 'la cuenta', definition: 'regningen' },
     { term: 'el camarero / la camarera', definition: 'kelneren' },
-    { term: 'las tapas', definition: 'smaaretter (spansk tradisjon)' },
+    { term: 'las tapas', definition: 'ssmåretter (spansk tradisjon)' },
   ],
 };
 
@@ -2095,18 +2095,18 @@ export const CHAPTER_SPANSK_1_13_2: TextbookChapter = {
   chapterNumber: '13.2',
   title: 'Leer horarios',
   subtitle: 'Lese rutetabeller',
-  description: 'Laer a lese rutetabeller og togplaner pa spansk, og ov tidsuttrykk.',
+  description: 'Lær å lese rutetabeller og togplaner på spansk, og ov tidsuttrykk.',
   estimatedMinutes: 45,
-  competenceGoals: ['lese og forsta enkle autentiske tekster pa spansk'],
+  competenceGoals: ['lese og forstå enkle autentiske tekster på spansk'],
   content: [
     {
       id: 'spansk-1-13-2-intro',
       type: 'text',
       content: `## Leer horarios - Lese rutetabeller
 
-A kunne lese rutetabeller pa spansk er nyttig nar du reiser i spansktalende land. Tog- og bussselskaper bruker ofte 24-timers klokke, og det er viktige ord og uttrykk du bor kjenne til.
+Å kunne lese rutetabeller på spansk er nyttig når du reiser i spansktalende land. Tog- og bussselskaper bruker ofte 24-timers klokke, og det er viktige ord og uttrykk du bor kjenne til.
 
-I dette kapittelet laerer du a lese togtabeller (Renfe i Spania), busstider og andre praktiske tidsskjemaer.`,
+I dette kapittelet lærer du å lese togtabeller (Renfe i Spania), busstider og andre praktiske tidsskjemaer.`,
     },
     {
       id: 'spansk-1-13-2-def-1',
@@ -2134,7 +2134,7 @@ I dette kapittelet laerer du a lese togtabeller (Renfe i Spania), busstider og a
       id: 'spansk-1-13-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Lese en togtabell',
-      problem: `Les denne togtabellen fra Renfe og svar pa sporsmalene:
+      problem: `Les denne togtabellen fra Renfe og svar på spørsmålene:
 
 **RENFE - Madrid ↔ Barcelona**
 
@@ -2145,31 +2145,31 @@ I dette kapittelet laerer du a lese togtabeller (Renfe i Spania), busstider og a
 | AVE 3160 | 10:15 | 12:50 | 2h 35min | Alta Velocidad |
 | Alvia 4050 | 07:45 | 13:20 | 5h 35min | Larga Distancia |
 
-1. Hva tid gar det forste toget fra Madrid?
+1. Hva tid går det første toget fra Madrid?
 2. Hvor lang tid tar AVE 3120?
 3. Hvilket tog er det tregeste?`,
-      solution: `1. Det forste toget (AVE 3120) gar kl. 06:30 fra Madrid.
+      solution: `1. Det første toget (AVE 3120) går kl. 06:30 fra Madrid.
 2. AVE 3120 tar 2 timer og 35 minutter.
 3. Alvia 4050 er det tregeste - det tar 5 timer og 35 minutter.
 
-**AVE** (Alta Velocidad Española) er Spanias hoyhastighets-tog som kjorer opptil 310 km/t.`,
+**AVE** (Alta Velocidad Española) er Spanias høyhastighets-tog som kjorer opptil 310 km/t.`,
     },
     {
       id: 'spansk-1-13-2-def-2',
       type: 'definition',
       title: 'Tidsuttrykk',
-      content: `For a snakke om avganger og tider:
+      content: `For å snakke om avganger og tider:
 
 | Spansk | Norsk |
 |--------|-------|
-| ¿A qué hora sale el tren? | Nar gar toget? |
-| Sale a las ocho | Det gar klokka atte |
-| ¿A qué hora llega? | Nar ankommer det? |
+| ¿A qué hora sale el tren? | Når går toget? |
+| Sale a las ocho | Det går klokka atte |
+| ¿A qué hora llega? | Når ankommer det? |
 | Llega a las diez y media | Det ankommer halv elleve |
 | ¿Cuánto tarda? | Hvor lang tid tar det? |
 | Tarda dos horas | Det tar to timer |
 | El tren tiene retraso | Toget er forsinket |
-| ¿De qué andén sale? | Fra hvilken plattform gar det? |`,
+| ¿De qué andén sale? | Fra hvilken plattform går det? |`,
     },
     {
       id: 'spansk-1-13-2-example-2',
@@ -2206,7 +2206,7 @@ I dette kapittelet laerer du a lese togtabeller (Renfe i Spania), busstider og a
         options: [
           { id: 'a', text: 'Enveis', isCorrect: false },
           { id: 'b', text: 'Tur-retur', isCorrect: true },
-          { id: 'c', text: 'Forste klasse', isCorrect: false },
+          { id: 'c', text: 'Første klasse', isCorrect: false },
           { id: 'd', text: 'Andre klasse', isCorrect: false },
         ],
         solution: '\"Ida y vuelta\" betyr tur-retur. \"Ida\" alene betyr enveis (bare tur).',
@@ -2238,7 +2238,7 @@ I dette kapittelet laerer du a lese togtabeller (Renfe i Spania), busstider og a
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Se pa togtabellen fra Eksempel 1 og svar pa sporsmalene pa spansk.',
+        task: 'Se på togtabellen fra Eksempel 1 og svar på spørsmålene på spansk.',
         subTasks: [
           { label: 'a', task: '¿A qué hora sale el AVE 3140 de Madrid?', solution: 'Sale a las ocho (08:00).' },
           { label: 'b', task: '¿A qué hora llega el AVE 3160 a Barcelona?', solution: 'Llega a las doce y cincuenta (12:50).' },
@@ -2257,12 +2257,12 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
 - I Latin-Amerika sier man ofte **el boleto** i stedet for **el billete** (billett).
 - Langdistansebusser i Latin-Amerika kalles ofte **el bus de larga distancia** eller bare **el bus**.
 - I Argentina kalles buss-terminalen **la terminal de ómnibus**.
-- I Mexico kalles forste klasse-busser **primera clase** og har komfortable seter, WiFi og TV.
+- I Mexico kalles første klasse-busser **primera clase** og har komfortable seter, WiFi og TV.
 
-**Nyttige uttrykk pa busstasjon:**
-- *¿A qué hora sale el próximo bus a...?* = Nar gar neste buss til...?
+**Nyttige uttrykk på busstasjon:**
+- *¿A qué hora sale el próximo bus a...?* = Når går neste buss til...?
 - *¿Cuánto cuesta el boleto?* = Hvor mye koster billetten?
-- *¿De qué andén sale?* = Fra hvilken plattform gar den?`,
+- *¿De qué andén sale?* = Fra hvilken plattform går den?`,
     },
     {
       id: 'spansk-1-13-2-ex-block-4',
@@ -2272,14 +2272,14 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett sporsmaalene til spansk.',
+        task: 'Oversett spørsmålene til spansk.',
         subTasks: [
-          { label: 'a', task: 'Nar gar toget til Barcelona?', solution: '¿A qué hora sale el tren a Barcelona?' },
+          { label: 'a', task: 'Når går toget til Barcelona?', solution: '¿A qué hora sale el tren a Barcelona?' },
           { label: 'b', task: 'Hvor mye koster en tur-retur billett?', solution: '¿Cuánto cuesta un billete de ida y vuelta?' },
           { label: 'c', task: 'Er toget forsinket?', solution: '¿El tren tiene retraso?' },
         ],
         solution: 'a) ¿A que hora sale el tren a Barcelona? b) ¿Cuanto cuesta un billete de ida y vuelta? c) ¿El tren tiene retraso?',
-        hints: ['Bruk *¿A que hora sale...?* for a sporge om avgangstid.'],
+        hints: ['Bruk *¿A que hora sale...?* for å spørre om avgangstid.'],
       },
     },
     {
@@ -2289,9 +2289,9 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
 
 - Rutetabeller bruker ordene *salida* (avgang), *llegada* (ankomst) og *duracion* (varighet).
 - *Ida* = enveis, *ida y vuelta* = tur-retur.
-- AVE er Spanias hoyhastighets-tog.
+- AVE er Spanias høyhastighets-tog.
 - I Latin-Amerika er buss det vanligste transportmiddelet.
-- Nyttige sporsmaal: *¿A que hora sale?* (Nar gar det?), *¿Cuanto cuesta?* (Hvor mye koster det?), *¿Cuanto tarda?* (Hvor lang tid tar det?).`,
+- Nyttige spørsmål: *¿A que hora sale?* (Når går det?), *¿Cuanto cuesta?* (Hvor mye koster det?), *¿Cuanto tarda?* (Hvor lang tid tar det?).`,
     },
     {
       id: 'spansk-1-13-2-ex-block-5',
@@ -2301,9 +2301,9 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en dialog pa spansk (6-8 replikker) der du kjoper en togbillett. Inkluder: destinasjon, ida/ida y vuelta, tidspunkt og pris.',
+        task: 'Skriv en dialog på spansk (6-8 replikker) der du kjøper en togbillett. Inkluder: destinasjon, ida/ida y vuelta, tidspunkt og pris.',
         solution: 'Eksempel:\n- Yo: Buenos días. Quiero un billete a Valencia, por favor.\n- Taquillero: ¿Ida o ida y vuelta?\n- Yo: Ida y vuelta.\n- Taquillero: ¿Para qué fecha?\n- Yo: Para mañana, sábado.\n- Taquillero: Hay trenes a las 9:00, 11:30 y 15:00.\n- Yo: El de las 11:30, por favor. ¿Cuánto cuesta?\n- Taquillero: Son treinta y cinco euros.\n- Yo: Aquí tiene. Gracias.\n- Taquillero: Buen viaje.',
-        hints: ['*Buen viaje* = God reise!', '*Aqui tiene* = Vaer sa god (nar du gir noe).'],
+        hints: ['*Buen viaje* = God reise!', '*Aqui tiene* = Vær så god (når du gir noe).'],
       },
     },
     {
@@ -2314,14 +2314,14 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
         number: '6',
         type: 'multiple-choice',
         difficulty: 'vanskelig',
-        task: 'Hva star \"AVE\" for i det spanske tognettet?',
+        task: 'Hva står \"AVE\" for i det spanske tognettet?',
         options: [
           { id: 'a', text: 'Asociación de Viajeros Españoles', isCorrect: false },
           { id: 'b', text: 'Alta Velocidad Española', isCorrect: true },
           { id: 'c', text: 'Autovía Exprés', isCorrect: false },
           { id: 'd', text: 'Acceso Vial Europeo', isCorrect: false },
         ],
-        solution: 'AVE star for \"Alta Velocidad Espanola\" (Spansk Hoyhastighet). AVE-togene kjorer opptil 310 km/t og forbinder Spanias storste byer. Ordet \"ave\" betyr ogsa \"fugl\" pa spansk.',
+        solution: 'AVE står for \"Alta Velocidad Espanola\" (Spansk Hoyhastighet). AVE-togene kjorer opptil 310 km/t og forbinder Spanias største byer. Ordet \"ave\" betyr også \"fugl\" på spansk.',
       },
     },
   ],
@@ -2338,7 +2338,7 @@ Mens Spania har et godt tognettverk (Renfe), er buss det vanligste transportmidd
 };
 
 // ============================================================================
-// Kapittel 13.3: Anuncios clasificados - Smaannonser
+// Kapittel 13.3: Anuncios clasificados - Småannonser
 // ============================================================================
 
 export const CHAPTER_SPANSK_1_13_3: TextbookChapter = {
@@ -2347,19 +2347,19 @@ export const CHAPTER_SPANSK_1_13_3: TextbookChapter = {
   chapterNumber: '13.3',
   title: 'Anuncios clasificados',
   subtitle: 'Småannonser',
-  description: 'Laer a lese og forsta spanske smaannonser for bolig og jobb.',
+  description: 'Lær å lese og forstå spanske småannonser for bolig og jobb.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'lese og forsta autentiske tekster',
+    'lese og forstå autentiske tekster',
     'forstaa forkortelser og uttrykk i annonser',
   ],
   content: [
     {
       id: 'spansk-1-13-3-intro',
       type: 'text',
-      content: `## Smaannonser pa spansk
+      content: `## Småannonser på spansk
 
-Smaannonser (anuncios clasificados) finner du i aviser, pa nettsider og i apper. De bruker ofte forkortelser og korte setninger for a spare plass. I dette kapittelet laerer du a lese bolig- og jobbannonser pa spansk.`,
+Småannonser (anuncios clasificados) finner du i aviser, på nettsider og i apper. De bruker ofte forkortelser og korte setninger for å spare plass. I dette kapittelet lærer du å lese bolig- og jobbannonser på spansk.`,
     },
     {
       id: 'spansk-1-13-3-def-1',
@@ -2371,10 +2371,10 @@ Smaannonser (anuncios clasificados) finner du i aviser, pa nettsider og i apper.
 |-------------|--------|-------|
 | hab. | habitación | rom/soverom |
 | baño | baño | bad |
-| cocina | cocina | kjokken |
-| amueblado | amueblado | mobelert |
-| sin amueblar | sin amueblar | umobelert |
-| €/mes | euros al mes | euro per maned |
+| cocina | cocina | kjøkken |
+| amueblado | amueblado | møblert |
+| sin amueblar | sin amueblar | umøblert |
+| €/mes | euros al mes | euro per måned |
 | m² | metros cuadrados | kvadratmeter |
 | piso | piso | leilighet |
 | casa | casa | hus |
@@ -2385,18 +2385,18 @@ Smaannonser (anuncios clasificados) finner du i aviser, pa nettsider og i apper.
       id: 'spansk-1-13-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Lese en boligannonse',
-      problem: `Les annonsen og svar pa sporsmalene:
+      problem: `Les annonsen og svar på spørsmålene:
 
 **Se alquila piso en el centro. 3 hab., 1 baño, cocina equipada. 75 m². Amueblado. 850€/mes. No se admiten mascotas. Contacto: 612 345 678.**
 
 a) Er leiligheten til salgs eller til leie?
 b) Hvor mange soverom har den?
-c) Er den mobelert?
-d) Hva koster den per maned?`,
+c) Er den møblert?
+d) Hva koster den per måned?`,
       solution: `a) Til leie (se alquila = til leie)
 b) 3 soverom (3 hab.)
-c) Ja, den er mobelert (amueblado)
-d) 850 euro per maned (850€/mes)
+c) Ja, den er møblert (amueblado)
+d) 850 euro per måned (850€/mes)
 
 Ekstra info: Husdyr er ikke tillatt (no se admiten mascotas).`,
     },
@@ -2412,17 +2412,17 @@ Ekstra info: Husdyr er ikke tillatt (no se admiten mascotas).`,
         options: [
           { id: 'a', text: 'Mobelert leilighet til salgs', isCorrect: false },
           { id: 'b', text: 'Mobelert leilighet til leie', isCorrect: true },
-          { id: 'c', text: 'Umobelert leilighet til leie', isCorrect: false },
+          { id: 'c', text: 'Umøblert leilighet til leie', isCorrect: false },
           { id: 'd', text: 'Mobelert hus til leie', isCorrect: false },
         ],
-        solution: 'Se alquila = til leie, piso = leilighet, amueblado = mobelert. Til salgs ville vaert \"se vende\".',
+        solution: 'Se alquila = til leie, piso = leilighet, amueblado = møblert. Til salgs ville vært \"se vende\".',
       },
     },
     {
       id: 'spansk-1-13-3-def-2',
       type: 'definition',
       title: 'Jobbannonser (Ofertas de empleo)',
-      content: `**Jobbannonser** har ogsa sine egne uttrykk:
+      content: `**Jobbannonser** har også sine egne uttrykk:
 
 | Spansk | Norsk |
 |--------|-------|
@@ -2448,10 +2448,10 @@ a) Hva slags jobb er det?
 b) Hva er kravene?
 c) Er det heltid eller deltid?`,
       solution: `a) Servitor (camarero/a)
-b) Minimum 1 ars erfaring, spansk og engelsk
+b) Minimum 1 års erfaring, spansk og engelsk
 c) Heltid (jornada completa)
 
-Lonnen er 1.200 euro per maned pluss tips (propinas).`,
+Lonnen er 1.200 euro per måned pluss tips (propinas).`,
     },
     {
       id: 'spansk-1-13-3-ex-block-2',
@@ -2463,7 +2463,7 @@ Lonnen er 1.200 euro per maned pluss tips (propinas).`,
         difficulty: 'lett',
         task: 'Oversett disse annonseutrykkene til norsk.',
         subTasks: [
-          { label: 'a', task: 'Se busca profesor de inglés', solution: 'Sokes engelsklarer' },
+          { label: 'a', task: 'Se busca profesør de inglés', solution: 'Sokes engelsklarer' },
           { label: 'b', task: 'Media jornada', solution: 'Deltid' },
           { label: 'c', task: 'Incorporación inmediata', solution: 'Umiddelbar tiltredelse' },
           { label: 'd', task: 'Se vende casa con jardín', solution: 'Hus med hage til salgs' },
@@ -2480,14 +2480,14 @@ Lonnen er 1.200 euro per maned pluss tips (propinas).`,
         number: '3',
         type: 'multiple-choice',
         difficulty: 'medium',
-        task: 'Du leter etter en leilighet. Hvilken annonse passer best hvis du har en hund og vil leie mobelert?',
+        task: 'Du leter etter en leilighet. Hvilken annonse passer best hvis du har en hund og vil leie møblert?',
         options: [
           { id: 'a', text: 'Se alquila piso amueblado. No se admiten mascotas. 700€/mes.', isCorrect: false },
           { id: 'b', text: 'Se vende casa con jardín. Se admiten mascotas.', isCorrect: false },
           { id: 'c', text: 'Se alquila piso amueblado. Se admiten mascotas. 800€/mes.', isCorrect: true },
           { id: 'd', text: 'Se alquila piso sin amueblar. Se admiten mascotas. 650€/mes.', isCorrect: false },
         ],
-        solution: 'Alternativ c) er riktig: Det er til leie (alquila), mobelert (amueblado), og husdyr er tillatt (se admiten mascotas).',
+        solution: 'Alternativ c) er riktig: Det er til leie (alquila), møblert (amueblado), og husdyr er tillatt (se admiten mascotas).',
       },
     },
     {
@@ -2495,9 +2495,9 @@ Lonnen er 1.200 euro per maned pluss tips (propinas).`,
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert:
+I dette kapittelet har du lært:
 
-- **Boligannonser**: Forkortelser som hab. (rom), m² (kvadratmeter), amueblado (mobelert)
+- **Boligannonser**: Forkortelser som hab. (rom), m² (kvadratmeter), amueblado (møblert)
 - **Kjope/leie**: Se vende (til salgs) vs. se alquila (til leie)
 - **Jobbannonser**: Uttrykk som jornada completa (heltid), requisitos (krav), sueldo (lonn)
 - **Nyttige uttrykk**: Se busca (sokes), incorporacion inmediata (umiddelbar tiltredelse)`,
@@ -2511,9 +2511,9 @@ I dette kapittelet har du laert:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en boligannonse pa spansk for en leilighet du vil leie ut. Inkluder: antall rom, storrelse, mobelert/umobelert, pris, og om husdyr er tillatt.',
+        task: 'Skriv en boligannonse på spansk for en leilighet du vil leie ut. Inkluder: antall rom, storrelse, møblert/umøblert, pris, og om husdyr er tillatt.',
         solution: 'Eksempel: Se alquila piso en el centro de Oslo. 2 hab., 1 baño, cocina equipada. 60 m². Amueblado. 1.000€/mes. Se admiten mascotas. Contacto: 987 654 321.',
-        hints: ['Bruk forkortelsene du har laert', 'Se alquila = til leie'],
+        hints: ['Bruk forkortelsene du har lært', 'Se alquila = til leie'],
       },
     },
     {
@@ -2524,7 +2524,7 @@ I dette kapittelet har du laert:
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en jobbannonse pa spansk for en sommerjobb i Norge. Inkluder: type jobb, krav, heltid/deltid, og lonn.',
+        task: 'Skriv en jobbannonse på spansk for en sommerjobb i Norge. Inkluder: type jobb, krav, heltid/deltid, og lonn.',
         solution: 'Eksempel: Se busca guía turístico para el verano en Bergen, Noruega. Requisitos: español e inglés, experiencia en turismo. Jornada completa (junio-agosto). Sueldo: 2.500€/mes. Enviar CV a trabajo@visitbergen.no.',
         hints: ['Se busca = sokes', 'Guia turistico = turistguide'],
       },
@@ -2532,10 +2532,10 @@ I dette kapittelet har du laert:
   ],
   exercises: [],
   keyTerms: [
-    { term: 'el anuncio clasificado', definition: 'smaannonsen' },
+    { term: 'el anuncio clasificado', definition: 'småannonsen' },
     { term: 'se alquila', definition: 'til leie' },
     { term: 'se vende', definition: 'til salgs' },
-    { term: 'amueblado', definition: 'mobelert' },
+    { term: 'amueblado', definition: 'møblert' },
     { term: 'se busca', definition: 'sokes' },
     { term: 'la jornada completa', definition: 'heltid' },
     { term: 'el sueldo', definition: 'lonnen' },
@@ -2552,21 +2552,21 @@ export const CHAPTER_SPANSK_1_13_4: TextbookChapter = {
   chapterNumber: '13.4',
   title: 'Poemas y canciones',
   subtitle: 'Dikt og sanger',
-  description: 'Les enkle spanske dikt og sangtekster og laer om spanskspraklig poesi.',
+  description: 'Les enkle spanske dikt og sangtekster og lær om spanskspråklig poesi.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'lese og forsta enkle tekster',
-    'utforske kunstneriske uttrykk i spansktalende omrader',
+    'lese og forstå enkle tekster',
+    'utforske kunstneriske uttrykk i spansktalende områder',
   ],
   content: [
     {
       id: 'spansk-1-13-4-intro',
       type: 'text',
-      content: `## Dikt og sanger pa spansk
+      content: `## Dikt og sanger på spansk
 
-Spansk poesi og musikk er en viktig del av den spanskspraklige kulturen. Fra klassiske dikt av Federico Garcia Lorca til moderne popmusikk - spraket er fullt av vakre uttrykk og rytmer.
+Spansk poesi og musikk er en viktig del av den spanskspråklige kulturen. Fra klassiske dikt av Federico Garcia Lorca til moderne popmusikk - språket er fullt av vakre uttrykk og rytmer.
 
-I dette kapittelet skal du lese enkle dikt og sangtekster og laere nye ord gjennom poesi.`,
+I dette kapittelet skal du lese enkle dikt og sangtekster og lære nye ord gjennom poesi.`,
     },
     {
       id: 'spansk-1-13-4-def-1',
@@ -2578,8 +2578,8 @@ I dette kapittelet skal du lese enkle dikt og sangtekster og laere nye ord gjenn
 |--------|-------|
 | el corazón | hjertet |
 | el alma | sjelen |
-| el sueño | drommen |
-| la luna | manen |
+| el sueño | drømmen |
+| la luna | månen |
 | el sol | solen |
 | la estrella | stjernen |
 | el mar | havet |
@@ -2600,13 +2600,13 @@ Mi corazón siente anhelo,
 cuando la noche me ata.
 
 Hva handler diktet om?`,
-      solution: `**Manen**
-Manen skinner pa himmelen,
+      solution: `**Månen**
+Månen skinner på himmelen,
 stjernene er av solv.
-Hjertet mitt foler lengsel,
-nar natten binder meg.
+Hjertet mitt føler lengsel,
+når natten binder meg.
 
-Diktet handler om nattehimmelen og en folelse av lengsel (anhelo). Det bruker naturbilder (mane, stjerner, natt) for a beskrive en folelse.`,
+Diktet handler om nattehimmelen og en følelse av lengsel (anhelo). Det bruker naturbilder (mane, stjerner, natt) for å beskrive en følelse.`,
     },
     {
       id: 'spansk-1-13-4-ex-block-1',
@@ -2618,31 +2618,31 @@ Diktet handler om nattehimmelen og en folelse av lengsel (anhelo). Det bruker na
         difficulty: 'lett',
         task: 'Hva betyr \"La luna brilla en el cielo\"?',
         options: [
-          { id: 'a', text: 'Solen skinner pa havet', isCorrect: false },
-          { id: 'b', text: 'Manen skinner pa himmelen', isCorrect: true },
+          { id: 'a', text: 'Solen skinner på havet', isCorrect: false },
+          { id: 'b', text: 'Månen skinner på himmelen', isCorrect: true },
           { id: 'c', text: 'Stjernen lyser i natten', isCorrect: false },
-          { id: 'd', text: 'Blomsten vokser pa jorden', isCorrect: false },
+          { id: 'd', text: 'Blomsten vokser på jorden', isCorrect: false },
         ],
-        solution: 'La luna = manen, brilla = skinner, en el cielo = pa himmelen.',
+        solution: 'La luna = månen, brilla = skinner, en el cielo = på himmelen.',
       },
     },
     {
       id: 'spansk-1-13-4-text-1',
       type: 'text',
-      content: `## Sangtekster som laeringsverktoy
+      content: `## Sangtekster som læringsverktoy
 
-Sangtekster er en fantastisk mate a laere spansk pa! Musikk hjelper deg med:
+Sangtekster er en fantastisk måte å lære spansk på! Musikk hjelper deg med:
 
-- **Uttale**: Du horer hvordan ord uttales
-- **Vokabular**: Du laerer nye ord i kontekst
+- **Uttale**: Du hører hvordan ord uttales
+- **Vokabular**: Du lærer nye ord i kontekst
 - **Grammatikk**: Du ser grammatikk brukt naturlig
-- **Kultur**: Du laerer om spanskspraklig kultur
+- **Kultur**: Du lærer om spanskspråklig kultur
 
-**Tips for a laere med sanger:**
-1. Lytt forst uten tekst
-2. Les teksten og sla opp ukjente ord
+**Tips for å lære med sanger:**
+1. Lytt først uten tekst
+2. Les teksten og slå opp ukjente ord
 3. Lytt igjen mens du leser teksten
-4. Prov a synge med!`,
+4. Prov å synge med!`,
     },
     {
       id: 'spansk-1-13-4-example-2',
@@ -2657,8 +2657,8 @@ En el cielo y en el mar,
 un diamante de verdad.`,
       solution: `**Lille stjerne, hvor er du?**
 Lille stjerne, hvor er du?
-Jeg lurer pa hva du er.
-Pa himmelen og i havet,
+Jeg lurer på hva du er.
+På himmelen og i havet,
 en ekte diamant.
 
 Dette er den spanske versjonen av \"Twinkle, Twinkle, Little Star\". Estrellita er diminutiv av estrella (stjerne) - det lille endelsen -ita betyr \"liten\".`,
@@ -2675,11 +2675,11 @@ Dette er den spanske versjonen av \"Twinkle, Twinkle, Little Star\". Estrellita 
         subTasks: [
           { label: 'a', task: 'el corazón', solution: 'hjertet' },
           { label: 'b', task: 'la estrella', solution: 'stjernen' },
-          { label: 'c', task: 'el sueño', solution: 'drommen' },
+          { label: 'c', task: 'el sueño', solution: 'drømmen' },
           { label: 'd', task: 'el mar', solution: 'havet' },
           { label: 'e', task: 'la flor', solution: 'blomsten' },
         ],
-        solution: 'a) hjertet, b) stjernen, c) drommen, d) havet, e) blomsten',
+        solution: 'a) hjertet, b) stjernen, c) drømmen, d) havet, e) blomsten',
         hints: ['Se vokabulartabellen i definisjonen'],
       },
     },
@@ -2687,17 +2687,17 @@ Dette er den spanske versjonen av \"Twinkle, Twinkle, Little Star\". Estrellita 
       id: 'spansk-1-13-4-def-2',
       type: 'definition',
       title: 'Diminutiv (-ito/-ita)',
-      content: `Pa spansk kan du legge til **-ito** (hankjonn) eller **-ita** (hunkjonn) for a si at noe er lite eller sotet:
+      content: `På spansk kan du legge til **-ito** (hankjønn) eller **-ita** (hunkjønn) for å si at noe er lite eller søtet:
 
 | Ord | Diminutiv | Betydning |
 |-----|-----------|-----------|
 | estrella | estrellita | lille stjerne |
 | casa | casita | lite hus |
 | gato | gatito | liten katt |
-| momento | momentito | lite oyeblikk |
+| momento | momentito | lite øyeblikk |
 | hermano | hermanito | lillebror |
 
-Diminutiver brukes mye i spansk, spesielt i sangtekster og nar man snakker med barn.`,
+Diminutiver brukes mye i spansk, spesielt i sangtekster og når man snakker med barn.`,
     },
     {
       id: 'spansk-1-13-4-ex-block-3',
@@ -2714,7 +2714,7 @@ Diminutiver brukes mye i spansk, spesielt i sangtekster og nar man snakker med b
           { id: 'c', text: 'perrino', isCorrect: false },
           { id: 'd', text: 'perrillo', isCorrect: false },
         ],
-        solution: 'Perro er hankjonn, sa diminutiv far endelsen -ito: perrito (liten hund/valp).',
+        solution: 'Perro er hankjønn, så diminutiv får endelsen -ito: perrito (liten hund/valp).',
       },
     },
     {
@@ -2722,12 +2722,12 @@ Diminutiver brukes mye i spansk, spesielt i sangtekster og nar man snakker med b
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har du laert:
+I dette kapittelet har du lært:
 
 - **Poetiske ord**: corazon (hjerte), luna (mane), estrella (stjerne), mar (hav)
-- **Lese dikt**: Forsta enkle spanske dikt med naturbilder og folelser
-- **Sangtekster**: Bruke musikk som laeringsverktoy
-- **Diminutiv**: Legge til -ito/-ita for a si at noe er lite (estrellita, casita)`,
+- **Lese dikt**: Forsta enkle spanske dikt med naturbilder og følelser
+- **Sangtekster**: Bruke musikk som læringsverktoy
+- **Diminutiv**: Legge til -ito/-ita for å si at noe er lite (estrellita, casita)`,
     },
     // --- Samleoppgaver ---
     {
@@ -2738,7 +2738,7 @@ I dette kapittelet har du laert:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv et kort dikt pa spansk (4-6 linjer) med minst tre av disse ordene: luna, sol, corazon, mar, estrella, flor.',
+        task: 'Skriv et kort dikt på spansk (4-6 linjer) med minst tre av disse ordene: luna, sol, corazon, mar, estrella, flor.',
         solution: 'Eksempel:\nEl sol brilla sobre el mar,\nlas flores danzan con el viento.\nMi corazon quiere cantar,\ny las estrellas son mi aliento.',
         hints: ['Det trenger ikke a rime', 'Bruk enkle setninger'],
       },
@@ -2751,9 +2751,9 @@ I dette kapittelet har du laert:
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Finn en spansk sang du liker (for eksempel av Shakira, Enrique Iglesias, Rosalia, eller Bad Bunny). Skriv ned 4-6 linjer fra sangteksten, oversett dem til norsk, og forklar tre nye ord du laerte.',
-        solution: 'Her bruker du en selvvalgt sang. Eksempel fra \"Waka Waka\" av Shakira:\n\"Llegó el momento, caen las murallas\" = Oyeblikket har kommet, murene faller.\nNye ord: el momento (oyeblikket), caer (a falle), la muralla (muren).',
-        hints: ['Sok etter sangteksten pa nettet', 'Velg en sang med tydelig uttale'],
+        task: 'Finn en spansk sang du liker (for eksempel av Shakira, Enrique Iglesias, Rosalia, eller Bad Bunny). Skriv ned 4-6 linjer fra sangteksten, oversett dem til norsk, og forklar tre nye ord du lærte.',
+        solution: 'Her bruker du en selvvalgt sang. Eksempel fra \"Waka Waka\" av Shakira:\n\"Llegó el momento, caen las murallas\" = Øyeblikket har kommet, murene faller.\nNye ord: el momento (øyeblikket), caer (å falle), la muralla (muren).',
+        hints: ['Sok etter sangteksten på nettet', 'Velg en sang med tydelig uttale'],
       },
     },
   ],
@@ -2762,7 +2762,7 @@ I dette kapittelet har du laert:
     { term: 'el poema', definition: 'diktet' },
     { term: 'la canción', definition: 'sangen' },
     { term: 'el corazón', definition: 'hjertet' },
-    { term: 'la luna', definition: 'manen' },
+    { term: 'la luna', definition: 'månen' },
     { term: 'la estrella', definition: 'stjernen' },
     { term: 'diminutivo (-ito/-ita)', definition: 'forminskelses-endelse' },
   ],

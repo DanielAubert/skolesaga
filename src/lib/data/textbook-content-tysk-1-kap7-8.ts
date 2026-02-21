@@ -17,7 +17,7 @@ export const CHAPTER_TYSK_1_7_1: TextbookChapter = {
   chapterNumber: '7.1',
   title: 'Die Kleidung',
   subtitle: 'Klaerne',
-  description: 'Laer grunnleggende ord for klaer pa tysk.',
+  description: 'Laer grünnleggende ord for klaer pa tysk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'laere ord for vanlige klaesplagg',
@@ -64,7 +64,7 @@ Pa tysk har alle substantiver kjonn: hankjonn (der), hunkjonn (die) eller inkjet
 | die Shorts | shorts |
 | die Schuhe (pl.) | sko |
 | die Socken (pl.) | sokker |
-| der Gurtel | belte |`,
+| der Gürtel | belte |`,
     },
     {
       id: 'tysk-1-7-1-text-1',
@@ -74,7 +74,7 @@ Pa tysk har alle substantiver kjonn: hankjonn (der), hunkjonn (die) eller inkjet
 | Tysk | Norsk |
 |------|-------|
 | der Hut | hatt |
-| die Mutze | lue |
+| die Mütze | lue |
 | der Schal | skjerf |
 | die Handschuhe (pl.) | hansker |
 | die Brille | briller |
@@ -134,7 +134,7 @@ c) ___ Pullover (der/die/das)`,
 b) **die** Jacke - hunkjonn
 c) **der** Pullover - hankjonn
 
-**Tips:** Mange klaesplagg som slutter pa -e er hunkjonn (die): die Jacke, die Hose, die Bluse, die Mutze.`,
+**Tips:** Mange klaesplagg som slutter pa -e er hunkjonn (die): die Jacke, die Hose, die Bluse, die Mütze.`,
     },
     {
       id: 'tysk-1-7-1-ex-block-2',
@@ -181,7 +181,7 @@ b) das Hemd -> die ___
 c) der Rock -> die ___`,
       solution: `a) die Jacke -> die **Jacken**
 b) das Hemd -> die **Hemden**
-c) der Rock -> die **Rocke**
+c) der Rock -> die **Röcke**
 
 **Merk:** I flertall bruker alle substantiver artikkelen "die".`,
     },
@@ -215,14 +215,14 @@ c) der Rock -> die **Rocke**
 };
 
 // ============================================================================
-// Kapittel 7.2: Im Kleidergeschaft - I klesbutikken
+// Kapittel 7.2: Im Kleidergeschäft - I klesbutikken
 // ============================================================================
 
 export const CHAPTER_TYSK_1_7_2: TextbookChapter = {
   id: 'tysk-1-7-2',
   courseId: 'tysk-1',
   chapterNumber: '7.2',
-  title: 'Im Kleidergeschaft',
+  title: 'Im Kleidergeschäft',
   subtitle: 'I klesbutikken',
   description: 'Laer a handle klaer og snakke med ekspeditoerer pa tysk.',
   estimatedMinutes: 45,
@@ -249,7 +249,7 @@ Nar du handler klaer i Tyskland, er det nyttig a kunne noen viktige fraser. La o
 |------|-------|
 | Kann ich Ihnen helfen? | Kan jeg hjelpe deg? |
 | Kann ich ... anprobieren? | Kan jeg prove ...? |
-| Haben Sie das in Grosse ...? | Har dere dette i stoerrelse ...? |
+| Haben Sie das in Größe ...? | Har dere dette i stoerrelse ...? |
 | Wo ist die Umkleidekabine? | Hvor er proverommet? |
 | Was kostet das? | Hva koster det? |
 | Wie viel kostet ...? | Hvor mye koster ...? |`,
@@ -265,9 +265,9 @@ Nar du handler klaer i Tyskland, er det nyttig a kunne noen viktige fraser. La o
 | Ich suche ... | Jeg leter etter ... |
 | Das passt mir | Det passer meg |
 | Das passt mir nicht | Det passer meg ikke |
-| Das ist zu gross | Det er for stort |
+| Das ist zu groß | Det er for stort |
 | Das ist zu klein | Det er for lite |
-| Das gefallt mir | Jeg liker det |
+| Das gefällt mir | Jeg liker det |
 | Ich nehme es | Jeg tar det |`,
     },
     {
@@ -276,20 +276,20 @@ Nar du handler klaer i Tyskland, er det nyttig a kunne noen viktige fraser. La o
       title: 'Eksempel 1: I klesbutikken',
       problem: `Les dialogen og svar pa sporsmalene:
 
-Verkaufer: Guten Tag! Kann ich Ihnen helfen?
+Verkäufer: Guten Tag! Kann ich Ihnen helfen?
 Kunde: Ja, ich suche eine Jacke.
-Verkaufer: Welche Grosse haben Sie?
-Kunde: Grosse M, bitte.
-Verkaufer: Hier ist eine schone Jacke. Mochten Sie sie anprobieren?
+Verkäufer: Welche Größe haben Sie?
+Kunde: Größe M, bitte.
+Verkäufer: Hier ist eine schöne Jacke. Möchten Sie sie anprobieren?
 Kunde: Ja, gerne. Wo ist die Umkleidekabine?
 
 a) Hva leter kunden etter?
 b) Hvilken stoerrelse trenger kunden?`,
       solution: `a) Kunden leter etter en jakke (eine Jacke).
-b) Kunden trenger stoerrelse M (Grosse M).
+b) Kunden trenger stoerrelse M (Größe M).
 
 **Viktige ord fra dialogen:**
-- der Verkaufer = ekspeditoer
+- der Verkäufer = ekspeditoer
 - der Kunde = kunde
 - anprobieren = prove
 - die Umkleidekabine = proverom`,
@@ -321,7 +321,7 @@ Nar du skal betale, kan du bruke disse frasene:
 
 | Tysk | Norsk |
 |------|-------|
-| Ich mochte zahlen | Jeg vil betale |
+| Ich möchte zahlen | Jeg vil betale |
 | Kann ich mit Karte zahlen? | Kan jeg betale med kort? |
 | Nur bar | Kun kontant |
 | Das macht ... Euro | Det blir ... euro |
@@ -334,13 +334,13 @@ Nar du skal betale, kan du bruke disse frasene:
       problem: `Fullfoor dialogen:
 
 Kunde: Die Jacke ___ mir gut. Ich ___ sie.
-Verkaufer: Das macht 49 Euro.
+Verkäufer: Das macht 49 Euro.
 Kunde: Kann ich mit ___ zahlen?
-Verkaufer: Ja, naturlich.`,
+Verkäufer: Ja, natürlich.`,
       solution: `Kunde: Die Jacke **passt** mir gut. Ich **nehme** sie.
-Verkaufer: Das macht 49 Euro.
+Verkäufer: Das macht 49 Euro.
 Kunde: Kann ich mit **Karte** zahlen?
-Verkaufer: Ja, naturlich.
+Verkäufer: Ja, natürlich.
 
 **Oversettelse:** Jakken passer meg godt. Jeg tar den. - Det blir 49 euro. - Kan jeg betale med kort? - Ja, selvfoelgelig.`,
     },
@@ -356,45 +356,45 @@ Verkaufer: Ja, naturlich.
         subTasks: [
           { label: 'a', task: 'Ich ___ eine Hose. (leter etter)', solution: 'suche', answer: 'suche' },
           { label: 'b', task: 'Das ___ mir nicht. (passer)', solution: 'passt', answer: 'passt' },
-          { label: 'c', task: 'Das ist zu ___. (stort)', solution: 'gross', answer: 'gross' },
+          { label: 'c', task: 'Das ist zu ___. (stort)', solution: 'groß', answer: 'groß' },
           { label: 'd', task: 'Ich ___ es. (tar)', solution: 'nehme', answer: 'nehme' },
         ],
-        solution: 'a) suche, b) passt, c) gross, d) nehme',
+        solution: 'a) suche, b) passt, c) groß, d) nehme',
         hints: ['suchen = a lete etter', 'passen = a passe', 'nehmen = a ta'],
       },
     },
     {
       id: 'tysk-1-7-2-text-2',
       type: 'text',
-      content: `## Verbet "mogen" (a ville/oenske)
+      content: `## Verbet "mögen" (a ville/oenske)
 
-For hoeflige oeonsker bruker vi "mochten" (konjunktiv av "mogen"):
+For hoeflige oeonsker bruker vi "möchten" (konjunktiv av "mögen"):
 
 | Person | Form |
 |--------|------|
-| ich | mochte |
-| du | mochtest |
-| er/sie/es | mochte |
-| wir | mochten |
-| ihr | mochtet |
-| sie/Sie | mochten |
+| ich | möchte |
+| du | möchtest |
+| er/sie/es | möchte |
+| wir | möchten |
+| ihr | möchtet |
+| sie/Sie | möchten |
 
-Eksempel: Ich mochte diese Jacke anprobieren. (Jeg vil gjerne prove denne jakken.)`,
+Eksempel: Ich möchte diese Jacke anprobieren. (Jeg vil gjerne prove denne jakken.)`,
     },
     {
       id: 'tysk-1-7-2-example-3',
       type: 'example',
-      title: 'Eksempel 3: Mochten',
-      problem: `Oversett til tysk med "mochten":
+      title: 'Eksempel 3: Möchten',
+      problem: `Oversett til tysk med "möchten":
 
 a) Jeg vil gjerne ha en bukse.
 b) Hun vil gjerne prove kjolen.
 c) Vi vil gjerne betale.`,
-      solution: `a) **Ich mochte eine Hose.**
-b) **Sie mochte das Kleid anprobieren.**
-c) **Wir mochten zahlen.**
+      solution: `a) **Ich möchte eine Hose.**
+b) **Sie möchte das Kleid anprobieren.**
+c) **Wir möchten zahlen.**
 
-**Merk:** "mochten" er mer hoeflig enn "wollen" (vil).`,
+**Merk:** "möchten" er mer hoeflig enn "wollen" (vil).`,
     },
     {
       id: 'tysk-1-7-2-ex-block-3',
@@ -404,14 +404,14 @@ c) **Wir mochten zahlen.**
         number: '7.2.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv setninger med "mochten":',
+        task: 'Skriv setninger med "möchten":',
         subTasks: [
-          { label: 'a', task: 'jeg / prove / genseren', solution: 'Ich mochte den Pullover anprobieren.', answer: 'Ich mochte den Pullover anprobieren' },
-          { label: 'b', task: 'han / ha / en jakke', solution: 'Er mochte eine Jacke.', answer: 'Er mochte eine Jacke' },
-          { label: 'c', task: 'de / betale / med kort', solution: 'Sie mochten mit Karte zahlen.', answer: 'Sie mochten mit Karte zahlen' },
+          { label: 'a', task: 'jeg / prove / genseren', solution: 'Ich möchte den Pullover anprobieren.', answer: 'Ich möchte den Pullover anprobieren' },
+          { label: 'b', task: 'han / ha / en jakke', solution: 'Er möchte eine Jacke.', answer: 'Er möchte eine Jacke' },
+          { label: 'c', task: 'de / betale / med kort', solution: 'Sie möchten mit Karte zahlen.', answer: 'Sie möchten mit Karte zahlen' },
         ],
-        solution: 'a) Ich mochte den Pullover anprobieren, b) Er mochte eine Jacke, c) Sie mochten mit Karte zahlen',
-        hints: ['mochten + infinitiv star til slutt', 'Husk akkusativ: der -> den'],
+        solution: 'a) Ich möchte den Pullover anprobieren, b) Er möchte eine Jacke, c) Sie möchten mit Karte zahlen',
+        hints: ['möchten + infinitiv star til slutt', 'Husk akkusativ: der -> den'],
       },
     },
     {
@@ -433,7 +433,7 @@ c) **Wir mochten zahlen.**
           { label: 'b', task: 'Kundens svar', solution: 'Ja, ich suche ein T-Shirt.' },
           { label: 'c', task: 'Avslutt dialogen', solution: 'Was kostet es? - Das macht 25 Euro. - Ich nehme es.' },
         ],
-        solution: 'Eksempel: "Verkaufer: Guten Tag! Kann ich Ihnen helfen? Kunde: Ja, ich suche ein T-Shirt. Kann ich das blaue anprobieren? Verkaufer: Naturlich! Was kostet es? Das macht 25 Euro. Kunde: Gut, ich nehme es."',
+        solution: 'Eksempel: "Verkäufer: Guten Tag! Kann ich Ihnen helfen? Kunde: Ja, ich suche ein T-Shirt. Kann ich das blaue anprobieren? Verkäufer: Natürlich! Was kostet es? Das macht 25 Euro. Kunde: Gut, ich nehme es."',
         hints: ['Start med en hilsen', 'Bruk hoeflig form (Sie)'],
       },
     },
@@ -442,14 +442,14 @@ c) **Wir mochten zahlen.**
 };
 
 // ============================================================================
-// Kapittel 7.3: Farben und Grossen - Farger og stoerrelser
+// Kapittel 7.3: Farben und Größen - Farger og stoerrelser
 // ============================================================================
 
 export const CHAPTER_TYSK_1_7_3: TextbookChapter = {
   id: 'tysk-1-7-3',
   courseId: 'tysk-1',
   chapterNumber: '7.3',
-  title: 'Farben und Grossen',
+  title: 'Farben und Größen',
   subtitle: 'Farger og stoerrelser',
   description: 'Laer farger og stoerrelser for a beskrive klaer.',
   estimatedMinutes: 45,
@@ -477,8 +477,8 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere
 | rot | roed |
 | blau | bla |
 | gelb | gul |
-| grun | groenn |
-| weiss | hvit |
+| grün | groenn |
+| weiß | hvit |
 | schwarz | svart |
 | braun | brun |
 | grau | gra |
@@ -496,8 +496,8 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere
 |------|-------|
 | hellblau | lyseblaa |
 | dunkelblau | moerkeblaa |
-| hellgrun | lysegroen |
-| dunkelgrun | moerkegroen |
+| hellgrün | lysegroen |
+| dunkelgrün | moerkegroen |
 | hellrot | lyseroed |
 | dunkelrot | moerkeroed |
 
@@ -512,11 +512,11 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere
 a) Das rote Kleid
 b) Die blaue Jacke
 c) Der schwarze Mantel
-d) Die weissen Schuhe`,
+d) Die weißen Schuhe`,
       solution: `a) Das rote Kleid = **den roede kjolen**
 b) Die blaue Jacke = **den blaa jakken**
 c) Der schwarze Mantel = **den svarte frakken**
-d) Die weissen Schuhe = **de hvite skoene**
+d) Die weißen Schuhe = **de hvite skoene**
 
 **Merk:** Nar adjektivet star foran substantivet, far det en endelse (-e, -en osv.)`,
     },
@@ -532,17 +532,17 @@ d) Die weissen Schuhe = **de hvite skoene**
         subTasks: [
           { label: 'a', task: 'roed', solution: 'rot', answer: 'rot' },
           { label: 'b', task: 'blaa', solution: 'blau', answer: 'blau' },
-          { label: 'c', task: 'groenn', solution: 'grun', answer: 'grun' },
+          { label: 'c', task: 'groenn', solution: 'grün', answer: 'grün' },
           { label: 'd', task: 'svart', solution: 'schwarz', answer: 'schwarz' },
         ],
-        solution: 'a) rot, b) blau, c) grun, d) schwarz',
-        hints: ['Grun har omlyd (u)', 'Schwarz har "sch" i starten'],
+        solution: 'a) rot, b) blau, c) grün, d) schwarz',
+        hints: ['Grün har omlyd (u)', 'Schwarz har "sch" i starten'],
       },
     },
     {
       id: 'tysk-1-7-3-def-2',
       type: 'definition',
-      title: 'Die Grossen - Stoerrelsene',
+      title: 'Die Größen - Stoerrelsene',
       content: `**Klaesstoerrelser:**
 
 | Tysk | Norsk |
@@ -550,13 +550,13 @@ d) Die weissen Schuhe = **de hvite skoene**
 | XS - extra klein | ekstra liten |
 | S - klein | liten |
 | M - mittel | medium |
-| L - gross | stor |
-| XL - extra gross | ekstra stor |
+| L - groß | stor |
+| XL - extra groß | ekstra stor |
 | XXL | dobbel ekstra stor |
 
 **Sporre om stoerrelse:**
-- Welche Grosse haben Sie? = Hvilken stoerrelse har du?
-- Ich habe Grosse M = Jeg har stoerrelse M`,
+- Welche Größe haben Sie? = Hvilken stoerrelse har du?
+- Ich habe Größe M = Jeg har stoerrelse M`,
     },
     {
       id: 'tysk-1-7-3-text-2',
@@ -567,8 +567,8 @@ I Tyskland brukes europeiske skostoerrelser (36, 37, 38 osv.).
 
 | Tysk | Norsk |
 |------|-------|
-| Welche Schuhgrosse haben Sie? | Hvilken skostoerrelse har du? |
-| Ich habe Schuhgrosse 42 | Jeg har skostoerrelse 42 |
+| Welche Schuhgroße haben Sie? | Hvilken skostoerrelse har du? |
+| Ich habe Schuhgroße 42 | Jeg har skostoerrelse 42 |
 | Die Schuhe sind zu eng | Skoene er for trange |
 | Die Schuhe sind zu weit | Skoene er for vide |`,
     },
@@ -578,16 +578,16 @@ I Tyskland brukes europeiske skostoerrelser (36, 37, 38 osv.).
       title: 'Eksempel 2: Stoerrelser',
       problem: `Fullfoor setningene:
 
-a) Ich suche das T-Shirt in Grosse ___ (medium).
+a) Ich suche das T-Shirt in Größe ___ (medium).
 b) Haben Sie die Hose in ___ (stor)?
-c) Die Schuhe sind zu ___. Haben Sie Grosse 44? (sma)`,
-      solution: `a) Ich suche das T-Shirt in Grosse **M** (eller **mittel**).
-b) Haben Sie die Hose in **L** (eller **gross**)?
-c) Die Schuhe sind zu **klein**. Haben Sie Grosse 44?
+c) Die Schuhe sind zu ___. Haben Sie Größe 44? (sma)`,
+      solution: `a) Ich suche das T-Shirt in Größe **M** (eller **mittel**).
+b) Haben Sie die Hose in **L** (eller **groß**)?
+c) Die Schuhe sind zu **klein**. Haben Sie Größe 44?
 
 **Nyttig ordforraad:**
 - zu klein = for liten
-- zu gross = for stor
+- zu groß = for stor
 - genau richtig = akkurat riktig`,
     },
     {
@@ -600,13 +600,13 @@ c) Die Schuhe sind zu **klein**. Haben Sie Grosse 44?
         difficulty: 'lett',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'stoerrelse L', solution: 'Grosse L', answer: 'Grosse L' },
-          { label: 'b', task: 'for stor', solution: 'zu gross', answer: 'zu gross' },
+          { label: 'a', task: 'stoerrelse L', solution: 'Größe L', answer: 'Größe L' },
+          { label: 'b', task: 'for stor', solution: 'zu groß', answer: 'zu groß' },
           { label: 'c', task: 'for liten', solution: 'zu klein', answer: 'zu klein' },
-          { label: 'd', task: 'hvilken stoerrelse', solution: 'welche Grosse', answer: 'welche Grosse' },
+          { label: 'd', task: 'hvilken stoerrelse', solution: 'welche Größe', answer: 'welche Größe' },
         ],
-        solution: 'a) Grosse L, b) zu gross, c) zu klein, d) welche Grosse',
-        hints: ['Grosse skrives med stor G', 'zu = for'],
+        solution: 'a) Größe L, b) zu groß, c) zu klein, d) welche Größe',
+        hints: ['Größe skrives med stor G', 'zu = for'],
       },
     },
     {
@@ -618,7 +618,7 @@ Nar vi beskriver klaer, setter vi fargen foran substantivet:
 
 - **ein rotes Kleid** = en roed kjole
 - **eine blaue Hose** = en blaa bukse
-- **ein weisses Hemd** = en hvit skjorte
+- **ein weißes Hemd** = en hvit skjorte
 
 Merk at adjektivet far ulike endelser avhengig av artikkel og kjoenn!`,
     },
@@ -630,10 +630,10 @@ Merk at adjektivet far ulike endelser avhengig av artikkel og kjoenn!`,
 
 a) Ich suche + ein + blau + Hemd
 b) Haben Sie + eine + rot + Jacke?
-c) Die + schwarz + Schuhe sind schon.`,
+c) Die + schwarz + Schuhe sind schön.`,
       solution: `a) Ich suche **ein blaues Hemd**.
 b) Haben Sie **eine rote Jacke**?
-c) **Die schwarzen Schuhe** sind schon.
+c) **Die schwarzen Schuhe** sind schön.
 
 **Adjektivendelser:**
 - Med "ein" + inkjetkjonn: -es (ein blaues Hemd)
@@ -650,11 +650,11 @@ c) **Die schwarzen Schuhe** sind schon.
         difficulty: 'medium',
         task: 'Oversett til tysk (bruk riktig adjektivendelse):',
         subTasks: [
-          { label: 'a', task: 'en groenn genser', solution: 'ein gruner Pullover', answer: 'ein gruner Pullover' },
-          { label: 'b', task: 'en hvit bluse', solution: 'eine weisse Bluse', answer: 'eine weisse Bluse' },
+          { label: 'a', task: 'en groenn genser', solution: 'ein grüner Pullover', answer: 'ein grüner Pullover' },
+          { label: 'b', task: 'en hvit bluse', solution: 'eine weiße Bluse', answer: 'eine weiße Bluse' },
           { label: 'c', task: 'de brune skoene', solution: 'die braunen Schuhe', answer: 'die braunen Schuhe' },
         ],
-        solution: 'a) ein gruner Pullover, b) eine weisse Bluse, c) die braunen Schuhe',
+        solution: 'a) ein grüner Pullover, b) eine weiße Bluse, c) die braunen Schuhe',
         hints: ['Pullover er hankjonn (der/ein)', 'Med "ein" + hankjonn: -er', 'Med "die" + flertall: -en'],
       },
     },
@@ -668,11 +668,11 @@ c) **Die schwarzen Schuhe** sind schon.
         difficulty: 'medium',
         task: 'Beskriv klaer - kombiner farge og stoerrelse:',
         subTasks: [
-          { label: 'a', task: 'Beskriv: blaa kjole, stoerrelse S', solution: 'ein blaues Kleid in Grosse S', answer: 'ein blaues Kleid in Grosse S' },
-          { label: 'b', task: 'Beskriv: svart jakke, stoerrelse M', solution: 'eine schwarze Jacke in Grosse M', answer: 'eine schwarze Jacke in Grosse M' },
-          { label: 'c', task: 'Beskriv: roede sko, stoerrelse 40', solution: 'rote Schuhe in Grosse 40', answer: 'rote Schuhe in Grosse 40' },
+          { label: 'a', task: 'Beskriv: blaa kjole, stoerrelse S', solution: 'ein blaues Kleid in Größe S', answer: 'ein blaues Kleid in Größe S' },
+          { label: 'b', task: 'Beskriv: svart jakke, stoerrelse M', solution: 'eine schwarze Jacke in Größe M', answer: 'eine schwarze Jacke in Größe M' },
+          { label: 'c', task: 'Beskriv: roede sko, stoerrelse 40', solution: 'rote Schuhe in Größe 40', answer: 'rote Schuhe in Größe 40' },
         ],
-        solution: 'a) ein blaues Kleid in Grosse S, b) eine schwarze Jacke in Grosse M, c) rote Schuhe in Grosse 40',
+        solution: 'a) ein blaues Kleid in Größe S, b) eine schwarze Jacke in Größe M, c) rote Schuhe in Größe 40',
         hints: ['Kleid er inkjetkjonn (das)', 'Schuhe er alltid flertall'],
       },
     },
@@ -720,7 +720,7 @@ For a beskrive hva noen har pa seg, bruker vi verbet "tragen" (a baere/ha pa seg
 |--------|------|
 | ich | trage |
 | du | tragst |
-| er/sie/es | tragt |
+| er/sie/es | trägt |
 | wir | tragen |
 | ihr | tragt |
 | sie/Sie | tragen |
@@ -734,10 +734,10 @@ For a beskrive hva noen har pa seg, bruker vi verbet "tragen" (a baere/ha pa seg
       problem: `Oversett til norsk:
 
 a) Ich trage eine Jeans.
-b) Er tragt ein blaues Hemd.
+b) Er trägt ein blaues Hemd.
 c) Was tragst du heute?`,
       solution: `a) Ich trage eine Jeans = **Jeg har pa meg en jeans.**
-b) Er tragt ein blaues Hemd = **Han har pa seg en blaa skjorte.**
+b) Er trägt ein blaues Hemd = **Han har pa seg en blaa skjorte.**
 c) Was tragst du heute? = **Hva har du pa deg i dag?**
 
 **Alternativ oversettelse:** "tragen" kan ogsa oversettes med "baerer" - "Jeg baerer en jeans."`,
@@ -753,11 +753,11 @@ c) Was tragst du heute? = **Hva har du pa deg i dag?**
         task: 'Fyll inn riktig form av "tragen":',
         subTasks: [
           { label: 'a', task: 'Ich ___ einen Rock.', solution: 'trage', answer: 'trage' },
-          { label: 'b', task: 'Du ___ eine schone Jacke.', solution: 'tragst', answer: 'tragst' },
-          { label: 'c', task: 'Sie ___ schwarze Schuhe.', solution: 'tragt', answer: 'tragt' },
+          { label: 'b', task: 'Du ___ eine schöne Jacke.', solution: 'tragst', answer: 'tragst' },
+          { label: 'c', task: 'Sie ___ schwarze Schuhe.', solution: 'trägt', answer: 'trägt' },
           { label: 'd', task: 'Wir ___ Jeans.', solution: 'tragen', answer: 'tragen' },
         ],
-        solution: 'a) trage, b) tragst, c) tragt, d) tragen',
+        solution: 'a) trage, b) tragst, c) trägt, d) tragen',
         hints: ['Med "ich" bruker vi "trage"', 'Med "du" far verbet -st ending'],
       },
     },
@@ -771,7 +771,7 @@ c) Was tragst du heute? = **Hva har du pa deg i dag?**
 | Tysk | Norsk |
 |------|-------|
 | Heute trage ich... | I dag har jeg pa meg... |
-| Er/Sie tragt... | Han/Hun har pa seg... |
+| Er/Sie trägt... | Han/Hun har pa seg... |
 | Ich trage gern... | Jeg liker a ha pa meg... |
 | Das steht dir gut! | Det kler deg! |
 | Das passt gut zusammen | Det passer godt sammen |`,
@@ -783,17 +783,17 @@ c) Was tragst du heute? = **Hva har du pa deg i dag?**
       problem: `Beskriv hva personen har pa seg:
 
 Maria: blaa kjole, hvite sko, roedt skjerf`,
-      solution: `**Maria tragt ein blaues Kleid, weisse Schuhe und einen roten Schal.**
+      solution: `**Maria trägt ein blaues Kleid, weiße Schuhe und einen roten Schal.**
 
 Eller i flere setninger:
-- Maria tragt ein blaues Kleid.
-- Sie tragt weisse Schuhe.
-- Sie tragt auch einen roten Schal.
+- Maria trägt ein blaues Kleid.
+- Sie trägt weiße Schuhe.
+- Sie trägt auch einen roten Schal.
 
 **Merk akkusativ:**
 - einen roten Schal (hankjonn - der Schal -> einen Schal)
 - ein blaues Kleid (inkjetkjonn - das Kleid -> ein Kleid)
-- weisse Schuhe (flertall - uendret)`,
+- weiße Schuhe (flertall - uendret)`,
     },
     {
       id: 'tysk-1-7-4-ex-block-2',
@@ -806,10 +806,10 @@ Eller i flere setninger:
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'Jeg har pa meg en genser.', solution: 'Ich trage einen Pullover.', answer: 'Ich trage einen Pullover' },
-          { label: 'b', task: 'Han har pa meg svarte bukser.', solution: 'Er tragt schwarze Hosen.', answer: 'Er tragt schwarze Hosen' },
+          { label: 'b', task: 'Han har pa meg svarte bukser.', solution: 'Er trägt schwarze Hosen.', answer: 'Er trägt schwarze Hosen' },
           { label: 'c', task: 'Hva har du pa deg i dag?', solution: 'Was tragst du heute?', answer: 'Was tragst du heute' },
         ],
-        solution: 'a) Ich trage einen Pullover, b) Er tragt schwarze Hosen, c) Was tragst du heute?',
+        solution: 'a) Ich trage einen Pullover, b) Er trägt schwarze Hosen, c) Was tragst du heute?',
         hints: ['Pullover er hankjonn: der -> einen', 'Hosen er flertall'],
       },
     },
@@ -823,7 +823,7 @@ Eller i flere setninger:
 | in der Schule | pa skolen | vanlige klaer |
 | auf einer Party | pa en fest | festklaer |
 | beim Sport | nar man trener | sportstoey |
-| im Buro | pa kontoret | formelle klaer |
+| im Büro | pa kontoret | formelle klaer |
 | zu Hause | hjemme | avslappede klaer |`,
     },
     {
@@ -877,8 +877,8 @@ c) Beim Sport trage ich Sportkleidung: Shorts und ein T-Shirt.
 | Tysk | Norsk |
 |------|-------|
 | Das steht dir gut! | Det kler deg! |
-| Das gefallt mir | Jeg liker det |
-| Das ist schon | Det er pent |
+| Das gefällt mir | Jeg liker det |
+| Das ist schön | Det er pent |
 | Das ist modern | Det er moderne |
 | Das ist bequem | Det er komfortabelt |
 | Das ist praktisch | Det er praktisk |`,
@@ -895,9 +895,9 @@ c) Beim Sport trage ich Sportkleidung: Shorts und ein T-Shirt.
         subTasks: [
           { label: 'a', task: 'Hvilke klaesplagg har du pa deg?', solution: 'Nevn 2-3 klaesplagg pa tysk' },
           { label: 'b', task: 'Hvilke farger har de?', solution: 'Beskriv fargene pa tysk' },
-          { label: 'c', task: 'Hvorfor liker du dette antrekket?', solution: 'Bruk ord som bequem, schon, praktisch' },
+          { label: 'c', task: 'Hvorfor liker du dette antrekket?', solution: 'Bruk ord som bequem, schön, praktisch' },
         ],
-        solution: 'Eksempel: "Mein Lieblingsoutfit ist eine blaue Jeans und ein weisses T-Shirt. Dazu trage ich schwarze Schuhe. Das ist bequem und praktisch."',
+        solution: 'Eksempel: "Mein Lieblingsoutfit ist eine blaue Jeans und ein weißes T-Shirt. Dazu trage ich schwarze Schuhe. Das ist bequem und praktisch."',
         hints: ['Mein Lieblingsoutfit = favorittantrekket mitt', 'dazu = i tillegg'],
       },
     },
@@ -969,7 +969,7 @@ Skolen er en viktig del av hverdagen. La oss laere de viktigste ordene for a sna
 | der Projektor | projektor |
 | die Landkarte | kartet |
 | das Fenster | vinduet |
-| die Tur | doeren |`,
+| die Tür | doeren |`,
     },
     {
       id: 'tysk-1-8-1-example-1',
@@ -1020,12 +1020,12 @@ d) die Turnhalle = **gymsalen**
 |------|-------|
 | der Lehrer | laereren (mann) |
 | die Lehrerin | laereren (kvinne) |
-| der Schuler | eleven (gutt) |
-| die Schulerin | eleven (jente) |
+| der Schüler | eleven (gutt) |
+| die Schülerin | eleven (jente) |
 | die Klasse | klassen |
 | der Direktor | rektoren (mann) |
 | die Direktorin | rektoren (kvinne) |
-| der Mitschuler | meddeleven |`,
+| der Mitschüler | meddeleven |`,
     },
     {
       id: 'tysk-1-8-1-example-2',
@@ -1034,15 +1034,15 @@ d) die Turnhalle = **gymsalen**
       problem: `Les og oversett:
 
 Der Lehrer steht an der Tafel.
-Die Schuler sitzen auf den Stuhlen.
-Die Direktorin ist im Buro.`,
+Die Schüler sitzen auf den Stühlen.
+Die Direktorin ist im Büro.`,
       solution: `**Der Lehrer steht an der Tafel.**
 = Laereren star ved tavla.
 
-**Die Schuler sitzen auf den Stuhlen.**
+**Die Schüler sitzen auf den Stühlen.**
 = Elevene sitter pa stolene.
 
-**Die Direktorin ist im Buro.**
+**Die Direktorin ist im Büro.**
 = Rektoren (kvinne) er pa kontoret.
 
 **Nye verb:**
@@ -1060,9 +1060,9 @@ Die Direktorin ist im Buro.`,
         task: 'Hvem er hvem? Koble tysk med norsk:',
         subTasks: [
           { label: 'a', task: 'der Lehrer', solution: 'laereren (mann)', answer: 'laereren' },
-          { label: 'b', task: 'die Schulerin', solution: 'eleven (jente)', answer: 'eleven' },
+          { label: 'b', task: 'die Schülerin', solution: 'eleven (jente)', answer: 'eleven' },
           { label: 'c', task: 'der Direktor', solution: 'rektoren (mann)', answer: 'rektoren' },
-          { label: 'd', task: 'die Mitschuler', solution: 'medelevenene', answer: 'medelevene' },
+          { label: 'd', task: 'die Mitschüler', solution: 'medelevenene', answer: 'medelevene' },
         ],
         solution: 'a) laereren (mann), b) eleven (jente), c) rektoren (mann), d) medelevenene',
         hints: ['-er er ofte hankjonn', '-in viser at det er en kvinne'],
@@ -1139,10 +1139,10 @@ c) **Ich brauche einen Radiergummi.**
         subTasks: [
           { label: 'a', task: 'Hva er i klasserommet?', solution: 'Nevn moebler og utstyr' },
           { label: 'b', task: 'Hvor mange elever er det?', solution: 'Bruk tall pa tysk' },
-          { label: 'c', task: 'Hvordan er klasserommet?', solution: 'Bruk adjektiver som gross, klein, hell' },
+          { label: 'c', task: 'Hvordan er klasserommet?', solution: 'Bruk adjektiver som groß, klein, hell' },
         ],
-        solution: 'Eksempel: "In meinem Klassenzimmer gibt es zwanzig Tische und zwanzig Stuhle. Es gibt auch ein Whiteboard und einen Projektor. Das Klassenzimmer ist gross und hell."',
-        hints: ['es gibt = det finnes', 'hell = lyst', 'gross = stort'],
+        solution: 'Eksempel: "In meinem Klassenzimmer gibt es zwanzig Tische und zwanzig Stühle. Es gibt auch ein Whiteboard und einen Projektor. Das Klassenzimmer ist groß und hell."',
+        hints: ['es gibt = det finnes', 'hell = lyst', 'groß = stort'],
       },
     },
     {
@@ -1156,14 +1156,14 @@ c) **Ich brauche einen Radiergummi.**
 };
 
 // ============================================================================
-// Kapittel 8.2: Die Schulfacher - Skolefagene
+// Kapittel 8.2: Die Schulfächer - Skolefagene
 // ============================================================================
 
 export const CHAPTER_TYSK_1_8_2: TextbookChapter = {
   id: 'tysk-1-8-2',
   courseId: 'tysk-1',
   chapterNumber: '8.2',
-  title: 'Die Schulfacher',
+  title: 'Die Schulfächer',
   subtitle: 'Skolefagene',
   description: 'Laer navnene pa skolefag og uttrykk om favorittfag.',
   estimatedMinutes: 45,
@@ -1211,7 +1211,7 @@ Hvilke fag har du pa skolen? La oss laere hva de heter pa tysk og hvordan du kan
 | Physik | fysikk |
 | Chemie | kjemi |
 | Biologie | biologi |
-| Franzosisch | fransk |
+| Französisch | fransk |
 | Spanisch | spansk |`,
     },
     {
@@ -1266,7 +1266,7 @@ d) Kunst = **kunst**
 |------|-------|
 | Mein Lieblingsfach ist... | Favorittfaget mitt er... |
 | Ich mag ... | Jeg liker ... |
-| ... gefallt mir | ... behager meg / jeg liker |
+| ... gefällt mir | ... behager meg / jeg liker |
 | ... ist interessant | ... er interessant |
 | ... ist langweilig | ... er kjedelig |
 | ... ist schwer/schwierig | ... er vanskelig |
@@ -1280,18 +1280,18 @@ d) Kunst = **kunst**
 
 a) Mein Lieblingsfach ist Musik.
 b) Mathematik ist schwer, aber interessant.
-c) Sport gefallt mir sehr gut.`,
+c) Sport gefällt mir sehr gut.`,
       solution: `a) Mein Lieblingsfach ist Musik.
 = **Favorittfaget mitt er musikk.**
 
 b) Mathematik ist schwer, aber interessant.
 = **Matematikk er vanskelig, men interessant.**
 
-c) Sport gefallt mir sehr gut.
+c) Sport gefällt mir sehr gut.
 = **Jeg liker gym veldig godt.**
 
 **Grammatikktips:** "gefallen" brukes med dativ:
-- Das Fach gefallt mir = Faget behager meg (= jeg liker faget)`,
+- Das Fach gefällt mir = Faget behager meg (= jeg liker faget)`,
     },
     {
       id: 'tysk-1-8-2-ex-block-2',
@@ -1304,11 +1304,11 @@ c) Sport gefallt mir sehr gut.
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'Favorittfaget mitt er historie.', solution: 'Mein Lieblingsfach ist Geschichte.', answer: 'Mein Lieblingsfach ist Geschichte' },
-          { label: 'b', task: 'Jeg liker matematikk.', solution: 'Ich mag Mathematik. / Mathematik gefallt mir.', answer: 'Ich mag Mathematik' },
+          { label: 'b', task: 'Jeg liker matematikk.', solution: 'Ich mag Mathematik. / Mathematik gefällt mir.', answer: 'Ich mag Mathematik' },
           { label: 'c', task: 'Kunst er interessant.', solution: 'Kunst ist interessant.', answer: 'Kunst ist interessant' },
         ],
         solution: 'a) Mein Lieblingsfach ist Geschichte, b) Ich mag Mathematik, c) Kunst ist interessant',
-        hints: ['Lieblingsfach = favorittfag', 'mogen = a like'],
+        hints: ['Lieblingsfach = favorittfag', 'mögen = a like'],
       },
     },
     {
@@ -1323,9 +1323,9 @@ c) Sport gefallt mir sehr gut.
 | der Stundenplan | timeplanen |
 | die Stunde | timen |
 | die Pause | pausen/friminuttet |
-| die grosse Pause | storefri |
+| die große Pause | storefri |
 | die Hausaufgaben | leksene |
-| die Prufung / der Test | proeven |
+| die Prüfung / der Test | proeven |
 | die Note | karakteren |`,
     },
     {
@@ -1363,10 +1363,10 @@ Nach der Schule mache ich Hausaufgaben.`,
         subTasks: [
           { label: 'a', task: 'Hva heter "timeplan" pa tysk?', solution: 'der Stundenplan', answer: 'Stundenplan' },
           { label: 'b', task: 'Hva heter "lekser" pa tysk?', solution: 'die Hausaufgaben', answer: 'Hausaufgaben' },
-          { label: 'c', task: 'Hva heter "proeve" pa tysk?', solution: 'die Prufung / der Test', answer: 'Prufung' },
+          { label: 'c', task: 'Hva heter "proeve" pa tysk?', solution: 'die Prüfung / der Test', answer: 'Prufung' },
           { label: 'd', task: 'Hva heter "karakter" pa tysk?', solution: 'die Note', answer: 'Note' },
         ],
-        solution: 'a) Stundenplan, b) Hausaufgaben, c) Prufung/Test, d) Note',
+        solution: 'a) Stundenplan, b) Hausaufgaben, c) Prüfung/Test, d) Note',
         hints: ['Stunde = time, Plan = plan', 'Haus = hjem, Aufgaben = oppgaver'],
       },
     },
@@ -1384,15 +1384,15 @@ Nach der Schule mache ich Hausaufgaben.`,
           { label: 'b', task: 'Hva er favorittfaget ditt og hvorfor?', solution: 'Bruk adjektiver' },
           { label: 'c', task: 'Hva gjoer du etter skolen?', solution: 'Bruk "nach der Schule"' },
         ],
-        solution: 'Eksempel: "Heute habe ich Deutsch, Mathematik und Sport. Mein Lieblingsfach ist Sport, weil es Spass macht. Mathematik ist schwer, aber interessant. Nach der Schule mache ich Hausaufgaben."',
-        hints: ['weil = fordi', 'Spass machen = a vaere goy'],
+        solution: 'Eksempel: "Heute habe ich Deutsch, Mathematik und Sport. Mein Lieblingsfach ist Sport, weil es Spaß macht. Mathematik ist schwer, aber interessant. Nach der Schule mache ich Hausaufgaben."',
+        hints: ['weil = fordi', 'Spaß machen = a vaere goy'],
       },
     },
     {
       id: 'tysk-1-8-2-note-1',
       type: 'note',
       title: 'Kulturnotat: Karaktersystem',
-      content: `I Tyskland brukes et karaktersystem fra 1-6, der 1 er best og 6 er stryk. Dette er motsatt av mange andre land! Karakterene er: 1 (sehr gut = veldig bra), 2 (gut = bra), 3 (befriedigend = tilfredsstillende), 4 (ausreichend = tilstrekkelig), 5 (mangelhaft = mangelfull), 6 (ungenugend = utilstrekkelig/stryk).`,
+      content: `I Tyskland brukes et karaktersystem fra 1-6, der 1 er best og 6 er stryk. Dette er motsatt av mange andre land! Karakterene er: 1 (sehr gut = veldig bra), 2 (gut = bra), 3 (befriedigend = tilfredsstillende), 4 (ausreichend = tilstrekkelig), 5 (mangelhaft = mangelfull), 6 (ungenügend = utilstrekkelig/stryk).`,
     },
   ],
   exercises: [],
@@ -1433,13 +1433,13 @@ Pa tysk har de fleste yrker to former - en for menn og en for kvinner. Kvinnefor
 
 | Hankjonn | Hunkjonn | Norsk |
 |----------|----------|-------|
-| der Arzt | die Arztin | lege |
+| der Arzt | die Ärztin | lege |
 | der Lehrer | die Lehrerin | laerer |
 | der Polizist | die Polizistin | politibetjent |
 | der Ingenieur | die Ingenieurin | ingenioer |
 | der Krankenpfleger | die Krankenschwester | sykepleier |
-| der Koch | die Kochin | kokk |
-| der Verkaufer | die Verkauferin | ekspediteer |`,
+| der Koch | die Köchin | kokk |
+| der Verkäufer | die Verkäuferin | ekspediteer |`,
     },
     {
       id: 'tysk-1-8-3-def-2',
@@ -1449,7 +1449,7 @@ Pa tysk har de fleste yrker to former - en for menn og en for kvinner. Kvinnefor
 
 | Hankjonn | Hunkjonn | Norsk |
 |----------|----------|-------|
-| der Rechtsanwalt | die Rechtsanwaltin | advokat |
+| der Rechtsanwalt | die Rechtsanwältin | advokat |
 | der Architekt | die Architektin | arkitekt |
 | der Journalist | die Journalistin | journalist |
 | der Mechaniker | die Mechanikerin | mekaniker |
@@ -1460,7 +1460,7 @@ Pa tysk har de fleste yrker to former - en for menn og en for kvinner. Kvinnefor
     {
       id: 'tysk-1-8-3-tip-1',
       type: 'tip',
-      content: `Husk moensteret: de fleste hunkjoennformer av yrker far "-in" pa slutten, og substantivet blir da hunkjonn (die). Eksempel: der Lehrer -> die Lehrerin, der Arzt -> die Arztin.`,
+      content: `Husk moensteret: de fleste hunkjoennformer av yrker far "-in" pa slutten, og substantivet blir da hunkjonn (die). Eksempel: der Lehrer -> die Lehrerin, der Arzt -> die Ärztin.`,
     },
     {
       id: 'tysk-1-8-3-example-1',
@@ -1509,7 +1509,7 @@ d) die Architektin = **arkitekt (kvinne)**
 |------|-------|
 | Was sind Sie von Beruf? | Hva jobber du som? (formelt) |
 | Was bist du von Beruf? | Hva jobber du som? (uformelt) |
-| Ich bin Arzt/Arztin | Jeg er lege |
+| Ich bin Arzt/Ärztin | Jeg er lege |
 | Er/Sie arbeitet als... | Han/Hun jobber som... |
 | Mein Vater ist... | Faren min er... |
 | Meine Mutter arbeitet als... | Moren min jobber som... |`,
@@ -1563,10 +1563,10 @@ c) Mein Vater arbeitet als Ingenieur.
 |------|-------|
 | im Krankenhaus | pa sykehuset |
 | in der Schule | pa skolen |
-| im Buro | pa kontoret |
+| im Büro | pa kontoret |
 | in der Fabrik | pa fabrikken |
 | im Restaurant | pa restauranten |
-| im Geschaft | i butikken |
+| im Geschäft | i butikken |
 | zu Hause | hjemme (hjemmekontor) |`,
     },
     {
@@ -1577,14 +1577,14 @@ c) Mein Vater arbeitet als Ingenieur.
 
 a) Der Arzt arbeitet im ___.
 b) Die Lehrerin arbeitet in der ___.
-c) Der Verkaufer arbeitet im ___.`,
+c) Der Verkäufer arbeitet im ___.`,
       solution: `a) Der Arzt arbeitet im **Krankenhaus**.
 = Legen jobber pa sykehuset.
 
 b) Die Lehrerin arbeitet in der **Schule**.
 = Laereren jobber pa skolen.
 
-c) Der Verkaufer arbeitet im **Geschaft**.
+c) Der Verkäufer arbeitet im **Geschäft**.
 = Ekspeditoeren jobber i butikken.
 
 **Grammatikk:**
@@ -1651,7 +1651,7 @@ export const CHAPTER_TYSK_1_8_4: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: [
     'bruke modalverbet "wollen" (a ville)',
-    'bruke "mochten" (a oenske/ville gjerne)',
+    'bruke "möchten" (a oenske/ville gjerne)',
     'snakke om fremtidsplaner',
   ],
   content: [
@@ -1722,50 +1722,50 @@ Subjekt + will/willst + ... + infinitiv (werden)`,
     {
       id: 'tysk-1-8-4-def-2',
       type: 'definition',
-      title: 'Mochten - a oenske/ville gjerne',
-      content: `**Boeyning av "mochten" (hoeflig form):**
+      title: 'Möchten - a oenske/ville gjerne',
+      content: `**Boeyning av "möchten" (hoeflig form):**
 
 | Person | Form |
 |--------|------|
-| ich | mochte |
-| du | mochtest |
-| er/sie/es | mochte |
-| wir | mochten |
-| ihr | mochtet |
-| sie/Sie | mochten |
+| ich | möchte |
+| du | möchtest |
+| er/sie/es | möchte |
+| wir | möchten |
+| ihr | möchtet |
+| sie/Sie | möchten |
 
-**"Mochten"** er mer hoeflig enn "wollen" og brukes ofte om oensker og droemmer.`,
+**"Möchten"** er mer hoeflig enn "wollen" og brukes ofte om oensker og droemmer.`,
     },
     {
       id: 'tysk-1-8-4-text-1',
       type: 'text',
-      content: `## Wollen vs. mochten
+      content: `## Wollen vs. möchten
 
 | Tysk | Norsk | Bruk |
 |------|-------|------|
 | Ich will | Jeg vil | Sterk vilje |
-| Ich mochte | Jeg vil gjerne | Hoeflig oenske |
+| Ich möchte | Jeg vil gjerne | Hoeflig oenske |
 
 **Eksempler:**
 - Ich **will** Arzt werden! = Jeg **vil** bli lege! (bestemt)
-- Ich **mochte** Arzt werden. = Jeg **vil gjerne** bli lege. (hoeflig/oenske)`,
+- Ich **möchte** Arzt werden. = Jeg **vil gjerne** bli lege. (hoeflig/oenske)`,
     },
     {
       id: 'tysk-1-8-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Mochten',
-      problem: `Oversett til tysk med "mochten":
+      title: 'Eksempel 2: Möchten',
+      problem: `Oversett til tysk med "möchten":
 
 a) Jeg vil gjerne bli arkitekt.
 b) Hun vil gjerne jobbe i utlandet.
 c) Vi vil gjerne studere i Tyskland.`,
-      solution: `a) **Ich mochte Architekt werden.**
+      solution: `a) **Ich möchte Architekt werden.**
 (eller Architektin for kvinner)
 
-b) **Sie mochte im Ausland arbeiten.**
+b) **Sie möchte im Ausland arbeiten.**
 (im Ausland = i utlandet)
 
-c) **Wir mochten in Deutschland studieren.**
+c) **Wir möchten in Deutschland studieren.**
 (studieren = a studere)
 
 **Nyttige ord:**
@@ -1781,20 +1781,20 @@ c) **Wir mochten in Deutschland studieren.**
         number: '8.4.2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett til tysk (bruk "mochten"):',
+        task: 'Oversett til tysk (bruk "möchten"):',
         subTasks: [
-          { label: 'a', task: 'Jeg vil gjerne bli journalist.', solution: 'Ich mochte Journalist werden.', answer: 'Ich mochte Journalist werden' },
-          { label: 'b', task: 'Han vil gjerne jobbe som kokk.', solution: 'Er mochte als Koch arbeiten.', answer: 'Er mochte als Koch arbeiten' },
-          { label: 'c', task: 'De vil gjerne studere medisin.', solution: 'Sie mochten Medizin studieren.', answer: 'Sie mochten Medizin studieren' },
+          { label: 'a', task: 'Jeg vil gjerne bli journalist.', solution: 'Ich möchte Journalist werden.', answer: 'Ich möchte Journalist werden' },
+          { label: 'b', task: 'Han vil gjerne jobbe som kokk.', solution: 'Er möchte als Koch arbeiten.', answer: 'Er möchte als Koch arbeiten' },
+          { label: 'c', task: 'De vil gjerne studere medisin.', solution: 'Sie möchten Medizin studieren.', answer: 'Sie möchten Medizin studieren' },
         ],
-        solution: 'a) Ich mochte Journalist werden, b) Er mochte als Koch arbeiten, c) Sie mochten Medizin studieren',
+        solution: 'a) Ich möchte Journalist werden, b) Er möchte als Koch arbeiten, c) Sie möchten Medizin studieren',
         hints: ['werden = a bli', 'Medizin = medisin'],
       },
     },
     {
       id: 'tysk-1-8-4-text-2',
       type: 'text',
-      content: `## Begrunnelser - warum/weil
+      content: `## Begrünnelser - warum/weil
 
 **Hvorfor vil du bli...?**
 
@@ -1806,20 +1806,20 @@ c) **Wir mochten in Deutschland studieren.**
 | Menschen helfen | A hjelpe mennesker |
 | kreativ sein | A vaere kreativ |
 | interessant sein | A vaere interessant |
-| Spass machen | A vaere goy |`,
+| Spaß machen | A vaere goy |`,
     },
     {
       id: 'tysk-1-8-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Begrunnelser',
+      title: 'Eksempel 3: Begrünnelser',
       problem: `Les og oversett:
 
 Warum willst du Arzt werden?
-Ich mochte Arzt werden, weil ich Menschen helfen will.`,
+Ich möchte Arzt werden, weil ich Menschen helfen will.`,
       solution: `**Warum willst du Arzt werden?**
 = Hvorfor vil du bli lege?
 
-**Ich mochte Arzt werden, weil ich Menschen helfen will.**
+**Ich möchte Arzt werden, weil ich Menschen helfen will.**
 = Jeg vil gjerne bli lege fordi jeg vil hjelpe mennesker.
 
 **Viktig grammatikk:**
@@ -1834,14 +1834,14 @@ Etter "weil" gar verbet til slutt:
         number: '8.4.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Koble yrke med begrunnelse:',
+        task: 'Koble yrke med begrünnelse:',
         subTasks: [
-          { label: 'a', task: 'Arzt werden - weil...', solution: 'ich Menschen helfen mochte / es wichtig ist', answer: 'ich Menschen helfen mochte' },
-          { label: 'b', task: 'Musiker werden - weil...', solution: 'ich kreativ sein mochte / Musik mein Leben ist', answer: 'ich Musik liebe' },
-          { label: 'c', task: 'Ingenieur werden - weil...', solution: 'ich technische Probleme losen mochte / gut Geld verdienen', answer: 'es interessant ist' },
+          { label: 'a', task: 'Arzt werden - weil...', solution: 'ich Menschen helfen möchte / es wichtig ist', answer: 'ich Menschen helfen möchte' },
+          { label: 'b', task: 'Musiker werden - weil...', solution: 'ich kreativ sein möchte / Musik mein Leben ist', answer: 'ich Musik liebe' },
+          { label: 'c', task: 'Ingenieur werden - weil...', solution: 'ich technische Probleme lösen möchte / gut Geld verdienen', answer: 'es interessant ist' },
         ],
-        solution: 'a) weil ich Menschen helfen mochte, b) weil ich kreativ sein mochte / weil ich Musik liebe, c) weil ich technische Probleme losen mochte / weil es gut bezahlt wird',
-        hints: ['helfen = a hjelpe', 'kreativ = kreativ', 'losen = a loese'],
+        solution: 'a) weil ich Menschen helfen möchte, b) weil ich kreativ sein möchte / weil ich Musik liebe, c) weil ich technische Probleme lösen möchte / weil es gut bezahlt wird',
+        hints: ['helfen = a hjelpe', 'kreativ = kreativ', 'lösen = a loese'],
       },
     },
     {
@@ -1852,10 +1852,10 @@ Etter "weil" gar verbet til slutt:
 | Tysk | Norsk |
 |------|-------|
 | Was willst du werden? | Hva vil du bli? |
-| Was mochtest du studieren? | Hva vil du studere? |
-| Wo mochtest du arbeiten? | Hvor vil du jobbe? |
+| Was möchtest du studieren? | Hva vil du studere? |
+| Wo möchtest du arbeiten? | Hvor vil du jobbe? |
 | Hast du einen Traumberuf? | Har du et droemmeyrke? |
-| Was sind deine Plane? | Hva er planene dine? |`,
+| Was sind deine Pläne? | Hva er planene dine? |`,
     },
     {
       id: 'tysk-1-8-4-ex-block-4',
@@ -1867,19 +1867,19 @@ Etter "weil" gar verbet til slutt:
         difficulty: 'vanskelig',
         task: 'Skriv om dine fremtidsplaner (5-6 setninger pa tysk):',
         subTasks: [
-          { label: 'a', task: 'Hva vil du bli?', solution: 'Ich mochte ... werden' },
+          { label: 'a', task: 'Hva vil du bli?', solution: 'Ich möchte ... werden' },
           { label: 'b', task: 'Hvorfor?', solution: 'weil...' },
-          { label: 'c', task: 'Hva vil du studere?', solution: 'Ich mochte ... studieren' },
-          { label: 'd', task: 'Hvor vil du jobbe?', solution: 'Ich mochte in/im ... arbeiten' },
+          { label: 'c', task: 'Hva vil du studere?', solution: 'Ich möchte ... studieren' },
+          { label: 'd', task: 'Hvor vil du jobbe?', solution: 'Ich möchte in/im ... arbeiten' },
         ],
-        solution: 'Eksempel: "Ich mochte Ingenieur werden, weil ich Technik interessant finde. Nach der Schule mochte ich an der Universitat Maschinenbau studieren. Ich mochte spater in einer grossen Firma arbeiten. Mein Traum ist es, an neuen Technologien zu arbeiten."',
-        hints: ['Maschinenbau = maskinteknologi', 'die Firma = firmaet', 'spater = senere'],
+        solution: 'Eksempel: "Ich möchte Ingenieur werden, weil ich Technik interessant finde. Nach der Schule möchte ich an der Universität Maschinenbau studieren. Ich möchte später in einer großen Firma arbeiten. Mein Traum ist es, an neuen Technologien zu arbeiten."',
+        hints: ['Maschinenbau = maskinteknologi', 'die Firma = firmaet', 'später = senere'],
       },
     },
     {
       id: 'tysk-1-8-4-tip-1',
       type: 'tip',
-      content: `Nar du snakker om fremtidsplaner pa tysk, kan du bruke bade "wollen" og "mochten". Bruk "wollen" nar du er sikker pa hva du vil, og "mochten" nar du snakker om droemmer og oensker.`,
+      content: `Nar du snakker om fremtidsplaner pa tysk, kan du bruke bade "wollen" og "möchten". Bruk "wollen" nar du er sikker pa hva du vil, og "möchten" nar du snakker om droemmer og oensker.`,
     },
     {
       id: 'tysk-1-8-4-note-1',

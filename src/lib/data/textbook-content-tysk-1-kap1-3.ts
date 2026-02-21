@@ -95,11 +95,11 @@ c) Guten Abend
 
 | Tysk | Norsk |
 |------|-------|
-| Tschuss | Ha det (uformelt) |
+| Tschüss | Ha det (uformelt) |
 | Auf Wiedersehen | Pa gjensyn (formelt) |
 | Bis bald | Vi sees snart |
 | Bis morgen | Vi sees i morgen |
-| Bis spater | Vi sees senere |`,
+| Bis später | Vi sees senere |`,
     },
     {
       id: 'tysk-1-1-1-example-2',
@@ -108,10 +108,10 @@ c) Guten Abend
       problem: `Hvilken avskjedshilsen passer best?
 a) Til en venn: ___
 b) Til en larer: ___`,
-      solution: `a) Til en venn: **Tschuss** eller **Bis bald**
+      solution: `a) Til en venn: **Tschüss** eller **Bis bald**
 b) Til en larer: **Auf Wiedersehen**
 
-"Tschuss" er uformelt og brukes med venner. "Auf Wiedersehen" er formelt og mer hoflig.`,
+"Tschüss" er uformelt og brukes med venner. "Auf Wiedersehen" er formelt og mer hoflig.`,
     },
     {
       id: 'tysk-1-1-1-ex-block-2',
@@ -123,11 +123,11 @@ b) Til en larer: **Auf Wiedersehen**
         difficulty: 'lett',
         task: 'Oversett folgende avskjedshilsener til tysk:',
         subTasks: [
-          { label: 'a', task: 'Ha det', solution: 'Tschuss' },
+          { label: 'a', task: 'Ha det', solution: 'Tschüss' },
           { label: 'b', task: 'Pa gjensyn', solution: 'Auf Wiedersehen' },
           { label: 'c', task: 'Vi sees i morgen', solution: 'Bis morgen' },
         ],
-        solution: 'a) Tschuss\nb) Auf Wiedersehen\nc) Bis morgen',
+        solution: 'a) Tschüss\nb) Auf Wiedersehen\nc) Bis morgen',
         hints: ['Se tabellen med avskjedshilsener'],
       },
     },
@@ -140,9 +140,9 @@ b) Til en larer: **Auf Wiedersehen**
 |------|-------|
 | Bitte | Vaer sa snill / Takk |
 | Danke | Takk |
-| Danke schon | Mange takk |
+| Danke schön | Mange takk |
 | Vielen Dank | Tusen takk |
-| Bitte schon | Vaer sa god / Ingen arsak |
+| Bitte schön | Vaer sa god / Ingen arsak |
 | Entschuldigung | Unnskyld |`,
     },
     {
@@ -157,7 +157,7 @@ b) Til en larer: **Auf Wiedersehen**
       problem: `Hva svarer du nar noen sier "Danke"?`,
       solution: `Du kan svare:
 - **Bitte** (Vaer sa god)
-- **Bitte schon** (Ingen arsak)
+- **Bitte schön** (Ingen arsak)
 - **Gern geschehen** (Det var hyggelig a hjelpe)`,
     },
     {
@@ -182,7 +182,7 @@ b) Til en larer: **Auf Wiedersehen**
     {
       id: 'tysk-1-1-1-note-1',
       type: 'note',
-      content: `**Regionale hilsener**: I Sor-Tyskland, Osterrike og Sveits horer du ofte "Gruss Gott" (formal) eller "Servus" (uformell). I Nord-Tyskland brukes "Moin" mye.`,
+      content: `**Regionale hilsener**: I Sor-Tyskland, Osterrike og Sveits horer du ofte "Grüß Gott" (formal) eller "Servus" (uformell). I Nord-Tyskland brukes "Moin" mye.`,
     },
     {
       id: 'tysk-1-1-1-ex-block-4',
@@ -196,10 +196,10 @@ b) Til en larer: **Auf Wiedersehen**
         subTasks: [
           { label: 'a', task: 'Du moter en venn pa skolen om morgenen', solution: 'Hallo eller Guten Morgen' },
           { label: 'b', task: 'Du gar inn i en butikk', solution: 'Guten Tag' },
-          { label: 'c', task: 'Du sier ha det til vennen din', solution: 'Tschuss' },
+          { label: 'c', task: 'Du sier ha det til vennen din', solution: 'Tschüss' },
           { label: 'd', task: 'Du sier ha det til laereren', solution: 'Auf Wiedersehen' },
         ],
-        solution: 'a) Hallo/Guten Morgen\nb) Guten Tag\nc) Tschuss\nd) Auf Wiedersehen',
+        solution: 'a) Hallo/Guten Morgen\nb) Guten Tag\nc) Tschüss\nd) Auf Wiedersehen',
         hints: ['Tenk pa om situasjonen er formell eller uformell'],
       },
     },
@@ -208,15 +208,15 @@ b) Til en larer: **Auf Wiedersehen**
 };
 
 // ============================================================================
-// Kapittel 1.2: Ich heisse... - Presentasjon
+// Kapittel 1.2: Ich heiße... - Presentasjon
 // ============================================================================
 
 export const CHAPTER_TYSK_1_1_2: TextbookChapter = {
   id: 'tysk-1-1-2',
   courseId: 'tysk-1',
   chapterNumber: '1.2',
-  title: 'Ich heisse... - Presentasjon',
-  description: 'Laer a presentere deg selv med navn og verbene sein og heissen.',
+  title: 'Ich heiße... - Presentasjon',
+  description: 'Laer a presentere deg selv med navn og verbene sein og heißen.',
   estimatedMinutes: 45,
   competenceGoals: [
     'presentere seg selv og andre',
@@ -228,7 +228,7 @@ export const CHAPTER_TYSK_1_1_2: TextbookChapter = {
       type: 'text',
       content: `## Presentere seg selv
 
-A kunne presentere seg er grunnleggende i ethvert sprak. Pa tysk bruker vi verbene **heissen** (a hete) og **sein** (a vaere) for a fortelle hvem vi er.`,
+A kunne presentere seg er grunnleggende i ethvert sprak. Pa tysk bruker vi verbene **heißen** (a hete) og **sein** (a vaere) for a fortelle hvem vi er.`,
     },
     {
       id: 'tysk-1-1-2-text-1',
@@ -237,7 +237,7 @@ A kunne presentere seg er grunnleggende i ethvert sprak. Pa tysk bruker vi verbe
 
 | Tysk | Norsk |
 |------|-------|
-| Ich heisse... | Jeg heter... |
+| Ich heiße... | Jeg heter... |
 | Ich bin... | Jeg er... |
 | Mein Name ist... | Navnet mitt er... |`,
     },
@@ -290,17 +290,17 @@ c) Er **ist** Lehrer. (Han er laerer.)`,
     {
       id: 'tysk-1-1-2-def-2',
       type: 'definition',
-      title: 'Verbet "heissen" (a hete)',
+      title: 'Verbet "heißen" (a hete)',
       content: `**Heissen** folger et mer regelmessig monster:
 
 | Person | Tysk | Norsk |
 |--------|------|-------|
-| ich | heisse | jeg heter |
-| du | heisst | du heter |
-| er/sie/es | heisst | han/hun/det heter |
-| wir | heissen | vi heter |
-| ihr | heisst | dere heter |
-| sie/Sie | heissen | de heter / De heter |`,
+| ich | heiße | jeg heter |
+| du | heißt | du heter |
+| er/sie/es | heißt | han/hun/det heter |
+| wir | heißen | vi heter |
+| ihr | heißt | dere heter |
+| sie/Sie | heißen | de heter / De heter |`,
     },
     {
       id: 'tysk-1-1-2-example-2',
@@ -308,9 +308,9 @@ c) Er **ist** Lehrer. (Han er laerer.)`,
       title: 'Eksempel 2: Sporsmaal og svar',
       problem: `Lag en kort dialog der du spor om navn og svarer:`,
       solution: `**Dialog:**
-- A: Hallo! Wie heisst du? (Hei! Hva heter du?)
-- B: Ich heisse Maria. Und du? (Jeg heter Maria. Og du?)
-- A: Ich heisse Thomas. (Jeg heter Thomas.)`,
+- A: Hallo! Wie heißt du? (Hei! Hva heter du?)
+- B: Ich heiße Maria. Und du? (Jeg heter Maria. Og du?)
+- A: Ich heiße Thomas. (Jeg heter Thomas.)`,
     },
     {
       id: 'tysk-1-1-2-ex-block-2',
@@ -322,12 +322,12 @@ c) Er **ist** Lehrer. (Han er laerer.)`,
         difficulty: 'lett',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Jeg heter...', solution: 'Ich heisse...' },
-          { label: 'b', task: 'Hva heter du?', solution: 'Wie heisst du?' },
-          { label: 'c', task: 'Hun heter Sara.', solution: 'Sie heisst Sara.' },
+          { label: 'a', task: 'Jeg heter...', solution: 'Ich heiße...' },
+          { label: 'b', task: 'Hva heter du?', solution: 'Wie heißt du?' },
+          { label: 'c', task: 'Hun heter Sara.', solution: 'Sie heißt Sara.' },
         ],
-        solution: 'a) Ich heisse...\nb) Wie heisst du?\nc) Sie heisst Sara.',
-        hints: ['Bruk verbet heissen'],
+        solution: 'a) Ich heiße...\nb) Wie heißt du?\nc) Sie heißt Sara.',
+        hints: ['Bruk verbet heißen'],
       },
     },
     {
@@ -337,15 +337,15 @@ c) Er **ist** Lehrer. (Han er laerer.)`,
 
 | Tysk | Norsk |
 |------|-------|
-| Wie heisst du? | Hva heter du? (uformelt) |
-| Wie heissen Sie? | Hva heter De? (formelt) |
+| Wie heißt du? | Hva heter du? (uformelt) |
+| Wie heißen Sie? | Hva heter De? (formelt) |
 | Wer bist du? | Hvem er du? |
 | Und du? | Og du? |`,
     },
     {
       id: 'tysk-1-1-2-tip-1',
       type: 'tip',
-      content: `Pa tysk kan du bruke bade "Ich heisse..." og "Ich bin..." for a presentere deg. "Mein Name ist..." er litt mer formelt.`,
+      content: `Pa tysk kan du bruke bade "Ich heiße..." og "Ich bin..." for a presentere deg. "Mein Name ist..." er litt mer formelt.`,
     },
     {
       id: 'tysk-1-1-2-example-3',
@@ -353,7 +353,7 @@ c) Er **ist** Lehrer. (Han er laerer.)`,
       title: 'Eksempel 3: En fullstendig presentasjon',
       problem: `Skriv en kort presentasjon pa tysk:`,
       solution: `**Eksempel:**
-Hallo! Ich heisse Lisa. Ich bin 16 Jahre alt. Ich bin Schulerin.
+Hallo! Ich heiße Lisa. Ich bin 16 Jahre alt. Ich bin Schülerin.
 
 (Hei! Jeg heter Lisa. Jeg er 16 ar gammel. Jeg er elev.)`,
     },
@@ -365,14 +365,14 @@ Hallo! Ich heisse Lisa. Ich bin 16 Jahre alt. Ich bin Schulerin.
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fyll inn riktig form av verbet (sein eller heissen):',
+        task: 'Fyll inn riktig form av verbet (sein eller heißen):',
         subTasks: [
-          { label: 'a', task: 'Wie ___ du? (hete)', solution: 'heisst' },
-          { label: 'b', task: 'Ich ___ Schuler. (vaere)', solution: 'bin' },
-          { label: 'c', task: 'Er ___ Paul. (hete)', solution: 'heisst' },
+          { label: 'a', task: 'Wie ___ du? (hete)', solution: 'heißt' },
+          { label: 'b', task: 'Ich ___ Schüler. (vaere)', solution: 'bin' },
+          { label: 'c', task: 'Er ___ Paul. (hete)', solution: 'heißt' },
           { label: 'd', task: 'Wir ___ aus Norwegen. (vaere)', solution: 'sind' },
         ],
-        solution: 'a) heisst\nb) bin\nc) heisst\nd) sind',
+        solution: 'a) heißt\nb) bin\nc) heißt\nd) sind',
         hints: ['Tenk pa hvilket verb som passer best i sammenhengen'],
       },
     },
@@ -384,9 +384,9 @@ Hallo! Ich heisse Lisa. Ich bin 16 Jahre alt. Ich bin Schulerin.
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv en kort presentasjon av deg selv pa tysk (3-4 setninger). Bruk ordene: heissen, sein, Jahre alt.',
-        solution: 'Eksempel: Hallo! Ich heisse [navn]. Ich bin [alder] Jahre alt. Ich bin Schuler/Schulerin.',
-        hints: ['Start med Hallo!', 'Bruk "Ich heisse..." for navnet', 'Bruk "Ich bin... Jahre alt" for alder'],
+        task: 'Skriv en kort presentasjon av deg selv pa tysk (3-4 setninger). Bruk ordene: heißen, sein, Jahre alt.',
+        solution: 'Eksempel: Hallo! Ich heiße [navn]. Ich bin [alder] Jahre alt. Ich bin Schüler/Schülerin.',
+        hints: ['Start med Hallo!', 'Bruk "Ich heiße..." for navnet', 'Bruk "Ich bin... Jahre alt" for alder'],
       },
     },
   ],
@@ -482,9 +482,9 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
 | Deutschland | Tyskland |
 | Norwegen | Norge |
 | Schweden | Sverige |
-| Danemark | Danmark |
+| Dänemark | Danmark |
 | Finnland | Finland |
-| Osterreich | Osterrike |
+| Österreich | Osterrike |
 | die Schweiz | Sveits |
 | Frankreich | Frankrike |
 | England | England |
@@ -537,8 +537,8 @@ Merk at Sveits bruker artikkel "der" etter "aus".`,
 | Norweger | Norwegerin | nordmann/norsk |
 | Deutscher | Deutsche | tysker/tysk |
 | Schwede | Schwedin | svenske/svensk |
-| Franzose | Franzosin | franskmann/fransk |
-| Englander | Englanderin | engelskmann/engelsk |
+| Franzose | Französin | franskmann/fransk |
+| Engländer | Engländerin | engelskmann/engelsk |
 | Spanier | Spanierin | spanjol/spansk |`,
     },
     {
@@ -580,7 +580,7 @@ b) Anna kommt aus Deutschland. Sie ist **Deutsche**. (Hun er tysk.)`,
 | Deutsch | tysk |
 | Norwegisch | norsk |
 | Englisch | engelsk |
-| Franzosisch | fransk |
+| Französisch | fransk |
 | Spanisch | spansk |
 
 **Eksempel:** Ich spreche Deutsch und Englisch. (Jeg snakker tysk og engelsk.)`,
@@ -608,14 +608,14 @@ b) Anna kommt aus Deutschland. Sie ist **Deutsche**. (Hun er tysk.)`,
 };
 
 // ============================================================================
-// Kapittel 1.4: Erste Gesprache - Forste samtaler
+// Kapittel 1.4: Erste Gespräche - Forste samtaler
 // ============================================================================
 
 export const CHAPTER_TYSK_1_1_4: TextbookChapter = {
   id: 'tysk-1-1-4',
   courseId: 'tysk-1',
   chapterNumber: '1.4',
-  title: 'Erste Gesprache - Forste samtaler',
+  title: 'Erste Gespräche - Forste samtaler',
   description: 'Laer a fore enkle samtaler og dialoger pa tysk.',
   estimatedMinutes: 50,
   competenceGoals: [
@@ -651,10 +651,10 @@ Na har du laert hilsener, presentasjon og a fortelle hvor du kommer fra. La oss 
       type: 'example',
       title: 'Eksempel 1: Bruk av sporsmalsord',
       problem: `Hvilke sporsmalsord passer?
-a) ___ heisst du? (Hva heter du?)
+a) ___ heißt du? (Hva heter du?)
 b) ___ kommst du? (Hvor kommer du fra?)
 c) ___ wohnst du? (Hvor bor du?)`,
-      solution: `a) **Wie** heisst du?
+      solution: `a) **Wie** heißt du?
 b) **Woher** kommst du?
 c) **Wo** wohnst du?
 
@@ -743,15 +743,15 @@ Merk forskjellen: "Wo" = hvor (sted), "Woher" = hvorfra (opprinnelse).`,
       problem: `Les og forsta denne dialogen:`,
       solution: `**Dialog mellom Lisa og Max:**
 
-Lisa: Hallo! Ich heisse Lisa. Wie heisst du?
-Max: Hallo Lisa! Ich heisse Max.
+Lisa: Hallo! Ich heiße Lisa. Wie heißt du?
+Max: Hallo Lisa! Ich heiße Max.
 Lisa: Woher kommst du, Max?
 Max: Ich komme aus Deutschland. Und du?
 Lisa: Ich komme aus Norwegen. Wie alt bist du?
 Max: Ich bin 16 Jahre alt. Und du?
 Lisa: Ich bin auch 16. Wie geht es dir?
-Max: Mir geht es gut, danke! Tschuss!
-Lisa: Tschuss, Max!`,
+Max: Mir geht es gut, danke! Tschüss!
+Lisa: Tschüss, Max!`,
     },
     {
       id: 'tysk-1-1-4-ex-block-3',
@@ -763,12 +763,12 @@ Lisa: Tschuss, Max!`,
         difficulty: 'medium',
         task: 'Svar pa sporsmalene pa tysk:',
         subTasks: [
-          { label: 'a', task: 'Wie heisst du?', solution: 'Ich heisse [ditt navn].' },
+          { label: 'a', task: 'Wie heißt du?', solution: 'Ich heiße [ditt navn].' },
           { label: 'b', task: 'Woher kommst du?', solution: 'Ich komme aus Norwegen.' },
           { label: 'c', task: 'Wie alt bist du?', solution: 'Ich bin [alder] Jahre alt.' },
           { label: 'd', task: 'Wie geht es dir?', solution: 'Mir geht es gut.' },
         ],
-        solution: 'a) Ich heisse...\nb) Ich komme aus Norwegen.\nc) Ich bin... Jahre alt.\nd) Mir geht es gut.',
+        solution: 'a) Ich heiße...\nb) Ich komme aus Norwegen.\nc) Ich bin... Jahre alt.\nd) Mir geht es gut.',
         hints: ['Bruk dine egne opplysninger'],
       },
     },
@@ -786,7 +786,7 @@ Lisa: Tschuss, Max!`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en kort dialog (6-8 setninger) mellom to personer som moter hverandre for forste gang. Bruk hilsener, presentasjon, land og alder.',
-        solution: 'Eksempel:\nA: Hallo! Wie heisst du?\nB: Ich heisse Anna. Und du?\nA: Ich heisse Peter. Woher kommst du?\nB: Ich komme aus Schweden. Und du?\nA: Ich komme aus Deutschland. Wie alt bist du?\nB: Ich bin 15 Jahre alt.\nA: Ich bin auch 15! Tschuss!\nB: Tschuss!',
+        solution: 'Eksempel:\nA: Hallo! Wie heißt du?\nB: Ich heiße Anna. Und du?\nA: Ich heiße Peter. Woher kommst du?\nB: Ich komme aus Schweden. Und du?\nA: Ich komme aus Deutschland. Wie alt bist du?\nB: Ich bin 15 Jahre alt.\nA: Ich bin auch 15! Tschüss!\nB: Tschüss!',
         hints: ['Bruk sporsmalsordene Wie, Woher, Wie alt', 'Husk a inkludere hilsen og avskjed'],
       },
     },
@@ -829,21 +829,21 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
 | 2 | zwei | [tsvai] |
 | 3 | drei | [drai] |
 | 4 | vier | [fir] |
-| 5 | funf | [fynf] |
+| 5 | fünf | [fynf] |
 | 6 | sechs | [zeks] |
 | 7 | sieben | [zi:ben] |
 | 8 | acht | [akt] |
 | 9 | neun | [noyn] |
 | 10 | zehn | [tse:n] |
 | 11 | elf | [elf] |
-| 12 | zwolf | [tsvolf] |`,
+| 12 | zwölf | [tsvolf] |`,
     },
     {
       id: 'tysk-1-2-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Telle til 10',
       problem: `Tell hoyt fra 1 til 10 pa tysk:`,
-      solution: `eins, zwei, drei, vier, funf, sechs, sieben, acht, neun, zehn
+      solution: `eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn
 
 **Tips**: Ov pa uttalen! "Zwei" uttales [tsvai], "drei" uttales [drai].`,
     },
@@ -859,10 +859,10 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
         subTasks: [
           { label: 'a', task: '3', solution: 'drei' },
           { label: 'b', task: '7', solution: 'sieben' },
-          { label: 'c', task: '5', solution: 'funf' },
+          { label: 'c', task: '5', solution: 'fünf' },
           { label: 'd', task: '10', solution: 'zehn' },
         ],
-        solution: 'a) drei\nb) sieben\nc) funf\nd) zehn',
+        solution: 'a) drei\nb) sieben\nc) fünf\nd) zehn',
         hints: ['Se tabellen over tallene 0-12'],
       },
     },
@@ -875,7 +875,7 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
 |------|------|---------|
 | 13 | dreizehn | drei + zehn |
 | 14 | vierzehn | vier + zehn |
-| 15 | funfzehn | funf + zehn |
+| 15 | fünfzehn | fünf + zehn |
 | 16 | sechzehn | sechs + zehn (mister s) |
 | 17 | siebzehn | sieben + zehn (mister en) |
 | 18 | achtzehn | acht + zehn |
@@ -892,12 +892,12 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
       type: 'example',
       title: 'Eksempel 2: Monsteret for tenartallene',
       problem: `Hvordan dannes tallet 15 pa tysk?`,
-      solution: `15 = funf + zehn = **funfzehn**
+      solution: `15 = fünf + zehn = **fünfzehn**
 
 Monsteret er: enertall + "zehn"
 - 13 = drei + zehn = dreizehn
 - 14 = vier + zehn = vierzehn
-- 15 = funf + zehn = funfzehn`,
+- 15 = fünf + zehn = fünfzehn`,
     },
     {
       id: 'tysk-1-2-1-ex-block-2',
@@ -925,7 +925,7 @@ Monsteret er: enertall + "zehn"
       problem: `Oversett til tysk:
 a) Jeg er 15 ar.
 b) Hun er 18 ar.`,
-      solution: `a) Ich bin funfzehn Jahre alt.
+      solution: `a) Ich bin fünfzehn Jahre alt.
 b) Sie ist achtzehn Jahre alt.
 
 **Struktur**: [Person] + bin/ist + [tall] + Jahre alt`,
@@ -958,8 +958,8 @@ b) Sie ist achtzehn Jahre alt.
         difficulty: 'medium',
         task: 'Skriv det neste tallet i rekken pa tysk:',
         subTasks: [
-          { label: 'a', task: 'funf, sechs, ___', solution: 'sieben' },
-          { label: 'b', task: 'zwolf, dreizehn, ___', solution: 'vierzehn' },
+          { label: 'a', task: 'fünf, sechs, ___', solution: 'sieben' },
+          { label: 'b', task: 'zwölf, dreizehn, ___', solution: 'vierzehn' },
           { label: 'c', task: 'siebzehn, achtzehn, ___', solution: 'neunzehn' },
           { label: 'd', task: 'null, eins, ___', solution: 'zwei' },
         ],
@@ -1001,9 +1001,9 @@ Pa tysk har sammensatte tall en spesiell ordstilling: enertallet kommer for tita
 | Tall | Tysk |
 |------|------|
 | 20 | zwanzig |
-| 30 | dreissig |
+| 30 | dreißig |
 | 40 | vierzig |
-| 50 | funfzig |
+| 50 | fünfzig |
 | 60 | sechzig |
 | 70 | siebzig |
 | 80 | achtzig |
@@ -1013,7 +1013,7 @@ Pa tysk har sammensatte tall en spesiell ordstilling: enertallet kommer for tita
     {
       id: 'tysk-1-2-2-note-1',
       type: 'note',
-      content: `Merk unntakene: **dreissig** (ikke dreizig), **sechzig** (mister s), og **siebzig** (mister en).`,
+      content: `Merk unntakene: **dreißig** (ikke dreizig), **sechzig** (mister s), og **siebzig** (mister en).`,
     },
     {
       id: 'tysk-1-2-2-example-1',
@@ -1023,8 +1023,8 @@ Pa tysk har sammensatte tall en spesiell ordstilling: enertallet kommer for tita
 a) 30
 b) 50
 c) 70`,
-      solution: `a) 30 = **dreissig**
-b) 50 = **funfzig**
+      solution: `a) 30 = **dreißig**
+b) 50 = **fünfzig**
 c) 70 = **siebzig**`,
     },
     {
@@ -1043,7 +1043,7 @@ c) 70 = **siebzig**`,
           { label: 'd', task: '100', solution: 'hundert' },
         ],
         solution: 'a) vierzig\nb) sechzig\nc) achtzig\nd) hundert',
-        hints: ['Husk unntakene: dreissig, sechzig, siebzig'],
+        hints: ['Husk unntakene: dreißig, sechzig, siebzig'],
       },
     },
     {
@@ -1056,8 +1056,8 @@ c) 70 = **siebzig**`,
 
 Eksempler:
 - 21 = ein**und**zwanzig (en-og-tjue)
-- 34 = vier**und**dreissig (fire-og-tretti)
-- 56 = sechs**und**funfzig (seks-og-femti)`,
+- 34 = vier**und**dreißig (fire-og-tretti)
+- 56 = sechs**und**fünfzig (seks-og-femti)`,
     },
     {
       id: 'tysk-1-2-2-example-2',
@@ -1067,7 +1067,7 @@ Eksempler:
 a) 25
 b) 42
 c) 67`,
-      solution: `a) 25 = funf**und**zwanzig (fem-og-tjue)
+      solution: `a) 25 = fünf**und**zwanzig (fem-og-tjue)
 b) 42 = zwei**und**vierzig (to-og-forti)
 c) 67 = sieben**und**sechzig (syv-og-seksti)
 
@@ -1084,11 +1084,11 @@ c) 67 = sieben**und**sechzig (syv-og-seksti)
         task: 'Skriv tallene pa tysk:',
         subTasks: [
           { label: 'a', task: '23', solution: 'dreiundzwanzig' },
-          { label: 'b', task: '45', solution: 'funfundvierzig' },
+          { label: 'b', task: '45', solution: 'fünfundvierzig' },
           { label: 'c', task: '78', solution: 'achtundsiebzig' },
           { label: 'd', task: '91', solution: 'einundneunzig' },
         ],
-        solution: 'a) dreiundzwanzig\nb) funfundvierzig\nc) achtundsiebzig\nd) einundneunzig',
+        solution: 'a) dreiundzwanzig\nb) fünfundvierzig\nc) achtundsiebzig\nd) einundneunzig',
         hints: ['Husk: enertall + und + titall'],
       },
     },
@@ -1103,7 +1103,7 @@ c) 67 = sieben**und**sechzig (syv-og-seksti)
       title: 'Eksempel 3: Priser',
       problem: `Skriv prisene pa tysk:
 "Det koster 35 euro."`,
-      solution: `Das kostet funfunddreissig Euro.
+      solution: `Das kostet fünfunddreißig Euro.
 
 **Nyttige ord:**
 - Das kostet... = Det koster...
@@ -1121,10 +1121,10 @@ c) 67 = sieben**und**sechzig (syv-og-seksti)
         task: 'Oversett prisene til tysk (bruk "Das kostet..."):',
         subTasks: [
           { label: 'a', task: 'Det koster 27 euro.', solution: 'Das kostet siebenundzwanzig Euro.' },
-          { label: 'b', task: 'Det koster 53 euro.', solution: 'Das kostet dreiundfunfzig Euro.' },
+          { label: 'b', task: 'Det koster 53 euro.', solution: 'Das kostet dreiundfünfzig Euro.' },
           { label: 'c', task: 'Det koster 84 euro.', solution: 'Das kostet vierundachtzig Euro.' },
         ],
-        solution: 'a) Das kostet siebenundzwanzig Euro.\nb) Das kostet dreiundfunfzig Euro.\nc) Das kostet vierundachtzig Euro.',
+        solution: 'a) Das kostet siebenundzwanzig Euro.\nb) Das kostet dreiundfünfzig Euro.\nc) Das kostet vierundachtzig Euro.',
         hints: ['Husk monsteret: enertall + und + titall'],
       },
     },
@@ -1140,11 +1140,11 @@ c) 67 = sieben**und**sechzig (syv-og-seksti)
         subTasks: [
           { label: 'a', task: '99', solution: 'neunundneunzig' },
           { label: 'b', task: '66', solution: 'sechsundsechzig' },
-          { label: 'c', task: '37', solution: 'siebenunddreissig' },
+          { label: 'c', task: '37', solution: 'siebenunddreißig' },
           { label: 'd', task: '100', solution: 'hundert' },
         ],
-        solution: 'a) neunundneunzig\nb) sechsundsechzig\nc) siebenunddreissig\nd) hundert',
-        hints: ['Ov pa de spesielle formene: sechzig, siebzig, dreissig'],
+        solution: 'a) neunundneunzig\nb) sechsundsechzig\nc) siebenunddreißig\nd) hundert',
+        hints: ['Ov pa de spesielle formene: sechzig, siebzig, dreißig'],
       },
     },
   ],
@@ -1183,8 +1183,8 @@ Farger er nyttige for a beskrive ting og gjenstander. La oss laere de vanligste 
 | rot | rod |
 | blau | bla |
 | gelb | gul |
-| grun | gronn |
-| weiss | hvit |
+| grün | gronn |
+| weiß | hvit |
 | schwarz | svart |
 | braun | brun |
 | orange | oransje |
@@ -1202,7 +1202,7 @@ b) bla
 c) gronn`,
       solution: `a) **rot**
 b) **blau**
-c) **grun**`,
+c) **grün**`,
     },
     {
       id: 'tysk-1-2-3-ex-block-1',
@@ -1216,10 +1216,10 @@ c) **grun**`,
         subTasks: [
           { label: 'a', task: 'gul', solution: 'gelb' },
           { label: 'b', task: 'svart', solution: 'schwarz' },
-          { label: 'c', task: 'hvit', solution: 'weiss' },
+          { label: 'c', task: 'hvit', solution: 'weiß' },
           { label: 'd', task: 'brun', solution: 'braun' },
         ],
-        solution: 'a) gelb\nb) schwarz\nc) weiss\nd) braun',
+        solution: 'a) gelb\nb) schwarz\nc) weiß\nd) braun',
         hints: ['Se tabellen over grunnleggende farger'],
       },
     },
@@ -1255,7 +1255,7 @@ Men nar fargen star alene etter verbet, boyes den ikke:
 a) Himmelen er bla.
 b) Gresset er gront.`,
       solution: `a) Der Himmel ist **blau**. (Himmelen er bla.)
-b) Das Gras ist **grun**. (Gresset er gront.)
+b) Das Gras ist **grün**. (Gresset er gront.)
 
 Nar fargen star etter "ist", boyes den ikke!`,
     },
@@ -1270,11 +1270,11 @@ Nar fargen star etter "ist", boyes den ikke!`,
         task: 'Fullfar setningene med riktig farge pa tysk:',
         subTasks: [
           { label: 'a', task: 'Die Sonne ist ___. (gul)', solution: 'gelb' },
-          { label: 'b', task: 'Der Schnee ist ___. (hvit)', solution: 'weiss' },
+          { label: 'b', task: 'Der Schnee ist ___. (hvit)', solution: 'weiß' },
           { label: 'c', task: 'Die Nacht ist ___. (svart)', solution: 'schwarz' },
           { label: 'd', task: 'Die Tomate ist ___. (rod)', solution: 'rot' },
         ],
-        solution: 'a) gelb\nb) weiss\nc) schwarz\nd) rot',
+        solution: 'a) gelb\nb) weiß\nc) schwarz\nd) rot',
         hints: ['Fargen star etter "ist" og boyes ikke'],
       },
     },
@@ -1287,8 +1287,8 @@ Nar fargen star etter "ist", boyes den ikke!`,
 |------|-------|
 | hellblau | lyseblatt |
 | dunkelblau | morkeblatt |
-| hellgrun | lysegront |
-| dunkelgrun | morkegront |
+| hellgrün | lysegront |
+| dunkelgrün | morkegront |
 | hellrot | lyserodt |
 | dunkelrot | morkerodt |`,
     },
@@ -1318,11 +1318,11 @@ Sporre: **Was ist deine Lieblingsfarbe?**
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Favorittfargen min er gronn.', solution: 'Meine Lieblingsfarbe ist grun.' },
+          { label: 'a', task: 'Favorittfargen min er gronn.', solution: 'Meine Lieblingsfarbe ist grün.' },
           { label: 'b', task: 'Hva er favorittfargen din?', solution: 'Was ist deine Lieblingsfarbe?' },
           { label: 'c', task: 'Himmelen er lyseblaa.', solution: 'Der Himmel ist hellblau.' },
         ],
-        solution: 'a) Meine Lieblingsfarbe ist grun.\nb) Was ist deine Lieblingsfarbe?\nc) Der Himmel ist hellblau.',
+        solution: 'a) Meine Lieblingsfarbe ist grün.\nb) Was ist deine Lieblingsfarbe?\nc) Der Himmel ist hellblau.',
         hints: ['Lieblingsfarbe = favorittfarge'],
       },
     },
@@ -1376,7 +1376,7 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
 | Was kostet das? | Hva koster det? |
 | Wie viel kostet das? | Hvor mye koster det? |
 | Das kostet... Euro | Det koster... euro |
-| Ich mochte... | Jeg vil gjerne ha... |
+| Ich möchte... | Jeg vil gjerne ha... |
 | Ich nehme... | Jeg tar... |
 | Haben Sie...? | Har De...? |`,
     },
@@ -1387,7 +1387,7 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
       problem: `Lag en kort dialog om a sporre om pris:`,
       solution: `**Dialog i butikken:**
 - Kunde: Entschuldigung, was kostet das T-Shirt?
-- Verkaufer: Das kostet funfundzwanzig Euro.
+- Verkäufer: Das kostet fünfundzwanzig Euro.
 - Kunde: Danke!
 
 (Unnskyld, hva koster T-skjorten? - Den koster 25 euro. - Takk!)`,
@@ -1403,10 +1403,10 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
         task: 'Oversett til tysk:',
         subTasks: [
           { label: 'a', task: 'Hva koster det?', solution: 'Was kostet das?' },
-          { label: 'b', task: 'Det koster 15 euro.', solution: 'Das kostet funfzehn Euro.' },
-          { label: 'c', task: 'Jeg vil gjerne ha...', solution: 'Ich mochte...' },
+          { label: 'b', task: 'Det koster 15 euro.', solution: 'Das kostet fünfzehn Euro.' },
+          { label: 'c', task: 'Jeg vil gjerne ha...', solution: 'Ich möchte...' },
         ],
-        solution: 'a) Was kostet das?\nb) Das kostet funfzehn Euro.\nc) Ich mochte...',
+        solution: 'a) Was kostet das?\nb) Das kostet fünfzehn Euro.\nc) Ich möchte...',
         hints: ['Se tabellen med handelsfraser'],
       },
     },
@@ -1430,9 +1430,9 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
       type: 'definition',
       title: 'Euro og cent',
       content: `Priser med euro og cent:
-- 3,50 EUR = drei Euro funfzig (Cent)
-- 12,99 EUR = zwolf Euro neunundneunzig
-- 0,50 EUR = funfzig Cent
+- 3,50 EUR = drei Euro fünfzig (Cent)
+- 12,99 EUR = zwölf Euro neunundneunzig
+- 0,50 EUR = fünfzig Cent
 
 Merk: Pa tysk brukes komma (ikke punktum) for desimaler.`,
     },
@@ -1443,10 +1443,10 @@ Merk: Pa tysk brukes komma (ikke punktum) for desimaler.`,
       problem: `Hvordan sier du disse prisene pa tysk?
 a) 4,50 EUR
 b) 7,99 EUR`,
-      solution: `a) vier Euro funfzig (Cent)
+      solution: `a) vier Euro fünfzig (Cent)
 b) sieben Euro neunundneunzig
 
-Man sier ofte bare "vier funfzig" i dagligtale.`,
+Man sier ofte bare "vier fünfzig" i dagligtale.`,
     },
     {
       id: 'tysk-1-2-4-ex-block-2',
@@ -1458,11 +1458,11 @@ Man sier ofte bare "vier funfzig" i dagligtale.`,
         difficulty: 'medium',
         task: 'Skriv prisene pa tysk:',
         subTasks: [
-          { label: 'a', task: '2,50 EUR', solution: 'zwei Euro funfzig' },
+          { label: 'a', task: '2,50 EUR', solution: 'zwei Euro fünfzig' },
           { label: 'b', task: '9,99 EUR', solution: 'neun Euro neunundneunzig' },
-          { label: 'c', task: '15,75 EUR', solution: 'funfzehn Euro funfundsiebzig' },
+          { label: 'c', task: '15,75 EUR', solution: 'fünfzehn Euro fünfundsiebzig' },
         ],
-        solution: 'a) zwei Euro funfzig\nb) neun Euro neunundneunzig\nc) funfzehn Euro funfundsiebzig',
+        solution: 'a) zwei Euro fünfzig\nb) neun Euro neunundneunzig\nc) fünfzehn Euro fünfundsiebzig',
         hints: ['Euro + centbelopet'],
       },
     },
@@ -1478,8 +1478,8 @@ Man sier ofte bare "vier funfzig" i dagligtale.`,
 | ein Kilo | en kilo |
 | ein Liter | en liter |
 | eine Flasche | en flaske |
-| eine Tute | en pose |
-| ein Stuck | et stykke |`,
+| eine Tüte | en pose |
+| ein Stück | et stykke |`,
     },
     {
       id: 'tysk-1-2-4-example-3',
@@ -1487,7 +1487,7 @@ Man sier ofte bare "vier funfzig" i dagligtale.`,
       title: 'Eksempel 3: Bestille med mengde',
       problem: `Lag en bestilling pa tysk:`,
       solution: `**Bestilling:**
-- Ich mochte ein Kilo Apfel, bitte.
+- Ich möchte ein Kilo Äpfel, bitte.
 (Jeg vil gjerne ha en kilo epler, takk.)
 
 - Ich nehme zwei Flaschen Wasser.
@@ -1503,12 +1503,12 @@ Man sier ofte bare "vier funfzig" i dagligtale.`,
         difficulty: 'medium',
         task: 'Oversett bestillingene til tysk:',
         subTasks: [
-          { label: 'a', task: 'Jeg vil gjerne ha en flaske melk.', solution: 'Ich mochte eine Flasche Milch.' },
-          { label: 'b', task: 'Jeg tar tre epler.', solution: 'Ich nehme drei Apfel.' },
-          { label: 'c', task: 'Et stykke kake, takk.', solution: 'Ein Stuck Kuchen, bitte.' },
+          { label: 'a', task: 'Jeg vil gjerne ha en flaske melk.', solution: 'Ich möchte eine Flasche Milch.' },
+          { label: 'b', task: 'Jeg tar tre epler.', solution: 'Ich nehme drei Äpfel.' },
+          { label: 'c', task: 'Et stykke kake, takk.', solution: 'Ein Stück Kuchen, bitte.' },
         ],
-        solution: 'a) Ich mochte eine Flasche Milch.\nb) Ich nehme drei Apfel.\nc) Ein Stuck Kuchen, bitte.',
-        hints: ['Bruk "Ich mochte" eller "Ich nehme"'],
+        solution: 'a) Ich möchte eine Flasche Milch.\nb) Ich nehme drei Äpfel.\nc) Ein Stück Kuchen, bitte.',
+        hints: ['Bruk "Ich möchte" eller "Ich nehme"'],
       },
     },
     {
@@ -1520,7 +1520,7 @@ Man sier ofte bare "vier funfzig" i dagligtale.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en kort dialog i en butikk (6-8 setninger). Inkluder hilsen, sporre om pris, bestille og betale.',
-        solution: 'Eksempel:\nKunde: Guten Tag!\nVerkaufer: Guten Tag! Kann ich Ihnen helfen?\nKunde: Was kostet das T-Shirt?\nVerkaufer: Das kostet neunzehn Euro neunundneunzig.\nKunde: Ich nehme es.\nVerkaufer: Das macht neunzehn Euro neunundneunzig.\nKunde: Bitte schon. (gir penger)\nVerkaufer: Danke! Auf Wiedersehen!\nKunde: Tschuss!',
+        solution: 'Eksempel:\nKunde: Guten Tag!\nVerkäufer: Guten Tag! Kann ich Ihnen helfen?\nKunde: Was kostet das T-Shirt?\nVerkäufer: Das kostet neunzehn Euro neunundneunzig.\nKunde: Ich nehme es.\nVerkäufer: Das macht neunzehn Euro neunundneunzig.\nKunde: Bitte schön. (gir penger)\nVerkäufer: Danke! Auf Wiedersehen!\nKunde: Tschüss!',
         hints: ['Start med hilsen', 'Spor om pris med "Was kostet...?"', 'Avslutt med betaling og avskjed'],
       },
     },
@@ -1606,9 +1606,9 @@ Merk at alle substantiv pa tysk har kjonn (der, die, das).`,
 
 | Tysk | Norsk | Kjonn |
 |------|-------|-------|
-| die Grossmutter / die Oma | bestemoren | f |
-| der Grossvater / der Opa | bestefaren | m |
-| die Grosseltern | besteforeldrene | fl |
+| die Großmutter / die Oma | bestemoren | f |
+| der Großvater / der Opa | bestefaren | m |
+| die Großeltern | besteforeldrene | fl |
 | der Enkel | barnebarnet (gutt) | m |
 | die Enkelin | barnebarnet (jente) | f |
 | die Enkelkinder | barnebarna | fl |`,
@@ -1624,7 +1624,7 @@ Merk at alle substantiv pa tysk har kjonn (der, die, das).`,
       title: 'Eksempel 2: Besteforeldre',
       problem: `Hvordan sier du:
 "Jeg har en bestemor og en bestefar."`,
-      solution: `Ich habe eine Grossmutter und einen Grossvater.
+      solution: `Ich habe eine Großmutter und einen Großvater.
 eller uformelt:
 Ich habe eine Oma und einen Opa.`,
     },
@@ -1640,9 +1640,9 @@ Ich habe eine Oma und einen Opa.`,
         subTasks: [
           { label: 'a', task: 'bestemor (uformelt)', solution: 'die Oma' },
           { label: 'b', task: 'bestefar (uformelt)', solution: 'der Opa' },
-          { label: 'c', task: 'besteforeldrene', solution: 'die Grosseltern' },
+          { label: 'c', task: 'besteforeldrene', solution: 'die Großeltern' },
         ],
-        solution: 'a) die Oma\nb) der Opa\nc) die Grosseltern',
+        solution: 'a) die Oma\nb) der Opa\nc) die Großeltern',
         hints: ['Oma og Opa er de uformelle formene'],
       },
     },
@@ -1666,7 +1666,7 @@ Ich habe eine Oma und einen Opa.`,
       title: 'Eksempel 3: Beskrive familien',
       problem: `Beskriv familien din pa tysk:`,
       solution: `**Eksempel:**
-Ich habe eine grosse Familie. Ich habe eine Mutter, einen Vater, eine Schwester und einen Bruder. Meine Grosseltern wohnen in Oslo.
+Ich habe eine große Familie. Ich habe eine Mutter, einen Vater, eine Schwester und einen Bruder. Meine Großeltern wohnen in Oslo.
 
 (Jeg har en stor familie. Jeg har en mor, en far, en soster og en bror. Besteforeldrene mine bor i Oslo.)`,
     },
@@ -1715,7 +1715,7 @@ Ich habe eine grosse Familie. Ich habe eine Mutter, einen Vater, eine Schwester 
         task: 'Fyll inn riktig form av "haben" og oversett:',
         subTasks: [
           { label: 'a', task: 'Ich ___ eine Schwester.', solution: 'habe' },
-          { label: 'b', task: 'Er ___ zwei Bruder.', solution: 'hat' },
+          { label: 'b', task: 'Er ___ zwei Brüder.', solution: 'hat' },
           { label: 'c', task: 'Wir ___ viele Cousins.', solution: 'haben' },
           { label: 'd', task: '___ du Geschwister?', solution: 'Hast' },
         ],
@@ -1805,7 +1805,7 @@ d) **meine** Eltern (mine foreldre - flertall)`,
         subTasks: [
           { label: 'a', task: '___ Vater ist nett.', solution: 'Mein' },
           { label: 'b', task: '___ Mutter ist Lehrerin.', solution: 'Meine' },
-          { label: 'c', task: '___ Haus ist gross.', solution: 'Mein' },
+          { label: 'c', task: '___ Haus ist groß.', solution: 'Mein' },
           { label: 'd', task: '___ Geschwister wohnen hier.', solution: 'Meine' },
         ],
         solution: 'a) Mein\nb) Meine\nc) Mein\nd) Meine',
@@ -1869,8 +1869,8 @@ c) **ihre** Eltern (hennes foreldre)`,
       title: 'Eksempel 3: Snakke om familie',
       problem: `Beskriv familiemedlemmer med eiendomsord:`,
       solution: `**Eksempler:**
-- Mein Vater heisst Erik. (Faren min heter Erik.)
-- Meine Mutter ist Arztin. (Moren min er lege.)
+- Mein Vater heißt Erik. (Faren min heter Erik.)
+- Meine Mutter ist Ärztin. (Moren min er lege.)
 - Meine Schwester ist 12 Jahre alt. (Sosteren min er 12 ar.)
 - Mein Bruder wohnt in Berlin. (Broren min bor i Berlin.)`,
     },
@@ -1884,11 +1884,11 @@ c) **ihre** Eltern (hennes foreldre)`,
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Min mor heter Anna.', solution: 'Meine Mutter heisst Anna.' },
+          { label: 'a', task: 'Min mor heter Anna.', solution: 'Meine Mutter heißt Anna.' },
           { label: 'b', task: 'Hans far er laerer.', solution: 'Sein Vater ist Lehrer.' },
           { label: 'c', task: 'Hennes bror er 15 ar.', solution: 'Ihr Bruder ist 15 Jahre alt.' },
         ],
-        solution: 'a) Meine Mutter heisst Anna.\nb) Sein Vater ist Lehrer.\nc) Ihr Bruder ist 15 Jahre alt.',
+        solution: 'a) Meine Mutter heißt Anna.\nb) Sein Vater ist Lehrer.\nc) Ihr Bruder ist 15 Jahre alt.',
         hints: ['Husk boying etter kjonn'],
       },
     },
@@ -1902,9 +1902,9 @@ c) **ihre** Eltern (hennes foreldre)`,
         difficulty: 'vanskelig',
         task: 'Fullfar teksten med riktige eiendomsord:',
         subTasks: [
-          { label: 'a', task: 'Ich heisse Max. ___ Schwester heisst Lisa.', solution: 'Meine' },
+          { label: 'a', task: 'Ich heiße Max. ___ Schwester heißt Lisa.', solution: 'Meine' },
           { label: 'b', task: 'Lisa ist 14 Jahre alt. ___ Lieblingsfarbe ist blau.', solution: 'Ihre' },
-          { label: 'c', task: 'Wir haben einen Hund. ___ Hund heisst Bello.', solution: 'Unser' },
+          { label: 'c', task: 'Wir haben einen Hund. ___ Hund heißt Bello.', solution: 'Unser' },
         ],
         solution: 'a) Meine\nb) Ihre\nc) Unser',
         hints: ['Tenk pa hvem som eier og substantivets kjonn'],
@@ -1992,9 +1992,9 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
 |------|-------|
 | die Augen | oynene |
 | blaue Augen | bla oyne |
-| grune Augen | gronne oyne |
+| grüne Augen | gronne oyne |
 | braune Augen | brune oyne |
-| gross | hoy/stor |
+| groß | hoy/stor |
 | klein | liten/lav |
 | schlank | slank |
 | dick | tykk |
@@ -2008,7 +2008,7 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
       problem: `Lag setninger om utseende:`,
       solution: `**Eksempler:**
 - Er hat blaue Augen. (Han har bla oyne.)
-- Sie ist gross und schlank. (Hun er hoy og slank.)
+- Sie ist groß und schlank. (Hun er hoy og slank.)
 - Mein Opa ist alt. (Bestefaren min er gammel.)`,
     },
     {
@@ -2021,11 +2021,11 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
         difficulty: 'medium',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Hun har gronne oyne.', solution: 'Sie hat grune Augen.' },
-          { label: 'b', task: 'Han er hoy.', solution: 'Er ist gross.' },
+          { label: 'a', task: 'Hun har gronne oyne.', solution: 'Sie hat grüne Augen.' },
+          { label: 'b', task: 'Han er hoy.', solution: 'Er ist groß.' },
           { label: 'c', task: 'Min bror er ung.', solution: 'Mein Bruder ist jung.' },
         ],
-        solution: 'a) Sie hat grune Augen.\nb) Er ist gross.\nc) Mein Bruder ist jung.',
+        solution: 'a) Sie hat grüne Augen.\nb) Er ist groß.\nc) Mein Bruder ist jung.',
         hints: ['Bruk "hat" for oyne og "ist" for egenskaper'],
       },
     },
@@ -2041,9 +2041,9 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
 | lustig | morsom |
 | ernst | serials |
 | intelligent | intelligent |
-| fleissig | flittig |
+| fleißig | flittig |
 | faul | lat |
-| schuchtern | sjenert |
+| schüchtern | sjenert |
 | mutig | modig |
 | ruhig | rolig |
 | laut | hoylydt |`,
@@ -2065,7 +2065,7 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
       solution: `**Eksempler:**
 - Meine Mutter ist sehr nett. (Moren min er veldig snill.)
 - Mein Bruder ist lustig. (Broren min er morsom.)
-- Meine Schwester ist intelligent und fleissig. (Sosteren min er intelligent og flittig.)`,
+- Meine Schwester ist intelligent und fleißig. (Sosteren min er intelligent og flittig.)`,
     },
     {
       id: 'tysk-1-3-3-ex-block-3',
@@ -2079,16 +2079,16 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
         subTasks: [
           { label: 'a', task: 'Min mor er vennlig.', solution: 'Meine Mutter ist freundlich.' },
           { label: 'b', task: 'Hans bror er morsom.', solution: 'Sein Bruder ist lustig.' },
-          { label: 'c', task: 'Hun er sjenert men snill.', solution: 'Sie ist schuchtern aber nett.' },
+          { label: 'c', task: 'Hun er sjenert men snill.', solution: 'Sie ist schüchtern aber nett.' },
         ],
-        solution: 'a) Meine Mutter ist freundlich.\nb) Sein Bruder ist lustig.\nc) Sie ist schuchtern aber nett.',
+        solution: 'a) Meine Mutter ist freundlich.\nb) Sein Bruder ist lustig.\nc) Sie ist schüchtern aber nett.',
         hints: ['Adjektiv etter "ist" boyes ikke'],
       },
     },
     {
       id: 'tysk-1-3-3-tip-1',
       type: 'tip',
-      content: `Bruk "sehr" (veldig) for a forsterke adjektiver: sehr nett (veldig snill), sehr gross (veldig hoy).`,
+      content: `Bruk "sehr" (veldig) for a forsterke adjektiver: sehr nett (veldig snill), sehr groß (veldig hoy).`,
     },
     {
       id: 'tysk-1-3-3-ex-block-4',
@@ -2099,7 +2099,7 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en beskrivelse av et familiemedlem pa tysk (4-5 setninger). Inkluder navn, alder, utseende og personlighet.',
-        solution: 'Eksempel:\nMeine Schwester heisst Lisa. Sie ist 14 Jahre alt. Sie hat lange, blonde Haare und blaue Augen. Sie ist gross und schlank. Lisa ist sehr nett und lustig.',
+        solution: 'Eksempel:\nMeine Schwester heißt Lisa. Sie ist 14 Jahre alt. Sie hat lange, blonde Haare und blaue Augen. Sie ist groß und schlank. Lisa ist sehr nett und lustig.',
         hints: ['Start med navn og alder', 'Beskriv har og oyne', 'Beskriv personlighet med adjektiver'],
       },
     },
@@ -2137,7 +2137,7 @@ Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din 
 
 | Tysk | Norsk |
 |------|-------|
-| Ich mochte meine Familie vorstellen. | Jeg vil gjerne presentere familien min. |
+| Ich möchte meine Familie vorstellen. | Jeg vil gjerne presentere familien min. |
 | Meine Familie besteht aus... | Familien min bestar av... |
 | Wir sind ... Personen. | Vi er ... personer. |
 | Ich habe... | Jeg har... |
@@ -2149,13 +2149,13 @@ Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din 
       title: 'Eksempel 1: Apningsfrase',
       problem: `Hvordan begynner du a presentere familien?`,
       solution: `**Gode apninger:**
-- Ich mochte meine Familie vorstellen.
+- Ich möchte meine Familie vorstellen.
 (Jeg vil gjerne presentere familien min.)
 
-- Meine Familie ist klein/gross.
+- Meine Familie ist klein/groß.
 (Familien min er liten/stor.)
 
-- Wir sind funf Personen.
+- Wir sind fünf Personen.
 (Vi er fem personer.)`,
     },
     {
@@ -2168,11 +2168,11 @@ Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din 
         difficulty: 'lett',
         task: 'Oversett til tysk:',
         subTasks: [
-          { label: 'a', task: 'Familien min er stor.', solution: 'Meine Familie ist gross.' },
+          { label: 'a', task: 'Familien min er stor.', solution: 'Meine Familie ist groß.' },
           { label: 'b', task: 'Vi er fire personer.', solution: 'Wir sind vier Personen.' },
           { label: 'c', task: 'Jeg har to sosken.', solution: 'Ich habe zwei Geschwister.' },
         ],
-        solution: 'a) Meine Familie ist gross.\nb) Wir sind vier Personen.\nc) Ich habe zwei Geschwister.',
+        solution: 'a) Meine Familie ist groß.\nb) Wir sind vier Personen.\nc) Ich habe zwei Geschwister.',
         hints: ['Bruk "Meine Familie" og tall'],
       },
     },
@@ -2195,7 +2195,7 @@ For hvert familiemedlem kan du nevne:
       title: 'Eksempel 2: Beskrive et familiemedlem',
       problem: `Skriv en fullstendig beskrivelse av moren din:`,
       solution: `**Eksempel:**
-Meine Mutter heisst Karin. Sie ist 45 Jahre alt. Sie hat kurze, braune Haare und grune Augen. Meine Mutter ist sehr nett und freundlich. Sie ist Lehrerin. Wir verstehen uns gut.
+Meine Mutter heißt Karin. Sie ist 45 Jahre alt. Sie hat kurze, braune Haare und grüne Augen. Meine Mutter ist sehr nett und freundlich. Sie ist Lehrerin. Wir verstehen uns gut.
 
 (Moren min heter Karin. Hun er 45 ar gammel. Hun har kort, brunt har og gronne oyne. Moren min er veldig snill og vennlig. Hun er laerer. Vi kommer godt overens.)`,
     },
@@ -2209,11 +2209,11 @@ Meine Mutter heisst Karin. Sie ist 45 Jahre alt. Sie hat kurze, braune Haare und
         difficulty: 'medium',
         task: 'Fullfar beskrivelsen pa tysk:',
         subTasks: [
-          { label: 'a', task: 'Faren min heter ___. (Per)', solution: 'Mein Vater heisst Per.' },
-          { label: 'b', task: 'Han er ___ ar gammel. (50)', solution: 'Er ist funfzig Jahre alt.' },
+          { label: 'a', task: 'Faren min heter ___. (Per)', solution: 'Mein Vater heißt Per.' },
+          { label: 'b', task: 'Han er ___ ar gammel. (50)', solution: 'Er ist fünfzig Jahre alt.' },
           { label: 'c', task: 'Han har ___ har. (kort, gratt)', solution: 'Er hat kurze, graue Haare.' },
         ],
-        solution: 'a) Mein Vater heisst Per.\nb) Er ist funfzig Jahre alt.\nc) Er hat kurze, graue Haare.',
+        solution: 'a) Mein Vater heißt Per.\nb) Er ist fünfzig Jahre alt.\nc) Er hat kurze, graue Haare.',
         hints: ['Bruk de riktige eiendomsordene og adjektivene'],
       },
     },
@@ -2225,11 +2225,11 @@ Meine Mutter heisst Karin. Sie ist 45 Jahre alt. Sie hat kurze, braune Haare und
 | Tysk | Norsk |
 |------|-------|
 | der Lehrer / die Lehrerin | laereren |
-| der Arzt / die Arztin | legen |
+| der Arzt / die Ärztin | legen |
 | der Ingenieur / die Ingenieurin | ingenioren |
 | der Krankenpfleger / die Krankenschwester | sykepleieren |
 | der Polizist / die Polizistin | politibetjenten |
-| der Koch / die Kochin | kokken |
+| der Koch / die Köchin | kokken |
 | arbeitslos | arbeidslos |
 | Rentner / Rentnerin | pensjonist |`,
     },
@@ -2240,7 +2240,7 @@ Meine Mutter heisst Karin. Sie ist 45 Jahre alt. Sie hat kurze, braune Haare und
       problem: `Hvordan sier du hva noen jobber som?`,
       solution: `**Eksempler:**
 - Mein Vater ist Ingenieur. (Faren min er ingenior.)
-- Meine Mutter ist Arztin. (Moren min er lege.)
+- Meine Mutter ist Ärztin. (Moren min er lege.)
 - Mein Opa ist Rentner. (Bestefaren min er pensjonist.)
 
 Merk: Pa tysk bruker man ikke artikkel foran yrkestitler etter "sein".`,
@@ -2281,13 +2281,13 @@ Merk: Pa tysk bruker man ikke artikkel foran yrkestitler etter "sein".`,
       problem: `Les en fullstendig familiepresentasjon:`,
       solution: `**Meine Familie**
 
-Meine Familie ist nicht so gross. Wir sind vier Personen: meine Eltern, meine Schwester und ich.
+Meine Familie ist nicht so groß. Wir sind vier Personen: meine Eltern, meine Schwester und ich.
 
-Mein Vater heisst Erik. Er ist 48 Jahre alt. Er hat kurze, braune Haare und blaue Augen. Er ist Ingenieur. Mein Vater ist sehr nett und lustig.
+Mein Vater heißt Erik. Er ist 48 Jahre alt. Er hat kurze, braune Haare und blaue Augen. Er ist Ingenieur. Mein Vater ist sehr nett und lustig.
 
-Meine Mutter heisst Anne. Sie ist 45 Jahre alt. Sie hat lange, blonde Haare und grune Augen. Sie ist Lehrerin. Meine Mutter ist freundlich und intelligent.
+Meine Mutter heißt Anne. Sie ist 45 Jahre alt. Sie hat lange, blonde Haare und grüne Augen. Sie ist Lehrerin. Meine Mutter ist freundlich und intelligent.
 
-Meine Schwester heisst Lisa. Sie ist 12 Jahre alt. Sie hat lange, braune Haare. Lisa ist schuchtern aber sehr nett.
+Meine Schwester heißt Lisa. Sie ist 12 Jahre alt. Sie hat lange, braune Haare. Lisa ist schüchtern aber sehr nett.
 
 Am Wochenende spielen wir oft zusammen Spiele. Ich liebe meine Familie!`,
     },

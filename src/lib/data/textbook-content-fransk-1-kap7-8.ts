@@ -1,14 +1,14 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Niva 1 - Kapittel 7-8
- * Klaer og shopping, Skole og yrker
+ * Fransk Nivå 1 - Kapittel 7-8
+ * Klær og shopping, Skole og yrker
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 7.1: Les vetements - Klaerne
+// Kapittel 7.1: Les vetements - Klærne
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_7_1: TextbookChapter = {
@@ -16,29 +16,29 @@ export const CHAPTER_FRANSK_1_7_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '7.1',
   title: 'Les vetements',
-  subtitle: 'Klaerne',
-  description: 'Laer grunnleggende ord for klaer pa fransk.',
+  subtitle: 'Klærne',
+  description: 'Lær grunnleggende ord for klær på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'laere ord for vanlige klaesplagg',
-    'bruke riktig artikkel og kjoenn med klaesord',
-    'beskrive hva man har pa seg',
+    'lære ord for vanlige klesplagg',
+    'bruke riktig artikkel og kjønn med klesord',
+    'beskrive hva man har på seg',
   ],
   content: [
     {
       id: 'fransk-1-7-1-intro',
       type: 'text',
-      content: `## Klaer pa fransk
+      content: `## Klær på fransk
 
-A kunne snakke om klaer er nyttig i mange situasjoner - nar du handler, pakker til en reise, eller bare beskriver hva noen har pa seg.
+Å kunne snakke om klær er nyttig i mange situasjoner - når du handler, pakker til en reise, eller bare beskriver hva noen har på seg.
 
-Pa fransk har alle substantiver kjoenn: hankjoenn (masculin) eller hunkjoenn (feminin). Det er viktig a laere klaesordene med riktig artikkel! Hankjoenn bruker **un/le** og hunkjoenn bruker **une/la**.`,
+På fransk har alle substantiver kjønn: hankjønn (masculin) eller hunkjønn (feminin). Det er viktig a lære klesordene med riktig artikkel! Hankjønn bruker **un/le** og hunkjønn bruker **une/la**.`,
     },
     {
       id: 'fransk-1-7-1-def-1',
       type: 'definition',
       title: 'Vokabular: Overkropp',
-      content: `**Klaer for overkroppen:**
+      content: `**Klær for overkroppen:**
 
 | Fransk | Norsk |
 |--------|-------|
@@ -53,14 +53,14 @@ Pa fransk har alle substantiver kjoenn: hankjoenn (masculin) eller hunkjoenn (fe
     {
       id: 'fransk-1-7-1-def-2',
       type: 'definition',
-      title: 'Vokabular: Underkropp og tilbehoer',
-      content: `**Klaer for underkroppen:**
+      title: 'Vokabular: Underkropp og tilbehør',
+      content: `**Klær for underkroppen:**
 
 | Fransk | Norsk |
 |--------|-------|
 | un pantalon | bukse |
 | un jean | jeans |
-| une jupe | skjoert |
+| une jupe | skjørt |
 | un short | shorts |
 | des chaussures (f. pl.) | sko |
 | des chaussettes (f. pl.) | sokker |
@@ -69,13 +69,13 @@ Pa fransk har alle substantiver kjoenn: hankjoenn (masculin) eller hunkjoenn (fe
     {
       id: 'fransk-1-7-1-text-1',
       type: 'text',
-      content: `**Tilbehoer (Les accessoires):**
+      content: `**Tilbehør (Les accessoires):**
 
 | Fransk | Norsk |
 |--------|-------|
 | un chapeau | hatt |
 | un bonnet | lue |
-| une echarpe | skjerf |
+| une écharpe | skjerf |
 | des gants (m. pl.) | hansker |
 | des lunettes (f. pl.) | briller |
 | un sac (a main) | veske |`,
@@ -83,13 +83,13 @@ Pa fransk har alle substantiver kjoenn: hankjoenn (masculin) eller hunkjoenn (fe
     {
       id: 'fransk-1-7-1-tip-1',
       type: 'tip',
-      content: `Legg merke til at noen klaesplagg ofte brukes i flertall pa fransk, akkurat som pa norsk: des chaussures (skoene), des chaussettes (sokkene), des gants (hanskene). Flertallsartikkelen "des" brukes for begge kjoenn.`,
+      content: `Legg merke til at noen klesplagg ofte brukes i flertall på fransk, akkurat som på norsk: des chaussures (skoene), des chaussettes (sokkene), des gants (hanskene). Flertallsartikkelen "des" brukes for begge kjønn.`,
     },
     {
       id: 'fransk-1-7-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Oversett til norsk',
-      problem: `Oversett disse klaesordene til norsk:
+      problem: `Oversett disse klesordene til norsk:
 
 a) une chemise
 b) un pantalon
@@ -100,7 +100,7 @@ b) un pantalon = **bukse**
 c) un pull = **genser**
 d) des chaussures = **sko**
 
-**Huske-tips:** "Pantalon" likner det engelske "pants", men pa fransk er det entall (un pantalon = en bukse)!`,
+**Huske-tips:** "Pantalon" likner det engelske "pants", men på fransk er det entall (un pantalon = en bukse)!`,
     },
     {
       id: 'fransk-1-7-1-ex-block-1',
@@ -114,27 +114,27 @@ d) des chaussures = **sko**
         subTasks: [
           { label: 'a', task: 'jakke', solution: 'une veste', answer: 'une veste' },
           { label: 'b', task: 'kjole', solution: 'une robe', answer: 'une robe' },
-          { label: 'c', task: 'skjoert', solution: 'une jupe', answer: 'une jupe' },
+          { label: 'c', task: 'skjørt', solution: 'une jupe', answer: 'une jupe' },
           { label: 'd', task: 'genser', solution: 'un pull', answer: 'un pull' },
         ],
         solution: 'a) une veste, b) une robe, c) une jupe, d) un pull',
-        hints: ['Husk at alle franske substantiver har kjoenn', 'Jupe pa fransk betyr skjoert!'],
+        hints: ['Husk at alle franske substantiver har kjønn', 'Jupe på fransk betyr skjørt!'],
       },
     },
     {
       id: 'fransk-1-7-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Hvilket kjoenn?',
+      title: 'Eksempel 2: Hvilket kjønn?',
       problem: `Velg riktig artikkel:
 
 a) ___ chemise (un/une)
 b) ___ veste (un/une)
 c) ___ pantalon (un/une)`,
-      solution: `a) **une** chemise - hunkjoenn
-b) **une** veste - hunkjoenn
-c) **un** pantalon - hankjoenn
+      solution: `a) **une** chemise - hunkjønn
+b) **une** veste - hunkjønn
+c) **un** pantalon - hankjønn
 
-**Tips:** Mange klaesplagg som slutter pa -e er hunkjoenn (une): une chemise, une veste, une jupe, une robe. Men det finnes unntak!`,
+**Tips:** Mange klesplagg som slutter på -e er hunkjønn (une): une chemise, une veste, une jupe, une robe. Men det finnes unntak!`,
     },
     {
       id: 'fransk-1-7-1-ex-block-2',
@@ -152,15 +152,15 @@ c) **un** pantalon - hankjoenn
           { label: 'd', task: '___ robe', solution: 'une', answer: 'une' },
         ],
         solution: 'a) une jupe, b) un tee-shirt, c) un manteau, d) une robe',
-        hints: ['Ord pa -e er ofte hunkjoenn', 'Manteau er hankjoenn'],
+        hints: ['Ord på -e er ofte hunkjønn', 'Manteau er hankjønn'],
       },
     },
     {
       id: 'fransk-1-7-1-text-2',
       type: 'text',
-      content: `## Flertall av klaer
+      content: `## Flertall av klær
 
-Pa fransk danner vi flertall ved a legge til **-s** pa slutten av ordet. Artikkelen i flertall er **les** (bestemt) eller **des** (ubestemt):
+På fransk danner vi flertall ved å legge til **-s** på slutten av ordet. Artikkelen i flertall er **les** (bestemt) eller **des** (ubestemt):
 
 | Entall | Flertall |
 |--------|----------|
@@ -183,7 +183,7 @@ c) le manteau -> les ___`,
 b) la chemise -> les **chemises**
 c) le manteau -> les **manteaux**
 
-**Merk:** Ord pa -eau far -eaux i flertall: un manteau -> des manteaux, un chapeau -> des chapeaux.`,
+**Merk:** Ord på -eau får -eaux i flertall: un manteau -> des manteaux, un chapeau -> des chapeaux.`,
     },
     {
       id: 'fransk-1-7-1-ex-block-3',
@@ -201,7 +201,7 @@ c) le manteau -> les **manteaux**
           { label: 'd', task: 'le chapeau -> les ___', solution: 'chapeaux', answer: 'chapeaux' },
         ],
         solution: 'a) jupes, b) manteaux, c) robes, d) chapeaux',
-        hints: ['De fleste ord far -s i flertall', 'Ord pa -eau far -eaux i flertall'],
+        hints: ['De fleste ord får -s i flertall', 'Ord på -eau får -eaux i flertall'],
       },
     },
     {
@@ -216,18 +216,18 @@ c) le manteau -> les **manteaux**
         subTasks: [
           { label: 'a', task: 'en hvit skjorte', solution: 'une chemise blanche', answer: 'une chemise blanche' },
           { label: 'b', task: 'svarte sko', solution: 'des chaussures noires', answer: 'des chaussures noires' },
-          { label: 'c', task: 'et roedt skjerf', solution: 'une echarpe rouge', answer: 'une echarpe rouge' },
-          { label: 'd', task: 'en blaa frakk', solution: 'un manteau bleu', answer: 'un manteau bleu' },
+          { label: 'c', task: 'et rødt skjerf', solution: 'une écharpe rouge', answer: 'une écharpe rouge' },
+          { label: 'd', task: 'en blå frakk', solution: 'un manteau bleu', answer: 'un manteau bleu' },
         ],
-        solution: 'a) une chemise blanche, b) des chaussures noires, c) une echarpe rouge, d) un manteau bleu',
-        hints: ['Fargen star etter substantivet pa fransk', 'Husk adjektivsamsvar i kjoenn og tall'],
+        solution: 'a) une chemise blanche, b) des chaussures noires, c) une écharpe rouge, d) un manteau bleu',
+        hints: ['Fargen står etter substantivet på fransk', 'Husk adjektivsamsvar i kjønn og tall'],
       },
     },
     {
       id: 'fransk-1-7-1-note-1',
       type: 'note',
       title: 'Kulturnotat',
-      content: `Frankrike er kjent som motehovedstaden i verden. Paris er hjemmet til mange av verdens mest kjente motehus som Chanel, Dior, Louis Vuitton og Hermes. Uttrykket "haute couture" (hoey mote) er opprinnelig fransk. Franskmenn er generelt opptatt av a kle seg godt og stilfullt, selv til hverdags.`,
+      content: `Frankrike er kjent som motehovedstaden i verden. Paris er hjemmet til mange av verdens mest kjente motehus som Chanel, Dior, Louis Vuitton og Hermes. Uttrykket "haute couture" (høy mote) er opprinnelig fransk. Franskmenn er generelt opptatt av a kle seg godt og stilfullt, selv til hverdags.`,
     },
   ],
   exercises: [],
@@ -243,34 +243,34 @@ export const CHAPTER_FRANSK_1_7_2: TextbookChapter = {
   chapterNumber: '7.2',
   title: 'Au magasin de vetements',
   subtitle: 'I klesbutikken',
-  description: 'Laer a handle klaer og snakke med ekspeditoerer pa fransk.',
+  description: 'Lær å handle klær og snakke med ekspeditører på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'sporsmalsfraser for shopping',
-    'be om a prove klaer',
-    'forstaa priser og stoerrelser',
+    'spørsmålsfraser for shopping',
+    'be om å prøve klær',
+    'forstaa priser og størrelser',
   ],
   content: [
     {
       id: 'fransk-1-7-2-intro',
       type: 'text',
-      content: `## Handle klaer pa fransk
+      content: `## Handle klær på fransk
 
-Nar du handler klaer i Frankrike, er det nyttig a kunne noen viktige fraser. La oss laere de vanligste uttrykkene for klesbutikken!`,
+Når du handler klær i Frankrike, er det nyttig å kunne noen viktige fraser. La oss lære de vanligste uttrykkene for klesbutikken!`,
     },
     {
       id: 'fransk-1-7-2-def-1',
       type: 'definition',
       title: 'Nyttige shoppingfraser',
-      content: `**Spoersmaal til ekspeditoeren:**
+      content: `**Spørsmål til ekspeditøren:**
 
 | Fransk | Norsk |
 |--------|-------|
 | Je peux vous aider? | Kan jeg hjelpe deg? |
 | Je peux essayer ...? | Kan jeg prove ...? |
-| Vous avez ca en taille ...? | Har dere dette i stoerrelse ...? |
-| Ou est la cabine d'essayage? | Hvor er proeveommet? |
-| Ca coute combien? | Hva koster det? |
+| Vous avez ca en taille ...? | Har dere dette i størrelse ...? |
+| Où est la cabine d'essayage? | Hvor er prøverommet? |
+| Ça coûte combien? | Hva koster det? |
 | Quel est le prix? | Hva er prisen? |`,
     },
     {
@@ -282,36 +282,36 @@ Nar du handler klaer i Frankrike, er det nyttig a kunne noen viktige fraser. La 
 | Fransk | Norsk |
 |--------|-------|
 | Je cherche ... | Jeg leter etter ... |
-| Ca me va | Det passer meg |
-| Ca ne me va pas | Det passer meg ikke |
+| Ça me va | Det passer meg |
+| Ça ne me va pas | Det passer meg ikke |
 | C'est trop grand | Det er for stort |
 | C'est trop petit | Det er for lite |
-| Ca me plait | Jeg liker det |
+| Ça me plait | Jeg liker det |
 | Je le prends | Jeg tar det |`,
     },
     {
       id: 'fransk-1-7-2-example-1',
       type: 'example',
       title: 'Eksempel 1: I klesbutikken',
-      problem: `Les dialogen og svar pa spoersmaalene:
+      problem: `Les dialogen og svar på spørsmålene:
 
 Vendeur: Bonjour! Je peux vous aider?
 Client: Oui, je cherche une veste.
 Vendeur: Quelle taille faites-vous?
-Client: Taille M, s'il vous plait.
+Client: Taille M, s'il vous plaît.
 Vendeur: Voici une belle veste. Vous voulez l'essayer?
-Client: Oui, merci. Ou est la cabine d'essayage?
+Client: Oui, merci. Où est la cabine d'essayage?
 
 a) Hva leter kunden etter?
-b) Hvilken stoerrelse trenger kunden?`,
+b) Hvilken størrelse trenger kunden?`,
       solution: `a) Kunden leter etter en jakke (une veste).
-b) Kunden trenger stoerrelse M (taille M).
+b) Kunden trenger størrelse M (taille M).
 
 **Viktige ord fra dialogen:**
-- le vendeur / la vendeuse = ekspeditoeir
+- le vendeur / la vendeuse = ekspeditør
 - le client / la cliente = kunde
 - essayer = prove
-- la cabine d'essayage = proeveom`,
+- la cabine d'essayage = prøverom`,
     },
     {
       id: 'fransk-1-7-2-ex-block-1',
@@ -324,11 +324,11 @@ b) Kunden trenger stoerrelse M (taille M).
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Kan jeg prove dette?', solution: 'Je peux essayer ca?', answer: 'Je peux essayer ca' },
-          { label: 'b', task: 'Hvor er proeveommet?', solution: 'Ou est la cabine d\'essayage?', answer: 'Ou est la cabine d\'essayage' },
-          { label: 'c', task: 'Hva koster det?', solution: 'Ca coute combien?', answer: 'Ca coute combien' },
+          { label: 'b', task: 'Hvor er prøverommet?', solution: 'Où est la cabine d\'essayage?', answer: 'Où est la cabine d\'essayage' },
+          { label: 'c', task: 'Hva koster det?', solution: 'Ça coûte combien?', answer: 'Ça coûte combien' },
         ],
-        solution: 'a) Je peux essayer ca?, b) Ou est la cabine d\'essayage?, c) Ca coute combien?',
-        hints: ['essayer = a prove', 'couter = a koste'],
+        solution: 'a) Je peux essayer ca?, b) Où est la cabine d\'essayage?, c) Ça coûte combien?',
+        hints: ['essayer = a prove', 'coûter = å koste'],
       },
     },
     {
@@ -336,32 +336,32 @@ b) Kunden trenger stoerrelse M (taille M).
       type: 'text',
       content: `## Betaling
 
-Nar du skal betale, kan du bruke disse frasene:
+Når du skal betale, kan du bruke disse frasene:
 
 | Fransk | Norsk |
 |--------|-------|
 | Je voudrais payer | Jeg vil betale |
 | Je peux payer par carte? | Kan jeg betale med kort? |
-| En especes seulement | Kun kontant |
-| Ca fait ... euros | Det blir ... euro |
+| En espèces seulement | Kun kontant |
+| Ça fait ... euros | Det blir ... euro |
 | Le recu / le ticket de caisse | Kvitteringen |`,
     },
     {
       id: 'fransk-1-7-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Betaling',
-      problem: `Fullfoeir dialogen:
+      problem: `Fullfør dialogen:
 
 Client: La veste ___ bien. Je la ___.
-Vendeur: Ca fait 49 euros.
+Vendeur: Ça fait 49 euros.
 Client: Je peux payer par ___?
 Vendeur: Oui, bien sur.`,
       solution: `Client: La veste **me va** bien. Je la **prends**.
-Vendeur: Ca fait 49 euros.
+Vendeur: Ça fait 49 euros.
 Client: Je peux payer par **carte**?
 Vendeur: Oui, bien sur.
 
-**Oversettelse:** Jakken passer meg godt. Jeg tar den. - Det blir 49 euro. - Kan jeg betale med kort? - Ja, selvfoelgelig.`,
+**Oversettelse:** Jakken passer meg godt. Jeg tar den. - Det blir 49 euro. - Kan jeg betale med kort? - Ja, selvfølgelig.`,
     },
     {
       id: 'fransk-1-7-2-ex-block-2',
@@ -374,12 +374,12 @@ Vendeur: Oui, bien sur.
         task: 'Fyll inn riktig ord:',
         subTasks: [
           { label: 'a', task: 'Je ___ une jupe. (leter etter)', solution: 'cherche', answer: 'cherche' },
-          { label: 'b', task: 'Ca ne me ___ pas. (passer)', solution: 'va', answer: 'va' },
+          { label: 'b', task: 'Ça ne me ___ pas. (passer)', solution: 'va', answer: 'va' },
           { label: 'c', task: 'C\'est trop ___. (stort)', solution: 'grand', answer: 'grand' },
           { label: 'd', task: 'Je le ___. (tar)', solution: 'prends', answer: 'prends' },
         ],
         solution: 'a) cherche, b) va, c) grand, d) prends',
-        hints: ['chercher = a lete etter', 'aller = a ga/passe', 'prendre = a ta'],
+        hints: ['chercher = å lete etter', 'aller = a ga/passe', 'prendre = a ta'],
       },
     },
     {
@@ -387,7 +387,7 @@ Vendeur: Oui, bien sur.
       type: 'text',
       content: `## Verbet "vouloir" (a ville/oenske)
 
-For hoeflige oeonsker bruker vi "je voudrais" (jeg vil gjerne):
+For høflige ønsker bruker vi "je voudrais" (jeg vil gjerne):
 
 | Person | Form |
 |--------|------|
@@ -413,7 +413,7 @@ c) Vi vil gjerne betale.`,
 b) **Elle voudrait essayer la robe.**
 c) **Nous voudrions payer.**
 
-**Merk:** "je voudrais" er mer hoeflig enn "je veux" (jeg vil).`,
+**Merk:** "je voudrais" er mer høflig enn "je veux" (jeg vil).`,
     },
     {
       id: 'fransk-1-7-2-ex-block-3',
@@ -430,13 +430,13 @@ c) **Nous voudrions payer.**
           { label: 'c', task: 'de / betale / med kort', solution: 'Ils voudraient payer par carte.', answer: 'Ils voudraient payer par carte' },
         ],
         solution: 'a) Je voudrais essayer le pull, b) Il voudrait une veste, c) Ils voudraient payer par carte',
-        hints: ['voudrais er kondisjonalis av vouloir', 'Husk a bruke riktig person-form'],
+        hints: ['voudrais er kondisjonalis av vouloir', 'Husk å bruke riktig person-form'],
       },
     },
     {
       id: 'fransk-1-7-2-tip-1',
       type: 'tip',
-      content: `I Frankrike er de fleste butikker aapne fra kl. 10 til kl. 19. Mange smabutikker holder stengt mellom kl. 12 og 14 (lunsjtid). Pa soendager er de fleste butikker stengt, bortsett fra i turistomraader. "Les soldes" (salg) skjer to ganger i aaret, vanligvis i januar og juli.`,
+      content: `I Frankrike er de fleste butikker åpne fra kl. 10 til kl. 19. Mange smabutikker holder stengt mellom kl. 12 og 14 (lunsjtid). Pa søndager er de fleste butikker stengt, bortsett fra i turistomraader. "Les soldes" (salg) skjer to ganger i aaret, vanligvis i januar og juli.`,
     },
     {
       id: 'fransk-1-7-2-ex-block-4',
@@ -446,14 +446,14 @@ c) **Nous voudrions payer.**
         number: '7.2.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Lag en kort dialog i en klesbutikk (4-6 setninger). Bruk minst 3 av disse frasene: Je peux vous aider, Je cherche, essayer, Ca coute combien, Je le prends',
+        task: 'Lag en kort dialog i en klesbutikk (4-6 setninger). Bruk minst 3 av disse frasene: Je peux vous aider, Je cherche, essayer, Ça coûte combien, Je le prends',
         subTasks: [
-          { label: 'a', task: 'Ekspeditoerens foerste setning', solution: 'Bonjour! Je peux vous aider?' },
+          { label: 'a', task: 'Ekspeditørens første setning', solution: 'Bonjour! Je peux vous aider?' },
           { label: 'b', task: 'Kundens svar', solution: 'Oui, je cherche un tee-shirt.' },
-          { label: 'c', task: 'Avslutt dialogen', solution: 'Ca coute combien? - Ca fait 25 euros. - Je le prends.' },
+          { label: 'c', task: 'Avslutt dialogen', solution: 'Ça coûte combien? - Ça fait 25 euros. - Je le prends.' },
         ],
-        solution: 'Eksempel: "Vendeur: Bonjour! Je peux vous aider? Client: Oui, je cherche un tee-shirt. Je peux essayer le bleu? Vendeur: Bien sur! Ca coute combien? Ca fait 25 euros. Client: Tres bien, je le prends."',
-        hints: ['Start med en hilsen', 'Bruk hoeflig form (vous)'],
+        solution: 'Eksempel: "Vendeur: Bonjour! Je peux vous aider? Client: Oui, je cherche un tee-shirt. Je peux essayer le bleu? Vendeur: Bien sur! Ça coûte combien? Ça fait 25 euros. Client: Très bien, je le prends."',
+        hints: ['Start med en hilsen', 'Bruk høflig form (vous)'],
       },
     },
   ],
@@ -461,7 +461,7 @@ c) **Nous voudrions payer.**
 };
 
 // ============================================================================
-// Kapittel 7.3: Couleurs et tailles - Farger og stoerrelser
+// Kapittel 7.3: Couleurs et tailles - Farger og størrelser
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_7_3: TextbookChapter = {
@@ -469,21 +469,21 @@ export const CHAPTER_FRANSK_1_7_3: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '7.3',
   title: 'Couleurs et tailles',
-  subtitle: 'Farger og stoerrelser',
-  description: 'Laer farger og stoerrelser for a beskrive klaer.',
+  subtitle: 'Farger og størrelser',
+  description: 'Lær farger og størrelser for å beskrive klær.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'laere fargene pa fransk',
+    'lære fargene på fransk',
     'forstaa adjektivsamsvar med farger',
-    'beskrive klaer med farge og stoerrelse',
+    'beskrive klær med farge og størrelse',
   ],
   content: [
     {
       id: 'fransk-1-7-3-intro',
       type: 'text',
-      content: `## Farger og stoerrelser
+      content: `## Farger og størrelser
 
-For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere fargene og laere hvordan vi beskriver klaer!`,
+For å beskrive klær trenger du å kunne fargene og størrelsene. La oss repetere fargene og lære hvordan vi beskriver klær!`,
     },
     {
       id: 'fransk-1-7-3-def-1',
@@ -493,14 +493,14 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere
 
 | Fransk (m.) | Fransk (f.) | Norsk |
 |-------------|-------------|-------|
-| rouge | rouge | roed |
-| bleu | bleue | blaa |
+| rouge | rouge | rød |
+| bleu | bleue | blå |
 | jaune | jaune | gul |
-| vert | verte | groenn |
+| vert | verte | grønn |
 | blanc | blanche | hvit |
 | noir | noire | svart |
 | brun / marron | brune / marron | brun |
-| gris | grise | graa |
+| gris | grise | grå |
 | orange | orange | oransje |
 | rose | rose | rosa |
 | violet | violette | lilla |
@@ -513,14 +513,14 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene. La oss repetere
 
 | Fransk | Norsk |
 |--------|-------|
-| bleu clair | lyseblaa |
-| bleu fonce | moerkeblaa |
+| bleu clair | lyseblå |
+| bleu fonce | mørkeblå |
 | vert clair | lysegroen |
-| vert fonce | moerkegroen |
-| rouge clair | lyseroed |
-| rouge fonce | moerkeroed |
+| vert fonce | mørkegroen |
+| rouge clair | lyserød |
+| rouge fonce | mørkerød |
 
-**Tips:** "clair" = lys, "fonce" = moerk`,
+**Tips:** "clair" = lys, "fonce" = mørk`,
     },
     {
       id: 'fransk-1-7-3-example-1',
@@ -532,12 +532,12 @@ a) La robe rouge
 b) La veste bleue
 c) Le manteau noir
 d) Les chaussures blanches`,
-      solution: `a) La robe rouge = **den roede kjolen**
-b) La veste bleue = **den blaa jakken**
+      solution: `a) La robe rouge = **den røde kjolen**
+b) La veste bleue = **den blå jakken**
 c) Le manteau noir = **den svarte frakken**
 d) Les chaussures blanches = **de hvite skoene**
 
-**Merk:** Adjektivet (fargen) samsvarer i kjoenn og tall med substantivet det beskriver. Det star vanligvis etter substantivet pa fransk.`,
+**Merk:** Adjektivet (fargen) samsvarer i kjønn og tall med substantivet det beskriver. Det står vanligvis etter substantivet på fransk.`,
     },
     {
       id: 'fransk-1-7-3-ex-block-1',
@@ -547,55 +547,55 @@ d) Les chaussures blanches = **de hvite skoene**
         number: '7.3.1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Oversett fargene til fransk (hankjoenn):',
+        task: 'Oversett fargene til fransk (hankjønn):',
         subTasks: [
-          { label: 'a', task: 'roed', solution: 'rouge', answer: 'rouge' },
-          { label: 'b', task: 'blaa', solution: 'bleu', answer: 'bleu' },
-          { label: 'c', task: 'groenn', solution: 'vert', answer: 'vert' },
+          { label: 'a', task: 'rød', solution: 'rouge', answer: 'rouge' },
+          { label: 'b', task: 'blå', solution: 'bleu', answer: 'bleu' },
+          { label: 'c', task: 'grønn', solution: 'vert', answer: 'vert' },
           { label: 'd', task: 'svart', solution: 'noir', answer: 'noir' },
         ],
         solution: 'a) rouge, b) bleu, c) vert, d) noir',
-        hints: ['Rouge er lik i bade hankjoenn og hunkjoenn', 'Vert far -e i hunkjoenn: verte'],
+        hints: ['Rouge er lik i både hankjønn og hunkjønn', 'Vert får -e i hunkjønn: verte'],
       },
     },
     {
       id: 'fransk-1-7-3-def-2',
       type: 'definition',
-      title: 'Les tailles - Stoerrelsene',
-      content: `**Klaesstoerrelser:**
+      title: 'Les tailles - Størrelsene',
+      content: `**Klaesstørrelser:**
 
 | Fransk | Norsk |
 |--------|-------|
-| XS - tres petit | ekstra liten |
+| XS - très petit | ekstra liten |
 | S - petit | liten |
 | M - moyen | medium |
 | L - grand | stor |
-| XL - tres grand | ekstra stor |
+| XL - très grand | ekstra stor |
 | XXL | dobbel ekstra stor |
 
-**Spoerre om stoerrelse:**
-- Quelle taille faites-vous? = Hvilken stoerrelse har du?
-- Je fais du M = Jeg har stoerrelse M`,
+**Spørre om størrelse:**
+- Quelle taille faites-vous? = Hvilken størrelse har du?
+- Je fais du M = Jeg har størrelse M`,
     },
     {
       id: 'fransk-1-7-3-text-2',
       type: 'text',
-      content: `**Skostoerrelser:**
+      content: `**Skostørrelser:**
 
-I Frankrike brukes europeiske skostoerrelser (36, 37, 38 osv.), akkurat som i Norge.
+I Frankrike brukes europeiske skostørrelser (36, 37, 38 osv.), akkurat som i Norge.
 
 | Fransk | Norsk |
 |--------|-------|
-| Quelle est votre pointure? | Hvilken skostoerrelse har du? |
-| Je fais du 42 / Je chausse du 42 | Jeg har skostoerrelse 42 |
+| Quelle est votre pointure? | Hvilken skostørrelse har du? |
+| Je fais du 42 / Je chausse du 42 | Jeg har skostørrelse 42 |
 | Les chaussures sont trop etroites | Skoene er for trange |
 | Les chaussures sont trop larges | Skoene er for vide |`,
     },
     {
       id: 'fransk-1-7-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Stoerrelser',
-      problem: `Fullfoeir setningene:
+      title: 'Eksempel 2: Størrelser',
+      problem: `Fullfør setningene:
 
 a) Je cherche le tee-shirt en taille ___ (medium).
 b) Vous avez le pantalon en ___ (stor)?
@@ -619,35 +619,35 @@ c) Les chaussures sont trop **petites**. Vous avez du 44?
         difficulty: 'lett',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'stoerrelse L', solution: 'taille L', answer: 'taille L' },
+          { label: 'a', task: 'størrelse L', solution: 'taille L', answer: 'taille L' },
           { label: 'b', task: 'for stor', solution: 'trop grand', answer: 'trop grand' },
           { label: 'c', task: 'for liten', solution: 'trop petit', answer: 'trop petit' },
-          { label: 'd', task: 'hvilken stoerrelse', solution: 'quelle taille', answer: 'quelle taille' },
+          { label: 'd', task: 'hvilken størrelse', solution: 'quelle taille', answer: 'quelle taille' },
         ],
         solution: 'a) taille L, b) trop grand, c) trop petit, d) quelle taille',
-        hints: ['Taille betyr stoerrelse', 'trop = for'],
+        hints: ['Taille betyr størrelse', 'trop = for'],
       },
     },
     {
       id: 'fransk-1-7-3-text-3',
       type: 'text',
-      content: `## Beskrive klaer med farge og stoerrelse
+      content: `## Beskrive klær med farge og størrelse
 
-Pa fransk star fargeadjektivet **etter** substantivet og samsvarer i kjoenn og tall:
+På fransk står fargeadjektivet **etter** substantivet og samsvarer i kjønn og tall:
 
-- **une robe rouge** = en roed kjole (hunkjoenn, entall)
-- **un pantalon bleu** = en blaa bukse (hankjoenn, entall)
-- **une chemise blanche** = en hvit skjorte (hunkjoenn, entall)
+- **une robe rouge** = en rød kjole (hunkjønn, entall)
+- **un pantalon bleu** = en blå bukse (hankjønn, entall)
+- **une chemise blanche** = en hvit skjorte (hunkjønn, entall)
 
 **Adjektivsamsvar:**
-- Hunkjoenn: legg til -e (bleu -> bleue, vert -> verte, noir -> noire)
+- Hunkjønn: legg til -e (bleu -> bleue, vert -> verte, noir -> noire)
 - Flertall: legg til -s (bleus, bleues, noirs, noires)
 - Unntak: orange og marron endres aldri!`,
     },
     {
       id: 'fransk-1-7-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Farge + klaesplagg',
+      title: 'Eksempel 3: Farge + klesplagg',
       problem: `Sett sammen til setninger:
 
 a) Je cherche + un + bleu + pantalon
@@ -658,9 +658,9 @@ b) Vous avez **une veste rouge**?
 c) **Les chaussures noires** sont belles.
 
 **Adjektivsamsvar:**
-- un pantalon bleu (hankjoenn entall: bleu)
-- une veste rouge (rouge er lik i begge kjoenn)
-- les chaussures noires (hunkjoenn flertall: noires)`,
+- un pantalon bleu (hankjønn entall: bleu)
+- une veste rouge (rouge er lik i begge kjønn)
+- les chaussures noires (hunkjønn flertall: noires)`,
     },
     {
       id: 'fransk-1-7-3-ex-block-3',
@@ -672,12 +672,12 @@ c) **Les chaussures noires** sont belles.
         difficulty: 'medium',
         task: 'Oversett til fransk (bruk riktig adjektivsamsvar):',
         subTasks: [
-          { label: 'a', task: 'en groenn genser', solution: 'un pull vert', answer: 'un pull vert' },
+          { label: 'a', task: 'en grønn genser', solution: 'un pull vert', answer: 'un pull vert' },
           { label: 'b', task: 'en hvit bluse', solution: 'un chemisier blanc', answer: 'un chemisier blanc' },
           { label: 'c', task: 'de brune skoene', solution: 'les chaussures marron', answer: 'les chaussures marron' },
         ],
         solution: 'a) un pull vert, b) un chemisier blanc, c) les chaussures marron',
-        hints: ['Pull er hankjoenn: vert (ikke verte)', 'Marron er uforanderlig - endres aldri!'],
+        hints: ['Pull er hankjønn: vert (ikke verte)', 'Marron er uforanderlig - endres aldri!'],
       },
     },
     {
@@ -688,27 +688,27 @@ c) **Les chaussures noires** sont belles.
         number: '7.3.4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Beskriv klaer - kombiner farge og stoerrelse:',
+        task: 'Beskriv klær - kombiner farge og størrelse:',
         subTasks: [
-          { label: 'a', task: 'Beskriv: blaa kjole, stoerrelse S', solution: 'une robe bleue en taille S', answer: 'une robe bleue en taille S' },
-          { label: 'b', task: 'Beskriv: svart jakke, stoerrelse M', solution: 'une veste noire en taille M', answer: 'une veste noire en taille M' },
-          { label: 'c', task: 'Beskriv: roede sko, stoerrelse 40', solution: 'des chaussures rouges en pointure 40', answer: 'des chaussures rouges en pointure 40' },
+          { label: 'a', task: 'Beskriv: blå kjole, størrelse S', solution: 'une robe bleue en taille S', answer: 'une robe bleue en taille S' },
+          { label: 'b', task: 'Beskriv: svart jakke, størrelse M', solution: 'une veste noire en taille M', answer: 'une veste noire en taille M' },
+          { label: 'c', task: 'Beskriv: røde sko, størrelse 40', solution: 'des chaussures rouges en pointure 40', answer: 'des chaussures rouges en pointure 40' },
         ],
         solution: 'a) une robe bleue en taille S, b) une veste noire en taille M, c) des chaussures rouges en pointure 40',
-        hints: ['Robe er hunkjoenn: bleue (med -e)', 'Chaussures er flertall: rouges (med -s)'],
+        hints: ['Robe er hunkjønn: bleue (med -e)', 'Chaussures er flertall: rouges (med -s)'],
       },
     },
     {
       id: 'fransk-1-7-3-tip-1',
       type: 'tip',
-      content: `Nar du handler i Frankrike, vit at franske stoerrelser kan vaere litt annerledes enn norske. Det kan vaere lurt a prove klaerne foeir du kjoeper! Franske stoerrelsesbetegnelser for kvinner er ofte 36, 38, 40 osv., mens for menn brukes S, M, L eller tall.`,
+      content: `Når du handler i Frankrike, vit at franske størrelser kan være litt annerledes enn norske. Det kan være lurt å prøve klærne før du kjøper! Franske størrelsesbetegnelser for kvinner er ofte 36, 38, 40 osv., mens for menn brukes S, M, L eller tall.`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 7.4: Qu'est-ce que tu portes? - Hva har du pa deg?
+// Kapittel 7.4: Qu'est-ce que tu portes? - Hva har du på deg?
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_7_4: TextbookChapter = {
@@ -716,27 +716,27 @@ export const CHAPTER_FRANSK_1_7_4: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '7.4',
   title: 'Qu\'est-ce que tu portes?',
-  subtitle: 'Hva har du pa deg?',
-  description: 'Laer a beskrive hva du og andre har pa seg.',
+  subtitle: 'Hva har du på deg?',
+  description: 'Lær å beskrive hva du og andre har på seg.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'bruke verbet "porter" (a ha pa seg)',
+    'bruke verbet "porter" (a ha på seg)',
     'beskrive egne og andres antrekk',
-    'snakke om klaer til ulike aarstider',
+    'snakke om klær til ulike årstider',
   ],
   content: [
     {
       id: 'fransk-1-7-4-intro',
       type: 'text',
-      content: `## Hva har du pa deg?
+      content: `## Hva har du på deg?
 
-For a beskrive hva noen har pa seg, bruker vi verbet "porter" (a baere/ha pa seg). La oss laere a snakke om antrekk!`,
+For å beskrive hva noen har på seg, bruker vi verbet "porter" (a baere/ha på seg). La oss lære å snakke om antrekk!`,
     },
     {
       id: 'fransk-1-7-4-def-1',
       type: 'definition',
-      title: 'Verbet "porter" - a ha pa seg',
-      content: `**Boeyning av "porter":**
+      title: 'Verbet "porter" - å ha på seg',
+      content: `**Bøyning av "porter":**
 
 | Person | Form |
 |--------|------|
@@ -747,7 +747,7 @@ For a beskrive hva noen har pa seg, bruker vi verbet "porter" (a baere/ha pa seg
 | vous | portez |
 | ils/elles | portent |
 
-**Merk:** "Porter" er et regelrett -er-verb, sa det foelger det vanlige boeyningsmoeinsteret.`,
+**Merk:** "Porter" er et regelrett -er-verb, sa det følger det vanlige bøyningsmønsteret.`,
     },
     {
       id: 'fransk-1-7-4-example-1',
@@ -758,11 +758,11 @@ For a beskrive hva noen har pa seg, bruker vi verbet "porter" (a baere/ha pa seg
 a) Je porte un jean.
 b) Il porte une chemise bleue.
 c) Qu'est-ce que tu portes aujourd'hui?`,
-      solution: `a) Je porte un jean = **Jeg har pa meg en jeans.**
-b) Il porte une chemise bleue = **Han har pa seg en blaa skjorte.**
-c) Qu'est-ce que tu portes aujourd'hui? = **Hva har du pa deg i dag?**
+      solution: `a) Je porte un jean = **Jeg har på meg en jeans.**
+b) Il porte une chemise bleue = **Han har på seg en blå skjorte.**
+c) Qu'est-ce que tu portes aujourd'hui? = **Hva har du på deg i dag?**
 
-**Alternativ oversettelse:** "Porter" kan ogsa oversettes med "baerer" - "Jeg baerer en jeans."`,
+**Alternativ oversettelse:** "Porter" kan også oversettes med "baerer" - "Jeg baerer en jeans."`,
     },
     {
       id: 'fransk-1-7-4-ex-block-1',
@@ -792,30 +792,30 @@ c) Qu'est-ce que tu portes aujourd'hui? = **Hva har du pa deg i dag?**
 
 | Fransk | Norsk |
 |--------|-------|
-| Aujourd'hui, je porte... | I dag har jeg pa meg... |
-| Il/Elle porte... | Han/Hun har pa seg... |
-| J'aime porter... | Jeg liker a ha pa meg... |
-| Ca te va bien! | Det kler deg! |
-| Ca va bien ensemble | Det passer godt sammen |`,
+| Aujourd'hui, je porte... | I dag har jeg på meg... |
+| Il/Elle porte... | Han/Hun har på seg... |
+| J'aime porter... | Jeg liker å ha på meg... |
+| Ça te va bien! | Det kler deg! |
+| Ça va bien ensemble | Det passer godt sammen |`,
     },
     {
       id: 'fransk-1-7-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Beskrive antrekk',
-      problem: `Beskriv hva personen har pa seg:
+      problem: `Beskriv hva personen har på seg:
 
-Marie: blaa kjole, hvite sko, roedt skjerf`,
-      solution: `**Marie porte une robe bleue, des chaussures blanches et une echarpe rouge.**
+Marie: blå kjole, hvite sko, rødt skjerf`,
+      solution: `**Marie porte une robe bleue, des chaussures blanches et une écharpe rouge.**
 
 Eller i flere setninger:
 - Marie porte une robe bleue.
 - Elle porte des chaussures blanches.
-- Elle porte aussi une echarpe rouge.
+- Elle porte aussi une écharpe rouge.
 
 **Adjektivsamsvar:**
-- une robe bleue (hunkjoenn - bleu -> bleue)
-- des chaussures blanches (hunkjoenn flertall - blanc -> blanches)
-- une echarpe rouge (rouge er lik i alle former)`,
+- une robe bleue (hunkjønn - bleu -> bleue)
+- des chaussures blanches (hunkjønn flertall - blanc -> blanches)
+- une écharpe rouge (rouge er lik i alle former)`,
     },
     {
       id: 'fransk-1-7-4-ex-block-2',
@@ -827,50 +827,50 @@ Eller i flere setninger:
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg har pa meg en genser.', solution: 'Je porte un pull.', answer: 'Je porte un pull' },
-          { label: 'b', task: 'Han har pa seg svarte bukser.', solution: 'Il porte un pantalon noir.', answer: 'Il porte un pantalon noir' },
-          { label: 'c', task: 'Hva har du pa deg i dag?', solution: 'Qu\'est-ce que tu portes aujourd\'hui?', answer: 'Qu\'est-ce que tu portes aujourd\'hui' },
+          { label: 'a', task: 'Jeg har på meg en genser.', solution: 'Je porte un pull.', answer: 'Je porte un pull' },
+          { label: 'b', task: 'Han har på seg svarte bukser.', solution: 'Il porte un pantalon noir.', answer: 'Il porte un pantalon noir' },
+          { label: 'c', task: 'Hva har du på deg i dag?', solution: 'Qu\'est-ce que tu portes aujourd\'hui?', answer: 'Qu\'est-ce que tu portes aujourd\'hui' },
         ],
         solution: 'a) Je porte un pull, b) Il porte un pantalon noir, c) Qu\'est-ce que tu portes aujourd\'hui?',
-        hints: ['Pull er hankjoenn: un pull', 'Pantalon er entall pa fransk, selv om vi sier "bukser" pa norsk'],
+        hints: ['Pull er hankjønn: un pull', 'Pantalon er entall på fransk, selv om vi sier "bukser" på norsk'],
       },
     },
     {
       id: 'fransk-1-7-4-text-2',
       type: 'text',
-      content: `## Klaer til ulike aarstider
+      content: `## Klær til ulike årstider
 
-| Aarstid | Fransk | Klaer |
+| Aarstid | Fransk | Klær |
 |---------|--------|-------|
-| Au printemps | Om vaaren | un blouson, un pull leger |
+| Au printemps | Om våren | un blouson, un pull léger |
 | En ete | Om sommeren | un tee-shirt, un short, des sandales |
-| En automne | Om hoesten | une veste, un jean, des bottes |
-| En hiver | Om vinteren | un manteau, une echarpe, des gants |`,
+| En automne | Om høsten | une veste, un jean, des bottes |
+| En hiver | Om vinteren | un manteau, une écharpe, des gants |`,
     },
     {
       id: 'fransk-1-7-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Klaer til aarstidene',
-      problem: `Hva har du vanligvis pa deg i disse aarstidene?
+      title: 'Eksempel 3: Klær til årstidene',
+      problem: `Hva har du vanligvis på deg i disse årstidene?
 
 a) En ete (om sommeren)
 b) En hiver (om vinteren)
-c) Au printemps (om vaaren)`,
+c) Au printemps (om våren)`,
       solution: `**Eksempelsvar:**
 
 a) En ete, je porte un tee-shirt et un short.
-*(Om sommeren har jeg pa meg t-skjorte og shorts.)*
+*(Om sommeren har jeg på meg t-skjorte og shorts.)*
 
-b) En hiver, je porte un manteau chaud et une echarpe.
-*(Om vinteren har jeg pa meg en varm frakk og et skjerf.)*
+b) En hiver, je porte un manteau chaud et une écharpe.
+*(Om vinteren har jeg på meg en varm frakk og et skjerf.)*
 
-c) Au printemps, je porte un pull leger et un jean.
-*(Om vaaren har jeg pa meg en lett genser og jeans.)*
+c) Au printemps, je porte un pull léger et un jean.
+*(Om våren har jeg på meg en lett genser og jeans.)*
 
 **Nye ord:**
 - chaud(e) = varm
-- leger/legere = lett
-- des bottes = stoevler`,
+- léger/légere = lett
+- des bottes = støvler`,
     },
     {
       id: 'fransk-1-7-4-ex-block-3',
@@ -880,14 +880,14 @@ c) Au printemps, je porte un pull leger et un jean.
         number: '7.4.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv hva du har pa deg i disse aarstidene:',
+        task: 'Skriv hva du har på deg i disse årstidene:',
         subTasks: [
           { label: 'a', task: 'En ete, je porte...', solution: 'Valgfritt - f.eks. un tee-shirt et un short' },
-          { label: 'b', task: 'En hiver, je porte...', solution: 'Valgfritt - f.eks. un manteau et une echarpe' },
-          { label: 'c', task: 'Au printemps, je porte...', solution: 'Valgfritt - f.eks. un pull leger et un jean' },
+          { label: 'b', task: 'En hiver, je porte...', solution: 'Valgfritt - f.eks. un manteau et une écharpe' },
+          { label: 'c', task: 'Au printemps, je porte...', solution: 'Valgfritt - f.eks. un pull léger et un jean' },
         ],
         solution: 'Svar vil variere. Eksempel: a) En ete, je porte un tee-shirt et un short, b) En hiver, je porte un manteau chaud et des bottes, c) Au printemps, je porte un pull et un jean.',
-        hints: ['chaud = varm', 'leger = lett'],
+        hints: ['chaud = varm', 'léger = lett'],
       },
     },
     {
@@ -897,10 +897,10 @@ c) Au printemps, je porte un pull leger et un jean.
 
 | Fransk | Norsk |
 |--------|-------|
-| Ca te va bien! | Det kler deg! |
-| Ca me plait | Jeg liker det |
+| Ça te va bien! | Det kler deg! |
+| Ça me plait | Jeg liker det |
 | C'est beau / belle | Det er pent |
-| C'est a la mode | Det er moderne |
+| C'est à la mode | Det er moderne |
 | C'est confortable | Det er komfortabelt |
 | C'est pratique | Det er praktisk |`,
     },
@@ -912,40 +912,40 @@ c) Au printemps, je porte un pull leger et un jean.
         number: '7.4.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Beskriv ditt favorittantrekk (3-4 setninger pa fransk):',
+        task: 'Beskriv ditt favorittantrekk (3-4 setninger på fransk):',
         subTasks: [
-          { label: 'a', task: 'Hvilke klaesplagg har du pa deg?', solution: 'Nevn 2-3 klaesplagg pa fransk' },
-          { label: 'b', task: 'Hvilke farger har de?', solution: 'Beskriv fargene pa fransk' },
+          { label: 'a', task: 'Hvilke klesplagg har du på deg?', solution: 'Nevn 2-3 klesplagg på fransk' },
+          { label: 'b', task: 'Hvilke farger har de?', solution: 'Beskriv fargene på fransk' },
           { label: 'c', task: 'Hvorfor liker du dette antrekket?', solution: 'Bruk ord som confortable, beau, pratique' },
         ],
-        solution: 'Eksempel: "Ma tenue preferee, c\'est un jean bleu et un tee-shirt blanc. Je porte aussi des baskets noires. C\'est confortable et pratique."',
-        hints: ['Ma tenue preferee = favorittantrekket mitt', 'aussi = ogsa', 'des baskets = joggesko'],
+        solution: 'Eksempel: "Ma tenue préférée, c\'est un jean bleu et un tee-shirt blanc. Je porte aussi des baskets noires. C\'est confortable et pratique."',
+        hints: ['Ma tenue préférée = favorittantrekket mitt', 'aussi = også', 'des baskets = joggesko'],
       },
     },
     {
       id: 'fransk-1-7-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Klesstil i Frankrike',
-      content: `Frankrike er verdens motehovedstad, og franskmenn er kjent for sin elegante og avslappede stil ("chic decontracte"). Den typiske franske stilen innebarer noeytrale farger som svart, hvitt, blatt og beige. "La petite robe noire" (den lille svarte kjolen) er et ikonisk fransk motebegrep, popularisert av Coco Chanel. Franskmenn foretrekker ofte kvalitet fremfor kvantitet i garderoben.`,
+      content: `Frankrike er verdens motehovedstad, og franskmenn er kjent for sin elegante og avslappede stil ("chic decontracte"). Den typiske franske stilen innebarer nøytrale farger som svart, hvitt, blatt og beige. "La petite robe noire" (den lille svarte kjolen) er et ikonisk fransk motebegrep, popularisert av Coco Chanel. Franskmenn forêtrekker ofte kvalitet fremfor kvantitet i garderoben.`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 8.1: L'ecole - Skolen
+// Kapittel 8.1: L'école - Skolen
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_8_1: TextbookChapter = {
   id: 'fransk-1-8-1',
   courseId: 'fransk-1',
   chapterNumber: '8.1',
-  title: 'L\'ecole',
+  title: 'L\'école',
   subtitle: 'Skolen',
-  description: 'Laer ord for skolehverdagen og klasserommet.',
+  description: 'Lær ord for skolehverdagen og klasserommet.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'laere ord for skolemiljoeet',
+    'lære ord for skolemiljoeet',
     'beskrive klasserommet',
     'snakke om skolehverdagen',
   ],
@@ -953,9 +953,9 @@ export const CHAPTER_FRANSK_1_8_1: TextbookChapter = {
     {
       id: 'fransk-1-8-1-intro',
       type: 'text',
-      content: `## Skolen pa fransk
+      content: `## Skolen på fransk
 
-Skolen er en viktig del av hverdagen. La oss laere de viktigste ordene for a snakke om skolen pa fransk!`,
+Skolen er en viktig del av hverdagen. La oss lære de viktigste ordene for å snakke om skolen på fransk!`,
     },
     {
       id: 'fransk-1-8-1-def-1',
@@ -965,14 +965,14 @@ Skolen er en viktig del av hverdagen. La oss laere de viktigste ordene for a sna
 
 | Fransk | Norsk |
 |--------|-------|
-| l'ecole (f.) | skolen |
+| l'école (f.) | skolen |
 | la salle de classe | klasserommet |
-| la cour (de recreation) | skolegaarden |
-| la bibliotheque | biblioteket |
+| la cour (de récréation) | skolegården |
+| la bibliothèque | biblioteket |
 | la cantine | kantinen |
 | le gymnase | gymsalen |
 | le bureau du directeur | rektorens kontor |
-| la salle des professeurs | laerervarelset |`,
+| la salle des professeurs | lærervarelset |`,
     },
     {
       id: 'fransk-1-8-1-def-2',
@@ -989,8 +989,8 @@ Skolen er en viktig del av hverdagen. La oss laere de viktigste ordene for a sna
 | l'ordinateur (m.) | datamaskin |
 | le projecteur | projektor |
 | la carte | kartet |
-| la fenetre | vinduet |
-| la porte | doeren |`,
+| la fenêtre | vinduet |
+| la porte | døren |`,
     },
     {
       id: 'fransk-1-8-1-example-1',
@@ -1004,13 +1004,13 @@ c) la cour
 d) le gymnase`,
       solution: `a) la salle de classe = **klasserommet**
 b) le tableau = **tavla**
-c) la cour = **skolegaarden**
+c) la cour = **skolegården**
 d) le gymnase = **gymsalen**
 
 **Sammensatte uttrykk:** Fransk bruker ofte "de" for a binde ord sammen:
 - salle + de + classe = salle de classe (klasserom)
-- cour + de + recreation = cour de recreation (skolegaard)
-- salle + des + professeurs = salle des professeurs (laerervaerelset)`,
+- cour + de + récréation = cour de récréation (skolegård)
+- salle + des + professeurs = salle des professeurs (lærerværelset)`,
     },
     {
       id: 'fransk-1-8-1-ex-block-1',
@@ -1022,29 +1022,29 @@ d) le gymnase = **gymsalen**
         difficulty: 'lett',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'skolen', solution: 'l\'ecole', answer: 'l\'ecole' },
+          { label: 'a', task: 'skolen', solution: 'l\'école', answer: 'l\'école' },
           { label: 'b', task: 'klasserommet', solution: 'la salle de classe', answer: 'la salle de classe' },
           { label: 'c', task: 'kantinen', solution: 'la cantine', answer: 'la cantine' },
-          { label: 'd', task: 'biblioteket', solution: 'la bibliotheque', answer: 'la bibliotheque' },
+          { label: 'd', task: 'biblioteket', solution: 'la bibliothèque', answer: 'la bibliothèque' },
         ],
-        solution: 'a) l\'ecole, b) la salle de classe, c) la cantine, d) la bibliotheque',
-        hints: ['Ecole er hunkjoenn', 'Salle betyr rom/sal'],
+        solution: 'a) l\'école, b) la salle de classe, c) la cantine, d) la bibliothèque',
+        hints: ['Ecole er hunkjønn', 'Salle betyr rom/sal'],
       },
     },
     {
       id: 'fransk-1-8-1-def-3',
       type: 'definition',
-      title: 'Vokabular: Personer pa skolen',
-      content: `**Mennesker pa skolen:**
+      title: 'Vokabular: Personer på skolen',
+      content: `**Mennesker på skolen:**
 
 | Fransk | Norsk |
 |--------|-------|
-| le professeur (le prof) | laereren |
-| l'eleve (m./f.) | eleven |
+| le professeur (le prof) | læreren |
+| l'élève (m./f.) | eleven |
 | le directeur / la directrice | rektoren |
 | le/la camarade de classe | klassekameraten |
-| le/la surveillant(e) | inspektoeren |
-| les eleves (pl.) | elevene |
+| le/la surveillant(e) | inspektøren |
+| les élèves (pl.) | elevene |
 | la classe | klassen |`,
     },
     {
@@ -1054,21 +1054,21 @@ d) le gymnase = **gymsalen**
       problem: `Les og oversett:
 
 Le professeur est devant le tableau.
-Les eleves sont assis sur les chaises.
+Les élèves sont assis sur les chaises.
 La directrice est dans son bureau.`,
       solution: `**Le professeur est devant le tableau.**
-= Laereren star foran tavla.
+= Læreren står foran tavla.
 
-**Les eleves sont assis sur les chaises.**
-= Elevene sitter pa stolene.
+**Les élèves sont assis sur les chaises.**
+= Elevene sitter på stolene.
 
 **La directrice est dans son bureau.**
-= Rektoren (kvinne) er pa kontoret sitt.
+= Rektoren (kvinne) er på kontoret sitt.
 
 **Nye uttrykk:**
 - devant = foran
 - assis(e) = sittende
-- dans = i/pa`,
+- dans = i/på`,
     },
     {
       id: 'fransk-1-8-1-ex-block-2',
@@ -1080,12 +1080,12 @@ La directrice est dans son bureau.`,
         difficulty: 'lett',
         task: 'Hvem er hvem? Koble fransk med norsk:',
         subTasks: [
-          { label: 'a', task: 'le professeur', solution: 'laereren', answer: 'laereren' },
-          { label: 'b', task: 'l\'eleve', solution: 'eleven', answer: 'eleven' },
+          { label: 'a', task: 'le professeur', solution: 'læreren', answer: 'læreren' },
+          { label: 'b', task: 'l\'élève', solution: 'eleven', answer: 'eleven' },
           { label: 'c', task: 'le directeur', solution: 'rektoren', answer: 'rektoren' },
           { label: 'd', task: 'le camarade de classe', solution: 'klassekameraten', answer: 'klassekameraten' },
         ],
-        solution: 'a) laereren, b) eleven, c) rektoren, d) klassekameraten',
+        solution: 'a) læreren, b) eleven, c) rektoren, d) klassekameraten',
         hints: ['Prof er kort for professeur', 'Camarade betyr kamerat'],
       },
     },
@@ -1102,8 +1102,8 @@ La directrice est dans son bureau.`,
 | le cahier | skriveboken/heftet |
 | le stylo | kulepennen |
 | le crayon | blyanten |
-| la gomme | viskelaeret |
-| la regle | linjalen |
+| la gomme | viskelæret |
+| la règle | linjalen |
 | les ciseaux (m. pl.) | saksen |
 | le sac a dos | ryggsekken |
 | la trousse | pennalet |`,
@@ -1116,17 +1116,17 @@ La directrice est dans son bureau.`,
 
 a) Jeg har en bok i sekken.
 b) Hvor er blyanten min?
-c) Jeg trenger et viskelaer.`,
+c) Jeg trenger et viskelær.`,
       solution: `a) **J'ai un livre dans mon sac a dos.**
 (dans = i, mon = min)
 
-b) **Ou est mon crayon?**
-(mon = min, for hankjoenn)
+b) **Où est mon crayon?**
+(mon = min, for hankjønn)
 
 c) **J'ai besoin d'une gomme.**
-(avoir besoin de = a trenge)
+(avoir besoin de = å trenge)
 
-**Nyttig uttrykk:** avoir besoin de = a trenge
+**Nyttig uttrykk:** avoir besoin de = å trenge
 - J'ai besoin de... = Jeg trenger...`,
     },
     {
@@ -1141,11 +1141,11 @@ c) **J'ai besoin d'une gomme.**
         subTasks: [
           { label: 'a', task: 'boken', solution: 'le livre', answer: 'le livre' },
           { label: 'b', task: 'kulepennen', solution: 'le stylo', answer: 'le stylo' },
-          { label: 'c', task: 'linjalen', solution: 'la regle', answer: 'la regle' },
+          { label: 'c', task: 'linjalen', solution: 'la règle', answer: 'la règle' },
           { label: 'd', task: 'ryggsekken', solution: 'le sac a dos', answer: 'le sac a dos' },
         ],
-        solution: 'a) le livre, b) le stylo, c) la regle, d) le sac a dos',
-        hints: ['Livre er hankjoenn', 'Sac a dos betyr bokstavelig "sekk pa ryggen"'],
+        solution: 'a) le livre, b) le stylo, c) la règle, d) le sac a dos',
+        hints: ['Livre er hankjønn', 'Sac a dos betyr bokstavelig "sekk på ryggen"'],
       },
     },
     {
@@ -1156,10 +1156,10 @@ c) **J'ai besoin d'une gomme.**
         number: '8.1.4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Beskriv klasserommet ditt (3 setninger pa fransk):',
+        task: 'Beskriv klasserommet ditt (3 setninger på fransk):',
         subTasks: [
           { label: 'a', task: 'Hva er i klasserommet?', solution: 'Nevn moebler og utstyr' },
-          { label: 'b', task: 'Hvor mange elever er det?', solution: 'Bruk tall pa fransk' },
+          { label: 'b', task: 'Hvor mange elever er det?', solution: 'Bruk tall på fransk' },
           { label: 'c', task: 'Hvordan er klasserommet?', solution: 'Bruk adjektiver som grand, petit, clair' },
         ],
         solution: 'Eksempel: "Dans ma salle de classe, il y a vingt bureaux et vingt chaises. Il y a aussi un tableau blanc et un projecteur. La salle de classe est grande et claire."',
@@ -1170,26 +1170,26 @@ c) **J'ai besoin d'une gomme.**
       id: 'fransk-1-8-1-note-1',
       type: 'note',
       title: 'Kulturnotat: Skole i Frankrike',
-      content: `Det franske skolesystemet er annerledes enn det norske. Etter barneskolen (ecole primaire, 6-11 aar) gaar elevene pa ungdomsskole (college, 11-15 aar) og deretter videregaaende (lycee, 15-18 aar). Skoledagene i Frankrike er ofte lengre enn i Norge, fra ca. kl. 8 til 16 eller 17. Elevene har vanligvis fri pa onsdag ettermiddag. Skolemaailtidene i kantinen er ofte flereretters!`,
+      content: `Det franske skolesystemet er annerledes enn det norske. Etter barneskolen (école primaire, 6-11 år) går elevene på ungdomsskole (college, 11-15 år) og deretter videregående (lycee, 15-18 år). Skoledagene i Frankrike er ofte lengre enn i Norge, fra ca. kl. 8 til 16 eller 17. Elevene har vanligvis fri på onsdag ettermiddag. Skolemåltidene i kantinen er ofte flereretters!`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 8.2: Les matieres scolaires - Skolefagene
+// Kapittel 8.2: Les matières scolaires - Skolefagene
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_8_2: TextbookChapter = {
   id: 'fransk-1-8-2',
   courseId: 'fransk-1',
   chapterNumber: '8.2',
-  title: 'Les matieres scolaires',
+  title: 'Les matières scolaires',
   subtitle: 'Skolefagene',
-  description: 'Laer navnene pa skolefag og uttrykk om favorittfag.',
+  description: 'Lær navnene på skolefag og uttrykk om favorittfag.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'laere navnene pa skolefag',
+    'lære navnene på skolefag',
     'snakke om favorittfag',
     'uttrykke meninger om fag',
   ],
@@ -1197,9 +1197,9 @@ export const CHAPTER_FRANSK_1_8_2: TextbookChapter = {
     {
       id: 'fransk-1-8-2-intro',
       type: 'text',
-      content: `## Skolefagene pa fransk
+      content: `## Skolefagene på fransk
 
-Hvilke fag har du pa skolen? La oss laere hva de heter pa fransk og hvordan du kan snakke om dem!`,
+Hvilke fag har du på skolen? La oss lære hva de heter på fransk og hvordan du kan snakke om dem!`,
     },
     {
       id: 'fransk-1-8-2-def-1',
@@ -1209,13 +1209,13 @@ Hvilke fag har du pa skolen? La oss laere hva de heter pa fransk og hvordan du k
 
 | Fransk | Norsk |
 |--------|-------|
-| le francais | fransk |
+| le français | fransk |
 | l'anglais (m.) | engelsk |
-| les mathematiques (les maths) | matematikk/matte |
+| les mathématiques (les maths) | matematikk/matte |
 | les sciences (f. pl.) | naturfag |
 | l'histoire (f.) | historie |
-| la geographie (la geo) | geografi |
-| l'education religieuse (f.) | religion |`,
+| la géographie (la geo) | geografi |
+| l'éducation religieuse (f.) | religion |`,
     },
     {
       id: 'fransk-1-8-2-def-2',
@@ -1227,7 +1227,7 @@ Hvilke fag har du pa skolen? La oss laere hva de heter pa fransk og hvordan du k
 |--------|-------|
 | les arts plastiques | kunst |
 | la musique | musikk |
-| l'education physique et sportive (l'EPS) | gym/kroppsoving |
+| l'éducation physique et sportive (l'EPS) | gym/kroppsøving |
 | l'informatique (f.) | informatikk/IT |
 | la physique | fysikk |
 | la chimie | kjemi |
@@ -1238,7 +1238,7 @@ Hvilke fag har du pa skolen? La oss laere hva de heter pa fransk og hvordan du k
     {
       id: 'fransk-1-8-2-tip-1',
       type: 'tip',
-      content: `De fleste fagnavn pa fransk ligner pa de norske eller engelske ordene: la physique = fysikk, la chimie = kjemi, la biologie = biologi. Franskmenene forkorter ofte fag: les maths (matematikk), la geo (geografi), la bio (biologi), l'EPS (gym).`,
+      content: `De fleste fagnavn på fransk ligner på de norske eller engelske ordene: la physique = fysikk, la chimie = kjemi, la biologie = biologi. Franskmenene forkorter ofte fag: les maths (matematikk), la geo (geografi), la bio (biologi), l'EPS (gym).`,
     },
     {
       id: 'fransk-1-8-2-example-1',
@@ -1246,16 +1246,16 @@ Hvilke fag har du pa skolen? La oss laere hva de heter pa fransk og hvordan du k
       title: 'Eksempel 1: Fagnavn',
       problem: `Oversett til norsk:
 
-a) les mathematiques
+a) les mathématiques
 b) l'histoire
 c) l'anglais
 d) les arts plastiques`,
-      solution: `a) les mathematiques = **matematikk**
+      solution: `a) les mathématiques = **matematikk**
 b) l'histoire = **historie**
 c) l'anglais = **engelsk**
 d) les arts plastiques = **kunst**
 
-**Merk:** Noen fag star i flertall pa fransk: les mathematiques, les sciences, les arts plastiques.`,
+**Merk:** Noen fag står i flertall på fransk: les mathématiques, les sciences, les arts plastiques.`,
     },
     {
       id: 'fransk-1-8-2-ex-block-1',
@@ -1267,12 +1267,12 @@ d) les arts plastiques = **kunst**
         difficulty: 'lett',
         task: 'Oversett fagene til fransk:',
         subTasks: [
-          { label: 'a', task: 'matematikk', solution: 'les mathematiques / les maths', answer: 'les maths' },
+          { label: 'a', task: 'matematikk', solution: 'les mathématiques / les maths', answer: 'les maths' },
           { label: 'b', task: 'engelsk', solution: 'l\'anglais', answer: 'l\'anglais' },
           { label: 'c', task: 'historie', solution: 'l\'histoire', answer: 'l\'histoire' },
           { label: 'd', task: 'musikk', solution: 'la musique', answer: 'la musique' },
         ],
-        solution: 'a) les mathematiques / les maths, b) l\'anglais, c) l\'histoire, d) la musique',
+        solution: 'a) les mathématiques / les maths, b) l\'anglais, c) l\'histoire, d) la musique',
         hints: ['Mathematiques forkortes maths', 'Histoire begynner med stum h, sa vi bruker l\''],
       },
     },
@@ -1285,11 +1285,11 @@ d) les arts plastiques = **kunst**
 
 | Fransk | Norsk |
 |--------|-------|
-| Ma matiere preferee, c'est... | Favorittfaget mitt er... |
+| Ma matière préférée, c'est... | Favorittfaget mitt er... |
 | J'aime... | Jeg liker... |
 | J'adore... | Jeg elsker... |
-| Je deteste... | Jeg hater... |
-| ... est interessant(e) | ... er interessant |
+| Je déteste... | Jeg hater... |
+| ... est intéressant(e) | ... er intéressant |
 | ... est ennuyeux/ennuyeuse | ... er kjedelig |
 | ... est difficile | ... er vanskelig |
 | ... est facile | ... er lett |`,
@@ -1300,19 +1300,19 @@ d) les arts plastiques = **kunst**
       title: 'Eksempel 2: Favorittfag',
       problem: `Les og oversett:
 
-a) Ma matiere preferee, c'est la musique.
-b) Les maths, c'est difficile, mais interessant.
+a) Ma matière préférée, c'est la musique.
+b) Les maths, c'est difficile, mais intéressant.
 c) J'adore l'EPS!`,
-      solution: `a) Ma matiere preferee, c'est la musique.
+      solution: `a) Ma matière préférée, c'est la musique.
 = **Favorittfaget mitt er musikk.**
 
-b) Les maths, c'est difficile, mais interessant.
-= **Matte er vanskelig, men interessant.**
+b) Les maths, c'est difficile, mais intéressant.
+= **Matte er vanskelig, men intéressant.**
 
 c) J'adore l'EPS!
 = **Jeg elsker gym!**
 
-**Tips:** "J'aime" = jeg liker, "j'adore" = jeg elsker, "je deteste" = jeg hater. Du kan bruke ulike styrker!`,
+**Tips:** "J'aime" = jeg liker, "j'adore" = jeg elsker, "je déteste" = jeg hater. Du kan bruke ulike styrker!`,
     },
     {
       id: 'fransk-1-8-2-ex-block-2',
@@ -1324,12 +1324,12 @@ c) J'adore l'EPS!
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Favorittfaget mitt er historie.', solution: 'Ma matiere preferee, c\'est l\'histoire.', answer: 'Ma matiere preferee c\'est l\'histoire' },
+          { label: 'a', task: 'Favorittfaget mitt er historie.', solution: 'Ma matière préférée, c\'est l\'histoire.', answer: 'Ma matière préférée c\'est l\'histoire' },
           { label: 'b', task: 'Jeg liker matematikk.', solution: 'J\'aime les maths.', answer: 'J\'aime les maths' },
-          { label: 'c', task: 'Kunst er interessant.', solution: 'Les arts plastiques, c\'est interessant.', answer: 'Les arts plastiques c\'est interessant' },
+          { label: 'c', task: 'Kunst er intéressant.', solution: 'Les arts plastiques, c\'est intéressant.', answer: 'Les arts plastiques c\'est intéressant' },
         ],
-        solution: 'a) Ma matiere preferee, c\'est l\'histoire, b) J\'aime les maths, c) Les arts plastiques, c\'est interessant',
-        hints: ['matiere preferee = favorittfag', 'aimer = a like'],
+        solution: 'a) Ma matière préférée, c\'est l\'histoire, b) J\'aime les maths, c) Les arts plastiques, c\'est intéressant',
+        hints: ['matière préférée = favorittfag', 'aimer = a like'],
       },
     },
     {
@@ -1342,11 +1342,11 @@ c) J'adore l'EPS!
 | Fransk | Norsk |
 |--------|-------|
 | l'emploi du temps (m.) | timeplanen |
-| le cours / la lecon | timen |
-| la recreation (la recre) | friminuttet |
-| la pause dejeuner | lunsjen |
+| le cours / la leçon | timen |
+| la récréation (la recre) | friminuttet |
+| la pause déjeuner | lunsjen |
 | les devoirs (m. pl.) | leksene |
-| le controle / l'examen | proeven |
+| le contrôle / l'examen | prøven |
 | la note | karakteren |`,
     },
     {
@@ -1355,22 +1355,22 @@ c) J'adore l'EPS!
       title: 'Eksempel 3: Skoledagen',
       problem: `Beskriv skoledagen:
 
-Le lundi, j'ai d'abord francais, puis mathematiques.
-A la recreation, je mange mon gouter.
-Apres l'ecole, je fais mes devoirs.`,
-      solution: `**Le lundi, j'ai d'abord francais, puis mathematiques.**
-= Pa mandag har jeg foerst fransk, sa matematikk.
+Le lundi, j'ai d'abord français, puis mathématiques.
+A la récréation, je mange mon goûter.
+Apres l'école, je fais mes devoirs.`,
+      solution: `**Le lundi, j'ai d'abord français, puis mathématiques.**
+= Pa mandag har jeg først fransk, sa matematikk.
 
-**A la recreation, je mange mon gouter.**
-= I friminuttet spiser jeg mellommaaltidet mitt.
+**A la récréation, je mange mon goûter.**
+= I friminuttet spiser jeg mellommåltidet mitt.
 
-**Apres l'ecole, je fais mes devoirs.**
-= Etter skolen gjoer jeg lekser.
+**Apres l'école, je fais mes devoirs.**
+= Etter skolen gjør jeg lekser.
 
 **Tidsord:**
-- d'abord = foerst
+- d'abord = først
 - puis / ensuite = sa/deretter
-- apres = etter`,
+- après = etter`,
     },
     {
       id: 'fransk-1-8-2-ex-block-3',
@@ -1382,12 +1382,12 @@ Apres l'ecole, je fais mes devoirs.`,
         difficulty: 'medium',
         task: 'Fyll inn riktig ord:',
         subTasks: [
-          { label: 'a', task: 'Hva heter "timeplan" pa fransk?', solution: 'l\'emploi du temps', answer: 'emploi du temps' },
-          { label: 'b', task: 'Hva heter "lekser" pa fransk?', solution: 'les devoirs', answer: 'devoirs' },
-          { label: 'c', task: 'Hva heter "proeve" pa fransk?', solution: 'le controle / l\'examen', answer: 'controle' },
-          { label: 'd', task: 'Hva heter "karakter" pa fransk?', solution: 'la note', answer: 'note' },
+          { label: 'a', task: 'Hva heter "timeplan" på fransk?', solution: 'l\'emploi du temps', answer: 'emploi du temps' },
+          { label: 'b', task: 'Hva heter "lekser" på fransk?', solution: 'les devoirs', answer: 'devoirs' },
+          { label: 'c', task: 'Hva heter "prøve" på fransk?', solution: 'le contrôle / l\'examen', answer: 'controle' },
+          { label: 'd', task: 'Hva heter "karakter" på fransk?', solution: 'la note', answer: 'note' },
         ],
-        solution: 'a) l\'emploi du temps, b) les devoirs, c) le controle/l\'examen, d) la note',
+        solution: 'a) l\'emploi du temps, b) les devoirs, c) le contrôle/l\'examen, d) la note',
         hints: ['Emploi = bruk, temps = tid', 'Devoirs = plikter (betyr lekser i skolesammenheng)'],
       },
     },
@@ -1399,13 +1399,13 @@ Apres l'ecole, je fais mes devoirs.`,
         number: '8.2.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv om skoledagen din pa fransk (4-5 setninger):',
+        task: 'Skriv om skoledagen din på fransk (4-5 setninger):',
         subTasks: [
-          { label: 'a', task: 'Hvilke fag har du i dag?', solution: 'Nevn minst 3 fag pa fransk' },
+          { label: 'a', task: 'Hvilke fag har du i dag?', solution: 'Nevn minst 3 fag på fransk' },
           { label: 'b', task: 'Hva er favorittfaget ditt og hvorfor?', solution: 'Bruk adjektiver' },
-          { label: 'c', task: 'Hva gjoer du etter skolen?', solution: 'Bruk "apres l\'ecole"' },
+          { label: 'c', task: 'Hva gjør du etter skolen?', solution: 'Bruk "apres l\'école"' },
         ],
-        solution: 'Eksempel: "Aujourd\'hui, j\'ai francais, maths et EPS. Ma matiere preferee, c\'est l\'EPS, parce que c\'est amusant. Les maths, c\'est difficile, mais interessant. Apres l\'ecole, je fais mes devoirs."',
+        solution: 'Eksempel: "Aujourd\'hui, j\'ai français, maths et EPS. Ma matière préférée, c\'est l\'EPS, parce que c\'est amusant. Les maths, c\'est difficile, mais intéressant. Apres l\'école, je fais mes devoirs."',
         hints: ['parce que = fordi', 'amusant = goy/morsomt'],
       },
     },
@@ -1413,7 +1413,7 @@ Apres l'ecole, je fais mes devoirs.`,
       id: 'fransk-1-8-2-note-1',
       type: 'note',
       title: 'Kulturnotat: Karaktersystem',
-      content: `I Frankrike brukes et karaktersystem fra 0-20, der 20 er best. En karakter pa 10/20 regnes som bestatt. Det er veldig sjelden a fa 20/20 - selv 16/20 regnes som utmerket! Typiske kommentarer: 18-20 = excellent, 16-17 = tres bien, 14-15 = bien, 12-13 = assez bien, 10-11 = passable, under 10 = stryk.`,
+      content: `I Frankrike brukes et karaktersystem fra 0-20, der 20 er best. En karakter på 10/20 regnes som bestatt. Det er veldig sjelden a fa 20/20 - selv 16/20 regnes som utmerket! Typiske kommentarer: 18-20 = excellent, 16-17 = tres bien, 14-15 = bien, 12-13 = assez bien, 10-11 = passable, under 10 = stryk.`,
     },
   ],
   exercises: [],
@@ -1429,38 +1429,38 @@ export const CHAPTER_FRANSK_1_8_3: TextbookChapter = {
   chapterNumber: '8.3',
   title: 'Les metiers',
   subtitle: 'Yrker',
-  description: 'Laer navnene pa vanlige yrker pa fransk.',
+  description: 'Lær navnene på vanlige yrker på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'laere ord for ulike yrker',
-    'forstaa hankjoenn og hunkjoenn for yrker',
+    'lære ord for ulike yrker',
+    'forstaa hankjønn og hunkjønn for yrker',
     'beskrive hva folk jobber med',
   ],
   content: [
     {
       id: 'fransk-1-8-3-intro',
       type: 'text',
-      content: `## Yrker pa fransk
+      content: `## Yrker på fransk
 
-Hva vil du bli nar du blir stor? La oss laere navnene pa ulike yrker pa fransk!
+Hva vil du bli når du blir stor? La oss lære navnene på ulike yrker på fransk!
 
-Pa fransk har de fleste yrker to former - en for menn og en for kvinner. Hunkjoennsformen far ofte endelsen "-e" eller en annen endring.`,
+På fransk har de fleste yrker to former - en for menn og en for kvinner. Hunkjønnsformen far ofte endelsen "-e" eller en annen endring.`,
     },
     {
       id: 'fransk-1-8-3-def-1',
       type: 'definition',
       title: 'Vokabular: Vanlige yrker',
-      content: `**Yrker (hankjoenn og hunkjoenn):**
+      content: `**Yrker (hankjønn og hunkjønn):**
 
-| Hankjoenn | Hunkjoenn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |-----------|-----------|-------|
-| un medecin | une medecin | lege |
-| un professeur | une professeure | laerer |
+| un médecin | une médecin | lege |
+| un professeur | une professeure | lærer |
 | un policier | une policiere | politibetjent |
 | un ingenieur | une ingenieure | ingenioer |
 | un infirmier | une infirmiere | sykepleier |
 | un cuisinier | une cuisiniere | kokk |
-| un vendeur | une vendeuse | ekspeditoeir |`,
+| un vendeur | une vendeuse | ekspeditør |`,
     },
     {
       id: 'fransk-1-8-3-def-2',
@@ -1468,7 +1468,7 @@ Pa fransk har de fleste yrker to former - en for menn og en for kvinner. Hunkjoe
       title: 'Flere yrker',
       content: `**Flere vanlige yrker:**
 
-| Hankjoenn | Hunkjoenn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |-----------|-----------|-------|
 | un avocat | une avocate | advokat |
 | un architecte | une architecte | arkitekt |
@@ -1482,7 +1482,7 @@ Pa fransk har de fleste yrker to former - en for menn og en for kvinner. Hunkjoe
     {
       id: 'fransk-1-8-3-tip-1',
       type: 'tip',
-      content: `Husk moensteret for hunkjoennsformer av yrker: -ier -> -iere (infirmier/infirmiere), -eur -> -euse (vendeur/vendeuse), -ien -> -ienne (mecanicien/mecanicienne). Noen yrker er like i begge kjoenn: architecte, journaliste, medecin.`,
+      content: `Husk moensteret for hunkjønnsformer av yrker: -ier -> -iere (infirmier/infirmiere), -eur -> -euse (vendeur/vendeuse), -ien -> -ienne (mecanicien/mecanicienne). Noen yrker er like i begge kjønn: architecte, journaliste, médecin.`,
     },
     {
       id: 'fransk-1-8-3-example-1',
@@ -1490,16 +1490,16 @@ Pa fransk har de fleste yrker to former - en for menn og en for kvinner. Hunkjoe
       title: 'Eksempel 1: Yrker',
       problem: `Oversett til norsk:
 
-a) un medecin
+a) un médecin
 b) une professeure
 c) un policier
 d) une avocate`,
-      solution: `a) un medecin = **lege (mann)**
-b) une professeure = **laerer (kvinne)**
+      solution: `a) un médecin = **lege (mann)**
+b) une professeure = **lærer (kvinne)**
 c) un policier = **politibetjent (mann)**
 d) une avocate = **advokat (kvinne)**
 
-**Merk:** Pa fransk bruker vi artikkelen un/une ogsaa nar vi sier hva noen er: "Il est medecin" (uten artikkel) eller "C'est un medecin" (med artikkel).`,
+**Merk:** På fransk bruker vi artikkelen un/une også når vi sier hva noen er: "Il est médecin" (uten artikkel) eller "C'est un médecin" (med artikkel).`,
     },
     {
       id: 'fransk-1-8-3-ex-block-1',
@@ -1509,15 +1509,15 @@ d) une avocate = **advokat (kvinne)**
         number: '8.3.1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Oversett til fransk (bruk hankjoennsformen):',
+        task: 'Oversett til fransk (bruk hankjønnsformen):',
         subTasks: [
-          { label: 'a', task: 'lege', solution: 'un medecin', answer: 'medecin' },
-          { label: 'b', task: 'laerer', solution: 'un professeur', answer: 'professeur' },
+          { label: 'a', task: 'lege', solution: 'un médecin', answer: 'médecin' },
+          { label: 'b', task: 'lærer', solution: 'un professeur', answer: 'professeur' },
           { label: 'c', task: 'ingenioer', solution: 'un ingenieur', answer: 'ingenieur' },
           { label: 'd', task: 'kokk', solution: 'un cuisinier', answer: 'cuisinier' },
         ],
-        solution: 'a) un medecin, b) un professeur, c) un ingenieur, d) un cuisinier',
-        hints: ['Medecin har accent pa foerste e', 'Cuisinier kommer fra cuisine (kjoeikken)'],
+        solution: 'a) un médecin, b) un professeur, c) un ingenieur, d) un cuisinier',
+        hints: ['Médecin har accent på første e', 'Cuisinier kommer fra cuisine (kjøkkenet)'],
       },
     },
     {
@@ -1531,7 +1531,7 @@ d) une avocate = **advokat (kvinne)**
 |--------|-------|
 | Quelle est votre profession? | Hva jobber du som? (formelt) |
 | Qu'est-ce que tu fais comme travail? | Hva jobber du som? (uformelt) |
-| Je suis medecin | Jeg er lege |
+| Je suis médecin | Jeg er lege |
 | Il/Elle travaille comme... | Han/Hun jobber som... |
 | Mon pere est... | Faren min er... |
 | Ma mere travaille comme... | Moren min jobber som... |`,
@@ -1549,12 +1549,12 @@ c) Mon pere travaille comme ingenieur.`,
 = **Hva jobber du som?**
 
 b) Je suis professeure.
-= **Jeg er laerer.** (sagt av en kvinne)
+= **Jeg er lærer.** (sagt av en kvinne)
 
 c) Mon pere travaille comme ingenieur.
 = **Faren min jobber som ingenioer.**
 
-**Merk:** Etter "etre" (je suis, tu es...) brukes yrket **uten artikkel**: "Je suis medecin" (ikke "Je suis un medecin"). Men med "c'est" brukes artikkel: "C'est un medecin".`,
+**Merk:** Etter "être" (je suis, tu es...) brukes yrket **uten artikkel**: "Je suis médecin" (ikke "Je suis un médecin"). Men med "c'est" brukes artikkel: "C'est un médecin".`,
     },
     {
       id: 'fransk-1-8-3-ex-block-2',
@@ -1566,12 +1566,12 @@ c) Mon pere travaille comme ingenieur.
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg er lege. (mann)', solution: 'Je suis medecin.', answer: 'Je suis medecin' },
-          { label: 'b', task: 'Hun er laerer.', solution: 'Elle est professeure.', answer: 'Elle est professeure' },
+          { label: 'a', task: 'Jeg er lege. (mann)', solution: 'Je suis médecin.', answer: 'Je suis médecin' },
+          { label: 'b', task: 'Hun er lærer.', solution: 'Elle est professeure.', answer: 'Elle est professeure' },
           { label: 'c', task: 'Moren min jobber som sykepleier.', solution: 'Ma mere travaille comme infirmiere.', answer: 'Ma mere travaille comme infirmiere' },
         ],
-        solution: 'a) Je suis medecin, b) Elle est professeure, c) Ma mere travaille comme infirmiere',
-        hints: ['Etter "etre" brukes ikke artikkel', 'travailler comme = jobber som'],
+        solution: 'a) Je suis médecin, b) Elle est professeure, c) Ma mere travaille comme infirmiere',
+        hints: ['Etter "être" brukes ikke artikkel', 'travailler comme = jobber som'],
       },
     },
     {
@@ -1583,14 +1583,14 @@ c) Mon pere travaille comme ingenieur.
 
 | Fransk | Norsk |
 |--------|-------|
-| a l'hopital | pa sykehuset |
-| a l'ecole | pa skolen |
-| au bureau | pa kontoret |
-| a l'usine | pa fabrikken |
-| au restaurant | pa restauranten |
+| à l'hôpital | på sykehuset |
+| à l'école | på skolen |
+| au bureau | på kontoret |
+| à l'usine | på fabrikken |
+| au restaurant | på restauranten |
 | au magasin / dans un magasin | i butikken |
 | a la maison | hjemme (hjemmekontor) |
-| a la boulangerie | pa bakeriet |`,
+| a la boulangerie | på bakeriet |`,
     },
     {
       id: 'fransk-1-8-3-example-3',
@@ -1598,22 +1598,22 @@ c) Mon pere travaille comme ingenieur.
       title: 'Eksempel 3: Arbeidsplasser',
       problem: `Hvor jobber disse personene?
 
-a) Le medecin travaille a ___.
+a) Le médecin travaille a ___.
 b) La professeure travaille a ___.
 c) Le vendeur travaille au ___.`,
-      solution: `a) Le medecin travaille a **l'hopital**.
-= Legen jobber pa sykehuset.
+      solution: `a) Le médecin travaille a **l'hôpital**.
+= Legen jobber på sykehuset.
 
-b) La professeure travaille a **l'ecole**.
-= Laereren jobber pa skolen.
+b) La professeure travaille a **l'école**.
+= Læreren jobber på skolen.
 
 c) Le vendeur travaille au **magasin**.
-= Ekspeditoeren jobber i butikken.
+= Ekspeditøren jobber i butikken.
 
 **Grammatikk:**
-- a + le = au (hankjoenn: au bureau, au restaurant)
-- a + la = a la (hunkjoenn: a la maison, a la boulangerie)
-- a + l' = a l' (foran vokal: a l'hopital, a l'ecole)`,
+- a + le = au (hankjønn: au bureau, au restaurant)
+- a + la = a la (hunkjønn: a la maison, a la boulangerie)
+- a + l' = a l' (foran vokal: à l'hôpital, à l'école)`,
     },
     {
       id: 'fransk-1-8-3-ex-block-3',
@@ -1626,11 +1626,11 @@ c) Le vendeur travaille au **magasin**.
         task: 'Skriv hvor disse personene jobber:',
         subTasks: [
           { label: 'a', task: 'Le cuisinier travaille...', solution: 'au restaurant', answer: 'au restaurant' },
-          { label: 'b', task: 'L\'infirmiere travaille...', solution: 'a l\'hopital', answer: 'a l\'hopital' },
-          { label: 'c', task: 'Le professeur travaille...', solution: 'a l\'ecole', answer: 'a l\'ecole' },
+          { label: 'b', task: 'L\'infirmiere travaille...', solution: 'a l\'hôpital', answer: 'a l\'hôpital' },
+          { label: 'c', task: 'Le professeur travaille...', solution: 'a l\'école', answer: 'a l\'école' },
         ],
-        solution: 'a) au restaurant, b) a l\'hopital, c) a l\'ecole',
-        hints: ['Restaurant er hankjoenn: a + le = au', 'Hopital begynner med stum h: a l\''],
+        solution: 'a) au restaurant, b) a l\'hôpital, c) a l\'école',
+        hints: ['Restaurant er hankjønn: a + le = au', 'Hopital begynner med stum h: a l\''],
       },
     },
     {
@@ -1641,13 +1641,13 @@ c) Le vendeur travaille au **magasin**.
         number: '8.3.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Beskriv familiens yrker (3-4 setninger pa fransk):',
+        task: 'Beskriv familiens yrker (3-4 setninger på fransk):',
         subTasks: [
           { label: 'a', task: 'Hva jobber foreldrene dine som?', solution: 'Bruk "Mon pere est..." / "Ma mere travaille comme..."' },
           { label: 'b', task: 'Hvor jobber de?', solution: 'Bruk preposisjoner: au, a la, a l\'' },
-          { label: 'c', task: 'Kjenner du noen med et interessant yrke?', solution: 'Beskriv yrket' },
+          { label: 'c', task: 'Kjenner du noen med et intéressant yrke?', solution: 'Beskriv yrket' },
         ],
-        solution: 'Eksempel: "Mon pere est ingenieur. Il travaille dans une usine. Ma mere travaille comme professeure a l\'ecole. Mon oncle est pilote et il voyage souvent en France."',
+        solution: 'Eksempel: "Mon pere est ingenieur. Il travaille dans une usine. Ma mere travaille comme professeure a l\'école. Mon oncle est pilote et il voyage souvent en France."',
         hints: ['voyager = a reise', 'souvent = ofte'],
       },
     },
@@ -1655,7 +1655,7 @@ c) Le vendeur travaille au **magasin**.
       id: 'fransk-1-8-3-note-1',
       type: 'note',
       title: 'Kulturnotat: Utdanning i Frankrike',
-      content: `I Frankrike avsluttes videregaaende skole med en stor eksamen kalt "le baccalaureat" (le bac). Denne eksamenen er avgoeirende for a komme inn pa universitet. Etter videregaaende kan man studere pa universitet eller velge en "grande ecole" (eliteskole), som er veldig prestisjefylt. Populaere studier inkluderer medisin, jus, ingenioerutdanning og handel. Yrkesutdanning ("formation professionnelle") er ogsaa en vanlig vei.`,
+      content: `I Frankrike avsluttes videregående skole med en stor eksamen kalt "le baccalauréat" (le bac). Denne eksamenen er avgoeirende for a komme inn på universitet. Etter videregående kan man studere på universitet eller velge en "grande école" (eliteskole), som er veldig prestisjefylt. Populære studier inkluderer medisin, jus, ingenioerutdanning og handel. Yrkesutdanning ("formation professionnelle") er også en vanlig vei.`,
     },
   ],
   exercises: [],
@@ -1671,7 +1671,7 @@ export const CHAPTER_FRANSK_1_8_4: TextbookChapter = {
   chapterNumber: '8.4',
   title: 'Que veux-tu devenir?',
   subtitle: 'Hva vil du bli?',
-  description: 'Laer a snakke om fremtidsplaner og droemmeyrker.',
+  description: 'Lær å snakke om fremtidsplaner og droemmeyrker.',
   estimatedMinutes: 45,
   competenceGoals: [
     'bruke verbet "vouloir" (a ville)',
@@ -1684,13 +1684,13 @@ export const CHAPTER_FRANSK_1_8_4: TextbookChapter = {
       type: 'text',
       content: `## Snakke om fremtiden
 
-Hva vil du bli nar du blir voksen? I dette kapittelet laerer du a snakke om droemmer og fremtidsplaner pa fransk!`,
+Hva vil du bli når du blir voksen? I dette kapittelet lærer du å snakke om drømmer og fremtidsplaner på fransk!`,
     },
     {
       id: 'fransk-1-8-4-def-1',
       type: 'definition',
       title: 'Verbet "vouloir" - a ville',
-      content: `**Boeyning av "vouloir":**
+      content: `**Bøyning av "vouloir":**
 
 | Person | Form |
 |--------|------|
@@ -1701,7 +1701,7 @@ Hva vil du bli nar du blir voksen? I dette kapittelet laerer du a snakke om droe
 | vous | voulez |
 | ils/elles | veulent |
 
-**Merk:** "Vouloir" er et uregelrett verb. Hovedverbet star i infinitiv etter "vouloir".`,
+**Merk:** "Vouloir" er et uregelrett verb. Hovedverbet står i infinitiv etter "vouloir".`,
     },
     {
       id: 'fransk-1-8-4-example-1',
@@ -1709,17 +1709,17 @@ Hva vil du bli nar du blir voksen? I dette kapittelet laerer du a snakke om droe
       title: 'Eksempel 1: Vouloir',
       problem: `Oversett til norsk:
 
-a) Je veux devenir medecin.
+a) Je veux devenir médecin.
 b) Que veux-tu devenir?
 c) Elle veut devenir professeure.`,
-      solution: `a) Je veux devenir medecin.
+      solution: `a) Je veux devenir médecin.
 = **Jeg vil bli lege.**
 
 b) Que veux-tu devenir?
 = **Hva vil du bli?**
 
 c) Elle veut devenir professeure.
-= **Hun vil bli laerer.**
+= **Hun vil bli lærer.**
 
 **Setningsstruktur:**
 Subjekt + veux/veut + devenir + yrke`,
@@ -1735,7 +1735,7 @@ Subjekt + veux/veut + devenir + yrke`,
         task: 'Fyll inn riktig form av "vouloir":',
         subTasks: [
           { label: 'a', task: 'Je ___ devenir ingenieur.', solution: 'veux', answer: 'veux' },
-          { label: 'b', task: 'Tu ___ devenir medecin.', solution: 'veux', answer: 'veux' },
+          { label: 'b', task: 'Tu ___ devenir médecin.', solution: 'veux', answer: 'veux' },
           { label: 'c', task: 'Nous ___ travailler en France.', solution: 'voulons', answer: 'voulons' },
           { label: 'd', task: 'Il ___ devenir pilote.', solution: 'veut', answer: 'veut' },
         ],
@@ -1746,8 +1746,8 @@ Subjekt + veux/veut + devenir + yrke`,
     {
       id: 'fransk-1-8-4-def-2',
       type: 'definition',
-      title: 'Je voudrais - Jeg vil gjerne (hoeflig form)',
-      content: `**Boeyning av "voudrais" (kondisjonalis - hoeflig form):**
+      title: 'Je voudrais - Jeg vil gjerne (høflig form)',
+      content: `**Bøyning av "voudrais" (kondisjonalis - høflig form):**
 
 | Person | Form |
 |--------|------|
@@ -1758,7 +1758,7 @@ Subjekt + veux/veut + devenir + yrke`,
 | vous | voudriez |
 | ils/elles | voudraient |
 
-**"Je voudrais"** er mer hoeflig enn "je veux" og brukes ofte om oeonsker og droemmer.`,
+**"Je voudrais"** er mer høflig enn "je veux" og brukes ofte om ønsker og drømmer.`,
     },
     {
       id: 'fransk-1-8-4-text-1',
@@ -1768,11 +1768,11 @@ Subjekt + veux/veut + devenir + yrke`,
 | Fransk | Norsk | Bruk |
 |--------|-------|------|
 | Je veux | Jeg vil | Sterk vilje |
-| Je voudrais | Jeg vil gjerne | Hoeflig oenke |
+| Je voudrais | Jeg vil gjerne | Høflig oenke |
 
 **Eksempler:**
-- Je **veux** devenir medecin! = Jeg **vil** bli lege! (bestemt)
-- Je **voudrais** devenir medecin. = Jeg **vil gjerne** bli lege. (hoeflig/oenke)`,
+- Je **veux** devenir médecin! = Jeg **vil** bli lege! (bestemt)
+- Je **voudrais** devenir médecin. = Jeg **vil gjerne** bli lege. (høflig/oenke)`,
     },
     {
       id: 'fransk-1-8-4-example-2',
@@ -1808,10 +1808,10 @@ c) **Nous voudrions etudier en France.**
         subTasks: [
           { label: 'a', task: 'Jeg vil gjerne bli journalist.', solution: 'Je voudrais devenir journaliste.', answer: 'Je voudrais devenir journaliste' },
           { label: 'b', task: 'Han vil gjerne jobbe som kokk.', solution: 'Il voudrait travailler comme cuisinier.', answer: 'Il voudrait travailler comme cuisinier' },
-          { label: 'c', task: 'De vil gjerne studere medisin.', solution: 'Ils voudraient etudier la medecine.', answer: 'Ils voudraient etudier la medecine' },
+          { label: 'c', task: 'De vil gjerne studere medisin.', solution: 'Ils voudraient etudier la médecine.', answer: 'Ils voudraient etudier la médecine' },
         ],
-        solution: 'a) Je voudrais devenir journaliste, b) Il voudrait travailler comme cuisinier, c) Ils voudraient etudier la medecine',
-        hints: ['devenir = a bli', 'la medecine = medisin (faget)'],
+        solution: 'a) Je voudrais devenir journaliste, b) Il voudrait travailler comme cuisinier, c) Ils voudraient etudier la médecine',
+        hints: ['devenir = a bli', 'la médecine = medisin (faget)'],
       },
     },
     {
@@ -1827,8 +1827,8 @@ c) **Nous voudrions etudier en France.**
 | Parce que... | Fordi... |
 | Gagner de l'argent | A tjene penger |
 | Aider les gens | A hjelpe folk |
-| Etre creatif/creative | A vaere kreativ |
-| C'est interessant | Det er interessant |
+| Etre créatif/creative | A være kreativ |
+| C'est intéressant | Det er intéressant |
 | C'est amusant | Det er goy |`,
     },
     {
@@ -1837,12 +1837,12 @@ c) **Nous voudrions etudier en France.**
       title: 'Eksempel 3: Begrunnelser',
       problem: `Les og oversett:
 
-Pourquoi veux-tu devenir medecin?
-Je voudrais devenir medecin parce que je veux aider les gens.`,
-      solution: `**Pourquoi veux-tu devenir medecin?**
+Pourquoi veux-tu devenir médecin?
+Je voudrais devenir médecin parce que je veux aider les gens.`,
+      solution: `**Pourquoi veux-tu devenir médecin?**
 = Hvorfor vil du bli lege?
 
-**Je voudrais devenir medecin parce que je veux aider les gens.**
+**Je voudrais devenir médecin parce que je veux aider les gens.**
 = Jeg vil gjerne bli lege fordi jeg vil hjelpe folk.
 
 **Setningsstruktur med "parce que":**
@@ -1859,18 +1859,18 @@ Je voudrais devenir + yrke + parce que + begrunnelse
         difficulty: 'medium',
         task: 'Koble yrke med begrunnelse:',
         subTasks: [
-          { label: 'a', task: 'Devenir medecin - parce que...', solution: 'je veux aider les gens / c\'est important', answer: 'je veux aider les gens' },
-          { label: 'b', task: 'Devenir musicien - parce que...', solution: 'je veux etre creatif / j\'adore la musique', answer: 'j\'adore la musique' },
-          { label: 'c', task: 'Devenir ingenieur - parce que...', solution: 'j\'aime resoudre des problemes / c\'est bien paye', answer: 'c\'est interessant' },
+          { label: 'a', task: 'Devenir médecin - parce que...', solution: 'je veux aider les gens / c\'est important', answer: 'je veux aider les gens' },
+          { label: 'b', task: 'Devenir musicien - parce que...', solution: 'je veux être créatif / j\'adore la musique', answer: 'j\'adore la musique' },
+          { label: 'c', task: 'Devenir ingenieur - parce que...', solution: 'j\'aime resoudre des problemes / c\'est bien paye', answer: 'c\'est intéressant' },
         ],
-        solution: 'a) parce que je veux aider les gens, b) parce que j\'adore la musique / je veux etre creatif, c) parce que j\'aime resoudre des problemes / c\'est bien paye',
-        hints: ['aider = a hjelpe', 'creatif = kreativ', 'resoudre = a loese'],
+        solution: 'a) parce que je veux aider les gens, b) parce que j\'adore la musique / je veux être créatif, c) parce que j\'aime resoudre des problemes / c\'est bien paye',
+        hints: ['aider = a hjelpe', 'créatif = kreativ', 'resoudre = a loese'],
       },
     },
     {
       id: 'fransk-1-8-4-text-3',
       type: 'text',
-      content: `## Spoersmaal om fremtiden
+      content: `## Spørsmål om fremtiden
 
 | Fransk | Norsk |
 |--------|-------|
@@ -1888,7 +1888,7 @@ Je voudrais devenir + yrke + parce que + begrunnelse
         number: '8.4.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv om dine fremtidsplaner (5-6 setninger pa fransk):',
+        task: 'Skriv om dine fremtidsplaner (5-6 setninger på fransk):',
         subTasks: [
           { label: 'a', task: 'Hva vil du bli?', solution: 'Je voudrais devenir ...' },
           { label: 'b', task: 'Hvorfor?', solution: 'parce que...' },
@@ -1902,13 +1902,13 @@ Je voudrais devenir + yrke + parce que + begrunnelse
     {
       id: 'fransk-1-8-4-tip-1',
       type: 'tip',
-      content: `Nar du snakker om fremtidsplaner pa fransk, kan du bruke bade "vouloir" og "voudrais". Bruk "je veux" nar du er sikker pa hva du vil, og "je voudrais" nar du snakker om droemmer og oeonsker. Du kan ogsaa bruke "j'aimerais" (jeg ville likt) som et alternativ til "je voudrais".`,
+      content: `Når du snakker om fremtidsplaner på fransk, kan du bruke både "vouloir" og "voudrais". Bruk "je veux" når du er sikker på hva du vil, og "je voudrais" når du snakker om drømmer og ønsker. Du kan også bruke "j'aimerais" (jeg ville likt) som et alternativ til "je voudrais".`,
     },
     {
       id: 'fransk-1-8-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Karrierevalg i Frankrike',
-      content: `I Frankrike er utdanningsvalg veldig viktig. Etter videregaaende (le lycee) tar elevene "le baccalaureat" (le bac), og valget av studieretning pavirker fremtidige karrieremuligheter. De mest prestisjefylte utdanningene gaar gjennom "les grandes ecoles" (eliteskolene), som krever krevende opptaksprover. Det er ogsaa vanlig med "stage" (praksisopphold) under studiene for a faa arbeidserfaring. Mange unge franskmenn tar ogsaa et aar i utlandet for a laere spraak og faa internasjonal erfaring.`,
+      content: `I Frankrike er utdanningsvalg veldig viktig. Etter videregående (le lycee) tar elevene "le baccalauréat" (le bac), og valget av studieretning pavirker fremtidige karrieremuligheter. De mest prestisjefylte utdanningene går gjennom "les grandes écoles" (eliteskolene), som krever krevende opptaksprover. Det er også vanlig med "stage" (praksisopphold) under studiene for a faa arbeidserfaring. Mange unge franskmenn tar også et aar i utlandet for a lære spraak og faa internasjonal erfaring.`,
     },
   ],
   exercises: [],

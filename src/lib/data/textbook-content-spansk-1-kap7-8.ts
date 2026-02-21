@@ -1,16 +1,16 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Spansk niva 1 - Tekstbokinnhold kapittel 7-8
+ * Spansk nivå 1 - Tekstbokinnhold kapittel 7-8
  *
- * Dekker LK20 laereplan for fremmedsprak niva 1
+ * Dekker LK20 læreplan for fremmedspråk nivå 1
  * Struktur: teori -> eksempel -> oppgave (gjentatt)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 7.1: La ropa - Klaerne
+// Kapittel 7.1: La ropa - Klærne
 // ============================================================================
 
 export const CHAPTER_SPANSK_1_7_1: TextbookChapter = {
@@ -18,27 +18,27 @@ export const CHAPTER_SPANSK_1_7_1: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '7.1',
   title: 'La ropa',
-  subtitle: 'Klaerne',
-  description: 'Laer grunnleggende ord for klaer og tilbehoer pa spansk.',
+  subtitle: 'Klærne',
+  description: 'Lær grunnleggende ord for klær og tilbehør på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'navngi klaer og tilbehoer',
+    'navngi klær og tilbehør',
   ],
   content: [
     {
       id: 'spansk-1-7-1-intro',
       type: 'text',
-      content: `## Klaer pa spansk
+      content: `## Klær på spansk
 
-A kunne snakke om klaer er nyttig i mange situasjoner - nar du handler, pakker til en reise, eller beskriver hva noen har pa seg.
+Å kunne snakke om klær er nyttig i mange situasjoner - når du handler, pakker til en reise, eller beskriver hva noen har på seg.
 
-Pa spansk har alle substantiver kjonn: hankjonn (masculino) eller hunkjonn (femenino). Klaesord kan vaere begge deler, sa det er viktig a laere dem med riktig artikkel!`,
+På spansk har alle substantiver kjønn: hankjønn (masculino) eller hunkjønn (femenino). Klesord kan være begge deler, så det er viktig å lære dem med riktig artikkel!`,
     },
     {
       id: 'spansk-1-7-1-def-1',
       type: 'definition',
       title: 'Vokabular: Overkropp',
-      content: `**Klaer for overkroppen:**
+      content: `**Klær for overkroppen:**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -53,24 +53,24 @@ Pa spansk har alle substantiver kjonn: hankjonn (masculino) eller hunkjonn (feme
     {
       id: 'spansk-1-7-1-def-2',
       type: 'definition',
-      title: 'Vokabular: Underkropp og fottoy',
-      content: `**Klaer for underkroppen og foetter:**
+      title: 'Vokabular: Underkropp og fottøy',
+      content: `**Klær for underkroppen og føtter:**
 
 | Spansk | Norsk |
 |--------|-------|
 | los pantalones | bukse |
-| la falda | skjoert |
+| la falda | skjørt |
 | los pantalones cortos | shorts |
 | los vaqueros | jeans |
 | los zapatos | sko |
 | las zapatillas | joggesko/tofler |
-| las botas | stoevler |
+| las botas | støvler |
 | los calcetines | sokker |`,
     },
     {
       id: 'spansk-1-7-1-text-1',
       type: 'text',
-      content: `**Tilbehoer (Los accesorios):**
+      content: `**Tilbehør (Los accesorios):**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -86,13 +86,13 @@ Pa spansk har alle substantiver kjonn: hankjonn (masculino) eller hunkjonn (feme
     {
       id: 'spansk-1-7-1-tip-1',
       type: 'tip',
-      content: `Legg merke til at noen klaesplagg alltid brukes i flertall pa spansk, akkurat som pa norsk: los pantalones (bukse/bukser), los zapatos (sko/skoene), los calcetines (sokkene), las gafas (brillene).`,
+      content: `Legg merke til at noen klesplagg alltid brukes i flertall på spansk, akkurat som på norsk: los pantalones (bukse/bukser), los zapatos (sko/skoene), los calcetines (sokkene), las gafas (brillene).`,
     },
     {
       id: 'spansk-1-7-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Oversett til norsk',
-      problem: `Oversett disse klaesordene til norsk:
+      problem: `Oversett disse klesordene til norsk:
 
 a) la camiseta
 b) los pantalones
@@ -103,7 +103,7 @@ b) los pantalones = **bukse**
 c) el vestido = **kjole**
 d) los zapatos = **sko**
 
-**Huske-tips:** "Zapatos" minner om det engelske "shoes" - begge handler om fottoy!`,
+**Huske-tips:** "Zapatos" minner om det engelske "shoes" - begge handler om fottøy!`,
     },
     {
       id: 'spansk-1-7-1-ex-block-1',
@@ -121,23 +121,23 @@ d) los zapatos = **sko**
           { label: 'd', task: 'genser', solution: 'el jersey', answer: 'el jersey' },
         ],
         solution: 'a) la camiseta, b) los pantalones, c) los zapatos, d) el jersey',
-        hints: ['Husk at alle spanske substantiver har kjonn', 'Pantalones og zapatos er alltid i flertall'],
+        hints: ['Husk at alle spanske substantiver har kjønn', 'Pantalones og zapatos er alltid i flertall'],
       },
     },
     {
       id: 'spansk-1-7-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Hvilket kjonn?',
+      title: 'Eksempel 2: Hvilket kjønn?',
       problem: `Velg riktig artikkel (el eller la):
 
 a) ___ camisa (skjorte)
 b) ___ vestido (kjole)
 c) ___ chaqueta (jakke)`,
-      solution: `a) **la** camisa - hunkjonn
-b) **el** vestido - hankjonn
-c) **la** chaqueta - hunkjonn
+      solution: `a) **la** camisa - hunkjønn
+b) **el** vestido - hankjønn
+c) **la** chaqueta - hunkjønn
 
-**Tips:** Mange klaesord som slutter pa -a er hunkjonn (la): la camisa, la camiseta, la chaqueta, la falda. Ord som slutter pa -o er ofte hankjonn (el): el vestido, el abrigo.`,
+**Tips:** Mange klesord som slutter på -a er hunkjønn (la): la camisa, la camiseta, la chaqueta, la falda. Ord som slutter på -o er ofte hankjønn (el): el vestido, el abrigo.`,
     },
     {
       id: 'spansk-1-7-1-ex-block-2',
@@ -155,39 +155,39 @@ c) **la** chaqueta - hunkjonn
           { label: 'd', task: '___ botas', solution: 'las', answer: 'las' },
         ],
         solution: 'a) la falda, b) el abrigo, c) los calcetines, d) las botas',
-        hints: ['Ord pa -a er ofte hunkjonn', 'Flertall: los (hankjonn), las (hunkjonn)'],
+        hints: ['Ord på -a er ofte hunkjønn', 'Flertall: los (hankjønn), las (hunkjønn)'],
       },
     },
     {
       id: 'spansk-1-7-1-text-2',
       type: 'text',
-      content: `## Kategorisering av klaer
+      content: `## Kategorisering av klær
 
-Vi kan gruppere klaer etter situasjon:
+Vi kan gruppere klær etter situasjon:
 
-| Situasjon | Klaer |
+| Situasjon | Klær |
 |-----------|-------|
-| Pa skolen | la camiseta, los vaqueros, las zapatillas |
-| Pa festen | el vestido, la camisa, los zapatos |
-| Pa stranden | los pantalones cortos, las gafas de sol |
+| På skolen | la camiseta, los vaqueros, las zapatillas |
+| På festen | el vestido, la camisa, los zapatos |
+| På stranden | los pantalones cortos, las gafas de sol |
 | Om vinteren | el abrigo, la bufanda, los guantes, la gorra |
 
-Det er nyttig a tenke pa klaer i grupper nar du skal laere dem!`,
+Det er nyttig å tenke på klær i grupper når du skal lære dem!`,
     },
     {
       id: 'spansk-1-7-1-example-3',
       type: 'example',
-      title: 'Eksempel 3: Klaer til anledningen',
-      problem: `Hvilke klaer passer til disse situasjonene? Skriv pa spansk:
+      title: 'Eksempel 3: Klær til anledningen',
+      problem: `Hvilke klær passer til disse situasjonene? Skriv på spansk:
 
-a) Du skal pa skolen (2 plagg)
+a) Du skal på skolen (2 plagg)
 b) Det er kaldt ute (2 plagg)
-c) Du skal pa en fest (2 plagg)`,
-      solution: `a) Pa skolen: **la camiseta y los vaqueros** (t-skjorte og jeans)
+c) Du skal på en fest (2 plagg)`,
+      solution: `a) På skolen: **la camiseta y los vaqueros** (t-skjorte og jeans)
 b) Kaldt ute: **el abrigo y la bufanda** (frakk og skjerf)
-c) Pa en fest: **el vestido y los zapatos** (kjole og sko)
+c) På en fest: **el vestido y los zapatos** (kjole og sko)
 
-**Merk:** "y" betyr "og" pa spansk.`,
+**Merk:** "y" betyr "og" på spansk.`,
     },
     {
       id: 'spansk-1-7-1-ex-block-3',
@@ -197,21 +197,21 @@ c) Pa en fest: **el vestido y los zapatos** (kjole og sko)
         number: '7.1.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv tre klaesplagg pa spansk for hver situasjon:',
+        task: 'Skriv tre klesplagg på spansk for hver situasjon:',
         subTasks: [
-          { label: 'a', task: 'Pa stranden', solution: 'Los pantalones cortos, las gafas de sol, las zapatillas', answer: 'Los pantalones cortos, las gafas de sol, las zapatillas' },
+          { label: 'a', task: 'På stranden', solution: 'Los pantalones cortos, las gafas de sol, las zapatillas', answer: 'Los pantalones cortos, las gafas de sol, las zapatillas' },
           { label: 'b', task: 'Om vinteren', solution: 'El abrigo, la bufanda, los guantes', answer: 'El abrigo, la bufanda, los guantes' },
-          { label: 'c', task: 'Pa en vanlig skoledag', solution: 'La camiseta, los vaqueros, las zapatillas', answer: 'La camiseta, los vaqueros, las zapatillas' },
+          { label: 'c', task: 'På en vanlig skoledag', solution: 'La camiseta, los vaqueros, las zapatillas', answer: 'La camiseta, los vaqueros, las zapatillas' },
         ],
         solution: 'a) Los pantalones cortos, las gafas de sol, las zapatillas. b) El abrigo, la bufanda, los guantes. c) La camiseta, los vaqueros, las zapatillas.',
-        hints: ['Tenk pa vaer og temperatur', 'Husk artiklene foran hvert ord'],
+        hints: ['Tenk på vær og temperatur', 'Husk artiklene foran hvert ord'],
       },
     },
     {
       id: 'spansk-1-7-1-note-1',
       type: 'note',
       title: 'Kulturnotat',
-      content: `I spansktalende land er det vanlig a kle seg litt penere enn i Norge til daglig. Spesielt i Spania legger mange vekt pa utseendet, og det er vanlig a bytte klaer nar man gar ut om kvelden. Uttrykket "ir de compras" (a ga og handle) er en populaer fritidsaktivitet.`,
+      content: `I spansktalende land er det vanlig å kle seg litt penere enn i Norge til daglig. Spesielt i Spania legger mange vekt på utseendet, og det er vanlig å bytte klær når man går ut om kvelden. Uttrykket "ir de compras" (å gå og handle) er en populær fritidsaktivitet.`,
     },
     {
       id: 'spansk-1-7-1-ex-block-4',
@@ -221,7 +221,7 @@ c) Pa en fest: **el vestido y los zapatos** (kjole og sko)
         number: '7.1.4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett tilbehoeret til spansk:',
+        task: 'Oversett tilbehøret til spansk:',
         subTasks: [
           { label: 'a', task: 'klokke', solution: 'el reloj', answer: 'el reloj' },
           { label: 'b', task: 'briller', solution: 'las gafas', answer: 'las gafas' },
@@ -229,7 +229,7 @@ c) Pa en fest: **el vestido y los zapatos** (kjole og sko)
           { label: 'd', task: 'belte', solution: 'el cinturon', answer: 'el cinturon' },
         ],
         solution: 'a) el reloj, b) las gafas, c) el bolso, d) el cinturon',
-        hints: ['Reloj ligner litt pa "relokke"', 'Gafas er alltid i flertall pa spansk'],
+        hints: ['Reloj ligner litt på "relokke"', 'Gafas er alltid i flertall på spansk'],
       },
     },
   ],
@@ -246,7 +246,7 @@ export const CHAPTER_SPANSK_1_7_2: TextbookChapter = {
   chapterNumber: '7.2',
   title: 'En la tienda de ropa',
   subtitle: 'I klesbutikken',
-  description: 'Laer a handle klaer og kommunisere med ekspeditoerer pa spansk.',
+  description: 'Lær å handle klær og kommunisere med ekspeditører på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kommunisere i klesbutikk',
@@ -255,20 +255,20 @@ export const CHAPTER_SPANSK_1_7_2: TextbookChapter = {
     {
       id: 'spansk-1-7-2-intro',
       type: 'text',
-      content: `## Handle klaer pa spansk
+      content: `## Handle klær på spansk
 
-Nar du handler klaer i et spansktalende land, er det nyttig a kunne noen viktige fraser. La oss laere de vanligste uttrykkene for klesbutikken!`,
+Når du handler klær i et spansktalende land, er det nyttig å kunne noen viktige fraser. La oss lære de vanligste uttrykkene for klesbutikken!`,
     },
     {
       id: 'spansk-1-7-2-def-1',
       type: 'definition',
       title: 'Nyttige shoppingfraser',
-      content: `**Ekspeditoeren spor:**
+      content: `**Ekspeditøren spør:**
 
 | Spansk | Norsk |
 |--------|-------|
 | ¿Puedo ayudarle? | Kan jeg hjelpe deg? |
-| ¿Qué talla tiene? | Hvilken storrelse har du? |
+| ¿Qué talla tiene? | Hvilken størrelse har du? |
 | ¿De qué color? | Hvilken farge? |
 | ¿Algo más? | Noe mer? |
 
@@ -279,17 +279,17 @@ Nar du handler klaer i et spansktalende land, er det nyttig a kunne noen viktige
 | Busco... | Jeg leter etter... |
 | ¿Tiene...? | Har dere...? |
 | ¿Cuánto cuesta? | Hvor mye koster det? |
-| ¿Puedo probármelo? | Kan jeg prove det? |`,
+| ¿Puedo probármelo? | Kan jeg prøve det? |`,
     },
     {
       id: 'spansk-1-7-2-def-2',
       type: 'definition',
-      title: 'I proverommet og ved kassen',
-      content: `**I proverommet (el probador):**
+      title: 'I prøverommet og ved kassen',
+      content: `**I prøverommet (el probador):**
 
 | Spansk | Norsk |
 |--------|-------|
-| ¿Dónde está el probador? | Hvor er proverommet? |
+| ¿Dónde está el probador? | Hvor er prøverommet? |
 | Me queda bien | Det passer meg bra |
 | Me queda grande | Det er for stort |
 | Me queda pequeño | Det er for lite |
@@ -308,7 +308,7 @@ Nar du handler klaer i et spansktalende land, er det nyttig a kunne noen viktige
       id: 'spansk-1-7-2-example-1',
       type: 'example',
       title: 'Eksempel 1: I klesbutikken',
-      problem: `Les dialogen og svar pa sporsmalene:
+      problem: `Les dialogen og svar på spørsmålene:
 
 Dependiente: ¡Buenos días! ¿Puedo ayudarle?
 Cliente: Sí, busco una camiseta.
@@ -318,15 +318,15 @@ Dependiente: Aquí tiene. ¿Quiere probársela?
 Cliente: Sí, gracias. ¿Dónde está el probador?
 
 a) Hva leter kunden etter?
-b) Hvilken storrelse trenger kunden?`,
+b) Hvilken størrelse trenger kunden?`,
       solution: `a) Kunden leter etter en t-skjorte (una camiseta).
-b) Kunden trenger storrelse M (la talla M).
+b) Kunden trenger størrelse M (la talla M).
 
 **Viktige ord fra dialogen:**
 - el/la dependiente = ekspeditoren
 - el/la cliente = kunden
-- probarse = a prove (klaer)
-- el probador = proverommet`,
+- probarse = å prøve (klær)
+- el probador = prøverommet`,
     },
     {
       id: 'spansk-1-7-2-ex-block-1',
@@ -341,18 +341,18 @@ b) Kunden trenger storrelse M (la talla M).
           { label: 'a', task: 'Kan jeg hjelpe deg?', solution: '¿Puedo ayudarle?', answer: '¿Puedo ayudarle?' },
           { label: 'b', task: 'Jeg leter etter en kjole', solution: 'Busco un vestido', answer: 'Busco un vestido' },
           { label: 'c', task: 'Hvor mye koster det?', solution: '¿Cuánto cuesta?', answer: '¿Cuánto cuesta?' },
-          { label: 'd', task: 'Kan jeg prove det?', solution: '¿Puedo probármelo?', answer: '¿Puedo probármelo?' },
+          { label: 'd', task: 'Kan jeg prøve det?', solution: '¿Puedo probármelo?', answer: '¿Puedo probármelo?' },
         ],
         solution: 'a) ¿Puedo ayudarle?, b) Busco un vestido, c) ¿Cuánto cuesta?, d) ¿Puedo probármelo?',
-        hints: ['buscar = a lete etter', 'costar = a koste', 'probar = a prove'],
+        hints: ['buscar = å lete etter', 'costår = å koste', 'probar = å prøve'],
       },
     },
     {
       id: 'spansk-1-7-2-text-1',
       type: 'text',
-      content: `## Stoerrelser (Las tallas)
+      content: `## Størrelser (Las tallas)
 
-I Spania og Latin-Amerika brukes europeiske stoerrelser. Her er de vanligste:
+I Spania og Latin-Amerika brukes europeiske størrelser. Her er de vanligste:
 
 | Betegnelse | Spansk |
 |------------|--------|
@@ -364,15 +364,15 @@ I Spania og Latin-Amerika brukes europeiske stoerrelser. Her er de vanligste:
 For sko bruker man nummer: "Talla 38", "Talla 42" osv.
 
 **Nyttige fraser:**
-- ¿Tiene una talla más grande? (Har du en storrelse storre?)
-- ¿Tiene una talla más pequeña? (Har du en storrelse mindre?)
-- Es la talla correcta (Det er riktig storrelse)`,
+- ¿Tiene una talla más grande? (Har du en størrelse større?)
+- ¿Tiene una talla más pequeña? (Har du en størrelse mindre?)
+- Es la talla correcta (Det er riktig størrelse)`,
     },
     {
       id: 'spansk-1-7-2-example-2',
       type: 'example',
-      title: 'Eksempel 2: Stoerrelser',
-      problem: `Fullfoor dialogen:
+      title: 'Eksempel 2: Størrelser',
+      problem: `Fullfør dialogen:
 
 Cliente: Busco unos pantalones.
 Dependiente: ¿Qué ___ tiene?
@@ -383,7 +383,7 @@ Dependiente: ¿Qué **talla** tiene?
 Cliente: **La talla** M. ¿Puedo **probármelos**?
 Dependiente: Claro, el probador está allí.
 
-**Oversettelse:** Jeg leter etter en bukse. - Hvilken storrelse har du? - Storrelse M. Kan jeg prove den? - Selvfoelgelig, proverommet er der borte.`,
+**Oversettelse:** Jeg leter etter en bukse. - Hvilken størrelse har du? - Størrelse M. Kan jeg prøve den? - Selvfølgelig, prøverommet er der borte.`,
     },
     {
       id: 'spansk-1-7-2-ex-block-2',
@@ -401,7 +401,7 @@ Dependiente: Claro, el probador está allí.
           { label: 'd', task: 'Me lo ___. (Jeg tar det)', solution: 'llevo', answer: 'llevo' },
         ],
         solution: 'a) Cuánto, b) queda, c) Aceptan, d) llevo',
-        hints: ['cuánto = hvor mye', 'quedar = a passe/sitte', 'aceptar = a ta imot'],
+        hints: ['cuánto = hvor mye', 'quedar = å passe/sitte', 'aceptar = å ta imot'],
       },
     },
     {
@@ -409,7 +409,7 @@ Dependiente: Claro, el probador está allí.
       type: 'text',
       content: `## Prisuttrykk
 
-Nar du spor om pris og handler, er dette nyttige uttrykk:
+Når du spør om pris og handler, er dette nyttige uttrykk:
 
 | Spansk | Norsk |
 |--------|-------|
@@ -418,7 +418,7 @@ Nar du spor om pris og handler, er dette nyttige uttrykk:
 | Es barato | Det er billig |
 | ¿Hay descuento? | Er det rabatt? |
 | Las rebajas | Salg/tilbud |
-| Está de oferta | Det er pa tilbud |
+| Está de oferta | Det er på tilbud |
 | La caja | Kassen |
 
 **Merk:** I Spania bruker man euro (€). I Latin-Amerika bruker man ulike valutaer: pesos (Mexico, Argentina), soles (Peru), bolivares (Venezuela) osv.`,
@@ -437,13 +437,13 @@ Cliente: Perfecto. Me la llevo. ¿Aceptan tarjeta?`,
       solution: `Kunde: **Hvor mye koster denne jakken?**
 Ekspeditoren: **Den koster 45 euro.**
 Kunde: **Det er litt dyrt. Er det rabatt?**
-Ekspeditoren: **Nei, beklager. Men denne jakken er pa tilbud, den koster 30 euro.**
+Ekspeditoren: **Nei, beklager. Men denne jakken er på tilbud, den koster 30 euro.**
 Kunde: **Perfekt. Jeg tar den. Tar dere kort?**
 
 **Viktige uttrykk:**
 - un poco caro = litt dyrt
 - lo siento = beklager
-- está de oferta = er pa tilbud`,
+- está de oferta = er på tilbud`,
     },
     {
       id: 'spansk-1-7-2-ex-block-3',
@@ -457,7 +457,7 @@ Kunde: **Perfekt. Jeg tar den. Tar dere kort?**
         subTasks: [
           { label: 'a', task: 'Det er veldig dyrt', solution: 'Es muy caro', answer: 'Es muy caro' },
           { label: 'b', task: 'Er det rabatt?', solution: '¿Hay descuento?', answer: '¿Hay descuento?' },
-          { label: 'c', task: 'Det er pa tilbud', solution: 'Está de oferta', answer: 'Está de oferta' },
+          { label: 'c', task: 'Det er på tilbud', solution: 'Está de oferta', answer: 'Está de oferta' },
         ],
         solution: 'a) Es muy caro, b) ¿Hay descuento?, c) Está de oferta',
         hints: ['caro = dyrt', 'descuento = rabatt', 'oferta = tilbud'],
@@ -466,7 +466,7 @@ Kunde: **Perfekt. Jeg tar den. Tar dere kort?**
     {
       id: 'spansk-1-7-2-tip-1',
       type: 'tip',
-      content: `I Spania har de store salg to ganger i aret: "Rebajas de invierno" (vinteresalg, januar-februar) og "Rebajas de verano" (sommersalg, juli-august). Da kan du finne gode tilbud! I Latin-Amerika er det ogsa vanlig med "Black Friday" og andre salgshendelser.`,
+      content: `I Spania har de store salg to ganger i året: "Rebajas de invierno" (vinteresalg, januar-februar) og "Rebajas de verano" (sommersalg, juli-august). Da kan du finne gode tilbud! I Latin-Amerika er det også vanlig med "Black Friday" og andre salgshendelser.`,
     },
     {
       id: 'spansk-1-7-2-ex-block-4',
@@ -478,12 +478,12 @@ Kunde: **Perfekt. Jeg tar den. Tar dere kort?**
         difficulty: 'vanskelig',
         task: 'Lag en kort dialog i en klesbutikk (bruk minst 3 av disse uttrykkene: ¿Puedo ayudarle?, Busco, ¿Cuánto cuesta?, Me lo llevo, ¿Aceptan tarjeta?):',
         subTasks: [
-          { label: 'a', task: 'Ekspeditoerens foerste setning', solution: '¡Hola! ¿Puedo ayudarle?', answer: '¡Hola! ¿Puedo ayudarle?' },
+          { label: 'a', task: 'Ekspeditørens første setning', solution: '¡Hola! ¿Puedo ayudarle?', answer: '¡Hola! ¿Puedo ayudarle?' },
           { label: 'b', task: 'Kundens svar (hva han/hun leter etter)', solution: 'Sí, busco una camiseta.', answer: 'Sí, busco una camiseta.' },
           { label: 'c', task: 'Avslutt dialogen med betaling', solution: '¿Cuánto cuesta? - Cuesta veinte euros. - Me la llevo. ¿Aceptan tarjeta?', answer: '¿Cuánto cuesta? - Cuesta veinte euros. - Me la llevo. ¿Aceptan tarjeta?' },
         ],
         solution: 'Eksempel: Dependiente: ¡Hola! ¿Puedo ayudarle? Cliente: Sí, busco una camiseta. ¿Cuánto cuesta esta? Dependiente: Cuesta veinte euros. Cliente: Me la llevo. ¿Aceptan tarjeta? Dependiente: Sí, por supuesto.',
-        hints: ['Start med en hilsen', 'Bruk hoflig form'],
+        hints: ['Start med en hilsen', 'Bruk høflig form'],
       },
     },
   ],
@@ -491,7 +491,7 @@ Kunde: **Perfekt. Jeg tar den. Tar dere kort?**
 };
 
 // ============================================================================
-// Kapittel 7.3: Colores y tallas - Farger og stoerrelser
+// Kapittel 7.3: Colores y tallas - Farger og størrelser
 // ============================================================================
 
 export const CHAPTER_SPANSK_1_7_3: TextbookChapter = {
@@ -499,40 +499,40 @@ export const CHAPTER_SPANSK_1_7_3: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '7.3',
   title: 'Colores y tallas',
-  subtitle: 'Farger og stoerrelser',
-  description: 'Laer farger og stoerrelser for a beskrive klaer pa spansk.',
+  subtitle: 'Farger og størrelser',
+  description: 'Lær farger og størrelser for å beskrive klær på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'beskrive klaer med farger og stoerrelser',
+    'beskrive klær med farger og størrelser',
   ],
   content: [
     {
       id: 'spansk-1-7-3-intro',
       type: 'text',
-      content: `## Farger og stoerrelser
+      content: `## Farger og størrelser
 
-For a beskrive klaer trenger du a kunne fargene og stoerrelsene pa spansk. I dette kapittelet laerer du hvordan farger boyes etter kjonn og tall, og hvordan du beskriver stoerrelsen pa klaer.`,
+For å beskrive klær trenger du å kunne fargene og størrelsene på spansk. I dette kapittelet lærer du hvordan farger bøyes etter kjønn og tall, og hvordan du beskriver størrelsen på klær.`,
     },
     {
       id: 'spansk-1-7-3-def-1',
       type: 'definition',
       title: 'Los colores - Fargene',
-      content: `**Farger som endres etter kjonn (-o/-a):**
+      content: `**Farger som endres etter kjønn (-o/-a):**
 
-| Hankjonn | Hunkjonn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |----------|----------|-------|
-| rojo | roja | roed |
+| rojo | roja | rød |
 | blanco | blanca | hvit |
 | negro | negra | svart |
 | amarillo | amarilla | gul |
 
-**Farger som er like for begge kjonn:**
+**Farger som er like for begge kjønn:**
 
 | Spansk | Norsk |
 |--------|-------|
-| azul | bla |
-| verde | groenn |
-| gris | gra |
+| azul | blå |
+| verde | grønn |
+| gris | grå |
 | marrón | brun |
 | naranja | oransje |
 | rosa | rosa |
@@ -543,14 +543,14 @@ For a beskrive klaer trenger du a kunne fargene og stoerrelsene pa spansk. I det
       type: 'text',
       content: `## Samsvar mellom farge og substantiv
 
-Pa spansk ma fargen samsvare med substantivet i bade **kjonn** og **tall**:
+På spansk må fargen samsvare med substantivet i både **kjønn** og **tall**:
 
-| Entall hankjonn | Entall hunkjonn | Flertall hankjonn | Flertall hunkjonn |
+| Entall hankjønn | Entall hunkjønn | Flertall hankjønn | Flertall hunkjønn |
 |----------------|-----------------|-------------------|-------------------|
 | el jersey rojo | la camiseta roja | los jerseys rojos | las camisetas rojas |
 | el zapato negro | la falda negra | los zapatos negros | las faldas negras |
 
-**For farger som ikke endres etter kjonn (azul, verde, gris osv.), endres de bare i tall:**
+**For farger som ikke endres etter kjønn (azul, verde, gris osv.), endres de bare i tall:**
 
 | Entall | Flertall |
 |--------|----------|
@@ -560,27 +560,27 @@ Pa spansk ma fargen samsvare med substantivet i bade **kjonn** og **tall**:
     {
       id: 'spansk-1-7-3-tip-1',
       type: 'tip',
-      content: `Fargen star alltid ETTER substantivet pa spansk! Pa norsk sier vi "en rod t-skjorte", men pa spansk sier vi "una camiseta roja" (en t-skjorte rod). Husk denne forskjellen!`,
+      content: `Fargen står alltid ETTER substantivet på spansk! På norsk sier vi "en rød t-skjorte", men på spansk sier vi "una camiseta roja" (en t-skjorte rod). Husk denne forskjellen!`,
     },
     {
       id: 'spansk-1-7-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Farge + klaesplagg',
-      problem: `Kombiner klaesplagg og farge pa spansk:
+      title: 'Eksempel 1: Farge + klesplagg',
+      problem: `Kombiner klesplagg og farge på spansk:
 
-a) en rod kjole
+a) en rød kjole
 b) svarte sko
 c) en hvit skjorte
-d) blaa bukser`,
-      solution: `a) en rod kjole = **un vestido rojo**
+d) blå bukser`,
+      solution: `a) en rød kjole = **un vestido rojo**
 b) svarte sko = **los zapatos negros**
 c) en hvit skjorte = **una camisa blanca**
-d) blaa bukser = **los pantalones azules**
+d) blå bukser = **los pantalones azules**
 
 **Merk:**
-- vestido er hankjonn -> rojo
-- camisa er hunkjonn -> blanca
-- azul endres ikke etter kjonn, bare i tall -> azules`,
+- vestido er hankjønn -> rojo
+- camisa er hunkjønn -> blanca
+- azul endres ikke etter kjønn, bare i tall -> azules`,
     },
     {
       id: 'spansk-1-7-3-ex-block-1',
@@ -590,22 +590,22 @@ d) blaa bukser = **los pantalones azules**
         number: '7.3.1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv pa spansk med riktig farge (husk samsvar):',
+        task: 'Skriv på spansk med riktig farge (husk samsvar):',
         subTasks: [
           { label: 'a', task: 'en gul t-skjorte', solution: 'una camiseta amarilla', answer: 'una camiseta amarilla' },
           { label: 'b', task: 'en svart jakke', solution: 'una chaqueta negra', answer: 'una chaqueta negra' },
-          { label: 'c', task: 'groenne sko', solution: 'los zapatos verdes', answer: 'los zapatos verdes' },
-          { label: 'd', task: 'et hvitt skjoert', solution: 'una falda blanca', answer: 'una falda blanca' },
+          { label: 'c', task: 'grønne sko', solution: 'los zapatos verdes', answer: 'los zapatos verdes' },
+          { label: 'd', task: 'et hvitt skjørt', solution: 'una falda blanca', answer: 'una falda blanca' },
         ],
         solution: 'a) una camiseta amarilla, b) una chaqueta negra, c) los zapatos verdes, d) una falda blanca',
-        hints: ['Camiseta, chaqueta og falda er hunkjonn', 'Verdes endres ikke etter kjonn'],
+        hints: ['Camiseta, chaqueta og falda er hunkjønn', 'Verdes endres ikke etter kjønn'],
       },
     },
     {
       id: 'spansk-1-7-3-def-2',
       type: 'definition',
-      title: 'Stoerrelsesbeskrivelser',
-      content: `**Stoerrelser og maal:**
+      title: 'Størrelsesbeskrivelser',
+      content: `**Størrelser og mål:**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -620,7 +620,7 @@ d) blaa bukser = **los pantalones azules**
 
 | Spansk | Norsk |
 |--------|-------|
-| más grande | storre |
+| más grande | større |
 | más pequeño/a | mindre |
 | demasiado grande | for stort |
 | demasiado pequeño/a | for lite |
@@ -630,17 +630,17 @@ d) blaa bukser = **los pantalones azules**
     {
       id: 'spansk-1-7-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Stoerrelsesbeskrivelser',
+      title: 'Eksempel 2: Størrelsesbeskrivelser',
       problem: `Oversett til spansk:
 
 a) Buksen er for lang.
 b) Kjolen er for liten.
-c) Har du en storre storrelse?`,
+c) Har du en større størrelse?`,
       solution: `a) Buksen er for lang = **El pantalón es demasiado largo.**
 b) Kjolen er for liten = **El vestido es demasiado pequeño.**
-c) Har du en storre storrelse? = **¿Tiene una talla más grande?**
+c) Har du en større størrelse? = **¿Tiene una talla más grande?**
 
-**Merk:** Vi bruker "demasiado" (for mye) foran adjektivet for a si "for stor/liten/lang" osv.`,
+**Merk:** Vi bruker "demasiado" (for mye) foran adjektivet for å si "for stor/liten/lang" osv.`,
     },
     {
       id: 'spansk-1-7-3-ex-block-2',
@@ -653,8 +653,8 @@ c) Har du en storre storrelse? = **¿Tiene una talla más grande?**
         task: 'Oversett til spansk:',
         subTasks: [
           { label: 'a', task: 'Det er for stort', solution: 'Es demasiado grande', answer: 'Es demasiado grande' },
-          { label: 'b', task: 'Skjoertet er for kort', solution: 'La falda es demasiado corta', answer: 'La falda es demasiado corta' },
-          { label: 'c', task: 'Har du en mindre storrelse?', solution: '¿Tiene una talla más pequeña?', answer: '¿Tiene una talla más pequeña?' },
+          { label: 'b', task: 'Skjørtet er for kort', solution: 'La falda es demasiado corta', answer: 'La falda es demasiado corta' },
+          { label: 'c', task: 'Har du en mindre størrelse?', solution: '¿Tiene una talla más pequeña?', answer: '¿Tiene una talla más pequeña?' },
         ],
         solution: 'a) Es demasiado grande, b) La falda es demasiado corta, c) ¿Tiene una talla más pequeña?',
         hints: ['demasiado = for (mye)', 'corto/a = kort', 'más pequeño/a = mindre'],
@@ -663,33 +663,33 @@ c) Har du en storre storrelse? = **¿Tiene una talla más grande?**
     {
       id: 'spansk-1-7-3-text-2',
       type: 'text',
-      content: `## Kombinere farge og stoerrelse
+      content: `## Kombinere farge og størrelse
 
-Nar du beskriver klaer, kan du kombinere farge og stoerrelse:
+Når du beskriver klær, kan du kombinere farge og størrelse:
 
 **Eksempler:**
-- Busco una camiseta roja, talla M. (Jeg leter etter en rod t-skjorte, storrelse M.)
+- Busco una camiseta roja, talla M. (Jeg leter etter en rød t-skjorte, størrelse M.)
 - Esta chaqueta negra es demasiado grande. (Denne svarte jakken er for stor.)
-- ¿Tiene estos pantalones azules en una talla más pequeña? (Har du disse blaa buksene i en mindre storrelse?)
+- ¿Tiene estos pantalones azules en una talla más pequeña? (Har du disse blå buksene i en mindre størrelse?)
 
-**Ordrekkefoelge:**
-artikkel + substantiv + farge + stoerrelsesbeskrivelse
-una camiseta roja grande (en stor rod t-skjorte)`,
+**Ordrekkefølge:**
+artikkel + substantiv + farge + størrelsesbeskrivelse
+una camiseta roja grande (en stor rød t-skjorte)`,
     },
     {
       id: 'spansk-1-7-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Komplett beskrivelse',
-      problem: `Beskriv disse klaesplaggene pa spansk:
+      problem: `Beskriv disse klesplaggene på spansk:
 
 a) en stor hvit genser
 b) smale svarte bukser
-c) korte blaa shorts`,
+c) korte blå shorts`,
       solution: `a) en stor hvit genser = **un jersey blanco grande**
 b) smale svarte bukser = **unos pantalones negros estrechos**
-c) korte blaa shorts = **unos pantalones cortos azules**
+c) korte blå shorts = **unos pantalones cortos azules**
 
-**Merk:** Farge og stoerrelsesbeskrivelse kommer begge etter substantivet. Vanligvis kommer fargen foerst.`,
+**Merk:** Farge og størrelsesbeskrivelse kommer begge etter substantivet. Vanligvis kommer fargen først.`,
     },
     {
       id: 'spansk-1-7-3-ex-block-3',
@@ -699,21 +699,21 @@ c) korte blaa shorts = **unos pantalones cortos azules**
         number: '7.3.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Beskriv klaesplaggene pa spansk med bade farge og stoerrelse:',
+        task: 'Beskriv klesplaggene på spansk med både farge og størrelse:',
         subTasks: [
-          { label: 'a', task: 'en liten rod veske', solution: 'un bolso rojo pequeño', answer: 'un bolso rojo pequeño' },
-          { label: 'b', task: 'lange svarte stoevler', solution: 'unas botas negras largas', answer: 'unas botas negras largas' },
-          { label: 'c', task: 'en bred groenn bufanda', solution: 'una bufanda verde ancha', answer: 'una bufanda verde ancha' },
+          { label: 'a', task: 'en liten rød veske', solution: 'un bolso rojo pequeño', answer: 'un bolso rojo pequeño' },
+          { label: 'b', task: 'lange svarte støvler', solution: 'unas botas negras largas', answer: 'unas botas negras largas' },
+          { label: 'c', task: 'en bred grønn bufanda', solution: 'una bufanda verde ancha', answer: 'una bufanda verde ancha' },
         ],
         solution: 'a) un bolso rojo pequeño, b) unas botas negras largas, c) una bufanda verde ancha',
-        hints: ['Fargen kommer foer stoerrelsesbeskrivelsen', 'Husk kjoennssamsvar'],
+        hints: ['Fargen kommer før størrelsesbeskrivelsen', 'Husk kjønnssamsvar'],
       },
     },
     {
       id: 'spansk-1-7-3-note-1',
       type: 'note',
       title: 'Kulturnotat: Farger i spansktalende land',
-      content: `I mange spansktalende land har farger spesiell betydning. I Mexico er fargen gul assosiert med doed og brukes under "Día de los Muertos". I Spania er svart den tradisjonelle fargen for formelle anledninger. Hvit er populaert om sommeren, og mange spanjoler unngaar a ga med hvite klaer foer "la Semana Santa" (paasken).`,
+      content: `I mange spansktalende land har farger spesiell betydning. I Mexico er fargen gul assosiert med død og brukes under "Día de los Muertos". I Spania er svart den tradisjonelle fargen for formelle anledninger. Hvit er populært om sommeren, og mange spanjoler unngår å gå med hvite klær før "la Semana Santa" (påsken).`,
     },
     {
       id: 'spansk-1-7-3-ex-block-4',
@@ -730,8 +730,8 @@ c) korte blaa shorts = **unos pantalones cortos azules**
           { label: 'c', task: 'las faldas blanco -> riktig form:', solution: 'las faldas blancas', answer: 'las faldas blancas' },
           { label: 'd', task: 'el vestido amarilla -> riktig form:', solution: 'el vestido amarillo', answer: 'el vestido amarillo' },
         ],
-        solution: 'a) una camiseta roja (hunkjonn entall), b) los zapatos negros (hankjonn flertall), c) las faldas blancas (hunkjonn flertall), d) el vestido amarillo (hankjonn entall)',
-        hints: ['Sjekk kjoennet til substantivet', 'Sjekk om det er entall eller flertall'],
+        solution: 'a) una camiseta roja (hunkjønn entall), b) los zapatos negros (hankjønn flertall), c) las faldas blancas (hunkjønn flertall), d) el vestido amarillo (hankjønn entall)',
+        hints: ['Sjekk kjønnet til substantivet', 'Sjekk om det er entall eller flertall'],
       },
     },
   ],
@@ -739,7 +739,7 @@ c) korte blaa shorts = **unos pantalones cortos azules**
 };
 
 // ============================================================================
-// Kapittel 7.4: ¿Qué llevas? - Hva har du pa deg?
+// Kapittel 7.4: ¿Qué llevas? - Hva har du på deg?
 // ============================================================================
 
 export const CHAPTER_SPANSK_1_7_4: TextbookChapter = {
@@ -747,70 +747,70 @@ export const CHAPTER_SPANSK_1_7_4: TextbookChapter = {
   courseId: 'spansk-1',
   chapterNumber: '7.4',
   title: '¿Qué llevas?',
-  subtitle: 'Hva har du pa deg?',
-  description: 'Laer a beskrive hva du og andre har pa seg ved hjelp av verbet llevar.',
+  subtitle: 'Hva har du på deg?',
+  description: 'Lær å beskrive hva du og andre har på seg ved hjelp av verbet llevar.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'beskrive hva man har pa seg',
+    'beskrive hva man har på seg',
   ],
   content: [
     {
       id: 'spansk-1-7-4-intro',
       type: 'text',
-      content: `## Beskrive klaer med "llevar"
+      content: `## Beskrive klær med "llevar"
 
-Verbet "llevar" betyr "a ha pa seg" og er det viktigste verbet nar du snakker om klaer. La oss laere a boye det og bruke det i setninger!`,
+Verbet "llevar" betyr "å ha på seg" og er det viktigste verbet når du snakker om klær. La oss lære å bøye det og bruke det i setninger!`,
     },
     {
       id: 'spansk-1-7-4-def-1',
       type: 'definition',
-      title: 'Verbet "llevar" (a ha pa seg)',
-      content: `**Boeyning av "llevar" i presens:**
+      title: 'Verbet "llevar" (å ha på seg)',
+      content: `**Bøyning av "llevar" i presens:**
 
 | Person | Spansk | Norsk |
 |--------|--------|-------|
-| yo | llevo | jeg har pa meg |
-| tú | llevas | du har pa deg |
-| él/ella/usted | lleva | han/hun har pa seg |
-| nosotros/as | llevamos | vi har pa oss |
-| vosotros/as | lleváis | dere har pa dere |
-| ellos/ellas/ustedes | llevan | de har pa seg |
+| yo | llevo | jeg har på meg |
+| tú | llevas | du har på deg |
+| él/ella/usted | lleva | han/hun har på seg |
+| nosotros/as | llevamos | vi har på oss |
+| vosotros/as | lleváis | dere har på dere |
+| ellos/ellas/ustedes | llevan | de har på seg |
 
-**Merk:** "Llevar" er et regelrett verb som foelger -ar-boeyningen.`,
+**Merk:** "Llevar" er et regelrett verb som følger -ar-bøyningen.`,
     },
     {
       id: 'spansk-1-7-4-text-1',
       type: 'text',
       content: `## Bruke "llevar" i setninger
 
-**Struktur:** Subjekt + llevar (boyd) + artikkel + klaesplagg + (farge)
+**Struktur:** Subjekt + llevar (bøyd) + artikkel + klesplagg + (farge)
 
 | Spansk | Norsk |
 |--------|-------|
-| Llevo una camiseta blanca | Jeg har pa meg en hvit t-skjorte |
-| Llevas unos vaqueros azules | Du har pa deg blaa jeans |
-| Ella lleva un vestido rojo | Hun har pa seg en rod kjole |
-| Llevamos zapatos negros | Vi har pa oss svarte sko |
-| Llevan uniformes | De har pa seg uniformer |
+| Llevo una camiseta blanca | Jeg har på meg en hvit t-skjorte |
+| Llevas unos vaqueros azules | Du har på deg blå jeans |
+| Ella lleva un vestido rojo | Hun har på seg en rød kjole |
+| Llevamos zapatos negros | Vi har på oss svarte sko |
+| Llevan uniformes | De har på seg uniformer |
 
-**Obs!** Man kan ogsa bruke "llevar" om tilbehoer:
-- Llevo gafas de sol (Jeg har pa meg solbriller)
-- Lleva un reloj (Han har pa seg en klokke)`,
+**Obs!** Man kan også bruke "llevar" om tilbehør:
+- Llevo gafas de sol (Jeg har på meg solbriller)
+- Lleva un reloj (Han har på seg en klokke)`,
     },
     {
       id: 'spansk-1-7-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Hva har de pa seg?',
-      problem: `Beskriv hva disse personene har pa seg:
+      title: 'Eksempel 1: Hva har de på seg?',
+      problem: `Beskriv hva disse personene har på seg:
 
 a) María (kjole, sko)
 b) Pedro (jeans, t-skjorte)
 c) Jeg (genser, bukse)`,
-      solution: `a) María lleva un vestido y unos zapatos. (Maria har pa seg en kjole og sko.)
-b) Pedro lleva unos vaqueros y una camiseta. (Pedro har pa seg jeans og en t-skjorte.)
-c) Llevo un jersey y unos pantalones. (Jeg har pa meg en genser og en bukse.)
+      solution: `a) María lleva un vestido y unos zapatos. (Maria har på seg en kjole og sko.)
+b) Pedro lleva unos vaqueros y una camiseta. (Pedro har på seg jeans og en t-skjorte.)
+c) Llevo un jersey y unos pantalones. (Jeg har på meg en genser og en bukse.)
 
-**Tips:** Bruk "y" (og) for a koble sammen flere klaesplagg.`,
+**Tips:** Bruk "y" (og) for å koble sammen flere klesplagg.`,
     },
     {
       id: 'spansk-1-7-4-ex-block-1',
@@ -834,10 +834,10 @@ c) Llevo un jersey y unos pantalones. (Jeg har pa meg en genser og en bukse.)
     {
       id: 'spansk-1-7-4-def-2',
       type: 'definition',
-      title: 'Vaer og klaer',
-      content: `**Vaer og klaer henget sammen! Vi kan koble vaeruttrykkene med klaesvalg:**
+      title: 'Vær og klær',
+      content: `**Vær og klær henget sammen! Vi kan koble væruttrykkene med klesvalg:**
 
-| Vaer | Spansk | Klaer |
+| Vær | Spansk | Klær |
 |------|--------|-------|
 | Det er varmt | Hace calor | la camiseta, los pantalones cortos |
 | Det er kaldt | Hace frío | el abrigo, la bufanda, los guantes |
@@ -845,24 +845,24 @@ c) Llevo un jersey y unos pantalones. (Jeg har pa meg en genser og en bukse.)
 | Det er sol | Hace sol | las gafas de sol, la gorra |
 
 **Eksempler:**
-- Cuando hace calor, llevo una camiseta. (Nar det er varmt, har jeg pa meg en t-skjorte.)
-- Cuando hace frío, llevo un abrigo. (Nar det er kaldt, har jeg pa meg en frakk.)
-- Cuando llueve, llevo un impermeable. (Nar det regner, har jeg pa meg en regnjakke.)`,
+- Cuando hace calor, llevo una camiseta. (Når det er varmt, har jeg på meg en t-skjorte.)
+- Cuando hace frío, llevo un abrigo. (Når det er kaldt, har jeg på meg en frakk.)
+- Cuando llueve, llevo un impermeable. (Når det regner, har jeg på meg en regnjakke.)`,
     },
     {
       id: 'spansk-1-7-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Klaer og vaer',
-      problem: `Fullfoor setningene pa spansk:
+      title: 'Eksempel 2: Klær og vær',
+      problem: `Fullfør setningene på spansk:
 
-a) Nar det er varmt, har jeg pa meg ___
-b) Nar det er kaldt, har jeg pa meg ___
-c) Nar det regner, har jeg pa meg ___`,
+a) Når det er varmt, har jeg på meg ___
+b) Når det er kaldt, har jeg på meg ___
+c) Når det regner, har jeg på meg ___`,
       solution: `a) Cuando hace calor, llevo **una camiseta y unos pantalones cortos**.
 b) Cuando hace frío, llevo **un abrigo y una bufanda**.
 c) Cuando llueve, llevo **un impermeable y unas botas**.
 
-**Setningsstruktur:** Cuando + vaer + llevar (boyd) + klaer`,
+**Setningsstruktur:** Cuando + vær + llevar (bøyd) + klær`,
     },
     {
       id: 'spansk-1-7-4-ex-block-2',
@@ -872,59 +872,59 @@ c) Cuando llueve, llevo **un impermeable y unas botas**.
         number: '7.4.2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv hele setningen pa spansk:',
+        task: 'Skriv hele setningen på spansk:',
         subTasks: [
-          { label: 'a', task: 'Nar det er varmt, har Pedro pa seg shorts og t-skjorte.', solution: 'Cuando hace calor, Pedro lleva unos pantalones cortos y una camiseta.', answer: 'Cuando hace calor, Pedro lleva unos pantalones cortos y una camiseta.' },
-          { label: 'b', task: 'Nar det er kaldt, har vi pa oss jakke og hansker.', solution: 'Cuando hace frío, llevamos una chaqueta y unos guantes.', answer: 'Cuando hace frío, llevamos una chaqueta y unos guantes.' },
-          { label: 'c', task: 'Nar det er sol, har hun pa seg solbriller.', solution: 'Cuando hace sol, ella lleva gafas de sol.', answer: 'Cuando hace sol, ella lleva gafas de sol.' },
+          { label: 'a', task: 'Når det er varmt, har Pedro på seg shorts og t-skjorte.', solution: 'Cuando hace calor, Pedro lleva unos pantalones cortos y una camiseta.', answer: 'Cuando hace calor, Pedro lleva unos pantalones cortos y una camiseta.' },
+          { label: 'b', task: 'Når det er kaldt, har vi på oss jakke og hansker.', solution: 'Cuando hace frío, llevamos una chaqueta y unos guantes.', answer: 'Cuando hace frío, llevamos una chaqueta y unos guantes.' },
+          { label: 'c', task: 'Når det er sol, har hun på seg solbriller.', solution: 'Cuando hace sol, ella lleva gafas de sol.', answer: 'Cuando hace sol, ella lleva gafas de sol.' },
         ],
         solution: 'a) Cuando hace calor, Pedro lleva unos pantalones cortos y una camiseta. b) Cuando hace frío, llevamos una chaqueta y unos guantes. c) Cuando hace sol, ella lleva gafas de sol.',
-        hints: ['cuando = nar', 'hace calor = det er varmt', 'hace frio = det er kaldt'],
+        hints: ['cuando = når', 'hace calor = det er varmt', 'hace frio = det er kaldt'],
       },
     },
     {
       id: 'spansk-1-7-4-text-2',
       type: 'text',
-      content: `## Skoleuniform vs. vanlige klaer
+      content: `## Skoleuniform vs. vanlige klær
 
 I mange spansktalende land er det vanlig med skoleuniform. La oss sammenligne:
 
 **Med uniform:**
-- En el colegio, llevamos uniforme. (Pa skolen har vi pa oss uniform.)
-- El uniforme es una camisa blanca y unos pantalones azules. (Uniformen er en hvit skjorte og blaa bukser.)
+- En el colegio, llevamos uniforme. (På skolen har vi på oss uniform.)
+- El uniforme es una camisa blanca y unos pantalones azules. (Uniformen er en hvit skjorte og blå bukser.)
 
 **Uten uniform (som i Norge):**
-- En el colegio, llevo la ropa que quiero. (Pa skolen har jeg pa meg klaerne jeg vil.)
-- Hoy llevo unos vaqueros y un jersey. (I dag har jeg pa meg jeans og en genser.)
+- En el colegio, llevo la ropa que quiero. (På skolen har jeg på meg klærne jeg vil.)
+- Hoy llevo unos vaqueros y un jersey. (I dag har jeg på meg jeans og en genser.)
 
 **Nyttige uttrykk:**
 | Spansk | Norsk |
 |--------|-------|
-| Hoy llevo... | I dag har jeg pa meg... |
-| Normalmente llevo... | Vanligvis har jeg pa meg... |
-| Mi ropa favorita es... | Mine favorittklaer er... |
-| Me gusta llevar... | Jeg liker a ha pa meg... |`,
+| Hoy llevo... | I dag har jeg på meg... |
+| Normalmente llevo... | Vanligvis har jeg på meg... |
+| Mi ropa favorita es... | Mine favorittklær er... |
+| Me gusta llevar... | Jeg liker å ha på meg... |`,
     },
     {
       id: 'spansk-1-7-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Beskrive klaer i dag',
-      problem: `Les teksten og svar pa sporsmalene:
+      title: 'Eksempel 3: Beskrive klær i dag',
+      problem: `Les teksten og svar på spørsmålene:
 
 "Hoy es lunes. Hace frío y llueve. Llevo un jersey gris, unos pantalones negros y unas botas marrones. También llevo un abrigo azul y una bufanda roja. Mi amiga Sara lleva un vestido verde con unas medias negras y una chaqueta blanca."
 
-a) Hvilket vaer er det?
-b) Hva har fortelleren pa seg? (nevn 3 plagg)
+a) Hvilket vær er det?
+b) Hva har fortelleren på seg? (nevn 3 plagg)
 c) Hvilken farge er Saras kjole?`,
       solution: `a) Det er kaldt og det regner (Hace frio y llueve).
-b) Fortelleren har pa seg: **en gra genser (un jersey gris), svarte bukser (unos pantalones negros) og brune stoevler (unas botas marrones)**.
-c) Saras kjole er **groenn (verde)**.
+b) Fortelleren har på seg: **en grå genser (un jersey gris), svarte bukser (unos pantalones negros) og brune støvler (unas botas marrones)**.
+c) Saras kjole er **grønn (verde)**.
 
 **Ekstra vokabular:**
-- también = ogsa
+- también = også
 - mi amiga = venninnen min
 - con = med
-- las medias = stroemper/tights`,
+- las medias = strømper/tights`,
     },
     {
       id: 'spansk-1-7-4-ex-block-3',
@@ -934,21 +934,21 @@ c) Saras kjole er **groenn (verde)**.
         number: '7.4.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Beskriv hva du har pa deg i dag pa spansk (skriv minst 2 setninger):',
+        task: 'Beskriv hva du har på deg i dag på spansk (skriv minst 2 setninger):',
         subTasks: [
-          { label: 'a', task: 'Beskriv to klaesplagg du har pa deg', solution: 'Hoy llevo una camiseta blanca y unos vaqueros azules.', answer: 'Hoy llevo una camiseta blanca y unos vaqueros azules.' },
-          { label: 'b', task: 'Beskriv skoene/tilbehoeret ditt', solution: 'Llevo unas zapatillas grises y un reloj.', answer: 'Llevo unas zapatillas grises y un reloj.' },
-          { label: 'c', task: 'Forklaar hvorfor du har disse klaerne (hint: vaeret)', solution: 'Hoy hace frío, por eso llevo un jersey.', answer: 'Hoy hace frío, por eso llevo un jersey.' },
+          { label: 'a', task: 'Beskriv to klesplagg du har på deg', solution: 'Hoy llevo una camiseta blanca y unos vaqueros azules.', answer: 'Hoy llevo una camiseta blanca y unos vaqueros azules.' },
+          { label: 'b', task: 'Beskriv skoene/tilbehøret ditt', solution: 'Llevo unas zapatillas grises y un reloj.', answer: 'Llevo unas zapatillas grises y un reloj.' },
+          { label: 'c', task: 'Forklar hvorfor du har disse klærne (hint: været)', solution: 'Hoy hace frío, por eso llevo un jersey.', answer: 'Hoy hace frío, por eso llevo un jersey.' },
         ],
         solution: 'Eksempel: Hoy llevo una camiseta blanca y unos vaqueros azules. Llevo unas zapatillas grises y un reloj. Hoy hace frio, por eso llevo un jersey.',
-        hints: ['Hoy llevo... = I dag har jeg pa meg...', 'por eso = derfor', 'Husk farge-samsvar!'],
+        hints: ['Hoy llevo... = I dag har jeg på meg...', 'por eso = derfor', 'Husk farge-samsvar!'],
       },
     },
     {
       id: 'spansk-1-7-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Skoleuniform i Latin-Amerika',
-      content: `I de fleste latinamerikanske land er skoleuniform obligatorisk i bade offentlige og private skoler. Uniformen bestar vanligvis av en hvit skjorte, moerke bukser eller skjoert, og skolens egen genser eller blazer. I Spania er skoleuniform vanligst pa private skoler, mens offentlige skoler sjelden har det - slik som i Norge.`,
+      content: `I de fleste latinamerikanske land er skoleuniform obligatorisk i både offentlige og private skoler. Uniformen består vanligvis av en hvit skjorte, mørke bukser eller skjørt, og skolens egen genser eller blazer. I Spania er skoleuniform vanligst på private skoler, mens offentlige skoler sjelden har det - slik som i Norge.`,
     },
     {
       id: 'spansk-1-7-4-ex-block-4',
@@ -960,12 +960,12 @@ c) Saras kjole er **groenn (verde)**.
         difficulty: 'vanskelig',
         task: 'Oversett hele setningene til spansk:',
         subTasks: [
-          { label: 'a', task: 'I dag har Maria pa seg en rod kjole og hvite sko.', solution: 'Hoy María lleva un vestido rojo y unos zapatos blancos.', answer: 'Hoy María lleva un vestido rojo y unos zapatos blancos.' },
-          { label: 'b', task: 'Vi har vanligvis pa oss jeans og t-skjorte pa skolen.', solution: 'Normalmente llevamos unos vaqueros y una camiseta en el colegio.', answer: 'Normalmente llevamos unos vaqueros y una camiseta en el colegio.' },
-          { label: 'c', task: 'Nar det er kaldt, har de pa seg frakk, lue og hansker.', solution: 'Cuando hace frío, llevan un abrigo, una gorra y unos guantes.', answer: 'Cuando hace frío, llevan un abrigo, una gorra y unos guantes.' },
+          { label: 'a', task: 'I dag har Maria på seg en rød kjole og hvite sko.', solution: 'Hoy María lleva un vestido rojo y unos zapatos blancos.', answer: 'Hoy María lleva un vestido rojo y unos zapatos blancos.' },
+          { label: 'b', task: 'Vi har vanligvis på oss jeans og t-skjorte på skolen.', solution: 'Normalmente llevamos unos vaqueros y una camiseta en el colegio.', answer: 'Normalmente llevamos unos vaqueros y una camiseta en el colegio.' },
+          { label: 'c', task: 'Når det er kaldt, har de på seg frakk, lue og hansker.', solution: 'Cuando hace frío, llevan un abrigo, una gorra y unos guantes.', answer: 'Cuando hace frío, llevan un abrigo, una gorra y unos guantes.' },
         ],
         solution: 'a) Hoy Maria lleva un vestido rojo y unos zapatos blancos. b) Normalmente llevamos unos vaqueros y una camiseta en el colegio. c) Cuando hace frio, llevan un abrigo, una gorra y unos guantes.',
-        hints: ['Husk at fargene ma samsvare med klaesplaggenes kjonn', 'normalmente = vanligvis', 'cuando = nar'],
+        hints: ['Husk at fargene må samsvare med klesplaggenes kjønn', 'normalmente = vanligvis', 'cuando = når'],
       },
     },
   ],
@@ -982,7 +982,7 @@ export const CHAPTER_SPANSK_1_8_1: TextbookChapter = {
   chapterNumber: '8.1',
   title: 'El colegio',
   subtitle: 'Skolen',
-  description: 'Laer ord for steder og ting pa skolen pa spansk.',
+  description: 'Lær ord for steder og ting på skolen på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'beskrive skolen og skolehverdagen',
@@ -991,16 +991,16 @@ export const CHAPTER_SPANSK_1_8_1: TextbookChapter = {
     {
       id: 'spansk-1-8-1-intro',
       type: 'text',
-      content: `## Skolen pa spansk
+      content: `## Skolen på spansk
 
-Skolen er en viktig del av hverdagen, og det er nyttig a kunne snakke om den pa spansk. I dette kapittelet laerer du ord for steder pa skolen, skoleutstyr og daglige rutiner.
+Skolen er en viktig del av hverdagen, og det er nyttig å kunne snakke om den på spansk. I dette kapittelet lærer du ord for steder på skolen, skoleutstyr og daglige rutiner.
 
-**Obs!** Pa spansk brukes ofte "el colegio" om skolen generelt, mens "el instituto" brukes spesielt om videregaende skole.`,
+**Obs!** På spansk brukes ofte "el colegio" om skolen generelt, mens "el instituto" brukes spesielt om videregående skole.`,
     },
     {
       id: 'spansk-1-8-1-def-1',
       type: 'definition',
-      title: 'Steder pa skolen (Los lugares del colegio)',
+      title: 'Steder på skolen (Los lugares del colegio)',
       content: `**Steder i skolebygget:**
 
 | Spansk | Norsk |
@@ -1020,7 +1020,7 @@ Skolen er en viktig del av hverdagen, og det er nyttig a kunne snakke om den pa 
       id: 'spansk-1-8-1-def-2',
       type: 'definition',
       title: 'Skoleutstyr (El material escolar)',
-      content: `**Ting du trenger pa skolen:**
+      content: `**Ting du trenger på skolen:**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -1028,7 +1028,7 @@ Skolen er en viktig del av hverdagen, og det er nyttig a kunne snakke om den pa 
 | el cuaderno | skriveblokken/notatboken |
 | el bolígrafo (el boli) | pennen |
 | el lápiz | blyanten |
-| la goma | viskelaaeret |
+| la goma | viskelæret |
 | la regla | linjalen |
 | la mochila | sekken/ryggsekken |
 | el ordenador / la computadora | datamaskinen |
@@ -1038,12 +1038,12 @@ Skolen er en viktig del av hverdagen, og det er nyttig a kunne snakke om den pa 
     {
       id: 'spansk-1-8-1-tip-1',
       type: 'tip',
-      content: `I Spania sier man "el ordenador" for datamaskin, mens i Latin-Amerika er det vanligst a si "la computadora". Begge er riktige! Pa samme mate sier man "el bolígrafo" i Spania og "la lapicera" eller "el lapicero" i noen latinamerikanske land.`,
+      content: `I Spania sier man "el ordenador" for datamaskin, mens i Latin-Amerika er det vanligst å si "la computadora". Begge er riktige! På samme måte sier man "el bolígrafo" i Spania og "la lapicera" eller "el lapicero" i noen latinamerikanske land.`,
     },
     {
       id: 'spansk-1-8-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Steder pa skolen',
+      title: 'Eksempel 1: Steder på skolen',
       problem: `Oversett til norsk:
 
 a) el aula
@@ -1055,7 +1055,7 @@ b) la biblioteca = **biblioteket**
 c) el gimnasio = **gymsalen**
 d) el patio = **skolegarden**
 
-**Merk:** "El aula" er et spesielt tilfelle - det er egentlig hunkjonn, men bruker "el" i entall fordi det begynner pa betonet "a". I flertall blir det "las aulas".`,
+**Merk:** "El aula" er et spesielt tilfelle - det er egentlig hunkjønn, men bruker "el" i entall fordi det begynner på betonet "a". I flertall blir det "las aulas".`,
     },
     {
       id: 'spansk-1-8-1-ex-block-1',
@@ -1073,7 +1073,7 @@ d) el patio = **skolegarden**
           { label: 'd', task: 'skolegarden', solution: 'el patio', answer: 'el patio' },
         ],
         solution: 'a) la biblioteca, b) la cafetería, c) el gimnasio, d) el patio',
-        hints: ['Husk artikkelen', 'Biblioteca ligner pa "bibliotek"'],
+        hints: ['Husk artikkelen', 'Biblioteca ligner på "bibliotek"'],
       },
     },
     {
@@ -1092,7 +1092,7 @@ En typisk skoledag i Spania:
 | 16:00 | Timene er ferdig | Las clases terminan |
 
 **Nyttige setninger:**
-- Las clases empiezan a las ocho. (Timene begynner klokken atte.)
+- Las clases empiezan a las ocho. (Timene begynner klokken åtte.)
 - El recreo es a las diez y media. (Friminuttet er halv elleve.)
 - Las clases terminan a las cuatro. (Timene slutter klokken fire.)`,
     },
@@ -1100,19 +1100,19 @@ En typisk skoledag i Spania:
       id: 'spansk-1-8-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Skoleutstyr',
-      problem: `Hva trenger du? Oversett til spansk:
+      problem: `Hvå trenger du? Oversett til spansk:
 
 a) Jeg trenger en penn.
 b) Hvor er boken min?
-c) Kan jeg lane viskelaaeret ditt?`,
+c) Kan jeg lane viskelæret ditt?`,
       solution: `a) **Necesito un bolígrafo.**
 b) **¿Dónde está mi libro?**
 c) **¿Puedo usar tu goma?**
 
 **Nyttige verb:**
-- necesitar = a trenge
-- usar = a bruke
-- prestar = a lane (bort)`,
+- necesitar = å trenge
+- usar = å bruke
+- prestår = å låne (bort)`,
     },
     {
       id: 'spansk-1-8-1-ex-block-2',
@@ -1130,7 +1130,7 @@ c) **¿Puedo usar tu goma?**
           { label: 'd', task: 'datamaskinen', solution: 'el ordenador', answer: 'el ordenador' },
         ],
         solution: 'a) el libro, b) el bolígrafo, c) la mochila, d) el ordenador',
-        hints: ['Libro ligner pa det engelske "library"', 'Mochila er et vanlig ord i hele den spansktalende verden'],
+        hints: ['Libro ligner på det engelske "library"', 'Mochila er et vanlig ord i hele den spansktalende verden'],
       },
     },
     {
@@ -1138,42 +1138,42 @@ c) **¿Puedo usar tu goma?**
       type: 'text',
       content: `## Snakke om skolehverdagen
 
-For a beskrive skoledagen bruker vi verb som:
+For å beskrive skoledagen bruker vi verb som:
 
 | Spansk | Norsk |
 |--------|-------|
-| empezar (e->ie) | a begynne |
-| terminar | a slutte/avslutte |
-| estudiar | a studere/laere |
-| aprender | a laere |
-| enseñar | a undervise |
-| hacer los deberes | a gjore lekser |
-| tener clase | a ha time |
+| empezar (e->ie) | å begynne |
+| terminår | å slutte/avslutte |
+| estudiar | å studere/lære |
+| aprender | å lære |
+| enseñar | å undervise |
+| hacer los deberes | å gjøre lekser |
+| tener clase | å ha time |
 
-**Eksempler pa setninger:**
-- Estudio español en el instituto. (Jeg laerer spansk pa skolen.)
+**Eksempler på setninger:**
+- Estudio español en el instituto. (Jeg lærer spansk på skolen.)
 - Tengo clase de matemáticas a las nueve. (Jeg har mattetime klokken ni.)
-- Hago los deberes por la tarde. (Jeg gjoer lekser om ettermiddagen.)`,
+- Hago los deberes por la tarde. (Jeg gjør lekser om ettermiddagen.)`,
     },
     {
       id: 'spansk-1-8-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Min skoledag',
-      problem: `Les teksten og svar pa sporsmalene:
+      problem: `Les teksten og svar på spørsmålene:
 
 "Me llamo Carlos. Las clases empiezan a las ocho de la mañana. Primero tengo clase de matemáticas. Después tengo clase de español. A las diez y media es el recreo. En el recreo, juego con mis amigos en el patio. Por la tarde, hago los deberes en la biblioteca."
 
-a) Nar begynner timene?
-b) Hva er Carlos' foerste time?
-c) Hvor gjoer Carlos lekser?`,
-      solution: `a) Timene begynner **klokken atte om morgenen** (a las ocho de la mañana).
-b) Carlos' foerste time er **matematikk** (matemáticas).
-c) Carlos gjoer lekser **pa biblioteket** (en la biblioteca).
+a) Når begynner timene?
+b) Hva er Carlos' første time?
+c) Hvor gjør Carlos lekser?`,
+      solution: `a) Timene begynner **klokken åtte om morgenen** (å las ocho de la mañana).
+b) Carlos' første time er **matematikk** (matemáticas).
+c) Carlos gjør lekser **pa biblioteket** (en la biblioteca).
 
 **Nyttige ord fra teksten:**
-- primero = foerst
-- después = etterpaa
-- jugar = a leke/spille
+- primero = først
+- después = etterpå
+- jugar = å leke/spille
 - mis amigos = vennene mine`,
     },
     {
@@ -1186,19 +1186,19 @@ c) Carlos gjoer lekser **pa biblioteket** (en la biblioteca).
         difficulty: 'medium',
         task: 'Oversett til spansk:',
         subTasks: [
-          { label: 'a', task: 'Timene begynner klokken atte.', solution: 'Las clases empiezan a las ocho.', answer: 'Las clases empiezan a las ocho.' },
-          { label: 'b', task: 'Jeg gjoer lekser om ettermiddagen.', solution: 'Hago los deberes por la tarde.', answer: 'Hago los deberes por la tarde.' },
+          { label: 'a', task: 'Timene begynner klokken åtte.', solution: 'Las clases empiezan a las ocho.', answer: 'Las clases empiezan a las ocho.' },
+          { label: 'b', task: 'Jeg gjør lekser om ettermiddagen.', solution: 'Hago los deberes por la tarde.', answer: 'Hago los deberes por la tarde.' },
           { label: 'c', task: 'Friminuttet er halv elleve.', solution: 'El recreo es a las diez y media.', answer: 'El recreo es a las diez y media.' },
         ],
         solution: 'a) Las clases empiezan a las ocho. b) Hago los deberes por la tarde. c) El recreo es a las diez y media.',
-        hints: ['empezar = a begynne', 'hacer los deberes = a gjore lekser', 'por la tarde = om ettermiddagen'],
+        hints: ['empezar = å begynne', 'hacer los deberes = å gjøre lekser', 'por la tarde = om ettermiddagen'],
       },
     },
     {
       id: 'spansk-1-8-1-note-1',
       type: 'note',
       title: 'Kulturnotat: Skolen i Spania',
-      content: `I Spania har elever vanligvis en lenger skoledag enn i Norge - fra kl. 8 eller 9 til kl. 14 eller til og med 17. Mange skoler har en lang lunsjpause pa 1-2 timer, og noen elever gar hjem for a spise. Det er ogsa vanlig med lekser hver dag, og mange elever gar pa "academia" (privat leksehjelp/ekstraundervisning) om ettermiddagen.`,
+      content: `I Spania har elever vanligvis en lenger skoledag enn i Norge - fra kl. 8 eller 9 til kl. 14 eller til og med 17. Mange skoler har en lang lunsjpause på 1-2 timer, og noen elever går hjem for å spise. Det er også vanlig med lekser hver dag, og mange elever går på "academia" (privat leksehjelp/ekstraundervisning) om ettermiddagen.`,
     },
     {
       id: 'spansk-1-8-1-ex-block-4',
@@ -1208,14 +1208,14 @@ c) Carlos gjoer lekser **pa biblioteket** (en la biblioteca).
         number: '8.1.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv 3 setninger pa spansk om din skoledag:',
+        task: 'Skriv 3 setninger på spansk om din skoledag:',
         subTasks: [
-          { label: 'a', task: 'Nar begynner skolen din?', solution: 'Las clases empiezan a las ocho y media.', answer: 'Las clases empiezan a las ocho y media.' },
-          { label: 'b', task: 'Hva er favorittstedet ditt pa skolen?', solution: 'Mi lugar favorito es la biblioteca.', answer: 'Mi lugar favorito es la biblioteca.' },
-          { label: 'c', task: 'Hva gjor du i friminuttet?', solution: 'En el recreo, hablo con mis amigos en el patio.', answer: 'En el recreo, hablo con mis amigos en el patio.' },
+          { label: 'a', task: 'Når begynner skolen din?', solution: 'Las clases empiezan a las ocho y media.', answer: 'Las clases empiezan a las ocho y media.' },
+          { label: 'b', task: 'Hva er favorittstedet ditt på skolen?', solution: 'Mi lugar favorito es la biblioteca.', answer: 'Mi lugar favorito es la biblioteca.' },
+          { label: 'c', task: 'Hvå gjør du i friminuttet?', solution: 'En el recreo, hablo con mis amigos en el patio.', answer: 'En el recreo, hablo con mis amigos en el patio.' },
         ],
         solution: 'Eksempel: Las clases empiezan a las ocho y media. Mi lugar favorito es la biblioteca. En el recreo, hablo con mis amigos en el patio.',
-        hints: ['mi lugar favorito = favorittstedet mitt', 'hablar con = a snakke med', 'Bruk verb du har laert'],
+        hints: ['mi lugar favorito = favorittstedet mitt', 'hablar con = å snakke med', 'Bruk verb du har lært'],
       },
     },
   ],
@@ -1232,7 +1232,7 @@ export const CHAPTER_SPANSK_1_8_2: TextbookChapter = {
   chapterNumber: '8.2',
   title: 'Las asignaturas',
   subtitle: 'Skolefagene',
-  description: 'Laer a snakke om skolefag, timeplan og preferanser.',
+  description: 'Lær å snakke om skolefag, timeplan og preferanser.',
   estimatedMinutes: 45,
   competenceGoals: [
     'snakke om skolefag og timeplan',
@@ -1241,9 +1241,9 @@ export const CHAPTER_SPANSK_1_8_2: TextbookChapter = {
     {
       id: 'spansk-1-8-2-intro',
       type: 'text',
-      content: `## Skolefagene pa spansk
+      content: `## Skolefagene på spansk
 
-Alle har et favorittfag pa skolen! I dette kapittelet laerer du navnene pa de vanligste skolefagene, og du laerer a snakke om timeplanen din og hvilke fag du liker best.`,
+Alle har et favorittfag på skolen! I dette kapittelet lærer du navnene på de vanligste skolefagene, og du lærer å snakke om timeplanen din og hvilke fag du liker best.`,
     },
     {
       id: 'spansk-1-8-2-def-1',
@@ -1253,7 +1253,7 @@ Alle har et favorittfag pa skolen! I dette kapittelet laerer du navnene pa de va
 
 | Spansk | Norsk |
 |--------|-------|
-| las matemáticas (las mates) | matematikk (matte) |
+| las matemáticas (las mates) | matematikk (måtte) |
 | el español | spansk |
 | el inglés | engelsk |
 | el noruego | norsk |
@@ -1272,7 +1272,7 @@ Alle har et favorittfag pa skolen! I dette kapittelet laerer du navnene pa de va
       type: 'text',
       content: `## Uttrykke preferanser
 
-For a si hvilket fag du liker best, bruker vi:
+For å si hvilket fag du liker best, bruker vi:
 
 | Spansk | Norsk |
 |--------|-------|
@@ -1298,7 +1298,7 @@ For a si hvilket fag du liker best, bruker vi:
     {
       id: 'spansk-1-8-2-tip-1',
       type: 'tip',
-      content: `Husk forskjellen mellom "me gusta" (entall) og "me gustan" (flertall)! Pa spansk er det egentlig faget som "behager" deg, sa verbet samsvarer med faget, ikke med deg: "Me gusta el inglés" (EngelskEN behager MEG), "Me gustan las ciencias" (NaturfagENE behager MEG).`,
+      content: `Husk forskjellen mellom "me gusta" (entall) og "me gustan" (flertall)! På spansk er det egentlig faget som "behager" deg, så verbet samsvarer med faget, ikke med deg: "Me gusta el inglés" (EngelskEN behager MEG), "Me gustan las ciencias" (NaturfagENE behager MEG).`,
     },
     {
       id: 'spansk-1-8-2-example-1',
@@ -1331,7 +1331,7 @@ c) **No me gusta la historia porque es aburrida.**
           { label: 'd', task: 'engelsk', solution: 'el inglés', answer: 'el inglés' },
         ],
         solution: 'a) las matemáticas, b) la historia, c) la educación física, d) el inglés',
-        hints: ['Husk artikkelen foran hvert fag', 'Matematicas er alltid i flertall pa spansk'],
+        hints: ['Husk artikkelen foran hvert fag', 'Matematicas er alltid i flertall på spansk'],
       },
     },
     {
@@ -1343,10 +1343,10 @@ c) **No me gusta la historia porque es aburrida.**
 | Spansk | Norsk |
 |--------|-------|
 | el horario | timeplanen |
-| tener clase de... | a ha time i... |
-| Los lunes tengo... | Pa mandager har jeg... |
+| tener clase de... | å ha time i... |
+| Los lunes tengo... | På mandager har jeg... |
 | a las nueve | klokken ni |
-| la primera hora | foerste time |
+| la primera hora | første time |
 | la segunda hora | andre time |
 | la tercera hora | tredje time |
 
@@ -1359,10 +1359,10 @@ c) **No me gusta la historia porque es aburrida.**
 | miércoles | onsdag |
 | jueves | torsdag |
 | viernes | fredag |
-| sábado | loerdag |
-| domingo | soendag |
+| sábado | lørdag |
+| domingo | søndag |
 
-**Merk:** Pa spansk skrives ukedagene med liten forbokstav!`,
+**Merk:** På spansk skrives ukedagene med liten forbokstav!`,
     },
     {
       id: 'spansk-1-8-2-example-2',
@@ -1373,16 +1373,16 @@ c) **No me gusta la historia porque es aburrida.**
 Lunes: 08:00 Matemáticas, 09:00 Español, 10:00 Recreo, 10:30 Historia
 Martes: 08:00 Inglés, 09:00 Ciencias, 10:00 Recreo, 10:30 E.F.
 
-a) Hva har eleven foerst pa mandag?
-b) Nar er det friminutt?
+a) Hva har eleven først på mandag?
+b) Når er det friminutt?
 c) Hvilken dag har eleven kroppoving?`,
-      solution: `a) Pa mandag har eleven foerst **matematikk** (Matemáticas).
-b) Friminuttet er **klokken ti** (a las diez).
-c) Eleven har kroppoving pa **tirsdag** (martes).
+      solution: `a) På mandag har eleven først **matematikk** (Matemáticas).
+b) Friminuttet er **klokken ti** (å las diez).
+c) Eleven har kroppoving på **tirsdag** (martes).
 
 **Slik sier du det:**
-- Los lunes, tengo matemáticas a las ocho. (Pa mandager har jeg matte klokken atte.)
-- Los martes, tengo educación física a las diez y media. (Pa tirsdager har jeg gym halv elleve.)`,
+- Los lunes, tengo matemáticas a las ocho. (På mandager har jeg matte klokken åtte.)
+- Los martes, tengo educación física a las diez y media. (På tirsdager har jeg gym halv elleve.)`,
     },
     {
       id: 'spansk-1-8-2-ex-block-2',
@@ -1392,14 +1392,14 @@ c) Eleven har kroppoving pa **tirsdag** (martes).
         number: '8.2.2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv setninger om timeplanen din pa spansk:',
+        task: 'Skriv setninger om timeplanen din på spansk:',
         subTasks: [
-          { label: 'a', task: 'Pa mandager har jeg matte klokken atte.', solution: 'Los lunes tengo matemáticas a las ocho.', answer: 'Los lunes tengo matemáticas a las ocho.' },
-          { label: 'b', task: 'Pa onsdager har jeg spansk klokken ti.', solution: 'Los miércoles tengo español a las diez.', answer: 'Los miércoles tengo español a las diez.' },
-          { label: 'c', task: 'Pa fredager har jeg kunst klokken elleve.', solution: 'Los viernes tengo arte a las once.', answer: 'Los viernes tengo arte a las once.' },
+          { label: 'a', task: 'På mandager har jeg matte klokken åtte.', solution: 'Los lunes tengo matemáticas a las ocho.', answer: 'Los lunes tengo matemáticas a las ocho.' },
+          { label: 'b', task: 'På onsdager har jeg spansk klokken ti.', solution: 'Los miércoles tengo español a las diez.', answer: 'Los miércoles tengo español a las diez.' },
+          { label: 'c', task: 'På fredager har jeg kunst klokken elleve.', solution: 'Los viernes tengo arte a las once.', answer: 'Los viernes tengo arte a las once.' },
         ],
         solution: 'a) Los lunes tengo matematicas a las ocho. b) Los miercoles tengo espanol a las diez. c) Los viernes tengo arte a las once.',
-        hints: ['Los + ukedag i flertall = pa den dagen', 'tener = a ha', 'Bruk "a las" + klokkeslett'],
+        hints: ['Los + ukedag i flertall = på den dagen', 'tener = a ha', 'Bruk "a las" + klokkeslett'],
       },
     },
     {
@@ -1407,7 +1407,7 @@ c) Eleven har kroppoving pa **tirsdag** (martes).
       type: 'text',
       content: `## Verbet "tener" med skolefag
 
-Verbet "tener" (a ha) er uunnvaerlig nar du snakker om timeplanen. La oss repetere boeyningen:
+Verbet "tener" (å ha) er uunnværlig når du snakker om timeplanen. La oss repetere bøyningen:
 
 | Person | Form |
 |--------|------|
@@ -1421,14 +1421,14 @@ Verbet "tener" (a ha) er uunnvaerlig nar du snakker om timeplanen. La oss repete
 **Eksempler:**
 - Tengo seis asignaturas. (Jeg har seks fag.)
 - ¿Cuántas asignaturas tienes? (Hvor mange fag har du?)
-- Tenemos clase de inglés los martes. (Vi har engelsktime pa tirsdager.)
-- No tengo clase los sábados. (Jeg har ikke time pa loerdager.)`,
+- Tenemos clase de inglés los martes. (Vi har engelsktime på tirsdager.)
+- No tengo clase los sábados. (Jeg har ikke time på lørdager.)`,
     },
     {
       id: 'spansk-1-8-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Snakke om fag',
-      problem: `Fullfoor med riktig form av "tener":
+      problem: `Fullfør med riktig form av "tener":
 
 a) Yo ___ clase de español los lunes.
 b) María ___ muchas asignaturas.
@@ -1440,9 +1440,9 @@ c) Nosotros **tenemos** un examen de historia mañana.
 d) ¿Cuántas clases **tienes** tú hoy?
 
 **Oversettelse:**
-- Jeg har spansktime pa mandager.
+- Jeg har spansktime på mandager.
 - Maria har mange fag.
-- Vi har en historieproeve i morgen.
+- Vi har en historieprøve i morgen.
 - Hvor mange timer har du i dag?`,
     },
     {
@@ -1468,7 +1468,7 @@ d) ¿Cuántas clases **tienes** tú hoy?
       id: 'spansk-1-8-2-note-1',
       type: 'note',
       title: 'Kulturnotat: Skolesystemet i Spania',
-      content: `Det spanske skolesystemet er litt annerledes enn det norske. Barn begynner pa "Educacion Primaria" (barneskolen) nar de er 6 ar og gar der til de er 12. Deretter gar de pa "ESO" (Educacion Secundaria Obligatoria) i fire ar (12-16 ar), som tilsvarer ungdomsskolen. Etterpaa kan de velge "Bachillerato" (videregaende, 2 ar) eller "Formacion Profesional" (yrkesfag).`,
+      content: `Det spanske skolesystemet er litt annerledes enn det norske. Barn begynner på "Educacion Primaria" (barneskolen) når de er 6 år og går der til de er 12. Deretter går de på "ESO" (Educacion Secundaria Obligatoria) i fire år (12-16 år), som tilsvarer ungdomsskolen. Etterpå kan de velge "Bachillerato" (videregående, 2 år) eller "Formacion Profesional" (yrkesfag).`,
     },
     {
       id: 'spansk-1-8-2-ex-block-4',
@@ -1478,14 +1478,14 @@ d) ¿Cuántas clases **tienes** tú hoy?
         number: '8.2.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv pa spansk om ditt favorittfag og timeplanen din:',
+        task: 'Skriv på spansk om ditt favorittfag og timeplanen din:',
         subTasks: [
           { label: 'a', task: 'Hva er favorittfaget ditt? Hvorfor?', solution: 'Mi asignatura favorita es la música porque es divertida.', answer: 'Mi asignatura favorita es la música porque es divertida.' },
           { label: 'b', task: 'Hvilket fag liker du minst? Hvorfor?', solution: 'No me gustan las matemáticas porque es difícil.', answer: 'No me gustan las matemáticas porque es difícil.' },
-          { label: 'c', task: 'Nar har du favorittfaget ditt?', solution: 'Tengo música los miércoles a las diez.', answer: 'Tengo música los miércoles a las diez.' },
+          { label: 'c', task: 'Når har du favorittfaget ditt?', solution: 'Tengo música los miércoles a las diez.', answer: 'Tengo música los miércoles a las diez.' },
         ],
         solution: 'Eksempel: Mi asignatura favorita es la musica porque es divertida. No me gustan las matematicas porque es dificil. Tengo musica los miercoles a las diez.',
-        hints: ['Mi asignatura favorita es...', 'porque = fordi', 'Los + dag = pa den dagen'],
+        hints: ['Mi asignatura favorita es...', 'porque = fordi', 'Los + dag = på den dagen'],
       },
     },
   ],
@@ -1502,7 +1502,7 @@ export const CHAPTER_SPANSK_1_8_3: TextbookChapter = {
   chapterNumber: '8.3',
   title: 'Las profesiones',
   subtitle: 'Yrker',
-  description: 'Laer navnene pa vanlige yrker og kjoennsboeying av yrkesord pa spansk.',
+  description: 'Lær navnene på vanlige yrker og kjønnsbøying av yrkesord på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'navngi vanlige yrker',
@@ -1511,72 +1511,72 @@ export const CHAPTER_SPANSK_1_8_3: TextbookChapter = {
     {
       id: 'spansk-1-8-3-intro',
       type: 'text',
-      content: `## Yrker pa spansk
+      content: `## Yrker på spansk
 
-A kunne snakke om yrker er nyttig nar du skal fortelle om familien din, snakke om fremtidsplaner, eller bare foere en samtale. Pa spansk har de fleste yrkesord bade en hankjoenns- og hunkjoennsform.`,
+Å kunne snakke om yrker er nyttig når du skal fortelle om familien din, snakke om fremtidsplaner, eller bare føre en samtale. På spansk har de fleste yrkesord både en hankjønns- og hunkjønnsform.`,
     },
     {
       id: 'spansk-1-8-3-def-1',
       type: 'definition',
       title: 'Yrker med -o/-a ending',
-      content: `**Yrker som endres etter kjonn (-o for menn, -a for kvinner):**
+      content: `**Yrker som endres etter kjønn (-o for menn, -a for kvinner):**
 
-| Hankjonn | Hunkjonn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |----------|----------|-------|
 | el médico | la médica | lege |
 | el enfermero | la enfermera | sykepleier |
 | el abogado | la abogada | advokat |
-| el ingeniero | la ingeniera | ingenioer |
+| el ingeniero | la ingeniera | ingeniør |
 | el cocinero | la cocinera | kokk |
-| el bombero | la bombera | brannmann/-kvinne |
-| el veterinario | la veterinaria | veterinaer |
+| el bombero | lå bombera | brannmann/-kvinne |
+| el veterinario | la veterinaria | veterinær |
 | el arquitecto | la arquitecta | arkitekt |
 | el camarero | la camarera | servitor/servitrisen |
-| el secretario | la secretaria | sekretaer |`,
+| el secretario | la secretaria | sekretær |`,
     },
     {
       id: 'spansk-1-8-3-def-2',
       type: 'definition',
-      title: 'Yrker med annen boeying',
+      title: 'Yrker med annen bøying',
       content: `**Yrker med -or/-ora ending:**
 
-| Hankjonn | Hunkjonn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |----------|----------|-------|
-| el profesor | la profesora | laerer |
+| el profesor | la profesora | lærer |
 | el doctor | la doctora | doktor |
 
-**Yrker som er like for begge kjonn (bare artikkelen endres):**
+**Yrker som er like for begge kjønn (bare artikkelen endres):**
 
-| Hankjonn | Hunkjonn | Norsk |
+| Hankjønn | Hunkjønn | Norsk |
 |----------|----------|-------|
 | el periodista | la periodista | journalist |
 | el dentista | la dentista | tannlege |
 | el policía | la policía | politi |
 | el artista | la artista | artist/kunstner |
-| el taxista | la taxista | drosjesjafoer |
+| el taxista | la taxista | drosjesjafør |
 | el futbolista | la futbolista | fotballspiller |`,
     },
     {
       id: 'spansk-1-8-3-tip-1',
       type: 'tip',
-      content: `Mange yrker som slutter pa -ista har samme form for bade menn og kvinner. Det er bare artikkelen (el/la) som viser kjoennet: el periodista (mannlig journalist) / la periodista (kvinnelig journalist). Dette gjelder ogsa for el/la policía, el/la dentista og el/la artista.`,
+      content: `Mange yrker som slutter på -ista har samme form for både menn og kvinner. Det er bare artikkelen (el/la) som viser kjønnet: el periodista (mannlig journalist) / la periodista (kvinnelig journalist). Dette gjelder også for el/la policía, el/la dentista og el/la artista.`,
     },
     {
       id: 'spansk-1-8-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Yrker og kjoenn',
+      title: 'Eksempel 1: Yrker og kjønn',
       problem: `Skriv riktig form av yrket:
 
-a) laerer (kvinne)
+a) lærer (kvinne)
 b) lege (mann)
 c) journalist (kvinne)
 d) kokk (mann)`,
-      solution: `a) laerer (kvinne) = **la profesora**
+      solution: `a) lærer (kvinne) = **la profesora**
 b) lege (mann) = **el médico**
-c) journalist (kvinne) = **la periodista** (lik form for begge kjoenn)
+c) journalist (kvinne) = **la periodista** (lik form for begge kjønn)
 d) kokk (mann) = **el cocinero**
 
-**Merk:** For yrker som slutter pa -ista er formen lik, bare artikkelen endres.`,
+**Merk:** For yrker som slutter på -ista er formen lik, bare artikkelen endres.`,
     },
     {
       id: 'spansk-1-8-3-ex-block-1',
@@ -1586,15 +1586,15 @@ d) kokk (mann) = **el cocinero**
         number: '8.3.1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv yrket pa spansk (bruk riktig kjoenn):',
+        task: 'Skriv yrket på spansk (bruk riktig kjønn):',
         subTasks: [
-          { label: 'a', task: 'laerer (mann)', solution: 'el profesor', answer: 'el profesor' },
+          { label: 'a', task: 'lærer (mann)', solution: 'el profesor', answer: 'el profesor' },
           { label: 'b', task: 'sykepleier (kvinne)', solution: 'la enfermera', answer: 'la enfermera' },
           { label: 'c', task: 'advokat (mann)', solution: 'el abogado', answer: 'el abogado' },
           { label: 'd', task: 'tannlege (kvinne)', solution: 'la dentista', answer: 'la dentista' },
         ],
         solution: 'a) el profesor, b) la enfermera, c) el abogado, d) la dentista',
-        hints: ['Profesor -> profesora for kvinner', 'Dentista er lik for begge kjoenn'],
+        hints: ['Profesor -> profesora for kvinner', 'Dentista er lik for begge kjønn'],
       },
     },
     {
@@ -1602,16 +1602,16 @@ d) kokk (mann) = **el cocinero**
       type: 'text',
       content: `## Bruke "ser" med yrker
 
-For a si hva noen jobber som, bruker vi verbet "ser" (a vaere):
+For å si hva noen jobber som, bruker vi verbet "ser" (å være):
 
 | Spansk | Norsk |
 |--------|-------|
-| Soy profesor | Jeg er laerer |
+| Soy profesor | Jeg er lærer |
 | Es médica | Hun er lege |
-| Mi padre es ingeniero | Faren min er ingenioer |
+| Mi padre es ingeniero | Faren min er ingeniør |
 | Mi madre es abogada | Moren min er advokat |
 
-**Viktig:** Pa spansk bruker vi IKKE ubestemt artikkel (un/una) med yrker etter "ser":
+**Viktig:** På spansk bruker vi IKKE ubestemt artikkel (un/una) med yrker etter "ser":
 - Mi padre es médico. (Faren min er lege.) - RIKTIG
 - Mi padre es un médico. - FEIL (i standard spansk)
 
@@ -1624,7 +1624,7 @@ For a si hva noen jobber som, bruker vi verbet "ser" (a vaere):
       title: 'Eksempel 2: Familiens yrker',
       problem: `Oversett til spansk:
 
-a) Moren min er laerer.
+a) Moren min er lærer.
 b) Faren min er politi.
 c) Soesteren min er sykepleier.`,
       solution: `a) **Mi madre es profesora.**
@@ -1633,8 +1633,8 @@ c) **Mi hermana es enfermera.**
 
 **Husk:**
 - Ingen artikkel foran yrket etter "ser"
-- Bruk hunkjoennsformen for kvinner (profesora, enfermera)
-- Policía er lik for begge kjoenn`,
+- Bruk hunkjønnsformen for kvinner (profesora, enfermera)
+- Policía er lik for begge kjønn`,
     },
     {
       id: 'spansk-1-8-3-ex-block-2',
@@ -1658,22 +1658,22 @@ c) **Mi hermana es enfermera.**
     {
       id: 'spansk-1-8-3-text-2',
       type: 'text',
-      content: `## Spoerre om yrke
+      content: `## Spørre om yrke
 
-For a spoerre noen om hva de jobber med:
+For å spørre noen om hva de jobber med:
 
 | Spansk | Norsk |
 |--------|-------|
-| ¿A qué te dedicas? | Hva jobber du med? (uformelt) |
-| ¿A qué se dedica usted? | Hva jobber De med? (formelt) |
-| ¿En qué trabajas? | Hva jobber du med? |
+| ¿A qué te dedicas? | Hvå jobber du med? (uformelt) |
+| ¿A qué se dedica usted? | Hvå jobber De med? (formelt) |
+| ¿En qué trabajas? | Hvå jobber du med? |
 | ¿Cuál es tu profesión? | Hva er yrket ditt? |
 | ¿Dónde trabajas? | Hvor jobber du? |
 
 **Svar:**
-- Soy profesor. Trabajo en un colegio. (Jeg er laerer. Jeg jobber pa en skole.)
-- Soy médica. Trabajo en un hospital. (Jeg er lege. Jeg jobber pa et sykehus.)
-- Soy camarero. Trabajo en un restaurante. (Jeg er servitor. Jeg jobber pa en restaurant.)
+- Soy profesor. Trabajo en un colegio. (Jeg er lærer. Jeg jobber på en skole.)
+- Soy médica. Trabajo en un hospital. (Jeg er lege. Jeg jobber på et sykehus.)
+- Soy camarero. Trabajo en un restaurante. (Jeg er servitor. Jeg jobber på en restaurant.)
 
 **Arbeidssteder:**
 | Spansk | Norsk |
@@ -1687,7 +1687,7 @@ For a spoerre noen om hva de jobber med:
     {
       id: 'spansk-1-8-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Spoerre og svare om yrke',
+      title: 'Eksempel 3: Spørre og svare om yrke',
       problem: `Les dialogen og svar:
 
 A: ¡Hola! ¿A qué te dedicas?
@@ -1695,11 +1695,11 @@ B: Soy enfermera. Trabajo en el Hospital Central. ¿Y tú?
 A: Soy profesor de español. Trabajo en un instituto.
 B: ¡Qué interesante!
 
-a) Hva jobber person B med?
+a) Hvå jobber person B med?
 b) Hvor jobber person B?
 c) Hva underviser person A i?`,
       solution: `a) Person B er **sykepleier** (enfermera).
-b) Person B jobber pa **Sentralsykehuset** (el Hospital Central).
+b) Person B jobber på **Sentralsykehuset** (el Hospital Central).
 c) Person A underviser i **spansk** (español).
 
 **Nyttige uttrykk:**
@@ -1730,7 +1730,7 @@ c) Person A underviser i **spansk** (español).
       id: 'spansk-1-8-3-note-1',
       type: 'note',
       title: 'Kulturnotat: Arbeid i spansktalende land',
-      content: `I Spania er arbeidsdagen ofte annerledes enn i Norge. Mange jobber fra kl. 9 til kl. 14, tar en lang lunsjpause ("la pausa del almuerzo"), og jobber igjen fra kl. 17 til kl. 20. Denne tradisjonen er i endring, men "la siesta" (middagshvilen) er fortsatt viktig for mange. Arbeidsledigheten blant unge har vaert hoey i Spania, og mange unge reiser til utlandet for a finne jobb.`,
+      content: `I Spania er arbeidsdagen ofte annerledes enn i Norge. Mange jobber fra kl. 9 til kl. 14, tar en lang lunsjpause ("la pausa del almuerzo"), og jobber igjen fra kl. 17 til kl. 20. Denne tradisjonen er i endring, men "la siesta" (middagshvilen) er fortsatt viktig for mange. Arbeidsledigheten blant unge har vært høy i Spania, og mange unge reiser til utlandet for å finne jobb.`,
     },
     {
       id: 'spansk-1-8-3-ex-block-4',
@@ -1740,14 +1740,14 @@ c) Person A underviser i **spansk** (español).
         number: '8.3.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv pa spansk om familiens yrker:',
+        task: 'Skriv på spansk om familiens yrker:',
         subTasks: [
           { label: 'a', task: 'Fortell hva moren/faren din jobber som og hvor.', solution: 'Mi madre es profesora. Trabaja en un colegio.', answer: 'Mi madre es profesora. Trabaja en un colegio.' },
-          { label: 'b', task: 'Spoer en venn hva han/hun vil bli.', solution: '¿A qué te dedicas? / ¿Qué quieres ser?', answer: '¿Qué quieres ser?' },
-          { label: 'c', task: 'Skriv hunkjoennsformen av: médico, ingeniero, profesor', solution: 'médica, ingeniera, profesora', answer: 'médica, ingeniera, profesora' },
+          { label: 'b', task: 'Spør en venn hva han/hun vil bli.', solution: '¿A qué te dedicas? / ¿Qué quieres ser?', answer: '¿Qué quieres ser?' },
+          { label: 'c', task: 'Skriv hunkjønnsformen av: médico, ingeniero, profesor', solution: 'médica, ingeniera, profesora', answer: 'médica, ingeniera, profesora' },
         ],
         solution: 'a) Mi madre es profesora. Trabaja en un colegio. b) ¿Que quieres ser? c) medica, ingeniera, profesora',
-        hints: ['Bruk ser + yrke (uten artikkel)', 'trabajar en = a jobbe pa/i', 'Hunkjoenn: -o -> -a, -or -> -ora'],
+        hints: ['Bruk ser + yrke (uten artikkel)', 'trabajar en = å jobbe pa/i', 'Hunkjønn: -o -> -a, -or -> -ora'],
       },
     },
   ],
@@ -1764,10 +1764,10 @@ export const CHAPTER_SPANSK_1_8_4: TextbookChapter = {
   chapterNumber: '8.4',
   title: '¿Qué quieres ser?',
   subtitle: 'Hva vil du bli?',
-  description: 'Laer a snakke om fremtidsplaner og droemmeyrker pa spansk.',
+  description: 'Lær å snakke om fremtidsplaner og drømmeyrker på spansk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'uttrykke fremtidsoensker om yrke',
+    'uttrykke fremtidsønsker om yrke',
   ],
   content: [
     {
@@ -1775,13 +1775,13 @@ export const CHAPTER_SPANSK_1_8_4: TextbookChapter = {
       type: 'text',
       content: `## Snakke om fremtiden
 
-Hva vil du bli nar du blir voksen? I dette kapittelet laerer du a snakke om droemmer og fremtidsplaner pa spansk!`,
+Hva vil du bli når du blir voksen? I dette kapittelet lærer du å snakke om drømmer og fremtidsplaner på spansk!`,
     },
     {
       id: 'spansk-1-8-4-def-1',
       type: 'definition',
-      title: 'Verbet "querer" - a ville/oenske',
-      content: `**Boeyning av "querer" (e->ie) i presens:**
+      title: 'Verbet "querer" - å ville/ønske',
+      content: `**Bøyning av "querer" (e->ie) i presens:**
 
 | Person | Form | Norsk |
 |--------|------|-------|
@@ -1795,27 +1795,27 @@ Hva vil du bli nar du blir voksen? I dette kapittelet laerer du a snakke om droe
 **Merk:** "Querer" er et stammeendrende verb (e->ie). Stammen endres i alle former unntatt nosotros og vosotros.
 
 **Bruk med yrker:**
-Querer + ser + yrke = a ville bli + yrke
+Querer + ser + yrke = å ville bli + yrke
 - Quiero ser médico. (Jeg vil bli lege.)`,
     },
     {
       id: 'spansk-1-8-4-text-1',
       type: 'text',
-      content: `## Uttrykke oensker og planer
+      content: `## Uttrykke ønsker og planer
 
-Det finnes flere mater a snakke om fremtidsplaner pa:
+Det finnes flere mater å snakke om fremtidsplaner pa:
 
 | Spansk | Norsk | Styrke |
 |--------|-------|--------|
 | Quiero ser... | Jeg vil bli... | Sterk vilje |
-| Me gustaría ser... | Jeg ville gjerne bli... | Hoeflig oenske |
+| Me gustaría ser... | Jeg ville gjerne bli... | Høflig ønske |
 | Voy a ser... | Jeg skal bli... | Plan |
-| Sueño con ser... | Jeg droemmer om a bli... | Droem |
+| Sueño con ser... | Jeg drømmer om å bli... | Drøm |
 
 **Eksempler:**
-- Quiero ser médico porque me gusta ayudar a la gente. (Jeg vil bli lege fordi jeg liker a hjelpe folk.)
-- Me gustaría ser veterinaria porque me encantan los animales. (Jeg ville gjerne bli veterinaer fordi jeg elsker dyr.)
-- Sueño con ser futbolista profesional. (Jeg droemmer om a bli profesjonell fotballspiller.)`,
+- Quiero ser médico porque me gusta ayudar a la gente. (Jeg vil bli lege fordi jeg liker å hjelpe folk.)
+- Me gustaría ser veterinaria porque me encantan los animales. (Jeg ville gjerne bli veterinær fordi jeg elsker dyr.)
+- Sueño con ser futbolista profesional. (Jeg drømmer om å bli profesjonell fotballspiller.)`,
     },
     {
       id: 'spansk-1-8-4-example-1',
@@ -1827,7 +1827,7 @@ a) Quiero ser profesor.
 b) ¿Qué quieres ser?
 c) Mi hermana quiere ser médica.`,
       solution: `a) Quiero ser profesor.
-= **Jeg vil bli laerer.**
+= **Jeg vil bli lærer.**
 
 b) ¿Qué quieres ser?
 = **Hva vil du bli?**
@@ -1836,7 +1836,7 @@ c) Mi hermana quiere ser médica.
 = **Soesteren min vil bli lege.**
 
 **Setningsstruktur:**
-Subjekt + querer (boyd) + ser + yrke`,
+Subjekt + querer (bøyd) + ser + yrke`,
     },
     {
       id: 'spansk-1-8-4-ex-block-1',
@@ -1861,7 +1861,7 @@ Subjekt + querer (boyd) + ser + yrke`,
       id: 'spansk-1-8-4-def-2',
       type: 'definition',
       title: 'Me gustaría - Jeg ville gjerne',
-      content: `**"Me gustaría" er en hoeflig mate a uttrykke oensker pa:**
+      content: `**"Me gustaría" er en høflig mate å uttrykke ønsker pa:**
 
 | Spansk | Norsk |
 |--------|-------|
@@ -1872,7 +1872,7 @@ Subjekt + querer (boyd) + ser + yrke`,
 
 **"Me gustaría" vs. "Quiero":**
 - "Quiero ser médico" = Jeg VIL bli lege (sterk vilje, bestemt)
-- "Me gustaría ser médico" = Jeg VILLE GJERNE bli lege (hoeflig oenske, droem)
+- "Me gustaría ser médico" = Jeg VILLE GJERNE bli lege (høflig ønske, drøm)
 
 **Merk:** "Me gustaría" er kondisjonal av "gustar" og er den samme formen uansett person. For andre personer bruker vi:
 - Te gustaría (du ville gjerne)
@@ -1882,23 +1882,23 @@ Subjekt + querer (boyd) + ser + yrke`,
     {
       id: 'spansk-1-8-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Begrunne yrkesoensker',
+      title: 'Eksempel 2: Begrunne yrkesønsker',
       problem: `Kombiner yrket med en begrunnelse:
 
-a) laerer - liker barn
-b) lege - liker a hjelpe folk
-c) ingenioer - liker matematikk`,
+a) lærer - liker barn
+b) lege - liker å hjelpe folk
+c) ingeniør - liker matematikk`,
       solution: `a) **Me gustaría ser profesor/a porque me gustan los niños.**
-(Jeg ville gjerne bli laerer fordi jeg liker barn.)
+(Jeg ville gjerne bli lærer fordi jeg liker barn.)
 
 b) **Me gustaría ser médico/a porque me gusta ayudar a la gente.**
-(Jeg ville gjerne bli lege fordi jeg liker a hjelpe folk.)
+(Jeg ville gjerne bli lege fordi jeg liker å hjelpe folk.)
 
 c) **Me gustaría ser ingeniero/a porque me gustan las matemáticas.**
-(Jeg ville gjerne bli ingenioer fordi jeg liker matematikk.)
+(Jeg ville gjerne bli ingeniør fordi jeg liker matematikk.)
 
 **Nyttige begrunnelser:**
-- me gusta ayudar a la gente = jeg liker a hjelpe folk
+- me gusta ayudar a la gente = jeg liker å hjelpe folk
 - me gustan los niños = jeg liker barn
 - es un trabajo interesante = det er en interessant jobb
 - se gana bien = man tjener godt`,
@@ -1913,9 +1913,9 @@ c) **Me gustaría ser ingeniero/a porque me gustan las matemáticas.**
         difficulty: 'medium',
         task: 'Oversett til spansk med begrunnelse:',
         subTasks: [
-          { label: 'a', task: 'Jeg vil bli veterinaer fordi jeg elsker dyr.', solution: 'Quiero ser veterinario/a porque me encantan los animales.', answer: 'Quiero ser veterinario/a porque me encantan los animales.' },
+          { label: 'a', task: 'Jeg vil bli veterinær fordi jeg elsker dyr.', solution: 'Quiero ser veterinario/a porque me encantan los animales.', answer: 'Quiero ser veterinario/a porque me encantan los animales.' },
           { label: 'b', task: 'Hun ville gjerne bli journalist fordi det er interessant.', solution: 'Le gustaría ser periodista porque es interesante.', answer: 'Le gustaría ser periodista porque es interesante.' },
-          { label: 'c', task: 'Vi vil bli laerere fordi vi liker barn.', solution: 'Queremos ser profesores porque nos gustan los niños.', answer: 'Queremos ser profesores porque nos gustan los niños.' },
+          { label: 'c', task: 'Vi vil bli lærere fordi vi liker barn.', solution: 'Queremos ser profesores porque nos gustan los niños.', answer: 'Queremos ser profesores porque nos gustan los niños.' },
         ],
         solution: 'a) Quiero ser veterinario/a porque me encantan los animales. b) Le gustaria ser periodista porque es interesante. c) Queremos ser profesores porque nos gustan los niños.',
         hints: ['porque = fordi', 'me encantan = jeg elsker (flertall)', 'nos gustan = vi liker (flertall)'],
@@ -1926,7 +1926,7 @@ c) **Me gustaría ser ingeniero/a porque me gustan las matemáticas.**
       type: 'text',
       content: `## Koble skolefag med yrker
 
-Det er naturlig a koble det du laerer pa skolen med fremtidige yrker:
+Det er naturlig å koble det du lærer på skolen med fremtidige yrker:
 
 | Fag | Mulige yrker |
 |-----|-------------|
@@ -1937,29 +1937,29 @@ Det er naturlig a koble det du laerer pa skolen med fremtidige yrker:
 | La educación física | deportista, bombero/a, policía |
 | El español | profesor/a, traductor/a, periodista |
 
-**Eksempel pa a forklare sammenhengen:**
+**Eksempel på a forklare sammenhengen:**
 - Me gustan las ciencias naturales y quiero ser médico.
 (Jeg liker naturfag og vil bli lege.)
 - Soy bueno/a en matemáticas, por eso quiero ser ingeniero/a.
-(Jeg er flink i matte, derfor vil jeg bli ingenioer.)`,
+(Jeg er flink i matte, derfor vil jeg bli ingeniør.)`,
     },
     {
       id: 'spansk-1-8-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Fremtidsplaner',
-      problem: `Les teksten og svar pa sporsmalene:
+      problem: `Les teksten og svar på spørsmålene:
 
 "Me llamo Ana y tengo quince años. Mi asignatura favorita es la biología porque me encantan los animales. Quiero ser veterinaria. Me gustaría trabajar en una clínica veterinaria en Barcelona. Mi amigo Carlos es muy bueno en matemáticas. Él quiere ser ingeniero. Le gustaría trabajar en una empresa de tecnología."
 
 a) Hva vil Ana bli?
 b) Hvorfor vil hun bli dette?
 c) Hva vil Carlos bli, og hvorfor?`,
-      solution: `a) Ana vil bli **veterinaer** (veterinaria).
+      solution: `a) Ana vil bli **veterinær** (veterinaria).
 b) Fordi hun **elsker dyr** (le encantan los animales).
-c) Carlos vil bli **ingenioer** (ingeniero) fordi han er **flink i matematikk** (es muy bueno en matemáticas).
+c) Carlos vil bli **ingeniør** (ingeniero) fordi han er **flink i matematikk** (es muy bueno en matemáticas).
 
 **Nyttige ord fra teksten:**
-- tengo quince años = jeg er femten ar
+- tengo quince años = jeg er femten år
 - la clínica veterinaria = dyreklinikken
 - la empresa = bedriften/firmaet
 - muy bueno/a en = flink i`,
@@ -1985,13 +1985,13 @@ c) Carlos vil bli **ingenioer** (ingeniero) fordi han er **flink i matematikk** 
     {
       id: 'spansk-1-8-4-tip-1',
       type: 'tip',
-      content: `Nar du snakker om fremtidsplaner pa spansk, kan du bruke bade "quiero ser" og "me gustaría ser". Bruk "quiero ser" nar du er sikker pa hva du vil, og "me gustaría ser" nar du snakker om droemmer og oensker. Du kan ogsa si "de mayor quiero ser..." (nar jeg blir stor, vil jeg bli...).`,
+      content: `Når du snakker om fremtidsplaner på spansk, kan du bruke både "quiero ser" og "me gustaría ser". Bruk "quiero ser" når du er sikker på hva du vil, og "me gustaría ser" når du snakker om drømmer og ønsker. Du kan også si "de mayor quiero ser..." (når jeg blir stor, vil jeg bli...).`,
     },
     {
       id: 'spansk-1-8-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Utdanning og karriere i spansktalende land',
-      content: `I Spania bestemmer mange elever allerede i 16-arsalderen hvilken retning de vil ga. Etter ESO (ungdomsskolen) kan de velge mellom "Bachillerato" (studieforberedende) med spesialisering i humaniora, realfag, eller samfunnsfag, eller "Formación Profesional" (yrkesfag). I Latin-Amerika varierer systemet fra land til land, men universitetsstudier er hoyt verdsatt overalt i den spansktalende verden.`,
+      content: `I Spania bestemmer mange elever allerede i 16-årsalderen hvilken retning de vil ga. Etter ESO (ungdomsskolen) kan de velge mellom "Bachillerato" (studieforberedende) med spesialisering i humaniora, realfag, eller samfunnsfag, eller "Formacion Profesional" (yrkesfag). I Latin-Amerika varierer systemet fra land til land, men universitetsstudier er høyt verdsatt overalt i den spansktalende verden.`,
     },
     {
       id: 'spansk-1-8-4-ex-block-4',
@@ -2001,14 +2001,14 @@ c) Carlos vil bli **ingenioer** (ingeniero) fordi han er **flink i matematikk** 
         number: '8.4.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort tekst pa spansk (3-4 setninger) om dine fremtidsplaner:',
+        task: 'Skriv en kort tekst på spansk (3-4 setninger) om dine fremtidsplaner:',
         subTasks: [
           { label: 'a', task: 'Hva vil du bli? (Bruk quiero ser eller me gustaría ser)', solution: 'Me gustaría ser ingeniera porque me gustan las matemáticas.', answer: 'Me gustaría ser ingeniera porque me gustan las matemáticas.' },
           { label: 'b', task: 'Hvorfor? (Bruk porque + begrunnelse)', solution: 'Es un trabajo interesante y se gana bien.', answer: 'Es un trabajo interesante y se gana bien.' },
           { label: 'c', task: 'Hvor vil du jobbe? (Bruk me gustaría trabajar en...)', solution: 'Me gustaría trabajar en una empresa de tecnología en Oslo.', answer: 'Me gustaría trabajar en una empresa de tecnología en Oslo.' },
         ],
         solution: 'Eksempel: Me gustaria ser ingeniera porque me gustan las matematicas. Es un trabajo interesante y se gana bien. Me gustaria trabajar en una empresa de tecnologia en Oslo.',
-        hints: ['Bruk "porque" for a begrunne', 'me gustaria trabajar en = jeg ville gjerne jobbe i', 'Kombiner fag og yrke'],
+        hints: ['Bruk "porque" for å begrunne', 'me gustaria trabajar en = jeg ville gjerne jobbe i', 'Kombiner fag og yrke'],
       },
     },
   ],

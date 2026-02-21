@@ -1,9 +1,9 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk niva 1 - Tekstbokinnhold kapittel 1-3
+ * Fransk nivå 1 - Tekstbokinnhold kapittel 1-3
  *
- * Dekker LK20 lareplan for fremmedsprak niva 1
+ * Dekker LK20 læreplan for fremmedspråk nivå 1
  * Struktur: teori -> eksempel -> oppgave (gjentatt)
  */
 
@@ -18,20 +18,20 @@ export const CHAPTER_FRANSK_1_1_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '1.1',
   title: 'Bonjour! - Hilsener',
-  description: 'Grunnleggende hilsener og hoflighetsfraser pa fransk.',
+  description: 'Grunnleggende hilsener og høflighetsfraser på fransk.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'bruke enkle hilsener og hoflighetsuttrykk',
+    'bruke enkle hilsener og høflighetsuttrykk',
   ],
   content: [
     {
       id: 'fransk-1-1-1-intro',
       type: 'text',
-      content: `## Hilsener pa fransk
+      content: `## Hilsener på fransk
 
-Fransk er et verdenssprak som snakkes av over 300 millioner mennesker pa fem kontinenter. Det er offisielt sprak i 29 land og et av de offisielle sprakene i FN, EU og mange internasjonale organisasjoner. La oss starte med de viktigste hilsenene!
+Fransk er et verdensspråk som snakkes av over 300 millioner mennesker på fem kontinenter. Det er offisielt språk i 29 land og et av de offisielle språkene i FN, EU og mange internasjonale organisasjoner. La oss starte med de viktigste hilsenene!
 
-I Frankrike er hilsener svart viktige for hoflighet. Det er vanlig a hilse pa alle nar man kommer inn et sted, selv fremmede i en butikk eller pa en restaurant.`,
+I Frankrike er hilsener svært viktige for høflighet. Det er vanlig å hilse på alle når man kommer inn et sted, selv fremmede i en butikk eller på en restaurant.`,
     },
     {
       id: 'fransk-1-1-1-text-1',
@@ -50,11 +50,11 @@ I Frankrike er hilsener svart viktige for hoflighet. Det er vanlig a hilse pa al
       id: 'fransk-1-1-1-def-1',
       type: 'definition',
       title: 'Formell vs. uformell',
-      content: `Pa fransk skiller man mellom formell (vous) og uformell (tu) tiltale:
+      content: `På fransk skiller man mellom formell (vous) og uformell (tu) tiltale:
 - **Tu**: Brukes med venner, familie og jevnaldrende
-- **Vous**: Brukes med voksne du ikke kjenner, laerere, i butikker osv.
+- **Vous**: Brukes med voksne du ikke kjenner, lærere, i butikker osv.
 
-"Vous" brukes ogsa som flertallsform for "dere", uansett formalitet.`,
+"Vous" brukes også som flertallsform for "dere", uansett formalitet.`,
     },
     {
       id: 'fransk-1-1-1-example-1',
@@ -68,7 +68,7 @@ c) God natt`,
 b) Bonsoir
 c) Bonne nuit
 
-**Huskeregel**: "Bon" betyr "god" og brukes med "jour" (dag), "soir" (kveld). "Bonne" er hunkjonnsformen og brukes med "nuit" (natt).`,
+**Huskeregel**: "Bon" betyr "god" og brukes med "jour" (dag), "soir" (kveld). "Bonne" er hunkjønnsformen og brukes med "nuit" (natt).`,
     },
     {
       id: 'fransk-1-1-1-ex-block-1',
@@ -78,7 +78,7 @@ c) Bonne nuit
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Oversett folgende hilsener til fransk:',
+        task: 'Oversett følgende hilsener til fransk:',
         subTasks: [
           { label: 'a', task: 'God dag', solution: 'Bonjour' },
           { label: 'b', task: 'God kveld', solution: 'Bonsoir' },
@@ -95,13 +95,13 @@ c) Bonne nuit
 
 | Fransk | Norsk |
 |--------|-------|
-| Au revoir | Pa gjensyn (formelt) |
+| Au revoir | På gjensyn (formelt) |
 | Salut | Ha det (uformelt) |
-| A bientot | Vi sees snart |
-| A demain | Vi sees i morgen |
-| A plus tard | Vi sees senere |
-| Bonne journee | Ha en fin dag |
-| Bonne soiree | Ha en fin kveld |`,
+| À bientôt | Vi sees snart |
+| À demain | Vi sees i morgen |
+| À plus tard | Vi sees senere |
+| Bonne journée | Ha en fin dag |
+| Bonne soirée | Ha en fin kveld |`,
     },
     {
       id: 'fransk-1-1-1-example-2',
@@ -109,11 +109,11 @@ c) Bonne nuit
       title: 'Eksempel 2: Formell vs. uformell avskjed',
       problem: `Hvilken avskjedshilsen passer best?
 a) Til en venn: ___
-b) Til en laerer: ___`,
-      solution: `a) Til en venn: **Salut** eller **A bientot**
-b) Til en laerer: **Au revoir**
+b) Til en lærer: ___`,
+      solution: `a) Til en venn: **Salut** eller **À bientôt**
+b) Til en lærer: **Au revoir**
 
-"Salut" er uformelt og brukes med venner. "Au revoir" er formelt og mer hoflig.`,
+"Salut" er uformelt og brukes med venner. "Au revoir" er formelt og mer høflig.`,
     },
     {
       id: 'fransk-1-1-1-ex-block-2',
@@ -123,13 +123,13 @@ b) Til en laerer: **Au revoir**
         number: '2',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Oversett folgende avskjedshilsener til fransk:',
+        task: 'Oversett følgende avskjedshilsener til fransk:',
         subTasks: [
-          { label: 'a', task: 'Pa gjensyn', solution: 'Au revoir' },
-          { label: 'b', task: 'Vi sees i morgen', solution: 'A demain' },
-          { label: 'c', task: 'Vi sees snart', solution: 'A bientot' },
+          { label: 'a', task: 'På gjensyn', solution: 'Au revoir' },
+          { label: 'b', task: 'Vi sees i morgen', solution: 'À demain' },
+          { label: 'c', task: 'Vi sees snart', solution: 'À bientôt' },
         ],
-        solution: 'a) Au revoir\nb) A demain\nc) A bientot',
+        solution: 'a) Au revoir\nb) À demain\nc) À bientôt',
         hints: ['Se tabellen med avskjedshilsener'],
       },
     },
@@ -140,12 +140,12 @@ b) Til en laerer: **Au revoir**
 
 | Fransk | Norsk |
 |--------|-------|
-| S'il vous plait | Vaer sa snill (formelt) |
-| S'il te plait | Vaer sa snill (uformelt) |
+| S'il vous plaît | Vær så snill (formelt) |
+| S'il te plaît | Vær så snill (uformelt) |
 | Merci | Takk |
 | Merci beaucoup | Tusen takk |
-| De rien | Ingen arsak |
-| Je vous en prie | Vaer sa god (formelt) |
+| De rien | Ingen årsak |
+| Je vous en prie | Vær så god (formelt) |
 | Excusez-moi | Unnskyld meg (formelt) |
 | Excuse-moi | Unnskyld meg (uformelt) |
 | Pardon | Unnskyld |`,
@@ -153,16 +153,16 @@ b) Til en laerer: **Au revoir**
     {
       id: 'fransk-1-1-1-tip-1',
       type: 'tip',
-      content: `"S'il vous plait" betyr bokstavelig "om det behager Dem" og er det viktigste hoflighetsuttrykket pa fransk. Bruk det alltid nar du ber om noe! Forkortelsen er ofte "svp" i skriftlig sprak.`,
+      content: `"S'il vous plaît" betyr bokstavelig "om det behager Dem" og er det viktigste høflighetsuttrykket på fransk. Bruk det alltid når du ber om noe! Forkortelsen er ofte "svp" i skriftlig språk.`,
     },
     {
       id: 'fransk-1-1-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Takk og svar',
-      problem: `Hva svarer du nar noen sier "Merci"?`,
+      problem: `Hva svarer du når noen sier "Merci"?`,
       solution: `Du kan svare:
-- **De rien** (Ingen arsak)
-- **Je vous en prie** (Vaer sa god - formelt)
+- **De rien** (Ingen årsak)
+- **Je vous en prie** (Vær så god - formelt)
 - **Il n'y a pas de quoi** (Ikke noe a takke for)`,
     },
     {
@@ -173,21 +173,21 @@ b) Til en laerer: **Au revoir**
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett folgende hoflighetsuttrykk til fransk:',
+        task: 'Oversett følgende høflighetsuttrykk til fransk:',
         subTasks: [
           { label: 'a', task: 'Takk', solution: 'Merci' },
           { label: 'b', task: 'Unnskyld (formelt)', solution: 'Excusez-moi' },
           { label: 'c', task: 'Tusen takk', solution: 'Merci beaucoup' },
-          { label: 'd', task: 'Vaer sa snill (formelt)', solution: "S'il vous plait" },
+          { label: 'd', task: 'Vær så snill (formelt)', solution: "S'il vous plaît" },
         ],
-        solution: "a) Merci\nb) Excusez-moi\nc) Merci beaucoup\nd) S'il vous plait",
+        solution: "a) Merci\nb) Excusez-moi\nc) Merci beaucoup\nd) S'il vous plaît",
         hints: ['Husk forskjellen mellom formelt (vous) og uformelt (tu)'],
       },
     },
     {
       id: 'fransk-1-1-1-note-1',
       type: 'note',
-      content: `**Kulturell kontekst**: I Frankrike er det vanlig a gi "la bise" (kyssehilsen pa kinnet) nar man hilser pa venner og familie. Antall kyss varierer fra region til region - fra ett til fire! I formelle situasjoner gir man heller handen.`,
+      content: `**Kulturell kontekst**: I Frankrike er det vanlig å gi "la bise" (kyssehilsen på kinnet) når man hilser på venner og familie. Antall kyss varierer fra region til region - fra ett til fire! I formelle situasjoner gir man heller handen.`,
     },
     {
       id: 'fransk-1-1-1-ex-block-4',
@@ -199,13 +199,13 @@ b) Til en laerer: **Au revoir**
         difficulty: 'medium',
         task: 'Velg riktig hilsen for hver situasjon:',
         subTasks: [
-          { label: 'a', task: 'Du moter en venn pa skolen om morgenen', solution: 'Salut eller Bonjour' },
-          { label: 'b', task: 'Du gar inn i en butikk', solution: 'Bonjour' },
-          { label: 'c', task: 'Du sier ha det til vennen din', solution: 'Salut eller A bientot' },
-          { label: 'd', task: 'Du sier ha det til laereren', solution: 'Au revoir' },
+          { label: 'a', task: 'Du møter en venn på skolen om morgenen', solution: 'Salut eller Bonjour' },
+          { label: 'b', task: 'Du går inn i en butikk', solution: 'Bonjour' },
+          { label: 'c', task: 'Du sier ha det til vennen din', solution: 'Salut eller À bientôt' },
+          { label: 'd', task: 'Du sier ha det til læreren', solution: 'Au revoir' },
         ],
-        solution: 'a) Salut/Bonjour\nb) Bonjour\nc) Salut/A bientot\nd) Au revoir',
-        hints: ['Tenk pa om situasjonen er formell eller uformell'],
+        solution: 'a) Salut/Bonjour\nb) Bonjour\nc) Salut/À bientôt\nd) Au revoir',
+        hints: ['Tenk på om situasjonen er formell eller uformell'],
       },
     },
   ],
@@ -221,7 +221,7 @@ export const CHAPTER_FRANSK_1_1_2: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '1.2',
   title: "Je m'appelle... - Presentere seg",
-  description: "Laer a presentere deg selv med navn og verbene etre og s'appeler.",
+  description: "Lær å presentere deg selv med navn og verbene être og s'appeler.",
   estimatedMinutes: 45,
   competenceGoals: [
     'presentere seg selv og andre',
@@ -233,7 +233,7 @@ export const CHAPTER_FRANSK_1_1_2: TextbookChapter = {
       type: 'text',
       content: `## Presentere seg selv
 
-A kunne presentere seg er grunnleggende i ethvert sprak. Pa fransk bruker vi verbene **s'appeler** (a hete) og **etre** (a vaere) for a fortelle hvem vi er.`,
+Å kunne presentere seg er grunnleggende i ethvert språk. På fransk bruker vi verbene **s'appeler** (å hete) og **être** (å være) for å fortelle hvem vi er.`,
     },
     {
       id: 'fransk-1-1-2-text-1',
@@ -245,13 +245,13 @@ A kunne presentere seg er grunnleggende i ethvert sprak. Pa fransk bruker vi ver
 | Je m'appelle... | Jeg heter... |
 | Je suis... | Jeg er... |
 | Mon nom est... | Navnet mitt er... |
-| J'ai ... ans | Jeg er ... ar gammel |`,
+| J'ai ... ans | Jeg er ... år gammel |`,
     },
     {
       id: 'fransk-1-1-2-def-1',
       type: 'definition',
-      title: 'Verbet "etre" (a vaere)',
-      content: `**Etre** er et uregelmessig verb og ma laeres utenat:
+      title: 'Verbet "être" (å være)',
+      content: `**Être** er et uregelmessig verb og må læres utenat:
 
 | Person | Fransk | Norsk |
 |--------|--------|-------|
@@ -259,20 +259,20 @@ A kunne presentere seg er grunnleggende i ethvert sprak. Pa fransk bruker vi ver
 | tu | es | du er |
 | il/elle/on | est | han/hun/man er |
 | nous | sommes | vi er |
-| vous | etes | dere er / De er |
+| vous | êtes | dere er / De er |
 | ils/elles | sont | de er |`,
     },
     {
       id: 'fransk-1-1-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Presentasjon med etre',
-      problem: `Fullfar setningene med riktig form av "etre":
+      title: 'Eksempel 1: Presentasjon med être',
+      problem: `Fullfør setningene med riktig form av "être":
 a) Je ___ Anna.
 b) Tu ___ Max.
 c) Il ___ professeur.`,
       solution: `a) Je **suis** Anna. (Jeg er Anna.)
 b) Tu **es** Max. (Du er Max.)
-c) Il **est** professeur. (Han er laerer.)`,
+c) Il **est** professeur. (Han er lærer.)`,
     },
     {
       id: 'fransk-1-1-2-ex-block-1',
@@ -282,7 +282,7 @@ c) Il **est** professeur. (Han er laerer.)`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Fyll inn riktig form av verbet "etre":',
+        task: 'Fyll inn riktig form av verbet "être":',
         subTasks: [
           { label: 'a', task: 'Je ___ Erik.', solution: 'suis' },
           { label: 'b', task: 'Tu ___ gentil.', solution: 'es' },
@@ -290,13 +290,13 @@ c) Il **est** professeur. (Han er laerer.)`,
           { label: 'd', task: 'Nous ___ amis.', solution: 'sommes' },
         ],
         solution: 'a) suis\nb) es\nc) est\nd) sommes',
-        hints: ['Se tabellen over boying av etre'],
+        hints: ['Se tabellen over bøyning av être'],
       },
     },
     {
       id: 'fransk-1-1-2-def-2',
       type: 'definition',
-      title: "Verbet \"s'appeler\" (a hete)",
+      title: "Verbet \"s'appeler\" (å hete)",
       content: `**S'appeler** er et refleksivt verb:
 
 | Person | Fransk | Norsk |
@@ -312,7 +312,7 @@ c) Il **est** professeur. (Han er laerer.)`,
       id: 'fransk-1-1-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Sporsmaal og svar',
-      problem: `Lag en kort dialog der du spor om navn og svarer:`,
+      problem: `Lag en kort dialog der du spør om navn og svarer:`,
       solution: `**Dialog:**
 - A: Bonjour! Comment tu t'appelles? (Hei! Hva heter du?)
 - B: Je m'appelle Marie. Et toi? (Jeg heter Marie. Og du?)
@@ -339,7 +339,7 @@ c) Il **est** professeur. (Han er laerer.)`,
     {
       id: 'fransk-1-1-2-text-2',
       type: 'text',
-      content: `**Sporre om andres navn**
+      content: `**Spørre om andres navn**
 
 | Fransk | Norsk |
 |--------|-------|
@@ -352,17 +352,17 @@ c) Il **est** professeur. (Han er laerer.)`,
     {
       id: 'fransk-1-1-2-tip-1',
       type: 'tip',
-      content: `Pa fransk kan du bruke bade "Je m'appelle..." og "Je suis..." for a presentere deg. "Mon nom est..." er litt mer formelt. Legg merke til at "j'ai ... ans" brukes for alder - pa fransk "har" man ar, man "er" ikke ar gammel!`,
+      content: `På fransk kan du bruke både "Je m'appelle..." og "Je suis..." for å presentere deg. "Mon nom est..." er litt mer formelt. Legg merke til at "j'ai ... ans" brukes for alder - på fransk "har" man år, man "er" ikke år gammel!`,
     },
     {
       id: 'fransk-1-1-2-example-3',
       type: 'example',
       title: 'Eksempel 3: En fullstendig presentasjon',
-      problem: `Skriv en kort presentasjon pa fransk:`,
+      problem: `Skriv en kort presentasjon på fransk:`,
       solution: `**Eksempel:**
-Bonjour! Je m'appelle Lisa. J'ai seize ans. Je suis eleve.
+Bonjour! Je m'appelle Lisa. J'ai seize ans. Je suis élève.
 
-(Hei! Jeg heter Lisa. Jeg er 16 ar gammel. Jeg er elev.)`,
+(Hei! Jeg heter Lisa. Jeg er 16 år gammel. Jeg er elev.)`,
     },
     {
       id: 'fransk-1-1-2-ex-block-3',
@@ -372,15 +372,15 @@ Bonjour! Je m'appelle Lisa. J'ai seize ans. Je suis eleve.
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: "Fyll inn riktig form av verbet (etre eller s'appeler):",
+        task: "Fyll inn riktig form av verbet (être eller s'appeler):",
         subTasks: [
           { label: 'a', task: "Comment tu ___? (hete)", solution: "t'appelles" },
-          { label: 'b', task: 'Je ___ eleve. (vaere)', solution: 'suis' },
+          { label: 'b', task: 'Je ___ élève. (vaere)', solution: 'suis' },
           { label: 'c', task: "Il ___ Paul. (hete)", solution: "s'appelle" },
-          { label: 'd', task: 'Nous ___ norvegiens. (vaere)', solution: 'sommes' },
+          { label: 'd', task: 'Nous ___ norvégiens. (vaere)', solution: 'sommes' },
         ],
         solution: "a) t'appelles\nb) suis\nc) s'appelle\nd) sommes",
-        hints: ['Tenk pa hvilket verb som passer best i sammenhengen'],
+        hints: ['Tenk på hvilket verb som passer best i sammenhengen'],
       },
     },
     {
@@ -391,8 +391,8 @@ Bonjour! Je m'appelle Lisa. J'ai seize ans. Je suis eleve.
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: "Skriv en kort presentasjon av deg selv pa fransk (3-4 setninger). Bruk ordene: s'appeler, etre, avoir ... ans.",
-        solution: "Eksempel: Bonjour! Je m'appelle [navn]. J'ai [alder] ans. Je suis eleve.",
+        task: "Skriv en kort presentasjon av deg selv på fransk (3-4 setninger). Bruk ordene: s'appeler, être, avoir ... ans.",
+        solution: "Eksempel: Bonjour! Je m'appelle [navn]. J'ai [alder] ans. Je suis élève.",
         hints: ['Start med Bonjour!', "Bruk \"Je m'appelle...\" for navnet", 'Bruk "J\'ai... ans" for alder'],
       },
     },
@@ -401,15 +401,15 @@ Bonjour! Je m'appelle Lisa. J'ai seize ans. Je suis eleve.
 };
 
 // ============================================================================
-// Kapittel 1.3: D'ou viens-tu? - Hvor kommer du fra
+// Kapittel 1.3: D'où viens-tu? - Hvor kommer du fra
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_1_3: TextbookChapter = {
   id: 'fransk-1-1-3',
   courseId: 'fransk-1',
   chapterNumber: '1.3',
-  title: "D'ou viens-tu? - Hvor kommer du fra",
-  description: 'Laer a fortelle hvor du kommer fra og snakke om nasjonalitet.',
+  title: "D'où viens-tu? - Hvor kommer du fra",
+  description: 'Lær å fortelle hvor du kommer fra og snakke om nasjonalitet.',
   estimatedMinutes: 45,
   competenceGoals: [
     'fortelle hvor man kommer fra',
@@ -421,7 +421,7 @@ export const CHAPTER_FRANSK_1_1_3: TextbookChapter = {
       type: 'text',
       content: `## Hvor kommer du fra?
 
-Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss laere hvordan vi snakker om land og nasjonalitet pa fransk!`,
+Når du møter nye mennesker, er det vanlig a spørre hvor de kommer fra. La oss lære hvordan vi snakker om land og nasjonalitet på fransk!`,
     },
     {
       id: 'fransk-1-1-3-text-1',
@@ -430,8 +430,8 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
 
 | Fransk | Norsk |
 |--------|-------|
-| D'ou viens-tu? | Hvor kommer du fra? (uformelt) |
-| D'ou venez-vous? | Hvor kommer De fra? (formelt) |
+| D'où viens-tu? | Hvor kommer du fra? (uformelt) |
+| D'où venez-vous? | Hvor kommer De fra? (formelt) |
 | Je viens de... | Jeg kommer fra... |
 | J'habite a... | Jeg bor i... |`,
     },
@@ -453,11 +453,11 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
     {
       id: 'fransk-1-1-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Sporre og svare',
+      title: 'Eksempel 1: Spørre og svare',
       problem: `Lag en kort dialog om hvor man kommer fra:`,
       solution: `**Dialog:**
-- A: D'ou viens-tu? (Hvor kommer du fra?)
-- B: Je viens de Norvege. Et toi? (Jeg kommer fra Norge. Og du?)
+- A: D'où viens-tu? (Hvor kommer du fra?)
+- B: Je viens de Norvège. Et toi? (Jeg kommer fra Norge. Og du?)
 - A: Je viens de France. (Jeg kommer fra Frankrike.)`,
     },
     {
@@ -470,13 +470,13 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
         difficulty: 'lett',
         task: 'Fyll inn riktig form av verbet "venir":',
         subTasks: [
-          { label: 'a', task: 'Je ___ de Norvege.', solution: 'viens' },
-          { label: 'b', task: "D'ou ___-tu?", solution: 'viens' },
+          { label: 'a', task: 'Je ___ de Norvège.', solution: 'viens' },
+          { label: 'b', task: "D'où ___-tu?", solution: 'viens' },
           { label: 'c', task: 'Il ___ de France.', solution: 'vient' },
-          { label: 'd', task: 'Nous ___ de Suede.', solution: 'venons' },
+          { label: 'd', task: 'Nous ___ de Suède.', solution: 'venons' },
         ],
         solution: 'a) viens\nb) viens\nc) vient\nd) venons',
-        hints: ['Se boyingstabellen for venir'],
+        hints: ['Se bøyingstabellen for venir'],
       },
     },
     {
@@ -484,11 +484,11 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
       type: 'text',
       content: `**Land i Europa**
 
-| Fransk | Norsk | Kjonn |
+| Fransk | Norsk | Kjønn |
 |--------|-------|-------|
 | la France | Frankrike | f |
-| la Norvege | Norge | f |
-| la Suede | Sverige | f |
+| la Norvège | Norge | f |
+| la Suède | Sverige | f |
 | le Danemark | Danmark | m |
 | la Finlande | Finland | f |
 | l'Allemagne | Tyskland | f |
@@ -496,12 +496,12 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
 | l'Angleterre | England | f |
 | l'Espagne | Spania | f |
 | l'Italie | Italia | f |
-| les Etats-Unis | USA | fl |`,
+| les États-Unis | USA | fl |`,
     },
     {
       id: 'fransk-1-1-3-note-1',
       type: 'note',
-      content: `Pa fransk har alle land kjonn! De fleste land som slutter pa -e er hunkjonn (la France, la Norvege). Land som ikke slutter pa -e er som regel hankjonn (le Danemark, le Portugal). Preposisjonen endres: "en France" (i Frankrike, hunkjonn), "au Danemark" (i Danmark, hankjonn), "aux Etats-Unis" (i USA, flertall).`,
+      content: `På fransk har alle land kjønn! De fleste land som slutter på -e er hunkjønn (la France, la Norvège). Land som ikke slutter på -e er som regel hankjønn (le Danemark, le Portugal). Preposisjonen endres: "en France" (i Frankrike, hunkjønn), "au Danemark" (i Danmark, hankjønn), "aux États-Unis" (i USA, flertall).`,
     },
     {
       id: 'fransk-1-1-3-example-2',
@@ -510,10 +510,10 @@ Nar du moter nye mennesker, er det vanlig a sporre hvor de kommer fra. La oss la
       problem: `Oversett til fransk:
 a) Jeg kommer fra Norge.
 b) Hun kommer fra Sveits.`,
-      solution: `a) Je viens de Norvege.
+      solution: `a) Je viens de Norvège.
 b) Elle vient de Suisse.
 
-Merk at "de" brukes med hunkjonnsland: "de France", "de Norvege". Med hankjonnsland brukes "du": "du Danemark".`,
+Merk at "de" brukes med hunkjønnsland: "de France", "de Norvège". Med hankjønnsland brukes "du": "du Danemark".`,
     },
     {
       id: 'fransk-1-1-3-ex-block-2',
@@ -525,12 +525,12 @@ Merk at "de" brukes med hunkjonnsland: "de France", "de Norvege". Med hankjonnsl
         difficulty: 'lett',
         task: 'Oversett landnavnene til fransk:',
         subTasks: [
-          { label: 'a', task: 'Norge', solution: 'la Norvege' },
+          { label: 'a', task: 'Norge', solution: 'la Norvège' },
           { label: 'b', task: 'Frankrike', solution: 'la France' },
-          { label: 'c', task: 'Sverige', solution: 'la Suede' },
+          { label: 'c', task: 'Sverige', solution: 'la Suède' },
           { label: 'd', task: 'Tyskland', solution: "l'Allemagne" },
         ],
-        solution: "a) la Norvege\nb) la France\nc) la Suede\nd) l'Allemagne",
+        solution: "a) la Norvège\nb) la France\nc) la Suède\nd) l'Allemagne",
         hints: ['Se tabellen over europeiske land'],
       },
     },
@@ -541,27 +541,27 @@ Merk at "de" brukes med hunkjonnsland: "de France", "de Norvege". Med hankjonnsl
 
 | Maskulin | Feminin | Norsk |
 |----------|---------|-------|
-| norvegien | norvegienne | norsk |
-| francais | francaise | fransk |
-| suedois | suedoise | svensk |
+| norvégien | norvégienne | norsk |
+| français | française | fransk |
+| suédois | suédoise | svensk |
 | danois | danoise | dansk |
 | allemand | allemande | tysk |
 | anglais | anglaise | engelsk |
 | espagnol | espagnole | spansk |
 | italien | italienne | italiensk |
-| americain | americaine | amerikansk |`,
+| américain | américaine | amerikansk |`,
     },
     {
       id: 'fransk-1-1-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Nasjonalitet',
-      problem: `Fullfar setningene:
-a) Erik vient de Norvege. Il est ___.
+      problem: `Fullfør setningene:
+a) Erik vient de Norvège. Il est ___.
 b) Anna vient de France. Elle est ___.`,
-      solution: `a) Erik vient de Norvege. Il est **norvegien**. (Han er norsk.)
-b) Anna vient de France. Elle est **francaise**. (Hun er fransk.)
+      solution: `a) Erik vient de Norvège. Il est **norvégien**. (Han er norsk.)
+b) Anna vient de France. Elle est **française**. (Hun er fransk.)
 
-Pa fransk boyes nasjonaliteten etter kjonn: maskulin/feminin.`,
+På fransk bøyes nasjonaliteten etter kjønn: maskulin/feminin.`,
     },
     {
       id: 'fransk-1-1-3-ex-block-3',
@@ -573,29 +573,29 @@ Pa fransk boyes nasjonaliteten etter kjonn: maskulin/feminin.`,
         difficulty: 'medium',
         task: 'Fyll inn riktig nasjonalitet:',
         subTasks: [
-          { label: 'a', task: 'Je viens de Norvege. Je suis ___ (mann).', solution: 'norvegien' },
-          { label: 'b', task: 'Elle vient de Suede. Elle est ___.', solution: 'suedoise' },
-          { label: 'c', task: 'Il vient de France. Il est ___.', solution: 'francais' },
+          { label: 'a', task: 'Je viens de Norvège. Je suis ___ (mann).', solution: 'norvégien' },
+          { label: 'b', task: 'Elle vient de Suède. Elle est ___.', solution: 'suédoise' },
+          { label: 'c', task: 'Il vient de France. Il est ___.', solution: 'français' },
           { label: 'd', task: 'Je viens d\'Allemagne. Je suis ___ (kvinne).', solution: 'allemande' },
         ],
-        solution: 'a) norvegien\nb) suedoise\nc) francais\nd) allemande',
-        hints: ['Husk at nasjonalitet boyes etter kjonn'],
+        solution: 'a) norvégien\nb) suédoise\nc) français\nd) allemande',
+        hints: ['Husk at nasjonalitet bøyes etter kjønn'],
       },
     },
     {
       id: 'fransk-1-1-3-text-4',
       type: 'text',
-      content: `**Sprak**
+      content: `**Språk**
 
 | Fransk | Norsk |
 |--------|-------|
-| le francais | fransk |
-| le norvegien | norsk |
+| le français | fransk |
+| le norvégien | norsk |
 | l'anglais | engelsk |
 | l'allemand | tysk |
 | l'espagnol | spansk |
 
-**Eksempel:** Je parle francais et anglais. (Jeg snakker fransk og engelsk.)`,
+**Eksempel:** Je parle français et anglais. (Jeg snakker fransk og engelsk.)`,
     },
     {
       id: 'fransk-1-1-3-ex-block-4',
@@ -605,13 +605,13 @@ Pa fransk boyes nasjonaliteten etter kjonn: maskulin/feminin.`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv fullstendige setninger pa fransk:',
+        task: 'Skriv fullstendige setninger på fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg kommer fra Norge.', solution: 'Je viens de Norvege.' },
+          { label: 'a', task: 'Jeg kommer fra Norge.', solution: 'Je viens de Norvège.' },
           { label: 'b', task: 'Han er tysk.', solution: 'Il est allemand.' },
-          { label: 'c', task: 'Hun snakker norsk og fransk.', solution: 'Elle parle norvegien et francais.' },
+          { label: 'c', task: 'Hun snakker norsk og fransk.', solution: 'Elle parle norvégien et français.' },
         ],
-        solution: 'a) Je viens de Norvege.\nb) Il est allemand.\nc) Elle parle norvegien et francais.',
+        solution: 'a) Je viens de Norvège.\nb) Il est allemand.\nc) Elle parle norvégien et français.',
         hints: ['Bruk verbet parler (snakke) - je parle, tu parles, il/elle parle'],
       },
     },
@@ -620,57 +620,57 @@ Pa fransk boyes nasjonaliteten etter kjonn: maskulin/feminin.`,
 };
 
 // ============================================================================
-// Kapittel 1.4: Premieres conversations - Forste samtaler
+// Kapittel 1.4: Premières conversations - Første samtaler
 // ============================================================================
 
 export const CHAPTER_FRANSK_1_1_4: TextbookChapter = {
   id: 'fransk-1-1-4',
   courseId: 'fransk-1',
   chapterNumber: '1.4',
-  title: 'Premieres conversations - Forste samtaler',
-  description: 'Laer a fore enkle samtaler og dialoger pa fransk.',
+  title: 'Premières conversations - Første samtaler',
+  description: 'Lær å føre enkle samtaler og dialoger på fransk.',
   estimatedMinutes: 50,
   competenceGoals: [
     'fore enkle samtaler',
-    'bruke sporsmalsord',
+    'bruke spørsmålsord',
   ],
   content: [
     {
       id: 'fransk-1-1-4-intro',
       type: 'text',
-      content: `## Forste samtaler
+      content: `## Første samtaler
 
-Na har du laert hilsener, presentasjon og a fortelle hvor du kommer fra. La oss sette alt sammen til enkle samtaler!`,
+Nå har du lært hilsener, presentasjon og å fortelle hvor du kommer fra. La oss sette alt sammen til enkle samtaler!`,
     },
     {
       id: 'fransk-1-1-4-text-1',
       type: 'text',
-      content: `**Sporsmalsord**
+      content: `**Spørsmålsord**
 
 | Fransk | Norsk |
 |--------|-------|
 | Qui? | Hvem? |
 | Quoi? / Que? | Hva? |
-| Ou? | Hvor? |
-| D'ou? | Hvorfra? |
+| Où? | Hvor? |
+| D'où? | Hvorfra? |
 | Comment? | Hvordan? |
 | Pourquoi? | Hvorfor? |
-| Quand? | Nar? |
+| Quand? | Når? |
 | Combien? | Hvor mye/mange? |`,
     },
     {
       id: 'fransk-1-1-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Bruk av sporsmalsord',
-      problem: `Hvilke sporsmalsord passer?
+      title: 'Eksempel 1: Bruk av spørsmålsord',
+      problem: `Hvilke spørsmålsord passer?
 a) ___ tu t'appelles? (Hva heter du?)
 b) ___ viens-tu? (Hvor kommer du fra?)
 c) ___ habites-tu? (Hvor bor du?)`,
       solution: `a) **Comment** tu t'appelles?
-b) **D'ou** viens-tu?
+b) **D'où** viens-tu?
 c) **Ou** habites-tu?
 
-Merk forskjellen: "Ou" = hvor (sted), "D'ou" = hvorfra (opprinnelse).`,
+Merk forskjellen: "Ou" = hvor (sted), "D'où" = hvorfra (opprinnelse).`,
     },
     {
       id: 'fransk-1-1-4-ex-block-1',
@@ -680,7 +680,7 @@ Merk forskjellen: "Ou" = hvor (sted), "D'ou" = hvorfra (opprinnelse).`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Fyll inn riktig sporsmalsord:',
+        task: 'Fyll inn riktig spørsmålsord:',
         subTasks: [
           { label: 'a', task: '___ est-ce? (Hvem er det?)', solution: 'Qui' },
           { label: 'b', task: '___ as-tu? (Hvor gammel er du?)', solution: 'Quel age' },
@@ -688,7 +688,7 @@ Merk forskjellen: "Ou" = hvor (sted), "D'ou" = hvorfra (opprinnelse).`,
           { label: 'd', task: '___ vas-tu? (Hvor skal du?)', solution: 'Ou' },
         ],
         solution: 'a) Qui\nb) Quel age\nc) Quel\nd) Ou',
-        hints: ['Se tabellen over sporsmalsord'],
+        hints: ['Se tabellen over spørsmålsord'],
       },
     },
     {
@@ -700,20 +700,20 @@ Merk forskjellen: "Ou" = hvor (sted), "D'ou" = hvorfra (opprinnelse).`,
 |--------|-------|
 | Comment vas-tu? | Hvordan har du det? (uformelt) |
 | Comment allez-vous? | Hvordan har De det? (formelt) |
-| Ca va? | Gar det bra? (uformelt) |
+| Ça va? | Gar det bra? (uformelt) |
 | Je vais bien, merci. | Jeg har det bra, takk. |
-| Ca va bien. | Det gar bra. |
-| Pas mal. | Ikke darlig. |
-| Comme ci, comme ca. | Sa som sa. |
-| Ca va mal. | Det gar darlig. |
-| Super! / Genial! | Kjempebra! |
+| Ça va bien. | Det går bra. |
+| Pas mal. | Ikke dårlig. |
+| Comme ci, comme ça. | Så som så. |
+| Ça va mal. | Det går dårlig. |
+| Super! / Génial! | Kjempebra! |
 | Et toi? | Og du? (uformelt) |`,
     },
     {
       id: 'fransk-1-1-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Dialog - Hvordan har du det?',
-      problem: `Lag en dialog med sporsmalet "Comment vas-tu?"`,
+      problem: `Lag en dialog med spørsmålet "Comment vas-tu?"`,
       solution: `**Dialog:**
 - A: Salut! Comment vas-tu?
 - B: Je vais bien, merci! Et toi?
@@ -747,12 +747,12 @@ Merk forskjellen: "Ou" = hvor (sted), "D'ou" = hvorfra (opprinnelse).`,
 | Fransk | Norsk |
 |--------|-------|
 | Quel age as-tu? | Hvor gammel er du? |
-| J'ai ... ans. | Jeg er ... ar gammel. |
-| J'ai 15 ans. | Jeg er 15 ar gammel. |
-| Il a 20 ans. | Han er 20 ar gammel. |
-| Elle a 18 ans. | Hun er 18 ar gammel. |
+| J'ai ... ans. | Jeg er ... år gammel. |
+| J'ai 15 ans. | Jeg er 15 år gammel. |
+| Il a 20 ans. | Han er 20 år gammel. |
+| Elle a 18 ans. | Hun er 18 år gammel. |
 
-Merk: Pa fransk bruker man verbet **avoir** (a ha) for alder, ikke "etre" (a vaere). Man sier bokstavelig "Jeg har 15 ar".`,
+Merk: På fransk bruker man verbet **avoir** (a ha) for alder, ikke "être" (å være). Man sier bokstavelig "Jeg har 15 ar".`,
     },
     {
       id: 'fransk-1-1-4-example-3',
@@ -763,9 +763,9 @@ Merk: Pa fransk bruker man verbet **avoir** (a ha) for alder, ikke "etre" (a vae
 
 Lisa: Bonjour! Je m'appelle Lisa. Comment tu t'appelles?
 Marc: Bonjour Lisa! Je m'appelle Marc.
-Lisa: D'ou viens-tu, Marc?
+Lisa: D'où viens-tu, Marc?
 Marc: Je viens de France. Et toi?
-Lisa: Je viens de Norvege. Quel age as-tu?
+Lisa: Je viens de Norvège. Quel age as-tu?
 Marc: J'ai seize ans. Et toi?
 Lisa: J'ai aussi seize ans. Comment vas-tu?
 Marc: Je vais bien, merci! Au revoir!
@@ -779,21 +779,21 @@ Lisa: Au revoir, Marc!`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Svar pa sporsmalene pa fransk:',
+        task: 'Svar på spørsmålene på fransk:',
         subTasks: [
           { label: 'a', task: "Comment tu t'appelles?", solution: "Je m'appelle [ditt navn]." },
-          { label: 'b', task: "D'ou viens-tu?", solution: 'Je viens de Norvege.' },
+          { label: 'b', task: "D'où viens-tu?", solution: 'Je viens de Norvège.' },
           { label: 'c', task: 'Quel age as-tu?', solution: "J'ai [alder] ans." },
           { label: 'd', task: 'Comment vas-tu?', solution: 'Je vais bien.' },
         ],
-        solution: "a) Je m'appelle...\nb) Je viens de Norvege.\nc) J'ai... ans.\nd) Je vais bien.",
+        solution: "a) Je m'appelle...\nb) Je viens de Norvège.\nc) J'ai... ans.\nd) Je vais bien.",
         hints: ['Bruk dine egne opplysninger'],
       },
     },
     {
       id: 'fransk-1-1-4-tip-1',
       type: 'tip',
-      content: `Nar du over pa fransk, prov a ha korte samtaler med deg selv eller en venn. Start med enkle sporsmaal og svar, og bygg gradvis opp lengre dialoger. Det uformelle "Ca va?" er kanskje den vanligste hilsenen du horer i Frankrike!`,
+      content: `Når du over på fransk, prov å ha korte samtaler med deg selv eller en venn. Start med enkle spørsmål og svar, og bygg gradvis opp lengre dialoger. Det uformelle "Ça va?" er kanskje den vanligste hilsenen du hører i Frankrike!`,
     },
     {
       id: 'fransk-1-1-4-ex-block-4',
@@ -803,9 +803,9 @@ Lisa: Au revoir, Marc!`,
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort dialog (6-8 setninger) mellom to personer som moter hverandre for forste gang. Bruk hilsener, presentasjon, land og alder.',
-        solution: "Eksempel:\nA: Bonjour! Comment tu t'appelles?\nB: Je m'appelle Anna. Et toi?\nA: Je m'appelle Pierre. D'ou viens-tu?\nB: Je viens de Suede. Et toi?\nA: Je viens de France. Quel age as-tu?\nB: J'ai quinze ans.\nA: J'ai aussi quinze ans! Au revoir!\nB: Au revoir!",
-        hints: ["Bruk sporsmalsordene Comment, D'ou, Quel age", 'Husk a inkludere hilsen og avskjed'],
+        task: 'Skriv en kort dialog (6-8 setninger) mellom to personer som møter hverandre for første gang. Bruk hilsener, presentasjon, land og alder.',
+        solution: "Eksempel:\nA: Bonjour! Comment tu t'appelles?\nB: Je m'appelle Anna. Et toi?\nA: Je m'appelle Pierre. D'où viens-tu?\nB: Je viens de Suède. Et toi?\nA: Je viens de France. Quel age as-tu?\nB: J'ai quinze ans.\nA: J'ai aussi quinze ans! Au revoir!\nB: Au revoir!",
+        hints: ["Bruk spørsmålsordene Comment, D'où, Quel age", 'Husk a inkludere hilsen og avskjed'],
       },
     },
   ],
@@ -821,11 +821,11 @@ export const CHAPTER_FRANSK_1_2_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '2.1',
   title: 'Les nombres 0-20 - Tallene 0-20',
-  description: 'Laer tallene fra 0 til 20 pa fransk.',
+  description: 'Lær tallene fra 0 til 20 på fransk.',
   estimatedMinutes: 40,
   competenceGoals: [
     'bruke tall i kommunikasjon',
-    'telle pa fransk',
+    'telle på fransk',
   ],
   content: [
     {
@@ -833,7 +833,7 @@ export const CHAPTER_FRANSK_1_2_1: TextbookChapter = {
       type: 'text',
       content: `## Tallene 0-20
 
-Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss laere de grunnleggende tallene pa fransk!`,
+Tall er viktige for å snakke om alder, priser, telefonnummer og mye mer. La oss lære de grunnleggende tallene på fransk!`,
     },
     {
       id: 'fransk-1-2-1-text-1',
@@ -842,7 +842,7 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
 
 | Tall | Fransk | Uttale |
 |------|--------|--------|
-| 0 | zero | [se-ro] |
+| 0 | zéro | [se-ro] |
 | 1 | un | [an] |
 | 2 | deux | [do] |
 | 3 | trois | [trwa] |
@@ -860,10 +860,10 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
       id: 'fransk-1-2-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Telle til 10',
-      problem: `Tell hoyt fra 1 til 10 pa fransk:`,
+      problem: `Tell høyt fra 1 til 10 på fransk:`,
       solution: `un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix
 
-**Tips**: Ov pa uttalen! Mange tall uttales annerledes enn de skrives. For eksempel uttales "cinq" som [sank] og "huit" som [yit].`,
+**Tips**: Øv på uttalen! Mange tall uttales annerledes enn de skrives. For eksempel uttales "cinq" som [sank] og "huit" som [yit].`,
     },
     {
       id: 'fransk-1-2-1-ex-block-1',
@@ -873,7 +873,7 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv tallene pa fransk:',
+        task: 'Skriv tallene på fransk:',
         subTasks: [
           { label: 'a', task: '3', solution: 'trois' },
           { label: 'b', task: '7', solution: 'sept' },
@@ -889,7 +889,7 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
       type: 'text',
       content: `**Tallene 13-20**
 
-| Tall | Fransk | Monster |
+| Tall | Fransk | Mønster |
 |------|--------|---------|
 | 13 | treize | tre- + -ze |
 | 14 | quatorze | quator- + -ze |
@@ -903,16 +903,16 @@ Tall er viktige for a snakke om alder, priser, telefonnummer og mye mer. La oss 
     {
       id: 'fransk-1-2-1-note-1',
       type: 'note',
-      content: `Tallene 13-16 har egne former som ma laeres utenat. Fra 17 til 19 folger de monsteret "dix" + enertall. 20 (vingt) ma ogsa laeres for seg.`,
+      content: `Tallene 13-16 har egne former som må læres utenat. Fra 17 til 19 følger de mønsteret "dix" + enertall. 20 (vingt) ma også læres for seg.`,
     },
     {
       id: 'fransk-1-2-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Monsteret for tallene 17-19',
-      problem: `Hvordan dannes tallet 17 pa fransk?`,
+      title: 'Eksempel 2: Mønsteret for tallene 17-19',
+      problem: `Hvordan dannes tallet 17 på fransk?`,
       solution: `17 = dix + sept = **dix-sept**
 
-Monsteret er: "dix" + enertall
+Mønsteret er: "dix" + enertall
 - 17 = dix-sept
 - 18 = dix-huit
 - 19 = dix-neuf`,
@@ -925,7 +925,7 @@ Monsteret er: "dix" + enertall
         number: '2',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv tallene pa fransk:',
+        task: 'Skriv tallene på fransk:',
         subTasks: [
           { label: 'a', task: '14', solution: 'quatorze' },
           { label: 'b', task: '17', solution: 'dix-sept' },
@@ -933,7 +933,7 @@ Monsteret er: "dix" + enertall
           { label: 'd', task: '16', solution: 'seize' },
         ],
         solution: 'a) quatorze\nb) dix-sept\nc) vingt\nd) seize',
-        hints: ['Husk at 13-16 har spesielle former, mens 17-19 folger et monster'],
+        hints: ['Husk at 13-16 har spesielle former, mens 17-19 følger et mønster'],
       },
     },
     {
@@ -941,8 +941,8 @@ Monsteret er: "dix" + enertall
       type: 'example',
       title: 'Eksempel 3: Alder med tall',
       problem: `Oversett til fransk:
-a) Jeg er 15 ar.
-b) Hun er 18 ar.`,
+a) Jeg er 15 år.
+b) Hun er 18 år.`,
       solution: `a) J'ai quinze ans.
 b) Elle a dix-huit ans.
 
@@ -956,14 +956,14 @@ b) Elle a dix-huit ans.
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv setningene pa fransk:',
+        task: 'Skriv setningene på fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg er 16 ar.', solution: "J'ai seize ans." },
-          { label: 'b', task: 'Han er 14 ar.', solution: 'Il a quatorze ans.' },
-          { label: 'c', task: 'Hun er 19 ar.', solution: 'Elle a dix-neuf ans.' },
+          { label: 'a', task: 'Jeg er 16 år.', solution: "J'ai seize ans." },
+          { label: 'b', task: 'Han er 14 år.', solution: 'Il a quatorze ans.' },
+          { label: 'c', task: 'Hun er 19 år.', solution: 'Elle a dix-neuf ans.' },
         ],
         solution: "a) J'ai seize ans.\nb) Il a quatorze ans.\nc) Elle a dix-neuf ans.",
-        hints: ['Bruk monsteret: ai/a + tall + ans'],
+        hints: ['Bruk mønsteret: ai/a + tall + ans'],
       },
     },
     {
@@ -974,7 +974,7 @@ b) Elle a dix-huit ans.
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv det neste tallet i rekken pa fransk:',
+        task: 'Skriv det neste tallet i rekken på fransk:',
         subTasks: [
           { label: 'a', task: 'cinq, six, ___', solution: 'sept' },
           { label: 'b', task: 'douze, treize, ___', solution: 'quatorze' },
@@ -998,10 +998,10 @@ export const CHAPTER_FRANSK_1_2_2: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '2.2',
   title: 'Les nombres 21-100 - Tallene 21-100',
-  description: 'Laer tallene fra 21 til 100 pa fransk.',
+  description: 'Lær tallene fra 21 til 100 på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke storre tall i kommunikasjon',
+    'bruke større tall i kommunikasjon',
   ],
   content: [
     {
@@ -1009,7 +1009,7 @@ export const CHAPTER_FRANSK_1_2_2: TextbookChapter = {
       type: 'text',
       content: `## Tallene 21-100
 
-Pa fransk har de hoyere tallene noen spesielle monstre. Spesielt tallene 70, 80 og 90 er annerledes enn i mange andre sprak!`,
+På fransk har de høyere tallene noen spesielle mønstre. Spesielt tallene 70, 80 og 90 er annerledes enn i mange andre språk!`,
     },
     {
       id: 'fransk-1-2-2-text-1',
@@ -1037,7 +1037,7 @@ Pa fransk har de hoyere tallene noen spesielle monstre. Spesielt tallene 70, 80 
       id: 'fransk-1-2-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Tierne',
-      problem: `Skriv tallene pa fransk:
+      problem: `Skriv tallene på fransk:
 a) 30
 b) 50
 c) 70`,
@@ -1053,7 +1053,7 @@ c) 70 = **soixante-dix**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv tierne pa fransk:',
+        task: 'Skriv tierne på fransk:',
         subTasks: [
           { label: 'a', task: '40', solution: 'quarante' },
           { label: 'b', task: '60', solution: 'soixante' },
@@ -1068,9 +1068,9 @@ c) 70 = **soixante-dix**`,
       id: 'fransk-1-2-2-def-1',
       type: 'definition',
       title: 'Sammensatte tall (21-99)',
-      content: `Pa fransk legger man enertallet etter titallet med bindestrek. Tallet 21, 31, 41, 51, 61 bruker "et un" (og en):
+      content: `På fransk legger man enertallet etter titallet med bindestrek. Tallet 21, 31, 41, 51, 61 bruker "et un" (og en):
 
-**Monster**:
+**Mønster**:
 - 21 = vingt **et un** (tjue og en)
 - 22 = vingt-**deux** (tjue-to)
 - 34 = trente-**quatre** (tretti-fire)
@@ -1082,7 +1082,7 @@ c) 70 = **soixante-dix**`,
       id: 'fransk-1-2-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Sammensatte tall',
-      problem: `Skriv tallene pa fransk:
+      problem: `Skriv tallene på fransk:
 a) 25
 b) 42
 c) 67`,
@@ -1090,7 +1090,7 @@ c) 67`,
 b) 42 = **quarante-deux** (forti-to)
 c) 67 = **soixante-sept** (seksti-syv)
 
-**Tips**: For 20-69 folger tallene et logisk monster!`,
+**Tips**: For 20-69 følger tallene et logisk mønster!`,
     },
     {
       id: 'fransk-1-2-2-ex-block-2',
@@ -1100,7 +1100,7 @@ c) 67 = **soixante-sept** (seksti-syv)
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv tallene pa fransk:',
+        task: 'Skriv tallene på fransk:',
         subTasks: [
           { label: 'a', task: '23', solution: 'vingt-trois' },
           { label: 'b', task: '45', solution: 'quarante-cinq' },
@@ -1114,18 +1114,18 @@ c) 67 = **soixante-sept** (seksti-syv)
     {
       id: 'fransk-1-2-2-tip-1',
       type: 'tip',
-      content: `For a huske de franske tallene over 70: Tenk pa det som matte! 75 = soixante-quinze (60+15), 83 = quatre-vingt-trois (4x20+3), 97 = quatre-vingt-dix-sept (4x20+17).`,
+      content: `For å huske de franske tallene over 70: Tenk på det som matte! 75 = soixante-quinze (60+15), 83 = quatre-vingt-trois (4x20+3), 97 = quatre-vingt-dix-sept (4x20+17).`,
     },
     {
       id: 'fransk-1-2-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Priser',
-      problem: `Skriv prisene pa fransk:
+      problem: `Skriv prisene på fransk:
 "Det koster 35 euro."`,
-      solution: `Ca coute trente-cinq euros.
+      solution: `Ça coûte trente-cinq euros.
 
 **Nyttige ord:**
-- Ca coute... = Det koster...
+- Ça coûte... = Det koster...
 - euro(s) = euro
 - centime(s) = cent (euroens underenhet)`,
     },
@@ -1137,14 +1137,14 @@ c) 67 = **soixante-sept** (seksti-syv)
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Oversett prisene til fransk (bruk "Ca coute..."):',
+        task: 'Oversett prisene til fransk (bruk "Ça coûte..."):',
         subTasks: [
-          { label: 'a', task: 'Det koster 27 euro.', solution: 'Ca coute vingt-sept euros.' },
-          { label: 'b', task: 'Det koster 53 euro.', solution: 'Ca coute cinquante-trois euros.' },
-          { label: 'c', task: 'Det koster 84 euro.', solution: 'Ca coute quatre-vingt-quatre euros.' },
+          { label: 'a', task: 'Det koster 27 euro.', solution: 'Ça coûte vingt-sept euros.' },
+          { label: 'b', task: 'Det koster 53 euro.', solution: 'Ça coûte cinquante-trois euros.' },
+          { label: 'c', task: 'Det koster 84 euro.', solution: 'Ça coûte quatre-vingt-quatre euros.' },
         ],
-        solution: 'a) Ca coute vingt-sept euros.\nb) Ca coute cinquante-trois euros.\nc) Ca coute quatre-vingt-quatre euros.',
-        hints: ['Husk monsteret for tall over 70'],
+        solution: 'a) Ça coûte vingt-sept euros.\nb) Ça coûte cinquante-trois euros.\nc) Ça coûte quatre-vingt-quatre euros.',
+        hints: ['Husk mønsteret for tall over 70'],
       },
     },
     {
@@ -1155,7 +1155,7 @@ c) 67 = **soixante-sept** (seksti-syv)
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv tallene som ord pa fransk:',
+        task: 'Skriv tallene som ord på fransk:',
         subTasks: [
           { label: 'a', task: '99', solution: 'quatre-vingt-dix-neuf' },
           { label: 'b', task: '66', solution: 'soixante-six' },
@@ -1163,7 +1163,7 @@ c) 67 = **soixante-sept** (seksti-syv)
           { label: 'd', task: '100', solution: 'cent' },
         ],
         solution: 'a) quatre-vingt-dix-neuf\nb) soixante-six\nc) trente-sept\nd) cent',
-        hints: ['Ov pa de spesielle formene: soixante-dix, quatre-vingts, quatre-vingt-dix'],
+        hints: ['Øv på de spesielle formene: soixante-dix, quatre-vingts, quatre-vingt-dix'],
       },
     },
   ],
@@ -1179,7 +1179,7 @@ export const CHAPTER_FRANSK_1_2_3: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '2.3',
   title: 'Les couleurs - Fargene',
-  description: 'Laer fargene pa fransk og adjektivsamsvar med kjonn.',
+  description: 'Lær fargene på fransk og adjektivsamsvar med kjønn.',
   estimatedMinutes: 35,
   competenceGoals: [
     'beskrive ting med farger',
@@ -1190,7 +1190,7 @@ export const CHAPTER_FRANSK_1_2_3: TextbookChapter = {
       type: 'text',
       content: `## Fargene
 
-Farger er nyttige for a beskrive ting og gjenstander. La oss laere de vanligste fargene pa fransk! Pa fransk ma fargeadjektiver samsvare med kjonnet til substantivet de beskriver.`,
+Farger er nyttige for å beskrive ting og gjenstander. La oss lære de vanligste fargene på fransk! På fransk må fargeadjektiver samsvare med kjønnet til substantivet de beskriver.`,
     },
     {
       id: 'fransk-1-2-3-text-1',
@@ -1199,17 +1199,17 @@ Farger er nyttige for a beskrive ting og gjenstander. La oss laere de vanligste 
 
 | Maskulin | Feminin | Norsk |
 |----------|---------|-------|
-| rouge | rouge | rod |
-| bleu | bleue | bla |
+| rouge | rouge | rød |
+| bleu | bleue | blå |
 | jaune | jaune | gul |
-| vert | verte | gronn |
+| vert | verte | grønn |
 | blanc | blanche | hvit |
 | noir | noire | svart |
 | marron | marron | brun |
 | orange | orange | oransje |
 | rose | rose | rosa |
 | violet | violette | lilla |
-| gris | grise | gra |`,
+| gris | grise | grå |`,
     },
     {
       id: 'fransk-1-2-3-example-1',
@@ -1218,10 +1218,10 @@ Farger er nyttige for a beskrive ting og gjenstander. La oss laere de vanligste 
       problem: `Oversett til fransk:
 a) rod
 b) bla
-c) gronn`,
-      solution: `a) **rouge** (endres ikke med kjonn)
-b) **bleu** / **bleue** (endres med kjonn)
-c) **vert** / **verte** (endres med kjonn)`,
+c) grønn`,
+      solution: `a) **rouge** (endres ikke med kjønn)
+b) **bleu** / **bleue** (endres med kjønn)
+c) **vert** / **verte** (endres med kjønn)`,
     },
     {
       id: 'fransk-1-2-3-ex-block-1',
@@ -1249,22 +1249,22 @@ c) **vert** / **verte** (endres med kjonn)`,
 
 | Fransk | Norsk |
 |--------|-------|
-| C'est rouge. | Det er rodt. |
+| C'est rouge. | Det er rødt. |
 | Le ballon est bleu. | Ballen er bla. |
 | La fleur est jaune. | Blomsten er gul. |
-| Ma couleur preferee est... | Favorittfargen min er... |`,
+| Ma couleur préférée est... | Favorittfargen min er... |`,
     },
     {
       id: 'fransk-1-2-3-def-1',
       type: 'definition',
-      title: 'Farger og kjonnssamsvar',
-      content: `Pa fransk ma fargeadjektiv samsvare med substantivets kjonn og tall:
+      title: 'Farger og kjønnssamsvar',
+      content: `På fransk må fargeadjektiv samsvare med substantivets kjønn og tall:
 
-- **le** livre **rouge** (den rode boken - hankjonn)
-- **la** voiture **rouge** (den rode bilen - hunkjonn)
-- **les** livres **rouges** (de rode bokene - flertall)
+- **le** livre **rouge** (den røde boken - hankjønn)
+- **la** voiture **rouge** (den røde bilen - hunkjønn)
+- **les** livres **rouges** (de røde bokene - flertall)
 
-Noen farger endres med kjonn:
+Noen farger endres med kjønn:
 - bleu -> bleue, vert -> verte, blanc -> blanche, noir -> noire, gris -> grise, violet -> violette
 
 **Unntak**: "marron" og "orange" endres ALDRI!`,
@@ -1275,11 +1275,11 @@ Noen farger endres med kjonn:
       title: 'Eksempel 2: Beskrive farger',
       problem: `Oversett til fransk:
 a) Himmelen er bla.
-b) Blomsten er gronn.`,
-      solution: `a) Le ciel est **bleu**. (Himmelen er bla - hankjonn.)
-b) La fleur est **verte**. (Blomsten er gronn - hunkjonn.)
+b) Blomsten er grønn.`,
+      solution: `a) Le ciel est **bleu**. (Himmelen er bla - hankjønn.)
+b) La fleur est **verte**. (Blomsten er grønn - hunkjønn.)
 
-Merk at fargen boyes etter substantivets kjonn!`,
+Merk at fargen bøyes etter substantivets kjønn!`,
     },
     {
       id: 'fransk-1-2-3-ex-block-2',
@@ -1289,7 +1289,7 @@ Merk at fargen boyes etter substantivets kjonn!`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfar setningene med riktig farge pa fransk (husk kjonnssamsvar):',
+        task: 'Fullfør setningene med riktig farge på fransk (husk kjønnssamsvar):',
         subTasks: [
           { label: 'a', task: 'Le soleil est ___. (gul)', solution: 'jaune' },
           { label: 'b', task: 'La neige est ___. (hvit)', solution: 'blanche' },
@@ -1297,7 +1297,7 @@ Merk at fargen boyes etter substantivets kjonn!`,
           { label: 'd', task: 'La tomate est ___. (rod)', solution: 'rouge' },
         ],
         solution: 'a) jaune\nb) blanche\nc) noire\nd) rouge',
-        hints: ['Husk at noen farger endrer form i hunkjonn: blanc -> blanche, noir -> noire'],
+        hints: ['Husk at noen farger endrer form i hunkjønn: blanc -> blanche, noir -> noire'],
       },
     },
     {
@@ -1307,27 +1307,27 @@ Merk at fargen boyes etter substantivets kjonn!`,
 
 | Fransk | Norsk |
 |--------|-------|
-| bleu clair | lyseblatt |
-| bleu fonce | morkeblatt |
-| vert clair | lysegront |
-| vert fonce | morkegront |
-| rouge clair | lyserodt |
-| rouge fonce | morkerodt |`,
+| bleu clair | lyseblått |
+| bleu foncé | mørkeblått |
+| vert clair | lysegrønt |
+| vert foncé | mørkegrønt |
+| rouge clair | lyserødt |
+| rouge foncé | morkerødt |`,
     },
     {
       id: 'fransk-1-2-3-tip-1',
       type: 'tip',
-      content: `**clair** = lys, **fonce** = mork. Kombiner disse med farger for a lage nyanser: bleu + clair = bleu clair (lyseblatt). Disse nyansene er uforanderlige - de boyes ikke!`,
+      content: `**clair** = lys, **foncé** = mork. Kombiner disse med farger for å lage nyanser: bleu + clair = bleu clair (lyseblått). Disse nyansene er uforanderlige - de bøyes ikke!`,
     },
     {
       id: 'fransk-1-2-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Favorittfarge',
-      problem: `Hvordan sier du favorittfargen din pa fransk?`,
-      solution: `**Ma couleur preferee est le bleu.**
+      problem: `Hvordan sier du favorittfargen din på fransk?`,
+      solution: `**Ma couleur préférée est le bleu.**
 (Favorittfargen min er bla.)
 
-Sporre: **Quelle est ta couleur preferee?**
+Spørre: **Quelle est ta couleur préférée?**
 (Hva er favorittfargen din?)`,
     },
     {
@@ -1340,12 +1340,12 @@ Sporre: **Quelle est ta couleur preferee?**
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Favorittfargen min er gronn.', solution: 'Ma couleur preferee est le vert.' },
-          { label: 'b', task: 'Hva er favorittfargen din?', solution: 'Quelle est ta couleur preferee?' },
+          { label: 'a', task: 'Favorittfargen min er grønn.', solution: 'Ma couleur préférée est le vert.' },
+          { label: 'b', task: 'Hva er favorittfargen din?', solution: 'Quelle est ta couleur préférée?' },
           { label: 'c', task: 'Himmelen er lyseblaa.', solution: 'Le ciel est bleu clair.' },
         ],
-        solution: 'a) Ma couleur preferee est le vert.\nb) Quelle est ta couleur preferee?\nc) Le ciel est bleu clair.',
-        hints: ['couleur preferee = favorittfarge'],
+        solution: 'a) Ma couleur préférée est le vert.\nb) Quelle est ta couleur préférée?\nc) Le ciel est bleu clair.',
+        hints: ['couleur préférée = favorittfarge'],
       },
     },
     {
@@ -1356,7 +1356,7 @@ Sporre: **Quelle est ta couleur preferee?**
         number: '4',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Hva er fargene pa det franske flagget? Skriv pa fransk.',
+        task: 'Hva er fargene på det franske flagget? Skriv på fransk.',
         solution: 'bleu, blanc, rouge',
         hints: ['Flagget har tre vertikale striper'],
       },
@@ -1374,7 +1374,7 @@ export const CHAPTER_FRANSK_1_2_4: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '2.4',
   title: 'Faire les courses avec des nombres - Handle med tall',
-  description: 'Laer a bruke tall nar du handler.',
+  description: 'Lær å bruke tall når du handler.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kommunisere i enkle handelssituasjoner',
@@ -1386,7 +1386,7 @@ export const CHAPTER_FRANSK_1_2_4: TextbookChapter = {
       type: 'text',
       content: `## Handle med tall
 
-Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk eller sporre om priser i Frankrike!`,
+Nå skal vi bruke tallene i praktiske situasjoner - som å handle i en butikk eller spørre om priser i Frankrike!`,
     },
     {
       id: 'fransk-1-2-4-text-1',
@@ -1395,22 +1395,22 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
 
 | Fransk | Norsk |
 |--------|-------|
-| Ca coute combien? | Hva koster det? |
+| Ça coûte combien? | Hva koster det? |
 | Combien ca coute? | Hvor mye koster det? |
-| Ca coute... euros | Det koster... euro |
+| Ça coûte... euros | Det koster... euro |
 | Je voudrais... | Jeg vil gjerne ha... |
 | Je prends... | Jeg tar... |
 | Est-ce que vous avez...? | Har De...? |
-| L'addition, s'il vous plait | Regningen, takk |`,
+| L'addition, s'il vous plaît | Regningen, takk |`,
     },
     {
       id: 'fransk-1-2-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Sporre om pris',
-      problem: `Lag en kort dialog om a sporre om pris:`,
+      title: 'Eksempel 1: Spørre om pris',
+      problem: `Lag en kort dialog om a spørre om pris:`,
       solution: `**Dialog i butikken:**
 - Client: Excusez-moi, ca coute combien, le t-shirt?
-- Vendeur: Ca coute vingt-cinq euros.
+- Vendeur: Ça coûte vingt-cinq euros.
 - Client: Merci!
 
 (Unnskyld, hva koster T-skjorten? - Den koster 25 euro. - Takk!)`,
@@ -1425,11 +1425,11 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
         difficulty: 'lett',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Hva koster det?', solution: 'Ca coute combien?' },
-          { label: 'b', task: 'Det koster 15 euro.', solution: 'Ca coute quinze euros.' },
+          { label: 'a', task: 'Hva koster det?', solution: 'Ça coûte combien?' },
+          { label: 'b', task: 'Det koster 15 euro.', solution: 'Ça coûte quinze euros.' },
           { label: 'c', task: 'Jeg vil gjerne ha...', solution: 'Je voudrais...' },
         ],
-        solution: 'a) Ca coute combien?\nb) Ca coute quinze euros.\nc) Je voudrais...',
+        solution: 'a) Ça coûte combien?\nb) Ça coûte quinze euros.\nc) Je voudrais...',
         hints: ['Se tabellen med handelsfraser'],
       },
     },
@@ -1457,13 +1457,13 @@ Na skal vi bruke tallene i praktiske situasjoner - som a handle i en butikk elle
 - 12,99 EUR = douze euros quatre-vingt-dix-neuf
 - 0,50 EUR = cinquante centimes
 
-Merk: Pa fransk brukes komma (ikke punktum) for desimaler, akkurat som pa norsk.`,
+Merk: På fransk brukes komma (ikke punktum) for desimaler, akkurat som på norsk.`,
     },
     {
       id: 'fransk-1-2-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Priser med centimes',
-      problem: `Hvordan sier du disse prisene pa fransk?
+      problem: `Hvordan sier du disse prisene på fransk?
 a) 4,50 EUR
 b) 7,99 EUR`,
       solution: `a) quatre euros cinquante (centimes)
@@ -1479,7 +1479,7 @@ Man sier ofte bare "quatre cinquante" i dagligtale.`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Skriv prisene pa fransk:',
+        task: 'Skriv prisene på fransk:',
         subTasks: [
           { label: 'a', task: '2,50 EUR', solution: 'deux euros cinquante' },
           { label: 'b', task: '9,99 EUR', solution: 'neuf euros quatre-vingt-dix-neuf' },
@@ -1508,9 +1508,9 @@ Man sier ofte bare "quatre cinquante" i dagligtale.`,
       id: 'fransk-1-2-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Bestille med mengde',
-      problem: `Lag en bestilling pa fransk:`,
+      problem: `Lag en bestilling på fransk:`,
       solution: `**Bestilling:**
-- Je voudrais un kilo de pommes, s'il vous plait.
+- Je voudrais un kilo de pommes, s'il vous plaît.
 (Jeg vil gjerne ha en kilo epler, takk.)
 
 - Je prends deux bouteilles d'eau.
@@ -1528,9 +1528,9 @@ Man sier ofte bare "quatre cinquante" i dagligtale.`,
         subTasks: [
           { label: 'a', task: 'Jeg vil gjerne ha en flaske melk.', solution: "Je voudrais une bouteille de lait." },
           { label: 'b', task: 'Jeg tar tre epler.', solution: 'Je prends trois pommes.' },
-          { label: 'c', task: "Et stykke kake, takk.", solution: "Un morceau de gateau, s'il vous plait." },
+          { label: 'c', task: "Et stykke kake, takk.", solution: "Un morceau de gateau, s'il vous plaît." },
         ],
-        solution: "a) Je voudrais une bouteille de lait.\nb) Je prends trois pommes.\nc) Un morceau de gateau, s'il vous plait.",
+        solution: "a) Je voudrais une bouteille de lait.\nb) Je prends trois pommes.\nc) Un morceau de gateau, s'il vous plaît.",
         hints: ['Bruk "Je voudrais" eller "Je prends"'],
       },
     },
@@ -1542,9 +1542,9 @@ Man sier ofte bare "quatre cinquante" i dagligtale.`,
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en kort dialog i en butikk (6-8 setninger). Inkluder hilsen, sporre om pris, bestille og betale.',
-        solution: "Eksempel:\nClient: Bonjour!\nVendeur: Bonjour! Je peux vous aider?\nClient: Ca coute combien, le t-shirt?\nVendeur: Ca coute dix-neuf euros quatre-vingt-dix-neuf.\nClient: Je le prends.\nVendeur: Ca fait dix-neuf euros quatre-vingt-dix-neuf.\nClient: Voila. (gir penger)\nVendeur: Merci! Au revoir!\nClient: Au revoir!",
-        hints: ['Start med hilsen', 'Spor om pris med "Ca coute combien...?"', 'Avslutt med betaling og avskjed'],
+        task: 'Skriv en kort dialog i en butikk (6-8 setninger). Inkluder hilsen, spørre om pris, bestille og betale.',
+        solution: "Eksempel:\nClient: Bonjour!\nVendeur: Bonjour! Je peux vous aider?\nClient: Ça coûte combien, le t-shirt?\nVendeur: Ça coûte dix-neuf euros quatre-vingt-dix-neuf.\nClient: Je le prends.\nVendeur: Ça fait dix-neuf euros quatre-vingt-dix-neuf.\nClient: Voila. (gir penger)\nVendeur: Merci! Au revoir!\nClient: Au revoir!",
+        hints: ['Start med hilsen', 'Spør om pris med "Ça coûte combien...?"', 'Avslutt med betaling og avskjed'],
       },
     },
   ],
@@ -1560,7 +1560,7 @@ export const CHAPTER_FRANSK_1_3_1: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '3.1',
   title: 'La famille - Familien',
-  description: 'Laer ord for familiemedlemmer pa fransk.',
+  description: 'Lær ord for familiemedlemmer på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'fortelle om familien sin',
@@ -1571,19 +1571,19 @@ export const CHAPTER_FRANSK_1_3_1: TextbookChapter = {
       type: 'text',
       content: `## Familie
 
-Familie er et viktig tema i alle sprak. La oss laere ordene for familiemedlemmer pa fransk!`,
+Familie er et viktig tema i alle språk. La oss lære ordene for familiemedlemmer på fransk!`,
     },
     {
       id: 'fransk-1-3-1-text-1',
       type: 'text',
       content: `**Naer familie**
 
-| Fransk | Norsk | Kjonn |
+| Fransk | Norsk | Kjønn |
 |--------|-------|-------|
-| la mere | moren | f |
-| le pere | faren | m |
+| la mère | moren | f |
+| le père | faren | m |
 | les parents | foreldrene | fl |
-| la soeur | sosteren | f |
+| la soeur | søsteren | f |
 | le frere | broren | m |
 | les freres et soeurs | sosknene | fl |
 | l'enfant (m/f) | barnet | m/f |
@@ -1596,12 +1596,12 @@ Familie er et viktig tema i alle sprak. La oss laere ordene for familiemedlemmer
       problem: `Oversett til fransk:
 a) mor
 b) far
-c) soster`,
-      solution: `a) la mere
-b) le pere
+c) søster`,
+      solution: `a) la mère
+b) le père
 c) la soeur
 
-Merk at alle substantiv pa fransk har kjonn (le/la), og artikkelen er viktig a huske.`,
+Merk at alle substantiv på fransk har kjønn (le/la), og artikkelen er viktig å huske.`,
     },
     {
       id: 'fransk-1-3-1-ex-block-1',
@@ -1614,7 +1614,7 @@ Merk at alle substantiv pa fransk har kjonn (le/la), og artikkelen er viktig a h
         task: 'Oversett familieordene til fransk (med artikkel):',
         subTasks: [
           { label: 'a', task: 'broren', solution: 'le frere' },
-          { label: 'b', task: 'sosteren', solution: 'la soeur' },
+          { label: 'b', task: 'søsteren', solution: 'la soeur' },
           { label: 'c', task: 'foreldrene', solution: 'les parents' },
           { label: 'd', task: 'barnet', solution: "l'enfant" },
         ],
@@ -1627,7 +1627,7 @@ Merk at alle substantiv pa fransk har kjonn (le/la), og artikkelen er viktig a h
       type: 'text',
       content: `**Besteforeldre og barnebarn**
 
-| Fransk | Norsk | Kjonn |
+| Fransk | Norsk | Kjønn |
 |--------|-------|-------|
 | la grand-mere / mamie | bestemoren | f |
 | le grand-pere / papi | bestefaren | m |
@@ -1639,7 +1639,7 @@ Merk at alle substantiv pa fransk har kjonn (le/la), og artikkelen er viktig a h
     {
       id: 'fransk-1-3-1-tip-1',
       type: 'tip',
-      content: `**Mamie** og **papi** er uformelle ord for bestemor og bestefar, akkurat som "bestemor" og "bestefar" pa norsk. De brukes mye i dagligtale. Andre varianter er "mamy/papy" og "meme/pepe".`,
+      content: `**Mamie** og **papi** er uformelle ord for bestemor og bestefar, akkurat som "bestemor" og "bestefar" på norsk. De brukes mye i dagligtale. Andre varianter er "mamy/papy" og "meme/pepe".`,
     },
     {
       id: 'fransk-1-3-1-example-2',
@@ -1674,7 +1674,7 @@ J'ai une mamie et un papi.`,
       type: 'text',
       content: `**Utvidet familie**
 
-| Fransk | Norsk | Kjonn |
+| Fransk | Norsk | Kjønn |
 |--------|-------|-------|
 | la tante | tanten | f |
 | l'oncle (m) | onkelen | m |
@@ -1687,11 +1687,11 @@ J'ai une mamie et un papi.`,
       id: 'fransk-1-3-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Beskrive familien',
-      problem: `Beskriv familien din pa fransk:`,
+      problem: `Beskriv familien din på fransk:`,
       solution: `**Eksempel:**
 J'ai une grande famille. J'ai une mere, un pere, une soeur et un frere. Mes grands-parents habitent a Oslo.
 
-(Jeg har en stor familie. Jeg har en mor, en far, en soster og en bror. Besteforeldrene mine bor i Oslo.)`,
+(Jeg har en stor familie. Jeg har en mor, en far, en søster og en bror. Besteforeldrene mine bor i Oslo.)`,
     },
     {
       id: 'fransk-1-3-1-ex-block-3',
@@ -1709,14 +1709,14 @@ J'ai une grande famille. J'ai une mere, un pere, une soeur et un frere. Mes gran
           { label: 'd', task: 'kusinen', solution: 'la cousine' },
         ],
         solution: "a) la tante\nb) l'oncle\nc) le cousin\nd) la cousine",
-        hints: ['Cousin (maskulin) og cousine (feminin) skiller kjonn med endelsen'],
+        hints: ['Cousin (maskulin) og cousine (feminin) skiller kjønn med endelsen'],
       },
     },
     {
       id: 'fransk-1-3-1-def-1',
       type: 'definition',
       title: 'Verbet "avoir" (a ha)',
-      content: `**Avoir** brukes for a si hva du har (og for alder!):
+      content: `**Avoir** brukes for å si hva du har (og for alder!):
 
 | Person | Fransk | Norsk |
 |--------|--------|-------|
@@ -1742,8 +1742,8 @@ J'ai une grande famille. J'ai une mere, un pere, une soeur et un frere. Mes gran
           { label: 'c', task: 'Nous ___ beaucoup de cousins.', solution: 'avons' },
           { label: 'd', task: '___-tu des freres et soeurs?', solution: 'As' },
         ],
-        solution: "a) ai (Jeg har en soster.)\nb) a (Han har to brodre.)\nc) avons (Vi har mange fettere.)\nd) As (Har du sosken?)",
-        hints: ['Se boyingstabellen for avoir'],
+        solution: "a) ai (Jeg har en søster.)\nb) a (Han har to brødre.)\nc) avons (Vi har mange fettere.)\nd) As (Har du søsken?)",
+        hints: ['Se bøyingstabellen for avoir'],
       },
     },
   ],
@@ -1759,7 +1759,7 @@ export const CHAPTER_FRANSK_1_3_2: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '3.2',
   title: 'Les adjectifs possessifs - Eiendomsord',
-  description: 'Laer eiendomsordene mon, ma, mes, ton, ta, tes, son, sa, ses.',
+  description: 'Lær eiendomsordene mon, ma, mes, ton, ta, tes, son, sa, ses.',
   estimatedMinutes: 45,
   competenceGoals: [
     'bruke eiendomsord riktig',
@@ -1770,7 +1770,7 @@ export const CHAPTER_FRANSK_1_3_2: TextbookChapter = {
       type: 'text',
       content: `## Eiendomsord
 
-Eiendomsord (adjectifs possessifs) brukes for a vise hvem noe tilhorer, som "min", "din", "hans" osv. Pa fransk ma eiendomsordene samsvare med kjonnet til substantivet de star foran - ikke kjonnet til eieren!`,
+Eiendomsord (adjectifs possessifs) brukes for å vise hvem noe tilhører, som "min", "din", "hans" osv. På fransk må eiendomsordene samsvare med kjønnet til substantivet de står foran - ikke kjønnet til eieren!`,
     },
     {
       id: 'fransk-1-3-2-text-1',
@@ -1793,13 +1793,13 @@ Eiendomsord (adjectifs possessifs) brukes for a vise hvem noe tilhorer, som "min
       content: `Eiendomsord samsvarer med substantivet, IKKE med eieren:
 
 **Med "mon/ma/mes" som eksempel:**
-| Kjonn | Eiendomsord | Eksempel |
+| Kjønn | Eiendomsord | Eksempel |
 |-------|-------------|----------|
-| maskulin | mon | mon pere (min far) |
-| feminin | ma | ma mere (min mor) |
+| maskulin | mon | mon père (min far) |
+| feminin | ma | ma mère (min mor) |
 | flertall | mes | mes parents (mine foreldre) |
 
-**Viktig**: Foran hunkjonnsord som begynner med vokal eller stum h, brukes **mon/ton/son** i stedet for ma/ta/sa:
+**Viktig**: Foran hunkjønnsord som begynner med vokal eller stum h, brukes **mon/ton/son** i stedet for ma/ta/sa:
 - mon amie (min venninne) - IKKE "ma amie"`,
     },
     {
@@ -1812,7 +1812,7 @@ b) ___ soeur
 c) ___ enfant
 d) ___ parents`,
       solution: `a) **mon** frere (min bror - maskulin)
-b) **ma** soeur (min soster - feminin)
+b) **ma** soeur (min søster - feminin)
 c) **mon** enfant (mitt barn - begynner med vokal!)
 d) **mes** parents (mine foreldre - flertall)`,
     },
@@ -1855,13 +1855,13 @@ d) **mes** parents (mine foreldre - flertall)`,
       title: 'Eksempel 2: Ton og son',
       problem: `Oversett til fransk:
 a) din bror
-b) hans soster
+b) hans søster
 c) hennes foreldre`,
       solution: `a) **ton** frere (din bror)
-b) **sa** soeur (hans soster)
+b) **sa** soeur (hans søster)
 c) **ses** parents (hennes foreldre)
 
-Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! Pa fransk bestemmes formen av substantivet, ikke av eierens kjonn.`,
+Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! På fransk bestemmes formen av substantivet, ikke av eierens kjønn.`,
     },
     {
       id: 'fransk-1-3-2-ex-block-2',
@@ -1879,13 +1879,13 @@ Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! Pa fransk bestemmes formen a
           { label: 'd', task: '___ parents sont gentils. (vare)', solution: 'Nos' },
         ],
         solution: 'a) son\nb) Son\nc) ton\nd) Nos',
-        hints: ['Tenk pa kjonnet til substantivet, ikke eieren'],
+        hints: ['Tenk på kjønnet til substantivet, ikke eieren'],
       },
     },
     {
       id: 'fransk-1-3-2-note-1',
       type: 'note',
-      content: `Pass pa! "Son" kan bety bade "hans" og "hennes". Det er substantivets kjonn som bestemmer, ikke eierens. "Son pere" betyr bade "hans far" og "hennes far"!`,
+      content: `Pass på! "Son" kan bety både "hans" og "hennes". Det er substantivets kjønn som bestemmer, ikke eierens. "Son père" betyr både "hans far" og "hennes far"!`,
     },
     {
       id: 'fransk-1-3-2-example-3',
@@ -1894,8 +1894,8 @@ Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! Pa fransk bestemmes formen a
       problem: `Beskriv familiemedlemmer med eiendomsord:`,
       solution: `**Eksempler:**
 - Mon pere s'appelle Erik. (Faren min heter Erik.)
-- Ma mere est medecin. (Moren min er lege.)
-- Ma soeur a 12 ans. (Sosteren min er 12 ar.)
+- Ma mere est médecin. (Moren min er lege.)
+- Ma soeur a 12 ans. (Sosteren min er 12 år.)
 - Mon frere habite a Paris. (Broren min bor i Paris.)`,
     },
     {
@@ -1909,8 +1909,8 @@ Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! Pa fransk bestemmes formen a
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: "Min mor heter Anna.", solution: "Ma mere s'appelle Anna." },
-          { label: 'b', task: 'Hans far er laerer.', solution: 'Son pere est professeur.' },
-          { label: 'c', task: 'Hennes bror er 15 ar.', solution: 'Son frere a 15 ans.' },
+          { label: 'b', task: 'Hans far er lærer.', solution: 'Son pere est professeur.' },
+          { label: 'c', task: 'Hennes bror er 15 år.', solution: 'Son frere a 15 ans.' },
         ],
         solution: "a) Ma mere s'appelle Anna.\nb) Son pere est professeur.\nc) Son frere a 15 ans.",
         hints: ['Husk samsvar med substantivet'],
@@ -1924,14 +1924,14 @@ Viktig: "son/sa/ses" betyr BADE "hans" og "hennes"! Pa fransk bestemmes formen a
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Fullfar teksten med riktige eiendomsord:',
+        task: 'Fullfør teksten med riktige eiendomsord:',
         subTasks: [
           { label: 'a', task: "Je m'appelle Marc. ___ soeur s'appelle Lisa.", solution: 'Ma' },
-          { label: 'b', task: 'Lisa a 14 ans. ___ couleur preferee est le bleu.', solution: 'Sa' },
+          { label: 'b', task: 'Lisa a 14 ans. ___ couleur préférée est le bleu.', solution: 'Sa' },
           { label: 'c', task: "Nous avons un chien. ___ chien s'appelle Rex.", solution: 'Notre' },
         ],
         solution: 'a) Ma\nb) Sa\nc) Notre',
-        hints: ['Tenk pa hvem som eier og substantivets kjonn'],
+        hints: ['Tenk på hvem som eier og substantivets kjønn'],
       },
     },
   ],
@@ -1947,7 +1947,7 @@ export const CHAPTER_FRANSK_1_3_3: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '3.3',
   title: 'Decrire les personnes - Beskrive personer',
-  description: 'Laer a beskrive utseende og personlighet.',
+  description: 'Lær å beskrive utseende og personlighet.',
   estimatedMinutes: 45,
   competenceGoals: [
     'beskrive mennesker',
@@ -1959,7 +1959,7 @@ export const CHAPTER_FRANSK_1_3_3: TextbookChapter = {
       type: 'text',
       content: `## Beskrive personer
 
-For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvordan de ser ut og hvordan de er. Pa fransk ma adjektiver samsvare med kjonnet og tallet til substantivet.`,
+For å fortelle om familien din eller venner, er det nyttig å kunne beskrive hvordan de ser ut og hvordan de er. På fransk må adjektiver samsvare med kjønnet og tallet til substantivet.`,
     },
     {
       id: 'fransk-1-3-3-text-1',
@@ -1972,7 +1972,7 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
 | les cheveux blonds | blondt har |
 | les cheveux bruns / chatains | brunt har |
 | les cheveux noirs | svart har |
-| les cheveux roux | rodt har |
+| les cheveux roux | rødt har |
 | les cheveux gris | gratt har |
 | les cheveux longs | langt har |
 | les cheveux courts | kort har |
@@ -1989,7 +1989,7 @@ For a fortelle om familien din eller venner, er det nyttig a kunne beskrive hvor
 - Elle a les cheveux longs et bruns. (Hun har langt, brunt har.)
 - Mon pere a les cheveux courts et gris. (Faren min har kort, gratt har.)
 
-Merk: Pa fransk sier man "les cheveux" (flertall), ikke entall som pa norsk.`,
+Merk: På fransk sier man "les cheveux" (flertall), ikke entall som på norsk.`,
     },
     {
       id: 'fransk-1-3-3-ex-block-1',
@@ -2018,7 +2018,7 @@ Merk: Pa fransk sier man "les cheveux" (flertall), ikke entall som pa norsk.`,
 |--------|-------|
 | les yeux (m.pl.) | oynene |
 | les yeux bleus | bla oyne |
-| les yeux verts | gronne oyne |
+| les yeux verts | grønne oyne |
 | les yeux marron | brune oyne |
 | grand(e) | hoy/stor |
 | petit(e) | liten/lav |
@@ -2049,7 +2049,7 @@ Merk: "marron" (brun) endres aldri, selv i flertall: les yeux marron.`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Hun har gronne oyne.', solution: 'Elle a les yeux verts.' },
+          { label: 'a', task: 'Hun har grønne oyne.', solution: 'Elle a les yeux verts.' },
           { label: 'b', task: 'Han er hoy.', solution: 'Il est grand.' },
           { label: 'c', task: 'Min bror er ung.', solution: 'Mon frere est jeune.' },
         ],
@@ -2079,14 +2079,14 @@ Merk: "marron" (brun) endres aldri, selv i flertall: les yeux marron.`,
     {
       id: 'fransk-1-3-3-def-1',
       type: 'definition',
-      title: 'Adjektiv og kjonnssamsvar',
-      content: `Pa fransk boyes adjektiv etter kjonnet til substantivet:
+      title: 'Adjektiv og kjønnssamsvar',
+      content: `På fransk bøyes adjektiv etter kjønnet til substantivet:
 - Il est **gentil**. (Han er snill.)
 - Elle est **gentille**. (Hun er snill.)
 - Ils sont **gentils**. (De er snille - maskulin flertall.)
 - Elles sont **gentilles**. (De er snille - feminin flertall.)
 
-Generell regel: Legg til -e for hunkjonn, -s for flertall, -es for hunkjonn flertall.`,
+Generell regel: Legg til -e for hunkjønn, -s for flertall, -es for hunkjønn flertall.`,
     },
     {
       id: 'fransk-1-3-3-example-3',
@@ -2094,7 +2094,7 @@ Generell regel: Legg til -e for hunkjonn, -s for flertall, -es for hunkjonn fler
       title: 'Eksempel 3: Beskrive personlighet',
       problem: `Beskriv personligheten til noen:`,
       solution: `**Eksempler:**
-- Ma mere est tres gentille. (Moren min er veldig snill.)
+- Ma mere est très gentille. (Moren min er veldig snill.)
 - Mon frere est drole. (Broren min er morsom.)
 - Ma soeur est intelligente et travailleuse. (Sosteren min er intelligent og flittig.)`,
     },
@@ -2113,13 +2113,13 @@ Generell regel: Legg til -e for hunkjonn, -s for flertall, -es for hunkjonn fler
           { label: 'c', task: 'Hun er sjenert men snill.', solution: 'Elle est timide mais gentille.' },
         ],
         solution: 'a) Ma mere est sympathique.\nb) Son frere est drole.\nc) Elle est timide mais gentille.',
-        hints: ['Husk a boye adjektivet etter kjonnet'],
+        hints: ['Husk å bøye adjektivet etter kjønnet'],
       },
     },
     {
       id: 'fransk-1-3-3-tip-1',
       type: 'tip',
-      content: `Bruk "tres" (veldig) for a forsterke adjektiver: tres gentil (veldig snill), tres grand (veldig hoy). "Vraiment" (virkelig) er et annet nyttig forsterkningsord.`,
+      content: `Bruk "tres" (veldig) for a førsterke adjektiver: tres gentil (veldig snill), tres grand (veldig hoy). "Vraiment" (virkelig) er et annet nyttig førsterkningsord.`,
     },
     {
       id: 'fransk-1-3-3-ex-block-4',
@@ -2129,8 +2129,8 @@ Generell regel: Legg til -e for hunkjonn, -s for flertall, -es for hunkjonn fler
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en beskrivelse av et familiemedlem pa fransk (4-5 setninger). Inkluder navn, alder, utseende og personlighet.',
-        solution: "Eksempel:\nMa soeur s'appelle Lisa. Elle a 14 ans. Elle a les cheveux longs et blonds et les yeux bleus. Elle est grande et mince. Lisa est tres gentille et drole.",
+        task: 'Skriv en beskrivelse av et familiemedlem på fransk (4-5 setninger). Inkluder navn, alder, utseende og personlighet.',
+        solution: "Eksempel:\nMa soeur s'appelle Lisa. Elle a 14 ans. Elle a les cheveux longs et blonds et les yeux bleus. Elle est grande et mince. Lisa est très gentille et drole.",
         hints: ['Start med navn og alder', 'Beskriv har og oyne', 'Beskriv personlighet med adjektiver'],
       },
     },
@@ -2147,7 +2147,7 @@ export const CHAPTER_FRANSK_1_3_4: TextbookChapter = {
   courseId: 'fransk-1',
   chapterNumber: '3.4',
   title: 'Presenter ma famille - Presentere familien',
-  description: 'Laer a presentere familien din pa fransk.',
+  description: 'Lær å presentere familien din på fransk.',
   estimatedMinutes: 50,
   competenceGoals: [
     'presentere familien sin sammenhengende',
@@ -2159,7 +2159,7 @@ export const CHAPTER_FRANSK_1_3_4: TextbookChapter = {
       type: 'text',
       content: `## Presentere familien
 
-Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din - fortelle om familiemedlemmer, beskrive dem og bruke eiendomsord riktig.`,
+Nå skal vi sette sammen alt vi har lært! Du skal kunne presentere familien din - fortelle om familiemedlemmer, beskrive dem og bruke eiendomsord riktig.`,
     },
     {
       id: 'fransk-1-3-4-text-1',
@@ -2178,7 +2178,7 @@ Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din 
       id: 'fransk-1-3-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Apningsfrase',
-      problem: `Hvordan begynner du a presentere familien?`,
+      problem: `Hvordan begynner du å presentere familien?`,
       solution: `**Gode apninger:**
 - Je voudrais presenter ma famille.
 (Jeg vil gjerne presentere familien min.)
@@ -2201,7 +2201,7 @@ Na skal vi sette sammen alt vi har laert! Du skal kunne presentere familien din 
         subTasks: [
           { label: 'a', task: 'Familien min er stor.', solution: 'Ma famille est grande.' },
           { label: 'b', task: 'Vi er fire personer.', solution: 'Nous sommes quatre personnes.' },
-          { label: 'c', task: 'Jeg har to sosken.', solution: "J'ai deux freres et soeurs." },
+          { label: 'c', task: 'Jeg har to søsken.', solution: "J'ai deux freres et soeurs." },
         ],
         solution: "a) Ma famille est grande.\nb) Nous sommes quatre personnes.\nc) J'ai deux freres et soeurs.",
         hints: ['Bruk "Ma famille" og tall'],
@@ -2226,9 +2226,9 @@ For hvert familiemedlem kan du nevne:
       title: 'Eksempel 2: Beskrive et familiemedlem',
       problem: `Skriv en fullstendig beskrivelse av moren din:`,
       solution: `**Eksempel:**
-Ma mere s'appelle Karin. Elle a 45 ans. Elle a les cheveux courts et bruns et les yeux verts. Ma mere est tres gentille et sympathique. Elle est professeur. On s'entend bien.
+Ma mere s'appelle Karin. Elle a 45 ans. Elle a les cheveux courts et bruns et les yeux verts. Ma mere est très gentille et sympathique. Elle est professeur. On s'entend bien.
 
-(Moren min heter Karin. Hun er 45 ar gammel. Hun har kort, brunt har og gronne oyne. Moren min er veldig snill og vennlig. Hun er laerer. Vi kommer godt overens.)`,
+(Moren min heter Karin. Hun er 45 år gammel. Hun har kort, brunt har og grønne oyne. Moren min er veldig snill og vennlig. Hun er lærer. Vi kommer godt overens.)`,
     },
     {
       id: 'fransk-1-3-4-ex-block-2',
@@ -2238,10 +2238,10 @@ Ma mere s'appelle Karin. Elle a 45 ans. Elle a les cheveux courts et bruns et le
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfar beskrivelsen pa fransk:',
+        task: 'Fullfør beskrivelsen på fransk:',
         subTasks: [
           { label: 'a', task: 'Faren min heter ___. (Per)', solution: "Mon pere s'appelle Per." },
-          { label: 'b', task: 'Han er ___ ar gammel. (50)', solution: 'Il a cinquante ans.' },
+          { label: 'b', task: 'Han er ___ år gammel. (50)', solution: 'Il a cinquante ans.' },
           { label: 'c', task: 'Han har ___ har. (kort, gratt)', solution: 'Il a les cheveux courts et gris.' },
         ],
         solution: "a) Mon pere s'appelle Per.\nb) Il a cinquante ans.\nc) Il a les cheveux courts et gris.",
@@ -2255,8 +2255,8 @@ Ma mere s'appelle Karin. Elle a 45 ans. Elle a les cheveux courts et bruns et le
 
 | Maskulin | Feminin | Norsk |
 |----------|---------|-------|
-| professeur | professeure | laereren |
-| medecin | medecin | legen |
+| professeur | professeure | læreren |
+| médecin | médecin | legen |
 | ingenieur | ingenieure | ingenioren |
 | infirmier | infirmiere | sykepleieren |
 | policier | policiere | politibetjenten |
@@ -2271,10 +2271,10 @@ Ma mere s'appelle Karin. Elle a 45 ans. Elle a les cheveux courts et bruns et le
       problem: `Hvordan sier du hva noen jobber som?`,
       solution: `**Eksempler:**
 - Mon pere est ingenieur. (Faren min er ingenior.)
-- Ma mere est medecin. (Moren min er lege.)
+- Ma mere est médecin. (Moren min er lege.)
 - Mon grand-pere est retraite. (Bestefaren min er pensjonist.)
 
-Merk: Pa fransk bruker man ikke artikkel foran yrkestitler etter "etre": "Il est medecin" (ikke "Il est un medecin").`,
+Merk: På fransk bruker man ikke artikkel foran yrkestitler etter "être": "Il est médecin" (ikke "Il est un médecin").`,
     },
     {
       id: 'fransk-1-3-4-ex-block-3',
@@ -2287,11 +2287,11 @@ Merk: Pa fransk bruker man ikke artikkel foran yrkestitler etter "etre": "Il est
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Min mor er sykepleier.', solution: 'Ma mere est infirmiere.' },
-          { label: 'b', task: 'Min far er laerer.', solution: 'Mon pere est professeur.' },
+          { label: 'b', task: 'Min far er lærer.', solution: 'Mon pere est professeur.' },
           { label: 'c', task: 'Min bestemor er pensjonist.', solution: 'Ma grand-mere est retraitee.' },
         ],
         solution: 'a) Ma mere est infirmiere.\nb) Mon pere est professeur.\nc) Ma grand-mere est retraitee.',
-        hints: ['Husk a bruke femininformen for kvinner'],
+        hints: ['Husk å bruke femininformen for kvinner'],
       },
     },
     {
@@ -2299,9 +2299,9 @@ Merk: Pa fransk bruker man ikke artikkel foran yrkestitler etter "etre": "Il est
       type: 'text',
       content: `**Fullstendig familiepresentasjon - struktur**
 
-1. **Innledning**: Storrelse pa familien
+1. **Innledning**: Størrelse på familien
 2. **Foreldre**: Navn, alder, utseende, yrke
-3. **Sosken**: Navn, alder, beskrivelse
+3. **Søsken**: Navn, alder, beskrivelse
 4. **Eventuelt**: Besteforeldre, kjaeledyr
 5. **Avslutning**: Hva dere liker a gjore sammen`,
     },
@@ -2312,15 +2312,15 @@ Merk: Pa fransk bruker man ikke artikkel foran yrkestitler etter "etre": "Il est
       problem: `Les en fullstendig familiepresentasjon:`,
       solution: `**Ma famille**
 
-Ma famille n'est pas tres grande. Nous sommes quatre personnes: mes parents, ma soeur et moi.
+Ma famille n'est pas très grande. Nous sommes quatre personnes: mes parents, ma soeur et moi.
 
 Mon pere s'appelle Erik. Il a 48 ans. Il a les cheveux courts et bruns et les yeux bleus. Il est ingenieur. Mon pere est tres gentil et drole.
 
 Ma mere s'appelle Anne. Elle a 45 ans. Elle a les cheveux longs et blonds et les yeux verts. Elle est professeure. Ma mere est sympathique et intelligente.
 
-Ma soeur s'appelle Lisa. Elle a 12 ans. Elle a les cheveux longs et bruns. Lisa est timide mais tres gentille.
+Ma soeur s'appelle Lisa. Elle a 12 ans. Elle a les cheveux longs et bruns. Lisa est timide mais très gentille.
 
-Le week-end, nous jouons souvent a des jeux ensemble. J'aime ma famille!`,
+Le week-end, nous jouons souvent à des jeux ensemble. J'aime ma famille!`,
     },
     {
       id: 'fransk-1-3-4-ex-block-4',
@@ -2330,8 +2330,8 @@ Le week-end, nous jouons souvent a des jeux ensemble. J'aime ma famille!`,
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en presentasjon av din egen familie pa fransk (minst 8-10 setninger). Inkluder: familiestorrelse, minst to familiemedlemmer med navn, alder, utseende og personlighet.',
-        solution: "Se eksemplet i teksten for inspirasjon. Husk a bruke alle elementene: eiendomsord (mon/ma/mes), verbene etre og avoir, adjektiver for utseende og personlighet, og tall for alder.",
+        task: 'Skriv en presentasjon av din egen familie på fransk (minst 8-10 setninger). Inkluder: familiestørrelse, minst to familiemedlemmer med navn, alder, utseende og personlighet.',
+        solution: "Se eksemplet i teksten for inspirasjon. Husk å bruke alle elementene: eiendomsord (mon/ma/mes), verbene être og avoir, adjektiver for utseende og personlighet, og tall for alder.",
         hints: [
           'Begynn med "Ma famille est..."',
           'Beskriv hvert familiemedlem systematisk',
@@ -2343,12 +2343,12 @@ Le week-end, nous jouons souvent a des jeux ensemble. J'aime ma famille!`,
     {
       id: 'fransk-1-3-4-tip-1',
       type: 'tip',
-      content: `Nar du skriver en lengre tekst pa fransk, bruk bindeord som **et** (og), **mais** (men), **aussi** (ogsa), **parce que** (fordi) for a variere setningene.`,
+      content: `Når du skriver en lengre tekst på fransk, bruk bindeord som **et** (og), **mais** (men), **aussi** (også), **parce que** (fordi) for a variere setningene.`,
     },
     {
       id: 'fransk-1-3-4-note-1',
       type: 'note',
-      content: `**Gratulerer!** Du har na laert grunnleggende om hilsener, presentasjon, tall, farger og familie pa fransk. Ov pa a bruke disse kunnskapene i samtaler! Fransk er et vakkert sprak med en rik kultur - bonne continuation! (Lykke til videre!)`,
+      content: `**Gratulerer!** Du har na lært grunnleggende om hilsener, presentasjon, tall, farger og familie på fransk. Øv på å bruke disse kunnskapene i samtaler! Fransk er et vakkert språk med en rik kultur - bonne continuation! (Lykke til videre!)`,
     },
   ],
   exercises: [],
