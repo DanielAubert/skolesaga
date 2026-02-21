@@ -39,7 +39,7 @@ I dette kapittelet skal du lære:
 
     // BLOKK 1: Lineær funksjon
     {
-      id: '2p-2-1-def-lineaer',
+      id: '2p-2-1-def-lineær',
       type: 'definition',
       title: 'Lineær funksjon',
       content: `En **lineær funksjon** har formen:
@@ -627,7 +627,7 @@ I dette kapittelet skal du lære:
 
     // BLOKK 1: Lineær regresjon
     {
-      id: '2p-2-3-def-lineaer-regresjon',
+      id: '2p-2-3-def-lineær-regresjon',
       type: 'definition',
       title: 'Lineær regresjon',
       content: `**Lineær regresjon** finner den rette linjen $y = ax + b$ som passer best til et sett med datapunkter.

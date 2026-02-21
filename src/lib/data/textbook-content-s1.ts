@@ -7060,7 +7060,7 @@ Svaret er **12 antrekk**.`,
       problem: `Hvor mange forskjellige 4-sifrede PIN-koder finnes det?`,
       solution: `**Losning:**
 
-En PIN-kode bestar av 4 siffer, der hvert siffer kan vaere fra 0 til 9.
+En PIN-kode bestar av 4 siffer, der hvert siffer kan være fra 0 til 9.
 
 For hvert siffer har vi 10 muligheter (0, 1, 2, ..., 9).
 
@@ -7480,7 +7480,7 @@ $$\\binom{52}{5} = \\frac{52!}{5! \\cdot 47!} = 2\\,598\\,960$$
 
 **Antall gunstige utfall:**
 - Velge 3 ess fra 4: $\\binom{4}{3} = 4$
-- Velge 2 andre kort fra de 48 gjenvaerende: $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1\\,128$
+- Velge 2 andre kort fra de 48 gjenværende: $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1\\,128$
 
 Antall gunstige = $4 \\cdot 1\\,128 = 4\\,512$
 
@@ -7668,7 +7668,7 @@ Notasjon: $P(A|B)$ leses "sannsynligheten for A gitt B".`,
       id: 's1-5-2-def',
       type: 'definition',
       title: 'Betinget sannsynlighet',
-      content: `La $A$ og $B$ vaere to hendelser der $P(B) > 0$. Den **betingede sannsynligheten** for $A$ gitt $B$ er:
+      content: `La $A$ og $B$ være to hendelser der $P(B) > 0$. Den **betingede sannsynligheten** for $A$ gitt $B$ er:
 
 $$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$
 
@@ -8082,7 +8082,7 @@ Totalsetningen lar oss beregne sannsynligheten for en hendelse ved a dele opp i 
       id: 's1-5-2-total-def',
       type: 'theorem',
       title: 'Totalsetningen',
-      content: `La $B_1, B_2, \\ldots, B_n$ vaere gjensidig utelukkende hendelser som dekker hele utfallsrommet (en partisjon). Da er:
+      content: `La $B_1, B_2, \\ldots, B_n$ være gjensidig utelukkende hendelser som dekker hele utfallsrommet (en partisjon). Da er:
 
 $$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$
 
@@ -8379,7 +8379,7 @@ Et viktig bruksomrade for Bayes' setning er medisinsk diagnostikk.
 - **Sensitivitet**: $P(+|\\text{syk})$ - andel syke som tester positivt
 - **Spesifisitet**: $P(-|\\text{frisk})$ - andel friske som tester negativt
 - **Prevalens**: $P(\\text{syk})$ - andel av befolkningen som er syk
-- **Positiv prediktiv verdi (PPV)**: $P(\\text{syk}|+)$ - sannsynlighet for a vaere syk gitt positiv test`,
+- **Positiv prediktiv verdi (PPV)**: $P(\\text{syk}|+)$ - sannsynlighet for a være syk gitt positiv test`,
     },
 
     // Eksempel 1: Medisinsk test
@@ -8426,7 +8426,7 @@ $$P(+) = 0{,}00099 + 0{,}04995 = 0{,}05094$$
 $$P(S|+) = \\frac{P(+|S) \\cdot P(S)}{P(+)} = \\frac{0{,}99 \\cdot 0{,}001}{0{,}05094}$$
 $$P(S|+) = \\frac{0{,}00099}{0{,}05094} \\approx 0{,}0194 \\approx 1{,}9\\%$$
 
-**Overraskende resultat:** Selv med en positiv test er det bare ca. 2% sjanse for a vaere syk!
+**Overraskende resultat:** Selv med en positiv test er det bare ca. 2% sjanse for a være syk!
 
 Dette skyldes at sykdommen er sa sjelden at antall falske positive (fra de mange friske) overstiger antall sanne positive.`,
     },
@@ -8437,7 +8437,7 @@ Dette skyldes at sykdommen er sa sjelden at antall falske positive (fra de mange
       title: 'Base rate fallacy',
       content: `Eksempelet over illustrerer et viktig fenomen: **base rate fallacy** (grunnsats-feilen).
 
-Intuisjonen sier at en 99% noyaktig test burde gi hoye sannsynligheter for a vaere syk ved positiv test. Men nar sykdommen er sjelden (lav prevalens), dominerer falske positive.
+Intuisjonen sier at en 99% noyaktig test burde gi hoye sannsynligheter for a være syk ved positiv test. Men nar sykdommen er sjelden (lav prevalens), dominerer falske positive.
 
 **Hovedregel:** Ved sjeldne tilstander ma selv svart gode tester ofte bekreftes med tilleggstester.`,
     },
@@ -8956,7 +8956,7 @@ $$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$
 - Spamfiltrering
 - Forsikring og risiko
 
-**Hovedinnsikt:** Nar noe er sjeldent (lav prior), ma bevisene vaere svart sterke for a gi hoy posterior.`,
+**Hovedinnsikt:** Nar noe er sjeldent (lav prior), ma bevisene være svart sterke for a gi hoy posterior.`,
     },
   ],
   exercises: [],

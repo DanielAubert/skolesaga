@@ -3399,6 +3399,26 @@ Du trenger ikke alltid organisert trening - hverdagsaktivitet bidrar også:
         allowsCanvasDrawing: false,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Sammenhengen** mellom fysisk aktivitet og god helse
+- **Helsegevinster** av regelmessig trening for kropp og sinn
+- **Helsedirektoratets anbefalinger** for ungdom: minst 60 minutter daglig
+- Viktigheten av å reflektere over egne aktivitetsvaner`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Anbefalinger om fysisk aktivitet
+- Folkehelseinstituttet: fhi.no
+- WHO: Retningslinjer for fysisk aktivitet`,
+    },
   ],
   exercises: [],
 };
@@ -3744,6 +3764,27 @@ Livsstilssykdommer koster det norske samfunnet milliarder årlig:
         allowsCanvasDrawing: false,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Livsstilssykdommer** som diabetes type 2, hjerte- og karsykdommer og overvekt
+- Hvordan **fysisk inaktivitet** er en viktig risikofaktor
+- **Forebygging** gjennom regelmessig aktivitet og sunt kosthold
+- Livsstilssykdommer som **samfunnsutfordring**, ikke bare individuelt problem`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Folkehelseinstituttet: fhi.no
+- Helsedirektoratet: helsedirektoratet.no
+- Diabetesforbundet: diabetes.no
+- WHO: Noncommunicable diseases`,
+    },
   ],
   exercises: [],
 };
@@ -4071,6 +4112,27 @@ Flyt oppstår ofte i sport, dans, lek og kreative aktiviteter.`,
         allowsCanvasDrawing: false,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Psykisk helse** og hvordan fysisk aktivitet kan forebygge angst og depresjon
+- **Bevegelsesglede** som nøkkel til varig motivasjon
+- Forskjellen mellom **sunn trening** og tvangstrening
+- Sammenhengen mellom kropp og sinn i et helhetlig helseperspektiv`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Psykisk helse og fysisk aktivitet
+- Folkehelseinstituttet: fhi.no
+- Mental Helse: mentalhelse.no
+- Ung.no: Informasjon om psykisk helse for ungdom`,
+    },
   ],
   exercises: [],
 };
@@ -4372,6 +4434,26 @@ To løpere, Abbey D'Agostino (USA) og Nikki Hamblin (New Zealand), kolliderte og
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-8-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Fair play** som grunnleggende verdi i idrett og bevegelsesaktiviteter
+- **Sportsånd** og respekt for regler, medspillere og motstandere
+- **Etiske dilemmaer** i idrett og hvordan håndtere dem
+- **NIFs verdier** for norsk idrett: Glede, Fellesskap, Helse, Ærlighet, Frivillighet`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges idrettsforbund: idrettsforbundet.no
+- Fair Play - Norsk Toppfotball
+- IOC: Olympic Values Education Programme`,
     },
   ],
   exercises: [],
@@ -5716,7 +5798,28 @@ Når du tenker negativt om kroppen, spør deg:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-8-8-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
 
+I dette kapittelet har vi lært om:
+- **Kropp og identitet** og hvordan samfunnet påvirker vårt forhold til kroppen
+- **Kroppsidealer** i media og reklame og hvordan de kan påvirke selvbildet
+- **Kritisk tenkning** om mediebilder, reklame og kommersielle interesser
+- **Body positivity og body neutrality** som alternative perspektiver
+- Praktiske tiltak for å bygge et sunt forhold til egen kropp`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-8-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Medietilsynet: Barn og medier-undersøkelsen
+- Rådgivning om spiseforstyrrelser (ROS): nettros.no
+- Ung.no: Kropp og helse
+- Helsedirektoratet: Råd om kropp og selvbilde`,
+    },
   ],
   exercises: [],
 };

@@ -139,6 +139,18 @@ En god prosjektplan inneholder:
 **Risiko**: Dårlig vær for utendørs opptak. Tiltak: Ha innendørsscener som alternativ.`,
     },
     {
+      id: 'im-8-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Prosjektmetodikk gir struktur og system til arbeidet med et prosjekt.
+- Fossefallsmetoden er lineær med faste faser fra start til slutt.
+- Agile metoder (Scrum) arbeider i korte sprinter med hyppige leveranser.
+- Kanban-tavler visualiserer oppgaver i kolonner (å gjøre, pågår, ferdig).
+- Gantt-diagrammer viser aktiviteter og tidslinjer visuelt.
+- Valg av metodikk avhenger av prosjektets størrelse, kompleksitet og krav.`,
+    },
+    {
       id: 'im-8-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -353,6 +365,18 @@ Konflikter i team er naturlig og kan være konstruktive hvis de håndteres rikti
 **Møteplan**: Mandag 10 min statusmøte, torsdag 20 min gjennomgang av ukens arbeid.
 
 **Kommunikasjonsregler**: Svar på meldinger innen 24 timer. Gi tilbakemelding innen 48 timer etter at noen deler arbeid. Si ifra tidlig hvis du ikke rekker en deadline.`,
+    },
+    {
+      id: 'im-8-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Effektivt samarbeid krever tydelige roller, ansvar og kommunikasjonskanaler.
+- Teamroller som leder, kreativ og utfører utfyller hverandre.
+- God tilbakemeldingskultur bygger tillit og fremmer kontinuerlig forbedring.
+- Konflikthåndtering krever åpen dialog og fokus på sak fremfor person.
+- Digitale samarbeidsverktøy støtter kommunikasjon og dokumentdeling.
+- Profesjonell samarbeidskompetanse er viktig i alle yrker innen IT og media.`,
     },
     {
       id: 'im-8-2-ex-1',
@@ -571,6 +595,18 @@ En **pitch** er en kort, overbevisende presentasjon av konseptet.
 **Elevator pitch**: "For elever som glemmer frister og sliter med oversikt, er StudieBuddy en app som automatisk samler alle innleveringsfrister fra It's Learning og sender smarte påminnelser. I motsetning til vanlige kalenderapper, trenger du ikke legge inn noe manuelt."`,
     },
     {
+      id: 'im-8-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Idéutvikling bruker kreative metoder som brainstorming, mind mapping og moodboards.
+- Brainstorming handler om å generere mange ideer uten å vurdere dem underveis.
+- Mind mapping organiserer ideer visuelt rundt et sentralt tema.
+- Moodboards samler inspirasjon i bilder, farger, materialer og stemning.
+- En konseptbeskrivelse oppsummerer ideen, målgruppen og den kreative retningen.
+- Pitching presenterer konseptet kort og overbevisende for beslutningstakere.`,
+    },
+    {
       id: 'im-8-3-ex-1',
       type: 'exercise',
       exercise: {
@@ -770,6 +806,18 @@ Digitale medier åpner for nye former for historiefortelling der publikum deltar
 - **Reklame**: Anslag + problem + løsning i 30 sekunder
 - **Podcast**: Bygg episoder rundt en spenningskurve
 - **Nettside**: Fortell bedriftens historie gjennom scrollytelling`,
+    },
+    {
+      id: 'im-8-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Dramaturgi er læren om hvordan historier bygges opp for å engasjere publikum.
+- Tre-akt-strukturen deler historien i introduksjon, konfrontasjon og oppløsning.
+- Karakterutvikling gir publikum noen å identifisere seg med og heie på.
+- Spenningskurven bygger opp mot et klimaks og gir historien dynamikk.
+- Interaktiv historiefortelling lar publikum påvirke handlingen og skape engasjement.
+- Dramaturgiske prinsipper kan brukes i alt fra film og spill til presentasjoner og reklame.`,
     },
     {
       id: 'im-8-4-ex-1',
@@ -997,6 +1045,18 @@ SELECT * FROM karakterer WHERE poeng > 50;`,
 SELECT b.tittel, u.utlånsdato FROM bok b JOIN utlån u ON b.bok_id = u.bok_id JOIN elev e ON e.elev_id = u.elev_id WHERE e.fornavn = 'Mia' AND e.etternavn = 'Hansen';`,
     },
     {
+      id: 'im-8-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- En database er en organisert samling av data som kan søkes, oppdateres og analyseres.
+- ER-diagrammer modellerer relasjoner mellom ulike dataelementer (entiteter).
+- Tabeller organiserer data i rader (poster) og kolonner (felter).
+- Primærnøkler identifiserer hver rad unikt, fremmednøkler kobler tabeller sammen.
+- SQL-spørringer brukes til å hente, legge til, oppdatere og slette data.
+- Databasekunnskap er viktig for å forstå hvordan digitale systemer lagrer og organiserer informasjon.`,
+    },
+    {
       id: 'im-8-5-ex-1',
       type: 'exercise',
       exercise: {
@@ -1166,6 +1226,18 @@ Datasentre bruker energi til:
 - **Mørk modus** sparer batteristrøm på OLED-skjermer
 - **Caching** reduserer unødvendige serverforespørsler
 - **Grønn hosting**: Velg hostingleverandører som bruker fornybar energi`,
+    },
+    {
+      id: 'im-8-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- IT-bransjen har et betydelig energi- og miljøfotavtrykk gjennom produksjon, drift og avhending.
+- Datasentre bruker store mengder energi og krever effektiv kjøling.
+- E-avfall er et voksende globalt problem som krever ansvarlig håndtering.
+- Sirkulærøkonomi handler om å gjenbruke, reparere og resirkulere elektronikk.
+- Bærekraftig programvareutvikling minimerer ressursbruk og energiforbruk.
+- Bevisste valg ved anskaffelse, drift og avhending reduserer miljøpåvirkningen.`,
     },
     {
       id: 'im-8-6-ex-1',
@@ -1381,6 +1453,18 @@ En **risikovurdering** identifiserer farer og vurderer risiko:
 4. Hva kan vi gjøre for å redusere risikoen?`,
     },
     {
+      id: 'im-8-7-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- HMS-lovgivningen stiller krav til helse, miljø og sikkerhet på arbeidsplassen.
+- Ergonomi ved skjermarbeid omfatter riktig stol, skjermhøyde og pauserutiner.
+- Belastningsskader kan forebygges med riktige arbeidsstillinger og regelmessige pauser.
+- Psykososialt arbeidsmiljø handler om trivsel, relasjoner og mestring på jobb.
+- Risikovurdering identifiserer farer og iverksetter forebyggende tiltak.
+- Arbeidsgiver har hovedansvaret for HMS, men alle ansatte har medvirkningsplikt.`,
+    },
+    {
       id: 'im-8-7-ex-1',
       type: 'exercise',
       exercise: {
@@ -1585,6 +1669,18 @@ Med generell studiekompetanse (eller fagbrev + påbygg) kan du studere:
 - **Tverrfaglighet**: Kombinasjonen IT + annet fag (helse, jus, økonomi) er svært etterspurt
 
 **Livslang læring**: IT-bransjen endrer seg raskt. Å holde seg oppdatert gjennom kurs, sertifiseringer og selvstudium er nødvendig gjennom hele karrieren.`,
+    },
+    {
+      id: 'im-8-8-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- IT- og mediebransjen tilbyr mange ulike yrkesroller fra utvikler til innholdsprodusent.
+- Lærlingordning og fagbrev gir praktisk kompetanse og formell kvalifikasjon.
+- Høyere utdanning ved universiteter og høyskoler gir fordypning innen IT og media.
+- Bransjen etterspør kombinasjoner av teknisk, kreativ og kommunikativ kompetanse.
+- Livslang læring er nødvendig fordi teknologien utvikler seg raskt.
+- Fremtidens kompetansebehov inkluderer AI, datasikkerhet, bærekraft og brukeropplevelse.`,
     },
     {
       id: 'im-8-8-ex-1',

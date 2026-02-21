@@ -20,7 +20,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_1: TextbookChapter = {
   courseId: 'salg-service-vg1',
   chapterNumber: '5.1',
   title: 'Reiselivsnæringen i Norge',
-  description: 'En introduksjon til reiselivsnæringen i Norge, dens betydning for norsk okonomi og de ulike delene som utgjor bransjen. Du larer om verdiskapingen og arbeidsplassene i naringen.',
+  description: 'En introduksjon til reiselivsnæringen i Norge, dens betydning for norsk økonomi og de ulike delene som utgjor bransjen. Du lærer om verdiskapingen og arbeidsplassene i næringen.',
   estimatedMinutes: 40,
   competenceGoals: ['beskrive reiselivsnæringen og gjøre rede for verdiskapingen i næringen'],
   content: [
@@ -33,7 +33,7 @@ Norge er et attraktivt reisemal for turister fra hele verden. Fra nordlyset i no
 
 I dette kapittelet skal du lære:
 - Hva reiselivsnæringen omfatter
-- Reiselivets betydning for norsk okonomi
+- Reiselivets betydning for norsk økonomi
 - De ulike delene av reiselivsnæringen
 - Hvordan verdiskapingen fordeles`,
     },
@@ -49,14 +49,14 @@ I dette kapittelet skal du lære:
       content: `### Reiselivets betydning for Norge
 
 **Okonomisk betydning:**
-- Reiselivsnæringen omsettet for over 200 milliarder kroner arlig
+- Reiselivsnæringen omsettet for over 200 milliarder kroner årlig
 - Eksportinntekter: Utenlandske turister bringer inn "fersk" valuta
 - Skatteinntekter til stat og kommuner
 - Ringvirkninger til andre naringer
 
 **Arbeidsplasser:**
-- Over 170 000 arbeidsplasser direkte i naringen
-- Mange unge far sin forste jobb i reiseliv
+- Over 170 000 arbeidsplasser direkte i næringen
+- Mange unge far sin første jobb i reiseliv
 - Arbeidsplasser i hele landet, ogsa utenfor storbyene
 - Mangfoldig arbeidsstyrke med folk fra mange land
 
@@ -104,7 +104,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-5-1-def-2',
       type: 'definition',
       title: 'Verdiskaping',
-      content: `**Verdiskaping** er den okonomiske verdien som skapes gjennom produksjon av varer og tjenester. I reiselivet maler vi verdiskaping som forskjellen mellom omsetningen og kostnadene til innkjopte varer og tjenester. Verdiskapingen betaler for lonna til ansatte og gir avkastning til eierne.`,
+      content: `**Verdiskaping** er den økonomiske verdien som skapes gjennom produksjon av varer og tjenester. I reiselivet maler vi verdiskaping som forskjellen mellom omsetningen og kostnadene til innkjopte varer og tjenester. Verdiskapingen betaler for lonna til ansatte og gir avkastning til eierne.`,
     },
     {
       id: 'salg-service-vg1-5-1-text-3',
@@ -150,12 +150,12 @@ I dette kapittelet skal du lære:
 7. **Suvenirer:** Troll, gensere, lokale produkter (butikker)
 
 **Ringvirkninger:**
-- Hotellet kjoper mat fra lokale leverandorer
+- Hotellet kjøper mat fra lokale leverandorer
 - Guiden har fast jobb i sesongen
 - Kommunen far skatteinntekter
 - Lokale handverkere selger produkter
 
-Hver del av verdikjeden skaper arbeidsplasser og okonomisk aktivitet.`,
+Hver del av verdikjeden skaper arbeidsplasser og økonomisk aktivitet.`,
     },
     {
       id: 'salg-service-vg1-5-1-ex-1',
@@ -251,7 +251,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_2: TextbookChapter = {
   courseId: 'salg-service-vg1',
   chapterNumber: '5.2',
   title: 'Overnatting og servering',
-  description: 'En grundig gjennomgang av overnattings- og serveringsbransjen som utgjor kjernen i reiselivet. Du larer om ulike typer virksomheter, yrker og trender i disse bransjene.',
+  description: 'En grundig gjennomgang av overnattings- og serveringsbransjen som utgjor kjernen i reiselivet. Du lærer om ulike typer virksomheter, yrker og trender i disse bransjene.',
   estimatedMinutes: 45,
   competenceGoals: ['gjøre rede for kjennetegn ved reiselivsprodukter og yrker i reiselivsnæringen'],
   content: [
@@ -260,7 +260,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_2: TextbookChapter = {
       type: 'text',
       content: `## Vertskap for reisende
 
-Overnatting og servering er de mest synlige delene av reiselivsnæringen. Nar vi reiser, trenger vi et sted a sove og mat a spise. Disse bransjene har lange tradisjoner og er i konstant utvikling for a mote gjestenes forventninger.
+Overnatting og servering er de mest synlige delene av reiselivsnæringen. Nar vi reiser, trenger vi et sted a sove og mat a spise. Disse bransjene har lange tradisjoner og er i konstant utvikling for a møte gjestenes forventninger.
 
 I dette kapittelet skal du lære:
 - Ulike typer overnattingsbedrifter
@@ -468,7 +468,7 @@ I dette kapittelet skal du lære:
         number: '5.2.3',
         type: 'classic',
         task: 'Beskriv tre ulike typer hoteller og hvem som er typisk malgruppr for hver.',
-        solution: '1) Boutiquehotell: Designbevisste reisende som søker unike opplevelser, villige til a betale for særpreg. 2) Vandrerhjem/hostel: Budsjettbevisste reisende, backpackere, studenter som prioriterer pris og sosial atmosfære. 3) Konferansehotell: Bedrifter og organisasjoner som trenger møterom, teknikk og overnatting for deltakere.',
+        solution: '1) Boutiquehotell: Designbevisste reisende som søker unike opplevelser, villige til å betale for særpreg. 2) Vandrerhjem/hostel: Budsjettbevisste reisende, backpackere, studenter som prioriterer pris og sosial atmosfære. 3) Konferansehotell: Bedrifter og organisasjoner som trenger møterom, teknikk og overnatting for deltakere.',
       },
     },
     {
@@ -489,7 +489,7 @@ I dette kapittelet skal du lære:
         id: 'salg-service-vg1-5-2-ex-5',
         number: '5.2.5',
         type: 'classic',
-        task: 'Nevn fire trender i serveringsbransjen og forklar hvorfor de har oppstatt.',
+        task: 'Nevn fire trender i serveringsbransjen og forklar hvorfor de har oppstått.',
         solution: '1) Lokalmat og kortreist: Økt miljøbevissthet og ønske om a støtte lokale produsenter. 2) Vegetarisk/vegansk: Klima- og helsehensyn, flere ønsker plantebasert. 3) Ghost kitchens: Økt hjemlevering (særlig etter pandemien), lavere kostnader enn vanlig restaurant. 4) Teknologi (QR-menyer, bestillingsapper): Effektivisering, reduserte kostnader, kundens ønske om enkelhet.',
       },
     },
@@ -525,7 +525,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_3: TextbookChapter = {
   courseId: 'salg-service-vg1',
   chapterNumber: '5.3',
   title: 'Transport og reiselivsopplevelser',
-  description: 'En oversikt over transportsektoren og opplevelsesnæringen som viktige deler av reiselivet. Du larer om ulike transportformer, attraksjoner og hva som gjor opplevelser minneverdige.',
+  description: 'En oversikt over transportsektoren og opplevelsesnæringen som viktige deler av reiselivet. Du lærer om ulike transportformer, attraksjoner og hva som gjor opplevelser minneverdige.',
   estimatedMinutes: 40,
   competenceGoals: ['gjøre rede for kjennetegn ved reiselivsprodukter og yrker i reiselivsnæringen'],
   content: [
@@ -589,7 +589,7 @@ Noen transportmidler er attraksjoner i seg selv:
 - En av verdens bratteste jernbaner
 - 20 km fra Myrdal til Flam
 - 863 meters høydeforskjell
-- Over 1 million passasjerer arlig
+- Over 1 million passasjerer årlig
 
 **Bergensbanen:**
 - Oslo-Bergen gjennom fjellheimen
@@ -802,7 +802,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_4: TextbookChapter = {
   courseId: 'salg-service-vg1',
   chapterNumber: '5.4',
   title: 'Bærekraftig reiseliv',
-  description: 'Hvordan reiselivsnæringen kan utvikles pa en bærekraftig mate som tar hensyn til miljø, lokalsamfunn og okonomi. Du larer om utfordringer og losninger for et mer ansvarlig reiseliv.',
+  description: 'Hvordan reiselivsnæringen kan utvikles pa en bærekraftig mate som tar hensyn til miljø, lokalsamfunn og økonomi. Du lærer om utfordringer og løsninger for et mer ansvarlig reiseliv.',
   estimatedMinutes: 45,
   competenceGoals: ['utforske trender og bærekraft i reiselivsnæringen'],
   content: [
@@ -811,7 +811,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_4: TextbookChapter = {
       type: 'text',
       content: `## Reiseliv for fremtiden
 
-Turisme kan være bade en velsignelse og en forbannelse. Pa sitt beste skaper reiseliv arbeidsplasser, bevarer kultur og gir mennesker unike opplevelser. Pa sitt verste forurenser det miljøet, ødelegger lokalsamfunn og tømmer ressurser. Bærekraftig reiseliv handler om a finne balansen.
+Turisme kan være bade en velsignelse og en forbannelse. Pa sitt beste skaper reiseliv arbeidsplasser, bevarer kultur og gir mennesker unike opplevelser. Pa sitt verste forurenser det miljøet, ødelegger lokalsamfunn og tømmer ressurser. Bærekraftig reiseliv handler om å finne balansen.
 
 I dette kapittelet skal du lære:
 - Hva bærekraftig reiseliv betyr
@@ -916,7 +916,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-5-4-def-2',
       type: 'definition',
       title: 'Overturisme',
-      content: `**Overturisme** oppstar nar et omrade mottar flere turister enn det taler. Konsekvensene er negativ pavirkning pa miljø, infrastruktur, lokalbefolkning og selve turistopplevelsen. Eksempler er Venice, Barcelona og i Norge steder som Trolltunga i høysesong.`,
+      content: `**Overturisme** oppstår nar et omrade mottar flere turister enn det tåler. Konsekvensene er negativ påvirkning pa miljø, infrastruktur, lokalbefolkning og selve turistopplevelsen. Eksempler er Venice, Barcelona og i Norge steder som Trolltunga i høysesong.`,
     },
     {
       id: 'salg-service-vg1-5-4-text-4',
@@ -1002,7 +1002,7 @@ I dette kapittelet skal du lære:
         type: 'classic',
         task: 'Hva er overturisme, og hva er konsekvensene?',
         hints: ['Tenk pa populære turiststeder'],
-        solution: 'Overturisme oppstar nar et omrade mottar flere turister enn det taler. Konsekvensene er slitasje pa natur og bygninger, forverret opplevelse for turistene, stress for lokalbefolkningen, press pa infrastruktur (vann, avløp, veier), og økende priser som presser ut lokalbefolkning.',
+        solution: 'Overturisme oppstår nar et omrade mottar flere turister enn det tåler. Konsekvensene er slitasje pa natur og bygninger, forverret opplevelse for turistene, stress for lokalbefolkningen, press pa infrastruktur (vann, avløp, veier), og økende priser som presser ut lokalbefolkning.',
       },
     },
     {
@@ -1070,7 +1070,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_5: TextbookChapter = {
   courseId: 'salg-service-vg1',
   chapterNumber: '5.5',
   title: 'Internasjonalt reiseliv og trender',
-  description: 'En oversikt over det globale reiselivet og hvordan internasjonale trender pager norsk reiseliv. Du larer om viktige reiselivstrender og hvordan Norge posisjonerer seg i det globale markedet.',
+  description: 'En oversikt over det globale reiselivet og hvordan internasjonale trender pager norsk reiseliv. Du lærer om viktige reiselivstrender og hvordan Norge posisjonerer seg i det globale markedet.',
   estimatedMinutes: 40,
   competenceGoals: ['vurdere hvordan nasjonalt og internasjonalt reiseliv påvirker hverandre'],
   content: [
@@ -1091,7 +1091,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-5-5-def-1',
       type: 'definition',
       title: 'Internasjonal turisme',
-      content: `**Internasjonal turisme** omfatter reiser der personer krysser landegrenser for fritid, forretning eller andre formål. FNs verdensorganisasjon for turisme (UNWTO) rapporterer at det arlig er over 1,4 milliarder internasjonale turistankomster globalt (før pandemien).`,
+      content: `**Internasjonal turisme** omfatter reiser der personer krysser landegrenser for fritid, forretning eller andre formål. FNs verdensorganisasjon for turisme (UNWTO) rapporterer at det årlig er over 1,4 milliarder internasjonale turistankomster globalt (før pandemien).`,
     },
     {
       id: 'salg-service-vg1-5-5-text-1',
@@ -1275,7 +1275,7 @@ I dette kapittelet skal du lære:
         type: 'classic',
         task: 'Hva menes med "opplevelsesturisme" som trend?',
         hints: ['Tenk pa hva turister vil gjøre vs. se'],
-        solution: 'Opplevelsesturisme handler om at turister ønsker a aktivt delta og gjøre ting, ikke bare se pa severdigheter. De vil ha autentiske, lokale opplevelser som a lære a lage lokal mat, padle kajakk, ga pa bre eller møte lokalbefolkningen - opplevelser som er unike og minneverdige.',
+        solution: 'Opplevelsesturisme handler om at turister ønsker a aktivt delta og gjøre ting, ikke bare se pa severdigheter. De vil ha autentiske, lokale opplevelser som a lære å lage lokal mat, padle kajakk, ga pa bre eller møte lokalbefolkningen - opplevelser som er unike og minneverdige.',
       },
     },
     {
@@ -1297,7 +1297,7 @@ I dette kapittelet skal du lære:
         number: '5.5.4',
         type: 'classic',
         task: 'Hvorfor er asiatiske markeder (særlig Kina) viktige for norsk reiseliv?',
-        solution: 'Kina er verdens største avsenderland av turister med høy betalingsvilje. Den voksende middelklassen i Asia har rad og ønsker a reise til unike destinasjoner. Norge har attraksjoner som tiltrekker (nordlys, fjorder, natur), og asiatiske turister er ofte villige til a betale for kvalitet. Selv om volumet er mindre enn europeiske markeder, er vekstpotensialet stort.',
+        solution: 'Kina er verdens største avsenderland av turister med høy betalingsvilje. Den voksende middelklassen i Asia har rad og ønsker a reise til unike destinasjoner. Norge har attraksjoner som tiltrekker (nordlys, fjorder, natur), og asiatiske turister er ofte villige til å betale for kvalitet. Selv om volumet er mindre enn europeiske markeder, er vekstpotensialet stort.',
       },
     },
     {
@@ -1318,7 +1318,7 @@ I dette kapittelet skal du lære:
 
 I dette kapittelet har du lært:
 
-- **Internasjonal turisme** omfatter over 1,4 milliarder reiser arlig
+- **Internasjonal turisme** omfatter over 1,4 milliarder reiser årlig
 - **Globale trender** inkluderer opplevelsesturisme, bærekraft og digitalisering
 - **Norges posisjon** som nisjedestinasjon med natur og kvalitet
 - **Nye markeder** fra Asia krever kulturell tilpasning
@@ -1352,7 +1352,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_6: TextbookChapter = {
       type: 'text',
       content: `## A bygge et reisemal
 
-En destinasjon blir ikke attraktiv av seg selv. Det krever strategisk planlegging, samarbeid mellom mange aktører og langsiktig utvikling. Destinasjonsutvikling handler om a skape et helhetlig og attraktivt tilbud for reisende.
+En destinasjon blir ikke attraktiv av seg selv. Det krever strategisk planlegging, samarbeid mellom mange aktører og langsiktig utvikling. Destinasjonsutvikling handler om å skape et helhetlig og attraktivt tilbud for reisende.
 
 I dette kapittelet skal du lære:
 - Hva en destinasjon er
@@ -1400,7 +1400,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-5-6-def-2',
       type: 'definition',
       title: 'Destinasjonsselskap',
-      content: `Et **destinasjonsselskap** er en organisasjon som arbeider for a utvikle og markedsføre en destinasjon. De koordinerer samarbeid mellom reiselivsaktører, markedsfører destinasjonen, utvikler produkter og jobber for a øke besøkstall og verdiskaping.`,
+      content: `Et **destinasjonsselskap** er en organisasjon som arbeider for å utvikle og markedsføre en destinasjon. De koordinerer samarbeid mellom reiselivsaktører, markedsfører destinasjonen, utvikler produkter og jobber for a øke besøkstall og verdiskaping.`,
     },
     {
       id: 'salg-service-vg1-5-6-text-2',
@@ -1551,7 +1551,7 @@ I dette kapittelet skal du lære:
           { id: 'c', text: 'Bestemme prisene pa overnatting', isCorrect: false },
           { id: 'd', text: 'Ansette alle i reiselivsnæringen', isCorrect: false },
         ],
-        solution: 'Destinasjonsselskaper arbeider for a utvikle og markedsføre destinasjonen, koordinere samarbeid og øke verdiskapingen - de driver ikke selv hoteller eller setter priser.',
+        solution: 'Destinasjonsselskaper arbeider for å utvikle og markedsføre destinasjonen, koordinere samarbeid og øke verdiskapingen - de driver ikke selv hoteller eller setter priser.',
       },
     },
     {
@@ -1640,7 +1640,7 @@ export const CHAPTER_SALG_SERVICE_VG1_5_7: TextbookChapter = {
       type: 'text',
       content: `## A selge drømmer
 
-Reiselivsmarkedsføring handler om a selge drømmer og opplevelser. Du kan ikke vise frem produktet pa forhand - kunden ma stole pa at det du lover, blir virkelighet. Dette gjør markedsføring av reiseliv spesielt utfordrende og spennende.
+Reiselivsmarkedsføring handler om å selge drømmer og opplevelser. Du kan ikke vise frem produktet pa forhand - kunden ma stole pa at det du lover, blir virkelighet. Dette gjør markedsføring av reiseliv spesielt utfordrende og spennende.
 
 I dette kapittelet skal du lære:
 - Særtrekk ved markedsføring av reiselivsprodukter
@@ -1856,7 +1856,7 @@ I dette kapittelet skal du lære:
         number: '5.7.3',
         type: 'classic',
         task: 'Velg et reiselivsprodukt (hotell, attraksjon, aktivitet) og beskriv tre målgrupper det kunne rette seg mot.',
-        solution: 'Eksempel: Fjordcruise i Geirangerfjorden. Målgruppe 1: Eldre par fra USA - høy betalingsvilje, ønsker komfortabel opplevelse med god guiding. Målgruppe 2: Barnefamilier fra Norge - ønsker aktivitet alle kan delta pa, rimelig pris, familievennlig. Målgruppe 3: Fotografer/influencere - ønsker unike fotomuligheter, tidlig morgen eller sen kveld, villige til a betale for eksklusive opplevelser.',
+        solution: 'Eksempel: Fjordcruise i Geirangerfjorden. Målgruppe 1: Eldre par fra USA - høy betalingsvilje, ønsker komfortabel opplevelse med god guiding. Målgruppe 2: Barnefamilier fra Norge - ønsker aktivitet alle kan delta pa, rimelig pris, familievennlig. Målgruppe 3: Fotografer/influencere - ønsker unike fotomuligheter, tidlig morgen eller sen kveld, villige til å betale for eksklusive opplevelser.',
       },
     },
     {

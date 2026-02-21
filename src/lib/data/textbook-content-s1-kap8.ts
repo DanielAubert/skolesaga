@@ -442,7 +442,7 @@ export const CHAPTER_S1_7_4: TextbookChapter = {
       type: 'text',
       content: `## Fra enkel til multippel regresjon
 
-I enkel lineaer regresjon modellerer vi $y$ som funksjon av en variabel: $\\hat{y} = a + bx$. Men i praksis avhenger en responsvariabel ofte av **flere** forklaringsvariabler.
+I enkel lineær regresjon modellerer vi $y$ som funksjon av en variabel: $\\hat{y} = a + bx$. Men i praksis avhenger en responsvariabel ofte av **flere** forklaringsvariabler.
 
 **Eksempel:** Prisen pa en bruktbil avhenger bade av alder og kilometerstand. Salget i en butikk avhenger av reklameinnsats og pris.
 
@@ -451,7 +451,7 @@ I enkel lineaer regresjon modellerer vi $y$ som funksjon av en variabel: $\\hat{
     {
       id: 's1-7-4-def',
       type: 'definition',
-      title: 'Multippel lineaer regresjon',
+      title: 'Multippel lineær regresjon',
       content: `En modell med to uavhengige variabler:
 
 $$\\hat{y} = b_0 + b_1 x_1 + b_2 x_2$$
@@ -529,7 +529,7 @@ Et **residual** er: $e_i = y_i - \\hat{y}_i$ (observert minus predikert).
 For a vurdere modellen undersokker vi:
 1. **Residualplott**: Bor vise tilfeldig spredning uten monster
 2. **Normalfordeling** av residualene
-3. **Konstant varians**: Spredningen bor vaere omtrent lik for alle predikerte verdier
+3. **Konstant varians**: Spredningen bor være omtrent lik for alle predikerte verdier
 4. **Uteliggere**: Observasjoner med uvanlig store residualer`,
     },
     {
@@ -818,7 +818,7 @@ export const CHAPTER_S1_8_1: TextbookChapter = {
 **Matematisk modellering** er prosessen der vi bruker matematikk til a beskrive, forutsi og forstå virkelige fenomener. En **modell** er en forenklet matematisk representasjon av virkeligheten.
 
 Eksempler pa modeller du allerede kjenner:
-- Lineaer modell for bilpris som funksjon av alder
+- Lineær modell for bilpris som funksjon av alder
 - Eksponentiell modell for bakterievekst
 - Regresjonsmodell for sammenheng mellom variabler`,
     },
@@ -833,7 +833,7 @@ Matematisk modellering folger en syklisk prosess:
 
 **2. Forenkling og antakelser:** Hvilke faktorer er viktigst? Hva kan vi se bort fra?
 
-**3. Matematisk formulering:** Velg modelltype (lineaer, eksponentiell, osv.) og bestem parametere.
+**3. Matematisk formulering:** Velg modelltype (lineær, eksponentiell, osv.) og bestem parametere.
 
 **4. Losning:** Bruk modellen til beregninger og prediksjoner.
 
@@ -849,7 +849,7 @@ Prosessen er **iterativ**: vi forbedrer modellen trinnvis.`,
       title: 'Vanlige modelltyper i S1',
       content: `| Modell | Formel | Typisk bruk |
 |---|---|---|
-| Lineaer | $f(x) = ax + b$ | Jevn vekst/nedgang |
+| Lineær | $f(x) = ax + b$ | Jevn vekst/nedgang |
 | Kvadratisk | $f(x) = ax^2 + bx + c$ | Kastkurver, optimering |
 | Eksponentiell | $f(x) = a \\cdot b^x$ | Befolkning, renter, radioaktivitet |
 | Potens | $f(x) = a \\cdot x^b$ | Naturvitenskap |
@@ -902,7 +902,7 @@ For a vurdere om en modell er god, bruker vi:
       content: `Ingen modell er perfekt. Viktige begrensninger:
 
 - **Ekstrapolasjon**: Modellen gjelder bare i narheten av datapunktene
-- **Forenkling**: Viktige faktorer kan vaere utelatt
+- **Forenkling**: Viktige faktorer kan være utelatt
 - **Gyldighetsomrade**: Angi alltid for hvilke verdier modellen er rimelig
 
 En eksponentiell vekstmodell for bakterier gjelder f.eks. bare sa lenge naeringstilgangen er god.`,
@@ -938,7 +938,7 @@ En modell som gir svært ulike resultater ved sma parameterendringer er **sensit
       id: 's1-8-1-tip',
       type: 'tip',
       title: 'Tips for god modellering',
-      content: `- Start med den **enkleste** modellen som kan vaere rimelig
+      content: `- Start med den **enkleste** modellen som kan være rimelig
 - Bruk **fagkunnskap** til a velge modelltype, ikke bare $R^2$
 - Angi alltid **antakelser** og **gyldighetsomrade**
 - Sammenlikn gjerne flere modelltyper
@@ -953,7 +953,7 @@ En modell som gir svært ulike resultater ved sma parameterendringer er **sensit
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Antall brukere av en app var 500 i januar og 650 i februar. Sett opp en lineaer modell $f(x) = ax + b$ der $x$ er maneder etter januar, og estimer antall brukere i juni.',
+        task: 'Antall brukere av en app var 500 i januar og 650 i februar. Sett opp en lineær modell $f(x) = ax + b$ der $x$ er maneder etter januar, og estimer antall brukere i juni.',
         solution: `$b = 500$, $a = 650 - 500 = 150$. Modell: $f(x) = 150x + 500$.
 
 Juni: $f(5) = 150 \\cdot 5 + 500 = 1250$ brukere.`,
@@ -987,13 +987,13 @@ Residualene er sma og varierer rundt null. Modellen passer rimelig godt.`,
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Hvilke antakelser gjor du nar du bruker en lineaer modell for a beskrive prisutvikling pa boliger over tid? Nevn minst tre.',
+        task: 'Hvilke antakelser gjor du nar du bruker en lineær modell for a beskrive prisutvikling pa boliger over tid? Nevn minst tre.',
         solution: `1. Prisokningen er jevn (konstant per ar).
 2. Ingen plutselige markedsendringer (finanskrise, pandemi).
 3. Ingen ovre grense for pris.
 4. Alle boliger folger samme trend.
 5. Inflasjon og renteniva er stabile.`,
-        hints: ['Tenk pa hva som ma vaere sant for at en rett linje skal passe'],
+        hints: ['Tenk pa hva som ma være sant for at en rett linje skal passe'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1026,8 +1026,8 @@ $V(10) = 10\\,000 \\cdot 1{,}077^{10} \\approx 20\\,960$ kr.`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Forklar hva det betyr at en modell har $R^2 = 0{,}95$. Gi et eksempel pa en situasjon der modellen likevel er darlig.',
-        solution: `$R^2 = 0{,}95$ betyr 95 % av variasjonen forklares. Modellen kan likevel vaere darlig hvis:
-- Residualene viser systematisk monster (f.eks. kurvet monster ved lineaer tilpasning til eksponentielle data)
+        solution: `$R^2 = 0{,}95$ betyr 95 % av variasjonen forklares. Modellen kan likevel være darlig hvis:
+- Residualene viser systematisk monster (f.eks. kurvet monster ved lineær tilpasning til eksponentielle data)
 - Modellen brukes til ekstrapolasjon langt utenfor dataomradet
 - Utelatte variabler skaper spurios korrelasjon`,
         hints: ['Tenk pa residualplott og ekstrapolasjon'],
@@ -1049,14 +1049,14 @@ $V(10) = 10\\,000 \\cdot 1{,}077^{10} \\approx 20\\,960$ kr.`,
 |---|---|---|---|---|---|
 | Befolkning | 50 000 | 54 000 | 57 500 | 60 200 | 62 000 |
 
-Passer en lineaer eller eksponentiell modell best? Begrunn.`,
-        solution: `**Lineaer:** Gjennomsnittlig okning ca. 600 per ar. $f(t) = 600t + 50\\,000$ (t = ar etter 2000).
+Passer en lineær eller eksponentiell modell best? Begrunn.`,
+        solution: `**Lineær:** Gjennomsnittlig okning ca. 600 per ar. $f(t) = 600t + 50\\,000$ (t = ar etter 2000).
 Prediksjoner: $f(5) = 53\\,000$, $f(10) = 56\\,000$, $f(20) = 62\\,000$. Avvik: moderat.
 
 **Eksponentiell:** $b = (62000/50000)^{1/20} \\approx 1{,}0108$. $f(t) = 50000 \\cdot 1{,}0108^t$.
 $f(10) = 50000 \\cdot 1{,}114 = 55\\,700$. Avvik: lignende.
 
-Veksten avtar over tid (600 $\\to$ 360 per ar siste 5-arene). **Lineaer modell** passer bedre, men **logistisk** ville vaert best da veksten avtar.`,
+Veksten avtar over tid (600 $\\to$ 360 per ar siste 5-arene). **Lineær modell** passer bedre, men **logistisk** ville vaert best da veksten avtar.`,
         hints: ['Beregn arlig vekst for hvert intervall og se om den er konstant'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1159,15 +1159,15 @@ Under 10: $0{,}82^t < 0{,}1$, $t > \\frac{\\ln 0{,}1}{\\ln 0{,}82} \\approx 11{,
         number: '11',
         type: 'classic',
         difficulty: 'medium',
-        task: 'En logistisk vekstmodell er $f(t) = \\frac{1000}{1 + 9e^{-0{,}5t}}$. Finn $f(0)$, $f(10)$ og baereevnen $K$. Nar nar populasjonen 500?',
+        task: 'En logistisk vekstmodell er $f(t) = \\frac{1000}{1 + 9e^{-0{,}5t}}$. Finn $f(0)$, $f(10)$ og bæreevnen $K$. Nar nar populasjonen 500?',
         solution: `$f(0) = \\frac{1000}{1 + 9} = 100$
 
 $f(10) = \\frac{1000}{1 + 9e^{-5}} = \\frac{1000}{1 + 0{,}0607} \\approx 943$
 
-Baereevne: $K = 1000$ (ovre grense nar $t \\to \\infty$).
+Bæreevne: $K = 1000$ (ovre grense nar $t \\to \\infty$).
 
 $f(t) = 500$: $1 + 9e^{-0{,}5t} = 2$, $e^{-0{,}5t} = \\frac{1}{9}$, $t = \\frac{\\ln 9}{0{,}5} \\approx 4{,}4$.`,
-        hints: ['Baereevnen er telleren i broket'],
+        hints: ['Bæreevnen er telleren i broket'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1180,13 +1180,13 @@ $f(t) = 500$: $1 + 9e^{-0{,}5t} = 2$, $e^{-0{,}5t} = \\frac{1}{9}$, $t = \\frac{
         number: '12',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Du skal modellere mengden plast i havet. Data viser 50 millioner tonn i 2000 og 150 millioner tonn i 2020. Sett opp bade en lineaer og en eksponentiell modell, og diskuter hvilken som er mest realistisk pa lang sikt. Hva er svakheten ved begge?',
-        solution: `**Lineaer:** $f(t) = 5t + 50$ (t = ar etter 2000). Vekst: 5 mill. tonn/ar.
+        task: 'Du skal modellere mengden plast i havet. Data viser 50 millioner tonn i 2000 og 150 millioner tonn i 2020. Sett opp bade en lineær og en eksponentiell modell, og diskuter hvilken som er mest realistisk pa lang sikt. Hva er svakheten ved begge?',
+        solution: `**Lineær:** $f(t) = 5t + 50$ (t = ar etter 2000). Vekst: 5 mill. tonn/ar.
 
 **Eksponentiell:** $f(t) = 50 \\cdot b^{20} = 150$, $b = 3^{1/20} \\approx 1{,}0565$ (5,65 %/ar).
 $f(t) = 50 \\cdot 1{,}0565^t$.
 
-**Diskusjon:** Lineaer gir rimelige verdier pa kort sikt men forutser uendelig vekst. Eksponentiell vokser enda raskere. Pa lang sikt er begge urealistiske. En logistisk modell med ovre grense (begrenset havvolum/oppryddingsinnsats) ville vaert bedre. Begge neglisjerer tiltak, teknologi og politiske endringer.`,
+**Diskusjon:** Lineær gir rimelige verdier pa kort sikt men forutser uendelig vekst. Eksponentiell vokser enda raskere. Pa lang sikt er begge urealistiske. En logistisk modell med ovre grense (begrenset havvolum/oppryddingsinnsats) ville vaert bedre. Begge neglisjerer tiltak, teknologi og politiske endringer.`,
         hints: ['Tenk pa hva som skjer nar $t$ blir veldig stort'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1200,7 +1200,7 @@ $f(t) = 50 \\cdot 1{,}0565^t$.
 
 **Modelleringsprosessen:** Problemformulering $\\to$ forenkling $\\to$ formulering $\\to$ losning $\\to$ validering $\\to$ forbedring.
 
-**Modelltyper:** Lineaer, kvadratisk, eksponentiell, potens, logistisk.
+**Modelltyper:** Lineær, kvadratisk, eksponentiell, potens, logistisk.
 
 **Validering:** Residualer, $R^2$, grafisk kontroll, ekstrapolasjonstest.
 
@@ -1233,7 +1233,7 @@ export const CHAPTER_S1_8_2: TextbookChapter = {
       type: 'text',
       content: `## Hvorfor numeriske metoder?
 
-Mange likninger kan ikke loses eksakt med algebra. For eksempel har $x = \\cos x$ ingen analytisk losning. **Numeriske metoder** gir oss tilnaermede losninger med vilkarlig noyyaktighet.
+Mange likninger kan ikke loses eksakt med algebra. For eksempel har $x = \\cos x$ ingen analytisk losning. **Numeriske metoder** gir oss tilnærmede losninger med vilkarlig noyyaktighet.
 
 Vi ser pa tre viktige metoder:
 1. **Halveringsmetoden** - enkel og palitelig
@@ -1251,7 +1251,7 @@ Halveringsmetoden bygger pa **skjaeringspunktsetningen**: Dersom $f$ er kontinue
 1. Start med et intervall $[a, b]$ der $f(a)$ og $f(b)$ har motsatt fortegn
 2. Beregn midtpunktet $m = \\frac{a + b}{2}$
 3. Beregn $f(m)$
-4. Hvis $f(m) = 0$ (eller naer nok): ferdig!
+4. Hvis $f(m) = 0$ (eller nær nok): ferdig!
 5. Hvis $f(a)$ og $f(m)$ har motsatt fortegn: nullpunktet er i $[a, m]$
 6. Ellers: nullpunktet er i $[m, b]$
 7. Gjenta fra steg 2 med det nye intervallet`,
@@ -1368,16 +1368,16 @@ Newtons metode er raskere enn halveringsmetoden, men krever at vi kan derivere $
       id: 's1-8-2-def-newton',
       type: 'definition',
       title: 'Newtons metode',
-      content: `Gitt en startverdi $x_0$ naer et nullpunkt til $f$:
+      content: `Gitt en startverdi $x_0$ nær et nullpunkt til $f$:
 
 $$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$
 
 Metoden konvergerer vanligvis svart raskt (antall korrekte siffer dobles for hvert steg).
 
 **Forutsetninger:**
-- $f$ ma vaere deriverbar
+- $f$ ma være deriverbar
 - $f'(x_n) \\neq 0$
-- Startverdien ma vaere naer nok nullpunktet`,
+- Startverdien ma være nær nok nullpunktet`,
     },
     {
       id: 's1-8-2-example-2',
@@ -1463,12 +1463,12 @@ $\\sqrt[3]{10} \\approx 2{,}1544$.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Forklar geometrisk hva Newtons metode gjor. Hvorfor konvergerer den raskere enn halveringsmetoden? Nar kan den feile?',
-        solution: `Newtons metode tegner tangentlinjen i $(x_n, f(x_n))$ og finner der tangenten krysser $x$-aksen. Tangenten er en lineaer tilnaerming av $f$, sa krysningspunktet er et bedre estimat.
+        solution: `Newtons metode tegner tangentlinjen i $(x_n, f(x_n))$ og finner der tangenten krysser $x$-aksen. Tangenten er en lineær tilnærming av $f$, sa krysningspunktet er et bedre estimat.
 
 Den konvergerer raskere fordi den bruker informasjon om $f'$ (kurvens retning), mens halveringsmetoden bare bruker fortegnet til $f$. Antall korrekte siffer dobles per steg (kvadratisk konvergens) vs. ett ekstra siffer per 3-4 halveringer.
 
-Den feiler nar tangenten er naer horisontal ($f' \\approx 0$), nar startpunktet er for langt unna, eller nar funksjonen har vendepunkter naer nullpunktet.`,
-        hints: ['Tenk pa tangentlinjen som tilnaerming'],
+Den feiler nar tangenten er nær horisontal ($f' \\approx 0$), nar startpunktet er for langt unna, eller nar funksjonen har vendepunkter nær nullpunktet.`,
+        hints: ['Tenk pa tangentlinjen som tilnærming'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1479,7 +1479,7 @@ Den feiler nar tangenten er naer horisontal ($f' \\approx 0$), nar startpunktet 
       type: 'text',
       content: `## Numerisk integrasjon
 
-Noen ganger kan vi ikke finne den antideriverte analytisk. Da bruker vi **numerisk integrasjon** for a tilnaerme $\\int_a^b f(x)\\,dx$.
+Noen ganger kan vi ikke finne den antideriverte analytisk. Da bruker vi **numerisk integrasjon** for a tilnærme $\\int_a^b f(x)\\,dx$.
 
 Grunnideen er a dele arealet under kurven inn i enkle geometriske figurer (rektangler eller trapeser) og summere arealene.`,
     },
@@ -1492,7 +1492,7 @@ Grunnideen er a dele arealet under kurven inn i enkle geometriske figurer (rekta
 **Trapesformelen:**
 $$\\int_a^b f(x)\\,dx \\approx \\frac{h}{2}\\bigl[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\bigr]$$
 
-Jo flere delintervaller ($n$), desto bedre tilnaerming.`,
+Jo flere delintervaller ($n$), desto bedre tilnærming.`,
     },
     {
       id: 's1-8-2-example-3',
@@ -1592,7 +1592,7 @@ $= 5 \\cdot [0 + 13{,}88 + 25 + 33{,}34 + 38{,}88 + 41{,}66 + 21{,}67] = 5 \\cdo
         type: 'classic',
         difficulty: 'lett',
         task: 'Hva skjer med noyaktigheten i trapesmetoden nar vi oker antall delintervaller $n$?',
-        solution: `Feilen i trapesmetoden er proporsjonal med $h^2 = \\bigl(\\frac{b-a}{n}\\bigr)^2$. Nar vi dobler $n$ (halverer $h$), reduseres feilen med en faktor 4. Jo flere delintervaller, desto bedre tilnaerming. Men regneinnsatsen oker ogsa.`,
+        solution: `Feilen i trapesmetoden er proporsjonal med $h^2 = \\bigl(\\frac{b-a}{n}\\bigr)^2$. Nar vi dobler $n$ (halverer $h$), reduseres feilen med en faktor 4. Jo flere delintervaller, desto bedre tilnærming. Men regneinnsatsen oker ogsa.`,
         hints: ['Tenk pa bredden $h$ av hvert trapes'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1674,7 +1674,7 @@ Eksakt verdi: 2. Feil: 2,3 %.`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign halveringsmetoden og Newtons metode langs tre akser: konvergenshastighet, palitelighet og krav til funksjonen.',
-        solution: `**Konvergenshastighet:** Newton dobler antall korrekte siffer per steg (kvadratisk). Halvering gir ca. 1 ekstra desimal per 3 steg (lineaer).
+        solution: `**Konvergenshastighet:** Newton dobler antall korrekte siffer per steg (kvadratisk). Halvering gir ca. 1 ekstra desimal per 3 steg (lineær).
 
 **Palitelighet:** Halvering konvergerer alltid nar $f(a) \\cdot f(b) < 0$. Newton kan divergere med darlig startverdi.
 
@@ -1698,7 +1698,7 @@ I praksis: Bruk halvering for a finne godt startestimat, deretter Newton for pre
 
 **Trapesmetoden:** $\\int_a^b f(x)\\,dx \\approx \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$
 
-**Felles prinsipp:** Alle numeriske metoder gir **tilnaermede** losninger. Noyaktigheten forbedres ved a oke antall steg.`,
+**Felles prinsipp:** Alle numeriske metoder gir **tilnærmede** losninger. Noyaktigheten forbedres ved a oke antall steg.`,
     },
   ],
   exercises: [],

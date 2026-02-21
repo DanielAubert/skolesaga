@@ -21,8 +21,8 @@ export const CHAPTER_NORSK_VG2_4_1_NARRATIV: TextbookChapter = {
   description: 'Folg sprakets reise gjennom tusen ar - fra vikingenes tungemal til ordene du leser na.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke fagsprak til a beskrive saertrekk ved norsk sammenlignet med norront',
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-4-1',
   content: [
@@ -417,8 +417,8 @@ export const CHAPTER_NORSK_VG2_4_2_NARRATIV: TextbookChapter = {
   description: 'Historien om 400 ars danskestyre og kampen for a gjenvinne et norsk skriftsprak.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
-    'bruke fagsprak til a beskrive saertrekk ved norsk sammenlignet med dansk',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
   ],
   linkedChapterId: 'norsk-vg2-4-2',
   content: [
@@ -825,8 +825,8 @@ export const CHAPTER_NORSK_VG2_4_3_NARRATIV: TextbookChapter = {
   description: 'Utforsk hvorfor vi nesten forstar hverandre - og hvorfor "nesten" kan vaere sa vanskelig.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke fagsprak til a beskrive saertrekk ved norsk sammenlignet med svensk, dansk og norront',
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-4-3',
   content: [
@@ -1212,8 +1212,7 @@ export const CHAPTER_NORSK_VG2_4_4_NARRATIV: TextbookChapter = {
   description: 'Utforsk mangfoldet i norsk sprak i dag - to skriftsprak, utallige dialekter, og nye stemmer.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
-    'reflektere over spraklige varianter i Norge og holdninger til dem',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-4-4',
   content: [
@@ -1611,8 +1610,8 @@ export const CHAPTER_NORSK_VG2_4_5_NARRATIV: TextbookChapter = {
   description: 'Laer a beskrive sprakforskjeller presist - med fagbegreper som apner nye dorrer.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'bruke fagsprak til a beskrive saertrekk ved norsk sammenlignet med svensk, dansk og norront',
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-4-5',
   content: [

@@ -29,7 +29,7 @@ export const CHAPTER_SALG_SERVICE_VG1_6_1: TextbookChapter = {
       type: 'text',
       content: `## Økonomi - grunnlaget for drift
 
-For at en virksomhet skal overleve og skape verdier, ma den tjene penger. Det høres enkelt ut, men krever forstaelse av hvordan inntekter og kostnader henger sammen. I dette kapittelet lærer du de grunnleggende økonomiske prinsippene som ligger til grunn for all forretningsdrift.
+For at en virksomhet skal overleve og skape verdier, ma den tjene penger. Det høres enkelt ut, men krever forståelse av hvordan inntekter og kostnader henger sammen. I dette kapittelet lærer du de grunnleggende økonomiske prinsippene som ligger til grunn for all forretningsdrift.
 
 I dette kapittelet skal du lære:
 - Forskjellen mellom inntekter og kostnader
@@ -47,7 +47,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-6-1-def-2',
       type: 'definition',
       title: 'Kostnader',
-      content: `**Kostnader** er verdien av det en virksomhet bruker for a drive og produsere. Dette inkluderer varekjøp, lønn, husleie, strøm, markedsføring og mye mer. Kostnadene trekkes fra inntektene for a finne resultatet.`,
+      content: `**Kostnader** er verdien av det en virksomhet bruker for a drive og produsere. Dette inkluderer varekjøp, lønn, husleie, strøm, markedsføring og mye mer. Kostnadene trekkes fra inntektene for å finne resultatet.`,
     },
     {
       id: 'salg-service-vg1-6-1-text-1',
@@ -404,7 +404,7 @@ Sammenligning av budsjett og regnskap:
       id: 'salg-service-vg1-6-2-tip-1',
       type: 'tip',
       title: 'Budsjettering i servicenæringen',
-      content: `I service og reiseliv er det viktig a ta hensyn til sesongvariasjoner i budsjettet. Et hotell vil ha høyere inntekter i juli enn i november. Budsjettet bør fordeles pa maneder basert pa forventet sesongmønster, ikke fordeles jevnt over året.`,
+      content: `I service og reiseliv er det viktig å ta hensyn til sesongvariasjoner i budsjettet. Et hotell vil ha høyere inntekter i juli enn i november. Budsjettet bør fordeles pa maneder basert pa forventet sesongmønster, ikke fordeles jevnt over året.`,
     },
     {
       id: 'salg-service-vg1-6-2-example-1',
@@ -539,7 +539,7 @@ export const CHAPTER_SALG_SERVICE_VG1_6_3: TextbookChapter = {
       type: 'text',
       content: `## A finne riktig pris
 
-Prisen er et av de viktigste konkurransemidlene og har direkte pavirkning pa lønnsomheten. For høy pris kan skremme bort kunder, for lav pris gir darlig lønnsomhet. A finne riktig pris krever analyse av kostnader, marked og konkurrenter.
+Prisen er et av de viktigste konkurransemidlene og har direkte påvirkning pa lønnsomheten. For høy pris kan skremme bort kunder, for lav pris gir dårlig lønnsomhet. A finne riktig pris krever analyse av kostnader, marked og konkurrenter.
 
 I dette kapittelet skal du lære:
 - Grunnleggende om prissetting
@@ -566,7 +566,7 @@ I dette kapittelet skal du lære:
 
 **2. Markedsbasert prising**
 - Se hva konkurrenter tar
-- Vurder hva kundene er villige til a betale
+- Vurder hva kundene er villige til å betale
 - Tilpass til posisjonering (premium vs. lavpris)
 - Krever god markedskunnskap
 
@@ -574,7 +574,7 @@ I dette kapittelet skal du lære:
 - Pris etter verdien for kunden
 - Ikke bare kostnader
 - Kan gi høyere marginer
-- Krever god forstaelse av kundens behov
+- Krever god forståelse av kundens behov
 
 **4. Dynamisk prising**
 - Prisen endres etter etterspørsel
@@ -624,7 +624,7 @@ I dette kapittelet skal du lære:
 - Prisen varierer med belegg og etterspørsel
 - Høyere pris i høysesong og helger
 - Lavere pris for a fylle i lavsesong
-- Booking tidlig vs. sent pavirker pris
+- Booking tidlig vs. sent påvirker pris
 
 **Restaurant:**
 - Varekostnad typisk 25-35% av utsalgspris
@@ -695,7 +695,7 @@ Resten (105 kr ekskl. mva) skal dekke lønn, lokale, og gi overskudd.`,
         type: 'classic',
         task: 'Hvorfor er dynamisk prising vanlig i hotellbransjen?',
         hints: ['Tenk pa at rom ikke kan lagres'],
-        solution: 'Hotellrom kan ikke lagres - et usolgt rom i natt er tapt inntekt for alltid. Dynamisk prising hjelper hotellet a maksimere inntektene ved a ta høy pris nar etterspørselen er stor (helger, sesonger) og lavere pris for a fylle opp nar etterspørselen er lav. Ma det til a velge mellom et tomt rom og et billig solgt rom, er det bedre a selge billig.',
+        solution: 'Hotellrom kan ikke lagres - et usolgt rom i natt er tapt inntekt for alltid. Dynamisk prising hjelper hotellet a maksimere inntektene ved å ta høy pris nar etterspørselen er stor (helger, sesonger) og lavere pris for a fylle opp nar etterspørselen er lav. Ma det til å velge mellom et tomt rom og et billig solgt rom, er det bedre å selge billig.',
       },
     },
     {
@@ -728,7 +728,7 @@ Resten (105 kr ekskl. mva) skal dekke lønn, lokale, og gi overskudd.`,
         number: '6.3.5',
         type: 'classic',
         task: 'Forklar tre fordeler og tre ulemper med dynamisk prising.',
-        solution: 'Fordeler: 1) Maksimerer inntektene ved a tilpasse pris til etterspørsel. 2) Fyller kapasitet i lavsesong med lavere priser. 3) Belønner kunder som booker tidlig eller er fleksible. Ulemper: 1) Kan irritere kunder som oppdager at andre har betalt mindre. 2) Krever systemer og kompetanse for a fungere. 3) Kan skade omdømmet hvis det oppleves som urettferdig.',
+        solution: 'Fordeler: 1) Maksimerer inntektene ved å tilpasse pris til etterspørsel. 2) Fyller kapasitet i lavsesong med lavere priser. 3) Belønner kunder som booker tidlig eller er fleksible. Ulemper: 1) Kan irritere kunder som oppdager at andre har betalt mindre. 2) Krever systemer og kompetanse for a fungere. 3) Kan skade omdømmet hvis det oppleves som urettferdig.',
       },
     },
     {
@@ -773,7 +773,7 @@ export const CHAPTER_SALG_SERVICE_VG1_6_4: TextbookChapter = {
       type: 'text',
       content: `## Fra ravare til kunde
 
-Alt vi kjøper har en historie - fra ravarer til ferdig produkt hos kunden. Verdikjeden viser alle stegene og aktørene involvert. I et bærekraftsperspektiv er det viktig a forstå og pavirke hele verdikjeden, ikke bare var egen virksomhet.
+Alt vi kjøper har en historie - fra ravarer til ferdig produkt hos kunden. Verdikjeden viser alle stegene og aktørene involvert. I et bærekraftsperspektiv er det viktig a forstå og påvirke hele verdikjeden, ikke bare var egen virksomhet.
 
 I dette kapittelet skal du lære:
 - Hva en verdikjede er
@@ -837,7 +837,7 @@ Hvert ledd tilfører verdi som kunden til slutt betaler for. Effektive verdikjed
       id: 'salg-service-vg1-6-4-def-2',
       type: 'definition',
       title: 'Ansvarlige innkjøp',
-      content: `**Ansvarlige innkjøp** betyr a velge leverandører og produkter basert pa miljømessige og sosiale kriterier i tillegg til pris og kvalitet. Det handler om a ta ansvar for hele verdikjeden, ikke bare egen virksomhet.`,
+      content: `**Ansvarlige innkjøp** betyr å velge leverandører og produkter basert pa miljømessige og sosiale kriterier i tillegg til pris og kvalitet. Det handler om å ta ansvar for hele verdikjeden, ikke bare egen virksomhet.`,
     },
     {
       id: 'salg-service-vg1-6-4-text-3',
@@ -919,7 +919,7 @@ Hvert ledd tilfører verdi som kunden til slutt betaler for. Effektive verdikjed
           { id: 'c', text: 'A bare kjøpe norske produkter', isCorrect: false },
           { id: 'd', text: 'A la sjefen bestemme alt', isCorrect: false },
         ],
-        solution: 'Ansvarlige innkjøp handler om a ta hensyn til bærekraft (miljø og sosiale forhold) i tillegg til pris og kvalitet nar man velger leverandører og produkter.',
+        solution: 'Ansvarlige innkjøp handler om å ta hensyn til bærekraft (miljø og sosiale forhold) i tillegg til pris og kvalitet nar man velger leverandører og produkter.',
       },
     },
     {
@@ -964,7 +964,7 @@ Hvert ledd tilfører verdi som kunden til slutt betaler for. Effektive verdikjed
         number: '6.4.5',
         type: 'classic',
         task: 'Hvorfor er det viktig a tenke pa hele verdikjeden, ikke bare egen virksomhet, nar man jobber med bærekraft?',
-        solution: 'Fordi det totale miljøavtrykket og de sosiale konsekvensene oppstar i hele kjeden. Et hotell kan være aldri sa miljøvennlig i egen drift, men hvis maten kommer fra leverandører med darlige arbeidsforhold eller høye utslipp, er det totale bidraget ikke bærekraftig. Kunder og samfunnet ser pa helheten. Dessuten kan man ofte gjøre størst forskjell ved a pavirke leverandører som har mange kunder.',
+        solution: 'Fordi det totale miljøavtrykket og de sosiale konsekvensene oppstår i hele kjeden. Et hotell kan være aldri sa miljøvennlig i egen drift, men hvis maten kommer fra leverandører med dårlige arbeidsforhold eller høye utslipp, er det totale bidraget ikke bærekraftig. Kunder og samfunnet ser pa helheten. Dessuten kan man ofte gjøre størst forskjell ved a påvirke leverandører som har mange kunder.',
       },
     },
     {
@@ -1064,7 +1064,7 @@ I dette kapittelet skal du lære:
 - Kan trekkes tilbake ved brudd
 
 **Skjenkebevilling:**
-- Tillatelse til a selge/servere alkohol
+- Tillatelse til å selge/servere alkohol
 - Strenge krav og kontroller
 - Skjenketider settes av kommunen
 - Aldersgrenser og ID-kontroll
@@ -1190,7 +1190,7 @@ I dette kapittelet skal du lære:
         type: 'classic',
         task: 'Hva er forskjellen pa serveringsbevilling og skjenkebevilling?',
         hints: ['Tenk pa hva som serveres'],
-        solution: 'Serveringsbevilling gir tillatelse til a drive serveringssted (servere mat og drikke). Skjenkebevilling er en tilleggsbevilling som gir tillatelse til a selge og servere alkoholholdige drikkevarer. Man trenger serveringsbevilling for a drive kafé/restaurant, og i tillegg skjenkebevilling hvis man skal servere alkohol.',
+        solution: 'Serveringsbevilling gir tillatelse til a drive serveringssted (servere mat og drikke). Skjenkebevilling er en tilleggsbevilling som gir tillatelse til å selge og servere alkoholholdige drikkevarer. Man trenger serveringsbevilling for a drive kafé/restaurant, og i tillegg skjenkebevilling hvis man skal servere alkohol.',
       },
     },
     {
@@ -1211,7 +1211,7 @@ I dette kapittelet skal du lære:
         id: 'salg-service-vg1-6-5-ex-4',
         number: '6.5.4',
         type: 'classic',
-        task: 'Hvordan pavirker GDPR/personvern servicenæringen?',
+        task: 'Hvordan påvirker GDPR/personvern servicenæringen?',
         solution: 'Servicenæringen behandler mye persondata (kunderegistre, bookinger, betalingsinformasjon). GDPR krever: 1) Lovlig grunnlag for a lagre data (samtykke eller annet). 2) Sikker lagring og begrenset tilgang. 3) Kundene har rett til innsyn og sletting. 4) Virksomheten ma melde fra ved databrudd. 5) Markedsføring krever samtykke.',
       },
     },
@@ -1244,7 +1244,7 @@ I dette kapittelet har du lært:
 |--------|------------|
 | HMS | Helse, Miljø, Sikkerhet |
 | Serveringsbevilling | Tillatelse til a drive serveringssted |
-| Skjenkebevilling | Tillatelse til a selge alkohol |
+| Skjenkebevilling | Tillatelse til å selge alkohol |
 | GDPR | Personvernforordningen |`,
     },
   ],
@@ -1275,7 +1275,7 @@ I dette kapittelet skal du lære:
 - Hvordan virksomheter organiseres
 - Ulike roller og ansvarsomrader
 - Betydningen av god organisering
-- Hvordan organisering pavirker service`,
+- Hvordan organisering påvirker service`,
     },
     {
       id: 'salg-service-vg1-6-6-def-1',
@@ -1350,7 +1350,7 @@ I dette kapittelet skal du lære:
 - Budsjetfullmakter
 
 **Myndighet:**
-- Rett til a ta beslutninger
+- Rett til å ta beslutninger
 - Ma matche ansvaret
 - "Ansvar uten myndighet" fungerer ikke
 
@@ -1370,7 +1370,7 @@ I dette kapittelet skal du lære:
       id: 'salg-service-vg1-6-6-tip-1',
       type: 'tip',
       title: 'Empowerment',
-      content: `Empowerment betyr a gi medarbeidere myndighet til a ta beslutninger for a løse kundens problemer der og da - uten a ma spørre leder først. I servicenæringen er dette viktig fordi kunden ikke vil vente. Et hotell som lar resepsjonisten gi en oppgradering nar noe gar galt, løser problemet raskere og bedre.`,
+      content: `Empowerment betyr å gi medarbeidere myndighet til å ta beslutninger for a løse kundens problemer der og da - uten a ma spørre leder først. I servicenæringen er dette viktig fordi kunden ikke vil vente. Et hotell som lar resepsjonisten gi en oppgradering nar noe gar galt, løser problemet raskere og bedre.`,
     },
     {
       id: 'salg-service-vg1-6-6-text-4',
@@ -1437,11 +1437,11 @@ Mellomlederne har daglig ansvar for sine omrader og rapporterer til direktøren.
         task: 'Hva er empowerment i servicenæringen?',
         options: [
           { id: 'a', text: 'A gi medarbeidere høyere lønn', isCorrect: false },
-          { id: 'b', text: 'A gi medarbeidere myndighet til a ta beslutninger', isCorrect: true },
+          { id: 'b', text: 'A gi medarbeidere myndighet til å ta beslutninger', isCorrect: true },
           { id: 'c', text: 'A ha færre ansatte', isCorrect: false },
           { id: 'd', text: 'A automatisere alle oppgaver', isCorrect: false },
         ],
-        solution: 'Empowerment betyr a gi medarbeidere myndighet til a ta beslutninger for a løse kundens problemer uten a ma ga til leder først. Dette gir raskere og bedre service.',
+        solution: 'Empowerment betyr å gi medarbeidere myndighet til å ta beslutninger for a løse kundens problemer uten a ma ga til leder først. Dette gir raskere og bedre service.',
       },
     },
     {
@@ -1536,7 +1536,7 @@ I dette kapittelet skal du lære:
 - Hva administrative funksjoner er
 - Viktige rutiner i servicenæringen
 - Kvalitetsstyring og forbedring
-- Hvordan systemer pavirker service`,
+- Hvordan systemer påvirker service`,
     },
     {
       id: 'salg-service-vg1-6-7-def-1',
@@ -1631,7 +1631,7 @@ I dette kapittelet skal du lære:
 
 **3. Avvikshandtering**
 - Fange opp nar noe gar galt
-- Analysere arsaker
+- Analysere årsaker
 - Rette opp feilen
 - Hindre gjentakelse
 
@@ -1670,7 +1670,7 @@ I dette kapittelet skal du lære:
 - Grunnlag for markedsføring
 - Personlig service
 
-**Hvordan systemer pavirker kvalitet:**
+**Hvordan systemer påvirker kvalitet:**
 - Reduserer feil
 - Frigjør tid til service
 - Gir bedre oversikt
@@ -1727,7 +1727,7 @@ Rutinen sikrer at alle gjester far samme informasjon og opplevelse.`,
           { id: 'a', text: 'For a gjøre jobben kjedelig', isCorrect: false },
           { id: 'b', text: 'For a sikre lik kvalitet og redusere feil', isCorrect: true },
           { id: 'c', text: 'For a ha mer papirarbeid', isCorrect: false },
-          { id: 'd', text: 'For a bruke mer tid', isCorrect: false },
+          { id: 'd', text: 'For å bruke mer tid', isCorrect: false },
         ],
         solution: 'Rutiner sikrer at oppgaver utføres likt hver gang, uansett hvem som gjør jobben. Dette gir jevn kvalitet og reduserer feil.',
       },
@@ -1784,8 +1784,8 @@ Rutinen sikrer at alle gjester far samme informasjon og opplevelse.`,
         id: 'salg-service-vg1-6-7-ex-6',
         number: '6.7.6',
         type: 'classic',
-        task: 'Forklar hvordan et kassesystem pavirker servicekvaliteten i en butikk.',
-        solution: 'Et godt kassesystem pavirker service positivt ved: 1) Raskere betjening (scanner, kort) = kortere kø. 2) Færre feil i prisberegning = fornøyde kunder. 3) Enkel retur/bytte = god kundeservice. 4) Oversikt over lager = kan svare pa sporsmål om varene. 5) Salgsdata = kan analysere og forbedre sortiment. 6) Lojalitetsprogram = personlig service og tilbud. Et darlig system skaper frustrasjon for bade ansatte og kunder.',
+        task: 'Forklar hvordan et kassesystem påvirker servicekvaliteten i en butikk.',
+        solution: 'Et godt kassesystem påvirker service positivt ved: 1) Raskere betjening (scanner, kort) = kortere kø. 2) Færre feil i prisberegning = fornøyde kunder. 3) Enkel retur/bytte = god kundeservice. 4) Oversikt over lager = kan svare pa sporsmål om varene. 5) Salgsdata = kan analysere og forbedre sortiment. 6) Lojalitetsprogram = personlig service og tilbud. Et dårlig system skaper frustrasjon for bade ansatte og kunder.',
       },
     },
     {

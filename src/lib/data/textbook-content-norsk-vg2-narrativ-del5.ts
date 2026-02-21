@@ -21,8 +21,8 @@ export const CHAPTER_NORSK_VG2_5_1_NARRATIV: TextbookChapter = {
     'Reis tilbake til antikkens Hellas og oppdag kunsten som har formet sivilisasjonen - overtalelsens kunst.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'skrive fagartikler som drofter tekster i kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   linkedChapterId: 'norsk-vg2-5-1',
   content: [
@@ -383,8 +383,8 @@ export const CHAPTER_NORSK_VG2_5_2_NARRATIV: TextbookChapter = {
     'Oppdag de tre noklene til overtalelse som alle fra politikere til reklamefolk bruker for a pavirke deg.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-5-2',
   content: [
@@ -744,9 +744,9 @@ export const CHAPTER_NORSK_VG2_5_3_NARRATIV: TextbookChapter = {
     'Bli en tekstdetektiv som kan avslore hvordan tekster prover a pavirke deg, og laer a skrive analyser som imponerer.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'skrive fagartikler som drofter tekster i kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   linkedChapterId: 'norsk-vg2-5-3',
   content: [
@@ -1157,8 +1157,8 @@ export const CHAPTER_NORSK_VG2_5_4_NARRATIV: TextbookChapter = {
     'Utforsk verktooykassen til verdens beste talere og skribentet, og laer a bruke de samme triksene selv.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'reflektere over sakprosateksters formal og retoriske situasjon',
-    'skrive tekster som kombinerer informasjon, drøfting og argumentasjon',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   linkedChapterId: 'norsk-vg2-5-4',
   content: [
@@ -1522,9 +1522,8 @@ export const CHAPTER_NORSK_VG2_5_5_NARRATIV: TextbookChapter = {
     'Laer a mestre den akademiske skrivingen som apner dorer til videre studier og profesjonelt arbeid.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'skrive fagartikler som gjor rede for og drofter tekster i kontekst',
-    'reflektere over sakprosateksters formål og retorisk situasjon',
-    'vurdere og bruke kilder kritisk',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   linkedChapterId: 'norsk-vg2-5-5',
   content: [
@@ -1887,8 +1886,7 @@ export const CHAPTER_NORSK_VG2_5_6_NARRATIV: TextbookChapter = {
     'Oppdag hvorfor akademisk aerlighet er avgjorende, og laer a navigere i kildebrukens regler uten a snuble.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'skrive fagartikler som drofter tekster i kontekst',
-    'bruke kilder og referanser på en etterrettelig måte',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   linkedChapterId: 'norsk-vg2-5-6',
   content: [
@@ -2282,8 +2280,7 @@ export const CHAPTER_NORSK_VG2_5_7_NARRATIV: TextbookChapter = {
     'Bli en kritisk leser som kan skille gull fra grav i informasjonsjungelen.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'vurdere og bruke kilder på en kritisk og etterrettelig måte',
-    'reflektere over sakprosateksters formål og kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   linkedChapterId: 'norsk-vg2-5-7',
   content: [
@@ -2663,8 +2660,7 @@ export const CHAPTER_NORSK_VG2_5_8_NARRATIV: TextbookChapter = {
     'Oppdag hemmeligheten alle gode skribenter kjenner: god skriving er omskriving.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke tilbakemeldinger og kunnskap om sprak til a utvikle egne tekster',
-    'vurdere og revidere egne tekster ut fra faglige kriterier',
+    'bruke tilbakemeldinger og kunnskap om språk, tekst og sjanger til å utvikle egne tekster',
   ],
   linkedChapterId: 'norsk-vg2-5-8',
   content: [
@@ -3078,10 +3074,9 @@ export const CHAPTER_NORSK_VG2_5_9_NARRATIV: TextbookChapter = {
     'Bli en mester i a gjenkjenne gode og darlige argumenter - en ferdighet som vil gjore deg til en bedre tenker, skribent og borger.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'bruke og variere spraklige og retoriske virkemidler',
-    'vurdere argumentasjon og kilder kritisk',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'bruke fagkunnskap og retoriske ferdigheter i norskfaglige diskusjoner og presentasjoner',
   ],
   linkedChapterId: 'norsk-vg2-5-9',
   content: [

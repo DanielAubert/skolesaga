@@ -188,6 +188,29 @@ Alltid vurder arbeidsoppgaven og omgivelsene før du velger verneutstyr.`,
         solution: 'Mulige farer og tiltak: (1) Støv og partikler i øynene – bruk vernebriller. (2) Høy støy fra boremaskinen – bruk hørselsvern. (3) Skjulte strømledninger eller rør i veggen – bruk kabelsøker/ledningssøker før boring. (4) Fallende betongbiter – bruk hjelm og vernesko. (5) Vibrasjonsskader – ta pauser og bruk dempede bor. Tiltakene reduserer risikoen til et akseptabelt nivå.',
       },
     },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-7-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Arbeidsmiljøloven** regulerer HMS-arbeid og gir både arbeidsgiver og arbeidstaker plikter
+- **Verneombud** er arbeidstakernes representant i HMS-spørsmål
+- **Personlig verneutstyr** som vernebriller, hørselsvern og vernehansker er påbudt ved farlig arbeid
+- **Risikoanalyse** og **SJA** (Sikker-Jobb-Analyse) gjennomføres systematisk før arbeidet starter
+- Internkontroll dokumenterer at HMS-arbeidet gjøres systematisk
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| HMS | Helse, miljø og sikkerhet |
+| Verneombud | Arbeidstakernes HMS-representant |
+| SJA | Sikker-Jobb-Analyse – risikovurdering på arbeidsstedet |
+| Internkontroll | Systematisk dokumentasjon av HMS-arbeid |`,
+    },
   ],
   exercises: [],
 };
@@ -382,6 +405,29 @@ Ved strømulykker er det spesielt viktig å starte HLR raskt, fordi hjerteflimme
         task: 'Forklar hvorfor man aldri skal bruke vann til å slukke brann i elektrisk utstyr. Hvilket slukkemiddel skal du bruke i stedet?',
         solution: 'Vann leder strøm. Hvis du spruter vann på utstyr som fortsatt er spenningssatt, kan du få strøm gjennom deg og bli alvorlig skadet. I stedet skal du bruke CO₂-apparat (karbondioksid) eller pulverapparat. Disse slukkemidlene leder ikke strøm. Husk også å slukke strømmen til utstyret først hvis det er mulig.',
       },
+    },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-7-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Livreddende førstehjelp** ved strømulykker krever at du først bryter strømtilførselen
+- **HLR** (hjerte-lunge-redning) med 30 kompresjoner og 2 innblåsinger kan redde liv
+- **Hjertestarter (AED)** bør brukes så raskt som mulig ved hjertestans
+- Ved brann i elektrisk utstyr skal du bruke **CO₂- eller pulverapparat**, aldri vann
+- Riktig varsling til **113 (medisinsk)** og **110 (brann)** er avgjørende
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| HLR | Hjerte-lunge-redning – livreddende førstehjelp |
+| AED | Automatisk ekstern defibrillator (hjertestarter) |
+| Strømgjennomgang | Strøm som passerer gjennom kroppen |
+| Branntriangelet | Tre forutsetninger for brann: brennbart stoff, oksygen, varme |`,
     },
   ],
   exercises: [],
@@ -583,6 +629,29 @@ Knuste lysrør skal behandles som farlig avfall. Bruk hansker og pustevernmaske 
         task: 'Beskriv produsentansvaret for EE-avfall i Norge. Hvem har ansvaret, og hva innebærer det i praksis?',
         solution: 'Produsentansvaret innebærer at produsenter og importører av elektrisk og elektronisk utstyr har ansvar for innsamling og forsvarlig behandling av produktene når de blir avfall. I praksis betyr dette at de finansierer returordninger (som Renas og Norsirk), og at forbrukere kan levere EE-avfall gratis til butikker som selger tilsvarende produkter eller til kommunale gjenvinningsstasjoner. Produsentene betaler et miljøgebyr for hvert produkt de selger, som finansierer ordningen.',
       },
+    },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-7-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **EE-avfall** (elektrisk og elektronisk avfall) skal leveres til godkjente mottak
+- **Produsentansvaret** pålegger produsenter å finansiere innsamling og gjenvinning
+- **Sirkulær økonomi** handler om å holde ressurser i bruk gjennom reparasjon, gjenbruk og resirkulering
+- Miljøfarlige stoffer som bly, kvikksølv og kadmium krever spesialhåndtering
+- Forbrukere kan levere EE-avfall gratis til butikker eller gjenvinningsstasjoner
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| EE-avfall | Elektrisk og elektronisk avfall |
+| Sirkulær økonomi | System der ressurser gjenbrukes og resirkuleres |
+| Produsentansvar | Produsentens plikt til å ta ansvar for produktet som avfall |
+| WEEE-direktivet | EU-direktiv om EE-avfall |`,
     },
   ],
   exercises: [],
@@ -811,6 +880,29 @@ En god ressursplan forebygger flaskehalser og forsinkelser.`,
         solution: 'Aktivitetsliste for installasjon av alarmsystem: (1) Befaring og kartlegging av butikklokalet – identifiser dører, vinduer og sårbare punkter. (2) Utarbeide plan og bestille utstyr – sentralenhet, sensorer, kameraer, kabler. (3) Kabelføring – legge kabler fra sentral til alle sensorpunkter. (4) Montering av sensorer og kameraer – magnetkontakter på dører, bevegelsessensorer, kameraer. (5) Tilkobling og programmering av sentralen – koble til alle sensorer, sette opp soner og alarmprofiler. (6) Testing og opplæring – teste at alt fungerer, lære opp butikkpersonalet i bruk av systemet.',
       },
     },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-8-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Prosjektplanlegging** innebærer å definere mål, aktiviteter, tidsrammer og ressurser
+- **Gantt-diagram** gir visuell oversikt over aktiviteter og tidsplan
+- **Milepæler** er viktige kontrollpunkter som markerer fullføring av deloppgaver
+- God **ressursstyring** handler om å disponere tid, materialer og arbeidskraft effektivt
+- Prosjektfasene er: oppstart, planlegging, gjennomføring, avslutning og evaluering
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Gantt-diagram | Visuelt verktøy for tidsplanlegging |
+| Milepæl | Kontrollpunkt som markerer fullført deloppgave |
+| Ressursstyring | Disponering av tid, materialer og personell |
+| Prosjektfaser | Stegene et prosjekt gjennomgår fra start til slutt |`,
+    },
   ],
   exercises: [],
 };
@@ -1018,6 +1110,29 @@ I denne rapporten presenterer vi oppsettet av kretser med kjente motstander, må
         solution: '(1) Bruk bilder og diagrammer i stedet for mye tekst – dette gjør det lettere for publikum å forstå tekniske konsepter, og visuelle hjelpemidler huskes bedre enn tekst. (2) Forklar fagbegreper når du bruker dem – ikke alle i publikum har samme fagbakgrunn, og forklaringer sikrer at budskapet når frem. (3) Øv på fremføringen og hold deg innenfor tidsrammen – god forberedelse gir selvtillit, naturlig flyt og viser respekt for publikums tid.',
       },
     },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-8-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- En **teknisk rapport** har fast struktur: innledning, metode, resultater, diskusjon og konklusjon
+- God **metodebeskrivelse** gjør arbeidet etterprøvbart
+- **Resultater** presenteres med tabeller, grafer og måleverdier
+- **Kildehenvisning** er viktig for å underbygge påstander og unngå plagiat
+- En god **presentasjon** bruker visuelle hjelpemidler og tilpasser seg publikum
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Rapportstruktur | Fast oppbygning med innledning, metode, resultater osv. |
+| Metodebeskrivelse | Detaljert beskrivelse av hvordan arbeidet ble utført |
+| Kildehenvisning | Referanse til kilder som underbygger påstander |
+| Presentasjonsteknikk | Ferdigheter for å formidle fagstoff muntlig |`,
+    },
   ],
   exercises: [],
 };
@@ -1217,6 +1332,29 @@ Prøven vurderes av en prøvenemnd med representanter fra bransjen. Resultatet e
         task: 'Beskriv minst tre ulike karrieremuligheter du har etter å ha tatt fagbrev i et elektrofag. Forklar kort hva hver mulighet innebærer.',
         solution: '(1) Jobbe som fagarbeider (f.eks. elektriker) – du utfører installasjoner, feilsøking og vedlikehold av elektriske anlegg. (2) Ta mesterbrev – etter noen års praksis kan du ta mesterbrev, som gir rett til å starte og drive egen elektrobedrift. (3) Gå Y-veien til ingeniørutdanning – fagbrevet gir direkte opptak til ingeniørstudier ved høgskole, der du kan spesialisere deg innen elkraft, automasjon eller elektronikk. Andre muligheter inkluderer fagskole (teknisk spesialisering) og påbygging til generell studiekompetanse.',
       },
+    },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-8-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Lærlingordningen** er en opplæringsmodell med 2 år i skole og 2 år i bedrift (2+2-modellen)
+- **Opplæring i bedrift** gir deg praktisk erfaring under veiledning av en faglig leder
+- **Fagprøven** består av planlegging, gjennomføring, dokumentasjon og egenvurdering
+- Etter fagbrev kan du ta **mesterbrev**, gå **Y-veien** til ingeniørstudier, eller ta **fagskole**
+- Lærlingens rettigheter og plikter reguleres av opplæringsloven og arbeidsavtalen
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Lærlingordning | 2+2-modellen med skole og bedrift |
+| Fagprøve | Avsluttende praktisk prøve for fagbrev |
+| Mesterbrev | Høyere kvalifikasjon som gir rett til å drive bedrift |
+| Y-veien | Opptak til ingeniørstudier med fagbrev |`,
     },
   ],
   exercises: [],

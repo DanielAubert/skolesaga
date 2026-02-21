@@ -485,6 +485,37 @@ In the following chapters, we will explore specific tools and techniques for lan
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-1-1-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Metacognition**: Thinking about your own thinking and learning is a powerful strategy for improvement
+- **Strategy categories**: Cognitive strategies (direct learning), metacognitive strategies (planning and monitoring), and social strategies (learning with others)
+- **Active learning**: Techniques like spaced repetition, elaboration, and self-testing are more effective than passive re-reading
+- **Personal learning plan**: Creating a structured plan with goals, strategies, and regular reflection helps you take charge of your own progress
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Metacognition | Awareness and understanding of your own thought and learning processes |
+| Cognitive strategies | Strategies that directly involve processing language (e.g., note-taking, summarising) |
+| Metacognitive strategies | Strategies for planning, monitoring, and evaluating your learning |
+| Social strategies | Learning through interaction with others (e.g., discussion, peer feedback) |
+| Spaced repetition | Reviewing material at increasing intervals for long-term retention |`,
+    },
+    {
+      id: 'engelsk-vg1-1-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Oxford, R. L. (2011). *Teaching and Researching Language Learning Strategies*. Pearson Education.
+- Bjork, R. A. & Bjork, E. L. (2011). "Making things hard on yourself, but in a good way." *Psychology and the Real World*, 56-64.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Cohen, A. D. (2011). *Strategies in Learning and Using a Second Language*. Routledge.`,
+    },
   ],
   exercises: [],
 };
@@ -1024,6 +1055,36 @@ Technology gives you incredible opportunities—but the learning still happens i
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-1-2-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Digital tools for language learning**: Apps, websites, corpora, and AI tools each serve different purposes in your learning
+- **Critical evaluation**: Not all digital resources are equally useful — evaluate them for quality, relevance, and reliability
+- **AI in language learning**: AI tools can support learning but should be used ethically and as aids, not replacements for your own thinking
+- **Digital literacy**: Understanding how to use technology effectively and responsibly is a key competence
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Corpus | A large collection of authentic texts used for language research and learning |
+| Digital literacy | The ability to use digital tools effectively, critically, and ethically |
+| AI tools | Artificial intelligence applications that can assist with writing, translation, and feedback |
+| Authentic materials | Real-world texts and media created for native speakers, not specifically for learners |`,
+    },
+    {
+      id: 'engelsk-vg1-1-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Chapelle, C. A. & Sauro, S. (2017). *The Handbook of Technology and Second Language Teaching and Learning*. Wiley-Blackwell.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Dudeney, G. & Hockly, N. (2016). *How to Teach English with Technology*. Pearson Education.
+- Godwin-Jones, R. (2022). "Evolving technologies for language learning." *Language Learning & Technology*, 26(1), 1-15.`,
     },
   ],
   exercises: [],
@@ -1783,6 +1844,16 @@ When you encounter an unfamiliar English word, check if it has a Germanic (Norwe
 - Loanword - a word borrowed from another language
 - Language family - a group of languages with a shared ancestor
 - Transfer - using knowledge from one language to help learn another`,
+    },
+    {
+      id: 'engelsk-vg1-1-5-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Crystal, D. (2003). *The Cambridge Encyclopedia of the English Language*. Cambridge University Press.
+- Ringe, D. (2006). *A Linguistic History of English: From Proto-Indo-European to Proto-Germanic*. Oxford University Press.
+- Townend, M. (2002). *Language and History in Viking Age England*. Brepols.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
     },
   ],
   exercises: [],
@@ -2695,6 +2766,27 @@ Each hook immediately engages the audience and sets up the topic.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-2-4-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Presentation structure**: A good presentation has a clear introduction, organised main body, and memorable conclusion
+- **Delivery techniques**: Eye contact, pacing, pausing, and vocal variety make your presentation engaging
+- **Visual aids**: Use visually clear slides with minimal text to support (not replace) your spoken message
+- **Handling nerves**: Preparation, practice, and breathing techniques help manage anxiety
+- **Peer feedback**: Giving and receiving constructive feedback is essential for improving presentation skills
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Hook | An attention-grabbing opening (question, anecdote, statistic) |
+| Signposting | Using phrases to guide the audience through your presentation |
+| Vocal variety | Varying pitch, pace, and volume to keep the audience engaged |
+| Constructive feedback | Feedback that is specific, balanced, and actionable |`,
     },
     // --- KILDER ---
     {

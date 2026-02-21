@@ -33,8 +33,8 @@ export const CHAPTER_NORSK_VG2_1_1: TextbookChapter = {
   description: 'Lær om vikingtiden og den norrøne kulturen som la grunnlaget for vår litterære arv.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
-    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med norrønt',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
   ],
   content: [
     {
@@ -542,8 +542,8 @@ export const CHAPTER_NORSK_VG2_1_2: TextbookChapter = {
   description: 'Utforsk eddadiktningen med gudedikt som Voluspå og heltedikt fra Sigurd Fåvnesbane-syklusen.',
   estimatedMinutes: 65,
   competenceGoals: [
-    'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -1161,8 +1161,8 @@ export const CHAPTER_NORSK_VG2_1_3: TextbookChapter = {
   description: 'Utforsk skaldediktningens kunstferdige språk med kenninger og kompliserte verseformer.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
-    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med norrønt',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
   ],
   content: [
     {
@@ -1739,9 +1739,8 @@ export const CHAPTER_NORSK_VG2_1_4: TextbookChapter = {
   description: 'Utforsk den norrøne prosalitteraturen med islendingesagaer, kongesagaer og sagastilens virkemidler.',
   estimatedMinutes: 90,
   competenceGoals: [
-    'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'sammenligne tekster fra ulike tider og vurdere tekstenes relevans i dag',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -2594,8 +2593,8 @@ export const CHAPTER_NORSK_VG2_1_5: TextbookChapter = {
   description: 'Lær om det norrøne språket, runeskriften og hvordan norsk har utviklet seg fra norrønt.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med norrønt',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {

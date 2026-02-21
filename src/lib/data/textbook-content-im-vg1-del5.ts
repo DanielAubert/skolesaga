@@ -140,6 +140,18 @@ ELEV: Jeg har akkurat begynt å redigere videoen.
 - Eksporter i 1080p for YouTube`,
     },
     {
+      id: 'im-5-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Videoproduksjon følger tre faser: preproduksjon, produksjon og postproduksjon.
+- Manus og storyboard planlegger innhold, bildeutsnitt og handlingsforløp.
+- Et produksjonsteam har ulike roller som regissør, fotograf, lydtekniker og klipper.
+- Ulike sjangre (dokumentar, reportasje, reklame) krever ulik tilnærming.
+- God planlegging i preproduksjonen sparer tid og ressurser i produksjonen.
+- Forståelse av produksjonsprosessen er grunnlaget for profesjonelt videoarbeid.`,
+    },
+    {
       id: 'im-5-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -340,6 +352,18 @@ I dette kapittelet skal du lære:
 6. **Lyd**: Bruk en ekstern mikrofon nær personene for tydelig dialog.
 
 Ved å bruke ulike bildeutsnitt og vinkler skaper du dynamikk i en ellers statisk scene.`,
+    },
+    {
+      id: 'im-5-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Kamerainnstillinger som blenderåpning, lukkertid og ISO påvirker eksponering og utseende.
+- Bildeutsnitt (totalbilde, halvtotalt, nært, ultranært) formidler ulike følelser og informasjon.
+- Kamerabevegelser (pan, tilt, dolly) tilfører dynamikk til opptaket.
+- Lyssetting er avgjørende for stemning, dybde og kvalitet i videoen.
+- Mobiltelefoner kan brukes til profesjonelle opptak med riktige teknikker.
+- Stativ og stabilisering er viktig for ryddig og profesjonelt resultat.`,
     },
     {
       id: 'im-5-2-ex-1',
@@ -558,6 +582,18 @@ Tekst i video bør:
 6. **Lower third**: Legg til navn og tittel på intervjuobjektet.
 7. **Lydmiksing**: Balanser intervjulyden, eventuell bakgrunnsmusikk legges lavt under.
 8. **Eksporter**: MP4, 1080p, H.264 for YouTube.`,
+    },
+    {
+      id: 'im-5-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Videoredigering organiserer råopptak til en sammenhengende fortelling på en tidslinje.
+- Klippeteknikker som harde kutt, L-kutt og J-kutt skaper flyt og dynamikk.
+- Overganger og effekter bør brukes sparsomt og med hensikt.
+- Fargekorrigering og fargegrading forbedrer og stilsetter det visuelle uttrykket.
+- Titler og tekst formidler informasjon og styrker budskapet.
+- Eksportinnstillinger tilpasses plattform og bruksområde (oppløsning, codec, format).`,
     },
     {
       id: 'im-5-3-ex-1',
@@ -784,6 +820,18 @@ I dette kapittelet skal du lære:
 8. **Ta opp**: Start opptaket i redigeringsprogrammet, klapp én gang for synkronisering.`,
     },
     {
+      id: 'im-5-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Mikrofontyper (dynamisk, kondensator) har ulike egenskaper og bruksområder.
+- Opptaksmiljø og akustikk påvirker lydkvaliteten betydelig.
+- Lydnivåer bør overvåkes for å unngå peaking og forvrenging.
+- Lydopptak i felt krever andre teknikker enn studioopptak.
+- Riktig avstand og vinkel mellom mikrofon og lydkilde er avgjørende.
+- God lyd er ofte viktigere enn godt bilde for den totale opplevelsen.`,
+    },
+    {
       id: 'im-5-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -986,6 +1034,18 @@ Miksing er å balansere flere lydspor slik at de fungerer sammen som en helhet.
 6. **Panorering**: Stemme 1 svakt til venstre, Stemme 2 svakt til høyre, musikk i midten.
 7. **Normalisering**: Normaliser den ferdige miksen til -1 dB.
 8. **Eksporter**: MP3 med 192 kbps for podcastplattformer.`,
+    },
+    {
+      id: 'im-5-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Lydredigering handler om å klippe, trimme og organisere lydopptak.
+- Equalizer (EQ) justerer frekvensbalansen for klarere lyd.
+- Kompressor jevner ut lydnivåforskjeller for mer konsistent lyd.
+- Miksing kombinerer flere lydspor til en balansert helhet.
+- Lydformater har ulike egenskaper: WAV for kvalitet, MP3 for komprimering, AAC for web.
+- Profesjonell lydbehandling forbedrer den totale opplevelsen av enhver medieproduksjon.`,
     },
     {
       id: 'im-5-5-ex-1',
@@ -1201,6 +1261,18 @@ Disney-animatørene utviklet 12 prinsipper for animasjon som fortsatt er relevan
 5. **Sekund 2.0-2.5**: Alt holdes stille. Logoen er ferdig avslørt.
 
 **Viktig**: Bruk ease in/out på alle bevegelser for naturlig flyt. Hold det enkelt - mindre er mer i logoanimasjon.`,
+    },
+    {
+      id: 'im-5-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Animasjon bygger på prinsipper som timing, easing og forventning.
+- Keyframes definerer start- og sluttpunkter for bevegelser på en tidslinje.
+- Motion graphics kombinerer tekst, former og grafikk med bevegelse.
+- Animert tekst og grafikk brukes i intro-er, infografikk og sosiale medier.
+- Eksportinnstillinger tilpasses plattform (nett, mobil, TV, sosiale medier).
+- Animasjon og motion graphics formidler informasjon på en engasjerende og visuell måte.`,
     },
     {
       id: 'im-5-6-ex-1',
@@ -1430,6 +1502,18 @@ Sending av video og lyd i sanntid til et publikum over internett. Innholdet vise
 5. Outro med musikk og neste episode (1.5 min)
 
 **Publisering**: Last opp til Spotify for Podcasters, del lenke på skolens Instagram.`,
+    },
+    {
+      id: 'im-5-7-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Podcaster krever planlegging av konsept, format og målgruppe.
+- God lydkvalitet er viktig og oppnås med riktig mikrofon og opptaksmiljø.
+- Direktestrømming (streaming) krever stabil internettforbindelse og egnet programvare.
+- Publisering krever en RSS-feed og distribusjon via podcastplattformer.
+- Redigering fjerner pauser, feil og forstyrrelser for en profesjonell lytteopplevelse.
+- Podcast og strømmeproduksjon er voksende medieformer med stort publikumspotensial.`,
     },
     {
       id: 'im-5-7-ex-1',

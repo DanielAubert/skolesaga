@@ -355,6 +355,18 @@ Det er viktig å huske at fargeassosiasjoner varierer mellom kulturer. Hvit symb
 **RGB-verdier**: Hovedbrun: rgb(101, 67, 33), Kremhvit: rgb(255, 253, 245), Gylden: rgb(212, 175, 55).`,
     },
     {
+      id: 'im-4-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Farger beskrives gjennom tre modeller: RGB (skjerm), CMYK (trykk) og HSL (intuitiv beskrivelse).
+- Fargesirkelen viser relasjonen mellom primær-, sekundær- og tertiærfarger.
+- Komplementære farger ligger overfor hverandre i fargesirkelen og skaper sterk kontrast.
+- Fargepsykologi handler om hvordan farger påvirker stemning og kommunikasjon.
+- Fargepaletter bør ha god kontrast og balanse for å fungere godt i design.
+- Verktøy som Adobe Color og Coolors hjelper med å lage harmoniske fargepaletter.`,
+    },
+    {
       id: 'im-4-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -572,6 +584,18 @@ Skrifttyper har lisenser, akkurat som programvare:
 **Linjelengde**: Maksbredde på innholdsområdet er 680px, som gir ca. 65 tegn per linje - optimalt for lesbarhet.`,
     },
     {
+      id: 'im-4-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Typografi handler om valg og bruk av skrifttyper for å formidle et budskap effektivt.
+- Skrifttyper deles i serif, sans-serif, monospace og dekorative skrifter.
+- Typografisk hierarki bruker størrelse, vekt og farge til å lede leserens blikk.
+- Lesbarhet på skjerm krever tilstrekkelig skriftstørrelse, linjeavstand og kontrast.
+- Fontparing kombinerer to-tre skrifttyper som utfyller hverandre.
+- Skriftlisenser regulerer bruken og må alltid sjekkes før bruk i prosjekter.`,
+    },
+    {
       id: 'im-4-3-ex-1',
       type: 'exercise',
       exercise: {
@@ -782,6 +806,18 @@ Kameravinkelen påvirker hvordan betrakteren oppfatter motivet:
 6. **Tips**: La personen se litt til siden av kameraet for et naturlig uttrykk.`,
     },
     {
+      id: 'im-4-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Tredjedelsregelen deler bildet i ni deler og plasserer motivet langs linjene eller i krysningspunktene.
+- Lys og eksponering er avgjørende for stemning og kvalitet i et fotografi.
+- Dybdeskarphet bestemmer hvor mye av bildet som er i fokus.
+- Perspektiv og vinkler påvirker hvordan motivet oppfattes av betrakteren.
+- Bildeutsnitt og beskjæring kan forbedre komposisjonen i etterkant.
+- God bildkomposisjon er et viktig verktøy i medieproduksjon og digital kommunikasjon.`,
+    },
+    {
       id: 'im-4-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -990,6 +1026,18 @@ I dette kapittelet skal du lære:
 6. **Eksporter**: Lagre som JPEG med 80% kvalitet for nettbruk, eller PNG hvis bildet inneholder tekst.
 
 Ved å bruke justeringslag kan du justere alle endringene etterpå uten å starte på nytt.`,
+    },
+    {
+      id: 'im-4-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Bildebehandling bruker lag og masker for å redigere bilder ikke-destruktivt.
+- Fargekorrigering og nivåjustering forbedrer eksponering, kontrast og fargebalanse.
+- Retusjering fjerner uønskede elementer og forbedrer detaljer i bildet.
+- Filformater har ulike egenskaper: JPEG for foto, PNG for gjennomsiktighet, WebP for web, RAW for maksimal kvalitet.
+- Oppløsning og bildestørrelse må tilpasses bruksområdet (web vs. trykk).
+- Profesjonell bildebehandling krever forståelse av både teknikk og estetikk.`,
     },
     {
       id: 'im-4-5-ex-1',
@@ -1215,6 +1263,18 @@ SVG (Scalable Vector Graphics) er standardformatet for vektorgrafikk på nett.
 6. **Eksport**: Lagre som SVG for nettbruk.
 
 Det ferdige ikonet bruker bare et rektangel og to linjer - enkelhet er nøkkelen.`,
+    },
+    {
+      id: 'im-4-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Rastergrafikk (piksler) egner seg for fotografier, vektorgrafikk (matematiske formler) for logoer og ikoner.
+- Vektorfiler kan skaleres uendelig uten kvalitetstap.
+- Bezier-kurver og stier er grunnlaget for vektortegning.
+- Logodesign krever enkelhet, gjenkjennelighet og funksjon i alle størrelser.
+- SVG-formatet brukes for vektorgrafikk på nettsider og kan styles med CSS.
+- Illustrator, Inkscape og Figma er vanlige verktøy for vektorarbeid.`,
     },
     {
       id: 'im-4-6-ex-1',

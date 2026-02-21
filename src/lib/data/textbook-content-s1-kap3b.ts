@@ -277,7 +277,7 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
           {
             label: 'b',
             task: 'Finn den momentane vekstfarten i $x = 1$.',
-            solution: "$f'(x) = 6x + 2$, saa $f'(1) = 6 + 2 = 8$.",
+            solution: "$f'(x) = 6x + 2$, så $f'(1) = 6 + 2 = 8$.",
           },
         ],
         solution: 'a) 8, b) 8. Gjennomsnittlig og momentan vekstfart er like fordi midtpunktet av $[0,2]$ er $x=1$.',
@@ -304,12 +304,12 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
           {
             label: 'b',
             task: 'Finn den momentane endringsraten ved $t = 6$.',
-            solution: "$h'(t) = 0{,}2t - 2$, saa $h'(6) = 1{,}2 - 2 = -0{,}8$ m/t.",
+            solution: "$h'(t) = 0{,}2t - 2$, så $h'(6) = 1{,}2 - 2 = -0{,}8$ m/t.",
           },
           {
             label: 'c',
-            task: 'Naar slutter vannstanden aa synke?',
-            solution: "$h'(t) = 0 \\Rightarrow 0{,}2t - 2 = 0 \\Rightarrow t = 10$. Vannstanden slutter aa synke kl. 10:00.",
+            task: 'Når slutter vannstanden å synke?',
+            solution: "$h'(t) = 0 \\Rightarrow 0{,}2t - 2 = 0 \\Rightarrow t = 10$. Vannstanden slutter å synke kl. 10:00.",
           },
         ],
         solution: 'a) $-0{,}8$ m/t, b) $-0{,}8$ m/t, c) $t = 10$ (kl. 10:00)',
@@ -329,7 +329,7 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
         subTasks: [
           {
             label: 'a',
-            task: 'Finn den gjennomsnittlige inntektsoekningen fra $x = 20$ til $x = 30$.',
+            task: 'Finn den gjennomsnittlige inntektsøkningen fra $x = 20$ til $x = 30$.',
             solution: '$I(20) = 4000 - 800 = 3200$. $I(30) = 6000 - 1800 = 4200$. Gjennomsnittlig: $\\frac{4200-3200}{10} = 100$ tusen kr per hundre enheter.',
           },
           {
@@ -360,12 +360,12 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
         subTasks: [
           {
             label: 'a',
-            task: 'Finn den gjennomsnittlige avkjoelingshastigheten de foerste 2 timene.',
+            task: 'Finn den gjennomsnittlige avkjoelingshastigheten de første 2 timene.',
             solution: '$T(0) = 25 + 3 = 28$. $T(2) = 25 \\cdot 0{,}81 + 3 = 23{,}25$. Gjennomsnittlig: $\\frac{23{,}25 - 28}{2} = -2{,}375$ $\\degree C$/t.',
           },
           {
             label: 'b',
-            task: 'Bruk den symmetriske differansekvotienten med $h = 0{,}5$ til aa estimere $T\'(1)$.',
+            task: 'Bruk den symmetriske differansekvotienten med $h = 0{,}5$ til å estimere $T\'(1)$.',
             solution: '$T(0{,}5) = 25 \\cdot 0{,}9^{0{,}5} + 3 \\approx 26{,}72$. $T(1{,}5) = 25 \\cdot 0{,}9^{1{,}5} + 3 \\approx 24{,}33$. $T\'(1) \\approx \\frac{24{,}33 - 26{,}72}{1} = -2{,}39$ $\\degree C$/t.',
           },
         ],
@@ -397,8 +397,8 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
           },
           {
             label: 'c',
-            task: 'Naar staar partikkelen stille? Naar beveger den seg fremover?',
-            solution: 'Stille naar $v(t) = 0$: $t = 1$ og $t = 3$. Fremover ($v > 0$) for $t < 1$ og $t > 3$. Bakover for $1 < t < 3$.',
+            task: 'Når står partikkelen stille? Når beveger den seg fremover?',
+            solution: 'Stille når $v(t) = 0$: $t = 1$ og $t = 3$. Fremover ($v > 0$) for $t < 1$ og $t > 3$. Bakover for $1 < t < 3$.',
           },
         ],
         solution: 'a) 0 m/s, b) $v(t) = 3(t-1)(t-3)$, c) stille ved $t=1, 3$',
@@ -423,7 +423,7 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
           },
           {
             label: 'b',
-            task: 'Finn den gjennomsnittlige kostnadsoekningen fra $x = 20$ til $x = 40$.',
+            task: 'Finn den gjennomsnittlige kostnadsøkningen fra $x = 20$ til $x = 40$.',
             solution: '$K(20) = 400 - 1200 + 1600 + 1000 = 1800$. $K(40) = 3200 - 4800 + 3200 + 1000 = 2600$. Gjennomsnittlig: $\\frac{2600-1800}{20} = 40$ kr/enhet.',
           },
           {
@@ -450,15 +450,15 @@ Merk at vi også kan bruke fremoverdifferansen: $\\frac{T(15) - T(10)}{5} = \\fr
           {
             label: 'a',
             task: 'Gitt $A(0) = 50$, $A(1) = 68$, $A(2) = 90$, $A(3) = 108$. Finn den gjennomsnittlige vekstfarten fra $t = 0$ til $t = 3$.',
-            solution: '$\\frac{A(3)-A(0)}{3} = \\frac{108-50}{3} \\approx 19{,}3$ tusen per aar.',
+            solution: '$\\frac{A(3)-A(0)}{3} = \\frac{108-50}{3} \\approx 19{,}3$ tusen per år.',
           },
           {
             label: 'b',
             task: 'Estimer den momentane vekstfarten i $t = 1$ og $t = 2$.',
-            solution: "$A'(1) \\approx \\frac{A(2)-A(0)}{2} = \\frac{90-50}{2} = 20$ tusen/aar. $A'(2) \\approx \\frac{A(3)-A(1)}{2} = \\frac{108-68}{2} = 20$ tusen/aar.",
+            solution: "$A'(1) \\approx \\frac{A(2)-A(0)}{2} = \\frac{90-50}{2} = 20$ tusen/år. $A'(2) \\approx \\frac{A(3)-A(1)}{2} = \\frac{108-68}{2} = 20$ tusen/år.",
           },
         ],
-        solution: 'a) ca. 19,3 tusen/aar, b) 20 tusen/aar for begge',
+        solution: 'a) ca. 19,3 tusen/år, b) 20 tusen/år for begge',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -802,7 +802,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           },
           {
             label: 'b',
-            task: 'Finn stasjonaere punkter og avgjoer type.',
+            task: 'Finn stasjonaere punkter og avgjør type.',
             solution: "$f'(x) = 3x^2 - 3 = 3(x-1)(x+1) = 0$. $x = \\pm 1$. $f''(x) = 6x$. $f''(-1) = -6 < 0$: toppunkt $(-1, 2)$. $f''(1) = 6 > 0$: bunnpunkt $(1, -2)$.",
           },
           {
@@ -864,8 +864,8 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           },
           {
             label: 'b',
-            task: 'Finn vendepunktet til $K(x)$ og tolke det oekonomisk.',
-            solution: "$K''(x) = 0{,}12x - 3{,}6 = 0 \\Rightarrow x = 30$. Vendepunktet er ved 30 enheter. Her har marginalkostnaden sitt minimum, og kostnadsveksten gaar fra avtagende til tiltagende.",
+            task: 'Finn vendepunktet til $K(x)$ og tolke det økonomisk.',
+            solution: "$K''(x) = 0{,}12x - 3{,}6 = 0 \\Rightarrow x = 30$. Vendepunktet er ved 30 enheter. Her har marginalkostnaden sitt minimum, og kostnadsveksten går fra avtagende til tiltagende.",
           },
           {
             label: 'c',
@@ -890,8 +890,8 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
         subTasks: [
           {
             label: 'a',
-            task: 'Finn nullpunktet og grenseverdien naar $x \\to \\infty$.',
-            solution: '$f(0) = 0$ (nullpunkt). $\\lim_{x \\to \\infty} xe^{-x} = 0$ (eksponentiell avtar raskere enn lineaer vekst). Horisontal asymptote $y = 0$.',
+            task: 'Finn nullpunktet og grenseverdien når $x \\to \\infty$.',
+            solution: '$f(0) = 0$ (nullpunkt). $\\lim_{x \\to \\infty} xe^{-x} = 0$ (eksponentiell avtar raskere enn lineær vekst). Horisontal asymptote $y = 0$.',
           },
           {
             label: 'b',
@@ -954,7 +954,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           {
             label: 'a',
             task: 'Finn definisjonsmengde, nullpunkter og asymptoter.',
-            solution: '$D_f = \\mathbb{R} \\setminus \\{1\\}$. Nullpunkt: $x = 0$ (dobbelt). Vertikal asymptote: $x = 1$. Polynomdivisjon: $f(x) = x + 1 + \\frac{1}{x-1}$, saa skraa asymptote $y = x + 1$.',
+            solution: '$D_f = \\mathbb{R} \\setminus \\{1\\}$. Nullpunkt: $x = 0$ (dobbelt). Vertikal asymptote: $x = 1$. Polynomdivisjon: $f(x) = x + 1 + \\frac{1}{x-1}$, så skraa asymptote $y = x + 1$.',
           },
           {
             label: 'b',
@@ -968,7 +968,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           },
         ],
         solution: '$D_f = \\mathbb{R} \\setminus \\{1\\}$. Skraa asymptote $y=x+1$. Lokal topp $(0,0)$, bunn $(2,4)$.',
-        hints: ['Gjoer polynomdivisjon for aa finne den skraa asymptoten.'],
+        hints: ['Gjoer polynomdivisjon for å finne den skraa asymptoten.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1016,7 +1016,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
         subTasks: [
           {
             label: 'a',
-            task: 'Finn stasjonaere punkter og avgjoer type.',
+            task: 'Finn stasjonaere punkter og avgjør type.',
             solution: "$P'(x) = -3x^2 + 30x - 48 = -3(x^2-10x+16) = -3(x-2)(x-8) = 0$. Stasjonaere: $x=2$ og $x=8$. $P''(x) = -6x + 30$. $P''(2) = 18 > 0$: bunnpunkt. $P''(8) = -18 < 0$: toppunkt.",
           },
           {
@@ -1027,7 +1027,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           {
             label: 'c',
             task: 'Finn vendepunktet og tolke det.',
-            solution: "$P''(x) = 0 \\Rightarrow x = 5$. $P(5) = -125 + 375 - 240 - 50 = -40$. Vendepunkt $(5, -40)$. Selv om profitten er negativ her, endrer profittveksten karakter: foer $x=5$ oeker profitten med tiltagende rate, etter med avtagende rate.",
+            solution: "$P''(x) = 0 \\Rightarrow x = 5$. $P(5) = -125 + 375 - 240 - 50 = -40$. Vendepunkt $(5, -40)$. Selv om profitten er negativ her, endrer profittveksten karakter: før $x=5$ øker profitten med tiltagende rate, etter med avtagende rate.",
           },
         ],
         solution: 'Bunn $(2, P(2))$, topp $(8, 14)$. Vendepunkt $(5, -40)$.',
@@ -1052,7 +1052,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           },
           {
             label: 'b',
-            task: 'Avgjoer om de stasjonaere punktene er toppunkt eller bunnpunkt.',
+            task: 'Avgjør om de stasjonaere punktene er toppunkt eller bunnpunkt.',
             solution: "$f''(x) = 6x + 6$. $f''(-3) = -12 < 0$: toppunkt $(-3, 32)$. $f''(1) = 12 > 0$: bunnpunkt $(1, 0)$.",
           },
         ],
@@ -1080,7 +1080,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           {
             label: 'b',
             task: 'Finn stasjonaere punkter og vendepunkter.',
-            solution: "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3) = 0$. Stasjonaere: $x=0$ og $x=3$. $f''(x) = 12x^2 - 24x = 12x(x-2)$. $f''(3) = 36 > 0$: bunnpunkt $(3, -27)$. Ved $x=0$ er $f''(0) = 0$, saa vi maa sjekke fortegn: $f'$ er negativ baade foer og etter $x=0$ (for smaa positive $x$), saa $x=0$ er et terrassepunkt.",
+            solution: "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3) = 0$. Stasjonaere: $x=0$ og $x=3$. $f''(x) = 12x^2 - 24x = 12x(x-2)$. $f''(3) = 36 > 0$: bunnpunkt $(3, -27)$. Ved $x=0$ er $f''(0) = 0$, så vi må sjekke fortegn: $f'$ er negativ både før og etter $x=0$ (for små positive $x$), så $x=0$ er et terrassepunkt.",
           },
           {
             label: 'c',
@@ -1137,7 +1137,7 @@ Verdimengden er $V_f = [-1, 1\\rangle$.`,
           {
             label: 'a',
             task: 'Sett opp profittfunksjonen og droeft den.',
-            solution: "$P(x) = 50x - 0{,}005x^3 + 0{,}75x^2 - 40x - 2000 = -0{,}005x^3 + 0{,}75x^2 + 10x - 2000$. $P'(x) = -0{,}015x^2 + 1{,}5x + 10 = 0$. $x^2 - 100x - 666{,}7 = 0$. $x \\approx 106{,}4$ (positiv loesning). $P''(106{,}4) = -0{,}03 \\cdot 106{,}4 + 1{,}5 = -1{,}69 < 0$: toppunkt.",
+            solution: "$P(x) = 50x - 0{,}005x^3 + 0{,}75x^2 - 40x - 2000 = -0{,}005x^3 + 0{,}75x^2 + 10x - 2000$. $P'(x) = -0{,}015x^2 + 1{,}5x + 10 = 0$. $x^2 - 100x - 666{,}7 = 0$. $x \\approx 106{,}4$ (positiv løsning). $P''(106{,}4) = -0{,}03 \\cdot 106{,}4 + 1{,}5 = -1{,}69 < 0$: toppunkt.",
           },
           {
             label: 'b',

@@ -21,8 +21,8 @@ export const CHAPTER_NORSK_VG2_5_1: TextbookChapter = {
   description: 'Lær om retorikkens historie og grunnleggende begreper.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'skrive fagartikler som drøfter tekster i kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   content: [
     {
@@ -299,8 +299,8 @@ export const CHAPTER_NORSK_VG2_5_2: TextbookChapter = {
   description: 'Lær om de tre appellformene og hvordan de brukes for å overbevise.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -571,9 +571,9 @@ export const CHAPTER_NORSK_VG2_5_3: TextbookChapter = {
   description: 'Lær systematisk analyse av sakprosa med retoriske og sjangermessige begreper.',
   estimatedMinutes: 65,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'skrive fagartikler som drøfter tekster i kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   content: [
     {
@@ -1060,8 +1060,8 @@ export const CHAPTER_NORSK_VG2_5_4: TextbookChapter = {
   description: 'Lær å identifisere og bruke retoriske virkemidler i egne og andres tekster.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'reflektere over sakprosateksters formål og retoriske situasjon',
-    'skrive tekster som kombinerer informasjon, drøfting og argumentasjon',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   content: [
     {
@@ -1589,8 +1589,7 @@ export const CHAPTER_NORSK_VG2_5_5: TextbookChapter = {
   estimatedMinutes: 90,
   competenceGoals: [
     'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'vurdere og bruke kilder kritisk',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -2278,8 +2277,7 @@ export const CHAPTER_NORSK_VG2_5_6: TextbookChapter = {
   description: 'Lær god kildebruk, referansesystemer og hvordan du unngår plagiat.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'skrive fagartikler som drøfter tekster i kontekst',
-    'bruke kilder og referanser på en etterrettelig måte',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   content: [
     {
@@ -2718,8 +2716,7 @@ export const CHAPTER_NORSK_VG2_5_7: TextbookChapter = {
   description: 'Lær å vurdere kilders troverdighet og kvalitet.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'vurdere og bruke kilder på en kritisk og etterrettelig måte',
-    'reflektere over sakprosateksters formål og kontekst',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -3240,8 +3237,7 @@ export const CHAPTER_NORSK_VG2_5_8: TextbookChapter = {
   description: 'Lær praktiske verktøy for å utvikle og forbedre egne tekster gjennom tilbakemeldinger og språkbevissthet.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'bruke tilbakemeldinger og kunnskap om språk til å utvikle egne tekster',
-    'vurdere og revidere egne tekster ut fra faglige kriterier',
+    'bruke tilbakemeldinger og kunnskap om språk, tekst og sjanger til å utvikle egne tekster',
   ],
   content: [
     {
@@ -3799,10 +3795,9 @@ export const CHAPTER_NORSK_VG2_5_9: TextbookChapter = {
   description: 'Lær å analysere argumenter og gjenkjenne logiske feilslutninger i debatter, reklame og sosiale medier.',
   estimatedMinutes: 70,
   competenceGoals: [
-    'reflektere over sakprosatekster og retorisk situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'bruke og variere språklige og retoriske virkemidler',
-    'vurdere argumentasjon og kilder kritisk',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'bruke fagkunnskap og retoriske ferdigheter i norskfaglige diskusjoner og presentasjoner',
   ],
   content: [
     {

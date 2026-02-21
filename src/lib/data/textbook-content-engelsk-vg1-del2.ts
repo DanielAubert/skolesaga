@@ -1265,6 +1265,16 @@ Each sentence starts with something mentioned before (known) and ends with new i
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-3-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Halliday, M. A. K. & Hasan, R. (1976). *Cohesion in English*. Longman.
+- McCarthy, M. (1991). *Discourse Analysis for Language Teachers*. Cambridge University Press.
+- Thornbury, S. (2005). *Beyond the Sentence: Introducing Discourse Analysis*. Macmillan.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -1738,6 +1748,16 @@ MECHANICS:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-3-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Ferris, D. R. (2011). *Treatment of Error in Second Language Student Writing*. University of Michigan Press.
+- Hyland, K. & Hyland, F. (2006). *Feedback in Second Language Writing*. Cambridge University Press.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Harmer, J. (2015). *The Practice of English Language Teaching*. Pearson Education.`,
     },
   ],
   exercises: [],
@@ -2214,6 +2234,16 @@ The combination of foreshadowing and flashback creates mystery about how we arri
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-4-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Abrams, M. H. & Harpham, G. G. (2015). *A Glossary of Literary Terms*. Cengage Learning.
+- Eagleton, T. (2008). *Literary Theory: An Introduction*. Blackwell Publishing.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Simpson, P. (2004). *Stylistics: A Resource Book for Students*. Routledge.`,
     },
   ],
   exercises: [],

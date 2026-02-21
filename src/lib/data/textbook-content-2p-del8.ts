@@ -20,7 +20,7 @@ export const CHAPTER_2P_3_5: TextbookChapter = {
   content: [
     {
       id: '2p-3-5-intro', type: 'text',
-      content: `## Feilkilder i statistikk\n\nStatistikk brukes overalt: i nyheter, reklame, politikk og forskning. Men statistikk kan vaere misvisende dersom den er basert pa darlige data eller presenteres uheldig.\n\nI dette kapittelet larer du:\n- Skille mellom tilfeldig og systematisk feil\n- Gjenkjenne skjevhet i utvalg\n- Oppdage villedende diagrammer`,
+      content: `## Feilkilder i statistikk\n\nStatistikk brukes overalt: i nyheter, reklame, politikk og forskning. Men statistikk kan være misvisende dersom den er basert pa darlige data eller presenteres uheldig.\n\nI dette kapittelet larer du:\n- Skille mellom tilfeldig og systematisk feil\n- Gjenkjenne skjevhet i utvalg\n- Oppdage villedende diagrammer`,
     },
     {
       id: '2p-3-5-def-feilkilder', type: 'definition', title: 'Typer feilkilder',
@@ -51,8 +51,8 @@ export const CHAPTER_2P_3_5: TextbookChapter = {
     {
       id: '2p-3-5-ex-2', type: 'exercise', exercise: {
         id: '2p-3-5-ex-2', number: '2', type: 'classic',
-        task: '"4 av 5 tannleger anbefaler var tannkrem." Gi minst to grunner til at denne pastand kan vaere misvisende.',
-        solution: '1) Vi vet ikke hvor mange som ble spurt. 2) Sporsmalene kan vaere ledende. 3) Tannlegene kan ha fatt betalt. 4) De kan ha anbefalt den som en blant mange.',
+        task: '"4 av 5 tannleger anbefaler var tannkrem." Gi minst to grunner til at denne pastand kan være misvisende.',
+        solution: '1) Vi vet ikke hvor mange som ble spurt. 2) Sporsmalene kan være ledende. 3) Tannlegene kan ha fatt betalt. 4) De kan ha anbefalt den som en blant mange.',
       },
     },
     {
@@ -358,15 +358,15 @@ export const CHAPTER_2P_6_3: TextbookChapter = {
   title: 'Modellering med regresjon',
   description: 'Bruke regresjon til a finne matematiske modeller som beskriver datasett.',
   estimatedMinutes: 45,
-  competenceGoals: ['bruke digitale verktoy til a analysere store datamengder, finne moenster og presentere funn'],
+  competenceGoals: ['bruke digitale verktøy til a analysere store datamengder, finne moenster og presentere funn'],
   content: [
     {
       id: '2p-6-3-intro', type: 'text',
-      content: `## Modellering med regresjon\n\nRegresjon finner en matematisk funksjon som best beskriver sammenhengen i et datasett.\n\nI dette kapittelet larer du:\n- Lineaer regresjon og $R^2$\n- Velge mellom lineaer, kvadratisk og eksponentiell modell\n- Bruke modeller til forutsigelser`,
+      content: `## Modellering med regresjon\n\nRegresjon finner en matematisk funksjon som best beskriver sammenhengen i et datasett.\n\nI dette kapittelet larer du:\n- Lineær regresjon og $R^2$\n- Velge mellom lineær, kvadratisk og eksponentiell modell\n- Bruke modeller til forutsigelser`,
     },
     {
       id: '2p-6-3-def-regresjon', type: 'definition', title: 'Regresjon og R-kvadrat',
-      content: `**Lineaer regresjon:** $y = ax + b$\n**Kvadratisk:** $y = ax^2 + bx + c$\n**Eksponentiell:** $y = a \\cdot b^x$\n\n**$R^2$** (forklaringsgrad): Tall mellom 0 og 1. $R^2 > 0{,}9$ er svart god tilpasning, $R^2 < 0{,}5$ er darlig.`,
+      content: `**Lineær regresjon:** $y = ax + b$\n**Kvadratisk:** $y = ax^2 + bx + c$\n**Eksponentiell:** $y = a \\cdot b^x$\n\n**$R^2$** (forklaringsgrad): Tall mellom 0 og 1. $R^2 > 0{,}9$ er svart god tilpasning, $R^2 < 0{,}5$ er darlig.`,
     },
     {
       id: '2p-6-3-example-1', type: 'example', title: 'Temperatur og issalg',
@@ -375,7 +375,7 @@ export const CHAPTER_2P_6_3: TextbookChapter = {
     },
     {
       id: '2p-6-3-warning-1', type: 'warning', title: 'Ekstrapolering',
-      content: `A bruke modellen langt utenfor dataintervallet er usikkert. Modellen ovenfor gir negativt salg under 10 °C. Bruk modellen bare naer dataintervallet.`,
+      content: `A bruke modellen langt utenfor dataintervallet er usikkert. Modellen ovenfor gir negativt salg under 10 °C. Bruk modellen bare nær dataintervallet.`,
     },
     {
       id: '2p-6-3-ex-1', type: 'exercise', exercise: {
@@ -403,7 +403,7 @@ export const CHAPTER_2P_6_3: TextbookChapter = {
         task: 'En populasjon dobles hvert 5. ar. Hvilken regresjonstype passer best?',
         options: [
           { id: 'a', text: 'Eksponentiell', isCorrect: true },
-          { id: 'b', text: 'Lineaer', isCorrect: false },
+          { id: 'b', text: 'Lineær', isCorrect: false },
           { id: 'c', text: 'Kvadratisk', isCorrect: false },
           { id: 'd', text: 'Ingen', isCorrect: false },
         ],
@@ -462,8 +462,8 @@ export const CHAPTER_2P_6_4: TextbookChapter = {
     },
     {
       id: '2p-6-4-example-1', type: 'example', title: 'To modeller for befolkningsvekst',
-      problem: '10 000 innbyggere i 2010, 12 500 i 2020. Lineaer: $f(x) = 250x + 10000$. Eksponentiell: $g(x) = 10000 \\cdot 1{,}0225^x$. Sammenlign for 2030.',
-      solution: `$x = 20$: Lineaer gir $15\\,000$. Eksponentiell: $10000 \\cdot 1{,}0225^{20} \\approx 15\\,620$. Forskjell 620. Mer data trengs for a velge.`,
+      problem: '10 000 innbyggere i 2010, 12 500 i 2020. Lineær: $f(x) = 250x + 10000$. Eksponentiell: $g(x) = 10000 \\cdot 1{,}0225^x$. Sammenlign for 2030.',
+      solution: `$x = 20$: Lineær gir $15\\,000$. Eksponentiell: $10000 \\cdot 1{,}0225^{20} \\approx 15\\,620$. Forskjell 620. Mer data trengs for a velge.`,
     },
     {
       id: '2p-6-4-note-1', type: 'note', title: 'Korrelasjon betyr ikke aarsak',
@@ -492,11 +492,11 @@ export const CHAPTER_2P_6_4: TextbookChapter = {
     {
       id: '2p-6-4-ex-3', type: 'exercise', exercise: {
         id: '2p-6-4-ex-3', number: '3', type: 'multiple-choice',
-        task: 'Lineaer modell: $R^2 = 0{,}91$. Kvadratisk: $R^2 = 0{,}93$. Hvilken velge?',
+        task: 'Lineær modell: $R^2 = 0{,}91$. Kvadratisk: $R^2 = 0{,}93$. Hvilken velge?',
         options: [
-          { id: 'a', text: 'Lineaer: liten forskjell, enklere er bedre', isCorrect: true },
+          { id: 'a', text: 'Lineær: liten forskjell, enklere er bedre', isCorrect: true },
           { id: 'b', text: 'Kvadratisk: hoyere $R^2$', isCorrect: false },
-          { id: 'c', text: 'Ingen: $R^2$ bor vaere 1', isCorrect: false },
+          { id: 'c', text: 'Ingen: $R^2$ bor være 1', isCorrect: false },
           { id: 'd', text: 'Umulig a velge', isCorrect: false },
         ],
         solution: 'Liten forskjell i $R^2$: velg enkleste modell (parsimoni). Kompleks modell kan overtilpasses.',
@@ -506,18 +506,18 @@ export const CHAPTER_2P_6_4: TextbookChapter = {
       id: '2p-6-4-ex-4', type: 'exercise', exercise: {
         id: '2p-6-4-ex-4', number: '4', type: 'classic',
         task: 'Husleiemodell Oslo: $y = 850x + 3000$ kr/mnd ($x$ = kvm). Gi minst to begrensninger.',
-        solution: '1) Tar ikke hensyn til beliggenhet. 2) $x = 0$ gir 3000 kr, urealistisk. 3) Neppe lineaer for alle storrelser. 4) Kun gyldig innenfor dataintervallet.',
+        solution: '1) Tar ikke hensyn til beliggenhet. 2) $x = 0$ gir 3000 kr, urealistisk. 3) Neppe lineær for alle storrelser. 4) Kun gyldig innenfor dataintervallet.',
       },
     },
     {
       id: '2p-6-4-ex-5', type: 'exercise', exercise: {
         id: '2p-6-4-ex-5', number: '5', type: 'multiple-choice',
-        task: 'Hva betyr det at residualer bor vaere tilfeldig spredt?',
+        task: 'Hva betyr det at residualer bor være tilfeldig spredt?',
         options: [
           { id: 'a', text: 'Ikke systematisk monster i avvikene', isCorrect: true },
-          { id: 'b', text: 'Alle residualer bor vaere like', isCorrect: false },
-          { id: 'c', text: 'Residualene bor vaere positive', isCorrect: false },
-          { id: 'd', text: 'Residualene bor oeke med $x$', isCorrect: false },
+          { id: 'b', text: 'Alle residualer bor være like', isCorrect: false },
+          { id: 'c', text: 'Residualene bor være positive', isCorrect: false },
+          { id: 'd', text: 'Residualene bor øke med $x$', isCorrect: false },
         ],
         solution: 'Monster i residualene betyr at modellen systematisk bommer. En annen modelltype kan passe bedre.',
       },

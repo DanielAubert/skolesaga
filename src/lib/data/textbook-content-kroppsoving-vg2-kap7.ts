@@ -580,7 +580,7 @@ export const CHAPTER_KROPPSOVING_VG2_7_4: TextbookChapter = {
   courseId: 'kroppsoving-vg2',
   chapterNumber: '7.4',
   title: 'Overlevelsesteknikker og sikkerhet',
-  description: 'Lær grunnleggende overlevelsesteknikker som nødbivaak, båltenning og førstehjelp i naturen.',
+  description: 'Lær grunnleggende overlevelsesteknikker som nødbivuakk, båltenning og førstehjelp i naturen.',
   estimatedMinutes: 50,
   competenceGoals: [
     'mestre grunnleggende overlevelsesteknikker i naturen',
@@ -595,13 +595,13 @@ export const CHAPTER_KROPPSOVING_VG2_7_4: TextbookChapter = {
     {
       id: 'kroppsoving-vg2-7-4-def-1',
       type: 'definition',
-      title: 'Nødbivaak',
-      content: `En nødbivaak er et improvisert ly som bygges i en nødsituasjon for å beskytte mot vind, nedbør og kulde. Den kan lages av naturmaterialer (greiner, mose, snø), en presenning eller et nødpledd. Målet er å holde kroppskjernen varm og tørr.`,
+      title: 'Nødbivuakk',
+      content: `En nødbivuakk er et improvisert ly som bygges i en nødsituasjon for å beskytte mot vind, nedbør og kulde. Den kan lages av naturmaterialer (greiner, mose, snø), en presenning eller et nødpledd. Målet er å holde kroppskjernen varm og tørr.`,
     },
     {
       id: 'kroppsoving-vg2-7-4-text-1',
       type: 'text',
-      content: `**Bygging av nødbivaak**
+      content: `**Bygging av nødbivuakk**
 
 Det finnes flere typer nødbivuakker. En enkel variant er å lene greiner mot en stamme eller et berg og dekke med granbar og mose. Om vinteren kan du grave en snøhule i en skavl. Viktige prinsipper: Velg et sted i le for vind. Isoler mot bakken med granbar eller liggeunderlag. Gjør bivuakken liten for å bevare varmen. Ha en åpning som kan lukkes.`,
     },
@@ -722,7 +722,7 @@ Vann fra bekker og innsjøer kan inneholde bakterier og parasitter (som Giardia)
         id: 'kroppsoving-vg2-7-4-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Beskriv steg for steg hvordan du bygger en enkel nødbivaak i skogen med naturmaterialer.',
+        task: 'Beskriv steg for steg hvordan du bygger en enkel nødbivuakk i skogen med naturmaterialer.',
         solution: '1) Finn et sted i le for vind, gjerne ved et berg eller en stor stein. 2) Finn en solid stamme eller grein å bruke som rygg. 3) Len lange greiner mot ryggen i 45 graders vinkel. 4) Flett tynnere kvister og granbar mellom de lange greinene for isolasjon. 5) Legg et tykt lag med granbar på bakken inne i bivuakken for isolasjon. 6) Gjør åpningen liten og sørg for at den ikke vender mot vinden. 7) Tett eventuelle hull med mose og løv.',
         allowsUpload: true,
         allowsCanvasDrawing: true,

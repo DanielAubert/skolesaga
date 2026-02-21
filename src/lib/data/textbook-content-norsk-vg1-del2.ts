@@ -2646,33 +2646,33 @@ Dialekter kjennetegnes av systematiske forskjeller i uttale, ordformer og gramma
     {
       id: 'norsk-vg1-4-4-example-2',
       type: 'example',
-      title: 'Eksempel: Samisk spraak og kultur',
+      title: 'Eksempel: Samisk språk og kultur',
       content: `**Oppgave/Situasjon:**
-Hva kan vi laere av samisk spraak og den samiske kulturen?
+Hva kan vi lære av samisk språk og den samiske kulturen?
 
 **Analyse:**
 
 **Ord som viser kulturell kunnskap:**
-Nordsamisk har over 300 ord for sno og is, noe som gjenspeiler samenes naere forhold til naturen:
+Nordsamisk har over 300 ord for snø og is, noe som gjenspeiler samenes nære forhold til naturen:
 
 | Nordsamisk | Betydning |
 |------------|-----------|
-| muohta | sno (generelt) |
-| vahca | losnso |
-| skarta | tynt islag paa sno |
-| cuoŋu | skorpesno som baerer |
-| seaŋas | kornete sno |
+| muohta | snø (generelt) |
+| vahca | løssnø |
+| skarta | tynt islag på snø |
+| cuoŋu | skorpesnø som bærer |
+| seaŋas | kornete snø |
 
-**Spraaklig struktur:**
-- Samisk har **ikke** grammatisk kjonn (han/hun/den)
+**Språklig struktur:**
+- Samisk har **ikke** grammatisk kjønn (han/hun/den)
 - Samisk har **mange kasus** (grammatiske former for substantiv)
-- Verbene boyes etter person og tall paa en annen mate enn norsk
+- Verbene bøyes etter person og tall på en annen måte enn norsk
 
 **Forklaring:**
-Spraak gjenspeiler kultur og levematte. Samenes detaljerte ordforraad for sno viser at de har levd taett paa naturen i tusener av aar. Naar et spraak doer, mister vi ogsaa denne kunnskapen.
+Språk gjenspeiler kultur og levemåte. Samenes detaljerte ordforråd for snø viser at de har levd tett på naturen i tusenvis av år. Når et språk dør, mister vi også denne kunnskapen.
 
 **Historisk perspektiv:**
-Fornorskingspolitikken (ca. 1850-1960) forbod samisk i skolen. Mange mistet morosmaalet sitt. I dag arbeides det aktivt med aa revitalisere samiske spraak gjennom barnehager, skoler og media.`,
+Fornorskingspolitikken (ca. 1850-1960) forbød samisk i skolen. Mange mistet morsmålet sitt. I dag arbeides det aktivt med å revitalisere samiske språk gjennom barnehager, skoler og media.`,
     },
 
     // ========== OPPGAVER ==========
@@ -3018,8 +3018,8 @@ Språkrådet arbeider med å finne gode norske ord for nye begreper, men mange e
       id: 'norsk-vg1-4-5-image-laneord',
       type: 'image',
       src: '/images/textbook/norsk-vg1/norsk-vg1-4-5-laneord.png',
-      alt: 'Tidslinje som viser laneord i norsk fra ulike spraak gjennom historien: norront, tysk, fransk og engelsk',
-      caption: 'Tidslinje over laneord i norsk fra middelalderen til i dag, med eksempler fra tysk, fransk og engelsk.',
+      alt: 'Tidslinje som viser lånord i norsk fra ulike språk gjennom historien: norrønt, tysk, fransk og engelsk',
+      caption: 'Tidslinje over lånord i norsk fra middelalderen til i dag, med eksempler fra tysk, fransk og engelsk.',
     },
     {
       id: 'norsk-vg1-4-5-image-sprakendring',
@@ -3076,32 +3076,32 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
     {
       id: 'norsk-vg1-4-5-example-2',
       type: 'example',
-      title: 'Eksempel: Spraakendring i sosiale medier',
+      title: 'Eksempel: Språkendring i sosiale medier',
       content: `**Oppgave/Situasjon:**
-Analyser hvordan spraak brukes og endres i sosiale medier.
+Analyser hvordan språk brukes og endres i sosiale medier.
 
 **Analyse av en typisk melding:**
 "Omg haha skal vi henge i morra? Dm meg hvis du er keen <3"
 
-**Spraaklige trekk:**
+**Språklige trekk:**
 
 | Trekk | Eksempel | Forklaring |
 |-------|----------|------------|
 | Forkortelser | omg, dm | "Oh my god", "direct message" |
-| Engelske laanord | keen, henge | "keen" = interessert, "henge" = vaere sammen |
+| Engelske lånord | keen, henge | "keen" = interessert, "henge" = være sammen |
 | Emojier/symboler | <3 | Hjerte som uttrykker varme |
 | Uformell tone | haha | Markerer vennlig, avslappet kommunikasjon |
-| Muntlig spraak | morra | Forkortet "i morgen" |
+| Muntlig språk | morra | Forkortet "i morgen" |
 
 **Forklaring:**
-Spraak i sosiale medier er:
-1. **Okonomisk:** Vi skriver raskt og kort
-2. **Kreativt:** Nye ord og uttrykk oppstaar
+Språk i sosiale medier er:
+1. **Økonomisk:** Vi skriver raskt og kort
+2. **Kreativt:** Nye ord og uttrykk oppstår
 3. **Kodevekslende:** Vi blander norsk og engelsk
-4. **Muntlig skriftspraak:** Skriver som vi snakker
+4. **Muntlig skriftspråk:** Skriver som vi snakker
 
 **Refleksjon:**
-Dette er ikke "daarlig" spraak - det er **tilpasset spraak**. De samme personene skriver annerledes i skoleoppgaver. Evnen til aa veksle mellom ulike spraakstiler kalles **spraaklig kompetanse**.`,
+Dette er ikke "dårlig" språk - det er **tilpasset språk**. De samme personene skriver annerledes i skoleoppgaver. Evnen til å veksle mellom ulike språkstiler kalles **språklig kompetanse**.`,
     },
 
     // ========== PRIMÆRTEKSTER (språkprøver) ==========

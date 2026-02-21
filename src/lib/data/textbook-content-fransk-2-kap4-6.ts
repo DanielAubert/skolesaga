@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Nivaa 2 - Kapittel 4-6 (Detaljerte underkapitler)
+ * Fransk Nivå 2 - Kapittel 4-6 (Detaljerte underkapitler)
  *
  * Dekker:
  * - Kapittel 4: Reise og kultur (4.1-4.4)
@@ -25,10 +25,10 @@ export const CHAPTER_FRANSK_2_4_1: TextbookChapter = {
   chapterNumber: '4.1',
   title: 'Voyager en France',
   subtitle: 'Reise i Frankrike',
-  description: 'Laer reisevokabular, franske regioner og praktiske fraser for aa reise i Frankrike.',
+  description: 'Lær reisevokabular, franske regioner og praktiske fraser for å reise i Frankrike.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke reisevokabular paa fransk',
+    'bruke reisevokabular på fransk',
     'kjenne til viktige regioner i Frankrike',
   ],
   content: [
@@ -37,25 +37,25 @@ export const CHAPTER_FRANSK_2_4_1: TextbookChapter = {
       type: 'text',
       content: `## Reise i Frankrike
 
-Frankrike er et populaert reisemaal med variert natur og kultur. For aa reise rundt trenger du nyttig vokabular.
+Frankrike er et populært reisemål med variert natur og kultur. For å reise rundt trenger du nyttig vokabular.
 
 **Transportmidler:**
 
 | Fransk | Norsk |
 |--------|-------|
 | le train | toget |
-| le TGV (Train a Grande Vitesse) | hoeyhastighetstog |
+| le TGV (Train a Grande Vitesse) | høyhastighetstog |
 | l'avion (m.) | flyet |
 | le bus / l'autobus | bussen |
 | le metro | metroen |
 | la voiture | bilen |
 | le velo | sykkelen |
-| le bateau | baaten |`,
+| le bateau | båten |`,
     },
     {
       id: 'fransk-2-4-1-text-1',
       type: 'text',
-      content: `## Paa stasjonen og flyplassen
+      content: `## På stasjonen og flyplassen
 
 | Fransk | Norsk |
 |--------|-------|
@@ -73,13 +73,13 @@ Frankrike er et populaert reisemaal med variert natur og kultur. For aa reise ru
     {
       id: 'fransk-2-4-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Paa togstasjonen',
-      problem: `Si paa fransk:
+      title: 'Eksempel 1: På togstasjonen',
+      problem: `Si på fransk:
 
 a) Jeg vil gjerne ha en tur-retur-billett til Lyon.
-b) Naar gaar neste tog?
+b) Når går neste tog?
 c) Hvilken plattform?`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je voudrais un billet aller-retour pour Lyon.**
 
@@ -126,12 +126,12 @@ Frankrike har 13 administrative regioner (metropole):
       id: 'fransk-2-4-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Snakke om reise',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg drar til Provence i sommer.
-b) Lyon ligger soeroest i Frankrike.
-c) Vi besoekerNormandie neste uke.`,
-      solution: `**Loesning:**
+b) Lyon ligger sørøst i Frankrike.
+c) Vi besøker Normandie neste uke.`,
+      solution: `**Løsning:**
 
 a) **Je vais en Provence cet ete.**
 
@@ -149,12 +149,12 @@ c) **Nous visitons la Normandie la semaine prochaine.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg vil gjerne reise til Soer-Frankrike.', solution: 'Je voudrais voyager dans le sud de la France.' },
+          { label: 'a', task: 'Jeg vil gjerne reise til Sør-Frankrike.', solution: 'Je voudrais voyager dans le sud de la France.' },
           { label: 'b', task: 'Paris ligger i Ile-de-France.', solution: 'Paris se trouve en Ile-de-France.' },
-          { label: 'c', task: 'Vi drar til Alpene for aa staa paa ski.', solution: 'Nous allons dans les Alpes pour faire du ski.' },
+          { label: 'c', task: 'Vi drar til Alpene for å stå på ski.', solution: 'Nous allons dans les Alpes pour faire du ski.' },
         ],
         solution: 'a) Je voudrais voyager dans le sud de la France. b) Paris se trouve en Ile-de-France. c) Nous allons dans les Alpes pour faire du ski.',
-        hints: ['se trouver = aa befinne seg', 'dans le sud = i soer'],
+        hints: ['se trouver = å befinne seg', 'dans le sud = i sør'],
       },
     },
     {
@@ -168,21 +168,21 @@ c) **Nous visitons la Normandie la semaine prochaine.**`,
 | Je cherche... | Jeg leter etter... |
 | C'est loin d'ici ? | Er det langt herfra? |
 | C'est a combien de kilometres ? | Hvor mange kilometer er det? |
-| Tournez a gauche / a droite | Sving til venstre / hoeyre |
-| Allez tout droit | Gaa rett frem |
-| Je suis perdu(e). | Jeg har gaatt meg bort. |
+| Tournez a gauche / a droite | Sving til venstre / høyre |
+| Allez tout droit | Gå rett frem |
+| Je suis perdu(e). | Jeg har gått meg bort. |
 | Pouvez-vous m'aider ? | Kan du hjelpe meg? |`,
     },
     {
       id: 'fransk-2-4-1-example-3',
       type: 'example',
-      title: 'Eksempel 3: Spoerre om veien',
-      problem: `Si paa fransk:
+      title: 'Eksempel 3: Spørre om veien',
+      problem: `Si på fransk:
 
 a) Unnskyld, hvor er hotellet?
 b) Er det langt herfra?
-c) Jeg har gaatt meg bort.`,
-      solution: `**Loesning:**
+c) Jeg har gått meg bort.`,
+      solution: `**Løsning:**
 
 a) **Excusez-moi, ou se trouve l'hotel ?**
 
@@ -201,7 +201,7 @@ c) **Je suis perdu(e).**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Jeg leter etter togstasjonen.', solution: 'Je cherche la gare.' },
-          { label: 'b', task: 'Sving til hoeyre og gaa rett frem.', solution: 'Tournez a droite et allez tout droit.' },
+          { label: 'b', task: 'Sving til høyre og gå rett frem.', solution: 'Tournez a droite et allez tout droit.' },
           { label: 'c', task: 'Kan du hjelpe meg?', solution: 'Pouvez-vous m\'aider ?' },
         ],
         solution: 'a) Je cherche la gare. b) Tournez a droite et allez tout droit. c) Pouvez-vous m\'aider ?',
@@ -211,12 +211,12 @@ c) **Je suis perdu(e).**`,
     {
       id: 'fransk-2-4-1-tip-1',
       type: 'tip',
-      content: `**Tips for aa reise i Frankrike:**
+      content: `**Tips for å reise i Frankrike:**
 
-1. TGV (hoeyhastighetstog) er den raskeste maaten aa reise mellom byer
-2. Bestill billetter i forveien paa sncf-connect.com for bedre priser
+1. TGV (høyhastighetstog) er den raskeste måten å reise mellom byer
+2. Bestill billetter i forveien på sncf-connect.com for bedre priser
 3. I Paris er metroen det mest praktiske transportmiddelet
-4. Husk aa "composter" (stemple) togbilletten foer du gaar ombord (paa noen stasjoner)`,
+4. Husk å "composter" (stemple) togbilletten før du går ombord (på noen stasjoner)`,
     },
   ],
   exercises: [],
@@ -232,11 +232,11 @@ export const CHAPTER_FRANSK_2_4_2: TextbookChapter = {
   chapterNumber: '4.2',
   title: 'La culture francaise au quotidien',
   subtitle: 'Fransk hverdagskultur',
-  description: 'Laer om fransk hverdagskultur, skikker, etikette og matvaner.',
+  description: 'Lær om fransk hverdagskultur, skikker, etikette og matvaner.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kjenne til franske hverdagsskikker',
-    'kommunisere hoeflig i franske sosiale situasjoner',
+    'kommunisere høflig i franske sosiale situasjoner',
   ],
   content: [
     {
@@ -244,7 +244,7 @@ export const CHAPTER_FRANSK_2_4_2: TextbookChapter = {
       type: 'text',
       content: `## Fransk hverdagskultur
 
-Frankrike har mange sosiale koder og tradisjoner som er viktige aa kjenne til.
+Frankrike har mange sosiale koder og tradisjoner som er viktige å kjenne til.
 
 **Hilsener:**
 
@@ -253,44 +253,44 @@ Frankrike har mange sosiale koder og tradisjoner som er viktige aa kjenne til.
 | Bonjour | God dag | Formell, hele dagen |
 | Bonsoir | God kveld | Etter ca. kl. 18 |
 | Salut | Hei | Uformell, venner |
-| Enchanté(e) | Hyggelig aa hilse paa deg | Foerste gang |
+| Enchanté(e) | Hyggelig å hilse på deg | Første gang |
 | Au revoir | Ha det | Formell |
 | A bientot | Vi ses snart | Uformell |
-| Bonne journee | Ha en fin dag | Naar man gaar |`,
+| Bonne journee | Ha en fin dag | Når man går |`,
     },
     {
       id: 'fransk-2-4-2-text-1',
       type: 'text',
-      content: `## "La bise" og hoeflig omgang
+      content: `## "La bise" og høflig omgang
 
 I Frankrike hilser man ofte med kinnkyss ("la bise"). Antall kyss varierer etter region (2-4).
 
-**Hoeflige uttrykk:**
+**Høflige uttrykk:**
 
 | Fransk | Norsk |
 |--------|-------|
-| s'il vous plait | vaer saa snill (formell) |
-| s'il te plait | vaer saa snill (uformell) |
+| s'il vous plait | vær så snill (formell) |
+| s'il te plait | vær så snill (uformell) |
 | merci beaucoup | tusen takk |
-| je vous en prie | vaer saa god (formell) |
-| de rien | ingen aarsak |
+| je vous en prie | vær så god (formell) |
+| de rien | ingen årsak |
 | pardon / excusez-moi | unnskyld |
 | je suis desole(e) | jeg er lei meg |
 
-**Viktig:** Franskmenn bruker alltid "Bonjour" naar de gaar inn i en butikk eller snakker med fremmede.`,
+**Viktig:** Franskmenn bruker alltid "Bonjour" når de går inn i en butikk eller snakker med fremmede.`,
     },
     {
       id: 'fransk-2-4-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Hoeflige uttrykk',
-      problem: `Hva sier du paa fransk?
+      title: 'Eksempel 1: Høflige uttrykk',
+      problem: `Hva sier du på fransk?
 
-a) Du gaar inn i en butikk.
+a) Du går inn i en butikk.
 b) Du takker for hjelpen.
 c) Du unnskylder deg.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **Bonjour !** (alltid si god dag naar du gaar inn i en butikk)
+a) **Bonjour !** (alltid si god dag når du går inn i en butikk)
 
 b) **Merci beaucoup !**
 
@@ -304,9 +304,9 @@ c) **Excusez-moi.** / **Pardon.**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Hva sier du paa fransk i disse situasjonene?',
+        task: 'Hva sier du på fransk i disse situasjonene?',
         subTasks: [
-          { label: 'a', task: 'Du moetertil en middagsselskap.', solution: 'Bonsoir ! Enchanté(e) !' },
+          { label: 'a', task: 'Du møter til en middagsselskap.', solution: 'Bonsoir ! Enchanté(e) !' },
           { label: 'b', task: 'Du tar farvel med en venn.', solution: 'Salut ! A bientot !' },
           { label: 'c', task: 'Noen gir deg en gave.', solution: 'Merci beaucoup ! C\'est tres gentil !' },
         ],
@@ -317,33 +317,33 @@ c) **Excusez-moi.** / **Pardon.**`,
     {
       id: 'fransk-2-4-2-text-2',
       type: 'text',
-      content: `## Maaltider og matvaner
+      content: `## Måltider og matvaner
 
-Franskmenn har faste maaltidstider:
+Franskmenn har faste måltidstider:
 
-| Maaltid | Tid | Beskrivelse |
+| Måltid | Tid | Beskrivelse |
 |---------|-----|-------------|
-| Le petit dejeuner | 7-9 | Frokost: croissant, broed, kaffe |
-| Le dejeuner | 12-14 | Lunsj: ofte et stort maaltid |
-| Le gouter | 16-17 | Mellommaaltid (barna) |
+| Le petit dejeuner | 7-9 | Frokost: croissant, brød, kaffe |
+| Le dejeuner | 12-14 | Lunsj: ofte et stort måltid |
+| Le gouter | 16-17 | Mellommåltid (barna) |
 | Le diner | 19-21 | Middag: ofte lettere enn lunsj |
 
-**Maaltidsfranskkultur:**
-- Man sier "Bon appetit !" foer man spiser
-- Broed legges direkte paa bordet (ikke paa tallerkenen)
-- Man holder gaffelen i venstre haand og kniven i hoeyre
-- Ost spises foer dessert`,
+**Måltidsfranskkultur:**
+- Man sier "Bon appetit !" før man spiser
+- Brød legges direkte på bordet (ikke på tallerkenen)
+- Man holder gaffelen i venstre hånd og kniven i høyre
+- Ost spises før dessert`,
     },
     {
       id: 'fransk-2-4-2-example-2',
       type: 'example',
-      title: 'Eksempel 2: Maaltider',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Måltider',
+      problem: `Si på fransk:
 
 a) Hva spiser du til frokost?
 b) Lunsjen er klokka tolv.
 c) God appetitt!`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Qu'est-ce que tu manges au petit dejeuner ?**
 
@@ -362,11 +362,11 @@ c) **Bon appetit !**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Til frokost spiser jeg en croissant.', solution: 'Au petit dejeuner, je mange un croissant.' },
-          { label: 'b', task: 'Vi spiser middag klokka aatte.', solution: 'Nous dinons a vingt heures. / On dine a huit heures.' },
-          { label: 'c', task: 'Lunsj er det viktigste maaltidet.', solution: 'Le dejeuner est le repas le plus important.' },
+          { label: 'b', task: 'Vi spiser middag klokka åtte.', solution: 'Nous dinons a vingt heures. / On dine a huit heures.' },
+          { label: 'c', task: 'Lunsj er det viktigste måltidet.', solution: 'Le dejeuner est le repas le plus important.' },
         ],
         solution: 'a) Au petit dejeuner, je mange un croissant. b) Nous dinons a vingt heures. c) Le dejeuner est le repas le plus important.',
-        hints: ['diner = spise middag', 'le repas = maaltidet'],
+        hints: ['diner = spise middag', 'le repas = måltidet'],
       },
     },
     {
@@ -374,12 +374,12 @@ c) **Bon appetit !**`,
       type: 'text',
       content: `## Sosiale koder
 
-| Situasjon | Forventet oppfoersel |
+| Situasjon | Forventet oppførsel |
 |-----------|---------------------|
 | I butikken | Alltid si "Bonjour" og "Au revoir" |
-| Paa restaurant | Vent paa aa bli vist til bordet |
+| På restaurant | Vent på å bli vist til bordet |
 | Hjemme hos noen | Ta med en gave (vin, blomster, sjokolade) |
-| Paa jobb | Bruk "vous" med sjefen |
+| På jobb | Bruk "vous" med sjefen |
 | Blant venner | "Tu" er greit |
 
 **Vous vs. Tu:**
@@ -392,14 +392,14 @@ c) **Bon appetit !**`,
       title: 'Eksempel 3: Vous vs. Tu',
       problem: `Velg riktig form (vous/tu):
 
-a) Du snakker med laereren din.
+a) Du snakker med læreren din.
 b) Du snakker med bestevennen din.
-c) Du snakker med en ukjent paa gata.`,
-      solution: `**Loesning:**
+c) Du snakker med en ukjent på gata.`,
+      solution: `**Løsning:**
 
-a) **Vous** - laereren er en autoritetsperson.
+a) **Vous** - læreren er en autoritetsperson.
 
-b) **Tu** - det er en naer venn.
+b) **Tu** - det er en nær venn.
 
 c) **Vous** - det er en fremmed person.`,
     },
@@ -427,9 +427,9 @@ c) **Vous** - det er en fremmed person.`,
       content: `**Kulturell info:**
 
 - Franskmenn tar gjerne to timer til lunsj
-- Butikker kan vaere stengt mellom kl. 12 og 14 (lunsjtid)
-- Soendag er tradisjonelt en familiedag da mange butikker er stengt
-- "Le gouter" (mellommaaltidet) er spesielt viktig for barn`,
+- Butikker kan være stengt mellom kl. 12 og 14 (lunsjtid)
+- Søndag er tradisjonelt en familiedag da mange butikker er stengt
+- "Le gouter" (mellommåltidet) er spesielt viktig for barn`,
     },
   ],
   exercises: [],
@@ -445,11 +445,11 @@ export const CHAPTER_FRANSK_2_4_3: TextbookChapter = {
   chapterNumber: '4.3',
   title: 'La gastronomie francaise',
   subtitle: 'Fransk gastronomi',
-  description: 'Laer om fransk gastronomi, regionale retter, vinkultur og fromageri.',
+  description: 'Lær om fransk gastronomi, regionale retter, vinkultur og fromageri.',
   estimatedMinutes: 45,
   competenceGoals: [
     'kjenne til franske kulinariske tradisjoner',
-    'beskrive franske retter og matvarer paa fransk',
+    'beskrive franske retter og matvarer på fransk',
   ],
   content: [
     {
@@ -457,18 +457,18 @@ export const CHAPTER_FRANSK_2_4_3: TextbookChapter = {
       type: 'text',
       content: `## Fransk gastronomi
 
-Fransk matkultur er paa UNESCOs verdensarvliste. Et tradisjonelt fransk maaltid bestaar av flere retter:
+Fransk matkultur er på UNESCOs verdensarvliste. Et tradisjonelt fransk måltid består av flere retter:
 
 | Fransk | Norsk |
 |--------|-------|
-| l'aperitif (m.) | aperitiff (drink foer maten) |
+| l'aperitif (m.) | aperitiff (drink før maten) |
 | l'entree (f.) | forrett |
 | le plat principal | hovedrett |
 | le fromage | ost |
 | le dessert | dessert |
 | le digestif | digestif (drink etter maten) |
 
-**Et typisk maaltid:**
+**Et typisk måltid:**
 Aperitif → Forrett → Hovedrett → Salat → Ost → Dessert → Kaffe`,
     },
     {
@@ -480,10 +480,10 @@ Hver region i Frankrike har sine egne retter:
 
 | Region | Rett | Beskrivelse |
 |--------|------|-------------|
-| Bourgogne | le boeuf bourguignon | oksekjoett i roedvinsaus |
-| Provence | la ratatouille | groennsaksgryterett |
-| Alsace | la choucroute | surkaal med poelse og kjoett |
-| Bretagne | les crepes / les galettes | pannekaker (soete/salte) |
+| Bourgogne | le boeuf bourguignon | oksekjøtt i rødvinsaus |
+| Provence | la ratatouille | grønnsaksgryterett |
+| Alsace | la choucroute | surkål med pølse og kjøtt |
+| Bretagne | les crepes / les galettes | pannekaker (søte/salte) |
 | Normandie | le camembert | myk hvitost |
 | Lyon | les quenelles | fiskeboller i saus |
 | Nice | la salade nicoise | salat med tunfisk og egg |`,
@@ -491,13 +491,13 @@ Hver region i Frankrike har sine egne retter:
     {
       id: 'fransk-2-4-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Bestille paa restaurant',
-      problem: `Si paa fransk:
+      title: 'Eksempel 1: Bestille på restaurant',
+      problem: `Si på fransk:
 
-a) Som forrett vil jeg gjerne ha loekssuppe.
+a) Som forrett vil jeg gjerne ha løksuppe.
 b) Som hovedrett tar jeg boeuf bourguignon.
 c) Og til dessert, en creme brulee.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Comme entree, je voudrais la soupe a l'oignon.**
 
@@ -517,7 +517,7 @@ c) **Et comme dessert, une creme brulee.**`,
         subTasks: [
           { label: 'a', task: 'Hva anbefaler du? (formelt)', solution: 'Qu\'est-ce que vous recommandez ?' },
           { label: 'b', task: 'Jeg vil gjerne ha dagens rett.', solution: 'Je voudrais le plat du jour.' },
-          { label: 'c', task: 'Kan jeg faa vinkartet?', solution: 'Est-ce que je peux avoir la carte des vins ?' },
+          { label: 'c', task: 'Kan jeg få vinkartet?', solution: 'Est-ce que je peux avoir la carte des vins ?' },
         ],
         solution: 'a) Qu\'est-ce que vous recommandez ? b) Je voudrais le plat du jour. c) Est-ce que je peux avoir la carte des vins ?',
         hints: ['recommander = anbefale', 'le plat du jour = dagens rett'],
@@ -534,8 +534,8 @@ Frankrike er verdens mest kjente vinland og har over 400 ostesorter!
 
 | Region | Vintype |
 |--------|---------|
-| Bordeaux | Roedvin (cabernet, merlot) |
-| Bourgogne | Roedvin og hvitvin (pinot noir, chardonnay) |
+| Bordeaux | Rødvin (cabernet, merlot) |
+| Bourgogne | Rødvin og hvitvin (pinot noir, chardonnay) |
 | Champagne | Champagne (musserende vin) |
 | Alsace | Hvitvin (riesling) |
 | Loire | Rosévin og hvitvin |
@@ -544,9 +544,9 @@ Frankrike er verdens mest kjente vinland og har over 400 ostesorter!
 
 | Ost | Type |
 |-----|------|
-| le camembert | bloetost |
-| le brie | bloetost |
-| le roquefort | blaamuggost |
+| le camembert | bløtost |
+| le brie | bløtost |
+| le roquefort | blåmuggost |
 | le comte | hardost |
 | le chevre | geiteost |`,
     },
@@ -554,12 +554,12 @@ Frankrike er verdens mest kjente vinland og har over 400 ostesorter!
       id: 'fransk-2-4-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Snakke om mat',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Frankrike er kjent for sin vin og ost.
-b) Jeg foretrekker roedvin.
+b) Jeg foretrekker rødvin.
 c) Denne osten er deilig!`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **La France est connue pour son vin et son fromage.**
 
@@ -578,17 +578,17 @@ c) **Ce fromage est delicieux !**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Champagne kommer fra Champagne-regionen.', solution: 'Le champagne vient de la region Champagne.' },
-          { label: 'b', task: 'Vil du (uformelt) proeve denne osten?', solution: 'Tu veux gouter ce fromage ?' },
+          { label: 'b', task: 'Vil du (uformelt) prøve denne osten?', solution: 'Tu veux gouter ce fromage ?' },
           { label: 'c', task: 'Denne retten er en spesialitet fra Provence.', solution: 'Ce plat est une specialite de Provence.' },
         ],
         solution: 'a) Le champagne vient de la region Champagne. b) Tu veux gouter ce fromage ? c) Ce plat est une specialite de Provence.',
-        hints: ['venir de = komme fra', 'gouter = smake paa / proeve'],
+        hints: ['venir de = komme fra', 'gouter = smake på / prøve'],
       },
     },
     {
       id: 'fransk-2-4-3-text-3',
       type: 'text',
-      content: `## Paa restaurant - Nyttige fraser
+      content: `## På restaurant - Nyttige fraser
 
 | Fransk | Norsk |
 |--------|-------|
@@ -604,14 +604,14 @@ c) **Ce fromage est delicieux !**`,
     {
       id: 'fransk-2-4-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Dialog paa restaurant',
-      problem: `Fullfaer dialogen:
+      title: 'Eksempel 3: Dialog på restaurant',
+      problem: `Fullfør dialogen:
 
 Serveur: Bonjour, vous avez choisi ?
 Du: _____
 Serveur: Et comme boisson ?
 Du: _____`,
-      solution: `**Eksempel paa loesning:**
+      solution: `**Eksempel på løsning:**
 
 Serveur: Bonjour, vous avez choisi ?
 Du: **Oui, je voudrais la salade nicoise comme entree et le boeuf bourguignon comme plat principal.**
@@ -630,7 +630,7 @@ Du: **Un verre de vin rouge, s'il vous plait.**`,
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Regningen, takk.', solution: 'L\'addition, s\'il vous plait.' },
-          { label: 'b', task: 'Jeg er allergisk mot noetter.', solution: 'Je suis allergique aux noix.' },
+          { label: 'b', task: 'Jeg er allergisk mot nøtter.', solution: 'Je suis allergique aux noix.' },
           { label: 'c', task: 'Det var veldig godt!', solution: 'C\'etait tres bon ! / C\'etait delicieux !' },
         ],
         solution: 'a) L\'addition, s\'il vous plait. b) Je suis allergique aux noix. c) C\'etait tres bon !',
@@ -642,10 +642,10 @@ Du: **Un verre de vin rouge, s'il vous plait.**`,
       type: 'note',
       content: `**Visste du?**
 
-- Fransk gastronomi ble oppfoert paa UNESCOs immaterielle verdensarvliste i 2010
+- Fransk gastronomi ble oppført på UNESCOs immaterielle verdensarvliste i 2010
 - Frankrike produserer over 1200 forskjellige ostesorter
 - "Le Guide Michelin" er verdens mest prestisjefylte restaurantguide
-- I Frankrike drikker man vanligvis ikke kaffe under maaltidet, men etter desserten`,
+- I Frankrike drikker man vanligvis ikke kaffe under måltidet, men etter desserten`,
     },
   ],
   exercises: [],
@@ -661,11 +661,11 @@ export const CHAPTER_FRANSK_2_4_4: TextbookChapter = {
   chapterNumber: '4.4',
   title: 'Les regions de France',
   subtitle: 'Frankrikes regioner',
-  description: 'Laer om Frankrikes geografi, regional identitet, oversjoeiske territorier og spraak.',
+  description: 'Lær om Frankrikes geografi, regional identitet, oversjøiske territorier og språk.',
   estimatedMinutes: 45,
   competenceGoals: [
     'beskrive Frankrikes geografi og regioner',
-    'kjenne til oversjoeiske territorier og regional identitet',
+    'kjenne til oversjøiske territorier og regional identitet',
   ],
   content: [
     {
@@ -673,7 +673,7 @@ export const CHAPTER_FRANSK_2_4_4: TextbookChapter = {
       type: 'text',
       content: `## Frankrikes geografi
 
-Frankrike kalles "l'Hexagone" paa grunn av sin sekskantede form.
+Frankrike kalles "l'Hexagone" på grunn av sin sekskantede form.
 
 **Geografiske trekk:**
 
@@ -686,7 +686,7 @@ Frankrike kalles "l'Hexagone" paa grunn av sin sekskantede form.
 | la cote | kysten |
 | la plaine | sletta |
 | la foret | skogen |
-| l'ile (f.) | oey |
+| l'ile (f.) | øy |
 
 **Store elver:** la Seine, la Loire, le Rhone, la Garonne
 **Fjellkjeder:** les Alpes, les Pyrenees, le Massif central, les Vosges`,
@@ -698,15 +698,15 @@ Frankrike kalles "l'Hexagone" paa grunn av sin sekskantede form.
 
 Frankrike har sterke regionale identiteter:
 
-| Region | Saerpreg |
+| Region | Særpreg |
 |--------|----------|
-| Bretagne | Keltisk arv, eget spraak (breton), sjoemat |
+| Bretagne | Keltisk arv, eget språk (breton), sjømat |
 | Alsace | Tysk innflytelse, bindingsverk, choucroute |
-| Pays Basque | Baskisk kultur, eget spraak (euskara) |
+| Pays Basque | Baskisk kultur, eget språk (euskara) |
 | Provence | Middelhavskultur, lavendel, pastis |
-| Corse (Korsika) | Italiensk innflytelse, eget spraak, Napoleon |
+| Corse (Korsika) | Italiensk innflytelse, eget språk, Napoleon |
 
-**Regionale spraak i Frankrike:**
+**Regionale språk i Frankrike:**
 - le breton (bretonsk)
 - l'alsacien (elsassisk)
 - le basque (baskisk)
@@ -718,12 +718,12 @@ Frankrike har sterke regionale identiteter:
       id: 'fransk-2-4-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Geografi',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Alpene ligger i soeroest.
+a) Alpene ligger i sørøst.
 b) Seine renner gjennom Paris.
 c) Frankrike har en lang kyst.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Les Alpes se trouvent au sud-est.**
 
@@ -752,33 +752,33 @@ c) **La France a une longue cote.**`,
     {
       id: 'fransk-2-4-4-text-2',
       type: 'text',
-      content: `## Oversjoeiske territorier (DOM-TOM)
+      content: `## Oversjøiske territorier (DOM-TOM)
 
-Frankrike har ogsaa territorier utenfor Europa:
+Frankrike har også territorier utenfor Europa:
 
 | Territorium | Beliggenhet | Status |
 |-------------|-------------|--------|
 | La Guadeloupe | Karibia | DOM (departement) |
 | La Martinique | Karibia | DOM |
-| La Guyane francaise | Soer-Amerika | DOM |
+| La Guyane francaise | Sør-Amerika | DOM |
 | La Reunion | Det indiske hav | DOM |
 | Mayotte | Det indiske hav | DOM |
 | La Nouvelle-Caledonie | Stillehavet | TOM (territorium) |
 | La Polynesie francaise | Stillehavet | TOM |
 
-**DOM** = Departement d'Outre-Mer (oversjoeisk departement)
-**TOM** = Territoire d'Outre-Mer (oversjoeisk territorium)`,
+**DOM** = Departement d'Outre-Mer (oversjøisk departement)
+**TOM** = Territoire d'Outre-Mer (oversjøisk territorium)`,
     },
     {
       id: 'fransk-2-4-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Oversjoeiske territorier',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Oversjøiske territorier',
+      problem: `Si på fransk:
 
 a) Guadeloupe ligger i Karibia.
-b) Reunion er en fransk oey i Det indiske hav.
-c) Fransk Guyana er i Soer-Amerika.`,
-      solution: `**Loesning:**
+b) Reunion er en fransk øy i Det indiske hav.
+c) Fransk Guyana er i Sør-Amerika.`,
+      solution: `**Løsning:**
 
 a) **La Guadeloupe se trouve dans les Caraibes.**
 
@@ -794,7 +794,7 @@ c) **La Guyane francaise est en Amerique du Sud.**`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Svar paa fransk:',
+        task: 'Svar på fransk:',
         subTasks: [
           { label: 'a', task: 'Hvor ligger Martinique?', solution: 'La Martinique se trouve dans les Caraibes.' },
           { label: 'b', task: 'Hva betyr DOM?', solution: 'DOM signifie Departement d\'Outre-Mer.' },
@@ -812,26 +812,26 @@ c) **La Guyane francaise est en Amerique du Sud.**`,
 | Fransk | Norsk |
 |--------|-------|
 | au nord (de) | i nord (for) |
-| au sud (de) | i soer (for) |
-| a l'est (de) | i oest (for) |
+| au sud (de) | i sør (for) |
+| a l'est (de) | i øst (for) |
 | a l'ouest (de) | i vest (for) |
 | au centre (de) | i midten (av) |
 | au bord de la mer | ved kysten |
-| a la campagne | paa landsbygda |
+| a la campagne | på landsbygda |
 | en ville | i byen |
-| pres de | naer / i naerheten av |
+| pres de | nær / i nærheten av |
 | loin de | langt fra |`,
     },
     {
       id: 'fransk-2-4-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Beskrive beliggenhet',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Marseille ligger i soer.
-b) Strasbourg er i oestfor Paris.
+a) Marseille ligger i sør.
+b) Strasbourg er i østfor Paris.
 c) Brest er ved kysten i vest.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Marseille se trouve au sud.**
 
@@ -849,12 +849,12 @@ c) **Brest est au bord de la mer, a l'ouest.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Nice ligger i soeroest, ved kysten.', solution: 'Nice se trouve au sud-est, au bord de la mer.' },
-          { label: 'b', task: 'Toulouse er i soervest.', solution: 'Toulouse est au sud-ouest.' },
+          { label: 'a', task: 'Nice ligger i sørøst, ved kysten.', solution: 'Nice se trouve au sud-est, au bord de la mer.' },
+          { label: 'b', task: 'Toulouse er i sørvest.', solution: 'Toulouse est au sud-ouest.' },
           { label: 'c', task: 'Paris ligger i midten av Nord-Frankrike.', solution: 'Paris se trouve au centre du nord de la France.' },
         ],
         solution: 'a) Nice se trouve au sud-est, au bord de la mer. b) Toulouse est au sud-ouest. c) Paris se trouve au centre du nord de la France.',
-        hints: ['sud-est = soeroest', 'sud-ouest = soervest'],
+        hints: ['sud-est = sørøst', 'sud-ouest = sørvest'],
       },
     },
     {
@@ -862,10 +862,10 @@ c) **Brest est au bord de la mer, a l'ouest.**`,
       type: 'tip',
       content: `**Huske retningsordene:**
 
-- **au** nord / sud = i nord / soer (hankjoenn)
-- **a l'** est / ouest = i oest / vest (med apostof fordi vokal)
-- **au** + hankjoenn land: au Portugal, au Japon
-- **en** + hunkjoenn land: en France, en Espagne
+- **au** nord / sud = i nord / sør (hankjønn)
+- **a l'** est / ouest = i øst / vest (med apostof fordi vokal)
+- **au** + hankjønn land: au Portugal, au Japon
+- **en** + hunkjønn land: en France, en Espagne
 - **aux** + flertall: aux Etats-Unis`,
     },
   ],
@@ -886,19 +886,19 @@ export const CHAPTER_FRANSK_2_5_1: TextbookChapter = {
   chapterNumber: '5.1',
   title: 'Le corps humain',
   subtitle: 'Menneskekroppen',
-  description: 'Laer kroppsdeler paa fransk og uttrykk som "avoir mal a".',
+  description: 'Lær kroppsdeler på fransk og uttrykk som "avoir mal a".',
   estimatedMinutes: 45,
   competenceGoals: [
-    'navngi kroppsdeler paa fransk',
+    'navngi kroppsdeler på fransk',
     'uttrykke smerte med "avoir mal a"',
   ],
   content: [
     {
       id: 'fransk-2-5-1-intro',
       type: 'text',
-      content: `## Kroppsdeler paa fransk
+      content: `## Kroppsdeler på fransk
 
-Aa kjenne til kroppsdeler er viktig for aa kunne snakke om helse og beskrive personer.
+Aa kjenne til kroppsdeler er viktig for å kunne snakke om helse og beskrive personer.
 
 **Hodet og ansiktet:**
 
@@ -906,11 +906,11 @@ Aa kjenne til kroppsdeler er viktig for aa kunne snakke om helse og beskrive per
 |--------|-------|
 | la tete | hodet |
 | le visage | ansiktet |
-| les yeux (m.pl.) / l'oeil | oeynene / oeyet |
+| les yeux (m.pl.) / l'oeil | øynene / øyet |
 | le nez | nesen |
 | la bouche | munnen |
-| les oreilles (f.pl.) | oerene |
-| les cheveux (m.pl.) | haaret |
+| les oreilles (f.pl.) | ørene |
+| les cheveux (m.pl.) | håret |
 | le front | pannen |
 | le menton | haken |
 | les dents (f.pl.) | tennene |`,
@@ -925,7 +925,7 @@ Aa kjenne til kroppsdeler er viktig for aa kunne snakke om helse og beskrive per
 | Fransk | Norsk |
 |--------|-------|
 | le bras | armen |
-| la main | haanden |
+| la main | hånden |
 | les doigts (m.pl.) | fingrene |
 | l'epaule (f.) | skulderen |
 | le dos | ryggen |
@@ -940,7 +940,7 @@ Aa kjenne til kroppsdeler er viktig for aa kunne snakke om helse og beskrive per
 | la jambe | beinet |
 | le genou | kneet |
 | le pied | foten |
-| les orteils (m.pl.) | taerne |
+| les orteils (m.pl.) | tærne |
 | la cheville | ankelen |
 | la hanche | hofta |`,
     },
@@ -948,12 +948,12 @@ Aa kjenne til kroppsdeler er viktig for aa kunne snakke om helse og beskrive per
       id: 'fransk-2-5-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Kroppsdeler',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) hodet
 b) armen
 c) foten`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **la tete**
 
@@ -969,15 +969,15 @@ c) **le pied**`,
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv paa fransk med artikkel:',
+        task: 'Skriv på fransk med artikkel:',
         subTasks: [
-          { label: 'a', task: 'haanden', solution: 'la main' },
+          { label: 'a', task: 'hånden', solution: 'la main' },
           { label: 'b', task: 'kneet', solution: 'le genou' },
           { label: 'c', task: 'ryggen', solution: 'le dos' },
           { label: 'd', task: 'munnen', solution: 'la bouche' },
         ],
         solution: 'a) la main, b) le genou, c) le dos, d) la bouche',
-        hints: ['Husk riktig artikkel (le/la)', 'Kroppsdeler med le = hankjoenn, la = hunkjoenn'],
+        hints: ['Husk riktig artikkel (le/la)', 'Kroppsdeler med le = hankjønn, la = hunkjønn'],
       },
     },
     {
@@ -985,7 +985,7 @@ c) **le pied**`,
       type: 'text',
       content: `## "Avoir mal a" - Ha vondt i
 
-For aa si at noe gjoer vondt, bruker vi **avoir mal a + bestemt artikkel + kroppsdel**:
+For å si at noe gjør vondt, bruker vi **avoir mal a + bestemt artikkel + kroppsdel**:
 
 | Fransk | Norsk |
 |--------|-------|
@@ -1005,12 +1005,12 @@ For aa si at noe gjoer vondt, bruker vi **avoir mal a + bestemt artikkel + kropp
       id: 'fransk-2-5-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Avoir mal a',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg har vondt i hodet.
 b) Han har vondt i ryggen.
-c) Vi har vondt i foettene.`,
-      solution: `**Loesning:**
+c) Vi har vondt i føttene.`,
+      solution: `**Løsning:**
 
 a) **J'ai mal a la tete.**
 
@@ -1030,10 +1030,10 @@ c) **Nous avons mal aux pieds.**`,
         subTasks: [
           { label: 'a', task: 'Jeg har vondt i magen.', solution: 'J\'ai mal au ventre.' },
           { label: 'b', task: 'Hun har vondt i halsen.', solution: 'Elle a mal a la gorge.' },
-          { label: 'c', task: 'De har vondt i oeynene.', solution: 'Ils ont mal aux yeux.' },
+          { label: 'c', task: 'De har vondt i øynene.', solution: 'Ils ont mal aux yeux.' },
         ],
         solution: 'a) J\'ai mal au ventre. b) Elle a mal a la gorge. c) Ils ont mal aux yeux.',
-        hints: ['au = a + le', 'a la = hunkjoenn', 'aux = a + les (flertall)'],
+        hints: ['au = å + le', 'a la = hunkjønn', 'aux = å + les (flertall)'],
       },
     },
     {
@@ -1043,25 +1043,25 @@ c) **Nous avons mal aux pieds.**`,
 
 | Fransk | Norsk |
 |--------|-------|
-| Il/Elle a les yeux bleus. | Han/Hun har blaa oeyne. |
-| Il/Elle a les cheveux blonds. | Han/Hun har blondt haar. |
-| Il/Elle est grand(e). | Han/Hun er hoey. |
+| Il/Elle a les yeux bleus. | Han/Hun har blå øyne. |
+| Il/Elle a les cheveux blonds. | Han/Hun har blondt hår. |
+| Il/Elle est grand(e). | Han/Hun er høy. |
 | Il/Elle est petit(e). | Han/Hun er liten. |
 | Il/Elle est mince. | Han/Hun er slank. |
 
-**Haarfarger:** blonds (blondt), bruns (brunt), noirs (svart), roux (roedt), gris (graat)
-**Oeyenfarger:** bleus (blaa), verts (groenne), marron (brune), noisette (noettebrune)`,
+**Hårfarger:** blonds (blondt), bruns (brunt), noirs (svart), roux (rødt), gris (grått)
+**Oeyenfarger:** bleus (blå), verts (grønne), marron (brune), noisette (nøttebrune)`,
     },
     {
       id: 'fransk-2-5-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Beskrive en person',
-      problem: `Beskriv paa fransk:
+      problem: `Beskriv på fransk:
 
-a) Han er hoey og har brunt haar.
-b) Hun har groenne oeyne.
+a) Han er høy og har brunt hår.
+b) Hun har grønne øyne.
 c) Broren min er liten.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Il est grand et il a les cheveux bruns.**
 
@@ -1079,12 +1079,12 @@ c) **Mon frere est petit.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Hun er hoey og slank.', solution: 'Elle est grande et mince.' },
-          { label: 'b', task: 'Han har blondt haar og blaa oeyne.', solution: 'Il a les cheveux blonds et les yeux bleus.' },
-          { label: 'c', task: 'Soesteren min har roedt haar.', solution: 'Ma soeur a les cheveux roux.' },
+          { label: 'a', task: 'Hun er høy og slank.', solution: 'Elle est grande et mince.' },
+          { label: 'b', task: 'Han har blondt hår og blå øyne.', solution: 'Il a les cheveux blonds et les yeux bleus.' },
+          { label: 'c', task: 'Søsteren min har rødt hår.', solution: 'Ma soeur a les cheveux roux.' },
         ],
         solution: 'a) Elle est grande et mince. b) Il a les cheveux blonds et les yeux bleus. c) Ma soeur a les cheveux roux.',
-        hints: ['grand/grande = hoey (husk samsvar)', 'roux = roedt (haar)'],
+        hints: ['grand/grande = høy (husk samsvar)', 'roux = rødt (hår)'],
       },
     },
     {
@@ -1093,8 +1093,8 @@ c) **Mon frere est petit.**`,
       content: `**Husk sammentrekningen med "a":**
 
 - **a + le = au** → J'ai mal **au** bras
-- **a + la = a la** → J'ai mal **a la** tete
-- **a + l' = a l'** → J'ai mal **a l'**oreille
+- **a + la = å la** → J'ai mal **a la** tete
+- **a + l' = å l'** → J'ai mal **a l'**oreille
 - **a + les = aux** → J'ai mal **aux** pieds
 
 Dette gjelder alle uttrykk med "a", ikke bare "avoir mal a".`,
@@ -1113,11 +1113,11 @@ export const CHAPTER_FRANSK_2_5_2: TextbookChapter = {
   chapterNumber: '5.2',
   title: 'Chez le medecin',
   subtitle: 'Hos legen',
-  description: 'Laer medisinsk vokabular, symptomer og aa forklare problemer hos legen.',
+  description: 'Lær medisinsk vokabular, symptomer og å forklare problemer hos legen.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'forklare symptomer og plager paa fransk',
-    'foerstaa legen og faa resept',
+    'forklare symptomer og plager på fransk',
+    'forstå legen og få resept',
   ],
   content: [
     {
@@ -1125,14 +1125,14 @@ export const CHAPTER_FRANSK_2_5_2: TextbookChapter = {
       type: 'text',
       content: `## Hos legen
 
-Naar du er syk i Frankrike, maa du kunne forklare hva som er galt.
+Når du er syk i Frankrike, må du kunne forklare hva som er galt.
 
 **Grunnleggende uttrykk:**
 
 | Fransk | Norsk |
 |--------|-------|
 | Je suis malade. | Jeg er syk. |
-| Je ne me sens pas bien. | Jeg foeler meg ikke bra. |
+| Je ne me sens pas bien. | Jeg føler meg ikke bra. |
 | J'ai mal a... | Jeg har vondt i... |
 | J'ai de la fievre. | Jeg har feber. |
 | Je tousse. | Jeg hoster. |
@@ -1147,29 +1147,29 @@ Naar du er syk i Frankrike, maa du kunne forklare hva som er galt.
 
 | Fransk | Norsk |
 |--------|-------|
-| un rhume | forksjoelelse |
+| un rhume | forkjølelse |
 | la grippe | influensa |
 | une angine | halsbetennelse |
-| une otite | oerebetennelse |
+| une otite | ørebetennelse |
 | une allergie | allergi |
 | une infection | infeksjon |
 | la toux | hoste |
 | la nausee | kvalme |
 | les vertiges (m.pl.) | svimmelhet |
 | une blessure | en skade |
-| se casser (le bras) | aa brekke (armen) |
-| se fouler (la cheville) | aa forstue (ankelen) |`,
+| se casser (le bras) | å brekke (armen) |
+| se fouler (la cheville) | å forstue (ankelen) |`,
     },
     {
       id: 'fransk-2-5-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Forklare symptomer',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg er syk. Jeg har feber og hoster.
 b) Jeg har vondt i halsen.
 c) Jeg tror jeg har influensa.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je suis malade. J'ai de la fievre et je tousse.**
 
@@ -1187,12 +1187,12 @@ c) **Je crois que j'ai la grippe.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg foeler meg ikke bra.', solution: 'Je ne me sens pas bien.' },
+          { label: 'a', task: 'Jeg føler meg ikke bra.', solution: 'Je ne me sens pas bien.' },
           { label: 'b', task: 'Jeg har rennende nese og hoster.', solution: 'J\'ai le nez qui coule et je tousse.' },
           { label: 'c', task: 'Jeg er svimmel og kvalm.', solution: 'J\'ai des vertiges et la nausee.' },
         ],
         solution: 'a) Je ne me sens pas bien. b) J\'ai le nez qui coule et je tousse. c) J\'ai des vertiges et la nausee.',
-        hints: ['se sentir = foele seg', 'tousser = hoste'],
+        hints: ['se sentir = føle seg', 'tousser = hoste'],
       },
     },
     {
@@ -1204,10 +1204,10 @@ c) **Je crois que j'ai la grippe.**`,
 |--------|-------|
 | Qu'est-ce qui ne va pas ? | Hva er galt? |
 | Ou avez-vous mal ? | Hvor har De vondt? |
-| Depuis quand ? | Siden naar? |
-| Ouvrez la bouche. | Aapne munnen. |
+| Depuis quand ? | Siden når? |
+| Ouvrez la bouche. | Åpne munnen. |
 | Respirez profondement. | Pust dypt. |
-| Je vais vous examiner. | Jeg skal undersoeke Dem. |
+| Je vais vous examiner. | Jeg skal undersøke Dem. |
 | Je vous prescris... | Jeg skriver ut... |
 | Prenez ce medicament. | Ta denne medisinen. |
 
@@ -1225,13 +1225,13 @@ c) **Je crois que j'ai la grippe.**`,
       id: 'fransk-2-5-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Dialog hos legen',
-      problem: `Fullfaer dialogen:
+      problem: `Fullfør dialogen:
 
 Medecin: Qu'est-ce qui ne va pas ?
 Du: _____
 Medecin: Depuis quand ?
 Du: _____`,
-      solution: `**Eksempel paa loesning:**
+      solution: `**Eksempel på løsning:**
 
 Medecin: Qu'est-ce qui ne va pas ?
 Du: **J'ai mal a la gorge et j'ai de la fievre.**
@@ -1260,7 +1260,7 @@ Du: **Depuis trois jours.**`,
     {
       id: 'fransk-2-5-2-text-3',
       type: 'text',
-      content: `## Paa apoteket
+      content: `## På apoteket
 
 | Fransk | Norsk |
 |--------|-------|
@@ -1269,7 +1269,7 @@ Du: **Depuis trois jours.**`,
 | J'ai une ordonnance. | Jeg har en resept. |
 | Avez-vous quelque chose contre... ? | Har dere noe mot... ? |
 | ... le mal de tete | ... hodepine |
-| ... le rhume | ... forksjoelelse |
+| ... le rhume | ... forkjølelse |
 | ... les allergies | ... allergier |
 | un pansement | et plaster |
 | de la creme solaire | solkrem |`,
@@ -1277,13 +1277,13 @@ Du: **Depuis trois jours.**`,
     {
       id: 'fransk-2-5-2-example-3',
       type: 'example',
-      title: 'Eksempel 3: Paa apoteket',
-      problem: `Si paa fransk:
+      title: 'Eksempel 3: På apoteket',
+      problem: `Si på fransk:
 
 a) Har dere noe mot hodepine?
 b) Jeg har en resept fra legen.
 c) Jeg trenger solkrem.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Avez-vous quelque chose contre le mal de tete ?**
 
@@ -1301,12 +1301,12 @@ c) **J'ai besoin de creme solaire.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Har dere noe mot forksjoelelse?', solution: 'Avez-vous quelque chose contre le rhume ?' },
+          { label: 'a', task: 'Har dere noe mot forkjølelse?', solution: 'Avez-vous quelque chose contre le rhume ?' },
           { label: 'b', task: 'Jeg trenger et plaster.', solution: 'J\'ai besoin d\'un pansement.' },
-          { label: 'c', task: 'Hvor er naermeste apotek?', solution: 'Ou est la pharmacie la plus proche ?' },
+          { label: 'c', task: 'Hvor er nærmeste apotek?', solution: 'Ou est la pharmacie la plus proche ?' },
         ],
         solution: 'a) Avez-vous quelque chose contre le rhume ? b) J\'ai besoin d\'un pansement. c) Ou est la pharmacie la plus proche ?',
-        hints: ['avoir besoin de = trenge', 'la plus proche = den naermeste'],
+        hints: ['avoir besoin de = trenge', 'la plus proche = den nærmeste'],
       },
     },
     {
@@ -1314,17 +1314,17 @@ c) **J'ai besoin de creme solaire.**`,
       type: 'note',
       content: `**Kulturell info:**
 
-- I Frankrike er apoteket merket med et groent kors (la croix verte)
-- Apotekerne gir ofte raad og kan anbefale medisiner uten resept
+- I Frankrike er apoteket merket med et grønt kors (la croix verte)
+- Apotekerne gir ofte råd og kan anbefale medisiner uten resept
 - "La carte vitale" er det franske helsekortet som gir tilgang til helsevesenet
-- Man maa vanligvis gaa til en allmennlege ("medecin generaliste") foerst for aa faa henvisning`,
+- Man må vanligvis gå til en allmennlege ("medecin generaliste") først for å få henvisning`,
     },
   ],
   exercises: [],
 };
 
 // ----------------------------------------------------------------------------
-// 5.3 La sante et le bien-etre - Helse og velvaere
+// 5.3 La sante et le bien-etre - Helse og velvære
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_2_5_3: TextbookChapter = {
@@ -1332,12 +1332,12 @@ export const CHAPTER_FRANSK_2_5_3: TextbookChapter = {
   courseId: 'fransk-2',
   chapterNumber: '5.3',
   title: 'La sante et le bien-etre',
-  subtitle: 'Helse og velvaere',
-  description: 'Laer om sunn livsstil, ernaeringsraad og vokabular for psykisk helse.',
+  subtitle: 'Helse og velvære',
+  description: 'Lær om sunn livsstil, ernæringsråd og vokabular for psykisk helse.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'snakke om sunne vaner paa fransk',
-    'kjenne til vokabular for psykisk helse og velvaere',
+    'snakke om sunne vaner på fransk',
+    'kjenne til vokabular for psykisk helse og velvære',
   ],
   content: [
     {
@@ -1345,7 +1345,7 @@ export const CHAPTER_FRANSK_2_5_3: TextbookChapter = {
       type: 'text',
       content: `## Sunn livsstil
 
-For aa leve sunt er det viktig med gode vaner:
+For å leve sunt er det viktig med gode vaner:
 
 **Gode vaner:**
 
@@ -1355,15 +1355,15 @@ For aa leve sunt er det viktig med gode vaner:
 | faire de l'exercice | trene / mosjonere |
 | dormir suffisamment | sove nok |
 | boire de l'eau | drikke vann |
-| eviter le stress | unngaa stress |
+| eviter le stress | unngå stress |
 | se detendre | slappe av |
 | se coucher tot | legge seg tidlig |
-| manger des fruits et legumes | spise frukt og groennsaker |`,
+| manger des fruits et legumes | spise frukt og grønnsaker |`,
     },
     {
       id: 'fransk-2-5-3-text-1',
       type: 'text',
-      content: `## Ernaering og kosthold
+      content: `## Ernæring og kosthold
 
 | Fransk | Norsk |
 |--------|-------|
@@ -1378,25 +1378,25 @@ For aa leve sunt er det viktig med gode vaner:
 | les cereales (f.pl.) | kornprodukter |
 | un regime | en diett / et kosthold |
 
-**Raad for sunt kosthold:**
+**Råd for sunt kosthold:**
 
 | Fransk | Norsk |
 |--------|-------|
-| Il faut manger equilibre. | Man maa spise balansert. |
-| Il faut boire beaucoup d'eau. | Man maa drikke mye vann. |
-| Il ne faut pas manger trop de sucre. | Man maa ikke spise for mye sukker. |
-| Il vaut mieux eviter les plats trop gras. | Det er bedre aa unngaa for fete retter. |`,
+| Il faut manger equilibre. | Man må spise balansert. |
+| Il faut boire beaucoup d'eau. | Man må drikke mye vann. |
+| Il ne faut pas manger trop de sucre. | Man må ikke spise for mye sukker. |
+| Il vaut mieux eviter les plats trop gras. | Det er bedre å unngå for fete retter. |`,
     },
     {
       id: 'fransk-2-5-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Sunne vaner',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Man maa spise frukt og groennsaker.
-b) Det er viktig aa drikke nok vann.
-c) Jeg proever aa spise balansert.`,
-      solution: `**Loesning:**
+a) Man må spise frukt og grønnsaker.
+b) Det er viktig å drikke nok vann.
+c) Jeg prøver å spise balansert.`,
+      solution: `**Løsning:**
 
 a) **Il faut manger des fruits et des legumes.**
 
@@ -1414,12 +1414,12 @@ c) **J'essaie de manger equilibre.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Man boer sove minst aatte timer.', solution: 'Il faut dormir au moins huit heures.' },
-          { label: 'b', task: 'Det er viktig aa trene regelmessig.', solution: 'Il est important de faire de l\'exercice regulierement.' },
-          { label: 'c', task: 'Man maa ikke spise for mye salt.', solution: 'Il ne faut pas manger trop de sel.' },
+          { label: 'a', task: 'Man bør sove minst åtte timer.', solution: 'Il faut dormir au moins huit heures.' },
+          { label: 'b', task: 'Det er viktig å trene regelmessig.', solution: 'Il est important de faire de l\'exercice regulierement.' },
+          { label: 'c', task: 'Man må ikke spise for mye salt.', solution: 'Il ne faut pas manger trop de sel.' },
         ],
         solution: 'a) Il faut dormir au moins huit heures. b) Il est important de faire de l\'exercice regulierement. c) Il ne faut pas manger trop de sel.',
-        hints: ['il faut = man maa', 'au moins = minst'],
+        hints: ['il faut = man må', 'au moins = minst'],
       },
     },
     {
@@ -1430,12 +1430,12 @@ c) **J'essaie de manger equilibre.**`,
 | Fransk | Norsk |
 |--------|-------|
 | la sante mentale | psykisk helse |
-| le bien-etre | velvaere |
+| le bien-etre | velvære |
 | le stress | stress |
 | l'anxiete (f.) | angst |
 | la depression | depresjon |
-| se sentir bien / mal | foele seg bra / daarlig |
-| etre de bonne / mauvaise humeur | vaere i godt / daarlig humoer |
+| se sentir bien / mal | føle seg bra / dårlig |
+| etre de bonne / mauvaise humeur | være i godt / dårlig humør |
 | se relaxer | slappe av |
 | mediter | meditere |
 | parler de ses problemes | snakke om problemene sine |
@@ -1444,21 +1444,21 @@ c) **J'essaie de manger equilibre.**`,
 
 | Fransk | Norsk |
 |--------|-------|
-| Je me sens stresse(e). | Jeg foeler meg stressa. |
+| Je me sens stresse(e). | Jeg føler meg stressa. |
 | Je suis anxieux/anxieuse. | Jeg er engstelig. |
-| Ca va mieux. | Det gaar bedre. |
-| J'ai besoin de me reposer. | Jeg trenger aa hvile. |`,
+| Ca va mieux. | Det går bedre. |
+| J'ai besoin de me reposer. | Jeg trenger å hvile. |`,
     },
     {
       id: 'fransk-2-5-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Foelelser og velvaere',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Følelser og velvære',
+      problem: `Si på fransk:
 
-a) Jeg foeler meg stressa.
-b) Det er viktig aa slappe av.
+a) Jeg føler meg stressa.
+b) Det er viktig å slappe av.
 c) Snakk om problemene dine.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je me sens stresse(e).**
 
@@ -1476,8 +1476,8 @@ c) **Parle de tes problemes.** (uformelt) / **Parlez de vos problemes.** (formel
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg trenger aa hvile.', solution: 'J\'ai besoin de me reposer.' },
-          { label: 'b', task: 'Det gaar bedre naa.', solution: 'Ca va mieux maintenant.' },
+          { label: 'a', task: 'Jeg trenger å hvile.', solution: 'J\'ai besoin de me reposer.' },
+          { label: 'b', task: 'Det går bedre nå.', solution: 'Ca va mieux maintenant.' },
           { label: 'c', task: 'Psykisk helse er viktig.', solution: 'La sante mentale est importante.' },
         ],
         solution: 'a) J\'ai besoin de me reposer. b) Ca va mieux maintenant. c) La sante mentale est importante.',
@@ -1487,30 +1487,30 @@ c) **Parle de tes problemes.** (uformelt) / **Parlez de vos problemes.** (formel
     {
       id: 'fransk-2-5-3-text-3',
       type: 'text',
-      content: `## Gi helseraad
+      content: `## Gi helseråd
 
-For aa gi raad bruker vi:
-- **Il faut** + infinitiv (man maa)
-- **Il ne faut pas** + infinitiv (man maa ikke)
-- **Il est important de** + infinitiv (det er viktig aa)
-- **Il vaut mieux** + infinitiv (det er bedre aa)
-- **Je te/vous conseille de** + infinitiv (jeg raader deg/Dem til aa)
+For å gi råd bruker vi:
+- **Il faut** + infinitiv (man må)
+- **Il ne faut pas** + infinitiv (man må ikke)
+- **Il est important de** + infinitiv (det er viktigå)
+- **Il vaut mieux** + infinitiv (det er bedreå)
+- **Je te/vous conseille de** + infinitiv (jeg råder deg/Dem tilå)
 
 **Eksempler:**
-- Il faut faire du sport. (Man maa drive sport.)
-- Il ne faut pas fumer. (Man maa ikke roeyke.)
-- Il est important de dormir assez. (Det er viktig aa sove nok.)`,
+- Il faut faire du sport. (Man må drive sport.)
+- Il ne faut pas fumer. (Man må ikke røyke.)
+- Il est important de dormir assez. (Det er viktig å sove nok.)`,
     },
     {
       id: 'fransk-2-5-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Gi raad',
-      problem: `Gi raad paa fransk:
+      title: 'Eksempel 3: Gi råd',
+      problem: `Gi råd på fransk:
 
-a) Man maa trene regelmessig.
-b) Det er viktig aa spise sunt.
-c) Jeg raader deg til aa sove mer.`,
-      solution: `**Loesning:**
+a) Man må trene regelmessig.
+b) Det er viktig å spise sunt.
+c) Jeg råder deg til å sove mer.`,
+      solution: `**Løsning:**
 
 a) **Il faut faire de l'exercice regulierement.**
 
@@ -1526,25 +1526,25 @@ c) **Je te conseille de dormir plus.**`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Gi raad paa fransk:',
+        task: 'Gi råd på fransk:',
         subTasks: [
-          { label: 'a', task: 'Det er bedre aa legge seg tidlig.', solution: 'Il vaut mieux se coucher tot.' },
-          { label: 'b', task: 'Man maa ikke stresse for mye.', solution: 'Il ne faut pas trop stresser.' },
-          { label: 'c', task: 'Jeg raader deg til aa snakke med noen.', solution: 'Je te conseille de parler a quelqu\'un.' },
+          { label: 'a', task: 'Det er bedre å legge seg tidlig.', solution: 'Il vaut mieux se coucher tot.' },
+          { label: 'b', task: 'Man må ikke stresse for mye.', solution: 'Il ne faut pas trop stresser.' },
+          { label: 'c', task: 'Jeg råder deg til å snakke med noen.', solution: 'Je te conseille de parler a quelqu\'un.' },
         ],
         solution: 'a) Il vaut mieux se coucher tot. b) Il ne faut pas trop stresser. c) Je te conseille de parler a quelqu\'un.',
-        hints: ['il vaut mieux = det er bedre aa', 'conseiller de = raade til aa'],
+        hints: ['il vaut mieux = det er bedre å', 'conseiller de = råde til aa'],
       },
     },
     {
       id: 'fransk-2-5-3-tip-1',
       type: 'tip',
-      content: `**Tips for aa snakke om helse:**
+      content: `**Tips for å snakke om helse:**
 
-1. Bruk "il faut" for generelle raad (man maa/boer)
-2. Bruk "je te/vous conseille de" for personlige raad
-3. "Se sentir" (foele seg) er et refleksivt verb: je me sens, tu te sens, il se sent
-4. Husk: "bien-etre" betyr velvaere og dekker baade fysisk og psykisk helse`,
+1. Bruk "il faut" for generelle råd (man må/bør)
+2. Bruk "je te/vous conseille de" for personlige råd
+3. "Se sentir" (føle seg) er et refleksivt verb: je me sens, tu te sens, il se sent
+4. Husk: "bien-etre" betyr velvære og dekker både fysisk og psykisk helse`,
     },
   ],
   exercises: [],
@@ -1560,29 +1560,29 @@ export const CHAPTER_FRANSK_2_5_4: TextbookChapter = {
   chapterNumber: '5.4',
   title: 'Les sports et l\'activite physique',
   subtitle: 'Sport og fysisk aktivitet',
-  description: 'Laer sportsvokabular og uttrykkene "faire du/de la/des" og "jouer a".',
+  description: 'Lær sportsvokabular og uttrykkene "faire du/de la/des" og "jouer a".',
   estimatedMinutes: 45,
   competenceGoals: [
-    'navngi sporter og fysiske aktiviteter paa fransk',
+    'navngi sporter og fysiske aktiviteter på fransk',
     'bruke "faire de" og "jouer a" riktig',
   ],
   content: [
     {
       id: 'fransk-2-5-4-intro',
       type: 'text',
-      content: `## Sport paa fransk
+      content: `## Sport på fransk
 
-Det finnes to hoveduttrykk for aa snakke om sport:
+Det finnes to hoveduttrykk for å snakke om sport:
 
-**1. Faire de + sport** (drive med / holde paa med):
-- Je fais **du** football. (hankjoenn)
-- Je fais **de la** natation. (hunkjoenn)
+**1. Faire de + sport** (drive med / holde på med):
+- Je fais **du** football. (hankjønn)
+- Je fais **de la** natation. (hunkjønn)
 - Je fais **de l'**escalade. (vokal)
 - Je fais **des** arts martiaux. (flertall)
 
 **2. Jouer a + sport** (spille - brukes for ballsporter og spill):
-- Je joue **au** football. (hankjoenn)
-- Je joue **a la** petanque. (hunkjoenn)
+- Je joue **au** football. (hankjønn)
+- Je joue **a la** petanque. (hunkjønn)
 - Je joue **aux** cartes. (flertall)`,
     },
     {
@@ -1595,10 +1595,10 @@ Det finnes to hoveduttrykk for aa snakke om sport:
 | Fransk | Norsk |
 |--------|-------|
 | faire du velo | sykle |
-| faire de la natation | svoemme |
-| faire du ski | gaa paa ski |
+| faire de la natation | svømme |
+| faire du ski | gå på ski |
 | faire de l'escalade | klatre |
-| faire de la randonnee | vandre / gaa tur |
+| faire de la randonnee | vandre / gå tur |
 | faire de la gymnastique | drive gymnastikk |
 | faire du yoga | drive yoga |
 | faire de la musculation | trene styrke |
@@ -1612,7 +1612,7 @@ Det finnes to hoveduttrykk for aa snakke om sport:
 | jouer au football | spille fotball |
 | jouer au tennis | spille tennis |
 | jouer au basket | spille basketball |
-| jouer au handball | spille haandball |
+| jouer au handball | spille håndball |
 | jouer au volleyball | spille volleyball |
 | jouer au rugby | spille rugby |`,
     },
@@ -1620,12 +1620,12 @@ Det finnes to hoveduttrykk for aa snakke om sport:
       id: 'fransk-2-5-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Faire de vs. Jouer a',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg spiller fotball.
-b) Jeg svoemmer.
-c) Jeg gaar paa ski.`,
-      solution: `**Loesning:**
+b) Jeg svømmer.
+c) Jeg går på ski.`,
+      solution: `**Løsning:**
 
 a) **Je joue au football.** / **Je fais du football.**
 
@@ -1660,7 +1660,7 @@ c) **Je fais du ski.**`,
 | Fransk | Norsk |
 |--------|-------|
 | Quel sport fais-tu ? | Hvilken sport driver du med? |
-| Je fais du... depuis 3 ans. | Jeg har drevet med... i 3 aar. |
+| Je fais du... depuis 3 ans. | Jeg har drevet med... i 3 år. |
 | Je m'entraine... fois par semaine. | Jeg trener... ganger i uka. |
 | un match | en kamp |
 | une equipe | et lag |
@@ -1675,12 +1675,12 @@ c) **Je fais du ski.**`,
       id: 'fransk-2-5-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Snakke om treningsvaner',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg trener tre ganger i uka.
 b) Hvilken sport driver du med?
-c) Jeg har spilt fotball i fem aar.`,
-      solution: `**Loesning:**
+c) Jeg har spilt fotball i fem år.`,
+      solution: `**Løsning:**
 
 a) **Je m'entraine trois fois par semaine.**
 
@@ -1700,7 +1700,7 @@ c) **Je joue au football depuis cinq ans.**`,
         subTasks: [
           { label: 'a', task: 'Laget mitt vant kampen.', solution: 'Mon equipe a gagne le match.' },
           { label: 'b', task: 'Hun trener fem ganger i uka.', solution: 'Elle s\'entraine cinq fois par semaine.' },
-          { label: 'c', task: 'Jeg har drevet med svoemming i to aar.', solution: 'Je fais de la natation depuis deux ans.' },
+          { label: 'c', task: 'Jeg har drevet med svømming i to år.', solution: 'Je fais de la natation depuis deux ans.' },
         ],
         solution: 'a) Mon equipe a gagne le match. b) Elle s\'entraine cinq fois par semaine. c) Je fais de la natation depuis deux ans.',
         hints: ['gagner = vinne', 'depuis = siden / i (varighet)'],
@@ -1711,33 +1711,33 @@ c) **Je joue au football depuis cinq ans.**`,
       type: 'text',
       content: `## Sport og fysisk aktivitet i Frankrike
 
-Populaere sporter i Frankrike:
+Populære sporter i Frankrike:
 
 | Sport | Popularitet |
 |-------|-------------|
 | Le football | Nasjonalsport, "Les Bleus" |
-| Le rugby | Spesielt populaert i soervest |
+| Le rugby | Spesielt populært i sørvest |
 | Le cyclisme | Tour de France |
 | Le tennis | Roland-Garros |
-| Le ski | Populaert i Alpene og Pyreneene |
-| La petanque | Tradisjonell sport, spesielt i soer |
+| Le ski | Populært i Alpene og Pyreneene |
+| La petanque | Tradisjonell sport, spesielt i sør |
 | Le handball | Frankrike er blant verdens beste |
 
 **Kjente idrettsarrangementer:**
 - Tour de France (sykkel)
-- Roland-Garros (tennis, ogsaa kalt French Open)
+- Roland-Garros (tennis, også kalt French Open)
 - Le Championnat de France (Ligue 1 - fotball)`,
     },
     {
       id: 'fransk-2-5-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Fransk sportskultur',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Fotball er den mest populaere sporten i Frankrike.
-b) Tour de France er et beroeemt sykkelritt.
-c) Jeg liker aa se paa tennis.`,
-      solution: `**Loesning:**
+a) Fotball er den mest populære sporten i Frankrike.
+b) Tour de France er et berømt sykkelritt.
+c) Jeg liker å se på tennis.`,
+      solution: `**Løsning:**
 
 a) **Le football est le sport le plus populaire en France.**
 
@@ -1757,7 +1757,7 @@ c) **J'aime regarder le tennis.**`,
         subTasks: [
           { label: 'a', task: 'Petanque er en tradisjonell fransk sport.', solution: 'La petanque est un sport traditionnel francais.' },
           { label: 'b', task: 'Det franske fotballandslaget heter Les Bleus.', solution: 'L\'equipe de France de football s\'appelle Les Bleus.' },
-          { label: 'c', task: 'Jeg foretrekker aa drive med sport enn aa se paa TV.', solution: 'Je prefere faire du sport plutot que regarder la tele.' },
+          { label: 'c', task: 'Jeg foretrekker å drive med sport enn å se på TV.', solution: 'Je prefere faire du sport plutot que regarder la tele.' },
         ],
         solution: 'a) La petanque est un sport traditionnel francais. b) L\'equipe de France de football s\'appelle Les Bleus. c) Je prefere faire du sport plutot que regarder la tele.',
         hints: ['traditionnel = tradisjonell', 'plutot que = heller enn'],
@@ -1773,7 +1773,7 @@ c) **J'aime regarder le tennis.**`,
 - Begge kan brukes for ballsporter: je fais du foot = je joue au foot
 - For individuelle sporter: BARE "faire de" (faire du ski, faire de la natation)
 - "Faire de" krever sammentrekning: du (= de + le), de la, de l', des
-- "Jouer a" krever sammentrekning: au (= a + le), a la, a l', aux`,
+- "Jouer a" krever sammentrekning: au (= å + le), a la, a l', aux`,
     },
   ],
   exercises: [],
@@ -1793,7 +1793,7 @@ export const CHAPTER_FRANSK_2_6_1: TextbookChapter = {
   chapterNumber: '6.1',
   title: 'Formation du subjonctif',
   subtitle: 'Dannelse av subjonctif',
-  description: 'Laer aa danne subjonctif av regelrette og uregelrette verb.',
+  description: 'Lær å danne subjonctif av regelrette og uregelrette verb.',
   estimatedMinutes: 50,
   competenceGoals: [
     'danne subjonctif av regelrette verb',
@@ -1805,11 +1805,11 @@ export const CHAPTER_FRANSK_2_6_1: TextbookChapter = {
       type: 'text',
       content: `## Hva er subjonctif?
 
-Subjonctif er en verbmodus som uttrykker oenske, foelelse, tvil, noedvendighet eller subjektiv vurdering. Den brukes etter visse uttrykk og konjunksjoner.
+Subjonctif er en verbmodus som uttrykker ønske, følelse, tvil, nødvendighet eller subjektiv vurdering. Den brukes etter visse uttrykk og konjunksjoner.
 
 **Eksempel:**
 - Indicatif: Il **vient**. (Han kommer.) - konstaterer et faktum
-- Subjonctif: Il faut qu'il **vienne**. (Han maa komme.) - uttrykker noedvendighet
+- Subjonctif: Il faut qu'il **vienne**. (Han må komme.) - uttrykker nødvendighet
 
 Subjonctif innledes nesten alltid av **que/qu'**.`,
     },
@@ -1843,7 +1843,7 @@ Subjonctif innledes nesten alltid av **que/qu'**.`,
 a) finir (ils finissent → finiss-)
 b) vendre (ils vendent → vend-)
 c) choisir (ils choisissent → choisiss-)`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **finir:** que je finiss**e**, que tu finiss**es**, qu'il finiss**e**, que nous finiss**ions**, que vous finiss**iez**, qu'ils finiss**ent**
 
@@ -1877,7 +1877,7 @@ c) **choisir:** que je choisiss**e**, que tu choisiss**es**, qu'il choisiss**e**
 
 Noen viktige verb har helt egne former i subjonctif:
 
-**Etre (aa vaere):**
+**Etre (aa være):**
 
 | que je sois | que nous soyons |
 |-------------|-----------------|
@@ -1891,14 +1891,14 @@ Noen viktige verb har helt egne former i subjonctif:
 | que tu aies | que vous ayez |
 | qu'il ait | qu'ils aient |
 
-**Aller (aa gaa):**
+**Aller (aa gå):**
 
 | que j'aille | que nous allions |
 |-------------|------------------|
 | que tu ailles | que vous alliez |
 | qu'il aille | qu'ils aillent |
 
-**Faire (aa gjoere):**
+**Faire (aa gjøre):**
 
 | que je fasse | que nous fassions |
 |-------------|-------------------|
@@ -1914,13 +1914,13 @@ Noen viktige verb har helt egne former i subjonctif:
 a) Il faut que tu _____ (etre) a l'heure.
 b) Il faut que nous _____ (avoir) patience.
 c) Il faut qu'elle _____ (aller) chez le medecin.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) Il faut que tu **sois** a l'heure. (Du maa vaere presis.)
+a) Il faut que tu **sois** a l'heure. (Du må være presis.)
 
-b) Il faut que nous **ayons** patience. (Vi maa ha taalmodighet.)
+b) Il faut que nous **ayons** patience. (Vi må ha tålmodighet.)
 
-c) Il faut qu'elle **aille** chez le medecin. (Hun maa gaa til legen.)`,
+c) Il faut qu'elle **aille** chez le medecin. (Hun må gå til legen.)`,
     },
     {
       id: 'fransk-2-6-1-ex-block-2',
@@ -1975,13 +1975,13 @@ c) Il faut qu'elle **aille** chez le medecin. (Hun maa gaa til legen.)`,
 a) Il faut que tu _____ (pouvoir) venir.
 b) Il faut que je _____ (savoir) la verite.
 c) Il faut qu'il _____ (vouloir) changer.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) Il faut que tu **puisses** venir. (Du maa kunne komme.)
+a) Il faut que tu **puisses** venir. (Du må kunne komme.)
 
-b) Il faut que je **sache** la verite. (Jeg maa vite sannheten.)
+b) Il faut que je **sache** la verite. (Jeg må vite sannheten.)
 
-c) Il faut qu'il **veuille** changer. (Han maa ville forandre seg.)`,
+c) Il faut qu'il **veuille** changer. (Han må ville forandre seg.)`,
     },
     {
       id: 'fransk-2-6-1-ex-block-3',
@@ -2016,14 +2016,14 @@ c) Il faut qu'il **veuille** changer. (Han maa ville forandre seg.)`,
 | savoir | sache | sachions |
 | vouloir | veuille | voulions |
 
-**Tips:** Laer disse utenat - de er de mest brukte!`,
+**Tips:** Lær disse utenat - de er de mest brukte!`,
     },
   ],
   exercises: [],
 };
 
 // ----------------------------------------------------------------------------
-// 6.2 Le subjonctif de volonte et emotion - Subjonctif med vilje og foelelse
+// 6.2 Le subjonctif de volonte et emotion - Subjonctif med vilje og følelse
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_2_6_2: TextbookChapter = {
@@ -2031,26 +2031,26 @@ export const CHAPTER_FRANSK_2_6_2: TextbookChapter = {
   courseId: 'fransk-2',
   chapterNumber: '6.2',
   title: 'Le subjonctif de volonte et emotion',
-  subtitle: 'Subjonctif med vilje og foelelse',
-  description: 'Laer naar subjonctif brukes etter uttrykk for vilje, oenske og foelelse.',
+  subtitle: 'Subjonctif med vilje og følelse',
+  description: 'Lær når subjonctif brukes etter uttrykk for vilje, ønske og følelse.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke subjonctif etter uttrykk for vilje og oenske',
-    'bruke subjonctif etter uttrykk for foelelse',
+    'bruke subjonctif etter uttrykk for vilje og ønske',
+    'bruke subjonctif etter uttrykk for følelse',
   ],
   content: [
     {
       id: 'fransk-2-6-2-intro',
       type: 'text',
-      content: `## Naar bruker vi subjonctif?
+      content: `## Når bruker vi subjonctif?
 
-Subjonctif brukes i bisetningen (etter "que") naar hovedsetningen uttrykker:
+Subjonctif brukes i bisetningen (etter "que") når hovedsetningen uttrykker:
 
 1. **Noedvendighet** (il faut que)
-2. **Vilje/oenske** (je veux que, je souhaite que)
+2. **Vilje/ønske** (je veux que, je souhaite que)
 3. **Foelelse** (je suis content que, je regrette que)
 
-**Viktig regel:** Det maa vaere **to forskjellige subjekter** i hoved- og bisetningen.
+**Viktig regel:** Det må være **to forskjellige subjekter** i hoved- og bisetningen.
 
 - Je veux **que tu** viennes. (Jeg vil at **du** skal komme.) ✓ subjonctif
 - Je veux venir. (Jeg vil komme.) ✓ infinitiv (samme subjekt)`,
@@ -2062,27 +2062,27 @@ Subjonctif brukes i bisetningen (etter "que") naar hovedsetningen uttrykker:
 
 | Fransk | Norsk |
 |--------|-------|
-| Il faut que... | Det er noedvendig at... / Man maa... |
+| Il faut que... | Det er noedvendig at... / Man må... |
 | Il est necessaire que... | Det er noedvendig at... |
 | Il est important que... | Det er viktig at... |
 | Il est essentiel que... | Det er essensielt at... |
 | Il est indispensable que... | Det er uunnvaerlig at... |
 
 **Eksempler:**
-- **Il faut que** tu **fasses** tes devoirs. (Du maa gjoere leksene dine.)
+- **Il faut que** tu **fasses** tes devoirs. (Du må gjøre leksene dine.)
 - **Il est important que** nous **soyons** a l'heure. (Det er viktig at vi er presis.)
-- **Il est necessaire que** vous **appreniez** le francais. (Det er noedvendig at dere laerer fransk.)`,
+- **Il est necessaire que** vous **appreniez** le francais. (Det er noedvendig at dere lærer fransk.)`,
     },
     {
       id: 'fransk-2-6-2-example-1',
       type: 'example',
       title: 'Eksempel 1: Noedvendighet',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Du maa vaere snill. (Il faut que...)
+a) Du må være snill. (Il faut que...)
 b) Det er viktig at han kommer. (Il est important que...)
 c) Det er noedvendig at vi vet det. (Il est necessaire que...)`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Il faut que tu sois gentil(le).**
 
@@ -2098,7 +2098,7 @@ c) **Il est necessaire que nous sachions cela.**`,
         number: '1',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer med subjonctif:',
+        task: 'Fullfør med subjonctif:',
         subTasks: [
           { label: 'a', task: 'Il faut que tu _____ (aller) a l\'ecole.', solution: 'ailles' },
           { label: 'b', task: 'Il est important que nous _____ (faire) du sport.', solution: 'fassions' },
@@ -2111,34 +2111,34 @@ c) **Il est necessaire que nous sachions cela.**`,
     {
       id: 'fransk-2-6-2-text-2',
       type: 'text',
-      content: `## Vilje og oenske
+      content: `## Vilje og ønske
 
 | Fransk | Norsk |
 |--------|-------|
 | Je veux que... | Jeg vil at... |
 | Je voudrais que... | Jeg ville gjerne at... |
-| Je souhaite que... | Jeg oensker at... |
-| Je desire que... | Jeg oensker at... |
-| J'aimerais que... | Jeg skulle oenske at... |
+| Je souhaite que... | Jeg ønsker at... |
+| Je desire que... | Jeg ønsker at... |
+| J'aimerais que... | Jeg skulle ønske at... |
 | Je prefere que... | Jeg foretrekker at... |
 | J'exige que... | Jeg krever at... |
 | Je demande que... | Jeg ber om at... |
 
 **Eksempler:**
 - **Je veux que** tu **viennes** avec moi. (Jeg vil at du skal komme med meg.)
-- **Je souhaite que** vous **reussissiez**. (Jeg oensker at dere skal lykkes.)
-- **J'aimerais que** tu **puisses** m'aider. (Jeg skulle oenske du kunne hjelpe meg.)`,
+- **Je souhaite que** vous **reussissiez**. (Jeg ønsker at dere skal lykkes.)
+- **J'aimerais que** tu **puisses** m'aider. (Jeg skulle ønske du kunne hjelpe meg.)`,
     },
     {
       id: 'fransk-2-6-2-example-2',
       type: 'example',
-      title: 'Eksempel 2: Vilje og oenske',
-      problem: `Si paa fransk:
+      title: 'Eksempel 2: Vilje og ønske',
+      problem: `Si på fransk:
 
-a) Jeg vil at du skal gjoere leksene dine.
-b) Jeg oensker at hun skal vaere lykkelig.
-c) Jeg foretrekker at vi gaar.`,
-      solution: `**Loesning:**
+a) Jeg vil at du skal gjøre leksene dine.
+b) Jeg ønsker at hun skal være lykkelig.
+c) Jeg foretrekker at vi går.`,
+      solution: `**Løsning:**
 
 a) **Je veux que tu fasses tes devoirs.**
 
@@ -2154,7 +2154,7 @@ c) **Je prefere que nous partions.**`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer med subjonctif:',
+        task: 'Fullfør med subjonctif:',
         subTasks: [
           { label: 'a', task: 'Je veux que tu _____ (venir) demain.', solution: 'viennes' },
           { label: 'b', task: 'Je souhaite qu\'il _____ (pouvoir) nous aider.', solution: 'puisse' },
@@ -2189,12 +2189,12 @@ c) **Je prefere que nous partions.**`,
       id: 'fransk-2-6-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Foelelse',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
 a) Jeg er glad for at du er frisk.
 b) Det er synd at han ikke kan komme.
 c) Jeg er overrasket over at hun vet det.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Je suis content(e) que tu ailles mieux.**
 
@@ -2210,7 +2210,7 @@ c) **Je suis surpris(e) qu'elle sache cela.**`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer med subjonctif:',
+        task: 'Fullfør med subjonctif:',
         subTasks: [
           { label: 'a', task: 'Je suis triste que tu _____ (partir).', solution: 'partes' },
           { label: 'b', task: 'J\'ai peur qu\'il _____ (avoir) un accident.', solution: 'ait' },
@@ -2225,7 +2225,7 @@ c) **Je suis surpris(e) qu'elle sache cela.**`,
       type: 'note',
       content: `**Viktig regel: Subjonctif vs. infinitiv**
 
-Naar hoved- og bisetningen har **samme subjekt**, bruker vi **infinitiv** (ikke subjonctif):
+Når hoved- og bisetningen har **samme subjekt**, bruker vi **infinitiv** (ikke subjonctif):
 
 - **Ulikt subjekt** → subjonctif: Je veux **que tu viennes**. (Jeg vil at du skal komme.)
 - **Samme subjekt** → infinitiv: Je veux **venir**. (Jeg vil komme.)
@@ -2246,10 +2246,10 @@ export const CHAPTER_FRANSK_2_6_3: TextbookChapter = {
   chapterNumber: '6.3',
   title: 'Subjonctif vs indicatif',
   subtitle: 'Subjonctif mot indikativ',
-  description: 'Laer naar man bruker subjonctif og naar man bruker indikativ, inkludert viktige konjunksjoner.',
+  description: 'Lær når man bruker subjonctif og når man bruker indikativ, inkludert viktige konjunksjoner.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'skille mellom naar man bruker subjonctif og indikativ',
+    'skille mellom når man bruker subjonctif og indikativ',
     'bruke konjunksjoner som krever subjonctif',
   ],
   content: [
@@ -2258,11 +2258,11 @@ export const CHAPTER_FRANSK_2_6_3: TextbookChapter = {
       type: 'text',
       content: `## Subjonctif eller indikativ?
 
-Det er viktig aa vite naar man bruker subjonctif og naar man bruker indikativ. Her er hovedreglene:
+Det er viktig å vite når man bruker subjonctif og når man bruker indikativ. Her er hovedreglene:
 
 **Subjonctif** brukes etter uttrykk for:
 - Noedvendighet (il faut que)
-- Vilje og oenske (je veux que)
+- Vilje og ønske (je veux que)
 - Foelelse (je suis content que)
 - Tvil (je doute que)
 - Visse konjunksjoner (bien que, pour que, avant que)
@@ -2283,23 +2283,23 @@ Disse konjunksjonene krever **subjonctif**:
 |-------------|-------|----------|
 | bien que | selv om | Bien qu'il **pleuve**, je sors. |
 | pour que | for at | Je parle fort pour qu'il m'**entende**. |
-| avant que | foer | Pars avant qu'il ne **vienne**. |
+| avant que | før | Pars avant qu'il ne **vienne**. |
 | jusqu'a ce que | til | Attends jusqu'a ce qu'elle **arrive**. |
 | a moins que | med mindre | A moins qu'il ne **fasse** beau... |
 | sans que | uten at | Il part sans que je le **sache**. |
 | afin que | for at | Je travaille afin que tu **puisses** te reposer. |
-| a condition que | paa betingelse av at | A condition que tu **sois** sage. |`,
+| a condition que | på betingelse av at | A condition que tu **sois** sage. |`,
     },
     {
       id: 'fransk-2-6-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Konjunksjoner med subjonctif',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Selv om det regner, gaar jeg ut.
-b) Jeg snakker hoegt for at du skal hoere meg.
+a) Selv om det regner, går jeg ut.
+b) Jeg snakker hoegt for at du skal høre meg.
 c) Vent til hun kommer.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Bien qu'il pleuve, je sors.**
 
@@ -2315,7 +2315,7 @@ c) **Attends jusqu'a ce qu'elle arrive.**`,
         number: '1',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer med subjonctif:',
+        task: 'Fullfør med subjonctif:',
         subTasks: [
           { label: 'a', task: 'Bien qu\'il _____ (etre) fatigue, il travaille.', solution: 'soit' },
           { label: 'b', task: 'Je t\'appelle avant que tu _____ (partir).', solution: 'partes' },
@@ -2338,11 +2338,11 @@ Disse konjunksjonene krever **indikativ** (IKKE subjonctif):
 | apres que | etter at | Apres qu'il **est** parti, j'ai mange. |
 | pendant que | mens | Pendant que je **travaille**, il dort. |
 | puisque | ettersom | Puisque tu **es** la, aide-moi. |
-| quand / lorsque | naar | Quand il **vient**, je suis content. |
-| des que | saa snart som | Des qu'il **arrive**, on commence. |
+| quand / lorsque | når | Quand il **vient**, je suis content. |
+| des que | så snart som | Des qu'il **arrive**, on commence. |
 
 **Viktig kontrast:**
-- **Avant que** + subjonctif (foer): Avant qu'il **parte**...
+- **Avant que** + subjonctif (før): Avant qu'il **parte**...
 - **Apres que** + indikativ (etter): Apres qu'il **est** parti...`,
     },
     {
@@ -2354,7 +2354,7 @@ Disse konjunksjonene krever **indikativ** (IKKE subjonctif):
 a) Bien qu'il _____ (etre) malade, il va a l'ecole.
 b) Parce qu'il _____ (etre) malade, il reste a la maison.
 c) Avant que tu _____ (partir), dis-moi au revoir.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **soit** (subjonctif - etter "bien que")
 
@@ -2389,7 +2389,7 @@ c) **partes** (subjonctif - etter "avant que")`,
 
 | Fransk | Norsk |
 |--------|-------|
-| Je doute que... | Jeg tviler paa at... |
+| Je doute que... | Jeg tviler på at... |
 | Je ne pense pas que... | Jeg tror ikke at... |
 | Je ne crois pas que... | Jeg tror ikke at... |
 | Il est possible que... | Det er mulig at... |
@@ -2416,7 +2416,7 @@ c) **partes** (subjonctif - etter "avant que")`,
 a) Je pense qu'il _____ (avoir) raison. (positiv)
 b) Je ne pense pas qu'il _____ (avoir) raison. (negativ)
 c) Je doute qu'il _____ (pouvoir) venir.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **a** (indikativ - "je pense que" i positiv form)
 
@@ -2447,11 +2447,11 @@ c) **puisse** (subjonctif - "je doute que")`,
       type: 'tip',
       content: `**Huskeregel for subjonctif vs. indikativ:**
 
-Subjonctif = **usikkerhet, oenske, foelelse**
+Subjonctif = **usikkerhet, ønske, følelse**
 Indikativ = **fakta, sikkerhet, konstatering**
 
 - Jeg **vet** at → indikativ (fakta)
-- Jeg **tviler** paa at → subjonctif (usikkerhet)
+- Jeg **tviler** på at → subjonctif (usikkerhet)
 - Jeg **tror** at → indikativ (mening presentert som fakta)
 - Jeg **tror ikke** at → subjonctif (nektelse innfoerer tvil)`,
     },
@@ -2469,7 +2469,7 @@ export const CHAPTER_FRANSK_2_6_4: TextbookChapter = {
   chapterNumber: '6.4',
   title: 'Expressions avec le subjonctif',
   subtitle: 'Uttrykk med subjonctif',
-  description: 'Laer vanlige uttrykk med subjonctif og oev med dialoger og sammensatte setninger.',
+  description: 'Lær vanlige uttrykk med subjonctif og oev med dialoger og sammensatte setninger.',
   estimatedMinutes: 50,
   competenceGoals: [
     'bruke vanlige uttrykk med subjonctif i kontekst',
@@ -2487,12 +2487,12 @@ Her er de mest brukte uttrykkene som krever subjonctif:
 
 | Fransk | Norsk |
 |--------|-------|
-| Il faut que... | Man maa... |
+| Il faut que... | Man må... |
 | Il est important que... | Det er viktig at... |
 | Il est possible que... | Det er mulig at... |
 | Il est necessaire que... | Det er noedvendig at... |
 | Il vaut mieux que... | Det er best at... |
-| Il est temps que... | Det er paa tide at... |
+| Il est temps que... | Det er på tide at... |
 | Il est normal que... | Det er normalt at... |
 | Il est rare que... | Det er sjelden at... |
 | Il est dommage que... | Det er synd at... |
@@ -2505,31 +2505,31 @@ Her er de mest brukte uttrykkene som krever subjonctif:
 
 **Vanlige situasjoner der subjonctif brukes:**
 
-**Paa skolen:**
-- Il faut que je fasse mes devoirs. (Jeg maa gjoere leksene mine.)
-- Le professeur veut que nous ecrivions un essai. (Laereren vil at vi skal skrive et essay.)
+**På skolen:**
+- Il faut que je fasse mes devoirs. (Jeg må gjøre leksene mine.)
+- Le professeur veut que nous ecrivions un essai. (Læreren vil at vi skal skrive et essay.)
 - Il est important que vous compreniez la lecon. (Det er viktig at dere forstaar leksjonen.)
 
 **Hjemme:**
 - Ma mere veut que je range ma chambre. (Mamma vil at jeg skal rydde rommet mitt.)
-- Il faut que tu te couches tot. (Du maa legge deg tidlig.)
-- Mes parents souhaitent que je reussisse mes examens. (Foreldrene mine oensker at jeg skal bestaa eksamen.)
+- Il faut que tu te couches tot. (Du må legge deg tidlig.)
+- Mes parents souhaitent que je reussisse mes examens. (Foreldrene mine ønsker at jeg skal bestå eksamen.)
 
 **Med venner:**
 - Je suis content que tu sois la. (Jeg er glad for at du er her.)
-- J'aimerais que tu viennes a ma fete. (Jeg skulle oenske du kom i selskapet mitt.)
+- J'aimerais que tu viennes a ma fete. (Jeg skulle ønske du kom i selskapet mitt.)
 - C'est dommage que Marc ne puisse pas venir. (Det er synd at Marc ikke kan komme.)`,
     },
     {
       id: 'fransk-2-6-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Hverdagsuttrykk',
-      problem: `Si paa fransk:
+      problem: `Si på fransk:
 
-a) Det er paa tide at du gjoer leksene.
-b) Det er best at vi gaar naa.
-c) Det er normalt at du er trott.`,
-      solution: `**Loesning:**
+a) Det er på tide at du gjør leksene.
+b) Det er best at vi går nå.
+c) Det er normalt at du er trøtt.`,
+      solution: `**Løsning:**
 
 a) **Il est temps que tu fasses tes devoirs.**
 
@@ -2560,19 +2560,19 @@ c) **Il est normal que tu sois fatigue(e).**`,
       type: 'text',
       content: `## Dialog med subjonctif
 
-**Eksempel paa dialog:**
+**Eksempel på dialog:**
 
 **A:** Tu viens a la fete de Marie samedi ?
-(Kommer du i festen til Marie paa loerdag?)
+(Kommer du i festen til Marie på lørdag?)
 
 **B:** Je ne suis pas sur. Il faut que je **finisse** mon projet d'abord.
-(Jeg er ikke sikker. Jeg maa fullfoere prosjektet mitt foerst.)
+(Jeg er ikke sikker. Jeg må fullfoere prosjektet mitt først.)
 
 **A:** C'est dommage que tu ne **puisses** pas venir. Marie veut que tout le monde **soit** la.
-(Det er synd at du ikke kan komme. Marie vil at alle skal vaere der.)
+(Det er synd at du ikke kan komme. Marie vil at alle skal være der.)
 
 **B:** Je vais essayer. J'aimerais bien que tu me **gardes** une place.
-(Jeg skal proeve. Jeg skulle oenske du holder av en plass til meg.)
+(Jeg skal prøve. Jeg skulle ønske du holder av en plass til meg.)
 
 **A:** Bien sur ! Je suis content que tu **veuilles** venir.
 (Selvfoelgelig! Jeg er glad for at du vil komme.)`,
@@ -2581,12 +2581,12 @@ c) **Il est normal que tu sois fatigue(e).**`,
       id: 'fransk-2-6-4-example-2',
       type: 'example',
       title: 'Eksempel 2: Dialog',
-      problem: `Fullfaer dialogen med subjonctif:
+      problem: `Fullfør dialogen med subjonctif:
 
 A: Il faut que tu _____ (venir) au match demain.
 B: Je ne suis pas sur. Il est possible que je _____ (devoir) travailler.
 A: C'est dommage que tu ne _____ (pouvoir) pas venir !`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 A: Il faut que tu **viennes** au match demain.
 
@@ -2602,7 +2602,7 @@ A: C'est dommage que tu ne **puisses** pas venir !`,
         number: '2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fullfaer med subjonctif:',
+        task: 'Fullfør med subjonctif:',
         subTasks: [
           { label: 'a', task: 'Le prof exige que nous _____ (apprendre) le vocabulaire.', solution: 'apprenions' },
           { label: 'b', task: 'Ma mere veut que je _____ (ranger) ma chambre.', solution: 'range' },
@@ -2617,13 +2617,13 @@ A: C'est dommage que tu ne **puisses** pas venir !`,
       type: 'text',
       content: `## Sammendrag: Alle tilfeller for subjonctif
 
-**1. Etter uttrykk for noedvendighet:**
+**1. Etter uttrykk for nødvendighet:**
 Il faut que, il est necessaire que, il est important que
 
-**2. Etter uttrykk for vilje/oenske:**
+**2. Etter uttrykk for vilje/ønske:**
 je veux que, je souhaite que, j'aimerais que, je prefere que
 
-**3. Etter uttrykk for foelelse:**
+**3. Etter uttrykk for følelse:**
 je suis content que, j'ai peur que, c'est dommage que, je regrette que
 
 **4. Etter uttrykk for tvil:**
@@ -2641,10 +2641,10 @@ il vaut mieux que, il est temps que, il est normal que, il suffit que`,
       title: 'Eksempel 3: Sammensatte setninger',
       problem: `Oversett til fransk:
 
-a) Selv om jeg er trott, maa jeg gjoere leksene.
-b) Jeg oensker at du lykkes med eksamen.
-c) Det er paa tide at vi drar.`,
-      solution: `**Loesning:**
+a) Selv om jeg er trøtt, må jeg gjøre leksene.
+b) Jeg ønsker at du lykkes med eksamen.
+c) Det er på tide at vi drar.`,
+      solution: `**Løsning:**
 
 a) **Bien que je sois fatigue(e), il faut que je fasse mes devoirs.**
 
@@ -2662,7 +2662,7 @@ c) **Il est temps que nous partions.**`,
         difficulty: 'medium',
         task: 'Oversett til fransk med subjonctif:',
         subTasks: [
-          { label: 'a', task: 'Laereren vil at vi skal snakke fransk.', solution: 'Le professeur veut que nous parlions francais.' },
+          { label: 'a', task: 'Læreren vil at vi skal snakke fransk.', solution: 'Le professeur veut que nous parlions francais.' },
           { label: 'b', task: 'Jeg er glad for at du kan komme.', solution: 'Je suis content(e) que tu puisses venir.' },
           { label: 'c', task: 'Det er viktig at man spiser sunt, selv om det er vanskelig.', solution: 'Il est important qu\'on mange sainement, bien que ce soit difficile.' },
         ],
@@ -2673,13 +2673,13 @@ c) **Il est temps que nous partions.**`,
     {
       id: 'fransk-2-6-4-tip-1',
       type: 'tip',
-      content: `**Tips for aa mestre subjonctif:**
+      content: `**Tips for å mestre subjonctif:**
 
-1. Laer de vanligste uttrykkene som utloeser subjonctif (il faut que, je veux que, bien que)
-2. Laer de uregelmessige formene utenat (etre, avoir, aller, faire, pouvoir, savoir)
-3. Husk: subjonctif = usikkerhet, oenske, foelelse, noedvendighet
+1. Lær de vanligste uttrykkene som utløser subjonctif (il faut que, je veux que, bien que)
+2. Lær de uregelmessige formene utenat (etre, avoir, aller, faire, pouvoir, savoir)
+3. Husk: subjonctif = usikkerhet, ønske, følelse, nødvendighet
 4. Husk: to forskjellige subjekter! Samme subjekt → infinitiv
-5. Oev med aa lage setninger i daglige situasjoner`,
+5. Øv med å lage setninger i daglige situasjoner`,
     },
   ],
   exercises: [],

@@ -3705,7 +3705,7 @@ export const CHAPTER_R1_3_3: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '3.3',
   title: 'Derivasjonens definisjon',
-  description: 'Laer om derivasjonens definisjon gjennom grenseverdibegrepet, fra gjennomsnittlig til momentan vekstfart.',
+  description: 'Lær om derivasjonens definisjon gjennom grenseverdibegrepet, fra gjennomsnittlig til momentan vekstfart.',
   estimatedMinutes: 60,
   competenceGoals: [
     'forsta sammenhengen mellom sekant og tangent',
@@ -3828,7 +3828,7 @@ Dette betyr at sekanten gjennom $(1, 1)$ og $(3, 9)$ har stigningstall $4$.`,
       type: 'text',
       content: `## Momentan vekstfart
 
-Hva skjer hvis vi lar de to punktene komme naermere og naermere hverandre? Sekanten vil da naerme seg en **tangent** - en linje som bare berorer grafen i ett punkt.
+Hva skjer hvis vi lar de to punktene komme nærmere og nærmere hverandre? Sekanten vil da nærme seg en **tangent** - en linje som bare berorer grafen i ett punkt.
 
 Den momentane vekstfarten i et punkt er stigningstallet til tangenten i det punktet.`,
     },
@@ -3850,7 +3850,7 @@ Vi beregner den gjennomsnittlige vekstfarten fra $x = 2$ til $x = 2 + h$ for sta
 | $0{,}1$ | $\\frac{(2{,}1)^2 - 4}{0{,}1} = \\frac{4{,}41-4}{0{,}1} = 4{,}1$ |
 | $0{,}01$ | $\\frac{(2{,}01)^2 - 4}{0{,}01} = \\frac{4{,}0401-4}{0{,}01} = 4{,}01$ |
 
-Vi ser at nar $h \\to 0$, naermer den gjennomsnittlige vekstfarten seg $4$.`,
+Vi ser at nar $h \\to 0$, nærmer den gjennomsnittlige vekstfarten seg $4$.`,
     },
 
     // GeoGebra: Sekant til tangent
@@ -3858,7 +3858,7 @@ Vi ser at nar $h \\to 0$, naermer den gjennomsnittlige vekstfarten seg $4$.`,
       id: 'r1-3-3-geogebra-tangent',
       type: 'geogebra',
       title: 'Fra sekant til tangent',
-      description: 'Bruk glidebryteren til a se hvordan sekanten naermer seg tangenten nar h gar mot 0.',
+      description: 'Bruk glidebryteren til a se hvordan sekanten nærmer seg tangenten nar h gar mot 0.',
       appType: 'graphing',
       commands: [
         'f(x) = x^2',
@@ -3888,8 +3888,8 @@ Vi ser at nar $h \\to 0$, naermer den gjennomsnittlige vekstfarten seg $4$.`,
         difficulty: 'medium',
         task: 'Bruk en tabell til a estimere den momentane vekstfarten.',
         subTasks: [
-          { label: 'a', task: 'La $f(x) = x^2$. Beregn $\\frac{f(3+h) - f(3)}{h}$ for $h = 0{,}1$, $h = 0{,}01$ og $h = 0{,}001$. Hva naermer verdiene seg?', solution: 'For $h=0{,}1$: $\\frac{9{,}61-9}{0{,}1} = 6{,}1$. For $h=0{,}01$: $\\frac{9{,}0601-9}{0{,}01} = 6{,}01$. For $h=0{,}001$: $6{,}001$. Verdiene naermer seg $6$.' },
-          { label: 'b', task: 'La $g(x) = x^3$. Beregn $\\frac{g(2+h) - g(2)}{h}$ for $h = 0{,}1$, $h = 0{,}01$ og $h = 0{,}001$. Hva naermer verdiene seg?', solution: 'For $h=0{,}1$: $\\frac{9{,}261-8}{0{,}1} = 12{,}61$. For $h=0{,}01$: $12{,}0601$. For $h=0{,}001$: $12{,}006001$. Verdiene naermer seg $12$.' },
+          { label: 'a', task: 'La $f(x) = x^2$. Beregn $\\frac{f(3+h) - f(3)}{h}$ for $h = 0{,}1$, $h = 0{,}01$ og $h = 0{,}001$. Hva nærmer verdiene seg?', solution: 'For $h=0{,}1$: $\\frac{9{,}61-9}{0{,}1} = 6{,}1$. For $h=0{,}01$: $\\frac{9{,}0601-9}{0{,}01} = 6{,}01$. For $h=0{,}001$: $6{,}001$. Verdiene nærmer seg $6$.' },
+          { label: 'b', task: 'La $g(x) = x^3$. Beregn $\\frac{g(2+h) - g(2)}{h}$ for $h = 0{,}1$, $h = 0{,}01$ og $h = 0{,}001$. Hva nærmer verdiene seg?', solution: 'For $h=0{,}1$: $\\frac{9{,}261-8}{0{,}1} = 12{,}61$. For $h=0{,}01$: $12{,}0601$. For $h=0{,}001$: $12{,}006001$. Verdiene nærmer seg $12$.' },
         ],
         hints: ['Sett inn verdiene og regn ut', 'Se etter et monster nar $h$ blir mindre'],
         allowsUpload: true,
@@ -4191,14 +4191,14 @@ $$y = 6x - 9$$
       type: 'text',
       content: `## Numerisk derivasjon
 
-Noen ganger er det vanskelig eller umulig å finne den deriverte analytisk. Da kan vi tilnaerme den deriverte **numerisk** ved a velge en liten verdi for $h$.`,
+Noen ganger er det vanskelig eller umulig å finne den deriverte analytisk. Da kan vi tilnærme den deriverte **numerisk** ved a velge en liten verdi for $h$.`,
     },
 
     // Definisjon: Numerisk derivasjon
     {
       id: 'r1-3-3-def-numerisk',
       type: 'definition',
-      title: 'Numeriske tilnaerminger',
+      title: 'Numeriske tilnærminger',
       content: `**Framoverdifferanse:**
 $$f'(a) \\approx \\frac{f(a+h) - f(a)}{h}$$
 
@@ -4217,7 +4217,7 @@ Typisk velges $h$ til en liten verdi som $0{,}001$ eller $0{,}0001$.`,
       type: 'note',
       content: `**Hvorfor er sentral differanse mer noyaktig?**
 
-Sentral differanse bruker informasjon fra begge sider av punktet $a$, noe som gir en bedre tilnaerming. Feilen i sentral differanse er proporsjonal med $h^2$, mens feilen i framover/bakover-differanse er proporsjonal med $h$.
+Sentral differanse bruker informasjon fra begge sider av punktet $a$, noe som gir en bedre tilnærming. Feilen i sentral differanse er proporsjonal med $h^2$, mens feilen i framover/bakover-differanse er proporsjonal med $h$.
 
 For $h = 0{,}01$: Sentral differanse har feil $\\sim 0{,}0001$, mens de andre har feil $\\sim 0{,}01$.`,
     },
@@ -4227,7 +4227,7 @@ For $h = 0{,}01$: Sentral differanse har feil $\\sim 0{,}0001$, mens de andre ha
       id: 'r1-3-3-example-7',
       type: 'example',
       title: 'Eksempel 7: Numerisk derivasjon',
-      problem: `La $f(x) = \\sin(x)$. Bruk sentral differanse med $h = 0{,}01$ til a tilnaerme $f'\\left(\\frac{\\pi}{4}\\right)$.`,
+      problem: `La $f(x) = \\sin(x)$. Bruk sentral differanse med $h = 0{,}01$ til a tilnærme $f'\\left(\\frac{\\pi}{4}\\right)$.`,
       solution: `**Løsning:**
 
 Vi bruker formelen for sentral differanse:
@@ -4254,11 +4254,11 @@ Tilnaermingen var svaert god!`,
         number: '6',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Bruk numerisk derivasjon til a tilnaerme den deriverte.',
+        task: 'Bruk numerisk derivasjon til a tilnærme den deriverte.',
         subTasks: [
-          { label: 'a', task: 'Bruk sentral differanse med $h = 0{,}01$ til a tilnaerme $f\'(2)$ for $f(x) = x^3$. Sammenlign med eksakt svar.', solution: 'Sentral: $\\frac{f(2{,}01) - f(1{,}99)}{0{,}02} = \\frac{8{,}120601 - 7{,}880599}{0{,}02} \\approx 12{,}0001$. Eksakt: $f\'(2) = 3 \\cdot 2^2 = 12$. Svaert god tilnaerming!' },
-          { label: 'b', task: 'Bruk framoverdifferanse med $h = 0{,}001$ til a tilnaerme $f\'(1)$ for $f(x) = e^x$. Sammenlign med eksakt svar.', solution: 'Framover: $\\frac{e^{1{,}001} - e^1}{0{,}001} \\approx \\frac{2{,}7210 - 2{,}7183}{0{,}001} \\approx 2{,}72$. Eksakt: $f\'(1) = e^1 \\approx 2{,}7183$.' },
-          { label: 'c', task: 'Bruk sentral differanse med $h = 0{,}01$ til a tilnaerme $f\'(0)$ for $f(x) = \\cos(x)$.', solution: 'Sentral: $\\frac{\\cos(0{,}01) - \\cos(-0{,}01)}{0{,}02} = \\frac{0{,}99995 - 0{,}99995}{0{,}02} = 0$. Eksakt: $f\'(0) = -\\sin(0) = 0$. Perfekt!' },
+          { label: 'a', task: 'Bruk sentral differanse med $h = 0{,}01$ til a tilnærme $f\'(2)$ for $f(x) = x^3$. Sammenlign med eksakt svar.', solution: 'Sentral: $\\frac{f(2{,}01) - f(1{,}99)}{0{,}02} = \\frac{8{,}120601 - 7{,}880599}{0{,}02} \\approx 12{,}0001$. Eksakt: $f\'(2) = 3 \\cdot 2^2 = 12$. Svaert god tilnærming!' },
+          { label: 'b', task: 'Bruk framoverdifferanse med $h = 0{,}001$ til a tilnærme $f\'(1)$ for $f(x) = e^x$. Sammenlign med eksakt svar.', solution: 'Framover: $\\frac{e^{1{,}001} - e^1}{0{,}001} \\approx \\frac{2{,}7210 - 2{,}7183}{0{,}001} \\approx 2{,}72$. Eksakt: $f\'(1) = e^1 \\approx 2{,}7183$.' },
+          { label: 'c', task: 'Bruk sentral differanse med $h = 0{,}01$ til a tilnærme $f\'(0)$ for $f(x) = \\cos(x)$.', solution: 'Sentral: $\\frac{\\cos(0{,}01) - \\cos(-0{,}01)}{0{,}02} = \\frac{0{,}99995 - 0{,}99995}{0{,}02} = 0$. Eksakt: $f\'(0) = -\\sin(0) = 0$. Perfekt!' },
         ],
         hints: ['Bruk kalkulator eller datamaskin', 'Husk at vinkler ma være i radianer'],
         allowsUpload: true,
@@ -8641,7 +8641,7 @@ $f(x) = \\begin{cases} -(x-1) + 2x = x + 1 & \\text{hvis } x < 1 \\\\ (x-1) + 2x
     },
     // Note: Åpne intervaller
     {
-      id: 'r1-4-8-note-aapne',
+      id: 'r1-4-8-note-åpne',
       type: 'note',
       content: `**Obs! Åpne intervaller:**
 

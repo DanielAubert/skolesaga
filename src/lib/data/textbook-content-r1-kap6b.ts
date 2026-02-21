@@ -14,7 +14,7 @@ export const CHAPTER_R1_6_4: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '6.4',
   title: 'Vektorlengde og avstand',
-  description: 'Laer om vektorlengde, avstand mellom punkter, avstand fra punkt til linje, avstand mellom parallelle linjer og midtpunktsformelen.',
+  description: 'Lær om vektorlengde, avstand mellom punkter, avstand fra punkt til linje, avstand mellom parallelle linjer og midtpunktsformelen.',
   estimatedMinutes: 55,
   competenceGoals: [
     'beregne lengden av en vektor ved hjelp av koordinatene',
@@ -22,7 +22,7 @@ export const CHAPTER_R1_6_4: TextbookChapter = {
     'beregne avstanden fra et punkt til en linje',
     'beregne avstanden mellom to parallelle linjer',
     'finne midtpunktet mellom to punkter',
-    'anvende projeksjonsformelen paa avstandsproblemer',
+    'anvende projeksjonsformelen på avstandsproblemer',
   ],
   content: [
     {
@@ -30,7 +30,7 @@ export const CHAPTER_R1_6_4: TextbookChapter = {
       type: 'text',
       content: `## Vektorlengde og avstand
 
-Lengden av en vektor er et maal paa hvor langt vi forflyttes naar vi bruker vektoren. Vi bruker Pythagoras' setning for aa beregne lengden direkte fra koordinatene.
+Lengden av en vektor er et maal på hvor langt vi forflyttes når vi bruker vektoren. Vi bruker Pythagoras' setning for å beregne lengden direkte fra koordinatene.
 
 Avstand mellom to punkter er det samme som lengden av differansvektoren mellom dem. I tillegg kan vi beregne avstand fra et punkt til en linje, og mellom to parallelle linjer. Disse begrepene er nært knyttet til hverandre og brukes hyppig i geometri, fysikk og analysen.`,
     },
@@ -38,11 +38,11 @@ Avstand mellom to punkter er det samme som lengden av differansvektoren mellom d
       id: 'r1-6-4-def-vektorlengde',
       type: 'definition',
       title: 'Vektorlengde (absoluttverdi)',
-      content: `La $\\vec{v} = (x, y)$ vaere en vektor i planet. **Lengden** av $\\vec{v}$, skrevet $|\\vec{v}|$, er definert som:
+      content: `La $\\vec{v} = (x, y)$ være en vektor i planet. **Lengden** av $\\vec{v}$, skrevet $|\\vec{v}|$, er definert som:
 
 $$|\\vec{v}| = \\sqrt{x^2 + y^2}$$
 
-Lengden kalles ogsaa vektorens **absoluttverdi** eller **norm**. Den er alltid ikke-negativ, og $|\\vec{v}| = 0$ hvis og bare hvis $\\vec{v} = \\vec{0}$.
+Lengden kalles også vektorens **absoluttverdi** eller **norm**. Den er alltid ikke-negativ, og $|\\vec{v}| = 0$ hvis og bare hvis $\\vec{v} = \\vec{0}$.
 
 **Egenskaper:**
 - $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$ for alle skalarer $k$
@@ -52,7 +52,7 @@ Lengden kalles ogsaa vektorens **absoluttverdi** eller **norm**. Den er alltid i
       id: 'r1-6-4-def-avstand',
       type: 'definition',
       title: 'Avstand mellom to punkter',
-      content: `La $A = (x_1, y_1)$ og $B = (x_2, y_2)$ vaere to punkter i planet. **Avstanden** mellom $A$ og $B$ er:
+      content: `La $A = (x_1, y_1)$ og $B = (x_2, y_2)$ være to punkter i planet. **Avstanden** mellom $A$ og $B$ er:
 
 $$|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
@@ -92,7 +92,7 @@ Midtpunktet er posisjonen til enden av vektoren $\\frac{1}{2}(\\overrightarrow{O
 b) Midtpunktet av en strekning $AB$ er $M = (4, 1)$, og $A = (1, 3)$. Finn $B$.`,
       solution: `**a)** $M = \\left(\\frac{-3+7}{2}, \\frac{5+(-1)}{2}\\right) = (2, 2)$
 
-**b)** Vi bruker at $M = \\frac{1}{2}(A + B)$, saa $B = 2M - A$:
+**b)** Vi bruker at $M = \\frac{1}{2}(A + B)$, så $B = 2M - A$:
 
 $$B = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$$`,
     },
@@ -105,11 +105,11 @@ $$B = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$$`,
 Avstanden fra $P$ til $\\ell$ er:
 
 $$d(P, \\ell) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$$`,
-      proof: `Linjen $ax + by + c = 0$ har normalvektor $\\vec{n} = (a, b)$. La $Q$ vaere et vilkaarlig punkt paa $\\ell$. Den korteste avstanden fra $P$ til $\\ell$ er den ortogonale projeksjonen av $\\overrightarrow{QP}$ paa $\\vec{n}$:
+      proof: `Linjen $ax + by + c = 0$ har normalvektor $\\vec{n} = (a, b)$. La $Q$ være et vilkaarlig punkt på $\\ell$. Den korteste avstanden fra $P$ til $\\ell$ er den ortogonale projeksjonen av $\\overrightarrow{QP}$ på $\\vec{n}$:
 
 $$d = \\frac{|\\overrightarrow{QP} \\cdot \\vec{n}|}{|\\vec{n}|}$$
 
-La $Q = (x_Q, y_Q)$ ligge paa $\\ell$, saa $ax_Q + by_Q + c = 0$.
+La $Q = (x_Q, y_Q)$ ligge på $\\ell$, så $ax_Q + by_Q + c = 0$.
 
 $$\\overrightarrow{QP} \\cdot \\vec{n} = a(x_0 - x_Q) + b(y_0 - y_Q) = ax_0 + by_0 - (ax_Q + by_Q) = ax_0 + by_0 + c$$
 
@@ -132,7 +132,7 @@ $$d = \\frac{|2 \\cdot 3 + (-1) \\cdot 1 + 4|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|6
 
 $$d(\\ell_1, \\ell_2) = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$$
 
-Vi kan ogsaa finne denne avstanden ved aa velge et vilkaarlig punkt paa den ene linjen og bruke punkt-til-linje-formelen for den andre.`,
+Vi kan også finne denne avstanden ved å velge et vilkaarlig punkt på den ene linjen og bruke punkt-til-linje-formelen for den andre.`,
     },
     {
       id: 'r1-6-4-example-parallell',
@@ -143,7 +143,7 @@ Vi kan ogsaa finne denne avstanden ved aa velge et vilkaarlig punkt paa den ene 
 
 $$d = \\frac{|-5 - 10|}{\\sqrt{9 + 16}} = \\frac{15}{5} = 3$$
 
-**Kontroll med punkt paa linje:** Vi velger $P = (5/3, 0)$ paa $\\ell_1$ (sjekk: $3 \\cdot 5/3 + 0 - 5 = 0$ ✓). Avstand fra $P$ til $\\ell_2$:
+**Kontroll med punkt på linje:** Vi velger $P = (5/3, 0)$ på $\\ell_1$ (sjekk: $3 \\cdot 5/3 + 0 - 5 = 0$ ✓). Avstand fra $P$ til $\\ell_2$:
 
 $$d = \\frac{|3 \\cdot 5/3 + 4 \\cdot 0 + 10|}{5} = \\frac{|5 + 10|}{5} = 3 \\quad \\checkmark$$`,
     },
@@ -151,13 +151,13 @@ $$d = \\frac{|3 \\cdot 5/3 + 4 \\cdot 0 + 10|}{5} = \\frac{|5 + 10|}{5} = 3 \\qu
       id: 'r1-6-4-note-projeksjonsmetode',
       type: 'note',
       title: 'Projeksjonsmetoden for avstand',
-      content: `Avstandsformelen for punkt til linje kan forstaaes via **ortogonal projeksjon**. Projeksjonen av en vektor $\\vec{u}$ paa en vektor $\\vec{n}$ er:
+      content: `Avstandsformelen for punkt til linje kan forstaaes via **ortogonal projeksjon**. Projeksjonen av en vektor $\\vec{u}$ på en vektor $\\vec{n}$ er:
 
 $$\\text{proj}_{\\vec{n}} \\vec{u} = \\frac{\\vec{u} \\cdot \\vec{n}}{|\\vec{n}|^2} \\vec{n}$$
 
 Lengden av denne projeksjonen er $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$, som er nøyaktig avstandsformelen.
 
-Denne metoden generaliserer: den fungerer ogsaa i tre dimensjoner og for avstand mellom vilkaarlige geometriske objekter.`,
+Denne metoden generaliserer: den fungerer også i tre dimensjoner og for avstand mellom vilkaarlige geometriske objekter.`,
     },
     {
       id: 'r1-6-4-tip-trekantareal',
@@ -252,7 +252,7 @@ Denne metoden generaliserer: den fungerer ogsaa i tre dimensjoner og for avstand
             solution: 'Normalform: $3x - y - 1 = 0$. $d = \\frac{|3 \\cdot 2 - 3 - 1|}{\\sqrt{9 + 1}} = \\frac{2}{\\sqrt{10}} = \\frac{\\sqrt{10}}{5}$.',
           },
         ],
-        hints: ['Husk aa skrive linjen paa formen $ax + by + c = 0$ foerst', 'Bruk $d = \\frac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$'],
+        hints: ['Husk å skrive linjen på formen $ax + by + c = 0$ først', 'Bruk $d = \\frac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -274,7 +274,7 @@ Denne metoden generaliserer: den fungerer ogsaa i tre dimensjoner og for avstand
           },
           {
             label: 'b',
-            task: 'Et trekants hjoerner er $A = (0,0)$, $B = (6,0)$ og $C = (2,4)$. Finn hoeyden fra $C$ ned paa $AB$.',
+            task: 'Et trekants hjoerner er $A = (0,0)$, $B = (6,0)$ og $C = (2,4)$. Finn høyden fra $C$ ned på $AB$.',
             solution: 'Linjen $AB$ er $x$-aksen, dvs. $y = 0$ eller $0x + y + 0 = 0$. Avstand: $d = \\frac{|0 \\cdot 2 + 1 \\cdot 4 + 0|}{\\sqrt{0+1}} = 4$.',
           },
           {
@@ -305,7 +305,7 @@ Denne metoden generaliserer: den fungerer ogsaa i tre dimensjoner og for avstand
           },
           {
             label: 'b',
-            task: 'Finn alle punkter paa $x$-aksen som har lik avstand til $A = (1, 3)$ og $B = (5, -1)$.',
+            task: 'Finn alle punkter på $x$-aksen som har lik avstand til $A = (1, 3)$ og $B = (5, -1)$.',
             solution: 'La $P = (x, 0)$. $|PA|^2 = |PB|^2 \\Rightarrow (x-1)^2 + 9 = (x-5)^2 + 1 \\Rightarrow x^2-2x+10 = x^2-10x+26 \\Rightarrow 8x = 16 \\Rightarrow x = 2$. Svaret er $(2, 0)$.',
           },
           {
@@ -341,12 +341,12 @@ export const CHAPTER_R1_6_5: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '6.5',
   title: 'Linjer og sirkler i planet',
-  description: 'Laer om linjens normalform ax+by+c=0, sirkellikningen (x-a)^2+(y-b)^2=r^2, tangenter til sirkler og skjaeringspunkter.',
+  description: 'Lær om linjens normalform ax+by+c=0, sirkellikningen (x-a)^2+(y-b)^2=r^2, tangenter til sirkler og skjaeringspunkter.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'skrive linjelikning paa normalformen $ax + by + c = 0$',
+    'skrive linjelikning på normalformen $ax + by + c = 0$',
     'bestemme normalvektoren til en linje',
-    'skrive og tolke sirkellikninger paa standardform',
+    'skrive og tolke sirkellikninger på standardform',
     'omskrive generell sirkellikning til standardform ved fullfoering av kvadrat',
     'finne skjaeringspunkt mellom linjer og sirkler',
     'bestemme tangenter til sirkler',
@@ -357,32 +357,32 @@ export const CHAPTER_R1_6_5: TextbookChapter = {
       type: 'text',
       content: `## Linjer og sirkler i planet
 
-Vi kjenner linjer paa formen $y = ax + b$ fra tidligere. I vektorgeometrien er det ofte mer naturlig aa bruke **normalformen** $ax + by + c = 0$, som behandler $x$- og $y$-koordinater paa en symmetrisk maate.
+Vi kjenner linjer på formen $y = ax + b$ fra tidligere. I vektorgeometrien er det ofte mer naturlig å bruke **normalformen** $ax + by + c = 0$, som behandler $x$- og $y$-koordinater på en symmetrisk maate.
 
-Sirkler beskrives ved sentrum og radius. Sirkellikningen paa standardform gjoer det lett aa lese av disse stoerrelsene direkte. Vi skal ogsaa laere aa finne tangenter til sirkler og skjaeringspunkter mellom linjer og sirkler.`,
+Sirkler beskrives ved sentrum og radius. Sirkellikningen på standardform gjoer det lett å lese av disse størrelsene direkte. Vi skal også lære å finne tangenter til sirkler og skjaeringspunkter mellom linjer og sirkler.`,
     },
     {
       id: 'r1-6-5-def-linje-normalform',
       type: 'definition',
-      title: 'Linjelikning paa normalform',
-      content: `En linje $\\ell$ i planet kan skrives paa **normalformen**:
+      title: 'Linjelikning på normalform',
+      content: `En linje $\\ell$ i planet kan skrives på **normalformen**:
 
 $$ax + by + c = 0 \\quad (a, b \\text{ ikke begge null})$$
 
-Vektoren $\\vec{n} = (a, b)$ er en **normalvektor** til linjen -- den staar vinkelrett paa linjens retning.
+Vektoren $\\vec{n} = (a, b)$ er en **normalvektor** til linjen -- den står vinkelrett på linjens retning.
 
 Retningsvektoren til linjen er $\\vec{r} = (-b, a)$, siden $\\vec{n} \\cdot \\vec{r} = a(-b) + b(a) = 0$.
 
-**Fremgangsmaate** for aa finne linjelikning paa normalform:
-1. Gitt normalvektor $\\vec{n} = (a, b)$ og punkt $P = (x_0, y_0)$ paa linjen:
+**Fremgangsmaate** for å finne linjelikning på normalform:
+1. Gitt normalvektor $\\vec{n} = (a, b)$ og punkt $P = (x_0, y_0)$ på linjen:
 2. $a(x - x_0) + b(y - y_0) = 0$
 3. Forenkle til $ax + by + c = 0$`,
     },
     {
       id: 'r1-6-5-example-linje',
       type: 'example',
-      title: 'Eksempel 1: Linje paa normalform',
-      problem: `a) Skriv linjen $y = 2x - 3$ paa normalform og finn normalvektoren.
+      title: 'Eksempel 1: Linje på normalform',
+      problem: `a) Skriv linjen $y = 2x - 3$ på normalform og finn normalvektoren.
 
 b) Finn likningen til linjen gjennom $A = (1, 2)$ med normalvektor $\\vec{n} = (3, -1)$.
 
@@ -400,7 +400,7 @@ $$2(x - 2) + 1(y - 5) = 0 \\Rightarrow 2x + y - 9 = 0$$`,
     {
       id: 'r1-6-5-def-sirkel',
       type: 'definition',
-      title: 'Sirkellikning paa standardform',
+      title: 'Sirkellikning på standardform',
       content: `En sirkel med sentrum $S = (a, b)$ og radius $r > 0$ har likning:
 
 $$(x - a)^2 + (y - b)^2 = r^2$$
@@ -418,7 +418,7 @@ Alle punkter $(x, y)$ som tilfredsstiller likningen har avstand $r$ fra sentrum 
       id: 'r1-6-5-note-omskriving',
       type: 'note',
       title: 'Omskriving til standardform',
-      content: `Sirkellikninger kan ogsaa komme paa formen $x^2 + y^2 + Dx + Ey + F = 0$. Vi omskriver til standardform ved aa fullfoere kvadrater:
+      content: `Sirkellikninger kan også komme på formen $x^2 + y^2 + Dx + Ey + F = 0$. Vi omskriver til standardform ved å fullfoere kvadrater:
 
 $$x^2 + Dx + y^2 + Ey = -F$$
 $$\\left(x + \\frac{D}{2}\\right)^2 + \\left(y + \\frac{E}{2}\\right)^2 = \\frac{D^2 + E^2}{4} - F$$
@@ -446,9 +446,9 @@ Sentrum $S = (3, -2)$, radius $r = 5$.`,
       id: 'r1-6-5-theorem-tangent',
       type: 'theorem',
       title: 'Tangent til sirkel',
-      content: `La sirkelen ha sentrum $S = (a, b)$ og radius $r$. La $P = (x_0, y_0)$ vaere et punkt paa sirkelen.
+      content: `La sirkelen ha sentrum $S = (a, b)$ og radius $r$. La $P = (x_0, y_0)$ være et punkt på sirkelen.
 
-Tangenten til sirkelen i $P$ er vinkelrett paa radiusen $SP$, og har likning:
+Tangenten til sirkelen i $P$ er vinkelrett på radiusen $SP$, og har likning:
 
 $$(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$$
 
@@ -462,12 +462,12 @@ Alternativt: normalvektoren til tangenten er $\\overrightarrow{SP} = (x_0 - a,\\
 
 a) Finn sentrum og radius.
 
-b) Avgjoer om $P = (5, 3)$ ligger paa sirkelen.
+b) Avgjør om $P = (5, 3)$ ligger på sirkelen.
 
 c) Finn tangentlinjen til $K$ i $P = (5, 3)$.`,
       solution: `**a)** Sentrum $S = (2, -1)$, radius $r = 5$.
 
-**b)** $(5-2)^2 + (3+1)^2 = 9 + 16 = 25$ ✓. $P$ ligger paa sirkelen.
+**b)** $(5-2)^2 + (3+1)^2 = 9 + 16 = 25$ ✓. $P$ ligger på sirkelen.
 
 **c)** Normalvektoren til tangenten er $\\overrightarrow{SP} = (5-2, 3-(-1)) = (3, 4)$. Tangenten gjennom $P = (5, 3)$:
 
@@ -478,13 +478,13 @@ $$3(x - 5) + 4(y - 3) = 0 \\Rightarrow 3x + 4y - 27 = 0$$`,
       type: 'text',
       content: `## Skjaeringspunkt mellom linje og sirkel
 
-For aa finne skjaeringspunktene mellom en linje og en sirkel, setter vi linjens uttrykk inn i sirkellikningen. Vi faar en andregradslikning som kan ha:
+For å finne skjaeringspunktene mellom en linje og en sirkel, setter vi linjens uttrykk inn i sirkellikningen. Vi får en andregradslikning som kan ha:
 
-- **To loesninger**: Linjen skjaerer sirkelen i to punkter (sekant)
-- **Én loesning**: Linjen tangerer sirkelen (tangent)
-- **Ingen loesning**: Linjen treffer ikke sirkelen
+- **To løsninger**: Linjen skjaerer sirkelen i to punkter (sekant)
+- **Én løsning**: Linjen tangerer sirkelen (tangent)
+- **Ingen løsning**: Linjen treffer ikke sirkelen
 
-Antall loesninger kan avgjoeeres ved aa se paa diskriminanten, eller ved aa sammenligne avstanden fra sentrum til linjen med radius.`,
+Antall løsninger kan avgjoeeres ved å se på diskriminanten, eller ved å sammenligne avstanden fra sentrum til linjen med radius.`,
     },
     {
       id: 'r1-6-5-example-skjaering',
@@ -506,7 +506,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
     {
       id: 'r1-6-5-warning-sjekk',
       type: 'warning',
-      content: `**Husk aa sjekke svaret!** Naar du finner tangentlikning eller skjaeringspunkter, er det lurt aa verifisere at punktene faktisk ligger paa baade linjen og sirkelen. Sett koordinatene tilbake inn i likningene.`,
+      content: `**Husk å sjekke svaret!** Når du finner tangentlikning eller skjaeringspunkter, er det lurt å verifisere at punktene faktisk ligger på både linjen og sirkelen. Sett koordinatene tilbake inn i likningene.`,
     },
     {
       id: 'r1-6-5-ex-block-1',
@@ -520,7 +520,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
         subTasks: [
           {
             label: 'a',
-            task: 'Skriv linjen $y = -3x + 7$ paa normalform og oppgi normalvektoren.',
+            task: 'Skriv linjen $y = -3x + 7$ på normalform og oppgi normalvektoren.',
             solution: '$3x + y - 7 = 0$. Normalvektor: $\\vec{n} = (3, 1)$.',
           },
           {
@@ -530,7 +530,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
           },
           {
             label: 'c',
-            task: 'Avgjoer om $Q = (0, 6)$ ligger innenfor, paa eller utenfor sirkelen $(x+1)^2 + (y-2)^2 = 25$.',
+            task: 'Avgjør om $Q = (0, 6)$ ligger innenfor, på eller utenfor sirkelen $(x+1)^2 + (y-2)^2 = 25$.',
             solution: '$(0+1)^2 + (6-2)^2 = 1 + 16 = 17 < 25$. $Q$ ligger **innenfor** sirkelen.',
           },
         ],
@@ -556,7 +556,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
           },
           {
             label: 'b',
-            task: 'Skriv likningen til sirkelen med sentrum $(-1, 4)$ som gaar gjennom origo.',
+            task: 'Skriv likningen til sirkelen med sentrum $(-1, 4)$ som går gjennom origo.',
             solution: 'Radius: $r = \\sqrt{(-1)^2 + 4^2} = \\sqrt{17}$. Likning: $(x+1)^2 + (y-4)^2 = 17$.',
           },
           {
@@ -565,7 +565,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
             solution: 'Normalvektor: $\\vec{n} = (5, 2)$. $5(x-3) + 2(y-1) = 0 \\Rightarrow 5x + 2y - 17 = 0$.',
           },
         ],
-        hints: ['Radius = avstand fra sentrum til et punkt paa sirkelen', 'Normalvektor er vinkelrett paa retningsvektoren'],
+        hints: ['Radius = avstand fra sentrum til et punkt på sirkelen', 'Normalvektor er vinkelrett på retningsvektoren'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -597,7 +597,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
           },
         ],
         hints: [
-          'Fullfoering av kvadrat: legg til $(D/2)^2$ og $(E/2)^2$ paa begge sider',
+          'Fullfoering av kvadrat: legg til $(D/2)^2$ og $(E/2)^2$ på begge sider',
           'For tangent: normalvektoren er retningen fra sentrum til tangentpunktet',
         ],
         allowsUpload: true,
@@ -621,7 +621,7 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
           },
           {
             label: 'b',
-            task: 'Avgjoer uten aa loese likningen om linjen $y = x + 5$ skjaerer sirkelen $x^2 + y^2 = 9$.',
+            task: 'Avgjør uten å løse likningen om linjen $y = x + 5$ skjaerer sirkelen $x^2 + y^2 = 9$.',
             solution: 'Normalform: $x - y + 5 = 0$. Avstand fra origo: $\\frac{|5|}{\\sqrt{2}} = \\frac{5\\sqrt{2}}{2} \\approx 3{,}54 > 3 = r$. Linjen treffer **ikke** sirkelen.',
           },
           {
@@ -663,11 +663,11 @@ Skjaeringspunktene er $(-3, -2)$ og $(2, 3)$.`,
           {
             label: 'd',
             task: 'Vis at linjen $3x + 4y = 25$ tangerer sirkelen $x^2 + y^2 = 25$, og finn tangentpunktet.',
-            solution: 'Avstand fra origo til linjen: $\\frac{|25|}{\\sqrt{9+16}} = \\frac{25}{5} = 5 = r$ ✓. Tangentpunktet: Vi loser $3x + 4y = 25$ og $x^2 + y^2 = 25$ simultant. Fra linjen: $x = \\frac{25-4y}{3}$. Innsetting: $\\frac{(25-4y)^2}{9} + y^2 = 25 \\Rightarrow 25y^2 - 200y + 625 = 225 \\Rightarrow y^2 - 8y + 16 = 0 \\Rightarrow (y-4)^2 = 0$. Altsaa $y = 4$, $x = 3$. Tangentpunkt: $(3, 4)$.',
+            solution: 'Avstand fra origo til linjen: $\\frac{|25|}{\\sqrt{9+16}} = \\frac{25}{5} = 5 = r$ ✓. Tangentpunktet: Vi loser $3x + 4y = 25$ og $x^2 + y^2 = 25$ simultant. Fra linjen: $x = \\frac{25-4y}{3}$. Innsetting: $\\frac{(25-4y)^2}{9} + y^2 = 25 \\Rightarrow 25y^2 - 200y + 625 = 225 \\Rightarrow y^2 - 8y + 16 = 0 \\Rightarrow (y-4)^2 = 0$. Altså $y = 4$, $x = 3$. Tangentpunkt: $(3, 4)$.',
           },
         ],
         hints: [
-          'For tangent fra linje: avstand fra sentrum til linjen skal vaere lik radius',
+          'For tangent fra linje: avstand fra sentrum til linjen skal være lik radius',
           'Diameter gir sentrum som midtpunkt, og radius som halve diameteren',
         ],
         allowsUpload: true,
@@ -687,15 +687,15 @@ export const CHAPTER_R1_6_6: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '6.6',
   title: 'Vektorer i naturvitenskapelige problemer',
-  description: 'Anvend vektorer paa problemer fra fysikk: hastighet, kraft, vind/stroem, bevegelse og kollisjoner.',
+  description: 'Anvend vektorer på problemer fra fysikk: hastighet, kraft, vind/stroem, bevegelse og kollisjoner.',
   estimatedMinutes: 50,
   competenceGoals: [
     'representere hastighet og kraft som vektorer',
     'addere og dekomponere kraftvektorer',
-    'loese bevegelsesoppgaver med vind og stroem',
+    'løse bevegelsesoppgaver med vind og stroem',
     'tolke skalarproduktet som arbeid i fysikk',
-    'anvende parameterframstilling paa bevegelse',
-    'loese kollisjonsproblemet med vektorer',
+    'anvende parameterframstilling på bevegelse',
+    'løse kollisjonsproblemet med vektorer',
   ],
   content: [
     {
@@ -703,9 +703,9 @@ export const CHAPTER_R1_6_6: TextbookChapter = {
       type: 'text',
       content: `## Vektorer i naturvitenskapelige problemer
 
-Vektorer er uvurderlige i fysikken. Stoerrelser som hastighet, akselerasjon og kraft har baade en stoerrelse og en retning -- de er nettopp vektorer.
+Vektorer er uvurderlige i fysikken. Størrelser som hastighet, akselerasjon og kraft har både en størrelse og en retning -- de er nettopp vektorer.
 
-I dette kapittelet ser vi paa typiske problemer der vi bruker vektorregning til aa modellere og loese fysiske situasjoner: baater mot stroem, fly mot vind, resulterende krefter, bevegelse i planet og kollisjonsproblemet.`,
+I dette kapittelet ser vi på typiske problemer der vi bruker vektorregning til å modellere og løse fysiske situasjoner: baater mot stroem, fly mot vind, resulterende krefter, bevegelse i planet og kollisjonsproblemet.`,
     },
     {
       id: 'r1-6-6-def-hastighetskraft',
@@ -732,7 +732,7 @@ I komponentform:
 
 $$x(t) = x_0 + v_x \\cdot t \\qquad y(t) = y_0 + v_y \\cdot t$$
 
-Med konstant akselerasjon $\\vec{a}$ (f.eks. tyngdekraft) faar vi:
+Med konstant akselerasjon $\\vec{a}$ (f.eks. tyngdekraft) får vi:
 
 $$\\vec{p}(t) = \\vec{p}_0 + t \\cdot \\vec{v}_0 + \\frac{1}{2}t^2 \\cdot \\vec{a}$$`,
     },
@@ -740,7 +740,7 @@ $$\\vec{p}(t) = \\vec{p}_0 + t \\cdot \\vec{v}_0 + \\frac{1}{2}t^2 \\cdot \\vec{
       id: 'r1-6-6-example-stroem',
       type: 'example',
       title: 'Eksempel 1: Baat mot stroem',
-      problem: `En baat kan gaa med fart 5 m/s i stille vann. Baaten skal over en elv der stroemmen gaar med hastighetsvektor $\\vec{s} = (2, 0)$ m/s (dvs. 2 m/s i $x$-retning).
+      problem: `En baat kan gaa med fart 5 m/s i stille vann. Baaten skal over en elv der stroemmen går med hastighetsvektor $\\vec{s} = (2, 0)$ m/s (dvs. 2 m/s i $x$-retning).
 
 Baatfoereren sikter rett over elva (i $y$-retning). Finn den faktiske hastighetsvektoren og den faktiske farten til baaten.`,
       solution: `Baatens hastighetsvektor relativt til vannet: $\\vec{v}_{\\text{baat}} = (0, 5)$ m/s.
@@ -751,7 +751,7 @@ $$\\vec{v}_{\\text{total}} = \\vec{v}_{\\text{baat}} + \\vec{s} = (0, 5) + (2, 0
 
 Faktisk fart: $|\\vec{v}_{\\text{total}}| = \\sqrt{4 + 25} = \\sqrt{29} \\approx 5{,}4$ m/s.
 
-Baaten forflyttes baade rett over elva og nedstroems.`,
+Baaten forflyttes både rett over elva og nedstroems.`,
     },
     {
       id: 'r1-6-6-example-vind',
@@ -759,12 +759,12 @@ Baaten forflyttes baade rett over elva og nedstroems.`,
       title: 'Eksempel 2: Fly mot vind -- kurskorreksjon',
       problem: `Et fly vil fly rett nordover med fart 200 km/h i forhold til bakken. Det blaaer en vind fra vest med fart 50 km/h (vindvektor: $\\vec{w} = (50, 0)$ km/h).
 
-Hvilken kurs (vinkel vest for nord) maa piloten fly, og hva blir flyets faktiske fart nordover?`,
-      solution: `La $\\vec{v}_{\\text{fly}} = (v_x, v_y)$ vaere flyets hastighetsvektor relativt til luften, med $|\\vec{v}_{\\text{fly}}| = 200$.
+Hvilken kurs (vinkel vest for nord) må piloten fly, og hva blir flyets faktiske fart nordover?`,
+      solution: `La $\\vec{v}_{\\text{fly}} = (v_x, v_y)$ være flyets hastighetsvektor relativt til luften, med $|\\vec{v}_{\\text{fly}}| = 200$.
 
 Resulterende hastighet: $\\vec{v}_{\\text{total}} = \\vec{v}_{\\text{fly}} + \\vec{w} = (v_x + 50,\\; v_y)$.
 
-For aa gaa rett nord: $v_x + 50 = 0 \\Rightarrow v_x = -50$ km/h.
+For å gaa rett nord: $v_x + 50 = 0 \\Rightarrow v_x = -50$ km/h.
 
 $v_y = \\sqrt{200^2 - 50^2} = \\sqrt{40000 - 2500} = \\sqrt{37500} = 50\\sqrt{15} \\approx 194$ km/h.
 
@@ -774,11 +774,11 @@ Vinkel vest for nord: $\\sin\\theta = 50/200 = 0{,}25 \\Rightarrow \\theta \\app
       id: 'r1-6-6-example-kraft',
       type: 'example',
       title: 'Eksempel 3: Resulterende kraft og arbeid',
-      problem: `To krefter virker paa et legeme: $\\vec{F}_1 = (3, 4)$ N og $\\vec{F}_2 = (-1, 2)$ N.
+      problem: `To krefter virker på et legeme: $\\vec{F}_1 = (3, 4)$ N og $\\vec{F}_2 = (-1, 2)$ N.
 
 a) Finn den resulterende kraften $\\vec{F}_{\\text{res}}$.
 
-b) Finn stoerrelsen av den resulterende kraften.
+b) Finn størrelsen av den resulterende kraften.
 
 c) Finn arbeidet dersom legemet forflyttes $\\vec{s} = (2, -1)$ m.`,
       solution: `**a)** $\\vec{F}_{\\text{res}} = (3-1,\\; 4+2) = (2, 6)$ N
@@ -795,11 +795,11 @@ Negativt arbeid betyr at kraften motvirker forflytningen.`,
       title: 'Kollisjonsproblemet',
       content: `To objekter $A$ og $B$ har posisjoner $\\vec{p}_A(t) = \\vec{p}_{A0} + t\\vec{v}_A$ og $\\vec{p}_B(t) = \\vec{p}_{B0} + t\\vec{v}_B$.
 
-De kolliderer naar $\\vec{p}_A(t) = \\vec{p}_B(t)$, dvs. naar:
+De kolliderer når $\\vec{p}_A(t) = \\vec{p}_B(t)$, dvs. når:
 
 $$\\vec{p}_{A0} - \\vec{p}_{B0} + t(\\vec{v}_A - \\vec{v}_B) = \\vec{0}$$
 
-Vi loser dette som et likningssystem i $t$ ved aa sette komponentene lik null. Systemet har loesning bare hvis begge komponentene gir **samme** verdi av $t$.`,
+Vi loser dette som et likningssystem i $t$ ved å sette komponentene lik null. Systemet har løsning bare hvis begge komponentene gir **samme** verdi av $t$.`,
     },
     {
       id: 'r1-6-6-example-kollisjon',
@@ -807,7 +807,7 @@ Vi loser dette som et likningssystem i $t$ ved aa sette komponentene lik null. S
       title: 'Eksempel 4: Kollisjonsproblemet',
       problem: `Skip $A$ er i posisjon $(0, 10)$ med hastighetsvektor $\\vec{v}_A = (3, -1)$ km/t. Skip $B$ er i posisjon $(12, 0)$ med hastighetsvektor $\\vec{v}_B = (-1, 2)$ km/t.
 
-Vil skipene kollidere? Hvis ja, naar og hvor?`,
+Vil skipene kollidere? Hvis ja, når og hvor?`,
       solution: `Posisjoner: $\\vec{p}_A(t) = (3t,\\; 10-t)$ og $\\vec{p}_B(t) = (12-t,\\; 2t)$.
 
 Sett lik:
@@ -816,15 +816,15 @@ Sett lik:
 
 Siden $t = 3 \\neq 10/3$, kolliderer skipene **ikke**.
 
-Men vi kan finne naermeste avstand: ved $t = 3$ er $A = (9, 7)$ og $B = (9, 6)$, avstand $= 1$ km.`,
+Men vi kan finne nærmeste avstand: ved $t = 3$ er $A = (9, 7)$ og $B = (9, 6)$, avstand $= 1$ km.`,
     },
     {
       id: 'r1-6-6-tip-dekomponering',
       type: 'tip',
-      content: `**Kraftdekomponering:** Naar en kraft $\\vec{F}$ virker paa et skraaplan med vinkel $\\theta$, dekomponerer vi i en komponent **langs** planet og en komponent **vinkelrett** paa planet:
+      content: `**Kraftdekomponering:** Når en kraft $\\vec{F}$ virker på et skraaplan med vinkel $\\theta$, dekomponerer vi i en komponent **langs** planet og en komponent **vinkelrett** på planet:
 
 - Langs planet: $F_{\\parallel} = |\\vec{F}| \\sin\\theta$
-- Vinkelrett paa planet: $F_{\\perp} = |\\vec{F}| \\cos\\theta$
+- Vinkelrett på planet: $F_{\\perp} = |\\vec{F}| \\cos\\theta$
 
 Dette er essensielt i fysikk og ingenioeerfag.`,
     },
@@ -845,12 +845,12 @@ Dette er essensielt i fysikk og ingenioeerfag.`,
           },
           {
             label: 'b',
-            task: 'Finn den resulterende kraften av $\\vec{F}_1 = (5, -2)$ N og $\\vec{F}_2 = (-3, 7)$ N, og stoerrelsen.',
+            task: 'Finn den resulterende kraften av $\\vec{F}_1 = (5, -2)$ N og $\\vec{F}_2 = (-3, 7)$ N, og størrelsen.',
             solution: '$\\vec{F}_{\\text{res}} = (2, 5)$ N. $|\\vec{F}_{\\text{res}}| = \\sqrt{29} \\approx 5{,}4$ N.',
           },
           {
             label: 'c',
-            task: 'Finn arbeidet naar kraften $\\vec{F} = (4, 3)$ N virker langs forflytningen $\\vec{s} = (5, 0)$ m.',
+            task: 'Finn arbeidet når kraften $\\vec{F} = (4, 3)$ N virker langs forflytningen $\\vec{s} = (5, 0)$ m.',
             solution: '$W = \\vec{F} \\cdot \\vec{s} = 4 \\cdot 5 + 3 \\cdot 0 = 20$ J',
           },
         ],
@@ -876,7 +876,7 @@ Dette er essensielt i fysikk og ingenioeerfag.`,
           },
           {
             label: 'b',
-            task: 'Et objekt har posisjon $\\vec{p}(t) = (3t, 10 - 2t)$. Finn startposisjonen, hastighetsvektoren og naar objektet krysser $x$-aksen.',
+            task: 'Et objekt har posisjon $\\vec{p}(t) = (3t, 10 - 2t)$. Finn startposisjonen, hastighetsvektoren og når objektet krysser $x$-aksen.',
             solution: 'Start: $\\vec{p}(0) = (0, 10)$. Hastighet: $\\vec{v} = (3, -2)$. $y = 0$: $10 - 2t = 0 \\Rightarrow t = 5$ s. Posisjon: $(15, 0)$.',
           },
         ],
@@ -902,12 +902,12 @@ Dette er essensielt i fysikk og ingenioeerfag.`,
           },
           {
             label: 'b',
-            task: 'En svoemmer vil svoemme rett over en elv (i $y$-retning). Farten i stille vann er 2 m/s. Stroemmen er $\\vec{s} = (1{,}5,\\; 0)$ m/s. Hvilken retning maa svoemeren sikte, og hva blir farten rett over?',
+            task: 'En svoemmer vil svoemme rett over en elv (i $y$-retning). Farten i stille vann er 2 m/s. Stroemmen er $\\vec{s} = (1{,}5,\\; 0)$ m/s. Hvilken retning må svoemeren sikte, og hva blir farten rett over?',
             solution: 'Sikte: $v_x + 1{,}5 = 0 \\Rightarrow v_x = -1{,}5$. $v_y = \\sqrt{4 - 2{,}25} = \\sqrt{1{,}75} \\approx 1{,}32$ m/s.',
           },
           {
             label: 'c',
-            task: 'Et fly vil fly rett oestover med fart 300 km/h. Vinden blaeser fra soer med $\\vec{w} = (0, -40)$ km/h. Finn kursen piloten maa fly.',
+            task: 'Et fly vil fly rett oestover med fart 300 km/h. Vinden blaeser fra soer med $\\vec{w} = (0, -40)$ km/h. Finn kursen piloten må fly.',
             solution: 'La $\\vec{v} = (v_x, v_y)$, $|\\vec{v}| = 300$. For rett oest: $v_y - 40 = 0 \\Rightarrow v_y = 40$. $v_x = \\sqrt{300^2 - 40^2} = \\sqrt{88400} \\approx 297{,}3$ km/h. Vinkel: $\\sin\\theta = 40/300 \\Rightarrow \\theta \\approx 7{,}7°$ nord for oest.',
           },
         ],
@@ -928,17 +928,17 @@ Dette er essensielt i fysikk og ingenioeerfag.`,
         subTasks: [
           {
             label: 'a',
-            task: 'Bil $A$ er i $(0, 0)$ med $\\vec{v}_A = (4, 3)$ og bil $B$ er i $(20, 0)$ med $\\vec{v}_B = (0, 3)$. Kolliderer de? Finn i saa fall tidspunkt og sted.',
+            task: 'Bil $A$ er i $(0, 0)$ med $\\vec{v}_A = (4, 3)$ og bil $B$ er i $(20, 0)$ med $\\vec{v}_B = (0, 3)$. Kolliderer de? Finn i så fall tidspunkt og sted.',
             solution: '$x$: $4t = 20 \\Rightarrow t = 5$. $y$: $3t = 3t$ (sant for alle $t$). De kolliderer ved $t = 5$ i punktet $(20, 15)$.',
           },
           {
             label: 'b',
-            task: 'En stein skytes med $\\vec{v}_0 = (15, 20)$ m/s fra origo. Akselerasjon $\\vec{a} = (0, -10)$ m/s$^2$. Finn naar steinen treffer bakken og maks hoyde.',
+            task: 'En stein skytes med $\\vec{v}_0 = (15, 20)$ m/s fra origo. Akselerasjon $\\vec{a} = (0, -10)$ m/s$^2$. Finn når steinen treffer bakken og maks hoyde.',
             solution: '$\\vec{p}(t) = (15t,\\; 20t - 5t^2)$. Bakken: $5t(4-t) = 0 \\Rightarrow t = 4$ s ved $(60, 0)$. Maks hoyde: $v_y = 20-10t = 0 \\Rightarrow t = 2$, $y(2) = 20$ m.',
           },
           {
             label: 'c',
-            task: 'Tre krefter $\\vec{F}_1 = (10, 0)$ N, $\\vec{F}_2 = (0, 8)$ N og $\\vec{F}_3 = (-4, -3)$ N virker paa et legeme som beveger seg $\\vec{s} = (3, 2)$ m. Finn resultantkraft og arbeid.',
+            task: 'Tre krefter $\\vec{F}_1 = (10, 0)$ N, $\\vec{F}_2 = (0, 8)$ N og $\\vec{F}_3 = (-4, -3)$ N virker på et legeme som beveger seg $\\vec{s} = (3, 2)$ m. Finn resultantkraft og arbeid.',
             solution: '$\\vec{F}_{\\text{res}} = (6, 5)$ N. $|\\vec{F}_{\\text{res}}| = \\sqrt{61} \\approx 7{,}8$ N. $W = 6 \\cdot 3 + 5 \\cdot 2 = 28$ J.',
           },
         ],
@@ -963,7 +963,7 @@ export const CHAPTER_R1_8_7: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '8.7',
   title: 'Binomisk og hypergeometrisk fordeling',
-  description: 'Laer om binomisk fordeling B(n,p), hypergeometrisk fordeling, forventningsverdi, varians og naar man bruker hvilken fordeling.',
+  description: 'Lær om binomisk fordeling B(n,p), hypergeometrisk fordeling, forventningsverdi, varians og når man bruker hvilken fordeling.',
   estimatedMinutes: 55,
   competenceGoals: [
     'gjenkjenne situasjoner der binomisk fordeling passer',
@@ -979,9 +979,9 @@ export const CHAPTER_R1_8_7: TextbookChapter = {
       type: 'text',
       content: `## Binomisk og hypergeometrisk fordeling
 
-I mange praktiske situasjoner gjentar vi et forsoek mange ganger og teller antall "suksesser". To viktige fordelinger beskriver slike situasjoner:
+I mange praktiske situasjoner gjentar vi et forsøk mange ganger og teller antall "suksesser". To viktige fordelinger beskriver slike situasjoner:
 
-- **Binomisk fordeling**: Vi trekker **med** tilbakelegging (eller populasjonen er saa stor at tilbakelegging ikke spiller noen rolle). Sannsynligheten for suksess er konstant ved hvert forsoek.
+- **Binomisk fordeling**: Vi trekker **med** tilbakelegging (eller populasjonen er så stor at tilbakelegging ikke spiller noen rolle). Sannsynligheten for suksess er konstant ved hvert forsøk.
 
 - **Hypergeometrisk fordeling**: Vi trekker **uten** tilbakelegging fra en endelig populasjon. Sannsynligheten endres for hvert trekk.
 
@@ -991,16 +991,16 @@ Aa velge riktig fordeling er like viktig som selve beregningen.`,
       id: 'r1-8-7-def-binomisk',
       type: 'definition',
       title: 'Binomisk fordeling',
-      content: `La $X$ vaere antall suksesser i $n$ uavhengige forsoek der hvert forsoek har suksesssannsynlighet $p$.
+      content: `La $X$ være antall suksesser i $n$ uavhengige forsøk der hvert forsøk har suksesssannsynlighet $p$.
 
 Da er $X$ **binomisk fordelt**, skrevet $X \\sim B(n, p)$, og:
 
 $$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}, \\quad k = 0, 1, \\ldots, n$$
 
 **Forutsetninger:**
-1. Fast antall forsoek $n$
-2. Hvert forsoek er uavhengig
-3. Konstant sannsynlighet $p$ for suksess i hvert forsoek
+1. Fast antall forsøk $n$
+2. Hvert forsøk er uavhengig
+3. Konstant sannsynlighet $p$ for suksess i hvert forsøk
 4. To mulige utfall: suksess eller fiasko`,
     },
     {
@@ -1021,7 +1021,7 @@ Forventningsverdien $np$ er det "typiske" antall suksesser vi forventer. Varians
       id: 'r1-8-7-example-terning',
       type: 'example',
       title: 'Eksempel 1: Terningkast',
-      problem: `En rettferdig terning kastes 10 ganger. La $X$ vaere antall seksere.
+      problem: `En rettferdig terning kastes 10 ganger. La $X$ være antall seksere.
 
 a) Hvilken fordeling har $X$?
 
@@ -1041,10 +1041,10 @@ $\\text{Var}(X) = 10 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{25}{18} \\
       id: 'r1-8-7-example-binomisk-minst',
       type: 'example',
       title: 'Eksempel 2: Minst-sannsynlighet',
-      problem: `En eksamen har 8 flervalgsspøersmaal med 4 alternativer. En elev gjetter tilfeldig paa alle. Finn sannsynligheten for at eleven faar minst 3 riktige.`,
-      solution: `$X \\sim B(8, 0{,}25)$. Vi soeker $P(X \\geq 3)$.
+      problem: `En eksamen har 8 flervalgsspøersmaal med 4 alternativer. En elev gjetter tilfeldig på alle. Finn sannsynligheten for at eleven får minst 3 riktige.`,
+      solution: `$X \\sim B(8, 0{,}25)$. Vi søker $P(X \\geq 3)$.
 
-Det er enklere aa bruke komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$.
+Det er enklere å bruke komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$.
 
 $$P(X = 0) = \\binom{8}{0}(0{,}25)^0(0{,}75)^8 = (0{,}75)^8 \\approx 0{,}1001$$
 
@@ -1060,7 +1060,7 @@ $$P(X \\geq 3) = 1 - 0{,}1001 - 0{,}2670 - 0{,}3115 \\approx 0{,}321$$`,
       title: 'Hypergeometrisk fordeling',
       content: `En populasjon inneholder $N$ elementer, der $M$ er av type "suksess" og $N - M$ er av type "fiasko". Vi trekker $n$ elementer **uten tilbakelegging**.
 
-La $X$ vaere antall suksesser i utvalget. Da er $X$ **hypergeometrisk fordelt**, skrevet $X \\sim H(N, M, n)$, og:
+La $X$ være antall suksesser i utvalget. Da er $X$ **hypergeometrisk fordelt**, skrevet $X \\sim H(N, M, n)$, og:
 
 $$P(X = k) = \\frac{\\dbinom{M}{k}\\dbinom{N-M}{n-k}}{\\dbinom{N}{n}}, \\quad k = 0, 1, \\ldots, \\min(n, M)$$
 
@@ -1072,7 +1072,7 @@ $$P(X = k) = \\frac{\\dbinom{M}{k}\\dbinom{N-M}{n-k}}{\\dbinom{N}{n}}, \\quad k 
       id: 'r1-8-7-example-kort',
       type: 'example',
       title: 'Eksempel 3: Kortspill',
-      problem: `Fra en standard kortstokk paa 52 kort trekker vi 5 kort uten tilbakelegging. La $X$ vaere antall hjerter (det er 13 hjerter i kortstokken).
+      problem: `Fra en standard kortstokk på 52 kort trekker vi 5 kort uten tilbakelegging. La $X$ være antall hjerter (det er 13 hjerter i kortstokken).
 
 a) Hvilken fordeling har $X$?
 
@@ -1089,18 +1089,18 @@ $$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\
     {
       id: 'r1-8-7-note-velge-fordeling',
       type: 'note',
-      title: 'Naar bruker vi hvilken fordeling?',
-      content: `**Binomisk fordeling** passer naar:
-- Forsoekene er uavhengige (med tilbakelegging, eller stor populasjon)
-- Konstant sannsynlighet $p$ for suksess i hvert forsoek
-- Eksempel: terningkast, myntkast, stikkproeve fra stor populasjon
+      title: 'Når bruker vi hvilken fordeling?',
+      content: `**Binomisk fordeling** passer når:
+- Forsøkene er uavhengige (med tilbakelegging, eller stor populasjon)
+- Konstant sannsynlighet $p$ for suksess i hvert forsøk
+- Eksempel: terningkast, myntkast, stikkprøve fra stor populasjon
 
-**Hypergeometrisk fordeling** passer naar:
+**Hypergeometrisk fordeling** passer når:
 - Vi trekker uten tilbakelegging fra en liten, endelig populasjon
 - Sannsynligheten endres fra trekk til trekk
 - Eksempel: kortspill, kvalitetskontroll av en liten batch, lotteri
 
-**Tommelfingerregel:** Hvis populasjonen er mer enn 10 ganger saa stor som utvalget, kan binomisk fordeling brukes som tilnaerming til hypergeometrisk.`,
+**Tommelfingerregel:** Hvis populasjonen er mer enn 10 ganger så stor som utvalget, kan binomisk fordeling brukes som tilnærming til hypergeometrisk.`,
     },
     {
       id: 'r1-8-7-example-kvalitet',
@@ -1108,7 +1108,7 @@ $$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\
       title: 'Eksempel 4: Kvalitetskontroll',
       problem: `Et parti inneholder 20 produkter, der 4 er defekte. Vi trekker tilfeldig 3 produkter for kontroll (uten tilbakelegging).
 
-a) Beregn sannsynligheten for at noeyaktig 1 av de 3 er defekt.
+a) Beregn sannsynligheten for at nøyaktig 1 av de 3 er defekt.
 
 b) Beregn sannsynligheten for at ingen er defekte.
 
@@ -1126,14 +1126,14 @@ $$P(X = 0) = \\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} = \\frac{1 \\cd
     {
       id: 'r1-8-7-warning-forutsetninger',
       type: 'warning',
-      content: `**Sjekk alltid forutsetningene foer du velger fordeling!**
+      content: `**Sjekk alltid forutsetningene før du velger fordeling!**
 
 Binomisk fordeling krever:
-- Fast antall forsoek ($n$ er kjent paa forhånd)
-- Uavhengige forsoek
+- Fast antall forsøk ($n$ er kjent på forhånd)
+- Uavhengige forsøk
 - Konstant $p$
 
-Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ikke** uavhengige -- da maa du bruke hypergeometrisk fordeling.`,
+Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsøkene **ikke** uavhengige -- da må du bruke hypergeometrisk fordeling.`,
     },
     {
       id: 'r1-8-7-ex-block-1',
@@ -1147,17 +1147,17 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
         subTasks: [
           {
             label: 'a',
-            task: 'En mynt kastes 8 ganger. La $X$ vaere antall kron. Skriv fordelingen til $X$ og beregn $P(X = 4)$.',
+            task: 'En mynt kastes 8 ganger. La $X$ være antall kron. Skriv fordelingen til $X$ og beregn $P(X = 4)$.',
             solution: '$X \\sim B(8, 0{,}5)$. $P(X=4) = \\binom{8}{4}(0{,}5)^8 = 70 \\cdot \\frac{1}{256} = \\frac{70}{256} \\approx 0{,}273$.',
           },
           {
             label: 'b',
-            task: 'I et spill er sannsynligheten for aa vinne en runde $p = 0{,}3$. Vi spiller 6 runder. Finn forventet antall seire og standardavviket.',
+            task: 'I et spill er sannsynligheten for å vinne en runde $p = 0{,}3$. Vi spiller 6 runder. Finn forventet antall seire og standardavviket.',
             solution: '$X \\sim B(6, 0{,}3)$. $E(X) = 1{,}8$. $\\sigma = \\sqrt{6 \\cdot 0{,}3 \\cdot 0{,}7} = \\sqrt{1{,}26} \\approx 1{,}12$.',
           },
           {
             label: 'c',
-            task: 'Sannsynligheten for aa treffe blinken med et skudd er $0{,}8$. Du skyter 5 skudd. Finn $P(X = 5)$, dvs. at alle treffer.',
+            task: 'Sannsynligheten for å treffe blinken med et skudd er $0{,}8$. Du skyter 5 skudd. Finn $P(X = 5)$, dvs. at alle treffer.',
             solution: '$X \\sim B(5, 0{,}8)$. $P(X=5) = (0{,}8)^5 = 0{,}32768 \\approx 0{,}328$.',
           },
         ],
@@ -1178,7 +1178,7 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
         subTasks: [
           {
             label: 'a',
-            task: 'I en skuff ligger det 5 roede og 7 blaa kuler. Vi trekker 4 uten tilbakelegging. Finn sannsynligheten for noeyaktig 2 roede.',
+            task: 'I en skuff ligger det 5 roede og 7 blaa kuler. Vi trekker 4 uten tilbakelegging. Finn sannsynligheten for nøyaktig 2 roede.',
             solution: '$X \\sim H(12, 5, 4)$. $P(X=2) = \\frac{\\binom{5}{2}\\binom{7}{2}}{\\binom{12}{4}} = \\frac{10 \\cdot 21}{495} = \\frac{210}{495} \\approx 0{,}424$.',
           },
           {
@@ -1214,7 +1214,7 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
           },
           {
             label: 'c',
-            task: 'En klasse har 30 elever, 12 jenter og 18 gutter. Vi velger tilfeldig en komité paa 4 elever. La $X$ vaere antall jenter. Finn $P(X = 2)$ og $E(X)$.',
+            task: 'En klasse har 30 elever, 12 jenter og 18 gutter. Vi velger tilfeldig en komité på 4 elever. La $X$ være antall jenter. Finn $P(X = 2)$ og $E(X)$.',
             solution: '$X \\sim H(30, 12, 4)$. $P(X=2) = \\frac{\\binom{12}{2}\\binom{18}{2}}{\\binom{30}{4}} = \\frac{66 \\cdot 153}{27405} \\approx 0{,}368$. $E(X) = 4 \\cdot 12/30 = 1{,}6$.',
           },
         ],
@@ -1240,7 +1240,7 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
           },
           {
             label: 'b',
-            task: 'I en spoerreundersoekelse sier 60 % ja. Vi spoer 12 tilfeldig valgte personer. Finn $P(X \\leq 5)$.',
+            task: 'I en spoerreundersøkelse sier 60 % ja. Vi spoer 12 tilfeldig valgte personer. Finn $P(X \\leq 5)$.',
             solution: '$X \\sim B(12, 0{,}6)$. $P(X \\leq 5) = \\sum_{k=0}^{5} \\binom{12}{k}(0{,}6)^k(0{,}4)^{12-k}$. Beregning: $\\approx 0{,}0003 + 0{,}0025 + 0{,}0125 + 0{,}0420 + 0{,}1009 + 0{,}1766 \\approx 0{,}335$.',
           },
         ],
@@ -1261,12 +1261,12 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
         subTasks: [
           {
             label: 'a',
-            task: 'Vi kaster en rettferdig terning inntil vi faar en sekser, men maks 5 ganger. La $Y$ vaere antall kast. Er $Y$ binomisk fordelt? Forklar. Finn $P(Y \\leq 3)$.',
-            solution: 'Nei, $Y$ er ikke binomisk (antall forsoek er ikke fast). $P(Y=1)=1/6$, $P(Y=2)=5/36$, $P(Y=3)=25/216$. $P(Y \\leq 3) = 36/216 + 30/216 + 25/216 = 91/216 \\approx 0{,}421$.',
+            task: 'Vi kaster en rettferdig terning inntil vi får en sekser, men maks 5 ganger. La $Y$ være antall kast. Er $Y$ binomisk fordelt? Forklar. Finn $P(Y \\leq 3)$.',
+            solution: 'Nei, $Y$ er ikke binomisk (antall forsøk er ikke fast). $P(Y=1)=1/6$, $P(Y=2)=5/36$, $P(Y=3)=25/216$. $P(Y \\leq 3) = 36/216 + 30/216 + 25/216 = 91/216 \\approx 0{,}421$.',
           },
           {
             label: 'b',
-            task: 'I et lotteri er det 100 lodd, 10 premielodd. Anna kjoeper 5 lodd. Bruk hypergeometrisk fordeling til aa finne $P(X \\geq 2)$.',
+            task: 'I et lotteri er det 100 lodd, 10 premielodd. Anna kjoeper 5 lodd. Bruk hypergeometrisk fordeling til å finne $P(X \\geq 2)$.',
             solution: '$X \\sim H(100, 10, 5)$. $P(X=0) = \\frac{\\binom{10}{0}\\binom{90}{5}}{\\binom{100}{5}} \\approx 0{,}584$. $P(X=1) = \\frac{\\binom{10}{1}\\binom{90}{4}}{\\binom{100}{5}} \\approx 0{,}339$. $P(X \\geq 2) \\approx 1 - 0{,}584 - 0{,}339 = 0{,}077$.',
           },
           {
@@ -1276,7 +1276,7 @@ Hvis du trekker fra en eske med 10 kuler uten tilbakelegging, er forsoekene **ik
           },
         ],
         hints: [
-          'For a: binomisk krever fast antall forsoek og konstant sannsynlighet',
+          'For a: binomisk krever fast antall forsøk og konstant sannsynlighet',
           'For b: beregn $P(X=0)$ og $P(X=1)$ separat, bruk komplement',
           'For c: summer enkeltesannsynligheter for $k = 6, 7, 8$',
         ],
@@ -1297,11 +1297,11 @@ export const CHAPTER_R1_9_3: TextbookChapter = {
   courseId: 'r1',
   chapterNumber: '9.3',
   title: 'Kontrapositiv og kontradiksjon',
-  description: 'Laer om kontrapositiv bevisfoering og bevis ved kontradiksjon (selvmotsigelse), inkludert bevis for at sqrt(2) er irrasjonell og at det finnes uendelig mange primtall.',
+  description: 'Lær om kontrapositiv bevisfoering og bevis ved kontradiksjon (selvmotsigelse), inkludert bevis for at sqrt(2) er irrasjonell og at det finnes uendelig mange primtall.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'utfoere kontrapositiv bevisfoering',
-    'utfoere bevis ved kontradiksjon (selvmotsigelse)',
+    'utføre kontrapositiv bevisfoering',
+    'utføre bevis ved kontradiksjon (selvmotsigelse)',
     'bevise at sqrt(2) er irrasjonell',
     'forstaa Euklids bevis for uendelig mange primtall',
   ],
@@ -1311,12 +1311,12 @@ export const CHAPTER_R1_9_3: TextbookChapter = {
       type: 'text',
       content: `## Kontrapositiv og kontradiksjon
 
-I kapittel 9.1 laerte du direkte bevis, og i 9.2 bevis ved induksjon. Noen ganger er det vanskelig eller umulig aa bevise en paastand direkte. Da kan vi bruke to kraftige **indirekte bevismetoder**:
+I kapittel 9.1 laerte du direkte bevis, og i 9.2 bevis ved induksjon. Noen ganger er det vanskelig eller umulig å bevise en paastand direkte. Da kan vi bruke to kraftige **indirekte bevismetoder**:
 
-- **Kontrapositiv**: I stedet for aa bevise «dersom $P$, saa $Q$», beviser vi den logisk ekvivalente paastanden «dersom ikke $Q$, saa ikke $P$».
-- **Kontradiksjon** (selvmotsigelse): Vi antar at paastanden er usann, og utleder en selvmotsigelse. Da maa paastanden vaere sann.
+- **Kontrapositiv**: I stedet for å bevise «dersom $P$, så $Q$», beviser vi den logisk ekvivalente paastanden «dersom ikke $Q$, så ikke $P$».
+- **Kontradiksjon** (selvmotsigelse): Vi antar at paastanden er usann, og utleder en selvmotsigelse. Da må paastanden være sann.
 
-Disse metodene er spesielt nyttige for aa bevise eksistensresultater og egenskaper ved irrasjonale tall.`,
+Disse metodene er spesielt nyttige for å bevise eksistensresultater og egenskaper ved irrasjonale tall.`,
     },
     {
       id: 'r1-9-3-def-kontrapositiv',
@@ -1324,9 +1324,9 @@ Disse metodene er spesielt nyttige for aa bevise eksistensresultater og egenskap
       title: 'Kontrapositiv',
       content: `En implikasjon $P \\Rightarrow Q$ er **logisk ekvivalent** med sin kontrapositiv $\\neg Q \\Rightarrow \\neg P$.
 
-Det betyr at for aa bevise «dersom $P$, saa $Q$», kan vi i stedet bevise «dersom ikke $Q$, saa ikke $P$». De to utsagnene er alltid enten begge sanne eller begge usanne.
+Det betyr at for å bevise «dersom $P$, så $Q$», kan vi i stedet bevise «dersom ikke $Q$, så ikke $P$». De to utsagnene er alltid enten begge sanne eller begge usanne.
 
-**Eksempel paa logikken:**
+**Eksempel på logikken:**
 - Original: «Dersom det regner, er bakken vaat.»
 - Kontrapositiv: «Dersom bakken ikke er vaat, regner det ikke.»
 
@@ -1336,12 +1336,12 @@ Begge utsagnene er ekvivalente.`,
       id: 'r1-9-3-example-kontrapositiv',
       type: 'example',
       title: 'Eksempel 1: Kontrapositiv bevisfoering',
-      problem: `Bevis: Dersom $n^2$ er odde, saa er $n$ odde (der $n$ er et heltall).`,
+      problem: `Bevis: Dersom $n^2$ er odde, så er $n$ odde (der $n$ er et heltall).`,
       solution: `**Bevis (kontrapositiv):**
 
-Vi beviser kontrapositivet: «Dersom $n$ er partall, saa er $n^2$ partall.»
+Vi beviser kontrapositivet: «Dersom $n$ er partall, så er $n^2$ partall.»
 
-La $n$ vaere partall. Da finnes det et heltall $k$ slik at $n = 2k$.
+La $n$ være partall. Da finnes det et heltall $k$ slik at $n = 2k$.
 
 $$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$$
 
@@ -1361,13 +1361,13 @@ Vi har vist at $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Righta
         subTasks: [
           {
             label: 'a',
-            task: 'Skriv kontrapositivet til: «Dersom $n$ er delelig med 6, saa er $n$ delelig med 3.»',
-            solution: '«Dersom $n$ ikke er delelig med 3, saa er $n$ ikke delelig med 6.»',
+            task: 'Skriv kontrapositivet til: «Dersom $n$ er delelig med 6, så er $n$ delelig med 3.»',
+            solution: '«Dersom $n$ ikke er delelig med 3, så er $n$ ikke delelig med 6.»',
           },
           {
             label: 'b',
-            task: 'Bevis ved kontrapositiv: Dersom $n^2$ er delelig med 3, saa er $n$ delelig med 3.',
-            solution: 'Kontrapositiv: Dersom $n$ ikke er delelig med 3, saa er $n^2$ ikke delelig med 3. La $n = 3k + r$ der $r = 1$ eller $r = 2$. Hvis $r=1$: $n^2 = 9k^2 + 6k + 1 = 3(3k^2+2k) + 1$. Hvis $r=2$: $n^2 = 9k^2+12k+4 = 3(3k^2+4k+1)+1$. I begge tilfeller gir $n^2$ rest 1 ved divisjon med 3, saa $n^2$ er ikke delelig med 3. $\\square$',
+            task: 'Bevis ved kontrapositiv: Dersom $n^2$ er delelig med 3, så er $n$ delelig med 3.',
+            solution: 'Kontrapositiv: Dersom $n$ ikke er delelig med 3, så er $n^2$ ikke delelig med 3. La $n = 3k + r$ der $r = 1$ eller $r = 2$. Hvis $r=1$: $n^2 = 9k^2 + 6k + 1 = 3(3k^2+2k) + 1$. Hvis $r=2$: $n^2 = 9k^2+12k+4 = 3(3k^2+4k+1)+1$. I begge tilfeller gir $n^2$ rest 1 ved divisjon med 3, så $n^2$ er ikke delelig med 3. $\\square$',
           },
         ],
         hints: [
@@ -1382,13 +1382,13 @@ Vi har vist at $\\neg Q \\Rightarrow \\neg P$, som er ekvivalent med $P \\Righta
       id: 'r1-9-3-def-kontradiksjon',
       type: 'definition',
       title: 'Bevis ved kontradiksjon (selvmotsigelse)',
-      content: `For aa bevise en paastand $P$ ved **kontradiksjon**:
+      content: `For å bevise en paastand $P$ ved **kontradiksjon**:
 
 1. **Anta** at $P$ er usann (dvs. anta $\\neg P$).
-2. **Utled** logisk fra $\\neg P$ til vi naar en **selvmotsigelse** -- et utsagn som er aapenbart falskt eller som motsier antagelsen.
-3. **Konkluder** at antagelsen $\\neg P$ maa vaere feil, altsaa er $P$ sann.
+2. **Utled** logisk fra $\\neg P$ til vi når en **selvmotsigelse** -- et utsagn som er aapenbart falskt eller som motsier antagelsen.
+3. **Konkluder** at antagelsen $\\neg P$ må være feil, altså er $P$ sann.
 
-Prinsippet bygger paa loven om det utelatte tredje: en paastand er enten sann eller usann.`,
+Prinsippet bygger på loven om det utelatte tredje: en paastand er enten sann eller usann.`,
     },
     {
       id: 'r1-9-3-example-sqrt2',
@@ -1397,20 +1397,20 @@ Prinsippet bygger paa loven om det utelatte tredje: en paastand er enten sann el
       problem: `Bevis at $\\sqrt{2}$ er et irrasjonelt tall.`,
       solution: `**Bevis (ved kontradiksjon):**
 
-**Anta** at $\\sqrt{2}$ er rasjonell. Da kan vi skrive $\\sqrt{2} = \\frac{a}{b}$ der $a$ og $b$ er heltall med $b \\neq 0$ og broeken er **maksimalt forkortet** (dvs. $\\gcd(a, b) = 1$).
+**Anta** at $\\sqrt{2}$ er rasjonell. Da kan vi skrive $\\sqrt{2} = \\frac{a}{b}$ der $a$ og $b$ er heltall med $b \\neq 0$ og brøken er **maksimalt forkortet** (dvs. $\\gcd(a, b) = 1$).
 
 Kvadrer begge sider:
 $$2 = \\frac{a^2}{b^2} \\quad \\Rightarrow \\quad a^2 = 2b^2$$
 
-Altsaa er $a^2$ partall. Fra Eksempel 1 (kontrapositiv) vet vi at dette betyr at $a$ er partall. Skriv $a = 2k$:
+Altså er $a^2$ partall. Fra Eksempel 1 (kontrapositiv) vet vi at dette betyr at $a$ er partall. Skriv $a = 2k$:
 
 $$4k^2 = 2b^2 \\quad \\Rightarrow \\quad b^2 = 2k^2$$
 
-Altsaa er $b^2$ partall, som betyr at $b$ ogsaa er partall.
+Altså er $b^2$ partall, som betyr at $b$ også er partall.
 
-Men hvis baade $a$ og $b$ er partall, er broeken $\\frac{a}{b}$ **ikke** maksimalt forkortet. Dette **motsier** antagelsen.
+Men hvis både $a$ og $b$ er partall, er brøken $\\frac{a}{b}$ **ikke** maksimalt forkortet. Dette **motsier** antagelsen.
 
-Altsaa er $\\sqrt{2}$ irrasjonell. $\\square$`,
+Altså er $\\sqrt{2}$ irrasjonell. $\\square$`,
     },
     {
       id: 'r1-9-3-ex-block-2',
@@ -1424,18 +1424,18 @@ Altsaa er $\\sqrt{2}$ irrasjonell. $\\square$`,
         subTasks: [
           {
             label: 'a',
-            task: 'Bevis at $\\sqrt{3}$ er irrasjonell. (Hint: Du trenger foerst aa vise at $n^2$ delelig med 3 medforer at $n$ er delelig med 3.)',
-            solution: 'Anta $\\sqrt{3} = a/b$ med $\\gcd(a,b) = 1$. Da $a^2 = 3b^2$, saa $3 | a^2$, altsaa $3 | a$ (fra oppgave 1b). Skriv $a = 3k$: $9k^2 = 3b^2$, dvs. $b^2 = 3k^2$, saa $3 | b$. Baade $a$ og $b$ delelig med 3 motsier $\\gcd(a,b)=1$. $\\square$',
+            task: 'Bevis at $\\sqrt{3}$ er irrasjonell. (Hint: Du trenger først å vise at $n^2$ delelig med 3 medforer at $n$ er delelig med 3.)',
+            solution: 'Anta $\\sqrt{3} = a/b$ med $\\gcd(a,b) = 1$. Da $a^2 = 3b^2$, så $3 | a^2$, altså $3 | a$ (fra oppgave 1b). Skriv $a = 3k$: $9k^2 = 3b^2$, dvs. $b^2 = 3k^2$, så $3 | b$. Både $a$ og $b$ delelig med 3 motsier $\\gcd(a,b)=1$. $\\square$',
           },
           {
             label: 'b',
             task: 'Bevis at $\\sqrt{2} + \\sqrt{3}$ er irrasjonell. (Hint: Anta at summen er rasjonell og vis at dette foerer til at $\\sqrt{2}$ er rasjonell.)',
-            solution: 'Anta $\\sqrt{2}+\\sqrt{3} = r \\in \\mathbb{Q}$. Da $\\sqrt{3} = r - \\sqrt{2}$. Kvadrer: $3 = r^2 - 2r\\sqrt{2} + 2$, saa $\\sqrt{2} = \\frac{r^2-1}{2r}$, som er rasjonell. Men vi vet at $\\sqrt{2}$ er irrasjonell. Selvmotsigelse. $\\square$',
+            solution: 'Anta $\\sqrt{2}+\\sqrt{3} = r \\in \\mathbb{Q}$. Da $\\sqrt{3} = r - \\sqrt{2}$. Kvadrer: $3 = r^2 - 2r\\sqrt{2} + 2$, så $\\sqrt{2} = \\frac{r^2-1}{2r}$, som er rasjonell. Men vi vet at $\\sqrt{2}$ er irrasjonell. Selvmotsigelse. $\\square$',
           },
         ],
         hints: [
           'Bruk samme struktur som beviset for sqrt(2): anta rasjonell, kvadrer, utled selvmotsigelse',
-          'For b: isoler en rotuttrykk og vis at det maa vaere rasjonelt',
+          'For b: isoler en rotuttrykk og vis at det må være rasjonelt',
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1454,11 +1454,11 @@ Altsaa er $\\sqrt{2}$ irrasjonell. $\\square$`,
 Konstruer tallet:
 $$N = p_1 \\cdot p_2 \\cdot \\ldots \\cdot p_n + 1$$
 
-Da er $N > 1$, saa $N$ har minst en primfaktor $p$. Men $N$ gir rest 1 ved divisjon med hvert av primtallene $p_1, p_2, \\ldots, p_n$. Altsaa er $p$ et primtall som **ikke** er blant $p_1, \\ldots, p_n$.
+Da er $N > 1$, så $N$ har minst en primfaktor $p$. Men $N$ gir rest 1 ved divisjon med hvert av primtallene $p_1, p_2, \\ldots, p_n$. Altså er $p$ et primtall som **ikke** er blant $p_1, \\ldots, p_n$.
 
 Dette **motsier** antagelsen om at listen inneholder alle primtall.
 
-Altsaa finnes det uendelig mange primtall. $\\square$`,
+Altså finnes det uendelig mange primtall. $\\square$`,
     },
     {
       id: 'r1-9-3-ex-block-3',
@@ -1478,7 +1478,7 @@ Altsaa finnes det uendelig mange primtall. $\\square$`,
           {
             label: 'b',
             task: 'Gjenta med $p_1 = 2, p_2 = 3, p_3 = 5, p_4 = 7$. Er $N$ et primtall?',
-            solution: '$N = 2 \\cdot 3 \\cdot 5 \\cdot 7 + 1 = 211$. Vi sjekker: 211 er ikke delelig med 2, 3, 5, 7, 11, 13 (og $14^2 = 196 < 211 < 225 = 15^2$). Altsaa er 211 et primtall.',
+            solution: '$N = 2 \\cdot 3 \\cdot 5 \\cdot 7 + 1 = 211$. Vi sjekker: 211 er ikke delelig med 2, 3, 5, 7, 11, 13 (og $14^2 = 196 < 211 < 225 = 15^2$). Altså er 211 et primtall.',
           },
           {
             label: 'c',
@@ -1487,8 +1487,8 @@ Altsaa finnes det uendelig mange primtall. $\\square$`,
           },
         ],
         hints: [
-          'Beregn produktet foerst, legg til 1',
-          'N trenger ikke vaere et primtall, men primfaktorene er nye',
+          'Beregn produktet først, legg til 1',
+          'N trenger ikke være et primtall, men primfaktorene er nye',
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1501,15 +1501,15 @@ Altsaa finnes det uendelig mange primtall. $\\square$`,
 
 I dette kapittelet har du laert to indirekte bevismetoder:
 
-- **Kontrapositiv**: For aa bevise $P \\Rightarrow Q$, bevis $\\neg Q \\Rightarrow \\neg P$ i stedet.
+- **Kontrapositiv**: For å bevise $P \\Rightarrow Q$, bevis $\\neg Q \\Rightarrow \\neg P$ i stedet.
 - **Kontradiksjon**: Anta at paastanden er usann, og utled en selvmotsigelse.
 
-### Naar bruker du hvilken metode?
+### Når bruker du hvilken metode?
 
-| Metode | Naar |
+| Metode | Når |
 |--------|------|
 | **Direkte bevis** | Naturlig vei fra antagelse til konklusjon |
-| **Kontrapositiv** | Enklere aa starte fra negasjonen av konklusjonen |
+| **Kontrapositiv** | Enklere å starte fra negasjonen av konklusjonen |
 | **Kontradiksjon** | Paastanden handler om «umulighet» eller «ikke-eksistens» |
 | **Induksjon** | Paastand om alle naturlige tall |
 
@@ -1528,18 +1528,18 @@ Beviset for at $\\sqrt{2}$ er irrasjonell og Euklids bevis er to av de mest kjen
         subTasks: [
           {
             label: 'a',
-            task: 'Bevis ved kontradiksjon at det ikke finnes noe stoerste partall.',
-            solution: 'Anta at $n$ er det stoerste partallet. Da er $n + 2$ ogsaa partall (sum av to partall) og $n + 2 > n$. Dette motsier at $n$ er stoerst. $\\square$',
+            task: 'Bevis ved kontradiksjon at det ikke finnes noe største partall.',
+            solution: 'Anta at $n$ er det største partallet. Da er $n + 2$ også partall (sum av to partall) og $n + 2 > n$. Dette motsier at $n$ er størst. $\\square$',
           },
           {
             label: 'b',
-            task: 'Bevis ved kontrapositiv: For heltall $a$ og $b$, dersom $ab$ er odde, saa er baade $a$ og $b$ odde.',
-            solution: 'Kontrapositiv: Dersom $a$ er partall eller $b$ er partall, saa er $ab$ partall. Anta $a$ er partall: $a = 2k$, saa $ab = 2kb$ som er partall. Tilsvarende for $b$. $\\square$',
+            task: 'Bevis ved kontrapositiv: For heltall $a$ og $b$, dersom $ab$ er odde, så er både $a$ og $b$ odde.',
+            solution: 'Kontrapositiv: Dersom $a$ er partall eller $b$ er partall, så er $ab$ partall. Anta $a$ er partall: $a = 2k$, så $ab = 2kb$ som er partall. Tilsvarende for $b$. $\\square$',
           },
           {
             label: 'c',
             task: 'Bevis at $\\log_2 3$ er irrasjonell.',
-            solution: 'Anta $\\log_2 3 = a/b$ med $a, b \\in \\mathbb{Z}$, $b > 0$. Da $2^{a/b} = 3$, altsaa $2^a = 3^b$. Men $2^a$ er partall og $3^b$ er odde for alle positive heltall $a, b$. Selvmotsigelse. $\\square$',
+            solution: 'Anta $\\log_2 3 = a/b$ med $a, b \\in \\mathbb{Z}$, $b > 0$. Da $2^{a/b} = 3$, altså $2^a = 3^b$. Men $2^a$ er partall og $3^b$ er odde for alle positive heltall $a, b$. Selvmotsigelse. $\\square$',
           },
         ],
         hints: [
@@ -1557,14 +1557,14 @@ Beviset for at $\\sqrt{2}$ er irrasjonell og Euklids bevis er to av de mest kjen
         id: 'r1-9-3-ex-5',
         number: '5',
         type: 'multiple-choice',
-        task: 'Hvilken bevismetode er mest hensiktsmessig for aa vise at $\\sqrt{5}$ er irrasjonell?',
+        task: 'Hvilken bevismetode er mest hensiktsmessig for å vise at $\\sqrt{5}$ er irrasjonell?',
         options: [
           { id: 'a', text: 'Direkte bevis', isCorrect: false },
           { id: 'b', text: 'Bevis ved induksjon', isCorrect: false },
           { id: 'c', text: 'Bevis ved kontradiksjon', isCorrect: true },
           { id: 'd', text: 'Bevis ved kontrapositiv', isCorrect: false },
         ],
-        solution: 'Bevis ved kontradiksjon: Vi antar at $\\sqrt{5}$ er rasjonell ($\\sqrt{5} = a/b$ forkortet), og utleder at baade $a$ og $b$ maa vaere delelig med 5, som gir selvmotsigelse. Direkte bevis og induksjon passer ikke for slike eksistens-/umulighetspaastand.',
+        solution: 'Bevis ved kontradiksjon: Vi antar at $\\sqrt{5}$ er rasjonell ($\\sqrt{5} = a/b$ forkortet), og utleder at både $a$ og $b$ må være delelig med 5, som gir selvmotsigelse. Direkte bevis og induksjon passer ikke for slike eksistens-/umulighetspaastand.',
       },
     },
   ],

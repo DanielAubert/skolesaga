@@ -210,7 +210,7 @@ Disse «usynlige» historiske sporene former hverdagen vår mer enn noen festnin
 
 For å virkelig forstå hvor dypt fortiden griper inn i nåtiden, la oss se på andre verdenskrig – en hendelse som fortsatt former verden over 80 år senere.
 
-**FN og menneskerettighetene:** FN ble opprettet i 1945 spesifikt for å hindre nye verdenskonfliker. FNs menneskerettighetserklæring fra 1948 var et direkte svar på Holocaust og krigens grusomheter. Hver gang du hører om menneskerettigheter i nyhetene, hører du et ekko fra andre verdenskrig.
+**FN og menneskerettighetene:** FN ble opprettet i 1945 spesifikt for å hindre nye verdenskonflikter. FNs menneskerettighetserklæring fra 1948 var et direkte svar på Holocaust og krigens grusomheter. Hver gang du hører om menneskerettigheter i nyhetene, hører du et ekko fra andre verdenskrig.
 
 **Europa-samarbeidet:** EU startet som et prosjekt for å knytte Frankrike og Tyskland så tett sammen økonomisk at krig mellom dem ble umulig. Den kranglingen om fiskekvoter og budsjetter som fyller nyhetene, er egentlig en fredsprosess som begynte i ruinene av 1945.
 
@@ -234,11 +234,11 @@ For å virkelig forstå hvor dypt fortiden griper inn i nåtiden, la oss se på 
             task: 'Hvorfor ble FN opprettet i 1945?',
             options: [
               { id: 'a', text: 'For å organisere OL og andre internasjonale arrangementer', isCorrect: false },
-              { id: 'b', text: 'For å hindre nye verdenskonfliker etter erfaringene fra andre verdenskrig', isCorrect: true },
+              { id: 'b', text: 'For å hindre nye verdenskonflikter etter erfaringene fra andre verdenskrig', isCorrect: true },
               { id: 'c', text: 'For å hjelpe med gjenoppbyggingen av Europa', isCorrect: false },
               { id: 'd', text: 'For å regulere internasjonal handel', isCorrect: false },
             ],
-            solution: 'FN ble opprettet som en direkte respons på andre verdenskrig, med hovedmål å forhindre nye verdenskonfliker gjennom internasjonalt samarbeid og dialog.',
+            solution: 'FN ble opprettet som en direkte respons på andre verdenskrig, med hovedmål å forhindre nye verdenskonflikter gjennom internasjonalt samarbeid og dialog.',
           },
           {
             id: 'historie-1-1-n-quiz3-q1',

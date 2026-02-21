@@ -403,9 +403,28 @@ Valg av forsvar avhenger av motstanderens styrker og egne spilleres egenskaper.`
         solution: 'God tilbakemelding styrker laget ved å hjelpe alle til å utvikle seg i et trygt og støttende miljø.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Fotball og håndball** med grunnleggende teknikk og taktikk
+- **Pasninger, skudd og mottak** i begge idretter
+- **Spillposisjoner** og roller på banen
+- Å **gjøre andre gode** gjennom tilpassede pasninger og oppmuntring`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Fotballforbund: fotball.no
+- Norges Håndballforbund: handball.no`,
+    },
+],
   exercises: []
 };
 
@@ -856,9 +875,28 @@ En medspiller har problemer med å treffe med mancheten. Du sier: "Du har god po
         solution: 'Å veilede andre styrker både medspilleren og deg selv, og bygger et sterkere lag.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Basketball** med dribling, pasning og skudd
+- **Volleyball** med serve, mottak og smash
+- **Spillposisjoner** og taktisk forståelse
+- Samarbeid og kommunikasjon i lagspill`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Basketballforbund: basket.no
+- Norges Volleyballforbund: volleyball.no`,
+    },
+],
   exercises: []
 };
 
@@ -1282,9 +1320,28 @@ I par med ulike nivåer kan den beste spilleren fokusere på å sette opp perfek
         solution: 'Inkluderende regler sikrer at alle får en positiv opplevelse og bidrar til laget, uavhengig av ferdighetsnivå.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Innebandy** med teknikk og regler
+- **Smålagsspill** og varierte spillformer
+- **Tilpassede regler** for inkludering
+- Hvordan skape aktiviteter der alle kan delta`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Bandyforbund: bandyforbundet.no
+- Utdanningsdirektoratet: Kroppsøving i LK20`,
+    },
+],
   exercises: []
 };
 
@@ -1667,9 +1724,28 @@ Overgangene mellom forsvar og angrep (og omvendt) er ofte når mål scores eller
         solution: 'For å utvikle romforståelse: 1) Løft blikket fra ballen og scan konstant, 2) Øv på å se hele banen, ikke bare din del, 3) Spill smålagsspill hvor du må ta mange beslutninger, 4) Studer video av profesjonelle - se hvordan de beveger seg uten ball, 5) Analyser egne kamper og se på posisjoneringer, 6) Kommuniser med medspillere for å forstå deres intensjoner, 7) Øv på timing av løp i treninger, 8) Spill i forskjellige posisjoner for å forstå ulike perspektiver.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Angrepsprinsipper** som bredde, dybde og overtalsspill
+- **Forsvarsprinsipper** som press, sikring og sammentrykking
+- **Beslutninger i spill** og evne til å lese situasjoner
+- **Spillanalyse** som verktøy for utvikling`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Olympiatoppen: Spillutvikling
+- Norges idrettsforbund: idrettsforbundet.no`,
+    },
+],
   exercises: []
 };
 
@@ -2053,9 +2129,28 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
         solution: 'Tre konkrete tiltak: 1) Sosiale aktiviteter utenfor trening (bowling, kino, middag) hvor alle inviteres og oppfordres til å delta, 2) Par opp forskjellige spillere i treningsøvelser hver gang for å bygge relasjoner på tvers av vennegruppene, 3) Lag felles ritualer som samling før kamp hvor alle sier noe positivt eller en felles heiarop. Andre gode tiltak: Feire bursdager, lag-chat med inkluderende tone, rotere bussplasser, anerkjenne alle bidrag (ikke bare scoringer), ha lagtøy-dager på skolen.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kommunikasjon** i lag og dens betydning
+- **Lagbygging** og utvikling av lagkultur
+- **Inkludering** og det å gjøre andre gode
+- **Lederskap** og ansvar i lagsammenheng`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Olympiatoppen: Lagutvikling
+- Norges idrettsforbund: idrettsforbundet.no`,
+    },
+],
   exercises: []
 };
 
@@ -2428,9 +2523,28 @@ En lagsport med frisbee som kombinerer elementer fra fotball, håndball og baske
         solution: 'Å skape egne spillvarianter utvikler kreativitet, regelforståelse og evnen til å tilpasse aktiviteter for inkludering. Dette er en viktig ferdighet både i kroppsøving og i lek generelt.',
         allowsUpload: true,
         allowsCanvasDrawing: true
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kreative leker** og alternative bevegelsesaktiviteter
+- Hvordan **skape nye spillformer** basert på kjente spill
+- **Bevegelsesglede** som motivasjon
+- **Samskaping** av aktiviteter i samarbeid med andre`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Utdanningsdirektoratet: Kroppsøving i LK20
+- Norsk Friluftsliv: friluftsliv.no`,
+    },
+],
   exercises: []
 };
 
@@ -2790,9 +2904,29 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
         solution: 'Du kan fremme fair play ved å: 1) Være rollemodell gjennom egen oppførsel - vis respekt alltid, 2) Feire god sportsånd like mye som scoringer, 3) Konfrontere usportslig oppførsel direkte men respektfullt, 4) Inkludere og støtte alle lagkamerater, 5) Kommunisere respektfullt med motstandere og dommere, 6) Foreslå å lage en lag-avtale om fair play, 7) Løfte frem positive eksempler, 8) Reflektere sammen over oppførsel etter kamper. Hver enkelt spiller har ansvar for lagkulturen.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-5-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Fair play** og respekt for regler og medspillere
+- **Dommerrollen** og ansvar i lagidrett
+- **Etiske problemstillinger** i idrettssammenheng
+- Betydningen av rettferdig spill for idrettsglede`,
+    },
+    {
+      id: 'kroppsoving-vg1-5-7-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges idrettsforbund: Fair play
+- FIFA: Laws of the Game
+- IHF: International Handball Federation`,
+    },
+],
   exercises: []
 };
 
@@ -3150,9 +3284,28 @@ Dans handler ikke om å være perfekt, men om å uttrykke seg, ha det gøy og f�
         solution: 'Viktigste råd for usikre nybegynnere: 1) Start enkelt med grunntrinn som step-touch, 2) Dans hjemme alene først for å bli trygg, 3) Fokuser på glede og uttrykk, ikke perfeksjon, 4) Husk at alle gjør feil - det er en del av læringen, 5) Øv foran speil for å se fremgang, 6) Velg musikk du liker, 7) Vær tålmodig - det tar tid, 8) Dans som om ingen ser på, 9) Feire små fremskritt. Det viktigste er å ha det gøy!',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Rytme og takt** som grunnlag for dans
+- **Grunnleggende dansetrinn** i ulike stilarter
+- **Musikkforståelse** og kroppsbevissthet
+- Dans som uttrykksform og treningsform`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Danseforbund: danseforbundet.no
+- Utdanningsdirektoratet: Dans i LK20`,
+    },
+],
   exercises: []
 };
 
@@ -3472,9 +3625,28 @@ Springar (også kalt pols) er en livlig norsk folkedans i 3/4-takt. Den er mer e
         solution: 'God dans-etikette inkluderer: 1) Invitere høflig og akseptere avslag med verdighet, 2) God hygiene (frisk pust, ren kropp, passende klær), 3) Respektere personlig rom og grenser, 4) Takke partneren etter dansen, 5) Ikke gi ubedt kritikk på dansegulvet, 6) Være oppmerksom på andre par (floorcraft), 7) Vise tålmodighet med partnere på alle nivåer, 8) Være til stede og fokusere på dansen, 9) Smile og ha det gøy. Dans-etikette handler om respekt og å skape et trygt, hyggelig miljø for alle.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Pardans** med grunnleggende trinn i vals og swing
+- **Norsk folkedans** som del av kulturarven
+- **Dansetradisjoner** og deres historiske bakgrunn
+- Dans som kulturell fellesopplevelse`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norsk Folkemusikk og Folkedans: folkemusikk.no
+- Noregs Ungdomslag: ungdomslag.no`,
+    },
+],
   exercises: []
 };
 
@@ -3827,9 +3999,28 @@ Moderne urban dans er en miks av ulike stiler, ofte sett i musikkvideoer og på 
         solution: 'For å utvikle personlig stil: 1) Se på mange forskjellige dansere og stiler for inspirasjon, 2) Eksperimenter med ulike bevegelser og finn hva som føles naturlig for deg, 3) Freestyle mye - improvisasjon hjelper deg finne din stemme, 4) Ikke bare kopiere - tilføy din egen twist, 5) Uttrykk din personlighet og følelser i dansen, 6) Vær autentisk - ikke prøv å være noen andre, 7) Øv og bygg selvtillit, 8) Lær grunnlaget godt, så kan du bryte regler kreativt. Din stil utvikler seg over tid!',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Hiphop og streetdance** med grunnleggende bevegelser
+- **Koreografi** og sekvensering av bevegelser
+- **Kreativt uttrykk** gjennom moderne dans
+- Moderne dans som populærkultur og kunstform`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Danseforbund: danseforbundet.no
+- Dansens Hus: dansenshus.com`,
+    },
+],
   exercises: []
 };
 
@@ -4167,9 +4358,28 @@ Gruppekoreografi har egne muligheter og utfordringer.
         solution: 'Enkel improvisjonsøvelse: "Følelse-kort". Skriv ulike følelser på lapper (glede, tristhet, sinne, nysgjerrighet, frykt, forvirring). 1) Trekk en lapp, 2) Dans fritt til musikk og uttrykk den følelsen i 30-60 sekunder, 3) Ikke tenk for mye, la kroppen reagere, 4) Ingen ser på eller dømmer (eller gjør det i gruppe hvor alle danser samtidig), 5) Bytt lapp og gjenta. Denne øvelsen hjelper med å: Koble følelser til bevegelse, Slå av den indre kritikeren, Utforske ulike bevegelseskvaliteter, Bygge selvtillit.',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Improvisasjon** som verktøy for kreativ dans
+- Å lage egne **koreografier** alene og i samarbeid
+- **Kreativ prosess** fra ide til framføring
+- Samarbeid og kommunikasjon gjennom dans`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Danseforbund: danseforbundet.no
+- Dansens Hus: dansenshus.com`,
+    },
+],
   exercises: []
 };
 
@@ -4500,9 +4710,28 @@ Zumba er en latinsk-inspirert dansetrening skapt av Alberto "Beto" Perez i Colom
         solution: 'Råd for første gangetter: 1) Kom tidlig og presenter deg for instruktør, si at du er ny, 2) Plasser deg midt i rommet (ikke bak, ikke foran) så du ser og høres, 3) Start på ditt nivå - ikke stress med å holde følge med alle, 4) Ta pauser når du trenger - det er helt greit, 5) Ha med vann og drikk underveis, 6) Fokuser på egen opplevelse, ikke sammenlign med andre, 7) Det er lov å le av seg selv, 8) Modifiser øvelser om nødvendig, 9) Vær tålmodig - det blir lettere, 10) Ha det gøy!',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Aerobics og step** som rytmisk treningsform
+- Å kombinere **kondisjonstrening med dans**
+- Evnen til å **følge og lede** bevegelser i gruppe
+- Gruppetrening som sosial og fysisk aktivitet`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Danseforbund: danseforbundet.no
+- SATS/andre treningssentre: Gruppetreningstilbud`,
+    },
+],
   exercises: []
 };
 
@@ -4821,9 +5050,29 @@ Dans gir stemme til de som er undertrykt.`
         solution: 'Eksempler: 1) Norsk folkedans (springar/pols): Kraftig roterende pardans i 3/4-takt med asymmetrisk rytme, danses til hardingfele. Viktig på leikarringer og ved feiringer. Representerer norsk bygdekultur. 2) Pakistansk/indisk dans (bhangra): Energisk dans fra Punjab, opprinnelig høstfest-dans. Karakteristiske bevegelser med skuldre og armer. Danses ved bryllup og Vaisakhi. 3) Samisk dans til joik: Tradisjonell dans til samisk vokalmusikk, undertrykt tidligere, nå revitalisert. Viktig identitetsmarkør. (Andre eksempler: somalisk dans, tyrkisk halay, arabisk dabke)',
         allowsUpload: true,
         allowsCanvasDrawing: false
-      }
-    }
-  ],
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-6-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Danseformer fra ulike kulturer** rundt om i verden
+- **Kulturelt mangfold** uttrykt gjennom bevegelse
+- Respekt og bevissthet rundt **kulturell appropriasjon**
+- Dans som **universelt uttrykk** på tvers av kulturer`,
+    },
+    {
+      id: 'kroppsoving-vg1-6-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- UNESCO: Immateriell kulturarv
+- Norges Danseforbund: danseforbundet.no
+- Dansens Hus: dansenshus.com`,
+    },
+],
   exercises: []
 };
 

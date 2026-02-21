@@ -32,8 +32,8 @@ export const CHAPTER_NORSK_VG2_2_1: TextbookChapter = {
   description: 'Utforsk renessansens humanisme og dens betydning for europeisk kultur og litteratur.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosatekster og retorisk situasjon',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -324,8 +324,8 @@ export const CHAPTER_NORSK_VG2_2_2: TextbookChapter = {
   description: 'Lær om reformasjonen, trykkpressens revolusjon og de første tekstene på folkespråket.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {
@@ -548,8 +548,7 @@ export const CHAPTER_NORSK_VG2_2_3: TextbookChapter = {
   description: 'Lær om Petter Dass og hans diktning som kombinerer barokk religiøsitet med nordnorsk natur.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -860,8 +859,7 @@ export const CHAPTER_NORSK_VG2_2_4: TextbookChapter = {
   description: 'Utforsk barokken som litterær epoke med fokus på kontraster, forgjengelighet og religiøsitet.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -996,8 +994,7 @@ export const CHAPTER_NORSK_VG2_2_5: TextbookChapter = {
   description: 'Lær om Nordens første kvinnelige forfatter og hennes religiøse diktning.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -1147,8 +1144,7 @@ export const CHAPTER_NORSK_VG2_2_6: TextbookChapter = {
   description: 'Lær om den store danske salmedikteren Thomas Kingo og barokkens religiøse lyrikk.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {
@@ -1516,8 +1512,8 @@ export const CHAPTER_NORSK_VG2_2_7: TextbookChapter = {
   description: 'Utforsk 1700-tallets tro på fornuft, vitenskap og fremskritt.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosatekster og retorisk situasjon',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -1683,8 +1679,8 @@ export const CHAPTER_NORSK_VG2_2_8: TextbookChapter = {
   description: 'Lær om Ludvig Holberg og hans betydning for dansk-norsk litteratur og kultur.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -1696,7 +1692,7 @@ Ludvig Holberg (1684-1754) var den viktigste forfatteren i Danmark-Norge på 170
 
 **Liv og bakgrunn**
 
-Holberg ble født i Bergen i 1684, samme år som Dorothe Engelbretsdatter utga sin "Taare-Offer". Familien var borgerlig, og Holberg studerte teologi i København. Han reiste mye i Europa og ble påvirket av europeisk opplysningstenkning.
+Holberg ble født i Bergen i 1684, året før Dorothe Engelbretsdatter utga sin "Taare-Offer" (1685). Familien var borgerlig, og Holberg studerte teologi i København. Han reiste mye i Europa og ble påvirket av europeisk opplysningstenkning.
 
 I 1717 ble han professor i København, først i metafysikk, senere i historie. Han ble adlet i 1747 med tittelen baron.
 
@@ -1854,9 +1850,8 @@ export const CHAPTER_NORSK_VG2_2_9: TextbookChapter = {
   description: 'Utforsk Holbergs komedier i dybden: Jeppe pa Bjerget, Erasmus Montanus, Den politiske Kandestober, Den Stundeslose og Barselstuen. Med tekstutdrag, analyser av satiriske teknikker og samfunnskritikk.',
   estimatedMinutes: 120,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'reflektere over hvordan tekster framstiller enkeltmennesker og grupper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
   ],
   content: [
     {
@@ -2500,9 +2495,8 @@ export const CHAPTER_NORSK_VG2_2_10: TextbookChapter = {
   description: 'Utforsk opplysningstidens sakprosatradisjoner: essays, pamfletter og vitenskapelig skriving.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosateksters formål og retoriske situasjon',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   content: [
     {
@@ -2812,9 +2806,7 @@ export const CHAPTER_NORSK_VG2_2_11: TextbookChapter = {
   description: 'Utforsk de kvinnelige forfatterne fra 1500-1850: fra Dorothe Engelbretsdatter til Camilla Collett.',
   estimatedMinutes: 75,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'reflektere over hvordan tekster fra ulike tider behandler kjonnstematikk',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   content: [
     {

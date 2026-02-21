@@ -123,6 +123,18 @@ En UX-designer:
 **Smertepunkter**: Treg lasting av menyen, forvirrende navigasjon, uklar leveringstid. Hver av disse er en mulighet for UX-forbedring.`,
     },
     {
+      id: 'im-7-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- UX-design handler om å skape gode brukeropplevelser gjennom brukersentrert designtenkning.
+- UX (brukeropplevelse) og UI (brukergrensesnitt) er relaterte men ulike begreper.
+- Designtenkning (Design Thinking) følger fasene empati, definering, ideer, prototyping og testing.
+- Brukerreiser kartlegger alle kontaktpunktene mellom bruker og løsning.
+- UX-designeren jobber med forskning, konseptutvikling, prototyping og testing.
+- God UX setter brukernes behov i sentrum for alle designbeslutninger.`,
+    },
+    {
       id: 'im-7-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -335,6 +347,18 @@ Personas og empathy maps hjelper teamet å ta brukerens perspektiv i alle design
 **Teknisk nivå**: Høyt - bruker Instagram, TikTok, Discord daglig. Frustrert over utdaterte systemer.
 
 Denne personaen minner teamet på at elever bruker mobil og forventer rask, intuitiv navigasjon.`,
+    },
+    {
+      id: 'im-7-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Brukerundersøkelser kartlegger behov, adferd og utfordringer hos målgruppen.
+- Brukerintervjuer gir dybdeinnsikt gjennom åpne spørsmål og aktiv lytting.
+- Spørreundersøkelser samler inn data fra mange respondenter kvantitativt.
+- Observasjon avdekker faktisk adferd som brukerne selv kanskje ikke er klar over.
+- Personas er fiktive brukerprofiler som representerer typiske brukergrupper.
+- Empathy mapping hjelper teamet å forstå brukernes tanker, følelser og behov.`,
     },
     {
       id: 'im-7-2-ex-1',
@@ -555,6 +579,18 @@ Hver runde gir ny innsikt som forbedrer designet. Tre raske iterasjoner gir nest
 **Navigasjon:** Bunnmeny med fire ikoner: Hjem, Timeplan, Innleveringer, Profil.
 
 Wireframene viser struktur og funksjon, ikke farger eller detaljert design.`,
+    },
+    {
+      id: 'im-7-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Wireframes er enkle skisser som viser layout og innholdsstruktur uten visuell detaljering.
+- Prototyper tester interaksjoner og brukerflyt før utvikling starter.
+- Figma er et populært verktøy for wireframing og prototyping.
+- Lo-fi-prototyper (papir) er raske å lage, hi-fi-prototyper ligner det ferdige produktet.
+- Den iterative designprosessen forbedrer løsningen gjennom gjentatte runder med testing.
+- Tidlig testing med enkle prototyper sparer tid og penger i utviklingen.`,
     },
     {
       id: 'im-7-3-ex-1',
@@ -784,6 +820,18 @@ En ekspertvurdering basert på anerkjente brukervennlighetsprinsipper (heuristik
 **Bruker-sitat**: "Jeg hadde aldri gjettet at timeplanen lå under 'Skoledag'."`,
     },
     {
+      id: 'im-7-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Brukertesting evaluerer hvor godt en løsning fungerer for virkelige brukere.
+- Think-aloud-metoden lar brukeren tenke høyt mens de utfører oppgaver.
+- A/B-testing sammenligner to versjoner for å finne den beste løsningen.
+- Heuristisk evaluering bruker kjente prinsipper for å vurdere brukervennlighet.
+- Testresultater analyseres for å identifisere problemer og muligheter for forbedring.
+- Dokumentasjon av tester og funn er viktig for å dele innsikt med teamet.`,
+    },
+    {
       id: 'im-7-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -1000,6 +1048,18 @@ En **sitemap** er et diagram som viser nettsiden eller appens hierarkiske strukt
 - Søk: Synlig i topplinje med autofullføring
 
 Denne strukturen er logisk fordi den grupperer innhold etter hvem det er for (elever, foresatte) i stedet for etter avdeling (noe brukerne ikke kjenner).`,
+    },
+    {
+      id: 'im-7-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Informasjonsarkitektur handler om å organisere innhold på en intuitiv og logisk måte.
+- Navigasjonsstrukturer (hierarkisk, flat, nettverk) påvirker hvordan brukere finner innhold.
+- Kortsortering (card sorting) er en metode for å forstå hvordan brukere grupperer informasjon.
+- Et sitemap viser den overordnede strukturen til et nettsted eller en app.
+- Søk og filtrering hjelper brukere å finne spesifikt innhold raskt.
+- God informasjonsarkitektur gjør komplekse systemer enkle å navigere.`,
     },
     {
       id: 'im-7-5-ex-1',
@@ -1231,6 +1291,18 @@ God dokumentasjon gjør designsystemet nyttig:
 
 **Avstand:**
 - XS: 4px, S: 8px, M: 16px, L: 24px, XL: 32px`,
+    },
+    {
+      id: 'im-7-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Designsystemer samler gjenbrukbare komponenter, stiler og retningslinjer.
+- Stilguider definerer farger, typografi, ikoner og avstander for konsistent design.
+- Konsistens i design gjør løsningen forutsigbar og lett å bruke.
+- Fargesystemer og typografiskalaer sikrer harmonisk visuell utforming.
+- Dokumentasjon av designvalg gjør det lettere å samarbeide og vedlikeholde designet.
+- Store selskaper som Google (Material Design) og Apple (Human Interface Guidelines) deler sine designsystemer.`,
     },
     {
       id: 'im-7-6-ex-1',

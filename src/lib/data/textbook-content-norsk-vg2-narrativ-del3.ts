@@ -21,8 +21,8 @@ export const CHAPTER_NORSK_VG2_3_1_NARRATIV: TextbookChapter = {
   description: 'Oppdag hvordan en kulturell revolusjon snudde opp ned på alt Europa trodde det visste om kunst, natur og mennesket.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-1',
   content: [
@@ -359,10 +359,8 @@ export const CHAPTER_NORSK_VG2_3_2_NARRATIV: TextbookChapter = {
   description: 'Mot den unge mannen som ble Norges nasjonaldikter - en vulkan av et menneske som brant for frihet, rettferdighet og livets skjonnhet.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'reflektere over hvordan tekster framstiller moter mellom ulike kulturer og perspektiver',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-2',
   content: [
@@ -697,9 +695,8 @@ export const CHAPTER_NORSK_VG2_3_3_NARRATIV: TextbookChapter = {
   description: 'Mot den stille motvekten til Wergelands storm - en mester i form og stemning som viste at kvalitet ogsa er en verdi.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-3',
   content: [
@@ -1038,9 +1035,8 @@ export const CHAPTER_NORSK_VG2_3_4_NARRATIV: TextbookChapter = {
   description: 'Utforsk hvordan romantikkens diktere forvandlet fjell, skoger og bekker til speil for menneskesjelen.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'analysere og tolke tekster med bruk av fagbegreper',
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-4',
   content: [
@@ -1379,8 +1375,8 @@ export const CHAPTER_NORSK_VG2_3_5_NARRATIV: TextbookChapter = {
   description: 'Oppdag hvordan Norge etter 1814 jaktet på sin egen identitet gjennom eventyr, folkeviser og bondekultur.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-5',
   content: [
@@ -1692,8 +1688,8 @@ export const CHAPTER_NORSK_VG2_3_6_NARRATIV: TextbookChapter = {
   description: 'Møt de to vennene som ga Norge sine eventyr og skapte Askeladden som nasjonalhelt.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-6',
   content: [
@@ -2008,7 +2004,7 @@ export const CHAPTER_NORSK_VG2_3_7_NARRATIV: TextbookChapter = {
   description: 'Møt bondesønnen som skapte et helt nytt skriftspråk og forandret Norge for alltid.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
     'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
   ],
   linkedChapterId: 'norsk-vg2-3-7',
@@ -2325,9 +2321,9 @@ export const CHAPTER_NORSK_VG2_3_8_NARRATIV: TextbookChapter = {
   description: 'Lytt til stemmene fra middelalderen - ballader om kjærlighet, død og møter med det overnaturlige.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-8',
   content: [
@@ -2646,8 +2642,7 @@ export const CHAPTER_NORSK_VG2_3_9_NARRATIV: TextbookChapter = {
   description: 'Dykk ned i Norges lengste kulturkamp - striden om hva som er ekte norsk språk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
-    'reflektere over språklige varianter i Norge og holdninger til dem',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-3-9',
   content: [
@@ -2974,9 +2969,8 @@ export const CHAPTER_NORSK_VG2_3_10_NARRATIV: TextbookChapter = {
   description: 'Se hvordan romantikkens ideer lever videre i 17. mai-feiring, friluftsliv og moderne populærkultur.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'sammenligne tekster fra ulike tider og vurdere hvordan de forholder seg til hverandre',
-    'reflektere over hvordan tekster framstiller møter mellom ulike kulturer eller kulturelle tradisjoner',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
   ],
   linkedChapterId: 'norsk-vg2-3-10',
   content: [
@@ -3293,9 +3287,8 @@ export const CHAPTER_NORSK_VG2_3_11_NARRATIV: TextbookChapter = {
   description: 'Lær å knekke tekstenes koder med SVIRP-modellen og andre analyseverktøy.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke fagspråk og kunnskap om litterære virkemidler i analyse av tekster',
-    'lese og tolke tekster fra romantikken i kulturhistorisk kontekst',
-    'utforske og reflektere over hvordan tekster fra romantikken framstiller menneske, natur og samfunn',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
   ],
   linkedChapterId: 'norsk-vg2-3-11',
   content: [
@@ -3628,10 +3621,10 @@ export const CHAPTER_NORSK_VG2_3_12_NARRATIV: TextbookChapter = {
   description: 'Lev deg inn i fortidens konflikter - bli Wergeland, Welhaven eller Aasen for en dag.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'utforske tekster fra romantikken og nasjonalromantikken',
-    'sammenligne tekster fra ulike tider og vurdere hvordan de forholder seg til hverandre',
-    'bruke fagspråk og kunnskap om retorikk i samtaler og diskusjoner om norskfaglige emner',
-    'skrive kreative tekster med utgangspunkt i tekster fra ulike tider',
+    'utforske og reflektere over hvordan tekster fra romantikken og nasjonalromantikken framstiller menneske, natur og samfunn, og sammenligne med tekster fra nyere tid',
+    'lese norrøne tekster i oversettelse og sammenligne dem med tekster fra nyere tid',
+    'bruke fagkunnskap og retoriske ferdigheter i norskfaglige diskusjoner og presentasjoner',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
   ],
   linkedChapterId: 'norsk-vg2-3-12',
   content: [

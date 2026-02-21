@@ -1953,7 +1953,7 @@ $$\\tan(-x) = -\\tan x \\quad \\text{(odde funksjon)}$$`,
       type: 'text',
       content: `## Addisjonsformlene
 
-Addisjonsformlene forteller oss hvordan vi kan finne sinus og cosinus av en sum eller differanse av to vinkler. Disse formlene er blant de viktigste verktoyene i trigonometrien.`,
+Addisjonsformlene forteller oss hvordan vi kan finne sinus og cosinus av en sum eller differanse av to vinkler. Disse formlene er blant de viktigste verktøyene i trigonometrien.`,
     },
 
     // Teorem: Addisjonsformler
@@ -2965,7 +2965,7 @@ Storste verdi: $5$. Minste verdi: $-5$.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Et rektangel er innskrevet i en halvsirkel med radius $r$. Den ene siden ligger langs diameteren. Uttrykk arealet som funksjon av en vinkel, og finn det maksimale arealet.',
-        solution: `La $\\theta$ vaere vinkelen fra sentrum til hjornet. Da er bredden $2r\\cos\\theta$ og hoyden $r\\sin\\theta$.
+        solution: `La $\\theta$ være vinkelen fra sentrum til hjornet. Da er bredden $2r\\cos\\theta$ og hoyden $r\\sin\\theta$.
 
 $A(\\theta) = 2r\\cos\\theta \\cdot r\\sin\\theta = r^2 \\sin(2\\theta)$
 
@@ -3024,7 +3024,7 @@ export const CHAPTER_R1_7_6: TextbookChapter = {
       type: 'text',
       content: `## Sinussetningen og cosinussetningen
 
-Pytagoras' setning gjelder bare for **rettvinklede** trekanter. Men i mange praktiske situasjoner har vi trekanter uten rette vinkler. Da trenger vi mer generelle verktoy: **sinussetningen** og **cosinussetningen**.
+Pytagoras' setning gjelder bare for **rettvinklede** trekanter. Men i mange praktiske situasjoner har vi trekanter uten rette vinkler. Da trenger vi mer generelle verktøy: **sinussetningen** og **cosinussetningen**.
 
 I en vilkarlig trekant $ABC$ bruker vi notasjonen:
 - Sidene $a$, $b$, $c$ er motstaende til vinklene $A$, $B$, $C$
@@ -3495,7 +3495,7 @@ $AC \\approx 354{,}5$ km.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Bevis cosinussetningen ved hjelp av vektorer.',
-        solution: `La $\\vec{a}$, $\\vec{b}$ vaere vektorer langs sidene $BC$ og $BA$. Da er $\\vec{c} = \\vec{a} - \\vec{b}$ (fra $B$ til $A$ via $C$... eller la oss vaere presise).
+        solution: `La $\\vec{a}$, $\\vec{b}$ være vektorer langs sidene $BC$ og $BA$. Da er $\\vec{c} = \\vec{a} - \\vec{b}$ (fra $B$ til $A$ via $C$... eller la oss være presise).
 
 Definer $\\vec{a} = \\overrightarrow{CB}$, $\\vec{b} = \\overrightarrow{CA}$, sa $\\overrightarrow{BA} = \\vec{b} - \\vec{a}$.
 
@@ -3540,7 +3540,7 @@ $A = \\frac{1}{2}d_1 \\cdot d_2 \\cdot \\sin\\theta = \\frac{1}{2} \\cdot 30 \\c
         tool: 'geogebra-geometry',
         task: 'Bruk GeoGebra til a konstruere trekant $ABC$ med $a = 7$, $b = 10$, $C = 60°$. Mal $c$ og verifiser svaret med cosinussetningen.',
         solution: 'Cosinussetningen gir $c^2 = 49 + 100 - 140 \\cdot 0{,}5 = 79$, sa $c = \\sqrt{79} \\approx 8{,}89$.',
-        hints: ['Bruk verktoyene for a lage en vinkel pa $60°$ og sette av sidelengdene'],
+        hints: ['Bruk verktøyene for a lage en vinkel pa $60°$ og sette av sidelengdene'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

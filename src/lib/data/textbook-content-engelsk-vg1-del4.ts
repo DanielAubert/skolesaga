@@ -272,6 +272,16 @@ The Industrial Revolution created both modern prosperity AND the need for worker
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-8-1-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Schama, S. (2000). *A History of Britain*. BBC Books.
+- Ackroyd, P. (2011). *Foundation: The History of England*. Macmillan.
+- BBC History: bbc.co.uk/history`,
+    },
   ],
   exercises: [],
 };
@@ -572,6 +582,16 @@ Are these conflicts "African problems" or the result of colonial decisions?`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-8-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Ferguson, N. (2003). *Empire: How Britain Made the Modern World*. Penguin Books.
+- Darwin, J. (2012). *Unfinished Empire: The Global Expansion of Britain*. Penguin Books.
+- Elkins, C. (2005). *Britain's Gulag: The Brutal End of Empire in Kenya*. Pimlico.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -862,6 +882,16 @@ Direct democracy (referendums) can create as many problems as it solves, especia
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-8-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- UK Parliament: parliament.uk
+- BBC News - UK Politics: bbc.co.uk/news/politics
+- Norton, P. (2020). *Governing Britain*. Manchester University Press.`,
     },
   ],
   exercises: [],
@@ -1187,6 +1217,16 @@ Immigration involves both opportunity and discrimination, contribution and strug
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-8-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Storry, M. & Childs, P. (2017). *British Cultural Identities*. Routledge.
+- BBC Culture: bbc.com/culture
+- The Guardian - Society: theguardian.com/society`,
+    },
   ],
   exercises: [],
 };
@@ -1506,6 +1546,16 @@ Despite legal victories, racial inequality persists in wealth, health, education
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-9-1-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Zinn, H. (2015). *A People's History of the United States*. Harper Perennial.
+- National Museum of African American History and Culture: nmaahc.si.edu
+- Library of Congress - Primary Sources: loc.gov`,
+    },
   ],
   exercises: [],
 };
@@ -1824,6 +1874,16 @@ Which system better fulfills the promise of opportunity for all?`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-9-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Cullen, J. (2003). *The American Dream: A Short History of an Idea That Shaped a Nation*. Oxford University Press.
+- Putnam, R. (2015). *Our Kids: The American Dream in Crisis*. Simon & Schuster.
+- Pew Research Center - Social Trends: pewresearch.org/social-trends`,
     },
   ],
   exercises: [],
@@ -2149,6 +2209,16 @@ Should the person with the most votes always become President?`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-9-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Foner, E. (2019). *Give Me Liberty! An American History*. W. W. Norton.
+- Zinn, H. (2015). *A People's History of the United States*. Harper Perennial.
+- US Government: usa.gov/branches-of-government
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
     },
   ],
   exercises: [],
@@ -2483,6 +2553,16 @@ What we think of as "American culture" is really the product of many cultures me
         allowsCanvasDrawing: true,
       },
     },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-9-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Takaki, R. (2008). *A Different Mirror: A History of Multicultural America*. Back Bay Books.
+- US Census Bureau: census.gov
+- Smithsonian - National Museum of the American Indian: americanindian.si.edu`,
+    },
   ],
   exercises: [],
 };
@@ -2799,6 +2879,16 @@ Does this integration represent genuine respect, or does it risk reducing a sacr
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-10-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Clark, M. (2006). *A Short History of Australia*. Penguin Books.
+- King, M. (2003). *The Penguin History of New Zealand*. Penguin Books.
+- Australian Government: australia.gov.au
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
     },
   ],
   exercises: [],
@@ -3123,6 +3213,16 @@ How should nations address historical crimes committed by their governments and 
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-10-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Bumsted, J. M. (2014). *A History of the Canadian Peoples*. Oxford University Press.
+- Government of Canada: canada.ca
+- Truth and Reconciliation Commission of Canada (2015). *Final Report*.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -3442,6 +3542,16 @@ Can a colonial language become truly African?`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-10-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Achebe, C. (1975). "The African Writer and the English Language." In *Morning Yet on Creation Day*. Anchor Books.
+- Kachru, B. B. (1986). *The Alchemy of English*. University of Illinois Press.
+- Bolton, K. (2003). *Chinese Englishes: A Sociolinguistic History*. Cambridge University Press.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -3758,6 +3868,16 @@ No country has fully achieved justice for indigenous peoples. All are works in p
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-10-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Dunbar-Ortiz, R. (2014). *An Indigenous Peoples' History of the United States*. Beacon Press.
+- Reynolds, H. (2006). *The Other Side of the Frontier*. UNSW Press.
+- United Nations (2007). *Declaration on the Rights of Indigenous Peoples*.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -3837,6 +3957,100 @@ English-language music dominates global pop culture, carrying cultural meanings 
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-11-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Compare two songs from different genres or eras that address a similar theme (e.g., love, protest, identity). How do they use different musical and lyrical techniques?',
+        solution: 'Good comparison considers both musical and lyrical elements and places each song in cultural context.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Research a music genre (hip hop, rock, country, etc.) and write a short presentation about its origins, key artists, and cultural significance.',
+        hints: ['Consider the social context in which the genre emerged', 'Include specific examples of influential songs or albums'],
+        solution: 'Understanding genre history helps you analyze individual songs in their cultural context.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'How does English-language music influence Norwegian culture and language? Give specific examples of English musical influence in Norway.',
+        solution: 'Consider: Norwegian artists singing in English, English loanwords in Norwegian pop culture, musical genres that crossed over, festivals and media.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Write a review (150-200 words) of a recent English-language album or song, discussing both musical and lyrical qualities.',
+        hints: ['Consider melody, rhythm, production, lyrics, and overall impact'],
+        solution: 'A good music review combines personal response with analytical observation.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Discuss: "Music is a universal language." Do you agree or disagree? Use examples from English-language music to support your argument.',
+        solution: 'A thoughtful response considers both the universal appeal of music and the culturally specific elements of lyrics and context.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-11-1-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+1. English-language music is a powerful form of cultural expression that reflects and shapes social issues.
+2. Analyzing lyrics involves examining content, technique, context, and cultural impact.
+3. Music genres emerge from specific social and historical contexts.
+4. English-language music has significant global influence, including in Norway.
+
+**Key Vocabulary:**
+- Genre - a category of music with shared characteristics
+- Lyrics - the words of a song
+- Cultural impact - the effect a work has on society and values`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-11-1-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Frith, S. (2007). *Taking Popular Music Seriously*. Ashgate.
+- Genius.com - Song lyrics and annotations
+- BBC Music: bbc.co.uk/music`,
+    },
   ],
   exercises: [],
 };
@@ -3910,6 +4124,99 @@ Film and television are powerful media for storytelling, cultural expression, an
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-11-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Compare the representation of a particular group (e.g., teenagers, immigrants, women) in two different English-language films or TV series.',
+        solution: 'Good analysis considers both positive and negative portrayals and discusses potential real-world effects of representation.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Write a film review (200-300 words) of an English-language film, covering plot, performances, cinematography, and themes.',
+        hints: ['Balance summary with analysis', 'Support opinions with specific examples'],
+        solution: 'A good film review demonstrates both analytical skills and personal engagement with the material.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'How does American/British TV shape international perceptions of those countries? Discuss with specific examples.',
+        solution: 'Consider both accurate portrayals and stereotypes; think about which shows are popular in Norway and what image they create.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Discuss the role of streaming platforms (Netflix, Disney+, etc.) in spreading English-language content globally. What are the benefits and drawbacks?',
+        solution: 'Consider: access to diverse content, cultural homogenization, language learning, impact on local film industries.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Create a "viewing guide" for a film or TV episode you recommend to classmates, including key scenes to analyze and discussion questions.',
+        solution: 'A good viewing guide helps others engage critically with the material rather than just passively watching.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-11-2-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+1. Film and television are powerful media that shape perceptions of English-speaking cultures worldwide.
+2. Analysis involves examining narrative elements, cinematic techniques, representation, and context.
+3. Streaming platforms have transformed global access to English-language content.
+4. Critical viewing means evaluating how groups are represented and what messages are conveyed.
+
+**Key Vocabulary:**
+- Cinematography - camera work and visual composition
+- Representation - how groups are portrayed in media
+- Mise-en-scene - everything visible within a film frame`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-11-2-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Bordwell, D. & Thompson, K. (2017). *Film Art: An Introduction*. McGraw-Hill.
+- British Film Institute: bfi.org.uk
+- IMDb: imdb.com`,
     },
   ],
   exercises: [],
@@ -3987,6 +4294,98 @@ Video games are now the largest entertainment industry, bigger than film and mus
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-11-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Discuss how video games can be used for learning English. What games have helped you improve your English, and how?',
+        solution: 'Consider: vocabulary acquisition through gameplay, reading skills from text-heavy games, listening skills from voice acting, communication in multiplayer games.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Compare a video game narrative to a film or novel narrative. What can interactive storytelling do that traditional storytelling cannot (and vice versa)?',
+        solution: 'Games offer player agency, multiple endings, and immersion. Traditional media offer tighter pacing and authorial control.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Write a critical analysis (200-250 words) of how a specific game handles representation of different cultures, genders, or identities.',
+        solution: 'Good analysis considers both positive and problematic representations with specific examples from the game.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Debate: "Video games are art." Prepare arguments for both sides, then state and defend your own position.',
+        solution: 'Consider definitions of art, the creative process behind games, emotional impact, and cultural significance.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'How has gaming culture influenced English language (e.g., new words, memes, communication styles)? Give specific examples.',
+        solution: 'Consider: terms like "noob," "GG," "nerf," "buff," gaming slang entering mainstream English, Twitch/YouTube culture.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-11-3-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+1. Video games are the largest entertainment industry and a legitimate cultural medium worthy of critical analysis.
+2. Game analysis considers narrative, mechanics, aesthetics, representation, and cultural context.
+3. Interactive storytelling offers unique possibilities not available in traditional media.
+4. Gaming culture significantly influences English language and global communication.
+
+**Key Vocabulary:**
+- Gameplay mechanics - the rules and systems that define how a game works
+- Player agency - the ability of players to make meaningful choices
+- World-building - creating a fictional universe with consistent rules and history`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-11-3-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Bogost, I. (2007). *Persuasive Games: The Expressive Power of Videogames*. MIT Press.
+- Extra Credits (YouTube): youtube.com/extracredits
+- Game Studies journal: gamestudies.org`,
+    },
   ],
   exercises: [],
 };
@@ -4058,6 +4457,98 @@ In our globalized world, you'll communicate with people from many different cult
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-11-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Research a cultural misunderstanding between Norwegian and English-speaking cultures. Describe what happened and explain the cultural values behind the misunderstanding.',
+        solution: 'Good analysis identifies the cultural values on both sides and suggests how the misunderstanding could have been avoided.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Role play: With a partner, practice a cross-cultural conversation scenario (e.g., a Norwegian student meeting an American host family for the first time). Discuss what went well and what could cause confusion.',
+        solution: 'Good role play demonstrates awareness of cultural differences in greetings, personal space, conversation topics, and social expectations.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Discuss: How has growing up with English-language media affected your understanding of other cultures? Has it created any misconceptions?',
+        solution: 'Consider how media representations differ from reality and how exposure to English media has shaped your worldview.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-4-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Write a guide (200-300 words) for a foreign student visiting your school, explaining Norwegian cultural norms they should know about.',
+        solution: 'Good guides are specific, practical, and explain the why behind cultural norms, not just the what.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-11-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-11-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Discuss: "In a globalized world, cultural differences are disappearing." Do you agree or disagree? Use specific examples from English-speaking cultures.',
+        solution: 'A nuanced response considers both globalizing forces (media, internet, travel) and persistent cultural differences.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-11-4-summary',
+      type: 'text',
+      content: `## Summary
+
+**Key Points:**
+1. Cross-cultural communication requires knowledge of different cultural values and communication styles.
+2. Intercultural competence involves knowledge, skills, and attitudes (curiosity, respect, empathy).
+3. Stereotypes should be recognized and challenged; individuals are more than their cultural background.
+4. Globalization both reduces and highlights cultural differences.
+
+**Key Vocabulary:**
+- Intercultural competence - the ability to communicate effectively across cultures
+- Ethnocentrism - judging other cultures by the standards of one's own
+- Cultural relativism - understanding cultures on their own terms`,
+    },
+    // --- KILDER ---
+    {
+      id: 'engelsk-vg1-11-4-kilder',
+      type: 'text',
+      content: `## Sources and Further Reading
+
+- Byram, M. (1997). *Teaching and Assessing Intercultural Communicative Competence*. Multilingual Matters.
+- Hofstede, G. (2010). *Cultures and Organizations*. McGraw-Hill.
+- The Culture Map by Erin Meyer (2014). PublicAffairs.`,
     },
   ],
   exercises: [],
@@ -4140,6 +4631,109 @@ Understanding what's expected helps you prepare effectively.
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-12-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Study the grade characteristics for grades 2, 4, and 6 described above. Write a short paragraph (100-150 words) explaining in your own words what distinguishes a grade 6 performance from a grade 4 performance in English.',
+        hints: ['Focus on the qualitative differences, not just listing criteria', 'Think about depth of reflection, vocabulary range, and fluency'],
+        solution: 'A grade 6 performance is characterised by clear, effective communication with rich and varied vocabulary, very few errors, deep reflection and critical analysis, and critical use of sources. A grade 4 performance, while competent, shows adequate (rather than rich) vocabulary, some errors, and reflection that lacks the depth and sophistication of the top grade. The key difference lies in nuance, precision, and the ability to engage critically with material rather than merely describing it.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Look at the competence goals for English VG1 in the LK20 curriculum. Choose three competence goals you feel most confident about and three you feel least confident about. For each of the three weakest areas, describe one concrete action you can take to improve.',
+        hints: ['Be specific about what you find challenging', 'Your action plan should be realistic and achievable within a few weeks'],
+        solution: 'Answers will vary. A good response identifies specific competence goals (e.g., "analyse and interpret English-language fiction" or "use knowledge about connections between English and other languages") and proposes concrete improvement strategies such as reading a short story and writing an analysis, practising pronunciation with audio tools, or comparing English and Norwegian grammar patterns.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Imagine you are an examiner assessing an English VG1 student. Read the following short text and assign a grade (2-6) with a brief justification:\n\n"Social media is very popular today. Many teenagers use it every day. It can be good because you can talk to friends. But it can also be bad because some people are mean online. I think social media is both good and bad."',
+        hints: ['Consider vocabulary range, grammatical accuracy, depth of reflection, and structure', 'Compare to the grade characteristics described in this chapter'],
+        solution: 'This text would likely receive a grade 2-3. While communication is understandable, the vocabulary is very basic ("good", "bad", "mean"), the sentences are short and simple with no variation, the reflection is superficial with no evidence or examples, and there is no clear structure beyond a simple list of points. To improve, the student would need richer vocabulary, varied sentence structures, concrete examples, and deeper analysis.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'engelsk-vg1-12-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-1-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Create a personal exam preparation plan. First, review all 12 sections of this textbook. Then write a structured document (300-400 words) that includes: (a) your overall strengths and weaknesses in English, (b) a prioritised list of topics to review, (c) specific practice activities for each priority area, and (d) a realistic timeline for the weeks before the exam.',
+        hints: ['Be honest about your weaknesses — that is where the most improvement can happen', 'Include both written and oral practice in your plan', 'Consider using study groups or peer feedback'],
+        solution: 'A strong plan demonstrates honest self-assessment, prioritises weak areas over strong ones, includes a mix of reading, writing, speaking, and listening activities, and sets realistic daily or weekly goals. For example: "Week 1: Focus on argumentative writing — write two practice essays and get feedback. Week 2: Review literary analysis techniques — re-read chapter 4 and practise analysing a short story. Week 3: Oral practice — prepare and deliver two presentations to a study partner."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-1-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Discuss the following question in a well-structured text (300-500 words): "Is it possible to measure language competence fairly through exams? What are the strengths and limitations of written and oral exams as ways of assessing English skills?" Use examples and reflections from your own experience.',
+        hints: ['Consider what aspects of language competence exams can and cannot measure', 'Think about alternative assessment methods', 'Draw on your own exam experiences for concrete examples'],
+        solution: 'A strong response acknowledges both the necessity and limitations of exams. Strengths include standardisation, ability to test writing and analytical skills under time pressure, and comparability across students. Limitations include exam anxiety affecting performance, difficulty measuring authentic communication, and the artificial nature of exam conditions. The student might note that oral exams better capture fluency and spontaneous communication, while written exams better assess structured argumentation and grammar. The best responses also consider alternative assessment forms such as portfolios, project work, or continuous assessment.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-1-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Assessment criteria**: English VG1 is assessed on communication ability, language accuracy, content and reflection, and use of sources
+- **Grade characteristics**: The difference between grade levels lies in vocabulary range, depth of reflection, grammatical accuracy, and critical thinking
+- **Competence goals**: The LK20 curriculum specifies 17 competence goals covering communication, language, literature, sources, culture, and society
+- **Self-assessment**: Honest evaluation of your own strengths and weaknesses is the first step toward effective exam preparation
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Standpunkt | Overall achievement grade based on the full year's work |
+| Kompetansemål | Competence goals from the national curriculum (LK20) |
+| Kjennetegn på måloppnåelse | Grade characteristics describing what each level looks like |
+| Egenvurdering | Self-assessment of your own skills and progress |`,
+    },
+    {
+      id: 'engelsk-vg1-12-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- UDIR (2020). *Kjennetegn på måloppnåelse – engelsk*. Utdanningsdirektoratet.
+- Council of Europe (2020). *Common European Framework of Reference for Languages (CEFR)*. Council of Europe Publishing.
+- Burner, T. & Carlsen, C. (2022). *Teaching and Learning English in Norway*. Universitetsforlaget.`,
+    },
   ],
   exercises: [],
 };
@@ -4209,6 +4803,110 @@ The written exam tests your ability to communicate effectively in writing.
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-12-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Write an outline for a Part 2 essay on the following topic: "English has become the world\'s lingua franca. Discuss the advantages and disadvantages of having one dominant global language." Your outline should include: an introduction with a clear thesis statement, at least three body paragraphs with topic sentences, and a conclusion.',
+        hints: ['A good outline is the backbone of a successful essay', 'Each body paragraph should have a clear focus and supporting evidence', 'Consider both linguistic and cultural perspectives'],
+        solution: 'A strong outline might include: Introduction — thesis: while English as a lingua franca enables global communication, it also threatens linguistic diversity. Body 1: Advantages — ease of international communication (business, science, travel). Body 2: Advantages — access to information, education, and cultural exchange. Body 3: Disadvantages — threat to minority languages, cultural homogenisation. Body 4: Disadvantages — inequality between native and non-native speakers. Conclusion — balanced view acknowledging benefits while advocating for multilingualism.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Practise the Part 1 format. Read the two short texts below and write a comparison (200-250 words):\n\nText A: "Schools should ban mobile phones completely. Students are constantly distracted, grades are falling, and cyberbullying is easier when phones are always available."\n\nText B: "Mobile phones are essential learning tools in modern education. Students can access information instantly, collaborate on projects, and develop digital literacy skills they need for the future."\n\nCompare the two texts: What are their main arguments? How do they use language to persuade? Which is more convincing, and why?',
+        hints: ['Structure your comparison — do not just summarise each text separately', 'Comment on rhetorical strategies, not just content', 'State and justify your own position'],
+        solution: 'A good comparison identifies that Text A uses fear-based rhetoric (distraction, falling grades, cyberbullying) while Text B uses aspirational language (essential, digital literacy, the future). Text A relies on generalisation ("students are constantly distracted") while Text B is more specific about benefits. Both use listing for emphasis. Students should express which they find more convincing and explain why — for example, Text B may be more persuasive because it offers concrete benefits rather than just highlighting problems.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Proofreading practice. The following paragraph contains 8 common errors (grammar, spelling, punctuation, word choice). Find and correct all of them:\n\n"Their are many reasons why people learns english today. It is the most importent language for international communication. If you doesnt speak english, it is hard to travel, to do buisness, and to understand popular culture. Alot of young people learn english threw social media and gaming."',
+        hints: ['Look for spelling, grammar (subject-verb agreement, verb forms), word confusion, and word boundaries', 'Read the paragraph aloud to help catch errors'],
+        solution: '1. "Their" → "There" (word confusion). 2. "learns" → "learn" (subject-verb agreement — "people" is plural). 3. "importent" → "important" (spelling). 4. "doesnt" → "don\'t" or "do not" (verb form — "you" takes "do not", not "does not"; also missing apostrophe). 5. "english" → "English" (capitalisation — it is a proper noun; appears three times). 6. "buisness" → "business" (spelling). 7. "Alot" → "A lot" (two words). 8. "threw" → "through" (word confusion — "threw" is past tense of "throw").',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'engelsk-vg1-12-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-2-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Write a complete practice essay (400-600 words) on ONE of the following topics, following the time management strategy described in this chapter:\n\na) "Discuss how the spread of English affects linguistic diversity worldwide."\n\nb) "Analyse a literary text you have read this year and explain how it reflects issues in English-speaking society."\n\nc) "Compare the education system in Norway with that of an English-speaking country you have studied."',
+        hints: ['Spend 5 minutes planning before writing', 'Use an introduction-body-conclusion structure', 'Include at least two references to sources', 'Leave 5 minutes for proofreading'],
+        solution: 'Assessment focuses on: clear thesis and structure, relevant content with examples and evidence, varied vocabulary and sentence structures, grammatical accuracy, and integration of sources. A grade 5-6 essay will have a strong thesis, well-developed arguments with specific examples, smooth transitions, and few language errors.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-2-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Peer assessment exercise. Exchange your essay from exercise 5 with a classmate. Using the grade characteristics from chapter 12.1, write a detailed assessment (150-200 words) of your classmate\'s essay. Comment on: content and relevance, structure and coherence, vocabulary and grammar, use of sources, and depth of reflection. Suggest a grade and give specific advice for improvement.',
+        hints: ['Be constructive — point out strengths as well as areas for improvement', 'Give specific examples from the text to support your assessment', 'Refer to the grade characteristics when justifying your suggested grade'],
+        solution: 'A good peer assessment is specific, balanced, and constructive. Example: "This essay shows good understanding of the topic (grade 4-5 level). The structure is clear with a strong introduction. However, the vocabulary could be more varied — the word \'important\' appears six times. The third paragraph lacks a topic sentence, making it harder to follow. Sources are mentioned but not fully integrated into the argument. I suggest expanding the conclusion and varying the vocabulary to reach grade 5-6."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-2-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Exam format**: The written exam typically has two parts — short-answer tasks (Part 1) and a long text (Part 2) — over 5 hours
+- **Time management**: Allocate time for reading, planning, writing, and reviewing
+- **Task analysis**: Always identify the text type, required content, and expected structure before writing
+- **Planning**: Create an outline before writing your long text — consider writing the introduction last
+- **Common pitfalls**: Not answering the question, running out of time, poor paragraphing, and not proofreading
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Task analysis | Breaking down the exam question to understand what is required |
+| Outline | A structured plan for your essay with thesis, topic sentences, and conclusion |
+| Proofreading | Systematically checking your text for errors before submitting |
+| Discourse markers | Words and phrases that structure your text (however, furthermore, in conclusion) |`,
+    },
+    {
+      id: 'engelsk-vg1-12-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- UDIR (2020). *Eksamensveiledning engelsk ENG01-04*. Utdanningsdirektoratet.
+- UDIR (2024). *Eksempler på eksamensoppgaver i engelsk*. Utdanningsdirektoratet.
+- Hamp-Lyons, L. & Heasley, B. (2006). *Study Writing: A Course in Writing Skills for Academic Purposes*. Cambridge University Press.
+- Oshima, A. & Hogue, A. (2019). *Academic Writing*. Pearson Education.`,
     },
   ],
   exercises: [],
@@ -4287,6 +4985,110 @@ The oral exam tests your ability to communicate effectively in speech.
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-12-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Discourse markers are essential for a well-structured oral presentation. Sort the following discourse markers into categories (introduction, adding points, contrasting, concluding): "To begin with", "Furthermore", "On the other hand", "In conclusion", "Moreover", "However", "First of all", "To sum up", "Nevertheless", "In addition". Then write a short paragraph using at least five of them.',
+        hints: ['Discourse markers signal the structure of your speech to the listener', 'Using them naturally shows language competence'],
+        solution: 'Introduction: "To begin with", "First of all". Adding points: "Furthermore", "Moreover", "In addition". Contrasting: "On the other hand", "However", "Nevertheless". Concluding: "In conclusion", "To sum up". Example paragraph: "First of all, I would like to talk about the role of English in global communication. Furthermore, English is the language of science and technology. However, the dominance of English also raises concerns about linguistic diversity. Moreover, many people feel pressured to learn English at the expense of their native languages. In conclusion, while English facilitates global communication, we must also value multilingualism."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Practise handling follow-up questions. Read this sample exam topic: "Discuss how immigration has shaped modern British society." Write down five questions that an examiner might ask after your presentation, and prepare brief answers (2-3 sentences each) for each question.',
+        hints: ['Examiners often ask you to elaborate, compare, give examples, or express personal opinions', 'Think about what aspects of the topic could be explored further'],
+        solution: 'Example questions: 1. "Can you give specific examples of how immigration has influenced British culture?" — Answer should mention food (curry as Britain\'s favourite dish), music (grime, reggae), language (loanwords). 2. "How does the experience of immigrants in Britain compare with immigrants in the US?" — Compare multiculturalism vs. melting pot. 3. "What challenges do immigrants face in Britain today?" — Discuss integration, discrimination, housing. 4. "How has Brexit affected immigration?" — Points system, EU citizens\' rights. 5. "Do you think immigration is mostly positive or negative for society?" — Personal reflection with balanced reasoning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Record yourself giving a 3-minute presentation on one of the following topics. Listen to the recording and evaluate your own performance based on the assessment criteria (content, language, communication, structure):\n\na) The importance of learning a second language\nb) A comparison of two English-speaking countries\nc) How social media affects the English language',
+        hints: ['Use notes but do not read from a script', 'Vary your intonation and pace', 'Use topic-specific vocabulary'],
+        solution: 'Self-evaluation should consider: Did I cover the main points? Was my pronunciation clear? Did I use varied vocabulary? Did I have a clear structure (introduction, main points, conclusion)? Were there awkward pauses or filler words? Did I use discourse markers to guide the listener? Identifying specific areas for improvement is more useful than a general sense of how it went.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'engelsk-vg1-12-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-3-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Simulate a full oral exam with a classmate. One person plays the student and the other the examiner. The student prepares for 15 minutes, gives a 5-minute presentation, and then answers follow-up questions for 5 minutes. Choose from these topics:\n\na) "The American Dream — myth or reality?"\nb) "How has the British Empire shaped the modern world?"\nc) "Analyse a literary text you have read this year."\n\nAfterward, the examiner gives feedback using the assessment criteria.',
+        hints: ['The examiner should prepare follow-up questions in advance', 'Switch roles and repeat with a different topic', 'Focus on having a genuine conversation during the Q&A, not just asking and answering'],
+        solution: 'The exercise simulates real exam conditions. Key assessment areas: Did the presentation have a clear structure? Was the content relevant and well-developed? Did the student show depth of knowledge? During Q&A, could the student elaborate, give examples, and engage in discussion? Was the language fluent with appropriate vocabulary?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-3-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Reflect on the differences between written and oral communication in English. Write a text (200-300 words) discussing: What are you better at — speaking or writing in English? Why? What specific strategies can you use to improve your weaker skill? How does preparing for an oral exam differ from preparing for a written exam?',
+        hints: ['Consider the different demands of real-time speaking vs. having time to revise writing', 'Think about how you can transfer strengths from one skill to the other'],
+        solution: 'A thoughtful response recognises that writing allows more time for planning and revision, while speaking requires spontaneous production. Students better at writing might practise thinking aloud in English, while those better at speaking might benefit from planning and outlining before writing. Oral exam preparation focuses on fluency, pronunciation, and improvisation, while written exam preparation emphasises structure, accuracy, and evidence use. Both require good vocabulary and knowledge of the subject matter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-3-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Oral exam format**: Typically involves preparation time, a presentation, and a conversation with examiners
+- **Presentation skills**: Use a clear structure, make eye contact, speak from notes rather than reading, and use discourse markers
+- **Handling questions**: Listen carefully, ask for clarification if needed, and engage in genuine dialogue
+- **Assessment criteria**: Content, language quality, communication ability, and structure are all evaluated
+- **Practice strategies**: Recording yourself, simulating exam conditions, and peer feedback are effective preparation methods
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Discourse markers | Words and phrases that structure your speech (firstly, however, in conclusion) |
+| Eye contact | Looking at the audience to establish connection and engagement |
+| Follow-up questions | Questions examiners ask to explore your understanding further |
+| Spontaneous production | The ability to speak fluently without a prepared script |`,
+    },
+    {
+      id: 'engelsk-vg1-12-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- UDIR (2020). *Retningslinjer for muntlig eksamen*. Utdanningsdirektoratet.
+- Hughes, R. (2011). *Teaching and Researching Speaking*. Pearson Education.
+- Luoma, S. (2004). *Assessing Speaking*. Cambridge University Press.
+- Hasselgreen, A. (2005). "Assessing the language of young learners." *Language Testing*, 22(1), 1-25.`,
     },
   ],
   exercises: [],
@@ -4377,6 +5179,96 @@ This chapter helps you review key concepts and practice exam-style tasks.
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-12-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Grammar review. Identify and correct the grammatical errors in each sentence, then explain the grammar rule that applies:\n\na) "She has went to London many times."\nb) "If I would have known, I would have come earlier."\nc) "The informations we received were very useful."\nd) "He suggested me to apply for the job."\ne) "Despite of the rain, they continued playing."',
+        hints: ['Think about verb forms, conditionals, countable/uncountable nouns, and prepositions'],
+        solution: 'a) "has went" → "has gone" (past participle required after "has"). b) "If I would have known" → "If I had known" (third conditional uses past perfect in the if-clause). c) "informations" → "information" (uncountable noun — no plural form). d) "suggested me to apply" → "suggested that I apply" or "suggested I should apply" (suggest + that + subject + base form). e) "Despite of" → "Despite" or "In spite of" (despite does not take "of").',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Source evaluation practice. You are writing an essay about immigration in the United States. Evaluate the reliability and usefulness of the following sources (rate each 1-5 and explain your reasoning):\n\na) A Wikipedia article on "Immigration to the United States"\nb) A speech by a politician arguing for stricter immigration laws\nc) A peer-reviewed academic article from the Journal of Migration Studies (2023)\nd) A personal blog post by someone who immigrated to the US in 2015\ne) Data from the US Census Bureau on immigration statistics',
+        hints: ['Consider authority, accuracy, objectivity, currency, and purpose for each source', 'No source is entirely useless — think about what each can contribute'],
+        solution: 'a) Wikipedia (3/5): Good starting point for overview but not reliable enough for academic citation; check the references. b) Political speech (2/5): Biased by political agenda, but useful for understanding one perspective. c) Academic article (5/5): Peer-reviewed, evidence-based, authoritative — ideal for academic essays. d) Personal blog (2/5): Provides valuable first-hand perspective but is subjective; useful for personal stories, not statistics. e) Census Bureau data (5/5): Official government statistics, highly reliable for demographic facts.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'engelsk-vg1-12-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-4-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Comprehensive review: Choose a topic that connects at least three different sections of this textbook (e.g., language history + cultural expressions + a specific English-speaking country). Write a text (300-400 words) that demonstrates knowledge from all three areas. Clearly reference which chapters your knowledge comes from.',
+        hints: ['This mirrors the kind of cross-curricular thinking examiners value', 'Show how different topics connect rather than treating them as isolated subjects', 'Use academic vocabulary and proper structure'],
+        solution: 'A strong response demonstrates the ability to synthesise knowledge across topics. For example, a student might connect the history of English (Section 7) with the British Empire (Section 8) and World Englishes (Section 7.3), showing how colonial history led to the spread of English and the development of different varieties. Cross-referencing chapters shows comprehensive understanding of the course material.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-12-4-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Final reflection. Write a personal text (300-500 words) reflecting on your learning journey in English VG1. Address the following:\n\na) What are the most important things you have learned this year?\nb) How has your understanding of the English-speaking world changed?\nc) What skills have you developed that will be useful beyond school?\nd) What would you like to explore further?\n\nUse concrete examples from the course to support your reflections.',
+        hints: ['This is a personal text, but it should still be well-structured and thoughtful', 'Refer to specific chapters, texts, or topics that made an impression', 'Show genuine reflection rather than just listing what you covered'],
+        solution: 'A strong reflection demonstrates metacognitive awareness — the ability to think about your own learning. It goes beyond listing topics to explain how understanding has deepened, how perspectives have changed, and how skills have developed. For example: "Before studying Section 10, I had little awareness of indigenous peoples in English-speaking countries. Learning about the Stolen Generations in Australia changed how I think about colonialism and its lasting effects." The best responses connect classroom learning to personal growth and future goals.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-12-4-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have reviewed:
+
+- **Key competence areas**: Communication, language, culture, and source evaluation are the four pillars of English VG1
+- **Grammar and accuracy**: Correct use of verb forms, conditionals, countable/uncountable nouns, and prepositions
+- **Source evaluation**: Assessing reliability by considering authority, accuracy, objectivity, currency, and purpose
+- **Cross-curricular connections**: The ability to connect knowledge across different topics demonstrates deep understanding
+- **Reflective learning**: Thinking about your own learning process helps consolidate knowledge and identify areas for further development
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Synthesis | Combining knowledge from different areas into a coherent whole |
+| Metacognition | Awareness of your own thinking and learning processes |
+| Source criticism | Evaluating the reliability and usefulness of information sources |
+| Cross-curricular thinking | Connecting ideas across different topics and subjects |`,
+    },
+    {
+      id: 'engelsk-vg1-12-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Skulstad, A. S. (2020). "English in Norway." In S. Breidbach, L. Küster & B. Schmenk (Eds.), *Sloganizations in Language Education Discourse*. Multilingual Matters.
+- Grabe, W. & Stoller, F. L. (2020). *Teaching and Researching Reading*. Routledge.
+- Nation, I. S. P. (2022). *Learning Vocabulary in Another Language*. Cambridge University Press.`,
     },
   ],
   exercises: [],

@@ -742,7 +742,7 @@ Skade kan gi angst, frustrasjon og frykt for ny skade. Mange utøvere opplever r
       id: 'kroppsoving-vg2-5-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg2-5-3-ex-3',
+        id: 'kroppsoving-vg2-5-4-ex-3',
         number: '3',
         type: 'classic',
         task: 'Hva er et viktig psykologisk aspekt ved rehabilitering?',

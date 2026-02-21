@@ -386,6 +386,18 @@ Her kan du se hvilke prosesser som bruker mest CPU og minne, og avslutte program
 **Resepsjon (e-post):** Windows er det tryggeste valget fordi det har bredest programvarestøtte og de fleste er vant til det fra før.`,
     },
     {
+      id: 'im-1-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Et operativsystem styrer maskinvaren og lar brukeren kjøre programmer.
+- De vanligste operativsystemene er Windows, macOS og Linux, med ulike styrker.
+- Filsystemer organiserer data i mapper og filer på lagringsenheten.
+- Prosesshåndtering lar operativsystemet kjøre flere programmer samtidig.
+- Brukerkontoer gir ulike rettigheter og beskytter mot uautorisert tilgang.
+- God mappestruktur med logisk inndeling gjør det lettere å finne igjen filer.`,
+    },
+    {
       id: 'im-1-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -597,6 +609,18 @@ SaaS er programvare som kjører i nettskyen og brukes via nettleseren. Du trenge
 - **Layout:** Scribus (åpen kildekode) eller Canva (freemium)
 
 Disse programmene dekker alle behovene uten kostnader. Google Docs gjør det enkelt å samarbeide i sanntid. GIMP kan alt Photoshop kan, men har en brattere læringskurve. Canva er svært brukervennlig for enkel design.`,
+    },
+    {
+      id: 'im-1-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Programvare deles i systemprogramvare (operativsystem, drivere) og applikasjonsprogramvare (brukerprogram).
+- Åpen kildekode betyr at kildekoden er fritt tilgjengelig og kan endres av alle.
+- Proprietær programvare har lukket kildekode og reguleres av lisensavtaler.
+- Skybasert programvare (SaaS) kjøres i nettleseren uten lokal installasjon.
+- Lisensmodeller regulerer bruk og distribusjon av programvare.
+- Opphavsrett gjelder automatisk for kreative verk, inkludert kode og programvare.`,
     },
     {
       id: 'im-1-3-ex-1',
@@ -812,6 +836,18 @@ Skytjenester gjør det mulig å samarbeide i sanntid, uansett hvor deltakerne be
 **Prosjektstyring:** Trello eller Notion for å holde oversikt over oppgaver og frister.`,
     },
     {
+      id: 'im-1-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Cloud computing leverer IT-tjenester over internett i stedet for lokalt.
+- De tre skymodellene er IaaS (infrastruktur), PaaS (plattform) og SaaS (programvare).
+- Google Workspace og Microsoft 365 er populære skybaserte samarbeidsverktøy.
+- Fordeler med skyen inkluderer fleksibilitet, skalerbarhet og tilgang fra alle enheter.
+- Ulemper inkluderer avhengighet av internett, personvern og leverandørinnlåsing.
+- Sikkerhetskopiering i skyen beskytter data mot tap ved maskinvarefeil.`,
+    },
+    {
       id: 'im-1-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -1016,6 +1052,18 @@ Et populært system der oppgaver flyttes mellom kolonner: «Å gjøre» → «P�
 **Videosamtale:** Diskusjoner som krever dialog, presentasjoner, vanskelige samtaler der kroppsspråk er viktig, kreative idémyldringsmøter.
 
 **Prosjektstyringsverktøy:** Tildeling av oppgaver med frister, statusoversikt for hele teamet, prioritering av oppgaver, langsiktig planlegging.`,
+    },
+    {
+      id: 'im-1-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Digital kommunikasjon omfatter e-post, chat, videokonferanse og samarbeidsplattformer.
+- Samarbeidsplattformer som Teams, Slack og Google Workspace gjør teamarbeid effektivt.
+- Prosjektstyringsverktøy som Trello og Jira hjelper med planlegging og oppfølging.
+- Skybasert dokumentdeling gjør at flere kan jobbe på samme dokument samtidig.
+- God digital møtekultur inkluderer forberedelse, tydelig agenda og aktiv deltakelse.
+- Valg av kommunikasjonsverktøy bør tilpasses situasjonen og målgruppen.`,
     },
     {
       id: 'im-1-5-ex-1',
@@ -1470,6 +1518,18 @@ Evnen til å vurdere informasjon kritisk er viktigere enn noensinne:
 4. **Se etter AI-tegn:** Er bildet AI-generert? Se etter unaturlige detaljer i hender, øyne, bakgrunn og tekst.
 
 5. **Bruk faktasjekkere:** Faktisk.no (Norge) og Snopes.com (internasjonalt) sjekker virale påstander.`,
+    },
+    {
+      id: 'im-1-7-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Digitalisering endrer samfunnet, arbeidslivet og hverdagen grunnleggende.
+- Kunstig intelligens og automatisering erstatter noen jobber, men skaper også nye.
+- Mediebruk og medievaner endres kontinuerlig med nye plattformer og teknologier.
+- Kritisk tenkning om teknologi innebærer å vurdere kilder, påstander og digitalt innhold.
+- Digitalisering gir nye muligheter, men også utfordringer knyttet til personvern og ulikhet.
+- Forståelse av teknologisk utvikling er viktig for å delta aktivt i samfunnet.`,
     },
     {
       id: 'im-1-7-ex-1',

@@ -2,7 +2,7 @@
  * Tekstbok kapitler for S1 - Seksjon 5 og 6 (Statistikk/Sannsynlighet) og Seksjon 8 (Modellering)
  * Inkluderer: Stokastiske variabler, Simulering, Hypergeometrisk fordeling,
  * Normalfordelingsapproksimasjon, Statistisk prosjektarbeid,
- * Lineaer optimering utvidet, Modellering med reelle datasett, Digitale verktoy
+ * Lineær optimering utvidet, Modellering med reelle datasett, Digitale verktøy
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -16,14 +16,14 @@ export const CHAPTER_S1_5_5: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '5.5',
   title: 'Stokastiske variabler og forventningsverdi',
-  description: 'Laer om stokastiske variabler, sannsynlighetsfordelinger, forventningsverdi E(X), varians og standardavvik med oekonomieksempler.',
+  description: 'Lær om stokastiske variabler, sannsynlighetsfordelinger, forventningsverdi E(X), varians og standardavvik med økonomieksempler.',
   estimatedMinutes: 55,
   competenceGoals: [
     'definere og bruke stokastiske variabler',
     'sette opp sannsynlighetsfordelinger',
     'beregne forventningsverdi E(X)',
     'beregne varians og standardavvik',
-    'tolke forventningsverdi i oekonomisammenheng',
+    'tolke forventningsverdi i økonomisammenheng',
   ],
   content: [
     {
@@ -204,7 +204,7 @@ export const CHAPTER_S1_5_6: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '5.6',
   title: 'Simulering med digitale verktøy',
-  description: 'Bruk simulering og Monte Carlo-metoden i GeoGebra og Python til aa utforske sannsynlighet og store talls lov.',
+  description: 'Bruk simulering og Monte Carlo-metoden i GeoGebra og Python til å utforske sannsynlighet og store talls lov.',
   estimatedMinutes: 45,
   competenceGoals: [
     'forklare prinsippene bak simulering',
@@ -546,7 +546,7 @@ export const CHAPTER_S1_6_6: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '6.6',
   title: 'Normalfordelingsapproksimasjon',
-  description: 'Approksimer binomialfordelingen med normalfordelingen naar np >= 5 og n(1-p) >= 5. Kontinuitetskorreksjon og z-verdier.',
+  description: 'Approksimer binomialfordelingen med normalfordelingen når np >= 5 og n(1-p) >= 5. Kontinuitetskorreksjon og z-verdier.',
   estimatedMinutes: 50,
   competenceGoals: [
     'vurdere når normalapproksimasjon er gyldig',
@@ -1083,7 +1083,7 @@ export const CHAPTER_S1_8_4: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '8.4',
   title: 'Modellering med reelle datasett',
-  description: 'Velg riktig modelltype (lineaer, eksponensiell, potens, logaritmisk), vurder modellkvalitet med R^2 og residualer, og valider mot data.',
+  description: 'Velg riktig modelltype (lineær, eksponensiell, potens, logaritmisk), vurder modellkvalitet med R^2 og residualer, og valider mot data.',
   estimatedMinutes: 50,
   competenceGoals: [
     'velge passende modelltype for et datasett',
@@ -1264,7 +1264,7 @@ export const CHAPTER_S1_8_5: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '8.5',
   title: 'Digitale verktøy i modellering',
-  description: 'Bruk GeoGebra til regresjon, Excel til budsjettmodellering, og Python til dataanalyse. Sammenlign verktoyenes styrker.',
+  description: 'Bruk GeoGebra til regresjon, Excel til budsjettmodellering, og Python til dataanalyse. Sammenlign verktøyenes styrker.',
   estimatedMinutes: 45,
   competenceGoals: [
     'gjennomføre regresjonsanalyse i GeoGebra',

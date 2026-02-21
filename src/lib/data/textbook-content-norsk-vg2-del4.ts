@@ -24,8 +24,8 @@ export const CHAPTER_NORSK_VG2_4_1: TextbookChapter = {
   description: 'Utforsk hvordan norsk språk har utviklet seg fra norrøn tid til i dag.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med norrønt',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {
@@ -318,8 +318,8 @@ export const CHAPTER_NORSK_VG2_4_2: TextbookChapter = {
   description: 'Utforsk hvordan dansketiden påvirket norsk og hvordan fornorskingen skjedde.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
-    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med dansk',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
   ],
   content: [
     {
@@ -718,7 +718,7 @@ export const CHAPTER_NORSK_VG2_4_3: TextbookChapter = {
   estimatedMinutes: 60,
   competenceGoals: [
     'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {
@@ -1173,8 +1173,7 @@ export const CHAPTER_NORSK_VG2_4_4: TextbookChapter = {
   description: 'Utforsk dagens norske språksituasjon med bokmål, nynorsk, dialekter og minoritetsspråk.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
-    'reflektere over språklige varianter i Norge og holdninger til dem',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {
@@ -1638,7 +1637,7 @@ export const CHAPTER_NORSK_VG2_4_5: TextbookChapter = {
   estimatedMinutes: 70,
   competenceGoals: [
     'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
-    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {

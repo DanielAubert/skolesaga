@@ -1295,6 +1295,32 @@ print("P = U² / R:", effekt_ur(12, 6), "W")    # 24.0 W
 Alle tre gir 24W, som bekrefter at formlene er konsistente.`,
       },
     },
+
+    // OPPSUMMERING
+    {
+      id: 'elektro-data-vg1-3-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har du lært:
+
+- **Funksjoner** er navngitte kodeblokker som gjør programmet modulært og gjenbrukbart
+- **Parametre** og **argumenter** lar funksjoner ta imot data
+- **Returverdier** med \`return\` gir resultater tilbake fra funksjonen
+- **Standardverdier** for parametre gjør funksjonskall mer fleksible
+- **Lokalt** og **globalt scope** bestemmer hvor variabler er tilgjengelige
+- Funksjoner gjør koden lettere å lese, teste og vedlikeholde
+
+### Nøkkelbegreper
+| Begrep | Forklaring |
+|--------|------------|
+| Funksjon | Navngitt kodeblokk som utfører en oppgave |
+| Parameter | Variabel i funksjonsdefinisjonen |
+| Argument | Verdi som sendes til funksjonen ved kall |
+| Returverdi | Verdien funksjonen gir tilbake |
+| Standardverdi | Forhåndsdefinert verdi for en parameter |
+| Scope | Området der en variabel er tilgjengelig |`,
+    },
   ],
   exercises: [],
   keyTerms: [

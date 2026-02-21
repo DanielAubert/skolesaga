@@ -1,9 +1,9 @@
 /**
- * Handverk, design og produktutvikling VG1 - Tekstbokinnhold DEL 7
+ * Håndverk, design og produktutvikling VG1 - Tekstbokinnhold DEL 7
  *
  * Kapittel 7: Produktutvikling (7.1-7.8)
  *
- * Dekker LK20 laereplan for Handverk, design og produktutvikling pa VG1
+ * Dekker LK20 læreplan for Håndverk, design og produktutvikling pa VG1
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -21,7 +21,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_1: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.1',
   title: 'Designprosessen fra ide til produkt',
-  description: 'Helhetlig gjennomgang av designprosessen med alle faser fra ideutvikling til ferdig produkt. Elevene laerer a planlegge og strukturere en komplett produktutviklingsprosess.',
+  description: 'Helhetlig gjennomgang av designprosessen med alle faser fra ideutvikling til ferdig produkt. Elevene lærer å planlegge og strukturere en komplett produktutviklingsprosess.',
   estimatedMinutes: 55,
   competenceGoals: [
     'planlegge og dokumentere en design- og produktutviklingsprosess alene og i samarbeid med andre innenfor gitte tidsrammer',
@@ -34,21 +34,21 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_1: TextbookChapter = {
 
 A utvikle et nytt produkt er en spennende reise som starter med en ide og ender med noe du kan holde i hendene. Men mellom disse to punktene ligger det en strukturert prosess som sikrer at produktet blir bade funksjonelt og estetisk tilfredsstillende.
 
-I dette kapittelet skal vi se pa hele designprosessen fra start til slutt. Du vil laere hvordan profesjonelle designere arbeider systematisk for a omdanne ideer til ferdige produkter, og hvordan du selv kan bruke denne kunnskapen i dine egne prosjekter.
+I dette kapittelet skal vi se pa hele designprosessen fra start til slutt. Du vil lære hvordan profesjonelle designere arbeider systematisk for a omdanne ideer til ferdige produkter, og hvordan du selv kan bruke denne kunnskapen i dine egne prosjekter.
 
 **Hvorfor trenger vi en designprosess?**
 
 Uten en strukturert tilnaerming risikerer vi a:
 - Glemme viktige trinn i utviklingen
 - Bruke unodvendig mye tid og ressurser
-- Lage produkter som ikke moter brukernes behov
+- Lage produkter som ikke møter brukernes behov
 - Oppdage problemer for sent i prosessen`,
     },
     {
       id: 'handverk-design-vg1-7-1-def-1',
       type: 'definition',
       title: 'Designprosessen',
-      content: `Designprosessen er en systematisk metode for a utvikle nye produkter eller forbedre eksisterende. Den bestar av flere definerte faser som ideutvikling, research, skissering, prototyping, testing og produksjon. Prosessen er ofte iterativ, noe som betyr at man gar tilbake og forbedrer losninger underveis.`,
+      content: `Designprosessen er en systematisk metode for å utvikle nye produkter eller forbedre eksisterende. Den bestar av flere definerte faser som ideutvikling, research, skissering, prototyping, testing og produksjon. Prosessen er ofte iterativ, noe som betyr at man gar tilbake og forbedrer løsninger underveis.`,
     },
     {
       id: 'handverk-design-vg1-7-1-text-1',
@@ -57,8 +57,8 @@ Uten en strukturert tilnaerming risikerer vi a:
 
 **Fase 1: Problemdefinisjon og research**
 - Identifisere behov eller problem som skal loses
-- Undersoke eksisterende losninger pa markedet
-- Kartlegge malgruppen og brukerkrav
+- Undersoke eksisterende løsninger pa markedet
+- Kartlegge målgruppen og brukerkrav
 - Definere rammer: tid, budsjett, materialer
 
 **Fase 2: Ideutvikling**
@@ -88,7 +88,7 @@ Uten en strukturert tilnaerming risikerer vi a:
       id: 'handverk-design-vg1-7-1-def-2',
       type: 'definition',
       title: 'Iterativ prosess',
-      content: `En iterativ prosess betyr at man arbeider i sykluser der man stadig gar tilbake og forbedrer. I stedet for a ga lineaert fra start til slutt, tillater iterasjon at man laerer av feil og justerer kursen underveis. Hver gjentakelse (iterasjon) bringer produktet naermere det optimale resultatet.`,
+      content: `En iterativ prosess betyr at man arbeider i sykluser der man stadig gar tilbake og forbedrer. I stedet for a ga lineaert fra start til slutt, tillater iterasjon at man lærer av feil og justerer kursen underveis. Hver gjentakelse (iterasjon) bringer produktet nærmere det optimale resultatet.`,
     },
     {
       id: 'handverk-design-vg1-7-1-text-2',
@@ -107,7 +107,7 @@ God planlegging er nokkel til suksess i ethvert designprosjekt. Nar du har begre
 
 **Milepaler**
 - Viktige kontrollpunkter i prosjektet
-- Definerer nar faser skal vaere ferdige
+- Definerer nar faser skal være ferdige
 - Gir mulighet for evaluering underveis
 - Holder prosjektet pa sporet
 
@@ -127,7 +127,7 @@ Fordel tilgjengelig tid mellom fasene:
 A dokumentere arbeidet underveis er viktig av flere grunner:
 - Du kan ga tilbake og se hva du har provet
 - Laereren kan vurdere prosessen, ikke bare resultatet
-- Du laerer av egne erfaringer
+- Du lærer av egne erfaringer
 - Profesjonelle designere gjor dette alltid
 
 **Hva bor dokumenteres?**
@@ -165,7 +165,7 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
 
 **Uke 4: Prototyping (2 timer)**
 - Lage papirprototype
-- Teste storrelse og proporsjoner
+- Teste størrelse og proporsjoner
 - Justere design basert pa test
 
 **Uke 5-6: Produksjon (4 timer)**
@@ -188,7 +188,7 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
         number: '1',
         type: 'classic',
         task: 'Beskriv de fem hovedfasene i designprosessen.',
-        solution: 'De fem hovedfasene er: 1) Problemdefinisjon og research - identifisere behov og undersoke eksisterende losninger, 2) Ideutvikling - brainstorming og skissering av mange konsepter, 3) Konseptutvikling - videreutvikle valgte ideer med detaljer, 4) Prototyping - lage fysiske modeller og teste dem, 5) Produksjon - lage det ferdige produktet med kvalitetskontroll.',
+        solution: 'De fem hovedfasene er: 1) Problemdefinisjon og research - identifisere behov og undersoke eksisterende løsninger, 2) Ideutvikling - brainstorming og skissering av mange konsepter, 3) Konseptutvikling - videreutvikle valgte ideer med detaljer, 4) Prototyping - lage fysiske modeller og teste dem, 5) Produksjon - lage det ferdige produktet med kvalitetskontroll.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -207,7 +207,7 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
           { id: 'c', text: 'At man hopper over noen faser', isCorrect: false },
           { id: 'd', text: 'At man jobber med flere prosjekter samtidig', isCorrect: false },
         ],
-        solution: 'Iterativ betyr at man arbeider i sykluser der man stadig gar tilbake og forbedrer. I stedet for a ga lineaert fra start til slutt, tillater iterasjon at man laerer av feil og justerer kursen underveis.',
+        solution: 'Iterativ betyr at man arbeider i sykluser der man stadig gar tilbake og forbedrer. I stedet for a ga lineaert fra start til slutt, tillater iterasjon at man lærer av feil og justerer kursen underveis.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -232,7 +232,7 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
             solution: 'Eksempel: Milepael 1 (slutten av uke 2): Endelig konsept valgt og godkjent. Milepael 2 (midten av uke 4): Produktet ferdig montert, kun overflatebehandling gjenstår.',
           },
         ],
-        solution: 'Tidsplanen bor vise en logisk fordeling av tid mellom fasene, med mest tid til prototyping og produksjon. Milepaelene bor vaere konkrete kontrollpunkter som markerer viktige overganger i prosjektet.',
+        solution: 'Tidsplanen bor vise en logisk fordeling av tid mellom fasene, med mest tid til prototyping og produksjon. Milepaelene bor være konkrete kontrollpunkter som markerer viktige overganger i prosjektet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -244,8 +244,8 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
         id: 'handverk-design-vg1-7-1-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Hvorfor er det viktig a dokumentere designprosessen underveis?',
-        solution: 'Dokumentasjon er viktig fordi: 1) Du kan ga tilbake og se hva du har provet tidligere, 2) Laereren kan vurdere hele prosessen og ikke bare sluttresultatet, 3) Du laerer av egne erfaringer ved a reflektere over valg og feil, 4) Det er profesjonell praksis som alle designere bruker, 5) Det hjelper deg a forklare og begrunnende designvalgene dine.',
+        task: 'Hvorfor er det viktig å dokumentere designprosessen underveis?',
+        solution: 'Dokumentasjon er viktig fordi: 1) Du kan ga tilbake og se hva du har provet tidligere, 2) Laereren kan vurdere hele prosessen og ikke bare sluttresultatet, 3) Du lærer av egne erfaringer ved å reflektere over valg og feil, 4) Det er profesjonell praksis som alle designere bruker, 5) Det hjelper deg a forklare og begrunnende designvalgene dine.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -272,7 +272,7 @@ A dokumentere arbeidet underveis er viktig av flere grunner:
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Designprosessen', definition: 'Systematisk metode for a utvikle produkter gjennom definerte faser' },
+    { term: 'Designprosessen', definition: 'Systematisk metode for å utvikle produkter gjennom definerte faser' },
     { term: 'Iterativ prosess', definition: 'Arbeide i sykluser der man gar tilbake og forbedrer underveis' },
     { term: 'Milepael', definition: 'Viktig kontrollpunkt som markerer fullforelsen av en fase' },
     { term: 'Gantt-diagram', definition: 'Visuell fremstilling av tidsplan med oppgaver langs en tidslinje' },
@@ -290,25 +290,25 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_2: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.2',
   title: 'Brukerundersokelser og behovsanalyse',
-  description: 'Metoder for a kartlegge brukerbehov og markedsmuligheter som grunnlag for produktutvikling. Elevene laerer a gjennomfore enkle brukerundersokelser og analysere ettersporsel.',
+  description: 'Metoder for a kartlegge brukerbehov og markedsmuligheter som grunnlag for produktutvikling. Elevene lærer a gjennomføre enkle brukerundersokelser og analysere ettersporsel.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'utforske og formidle hvordan ettersporsel, kultur, tradisjon, trender og baerekraft har betydning for handverksfagene lokalt og regionalt',
+    'utforske og formidle hvordan ettersporsel, kultur, tradisjon, trender og bærekraft har betydning for handverksfagene lokalt og regionalt',
   ],
   content: [
     {
       id: 'handverk-design-vg1-7-2-intro',
       type: 'text',
-      content: `## A forsta brukeren
+      content: `## A forstå brukeren
 
-Det fineste produktet i verden har liten verdi hvis ingen har bruk for det. Derfor starter all god produktutvikling med a forsta hvem som skal bruke produktet og hva de faktisk trenger.
+Det fineste produktet i verden har liten verdi hvis ingen har bruk for det. Derfor starter all god produktutvikling med a forstå hvem som skal bruke produktet og hva de faktisk trenger.
 
-Brukerundersokelser og behovsanalyse handler om a samle informasjon om potensielle brukere for du begynner a designe. Ved a investere tid i denne fasen, oker du sjansen for a lage noe som virkelig moter et behov i markedet.
+Brukerundersokelser og behovsanalyse handler om a samle informasjon om potensielle brukere for du begynner a designe. Ved a investere tid i denne fasen, oker du sjansen for å lage noe som virkelig møter et behov i markedet.
 
 **Hvorfor undersoke brukerne?**
 - Avdekke reelle behov, ikke bare antakelser
-- Unnga a lage produkter ingen vil ha
-- Fa inspirasjon til nye losninger
+- Unnga å lage produkter ingen vil ha
+- Fa inspirasjon til nye løsninger
 - Forstå begrensninger og krav`,
     },
     {
@@ -324,13 +324,13 @@ Brukerundersokelser og behovsanalyse handler om a samle informasjon om potensiel
 
 **Intervjuer**
 - Samtale med potensielle brukere
-- Apne sporsmal gir dypere innsikt
+- Apne spørsmål gir dypere innsikt
 - Kan avdekke uventede behov
 - Tidkrevende, men verdifullt
 
 **Sporreundersokelser**
-- Nar mange med standardiserte sporsmal
-- Lett a analysere kvantitative data
+- Nar mange med standardiserte spørsmål
+- Lett å analysere kvantitative data
 - Gir oversikt over preferanser
 - Begrenset dybde i svarene
 
@@ -343,14 +343,14 @@ Brukerundersokelser og behovsanalyse handler om a samle informasjon om potensiel
 **Fokusgrupper**
 - Gruppesamtale om et tema
 - Deltakerne inspirerer hverandre
-- Effektivt for a teste konsepter
+- Effektivt for å teste konsepter
 - Krever god fasilitering`,
     },
     {
       id: 'handverk-design-vg1-7-2-def-2',
       type: 'definition',
       title: 'Malgruppe',
-      content: `Malgruppen er den spesifikke gruppen mennesker produktet er ment for. A definere malgruppen tydelig hjelper deg a ta designvalg som passer brukerne. Malgruppen kan beskrives med demografiske faktorer (alder, kjonn, inntekt) og psykografiske faktorer (livsstil, verdier, interesser).`,
+      content: `Malgruppen er den spesifikke gruppen mennesker produktet er ment for. A definere målgruppen tydelig hjelper deg å ta designvalg som passer brukerne. Malgruppen kan beskrives med demografiske faktorer (alder, kjønn, inntekt) og psykografiske faktorer (livsstil, verdier, interesser).`,
     },
     {
       id: 'handverk-design-vg1-7-2-text-2',
@@ -377,7 +377,7 @@ Nar du har samlet informasjon om brukerne, ma denne analyseres og omdannes til k
    - Inkluder bade funksjon og estetikk
 
 **Eksempel pa produktkrav:**
-- Produktet skal vaere lett a rengjore
+- Produktet skal være lett a rengjore
 - Maksimal vekt: 500 gram
 - Skal tåle daglig bruk i minst 5 ar
 - Fargene skal appellere til unge voksne`,
@@ -387,11 +387,11 @@ Nar du har samlet informasjon om brukerne, ma denne analyseres og omdannes til k
       type: 'text',
       content: `## Markedsforstaelse
 
-I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal inn i.
+I tillegg til a forstå brukerne, er det nyttig a forstå markedet produktet skal inn i.
 
 **Undersok konkurrentene:**
 - Hvilke lignende produkter finnes?
-- Hva gjor de bra og darlig?
+- Hva gjor de bra og dårlig?
 - Hvor er det muligheter for forbedring?
 - Hva skiller ditt produkt fra andre?
 
@@ -399,7 +399,7 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
 - Hva er populaert akkurat na?
 - Hvilke trender er pa vei opp?
 - Er det sesongvariasjoner?
-- Hvordan pavirker baerekraft ettersporselen?
+- Hvordan påvirker bærekraft etterspørselen?
 
 **Lokal kontekst:**
 - Hva er etterspurt i ditt naermiljo?
@@ -432,13 +432,13 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
 2. Todelt: en del for voksne, en lav del for barn
 3. Enkel a montere pa vegg
 4. Naturfarge i tre som passer skandinavisk stil
-5. Maks storrelse: 30 x 20 cm`,
+5. Maks størrelse: 30 x 20 cm`,
     },
     {
       id: 'handverk-design-vg1-7-2-tip-1',
       type: 'tip',
       title: 'Tips for gode intervjuer',
-      content: `Still apne sporsmal som starter med "hvordan", "hvorfor" og "fortell om". Unnga ja/nei-sporsmal. La intervjuobjektet snakke fritt og folg opp interessante svar med oppfolgingssporsmal. Ikke led svarene i en bestemt retning.`,
+      content: `Still apne spørsmål som starter med "hvordan", "hvorfor" og "fortell om". Unnga ja/nei-spørsmål. La intervjuobjektet snakke fritt og folg opp interessante svar med oppfolgingssporsmal. Ikke led svarene i en bestemt retning.`,
     },
     {
       id: 'handverk-design-vg1-7-2-ex-1',
@@ -448,7 +448,7 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
         number: '1',
         type: 'classic',
         task: 'Forklar forskjellen mellom uttalte behov og latente behov.',
-        solution: 'Uttalte behov er det folk direkte sier de vil ha eller trenger - det de selv er klar over. Latente behov er behov folk ikke er bevisst pa selv, men som blir tydelige nar man observerer dem eller presenterer nye losninger. For eksempel visste ingen at de trengte smartphones for de fantes, men na er de uunnvaerlige.',
+        solution: 'Uttalte behov er det folk direkte sier de vil ha eller trenger - det de selv er klar over. Latente behov er behov folk ikke er bevisst pa selv, men som blir tydelige nar man observerer dem eller presenterer nye løsninger. For eksempel visste ingen at de trengte smartphones for de fantes, men na er de uunnvaerlige.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -479,8 +479,8 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
         id: 'handverk-design-vg1-7-2-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Du skal designe en oppbevaringslosning for sminkeprodukter. Definer malgruppen og lag 5 intervjusporsmal.',
-        solution: 'Malgruppe: Kvinner 16-35 ar som bruker sminke regelmessig. Sporsmal: 1) Hvordan oppbevarer du sminkeprodukter i dag? 2) Hva er det storste problemet med din naværende losning? 3) Fortell om en situasjon der du ikke fant noe du trengte. 4) Hvor mye plass har du tilgjengelig pa badet? 5) Hva er viktigst for deg: praktisk, pen a se pa, eller billig?',
+        task: 'Du skal designe en oppbevaringslosning for sminkeprodukter. Definer målgruppen og lag 5 intervjusporsmal.',
+        solution: 'Malgruppe: Kvinner 16-35 ar som bruker sminke regelmessig. Sporsmal: 1) Hvordan oppbevarer du sminkeprodukter i dag? 2) Hva er det storste problemet med din naværende løsning? 3) Fortell om en situasjon der du ikke fant noe du trengte. 4) Hvor mye plass har du tilgjengelig pa badet? 5) Hva er viktigst for deg: praktisk, pen a se pa, eller billig?',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -492,17 +492,17 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
         id: 'handverk-design-vg1-7-2-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Gjennomfor en mini-brukerundersokelse.',
+        task: 'Gjennomfør en mini-brukerundersokelse.',
         subTasks: [
           {
             label: 'a',
             task: 'Velg et produkt du bruker daglig og intervju 3 personer om deres opplevelse med lignende produkter.',
-            solution: 'Dokumenter hvem du intervjuet, hvilke sporsmal du stilte, og hovedpunktene fra svarene.',
+            solution: 'Dokumenter hvem du intervjuet, hvilke spørsmål du stilte, og hovedpunktene fra svarene.',
           },
           {
             label: 'b',
             task: 'Formuler 3 produktkrav basert pa intervjuene.',
-            solution: 'Produktkravene bor vaere konkrete og maalbare, og direkte knyttet til funn fra intervjuene.',
+            solution: 'Produktkravene bor være konkrete og maalbare, og direkte knyttet til funn fra intervjuene.',
           },
         ],
         solution: 'Oppgaven krever praktisk gjennomforing av intervjuer og analyse. Svarene vil variere basert pa valgt produkt og intervjuobjekter.',
@@ -516,7 +516,7 @@ I tillegg til a forsta brukerne, er det nyttig a forsta markedet produktet skal 
     { term: 'Behovsanalyse', definition: 'Systematisk undersokelse av hva brukerne trenger og onsker' },
     { term: 'Malgruppe', definition: 'Den spesifikke gruppen mennesker produktet er ment for' },
     { term: 'Uttalte behov', definition: 'Behov folk selv er klar over og kan uttrykke' },
-    { term: 'Latente behov', definition: 'Behov folk ikke er bevisst pa for de ser en losning' },
+    { term: 'Latente behov', definition: 'Behov folk ikke er bevisst pa for de ser en løsning' },
     { term: 'Produktkrav', definition: 'Konkrete, maalbare krav produktet ma oppfylle' },
     { term: 'Fokusgruppe', definition: 'Gruppesamtale for a samle innsikt om et tema' },
   ],
@@ -531,20 +531,20 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_3: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.3',
   title: 'Prototyping og modellbygging',
-  description: 'Praktisk opplaering i a lage prototyper og modeller for testing og evaluering av produktideer. Elevene laerer ulike prototypeteknikker fra enkle papirmodeller til funksjonelle prototyper.',
+  description: 'Praktisk opplaering i å lage prototyper og modeller for testing og evaluering av produktideer. Elevene lærer ulike prototypeteknikker fra enkle papirmodeller til funksjonelle prototyper.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'utforske og lage handverksprodukter med presisjon og noyaktighet med utgangspunkt i eget planleggingsarbeid og gitte tidsfrister',
+    'utforske og lage handverksprodukter med presisjon og nøyaktighet med utgangspunkt i eget planleggingsarbeid og gitte tidsfrister',
   ],
   content: [
     {
       id: 'handverk-design-vg1-7-3-intro',
       type: 'text',
-      content: `## Prototyper - a gjore ideer haandgripelige
+      content: `## Prototyper - a gjøre ideer håndgripelige
 
 En skisse kan vise hvordan noe ser ut, men en prototype lar deg kjenne pa, teste og forbedre designet for du lager det ferdige produktet. Prototyping er en av de viktigste ferdighetene i produktutvikling.
 
-A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a oppdage problemer i en papirmodell enn i det ferdige produktet. Gode designere lager mange prototyper og laerer noe nytt av hver enkelt.
+A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a oppdage problemer i en papirmodell enn i det ferdige produktet. Gode designere lager mange prototyper og lærer noe nytt av hver enkelt.
 
 **Fordeler med prototyping:**
 - Tester ideer raskt og billig
@@ -557,7 +557,7 @@ A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a o
       id: 'handverk-design-vg1-7-3-def-1',
       type: 'definition',
       title: 'Prototype',
-      content: `En prototype er en tidlig versjon av et produkt laget for a teste og evaluere konsepter. Prototyper kan variere fra raske skisser i papir til fullt funksjonelle modeller. Formalet er a laere mest mulig med minst mulig innsats for du forplikter deg til endelig produksjon.`,
+      content: `En prototype er en tidlig versjon av et produkt laget for å teste og evaluere konsepter. Prototyper kan variere fra raske skisser i papir til fullt funksjonelle modeller. Formalet er a lære mest mulig med minst mulig innsats for du forplikter deg til endelig produksjon.`,
     },
     {
       id: 'handverk-design-vg1-7-3-text-1',
@@ -565,8 +565,8 @@ A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a o
       content: `## Typer prototyper
 
 **Papirprototyper (Lo-fi)**
-- Raske og billige a lage
-- Perfekt for a teste storrelse og form
+- Raske og billige å lage
+- Perfekt for å teste størrelse og form
 - Kan lages av papp, papir, tape
 - Brukes tidlig i prosessen
 - Fokus: Grunnleggende konsept
@@ -596,7 +596,7 @@ A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a o
       id: 'handverk-design-vg1-7-3-def-2',
       type: 'definition',
       title: 'Iterasjon',
-      content: `Iterasjon i prototyping betyr a lage flere versjoner av en prototype, der hver versjon bygger pa laeringen fra den forrige. Man tester, evaluerer, forbedrer og tester igjen. Malet er gradvis a naerme seg den optimale losningen gjennom gjentatte forbedringssykluser.`,
+      content: `Iterasjon i prototyping betyr å lage flere versjoner av en prototype, der hver versjon bygger pa laeringen fra den forrige. Man tester, evaluerer, forbedrer og tester igjen. Malet er gradvis a naerme seg den optimale løsningen gjennom gjentatte forbedringssykluser.`,
     },
     {
       id: 'handverk-design-vg1-7-3-text-2',
@@ -606,7 +606,7 @@ A bygge prototyper tidlig og ofte sparer tid og penger. Det er mye billigere a o
 **Papir og papp**
 - Lett tilgjengelig og billig
 - Enkelt a klippe og brette
-- Godt for forste konsepter
+- Godt for første konsepter
 - Begrensninger: Ikke holdbart
 
 **Skumplast (styrofoam, foam board)**
@@ -650,7 +650,7 @@ Jo fortere du oppdager at noe ikke fungerer, jo fortere kan du fikse det.
 
 **Runde 2: Volummodeller**
 - Lag mer detaljerte modeller av toppkandidatene
-- Test storrelse, proporsjoner, grep
+- Test størrelse, proporsjoner, grep
 - Fa tilbakemelding fra andre
 - Velg en retning
 
@@ -679,11 +679,11 @@ Brettet 5 ulike konsepter i papir:
 - Laering: Staende vinkel pa ca. 70 grader fungerer best
 
 **Runde 2 - Pappmodell (45 min)**
-Laget en storre modell i papp:
+Laget en større modell i papp:
 - Testet med ekte telefon
 - Oppdaget at basen var for liten - veltet
 - Justerte bredden pa basen
-- Laering: Basen ma vaere minst 8 cm bred
+- Laering: Basen ma være minst 8 cm bred
 
 **Runde 3 - Treprototype (2 timer)**
 Laget i 6mm MDF:
@@ -704,7 +704,7 @@ Forbedret versjon i bjork:
       id: 'handverk-design-vg1-7-3-tip-1',
       type: 'tip',
       title: 'Tips for effektiv prototyping',
-      content: `Ikke vær perfeksjonist med prototyper - det er bortkastet tid. Prototypens formal er a laere, ikke a imponere. En stygg prototype som avdekker et problem er mer verdifull enn en pen prototype som ikke laerer deg noe nytt.`,
+      content: `Ikke vær perfeksjonist med prototyper - det er bortkastet tid. Prototypens formal er a lære, ikke a imponere. En stygg prototype som avdekker et problem er mer verdifull enn en pen prototype som ikke lærer deg noe nytt.`,
     },
     {
       id: 'handverk-design-vg1-7-3-ex-1',
@@ -714,7 +714,7 @@ Forbedret versjon i bjork:
         number: '1',
         type: 'classic',
         task: 'Forklar forskjellen mellom en lo-fi og en hi-fi prototype.',
-        solution: 'Lo-fi (lav troskap) prototyper er raske, enkle modeller laget av billige materialer som papir og papp. De brukes tidlig for a teste grunnleggende konsepter. Hi-fi (hoy troskap) prototyper er mer avanserte, laget i riktige materialer og fungerer naesten som det ferdige produktet. De brukes senere for grundig testing.',
+        solution: 'Lo-fi (lav troskap) prototyper er raske, enkle modeller laget av billige materialer som papir og papp. De brukes tidlig for å teste grunnleggende konsepter. Hi-fi (hoy troskap) prototyper er mer avanserte, laget i riktige materialer og fungerer naesten som det ferdige produktet. De brukes senere for grundig testing.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -726,14 +726,14 @@ Forbedret versjon i bjork:
         id: 'handverk-design-vg1-7-3-ex-2',
         number: '2',
         type: 'multiple-choice',
-        task: 'Hva er hovedformalet med a lage prototyper?',
+        task: 'Hva er hovedformalet med å lage prototyper?',
         options: [
           { id: 'a', text: 'A imponere kunder med flotte modeller', isCorrect: false },
-          { id: 'b', text: 'A laere mest mulig med minst mulig innsats', isCorrect: true },
-          { id: 'c', text: 'A unnga a lage det ferdige produktet', isCorrect: false },
+          { id: 'b', text: 'A lære mest mulig med minst mulig innsats', isCorrect: true },
+          { id: 'c', text: 'A unnga å lage det ferdige produktet', isCorrect: false },
           { id: 'd', text: 'A bruke opp restmaterialer', isCorrect: false },
         ],
-        solution: 'Hovedformalet med prototyper er a laere mest mulig med minst mulig innsats. Ved a teste ideer tidlig og billig, unngår du kostbare feil i det ferdige produktet.',
+        solution: 'Hovedformalet med prototyper er a lære mest mulig med minst mulig innsats. Ved å teste ideer tidlig og billig, unngår du kostbare feil i det ferdige produktet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -746,7 +746,7 @@ Forbedret versjon i bjork:
         number: '3',
         type: 'classic',
         task: 'Nevn fire ulike materialer som kan brukes til prototyping, og beskriv hva hvert materiale egner seg til.',
-        solution: '1) Papir/papp - egner seg til raske forste konsepter og testing av storrelse/form. 2) Skumplast - egner seg til 3D-volummodeller uten mye vekt. 3) Leire - egner seg til organiske former som kan justeres underveis. 4) Tre/MDF - egner seg til holdbare prototyper naer det ferdige produktet.',
+        solution: '1) Papir/papp - egner seg til raske første konsepter og testing av størrelse/form. 2) Skumplast - egner seg til 3D-volummodeller uten mye vekt. 3) Leire - egner seg til organiske former som kan justeres underveis. 4) Tre/MDF - egner seg til holdbare prototyper naer det ferdige produktet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -772,11 +772,11 @@ Forbedret versjon i bjork:
           },
           {
             label: 'c',
-            task: 'Beskriv hva du laerte og hva du vil forbedre i neste runde.',
+            task: 'Beskriv hva du lærte og hva du vil forbedre i neste runde.',
             solution: 'Refleksjoner bor inkludere konkrete forbedringspunkter basert pa testingen.',
           },
         ],
-        solution: 'Oppgaven krever praktisk arbeid. Vurdering baseres pa variasjon i konsepter, kvalitet pa testing, og refleksjon over laering.',
+        solution: 'Oppgaven krever praktisk arbeid. Vurdering baseres pa variasjon i konsepter, kvalitet pa testing, og refleksjon over læring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -793,7 +793,7 @@ Forbedret versjon i bjork:
           { id: 'a', text: 'A gi opp prosjekter raskt', isCorrect: false },
           { id: 'b', text: 'A oppdage feil tidlig sa de kan fikses billig', isCorrect: true },
           { id: 'c', text: 'A jobbe sa fort som mulig', isCorrect: false },
-          { id: 'd', text: 'A unnga a lage prototyper', isCorrect: false },
+          { id: 'd', text: 'A unnga å lage prototyper', isCorrect: false },
         ],
         solution: '"Fail fast, learn fast" betyr at det er bra a oppdage feil tidlig i prosessen, fordi da kan de fikses enkelt og billig. Det er mye dyrere a oppdage feil i det ferdige produktet.',
         allowsUpload: false,
@@ -808,7 +808,7 @@ Forbedret versjon i bjork:
         number: '6',
         type: 'classic',
         task: 'Beskriv de fire rundene i en iterativ prototypingsprosess.',
-        solution: 'Runde 1: Raske skisser - mange papirmodeller for a teste grunnleggende konsepter. Runde 2: Volummodeller - mer detaljerte modeller for a teste storrelse og proporsjoner. Runde 3: Materialprover - tester faktiske materialer og teknikker. Runde 4: Funksjonell prototype - en komplett versjon som kan brukertestes grundig.',
+        solution: 'Runde 1: Raske skisser - mange papirmodeller for å teste grunnleggende konsepter. Runde 2: Volummodeller - mer detaljerte modeller for å teste størrelse og proporsjoner. Runde 3: Materialprover - tester faktiske materialer og teknikker. Runde 4: Funksjonell prototype - en komplett versjon som kan brukertestes grundig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -816,12 +816,12 @@ Forbedret versjon i bjork:
   ],
   exercises: [],
   keyTerms: [
-    { term: 'Prototype', definition: 'Tidlig versjon av et produkt laget for a teste og evaluere konsepter' },
+    { term: 'Prototype', definition: 'Tidlig versjon av et produkt laget for å teste og evaluere konsepter' },
     { term: 'Lo-fi prototype', definition: 'Enkel, rask prototype laget av billige materialer som papir' },
     { term: 'Hi-fi prototype', definition: 'Avansert prototype som ligner det ferdige produktet' },
-    { term: 'Iterasjon', definition: 'A lage flere versjoner der hver bygger pa laering fra forrige' },
+    { term: 'Iterasjon', definition: 'A lage flere versjoner der hver bygger pa læring fra forrige' },
     { term: 'Volummodell', definition: 'Tredimensjonal modell som viser form og proporsjoner' },
-    { term: 'Fail fast, learn fast', definition: 'Prinsipp om a oppdage feil tidlig for a laere raskt' },
+    { term: 'Fail fast, learn fast', definition: 'Prinsipp om a oppdage feil tidlig for a lære raskt' },
   ],
 };
 
@@ -834,7 +834,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_4: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.4',
   title: 'Kostnadsberegning og priskalkulasjon',
-  description: 'Innforing i metoder for a beregne kostnader og sette pris pa materialer og ferdige produkter. Elevene laerer om materialkostnader, tidsbruk, fortjeneste og markedsprising.',
+  description: 'Innforing i metoder for a beregne kostnader og sette pris pa materialer og ferdige produkter. Elevene lærer om materialkostnader, tidsbruk, fortjeneste og markedsprising.',
   estimatedMinutes: 40,
   competenceGoals: [
     'beregne kostnader og pris pa materialer og produkter',
@@ -847,7 +847,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_4: TextbookChapter = {
 
 Nar du lager handverksprodukter for salg, ma du vite hva de koster a produsere og hva du bor ta betalt. Mange handverkere setter for lav pris fordi de glemmer a regne med alt som gar med.
 
-God priskalkulasjon sikrer at du far betalt for arbeidet ditt og kan drive lonnsomt. Samtidig ma prisen vaere konkurransedyktig nok til at folk vil kjope produktene dine.
+God priskalkulasjon sikrer at du far betalt for arbeidet ditt og kan drive lønnsomt. Samtidig ma prisen være konkurransedyktig nok til at folk vil kjope produktene dine.
 
 **Hvorfor er kostnadsberegning viktig?**
 - Sikrer at du ikke taper penger
@@ -892,7 +892,7 @@ Kostnader som deles pa flere produkter:
       id: 'handverk-design-vg1-7-4-def-2',
       type: 'definition',
       title: 'Fortjenestemargin',
-      content: `Fortjenestemargin (paslag) er prosenten som legges pa selvkosten for a gi overskudd. Marginen ma dekke risiko, utvikling av nye produkter, og lonnsomhet. Vanlige marginer for handverk er 30-100% avhengig av marked og produkttype.`,
+      content: `Fortjenestemargin (paslag) er prosenten som legges pa selvkosten for å gi overskudd. Marginen ma dekke risiko, utvikling av nye produkter, og lønnsomhet. Vanlige marginer for handverk er 30-100% avhengig av marked og produkttype.`,
     },
     {
       id: 'handverk-design-vg1-7-4-text-2',
@@ -933,16 +933,16 @@ Kalkulert pris er et utgangspunkt, men ma vurderes mot markedet:
 **Konkurransepris**
 - Hva tar andre for lignende produkter?
 - Er ditt produkt bedre eller darligere?
-- Kan du forsvare en hoyere pris?
+- Kan du forsvare en høyere pris?
 
 **Kundenes betalingsvilje**
-- Hva er kundene villige til a betale?
+- Hva er kundene villige til å betale?
 - Pavirkes av merkevare og eksklusivitet
-- Handverk kan ofte ta premium-pris
+- Håndverk kan ofte ta premium-pris
 
 **Volum vs. margin**
 - Lay pris = flere salg, lavere margin per enhet
-- Hoy pris = faerre salg, hoyere margin per enhet
+- Hoy pris = faerre salg, høyere margin per enhet
 - Finn balansen som gir best total inntekt
 
 **Tips for prissetting:**
@@ -997,7 +997,7 @@ Kalkulert pris er et utgangspunkt, men ma vurderes mot markedet:
         number: '1',
         type: 'classic',
         task: 'Forklar forskjellen mellom direkte og indirekte kostnader.',
-        solution: 'Direkte kostnader kan knyttes direkte til et spesifikt produkt, som materialer og arbeidstid. Indirekte kostnader deles pa flere produkter og inkluderer ting som verktoyslitasje, lokaler, strom og markedsforing. Begge ma regnes med for a finne den virkelige kostnaden.',
+        solution: 'Direkte kostnader kan knyttes direkte til et spesifikt produkt, som materialer og arbeidstid. Indirekte kostnader deles pa flere produkter og inkluderer ting som verktoyslitasje, lokaler, strom og markedsforing. Begge ma regnes med for å finne den virkelige kostnaden.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1064,7 +1064,7 @@ Kalkulert pris er et utgangspunkt, men ma vurderes mot markedet:
         number: '4',
         type: 'classic',
         task: 'Hvorfor ma man vurdere markedet i tillegg til kalkulert pris?',
-        solution: 'Markedsvurdering er viktig fordi: 1) Konkurrentpriser pavirker hva kundene forventer a betale, 2) Kundenes betalingsvilje varierer mellom markeder, 3) Et unikt handverksprodukt kan ta hoyre pris enn kalkylen tilsier, 4) For a selge ma prisen vaere akseptabel for malgruppen, ikke bare dekke kostnadene.',
+        solution: 'Markedsvurdering er viktig fordi: 1) Konkurrentpriser påvirker hva kundene forventer å betale, 2) Kundenes betalingsvilje varierer mellom markeder, 3) Et unikt handverksprodukt kan ta høyere pris enn kalkylen tilsier, 4) For å selge ma prisen være akseptabel for målgruppen, ikke bare dekke kostnadene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1094,7 +1094,7 @@ Kalkulert pris er et utgangspunkt, men ma vurderes mot markedet:
     { term: 'Selvkost', definition: 'Total kostnad for a produsere et produkt inkludert alle kostnader' },
     { term: 'Direkte kostnader', definition: 'Kostnader som kan knyttes direkte til et produkt' },
     { term: 'Indirekte kostnader', definition: 'Felleskostnader som fordeles pa flere produkter' },
-    { term: 'Fortjenestemargin', definition: 'Prosent som legges pa selvkost for a gi overskudd' },
+    { term: 'Fortjenestemargin', definition: 'Prosent som legges pa selvkost for å gi overskudd' },
     { term: 'Timesats', definition: 'Pris per arbeidstime brukt i kalkyler' },
     { term: 'Markedspris', definition: 'Pris som markedet og konkurrenter opererer med' },
   ],
@@ -1109,7 +1109,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_5: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.5',
   title: 'Presentasjon av ideer og produkter',
-  description: 'Utvikling av ferdigheter i a presentere ideer og ferdige produkter for kunder og andre interessenter. Elevene laerer a formidle produktenes historie, egenart og kvaliteter overbevisende.',
+  description: 'Utvikling av ferdigheter i å presentere ideer og ferdige produkter for kunder og andre interessenter. Elevene lærer å formidle produktenes historie, egenart og kvaliteter overbevisende.',
   estimatedMinutes: 45,
   competenceGoals: [
     'presentere ideer og produkter for kunder og andre og formidle produktenes historie og egenart',
@@ -1122,7 +1122,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_5: TextbookChapter = {
 
 Et flott produkt selger ikke seg selv. Du må kunne formidle hva som gjor det spesielt, hvorfor du har laget det slik, og hvilken verdi det gir kunden. Presentasjonsferdigheter er like viktige som handverksferdigheter.
 
-Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter potensielle kunder, er evnen til a formidle entusiasme og kunnskap avgjorende.
+Enten du pitcher en ide til læreren, viser frem pa en utstilling, eller møter potensielle kunder, er evnen til å formidle entusiasme og kunnskap avgjørende.
 
 **Gode presentasjoner:**
 - Fanger oppmerksomheten
@@ -1143,7 +1143,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
 
 **Apning - fang interessen**
 - Start med noe overraskende eller engasjerende
-- Still et sporsmal publikum kan kjenne seg igjen i
+- Still et spørsmål publikum kan kjenne seg igjen i
 - Vis produktet pa en dramatisk mate
 - Unnga a starte med "Hei, jeg skal snakke om..."
 
@@ -1167,7 +1167,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
 
 **Avslutning - oppfordring til handling**
 - Oppsummer hovedpoengene
-- Inviter til sporsmal eller kontakt
+- Inviter til spørsmål eller kontakt
 - Gjor det enkelt a kjope/bestille`,
     },
     {
@@ -1214,7 +1214,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
 **Forberedelse**
 - Ov presentasjonen hoyt flere ganger
 - Tidsbestem deg selv
-- Forbered svar pa sannsynlige sporsmal
+- Forbered svar pa sannsynlige spørsmål
 - Kjenn produktet ditt ut og inn
 
 **Kroppssprak**
@@ -1240,16 +1240,16 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
       type: 'example',
       title: 'Eksempel: Produktpresentasjon av handlaget kopp',
       content: `**Apning:**
-"Har dere noen gang holdt rundt en kopp som foltes som den var laget bare for dere? Det var det jeg onsket a skape."
+"Har dere noen gang holdt rundt en kopp som foltes som den var laget bare for dere? Det var det jeg onsket å skape."
 
 **Historien:**
-"Inspirert av min bestemors gamle kaffekopper fra 1960-tallet, onsket jeg a lage noe som kombinerer nostalgien med moderne design. Jeg eksperimenterte i flere uker med ulike former for jeg fant denne - bred nok for begge hender, men lett nok til a holde lenge."
+"Inspirert av min bestemors gamle kaffekopper fra 1960-tallet, onsket jeg å lage noe som kombinerer nostalgien med moderne design. Jeg eksperimenterte i flere uker med ulike former for jeg fant denne - bred nok for begge hender, men lett nok til a holde lenge."
 
 **Egenskapene:**
 "Koppen er dreid for hand i steingods og glasert med en unik koboltblå glasur jeg har utviklet selv. Legg merke til den tykke kanten her - den holder varmen lenger og foler deilig mot leppene."
 
 **Verdien:**
-"Dette er ikke bare en kopp - det er en daglig liten luksus. Hver morgen nar du tar den opp, vet du at den er laget med omtanke, bare for deg. Den taler oppvaskmaskin og er laget for a vare i generasjoner."
+"Dette er ikke bare en kopp - det er en daglig liten luksus. Hver morgen nar du tar den opp, vet du at den er laget med omtanke, bare for deg. Den tåler oppvaskmaskin og er laget for a vare i generasjoner."
 
 **Avslutning:**
 "Jeg har noen eksemplarer tilgjengelig her i dag, og tar gjerne bestillinger pa egne fargevalg. Kom gjerne bort og kjenn pa den."`,
@@ -1258,7 +1258,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
       id: 'handverk-design-vg1-7-5-tip-1',
       type: 'tip',
       title: 'Tips for kundekommunikasjon',
-      content: `Lytt mer enn du snakker. Still sporsmal om hva kunden leter etter, og tilpass presentasjonen til deres behov. Hvis de er opptatt av holdbarhet, fremhev det. Hvis de setter pris pa estetikk, fokuser pa designet. La kunden ta og kjenne pa produktet - fysisk kontakt oker sjansen for kjop.`,
+      content: `Lytt mer enn du snakker. Still spørsmål om hva kunden leter etter, og tilpass presentasjonen til deres behov. Hvis de er opptatt av holdbarhet, fremhev det. Hvis de setter pris pa estetikk, fokuser pa designet. La kunden ta og kjenne pa produktet - fysisk kontakt oker sjansen for kjop.`,
     },
     {
       id: 'handverk-design-vg1-7-5-ex-1',
@@ -1299,7 +1299,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
         id: 'handverk-design-vg1-7-5-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Skriv en kort produkthistorie for et handverksprodukt du har laget eller kunne tenke deg a lage.',
+        task: 'Skriv en kort produkthistorie for et handverksprodukt du har laget eller kunne tenke deg å lage.',
         solution: 'Svar vil variere. Historien bor inneholde: inspirasjonskilde, hvorfor du valgte dette prosjektet, utfordringer du motte, personlig tilknytning, og hva som gjor produktet spesielt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1335,7 +1335,7 @@ Enten du pitcher en ide til laereren, viser frem pa en utstilling, eller moter p
   keyTerms: [
     { term: 'Produkthistorie', definition: 'Fortellingen om hvordan og hvorfor produktet ble til' },
     { term: 'Visuell presentasjon', definition: 'A vise produktet pa best mulig mate gjennom bilder og utstilling' },
-    { term: 'Kundekommunikasjon', definition: 'Dialog med potensielle kjopere for a forsta og mote deres behov' },
+    { term: 'Kundekommunikasjon', definition: 'Dialog med potensielle kjøpere for a forstå og møte deres behov' },
     { term: 'Kontekstbilde', definition: 'Produktfoto som viser produktet i bruk i riktig miljo' },
     { term: 'Pitch', definition: 'Kort, overbevisende presentasjon av en ide eller produkt' },
   ],
@@ -1350,7 +1350,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_6: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.6',
   title: 'Fagterminologi og visuell kommunikasjon',
-  description: 'Opplaering i korrekt bruk av fagterminologi og visuelle kommunikasjonsverktoy i handverksfaget. Elevene laerer a bruke presist fagsprak i dokumentasjon og kommunikasjon med andre.',
+  description: 'Opplaering i korrekt bruk av fagterminologi og visuelle kommunikasjonsverktoy i handverksfaget. Elevene lærer å bruke presist fagsprak i dokumentasjon og kommunikasjon med andre.',
   estimatedMinutes: 40,
   competenceGoals: [
     'bruke fagterminologi og visuelle virkemidler i kommunikasjon med andre og i dokumentasjon av eget arbeid',
@@ -1363,7 +1363,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_6: TextbookChapter = {
 
 Hvert fag har sitt eget sprak - presise ord og uttrykk som gjor det mulig a kommunisere effektivt med andre fagfolk. Nar du bruker riktig fagterminologi, viser du kompetanse og unngår misforstaelser.
 
-Visuell kommunikasjon er like viktig. Tegninger, diagrammer og symboler kan ofte formidle informasjon bedre enn ord. A mestre bade skriftlig og visuelt fagsprak er nodvendig for profesjonelt arbeid.
+Visuell kommunikasjon er like viktig. Tegninger, diagrammer og symboler kan ofte formidle informasjon bedre enn ord. A mestre bade skriftlig og visuelt fagsprak er nødvendig for profesjonelt arbeid.
 
 **Fordeler med god fagkommunikasjon:**
 - Presisjon - unngår misforstaelser
@@ -1456,7 +1456,7 @@ Visuell kommunikasjon er like viktig. Tegninger, diagrammer og symboler kan ofte
 - Problemlosninger underveis
 - Endringer fra opprinnelig plan
 - Tidsbruk pa ulike aktiviteter
-- Refleksjoner og laering
+- Refleksjoner og læring
 
 **Format for dokumentasjon:**
 - Arbeidsbok med handskrevne notater og skisser
@@ -1491,13 +1491,13 @@ Limt sammen med fingersinking i hjornene. Brukte trelim og spennband. Torkettid 
 Pusset med korn 120, 180 og 240. Paforte 2 lag vandig beis i farge "natur eik". Torkettid 4 timer mellom lag. Avsluttet med matt lakk.
 
 **Refleksjon:**
-Fornöyd med resultatet. Laerte at matehastighet pavirker brennmerker. Neste gang: Prøve oljebehandling i stedet for lakk for mer naturlig utseende.`,
+Fornøyd med resultatet. Laerte at matehastighet påvirker brennmerker. Neste gang: Prøve oljebehandling i stedet for lakk for mer naturlig utseende.`,
     },
     {
       id: 'handverk-design-vg1-7-6-tip-1',
       type: 'tip',
-      title: 'Tips for a laere fagterminologi',
-      content: `Lag deg en egen ordliste der du skriver ned nye fagord du moter. Noter ordet, definisjonen, og et eksempel pa bruk. Les fagartikler og handverksboker aktivt. Bruk ordene i samtaler og skriftlig arbeid - da fester de seg.`,
+      title: 'Tips for a lære fagterminologi',
+      content: `Lag deg en egen ordliste der du skriver ned nye fagord du møter. Noter ordet, definisjonen, og et eksempel pa bruk. Les fagartikler og handverksboker aktivt. Bruk ordene i samtaler og skriftlig arbeid - da fester de seg.`,
     },
     {
       id: 'handverk-design-vg1-7-6-ex-1',
@@ -1548,7 +1548,7 @@ Fornöyd med resultatet. Laerte at matehastighet pavirker brennmerker. Neste gan
           {
             label: 'b',
             task: 'Tegn forfra, fra siden og ovenfra med mal i millimeter.',
-            solution: 'Tegningene bor vaere i forhold til hverandre og ha alle nodvendige mal.',
+            solution: 'Tegningene bor være i forhold til hverandre og ha alle nodvendige mal.',
           },
           {
             label: 'c',
@@ -1568,8 +1568,8 @@ Fornöyd med resultatet. Laerte at matehastighet pavirker brennmerker. Neste gan
         id: 'handverk-design-vg1-7-6-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Skriv en prosessbeskrivelse for et handverksprosjekt du har gjennomfort. Bruk minst 5 faguttrykk korrekt.',
-        solution: 'Beskrivelsen bor vaere strukturert etter prosessens faser, bruke presist fagsprak, og reflektere over valg og utfordringer. Faguttrykkene bor vaere relevante og korrekt brukt.',
+        task: 'Skriv en prosessbeskrivelse for et handverksprosjekt du har gjennomført. Bruk minst 5 faguttrykk korrekt.',
+        solution: 'Beskrivelsen bor være strukturert etter prosessens faser, bruke presist fagsprak, og reflektere over valg og utfordringer. Faguttrykkene bor være relevante og korrekt brukt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1595,7 +1595,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_7: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.7',
   title: 'Kvalitetssikring og evaluering',
-  description: 'Metoder for a vurdere og sikre kvaliteten pa handverksprodukter gjennom hele prosessen. Elevene laerer a evaluere egne og andres produkter ut fra relevante kvalitetskriterier.',
+  description: 'Metoder for å vurdere og sikre kvaliteten pa handverksprodukter gjennom hele prosessen. Elevene lærer a evaluere egne og andres produkter ut fra relevante kvalitetskriterier.',
   estimatedMinutes: 45,
   competenceGoals: [
     'vurdere handverksfaglig kvalitet pa eget og andres arbeid ut fra holdbarhet, funksjon og estetisk uttrykk',
@@ -1612,14 +1612,14 @@ Kvalitetssikring er ikke noe du gjor til slutt, men gjennom hele prosessen. Ved 
 
 **Tre dimensjoner av kvalitet:**
 - Funksjon - gjor produktet jobben det skal?
-- Holdbarhet - taler det bruk over tid?
+- Holdbarhet - tåler det bruk over tid?
 - Estetikk - har det et tiltalende uttrykk?`,
     },
     {
       id: 'handverk-design-vg1-7-7-def-1',
       type: 'definition',
       title: 'Kvalitetskriterier',
-      content: `Kvalitetskriterier er målbare standarder som et produkt vurderes opp mot. De defineres for prosjektet starter og brukes til a evaluere om resultatet moter kravene. Kriteriene kan inkludere mal pa presisjon, funksjonalitet, holdbarhet og estetikk.`,
+      content: `Kvalitetskriterier er målbare standarder som et produkt vurderes opp mot. De defineres for prosjektet starter og brukes til a evaluere om resultatet møter kravene. Kriteriene kan inkludere mal pa presisjon, funksjonalitet, holdbarhet og estetikk.`,
     },
     {
       id: 'handverk-design-vg1-7-7-text-1',
@@ -1628,7 +1628,7 @@ Kvalitetssikring er ikke noe du gjor til slutt, men gjennom hele prosessen. Ved 
 
 **Funksjonelle kriterier**
 - Produktet gjor jobben det er designet for
-- Lett a bruke som tiltenkt
+- Lett å bruke som tiltenkt
 - Ergonomisk tilpasset brukeren
 - Sikker i bruk
 - Oppfyller alle brukerkrav
@@ -1705,9 +1705,9 @@ Kvalitetssikring er ikke noe du gjor til slutt, men gjennom hele prosessen. Ved 
 
 **A motta tilbakemelding:**
 - Lytt uten a forsvare deg
-- Still sporsmal for a forsta bedre
+- Still spørsmål for a forstå bedre
 - Noter ned tilbakemeldinger
-- Vurder hva du kan laere
+- Vurder hva du kan lære
 - Takk for innspillet
 
 **Kameratvurdering:**
@@ -1740,7 +1740,7 @@ Nar dere vurderer hverandres arbeid:
 - Helhetlig design: 5
 - Proporsjoner: 5
 - Finish-kvalitet: 4
-*Kommentar: Svært fornoyd med designet*
+*Kommentar: Svært fornøyd med designet*
 
 **Handverksmessig utforelse:**
 - Presisjon: 4
@@ -1750,7 +1750,7 @@ Nar dere vurderer hverandres arbeid:
 
 **Totalvurdering:** God, men med forbedringspotensial
 
-**Tre ting jeg vil gjore bedre neste gang:**
+**Tre ting jeg vil gjøre bedre neste gang:**
 1. Runde av kantene grundigere
 2. Teste varmetalighet for valg av finish
 3. Bruke finere sandpapir (korn 320) pa slutten`,
@@ -1759,7 +1759,7 @@ Nar dere vurderer hverandres arbeid:
       id: 'handverk-design-vg1-7-7-tip-1',
       type: 'tip',
       title: 'Tips for aerlig egenvurdering',
-      content: `Vaer din egen strengeste kritiker - pa en konstruktiv mate. Se pa produktet som om du skulle kjope det. Ville du vaert fornoyd? Hva ville en profesjonell handverker bemerket? Bruk gjerne et speil eller ta bilder for a se produktet med friske oyne.`,
+      content: `Vaer din egen strengeste kritiker - pa en konstruktiv mate. Se pa produktet som om du skulle kjope det. Ville du vært fornøyd? Hva ville en profesjonell handverker bemerket? Bruk gjerne et speil eller ta bilder for a se produktet med friske oyne.`,
     },
     {
       id: 'handverk-design-vg1-7-7-ex-1',
@@ -1769,7 +1769,7 @@ Nar dere vurderer hverandres arbeid:
         number: '1',
         type: 'classic',
         task: 'Forklar de tre hoveddimensjonene av kvalitet i handverk.',
-        solution: 'De tre hoveddimensjonene er: 1) Funksjon - produktet gjor jobben det er designet for, er lett a bruke og sikkert. 2) Holdbarhet - produktet taler bruk over tid, har solide sammenfoynger og kan vedlikeholdes. 3) Estetikk - produktet har et tiltalende uttrykk med gode proporsjoner og fin finish.',
+        solution: 'De tre hoveddimensjonene er: 1) Funksjon - produktet gjor jobben det er designet for, er lett å bruke og sikkert. 2) Holdbarhet - produktet tåler bruk over tid, har solide sammenfoynger og kan vedlikeholdes. 3) Estetikk - produktet har et tiltalende uttrykk med gode proporsjoner og fin finish.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1801,7 +1801,7 @@ Nar dere vurderer hverandres arbeid:
         number: '3',
         type: 'classic',
         task: 'Lag et vurderingsskjema med 8-10 kvalitetskriterier for et selvvalgt handverksprodukt.',
-        solution: 'Skjemaet bor inneholde kriterier fra alle tre dimensjoner (funksjon, holdbarhet, estetikk), ha plass til gradering (f.eks. 1-5), og rom for kommentarer. Kriteriene bor vaere relevante for det valgte produktet.',
+        solution: 'Skjemaet bor inneholde kriterier fra alle tre dimensjoner (funksjon, holdbarhet, estetikk), ha plass til gradering (f.eks. 1-5), og rom for kommentarer. Kriteriene bor være relevante for det valgte produktet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1813,7 +1813,7 @@ Nar dere vurderer hverandres arbeid:
         id: 'handverk-design-vg1-7-7-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Gjennomfor en kameratvurdering.',
+        task: 'Gjennomfør en kameratvurdering.',
         subTasks: [
           {
             label: 'a',
@@ -1843,8 +1843,8 @@ Nar dere vurderer hverandres arbeid:
         id: 'handverk-design-vg1-7-7-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Gjennomfor en grundig egenvurdering av et produkt du har laget, og identifiser tre konkrete ting du vil gjore bedre neste gang.',
-        solution: 'Egenvurderingen bor vaere aerlig og balansert, dekke alle kvalitetsdimensjoner, og forbedringstiltakene bor vaere spesifikke og gjennomforbare.',
+        task: 'Gjennomfør en grundig egenvurdering av et produkt du har laget, og identifiser tre konkrete ting du vil gjøre bedre neste gang.',
+        solution: 'Egenvurderingen bor være aerlig og balansert, dekke alle kvalitetsdimensjoner, og forbedringstiltakene bor være spesifikke og gjennomforbare.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1856,7 +1856,7 @@ Nar dere vurderer hverandres arbeid:
     { term: 'Egenvurdering', definition: 'A systematisk evaluere eget arbeid opp mot definerte kriterier' },
     { term: 'Kameratvurdering', definition: 'Nar elever vurderer hverandres arbeid' },
     { term: 'Funksjonstest', definition: 'Test av om produktet gjor jobben det er designet for' },
-    { term: 'Kvalitetskontroll', definition: 'Systematisk sjekk av at produktet moter kravene' },
+    { term: 'Kvalitetskontroll', definition: 'Systematisk sjekk av at produktet møter kravene' },
     { term: 'Konstruktiv tilbakemelding', definition: 'Tilbakemelding som er positiv, spesifikk og gir forslag til forbedring' },
   ],
 };
@@ -1870,7 +1870,7 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_8: TextbookChapter = {
   courseId: 'handverk-design-vg1',
   chapterNumber: '7.8',
   title: 'Samarbeid og prosjektstyring',
-  description: 'Utvikling av ferdigheter i samarbeid og prosjektstyring for gjennomforing av designprosjekter. Elevene laerer a planlegge, fordele oppgaver og holde tidsfrister i gruppearbeid.',
+  description: 'Utvikling av ferdigheter i samarbeid og prosjektstyring for gjennomforing av designprosjekter. Elevene lærer å planlegge, fordele oppgaver og holde tidsfrister i gruppearbeid.',
   estimatedMinutes: 50,
   competenceGoals: [
     'planlegge og dokumentere en design- og produktutviklingsprosess alene og i samarbeid med andre innenfor gitte tidsrammer',
@@ -1881,21 +1881,21 @@ export const CHAPTER_HANDVERK_DESIGN_VG1_7_8: TextbookChapter = {
       type: 'text',
       content: `## A skape sammen
 
-Mange handverksprosjekter er for store eller komplekse til a gjennomfores alene. Samarbeid lar deg dra nytte av andres styrker, dele pa arbeidet, og laere av hverandre. Men godt samarbeid kommer ikke av seg selv - det krever bevisst innsats fra alle.
+Mange handverksprosjekter er for store eller komplekse til a gjennomfores alene. Samarbeid lar deg dra nytte av andres styrker, dele pa arbeidet, og lære av hverandre. Men godt samarbeid kommer ikke av seg selv - det krever bevisst innsats fra alle.
 
-Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gjore, nar det skal vaere ferdig, og hvordan bitene henger sammen. God prosjektstyring gjor forskjellen mellom kaos og suksess.
+Prosjektstyring handler om å organisere arbeidet slik at alle vet hva de skal gjøre, nar det skal være ferdig, og hvordan bitene henger sammen. God prosjektstyring gjor forskjellen mellom kaos og suksess.
 
 **Fordeler med godt samarbeid:**
 - Kombiner ulike ferdigheter og styrker
 - Del pa arbeidsbelastningen
 - Fa flere perspektiver og ideer
-- Laer av hverandre underveis`,
+- Lær av hverandre underveis`,
     },
     {
       id: 'handverk-design-vg1-7-8-def-1',
       type: 'definition',
       title: 'Prosjektstyring',
-      content: `Prosjektstyring er planlegging, organisering og oppfolging av et prosjekt for a na malene innenfor gitte rammer for tid, ressurser og kvalitet. Det inkluderer a definere oppgaver, fordele ansvar, sette tidsfrister, og sikre fremdrift gjennom hele prosjektet.`,
+      content: `Prosjektstyring er planlegging, organisering og oppfolging av et prosjekt for a na malene innenfor gitte rammer for tid, ressurser og kvalitet. Det inkluderer å definere oppgaver, fordele ansvar, sette tidsfrister, og sikre fremdrift gjennom hele prosjektet.`,
     },
     {
       id: 'handverk-design-vg1-7-8-text-1',
@@ -1906,8 +1906,8 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
 - Har overordnet ansvar for prosjektet
 - Koordinerer arbeidet mellom teammedlemmer
 - Holder oversikt over tidsplan og fremdrift
-- Leder moter og tar nodvendige beslutninger
-- Kommuniserer med eksterne (laerer, oppdragsgiver)
+- Leder møter og tar nodvendige beslutninger
+- Kommuniserer med eksterne (lærer, oppdragsgiver)
 
 **Fagansvarlige**
 - Tar hovedansvar for sitt fagomrade
@@ -1956,9 +1956,9 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
 - Lett a se om prosjektet er pa sporet
 
 **Statusmoter**
-- Korte, regelmessige moter (f.eks. ukentlig)
-- Alle rapporterer hva de har gjort og skal gjore
-- Diskuter utfordringer og losninger
+- Korte, regelmessige møter (f.eks. ukentlig)
+- Alle rapporterer hva de har gjort og skal gjøre
+- Diskuter utfordringer og løsninger
 - Juster planen ved behov`,
     },
     {
@@ -1982,9 +1982,9 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
 **Handtering av konflikter:**
 - Ta opp uenigheter tidlig
 - Fokuser pa saken, ikke personen
-- Sok a forsta den andres perspektiv
-- Finn losninger alle kan leve med
-- Trekk inn laerer hvis nodvendig
+- Søk å forstå den andres perspektiv
+- Finn løsninger alle kan leve med
+- Trekk inn lærer hvis nødvendig
 
 **Kommunikasjonsregler for team:**
 - Alle meninger er velkomne
@@ -1998,7 +1998,7 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
       type: 'text',
       content: `## Holde tidsfrister
 
-**Vanlige arsaker til forsinkelser:**
+**Vanlige årsaker til forsinkelser:**
 - Urealistisk tidsplan fra start
 - Uklart ansvar
 - Avhengigheter som ikke er tatt hoyden for
@@ -2016,9 +2016,9 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
 **Hvis dere blir forsinket:**
 1. Identifiser arsaken
 2. Vurder konsekvensene
-3. Lag en plan for a ta igjen
-4. Kommuniser med laerer/oppdragsgiver
-5. Laer av det til neste gang`,
+3. Lag en plan for å ta igjen
+4. Kommuniser med lærer/oppdragsgiver
+5. Lær av det til neste gang`,
     },
     {
       id: 'handverk-design-vg1-7-8-example-1',
@@ -2067,7 +2067,7 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
         number: '1',
         type: 'classic',
         task: 'Beskriv de tre hovedrollene i et prosjektteam og deres viktigste oppgaver.',
-        solution: 'Prosjektleder har overordnet ansvar, koordinerer arbeidet, holder oversikt over tidsplan og leder moter. Fagansvarlige tar hovedansvar for sitt omrade, sikrer kvalitet og veileder andre. Teammedlemmer utforer tildelte oppgaver, kommuniserer status og bidrar med innspill.',
+        solution: 'Prosjektleder har overordnet ansvar, koordinerer arbeidet, holder oversikt over tidsplan og leder møter. Fagansvarlige tar hovedansvar for sitt omrade, sikrer kvalitet og veileder andre. Teammedlemmer utfører tildelte oppgaver, kommuniserer status og bidrar med innspill.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2083,10 +2083,10 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
         options: [
           { id: 'a', text: 'A kritisere de som er forsinket', isCorrect: false },
           { id: 'b', text: 'A dele status, diskutere utfordringer og justere planen', isCorrect: true },
-          { id: 'c', text: 'A gi laereren noe a gjore', isCorrect: false },
+          { id: 'c', text: 'A gi læreren noe a gjøre', isCorrect: false },
           { id: 'd', text: 'A fylle ut skjemaer', isCorrect: false },
         ],
-        solution: 'Formalet med statusmoter er a dele status pa arbeidet, diskutere utfordringer og losninger, og justere planen ved behov. Det handler om a holde prosjektet pa sporet.',
+        solution: 'Formalet med statusmoter er a dele status pa arbeidet, diskutere utfordringer og løsninger, og justere planen ved behov. Det handler om a holde prosjektet pa sporet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2113,7 +2113,7 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
           {
             label: 'c',
             task: 'Definer 3 kommunikasjonsregler for teamet.',
-            solution: 'Eksempel: Alle moter forberedt, si fra om problemer tidlig, respekter andres ideer.',
+            solution: 'Eksempel: Alle møter forberedt, si fra om problemer tidlig, respekter andres ideer.',
           },
         ],
         solution: 'Planen bor vise tydelig rollefordeling, realistisk tidsplan med milepaler, og konkrete avtaler for samarbeid.',
@@ -2128,8 +2128,8 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
         id: 'handverk-design-vg1-7-8-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Beskriv en situasjon der et samarbeidsprosjekt ble forsinket. Hva kan vaere arsaken, og hvordan bor teamet handtere det?',
-        solution: 'Mulige arsaker: Urealistisk plan, uklart ansvar, sykdom, uforutsette problemer. Handtering: Identifiser arsaken, vurder konsekvenser, lag plan for a ta igjen, kommuniser med alle involverte, laer til neste gang. Ikke fokuser pa skyld, men pa losninger.',
+        task: 'Beskriv en situasjon der et samarbeidsprosjekt ble forsinket. Hva kan være arsaken, og hvordan bor teamet handtere det?',
+        solution: 'Mulige årsaker: Urealistisk plan, uklart ansvar, sykdom, uforutsette problemer. Handtering: Identifiser arsaken, vurder konsekvenser, lag plan for å ta igjen, kommuniser med alle involverte, lær til neste gang. Ikke fokuser pa skyld, men pa løsninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2141,7 +2141,7 @@ Prosjektstyring handler om a organisere arbeidet slik at alle vet hva de skal gj
     { term: 'Arbeidsfordeling', definition: 'A dele prosjektets oppgaver mellom teammedlemmene' },
     { term: 'Prosjektleder', definition: 'Person med overordnet ansvar for prosjektet' },
     { term: 'Milepael', definition: 'Viktig kontrollpunkt i prosjektet' },
-    { term: 'Statusmote', definition: 'Kort mote for a dele fremdrift og diskutere utfordringer' },
+    { term: 'Statusmote', definition: 'Kort møte for a dele fremdrift og diskutere utfordringer' },
     { term: 'Flaskehals', definition: 'Oppgave som forsinker hele prosjektet hvis den ikke er ferdig' },
   ],
 };

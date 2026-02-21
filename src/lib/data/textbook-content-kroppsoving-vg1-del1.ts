@@ -304,7 +304,28 @@ Viktig: Han bør bare øke én parameter om gangen og ikke øke ukentlig trening
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Belastningsprinsippet** - kroppen må utsettes for belastning over dagliglivsnivå
+- **Spesifisitetsprinsippet** - du får det du trener på
+- **Progresjonsprinsippet** - gradvis økning av belastning over tid
+- **Reversibilitetsprinsippet** - treningseffekten forsvinner uten vedlikehold
+- **Individualisering** - trening må tilpasses den enkelte`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Olympiatoppen: olympiatoppen.no
+- Helsedirektoratet: Anbefalinger om fysisk aktivitet`,
+    },
+],
   exercises: [],
 };
 
@@ -678,7 +699,27 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kontinuerlig trening** for å bygge aerob grunnkapasitet
+- **Intervalltrening** for å forbedre VO2maks og anaerob terskel
+- **Terskeltrening** for å øke den anaerobe terskelen
+- **Pulssoner** og hvordan bruke dem til å styre intensiteten`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Olympiatoppen: olympiatoppen.no
+- Norges Friidrettsforbund: friidrett.no`,
+    },
+],
   exercises: [],
 };
 
@@ -1070,7 +1111,27 @@ En god treningsplan inkluderer øvelser for alle store muskelgrupper for å unng
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Grunnleggende styrkeøvelser** som knebøy, benkpress og markløft
+- **Riktig løfteteknikk** for å forebygge skader
+- **Belastning og repetisjoner** tilpasset ulike mål
+- Hvordan lage et **treningsprogram** tilpasset eget nivå`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Raastad, T. m.fl. (2010): Styrketrening. Gyldendal
+- Olympiatoppen: olympiatoppen.no
+- Norges Vektløfterforbund: vektlofting.no`,
+    },
+],
   exercises: [],
 };
 
@@ -1439,7 +1500,26 @@ Partner: Klarer dyp knebøy med rett overkropp. Vurdering: Meget god bevegelighe
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Tøying og mobilitet** for å vedlikeholde og forbedre bevegelighet
+- **Plyometrisk trening** for å utvikle spenst og eksplosivitet
+- **Koordinasjon og balanse** som grunnlag for god bevegelseskontroll
+- Sammenhengen mellom bevegelighet og **skadeforebygging**`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Norges Gymnastikk- og Turnforbund: gymogturn.no`,
+    },
+],
   exercises: [],
 };
 
@@ -1876,7 +1956,26 @@ Etter samtale finner vi ut at Jonas spesifikt vil:
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Målsetting** med SMART-modellen for realistiske mål
+- **Periodisering** og hvordan variere treningen over tid
+- **Treningsdagbok** som verktøy for registrering og refleksjon
+- **Egenvurdering** for å tilpasse treningen underveis`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Olympiatoppen: olympiatoppen.no`,
+    },
+],
   exercises: [],
 };
 
@@ -2283,7 +2382,27 @@ Fotball krever en kombinasjon av utholdenhet, sprint, spenst, smidighet og styrk
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Coopers test** og andre tester for utholdenhet
+- **Styrketester** for å måle muskulær kapasitet
+- **Bevegelighetstest** og spenst-tester
+- Hvordan **analysere resultater** og bruke dem i treningsplanlegging`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Olympiatoppen: Testmanual
+- Helsedirektoratet: Fysisk aktivitet og helse`,
+    },
+],
   exercises: [],
 };
 
@@ -2829,7 +2948,27 @@ Alle jobber hardt på sitt nivå, får god treningseffekt, og føler mestring. I
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-1-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Tilpasset aktivitet** for ulike forutsetninger og funksjonsevner
+- **Inkludering** i trenings- og bevegelsesaktiviteter
+- Hvordan planlegge aktivitet også når man **ikke fullt ut kan delta**
+- Kreative løsninger for **alternativ deltakelse**`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-7-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Utdanningsdirektoratet: Tilpasset opplæring
+- Norges idrettsforbund: Paraidrett
+- Beitostølen Helsesportsenter: bhss.no`,
+    },
+],
   exercises: [],
 };
 
@@ -3319,7 +3458,26 @@ Utfall er en ensidig øvelse som trener styrke, balanse og koordinasjon. Den ett
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Skjelettet** med 206 bein og dets funksjoner
+- **Muskeltyper** og hvordan muskler jobber i par (agonist/antagonist)
+- **Leddtyper** som hengselledd, kulelledd og glidelledd
+- **Sener og leddbånd** og deres roller i bevegelse og stabilitet`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
+- Dahl, H. og Rinvik, E. (2010): Menneskets funksjonelle anatomi. Cappelen Damm`,
+    },
+],
   exercises: [],
 };
 
@@ -3756,7 +3914,27 @@ VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Hjertets oppbygning** og pumpefunksjon
+- **Blodsirkulasjonen** med lungekrets og systemkrets
+- **Gassutveksling** i lungenes alveoler
+- **VO2maks** som mål på kondisjon og hvordan forbedre det`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Helsedirektoratet: Hjerte- og karsykdommer`,
+    },
+],
   exercises: [],
 };
 
@@ -4150,7 +4328,26 @@ Ved langvarig aktivitet (maraton) starter kroppen med karbohydrat, men overgår 
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **ATP** som kroppens energivaluta
+- **Tre energisystemer**: anaerobt alaktisk, anaerobt laktisk og aerobt
+- Hvordan ulike aktiviteter bruker **ulike energisystemer**
+- Sammenhengen mellom intensitet, varighet og energisystem`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal`,
+    },
+],
   exercises: [],
 };
 
@@ -4514,7 +4711,27 @@ Gikk over på ankelen ved landing etter en heading. Akutt skade ved ytre leddbå
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Akutte skader** som forstuing, muskelstrekk og brudd
+- **Overbelastningsskader** som tendinopati og stressfrakturer
+- **PRICE-metoden** for akutt skadebehandling
+- **Skadeforebygging** gjennom oppvarming, teknikk og progresjon`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Bahr, R. og Mæhlum, S. (2002): Idrettsskader. Gazette bok
+- Røde Kors: Førstehjelp
+- Norsk Idrettsmedisinsk Institutt: nimi.no`,
+    },
+],
   exercises: [],
 };
 
@@ -4898,7 +5115,27 @@ Løftet haken, lukket nesen, pustet inn i munnen 2 ganger (ca. 1 sek hver). Så 
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Grunnleggende førstehjelp** i bevegelsessituasjoner
+- **Akutt håndtering** av skader og ulykker
+- **Stabil sideleie** og **HLR** (hjerte-lunge-redning)
+- Når man skal ringe 113 og hva man skal si`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Røde Kors: Førstehjelp
+- Norsk Resuscitasjonsråd: nrr.org
+- Helsedirektoratet: Førstehjelp`,
+    },
+],
   exercises: [],
 };
 
@@ -5236,7 +5473,26 @@ Læring: Viktig med god planlegging og tydelig kommunikasjon. Neste gang vil jeg
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-2-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Generell oppvarming** for å øke puls og kroppstemperatur
+- **Spesifikk oppvarming** tilpasset aktiviteten
+- **Nedvarming** og dens rolle i restitusjonen
+- Sammenhengen mellom oppvarming og **skadeforebygging**`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Olympiatoppen: Oppvarmingsråd`,
+    },
+],
   exercises: [],
 };
 

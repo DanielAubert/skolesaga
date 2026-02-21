@@ -2381,7 +2381,7 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
           { id: 'c', text: 'Minst to ganger daglig', isCorrect: false },
           { id: 'd', text: 'Etter behov', isCorrect: false },
         ],
-        solution: 'Ifolge dyrevelferdsloven skal husdyr ha tilsyn minst en gang daglig.',
+        solution: 'Ifølge dyrevelferdsloven skal husdyr ha tilsyn minst en gang daglig.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2394,7 +2394,7 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         number: '5',
         type: 'classic',
         task: 'Hvorfor er det viktig med god dyrevelferd i husdyrproduksjon?',
-        solution: 'God dyrevelferd er viktig fordi: 1) Vi har etisk ansvar for dyr i var varetekt, 2) Friske og fornoyde dyr produserer bedre, 3) Forbrukere forventer god dyrevelferd, 4) Det er lovpalagt gjennom dyrevelferdsloven, 5) Det er del av barekraftig matproduksjon.',
+        solution: 'God dyrevelferd er viktig fordi: 1) Vi har etisk ansvar for dyr i vår varetekt, 2) Friske og fornøyde dyr produserer bedre, 3) Forbrukere forventer god dyrevelferd, 4) Det er lovpålagt gjennom dyrevelferdsloven, 5) Det er del av bærekraftig matproduksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2435,23 +2435,23 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
     {
       id: 'naturbruk-vg1-4-2-def-1',
       type: 'definition',
-      title: 'Drovtygger',
-      content: `Drovtyggere er pattedyr med sammensatt mage (fire magerom) som kan fordoye grovfor som gras. Maten tygges om igjen (drovtygging) for bedre fordoyelse. Vom, nettmage, bladmage og loype utgjor magesystemet. Storfe, sau og geit er drovtyggere.`,
+      title: 'Drøvtygger',
+      content: `Drøvtyggere er pattedyr med sammensatt mage (fire magerom) som kan fordøye grovfôr som gras. Maten tygges om igjen (drøvtygging) for bedre fordøyelse. Vom, nettmage, bladmage og løype utgjør magesystemet. Storfe, sau og geit er drøvtyggere.`,
     },
     {
       id: 'naturbruk-vg1-4-2-text-1',
       type: 'text',
       content: `## Kuas biologi
 
-**Fordoyelsessystemet:**
-- Vomma: Gjaeringskammer med mikrober
-- Nettmagen: Sorterer foret
+**Fordøyelsessystemet:**
+- Vomma: Gjæringskammer med mikrober
+- Nettmagen: Sorterer fôret
 - Bladmagen: Suger opp vann
-- Loypen: Egentlig magesekk
+- Løypen: Egentlig magesekk
 
 **Reproduksjon:**
 - Brunst hver 21. dag
-- Drektighet: 9 maneder (280 dager)
+- Drektighet: 9 måneder (280 dager)
 - Kalver vanligvis en kalv
 - Melkeproduksjon starter etter kalving
 - Laktasjonsperiode: ca. 305 dager
@@ -2459,14 +2459,14 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
 **Naturlig atferd:**
 - Flokkdyr med sosial rangordning
 - Beiter 6-8 timer daglig
-- Hviler og drovtygger
+- Hviler og drøvtygger
 - Nysgjerrige og sosiale`,
     },
     {
       id: 'naturbruk-vg1-4-2-def-2',
       type: 'definition',
       title: 'Laktasjon',
-      content: `Laktasjon er perioden kua produserer melk etter kalving. En laktasjonsperiode varer vanligvis ca. 305 dager. Melkemengden er hoyest de forste manedene og avtar gradvis.`,
+      content: `Laktasjon er perioden kua produserer melk etter kalving. En laktasjonsperiode varer vanligvis ca. 305 dager. Melkemengden er høyest de første månedene og avtar gradvis.`,
     },
     {
       id: 'naturbruk-vg1-4-2-def-3',
@@ -2482,7 +2482,7 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
 **Losdrift:**
 - Kyrne gar fritt i fjoset
 - Liggebaser for hvile
-- Felles forbrett
+- Felles fôrbrett
 - Kan ha melkerobot
 - Standard i nye fjos
 
@@ -2506,8 +2506,8 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
         id: 'naturbruk-vg1-4-2-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Forklar hva en drovtygger er og nevn de fire magerommene.',
-        solution: 'En drovtygger er et pattedyr med sammensatt mage som kan fordoye grovfor som gras. De fire magerommene er: 1) Vomma - gjaeringskammer med mikrober, 2) Nettmagen - sorterer foret, 3) Bladmagen - suger opp vann, 4) Loypen - den egentlige magesekken.',
+        task: 'Forklar hva en drøvtygger er og nevn de fire magerommene.',
+        solution: 'En drøvtygger er et pattedyr med sammensatt mage som kan fordøye grovfôr som gras. De fire magerommene er: 1) Vomma - gjæringskammer med mikrober, 2) Nettmagen - sorterer fôret, 3) Bladmagen - suger opp vann, 4) Løypen - den egentlige magesekken.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2521,12 +2521,12 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
         type: 'multiple-choice',
         task: 'Hvor lenge varer drektigheten hos storfe?',
         options: [
-          { id: 'a', text: 'Ca. 5 maneder', isCorrect: false },
-          { id: 'b', text: 'Ca. 9 maneder', isCorrect: true },
-          { id: 'c', text: 'Ca. 12 maneder', isCorrect: false },
-          { id: 'd', text: 'Ca. 6 maneder', isCorrect: false },
+          { id: 'a', text: 'Ca. 5 måneder', isCorrect: false },
+          { id: 'b', text: 'Ca. 9 måneder', isCorrect: true },
+          { id: 'c', text: 'Ca. 12 måneder', isCorrect: false },
+          { id: 'd', text: 'Ca. 6 måneder', isCorrect: false },
         ],
-        solution: 'Drektigheten hos storfe varer ca. 9 maneder (280 dager).',
+        solution: 'Drektigheten hos storfe varer ca. 9 måneder (280 dager).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2538,8 +2538,8 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
         id: 'naturbruk-vg1-4-2-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hva er forskjellen mellom losdrift og basfjos?',
-        solution: 'I losdrift gar kyrne fritt i fjoset med liggebaser og felles forbrett, kan ha melkerobot. I basfjos star kyrne bundet pa hver sin bas. Losdrift gir bedre mulighet for naturlig atferd og er standard i nye fjos.',
+        task: 'Hva er forskjellen mellom løsdrift og båsfjos?',
+        solution: 'I løsdrift går kyrne fritt i fjøset med liggebåser og felles fôrbrett, kan ha melkerobot. I båsfjos står kyrne bundet på hver sin bås. Løsdrift gir bedre mulighet for naturlig atferd og er standard i nye fjøs.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2547,22 +2547,22 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
     {
       id: 'naturbruk-vg1-4-2-tip-1',
       type: 'tip',
-      title: 'Kuas kroppssprak',
-      content: `Du kan lese kuas humor pa kroppspraket. Avslappede orer og rolig drovtygging = fornoyd ku. Stive orer, spent kropp og stirrende blikk = stresset eller redd. Laer a lese dyra for a oppdage problemer tidlig!`,
+      title: 'Kuas kroppsspråk',
+      content: `Du kan lese kuas humør på kroppsspråket. Avslappede ører og rolig drøvtygging = fornøyd ku. Stive ører, spent kropp og stirrende blikk = stresset eller redd. Lær å lese dyra for å oppdage problemer tidlig!`,
     },
     {
       id: 'naturbruk-vg1-4-2-example-1',
       type: 'example',
-      title: 'Eksempel: Forplan for melkeku',
+      title: 'Eksempel: Fôrplan for melkeku',
       problem: 'Hvordan kan en dagsrasjon for en melkeku som yter 30 liter melk se ut?',
-      solution: `**Forplan for hoytytende melkeku:**
+      solution: `**Fôrplan for høytytende melkeku:**
 
-**Grovfor:**
-- Surfor (grassurfor): ca. 40 kg
-- Gir ca. 10-12 kg torrstoff
+**Grovfôr:**
+- Surfôr (grassurfôr): ca. 40 kg
+- Gir ca. 10-12 kg tørrstoff
 
-**Kraftfor:**
-- Melkekraftfor: ca. 10-12 kg
+**Kraftfôr:**
+- Melkekraftfôr: ca. 10-12 kg
 - Tilpasses etter ytelse
 
 **Vann:**
@@ -2570,9 +2570,9 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
 - En ku drikker 80-150 liter/dag
 
 **Balanse:**
-- Nok fiber for drovtygging
+- Nok fiber for drøvtygging
 - Protein tilpasset ytelse
-- Energi for hoy produksjon`,
+- Energi for høy produksjon`,
     },
     // --- Samleoppgaver ---
     {
@@ -2583,7 +2583,7 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
         number: '4',
         type: 'classic',
         task: 'Hva er en melkerobot og hvilke fordeler har den?',
-        solution: 'En melkerobot er et automatisk melkesystem der kua selv gar til melking. Fordeler: 1) Kua velger selv nar hun vil melkes, 2) Registrerer melkemengde og kvalitet automatisk, 3) Overvaker helse, 4) Gir fleksibel arbeidstid for bonden.',
+        solution: 'En melkerobot er et automatisk melkesystem der kua selv går til melking. Fordeler: 1) Kua velger selv når hun vil melkes, 2) Registrerer melkemengde og kvalitet automatisk, 3) Overvåker helse, 4) Gir fleksibel arbeidstid for bonden.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2619,37 +2619,37 @@ export const CHAPTER_NATURBRUK_VG1_4_3: TextbookChapter = {
   id: 'naturbruk-vg1-4-3',
   courseId: 'naturbruk-vg1',
   chapterNumber: '4.3',
-  title: 'Sau, geit og smafe',
+  title: 'Sau, geit og småfe',
   description: 'Biologi, hold og produksjon av sau og geit.',
   estimatedMinutes: 50,
   competenceGoals: [
     'beskrive saue- og geitehold',
-    'gjore rede for smafes biologi og produksjon',
+    'gjøre rede for småfes biologi og produksjon',
   ],
   content: [
     {
       id: 'naturbruk-vg1-4-3-intro',
       type: 'text',
-      content: `## Smafe - sau og geit
+      content: `## Småfe - sau og geit
 
-Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De utnytter utmarksbeiter i fjell og langs kysten, og bidrar til a holde kulturlandskapet apent.
+Sau og geit er småfe som har vært viktige husdyr i Norge i tusenvis av år. De utnytter utmarksbeiter i fjell og langs kysten, og bidrar til å holde kulturlandskapet åpent.
 
 **Sau i Norge:**
 - Ca. 14 000 sauebruk
-- Kjott- og ullproduksjon
+- Kjøtt- og ullproduksjon
 - Utmarksbeite om sommeren
 - Norsk hvit sau er hovedrasen
 
 **Geit i Norge:**
 - Ca. 300 geitebruk
 - Melk til ost (geitost, brunost)
-- Mest pa Vestlandet`,
+- Mest på Vestlandet`,
     },
     {
       id: 'naturbruk-vg1-4-3-def-1',
       type: 'definition',
       title: 'Utmarksbeite',
-      content: `Utmarksbeite er beiteomrader i utmark - skog, fjell og hei som ikke er dyrket jord. I Norge har sau og geit tradisjon for a beite i utmark om sommeren, der de utnytter gras og urter mennesker ikke kan bruke direkte.`,
+      content: `Utmarksbeite er beiteområder i utmark - skog, fjell og hei som ikke er dyrket jord. I Norge har sau og geit tradisjon for å beite i utmark om sommeren, der de utnytter gras og urter mennesker ikke kan bruke direkte.`,
     },
     {
       id: 'naturbruk-vg1-4-3-text-1',
@@ -2657,53 +2657,53 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
       content: `## Sauens biologi
 
 **Reproduksjon:**
-- Brunst om hosten (lysstyrt)
-- Drektighet: 5 maneder (147 dager)
-- Lamming om varen (mars-mai)
-- 1-3 lam per soye
+- Brunst om høsten (lysstyrt)
+- Drektighet: 5 måneder (147 dager)
+- Lamming om våren (mars-mai)
+- 1-3 lam per søye
 
-**Arssyklus:**
-- Vinter: Inneforing, drektighet
-- Var: Lamming, klipping
+**Årssyklus:**
+- Vinter: Innefôring, drektighet
+- Vår: Lamming, klipping
 - Sommer: Utmarksbeite
-- Host: Sanking, parring, slakting
+- Høst: Sanking, parring, slakting
 
 **Raser:**
 - Norsk hvit sau (mest vanlig)
-- Spaelsau (kortere ull)
+- Spælsau (kortere ull)
 - Gammelnorsk sau (villsau)`,
     },
     {
       id: 'naturbruk-vg1-4-3-def-2',
       type: 'definition',
       title: 'Lamming',
-      content: `Lamming er perioden nar soyene foder lam. I Norge skjer lamming vanligvis i mars-mai. Bonden ma folge tett med for a hjelpe ved vanskelige fodsler og sikre at lammene far ramelk.`,
+      content: `Lamming er perioden når søyene føder lam. I Norge skjer lamming vanligvis i mars-mai. Bonden må følge tett med for å hjelpe ved vanskelige fødsler og sikre at lammene får råmelk.`,
     },
     {
       id: 'naturbruk-vg1-4-3-def-3',
       type: 'definition',
       title: 'Sanking',
-      content: `Sanking er innhenting av sau og lam fra utmarksbeite om hosten. Sauen har beitet fritt i fjellet gjennom sommeren og ma samles inn for vinteren. Sanking skjer ofte som dugnad med mange deltakere og hunder.`,
+      content: `Sanking er innhenting av sau og lam fra utmarksbeite om høsten. Sauen har beitet fritt i fjellet gjennom sommeren og må samles inn for vinteren. Sanking skjer ofte som dugnad med mange deltakere og hunder.`,
     },
     {
       id: 'naturbruk-vg1-4-3-text-2',
       type: 'text',
-      content: `## Utfordringer i smafehold
+      content: `## Utfordringer i småfehold
 
 **Rovdyr:**
-- Ulv, jerv, gaupe, orn, bjorn
-- Store tap i enkelte omrader
+- Ulv, jerv, gaupe, ørn, bjørn
+- Store tap i enkelte områder
 - Forebyggende tiltak
 - Erstatningsordninger
 
 **Sykdommer:**
-- Parasitter (rundorm, flatt)
+- Parasitter (rundorm, flått)
 - Footrot (klauvsjuke)
 - Mastitt (jurbetennelse)
 
-**Dyrevelferd pa beite:**
+**Dyrevelferd på beite:**
 - Daglig tilsyn vanskelig i utmark
-- Elektronisk overvaking (GPS)
+- Elektronisk overvåking (GPS)
 - Radiobjeller for sporing`,
     },
     {
@@ -2713,8 +2713,8 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         id: 'naturbruk-vg1-4-3-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Beskriv sauens arssyklus fra vinter til host.',
-        solution: 'Vinter: Soyene star inne og fores, er drektige. Var: Lamming i mars-mai, klipping av ull, slipp pa varbeite. Sommer: Sau og lam beiter i utmark/fjell. Host: Sanking fra fjellet, slakting av lam, parring, innsett til inneforing.',
+        task: 'Beskriv sauens årssyklus fra vinter til høst.',
+        solution: 'Vinter: Søyene står inne og fôres, er drektige. Vår: Lamming i mars-mai, klipping av ull, slipp på vårbeite. Sommer: Sau og lam beiter i utmark/fjell. Høst: Sanking fra fjellet, slakting av lam, parring, innsett til innefôring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2728,12 +2728,12 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         type: 'multiple-choice',
         task: 'Hvor lenge varer drektigheten hos sau?',
         options: [
-          { id: 'a', text: 'Ca. 3 maneder', isCorrect: false },
-          { id: 'b', text: 'Ca. 5 maneder', isCorrect: true },
-          { id: 'c', text: 'Ca. 7 maneder', isCorrect: false },
-          { id: 'd', text: 'Ca. 9 maneder', isCorrect: false },
+          { id: 'a', text: 'Ca. 3 måneder', isCorrect: false },
+          { id: 'b', text: 'Ca. 5 måneder', isCorrect: true },
+          { id: 'c', text: 'Ca. 7 måneder', isCorrect: false },
+          { id: 'd', text: 'Ca. 9 måneder', isCorrect: false },
         ],
-        solution: 'Drektigheten hos sau varer ca. 5 maneder (147 dager).',
+        solution: 'Drektigheten hos sau varer ca. 5 måneder (147 dager).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2746,7 +2746,7 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         number: '3',
         type: 'classic',
         task: 'Hva er utmarksbeite, og hvorfor er det viktig i norsk sauehold?',
-        solution: 'Utmarksbeite er beiteomrader i skog, fjell og hei som ikke er dyrket jord. Det er viktig fordi det utnytter forressurser mennesker ikke kan bruke, holder kulturlandskapet apent, og gir god dyrevelferd med naturlig atferd.',
+        solution: 'Utmarksbeite er beiteområder i skog, fjell og hei som ikke er dyrket jord. Det er viktig fordi det utnytter fôrressurser mennesker ikke kan bruke, holder kulturlandskapet åpent, og gir god dyrevelferd med naturlig atferd.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2755,21 +2755,21 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
       id: 'naturbruk-vg1-4-3-tip-1',
       type: 'tip',
       title: 'God lamming',
-      content: `Under lammingen er det viktig at lammet far ramelk (kolostrum) innen 2-4 timer etter fodsel. Ramelken inneholder antistoffer som beskytter lammet mot sykdom. Sjekk at lammet dier aktivt!`,
+      content: `Under lammingen er det viktig at lammet får råmelk (kolostrum) innen 2-4 timer etter fødsel. Råmelken inneholder antistoffer som beskytter lammet mot sykdom. Sjekk at lammet dier aktivt!`,
     },
     {
       id: 'naturbruk-vg1-4-3-example-1',
       type: 'example',
-      title: 'Eksempel: Arshjul for sauebonde',
-      problem: 'Hvordan ser et typisk ar ut for en sauebonde?',
-      solution: `**Arshjul for sauebonde:**
+      title: 'Eksempel: Årshjul for sauebonde',
+      problem: 'Hvordan ser et typisk år ut for en sauebonde?',
+      solution: `**Årshjul for sauebonde:**
 
-**Januar-februar:** Inneforing, soyene er drektige
-**Mars-mai:** Lamming, klipping, slipp pa varbeite
-**Juni-august:** Sau og lam pa utmarksbeite
+**Januar-februar:** Innefôring, søyene er drektige
+**Mars-mai:** Lamming, klipping, slipp på vårbeite
+**Juni-august:** Sau og lam på utmarksbeite
 **September:** Sanking fra fjellet, slakting av lam
-**Oktober-november:** Parring, innsett til inneforing
-**Desember:** Roligere periode, foring og tilsyn`,
+**Oktober-november:** Parring, innsett til innefôring
+**Desember:** Roligere periode, fôring og tilsyn`,
     },
     // --- Samleoppgaver ---
     {
@@ -2780,7 +2780,7 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         number: '4',
         type: 'classic',
         task: 'Hva er de viktigste forskjellene mellom sau og geit?',
-        solution: 'Sau: Produserer hovedsakelig kjott og ull, sterk flokkinstinkt, beiter mest gras. Geit: Produserer melk til ost, mer nysgjerrig og selvstendig, beiter mer variert (busker, kvister), bedre klatrer.',
+        solution: 'Sau: Produserer hovedsakelig kjøtt og ull, sterk flokkinstinkt, beiter mest gras. Geit: Produserer melk til ost, mer nysgjerrig og selvstendig, beiter mer variert (busker, kvister), bedre klatrer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2794,12 +2794,12 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         type: 'multiple-choice',
         task: 'Hva er sanking?',
         options: [
-          { id: 'a', text: 'A klippe ull av sauen', isCorrect: false },
-          { id: 'b', text: 'A samle inn sau fra utmarksbeite om hosten', isCorrect: true },
-          { id: 'c', text: 'A gi for til sauen', isCorrect: false },
-          { id: 'd', text: 'A pare sau og vaer', isCorrect: false },
+          { id: 'a', text: 'Å klippe ull av sauen', isCorrect: false },
+          { id: 'b', text: 'Å samle inn sau fra utmarksbeite om høsten', isCorrect: true },
+          { id: 'c', text: 'Å gi fôr til sauen', isCorrect: false },
+          { id: 'd', text: 'Å pare sau og vær', isCorrect: false },
         ],
-        solution: 'Sanking er innhenting av sau og lam fra utmarksbeite om hosten.',
+        solution: 'Sanking er innhenting av sau og lam fra utmarksbeite om høsten.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2816,36 +2816,36 @@ export const CHAPTER_NATURBRUK_VG1_4_4: TextbookChapter = {
   id: 'naturbruk-vg1-4-4',
   courseId: 'naturbruk-vg1',
   chapterNumber: '4.4',
-  title: 'Gris, fjorfe og andre husdyr',
-  description: 'Hold og produksjon av gris, hons og andre husdyr.',
+  title: 'Gris, fjørfe og andre husdyr',
+  description: 'Hold og produksjon av gris, høns og andre husdyr.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'beskrive svine- og fjorfehold',
-    'gjore rede for ulike husdyrproduksjoner',
+    'beskrive svine- og fjørfehold',
+    'gjøre rede for ulike husdyrproduksjoner',
   ],
   content: [
     {
       id: 'naturbruk-vg1-4-4-intro',
       type: 'text',
-      content: `## Enmagede husdyr - gris og fjorfe
+      content: `## Enmagede husdyr - gris og fjørfe
 
-Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som drovtyggere. De fores hovedsakelig med kraftfor basert pa korn.
+Gris og fjørfe er enmagede dyr som ikke kan utnytte grovfôr like effektivt som drøvtyggere. De fôres hovedsakelig med kraftfôr basert på korn.
 
 **Svinehold i Norge:**
 - Ca. 2000 svinebruk
-- Ca. 1,5 millioner slaktegris per ar
+- Ca. 1,5 millioner slaktegris per år
 - Strenge krav til dyrevelferd
 
-**Fjorfe i Norge:**
-- Ca. 4 millioner verpehons
-- Ca. 70 millioner slaktekyllinger per ar
-- Bade egg- og kjottproduksjon`,
+**Fjørfe i Norge:**
+- Ca. 4 millioner verpehøns
+- Ca. 70 millioner slaktekyllinger per år
+- Både egg- og kjøttproduksjon`,
     },
     {
       id: 'naturbruk-vg1-4-4-def-1',
       type: 'definition',
       title: 'Enmaget dyr',
-      content: `Enmaget (monogastrisk) dyr har en enkel magesekk i motsetning til drovtyggeres fire magerom. Gris, fjorfe og mennesker er enmagede. De kan ikke fordoye grovfor effektivt og trenger energirik mat som korn.`,
+      content: `Enmaget (monogastrisk) dyr har en enkel magesekk i motsetning til drøvtyggeres fire magerom. Gris, fjørfe og mennesker er enmagede. De kan ikke fordøye grovfôr effektivt og trenger energirik mat som korn.`,
     },
     {
       id: 'naturbruk-vg1-4-4-text-1',
@@ -2855,43 +2855,43 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
 **Biologi:**
 - Intelligent og sosial
 - Nysgjerrig og utforskende
-- Behov for a rote i jord/stro
+- Behov for å rote i jord/strø
 
 **Reproduksjon:**
 - Drektighet: 114 dager (3 mnd, 3 uker, 3 dager)
 - 10-14 grisunger per kull
-- 2-2,5 kull per purke per ar
+- 2-2,5 kull per purke per år
 
 **Dyrevelferd:**
-- Krav om losdrift for purker
-- Stro og rotemateriale
+- Krav om løsdrift for purker
+- Strø og rotemateriale
 - Sosial kontakt
 - Norge har strenge krav vs. EU`,
     },
     {
       id: 'naturbruk-vg1-4-4-def-2',
       type: 'definition',
-      title: 'Frittgaende hons',
-      content: `Frittgaende hons er honer som kan bevege seg fritt i et storre omrade i stedet for a vaere innestengt i bur. De har tilgang til stro, vagler (sittepinner) og verpekaer.`,
+      title: 'Frittgående høns',
+      content: `Frittgående høns er høner som kan bevege seg fritt i et større område i stedet for å være innestengt i bur. De har tilgang til strø, vagler (sittepinner) og verpekasser.`,
     },
     {
       id: 'naturbruk-vg1-4-4-text-2',
       type: 'text',
-      content: `## Fjorfe
+      content: `## Fjørfe
 
-**Verpehons:**
+**Verpehøns:**
 - Produserer egg til konsum
-- Ca. 300 egg per hone per ar
+- Ca. 300 egg per høne per år
 - Ulike oppstallingsformer
 
-**Oppstallingsformer for hons:**
-- Frittgaende innendors (mest i Norge)
-- Frittgaende utendors (friland)
-- Okologisk (med uteareal)
+**Oppstallingsformer for høns:**
+- Frittgående innendørs (mest i Norge)
+- Frittgående utendørs (friland)
+- Økologisk (med uteareal)
 
 **Slaktekylling:**
 - Hurtigvoksende raser
-- Slakteklar pa 30-35 dager
+- Slakteklar på 30-35 dager
 - Store besetninger`,
     },
     {
@@ -2901,8 +2901,8 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
         id: 'naturbruk-vg1-4-4-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Hva er forskjellen mellom drovtyggere og enmagede dyr?',
-        solution: 'Drovtyggere har fire magerom og kan fordoye grovfor som gras. Enmagede dyr har enkel magesekk og trenger energirik mat som korn - de kan ikke utnytte grovfor effektivt.',
+        task: 'Hva er forskjellen mellom drøvtyggere og enmagede dyr?',
+        solution: 'Drøvtyggere har fire magerom og kan fordøye grovfôr som gras. Enmagede dyr har enkel magesekk og trenger energirik mat som korn - de kan ikke utnytte grovfôr effektivt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2916,10 +2916,10 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
         type: 'multiple-choice',
         task: 'Hvor lang er drektigheten hos gris?',
         options: [
-          { id: 'a', text: 'Ca. 2 maneder', isCorrect: false },
-          { id: 'b', text: 'Ca. 4 maneder (114 dager)', isCorrect: true },
-          { id: 'c', text: 'Ca. 6 maneder', isCorrect: false },
-          { id: 'd', text: 'Ca. 9 maneder', isCorrect: false },
+          { id: 'a', text: 'Ca. 2 måneder', isCorrect: false },
+          { id: 'b', text: 'Ca. 4 måneder (114 dager)', isCorrect: true },
+          { id: 'c', text: 'Ca. 6 måneder', isCorrect: false },
+          { id: 'd', text: 'Ca. 9 måneder', isCorrect: false },
         ],
         solution: 'Drektigheten hos gris er ca. 114 dager (3 mnd, 3 uker, 3 dager).',
         allowsUpload: false,
@@ -2934,7 +2934,7 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
         number: '3',
         type: 'classic',
         task: 'Beskriv tre viktige atferdsbehov hos gris.',
-        solution: '1) Roting - behov for a rote med trynet i jord eller stro. 2) Sosial kontakt - gris er flokkdyr. 3) Skille ligg- og gjodselplass - grisen er renlig.',
+        solution: '1) Roting - behov for å rote med trynet i jord eller strø. 2) Sosial kontakt - gris er flokkdyr. 3) Skille ligg- og gjødselplass - grisen er renlig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2942,8 +2942,8 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
     {
       id: 'naturbruk-vg1-4-4-tip-1',
       type: 'tip',
-      title: 'Les merkingen pa egget',
-      content: `Tallet pa egget forteller om produksjonsformen: 0 = okologisk, 1 = friland, 2 = frittgaende innendors. NO betyr norsk produksjon. Velg egg etter hva som er viktig for deg!`,
+      title: 'Les merkingen på egget',
+      content: `Tallet på egget forteller om produksjonsformen: 0 = økologisk, 1 = friland, 2 = frittgående innendørs. NO betyr norsk produksjon. Velg egg etter hva som er viktig for deg!`,
     },
     {
       id: 'naturbruk-vg1-4-4-example-1',
@@ -2952,12 +2952,12 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
       problem: 'Hvordan skiller norsk dyrevelferd for gris seg fra EU?',
       solution: `**Norge har strengere krav:**
 
-**Purker:** Norge krever losdrift hele drektigheten, EU tillater fiksering.
-**Kastrering:** Norge krever bedovelse, mange EU-land tillater uten.
+**Purker:** Norge krever løsdrift hele drektigheten, EU tillater fiksering.
+**Kastrering:** Norge krever bedøvelse, mange EU-land tillater uten.
 **Halekupering:** Forbudt i Norge, tillatt i mange EU-land.
-**Stro:** Krav i Norge, varierende i EU.
+**Strø:** Krav i Norge, varierende i EU.
 
-Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrevelferd.`,
+Disse forskjellene gjør norsk svinekjøtt dyrere å produsere, men med bedre dyrevelferd.`,
     },
     // --- Samleoppgaver ---
     {
@@ -2967,14 +2967,14 @@ Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrev
         id: 'naturbruk-vg1-4-4-ex-4',
         number: '4',
         type: 'multiple-choice',
-        task: 'Hva betyr det at honer er frittgaende?',
+        task: 'Hva betyr det at høner er frittgående?',
         options: [
-          { id: 'a', text: 'At de gar fritt utendors hele aret', isCorrect: false },
+          { id: 'a', text: 'At de går fritt utendørs hele året', isCorrect: false },
           { id: 'b', text: 'At de kan bevege seg fritt og ikke sitter i bur', isCorrect: true },
-          { id: 'c', text: 'At de far fri mat', isCorrect: false },
-          { id: 'd', text: 'At de er okologiske', isCorrect: false },
+          { id: 'c', text: 'At de får fri mat', isCorrect: false },
+          { id: 'd', text: 'At de er økologiske', isCorrect: false },
         ],
-        solution: 'Frittgaende hons kan bevege seg fritt i stedet for a vaere i bur.',
+        solution: 'Frittgående høns kan bevege seg fritt i stedet for å være i bur.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -2986,8 +2986,8 @@ Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrev
         id: 'naturbruk-vg1-4-4-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Nevn to mater norsk dyrevelferd for gris er strengere enn i EU.',
-        solution: '1) Purker ma ga i losdrift hele drektigheten i Norge, EU tillater fiksering. 2) Kastrering ma gjores med bedovelse i Norge, tillates uten bedovelse i mange EU-land.',
+        task: 'Nevn to måter norsk dyrevelferd for gris er strengere enn i EU.',
+        solution: '1) Purker må gå i løsdrift hele drektigheten i Norge, EU tillater fiksering. 2) Kastrering må gjøres med bedøvelse i Norge, tillates uten bedøvelse i mange EU-land.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3008,7 +3008,7 @@ export const CHAPTER_NATURBRUK_VG1_4_5: TextbookChapter = {
   description: 'Helse, sykdommer og forebyggende arbeid i husdyrhold.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for vanlige sykdommer hos husdyr',
+    'gjøre rede for vanlige sykdommer hos husdyr',
     'forklare prinsipper for forebygging av sykdom',
   ],
   content: [
@@ -3017,19 +3017,19 @@ export const CHAPTER_NATURBRUK_VG1_4_5: TextbookChapter = {
       type: 'text',
       content: `## God helse - grunnlaget for god produksjon
 
-Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebygging er alltid bedre enn behandling. Norge har svaert god dyrehelse sammenlignet med andre land.
+Friske dyr er en forutsetning for god dyrevelferd og lønnsom produksjon. Forebygging er alltid bedre enn behandling. Norge har svært god dyrehelse sammenlignet med andre land.
 
 **Norsk dyrehelse:**
 - Fri for mange alvorlige sykdommer
 - Lavt antibiotikaforbruk
-- Gode overvakingsprogrammer
+- Gode overvåkingsprogrammer
 - Streng importkontroll`,
     },
     {
       id: 'naturbruk-vg1-4-5-def-1',
       type: 'definition',
       title: 'Smittevern',
-      content: `Smittevern er tiltak for a hindre at smittsomme sykdommer sprer seg. Det omfatter hygiene, karantene, vaksinering, skadedyrbekjempelse og kontroll av dyreflyt.`,
+      content: `Smittevern er tiltak for å hindre at smittsomme sykdommer sprer seg. Det omfatter hygiene, karantene, vaksinering, skadedyrbekjempelse og kontroll av dyreflyt.`,
     },
     {
       id: 'naturbruk-vg1-4-5-text-1',
@@ -3047,7 +3047,7 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
 - Mastitt
 
 **Hos gris:**
-- Leddbetennelse hos smagris
+- Leddbetennelse hos smågriser
 - Diare
 - Lungebetennelse`,
     },
@@ -3055,7 +3055,7 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
       id: 'naturbruk-vg1-4-5-def-2',
       type: 'definition',
       title: 'Zoonose',
-      content: `Zoonoser er sykdommer som kan smitte mellom dyr og mennesker. Eksempler er salmonella, campylobakter og ringorm. God hygiene ved handtering av dyr og mat er viktig.`,
+      content: `Zoonoser er sykdommer som kan smitte mellom dyr og mennesker. Eksempler er salmonella, campylobakter og ringorm. God hygiene ved håndtering av dyr og mat er viktig.`,
     },
     {
       id: 'naturbruk-vg1-4-5-text-2',
@@ -3063,27 +3063,27 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
       content: `## Forebygging av sykdom
 
 **God drift:**
-- Riktig foring og vannforsyning
-- Godt miljo (ventilasjon, temperatur)
-- Rent og tort underlag
+- Riktig fôring og vannforsyning
+- Godt miljø (ventilasjon, temperatur)
+- Rent og tørt underlag
 - Tilstrekkelig plass
 
 **Smittevern:**
 - Smittesluse ved inngang
-- Eget toy og fottoy i fjoset
-- Begrenset besok
-- Karantene ved innkjop
+- Eget tøy og fottøy i fjøset
+- Begrenset besøk
+- Karantene ved innkjøp
 
 **Helsekontroll:**
 - Daglig tilsyn
-- Regelmessig veterinaerbesok
+- Regelmessig veterinærbesøk
 - Helseregistreringer`,
     },
     {
       id: 'naturbruk-vg1-4-5-def-3',
       type: 'definition',
       title: 'Antibiotikaresistens',
-      content: `Antibiotikaresistens oppstar nar bakterier utvikler motstand mot antibiotika. Overforbruk og feil bruk oker resistens. Norge har lavt forbruk og lite resistens.`,
+      content: `Antibiotikaresistens oppstår når bakterier utvikler motstand mot antibiotika. Overforbruk og feil bruk øker resistens. Norge har lavt forbruk og lite resistens.`,
     },
     {
       id: 'naturbruk-vg1-4-5-ex-1',
@@ -3125,7 +3125,7 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
         number: '3',
         type: 'classic',
         task: 'Beskriv fire forebyggende tiltak for god dyrehelse.',
-        solution: '1) Riktig foring og vannforsyning. 2) Godt miljo med ventilasjon og rent underlag. 3) Smittevern med smittesluse og karantene ved innkjop. 4) Daglig tilsyn og observasjon.',
+        solution: '1) Riktig fôring og vannforsyning. 2) Godt miljø med ventilasjon og rent underlag. 3) Smittevern med smittesluse og karantene ved innkjøp. 4) Daglig tilsyn og observasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3134,18 +3134,18 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
       id: 'naturbruk-vg1-4-5-tip-1',
       type: 'tip',
       title: 'Tidlig oppdagelse',
-      content: `Jo tidligere du oppdager at et dyr er sykt, jo bedre er sjansen for vellykket behandling. Bruk tid pa a observere dyra hver dag - laer deg hva som er normalt!`,
+      content: `Jo tidligere du oppdager at et dyr er sykt, jo bedre er sjansen for vellykket behandling. Bruk tid på å observere dyra hver dag - lær deg hva som er normalt!`,
     },
     {
       id: 'naturbruk-vg1-4-5-example-1',
       type: 'example',
-      title: 'Eksempel: Tegn pa sykdom',
+      title: 'Eksempel: Tegn på sykdom',
       problem: 'Hvordan kan du se at et dyr er sykt?',
-      solution: `**Tegn pa sykdom:**
+      solution: `**Tegn på sykdom:**
 - Endret atferd (slapp, isolerer seg)
 - Nedsatt appetitt
 - Feber
-- Endret avforing
+- Endret avføring
 - Synlige symptomer (hoste, halthet, utslett)
 - Redusert produksjon (mindre melk, vekttap)`,
     },
@@ -3158,7 +3158,7 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
         number: '4',
         type: 'classic',
         task: 'Hvordan kan du se at et dyr er sykt?',
-        solution: 'Tegn pa sykdom: 1) Endret atferd - slapp, isolerer seg. 2) Nedsatt appetitt. 3) Feber. 4) Endret avforing. 5) Synlige symptomer - hoste, halthet. 6) Redusert produksjon.',
+        solution: 'Tegn på sykdom: 1) Endret atferd - slapp, isolerer seg. 2) Nedsatt appetitt. 3) Feber. 4) Endret avføring. 5) Synlige symptomer - hoste, halthet. 6) Redusert produksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3172,12 +3172,12 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
         type: 'multiple-choice',
         task: 'Hvorfor er lavt antibiotikaforbruk viktig?',
         options: [
-          { id: 'a', text: 'For a spare penger', isCorrect: false },
-          { id: 'b', text: 'For a unnga antibiotikaresistens', isCorrect: true },
+          { id: 'a', text: 'For å spare penger', isCorrect: false },
+          { id: 'b', text: 'For å unngå antibiotikaresistens', isCorrect: true },
           { id: 'c', text: 'Fordi antibiotika er forbudt', isCorrect: false },
-          { id: 'd', text: 'For a produsere mer melk', isCorrect: false },
+          { id: 'd', text: 'For å produsere mer melk', isCorrect: false },
         ],
-        solution: 'Lavt antibiotikaforbruk er viktig for a unnga antibiotikaresistens.',
+        solution: 'Lavt antibiotikaforbruk er viktig for å unngå antibiotikaresistens.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -3187,91 +3187,91 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
 };
 
 // ----------------------------------------------------------------------------
-// 4.6 Foring og forplanlegging
+// 4.6 Fôring og fôrplanlegging
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_NATURBRUK_VG1_4_6: TextbookChapter = {
   id: 'naturbruk-vg1-4-6',
   courseId: 'naturbruk-vg1',
   chapterNumber: '4.6',
-  title: 'Foring og forplanlegging',
-  description: 'For, naeringsbehov og forplanlegging for ulike husdyr.',
+  title: 'Fôring og fôrplanlegging',
+  description: 'Fôr, næringsbehov og fôrplanlegging for ulike husdyr.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjore rede for husdyras naeringsbehov',
-    'forklare prinsipper for god foring',
+    'gjøre rede for husdyras næringsbehov',
+    'forklare prinsipper for god fôring',
   ],
   content: [
     {
       id: 'naturbruk-vg1-4-6-intro',
       type: 'text',
-      content: `## Foring - a dekke dyras behov
+      content: `## Fôring - å dekke dyras behov
 
-Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr har behov for energi, protein, vitaminer, mineraler og vann.
+Riktig fôring er avgjørende for dyras helse, velferd og produksjon. Hvert dyr har behov for energi, protein, vitaminer, mineraler og vann.
 
 **Grunnleggende prinsipper:**
-- Dekke vedlikeholdsbehovet forst
+- Dekke vedlikeholdsbehovet først
 - Tillegg for produksjon (melk, tilvekst)
-- Balanse mellom naeringsstoffer
+- Balanse mellom næringsstoffer
 - Tilgang til rent vann`,
     },
     {
       id: 'naturbruk-vg1-4-6-def-1',
       type: 'definition',
       title: 'Vedlikeholdsbehov',
-      content: `Vedlikeholdsbehovet er den mengden naering et dyr trenger for a opprettholde kroppsvekt og normale livsfunksjoner uten a produsere noe ekstra. All produksjon kommer i tillegg.`,
+      content: `Vedlikeholdsbehovet er den mengden næring et dyr trenger for å opprettholde kroppsvekt og normale livsfunksjoner uten å produsere noe ekstra. All produksjon kommer i tillegg.`,
     },
     {
       id: 'naturbruk-vg1-4-6-text-1',
       type: 'text',
-      content: `## Formidler
+      content: `## Fôrmidler
 
-**Grovfor:**
-- Surfor - ensilert gras
-- Hoy - torket gras
+**Grovfôr:**
+- Surfôr - ensilert gras
+- Høy - tørket gras
 - Beite - ferskt gras
-- Viktigst for drovtyggere
+- Viktigst for drøvtyggere
 
-**Kraftfor:**
+**Kraftfôr:**
 - Korn (bygg, hvete, havre)
 - Proteinvekster (soya, raps)
-- Industrielt framstilt kraftfor
-- Hoy energi- og proteinkonsentrasjon`,
+- Industrielt framstilt kraftfôr
+- Høy energi- og proteinkonsentrasjon`,
     },
     {
       id: 'naturbruk-vg1-4-6-def-2',
       type: 'definition',
-      title: 'FEm (forenhet melk)',
-      content: `FEm er en enhet for energiinnhold i for, basert pa energiverdien i 1 kg bygg til melkeproduksjon. Det brukes for a sammenligne og beregne for til drovtyggere.`,
+      title: 'FEm (fôrenhet melk)',
+      content: `FEm er en enhet for energiinnhold i fôr, basert på energiverdien i 1 kg bygg til melkeproduksjon. Det brukes for å sammenligne og beregne fôr til drøvtyggere.`,
     },
     {
       id: 'naturbruk-vg1-4-6-text-2',
       type: 'text',
-      content: `## Foring av ulike dyreslag
+      content: `## Fôring av ulike dyreslag
 
 **Melkeku:**
-- Grovfor som basis (appetittforing)
-- Kraftfor etter ytelse
+- Grovfôr som basis (appetittfôring)
+- Kraftfôr etter ytelse
 - 80-150 liter vann daglig
 
 **Sau:**
-- Grovfor (surfor, hoy, beite)
-- Lite kraftfor unntatt for lamming
+- Grovfôr (surfôr, høy, beite)
+- Lite kraftfôr unntatt før lamming
 - Utmarksbeite om sommeren
 
 **Gris:**
-- Kraftfor som hovedfor
-- Kan ikke utnytte grovfor effektivt
+- Kraftfôr som hovedfôr
+- Kan ikke utnytte grovfôr effektivt
 
-**Fjorfe:**
-- Kraftfor (ferdigfor)
+**Fjørfe:**
+- Kraftfôr (ferdigfôr)
 - Tilpasset verpehons eller slaktekylling`,
     },
     {
       id: 'naturbruk-vg1-4-6-def-3',
       type: 'definition',
       title: 'Holdvurdering',
-      content: `Holdvurdering (BCS) er en metode for a vurdere dyrets ernaeringstilstand ved a kjenne og se pa fettvev pa kroppen. Skalaen gar fra 1 (avmagret) til 5 (overvektig).`,
+      content: `Holdvurdering (BCS) er en metode for å vurdere dyrets ernæringstilstand ved å kjenne og se på fettvev på kroppen. Skalaen går fra 1 (avmagret) til 5 (overvektig).`,
     },
     {
       id: 'naturbruk-vg1-4-6-ex-1',
@@ -3280,8 +3280,8 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         id: 'naturbruk-vg1-4-6-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Hva er forskjellen mellom grovfor og kraftfor?',
-        solution: 'Grovfor (surfor, hoy, beite) har hoyt fiberinnhold og lavere energikonsentrasjon, viktig for drovtyggere. Kraftfor (korn, soya) har hoy konsentrasjon av energi og protein, brukes som tilskudd eller hovedfor til enmagede dyr.',
+        task: 'Hva er forskjellen mellom grovfôr og kraftfôr?',
+        solution: 'Grovfôr (surfôr, høy, beite) har høyt fiberinnhold og lavere energikonsentrasjon, viktig for drøvtyggere. Kraftfôr (korn, soya) har høy konsentrasjon av energi og protein, brukes som tilskudd eller hovedfôr til enmagede dyr.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3295,12 +3295,12 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         type: 'multiple-choice',
         task: 'Hva er vedlikeholdsbehov?',
         options: [
-          { id: 'a', text: 'Behovet for for til melkeproduksjon', isCorrect: false },
-          { id: 'b', text: 'Naering for a opprettholde kropp uten a produsere noe', isCorrect: true },
+          { id: 'a', text: 'Behovet for fôr til melkeproduksjon', isCorrect: false },
+          { id: 'b', text: 'Næring for å opprettholde kropp uten å produsere noe', isCorrect: true },
           { id: 'c', text: 'Behovet for a vedlikeholde fjoset', isCorrect: false },
-          { id: 'd', text: 'Minimum formengde per dag', isCorrect: false },
+          { id: 'd', text: 'Minimum fôrmengde per dag', isCorrect: false },
         ],
-        solution: 'Vedlikeholdsbehovet er naering for a opprettholde kropp og livsfunksjoner uten ekstra produksjon.',
+        solution: 'Vedlikeholdsbehovet er næring for å opprettholde kropp og livsfunksjoner uten ekstra produksjon.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },
@@ -3312,8 +3312,8 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         id: 'naturbruk-vg1-4-6-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Beskriv hvordan foringen av en melkeku skiller seg fra foringen av en sau.',
-        solution: 'Melkeku: Hoyt naeringsbehov, grovfor som basis med kraftfor etter ytelse, 80-150 liter vann daglig. Sau: Lavere naeringsbehov, hovedsakelig grovfor, lite kraftfor (mest for lamming), utnytter utmarksbeite.',
+        task: 'Beskriv hvordan fôringen av en melkeku skiller seg fra fôringen av en sau.',
+        solution: 'Melkeku: Høyt næringsbehov, grovfôr som basis med kraftfôr etter ytelse, 80-150 liter vann daglig. Sau: Lavere næringsbehov, hovedsakelig grovfôr, lite kraftfôr (mest før lamming), utnytter utmarksbeite.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3321,25 +3321,25 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
     {
       id: 'naturbruk-vg1-4-6-tip-1',
       type: 'tip',
-      title: 'For etter behov',
-      content: `Et friskt dyr med god appetitt skal ha tilgang til nok for. Men var obs pa at overforing ogsa er et problem - det kan gi forfetning og stoffskiftesykdommer. Laer deg a vurdere dyras hold regelmessig!`,
+      title: 'Fôr etter behov',
+      content: `Et friskt dyr med god appetitt skal ha tilgang til nok fôr. Men vær obs på at overfôring også er et problem - det kan gi forfetning og stoffskiftesykdommer. Lær deg å vurdere dyras hold regelmessig!`,
     },
     {
       id: 'naturbruk-vg1-4-6-example-1',
       type: 'example',
-      title: 'Eksempel: Grovfor vs. kraftfor',
-      problem: 'Hva er forskjellen mellom grovfor og kraftfor?',
-      solution: `**Grovfor:**
-- Surfor, hoy, beite
-- Hoyt fiberinnhold
+      title: 'Eksempel: Grovfôr vs. kraftfôr',
+      problem: 'Hva er forskjellen mellom grovfôr og kraftfôr?',
+      solution: `**Grovfôr:**
+- Surfôr, høy, beite
+- Høyt fiberinnhold
 - Lavere energikonsentrasjon
-- Viktig for drovtyggere
+- Viktig for drøvtyggere
 
-**Kraftfor:**
-- Korn, soya, ferdigfor
-- Hoy konsentrasjon av energi og protein
+**Kraftfôr:**
+- Korn, soya, ferdigfôr
+- Høy konsentrasjon av energi og protein
 - Lavt fiberinnhold
-- Brukes som tilskudd eller hovedfor`,
+- Brukes som tilskudd eller hovedfôr`,
     },
     // --- Samleoppgaver ---
     {
@@ -3350,7 +3350,7 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         number: '4',
         type: 'classic',
         task: 'Hva er holdvurdering, og hvorfor er det viktig?',
-        solution: 'Holdvurdering er a vurdere dyrets ernaeringstilstand ved a se og kjenne pa fettvev. Skala 1-5. Viktig for a se om foringen er riktig, avslore under- eller overforing, og tilpasse foring til produksjonsstadium.',
+        solution: 'Holdvurdering er å vurdere dyrets ernæringstilstand ved å se og kjenne på fettvev. Skala 1-5. Viktig for å se om fôringen er riktig, avsløre under- eller overfôring, og tilpasse fôring til produksjonsstadium.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3364,12 +3364,12 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         type: 'multiple-choice',
         task: 'Hva er FEm?',
         options: [
-          { id: 'a', text: 'En type kraftfor', isCorrect: false },
-          { id: 'b', text: 'En enhet for energiinnhold i for', isCorrect: true },
-          { id: 'c', text: 'En foringsmetode', isCorrect: false },
-          { id: 'd', text: 'Et mal pa proteininnhold', isCorrect: false },
+          { id: 'a', text: 'En type kraftfôr', isCorrect: false },
+          { id: 'b', text: 'En enhet for energiinnhold i fôr', isCorrect: true },
+          { id: 'c', text: 'En fôringsmetode', isCorrect: false },
+          { id: 'd', text: 'Et mål på proteininnhold', isCorrect: false },
         ],
-        solution: 'FEm (forenhet melk) er en enhet for energiinnhold i for til drovtyggere.',
+        solution: 'FEm (fôrenhet melk) er en enhet for energiinnhold i fôr til drøvtyggere.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
       },

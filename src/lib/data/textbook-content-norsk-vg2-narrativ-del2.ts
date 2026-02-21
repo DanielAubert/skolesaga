@@ -21,8 +21,8 @@ export const CHAPTER_NORSK_VG2_2_1_NARRATIV: TextbookChapter = {
   description: 'Reis tilbake til renessansen og oppdag hvordan humanismen forandret synet pa mennesket for alltid.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosatekster og retorisk situasjon',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   linkedChapterId: 'norsk-vg2-2-1',
   content: [
@@ -355,8 +355,8 @@ export const CHAPTER_NORSK_VG2_2_2_NARRATIV: TextbookChapter = {
   description: 'Oppdag hvordan to revolusjoner - trykkpressen og reformasjonen - forandret spraket og kulturen for alltid.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'gjore rede for historisk bakgrunn for spraksituasjonen i Norge',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-2',
   content: [
@@ -681,8 +681,7 @@ export const CHAPTER_NORSK_VG2_2_3_NARRATIV: TextbookChapter = {
   description: 'Møt Norges forste store dikter - presten som forvandlet Helgelands kyst til poesi.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-3',
   content: [
@@ -1004,8 +1003,7 @@ export const CHAPTER_NORSK_VG2_2_4_NARRATIV: TextbookChapter = {
   description: 'Dykk ned i barokkens verden av kontraster, forgjengelighet og religiost alvor.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-4',
   content: [
@@ -1347,8 +1345,7 @@ export const CHAPTER_NORSK_VG2_2_5_NARRATIV: TextbookChapter = {
   description: 'Møt Nordens forste kvinnelige forfatter - en stemme av sorg, tro og motstandskraft.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-5',
   content: [
@@ -1687,8 +1684,7 @@ export const CHAPTER_NORSK_VG2_2_6_NARRATIV: TextbookChapter = {
   description: 'Møt barokkens salmepoet - mannen som ga ord til livets veksling mellom sorg og glede.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-6',
   content: [
@@ -2034,8 +2030,8 @@ export const CHAPTER_NORSK_VG2_2_7_NARRATIV: TextbookChapter = {
   description: 'Trer inn i fornuftens tidsalder - da filosofene trodde at kunnskap kunne forandre verden.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosatekster og retorisk situasjon',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   linkedChapterId: 'norsk-vg2-2-7',
   content: [
@@ -2371,8 +2367,7 @@ export const CHAPTER_NORSK_VG2_2_8_NARRATIV: TextbookChapter = {
   description: 'Møt mannen fra Bergen som ble Nordens storste satiriker og opplysningens fremste forkjemper.',
   estimatedMinutes: 40,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-8',
   content: [
@@ -2716,8 +2711,7 @@ export const CHAPTER_NORSK_VG2_2_9_NARRATIV: TextbookChapter = {
   description: 'Utforsk Holbergs komedier naermere - fra Jeppe til Erasmus.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'analysere og tolke tekster med bruk av fagbegreper',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-9',
   content: [
@@ -3022,8 +3016,8 @@ export const CHAPTER_NORSK_VG2_2_10_NARRATIV: TextbookChapter = {
   description: 'Utforsk sakprosaens gullalder - da klart sprak ble et verktøy for forandring.',
   estimatedMinutes: 35,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over sakprosateksters formal og retoriske situasjon',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
+    'reflektere over sakprosatekster og gjøre rede for den retoriske situasjonen de er blitt til i',
   ],
   linkedChapterId: 'norsk-vg2-2-10',
   content: [
@@ -3318,8 +3312,7 @@ export const CHAPTER_NORSK_VG2_2_11_NARRATIV: TextbookChapter = {
   description: 'Oppdag de kvinnene som brøt igjennom i en tid da de skulle tie.',
   estimatedMinutes: 35,
   competenceGoals: [
-    'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
-    'reflektere over hvordan tekster fra ulike tider behandler kjonnstematikk',
+    'lese og tolke tekster fra 1500 til 1850 i kulturhistorisk kontekst og drøfte hvordan de er relevante i dag',
   ],
   linkedChapterId: 'norsk-vg2-2-11',
   content: [

@@ -17,7 +17,7 @@ export const CHAPTER_S1_1_6: TextbookChapter = {
   description: 'Stigningstall, ettpunktsformelen, topunktsformelen, parallelle og vinkelrette linjer med praktiske anvendelser.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke rette linjers egenskaper til aa modellere og loese praktiske problemer',
+    'bruke rette linjers egenskaper til å modellere og løse praktiske problemer',
     'bestemme likningen til en rett linje ut fra gitte opplysninger',
   ],
   content: [
@@ -27,13 +27,13 @@ export const CHAPTER_S1_1_6: TextbookChapter = {
       type: 'text',
       content: `## Rette linjer
 
-En **rett linje** i et koordinatsystem kan beskrives ved en likning paa formen $y = ax + b$, der:
-- $a$ er **stigningstallet** (hvor mye $y$ endrer seg naar $x$ oeker med 1)
+En **rett linje** i et koordinatsystem kan beskrives ved en likning på formen $y = ax + b$, der:
+- $a$ er **stigningstallet** (hvor mye $y$ endrer seg når $x$ øker med 1)
 - $b$ er **konstantleddet** (der linja krysser $y$-aksen)
 
-Rette linjer er fundamentale i matematikk og naturvitenskap. De brukes til aa modellere lineaere sammenhenger, for eksempel prising, temperaturomregning og bevegelse med konstant fart.
+Rette linjer er fundamentale i matematikk og naturvitenskap. De brukes til å modellere lineære sammenhenger, for eksempel prising, temperaturomregning og bevegelse med konstant fart.
 
-I S1 trenger vi mer presise metoder for aa finne linjens likning ut fra ulike opplysninger.`,
+I S1 trenger vi mer presise metoder for å finne linjens likning ut fra ulike opplysninger.`,
     },
 
     // ========== STIGNING ==========
@@ -46,8 +46,8 @@ I S1 trenger vi mer presise metoder for aa finne linjens likning ut fra ulike op
 $$a = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x}$$
 
 Stigningstallet forteller hvor bratt linja er:
-- $a > 0$: linja stiger fra venstre mot hoeyre
-- $a < 0$: linja synker fra venstre mot hoeyre
+- $a > 0$: linja stiger fra venstre mot høyre
+- $a < 0$: linja synker fra venstre mot høyre
 - $a = 0$: linja er horisontal`,
     },
 
@@ -57,7 +57,7 @@ Stigningstallet forteller hvor bratt linja er:
       type: 'text',
       content: `## Topunktsformelen
 
-Naar vi kjenner to punkter $(x_1, y_1)$ og $(x_2, y_2)$ paa en rett linje, kan vi finne likningen i to steg:
+Når vi kjenner to punkter $(x_1, y_1)$ og $(x_2, y_2)$ på en rett linje, kan vi finne likningen i to steg:
 
 1. Beregn stigningstallet: $a = \\frac{y_2 - y_1}{x_2 - x_1}$
 2. Sett inn i $y = ax + b$ med ett av punktene og loes for $b$.
@@ -66,7 +66,7 @@ Alternativt kan vi bruke **topunktsformelen** direkte:
 
 $$\\frac{y - y_1}{x - x_1} = \\frac{y_2 - y_1}{x_2 - x_1}$$
 
-Denne formelen uttrykker at stigningen mellom et vilkaarlig punkt $(x, y)$ paa linja og $(x_1, y_1)$ er den samme som stigningen mellom de to kjente punktene.`,
+Denne formelen uttrykker at stigningen mellom et vilkaarlig punkt $(x, y)$ på linja og $(x_1, y_1)$ er den samme som stigningen mellom de to kjente punktene.`,
     },
 
     // ========== ETTPUNKTSFORMELEN ==========
@@ -78,15 +78,15 @@ Denne formelen uttrykker at stigningen mellom et vilkaarlig punkt $(x, y)$ paa l
 
 $$y - y_1 = a(x - x_1)$$
 
-Dette er **ettpunktsformelen** (ogsaa kalt punktstigningsformelen). Den er svaert nyttig fordi vi bare trenger aa kjenne **ett punkt** og **stigningen** for aa bestemme linja fullstendig.`,
+Dette er **ettpunktsformelen** (også kalt punktstigningsformelen). Den er svaert nyttig fordi vi bare trenger å kjenne **ett punkt** og **stigningen** for å bestemme linja fullstendig.`,
     },
 
     {
       id: 's1-1-6-example-1',
       type: 'example',
       title: 'Eksempel 1: Ettpunktsformelen',
-      problem: 'Finn likningen til linja som gaar gjennom punktet $(3, 5)$ og har stigningstall $a = 2$.',
-      solution: `**Loesning:**
+      problem: 'Finn likningen til linja som går gjennom punktet $(3, 5)$ og har stigningstall $a = 2$.',
+      solution: `**Løsning:**
 
 Vi bruker ettpunktsformelen $y - y_1 = a(x - x_1)$ med $(x_1, y_1) = (3, 5)$ og $a = 2$:
 
@@ -103,8 +103,8 @@ $$y = 2x - 1$$
       id: 's1-1-6-example-2',
       type: 'example',
       title: 'Eksempel 2: Linje gjennom to punkter',
-      problem: 'Finn likningen til linja som gaar gjennom punktene $A(1, 4)$ og $B(4, -2)$.',
-      solution: `**Loesning:**
+      problem: 'Finn likningen til linja som går gjennom punktene $A(1, 4)$ og $B(4, -2)$.',
+      solution: `**Løsning:**
 
 **Steg 1:** Finn stigningstallet:
 
@@ -141,8 +141,8 @@ To linjer er vinkelrette hvis og bare hvis **produktet av stigningstallene er $-
       id: 's1-1-6-example-3',
       type: 'example',
       title: 'Eksempel 3: Parallelle og vinkelrette linjer',
-      problem: 'Linja $l$ har likningen $y = 3x - 1$. Finn likningen til:\n\na) linja $m$ som er parallell med $l$ og gaar gjennom $(2, 1)$\n\nb) linja $n$ som er vinkelrett paa $l$ og gaar gjennom $(6, 4)$',
-      solution: `**Loesning:**
+      problem: 'Linja $l$ har likningen $y = 3x - 1$. Finn likningen til:\n\na) linja $m$ som er parallell med $l$ og går gjennom $(2, 1)$\n\nb) linja $n$ som er vinkelrett på $l$ og går gjennom $(6, 4)$',
+      solution: `**Løsning:**
 
 Linja $l$ har stigningstall $a_l = 3$.
 
@@ -166,19 +166,19 @@ $$y = -\\frac{1}{3}x + 6$$
       type: 'text',
       content: `## Praktiske anvendelser
 
-Rette linjer brukes ofte til aa modellere sammenhenger i virkeligheten:
+Rette linjer brukes ofte til å modellere sammenhenger i virkeligheten:
 
 - **Kostnadsfunksjoner:** $K(x) = ax + b$, der $a$ er variabel kostnad per enhet og $b$ er faste kostnader
 - **Temperaturomregning:** $F = \\frac{9}{5}C + 32$ (Celsius til Fahrenheit)
 - **Bevegelse med konstant fart:** $s(t) = v \\cdot t + s_0$, der $v$ er fart og $s_0$ startposisjon
 
-Naar vi kjenner to datapunkter, kan vi bruke topunktsformelen til aa finne den lineaere modellen.`,
+Når vi kjenner to datapunkter, kan vi bruke topunktsformelen til å finne den lineære modellen.`,
     },
 
     {
       id: 's1-1-6-tip',
       type: 'tip',
-      content: 'Naar du skal finne likningen til en rett linje, sjekk alltid svaret ditt ved aa sette inn ett av de kjente punktene. Dersom punktet ikke tilfredsstiller likningen, har du gjort en feil.',
+      content: 'Når du skal finne likningen til en rett linje, sjekk alltid svaret ditt ved å sette inn ett av de kjente punktene. Dersom punktet ikke tilfredsstiller likningen, har du gjort en feil.',
     },
 
     // ========== OPPGAVER ==========
@@ -229,8 +229,8 @@ Naar vi kjenner to datapunkter, kan vi bruke topunktsformelen til aa finne den l
         difficulty: 'medium',
         task: 'Linja $l$ har likningen $y = -2x + 5$.',
         subTasks: [
-          { label: 'a', task: 'Finn likningen til linja $m$ som er parallell med $l$ og gaar gjennom $(3, 1)$.', solution: '$a_m = -2$. $y - 1 = -2(x - 3) \\Rightarrow y = -2x + 7$.' },
-          { label: 'b', task: 'Finn likningen til linja $n$ som er vinkelrett paa $l$ og gaar gjennom $(0, -2)$.', solution: '$a_n = \\frac{1}{2}$. $y + 2 = \\frac{1}{2}x \\Rightarrow y = \\frac{1}{2}x - 2$.' },
+          { label: 'a', task: 'Finn likningen til linja $m$ som er parallell med $l$ og går gjennom $(3, 1)$.', solution: '$a_m = -2$. $y - 1 = -2(x - 3) \\Rightarrow y = -2x + 7$.' },
+          { label: 'b', task: 'Finn likningen til linja $n$ som er vinkelrett på $l$ og går gjennom $(0, -2)$.', solution: '$a_n = \\frac{1}{2}$. $y + 2 = \\frac{1}{2}x \\Rightarrow y = \\frac{1}{2}x - 2$.' },
           { label: 'c', task: 'Finn skjaeringspunktet mellom $l$ og $n$.', solution: '$-2x + 5 = \\frac{1}{2}x - 2 \\Rightarrow -\\frac{5}{2}x = -7 \\Rightarrow x = \\frac{14}{5}$, $y = -2 \\cdot \\frac{14}{5} + 5 = -\\frac{3}{5}$. Skjaeringspunkt: $\\left(\\frac{14}{5}, -\\frac{3}{5}\\right)$.' },
         ],
         hints: ['Husk: for vinkelrette linjer er $a_1 \\cdot a_2 = -1$.'],
@@ -246,10 +246,10 @@ Naar vi kjenner to datapunkter, kan vi bruke topunktsformelen til aa finne den l
         number: '1.6.4',
         type: 'classic',
         difficulty: 'medium',
-        task: `En bedrift har faste kostnader paa 20 000 kr per maaned. Naar de produserer 100 enheter, er totalkostnaden 45 000 kr. Vi antar at sammenhengen mellom antall enheter $x$ og totalkostnad $K(x)$ er lineaer.`,
+        task: `En bedrift har faste kostnader på 20 000 kr per maaned. Når de produserer 100 enheter, er totalkostnaden 45 000 kr. Vi antar at sammenhengen mellom antall enheter $x$ og totalkostnad $K(x)$ er lineær.`,
         subTasks: [
-          { label: 'a', task: 'Finn kostnadsfunksjonen $K(x)$.', solution: '$K(0) = 20\\,000$ og $K(100) = 45\\,000$. Stigning: $a = \\frac{45\\,000 - 20\\,000}{100 - 0} = 250$. Altsaa $K(x) = 250x + 20\\,000$.' },
-          { label: 'b', task: 'Hva koster det aa produsere 200 enheter?', solution: '$K(200) = 250 \\cdot 200 + 20\\,000 = 70\\,000$ kr.' },
+          { label: 'a', task: 'Finn kostnadsfunksjonen $K(x)$.', solution: '$K(0) = 20\\,000$ og $K(100) = 45\\,000$. Stigning: $a = \\frac{45\\,000 - 20\\,000}{100 - 0} = 250$. Altså $K(x) = 250x + 20\\,000$.' },
+          { label: 'b', task: 'Hva koster det å produsere 200 enheter?', solution: '$K(200) = 250 \\cdot 200 + 20\\,000 = 70\\,000$ kr.' },
           { label: 'c', task: 'Hvor mange enheter kan produseres for 100 000 kr?', solution: '$250x + 20\\,000 = 100\\,000 \\Rightarrow x = 320$ enheter.' },
         ],
         allowsUpload: true,
@@ -264,8 +264,8 @@ Naar vi kjenner to datapunkter, kan vi bruke topunktsformelen til aa finne den l
         number: '1.6.5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Bestem likningen til linja som staar vinkelrett paa linja $3x - 2y = 6$ og gaar gjennom punktet $(3, 1)$.',
-        solution: 'Skriver om: $y = \\frac{3}{2}x - 3$, saa $a_1 = \\frac{3}{2}$. Vinkelrett stigning: $a_2 = -\\frac{2}{3}$. Ettpunktsformelen: $y - 1 = -\\frac{2}{3}(x - 3) \\Rightarrow y = -\\frac{2}{3}x + 3$.',
+        task: 'Bestem likningen til linja som står vinkelrett på linja $3x - 2y = 6$ og går gjennom punktet $(3, 1)$.',
+        solution: 'Skriver om: $y = \\frac{3}{2}x - 3$, så $a_1 = \\frac{3}{2}$. Vinkelrett stigning: $a_2 = -\\frac{2}{3}$. Ettpunktsformelen: $y - 1 = -\\frac{2}{3}(x - 3) \\Rightarrow y = -\\frac{2}{3}x + 3$.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -280,11 +280,11 @@ Naar vi kjenner to datapunkter, kan vi bruke topunktsformelen til aa finne den l
         difficulty: 'vanskelig',
         task: 'En trekant har hjoerner i $A(0, 0)$, $B(6, 0)$ og $C(2, 8)$.',
         subTasks: [
-          { label: 'a', task: 'Finn likningen til alle tre sidene i trekanten.', solution: '$AB$: $y = 0$. $AC$: $a = \\frac{8}{2} = 4$, saa $y = 4x$. $BC$: $a = \\frac{8 - 0}{2 - 6} = -2$, $y = -2(x - 6) = -2x + 12$.' },
-          { label: 'b', task: 'Finn likningen til hoeyden fra $C$ ned paa $AB$.', solution: '$AB$ er langs $x$-aksen ($y = 0$), saa hoeyden fra $C$ er en loddrett linje $x = 2$.' },
-          { label: 'c', task: 'Finn likningen til midtnormalen til $AB$.', solution: 'Midtpunktet av $AB$ er $(3, 0)$. $AB$ er horisontal, saa midtnormalen er $x = 3$.' },
+          { label: 'a', task: 'Finn likningen til alle tre sidene i trekanten.', solution: '$AB$: $y = 0$. $AC$: $a = \\frac{8}{2} = 4$, så $y = 4x$. $BC$: $a = \\frac{8 - 0}{2 - 6} = -2$, $y = -2(x - 6) = -2x + 12$.' },
+          { label: 'b', task: 'Finn likningen til høyden fra $C$ ned på $AB$.', solution: '$AB$ er langs $x$-aksen ($y = 0$), så høyden fra $C$ er en loddrett linje $x = 2$.' },
+          { label: 'c', task: 'Finn likningen til midtnormalen til $AB$.', solution: 'Midtpunktet av $AB$ er $(3, 0)$. $AB$ er horisontal, så midtnormalen er $x = 3$.' },
         ],
-        hints: ['Hoeyden fra et punkt staar vinkelrett paa den motstaaende siden.'],
+        hints: ['Høyden fra et punkt står vinkelrett på den motstaaende siden.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -302,43 +302,43 @@ export const CHAPTER_S1_1_7: TextbookChapter = {
   courseId: 's1',
   chapterNumber: '1.7',
   title: 'Likningssett',
-  description: 'Grafisk loesning, innsettingsmetoden, addisjonsmetoden og tolkning av loesninger for lineaere likningssett.',
+  description: 'Grafisk løsning, innsettingsmetoden, addisjonsmetoden og tolkning av løsninger for lineære likningssett.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'loese lineaere likningssett med to ukjente ved ulike metoder',
-    'tolke loesningene geometrisk',
+    'løse lineære likningssett med to ukjente ved ulike metoder',
+    'tolke løsningene geometrisk',
   ],
   content: [
     // ========== INTRODUKSJON ==========
     {
       id: 's1-1-7-intro',
       type: 'text',
-      content: `## Lineaere likningssett
+      content: `## Lineære likningssett
 
-Et **lineaert likningssett** med to ukjente $x$ og $y$ bestaar av to eller flere lineaere likninger som skal loeses samtidig:
+Et **lineært likningssett** med to ukjente $x$ og $y$ består av to eller flere lineære likninger som skal løses samtidig:
 
 $$\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$$
 
-**Loesningen** er de verdiene av $x$ og $y$ som oppfyller **begge** likningene samtidig.
+**Løsningen** er de verdiene av $x$ og $y$ som oppfyller **begge** likningene samtidig.
 
-Geometrisk representerer hver likning en rett linje i koordinatsystemet, og loesningen er skjaeringspunktet mellom de to linjene.`,
+Geometrisk representerer hver likning en rett linje i koordinatsystemet, og løsningen er skjaeringspunktet mellom de to linjene.`,
     },
 
-    // ========== GRAFISK LOESNING ==========
+    // ========== GRAFISK LØSNING ==========
     {
       id: 's1-1-7-grafisk',
       type: 'text',
-      content: `## Grafisk loesning
+      content: `## Grafisk løsning
 
-Den enkleste metoden er aa tegne begge linjene i et koordinatsystem og lese av skjaeringspunktet.
+Den enkleste metoden er å tegne begge linjene i et koordinatsystem og lese av skjaeringspunktet.
 
 **Fremgangsmaate:**
-1. Skriv begge likningene paa formen $y = ax + b$.
+1. Skriv begge likningene på formen $y = ax + b$.
 2. Tegn begge linjene i et koordinatsystem.
 3. Les av koordinatene til skjaeringspunktet.
 
 **Fordel:** Gir en god visuell forstaaelse av problemet.
-**Ulempe:** Vanskelig aa lese av noeyaktige verdier, spesielt for broeker og desimaltall.`,
+**Ulempe:** Vanskelig å lese av nøyaktige verdier, spesielt for brøker og desimaltall.`,
     },
 
     // ========== GEOMETRISK TOLKNING ==========
@@ -346,13 +346,13 @@ Den enkleste metoden er aa tegne begge linjene i et koordinatsystem og lese av s
       id: 's1-1-7-geometrisk',
       type: 'definition',
       title: 'Geometrisk tolkning av likningssett',
-      content: `Et lineaert likningssett med to ukjente har tre mulige utfall:
+      content: `Et lineært likningssett med to ukjente har tre mulige utfall:
 
-**1. En loesning:** Linjene skjaerer hverandre i **noeyaktig ett punkt**. Linjene har ulikt stigningstall ($a_1 \\neq a_2$).
+**1. En løsning:** Linjene skjaerer hverandre i **nøyaktig ett punkt**. Linjene har ulikt stigningstall ($a_1 \\neq a_2$).
 
-**2. Ingen loesning:** Linjene er **parallelle** og skjaerer aldri hverandre. Stigningstallene er like ($a_1 = a_2$), men konstantleddene er ulike ($b_1 \\neq b_2$).
+**2. Ingen løsning:** Linjene er **parallelle** og skjaerer aldri hverandre. Stigningstallene er like ($a_1 = a_2$), men konstantleddene er ulike ($b_1 \\neq b_2$).
 
-**3. Uendelig mange loesninger:** Linjene er **identiske** (sammenfallende). Alle punkter paa den ene linja ligger ogsaa paa den andre ($a_1 = a_2$ og $b_1 = b_2$).`,
+**3. Uendelig mange løsninger:** Linjene er **identiske** (sammenfallende). Alle punkter på den ene linja ligger også på den andre ($a_1 = a_2$ og $b_1 = b_2$).`,
     },
 
     // ========== INNSETTINGSMETODEN ==========
@@ -361,15 +361,15 @@ Den enkleste metoden er aa tegne begge linjene i et koordinatsystem og lese av s
       type: 'text',
       content: `## Innsettingsmetoden
 
-**Innsettingsmetoden** (substitusjonsmetoden) gaar ut paa aa loese en likning for en av de ukjente og sette uttrykket inn i den andre likningen.
+**Innsettingsmetoden** (substitusjonsmetoden) går ut på å løse en likning for en av de ukjente og sette uttrykket inn i den andre likningen.
 
 **Fremgangsmaate:**
 1. Loes den ene likningen for $x$ eller $y$.
 2. Sett uttrykket inn i den andre likningen.
 3. Loes den nye likningen (med bare en ukjent).
-4. Sett verdien tilbake for aa finne den andre ukjente.
+4. Sett verdien tilbake for å finne den andre ukjente.
 
-Metoden fungerer best naar en av koeffisientene er 1 eller $-1$, slik at vi unngaar broeker.`,
+Metoden fungerer best når en av koeffisientene er 1 eller $-1$, slik at vi unngår brøker.`,
     },
 
     {
@@ -379,7 +379,7 @@ Metoden fungerer best naar en av koeffisientene er 1 eller $-1$, slik at vi unng
       problem: `Loes likningssettet:
 
 $$\\begin{cases} 2x + y = 7 \\\\ x - 3y = -6 \\end{cases}$$`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Steg 1:** Loes likning (I) for $y$:
 $$y = 7 - 2x$$
@@ -404,15 +404,15 @@ $$y = 7 - 2 \\cdot \\frac{15}{7} = \\frac{49 - 30}{7} = \\frac{19}{7}$$
       type: 'text',
       content: `## Addisjonsmetoden
 
-**Addisjonsmetoden** (eliminasjonsmetoden) gaar ut paa aa legge sammen eller trekke fra likningene slik at en av de ukjente forsvinner.
+**Addisjonsmetoden** (eliminasjonsmetoden) går ut på å legge sammen eller trekke fra likningene slik at en av de ukjente forsvinner.
 
 **Fremgangsmaate:**
 1. Multipliser eventuelt den ene eller begge likningene med passende tall slik at koeffisienten foran en av de ukjente blir lik (med motsatt fortegn).
 2. Adder de to likningene.
 3. Loes likningen med en ukjent.
-4. Sett verdien inn i en av de opprinnelige likningene for aa finne den andre ukjente.
+4. Sett verdien inn i en av de opprinnelige likningene for å finne den andre ukjente.
 
-Metoden fungerer godt naar koeffisientene er heltall, og vi kan unngaa broeker.`,
+Metoden fungerer godt når koeffisientene er heltall, og vi kan unngaa brøker.`,
     },
 
     {
@@ -422,9 +422,9 @@ Metoden fungerer godt naar koeffisientene er heltall, og vi kan unngaa broeker.`
       problem: `Loes likningssettet:
 
 $$\\begin{cases} 3x + 2y = 12 \\\\ 5x - 2y = 4 \\end{cases}$$`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-Vi ser at koeffisientene foran $y$ allerede har motsatt fortegn ($+2$ og $-2$), saa vi legger sammen likningene:
+Vi ser at koeffisientene foran $y$ allerede har motsatt fortegn ($+2$ og $-2$), så vi legger sammen likningene:
 
 $$\\begin{aligned} 3x + 2y &= 12 \\\\ + \\; 5x - 2y &= 4 \\\\ \\hline 8x &= 16 \\end{aligned}$$
 
@@ -441,8 +441,8 @@ Setter inn i (I): $3 \\cdot 2 + 2y = 12 \\Rightarrow 2y = 6 \\Rightarrow y = 3$.
       id: 's1-1-7-example-3',
       type: 'example',
       title: 'Eksempel 3: Praktisk problem',
-      problem: `En kinobillettbutikk selger voksenbilletter for 150 kr og barnebilletter for 90 kr. En dag solgte de til sammen 200 billetter og hadde en inntekt paa 24 600 kr. Hvor mange voksenbilletter og hvor mange barnebilletter ble solgt?`,
-      solution: `**Loesning:**
+      problem: `En kinobillettbutikk selger voksenbilletter for 150 kr og barnebilletter for 90 kr. En dag solgte de til sammen 200 billetter og hadde en inntekt på 24 600 kr. Hvor mange voksenbilletter og hvor mange barnebilletter ble solgt?`,
+      solution: `**Løsning:**
 
 La $v$ = antall voksenbilletter og $b$ = antall barnebilletter.
 
@@ -468,19 +468,19 @@ Da er $v = 200 - 90 = 110$.
       type: 'text',
       content: `## Spesialtilfeller
 
-Ikke alle likningssett har en entydig loesning.
+Ikke alle likningssett har en entydig løsning.
 
-**Ingen loesning:** Dersom eliminasjonen gir en selvmotsigelse (f.eks. $0 = 5$), har likningssettet **ingen loesning**. Geometrisk betyr dette at linjene er parallelle.
+**Ingen løsning:** Dersom eliminasjonen gir en selvmotsigelse (f.eks. $0 = 5$), har likningssettet **ingen løsning**. Geometrisk betyr dette at linjene er parallelle.
 
-**Uendelig mange loesninger:** Dersom eliminasjonen gir en identitet (f.eks. $0 = 0$), har likningssettet **uendelig mange loesninger**. Geometrisk betyr dette at linjene er identiske.
+**Uendelig mange løsninger:** Dersom eliminasjonen gir en identitet (f.eks. $0 = 0$), har likningssettet **uendelig mange løsninger**. Geometrisk betyr dette at linjene er identiske.
 
-Det er viktig aa kjenne igjen disse tilfellene og kunne forklare hva som skjer geometrisk.`,
+Det er viktig å kjenne igjen disse tilfellene og kunne forklare hva som skjer geometrisk.`,
     },
 
     {
       id: 's1-1-7-note',
       type: 'note',
-      content: 'I S1-eksamen forventes det at du kan loese likningssett med baade innsettingsmetoden og addisjonsmetoden. Velg den metoden som gir enklest regning. Husk alltid aa kontrollere svaret ved innsetting i begge de opprinnelige likningene.',
+      content: 'I S1-eksamen forventes det at du kan løse likningssett med både innsettingsmetoden og addisjonsmetoden. Velg den metoden som gir enklest regning. Husk alltid å kontrollere svaret ved innsetting i begge de opprinnelige likningene.',
     },
 
     // ========== OPPGAVER ==========
@@ -553,25 +553,25 @@ Det er viktig aa kjenne igjen disse tilfellene og kunne forklare hva som skjer g
         number: '1.7.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Avgjor om likningssettet har en loesning, ingen loesning eller uendelig mange loesninger. Begrunn svaret.',
+        task: 'Avgjor om likningssettet har en løsning, ingen løsning eller uendelig mange løsninger. Begrunn svaret.',
         subTasks: [
           {
             label: 'a',
             task: '$\\begin{cases} 2x - 4y = 6 \\\\ -x + 2y = -3 \\end{cases}$',
-            solution: 'Ganger (II) med 2: $-2x + 4y = -6$. Legger til (I): $0 = 0$. Linjene er identiske, saa uendelig mange loesninger.',
+            solution: 'Ganger (II) med 2: $-2x + 4y = -6$. Legger til (I): $0 = 0$. Linjene er identiske, så uendelig mange løsninger.',
           },
           {
             label: 'b',
             task: '$\\begin{cases} 3x + 6y = 9 \\\\ x + 2y = 5 \\end{cases}$',
-            solution: 'Ganger (II) med 3: $3x + 6y = 15$. Men (I) sier $3x + 6y = 9$. Selvmotsigelse: $9 = 15$, altsaa ingen loesning (parallelle linjer).',
+            solution: 'Ganger (II) med 3: $3x + 6y = 15$. Men (I) sier $3x + 6y = 9$. Selvmotsigelse: $9 = 15$, altså ingen løsning (parallelle linjer).',
           },
           {
             label: 'c',
             task: '$\\begin{cases} 5x - 3y = 7 \\\\ 2x + y = 4 \\end{cases}$',
-            solution: 'Fra (II): $y = 4 - 2x$. Inn i (I): $5x - 3(4 - 2x) = 7 \\Rightarrow 11x = 19 \\Rightarrow x = \\frac{19}{11}$. En entydig loesning.',
+            solution: 'Fra (II): $y = 4 - 2x$. Inn i (I): $5x - 3(4 - 2x) = 7 \\Rightarrow 11x = 19 \\Rightarrow x = \\frac{19}{11}$. En entydig løsning.',
           },
         ],
-        hints: ['Proev aa eliminere en ukjent og se hva som skjer.'],
+        hints: ['Proev å eliminere en ukjent og se hva som skjer.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -605,7 +605,7 @@ Det er viktig aa kjenne igjen disse tilfellene og kunne forklare hva som skjer g
 
 $$\\begin{cases} \\frac{x}{2} + \\frac{y}{3} = 5 \\\\ \\frac{x}{4} - \\frac{y}{6} = 1 \\end{cases}$$`,
         solution: 'Ganger (I) med 6: $3x + 2y = 30$. Ganger (II) med 12: $3x - 2y = 12$. Legger sammen: $6x = 42 \\Rightarrow x = 7$. Setter inn: $21 + 2y = 30 \\Rightarrow y = \\frac{9}{2}$. **Svar:** $x = 7$, $y = 4{,}5$.',
-        hints: ['Multipliser begge likningene med fellesnevneren for aa fjerne broekene foerst.'],
+        hints: ['Multipliser begge likningene med fellesnevneren for å fjerne brøkene først.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -643,8 +643,8 @@ export const CHAPTER_S1_1_8: TextbookChapter = {
   description: 'Abc-formelen, diskriminant, toppunkt, toppunktform, symmetriakse, faktorisering og optimalisering med andregradsfunksjoner.',
   estimatedMinutes: 60,
   competenceGoals: [
-    'loese andregradslikninger algebraisk og grafisk',
-    'bruke andregradsfunksjoner til aa modellere og optimalisere praktiske situasjoner',
+    'løse andregradslikninger algebraisk og grafisk',
+    'bruke andregradsfunksjoner til å modellere og optimalisere praktiske situasjoner',
     'analysere andregradsuttrykk ved hjelp av diskriminant og faktorisering',
   ],
   content: [
@@ -662,7 +662,7 @@ Grafen til en andregradsfunksjon er en **parabel**:
 - Dersom $a > 0$, peker parabelen **oppover** (bunnpunkt).
 - Dersom $a < 0$, peker parabelen **nedover** (toppunkt).
 
-Andregradsfunksjoner brukes mye i S1 til aa modellere situasjoner der veksten ikke er konstant, for eksempel inntekter, arealer og bevegelse.`,
+Andregradsfunksjoner brukes mye i S1 til å modellere situasjoner der veksten ikke er konstant, for eksempel inntekter, arealer og bevegelse.`,
     },
 
     // ========== ANDREGRADSLIGNING ==========
@@ -675,7 +675,7 @@ En **andregradslikning** har den generelle formen:
 
 $$ax^2 + bx + c = 0, \\quad a \\neq 0$$
 
-Loesningene til denne likningen kalles **nullpunktene** til funksjonen $f(x) = ax^2 + bx + c$, og de kan finnes ved hjelp av **abc-formelen** (ogsaa kalt den **kvadratiske formelen**).`,
+Løsningene til denne likningen kalles **nullpunktene** til funksjonen $f(x) = ax^2 + bx + c$, og de kan finnes ved hjelp av **abc-formelen** (også kalt den **kvadratiske formelen**).`,
     },
 
     // ========== ABC-FORMELEN ==========
@@ -683,7 +683,7 @@ Loesningene til denne likningen kalles **nullpunktene** til funksjonen $f(x) = a
       id: 's1-1-8-abc',
       type: 'theorem',
       title: 'Abc-formelen (den kvadratiske formelen)',
-      content: `Likningen $ax^2 + bx + c = 0$ har loesningene:
+      content: `Likningen $ax^2 + bx + c = 0$ har løsningene:
 
 $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$
 
@@ -705,10 +705,10 @@ $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$`,
 
 $$D = b^2 - 4ac$$
 
-Diskriminanten avgjoer antall loesninger:
-- $D > 0$: **To ulike reelle loesninger** (parabelen skjaerer $x$-aksen i to punkter)
-- $D = 0$: **En loesning** (dobbeltrot, parabelen tangerer $x$-aksen)
-- $D < 0$: **Ingen reelle loesninger** (parabelen skjaerer ikke $x$-aksen)`,
+Diskriminanten avgjør antall løsninger:
+- $D > 0$: **To ulike reelle løsninger** (parabelen skjaerer $x$-aksen i to punkter)
+- $D = 0$: **En løsning** (dobbeltrot, parabelen tangerer $x$-aksen)
+- $D < 0$: **Ingen reelle løsninger** (parabelen skjaerer ikke $x$-aksen)`,
     },
 
     {
@@ -716,14 +716,14 @@ Diskriminanten avgjoer antall loesninger:
       type: 'example',
       title: 'Eksempel 1: Bruk av abc-formelen',
       problem: 'Loes likningen $2x^2 - 5x - 3 = 0$.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 Her er $a = 2$, $b = -5$ og $c = -3$.
 
 **Diskriminanten:**
 $$D = (-5)^2 - 4 \\cdot 2 \\cdot (-3) = 25 + 24 = 49$$
 
-Siden $D > 0$, har vi to loesninger:
+Siden $D > 0$, har vi to løsninger:
 
 $$x = \\frac{-(-5) \\pm \\sqrt{49}}{2 \\cdot 2} = \\frac{5 \\pm 7}{4}$$
 
@@ -743,11 +743,11 @@ $$x_T = -\\frac{b}{2a}, \\qquad y_T = f\\left(-\\frac{b}{2a}\\right) = c - \\fra
 
 **Symmetriaksen** er den vertikale linja $x = x_T = -\\frac{b}{2a}$. Parabelen er symmetrisk om denne linja.
 
-Vi kan skrive funksjonen paa **toppunktform** (fullstendig kvadrat):
+Vi kan skrive funksjonen på **toppunktform** (fullstendig kvadrat):
 
 $$f(x) = a(x - x_T)^2 + y_T$$
 
-Toppunktformen gjor det enkelt aa lese av toppunkt, symmetrilinje og om parabelen har et maksimum eller minimum.`,
+Toppunktformen gjor det enkelt å lese av toppunkt, symmetrilinje og om parabelen har et maksimum eller minimum.`,
     },
 
     {
@@ -755,7 +755,7 @@ Toppunktformen gjor det enkelt aa lese av toppunkt, symmetrilinje og om parabele
       type: 'example',
       title: 'Eksempel 2: Finn toppunkt og skisser graf',
       problem: 'Gitt $f(x) = -x^2 + 6x - 5$. Finn toppunkt, nullpunkter, symmetriakse og skisser grafen.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Toppunkt:** $a = -1$, $b = 6$, $c = -5$.
 
@@ -780,7 +780,7 @@ $$x = \\frac{6 \\pm 4}{2} \\Rightarrow x_1 = 5, \\quad x_2 = 1$$
       type: 'text',
       content: `## Faktorisering av andregradsuttrykk
 
-Naar vi kjenner nullpunktene $x_1$ og $x_2$, kan vi faktorisere:
+Når vi kjenner nullpunktene $x_1$ og $x_2$, kan vi faktorisere:
 
 $$ax^2 + bx + c = a(x - x_1)(x - x_2)$$
 
@@ -788,13 +788,13 @@ $$ax^2 + bx + c = a(x - x_1)(x - x_2)$$
 - Dobbeltrot ($D = 0$): $ax^2 + bx + c = a(x - x_1)^2$
 - Ingen reelle nullpunkter ($D < 0$): uttrykket kan ikke faktoriseres over de reelle tallene
 
-Faktorisering er nyttig for aa loese ulikheter, forenkle broekuttrykk og forstaa grafens oppfoersel.`,
+Faktorisering er nyttig for å løse ulikheter, forenkle broekuttrykk og forstaa grafens oppførsel.`,
     },
 
     {
       id: 's1-1-8-warning',
       type: 'warning',
-      content: 'Husk at $a$-verdien foran parentesene maa vaere med naar du faktoriserer. For eksempel: $2x^2 - 10x + 12 = 2(x - 2)(x - 3)$, ikke $(x - 2)(x - 3)$.',
+      content: 'Husk at $a$-verdien foran parentesene må være med når du faktoriserer. For eksempel: $2x^2 - 10x + 12 = 2(x - 2)(x - 3)$, ikke $(x - 2)(x - 3)$.',
     },
 
     // ========== OPTIMALISERING ==========
@@ -802,16 +802,16 @@ Faktorisering er nyttig for aa loese ulikheter, forenkle broekuttrykk og forstaa
       id: 's1-1-8-example-3',
       type: 'example',
       title: 'Eksempel 3: Optimalisering',
-      problem: `En bonde har 120 meter gjerde og vil lage en rektangulaer innhegning langs en vegg (slik at kun tre sider trenger gjerde). Finn dimensjonene som gir stoerst mulig areal.`,
-      solution: `**Loesning:**
+      problem: `En bonde har 120 meter gjerde og vil lage en rektangulaer innhegning langs en vegg (slik at kun tre sider trenger gjerde). Finn dimensjonene som gir størst mulig areal.`,
+      solution: `**Løsning:**
 
-La $x$ = lengden paa de to sidene vinkelrett paa veggen, og $y$ = lengden langs veggen.
+La $x$ = lengden på de to sidene vinkelrett på veggen, og $y$ = lengden langs veggen.
 
 **Betingelse:** $2x + y = 120 \\Rightarrow y = 120 - 2x$
 
 **Areal:** $A(x) = x \\cdot y = x(120 - 2x) = 120x - 2x^2$
 
-Dette er en andregradsfunksjon med $a = -2 < 0$, saa den har et **maksimum**.
+Dette er en andregradsfunksjon med $a = -2 < 0$, så den har et **maksimum**.
 
 **Toppunkt:**
 $$x_T = -\\frac{120}{2 \\cdot (-2)} = 30$$
@@ -820,7 +820,7 @@ $$y = 120 - 2 \\cdot 30 = 60$$
 
 $$A_{\\max} = 30 \\cdot 60 = 1800$$
 
-**Svar:** Innhegningen boer ha sider $30$ m og $60$ m langs veggen, noe som gir et areal paa $1800$ m$^2$.`,
+**Svar:** Innhegningen boer ha sider $30$ m og $60$ m langs veggen, noe som gir et areal på $1800$ m$^2$.`,
     },
 
     // ========== OPPGAVER ==========
@@ -834,10 +834,10 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
         difficulty: 'lett',
         task: 'Loes andregradslikningene med abc-formelen.',
         subTasks: [
-          { label: 'a', task: '$x^2 - 5x + 6 = 0$', solution: '$D = 25 - 24 = 1$. $x = \\frac{5 \\pm 1}{2}$, altsaa $x = 3$ eller $x = 2$.' },
-          { label: 'b', task: '$2x^2 + 3x - 2 = 0$', solution: '$D = 9 + 16 = 25$. $x = \\frac{-3 \\pm 5}{4}$, altsaa $x = \\frac{1}{2}$ eller $x = -2$.' },
+          { label: 'a', task: '$x^2 - 5x + 6 = 0$', solution: '$D = 25 - 24 = 1$. $x = \\frac{5 \\pm 1}{2}$, altså $x = 3$ eller $x = 2$.' },
+          { label: 'b', task: '$2x^2 + 3x - 2 = 0$', solution: '$D = 9 + 16 = 25$. $x = \\frac{-3 \\pm 5}{4}$, altså $x = \\frac{1}{2}$ eller $x = -2$.' },
           { label: 'c', task: '$x^2 + 4x + 4 = 0$', solution: '$D = 16 - 16 = 0$. $x = \\frac{-4}{2} = -2$ (dobbeltrot).' },
-          { label: 'd', task: '$3x^2 - x - 4 = 0$', solution: '$D = 1 + 48 = 49$. $x = \\frac{1 \\pm 7}{6}$, altsaa $x = \\frac{4}{3}$ eller $x = -1$.' },
+          { label: 'd', task: '$3x^2 - x - 4 = 0$', solution: '$D = 1 + 48 = 49$. $x = \\frac{1 \\pm 7}{6}$, altså $x = \\frac{4}{3}$ eller $x = -1$.' },
         ],
         solution: 'a) $x = 3$ eller $x = 2$, b) $x = \\frac{1}{2}$ eller $x = -2$, c) $x = -2$ (dobbeltrot), d) $x = \\frac{4}{3}$ eller $x = -1$.',
         allowsUpload: true,
@@ -852,12 +852,12 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
         number: '1.8.2',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Bruk diskriminanten til aa avgjore hvor mange loesninger likningen har (uten aa loese den).',
+        task: 'Bruk diskriminanten til å avgjore hvor mange løsninger likningen har (uten å løse den).',
         subTasks: [
-          { label: 'a', task: '$3x^2 - 2x + 5 = 0$', solution: '$D = 4 - 60 = -56 < 0$. Ingen reelle loesninger.' },
-          { label: 'b', task: '$4x^2 - 12x + 9 = 0$', solution: '$D = 144 - 144 = 0$. En loesning (dobbeltrot).' },
-          { label: 'c', task: '$x^2 + x - 6 = 0$', solution: '$D = 1 + 24 = 25 > 0$. To ulike loesninger.' },
-          { label: 'd', task: '$5x^2 + 2x + 1 = 0$', solution: '$D = 4 - 20 = -16 < 0$. Ingen reelle loesninger.' },
+          { label: 'a', task: '$3x^2 - 2x + 5 = 0$', solution: '$D = 4 - 60 = -56 < 0$. Ingen reelle løsninger.' },
+          { label: 'b', task: '$4x^2 - 12x + 9 = 0$', solution: '$D = 144 - 144 = 0$. En løsning (dobbeltrot).' },
+          { label: 'c', task: '$x^2 + x - 6 = 0$', solution: '$D = 1 + 24 = 25 > 0$. To ulike løsninger.' },
+          { label: 'd', task: '$5x^2 + 2x + 1 = 0$', solution: '$D = 4 - 20 = -16 < 0$. Ingen reelle løsninger.' },
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -873,9 +873,9 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
         difficulty: 'medium',
         task: 'Gitt $f(x) = x^2 - 8x + 12$.',
         subTasks: [
-          { label: 'a', task: 'Finn nullpunktene til $f$.', solution: '$D = 64 - 48 = 16$. $x = \\frac{8 \\pm 4}{2}$, altsaa $x = 6$ eller $x = 2$.' },
+          { label: 'a', task: 'Finn nullpunktene til $f$.', solution: '$D = 64 - 48 = 16$. $x = \\frac{8 \\pm 4}{2}$, altså $x = 6$ eller $x = 2$.' },
           { label: 'b', task: 'Finn toppunktet (bunnpunktet) til parabelen.', solution: '$x_T = \\frac{8}{2} = 4$, $y_T = 16 - 32 + 12 = -4$. Bunnpunkt: $(4, -4)$.' },
-          { label: 'c', task: 'Skriv $f(x)$ paa toppunktform.', solution: '$f(x) = (x - 4)^2 - 4$.' },
+          { label: 'c', task: 'Skriv $f(x)$ på toppunktform.', solution: '$f(x) = (x - 4)^2 - 4$.' },
           { label: 'd', task: 'Faktoriser $f(x)$.', solution: '$f(x) = (x - 2)(x - 6)$.' },
         ],
         allowsUpload: true,
@@ -895,7 +895,7 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
           { label: 'a', task: 'Finn inntektsfunksjonen $I(x) = x \\cdot p(x)$.', solution: '$I(x) = x(500 - 2x) = 500x - 2x^2$.' },
           { label: 'b', task: 'Finn kostnadsfunksjonen $K(x)$.', solution: '$K(x) = 100x + 10\\,000$.' },
           { label: 'c', task: 'Finn overskuddsfunksjonen $O(x) = I(x) - K(x)$.', solution: '$O(x) = 500x - 2x^2 - 100x - 10\\,000 = -2x^2 + 400x - 10\\,000$.' },
-          { label: 'd', task: 'Finn det antallet enheter som gir stoerst overskudd, og beregn overskuddet.', solution: '$x_T = -\\frac{400}{2 \\cdot (-2)} = 100$. $O(100) = -20\\,000 + 40\\,000 - 10\\,000 = 10\\,000$ kr.' },
+          { label: 'd', task: 'Finn det antallet enheter som gir størst overskudd, og beregn overskuddet.', solution: '$x_T = -\\frac{400}{2 \\cdot (-2)} = 100$. $O(100) = -20\\,000 + 40\\,000 - 10\\,000 = 10\\,000$ kr.' },
         ],
         hints: ['Overskudd = inntekt minus kostnad.'],
         allowsUpload: true,
@@ -910,8 +910,8 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
         number: '1.8.5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'For hvilken verdi av $k$ har likningen $x^2 - 6x + k = 0$ noyaktig en loesning?',
-        solution: 'Dobbeltrot naar $D = 0$: $D = 36 - 4k = 0 \\Rightarrow k = 9$. Kontroll: $x^2 - 6x + 9 = (x - 3)^2 = 0 \\Rightarrow x = 3$.',
+        task: 'For hvilken verdi av $k$ har likningen $x^2 - 6x + k = 0$ noyaktig en løsning?',
+        solution: 'Dobbeltrot når $D = 0$: $D = 36 - 4k = 0 \\Rightarrow k = 9$. Kontroll: $x^2 - 6x + 9 = (x - 3)^2 = 0 \\Rightarrow x = 3$.',
         hints: ['Sett diskriminanten lik null.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -925,11 +925,11 @@ $$A_{\\max} = 30 \\cdot 60 = 1800$$
         number: '1.8.6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En ball kastes opp fra bakken med en starthastighet paa 20 m/s. Hoeyden etter $t$ sekunder er gitt ved $h(t) = 20t - 5t^2$.',
+        task: 'En ball kastes opp fra bakken med en starthastighet på 20 m/s. Høyden etter $t$ sekunder er gitt ved $h(t) = 20t - 5t^2$.',
         subTasks: [
-          { label: 'a', task: 'Naar er ballen paa 15 meters hoeyde?', solution: '$20t - 5t^2 = 15 \\Rightarrow t^2 - 4t + 3 = 0 \\Rightarrow (t - 1)(t - 3) = 0$. Ballen er paa 15 m etter $t = 1$ s (paa vei opp) og $t = 3$ s (paa vei ned).' },
-          { label: 'b', task: 'Finn den maksimale hoeyden.', solution: '$t_T = \\frac{20}{10} = 2$ s. $h(2) = 40 - 20 = 20$ m.' },
-          { label: 'c', task: 'Naar treffer ballen bakken igjen?', solution: '$20t - 5t^2 = 0 \\Rightarrow 5t(4 - t) = 0 \\Rightarrow t = 0$ eller $t = 4$. Ballen treffer bakken etter 4 sekunder.' },
+          { label: 'a', task: 'Når er ballen på 15 meters hoeyde?', solution: '$20t - 5t^2 = 15 \\Rightarrow t^2 - 4t + 3 = 0 \\Rightarrow (t - 1)(t - 3) = 0$. Ballen er på 15 m etter $t = 1$ s (på vei opp) og $t = 3$ s (på vei ned).' },
+          { label: 'b', task: 'Finn den maksimale høyden.', solution: '$t_T = \\frac{20}{10} = 2$ s. $h(2) = 40 - 20 = 20$ m.' },
+          { label: 'c', task: 'Når treffer ballen bakken igjen?', solution: '$20t - 5t^2 = 0 \\Rightarrow 5t(4 - t) = 0 \\Rightarrow t = 0$ eller $t = 4$. Ballen treffer bakken etter 4 sekunder.' },
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -952,8 +952,8 @@ export const CHAPTER_S1_1_9: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: [
     'modellere eksponentiell vekst og avtagning',
-    'bruke vekstfaktor til aa beregne prosentvis endring',
-    'sammenligne lineaer og eksponentiell vekst',
+    'bruke vekstfaktor til å beregne prosentvis endring',
+    'sammenligne lineær og eksponentiell vekst',
   ],
   content: [
     // ========== INTRODUKSJON ==========
@@ -962,15 +962,15 @@ export const CHAPTER_S1_1_9: TextbookChapter = {
       type: 'text',
       content: `## Eksponentiell vekst og avtagning
 
-Mange stoerrelser i virkeligheten vokser eller avtar med en fast **prosentandel** per tidsenhet, i stedet for et fast **beloep** per tidsenhet. Slik vekst kalles **eksponentiell**.
+Mange størrelser i virkeligheten vokser eller avtar med en fast **prosentandel** per tidsenhet, i stedet for et fast **beloep** per tidsenhet. Slik vekst kalles **eksponentiell**.
 
-**Eksempler paa eksponentiell vekst/avtagning:**
-- Befolkningsvekst (f.eks. 1,2 % per aar)
-- Renter paa sparekonto (f.eks. 3 % per aar)
-- Radioaktiv nedbryting (f.eks. halvering hvert 5730. aar for karbon-14)
-- Inflasjonseffekt (f.eks. 2,5 % per aar)
+**Eksempler på eksponentiell vekst/avtagning:**
+- Befolkningsvekst (f.eks. 1,2 % per år)
+- Renter på sparekonto (f.eks. 3 % per år)
+- Radioaktiv nedbryting (f.eks. halvering hvert 5730. år for karbon-14)
+- Inflasjonseffekt (f.eks. 2,5 % per år)
 
-Den viktigste forskjellen fra lineaer vekst er at endringen er **proporsjonal med naaværende verdi**, ikke konstant.`,
+Den viktigste forskjellen fra lineær vekst er at endringen er **proporsjonal med naaværende verdi**, ikke konstant.`,
     },
 
     // ========== POTENSFUNKSJONER ==========
@@ -982,10 +982,10 @@ Den viktigste forskjellen fra lineaer vekst er at endringen er **proporsjonal me
 
 $$f(x) = a \\cdot x^n$$
 
-der $a$ er en konstant og $n$ er eksponenten (kan vaere et hvilket som helst reelt tall).
+der $a$ er en konstant og $n$ er eksponenten (kan være et hvilket som helst reelt tall).
 
 **Viktige potensfunksjoner:**
-- $n = 1$: lineaer funksjon ($f(x) = ax$)
+- $n = 1$: lineær funksjon ($f(x) = ax$)
 - $n = 2$: kvadratisk funksjon ($f(x) = ax^2$)
 - $n = -1$: omvendt proporsjonal ($f(x) = \\frac{a}{x}$)
 - $n = \\frac{1}{2}$: rotfunksjon ($f(x) = a\\sqrt{x}$)
@@ -998,11 +998,11 @@ I potensfunksjoner er **variabelen grunntallet**, mens i eksponentialfunksjoner 
       id: 's1-1-9-vekstfaktor',
       type: 'definition',
       title: 'Vekstfaktor',
-      content: `Naar en stoerrelse endres med $p\\%$ per tidsenhet, er **vekstfaktoren**:
+      content: `Når en størrelse endres med $p\\%$ per tidsenhet, er **vekstfaktoren**:
 
 $$v = 1 + \\frac{p}{100}$$
 
-- **Vekst** ($p > 0$): $v > 1$. F.eks. 5 % oekning gir $v = 1{,}05$.
+- **Vekst** ($p > 0$): $v > 1$. F.eks. 5 % økning gir $v = 1{,}05$.
 - **Avtagning** ($p < 0$): $0 < v < 1$. F.eks. 3 % nedgang gir $v = 0{,}97$.
 
 Etter $n$ tidsperioder med startverdi $y_0$ er verdien:
@@ -1029,7 +1029,7 @@ For $0 < b < 1$ er funksjonen **avtagende** (eksponentiell avtagning).
 **Viktige egenskaper:**
 - Grafen passerer alltid gjennom $(0, a)$
 - $x$-aksen ($y = 0$) er en **horisontal asymptote**
-- Funksjonen er alltid positiv (naar $a > 0$) eller alltid negativ (naar $a < 0$)`,
+- Funksjonen er alltid positiv (når $a > 0$) eller alltid negativ (når $a < 0$)`,
     },
 
     // ========== DOBLING OG HALVERING ==========
@@ -1037,47 +1037,47 @@ For $0 < b < 1$ er funksjonen **avtagende** (eksponentiell avtagning).
       id: 's1-1-9-dobling-halvering',
       type: 'theorem',
       title: 'Doblingstid og halveringstid',
-      content: `**Doblingstid** $T_2$: Tiden det tar for verdien aa doble seg. Oppfyller $v^{T_2} = 2$:
+      content: `**Doblingstid** $T_2$: Tiden det tar for verdien å doble seg. Oppfyller $v^{T_2} = 2$:
 
 $$T_2 = \\frac{\\ln 2}{\\ln v} = \\frac{\\log 2}{\\log v}$$
 
-**Halveringstid** $T_{1/2}$: Tiden det tar for verdien aa halveres. Oppfyller $v^{T_{1/2}} = \\frac{1}{2}$:
+**Halveringstid** $T_{1/2}$: Tiden det tar for verdien å halveres. Oppfyller $v^{T_{1/2}} = \\frac{1}{2}$:
 
 $$T_{1/2} = \\frac{\\ln(1/2)}{\\ln v} = \\frac{-\\ln 2}{\\ln v}$$
 
-**Tommelfingerregel:** For lav prosentvis vekst (under ca. 15 %) gjelder tilnaermelsen $T_2 \\approx \\frac{70}{p}$, der $p$ er vekstraten i prosent.`,
+**Tommelfingerregel:** For lav prosentvis vekst (under ca. 15 %) gjelder tilnærmelsen $T_2 \\approx \\frac{70}{p}$, der $p$ er vekstraten i prosent.`,
     },
 
     {
       id: 's1-1-9-example-1',
       type: 'example',
       title: 'Eksempel 1: Befolkningsvekst',
-      problem: 'En by har 50 000 innbyggere og vokser med 2 % per aar. a) Sett opp en modell for innbyggertallet etter $t$ aar. b) Hvor mange innbyggere har byen etter 10 aar? c) Finn doblingstiden.',
-      solution: `**Loesning:**
+      problem: 'En by har 50 000 innbyggere og vokser med 2 % per år. a) Sett opp en modell for innbyggertallet etter $t$ år. b) Hvor mange innbyggere har byen etter 10 år? c) Finn doblingstiden.',
+      solution: `**Løsning:**
 
 **a)** Vekstfaktor: $v = 1 + \\frac{2}{100} = 1{,}02$.
 
 Modell: $N(t) = 50\\,000 \\cdot 1{,}02^t$
 
-**b)** Etter 10 aar:
+**b)** Etter 10 år:
 $$N(10) = 50\\,000 \\cdot 1{,}02^{10} = 50\\,000 \\cdot 1{,}2190 \\approx 60\\,950$$
 
-Byen har ca. 60 950 innbyggere etter 10 aar.
+Byen har ca. 60 950 innbyggere etter 10 år.
 
 **c)** Doblingstid:
-$$T_2 = \\frac{\\ln 2}{\\ln 1{,}02} = \\frac{0{,}6931}{0{,}0198} \\approx 35 \\text{ aar}$$
+$$T_2 = \\frac{\\ln 2}{\\ln 1{,}02} = \\frac{0{,}6931}{0{,}0198} \\approx 35 \\text{ år}$$
 
-Tommelfingerregel: $T_2 \\approx \\frac{70}{2} = 35$ aar. ✓`,
+Tommelfingerregel: $T_2 \\approx \\frac{70}{2} = 35$ år. ✓`,
     },
 
     {
       id: 's1-1-9-example-2',
       type: 'example',
       title: 'Eksempel 2: Radioaktiv nedbryting',
-      problem: 'Et radioaktivt stoff har en halveringstid paa 8 timer. Ved start er det 200 gram. a) Sett opp en modell for mengden etter $t$ timer. b) Hvor mye stoff er igjen etter 24 timer?',
-      solution: `**Loesning:**
+      problem: 'Et radioaktivt stoff har en halveringstid på 8 timer. Ved start er det 200 gram. a) Sett opp en modell for mengden etter $t$ timer. b) Hvor mye stoff er igjen etter 24 timer?',
+      solution: `**Løsning:**
 
-**a)** Etter en halveringstid (8 timer) er mengden halvert, altsaa $v^8 = \\frac{1}{2}$.
+**a)** Etter en halveringstid (8 timer) er mengden halvert, altså $v^8 = \\frac{1}{2}$.
 
 Vekstfaktor per time: $v = \\left(\\frac{1}{2}\\right)^{1/8} = 2^{-1/8} \\approx 0{,}9170$
 
@@ -1091,13 +1091,13 @@ $$M(24) = 200 \\cdot \\left(\\frac{1}{2}\\right)^{24/8} = 200 \\cdot \\left(\\fr
 Det er 25 gram igjen etter 24 timer (3 halveringstider).`,
     },
 
-    // ========== LINEAER VS. EKSPONENTIELL ==========
+    // ========== LINEÆR VS. EKSPONENTIELL ==========
     {
       id: 's1-1-9-sammenligning',
       type: 'text',
-      content: `## Lineaer vs. eksponentiell vekst
+      content: `## Lineær vs. eksponentiell vekst
 
-| | Lineaer vekst | Eksponentiell vekst |
+| | Lineær vekst | Eksponentiell vekst |
 |---|---|---|
 | **Formel** | $f(x) = ax + b$ | $f(x) = a \\cdot b^x$ |
 | **Endring** | Konstant tillegg per steg | Konstant faktor per steg |
@@ -1106,40 +1106,40 @@ Det er 25 gram igjen etter 24 timer (3 halveringstider).`,
 | **Grafisk** | Rett linje | Kurve (vokser/avtar stadig raskere) |
 
 **Hvordan gjenkjenne veksttype fra data:**
-- Dersom **differansene** $f(x+1) - f(x)$ er (tilnaermet) konstante, er veksten lineaer.
-- Dersom **kvotientene** $\\frac{f(x+1)}{f(x)}$ er (tilnaermet) konstante, er veksten eksponentiell.`,
+- Dersom **differansene** $f(x+1) - f(x)$ er (tilnærmet) konstante, er veksten lineær.
+- Dersom **kvotientene** $\\frac{f(x+1)}{f(x)}$ er (tilnærmet) konstante, er veksten eksponentiell.`,
     },
 
     {
       id: 's1-1-9-example-3',
       type: 'example',
-      title: 'Eksempel 3: Lineaer eller eksponentiell?',
+      title: 'Eksempel 3: Lineær eller eksponentiell?',
       problem: `To spareplaner starter med 10 000 kr.
 
-**Plan A:** Sparer 1 000 kr ekstra hvert aar.
-**Plan B:** Beloppet oeker med 8 % per aar.
+**Plan A:** Sparer 1 000 kr ekstra hvert år.
+**Plan B:** Beloppet øker med 8 % per år.
 
-Sammenlign verdiene etter 5, 10 og 20 aar.`,
-      solution: `**Loesning:**
+Sammenlign verdiene etter 5, 10 og 20 år.`,
+      solution: `**Løsning:**
 
-**Plan A (lineaer):** $A(t) = 10\\,000 + 1\\,000t$
+**Plan A (lineær):** $A(t) = 10\\,000 + 1\\,000t$
 
 **Plan B (eksponentiell):** $B(t) = 10\\,000 \\cdot 1{,}08^t$
 
-| Aar | Plan A | Plan B |
+| År | Plan A | Plan B |
 |---|---|---|
 | 0 | 10 000 | 10 000 |
 | 5 | 15 000 | 14 693 |
 | 10 | 20 000 | 21 589 |
 | 20 | 30 000 | 46 610 |
 
-**Konklusjon:** Plan A er bedre de foerste aarene, men Plan B tar igjen og vokser langt raskere over tid. Etter 20 aar er Plan B mer enn 50 % hoeyere enn Plan A. Dette illustrerer "rentes rente"-effekten.`,
+**Konklusjon:** Plan A er bedre de første aarene, men Plan B tar igjen og vokser langt raskere over tid. Etter 20 år er Plan B mer enn 50 % høyere enn Plan A. Dette illustrerer "rentes rente"-effekten.`,
     },
 
     {
       id: 's1-1-9-tip',
       type: 'tip',
-      content: 'Naar du skal avgjore om data foelger lineaer eller eksponentiell vekst, beregn baade differanser og kvotienter. Er differansene konstante? Da er veksten lineaer. Er kvotientene konstante? Da er veksten eksponentiell.',
+      content: 'Når du skal avgjore om data følger lineær eller eksponentiell vekst, beregn både differanser og kvotienter. Er differansene konstante? Da er veksten lineær. Er kvotientene konstante? Da er veksten eksponentiell.',
     },
 
     // ========== OPPGAVER ==========
@@ -1153,10 +1153,10 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         difficulty: 'lett',
         task: 'Finn vekstfaktoren.',
         subTasks: [
-          { label: 'a', task: 'En pris oeker med 5 % per aar.', solution: '$v = 1 + \\frac{5}{100} = 1{,}05$.' },
-          { label: 'b', task: 'En verdi synker med 12 % per aar.', solution: '$v = 1 - \\frac{12}{100} = 0{,}88$.' },
+          { label: 'a', task: 'En pris øker med 5 % per år.', solution: '$v = 1 + \\frac{5}{100} = 1{,}05$.' },
+          { label: 'b', task: 'En verdi synker med 12 % per år.', solution: '$v = 1 - \\frac{12}{100} = 0{,}88$.' },
           { label: 'c', task: 'En investering gir 0,3 % rente per maaned.', solution: '$v = 1{,}003$ per maaned.' },
-          { label: 'd', task: 'En populasjon reduseres med 25 % per tiaar.', solution: '$v = 1 - \\frac{25}{100} = 0{,}75$ per tiaar.' },
+          { label: 'd', task: 'En populasjon reduseres med 25 % per tiår.', solution: '$v = 1 - \\frac{25}{100} = 0{,}75$ per tiår.' },
         ],
         solution: 'a) $1{,}05$, b) $0{,}88$, c) $1{,}003$, d) $0{,}75$.',
         allowsUpload: true,
@@ -1171,11 +1171,11 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         number: '1.9.2',
         type: 'classic',
         difficulty: 'lett',
-        task: `Et maleri er verdsatt til 80 000 kr og verdien oeker med 6 % per aar.`,
+        task: `Et maleri er verdsatt til 80 000 kr og verdien øker med 6 % per år.`,
         subTasks: [
-          { label: 'a', task: 'Sett opp en modell for verdien $V(t)$ etter $t$ aar.', solution: '$V(t) = 80\\,000 \\cdot 1{,}06^t$.' },
-          { label: 'b', task: 'Hva er verdien etter 15 aar?', solution: '$V(15) = 80\\,000 \\cdot 1{,}06^{15} = 80\\,000 \\cdot 2{,}3966 \\approx 191\\,730$ kr.' },
-          { label: 'c', task: 'Finn doblingstiden.', solution: '$T_2 = \\frac{\\ln 2}{\\ln 1{,}06} \\approx \\frac{0{,}693}{0{,}0583} \\approx 11{,}9$ aar.' },
+          { label: 'a', task: 'Sett opp en modell for verdien $V(t)$ etter $t$ år.', solution: '$V(t) = 80\\,000 \\cdot 1{,}06^t$.' },
+          { label: 'b', task: 'Hva er verdien etter 15 år?', solution: '$V(15) = 80\\,000 \\cdot 1{,}06^{15} = 80\\,000 \\cdot 2{,}3966 \\approx 191\\,730$ kr.' },
+          { label: 'c', task: 'Finn doblingstiden.', solution: '$T_2 = \\frac{\\ln 2}{\\ln 1{,}06} \\approx \\frac{0{,}693}{0{,}0583} \\approx 11{,}9$ år.' },
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1189,13 +1189,13 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         number: '1.9.3',
         type: 'classic',
         difficulty: 'medium',
-        task: `En bil koster 350 000 kr ny og mister 15 % av verdien per aar (verdiforringelse).`,
+        task: `En bil koster 350 000 kr ny og mister 15 % av verdien per år (verdiforringelse).`,
         subTasks: [
-          { label: 'a', task: 'Sett opp en modell for bilens verdi $V(t)$ etter $t$ aar.', solution: '$V(t) = 350\\,000 \\cdot 0{,}85^t$.' },
-          { label: 'b', task: 'Hva er bilen verdt etter 5 aar?', solution: '$V(5) = 350\\,000 \\cdot 0{,}85^5 = 350\\,000 \\cdot 0{,}4437 \\approx 155\\,300$ kr.' },
-          { label: 'c', task: 'Etter hvor mange aar er bilen verdt mindre enn 100 000 kr?', solution: '$350\\,000 \\cdot 0{,}85^t < 100\\,000 \\Rightarrow 0{,}85^t < \\frac{2}{7} \\Rightarrow t > \\frac{\\ln(2/7)}{\\ln 0{,}85} \\approx 7{,}7$. Etter 8 aar.' },
+          { label: 'a', task: 'Sett opp en modell for bilens verdi $V(t)$ etter $t$ år.', solution: '$V(t) = 350\\,000 \\cdot 0{,}85^t$.' },
+          { label: 'b', task: 'Hva er bilen verdt etter 5 år?', solution: '$V(5) = 350\\,000 \\cdot 0{,}85^5 = 350\\,000 \\cdot 0{,}4437 \\approx 155\\,300$ kr.' },
+          { label: 'c', task: 'Etter hvor mange år er bilen verdt mindre enn 100 000 kr?', solution: '$350\\,000 \\cdot 0{,}85^t < 100\\,000 \\Rightarrow 0{,}85^t < \\frac{2}{7} \\Rightarrow t > \\frac{\\ln(2/7)}{\\ln 0{,}85} \\approx 7{,}7$. Etter 8 år.' },
         ],
-        hints: ['Bruk logaritmer for aa loese eksponentiallikninger.'],
+        hints: ['Bruk logaritmer for å løse eksponentiallikninger.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1208,7 +1208,7 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         number: '1.9.4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Avgjor om tabellen viser lineaer eller eksponentiell vekst, og finn funksjonsuttrykket.',
+        task: 'Avgjor om tabellen viser lineær eller eksponentiell vekst, og finn funksjonsuttrykket.',
         subTasks: [
           {
             label: 'a',
@@ -1218,7 +1218,7 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
           {
             label: 'b',
             task: '| $x$ | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| $g(x)$ | 8 | 14 | 20 | 26 | 32 |',
-            solution: 'Differanse: $14 - 8 = 20 - 14 = 6$. Lineaer med $a = 6$ og $b = 8$. $g(x) = 6x + 8$.',
+            solution: 'Differanse: $14 - 8 = 20 - 14 = 6$. Lineær med $a = 6$ og $b = 8$. $g(x) = 6x + 8$.',
           },
         ],
         hints: ['Beregn differansene $f(x+1) - f(x)$ og kvotientene $f(x+1)/f(x)$.'],
@@ -1238,7 +1238,7 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         subTasks: [
           { label: 'a', task: 'Sett opp en modell $N(t)$ for antall bakterier etter $t$ timer.', solution: '$N(t) = 500 \\cdot 2^{t/3}$.' },
           { label: 'b', task: 'Hvor mange bakterier er det etter 12 timer?', solution: '$N(12) = 500 \\cdot 2^{12/3} = 500 \\cdot 2^4 = 500 \\cdot 16 = 8000$.' },
-          { label: 'c', task: 'Naar er det 64 000 bakterier?', solution: '$500 \\cdot 2^{t/3} = 64\\,000 \\Rightarrow 2^{t/3} = 128 = 2^7 \\Rightarrow t/3 = 7 \\Rightarrow t = 21$ timer.' },
+          { label: 'c', task: 'Når er det 64 000 bakterier?', solution: '$500 \\cdot 2^{t/3} = 64\\,000 \\Rightarrow 2^{t/3} = 128 = 2^7 \\Rightarrow t/3 = 7 \\Rightarrow t = 21$ timer.' },
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1252,9 +1252,9 @@ Sammenlign verdiene etter 5, 10 og 20 aar.`,
         number: '1.9.6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Grafen til en eksponentialfunksjon $f(x) = a \\cdot b^x$ gaar gjennom punktene $(2, 12)$ og $(5, 96)$. Finn $a$ og $b$.',
-        solution: '$f(2) = ab^2 = 12$ og $f(5) = ab^5 = 96$. Deler: $\\frac{ab^5}{ab^2} = b^3 = \\frac{96}{12} = 8 \\Rightarrow b = 2$. Dermed $a \\cdot 4 = 12 \\Rightarrow a = 3$. Altsaa $f(x) = 3 \\cdot 2^x$.',
-        hints: ['Del den ene likningen paa den andre for aa eliminere $a$.'],
+        task: 'Grafen til en eksponentialfunksjon $f(x) = a \\cdot b^x$ går gjennom punktene $(2, 12)$ og $(5, 96)$. Finn $a$ og $b$.',
+        solution: '$f(2) = ab^2 = 12$ og $f(5) = ab^5 = 96$. Deler: $\\frac{ab^5}{ab^2} = b^3 = \\frac{96}{12} = 8 \\Rightarrow b = 2$. Dermed $a \\cdot 4 = 12 \\Rightarrow a = 3$. Altså $f(x) = 3 \\cdot 2^x$.',
+        hints: ['Del den ene likningen på den andre for å eliminere $a$.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1286,7 +1286,7 @@ export const CHAPTER_S1_2_7: TextbookChapter = {
       type: 'text',
       content: `## Stykkevis definerte funksjoner
 
-En **stykkevis definert funksjon** bruker ulike funksjonsuttrykk paa ulike deler av definisjonsmengden. Slike funksjoner er svaert vanlige i praktiske sammenhenger, for eksempel i prismodeller, skattesystemer og fysiske fenomener.
+En **stykkevis definert funksjon** bruker ulike funksjonsuttrykk på ulike deler av definisjonsmengden. Slike funksjoner er svaert vanlige i praktiske sammenhenger, for eksempel i prismodeller, skattesystemer og fysiske fenomener.
 
 Formelt skriver vi en stykkevis funksjon slik:
 
@@ -1301,10 +1301,10 @@ der $I_1, I_2, \\ldots$ er intervaller som til sammen dekker definisjonsmengden.
       type: 'text',
       content: `## Tegning av stykkevis definerte funksjoner
 
-Naar vi tegner grafen til en stykkevis funksjon:
+Når vi tegner grafen til en stykkevis funksjon:
 
 1. **Del opp $x$-aksen** i de ulike intervallene.
-2. **Tegn hvert deluttrykk** kun paa sitt intervall.
+2. **Tegn hvert deluttrykk** kun på sitt intervall.
 3. **Sjekk grensepunktene:** Er funksjonen definert i overgangen? Bruk fylt sirkel for inkluderte endepunkter og aapen sirkel for ekskluderte.
 4. **Vurder kontinuitet:** Er grafen sammenhengende, eller gjor den et hopp?
 
@@ -1324,7 +1324,7 @@ Det vil si at funksjonsuttrykkene gir **samme verdi** i overgangspunktet.`,
 
 1. $f(c)$ er definert
 2. Grenseverdien fra venstre $\\lim_{x \\to c^-} f(x)$ eksisterer
-3. Grenseverdien fra hoeyre $\\lim_{x \\to c^+} f(x)$ eksisterer
+3. Grenseverdien fra høyre $\\lim_{x \\to c^+} f(x)$ eksisterer
 4. Alle tre verdiene er like: $\\lim_{x \\to c^-} f(x) = f(c) = \\lim_{x \\to c^+} f(x)$
 
 Dersom funksjonen **ikke** er kontinuerlig i $x = c$, sier vi at den har et **diskontinuitetspunkt** (sprang) der.`,
@@ -1333,11 +1333,11 @@ Dersom funksjonen **ikke** er kontinuerlig i $x = c$, sier vi at den har et **di
     {
       id: 's1-2-7-example-1',
       type: 'example',
-      title: 'Eksempel 1: Stykkevis lineaer funksjon',
+      title: 'Eksempel 1: Stykkevis lineær funksjon',
       problem: `Tegn grafen og undersoek kontinuitet for:
 
 $$f(x) = \\begin{cases} 2x + 1 & \\text{for } x < 1 \\\\ 4 - x & \\text{for } x \\geq 1 \\end{cases}$$`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **For $x < 1$:** $f(x) = 2x + 1$ er en stigende linje.
 Ved grensepunktet: $\\lim_{x \\to 1^-} f(x) = 2(1) + 1 = 3$.
@@ -1376,7 +1376,7 @@ Grafen til $y = |g(x)|$ er lik grafen til $y = g(x)$ der $g(x) \\geq 0$, og spei
       type: 'example',
       title: 'Eksempel 2: Absoluttverdifunksjon som stykkevis',
       problem: 'Skriv $f(x) = |2x - 4|$ som en stykkevis definert funksjon og tegn grafen.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 Vi finner nullpunktet til $2x - 4$: $2x - 4 = 0 \\Rightarrow x = 2$.
 
@@ -1387,7 +1387,7 @@ $$f(x) = |2x - 4| = \\begin{cases} 2x - 4 & \\text{for } x \\geq 2 \\\\ -(2x - 4
 - For $x \\geq 2$: linja $y = 2x - 4$ (stiger med stigningstall $2$)
 - Grafen har en V-form med bunnpunkt i $(2, 0)$
 - $y$-akseskjaering: $f(0) = |0 - 4| = 4$
-- Funksjonen er kontinuerlig overalt (ogsaa i $x = 2$)`,
+- Funksjonen er kontinuerlig overalt (også i $x = 2$)`,
     },
 
     // ========== PRAKTISKE ANVENDELSER ==========
@@ -1405,7 +1405,7 @@ Mange avgifter og priser har ulike satser for ulike nivaaer, for eksempel stroem
 I Norge beregnes skatt med ulike satser for ulike inntektsintervaller (trinnskatt). Inntekten deles opp i trinn med stigende skattesatser.
 
 **Absoluttverdifunksjoner i optimalisering:**
-Absoluttverdien $|x - a|$ representerer **avstanden** mellom $x$ og $a$ paa tallinja. Dermed brukes absoluttverdifunksjoner til aa minimere avstander og avvik.`,
+Absoluttverdien $|x - a|$ representerer **avstanden** mellom $x$ og $a$ på tallinja. Dermed brukes absoluttverdifunksjoner til å minimere avstander og avvik.`,
     },
 
     {
@@ -1413,12 +1413,12 @@ Absoluttverdien $|x - a|$ representerer **avstanden** mellom $x$ og $a$ paa tall
       type: 'example',
       title: 'Eksempel 3: Stykkevis prisfunksjon',
       problem: `Et parkeringshus tar betaling slik:
-- De foerste 2 timene: 30 kr per time
-- Fra 2 til 5 timer: 20 kr per time (i tillegg til de foerste timene)
-- Over 5 timer: fast pris paa 120 kr (dagstak)
+- De første 2 timene: 30 kr per time
+- Fra 2 til 5 timer: 20 kr per time (i tillegg til de første timene)
+- Over 5 timer: fast pris på 120 kr (dagstak)
 
 Sett opp prisfunksjonen $P(t)$ og tegn grafen.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **For $0 \\leq t \\leq 2$:** $P(t) = 30t$
 
@@ -1434,13 +1434,13 @@ $$P(t) = \\begin{cases} 30t & \\text{for } 0 \\leq t \\leq 2 \\\\ 20t + 20 & \\t
 - I $t = 2$: $30 \\cdot 2 = 60$ og $20 \\cdot 2 + 20 = 60$ ✓ (kontinuerlig)
 - I $t = 5$: $20 \\cdot 5 + 20 = 120$ og $120$ ✓ (kontinuerlig)
 
-Prisfunksjonen er kontinuerlig. Grafen er en sammenhengende, stykkevis lineaer kurve som flater ut etter 5 timer.`,
+Prisfunksjonen er kontinuerlig. Grafen er en sammenhengende, stykkevis lineær kurve som flater ut etter 5 timer.`,
     },
 
     {
       id: 's1-2-7-note',
       type: 'note',
-      content: 'Naar du tegner en stykkevis funksjon, husk aa markere overgangspunktene tydelig. Bruk fylte sirkler for inkluderte endepunkter og aapne sirkler for ekskluderte endepunkter. Dette er spesielt viktig naar funksjonen har diskontinuitetspunkter.',
+      content: 'Når du tegner en stykkevis funksjon, husk å markere overgangspunktene tydelig. Bruk fylte sirkler for inkluderte endepunkter og åpne sirkler for ekskluderte endepunkter. Dette er spesielt viktig når funksjonen har diskontinuitetspunkter.',
     },
 
     // ========== OPPGAVER ==========
@@ -1489,7 +1489,7 @@ $$f(x) = \\begin{cases} x^2 & \\text{for } x < 2 \\\\ 6 - x & \\text{for } x \\g
         subTasks: [
           { label: 'a', task: 'Finn $f(0)$, $f(2)$ og $f(5)$.', solution: '$f(0) = 0^2 = 0$, $f(2) = 6 - 2 = 4$, $f(5) = 6 - 5 = 1$.' },
           { label: 'b', task: 'Er $f$ kontinuerlig i $x = 2$?', solution: '$\\lim_{x \\to 2^-} f(x) = 2^2 = 4$ og $f(2) = 6 - 2 = 4$. Ja, $f$ er kontinuerlig i $x = 2$.' },
-          { label: 'c', task: 'Tegn grafen til $f$.', solution: 'For $x < 2$: parabel $y = x^2$. For $x \\geq 2$: rett linje $y = 6 - x$. De moetes i $(2, 4)$.' },
+          { label: 'c', task: 'Tegn grafen til $f$.', solution: 'For $x < 2$: parabel $y = x^2$. For $x \\geq 2$: rett linje $y = 6 - x$. De møtes i $(2, 4)$.' },
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1508,13 +1508,13 @@ $$f(x) = \\begin{cases} x^2 & \\text{for } x < 2 \\\\ 6 - x & \\text{for } x \\g
 $$g(x) = \\begin{cases} 2x + 1 & \\text{for } x < 1 \\\\ ax + b & \\text{for } x \\geq 1 \\end{cases}$$
 
 Bestem $a$ og $b$ slik at $g$ er kontinuerlig i $x = 1$ og $g(3) = 10$.`,
-        solution: `Kontinuitet i $x = 1$: $\\lim_{x \\to 1^-} g(x) = 2(1) + 1 = 3 = a(1) + b$, altsaa $a + b = 3$.
+        solution: `Kontinuitet i $x = 1$: $\\lim_{x \\to 1^-} g(x) = 2(1) + 1 = 3 = a(1) + b$, altså $a + b = 3$.
 
 $g(3) = 10$: $3a + b = 10$.
 
 Trekker: $2a = 7 \\Rightarrow a = 3{,}5$. $b = 3 - 3{,}5 = -0{,}5$.
 
-**Svar:** $a = 3{,}5$ og $b = -0{,}5$, altsaa $g(x) = 3{,}5x - 0{,}5$ for $x \\geq 1$.`,
+**Svar:** $a = 3{,}5$ og $b = -0{,}5$, altså $g(x) = 3{,}5x - 0{,}5$ for $x \\geq 1$.`,
         hints: ['Sett opp to likninger: en fra kontinuitetskravet og en fra $g(3) = 10$.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1528,8 +1528,8 @@ Trekker: $2a = 7 \\Rightarrow a = 3{,}5$. $b = 3 - 3{,}5 = -0{,}5$.
         number: '2.7.4',
         type: 'classic',
         difficulty: 'medium',
-        task: `En mobiloperatoer tilbyr foelgende priser for databruk per maaned:
-- De foerste 5 GB: gratis (inkludert i abonnementet)
+        task: `En mobiloperatoer tilbyr følgende priser for databruk per maaned:
+- De første 5 GB: gratis (inkludert i abonnementet)
 - Fra 5 GB til 20 GB: 15 kr per GB
 - Over 20 GB: 25 kr per GB (i tillegg)`,
         subTasks: [
@@ -1540,12 +1540,12 @@ Trekker: $2a = 7 \\Rightarrow a = 3{,}5$. $b = 3 - 3{,}5 = -0{,}5$.
           },
           {
             label: 'b',
-            task: 'Hva koster det ekstra aa bruke 12 GB?',
+            task: 'Hva koster det ekstra å bruke 12 GB?',
             solution: '$K(12) = 15(12 - 5) = 15 \\cdot 7 = 105$ kr.',
           },
           {
             label: 'c',
-            task: 'Hva koster det ekstra aa bruke 30 GB?',
+            task: 'Hva koster det ekstra å bruke 30 GB?',
             solution: '$K(30) = 225 + 25(30 - 20) = 225 + 250 = 475$ kr.',
           },
         ],
@@ -1566,7 +1566,7 @@ Trekker: $2a = 7 \\Rightarrow a = 3{,}5$. $b = 3 - 3{,}5 = -0{,}5$.
 $$h(x) = \\begin{cases} x + 4 & \\text{for } x < -1 \\\\ x^2 & \\text{for } -1 \\leq x \\leq 2 \\\\ 2x & \\text{for } x > 2 \\end{cases}$$`,
         subTasks: [
           { label: 'a', task: 'Beregn $h(-3)$, $h(-1)$, $h(0)$, $h(2)$ og $h(3)$.', solution: '$h(-3) = -3 + 4 = 1$, $h(-1) = (-1)^2 = 1$, $h(0) = 0$, $h(2) = 4$, $h(3) = 6$.' },
-          { label: 'b', task: 'Er $h$ kontinuerlig i $x = -1$?', solution: '$\\lim_{x \\to -1^-} h(x) = -1 + 4 = 3$ og $h(-1) = 1$. Nei, $3 \\neq 1$, saa $h$ er **ikke** kontinuerlig i $x = -1$.' },
+          { label: 'b', task: 'Er $h$ kontinuerlig i $x = -1$?', solution: '$\\lim_{x \\to -1^-} h(x) = -1 + 4 = 3$ og $h(-1) = 1$. Nei, $3 \\neq 1$, så $h$ er **ikke** kontinuerlig i $x = -1$.' },
           { label: 'c', task: 'Er $h$ kontinuerlig i $x = 2$?', solution: '$\\lim_{x \\to 2^-} h(x) = 2^2 = 4$ og $\\lim_{x \\to 2^+} h(x) = 2 \\cdot 2 = 4$ og $h(2) = 4$. Ja, $h$ er kontinuerlig i $x = 2$.' },
         ],
         allowsUpload: true,
@@ -1581,7 +1581,7 @@ $$h(x) = \\begin{cases} x + 4 & \\text{for } x < -1 \\\\ x^2 & \\text{for } -1 \
         number: '2.7.6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Loes likningen $|2x - 1| = |x + 3|$ ved aa skrive begge sider som stykkevise funksjoner.',
+        task: 'Loes likningen $|2x - 1| = |x + 3|$ ved å skrive begge sider som stykkevise funksjoner.',
         solution: `Nullpunkter: $2x - 1 = 0 \\Rightarrow x = \\frac{1}{2}$ og $x + 3 = 0 \\Rightarrow x = -3$. Del opp i tre intervaller:
 
 **$x < -3$:** $-(2x - 1) = -(x + 3) \\Rightarrow -2x + 1 = -x - 3 \\Rightarrow x = 4$. Ikke i intervallet.

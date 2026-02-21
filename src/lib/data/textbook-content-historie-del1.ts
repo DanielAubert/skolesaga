@@ -27,11 +27,11 @@ export const CHAPTER_HISTORIE_1_1: TextbookChapter = {
 
 Historie er studiet av fortiden og hvordan mennesker har levd, tenkt og handlet gjennom tidene. Men historie handler ikke bare om å huske datoer og navn - det handler om å forstå hvorfor ting skjedde, og hvordan fortiden fortsetter å forme oss i dag.
 
-**Historiefagets hovedsporsmal:**
-- Hva skjedde, og nar?
+**Historiefagets hovedspørsmål:**
+- Hva skjedde, og når?
 - Hvorfor skjedde det?
 - Hva ble konsekvensene?
-- Hvordan pavirker dette oss i dag?
+- Hvordan påvirker dette oss i dag?
 
 Historikere arbeider som detektiver. De samler inn bevis fra fortiden, analyserer dem kritisk, og forsøker å sette sammen et bilde av hvordan ting egentlig var. Men i motsetning til naturvitenskap, kan vi aldri gjenta fortiden for å teste teoriene våre.`,
     },
@@ -92,7 +92,7 @@ En person med god historiebevissthet forstår at samfunnet vi lever i er et resu
       problem: 'Hvordan påvirker andre verdenskrig oss i dag, over 80 år senere?',
       solution: `**Andre verdenskrigs ettervirkninger:**
 
-1. **Internasjonale organisasjoner:** FN ble opprettet i 1945 for å hindre nye verdenskonfliker. NATO ble dannet i 1949.
+1. **Internasjonale organisasjoner:** FN ble opprettet i 1945 for å hindre nye verdenskonflikter. NATO ble dannet i 1949.
 
 2. **Menneskerettigheter:** FNs menneskerettighetserklæring (1948) kom som direkte respons på krigens grusomheter.
 

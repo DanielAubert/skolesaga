@@ -265,6 +265,16 @@ Survey, Question, Read, Recite, Review provides a structured approach to improve
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-5-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Grabe, W. & Stoller, F. L. (2020). *Teaching and Researching Reading*. Routledge.
+- Day, R. R. & Bamford, J. (1998). *Extensive Reading in the Second Language Classroom*. Cambridge University Press.
+- Nuttall, C. (2005). *Teaching Reading Skills in a Foreign Language*. Macmillan.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -550,6 +560,16 @@ Comparing sources is essential for:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-5-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Wineburg, S. (2018). *Why Learn History (When It's Already on Your Phone)*. University of Chicago Press.
+- Caulfield, M. (2019). *Web Literacy for Student Fact-Checkers*. PressBooks.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Bazerman, C. (1995). *The Informed Writer: Using Sources in the Disciplines*. Houghton Mifflin.`,
     },
   ],
   exercises: [],
@@ -848,6 +868,16 @@ Combine CRAAP Test (internal analysis) with Lateral Reading (external verificati
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-5-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Blastland, M. & Dilnot, A. (2007). *The Tiger That Isn't: Seeing Through a World of Numbers*. Profile Books.
+- Breakstone, J. et al. (2021). "Lateral reading: College students learn to evaluate internet sources." *Harvard Kennedy School Misinformation Review*, 2(1).
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- IFLA (2017). *How to Spot Fake News*. International Federation of Library Associations.`,
+    },
   ],
   exercises: [],
 };
@@ -1129,6 +1159,16 @@ An article from The Onion (a satire site) about a politician's ridiculous statem
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-5-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Buckingham, D. (2019). *The Media Education Manifesto*. Polity Press.
+- Hobbs, R. (2020). *Mind Over Media: Propaganda Education for a Digital Age*. W. W. Norton.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- UNESCO (2021). *Media and Information Literacy Curriculum for Teachers*. UNESCO Publishing.`,
+    },
   ],
   exercises: [],
 };
@@ -1361,6 +1401,16 @@ The best writers can shift between registers effortlessly, adapting their style 
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-6-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Hyland, K. (2019). *Second Language Writing*. Cambridge University Press.
+- Biber, D. & Conrad, S. (2009). *Register, Genre, and Style*. Cambridge University Press.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Harmer, J. (2015). *The Practice of English Language Teaching*. Pearson Education.`,
+    },
   ],
   exercises: [],
 };
@@ -1590,6 +1640,16 @@ Connect back to your thesis and/or transition to the next point. This keeps your
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-6-2-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Graff, G. & Birkenstein, C. (2018). *"They Say / I Say": The Moves That Matter in Academic Writing*. W. W. Norton.
+- Wingate, U. (2012). "Argument! helping students understand what essay writing is about." *Journal of English for Academic Purposes*, 11(2), 145-154.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Toulmin, S. E. (2003). *The Uses of Argument*. Cambridge University Press.`,
     },
   ],
   exercises: [],
@@ -2017,6 +2077,16 @@ Website: World Health Organization. (2023). *Report title*. https://url.com
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-6-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Oshima, A. & Hogue, A. (2019). *Academic Writing*. Pearson Education.
+- Swales, J. M. & Feak, C. B. (2012). *Academic Writing for Graduate Students*. University of Michigan Press.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04
+- Bailey, S. (2017). *Academic Writing: A Handbook for International Students*. Routledge.`,
     },
   ],
   exercises: [],
@@ -2500,6 +2570,37 @@ Understanding word origins helps you choose the right register in your own writi
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-7-1-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Old English (450-1100)**: A Germanic language brought to Britain by the Angles, Saxons, and Jutes, heavily influenced by Norse through Viking settlements
+- **Middle English (1100-1500)**: Transformed by the Norman Conquest, which introduced thousands of French and Latin words
+- **Early Modern English (1500-1700)**: Standardised through the printing press and enriched by the Renaissance and global exploration
+- **Modern English (1700-present)**: Continuously evolving through colonialism, industrialisation, and globalisation
+- **Key insight**: English is a uniquely hybrid language with Germanic grammar but heavily Romance vocabulary
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Old English | The earliest form of English (449-1100), a Germanic language |
+| Norman Conquest | The 1066 invasion that brought French influence to English |
+| Great Vowel Shift | A major change in pronunciation (1400-1700) that explains English spelling irregularities |
+| Standardisation | The process of establishing consistent spelling and grammar rules |`,
+    },
+    {
+      id: 'engelsk-vg1-7-1-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Baugh, A. C. & Cable, T. (2013). *A History of the English Language*. Routledge.
+- Crystal, D. (2004). *The Stories of English*. Penguin Books.
+- McCrum, R. et al. (2002). *The Story of English*. Penguin Books.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -2740,6 +2841,27 @@ As English continues to spread, it is also changing. Non-native speakers are sha
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-7-2-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **English as a lingua franca**: English is used by approximately 1.5 billion people worldwide, the majority of whom are non-native speakers
+- **Kachru's three circles**: The Inner Circle (native speakers), the Outer Circle (former colonies), and the Expanding Circle (countries learning English as a foreign language)
+- **Why English spread**: Colonialism, economic power, science, technology, pop culture, and the internet all contributed
+- **English in Norway**: Norway belongs to the Expanding Circle, with high English proficiency but ongoing debate about its impact on Norwegian
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Lingua franca | A language used for communication between speakers of different native languages |
+| Kachru's circles | A model showing three levels of English use globally |
+| Inner Circle | Countries where English is the primary language (UK, US, Australia, etc.) |
+| Outer Circle | Countries where English has an official role due to colonial history (India, Nigeria, etc.) |
+| Expanding Circle | Countries where English is learned as a foreign language (Norway, Japan, etc.) |`,
     },
     // --- KILDER ---
     {
@@ -3029,6 +3151,36 @@ A distinctive variety influenced by Chinese, Malay, and Tamil.
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'engelsk-vg1-7-3-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **World Englishes**: English is not one language but many varieties, each with systematic features shaped by local languages and cultures
+- **British vs American English**: Differences in spelling (colour/color), vocabulary (boot/trunk), grammar (have got/have gotten), and pronunciation
+- **Post-colonial Englishes**: Indian English, Nigerian English, Singaporean English, and others have developed their own legitimate rules and vocabulary
+- **Attitudes to variety**: No single variety is inherently "correct" — appropriateness depends on context and audience
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| World Englishes | The many distinct varieties of English spoken around the world |
+| Code-switching | Alternating between two or more languages or varieties in conversation |
+| Nativisation | The process by which English adapts to local linguistic and cultural contexts |
+| Standard language ideology | The belief that one variety is inherently superior to others |`,
+    },
+    {
+      id: 'engelsk-vg1-7-3-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Jenkins, J. (2009). *World Englishes: A Resource Book for Students*. Routledge.
+- Kirkpatrick, A. (2010). *The Routledge Handbook of World Englishes*. Routledge.
+- Trudgill, P. & Hannah, J. (2017). *International English: A Guide to Varieties of English Around the World*. Routledge.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
+    },
   ],
   exercises: [],
 };
@@ -3297,6 +3449,37 @@ English in the digital age will continue to evolve. The words and conventions th
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'engelsk-vg1-7-4-oppsummering',
+      type: 'text',
+      content: `## Summary
+
+In this chapter you have learned:
+
+- **Internet English**: The digital age has created new words, abbreviations, and communication conventions that function as a distinct register
+- **Social media language**: Each platform has its own norms and conventions (Twitter brevity, Reddit formatting, TikTok captions)
+- **Gaming language**: A rich vocabulary has developed around gaming culture, blending English with creative neologisms
+- **Code-switching**: Digital-age English speakers routinely switch between formal and informal registers depending on context
+- **Language evolution**: Internet language represents natural linguistic evolution, not corruption of English
+
+### Key Concepts
+| Concept | Explanation |
+|---------|-------------|
+| Neologism | A newly coined word or expression |
+| Netspeak | The distinctive language and conventions used in online communication |
+| Emoji | Visual symbols used to convey tone and emotion in digital communication |
+| Meme | A cultural unit (often humorous) that spreads rapidly through online communities |`,
+    },
+    {
+      id: 'engelsk-vg1-7-4-kilder',
+      type: 'text',
+      content: `## Sources
+
+- Crystal, D. (2011). *Internet Linguistics*. Routledge.
+- McCulloch, G. (2019). *Because Internet: Understanding the New Rules of Language*. Riverhead Books.
+- Baron, N. S. (2008). *Always On: Language in an Online and Mobile World*. Oxford University Press.
+- UDIR (2020). *Læreplan i engelsk (ENG01-04)*. Utdanningsdirektoratet. https://www.udir.no/lk20/eng01-04`,
     },
   ],
   exercises: [],

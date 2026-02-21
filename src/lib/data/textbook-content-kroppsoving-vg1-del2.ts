@@ -364,7 +364,27 @@ Ved å følge tallerkenmodellen får du automatisk et balansert kosthold med rik
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Makronæringsstoffer**: karbohydrater, proteiner og fett
+- **Mikronæringsstoffer**: vitaminer og mineraler
+- **Tallerkenmodellen** som verktøy for balanserte måltider
+- Sammenhengen mellom kosthold og fysisk aktivitet`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Kostråd
+- Nøkkelrådet: Kostholdsråd for god helse
+- Mattilsynet: mattilsynet.no`,
+    },
+],
   exercises: [],
 };
 
@@ -828,7 +848,26 @@ Begrunnelse: Kort varighet og moderat svetting. Kroppen bruker anaerob energioms
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Væskebalanse** og betydningen av riktig hydrering
+- **Dehydrering** og hvordan det påvirker prestasjon
+- **Elektrolytter** og deres rolle i kroppens funksjoner
+- Praktiske råd for væskeinntak før, under og etter trening`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Kostråd
+- Olympiatoppen: Ernæringsråd for idrettsutøvere`,
+    },
+],
   exercises: [],
 };
 
@@ -1507,7 +1546,27 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Superkompensasjon** og hvordan kroppen bygger seg opp
+- **Søvn og hvile** som avgjørende for restitusjon
+- **Aktiv restitusjon** som alternativ til full hvile
+- Tegn på **overtrening** og hvordan forebygge det`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
+- Søvnforeningen: sovnforeningen.no
+- Helsedirektoratet: Søvn og helse`,
+    },
+],
   exercises: [],
 };
 
@@ -2158,7 +2217,26 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Måltidstiming** rundt trening for optimal prestasjon
+- Hva du bør spise **før og etter trening**
+- **Karbohydratlading** som strategi for utholdenhet
+- **Proteinbehov** ved ulike typer trening`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Helsedirektoratet: Kostråd
+- Olympiatoppen: Ernæring for idrettsutøvere`,
+    },
+],
   exercises: [],
 };
 
@@ -2682,7 +2760,27 @@ Husk: Det er ALDRI for tidlig å søke hjelp, men det kan bli for sent.
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kroppsidealer** i media og idrett og deres påvirkning
+- **Mediekritikk** og evne til å gjennomskue retusjerte bilder
+- **Selvbilde** og sunn treningskultur
+- Bevissthet rundt **spiseforstyrrelser** og varselsignaler`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Medietilsynet: Barn og medier
+- Rådgivning om spiseforstyrrelser (ROS): nettros.no
+- Ung.no: Kropp og selvbilde`,
+    },
+],
   exercises: [],
 };
 
@@ -3182,7 +3280,27 @@ Anabole steroider er farlige, ulovlige og bryter med idrettens verdier. Det finn
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-3-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kosttilskudd** og hva som faktisk virker
+- **Proteinpulver** og om det er nødvendig
+- **Energidrikker** og helsepåstander
+- **Kildekritikk** for å skille vitenskap fra reklame`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Antidoping Norge: antidoping.no
+- Mattilsynet: Kosttilskudd
+- Helsedirektoratet: Råd om kosttilskudd`,
+    },
+],
   exercises: [],
 };
 
@@ -3632,7 +3750,26 @@ Friidrett kan tilpasses for alle, uavhengig av fysisk nivå eller eventuelle beg
 
 **Viktig prinsipp**: Friidrett handler om personlig utvikling og mestring - ikke om å være best. Alle kan finne sin måte å delta på, og alternativ deltakelse lærer også verdifulle ferdigheter som ledelse, analyse og teamarbeid.`,
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Sprintteknikk** og mellomdistanseløping
+- **Løpsteknikk** for ulike distanser
+- **Friidrettsøvelser** som lengde, høyde og kast
+- Grunnleggende taktikk i løpsdistanser`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-1-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Friidrettsforbund: friidrett.no
+- Olympiatoppen: olympiatoppen.no`,
+    },
+],
   exercises: [],
 };
 
@@ -4134,7 +4271,27 @@ Svømming kan og bør tilpasses slik at alle kan delta og utvikle seg i sitt ege
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Svømmeteknikker** i crawl, bryst, rygg og butterfly
+- **Livredningsprinsipper** og redning i vann
+- **Vannsikkerhet** og badevettregler
+- Svømming som allsidig treningsform`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Svømmeforbund: svomming.no
+- Redningsselskapet: rs.no
+- Norges Livredningsselskap: livredning.no`,
+    },
+],
   exercises: [],
 };
 
@@ -4537,7 +4694,26 @@ Turn kan tilpasses for ulike nivåer og forutsetninger:
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Grunnleggende turnøvelser** som ruller og hodestående
+- **Akrobatikk** og enkle kombinasjoner
+- **Kroppsbeherskelse** og balanse
+- **Sikring og hjelp** ved turnøvelser`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Gymnastikk- og Turnforbund: gymogturn.no
+- Olympiatoppen: olympiatoppen.no`,
+    },
+],
   exercises: [],
 };
 
@@ -5021,7 +5197,27 @@ Kampsport og selvforsvar kan tilpasses alle:
         allowsCanvasDrawing: true,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Fallsteknikk** som grunnlag for trygg kampsport
+- **Grunnleggende grep** og teknikker
+- **Selvkontroll og respekt** som kjerneverdier
+- Kampsport som verktøy for fysisk og mental utvikling`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Judoforbund: judo.no
+- Norges Bryteforbund: bryting.no
+- Norges Kampsportforbund: kampsport.no`,
+    },
+],
   exercises: [],
 };
 
@@ -5384,7 +5580,26 @@ Orientering kan gjøres tilgjengelig for alle:
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Kartlesing** og bruk av kompass i orientering
+- **GPS og digitale verktøy** som supplement
+- **Orienteringsløype** og praktisk navigasjon
+- Orientering som kombinasjon av fysikk og taktikk`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-5-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Orienteringsforbund: orientering.no
+- Kartverket: kartverket.no`,
+    },
+],
   exercises: [],
 };
 
@@ -5847,7 +6062,26 @@ Konsistens gir resultater. Når jeg møtte opp og gjorde innsatsen, skjedde frem
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-6-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Personlige mål** og individuell mestring
+- **Innsats og utholdenhet** som nøkler til utvikling
+- Å tøye egne grenser gjennom systematisk arbeid
+- **Selvstendighet** i treningsprosessen`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-6-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Olympiatoppen: Mental trening
+- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal`,
+    },
+],
   exercises: [],
 };
 
@@ -6351,7 +6585,27 @@ Etter disse 4 turene er du klar for å ski på egen hånd!`,
         allowsCanvasDrawing: false,
       },
     },
-  ],
+      {
+      id: 'kroppsoving-vg1-4-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapittelet har vi lært om:
+- **Langrenn** med klassisk og fristilteknikk
+- **Skøyteteknikk** og balanse på is
+- **Vinteridrett** som del av norsk friluftslivstradisjon
+- Sikkerhet ved vinteraktiviteter`,
+    },
+    {
+      id: 'kroppsoving-vg1-4-7-kilder',
+      type: 'text',
+      content: `## Kilder
+
+- Norges Skiforbund: skiforbundet.no
+- Norges Skøyteforbund: skoyteforbundet.no
+- Den Norske Turistforening (DNT): ut.no`,
+    },
+],
   exercises: [],
 };
 

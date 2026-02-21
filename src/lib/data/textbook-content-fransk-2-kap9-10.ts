@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Niva 2 - Kapittel 9-10
+ * Fransk Nivå 2 - Kapittel 9-10
  *
  * Kapittel 9: Skriving og kommunikasjon (L'ecriture et la communication)
  * Kapittel 10: Grammatikkrepetisjon (Revision grammaticale)
@@ -19,33 +19,33 @@ export const CHAPTER_FRANSK_2_9_1: TextbookChapter = {
   chapterNumber: '9.1',
   title: 'Ecrire une lettre / un courriel',
   subtitle: 'Skrive brev/e-post',
-  description: 'Laer a skrive formelle og uformelle brev og e-poster pa fransk, med riktig format og vanlige uttrykk.',
+  description: 'Lær å skrive formelle og uformelle brev og e-poster på fransk, med riktig format og vanlige uttrykk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'skrive formelle og uformelle brev og e-poster pa fransk',
+    'skrive formelle og uformelle brev og e-poster på fransk',
     'bruke riktige hilsener og avslutninger i ulike brevtyper',
   ],
   content: [
     {
       id: 'fransk-2-9-1-intro',
       type: 'text',
-      content: `## Skrive brev og e-post pa fransk
+      content: `## Skrive brev og e-post på fransk
 
-A kunne skrive brev og e-poster pa fransk er en viktig ferdighet. Pa fransk skiller man tydelig mellom formell og uformell skriving. Hilsener, avslutninger og tone varierer avhengig av hvem du skriver til.
+A kunne skrive brev og e-poster på fransk er en viktig ferdighet. På fransk skiller man tydelig mellom formell og uformell skriving. Hilsener, avslutninger og tone varierer avhengig av hvem du skriver til.
 
-I dette kapittelet laerer du a skrive bade formelle og uformelle brev og e-poster med riktig format og vanlige uttrykk.`,
+I dette kapittelet lærer du a skrive både formelle og uformelle brev og e-poster med riktig format og vanlige uttrykk.`,
     },
     {
       id: 'fransk-2-9-1-text-1',
       type: 'text',
       content: `## Uformelt brev / e-post (lettre informelle)
 
-Nar du skriver til venner eller familie, bruker du et uformelt sprak:
+Nar du skriver til venner eller familie, bruker du et uformelt språk:
 
 **Innledning:**
 | Fransk | Norsk |
 |--------|-------|
-| Cher Paul, / Chere Marie, | Kjaere Paul, / Kjaere Marie, |
+| Cher Paul, / Chere Marie, | Kjære Paul, / Kjære Marie, |
 | Salut ! | Hei! |
 | Coucou ! | Hei! (veldig uformelt) |
 | Comment ca va ? | Hvordan har du det? |
@@ -70,11 +70,11 @@ Comment ca va ? Moi, je vais tres bien ! Je t'ecris pour te raconter mes vacance
 Et toi, qu'est-ce que tu as fait pendant les vacances ?
 Bisous,
 Marie"`,
-      solution: `**Hilsen:** Chere Sophie, (Kjaere Sophie,)
+      solution: `**Hilsen:** Chere Sophie, (Kjære Sophie,)
 **Innhold:** Hun forteller om ferien sin i Spania og spor hva venninnen gjorde.
 **Avslutning:** Bisous, Marie (Klem, Marie)
 
-Merk den uformelle tonen med "tu", sporsmal til mottakeren, og avslutningen "Bisous".`,
+Merk den uformelle tonen med "tu", spørsmål til mottakeren, og avslutningen "Bisous".`,
     },
     {
       id: 'fransk-2-9-1-ex-block-1',
@@ -86,13 +86,13 @@ Merk den uformelle tonen med "tu", sporsmal til mottakeren, og avslutningen "Bis
         difficulty: 'lett',
         task: 'Oversett disse uformelle brevuttrykkene til fransk.',
         subTasks: [
-          { label: 'a', task: 'Kjaere Pierre,', solution: 'Cher Pierre,' },
+          { label: 'a', task: 'Kjære Pierre,', solution: 'Cher Pierre,' },
           { label: 'b', task: 'Hvordan har du det?', solution: 'Comment ca va ?' },
           { label: 'c', task: 'Vi ses snart!', solution: 'A bientot !' },
           { label: 'd', task: 'Klem', solution: 'Bisous' },
         ],
         solution: 'a) Cher Pierre, b) Comment ca va ? c) A bientot ! d) Bisous',
-        hints: ['Cher = Kjaere (til en gutt/mann)', 'Chere = Kjaere (til en jente/kvinne)'],
+        hints: ['Cher = Kjære (til en gutt/mann)', 'Chere = Kjære (til en jente/kvinne)'],
       },
     },
     {
@@ -100,14 +100,14 @@ Merk den uformelle tonen med "tu", sporsmal til mottakeren, og avslutningen "Bis
       type: 'text',
       content: `## Formelt brev / e-post (lettre formelle)
 
-Nar du skriver til ukjente, bedrifter eller myndigheter, bruker du formelt sprak:
+Nar du skriver til ukjente, bedrifter eller myndigheter, bruker du formelt språk:
 
 **Innledning:**
 | Fransk | Norsk |
 |--------|-------|
-| Madame, Monsieur, | Kjaere herr/fru, |
-| Cher Monsieur Dupont, | Kjaere herr Dupont, |
-| Chere Madame Martin, | Kjaere fru Martin, |
+| Madame, Monsieur, | Kjære herr/fru, |
+| Cher Monsieur Dupont, | Kjære herr Dupont, |
+| Chere Madame Martin, | Kjære fru Martin, |
 
 **Nyttige fraser:**
 | Fransk | Norsk |
@@ -115,7 +115,7 @@ Nar du skriver til ukjente, bedrifter eller myndigheter, bruker du formelt sprak
 | Je vous ecris pour... | Jeg skriver til Dem for a... |
 | Suite a votre annonce... | I forbindelse med Deres annonse... |
 | Je me permets de vous contacter... | Jeg tillater meg a kontakte Dem... |
-| Je vous prie de bien vouloir... | Jeg ber Dem vaere sa vennlig a... |
+| Je vous prie de bien vouloir... | Jeg ber Dem være sa vennlig a... |
 
 **Avslutning:**
 | Fransk | Norsk |
@@ -123,7 +123,7 @@ Nar du skriver til ukjente, bedrifter eller myndigheter, bruker du formelt sprak
 | Cordialement | Med vennlig hilsen |
 | Veuillez agreer mes salutations distinguees | Med de beste hilsener |
 | Dans l'attente de votre reponse | I pavente av Deres svar |
-| Je vous remercie d'avance | Takk pa forhand |`,
+| Je vous remercie d'avance | Takk på forhand |`,
     },
     {
       id: 'fransk-2-9-1-example-2',
@@ -139,7 +139,7 @@ Jean Martin"`,
       solution: `**Formelle trekk:**
 1. **Hilsen:** "Madame, Monsieur," - formell og nodral
 2. **Vous-form:** "Je vous ecris" - bruker "vous" (De)
-3. **Formelt uttrykk:** "poser ma candidature" (sende min soknad)
+3. **Formelt uttrykk:** "poser ma candidature" (sende min søknad)
 4. **Avslutning:** "Veuillez agreer mes salutations distinguees" - svart formell
 5. **Vedlegg:** "Veuillez trouver ci-joint" (Vennligst finn vedlagt)`,
     },
@@ -156,7 +156,7 @@ Jean Martin"`,
           { label: 'a', task: 'Jeg skriver til Dem for a...', solution: 'Je vous ecris pour...' },
           { label: 'b', task: 'Med vennlig hilsen', solution: 'Cordialement' },
           { label: 'c', task: 'I pavente av Deres svar', solution: 'Dans l\'attente de votre reponse' },
-          { label: 'd', task: 'Takk pa forhand', solution: 'Je vous remercie d\'avance' },
+          { label: 'd', task: 'Takk på forhand', solution: 'Je vous remercie d\'avance' },
         ],
         solution: 'a) Je vous ecris pour... b) Cordialement c) Dans l\'attente de votre reponse d) Je vous remercie d\'avance',
         hints: ['vous = De (formelt)', 'votre = Deres (formelt)'],
@@ -167,7 +167,7 @@ Jean Martin"`,
       type: 'text',
       content: `## Struktur i et brev/e-post
 
-Et godt brev eller e-post pa fransk har disse delene:
+Et godt brev eller e-post på fransk har disse delene:
 
 1. **Hilsen** (Formule d'appel) - Cher/Chere... eller Madame, Monsieur,
 2. **Innledning** - Forklarer hvorfor du skriver
@@ -194,7 +194,7 @@ a) ___, je voudrais vous remercier pour votre aide.
 b) ___, je souhaite poser une question.
 c) ___, je vous prie de me repondre rapidement.`,
       solution: `a) **D'abord**, je voudrais vous remercier pour votre aide. (Forst vil jeg takke Dem for Deres hjelp.)
-b) **Ensuite**, je souhaite poser une question. (Deretter onsker jeg a stille et sporsmal.)
+b) **Ensuite**, je souhaite poser une question. (Deretter onsker jeg a stille et spørsmål.)
 c) **Finalement**, je vous prie de me repondre rapidement. (Til slutt ber jeg Dem svare raskt.)`,
     },
     {
@@ -209,8 +209,8 @@ c) **Finalement**, je vous prie de me repondre rapidement. (Til slutt ber jeg De
         subTasks: [
           { label: 'a', task: 'Du skriver til bestevennen din. Hilsen:', solution: 'Salut ! / Cher(e) + navn' },
           { label: 'b', task: 'Du skriver til bestevennen din. Avslutning:', solution: 'Bisous / A bientot !' },
-          { label: 'c', task: 'Du skriver til en laerer. Hilsen:', solution: 'Cher Monsieur / Chere Madame + etternavn' },
-          { label: 'd', task: 'Du skriver til en laerer. Avslutning:', solution: 'Cordialement / Respectueusement' },
+          { label: 'c', task: 'Du skriver til en lærer. Hilsen:', solution: 'Cher Monsieur / Chere Madame + etternavn' },
+          { label: 'd', task: 'Du skriver til en lærer. Avslutning:', solution: 'Cordialement / Respectueusement' },
         ],
         solution: 'a) Salut ! / Cher(e) + navn b) Bisous / A bientot ! c) Cher Monsieur / Chere Madame + etternavn d) Cordialement / Respectueusement',
         hints: ['Uformelt: tu-form, kallenavn, enkle avslutninger', 'Formelt: vous-form, titler, formelle avslutninger'],
@@ -262,21 +262,21 @@ export const CHAPTER_FRANSK_2_9_2: TextbookChapter = {
   chapterNumber: '9.2',
   title: 'Argumenter et debattre',
   subtitle: 'Argumentere og debattere',
-  description: 'Laer a uttrykke meninger, argumentere og debattere pa fransk med vanlige fraser og bindeord.',
+  description: 'Lær å uttrykke meninger, argumentere og debattere på fransk med vanlige fraser og bindeord.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'uttrykke meninger og argumentere pa fransk',
+    'uttrykke meninger og argumentere på fransk',
     'bruke vanlige bindeord og argumentasjonsfraser i skriftlig og muntlig kommunikasjon',
   ],
   content: [
     {
       id: 'fransk-2-9-2-intro',
       type: 'text',
-      content: `## Argumentere og debattere pa fransk
+      content: `## Argumentere og debattere på fransk
 
-A kunne uttrykke meninger og argumentere er en sentral ferdighet i fremmedsprak. Pa fransk finnes det mange uttrykk for a si hva du mener, vaere enig eller uenig, og strukturere argumentene dine.
+A kunne uttrykke meninger og argumentere er en sentral ferdighet i fremmedsprak. På fransk finnes det mange uttrykk for å si hva du mener, være enig eller uenig, og strukturere argumentene dine.
 
-I dette kapittelet laerer du de viktigste frasene for a delta i debatter og skrive argumenterende tekster.`,
+I dette kapittelet lærer du de viktigste frasene for å delta i debatter og skrive argumenterende tekster.`,
     },
     {
       id: 'fransk-2-9-2-text-1',
@@ -304,7 +304,7 @@ I dette kapittelet laerer du de viktigste frasene for a delta i debatter og skri
       type: 'example',
       title: 'Eksempel 1: Uttrykke meninger',
       problem: `Oversett til fransk:
-a) Etter min mening er fransk et vakkert sprak.
+a) Etter min mening er fransk et vakkert språk.
 b) Jeg synes at skolen er viktig.
 c) Jeg er overbevist om at vi ma handle.`,
       solution: `a) **A mon avis**, le francais est une belle langue.
@@ -321,7 +321,7 @@ Merk: Etter "je pense que", "je crois que", "je trouve que" folger en setning me
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Fyll inn riktig uttrykk for a si din mening.',
+        task: 'Fyll inn riktig uttrykk for å si din mening.',
         subTasks: [
           { label: 'a', task: '___, le francais est facile. (Etter min mening)', solution: 'A mon avis' },
           { label: 'b', task: '___ c\'est une bonne idee. (Jeg synes at)', solution: 'Je trouve que' },
@@ -361,7 +361,7 @@ Merk: Etter "je pense que", "je crois que", "je trouve que" folger en setning me
       id: 'fransk-2-9-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Enig og uenig',
-      problem: `Hvordan sier du pa fransk:
+      problem: `Hvordan sier du på fransk:
 a) Jeg er enig med deg.
 b) Det er ikke sant.
 c) Du har rett.`,
@@ -398,7 +398,7 @@ c) Tu as raison.
 **Introdusere argumenter:**
 | Fransk | Norsk |
 |--------|-------|
-| D'une part... d'autre part... | Pa den ene siden... pa den andre siden... |
+| D'une part... d'autre part... | Pa den ene siden... på den andre siden... |
 | Premierement... deuxiemement... | For det forste... for det andre... |
 | D'abord... ensuite... enfin... | Forst... deretter... til slutt... |
 | En premier lieu... en second lieu... | I forste omgang... i andre omgang... |
@@ -409,7 +409,7 @@ c) Tu as raison.
 | De plus, ... | I tillegg, ... |
 | En outre, ... | Dessuten, ... |
 | Par ailleurs, ... | For ovrig, ... |
-| Il faut aussi noter que... | Man ma ogsa merke seg at... |
+| Il faut aussi noter que... | Man ma også merke seg at... |
 
 **Motsi / innvende:**
 | Fransk | Norsk |
@@ -458,7 +458,7 @@ Teksten er godt strukturert med tydelige overganger mellom argumentene.`,
           { label: 'a', task: 'I tillegg', solution: 'De plus' },
           { label: 'b', task: 'Imidlertid', solution: 'Cependant' },
           { label: 'c', task: 'Avslutningsvis', solution: 'En conclusion' },
-          { label: 'd', task: 'Pa den ene siden... pa den andre siden...', solution: 'D\'une part... d\'autre part...' },
+          { label: 'd', task: 'Pa den ene siden... på den andre siden...', solution: 'D\'une part... d\'autre part...' },
         ],
         solution: 'a) De plus, b) Cependant, c) En conclusion, d) D\'une part... d\'autre part...',
         hints: ['Disse bindeordene brukes mye i argumenterende tekster', 'Cependant = Imidlertid/Likevel'],
@@ -469,7 +469,7 @@ Teksten er godt strukturert med tydelige overganger mellom argumentene.`,
       type: 'text',
       content: `## Oppsummering - Argumentasjon
 
-For a argumentere godt pa fransk, trenger du:
+For a argumentere godt på fransk, trenger du:
 
 1. **Uttrykke mening:** A mon avis, Je pense que, Je trouve que
 2. **Vaere enig/uenig:** Je suis (pas) d'accord, Tout a fait, Au contraire
@@ -511,21 +511,21 @@ export const CHAPTER_FRANSK_2_9_3: TextbookChapter = {
   chapterNumber: '9.3',
   title: 'Raconter et decrire',
   subtitle: 'Fortelle og beskrive',
-  description: 'Laer fortellerteknikker, beskrivende vokabular og bruk av fortidsformer i fortellinger pa fransk.',
+  description: 'Lær fortellerteknikker, beskrivende vokabular og bruk av fortidsformer i fortellinger på fransk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'fortelle historier og beskrive hendelser pa fransk',
+    'fortelle historier og beskrive hendelser på fransk',
     'bruke passe compose og imparfait riktig i fortellinger',
   ],
   content: [
     {
       id: 'fransk-2-9-3-intro',
       type: 'text',
-      content: `## Fortelle og beskrive pa fransk
+      content: `## Fortelle og beskrive på fransk
 
-A kunne fortelle historier og beskrive opplevelser er viktig for a kommunisere godt pa fransk. Nar du forteller pa fransk, bruker du to fortidsformer: **passe compose** for handlinger og **imparfait** for beskrivelser og bakgrunn.
+A kunne fortelle historier og beskrive opplevelser er viktig for å kommunisere godt på fransk. Nar du forteller på fransk, bruker du to fortidsformer: **passe compose** for handlinger og **imparfait** for beskrivelser og bakgrunn.
 
-I dette kapittelet laerer du teknikker for a fortelle og beskrive pa en engasjerende mate.`,
+I dette kapittelet lærer du teknikker for å fortelle og beskrive på en engasjerende mate.`,
     },
     {
       id: 'fransk-2-9-3-text-1',
@@ -542,7 +542,7 @@ I dette kapittelet laerer du teknikker for a fortelle og beskrive pa en engasjer
 | Quand j'etais petit(e), ... | Da jeg var liten, ... |
 | Ce matin-la, ... | Den morgenen, ... |
 
-**Tidsuttrykk for a folge kronologien:**
+**Tidsuttrykk for å folge kronologien:**
 | Fransk | Norsk |
 |--------|-------|
 | D'abord, ... | Forst, ... |
@@ -595,15 +595,15 @@ Fortellingen folger en tydelig kronologisk struktur.`,
 I en fortelling bruker vi de to fortidsformene slik:
 
 **Imparfait** (beskrivelser og bakgrunn):
-- Vaer, landskap, stemning: *Il faisait beau.* (Det var fint vaer.)
+- Vær, landskap, stemning: *Il faisait beau.* (Det var fint vær.)
 - Utseende og egenskaper: *Elle avait les cheveux blonds.* (Hun hadde blondt har.)
-- Vanlige handlinger: *Chaque ete, nous allions a la mer.* (Hver sommer dro vi til sjoen.)
-- Pagaende handlinger: *Je marchais dans la rue quand...* (Jeg gikk pa gaten da...)
+- Vanlige handlinger: *Chaque ete, nous allions a la mer.* (Hver sommer dro vi til sjøen.)
+- Pågående handlinger: *Je marchais dans la rue quand...* (Jeg gikk på gaten da...)
 
 **Passe compose** (handlinger og hendelser):
 - Enkelthendelser: *J'ai achete un livre.* (Jeg kjopte en bok.)
 - Avsluttede handlinger: *Nous sommes arrives a 10 heures.* (Vi ankom klokken 10.)
-- Plutselige hendelser: *Soudain, il a commence a pleuvoir.* (Plutselig begynte det a regne.)
+- Plutselige hendelser: *Soudain, il a commence a pleuvoir.* (Plutselig begynte det å regne.)
 - Rekker av hendelser: *Il a mange, puis il est parti.* (Han spiste, sa dro han.)`,
     },
     {
@@ -614,8 +614,8 @@ I en fortelling bruker vi de to fortidsformene slik:
 a) Il (faire) ___ beau quand nous (arriver) ___.
 b) Je (lire) ___ un livre quand le telephone (sonner) ___.
 c) Quand j'(etre) ___ petit, je (jouer) ___ au football.`,
-      solution: `a) Il **faisait** beau quand nous **sommes arrives**. (Imparfait for vaer, PC for handling)
-b) Je **lisais** un livre quand le telephone **a sonne**. (Imparfait for pagaende, PC for avbrytelse)
+      solution: `a) Il **faisait** beau quand nous **sommes arrives**. (Imparfait for vær, PC for handling)
+b) Je **lisais** un livre quand le telephone **a sonne**. (Imparfait for pågående, PC for avbrytelse)
 c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstand + vane)
 
 **Huskeregel:** Imparfait = bakgrunn/scene, Passe compose = handling som skjer.`,
@@ -630,7 +630,7 @@ c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstan
         difficulty: 'medium',
         task: 'Velg riktig tid: passe compose (PC) eller imparfait (IMP)?',
         subTasks: [
-          { label: 'a', task: 'Il ___ chaud. (faire) - beskriver vaeret', solution: 'faisait (IMP)' },
+          { label: 'a', task: 'Il ___ chaud. (faire) - beskriver været', solution: 'faisait (IMP)' },
           { label: 'b', task: 'Soudain, il ___ a pleuvoir. (commencer) - plutselig hendelse', solution: 'a commence (PC)' },
           { label: 'c', task: 'Quand j\'___ petit, ... (etre) - tilstand i fortiden', solution: 'etais (IMP)' },
           { label: 'd', task: 'Hier, j\'___ un gateau. (acheter) - avsluttet handling', solution: 'ai achete (PC)' },
@@ -670,7 +670,7 @@ c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstan
       problem: `Oversett beskrivelsen til norsk:
 
 "La ville etait magnifique. Les rues etaient animees et les gens etaient souriants. Il faisait beau et le ciel etait bleu."`,
-      solution: `"Byen var storslatt. Gatene var livlige og menneskene var blide. Det var fint vaer og himmelen var bla."
+      solution: `"Byen var storslatt. Gatene var livlige og menneskene var blide. Det var fint vær og himmelen var bla."
 
 **Merk:** Alt er i imparfait fordi det er beskrivelser av en scene/bakgrunn, ikke handlinger.`,
     },
@@ -689,7 +689,7 @@ c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstan
           { label: 'c', task: 'Det var kaldt og det regnet.', solution: 'Il faisait froid et il pleuvait.' },
         ],
         solution: 'a) Elle etait grande et mince. b) La maison etait ancienne et belle. c) Il faisait froid et il pleuvait.',
-        hints: ['Bruk imparfait (etait, faisait) for beskrivelser', 'Il faisait + adjektiv for vaer'],
+        hints: ['Bruk imparfait (etait, faisait) for beskrivelser', 'Il faisait + adjektiv for vær'],
       },
     },
     {
@@ -705,7 +705,7 @@ c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstan
 | Plutselig hendelse | Passe compose | Soudain, il a crie. |
 | Vane i fortiden | Imparfait | Je jouais au foot chaque jour. |
 
-**Tips:** Tenk pa det som en film - imparfait er bakgrunnsmusikken og scenografien, passe compose er handlingen!`,
+**Tips:** Tenk på det som en film - imparfait er bakgrunnsmusikken og scenografien, passe compose er handlingen!`,
     },
     {
       id: 'fransk-2-9-3-ex-block-4',
@@ -718,12 +718,12 @@ c) Quand j'**etais** petit, je **jouais** au football. (Begge imparfait: tilstan
         task: 'Fullfar fortellingen med riktig verbform (PC eller IMP).',
         subTasks: [
           { label: 'a', task: 'C\'___ une belle journee. (etre - bakgrunn)', solution: 'etait (IMP)' },
-          { label: 'b', task: 'Je ___ dans le parc. (marcher - pagaende)', solution: 'marchais (IMP)' },
+          { label: 'b', task: 'Je ___ dans le parc. (marcher - pågående)', solution: 'marchais (IMP)' },
           { label: 'c', task: 'Soudain, j\'___ un bruit. (entendre - hendelse)', solution: 'ai entendu (PC)' },
           { label: 'd', task: 'Je ___ et j\'___ un chat. (se retourner / voir - handlinger)', solution: 'me suis retourne(e) / ai vu (PC)' },
         ],
         solution: 'a) etait (IMP), b) marchais (IMP), c) ai entendu (PC), d) me suis retourne(e) / ai vu (PC)',
-        hints: ['Bakgrunn og pagaende = imparfait', 'Plutselig hendelse og handlinger = passe compose'],
+        hints: ['Bakgrunn og pågående = imparfait', 'Plutselig hendelse og handlinger = passe compose'],
       },
     },
   ],
@@ -740,21 +740,21 @@ export const CHAPTER_FRANSK_2_9_4: TextbookChapter = {
   chapterNumber: '9.4',
   title: 'Registre formel et informel',
   subtitle: 'Formelt og uformelt register',
-  description: 'Laer forskjellen mellom formelt og uformelt sprak pa fransk, inkludert tu/vous i skriving, formelle uttrykk og slang.',
+  description: 'Lær forskjellen mellom formelt og uformelt språk på fransk, inkludert tu/vous i skriving, formelle uttrykk og slang.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'skille mellom formelt og uformelt register pa fransk',
+    'skille mellom formelt og uformelt register på fransk',
     'bruke riktig sprakregister avhengig av situasjon og mottaker',
   ],
   content: [
     {
       id: 'fransk-2-9-4-intro',
       type: 'text',
-      content: `## Formelt og uformelt register pa fransk
+      content: `## Formelt og uformelt register på fransk
 
-Pa fransk er forskjellen mellom formelt og uformelt sprak mye storre enn pa norsk. Det er viktig a bruke riktig register avhengig av situasjonen. A bruke feil register kan oppfattes som uhoflig eller merkelig.
+På fransk er forskjellen mellom formelt og uformelt språk mye storre enn på norsk. Det er viktig å bruke riktig register avhengig av situasjonen. A bruke feil register kan oppfattes som uhoflig eller merkelig.
 
-I dette kapittelet laerer du a gjenkjenne og bruke bade formelt og uformelt sprak.`,
+I dette kapittelet lærer du a gjenkjenne og bruke både formelt og uformelt språk.`,
     },
     {
       id: 'fransk-2-9-4-text-1',
@@ -772,7 +772,7 @@ Den viktigste forskjellen mellom formelt og uformelt fransk:
 
 **Vous (formelt):**
 - Ukjente voksne
-- Laerere, sjefer, eldre
+- Lærere, sjefer, eldre
 - I forretningssammenheng
 - Offisielle situasjoner
 - Nar du er usikker
@@ -794,9 +794,9 @@ a) Du snakker med en ny klassevenninne.
 b) Du snakker med legen din.
 c) Du skriver til bestemoren din.
 d) Du er i et jobbintervju.`,
-      solution: `a) **Tu** - jevnaldrende pa skolen
-b) **Vous** - legen er en fagperson du ikke er naer
-c) **Tu** - besteforeldre er naer familie
+      solution: `a) **Tu** - jevnaldrende på skolen
+b) **Vous** - legen er en fagperson du ikke er nær
+c) **Tu** - besteforeldre er nær familie
 d) **Vous** - formell situasjon, du mater en fagperson
 
 **Merk:** I Frankrike bruker ungdommer nesten alltid "tu" seg imellom, selv om de ikke kjenner hverandre.`,
@@ -825,7 +825,7 @@ d) **Vous** - formell situasjon, du mater en fagperson
       type: 'text',
       content: `## Formelle uttrykk (Le registre soutenu)
 
-I formelt sprak bruker man lengre og mer hoflige uttrykk:
+I formelt språk bruker man lengre og mer hoflige uttrykk:
 
 | Uformelt | Formelt | Norsk |
 |----------|---------|-------|
@@ -849,7 +849,7 @@ c) OK, pas de probleme.`,
 b) **Pourriez-vous me donner** le menu, s'il vous plait ?
 c) **Bien entendu**, ce n'est pas un probleme.
 
-Merk at formelt sprak bruker kondisjonalis (voudrais, souhaiterais, pourriez) og hoflighetsfrasene "s'il vous plait".`,
+Merk at formelt språk bruker kondisjonalis (voudrais, souhaiterais, pourriez) og hoflighetsfrasene "s'il vous plait".`,
     },
     {
       id: 'fransk-2-9-4-ex-block-2',
@@ -873,9 +873,9 @@ Merk at formelt sprak bruker kondisjonalis (voudrais, souhaiterais, pourriez) og
     {
       id: 'fransk-2-9-4-text-3',
       type: 'text',
-      content: `## Uformelt sprak og slang (Le registre familier / l'argot)
+      content: `## Uformelt språk og slang (Le registre familier / l'argot)
 
-Uformelt fransk er svart forskjellig fra laereboker. Her er noen vanlige trekk:
+Uformelt fransk er svært forskjellig fra lærebøker. Her er noen vanlige trekk:
 
 **Forkortelser og endringer:**
 | Standard | Uformelt/Slang | Norsk |
@@ -909,7 +909,7 @@ c) "Ouais, c'est cool, j'kiffe ce film !"`,
 b) **Standard/uformelt** - Tu-form, vanlig sporsmalsstilling
 c) **Veldig uformelt/slang** - "Ouais" (ja), "j'kiffe" (jeg digger), forkortelser
 
-Det er viktig a tilpasse registeret etter situasjonen.`,
+Det er viktig å tilpasse registeret etter situasjonen.`,
     },
     {
       id: 'fransk-2-9-4-ex-block-3',
@@ -943,7 +943,7 @@ Det er viktig a tilpasse registeret etter situasjonen.`,
 | Setninger | Lange, komplekse | Middels | Korte, forkortede |
 | Bruk | Brev, forretning | Skole, dagligtale | Venner, SMS |
 
-**Tips:** Nar du er usikker, er det bedre a vaere for formell enn for uformell!`,
+**Tips:** Nar du er usikker, er det bedre a være for formell enn for uformell!`,
     },
     {
       id: 'fransk-2-9-4-ex-block-4',
@@ -955,9 +955,9 @@ Det er viktig a tilpasse registeret etter situasjonen.`,
         difficulty: 'medium',
         task: 'Hvilket register passer best? (formelt/standard/uformelt)',
         subTasks: [
-          { label: 'a', task: 'Du skriver en jobbsoknad.', solution: 'Formelt' },
+          { label: 'a', task: 'Du skriver en jobbsøknad.', solution: 'Formelt' },
           { label: 'b', task: 'Du sender en SMS til en venn.', solution: 'Uformelt' },
-          { label: 'c', task: 'Du holder en presentasjon pa skolen.', solution: 'Standard' },
+          { label: 'c', task: 'Du holder en presentasjon på skolen.', solution: 'Standard' },
           { label: 'd', task: 'Du skriver til rektoren.', solution: 'Formelt' },
         ],
         solution: 'a) Formelt, b) Uformelt, c) Standard, d) Formelt',
@@ -990,7 +990,7 @@ export const CHAPTER_FRANSK_2_10_1: TextbookChapter = {
       type: 'text',
       content: `## Fortidsformene - repetisjon
 
-De to viktigste fortidsformene pa fransk er **passe compose** og **imparfait**. Mange elever synes det er vanskelig a vite nar man skal bruke hvilken form. I dette kapittelet repeterer vi reglene og over med blandede oppgaver.`,
+De to viktigste fortidsformene på fransk er **passe compose** og **imparfait**. Mange elever synes det er vanskelig å vite nar man skal bruke hvilken form. I dette kapittelet repeterer vi reglene og over med blandede oppgaver.`,
     },
     {
       id: 'fransk-2-10-1-text-1',
@@ -1077,8 +1077,8 @@ c) Nous **nous sommes leve(e)s** tot. (refleksivt verb -> etre)
 1. Beskrivelser i fortiden
 2. Vaner i fortiden (= "pleide a")
 3. Tilstander og folelser
-4. Pagaende handlinger (bakgrunn)
-5. Vaer og tid
+4. Pågående handlinger (bakgrunn)
+5. Vær og tid
 6. Alder i fortiden`,
     },
     {
@@ -1090,7 +1090,7 @@ a) Je (etre) ___ fatigue.
 b) Il (faire) ___ beau.
 c) Nous (jouer) ___ au tennis chaque samedi.`,
       solution: `a) J'**etais** fatigue. (tilstand)
-b) Il **faisait** beau. (vaer)
+b) Il **faisait** beau. (vær)
 c) Nous **jouions** au tennis chaque samedi. (vane)
 
 **Huskeregel for imparfait-endelser:** -ais, -ais, -ait, -ions, -iez, -aient`,
@@ -1121,7 +1121,7 @@ c) Nous **jouions** au tennis chaque samedi. (vane)
 
 | Passe compose | Imparfait |
 |---------------|-----------|
-| Avsluttet handling | Pagaende handling |
+| Avsluttet handling | Pågående handling |
 | Enkelthendelse | Gjentatt handling / vane |
 | Handling med begynnelse/slutt | Tilstand uten klar grense |
 | "Hva skjedde?" | "Hvordan var det?" |
@@ -1134,7 +1134,7 @@ c) Nous **jouions** au tennis chaque samedi. (vane)
 
 **Viktig:** Nar to ting skjer samtidig:
 - **Bakgrunn (IMP)** + **hendelse (PC)**: *Je dormais quand le telephone a sonne.*
-- **To pagaende handlinger (IMP + IMP)**: *Pendant qu'il lisait, elle cuisinait.*`,
+- **To pågående handlinger (IMP + IMP)**: *Pendant qu'il lisait, elle cuisinait.*`,
     },
     {
       id: 'fransk-2-10-1-example-3',
@@ -1182,7 +1182,7 @@ c) Il **pleuvait** quand nous **sommes sorti(e)s**. (IMP bakgrunn + PC hendelse)
 - Beskrivelser, vaner, tilstander, bakgrunn
 - Signalord: d'habitude, chaque jour, souvent
 
-**Huskeregel:** Tenk pa det som en film. Imparfait er scenen (bakgrunn, vaer, stemning), passe compose er handlingene som skjer.`,
+**Huskeregel:** Tenk på det som en film. Imparfait er scenen (bakgrunn, vær, stemning), passe compose er handlingene som skjer.`,
     },
     {
       id: 'fransk-2-10-1-ex-block-4',
@@ -1229,7 +1229,7 @@ export const CHAPTER_FRANSK_2_10_2: TextbookChapter = {
       type: 'text',
       content: `## Pronomen - repetisjon
 
-Pronomen erstatter substantiver for a unnga gjentakelser. Pa fransk finnes det flere typer pronomen som alle har bestemte regler. I dette kapittelet repeterer vi de viktigste: direkte og indirekte objektspronomen, y, en, og relativpronomen.`,
+Pronomen erstatter substantiver for å unnga gjentakelser. På fransk finnes det flere typer pronomen som alle har bestemte regler. I dette kapittelet repeterer vi de viktigste: direkte og indirekte objektspronomen, y, en, og relativpronomen.`,
     },
     {
       id: 'fransk-2-10-2-text-1',
@@ -1307,7 +1307,7 @@ Pronomenet star foran verbet.`,
 
 **Y - erstatter a + sted (eller a + ting):**
 - Je vais **a Paris**. -> J'**y** vais. (Jeg drar dit.)
-- Je pense **a mon examen**. -> J'**y** pense. (Jeg tenker pa det.)
+- Je pense **a mon examen**. -> J'**y** pense. (Jeg tenker på det.)
 
 **EN - erstatter de + noe (eller mengde):**
 - Je viens **de Paris**. -> J'**en** viens. (Jeg kommer derfra.)
@@ -1434,7 +1434,7 @@ d) Le livre **dont** j'ai besoin est a la bibliotheque. (dont = "de" - avoir bes
           { label: 'd', task: 'Tu vas a Paris ? -> Tu ___ vas ?', solution: 'y' },
         ],
         solution: 'a) le (COD), b) leur (COI), c) qui (relativpronomen), d) y',
-        hints: ['Tenk pa hva pronomenet erstatter', 'COD = direkte objekt, COI = a + person'],
+        hints: ['Tenk på hva pronomenet erstatter', 'COD = direkte objekt, COI = å + person'],
       },
     },
   ],
@@ -1451,10 +1451,10 @@ export const CHAPTER_FRANSK_2_10_3: TextbookChapter = {
   chapterNumber: '10.3',
   title: 'Subjonctif et conditionnel - revision',
   subtitle: 'Subjonctif og kondisjonalis - repetisjon',
-  description: 'Repetisjon av subjonctif og kondisjonalis: nar man bruker dem og oving pa dannelse og bruk.',
+  description: 'Repetisjon av subjonctif og kondisjonalis: nar man bruker dem og oving på dannelse og bruk.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'forstae nar man bruker subjonctif og nar man bruker kondisjonalis',
+    'forstå nar man bruker subjonctif og nar man bruker kondisjonalis',
     'danne og bruke begge formene korrekt i ulike sammenhenger',
   ],
   content: [
@@ -1463,7 +1463,7 @@ export const CHAPTER_FRANSK_2_10_3: TextbookChapter = {
       type: 'text',
       content: `## Subjonctif og kondisjonalis - repetisjon
 
-To av de mest utfordrende grammatiske formene pa fransk er **le subjonctif** og **le conditionnel**. Begge brukes i spesielle situasjoner, og det er viktig a vite nar man bruker hvilken. I dette kapittelet repeterer vi reglene for begge.`,
+To av de mest utfordrende grammatiske formene på fransk er **le subjonctif** og **le conditionnel**. Begge brukes i spesielle situasjoner, og det er viktig å vite nar man bruker hvilken. I dette kapittelet repeterer vi reglene for begge.`,
     },
     {
       id: 'fransk-2-10-3-text-1',
@@ -1536,8 +1536,8 @@ c) Nous **irions** en France. (Vi ville dra til Frankrike.)
 - **Pourriez**-vous m'aider ? (Kunne De hjelpe meg?)
 
 **2. Onsker og drommer:**
-- J'**aimerais** voyager. (Jeg skulle onske jeg kunne reise.)
-- Il **voudrait** etre pilote. (Han skulle onske han var pilot.)
+- J'**aimerais** voyager. (Jeg skulle ønske jeg kunne reise.)
+- Il **voudrait** etre pilote. (Han skulle ønske han var pilot.)
 
 **3. Si-setninger (hypotetiske):**
 - Si j'avais de l'argent, j'**acheterais** une voiture.
@@ -1695,19 +1695,19 @@ export const CHAPTER_FRANSK_2_10_4: TextbookChapter = {
   chapterNumber: '10.4',
   title: 'Revision generale',
   subtitle: 'Generell repetisjon',
-  description: 'Omfattende repetisjon av alle emner fra Fransk Niva 2, med blandede ovelser som dekker all grammatikk.',
+  description: 'Omfattende repetisjon av alle emner fra Fransk Nivå 2, med blandede ovelser som dekker all grammatikk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'repetere og befeste all kunnskap fra Fransk Niva 2',
+    'repetere og befeste all kunnskap fra Fransk Nivå 2',
     'bruke ordforrad og grammatikk fra hele kurset i sammensatte oppgaver',
   ],
   content: [
     {
       id: 'fransk-2-10-4-intro',
       type: 'text',
-      content: `## Generell repetisjon - Fransk Niva 2
+      content: `## Generell repetisjon - Fransk Nivå 2
 
-Felicitations ! Du har nadd slutten av Fransk Niva 2. I dette kapittelet repeterer vi de viktigste temaene fra hele kurset. Bruk dette kapittelet til a teste deg selv og ove pa alt du har laert.
+Felicitations ! Du har nådd slutten av Fransk Nivå 2. I dette kapittelet repeterer vi de viktigste temaene fra hele kurset. Bruk dette kapittelet til å teste deg selv og øve på alt du har lært.
 
 Dette kapittelet dekker grammatikk, skriveferdigheter og kommunikasjon fra alle kapitler.`,
     },
@@ -1783,7 +1783,7 @@ c) Il **etait deja parti** quand je suis arrive. (PQP - skjedde for en annen for
 | ils/elles | les | leur |
 
 **Andre pronomen:**
-- **Y** = a + sted/ting
+- **Y** = å + sted/ting
 - **EN** = de + noe / mengde
 - **Qui** = relativpronomen (subjekt)
 - **Que** = relativpronomen (objekt)
@@ -1820,7 +1820,7 @@ c) L'homme **qui** parle est mon voisin. (relativpronomen, subjekt)`,
           { label: 'd', task: 'Tu as des freres ? - Oui, j\'___ ai deux.', solution: 'en' },
         ],
         solution: 'a) le (COD), b) y, c) que, d) en',
-        hints: ['COD = direkte objekt uten preposisjon', 'y = a + sted', 'en = mengde/de + noe'],
+        hints: ['COD = direkte objekt uten preposisjon', 'y = å + sted', 'en = mengde/de + noe'],
       },
     },
     {
@@ -1884,9 +1884,9 @@ c) **A mon avis**, le francais est une belle langue. (meningsuttrykk)`,
     {
       id: 'fransk-2-10-4-text-4',
       type: 'text',
-      content: `## Hva har du laert i Fransk Niva 2?
+      content: `## Hva har du lært i Fransk Nivå 2?
 
-I Fransk Niva 2 har du laert:
+I Fransk Nivå 2 har du lært:
 
 1. **Fortidsformene** - Passe compose, imparfait, plus-que-parfait
 2. **Pronomen** - COD, COI, y, en, relativpronomen
@@ -1895,19 +1895,19 @@ I Fransk Niva 2 har du laert:
 5. **Skriving** - Formelle og uformelle brev og e-poster
 6. **Argumentasjon** - Meningsuttrykk, bindeord, debatteknikker
 7. **Fortelling** - Narrative teknikker, beskrivelser
-8. **Registre** - Formelt vs. uformelt sprak
+8. **Registre** - Formelt vs. uformelt språk
 
 **Bon courage pour la suite !** (Lykke til videre!)`,
     },
     {
       id: 'fransk-2-10-4-note-1',
       type: 'note',
-      title: 'Tips til videre laering',
+      title: 'Tips til videre læring',
       content: `For a fortsette a forbedre fransken din:
-- Hor pa franske podcaster og musikk
+- Hor på franske podcaster og musikk
 - Se franske filmer og serier med franske undertekster
-- Les franske aviser og blaer pa franske nettsider
-- Skriv dagbok pa fransk
+- Les franske aviser og blader på franske nettsider
+- Skriv dagbok på fransk
 - Finn en sprakpartner a ove med
 - Bruk sprakappar som Duolingo eller Babbel
 - Reis til et fransktalende land om mulig!`,
@@ -1925,7 +1925,7 @@ I Fransk Niva 2 har du laert:
           { label: 'a', task: 'Hvis jeg var rik, ville jeg reist til Frankrike.', solution: 'Si j\'etais riche, je voyagerais en France.' },
           { label: 'b', task: 'Jeg er glad for at du er her. (subjonctif)', solution: 'Je suis content(e) que tu sois la.' },
           { label: 'c', task: 'Filmen som jeg sa i gar var utmerket. (relativpronomen)', solution: 'Le film que j\'ai vu hier etait excellent.' },
-          { label: 'd', task: 'Etter min mening er det viktig a laere sprak.', solution: 'A mon avis, il est important d\'apprendre les langues.' },
+          { label: 'd', task: 'Etter min mening er det viktig å lære språk.', solution: 'A mon avis, il est important d\'apprendre les langues.' },
         ],
         solution: 'a) Si j\'etais riche, je voyagerais en France. b) Je suis content(e) que tu sois la. c) Le film que j\'ai vu hier etait excellent. d) A mon avis, il est important d\'apprendre les langues.',
         hints: ['Si + imparfait -> kondisjonalis', 'Etter "je suis content que" -> subjonctif', 'que = relativpronomen for objekt'],

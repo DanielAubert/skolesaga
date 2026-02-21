@@ -98,6 +98,18 @@ I dette kapittelet skal du lære:
 Alle enhetene deler den ene offentlige IP-adressen mot internett, men har hver sin private adresse internt.`,
     },
     {
+      id: 'im-6-1-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Datanettverk kobler datamaskiner sammen for å dele ressurser og kommunisere.
+- LAN er lokale nettverk, WAN er vidstrakte nettverk, og WLAN er trådløst.
+- Rutere videresender trafikk mellom nettverk, svitsjer kobler enheter i samme nettverk.
+- IP-adresser identifiserer enheter på nettverket, DNS oversetter domenenavn til IP-adresser.
+- Nettverkstopologier beskriver den fysiske og logiske oppbygningen av et nettverk.
+- Forståelse av nettverksteknologi er viktig for feilsøking og sikkerhet.`,
+    },
+    {
       id: 'im-6-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -320,6 +332,18 @@ Et **subnett** er en logisk inndeling av et nettverk. Subnett brukes til å orga
 Alt dette skjer på brøkdelen av et sekund.`,
     },
     {
+      id: 'im-6-2-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- TCP/IP-modellen har fire lag: applikasjon, transport, nettverk og nettverkstilgang.
+- TCP sikrer pålitelig levering, UDP er raskere men uten garanti.
+- HTTP/HTTPS brukes for nettsider, SMTP/IMAP for e-post, FTP for filoverføring.
+- Data sendes som pakker som kan ta ulike veier gjennom nettet (pakkesvitsjing).
+- Subnett og nettverksmasker organiserer nettverk i mindre, håndterbare deler.
+- Forståelse av protokoller er grunnlaget for å forstå hvordan internett fungerer.`,
+    },
+    {
       id: 'im-6-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -522,6 +546,18 @@ Sosial manipulering (social engineering) utnytter menneskelig tillit og nysgjerr
 3. Generisk tiltale ("Kjære kunde" i stedet for navnet ditt)
 4. Lenken fører til en annen adresse enn bankens nettside
 5. Banker ber aldri om passord eller personlig informasjon via e-post`,
+    },
+    {
+      id: 'im-6-3-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Digitale trusler inkluderer virus, trojanere, ransomware, phishing og DDoS-angrep.
+- Sosial manipulering utnytter menneskelig tillit for å lure folk til å gi fra seg informasjon.
+- Sårbarhetsskanning identifiserer svakheter i systemer og programvare.
+- Sikkerhetshendelser bør rapporteres og dokumenteres for å forhindre gjentagelse.
+- Alle kan bli mål for digitale angrep, og bevissthet er det viktigste forsvaret.
+- Oppdatering av programvare lukker kjente sikkerhetshull.`,
     },
     {
       id: 'im-6-3-ex-1',
@@ -740,6 +776,18 @@ I dette kapittelet skal du lære:
 8. **Kryptering**: Aktiver BitLocker (Windows) eller FileVault (Mac) for å kryptere harddisken.`,
     },
     {
+      id: 'im-6-4-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Brannmurer og antivirus er grunnleggende sikkerhetstiltak mot uønsket tilgang og skadevare.
+- Kryptering med SSL/TLS beskytter data under overføring på internett.
+- Tofaktorautentisering (2FA) legger til et ekstra sikkerhetslag utover passord.
+- Gode passordvaner inkluderer lange, unike passord og bruk av passordbehandler.
+- Regelmessig sikkerhetskopiering beskytter mot datatap ved angrep eller maskinvarefeil.
+- Sikkerhet er et lagdelt forsvar der flere tiltak virker sammen.`,
+    },
+    {
       id: 'im-6-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -954,6 +1002,18 @@ For å behandle personopplysninger trenger du et lovlig grunnlag:
 6. **Sikkerhet**: Lagre svarene trygt, ikke del dem med andre uten grunn.
 
 Hvis du bruker Google Skjemaer, er Google databehandler og behandler dataene på dine vegne.`,
+    },
+    {
+      id: 'im-6-5-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Personvern handler om retten til å kontrollere egne personopplysninger.
+- GDPR (personvernforordningen) gir strenge regler for behandling av personopplysninger i EU/EØS.
+- Samtykke er et viktig behandlingsgrunnlag, men det finnes også andre lovlige grunnlag.
+- Registrerte har rettigheter som innsyn, retting, sletting og dataportabilitet.
+- Informasjonskapsler (cookies) og sporing krever brukerens samtykke.
+- Personvernombudet hjelper organisasjoner med å følge personvernreglene.`,
     },
     {
       id: 'im-6-5-ex-1',
@@ -1175,6 +1235,18 @@ Algoritmer bestemmer hva du ser i sosiale medier, søkeresultater og nyhetsstrø
 - Kan dataene brukes til andre formål i fremtiden?
 
 **Konklusjon**: Selv om teknologien er praktisk, veier personvernbekymringene tungt. Mindre inngripende alternativer (kort, kode, fingeravtrykk) bør vurderes først.`,
+    },
+    {
+      id: 'im-6-6-summary',
+      type: 'text',
+      content: `## Oppsummering
+
+- Digital etikk handler om riktig og ansvarlig bruk av teknologi.
+- Overvåking og massedata reiser spørsmål om maktkonsentrasjon og personvern.
+- Algoritmebasert filtrering kan skape filterbobler og ekkokamre.
+- Opphavsrett beskytter skapernes rettigheter til digitalt innhold.
+- Digital dannelse innebærer respektfull og ansvarlig opptreden på nett.
+- Etisk refleksjon bør ligge til grunn for alle valg vi tar med teknologi.`,
     },
     {
       id: 'im-6-6-ex-1',
