@@ -289,7 +289,7 @@ export const CHAPTER_KROPPSOVING_VG1_7_2: TextbookChapter = {
   description: 'Lær å lese kart, bruke kompass og navigere trygt i naturen.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'bruke kart og digitale verktøy på en måte som sikrer trygg ferdsel',
+    'bruke kart og digitale verktøy på en måte som sikrer trygg ferdsel for seg selv og for andre',
   ],
   content: [
     {
@@ -3816,7 +3816,7 @@ export const CHAPTER_KROPPSOVING_VG1_8_4: TextbookChapter = {
   description: 'Lær om fair play, sportsånd og etikk i idrett.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode',
+    'bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill',
   ],
   content: [
     {
@@ -4118,7 +4118,7 @@ export const CHAPTER_KROPPSOVING_VG1_8_5: TextbookChapter = {
   description: 'Lær om doping, helserisiko og etiske aspekter.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forebygge skader ved bevegelsesaktiviteter',
+    'forebygge skader ved bevegelsesaktiviteter og utføre grunnleggende førstehjelp',
   ],
   content: [
     {
@@ -4471,7 +4471,7 @@ export const CHAPTER_KROPPSOVING_VG1_8_6: TextbookChapter = {
   description: 'Lær om inkludering, tilpasning og mangfold.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode',
+    'bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill',
   ],
   content: [
     {

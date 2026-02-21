@@ -71,7 +71,7 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 
 **Nøkkelpunkter:**
 - Styrketrening gir styrke, ikke nødvendigvis utholdenhet
-- Uttholdenhetstrening gir utholdenhet, ikke nødvendigvis styrke
+- Utholdenhetstrening gir utholdenhet, ikke nødvendigvis styrke
 - Treningen må ligne på aktiviteten du vil bli bedre i
 - Jo mer spesifikk trening, desto bedre resultat i den aktiviteten
 
@@ -101,7 +101,7 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 - Start på et passende nivå
 - Øk belastningen gradvis (5-10% per uke er en god tommelfingerregel)
 - For rask progresjon øker skaderisikoen
-- For langsom progresjon gir liten utviklingv
+- For langsom progresjon gir liten utvikling
 
 **Hvordan øke belastning:**
 - **Volum:** Lengre økt, flere repetisjoner, flere sett
@@ -4915,7 +4915,7 @@ export const CHAPTER_KROPPSOVING_VG1_2_6: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: [
     'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål',
-    'forebygge skader ved bevegelsesaktiviteter',
+    'forebygge skader ved bevegelsesaktiviteter og utføre grunnleggende førstehjelp',
   ],
   content: [
     {

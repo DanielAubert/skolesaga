@@ -20,7 +20,7 @@ export const CHAPTER_NAT_VG1_10_1: TextbookChapter = {
   title: 'Energiformer og energiovergang',
   description: 'Utforsk ulike energiformer, energioverganger og energibevaring.',
   estimatedMinutes: 55,
-  competenceGoals: ['utforske og forklare sammenhenger mellom energi, arbeid og effekt'],
+  competenceGoals: ['utforske en selvvalgt naturfaglig problemstilling, presentere funn og argumentere for valg av metoder'],
   content: [
     {
       id: 'nat-vg1-10-1-intro',
@@ -270,7 +270,7 @@ export const CHAPTER_NAT_VG1_10_2: TextbookChapter = {
   title: 'Fornybare og ikke-fornybare energikilder',
   description: 'Lær om ulike energikilder, deres fordeler og ulemper, og betydningen for bærekraftig utvikling.',
   estimatedMinutes: 55,
-  competenceGoals: ['drøfte problemstillinger knyttet til energi i et bærekraftsperspektiv'],
+  competenceGoals: ['gjøre rede for hvordan klimaendringer påvirker evolusjon, utbredelse av arter og biologisk mangfold'],
   content: [
     {
       id: 'nat-vg1-10-2-intro',
@@ -530,7 +530,7 @@ export const CHAPTER_NAT_VG1_10_3: TextbookChapter = {
   title: 'Drivhuseffekten og klimaendringer',
   description: 'Forstå drivhuseffekten, klimaendringer og sammenhengen med energibruk.',
   estimatedMinutes: 55,
-  competenceGoals: ['drøfte problemstillinger knyttet til energi i et bærekraftsperspektiv', 'utforske og forklare drivhuseffekten'],
+  competenceGoals: ['gjøre rede for hvordan klimaendringer påvirker evolusjon, utbredelse av arter og biologisk mangfold'],
   content: [
     {
       id: 'nat-vg1-10-3-intro',
@@ -783,7 +783,7 @@ export const CHAPTER_NAT_VG1_10_4: TextbookChapter = {
   title: 'Virkningsgrad og energieffektivisering',
   description: 'Lær om virkningsgrad, energitap og hvordan vi kan bruke energi mer effektivt.',
   estimatedMinutes: 50,
-  competenceGoals: ['utforske og forklare sammenhenger mellom energi, arbeid og effekt', 'drøfte problemstillinger knyttet til energi i et bærekraftsperspektiv'],
+  competenceGoals: ['utforske en selvvalgt naturfaglig problemstilling, presentere funn og argumentere for valg av metoder'],
   content: [
     {
       id: 'nat-vg1-10-4-intro',
@@ -1302,7 +1302,7 @@ export const CHAPTER_NAT_VG1_10_6: TextbookChapter = {
   title: 'Teknologi og samfunn',
   description: 'Drøft hvordan naturvitenskapelig kunnskap brukes i teknologiutvikling og påvirker samfunnet.',
   estimatedMinutes: 45,
-  competenceGoals: ['drøfte hvordan teknologisk utvikling påvirker samfunnet og individet'],
+  competenceGoals: ['drøfte hvordan utvikling av naturvitenskapelige hypoteser, modeller og teorier bidrar til at vi kan forstå og forklare verden'],
   content: [
     {
       id: 'nat-vg1-10-6-intro',
@@ -1513,7 +1513,7 @@ export const CHAPTER_NAT_VG1_10_7: TextbookChapter = {
   title: 'Naturvitenskapens rolle i samfunnsdebatten',
   description: 'Forstå naturvitenskapens betydning for samfunnsbeslutninger og demokratisk debatt.',
   estimatedMinutes: 45,
-  competenceGoals: ['drøfte hvordan naturvitenskap kan bidra til å løse samfunnsutfordringer'],
+  competenceGoals: ['drøfte aktuelle helse- og livsstilsspørsmål og vurdere pålitelighet i informasjon fra ulike kilder'],
   content: [
     {
       id: 'nat-vg1-10-7-intro',

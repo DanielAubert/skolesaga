@@ -594,6 +594,13 @@ Ulike strategier brukes for å forbedre forholdene i slumområder:
       task: 'Drøft fordeler og ulemper ved å rive slumområder og bygge nye boliger, sammenlignet med å oppgradere eksisterende bosettinger.',
       solution: 'Riving og nybygging kan gi moderne boliger med god standard, men har store ulemper: beboerne mister sine hjem og sosiale nettverk, prosessen er dyr, og de nye boligene kan bli for dyre for de opprinnelige beboerne. Oppgradering av eksisterende bosettinger bevarer sosiale nettverk og lokalt næringsliv, er ofte billigere, og beboerne kan bli boende under prosessen. Ulempen er at det kan være vanskelig å oppnå samme fysiske standard som ved nybygging, og trange gater gjør det vanskelig å legge inn moderne infrastruktur. Forskning viser at oppgradering (in situ) ofte er mest effektivt fordi det bygger videre på eksisterende strukturer og involverer beboerne i prosessen.',
     },
+    {
+      id: 'geo-6-3-ex5',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hvorfor mesteparten av verdens megabyer i dag ligger i lav- og mellominntektsland, og gjør rede for minst to konsekvenser av denne utviklingen.',
+      solution: 'De fleste megabyer ligger i lav- og mellominntektsland fordi det er her den raskeste befolkningsveksten og urbaniseringen skjer. Bygd-til-by-migrasjon drives av fattigdom og mangel på muligheter på landsbygda (push-faktorer) og arbeidsplasser og tjenester i byene (pull-faktorer). I tillegg er den naturlige befolkningsveksten høyere i disse landene. Konsekvenser: (1) Infrastrukturpress – byveksten skjer raskere enn myndighetenes evne til å bygge ut vann, kloakk, transport og helsetjenester, noe som fører til slum og uformelle bosettinger. (2) Miljøbelastning – rask urbanisering fører til forurensning, avfallsproblemer og tap av naturområder rundt byene. (3) Sosiale utfordringer – store forskjeller mellom rike og fattige bydeler, kriminalitet og mangel på grunnleggende tjenester for de mest sårbare.',
+    },
   ],
 };
 

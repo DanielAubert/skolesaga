@@ -8,9 +8,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_1: TextbookChapter = {
   description: 'Lær om makronæringsstoffer, mikronæringsstoffer og hvordan du bygger et sunt kosthold med tallerkenmodellen.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Forklare betydningen av makronæringsstoffer og mikronæringsstoffer',
-    'Bruke tallerkenmodellen til å planlegge sunne måltider',
-    'Vurdere egne kostholdsvaner kritisk',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -378,9 +376,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_2: TextbookChapter = {
   description: 'Forstå betydningen av væskebalanse, elektrolytter og hvordan du unngår dehydrering ved fysisk aktivitet.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Forklare kroppens vannbehov og funksjonen til elektrolytter',
-    'Gjenkjenne symptomer på dehydrering',
-    'Planlegge væskeinntak før, under og etter fysisk aktivitet',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -844,9 +840,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_3: TextbookChapter = {
   description: 'Forstå betydningen av god restitusjon, søvn og hvile for prestasjon og helse.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Forklare kroppens restitusjons- og tilpasningsprosesser',
-    'Vurdere betydningen av søvn for prestasjon og helse',
-    'Planlegge treningsopplegg med tilstrekkelig restitusjon',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -1525,9 +1519,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_4: TextbookChapter = {
   description: 'Lær om timing av måltider, karbohydratlading og proteininntak i forhold til trening for optimal prestasjon.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Planlegge kostholdstiming før, under og etter trening',
-    'Forklare prinsippene bak karbohydratlading',
-    'Vurdere betydningen av protein for restitusjon og muskelvekst',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -2178,9 +2170,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_5: TextbookChapter = {
   description: 'Utvikle kritisk blikk på kroppsidealer i media, forstå sammenhenger mellom selvbilde og helse, og gjenkjenne risiko for spiseforstyrrelser.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Analysere hvordan media påvirker kroppsidealer',
-    'Vurdere sammenhengen mellom selvbilde og helse kritisk',
-    'Gjenkjenne tegn på usunne forhold til mat og kropp',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -2704,9 +2694,7 @@ export const CHAPTER_KROPPSOVING_VG1_3_6: TextbookChapter = {
   description: 'Vurder kosttilskudd og energidrikker kritisk - lær om dokumenterte effekter, risiko og dopingfeller.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Vurdere behov for og effekt av kosttilskudd kritisk',
-    'Forklare risiko ved energidrikker og ulovlige substanser',
-    'Gjenkjenne dopingfeller i kosttilskudd',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -3206,9 +3194,7 @@ export const CHAPTER_KROPPSOVING_VG1_4_1: TextbookChapter = {
   description: 'Lær grunnleggende teknikk i sprint, langdistanse, hopp og kast. Utvikle forståelse for ulike disipliner i friidrett.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Mestre grunnleggende løpeteknikk for sprint og langdistanse',
-    'Utføre hopp og kast med riktig teknikk og sikkerhet',
-    'Reflektere over egen utvikling i ulike friidrettsdisipliner',
+    'trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre',
   ],
   content: [
     {
@@ -3658,9 +3644,8 @@ export const CHAPTER_KROPPSOVING_VG1_4_2: TextbookChapter = {
   description: 'Mestre ulike svømmestiler, lær livredningsgrep og utvikle vannsikkerhet for trygg ferdsel i og på vannet.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Utføre crawl, rygg, bryst og butterfly med riktig teknikk',
-    'Demonstrere grunnleggende livredningsgrep',
-    'Vurdere risiko og handle trygt i og ved vann',
+    'forebygge skader ved bevegelsesaktiviteter og utføre grunnleggende førstehjelp',
+    'trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre',
   ],
   content: [
     {
@@ -4161,9 +4146,7 @@ export const CHAPTER_KROPPSOVING_VG1_4_3: TextbookChapter = {
   description: 'Lær grunnleggende turnelementer, akrobatiske bevegelser og prinsipper for sikker progresjon.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Utføre grunnleggende turnelementer trygt og med riktig teknikk',
-    'Demonstrere akrobatiske bevegelser med kontroll',
-    'Vurdere risiko og progresjon i turn og akrobatikk',
+    'trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre',
   ],
   content: [
     {
@@ -4566,9 +4549,8 @@ export const CHAPTER_KROPPSOVING_VG1_4_4: TextbookChapter = {
   description: 'Lær grunnprinsipper i kampsport, selvforsvarsteknikker og betydningen av respekt og selvkontroll.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Demonstrere grunnleggende kampsportteknikker',
-    'Anvende prinsipper for selvforsvar',
-    'Reflektere over respekt, kontroll og etikk i kampsport',
+    'trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre',
+    'bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill',
   ],
   content: [
     {
@@ -5051,9 +5033,7 @@ export const CHAPTER_KROPPSOVING_VG1_4_5: TextbookChapter = {
   description: 'Mestre kartlesing, kompass og GPS for trygg og effektiv navigering i naturen.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'Lese og tolke orienteringskart',
-    'Bruke kompass og GPS for navigering',
-    'Planlegge og gjennomføre orienteringsløp trygt',
+    'bruke kart og digitale verktøy på en måte som sikrer trygg ferdsel for seg selv og for andre',
   ],
   content: [
     {
@@ -5416,9 +5396,7 @@ export const CHAPTER_KROPPSOVING_VG1_4_6: TextbookChapter = {
   description: 'Sett personlige mål, utvikle mestringsstrategier og bygg mental styrke gjennom fysisk aktivitet.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Sette realistiske og motiverende personlige mål',
-    'Anvende mestringsstrategier ved utfordringer',
-    'Reflektere over egen utvikling og læring',
+    'planlegge og gjennomføre metoder for øving og trening for å oppnå individuelle mål, også når man ikke fullt ut kan delta i aktiviteten',
   ],
   content: [
     {
@@ -5881,9 +5859,8 @@ export const CHAPTER_KROPPSOVING_VG1_4_7: TextbookChapter = {
   description: 'Lær klassisk langrenn, skøyting og skøyteteknikk for vinter-aktiviteter.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'Utføre klassisk og skøyte-teknikk på ski',
-    'Mestre grunnleggende skøyte-teknikk',
-    'Vurdere sikkerhet og utstyr for vinter-aktiviteter',
+    'trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre',
+    'bruke lokale tradisjoner for ferdsel i naturen under vekslende årstider',
   ],
   content: [
     {

@@ -19,7 +19,7 @@ export const CHAPTER_ENGELSK_VG1_3_1: TextbookChapter = {
   title: 'Advanced Grammar Review',
   description: 'Review and master advanced English grammar structures including verb tenses, conditionals, passive voice, and reported speech.',
   estimatedMinutes: 75,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   content: [
     // --- INTRO ---
     {
@@ -422,7 +422,7 @@ export const CHAPTER_ENGELSK_VG1_3_2: TextbookChapter = {
   title: 'Sentence Structure and Variety',
   description: 'Learn to vary sentence structure for more engaging, sophisticated, and reader-friendly writing.',
   estimatedMinutes: 70,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   content: [
     // --- INTRO ---
     {
@@ -822,7 +822,7 @@ export const CHAPTER_ENGELSK_VG1_3_3: TextbookChapter = {
   title: 'Text Coherence and Cohesion',
   description: 'Create well-structured texts with clear connections between ideas through cohesive devices and logical organization.',
   estimatedMinutes: 70,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   content: [
     // --- INTRO ---
     {

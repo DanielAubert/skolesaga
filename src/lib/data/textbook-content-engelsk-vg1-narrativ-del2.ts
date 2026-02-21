@@ -19,7 +19,7 @@ export const CHAPTER_ENGELSK_VG1_3_1_NARRATIV: TextbookChapter = {
   subtitle: 'Narrative Version',
   description: 'Master the building blocks of sophisticated English - understanding tenses and conditionals.',
   estimatedMinutes: 40,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   linkedChapterId: 'engelsk-vg1-3-1',
   content: [
     {
@@ -365,7 +365,7 @@ export const CHAPTER_ENGELSK_VG1_3_2_NARRATIV: TextbookChapter = {
   subtitle: 'Narrative Version',
   description: 'Transform boring writing into engaging prose by mastering sentence variety.',
   estimatedMinutes: 35,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   linkedChapterId: 'engelsk-vg1-3-2',
   content: [
     {
@@ -756,7 +756,7 @@ export const CHAPTER_ENGELSK_VG1_3_3_NARRATIV: TextbookChapter = {
   subtitle: 'Narrative Version',
   description: 'Learn to weave your ideas together into texts that flow seamlessly.',
   estimatedMinutes: 35,
-  competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'],
+  competenceGoals: ['bruke kunnskap om grammatikk og tekststruktur i arbeid med egne muntlige og skriftlige tekster'],
   linkedChapterId: 'engelsk-vg1-3-3',
   content: [
     {

@@ -1343,7 +1343,7 @@ export const CHAPTER_ENGELSK_VG1_1_5: TextbookChapter = {
   title: 'Connections Between Languages',
   description: 'Use knowledge of connections between English and other languages you know in your own language learning.',
   estimatedMinutes: 45,
-  competenceGoals: ['bruke kunnskap om sammenhengar mellom engelsk og andre språk eleven kjenner, i eiga språklæring'],
+  competenceGoals: ['bruke kunnskap om sammenhenger mellom engelsk og andre språk eleven kjenner til i egen språklæring'],
   content: [
     {
       id: 'engelsk-vg1-1-5-intro',
@@ -1778,7 +1778,7 @@ export const CHAPTER_ENGELSK_VG1_2_3: TextbookChapter = {
   title: 'Conversations and Discussions',
   description: 'Develop skills for meaningful conversations and discussions.',
   estimatedMinutes: 50,
-  competenceGoals: ['forklare andres argumenter og bruke og følge opp andres innspill i samtaler og diskusjoner om ulike emner'],
+  competenceGoals: ['gjøre rede for andres argumentasjon og bruke og følge opp andres innspill i samtaler og diskusjoner om ulike emner'],
   content: [
     {
       id: 'engelsk-vg1-2-3-intro',

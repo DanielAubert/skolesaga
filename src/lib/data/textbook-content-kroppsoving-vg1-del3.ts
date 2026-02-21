@@ -9,7 +9,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_1: TextbookChapter = {
   title: 'Fotball og håndball',
   description: 'Lær om grunnleggende teknikk, taktikk, posisjoner og regler i fotball og håndball',
   estimatedMinutes: 55,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-1-intro',
@@ -416,7 +416,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_2: TextbookChapter = {
   title: 'Basketball og volleyball',
   description: 'Lær teknikk, taktikk og spillsystemer i basketball og volleyball',
   estimatedMinutes: 55,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-2-intro',
@@ -869,7 +869,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_3: TextbookChapter = {
   title: 'Innebandy og andre smålagsspill',
   description: 'Utforsk innebandy, streetbasket, futsal, beachvolleyball og andre smålagsspill',
   estimatedMinutes: 50,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-3-intro',
@@ -1295,7 +1295,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_4: TextbookChapter = {
   title: 'Spillforståelse og taktikk',
   description: 'Lær om angrep, forsvar, overganger og romforståelse i lagidretter',
   estimatedMinutes: 50,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-4-intro',
@@ -1680,7 +1680,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_5: TextbookChapter = {
   title: 'Samarbeid og kommunikasjon i lag',
   description: 'Utforsk roller, ledelse og tilbakemelding i lagsammenheng',
   estimatedMinutes: 45,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-5-intro',
@@ -2066,7 +2066,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_6: TextbookChapter = {
   title: 'Lek og alternative spillformer',
   description: 'Kanonball, stikkball, ultimate frisbee og andre lekbaserte aktiviteter',
   estimatedMinutes: 45,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-6-intro',
@@ -2442,7 +2442,7 @@ export const CHAPTER_KROPPSOVING_VG1_5_7: TextbookChapter = {
   title: 'Fair play og regler i lagidretter',
   description: 'Respekt, dømmekraft og sportsånd i konkurransesituasjoner',
   estimatedMinutes: 40,
-  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode'],
+  competenceGoals: ['bruke egne ferdigheter og kunnskaper til å samarbeide og bidra til å gjøre andre gode i aktivitet og samspill'],
   content: [
     {
       id: 'kroppsoving-vg1-5-7-intro',
@@ -2805,7 +2805,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_1: TextbookChapter = {
   title: 'Grunnleggende dans og rytme',
   description: 'Takt, tempo og grunnsteg i dans',
   estimatedMinutes: 50,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-1-intro',
@@ -3163,7 +3163,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_2: TextbookChapter = {
   title: 'Pardans og folkedans',
   description: 'Vals, swing, reinlender, springar og norske folkedanser',
   estimatedMinutes: 50,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-2-intro',
@@ -3485,7 +3485,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_3: TextbookChapter = {
   title: 'Moderne dans og hiphop',
   description: 'Streetdance, locking, popping og urbane danseformer',
   estimatedMinutes: 50,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-3-intro',
@@ -3840,7 +3840,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_4: TextbookChapter = {
   title: 'Skapende dans og koreografi',
   description: 'Improvisasjon, komposisjon og kreativt danseuttrykk',
   estimatedMinutes: 50,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-4-intro',
@@ -4180,7 +4180,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_5: TextbookChapter = {
   title: 'Bevegelse til musikk og aerobics',
   description: 'Gruppetrening, koordinasjon og rytmisk bevegelse',
   estimatedMinutes: 45,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-5-intro',
@@ -4513,7 +4513,7 @@ export const CHAPTER_KROPPSOVING_VG1_6_6: TextbookChapter = {
   title: 'Dansens kulturelle mangfold',
   description: 'Verdensmusikk, tradisjoner, identitet og dans som kulturuttrykk',
   estimatedMinutes: 45,
-  competenceGoals: ['delta i og eksperimentere med bevegelsesuttrykk i dans'],
+  competenceGoals: ['trene på og skape nye varianter av lek, bevegelsesaktivitet og dans sammen med andre'],
   content: [
     {
       id: 'kroppsoving-vg1-6-6-intro',

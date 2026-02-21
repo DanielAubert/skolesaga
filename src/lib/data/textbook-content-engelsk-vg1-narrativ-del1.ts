@@ -1492,7 +1492,7 @@ export const CHAPTER_ENGELSK_VG1_1_5_NARRATIV: TextbookChapter = {
   subtitle: 'Narrative Version',
   description: 'Discover how your Norwegian roots give you secret advantages in learning English.',
   estimatedMinutes: 35,
-  competenceGoals: ['bruke kunnskap om sammenhengar mellom engelsk og andre språk eleven kjenner, i eiga språklæring'],
+  competenceGoals: ['bruke kunnskap om sammenhenger mellom engelsk og andre språk eleven kjenner til i egen språklæring'],
   linkedChapterId: 'engelsk-vg1-1-5',
   content: [
     {
@@ -2539,7 +2539,7 @@ export const CHAPTER_ENGELSK_VG1_2_3_NARRATIV: TextbookChapter = {
   subtitle: 'Narrative Version',
   description: 'Master the art of meaningful dialogue and become a valued participant in any discussion.',
   estimatedMinutes: 40,
-  competenceGoals: ['forklare andres argumenter og bruke og følge opp andres innspill i samtaler og diskusjoner om ulike emner'],
+  competenceGoals: ['gjøre rede for andres argumentasjon og bruke og følge opp andres innspill i samtaler og diskusjoner om ulike emner'],
   linkedChapterId: 'engelsk-vg1-2-3',
   content: [
     {
