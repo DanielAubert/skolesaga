@@ -1,36 +1,36 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Niva 3 - Kapittel 7-8
- * Politikk og samfunn, Oekonomi og arbeidsliv
+ * Fransk Nivå 3 - Kapittel 7-8
+ * Politikk og samfunn, Økonomi og arbeidsliv
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 7.1: Le systeme politique francais - Det franske politiske systemet
+// Kapittel 7.1: Le système politique français - Det franske politiske systemet
 // ============================================================================
 
 export const CHAPTER_FRANSK_3_7_1: TextbookChapter = {
   id: 'fransk-3-7-1',
   courseId: 'fransk-3',
   chapterNumber: '7.1',
-  title: 'Le systeme politique francais - Det franske politiske systemet',
-  description: 'Laer om det franske politiske systemet, fra den femte republikken til nasjonalforsamlingen.',
+  title: 'Le système politique français - Det franske politiske systemet',
+  description: 'Lær om det franske politiske systemet, fra den femte republikken til nasjonalforsamlingen.',
   estimatedMinutes: 50,
   competenceGoals: [
     'forklare hovedelementene i det franske politiske systemet',
-    'bruke vokabular knyttet til politikk og demokrati pa fransk',
+    'bruke vokabular knyttet til politikk og demokrati på fransk',
   ],
   content: [
     {
       id: 'fransk-3-7-1-intro',
       type: 'text',
-      content: `## Le systeme politique francais
+      content: `## Le système politique français
 
-Frankrike er en republikk med et semi-presidentsystem. Det navaerende systemet ble opprettet i 1958 med den femte republikken (la Cinquieme Republique), grunnlagt av Charles de Gaulle. Frankrike har et politisk system som skiller seg fra de fleste europeiske land ved at presidenten har svært mye makt.
+Frankrike er en republikk med et semi-presidentsystem. Det nåværende systemet ble opprettet i 1958 med den femte republikken (la Cinquième République), grunnlagt av Charles de Gaulle. Frankrike har et politisk system som skiller seg fra de fleste europeiske land ved at presidenten har svært mye makt.
 
-A forstaa det franske politiske systemet er viktig for a forstaa fransk kultur, samfunn og dagsaktuelle debatter.`,
+Å forstå det franske politiske systemet er viktig for å forstå fransk kultur, samfunn og dagsaktuelle debatter.`,
     },
     {
       id: 'fransk-3-7-1-def-1',
@@ -40,30 +40,30 @@ A forstaa det franske politiske systemet er viktig for a forstaa fransk kultur, 
 
 | Fransk | Norsk |
 |--------|-------|
-| la Republique | republikken |
-| le President de la Republique | presidenten |
+| la République | republikken |
+| le Président de la République | presidenten |
 | le Premier ministre | statsministeren |
-| l'Assemblee nationale | nasjonalforsamlingen |
-| le Senat | senatet |
+| l'Assemblée nationale | nasjonalforsamlingen |
+| le Sénat | senatet |
 | le Parlement | parlamentet |
 | le gouvernement | regjeringen |
-| le Conseil constitutionnel | grunnlovsraadet |`,
+| le Conseil constitutionnel | grunnlovsrådet |`,
     },
     {
       id: 'fransk-3-7-1-def-2',
       type: 'definition',
       title: 'Vokabular: Valg og demokrati',
-      content: `**Les elections et la democratie:**
+      content: `**Les élections et la démocratie:**
 
 | Fransk | Norsk |
 |--------|-------|
-| une election | et valg |
-| voter | a stemme |
-| un electeur / une electrice | en velger |
+| une élection | et valg |
+| voter | å stemme |
+| un électeur / une électrice | en velger |
 | le suffrage universel | allmenn stemmerett |
-| un mandat presidentiel | en presidentperiode |
+| un mandat présidentiel | en presidentperiode |
 | un parti politique | et politisk parti |
-| la gauche / la droite | venstresiden / hoyresiden |
+| la gauche / la droite | venstresiden / høyresiden |
 | une loi | en lov |`,
     },
     {
@@ -71,44 +71,44 @@ A forstaa det franske politiske systemet er viktig for a forstaa fransk kultur, 
       type: 'text',
       content: `## La separation des pouvoirs - Maktfordelingen
 
-Det franske systemet er bygget pa maktfordelingsprinsippet:
+Det franske systemet er bygget på maktfordelingsprinsippet:
 
-**Le pouvoir executif (utovende makt):**
-- Le President de la Republique - velges direkte av folket for 5 aar (le quinquennat)
+**Le pouvoir exécutif (utøvende makt):**
+- Le Président de la République - velges direkte av folket for 5 år (le quinquennat)
 - Le Premier ministre - utnevnes av presidenten
 - Le gouvernement - regjeringen, ledet av statsministeren
 
-**Le pouvoir legislatif (lovgivende makt):**
-- L'Assemblee nationale - 577 deputes (representanter), velges for 5 aar
-- Le Senat - 348 senateurs, velges indirekte for 6 aar
+**Le pouvoir législatif (lovgivende makt):**
+- L'Assemblée nationale - 577 députés (representanter), velges for 5 år
+- Le Sénat - 348 sénateurs, velges indirekte for 6 år
 
 **Le pouvoir judiciaire (dommende makt):**
-- Uavhengige domstoler som sikrer at lovene folges`,
+- Uavhengige domstoler som sikrer at lovene følges`,
     },
     {
       id: 'fransk-3-7-1-tip-1',
       type: 'tip',
-      content: `Den franske presidenten har mye mer makt enn de fleste europeiske statsoverhoder. Presidenten kan opplose nasjonalforsamlingen, er overstkommanderende for militaeret, og kan i krisetider bruke spesielle fullmakter (article 16). Dette gjor det franske systemet semi-presidentielt.`,
+      content: `Den franske presidenten har mye mer makt enn de fleste europeiske statsoverhoder. Presidenten kan oppløse nasjonalforsamlingen, er øverstkommanderende for militæret, og kan i krisetider bruke spesielle fullmakter (article 16). Dette gjør det franske systemet semi-presidentielt.`,
     },
     {
       id: 'fransk-3-7-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa politisk tekst',
-      problem: `Les teksten og svar pa sporsmalene:
+      title: 'Eksempel 1: Forstå politisk tekst',
+      problem: `Les teksten og svar på spørsmålene:
 
-"Le President de la Republique est elu au suffrage universel direct pour un mandat de cinq ans. Il nomme le Premier ministre et preside le Conseil des ministres. L'Assemblee nationale peut renverser le gouvernement par une motion de censure."
+"Le Président de la République est élu au suffrage universel direct pour un mandat de cinq ans. Il nomme le Premier ministre et preside le Conseil des ministres. L'Assemblée nationale peut renverser le gouvernement par une motion de censure."
 
 a) Hvordan velges presidenten?
-b) Hva er presidentens oppgaver ifloelge teksten?
-c) Hva kan nasjonalforsamlingen gjore?`,
+b) Hva er presidentens oppgaver ifølge teksten?
+c) Hva kan nasjonalforsamlingen gjøre?`,
       solution: `a) Presidenten velges ved **direkte allmenne valg** (suffrage universel direct).
 
-b) Presidenten **utnevner statsministeren** (nomme le Premier ministre) og **leder ministerraadet** (preside le Conseil des ministres).
+b) Presidenten **utnevner statsministeren** (nomme le Premier ministre) og **leder ministerrådet** (preside le Conseil des ministres).
 
 c) Nasjonalforsamlingen kan **felle regjeringen gjennom et mistillitsforslag** (renverser le gouvernement par une motion de censure).
 
-**Noekkelvokabular:**
-- elu = valgt
+**Nøkkelvokabular:**
+- élu = valgt
 - nommer = utnevne
 - presider = lede
 - renverser = velte/felle`,
@@ -123,29 +123,29 @@ c) Nasjonalforsamlingen kan **felle regjeringen gjennom et mistillitsforslag** (
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Presidenten velges for fem aar.', solution: 'Le President est elu pour cinq ans.', answer: 'Le President est elu pour cinq ans' },
-          { label: 'b', task: 'Nasjonalforsamlingen vedtar lover.', solution: 'L\'Assemblee nationale vote les lois.', answer: 'L\'Assemblee nationale vote les lois' },
+          { label: 'a', task: 'Presidenten velges for fem år.', solution: 'Le Président est élu pour cinq ans.', answer: 'Le Président est élu pour cinq ans' },
+          { label: 'b', task: 'Nasjonalforsamlingen vedtar lover.', solution: 'L\'Assemblée nationale vote les lois.', answer: 'L\'Assemblée nationale vote les lois' },
           { label: 'c', task: 'Statsministeren leder regjeringen.', solution: 'Le Premier ministre dirige le gouvernement.', answer: 'Le Premier ministre dirige le gouvernement' },
-          { label: 'd', task: 'Folket stemmer ved valg.', solution: 'Le peuple vote aux elections.', answer: 'Le peuple vote aux elections' },
+          { label: 'd', task: 'Folket stemmer ved valg.', solution: 'Le peuple vote aux élections.', answer: 'Le peuple vote aux élections' },
         ],
-        solution: 'a) Le President est elu pour cinq ans, b) L\'Assemblee nationale vote les lois, c) Le Premier ministre dirige le gouvernement, d) Le peuple vote aux elections',
-        hints: ['elu = valgt (partisipp av elire)', 'voter = a stemme / a vedta'],
+        solution: 'a) Le Président est élu pour cinq ans, b) L\'Assemblée nationale vote les lois, c) Le Premier ministre dirige le gouvernement, d) Le peuple vote aux élections',
+        hints: ['élu = valgt (partisipp av elire)', 'voter = å stemme / a vedta'],
       },
     },
     {
       id: 'fransk-3-7-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Sammenligne politiske systemer',
-      problem: `Sammenlign det franske og norske politiske systemet. Fyll inn pa fransk:
+      problem: `Sammenlign det franske og norske politiske systemet. Fyll inn på fransk:
 
-a) En France, le president est elu ___. En Norvege, le roi est ___.
-b) Le parlement francais a deux chambres: ___ et ___. Le parlement norvegien s'appelle ___.`,
-      solution: `a) En France, le president est elu **au suffrage universel direct**. En Norvege, le roi est **hereditaire** (arvelig).
+a) En France, le président est élu ___. En Norvege, le roi est ___.
+b) Le parlement français a deux chambres: ___ et ___. Le parlement norvegien s'appelle ___.`,
+      solution: `a) En France, le président est élu **au suffrage universel direct**. En Norvege, le roi est **héréditaire** (arvelig).
 
-b) Le parlement francais a deux chambres: **l'Assemblee nationale** et **le Senat**. Le parlement norvegien s'appelle **le Storting**.
+b) Le parlement français a deux chambres: **l'Assemblée nationale** et **le Sénat**. Le parlement norvegien s'appelle **le Storting**.
 
 **Forskjeller:**
-- Frankrike: Republikk med valgt president
+- Frankrike: Republikk med valgt président
 - Norge: Konstitusjonelt monarki med arvelig monark
 - Frankrike: Tokammersystem (bicameralisme)
 - Norge: Ettammersystem (unicameralisme)`,
@@ -160,32 +160,32 @@ b) Le parlement francais a deux chambres: **l'Assemblee nationale** et **le Sena
         difficulty: 'medium',
         task: 'Fyll inn riktig fransk begrep:',
         subTasks: [
-          { label: 'a', task: 'Den utovende makten pa fransk: le pouvoir ___', solution: 'executif', answer: 'executif' },
-          { label: 'b', task: 'Den lovgivende makten pa fransk: le pouvoir ___', solution: 'legislatif', answer: 'legislatif' },
-          { label: 'c', task: 'Presidentperioden pa 5 aar kalles: le ___', solution: 'quinquennat', answer: 'quinquennat' },
-          { label: 'd', task: 'Et mistillitsforslag pa fransk: une motion de ___', solution: 'censure', answer: 'censure' },
+          { label: 'a', task: 'Den utøvende makten på fransk: le pouvoir ___', solution: 'exécutif', answer: 'exécutif' },
+          { label: 'b', task: 'Den lovgivende makten på fransk: le pouvoir ___', solution: 'législatif', answer: 'législatif' },
+          { label: 'c', task: 'Presidentperioden på 5 år kalles: le ___', solution: 'quinquennat', answer: 'quinquennat' },
+          { label: 'd', task: 'Et mistillitsforslag på fransk: une motion de ___', solution: 'censure', answer: 'censure' },
         ],
-        solution: 'a) executif, b) legislatif, c) quinquennat, d) censure',
-        hints: ['executif kommer av executer (utfoere)', 'quinquennat fra latin quinque (fem)'],
+        solution: 'a) exécutif, b) législatif, c) quinquennat, d) censure',
+        hints: ['exécutif kommer av executer (utføre)', 'quinquennat fra latin quinque (fem)'],
       },
     },
     {
       id: 'fransk-3-7-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Politisk debatt',
-      problem: `Oversett folgende setninger om fransk politikk:
+      problem: `Oversett følgende setninger om fransk politikk:
 
 a) De politiske partiene forbereder seg til valget.
 b) Statsministeren presenterte en ny lov for nasjonalforsamlingen.
 c) Velgerne er uenige om regjeringens politikk.`,
-      solution: `a) **Les partis politiques se preparent pour l'election.**
-b) **Le Premier ministre a presente une nouvelle loi a l'Assemblee nationale.**
-c) **Les electeurs ne sont pas d'accord sur la politique du gouvernement.**
+      solution: `a) **Les partis politiques se préparent pour l'élection.**
+b) **Le Premier ministre a présenté une nouvelle loi a l'Assemblée nationale.**
+c) **Les électeurs ne sont pas d'accord sur la politique du gouvernement.**
 
 **Nyttige uttrykk:**
 - se preparer pour = forberede seg til
 - presenter une loi = presentere en lov
-- etre d'accord sur = vaere enig om
+- être d'accord sur = være enig om
 - la politique du gouvernement = regjeringens politikk`,
     },
     {
@@ -198,12 +198,12 @@ c) **Les electeurs ne sont pas d'accord sur la politique du gouvernement.**
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Frankrike er en republikk.', solution: 'La France est une republique.', answer: 'La France est une republique' },
-          { label: 'b', task: 'Presidenten utnevner statsministeren.', solution: 'Le President nomme le Premier ministre.', answer: 'Le President nomme le Premier ministre' },
-          { label: 'c', task: 'Senatorene velges indirekte.', solution: 'Les senateurs sont elus au suffrage indirect.', answer: 'Les senateurs sont elus au suffrage indirect' },
+          { label: 'a', task: 'Frankrike er en republikk.', solution: 'La France est une république.', answer: 'La France est une république' },
+          { label: 'b', task: 'Presidenten utnevner statsministeren.', solution: 'Le Président nomme le Premier ministre.', answer: 'Le Président nomme le Premier ministre' },
+          { label: 'c', task: 'Senatorene velges indirekte.', solution: 'Les sénateurs sont élus au suffrage indirect.', answer: 'Les sénateurs sont élus au suffrage indirect' },
         ],
-        solution: 'a) La France est une republique, b) Le President nomme le Premier ministre, c) Les senateurs sont elus au suffrage indirect',
-        hints: ['nommer = utnevne', 'elu(s) = valgt(e)'],
+        solution: 'a) La France est une république, b) Le Président nomme le Premier ministre, c) Les sénateurs sont élus au suffrage indirect',
+        hints: ['nommer = utnevne', 'élu(s) = valgt(e)'],
       },
     },
     {
@@ -214,21 +214,21 @@ c) **Les electeurs ne sont pas d'accord sur la politique du gouvernement.**
         number: '7.1.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Forklar det franske politiske systemet pa fransk (5-6 setninger). Bruk ordene: republique, president, Assemblee nationale, Senat, Premier ministre, elu.',
+        task: 'Skriveoppgave: Forklar det franske politiske systemet på fransk (5-6 setninger). Bruk ordene: république, président, Assemblée nationale, Sénat, Premier ministre, élu.',
         subTasks: [
-          { label: 'a', task: 'Beskriv styreformen', solution: 'La France est une republique democratique.' },
-          { label: 'b', task: 'Forklar presidentens rolle', solution: 'Le President est elu au suffrage universel direct pour cinq ans. Il nomme le Premier ministre.' },
-          { label: 'c', task: 'Beskriv parlamentet', solution: 'Le Parlement est compose de l\'Assemblee nationale et du Senat. L\'Assemblee nationale vote les lois.' },
+          { label: 'a', task: 'Beskriv styreformen', solution: 'La France est une république démocratique.' },
+          { label: 'b', task: 'Forklar presidentens rolle', solution: 'Le Président est élu au suffrage universel direct pour cinq ans. Il nomme le Premier ministre.' },
+          { label: 'c', task: 'Beskriv parlamentet', solution: 'Le Parlement est compose de l\'Assemblée nationale et du Sénat. L\'Assemblée nationale vote les lois.' },
         ],
-        solution: 'Eksempel: "La France est une republique democratique. Le President de la Republique est elu au suffrage universel direct pour un mandat de cinq ans. Il nomme le Premier ministre qui dirige le gouvernement. Le Parlement est compose de deux chambres: l\'Assemblee nationale et le Senat. L\'Assemblee nationale vote les lois et peut renverser le gouvernement."',
-        hints: ['compose de = bestaaende av', 'diriger = lede'],
+        solution: 'Eksempel: "La France est une république démocratique. Le Président de la République est élu au suffrage universel direct pour un mandat de cinq ans. Il nomme le Premier ministre qui dirige le gouvernement. Le Parlement est compose de deux chambres: l\'Assemblée nationale et le Sénat. L\'Assemblée nationale vote les lois et peut renverser le gouvernement."',
+        hints: ['compose de = bestående av', 'diriger = lede'],
       },
     },
     {
       id: 'fransk-3-7-1-note-1',
       type: 'note',
-      title: 'Kulturnotat: La Cinquieme Republique',
-      content: `Den femte republikken ble grunnlagt i 1958 av Charles de Gaulle under Algerie-krigen. Siden da har Frankrike hatt presidenter fra bade hoyresiden og venstresiden. En spesiell situasjon oppstaar nar presidenten og statsministeren er fra forskjellige politiske partier - dette kalles "la cohabitation". Det skjedde sist i 1997-2002 med president Chirac (hoeyre) og statsminister Jospin (venstre).`,
+      title: 'Kulturnotat: La Cinquième République',
+      content: `Den femte republikken ble grunnlagt i 1958 av Charles de Gaulle under Algerie-krigen. Siden da har Frankrike hatt presidenter fra både høyresiden og venstresiden. En spesiell situasjon oppstår når presidenten og statsministeren er fra forskjellige politiske partier - dette kalles "la cohabitation". Det skjedde sist i 1997-2002 med président Chirac (høyre) og statsminister Jospin (venstre).`,
     },
   ],
   exercises: [],
@@ -243,11 +243,11 @@ export const CHAPTER_FRANSK_3_7_2: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '7.2',
   title: 'Les enjeux sociaux - Sosiale utfordringer',
-  description: 'Laer om sosiale utfordringer i Frankrike som immigrasjon, ulikhet og laicite.',
+  description: 'Lær om sosiale utfordringer i Frankrike som immigrasjon, ulikhet og laïcité.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'diskutere sosiale utfordringer i Frankrike pa fransk',
-    'forstaa begreper som laicite, immigration og integration',
+    'diskutere sosiale utfordringer i Frankrike på fransk',
+    'forstå begreper som laïcité, immigration og intégration',
   ],
   content: [
     {
@@ -255,86 +255,86 @@ export const CHAPTER_FRANSK_3_7_2: TextbookChapter = {
       type: 'text',
       content: `## Les enjeux sociaux en France
 
-Frankrike staar overfor mange sosiale utfordringer som preger den offentlige debatten. Temaer som immigrasjon, sosiale ulikheter, forstadsomraadene (les banlieues) og det franske prinsippet om sekularisme (la laicite) er stadig aktuelle. A forstaa disse temaene er viktig for a delta i samtaler om det franske samfunnet.`,
+Frankrike står overfor mange sosiale utfordringer som preger den offentlige debatten. Temaer som immigrasjon, sosiale ulikheter, forstadsområdene (les banlieues) og det franske prinsippet om sekularisme (la laïcité) er stadig aktuelle. Å forstå disse temaene er viktig for å delta i samtaler om det franske samfunnet.`,
     },
     {
       id: 'fransk-3-7-2-def-1',
       type: 'definition',
       title: 'Vokabular: Immigrasjon og integrering',
-      content: `**L'immigration et l'integration:**
+      content: `**L'immigration et l'intégration:**
 
 | Fransk | Norsk |
 |--------|-------|
 | l'immigration | innvandring |
-| un immigre / une immigree | en innvandrer |
-| l'integration | integrering |
-| s'integrer | a integrere seg |
-| la diversite | mangfold |
+| un immigré / une immigrée | en innvandrer |
+| l'intégration | integrering |
+| s'intégrer | å integrere seg |
+| la diversité | mangfold |
 | le multiculturalisme | multikulturalisme |
-| l'identite nationale | nasjonal identitet |
-| un refugie / une refugiee | en flyktning |`,
+| l'identité nationale | nasjonal identitet |
+| un réfugié / une réfugiée | en flyktning |`,
     },
     {
       id: 'fransk-3-7-2-def-2',
       type: 'definition',
       title: 'Vokabular: Sosiale utfordringer',
-      content: `**Les defis sociaux:**
+      content: `**Les défis sociaux:**
 
 | Fransk | Norsk |
 |--------|-------|
-| les inegalites | ulikheter |
-| la pauvrete | fattigdom |
-| le chomage | arbeidsloeshet |
+| les inégalités | ulikheter |
+| la pauvreté | fattigdom |
+| le chômage | arbeidsløshet |
 | la banlieue | forstaden |
 | la discrimination | diskriminering |
 | l'exclusion sociale | sosialt utenforskap |
-| la laicite | sekularisme |
-| l'egalite des chances | like muligheter |`,
+| la laïcité | sekularisme |
+| l'égalité des chances | like muligheter |`,
     },
     {
       id: 'fransk-3-7-2-text-1',
       type: 'text',
-      content: `## La laicite - Sekularisme
+      content: `## La laïcité - Sekularisme
 
-La laicite er et grunnleggende prinsipp i det franske samfunnet. Det innebærer et strengt skille mellom stat og religion:
+La laïcité er et grunnleggende prinsipp i det franske samfunnet. Det innebærer et strengt skille mellom stat og religion:
 
 - **Loi de 1905**: Loven om skillet mellom kirke og stat
 - **Skolen**: Religion er ikke tillatt i offentlige skoler
-- **Symboler**: Religiose symboler er forbudt i offentlige institusjoner
+- **Symboler**: Religiøse symboler er forbudt i offentlige institusjoner
 - **Frihet**: Alle har rett til a utove sin religion privat
 
-Uttrykk for a diskutere laicite:
-- *la liberte de conscience* = trosfrihet
-- *la neutralite de l'Etat* = statens noeytralitet
-- *le vivre-ensemble* = a leve sammen i harmoni`,
+Uttrykk for å diskutere laïcité:
+- *la liberté de conscience* = trosfrihet
+- *la neutralité de l'État* = statens nøytralitet
+- *le vivre-ensemble* = å leve sammen i harmoni`,
     },
     {
       id: 'fransk-3-7-2-tip-1',
       type: 'tip',
-      content: `La laicite er et unikt fransk begrep som ikke har noen direkte oversettelse. Det handler ikke om a vaere "mot religion", men om at staten er noytral overfor alle religioner. Dette skiller seg fra mange andre land der stat og kirke har naermere baand.`,
+      content: `La laïcité er et unikt fransk begrep som ikke har noen direkte oversettelse. Det handler ikke om å være "mot religion", men om at staten er nøytral overfor alle religioner. Dette skiller seg fra mange andre land der stat og kirke har nærmere bånd.`,
     },
     {
       id: 'fransk-3-7-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa en sosial debatt',
-      problem: `Les teksten og svar pa sporsmalene:
+      title: 'Eksempel 1: Forstå en sosial debatt',
+      problem: `Les teksten og svar på spørsmålene:
 
-"Les banlieues francaises sont souvent associees a des problemes sociaux: chomage eleve, manque de transports, et discrimination. Pourtant, ces quartiers sont aussi des lieux de creativite et de solidarite. Beaucoup de jeunes des banlieues reussissent dans les domaines de l'art, du sport et des affaires."
+"Les banlieues françaises sont souvent associées a des problèmes sociaux: chômage élève, manque de transports, et discrimination. Pourtant, ces quartiers sont aussi des lieux de créativité et de solidarité. Beaucoup de jeunes des banlieues réussissent dans les domaines de l'art, du sport et des affaires."
 
 a) Hvilke problemer nevnes i teksten?
-b) Hva er positivt med forstadene ifloelge teksten?
+b) Hva er positivt med forstadene ifølge teksten?
 c) Forklar ordet "pourtant" ut fra konteksten.`,
-      solution: `a) Problemene som nevnes er **hoey arbeidsloeshet** (chomage eleve), **manglende transport** (manque de transports) og **diskriminering** (discrimination).
+      solution: `a) Problemene som nevnes er **høy arbeidsløshet** (chômage élève), **manglende transport** (manque de transports) og **diskriminering** (discrimination).
 
-b) Forstadene er ogsa steder med **kreativitet** (creativite) og **solidaritet** (solidarite). Mange unge **lykkes** (reussissent) innen kunst, sport og naeringslivet.
+b) Forstadene er også steder med **kreativitet** (créativité) og **solidaritet** (solidarité). Mange unge **lykkes** (réussissent) innen kunst, sport og næringslivet.
 
 c) "Pourtant" betyr **likevel/til tross for**. Det innleder et motargument.
 
-**Noekkelvokabular:**
-- le chomage = arbeidsloeshet
+**Nøkkelvokabular:**
+- le chômage = arbeidsløshet
 - un quartier = en bydel/et nabolag
-- reussir = a lykkes
-- les affaires = naeringslivet/forretningslivet`,
+- réussir = å lykkes
+- les affaires = næringslivet/forretningslivet`,
     },
     {
       id: 'fransk-3-7-2-ex-block-1',
@@ -347,31 +347,31 @@ c) "Pourtant" betyr **likevel/til tross for**. Det innleder et motargument.
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Immigrasjon er et viktig tema i Frankrike.', solution: 'L\'immigration est un sujet important en France.', answer: 'L\'immigration est un sujet important en France' },
-          { label: 'b', task: 'Sosiale ulikheter er en stor utfordring.', solution: 'Les inegalites sociales sont un grand defi.', answer: 'Les inegalites sociales sont un grand defi' },
-          { label: 'c', task: 'Integrering krever innsats fra alle.', solution: 'L\'integration demande des efforts de tous.', answer: 'L\'integration demande des efforts de tous' },
-          { label: 'd', task: 'Alle har rett til like muligheter.', solution: 'Tout le monde a droit a l\'egalite des chances.', answer: 'Tout le monde a droit a l\'egalite des chances' },
+          { label: 'b', task: 'Sosiale ulikheter er en stor utfordring.', solution: 'Les inégalités sociales sont un grand défi.', answer: 'Les inégalités sociales sont un grand défi' },
+          { label: 'c', task: 'Integrering krever innsats fra alle.', solution: 'L\'intégration demande des efforts de tous.', answer: 'L\'intégration demande des efforts de tous' },
+          { label: 'd', task: 'Alle har rett til like muligheter.', solution: 'Tout le monde a droit a l\'égalité des chances.', answer: 'Tout le monde a droit a l\'égalité des chances' },
         ],
-        solution: 'a) L\'immigration est un sujet important en France, b) Les inegalites sociales sont un grand defi, c) L\'integration demande des efforts de tous, d) Tout le monde a droit a l\'egalite des chances',
-        hints: ['un sujet = et tema', 'un defi = en utfordring', 'demander = kreve/be om'],
+        solution: 'a) L\'immigration est un sujet important en France, b) Les inégalités sociales sont un grand défi, c) L\'intégration demande des efforts de tous, d) Tout le monde a droit a l\'égalité des chances',
+        hints: ['un sujet = et tema', 'un défi = en utfordring', 'demander = kreve/be om'],
       },
     },
     {
       id: 'fransk-3-7-2-example-2',
       type: 'example',
       title: 'Eksempel 2: Argumentere om sosiale temaer',
-      problem: `Skriv argumenter for og mot folgende pastand pa fransk:
-"La laicite est essentielle pour le vivre-ensemble."
+      problem: `Skriv argumenter for og mot følgende pastand på fransk:
+"La laïcité est essentielle pour le vivre-ensemble."
 
 a) Et argument for (pour)
 b) Et argument mot (contre)`,
-      solution: `a) **Pour:** La laicite garantit la liberte de conscience de tous les citoyens et assure l'egalite devant la loi, quelle que soit la religion.
+      solution: `a) **Pour:** La laïcité garantit la liberté de conscience de tous les citoyens et assuré l'égalité devant la loi, quelle que soit la religion.
 *(Sekularismen garanterer trosfrihet for alle borgere og sikrer likhet for loven, uansett religion.)*
 
-b) **Contre:** Une application trop stricte de la laicite peut etre percue comme une limitation de la liberte religieuse et peut exclure certaines personnes.
+b) **Contre:** Une application trop stricte de la laïcité peut être perçue comme une limitation de la liberté religieuse et peut exclure certaines personnes.
 *(En for streng anvendelse av sekularismen kan oppfattes som en begrensning av religionsfrihet og kan ekskludere visse personer.)*
 
 **Nyttige uttrykk for argumentasjon:**
-- d'une part... d'autre part = pa den ene side... pa den andre side
+- d'une part... d'autre part = på den ene side... på den andre side
 - il est vrai que... mais = det er sant at... men
 - certes... cependant = riktignok... likevel`,
     },
@@ -385,12 +385,12 @@ b) **Contre:** Une application trop stricte de la laicite peut etre percue comme
         difficulty: 'vanskelig',
         task: 'Fyll inn riktig ord:',
         subTasks: [
-          { label: 'a', task: 'Le taux de ___ est eleve dans les banlieues. (arbeidsloeshet)', solution: 'chomage', answer: 'chomage' },
-          { label: 'b', task: 'La ___ est un principe fondamental de la Republique francaise. (sekularisme)', solution: 'laicite', answer: 'laicite' },
+          { label: 'a', task: 'Le taux de ___ est élève dans les banlieues. (arbeidsløshet)', solution: 'chômage', answer: 'chômage' },
+          { label: 'b', task: 'La ___ est un principe fondamental de la République française. (sekularisme)', solution: 'laïcité', answer: 'laïcité' },
           { label: 'c', task: 'L\'___ sociale touche de nombreuses personnes. (utenforskap)', solution: 'exclusion', answer: 'exclusion' },
-          { label: 'd', task: 'La ___ culturelle est une richesse pour la societe. (mangfold)', solution: 'diversite', answer: 'diversite' },
+          { label: 'd', task: 'La ___ culturelle est une richesse pour la société. (mangfold)', solution: 'diversité', answer: 'diversité' },
         ],
-        solution: 'a) chomage, b) laicite, c) exclusion, d) diversite',
+        solution: 'a) chômage, b) laïcité, c) exclusion, d) diversité',
         hints: ['taux = rate/andel', 'un principe fondamental = et grunnleggende prinsipp'],
       },
     },
@@ -401,11 +401,11 @@ b) **Contre:** Une application trop stricte de la laicite peut etre percue comme
       problem: `Oversett til fransk:
 
 a) Mangfold beriker samfunnet.
-b) Vi maa bekjempe diskriminering.
+b) Vi må bekjempe diskriminering.
 c) Like muligheter er viktig for demokratiet.`,
-      solution: `a) **La diversite enrichit la societe.**
+      solution: `a) **La diversité enrichit la société.**
 b) **Nous devons combattre la discrimination.**
-c) **L'egalite des chances est importante pour la democratie.**
+c) **L'égalité des chances est importante pour la démocratie.**
 
 **Nyttige verb:**
 - enrichir = berike
@@ -424,11 +424,11 @@ c) **L'egalite des chances est importante pour la democratie.**
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Frankrike er et mangfoldig land.', solution: 'La France est un pays divers.', answer: 'La France est un pays divers' },
-          { label: 'b', task: 'Flyktningene onsker aa integrere seg.', solution: 'Les refugies souhaitent s\'integrer.', answer: 'Les refugies souhaitent s\'integrer' },
-          { label: 'c', task: 'Staten maa sikre likhet for alle.', solution: 'L\'Etat doit assurer l\'egalite pour tous.', answer: 'L\'Etat doit assurer l\'egalite pour tous' },
+          { label: 'b', task: 'Flyktningene ønsker å integrere seg.', solution: 'Les réfugiés souhaitent s\'intégrer.', answer: 'Les réfugiés souhaitent s\'intégrer' },
+          { label: 'c', task: 'Staten må sikre likhet for alle.', solution: 'L\'État doit assurer l\'égalité pour tous.', answer: 'L\'État doit assurer l\'égalité pour tous' },
         ],
-        solution: 'a) La France est un pays divers, b) Les refugies souhaitent s\'integrer, c) L\'Etat doit assurer l\'egalite pour tous',
-        hints: ['souhaiter = onske', 'assurer = sikre'],
+        solution: 'a) La France est un pays divers, b) Les réfugiés souhaitent s\'intégrer, c) L\'État doit assurer l\'égalité pour tous',
+        hints: ['souhaiter = ønske', 'assurer = sikre'],
       },
     },
     {
@@ -439,64 +439,64 @@ c) **L'egalite des chances est importante pour la democratie.**
         number: '7.2.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Skriv en kort tekst (5-6 setninger) pa fransk om en sosial utfordring i Frankrike. Velg ett tema: immigration, inegalites, eller laicite.',
+        task: 'Skriveoppgave: Skriv en kort tekst (5-6 setninger) på fransk om en sosial utfordring i Frankrike. Velg ett tema: immigration, inégalités, eller laïcité.',
         subTasks: [
-          { label: 'a', task: 'Presenter temaet', solution: 'Bruk: un enjeu important / un defi majeur' },
+          { label: 'a', task: 'Presenter temaet', solution: 'Bruk: un enjeu important / un défi majeur' },
           { label: 'b', task: 'Forklar problemet', solution: 'Bruk: les causes sont... / cela entraine...' },
-          { label: 'c', task: 'Foresla en loesning', solution: 'Bruk: il faut... / on devrait... / la solution serait de...' },
+          { label: 'c', task: 'Foresla en løsning', solution: 'Bruk: il faut... / on devrait... / la solution serait de...' },
         ],
-        solution: 'Eksempel: "L\'immigration est un sujet tres debattu en France. Beaucoup d\'immigres viennent en France pour trouver une vie meilleure. Cependant, l\'integration peut etre difficile a cause du chomage et de la discrimination. Il faut promouvoir l\'egalite des chances et lutter contre les prejuges. La diversite culturelle enrichit la societe francaise."',
-        hints: ['debattu = debattert', 'les prejuges = fordommer'],
+        solution: 'Eksempel: "L\'immigration est un sujet tres débattu en France. Beaucoup d\'immigres viennent en France pour trouver une vie meilleure. Cependant, l\'intégration peut être difficile a cause du chômage et de la discrimination. Il faut promouvoir l\'égalité des chances et lutter contre les préjugés. La diversité culturelle enrichit la société française."',
+        hints: ['débattu = debattert', 'les préjugés = fordommer'],
       },
     },
     {
       id: 'fransk-3-7-2-note-1',
       type: 'note',
       title: 'Kulturnotat: Les banlieues',
-      content: `De franske "banlieues" (forsteder) ble ofte bygget paa 1960- og 70-tallet for aa huse arbeidere og innvandrere. Mange av disse omraadene har i dag utfordringer med arbeidsloeshet og fattigdom. Samtidig er de ogsaa kulturelle smeltedigler som har fostret store kunstnere, musikere og idrettsutoevere. Filmer som "La Haine" (1995) og "Les Miserables" (2019) gir innblikk i livet i forstadene.`,
+      content: `De franske "banlieues" (forsteder) ble ofte bygget på 1960- og 70-tallet for å huse arbeidere og innvandrere. Mange av disse områdene har i dag utfordringer med arbeidsløshet og fattigdom. Samtidig er de også kulturelle smeltedigler som har fostret store kunstnere, musikere og idrettsutøvere. Filmer som "La Haine" (1995) og "Les Miserables" (2019) gir innblikk i livet i forstadene.`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 7.3: L'actualite et les medias - Aktualitet og media
+// Kapittel 7.3: L'actualité et les médias - Aktualitet og media
 // ============================================================================
 
 export const CHAPTER_FRANSK_3_7_3: TextbookChapter = {
   id: 'fransk-3-7-3',
   courseId: 'fransk-3',
   chapterNumber: '7.3',
-  title: 'L\'actualite et les medias - Aktualitet og media',
-  description: 'Laer vokabular om nyheter, media og kildekritikk pa fransk.',
+  title: 'L\'actualite et les médias - Aktualitet og media',
+  description: 'Lær vokabular om nyheter, media og kildekritikk på fransk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forstaa og diskutere nyhetsstoff pa fransk',
+    'forstå og diskutere nyhetsstoff på fransk',
     'bruke vokabular knyttet til media og kildekritikk',
   ],
   content: [
     {
       id: 'fransk-3-7-3-intro',
       type: 'text',
-      content: `## L'actualite et les medias
+      content: `## L'actualité et les médias
 
-I en globalisert verden er det viktig aa kunne forstaa og diskutere nyheter paa fransk. Det franske medielandskapet er rikt og variert, med tradisjonelle aviser, TV-kanaler, radiostasjoner og digitale plattformer. Aa vaere kritisk til informasjonskilder er en viktig kompetanse.`,
+I en globalisert verden er det viktig å kunne forstå og diskutere nyheter på fransk. Det franske medielandskapet er rikt og variert, med tradisjonelle aviser, TV-kanaler, radiostasjoner og digitale plattformer. Å være kritisk til informasjonskilder er en viktig kompetanse.`,
     },
     {
       id: 'fransk-3-7-3-def-1',
       type: 'definition',
       title: 'Vokabular: Media og nyheter',
-      content: `**Les medias et l'information:**
+      content: `**Les médias et l'information:**
 
 | Fransk | Norsk |
 |--------|-------|
-| les medias | mediene |
+| les médias | mediene |
 | un journal / un quotidien | en avis / en dagsavis |
 | un magazine / une revue | et magasin / et tidsskrift |
-| le journal televise (JT) | TV-nyhetene |
-| la presse ecrite | den trykte pressen |
+| le journal télévisé (JT) | TV-nyhetene |
+| la presse écrite | den trykte pressen |
 | un site d'information | et nyhetsnettsted |
-| les reseaux sociaux | sosiale medier |
+| les réseaux sociaux | sosiale medier |
 | un article | en artikkel |`,
     },
     {
@@ -509,59 +509,59 @@ I en globalisert verden er det viktig aa kunne forstaa og diskutere nyheter paa 
 |--------|-------|
 | un/une journaliste | en journalist |
 | un reporter | en reporter |
-| un redacteur en chef | en sjefredaktoer |
-| une enquete | en undersokelse/reportasje |
+| un rédacteur en chef | en sjefredaktør |
+| une enquête | en undersøkelse/reportasje |
 | un reportage | en reportasje |
 | une source | en kilde |
 | une interview | et intervju |
-| la liberte de la presse | pressefrihet |`,
+| la liberté de la presse | pressefrihet |`,
     },
     {
       id: 'fransk-3-7-3-text-1',
       type: 'text',
-      content: `## Les grands medias francais - Store franske medier
+      content: `## Les grands médias français - Store franske medier
 
 **Aviser:**
 - *Le Monde* - den mest anerkjente franske avisen
 - *Le Figaro* - konservativ dagsavis
-- *Liberation* - venstreorientert dagsavis
-- *Le Canard enchaine* - satirisk ukeavis
+- *Libération* - venstreorientert dagsavis
+- *Le Canard enchaîné* - satirisk ukeavis
 
 **TV og radio:**
-- France Televisions (France 2, France 3) - offentlig TV
-- TF1 - stoerste private TV-kanal
+- France Télévisions (France 2, France 3) - offentlig TV
+- TF1 - største private TV-kanal
 - France Inter - offentlig radio
 - RFI (Radio France Internationale) - internasjonal radio
 
 **Nyhetsbyraer:**
-- AFP (Agence France-Presse) - et av verdens stoerste nyhetsbyraer`,
+- AFP (Agence France-Presse) - et av verdens største nyhetsbyraer`,
     },
     {
       id: 'fransk-3-7-3-tip-1',
       type: 'tip',
-      content: `For aa oeve paa fransk, proev aa lese nyhetsartikler paa nettsidene til Le Monde (lemonde.fr) eller France Info (franceinfo.fr). Start med korte artikler og fokuser paa aa forstaa hovedbudskapet foer du ser paa detaljene.`,
+      content: `For å øve på fransk, prøv å lese nyhetsartikler på nettsidene til Le Monde (lemonde.fr) eller France Info (franceinfo.fr). Start med korte artikler og fokuser på å forstå hovedbudskapet før du ser på detaljene.`,
     },
     {
       id: 'fransk-3-7-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa en nyhetsartikkel',
-      problem: `Les overskriften og ingressen, og svar paa sporsmalene:
+      title: 'Eksempel 1: Forstå en nyhetsartikkel',
+      problem: `Les overskriften og ingressen, og svar på spørsmålene:
 
-"Les fausses informations sur les reseaux sociaux: un defi majeur pour la democratie. Selon une etude recente, 60% des Francais ont deja ete confrontes a des fake news. Le gouvernement propose de nouvelles lois pour lutter contre la desinformation."
+"Les fausses informations sur les réseaux sociaux: un défi majeur pour la démocratie. Selon une étude récente, 60% des Français ont deja été confrontes a des fake news. Le gouvernement propose de nouvelles lois pour lutter contre la désinformation."
 
 a) Hva er temaet?
 b) Hvilken statistikk oppgis?
 c) Hva foreslar regjeringen?`,
-      solution: `a) Temaet er **falske nyheter paa sosiale medier** (fausses informations sur les reseaux sociaux) og trusselen mot demokratiet.
+      solution: `a) Temaet er **falske nyheter på sosiale medier** (fausses informations sur les réseaux sociaux) og trusselen mot demokratiet.
 
 b) **60% av franskmennene** har allerede blitt konfrontert med falske nyheter (fake news).
 
-c) Regjeringen foreslar **nye lover for aa bekjempe desinformasjon** (nouvelles lois pour lutter contre la desinformation).
+c) Regjeringen foreslar **nye lover for å bekjempe desinformasjon** (nouvelles lois pour lutter contre la désinformation).
 
-**Noekkelvokabular:**
+**Nøkkelvokabular:**
 - les fausses informations = falske nyheter
-- selon = ifloelge
-- une etude = en studie/undersokelse
+- selon = ifølge
+- une étude = en studie/undersøkelse
 - lutter contre = kjempe mot`,
     },
     {
@@ -574,13 +574,13 @@ c) Regjeringen foreslar **nye lover for aa bekjempe desinformasjon** (nouvelles 
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Journalisten skrev en artikkel om presidenten.', solution: 'Le/La journaliste a ecrit un article sur le president.', answer: 'Le journaliste a ecrit un article sur le president' },
-          { label: 'b', task: 'Pressefrihet er viktig for demokratiet.', solution: 'La liberte de la presse est importante pour la democratie.', answer: 'La liberte de la presse est importante pour la democratie' },
-          { label: 'c', task: 'Sosiale medier sprer falske nyheter.', solution: 'Les reseaux sociaux diffusent des fausses informations.', answer: 'Les reseaux sociaux diffusent des fausses informations' },
-          { label: 'd', task: 'Vi maa vaere kritiske til kildene vaare.', solution: 'Nous devons etre critiques envers nos sources.', answer: 'Nous devons etre critiques envers nos sources' },
+          { label: 'a', task: 'Journalisten skrev en artikkel om presidenten.', solution: 'Le/La journaliste a écrit un article sur le président.', answer: 'Le journaliste a écrit un article sur le président' },
+          { label: 'b', task: 'Pressefrihet er viktig for demokratiet.', solution: 'La liberté de la presse est importante pour la démocratie.', answer: 'La liberté de la presse est importante pour la démocratie' },
+          { label: 'c', task: 'Sosiale medier sprer falske nyheter.', solution: 'Les réseaux sociaux diffusent des fausses informations.', answer: 'Les réseaux sociaux diffusent des fausses informations' },
+          { label: 'd', task: 'Vi må være kritiske til kildene våre.', solution: 'Nous devons être critiques envers nos sources.', answer: 'Nous devons être critiques envers nos sources' },
         ],
-        solution: 'a) Le journaliste a ecrit un article sur le president, b) La liberte de la presse est importante pour la democratie, c) Les reseaux sociaux diffusent des fausses informations, d) Nous devons etre critiques envers nos sources',
-        hints: ['ecrire (a skrive) -> passe compose: a ecrit', 'diffuser = spre/kringkaste'],
+        solution: 'a) Le journaliste a écrit un article sur le président, b) La liberté de la presse est importante pour la démocratie, c) Les réseaux sociaux diffusent des fausses informations, d) Nous devons être critiques envers nos sources',
+        hints: ['écrire (a skrive) -> passé composé: a écrit', 'diffuser = spre/kringkaste'],
       },
     },
     {
@@ -589,16 +589,16 @@ c) Regjeringen foreslar **nye lover for aa bekjempe desinformasjon** (nouvelles 
       title: 'Eksempel 2: Kildekritikk',
       problem: `Oversett uttrykkene for kildekritikk:
 
-a) Er kilden paaliitelig?
-b) Vi maa sjekke informasjonen.
+a) Er kilden pålitelig?
+b) Vi må sjekke informasjonen.
 c) Denne artikkelen er partisk.`,
       solution: `a) **La source est-elle fiable?**
-b) **Nous devons verifier l'information.**
-c) **Cet article est partisan / biaise.**
+b) **Nous devons vérifier l'information.**
+c) **Cet article est partisan / biaisé.**
 
 **Uttrykk for kildekritikk:**
-- verifier l'information = verifisere/sjekke informasjonen
-- une source fiable = en paaliitelig kilde
+- vérifier l'information = verifisere/sjekke informasjonen
+- une source fiable = en pålitelig kilde
 - une source douteuse = en tvilsom kilde
 - croiser les sources = kryss-sjekke kildene
 - faire preuve d'esprit critique = vise kritisk sans`,
@@ -613,31 +613,31 @@ c) **Cet article est partisan / biaise.**
         difficulty: 'medium',
         task: 'Fyll inn riktig ord:',
         subTasks: [
-          { label: 'a', task: 'Le Monde est un ___ francais tres respecte. (dagsavis)', solution: 'quotidien', answer: 'quotidien' },
-          { label: 'b', task: 'Il faut ___ les sources avant de partager une information. (sjekke)', solution: 'verifier', answer: 'verifier' },
-          { label: 'c', task: 'Les ___ sociaux sont devenus une source d\'information importante. (nettverk)', solution: 'reseaux', answer: 'reseaux' },
-          { label: 'd', task: 'Le ___ en chef dirige la redaction du journal. (redaktoer)', solution: 'redacteur', answer: 'redacteur' },
+          { label: 'a', task: 'Le Monde est un ___ français tres respecte. (dagsavis)', solution: 'quotidien', answer: 'quotidien' },
+          { label: 'b', task: 'Il faut ___ les sources avant de partager une information. (sjekke)', solution: 'vérifier', answer: 'vérifier' },
+          { label: 'c', task: 'Les ___ sociaux sont devenus une source d\'information importante. (nettverk)', solution: 'réseaux', answer: 'réseaux' },
+          { label: 'd', task: 'Le ___ en chef dirige la redaction du journal. (redaktør)', solution: 'rédacteur', answer: 'rédacteur' },
         ],
-        solution: 'a) quotidien, b) verifier, c) reseaux, d) redacteur',
-        hints: ['quotidien = daglig/dagsavis', 'verifier = bekrefte/sjekke'],
+        solution: 'a) quotidien, b) vérifier, c) réseaux, d) rédacteur',
+        hints: ['quotidien = daglig/dagsavis', 'vérifier = bekrefte/sjekke'],
       },
     },
     {
       id: 'fransk-3-7-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Diskutere medias rolle',
-      problem: `Skriv setninger om medias rolle i samfunnet. Oversett til fransk:
+      title: 'Eksempel 3: Diskutere médias rolle',
+      problem: `Skriv setninger om médias rolle i samfunnet. Oversett til fransk:
 
 a) Mediene informerer befolkningen.
-b) Journalister maa vaere uavhengige.
+b) Journalister må være uavhengige.
 c) Falske nyheter truer demokratiet.`,
-      solution: `a) **Les medias informent la population.**
-b) **Les journalistes doivent etre independants.**
-c) **Les fausses informations menacent la democratie.**
+      solution: `a) **Les médias informent la population.**
+b) **Les journalistes doivent être indépendants.**
+c) **Les fausses informations menacent la démocratie.**
 
 **Viktige verb:**
 - informer = informere
-- devoir (doivent) = maa/bor
+- devoir (doivent) = må/bor
 - menacer = true
 - proteger = beskytte`,
     },
@@ -651,12 +651,12 @@ c) **Les fausses informations menacent la democratie.**
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Ifloelge denne artikkelen oeker bruken av sosiale medier.', solution: 'Selon cet article, l\'utilisation des reseaux sociaux augmente.', answer: 'Selon cet article l\'utilisation des reseaux sociaux augmente' },
-          { label: 'b', task: 'Vi maa kryss-sjekke kildene vaare.', solution: 'Nous devons croiser nos sources.', answer: 'Nous devons croiser nos sources' },
-          { label: 'c', task: 'Pressen spiller en viktig rolle i demokratiet.', solution: 'La presse joue un role important dans la democratie.', answer: 'La presse joue un role important dans la democratie' },
+          { label: 'a', task: 'Ifølge denne artikkelen øker bruken av sosiale medier.', solution: 'Selon cet article, l\'utilisation des réseaux sociaux augmenté.', answer: 'Selon cet article l\'utilisation des réseaux sociaux augmenté' },
+          { label: 'b', task: 'Vi må kryss-sjekke kildene våre.', solution: 'Nous devons croiser nos sources.', answer: 'Nous devons croiser nos sources' },
+          { label: 'c', task: 'Pressen spiller en viktig rolle i demokratiet.', solution: 'La presse joue un rôle important dans la démocratie.', answer: 'La presse joue un rôle important dans la démocratie' },
         ],
-        solution: 'a) Selon cet article, l\'utilisation des reseaux sociaux augmente, b) Nous devons croiser nos sources, c) La presse joue un role important dans la democratie',
-        hints: ['selon = ifloelge', 'jouer un role = spille en rolle'],
+        solution: 'a) Selon cet article, l\'utilisation des réseaux sociaux augmenté, b) Nous devons croiser nos sources, c) La presse joue un rôle important dans la démocratie',
+        hints: ['selon = ifølge', 'jouer un rôle = spille en rolle'],
       },
     },
     {
@@ -667,127 +667,127 @@ c) **Les fausses informations menacent la democratie.**
         number: '7.3.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Skriv en kort tekst (5-6 setninger) paa fransk om medias rolle i samfunnet. Diskuter bade positive og negative sider.',
+        task: 'Skriveoppgave: Skriv en kort tekst (5-6 setninger) på fransk om médias rolle i samfunnet. Diskuter både positive og negative sider.',
         subTasks: [
-          { label: 'a', task: 'Beskriv medias positive rolle', solution: 'Les medias informent les citoyens et contribuent a la democratie.' },
-          { label: 'b', task: 'Nevn en negativ side', solution: 'Cependant, les fausses informations et la desinformation sont des problemes serieux.' },
-          { label: 'c', task: 'Foresla en loesning', solution: 'Il est important de developper l\'esprit critique et de verifier les sources.' },
+          { label: 'a', task: 'Beskriv médias positive rolle', solution: 'Les médias informent les citoyens et contribuent a la démocratie.' },
+          { label: 'b', task: 'Nevn en negativ side', solution: 'Cependant, les fausses informations et la désinformation sont des problèmes sérieux.' },
+          { label: 'c', task: 'Foresla en løsning', solution: 'Il est important de développer l\'esprit critique et de vérifier les sources.' },
         ],
-        solution: 'Eksempel: "Les medias jouent un role essentiel dans notre societe. Ils informent les citoyens et contribuent au bon fonctionnement de la democratie. Cependant, avec les reseaux sociaux, les fausses informations se propagent rapidement. La desinformation peut manipuler l\'opinion publique. Il est donc important de developper son esprit critique et de toujours verifier les sources d\'information."',
-        hints: ['se propager = aa spre seg', 'l\'opinion publique = den offentlige mening'],
+        solution: 'Eksempel: "Les médias jouent un rôle essentiel dans notre société. Ils informent les citoyens et contribuent au bon fonctionnement de la démocratie. Cependant, avec les réseaux sociaux, les fausses informations se propagent rapidement. La désinformation peut manipuler l\'opinion publique. Il est donc important de développer son esprit critique et de toujours vérifier les sources d\'information."',
+        hints: ['se propager = å spre seg', 'l\'opinion publique = den offentlige mening'],
       },
     },
     {
       id: 'fransk-3-7-3-note-1',
       type: 'note',
       title: 'Kulturnotat: Pressefrihet i Frankrike',
-      content: `Frankrike har en lang tradisjon for pressefrihet, som er forankret i "la Declaration des droits de l'homme et du citoyen" fra 1789. Likevel har forholdet mellom medier og politikk vaert utfordrende. Organisasjonen Reportere uten grenser (Reporters sans frontieres, RSF), som har hovedkontor i Paris, rangerer pressefrihet i verden hvert aar. Satireavisen Charlie Hebdo ble et symbol paa pressefrihet etter terrorangrepet i 2015.`,
+      content: `Frankrike har en lang tradisjon for pressefrihet, som er forankret i "la Déclaration des droits de l'homme et du citoyen" fra 1789. Likevel har forholdet mellom medier og politikk vært utfordrende. Organisasjonen Reportere uten grenser (Reporters sans frontières, RSF), som har hovedkontor i Paris, rangerer pressefrihet i verden hvert år. Satireavisen Charlie Hebdo ble et symbol på pressefrihet etter terrorangrepet i 2015.`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 7.4: L'Union europeenne - EU
+// Kapittel 7.4: L'Union européenne - EU
 // ============================================================================
 
 export const CHAPTER_FRANSK_3_7_4: TextbookChapter = {
   id: 'fransk-3-7-4',
   courseId: 'fransk-3',
   chapterNumber: '7.4',
-  title: 'L\'Union europeenne - EU',
-  description: 'Laer om Frankrikes rolle i EU, EUs institusjoner og europeisk samarbeid.',
+  title: 'L\'Union européenne - EU',
+  description: 'Lær om Frankrikes rolle i EU, EUs institusjoner og europeisk samarbeid.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forklare Frankrikes rolle i EU paa fransk',
+    'forklare Frankrikes rolle i EU på fransk',
     'bruke vokabular om europeisk politikk og samarbeid',
   ],
   content: [
     {
       id: 'fransk-3-7-4-intro',
       type: 'text',
-      content: `## L'Union europeenne et la France
+      content: `## L'Union européenne et la France
 
-Frankrike er et av grunnleggerlandene til det europeiske samarbeidet. Sammen med Tyskland regnes Frankrike som en av de viktigste drivkreftene i EU. Fra Kull- og staalunionen i 1951 til dagens EU har Frankrike spilt en sentral rolle i utviklingen av det europeiske prosjektet.`,
+Frankrike er et av grunnleggerlandene til det europeiske samarbeidet. Sammen med Tyskland regnes Frankrike som en av de viktigste drivkreftene i EU. Fra Kull- og stålunionen i 1951 til dagens EU har Frankrike spilt en sentral rolle i utviklingen av det europeiske prosjektet.`,
     },
     {
       id: 'fransk-3-7-4-def-1',
       type: 'definition',
       title: 'Vokabular: EU-institusjoner',
-      content: `**Les institutions europeennes:**
+      content: `**Les institutions européennes:**
 
 | Fransk | Norsk |
 |--------|-------|
-| l'Union europeenne (UE) | EU |
-| la Commission europeenne | Europakommisjonen |
-| le Parlement europeen | Europaparlamentet |
-| le Conseil europeen | Det europeiske raad |
-| la Banque centrale europeenne (BCE) | Den europeiske sentralbanken |
+| l'Union européenne (UE) | EU |
+| la Commission européenne | Europakommisjonen |
+| le Parlement européen | Europaparlamentet |
+| le Conseil européen | Det europeiske råd |
+| la Banque centrale européenne (BCE) | Den europeiske sentralbanken |
 | la Cour de justice | EU-domstolen |
-| un Etat membre | et medlemsland |
-| le traite | traktaten/avtalen |`,
+| un État membre | et medlemsland |
+| le traité | traktaten/avtalen |`,
     },
     {
       id: 'fransk-3-7-4-def-2',
       type: 'definition',
       title: 'Vokabular: Europeisk samarbeid',
-      content: `**La cooperation europeenne:**
+      content: `**La coopération européenne:**
 
 | Fransk | Norsk |
 |--------|-------|
-| l'integration europeenne | europeisk integrasjon |
-| le marche unique | det indre markedet |
+| l'intégration européenne | europeisk integrasjon |
+| le marché unique | det indre markedet |
 | la libre circulation | fri bevegelse |
 | l'euro | euroen |
 | la zone euro | eurosonen |
-| la politique etrangere | utenrikspolitikken |
+| la politique étrangère | utenrikspolitikken |
 | les droits de l'homme | menneskerettighetene |
-| la solidarite europeenne | europeisk solidaritet |`,
+| la solidarité européenne | europeisk solidaritet |`,
     },
     {
       id: 'fransk-3-7-4-text-1',
       type: 'text',
-      content: `## La France et la construction europeenne
+      content: `## La France et la construction européenne
 
 **Viktige milepaler:**
 
-- **1951**: Frankrike grunnlegger Kull- og staalunionen (CECA) med 5 andre land
-- **1957**: Romatraktaten - opprettelsen av EEC (Det europeiske okonomiske fellesskap)
+- **1951**: Frankrike grunnlegger Kull- og stålunionen (CECA) med 5 andre land
+- **1957**: Romatraktaten - opprettelsen av EEC (Det europeiske økonomiske fellesskap)
 - **1992**: Maastricht-traktaten - opprettelsen av EU
-- **2002**: Euroen innfoeres i Frankrike
+- **2002**: Euroen innføres i Frankrike
 - **2005**: Frankrike stemmer nei til EU-grunnloven i folkeavstemning
 - **2007**: Lisboa-traktaten erstatter grunnlovsforslaget
 
 **Le couple franco-allemand:**
-Det fransk-tyske samarbeidet ("le moteur franco-allemand") har vaert selve drivkraften i europeisk integrasjon, fra Schuman-planen i 1950 til i dag.`,
+Det fransk-tyske samarbeidet ("le moteur franco-allemand") har vært selve drivkraften i europeisk integrasjon, fra Schuman-planen i 1950 til i dag.`,
     },
     {
       id: 'fransk-3-7-4-tip-1',
       type: 'tip',
-      content: `Det franske begrepet "la construction europeenne" (den europeiske konstruksjonen/oppbyggingen) brukes ofte for aa beskrive den gradvise prosessen med europeisk integrasjon. Det understreker at EU ikke ble skapt over natten, men er resultatet av aartiers arbeid og forhandlinger.`,
+      content: `Det franske begrepet "la construction européenne" (den europeiske konstruksjonen/oppbyggingen) brukes ofte for å beskrive den gradvise prosessen med europeisk integrasjon. Det understreker at EU ikke ble skapt over natten, men er resultatet av aartiers arbeid og forhåndlinger.`,
     },
     {
       id: 'fransk-3-7-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa EU-tekst',
-      problem: `Les teksten og svar paa sporsmalene:
+      title: 'Eksempel 1: Forstå EU-tekst',
+      problem: `Les teksten og svar på spørsmålene:
 
-"L'Union europeenne compte 27 Etats membres depuis le Brexit en 2020. La France est l'un des six pays fondateurs. Le Parlement europeen, qui siege a Strasbourg, represente les citoyens europeens et vote les lois europeennes avec le Conseil."
+"L'Union européenne compte 27 États membres depuis le Brexit en 2020. La France est l'un des six pays fondateurs. Le Parlement européen, qui siege a Strasbourg, représente les citoyens européens et vote les lois européennes avec le Conseil."
 
 a) Hvor mange medlemsland har EU?
 b) Hvor ligger Europaparlamentet?
 c) Hva var spesielt med Frankrike?`,
-      solution: `a) EU har **27 medlemsland** (27 Etats membres) siden Brexit i 2020.
+      solution: `a) EU har **27 medlemsland** (27 États membres) siden Brexit i 2020.
 
 b) Europaparlamentet holder til i **Strasbourg** (siege a Strasbourg).
 
 c) Frankrike er **ett av de seks grunnleggerlandene** (l'un des six pays fondateurs).
 
-**Noekkelvokabular:**
+**Nøkkelvokabular:**
 - compter = telle / ha (antall)
 - un pays fondateur = et grunnleggerland
 - sieger = ha hovedsete/holde til
-- representer = representere`,
+- représenter = representere`,
     },
     {
       id: 'fransk-3-7-4-ex-block-1',
@@ -800,11 +800,11 @@ c) Frankrike er **ett av de seks grunnleggerlandene** (l'un des six pays fondate
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Frankrike er et grunnleggerland i EU.', solution: 'La France est un pays fondateur de l\'UE.', answer: 'La France est un pays fondateur de l\'UE' },
-          { label: 'b', task: 'Europaparlamentet holder til i Strasbourg.', solution: 'Le Parlement europeen siege a Strasbourg.', answer: 'Le Parlement europeen siege a Strasbourg' },
-          { label: 'c', task: 'EU har 27 medlemsland.', solution: 'L\'UE compte 27 Etats membres.', answer: 'L\'UE compte 27 Etats membres' },
+          { label: 'b', task: 'Europaparlamentet holder til i Strasbourg.', solution: 'Le Parlement européen siege a Strasbourg.', answer: 'Le Parlement européen siege a Strasbourg' },
+          { label: 'c', task: 'EU har 27 medlemsland.', solution: 'L\'UE compte 27 États membres.', answer: 'L\'UE compte 27 États membres' },
           { label: 'd', task: 'Euroen er den felles valutaen.', solution: 'L\'euro est la monnaie commune.', answer: 'L\'euro est la monnaie commune' },
         ],
-        solution: 'a) La France est un pays fondateur de l\'UE, b) Le Parlement europeen siege a Strasbourg, c) L\'UE compte 27 Etats membres, d) L\'euro est la monnaie commune',
+        solution: 'a) La France est un pays fondateur de l\'UE, b) Le Parlement européen siege a Strasbourg, c) L\'UE compte 27 États membres, d) L\'euro est la monnaie commune',
         hints: ['fondateur = grunnlegger', 'la monnaie = valuta'],
       },
     },
@@ -814,17 +814,17 @@ c) Frankrike er **ett av de seks grunnleggerlandene** (l'un des six pays fondate
       title: 'Eksempel 2: Fordeler og utfordringer med EU',
       problem: `Oversett til fransk:
 
-a) Fri bevegelse gjor det mulig aa reise uten pass.
-b) Det indre markedet fremmer oekonomisk vekst.
+a) Fri bevegelse gjør det mulig å reise uten pass.
+b) Det indre markedet fremmer økonomisk vekst.
 c) Noen mener at EU har for mye makt.`,
       solution: `a) **La libre circulation permet de voyager sans passeport.**
-b) **Le marche unique favorise la croissance economique.**
+b) **Le marché unique favorise la croissance économique.**
 c) **Certains pensent que l'UE a trop de pouvoir.**
 
 **Nyttige uttrykk:**
-- permettre de = gjore det mulig aa
+- permettre de = gjøre det mulig å
 - favoriser = fremme
-- la croissance economique = oekonomisk vekst
+- la croissance économique = økonomisk vekst
 - trop de pouvoir = for mye makt`,
     },
     {
@@ -838,11 +838,11 @@ c) **Certains pensent que l'UE a trop de pouvoir.**
         task: 'Fyll inn riktig ord:',
         subTasks: [
           { label: 'a', task: 'Le ___ unique permet la libre circulation des marchandises. (marked)', solution: 'marche', answer: 'marche' },
-          { label: 'b', task: 'La ___ europeenne propose de nouvelles lois. (kommisjon)', solution: 'Commission', answer: 'Commission' },
+          { label: 'b', task: 'La ___ européenne propose de nouvelles lois. (kommisjon)', solution: 'Commission', answer: 'Commission' },
           { label: 'c', task: 'Le ___ est la sortie du Royaume-Uni de l\'UE. (Brexit)', solution: 'Brexit', answer: 'Brexit' },
-          { label: 'd', task: 'La ___ franco-allemande est le moteur de l\'UE. (samarbeid)', solution: 'cooperation', answer: 'cooperation' },
+          { label: 'd', task: 'La ___ franco-allemande est le moteur de l\'UE. (samarbeid)', solution: 'coopération', answer: 'coopération' },
         ],
-        solution: 'a) marche, b) Commission, c) Brexit, d) cooperation',
+        solution: 'a) marche, b) Commission, c) Brexit, d) coopération',
         hints: ['les marchandises = varer', 'le Royaume-Uni = Storbritannia'],
       },
     },
@@ -850,19 +850,19 @@ c) **Certains pensent que l'UE a trop de pouvoir.**
       id: 'fransk-3-7-4-example-3',
       type: 'example',
       title: 'Eksempel 3: Argumentere om EU',
-      problem: `Skriv argumenter paa fransk:
+      problem: `Skriv argumenter på fransk:
 
 a) Et argument FOR europeisk samarbeid
 b) Et argument MOT for mye sentralisering i EU`,
-      solution: `a) **Pour:** L'Union europeenne garantit la paix et la stabilite en Europe depuis plus de 70 ans. La cooperation entre les Etats membres favorise la prosperite economique.
-*(EU garanterer fred og stabilitet i Europa i over 70 aar. Samarbeid mellom medlemslandene fremmer oekonomisk velstand.)*
+      solution: `a) **Pour:** L'Union européenne garantit la paix et la stabilite en Europe depuis plus de 70 ans. La coopération entre les États membres favorise la prospérité économique.
+*(EU garanterer fred og stabilitet i Europa i over 70 år. Samarbeid mellom medlemslandene fremmer økonomisk velstand.)*
 
-b) **Contre:** Certains citoyens estiment que les decisions prises a Bruxelles ne tiennent pas assez compte des realites locales et nationales.
+b) **Contre:** Certains citoyens estiment que les décisions prises a Bruxelles ne tiennent pas assez compte des réalités locales et nationales.
 *(Noen borgere mener at beslutningene som tas i Brussel ikke tar tilstrekkelig hensyn til lokale og nasjonale realiteter.)*
 
 **Nyttige uttrykk:**
 - garantir = garantere
-- la prosperite = velstand
+- la prospérité = velstand
 - estimer que = mene at
 - tenir compte de = ta hensyn til`,
     },
@@ -876,12 +876,12 @@ b) **Contre:** Certains citoyens estiment que les decisions prises a Bruxelles n
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Det europeiske samarbeidet har sikret fred.', solution: 'La cooperation europeenne a assure la paix.', answer: 'La cooperation europeenne a assure la paix' },
-          { label: 'b', task: 'Brexit var en stor utfordring for EU.', solution: 'Le Brexit a ete un grand defi pour l\'UE.', answer: 'Le Brexit a ete un grand defi pour l\'UE' },
-          { label: 'c', task: 'Medlemslandene maa samarbeide.', solution: 'Les Etats membres doivent cooperer.', answer: 'Les Etats membres doivent cooperer' },
+          { label: 'a', task: 'Det europeiske samarbeidet har sikret fred.', solution: 'La coopération européenne a assuré la paix.', answer: 'La coopération européenne a assuré la paix' },
+          { label: 'b', task: 'Brexit var en stor utfordring for EU.', solution: 'Le Brexit a été un grand défi pour l\'UE.', answer: 'Le Brexit a été un grand défi pour l\'UE' },
+          { label: 'c', task: 'Medlemslandene må samarbeide.', solution: 'Les États membres doivent coopérer.', answer: 'Les États membres doivent coopérer' },
         ],
-        solution: 'a) La cooperation europeenne a assure la paix, b) Le Brexit a ete un grand defi pour l\'UE, c) Les Etats membres doivent cooperer',
-        hints: ['assurer = sikre', 'cooperer = samarbeide'],
+        solution: 'a) La coopération européenne a assuré la paix, b) Le Brexit a été un grand défi pour l\'UE, c) Les États membres doivent coopérer',
+        hints: ['assurer = sikre', 'coopérer = samarbeide'],
       },
     },
     {
@@ -892,54 +892,54 @@ b) **Contre:** Certains citoyens estiment que les decisions prises a Bruxelles n
         number: '7.4.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Skriv 5-6 setninger paa fransk om Frankrikes rolle i EU. Bruk ordene: pays fondateur, cooperation, Parlement europeen, marche unique.',
+        task: 'Skriveoppgave: Skriv 5-6 setninger på fransk om Frankrikes rolle i EU. Bruk ordene: pays fondateur, coopération, Parlement européen, marche unique.',
         subTasks: [
-          { label: 'a', task: 'Beskriv Frankrikes historiske rolle i EU', solution: 'La France est l\'un des pays fondateurs de l\'Union europeenne.' },
-          { label: 'b', task: 'Forklar det fransk-tyske samarbeidet', solution: 'La cooperation franco-allemande est consideree comme le moteur de l\'integration europeenne.' },
-          { label: 'c', task: 'Nevn en fordel og en utfordring', solution: 'Le marche unique favorise l\'economie, mais certains critiquent le manque de democratie.' },
+          { label: 'a', task: 'Beskriv Frankrikes historiske rolle i EU', solution: 'La France est l\'un des pays fondateurs de l\'Union européenne.' },
+          { label: 'b', task: 'Forklar det fransk-tyske samarbeidet', solution: 'La coopération franco-allemande est considérée comme le moteur de l\'intégration européenne.' },
+          { label: 'c', task: 'Nevn en fordel og en utfordring', solution: 'Le marché unique favorise l\'économie, mais certains critiquent le manque de démocratie.' },
         ],
-        solution: 'Eksempel: "La France est l\'un des six pays fondateurs de l\'Union europeenne. Depuis 1951, elle a joue un role central dans la construction europeenne. La cooperation franco-allemande est consideree comme le moteur de l\'integration. Le marche unique a favorise la croissance economique. Cependant, certains Francais sont critiques envers l\'UE, comme l\'a montre le referendum de 2005. Malgre ces defis, la France reste engagee dans le projet europeen."',
-        hints: ['malgre = til tross for', 'engage = engasjert'],
+        solution: 'Eksempel: "La France est l\'un des six pays fondateurs de l\'Union européenne. Depuis 1951, elle a joue un rôle central dans la construction européenne. La coopération franco-allemande est considérée comme le moteur de l\'intégration. Le marché unique a favorise la croissance économique. Cependant, certains Français sont critiques envers l\'UE, comme l\'a montre le référendum de 2005. Malgre ces défis, la France reste engagée dans le projet européen."',
+        hints: ['malgre = til tross for', 'engagé = engasjert'],
       },
     },
     {
       id: 'fransk-3-7-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Strasbourg - Europas hovedstad',
-      content: `Strasbourg, som ligger i Alsace ved grensen mot Tyskland, huser Europaparlamentet og Europaraadet. Byen er et symbol paa forsoning mellom Frankrike og Tyskland etter jahrhunderer med konflikter. At Europaparlamentet holder til i en fransk by understreker Frankrikes sentrale rolle i det europeiske prosjektet. Strasbourg kalles ofte "la capitale europeenne" (Europas hovedstad).`,
+      content: `Strasbourg, som ligger i Alsace ved grensen mot Tyskland, huser Europaparlamentet og Europarådet. Byen er et symbol på forsoning mellom Frankrike og Tyskland etter århundrer med konflikter. At Europaparlamentet holder til i en fransk by understreker Frankrikes sentrale rolle i det europeiske prosjektet. Strasbourg kalles ofte "la capitale européenne" (Europas hovedstad).`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 8.1: L'economie francaise - Fransk oekonomi
+// Kapittel 8.1: L'économie française - Fransk økonomi
 // ============================================================================
 
 export const CHAPTER_FRANSK_3_8_1: TextbookChapter = {
   id: 'fransk-3-8-1',
   courseId: 'fransk-3',
   chapterNumber: '8.1',
-  title: 'L\'economie francaise - Fransk oekonomi',
-  description: 'Laer om de viktigste sektorene i fransk oekonomi, fra jordbruk til teknologi.',
+  title: 'L\'économie française - Fransk økonomi',
+  description: 'Lær om de viktigste sektorene i fransk økonomi, fra jordbruk til teknologi.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'beskrive hovedelementene i fransk oekonomi paa fransk',
-    'bruke oekonomisk vokabular paa fransk',
+    'beskrive hovedelementene i fransk økonomi på fransk',
+    'bruke økonomisk vokabular på fransk',
   ],
   content: [
     {
       id: 'fransk-3-8-1-intro',
       type: 'text',
-      content: `## L'economie francaise
+      content: `## L'économie française
 
-Frankrike er verdens syvende stoerste oekonomi og den tredje stoerste i Europa. Landets oekonomi er diversifisert og inkluderer alt fra tradisjonelt jordbruk til hoyteknologiske startups. Frankrike er saerlig kjent for luksusvarer, matkultur, turisme og et sterkt offentlig sektor.`,
+Frankrike er verdens syvende største økonomi og den tredje største i Europa. Landets økonomi er diversifisert og inkluderer alt fra tradisjonelt jordbruk til høyteknologiske startups. Frankrike er særlig kjent for luksusvarer, matkultur, turisme og et sterkt offentlig sektor.`,
     },
     {
       id: 'fransk-3-8-1-def-1',
       type: 'definition',
-      title: 'Vokabular: Oekonomiske sektorer',
-      content: `**Les secteurs economiques:**
+      title: 'Vokabular: Økonomiske sektorer',
+      content: `**Les secteurs économiques:**
 
 | Fransk | Norsk |
 |--------|-------|
@@ -949,20 +949,20 @@ Frankrike er verdens syvende stoerste oekonomi og den tredje stoerste i Europa. 
 | le tourisme | turisme |
 | le luxe | luksus |
 | la technologie | teknologi |
-| l'agroalimentaire | naeringsmiddelindustri |
-| l'aeronautique | luftfartsindustri |`,
+| l'agroalimentaire | næringsmiddelindustri |
+| l'aéronautique | luftfartsindustri |`,
     },
     {
       id: 'fransk-3-8-1-def-2',
       type: 'definition',
-      title: 'Vokabular: Oekonomiske begreper',
-      content: `**Les termes economiques:**
+      title: 'Vokabular: Økonomiske begreper',
+      content: `**Les termes économiques:**
 
 | Fransk | Norsk |
 |--------|-------|
-| le PIB (produit interieur brut) | BNP (bruttonasjonalprodukt) |
-| la croissance economique | oekonomisk vekst |
-| le chomage | arbeidsloeshet |
+| le PIB (produit intérieur brut) | BNP (bruttonasjonalprodukt) |
+| la croissance économique | økonomisk vekst |
+| le chômage | arbeidsløshet |
 | l'inflation | inflasjon |
 | les exportations | eksport |
 | les importations | import |
@@ -972,45 +972,45 @@ Frankrike er verdens syvende stoerste oekonomi og den tredje stoerste i Europa. 
     {
       id: 'fransk-3-8-1-text-1',
       type: 'text',
-      content: `## Les secteurs cles de l'economie francaise
+      content: `## Les secteurs clés de l'économie française
 
 **L'agriculture:**
-Frankrike er EUs stoerste jordbruksprodusent. Kjent for vin, ost, korn og husdyrhold. "La PAC" (la Politique agricole commune) er EUs felles landbrukspolitikk som stoetter franske boender.
+Frankrike er EUs største jordbruksprodusent. Kjent for vin, ost, korn og husdyrhold. "La PAC" (la Politique agricole commune) er EUs felles landbrukspolitikk som støtter franske bønder.
 
 **L'industrie du luxe:**
-Franske luksusmerker er verdenskjente: LVMH (Louis Vuitton, Dior, Hennessy), Chanel, Hermes. Frankrike dominerer verdensmarkedet for luksusvarer.
+Franske luksusmerker er verdenskjente: LVMH (Louis Vuitton, Dior, Hennessy), Chanel, Hermès. Frankrike dominerer verdensmarkedet for luksusvarer.
 
 **Le tourisme:**
-Frankrike er verdens mest besoegte land med over 90 millioner turister aarlig. Paris, Cote d'Azur, slottene i Loire-dalen og de franske alpene tiltrekker turister fra hele verden.
+Frankrike er verdens mest besøkte land med over 90 millioner turister årlig. Paris, Côte d'Azur, slottene i Loire-dalen og de franske alpene tiltrekker turister fra hele verden.
 
 **La technologie:**
-Frankrike har et voksende teknologimiljo med hubs som Station F i Paris. Selskaper som Dassault, Airbus og BlaBlaCar viser bredden i fransk teknologi.`,
+Frankrike har et voksende teknologimiljø med hubs som Station F i Paris. Selskaper som Dassault, Airbus og BlaBlaCar viser bredden i fransk teknologi.`,
     },
     {
       id: 'fransk-3-8-1-tip-1',
       type: 'tip',
-      content: `Frankrike bruker uttrykket "Made in France" for aa fremme franske produkter. Det finnes ogsaa konseptet "la French Tech" som er et oekosystem for franske teknologioppstarter. Disse begrepene viser at Frankrike er stolt av sine produkter og innovasjoner.`,
+      content: `Frankrike bruker uttrykket "Made in France" for å fremme franske produkter. Det finnes også konseptet "la French Tech" som er et økosystem for franske teknologioppstarter. Disse begrepene viser at Frankrike er stolt av sine produkter og innovasjoner.`,
     },
     {
       id: 'fransk-3-8-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa oekonomisk tekst',
-      problem: `Les teksten og svar paa sporsmalene:
+      title: 'Eksempel 1: Forstå økonomisk tekst',
+      problem: `Les teksten og svar på spørsmålene:
 
-"La France est la deuxieme puissance agricole en Europe. Le secteur du tourisme represente environ 8% du PIB francais. Les industries du luxe et de l'aeronautique sont des fleurons de l'economie nationale."
+"La France est la deuxième puissance agricole en Europe. Le secteur du tourisme représente environ 8% du PIB français. Les industries du luxe et de l'aéronautique sont des fleurons de l'économie nationale."
 
 a) Hvilken rang har Frankrike innen europeisk jordbruk?
-b) Hvor stor del av BNP utgjor turisme?
+b) Hvor stor del av BNP utgjør turisme?
 c) Hva betyr "un fleuron"?`,
-      solution: `a) Frankrike er den **nest stoerste jordbruksmakten** i Europa (deuxieme puissance agricole).
+      solution: `a) Frankrike er den **nest største jordbruksmakten** i Europa (deuxième puissance agricole).
 
-b) Turisme utgjor ca. **8% av BNP** (environ 8% du PIB).
+b) Turisme utgjør ca. **8% av BNP** (environ 8% du PIB).
 
-c) "Un fleuron" betyr **en perle/et flaggskip** - det refererer til noe man er saerlig stolt av.
+c) "Un fleuron" betyr **en perle/et flaggskip** - det refererer til noe man er særlig stolt av.
 
-**Noekkelvokabular:**
+**Nøkkelvokabular:**
 - la puissance = makten/kraften
-- representer = utgjore/representere
+- représenter = utgjøre/representere
 - environ = ca./omtrent
 - un fleuron = en perle/et flaggskip`,
     },
@@ -1024,20 +1024,20 @@ c) "Un fleuron" betyr **en perle/et flaggskip** - det refererer til noe man er s
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Frankrike er verdens syvende stoerste oekonomi.', solution: 'La France est la septieme economie mondiale.', answer: 'La France est la septieme economie mondiale' },
+          { label: 'a', task: 'Frankrike er verdens syvende største økonomi.', solution: 'La France est la septième économie mondiale.', answer: 'La France est la septième économie mondiale' },
           { label: 'b', task: 'Turisme er en viktig sektor.', solution: 'Le tourisme est un secteur important.', answer: 'Le tourisme est un secteur important' },
           { label: 'c', task: 'Luksusvarer er en stor eksportartikkel.', solution: 'Les produits de luxe sont un grand produit d\'exportation.', answer: 'Les produits de luxe sont un grand produit d\'exportation' },
-          { label: 'd', task: 'Den oekonomiske veksten er positiv.', solution: 'La croissance economique est positive.', answer: 'La croissance economique est positive' },
+          { label: 'd', task: 'Den økonomiske veksten er positiv.', solution: 'La croissance économique est positive.', answer: 'La croissance économique est positive' },
         ],
-        solution: 'a) La France est la septieme economie mondiale, b) Le tourisme est un secteur important, c) Les produits de luxe sont un grand produit d\'exportation, d) La croissance economique est positive',
-        hints: ['septieme = syvende', 'mondial(e) = global/verdens-'],
+        solution: 'a) La France est la septième économie mondiale, b) Le tourisme est un secteur important, c) Les produits de luxe sont un grand produit d\'exportation, d) La croissance économique est positive',
+        hints: ['septième = syvende', 'mondial(e) = global/verdens-'],
       },
     },
     {
       id: 'fransk-3-8-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Sammenligne oekonomier',
-      problem: `Fyll inn paa fransk:
+      title: 'Eksempel 2: Sammenligne økonomier',
+      problem: `Fyll inn på fransk:
 
 a) Frankrike eksporterer mye vin og ost. (exporter)
 b) Jordbruket sysseletter mange mennesker. (employer)
@@ -1046,7 +1046,7 @@ c) Teknologisektoren vokser raskt. (croitre)`,
 b) **L'agriculture emploie beaucoup de personnes.**
 c) **Le secteur technologique croit rapidement.**
 
-**Nyttige verb for oekonomi:**
+**Nyttige verb for økonomi:**
 - exporter = eksportere
 - importer = importere
 - employer = sysselsette/ansette
@@ -1062,15 +1062,15 @@ c) **Le secteur technologique croit rapidement.**
         number: '8.1.2',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Fyll inn riktig oekonomisk begrep:',
+        task: 'Fyll inn riktig økonomisk begrep:',
         subTasks: [
-          { label: 'a', task: 'Le ___ interieur brut mesure la richesse d\'un pays. (produkt)', solution: 'produit', answer: 'produit' },
-          { label: 'b', task: 'Le taux de ___ est le pourcentage de personnes sans emploi. (arbeidsloeshet)', solution: 'chomage', answer: 'chomage' },
-          { label: 'c', task: 'La ___ economique mesure l\'augmentation de la production. (vekst)', solution: 'croissance', answer: 'croissance' },
-          { label: 'd', task: 'Les ___ francaises incluent le vin et l\'aeronautique. (eksporter)', solution: 'exportations', answer: 'exportations' },
+          { label: 'a', task: 'Le ___ intérieur brut mesure la richesse d\'un pays. (produkt)', solution: 'produit', answer: 'produit' },
+          { label: 'b', task: 'Le taux de ___ est le pourcentage de personnes sans emploi. (arbeidsløshet)', solution: 'chômage', answer: 'chômage' },
+          { label: 'c', task: 'La ___ économique mesure l\'augmentation de la production. (vekst)', solution: 'croissance', answer: 'croissance' },
+          { label: 'd', task: 'Les ___ françaises incluent le vin et l\'aéronautique. (eksporter)', solution: 'exportations', answer: 'exportations' },
         ],
-        solution: 'a) produit, b) chomage, c) croissance, d) exportations',
-        hints: ['PIB = produit interieur brut', 'le taux = rate/andel'],
+        solution: 'a) produit, b) chômage, c) croissance, d) exportations',
+        hints: ['PIB = produit intérieur brut', 'le taux = rate/andel'],
       },
     },
     {
@@ -1080,16 +1080,16 @@ c) **Le secteur technologique croit rapidement.**
       problem: `Oversett til fransk:
 
 a) Den franske luksusindustrien er verdensledende.
-b) Paris tiltrekker millioner av turister hvert aar.
+b) Paris tiltrekker millioner av turister hvert år.
 c) Jordbruket er en viktig del av fransk identitet.`,
-      solution: `a) **L'industrie francaise du luxe est leader mondial.**
-b) **Paris attire des millions de touristes chaque annee.**
-c) **L'agriculture est une partie importante de l'identite francaise.**
+      solution: `a) **L'industrie française du luxe est leader mondial.**
+b) **Paris attire des millions de touristes chaque année.**
+c) **L'agriculture est une partie importante de l'identité française.**
 
 **Nyttige uttrykk:**
 - leader mondial = verdensledende
 - attirer = tiltrekke
-- chaque annee = hvert aar
+- chaque année = hvert år
 - une partie importante de = en viktig del av`,
     },
     {
@@ -1103,10 +1103,10 @@ c) **L'agriculture est une partie importante de l'identite francaise.**
         task: 'Oversett til fransk:',
         subTasks: [
           { label: 'a', task: 'Frankrike produserer over 1000 typer ost.', solution: 'La France produit plus de 1000 types de fromage.', answer: 'La France produit plus de 1000 types de fromage' },
-          { label: 'b', task: 'Luftfartsindustrien sysseletter tusenvis av mennesker.', solution: 'L\'industrie aeronautique emploie des milliers de personnes.', answer: 'L\'industrie aeronautique emploie des milliers de personnes' },
-          { label: 'c', task: 'Franske bedrifter investerer i teknologi.', solution: 'Les entreprises francaises investissent dans la technologie.', answer: 'Les entreprises francaises investissent dans la technologie' },
+          { label: 'b', task: 'Luftfartsindustrien sysseletter tusenvis av mennesker.', solution: 'L\'industrie aéronautique emploie des milliers de personnes.', answer: 'L\'industrie aéronautique emploie des milliers de personnes' },
+          { label: 'c', task: 'Franske bedrifter investerer i teknologi.', solution: 'Les entreprises françaises investissent dans la technologie.', answer: 'Les entreprises françaises investissent dans la technologie' },
         ],
-        solution: 'a) La France produit plus de 1000 types de fromage, b) L\'industrie aeronautique emploie des milliers de personnes, c) Les entreprises francaises investissent dans la technologie',
+        solution: 'a) La France produit plus de 1000 types de fromage, b) L\'industrie aéronautique emploie des milliers de personnes, c) Les entreprises françaises investissent dans la technologie',
         hints: ['produire -> produit (presens)', 'des milliers de = tusenvis av'],
       },
     },
@@ -1118,21 +1118,21 @@ c) **L'agriculture est une partie importante de l'identite francaise.**
         number: '8.1.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Presenter den franske oekonomien paa 5-6 setninger paa fransk. Nevn minst 3 sektorer og bruk ordene: economie, secteur, exportation, croissance.',
+        task: 'Skriveoppgave: Presenter den franske økonomien på 5-6 setninger på fransk. Nevn minst 3 sektorer og bruk ordene: économie, secteur, exportation, croissance.',
         subTasks: [
-          { label: 'a', task: 'Presenter oekonomien generelt', solution: 'La France a une economie diversifiee et dynamique.' },
-          { label: 'b', task: 'Beskriv to viktige sektorer', solution: 'Le tourisme et l\'industrie du luxe sont des secteurs cles.' },
-          { label: 'c', task: 'Nevn styrker og utfordringer', solution: 'Les exportations sont fortes, mais le chomage reste un defi.' },
+          { label: 'a', task: 'Presenter økonomien generelt', solution: 'La France a une économie diversifiee et dynamique.' },
+          { label: 'b', task: 'Beskriv to viktige sektorer', solution: 'Le tourisme et l\'industrie du luxe sont des secteurs clés.' },
+          { label: 'c', task: 'Nevn styrker og utfordringer', solution: 'Les exportations sont fortes, mais le chômage reste un défi.' },
         ],
-        solution: 'Eksempel: "La France est la septieme economie mondiale avec un PIB parmi les plus eleves. L\'economie francaise est diversifiee et comprend des secteurs cles comme l\'agriculture, le tourisme et l\'industrie du luxe. Les exportations francaises incluent le vin, les produits de luxe et les avions Airbus. Le secteur technologique connait une forte croissance grace a des initiatives comme la French Tech. Cependant, le chomage reste un defi important pour l\'economie francaise."',
-        hints: ['comprendre = inkludere/omfatte', 'grace a = takket vaere'],
+        solution: 'Eksempel: "La France est la septième économie mondiale avec un PIB parmi les plus élèves. L\'économie française est diversifiee et comprend des secteurs clés comme l\'agriculture, le tourisme et l\'industrie du luxe. Les exportations françaises incluent le vin, les produits de luxe et les avions Airbus. Le secteur technologique connait une forte croissance grace a des initiatives comme la French Tech. Cependant, le chômage reste un défi important pour l\'économie française."',
+        hints: ['comprendre = inkludere/omfatte', 'grace a = takket være'],
       },
     },
     {
       id: 'fransk-3-8-1-note-1',
       type: 'note',
       title: 'Kulturnotat: Franske luksusmerker',
-      content: `LVMH (Louis Vuitton Moet Hennessy) er verdens stoerste luksuskonsern, grunnlagt av Bernard Arnault, som er en av verdens rikeste personer. Konsernet eier over 75 merker, inkludert Louis Vuitton, Dior, Givenchy, Bulgari og Hennessy. Den franske luksusindustrien representerer en unik kombinasjon av haandverkstradisjon ("le savoir-faire") og moderne markedsfoering.`,
+      content: `LVMH (Louis Vuitton Moet Hennessy) er verdens største luksuskonsern, grunnlagt av Bernard Arnault, som er en av verdens rikeste personer. Konsernet eier over 75 merker, inkludert Louis Vuitton, Dior, Givenchy, Bulgari og Hennessy. Den franske luksusindustrien representerer en unik kombinasjon av håndverkstradisjon ("le savoir-faire") og moderne markedsføring.`,
     },
   ],
   exercises: [],
@@ -1147,11 +1147,11 @@ export const CHAPTER_FRANSK_3_8_2: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '8.2',
   title: 'Le monde professionnel - Yrkeslivet',
-  description: 'Laer aa skrive CV og soeknadsbrev paa fransk, og forstaa fransk arbeidskultur.',
+  description: 'Lær å skrive CV og søknadsbrev på fransk, og forstå fransk arbeidskultur.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'skrive CV og soeknadsbrev paa fransk',
-    'forstaa fransk arbeidskultur og yrkesliv',
+    'skrive CV og søknadsbrev på fransk',
+    'forstå fransk arbeidskultur og yrkesliv',
   ],
   content: [
     {
@@ -1159,22 +1159,22 @@ export const CHAPTER_FRANSK_3_8_2: TextbookChapter = {
       type: 'text',
       content: `## Le monde professionnel en France
 
-Det franske yrkeslivet har sine egne tradisjoner og forventninger. Aa forstaa hvordan man soeker jobb, hvordan arbeidslivet er organisert, og hvilke kulturelle koder som gjelder, er viktig for alle som oensker aa jobbe i Frankrike eller med franske bedrifter.`,
+Det franske yrkeslivet har sine egne tradisjoner og forventninger. Å forstå hvordan man søker jobb, hvordan arbeidslivet er organisert, og hvilke kulturelle koder som gjelder, er viktig for alle som ønsker å jobbe i Frankrike eller med franske bedrifter.`,
     },
     {
       id: 'fransk-3-8-2-def-1',
       type: 'definition',
       title: 'Vokabular: Jobb og karriere',
-      content: `**Le travail et la carriere:**
+      content: `**Le travail et la carrière:**
 
 | Fransk | Norsk |
 |--------|-------|
 | un emploi / un travail | en jobb |
 | un poste | en stilling |
 | un CV (curriculum vitae) | en CV |
-| une lettre de motivation | et soeknadsbrev |
+| une lettre de motivation | et søknadsbrev |
 | un entretien d'embauche | et jobbintervju |
-| un salaire | en loenn |
+| un salaire | en lønn |
 | un contrat de travail | en arbeidskontrakt |
 | le temps plein / le temps partiel | heltid / deltid |`,
     },
@@ -1188,59 +1188,59 @@ Det franske yrkeslivet har sine egne tradisjoner og forventninger. Aa forstaa hv
 |--------|-------|
 | un bureau | et kontor |
 | une entreprise | en bedrift |
-| un collegue | en kollega |
+| un collègue | en kollega |
 | le patron / la patronne | sjefen |
 | les heures de travail | arbeidstid |
-| les conges payes | betalt ferie |
-| la pause dejeuner | lunsjpause |
-| le teletravail | hjemmekontor |`,
+| les congés payés | betalt ferie |
+| la pause déjeuner | lunsjpause |
+| le télétravail | hjemmekontor |`,
     },
     {
       id: 'fransk-3-8-2-text-1',
       type: 'text',
-      content: `## Le CV francais - Den franske CVen
+      content: `## Le CV français - Den franske CVen
 
 En fransk CV har en spesifikk struktur:
 
-1. **Etat civil** - Personlige opplysninger (navn, adresse, telefon, e-post)
-2. **Formation** - Utdanning (nyeste foerst)
-3. **Experience professionnelle** - Arbeidserfaring (nyeste foerst)
-4. **Competences** - Ferdigheter (spraak, IT, osv.)
+1. **État civil** - Personlige opplysninger (navn, adresse, telefon, e-post)
+2. **Formation** - Utdanning (nyeste først)
+3. **Expérience professionnelle** - Arbeidserfaring (nyeste først)
+4. **Compétences** - Ferdigheter (språk, IT, osv.)
 5. **Centres d'interet** - Interesser/hobbyer
 
 **Forskjeller fra norsk CV:**
-- Foto er vanlig paa franske CVer
+- Foto er vanlig på franske CVer
 - Utdanning vektlegges sterkt
-- Hoeflig og formelt spraak brukes gjennomgaaende`,
+- Høflig og formelt språk brukes gjennomgående`,
     },
     {
       id: 'fransk-3-8-2-tip-1',
       type: 'tip',
-      content: `I Frankrike er "les 35 heures" (35-timersuken) den lovfestede arbeidstiden, innfoert i 2000. Franskmenn har ogsaa rett til minimum 5 ukers betalt ferie (les conges payes). I tillegg har man lovfestet rett til aa "koble av" etter arbeidstid (le droit a la deconnexion), innfoert i 2017.`,
+      content: `I Frankrike er "les 35 heures" (35-timersuken) den lovfestede arbeidstiden, innført i 2000. Franskmenn har også rett til minimum 5 ukers betalt ferie (les congés payés). I tillegg har man lovfestet rett til å "koble av" etter arbeidstid (le droit a la deconnexion), innført i 2017.`,
     },
     {
       id: 'fransk-3-8-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Skrive soeknadsbrev',
-      problem: `Les utdrag fra et soeknadsbrev og identifiser delene:
+      title: 'Eksempel 1: Skrive søknadsbrev',
+      problem: `Les utdrag fra et søknadsbrev og identifiser delene:
 
 "Madame, Monsieur,
-Je me permets de vous adresser ma candidature pour le poste de stagiaire en marketing, publie sur votre site internet.
-Actuellement etudiant(e) en troisieme annee de licence, je suis tres interesse(e) par votre entreprise.
-Je vous prie d'agreer, Madame, Monsieur, l'expression de mes salutations distinguees."
+Je me permets de vous adresser ma candidature pour le poste de stagiaire en marketing, publié sur votre site internet.
+Actuellement étudiant(e) en troisième annee de licence, je suis tres intéressé(e) par votre entreprise.
+Je vous prie d'agreer, Madame, Monsieur, l'expression de mes salutations distinguées."
 
 a) Hva er innledningsformelen?
-b) Hvilken stilling soekes det paa?
+b) Hvilken stilling søkes det på?
 c) Hva er avslutningsformelen?`,
-      solution: `a) Innledningsformelen er **"Madame, Monsieur"** (tilsvarer "Kjaere ansvarlig" / "Til rette vedkommende").
+      solution: `a) Innledningsformelen er **"Madame, Monsieur"** (tilsvarer "Kjære ansvarlig" / "Til rette vedkommende").
 
-b) Det soekes paa en **praksisplass i markedsfoering** (stagiaire en marketing).
+b) Det søkes på en **praksisplass i markedsføring** (stagiaire en marketing).
 
-c) Avslutningsformelen er **"Je vous prie d'agreer... l'expression de mes salutations distinguees"** (en svært formell avslutning tilsvarende "Med vennlig hilsen").
+c) Avslutningsformelen er **"Je vous prie d'agreer... l'expression de mes salutations distinguées"** (en svært formell avslutning tilsvarende "Med vennlig hilsen").
 
-**Noekkelvokabular:**
-- je me permets de = jeg tillater meg aa
-- une candidature = en soeknad
+**Nøkkelvokabular:**
+- je me permets de = jeg tillater meg å
+- une candidature = en søknad
 - un/une stagiaire = en praktikant
 - actuellement = for tiden`,
     },
@@ -1254,34 +1254,34 @@ c) Avslutningsformelen er **"Je vous prie d'agreer... l'expression de mes saluta
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg soeker paa stillingen som praktikant.', solution: 'Je postule pour le poste de stagiaire.', answer: 'Je postule pour le poste de stagiaire' },
+          { label: 'a', task: 'Jeg søker på stillingen som praktikant.', solution: 'Je postule pour le poste de stagiaire.', answer: 'Je postule pour le poste de stagiaire' },
           { label: 'b', task: 'Vedlagt finner du min CV.', solution: 'Vous trouverez ci-joint mon CV.', answer: 'Vous trouverez ci-joint mon CV' },
-          { label: 'c', task: 'Jeg er veldig interessert i bedriften deres.', solution: 'Je suis tres interesse(e) par votre entreprise.', answer: 'Je suis tres interesse par votre entreprise' },
+          { label: 'c', task: 'Jeg er veldig interessert i bedriften deres.', solution: 'Je suis tres intéressé(e) par votre entreprise.', answer: 'Je suis tres intéressé par votre entreprise' },
           { label: 'd', task: 'Jeg er tilgjengelig for et intervju.', solution: 'Je suis disponible pour un entretien.', answer: 'Je suis disponible pour un entretien' },
         ],
-        solution: 'a) Je postule pour le poste de stagiaire, b) Vous trouverez ci-joint mon CV, c) Je suis tres interesse(e) par votre entreprise, d) Je suis disponible pour un entretien',
-        hints: ['postuler = soeke (paa jobb)', 'ci-joint = vedlagt'],
+        solution: 'a) Je postule pour le poste de stagiaire, b) Vous trouverez ci-joint mon CV, c) Je suis tres intéressé(e) par votre entreprise, d) Je suis disponible pour un entretien',
+        hints: ['postuler = søke (på jobb)', 'ci-joint = vedlagt'],
       },
     },
     {
       id: 'fransk-3-8-2-example-2',
       type: 'example',
-      title: 'Eksempel 2: CV-oppfoering',
+      title: 'Eksempel 2: CV-oppføring',
       problem: `Oversett disse CV-punktene til fransk:
 
-a) Utdanning: Videregaaende skole, studieforberedende
+a) Utdanning: Videregående skole, studieforberedende
 b) Erfaring: Sommerjobb i butikk (2024)
 c) Ferdigheter: Flytende i norsk og engelsk, grunnleggende fransk`,
-      solution: `a) **Formation: Lycee general, filiere generale** (2021-2024)
-b) **Experience professionnelle: Emploi saisonnier en magasin** (ete 2024)
-c) **Competences linguistiques: Norvegien et anglais courants, francais niveau intermediaire**
+      solution: `a) **Formation: Lycee général, filiere générale** (2021-2024)
+b) **Expérience professionnelle: Emploi saisonnier en magasin** (été 2024)
+c) **Compétences linguistiques: Norvegien et anglais courants, français niveau intermédiaire**
 
 **CV-vokabular:**
 - la formation = utdanning
 - un emploi saisonnier = sesongarbeid/sommerjobb
 - un magasin = en butikk
-- courant = flytende (om spraak)
-- intermediaire = mellomnivaaa`,
+- courant = flytende (om språk)
+- intermédiaire = mellomnivå`,
     },
     {
       id: 'fransk-3-8-2-ex-block-2',
@@ -1296,29 +1296,29 @@ c) **Competences linguistiques: Norvegien et anglais courants, francais niveau i
           { label: 'a', task: 'Un ___ d\'embauche est une conversation formelle avec l\'employeur. (intervju)', solution: 'entretien', answer: 'entretien' },
           { label: 'b', task: 'La ___ de motivation accompagne le CV. (brev)', solution: 'lettre', answer: 'lettre' },
           { label: 'c', task: 'En France, la semaine de travail est de ___ heures. (35)', solution: '35', answer: '35' },
-          { label: 'd', task: 'Les ___ payes sont au minimum de 5 semaines. (ferie)', solution: 'conges', answer: 'conges' },
+          { label: 'd', task: 'Les ___ payés sont au minimum de 5 semaines. (ferie)', solution: 'congés', answer: 'congés' },
         ],
-        solution: 'a) entretien, b) lettre, c) 35, d) conges',
-        hints: ['embauche = ansettelse', 'accompagner = folge med/ledsage'],
+        solution: 'a) entretien, b) lettre, c) 35, d) congés',
+        hints: ['embauche = ansettelse', 'accompagner = følge med/ledsage'],
       },
     },
     {
       id: 'fransk-3-8-2-example-3',
       type: 'example',
       title: 'Eksempel 3: Jobbintervju',
-      problem: `Oversett vanlige intervjuspoersmaal til fransk:
+      problem: `Oversett vanlige intervjuspørsmål til fransk:
 
 a) Kan du presentere deg selv?
 b) Hva er dine styrker?
-c) Hvorfor oensker du aa jobbe hos oss?`,
+c) Hvorfor ønsker du å jobbe hos oss?`,
       solution: `a) **Pouvez-vous vous presenter?**
 b) **Quels sont vos points forts?**
 c) **Pourquoi souhaitez-vous travailler chez nous?**
 
-**Andre vanlige spoersmaal:**
+**Andre vanlige spørsmål:**
 - Quels sont vos points faibles? = Hva er dine svakheter?
-- Ou vous voyez-vous dans 5 ans? = Hvor ser du deg selv om 5 aar?
-- Avez-vous des questions? = Har du noen spoersmaal?
+- Ou vous voyez-vous dans 5 ans? = Hvor ser du deg selv om 5 år?
+- Avez-vous des questions? = Har du noen spørsmål?
 
 **Tips:** I franske jobbintervjuer brukes alltid "vous" (formell tiltale).`,
     },
@@ -1332,12 +1332,12 @@ c) **Pourquoi souhaitez-vous travailler chez nous?**
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Jeg har erfaring med kundeservice.', solution: 'J\'ai de l\'experience en service client.', answer: 'J\'ai de l\'experience en service client' },
-          { label: 'b', task: 'Mine styrker er teamarbeid og kreativitet.', solution: 'Mes points forts sont le travail d\'equipe et la creativite.', answer: 'Mes points forts sont le travail d\'equipe et la creativite' },
-          { label: 'c', task: 'Jeg er motivert og laerevillig.', solution: 'Je suis motive(e) et desireux/desireuse d\'apprendre.', answer: 'Je suis motive et desireux d\'apprendre' },
+          { label: 'a', task: 'Jeg har erfaring med kundeservice.', solution: 'J\'ai de l\'expérience en service client.', answer: 'J\'ai de l\'expérience en service client' },
+          { label: 'b', task: 'Mine styrker er teamarbeid og kreativitet.', solution: 'Mes points forts sont le travail d\'équipe et la créativité.', answer: 'Mes points forts sont le travail d\'équipe et la créativité' },
+          { label: 'c', task: 'Jeg er motivert og lærevillig.', solution: 'Je suis motivé(e) et désireux/désireuse d\'apprendre.', answer: 'Je suis motivé et désireux d\'apprendre' },
         ],
-        solution: 'a) J\'ai de l\'experience en service client, b) Mes points forts sont le travail d\'equipe et la creativite, c) Je suis motive(e) et desireux/desireuse d\'apprendre',
-        hints: ['le service client = kundeservice', 'desireux d\'apprendre = laerevillig'],
+        solution: 'a) J\'ai de l\'expérience en service client, b) Mes points forts sont le travail d\'équipe et la créativité, c) Je suis motivé(e) et désireux/désireuse d\'apprendre',
+        hints: ['le service client = kundeservice', 'désireux d\'apprendre = lærevillig'],
       },
     },
     {
@@ -1348,21 +1348,21 @@ c) **Pourquoi souhaitez-vous travailler chez nous?**
         number: '8.2.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Skriv et kort soeknadsbrev (6-8 setninger) paa fransk for en sommerjobb. Bruk formell tone og inkluder: innledning, motivasjon, kompetanse og avslutning.',
+        task: 'Skriveoppgave: Skriv et kort søknadsbrev (6-8 setninger) på fransk for en sommerjobb. Bruk formell tone og inkluder: innledning, motivasjon, kompetanse og avslutning.',
         subTasks: [
           { label: 'a', task: 'Skriv innledningen', solution: 'Madame, Monsieur, je me permets de vous adresser ma candidature pour le poste de...' },
-          { label: 'b', task: 'Presenter din motivasjon og kompetanse', solution: 'Je suis tres interesse(e) par... J\'ai de l\'experience en...' },
-          { label: 'c', task: 'Avslutt formelt', solution: 'Je vous prie d\'agreer, Madame, Monsieur, l\'expression de mes salutations distinguees.' },
+          { label: 'b', task: 'Presenter din motivasjon og kompetanse', solution: 'Je suis tres intéressé(e) par... J\'ai de l\'expérience en...' },
+          { label: 'c', task: 'Avslutt formelt', solution: 'Je vous prie d\'agreer, Madame, Monsieur, l\'expression de mes salutations distinguées.' },
         ],
-        solution: 'Eksempel: "Madame, Monsieur, Je me permets de vous adresser ma candidature pour le poste d\'emploi saisonnier dans votre restaurant. Actuellement eleve en terminale, je suis tres interesse(e) par ce poste. J\'ai deja une experience en service client et je parle trois langues: le norvegien, l\'anglais et le francais. Je suis motive(e), ponctuel(le) et j\'aime travailler en equipe. Je suis disponible pour un entretien a votre convenance. Je vous prie d\'agreer, Madame, Monsieur, l\'expression de mes salutations distinguees."',
-        hints: ['a votre convenance = naar det passer deg/dere', 'ponctuel = punktlig'],
+        solution: 'Eksempel: "Madame, Monsieur, Je me permets de vous adresser ma candidature pour le poste d\'emploi saisonnier dans votre restaurant. Actuellement élève en terminale, je suis tres intéressé(e) par ce poste. J\'ai deja une expérience en service client et je parle trois langues: le norvegien, l\'anglais et le français. Je suis motivé(e), ponctuel(le) et j\'aime travailler en équipe. Je suis disponible pour un entretien a votre convenance. Je vous prie d\'agreer, Madame, Monsieur, l\'expression de mes salutations distinguées."',
+        hints: ['a votre convenance = når det passer deg/dere', 'ponctuel = punktlig'],
       },
     },
     {
       id: 'fransk-3-8-2-note-1',
       type: 'note',
       title: 'Kulturnotat: Fransk arbeidskultur',
-      content: `Fransk arbeidskultur skiller seg fra norsk paa flere maater. Hierarkiet er tydeligere, og man bruker ofte "vous" med overordnede. Lunsjpausen er hellig - mange tar en lang lunsj (1-2 timer), og det er vanlig aa spise sammen med kollegaer. Etter arbeidstid er det vanlig med "l'aperitif" (en drink foer middag) med kollegaer. I tillegg setter franskmenn stor pris paa sin ferie: august er tradisjonelt feriemaaneden, og mange bedrifter stenger helt.`,
+      content: `Fransk arbeidskultur skiller seg fra norsk på flere måter. Hierarkiet er tydeligere, og man bruker ofte "vous" med overordnede. Lunsjpausen er hellig - mange tar en lang lunsj (1-2 timer), og det er vanlig å spise sammen med kollegaer. Etter arbeidstid er det vanlig med "l'aperitif" (en drink før middag) med kollegaer. I tillegg setter franskmenn stor pris på sin ferie: august er tradisjonelt ferimåneden, og mange bedrifter stenger helt.`,
     },
   ],
   exercises: [],
@@ -1377,10 +1377,10 @@ export const CHAPTER_FRANSK_3_8_3: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '8.3',
   title: 'La mondialisation - Globalisering',
-  description: 'Laer om Frankrike i den globale oekonomien, handel og kulturell globalisering.',
+  description: 'Lær om Frankrike i den globale økonomien, handel og kulturell globalisering.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'diskutere globalisering og dens konsekvenser paa fransk',
+    'diskutere globalisering og dens konsekvenser på fransk',
     'bruke vokabular om internasjonal handel og frankofoni',
   ],
   content: [
@@ -1389,7 +1389,7 @@ export const CHAPTER_FRANSK_3_8_3: TextbookChapter = {
       type: 'text',
       content: `## La mondialisation et la France
 
-Globalisering paavirker alle land, og Frankrike er intet unntak. Som en av verdens stoerste oekonomier er Frankrike dypt integrert i den globale oekonomien. Samtidig har Frankrike et saerlig forhold til globalisering paa grunn av sin frankofone arv og onsket om aa bevare fransk kultur og spraak i en stadig mer engelsk-dominert verden.`,
+Globalisering påvirker alle land, og Frankrike er intet unntak. Som en av verdens største økonomier er Frankrike dypt integrert i den globale økonomien. Samtidig har Frankrike et særlig forhold til globalisering på grunn av sin frankofone arv og ønsket om å bevare fransk kultur og språk i en stadig mer engelsk-dominert verden.`,
     },
     {
       id: 'fransk-3-8-3-def-1',
@@ -1401,11 +1401,11 @@ Globalisering paavirker alle land, og Frankrike er intet unntak. Som en av verde
 |--------|-------|
 | la mondialisation | globalisering |
 | le commerce international | internasjonal handel |
-| les echanges commerciaux | handelssamkvem |
+| les échanges commerciaux | handelssamkvem |
 | une multinationale | et multinasjonalt selskap |
 | la concurrence | konkurranse |
-| la delocalisation | utflagging (av bedrifter) |
-| le libre-echange | frihandel |
+| la délocalisation | utflagging (av bedrifter) |
+| le libre-échange | frihandel |
 | le protectionnisme | proteksjonisme |`,
     },
     {
@@ -1416,62 +1416,62 @@ Globalisering paavirker alle land, og Frankrike er intet unntak. Som en av verde
 
 | Fransk | Norsk |
 |--------|-------|
-| la diversite culturelle | kulturelt mangfold |
+| la diversité culturelle | kulturelt mangfold |
 | l'exception culturelle | det kulturelle unntaket |
 | la francophonie | den frankofone verden |
 | l'influence culturelle | kulturell innflytelse |
-| le rayonnement culturel | kulturell utstroeling |
-| l'identite culturelle | kulturell identitet |
+| le rayonnement culturel | kulturell utstråling |
+| l'identité culturelle | kulturell identitet |
 | l'uniformisation | ensretting |
 | le patrimoine culturel | kulturarv |`,
     },
     {
       id: 'fransk-3-8-3-text-1',
       type: 'text',
-      content: `## La France dans l'economie mondiale
+      content: `## La France dans l'économie mondiale
 
-**Frankrikes plass i verdensoekonomien:**
-- 7. stoerste oekonomi i verden
-- 3. stoerste mottaker av utenlandske investeringer i Europa
+**Frankrikes plass i verdensøkonomien:**
+- 7. største økonomi i verden
+- 3. største mottaker av utenlandske investeringer i Europa
 - Medlem av G7, G20 og OECD
 - Viktige handelspartnere: Tyskland, USA, Kina, Italia, Spania
 
-**L'exception culturelle francaise:**
-Frankrike forsvarer aktivt "l'exception culturelle" - ideen om at kultur ikke bare er en vare og maa beskyttes mot markedskreftene. Dette betyr:
-- Kvoter for fransk musikk paa radio (minst 40%)
-- Stoette til fransk film (CNC)
-- Beskyttelse av det franske spraaket (Academie francaise)
+**L'exception culturelle française:**
+Frankrike forsvarer aktivt "l'exception culturelle" - ideen om at kultur ikke bare er en vare og må beskyttes mot markedskreftene. Dette betyr:
+- Kvoter for fransk musikk på radio (minst 40%)
+- Støtte til fransk film (CNC)
+- Beskyttelse av det franske språket (Académie française)
 
 **La Francophonie:**
-Det frankofone samarbeidet (OIF) omfatter 88 stater og regjeringer der fransk er offisielt spraak eller har en viktig rolle. Dette gir Frankrike en unik internasjonal plattform.`,
+Det frankofone samarbeidet (OIF) omfatter 88 stater og regjeringer der fransk er offisielt språk eller har en viktig rolle. Dette gir Frankrike en unik internasjonal plattform.`,
     },
     {
       id: 'fransk-3-8-3-tip-1',
       type: 'tip',
-      content: `Begrepet "la Francophonie" (med stor F) refererer til den internasjonale organisasjonen for frankofone land (OIF), mens "la francophonie" (med liten f) refererer til alle mennesker som snakker fransk. Fransk er offisielt spraak i 29 land og snakkes av over 300 millioner mennesker verden over.`,
+      content: `Begrepet "la Francophonie" (med stor F) refererer til den internasjonale organisasjonen for frankofone land (OIF), mens "la francophonie" (med liten f) refererer til alle mennesker som snakker fransk. Fransk er offisielt språk i 29 land og snakkes av over 300 millioner mennesker verden over.`,
     },
     {
       id: 'fransk-3-8-3-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa tekst om globalisering',
-      problem: `Les teksten og svar paa sporsmalene:
+      title: 'Eksempel 1: Forstå tekst om globalisering',
+      problem: `Les teksten og svar på spørsmålene:
 
-"La mondialisation a transforme l'economie francaise. D'un cote, elle a permis aux entreprises francaises de s'implanter a l'etranger. De l'autre, elle a entraine des delocalisations et une concurrence accrue. La France defend l'exception culturelle pour proteger sa diversite face a l'uniformisation mondiale."
+"La mondialisation a transformé l'économie française. D'un cote, elle a permis aux entreprises françaises de s'implanter a l'étranger. De l'autre, elle a entraine des délocalisations et une concurrence accrue. La France defend l'exception culturelle pour proteger sa diversité face a l'uniformisation mondiale."
 
-a) Hva er positivt med globalisering ifloelge teksten?
+a) Hva er positivt med globalisering ifølge teksten?
 b) Hva er negativt?
 c) Hva er "l'exception culturelle"?`,
-      solution: `a) Positivt: Globalisering har gjort det mulig for franske bedrifter aa **etablere seg i utlandet** (s'implanter a l'etranger).
+      solution: `a) Positivt: Globalisering har gjort det mulig for franske bedrifter å **etablere seg i utlandet** (s'implanter a l'étranger).
 
-b) Negativt: Det har foert til **utflagging** (delocalisations) og **oekt konkurranse** (concurrence accrue).
+b) Negativt: Det har ført til **utflagging** (délocalisations) og **økt konkurranse** (concurrence accrue).
 
 c) "L'exception culturelle" er Frankrikes forsvar for kulturelt mangfold mot **global ensretting** (uniformisation mondiale).
 
-**Noekkelvokabular:**
-- d'un cote... de l'autre = paa den ene siden... paa den andre
+**Nøkkelvokabular:**
+- d'un cote... de l'autre = på den ene siden... på den andre
 - s'implanter = etablere seg
-- entrainer = medfore
-- accru(e) = oekt`,
+- entrainer = medføre
+- accru(e) = økt`,
     },
     {
       id: 'fransk-3-8-3-ex-block-1',
@@ -1483,12 +1483,12 @@ c) "L'exception culturelle" er Frankrikes forsvar for kulturelt mangfold mot **g
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Globalisering har forandret verden.', solution: 'La mondialisation a transforme le monde.', answer: 'La mondialisation a transforme le monde' },
-          { label: 'b', task: 'Internasjonal handel oeker.', solution: 'Le commerce international augmente.', answer: 'Le commerce international augmente' },
-          { label: 'c', task: 'Frankrike forsvarer kulturelt mangfold.', solution: 'La France defend la diversite culturelle.', answer: 'La France defend la diversite culturelle' },
+          { label: 'a', task: 'Globalisering har forandret verden.', solution: 'La mondialisation a transformé le monde.', answer: 'La mondialisation a transformé le monde' },
+          { label: 'b', task: 'Internasjonal handel øker.', solution: 'Le commerce international augmenté.', answer: 'Le commerce international augmenté' },
+          { label: 'c', task: 'Frankrike forsvarer kulturelt mangfold.', solution: 'La France defend la diversité culturelle.', answer: 'La France defend la diversité culturelle' },
           { label: 'd', task: 'Konkurransen er blitt sterkere.', solution: 'La concurrence est devenue plus forte.', answer: 'La concurrence est devenue plus forte' },
         ],
-        solution: 'a) La mondialisation a transforme le monde, b) Le commerce international augmente, c) La France defend la diversite culturelle, d) La concurrence est devenue plus forte',
+        solution: 'a) La mondialisation a transformé le monde, b) Le commerce international augmenté, c) La France defend la diversité culturelle, d) La concurrence est devenue plus forte',
         hints: ['transformer = forandre', 'defendre = forsvare'],
       },
     },
@@ -1496,20 +1496,20 @@ c) "L'exception culturelle" er Frankrikes forsvar for kulturelt mangfold mot **g
       id: 'fransk-3-8-3-example-2',
       type: 'example',
       title: 'Eksempel 2: Argumentere om globalisering',
-      problem: `Skriv argumenter paa fransk:
+      problem: `Skriv argumenter på fransk:
 
 a) Et argument for frihandel
-b) Et argument for aa beskytte lokal kultur`,
-      solution: `a) **Le libre-echange favorise la croissance economique et permet aux consommateurs d'acceder a des produits moins chers et plus varies.**
-*(Frihandel fremmer oekonomisk vekst og gjor det mulig for forbrukere aa faa tilgang til billigere og mer varierte produkter.)*
+b) Et argument for å beskytte lokal kultur`,
+      solution: `a) **Le libre-échange favorise la croissance économique et permet aux consommateurs d'acceder a des produits moins chers et plus varies.**
+*(Frihandel fremmer økonomisk vekst og gjør det mulig for forbrukere å få tilgang til billigere og mer varierte produkter.)*
 
 b) **Il est essentiel de proteger les cultures locales face a l'uniformisation mondiale. Chaque culture a une valeur unique qu'il faut preserver.**
-*(Det er vesentlig aa beskytte lokale kulturer mot global ensretting. Hver kultur har en unik verdi som maa bevares.)*
+*(Det er vesentlig å beskytte lokale kulturer mot global ensretting. Hver kultur har en unik verdi som må bevares.)*
 
 **Nyttige uttrykk:**
 - favoriser = fremme
-- acceder a = faa tilgang til
-- face a = overfor/i moete med
+- acceder a = få tilgang til
+- face a = overfor/i møte med
 - preserver = bevare`,
     },
     {
@@ -1522,32 +1522,32 @@ b) **Il est essentiel de proteger les cultures locales face a l'uniformisation m
         difficulty: 'vanskelig',
         task: 'Fyll inn riktig ord:',
         subTasks: [
-          { label: 'a', task: 'La ___ est le transfert d\'activites economiques a l\'etranger. (utflagging)', solution: 'delocalisation', answer: 'delocalisation' },
-          { label: 'b', task: 'La ___ est l\'ensemble des pays ou l\'on parle francais. (frankofoni)', solution: 'francophonie', answer: 'francophonie' },
-          { label: 'c', task: 'Le ___ culturel designe l\'heritage culturel d\'un pays. (arv)', solution: 'patrimoine', answer: 'patrimoine' },
-          { label: 'd', task: 'Une ___ est une entreprise presente dans plusieurs pays. (multinasjonalt selskap)', solution: 'multinationale', answer: 'multinationale' },
+          { label: 'a', task: 'La ___ est le transfert d\'activites économiques a l\'étranger. (utflagging)', solution: 'délocalisation', answer: 'délocalisation' },
+          { label: 'b', task: 'La ___ est l\'ensemble des pays ou l\'on parlé français. (frankofoni)', solution: 'francophonie', answer: 'francophonie' },
+          { label: 'c', task: 'Le ___ culturel désigne l\'héritage culturel d\'un pays. (arv)', solution: 'patrimoine', answer: 'patrimoine' },
+          { label: 'd', task: 'Une ___ est une entreprise présenté dans plusieurs pays. (multinasjonalt selskap)', solution: 'multinationale', answer: 'multinationale' },
         ],
-        solution: 'a) delocalisation, b) francophonie, c) patrimoine, d) multinationale',
-        hints: ['delocalisation = aa flytte virksomhet ut av landet', 'le patrimoine = arven/kulturarven'],
+        solution: 'a) délocalisation, b) francophonie, c) patrimoine, d) multinationale',
+        hints: ['délocalisation = å flytte virksomhet ut av landet', 'le patrimoine = arven/kulturarven'],
       },
     },
     {
       id: 'fransk-3-8-3-example-3',
       type: 'example',
-      title: 'Eksempel 3: Frankofoni i oekonomien',
+      title: 'Eksempel 3: Frankofoni i økonomien',
       problem: `Oversett til fransk:
 
-a) Det frankofone omraadet utgjor et stort oekonomisk marked.
-b) Mange afrikanske land har fransk som offisielt spraak.
+a) Det frankofone området utgjør et stort økonomisk marked.
+b) Mange afrikanske land har fransk som offisielt språk.
 c) Frankofoni skaper muligheter for handel.`,
-      solution: `a) **L'espace francophone constitue un grand marche economique.**
-b) **De nombreux pays africains ont le francais comme langue officielle.**
-c) **La francophonie cree des opportunites pour le commerce.**
+      solution: `a) **L'espace francophone constitue un grand marche économique.**
+b) **De nombreux pays africains ont le français comme langue officielle.**
+c) **La francophonie cré des opportunites pour le commerce.**
 
 **Fakta om frankofoni:**
 - 300+ millioner fransktalende i verden
 - 88 stater og regjeringer i OIF
-- Fransk er 5. mest talte spraak i verden
+- Fransk er 5. mest talte språk i verden
 - Afrika er hjemmet til flest fransktalende`,
     },
     {
@@ -1560,11 +1560,11 @@ c) **La francophonie cree des opportunites pour le commerce.**
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Globalisering har bade fordeler og ulemper.', solution: 'La mondialisation a des avantages et des inconvenients.', answer: 'La mondialisation a des avantages et des inconvenients' },
-          { label: 'b', task: 'Franske bedrifter er til stede i hele verden.', solution: 'Les entreprises francaises sont presentes dans le monde entier.', answer: 'Les entreprises francaises sont presentes dans le monde entier' },
-          { label: 'c', task: 'Vi maa bevare kulturelt mangfold.', solution: 'Nous devons preserver la diversite culturelle.', answer: 'Nous devons preserver la diversite culturelle' },
+          { label: 'a', task: 'Globalisering har både fordeler og ulemper.', solution: 'La mondialisation a des avantages et des inconvenients.', answer: 'La mondialisation a des avantages et des inconvenients' },
+          { label: 'b', task: 'Franske bedrifter er til stede i hele verden.', solution: 'Les entreprises françaises sont presentes dans le monde entier.', answer: 'Les entreprises françaises sont presentes dans le monde entier' },
+          { label: 'c', task: 'Vi må bevare kulturelt mangfold.', solution: 'Nous devons preserver la diversité culturelle.', answer: 'Nous devons preserver la diversité culturelle' },
         ],
-        solution: 'a) La mondialisation a des avantages et des inconvenients, b) Les entreprises francaises sont presentes dans le monde entier, c) Nous devons preserver la diversite culturelle',
+        solution: 'a) La mondialisation a des avantages et des inconvenients, b) Les entreprises françaises sont presentes dans le monde entier, c) Nous devons preserver la diversité culturelle',
         hints: ['les avantages = fordelene', 'les inconvenients = ulempene'],
       },
     },
@@ -1576,40 +1576,40 @@ c) **La francophonie cree des opportunites pour le commerce.**
         number: '8.3.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Skriv 5-6 setninger paa fransk om globalisering og Frankrike. Diskuter bade oekonomiske og kulturelle aspekter.',
+        task: 'Skriveoppgave: Skriv 5-6 setninger på fransk om globalisering og Frankrike. Diskuter både økonomiske og kulturelle aspekter.',
         subTasks: [
-          { label: 'a', task: 'Beskriv globaliseringens paavirkning paa Frankrike', solution: 'La mondialisation a transforme l\'economie francaise en ouvrant de nouveaux marches.' },
+          { label: 'a', task: 'Beskriv globaliseringens påvirkning på Frankrike', solution: 'La mondialisation a transformé l\'économie française en ouvrant de nouveaux marches.' },
           { label: 'b', task: 'Forklar "l\'exception culturelle"', solution: 'La France defend l\'exception culturelle pour proteger sa culture face a la mondialisation.' },
-          { label: 'c', task: 'Nevn frankofoniens rolle', solution: 'La francophonie donne a la France un rayonnement culturel et economique mondial.' },
+          { label: 'c', task: 'Nevn frankofoniens rolle', solution: 'La francophonie donne a la France un rayonnement culturel et économique mondial.' },
         ],
-        solution: 'Eksempel: "La mondialisation a profondement transforme l\'economie francaise. Les entreprises francaises comme LVMH et Airbus sont devenues des leaders mondiaux. Cependant, la France est aussi preoccupee par la protection de sa culture. Elle defend l\'exception culturelle pour preserver la diversite face a l\'uniformisation. La francophonie joue un role important en donnant a la France un rayonnement mondial. Grace a ce reseau de pays francophones, la France maintient une influence culturelle et economique unique."',
+        solution: 'Eksempel: "La mondialisation a profondement transformé l\'économie française. Les entreprises françaises comme LVMH et Airbus sont devenues des leaders mondiaux. Cependant, la France est aussi preoccupee par la protection de sa culture. Elle defend l\'exception culturelle pour preserver la diversité face a l\'uniformisation. La francophonie joue un rôle important en donnant a la France un rayonnement mondial. Grace a ce reseau de pays francophones, la France maintient une influence culturelle et économique unique."',
         hints: ['profondement = dypt/grunnleggende', 'preoccupe par = opptatt av/bekymret for'],
       },
     },
     {
       id: 'fransk-3-8-3-note-1',
       type: 'note',
-      title: 'Kulturnotat: L\'Academie francaise',
-      content: `L'Academie francaise ble grunnlagt i 1635 av kardinal Richelieu og har som oppgave aa bevare og regulere det franske spraaket. De 40 medlemmene kalles "les Immortels" (de udodelige). Akademiet utgir en offisiell ordbok og uttaler seg om nye ord og uttrykkk. I en tid med globalisering og engelske laanord spiller akademiet en viktig rolle i debatten om spraakbevaring, selv om mange mener det er for konservativt.`,
+      title: 'Kulturnotat: L\'Académie française',
+      content: `L'Académie française ble grunnlagt i 1635 av kardinal Richelieu og har som oppgave å bevare og regulere det franske språket. De 40 medlemmene kalles "les Immortels" (de udødelige). Akademiet utgir en offisiell ordbok og uttaler seg om nye ord og uttrykkk. I en tid med globalisering og engelske lånord spiller akademiet en viktig rolle i debatten om språkbevaring, selv om mange mener det er for konservativt.`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// Kapittel 8.4: L'entrepreneuriat - Entreprenoerskap
+// Kapittel 8.4: L'entrepreneuriat - Entreprenørskap
 // ============================================================================
 
 export const CHAPTER_FRANSK_3_8_4: TextbookChapter = {
   id: 'fransk-3-8-4',
   courseId: 'fransk-3',
   chapterNumber: '8.4',
-  title: 'L\'entrepreneuriat - Entreprenoerskap',
-  description: 'Laer om oppstartsmiljoeet i Frankrike, innovasjon og vokabular for forretningsplaner.',
+  title: 'L\'entrepreneuriat - Entreprenørskap',
+  description: 'Lær om oppstartsmiljøet i Frankrike, innovasjon og vokabular for forretningsplaner.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke vokabular knyttet til entreprenoerskap og innovasjon paa fransk',
-    'presentere en forretningside paa fransk',
+    'bruke vokabular knyttet til entreprenørskap og innovasjon på fransk',
+    'presentere en forretningside på fransk',
   ],
   content: [
     {
@@ -1617,92 +1617,92 @@ export const CHAPTER_FRANSK_3_8_4: TextbookChapter = {
       type: 'text',
       content: `## L'entrepreneuriat en France
 
-Frankrike har i de siste aarene blitt et av Europas mest dynamiske land for oppstartsselskaper. Med initiativene "La French Tech" og verdens stoerste inkubator Station F, har landet skapt et oekosystem som tiltrekker grunderere fra hele verden. Aa forstaa vokabular og konsepter knyttet til entreprenoerskap er nyttig bade for spraaklaering og for karriereplanlegging.`,
+Frankrike har i de siste årene blitt et av Europas mest dynamiske land for oppstartsselskaper. Med initiativene "La French Tech" og verdens største inkubator Station F, har landet skapt et økosystem som tiltrekker gründere fra hele verden. Å forstå vokabular og konsepter knyttet til entreprenørskap er nyttig både for språklæring og for karriereplanlegging.`,
     },
     {
       id: 'fransk-3-8-4-def-1',
       type: 'definition',
-      title: 'Vokabular: Entreprenoerskap',
+      title: 'Vokabular: Entreprenørskap',
       content: `**L'entrepreneuriat:**
 
 | Fransk | Norsk |
 |--------|-------|
 | un entrepreneur / une entrepreneuse | en grunder |
 | une startup / une jeune pousse | en oppstartsbedrift |
-| creer une entreprise | aa starte en bedrift |
+| creer une entreprise | å starte en bedrift |
 | un incubateur | en inkubator |
 | un accelerateur | en akselerator |
 | un investisseur | en investor |
 | un business plan / un plan d'affaires | en forretningsplan |
-| lever des fonds | aa skaffe kapital |`,
+| lever des fonds | å skaffe kapital |`,
     },
     {
       id: 'fransk-3-8-4-def-2',
       type: 'definition',
       title: 'Vokabular: Innovasjon og utvikling',
-      content: `**L'innovation et le developpement:**
+      content: `**L'innovation et le développement:**
 
 | Fransk | Norsk |
 |--------|-------|
 | l'innovation | innovasjon |
-| innover | aa innovere |
-| la recherche et developpement (R&D) | forskning og utvikling (FoU) |
+| innover | å innovere |
+| la recherche et développement (R&D) | forskning og utvikling (FoU) |
 | un brevet | et patent |
 | un prototype | en prototyp |
 | le chiffre d'affaires | omsetning |
-| la rentabilite | loennsomhet |
+| la rentabilite | lønnsomhet |
 | un marche de niche | et nisjemarked |`,
     },
     {
       id: 'fransk-3-8-4-text-1',
       type: 'text',
-      content: `## L'ecosysteme entrepreneurial francais
+      content: `## L'ecosysteme entrepreneurial français
 
 **Station F:**
-- Verdens stoerste oppstartsinkubator, aapnet i 2017 i Paris
+- Verdens største oppstartsinkubator, åpnet i 2017 i Paris
 - Grunnlagt av Xavier Niel (grunnlegger av Free)
 - 34 000 m2 med plass til over 1000 oppstartsselskaper
 - Tilbyr programmer, mentorer og nettverk
 
 **La French Tech:**
-- Statlig initiativ for aa fremme franske teknologioppstarter
+- Statlig initiativ for å fremme franske teknologioppstarter
 - Et nettverk av "hubs" i franske byer og i utlandet
-- Kjent for sitt roede hanemerke (le coq rouge)
-- Har bidratt til aa skape "licornes" (enhjoerninger) - oppstarter verdt over 1 milliard dollar
+- Kjent for sitt røde hanemerke (le coq rouge)
+- Har bidratt til å skape "licornes" (enhjørninger) - oppstarter verdt over 1 milliard dollar
 
 **Kjente franske oppstarter:**
-- BlaBlaCar - samkjoeringstjeneste
-- Doctolib - legetimebestilling paa nett
-- Deezer - musikkstroemmetjeneste
+- BlaBlaCar - samkjøringstjeneste
+- Doctolib - legetimebestilling på nett
+- Deezer - musikkstrømmetjeneste
 - Back Market - brukt elektronikk
 - ManoMano - netthandel for oppussing`,
     },
     {
       id: 'fransk-3-8-4-tip-1',
       type: 'tip',
-      content: `Paa fransk bruker man ofte engelske laanord i oppstartsverdenen: "startup", "pitch", "business model", "fundraising". Men det finnes ogsaa franske alternativer: "jeune pousse" (ung plante = startup), "presentation eclair" (lynpresentasjon = pitch), "modele economique" (= business model). Academie francaise anbefaler de franske versjonene!`,
+      content: `På fransk bruker man ofte engelske lånord i oppstartsverdenen: "startup", "pitch", "business model", "fundraising". Men det finnes også franske alternativer: "jeune pousse" (ung plante = startup), "presentation eclair" (lynpresentasjon = pitch), "modele économique" (= business model). Académie française anbefaler de franske versjonene!`,
     },
     {
       id: 'fransk-3-8-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Forstaa en bedriftspresentasjon',
-      problem: `Les teksten og svar paa sporsmalene:
+      title: 'Eksempel 1: Forstå en bedriftspresentasjon',
+      problem: `Les teksten og svar på spørsmålene:
 
 "Notre startup, EcoVelo, propose un service de location de velos electriques dans les villes moyennes. Notre marche cible est les travailleurs urbains qui cherchent une alternative ecologique aux transports en commun. Nous avons deja leve 500 000 euros aupres d'investisseurs prives."
 
 a) Hva er bedriftens produkt/tjeneste?
-b) Hvem er maalgruppen?
+b) Hvem er målgruppen?
 c) Hvor mye kapital har de hentet inn?`,
       solution: `a) Bedriften tilbyr **utleie av elektriske sykler i mellomstore byer** (location de velos electriques dans les villes moyennes).
 
-b) Maalgruppen er **urbane arbeidstakere som soeker et oekologisk alternativ til offentlig transport** (travailleurs urbains qui cherchent une alternative ecologique).
+b) Maalgruppen er **urbane arbeidstakere som søker et økologisk alternativ til offentlig transport** (travailleurs urbains qui cherchent une alternative ecologique).
 
 c) De har hentet inn **500 000 euro fra private investorer** (leve 500 000 euros aupres d'investisseurs prives).
 
-**Noekkelvokabular:**
+**Nøkkelvokabular:**
 - proposer = tilby
 - la location = utleie
-- le marche cible = maalgruppen/maalmarkedet
+- le marche cible = målgruppen/målmarkedet
 - lever des fonds = hente inn kapital
 - aupres de = fra/hos`,
     },
@@ -1716,13 +1716,13 @@ c) De har hentet inn **500 000 euro fra private investorer** (leve 500 000 euros
         difficulty: 'medium',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Hun har startet sin egen bedrift.', solution: 'Elle a cree sa propre entreprise.', answer: 'Elle a cree sa propre entreprise' },
+          { label: 'a', task: 'Hun har startet sin egen bedrift.', solution: 'Elle a cré sa propre entreprise.', answer: 'Elle a cré sa propre entreprise' },
           { label: 'b', task: 'Investoren finansierer oppstarten.', solution: 'L\'investisseur finance la startup.', answer: 'L\'investisseur finance la startup' },
           { label: 'c', task: 'Vi trenger en god forretningsplan.', solution: 'Nous avons besoin d\'un bon plan d\'affaires.', answer: 'Nous avons besoin d\'un bon plan d\'affaires' },
-          { label: 'd', task: 'Innovasjon er nokkelen til suksess.', solution: 'L\'innovation est la cle du succes.', answer: 'L\'innovation est la cle du succes' },
+          { label: 'd', task: 'Innovasjon er nokkelen til suksess.', solution: 'L\'innovation est la clé du succes.', answer: 'L\'innovation est la clé du succes' },
         ],
-        solution: 'a) Elle a cree sa propre entreprise, b) L\'investisseur finance la startup, c) Nous avons besoin d\'un bon plan d\'affaires, d) L\'innovation est la cle du succes',
-        hints: ['creer = skape/starte', 'la cle = nokkelen'],
+        solution: 'a) Elle a cré sa propre entreprise, b) L\'investisseur finance la startup, c) Nous avons besoin d\'un bon plan d\'affaires, d) L\'innovation est la clé du succes',
+        hints: ['creer = skape/starte', 'la clé = nokkelen'],
       },
     },
     {
@@ -1734,16 +1734,16 @@ c) De har hentet inn **500 000 euro fra private investorer** (leve 500 000 euros
 a) Vaar bedrift loser et reelt problem.
 b) Vi har et innovativt produkt.
 c) Markedet er stort og voksende.`,
-      solution: `a) **Notre entreprise resout un probleme reel.**
+      solution: `a) **Notre entreprise resout un problème reel.**
 b) **Nous avons un produit innovant.**
 c) **Le marche est vaste et en croissance.**
 
-**Struktur for en pitch paa fransk:**
-1. Le probleme - Problemet dere loeser
-2. La solution - Loesningen dere tilbyr
-3. Le marche - Markedet og maalgruppen
-4. Le modele economique - Hvordan dere tjener penger
-5. L'equipe - Teamet bak bedriften
+**Struktur for en pitch på fransk:**
+1. Le problème - Problemet dere løser
+2. La solution - Løsningen dere tilbyr
+3. Le marche - Markedet og målgruppen
+4. Le modele économique - Hvordan dere tjener penger
+5. L'équipe - Teamet bak bedriften
 6. Les besoins financiers - Kapitalbehov`,
     },
     {
@@ -1768,22 +1768,22 @@ c) **Le marche est vaste et en croissance.**
     {
       id: 'fransk-3-8-4-example-3',
       type: 'example',
-      title: 'Eksempel 3: Diskutere entreprenoerskap',
+      title: 'Eksempel 3: Diskutere entreprenørskap',
       problem: `Oversett til fransk:
 
-a) Entreprenoerskap skaper arbeidsplasser.
-b) Aa starte en bedrift krever mot og utholdenhet.
-c) Frankrike stoetter innovasjon gjennom ulike programmer.`,
-      solution: `a) **L'entrepreneuriat cree des emplois.**
+a) Entreprenørskap skaper arbeidsplasser.
+b) Å starte en bedrift krever mot og utholdenhet.
+c) Frankrike støtter innovasjon gjennom ulike programmer.`,
+      solution: `a) **L'entrepreneuriat cré des emplois.**
 b) **Creer une entreprise demande du courage et de la perseverance.**
 c) **La France soutient l'innovation a travers differents programmes.**
 
-**Nyttige verb for entreprenoerskap:**
+**Nyttige verb for entreprenørskap:**
 - creer = skape/starte
 - innover = innovere
 - investir = investere
-- developper = utvikle
-- soutenir = stoette
+- développer = utvikle
+- soutenir = støtte
 - lancer = lansere`,
     },
     {
@@ -1796,12 +1796,12 @@ c) **La France soutient l'innovation a travers differents programmes.**
         difficulty: 'vanskelig',
         task: 'Oversett til fransk:',
         subTasks: [
-          { label: 'a', task: 'Station F er verdens stoerste oppstartsinkubator.', solution: 'Station F est le plus grand incubateur de startups au monde.', answer: 'Station F est le plus grand incubateur de startups au monde' },
-          { label: 'b', task: 'Franske oppstarter tiltrekker utenlandske investorer.', solution: 'Les startups francaises attirent des investisseurs etrangers.', answer: 'Les startups francaises attirent des investisseurs etrangers' },
-          { label: 'c', task: 'Vi maa utvikle en prototyp foer vi lanserer produktet.', solution: 'Nous devons developper un prototype avant de lancer le produit.', answer: 'Nous devons developper un prototype avant de lancer le produit' },
+          { label: 'a', task: 'Station F er verdens største oppstartsinkubator.', solution: 'Station F est le plus grand incubateur de startups au monde.', answer: 'Station F est le plus grand incubateur de startups au monde' },
+          { label: 'b', task: 'Franske oppstarter tiltrekker utenlandske investorer.', solution: 'Les startups françaises attirent des investisseurs etrangers.', answer: 'Les startups françaises attirent des investisseurs etrangers' },
+          { label: 'c', task: 'Vi må utvikle en prototyp før vi lanserer produktet.', solution: 'Nous devons développer un prototype avant de lancer le produit.', answer: 'Nous devons développer un prototype avant de lancer le produit' },
         ],
-        solution: 'a) Station F est le plus grand incubateur de startups au monde, b) Les startups francaises attirent des investisseurs etrangers, c) Nous devons developper un prototype avant de lancer le produit',
-        hints: ['attirer = tiltrekke', 'avant de + infinitif = foer man...'],
+        solution: 'a) Station F est le plus grand incubateur de startups au monde, b) Les startups françaises attirent des investisseurs etrangers, c) Nous devons développer un prototype avant de lancer le produit',
+        hints: ['attirer = tiltrekke', 'avant de + infinitif = før man...'],
       },
     },
     {
@@ -1812,21 +1812,21 @@ c) **La France soutient l'innovation a travers differents programmes.**
         number: '8.4.4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriveoppgave: Presenter en forretningside paa fransk (6-8 setninger). Beskriv: problemet, loesningen, maalgruppen og hvorfor ideen er innovativ.',
+        task: 'Skriveoppgave: Presenter en forretningside på fransk (6-8 setninger). Beskriv: problemet, løsningen, målgruppen og hvorfor ideen er innovativ.',
         subTasks: [
-          { label: 'a', task: 'Beskriv problemet du vil loese', solution: 'Beaucoup de jeunes ont du mal a trouver des stages en entreprise.' },
-          { label: 'b', task: 'Presenter loesningen din', solution: 'Notre plateforme connecte les etudiants avec des entreprises qui proposent des stages.' },
+          { label: 'a', task: 'Beskriv problemet du vil løse', solution: 'Beaucoup de jeunes ont du mal a trouver des stages en entreprise.' },
+          { label: 'b', task: 'Presenter løsningen din', solution: 'Notre plateforme connecte les etudiants avec des entreprises qui proposent des stages.' },
           { label: 'c', task: 'Forklar hvorfor ideen er innovativ', solution: 'Notre algorithme utilise l\'intelligence artificielle pour trouver le stage ideal.' },
         ],
-        solution: 'Eksempel: "Notre startup s\'appelle StageFinder. Le probleme est que beaucoup de jeunes ont du mal a trouver des stages en entreprise. Notre solution est une plateforme en ligne qui connecte les etudiants avec des entreprises. Notre marche cible est les etudiants de 18 a 25 ans en France. Notre modele economique repose sur un abonnement mensuel pour les entreprises. Ce qui rend notre service innovant, c\'est l\'utilisation de l\'intelligence artificielle pour creer des correspondances ideales. Nous avons deja un prototype fonctionnel et cherchons a lever 200 000 euros."',
-        hints: ['avoir du mal a = ha vanskeligheter med', 'reposer sur = bygge paa/basere seg paa'],
+        solution: 'Eksempel: "Notre startup s\'appelle StageFinder. Le problème est que beaucoup de jeunes ont du mal a trouver des stages en entreprise. Notre solution est une plateforme en ligne qui connecte les etudiants avec des entreprises. Notre marche cible est les etudiants de 18 a 25 ans en France. Notre modele économique repose sur un abonnement mensuel pour les entreprises. Ce qui rend notre service innovant, c\'est l\'utilisation de l\'intelligence artificielle pour creer des correspondances ideales. Nous avons deja un prototype fonctionnel et cherchons a lever 200 000 euros."',
+        hints: ['avoir du mal a = ha vanskeligheter med', 'reposer sur = bygge på/basere seg på'],
       },
     },
     {
       id: 'fransk-3-8-4-note-1',
       type: 'note',
       title: 'Kulturnotat: Station F og La French Tech',
-      content: `Station F, som aapnet i 2017 i det tidligere togverkstedet Halle Freyssinet i Paris, er verdens stoerste oppstartsinkubator. Den ble grunnlagt av milliardaeren Xavier Niel og huser over 1000 oppstartsselskaper. "La French Tech" er den franske statens satsing paa teknologientreprenorskap. Merket har bidratt til aa gjore Frankrike til et av Europas ledende land for venturkapital. Blant de franske "licornes" (enhjoerninger med verdi over 1 milliard dollar) finner vi BlaBlaCar, Doctolib og Deezer.`,
+      content: `Station F, som åpnet i 2017 i det tidligere togverkstedet Halle Freyssinet i Paris, er verdens største oppstartsinkubator. Den ble grunnlagt av milliardaeren Xavier Niel og huser over 1000 oppstartsselskaper. "La French Tech" er den franske statens satsing på teknologientreprenorskap. Merket har bidratt til å gjøre Frankrike til et av Europas ledende land for venturkapital. Blant de franske "licornes" (enhjørninger med verdi over 1 milliard dollar) finner vi BlaBlaCar, Doctolib og Deezer.`,
     },
   ],
   exercises: [],

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Fransk Nivaa 3 - Kapittel 1-3 (Detaljerte underkapitler)
+ * Fransk Nivå 3 - Kapittel 1-3 (Detaljerte underkapitler)
  *
  * Dekker:
  * - Kapittel 1: Avanserte tider (1.1-1.4)
@@ -16,7 +16,7 @@ import type { TextbookChapter } from '@/lib/types/textbook';
 // ============================================================================
 
 // ----------------------------------------------------------------------------
-// 1.1 Le passe simple - Historisk fortid
+// 1.1 Le passé simple - Historisk fortid
 // ----------------------------------------------------------------------------
 
 export const CHAPTER_FRANSK_3_1_1: TextbookChapter = {
@@ -24,31 +24,31 @@ export const CHAPTER_FRANSK_3_1_1: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '1.1',
   title: 'Le passé simple - Historisk fortid',
-  description: 'Laer aa gjenkjenne og bruke passé simple, den litteraere fortidsformen som brukes i romaner og historiske tekster.',
+  description: 'Lær å gjenkjenne og bruke passé simple, den litterære fortidsformen som brukes i romaner og historiske tekster.',
   estimatedMinutes: 50,
   competenceGoals: [
     'gjenkjenne passé simple i franske tekster',
-    'boye verb i passé simple for alle grupper',
-    'forstaa nyanseforskjellen mellom passé simple og passé composé',
+    'bøye verb i passé simple for alle grupper',
+    'forstå nyanseforskjellen mellom passé simple og passé composé',
   ],
   content: [
     {
       id: 'fransk-3-1-1-intro',
       type: 'text',
-      content: `## Le passé simple - Den litteraere fortiden
+      content: `## Le passé simple - Den litterære fortiden
 
-Le passé simple er en fortidsform som brukes nesten utelukkende i **skriftspraak**: romaner, historiske tekster, eventyr og formelle beretninger. I muntlig fransk brukes passé composé i stedet.
+Le passé simple er en fortidsform som brukes nesten utelukkende i **skriftspråk**: romaner, historiske tekster, eventyr og formelle beretninger. I muntlig fransk brukes passé composé i stedet.
 
-**Viktig:** Du trenger ikke bruke passé simple aktivt, men du maa kunne **gjenkjenne** det naar du leser franske tekster.
+**Viktig:** Du trenger ikke bruke passé simple aktivt, men du må kunne **gjenkjenne** det når du leser franske tekster.
 
 **Eksempel fra Victor Hugo:**
 *"Jean Valjean **entra** dans la salle et **regarda** autour de lui. L'évêque **sourit** et lui **dit**: 'Asseyez-vous.'"*
-(Jean Valjean gikk inn i salen og saa seg rundt. Biskopen smilte og sa til ham: "Sett deg.")`,
+(Jean Valjean gikk inn i salen og så seg rundt. Biskopen smilte og sa til ham: "Sett deg.")`,
     },
     {
       id: 'fransk-3-1-1-def-1',
       type: 'definition',
-      content: `**Boyning av passé simple:**
+      content: `**Bøyning av passé simple:**
 
 **1. gruppe (-er):**
 | Pronom | Parler |
@@ -104,7 +104,7 @@ Le passé simple er en fortidsform som brukes nesten utelukkende i **skriftspraa
 | lire | lut | lurent |
 | boire | but | burent |
 
-**Trekk i -u:** Mange uregelrette verb har stamme paa -u i passé simple: eut, fut, put, sut, voulut, dut, connut, lut, but.`,
+**Trekk i -u:** Mange uregelrette verb har stamme på -u i passé simple: eut, fut, put, sut, voulut, dut, connut, lut, but.`,
     },
     {
       id: 'fransk-3-1-1-example-1',
@@ -113,12 +113,12 @@ Le passé simple er en fortidsform som brukes nesten utelukkende i **skriftspraa
       problem: `Identifiser verbene i passé simple og angi infinitiven:
 
 *"Le roi entra dans la salle. Il vit la princesse et sourit. Elle lui dit: 'Bienvenue, Majesté.' Il s'assit et prit un verre de vin."*`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 | Passé simple | Infinitiv | Norsk |
 |-------------|-----------|-------|
 | entra | entrer | gikk inn |
-| vit | voir | saa |
+| vit | voir | så |
 | sourit | sourire | smilte |
 | dit | dire | sa |
 | s'assit | s'asseoir | satte seg |
@@ -133,18 +133,18 @@ Alle er i passé simple (3. person entall) og beskriver handlinger som driver fo
       problem: `Forklar bruken av passé simple og imparfait i dette utdraget:
 
 *"Il faisait nuit. La pluie tombait. Soudain, un homme apparut. Il portait un long manteau noir. Il frappa à la porte."*`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 **Imparfait (bakgrunn/beskrivelse):**
 - faisait (det var) - beskriver tidsrammen
-- tombait (falt) - paagende handling (bakgrunn)
-- portait (bar/hadde paa seg) - beskrivelse av utseende
+- tombait (falt) - pågående handling (bakgrunn)
+- portait (bar/hadde på seg) - beskrivelse av utseende
 
 **Passé simple (handling/forgrunn):**
 - apparut (dukket opp) - plutselig handling
-- frappa (banket paa) - konkret handling
+- frappa (banket på) - konkret handling
 
-Moenster: Imparfait setter scenen, passé simple driver handlingen.`,
+Mønster: Imparfait setter scenen, passé simple driver handlingen.`,
     },
     {
       id: 'fransk-3-1-1-ex-block-1',
@@ -159,7 +159,7 @@ Moenster: Imparfait setter scenen, passé simple driver handlingen.`,
           { label: 'a', task: 'il fut', solution: 'être (il fut = han var/ble)' },
           { label: 'b', task: 'elle vint', solution: 'venir (elle vint = hun kom)' },
           { label: 'c', task: 'ils eurent', solution: 'avoir (ils eurent = de hadde)' },
-          { label: 'd', task: 'il mourut', solution: 'mourir (il mourut = han doede)' },
+          { label: 'd', task: 'il mourut', solution: 'mourir (il mourut = han døde)' },
         ],
         solution: 'a) être, b) venir, c) avoir, d) mourir',
         hints: ['fut = être', 'vint = venir (med -in-stamme)', 'eurent = avoir', 'mourut = mourir'],
@@ -194,8 +194,8 @@ Moenster: Imparfait setter scenen, passé simple driver handlingen.`,
         difficulty: 'vanskelig',
         task: 'Les utdraget fra Camus\' "L\'Étranger" og identifiser alle passé simple-formene:',
         subTasks: [
-          { label: 'a', task: '"Aujourd\'hui, maman est morte." - Er dette passé simple?', solution: 'Nei, "est morte" er passé composé. Camus bruker bevisst passé composé i stedet for passé simple for aa skape en naer, muntlig tone.' },
-          { label: 'b', task: 'Hvorfor er det spesielt at Camus IKKE bruker passé simple?', solution: 'De fleste romaner foer Camus brukte passé simple. Ved aa bruke passé composé bryter Camus med tradisjonen og skaper en mer direkte, hverdagslig fortellerstemme.' },
+          { label: 'a', task: '"Aujourd\'hui, maman est morte." - Er dette passé simple?', solution: 'Nei, "est morte" er passé composé. Camus bruker bevisst passé composé i stedet for passé simple for å skape en nær, muntlig tone.' },
+          { label: 'b', task: 'Hvorfor er det spesielt at Camus IKKE bruker passé simple?', solution: 'De fleste romaner før Camus brukte passé simple. Ved å bruke passé composé bryter Camus med tradisjonen og skaper en mer direkte, hverdagslig fortellerstemme.' },
           { label: 'c', task: 'Skriv om "maman est morte" til passé simple.', solution: '"maman mourut" - men dette ville endret hele tonen i teksten.' },
         ],
         solution: 'a) Nei, passé composé, b) Brudd med tradisjon, c) mourut',
@@ -207,10 +207,10 @@ Moenster: Imparfait setter scenen, passé simple driver handlingen.`,
       type: 'tip',
       content: `**Tips for passé simple:**
 
-1. Du trenger foerst og fremst aa **gjenkjenne** formene, ikke produsere dem
-2. De vanligste formene du moeter er 3. person (il/elle og ils/elles)
-3. Endingene -a, -it, -ut hjelper deg aa gjenkjenne passé simple
-4. I litteraer analyse: kommenter bruken av passé simple vs. passé composé
+1. Du trenger først og fremst å **gjenkjenne** formene, ikke produsere dem
+2. De vanligste formene du møter er 3. person (il/elle og ils/elles)
+3. Endingene -a, -it, -ut hjelper deg å gjenkjenne passé simple
+4. I litterær analyse: kommenter bruken av passé simple vs. passé composé
 5. Husk at passé simple + imparfait brukes sammen, akkurat som passé composé + imparfait`,
     },
   ],
@@ -226,11 +226,11 @@ export const CHAPTER_FRANSK_3_1_2: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '1.2',
   title: 'Le passé antérieur - Fortidig pluskvamperfektum',
-  description: 'Laer om passé antérieur, den litteraere formen for "hadde gjort", brukt med passé simple.',
+  description: 'Lær om passé antérieur, den litterære formen for "hadde gjort", brukt med passé simple.',
   estimatedMinutes: 50,
   competenceGoals: [
     'gjenkjenne passé antérieur i tekst',
-    'forstaa forholdet mellom passé antérieur og passé simple',
+    'forstå forholdet mellom passé antérieur og passé simple',
   ],
   content: [
     {
@@ -238,7 +238,7 @@ export const CHAPTER_FRANSK_3_1_2: TextbookChapter = {
       type: 'text',
       content: `## Le passé antérieur
 
-Passé antérieur er den litteraere versjonen av plus-que-parfait. Det brukes i skriftspraak sammen med passé simple for aa uttrykke en handling som skjedde FOER en annen fortidshandling.
+Passé antérieur er den litterære versjonen av plus-que-parfait. Det brukes i skriftspråk sammen med passé simple for å uttrykke en handling som skjedde FØR en annen fortidshandling.
 
 **Dannelse:** avoir/être i **passé simple** + partisipp
 
@@ -251,7 +251,7 @@ Passé antérieur er den litteraere versjonen av plus-que-parfait. Det brukes i 
 | ils eurent mangé | ils furent allés |
 
 **Sammenligning:**
-| Dagligspraak | Litteraert spraak |
+| Dagligspråk | Litterært språk |
 |-------------|-------------------|
 | plus-que-parfait + passé composé | passé antérieur + passé simple |
 | Il avait mangé quand je suis arrivé. | Il eut mangé quand j'arrivai. |`,
@@ -265,12 +265,12 @@ Passé antérieur brukes nesten utelukkende etter tidskonjunksjoner:
 
 | Konjunksjon | Norsk | Eksempel |
 |-------------|-------|----------|
-| quand | naar/da | Quand il **eut fini**, il sortit. |
-| lorsque | naar/da | Lorsqu'elle **fut arrivée**, il parla. |
-| dès que | saa snart | Dès qu'il **eut compris**, il agit. |
+| quand | når/da | Quand il **eut fini**, il sortit. |
+| lorsque | når/da | Lorsqu'elle **fut arrivée**, il parla. |
+| dès que | så snart | Dès qu'il **eut compris**, il agit. |
 | après que | etter at | Après qu'il **eut mangé**, il partit. |
-| aussitôt que | saa snart som | Aussitôt qu'elle **eut vu**, elle cria. |
-| à peine...que | knapt...foer | À peine **eut**-il parlé **que** tout le monde se tut. |
+| aussitôt que | så snart som | Aussitôt qu'elle **eut vu**, elle cria. |
+| à peine...que | knapt...før | À peine **eut**-il parlé **que** tout le monde se tut. |
 
 **Merk:** "À peine...que" krever inversjon: *À peine eut-il parlé que...*`,
     },
@@ -281,14 +281,14 @@ Passé antérieur brukes nesten utelukkende etter tidskonjunksjoner:
       problem: `Les og oversett. Identifiser passé antérieur:
 
 *"Dès que le soleil eut disparu derrière les montagnes, le froid s'installa. Les voyageurs qui eurent trouvé un abri s'endormirent rapidement."*`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 - **eut disparu** (passé antérieur av disparaître) = hadde forsvunnet
 - **eurent trouvé** (passé antérieur av trouver) = hadde funnet
 
-**Oversettelse:** Saa snart solen hadde forsvunnet bak fjellene, satte kulden inn. Reisende som hadde funnet ly, sovnet raskt.
+**Oversettelse:** Så snart solen hadde forsvunnet bak fjellene, satte kulden inn. Reisende som hadde funnet ly, sovnet raskt.
 
-Passé antérieur markerer handlinger fullfoert FOER handlingene i passé simple (s'installa, s'endormirent).`,
+Passé antérieur markerer handlinger fullført FØR handlingene i passé simple (s'installa, s'endormirent).`,
     },
     {
       id: 'fransk-3-1-2-ex-block-1',
@@ -300,9 +300,9 @@ Passé antérieur markerer handlinger fullfoert FOER handlingene i passé simple
         difficulty: 'medium',
         task: 'Identifiser passé antérieur og oversett:',
         subTasks: [
-          { label: 'a', task: 'Quand il eut fini son repas, il sortit.', solution: 'eut fini = passé antérieur av finir. "Da han hadde avsluttet maaltidet, gikk han ut."' },
-          { label: 'b', task: 'Dès qu\'elle fut partie, il pleura.', solution: 'fut partie = passé antérieur av partir. "Saa snart hun hadde dratt, graat han."' },
-          { label: 'c', task: 'À peine eut-il parlé que tout changea.', solution: 'eut parlé = passé antérieur av parler. "Knapt hadde han snakket foer alt endret seg."' },
+          { label: 'a', task: 'Quand il eut fini son repas, il sortit.', solution: 'eut fini = passé antérieur av finir. "Da han hadde avsluttet måltidet, gikk han ut."' },
+          { label: 'b', task: 'Dès qu\'elle fut partie, il pleura.', solution: 'fut partie = passé antérieur av partir. "Så snart hun hadde dratt, gråt han."' },
+          { label: 'c', task: 'À peine eut-il parlé que tout changea.', solution: 'eut parlé = passé antérieur av parler. "Knapt hadde han snakket før alt endret seg."' },
         ],
         solution: 'a) eut fini (finir), b) fut partie (partir), c) eut parlé (parler)',
         hints: ['eut + partisipp = passé antérieur med avoir', 'fut + partisipp = passé antérieur med être'],
@@ -331,11 +331,11 @@ Passé antérieur markerer handlinger fullfoert FOER handlingene i passé simple
       type: 'tip',
       content: `**Tips for passé antérieur:**
 
-1. Du trenger foerst og fremst aa **gjenkjenne** det i tekst
+1. Du trenger først og fremst å **gjenkjenne** det i tekst
 2. Se etter: eut/eûmes/eurent + partisipp ELLER fut/fûmes/furent + partisipp
 3. Det forekommer nesten alltid etter quand, lorsque, dès que, après que
 4. I moderne tekster brukes plus-que-parfait + passé composé i stedet
-5. Passé antérieur + passé simple = litteraert register (soutenu)`,
+5. Passé antérieur + passé simple = litterært register (soutenu)`,
     },
   ],
   exercises: [],
@@ -350,11 +350,11 @@ export const CHAPTER_FRANSK_3_1_3: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '1.3',
   title: 'Le subjonctif présent - Konjunktiv presens',
-  description: 'Repetisjon og utvidelse av subjonctif présent med fullstendig oversikt over bruksomraader og uregelrette verb.',
+  description: 'Repetisjon og utvidelse av subjonctif présent med fullstendig oversikt over bruksområder og uregelrette verb.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'beherske alle bruksomraader for subjonctif',
-    'boye uregelrette verb i subjonctif',
+    'beherske alle bruksområder for subjonctif',
+    'bøye uregelrette verb i subjonctif',
     'skille mellom subjonctif og indikativ etter ulike uttrykk',
   ],
   content: [
@@ -363,7 +363,7 @@ export const CHAPTER_FRANSK_3_1_3: TextbookChapter = {
       type: 'text',
       content: `## Le subjonctif présent - Fullstendig oversikt
 
-Subjonctif er en modus (ikke en tid) som uttrykker subjektivitet: oensker, foelelser, tvil, noedvendighet. Paa nivaa 3 maa du beherske subjonctif fullt ut.
+Subjonctif er en modus (ikke en tid) som uttrykker subjektivitet: ønsker, følelser, tvil, nødvendighet. På nivå 3 må du beherske subjonctif fullt ut.
 
 **Dannelse (repetisjon):**
 Stamme fra ils/elles-formen i presens + endinger: -e, -es, -e, -ions, -iez, -ent
@@ -402,28 +402,28 @@ Stamme fra ils/elles-formen i presens + endinger: -e, -es, -e, -ions, -iez, -ent
     {
       id: 'fransk-3-1-3-text-1',
       type: 'text',
-      content: `## Fullstendig oversikt over bruksomraader
+      content: `## Fullstendig oversikt over bruksområder
 
-**1. Vilje og oenske:**
+**1. Vilje og ønske:**
 - vouloir que, souhaiter que, désirer que, préférer que, exiger que
 - *Je veux que tu **viennes**.* (Jeg vil at du skal komme.)
 
-**2. Foelelser:**
+**2. Følelser:**
 - être content/triste/surpris/déçu que, avoir peur que, regretter que
 - *Je suis content que tu **sois** là.* (Jeg er glad for at du er her.)
 
 **3. Tvil og usikkerhet:**
 - douter que, ne pas croire que, ne pas penser que, il est possible que
-- *Je doute qu'il **puisse** venir.* (Jeg tviler paa at han kan komme.)
+- *Je doute qu'il **puisse** venir.* (Jeg tviler på at han kan komme.)
 
-**4. Noedvendighet og vurdering:**
+**4. Nødvendighet og vurdering:**
 - il faut que, il est nécessaire/important/essentiel que
-- *Il faut que nous **partions**.* (Vi maa dra.)
+- *Il faut que nous **partions**.* (Vi må dra.)
 
 **5. Konjunksjoner:**
-- bien que (selv om), pour que (for at), avant que (foer), sans que (uten at)
-- à condition que (paa betingelse av at), à moins que (med mindre)
-- *Bien qu'il **fasse** froid, je sors.* (Selv om det er kaldt, gaar jeg ut.)
+- bien que (selv om), pour que (for at), avant que (før), sans que (uten at)
+- à condition que (på betingelse av at), à moins que (med mindre)
+- *Bien qu'il **fasse** froid, je sors.* (Selv om det er kaldt, går jeg ut.)
 
 **6. Superlativ og eneste:**
 - le plus/le seul/le premier... que
@@ -432,21 +432,21 @@ Stamme fra ils/elles-formen i presens + endinger: -e, -es, -e, -ions, -iez, -ent
     {
       id: 'fransk-3-1-3-text-2',
       type: 'text',
-      content: `## Subjonctif vs. Indikativ - Naar brukes HVA?
+      content: `## Subjonctif vs. Indikativ - Når brukes HVA?
 
 | SUBJONCTIF | INDIKATIV |
 |------------|-----------|
 | Je ne crois **pas** que... (tvil) | Je crois que... (overbevisning) |
 | Il est possible que... | Il est certain que... |
 | Bien que... | Parce que... |
-| Pour que... | De sorte que... (+ resultat) |
+| Pour que... | De sorte que... (+ résultat) |
 | Avant que... | Après que... |
 | Il semble que... | Il me semble que... |
 
-**Noekkelprinspipp:** Subjonctif = usikkerhet, subjektivitet
+**Nøkkelprinsipp:** Subjonctif = usikkerhet, subjektivitet
 Indikativ = sikkerhet, objektivitet
 
-**Viktig:** Etter "après que" brukes INDIKATIV (ikke subjonctif), selv om mange franskmenn gjoer feil her!`,
+**Viktig:** Etter "après que" brukes INDIKATIV (ikke subjonctif), selv om mange franskmenn gjør feil her!`,
     },
     {
       id: 'fransk-3-1-3-example-1',
@@ -458,7 +458,7 @@ a) Je suis sûr qu'il (venir: vient/vienne).
 b) Il est possible qu'il (pleuvoir: pleut/pleuve) demain.
 c) Bien qu'elle (être: est/soit) fatiguée, elle travaille.
 d) Je crois qu'il (avoir: a/ait) raison.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) Je suis sûr qu'il **vient**. (INDIKATIV - sikkerhet)
 b) Il est possible qu'il **pleuve** demain. (SUBJONCTIF - mulighet)
@@ -492,7 +492,7 @@ d) Je crois qu'il **a** raison. (INDIKATIV - tro/overbevisning)`,
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Velg subjonctif (S) eller indikativ (I) og boey verbet:',
+        task: 'Velg subjonctif (S) eller indikativ (I) og bøy verbet:',
         subTasks: [
           { label: 'a', task: 'Je pense qu\'il (être) malade. (S/I?)', solution: 'Je pense qu\'il est malade. (INDIKATIV - penser que = sikkerhet)' },
           { label: 'b', task: 'Je ne pense pas qu\'il (être) malade. (S/I?)', solution: 'Je ne pense pas qu\'il soit malade. (SUBJONCTIF - ne pas penser que = tvil)' },
@@ -513,8 +513,8 @@ d) Je crois qu'il **a** raison. (INDIKATIV - tro/overbevisning)`,
         difficulty: 'vanskelig',
         task: 'Oversett til fransk med subjonctif:',
         subTasks: [
-          { label: 'a', task: 'Det er noedvendig at vi studerer.', solution: 'Il est nécessaire que nous étudiions.' },
-          { label: 'b', task: 'Selv om han er intelligent, forstaar han ikke.', solution: 'Bien qu\'il soit intelligent, il ne comprend pas.' },
+          { label: 'a', task: 'Det er nødvendig at vi studerer.', solution: 'Il est nécessaire que nous étudiions.' },
+          { label: 'b', task: 'Selv om han er intelligent, forstår han ikke.', solution: 'Bien qu\'il soit intelligent, il ne comprend pas.' },
           { label: 'c', task: 'Jeg er redd for at de ikke kan komme.', solution: 'J\'ai peur qu\'ils ne puissent pas venir.' },
         ],
         solution: 'a) que nous étudiions, b) qu\'il soit, c) qu\'ils ne puissent pas',
@@ -524,14 +524,14 @@ d) Je crois qu'il **a** raison. (INDIKATIV - tro/overbevisning)`,
     {
       id: 'fransk-3-1-3-tip-1',
       type: 'tip',
-      content: `**Tips for subjonctif paa eksamen:**
+      content: `**Tips for subjonctif på eksamen:**
 
 1. Vis at du mestrer subjonctif i skriftlige besvarelser - det imponerer!
-2. Bruk gjerne "bien que + subjonctif" for innroemmelse
+2. Bruk gjerne "bien que + subjonctif" for innrømmelse
 3. Husk: Samme subjekt = infinitiv, ulike subjekter = subjonctif
    - Je veux partir. (samme subjekt → infinitiv)
    - Je veux que tu partes. (ulike subjekter → subjonctif)
-4. Laer de uregelrette formene utenat: soit, ait, fasse, puisse, sache, aille`,
+4. Lær de uregelrette formene utenat: soit, ait, fasse, puisse, sache, aille`,
     },
   ],
   exercises: [],
@@ -546,11 +546,11 @@ export const CHAPTER_FRANSK_3_1_4: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '1.4',
   title: 'Le subjonctif passé - Konjunktiv perfektum',
-  description: 'Laer aa danne og bruke subjonctif passé for fortidshandlinger i leddsetninger som krever subjonctif.',
+  description: 'Lær å danne og bruke subjonctif passé for fortidshandlinger i leddsetninger som krever subjonctif.',
   estimatedMinutes: 50,
   competenceGoals: [
     'danne subjonctif passé korrekt',
-    'bruke subjonctif passé for fullfoerte handlinger',
+    'bruke subjonctif passé for fullførte handlinger',
     'skille mellom subjonctif présent og passé',
   ],
   content: [
@@ -559,7 +559,7 @@ export const CHAPTER_FRANSK_3_1_4: TextbookChapter = {
       type: 'text',
       content: `## Le subjonctif passé
 
-Subjonctif passé uttrykker en **fullfoert handling** i en leddsetning som krever subjonctif. Det tilsvarer "har gjort" i en subjonctif-kontekst.
+Subjonctif passé uttrykker en **fullført handling** i en leddsetning som krever subjonctif. Det tilsvarer "har gjort" i en subjonctif-kontekst.
 
 **Dannelse:** avoir/être i **subjonctif présent** + partisipp
 
@@ -575,19 +575,19 @@ Subjonctif passé uttrykker en **fullfoert handling** i en leddsetning som kreve
     {
       id: 'fransk-3-1-4-def-1',
       type: 'definition',
-      content: `**Naar brukes subjonctif passé?**
+      content: `**Når brukes subjonctif passé?**
 
-Naar handlingen i leddsetningen er **fullfoert/avsluttet** i forhold til hovedsetningen:
+Når handlingen i leddsetningen er **fullført/avsluttet** i forhold til hovedsetningen:
 
-| Subjonctif présent (paagende/framtidig) | Subjonctif passé (fullfoert) |
+| Subjonctif présent (pågående/framtidig) | Subjonctif passé (fullført) |
 |----------------------------------------|------------------------------|
 | Je suis content qu'il **vienne**. | Je suis content qu'il **soit venu**. |
 | (Jeg er glad for at han kommer.) | (Jeg er glad for at han har kommet.) |
 | Il faut que tu **finisses**. | Il faut que tu **aies fini** avant midi. |
-| (Du maa fullfoere.) | (Du maa ha fullfoert foer kl. 12.) |
+| (Du må fullføre.) | (Du må ha fullført før kl. 12.) |
 
 **Regler:**
-- Handlingen har skjedd FOER hovedsetningens tidspunkt → subjonctif passé
+- Handlingen har skjedd FØR hovedsetningens tidspunkt → subjonctif passé
 - Handlingen skjer SAMTIDIG eller ETTER → subjonctif présent`,
     },
     {
@@ -600,12 +600,12 @@ a) Je regrette que tu (ne pas venir) hier.
 b) Il faut que vous (finir) avant ce soir.
 c) Je doute qu'il (comprendre) la leçon d'hier.
 d) Bien qu'elle (être) malade hier, elle vient aujourd'hui.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) Je regrette que tu **ne sois pas venu(e)** hier. (PASSE - fullfoert handling i gaar)
-b) Il faut que vous **finissiez** avant ce soir. (PRESENT - handlingen er ikke fullfoert ennaa)
-c) Je doute qu'il **ait compris** la leçon d'hier. (PASSE - gaardagens leksjon)
-d) Bien qu'elle **ait été** malade hier, elle vient aujourd'hui. (PASSE - hun var syk i gaar)`,
+a) Je regrette que tu **ne sois pas venu(e)** hier. (PASSE - fullført handling i går)
+b) Il faut que vous **finissiez** avant ce soir. (PRESENT - handlingen er ikke fullført ennå)
+c) Je doute qu'il **ait compris** la leçon d'hier. (PASSE - gårsdagens leksjon)
+d) Bien qu'elle **ait été** malade hier, elle vient aujourd'hui. (PASSE - hun var syk i går)`,
     },
     {
       id: 'fransk-3-1-4-ex-block-1',
@@ -635,12 +635,12 @@ d) Bien qu'elle **ait été** malade hier, elle vient aujourd'hui. (PASSE - hun 
         difficulty: 'vanskelig',
         task: 'Oversett til fransk med subjonctif passé:',
         subTasks: [
-          { label: 'a', task: 'Jeg tviler paa at han har forstaaatt.', solution: 'Je doute qu\'il ait compris.' },
+          { label: 'a', task: 'Jeg tviler på at han har forstått.', solution: 'Je doute qu\'il ait compris.' },
           { label: 'b', task: 'Det er den beste boken jeg har lest.', solution: 'C\'est le meilleur livre que j\'aie lu.' },
-          { label: 'c', task: 'Selv om de hadde proevd, klarte de det ikke.', solution: 'Bien qu\'ils aient essayé, ils n\'ont pas réussi.' },
+          { label: 'c', task: 'Selv om de hadde prøvd, klarte de det ikke.', solution: 'Bien qu\'ils aient essayé, ils n\'ont pas réussi.' },
         ],
         solution: 'a) ait compris, b) que j\'aie lu, c) qu\'ils aient essayé',
-        hints: ['douter que + subjonctif passé', 'Etter superlativ: le meilleur... que + subjonctif', 'Bien que + subjonctif passé for fullfoert handling'],
+        hints: ['douter que + subjonctif passé', 'Etter superlativ: le meilleur... que + subjonctif', 'Bien que + subjonctif passé for fullført handling'],
       },
     },
     {
@@ -650,18 +650,18 @@ d) Bien qu'elle **ait été** malade hier, elle vient aujourd'hui. (PASSE - hun 
 
 | Tid | Dannelse | Bruk | Register |
 |-----|----------|------|---------|
-| **Passé simple** | Spesielle endinger | Fullfoert fortidshandling | Litteraert |
-| **Passé antérieur** | avoir/être (p. simple) + partisipp | Foer annen litteraer fortid | Litteraert |
-| **Subjonctif présent** | ils-stamme + -e/-es/-e/-ions/-iez/-ent | Subjektivitet (paagende) | Alle |
-| **Subjonctif passé** | avoir/être (subj.) + partisipp | Subjektivitet (fullfoert) | Alle |`,
+| **Passé simple** | Spesielle endinger | Fullført fortidshandling | Litterært |
+| **Passé antérieur** | avoir/être (p. simple) + partisipp | Før annen litterær fortid | Litterært |
+| **Subjonctif présent** | ils-stamme + -e/-es/-e/-ions/-iez/-ent | Subjektivitet (pågående) | Alle |
+| **Subjonctif passé** | avoir/être (subj.) + partisipp | Subjektivitet (fullført) | Alle |`,
     },
     {
       id: 'fransk-3-1-4-tip-1',
       type: 'tip',
       content: `**Tips for eksamen:**
 
-1. **Passé simple:** Gjenkjenn det i tekster, bruk det i egne litteraere besvarelser for aa vise avansert nivaa
-2. **Subjonctif passé:** Bruk det etter "c'est le meilleur... que" og "bien que" + fullfoert handling
+1. **Passé simple:** Gjenkjenn det i tekster, bruk det i egne litterære besvarelser for å vise avansert nivå
+2. **Subjonctif passé:** Bruk det etter "c'est le meilleur... que" og "bien que" + fullført handling
 3. Vis at du behersker ulike register - bruk passé simple i analyse, subjonctif i argumentasjon`,
     },
   ],
@@ -681,11 +681,11 @@ export const CHAPTER_FRANSK_3_2_1: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '2.1',
   title: 'Le subjonctif imparfait - Konjunktiv imperfektum',
-  description: 'Laer om den litteraere formen av subjonctif imperfektum og dens bruk i klassisk litteratur.',
+  description: 'Lær om den litterære formen av subjonctif imperfektum og dens bruk i klassisk litteratur.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'gjenkjenne subjonctif imparfait i litteraere tekster',
-    'forstaa tidsharmoni i subjonctif (litteraert register)',
+    'gjenkjenne subjonctif imparfait i litterære tekster',
+    'forstå tidsharmoni i subjonctif (litterært register)',
   ],
   content: [
     {
@@ -693,9 +693,9 @@ export const CHAPTER_FRANSK_3_2_1: TextbookChapter = {
       type: 'text',
       content: `## Le subjonctif imparfait
 
-Subjonctif imparfait er en litteraer form som brukes i formelt skriftspraak. I moderne muntlig og hverdagslig skriftlig fransk brukes subjonctif présent i stedet.
+Subjonctif imparfait er en litterær form som brukes i formelt skriftspråk. I moderne muntlig og hverdagslig skriftlig fransk brukes subjonctif présent i stedet.
 
-**Dannelse:** Basert paa passé simple, 2. person entall + endinger:
+**Dannelse:** Basert på passé simple, 2. person entall + endinger:
 
 | Passé simple (tu) | → Subjonctif imparfait |
 |-------------------|----------------------|
@@ -705,7 +705,7 @@ Subjonctif imparfait er en litteraer form som brukes i formelt skriftspraak. I m
 | tu **eus** | que j'eusse, qu'il eût |
 | tu **fus** | que je fusse, qu'il fût |
 
-**Boyning av parler:**
+**Bøyning av parler:**
 | Pronom | Subjonctif imparfait |
 |--------|---------------------|
 | que je | parlasse |
@@ -722,38 +722,38 @@ Subjonctif imparfait er en litteraer form som brukes i formelt skriftspraak. I m
 
 | Infinitiv | qu'il/elle (subj. imp.) | Norsk |
 |-----------|------------------------|-------|
-| être | fût | var/vaere |
+| être | fût | var/være |
 | avoir | eût | hadde/ha |
-| faire | fît | gjorde/gjoere |
+| faire | fît | gjorde/gjøre |
 | pouvoir | pût | kunne |
 | savoir | sût | visste/vite |
 | venir | vînt | kom/komme |
-| aller | allât | gikk/gaa |
+| aller | allât | gikk/gå |
 | prendre | prît | tok/ta |
 
-**Kjennetegn:** Accent circonflexe (^) paa 3. person entall: parlât, fût, eût, fît
+**Kjennetegn:** Accent circonflexe (^) på 3. person entall: parlât, fût, eût, fît
 
 **Moderne bruk:** I dag finner man subjonctif imparfait nesten bare i:
 - Klassisk litteratur (Flaubert, Proust, etc.)
 - Veldig formelle juridiske tekster
-- Humor (det kan virke pedantisk i dagligspraak)`,
+- Humor (det kan virke pedantisk i dagligspråk)`,
     },
     {
       id: 'fransk-3-2-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Gjenkjenne subjonctif imparfait',
-      problem: `Identifiser subjonctif imparfait i disse litteraere sitatene:
+      problem: `Identifiser subjonctif imparfait i disse litterære sitatene:
 
 a) *"Il fallait qu'il partît avant l'aube."* (Flaubert)
 b) *"Je souhaitais qu'elle fût heureuse."*
 c) *"Bien qu'il eût beaucoup d'argent, il vivait simplement."*`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) **partît** = subjonctif imparfait av partir (fallait = fortid → litteraer tidsharmoni)
-b) **fût** = subjonctif imparfait av être (souhaitais = fortid → litteraer tidsharmoni)
+a) **partît** = subjonctif imparfait av partir (fallait = fortid → litterær tidsharmoni)
+b) **fût** = subjonctif imparfait av être (souhaitais = fortid → litterær tidsharmoni)
 c) **eût** = subjonctif imparfait av avoir (vel egentlig subjonctif plus-que-parfait her)
 
-I moderne fransk ville disse vaert:
+I moderne fransk ville disse vært:
 a) Il fallait qu'il parte...
 b) Je souhaitais qu'elle soit heureuse.
 c) Bien qu'il ait eu beaucoup d'argent...`,
@@ -774,7 +774,7 @@ c) Bien qu'il ait eu beaucoup d'argent...`,
           { label: 'd', task: 'qu\'il fît →', solution: 'fît = faire → qu\'il fasse (subjonctif présent)' },
         ],
         solution: 'a) parle, b) soit, c) puisse, d) fasse',
-        hints: ['Accent circonflexe paa 3. person = subjonctif imparfait', 'Finn passé simple-formen for aa identifisere verbet'],
+        hints: ['Accent circonflexe på 3. person = subjonctif imparfait', 'Finn passé simple-formen for å identifisere verbet'],
       },
     },
     {
@@ -787,7 +787,7 @@ c) Bien qu'il ait eu beaucoup d'argent...`,
         difficulty: 'vanskelig',
         task: 'Les utdraget og oversett. Identifiser alle subjonctif-former:',
         subTasks: [
-          { label: 'a', task: '"Le roi ordonna qu\'on amenât le prisonnier et qu\'il fût jugé." - Hvilke verb er i subjonctif imparfait?', solution: 'amenât (amener) og fût jugé (être jugé). "Kongen beordret at fangen skulle foeres frem og doemmes."' },
+          { label: 'a', task: '"Le roi ordonna qu\'on amenât le prisonnier et qu\'il fût jugé." - Hvilke verb er i subjonctif imparfait?', solution: 'amenât (amener) og fût jugé (être jugé). "Kongen beordret at fangen skulle føres frem og dømmes."' },
           { label: 'b', task: 'Skriv om til moderne fransk.', solution: '"Le roi a ordonné qu\'on amène le prisonnier et qu\'il soit jugé."' },
         ],
         solution: 'a) amenât, fût jugé; b) amène, soit jugé',
@@ -799,10 +799,10 @@ c) Bien qu'il ait eu beaucoup d'argent...`,
       type: 'tip',
       content: `**Tips for subjonctif imparfait:**
 
-1. Du trenger bare aa **gjenkjenne** det, ikke skrive det selv
-2. Se etter accent circonflexe paa 3. person: -ât, -ît, -ût
-3. I tekstanalyse: kommenter det som et tegn paa litteraert register (soutenu)
-4. I moderne fransk brukes subjonctif présent uansett tid paa hovedverbet`,
+1. Du trenger bare å **gjenkjenne** det, ikke skrive det selv
+2. Se etter accent circonflexe på 3. person: -ât, -ît, -ût
+3. I tekstanalyse: kommenter det som et tegn på litterært register (soutenu)
+4. I moderne fransk brukes subjonctif présent uansett tid på hovedverbet`,
     },
   ],
   exercises: [],
@@ -817,11 +817,11 @@ export const CHAPTER_FRANSK_3_2_2: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '2.2',
   title: 'La concordance des temps au subjonctif',
-  description: 'Laer om tidsharmoni i subjonctif - moderne vs. litteraer bruk.',
+  description: 'Lær om tidsharmoni i subjonctif - moderne vs. litterær bruk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'forstaa moderne og litteraer tidsharmoni i subjonctif',
-    'velge riktig subjonctif-form basert paa kontekst',
+    'forstå moderne og litterær tidsharmoni i subjonctif',
+    'velge riktig subjonctif-form basert på kontekst',
   ],
   content: [
     {
@@ -829,18 +829,18 @@ export const CHAPTER_FRANSK_3_2_2: TextbookChapter = {
       type: 'text',
       content: `## La concordance des temps au subjonctif
 
-Tidsharmoni handler om aa velge riktig tid i leddsetningen basert paa tiden i hovedsetningen.
+Tidsharmoni handler om å velge riktig tid i leddsetningen basert på tiden i hovedsetningen.
 
 **Moderne fransk (courant):**
 
-| Hovedsetning | Leddsetning (samtidig/framtidig) | Leddsetning (foertidig) |
+| Hovedsetning | Leddsetning (samtidig/framtidig) | Leddsetning (førtidig) |
 |-------------|--------------------------------|------------------------|
 | Presens | subjonctif présent | subjonctif passé |
 | Fortid | subjonctif présent | subjonctif passé |
 
-**Litteraert fransk (soutenu):**
+**Litterært fransk (soutenu):**
 
-| Hovedsetning | Leddsetning (samtidig/framtidig) | Leddsetning (foertidig) |
+| Hovedsetning | Leddsetning (samtidig/framtidig) | Leddsetning (førtidig) |
 |-------------|--------------------------------|------------------------|
 | Presens | subjonctif présent | subjonctif passé |
 | Fortid | subjonctif imparfait | subjonctif plus-que-parfait |`,
@@ -848,7 +848,7 @@ Tidsharmoni handler om aa velge riktig tid i leddsetningen basert paa tiden i ho
     {
       id: 'fransk-3-2-2-def-1',
       type: 'definition',
-      content: `**Eksempler paa tidsharmoni:**
+      content: `**Eksempler på tidsharmoni:**
 
 **Moderne (standard):**
 - Je veux qu'il **vienne**. (Jeg vil at han skal komme.) - presens → subj. présent
@@ -856,9 +856,9 @@ Tidsharmoni handler om aa velge riktig tid i leddsetningen basert paa tiden i ho
 - Je suis content qu'il **soit venu**. (Jeg er glad for at han har kommet.) - subj. passé
 - J'étais content qu'il **soit venu**. (Jeg var glad for at han hadde kommet.) - subj. passé (!)
 
-**Litteraert:**
+**Litterært:**
 - Je voulais qu'il **vînt**. (subj. imparfait - samtidig)
-- J'étais content qu'il **fût venu**. (subj. plus-que-parfait - foertidig)
+- J'étais content qu'il **fût venu**. (subj. plus-que-parfait - førtidig)
 
 **Subjonctif plus-que-parfait:** avoir/être i subjonctif imparfait + partisipp
 - qu'il eût mangé, qu'il fût venu`,
@@ -866,22 +866,22 @@ Tidsharmoni handler om aa velge riktig tid i leddsetningen basert paa tiden i ho
     {
       id: 'fransk-3-2-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Moderne vs. litteraer tidsharmoni',
-      problem: `Skriv i bade moderne og litteraert register:
+      title: 'Eksempel 1: Moderne vs. litterær tidsharmoni',
+      problem: `Skriv i både moderne og litterært register:
 
 a) Jeg ville at han skulle komme.
-b) Jeg var overrasket over at hun hadde gaatt.
+b) Jeg var overrasket over at hun hadde gått.
 c) Han beordret at vi skulle dra.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **Moderne:** Je voulais qu'il **vienne**.
-   **Litteraert:** Je voulais qu'il **vînt**.
+   **Litterært:** Je voulais qu'il **vînt**.
 
 b) **Moderne:** J'étais surpris qu'elle **soit partie**.
-   **Litteraert:** J'étais surpris qu'elle **fût partie**.
+   **Litterært:** J'étais surpris qu'elle **fût partie**.
 
 c) **Moderne:** Il a ordonné que nous **partions**.
-   **Litteraert:** Il ordonna que nous **partissions**.`,
+   **Litterært:** Il ordonna que nous **partissions**.`,
     },
     {
       id: 'fransk-3-2-2-ex-block-1',
@@ -894,11 +894,11 @@ c) **Moderne:** Il a ordonné que nous **partions**.
         task: 'Velg riktig subjonctif-form (moderne register):',
         subTasks: [
           { label: 'a', task: 'Je veux qu\'il (venir). → présent/passé?', solution: 'Je veux qu\'il vienne. (Subj. présent - samtidig med hovedsetningen)' },
-          { label: 'b', task: 'Je regrette qu\'il (partir) hier. → présent/passé?', solution: 'Je regrette qu\'il soit parti hier. (Subj. passé - handlingen er fullfoert)' },
+          { label: 'b', task: 'Je regrette qu\'il (partir) hier. → présent/passé?', solution: 'Je regrette qu\'il soit parti hier. (Subj. passé - handlingen er fullført)' },
           { label: 'c', task: 'Je voulais qu\'elle (comprendre). → présent/passé?', solution: 'Je voulais qu\'elle comprenne. (Subj. présent - moderne, selv med fortid i hovedsetning)' },
         ],
         solution: 'a) vienne (présent), b) soit parti (passé), c) comprenne (présent)',
-        hints: ['Samtidig/framtidig → subj. présent', 'Fullfoert → subj. passé', 'Moderne: alltid subj. présent/passé uansett hovedsetningens tid'],
+        hints: ['Samtidig/framtidig → subj. présent', 'Fullført → subj. passé', 'Moderne: alltid subj. présent/passé uansett hovedsetningens tid'],
       },
     },
     {
@@ -909,14 +909,14 @@ c) **Moderne:** Il a ordonné que nous **partions**.
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Identifiser tidsharmonien i disse litteraere eksemplene:',
+        task: 'Identifiser tidsharmonien i disse litterære eksemplene:',
         subTasks: [
-          { label: 'a', task: '"Il fallait qu\'il partît." - Hvilken tidsharmoni?', solution: 'Litteraer tidsharmoni: hovedsetning i fortid (fallait) + subjonctif imparfait (partît) for samtidig handling.' },
-          { label: 'b', task: '"Elle doutait qu\'il eût compris." - Hvilken tidsharmoni?', solution: 'Litteraer tidsharmoni: hovedsetning i fortid (doutait) + subjonctif plus-que-parfait (eût compris) for foertidig handling.' },
+          { label: 'a', task: '"Il fallait qu\'il partît." - Hvilken tidsharmoni?', solution: 'Litterær tidsharmoni: hovedsetning i fortid (fallait) + subjonctif imparfait (partît) for samtidig handling.' },
+          { label: 'b', task: '"Elle doutait qu\'il eût compris." - Hvilken tidsharmoni?', solution: 'Litterær tidsharmoni: hovedsetning i fortid (doutait) + subjonctif plus-que-parfait (eût compris) for førtidig handling.' },
           { label: 'c', task: 'Skriv om begge til moderne fransk.', solution: 'a) Il fallait qu\'il parte. b) Elle doutait qu\'il ait compris.' },
         ],
-        solution: 'a) Litteraer: fortid + subj. imparfait, b) Litteraer: fortid + subj. pqp, c) parte / ait compris',
-        hints: ['Subj. imparfait = litteraer versjon av subj. présent etter fortid', 'Subj. pqp = litteraer versjon av subj. passé etter fortid'],
+        solution: 'a) Litterær: fortid + subj. imparfait, b) Litterær: fortid + subj. pqp, c) parte / ait compris',
+        hints: ['Subj. imparfait = litterær versjon av subj. présent etter fortid', 'Subj. pqp = litterær versjon av subj. passé etter fortid'],
       },
     },
     {
@@ -925,8 +925,8 @@ c) **Moderne:** Il a ordonné que nous **partions**.
       content: `**Tips for tidsharmoni:**
 
 1. I moderne fransk: bruk ALLTID subjonctif présent eller passé - uansett tid i hovedsetningen
-2. I tekstanalyse: gjenkjenn litteraer tidsharmoni og kommenter registeret
-3. Paa eksamen: bruk moderne tidsharmoni i egne tekster (med mindre du bevisst vil skrive litteraert)
+2. I tekstanalyse: gjenkjenn litterær tidsharmoni og kommenter registeret
+3. På eksamen: bruk moderne tidsharmoni i egne tekster (med mindre du bevisst vil skrive litterært)
 4. Subjonctif plus-que-parfait = avoir/être (subj. imp.) + partisipp: qu'il eût mangé, qu'il fût venu`,
     },
   ],
@@ -942,7 +942,7 @@ export const CHAPTER_FRANSK_3_2_3: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '2.3',
   title: 'La voix passive - Passiv form',
-  description: 'Laer aa danne og bruke passiv form i alle tider, og naar passiv er hensiktsmessig.',
+  description: 'Lær å danne og bruke passiv form i alle tider, og når passiv er hensiktsmessig.',
   estimatedMinutes: 50,
   competenceGoals: [
     'danne passiv form i alle tider',
@@ -955,9 +955,9 @@ export const CHAPTER_FRANSK_3_2_3: TextbookChapter = {
       type: 'text',
       content: `## La voix passive - Passiv form
 
-Passiv setter fokus paa handlingens mottaker i stedet for utfoereren.
+Passiv setter fokus på handlingens mottaker i stedet for utføreren.
 
-**Dannelse:** être (i riktig tid) + partisipp (samsvarsboeyd)
+**Dannelse:** être (i riktig tid) + partisipp (samsvarsbøyd)
 
 | Aktiv | Passiv |
 |-------|--------|
@@ -980,21 +980,21 @@ Passiv setter fokus paa handlingens mottaker i stedet for utfoereren.
       type: 'definition',
       content: `**Agent: par vs. de**
 
-Utfoereren i passiv angis med **par** (av) eller noen ganger **de**:
+Utføreren i passiv angis med **par** (av) eller noen ganger **de**:
 
 **Par** (vanligst):
 - Le livre est lu **par** les étudiants. (Boken leses av studentene.)
 - La maison a été construite **par** mon père. (Huset ble bygget av faren min.)
 
-**De** (med visse verb - foelelser, tilstander):
+**De** (med visse verb - følelser, tilstander):
 - Il est aimé **de** tous. (Han er elsket av alle.)
 - Elle est respectée **de** ses collègues. (Hun er respektert av kollegene.)
 - La ville est entourée **de** montagnes. (Byen er omgitt av fjell.)
 
-**Naar bruke passiv:**
-- Naar utfoereren er ukjent: *Le magasin **a été cambriolé**.* (Butikken ble ranet.)
-- Naar fokus er paa mottakeren: *Ce roman **a été écrit** en 1857.* (Denne romanen ble skrevet i 1857.)
-- I formelt/akademisk spraak`,
+**Når bruke passiv:**
+- Når utføreren er ukjent: *Le magasin **a été cambriolé**.* (Butikken ble ranet.)
+- Når fokus er på mottakeren: *Ce roman **a été écrit** en 1857.* (Denne romanen ble skrevet i 1857.)
+- I formelt/akademisk språk`,
     },
     {
       id: 'fransk-3-2-3-example-1',
@@ -1005,13 +1005,13 @@ Utfoereren i passiv angis med **par** (av) eller noen ganger **de**:
 a) Victor Hugo a écrit Les Misérables.
 b) Le professeur corrige les examens.
 c) On construira un nouveau musée.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) Les Misérables **ont été écrits** par Victor Hugo. (passé composé passiv)
 b) Les examens **sont corrigés** par le professeur. (présent passiv)
 c) Un nouveau musée **sera construit**. (futur passiv - "on" forsvinner)
 
-**Merk:** Partisippet samsvarsboeyes med det nye subjektet!`,
+**Merk:** Partisippet samsvarsbøyes med det nye subjektet!`,
     },
     {
       id: 'fransk-3-2-3-ex-block-1',
@@ -1028,7 +1028,7 @@ c) Un nouveau musée **sera construit**. (futur passiv - "on" forsvinner)
           { label: 'c', task: 'On vendra cette maison.', solution: 'Cette maison sera vendue.' },
         ],
         solution: 'a) a été construite, b) est lu, c) sera vendue',
-        hints: ['Samsvarsboyning: construite (hunkjoenn), lu (hankjoenn), vendue (hunkjoenn)'],
+        hints: ['Samsvarsbøyning: construite (hunkjønn), lu (hankjønn), vendue (hunkjønn)'],
       },
     },
     {
@@ -1061,10 +1061,10 @@ c) Un nouveau musée **sera construit**. (futur passiv - "on" forsvinner)
         subTasks: [
           { label: 'a', task: 'Denne boken ble skrevet i 1857.', solution: 'Ce livre a été écrit en 1857.' },
           { label: 'b', task: 'Fransk snakkes i mange land.', solution: 'Le français est parlé dans beaucoup de pays.' },
-          { label: 'c', task: 'Museet vil bli aapnet neste aar.', solution: 'Le musée sera ouvert l\'année prochaine.' },
+          { label: 'c', task: 'Museet vil bli åpnet neste år.', solution: 'Le musée sera ouvert l\'année prochaine.' },
         ],
         solution: 'a) a été écrit, b) est parlé, c) sera ouvert',
-        hints: ['ble skrevet = passé composé passiv', 'snakkes = présent passiv', 'vil bli aapnet = futur passiv'],
+        hints: ['ble skrevet = passé composé passiv', 'snakkes = présent passiv', 'vil bli åpnet = futur passiv'],
       },
     },
     {
@@ -1091,7 +1091,7 @@ export const CHAPTER_FRANSK_3_2_4: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '2.4',
   title: 'Constructions impersonnelles et mise en relief',
-  description: 'Laer om upersonlige konstruksjoner og framhevingsstrukturer for aa variere setningene dine.',
+  description: 'Lær om upersonlige konstruksjoner og framhevingsstrukturer for å variere setningene dine.',
   estimatedMinutes: 50,
   competenceGoals: [
     'bruke upersonlige konstruksjoner korrekt',
@@ -1106,12 +1106,12 @@ export const CHAPTER_FRANSK_3_2_4: TextbookChapter = {
 
 Upersonlige konstruksjoner begynner med **il** (upersonlig) og kan ikke ha et annet subjekt:
 
-**Vaer og natur:**
-- Il pleut. (Det regner.) / Il neige. (Det snoer.) / Il fait froid. (Det er kaldt.)
+**Vær og natur:**
+- Il pleut. (Det regner.) / Il neige. (Det snør.) / Il fait froid. (Det er kaldt.)
 
-**Noedvendighet og vurdering:**
-- Il faut + infinitiv/que + subjonctif (Man maa...)
-- Il est + adjektiv + de + infinitiv (Det er... aa...)
+**Nødvendighet og vurdering:**
+- Il faut + infinitiv/que + subjonctif (Man må...)
+- Il est + adjektiv + de + infinitiv (Det er... å...)
 - Il est + adjektiv + que + subjonctif/indikativ
 
 | Konstruksjon | Eksempel |
@@ -1128,23 +1128,23 @@ Upersonlige konstruksjoner begynner med **il** (upersonlig) og kan ikke ha et an
       type: 'definition',
       content: `## La mise en relief - Framheving
 
-**C'est...qui/que** brukes for aa framheve en del av setningen:
+**C'est...qui/que** brukes for å framheve en del av setningen:
 
 | Normal | Framhevet |
 |--------|-----------|
 | Marie parle. | **C'est Marie qui** parle. (Det er Marie som snakker.) |
 | Je vois Pierre. | **C'est Pierre que** je vois. (Det er Pierre jeg ser.) |
 | Il habite à Paris. | **C'est à Paris qu'**il habite. (Det er i Paris han bor.) |
-| Il est venu hier. | **C'est hier qu'**il est venu. (Det var i gaar han kom.) |
+| Il est venu hier. | **C'est hier qu'**il est venu. (Det var i går han kom.) |
 
 **Regler:**
 - **C'est...qui** framhever subjektet
 - **C'est...que** framhever objekt, sted, tid, etc.
 - Flertall: **Ce sont...qui/que** (formelt) eller **C'est...qui/que** (uformelt)
 
-**Andre framhevingsmaater:**
+**Andre framhevingsmåter:**
 - **Ce qui...c'est:** Ce qui m'intéresse, c'est la musique. (Det som interesserer meg, er musikk.)
-- **Ce que...c'est:** Ce que je veux, c'est partir. (Det jeg vil, er aa dra.)`,
+- **Ce que...c'est:** Ce que je veux, c'est partir. (Det jeg vil, er å dra.)`,
     },
     {
       id: 'fransk-3-2-4-example-1',
@@ -1155,7 +1155,7 @@ Upersonlige konstruksjoner begynner med **il** (upersonlig) og kan ikke ha et an
 a) **Pierre** a gagné le match.
 b) J'ai acheté **ce livre** hier.
 c) Nous sommes allés **en France** l'été dernier.`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) **C'est Pierre qui** a gagné le match. (subjekt → qui)
 b) **C'est ce livre que** j'ai acheté hier. (objekt → que)
@@ -1189,12 +1189,12 @@ c) **C'est en France que** nous sommes allés l'été dernier. (sted → que)`,
         difficulty: 'vanskelig',
         task: 'Oversett med upersonlig konstruksjon eller framheving:',
         subTasks: [
-          { label: 'a', task: 'Det er noedvendig at alle deltar.', solution: 'Il est nécessaire que tout le monde participe.' },
+          { label: 'a', task: 'Det er nødvendig at alle deltar.', solution: 'Il est nécessaire que tout le monde participe.' },
           { label: 'b', task: 'Det som interesserer meg, er fransk kultur.', solution: 'Ce qui m\'intéresse, c\'est la culture française.' },
           { label: 'c', task: 'Det er i Paris hun jobber.', solution: 'C\'est à Paris qu\'elle travaille.' },
         ],
         solution: 'a) Il est nécessaire que... participe, b) Ce qui m\'intéresse, c\'est..., c) C\'est à Paris qu\'...',
-        hints: ['noedvendig + subjonctif', 'Ce qui...c\'est for aa framheve det som interesserer', 'C\'est...que for aa framheve sted'],
+        hints: ['nødvendig + subjonctif', 'Ce qui...c\'est for å framheve det som interesserer', 'C\'est...que for å framheve sted'],
       },
     },
     {
@@ -1202,10 +1202,10 @@ c) **C'est en France que** nous sommes allés l'été dernier. (sted → que)`,
       type: 'note',
       content: `**Oppsummering kapittel 2:**
 
-| Tema | Noekkelpunkter |
+| Tema | Nøkkelpunkter |
 |------|---------------|
-| **Subj. imparfait** | Litteraer form, gjenkjenn -ât/-ît/-ût |
-| **Tidsharmoni** | Moderne: alltid subj. présent/passé. Litteraert: subj. imp./pqp etter fortid |
+| **Subj. imparfait** | Litterær form, gjenkjenn -ât/-ît/-ût |
+| **Tidsharmoni** | Moderne: alltid subj. présent/passé. Litterært: subj. imp./pqp etter fortid |
 | **Passiv** | être (riktig tid) + partisipp. Agent: par/de |
 | **Upersonlig** | Il est + adj + de/que. Il faut que + subj. |
 | **Framheving** | C'est...qui (subjekt), C'est...que (annet) |`,
@@ -1213,12 +1213,12 @@ c) **C'est en France que** nous sommes allés l'été dernier. (sted → que)`,
     {
       id: 'fransk-3-2-4-tip-1',
       type: 'tip',
-      content: `**Tips for variert setningsstruktur paa eksamen:**
+      content: `**Tips for variert setningsstruktur på eksamen:**
 
-1. Bruk **c'est...qui/que** for aa framheve viktige poenger
-2. Bruk **ce qui/ce que** for aa innlede med det viktigste
+1. Bruk **c'est...qui/que** for å framheve viktige poenger
+2. Bruk **ce qui/ce que** for å innlede med det viktigste
 3. Varier mellom aktiv og passiv
-4. Bruk upersonlige konstruksjoner for generelle paastander
+4. Bruk upersonlige konstruksjoner for generelle påstander
 5. Disse teknikkene viser at du behersker avansert fransk!`,
     },
   ],
@@ -1238,7 +1238,7 @@ export const CHAPTER_FRANSK_3_3_1: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '3.1',
   title: 'Le discours direct et indirect',
-  description: 'Laer aa omforme fra direkte til indirekte tale med riktig tidsforskyvning.',
+  description: 'Lær å omforme fra direkte til indirekte tale med riktig tidsforskyvning.',
   estimatedMinutes: 50,
   competenceGoals: [
     'omforme fra direkte til indirekte tale',
@@ -1250,7 +1250,7 @@ export const CHAPTER_FRANSK_3_3_1: TextbookChapter = {
       type: 'text',
       content: `## Le discours direct et indirect
 
-**Direkte tale:** Gjengir ordene noyaktig slik de ble sagt.
+**Direkte tale:** Gjengir ordene nøyaktig slik de ble sagt.
 *Marie dit: "Je suis fatiguée."*
 
 **Indirekte tale:** Gjengir innholdet uten sitatetegn.
@@ -1259,13 +1259,13 @@ export const CHAPTER_FRANSK_3_3_1: TextbookChapter = {
 **Endringer fra direkte til indirekte tale:**
 1. Sitatetegn og kolon forsvinner
 2. Pronomen endres
-3. Tidsforskyvning (naar rapporteringsverbet er i fortid)
+3. Tidsforskyvning (når rapporteringsverbet er i fortid)
 4. Tids- og stedsuttrykk endres`,
     },
     {
       id: 'fransk-3-3-1-def-1',
       type: 'definition',
-      content: `**Tidsforskyvning (naar rapporteringsverbet er i fortid):**
+      content: `**Tidsforskyvning (når rapporteringsverbet er i fortid):**
 
 | Direkte tale | Indirekte tale |
 |-------------|---------------|
@@ -1301,13 +1301,13 @@ export const CHAPTER_FRANSK_3_3_1: TextbookChapter = {
 a) Marie dit: "Je suis contente."
 b) Il dit: "J'ai fini mes devoirs."
 c) Elle dit: "Nous irons au cinéma."`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) Marie dit **qu'elle est contente**. (je → elle, ingen tidsforskyvning)
 b) Il dit **qu'il a fini ses devoirs**. (ingen tidsforskyvning)
 c) Elle dit **qu'ils iront au cinéma**. (nous → ils, ingen tidsforskyvning)
 
-**Naar rapporteringsverbet er i presens, endres IKKE verbaltidene!**`,
+**Når rapporteringsverbet er i presens, endres IKKE verbaltidene!**`,
     },
     {
       id: 'fransk-3-3-1-example-2',
@@ -1318,7 +1318,7 @@ c) Elle dit **qu'ils iront au cinéma**. (nous → ils, ingen tidsforskyvning)
 a) Marie a dit: "Je suis fatiguée."
 b) Il a dit: "J'ai vu ce film."
 c) Elle a dit: "Je viendrai demain."`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) Marie a dit **qu'elle était fatiguée**. (présent → imparfait)
 b) Il a dit **qu'il avait vu ce film**. (passé composé → plus-que-parfait)
@@ -1366,10 +1366,10 @@ c) Elle a dit **qu'elle viendrait le lendemain**. (futur → conditionnel, demai
       type: 'tip',
       content: `**Tips for indirekte tale:**
 
-1. Foerst: endre pronomenene (je → il/elle, tu → il/elle, nous → ils/elles)
-2. Saa: endre verbtiden (kun naar rapporteringsverbet er i fortid)
+1. Først: endre pronomenene (je → il/elle, tu → il/elle, nous → ils/elles)
+2. Så: endre verbtiden (kun når rapporteringsverbet er i fortid)
 3. Til slutt: endre tids-/stedsuttrykk
-4. Husk: imparfait forblir uendret (det er allerede "forskjoevet")`,
+4. Husk: imparfait forblir uendret (det er allerede "forskjøvet")`,
     },
   ],
   exercises: [],
@@ -1384,25 +1384,25 @@ export const CHAPTER_FRANSK_3_3_2: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '3.2',
   title: 'Le discours indirect - Questions et impératif',
-  description: 'Laer aa omforme sporsmaal og imperativ til indirekte tale.',
+  description: 'Lær å omforme spørsmål og imperativ til indirekte tale.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'omforme sporsmaal til indirekte tale',
+    'omforme spørsmål til indirekte tale',
     'omforme imperativ til indirekte tale',
   ],
   content: [
     {
       id: 'fransk-3-3-2-intro',
       type: 'text',
-      content: `## Sporsmaal i indirekte tale
+      content: `## Spørsmål i indirekte tale
 
-Sporsmaal endrer struktur naar de rapporteres indirekte:
+Spørsmål endrer struktur når de rapporteres indirekte:
 
-**Ja/nei-sporsmaal → si:**
+**Ja/nei-spørsmål → si:**
 - Direct: "Est-ce que tu viens?" / "Viens-tu?"
 - Indirect: Il demande **si** tu viens.
 
-**Hv-sporsmaal beholder sporsmalordet:**
+**Hv-spørsmål beholder spørsmålordet:**
 - "Qu'est-ce que tu fais?" → Il demande **ce que** tu fais.
 - "Qu'est-ce qui se passe?" → Il demande **ce qui** se passe.
 - "Où vas-tu?" → Il demande **où** tu vas.
@@ -1410,7 +1410,7 @@ Sporsmaal endrer struktur naar de rapporteres indirekte:
 - "Pourquoi es-tu triste?" → Il demande **pourquoi** tu es triste.
 - "Comment vas-tu?" → Il demande **comment** tu vas.
 
-**Merk:** Ingen inversjon eller "est-ce que" i indirekte sporsmaal!`,
+**Merk:** Ingen inversjon eller "est-ce que" i indirekte spørsmål!`,
     },
     {
       id: 'fransk-3-3-2-def-1',
@@ -1442,13 +1442,13 @@ Imperativ blir til **de + infinitiv**:
     {
       id: 'fransk-3-3-2-example-1',
       type: 'example',
-      title: 'Eksempel 1: Sporsmaal i indirekte tale',
+      title: 'Eksempel 1: Spørsmål i indirekte tale',
       problem: `Skriv om til indirekte tale (fortids rapportering):
 
 a) Il m'a demandé: "Est-ce que tu parles français?"
 b) Elle a demandé: "Où habites-tu?"
 c) Ils ont demandé: "Qu'est-ce qui s'est passé?"`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
 a) Il m'a demandé **si je parlais français**. (si + tidsforskyvning: parles → parlais)
 b) Elle a demandé **où j'habitais**. (où + tidsforskyvning: habites → habitais)
@@ -1481,24 +1481,24 @@ c) Ils ont demandé **ce qui s'était passé**. (ce qui + tidsforskyvning: s'est
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Oversett til indirekte tale paa fransk:',
+        task: 'Oversett til indirekte tale på fransk:',
         subTasks: [
           { label: 'a', task: 'Han spurte meg om jeg snakket fransk.', solution: 'Il m\'a demandé si je parlais français.' },
-          { label: 'b', task: 'Hun ba meg om aa vaere stille.', solution: 'Elle m\'a dit de me taire.' },
+          { label: 'b', task: 'Hun ba meg om å være stille.', solution: 'Elle m\'a dit de me taire.' },
           { label: 'c', task: 'De spurte hva som hadde skjedd.', solution: 'Ils ont demandé ce qui s\'était passé.' },
         ],
         solution: 'a) si je parlais, b) de me taire, c) ce qui s\'était passé',
-        hints: ['spurte om = a demandé si', 'ba meg om aa = a dit de', 'hva som = ce qui'],
+        hints: ['spurte om = a demandé si', 'ba meg om å = a dit de', 'hva som = ce qui'],
       },
     },
     {
       id: 'fransk-3-3-2-tip-1',
       type: 'tip',
-      content: `**Tips for indirekte sporsmaal og imperativ:**
+      content: `**Tips for indirekte spørsmål og imperativ:**
 
-1. ALDRI "est-ce que" i indirekte sporsmaal
-2. ALDRI inversjon i indirekte sporsmaal
-3. Ja/nei-sporsmaal → **si** (ikke "que")
+1. ALDRI "est-ce que" i indirekte spørsmål
+2. ALDRI inversjon i indirekte spørsmål
+3. Ja/nei-spørsmål → **si** (ikke "que")
 4. "Qu'est-ce que" → **ce que**, "Qu'est-ce qui" → **ce qui**
 5. Imperativ → **de + infinitiv**`,
     },
@@ -1515,10 +1515,10 @@ export const CHAPTER_FRANSK_3_3_3: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '3.3',
   title: 'Les connecteurs logiques - Logiske bindeord',
-  description: 'Laer aa bruke logiske bindeord for aa strukturere argumenterende tekster paa fransk.',
+  description: 'Lær å bruke logiske bindeord for å strukturere argumenterende tekster på fransk.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'bruke logiske bindeord for aarsak, konsekvens, motsetning og formaal',
+    'bruke logiske bindeord for årsak, konsekvens, motsetning og formål',
     'strukturere en argumenterende tekst med bindeord',
   ],
   content: [
@@ -1527,12 +1527,12 @@ export const CHAPTER_FRANSK_3_3_3: TextbookChapter = {
       type: 'text',
       content: `## Les connecteurs logiques
 
-Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte, akademiske tekster paa fransk. De viser forholdet mellom ideer og argument.`,
+Logiske bindeord (connecteurs logiques) er avgjørende for å skrive strukturerte, akademiske tekster på fransk. De viser forholdet mellom ideer og argument.`,
     },
     {
       id: 'fransk-3-3-3-def-1',
       type: 'definition',
-      content: `**Aarsak (la cause):**
+      content: `**Årsak (la cause):**
 
 | Bindeord | Norsk | Eksempel |
 |----------|-------|----------|
@@ -1541,9 +1541,9 @@ Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte
 | puisque | ettersom/siden | Puisqu'il pleut, restons ici. |
 | comme | ettersom (i begynnelsen) | Comme il pleut, je prends mon parapluie. |
 | étant donné que | gitt at | Étant donné qu'il pleut, restons. |
-| en raison de + substantiv | paa grunn av | En raison de la pluie, on reste. |
-| à cause de + substantiv | paa grunn av (negativt) | À cause de la pluie, on ne sort pas. |
-| grâce à + substantiv | takket vaere (positivt) | Grâce au soleil, on sort. |`,
+| en raison de + substantiv | på grunn av | En raison de la pluie, on reste. |
+| à cause de + substantiv | på grunn av (negativt) | À cause de la pluie, on ne sort pas. |
+| grâce à + substantiv | takket være (positivt) | Grâce au soleil, on sort. |`,
     },
     {
       id: 'fransk-3-3-3-text-1',
@@ -1552,11 +1552,11 @@ Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte
 
 | Bindeord | Norsk | Eksempel |
 |----------|-------|----------|
-| donc | altsaa/saa | Il pleut, donc je reste. |
+| donc | altså/så | Il pleut, donc je reste. |
 | par conséquent | folglich | Par conséquent, nous devons agir. |
 | c'est pourquoi | det er derfor | C'est pourquoi il est parti. |
-| ainsi | saaledes | Ainsi, le problème est résolu. |
-| de sorte que + indikativ | slik at (resultat) | Il a plu, de sorte que la route est mouillée. |
+| ainsi | således | Ainsi, le problème est résolu. |
+| de sorte que + indikativ | slik at (résultat) | Il a plu, de sorte que la route est mouillée. |
 | si bien que | slik at | Il a neigé, si bien que l'école est fermée. |
 
 **Motsetning (l'opposition):**
@@ -1571,25 +1571,25 @@ Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte
 | en revanche | derimot | En revanche, les prix ont baissé. |
 | alors que | mens/selv om | Il dort alors que je travaille. |
 
-**Innroemmelse (la concession):**
+**Innrømmelse (la concession):**
 
 | Bindeord | Norsk | Modus |
 |----------|-------|-------|
 | bien que + subjonctif | selv om | Bien qu'il pleuve... |
 | malgré + substantiv | til tross for | Malgré la pluie... |
-| quoique + subjonctif | skjoent | Quoiqu'il soit fatigué... |
+| quoique + subjonctif | skjønt | Quoiqu'il soit fatigué... |
 | même si + indikativ | selv om | Même s'il pleut... |`,
     },
     {
       id: 'fransk-3-3-3-text-2',
       type: 'text',
-      content: `**Formaal (le but):**
+      content: `**Formål (le but):**
 
 | Bindeord | Norsk | Modus |
 |----------|-------|-------|
-| pour + infinitiv | for aa | Il travaille pour réussir. |
+| pour + infinitiv | for å | Il travaille pour réussir. |
 | pour que + subjonctif | for at | Il travaille pour que sa famille soit heureuse. |
-| afin de + infinitiv | for aa | Afin de réussir, il étudie. |
+| afin de + infinitiv | for å | Afin de réussir, il étudie. |
 | afin que + subjonctif | for at | Afin qu'il comprenne... |
 | de façon à + infinitiv | slik at | De façon à réussir... |
 
@@ -1598,7 +1598,7 @@ Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte
 | Bindeord | Norsk | Modus |
 |----------|-------|-------|
 | si | hvis | Si tu veux, viens. |
-| à condition que + subjonctif | paa betingelse av at | À condition que tu viennes... |
+| à condition que + subjonctif | på betingelse av at | À condition que tu viennes... |
 | pourvu que + subjonctif | bare / forutsatt at | Pourvu qu'il fasse beau... |
 | à moins que + subjonctif | med mindre | À moins qu'il ne pleuve... |`,
     },
@@ -1608,15 +1608,15 @@ Logiske bindeord (connecteurs logiques) er avgjorende for aa skrive strukturerte
       title: 'Eksempel 1: Velg riktig bindeord',
       problem: `Fyll inn passende bindeord:
 
-a) Il ne peut pas venir ___ il est malade. (aarsak)
-b) ___ la pluie, nous sommes sortis. (innroemmelse + substantiv)
-c) Il étudie ___ réussir son examen. (formaal + infinitiv)
+a) Il ne peut pas venir ___ il est malade. (årsak)
+b) ___ la pluie, nous sommes sortis. (innrømmelse + substantiv)
+c) Il étudie ___ réussir son examen. (formål + infinitiv)
 d) Les prix ont augmenté, ___ les gens achètent moins. (konsekvens)`,
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-a) Il ne peut pas venir **parce qu'**il est malade. (aarsak)
-b) **Malgré** la pluie, nous sommes sortis. (innroemmelse + substantiv)
-c) Il étudie **pour/afin de** réussir son examen. (formaal)
+a) Il ne peut pas venir **parce qu'**il est malade. (årsak)
+b) **Malgré** la pluie, nous sommes sortis. (innrømmelse + substantiv)
+c) Il étudie **pour/afin de** réussir son examen. (formål)
 d) Les prix ont augmenté, **c'est pourquoi/donc** les gens achètent moins. (konsekvens)`,
     },
     {
@@ -1629,12 +1629,12 @@ d) Les prix ont augmenté, **c'est pourquoi/donc** les gens achètent moins. (ko
         difficulty: 'medium',
         task: 'Fyll inn passende bindeord:',
         subTasks: [
-          { label: 'a', task: '___ il soit intelligent, il a échoué à l\'examen. (innroemmelse + subj.)', solution: 'Bien qu\'il soit intelligent, il a échoué à l\'examen.' },
-          { label: 'b', task: 'Elle travaille beaucoup ___ ses enfants puissent étudier. (formaal + subj.)', solution: 'Elle travaille beaucoup pour que ses enfants puissent étudier.' },
+          { label: 'a', task: '___ il soit intelligent, il a échoué à l\'examen. (innrømmelse + subj.)', solution: 'Bien qu\'il soit intelligent, il a échoué à l\'examen.' },
+          { label: 'b', task: 'Elle travaille beaucoup ___ ses enfants puissent étudier. (formål + subj.)', solution: 'Elle travaille beaucoup pour que ses enfants puissent étudier.' },
           { label: 'c', task: 'Le film était long, ___ il était intéressant. (motsetning)', solution: 'Le film était long, cependant/néanmoins il était intéressant.' },
         ],
         solution: 'a) Bien que, b) pour que, c) cependant/néanmoins',
-        hints: ['Innroemmelse + subjonctif = bien que', 'Formaal med to subjekter = pour que + subj.', 'Motsetning = cependant, néanmoins'],
+        hints: ['Innrømmelse + subjonctif = bien que', 'Formål med to subjekter = pour que + subj.', 'Motsetning = cependant, néanmoins'],
       },
     },
     {
@@ -1647,9 +1647,9 @@ d) Les prix ont augmenté, **c'est pourquoi/donc** les gens achètent moins. (ko
         difficulty: 'vanskelig',
         task: 'Oversett til fransk med bindeord:',
         subTasks: [
-          { label: 'a', task: 'Selv om det regner, gaar vi ut.', solution: 'Bien qu\'il pleuve, nous sortons. / Même s\'il pleut, nous sortons.' },
+          { label: 'a', task: 'Selv om det regner, går vi ut.', solution: 'Bien qu\'il pleuve, nous sortons. / Même s\'il pleut, nous sortons.' },
           { label: 'b', task: 'Han jobber hardt, det er derfor han lykkes.', solution: 'Il travaille dur, c\'est pourquoi il réussit.' },
-          { label: 'c', task: 'For at alle skal forstaa, snakker han sakte.', solution: 'Pour que tout le monde comprenne, il parle lentement.' },
+          { label: 'c', task: 'For at alle skal forstå, snakker han sakte.', solution: 'Pour que tout le monde comprenne, il parle lentement.' },
         ],
         solution: 'a) Bien qu\'il pleuve / Même s\'il pleut, b) c\'est pourquoi, c) Pour que... comprenne',
         hints: ['selv om + subj. = bien que', 'det er derfor = c\'est pourquoi', 'for at + subj. = pour que'],
@@ -1658,12 +1658,12 @@ d) Les prix ont augmenté, **c'est pourquoi/donc** les gens achètent moins. (ko
     {
       id: 'fransk-3-3-3-tip-1',
       type: 'tip',
-      content: `**Tips for bruk av bindeord paa eksamen:**
+      content: `**Tips for bruk av bindeord på eksamen:**
 
-1. **Varier!** Ikke bruk bare "parce que" - bruk ogsaa "car", "puisque", "étant donné que"
+1. **Varier!** Ikke bruk bare "parce que" - bruk også "car", "puisque", "étant donné que"
 2. **Husk modus:** bien que/pour que/afin que = subjonctif, même si = indikativ
 3. **Formelle alternativer:** donc → par conséquent, mais → cependant/néanmoins
-4. **Innroemmelse:** bien que (+ subj.) er mer formelt enn même si (+ ind.)`,
+4. **Innrømmelse:** bien que (+ subj.) er mer formelt enn même si (+ ind.)`,
     },
   ],
   exercises: [],
@@ -1678,12 +1678,12 @@ export const CHAPTER_FRANSK_3_3_4: TextbookChapter = {
   courseId: 'fransk-3',
   chapterNumber: '3.4',
   title: 'L\'argumentation - Argumentasjonsteknikk',
-  description: 'Laer aa skrive argumenterende tekster med klar struktur og overbevisende sprak.',
+  description: 'Lær å skrive argumenterende tekster med klar struktur og overbevisende språk.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'strukturere en argumenterende tekst paa fransk',
+    'strukturere en argumenterende tekst på fransk',
     'bruke innledende, additive og konkluderende uttrykk',
-    'skrive en moensterbesvarelse for eksamen',
+    'skrive en mønsterbesvarelse for eksamen',
   ],
   content: [
     {
@@ -1691,7 +1691,7 @@ export const CHAPTER_FRANSK_3_3_4: TextbookChapter = {
       type: 'text',
       content: `## L'argumentation - Strukturert argumentasjon
 
-En god argumenterende tekst paa fransk foelger en klar struktur:
+En god argumenterende tekst på fransk følger en klar struktur:
 
 1. **L'introduction** (innledning) - Presenter temaet og problematikken
 2. **Le développement** (hoveddel) - Presenter argumenter for og imot
@@ -1707,18 +1707,18 @@ Denne strukturen kalles ofte "la dissertation" i fransk tradisjon.`,
 **Innlede et argument (introduire):**
 | Fransk | Norsk |
 |--------|-------|
-| Premièrement / D'abord / En premier lieu | For det foerste |
-| Tout d'abord | Foerst og fremst |
-| Il convient de souligner que | Det boer understrekes at |
+| Premièrement / D'abord / En premier lieu | For det første |
+| Tout d'abord | Først og fremst |
+| Il convient de souligner que | Det bør understrekes at |
 | Il est indéniable que | Det er ubestridelig at |
 
 **Legge til (ajouter):**
 | Fransk | Norsk |
 |--------|-------|
 | De plus / En outre | Dessuten |
-| Par ailleurs | For oevrig |
+| Par ailleurs | For øvrig |
 | Deuxièmement / Ensuite | For det andre / Deretter |
-| Non seulement... mais aussi | Ikke bare... men ogsaa |
+| Non seulement... mais aussi | Ikke bare... men også |
 
 **Gi eksempler:**
 | Fransk | Norsk |
@@ -1733,7 +1733,7 @@ Denne strukturen kalles ofte "la dissertation" i fransk tradisjon.`,
 |--------|-------|
 | Cependant / Toutefois | Likevel / Imidlertid |
 | En revanche | Derimot |
-| D'un autre côté | Paa den andre siden |
+| D'un autre côté | På den andre siden |
 | Certes... mais | Riktignok... men |
 
 **Konkludere:**
@@ -1742,41 +1742,41 @@ Denne strukturen kalles ofte "la dissertation" i fransk tradisjon.`,
 | En conclusion / Pour conclure | Avslutningsvis |
 | En somme / En résumé | Oppsummert |
 | En définitive | Til syvende og sist |
-| Ainsi | Saaledes |`,
+| Ainsi | Således |`,
     },
     {
       id: 'fransk-3-3-4-text-1',
       type: 'text',
-      content: `## Moensterstruktur for argumenterende tekst
+      content: `## Mønsterstruktur for argumenterende tekst
 
 **Introduction:**
-- Aapning (kontekst/aktualisering)
+- Åpning (kontekst/aktualisering)
 - Presentasjon av temaet
-- Problematikk (sporsmaalet du skal besvare)
+- Problematikk (spørsmålet du skal besvare)
 - Annonsering av planen
 
 **Développement (2-3 avsnitt):**
-- Avsnitt 1: Foerste argument + eksempel + analyse
+- Avsnitt 1: Første argument + eksempel + analyse
 - Avsnitt 2: Andre argument + eksempel + analyse
 - (Avsnitt 3: Motargument + svar / nyansering)
 
 **Conclusion:**
 - Oppsummering av hovedpunktene
-- Svar paa problematikken
-- Aapning / perspektivering
+- Svar på problematikken
+- Åpning / perspektivering
 
 **Tips for hvert avsnitt:**
 1. Innled med en topiksetning (l'idée principale)
 2. Utvikl med argumenter og eksempler
-3. Analyser: forklar HVORFOR eksempelet stoetter argumentet
+3. Analyser: forklar HVORFOR eksempelet støtter argumentet
 4. Avslutt med overgang til neste avsnitt`,
     },
     {
       id: 'fransk-3-3-4-example-1',
       type: 'example',
-      title: 'Eksempel 1: Moensterbesvarelse - argumenterende tekst',
+      title: 'Eksempel 1: Mønsterbesvarelse - argumenterende tekst',
       problem: `Skriv en kort argumenterende tekst om temaet: "Bør mobiltelefoner forbys i skolen?"`,
-      solution: `**Moensterbesvarelse:**
+      solution: `**Mønsterbesvarelse:**
 
 **Introduction:**
 De nos jours, la question de l'utilisation des téléphones portables à l'école est au coeur du débat éducatif. Faut-il interdire les portables dans les établissements scolaires? Nous examinerons d'abord les arguments en faveur de cette interdiction, puis les objections possibles.
@@ -1802,9 +1802,9 @@ En conclusion, bien que les téléphones portables présentent certains avantage
         subTasks: [
           { label: 'a', task: 'Bruk "Il est indéniable que..." om klimaendringer.', solution: 'Il est indéniable que le changement climatique est l\'un des plus grands défis de notre époque.' },
           { label: 'b', task: 'Bruk "Certes... mais..." om sosiale medier.', solution: 'Certes, les réseaux sociaux permettent de rester en contact, mais ils peuvent aussi nuire à la santé mentale.' },
-          { label: 'c', task: 'Bruk "En conclusion..." for aa avslutte en tekst om utdanning.', solution: 'En conclusion, l\'éducation est la clé du développement, c\'est pourquoi il est essentiel d\'investir dans les écoles.' },
+          { label: 'c', task: 'Bruk "En conclusion..." for å avslutte en tekst om utdanning.', solution: 'En conclusion, l\'éducation est la clé du développement, c\'est pourquoi il est essentiel d\'investir dans les écoles.' },
         ],
-        solution: 'Aapne svar - se eksempler over.',
+        solution: 'Åpne svar - se eksempler over.',
         hints: ['indéniable = ubestridelig', 'certes...mais = riktignok...men', 'en conclusion = avslutningsvis'],
       },
     },
@@ -1821,7 +1821,7 @@ En conclusion, bien que les téléphones portables présentent certains avantage
           { label: 'a', task: 'Tema 1: "Les réseaux sociaux: avantage ou danger pour les jeunes?"', solution: 'Vurder fordeler (kommunikasjon, informasjon) og ulemper (avhengighet, personvern, mobbing). Bruk: premièrement, de plus, cependant, en effet, en conclusion.' },
           { label: 'b', task: 'Tema 2: "Apprendre des langues étrangères: est-ce encore nécessaire à l\'ère de la traduction automatique?"', solution: 'Argumenter for (kultur, kognitive fordeler, nyanser) og mot (teknologi, effektivitet). Bruk: tout d\'abord, néanmoins, par exemple, c\'est pourquoi, en définitive.' },
         ],
-        solution: 'Fri oppgave - bruk moensterstrukturen: introduction, développement (for/mot), conclusion.',
+        solution: 'Fri oppgave - bruk mønsterstrukturen: introduction, développement (for/mot), conclusion.',
         hints: ['Bruk varierte bindeord', 'Vis subjonctif: bien que, pour que', 'Strukturer klart med avsnitt'],
       },
     },
@@ -1830,12 +1830,12 @@ En conclusion, bien que les téléphones portables présentent certains avantage
       type: 'note',
       content: `**Oppsummering kapittel 3 - Diskurs og Argumentasjon:**
 
-| Tema | Noekkelpunkter |
+| Tema | Nøkkelpunkter |
 |------|---------------|
 | **Direkte → Indirekte tale** | Tidsforskyvning, pronomenendring, tids-/stedsuttrykk |
-| **Sporsmaal indirekte** | Ja/nei → si, Qu'est-ce que → ce que, ingen inversjon |
+| **Spørsmål indirekte** | Ja/nei → si, Qu'est-ce que → ce que, ingen inversjon |
 | **Imperativ indirekte** | → de + infinitiv |
-| **Bindeord** | Aarsak, konsekvens, motsetning, innroemmelse, formaal |
+| **Bindeord** | Årsak, konsekvens, motsetning, innrømmelse, formål |
 | **Argumentasjon** | Introduction → Développement → Conclusion |`,
     },
     {
@@ -1843,13 +1843,13 @@ En conclusion, bien que les téléphones portables présentent certains avantage
       type: 'tip',
       content: `**Eksamensstrategi for argumenterende tekst:**
 
-1. **Les oppgaven noeye** - forstaa noyaktig hva du blir bedt om
-2. **Lag en plan foerst** - noter argumenter for og mot
+1. **Les oppgaven nøye** - forstå nøyaktig hva du blir bedt om
+2. **Lag en plan først** - noter argumenter for og mot
 3. **Skriv en tydelig innledning** med problematikk
 4. **Bruk ett avsnitt per argument** med eksempler
-5. **Varier sprakbruken** - bruk ulike bindeord, subjonctif, passiv, framheving
-6. **Avslutt med en klar konklusjon** som svarer paa spoorsmaalet
-7. **Les gjennom** - sjekk grammatikk, samsvarsboyning og bindeord`,
+5. **Varier språkbruken** - bruk ulike bindeord, subjonctif, passiv, framheving
+6. **Avslutt med en klar konklusjon** som svarer på spørsmålet
+7. **Les gjennom** - sjekk grammatikk, samsvarsbøyning og bindeord`,
     },
   ],
   exercises: [],

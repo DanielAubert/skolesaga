@@ -1,12 +1,12 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * Tysk Niva 3 - Kapittel 9-10
+ * Tysk Nivå 3 - Kapittel 9-10
  *
  * Kapittel 9: Wissenschaft und Akademie
- * Kapittel 10: Prufungsvorbereitung
+ * Kapittel 10: Prüfungsvorbereitung
  *
- * Avansert tysk med fokus pa akademisk sprak og eksamensforberedelse
+ * Avansert tysk med fokus på akademisk språk og eksamensforberedelse
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -21,10 +21,10 @@ export const CHAPTER_TYSK_3_9_1: TextbookChapter = {
   chapterNumber: '9.1',
   title: 'Akademische Texte lesen',
   subtitle: 'Lese akademiske tekster',
-  description: 'Laer a lese og forsta akademiske tekster pa tysk, inkludert abstrakt, sammendrag og fagartikler.',
+  description: 'Lær å lese og forstå akademiske tekster på tysk, inkludert abstrakt, sammendrag og fagartikler.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'lese og forsta akademiske tekster pa tysk',
+    'lese og forstå akademiske tekster på tysk',
     'identifisere hovedargumenter og struktur i fagartikler',
     'bruke lesestrategier for komplekse tekster',
   ],
@@ -34,10 +34,10 @@ export const CHAPTER_TYSK_3_9_1: TextbookChapter = {
       type: 'text',
       content: `## Akademische Texte verstehen
 
-Akademiske tekster pa tysk har en egen stil og struktur som skiller seg fra hverdagssprak. For a lykkes med hoyre utdanning i tysktalende land - eller for a lese tysk faglitteratur - ma du mestre denne teksttypen.
+Akademiske tekster på tysk har en egen stil og struktur som skiller seg fra hverdagsspråk. For å lykkes med høyre utdanning i tysktalende land - eller for å lese tysk faglitteratur - må du mestre denne teksttypen.
 
 **Kjennetegn ved akademiske tekster:**
-- Presist og formelt sprak
+- Presist og formelt språk
 - Lange, komplekse setninger
 - Fagterminologi (Fachsprache)
 - Nominalstil (substantivering av verb)
@@ -54,7 +54,7 @@ Akademiske tekster pa tysk har en egen stil og struktur som skiller seg fra hver
 | Abstrakt | das Abstract / die Zusammenfassung | Kort sammendrag av artikkel |
 | Fagartikkel | der Fachartikel | Presenterer forskning |
 | Avhandling | die Dissertation / die Doktorarbeit | Doktorgradsavhandling |
-| Essay | der Essay / die Abhandlung | Droftende tekst |
+| Essay | der Essay / die Abhandlung | Drøftende tekst |
 | Anmeldelse | die Rezension | Kritisk vurdering |
 | Forelesningsnotat | das Vorlesungsskript | Notater fra forelesning |`,
     },
@@ -64,16 +64,16 @@ Akademiske tekster pa tysk har en egen stil og struktur som skiller seg fra hver
       title: 'Eksempel 1: Lese et abstrakt',
       problem: `Les dette abstraktet fra en vitenskapelig artikkel:
 
-*"Die vorliegende Studie untersucht den Einfluss der Digitalisierung auf das Leseverhalten von Jugendlichen im Alter von 14 bis 18 Jahren. Mittels einer quantitativen Befragung von 500 Schulern wurden Daten zu Lesegewohnheiten, Mediennutzung und Lesekompetenz erhoben. Die Ergebnisse zeigen, dass digitale Medien das traditionelle Bucherlesen nicht verdrangt haben, sondern zu einer Diversifizierung des Leseverhaltens gefuhrt haben. Implikationen fur die padagogische Praxis werden diskutiert."*
+*"Die vorliegende Studie untersucht den Einfluss der Digitalisierung auf das Leseverhalten von Jugendlichen im Alter von 14 bis 18 Jahren. Mittels einer quantitativen Befragung von 500 Schülern wurden Daten zu Lesegewohnheiten, Mediennutzung und Lesekompetenz erhoben. Die Ergebnisse zeigen, dass digitale Medien das traditionelle Bücherlesen nicht verdrangt haben, sondern zu einer Diversifizierung des Leseverhaltens geführt haben. Implikationen für die pädagogische Praxis werden diskutiert."*
 
 a) Hva er hovedtemaet for studien?
 b) Hvilken metode ble brukt?
 c) Hva er hovedfunnet?`,
-      solution: `a) **Hovedtema:** Digitaliseringens innvirkning pa ungdommers lesevaner (Einfluss der Digitalisierung auf das Leseverhalten von Jugendlichen)
+      solution: `a) **Hovedtema:** Digitaliseringens innvirkning på ungdommers lesevaner (Einfluss der Digitalisierung auf das Leseverhalten von Jugendlichen)
 
-b) **Metode:** Kvantitativ sporreundersokelse (quantitative Befragung) med 500 elever. Data ble samlet inn om lesevaner, mediebruk og lesekompetanse.
+b) **Metode:** Kvantitativ sporreundersøkelse (quantitative Befragung) med 500 elever. Data ble samlet inn om lesevaner, mediebruk og lesekompetanse.
 
-c) **Hovedfunn:** Digitale medier har ikke fortrengt tradisjonell boklesing, men fort til en diversifisering (mangfoldiggjoring) av lesevanene.
+c) **Hovedfunn:** Digitale medier har ikke fortrengt tradisjonell boklesing, men ført til en diversifisering (mangfoldiggjoring) av lesevanene.
 
 **Nyttige ord fra teksten:**
 - die vorliegende Studie = den foreliggende studien
@@ -93,12 +93,12 @@ c) **Hovedfunn:** Digitale medier har ikke fortrengt tradisjonell boklesing, men
         task: 'Oversett disse akademiske uttrykkene til norsk.',
         subTasks: [
           { label: 'a', task: 'Die vorliegende Arbeit befasst sich mit...', solution: 'Dette arbeidet tar for seg...' },
-          { label: 'b', task: 'Im Folgenden wird erortert...', solution: 'I det folgende vil det drøftes...' },
-          { label: 'c', task: 'Es lasst sich feststellen, dass...', solution: 'Det kan fastslas at...' },
-          { label: 'd', task: 'Die Ergebnisse deuten darauf hin, dass...', solution: 'Resultatene tyder pa at...' },
+          { label: 'b', task: 'Im Følgenden wird erörtert...', solution: 'I det følgende vil det drøftes...' },
+          { label: 'c', task: 'Es lässt sich feststellen, dass...', solution: 'Det kan fastslås at...' },
+          { label: 'd', task: 'Die Ergebnisse deuten darauf hin, dass...', solution: 'Resultatene tyder på at...' },
         ],
-        solution: 'a) Dette arbeidet tar for seg... b) I det folgende vil det drøftes... c) Det kan fastslas at... d) Resultatene tyder pa at...',
-        hints: ['Akademisk tysk bruker ofte passiv og upersonlige konstruksjoner', 'Vær oppmerksom pa preposisjoner som "sich befassen mit"'],
+        solution: 'a) Dette arbeidet tar for seg... b) I det følgende vil det drøftes... c) Det kan fastslås at... d) Resultatene tyder på at...',
+        hints: ['Akademisk tysk bruker ofte passiv og upersonlige konstruksjoner', 'Vær oppmerksom på preposisjoner som "sich befassen mit"'],
       },
     },
     {
@@ -106,11 +106,11 @@ c) **Hovedfunn:** Digitale medier har ikke fortrengt tradisjonell boklesing, men
       type: 'text',
       content: `## Lesestrategier for akademiske tekster
 
-**1. Skumlesing (Uberfliegen)**
-Les overskrifter, innledning og avslutning forst. Fa oversikt for du leser detaljert.
+**1. Skumlesing (Überfliegen)**
+Les overskrifter, innledning og avslutning først. Få oversikt for du leser detaljert.
 
-**2. Nokkelordstrategi**
-Identifiser fagtermer og nokkelord. Slag opp ukjente ord i fagordbok.
+**2. Nøkkelordstrategi**
+Identifiser fagtermer og nøkkelord. Slag opp ukjente ord i fagordbok.
 
 **3. Strukturanalyse**
 Identifiser tekstens oppbygging:
@@ -119,7 +119,7 @@ Identifiser tekstens oppbygging:
 - Schluss/Fazit (avslutning/konklusjon)
 
 **4. Aktiv lesing**
-Still sporsmal til teksten: Hva? Hvorfor? Hvordan? Hva er konsekvensen?
+Still spørsmål til teksten: Hva? Hvorfor? Hvordan? Hva er konsekvensen?
 
 **5. Notatteknikk**
 Lag stikkord og sammendrag underveis.`,
@@ -128,28 +128,28 @@ Lag stikkord og sammendrag underveis.`,
       id: 'tysk-3-9-1-example-2',
       type: 'example',
       title: 'Eksempel 2: Identifisere struktur',
-      problem: `Les dette utdraget og identifiser hvilken del av en akademisk tekst det tilhorer:
+      problem: `Les dette utdraget og identifiser hvilken del av en akademisk tekst det tilhører:
 
 **Tekst A:**
-*"Zusammenfassend lasst sich sagen, dass die untersuchten Faktoren einen signifikanten Einfluss auf die Lernergebnisse haben. Zukunftige Forschung sollte diese Zusammenhange in anderen Kontexten uberprufen."*
+*"Zusammenfassend lässt sich sagen, dass die untersuchten Faktoren einen signifikanten Einfluss auf die Lernergebnisse haben. Zukunftige Forschung sollte diese Zusammenhänge in anderen Kontexten überprüfen."*
 
 **Tekst B:**
-*"In den letzten Jahren hat das Interesse an nachhaltiger Stadtentwicklung stark zugenommen. Diese Arbeit untersucht, welche Massnahmen europaische Grosstädte ergriffen haben, um den CO2-Ausstoss zu reduzieren."*
+*"In den letzten Jahren hat das Interesse an nachhaltiger Städtentwicklung stark zugenommen. Diese Arbeit untersucht, welche Maßnahmen europäische Großstädte ergriffen haben, um den CO2-Ausstoß zu reduzieren."*
 
 Hvilken tekst er fra innledningen og hvilken er fra konklusjonen?`,
       solution: `**Tekst A = Konklusjon (Schluss/Fazit)**
-- Signalord: "Zusammenfassend lasst sich sagen" (oppsummerende kan man si)
+- Signalord: "Zusammenfassend lässt sich sagen" (oppsummerende kan man si)
 - Inneholder oppsummering av funn og forslag til fremtidig forskning
 
 **Tekst B = Innledning (Einleitung)**
 - Presenterer bakgrunn og kontekst
-- Signalord: "In den letzten Jahren" (de siste arene)
-- Presenterer hva arbeidet skal undersoke
+- Signalord: "In den letzten Jahren" (de siste årene)
+- Presenterer hva arbeidet skal undersøke
 
 **Nyttige signalord:**
 - Innledning: zunächst, erstens, diese Arbeit untersucht
 - Hoveddel: darüber hinaus, ferner, im Vergleich zu
-- Konklusjon: zusammenfassend, abschliessend, folglich`,
+- Konklusjon: zusammenfassend, abschließend, folglich`,
     },
     {
       id: 'tysk-3-9-1-ex-block-2',
@@ -159,25 +159,25 @@ Hvilken tekst er fra innledningen og hvilken er fra konklusjonen?`,
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Les tekstutdraget og svar pa sporsmalene.',
+        task: 'Les tekstutdraget og svar på spørsmålene.',
         subTasks: [
           {
             label: 'a',
-            task: `"Die Globalisierung hat zu tiefgreifenden Veranderungen in der Arbeitswelt gefuhrt. Wahrend einerseits neue Berufsfelder entstanden sind, hat andererseits die Arbeitsplatzunsicherheit in traditionellen Branchen zugenommen." - Hva er tekstens hovedpåstand?`,
-            solution: 'Globaliseringen har fort til dyptgripende endringer i arbeidslivet - bade positive (nye yrkesfelt) og negative (usikkerhet i tradisjonelle bransjer).'
+            task: `"Die Globalisierung hat zu tiefgreifenden Veränderungen in der Arbeitswelt geführt. Während einerseits neue Berufsfelder entstanden sind, hat andererseits die Arbeitsplatzunsicherheit in traditionellen Branchen zugenommen." - Hva er tekstens hovedpåstand?`,
+            solution: 'Globaliseringen har ført til dyptgripende endringer i arbeidslivet - både positive (nye yrkesfelt) og negative (usikkerhet i tradisjonelle bransjer).'
           },
           {
             label: 'b',
             task: 'Hvilket retorisk grep brukes i teksten?',
-            solution: 'Einerseits... andererseits (pa den ene siden... pa den andre siden) - viser to sider av saken.'
+            solution: 'Einerseits... andererseits (på den ene siden... på den andre siden) - viser to sider av saken.'
           },
           {
             label: 'c',
-            task: 'Forklar ordet "tiefgreifend" pa norsk.',
+            task: 'Forklar ordet "tiefgreifend" på norsk.',
             solution: 'Dyptgripende, grunnleggende, omfattende'
           },
         ],
-        solution: 'a) Globaliseringen har fort til bade positive og negative endringer i arbeidslivet. b) Einerseits... andererseits. c) Dyptgripende.',
+        solution: 'a) Globaliseringen har ført til både positive og negative endringer i arbeidslivet. b) Einerseits... andererseits. c) Dyptgripende.',
         hints: ['Let etter kontrasterende elementer i teksten', 'Sammensatte ord kan ofte oversettes direkte: tief = dyp, greifend = gripende'],
       },
     },
@@ -191,21 +191,21 @@ Hvilken tekst er fra innledningen og hvilken er fra konklusjonen?`,
 |------|-------|
 | Die vorliegende Studie... | Den foreliggende studien... |
 | Im Rahmen dieser Arbeit... | I rammen av dette arbeidet... |
-| Gegenstand der Untersuchung ist... | Undersokelsens gjenstand er... |
-| Es wird der Frage nachgegangen... | Det undersokes sporsmalet om... |
+| Gegenstand der Untersuchung ist... | Undersøkelsens gjenstand er... |
+| Es wird der Frage nachgegangen... | Det undersøkes spørsmålet om... |
 
 **Argumenterende fraser:**
 | Tysk | Norsk |
 |------|-------|
-| Es ist anzunehmen, dass... | Det er a anta at... |
-| Hieraus folgt... | Av dette folger... |
+| Es ist anzunehmen, dass... | Det er å anta at... |
+| Hieraus folgt... | Av dette følger... |
 | Im Gegensatz dazu... | I motsetning til dette... |
 | Dem ist entgegenzuhalten, dass... | Mot dette kan innvendes at... |`,
     },
     {
       id: 'tysk-3-9-1-example-3',
       type: 'example',
-      title: 'Eksempel 3: Akademisk ordforrad',
+      title: 'Eksempel 3: Akademisk ordforråd',
       problem: `Finn det akademiske uttrykket som passer:
 
 1. "Denne studien viser at..." = ___
@@ -214,11 +214,11 @@ Hvilken tekst er fra innledningen og hvilken er fra konklusjonen?`,
 4. "Det kan konkluderes med at..." = ___`,
       solution: `1. "Denne studien viser at..." = **Diese Studie zeigt, dass...** / **Die vorliegende Untersuchung belegt, dass...**
 
-2. "Resultatene bekrefter hypotesen" = **Die Ergebnisse bestatigen die Hypothese** / **Die Resultate stutzen die Annahme**
+2. "Resultatene bekrefter hypotesen" = **Die Ergebnisse bestätigen die Hypothese** / **Die Resultate stützen die Annahme**
 
-3. "I motsetning til tidligere forskning..." = **Im Gegensatz zu fruheren Forschungen...** / **Anders als bisherige Studien...**
+3. "I motsetning til tidligere forskning..." = **Im Gegensatz zu früheren Forschungen...** / **Anders als bisherige Studien...**
 
-4. "Det kan konkluderes med at..." = **Es lasst sich schlussfolgern, dass...** / **Daraus ergibt sich die Schlussfolgerung, dass...**`,
+4. "Det kan konkluderes med at..." = **Es lässt sich schlussfølgern, dass...** / **Daraus ergibt sich die Schlussfølgerung, dass...**`,
     },
     {
       id: 'tysk-3-9-1-ex-block-3',
@@ -228,28 +228,28 @@ Hvilken tekst er fra innledningen og hvilken er fra konklusjonen?`,
         number: '3',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Les abstraktet og lag et sammendrag pa norsk (3-4 setninger).',
+        task: 'Les abstraktet og lag et sammendrag på norsk (3-4 setninger).',
         subTasks: [
           {
             label: 'a',
-            task: `"Die Auswirkungen des Klimawandels auf die alpine Flora stehen im Mittelpunkt dieser Untersuchung. Anhand von Langzeitdaten aus funf Schweizer Regionen wird analysiert, wie sich die Vegetationszonen in den letzten 50 Jahren verschoben haben. Die Befunde zeigen eine deutliche Hohenverschiebung vieler Pflanzenarten um durchschnittlich 200 Meter. Diese Entwicklung hat weitreichende Konsequenzen fur die Biodiversitat in Gebirgsregionen."`,
-            solution: 'Studien undersøker klimaendringenes effekt pa alpin flora i Sveits. Ved hjelp av langtidsdata fra fem regioner viser den at plantene har flyttet seg gjennomsnittlig 200 meter høyere opp de siste 50 arene. Dette har store konsekvenser for biologisk mangfold i fjellområder.'
+            task: `"Die Auswirkungen des Klimawandels auf die alpine Flora stehen im Mittelpunkt dieser Untersuchung. Anhand von Langzeitdaten aus fünf Schweizer Regionen wird analysiert, wie sich die Vegetationszonen in den letzten 50 Jahren verschoben haben. Die Befunde zeigen eine deutliche Höhenverschiebung vieler Pflanzenarten um durchschnittlich 200 Meter. Diese Entwicklung hat weitreichende Konsequenzen für die Biodiversitat in Gebirgsregionen."`,
+            solution: 'Studien undersøker klimaendringenes effekt på alpin flora i Sveits. Ved hjelp av langtidsdata fra fem regioner viser den at plantene har flyttet seg gjennomsnittlig 200 meter høyere opp de siste 50 årene. Dette har store konsekvenser for biologisk mangfold i fjellområder.'
           },
         ],
-        solution: 'Studien undersøker klimaendringenes effekt pa alpin flora. Plantesonene har forskjøvet seg 200 meter oppover de siste 50 arene, noe som påvirker biologisk mangfold.',
-        hints: ['Fokuser pa hovedfunn og metode', 'Bruk egne ord, ikke direkte oversettelse'],
+        solution: 'Studien undersøker klimaendringenes effekt på alpin flora. Plantesonene har forskjøvet seg 200 meter oppover de siste 50 årene, noe som påvirker biologisk mangfold.',
+        hints: ['Fokuser på hovedfunn og metode', 'Bruk egne ord, ikke direkte oversettelse'],
       },
     },
     {
       id: 'tysk-3-9-1-note-1',
       type: 'note',
       title: 'Eksamentips',
-      content: `Ved lesing av akademiske tekster pa eksamen:
+      content: `Ved lesing av akademiske tekster på eksamen:
 1. Les overskrift og ingress forst
-2. Identifiser nokkelord for du leser hele teksten
+2. Identifiser nøkkelord for du leser hele teksten
 3. Let etter signalord som viser struktur
-4. Svar pa sporsmalene med egne ord, men bruk fagtermer fra teksten
-5. Pass pa falske venner (f.eks. "aktuell" = nodvendig/dagsaktuell, ikke "faktisk")`,
+4. Svar på spørsmålene med egne ord, men bruk fagtermer fra teksten
+5. Pass på falske venner (f.eks. "aktuell" = nødvendig/dagsaktuell, ikke "faktisk")`,
     },
   ],
   exercises: [],
@@ -265,12 +265,12 @@ export const CHAPTER_TYSK_3_9_2: TextbookChapter = {
   chapterNumber: '9.2',
   title: 'Wissenschaftliches Schreiben',
   subtitle: 'Akademisk skriving',
-  description: 'Laer a skrive akademiske tekster pa tysk med korrekt struktur, stil og kildehenvisninger.',
+  description: 'Lær å skrive akademiske tekster på tysk med korrekt struktur, stil og kildehenvisninger.',
   estimatedMinutes: 50,
   competenceGoals: [
     'skrive akademiske tekster med korrekt struktur',
     'bruke akademisk stil og formuleringer',
-    'handtere kilder og referanser pa tysk',
+    'håndtere kilder og referanser på tysk',
   ],
   content: [
     {
@@ -278,12 +278,12 @@ export const CHAPTER_TYSK_3_9_2: TextbookChapter = {
       type: 'text',
       content: `## Wissenschaftliches Schreiben
 
-Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kildebruk. Enten du skriver en semesteroppgave, et essay eller en avhandling, ma du beherske disse reglene.
+Akademisk skriving på tysk følger strenge konvensjoner for struktur, stil og kildebruk. Enten du skriver en semesteroppgave, et essay eller en avhandling, må du beherske disse reglene.
 
 **Grunnprinsipper:**
-- Objektivitet (unnga "ich" og personlige meninger uten belegg)
-- Presisjon (noyaktig ordbruk og definisjoner)
-- Etterprovarhet (alle pastand ma kunne belegges)
+- Objektivitet (unngå "ich" og personlige meninger uten belegg)
+- Presisjon (nøyaktig ordbruk og definisjoner)
+- Etterprovarhet (alle påstand må kunne belegges)
 - Struktur (tydelig oppbygging)`,
     },
     {
@@ -299,13 +299,13 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
 **2. Hauptteil (Hoveddel) - ca. 80%**
 - Teoretisk rammeverk
 - Metode (hvis relevant)
-- Analyse og drofting
+- Analyse og drøfting
 - Argumentasjon med belegg
 
 **3. Schluss/Fazit (Avslutning) - ca. 10%**
 - Oppsummerer hovedfunn
 - Besvarer problemstillingen
-- Peker pa videre forskning`,
+- Peker på videre forskning`,
     },
     {
       id: 'tysk-3-9-2-example-1',
@@ -314,17 +314,17 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
       problem: `Du skal skrive en innledning til en oppgave om "Ungdom og sosiale medier". Bruk denne malen:
 
 **Mal for innledning:**
-1. Aktualisering (hvorfor er temaet relevant na?)
-2. Problemstilling (hva skal undersokes?)
+1. Aktualisering (hvorfor er temaet relevant nå?)
+2. Problemstilling (hva skal undersøkes?)
 3. Avgrensning (hva inkluderes/ekskluderes?)
 4. Oppbygging (hvordan er teksten strukturert?)`,
-      solution: `**Eksempel pa innledning:**
+      solution: `**Eksempel på innledning:**
 
-*"Soziale Medien sind aus dem Alltag von Jugendlichen kaum noch wegzudenken. Laut einer aktuellen Studie des Statistischen Bundesamtes nutzen 95 Prozent der 14- bis 19-Jahrigen taglich soziale Netzwerke (vgl. Statistisches Bundesamt, 2024). Diese Entwicklung wirft Fragen nach den Auswirkungen auf das Sozialverhalten und die psychische Gesundheit junger Menschen auf.*
+*"Soziale Medien sind aus dem Alltag von Jugendlichen kaum noch wegzudenken. Laut einer aktuellen Studie des Statistischen Bundesamtes nutzen 95 Prozent der 14- bis 19-Jährigen täglich soziale Netzwerke (vgl. Statistisches Bundesamt, 2024). Diese Entwicklung wirft Fragen nach den Auswirkungen auf das Sozialverhalten und die psychische Gesundheit junger Menschen auf.*
 
 *Die vorliegende Arbeit geht der Frage nach, welchen Einfluss die Nutzung sozialer Medien auf das Wohlbefinden von Jugendlichen hat. Der Fokus liegt dabei auf deutschen Jugendlichen im Alter von 14 bis 18 Jahren. Nicht behandelt werden Aspekte der Mediensucht oder des Cybermobbings, da diese eigene Untersuchungen erfordern.*
 
-*Im ersten Teil wird zunachst der theoretische Rahmen dargestellt. Anschliessend werden aktuelle Forschungsergebnisse prasentiert und kritisch diskutiert. Abschliessend werden die Ergebnisse zusammengefasst und Implikationen fur die Praxis formuliert."*`,
+*Im ersten Teil wird zunächst der theoretische Rahmen dargestellt. Anschließend werden aktuelle Forschungsergebnisse präsentiert und kritisch diskutiert. Abschließend werden die Ergebnisse zusammengefasst und Implikationen für die Praxis formuliert."*`,
     },
     {
       id: 'tysk-3-9-2-ex-block-1',
@@ -336,22 +336,22 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
         difficulty: 'vanskelig',
         task: 'Skriv en innledning (5-7 setninger) til en oppgave om "Klimawandel und Landwirtschaft" (klimaendringer og landbruk). Bruk akademisk stil.',
         subTasks: [
-          { label: 'a', task: 'Inkluder en aktualisering av temaet.', solution: 'Der Klimawandel stellt die Landwirtschaft weltweit vor grosse Herausforderungen.' },
-          { label: 'b', task: 'Formuler en problemstilling.', solution: 'Die vorliegende Arbeit untersucht, wie sich veranderte Wetterbedingungen auf den Getreideanbau in Mitteleuropa auswirken.' },
-          { label: 'c', task: 'Gi en kort oversikt over oppgavens struktur.', solution: 'Zunachst wird der theoretische Rahmen dargestellt, bevor aktuelle Forschungsergebnisse prasentiert werden.' },
+          { label: 'a', task: 'Inkluder en aktualisering av temaet.', solution: 'Der Klimawandel stellt die Landwirtschaft weltweit vor große Herausforderungen.' },
+          { label: 'b', task: 'Formuler en problemstilling.', solution: 'Die vorliegende Arbeit untersucht, wie sich veränderte Wetterbedingungen auf den Getreideanbau in Mitteleuropa auswirken.' },
+          { label: 'c', task: 'Gi en kort oversikt over oppgavens struktur.', solution: 'Zunächst wird der theoretische Rahmen dargestellt, bevor aktuelle Forschungsergebnisse präsentiert werden.' },
         ],
-        solution: 'Eksempel: Der Klimawandel stellt die Landwirtschaft vor neue Herausforderungen. Die vorliegende Arbeit untersucht die Auswirkungen auf den Getreideanbau in Mitteleuropa. Zunachst wird der theoretische Rahmen dargestellt, anschliessend werden Forschungsergebnisse prasentiert und diskutiert.',
-        hints: ['Bruk formelle vendinger som "die vorliegende Arbeit"', 'Unnga personlig pronomen "ich"', 'Inkluder signalord for struktur'],
+        solution: 'Eksempel: Der Klimawandel stellt die Landwirtschaft vor neue Herausforderungen. Die vorliegende Arbeit untersucht die Auswirkungen auf den Getreideanbau in Mitteleuropa. Zunächst wird der theoretische Rahmen dargestellt, anschließend werden Forschungsergebnisse präsentiert und diskutiert.',
+        hints: ['Bruk formelle vendinger som "die vorliegende Arbeit"', 'Unngå personlig pronomen "ich"', 'Inkluder signalord for struktur'],
       },
     },
     {
       id: 'tysk-3-9-2-text-2',
       type: 'text',
-      content: `## Akademisk stil pa tysk
+      content: `## Akademisk stil på tysk
 
-**Unnga:**
-- Forste person entall ("ich denke", "meiner Meinung nach")
-- Muntlig sprak og fyllord
+**Unngå:**
+- Første person entall ("ich denke", "meiner Meinung nach")
+- Muntlig språk og fyllord
 - Korte, usammenhengende setninger
 - Generaliseringer uten belegg
 
@@ -361,10 +361,10 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
 - Nominalisering ("die Untersuchung zeigt" i stedet for "wenn man untersucht")
 - Kildehenvisninger
 
-**Eksempler pa omformulering:**
+**Eksempler på omformulering:**
 | Uformelt | Akademisk |
 |----------|-----------|
-| Ich finde, dass... | Es lasst sich argumentieren, dass... |
+| Ich finde, dass... | Es lässt sich argumentieren, dass... |
 | Das stimmt nicht | Diese Annahme ist zu hinterfragen |
 | Alle wissen, dass... | Es ist allgemein anerkannt, dass... |`,
     },
@@ -377,7 +377,7 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
 1. "Ich glaube, dass das Internet wichtig ist."
 2. "Viele Leute denken so."
 3. "Das ist falsch."
-4. "In meinem Essay werde ich uber... schreiben."`,
+4. "In meinem Essay werde ich über... schreiben."`,
       solution: `**Omformulert:**
 
 1. "Ich glaube, dass das Internet wichtig ist."
@@ -385,14 +385,14 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
    (Fjerner "ich", legger til belegg/kontekst)
 
 2. "Viele Leute denken so."
-   -> **"Diese Auffassung wird von zahlreichen Forschern geteilt (vgl. Muller, 2020)."**
+   -> **"Diese Auffassung wird von zahlreichen Forschern geteilt (vgl. Müller, 2020)."**
    (Legger til kilde, mer presist)
 
 3. "Das ist falsch."
    -> **"Diese Annahme ist aus mehreren Grunden zu hinterfragen."**
-   (Mer nyansert, apner for argumentasjon)
+   (Mer nyansert, åpner for argumentasjon)
 
-4. "In meinem Essay werde ich uber... schreiben."
+4. "In meinem Essay werde ich über... schreiben."
    -> **"Die vorliegende Arbeit befasst sich mit..."**
    (Fjerner "ich", mer formelt)`,
     },
@@ -406,11 +406,11 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
         difficulty: 'vanskelig',
         task: 'Skriv om setningene til akademisk tysk.',
         subTasks: [
-          { label: 'a', task: 'Ich habe herausgefunden, dass Stress schlecht fur die Gesundheit ist.', solution: 'Es konnte nachgewiesen werden, dass Stress negative Auswirkungen auf die Gesundheit hat.' },
-          { label: 'b', task: 'Jeder weiss, dass Bewegung gesund ist.', solution: 'Es ist wissenschaftlich belegt, dass korperliche Aktivitat positive Effekte auf die Gesundheit hat.' },
+          { label: 'a', task: 'Ich habe herausgefunden, dass Stress schlecht für die Gesundheit ist.', solution: 'Es konnte nachgewiesen werden, dass Stress negative Auswirkungen auf die Gesundheit hat.' },
+          { label: 'b', task: 'Jeder weiss, dass Bewegung gesund ist.', solution: 'Es ist wissenschaftlich belegt, dass körperliche Aktivität positive Effekte auf die Gesundheit hat.' },
           { label: 'c', task: 'Ich finde diese Theorie interessant.', solution: 'Diese Theorie verdient besondere Beachtung / ist von erheblichem wissenschaftlichem Interesse.' },
         ],
-        solution: 'a) Es konnte nachgewiesen werden, dass Stress negative Auswirkungen auf die Gesundheit hat. b) Es ist wissenschaftlich belegt, dass korperliche Aktivitat positive Effekte auf die Gesundheit hat. c) Diese Theorie verdient besondere Beachtung.',
+        solution: 'a) Es konnte nachgewiesen werden, dass Stress negative Auswirkungen auf die Gesundheit hat. b) Es ist wissenschaftlich belegt, dass körperliche Aktivität positive Effekte auf die Gesundheit hat. c) Diese Theorie verdient besondere Beachtung.',
         hints: ['Erstatt "ich" med passiv eller upersonlige konstruksjoner', 'Legg til akademiske vendinger'],
       },
     },
@@ -424,9 +424,9 @@ Akademisk skriving pa tysk folger strenge konvensjoner for struktur, stil og kil
 - Indirekte gjengivelse: vgl. Nachname (Jahr) / (vgl. Nachname, Jahr)
 
 **Eksempler:**
-- Muller (2020) argumentiert, dass...
+- Müller (2020) argumentiert, dass...
 - Die Forschung zeigt (vgl. Schmidt, 2019), dass...
-- "Die Digitalisierung verandert die Gesellschaft grundlegend" (Weber, 2021, S. 45).
+- "Die Digitalisierung verändert die Gesellschaft grundlegend" (Weber, 2021, S. 45).
 
 **I litteraturlisten (Literaturverzeichnis):**
 - Bok: Nachname, Vorname (Jahr): Titel. Verlag.
@@ -454,7 +454,7 @@ Schmidt (2023, S. 78) stellt fest: "Die Corona-Pandemie hat die Digitalisierung 
 *Eller:* "Die Corona-Pandemie hat die Digitalisierung der Schulen um Jahre beschleunigt" (Schmidt, 2023, S. 78).
 
 **b) Indirekte gjengivelse:**
-Laut Schmidt (2023) hat die Corona-Pandemie zu einer beschleunigten Digitalisierung im Schulwesen gefuhrt.
+Laut Schmidt (2023) hat die Corona-Pandemie zu einer beschleunigten Digitalisierung im Schulwesen geführt.
 
 *Eller:* Die Digitalisierung der Schulen wurde durch die Pandemie erheblich vorangetrieben (vgl. Schmidt, 2023).
 
@@ -470,15 +470,15 @@ Schmidt, Anna (2023): Digitale Bildung in Deutschland. Berlin: Springer Verlag.`
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en kort akademisk tekst (8-10 setninger) om et selvvalgt tema. Inkluder: innledning med problemstilling, hoveddel med minst ett argument, og avslutning. Bruk akademisk stil.',
-        solution: 'Eksempel: "Die Nutzung erneuerbarer Energien ist ein zentrales Thema der aktuellen Klimadebatte. Die vorliegende Arbeit untersucht, welche Rolle Solarenergie in der deutschen Energiewende spielt. Es ist allgemein anerkannt, dass fossile Brennstoffe erheblich zum Klimawandel beitragen (vgl. IPCC, 2021). Solarenergie bietet eine nachhaltige Alternative, deren Potenzial noch nicht vollstandig ausgeschopft ist. Allerdings stellen Speichertechnologien und Netzinfrastruktur weiterhin Herausforderungen dar. Zusammenfassend lasst sich feststellen, dass Solarenergie ein wichtiger Baustein der Energiewende ist, jedoch weitere Investitionen in Forschung und Infrastruktur erforderlich sind."',
+        solution: 'Eksempel: "Die Nutzung erneuerbarer Energien ist ein zentrales Thema der aktuellen Klimadebatte. Die vorliegende Arbeit untersucht, welche Rolle Solarenergie in der deutschen Energiewende spielt. Es ist allgemein anerkannt, dass fossile Brennstoffe erheblich zum Klimawandel beitragen (vgl. IPCC, 2021). Solarenergie bietet eine nachhaltige Alternative, deren Potenzial noch nicht vollständig ausgeschöpft ist. Allerdings stellen Speichertechnologien und Netzinfrastruktur weiterhin Herausforderungen dar. Zusammenfassend lässt sich feststellen, dass Solarenergie ein wichtiger Baustein der Energiewende ist, jedoch weitere Investitionen in Forschung und Infrastruktur erforderlich sind."',
         hints: ['Bruk passiv og upersonlige konstruksjoner', 'Inkluder signalord', 'Husk innledning-hoveddel-avslutning'],
       },
     },
     {
       id: 'tysk-3-9-2-tip-1',
       type: 'tip',
-      title: 'Nyttige verktoy',
-      content: `For akademisk skriving pa tysk:
+      title: 'Nyttige verktøy',
+      content: `For akademisk skriving på tysk:
 - **DWDS** (dwds.de) - Tysk ordbok med akademiske eksempler
 - **Duden** (duden.de) - Rettskriving og grammatikk
 - **Linguee** - Kontekstoversettelser
@@ -497,21 +497,21 @@ export const CHAPTER_TYSK_3_9_3: TextbookChapter = {
   courseId: 'tysk-3',
   chapterNumber: '9.3',
   title: 'Fachsprache',
-  subtitle: 'Fagsprak og terminologi',
+  subtitle: 'Fagspråk og terminologi',
   description: 'Forstå og bruk tysk fagterminologi, nominalstil og spesialisert vokabular.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'forstå og bruke fagterminologi pa tysk',
+    'forstå og bruke fagterminologi på tysk',
     'mestre nominalstil og passivkonstruksjoner',
-    'tilpasse spraknivaet til faglig kontekst',
+    'tilpasse språknivået til faglig kontekst',
   ],
   content: [
     {
       id: 'tysk-3-9-3-intro',
       type: 'text',
-      content: `## Fachsprache - Fagsprak
+      content: `## Fachsprache - Fagspråk
 
-Hvert fagfelt har sin egen terminologi og stil. Fagsprak (Fachsprache) skiller seg fra hverdagssprak (Alltagssprache) ved:
+Hvert fagfelt har sin egen terminologi og stil. Fagspråk (Fachsprache) skiller seg fra hverdagsspråk (Alltagssprache) ved:
 
 - Presise definisjoner av begreper
 - Standardiserte uttrykk
@@ -519,7 +519,7 @@ Hvert fagfelt har sin egen terminologi og stil. Fagsprak (Fachsprache) skiller s
 - Forkortelser og akronymer
 - Internasjonale laneord (ofte fra latin, gresk, engelsk)
 
-A mestre fagsprak er avgjorende for a lykkes i akademia og profesjonelt liv.`,
+Å mestre fagspråk er avgjørende for å lykkes i akademia og profesjonelt liv.`,
     },
     {
       id: 'tysk-3-9-3-text-1',
@@ -542,7 +542,7 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 | entwickeln | die Entwicklung |
 | verbessern | die Verbesserung |
 | untersuchen | die Untersuchung |
-| durchfuhren | die Durchfuhrung |
+| durchfuhren | die Durchführung |
 | anwenden | die Anwendung |`,
     },
     {
@@ -552,7 +552,7 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
       problem: `Gjor om til nominalstil:
 
 1. "Die Wissenschaftler haben entdeckt, dass..."
-2. "Man muss die Probleme losen."
+2. "Man muss die Probleme lösen."
 3. "Nachdem die Regierung entschieden hatte, ..."
 4. "Bevor man die Daten sammelt, muss man..."`,
       solution: `**Omgjort til nominalstil:**
@@ -560,8 +560,8 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 1. "Die Wissenschaftler haben entdeckt, dass..."
    -> **"Die Entdeckung der Wissenschaftler zeigt, dass..."**
 
-2. "Man muss die Probleme losen."
-   -> **"Die Losung der Probleme ist erforderlich."**
+2. "Man muss die Probleme lösen."
+   -> **"Die Lösung der Probleme ist erforderlich."**
 
 3. "Nachdem die Regierung entschieden hatte, ..."
    -> **"Nach der Entscheidung der Regierung..."**
@@ -569,7 +569,7 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 4. "Bevor man die Daten sammelt, muss man..."
    -> **"Vor der Datensammlung / Vor der Erhebung der Daten muss..."**
 
-**Tips:** Nominalstil gjor teksten kortere, men kan bli tung a lese. Bruk med mate!`,
+**Tips:** Nominalstil gjor teksten kortere, men kan bli tung å lese. Bruk med mate!`,
     },
     {
       id: 'tysk-3-9-3-ex-block-1',
@@ -581,11 +581,11 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
         difficulty: 'vanskelig',
         task: 'Gjor om til nominalstil.',
         subTasks: [
-          { label: 'a', task: 'Die Experten diskutierten uber das Thema.', solution: 'Die Diskussion der Experten uber das Thema / Die Expertendiskussion uber das Thema' },
-          { label: 'b', task: 'Man muss die Ergebnisse kritisch prufen.', solution: 'Die kritische Prufung der Ergebnisse ist erforderlich.' },
-          { label: 'c', task: 'Die Forscher haben die Hypothese bestatigt.', solution: 'Die Bestatigung der Hypothese durch die Forscher' },
+          { label: 'a', task: 'Die Experten diskutierten über das Thema.', solution: 'Die Diskussion der Experten über das Thema / Die Expertendiskussion über das Thema' },
+          { label: 'b', task: 'Man muss die Ergebnisse kritisch prüfen.', solution: 'Die kritische Prüfung der Ergebnisse ist erforderlich.' },
+          { label: 'c', task: 'Die Forscher haben die Hypothese bestätigt.', solution: 'Die Bestätigung der Hypothese durch die Forscher' },
         ],
-        solution: 'a) Die Diskussion der Experten b) Die kritische Prufung der Ergebnisse ist erforderlich c) Die Bestatigung der Hypothese durch die Forscher',
+        solution: 'a) Die Diskussion der Experten b) Die kritische Prüfung der Ergebnisse ist erforderlich c) Die Bestätigung der Hypothese durch die Forscher',
         hints: ['Finn verbet og gjor det om til substantiv (-ung, -tion, osv.)', 'Subjektet blir ofte genitiv eller "durch + akkusativ"'],
       },
     },
@@ -607,7 +607,7 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 | Tysk | Norsk |
 |------|-------|
 | die Studie | studie |
-| die Befragung | sporreundersokelse |
+| die Befragung | sporreundersøkelse |
 | die Stichprobe | utvalg |
 | die Analyse | analyse |
 | der Faktor | faktor |
@@ -619,15 +619,15 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 | der Vertrag | kontrakt |
 | das Urteil | dom |
 | der Angeklagte | tiltalte |
-| die Klage | soksmal |`,
+| die Klage | søksmål |`,
     },
     {
       id: 'tysk-3-9-3-example-2',
       type: 'example',
-      title: 'Eksempel 2: Fagsprak i kontekst',
-      problem: `Les disse setningene og identifiser hvilket fagfelt de tilhorer:
+      title: 'Eksempel 2: Fagspråk i kontekst',
+      problem: `Les disse setningene og identifiser hvilket fagfelt de tilhører:
 
-1. "Die abhangige Variable korreliert signifikant mit der unabhangigen Variable (r = 0,78, p < 0,05)."
+1. "Die abhängige Variable korreliert signifikant mit der unabhängigen Variable (r = 0,78, p < 0,05)."
 
 2. "Der Angeklagte wurde vom Vorwurf des Diebstahls freigesprochen."
 
@@ -640,9 +640,9 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
 
 2. **Juss (Rechtswissenschaft)** - Juridiske termer: Angeklagte (tiltalte), Vorwurf (anklage), Diebstahl (tyveri), freigesprochen (frikjent)
 
-3. **Samfunnsvitenskap (Sozialwissenschaften)** - Metodetermer: qualitative Befragung (kvalitativ sporreundersokelse), Stichprobe (utvalg), Teilnehmer (deltakere)
+3. **Samfunnsvitenskap (Sozialwissenschaften)** - Metodetermer: qualitative Befragung (kvalitativ sporreundersøkelse), Stichprobe (utvalg), Teilnehmer (deltakere)
 
-4. **Okonomi (Wirtschaftswissenschaften)** - Okonomiske termer: Bruttoinlandsprodukt (BNP), Vorjahr (foregaende ar), Prozent (prosent)`,
+4. **Økonomi (Wirtschaftswissenschaften)** - Økonomiske termer: Bruttoinlandsprodukt (BNP), Vorjahr (foregående år), Prozent (prosent)`,
     },
     {
       id: 'tysk-3-9-3-ex-block-2',
@@ -655,21 +655,21 @@ Nominalstil er typisk for akademisk og faglig tysk. Verb omgjores til substantiv
         task: 'Match fagterminologien med riktig definisjon.',
         subTasks: [
           { label: 'a', task: 'die Hypothese', solution: 'En foreloping antagelse som kan testes' },
-          { label: 'b', task: 'die Stichprobe', solution: 'Et utvalg av en storre populasjon' },
+          { label: 'b', task: 'die Stichprobe', solution: 'Et utvalg av en større populasjon' },
           { label: 'c', task: 'die Korrelation', solution: 'Statistisk sammenheng mellom to variabler' },
           { label: 'd', task: 'das Fazit', solution: 'Konklusjon eller oppsummering' },
         ],
-        solution: 'a) Foreloping antagelse som kan testes b) Utvalg av storre populasjon c) Statistisk sammenheng d) Konklusjon',
-        hints: ['Tenk pa hvordan disse ordene brukes i akademisk kontekst'],
+        solution: 'a) Foreloping antagelse som kan testes b) Utvalg av større populasjon c) Statistisk sammenheng d) Konklusjon',
+        hints: ['Tenk på hvordan disse ordene brukes i akademisk kontekst'],
       },
     },
     {
       id: 'tysk-3-9-3-text-3',
       type: 'text',
-      content: `## Passiv i fagsprak
+      content: `## Passiv i fagspråk
 
-Passiv er svart vanlig i fagsprak fordi det:
-- Fokuserer pa handlingen, ikke aktoren
+Passiv er svart vanlig i fagspråk fordi det:
+- Fokuserer på handlingen, ikke aktoren
 - Gir objektivitet
 - Er typisk for vitenskapelig skriving
 
@@ -683,7 +683,7 @@ Passiv er svart vanlig i fagsprak fordi det:
 |-------|--------|
 | Man untersucht das Problem | Das Problem wird untersucht |
 | Die Forscher haben bewiesen | Es wurde bewiesen / Es ist bewiesen worden |
-| Wir mussen analysieren | Es muss analysiert werden |`,
+| Wir müssen analysieren | Es muss analysiert werden |`,
     },
     {
       id: 'tysk-3-9-3-example-3',
@@ -691,13 +691,13 @@ Passiv er svart vanlig i fagsprak fordi det:
       title: 'Eksempel 3: Aktiv til passiv',
       problem: `Gjor om til passiv:
 
-1. "Die Wissenschaftler fuhrten das Experiment durch."
+1. "Die Wissenschaftler führten das Experiment durch."
 2. "Man kann diese Methode anwenden."
 3. "Die Studie hat die These widerlegt."`,
       solution: `**Passiv:**
 
-1. "Die Wissenschaftler fuhrten das Experiment durch."
-   -> **"Das Experiment wurde (von den Wissenschaftlern) durchgefuhrt."**
+1. "Die Wissenschaftler führten das Experiment durch."
+   -> **"Das Experiment wurde (von den Wissenschaftlern) durchgeführt."**
    (Preteritum passiv)
 
 2. "Man kann diese Methode anwenden."
@@ -721,22 +721,22 @@ Passiv er svart vanlig i fagsprak fordi det:
         task: 'Skriv om til passiv.',
         subTasks: [
           { label: 'a', task: 'Die Forscher haben die Daten gesammelt.', solution: 'Die Daten sind (von den Forschern) gesammelt worden.' },
-          { label: 'b', task: 'Man muss die Ergebnisse uberprufen.', solution: 'Die Ergebnisse mussen uberpruft werden.' },
-          { label: 'c', task: 'Die Universitat veroffentlicht die Studie nachste Woche.', solution: 'Die Studie wird nachste Woche (von der Universitat) veroffentlicht.' },
+          { label: 'b', task: 'Man muss die Ergebnisse überprüfen.', solution: 'Die Ergebnisse müssen überprüft werden.' },
+          { label: 'c', task: 'Die Universität veröffentlicht die Studie nächste Woche.', solution: 'Die Studie wird nächste Woche (von der Universitat) veröffentlicht.' },
         ],
-        solution: 'a) Die Daten sind gesammelt worden b) Die Ergebnisse mussen uberpruft werden c) Die Studie wird nachste Woche veroffentlicht',
-        hints: ['Objektet blir subjekt i passiv', 'Husk riktig tempus', 'Bruk "von" for a angi hvem som gjor handlingen'],
+        solution: 'a) Die Daten sind gesammelt worden b) Die Ergebnisse müssen überprüft werden c) Die Studie wird nächste Woche veröffentlicht',
+        hints: ['Objektet blir subjekt i passiv', 'Husk riktig tempus', 'Bruk "von" for å angi hvem som gjor handlingen'],
       },
     },
     {
       id: 'tysk-3-9-3-note-1',
       type: 'note',
       title: 'Praktisk tips',
-      content: `Nar du leser fagartikler:
+      content: `Når du leser fagartikler:
 1. Lag en ordliste med nye fagtermer
 2. Legg merke til nominaliseringer og passivkonstruksjoner
 3. Let etter definisjoner i teksten
-4. Bruk fagordboker (Fachworterbuch)`,
+4. Bruk fagordboker (Fachwörterbuch)`,
     },
   ],
   exercises: [],
@@ -752,12 +752,12 @@ export const CHAPTER_TYSK_3_9_4: TextbookChapter = {
   chapterNumber: '9.4',
   title: 'Präsentationen',
   subtitle: 'Muntlig framstilling',
-  description: 'Laer a holde akademiske presentasjoner pa tysk med god struktur, retorikk og profesjonell framforing.',
+  description: 'Lær å holde akademiske presentasjoner på tysk med god struktur, retorikk og profesjonell framforing.',
   estimatedMinutes: 50,
   competenceGoals: [
     'planlegge og strukturere akademiske presentasjoner',
     'bruke retoriske virkemidler effektivt',
-    'handtere sporsmal og diskusjon pa tysk',
+    'håndtere spørsmål og diskusjon på tysk',
   ],
   content: [
     {
@@ -765,12 +765,12 @@ export const CHAPTER_TYSK_3_9_4: TextbookChapter = {
       type: 'text',
       content: `## Akademische Präsentationen
 
-Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjoner ofte en fast struktur og bruker bestemte formuleringer.
+Muntlige presentasjoner er en viktig del av akademia. På tysk følger presentasjoner ofte en fast struktur og bruker bestemte formuleringer.
 
 **Typiske presentasjonssituasjoner:**
 - Referat (muntlig presentasjon av et tema)
 - Seminarvortrag (seminarforedrag)
-- Projektprasentation (prosjektpresentasjon)
+- Projektpräsentation (prosjektpresentasjon)
 - Verteidigung (forsvar av oppgave)
 
 **Viktige elementer:**
@@ -784,11 +784,11 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
       type: 'text',
       content: `## Struktur einer Präsentation
 
-**1. Begrüssung und Einleitung (Hilsen og innledning)**
+**1. Begrüßung und Einleitung (Hilsen og innledning)**
 - Presenter deg selv
 - Introduser temaet
 - Gi oversikt over struktur
-- Forklar regler for sporsmal
+- Forklar regler for spørsmål
 
 **2. Hauptteil (Hoveddel)**
 - Del inn i logiske seksjoner
@@ -799,25 +799,25 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
 **3. Schluss (Avslutning)**
 - Oppsummer hovedpunktene
 - Konkluder
-- Apne for sporsmal og diskusjon
+- Åpne for spørsmål og diskusjon
 - Takk for oppmerksomheten`,
     },
     {
       id: 'tysk-3-9-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Innlede en presentasjon',
-      problem: `Hvordan innleder du en presentasjon pa tysk? Lag en innledning for et foredrag om "Nachhaltige Stadtentwicklung" (barekraftig byutvikling).`,
-      solution: `**Eksempel pa innledning:**
+      problem: `Hvordan innleder du en presentasjon på tysk? Lag en innledning for et foredrag om "Nachhaltige Städtentwicklung" (bærekraftig byutvikling).`,
+      solution: `**Eksempel på innledning:**
 
-*"Guten Tag, mein Name ist [Name] und ich studiere Stadtplanung an der Universitat [Name].*
+*"Guten Tag, mein Name ist [Name] und ich studiere Stadtplanung an der Universität [Name].*
 
-*Herzlich willkommen zu meinem Vortrag uber nachhaltige Stadtentwicklung. In den nachsten 20 Minuten werde ich Ihnen vorstellen, wie Stadte umweltfreundlicher gestaltet werden konnen.*
+*Herzlich willkommen zu meinem Vortrag über nachhaltige Städtentwicklung. In den nächsten 20 Minuten werde ich Ihnen vorstellen, wie Städte umweltfreundlicher gestaltet werden können.*
 
-*Zunachst werde ich den Begriff 'Nachhaltigkeit' definieren. Anschliessend prasentiere ich drei konkrete Beispiele aus europaischen Stadten. Zum Schluss diskutiere ich Herausforderungen und Zukunftsperspektiven.*
+*Zunächst werde ich den Begriff 'Nachhaltigkeit' definieren. Anschließend präsentiere ich drei konkrete Beispiele aus europäischen Städten. Zum Schluss diskutiere ich Herausforderungen und Zukunftsperspektiven.*
 
-*Wenn Sie Fragen haben, konnen Sie diese gerne am Ende stellen - oder jederzeit dazwischen, wenn etwas unklar ist.*
+*Wenn Sie Fragen haben, können Sie diese gerne am Ende stellen - oder jederzeit dazwischen, wenn etwas unklar ist.*
 
-*Beginnen wir also mit der Frage: Was bedeutet eigentlich nachhaltige Stadtentwicklung?"*`,
+*Beginnen wir also mit der Frage: Was bedeutet eigentlich nachhaltige Städtentwicklung?"*`,
     },
     {
       id: 'tysk-3-9-4-ex-block-1',
@@ -827,14 +827,14 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
         number: '1',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv en innledning til en presentasjon (5-7 setninger). Velg ett av temaene: a) Kunstliche Intelligenz, b) Klimawandel, c) Soziale Medien.',
+        task: 'Skriv en innledning til en presentasjon (5-7 setninger). Velg ett av temaene: a) Künstliche Intelligenz, b) Klimawandel, c) Soziale Medien.',
         subTasks: [
-          { label: 'a', task: 'Inkluder en hilsen og presentasjon av deg selv.', solution: 'Guten Tag, mein Name ist [Name] und ich werde heute uber [Thema] sprechen.' },
-          { label: 'b', task: 'Gi en oversikt over presentasjonens struktur.', solution: 'Zunachst werde ich... Dann... Zum Schluss...' },
-          { label: 'c', task: 'Forklar nar publikum kan stille sporsmal.', solution: 'Fragen konnen Sie gerne am Ende stellen / Fragen sind jederzeit willkommen.' },
+          { label: 'a', task: 'Inkluder en hilsen og presentasjon av deg selv.', solution: 'Guten Tag, mein Name ist [Name] und ich werde heute über [Thema] sprechen.' },
+          { label: 'b', task: 'Gi en oversikt over presentasjonens struktur.', solution: 'Zunächst werde ich... Dann... Zum Schluss...' },
+          { label: 'c', task: 'Forklar når publikum kan stille spørsmål.', solution: 'Fragen können Sie gerne am Ende stellen / Fragen sind jederzeit willkommen.' },
         ],
-        solution: 'Eksempel: Guten Tag, mein Name ist... Heute spreche ich uber... Zunachst erklare ich..., dann prasentiere ich..., zum Schluss diskutiere ich... Fragen sind am Ende willkommen.',
-        hints: ['Bruk formuleringer som "Zunachst... Dann... Zum Schluss..."', 'Presenter temaets relevans'],
+        solution: 'Eksempel: Guten Tag, mein Name ist... Heute spreche ich über... Zunächst erkläre ich..., dann präsentiere ich..., zum Schluss diskutiere ich... Fragen sind am Ende willkommen.',
+        hints: ['Bruk formuleringer som "Zunächst... Dann... Zum Schluss..."', 'Presenter temaets relevans'],
       },
     },
     {
@@ -845,7 +845,7 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
 **Innledning:**
 | Tysk | Norsk |
 |------|-------|
-| Ich mochte Ihnen heute vorstellen... | Jeg vil i dag presentere for dere... |
+| Ich möchte Ihnen heute vorstellen... | Jeg vil i dag presentere for dere... |
 | Das Thema meines Vortrags ist... | Temaet for mitt foredrag er... |
 | Ich werde in drei Teile gliedern... | Jeg vil dele inn i tre deler... |
 
@@ -853,40 +853,40 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
 | Tysk | Norsk |
 |------|-------|
 | Kommen wir nun zu... | La oss na ga over til... |
-| Im nachsten Abschnitt... | I neste avsnitt... |
-| Das bringt mich zu meinem nachsten Punkt... | Det bringer meg til mitt neste punkt... |
+| Im nächsten Abschnitt... | I neste avsnitt... |
+| Das bringt mich zu meinem nächsten Punkt... | Det bringer meg til mitt neste punkt... |
 
 **Avslutning:**
 | Tysk | Norsk |
 |------|-------|
-| Zusammenfassend lasst sich sagen... | Oppsummerende kan man si... |
-| Abschliessend mochte ich betonen... | Avslutningsvis vil jeg understreke... |
-| Vielen Dank fur Ihre Aufmerksamkeit. | Tusen takk for oppmerksomheten. |`,
+| Zusammenfassend lässt sich sagen... | Oppsummerende kan man si... |
+| Abschließend möchte ich betonen... | Avslutningsvis vil jeg understreke... |
+| Vielen Dank für Ihre Aufmerksamkeit. | Tusen takk for oppmerksomheten. |`,
     },
     {
       id: 'tysk-3-9-4-example-2',
       type: 'example',
-      title: 'Eksempel 2: Handtere sporsmal',
-      problem: `Hvordan handterer du sporsmal under eller etter en presentasjon pa tysk? Ov pa disse situasjonene:
+      title: 'Eksempel 2: Håndtere spørsmål',
+      problem: `Hvordan håndterer du spørsmål under eller etter en presentasjon på tysk? Øv på disse situasjonene:
 
-1. Du forstår ikke sporsmalet
+1. Du forstar ikke spørsmålet
 2. Du vet ikke svaret
-3. Du er uenig med sporsmalsStilleren`,
-      solution: `**Handtering av sporsmal:**
+3. Du er uenig med spørsmålsStilleren`,
+      solution: `**Håndtering av spørsmål:**
 
-**1. Du forstar ikke sporsmalet:**
-- "Entschuldigung, konnten Sie die Frage bitte wiederholen?"
+**1. Du forstar ikke spørsmålet:**
+- "Entschuldigung, könnten Sie die Frage bitte wiederholen?"
 - "Ich bin mir nicht sicher, ob ich Sie richtig verstanden habe. Meinen Sie...?"
-- "Konnten Sie das bitte prazisieren?"
+- "Könnten Sie das bitte präzisieren?"
 
 **2. Du vet ikke svaret:**
 - "Das ist eine sehr gute Frage, auf die ich leider keine eindeutige Antwort habe."
-- "Diese Frage geht uber den Rahmen meines Vortrags hinaus, aber ich werde das gerne nachrecherchieren."
+- "Diese Frage geht über den Rahmen meines Vortrags hinaus, aber ich werde das gerne nachrecherchieren."
 - "Dazu musste ich noch weitere Informationen einholen."
 
 **3. Du er uenig:**
 - "Das ist ein interessanter Standpunkt. Ich sehe das allerdings etwas anders, weil..."
-- "Ich verstehe Ihren Einwand, mochte aber darauf hinweisen, dass..."
+- "Ich verstehe Ihren Einwand, möchte aber darauf hinweisen, dass..."
 - "Da haben Sie einen wichtigen Punkt angesprochen. Die Forschung zeigt jedoch..."`,
     },
     {
@@ -899,12 +899,12 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
         difficulty: 'vanskelig',
         task: 'Oversett og tilpass disse frasene til presentasjonsbruk.',
         subTasks: [
-          { label: 'a', task: '"La meg vise dere et eksempel."', solution: 'Lassen Sie mich Ihnen ein Beispiel zeigen. / Ich mochte Ihnen ein Beispiel zeigen.' },
-          { label: 'b', task: '"Som dere kan se pa denne grafen..."', solution: 'Wie Sie auf dieser Grafik sehen konnen... / Diese Grafik zeigt...' },
-          { label: 'c', task: '"Har dere sporsmal sa langt?"', solution: 'Haben Sie bis hierhin Fragen? / Gibt es Fragen zu diesem Punkt?' },
-          { label: 'd', task: '"Det bringer meg til konklusjonen."', solution: 'Das bringt mich zur Schlussfolgerung. / Damit komme ich zum Fazit.' },
+          { label: 'a', task: '"La meg vise dere et eksempel."', solution: 'Lassen Sie mich Ihnen ein Beispiel zeigen. / Ich möchte Ihnen ein Beispiel zeigen.' },
+          { label: 'b', task: '"Som dere kan se på denne grafen..."', solution: 'Wie Sie auf dieser Grafik sehen können... / Diese Grafik zeigt...' },
+          { label: 'c', task: '"Har dere spørsmål sa langt?"', solution: 'Haben Sie bis hierhin Fragen? / Gibt es Fragen zu diesem Punkt?' },
+          { label: 'd', task: '"Det bringer meg til konklusjonen."', solution: 'Das bringt mich zur Schlussfølgerung. / Damit komme ich zum Fazit.' },
         ],
-        solution: 'a) Lassen Sie mich Ihnen ein Beispiel zeigen. b) Wie Sie auf dieser Grafik sehen konnen... c) Haben Sie bis hierhin Fragen? d) Das bringt mich zur Schlussfolgerung.',
+        solution: 'a) Lassen Sie mich Ihnen ein Beispiel zeigen. b) Wie Sie auf dieser Grafik sehen können... c) Haben Sie bis hierhin Fragen? d) Das bringt mich zur Schlussfølgerung.',
         hints: ['Bruk "Sie" for formal tiltale', 'Formelle presentasjoner bruker indirekte formuleringer'],
       },
     },
@@ -913,18 +913,18 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
       type: 'text',
       content: `## Retoriske virkemidler
 
-**For a engasjere publikum:**
-- **Retoriske sporsmal:** "Wer von Ihnen hat schon einmal...?"
+**For å engasjere publikum:**
+- **Retoriske spørsmål:** "Wer von Ihnen hat schon einmal...?"
 - **Overraskende fakta:** "Wussten Sie, dass...?"
 - **Personlige anekdoter:** "Als ich zum ersten Mal..."
 - **Publikumsinteraksjon:** "Was glauben Sie...?"
 
-**For a strukturere:**
+**For å strukturere:**
 - **Signalord:** erstens, zweitens, drittens
 - **Oppsummeringer:** "Wie wir gesehen haben..."
-- **Forhandsvisning:** "Im Folgenden werde ich zeigen..."
+- **Forhandsvisning:** "Im Følgenden werde ich zeigen..."
 
-**For a overbevise:**
+**For å overbevise:**
 - **Eksempler og case studies:** "Ein gutes Beispiel dafur ist..."
 - **Statistikk:** "Laut einer Studie..."
 - **Ekspertuttalelser:** "Der renommierte Forscher X sagt..."`,
@@ -936,19 +936,19 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
       problem: `Lag en avslutning for en presentasjon om "Die Zukunft der Arbeit" (arbeidets fremtid). Inkluder:
 - Oppsummering
 - Hovedkonklusjon
-- Apning for sporsmal
+- Apning for spørsmål
 - Takk`,
-      solution: `**Eksempel pa avslutning:**
+      solution: `**Eksempel på avslutning:**
 
 *"Lassen Sie mich nun die wichtigsten Punkte zusammenfassen:*
 
-*Erstens: Die Digitalisierung verandert die Arbeitswelt grundlegend. Zweitens: Neue Berufe entstehen, wahrend andere verschwinden. Drittens: Lebenslanges Lernen wird immer wichtiger.*
+*Erstens: Die Digitalisierung verändert die Arbeitswelt grundlegend. Zweitens: Neue Berufe entstehen, während andere verschwinden. Drittens: Lebenslanges Lernen wird immer wichtiger.*
 
-*Mein Fazit: Die Zukunft der Arbeit bietet sowohl Chancen als auch Herausforderungen. Wir mussen uns anpassen und offen fur Veranderungen sein.*
+*Mein Fazit: Die Zukunft der Arbeit bietet sowohl Chancen als auch Herausforderungen. Wir müssen uns anpassen und offen für Veränderungen sein.*
 
 *Damit bin ich am Ende meines Vortrags angelangt. Ich freue mich jetzt auf Ihre Fragen und Kommentare.*
 
-*Vielen Dank fur Ihre Aufmerksamkeit!"*`,
+*Vielen Dank für Ihre Aufmerksamkeit!"*`,
     },
     {
       id: 'tysk-3-9-4-ex-block-3',
@@ -958,9 +958,9 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
         number: '3',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Planlegg en 5-minutters presentasjon pa tysk. Velg et tema du kjenner godt og skriv: a) Innledning, b) 3 hovedpunkter, c) Avslutning med konklusjon.',
-        solution: 'Eksempel-struktur: INNLEDNING: Hilsen, tema, oversikt (30 sek). HOVEDPUNKT 1: Definisjon/bakgrunn (1 min). HOVEDPUNKT 2: Eksempel/analyse (1.5 min). HOVEDPUNKT 3: Diskusjon/vurdering (1.5 min). AVSLUTNING: Oppsummering, konklusjon, sporsmal (30 sek).',
-        hints: ['Hold deg til 3 hovedpunkter', 'Bruk overganger mellom delene', 'Ovpresentasjonen hoyt for a sjekke tid'],
+        task: 'Planlegg en 5-minutters presentasjon på tysk. Velg et temå du kjenner godt og skriv: a) Innledning, b) 3 hovedpunkter, c) Avslutning med konklusjon.',
+        solution: 'Eksempel-struktur: INNLEDNING: Hilsen, tema, oversikt (30 sek). HOVEDPUNKT 1: Definisjon/bakgrunn (1 min). HOVEDPUNKT 2: Eksempel/analyse (1.5 min). HOVEDPUNKT 3: Diskusjon/vurdering (1.5 min). AVSLUTNING: Oppsummering, konklusjon, spørsmål (30 sek).',
+        hints: ['Hold deg til 3 hovedpunkter', 'Bruk overganger mellom delene', 'Øvpresentasjonen høyt for å sjekke tid'],
       },
     },
     {
@@ -968,10 +968,10 @@ Muntlige presentasjoner er en viktig del av akademia. Pa tysk folger presentasjo
       type: 'tip',
       title: 'Presentasjonstips',
       content: `For en vellykket presentasjon:
-1. **Forberedelse:** Ov flere ganger, helst foran andre
+1. **Forberedelse:** Øv flere ganger, helst foran andre
 2. **Tempo:** Snakk sakte og tydelig
-3. **Blikkontakt:** Se pa publikum, ikke bare pa notatene
-4. **Kroppssprak:** Sta rett, bruk hender naturlig
+3. **Blikkontakt:** Se på publikum, ikke bare på notatene
+4. **Kroppsspråk:** Sta rett, bruk hender naturlig
 5. **Visualer:** Bruk bilder og grafer, ikke for mye tekst
 6. **Tid:** Hold deg innenfor tidsrammen`,
     },
@@ -988,13 +988,13 @@ export const CHAPTER_TYSK_3_10_1: TextbookChapter = {
   courseId: 'tysk-3',
   chapterNumber: '10.1',
   title: 'Textverständnis',
-  subtitle: 'Leseforstaelse og strategier',
-  description: 'Forbered deg til eksamen med leseforstaelse-strategier og ovelser pa avanserte tekster.',
+  subtitle: 'Leseforståelse og strategier',
+  description: 'Forbered deg til eksamen med leseforståelse-strategier og ovelser på avanserte tekster.',
   estimatedMinutes: 50,
   competenceGoals: [
-    'lese og forsta komplekse tekster effektivt',
+    'lese og forstå komplekse tekster effektivt',
     'bruke ulike lesestrategier',
-    'svare presist pa leseforstaelsessporsmal',
+    'svare presist på leseforståelsesspørsmål',
   ],
   content: [
     {
@@ -1002,20 +1002,20 @@ export const CHAPTER_TYSK_3_10_1: TextbookChapter = {
       type: 'text',
       content: `## Textverständnis - Leseforståelse
 
-Leseforstaelse er en sentral del av tyskeksamen. Du ma kunne lese og forsta ulike teksttyper, identifisere hovedideer og detaljer, og svare pa sporsmal presist.
+Leseforståelse er en sentral del av tyskeksamen. Du må kunne lese og forstå ulike teksttyper, identifisere hovedideer og detaljer, og svare på spørsmål presist.
 
-**Teksttyper pa eksamen:**
+**Teksttyper på eksamen:**
 - Nyhetsartikler
 - Fagartikler
 - Litteraere tekster
 - Debattinnlegg
 - Intervjuer
 
-**Sporsmalstyper:**
-- Globalforstaelse (hovedidé)
-- Detaljforstaelse (spesifikk informasjon)
+**Spørsmålstyper:**
+- Globalforståelse (hovedidé)
+- Detaljforståelse (spesifikk informasjon)
 - Inferens (lesning mellom linjene)
-- Ordforstaelse i kontekst`,
+- Ordforståelse i kontekst`,
     },
     {
       id: 'tysk-3-10-1-text-1',
@@ -1023,49 +1023,49 @@ Leseforstaelse er en sentral del av tyskeksamen. Du ma kunne lese og forsta ulik
       content: `## Lesestrategier for eksamen
 
 **For lesing:**
-1. Les oppgaveteksten noyaktig
-2. Skum gjennom teksten (overskrift, mellomtitler, forste/siste avsnitt)
-3. Les sporsmalene for du leser teksten grundig
+1. Les oppgaveteksten nøyaktig
+2. Skum gjennom teksten (overskrift, mellomtitler, første/siste avsnitt)
+3. Les spørsmålene for du leser teksten grundig
 
 **Under lesing:**
 1. Les teksten grundig
-2. Marker nokkelord og viktige passasjer
-3. Merk deg avsnitt som relaterer til sporsmalene
+2. Marker nøkkelord og viktige passasjer
+3. Merk deg avsnitt som relaterer til spørsmålene
 
 **Etter lesing:**
-1. Svar pa sporsmalene med egne ord (hvis ikke sitater kreves)
-2. Sjekk svarene mot teksten
-3. Kontroller at du har svart pa alt som blir spurt om`,
+1. Svar på spørsmålene med egne ord (hvis ikke sitater kreves)
+2. Sjekk svårene mot teksten
+3. Kontroller at du har svart på alt som blir spurt om`,
     },
     {
       id: 'tysk-3-10-1-example-1',
       type: 'example',
-      title: 'Eksempel 1: Leseforstaelse - Nyhetsartikkel',
-      problem: `Les teksten og svar pa sporsmalene:
+      title: 'Eksempel 1: Leseforståelse - Nyhetsartikkel',
+      problem: `Les teksten og svar på spørsmålene:
 
 **Jugendliche und politisches Engagement**
 
-*Entgegen gangiger Vorurteile interessieren sich viele junge Menschen in Deutschland fur Politik. Eine aktuelle Studie der Universitat Bielefeld zeigt, dass 65 Prozent der 16- bis 25-Jahrigen politisch interessiert sind - ein deutlicher Anstieg gegenuber fruheren Erhebungen.*
+*Entgegen gangiger Vorurteile interessieren sich viele junge Menschen in Deutschland für Politik. Eine aktuelle Studie der Universität Bielefeld zeigt, dass 65 Prozent der 16- bis 25-Jährigen politisch interessiert sind - ein deutlicher Anstieg gegenüber früheren Erhebungen.*
 
-*Allerdings hat sich die Form des Engagements verandert. Wahrend traditionelle Parteimitgliedschaften rucklaufig sind, engagieren sich immer mehr Jugendliche in sozialen Bewegungen wie Fridays for Future oder in Online-Aktivismus. "Die Jugend ist nicht unpolitisch, sie ist nur anders politisch", erklart Studienleiterin Prof. Dr. Muller.*
+*Allerdings hat sich die Form des Engagements verändert. Während traditionelle Parteimitgliedschaften rückläufig sind, engagieren sich immer mehr Jugendliche in sozialen Bewegungen wie Fridays for Future oder in Online-Aktivismus. "Die Jugend ist nicht unpolitisch, sie ist nur anders politisch", erklärt Studienleiterin Prof. Dr. Müller.*
 
-*Die Forscher identifizierten mehrere Grunde fur diesen Wandel: Zum einen bieten soziale Medien neue Moglichkeiten der Vernetzung. Zum anderen wunschen sich viele Jugendliche schnellere und direktere Formen der Partizipation als traditionelle Parteiarbeit.*
+*Die Forscher identifizierten mehrere Grunde für diesen Wandel: Zum einen bieten soziale Medien neue Möglichkeiten der Vernetzung. Zum anderen wünschen sich viele Jugendliche schnellere und direktere Formen der Partizipation als traditionelle Parteiarbeit.*
 
-**Sporsmal:**
+**Spørsmål:**
 a) Hva viser studien fra Universitetet i Bielefeld?
 b) Hvordan har ungdommens politiske engasjement endret seg?
 c) Hvilke grunner gis for denne endringen?`,
       solution: `**Svar:**
 
 a) **Hva viser studien?**
-Studien viser at 65 prosent av unge mellom 16 og 25 ar er politisk interesserte. Dette er en tydelig okning sammenlignet med tidligere undersokelser, noe som motbeviser fordommen om at unge ikke bryr seg om politikk.
+Studien viser at 65 prosent av unge mellom 16 og 25 år er politisk interesserte. Dette er en tydelig okning sammenlignet med tidligere undersøkelser, noe som motbeviser fordommen om at unge ikke bryr seg om politikk.
 
 b) **Hvordan har engasjementet endret seg?**
-Tradisjonelt partimedlemskap gar ned, mens engasjement i sosiale bevegelser (som Fridays for Future) og online-aktivisme oker. Som Prof. Muller sier: "Ungdommen er ikke upolitisk, den er bare annerledes politisk."
+Tradisjonelt partimedlemskap går ned, mens engasjement i sosiale bevegelser (som Fridays for Future) og online-aktivisme oker. Som Prof. Müller sier: "Ungdommen er ikke upolitisk, den er bare annerledes politisk."
 
 c) **Grunner for endringen:**
 1. Sosiale medier gir nye muligheter for nettverksbygging
-2. Mange unge onsker raskere og mer direkte deltakelse enn tradisjonelt partiarbeid tilbyr`,
+2. Mange unge ønsker raskere og mer direkte deltakelse enn tradisjonelt partiarbeid tilbyr`,
     },
     {
       id: 'tysk-3-10-1-ex-block-1',
@@ -1075,11 +1075,11 @@ c) **Grunner for endringen:**
         number: '1',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Les teksten og svar pa sporsmalene.',
+        task: 'Les teksten og svar på spørsmålene.',
         subTasks: [
           {
             label: 'a',
-            task: `"Die Vier-Tage-Woche wird in immer mehr Unternehmen getestet. Befurworter argumentieren, dass kurzere Arbeitszeiten die Produktivitat steigern und die Work-Life-Balance verbessern. Kritiker hingegen warnen vor wirtschaftlichen Nachteilen und Fachkraftemangel." - Hva er hovedtemaet?`,
+            task: `"Die Vier-Tage-Woche wird in immer mehr Unternehmen getestet. Befürworter argumentieren, dass kurzere Arbeitszeiten die Produktivitat steigern und die Work-Life-Balance verbessern. Kritiker hingegen warnen vor wirtschaftlichen Nachteilen und Fachkräftemangel." - Hva er hovedtemaet?`,
             solution: 'Hovedtemaet er fire-dagers arbeidsuke og debatten rundt fordeler og ulemper.'
           },
           {
@@ -1090,19 +1090,19 @@ c) **Grunner for endringen:**
           {
             label: 'c',
             task: 'Hvilke argumenter gis MOT?',
-            solution: 'Okonomiske ulemper og mangel pa fagfolk (Fachkraftemangel).'
+            solution: 'Økonomiske ulemper og mangel på fagfolk (Fachkräftemangel).'
           },
         ],
-        solution: 'a) Fire-dagers arbeidsuke og debatten rundt den b) Okt produktivitet, bedre work-life-balance c) Okonomiske ulemper, fachkraftemangel',
-        hints: ['Let etter signalord som "Befurworter" (tilhengere) og "Kritiker"', 'Noter argumentene systematisk'],
+        solution: 'a) Fire-dagers arbeidsuke og debatten rundt den b) Okt produktivitet, bedre work-life-balance c) Økonomiske ulemper, fachkraftemangel',
+        hints: ['Let etter signalord som "Befürworter" (tilhengere) og "Kritiker"', 'Noter argumentene systematisk'],
       },
     },
     {
       id: 'tysk-3-10-1-text-2',
       type: 'text',
-      content: `## Forsta ord i kontekst
+      content: `## Forstå ord i kontekst
 
-Pa eksamen vil du mote ukjente ord. I stedet for a ga i panikk, bruk konteksten:
+På eksamen vil du mote ukjente ord. I stedet for å ga i panikk, bruk konteksten:
 
 **Strategier:**
 1. **Ordklasse:** Er det substantiv, verb, adjektiv?
@@ -1121,7 +1121,7 @@ Pa eksamen vil du mote ukjente ord. I stedet for a ga i panikk, bruk konteksten:
     {
       id: 'tysk-3-10-1-example-2',
       type: 'example',
-      title: 'Eksempel 2: Ordforstaelse i kontekst',
+      title: 'Eksempel 2: Ordforståelse i kontekst',
       problem: `Hva betyr de understrekede ordene? Bruk konteksten.
 
 1. "Die **Wahlbeteiligung** lag bei nur 40 Prozent - ein historischer Tiefstand."
@@ -1154,38 +1154,38 @@ Pa eksamen vil du mote ukjente ord. I stedet for a ga i panikk, bruk konteksten:
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Forklar betydningen av disse sammensatte ordene ved a dele dem opp.',
+        task: 'Forklar betydningen av disse sammensatte ordene ved å dele dem opp.',
         subTasks: [
           { label: 'a', task: 'Umweltschutz', solution: 'Umwelt (miljo) + Schutz (beskyttelse) = miljovern' },
           { label: 'b', task: 'Meinungsfreiheit', solution: 'Meinung (mening) + Freiheit (frihet) = ytringsfrihet' },
-          { label: 'c', task: 'Lebensqualitat', solution: 'Leben (liv) + Qualitat (kvalitet) = livskvalitet' },
+          { label: 'c', task: 'Lebensqualitat', solution: 'Leben (liv) + Qualität (kvalitet) = livskvalitet' },
           { label: 'd', task: 'Handlungsbedarf', solution: 'Handlung (handling) + Bedarf (behov) = handlingsbehov' },
         ],
         solution: 'a) miljovern b) ytringsfrihet c) livskvalitet d) handlingsbehov',
-        hints: ['Del opp i komponenter', 'Gjenkjenn vanlige ord', 'Tenk pa logisk betydning'],
+        hints: ['Del opp i komponenter', 'Gjenkjenn vanlige ord', 'Tenk på logisk betydning'],
       },
     },
     {
       id: 'tysk-3-10-1-text-3',
       type: 'text',
-      content: `## Vanlige sporsmalstyper pa eksamen
+      content: `## Vanlige spørsmålstyper på eksamen
 
-**1. Globalforstaelse:**
+**1. Globalforståelse:**
 - "Was ist das Hauptthema des Textes?"
 - "Worum geht es in dem Artikel?"
 - "Was ist die Kernaussage?"
 
-**2. Detaljforstaelse:**
-- "Welche Grunde werden genannt fur...?"
+**2. Detaljforståelse:**
+- "Welche Grunde werden genannt für...?"
 - "Wie viele/Wann/Wo...?"
-- "Was sagt der Autor uber...?"
+- "Was sagt der Autor über...?"
 
 **3. Inferens (tolkning):**
 - "Was meint der Autor mit...?"
 - "Welche Haltung hat der Autor zu...?"
-- "Was kann man schlussfolgern?"
+- "Was kann man schlussfølgern?"
 
-**4. Ordforstaelse:**
+**4. Ordforståelse:**
 - "Was bedeutet das Wort X im Kontext?"
 - "Erklaren Sie den Ausdruck..."`,
     },
@@ -1193,32 +1193,32 @@ Pa eksamen vil du mote ukjente ord. I stedet for a ga i panikk, bruk konteksten:
       id: 'tysk-3-10-1-example-3',
       type: 'example',
       title: 'Eksempel 3: Lengre lesetekst',
-      problem: `Les teksten og svar pa alle sporsmalstyper:
+      problem: `Les teksten og svar på alle spørsmålstyper:
 
 **Homeoffice - Gekommen um zu bleiben?**
 
-*Die Corona-Pandemie hat die Arbeitswelt dauerhaft verandert. Vor 2020 arbeiteten nur etwa 12 Prozent der Beschaftigten regelmassig von zu Hause. Heute sind es uber 30 Prozent - und viele Unternehmen haben hybride Arbeitsmodelle eingefuhrt.*
+*Die Corona-Pandemie hat die Arbeitswelt dauerhaft verändert. Vor 2020 arbeiteten nur etwa 12 Prozent der Beschaftigten regelmassig von zu Hause. Heute sind es über 30 Prozent - und viele Unternehmen haben hybride Arbeitsmodelle eingeführt.*
 
-*Die Vorteile liegen auf der Hand: Arbeitnehmer sparen Zeit und Geld fur den Arbeitsweg, konnen Familie und Beruf besser vereinbaren und berichten oft von hoherer Zufriedenheit. Auch Unternehmen profitieren durch geringere Burokosten und einen grosseren Bewerberpool, da geografische Grenzen weniger relevant werden.*
+*Die Vorteile liegen auf der Hand: Arbeitnehmer sparen Zeit und Geld für den Arbeitsweg, können Familie und Beruf besser vereinbaren und berichten oft von hoherer Zufriedenheit. Auch Unternehmen profitieren durch geringere Burokosten und einen größeren Bewerberpool, da geografische Grenzen weniger relevant werden.*
 
-*Dennoch gibt es Schattenseiten. Manche Mitarbeiter klagen uber Isolation und verschwimmende Grenzen zwischen Arbeit und Privatleben. Fuhrungskrafte berichten von Herausforderungen bei der Teamfuhrung auf Distanz. Experten empfehlen daher klare Regeln und regelmasige Prasenzstage.*
+*Dennoch gibt es Schattenseiten. Manche Mitarbeiter klagen über Isolation und verschwimmende Grenzen zwischen Arbeit und Privatleben. Fuhrungskrafte berichten von Herausforderungen bei der Teamfuhrung auf Distanz. Experten empfehlen daher klare Regeln und regelmasige Prasenzstage.*
 
-*Fazit: Das Homeoffice wird bleiben, aber die optimale Balance zwischen Buro und Heimarbeit muss jedes Unternehmen fur sich finden.*
+*Fazit: Das Homeoffice wird bleiben, aber die optimale Balance zwischen Buro und Heimarbeit muss jedes Unternehmen für sich finden.*
 
-**Sporsmal:**
+**Spørsmål:**
 a) (Global) Was ist die Hauptaussage des Textes?
-b) (Detail) Wie hat sich der Anteil der Heimarbeiter verandert?
+b) (Detail) Wie hat sich der Anteil der Heimarbeiter verändert?
 c) (Inferens) Welche Haltung hat der Autor zum Homeoffice?
-d) (Ordforstaelse) Was bedeutet "hybride Arbeitsmodelle"?`,
+d) (Ordforståelse) Was bedeutet "hybride Arbeitsmodelle"?`,
       solution: `**Svar:**
 
-a) **(Globalforstaelse)** Hovedbudskapet er at hjemmekontor har blitt en permanent del av arbeidslivet etter pandemien, med bade fordeler og ulemper, og at hver bedrift ma finne sin egen balanse.
+a) **(Globalforståelse)** Hovedbudskapet er at hjemmekontor har blitt en permanent del av arbeidslivet etter pandemien, med både fordeler og ulemper, og at hver bedrift må finne sin egen balanse.
 
-b) **(Detaljforstaelse)** For pandemien jobbet ca. 12% hjemmefra, na er det over 30% - nesten en tredobling.
+b) **(Detaljforståelse)** For pandemien jobbet ca. 12% hjemmefra, na er det over 30% - nesten en tredobling.
 
-c) **(Inferens)** Forfatteren har en balansert, men positiv holdning til hjemmekontor. Han presenterer bade fordeler og ulemper, men konkluderer med at det "vil forbli" ("wird bleiben"). Han anbefaler tilpasning, ikke avskaffelse.
+c) **(Inferens)** Forfatteren har en balansert, men positiv holdning til hjemmekontor. Han presenterer både fordeler og ulemper, men konkluderer med at det "vil forbli" ("wird bleiben"). Han anbefaler tilpasning, ikke avskaffelse.
 
-d) **(Ordforstaelse)** "Hybride Arbeitsmodelle" = arbeidsmodeller som kombinerer kontor og hjemmekontor (hybrid = blanding av to elementer).`,
+d) **(Ordforståelse)** "Hybride Arbeitsmodelle" = arbeidsmodeller som kombinerer kontor og hjemmekontor (hybrid = blanding av to elementer).`,
     },
     {
       id: 'tysk-3-10-1-ex-block-3',
@@ -1228,32 +1228,32 @@ d) **(Ordforstaelse)** "Hybride Arbeitsmodelle" = arbeidsmodeller som kombinerer
         number: '3',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Ov pa a svare pa leseforstaelsessporsmal med denne teksten.',
+        task: 'Øv på å svare på leseforståelsesspørsmål med denne teksten.',
         subTasks: [
           {
             label: 'a',
-            task: `"Kunstliche Intelligenz verandert die Arbeitswelt grundlegend. Wahrend einige Berufe durch Automatisierung verschwinden, entstehen gleichzeitig neue Tatigkeitsfelder. Entscheidend ist, dass Arbeitnehmer bereit sind, sich weiterzubilden und neue Kompetenzen zu erwerben." - Hva er hovedbudskapet?`,
-            solution: 'KI endrer arbeidslivet - noen jobber forsvinner, nye oppstar. Nokkelen er kontinuerlig kompetanseutvikling.'
+            task: `"Künstliche Intelligenz verändert die Arbeitswelt grundlegend. Während einige Berufe durch Automatisierung verschwinden, entstehen gleichzeitig neue Tätigkeitsfelder. Entscheidend ist, dass Arbeitnehmer bereit sind, sich weiterzubilden und neue Kompetenzen zu erwerben." - Hva er hovedbudskapet?`,
+            solution: 'KI endrer arbeidslivet - noen jobber forsvinner, nye oppstår. Nøkkelen er kontinuerlig kompetanseutvikling.'
           },
           {
             label: 'b',
             task: 'Hva anbefales arbeidstakere?',
-            solution: 'A vaere villige til videreutdanning og a tilegne seg nye kompetanser.'
+            solution: 'A være villige til videreutdanning og å tilegne seg nye kompetanser.'
           },
         ],
-        solution: 'a) KI endrer arbeidslivet, og kontinuerlig laering er avgjorende. b) Videreutdanning og nye kompetanser.',
-        hints: ['Finn tekstens hovedpastander', 'Let etter konkrete anbefalinger'],
+        solution: 'a) KI endrer arbeidslivet, og kontinuerlig laering er avgjørende. b) Videreutdanning og nye kompetanser.',
+        hints: ['Finn tekstens hovedpåstander', 'Let etter konkrete anbefalinger'],
       },
     },
     {
       id: 'tysk-3-10-1-note-1',
       type: 'note',
-      title: 'Eksamentips for leseforstaelse',
-      content: `1. Les sporsmalene FORST - da vet du hva du skal se etter
-2. Marker nokkelord i teksten
+      title: 'Eksamentips for leseforståelse',
+      content: `1. Les spørsmålene FORST - da vet du hva du skal se etter
+2. Marker nøkkelord i teksten
 3. Svar med egne ord med mindre sitater kreves
 4. Ikke gjett - sjekk alltid svaret mot teksten
-5. Disponér tiden: ca. 1-2 minutter per sporsmal`,
+5. Disponér tiden: ca. 1-2 minutter per spørsmål`,
     },
   ],
   exercises: [],
@@ -1273,8 +1273,8 @@ export const CHAPTER_TYSK_3_10_2: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: [
     'skrive strukturerte essay og artikler',
-    'argumentere overbevisende pa tysk',
-    'bruke variert sprak og riktig stil',
+    'argumentere overbevisende på tysk',
+    'bruke variert språk og riktig stil',
   ],
   content: [
     {
@@ -1282,15 +1282,15 @@ export const CHAPTER_TYSK_3_10_2: TextbookChapter = {
       type: 'text',
       content: `## Schriftlicher Ausdruck - Skriftlig eksamen
 
-Den skriftlige delen av tyskeksamen tester din evne til a uttrykke deg klart, strukturert og grammatisk korrekt. Vanlige oppgavetyper er:
+Den skriftlige delen av tyskeksamen tester din evne til å uttrykke deg klart, strukturert og grammatisk korrekt. Vanlige oppgavetyper er:
 
-- **Erörterung** (drofting/essay)
+- **Erörterung** (drøfting/essay)
 - **Stellungnahme** (standpunkttekst)
 - **Artikel** (avisartikkel)
 - **Kommentar** (kommentar)
 - **Brief** (formelt/uformelt brev)
 
-Uansett oppgavetype gjelder: god struktur, variert sprak og tydelig argumentasjon.`,
+Uansett oppgavetype gjelder: god struktur, variert språk og tydelig argumentasjon.`,
     },
     {
       id: 'tysk-3-10-2-text-1',
@@ -1328,18 +1328,18 @@ Lag en disposisjon for dette essayet.`,
 - Kontekst: Debatt om alder for forerkort
 - Problemstilling: Bor aldersgrensen heves?
 
-**2. Pro-argumenter (for 18 ar):**
+**2. Pro-argumenter (for 18 år):**
 - Argument 1: Hoyre modenhet og ansvarsfolelse
   - Begrunnelse: Hjernen er mer utviklet
   - Eksempel: Statistikk om ulykker
 - Argument 2: Mindre fare for risikoatferd
-  - Begrunnelse: Tenåringer tar storre risiko
-  - Eksempel: Forskning pa impulskontroll
+  - Begrunnelse: Tenåringer tar større risiko
+  - Eksempel: Forskning på impulskontroll
 
-**3. Contra-argumenter (mot 18 ar):**
-- Argument 1: Behovet for mobilitet pa landet
-  - Begrunnelse: Darlig kollektivtilbud
-  - Eksempel: Ungdom ma komme seg til skole/jobb
+**3. Contra-argumenter (mot 18 år):**
+- Argument 1: Behovet for mobilitet på landet
+  - Begrunnelse: Dårlig kollektivtilbud
+  - Eksempel: Ungdom må komme seg til skole/jobb
 - Argument 2: Tidligere erfaring = tryggere sjaforer
   - Begrunnelse: Ovelse gjor mester
   - Eksempel: Folgebilsystemer
@@ -1359,11 +1359,11 @@ Lag en disposisjon for dette essayet.`,
         difficulty: 'vanskelig',
         task: 'Lag en disposisjon for ett av disse essay-temaene.',
         subTasks: [
-          { label: 'a', task: 'Thema: "Sollten Smartphones in der Schule verboten werden?"', solution: 'Einleitung: Smarttelefoners rolle i skolen. Pro: Distraksjon, cybermobbing, ulikhet. Contra: Laeringsverktoy, tilgjengelighet, forberedelse til digital verden. Schluss: Regulering fremfor forbud?' },
-          { label: 'b', task: 'Thema: "Ist ein Jahr Auslandsaufenthalt fur junge Menschen sinnvoll?"', solution: 'Einleitung: Trendmed gap year. Pro: Spraklaering, personlig utvikling, kulturforstaelse. Contra: Kostnad, forsinkelse i utdanning, kultursjokk. Schluss: Verdifullt for mange, men ikke for alle.' },
+          { label: 'a', task: 'Thema: "Sollten Smartphones in der Schule verboten werden?"', solution: 'Einleitung: Smarttelefoners rolle i skolen. Pro: Distraksjon, cybermobbing, ulikhet. Contra: Laeringsverktøy, tilgjengelighet, forberedelse til digital verden. Schluss: Regulering fremfor forbud?' },
+          { label: 'b', task: 'Thema: "Ist ein Jahr Auslandsaufenthalt für junge Menschen sinnvoll?"', solution: 'Einleitung: Trendmed gap year. Pro: Språklaering, personlig utvikling, kulturforståelse. Contra: Kostnad, forsinkelse i utdanning, kultursjokk. Schluss: Verdifullt for mange, men ikke for alle.' },
         ],
-        solution: 'Disposisjoner bor ha: innledning med problemstilling, 2-3 pro-argumenter, 2-3 contra-argumenter, og konklusjon med egen mening.',
-        hints: ['Hvert argument bor ha: pastanden, begrunnelse, eksempel', 'Vær balansert i pro og contra'],
+        solution: 'Disposisjoner bør ha: innledning med problemstilling, 2-3 pro-argumenter, 2-3 contra-argumenter, og konklusjon med egen mening.',
+        hints: ['Hvert argument bør ha: påstanden, begrunnelse, eksempel', 'Vær balansert i pro og contra'],
       },
     },
     {
@@ -1373,19 +1373,19 @@ Lag en disposisjon for dette essayet.`,
 
 **Oppbygging av et argument:**
 1. **These (påstand):** Hva mener du?
-2. **Begrundung (begrunnelse):** Hvorfor?
+2. **Begründung (begrunnelse):** Hvorfor?
 3. **Beispiel/Beleg (eksempel/belegg):** Bevis
 
 **Koblings- og overgangsord:**
 
 | Funksjon | Tyske uttrykk |
 |----------|---------------|
-| Legge til | ausserdem, daruber hinaus, ferner, zusatzlich |
+| Legge til | außerdem, daruber hinaus, ferner, zusatzlich |
 | Motsetning | jedoch, allerdings, dennoch, hingegen, andererseits |
 | Arsak | denn, weil, da, namlich |
 | Konsekvens | deshalb, daher, folglich, somit |
 | Eksempel | zum Beispiel, beispielsweise, etwa, wie |
-| Oppsummering | zusammenfassend, abschliessend, insgesamt |`,
+| Oppsummering | zusammenfassend, abschließend, insgesamt |`,
     },
     {
       id: 'tysk-3-10-2-example-2',
@@ -1393,19 +1393,19 @@ Lag en disposisjon for dette essayet.`,
       title: 'Eksempel 2: Skrive et argument',
       problem: `Skriv ut dette argumentet fullstendig:
 
-**Tema:** Bor sosiale medier ha aldersgrense pa 16 ar?
-**Pastand:** Ja, aldersgrensen bor heves.
+**Tema:** Bor sosiale medier ha aldersgrense på 16 år?
+**Pastand:** Ja, aldersgrensen bør heves.
 **Begrunnelse:** (fyll ut)
 **Eksempel:** (fyll ut)`,
       solution: `**Fullstendig argument:**
 
-*Ein gewichtiges Argument fur die Anhebung der Altersgrenze auf 16 Jahre ist der Schutz der psychischen Gesundheit von Kindern und Jugendlichen.*
+*Ein gewichtiges Argument für die Anhebung der Altersgrenze auf 16 Jahre ist der Schutz der psychischen Gesundheit von Kindern und Jugendlichen.*
 
 *[These] Soziale Medien sollten erst ab 16 Jahren erlaubt sein.*
 
-*[Begrundung] Der Grund dafur ist, dass jungere Kinder besonders anfallig fur negative Auswirkungen sozialer Medien sind. Ihr Selbstbild ist noch nicht gefestigt, und sie sind starker von Likes und Kommentaren abhangig. Ausserdem fehlt ihnen oft die Medienkompetenz, um Fake News und Manipulation zu erkennen.*
+*[Begründung] Der Grund dafur ist, dass jungere Kinder besonders anfallig für negative Auswirkungen sozialer Medien sind. Ihr Selbstbild ist noch nicht gefestigt, und sie sind starker von Likes und Kommentaren abhängig. Außerdem fehlt ihnen oft die Medienkompetenz, um Fake News und Manipulation zu erkennen.*
 
-*[Beispiel] Dies belegen zahlreiche Studien: Laut einer Untersuchung der Universitat Cambridge haben Kinder unter 16 Jahren, die taglich mehr als drei Stunden in sozialen Medien verbringen, ein deutlich erhohtes Risiko fur Angstzustande und Depressionen.*`,
+*[Beispiel] Dies belegen zahlreiche Studien: Laut einer Untersuchung der Universität Cambridge haben Kinder unter 16 Jahren, die täglich mehr als drei Stunden in sozialen Medien verbringen, ein deutlich erhohtes Risiko für Angstzustande und Depressionen.*`,
     },
     {
       id: 'tysk-3-10-2-ex-block-2',
@@ -1415,13 +1415,13 @@ Lag en disposisjon for dette essayet.`,
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv ut et fullstendig argument (These + Begrundung + Beispiel) pa tysk.',
+        task: 'Skriv ut et fullstendig argument (These + Begründung + Beispiel) på tysk.',
         subTasks: [
-          { label: 'a', task: 'Tema: Uniform i skolen. Pastand: Uniformer bor innfores.', solution: 'These: Schuluniformen sollten eingefuhrt werden. Begrundung: Sie reduzieren sozialen Druck und Mobbing wegen Kleidung. Beispiel: In Grossbritannien, wo Uniformen ublich sind, berichten Schuler von weniger Stress uber Kleidung.' },
-          { label: 'b', task: 'Tema: Kjottfri dag i kantiner. Pastand: Det bor innfores en kjottfri dag.', solution: 'These: In Kantinen sollte ein fleischfreier Tag eingefuhrt werden. Begrundung: Fleischproduktion verursacht hohe CO2-Emissionen. Ein Tag weniger Fleisch pro Woche konnte Millionen Tonnen CO2 einsparen. Beispiel: Die Stadt Freiburg hat dies eingefuhrt und berichtet von positiven Reaktionen.' },
+          { label: 'a', task: 'Tema: Uniform i skolen. Pastand: Uniformer bør innføres.', solution: 'These: Schuluniformen sollten eingeführt werden. Begründung: Sie reduzieren sozialen Druck und Mobbing wegen Kleidung. Beispiel: In Grossbritannien, wo Uniformen ublich sind, berichten Schüler von weniger Stress über Kleidung.' },
+          { label: 'b', task: 'Tema: Kjottfri dag i kantiner. Pastand: Det bør innføres en kjottfri dag.', solution: 'These: In Kantinen sollte ein fleischfreier Tag eingeführt werden. Begründung: Fleischproduktion verursacht hohe CO2-Emissionen. Ein Tag weniger Fleisch pro Woche konnte Millionen Tonnen CO2 einsparen. Beispiel: Die Stadt Freiburg hat dies eingeführt und berichtet von positiven Reaktionen.' },
         ],
         solution: 'Hvert argument skal ha: 1) Klar påstand, 2) Logisk begrunnelse, 3) Konkret eksempel eller statistikk.',
-        hints: ['Bruk koblingsord', 'Vaer spesifikk i eksemplet', 'Unnga svake formuleringer som "ich glaube"'],
+        hints: ['Bruk koblingsord', 'Vaer spesifikk i eksemplet', 'Unngå svake formuleringer som "ich glaube"'],
       },
     },
     {
@@ -1430,7 +1430,7 @@ Lag en disposisjon for dette essayet.`,
       content: `## Skrivetips for eksamen
 
 **Innledning - fang oppmerksomheten:**
-- Retorisk sporsmal: "Wer hat nicht schon einmal...?"
+- Retorisk spørsmål: "Wer hat nicht schon einmal...?"
 - Overraskende fakta: "Wussten Sie, dass...?"
 - Sitat: "Schon Goethe sagte..."
 - Aktuell hendelse: "Die jungsten Ereignisse zeigen..."
@@ -1441,7 +1441,7 @@ Lag en disposisjon for dette essayet.`,
 - Eventuelt: appell eller fremtidsperspektiv
 
 **Språklig variasjon:**
-- Unnga gjentakelser (bruk synonymer)
+- Unngå gjentakelser (bruk synonymer)
 - Varier setningslengde
 - Bruk aktiv OG passiv
 - Inkluder noen retoriske virkemidler`,
@@ -1453,13 +1453,13 @@ Lag en disposisjon for dette essayet.`,
       problem: `Skriv et kort essay (ca. 200 ord) om: "Sollte das Wahlrecht auf 16 Jahre gesenkt werden?"`,
       solution: `**Eksempel-essay:**
 
-*Klimakrise, Bildungspolitik, Rentenreform - Entscheidungen, die heute getroffen werden, betreffen vor allem junge Menschen. Dennoch durfen 16- und 17-Jahrige in den meisten Bundeslandern nicht wahlen. Sollte sich das andern?*
+*Klimakrise, Bildungspolitik, Rentenreform - Entscheidungen, die heute getroffen werden, betreffen vor allem junge Menschen. Dennoch dürfen 16- und 17-Jahrige in den meisten Bundesländern nicht wählen. Sollte sich das andern?*
 
-*Befurworter einer Absenkung des Wahlalters argumentieren, dass Jugendliche direkt von politischen Entscheidungen betroffen sind. Mit 16 zahlt man bereits Steuern und tragt strafrechtliche Verantwortung. Warum sollte man dann nicht mitbestimmen durfen? Daruber hinaus zeigen Bewegungen wie Fridays for Future, dass junge Menschen sehr wohl politisch interessiert und engagiert sind.*
+*Befürworter einer Absenkung des Wahlalters argumentieren, dass Jugendliche direkt von politischen Entscheidungen betroffen sind. Mit 16 zahlt man bereits Steuern und tragt strafrechtliche Verantwortung. Warum sollte man dann nicht mitbestimmen dürfen? Daruber hinaus zeigen Bewegungen wie Fridays for Future, dass junge Menschen sehr wohl politisch interessiert und engagiert sind.*
 
-*Kritiker hingegen bezweifeln die politische Reife von 16-Jahrigen. Das Gehirn sei noch nicht vollstandig entwickelt, und viele Jugendliche liessen sich leicht von populistischen Parolen beeinflussen. Ausserdem habe man bei anderen wichtigen Entscheidungen - etwa dem Autofahren oder Alkoholkonsum - ebenfalls Altersgrenzen.*
+*Kritiker hingegen bezweifeln die politische Reife von 16-Jährigen. Das Gehirn sei noch nicht vollständig entwickelt, und viele Jugendliche liessen sich leicht von populistischen Parolen beeinflussen. Außerdem habe man bei anderen wichtigen Entscheidungen - etwa dem Autofahren oder Alkoholkonsum - ebenfalls Altersgrenzen.*
 
-*Meiner Ansicht nach uberwiegen die Argumente fur eine Absenkung. Junge Menschen verdienen eine Stimme, denn sie werden am langsten mit den Konsequenzen politischer Entscheidungen leben. Mit begleitender politischer Bildung kann das Wahlrecht ab 16 die Demokratie bereichern.*`,
+*Meiner Ansicht nach überwiegen die Argumente für eine Absenkung. Junge Menschen verdienen eine Stimme, denn sie werden am langsten mit den Konsequenzen politischer Entscheidungen leben. Mit begleitender politischer Bildung kann das Wahlrecht ab 16 die Demokratie bereichern.*`,
     },
     {
       id: 'tysk-3-10-2-ex-block-3',
@@ -1473,15 +1473,15 @@ Lag en disposisjon for dette essayet.`,
         subTasks: [
           { label: 'a', task: 'Sollten alle offentlichen Verkehrsmittel kostenlos sein?', solution: 'Essay som droftler gratiskollektivtransport med argumenter for (miljo, tilgjengelighet) og mot (finansiering, overbelastning), og avslutter med egen mening.' },
         ],
-        solution: 'Et godt essay har: fengslende innledning, balansert drofting med minst 2 argumenter pa hver side, og en tydelig egen konklusjon.',
+        solution: 'Et godt essay har: fengslende innledning, balansert drøfting med minst 2 argumenter på hver side, og en tydelig egen konklusjon.',
         hints: ['Bruk disposisjonen for', 'Husk overganger mellom avsnitt', 'Avslutt med din egen begrunnede mening'],
       },
     },
     {
       id: 'tysk-3-10-2-tip-1',
       type: 'tip',
-      title: 'Tidsdisponering pa eksamen',
-      content: `For et essay pa 45-60 minutter:
+      title: 'Tidsdisponering på eksamen',
+      content: `For et essay på 45-60 minutter:
 - 5-10 min: Les oppgaven, brainstorm, lag disposisjon
 - 30-40 min: Skriv essayet
 - 5-10 min: Les gjennom, rett feil, forbedre formuleringer
@@ -1507,7 +1507,7 @@ export const CHAPTER_TYSK_3_10_3: TextbookChapter = {
   competenceGoals: [
     'delta aktivt i samtaler og diskusjoner',
     'presentere et emne muntlig',
-    'handtere uforutsette situasjoner i samtale',
+    'håndtere uforutsette situasjoner i samtale',
   ],
   content: [
     {
@@ -1515,15 +1515,15 @@ export const CHAPTER_TYSK_3_10_3: TextbookChapter = {
       type: 'text',
       content: `## Mündliche Prüfung - Muntlig eksamen
 
-Den muntlige eksamen i tysk tester din evne til a kommunisere spontant og sammenhengende. Typiske oppgaver:
+Den muntlige eksamen i tysk tester din evne til å kommunisere spontant og sammenhengende. Typiske oppgaver:
 
-1. **Prasentation** - Presentere et forberedt emne
+1. **Präsentation** - Presentere et forberedt emne
 2. **Gesprach** - Samtale med sensor om et tema
 3. **Diskussion** - Diskutere med medkandidat
 4. **Bildbeschreibung** - Beskrive og tolke et bilde
 5. **Rollenspiel** - Rollespill i en gitt situasjon
 
-Vurderingskriterier: Innhold, spraklig korrekthet, flyt, ordforrad, uttale.`,
+Vurderingskriterier: Innhold, språklig korrekthet, flyt, ordforråd, uttale.`,
     },
     {
       id: 'tysk-3-10-3-text-1',
@@ -1531,7 +1531,7 @@ Vurderingskriterier: Innhold, spraklig korrekthet, flyt, ordforrad, uttale.`,
       content: `## Samtaleteknikker
 
 **Starte en samtale:**
-- "Zu diesem Thema mochte ich sagen, dass..."
+- "Zu diesem Thema möchte ich sagen, dass..."
 - "Meiner Meinung nach..."
 - "Ich finde es interessant, dass..."
 
@@ -1540,12 +1540,12 @@ Vurderingskriterier: Innhold, spraklig korrekthet, flyt, ordforrad, uttale.`,
 - "In diesem Zusammenhang..."
 - "Ein gutes Beispiel dafur ist..."
 
-**Reagere pa samtalepartner:**
+**Reagere på samtalepartner:**
 - "Da stimme ich Ihnen zu."
 - "Das sehe ich etwas anders, weil..."
 - "Das ist ein interessanter Punkt."
 
-**Vinne tid til a tenke:**
+**Vinne tid til å tenke:**
 - "Das ist eine gute Frage. Lassen Sie mich kurz uberlegen..."
 - "Nun, wenn ich daruber nachdenke..."
 - "Das ist nicht ganz einfach zu beantworten..."`,
@@ -1554,7 +1554,7 @@ Vurderingskriterier: Innhold, spraklig korrekthet, flyt, ordforrad, uttale.`,
       id: 'tysk-3-10-3-example-1',
       type: 'example',
       title: 'Eksempel 1: Diskusjonsteknikk',
-      problem: `Du er i en diskusjon om "Ist ein Tempolimit auf Autobahnen sinnvoll?" (fartsgrense pa motorvei).
+      problem: `Du er i en diskusjon om "Ist ein Tempolimit auf Autobahnen sinnvoll?" (fartsgrense på motorvei).
 
 Vis hvordan du:
 a) Uttrykker enighet med motpartens poeng
@@ -1571,7 +1571,7 @@ c) Ber om avklaring`,
 - "Das mag stimmen, allerdings muss man auch bedenken, dass..."
 
 **c) Be om avklaring:**
-- "Konnten Sie das bitte naher erlautern?"
+- "Könnten Sie das bitte naher erläutern?"
 - "Was genau meinen Sie mit...?"
 - "Ich bin mir nicht sicher, ob ich Sie richtig verstanden habe. Meinen Sie, dass...?"`,
     },
@@ -1583,11 +1583,11 @@ c) Ber om avklaring`,
         number: '1',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Ov pa a reagere i en diskusjon. Skriv passende svar pa tysk.',
+        task: 'Øv på å reagere i en diskusjon. Skriv passende svar på tysk.',
         subTasks: [
-          { label: 'a', task: 'Samtalepartneren sier: "Ich glaube, soziale Medien sind nur schadlich fur Jugendliche." Uttrykk hoflig uenighet.', solution: 'Ich verstehe Ihre Bedenken, aber ich sehe das differenzierter. Soziale Medien konnen auch positive Effekte haben, zum Beispiel fur die Vernetzung und den Informationsaustausch.' },
-          { label: 'b', task: 'Du forstar ikke et ord samtalepartneren bruker. Be om avklaring.', solution: 'Entschuldigung, konnten Sie mir erklaren, was Sie mit diesem Begriff meinen? / Ich bin mir nicht sicher, ob ich das Wort richtig verstanden habe.' },
-          { label: 'c', task: 'Du trenger tid til a tenke. Hva sier du?', solution: 'Das ist eine interessante Frage. Lassen Sie mich kurz daruber nachdenken... / Nun, das ist nicht ganz einfach zu beantworten...' },
+          { label: 'a', task: 'Samtalepartneren sier: "Ich glaube, soziale Medien sind nur schadlich für Jugendliche." Uttrykk hoflig uenighet.', solution: 'Ich verstehe Ihre Bedenken, aber ich sehe das differenzierter. Soziale Medien können auch positive Effekte haben, zum Beispiel für die Vernetzung und den Informationsaustausch.' },
+          { label: 'b', task: 'Du forstar ikke et ord samtalepartneren bruker. Be om avklaring.', solution: 'Entschuldigung, könnten Sie mir erklären, was Sie mit diesem Begriff meinen? / Ich bin mir nicht sicher, ob ich das Wort richtig verstanden habe.' },
+          { label: 'c', task: 'Du trenger tid til å tenke. Hva sier du?', solution: 'Das ist eine interessante Frage. Lassen Sie mich kurz daruber nachdenken... / Nun, das ist nicht ganz einfach zu beantworten...' },
         ],
         solution: 'a) Hoflig uenighet + begrunnelse b) Be om forklaring c) Vinn tid med frasersom "Lassen Sie mich nachdenken"',
         hints: ['Vaer alltid hoflig, selv ved uenighet', 'Bruk "Konjunktiv II" for mer hoflige formuleringer'],
@@ -1619,15 +1619,15 @@ c) Ber om avklaring`,
       problem: `Beskriv dette bildet (tenk deg et bilde av et fullsatt torg med demonstranter som holder klimaplakater):
 
 **Stikkord:** Demonstration, Klimaschutz, junge Menschen, Plakate, Stadt`,
-      solution: `**Eksempel pa bildebeskrivelse:**
+      solution: `**Eksempel på bildebeskrivelse:**
 
-*"Auf diesem Bild sieht man eine grosse Menschenmenge auf einem stadtischen Platz. Es handelt sich offensichtlich um eine Demonstration zum Thema Klimaschutz.*
+*"Auf diesem Bild sieht man eine große Menschenmenge auf einem stadtischen Platz. Es handelt sich offensichtlich um eine Demonstration zum Thema Klimaschutz.*
 
-*Im Vordergrund sind mehrere junge Menschen zu sehen, die Plakate hochhalten. Auf einem Schild steht 'There is no Planet B', auf einem anderen 'Fridays for Future'. Die Demonstranten scheinen uberwiegend Jugendliche und junge Erwachsene zu sein.*
+*Im Vordergrund sind mehrere junge Menschen zu sehen, die Plakate hochhalten. Auf einem Schild steht 'There is no Planet B', auf einem anderen 'Fridays for Future'. Die Demonstranten scheinen überwiegend Jugendliche und junge Erwachsene zu sein.*
 
 *Im Hintergrund erkennt man historische Gebaude, was darauf hindeutet, dass die Demonstration im Stadtzentrum stattfindet. Das Wetter scheint sonnig zu sein, und die Stimmung wirkt friedlich, aber engagiert.*
 
-*Das Bild vermittelt den Eindruck einer lebendigen demokratischen Bewegung. Es zeigt, dass junge Menschen bereit sind, fur ihre Uberzeugungen auf die Strasse zu gehen. Der Fotograf wollte moglicherweise die Starke und Entschlossenheit der Klimabewegung dokumentieren."*`,
+*Das Bild vermittelt den Eindruck einer lebendigen demokratischen Bewegung. Es zeigt, dass junge Menschen bereit sind, für ihre Uberzeugungen auf die Straße zu gehen. Der Fotograf wollte moglicherweise die Starke und Entschlossenheit der Klimabewegung dokumentieren."*`,
     },
     {
       id: 'tysk-3-10-3-ex-block-2',
@@ -1637,9 +1637,9 @@ c) Ber om avklaring`,
         number: '2',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Ov pa bildebeskrivelse med disse stikkordene.',
+        task: 'Øv på bildebeskrivelse med disse stikkordene.',
         subTasks: [
-          { label: 'a', task: 'Stikkord: Klassenzimmer, Schuler, Tablets, Lehrer, digitale Tafel. Beskriv bildet pa tysk (5-7 setninger).', solution: 'Das Bild zeigt ein modernes Klassenzimmer. Im Vordergrund sitzen Schuler an Tischen und arbeiten mit Tablets. Der Lehrer steht an einer digitalen Tafel und erklart etwas. Im Hintergrund sieht man Fenster und Pflanzen. Das Bild zeigt, wie Digitalisierung den Unterricht verandert.' },
+          { label: 'a', task: 'Stikkord: Klassenzimmer, Schüler, Tablets, Lehrer, digitale Tafel. Beskriv bildet på tysk (5-7 setninger).', solution: 'Das Bild zeigt ein modernes Klassenzimmer. Im Vordergrund sitzen Schüler an Tischen und arbeiten mit Tablets. Der Lehrer steht an einer digitalen Tafel und erklart etwas. Im Hintergrund sieht man Fenster und Pflanzen. Das Bild zeigt, wie Digitalisierung den Unterricht verändert.' },
         ],
         solution: 'En god bildebeskrivelse har: oversikt, detaljer (forgrunn/bakgrunn), og tolkning.',
         hints: ['Bruk "man sieht", "es scheint", "im Vordergrund/Hintergrund"', 'Avslutt med tolkning'],
@@ -1650,22 +1650,22 @@ c) Ber om avklaring`,
       type: 'text',
       content: `## Håndtere vanskelige situasjoner
 
-**Nar du ikke forstar:**
-- "Entschuldigung, konnten Sie das bitte wiederholen?"
+**Når du ikke forstar:**
+- "Entschuldigung, könnten Sie das bitte wiederholen?"
 - "Ich habe das leider nicht ganz verstanden."
 - "Was meinen Sie genau mit...?"
 
-**Nar du mangler ord:**
+**Når du mangler ord:**
 - "Das Wort fallt mir gerade nicht ein, aber ich meine..."
 - "Auf Deutsch sagt man das vielleicht... oder?"
 - "Ich weiss nicht, wie man das nennt, aber es ist..."
 
-**Nar du gjor feil:**
+**Når du gjor feil:**
 - Rett deg selv raskt og fortsett
 - "Entschuldigung, ich meinte..."
 - Ikke heng deg opp i feilen
 
-**Nar du trenger tid:**
+**Når du trenger tid:**
 - "Das ist eine interessante Frage..."
 - "Wenn ich daruber nachdenke..."
 - "Es gibt verschiedene Aspekte zu bedenken..."`,
@@ -1674,10 +1674,10 @@ c) Ber om avklaring`,
       id: 'tysk-3-10-3-example-3',
       type: 'example',
       title: 'Eksempel 3: Spontan tale',
-      problem: `Du far et uventet sporsmal pa muntlig eksamen: "Was wurden Sie tun, wenn Sie Bildungsminister/in waren?"
+      problem: `Du far et uventet spørsmål på muntlig eksamen: "Was wurden Sie tun, wenn Sie Bildungsminister/in waren?"
 
-Hvordan svarer du nar du trenger tid til a tenke?`,
-      solution: `**Eksempel pa svar:**
+Hvordan svarer du når du trenger tid til å tenke?`,
+      solution: `**Eksempel på svar:**
 
 *"Oh, das ist eine interessante Frage! Lassen Sie mich kurz daruber nachdenken...*
 
@@ -1687,17 +1687,17 @@ Hvordan svarer du nar du trenger tid til a tenke?`,
 
 *Erstens wurde ich die Digitalisierung der Schulen vorantreiben. In der heutigen Welt ist digitale Kompetenz unverzichtbar, und viele Schulen sind noch nicht ausreichend ausgestattet.*
 
-*Zweitens wurde ich mehr in die Lehrerausbildung investieren. Gute Lehrer sind das Wichtigste fur eine gute Bildung.*
+*Zweitens wurde ich mehr in die Lehrerausbildung investieren. Gute Lehrer sind das Wichtigste für eine gute Bildung.*
 
 *Und drittens wurde ich das Ganztagsschulangebot ausbauen, um Chancengleichheit zu fordern.*
 
 *Naturlich sind das nur erste Gedanken, und in der Realitat gibt es viele Faktoren zu berucksichtigen..."*
 
 **Teknikker brukt:**
-- Anerkjenner sporsmalet ("interessante Frage")
+- Anerkjenner spørsmålet ("interessante Frage")
 - Kjoper tid ("Lassen Sie mich nachdenken")
 - Strukturerer svaret ("Erstens, zweitens, drittens")
-- Avslutter med nyanse ("naturlich gibt es viele Faktoren")`,
+- Avslutter med nyanse ("natürlich gibt es viele Faktoren")`,
     },
     {
       id: 'tysk-3-10-3-ex-block-3',
@@ -1707,10 +1707,10 @@ Hvordan svarer du nar du trenger tid til a tenke?`,
         number: '3',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Ov pa a svare spontant. Planlegg et kort svar (1 minutt) pa disse sporsmalene.',
+        task: 'Øv på å svare spontant. Planlegg et kort svar (1 minutt) på disse spørsmålene.',
         subTasks: [
-          { label: 'a', task: 'Was ist der grosste Vorteil, mehrere Sprachen zu sprechen?', solution: 'Man kann mit mehr Menschen kommunizieren, andere Kulturen besser verstehen, und hat bessere Berufschancen. Ausserdem zeigen Studien, dass Mehrsprachigkeit gut fur das Gehirn ist.' },
-          { label: 'b', task: 'Welche Erfindung hat die Welt am meisten verandert?', solution: 'Meiner Meinung nach das Internet. Es hat die Kommunikation, den Zugang zu Informationen und die Art, wie wir arbeiten, grundlegend verandert. Allerdings hat es auch Schattenseiten wie Datenschutzprobleme.' },
+          { label: 'a', task: 'Was ist der größte Vorteil, mehrere Sprachen zu sprechen?', solution: 'Man kann mit mehr Menschen kommunizieren, andere Kulturen besser verstehen, und hat bessere Berufschancen. Außerdem zeigen Studien, dass Mehrsprachigkeit gut für das Gehirn ist.' },
+          { label: 'b', task: 'Welche Erfindung hat die Welt am meisten verändert?', solution: 'Meiner Meinung nach das Internet. Es hat die Kommunikation, den Zugang zu Informationen und die Art, wie wir arbeiten, grundlegend verändert. Allerdings hat es auch Schattenseiten wie Datenschutzprobleme.' },
         ],
         solution: 'Gode svar har: innledning/mening, 2-3 argumenter/punkter, og en kort avslutning.',
         hints: ['Bruk strukturord: erstens, zweitens', 'Gi konkrete eksempler', 'Avslutt med en oppsummering eller nyanse'],
@@ -1720,12 +1720,12 @@ Hvordan svarer du nar du trenger tid til a tenke?`,
       id: 'tysk-3-10-3-tip-1',
       type: 'tip',
       title: 'Tips for muntlig eksamen',
-      content: `1. **Forberedelse:** Ov med en partner eller ta opp deg selv
+      content: `1. **Forberedelse:** Øv med en partner eller ta opp deg selv
 2. **Uttale:** Snakk tydelig, ikke for fort
-3. **Kroppssprak:** Se sensor i oynene, sitt/sta avslappet
+3. **Kroppsspråk:** Se sensor i oynene, sitt/stå avslappet
 4. **Feil:** Alle gjor feil - rett deg selv og fortsett
 5. **Engasjement:** Vis interesse for temaet
-6. **Struktur:** Bruk signalord for a organisere svaret`,
+6. **Struktur:** Bruk signalord for å organisere svaret`,
     },
   ],
   exercises: [],
@@ -1741,29 +1741,29 @@ export const CHAPTER_TYSK_3_10_4: TextbookChapter = {
   chapterNumber: '10.4',
   title: 'Wiederholung',
   subtitle: 'Repetisjon av niva 3',
-  description: 'Grundig repetisjon av alle viktige temaer fra Tysk niva 3 med fokus pa eksamensforberedelse.',
+  description: 'Grundig repetisjon av alle viktige temaer fra Tysk niva 3 med fokus på eksamensforberedelse.',
   estimatedMinutes: 60,
   competenceGoals: [
     'repetere og konsolidere grammatikk fra niva 3',
-    'ove pa varierte eksamensoppgaver',
+    'ove på varierte eksamensoppgaver',
     'identifisere og jobbe med egne svakheter',
   ],
   content: [
     {
       id: 'tysk-3-10-4-intro',
       type: 'text',
-      content: `## Repetisjon - Niva 3
+      content: `## Repetisjon - Nivå 3
 
 Dette kapitlet gir en grundig gjennomgang av de viktigste temaene fra Tysk niva 3. Bruk det til a:
 
-- Identifisere omrader du ma jobbe mer med
-- Ove pa eksamensrelevante oppgaver
-- Friske opp grammatikk og ordforrad
-- Fa oversikt for eksamen
+- Identifisere områder du må jobbe mer med
+- Ove på eksamensrelevante oppgaver
+- Friske opp grammatikk og ordforråd
+- Få oversikt for eksamen
 
-**Hovedomrader:**
+**Hovedområder:**
 1. Grammatikk (Konjunktiv, komplekse setninger, passiv)
-2. Ordforrad (akademisk, fagsprak, idiomer)
+2. Ordforrad (akademisk, fagspråk, idiomer)
 3. Teksttyper (essay, analyse, presentasjon)
 4. Kommunikasjon (diskusjon, argumentasjon)`,
     },
@@ -1786,20 +1786,20 @@ Eksempel: Er sagt, er sei krank.
 **Konjunktiv II (Irrealis/hoflige former):**
 | Verb | Konjunktiv II |
 |------|---------------|
-| sein | ware |
+| sein | wäre |
 | haben | hatte |
-| konnen | konnte |
-| mussen | musste |
+| können | konnte |
+| müssen | musste |
 | werden | wurde |
 
-Bruk: Onsker, hypotetiske situasjoner, hoflige foresporsler
-Eksempel: Ich wurde gerne... / Wenn ich reich ware...`,
+Bruk: Ønsker, hypotetiske situasjoner, hoflige foresporsler
+Eksempel: Ich wurde gerne... / Wenn ich reich wäre...`,
     },
     {
       id: 'tysk-3-10-4-example-1',
       type: 'example',
       title: 'Eksempel 1: Grammatikktest',
-      problem: `Test deg selv pa Konjunktiv:
+      problem: `Test deg selv på Konjunktiv:
 
 1. Gjor om til indirekte tale (Konj. I):
    "Ich habe keine Zeit." -> Er sagt, er ___ keine Zeit.
@@ -1808,16 +1808,16 @@ Eksempel: Ich wurde gerne... / Wenn ich reich ware...`,
    "Ich bin reich." -> Wenn ich reich ___, ___ ich...
 
 3. Skriv hoflig:
-   "Konnen Sie mir helfen?" -> ___ Sie mir helfen?`,
-      solution: `**Losninger:**
+   "Können Sie mir helfen?" -> ___ Sie mir helfen?`,
+      solution: `**Løsninger:**
 
 1. **habe** (Konjunktiv I av "haben")
    Er sagt, er **habe** keine Zeit.
 
 2. **ware** / **wurde**
-   Wenn ich reich **ware**, **wurde** ich ein grosses Haus kaufen.
+   Wenn ich reich **ware**, **wurde** ich ein großes Haus kaufen.
 
-3. **Konnten** (Konjunktiv II av "konnen")
+3. **Konnten** (Konjunktiv II av "können")
    **Konnten** Sie mir bitte helfen?
 
 **Husk:**
@@ -1837,7 +1837,7 @@ Eksempel: Ich wurde gerne... / Wenn ich reich ware...`,
         subTasks: [
           { label: 'a', task: 'Die Ministerin sagt, die Wirtschaft ___ (wachsen - Konj. I) stark.', solution: 'wachse' },
           { label: 'b', task: 'Wenn ich mehr Zeit ___ (haben - Konj. II), ___ (werden) ich Deutsch lernen.', solution: 'hatte, wurde' },
-          { label: 'c', task: '___ (Konnen - Konj. II) Sie mir bitte den Weg zeigen?', solution: 'Konnten' },
+          { label: 'c', task: '___ (Können - Konj. II) Sie mir bitte den Weg zeigen?', solution: 'Konnten' },
           { label: 'd', task: 'Die Zeitung berichtet, es ___ (geben - Konj. I) neue Entwicklungen.', solution: 'gebe' },
         ],
         solution: 'a) wachse b) hatte, wurde c) Konnten d) gebe',
@@ -1851,9 +1851,9 @@ Eksempel: Ich wurde gerne... / Wenn ich reich ware...`,
 
 **Leddsetninger (Nebensatze):**
 Verbet star til slutt!
-- weil, dass, wenn, obwohl, als, bevor, nachdem, wahrend
+- weil, dass, wenn, obwohl, als, bevor, nachdem, während
 
-Eksempel: Ich lerne Deutsch, **weil** ich in Deutschland studieren **mochte**.
+Eksempel: Ich lerne Deutsch, **weil** ich in Deutschland studieren **möchte**.
 
 **Relativsetninger:**
 | Kasus | m | f | n | pl |
@@ -1879,7 +1879,7 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
 1. Ich lerne Deutsch. Ich will in Deutschland arbeiten. (um...zu)
 2. Das ist der Student. Ich habe ihm geholfen. (Relativpronomen)
 3. Sie ging nach Hause. Es regnete stark. (obwohl)`,
-      solution: `**Losninger:**
+      solution: `**Løsninger:**
 
 1. **Ich lerne Deutsch, um in Deutschland zu arbeiten.**
    (um + zu + infinitiv for formalssetning)
@@ -1892,7 +1892,7 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
 
 **Alternative:**
 - Obwohl es stark regnete, ging sie nach Hause.
-  (Nar bisetningen kommer forst, starter hovedsetningen med verbet)`,
+  (Når bisetningen kommer først, starter hovedsetningen med verbet)`,
     },
     {
       id: 'tysk-3-10-4-ex-block-2',
@@ -1910,7 +1910,7 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
           { label: 'd', task: 'Er verliess das Haus. Er sagte nichts. (ohne...zu)', solution: 'Er verliess das Haus, ohne etwas zu sagen.' },
         ],
         solution: 'a) um Karriere zu machen b) deren Buch c) weil das Wetter schlecht ist d) ohne etwas zu sagen',
-        hints: ['Husk verbets plassering i bisetninger', 'Relativpronomen boyes etter kasus og kjonn'],
+        hints: ['Husk verbets plassering i bisetninger', 'Relativpronomen bøyes etter kasus og kjonn'],
       },
     },
     {
@@ -1918,14 +1918,14 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
       type: 'text',
       content: `## Ordforrad-oppsummering
 
-**Akademiske nokkelbegreper:**
+**Akademiske nøkkelbegreper:**
 | Tysk | Norsk |
 |------|-------|
 | die Forschung | forskning |
 | die Studie | studie |
 | die Hypothese | hypotese |
 | das Ergebnis | resultat |
-| die Schlussfolgerung | konklusjon |
+| die Schlussfølgerung | konklusjon |
 | die Analyse | analyse |
 | der Faktor | faktor |
 | die Methode | metode |
@@ -1934,7 +1934,7 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
 | Tysk | Norsk |
 |------|-------|
 | meiner Meinung nach | etter min mening |
-| einerseits... andererseits | pa den ene siden... pa den andre siden |
+| einerseits... andererseits | på den ene siden... på den andre siden |
 | im Gegensatz zu | i motsetning til |
 | zusammenfassend | oppsummerende |
 | folglich / daher | folaktig / derfor |
@@ -1947,17 +1947,17 @@ Eksempel: Der Mann, **der** dort steht,... / Das Buch, **das** ich lese,...
       problem: `Skriv et kort avsnitt (5-6 setninger) som kombinerer:
 - Minst én Konjunktiv II-setning
 - Minst én relativsetning
-- Akademisk ordforrad
+- Akademisk ordforråd
 
-Tema: Fordelene med a laere fremmedsprak`,
+Tema: Fordelene med å lære fremmedspråk`,
       solution: `**Eksempel:**
 
-*Wenn ich uber die Vorteile des Fremdsprachenlernens nachdenke, fallen mir mehrere Aspekte ein. Studien, **die** in den letzten Jahren durchgefuhrt **wurden**, zeigen, dass Mehrsprachigkeit positive Auswirkungen auf das Gehirn hat. **Wenn** ich nicht Deutsch gelernt **hatte**, **hatte** ich viele interessante Texte nicht lesen konnen. Daruber hinaus offnen Fremdsprachen Turen zu neuen Kulturen, **deren** Verstandnis unseren Horizont erweitert. Zusammenfassend lasst sich sagen, dass Sprachkenntnisse in unserer globalisierten Welt unverzichtbar sind.*
+*Wenn ich über die Vorteile des Fremdsprachenlernens nachdenke, fallen mir mehrere Aspekte ein. Studien, **die** in den letzten Jahren durchgeführt **wurden**, zeigen, dass Mehrsprachigkeit positive Auswirkungen auf das Gehirn hat. **Wenn** ich nicht Deutsch gelernt **hatte**, **hatte** ich viele interessante Texte nicht lesen können. Daruber hinaus offnen Fremdsprachen Turen zu neuen Kulturen, **deren** Verstandnis unseren Horizont erweitert. Zusammenfassend lässt sich sagen, dass Sprachkenntnisse in unserer globalisierten Welt unverzichtbar sind.*
 
 **Elementer brukt:**
 - Konjunktiv II: "Wenn ich... gelernt hatte, hatte ich..."
 - Relativsetninger: "die... wurden", "deren Verstandnis"
-- Akademisk ordforrad: Studien, Auswirkungen, zusammenfassend`,
+- Akademisk ordforråd: Studien, Auswirkungen, zusammenfassend`,
     },
     {
       id: 'tysk-3-10-4-ex-block-3',
@@ -1969,9 +1969,9 @@ Tema: Fordelene med a laere fremmedsprak`,
         difficulty: 'vanskelig',
         task: 'Eksamensoppgave: Skriv en kort tekst (100-150 ord) om ett av temaene. Bruk variert grammatikk og akademisk stil.',
         subTasks: [
-          { label: 'a', task: 'Thema: Die Bedeutung der Digitalisierung fur die Bildung', solution: 'En god besvarelse inkluderer: innledning med tese, argumenter med eksempler, variertgrammatikk (bisetninger, Konjunktiv, passiv), og konklusjon.' },
+          { label: 'a', task: 'Thema: Die Bedeutung der Digitalisierung für die Bildung', solution: 'En god besvarelse inkluderer: innledning med tese, argumenter med eksempler, variertgrammatikk (bisetninger, Konjunktiv, passiv), og konklusjon.' },
         ],
-        solution: 'Teksten bor ha tydelig struktur, variert sprak (relativsetninger, Konjunktiv, passiv), akademisk ordforrad og en klar konklusjon.',
+        solution: 'Teksten bør ha tydelig struktur, variert språk (relativsetninger, Konjunktiv, passiv), akademisk ordforråd og en klar konklusjon.',
         hints: ['Planlegg for du skriver', 'Bruk signalord for struktur', 'Varier setningslengde og -struktur'],
       },
     },
@@ -1993,24 +1993,24 @@ Tema: Fordelene med a laere fremmedsprak`,
 - [ ] Fagterminologi fra pensumtekster
 
 **Ferdigheter:**
-- [ ] Leseforstaelse (skumlesing, detaljlesing)
+- [ ] Leseforståelse (skumlesing, detaljlesing)
 - [ ] Essay med klar struktur
 - [ ] Muntlig presentasjon
 - [ ] Diskusjonsteknikk
 
 **Forberedelse:**
-- [ ] Ov med tidligere eksamensoppgaver
+- [ ] Øv med tidligere eksamensoppgaver
 - [ ] Tidsstyring (hvor lang tid per oppgave?)
-- [ ] Lesinnstruksjonene noyaktig`,
+- [ ] Lesinnstruksjonene nøyaktig`,
     },
     {
       id: 'tysk-3-10-4-note-1',
       type: 'note',
       title: 'Siste tips for eksamen',
-      content: `1. **Les oppgavene noyaktig** - svar pa det som blir spurt
-2. **Disponer tiden** - ikke bruk for lang tid pa én oppgave
+      content: `1. **Les oppgavene nøyaktig** - svar på det som blir spurt
+2. **Disponer tiden** - ikke bruk for lang tid på én oppgave
 3. **Skriv strukturert** - innledning, hoveddel, avslutning
-4. **Varier spraket** - vis at du behersker ulike strukturer
+4. **Varier språket** - vis at du behersker ulike strukturer
 5. **Sjekk gjennom** - rett opplagte feil
 6. **Hold roen** - gjor ditt beste og vaer stolt!
 
