@@ -3,7 +3,7 @@
  * Kapittel 15: Etterkrigstid Norge (15.1 - 15.4)
  *
  * Denne versjonen er skrevet som sammenhengende tekst som er behagelig
- * a lese og lytte til, med quiz-sporsmal for selvtest.
+ * å lese og lytte til, med quiz-spørsmål for selvtest.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,7 +20,7 @@ export const CHAPTER_HISTORIE_15_1_NARRATIV: TextbookChapter = {
   subtitle: 'Narrativ versjon',
   description: 'En fortelling om hvordan Norge reiste seg fra ruinene etter andre verdenskrig og la grunnlaget for det moderne velferdssamfunnet.',
   estimatedMinutes: 40,
-  competenceGoals: ['velferdsutviklingen i Norge pa 1900-tallet'],
+  competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'],
   linkedChapterId: 'historie-15-1',
   content: [
     {
@@ -355,7 +355,7 @@ export const CHAPTER_HISTORIE_15_2_NARRATIV: TextbookChapter = {
   subtitle: 'Narrativ versjon',
   description: 'En fortelling om hvordan Norge gikk fra fattigforsorg til universelle velferdsordninger -- en revolusjon i forholdet mellom stat og borger.',
   estimatedMinutes: 40,
-  competenceGoals: ['velferdsutviklingen i Norge pa 1900-tallet'],
+  competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'],
   linkedChapterId: 'historie-15-2',
   content: [
     {
@@ -713,9 +713,9 @@ export const CHAPTER_HISTORIE_15_3_NARRATIV: TextbookChapter = {
   chapterNumber: '15.3',
   title: 'Oljen og det moderne Norge',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan funnet av olje i Nordsoen forvandlet Norge fra et relativt fattig land til et av verdens rikeste -- og dilemmaene som fulgte.',
+  description: 'En fortelling om hvordan funnet av olje i Nordsjøen forvandlet Norge fra et relativt fattig land til et av verdens rikeste -- og dilemmaene som fulgte.',
   estimatedMinutes: 40,
-  competenceGoals: ['velferdsutviklingen i Norge pa 1900-tallet'],
+  competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'],
   linkedChapterId: 'historie-15-3',
   content: [
     {
@@ -1095,9 +1095,9 @@ export const CHAPTER_HISTORIE_15_4_NARRATIV: TextbookChapter = {
   chapterNumber: '15.4',
   title: 'Likestilling og sosiale reformer',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om kampen for likestilling og hvordan Norge gikk fra husmorsideale til et av verdens mest likestilte samfunn.',
+  description: 'En fortelling om kampen for likestilling og hvordan Norge gikk fra husmorsidealet til et av verdens mest likestilte samfunn.',
   estimatedMinutes: 40,
-  competenceGoals: ['myndiggjoring og frigjoring - norsk og samisk historie'],
+  competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'],
   linkedChapterId: 'historie-15-4',
   content: [
     {

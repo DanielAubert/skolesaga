@@ -228,7 +228,7 @@ export const CHAPTER_S2_4_5: TextbookChapter = {
   courseId: 's2',
   chapterNumber: '4.5',
   title: 'Simulering og stokastiske eksperimenter',
-  description: 'Lær om Monte Carlo-simulering, bruk av Python og GeoGebra for aa estimere sannsynligheter, store talls lov og konvergens av estimater ved gjentatte forsøk.',
+  description: 'Lær om Monte Carlo-simulering, bruk av Python og GeoGebra for å estimere sannsynligheter, store talls lov og konvergens av estimater ved gjentatte forsøk.',
   estimatedMinutes: 50,
   competenceGoals: [
     'bruke digitale verktøy til å simulere stokastiske forsøk',

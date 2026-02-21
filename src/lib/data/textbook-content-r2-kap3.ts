@@ -12,10 +12,10 @@ export const CHAPTER_R2_3_1: TextbookChapter = {
   description: 'Integrasjon ved hjelp av variabelskifte - den reverserte kjerneregelen.',
   estimatedMinutes: 75,
   competenceGoals: [
-    'bruke substitusjon for aa finne integraler',
+    'bruke substitusjon for å finne integraler',
     'velge hensiktsmessig substitusjon',
-    'haandtere grenseendring ved bestemte integraler',
-    'anvende substitusjon paa ulike funksjonstyper',
+    'håndtere grenseendring ved bestemte integraler',
+    'anvende substitusjon på ulike funksjonstyper',
   ],
   content: [
     // ============================================================================
@@ -26,10 +26,10 @@ export const CHAPTER_R2_3_1: TextbookChapter = {
       type: 'text',
       content: `## Variabelskifte - den reverserte kjerneregelen
 
-Naar vi deriverer sammensatte funksjoner, bruker vi kjerneregelen:
+Når vi deriverer sammensatte funksjoner, bruker vi kjerneregelen:
 $$\\frac{d}{dx}[F(g(x))] = F'(g(x)) \\cdot g'(x)$$
 
-Variabelskifte (ogsaa kalt **substitusjon**) er den omvendte prosessen. Vi bruker det naar integranden inneholder en funksjon og dens deriverte.
+Variabelskifte (også kalt **substitusjon**) er den omvendte prosessen. Vi bruker det når integranden inneholder en funksjon og dens deriverte.
 
 **Ideen:** Hvis vi ser $\\int f(g(x)) \\cdot g'(x) \\, dx$, kan vi sette $u = g(x)$ og forenkle integralet.
 
@@ -59,7 +59,7 @@ Etter integrering setter vi tilbake $u = g(x)$.
       problem: 'Finn $\\int 2x \\cdot e^{x^2} \\, dx$.',
       solution: `**Steg 1:** Vi ser at $2x$ er den deriverte av $x^2$.
 
-**Steg 2:** Sett $u = x^2$, da er $\\frac{du}{dx} = 2x$, altsaa $du = 2x \\, dx$.
+**Steg 2:** Sett $u = x^2$, da er $\\frac{du}{dx} = 2x$, altså $du = 2x \\, dx$.
 
 **Steg 3:** Substitusjonen gir:
 $$\\int 2x \\cdot e^{x^2} \\, dx = \\int e^u \\, du = e^u + C$$
@@ -78,7 +78,7 @@ $$\\int 2x \\cdot e^{x^2} \\, dx = e^{x^2} + C$$
         type: 'classic',
         difficulty: 'lett',
         task: 'Finn $\\int 3x^2 \\cdot e^{x^3} \\, dx$ ved substitusjon.',
-        solution: 'Sett $u = x^3$, $du = 3x^2 \\, dx$. Da faar vi $\\int e^u \\, du = e^u + C = e^{x^3} + C$.',
+        solution: 'Sett $u = x^3$, $du = 3x^2 \\, dx$. Da får vi $\\int e^u \\, du = e^u + C = e^{x^3} + C$.',
         hints: ['Hva er den deriverte av $x^3$?', 'Sett $u = x^3$.'],
       },
     },
@@ -87,14 +87,14 @@ $$\\int 2x \\cdot e^{x^2} \\, dx = e^{x^2} + C$$
       type: 'text',
       content: `### Hvordan velge substitusjon?
 
-**Tommelfingerregel:** Let etter en funksjon $g(x)$ slik at den deriverte $g'(x)$ (eller en konstant multipel av den) ogsaa finnes i integranden.
+**Tommelfingerregel:** Let etter en funksjon $g(x)$ slik at den deriverte $g'(x)$ (eller en konstant multipel av den) også finnes i integranden.
 
 Typiske kandidater for $u$:
 - Uttrykket inni en parentes: $(3x + 2)^5$ $\\rightarrow$ $u = 3x + 2$
 - Eksponenten: $e^{2x}$ $\\rightarrow$ $u = 2x$
 - Uttrykket under rottegnet: $\\sqrt{x^2 + 1}$ $\\rightarrow$ $u = x^2 + 1$
 - Argumentet til trigonometriske funksjoner: $\\sin(3x)$ $\\rightarrow$ $u = 3x$
-- Nevneren i en brok (hvis telleren ligner paa den deriverte)`,
+- Nevneren i en brok (hvis telleren ligner på den deriverte)`,
     },
     {
       id: 'r2-3-1-tip-1',
@@ -114,7 +114,7 @@ Typiske kandidater for $u$:
       id: 'r2-3-1-theorem-1',
       type: 'theorem',
       title: 'Substitusjon med lineære uttrykk',
-      content: `For lineære uttrykk $u = ax + b$ faar vi alltid $du = a \\, dx$, altsaa $dx = \\frac{1}{a} du$.
+      content: `For lineære uttrykk $u = ax + b$ får vi alltid $du = a \\, dx$, altså $dx = \\frac{1}{a} du$.
 
 **Viktige formler:**
 $$\\int f(ax + b) \\, dx = \\frac{1}{a} F(ax + b) + C$$
@@ -131,7 +131,7 @@ der $F$ er en antiderivert til $f$.
       type: 'example',
       title: 'Eksempel 2: Lineaer substitusjon',
       problem: 'Finn $\\int (2x - 5)^7 \\, dx$.',
-      solution: `**Steg 1:** Sett $u = 2x - 5$, da er $du = 2 \\, dx$, altsaa $dx = \\frac{1}{2} du$.
+      solution: `**Steg 1:** Sett $u = 2x - 5$, da er $du = 2 \\, dx$, altså $dx = \\frac{1}{2} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int (2x - 5)^7 \\, dx = \\int u^7 \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} \\int u^7 \\, du$$
@@ -151,8 +151,8 @@ $$= \\frac{(2x - 5)^8}{16} + C$$`,
         type: 'classic',
         difficulty: 'lett',
         task: 'Finn $\\int (3x + 4)^5 \\, dx$.',
-        solution: 'Sett $u = 3x + 4$, $du = 3 \\, dx$. Da faar vi $\\frac{1}{3} \\int u^5 \\, du = \\frac{1}{3} \\cdot \\frac{u^6}{6} + C = \\frac{(3x + 4)^6}{18} + C$.',
-        hints: ['Sett $u = 3x + 4$.', 'Husk aa dele paa 3 naar du bytter $dx$ med $du$.'],
+        solution: 'Sett $u = 3x + 4$, $du = 3 \\, dx$. Da får vi $\\frac{1}{3} \\int u^5 \\, du = \\frac{1}{3} \\cdot \\frac{u^6}{6} + C = \\frac{(3x + 4)^6}{18} + C$.',
+        hints: ['Sett $u = 3x + 4$.', 'Husk å dele på 3 når du bytter $dx$ med $du$.'],
       },
     },
     {
@@ -160,7 +160,7 @@ $$= \\frac{(2x - 5)^8}{16} + C$$`,
       type: 'example',
       title: 'Eksempel 3: Eksponentialfunksjon med lineært argument',
       problem: 'Finn $\\int e^{-4x} \\, dx$.',
-      solution: `**Steg 1:** Sett $u = -4x$, da er $du = -4 \\, dx$, altsaa $dx = -\\frac{1}{4} du$.
+      solution: `**Steg 1:** Sett $u = -4x$, da er $du = -4 \\, dx$, altså $dx = -\\frac{1}{4} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int e^{-4x} \\, dx = \\int e^u \\cdot \\left(-\\frac{1}{4}\\right) du = -\\frac{1}{4} e^u + C$$
@@ -177,7 +177,7 @@ $$= -\\frac{1}{4} e^{-4x} + C$$`,
         type: 'classic',
         difficulty: 'lett',
         task: 'Finn $\\int e^{5x+2} \\, dx$.',
-        solution: 'Sett $u = 5x + 2$, $du = 5 \\, dx$. Da faar vi $\\frac{1}{5} \\int e^u \\, du = \\frac{1}{5} e^u + C = \\frac{1}{5} e^{5x+2} + C$.',
+        solution: 'Sett $u = 5x + 2$, $du = 5 \\, dx$. Da får vi $\\frac{1}{5} \\int e^u \\, du = \\frac{1}{5} e^u + C = \\frac{1}{5} e^{5x+2} + C$.',
         hints: ['Sett $u = 5x + 2$.'],
       },
     },
@@ -186,7 +186,7 @@ $$= -\\frac{1}{4} e^{-4x} + C$$`,
       type: 'example',
       title: 'Eksempel 4: Trigonometrisk funksjon med lineært argument',
       problem: 'Finn $\\int \\sin(3x + 1) \\, dx$.',
-      solution: `**Steg 1:** Sett $u = 3x + 1$, da er $du = 3 \\, dx$, altsaa $dx = \\frac{1}{3} du$.
+      solution: `**Steg 1:** Sett $u = 3x + 1$, da er $du = 3 \\, dx$, altså $dx = \\frac{1}{3} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int \\sin(3x + 1) \\, dx = \\int \\sin(u) \\cdot \\frac{1}{3} \\, du = \\frac{1}{3} \\int \\sin(u) \\, du$$
@@ -206,7 +206,7 @@ $$= -\\frac{1}{3} \\cos(3x + 1) + C$$`,
         type: 'classic',
         difficulty: 'lett',
         task: 'Finn $\\int \\cos(2x - 3) \\, dx$.',
-        solution: 'Sett $u = 2x - 3$, $du = 2 \\, dx$. Da faar vi $\\frac{1}{2} \\int \\cos(u) \\, du = \\frac{1}{2} \\sin(u) + C = \\frac{1}{2} \\sin(2x - 3) + C$.',
+        solution: 'Sett $u = 2x - 3$, $du = 2 \\, dx$. Da får vi $\\frac{1}{2} \\int \\cos(u) \\, du = \\frac{1}{2} \\sin(u) + C = \\frac{1}{2} \\sin(2x - 3) + C$.',
         hints: ['Sett $u = 2x - 3$.'],
       },
     },
@@ -219,7 +219,7 @@ $$= -\\frac{1}{3} \\cos(3x + 1) + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\frac{1}{4x - 7} \\, dx$.',
-        solution: 'Sett $u = 4x - 7$, $du = 4 \\, dx$. Da faar vi $\\frac{1}{4} \\int \\frac{1}{u} \\, du = \\frac{1}{4} \\ln|u| + C = \\frac{1}{4} \\ln|4x - 7| + C$.',
+        solution: 'Sett $u = 4x - 7$, $du = 4 \\, dx$. Da får vi $\\frac{1}{4} \\int \\frac{1}{u} \\, du = \\frac{1}{4} \\ln|u| + C = \\frac{1}{4} \\ln|4x - 7| + C$.',
         hints: ['Sett $u = 4x - 7$.', 'Husk at $\\int \\frac{1}{u} \\, du = \\ln|u| + C$.'],
       },
     },
@@ -232,7 +232,7 @@ $$= -\\frac{1}{3} \\cos(3x + 1) + C$$`,
       type: 'text',
       content: `## Substitusjon med potenser og roetter
 
-Naar integranden inneholder uttrykk som $(g(x))^n$ eller $\\sqrt{g(x)}$ sammen med $g'(x)$, er substitusjon $u = g(x)$ ofte veien aa gaa.
+Når integranden inneholder uttrykk som $(g(x))^n$ eller $\\sqrt{g(x)}$ sammen med $g'(x)$, er substitusjon $u = g(x)$ ofte veien å gå.
 
 **Viktig:** Nar vi har en potens $(g(x))^n$, setter vi $u = g(x)$ (ikke hele potensen).`,
     },
@@ -241,9 +241,9 @@ Naar integranden inneholder uttrykk som $(g(x))^n$ eller $\\sqrt{g(x)}$ sammen m
       type: 'example',
       title: 'Eksempel 5: Potens av sammensatt funksjon',
       problem: 'Finn $\\int x \\cdot (x^2 + 1)^4 \\, dx$.',
-      solution: `**Steg 1:** Sett $u = x^2 + 1$, da er $\\frac{du}{dx} = 2x$, altsaa $du = 2x \\, dx$.
+      solution: `**Steg 1:** Sett $u = x^2 + 1$, da er $\\frac{du}{dx} = 2x$, altså $du = 2x \\, dx$.
 
-Vi har $x \\, dx$ i integranden, sa $x \\, dx = \\frac{1}{2} du$.
+Vi har $x \\, dx$ i integranden, så $x \\, dx = \\frac{1}{2} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int x \\cdot (x^2 + 1)^4 \\, dx = \\int u^4 \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} \\int u^4 \\, du$$
@@ -263,7 +263,7 @@ $$= \\frac{(x^2 + 1)^5}{10} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int x^2 \\cdot (x^3 - 2)^6 \\, dx$.',
-        solution: 'Sett $u = x^3 - 2$, $du = 3x^2 \\, dx$. Da faar vi $\\frac{1}{3} \\int u^6 \\, du = \\frac{1}{3} \\cdot \\frac{u^7}{7} + C = \\frac{(x^3 - 2)^7}{21} + C$.',
+        solution: 'Sett $u = x^3 - 2$, $du = 3x^2 \\, dx$. Da får vi $\\frac{1}{3} \\int u^6 \\, du = \\frac{1}{3} \\cdot \\frac{u^7}{7} + C = \\frac{(x^3 - 2)^7}{21} + C$.',
         hints: ['Hva er den deriverte av $x^3 - 2$?', 'Sett $u = x^3 - 2$.'],
       },
     },
@@ -272,7 +272,7 @@ $$= \\frac{(x^2 + 1)^5}{10} + C$$`,
       type: 'example',
       title: 'Eksempel 6: Integral med kvadratrot',
       problem: 'Finn $\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx$.',
-      solution: `**Steg 1:** Sett $u = x^2 + 4$, da er $du = 2x \\, dx$, altsaa $x \\, dx = \\frac{1}{2} du$.
+      solution: `**Steg 1:** Sett $u = x^2 + 4$, da er $du = 2x \\, dx$, altså $x \\, dx = \\frac{1}{2} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx = \\int \\frac{1}{\\sqrt{u}} \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} \\int u^{-1/2} \\, du$$
@@ -292,7 +292,7 @@ $$= \\sqrt{x^2 + 4} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\frac{x^2}{\\sqrt{x^3 + 1}} \\, dx$.',
-        solution: 'Sett $u = x^3 + 1$, $du = 3x^2 \\, dx$. Da faar vi $\\frac{1}{3} \\int u^{-1/2} \\, du = \\frac{1}{3} \\cdot 2u^{1/2} + C = \\frac{2}{3} \\sqrt{x^3 + 1} + C$.',
+        solution: 'Sett $u = x^3 + 1$, $du = 3x^2 \\, dx$. Da får vi $\\frac{1}{3} \\int u^{-1/2} \\, du = \\frac{1}{3} \\cdot 2u^{1/2} + C = \\frac{2}{3} \\sqrt{x^3 + 1} + C$.',
         hints: ['Sett $u = x^3 + 1$.', 'Skriv om $\\frac{1}{\\sqrt{u}}$ som $u^{-1/2}$.'],
       },
     },
@@ -301,7 +301,7 @@ $$= \\sqrt{x^2 + 4} + C$$`,
       type: 'example',
       title: 'Eksempel 7: Kubikkrot',
       problem: 'Finn $\\int x^2 \\cdot \\sqrt[3]{x^3 + 5} \\, dx$.',
-      solution: `**Steg 1:** Sett $u = x^3 + 5$, da er $du = 3x^2 \\, dx$, altsaa $x^2 \\, dx = \\frac{1}{3} du$.
+      solution: `**Steg 1:** Sett $u = x^3 + 5$, da er $du = 3x^2 \\, dx$, altså $x^2 \\, dx = \\frac{1}{3} du$.
 
 **Steg 2:** Skriv om kubikkroten: $\\sqrt[3]{u} = u^{1/3}$.
 
@@ -323,7 +323,7 @@ $$= \\frac{(x^3 + 5)^{4/3}}{4} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int x \\cdot \\sqrt{x^2 - 3} \\, dx$.',
-        solution: 'Sett $u = x^2 - 3$, $du = 2x \\, dx$. Da faar vi $\\frac{1}{2} \\int u^{1/2} \\, du = \\frac{1}{2} \\cdot \\frac{2}{3} u^{3/2} + C = \\frac{1}{3} (x^2 - 3)^{3/2} + C$.',
+        solution: 'Sett $u = x^2 - 3$, $du = 2x \\, dx$. Da får vi $\\frac{1}{2} \\int u^{1/2} \\, du = \\frac{1}{2} \\cdot \\frac{2}{3} u^{3/2} + C = \\frac{1}{3} (x^2 - 3)^{3/2} + C$.',
         hints: ['Sett $u = x^2 - 3$.', 'Husk at $\\int u^{1/2} \\, du = \\frac{2}{3} u^{3/2} + C$.'],
       },
     },
@@ -341,7 +341,7 @@ Trigonometriske integraler krever ofte substitusjon. Husk at:
 - Den deriverte av $\\cos x$ er $-\\sin x$
 - Den deriverte av $\\tan x$ er $\\frac{1}{\\cos^2 x}$
 
-Naar vi ser produkter av sinus og cosinus, er det ofte lurt aa substituere med den ene av dem.`,
+Når vi ser produkter av sinus og cosinus, er det ofte lurt å substituere med den ene av dem.`,
     },
     {
       id: 'r2-3-1-theorem-2',
@@ -384,7 +384,7 @@ $$= \\frac{\\sin^4 x}{4} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\cos^4 x \\cdot \\sin x \\, dx$.',
-        solution: 'Sett $u = \\cos x$, $du = -\\sin x \\, dx$. Da faar vi $-\\int u^4 \\, du = -\\frac{u^5}{5} + C = -\\frac{\\cos^5 x}{5} + C$.',
+        solution: 'Sett $u = \\cos x$, $du = -\\sin x \\, dx$. Da får vi $-\\int u^4 \\, du = -\\frac{u^5}{5} + C = -\\frac{\\cos^5 x}{5} + C$.',
         hints: ['Sett $u = \\cos x$.', 'Husk at den deriverte av $\\cos x$ er $-\\sin x$.'],
       },
     },
@@ -395,7 +395,7 @@ $$= \\frac{\\sin^4 x}{4} + C$$`,
       problem: 'Finn $\\int \\tan x \\, dx$.',
       solution: `**Steg 1:** Skriv om: $\\tan x = \\frac{\\sin x}{\\cos x}$.
 
-**Steg 2:** Sett $u = \\cos x$, da er $du = -\\sin x \\, dx$, altsaa $\\sin x \\, dx = -du$.
+**Steg 2:** Sett $u = \\cos x$, da er $du = -\\sin x \\, dx$, altså $\\sin x \\, dx = -du$.
 
 **Steg 3:** Substitusjonen gir:
 $$\\int \\tan x \\, dx = \\int \\frac{\\sin x}{\\cos x} \\, dx = \\int \\frac{-du}{u} = -\\ln|u| + C$$
@@ -403,7 +403,7 @@ $$\\int \\tan x \\, dx = \\int \\frac{\\sin x}{\\cos x} \\, dx = \\int \\frac{-d
 **Steg 4:** Sett tilbake:
 $$= -\\ln|\\cos x| + C = \\ln|\\sec x| + C$$
 
-**Merk:** $\\sec x = \\frac{1}{\\cos x}$, sa $\\ln|\\sec x| = \\ln\\frac{1}{|\\cos x|} = -\\ln|\\cos x|$.`,
+**Merk:** $\\sec x = \\frac{1}{\\cos x}$, så $\\ln|\\sec x| = \\ln\\frac{1}{|\\cos x|} = -\\ln|\\cos x|$.`,
     },
     {
       id: 'r2-3-1-exercise-10',
@@ -414,7 +414,7 @@ $$= -\\ln|\\cos x| + C = \\ln|\\sec x| + C$$
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\frac{\\cos x}{\\sin^2 x} \\, dx$.',
-        solution: 'Sett $u = \\sin x$, $du = \\cos x \\, dx$. Da faar vi $\\int \\frac{du}{u^2} = \\int u^{-2} \\, du = -u^{-1} + C = -\\frac{1}{\\sin x} + C = -\\csc x + C$.',
+        solution: 'Sett $u = \\sin x$, $du = \\cos x \\, dx$. Da får vi $\\int \\frac{du}{u^2} = \\int u^{-2} \\, du = -u^{-1} + C = -\\frac{1}{\\sin x} + C = -\\csc x + C$.',
         hints: ['Sett $u = \\sin x$.', 'Da blir integralet $\\int \\frac{1}{u^2} \\, du$.'],
       },
     },
@@ -442,7 +442,7 @@ $$= \\ln|\\sin x| + C$$`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\tan^3 x \\cdot \\frac{1}{\\cos^2 x} \\, dx$.',
-        solution: 'Sett $u = \\tan x$, $du = \\frac{1}{\\cos^2 x} \\, dx$. Da faar vi $\\int u^3 \\, du = \\frac{u^4}{4} + C = \\frac{\\tan^4 x}{4} + C$.',
+        solution: 'Sett $u = \\tan x$, $du = \\frac{1}{\\cos^2 x} \\, dx$. Da får vi $\\int u^3 \\, du = \\frac{u^4}{4} + C = \\frac{\\tan^4 x}{4} + C$.',
         hints: ['Sett $u = \\tan x$.', 'Hva er den deriverte av $\\tan x$?'],
       },
     },
@@ -455,7 +455,7 @@ $$= \\ln|\\sin x| + C$$`,
       type: 'text',
       content: `## Substitusjon med eksponentialfunksjoner
 
-Eksponentialfunksjoner har den spesielle egenskapen at de er sin egen deriverte (med en konstant faktor). Dette gjor dem ofte enkle aa haandtere med substitusjon.
+Eksponentialfunksjoner har den spesielle egenskapen at de er sin egen deriverte (med en konstant faktor). Dette gjør dem ofte enkle å håndtere med substitusjon.
 
 **Viktige sammenhenger:**
 - $(e^x)' = e^x$
@@ -486,7 +486,7 @@ $$= \\ln|1 + e^x| + C = \\ln(1 + e^x) + C$$
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\frac{e^{2x}}{1 + e^{2x}} \\, dx$.',
-        solution: 'Sett $u = 1 + e^{2x}$, $du = 2e^{2x} \\, dx$. Da faar vi $\\frac{1}{2} \\int \\frac{du}{u} = \\frac{1}{2} \\ln|u| + C = \\frac{1}{2} \\ln(1 + e^{2x}) + C$.',
+        solution: 'Sett $u = 1 + e^{2x}$, $du = 2e^{2x} \\, dx$. Da får vi $\\frac{1}{2} \\int \\frac{du}{u} = \\frac{1}{2} \\ln|u| + C = \\frac{1}{2} \\ln(1 + e^{2x}) + C$.',
         hints: ['Sett $u = 1 + e^{2x}$.', 'Hva er den deriverte av $e^{2x}$?'],
       },
     },
@@ -495,7 +495,7 @@ $$= \\ln|1 + e^x| + C = \\ln(1 + e^x) + C$$
       type: 'example',
       title: 'Eksempel 12: Sammensatt eksponentialfunksjon',
       problem: 'Finn $\\int x \\cdot e^{x^2} \\, dx$.',
-      solution: `**Steg 1:** Sett $u = x^2$, da er $du = 2x \\, dx$, altsaa $x \\, dx = \\frac{1}{2} du$.
+      solution: `**Steg 1:** Sett $u = x^2$, da er $du = 2x \\, dx$, altså $x \\, dx = \\frac{1}{2} du$.
 
 **Steg 2:** Substitusjonen gir:
 $$\\int x \\cdot e^{x^2} \\, dx = \\int e^u \\cdot \\frac{1}{2} \\, du = \\frac{1}{2} e^u + C$$
@@ -512,7 +512,7 @@ $$= \\frac{1}{2} e^{x^2} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int x^3 \\cdot e^{x^4} \\, dx$.',
-        solution: 'Sett $u = x^4$, $du = 4x^3 \\, dx$. Da faar vi $\\frac{1}{4} \\int e^u \\, du = \\frac{1}{4} e^u + C = \\frac{1}{4} e^{x^4} + C$.',
+        solution: 'Sett $u = x^4$, $du = 4x^3 \\, dx$. Da får vi $\\frac{1}{4} \\int e^u \\, du = \\frac{1}{4} e^u + C = \\frac{1}{4} e^{x^4} + C$.',
         hints: ['Sett $u = x^4$.', 'Hva er den deriverte av $x^4$?'],
       },
     },
@@ -538,7 +538,7 @@ $$= e^{\\sin x} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int e^{\\cos x} \\cdot \\sin x \\, dx$.',
-        solution: 'Sett $u = \\cos x$, $du = -\\sin x \\, dx$. Da faar vi $-\\int e^u \\, du = -e^u + C = -e^{\\cos x} + C$.',
+        solution: 'Sett $u = \\cos x$, $du = -\\sin x \\, dx$. Da får vi $-\\int e^u \\, du = -e^u + C = -e^{\\cos x} + C$.',
         hints: ['Sett $u = \\cos x$.', 'Husk minustegnet fra den deriverte av cosinus.'],
       },
     },
@@ -551,7 +551,7 @@ $$= e^{\\sin x} + C$$`,
       type: 'text',
       content: `## Substitusjon med logaritmer
 
-Logaritmiske funksjoner har derivert $\\frac{1}{x}$, noe som gjor dem egnet for substitusjon naar vi ser $\\frac{1}{x}$ eller $\\frac{f'(x)}{f(x)}$ i integranden.
+Logaritmiske funksjoner har derivert $\\frac{1}{x}$, noe som gjør dem egnet for substitusjon når vi ser $\\frac{1}{x}$ eller $\\frac{f'(x)}{f(x)}$ i integranden.
 
 **Viktig sammenheng:**
 $$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C$$`,
@@ -578,7 +578,7 @@ $$= \\frac{(\\ln x)^2}{2} + C$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn $\\int \\frac{(\\ln x)^3}{x} \\, dx$.',
-        solution: 'Sett $u = \\ln x$, $du = \\frac{1}{x} \\, dx$. Da faar vi $\\int u^3 \\, du = \\frac{u^4}{4} + C = \\frac{(\\ln x)^4}{4} + C$.',
+        solution: 'Sett $u = \\ln x$, $du = \\frac{1}{x} \\, dx$. Da får vi $\\int u^3 \\, du = \\frac{u^4}{4} + C = \\frac{(\\ln x)^4}{4} + C$.',
         hints: ['Sett $u = \\ln x$.', 'Hva er den deriverte av $\\ln x$?'],
       },
     },
@@ -604,8 +604,8 @@ $$= \\ln|\\ln x| + C$$`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx$.',
-        solution: 'Sett $u = \\ln(\\ln x)$, $du = \\frac{1}{\\ln x} \\cdot \\frac{1}{x} \\, dx = \\frac{1}{x \\ln x} \\, dx$. Da faar vi $\\int u \\, du = \\frac{u^2}{2} + C = \\frac{(\\ln(\\ln x))^2}{2} + C$.',
-        hints: ['Sett $u = \\ln(\\ln x)$.', 'Bruk kjerneregelen for aa finne den deriverte.'],
+        solution: 'Sett $u = \\ln(\\ln x)$, $du = \\frac{1}{\\ln x} \\cdot \\frac{1}{x} \\, dx = \\frac{1}{x \\ln x} \\, dx$. Da får vi $\\int u \\, du = \\frac{u^2}{2} + C = \\frac{(\\ln(\\ln x))^2}{2} + C$.',
+        hints: ['Sett $u = \\ln(\\ln x)$.', 'Bruk kjerneregelen for å finne den deriverte.'],
       },
     },
 
@@ -627,13 +627,13 @@ Metode 2 er ofte mer effektiv og ryddigere!`,
       id: 'r2-3-1-theorem-3',
       type: 'theorem',
       title: 'Substitusjon i bestemte integraler',
-      content: `Naar vi gjor substitusjon $u = g(x)$ i et bestemt integral, maa vi ogsaa bytte grensene:
+      content: `Når vi gjør substitusjon $u = g(x)$ i et bestemt integral, må vi også bytte grensene:
 
 $$\\int_a^b f(g(x)) \\cdot g'(x) \\, dx = \\int_{g(a)}^{g(b)} f(u) \\, du$$
 
-**Viktig:** Naar vi bruker nye grenser, trenger vi **ikke** sette tilbake til $x$.
+**Viktig:** Når vi bruker nye grenser, trenger vi **ikke** sette tilbake til $x$.
 
-**Fremgangsmaate:**
+**Fremgangsmåte:**
 1. Finn substitusjonen $u = g(x)$
 2. Beregn nye grenser: nedre grense blir $g(a)$, ovre grense blir $g(b)$
 3. Bytt ut integranden og grensene
@@ -647,8 +647,8 @@ $$\\int_a^b f(g(x)) \\cdot g'(x) \\, dx = \\int_{g(a)}^{g(b)} f(u) \\, du$$
       solution: `**Steg 1:** Sett $u = x^2 + 1$, da er $du = 2x \\, dx$.
 
 **Steg 2:** Bytt grensene:
-- Naar $x = 0$: $u = 0^2 + 1 = 1$
-- Naar $x = 1$: $u = 1^2 + 1 = 2$
+- Når $x = 0$: $u = 0^2 + 1 = 1$
+- Når $x = 1$: $u = 1^2 + 1 = 2$
 
 **Steg 3:** Substitusjonen gir:
 $$\\int_0^1 2x \\cdot (x^2 + 1)^3 \\, dx = \\int_1^2 u^3 \\, du$$
@@ -664,9 +664,9 @@ $$= \\left[\\frac{u^4}{4}\\right]_1^2 = \\frac{2^4}{4} - \\frac{1^4}{4} = \\frac
         number: '3.17',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Beregn $\\int_0^2 x \\cdot (x^2 + 1)^2 \\, dx$ ved aa bytte grenser.',
+        task: 'Beregn $\\int_0^2 x \\cdot (x^2 + 1)^2 \\, dx$ ved å bytte grenser.',
         solution: 'Sett $u = x^2 + 1$, $du = 2x \\, dx$. Nye grenser: $u(0) = 1$, $u(2) = 5$. Integralet blir $\\frac{1}{2} \\int_1^5 u^2 \\, du = \\frac{1}{2} \\left[\\frac{u^3}{3}\\right]_1^5 = \\frac{1}{6}(125 - 1) = \\frac{124}{6} = \\frac{62}{3}$.',
-        hints: ['Sett $u = x^2 + 1$ og finn de nye grensene.', 'Naar $x = 0$ er $u = 1$, og naar $x = 2$ er $u = 5$.'],
+        hints: ['Sett $u = x^2 + 1$ og finn de nye grensene.', 'Når $x = 0$ er $u = 1$, og når $x = 2$ er $u = 5$.'],
       },
     },
     {
@@ -677,8 +677,8 @@ $$= \\left[\\frac{u^4}{4}\\right]_1^2 = \\frac{2^4}{4} - \\frac{1^4}{4} = \\frac
       solution: `**Steg 1:** Sett $u = \\sin x$, da er $du = \\cos x \\, dx$.
 
 **Steg 2:** Bytt grensene:
-- Naar $x = 0$: $u = \\sin 0 = 0$
-- Naar $x = \\pi/2$: $u = \\sin(\\pi/2) = 1$
+- Når $x = 0$: $u = \\sin 0 = 0$
+- Når $x = \\pi/2$: $u = \\sin(\\pi/2) = 1$
 
 **Steg 3:** Substitusjonen gir:
 $$\\int_0^{\\pi/2} \\sin^2 x \\cdot \\cos x \\, dx = \\int_0^1 u^2 \\, du$$
@@ -707,8 +707,8 @@ $$= \\left[\\frac{u^3}{3}\\right]_0^1 = \\frac{1}{3} - 0 = \\frac{1}{3}$$`,
       solution: `**Steg 1:** Sett $u = e^x + 1$, da er $du = e^x \\, dx$.
 
 **Steg 2:** Bytt grensene:
-- Naar $x = 0$: $u = e^0 + 1 = 2$
-- Naar $x = \\ln 2$: $u = e^{\\ln 2} + 1 = 2 + 1 = 3$
+- Når $x = 0$: $u = e^0 + 1 = 2$
+- Når $x = \\ln 2$: $u = e^{\\ln 2} + 1 = 2 + 1 = 3$
 
 **Steg 3:** Substitusjonen gir:
 $$\\int_0^{\\ln 2} e^x \\cdot \\sqrt{e^x + 1} \\, dx = \\int_2^3 \\sqrt{u} \\, du = \\int_2^3 u^{1/2} \\, du$$
@@ -737,8 +737,8 @@ $$= \\left[\\frac{2u^{3/2}}{3}\\right]_2^3 = \\frac{2}{3}\\left(3^{3/2} - 2^{3/2
       solution: `**Steg 1:** Sett $u = \\ln x$, da er $du = \\frac{1}{x} \\, dx$.
 
 **Steg 2:** Bytt grensene:
-- Naar $x = 1$: $u = \\ln 1 = 0$
-- Naar $x = e$: $u = \\ln e = 1$
+- Når $x = 1$: $u = \\ln 1 = 0$
+- Når $x = e$: $u = \\ln e = 1$
 
 **Steg 3:** Substitusjonen gir:
 $$\\int_1^e \\frac{(\\ln x)^2}{x} \\, dx = \\int_0^1 u^2 \\, du$$
@@ -768,15 +768,15 @@ $$= \\left[\\frac{u^3}{3}\\right]_0^1 = \\frac{1}{3} - 0 = \\frac{1}{3}$$`,
       type: 'text',
       content: `## Oppsummering
 
-**Fremgangsmaate for substitusjon:**
+**Fremgangsmåte for substitusjon:**
 1. Identifiser en egnet substitusjon $u = g(x)$
 2. Beregn $du = g'(x) \\, dx$
 3. Uttrykk $dx$ ved hjelp av $du$
 4. Erstatt alle $x$-uttrykk med $u$-uttrykk
-5. Integrer med hensyn paa $u$
+5. Integrer med hensyn på $u$
 6. Sett tilbake $u = g(x)$ (ubestemt) eller bytt grenser (bestemt)
 
-**Tips for aa velge $u$:**
+**Tips for å velge $u$:**
 - Let etter "funksjon og dens deriverte"
 - Uttrykk i parenteser, under rottegn, eller som eksponent
 - Nevneren i en brok (hvis telleren er dens deriverte)
@@ -786,27 +786,27 @@ $$= \\left[\\frac{u^3}{3}\\right]_0^1 = \\frac{1}{3} - 0 = \\frac{1}{3}$$`,
       id: 'r2-3-1-warning-1',
       type: 'warning',
       title: 'Vanlige feil',
-      content: `1. **Glemmer aa bytte $dx$:** Naar du setter $u = g(x)$, maa du ogsaa erstatte $dx$ med $\\frac{du}{g'(x)}$.
+      content: `1. **Glemmer å bytte $dx$:** Når du setter $u = g(x)$, må du også erstatte $dx$ med $\\frac{du}{g'(x)}$.
 
-2. **Glemmer aa sette tilbake:** Etter integrering maa du erstatte $u$ med $g(x)$ igjen.
+2. **Glemmer å sette tilbake:** Etter integrering må du erstatte $u$ med $g(x)$ igjen.
 
 3. **Feil grenser:** Ved bestemte integraler: Enten bytt grensene til $u$-verdier, ELLER sett tilbake og bruk de opprinnelige grensene. Ikke bland!
 
-4. **Ufullstendig substitusjon:** Alle $x$-er maa forsvinne for at substitusjonen skal være gyldig.
+4. **Ufullstendig substitusjon:** Alle $x$-er må forsvinne for at substitusjonen skal være gyldig.
 
-5. **Feil fortegn:** Vaar spesielt oppmerksom naar $g'(x)$ er negativ (f.eks. $\\cos x$ gir $-\\sin x$).`,
+5. **Feil fortegn:** Vår spesielt oppmerksom når $g'(x)$ er negativ (f.eks. $\\cos x$ gir $-\\sin x$).`,
     },
     {
       id: 'r2-3-1-note-1',
       type: 'note',
-      content: `**Naar virker ikke substitusjon?**
+      content: `**Når virker ikke substitusjon?**
 
-Substitusjon fungerer best naar integranden inneholder "funksjon og dens deriverte". Hvis dette monsteret ikke er tilstede, maa du kanskje bruke andre teknikker:
+Substitusjon fungerer best når integranden inneholder "funksjon og dens deriverte". Hvis dette monsteret ikke er tilstede, må du kanskje bruke andre teknikker:
 - Delvis integrasjon (kapittel 3.2)
 - Delbroksoppspaltning (kapittel 3.3)
 - Trigonometriske identiteter
 
-Oving gjor mester - etter hvert vil du "se" hvilken substitusjon som passer!`,
+Oving gjør mester - etter hvert vil du "se" hvilken substitusjon som passer!`,
     },
 
     // ============================================================================
@@ -828,8 +828,8 @@ Disse oppgavene krever litt mer kreativitet i valg av substitusjon.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{x}{\\sqrt{1 - x^2}} \\, dx$.',
-        solution: 'Sett $u = 1 - x^2$, $du = -2x \\, dx$. Da faar vi $-\\frac{1}{2} \\int u^{-1/2} \\, du = -\\frac{1}{2} \\cdot 2u^{1/2} + C = -\\sqrt{1 - x^2} + C$.',
-        hints: ['Sett $u = 1 - x^2$.', 'Pass paa minustegnet!'],
+        solution: 'Sett $u = 1 - x^2$, $du = -2x \\, dx$. Da får vi $-\\frac{1}{2} \\int u^{-1/2} \\, du = -\\frac{1}{2} \\cdot 2u^{1/2} + C = -\\sqrt{1 - x^2} + C$.',
+        hints: ['Sett $u = 1 - x^2$.', 'Pass på minustegnet!'],
       },
     },
     {
@@ -841,7 +841,7 @@ Disse oppgavene krever litt mer kreativitet i valg av substitusjon.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{e^{\\sqrt{x}}}{\\sqrt{x}} \\, dx$.',
-        solution: 'Sett $u = \\sqrt{x} = x^{1/2}$, $du = \\frac{1}{2\\sqrt{x}} \\, dx$. Da faar vi $2 \\int e^u \\, du = 2e^u + C = 2e^{\\sqrt{x}} + C$.',
+        solution: 'Sett $u = \\sqrt{x} = x^{1/2}$, $du = \\frac{1}{2\\sqrt{x}} \\, dx$. Da får vi $2 \\int e^u \\, du = 2e^u + C = 2e^{\\sqrt{x}} + C$.',
         hints: ['Sett $u = \\sqrt{x}$.', 'Hva er den deriverte av $\\sqrt{x}$?'],
       },
     },
@@ -854,7 +854,7 @@ Disse oppgavene krever litt mer kreativitet i valg av substitusjon.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{\\sin(\\ln x)}{x} \\, dx$.',
-        solution: 'Sett $u = \\ln x$, $du = \\frac{1}{x} \\, dx$. Da faar vi $\\int \\sin u \\, du = -\\cos u + C = -\\cos(\\ln x) + C$.',
+        solution: 'Sett $u = \\ln x$, $du = \\frac{1}{x} \\, dx$. Da får vi $\\int \\sin u \\, du = -\\cos u + C = -\\cos(\\ln x) + C$.',
         hints: ['Sett $u = \\ln x$.'],
       },
     },
@@ -868,7 +868,7 @@ Disse oppgavene krever litt mer kreativitet i valg av substitusjon.`,
         difficulty: 'vanskelig',
         task: 'Beregn $\\int_0^{\\pi/2} \\cos^3 x \\cdot \\sin x \\, dx$.',
         solution: 'Sett $u = \\cos x$, $du = -\\sin x \\, dx$. Nye grenser: $u(0) = 1$, $u(\\pi/2) = 0$. Integralet blir $-\\int_1^0 u^3 \\, du = \\int_0^1 u^3 \\, du = \\left[\\frac{u^4}{4}\\right]_0^1 = \\frac{1}{4}$.',
-        hints: ['Sett $u = \\cos x$.', 'Vend grensene naar du faar negativt fortegn foran integralet.'],
+        hints: ['Sett $u = \\cos x$.', 'Vend grensene når du får negativt fortegn foran integralet.'],
       },
     },
     {
@@ -880,7 +880,7 @@ Disse oppgavene krever litt mer kreativitet i valg av substitusjon.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{x^2}{(x^3 + 1)^4} \\, dx$.',
-        solution: 'Sett $u = x^3 + 1$, $du = 3x^2 \\, dx$. Da faar vi $\\frac{1}{3} \\int u^{-4} \\, du = \\frac{1}{3} \\cdot \\frac{u^{-3}}{-3} + C = -\\frac{1}{9(x^3 + 1)^3} + C$.',
+        solution: 'Sett $u = x^3 + 1$, $du = 3x^2 \\, dx$. Da får vi $\\frac{1}{3} \\int u^{-4} \\, du = \\frac{1}{3} \\cdot \\frac{u^{-3}}{-3} + C = -\\frac{1}{9(x^3 + 1)^3} + C$.',
         hints: ['Sett $u = x^3 + 1$.', 'Husk regelen $\\int u^n \\, du = \\frac{u^{n+1}}{n+1} + C$ for $n \\neq -1$.'],
       },
     },
@@ -903,7 +903,7 @@ $$= \\ln(e^x + e^{-x}) + C$$
 
 (Vi dropper absoluttverdi siden $e^x + e^{-x} > 0$ alltid.)
 
-**Merk:** $\\frac{e^x - e^{-x}}{e^x + e^{-x}} = \\tanh x$ (hyperbolsk tangens), sa vi har vist at $\\int \\tanh x \\, dx = \\ln(\\cosh x) + C$.`,
+**Merk:** $\\frac{e^x - e^{-x}}{e^x + e^{-x}} = \\tanh x$ (hyperbolsk tangens), så vi har vist at $\\int \\tanh x \\, dx = \\ln(\\cosh x) + C$.`,
     },
     {
       id: 'r2-3-1-exercise-26',
@@ -914,7 +914,7 @@ $$= \\ln(e^x + e^{-x}) + C$$
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn $\\int \\frac{e^x + e^{-x}}{e^x - e^{-x}} \\, dx$ for $x > 0$.',
-        solution: 'Telleren er den deriverte av nevneren: $(e^x - e^{-x})\\prime = e^x + e^{-x}$. Sett $u = e^x - e^{-x}$, $du = (e^x + e^{-x}) \\, dx$. Da faar vi $\\int \\frac{du}{u} = \\ln|u| + C = \\ln|e^x - e^{-x}| + C$.',
+        solution: 'Telleren er den deriverte av nevneren: $(e^x - e^{-x})\\prime = e^x + e^{-x}$. Sett $u = e^x - e^{-x}$, $du = (e^x + e^{-x}) \\, dx$. Da får vi $\\int \\frac{du}{u} = \\ln|u| + C = \\ln|e^x - e^{-x}| + C$.',
         hints: ['Sjekk om telleren er den deriverte av nevneren.', 'Sett $u = e^x - e^{-x}$.'],
       },
     },
@@ -933,7 +933,7 @@ export const CHAPTER_R2_3_2: TextbookChapter = {
     'beherske teknikken delvis integrasjon',
     'velge riktig u og v\' i delvis integrasjon',
     'bruke gjentatt delvis integrasjon',
-    'lose sirkular delvis integrasjon',
+    'lose sirkulær delvis integrasjon',
     'anvende delvis integrasjon på bestemte integraler',
     'kombinere delvis integrasjon med andre teknikker',
   ],
@@ -952,7 +952,7 @@ Ideen er a bruke **produktregelen for derivasjon baklens**. La oss forst huske p
 
 $$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$$
 
-Hvis vi integrerer begge sider, far vi:
+Hvis vi integrerer begge sider, får vi:
 
 $$u \\cdot v = \\int u' \\cdot v \\, dx + \\int u \\cdot v' \\, dx$$
 
@@ -989,7 +989,7 @@ Dette er formelen for delvis integrasjon!`,
       id: 'r2-3-2-def-1',
       type: 'definition',
       title: 'Delvis integrasjon',
-      content: `La $u = u(x)$ og $v = v(x)$ vare deriverbare funksjoner. Da gjelder:
+      content: `La $u = u(x)$ og $v = v(x)$ være deriverbare funksjoner. Da gjelder:
 
 $$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$
 
@@ -997,7 +997,7 @@ Eller med differensialnotasjon ($dv = v' \\, dx$ og $du = u' \\, dx$):
 
 $$\\int u \\, dv = u \\cdot v - \\int v \\, du$$
 
-**Merk:** Malet er at integralet på hoyre side ($\\int u' \\cdot v \\, dx$) skal vare enklere å løse enn det opprinnelige integralet.`,
+**Merk:** Målet er at integralet på høyre side ($\\int u' \\cdot v \\, dx$) skal være enklere å løse enn det opprinnelige integralet.`,
     },
 
     // ========== EKSEMPEL 1: x * e^x ==========
@@ -1038,17 +1038,17 @@ $(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x
           {
             label: 'a',
             task: '$\\displaystyle\\int x \\cdot e^{2x} \\, dx$',
-            solution: 'La $u = x$ og $v\' = e^{2x}$, sa $u\' = 1$ og $v = \\frac{1}{2}e^{2x}$. Da far vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$'
+            solution: 'La $u = x$ og $v\' = e^{2x}$, så $u\' = 1$ og $v = \\frac{1}{2}e^{2x}$. Da får vi $\\int x \\cdot e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\int \\frac{1}{2}e^{2x} \\, dx = \\frac{x}{2}e^{2x} - \\frac{1}{4}e^{2x} + C = \\frac{e^{2x}}{4}(2x - 1) + C$'
           },
           {
             label: 'b',
             task: '$\\displaystyle\\int x \\cdot e^{-x} \\, dx$',
-            solution: 'La $u = x$ og $v\' = e^{-x}$, sa $u\' = 1$ og $v = -e^{-x}$. Da far vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$'
+            solution: 'La $u = x$ og $v\' = e^{-x}$, så $u\' = 1$ og $v = -e^{-x}$. Da får vi $\\int x \\cdot e^{-x} \\, dx = -x \\cdot e^{-x} - \\int (-e^{-x}) \\, dx = -x \\cdot e^{-x} - e^{-x} + C = -e^{-x}(x + 1) + C$'
           },
           {
             label: 'c',
             task: '$\\displaystyle\\int 2x \\cdot e^x \\, dx$',
-            solution: 'La $u = 2x$ og $v\' = e^x$, sa $u\' = 2$ og $v = e^x$. Da far vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$'
+            solution: 'La $u = 2x$ og $v\' = e^x$, så $u\' = 2$ og $v = e^x$. Da får vi $\\int 2x \\cdot e^x \\, dx = 2x \\cdot e^x - \\int 2e^x \\, dx = 2x \\cdot e^x - 2e^x + C = 2e^x(x - 1) + C$'
           },
         ],
         solution: 'a) $\\frac{e^{2x}}{4}(2x - 1) + C$, b) $-e^{-x}(x + 1) + C$, c) $2e^x(x - 1) + C$',
@@ -1066,9 +1066,9 @@ $(e^x(x-1))' = e^x(x-1) + e^x \\cdot 1 = e^x \\cdot x - e^x + e^x = x \\cdot e^x
       type: 'text',
       content: `## Valg av $u$ og $v'$: LIATE-regelen
 
-Det viktigste ved delvis integrasjon er a velge riktig $u$ og $v'$. Malet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal vare *enklere* enn det opprinnelige.
+Det viktigste ved delvis integrasjon er a velge riktig $u$ og $v'$. Målet er at det nye integralet $\\int u' \\cdot v \\, dx$ skal være *enklere* enn det opprinnelige.
 
-En nyttig huskeregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkefolge for valg av $u$:
+En nyttig huskeregel er **LIATE** (eller LIPET på norsk), som gir prioritetsrekkefølge for valg av $u$:
 
 | Prioritet | Type funksjon | Eksempler |
 |-----------|---------------|-----------|
@@ -1164,7 +1164,7 @@ $$= -x \\cos(x) + \\sin(x) + C$$
 
 Her har vi tilsynelatende bare en funksjon, men vi kan skrive $\\ln(x) = \\ln(x) \\cdot 1$.
 
-Ifølge LIATE: Logaritmer har høyest prioritet, sa $u = \\ln(x)$.
+Ifølge LIATE: Logaritmer har høyest prioritet, så $u = \\ln(x)$.
 
 Vi velger:
 - $u = \\ln(x) \\quad \\Rightarrow \\quad u' = \\frac{1}{x}$
@@ -1212,7 +1212,7 @@ $$= x(\\ln(x) - 1) + C$$
         ],
         solution: 'a) $\\frac{x^2}{4}(2\\ln(x) - 1) + C$, b) $\\frac{x^3}{9}(3\\ln(x) - 1) + C$, c) $x(\\ln(2x) - 1) + C$',
         hints: [
-          'Logaritmer har høyest prioritet i LIATE, sa velg alltid $u = \\ln(\\cdot)$',
+          'Logaritmer har høyest prioritet i LIATE, så velg alltid $u = \\ln(\\cdot)$',
           'Husk at $(\\ln(x))\' = \\frac{1}{x}$',
         ],
       },
@@ -1266,14 +1266,14 @@ $$= e^x(x^2 - 2x + 2) + C$$
       type: 'text',
       content: `## Tabellarisk delvis integrasjon
 
-Nar vi har et polynom ganget med $e^x$ eller en trigonometrisk funksjon, kan vi bruke en **tabellarisk metode** som gjor utregningen mer oversiktlig.
+Nar vi har et polynom ganget med $e^x$ eller en trigonometrisk funksjon, kan vi bruke en **tabellarisk metode** som gjør utregningen mer oversiktlig.
 
 Vi setter opp en tabell med tre kolonner:
 1. **Fortegn**: Vekslende $+$ og $-$
 2. **Derivater av $u$**: Deriver til du nar 0
 3. **Integraler av $v'$**: Integrer like mange ganger
 
-Svaret far vi ved a multiplisere diagonalt og summere.`,
+Svaret får vi ved a multiplisere diagonalt og summere.`,
     },
 
     // ========== EKSEMPEL: TABELLARISK METODE ==========
@@ -1370,7 +1370,7 @@ og lose for $I$:
 
 $$2I = (\\text{mellomresultat}) \\quad \\Rightarrow \\quad I = \\frac{\\text{mellomresultat}}{2}$$
 
-**Viktig:** Pass på fortegnet foran $I$ på hoyre side - det avhenger av valgene av $u$ og $v'$.`,
+**Viktig:** Pass på fortegnet foran $I$ på høyre side - det avhenger av valgene av $u$ og $v'$.`,
     },
 
     // ========== EKSEMPEL 5: e^x * sin(x) ==========
@@ -1415,22 +1415,22 @@ $$I = \\frac{e^x(\\sin(x) - \\cos(x))}{2} + C$$
         number: '3.2.5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Bruk sirkular delvis integrasjon til å finne integralene.',
+        task: 'Bruk sirkulær delvis integrasjon til å finne integralene.',
         subTasks: [
           {
             label: 'a',
             task: '$\\displaystyle\\int e^x \\cdot \\cos(x) \\, dx$',
-            solution: 'La $I = \\int e^x \\cos(x) \\, dx$. Etter to runder: $I = e^x \\sin(x) + e^x \\cos(x) - I$, sa $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$'
+            solution: 'La $I = \\int e^x \\cos(x) \\, dx$. Etter to runder: $I = e^x \\sin(x) + e^x \\cos(x) - I$, så $2I = e^x(\\sin(x) + \\cos(x))$, og $I = \\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$'
           },
           {
             label: 'b',
             task: '$\\displaystyle\\int e^{2x} \\cdot \\sin(x) \\, dx$',
-            solution: 'La $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to runder: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, sa $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$'
+            solution: 'La $I = \\int e^{2x} \\sin(x) \\, dx$. Etter to runder: $I = -e^{2x}\\cos(x) + 2e^{2x}\\sin(x) - 4I$, så $5I = e^{2x}(2\\sin(x) - \\cos(x))$, og $I = \\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$'
           },
           {
             label: 'c',
             task: '$\\displaystyle\\int e^{-x} \\cdot \\cos(2x) \\, dx$',
-            solution: 'La $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to runder far vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, sa $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$'
+            solution: 'La $I = \\int e^{-x} \\cos(2x) \\, dx$. Etter to runder får vi $5I = e^{-x}(2\\sin(2x) - \\cos(2x))$, så $I = \\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$'
           },
         ],
         solution: 'a) $\\frac{e^x(\\sin(x) + \\cos(x))}{2} + C$, b) $\\frac{e^{2x}(2\\sin(x) - \\cos(x))}{5} + C$, c) $\\frac{e^{-x}(2\\sin(2x) - \\cos(2x))}{5} + C$',
@@ -1453,7 +1453,7 @@ $$\\int e^{ax} \\sin(bx) \\, dx = \\frac{e^{ax}(a\\sin(bx) - b\\cos(bx))}{a^2 + 
 
 $$\\int e^{ax} \\cos(bx) \\, dx = \\frac{e^{ax}(a\\cos(bx) + b\\sin(bx))}{a^2 + b^2} + C$$
 
-**Merk:** Disse formlene kan utledes ved sirkular delvis integrasjon, men er nyttige a ha tilgjengelig for a spare tid.`,
+**Merk:** Disse formlene kan utledes ved sirkulær delvis integrasjon, men er nyttige a ha tilgjengelig for a spare tid.`,
     },
 
     // ========== BESTEMT INTEGRAL MED DELVIS INTEGRASJON ==========
@@ -1470,7 +1470,7 @@ Nar vi bruker delvis integrasjon på et bestemt integral, har vi to tilnarminger
 
 $$\\int_a^b u \\cdot v' \\, dx = \\Big[u \\cdot v\\Big]_a^b - \\int_a^b u' \\cdot v \\, dx$$
 
-Metode 2 kan vare mer effektiv fordi vi slipper a holde styr på integrasjonskonstanten.`,
+Metode 2 kan være mer effektiv fordi vi slipper a holde styr på integrasjonskonstanten.`,
     },
 
     // ========== EKSEMPEL 6: Bestemt integral ==========
@@ -1647,7 +1647,7 @@ $$= (2 - x^2)\\cos(x) + 2x\\sin(x) + C$$`,
       type: 'warning',
       title: 'Vanlige feil ved delvis integrasjon',
       content: `**1. Feil valg av $u$ og $v'$:**
-Hvis du velger feil, far du et vanskeligere integral. Bruk LIATE-regelen!
+Hvis du velger feil, får du et vanskeligere integral. Bruk LIATE-regelen!
 
 **2. Glemmer fortegn:**
 Vær nøye med minustegnet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-} \\int u' \\cdot v \\, dx$
@@ -1655,7 +1655,7 @@ Vær nøye med minustegnet i formelen: $\\int u \\cdot v' \\, dx = uv \\mathbf{-
 **3. Glemmer integrasjonskonstanten:**
 Husk alltid $+ C$ på slutten av ubestemte integraler.
 
-**4. Feil ved sirkular integrasjon:**
+**4. Feil ved sirkulær integrasjon:**
 Pass på at integralet $I$ dukker opp med riktig fortegn nar du setter opp likningen.
 
 **5. Stopper for tidlig:**
@@ -1681,7 +1681,7 @@ Ved gjentatt delvis integrasjon, fortsett til polynomet er derivert til 0.`,
           {
             label: 'b',
             task: '$\\displaystyle\\int x \\cdot \\arctan(x) \\, dx$',
-            solution: 'La $u = \\arctan(x)$, $v\' = x$. Da $u\' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Da far vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$'
+            solution: 'La $u = \\arctan(x)$, $v\' = x$. Da $u\' = \\frac{1}{1+x^2}$, $v = \\frac{x^2}{2}$. Integralet blir $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}\\int \\frac{x^2}{1+x^2} \\, dx$. Skriv om: $\\frac{x^2}{1+x^2} = 1 - \\frac{1}{1+x^2}$. Da får vi $\\frac{x^2}{2}\\arctan(x) - \\frac{1}{2}(x - \\arctan(x)) + C = \\frac{x^2 + 1}{2}\\arctan(x) - \\frac{x}{2} + C$'
           },
           {
             label: 'c',
@@ -1787,14 +1787,14 @@ Pa eksamen i R2 kommer delvis integrasjon ofte i kombinasjon med andre emner. Ty
           {
             label: 'c',
             task: 'Vis at $\\displaystyle\\int_0^{\\pi/2} \\sin^2(x) \\, dx = \\frac{\\pi}{4}$ ved delvis integrasjon.',
-            solution: 'Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. La $u = \\sin(x)$, $v\' = \\sin(x)$, sa $u\' = \\cos(x)$, $v = -\\cos(x)$. Da: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, sa $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$'
+            solution: 'Skriv $\\sin^2(x) = \\sin(x) \\cdot \\sin(x)$. La $u = \\sin(x)$, $v\' = \\sin(x)$, så $u\' = \\cos(x)$, $v = -\\cos(x)$. Da: $\\int \\sin^2 x \\, dx = -\\sin x \\cos x + \\int \\cos^2 x \\, dx = -\\sin x \\cos x + \\int (1-\\sin^2 x) \\, dx$. Dette gir $2\\int \\sin^2 x \\, dx = x - \\sin x \\cos x$, så $\\int \\sin^2 x \\, dx = \\frac{x - \\sin x \\cos x}{2}$. Evaluert: $[\\frac{x - \\sin x \\cos x}{2}]_0^{\\pi/2} = \\frac{\\pi/2 - 0}{2} = \\frac{\\pi}{4}$'
           },
         ],
         solution: 'a) $1 - 3e^{-2} \\approx 0{,}594$, b) $\\pi(e - 2) \\approx 2{,}26$, c) Se fullstendig losning',
         hints: [
           'For a): Dette er et standard areal-integral',
           'For b): Volum ved rotasjon om $x$-aksen: $V = \\pi \\int_a^b (f(x))^2 \\, dx$',
-          'For c): Du far et sirkular integral - los for $\\int \\sin^2 x \\, dx$',
+          'For c): Du får et sirkulær integral - los for $\\int \\sin^2 x \\, dx$',
         ],
       },
     },
@@ -1876,7 +1876,7 @@ $$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$
 
 **Spesielle tilfeller:**
 - Polynomer av grad $n$ krever $n$ runder med delvis integrasjon
-- Produkter av $e^x$ og trigonometriske funksjoner gir sirkular delvis integrasjon
+- Produkter av $e^x$ og trigonometriske funksjoner gir sirkulær delvis integrasjon
 - $\\int \\ln(x) \\, dx = x(\\ln(x) - 1) + C$ er et viktig resultat
 
 **Husk:**

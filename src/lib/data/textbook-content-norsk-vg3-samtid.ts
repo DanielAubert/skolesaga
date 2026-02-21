@@ -36,7 +36,7 @@ export const CHAPTER_NORSK_VG3_7_1: TextbookChapter = {
       type: 'text',
       content: `## Jon Fosse - «for hans nyskapande skodespel og prosa som gjev røyst til det usegjelege»
 
-I 2023 ble Jon Fosse tildelt Nobelprisen i litteratur. Han ble dermed den fjerde nordmannen som mottar denne prisen, etter Bjørnson, Hamsun og Undset. Fosse skriver på nynorsk og er en av verdens mest spilte samtidssdramatikere.
+I 2023 ble Jon Fosse tildelt Nobelprisen i litteratur. Han ble dermed den fjerde nordmannen som mottar denne prisen, etter Bjørnson, Hamsun og Undset. Fosse skriver på nynorsk og er en av verdens mest spilte samtidsdramatikere.
 
 **Liv og bakgrunn:**
 

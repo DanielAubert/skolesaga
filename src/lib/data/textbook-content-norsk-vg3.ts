@@ -5430,7 +5430,7 @@ export const CHAPTER_NORSK_VG3_5_1: TextbookChapter = {
   description: 'Talemålsendringer og språk i dag.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'forklare endringer i norsk talemål i dag',
+    'gjøre rede for endringer i talespråk i Norge i dag og reflektere over sammenhenger mellom språk, kultur og identitet',
   ],
   content: [
     {

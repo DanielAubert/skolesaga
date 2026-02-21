@@ -1323,7 +1323,7 @@ der $x_i^*$ er et punkt i det $i$-te delintervallet.
 
 **Vanlige valg for $x_i^*$:**
 - **Venstresum**: $x_i^* = x_{i-1}$ (venstre endepunkt)
-- **Hoyresum**: $x_i^* = x_i$ (hoyre endepunkt)
+- **Hoyresum**: $x_i^* = x_i$ (høyre endepunkt)
 - **Midtpunktsum**: $x_i^* = \\frac{x_{i-1} + x_i}{2}$ (midtpunktet)`,
     },
 
@@ -2302,7 +2302,7 @@ Total $= \\frac{6}{\\pi} + \\frac{12}{\\pi} + \\frac{6}{\\pi} = \\frac{24}{\\pi}
         solution: 'a) 4 m, b) $\\frac{24}{\\pi} \\approx 7{,}64$ cm',
         hints: [
           'Finn forst nullpunktene til hastighetsfunksjonen.',
-          'Strekning krever absoluttverdier, posisjon/forflytning gjor det ikke.',
+          'Strekning krever absoluttverdier, posisjon/forflytning gjør det ikke.',
           'Husk substitusjon for trigonometriske integraler.',
         ],
         allowsUpload: true,
@@ -2316,7 +2316,7 @@ Total $= \\frac{6}{\\pi} + \\frac{12}{\\pi} + \\frac{6}{\\pi} = \\frac{24}{\\pi}
       type: 'text',
       content: `## Oppsummering
 
-I dette kapittelet har vi laert:
+I dette kapittelet har vi lært:
 
 1. **Areal under positiv graf:** $A = \\int_a^b f(x) \\, dx$ nar $f(x) \\geq 0$
 

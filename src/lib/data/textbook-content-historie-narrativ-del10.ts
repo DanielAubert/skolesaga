@@ -1,24 +1,24 @@
 /**
  * Tekstbok innhold for Historie - NARRATIV VERSJON DEL 10
- * Kapittel 11: Forste verdenskrig (11.1 - 11.4)
+ * Kapittel 11: Første verdenskrig (11.1 - 11.4)
  *
  * Denne versjonen er skrevet som sammenhengende tekst som er behagelig
- * a lese og lytte til, med quiz-sporsmal for selvtest.
+ * å lese og lytte til, med quiz-spørsmål for selvtest.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// KAPITTEL 11.1 NARRATIV: Arsaker til forste verdenskrig
+// KAPITTEL 11.1 NARRATIV: Årsaker til første verdenskrig
 // ============================================================================
 
 export const CHAPTER_HISTORIE_11_1_NARRATIV: TextbookChapter = {
   id: 'historie-11-1-narrativ',
   courseId: 'historie',
   chapterNumber: '11.1',
-  title: 'Arsaker til forste verdenskrig',
+  title: 'Årsaker til første verdenskrig',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan nasjonalisme, imperialisme og allianser forte Europa mot katastrofe.',
+  description: 'En fortelling om hvordan nasjonalisme, imperialisme og allianser førte Europa mot katastrofe.',
   estimatedMinutes: 45,
   competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'],
   linkedChapterId: 'historie-11-1',
@@ -32,7 +32,7 @@ Tenk deg at du star pa et hjorne i Sarajevo, en varm sommerdag i 1914. Det er de
 
 Denne unge mannen, Gavrilo Princip, ante neppe hva han hadde satt i gang. Pa seks uker ville skuddene hans fore til at alle Europas stormakter var i krig med hverandre. Fire ar senere var 17 millioner mennesker dode, fire imperier hadde kollapset, og verden var forandret for alltid.
 
-Men hvordan kunne et attentat i en liten by pa Balkan utlose den storste krigen verden hadde sett? Svaret ligger ikke bare i hendelsene den sommeren. Det ligger i tiars spenninger, rivaliseringer og frykt som hadde bygget seg opp i Europa. La oss se naermere pa hva som egentlig leddde til forste verdenskrig.`,
+Men hvordan kunne et attentat i en liten by pa Balkan utlose den storste krigen verden hadde sett? Svaret ligger ikke bare i hendelsene den sommeren. Det ligger i tiars spenninger, rivaliseringer og frykt som hadde bygget seg opp i Europa. La oss se naermere pa hva som egentlig ledde til forste verdenskrig.`,
     },
     {
       id: 'historie-11-1-n-section1',

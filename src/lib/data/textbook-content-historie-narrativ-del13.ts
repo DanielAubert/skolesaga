@@ -3,7 +3,7 @@
  * Kapittel 14: Kald krig (14.1 - 14.4)
  *
  * Denne versjonen er skrevet som sammenhengende tekst som er behagelig
- * a lese og lytte til, med quiz-sporsmal for selvtest.
+ * å lese og lytte til, med quiz-spørsmål for selvtest.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -781,7 +781,7 @@ export const CHAPTER_HISTORIE_14_3_NARRATIV: TextbookChapter = {
   chapterNumber: '14.3',
   title: 'Norge i den kalde krigen',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan et lite land pa Europas ytterkant navigerte mellom supermaktene.',
+  description: 'En fortelling om hvordan et lite land på Europas ytterkant navigerte mellom supermaktene.',
   estimatedMinutes: 45,
   competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'],
   linkedChapterId: 'historie-14-3',
@@ -1149,7 +1149,7 @@ export const CHAPTER_HISTORIE_14_4_NARRATIV: TextbookChapter = {
   id: 'historie-14-4-narrativ',
   courseId: 'historie',
   chapterNumber: '14.4',
-  title: 'Murens fall og Sovjetunionens opplosning',
+  title: 'Murens fall og Sovjetunionens oppløsning',
   subtitle: 'Narrativ versjon',
   description: 'En fortelling om hvordan den kalde krigen tok slutt - raskere og mer fredelig enn noen hadde drømt om.',
   estimatedMinutes: 45,

@@ -29,7 +29,7 @@ Vi starter med de grunnleggende kostnadsbegrepene og bygger opp et rammeverk som
       id: 's2-8-1-def-1',
       type: 'definition',
       title: 'Kostnadsfunksjoner',
-      content: `La $K(x)$ være **totalkostnaden** ved å produsere $x$ enheter av en vare.
+      content: `La $K(x)$ være **totalkostnaden** ved å produsere $x$ enheter av en være.
 
 - **Faste kostnader**: $K(0)$ - kostnader som påløper uavhengig av produksjon (husleie, forsikring, etc.)
 - **Variable kostnader**: $K(x) - K(0)$ - kostnader som avhenger av produksjonsmengden
@@ -242,8 +242,8 @@ Denne tilnærmingen er god når $x$ er stor. For små verdier av $x$ kan avviket
         difficulty: 'lett',
         task: 'Løs oppgavene:',
         subTasks: [
-          { label: 'a', task: 'En vare selges til fast pris $p = 50$ kroner per enhet. Finn totalinntekten $I(x)$ og grenseinntekten $I\'(x)$.', solution: '$I(x) = 50x$. $I\'(x) = 50$. Grenseinntekten er konstant og lik prisen.' },
-          { label: 'b', task: 'Etterspørselen etter en annen vare er $p(x) = 200 - 5x$. Finn $I(x)$ og $I\'(x)$.', solution: '$I(x) = (200-5x)x = 200x - 5x^2$. $I\'(x) = 200 - 10x$.' }
+          { label: 'a', task: 'En være selges til fast pris $p = 50$ kroner per enhet. Finn totalinntekten $I(x)$ og grenseinntekten $I\'(x)$.', solution: '$I(x) = 50x$. $I\'(x) = 50$. Grenseinntekten er konstant og lik prisen.' },
+          { label: 'b', task: 'Etterspørselen etter en annen være er $p(x) = 200 - 5x$. Finn $I(x)$ og $I\'(x)$.', solution: '$I(x) = (200-5x)x = 200x - 5x^2$. $I\'(x) = 200 - 10x$.' }
         ]
       }
     },
@@ -493,7 +493,7 @@ I tillegg må vi ha $P''(x) < 0$, altså $I''(x) < K''(x)$ for at det skal være
       id: 's2-8-2-example-1',
       type: 'example',
       title: 'Profittmaksimering med fast pris',
-      problem: `En bedrift selger en vare til fast pris $p = 60$ kroner per enhet. Kostnadsfunksjonen er $K(x) = 0{,}02x^3 - 1{,}5x^2 + 50x + 400$.
+      problem: `En bedrift selger en være til fast pris $p = 60$ kroner per enhet. Kostnadsfunksjonen er $K(x) = 0{,}02x^3 - 1{,}5x^2 + 50x + 400$.
 
 a) Finn profittfunksjonen $P(x)$.
 b) Finn det optimale produksjonsnivået.
@@ -912,7 +912,7 @@ I likevekt er det ingen tendens til at prisen endres:
       id: 's2-8-3-example-1',
       type: 'example',
       title: 'Finne markedslikevekt',
-      problem: `Etterspørselen etter en vare er gitt ved $p_E(x) = 120 - 2x$ og tilbudet er $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ er antall tusen enheter.
+      problem: `Etterspørselen etter en være er gitt ved $p_E(x) = 120 - 2x$ og tilbudet er $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ er antall tusen enheter.
 
 a) Finn likevektsmengden og likevektsprisen.
 b) Hva skjer dersom prisen settes til 80 kroner?`,
@@ -975,7 +975,7 @@ Altså er $|E_p| = 1$ nøyaktig i inntektsmaksimum.`
       id: 's2-8-3-example-2',
       type: 'example',
       title: 'Priselastisitet',
-      problem: `Etterspørselen etter en vare er gitt ved $x = 100 - 2p$ der $x$ er antall enheter og $p$ er pris i kroner.
+      problem: `Etterspørselen etter en være er gitt ved $x = 100 - 2p$ der $x$ er antall enheter og $p$ er pris i kroner.
 
 a) Beregn priselastisiteten når $p = 20$.
 b) Er etterspørselen elastisk eller uelastisk ved denne prisen?
@@ -1002,7 +1002,7 @@ Totalinntekten er maksimal ved pris 25 kroner, med $x = 50$ enheter og $I = 1250
       type: 'text',
       content: `## Avgifter og skatt
 
-Når myndighetene legger en avgift $t$ kroner per enhet på en vare, endres markedslikevekten. Vi kan analysere dette matematisk.
+Når myndighetene legger en avgift $t$ kroner per enhet på en være, endres markedslikevekten. Vi kan analysere dette matematisk.
 
 **Avgift på produsentene** gjør at tilbudskurven skifter oppover med $t$:
 $$p_T^{\\text{ny}}(x) = p_T(x) + t$$
@@ -1093,7 +1093,7 @@ Mengden synker fra 30 til 25 tusen enheter.`
         task: 'Løs oppgavene:',
         subTasks: [
           { label: 'a', task: 'Forklar med egne ord hva det betyr at etterspørselen er elastisk.', solution: 'Elastisk etterspørsel ($|E_p| > 1$) betyr at forbrukerne er svært prisfølsomme. En liten prisøkning gir en relativt stor nedgang i etterspurt mengde. Luksusgjenstander har ofte elastisk etterspørsel.' },
-          { label: 'b', task: 'Gi et eksempel på en vare med uelastisk etterspørsel og forklar hvorfor.', solution: 'Bensin har uelastisk etterspørsel ($|E_p| < 1$) fordi folk er avhengige av bil for jobb og transport. En prisøkning på 10 % reduserer forbruket med mindre enn 10 % fordi det er vanskelig å finne alternativer på kort sikt.' }
+          { label: 'b', task: 'Gi et eksempel på en være med uelastisk etterspørsel og forklar hvorfor.', solution: 'Bensin har uelastisk etterspørsel ($|E_p| < 1$) fordi folk er avhengige av bil for jobb og transport. En prisøkning på 10 % reduserer forbruket med mindre enn 10 % fordi det er vanskelig å finne alternativer på kort sikt.' }
         ]
       }
     },
@@ -1137,7 +1137,7 @@ Mengden synker fra 30 til 25 tusen enheter.`
         difficulty: 'medium',
         task: 'Løs oppgavene:',
         subTasks: [
-          { label: 'a', task: 'Etterspørselen etter en vare er $p(x) = 60e^{-0{,}02x}$. Finn priselastisiteten som funksjon av $x$.', solution: '$\\frac{dp}{dx} = -1{,}2e^{-0{,}02x}$. $\\frac{dx}{dp} = \\frac{1}{-1{,}2e^{-0{,}02x}}$. $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp} = \\frac{60e^{-0{,}02x}}{x} \\cdot \\frac{1}{-1{,}2e^{-0{,}02x}} = \\frac{-50}{x}$.' },
+          { label: 'a', task: 'Etterspørselen etter en være er $p(x) = 60e^{-0{,}02x}$. Finn priselastisiteten som funksjon av $x$.', solution: '$\\frac{dp}{dx} = -1{,}2e^{-0{,}02x}$. $\\frac{dx}{dp} = \\frac{1}{-1{,}2e^{-0{,}02x}}$. $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp} = \\frac{60e^{-0{,}02x}}{x} \\cdot \\frac{1}{-1{,}2e^{-0{,}02x}} = \\frac{-50}{x}$.' },
           { label: 'b', task: 'For hvilken $x$ er etterspørselen enhetselastisk? Finn tilhørende pris.', solution: '$|E_p| = 1$: $\\frac{50}{x} = 1 \\Rightarrow x = 50$. $p(50) = 60e^{-1} \\approx 22{,}07$ kr.' }
         ]
       }
@@ -1225,8 +1225,8 @@ Mengden synker fra 30 til 25 tusen enheter.`
         difficulty: 'medium',
         task: 'Løs oppgavene:',
         subTasks: [
-          { label: 'a', task: 'En vare har etterspørsel $x = 1000p^{-2}$. Vis at priselastisiteten er konstant og lik $-2$ for alle priser.', solution: '$\\frac{dx}{dp} = -2000p^{-3}$. $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp} = \\frac{p}{1000p^{-2}} \\cdot (-2000p^{-3}) = \\frac{p^3}{1000} \\cdot \\frac{-2000}{p^3} = -2$.' },
-          { label: 'b', task: 'Hva betyr det at en vare har konstant priselastisitet lik $-2$?', solution: 'Det betyr at en prisøkning på 1 % alltid gir 2 % nedgang i etterspurt mengde, uansett prisnivå. Funksjoner på formen $x = Ap^k$ har konstant elastisitet lik $k$.' }
+          { label: 'a', task: 'En være har etterspørsel $x = 1000p^{-2}$. Vis at priselastisiteten er konstant og lik $-2$ for alle priser.', solution: '$\\frac{dx}{dp} = -2000p^{-3}$. $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp} = \\frac{p}{1000p^{-2}} \\cdot (-2000p^{-3}) = \\frac{p^3}{1000} \\cdot \\frac{-2000}{p^3} = -2$.' },
+          { label: 'b', task: 'Hva betyr det at en være har konstant priselastisitet lik $-2$?', solution: 'Det betyr at en prisøkning på 1 % alltid gir 2 % nedgang i etterspurt mengde, uansett prisnivå. Funksjoner på formen $x = Ap^k$ har konstant elastisitet lik $k$.' }
         ]
       }
     },
@@ -1731,7 +1731,7 @@ $$t = \\frac{\\ln 2}{\\ln 1{,}04} \\approx 17{,}7 \\text{ år}$$
 (Samme som doblingstiden, naturligvis.)`
     },
     {
-      id: 's2-8-5-text-naaverdi',
+      id: 's2-8-5-text-nåverdi',
       type: 'text',
       content: `## Nåverdi og realverdi
 
@@ -2052,7 +2052,7 @@ Dette kalles **kapitaliseringsformelen**.`
         task: 'Løs oppgavene:',
         subTasks: [
           { label: 'a', task: 'Forklar forskjellen mellom eksponentiell og logistisk vekst med egne ord.', solution: 'Eksponentiell vekst ($K = K_0 e^{rt}$) vokser ubegrenset med konstant prosentvis rate. Logistisk vekst ($P = L/(1+ae^{-kt})$) bremser når den nærmer seg bæreevnen $L$, og gir en S-formet kurve. Logistisk vekst er mer realistisk for markeder med begrenset størrelse.' },
-          { label: 'b', task: 'Nevn to eksempler på økonomiske fenomener som passer best med logistisk vekst.', solution: 'Markedspenetrasjon av et nytt produkt (begrenset av markedsstørrelse). Adopsjon av ny teknologi (begrenset av total populasjon). Salg av en trend-vare som etterhvert mettes. Befolkningsvekst i et land med begrenset areal og ressurser.' }
+          { label: 'b', task: 'Nevn to eksempler på økonomiske fenomener som passer best med logistisk vekst.', solution: 'Markedspenetrasjon av et nytt produkt (begrenset av markedsstørrelse). Adopsjon av ny teknologi (begrenset av total populasjon). Salg av en trend-være som etterhvert mettes. Befolkningsvekst i et land med begrenset areal og ressurser.' }
         ]
       }
     },

@@ -1,10 +1,11 @@
 /**
  * Norsk VG3 - Språkhistorie
  *
- * Følger LK20 kompetansemål:
- * - gjøre rede for utviklingen av norsk språk fra urnordisk til norrønt
- * - gjøre rede for utviklingen av de to norske skriftspråkene og drøfte
- *   utfordringer og muligheter i det norske språksamfunnet i dag
+ * Følger LK20 kompetansemål etter VG3 studieforberedende:
+ * - gjøre rede for endringer i talespråk i Norge i dag og reflektere over
+ *   sammenhenger mellom språk, kultur og identitet
+ * Bygger også på VG2 kompetansemål:
+ * - gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -25,8 +26,8 @@ export const CHAPTER_NORSK_VG3_6_1: TextbookChapter = {
   description: 'Norsk språkhistorie fra de eldste tidene til vikingtiden - runene, urnordisk og norrønt.',
   estimatedMinutes: 75,
   competenceGoals: [
-    'gjøre rede for utviklingen av norsk språk fra urnordisk til norrønt',
-    'sammenligne særtrekk ved norsk med minst ett annet språk og reflektere over hva dette forteller om språk som fenomen',
+    'gjøre rede for endringer i talespråk i Norge i dag og reflektere over sammenhenger mellom språk, kultur og identitet',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {
@@ -393,8 +394,8 @@ export const CHAPTER_NORSK_VG3_6_2: TextbookChapter = {
   description: 'Norsk språkhistorie fra svartedauden til 1814 - hvordan dansk ble Norges skriftspråk.',
   estimatedMinutes: 70,
   competenceGoals: [
-    'gjøre rede for utviklingen av norsk språk fra urnordisk til norrønt',
-    'gjøre rede for utviklingen av de to norske skriftspråkene',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
+    'gjøre rede for endringer i talespråk i Norge i dag og reflektere over sammenhenger mellom språk, kultur og identitet',
   ],
   content: [
     {
@@ -682,8 +683,8 @@ export const CHAPTER_NORSK_VG3_6_3: TextbookChapter = {
   description: 'Hvordan Norge fikk to skriftspråk - Ivar Aasen, fornorskning og språkdebatten.',
   estimatedMinutes: 80,
   competenceGoals: [
-    'gjøre rede for utviklingen av de to norske skriftspråkene og drøfte utfordringer og muligheter i det norske språksamfunnet i dag',
-    'reflektere over hvordan litteraturen speiler og påvirker samfunnet',
+    'gjøre rede for endringer i talespråk i Norge i dag og reflektere over sammenhenger mellom språk, kultur og identitet',
+    'gjøre rede for den historiske bakgrunnen for språksituasjonen i Norge i dag',
   ],
   content: [
     {

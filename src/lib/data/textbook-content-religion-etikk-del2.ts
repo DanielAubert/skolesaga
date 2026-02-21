@@ -706,7 +706,7 @@ const CHAPTER_RELIGION_ETIKK_2_3: TextbookChapter = {
       type: 'definition',
       title: 'Sharia (islamsk rettslære)',
       content:
-        `Sharia (bokstavelig «veien til vannkilden») er betegnelsen for islamsk lov og rettslære. Sharia er ikke en enhetlig lovbok, men et system av rettslige og moralske normer utledet fra Koranen, hadith, konsensus blant lærde (ijma) og analogislutninger (qiyas). Sharia dekker alt fra religiøse ritualer og familierett til handelsrett og straffereett. Tolkningene varierer betydelig mellom ulike rettsskoler (madhhab) og mellom ulike muslimske samfunn.`,
+        `Sharia (bokstavelig «veien til vannkilden») er betegnelsen for islamsk lov og rettslære. Sharia er ikke en enhetlig lovbok, men et system av rettslige og moralske normer utledet fra Koranen, hadith, konsensus blant lærde (ijma) og analogislutninger (qiyas). Sharia dekker alt fra religiøse ritualer og familierett til handelsrett og strafferett. Tolkningene varierer betydelig mellom ulike rettsskoler (madhhab) og mellom ulike muslimske samfunn.`,
     },
     {
       id: 're-2-3-text-2b',

@@ -1153,7 +1153,7 @@ $$\\text{NV} = T \\cdot \\frac{1 - (1+r)^{-n}}{r}$$
 Nåverdi brukes til å sammenligne betalingsstrømmer som skjer på ulike tidspunkter.`
     },
     {
-      id: 's2-7-4-text-serielaan',
+      id: 's2-7-4-text-serielån',
       type: 'text',
       content: `## Serielån vs. annuitetslån
 

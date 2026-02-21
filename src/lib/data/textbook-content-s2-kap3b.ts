@@ -13,7 +13,7 @@ export const CHAPTER_S2_3_7: TextbookChapter = {
   courseId: 's2',
   chapterNumber: '3.7',
   title: 'Integrasjon i funksjonsdrøfting',
-  description: 'Laer aa bruke integrasjon i funksjonsdrøfting: beregn areal under og mellom kurver, rekonstruer f(x) fra f\'(x), og tolk bestemt integral grafisk.',
+  description: 'Laer å bruke integrasjon i funksjonsdrøfting: beregn areal under og mellom kurver, rekonstruer f(x) fra f\'(x), og tolk bestemt integral grafisk.',
   estimatedMinutes: 55,
   competenceGoals: [
     'bruke integrasjon til å beregne areal under og mellom kurver',
@@ -244,7 +244,7 @@ export const CHAPTER_S2_3_8: TextbookChapter = {
   courseId: 's2',
   chapterNumber: '3.8',
   title: 'Implisitt derivasjon og relaterte rater',
-  description: 'Laer implisitt derivasjon for aa finne dy/dx uten aa loese for y eksplisitt, og bruk relaterte rater til aa loese praktiske problemer der flere stoerrelser endres over tid.',
+  description: 'Laer implisitt derivasjon for å finne dy/dx uten å loese for y eksplisitt, og bruk relaterte rater til å loese praktiske problemer der flere størrelser endres over tid.',
   estimatedMinutes: 55,
   competenceGoals: [
     'derivere implisitt gitte funksjoner',
@@ -444,7 +444,7 @@ export const CHAPTER_S2_8_6: TextbookChapter = {
   courseId: 's2',
   chapterNumber: '8.6',
   title: 'Kostnad, inntekt og overskudd',
-  description: 'Lær om sammenhengen mellom kostnadsfunksjoner, inntektsfunksjoner og overskuddsfunksjonen O(x)=I(x)-K(x). Forstaa nullpunktsanalyse (break-even), enhetskostnad og grafisk tolkning.',
+  description: 'Lær om sammenhengen mellom kostnadsfunksjoner, inntektsfunksjoner og overskuddsfunksjonen O(x)=I(x)-K(x). Forstå nullpunktsanalyse (break-even), enhetskostnad og grafisk tolkning.',
   estimatedMinutes: 50,
   competenceGoals: [
     'modellere og analysere økonomiske problemstillinger ved hjelp av funksjoner',
@@ -524,7 +524,7 @@ $$O''(x) < 0 \\quad \\Leftrightarrow \\quad I''(x) < K''(x)$$
       id: 's2-8-6-example-1',
       type: 'example',
       title: 'Overskuddsfunksjon med fast pris',
-      problem: `En bedrift produserer en vare med kostnadsfunksjon $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner, der $x$ er antall enheter. Varen selges til fast pris $p = 50$ kroner per enhet.
+      problem: `En bedrift produserer en være med kostnadsfunksjon $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner, der $x$ er antall enheter. Varen selges til fast pris $p = 50$ kroner per enhet.
 
 a) Finn overskuddsfunksjonen $O(x)$.
 b) Finn break-even-punktene.
@@ -932,7 +932,7 @@ export const CHAPTER_S2_8_8: TextbookChapter = {
   courseId: 's2',
   chapterNumber: '8.8',
   title: 'Konsument- og produsentoverskudd',
-  description: 'Laer aa beregne konsumentoverskudd og produsentoverskudd ved hjelp av integrasjon. Forstaa samfunnsokonomisk overskudd, grafisk tolkning og effekten av prisregulering.',
+  description: 'Laer å beregne konsumentoverskudd og produsentoverskudd ved hjelp av integrasjon. Forstå samfunnsokonomisk overskudd, grafisk tolkning og effekten av prisregulering.',
   estimatedMinutes: 55,
   competenceGoals: [
     'bruke integrasjon til å beregne konsument- og produsentoverskudd',

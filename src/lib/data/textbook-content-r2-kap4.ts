@@ -1185,7 +1185,7 @@ export const CHAPTER_R2_4_2: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: [
     'utforske eigenskapar ved trigonometriske funksjonar',
-    'bruke enhetssirkelen til aa definere trigonometriske verdier for alle vinkler',
+    'bruke enhetssirkelen til å definere trigonometriske verdier for alle vinkler',
     'beherske eksakte verdier for standardvinkler',
   ],
   content: [
@@ -1195,11 +1195,11 @@ export const CHAPTER_R2_4_2: TextbookChapter = {
       type: 'text',
       content: `## Fra rettvinklede trekanter til alle vinkler
 
-I tidligere kurs har du laert aa bruke sinus, cosinus og tangens i rettvinklede trekanter. Men hva betyr $\\sin 150°$ eller $\\cos(-45°)$? Disse vinklene passer ikke inn i en rettvinklet trekant!
+I tidligere kurs har du lært å bruke sinus, cosinus og tangens i rettvinklede trekanter. Men hva betyr $\\sin 150°$ eller $\\cos(-45°)$? Disse vinklene passer ikke inn i en rettvinklet trekant!
 
-For aa utvide de trigonometriske funksjonene til **alle vinkler** - positive, negative, og storre enn $90°$ - bruker vi **enhetssirkelen**.
+For å utvide de trigonometriske funksjonene til **alle vinkler** - positive, negative, og storre enn $90°$ - bruker vi **enhetssirkelen**.
 
-Enhetssirkelen er et av de viktigste verktøyene i matematikk og fysikk, og gir oss en elegant maate aa forsta trigonometri paa.`,
+Enhetssirkelen er et av de viktigste verktøyene i matematikk og fysikk, og gir oss en elegant måte å forsta trigonometri på.`,
     },
 
     // ========== DEFINISJON: ENHETSSIRKELEN ==========
@@ -1212,7 +1212,7 @@ Enhetssirkelen er et av de viktigste verktøyene i matematikk og fysikk, og gir 
 Ligningen for enhetssirkelen er:
 $$x^2 + y^2 = 1$$
 
-Ethvert punkt $P$ paa enhetssirkelen kan skrives som $P = (x, y)$ der $x^2 + y^2 = 1$.`,
+Ethvert punkt $P$ på enhetssirkelen kan skrives som $P = (x, y)$ der $x^2 + y^2 = 1$.`,
     },
 
     {
@@ -1224,7 +1224,7 @@ Vi maler vinkler fra den positive $x$-aksen:
 - **Positive vinkler** males mot klokken (mot urviseren)
 - **Negative vinkler** males med klokken
 
-En vinkel $v$ bestemmer et punkt $P$ paa enhetssirkelen ved aa starte fra punktet $(1, 0)$ og bevege seg langs sirkelen.`,
+En vinkel $v$ bestemmer et punkt $P$ på enhetssirkelen ved å starte fra punktet $(1, 0)$ og bevege seg langs sirkelen.`,
     },
 
     // ========== DEFINISJON: TRIGONOMETRISKE FUNKSJONER ==========
@@ -1232,7 +1232,7 @@ En vinkel $v$ bestemmer et punkt $P$ paa enhetssirkelen ved aa starte fra punkte
       id: 'r2-4-2-def-trig',
       type: 'definition',
       title: 'Sinus, cosinus og tangens for alle vinkler',
-      content: `La $v$ være en vinkel, og la $P = (x, y)$ være det tilsvarende punktet paa enhetssirkelen.
+      content: `La $v$ være en vinkel, og la $P = (x, y)$ være det tilsvarende punktet på enhetssirkelen.
 
 Da definerer vi:
 $$\\cos v = x$$
@@ -1240,8 +1240,8 @@ $$\\sin v = y$$
 $$\\tan v = \\frac{\\sin v}{\\cos v} = \\frac{y}{x}, \\quad \\cos v \\neq 0$$
 
 Med andre ord:
-- **Cosinus** er $x$-koordinaten til punktet paa enhetssirkelen
-- **Sinus** er $y$-koordinaten til punktet paa enhetssirkelen
+- **Cosinus** er $x$-koordinaten til punktet på enhetssirkelen
+- **Sinus** er $y$-koordinaten til punktet på enhetssirkelen
 - **Tangens** er forholdet mellom $y$ og $x$`,
     },
 
@@ -1251,7 +1251,7 @@ Med andre ord:
       type: 'example',
       title: 'Eksempel 1: Trigonometriske verdier for $0°$, $90°$, $180°$, $270°$',
       problem: 'Finn $\\sin v$ og $\\cos v$ for $v = 0°$, $90°$, $180°$ og $270°$.',
-      solution: `Vi finner punktene paa enhetssirkelen:
+      solution: `Vi finner punktene på enhetssirkelen:
 
 **For $v = 0°$:** Punktet er $(1, 0)$
 $$\\cos 0° = 1, \\quad \\sin 0° = 0$$
@@ -1284,8 +1284,8 @@ $\\tan 180° = \\frac{0}{-1} = 0$
 
 $\\tan 270°$ er ikke definert siden $\\cos 270° = 0$.
 
-Generelt er $\\tan v$ ikke definert naar $\\cos v = 0$, dvs. for $v = 90° + n \\cdot 180°$ der $n$ er et heltall.`,
-        hints: ['Husk at $\\tan v = \\frac{\\sin v}{\\cos v}$.', 'Tangens er ikke definert naar nevneren er null.'],
+Generelt er $\\tan v$ ikke definert når $\\cos v = 0$, dvs. for $v = 90° + n \\cdot 180°$ der $n$ er et heltall.`,
+        hints: ['Husk at $\\tan v = \\frac{\\sin v}{\\cos v}$.', 'Tangens er ikke definert når nevneren er null.'],
       },
     },
 
@@ -1373,7 +1373,7 @@ La katetene være $1$. Da er hypotenusen (etter Pytagoras):
 $$h = \\sqrt{1^2 + 1^2} = \\sqrt{2}$$
 
 Dermed:
-$$\\sin 45° = \\frac{\\text{motstaaende katet}}{\\text{hypotenus}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$$`,
+$$\\sin 45° = \\frac{\\text{motstående katet}}{\\text{hypotenus}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$$`,
     },
 
     // ========== EKSEMPEL 4 ==========
@@ -1384,13 +1384,13 @@ $$\\sin 45° = \\frac{\\text{motstaaende katet}}{\\text{hypotenus}} = \\frac{1}{
       problem: 'Forklar hvorfor $\\sin 30° = \\frac{1}{2}$ og $\\cos 30° = \\frac{\\sqrt{3}}{2}$.',
       solution: `Vi starter med en likesidet trekant med sidelengde $2$. Alle vinkler er $60°$.
 
-Naar vi deler trekanten i to med en høyde, faar vi en rettvinklet trekant med:
+Når vi deler trekanten i to med en høyde, får vi en rettvinklet trekant med:
 - Hypotenus = $2$
 - En katet = $1$ (halve grunnlinjen)
 - Den andre kateten = $\\sqrt{2^2 - 1^2} = \\sqrt{3}$ (høyden)
 
 For $30°$-vinkelen:
-$$\\sin 30° = \\frac{\\text{motstaaende}}{\\text{hypotenus}} = \\frac{1}{2}$$
+$$\\sin 30° = \\frac{\\text{motstående}}{\\text{hypotenus}} = \\frac{1}{2}$$
 $$\\cos 30° = \\frac{\\text{hosliggende}}{\\text{hypotenus}} = \\frac{\\sqrt{3}}{2}$$
 
 For $60°$-vinkelen blir det motsatt:
@@ -1442,7 +1442,7 @@ Enhetssirkelen deles inn i fire **kvadranter**:
 | 3. ($180° - 270°$) | $-$ | $-$ | $+$ |
 | 4. ($270° - 360°$) | $+$ | $-$ | $-$ |
 
-**Huskeregel (CAST):** Start i 4. kvadrant og gaa mot klokken:
+**Huskeregel (CAST):** Start i 4. kvadrant og gå mot klokken:
 - **C**osinus positiv i 4. kvadrant
 - **A**lle positive i 1. kvadrant
 - **S**inus positiv i 2. kvadrant
@@ -1457,15 +1457,15 @@ Enhetssirkelen deles inn i fire **kvadranter**:
       problem: 'Avgjor fortegnet til: a) $\\sin 150°$ b) $\\cos 200°$ c) $\\tan 320°$',
       solution: `**a) $\\sin 150°$:**
 $150°$ ligger i 2. kvadrant (mellom $90°$ og $180°$).
-I 2. kvadrant er $y > 0$, saa $\\sin 150° > 0$ (positiv).
+I 2. kvadrant er $y > 0$, så $\\sin 150° > 0$ (positiv).
 
 **b) $\\cos 200°$:**
 $200°$ ligger i 3. kvadrant (mellom $180°$ og $270°$).
-I 3. kvadrant er $x < 0$, saa $\\cos 200° < 0$ (negativ).
+I 3. kvadrant er $x < 0$, så $\\cos 200° < 0$ (negativ).
 
 **c) $\\tan 320°$:**
 $320°$ ligger i 4. kvadrant (mellom $270°$ og $360°$).
-I 4. kvadrant er $x > 0$ og $y < 0$, saa $\\tan 320° = \\frac{y}{x} < 0$ (negativ).`,
+I 4. kvadrant er $x > 0$ og $y < 0$, så $\\tan 320° = \\frac{y}{x} < 0$ (negativ).`,
     },
 
     // ========== OPPGAVE 4 ==========
@@ -1492,7 +1492,7 @@ d) $\\sin(-30°)$ er negativ (4. kvadrant, siden $-30°$ tilsvarer $330°$)`,
       type: 'text',
       content: `## Referansevinkler
 
-For aa finne eksakte verdier for vinkler utenfor forste kvadrant bruker vi **referansevinkler**.`,
+For å finne eksakte verdier for vinkler utenfor forste kvadrant bruker vi **referansevinkler**.`,
     },
 
     // ========== DEFINISJON: REFERANSEVINKEL ==========
@@ -1500,7 +1500,7 @@ For aa finne eksakte verdier for vinkler utenfor forste kvadrant bruker vi **ref
       id: 'r2-4-2-def-referanse',
       type: 'definition',
       title: 'Referansevinkel',
-      content: `**Referansevinkelen** $v_r$ til en vinkel $v$ er den spisse vinkelen mellom vinkelens endepunkt paa enhetssirkelen og $x$-aksen.
+      content: `**Referansevinkelen** $v_r$ til en vinkel $v$ er den spisse vinkelen mellom vinkelens endepunkt på enhetssirkelen og $x$-aksen.
 
 Referansevinkelen er alltid mellom $0°$ og $90°$.
 
@@ -1636,7 +1636,7 @@ c) $\\frac{5\\pi}{6} = 150°$, referansevinkel $30°$. $\\tan \\frac{5\\pi}{6} =
       type: 'text',
       content: `## Den pytagoreiske identiteten
 
-En av de viktigste sammenhengene i trigonometri følger direkte fra definisjonen paa enhetssirkelen.`,
+En av de viktigste sammenhengene i trigonometri følger direkte fra definisjonen på enhetssirkelen.`,
     },
 
     // ========== TEOREM: PYTAGOREISK IDENTITET ==========
@@ -1648,12 +1648,12 @@ En av de viktigste sammenhengene i trigonometri følger direkte fra definisjonen
 
 $$\\sin^2 v + \\cos^2 v = 1$$
 
-Denne identiteten kalles ogsaa **grunnidentiteten** i trigonometri.`,
+Denne identiteten kalles også **grunnidentiteten** i trigonometri.`,
       proof: `**Bevis:**
 
-Et punkt $P$ paa enhetssirkelen har koordinater $(\\cos v, \\sin v)$.
+Et punkt $P$ på enhetssirkelen har koordinater $(\\cos v, \\sin v)$.
 
-Siden $P$ ligger paa sirkelen $x^2 + y^2 = 1$, faar vi:
+Siden $P$ ligger på sirkelen $x^2 + y^2 = 1$, får vi:
 
 $$(\\cos v)^2 + (\\sin v)^2 = 1$$
 
@@ -1664,7 +1664,7 @@ som gir oss identiteten $\\sin^2 v + \\cos^2 v = 1$.`,
     {
       id: 'r2-4-2-example-10',
       type: 'example',
-      title: 'Eksempel 10: Finne sin naar cos er kjent',
+      title: 'Eksempel 10: Finne sin når cos er kjent',
       problem: 'Gitt at $\\cos v = \\frac{3}{5}$ og $v$ ligger i 4. kvadrant. Finn $\\sin v$.',
       solution: `Vi bruker $\\sin^2 v + \\cos^2 v = 1$:
 
@@ -1681,7 +1681,7 @@ $$\\sin v = -\\frac{4}{5}$$`,
     {
       id: 'r2-4-2-example-11',
       type: 'example',
-      title: 'Eksempel 11: Finne cos naar sin er kjent',
+      title: 'Eksempel 11: Finne cos når sin er kjent',
       problem: 'Gitt at $\\sin v = \\frac{5}{13}$ og $90° < v < 180°$. Finn $\\cos v$ og $\\tan v$.',
       solution: `**Finn $\\cos v$:**
 
@@ -1715,7 +1715,7 @@ Siden $v$ er i 3. kvadrant (sinus negativ):
 $\\sin v = -\\frac{3}{5}$
 
 $\\tan v = \\frac{-3/5}{-4/5} = \\frac{3}{4}$`,
-        hints: ['Bruk den pytagoreiske identiteten.', 'I 3. kvadrant er baade sin og cos negative.'],
+        hints: ['Bruk den pytagoreiske identiteten.', 'I 3. kvadrant er både sin og cos negative.'],
       },
     },
 
@@ -1743,7 +1743,7 @@ $\\cos v = \\frac{24}{25}$`,
       type: 'example',
       title: 'Eksempel 12: Negative vinkler',
       problem: 'Finn eksakt verdi for $\\sin(-60°)$ og $\\cos(-60°)$.',
-      solution: `En negativ vinkel gaar med klokken fra $(1, 0)$.
+      solution: `En negativ vinkel går med klokken fra $(1, 0)$.
 
 $-60°$ havner i 4. kvadrant (samme som $300°$).
 
@@ -1800,7 +1800,7 @@ c) $\\tan(-30°) = -\\tan 30° = -\\frac{1}{\\sqrt{3}} = -\\frac{\\sqrt{3}}{3}$`
       title: 'Eksempel 13: Store vinkler',
       problem: 'Finn eksakt verdi for $\\sin 420°$ og $\\cos 750°$.',
       solution: `**$\\sin 420°$:**
-$420° = 360° + 60°$, saa vi har gatt en hel runde pluss $60°$.
+$420° = 360° + 60°$, så vi har gatt en hel runde pluss $60°$.
 $$\\sin 420° = \\sin 60° = \\frac{\\sqrt{3}}{2}$$
 
 **$\\cos 750°$:**
@@ -1818,9 +1818,9 @@ $$\\cos 750° = \\cos 30° = \\frac{\\sqrt{3}}{2}$$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn eksakt verdi for: a) $\\cos 405°$ b) $\\sin 510°$ c) $\\tan 585°$',
-        solution: `a) $405° = 360° + 45°$, saa $\\cos 405° = \\cos 45° = \\frac{\\sqrt{2}}{2}$
+        solution: `a) $405° = 360° + 45°$, så $\\cos 405° = \\cos 45° = \\frac{\\sqrt{2}}{2}$
 
-b) $510° = 360° + 150°$, saa $\\sin 510° = \\sin 150° = \\frac{1}{2}$
+b) $510° = 360° + 150°$, så $\\sin 510° = \\sin 150° = \\frac{1}{2}$
 
 c) $585° = 360° + 225°$, referansevinkel $45°$, 3. kvadrant: $\\tan 585° = \\tan 225° = 1$`,
         hints: ['Trekk fra $360°$ til vinkelen er mellom $0°$ og $360°$.'],
@@ -1848,11 +1848,11 @@ $$\\frac{1 - \\cos^2 v}{\\sin v} = \\frac{\\sin^2 v}{\\sin v} = \\sin v$$`,
 
 $$\\tan^2 v + 1 = \\frac{\\sin^2 v}{\\cos^2 v} + 1 = \\frac{\\sin^2 v + \\cos^2 v}{\\cos^2 v}$$
 
-Ved aa bruke $\\sin^2 v + \\cos^2 v = 1$:
+Ved å bruke $\\sin^2 v + \\cos^2 v = 1$:
 
 $$= \\frac{1}{\\cos^2 v}$$
 
-som er hoyre side. $\\square$`,
+som er høyre side. $\\square$`,
     },
 
     // ========== OPPGAVE 11 ==========
@@ -1876,13 +1876,13 @@ b) $\\frac{\\sin^2 v}{1 + \\cos v} = \\frac{1 - \\cos^2 v}{1 + \\cos v} = \\frac
     {
       id: 'r2-4-2-example-16',
       type: 'example',
-      title: 'Eksempel 16: Finne koordinater paa enhetssirkelen',
-      problem: 'Finn koordinatene til punktet paa enhetssirkelen som svarer til vinkelen $v = 210°$.',
+      title: 'Eksempel 16: Finne koordinater på enhetssirkelen',
+      problem: 'Finn koordinatene til punktet på enhetssirkelen som svarer til vinkelen $v = 210°$.',
       solution: `Punktet har koordinater $(\\cos 210°, \\sin 210°)$.
 
 **Referansevinkel:** $210° - 180° = 30°$
 
-**Kvadrant:** 3. kvadrant (baade $x$ og $y$ negative)
+**Kvadrant:** 3. kvadrant (både $x$ og $y$ negative)
 
 $$\\cos 210° = -\\cos 30° = -\\frac{\\sqrt{3}}{2}$$
 $$\\sin 210° = -\\sin 30° = -\\frac{1}{2}$$
@@ -1899,7 +1899,7 @@ $$\\sin 210° = -\\sin 30° = -\\frac{1}{2}$$
         number: '12',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Finn koordinatene til punktet paa enhetssirkelen for: a) $v = 135°$ b) $v = 330°$',
+        task: 'Finn koordinatene til punktet på enhetssirkelen for: a) $v = 135°$ b) $v = 330°$',
         solution: `a) $135°$ er i 2. kvadrant, referansevinkel $45°$.
 Punktet er $\\left(-\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2}\\right)$
 
@@ -1918,7 +1918,7 @@ Punktet er $\\left(\\frac{\\sqrt{3}}{2}, -\\frac{1}{2}\\right)$`,
         number: '13',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Et punkt paa enhetssirkelen har $x$-koordinat $-\\frac{1}{2}$. Finn alle mulige $y$-koordinater og tilhorende vinkler $v$ med $0° \\leq v < 360°$.',
+        task: 'Et punkt på enhetssirkelen har $x$-koordinat $-\\frac{1}{2}$. Finn alle mulige $y$-koordinater og tilhorende vinkler $v$ med $0° \\leq v < 360°$.',
         solution: `Fra $x^2 + y^2 = 1$:
 $\\left(-\\frac{1}{2}\\right)^2 + y^2 = 1$
 $y^2 = 1 - \\frac{1}{4} = \\frac{3}{4}$
@@ -1939,7 +1939,7 @@ For $y = -\\frac{\\sqrt{3}}{2}$ (3. kvadrant): $v = 240°$`,
         number: '14',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Vis at $1 + \\tan^2 v = \\frac{1}{\\cos^2 v}$ for $\\cos v \\neq 0$, og bruk dette til aa finne $\\cos v$ naar $\\tan v = 2$ og $v$ er i 1. kvadrant.',
+        task: 'Vis at $1 + \\tan^2 v = \\frac{1}{\\cos^2 v}$ for $\\cos v \\neq 0$, og bruk dette til å finne $\\cos v$ når $\\tan v = 2$ og $v$ er i 1. kvadrant.',
         solution: `**Bevis:**
 $1 + \\tan^2 v = 1 + \\frac{\\sin^2 v}{\\cos^2 v} = \\frac{\\cos^2 v + \\sin^2 v}{\\cos^2 v} = \\frac{1}{\\cos^2 v}$
 
@@ -1962,15 +1962,15 @@ $\\cos v = \\frac{1}{\\sqrt{5}} = \\frac{\\sqrt{5}}{5}$ (positiv i 1. kvadrant)`
 - Ligning: $x^2 + y^2 = 1$
 
 **Definisjoner:**
-- $\\cos v = x$-koordinaten paa enhetssirkelen
-- $\\sin v = y$-koordinaten paa enhetssirkelen
+- $\\cos v = x$-koordinaten på enhetssirkelen
+- $\\sin v = y$-koordinaten på enhetssirkelen
 - $\\tan v = \\frac{\\sin v}{\\cos v}$
 
 **Grunnidentiteten:** $\\sin^2 v + \\cos^2 v = 1$
 
 **Eksakte verdier:** Husk tabellen for $0°$, $30°$, $45°$, $60°$, $90°$
 
-**Referansevinkler:** Brukes til aa finne verdier utenfor 1. kvadrant`,
+**Referansevinkler:** Brukes til å finne verdier utenfor 1. kvadrant`,
     },
 
     // ========== OPPGAVE 15 ==========
@@ -2069,7 +2069,7 @@ export const CHAPTER_R2_4_3: TextbookChapter = {
   description: 'Lose likninger med sinusfunksjonen, inkludert generelle losninger og praktiske anvendelser.',
   estimatedMinutes: 55,
   competenceGoals: [
-    'bruke trigonometriske funksjonar til aa loyse praktiske problem',
+    'bruke trigonometriske funksjonar til å loyse praktiske problem',
     'analysere og tolke trigonometriske funksjonar grafisk',
     'finne alle losningar av trigonometriske likningar i gitte intervall',
   ],
@@ -2084,7 +2084,7 @@ export const CHAPTER_R2_4_3: TextbookChapter = {
 
 Sinuslikninger er likninger der den ukjente $x$ star som argument i en sinusfunksjon. Slike likninger dukker opp i mange praktiske sammenhenger, som bolgefenomener, periodiske svingninger og lydanalyse.
 
-**Hva skal vi laere?**
+**Hva skal vi lære?**
 - Lose grunnleggende likninger av typen $\\sin x = a$
 - Finne den generelle losningen med $n \\in \\mathbb{Z}$
 - Lose mer sammensatte likninger som $\\sin(kx + c) = a$
@@ -2093,7 +2093,7 @@ Sinuslikninger er likninger der den ukjente $x$ star som argument i en sinusfunk
 - Anvende sinuslikninger på praktiske problemer
 
 **Hvorfor er dette viktig?**
-Sinusfunksjonen beskriver periodiske fenomener overalt i naturen: havbolger, lydbolgr, vekselstrom, pendelbevegelser og mye mer. Aa kunne lose sinuslikninger er derfor essensielt for aa forstaa og modellere slike fenomener.`,
+Sinusfunksjonen beskriver periodiske fenomener overalt i naturen: havbolger, lydbolgr, vekselstrom, pendelbevegelser og mye mer. Aa kunne lose sinuslikninger er derfor essensielt for å forstå og modellere slike fenomener.`,
     },
 
     // ============================================================================
@@ -2130,7 +2130,7 @@ Disse verdiene følger fra enhetssirkelen og de likesidede trekantene du kjenner
 
 $$x = v + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - v + 2\\pi n, \\quad n \\in \\mathbb{Z}$$
 
-Dette kan ogsaa skrives som:
+Dette kan også skrives som:
 $$x = v + 2\\pi n \\quad \\text{og} \\quad x = (\\pi - v) + 2\\pi n, \\quad n \\in \\mathbb{Z}$$
 
 **Forklaring:** Sinusfunksjonen har periode $2\\pi$, og for hver verdi $a$ (unntatt $\\pm 1$) finnes det to vinkler i $[0, 2\\pi)$ med samme sinusverdi. Disse ligger symmetrisk om $\\frac{\\pi}{2}$.`,
@@ -2138,7 +2138,7 @@ $$x = v + 2\\pi n \\quad \\text{og} \\quad x = (\\pi - v) + 2\\pi n, \\quad n \\
     {
       id: 'r2-4-3-tip-1',
       type: 'tip',
-      content: `**Fremgangsmate for aa lose $\\sin x = a$:**
+      content: `**Fremgangsmate for å lose $\\sin x = a$:**
 
 1. Sjekk om $|a| \\leq 1$. Hvis ikke, har likningen ingen losning.
 2. Finn en vinkel $v$ slik at $\\sin v = a$. Bruk kalkulator eller kjente verdier.
@@ -2193,7 +2193,7 @@ Siden vi trenger en negativ verdi, bruker vi $v = -\\frac{\\pi}{4}$.
 $$x = -\\frac{\\pi}{4} + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - \\left(-\\frac{\\pi}{4}\\right) + 2\\pi n$$
 $$x = -\\frac{\\pi}{4} + 2\\pi n \\quad \\text{eller} \\quad x = \\frac{5\\pi}{4} + 2\\pi n, \\quad n \\in \\mathbb{Z}$$
 
-**Alternativ form:** Vi kan ogsaa skrive losningene som:
+**Alternativ form:** Vi kan også skrive losningene som:
 $$x = \\frac{7\\pi}{4} + 2\\pi n \\quad \\text{eller} \\quad x = \\frac{5\\pi}{4} + 2\\pi n, \\quad n \\in \\mathbb{Z}$$`,
     },
     {
@@ -2206,7 +2206,7 @@ $$x = \\frac{7\\pi}{4} + 2\\pi n \\quad \\text{eller} \\quad x = \\frac{5\\pi}{4
         difficulty: 'lett',
         task: 'Los likningen $\\sin x = -\\frac{1}{2}$ og angi den generelle losningen.',
         solution: 'Vi bruker $v = -\\frac{\\pi}{6}$. Den generelle losningen er $x = -\\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{7\\pi}{6} + 2\\pi n$ der $n \\in \\mathbb{Z}$. Alternativt: $x = \\frac{11\\pi}{6} + 2\\pi n$ eller $x = \\frac{7\\pi}{6} + 2\\pi n$.',
-        hints: ['Start med aa finne vinkelen der $\\sin v = \\frac{1}{2}$.', 'Hva blir $\\pi - (-\\frac{\\pi}{6})$?'],
+        hints: ['Start med å finne vinkelen der $\\sin v = \\frac{1}{2}$.', 'Hva blir $\\pi - (-\\frac{\\pi}{6})$?'],
       },
     },
     {
@@ -2221,7 +2221,7 @@ $1$ er maksimalverdien til sinusfunksjonen, sa likningen har losning.
 $\\sin x = 1$ kun nar $x = \\frac{\\pi}{2}$.
 
 **Steg 3:** Generell losning.
-Siden dette er en ekstremverdi, far vi bare en losningsgren:
+Siden dette er en ekstremverdi, får vi bare en losningsgren:
 $$x = \\frac{\\pi}{2} + 2\\pi n, \\quad n \\in \\mathbb{Z}$$
 
 **Merk:** Ved $a = 1$ faller de to losningsgrenene sammen fordi $\\pi - \\frac{\\pi}{2} = \\frac{\\pi}{2}$.`,
@@ -2253,7 +2253,7 @@ $2 > 1$, sa verdien ligger utenfor verdiomradet til sinusfunksjonen.
       id: 'r2-4-3-warning-1',
       type: 'warning',
       title: 'Vanlig feil',
-      content: `Husk aa sjekke at $|a| \\leq 1$ for likningen har losning. Mange glemmer dette og forsaker aa lose likninger som $\\sin x = 1.5$ eller $\\sin x = -3$, som ikke har losninger.`,
+      content: `Husk å sjekke at $|a| \\leq 1$ for likningen har losning. Mange glemmer dette og forsaker å lose likninger som $\\sin x = 1.5$ eller $\\sin x = -3$, som ikke har losninger.`,
     },
 
     // ============================================================================
@@ -2264,7 +2264,7 @@ $2 > 1$, sa verdien ligger utenfor verdiomradet til sinusfunksjonen.
       type: 'text',
       content: `## Løsninger i et bestemt intervall
 
-Ofte blir vi bedt om aa finne alle losninger i et gitt intervall, for eksempel $[0, 2\\pi)$ eller $[-\\pi, \\pi]$.
+Ofte blir vi bedt om å finne alle losninger i et gitt intervall, for eksempel $[0, 2\\pi)$ eller $[-\\pi, \\pi]$.
 
 **Fremgangsmate:**
 1. Finn den generelle losningen
@@ -2303,7 +2303,7 @@ For $x = \\frac{3\\pi}{4} + 2\\pi n$:
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn alle losninger av $\\sin x = \\frac{1}{2}$ i intervallet $[0, 2\\pi)$.',
-        solution: 'Den generelle losningen er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$. I $[0, 2\\pi)$ far vi $x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$.',
+        solution: 'Den generelle losningen er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$. I $[0, 2\\pi)$ får vi $x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$.',
         hints: ['Finn forst den generelle losningen.', 'Sett inn $n = 0$ og sjekk om verdiene ligger i intervallet.'],
       },
     },
@@ -2337,7 +2337,7 @@ For $x = \\frac{4\\pi}{3} + 2\\pi n$:
         difficulty: 'medium',
         task: 'Finn alle losninger av $\\sin x = -\\frac{\\sqrt{2}}{2}$ i intervallet $[-\\pi, \\pi]$.',
         solution: 'Den generelle losningen er $x = -\\frac{\\pi}{4} + 2\\pi n$ eller $x = \\frac{5\\pi}{4} + 2\\pi n$. I $[-\\pi, \\pi]$: For forste gren med $n=0$: $x = -\\frac{\\pi}{4}$. For andre gren med $n=-1$: $x = \\frac{5\\pi}{4} - 2\\pi = -\\frac{3\\pi}{4}$. Svar: $x = -\\frac{\\pi}{4}$ og $x = -\\frac{3\\pi}{4}$.',
-        hints: ['Bruk at $\\sin(-\\frac{\\pi}{4}) = -\\frac{\\sqrt{2}}{2}$.', 'Husk aa sjekke $n = -1$ for den andre losningsgrenen.'],
+        hints: ['Bruk at $\\sin(-\\frac{\\pi}{4}) = -\\frac{\\sqrt{2}}{2}$.', 'Husk å sjekke $n = -1$ for den andre losningsgrenen.'],
       },
     },
 
@@ -2349,7 +2349,7 @@ For $x = \\frac{4\\pi}{3} + 2\\pi n$:
       type: 'text',
       content: `## Grafisk tolkning
 
-Aa lose $\\sin x = a$ grafisk betyr aa finne skjaringspunktene mellom grafen til $y = \\sin x$ og den horisontale linjen $y = a$.
+Aa lose $\\sin x = a$ grafisk betyr å finne skjaringspunktene mellom grafen til $y = \\sin x$ og den horisontale linjen $y = a$.
 
 **Viktige observasjoner:**
 - Sinusgrafen svinger mellom $-1$ og $1$ med periode $2\\pi$
@@ -2366,7 +2366,7 @@ Denne grafiske forstaelsen hjelper oss aa:
       id: 'r2-4-3-geogebra-1',
       type: 'geogebra',
       title: 'Utforsk sinuslikninger grafisk',
-      description: 'Dra glideren for aa endre verdien av $a$ og se hvor linjen $y = a$ skjaerer sinusgrafen.',
+      description: 'Dra glideren for å endre verdien av $a$ og se hvor linjen $y = a$ skjaerer sinusgrafen.',
       appType: 'graphing',
       commands: [
         'f(x) = sin(x)',
@@ -2406,7 +2406,7 @@ Alle fire ligger i $[0, 4\\pi] \\approx [0, 12.57]$.`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Hvor mange losninger har likningen $\\sin x = 0.7$ i intervallet $[0, 6\\pi]$?',
-        solution: 'Intervallet $[0, 6\\pi]$ inneholder 3 fulle perioder. Siden $0.7$ er mellom $-1$ og $1$ (og ikke lik $\\pm 1$), far vi 2 losninger per periode. Totalt: $3 \\times 2 = 6$ losninger.',
+        solution: 'Intervallet $[0, 6\\pi]$ inneholder 3 fulle perioder. Siden $0.7$ er mellom $-1$ og $1$ (og ikke lik $\\pm 1$), får vi 2 losninger per periode. Totalt: $3 \\times 2 = 6$ losninger.',
         hints: ['Hvor mange perioder er det i intervallet?', 'Hvor mange ganger per periode skjaerer $y = 0.7$ sinusgrafen?'],
       },
     },
@@ -2422,7 +2422,7 @@ I et intervall som inneholder $n$ fulle perioder (lengde $2\\pi n$), er antall l
 - Hvis $a = 1$ eller $a = -1$: $n$ losninger
 - Hvis $|a| > 1$: $0$ losninger
 
-**Merk:** For intervaller som ikke inneholder hele perioder, ma man telle mer noyaktig ved aa finne de eksakte losningene.`,
+**Merk:** For intervaller som ikke inneholder hele perioder, ma man telle mer noyaktig ved å finne de eksakte losningene.`,
     },
 
     // ============================================================================
@@ -2454,7 +2454,7 @@ Likningen blir $\\sin u = \\frac{\\sqrt{3}}{2}$.
 $$u = \\frac{\\pi}{3} + 2\\pi n \\quad \\text{eller} \\quad u = \\frac{2\\pi}{3} + 2\\pi n$$
 
 **Steg 3:** Los for $x$.
-Fra $u = 2x$ far vi $x = \\frac{u}{2}$:
+Fra $u = 2x$ får vi $x = \\frac{u}{2}$:
 $$x = \\frac{\\pi}{6} + \\pi n \\quad \\text{eller} \\quad x = \\frac{\\pi}{3} + \\pi n, \\quad n \\in \\mathbb{Z}$$
 
 **Merk:** Perioden er halvert fra $2\\pi$ til $\\pi$ fordi koeffisienten foran $x$ er $2$.`,
@@ -2468,8 +2468,8 @@ $$x = \\frac{\\pi}{6} + \\pi n \\quad \\text{eller} \\quad x = \\frac{\\pi}{3} +
         type: 'classic',
         difficulty: 'medium',
         task: 'Los likningen $\\sin(3x) = \\frac{1}{2}$.',
-        solution: 'Sett $u = 3x$. Da er $\\sin u = \\frac{1}{2}$, som gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$. Dermed far vi $x = \\frac{\\pi}{18} + \\frac{2\\pi n}{3}$ eller $x = \\frac{5\\pi}{18} + \\frac{2\\pi n}{3}$ der $n \\in \\mathbb{Z}$.',
-        hints: ['Sett $u = 3x$ og los forst for $u$.', 'Husk aa dele på 3 nar du gar tilbake til $x$.'],
+        solution: 'Sett $u = 3x$. Da er $\\sin u = \\frac{1}{2}$, som gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$. Dermed får vi $x = \\frac{\\pi}{18} + \\frac{2\\pi n}{3}$ eller $x = \\frac{5\\pi}{18} + \\frac{2\\pi n}{3}$ der $n \\in \\mathbb{Z}$.',
+        hints: ['Sett $u = 3x$ og los forst for $u$.', 'Husk å dele på 3 nar du gar tilbake til $x$.'],
       },
     },
     {
@@ -2483,7 +2483,7 @@ Likningen blir $\\sin u = \\frac{\\sqrt{2}}{2}$.
 **Steg 2:** Los for $u$.
 $$u = \\frac{\\pi}{4} + 2\\pi n \\quad \\text{eller} \\quad u = \\frac{3\\pi}{4} + 2\\pi n$$
 
-**Steg 3:** Los for $x$ fra $u = x - \\frac{\\pi}{4}$, altsaa $x = u + \\frac{\\pi}{4}$:
+**Steg 3:** Los for $x$ fra $u = x - \\frac{\\pi}{4}$, altså $x = u + \\frac{\\pi}{4}$:
 $$x = \\frac{\\pi}{4} + \\frac{\\pi}{4} + 2\\pi n = \\frac{\\pi}{2} + 2\\pi n$$
 $$x = \\frac{3\\pi}{4} + \\frac{\\pi}{4} + 2\\pi n = \\pi + 2\\pi n$$
 
@@ -2544,7 +2544,7 @@ $$x = \\frac{\\frac{7\\pi}{6} + 2\\pi n}{2} - \\frac{\\pi}{6} = \\frac{7\\pi}{12
       type: 'tip',
       content: `**Huskeregel for $\\sin(kx + c) = a$:**
 
-Nar du har funnet den generelle losningen for $u$, deler du $2\\pi n$-leddet på $k$ for aa fa riktig periode for $x$.
+Nar du har funnet den generelle losningen for $u$, deler du $2\\pi n$-leddet på $k$ for å fa riktig periode for $x$.
 
 For eksempel: Hvis $u = v + 2\\pi n$ og $u = kx + c$, da blir:
 $$x = \\frac{v - c}{k} + \\frac{2\\pi n}{k}$$
@@ -2567,7 +2567,7 @@ Noen sinuslikninger krever ekstra manipulasjon for de kan loses. Her ser vi på 
       type: 'example',
       title: 'Eksempel 11: Likning med kalkulator',
       problem: 'Los likningen $\\sin x = 0.4$ og finn alle losninger i $[0, 2\\pi)$. Angi svarene med tre desimaler.',
-      solution: `**Steg 1:** Bruk kalkulator til aa finne arcsin.
+      solution: `**Steg 1:** Bruk kalkulator til å finne arcsin.
 $v = \\sin^{-1}(0.4) \\approx 0.412$ radianer.
 
 **Steg 2:** Den generelle losningen er:
@@ -2589,7 +2589,7 @@ $$x \\approx 0.412 + 2\\pi n \\quad \\text{eller} \\quad x \\approx \\pi - 0.412
         difficulty: 'medium',
         task: 'Los likningen $\\sin x = 0.6$ og finn alle losninger i $[0, 2\\pi)$. Angi svarene med tre desimaler.',
         solution: '$\\sin^{-1}(0.6) \\approx 0.644$. Den andre losningen er $\\pi - 0.644 \\approx 2.498$. Svar: $x \\approx 0.644$ og $x \\approx 2.498$.',
-        hints: ['Bruk kalkulator til aa finne $\\sin^{-1}(0.6)$.', 'Den andre losningen er $\\pi - v$.'],
+        hints: ['Bruk kalkulator til å finne $\\sin^{-1}(0.6)$.', 'Den andre losningen er $\\pi - v$.'],
       },
     },
     {
@@ -2647,7 +2647,7 @@ $$x = n\\pi, \\quad n \\in \\mathbb{Z}$$
         type: 'classic',
         difficulty: 'lett',
         task: 'Los likningen $\\sin(2x) = 0$ i intervallet $[0, 2\\pi)$.',
-        solution: '$\\sin(2x) = 0$ betyr $2x = n\\pi$, altsaa $x = \\frac{n\\pi}{2}$. I $[0, 2\\pi)$: $x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}$ (4 losninger).',
+        solution: '$\\sin(2x) = 0$ betyr $2x = n\\pi$, altså $x = \\frac{n\\pi}{2}$. I $[0, 2\\pi)$: $x = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}$ (4 losninger).',
         hints: ['Sett $u = 2x$ og los $\\sin u = 0$.', 'Hvilke verdier av $n$ gir $x$ i $[0, 2\\pi)$?'],
       },
     },
@@ -2743,7 +2743,7 @@ I de forste 3 sekundene ($0 \\leq t \\leq 3$):
 - $t = \\frac{5}{6} + 2 = \\frac{17}{6} \\approx 2.83$ s
 
 **b) Kryssing av likevektspunktet:**
-$s(t) = 0$ nar $\\sin(\\pi t) = 0$, altsaa $\\pi t = n\\pi$, dvs. $t = n$ sekunder.
+$s(t) = 0$ nar $\\sin(\\pi t) = 0$, altså $\\pi t = n\\pi$, dvs. $t = n$ sekunder.
 
 Fjaoerarmen krysser likevektspunktet hvert sekund (ved $t = 0, 1, 2, 3, ...$).`,
     },
@@ -2761,7 +2761,7 @@ der $\\theta$ er vinkelen i grader og $t$ er tiden i sekunder.
 
 a) Nar passerer pendelen gjennom stillingen $\\theta = 7.5$ grader for forste gang?
 b) Hvor ofte star pendelen vertikalt ($\\theta = 0$)?`,
-        solution: 'a) $15\\sin(2\\pi t) = 7.5$ gir $\\sin(2\\pi t) = 0.5$. Med $u = 2\\pi t$: $u = \\frac{\\pi}{6}$, sa $t = \\frac{1}{12}$ sekund (forste gang). b) $\\theta = 0$ nar $\\sin(2\\pi t) = 0$, dvs. $2\\pi t = n\\pi$, altsaa $t = \\frac{n}{2}$. Pendelen star vertikalt hvert halve sekund.',
+        solution: 'a) $15\\sin(2\\pi t) = 7.5$ gir $\\sin(2\\pi t) = 0.5$. Med $u = 2\\pi t$: $u = \\frac{\\pi}{6}$, sa $t = \\frac{1}{12}$ sekund (forste gang). b) $\\theta = 0$ nar $\\sin(2\\pi t) = 0$, dvs. $2\\pi t = n\\pi$, altså $t = \\frac{n}{2}$. Pendelen star vertikalt hvert halve sekund.',
         hints: ['Perioden til $\\sin(2\\pi t)$ er 1 sekund.', 'For forste gang: velg minste positive $t$.'],
       },
     },
@@ -2780,10 +2780,10 @@ $$880\\pi t = n\\pi, \\quad n \\in \\mathbb{Z}$$
 $$t = \\frac{n}{880}$$
 
 **Antall nullpunkter per sekund:**
-For $t \\in [0, 1]$ far vi $n = 0, 1, 2, ..., 880$.
+For $t \\in [0, 1]$ får vi $n = 0, 1, 2, ..., 880$.
 Det gir **881 nullpunkter** (inkludert begge endepunktene).
 
-Hvis vi teller antall ganger trykket *passerer gjennom* null (ikke inkludert $t = 0$), far vi **880 passeringer per sekund**.
+Hvis vi teller antall ganger trykket *passerer gjennom* null (ikke inkludert $t = 0$), får vi **880 passeringer per sekund**.
 
 **Merk:** Frekvensen til lyden er $\\frac{880}{2} = 440$ Hz, som er kammertonen A4.`,
     },
@@ -2897,7 +2897,7 @@ Hvis vi teller antall ganger trykket *passerer gjennom* null (ikke inkludert $t 
       type: 'classic',
       difficulty: 'vanskelig',
       task: 'Los likningen $\\sin^2 x = \\frac{1}{4}$ i intervallet $[0, 2\\pi)$.',
-      hints: ['Ta kvadratroten av begge sider.', 'Husk at du far bade positiv og negativ losning.'],
+      hints: ['Ta kvadratroten av begge sider.', 'Husk at du får bade positiv og negativ losning.'],
       solution: '$\\sin x = \\pm \\frac{1}{2}$. For $\\sin x = \\frac{1}{2}$: $x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$. For $\\sin x = -\\frac{1}{2}$: $x = \\frac{7\\pi}{6}, \\frac{11\\pi}{6}$. Totalt 4 losninger.',
     },
     {
@@ -2909,7 +2909,7 @@ Hvis vi teller antall ganger trykket *passerer gjennom* null (ikke inkludert $t 
 $$d(t) = 8 + 2\\sin\\left(\\frac{\\pi}{6}t - \\frac{\\pi}{2}\\right)$$
 der $d$ er dybden i meter og $t$ er tiden i timer etter midnatt.
 
-Et skip trenger minst 9 meter dybde for aa seile inn. I hvilke tidsperioder i løpet av et dogn kan skipet seile inn i havnen?`,
+Et skip trenger minst 9 meter dybde for å seile inn. I hvilke tidsperioder i løpet av et dogn kan skipet seile inn i havnen?`,
       solution: '$d(t) \\geq 9$ gir $\\sin(\\frac{\\pi}{6}t - \\frac{\\pi}{2}) \\geq \\frac{1}{2}$. Med $u = \\frac{\\pi}{6}t - \\frac{\\pi}{2}$: $\\sin u \\geq \\frac{1}{2}$ nar $\\frac{\\pi}{6} + 2\\pi n \\leq u \\leq \\frac{5\\pi}{6} + 2\\pi n$. Dette gir $4 + 12n \\leq t \\leq 8 + 12n$. I løpet av et dogn: kl. 04:00-08:00 og kl. 16:00-20:00.',
     },
     {
@@ -2918,7 +2918,7 @@ Et skip trenger minst 9 meter dybde for aa seile inn. I hvilke tidsperioder i l�
       type: 'classic',
       difficulty: 'medium',
       task: 'Los likningen $\\sin x = \\cos x$ i intervallet $[0, 2\\pi)$.',
-      hints: ['Del begge sider på $\\cos x$.', 'Husk aa sjekke om $\\cos x = 0$ gir losninger.'],
+      hints: ['Del begge sider på $\\cos x$.', 'Husk å sjekke om $\\cos x = 0$ gir losninger.'],
       solution: 'Hvis $\\cos x \\neq 0$: $\\tan x = 1$, som gir $x = \\frac{\\pi}{4}, \\frac{5\\pi}{4}$. Sjekk $\\cos x = 0$: $x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$, men da er $\\sin x = \\pm 1 \\neq 0$. Svar: $x = \\frac{\\pi}{4}, \\frac{5\\pi}{4}$.',
     },
     {
@@ -2934,7 +2934,7 @@ Et skip trenger minst 9 meter dybde for aa seile inn. I hvilke tidsperioder i l�
       number: '4.328',
       type: 'classic',
       difficulty: 'vanskelig',
-      task: `En sykkel har hjul med radius 30 cm. Nar sykkelen ruller, beveger et punkt på dekket seg i en sykloide. Den vertikale posisjonen til punktet kan tilnaermes med
+      task: `En sykkel har hjul med radius 30 cm. Nar sykkelen ruller, beveger et punkt på dekket seg i en sykloide. Den vertikale posisjonen til punktet kan tilnærmes med
 $$y(t) = 30 + 30\\sin\\left(\\frac{v}{30}t - \\frac{\\pi}{2}\\right)$$
 der $y$ er høyde over bakken i cm, $v$ er hastigheten i cm/s, og $t$ er tiden i sekunder.
 
@@ -2955,7 +2955,7 @@ Hvis sykkelen har hastighet $v = 300$ cm/s, hvor ofte er punktet noyaktig 45 cm 
       type: 'classic',
       difficulty: 'vanskelig',
       task: 'Vis at likningen $\\sin x = x - 1$ har noyaktig en losning.',
-      hints: ['Betrakt funksjonen $f(x) = \\sin x - x + 1$.', 'Bruk egenskaper til $f$ for aa vise at den kun krysser $x$-aksen en gang.'],
+      hints: ['Betrakt funksjonen $f(x) = \\sin x - x + 1$.', 'Bruk egenskaper til $f$ for å vise at den kun krysser $x$-aksen en gang.'],
       solution: 'La $f(x) = \\sin x - x + 1$. $f(0) = 1 > 0$ og $f(\\pi) = -\\pi + 1 < 0$. Siden $f$ er kontinuerlig, finnes minst en losning i $(0, \\pi)$. $f\'(x) = \\cos x - 1 \\leq 0$ for alle $x$, sa $f$ er monotont avtagende. Dermed finnes noyaktig en losning.',
     },
   ],
@@ -3901,7 +3901,7 @@ export const CHAPTER_R2_4_5: TextbookChapter = {
   description: 'Loese likninger med tangens.',
   estimatedMinutes: 45,
   competenceGoals: [
-    'bruke trigonometriske funksjonar til aa loyse praktiske problem',
+    'bruke trigonometriske funksjonar til å loyse praktiske problem',
     'analysere og loyse likningar med tangensfunksjonen',
   ],
   content: [
@@ -3918,7 +3918,7 @@ En **tangenslikning** er en likning der den ukjente $x$ star i argumentet til en
 - $\\tan(2x) = \\sqrt{3}$
 - $\\tan(x - \\frac{\\pi}{4}) = -1$
 
-I dette kapitlet skal vi laere hvordan vi loser slike likninger og finner alle losningene.`,
+I dette kapitlet skal vi lære hvordan vi loser slike likninger og finner alle losningene.`,
     },
 
     // ========== TANGENSFUNKSJONEN - REPETISJON ==========
@@ -3959,7 +3959,7 @@ $$\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$$
 
 $$x = \\arctan(a) + n\\pi, \\quad n \\in \\mathbb{Z}$$
 
-**Merk:** Siden tangens har periode $\\pi$, far vi en ny losning for hver $\\pi$ vi legger til.
+**Merk:** Siden tangens har periode $\\pi$, får vi en ny losning for hver $\\pi$ vi legger til.
 
 Dette er enklere enn for sinus og cosinus, der vi matte finne to losninger per periode!`,
     },
@@ -4288,7 +4288,7 @@ Ved $x = \\frac{\\pi}{2}$ har tangensfunksjonen en vertikal asymptote.`,
 | Verdimengde | $[-1, 1]$ | $\\mathbb{R}$ |
 | Definisjonsmengde | $\\mathbb{R}$ | $x \\neq \\frac{\\pi}{2} + n\\pi$ |
 
-**Fordel med tangenslikninger:** Vi far bare en "type" losning, ikke to som for sinus og cosinus!`,
+**Fordel med tangenslikninger:** Vi får bare en "type" losning, ikke to som for sinus og cosinus!`,
     },
 
     {
@@ -4418,7 +4418,7 @@ I $[0, 2\\pi]$: $x \\approx 2{,}16$ og $x \\approx 5{,}30$
 
 Tangenslikninger dukker opp i mange praktiske sammenhenger:
 
-- **Helningsvinkler:** $\\tan(\\theta) = \\frac{\\text{motstaaende}}{\\text{hosliggende}}$
+- **Helningsvinkler:** $\\tan(\\theta) = \\frac{\\text{motstående}}{\\text{hosliggende}}$
 - **Vinkler i fysikk:** Bevegelse i skratt plan, prosjektilbevegelse
 - **Optikk:** Brewsters vinkel for polarisering
 - **Navigasjon:** Beregning av kursvinkler`,
@@ -4485,7 +4485,7 @@ $\\theta \\approx 24{,}3°$ eller $\\theta \\approx 65{,}7°$
         solution: 'Avstand = $\\frac{50}{\\tan(30°)} = \\frac{50}{\\frac{1}{\\sqrt{3}}} = 50\\sqrt{3} \\approx 86{,}6$ m',
         hints: [
           'Tegn en figur med tarnet og synklinjen.',
-          'Bruk $\\tan(30°) = \\frac{\\text{motstaaende}}{\\text{hosliggende}}$.',
+          'Bruk $\\tan(30°) = \\frac{\\text{motstående}}{\\text{hosliggende}}$.',
         ],
       },
     },
@@ -5084,7 +5084,7 @@ $$\\cos \\frac{u}{2} = \\sqrt{\\frac{9}{10}} = \\frac{3}{\\sqrt{10}} = \\frac{3\
         ],
         hints: [
           'Husk at fortegnet avhenger av hvilken kvadrant halvvinkelen ligger i',
-          'Bruk $\\tan \\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u}$ for å unngaa kvadratrøtter',
+          'Bruk $\\tan \\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u}$ for å unngå kvadratrøtter',
         ],
         allowsUpload: true,
         allowsCanvasDrawing: true,

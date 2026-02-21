@@ -1286,7 +1286,7 @@ export const CHAPTER_R2_6_2: TextbookChapter = {
 
 I forrige kapittel larte vi om parameterframstilling av kurver. Na skal vi se på hvordan vi kan **derivere** vektorfunksjoner for a beskrive bevegelse langs en kurve.
 
-Nar vi deriverer en vektorfunksjon, far vi informasjon om:
+Nar vi deriverer en vektorfunksjon, får vi informasjon om:
 - **Retningen** kurven beveger seg i (tangentvektor)
 - **Hastigheten** til et objekt som beveger seg langs kurven
 - **Farten** (hvor raskt objektet beveger seg)
@@ -1320,7 +1320,7 @@ der $x(t)$ og $y(t)$ er reelle funksjoner av parameteren $t$.
 
 Vi kan ogsa skrive dette som $\\vec{r}(t) = (x(t), y(t))$ eller $\\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j}$.
 
-Parameteren $t$ representerer ofte **tid**, men kan ogsa vare en hvilken som helst annen variabel.`,
+Parameteren $t$ representerer ofte **tid**, men kan ogsa være en hvilken som helst annen variabel.`,
     },
 
     {
@@ -1380,7 +1380,7 @@ For a derivere en vektorfunksjon, deriverer vi ganske enkelt hver komponent for 
       id: 'r2-6-2-def-derivasjon',
       type: 'definition',
       title: 'Den deriverte av en vektorfunksjon',
-      content: `La $\\vec{r}(t) = (x(t), y(t))$ vare en vektorfunksjon der $x(t)$ og $y(t)$ er deriverbare.
+      content: `La $\\vec{r}(t) = (x(t), y(t))$ være en vektorfunksjon der $x(t)$ og $y(t)$ er deriverbare.
 
 Den **deriverte** av $\\vec{r}(t)$ er:
 
@@ -1411,7 +1411,7 @@ $$\\vec{r}'(t) = \\begin{pmatrix} 2t \\\\ 3t^2 - 2 \\end{pmatrix}$$`,
       id: 'r2-6-2-example-4',
       type: 'example',
       title: 'Eksempel 4: Derivere trigonometrisk vektorfunksjon',
-      problem: `La $\\vec{r}(t) = (3\\cos t, 3\\sin t)$ vare parameterframstillingen for en sirkel. Finn $\\vec{r}'(t)$.`,
+      problem: `La $\\vec{r}(t) = (3\\cos t, 3\\sin t)$ være parameterframstillingen for en sirkel. Finn $\\vec{r}'(t)$.`,
       solution: `**Løsning:**
 
 Vi deriverer hver komponent:
@@ -1438,7 +1438,7 @@ Den deriverte $\\vec{r}'(t)$ har en viktig geometrisk betydning: den er en **tan
       id: 'r2-6-2-def-tangent',
       type: 'definition',
       title: 'Tangentvektor',
-      content: `La $\\vec{r}(t)$ vare en vektorfunksjon. Den deriverte $\\vec{r}'(t)$ er en **tangentvektor** til kurven i punktet $\\vec{r}(t)$.
+      content: `La $\\vec{r}(t)$ være en vektorfunksjon. Den deriverte $\\vec{r}'(t)$ er en **tangentvektor** til kurven i punktet $\\vec{r}(t)$.
 
 Tangentvektoren peker i den retningen kurven beveger seg nar $t$ oker.
 
@@ -1526,7 +1526,7 @@ $$\\hat{N}(t) = \\frac{\\vec{n}(t)}{|\\vec{n}(t)|}$$`,
 
 $$(a, b) \\cdot (-b, a) = -ab + ab = 0 \\quad \\checkmark$$
 
-Skalarproduktet er null, sa vektorene er ortogonale.`,
+Skalarproduktet er null, så vektorene er ortogonale.`,
     },
 
     {
@@ -1555,7 +1555,7 @@ $$\\vec{n}(1) = (-3, 2)$$
       type: 'text',
       content: `## Hastighetsvektoren
 
-Nar parameteren $t$ representerer tid, far tangentvektoren en fysisk tolkning som **hastighetsvektor**.`,
+Nar parameteren $t$ representerer tid, får tangentvektoren en fysisk tolkning som **hastighetsvektor**.`,
     },
 
     {
@@ -1666,7 +1666,7 @@ Merk at farten oker med $t$. Nar $t = 0$ er farten $v(0) = 1$, og nar $t$ oker, 
       id: 'r2-6-2-def-buelengde',
       type: 'definition',
       title: 'Buelengde',
-      content: `La $\\vec{r}(t) = (x(t), y(t))$ vare en kurve for $t \\in [a, b]$.
+      content: `La $\\vec{r}(t) = (x(t), y(t))$ være en kurve for $t \\in [a, b]$.
 
 **Buelengden** $L$ av kurven fra $t = a$ til $t = b$ er:
 
@@ -1829,7 +1829,7 @@ $$\\approx 4{,}47 + 1{,}44 \\approx 5{,}92 \\text{ km}$$`,
       id: 'r2-6-2-oppsummering',
       type: 'theorem',
       title: 'Oppsummering av viktige formler',
-      content: `La $\\vec{r}(t) = (x(t), y(t))$ vare en vektorfunksjon.
+      content: `La $\\vec{r}(t) = (x(t), y(t))$ være en vektorfunksjon.
 
 **Tangentvektor (hastighetsvektor):**
 $$\\vec{r}'(t) = (x'(t), y'(t))$$
@@ -1934,7 +1934,7 @@ $$\\vec{a}(t) = \\vec{r}''(t) = (x''(t), y''(t))$$`,
         solution: `**Tangentvektor:** $\\vec{r}'(1) = (1, 2)$
 
 **Normalvektor:** $\\vec{n}(1) = (-2, 1)$ (eller $(2, -1)$)`,
-        hints: ['Normalvektoren far du ved a bytte om komponentene og endre fortegn på en av dem.'],
+        hints: ['Normalvektoren får du ved a bytte om komponentene og endre fortegn på en av dem.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1978,7 +1978,7 @@ $$\\vec{a}(t) = \\vec{r}''(t) = (x''(t), y''(t))$$`,
 
 **Tangentlinje:** $\\vec{\\ell}(s) = (0, 1) + s(2, 3) = (2s, 1 + 3s)$
 
-Pa kartesisk form: Stigningstall $= \\frac{3}{2}$, sa $y - 1 = \\frac{3}{2}(x - 0)$, dvs. $y = \\frac{3}{2}x + 1$`,
+Pa kartesisk form: Stigningstall $= \\frac{3}{2}$, så $y - 1 = \\frac{3}{2}(x - 0)$, dvs. $y = \\frac{3}{2}x + 1$`,
         hints: ['Tangentlinjen gar gjennom punktet på kurven og har retning lik tangentvektoren.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -1997,7 +1997,7 @@ Pa kartesisk form: Stigningstall $= \\frac{3}{2}$, sa $y - 1 = \\frac{3}{2}(x - 
         task: 'En partikkel beveger seg slik at $\\vec{r}(t) = (3t, 4t)$ for $t \\geq 0$ (posisjon i meter, tid i sekunder).',
         subTasks: [
           { label: 'a', task: 'Vis at partikkelen beveger seg langs en rett linje.', solution: 'Vi har $x = 3t$ og $y = 4t$. Dermed $y = \\frac{4}{3}x$, som er en rett linje gjennom origo.' },
-          { label: 'b', task: 'Finn farten.', solution: '$\\vec{r}\'(t) = (3, 4)$, sa $v = \\sqrt{9 + 16} = 5$ m/s' },
+          { label: 'b', task: 'Finn farten.', solution: '$\\vec{r}\'(t) = (3, 4)$, så $v = \\sqrt{9 + 16} = 5$ m/s' },
           { label: 'c', task: 'Hvor lang strekning har partikkelen tilbakelagt etter 10 sekunder?', solution: '$L = v \\cdot t = 5 \\cdot 10 = 50$ meter' },
         ],
         solution: 'a) Linjen $y = \\frac{4}{3}x$, b) 5 m/s, c) 50 m',
@@ -2237,7 +2237,7 @@ $\\approx 21{,}26$`,
         number: '6.2.17',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'La $\\vec{r}(t) = (a\\cos t, b\\sin t)$ vare en ellipse med halvakser $a$ og $b$ der $a > b > 0$.',
+        task: 'La $\\vec{r}(t) = (a\\cos t, b\\sin t)$ være en ellipse med halvakser $a$ og $b$ der $a > b > 0$.',
         subTasks: [
           { label: 'a', task: 'Finn farten $v(t)$ som funksjon av $t$.', solution: '$v(t) = \\sqrt{a^2\\sin^2 t + b^2\\cos^2 t}$' },
           { label: 'b', task: 'I hvilke punkter er farten størst?', solution: 'Farten er størst nar $\\sin^2 t = 1$, dvs. ved $(0, b)$ og $(0, -b)$ (endepunktene av den lille halvaksen). Da er $v = a$.' },
@@ -2486,7 +2486,7 @@ export const CHAPTER_R2_6_3: TextbookChapter = {
 
 I forrige kapittel larte vi a derivere vektorfunksjoner. Na skal vi se hvordan dette brukes i fysikk til a beskrive bevegelse.
 
-Nar et objekt beveger seg - enten det er en ball i luften, en planet rundt solen, eller en bil på en vei - kan vi beskrive posisjonen som en funksjon av tid. Denne funksjonen er en **vektorfunksjon**, og ved a derivere den far vi informasjon om hastighet og akselerasjon.
+Nar et objekt beveger seg - enten det er en ball i luften, en planet rundt solen, eller en bil på en vei - kan vi beskrive posisjonen som en funksjon av tid. Denne funksjonen er en **vektorfunksjon**, og ved a derivere den får vi informasjon om hastighet og akselerasjon.
 
 Dette er en av de viktigste anvendelsene av kalkulus i naturvitenskapen. Isaac Newton utviklet kalkulus nettopp for a kunne beskrive bevegelse matematisk.`,
     },
@@ -2574,7 +2574,7 @@ $$= \\sqrt{9\\cos^2 t + 9\\sin^2 t}$$
 $$= \\sqrt{9(\\cos^2 t + \\sin^2 t)}$$
 $$= \\sqrt{9 \\cdot 1} = 3$$
 
-Avstanden fra origo er alltid 3, sa partikkelen beveger seg på en sirkel med radius 3.
+Avstanden fra origo er alltid 3, så partikkelen beveger seg på en sirkel med radius 3.
 
 b) Posisjonene:
 
@@ -2667,7 +2667,7 @@ $$= 3\\cos t \\cdot (-3\\sin t) + 3\\sin t \\cdot 3\\cos t$$
 $$= -9\\cos t \\sin t + 9\\sin t \\cos t$$
 $$= 0$$
 
-Skalarproduktet er alltid null, sa $\\vec{v}(t) \\perp \\vec{r}(t)$ for alle $t$.
+Skalarproduktet er alltid null, så $\\vec{v}(t) \\perp \\vec{r}(t)$ for alle $t$.
 
 Dette gir fysisk mening: ved sirkelbevegelse peker hastigheten langs tangenten, som er vinkelrett på radiusvektoren.`,
     },
@@ -2836,7 +2836,7 @@ Ved uniform sirkelbevegelse (konstant fart $v$, radius $r$) gjelder:
 
 $$|\\vec{a}| = \\frac{v^2}{r}$$
 
-I vart eksempel: $v = 3$, $r = 3$, sa $|\\vec{a}| = \\frac{9}{3} = 3$ m/s$^2$. Dette stemmer med det vi beregnet!`,
+I vart eksempel: $v = 3$, $r = 3$, så $|\\vec{a}| = \\frac{9}{3} = 3$ m/s$^2$. Dette stemmer med det vi beregnet!`,
     },
 
     // Eksempel 8: Akselerasjon som funksjon av tid
@@ -2882,7 +2882,7 @@ Vi antar:
 - Konstant tyngdeakselerasjon $g \\approx 9{,}81 \\text{ m/s}^2$ nedover
 - Objektet starter i origo ved $t = 0$
 
-La utgangshastigheten vare $v_0$ med vinkel $\\alpha$ over horisontalplanet.`,
+La utgangshastigheten være $v_0$ med vinkel $\\alpha$ over horisontalplanet.`,
     },
 
     // Teorem: Bevegelseslikninger for skratt kast
@@ -2958,7 +2958,7 @@ c) Hvor langt fra klippen lander ballen?
 d) Hva er farten nar ballen treffer bakken?`,
       solution: `**Løsning:**
 
-Horisontalt kast betyr $\\alpha = 0°$, sa $\\cos 0° = 1$ og $\\sin 0° = 0$.
+Horisontalt kast betyr $\\alpha = 0°$, så $\\cos 0° = 1$ og $\\sin 0° = 0$.
 
 a) Posisjonsvektoren:
 $$\\vec{r}(t) = [15t, 0 - \\frac{1}{2} \\cdot 10 \\cdot t^2] = [15t, -5t^2]$$
@@ -3018,7 +3018,7 @@ $$\\vec{a}(t) = [-r\\omega^2\\cos(\\omega t), -r\\omega^2\\sin(\\omega t)] = -\\
       id: 'r2-6-3-example-11',
       type: 'example',
       title: 'Eksempel 11: Karusell',
-      problem: `En karusell har radius 4 meter og gjor ett omdreiing på 8 sekunder.
+      problem: `En karusell har radius 4 meter og gjør ett omdreiing på 8 sekunder.
 
 a) Finn vinkelhastigheten $\\omega$.
 b) Skriv opp posisjonsvektoren $\\vec{r}(t)$ for et barn som sitter ytterst.
@@ -3048,7 +3048,7 @@ Alternativt: $|\\vec{a}| = \\frac{v^2}{r} = \\frac{\\pi^2}{4}$ m/s$^2$.`,
       id: 'r2-6-3-example-12',
       type: 'example',
       title: 'Eksempel 12: Satellitt i bane',
-      problem: `En satellitt gar i en sirkulaer bane rundt Jorden med radius $r = 7000$ km og bruker $T = 90$ minutter på ett omdreiing.
+      problem: `En satellitt gar i en sirkulær bane rundt Jorden med radius $r = 7000$ km og bruker $T = 90$ minutter på ett omdreiing.
 
 a) Finn vinkelhastigheten.
 b) Finn farten til satellitten.
@@ -3166,7 +3166,7 @@ Forklar fysisk hva de ulike leddene representerer.`,
 - Nar objektet faller ($v_y < 0$): tyngdekraften virker ned, men luftmotstanden virker oppover (bremser fallet)
 
 **Konsekvenser:**
-- Objektet nar ikke sa hoyt som uten luftmotstand
+- Objektet nar ikke så hoyt som uten luftmotstand
 - Rekkevidden blir kortere
 - Objektet nar til slutt en **terminal hastighet** der luftmotstanden balanserer tyngdekraften`,
     },
@@ -3276,7 +3276,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
           { label: 'a', task: 'Finn radius og vinkelhastighet.', solution: 'Radius: $r = 5$, vinkelhastighet: $\\omega = 2$ rad/s' },
           { label: 'b', task: 'Finn $\\vec{v}(t)$ og vis at $\\vec{v} \\perp \\vec{r}$.', solution: '$\\vec{v}(t) = [-10\\sin(2t), 10\\cos(2t)]$. $\\vec{r} \\cdot \\vec{v} = -50\\cos(2t)\\sin(2t) + 50\\sin(2t)\\cos(2t) = 0$.' },
           { label: 'c', task: 'Finn farten.', solution: '$v = |\\vec{v}| = \\sqrt{100\\sin^2(2t) + 100\\cos^2(2t)} = 10$ m/s' },
-          { label: 'd', task: 'Finn $\\vec{a}(t)$ og vis at $\\vec{a} = -\\omega^2\\vec{r}$.', solution: '$\\vec{a}(t) = [-20\\cos(2t), -20\\sin(2t)] = -4[5\\cos(2t), 5\\sin(2t)] = -4\\vec{r}$. Siden $\\omega = 2$, er $\\omega^2 = 4$, sa $\\vec{a} = -\\omega^2\\vec{r}$.' },
+          { label: 'd', task: 'Finn $\\vec{a}(t)$ og vis at $\\vec{a} = -\\omega^2\\vec{r}$.', solution: '$\\vec{a}(t) = [-20\\cos(2t), -20\\sin(2t)] = -4[5\\cos(2t), 5\\sin(2t)] = -4\\vec{r}$. Siden $\\omega = 2$, er $\\omega^2 = 4$, så $\\vec{a} = -\\omega^2\\vec{r}$.' },
         ],
         solution: 'a) $r = 5$, $\\omega = 2$ rad/s, b) Se utregning, c) $v = 10$ m/s, d) Se utregning',
         hints: ['Sammenlign med standardformen $[r\\cos(\\omega t), r\\sin(\\omega t)]$', 'To vektorer er vinkelrette hvis skalarproduktet er null'],
@@ -3298,7 +3298,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
         subTasks: [
           { label: 'a', task: 'Finn $\\vec{v}(t)$.', solution: '$\\vec{v}(t) = [e^t, -e^{-t}]$' },
           { label: 'b', task: 'Finn farten $v(t)$.', solution: '$v(t) = \\sqrt{e^{2t} + e^{-2t}}$' },
-          { label: 'c', task: 'Vis at farten har et minimum ved $t = 0$.', solution: 'La $f(t) = e^{2t} + e^{-2t}$. $f\'(t) = 2e^{2t} - 2e^{-2t} = 0$ gir $e^{4t} = 1$, sa $t = 0$. $f\'\'(0) = 4 + 4 = 8 > 0$, sa minimum. Ved $t = 0$: $v(0) = \\sqrt{2}$.' },
+          { label: 'c', task: 'Vis at farten har et minimum ved $t = 0$.', solution: 'La $f(t) = e^{2t} + e^{-2t}$. $f\'(t) = 2e^{2t} - 2e^{-2t} = 0$ gir $e^{4t} = 1$, så $t = 0$. $f\'\'(0) = 4 + 4 = 8 > 0$, så minimum. Ved $t = 0$: $v(0) = \\sqrt{2}$.' },
           { label: 'd', task: 'Hva er minimumsfarten?', solution: '$v_{min} = v(0) = \\sqrt{2}$ m/s' },
         ],
         solution: 'a) $[e^t, -e^{-t}]$, b) $\\sqrt{e^{2t} + e^{-2t}}$, c) Se utregning, d) $\\sqrt{2}$ m/s',
@@ -3321,8 +3321,8 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
         subTasks: [
           { label: 'a', task: 'Finn komponentene av utgangshastigheten.', solution: '$v_{0x} = 12\\cos 45° = 12 \\cdot \\frac{\\sqrt{2}}{2} = 6\\sqrt{2}$ m/s, $v_{0y} = 12\\sin 45° = 6\\sqrt{2}$ m/s' },
           { label: 'b', task: 'Skriv opp $\\vec{r}(t)$.', solution: '$\\vec{r}(t) = [6\\sqrt{2}t, 6\\sqrt{2}t - 5t^2]$' },
-          { label: 'c', task: 'Finn maksimal høyde.', solution: '$v_y = 0$ nar $6\\sqrt{2} - 10t = 0$, sa $t = 0{,}6\\sqrt{2}$ s. $y_{max} = 6\\sqrt{2} \\cdot 0{,}6\\sqrt{2} - 5(0{,}6\\sqrt{2})^2 = 7{,}2 - 3{,}6 = 3{,}6$ m' },
-          { label: 'd', task: 'Finn skuddlengden.', solution: '$y = 0$ nar $6\\sqrt{2}t - 5t^2 = 0$, sa $t = 0$ eller $t = 1{,}2\\sqrt{2}$ s. $x = 6\\sqrt{2} \\cdot 1{,}2\\sqrt{2} = 14{,}4$ m' },
+          { label: 'c', task: 'Finn maksimal høyde.', solution: '$v_y = 0$ nar $6\\sqrt{2} - 10t = 0$, så $t = 0{,}6\\sqrt{2}$ s. $y_{max} = 6\\sqrt{2} \\cdot 0{,}6\\sqrt{2} - 5(0{,}6\\sqrt{2})^2 = 7{,}2 - 3{,}6 = 3{,}6$ m' },
+          { label: 'd', task: 'Finn skuddlengden.', solution: '$y = 0$ nar $6\\sqrt{2}t - 5t^2 = 0$, så $t = 0$ eller $t = 1{,}2\\sqrt{2}$ s. $x = 6\\sqrt{2} \\cdot 1{,}2\\sqrt{2} = 14{,}4$ m' },
         ],
         solution: 'a) $6\\sqrt{2}$ m/s i begge retninger, b) $[6\\sqrt{2}t, 6\\sqrt{2}t - 5t^2]$, c) 3,6 m, d) 14,4 m',
         hints: ['$\\cos 45° = \\sin 45° = \\frac{\\sqrt{2}}{2}$', 'Maksimal høyde nas nar $v_y = 0$', 'Ballen lander nar $y = 0$'],
@@ -3459,7 +3459,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
         subTasks: [
           { label: 'a', task: 'Finn $\\vec{v}(t)$ og $\\vec{a}(t)$.', solution: '$\\vec{v}(t) = [1, 2t]$, $\\vec{a}(t) = [0, 2]$' },
           { label: 'b', task: 'Finn vinkelen $\\theta$ mellom $\\vec{v}$ og $\\vec{a}$ ved $t = 1$.', solution: 'Ved $t = 1$: $\\vec{v} = [1, 2]$, $\\vec{a} = [0, 2]$. $\\cos\\theta = \\frac{\\vec{v} \\cdot \\vec{a}}{|\\vec{v}||\\vec{a}|} = \\frac{4}{\\sqrt{5} \\cdot 2} = \\frac{2}{\\sqrt{5}}$. $\\theta = \\arccos\\frac{2}{\\sqrt{5}} \\approx 26{,}6°$' },
-          { label: 'c', task: 'Finn $\\theta$ ved $t = 0$.', solution: 'Ved $t = 0$: $\\vec{v} = [1, 0]$, $\\vec{a} = [0, 2]$. $\\cos\\theta = 0$, sa $\\theta = 90°$.' },
+          { label: 'c', task: 'Finn $\\theta$ ved $t = 0$.', solution: 'Ved $t = 0$: $\\vec{v} = [1, 0]$, $\\vec{a} = [0, 2]$. $\\cos\\theta = 0$, så $\\theta = 90°$.' },
           { label: 'd', task: 'Hva skjer med $\\theta$ nar $t \\to \\infty$?', solution: '$\\cos\\theta = \\frac{4t}{\\sqrt{1 + 4t^2} \\cdot 2} = \\frac{2t}{\\sqrt{1 + 4t^2}} \\to 1$ nar $t \\to \\infty$. $\\theta \\to 0°$.' },
         ],
         solution: 'a) $[1, 2t]$ og $[0, 2]$, b) Ca. 26,6 grader, c) 90 grader, d) $\\theta \\to 0°$',
@@ -3527,7 +3527,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
         task: 'En golfball slas fra bakken med hastighet 50 m/s. For a oppna maksimal skuddlengde, hvilken vinkel bor brukes? Bruk $g = 10$ m/s$^2$.',
         subTasks: [
           { label: 'a', task: 'Skriv opp skuddlengden $R$ som funksjon av vinkelen $\\alpha$.', solution: 'Tid i luften: $t = \\frac{2v_0\\sin\\alpha}{g}$. Skuddlengde: $R = v_0\\cos\\alpha \\cdot t = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g} = \\frac{v_0^2\\sin 2\\alpha}{g}$' },
-          { label: 'b', task: 'Finn vinkelen som gir maksimal skuddlengde.', solution: '$R$ er maksimal nar $\\sin 2\\alpha = 1$, dvs. $2\\alpha = 90°$, sa $\\alpha = 45°$' },
+          { label: 'b', task: 'Finn vinkelen som gir maksimal skuddlengde.', solution: '$R$ er maksimal nar $\\sin 2\\alpha = 1$, dvs. $2\\alpha = 90°$, så $\\alpha = 45°$' },
           { label: 'c', task: 'Beregn den maksimale skuddlengden.', solution: '$R_{max} = \\frac{50^2 \\cdot 1}{10} = \\frac{2500}{10} = 250$ m' },
           { label: 'd', task: 'Hva er maksimal høyde ved optimal vinkel?', solution: 'Ved $\\alpha = 45°$: $H = \\frac{v_0^2\\sin^2\\alpha}{2g} = \\frac{2500 \\cdot 0{,}5}{20} = 62{,}5$ m' },
         ],
@@ -3573,7 +3573,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
         task: 'En partikkel beveger seg med $\\vec{r}(t) = [2t, t^2, t^3]$ for $t \\geq 0$.',
         subTasks: [
           { label: 'a', task: 'Finn $\\vec{v}(t)$, $\\vec{a}(t)$ og farten $v(t)$.', solution: '$\\vec{v}(t) = [2, 2t, 3t^2]$, $\\vec{a}(t) = [0, 2, 6t]$, $v(t) = \\sqrt{4 + 4t^2 + 9t^4}$' },
-          { label: 'b', task: 'Hva er minimumsfarten og nar oppnas den?', solution: 'Ved $t = 0$: $v(0) = 2$. $v\'(t) > 0$ for $t > 0$, sa minimum er ved $t = 0$.' },
+          { label: 'b', task: 'Hva er minimumsfarten og nar oppnas den?', solution: 'Ved $t = 0$: $v(0) = 2$. $v\'(t) > 0$ for $t > 0$, så minimum er ved $t = 0$.' },
           { label: 'c', task: 'Finn akselerasjonens storrelse ved $t = 1$.', solution: '$\\vec{a}(1) = [0, 2, 6]$, $|\\vec{a}(1)| = \\sqrt{0 + 4 + 36} = \\sqrt{40} = 2\\sqrt{10}$' },
           { label: 'd', task: 'Hva er begrensningen på farten nar $t \\to \\infty$?', solution: 'Nar $t$ er stor, dominerer $9t^4$-leddet: $v(t) \\approx 3t^2 \\to \\infty$. Farten oker uten grense.' },
         ],
@@ -3598,7 +3598,7 @@ Dette er tidspunktene der punktet på hjulet er i kontakt med bakken - da star d
           { label: 'a', task: 'Skriv opp $\\vec{r}(t)$ med origo på bakken rett under utskytningspunktet.', solution: '$\\vec{r}(t) = [v_0 t \\cos\\alpha, h + v_0 t \\sin\\alpha - \\frac{1}{2}gt^2]$' },
           { label: 'b', task: 'Finn tiden $t_L$ nar prosjektilet lander ($y = 0$).', solution: 'Los $h + v_0 t \\sin\\alpha - \\frac{1}{2}gt^2 = 0$: $t_L = \\frac{v_0\\sin\\alpha + \\sqrt{v_0^2\\sin^2\\alpha + 2gh}}{g}$' },
           { label: 'c', task: 'Finn skuddlengden $R = x(t_L)$.', solution: '$R = v_0 \\cos\\alpha \\cdot t_L = \\frac{v_0\\cos\\alpha(v_0\\sin\\alpha + \\sqrt{v_0^2\\sin^2\\alpha + 2gh})}{g}$' },
-          { label: 'd', task: 'Sjekk at formelen gir $R = \\frac{v_0^2\\sin 2\\alpha}{g}$ nar $h = 0$.', solution: 'Nar $h = 0$: $t_L = \\frac{2v_0\\sin\\alpha}{g}$, sa $R = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g} = \\frac{v_0^2\\sin 2\\alpha}{g}$ \\checkmark' },
+          { label: 'd', task: 'Sjekk at formelen gir $R = \\frac{v_0^2\\sin 2\\alpha}{g}$ nar $h = 0$.', solution: 'Nar $h = 0$: $t_L = \\frac{2v_0\\sin\\alpha}{g}$, så $R = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g} = \\frac{v_0^2\\sin 2\\alpha}{g}$ \\checkmark' },
         ],
         solution: 'a) Se utregning, b) $t_L = \\frac{v_0\\sin\\alpha + \\sqrt{v_0^2\\sin^2\\alpha + 2gh}}{g}$, c) Se utregning, d) Se verifikasjon',
         hints: ['Startposisjonen er $(0, h)$', 'Bruk abc-formelen for andregradslikningen', 'Velg den positive losningen for $t_L$'],
@@ -4845,11 +4845,11 @@ I den virkelige verden har vi ofte tilgang til maledata fra eksperimenter, obser
 
 **Hvorfor modellere data?**
 - **Forstae sammenhenger**: Se monstre og trender i dataene
-- **Gjore spaadom**: Anslaa verdier utenfor maleomradet
+- **Gjore spådom**: Anslå verdier utenfor maleomradet
 - **Ta beslutninger**: Basert på matematiske analyser
 - **Kommunisere**: Presentere funn på en presis mate
 
-I dette kapitlet laerer du a:
+I dette kapitlet lærer du a:
 1. Velge riktig regresjonstype
 2. Bruke digitale verktøy til regresjon
 3. Vurdere modellens kvalitet
@@ -4862,7 +4862,7 @@ I dette kapitlet laerer du a:
       type: 'text',
       content: `## Regresjon
 
-**Regresjon** er en statistisk metode for å finne en funksjon som best tilpasser seg et sett med datapunkter. Malet er a minimere avstanden mellom funksjonen og datapunktene.`,
+**Regresjon** er en statistisk metode for å finne en funksjon som best tilpasser seg et sett med datapunkter. Målet er a minimere avstanden mellom funksjonen og datapunktene.`,
     },
     {
       id: 'r2-6-5-def-1',
@@ -4883,7 +4883,7 @@ Denne metoden gir den "beste" tilpasningen i statistisk forstand.`,
       type: 'text',
       content: `## Lineaer regresjon
 
-Ved lineær regresjon tilpasser vi en rett linje $y = ax + b$ til dataene. Dette er den enkleste formen for regresjon og passer nar dataene viser en tilnaermet lineær sammenheng.`,
+Ved lineær regresjon tilpasser vi en rett linje $y = ax + b$ til dataene. Dette er den enkleste formen for regresjon og passer nar dataene viser en tilnærmet lineær sammenheng.`,
     },
     {
       id: 'r2-6-5-theorem-1',
@@ -4914,7 +4914,7 @@ b) Estimer befolkningen i 2025.`,
 La $x$ være antall år etter 2010. Da har vi datapunktene:
 $(0, 45.2), (2, 47.1), (4, 49.3), (6, 51.0), (8, 53.2), (10, 55.1)$
 
-Ved a bruke GeoGebra/kalkulator far vi:
+Ved a bruke GeoGebra/kalkulator får vi:
 $$y = 0.99x + 45.2$$
 
 **b) Estimat for 2025**
@@ -4924,7 +4924,7 @@ $$y = 0.99 \\cdot 15 + 45.2 = 14.85 + 45.2 = 60.05$$
 
 Befolkningen i 2025 anslaps til ca. **60 000**.
 
-**Merk:** Dette er en ekstrapolasjon (utenfor maleomradet), sa anslaget er usikkert.`,
+**Merk:** Dette er en ekstrapolasjon (utenfor maleomradet), så anslaget er usikkert.`,
     },
     {
       id: 'r2-6-5-ex-1',
@@ -4976,7 +4976,7 @@ der $k = \\ln(b)$.`,
 - Spredning av sykdommer
 - Teknologisk utvikling (Moores lov)
 
-**Kjennetegn:** Dataene viser tilnaermet konstant prosentvis endring.`,
+**Kjennetegn:** Dataene viser tilnærmet konstant prosentvis endring.`,
     },
     {
       id: 'r2-6-5-example-2',
@@ -4993,7 +4993,7 @@ b) Finn doblingstiden.
 c) Estimer antall bakterier etter 12 timer.`,
       solution: `**a) Eksponentiell regresjon**
 
-Ved a bruke eksponentiell regresjon i GeoGebra far vi:
+Ved a bruke eksponentiell regresjon i GeoGebra får vi:
 $$N = 1000 \\cdot e^{0.2t}$$
 
 eller tilsvarende $N = 1000 \\cdot 1.221^t$
@@ -5053,7 +5053,7 @@ Jo hoyere grad, jo bedre tilpasning til dataene - men ogsa storre risiko for **o
       id: 'r2-6-5-warning-1',
       type: 'warning',
       title: 'Overtilpasning',
-      content: `Et polynom av hoey nok grad vil ga gjennom alle datapunktene, men det betyr ikke at modellen er god!
+      content: `Et polynom av høy nok grad vil ga gjennom alle datapunktene, men det betyr ikke at modellen er god!
 
 **Overtilpasning** (overfitting) oppstar nar modellen fanger opp stoy i dataene i stedet for den underliggende trenden. En god modell skal være enkel nok til a generalisere.`,
     },
@@ -5069,7 +5069,7 @@ Jo hoyere grad, jo bedre tilpasning til dataene - men ogsa storre risiko for **o
 
 a) Forklar hvorfor en andregradsfunksjon er passende.
 b) Finn modellen $h(t) = at^2 + bt + c$.
-c) Finn maksimal hoeyde og nar den nas.`,
+c) Finn maksimal høyde og nar den nas.`,
       solution: `**a) Hvorfor andregradsmodell?**
 
 Bevegelse under tyngdekraften følger: $h(t) = h_0 + v_0 t - \\frac{1}{2}gt^2$
@@ -5081,16 +5081,16 @@ Dette er en andregradsfunksjon med negativt ledende koeffisient.
 Ved andregradstilpasning i GeoGebra:
 $$h(t) = -4.9t^2 + 9.8t + 1.5$$
 
-**c) Maksimal hoeyde**
+**c) Maksimal høyde**
 
 Toppunktet finnes der $h'(t) = 0$:
 $$h'(t) = -9.8t + 9.8 = 0$$
 $$t = 1 \\text{ sekund}$$
 
-Maksimal hoeyde:
+Maksimal høyde:
 $$h(1) = -4.9 \\cdot 1^2 + 9.8 \\cdot 1 + 1.5 = 6.4 \\text{ m}$$
 
-Ballen nar maksimal hoeyde **6.4 m** etter **1 sekund**.`,
+Ballen nar maksimal høyde **6.4 m** etter **1 sekund**.`,
     },
     {
       id: 'r2-6-5-ex-3',
@@ -5109,7 +5109,7 @@ Ballen nar maksimal hoeyde **6.4 m** etter **1 sekund**.`,
 a) Finn en andregradmodell $s(v) = av^2 + bv + c$.
 b) Hva er bremselengden ved 100 km/h?
 c) Ved hvilken hastighet er bremselengden 80 m?`,
-        solution: `a) $s(v) = 0.005v^2 + 0.05v + 0.5$ (tilnaermet)
+        solution: `a) $s(v) = 0.005v^2 + 0.05v + 0.5$ (tilnærmet)
 
 b) $s(100) = 0.005 \\cdot 100^2 + 0.05 \\cdot 100 + 0.5 \\approx 55.5$ m
 
@@ -5318,7 +5318,7 @@ b) Residualene har en systematisk tendens (alle negative etter $t=0$), noe som t
       type: 'text',
       content: `## Interpolasjon vs ekstrapolasjon
 
-Nar vi bruker en modell til a anslaa verdier, skiller vi mellom to tilfeller:`,
+Nar vi bruker en modell til a anslå verdier, skiller vi mellom to tilfeller:`,
     },
     {
       id: 'r2-6-5-def-3',
@@ -5333,7 +5333,7 @@ Nar vi bruker en modell til a anslaa verdier, skiller vi mellom to tilfeller:`,
 - Modellen er ikke testet i dette omradet
 - Risiko for store feil
 
-**Tommelregel:** Vaer forsiktig med ekstrapolasjon, saerlig langt utenfor maleomradet!`,
+**Tommelregel:** Vaer forsiktig med ekstrapolasjon, særlig langt utenfor maleomradet!`,
     },
     {
       id: 'r2-6-5-example-6',
@@ -5348,8 +5348,8 @@ Nar vi bruker en modell til a anslaa verdier, skiller vi mellom to tilfeller:`,
 Eleven lager en lineær modell: $T = -2.1t + 78$
 
 a) Hva forutsier modellen for $t = 40$ min?
-b) Hva er problemet med denne spaadomsn?`,
-      solution: `**a) Modellens spaadom**
+b) Hva er problemet med denne spådomsn?`,
+      solution: `**a) Modellens spådom**
 
 $T(40) = -2.1 \\cdot 40 + 78 = -6^\\circ$C
 
@@ -5362,7 +5362,7 @@ Modellen forutsier negativ temperatur, noe som er fysisk umulig for en kopp kaff
 Avkjoling av kaffe følger **Newtons avkjolingslov**:
 $$T(t) = T_{rom} + (T_0 - T_{rom}) \\cdot e^{-kt}$$
 
-Temperaturen naermer seg romtemperaturen asymptotisk. Den lineære modellen er bare god for kort tid.
+Temperaturen nærmer seg romtemperaturen asymptotisk. Den lineære modellen er bare god for kort tid.
 
 Dette illustrerer faren ved ekstrapolasjon langt utenfor maleomradet.`,
     },
@@ -5463,7 +5463,7 @@ $$y = \\frac{L}{1 + e^{-k(x-x_0)}}$$
 
 der $L = 100$ (maksimalt 100%).
 
-Ved logistisk regresjon far vi omtrent:
+Ved logistisk regresjon får vi omtrent:
 $$y = \\frac{100}{1 + e^{-0.4(x-11)}}$$
 
 der $x$ er antall år etter 2000.
@@ -5471,7 +5471,7 @@ der $x$ er antall år etter 2000.
 Logistisk vekst kjennetegnes av:
 - Sakte start
 - Rask vekst i midtfasen
-- Avtagende vekst nar metning naermer seg`,
+- Avtagende vekst nar metning nærmer seg`,
     },
     {
       id: 'r2-6-5-ex-7',
@@ -5489,7 +5489,7 @@ Logistisk vekst kjennetegnes av:
 
 a) Hvorfor passer ikke et polynom av lav grad?
 b) Foresla en modell som kan fange opp det periodiske monsteret.`,
-        solution: `a) Stroemforbruket varierer periodisk gjennom dognet (hoeyt om morgenen og kvelden, lavt om natten). Et polynom vil ikke fange opp denne sykliske oppfoerselen.
+        solution: `a) Stroemforbruket varierer periodisk gjennom dognet (høyt om morgenen og kvelden, lavt om natten). Et polynom vil ikke fange opp denne sykliske oppførselen.
 
 b) En trigonometrisk modell passer bedre:
 $$P(t) = A + B\\sin\\left(\\frac{2\\pi t}{24} + \\phi\\right) + C\\sin\\left(\\frac{4\\pi t}{24} + \\psi\\right)$$
@@ -5554,7 +5554,7 @@ der $v$ er vindhastigheten. Vi forventer altsa $P \\propto v^3$.
 
 Vi bruker potensregresjon $P = av^b$ eller tilpasser $\\ln P = \\ln a + b \\cdot \\ln v$.
 
-Ved regresjon far vi:
+Ved regresjon får vi:
 $$P = 0.55 v^{3.02}$$
 
 Eksponenten $b \\approx 3$ bekrefter teorien!
@@ -5662,7 +5662,7 @@ Befolkningen vokser med ca. 1000 personer per ar. Modellen kan brukes til kortsi
 
 **5. Residualanalyse:** Sma systematiske avvik tyder på at veksten kanskje avtar mot slutten.
 
-**6. Gyldighetsomrade:** 0-8 timer. Utenfor dette vil naeringsbegrensning pavirke veksten.
+**6. Gyldighetsomrade:** 0-8 timer. Utenfor dette vil næringsbegrensning pavirke veksten.
 
 **7. Konklusjon:** Bakteriene dobler seg ca. hver 3.5 time i denne fasen.`,
         hints: ['Velg ett eksempel og folg malen systematisk.'],
@@ -5715,13 +5715,13 @@ a) Hoeyden til en plante som funksjon av tid (fra spaedeplante til voksen)
 b) Akselerasjon av en bil fra stillstand
 c) Befolkningsvekst i et utviklingsland
 d) Temperatur i en stekeovn som varmes opp`,
-        solution: `a) **Logistisk** (S-kurve): Planten vokser raskt i begynnelsen, men veksten avtar nar den naermer seg maksimal hoeyde.
+        solution: `a) **Logistisk** (S-kurve): Planten vokser raskt i begynnelsen, men veksten avtar nar den nærmer seg maksimal høyde.
 
-b) **Lineaer** (tilnaermet): Hvis kraften er konstant, er akselerasjonen konstant og hastigheten oker lineært.
+b) **Lineaer** (tilnærmet): Hvis kraften er konstant, er akselerasjonen konstant og hastigheten oker lineært.
 
 c) **Eksponentiell**: Befolkninger vokser ofte eksponentielt i tidlige faser, men kan ga over til logistisk nar ressurser begrenser.
 
-d) **Eksponentiell tilnaerming**: Temperaturen naermer seg en grense (innstilt temperatur) asymptotisk. Newtons avkjolingslov i revers.`,
+d) **Eksponentiell tilnærming**: Temperaturen nærmer seg en grense (innstilt temperatur) asymptotisk. Newtons avkjolingslov i revers.`,
         hints: ['Tenk på om veksten er konstant, proporsjonal med naværende verdi, eller avtar mot en grense.'],
       },
     },
@@ -5832,12 +5832,12 @@ $$T(t) = 5 + 15e^{-0.05t}$$
 der $t$ er tid i timer og $T$ er i grader Celsius.
 
 a) Hva er starttemperaturen?
-b) Hva naermer temperaturen seg nar $t \\to \\infty$?
+b) Hva nærmer temperaturen seg nar $t \\to \\infty$?
 c) Finn $T'(t)$ og tolk fortegnet.
 d) Nar synker temperaturen raskest?`,
         solution: `a) $T(0) = 5 + 15e^0 = 5 + 15 = 20^\\circ$C
 
-b) Nar $t \\to \\infty$: $e^{-0.05t} \\to 0$, sa $T \\to 5^\\circ$C (utetemperaturen)
+b) Nar $t \\to \\infty$: $e^{-0.05t} \\to 0$, så $T \\to 5^\\circ$C (utetemperaturen)
 
 c) $T'(t) = 15 \\cdot (-0.05)e^{-0.05t} = -0.75e^{-0.05t}$
 
@@ -5912,7 +5912,7 @@ $$= \\frac{1}{10}(26.7 - 120 + 220) = 12.7^\\circ C$$
 c) $T'(d) = 0.16d - 2.4$
 
 Raskest nedgang nar $|T'|$ er størst. $T'(0) = -2.4$, $T'(10) = -0.8$.
-Temperaturen synker raskest naer overflaten (ved $d = 0$).`,
+Temperaturen synker raskest nær overflaten (ved $d = 0$).`,
         hints: ['Sammenlign $R^2$-verdier for ulike regresjonstyper.'],
         initialCommands: [
           'L1 = {0, 2, 4, 6, 8, 10}',
@@ -5927,7 +5927,7 @@ Temperaturen synker raskest naer overflaten (ved $d = 0$).`,
       type: 'text',
       content: `## Oppsummering
 
-I dette kapitlet har du laert:
+I dette kapitlet har du lært:
 
 **Regresjonstyper:**
 - **Lineaer:** $y = ax + b$ - for jevn vekst/nedgang
@@ -5990,7 +5990,7 @@ I dette kapitlet skal vi lare om de tre viktigste bevismetodene: **direkte bevis
       id: 'r2-6-6-def-teorem',
       type: 'definition',
       title: 'Teorem og bevis',
-      content: `Et **teorem** (eller en **setning**) er en matematisk pastand som kan bevises a vare sann.
+      content: `Et **teorem** (eller en **setning**) er en matematisk pastand som kan bevises a være sann.
 
 Et **bevis** er en logisk argumentasjon som viser at et teorem er sant, basert pa:
 - **Aksiomer**: Grunnleggende sannheter vi aksepterer uten bevis
@@ -6031,7 +6031,7 @@ Et heltall $n$ er et **oddetall** hvis det finnes et heltall $k$ slik at $n = 2k
       problem: `Bevis at summen av to partall er et partall.`,
       solution: `**Bevis:**
 
-La $a$ og $b$ vare to partall.
+La $a$ og $b$ være to partall.
 
 **Steg 1:** Siden $a$ er et partall, finnes det et heltall $m$ slik at $a = 2m$.
 
@@ -6053,7 +6053,7 @@ $$\\blacksquare$$`,
       problem: `Bevis at produktet av to oddetall er et oddetall.`,
       solution: `**Bevis:**
 
-La $a$ og $b$ vare to oddetall.
+La $a$ og $b$ være to oddetall.
 
 **Steg 1:** Siden $a$ er et oddetall, finnes det et heltall $m$ slik at $a = 2m + 1$.
 
@@ -6068,7 +6068,7 @@ $$a \\cdot b = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$$
 **Steg 5:** La $k = 2mn + m + n$. Da er $k$ et heltall, og vi har:
 $$a \\cdot b = 2k + 1$$
 
-Dette er formen til et oddetall, sa $a \\cdot b$ er et oddetall.
+Dette er formen til et oddetall, så $a \\cdot b$ er et oddetall.
 
 $$\\blacksquare$$`,
     },
@@ -6081,7 +6081,7 @@ $$\\blacksquare$$`,
       problem: `Bevis at kvadratet av et partall er delelig med 4.`,
       solution: `**Bevis:**
 
-La $n$ vare et partall.
+La $n$ være et partall.
 
 **Steg 1:** Siden $n$ er et partall, finnes det et heltall $k$ slik at $n = 2k$.
 
@@ -6107,17 +6107,17 @@ $$\\blacksquare$$`,
           {
             label: 'a',
             task: 'Summen av to oddetall er et partall.',
-            solution: `La $a = 2m + 1$ og $b = 2n + 1$ vare to oddetall. Da er $a + b = 2m + 1 + 2n + 1 = 2(m + n + 1)$, som er et partall.`,
+            solution: `La $a = 2m + 1$ og $b = 2n + 1$ være to oddetall. Da er $a + b = 2m + 1 + 2n + 1 = 2(m + n + 1)$, som er et partall.`,
           },
           {
             label: 'b',
             task: 'Summen av et partall og et oddetall er et oddetall.',
-            solution: `La $a = 2m$ vare et partall og $b = 2n + 1$ vare et oddetall. Da er $a + b = 2m + 2n + 1 = 2(m + n) + 1$, som er et oddetall.`,
+            solution: `La $a = 2m$ være et partall og $b = 2n + 1$ være et oddetall. Da er $a + b = 2m + 2n + 1 = 2(m + n) + 1$, som er et oddetall.`,
           },
           {
             label: 'c',
             task: 'Produktet av et partall og et heltall er alltid et partall.',
-            solution: `La $a = 2m$ vare et partall og $b$ vare et vilkarlig heltall. Da er $a \\cdot b = 2m \\cdot b = 2(mb)$, som er et partall.`,
+            solution: `La $a = 2m$ være et partall og $b$ være et vilkarlig heltall. Da er $a \\cdot b = 2m \\cdot b = 2(mb)$, som er et partall.`,
           },
         ],
         hints: ['Bruk definisjonene av partall og oddetall', 'Skriv tallene på formen $2k$ eller $2k+1$'],
@@ -6135,7 +6135,7 @@ $$\\blacksquare$$`,
       problem: `Bevis at summen av tre pafolgende heltall alltid er delelig med 3.`,
       solution: `**Bevis:**
 
-La de tre pafolgende heltallene vare $n$, $n+1$ og $n+2$.
+La de tre pafolgende heltallene være $n$, $n+1$ og $n+2$.
 
 **Steg 1:** Vi beregner summen:
 $$n + (n+1) + (n+2) = 3n + 3 = 3(n + 1)$$
@@ -6159,7 +6159,7 @@ Et **motsigelsesbevis** (lat. *reductio ad absurdum*) fungerer ved at vi antar d
 1. Anta det motsatte av det vi onsker a bevise
 2. Utled logiske konsekvenser fra denne antagelsen
 3. Vis at konsekvensene forer til en selvmotsigelse
-4. Konkluder at antagelsen var feil, og det motsatte (det vi ville bevise) ma vare sant
+4. Konkluder at antagelsen var feil, og det motsatte (det vi ville bevise) ma være sant
 
 Denne metoden er spesielt nyttig nar det er vanskelig a bevise noe direkte.`,
     },
@@ -6182,7 +6182,7 @@ $$2 = \\frac{p^2}{q^2}$$
 **Steg 3:** Vi ganger med $q^2$:
 $$2q^2 = p^2$$
 
-**Steg 4:** Siden $p^2 = 2q^2$, er $p^2$ et partall. Men da ma ogsa $p$ vare et partall (for hvis $p$ var oddetall, ville $p^2$ ogsa vart oddetall).
+**Steg 4:** Siden $p^2 = 2q^2$, er $p^2$ et partall. Men da ma ogsa $p$ være et partall (for hvis $p$ var oddetall, ville $p^2$ ogsa vart oddetall).
 
 **Steg 5:** Siden $p$ er et partall, kan vi skrive $p = 2k$ for et heltall $k$. Vi setter inn:
 $$2q^2 = (2k)^2 = 4k^2$$
@@ -6194,7 +6194,7 @@ $$q^2 = 2k^2$$
 
 **Steg 8 (Motsigelse):** Bade $p$ og $q$ er partall, noe som betyr at de har felles faktor 2. Men vi antok at broken var maksimalt forkortet! Dette er en selvmotsigelse.
 
-**Konklusjon:** Antagelsen om at $\\sqrt{2}$ er rasjonalt ma vare feil. Derfor er $\\sqrt{2}$ irrasjonalt.
+**Konklusjon:** Antagelsen om at $\\sqrt{2}$ er rasjonalt ma være feil. Derfor er $\\sqrt{2}$ irrasjonalt.
 
 $$\\blacksquare$$`,
     },
@@ -6207,7 +6207,7 @@ $$\\blacksquare$$`,
       problem: `Bevis at det finnes uendelig mange primtall.`,
       solution: `**Bevis ved motsigelse (Euklid, ca. 300 f.Kr.):**
 
-**Steg 1 (Antagelse):** Anta at det bare finnes endelig mange primtall. La disse vare $p_1, p_2, p_3, \\ldots, p_n$.
+**Steg 1 (Antagelse):** Anta at det bare finnes endelig mange primtall. La disse være $p_1, p_2, p_3, \\ldots, p_n$.
 
 **Steg 2:** Betrakt tallet:
 $$N = p_1 \\cdot p_2 \\cdot p_3 \\cdots p_n + 1$$
@@ -6215,9 +6215,9 @@ $$N = p_1 \\cdot p_2 \\cdot p_3 \\cdots p_n + 1$$
 Dette er produktet av alle primtall pluss 1.
 
 **Steg 3:** Vi undersoker om $N$ er delelig med noen av primtallene $p_1, p_2, \\ldots, p_n$:
-- Nar vi deler $N$ på $p_1$, far vi rest 1 (siden $N = p_1 \\cdot (\\text{noe}) + 1$)
-- Nar vi deler $N$ på $p_2$, far vi rest 1
-- Generelt: Nar vi deler $N$ på $p_i$, far vi alltid rest 1
+- Nar vi deler $N$ på $p_1$, får vi rest 1 (siden $N = p_1 \\cdot (\\text{noe}) + 1$)
+- Nar vi deler $N$ på $p_2$, får vi rest 1
+- Generelt: Nar vi deler $N$ på $p_i$, får vi alltid rest 1
 
 Altsa er $N$ ikke delelig med noen av primtallene $p_1, \\ldots, p_n$.
 
@@ -6246,7 +6246,7 @@ $$\\blacksquare$$`,
           {
             label: 'a',
             task: 'Vis at $\\sqrt{3}$ er irrasjonalt.',
-            solution: `Anta at $\\sqrt{3} = \\frac{p}{q}$ er rasjonalt med $\\gcd(p,q) = 1$. Da er $3q^2 = p^2$, sa $p^2$ er delelig med 3, og dermed er $p$ delelig med 3. Skriv $p = 3k$, sa $3q^2 = 9k^2$, altsaa $q^2 = 3k^2$. Da er ogsa $q$ delelig med 3. Motsigelse: $p$ og $q$ har felles faktor 3.`,
+            solution: `Anta at $\\sqrt{3} = \\frac{p}{q}$ er rasjonalt med $\\gcd(p,q) = 1$. Da er $3q^2 = p^2$, så $p^2$ er delelig med 3, og dermed er $p$ delelig med 3. Skriv $p = 3k$, så $3q^2 = 9k^2$, altså $q^2 = 3k^2$. Da er ogsa $q$ delelig med 3. Motsigelse: $p$ og $q$ har felles faktor 3.`,
           },
           {
             label: 'b',
@@ -6256,7 +6256,7 @@ $$\\blacksquare$$`,
           {
             label: 'c',
             task: 'Vis at summen av et rasjonalt tall og et irrasjonalt tall er irrasjonalt.',
-            solution: `La $r$ vare rasjonalt og $i$ irrasjonalt. Anta at $r + i = s$ er rasjonalt. Da er $i = s - r$, som er differansen av to rasjonale tall, altsa rasjonalt. Motsigelse: $i$ var antatt irrasjonalt.`,
+            solution: `La $r$ være rasjonalt og $i$ irrasjonalt. Anta at $r + i = s$ er rasjonalt. Da er $i = s - r$, som er differansen av to rasjonale tall, altsa rasjonalt. Motsigelse: $i$ var antatt irrasjonalt.`,
           },
         ],
         hints: ['Folg samme struktur som i beviset for at $\\sqrt{2}$ er irrasjonalt'],
@@ -6283,7 +6283,7 @@ $$\\blacksquare$$`,
 - $\\frac{r}{2} > 0$ (halvparten av et positivt tall er positivt)
 - $\\frac{r}{2} < r$
 
-**Steg 4 (Motsigelse):** Vi har funnet et positivt rasjonalt tall $\\frac{r}{2}$ som er mindre enn $r$. Men $r$ var antatt a vare det minste. Dette er en selvmotsigelse.
+**Steg 4 (Motsigelse):** Vi har funnet et positivt rasjonalt tall $\\frac{r}{2}$ som er mindre enn $r$. Men $r$ var antatt a være det minste. Dette er en selvmotsigelse.
 
 **Konklusjon:** Det finnes ikke noe minste positivt rasjonalt tall.
 
@@ -6302,7 +6302,7 @@ $$\\blacksquare$$`,
 
 Tenk på induksjon som en uendelig rekke med dominobrikker:
 - Hvis vi vet at den forste brikken faller (basissteget)
-- Og vi vet at nar en brikke faller, sa faller den neste (induksjonssteget)
+- Og vi vet at nar en brikke faller, så faller den neste (induksjonssteget)
 - Da vil alle brikkene falle`,
     },
 
@@ -6310,7 +6310,7 @@ Tenk på induksjon som en uendelig rekke med dominobrikker:
       id: 'r2-6-6-theorem-induksjon',
       type: 'theorem',
       title: 'Prinsippet om matematisk induksjon',
-      content: `La $P(n)$ vare en pastand som avhenger av et naturlig tall $n$. For a bevise at $P(n)$ er sann for alle $n \\geq n_0$, viser vi:
+      content: `La $P(n)$ være en pastand som avhenger av et naturlig tall $n$. For a bevise at $P(n)$ er sann for alle $n \\geq n_0$, viser vi:
 
 **1. Basissteg:** $P(n_0)$ er sann.
 
@@ -6322,7 +6322,7 @@ Da er $P(n)$ sann for alle $n \\geq n_0$.`,
     {
       id: 'r2-6-6-note-induksjon',
       type: 'note',
-      content: `I induksjonssteget kaller vi antagelsen "$P(k)$ er sann" for **induksjonsantagelsen** eller **induksjonshypotesen**. Det er viktig a vare tydelig på hva denne antagelsen er, og hvordan den brukes til a bevise $P(k+1)$.`,
+      content: `I induksjonssteget kaller vi antagelsen "$P(k)$ er sann" for **induksjonsantagelsen** eller **induksjonshypotesen**. Det er viktig a være tydelig på hva denne antagelsen er, og hvordan den brukes til a bevise $P(k+1)$.`,
     },
 
     // EKSEMPEL 8: Summen av de n forste naturlige tallene
@@ -6334,7 +6334,7 @@ Da er $P(n)$ sann for alle $n \\geq n_0$.`,
 $$1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$$`,
       solution: `**Bevis ved induksjon:**
 
-La $P(n)$ vare pastanden: $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$
+La $P(n)$ være pastanden: $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$
 
 **Basissteg ($n = 1$):**
 
@@ -6342,7 +6342,7 @@ Venstre side: $1$
 
 Hoyre side: $\\frac{1 \\cdot 2}{2} = 1$
 
-Siden venstre side = hoyre side, er $P(1)$ sann.
+Siden venstre side = høyre side, er $P(1)$ sann.
 
 **Induksjonssteg:**
 
@@ -6375,7 +6375,7 @@ $$\\blacksquare$$`,
 $$1 + 3 + 5 + \\cdots + (2n-1) = n^2$$`,
       solution: `**Bevis ved induksjon:**
 
-La $P(n)$ vare pastanden: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$
+La $P(n)$ være pastanden: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$
 
 **Basissteg ($n = 1$):**
 
@@ -6409,7 +6409,7 @@ $$\\blacksquare$$`,
       problem: `Bevis ved induksjon at $n^3 - n$ er delelig med 6 for alle naturlige tall $n \\geq 1$.`,
       solution: `**Bevis ved induksjon:**
 
-La $P(n)$ vare pastanden: $6 \\mid (n^3 - n)$ (6 deler $n^3 - n$)
+La $P(n)$ være pastanden: $6 \\mid (n^3 - n)$ (6 deler $n^3 - n$)
 
 **Basissteg ($n = 1$):**
 
@@ -6431,7 +6431,7 @@ $$= (k^3 - k) + 3k(k + 1)$$
 
 Na bruker vi at:
 - $(k^3 - k) = 6m$ (induksjonsantagelsen)
-- $k(k+1)$ er produktet av to pafolgende tall, sa ett av dem er partall. Dermed er $k(k+1)$ delelig med 2, og $3k(k+1)$ er delelig med 6.
+- $k(k+1)$ er produktet av to pafolgende tall, så ett av dem er partall. Dermed er $k(k+1)$ delelig med 2, og $3k(k+1)$ er delelig med 6.
 
 Altsa er $(k+1)^3 - (k+1) = 6m + 6 \\cdot (\\text{heltall})$, som er delelig med 6.
 
@@ -6484,7 +6484,7 @@ Induksjonssteg: Anta $k^2 + k = 2m$. Da er $(k+1)^2 + (k+1) = k^2 + 2k + 1 + k +
 $$1 + r + r^2 + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$$`,
       solution: `**Bevis ved induksjon:**
 
-La $P(n)$ vare formelen ovenfor.
+La $P(n)$ være formelen ovenfor.
 
 **Basissteg ($n = 0$):**
 
@@ -6554,9 +6554,9 @@ A lese og forsta matematiske bevis er en viktig ferdighet. Her er noen strategie
 
 **Induksjonssteg:** Anta at enhver mengde med $k$ hester har samme farge. Betrakt en mengde med $k + 1$ hester: $H_1, H_2, \\ldots, H_{k+1}$.
 
-Mengden $\\{H_1, H_2, \\ldots, H_k\\}$ har $k$ hester, sa alle har samme farge (induksjonsantagelsen).
+Mengden $\\{H_1, H_2, \\ldots, H_k\\}$ har $k$ hester, så alle har samme farge (induksjonsantagelsen).
 
-Mengden $\\{H_2, H_3, \\ldots, H_{k+1}\\}$ har ogsa $k$ hester, sa alle har samme farge.
+Mengden $\\{H_2, H_3, \\ldots, H_{k+1}\\}$ har ogsa $k$ hester, så alle har samme farge.
 
 Siden $H_2$ er i begge mengder, har alle $k + 1$ hestene samme farge.
 
@@ -6574,7 +6574,7 @@ Dette beviset inneholder en **subtil feil i induksjonssteget**.
 
 Dermed kan vi ikke konkludere at $H_1$ og $H_2$ har samme farge.
 
-**Lardommen:** I induksjonsbevis ma vi vare forsiktige med a sjekke at argumentet faktisk fungerer for alle verdier av $k$, spesielt for de forste verdiene. Her svikter argumentet ved overgangen fra $n = 1$ til $n = 2$.`,
+**Lardommen:** I induksjonsbevis ma vi være forsiktige med a sjekke at argumentet faktisk fungerer for alle verdier av $k$, spesielt for de forste verdiene. Her svikter argumentet ved overgangen fra $n = 1$ til $n = 2$.`,
     },
 
     // OPPGAVE 4
@@ -6592,7 +6592,7 @@ Dermed kan vi ikke konkludere at $H_1$ og $H_2$ har samme farge.
             label: 'a',
             task: `"**Pastand:** $1 = 2$
 
-**Bevis:** La $a = b$. Da er $a^2 = ab$. Altsa $a^2 - b^2 = ab - b^2$, dvs. $(a-b)(a+b) = b(a-b)$. Vi deler på $(a-b)$ og far $a + b = b$. Siden $a = b$, har vi $2b = b$, altsa $2 = 1$."
+**Bevis:** La $a = b$. Da er $a^2 = ab$. Altsa $a^2 - b^2 = ab - b^2$, dvs. $(a-b)(a+b) = b(a-b)$. Vi deler på $(a-b)$ og får $a + b = b$. Siden $a = b$, har vi $2b = b$, altsa $2 = 1$."
 
 Hva er feilen?`,
             solution: `Feilen er at vi deler på $(a - b)$, men siden $a = b$, har vi $a - b = 0$. Vi kan ikke dele på null. Dette er en ugyldig operasjon.`,
@@ -6601,9 +6601,9 @@ Hva er feilen?`,
             label: 'b',
             task: `"**Pastand:** Alle positive heltall er like.
 
-**Bevis:** La $P(n)$ vare: Alle tall i mengden $\\{1, 2, \\ldots, n\\}$ er like.
+**Bevis:** La $P(n)$ være: Alle tall i mengden $\\{1, 2, \\ldots, n\\}$ er like.
 $P(1)$ er sann (kun ett tall).
-Anta $P(k)$: $1 = 2 = \\cdots = k$. Da er spesielt $k = 1$, sa $k + 1 = 2 = 1$. Altsa $P(k+1)$ er sann."
+Anta $P(k)$: $1 = 2 = \\cdots = k$. Da er spesielt $k = 1$, så $k + 1 = 2 = 1$. Altsa $P(k+1)$ er sann."
 
 Hva er feilen?`,
             solution: `Feilen er at induksjonssteget ma vise at *hvis* alle tall opptil $k$ er like, så er ogsa $k+1$ lik disse. Men argumentet "da er spesielt $k = 1$" bruker konklusjonen ulovlig. Det riktige ville vart a forklare hvorfor $k+1$ er lik tallene $1, \\ldots, k$, noe som ikke gjores.`,
@@ -6665,7 +6665,7 @@ Dette virker som et naturlig direkte bevis: Vi kan bruke at rasjonale tall er lu
 
 **Bevis:**
 
-La $a$ og $a + b$ vare rasjonale tall.
+La $a$ og $a + b$ være rasjonale tall.
 
 Siden $a$ er rasjonalt, finnes heltall $p_1, q_1$ med $q_1 \\neq 0$ slik at $a = \\frac{p_1}{q_1}$.
 
@@ -6690,7 +6690,7 @@ $$\\blacksquare$$
       type: 'example',
       title: 'Eksempel 14: Bevis ved kontraposisjon',
       problem: `Bevis: Hvis $n^2$ er et partall, så er $n$ et partall.`,
-      solution: `**Bevismetode:** Vi bruker **kontraposisjon**. A bevise "Hvis $P$, sa $Q$" er logisk ekvivalent med a bevise "Hvis ikke $Q$, sa ikke $P$".
+      solution: `**Bevismetode:** Vi bruker **kontraposisjon**. A bevise "Hvis $P$, så $Q$" er logisk ekvivalent med a bevise "Hvis ikke $Q$, så ikke $P$".
 
 **Kontraposisjon:** Hvis $n$ er et oddetall, så er $n^2$ et oddetall.
 
@@ -6727,12 +6727,12 @@ $$\\blacksquare$$`,
             solution: `Bevis ved kontraposisjon: Anta at $n$ ikke er delelig med 3. Da er $n = 3k + 1$ eller $n = 3k + 2$.
 Tilfelle 1: $n = 3k + 1 \\Rightarrow n^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1$, ikke delelig med 3.
 Tilfelle 2: $n = 3k + 2 \\Rightarrow n^2 = 9k^2 + 12k + 4 = 3(3k^2 + 4k + 1) + 1$, ikke delelig med 3.
-Altsaa: Hvis $n^2$ er delelig med 3, så er $n$ delelig med 3.`,
+Altså: Hvis $n^2$ er delelig med 3, så er $n$ delelig med 3.`,
           },
           {
             label: 'b',
             task: '$\\sqrt{5}$ er irrasjonalt.',
-            solution: `Anta at $\\sqrt{5} = \\frac{p}{q}$ med $\\gcd(p,q) = 1$. Da er $5q^2 = p^2$, sa 5 deler $p^2$, og dermed deler 5 $p$. Skriv $p = 5k$, sa $5q^2 = 25k^2$, altsaa $q^2 = 5k^2$. Da deler 5 ogsa $q$. Motsigelse: $p$ og $q$ har felles faktor 5.`,
+            solution: `Anta at $\\sqrt{5} = \\frac{p}{q}$ med $\\gcd(p,q) = 1$. Da er $5q^2 = p^2$, så 5 deler $p^2$, og dermed deler 5 $p$. Skriv $p = 5k$, så $5q^2 = 25k^2$, altså $q^2 = 5k^2$. Da deler 5 ogsa $q$. Motsigelse: $p$ og $q$ har felles faktor 5.`,
           },
           {
             label: 'c',
@@ -6766,7 +6766,7 @@ Matematiske bevis bygger på formell logikk. Her er de viktigste logiske begrepe
 - **Konjunksjon** ($P \\land Q$): "$P$ og $Q$" - sann bare nar bade $P$ og $Q$ er sanne
 - **Disjunksjon** ($P \\lor Q$): "$P$ eller $Q$" - sann nar minst en av dem er sann
 - **Negasjon** ($\\neg P$): "ikke $P$" - sann nar $P$ er usann
-- **Implikasjon** ($P \\Rightarrow Q$): "hvis $P$, sa $Q$" - usann bare nar $P$ er sann og $Q$ er usann
+- **Implikasjon** ($P \\Rightarrow Q$): "hvis $P$, så $Q$" - usann bare nar $P$ er sann og $Q$ er usann
 - **Ekvivalens** ($P \\Leftrightarrow Q$): "$P$ hvis og bare hvis $Q$" - sann nar bade har samme sannhetsverdi`,
     },
 
@@ -6809,7 +6809,7 @@ Negasjon: Det finnes et primtall $p > 2$ som er partall.
 
 Negasjon: For alle reelle tall $x$ er $x^2 \\geq 0$.
 
-(Negasjonen er sann, sa originalen er usann.)
+(Negasjonen er sann, så originalen er usann.)
 
 **c)** Original: Regn $\\Rightarrow$ Vat bakke
 
@@ -6826,7 +6826,7 @@ Negasjon: Det regner OG bakken er ikke vat.
       problem: `Bevis at det finnes uendelig mange primtall på formen $4k + 3$.`,
       solution: `**Bevis ved motsigelse:**
 
-**Antagelse:** Anta at det bare finnes endelig mange primtall på formen $4k + 3$. La disse vare $p_1, p_2, \\ldots, p_n$.
+**Antagelse:** Anta at det bare finnes endelig mange primtall på formen $4k + 3$. La disse være $p_1, p_2, \\ldots, p_n$.
 
 **Konstruksjon:** Betrakt tallet:
 $$N = 4 \\cdot p_1 \\cdot p_2 \\cdots p_n - 1 = 4(p_1 p_2 \\cdots p_n) - 1$$
@@ -6898,7 +6898,7 @@ I dette kapitlet har vi lart om:
 **Motsigelsesbevis:**
 - Anta det motsatte av det du vil bevise
 - Vis at dette forer til en selvmotsigelse
-- Konkluder at originalen ma vare sann
+- Konkluder at originalen ma være sann
 
 **Induksjonsbevis:**
 - Vis basissteget (vanligvis $n = 1$ eller $n = 0$)
@@ -6939,7 +6939,7 @@ I dette kapitlet har vi lart om:
           },
           {
             label: 'd',
-            task: '"Produktet av to irrasjonale tall kan vare rasjonalt"',
+            task: '"Produktet av to irrasjonale tall kan være rasjonalt"',
             solution: 'Direkte bevis ved moteksempel: $\\sqrt{2} \\cdot \\sqrt{2} = 2$.',
           },
         ],
@@ -7000,8 +7000,8 @@ Induksjonssteg: Anta formelen for $k$. Da er $\\sum_{i=1}^{k+1} F_i = F_{k+2} - 
         subTasks: [
           {
             label: 'a',
-            task: 'Bevis at hvis $a$ deler $b$ og $b$ deler $c$, sa deler $a$ $c$.',
-            solution: `$a \\mid b$ betyr $b = ka$ for et heltall $k$. $b \\mid c$ betyr $c = mb$ for et heltall $m$. Da er $c = mb = m(ka) = (mk)a$, sa $a \\mid c$.`,
+            task: 'Bevis at hvis $a$ deler $b$ og $b$ deler $c$, så deler $a$ $c$.',
+            solution: `$a \\mid b$ betyr $b = ka$ for et heltall $k$. $b \\mid c$ betyr $c = mb$ for et heltall $m$. Da er $c = mb = m(ka) = (mk)a$, så $a \\mid c$.`,
           },
           {
             label: 'b',
@@ -7011,7 +7011,7 @@ Induksjonssteg: Anta formelen for $k$. Da er $\\sum_{i=1}^{k+1} F_i = F_{k+2} - 
           {
             label: 'c',
             task: 'Bevis at diagonalen i et kvadrat med side 1 har lengde $\\sqrt{2}$.',
-            solution: `Ved Pytagoras: $d^2 = 1^2 + 1^2 = 2$, sa $d = \\sqrt{2}$.`,
+            solution: `Ved Pytagoras: $d^2 = 1^2 + 1^2 = 2$, så $d = \\sqrt{2}$.`,
           },
         ],
         hints: ['Bruk definisjoner presist', 'For delelighet: $a \\mid b$ betyr $b = ka$ for et heltall $k$'],
@@ -7040,12 +7040,12 @@ Induksjonssteg: Anta formelen for $k$. Da er $\\sum_{i=1}^{k+1} F_i = F_{k+2} - 
           {
             label: 'b',
             task: 'Bevis at det ikke finnes heltall $a$ og $b$ slik at $6a + 9b = 1$.',
-            solution: `Anta at det finnes. Da er $3(2a + 3b) = 1$, sa 3 deler 1. Motsigelse.`,
+            solution: `Anta at det finnes. Da er $3(2a + 3b) = 1$, så 3 deler 1. Motsigelse.`,
           },
           {
             label: 'c',
             task: 'Bevis at $\\sqrt{2} + \\sqrt{3}$ er irrasjonalt.',
-            solution: `Anta $\\sqrt{2} + \\sqrt{3} = r$ rasjonalt. Da er $\\sqrt{3} = r - \\sqrt{2}$, sa $3 = r^2 - 2r\\sqrt{2} + 2$, altsaa $\\sqrt{2} = \\frac{r^2 - 1}{2r}$ rasjonalt. Motsigelse.`,
+            solution: `Anta $\\sqrt{2} + \\sqrt{3} = r$ rasjonalt. Da er $\\sqrt{3} = r - \\sqrt{2}$, så $3 = r^2 - 2r\\sqrt{2} + 2$, altså $\\sqrt{2} = \\frac{r^2 - 1}{2r}$ rasjonalt. Motsigelse.`,
           },
         ],
         hints: ['For a) tenk på partall/oddetall', 'For c) kvadrer begge sider'],
@@ -7069,12 +7069,12 @@ Induksjonssteg: Anta formelen for $k$. Da er $\\sum_{i=1}^{k+1} F_i = F_{k+2} - 
           {
             label: 'a',
             task: `"**Bevis:** La $a = b = 1$. Da er $a^2 - b^2 = a - b$, dvs. $(a-b)(a+b) = a - b$. Del på $(a-b)$: $a + b = 1$, dvs. $2 = 1$."`,
-            solution: `Feilen: $a - b = 0$, sa vi deler på null.`,
+            solution: `Feilen: $a - b = 0$, så vi deler på null.`,
           },
           {
             label: 'b',
             task: `"**Bevis ved induksjon at alle tall er like:** $P(1)$ er trivielt sann. Anta $P(k)$: alle tall opptil $k$ er like. For $P(k+1)$: Vi har $1 = 2 = \\ldots = k$, og $2 = 3 = \\ldots = k+1$. Altsa $1 = k+1$."`,
-            solution: `Feilen: Induksjonssteget krever at mengdene overlapper, noe de ikke gjor for $k = 1$.`,
+            solution: `Feilen: Induksjonssteget krever at mengdene overlapper, noe de ikke gjør for $k = 1$.`,
           },
         ],
         hints: ['Se etter divisjon med null', 'Sjekk om argumentet fungerer for sma verdier'],
@@ -7098,7 +7098,7 @@ Induksjonssteg: Anta formelen for $k$. Da er $\\sum_{i=1}^{k+1} F_i = F_{k+2} - 
           {
             label: 'a',
             task: 'Bevis at $\\sqrt{p}$ er irrasjonalt for alle primtall $p$.',
-            solution: `Anta $\\sqrt{p} = \\frac{a}{b}$ med $\\gcd(a,b) = 1$. Da $pb^2 = a^2$, sa $p \\mid a^2$. Siden $p$ er primtall, $p \\mid a$. Skriv $a = pk$, sa $pb^2 = p^2k^2$, altsaa $b^2 = pk^2$. Da $p \\mid b^2$, sa $p \\mid b$. Motsigelse: $\\gcd(a,b) \\geq p > 1$.`,
+            solution: `Anta $\\sqrt{p} = \\frac{a}{b}$ med $\\gcd(a,b) = 1$. Da $pb^2 = a^2$, så $p \\mid a^2$. Siden $p$ er primtall, $p \\mid a$. Skriv $a = pk$, så $pb^2 = p^2k^2$, altså $b^2 = pk^2$. Da $p \\mid b^2$, så $p \\mid b$. Motsigelse: $\\gcd(a,b) \\geq p > 1$.`,
           },
           {
             label: 'b',
@@ -7151,7 +7151,7 @@ Induksjonssteg: $\\sum_{i=1}^{k+1} i^3 = \\left(\\frac{k(k+1)}{2}\\right)^2 + (k
             type: 'classic',
             difficulty: 'vanskelig',
             task: 'Bevis at mellom ethvert par av rasjonale tall finnes det et irrasjonalt tall.',
-            solution: `La $r < s$ vare rasjonale. Betrakt $t = r + \\frac{(s-r)}{\\sqrt{2}}$. Da $r < t < s$ og $t$ er irrasjonalt (siden $t - r = \\frac{s-r}{\\sqrt{2}}$ er irrasjonalt).`,
+            solution: `La $r < s$ være rasjonale. Betrakt $t = r + \\frac{(s-r)}{\\sqrt{2}}$. Da $r < t < s$ og $t$ er irrasjonalt (siden $t - r = \\frac{s-r}{\\sqrt{2}}$ er irrasjonalt).`,
             hints: ['Bruk $\\sqrt{2}$ til a konstruere et irrasjonalt tall i intervallet'],
             allowsUpload: true,
             allowsCanvasDrawing: true,
@@ -7182,7 +7182,7 @@ Induksjonssteg: $\\sum_{i=1}^{k+1} \\frac{1}{i(i+1)} = \\frac{k}{k+1} + \\frac{1
             type: 'classic',
             difficulty: 'vanskelig',
             task: 'Bevis at $\\sqrt[3]{2}$ er irrasjonalt.',
-            solution: `Anta $\\sqrt[3]{2} = \\frac{p}{q}$ med $\\gcd(p,q) = 1$. Da $2q^3 = p^3$, sa 2 deler $p^3$, og dermed deler 2 $p$. Skriv $p = 2k$, sa $2q^3 = 8k^3$, altsaa $q^3 = 4k^3 = 2(2k^3)$, sa 2 deler $q$. Motsigelse.`,
+            solution: `Anta $\\sqrt[3]{2} = \\frac{p}{q}$ med $\\gcd(p,q) = 1$. Da $2q^3 = p^3$, så 2 deler $p^3$, og dermed deler 2 $p$. Skriv $p = 2k$, så $2q^3 = 8k^3$, altså $q^3 = 4k^3 = 2(2k^3)$, så 2 deler $q$. Motsigelse.`,
             hints: ['Folg samme struktur som for $\\sqrt{2}$'],
             allowsUpload: true,
             allowsCanvasDrawing: true,

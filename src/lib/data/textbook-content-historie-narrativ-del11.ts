@@ -3,22 +3,22 @@
  * Kapittel 12: Mellomkrigstiden (12.1 - 12.4)
  *
  * Denne versjonen er skrevet som sammenhengende tekst som er behagelig
- * a lese og lytte til, med quiz-sporsmal for selvtest.
+ * å lese og lytte til, med quiz-spørsmål for selvtest.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// KAPITTEL 12.1 NARRATIV: Etterkrigstid og okonomisk krise
+// KAPITTEL 12.1 NARRATIV: Etterkrigstid og økonomisk krise
 // ============================================================================
 
 export const CHAPTER_HISTORIE_12_1_NARRATIV: TextbookChapter = {
   id: 'historie-12-1-narrativ',
   courseId: 'historie',
   chapterNumber: '12.1',
-  title: 'Etterkrigstid og okonomisk krise',
+  title: 'Etterkrigstid og økonomisk krise',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan verden gikk fra krigens ruiner gjennom de brolende 20-arene til den store depresjonens morke dager.',
+  description: 'En fortelling om hvordan verden gikk fra krigens ruiner gjennom de brølende 20-årene til den store depresjonens mørke dager.',
   estimatedMinutes: 45,
   competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'],
   linkedChapterId: 'historie-12-1',
@@ -43,7 +43,7 @@ Forste verdenskrig etterlot Europa i en tilstand av total utmattelse. **Ti milli
 
 Politisk var kontinentet totalt forandret. Fire store imperier - det tyske, osterriksk-ungarske, osmanske og russiske - hadde kollapset. Pa ruinene vokste det fram en mengde nye stater: Polen, Tsjekkoslovakia, Jugoslavia, Finland, de baltiske statene. Men de nye grensene skapte nye konflikter. Millioner av mennesker havnet plutselig som minoriteter i fremmede land.
 
-I Russland hadde bolsjevikene tatt makten i 1917, og en blodig borgerkrig raste. I Tyskland forsoke revolusjonare a gjenta det russiske eksempelet. I Ungarn ble det kortvarig kommuniststyre. Over hele Europa knitrret det av politisk spenning. Det gamle Europa var dod - men hva skulle erstatte det?
+I Russland hadde bolsjevikene tatt makten i 1917, og en blodig borgerkrig raste. I Tyskland forsoke revolusjonare a gjenta det russiske eksempelet. I Ungarn ble det kortvarig kommuniststyre. Over hele Europa knitret det av politisk spenning. Det gamle Europa var dod - men hva skulle erstatte det?
 
 Og sa var det okonomien. Landene hadde finansiert krigen med lan og ved a trykke penger. Na kom regningen. **Inflasjon** spredte seg som en epidemi, og verst var det i Tyskland og Osterrike.`,
     },
@@ -378,16 +378,16 @@ Okonomiske kriser er aldri bare okonomiske. De ryster samfunnets grunnvoller og 
 };
 
 // ============================================================================
-// KAPITTEL 12.2 NARRATIV: Totalitare ideologier
+// KAPITTEL 12.2 NARRATIV: Totalitære ideologier
 // ============================================================================
 
 export const CHAPTER_HISTORIE_12_2_NARRATIV: TextbookChapter = {
   id: 'historie-12-2-narrativ',
   courseId: 'historie',
   chapterNumber: '12.2',
-  title: 'Totalitare ideologier',
+  title: 'Totalitære ideologier',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan fascisme, nazisme og kommunisme grep makten og formet det 20. arhundre.',
+  description: 'En fortelling om hvordan fascisme, nazisme og kommunisme grep makten og formet det 20. århundre.',
   estimatedMinutes: 50,
   competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'],
   linkedChapterId: 'historie-12-2',
@@ -775,9 +775,9 @@ export const CHAPTER_HISTORIE_12_3_NARRATIV: TextbookChapter = {
   chapterNumber: '12.3',
   title: 'Norge i mellomkrigstiden',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan Norge navigerte gjennom okonomiske kriser og politiske spenninger - og beholdt demokratiet.',
+  description: 'En fortelling om hvordan Norge navigerte gjennom økonomiske kriser og politiske spenninger - og beholdt demokratiet.',
   estimatedMinutes: 45,
-  competenceGoals: ['velferdsutviklingen i Norge pa 1900-tallet'],
+  competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'],
   linkedChapterId: 'historie-12-3',
   content: [
     {
@@ -1142,7 +1142,7 @@ export const CHAPTER_HISTORIE_12_4_NARRATIV: TextbookChapter = {
   chapterNumber: '12.4',
   title: 'Veien mot ny verdenskrig',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om hvordan Hitlers aggressive politikk og Vestmaktenes ettergivenhet forte verden mot en ny katastrofe.',
+  description: 'En fortelling om hvordan Hitlers aggressive politikk og Vestmaktenes ettergivenhet førte verden mot en ny katastrofe.',
   estimatedMinutes: 45,
   competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'],
   linkedChapterId: 'historie-12-4',

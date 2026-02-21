@@ -1684,7 +1684,7 @@ export const CHAPTER_KROPPSOVING_VG3_7: TextbookChapter = {
 
 **Psykiske gevinster**:
 - Uttrykk for følelser
-- Økt kroppbevissthet
+- Økt kroppsbevissthet
 - Selvtillit og mestringsfølelse
 - Stressreduksjon og glede
 

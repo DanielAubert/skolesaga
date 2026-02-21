@@ -3,22 +3,22 @@
  * Kapittel 13: Andre verdenskrig og Holocaust (13.1 - 13.5)
  *
  * Denne versjonen er skrevet som sammenhengende tekst som er behagelig
- * a lese og lytte til, med quiz-sporsmal for selvtest.
+ * å lese og lytte til, med quiz-spørsmål for selvtest.
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// KAPITTEL 13.1 NARRATIV: Arsaker og krigens gang
+// KAPITTEL 13.1 NARRATIV: Årsaker og krigens gang
 // ============================================================================
 
 export const CHAPTER_HISTORIE_13_1_NARRATIV: TextbookChapter = {
   id: 'historie-13-1-narrativ',
   courseId: 'historie',
   chapterNumber: '13.1',
-  title: 'Arsaker og krigens gang',
+  title: 'Årsaker og krigens gang',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om historiens mest odeleggende konflikt - fra krigsutbruddet til kapitulasjonen.',
+  description: 'En fortelling om historiens mest ødeleggende konflikt - fra krigsutbruddet til kapitulasjonen.',
   estimatedMinutes: 50,
   competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'],
   linkedChapterId: 'historie-13-1',
@@ -42,7 +42,7 @@ Hvordan kunne dette skje? Hadde ikke menneskeheten lart av forste verdenskrigs r
       type: 'text',
       content: `## Rotene til katastrofen
 
-For a forsta hvorfor andre verdenskrig brøt ut, ma vi ga tilbake til avslutningen av den forste. I 1919 ble **Versailles-traktaten** underskrevet. Denne fredsavtalen var ment a sikre at Tyskland aldri igjen kunne true verdensfreden. Men i stedet saadde den froene til en ny og enda verre konflikt.
+For a forsta hvorfor andre verdenskrig brøt ut, ma vi ga tilbake til avslutningen av den forste. I 1919 ble **Versailles-traktaten** underskrevet. Denne fredsavtalen var ment a sikre at Tyskland aldri igjen kunne true verdensfreden. Men i stedet sadde den froene til en ny og enda verre konflikt.
 
 Tenk deg at du er tysk i 1919. Dere har nettopp tapt krigen - men mange tyskere folte at de ikke egentlig var beseiret pa slagmarken. Na tvinges landet til a akseptere all skylden for krigen. Enorme krigserstatninger skal betales. Viktige territorier blir tatt fra dere - Alsace-Lorraine til Frankrike, omrader i ost til det nyopprettede Polen. Militaret krympes til 100 000 mann. Flyvapen og ubater forbys.
 
@@ -68,11 +68,11 @@ Hver gang Hitler fikk viljen sin, ble han modigere. Hver innrommelse overbeviste
             task: 'Hvorfor skapte Versailles-traktaten grobunn for en ny verdenskrig?',
             options: [
               { id: 'a', text: 'Fordi den var for mild mot Tyskland', isCorrect: false },
-              { id: 'b', text: 'Fordi den ydmyket Tyskland med krigskyld, enorme erstatninger og territortap, noe nazistene utnyttet', isCorrect: true },
+              { id: 'b', text: 'Fordi den ydmyket Tyskland med krigskyld, enorme erstatninger og territorietap, noe nazistene utnyttet', isCorrect: true },
               { id: 'c', text: 'Fordi den styrket Tysklands militar', isCorrect: false },
               { id: 'd', text: 'Fordi den ga Tyskland for mye makt i Europa', isCorrect: false },
             ],
-            solution: 'Versailles-traktaten skapte dyp bitterhet i Tyskland. Krigskyldparagrafen, erstatningene og territortapet ble opplevd som ydmykelse. Hitler utnyttet denne misnoen ved a love a rive opp traktaten.',
+            solution: 'Versailles-traktaten skapte dyp bitterhet i Tyskland. Krigskyldparagrafen, erstatningene og territorietapet ble opplevd som ydmykelse. Hitler utnyttet denne misnoen ved a love a rive opp traktaten.',
           },
           {
             id: 'historie-13-1-n-quiz1-q1',
@@ -398,7 +398,7 @@ export const CHAPTER_HISTORIE_13_2_NARRATIV: TextbookChapter = {
   chapterNumber: '13.2',
   title: 'Holocaust og folkemord',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om det systematiske folkemordet pa Europas joder - og hvordan vi aldri ma glemme.',
+  description: 'En fortelling om det systematiske folkemordet på Europas jøder - og hvordan vi aldri må glemme.',
   estimatedMinutes: 55,
   competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'],
   linkedChapterId: 'historie-13-2',
