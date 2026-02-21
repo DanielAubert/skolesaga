@@ -161,6 +161,16 @@ Sosialiseringen er ikke determinerende - Sara kan fortsatt forme sine egne holdn
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Sosialisering**: Prosessen der vi lærer normer, verdier og ferdigheter som gjør oss i stand til å fungere i samfunnet\n- **Tre typer sosialisering**: Primærsosialisering (familie), sekundærsosialisering (skole, venner, arbeid) og tertiærsosialisering (medier og samfunn)\n- **Sosialiseringsagenter**: Familie, barnehage/skole, venner, medier og arbeidsliv former oss på ulike måter\n- **Sosiale mediers rolle**: Har endret sosialiseringen ved å gi nye arenaer for påvirkning og identitetsutvikling` },
+  ],
+  keyTerms: [
+    { term: 'Sosialisering', definition: 'Prosessen der vi lærer normer, verdier og ferdigheter for å fungere i samfunnet' },
+    { term: 'Primærsosialisering', definition: 'Den grunnleggende sosialiseringen som skjer i familien i de første leveårene' },
+    { term: 'Sekundærsosialisering', definition: 'Sosialisering utenfor familien - i barnehage, skole, fritidsaktiviteter og arbeidsliv' },
+    { term: 'Tertiærsosialisering', definition: 'Sosialisering gjennom medier, sosiale medier og samfunnet generelt' },
+    { term: 'Sosialiseringsagent', definition: 'Aktører som påvirker sosialiseringen, som familie, skole, venner og medier' },
+    { term: 'Normer', definition: 'Regler og forventninger for hvordan man skal oppføre seg i samfunnet' },
+    { term: 'Verdier', definition: 'Grunnleggende oppfatninger om hva som er riktig, viktig og ønskelig' },
   ],
   exercises: [],
 };
@@ -327,6 +337,16 @@ Identitet er fleksibel og kan tilpasses nye livssituasjoner.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Identitet**: Handler om hvem vi er - personlig identitet, sosial identitet, kulturell identitet og digital identitet\n- **Selvfølelse og selvbilde**: Selvbilde er hvordan vi ser på oss selv, selvfølelse er hvordan vi føler om oss selv - begge påvirkes av omgivelsene\n- **Identitet i endring**: Identitet er ikke statisk, men utvikles og endres gjennom livet i møte med nye erfaringer\n- **Sosiale mediers påvirkning**: Kan påvirke selvfølelsen både positivt (tilhørighet) og negativt (sammenligning med idealiserte bilder)` },
+  ],
+  keyTerms: [
+    { term: 'Identitet', definition: 'Hvem vi er og hvordan vi oppfatter oss selv - summen av egenskaper, verdier og tilhørigheter' },
+    { term: 'Personlig identitet', definition: 'De egenskapene som gjør deg unik som individ - verdier, interesser, drømmer og personlighet' },
+    { term: 'Sosial identitet', definition: 'Gruppene du tilhører og identifiserer deg med - familie, venner, nasjonalitet' },
+    { term: 'Selvbilde', definition: 'Hvordan vi ser på oss selv - våre styrker, svakheter og egenskaper' },
+    { term: 'Selvfølelse', definition: 'Hvordan vi føler om oss selv - om vi verdsetter og aksepterer oss selv' },
+    { term: 'Digital identitet', definition: 'Hvordan vi presenterer oss selv på nett og i sosiale medier' },
+    { term: 'Rolleidentitet', definition: 'De ulike rollene vi har i livet - elev, venn, sønn/datter, arbeidstaker' },
   ],
   exercises: [],
 };
@@ -502,6 +522,15 @@ Penger du skylder andre - studielån, kredittkort, forbrukslån.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Personlig økonomi**: Viktigheten av å ha oversikt over inntekter og utgifter, og å leve innenfor sine økonomiske rammer\n- **Budsjett**: Hvordan du lager et budsjett med inntekter, faste utgifter, variable utgifter og sparing\n- **Sparing og nødfond**: Betydningen av å spare regelmessig og ha et nødfond på 3-6 måneders utgifter\n- **Gjeld og forbrukslån**: Hvorfor det er viktig å unngå gjeld du ikke kan håndtere, og hvilke økonomiske utfordringer unge møter` },
+  ],
+  keyTerms: [
+    { term: 'Budsjett', definition: 'En plan for hvordan du skal bruke pengene dine - oversikt over inntekter og utgifter' },
+    { term: 'Faste utgifter', definition: 'Utgifter som er like hver måned, som husleie, abonnementer og forsikring' },
+    { term: 'Variable utgifter', definition: 'Utgifter som varierer fra måned til måned, som mat, klær og underholdning' },
+    { term: 'Nødfond', definition: 'Sparepenger satt av til uforutsette utgifter - anbefalt 3-6 måneders utgifter' },
+    { term: 'Forbruk', definition: 'Hvordan du bruker pengene dine på varer og tjenester' },
+    { term: 'Gjeld', definition: 'Penger du skylder andre - studielån, kredittkort, forbrukslån' },
   ],
   exercises: [],
 };
@@ -664,6 +693,15 @@ Influencere er ofte betalte selgere - vær kritisk til anbefalinger.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Forbrukersamfunnet**: Vi lever i et samfunn preget av masseproduksjon, reklame og forbruk knyttet til identitet og status\n- **Reklamens virkemidler**: Reklame bruker emosjonell appell, sosial bevis, knapphetseffekt, influencer-markedsføring og målrettet annonsering\n- **Forbrukerrettigheter**: Angrerett, reklamasjonsrett og beskyttelse mot villedende markedsføring\n- **Kritisk og bærekraftig forbruk**: Viktigheten av å gjenkjenne reklametriks, unngå impulskjøp og tenke på miljøkonsekvenser` },
+  ],
+  keyTerms: [
+    { term: 'Forbrukersamfunn', definition: 'Samfunn preget av masseproduksjon, masseforbruk og reklame overalt' },
+    { term: 'Emosjonell appell', definition: 'Reklamevirkemiddel som spiller på følelser som glede, frykt og tilhørighet' },
+    { term: 'Influencer-markedsføring', definition: 'Markedsføring der kjente personer anbefaler produkter, ofte mot betaling' },
+    { term: 'Angrerett', definition: 'Rett til å returnere varer kjøpt på nett innen 14 dager' },
+    { term: 'Reklamasjonsrett', definition: 'Rett til å klage på varer med feil eller mangler innen 2 eller 5 år' },
+    { term: 'Bærekraftig forbruk', definition: 'Å forbruke på en måte som tar hensyn til miljø - kjøpe mindre, gjenbruke, velge miljøvennlig' },
   ],
   exercises: [],
 };
@@ -835,6 +873,15 @@ Hvor mye tid du bruker på andre vs. deg selv.
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kroppslig autonomi**: Alle mennesker har rett til å bestemme over egen kropp og sette egne grenser\n- **Samtykke**: Må være frivillig, informert, entusiastisk, gjensidig og kan trekkes tilbake - man kan ikke gi samtykke i beruset tilstand\n- **Grensesetting**: Fysiske, emosjonelle, digitale og tidsbaserte grenser er alle viktige å kjenne til og kommunisere\n- **Respekt i relasjoner**: Å respektere andres grenser og akseptere nei er grunnleggende for trygge relasjoner` },
+  ],
+  keyTerms: [
+    { term: 'Samtykke', definition: 'Å frivillig og aktivt si ja til noe - må være frivillig, informert og kan trekkes tilbake' },
+    { term: 'Grensesetting', definition: 'Å kommunisere hva som er greit og ikke greit for deg - fysisk, emosjonelt og digitalt' },
+    { term: 'Fysiske grenser', definition: 'Grenser for hvem som får ta på deg, hvordan og hvor' },
+    { term: 'Emosjonelle grenser', definition: 'Grenser for hva du deler av følelser og personlig informasjon' },
+    { term: 'Digitale grenser', definition: 'Grenser for hva du deler på nett, hvem du svarer og hva slags bilder du sender' },
+    { term: 'Kroppslig autonomi', definition: 'Retten til å bestemme over egen kropp' },
   ],
   exercises: [],
 };
@@ -1014,6 +1061,15 @@ Det er forskjell på å ha et syn på hva som er moralsk riktig, og å diskrimin
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kjønn og seksualitet**: Grunnleggende begreper som biologisk kjønn, kjønnsidentitet, kjønnsroller og seksuell orientering\n- **Ulike perspektiver**: Biologisk, sosialkonstruktivistisk og religiøst perspektiv gir ulike syn på kjønn og seksualitet\n- **Homofili i Norge**: Fra straffbart (til 1972) via partnerskapslov (1993) til felles ekteskapslov (2009)\n- **Pluralisme og respekt**: Folk kan ha ulike syn på kjønn og seksualitet, men alle skal behandles med respekt og verdighet` },
+  ],
+  keyTerms: [
+    { term: 'Biologisk kjønn', definition: 'Fysiske egenskaper som definerer kroppen som mann eller kvinne - kromosomer, hormoner, reproduktive organer' },
+    { term: 'Kjønnsidentitet', definition: 'Hvordan en person opplever sitt eget kjønn' },
+    { term: 'Kjønnsroller', definition: 'Samfunnets forventninger til hvordan menn og kvinner skal oppføre seg' },
+    { term: 'Seksuell orientering', definition: 'Hvem man føler romantisk og seksuell tiltrekning til' },
+    { term: 'Kjønnsinkongruens', definition: 'Når en person opplever at biologisk kjønn og kjønnsidentitet ikke samsvarer' },
+    { term: 'Sosialkonstruktivisme', definition: 'Perspektiv som vektlegger at kjønnsroller er sosialt og kulturelt skapt' },
   ],
   exercises: [],
 };
@@ -1184,6 +1240,15 @@ Det du deler på nett kan være der for alltid, selv om du sletter det.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Digitale spor**: All aktivitet på internett etterlater spor som samles inn og analyseres av selskaper og algoritmer\n- **Personvern og GDPR**: Du har rettigheter som innsyn, sletting og å trekke samtykke under personvernforordningen\n- **Risikoer**: Identitetstyveri, målrettet manipulasjon, datalekkasjer og ekkokammer er reelle farer\n- **Beskyttelse**: Sterke passord, kritisk deling, personverninnstillinger og bevissthet om informasjonskapsler hjelper deg å beskytte dine data` },
+  ],
+  keyTerms: [
+    { term: 'Digitale spor', definition: 'Data som etterlates når vi bruker internett - søkehistorikk, likes, lokasjon, klikkemønstre' },
+    { term: 'Personvern', definition: 'Retten til å bestemme over opplysninger om deg selv og å ha et privatliv' },
+    { term: 'GDPR', definition: 'EU/EØS personvernforordning som gir rettigheter som innsyn, sletting og å trekke samtykke' },
+    { term: 'Informasjonskapsler', definition: 'Små datafiler som lagres i nettleseren for å huske preferanser og spore aktivitet' },
+    { term: 'Datatilsynet', definition: 'Norsk myndighet som fører tilsyn med personvern' },
+    { term: 'Målrettet reklame', definition: 'Reklame tilpasset deg basert på dine digitale spor og profil' },
   ],
   exercises: [],
 };
@@ -1352,6 +1417,16 @@ Sannsynligvis upålitelig - vær skeptisk og del ikke videre.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-1-8-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kritisk mediebruk**: Viktigheten av å være bevisst, stille spørsmål og verifisere informasjon i en tid med enorme informasjonsmengder\n- **Feilinformasjon vs. desinformasjon**: Feilinformasjon spres ubevisst, desinformasjon spres bevisst for å villede\n- **TONE-metoden**: Et verktøy for kildekritikk som vurderer Troverdighet, Objektivitet, Nøyaktighet og Egnethet\n- **Ekkokammer og filterbobler**: Algoritmer kan forsterke eksisterende syn og begrense eksponering for andre perspektiver` },
+  ],
+  keyTerms: [
+    { term: 'Feilinformasjon', definition: 'Usann informasjon som spres uten intensjon om å villede' },
+    { term: 'Desinformasjon', definition: 'Bevisst falsk informasjon spredt for å villede eller manipulere' },
+    { term: 'Kildekritikk', definition: 'Systematisk vurdering av om en kilde er pålitelig og relevant' },
+    { term: 'TONE-metoden', definition: 'Verktøy for kildekritikk: Troverdighet, Objektivitet, Nøyaktighet, Egnethet' },
+    { term: 'Ekkokammer', definition: 'Miljøer der du bare møter meninger du allerede er enig i' },
+    { term: 'Filterboble', definition: 'Algoritmer viser deg innhold basert på dine tidligere preferanser' },
+    { term: 'Clickbait', definition: 'Overskrifter designet for å få deg til å klikke, ofte overdrevne eller villedende' },
   ],
   exercises: [],
 };
@@ -1554,6 +1629,7 @@ Det finnes ikke ett "riktig" svar på hvordan man skal forholde seg til sammensa
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Identitetsbegrepet**: Identitet handler om hvem vi er og formes av arv, familie, kultur, sosiale grupper og egne valg\n- **Dimensjoner av identitet**: Individuell, sosial, kulturell, situasjonell og digital identitet utgjør ulike sider ved hvem vi er\n- **Teoretiske perspektiver**: G.H. Meads speilingsteori og Eriksons identitetskriser gir ulike innfallsvinkler til identitetsutvikling\n- **Sammensatt identitet**: I et moderne samfunn kan man ha tilhørighet til flere kulturer og identiteter samtidig` },
   ],
   exercises: [],
 };
@@ -1749,6 +1825,7 @@ Skolen må balansere respekt for ulikheter med behovet for felles normer og samh
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kulturbegrepet**: Kultur omfatter verdier, normer, tradisjoner og praksiser som kjennetegner en gruppe mennesker\n- **Kulturelle perspektiver**: Etnosentrisme, kulturrelativisme og universalisme gir ulike utgangspunkt for å forstå kulturforskjeller\n- **Modeller for kulturmøter**: Assimilering, segregering, integrering og multikulturalisme representerer ulike tilnærminger\n- **Norsk kultur i endring**: Norge har blitt et mer flerkulturelt samfunn, noe som skaper både muligheter og debatter` },
   ],
   exercises: [],
 };
@@ -1952,6 +2029,7 @@ Det finnes ikke ett "riktig" svar på dette spørsmålet. Det er legitimt å ha 
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Etnisitet**: Opplevd fellesskap basert på antatt felles opphav, kultur, språk og tradisjoner\n- **Nasjonalitet**: Tilhørighet til en nasjon eller stat, enten juridisk (statsborgerskap) eller følelsesmessig\n- **Nasjonalisme**: Ulike former som patriotisme, borgerlig nasjonalisme og etnisk nasjonalisme har ulike styrker og svakheter\n- **Det flerkulturelle Norge**: Norge har blitt et mangfoldig samfunn der spørsmålet om hva det vil si å være norsk debatteres aktivt` },
   ],
   exercises: [],
 };
@@ -2105,6 +2183,16 @@ Det er enighet om at usaklig diskriminering er galt. Det er uenighet om hvilke t
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Diskriminering**: Å behandle noen dårligere på grunnlag av kjennetegn som etnisitet, kjønn, religion eller funksjonsevne\n- **Direkte og indirekte diskriminering**: Direkte er åpen forskjellsbehandling, indirekte er tilsynelatende nøytrale regler som slår ulikt ut\n- **Lovverk**: Likestillings- og diskrimineringsloven og straffelovens §185 beskytter mot diskriminering og hatytringer\n- **Debatt om tiltak**: Det er politisk uenighet om kvotering og andre aktive likestillingstiltak` },
+  ],
+  keyTerms: [
+    { term: 'Diskriminering', definition: 'Å behandle noen dårligere på grunnlag av kjennetegn som etnisitet, kjønn eller religion' },
+    { term: 'Direkte diskriminering', definition: 'Å behandle noen dårligere på grunn av bakgrunn, f.eks. nekte jobb pga. etnisitet' },
+    { term: 'Indirekte diskriminering', definition: 'Tilsynelatende nøytrale regler som slår ulikt ut for ulike grupper' },
+    { term: 'Trakassering', definition: 'Handlinger eller ytringer som krenker noens verdighet - forbudt ved lov' },
+    { term: 'Positiv særbehandling', definition: 'Å gi fordeler til underrepresenterte grupper for å oppnå likestilling (kvotering)' },
+    { term: 'Likestillings- og diskrimineringsloven', definition: 'Norsk lov som forbyr diskriminering på flere grunnlag' },
+    { term: 'Diskrimineringsnemnda', definition: 'Organ som behandler klager på diskriminering og kan gi oppreisning' },
   ],
   exercises: [],
 };
@@ -2281,6 +2369,7 @@ Alta-saken viste at urfolks rettigheter må tas på alvor.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Samene som urfolk**: Samene har bodd i Sápmi i tusenvis av år og har særlige rettigheter gjennom Grunnloven og ILO-konvensjonen\n- **Nasjonale minoriteter**: Kvener, skogfinner, jøder, romfolk og romanifolk har lang historie i Norge og har opplevd diskriminering\n- **Fornorskingspolitikken**: Norges assimileringspolitikk (1850-1980) undertrykte samisk og kvensk språk og kultur\n- **Forsoning**: Sannhets- og forsoningskommisjonen har dokumentert historisk urett, og Norge arbeider for å rette opp dette` },
   ],
   exercises: [],
 };
@@ -2449,6 +2538,15 @@ Dette er en pågående debatt der ulike land har valgt ulike løsninger. Folk ka
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Religion i Norge**: Fra et religiøst homogent samfunn til livssynsmangfold med kristendom, islam, humanisme og andre religioner\n- **Stat og kirke**: Den norske kirke ble formelt skilt fra staten i 2012, men er fortsatt Norges folkekirke i Grunnloven\n- **Religionsfrihet**: Grunnloven §16 sikrer rett til å tro, praktisere, skifte religion og uttrykke religiøse meninger\n- **Religiøst mangfold**: Skaper debatter om religiøse plagg, nøytralitet i offentlige institusjoner og tilrettelegging i skolen` },
+  ],
+  keyTerms: [
+    { term: 'Religionsfrihet', definition: 'Grunnlovsfestet rett til å tro eller ikke tro, praktisere sin religion og skifte religion' },
+    { term: 'Den norske kirke', definition: 'Luthersk folkekirke med ca. 3,6 millioner medlemmer, formelt skilt fra staten i 2012' },
+    { term: 'Human-Etisk Forbund', definition: 'Største livssynsorganisasjon utenfor kirken med humanistisk livssyn uten religion' },
+    { term: 'Sekularisering', definition: 'Prosessen der religionens rolle i samfunnet minsker over tid' },
+    { term: 'Livssynsmangfold', definition: 'At mange ulike religioner og livssyn er representert i et samfunn' },
+    { term: '2012-reformen', definition: 'Formell skilsmisse mellom stat og kirke i Norge' },
   ],
   exercises: [],
 };
@@ -2631,6 +2729,15 @@ Fortsatt arbeidsinnvandring fra EU, familieinnvandring, noen flyktninger. Ukrain
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-2-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Innvandringens historie**: Fra arbeidsinnvandring på 1970-tallet via flyktningbølger til dagens mangfoldige innvandring\n- **Ulike perspektiver**: Liberal tilnærming vektlegger åpenhet og rettigheter, restriktiv tilnærming vektlegger kontroll og tilpasning\n- **Integrering**: Handler om arbeidsdeltakelse, språkkunnskaper, utdanning og deltakelse i samfunnslivet\n- **Politisk debatt**: Det er betydelig uenighet om innvandringsnivå, krav til integrering og veien til statsborgerskap` },
+  ],
+  keyTerms: [
+    { term: 'Innvandrer', definition: 'Person født i utlandet av to utenlandsfødte foreldre' },
+    { term: 'Flyktning', definition: 'Person som har fått beskyttelse (asyl) i et annet land' },
+    { term: 'Familiegjenforening', definition: 'Innvandring der familiemedlemmer får komme til landet for å bo sammen' },
+    { term: 'Integrering', definition: 'Prosessen der innvandrere deltar i samfunnet gjennom arbeid, språk og sosialt liv' },
+    { term: 'Innvandringsstoppen', definition: 'Stopp i arbeidsinnvandring til Norge innført i 1975' },
+    { term: 'Asyl', definition: 'Beskyttelse gitt til personer som flykter fra forfølgelse i hjemlandet' },
   ],
   exercises: [],
 };
@@ -2812,6 +2919,15 @@ Selv om Mia er ung og dette er en sommerjobb, har hun de samme grunnleggende ret
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Arbeidets betydning**: Arbeid gir inntekt, sosial tilhørighet, mestring, struktur og identitet\n- **Den norske modellen**: Kjennetegnes av høy organisasjonsgrad, trepartssamarbeid, tariffavtaler og sterkt stillingsvern\n- **Arbeidsavtale og rettigheter**: Alle har krav på skriftlig kontrakt med informasjon om lønn, arbeidstid, ferie og oppsigelsesfrister\n- **Arbeidstakerrettigheter**: Lønn, ferie, sykelønn, permisjonsrettigheter og vern mot usaklig oppsigelse` },
+  ],
+  keyTerms: [
+    { term: 'Trepartssamarbeid', definition: 'Samarbeid mellom arbeidstakere (LO), arbeidsgivere (NHO) og staten' },
+    { term: 'Tariffavtale', definition: 'Avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår' },
+    { term: 'Arbeidsavtale', definition: 'Skriftlig kontrakt mellom arbeidsgiver og arbeidstaker som alle har krav på' },
+    { term: 'Stillingsvern', definition: 'Lovbeskyttelse som gjør det vanskelig å si opp ansatte uten saklig grunn' },
+    { term: 'LO', definition: 'Landsorganisasjonen - Norges største arbeidstakerorganisasjon' },
+    { term: 'NHO', definition: 'Næringslivets Hovedorganisasjon - Norges største arbeidsgiverorganisasjon' },
   ],
   exercises: [],
 };
@@ -2987,6 +3103,15 @@ Mobbing på arbeidsplassen er alvorlig og forbudt. Kristian har rett til å bli 
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Arbeidsmiljø**: Fysiske, psykososiale og organisatoriske forhold påvirker trivsel, helse og produktivitet\n- **HMS**: Systematisk arbeid for Helse, Miljø og Sikkerhet med kartlegging av risiko, forebygging og opplæring\n- **Ansvar**: Arbeidsgiver har hovedansvar, men arbeidstaker, verneombud, AMU og Arbeidstilsynet har også viktige roller\n- **Arbeidsmiljøloven**: Sikrer vern mot trakassering, krav om forsvarlig arbeidsmiljø og rett til medvirkning` },
+  ],
+  keyTerms: [
+    { term: 'HMS', definition: 'Helse, Miljø og Sikkerhet - systematisk arbeid for trygt og godt arbeidsmiljø' },
+    { term: 'Arbeidsmiljøloven', definition: 'Lov som sikrer fullt forsvarlig arbeidsmiljø med trygghet mot fysiske og psykiske skadevirkninger' },
+    { term: 'Verneombud', definition: 'Representant for de ansatte i HMS-saker på arbeidsplassen' },
+    { term: 'AMU', definition: 'Arbeidsmiljøutvalg - samarbeidsorgan for HMS i større virksomheter' },
+    { term: 'Arbeidstilsynet', definition: 'Statlig etat som fører tilsyn med at arbeidsmiljøloven følges' },
+    { term: 'Psykososialt arbeidsmiljø', definition: 'De sosiale og psykologiske forholdene på jobben - trivsel, relasjoner, stress, mobbing' },
   ],
   exercises: [],
 };
@@ -3166,6 +3291,16 @@ Resultatet blir ofte et kompromiss, f.eks. 4% lønnsvekst. Frontfagsmodellen sik
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Lønnsfastsettelse**: Lønn fastsettes gjennom tariffavtaler, individuelle forhandlinger og markedsmekanismer\n- **Frontfagsmodellen**: Konkurranseutsatt industri forhandler først og setter rammen for andre sektorer\n- **Streik og lockout**: Lovlige virkemidler når tariffavtalen er utløpt og mekling ikke har ført frem\n- **Lønnsforskjeller**: Norge har relativt lave lønnsforskjeller som følge av den norske arbeidslivsmodellen` },
+  ],
+  keyTerms: [
+    { term: 'Tariffavtale', definition: 'Skriftlig avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår' },
+    { term: 'Frontfagsmodellen', definition: 'Modell der konkurranseutsatt industri forhandler først og setter rammen for andre' },
+    { term: 'Lønnsoppgjør', definition: 'Årlige forhandlinger om lønn mellom arbeidstaker- og arbeidsgiverorganisasjoner' },
+    { term: 'Streik', definition: 'Arbeidsnedleggelse der arbeidstakere nekter å jobbe for å presse frem bedre vilkår' },
+    { term: 'Lockout', definition: 'Arbeidsgivers virkemiddel der arbeidstakere stenges ute fra arbeid' },
+    { term: 'Riksmekleren', definition: 'Instans som mekler mellom partene for å unngå arbeidskonflikt' },
+    { term: 'Fredsplikt', definition: 'Forbud mot streik og lockout mens en tariffavtale gjelder' },
   ],
   exercises: [],
 };
@@ -3341,6 +3476,15 @@ Flere menn enn kvinner i lederstillinger.
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kjønnsdeling i arbeidsmarkedet**: Horisontal kjønnsdeling (ulike yrker) og vertikal kjønnsdeling (flere menn i ledelse)\n- **Lønnsforskjeller**: Kvinner tjener i snitt ca. 87% av menns lønn, hovedsakelig forklart av yrkes- og stillingsvalg\n- **Ulike forklaringer**: Valgperspektivet, strukturperspektivet og kombinasjonsperspektivet gir ulike syn på årsakene\n- **Likestillingstiltak**: Fedrekvote, styrekvotering og aktivitets- og redegjørelsesplikt er tiltak som debatteres politisk` },
+  ],
+  keyTerms: [
+    { term: 'Horisontal kjønnsdeling', definition: 'At kvinner og menn jobber i ulike yrker og bransjer' },
+    { term: 'Vertikal kjønnsdeling', definition: 'At flere menn enn kvinner har lederstillinger' },
+    { term: 'Glasstaket', definition: 'Usynlige barrierer som hindrer kvinner i å nå toppstillinger' },
+    { term: 'Fedrekvote', definition: 'Del av foreldrepermisjonen forbeholdt far (minst 15 uker)' },
+    { term: 'Styrekvotering', definition: 'Krav om minst 40% av hvert kjønn i styrene til ASA-selskaper' },
+    { term: 'Kjønnspoeng', definition: 'Tilleggspoeng til det underrepresenterte kjønnet ved opptak til studier' },
   ],
   exercises: [],
 };
@@ -3521,6 +3665,15 @@ Jonas er rammet av strukturell ledighet - teknologi erstatter deler av hans jobb
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Arbeidsledighet**: Betyr at noen ønsker å jobbe men ikke finner arbeid - rammer individ, samfunn og økonomi\n- **Typer ledighet**: Konjunkturledighet, strukturell ledighet, friksjonsledighet, sesongledighet og langtidsledighet\n- **Nav**: Arbeids- og velferdsforvaltningen som forvalter dagpenger, arbeidsformidling og tiltak for arbeidssøkere\n- **Dagpenger**: Økonomisk støtte ved arbeidsledighet på ca. 62,4% av tidligere inntekt i inntil 2 år` },
+  ],
+  keyTerms: [
+    { term: 'Konjunkturledighet', definition: 'Arbeidsledighet som skyldes nedgangstider i økonomien' },
+    { term: 'Strukturell ledighet', definition: 'Ledighet som skyldes varige endringer i næringsstrukturen, krever ofte omskolering' },
+    { term: 'Nav', definition: 'Arbeids- og velferdsforvaltningen som forvalter arbeidsformidling og trygdeytelser' },
+    { term: 'Dagpenger', definition: 'Økonomisk støtte fra Nav ved arbeidsledighet - ca. 62,4% av tidligere inntekt' },
+    { term: 'Langtidsledighet', definition: 'Arbeidsledighet som varer over ett år - særlig alvorlig for kompetanse og tilbakekomst' },
+    { term: 'Arbeidsavklaringspenger', definition: 'Ytelse fra Nav for personer med nedsatt arbeidsevne som trenger avklaring' },
   ],
   exercises: [],
 };
@@ -3707,6 +3860,15 @@ Jobber forsvinner sjelden helt - de endres. Tilpasningsevne er nøkkelen.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Drivkrefter for endring**: Digitalisering, kunstig intelligens, globalisering, grønn omstilling og demografiske endringer\n- **Automatisering**: Rutinepreget arbeid er mest utsatt, mens kreative, omsorgs- og håndverksyrker trolig består\n- **Nye arbeidsformer**: Gig-økonomi, hjemmekontor og plattformarbeid utfordrer tradisjonelle arbeidsforhold\n- **Livslang læring**: Kompetansen må oppdateres gjennom hele arbeidslivet for å møte endringene` },
+  ],
+  keyTerms: [
+    { term: 'Automatisering', definition: 'At maskiner og programvare tar over oppgaver som tidligere ble gjort av mennesker' },
+    { term: 'Kunstig intelligens', definition: 'Datamaskiner som kan lære, resonnere og ta beslutninger - påvirker mange yrker' },
+    { term: 'Gig-økonomi', definition: 'Korttidsoppdrag og frilansarbeid formidlet via plattformer som Uber og Foodora' },
+    { term: 'Plattformarbeid', definition: 'Arbeid formidlet via digitale plattformer som utfordrer tradisjonelle arbeidsforhold' },
+    { term: 'Grønn omstilling', definition: 'Endring av samfunn og næringsliv mot mer bærekraftige løsninger' },
+    { term: 'Livslang læring', definition: 'Å oppdatere kompetansen gjennom hele arbeidslivet' },
   ],
   exercises: [],
 };
@@ -3890,6 +4052,15 @@ Dette er arbeidslivskriminalitet - systematisk utnytting for profitt.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-3-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Svart arbeid**: Arbeid der inntekten ikke oppgis til skattemyndighetene - gir ingen rettigheter og er ulovlig\n- **Arbeidslivskriminalitet**: Systematisk og organisert kriminalitet som menneskehandel, grov utnytting og skatteunndragelse\n- **Konsekvenser**: Tap av skatteinntekter, undergraving av velferdsordninger, utnytting av sårbare arbeidstakere\n- **Bekjempelse**: Styrket kontroll, A-krimsentre, allmenngjøring av tariffavtaler og informasjon om rettigheter` },
+  ],
+  keyTerms: [
+    { term: 'Svart arbeid', definition: 'Arbeid der inntekten ikke oppgis til skattemyndighetene - ulovlig for begge parter' },
+    { term: 'Arbeidslivskriminalitet', definition: 'Systematisk og organisert kriminalitet i arbeidslivet - mer alvorlig enn vanlig svart arbeid' },
+    { term: 'Menneskehandel', definition: 'Grov utnytting av personer gjennom tvang, trusler eller misbruk av sårbar situasjon' },
+    { term: 'Allmenngjøring', definition: 'At tariffavtalens minstekrav gjøres gjeldende for alle i en bransje, også uorganiserte' },
+    { term: 'A-krimsenter', definition: 'Tverrfaglige sentre der etater samarbeider for å bekjempe arbeidslivskriminalitet' },
+    { term: 'Sosial dumping', definition: 'At utenlandske arbeidere tilbys lønn og vilkår langt under norsk standard' },
   ],
   exercises: [],
 };
@@ -4066,8 +4237,18 @@ Det finnes ulike syn på hva demokrati innebærer. Det er viktig å kunne analys
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Demokratiets betydning**: Demokrati betyr folkestyre og bygger på at alle mennesker er likeverdige, at makten tilhører folket, og at flertallet bestemmer med respekt for mindretallet\n- **Demokratiets kjennetegn**: Frie valg, ytringsfrihet, organisasjonsfrihet, rettssikkerhet, pressefrihet, maktfordeling og mindretallsvern er sentrale trekk\n- **Demokratiformer**: Det finnes flere typer demokrati, blant annet direkte, representativt, parlamentarisk og presidentdemokrati\n- **Demokratiets verdi**: Demokratiet sikrer frihet, gir legitimitet til beslutninger, muliggjør fredelig maktskifte og beskytter mot maktmisbruk` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Demokrati', definition: 'Folkestyre; en styreform der folket har makt til å bestemme hvem som skal styre og hvilke beslutninger som tas' },
+    { term: 'Direkte demokrati', definition: 'Demokratiform der folket stemmer direkte over saker, for eksempel gjennom folkeavstemninger' },
+    { term: 'Representativt demokrati', definition: 'Demokratiform der folket velger representanter som tar beslutninger på deres vegne' },
+    { term: 'Ytringsfrihet', definition: 'Frihet til å uttrykke meninger, kritisere makthaverne og debattere uten frykt for straff' },
+    { term: 'Maktfordeling', definition: 'Prinsippet om at makten deles mellom ulike institusjoner som holder hverandre i sjakk' },
+    { term: 'Rettssikkerhet', definition: 'At lover gjelder for alle, inkludert de som styrer, og at uavhengige domstoler beskytter borgernes rettigheter' },
+    { term: 'Mindretallsvern', definition: 'Prinsippet om at mindretallet har grunnleggende rettigheter som ikke kan stemmes bort av flertallet' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_2: TextbookChapter = {
@@ -4241,8 +4422,18 @@ Mindretallsregjeringer er vanlige i Norge. De fungerer gjennom kompromisser og f
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Norges styreform**: Norge er et konstitusjonelt monarki og parlamentarisk demokrati med Grunnloven fra 1814 som fundament\n- **Maktfordelingsprinsippet**: Makten er delt mellom Stortinget (lovgivende), regjeringen (utøvende) og domstolene (dømmende) for å hindre maktkonsentrasjon\n- **Parlamentarisme**: Regjeringen må ha Stortingets tillit for å sitte, og Norge praktiserer negativ parlamentarisme der det kreves aktivt flertall mot regjeringen\n- **Mindretallsregjeringer**: Mindretallsregjeringer er vanligst i Norge og fungerer gjennom kompromisser og forhandlinger med andre partier` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Konstitusjonelt monarki', definition: 'Styreform der kongen er statsoverhode, men uten reell politisk makt, begrenset av en grunnlov' },
+    { term: 'Parlamentarisme', definition: 'Prinsippet om at regjeringen må ha Stortingets tillit for å sitte' },
+    { term: 'Maktfordelingsprinsippet', definition: 'At statsmakten er delt mellom lovgivende, utøvende og dømmende makt for å hindre maktmisbruk' },
+    { term: 'Negativ parlamentarisme', definition: 'At regjeringen sitter så lenge det ikke er flertall mot den, uten å trenge aktivt godkjenning' },
+    { term: 'Mindretallsregjering', definition: 'En regjering der partiene mangler flertall på Stortinget og må søke støtte fra andre partier' },
+    { term: 'Mistillitsforslag', definition: 'Forslag i Stortinget som kan tvinge regjeringen til å gå av dersom det får flertall' },
+    { term: 'Grunnloven', definition: 'Norges høyeste rettskilde som fastsetter statsmaktenes oppgaver, grenser og borgernes rettigheter' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_3: TextbookChapter = {
@@ -4407,8 +4598,17 @@ Det er OK å være usikker. Sett deg inn i sakene og stem på det du mener er be
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Stortingsvalget**: Hvert fjerde år velger vi 169 representanter til Stortinget, og alle norske statsborgere over 18 år har stemmerett\n- **Valgordningen**: Norge har forholdstallsvalg med 150 distriktsmandater og 19 utjevningsmandater fordelt på 19 valgdistrikter\n- **Sperregrensen**: Et parti må ha minst 4 prosent av stemmene nasjonalt for å få utjevningsmandater\n- **Demokratisk deltakelse**: Stemmeretten er både en rettighet og et ansvar, og demokratiet fungerer best når mange deltar` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Forholdstallsvalg', definition: 'Valgordning der mandatene fordeles proporsjonalt etter partienes stemmetall' },
+    { term: 'Distriktsmandater', definition: 'De 150 mandatene som fordeles direkte i valgdistriktene basert på stemmetallet' },
+    { term: 'Utjevningsmandater', definition: 'De 19 mandatene som sikrer at partienes mandattall bedre stemmer med stemmetallet nasjonalt' },
+    { term: 'Sperregrense', definition: 'Grensen på 4 prosent av stemmene nasjonalt som et parti må oppnå for å få utjevningsmandater' },
+    { term: 'Valgdistrikt', definition: 'Et geografisk område (fylke) som velger et visst antall representanter til Stortinget' },
+    { term: 'Stemmerett', definition: 'Retten til å stemme ved valg, i Norge for statsborgere som fyller 18 år innen utgangen av valgåret' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_4: TextbookChapter = {
@@ -4587,8 +4787,17 @@ Norsk politikk er mer nyansert enn to blokker, men blokktenkning preger valgkamp
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Partienes rolle**: Politiske partier rekrutterer politikere, utvikler programmer, mobiliserer velgere og er bindeleddet mellom folk og makt\n- **Høyre-venstre-aksen**: Venstresiden vil ha mer stat og omfordeling, høyresiden vil ha mindre stat og mer marked, mens sentrum balanserer mellom disse\n- **Norske partier**: Norge har ni stortingspartier som dekker et bredt politisk spekter fra Rødt på venstresiden til Frp på høyresiden\n- **Blokkpolitikk**: Partiene samarbeider i blokker, men norsk politikk er mer nyansert enn et enkelt todelt bilde` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Høyre-venstre-aksen', definition: 'Den tradisjonelle politiske skalaen fra venstresiden (mer stat) til høyresiden (mer marked)' },
+    { term: 'Flerpartisystem', definition: 'Et politisk system med mange partier representert i nasjonalforsamlingen' },
+    { term: 'Sosialdemokrati', definition: 'Politisk retning som kombinerer markedsøkonomi med omfordeling og velferd gjennom demokratiske midler' },
+    { term: 'Liberalkonservatisme', definition: 'Politisk retning som kombinerer konservative verdier med økonomisk liberalisme' },
+    { term: 'Opposisjon', definition: 'Partiene som ikke sitter i regjering og som holder regjeringen ansvarlig' },
+    { term: 'Blokkpolitikk', definition: 'At partier samarbeider i blokker (rødgrønn/borgerlig) om å danne regjeringsalternativer' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_5: TextbookChapter = {
@@ -4750,8 +4959,17 @@ Fylkestinget (35-57 medlemmer) velges direkte. Ledes av fylkesordfører. Fylkesk
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Lokaldemokratiet**: Norge er delt inn i 357 kommuner og 11 fylkeskommuner som styres av folkevalgte representanter\n- **Kommunens organisering**: Kommunestyret er øverste organ, formannskapet forbereder saker, ordføreren leder og kommunedirektøren er øverste administrative leder\n- **Kommunale oppgaver**: Kommunene har ansvar for barnehage, grunnskole, helse og omsorg, barnevern, sosiale tjenester og mye mer\n- **Fylkeskommunen**: Har ansvar for videregående opplæring, kollektivtransport, tannhelse og regional utvikling` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Kommunestyre', definition: 'Øverste folkevalgte organ i kommunen, velges direkte av innbyggerne hvert fjerde år' },
+    { term: 'Formannskap', definition: 'Utvalg valgt av kommunestyret som forbereder saker og behandler hastesaker' },
+    { term: 'Ordfører', definition: 'Leder av kommunestyret og formannskapet, representerer kommunen utad' },
+    { term: 'Kommunedirektør', definition: 'Øverste administrative leder i kommunen, ansatt av kommunestyret' },
+    { term: 'Fylkeskommune', definition: 'Regionalt forvaltningsnivå med ansvar for videregående opplæring, kollektivtransport og regional utvikling' },
+    { term: 'Lovpålagte oppgaver', definition: 'Oppgaver kommunen er pålagt ved lov å utføre, som grunnskole, barnehage og helse' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_6: TextbookChapter = {
@@ -4930,8 +5148,17 @@ Sivil ulydighet er kontroversielt, men kan i noen tilfeller være etisk forsvarl
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Medborgerskap**: Handler om å være en aktiv deltaker i samfunnet med både rettigheter og plikter\n- **Politisk deltakelse**: Det finnes konvensjonelle former (stemme, partimedlemskap), ukonvensjonelle former (demonstrasjoner, boikott) og digital deltakelse\n- **Sivilsamfunnet**: Frivillige organisasjoner og foreninger er viktige for demokratiet og fungerer som motvekt til staten\n- **Sivil ulydighet**: Å bevisst bryte loven for å protestere mot urettferdighet er kontroversielt, men kan i noen tilfeller være etisk forsvarlig` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Medborgerskap', definition: 'Det å være en aktiv deltaker i samfunnet med rettigheter, plikter og engasjement' },
+    { term: 'Konvensjonell deltakelse', definition: 'Politisk deltakelse gjennom etablerte kanaler som valg, partimedlemskap og høringer' },
+    { term: 'Ukonvensjonell deltakelse', definition: 'Politisk deltakelse utenfor de etablerte kanalene, som demonstrasjoner, boikott og sivil ulydighet' },
+    { term: 'Sivilsamfunn', definition: 'Den delen av samfunnet som verken er stat eller marked, bestående av frivillige organisasjoner og foreninger' },
+    { term: 'Sivil ulydighet', definition: 'Å bevisst bryte loven for å protestere mot urettferdighet, og akseptere straffen som følger' },
+    { term: 'Sosial kapital', definition: 'Tillit og nettverk som oppstår gjennom deltakelse i organisasjoner og fellesskap' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_4_7: TextbookChapter = {
@@ -5113,8 +5340,17 @@ Det er genuint uenighet om hva som styrker og svekker demokratiet. Elever bør l
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-4-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Trusler mot demokratiet**: Lav valgdeltakelse, polarisering, desinformasjon, svekket tillit og teknologiselskapers makt utfordrer demokratiet\n- **Politisk ekstremisme**: Ekstremisme, hatytringer og radikalisering kan true demokratiske institusjoner\n- **Desinformasjon**: Falske nyheter og manipulert informasjon gjør det vanskelig å ta informerte valg og svekker tilliten\n- **Ulike perspektiver**: Det er genuint uenighet om hva som utgjør de største truslene mot demokratiet og hvordan de best kan møtes` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Politisk ekstremisme', definition: 'Ytterliggående politiske holdninger som kan true demokratiske institusjoner og verdier' },
+    { term: 'Polarisering', definition: 'Økende avstand mellom politiske grupper der "vi mot dem"-tenkning dominerer' },
+    { term: 'Desinformasjon', definition: 'Bevisst feilinformasjon som spres for å villede og manipulere' },
+    { term: 'Ekkokamre', definition: 'Lukkede informasjonsmiljøer der man bare møter synspunkter som bekrefter egne meninger' },
+    { term: 'Demokratisk tilbakegang', definition: 'Svekkelse av demokratiske institusjoner og normer i et land' },
+    { term: 'Populisme', definition: 'Politisk stil som setter en motsetning mellom folket og eliten' },
+  ],
 };
 
 // ============================================================================
@@ -5274,8 +5510,16 @@ Skattepolitikk handler ikke bare om tall - det handler om verdier. Hvordan vi te
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Hva en ideologi er**: Et sammenhengende sett av ideer om hvordan samfunnet bør organiseres, med verdier, syn på menneskenaturen og mål\n- **Ideologienes funksjon**: De gir politikken retning, hjelper oss å forstå konflikter og setter ord på verdier og prioriteringer\n- **Sentrale motsetningspar**: Frihet vs. likhet, marked vs. stat, individ vs. fellesskap, endring vs. bevaring og nasjonalt vs. internasjonalt\n- **Ideologienes påvirkning**: Ulike ideologier gir ulike svar på politiske spørsmål som skatt, innvandring og velferd` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Politisk ideologi', definition: 'Et sammenhengende sett av ideer om hvordan samfunnet bør organiseres, med verdier, mål og virkemidler' },
+    { term: 'Normativ', definition: 'Som sier noe om hvordan ting bør være, ikke bare hvordan de er' },
+    { term: 'Frihet vs. likhet', definition: 'Sentralt motsetningspar der ulike ideologier vektlegger individuell frihet eller sosial likhet ulikt' },
+    { term: 'Marked vs. stat', definition: 'Motsetning om hvor mye markedet eller staten bør styre økonomien' },
+    { term: 'Individ vs. fellesskap', definition: 'Spørsmålet om individets rettigheter eller fellesskapets interesser veier tyngst' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_2: TextbookChapter = {
@@ -5484,8 +5728,17 @@ Synet på fattigdom avhenger av grunnleggende verdier: Frihet (liberal), tradisj
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Liberalisme**: Vektlegger individuell frihet, begrenset statsmakt, markedsøkonomi og menneskerettigheter\n- **Konservatisme**: Vektlegger bevaring av det bestående, tradisjon, orden og skepsis til raske endringer\n- **Sosialisme**: Vektlegger likhet, solidaritet, omfordeling og statlig inngripen mot markedets ulikheter\n- **Varianter**: Alle ideologiene finnes i ulike varianter, og moderne partier kombinerer ofte elementer fra flere ideologier` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Liberalisme', definition: 'Ideologi som vektlegger individuell frihet, begrenset statsmakt og markedsøkonomi' },
+    { term: 'Konservatisme', definition: 'Ideologi som vektlegger tradisjon, orden og gradvis endring fremfor radikale reformer' },
+    { term: 'Sosialisme', definition: 'Ideologi som vektlegger likhet, solidaritet og statlig inngripen for rettferdig fordeling' },
+    { term: 'Sosialdemokrati', definition: 'Variant av sosialisme som søker gradvis endring gjennom demokratiske midler' },
+    { term: 'Nyliberalisme', definition: 'Variant av liberalisme som vektlegger marked, privatisering og deregulering' },
+    { term: 'Kommunisme', definition: 'Revolusjonær sosialisme som ønsker avskaffelse av privat eiendom og klasseskiller' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_3: TextbookChapter = {
@@ -5663,8 +5916,17 @@ Norsk politikk er kompleks - partiene skiller seg på mange ulike dimensjoner.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **GAL-TAN-modellen**: En politisk akse som går på tvers av høyre-venstre og fanger opp verdispørsmål om miljø, identitet og tradisjon\n- **Andre ideologier**: Grønn ideologi, feminisme, nasjonalisme, kristendemokrati og libertarianisme utfyller de tre store ideologiene\n- **Politiske skillelinjer**: Norsk politikk preges av skillelinjer som økonomisk venstre-høyre, sentrum-periferi, religiøs-sekulær, innvandring og miljø\n- **Kompleksitet**: Partiene skiller seg på mange dimensjoner som krysser hverandre, og velgere har meninger på tvers av tradisjonelle kategorier` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'GAL-TAN', definition: 'Politisk akse fra Grønn-Alternativ-Libertær til Tradisjonell-Autoritær-Nasjonalistisk, som fanger opp verdispørsmål' },
+    { term: 'Grønn ideologi', definition: 'Ideologi med miljøvern og bærekraftig utvikling som overordnet verdi' },
+    { term: 'Feminisme', definition: 'Politisk bevegelse og ideologi som arbeider for likestilling mellom kjønnene' },
+    { term: 'Nasjonalisme', definition: 'Ideologi som ser nasjonen som det viktigste fellesskapet, fra moderat til ekstrem' },
+    { term: 'Politiske skillelinjer', definition: 'Varige konflikter i samfunnet som preger partienes standpunkter og velgernes valg' },
+    { term: 'Sentrum-periferi', definition: 'Skillelinje mellom storby/sentrum og distrikt/periferi i politikken' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_4: TextbookChapter = {
@@ -5833,8 +6095,16 @@ Populisme er både et symptom på problemer i demokratiet og en potensiell truss
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Hva populisme er**: En politisk stil som bygger på motsetningen mellom "folket" og "eliten", med karismatiske ledere og forenkling\n- **Høyre- og venstrepopulisme**: Høyrepopulisme fokuserer på kulturell elite og nasjonal identitet, venstrepopulisme på økonomisk elite og klassekamp\n- **Populismens utfordringer**: Kan undergrave institusjoner, forenkle komplekse problemer og skape polarisering\n- **Populismens funksjon**: Kan også representere reelle frustrasjoner, utfordre eliter og øke politisk engasjement` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Populisme', definition: 'Politisk stil som baserer seg på motsetningen mellom det ekte folket og en korrupt elite' },
+    { term: 'Antielitisme', definition: 'Kritikk av og motstand mot etablerte eliter som politikere, byråkrater og medier' },
+    { term: 'Høyrepopulisme', definition: 'Populisme som fokuserer på kulturell elite, nasjonal identitet og skepsis til innvandring' },
+    { term: 'Venstrepopulisme', definition: 'Populisme som fokuserer på økonomisk elite, klassekamp og motstand mot kapitalisme' },
+    { term: 'Flertallstyranni', definition: 'Når flertallet undertrykker mindretallets rettigheter uten demokratiske begrensninger' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_5: TextbookChapter = {
@@ -6006,8 +6276,17 @@ Grunnlovsrevisjonen i 2014 tok mange år å forberede, men ble vedtatt med stort
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Grunnloven**: Norges viktigste lov fra 1814, som fastsetter styreform, maktfordeling og grunnleggende rettigheter\n- **Maktfordelingsprinsippet**: Stortinget (lovgivende), regjeringen (utøvende) og domstolene (dømmende) kontrollerer hverandre\n- **Grunnlovens rettigheter**: Ytringsfrihet, religionsfrihet, rettssikkerhet, rett til utdanning og rett til et sunt miljø er blant rettighetene\n- **Grunnlovsendring**: Krever 2/3 flertall og stortingsvalg mellom forslag og vedtak, for å sikre stabilitet og bred enighet` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Grunnloven', definition: 'Norges høyeste rettskilde fra 1814, som fastsetter styreform og grunnleggende rettigheter' },
+    { term: 'Maktfordelingsprinsippet', definition: 'At statsmakten deles i lovgivende, utøvende og dømmende for å hindre maktmisbruk' },
+    { term: 'Trinnhøyde', definition: 'Prinsippet om at Grunnloven har høyere rang enn vanlige lover' },
+    { term: 'Grunnlovsendring', definition: 'Prosessen for å endre Grunnloven, som krever 2/3 flertall og valg mellom forslag og vedtak' },
+    { term: 'Menneskerettighetskapittelet', definition: 'Grunnlovens kapittel E med styrket rettighetsvern, innført ved revisjonen i 2014' },
+    { term: 'Konstitusjonell prøving', definition: 'Domstolenes rett til å prøve om lover strider mot Grunnloven' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_6: TextbookChapter = {
@@ -6182,8 +6461,17 @@ Representantene velges fra 19 valgdistrikter (fylkene) for fire år. Stortinget 
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Stortingets rolle**: 169 representanter som vedtar lover, budsjett og kontrollerer regjeringen\n- **Organisering**: Stortingspresidenten leder, representantene organiseres i partigrupper, og sakene behandles i 12 fagkomiteer\n- **Kontrollmekanismer**: Spørretimen, interpellasjoner, kontrollkomiteen, Riksrevisjonen og mistillitsforslag sikrer at regjeringen holdes ansvarlig\n- **Lovprosessen**: En lov går fra initiativ via utredning, proposisjon og komitebehandling til debatt, vedtak og kongelig sanksjon` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Stortinget', definition: 'Norges nasjonalforsamling og lovgivende makt med 169 representanter' },
+    { term: 'Stortingskomite', definition: 'Fagkomite som behandler saker før de debatteres og voteres over i plenum' },
+    { term: 'Spørretimen', definition: 'Ukentlig seanse der stortingsrepresentanter stiller spørsmål til statsrådene' },
+    { term: 'Riksrevisjonen', definition: 'Stortingets organ for kontroll av statens pengebruk og økonomi' },
+    { term: 'Proposisjon', definition: 'Forslag fra regjeringen til Stortinget, enten lovforslag eller andre saker' },
+    { term: 'Kongelig sanksjon', definition: 'Kongens formelle godkjennelse av en lov vedtatt av Stortinget' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_7: TextbookChapter = {
@@ -6363,8 +6651,17 @@ Etter valget ble det klart at Ap og Sp ville danne regjering. Forhandlet frem Hu
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Regjeringens rolle**: Regjeringen leder den daglige styringen, foreslår lover og budsjett, og setter vedtak ut i livet\n- **Parlamentarisme**: Regjeringen må ha Stortingets tillit, og Norge har negativ parlamentarisme der det kreves flertall mot regjeringen\n- **Departementene**: Regjeringens sekretariater ledet av statsråder, med underliggende direktorater og etater som NAV og Skatteetaten\n- **Regjeringsdannelse**: Etter valg sonderes det om hvem som kan danne regjering, det forhandles om plattform, og kongen utnevner statsminister og statsråder` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Regjeringen', definition: 'Den utøvende makt som leder den daglige styringen av landet, ledes av statsministeren' },
+    { term: 'Statsminister', definition: 'Regjeringens leder som utnevnes av kongen etter å ha sikret støtte i Stortinget' },
+    { term: 'Departement', definition: 'Regjeringens sekretariat ledet av en statsråd, som forbereder og gjennomfører politikk' },
+    { term: 'Koalisjonsregjering', definition: 'Regjering bestående av flere partier som samarbeider' },
+    { term: 'Kabinettspørsmål', definition: 'Når regjeringen knytter sin skjebne til en bestemt sak i Stortinget' },
+    { term: 'Regjeringsplattform', definition: 'Politisk avtale mellom regjeringspartiene om hvilken politikk de skal føre' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_8: TextbookChapter = {
@@ -6527,8 +6824,17 @@ Hvis dømt til fengsel, sones straffen i fengsel. Norge har fokus på rehabilite
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-8-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Domstolenes rolle**: Avgjøre straffe- og sivile saker, tolke lover og kontrollere at lover ikke strider mot Grunnloven\n- **Domstolshierarkiet**: Tingrettene (første instans), lagmannsrettene (ankedomstol) og Høyesterett (øverste domstol)\n- **Rettssikkerhet**: Borgernes vern mot overgrep, med prinsipper som legalitet, uskyldspresumsjon, rett til forsvarer og ankerett\n- **Uavhengighet**: Domstolene er uavhengige av Storting og regjering, noe som er en grunnpilar i rettsstaten` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Tingrett', definition: 'Første instans i domstolshierarkiet der de fleste saker behandles først' },
+    { term: 'Lagmannsrett', definition: 'Andre instans som behandler saker etter anke fra tingretten' },
+    { term: 'Høyesterett', definition: 'Norges øverste domstol som behandler prinsipielle saker og setter presedens' },
+    { term: 'Rettssikkerhet', definition: 'Borgernes vern mot overgrep fra staten og garanti for rettferdig behandling' },
+    { term: 'Legalitetsprinsippet', definition: 'Prinsippet om at ingen kan straffes uten hjemmel i lov' },
+    { term: 'Uskyldspresumsjon', definition: 'Prinsippet om at alle er uskyldige inntil det motsatte er bevist' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_9: TextbookChapter = {
@@ -6708,8 +7014,17 @@ Det tar vanligvis mange år å bygge seg opp i et parti. De fleste stortingsrepr
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-9-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Partienes funksjoner**: Rekruttere politikere, utvikle programmer, mobilisere velgere og koble folkets ønsker til politiske vedtak\n- **Partienes organisering**: Hierarkisk fra lokallag via fylkeslag til sentralt nivå, med landsmøtet som øverste organ\n- **Finansiering**: Partiene finansieres hovedsakelig gjennom statlig partistøtte, pluss medlemskontingent, gaver og lotteri\n- **Nominasjon**: Prosessen der kandidater velges ut til stortingslisten gjennom nominasjonskomite og fylkesårsmøte` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Partiprogram', definition: 'Dokumentet som beskriver et partis politiske mål og standpunkter, vedtatt av landsmøtet' },
+    { term: 'Landsmøte', definition: 'Partiets øverste organ som vedtar program, velger leder og trekker opp den politiske kursen' },
+    { term: 'Nominasjon', definition: 'Prosessen der partiene velger ut kandidater til valglisten' },
+    { term: 'Statlig partistøtte', definition: 'Offentlig finansiering av partiene fordelt etter oppslutning ved valg' },
+    { term: 'Ungdomsparti', definition: 'Partiets ungdomsorganisasjon som rekrutterer og skolerer unge politikere' },
+    { term: 'Stortingsgruppe', definition: 'Partiets folkevalgte representanter på Stortinget' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_10: TextbookChapter = {
@@ -6894,8 +7209,17 @@ Lovprosessen sikrer at viktige beslutninger tas på et solid grunnlag med bred d
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-10-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Lovprosessens faser**: Fra initiativ via utredning, høring, proposisjon, komitebehandling til vedtak og sanksjon\n- **Viktige dokumenter**: NOU (utredning), høringssvar (innspill), proposisjon (forslag) og innstilling (komiteens vurdering)\n- **Høringens betydning**: Sikrer at alle berørte stemmer høres, avdekker problemer og styrker demokratisk legitimitet\n- **Kvalitetssikring**: Lovprosessen tar tid for å sikre grundig behandling og bred forankring` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'NOU', definition: 'Norges offentlige utredninger; grundige analyser utarbeidet av offentlige utvalg' },
+    { term: 'Høring', definition: 'Prosess der lovforslag sendes ut til berørte parter for skriftlige innspill' },
+    { term: 'Proposisjon', definition: 'Regjeringens formelle forslag til Stortinget om ny lov eller annet vedtak' },
+    { term: 'Innstilling', definition: 'Stortingskomiteens vurdering og anbefaling til Stortinget i plenum' },
+    { term: 'Sanksjon', definition: 'Kongens formelle godkjennelse som gjør et lovvedtak til gjeldende lov' },
+    { term: 'Lovdata', definition: 'Database der alle norske lover og forskrifter kunngjøres og er tilgjengelige' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_11: TextbookChapter = {
@@ -7061,8 +7385,17 @@ Kommunestrukturen er stadig under debatt. Balansen mellom stordriftsfordeler og 
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-11-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Lokalt selvstyre**: Kommunene styres av folkevalgte og har ansvar for mange viktige tjenester nært innbyggerne\n- **Kommunens organisering**: Kommunestyret er øverste organ, formannskapet forbereder, ordføreren leder og kommunedirektøren styrer administrasjonen\n- **Stat og kommune**: Det er spenning mellom statlig styring med lover og minstekrav, og kommunalt selvstyre med egne prioriteringer\n- **Kommunereformen**: Antall kommuner ble redusert for å skape større og mer robuste enheter, men debatten om størrelse fortsetter` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Lokalt selvstyre', definition: 'Prinsippet om at kommuner og fylkeskommuner har rett til å styre seg selv innenfor lovens rammer' },
+    { term: 'Kommuneloven', definition: 'Loven som regulerer hvordan kommunene skal organiseres og styres' },
+    { term: 'Statsforvalteren', definition: 'Statens representant i fylket som fører tilsyn med kommunene og behandler klager' },
+    { term: 'Rammetilskudd', definition: 'Statlige overføringer til kommunene som kommunen kan disponere fritt' },
+    { term: 'Øremerket tilskudd', definition: 'Statlige overføringer som er bundet til bestemte formål' },
+    { term: 'Kommunereformen', definition: 'Prosessen med sammenslåing av kommuner for å skape større og mer robuste enheter' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_5_12: TextbookChapter = {
@@ -7237,8 +7570,17 @@ Mediene er mektige, men avhengige av kilder (også mektige). Forholdet mellom me
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-5-12-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Politisk påvirkning**: Mange aktører påvirker politikken, fra interesseorganisasjoner og lobbyister til medier og enkeltborgere\n- **Interesseorganisasjoner**: Organisasjoner som LO, NHO og Naturvernforbundet representerer gruppers interesser overfor myndighetene\n- **Lobbyisme**: Profesjonell påvirkning av politiske beslutninger som gir informasjon, men kan gi ressurssterke aktører fordeler\n- **Medienes rolle**: Mediene påvirker politikken gjennom dagsordenfunksjonen, vaktbikkjerollen, som debattarena og gjennom tolkningsrammer` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Interesseorganisasjon', definition: 'Organisasjon som representerer bestemte gruppers interesser overfor myndighetene' },
+    { term: 'Lobbyisme', definition: 'Profesjonell påvirkning av politiske beslutninger på vegne av klienter' },
+    { term: 'Korporatisme', definition: 'System der store organisasjoner har formell innflytelse gjennom trepartssamarbeid og utvalg' },
+    { term: 'Dagsordenfunksjonen', definition: 'Medienes makt til å bestemme hvilke saker som diskuteres i offentligheten' },
+    { term: 'Vaktbikkjerollen', definition: 'Medienes oppgave med å avdekke kritikkverdige forhold og holde makten ansvarlig' },
+    { term: 'Svingdører', definition: 'At politikere går over til lobbybransjen eller omvendt, noe som reiser habilitetsspørsmål' },
+  ],
 };
 
 // ============================================================================
@@ -7408,8 +7750,17 @@ Selv om erklæringen ikke er juridisk bindende, er den blitt internasjonal sedva
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Hva menneskerettigheter er**: Grunnleggende rettigheter som tilkommer alle mennesker i kraft av deres menneskeverd, universelle og umistelige\n- **Historisk bakgrunn**: Fra naturrettsfilosofien via den franske revolusjonen til FNs verdenserklæring i 1948 etter andre verdenskrig\n- **FNs verdenserklæring**: 30 artikler med grunnleggende rettigheter, ikke juridisk bindende men med stor moralsk autoritet\n- **Rettighetenes grunnlag**: Ulike begrunnelser fra naturrett, samfunnskontrakt og menneskelig verdighet, med debatt om universalitet` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Menneskerettigheter', definition: 'Grunnleggende rettigheter som tilkommer alle mennesker i kraft av at de er mennesker' },
+    { term: 'Universelle rettigheter', definition: 'Rettigheter som gjelder for alle mennesker uavhengig av statsborgerskap, kjønn eller religion' },
+    { term: 'FNs verdenserklæring', definition: 'Erklæring fra 1948 med 30 artikler om grunnleggende rettigheter, vedtatt etter andre verdenskrig' },
+    { term: 'Naturrett', definition: 'Filosofisk tradisjon som hevder at mennesker har medfødte rettigheter uavhengig av hva staten bestemmer' },
+    { term: 'Umistelige rettigheter', definition: 'Rettigheter som ikke kan tas fra et menneske' },
+    { term: 'Kulturrelativisme', definition: 'Synspunktet om at verdier og rettigheter må forstås i sin kulturelle kontekst' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_2: TextbookChapter = {
@@ -7572,8 +7923,17 @@ Begge typer må oppfylles for at mennesker skal leve verdige liv.`,
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Sivile og politiske rettigheter**: Frihet fra statlige overgrep, som ytringsfrihet, religionsfrihet, stemmerett og rettssikkerhet\n- **Økonomiske, sosiale og kulturelle rettigheter**: Frihet til velferd, som rett til arbeid, utdanning, helse, mat og bolig\n- **Forskjellen**: SP-rettigheter er negative (staten avstår), ØSK-rettigheter er positive (staten sørger for), men begge er like viktige\n- **Sammenhengen**: Rettighetene er udelelige og gjensidig avhengige; sivile rettigheter uten sosiale er formelle, sosiale uten sivile er ufrie` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Sivile rettigheter', definition: 'Rettigheter som beskytter individet mot statlige overgrep, som ytringsfrihet og rettssikkerhet' },
+    { term: 'Politiske rettigheter', definition: 'Rettigheter til å delta i det politiske livet, som stemmerett og organisasjonsfrihet' },
+    { term: 'ØSK-rettigheter', definition: 'Økonomiske, sosiale og kulturelle rettigheter som rett til arbeid, utdanning og helse' },
+    { term: 'Negative rettigheter', definition: 'Rettigheter der staten skal avstå fra inngrep, typisk sivile og politiske rettigheter' },
+    { term: 'Positive rettigheter', definition: 'Rettigheter der staten aktivt skal sørge for noe, typisk økonomiske og sosiale rettigheter' },
+    { term: 'Udelelige rettigheter', definition: 'Prinsippet om at alle rettigheter henger sammen og er like viktige' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_3: TextbookChapter = {
@@ -7776,8 +8136,17 @@ Likevel: FN-systemet setter **standarder**, dokumenterer **overgrep** og skaper 
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **FNs rolle**: FN ble grunnlagt i 1945 og har menneskerettigheter som sentral oppgave, med Verdenserklæringen fra 1948 som grunnlag\n- **Konvensjonene**: SP-konvensjonen og ØSK-konvensjonen fra 1966 er juridisk bindende, sammen med spesialkonvensjoner for barn, kvinner og andre grupper\n- **Overvåkingssystemet**: Konvensjonsorganer behandler statsrapporter, Menneskerettighetsrådet gjennomfører UPR, og høykommissæren overvåker\n- **Begrensninger**: FN mangler tvangsmakt, systemet er politisert, og stater kan motarbeide overvåking` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'FNs verdenserklæring', definition: 'Erklæring fra 1948 med 30 artikler om grunnleggende rettigheter, moralsk forpliktende' },
+    { term: 'Konvensjon', definition: 'Internasjonal avtale som er juridisk bindende for stater som ratifiserer den' },
+    { term: 'Ratifisering', definition: 'Formell godkjenning av en internasjonal avtale som gjør den bindende for staten' },
+    { term: 'Menneskerettighetsrådet', definition: 'FN-organ med 47 medlemsland som overvåker menneskerettighetssituasjonen i verden' },
+    { term: 'UPR', definition: 'Universal Periodic Review; regelmessig gjennomgang av alle FN-lands menneskerettighetspraksis' },
+    { term: 'Barnekonvensjonen', definition: 'FN-konvensjon fra 1989 som fastsetter egne rettigheter for barn under 18 år' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_4: TextbookChapter = {
@@ -7969,8 +8338,17 @@ Det europeiske menneskerettighetssystemet skiller seg fra FN-systemet:
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Europarådet**: Grunnlagt i 1949 med 46 medlemsland for å fremme demokrati, menneskerettigheter og rettsstat\n- **EMK**: Den europeiske menneskerettskonvensjonen fra 1950 beskytter sivile og politiske rettigheter og er juridisk bindende\n- **EMD**: Den europeiske menneskerettsdomstolen i Strasbourg behandler individklager og avsier bindende dommer\n- **Styrken**: Det europeiske systemet er sterkere enn FNs fordi det har bindende dommer, individklagerett og effektiv oppfølging` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Europarådet', definition: 'Europeisk organisasjon med 46 medlemsland som fremmer demokrati, menneskerettigheter og rettsstat' },
+    { term: 'EMK', definition: 'Den europeiske menneskerettskonvensjonen fra 1950, juridisk bindende for alle medlemsland' },
+    { term: 'EMD', definition: 'Den europeiske menneskerettsdomstolen i Strasbourg som behandler klager om brudd på EMK' },
+    { term: 'Individklagerett', definition: 'Enkeltpersoners rett til å klage staten inn for EMD ved brudd på rettigheter' },
+    { term: 'Den europeiske sosialpakten', definition: 'Europeisk konvensjon som dekker økonomiske og sosiale rettigheter' },
+    { term: 'Ministerkomitéen', definition: 'Europarådets organ som overvåker at stater følger opp EMDs dommer' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_5: TextbookChapter = {
@@ -8185,8 +8563,17 @@ Norge mottar jevnlig kritikk og anbefalinger fra FN-organer og EMD. Det er debat
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Grunnlovsvern**: Menneskerettighetene er beskyttet i Grunnlovens kapittel E med rettigheter som ytringsfrihet, rettssikkerhet og rett til utdanning\n- **Menneskerettsloven**: Gjør fem sentrale konvensjoner til norsk lov med forrang ved motstrid\n- **Institusjoner**: NIM, LDO, Sivilombudet, Barneombudet og domstolene arbeider med menneskerettigheter i Norge\n- **Utfordringer**: Samiske rettigheter, barnefattigdom, sårbare grupper og balansen mellom ytringsfrihet og hatprat er aktuelle spørsmål` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Menneskerettsloven', definition: 'Norsk lov fra 1999 som gjør fem sentrale konvensjoner til norsk lov med forrang' },
+    { term: 'Forrangsbestemmelsen', definition: 'Regelen om at konvensjonene i menneskerettsloven går foran annen norsk lov ved motstrid' },
+    { term: 'NIM', definition: 'Norges institusjon for menneskerettigheter, uavhengig organ som overvåker menneskerettighetssituasjonen' },
+    { term: 'Likestillings- og diskrimineringsombudet', definition: 'Organ som arbeider for likestilling og mot diskriminering i Norge' },
+    { term: 'Sivilombudet', definition: 'Uavhengig organ som behandler klager mot offentlig forvaltning' },
+    { term: 'Grunnloven paragraf 92', definition: 'Bestemmelsen om at myndighetene skal sikre menneskerettighetene' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_6: TextbookChapter = {
@@ -8388,8 +8775,17 @@ FNs barnekomité overvåker statenes etterlevelse og gir anbefalinger. Norge mot
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Barnekonvensjonen**: FN-konvensjon fra 1989 med 54 artikler som beskytter alle mennesker under 18 år\n- **Fire grunnprinsipper**: Ikke-diskriminering, barnets beste, rett til liv og utvikling, og rett til å bli hørt\n- **Barns rettigheter i Norge**: Beskyttet gjennom Grunnloven, barneloven, barnevernsloven og Barneombudet\n- **Utfordringer**: Barnefattigdom, psykisk uhelse, mobbing og barnearbeid er utfordringer både i Norge og globalt` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'FNs barnekonvensjon', definition: 'FN-konvensjon fra 1989 som fastsetter egne rettigheter for alle mennesker under 18 år' },
+    { term: 'Barnets beste', definition: 'Prinsippet om at barnets beste skal være et grunnleggende hensyn i alle avgjørelser som berører barn' },
+    { term: 'Barneombudet', definition: 'Uavhengig talsmann for barn og unges interesser i Norge' },
+    { term: 'Barneloven', definition: 'Norsk lov som regulerer forholdet mellom barn og foreldre, inkludert foreldreansvar og samvær' },
+    { term: 'Barnevernsloven', definition: 'Norsk lov som beskytter barn mot omsorgssvikt og sikrer barnets beste' },
+    { term: 'Barnefattigdom', definition: 'At barn vokser opp i familier med vedvarende lavinntekt, rammer ca. 12 prosent av barn i Norge' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_6_7: TextbookChapter = {
@@ -8616,8 +9012,17 @@ Menneskerettighetene er ikke perfekte, men de representerer en felles standard f
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-6-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Rettighetskollisjoner**: Rettigheter kan komme i konflikt, som ytringsfrihet vs. hatprat, eller privatliv vs. sikkerhet\n- **Avveining**: Forholdsmessighetsvurdering med vekt på nødvendighet, proporsjonalitet og rettighetens kjerne brukes for å løse konflikter\n- **Universalisme vs. kulturrelativisme**: Debatt om menneskerettighetene er universelle standarder eller vestlige verdier\n- **Håndhevelse**: Utfordringer med suverenitet, manglende tvangsmakt, politisering og ressursmangel gjør det vanskelig å håndheve rettighetene internasjonalt` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Rettighetskollisjon', definition: 'Situasjon der ulike menneskerettigheter trekker i motsatt retning og må avveies' },
+    { term: 'Forholdsmessighetsvurdering', definition: 'Juridisk avveining av om et inngrep i en rettighet er nødvendig og proporsjonalt' },
+    { term: 'Universalisme', definition: 'Synet på at menneskerettighetene gjelder for alle uavhengig av kultur og tradisjon' },
+    { term: 'Kulturrelativisme', definition: 'Synet på at verdier og rettigheter er kulturelt betinget og ikke kan påtvinges utenfra' },
+    { term: 'Suverenitetsprinsippet', definition: 'Staters rett til selvbestemmelse, som kan komme i konflikt med internasjonale menneskerettigheter' },
+    { term: 'Absolutte rettigheter', definition: 'Rettigheter som aldri kan fravikes, som forbudet mot tortur' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_1: TextbookChapter = {
@@ -8830,8 +9235,18 @@ Ytringsfrihet er ikke absolutt. Noen ytringer er forbudt:
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-7-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Ytringsfrihet**: Retten til å uttrykke meninger uten forhåndssensur, begrunnet i sannhetsargumentet, demokratiargumentet og autonomiargumentet\n- **Rettslig vern**: Grunnloven § 100, EMK artikkel 10 og FN-konvensjoner beskytter ytringsfriheten\n- **Grenser for ytringsfrihet**: Hatefulle ytringer, ærekrenkelser, privatlivets fred og trusler er ikke beskyttet\n- **Vanskelige avveininger**: Balansen mellom ytringsfrihet og vern av utsatte grupper krever proporsjonalitet og kontekstvurdering\n- **Moderne utfordringer**: Digitalisering, chilling effect, polarisering og privat sensur utfordrer ytringsfriheten` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Ytringsfrihet', definition: 'Retten til å uttrykke meninger, tanker og informasjon uten forhåndssensur fra myndighetene.' },
+    { term: 'Sannhetsargumentet', definition: 'Begrunnelsen om at fri meningsutveksling fører til bedre erkjennelse av sannheten.' },
+    { term: 'Demokratiargumentet', definition: 'Begrunnelsen om at demokratiet krever informerte borgere og fri debatt.' },
+    { term: 'Autonomiargumentet', definition: 'Begrunnelsen om at mennesker har rett til å forme egne meninger som uttrykk for personlig frihet.' },
+    { term: 'Hatefulle ytringer', definition: 'Ytringer som truer, forhåner eller fremmer hat mot grupper basert på hudfarge, religion, seksuell orientering m.m. (strl. § 185).' },
+    { term: 'Chilling effect', definition: 'Når folk sensurerer seg selv av frykt for negative konsekvenser ved å ytre seg.' },
+    { term: 'Grunnloven § 100', definition: 'Norges ytringsfrihetsparagraf som gir vern for fri meningsdannelse, ytring og forbud mot forhåndssensur.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_2: TextbookChapter = {
@@ -9031,8 +9446,18 @@ Uten frie medier ville:
         allowsCanvasDrawing: true,
       },
     },
+    { id: 'samfunnskunnskap-7-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Den fjerde statsmakt**: Mediene gransker og kontrollerer de tre statsmaktene og er en forutsetning for demokratiet\n- **Medienes funksjoner**: Informasjonsfunksjonen, vakthundfunksjonen, arenafunksjonen og kommentarfunksjonen\n- **Pressefrihet**: Redaksjonell frihet, kildevern og innsynsrett, regulert av Vær varsom-plakaten og PFU\n- **Utfordringer**: Økonomisk press, konsentrasjon av eierskap, konkurranse fra sosiale medier og synkende tillit\n- **Medienes makt og ansvar**: Dagsordenfunksjon og vinkling gir mediene stor innflytelse over den offentlige debatten` },
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Den fjerde statsmakt', definition: 'Betegnelsen på medienes rolle som gransker av de tre statsmaktene (Storting, regjering, domstoler).' },
+    { term: 'Pressefrihet', definition: 'Medienes særlige ytringsfrihet, inkludert redaksjonell frihet og kildevern.' },
+    { term: 'Kildevern', definition: 'Journalisters rett til å beskytte identiteten til sine kilder.' },
+    { term: 'Vær varsom-plakaten', definition: 'Medienes egne etiske retningslinjer, vedtatt av Norsk Presseforbund.' },
+    { term: 'PFU', definition: 'Pressens Faglige Utvalg, som håndhever Vær varsom-plakaten.' },
+    { term: 'Dagsordenfunksjonen', definition: 'Medienes makt til å påvirke hva folk er opptatt av ved å velge hvilke saker som dekkes.' },
+    { term: 'Vakthundfunksjonen', definition: 'Medienes rolle med å avdekke maktmisbruk og stille makthavere til ansvar.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_3: TextbookChapter = {
@@ -9238,8 +9663,18 @@ Det norske mediemarkedet preges av **konsentrasjon** – få store aktører kont
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-7-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **NRK**: Norges allmennkringkaster med samfunnsoppdrag om å informere, utdanne og underholde, finansiert over statsbudsjettet\n- **Avistradisjonen**: Norge har høy avislesing med nasjonale, regionale og over 200 lokalaviser\n- **Medieeierskap**: Konsentrasjon rundt Schibsted, Amedia og Polaris Media med risiko for mindre mangfold\n- **Pressestøtte**: Staten sikrer mediemangfold gjennom produksjonstilskudd, innovasjonsstøtte og momsfritak\n- **Mediepolitikk**: Aktiv offentlig politikk for å balansere markedskrefter og sikre kvalitetsjournalistikk` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Allmennkringkaster', definition: 'Medieinstitusjon med samfunnsoppdrag om å informere, utdanne og underholde hele befolkningen (NRK i Norge).' },
+    { term: 'Pressestøtte', definition: 'Offentlig støtte til medier for å sikre mediemangfold og kvalitetsjournalistikk.' },
+    { term: 'Mediekonsentrasjon', definition: 'At få store aktører kontrollerer mange medier, noe som kan true mangfoldet.' },
+    { term: 'Produksjonstilskudd', definition: 'Statlig støtte til aviser med svak økonomi, spesielt nummer to-aviser og nisjeaviser.' },
+    { term: 'Schibsted', definition: 'Norsk mediekonsern som eier VG, Aftenposten og Bergens Tidende.' },
+    { term: 'Amedia', definition: 'Norges største aviskonsern etter opplag, eier over 80 lokale og regionale aviser.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_4: TextbookChapter = {
@@ -9469,8 +9904,18 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-7-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Sosiale mediers kjennetegn**: Brukergenerert innhold, deling, nettverkseffekter og algoritmisk distribusjon\n- **Algoritmer**: Styrer hva du ser basert på din aktivitet, med både positive og negative konsekvenser\n- **Ekkokammer og filterbobler**: Kan forsterke eksisterende holdninger og svekke felles kunnskapsgrunnlag\n- **Demokrati**: Sosiale medier gir lavere terskel for deltakelse, men kan også spre feilinformasjon og hatprat\n- **Regulering**: Debatt om balansen mellom ytringsfrihet og beskyttelse mot skadelig innhold` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Sosiale medier', definition: 'Nettbaserte plattformer der brukerne selv skaper og deler innhold, som Facebook, Instagram og TikTok.' },
+    { term: 'Algoritme', definition: 'Dataprogram som bestemmer hvilket innhold du ser i sosiale medier basert på din aktivitet.' },
+    { term: 'Ekkokammer', definition: 'Situasjon der man hovedsakelig eksponeres for synspunkter man allerede er enig i.' },
+    { term: 'Filterboble', definition: 'Når algoritmer filtrerer bort informasjon som ikke passer dine preferanser.' },
+    { term: 'Polarisering', definition: 'Økt avstand mellom ulike gruppers synspunkter i samfunnet.' },
+    { term: 'Digital Services Act', definition: 'EUs lovgivning som stiller krav til plattformers innholdsmoderering og transparens.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_5: TextbookChapter = {
@@ -9695,8 +10140,18 @@ I stedet for å vurdere kilden grundig fra innsiden (vertikal lesing), åpner du
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-7-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Kildekritiske prinsipper**: Hvem står bak, hva er formålet, når ble det publisert, og hvordan er det fremstilt\n- **Kildetyper**: Primær-, sekundær- og tertiærkilder har ulik pålitelighet\n- **Faktasjekk**: Identifiser påstanden, finn primærkilden, sjekk flere kilder og bruk faktasjekktjenester\n- **Varselstegn**: Sensasjonelle overskrifter, ukjent avsender, manglende kilder og sterke følelsesladede formuleringer\n- **Laterallesing**: Søk informasjon om kilden i stedet for bare å lese innholdet` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Kildekritikk', definition: 'Metoder for å vurdere om informasjon er pålitelig, sann og relevant.' },
+    { term: 'Primærkilde', definition: 'Førstehånds vitnesbyrd eller originaldokumenter, oftest den mest troverdige kildetypen.' },
+    { term: 'Sekundærkilde', definition: 'Fortolkninger og analyser basert på primærkilder, som journalistikk og lærebøker.' },
+    { term: 'Faktasjekk', definition: 'Systematisk verifisering av om påstander stemmer med virkeligheten.' },
+    { term: 'Laterallesing', definition: 'Faktasjekkteknikk der man søker informasjon om kilden i stedet for å vurdere den innenfra.' },
+    { term: 'Bekreftelsesbias', definition: 'Tendensen til å lettere tro på informasjon som bekrefter det vi allerede mener.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_6: TextbookChapter = {
@@ -9918,8 +10373,19 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-7-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Begreper**: Forskjellen mellom feilinformasjon (utilsiktet), desinformasjon (bevisst) og propaganda (ensidig)\n- **Spredning**: Algoritmer, bekreftelsesbias, følelsesappell og profesjonelle aktører bidrar til rask spredning\n- **Konsekvenser**: Undergraver tillit til institusjoner, påvirker valg og forverrer polarisering\n- **Mottiltak**: Kritisk tenkning, faktasjekk, mediekompetanse i skolen og prebunking er effektive strategier\n- **Demokratiets forsvar**: Balanse mellom å bekjempe desinformasjon og bevare ytringsfriheten` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Feilinformasjon', definition: 'Falsk informasjon som spres uten intensjon om å villede (misinformation).' },
+    { term: 'Desinformasjon', definition: 'Falsk informasjon som bevisst spres for å villede og manipulere (disinformation).' },
+    { term: 'Propaganda', definition: 'Ensidig informasjon som bevisst brukes for å påvirke holdninger, kan være sann men partisk.' },
+    { term: 'Konspirasjonsteorier', definition: 'Forklaringer basert på hemmelige sammensvergelser, ofte immune mot motbevis.' },
+    { term: 'Prebunking', definition: 'Å forberede folk på desinformasjonsteknikker før de eksponeres for dem.' },
+    { term: 'Bekreftelsesbias', definition: 'Tendensen til å lettere tro på informasjon som bekrefter eksisterende syn.' },
+    { term: 'Trollfabrikk', definition: 'Organisert gruppe som systematisk sprer desinformasjon og propaganda på nett.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_7_7: TextbookChapter = {
@@ -10147,8 +10613,19 @@ EUs personvernforordning fra 2018, også gjeldende i Norge:
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-7-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Personvern**: Retten til å kontrollere informasjon om seg selv, viktig for autonomi og demokrati\n- **Digitale spor**: Vi legger igjen aktive, passive og metadata-spor i alt vi gjør digitalt\n- **Overvåkning**: Både kommersiell (tech-selskaper) og statlig overvåkning reiser personvernutfordringer\n- **GDPR**: Gir rettigheter som innsyn, retting, sletting og dataportabilitet, håndhevet av Datatilsynet\n- **Beskyttelse**: Sterke passord, bevisste valg om deling og bruk av rettigheter er viktige tiltak` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Personvern', definition: 'Retten til å kontrollere informasjon om seg selv.' },
+    { term: 'Digitale spor', definition: 'Data vi legger igjen ved bruk av digitale tjenester, både aktivt og passivt.' },
+    { term: 'GDPR', definition: 'EUs personvernforordning fra 2018 som også gjelder i Norge, gir rettigheter som innsyn, retting og sletting.' },
+    { term: 'Overvåkningskapitalisme', definition: 'Forretningsmodeller basert på å høste og selge persondata.' },
+    { term: 'Metadata', definition: 'Data om data, som når, hvor og med hvem du kommuniserte.' },
+    { term: 'Datatilsynet', definition: 'Norsk tilsynsmyndighet for personvern som kan gi bøter og pålegg.' },
+    { term: 'Retten til å bli glemt', definition: 'Rett til å kreve sletting av personopplysninger etter GDPR.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_1: TextbookChapter = {
@@ -10344,8 +10821,18 @@ Statsbudsjettet fordeles på:
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Velferdsstaten**: Norge tar ansvar for innbyggernes velferd gjennom universelle, skattefinansierte ordninger\n- **Prinsipper**: Universalisme, omfordeling, sosial trygghet og likhet er grunnpilarene\n- **Finansiering**: Skatter, avgifter og avkastning fra Oljefondet finansierer velferdsstaten\n- **Ordninger**: Folketrygden gir sykepenger, dagpenger, uføretrygd, pensjon og foreldrepenger\n- **Historisk utvikling**: Fra fattiglover på 1800-tallet til dagens omfattende velferdsstat` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Velferdsstat', definition: 'Stat som tar ansvar for innbyggernes velferd gjennom offentlige ordninger.' },
+    { term: 'Universalisme', definition: 'Prinsipp om at velferdsordninger gjelder alle, ikke bare de fattige.' },
+    { term: 'Folketrygden', definition: 'Norges grunnleggende trygdeordning som gir rett til pensjon, sykepenger og andre ytelser.' },
+    { term: 'Omfordeling', definition: 'At staten tar skatt etter evne og gir ytelser etter behov for å redusere ulikhet.' },
+    { term: 'NAV', definition: 'Arbeids- og velferdsforvaltningen som samler arbeidsformidling, trygd og sosialtjenester.' },
+    { term: 'Handlingsregelen', definition: 'Regelen om at staten kun skal bruke forventet realavkastning (3%) fra Oljefondet.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_2: TextbookChapter = {
@@ -10544,8 +11031,18 @@ La oss si du tjener **500 000 kr** i året:
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Skattens funksjoner**: Finansiere fellesgoder, omfordele, styre atferd og stabilisere økonomien\n- **Skattetyper**: Direkte skatter (inntekt, formue) og indirekte skatter (moms, særavgifter)\n- **Progressiv beskatning**: Skatten øker med inntekten gjennom trinnsskatten\n- **Skattedebatt**: Uenighet mellom høyre- og venstresiden om skattenivå og omfordeling\n- **Internasjonale hensyn**: Skattekonkurranse mellom land og utfordringer med skatteparadiser` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Progressiv beskatning', definition: 'Skattesystem der skatteprosenten øker med inntekten.' },
+    { term: 'Direkte skatt', definition: 'Skatt som betales direkte av den som ilegges, som inntektsskatt og formuesskatt.' },
+    { term: 'Indirekte skatt', definition: 'Skatt inkludert i prisen på varer og tjenester, som merverdiavgift (moms).' },
+    { term: 'Trinnsskatt', definition: 'Progressiv skatt der satsen øker i trinn med stigende inntekt.' },
+    { term: 'Merverdiavgift', definition: 'Avgift på omsetning av varer og tjenester, 25% på de fleste varer i Norge.' },
+    { term: 'Arbeidsgiveravgift', definition: 'Avgift arbeidsgivere betaler til staten basert på lønnsutbetalinger.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_3: TextbookChapter = {
@@ -10724,8 +11221,18 @@ Overføring fra Oljefondet etter handlingsregelen.
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Statsbudsjettet**: Statens økonomiske plan som viser regjeringens prioriteringer\n- **Budsjettprosessen**: Fra departementenes forslag via finanskomitéen til Stortingets vedtak\n- **Inntekter**: Skatter og avgifter (80%), petroleumsinntekter og overføring fra Oljefondet\n- **Utgifter**: Folketrygden, helse, kommuneoverføringer og utdanning er de største postene\n- **Handlingsregelen**: Sikrer at vi kun bruker forventet realavkastning (3%) fra Oljefondet` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Statsbudsjettet', definition: 'Statens økonomiske plan for det kommende året, vedtatt av Stortinget.' },
+    { term: 'Handlingsregelen', definition: 'Regelen om at vi kun skal bruke forventet realavkastning (3%) fra Oljefondet i statsbudsjettet.' },
+    { term: 'Bundne utgifter', definition: 'Utgifter staten er forpliktet til, som pensjoner og trygder, som vanskelig kan kuttes.' },
+    { term: 'Finanskomitéen', definition: 'Stortingskomitéen som behandler helheten i statsbudsjettet.' },
+    { term: 'Revidert budsjett', definition: 'Justert versjon av statsbudsjettet som legges frem i mai.' },
+    { term: 'Strukturelt underskudd', definition: 'Forskjellen mellom statens utgifter og inntekter (ekskl. oljepenger), dekkes av Oljefondet.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_4: TextbookChapter = {
@@ -10822,8 +11329,18 @@ Norge har omfattende velferdsordninger som sikrer innbyggerne trygghet gjennom l
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **NAV**: Samler arbeidsformidling, trygdeforvaltning og sosialtjenester i én etat\n- **Sykepenger**: 100% dekning i inntil ett år, arbeidsgiver dekker de første 16 dagene\n- **Dagpenger og AAP**: Ytelser ved arbeidsledighet og avklaring av arbeidsevne\n- **Uføretrygd og pensjon**: Langsiktige ytelser ved varig nedsatt arbeidsevne eller alderdom\n- **Foreldrepenger**: Sikrer inntekt ved fødsel og fordeles mellom foreldrene` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'NAV', definition: 'Arbeids- og velferdsforvaltningen, opprettet 2006 ved sammenslåing av Aetat, trygdeetaten og sosialtjenesten.' },
+    { term: 'Sykepenger', definition: 'Ytelse som gir 100% av lønn (opp til 6G) i inntil ett år ved sykdom.' },
+    { term: 'Dagpenger', definition: 'Ytelse ved arbeidsledighet, ca. 62% av tidligere inntekt.' },
+    { term: 'Uføretrygd', definition: 'Ytelse ved varig nedsatt arbeidsevne, 66% av tidligere inntekt.' },
+    { term: 'Alderspensjon', definition: 'Pensjon fra 67 år (fleksibelt fra 62) som opptjenes gjennom arbeid.' },
+    { term: 'Foreldrepenger', definition: 'Ytelse ved fødsel eller adopsjon, 100% eller 80% av lønn.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_5: TextbookChapter = {
@@ -10927,8 +11444,17 @@ Etikkrådet gir anbefalinger om utelukkelse av selskaper.
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Oljefondets formål**: Sikre langsiktig forvaltning av petroleumsinntektene for fremtidige generasjoner\n- **Forvaltning**: NBIM investerer i aksjer (70%), obligasjoner (27%) og eiendom (3%) globalt\n- **Handlingsregelen**: Vi bruker kun forventet realavkastning (3%) i statsbudsjettet\n- **Etiske retningslinjer**: Etikkrådet kan anbefale utelukkelse av selskaper som bryter etiske normer` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Oljefondet', definition: 'Statens pensjonsfond utland, verdens største statlige investeringsfond med over 15 000 milliarder kroner.' },
+    { term: 'NBIM', definition: 'Norges Bank Investment Management, forvalter Oljefondet på vegne av staten.' },
+    { term: 'Handlingsregelen', definition: 'Regelen om at staten kun bruker forventet realavkastning (3%) av fondet.' },
+    { term: 'Etikkrådet', definition: 'Råd som gir anbefalinger om utelukkelse av selskaper fra Oljefondet basert på etiske kriterier.' },
+    { term: 'Hollandsk syke', definition: 'Økonomisk fenomen der store naturressursinntekter fører til overoppheting og svekket konkurranseevne.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_6: TextbookChapter = {
@@ -11044,8 +11570,17 @@ Norge er et av landene med minst økonomisk ulikhet, men ulikheten har økt de s
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Måling av ulikhet**: Gini-koeffisienten viser at Norge har relativt lav ulikhet, men den har økt\n- **Fattigdom**: Ca. 10-12% lever i relativ fattigdom, enslige forsørgere og innvandrerfamilier er mest utsatt\n- **Konsekvenser**: Fattigdom gir dårligere helse, utdanning og sosial ekskludering\n- **Omfordeling**: Progressiv skatt, universelle ordninger og gratis utdanning og helse reduserer ulikhet\n- **Debatt**: Uenighet om balansen mellom individuelt ansvar og strukturelle barrierer` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Gini-koeffisient', definition: 'Mål på ulikhet fra 0 (fullstendig likhet) til 1 (én person har alt). Norge ligger på ca. 0,27.' },
+    { term: 'Relativ fattigdom', definition: 'Å ha inntekt under 60% av medianinntekten i samfunnet.' },
+    { term: 'Sosial mobilitet', definition: 'Muligheten til å bevege seg mellom ulike sosioøkonomiske posisjoner i samfunnet.' },
+    { term: 'Omfordeling', definition: 'Statens bruk av skatter og overføringer for å redusere økonomisk ulikhet.' },
+    { term: 'Barnefattigdom', definition: 'Barn som vokser opp i familier med vedvarende lavinntekt.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_7: TextbookChapter = {
@@ -11136,8 +11671,17 @@ Forskere skiller mellom tre hovedtyper av velferdsstater: sosialdemokratisk (nor
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Tre velferdsmodeller**: Sosialdemokratisk (nordisk), konservativ (europeisk) og liberal (angloamerikansk)\n- **Nordisk modell**: Universelle ordninger, høye skatter, sterk omfordeling og trepartssamarbeid\n- **Konservativ modell**: Knyttet til arbeidsdeltakelse, forsikringsbasert, familie som viktig enhet\n- **Liberal modell**: Begrenset offentlig velferd, behovsprøving, marked og lavt skattenivå` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Nordisk modell', definition: 'Velferdsmodell med universelle ordninger, høye skatter, sterk omfordeling og trepartssamarbeid.' },
+    { term: 'Liberal velferdsmodell', definition: 'Velferdsmodell med begrenset offentlig velferd, behovsprøving og lavt skattenivå (USA, UK).' },
+    { term: 'Konservativ velferdsmodell', definition: 'Velferdsmodell knyttet til arbeidsdeltakelse og forsikringsbaserte ordninger (Tyskland, Frankrike).' },
+    { term: 'Trepartssamarbeid', definition: 'Samarbeid mellom stat, arbeidsgivere og fagbevegelse om lønn og arbeidsvilkår.' },
+    { term: 'Universelle ordninger', definition: 'Velferdsordninger som gjelder alle innbyggere, uavhengig av inntekt.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_8_8: TextbookChapter = {
@@ -11237,8 +11781,17 @@ Andelen eldre i befolkningen øker kraftig når de store etterkrigskullene pensj
         allowsCanvasDrawing: true,
       },
     },
+      { id: 'samfunnskunnskap-8-8-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Eldrebølgen**: Flere pensjonister og færre yrkesaktive truer velferdsstatens bærekraft\n- **Andre utfordringer**: Utenforskap, avtagende petroleumsinntekter og skattekonkurranse\n- **Mulige løsninger**: Høyere pensjonsalder, bedre integrering, effektivisering og teknologi\n- **Forsørgelsesbyrden**: Fra 5 yrkesaktive per pensjonist i 1970 til ca. 2,5 i 2050` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Eldrebølgen', definition: 'Den kraftige økningen i andelen eldre når de store etterkrigskullene pensjoneres.' },
+    { term: 'Forsørgelsesbyrde', definition: 'Forholdet mellom antall yrkesaktive og antall pensjonister i samfunnet.' },
+    { term: 'Utenforskap', definition: 'At mange står utenfor arbeidslivet på grunn av helse, manglende kvalifikasjoner e.l.' },
+    { term: 'Bærekraft', definition: 'Evnen til å opprettholde velferdsordningene på lang sikt.' },
+    { term: 'Arbeidslinja', definition: 'Politisk prinsipp om at det skal lønne seg å jobbe fremfor å motta trygd.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_1: TextbookChapter = {
@@ -11254,8 +11807,17 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_1: TextbookChapter = {
     { id: 'samfunnskunnskap-9-1-def', type: 'definition', title: 'De tre dimensjonene', content: `**Økologisk bærekraft:** Bevare naturressurser og økosystemer.\n**Sosial bærekraft:** Sikre rettferdighet, helse og utdanning for alle.\n**Økonomisk bærekraft:** Økonomisk vekst som ikke ødelegger miljø eller skaper ulikhet.` },
     { id: 'samfunnskunnskap-9-1-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-1-ex-1', number: '1', type: 'classic', task: 'Hva betyr bærekraftig utvikling?', solution: 'Utvikling som dekker dagens behov uten å ødelegge fremtidige generasjoners muligheter. Definert i Brundtland-rapporten 1987.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-9-1-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-1-ex-2', number: '2', type: 'classic', task: 'Forklar de tre dimensjonene av bærekraft.', solution: 'Økologisk: Bevare natur. Sosial: Rettferdighet og velferd. Økonomisk: Vekst uten miljøskade. Må balanseres.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Bærekraftig utvikling**: Utvikling som dekker dagens behov uten å ødelegge for fremtidige generasjoner\n- **Tre dimensjoner**: Økologisk, sosial og økonomisk bærekraft må balanseres` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Bærekraftig utvikling', definition: 'Utvikling som dekker dagens behov uten å ødelegge fremtidige generasjoners muligheter.' },
+    { term: 'Brundtland-rapporten', definition: 'FN-rapport fra 1987 som definerte begrepet bærekraftig utvikling.' },
+    { term: 'Økologisk bærekraft', definition: 'Å bevare naturressurser og økosystemer for fremtiden.' },
+    { term: 'Sosial bærekraft', definition: 'Å sikre rettferdighet, helse og utdanning for alle.' },
+    { term: 'Økonomisk bærekraft', definition: 'Økonomisk vekst som ikke ødelegger miljø eller skaper ulikhet.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_2: TextbookChapter = {
@@ -11270,8 +11832,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_2: TextbookChapter = {
     { id: 'samfunnskunnskap-9-2-intro', type: 'text', content: `## FNs bærekraftsmål (SDG)\n\nI 2015 vedtok FN **17 bærekraftsmål** som skal nås innen 2030. De erstatter Tusenårsmålene og gjelder alle land.` },
     { id: 'samfunnskunnskap-9-2-maal', type: 'definition', title: 'De 17 målene', content: `1. Utrydde fattigdom\n2. Utrydde sult\n3. God helse\n4. God utdanning\n5. Likestilling\n6. Rent vann\n7. Ren energi\n8. Anstendig arbeid\n9. Innovasjon\n10. Mindre ulikhet\n11. Bærekraftige byer\n12. Ansvarlig forbruk\n13. Stoppe klimaendringene\n14. Liv under vann\n15. Liv på land\n16. Fred og rettferdighet\n17. Samarbeid` },
     { id: 'samfunnskunnskap-9-2-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-2-ex-1', number: '1', type: 'classic', task: 'Nevn fem av FNs bærekraftsmål.', solution: 'Fem av: Utrydde fattigdom, god utdanning, likestilling, ren energi, stoppe klimaendringene, ansvarlig forbruk, fred og rettferdighet.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **FNs bærekraftsmål**: 17 mål vedtatt i 2015 som skal nås innen 2030 og gjelder alle land\n- **Bredde**: Målene dekker alt fra fattigdom og helse til klima, fred og samarbeid` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Bærekraftsmålene', definition: 'FNs 17 mål for bærekraftig utvikling som skal nås innen 2030.' },
+    { term: 'SDG', definition: 'Sustainable Development Goals, den engelske betegnelsen på FNs bærekraftsmål.' },
+    { term: 'Tusenårsmålene', definition: 'FNs tidligere utviklingsmål som bærekraftsmålene erstattet i 2015.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_3: TextbookChapter = {
@@ -11287,8 +11856,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_3: TextbookChapter = {
     { id: 'samfunnskunnskap-9-3-konsekvenser', type: 'definition', title: 'Observerte endringer', content: `**Temperaturøkning:** Global oppvarming på over 1°C siden førindustriell tid.\n**Issmelting:** Mindre havis i Arktis.\n**Havnivå:** Gradvis stigning observert.\n**Vær:** Debatt om sammenhengen mellom ekstremvær og klimaendringer.\n**Tilpasning:** Samfunn har alltid tilpasset seg klimaendringer.` },
     { id: 'samfunnskunnskap-9-3-debatt', type: 'text', content: `### Politisk debatt\n\nDet er uenighet om:\n- Hvor raskt vi må kutte utslipp\n- Hvem som skal bære kostnadene\n- Balansen mellom miljø og økonomisk utvikling\n- Hvor mye som kan løses med ny teknologi\n- Hvilke tiltak som er mest effektive` },
     { id: 'samfunnskunnskap-9-3-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-3-ex-1', number: '1', type: 'classic', task: 'Hva sier FNs klimapanel om klimaendringer?', solution: 'FNs klimapanel konkluderer med at menneskelige utslipp av klimagasser bidrar til global oppvarming. Det er politisk debatt om omfanget av tiltak og hvordan kostnadene skal fordeles.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Klimaendringer**: Global oppvarming på over 1°C, med issmelting, havnivåstigning og endrede værmønstre\n- **Politisk debatt**: Uenighet om tempo, kostnadsfordeling og balanse mellom miljø og økonomi` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Klimaendringer', definition: 'Langsiktige endringer i jordens klima, inkludert global oppvarming.' },
+    { term: 'FNs klimapanel (IPCC)', definition: 'FN-organ som sammenstiller vitenskapelig forskning om klimaendringer.' },
+    { term: 'Klimagasser', definition: 'Gasser som bidrar til oppvarming, som CO2 og metan.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_4: TextbookChapter = {
@@ -11304,8 +11880,16 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_4: TextbookChapter = {
     { id: 'samfunnskunnskap-9-4-virkemidler', type: 'definition', title: 'Virkemidler', content: `**CO2-avgift:** Gjør utslipp dyrere.\n**Kvotehandel:** EU ETS for industrien.\n**Elektrifisering:** Av transport, plattformer.\n**Karbonfangst:** Langskip-prosjektet.\n**Teknologiutvikling:** Støtte til ny teknologi.` },
     { id: 'samfunnskunnskap-9-4-debatt', type: 'text', content: `### Debatten om norsk olje og gass\n\n**Argumenter for fortsatt produksjon:**\n- Finansierer velferdsstaten\n- Norsk gass erstatter kull i Europa\n- Arbeidsplasser og kompetanse\n- Verden trenger energi under omstilling\n\n**Argumenter mot:**\n- Bidrar til globale utslipp\n- Bør satse på fornybar energi\n- Klimaforpliktelser\n\nDette er en av de viktigste politiske debattene i Norge.` },
     { id: 'samfunnskunnskap-9-4-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-4-ex-1', number: '1', type: 'classic', task: 'Hva er Norges klimamål og hva debatteres?', solution: 'Norges mål er å kutte utslipp med 55% innen 2030. Det debatteres hvordan dette skal balanseres mot olje- og gassproduksjon som finansierer velferdsstaten og gir arbeidsplasser.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-4-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Norges klimamål**: 55% utslippskutt innen 2030\n- **Virkemidler**: CO2-avgift, kvotehandel, elektrifisering og karbonfangst\n- **Oljedilemmaet**: Debatt om å balansere klimamål med petroleumsinntekter og arbeidsplasser` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'CO2-avgift', definition: 'Avgift som gjør utslipp av klimagasser dyrere for å redusere forbruk.' },
+    { term: 'Kvotehandel', definition: 'System der bedrifter kan kjøpe og selge utslippskvoter (EU ETS).' },
+    { term: 'Karbonfangst', definition: 'Teknologi for å fange og lagre CO2-utslipp, som Langskip-prosjektet.' },
+    { term: 'Parisavtalen', definition: 'Internasjonal klimaavtale med mål om å begrense oppvarmingen.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_5: TextbookChapter = {
@@ -11320,8 +11904,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_5: TextbookChapter = {
     { id: 'samfunnskunnskap-9-5-intro', type: 'text', content: `## Biologisk mangfold\n\n**Biologisk mangfold** er variasjonen av arter, økosystemer og genetisk variasjon. Det er livsviktig for menneskers overlevelse.` },
     { id: 'samfunnskunnskap-9-5-trusler', type: 'definition', title: 'Trusler', content: `**Arealendringer:** Nedbygging, intensivt jordbruk.\n**Overutnyttelse:** Overfiske, jakt.\n**Forurensning:** Plast, giftstoffer.\n**Klimaendringer:** Endrer leveområder.\n**Fremmede arter:** Utkonkurrerer lokale arter.` },
     { id: 'samfunnskunnskap-9-5-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-5-ex-1', number: '1', type: 'classic', task: 'Hva truer biologisk mangfold?', solution: 'Arealendringer/nedbygging, overutnyttelse, forurensning, klimaendringer, fremmede arter. Tap av natur truer økosystemer og menneskers velferd.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-5-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Biologisk mangfold**: Variasjonen av arter og økosystemer er livsviktig for mennesker\n- **Trusler**: Arealendringer, overutnyttelse, forurensning, klimaendringer og fremmede arter` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Biologisk mangfold', definition: 'Variasjonen av arter, økosystemer og genetisk variasjon i naturen.' },
+    { term: 'Arealendringer', definition: 'Nedbygging og endret bruk av naturområder som truer arter.' },
+    { term: 'Fremmede arter', definition: 'Arter som introduseres i nye områder og kan utkonkurrere lokale arter.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_6: TextbookChapter = {
@@ -11337,8 +11928,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_6: TextbookChapter = {
     { id: 'samfunnskunnskap-9-6-fotavtrykk', type: 'definition', title: 'Økologisk fotavtrykk', content: `Økologisk fotavtrykk måler ressursforbruk. Norge har høyt forbruk, men også:\n- Mye fornybar energi (vannkraft)\n- Høy effektivitet i industrien\n- Strenge miljøkrav\n\nDet er debatt om metodene for å måle fotavtrykk og hva som er rettferdige sammenligninger.` },
     { id: 'samfunnskunnskap-9-6-debatt', type: 'text', content: `### Ulike syn på forbruk\n\n**Noen mener:**\n- Vi må redusere forbruket betydelig\n- Vekst er ikke bærekraftig\n- Livsstilsendringer er nødvendige\n\n**Andre mener:**\n- Teknologi og innovasjon løser problemene\n- Økonomisk vekst finansierer grønne løsninger\n- Fattige land trenger mer forbruk, ikke mindre\n- Markedet tilpasser seg nye behov` },
     { id: 'samfunnskunnskap-9-6-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-6-ex-1', number: '1', type: 'classic', task: 'Hva er økologisk fotavtrykk og hva debatteres?', solution: 'Økologisk fotavtrykk måler ressursforbruk. Det debatteres hvordan forbruk skal balanseres mot velstand, og om løsningen er redusert forbruk eller teknologisk utvikling.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-6-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Forbruk og miljø**: Høy levestandard gir både velstand og miljøutfordringer\n- **Ulike syn**: Debatt mellom redusert forbruk og teknologisk innovasjon som løsning` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Økologisk fotavtrykk', definition: 'Mål på hvor mye naturressurser en person eller et land forbruker.' },
+    { term: 'Bærekraftig forbruk', definition: 'Forbruk som ikke overstiger naturens tåleevne.' },
+    { term: 'Sirkulærøkonomi', definition: 'Økonomisk modell basert på gjenbruk og resirkulering fremfor bruk-og-kast.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_7: TextbookChapter = {
@@ -11354,8 +11952,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_7: TextbookChapter = {
     { id: 'samfunnskunnskap-9-7-sporsmal', type: 'definition', title: 'Sentrale spørsmål', content: `**Ansvarsfordeling:** Skal rike land ta mer ansvar fordi de har sluppet ut mest historisk, eller skal alle land bidra likt?\n**Utvikling:** Har fattige land rett til økonomisk vekst selv om det øker utslipp?\n**Kostnader:** Hvem skal betale for omstilling og tilpasning?\n**Suverenitet:** Hvor mye kan internasjonale avtaler binde nasjonale beslutninger?` },
     { id: 'samfunnskunnskap-9-7-debatt', type: 'text', content: `### Ulike perspektiver\n\n**Noen mener:** Rike land har historisk ansvar og må kutte mest og betale for andres omstilling.\n\n**Andre mener:** Alle land må bidra, og det er dagens utslipp som teller. Kina og India er nå store utslippsland.` },
     { id: 'samfunnskunnskap-9-7-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-7-ex-1', number: '1', type: 'classic', task: 'Hva gjør internasjonalt klimasamarbeid vanskelig?', solution: 'Ulike land har ulike interesser. Det er uenighet om ansvarsfordeling (historisk vs. dagens utslipp), om fattige lands rett til utvikling, og om hvem som skal betale kostnadene.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-7-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Klimasamarbeid**: Ulike land har ulike interesser, noe som gjør forhandlinger vanskelige\n- **Sentrale spørsmål**: Ansvarsfordeling, utviklingsland, kostnader og nasjonal suverenitet` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Klimarettferdighet', definition: 'Spørsmålet om rettferdig fordeling av klimakostnader og ansvar mellom land.' },
+    { term: 'Historisk ansvar', definition: 'Argumentet om at rike land bør ta mer ansvar fordi de har sluppet ut mest over tid.' },
+    { term: 'Klimafinansiering', definition: 'Overføringer fra rike til fattige land for å dekke kostnader ved klimaomstilling.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_9_8: TextbookChapter = {
@@ -11371,8 +11976,15 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_8: TextbookChapter = {
     { id: 'samfunnskunnskap-9-8-handlinger', type: 'definition', title: 'Måter å delta på', content: `**Forbrukervalg:** Du kan velge produkter basert på dine verdier.\n**Politisk deltakelse:** Stem ved valg basert på dine prioriteringer.\n**Debatt:** Delta i samfunnsdebatten med dine synspunkter.\n**Yrkesvalg:** Velg utdanning og yrke som passer dine interesser.\n**Innovasjon:** Bidra til å utvikle nye løsninger.` },
     { id: 'samfunnskunnskap-9-8-perspektiver', type: 'text', content: `### Ulike syn på handling\n\n**Noen vektlegger:** Individuell livsstilsendring, redusert forbruk, aktivisme.\n\n**Andre vektlegger:** Teknologisk innovasjon, økonomiske insentiver, markedsløsninger.\n\nDet er legitimt å ha ulike syn på hva som er de beste løsningene.` },
     { id: 'samfunnskunnskap-9-8-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-8-ex-1', number: '1', type: 'classic', task: 'Hvordan kan du delta i samfunnsdebatten om miljøspørsmål?', solution: 'Du kan delta ved å stemme ved valg, følge med i debatten, ta forbrukervalg basert på dine verdier, og velge utdanning/yrke. Folk har ulike syn på hva som er de beste løsningene.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-9-8-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Deltakelse**: Du kan bidra gjennom forbrukervalg, politisk deltakelse, debatt og yrkesvalg\n- **Ulike syn**: Noen vektlegger livsstilsendring, andre teknologisk innovasjon og markedsløsninger` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Samfunnsdeltakelse', definition: 'Å engasjere seg aktivt i samfunnsspørsmål gjennom valg, debatt og handlinger.' },
+    { term: 'Politisk deltakelse', definition: 'Å stemme ved valg og engasjere seg politisk basert på egne prioriteringer.' },
+    { term: 'Forbrukervalg', definition: 'Å velge produkter og tjenester basert på egne verdier, inkludert miljøhensyn.' },
+  ],
 };
 
 // === KAPITTEL 10: INTERNASJONALE FORHOLD DEL 1 ===
@@ -11392,8 +12004,16 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_10_1: TextbookChapter = {
     { id: 'samfunnskunnskap-10-1-aktorer', type: 'text', content: `### Andre aktører\n\nI tillegg til stater finnes det:\n- **Internasjonale organisasjoner:** FN, NATO, EU.\n- **Multinasjonale selskaper:** Store bedrifter som opererer i mange land.\n- **NGO-er:** Ikke-statlige organisasjoner som Amnesty og Røde Kors.\n- **Terrorgrupper og kriminelle nettverk.**` },
     { id: 'samfunnskunnskap-10-1-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-1-ex-1', number: '1', type: 'classic', task: 'Forklar hva som menes med suverenitet.', solution: 'Suverenitet betyr at en stat har rett til å styre seg selv uten innblanding fra andre stater. Staten har full myndighet over sitt eget territorium og sin egen befolkning.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-10-1-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-1-ex-2', number: '2', type: 'classic', task: 'Hva er folkeretten og hvilke hovedprinsipper bygger den på?', solution: 'Folkeretten er internasjonale regler som regulerer forholdet mellom stater. Hovedprinsippene er suverenitetsprinsippet (stater er likeverdige), ikke-intervensjon (ingen innblanding i indre anliggender) og forbud mot maktbruk (krig er ulovlig unntatt i selvforsvar).', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-10-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Stater**: Har territorium, befolkning, styringssystem og suverenitet\n- **Folkeretten**: Regulerer forholdet mellom stater med prinsipper om suverenitet, ikke-intervensjon og forbud mot maktbruk\n- **Andre aktører**: Internasjonale organisasjoner, multinasjonale selskaper og NGO-er spiller viktige roller` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Suverenitet', definition: 'En stats rett til å styre seg selv uten innblanding fra andre stater.' },
+    { term: 'Folkeretten', definition: 'Internasjonale regler som regulerer forholdet mellom stater.' },
+    { term: 'Ikke-intervensjon', definition: 'Prinsippet om at ingen stat skal blande seg inn i andre staters indre anliggender.' },
+    { term: 'NGO', definition: 'Ikke-statlig organisasjon som arbeider med humanitære eller politiske spørsmål.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_10_2: TextbookChapter = {
@@ -11413,8 +12033,17 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_10_2: TextbookChapter = {
     { id: 'samfunnskunnskap-10-2-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-2-ex-1', number: '1', type: 'classic', task: 'Forklar forskjellen på push- og pull-faktorer og gi eksempler på hver.', solution: 'Push-faktorer er forhold som skyver folk bort fra hjemstedet, som krig, forfølgelse eller fattigdom. Pull-faktorer er forhold som trekker folk til et nytt sted, som fred, arbeidsmuligheter eller familiegjenforening.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-10-2-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-2-ex-2', number: '2', type: 'classic', task: 'Hva sier flyktningkonvensjonen om hvem som er flyktning?', solution: 'Flyktningkonvensjonen definerer en flyktning som en person som med rette frykter forfølgelse på grunn av rase, religion, nasjonalitet, politisk oppfatning eller tilhørighet til en spesiell sosial gruppe. Økonomiske migranter faller ikke inn under denne definisjonen.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-10-2-ex-3', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-2-ex-3', number: '3', type: 'classic', task: 'Hva debatteres om innvandringspolitikk?', solution: 'Det debatteres bl.a. om: Hvor mange innvandrere Norge skal ta imot, hvordan integrering best kan skje, balansen mellom humanitære hensyn og samfunnskostnader, og skillet mellom flyktninger og økonomiske migranter.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-10-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Migrasjon**: Push-faktorer skyver folk bort, pull-faktorer trekker dem til nye steder\n- **Flyktninger**: Definert av FNs flyktningkonvensjon, har rett til beskyttelse\n- **Debatt**: Uenighet om innvandringsvolum, integrering og balanse mellom humanitære hensyn og samfunnskostnader` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Flyktning', definition: 'Person som flykter fra forfølgelse basert på rase, religion, nasjonalitet, politisk oppfatning eller sosial gruppe.' },
+    { term: 'Push-faktorer', definition: 'Forhold som skyver folk bort fra hjemstedet, som krig, forfølgelse og fattigdom.' },
+    { term: 'Pull-faktorer', definition: 'Forhold som trekker folk til et nytt sted, som fred, arbeid og utdanning.' },
+    { term: 'Flyktningkonvensjonen', definition: 'FN-konvensjon fra 1951 som definerer flyktningers rettigheter og staters forpliktelser.' },
+    { term: 'Integrering', definition: 'Prosessen der innvandrere blir en del av det nye samfunnet.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_10_3: TextbookChapter = {
@@ -11432,8 +12061,17 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_10_3: TextbookChapter = {
     { id: 'samfunnskunnskap-10-3-varig', type: 'definition', title: 'Varig fred', content: `For varig fred trengs mer enn våpenhvile:\n- **Demokrati og rettigheter**\n- **Økonomisk utvikling**\n- **Forsoning mellom grupper**\n- **Rettferdighet og oppgjør med fortiden**\n\nDette kalles ofte «positiv fred» i motsetning til bare fravær av krig.` },
     { id: 'samfunnskunnskap-10-3-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-3-ex-1', number: '1', type: 'classic', task: 'Nevn fire ulike metoder for å løse konflikter fredelig.', solution: 'Fire metoder: (1) Diplomati - direkte forhandlinger mellom partene, (2) Megling - en nøytral tredjepart hjelper, (3) Internasjonal domstol - juridisk avgjørelse, (4) Fredsbevarende operasjoner - militære styrker overvåker freden.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-10-3-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-10-3-ex-2', number: '2', type: 'classic', task: 'Hvorfor regnes Norge som en fredsnasjon?', solution: 'Norge regnes som en fredsnasjon fordi: (1) Nobels fredspris deles ut fra Norge, (2) Norge har bidratt som megler i mange konflikter (Midtøsten, Sri Lanka, Colombia), (3) Norge deltar i FN-fredsoperasjoner, (4) Norge gir betydelig bistand til utviklingsland.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-10-3-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Konfliktløsning**: Diplomati, megling, internasjonal domstol, fredsoperasjoner og sanksjoner\n- **Norge som fredsnasjon**: Nobels fredspris, megling i fredsprosesser, FN-operasjoner og bistand\n- **Varig fred**: Krever demokrati, økonomisk utvikling, forsoning og rettferdighet` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Diplomati', definition: 'Forhandlinger mellom stater for å løse konflikter fredelig.' },
+    { term: 'Megling', definition: 'Konfliktløsning der en nøytral tredjepart hjelper partene å komme til enighet.' },
+    { term: 'Positiv fred', definition: 'Fred som innebærer mer enn bare fravær av krig, inkludert rettferdighet og forsoning.' },
+    { term: 'Sanksjoner', definition: 'Økonomisk press mot en stat uten bruk av militære virkemidler.' },
+    { term: 'Fredsbevarende operasjoner', definition: 'FN-ledede militære styrker som overvåker og opprettholder fred.' },
+  ],
 };
 
 // === KAPITTEL 11: INTERNASJONALE FORHOLD DEL 2 ===
@@ -11454,8 +12092,17 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_11_1: TextbookChapter = {
     { id: 'samfunnskunnskap-11-1-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-1-ex-1', number: '1', type: 'classic', task: 'Hva er FNs hovedoppgaver?', solution: 'FNs hovedoppgaver er: (1) Bevare internasjonal fred og sikkerhet, (2) Fremme menneskerettigheter, (3) Bekjempe fattigdom og sykdom, (4) Koordinere humanitær hjelp ved kriser og katastrofer.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-11-1-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-1-ex-2', number: '2', type: 'classic', task: 'Hva betyr NATOs artikkel 5?', solution: 'NATOs artikkel 5 sier at et væpnet angrep på ett eller flere NATO-land skal betraktes som et angrep på alle. Det betyr at alle medlemsland er forpliktet til å hjelpe et angrepet medlemsland.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-11-1-ex-3', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-1-ex-3', number: '3', type: 'classic', task: 'Forklar hva EØS-avtalen innebærer for Norge.', solution: 'EØS-avtalen gir Norge tilgang til EUs indre marked med de fire frihetene (fri bevegelse av varer, tjenester, kapital og personer). Norge må følge EUs regler på disse områdene, men har ikke stemmerett i EU. Norge betaler også bidrag til EU.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-11-1-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **FN**: 193 medlemsland som arbeider for fred, menneskerettigheter og utvikling\n- **NATO**: Forsvarsallianse med artikkel 5, Norge var grunnlegger\n- **EØS**: Gir Norge tilgang til EUs indre marked med de fire frihetene, men uten stemmerett i EU` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'FN', definition: 'De forente nasjoner, grunnlagt 1945, med 193 medlemsland og mål om fred, menneskerettigheter og utvikling.' },
+    { term: 'NATO', definition: 'Forsvarsallianse fra 1949 der et angrep på ett medlem regnes som angrep på alle (artikkel 5).' },
+    { term: 'EØS', definition: 'Det europeiske økonomiske samarbeidsområdet, gir Norge tilgang til EUs indre marked.' },
+    { term: 'Artikkel 5', definition: 'NATOs bestemmelse om at et angrep på ett medlemsland betraktes som angrep på alle.' },
+    { term: 'De fire frihetene', definition: 'Fri bevegelse av varer, tjenester, kapital og personer i EUs/EØS indre marked.' },
+  ],
 };
 
 export const CHAPTER_SAMFUNNSKUNNSKAP_11_2: TextbookChapter = {
@@ -11475,8 +12122,17 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_11_2: TextbookChapter = {
     { id: 'samfunnskunnskap-11-2-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-2-ex-1', number: '1', type: 'classic', task: 'Forklar hva som menes med hybridkrig.', solution: 'Hybridkrig er en kombinasjon av militære og ikke-militære virkemidler som brukes for å destabilisere en motstander. Det kan inkludere konvensjonelle militære styrker, geriljakrig, cyberangrep, propaganda, desinformasjon og økonomisk press. Russland har brukt slike metoder.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-11-2-ex-2', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-2-ex-2', number: '2', type: 'classic', task: 'Nevn tre ulike former for ekstremisme.', solution: 'Tre former for ekstremisme: (1) Religiøs ekstremisme - voldelig tolkning av religion, (2) Høyreekstremisme - rasisme, nasjonalisme og hat mot minoriteter, (3) Venstreekstremisme - revolusjonær vold mot staten og kapitalismen.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'samfunnskunnskap-11-2-ex-3', type: 'exercise', exercise: { id: 'samfunnskunnskap-11-2-ex-3', number: '3', type: 'classic', task: 'Hvilke nye sikkerhetstrusler står Norge overfor i dag?', solution: 'Norge står overfor flere nye sikkerhetstrusler: (1) Cyberangrep mot kritisk infrastruktur og statlig spionasje, (2) Desinformasjon som forsøker å påvirke valg og meninger, (3) Klimaendringer som kan føre til ressurskonflikter og migrasjon, (4) Terrorisme fra ulike former for ekstremisme.', allowsUpload: true, allowsCanvasDrawing: true } },
+      { id: 'samfunnskunnskap-11-2-oppsummering', type: 'text' as const, content: `## Oppsummering\n\nI dette kapittelet har du lært:\n\n- **Konflikttyper**: Mellomstatlige, borgerkriger, asymmetriske og hybridkrig\n- **Terrorisme og ekstremisme**: Religiøs, høyre- og venstreekstremisme truer sikkerheten\n- **Nye trusler**: Cyberangrep, desinformasjon og klimarelaterte konflikter krever nye forsvarsstrategier` },
+
   ],
   exercises: [],
+  keyTerms: [
+    { term: 'Terrorisme', definition: 'Bruk av vold mot sivile for å skape frykt og oppnå politiske mål.' },
+    { term: 'Hybridkrig', definition: 'Kombinasjon av militære og ikke-militære virkemidler som propaganda, cyberangrep og økonomisk press.' },
+    { term: 'Ekstremisme', definition: 'Ytterliggående holdninger som kan føre til vold, finnes i religiøs, høyre- og venstrevariant.' },
+    { term: 'Cyberangrep', definition: 'Hacking av datasystemer og kritisk infrastruktur som sikkerhetstrussel.' },
+    { term: 'Radikalisering', definition: 'Prosessen der en person utvikler ekstreme holdninger og aksepterer bruk av vold.' },
+  ],
 };
 
 // Eksporter alle kapitler
