@@ -292,19 +292,6 @@ I dette kapittelet har du lært:
         solution: 'Riktig svar er c. I PCR fordobles antall DNA-kopier i hver syklus, så etter n sykluser har man 2^n kopier. Etter 20 sykluser: 2^20 = 1 048 576, altså omtrent 1 million kopier. Alternativ d (1 milliard) tilsvarer omtrent 2^30, altså 30 sykluser.',
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-9-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Bioteknologirådet: «Hva er bioteknologi?» – bioteknologiradet.no
-- Store norske leksikon: «Bioteknologi» – snl.no/bioteknologi
-- Store norske leksikon: «Polymerasekjedereaksjon (PCR)» – snl.no/polymerasekjedereaksjon
-- Naturfag.no: «Genteknologi» – naturfag.no
-- NDLA: «Genteknologiske metoder» – ndla.no
-- Alberts, B. et al.: *Molecular Biology of the Cell*, Garland Science`,
-    },
   ],
   exercises: [],
 };
@@ -548,19 +535,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-9-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Bioteknologirådet: «CRISPR» – bioteknologiradet.no/temaer/crispr
-- Store norske leksikon: «CRISPR» – snl.no/CRISPR
-- Nobelprize.org: «The Nobel Prize in Chemistry 2020» – nobelprize.org
-- Doudna, J. A. & Sternberg, S. H.: *A Crack in Creation*, Houghton Mifflin Harcourt, 2017
-- Nature Reviews Genetics: «CRISPR–Cas9 genome editing» – nature.com
-- NDLA: «CRISPR – genredigering» – ndla.no`,
     },
   ],
   exercises: [],
@@ -833,20 +807,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-9-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Folkehelseinstituttet (FHI): «mRNA-vaksiner» – fhi.no
-- Bioteknologirådet: «Genterapi» – bioteknologiradet.no/temaer/genterapi
-- Store norske leksikon: «Stamceller» – snl.no/stamcelle
-- Store norske leksikon: «Monoklonale antistoffer» – snl.no/monoklonale_antistoffer
-- Kreftforeningen: «Immunterapi» – kreftforeningen.no
-- NDLA: «Bioteknologi i medisin» – ndla.no
-- Nature Medicine: «The promise and challenge of therapeutic genome editing» – nature.com`,
     },
   ],
   exercises: [],
@@ -1135,20 +1095,6 @@ I dette kapittelet har du lært:
         ],
         solution: 'Riktig svar er c. Bioremediering er bruk av levende organismer, som bakterier og planter, til å rense opp forurensning i miljøet. Eksempler inkluderer oljenedbrytende bakterier som bryter ned oljesøl, planter som tar opp tungmetaller fra forurenset jord, og mikroorganismer som bryter ned pesticider. Det er et miljøvennlig alternativ til kjemisk opprensing.',
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-9-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Bioteknologirådet: «Genmodifisert mat» – bioteknologiradet.no/temaer/genmodifisert-mat
-- Store norske leksikon: «Genmodifiserte organismer» – snl.no/genmodifiserte_organismer
-- Mattilsynet: «Genmodifisert mat og fôr (GMO)» – mattilsynet.no
-- Golden Rice Project – goldenrice.org
-- Miljødirektoratet: «Genmodifiserte organismer» – miljodirektoratet.no
-- NDLA: «Bioteknologi i landbruk og industri» – ndla.no
-- Science: «Biodegradation of oil spills» – science.org`,
     },
   ],
   exercises: [],
@@ -1478,20 +1424,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-9-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Bioteknologirådet: «Etikk og bioteknologi» – bioteknologiradet.no
-- Store norske leksikon: «Bioetikk» – snl.no/bioetikk
-- Lovdata: «Lov om bioteknologi (bioteknologiloven)» – lovdata.no
-- Bioteknologirådet: «Genteknologiloven» – bioteknologiradet.no/temaer/genteknologiloven
-- Nature: «CRISPR-baby scientist sentenced to three years in prison» – nature.com
-- Nuffield Council on Bioethics: «Genome editing: an ethical review» – nuffieldbioethics.org
-- NDLA: «Etikk og bioteknologi» – ndla.no`,
     },
   ],
   exercises: [],

@@ -375,15 +375,6 @@ I dette kapittelet har vi lært om:
 - **Tallerkenmodellen** som verktøy for balanserte måltider
 - Sammenhengen mellom kosthold og fysisk aktivitet`,
     },
-    {
-      id: 'kroppsoving-vg1-3-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Kostråd
-- Nøkkelrådet: Kostholdsråd for god helse
-- Mattilsynet: mattilsynet.no`,
-    },
 ],
   exercises: [],
 };
@@ -858,14 +849,6 @@ I dette kapittelet har vi lært om:
 - **Dehydrering** og hvordan det påvirker prestasjon
 - **Elektrolytter** og deres rolle i kroppens funksjoner
 - Praktiske råd for væskeinntak før, under og etter trening`,
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Kostråd
-- Olympiatoppen: Ernæringsråd for idrettsutøvere`,
     },
 ],
   exercises: [],
@@ -1557,15 +1540,6 @@ I dette kapittelet har vi lært om:
 - **Aktiv restitusjon** som alternativ til full hvile
 - Tegn på **overtrening** og hvordan forebygge det`,
     },
-    {
-      id: 'kroppsoving-vg1-3-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Søvnforeningen: sovnforeningen.no
-- Helsedirektoratet: Søvn og helse`,
-    },
 ],
   exercises: [],
 };
@@ -2228,14 +2202,6 @@ I dette kapittelet har vi lært om:
 - **Karbohydratlading** som strategi for utholdenhet
 - **Proteinbehov** ved ulike typer trening`,
     },
-    {
-      id: 'kroppsoving-vg1-3-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Kostråd
-- Olympiatoppen: Ernæring for idrettsutøvere`,
-    },
 ],
   exercises: [],
 };
@@ -2771,15 +2737,6 @@ I dette kapittelet har vi lært om:
 - **Selvbilde** og sunn treningskultur
 - Bevissthet rundt **spiseforstyrrelser** og varselsignaler`,
     },
-    {
-      id: 'kroppsoving-vg1-3-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Medietilsynet: Barn og medier
-- Rådgivning om spiseforstyrrelser (ROS): nettros.no
-- Ung.no: Kropp og selvbilde`,
-    },
 ],
   exercises: [],
 };
@@ -3291,15 +3248,6 @@ I dette kapittelet har vi lært om:
 - **Energidrikker** og helsepåstander
 - **Kildekritikk** for å skille vitenskap fra reklame`,
     },
-    {
-      id: 'kroppsoving-vg1-3-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Antidoping Norge: antidoping.no
-- Mattilsynet: Kosttilskudd
-- Helsedirektoratet: Råd om kosttilskudd`,
-    },
 ],
   exercises: [],
 };
@@ -3760,14 +3708,6 @@ I dette kapittelet har vi lært om:
 - **Løpsteknikk** for ulike distanser
 - **Friidrettsøvelser** som lengde, høyde og kast
 - Grunnleggende taktikk i løpsdistanser`,
-    },
-    {
-      id: 'kroppsoving-vg1-4-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Friidrettsforbund: friidrett.no
-- Olympiatoppen: olympiatoppen.no`,
     },
 ],
   exercises: [],
@@ -4282,15 +4222,6 @@ I dette kapittelet har vi lært om:
 - **Vannsikkerhet** og badevettregler
 - Svømming som allsidig treningsform`,
     },
-    {
-      id: 'kroppsoving-vg1-4-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Svømmeforbund: svomming.no
-- Redningsselskapet: rs.no
-- Norges Livredningsselskap: livredning.no`,
-    },
 ],
   exercises: [],
 };
@@ -4704,14 +4635,6 @@ I dette kapittelet har vi lært om:
 - **Akrobatikk** og enkle kombinasjoner
 - **Kroppsbeherskelse** og balanse
 - **Sikring og hjelp** ved turnøvelser`,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Gymnastikk- og Turnforbund: gymogturn.no
-- Olympiatoppen: olympiatoppen.no`,
     },
 ],
   exercises: [],
@@ -5208,15 +5131,6 @@ I dette kapittelet har vi lært om:
 - **Selvkontroll og respekt** som kjerneverdier
 - Kampsport som verktøy for fysisk og mental utvikling`,
     },
-    {
-      id: 'kroppsoving-vg1-4-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Judoforbund: judo.no
-- Norges Bryteforbund: bryting.no
-- Norges Kampsportforbund: kampsport.no`,
-    },
 ],
   exercises: [],
 };
@@ -5590,14 +5504,6 @@ I dette kapittelet har vi lært om:
 - **GPS og digitale verktøy** som supplement
 - **Orienteringsløype** og praktisk navigasjon
 - Orientering som kombinasjon av fysikk og taktikk`,
-    },
-    {
-      id: 'kroppsoving-vg1-4-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Orienteringsforbund: orientering.no
-- Kartverket: kartverket.no`,
     },
 ],
   exercises: [],
@@ -6072,14 +5978,6 @@ I dette kapittelet har vi lært om:
 - **Innsats og utholdenhet** som nøkler til utvikling
 - Å tøye egne grenser gjennom systematisk arbeid
 - **Selvstendighet** i treningsprosessen`,
-    },
-    {
-      id: 'kroppsoving-vg1-4-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Olympiatoppen: Mental trening
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal`,
     },
 ],
   exercises: [],
@@ -6595,15 +6493,6 @@ I dette kapittelet har vi lært om:
 - **Skøyteteknikk** og balanse på is
 - **Vinteridrett** som del av norsk friluftslivstradisjon
 - Sikkerhet ved vinteraktiviteter`,
-    },
-    {
-      id: 'kroppsoving-vg1-4-7-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Skiforbund: skiforbundet.no
-- Norges Skøyteforbund: skoyteforbundet.no
-- Den Norske Turistforening (DNT): ut.no`,
     },
 ],
   exercises: [],

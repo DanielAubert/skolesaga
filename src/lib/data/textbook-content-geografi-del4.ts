@@ -204,16 +204,6 @@ Klimaendringene fører til at vegetasjonssonene gradvis forskyves mot polene og 
 - **Temperert lauvskog**, **barskog (taiga)** og **tundra** dominerer paa hoeyere breddegrader
 - Vegetasjonssonene pavirkes av **temperatur**, **nedbor**, **jordsmonn** og **hoeyde over havet**`,
     },
-    {
-      id: 'geo-4-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- WWF: worldwildlife.org/biomes
-- NASA Earth Observatory: earthobservatory.nasa.gov
-- Artsdatabanken: artsdatabanken.no`,
-    },
   ],
   exercises: [
     {
@@ -448,16 +438,6 @@ Norge har et sterkt juridisk jordvern. Omdisponering av dyrket og dyrkbar mark t
 - Jordbruk er avhengig av fruktbar jord, men jorderosjon truer matproduksjonen globalt
 - **Matsikkerhet** handler om at alle skal ha tilgang til nok og naeringsrik mat
 - Baerekraftig jordbruk og redusert matsvinn er noedvendig for aa mette en voksende befolkning`,
-    },
-    {
-      id: 'geo-4-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- FAO (FNs mat- og landbruksorganisasjon): fao.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- NIBIO (Norsk institutt for biookonomi): nibio.no
-- Verdensbanken: data.worldbank.org`,
     },
   ],
   exercises: [
@@ -698,16 +678,6 @@ FNs bærekraftsmål nr. 6 er «Rent vann og gode sanitærforhold» for alle inne
 - Over 2 milliarder mennesker mangler tilgang til trygt drikkevann
 - **Vannkonflikter** oppstaar naar flere land deler samme vassdrag og det er knapphet
 - Klimaendringer forandrer nedborsmoenstre og forsterker vannknapphet i mange regioner`,
-    },
-    {
-      id: 'geo-4-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- NVE (Norges vassdrags- og energidirektorat): nve.no
-- UN Water: unwater.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- WHO/UNICEF: washdata.org`,
     },
   ],
   exercises: [
@@ -959,16 +929,6 @@ Overgangen fra fossilt til fornybart vil kreve massive investeringer, men gir og
 - Norge er en stor produsent av baade olje/gass og fornybar energi (vannkraft)
 - **Energiomstillingen** innebarer overgang fra fossil til fornybar energi
 - Det er interessekonflikter mellom oekonomisk vekst, arbeidsplasser og klimahensyn`,
-    },
-    {
-      id: 'geo-4-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- NVE (Norges vassdrags- og energidirektorat): nve.no
-- IEA (Det internasjonale energibyraaet): iea.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Norsk Petroleum: norskpetroleum.no`,
     },
   ],
   exercises: [
@@ -1223,16 +1183,6 @@ FNs havtiår (2021–2030) setter fokus på bærekraftig bruk og vern av havene.
 - **Overfiske** truer mange fiskebestander og marine oekosystemer
 - Norsk fiskerinering er regulert gjennom kvoter og forvaltningsplaner
 - Baerekraftig havforvaltning er avgjoerendes for aa bevare havets ressurser for fremtiden`,
-    },
-    {
-      id: 'geo-4-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Havforskningsinstituttet: hi.no
-- FAO (FNs mat- og landbruksorganisasjon): fao.org
-- Fiskeridirektoratet: fiskeridir.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -1521,16 +1471,6 @@ Norge har forpliktet seg til å kutte klimagassutslippene med minst 55 % innen 2
 - **Sirkulaerokonomi** handler om aa redusere avfall ved aa gjenbruke og resirkulere
 - **Oekosystemtjenester** er de godene naturen gir oss gratis (rensing av vann, pollinering, karbonlagring)
 - Norges forbruk per innbygger er blant verdens hoeyeste, noe som utfordrer baerekraften`,
-    },
-    {
-      id: 'geo-4-6-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- FN: fn.no/om-fn/fns-baerekraftsmaal
-- Miljodirektoratet: miljodirektoratet.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- WWF Living Planet Report: wwf.no`,
     },
   ],
   exercises: [

@@ -316,15 +316,6 @@ I dette kapittelet har vi lært om:
 - **Reversibilitetsprinsippet** - treningseffekten forsvinner uten vedlikehold
 - **Individualisering** - trening må tilpasses den enkelte`,
     },
-    {
-      id: 'kroppsoving-vg1-1-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Olympiatoppen: olympiatoppen.no
-- Helsedirektoratet: Anbefalinger om fysisk aktivitet`,
-    },
 ],
   exercises: [],
 };
@@ -709,15 +700,6 @@ I dette kapittelet har vi lært om:
 - **Intervalltrening** for å forbedre VO2maks og anaerob terskel
 - **Terskeltrening** for å øke den anaerobe terskelen
 - **Pulssoner** og hvordan bruke dem til å styre intensiteten`,
-    },
-    {
-      id: 'kroppsoving-vg1-1-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Olympiatoppen: olympiatoppen.no
-- Norges Friidrettsforbund: friidrett.no`,
     },
 ],
   exercises: [],
@@ -1122,15 +1104,6 @@ I dette kapittelet har vi lært om:
 - **Belastning og repetisjoner** tilpasset ulike mål
 - Hvordan lage et **treningsprogram** tilpasset eget nivå`,
     },
-    {
-      id: 'kroppsoving-vg1-1-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Raastad, T. m.fl. (2010): Styrketrening. Gyldendal
-- Olympiatoppen: olympiatoppen.no
-- Norges Vektløfterforbund: vektlofting.no`,
-    },
 ],
   exercises: [],
 };
@@ -1510,14 +1483,6 @@ I dette kapittelet har vi lært om:
 - **Plyometrisk trening** for å utvikle spenst og eksplosivitet
 - **Koordinasjon og balanse** som grunnlag for god bevegelseskontroll
 - Sammenhengen mellom bevegelighet og **skadeforebygging**`,
-    },
-    {
-      id: 'kroppsoving-vg1-1-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Norges Gymnastikk- og Turnforbund: gymogturn.no`,
     },
 ],
   exercises: [],
@@ -1967,14 +1932,6 @@ I dette kapittelet har vi lært om:
 - **Treningsdagbok** som verktøy for registrering og refleksjon
 - **Egenvurdering** for å tilpasse treningen underveis`,
     },
-    {
-      id: 'kroppsoving-vg1-1-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Olympiatoppen: olympiatoppen.no`,
-    },
 ],
   exercises: [],
 };
@@ -2392,15 +2349,6 @@ I dette kapittelet har vi lært om:
 - **Styrketester** for å måle muskulær kapasitet
 - **Bevegelighetstest** og spenst-tester
 - Hvordan **analysere resultater** og bruke dem i treningsplanlegging`,
-    },
-    {
-      id: 'kroppsoving-vg1-1-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Olympiatoppen: Testmanual
-- Helsedirektoratet: Fysisk aktivitet og helse`,
     },
 ],
   exercises: [],
@@ -2959,15 +2907,6 @@ I dette kapittelet har vi lært om:
 - Hvordan planlegge aktivitet også når man **ikke fullt ut kan delta**
 - Kreative løsninger for **alternativ deltakelse**`,
     },
-    {
-      id: 'kroppsoving-vg1-1-7-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Utdanningsdirektoratet: Tilpasset opplæring
-- Norges idrettsforbund: Paraidrett
-- Beitostølen Helsesportsenter: bhss.no`,
-    },
 ],
   exercises: [],
 };
@@ -3469,14 +3408,6 @@ I dette kapittelet har vi lært om:
 - **Leddtyper** som hengselledd, kulelledd og glidelledd
 - **Sener og leddbånd** og deres roller i bevegelse og stabilitet`,
     },
-    {
-      id: 'kroppsoving-vg1-2-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
-- Dahl, H. og Rinvik, E. (2010): Menneskets funksjonelle anatomi. Cappelen Damm`,
-    },
 ],
   exercises: [],
 };
@@ -3925,15 +3856,6 @@ I dette kapittelet har vi lært om:
 - **Gassutveksling** i lungenes alveoler
 - **VO2maks** som mål på kondisjon og hvordan forbedre det`,
     },
-    {
-      id: 'kroppsoving-vg1-2-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Helsedirektoratet: Hjerte- og karsykdommer`,
-    },
 ],
   exercises: [],
 };
@@ -4339,14 +4261,6 @@ I dette kapittelet har vi lært om:
 - Hvordan ulike aktiviteter bruker **ulike energisystemer**
 - Sammenhengen mellom intensitet, varighet og energisystem`,
     },
-    {
-      id: 'kroppsoving-vg1-2-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Sand, O. m.fl. (2014): Menneskekroppen. Gyldendal
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal`,
-    },
 ],
   exercises: [],
 };
@@ -4721,15 +4635,6 @@ I dette kapittelet har vi lært om:
 - **Overbelastningsskader** som tendinopati og stressfrakturer
 - **PRICE-metoden** for akutt skadebehandling
 - **Skadeforebygging** gjennom oppvarming, teknikk og progresjon`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Bahr, R. og Mæhlum, S. (2002): Idrettsskader. Gazette bok
-- Røde Kors: Førstehjelp
-- Norsk Idrettsmedisinsk Institutt: nimi.no`,
     },
 ],
   exercises: [],
@@ -5126,15 +5031,6 @@ I dette kapittelet har vi lært om:
 - **Stabil sideleie** og **HLR** (hjerte-lunge-redning)
 - Når man skal ringe 113 og hva man skal si`,
     },
-    {
-      id: 'kroppsoving-vg1-2-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Røde Kors: Førstehjelp
-- Norsk Resuscitasjonsråd: nrr.org
-- Helsedirektoratet: Førstehjelp`,
-    },
 ],
   exercises: [],
 };
@@ -5483,14 +5379,6 @@ I dette kapittelet har vi lært om:
 - **Spesifikk oppvarming** tilpasset aktiviteten
 - **Nedvarming** og dens rolle i restitusjonen
 - Sammenhengen mellom oppvarming og **skadeforebygging**`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Gjerset, A. m.fl. (2012): Treningslære. Gyldendal
-- Olympiatoppen: Oppvarmingsråd`,
     },
 ],
   exercises: [],

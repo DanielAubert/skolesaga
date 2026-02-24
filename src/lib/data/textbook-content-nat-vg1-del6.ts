@@ -248,17 +248,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Energi](https://snl.no/energi) og [Kinetisk energi](https://snl.no/kinetisk_energi)
-- NDLA Naturfag: [Energi og energiovergang](https://ndla.no/subject:naturfag)
-- Universitetet i Oslo: [Fysikkformler - energi](https://www.mn.uio.no/fysikk/)
-- NVE: [Energifakta Norge](https://energifaktanorge.no/)`,
-    },
   ],
   exercises: [],
 };
@@ -507,18 +496,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NVE: [Energifakta Norge](https://energifaktanorge.no/)
-- SSB: [Energistatistikk](https://www.ssb.no/energi-og-industri)
-- Store norske leksikon: [Fornybar energi](https://snl.no/fornybar_energi)
-- IPCC: [AR6 Working Group III - Mitigation](https://www.ipcc.ch/report/ar6/wg3/)
-- Norsk Petroleumsforening / Norskpetroleum.no: [Norges energiressurser](https://www.norskpetroleum.no/)`,
-    },
   ],
   exercises: [],
 };
@@ -759,18 +736,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- IPCC: [Sixth Assessment Report (AR6)](https://www.ipcc.ch/assessment-report/ar6/)
-- Miljødirektoratet: [Klimaendringer og konsekvenser](https://www.miljodirektoratet.no/ansvarsomrader/klima/)
-- Meteorologisk institutt: [Klimaendringer i Norge](https://www.met.no/vaer-og-klima/klima)
-- NASA: [Climate Change Evidence](https://climate.nasa.gov/evidence/)
-- FN: [Klimakonvensjonen og Parisavtalen](https://www.fn.no/tema/klima-og-miljoe/klimaendringer)`,
     },
   ],
   exercises: [],
@@ -1017,18 +982,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NVE: [Energimerking og energieffektivisering](https://www.nve.no/energi/energieffektivisering/)
-- Enova: [Tiltak for energisparing i boliger](https://www.enova.no/)
-- Store norske leksikon: [Virkningsgrad](https://snl.no/virkningsgrad) og [Varmepumpe](https://snl.no/varmepumpe)
-- SSB: [Energiforbruk i husholdninger](https://www.ssb.no/energi-og-industri/energi/statistikk/energiforbruk-i-husholdninger)
-- SINTEF: [Energieffektivisering i bygninger](https://www.sintef.no/)`,
     },
   ],
   exercises: [],
@@ -1280,17 +1233,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NDLA: [Usikkerhet i målinger](https://ndla.no/subject:naturfag)
-- Store norske leksikon: [Måleusikkerhet](https://snl.no/m%C3%A5leusikkerhet)
-- Universitetet i Oslo: [Feilkilder og usikkerhet i fysikkforsøk](https://www.mn.uio.no/fysikk/)
-- UDIR: [Kompetansemål for naturfag - utforskende arbeid](https://www.udir.no/lk20/nat01-04)`,
-    },
   ],
   exercises: [],
 };
@@ -1489,18 +1431,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-6-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Teknologirådet: [Teknologivurdering for Stortinget](https://teknologiradet.no/)
-- FN: [Bærekraftsmålene](https://www.fn.no/om-fn/fns-baerekraftsmaal)
-- Miljødirektoratet: [Sirkulær økonomi](https://www.miljodirektoratet.no/ansvarsomrader/avfall/sirkular-okonomi/)
-- Store norske leksikon: [Bærekraftig utvikling](https://snl.no/b%C3%A6rekraftig_utvikling)
-- NDLA: [Teknologi og samfunn](https://ndla.no/subject:naturfag)`,
     },
   ],
   exercises: [],
@@ -1720,19 +1650,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-10-7-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- IPCC: [Klimapanelets rapporter](https://www.ipcc.ch/)
-- FHI: [Folkehelseinstituttet - Vaksiner](https://www.fhi.no/sv/vaksine/)
-- Store norske leksikon: [Vitenskapsteori](https://snl.no/vitenskapsteori)
-- UDIR: [Kompetansemål for naturfag - kritisk tenkning](https://www.udir.no/lk20/nat01-04)
-- Forskningsrådet: [Forskning og samfunn](https://www.forskningsradet.no/)
-- Faktisk.no: [Norsk faktasjekktjeneste](https://www.faktisk.no/)`,
     },
   ],
   exercises: [],

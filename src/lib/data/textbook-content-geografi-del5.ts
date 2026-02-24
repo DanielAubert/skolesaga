@@ -179,16 +179,6 @@ FN opererer med ulike scenarier for fremtidig befolkningsvekst, avhengig av anta
 - Malthus advarte om at befolkningsvekst ville overgaa matproduksjonen, men teknologisk utvikling har motbevist de mest pessimistiske spaadommmene
 - FN anslaar at verdens befolkning vil naa ca. 10 milliarder mot slutten av dette aarhundret`,
     },
-    {
-      id: 'geo-5-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- SSB (Statistisk sentralbyraa): ssb.no
-- FN Befolkningsdivisjonen: population.un.org
-- Gapminder: gapminder.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -403,16 +393,6 @@ Dersom et land klarer å gi ungdommen utdanning og arbeid, kan ungdomsbølgen bl
 - **Forsoergelsesbyrden** maalerr forholdet mellom yrkesaktive og de som forsoerges (barn og eldre)
 - **Demografisk dividende** oppstaar naar andelen yrkesaktive er hoey
 - Befolkningsstrukturen pavirker behov for helsetjenester, utdanning, arbeidsplasser og pensjoner`,
-    },
-    {
-      id: 'geo-5-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- SSB: ssb.no
-- FN Befolkningsdivisjonen: population.un.org
-- Verdensbanken: data.worldbank.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -669,16 +649,6 @@ Migranter sender ofte penger tilbake til familien i hjemlandet. Disse pengeoverf
 - **Brain drain** oppstaar naar hoyt utdannede forlater hjemlandet
 - Migrasjon har baade positive og negative konsekvenser for baade avsender- og mottakerland`,
     },
-    {
-      id: 'geo-5-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- IOM (Den internasjonale organisasjonen for migrasjon): iom.int
-- SSB: ssb.no
-- UDI (Utlendingsdirektoratet): udi.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -923,16 +893,6 @@ Rundt 76 % av verdens flyktninger bor i lav- og mellominntektsland. De rikeste l
 - De fleste flyktninger befinner seg i naboland til konfliktomraadet, ikke i Europa
 - **Internt fordrevne** (IDPs) har flyktet innenfor eget land og har ofte svakere rettsbeskyttelse`,
     },
-    {
-      id: 'geo-5-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- UNHCR: unhcr.org
-- UDI (Utlendingsdirektoratet): udi.no
-- Flyktninghjelpen: flyktninghjelpen.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -1175,16 +1135,6 @@ Norsk planpolitikk forsøker å styre byveksten gjennom **fortetting** – å by
 - **Sentralisering** betyr at flere bor i og rundt de stoerste byene
 - SSB lager befolkningsprognoser som brukes til planlegging av velferdsordninger
 - Befolkningsfordelingen i Norge preges av geografi, med konsentrasjon langs kysten og i byomraadene`,
-    },
-    {
-      id: 'geo-5-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- SSB: ssb.no
-- UDI: udi.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Regjeringen: regjeringen.no`,
     },
   ],
   exercises: [
@@ -1463,16 +1413,6 @@ Felles for alle er behovet for **bærekraftig utvikling** – å møte dagens be
 - Kinas ettbarnspolitikk (1979-2015) reduserte befolkningsveksten, men hadde alvorlige bivirkninger
 - **Aldrende befolkninger** i Europa og Oest-Asia skaper utfordringer for velferdssystemer
 - Utdanning av jenter er det mest effektive tiltaket for aa redusere befolkningsvekst`,
-    },
-    {
-      id: 'geo-5-6-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- FN Befolkningsdivisjonen: population.un.org
-- Verdensbanken: data.worldbank.org
-- Gapminder: gapminder.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [

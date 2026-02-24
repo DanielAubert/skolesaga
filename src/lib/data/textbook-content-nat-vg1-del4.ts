@@ -227,17 +227,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-7-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Karbohydrater](https://snl.no/karbohydrater)
-- Helsedirektoratet: [Kostråd om karbohydrater og fiber](https://www.helsedirektoratet.no/faglige-rad/kostradene)
-- Folkehelseinstituttet: [Kosthold og helse](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
-- Bærug, A. m.fl. (2019). *Biologi for helse- og oppvekstfag*. Gyldendal.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -442,17 +432,7 @@ I dette kapittelet har du lært:
         ],
         solution: 'Linser og fullkornsbrød er begge plantekost og utfyller hverandre med aminosyrer: belgfrukter mangler metionin men har lysin, mens korn mangler lysin men har metionin. De andre alternativene inneholder animalske produkter (egg, melk, kylling, laks) og er ikke veganske.',
       },
-    },
-    {
-      id: 'nat-vg1-7-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Proteiner](https://snl.no/proteiner)
-- Helsedirektoratet: [Kostråd om proteiner](https://www.helsedirektoratet.no/faglige-rad/kostradene)
-- Folkehelseinstituttet: [Næringsstoffer i kostholdet](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
-- Henriksen, P. & Drevon, C.A. (2017). *Mat og medisin*. Cappelen Damm Akademisk.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -687,17 +667,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-7-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Fettsyrer](https://snl.no/fettsyrer)
-- Helsedirektoratet: [Kostråd om fett](https://www.helsedirektoratet.no/faglige-rad/kostradene)
-- Folkehelseinstituttet: [Fett og helse](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
-- WHO: [Healthy diet - facts on fats](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -933,17 +903,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-7-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Vitaminer](https://snl.no/vitaminer)
-- Helsedirektoratet: [Kostrådene](https://www.helsedirektoratet.no/faglige-rad/kostradene)
-- Folkehelseinstituttet: [Vitamin D-status i Norge](https://www.fhi.no/nettpub/hin/levevaner/kosthold/)
-- Willett, W. m.fl. (2019). Food in the Anthropocene: the EAT-Lancet Commission. *The Lancet*, 393(10170), 447-492.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1198,17 +1158,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-7-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Helsedirektoratet: [Anbefalinger om fysisk aktivitet](https://www.helsedirektoratet.no/faglige-rad/fysisk-aktivitet-for-barn-unge-voksne-eldre-og-gravide)
-- Folkehelseinstituttet: [Folkehelserapporten - Fysisk aktivitet](https://www.fhi.no/nettpub/hin/levevaner/fysisk-aktivitet/)
-- Folkehelseinstituttet: [Psykisk helse hos barn og unge](https://www.fhi.no/nettpub/hin/grupper/psykisk-helse-hos-barn-og-unge/)
-- Helsenorge: [Søvn og søvnproblemer](https://www.helsenorge.no/sovn/)`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1456,17 +1406,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-7-6-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Kildekritikk](https://snl.no/kildekritikk)
-- Folkehelseinstituttet: [Helsestatistikk og forskning](https://www.fhi.no/)
-- Helsenorge: [Pålitelig helseinformasjon](https://www.helsenorge.no/)
-- Kolstø, S.D. & Knain, E. (2020). *Elever som forskere i naturfag*. Universitetsforlaget.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1693,17 +1633,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-8-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [DNA](https://snl.no/DNA)
-- Store norske leksikon: [Gen](https://snl.no/gen)
-- Norsk biografisk leksikon: [Rosalind Franklin](https://snl.no/Rosalind_Franklin)
-- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1931,17 +1861,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-8-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Proteinsyntese](https://snl.no/proteinsyntese)
-- Store norske leksikon: [Genetisk kode](https://snl.no/genetisk_kode)
-- NDLA: [Fra gen til protein](https://ndla.no/subject:1:f18b3af0-e8c0-4e32-b577-50e5c6e394f3)
-- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -2160,17 +2080,7 @@ I dette kapittelet har du lært:
         ],
         solution: 'Overkrysning (crossing over) skjer under meiose (dannelse av kjønnsceller) når homologe kromosomer (ett fra mor, ett fra far) ligger tett inntil hverandre og utveksler deler av sine DNA-tråder. Dette gir nye genkombinasjoner på kromosomene som ikke fantes hos noen av foreldrene, og er en viktig kilde til genetisk variasjon.',
       },
-    },
-    {
-      id: 'nat-vg1-8-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Genetikk](https://snl.no/genetikk)
-- Store norske leksikon: [Gregor Mendel](https://snl.no/Gregor_Mendel)
-- Store norske leksikon: [Mutasjon](https://snl.no/mutasjon)
-- Campbell, N.A. m.fl. (2020). *Biology: A Global Approach*. Pearson.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -2405,17 +2315,7 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    {
-      id: 'nat-vg1-8-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Evolusjon](https://snl.no/evolusjon)
-- Store norske leksikon: [Naturlig utvalg](https://snl.no/naturlig_utvalg)
-- Store norske leksikon: [Charles Darwin](https://snl.no/Charles_Darwin)
-- Darwin, C. (1859). *On the Origin of Species*. John Murray.`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -2661,17 +2561,7 @@ I dette kapittelet har du lært:
         ],
         solution: 'Et rudimentært organ er et organ som er redusert i størrelse og har mistet sin opprinnelige funksjon gjennom evolusjon. Hos mennesker er blindtarmen (appendiks) et eksempel - den var trolig viktigere for fordøyelse av plantemateriale hos tidlige forfedre. Visdomstenner er et annet eksempel - de var nyttige for forfedre med større kjever. Hvalens beinrester av bakbein viser at hvalene stammer fra landlevende dyr. Rudimentære organer er bevis for evolusjon fordi de viser spor av artens evolusjonære historie.',
       },
-    },
-    {
-      id: 'nat-vg1-8-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Artsdannelse](https://snl.no/artsdannelse)
-- Store norske leksikon: [Evolusjonære bevis](https://snl.no/evolusjon)
-- Naturhistorisk museum, UiO: [Evolusjonsbiologi](https://www.nhm.uio.no/)
-- Futuyma, D.J. & Kirkpatrick, M. (2017). *Evolution*. Sinauer Associates.`,
-    },
+    }
   ],
   exercises: [],
 };

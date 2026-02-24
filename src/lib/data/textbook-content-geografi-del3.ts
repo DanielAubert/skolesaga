@@ -178,16 +178,6 @@ Drivhusgassene fungerer som et \"lokk\" som slipper solstraaling inn, men holder
 - **Albedo** angir hvor mye av solstraaling som reflekteres; snoe og is har hoey albedo
 - **Drivhuseffekten** er naturlig og noedvendig for liv paa jorda, men forsterkes av menneskelige utslipp`,
     },
-    {
-      id: 'geo-3-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Meteorologisk institutt: met.no
-- IPCC (FNs klimapanel): ipcc.ch
-- NASA Earth Science: science.nasa.gov
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -410,16 +400,6 @@ I tillegg til det globale vindsystemet finnes det lokale vinder som pavirkes av 
 - **Lavtrykk** gir ustabilt vaer med nedbor, **hoeytrykk** gir stabilt og toerrere vaer
 - **Fronter** oppstaar der kald og varm luft moetes og gir typisk norsk vaer`,
     },
-    {
-      id: 'geo-3-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Meteorologisk institutt: met.no
-- yr.no (vaervarsel og vaerdata)
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Lutgens, F. K. & Tarbuck, E. J. (2019). *The Atmosphere*. Pearson.`,
-    },
   ],
   exercises: [
     {
@@ -636,16 +616,6 @@ Denne forskjellen er et klassisk eksempel paa **orografisk nedbor** og **regnssk
 - **Skytyper** deles inn etter hoeyde: cirrus (hoey), alto (middels), stratus og cumulus (lav)
 - **Vannsyklusen** beskriver vannets kretslop mellom hav, atmosfaere og land
 - Nedborsmoensteret paa jorda varierer med breddegrader, terreng og naerhet til hav`,
-    },
-    {
-      id: 'geo-3-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Meteorologisk institutt: met.no
-- NVE (Norges vassdrags- og energidirektorat): nve.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- WMO (Verdens meteorologiorganisasjon): wmo.int`,
     },
   ],
   exercises: [
@@ -914,16 +884,6 @@ Avstanden fra havet pavirker klimaet dramatisk:
 - **Tropisk klima** har hoey temperatur og mye nedbor hele aaret
 - **Temperert klima** (som i Norge) har fire aarstider og vekslende vaer
 - **Polart klima** har lave temperaturer og lite nedbor`,
-    },
-    {
-      id: 'geo-3-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Meteorologisk institutt: met.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Koeppen Climate Classification: britannica.com
-- NASA Earth Observatory: earthobservatory.nasa.gov`,
     },
   ],
   exercises: [
@@ -1203,16 +1163,6 @@ Disse rekordene illustrerer Norges enorme klimavariasjon - fra arktisk kulde i F
 - **El Nino og La Nina** er naturlige klimasvingninger i Stillehavet med globale konsekvenser
 - **Havstroemmer** som Golfstroemmen har stor betydning for klimaet i kystomraader`,
     },
-    {
-      id: 'geo-3-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- IPCC (FNs klimapanel): ipcc.ch
-- NASA Climate: climate.nasa.gov
-- Meteorologisk institutt: met.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -1489,17 +1439,6 @@ Hvilket scenario vi ender opp med avhenger av politiske beslutninger som tas naa
 - De viktigste utslippskildene er fossile brensler, avskoging og jordbruk
 - Konsekvensene inkluderer stigende havnivaa, issmelting, ekstremvaer og truede oekosystemer
 - **Arktisk forsterkning** gjoer at Arktis varmes opp 2-3 ganger raskere enn resten av verden`,
-    },
-    {
-      id: 'geo-3-6-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- IPCC (FNs klimapanel): ipcc.ch
-- NASA Climate Change: climate.nasa.gov
-- Miljodirektoratet: miljodirektoratet.no
-- Cicero senter for klimaforskning: cicero.oslo.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -1805,17 +1744,6 @@ Klimaendringene krever handling paa alle nivaaer - fra internasjonale avtaler ti
 - Norges klimamaal er 55 % utslippsreduksjon innen 2030 og klimanoytralitet innen 2050
 - Klimarettferdighet handler om at rike land har stoerst historisk ansvar for utslipp
 - Overgang til fornybar energi, energieffektivisering og endret arealbruk er viktige tiltak`,
-    },
-    {
-      id: 'geo-3-7-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Parisavtalen: unfccc.int
-- Miljodirektoratet: miljodirektoratet.no
-- Regjeringens klimaplan: regjeringen.no
-- IPCC (FNs klimapanel): ipcc.ch
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [

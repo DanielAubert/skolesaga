@@ -170,16 +170,6 @@ Geografi er et av verdens eldste fag. Allerede i antikken beskrev greske tenkere
 - Samspillet mellom naturforhold og samfunnsforhold er det som gjoer geografi unikt
 - Baerekraftig utvikling er et sentralt tema i moderne geografi`,
     },
-    {
-      id: 'geo-1-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Christopherson, R. W. & Birkeland, G. H. (2018). *Geosystems: An Introduction to Physical Geography*. Pearson.
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Statens kartverk: kartverket.no
-- FNs baerekraftsmaal: fn.no/om-fn/fns-baerekraftsmaal`,
-    },
   ],
   exercises: [
     {
@@ -409,16 +399,6 @@ Moderne kart er oftest digitale og interaktive:
 - **Kartprojeksjoner** overforer jordoverflaten til et flatt kart, men gir alltid noe forvrengning
 - **Mercator** bevarer vinkler men forvrenger arealer, **Peters** bevarer arealer men forvrenger former
 - **UTM-koordinater** og **bredde-/lengdegrader** brukes til aa angi posisjon`,
-    },
-    {
-      id: 'geo-1-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Kartverket: kartverket.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- National Geographic: nationalgeographic.com/maps
-- Christopherson, R. W. (2018). *Geosystems*. Pearson.`,
     },
   ],
   exercises: [
@@ -663,16 +643,6 @@ GIS brukes i nesten alle sektorer i samfunnet:
 - **GPS** bruker satellitter til aa bestemme noyaktig posisjon
 - Digitale kart som Google Maps og Norgeskart gjoer geografisk informasjon tilgjengelig for alle`,
     },
-    {
-      id: 'geo-1-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Kartverket: kartverket.no
-- Norgeskart: norgeskart.no
-- ESRI: esri.com (leverandoer av ArcGIS)
-- QGIS: qgis.org (aapen kildekode GIS-programvare)`,
-    },
   ],
   exercises: [
     {
@@ -899,16 +869,6 @@ NDVI brukes til aa:
 - **Aktive sensorer** (radar, lidar) sender ut egne signaler
 - Satellittbilder brukes til overvaaking av skog, is, byer, jordbruk og naturkatastrofer
 - Fjernanalyse er viktig for aa overvaake klimaendringer og miljoeendringer globalt`,
-    },
-    {
-      id: 'geo-1-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- NASA Earth Observatory: earthobservatory.nasa.gov
-- ESA Copernicus: copernicus.eu
-- Norsk Romsenter: romsenter.no
-- Kartverket: kartverket.no`,
     },
   ],
   exercises: [
@@ -1166,16 +1126,6 @@ Hva vil du undersoeke? En god problemstilling er:
 - God planlegging med klare problemstillinger og metodevalg er avgjoerendes for vellykket feltarbeid
 - Resultatene maa dokumenteres, analyseres og presenteres paa en oversiktlig maate
 - Feltarbeid er en viktig del av kompetansemaalene i geografi`,
-    },
-    {
-      id: 'geo-1-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Kartverket: kartverket.no
-- Norgeskart: norgeskart.no
-- yr.no (vaerdata for feltarbeid)`,
     },
   ],
   exercises: [

@@ -354,18 +354,7 @@ I dette kapittelet har du lært:
 | Rekombinasjon | Da elektroner bandt seg til kjerner og universet ble gjennomsiktig |
 | Mørk materie | Usynlig materie som påvirker gjennom gravitasjon (~27 %) |
 | Mørk energi | Mystisk energi som driver universets akselererende utvidelse (~68 %) |`,
-    },
-    {
-      id: 'nat-vg1-3-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NASA: «Universe» - nasa.gov/universe
-- Store norske leksikon: «Big bang» - snl.no/big_bang
-- ESA: «The history of the Universe» - esa.int/Science_Exploration/Space_Science
-- Fagbokforlaget: «Kosmos SF» lærebok i naturfag VG1
-- Norsk Romsenter: «Universet» - romsenter.no`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -746,18 +735,7 @@ I dette kapittelet har du lært:
 | Hvit dverg | Kompakt sluttrest etter en liten stjernes død |
 | Supernova | Eksplosiv død av en massiv stjerne |
 | Nukleosyntese | Dannelse av nye grunnstoffer gjennom fusjon i stjerner |`,
-    },
-    {
-      id: 'nat-vg1-3-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NASA: «Stars» - nasa.gov/stars
-- Store norske leksikon: «Stjerne» - snl.no/stjerne
-- ESA/Hubble: «The life cycle of stars» - esahubble.org
-- Fagbokforlaget: «Kosmos SF» lærebok i naturfag VG1
-- Norsk Romsenter: «Stjerner og galakser» - romsenter.no`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1132,18 +1110,7 @@ I dette kapittelet har du lært:
 | Galaksehop | Samling av hundrevis til tusenvis av galakser |
 | Superhop | Samling av galaksehoper |
 | Kosmisk vev | Nettverksstrukturen av filamenter og tomrom i universet |`,
-    },
-    {
-      id: 'nat-vg1-3-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NASA: «Galaxies» - nasa.gov/galaxies
-- Store norske leksikon: «Galakse» - snl.no/galakse
-- ESA: «The Milky Way» - esa.int/Science_Exploration/Space_Science
-- Sloan Digital Sky Survey: «The Cosmic Web» - sdss.org
-- Fagbokforlaget: «Kosmos SF» lærebok i naturfag VG1`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1511,18 +1478,7 @@ I dette kapittelet har du lært:
 | Rekombinasjon | Da elektroner bandt seg til kjerner og universet ble gjennomsiktig |
 | Big bang-nukleosyntese | Dannelse av hydrogen, helium og litium i de første minuttene |
 | Metallisitet | Andelen av grunnstoffer tyngre enn helium i en stjerne |`,
-    },
-    {
-      id: 'nat-vg1-3-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- NASA: «Cosmic Microwave Background» - nasa.gov/mission_pages/planck
-- Store norske leksikon: «Kosmisk bakgrunnsstraling» - snl.no/kosmisk_bakgrunnsstr%C3%A5ling
-- ESA Planck: «Planck and the cosmic microwave background» - esa.int/Planck
-- Fagbokforlaget: «Kosmos SF» lærebok i naturfag VG1
-- Nobel Prize: «Penzias og Wilson - CMB-oppdagelsen» - nobelprize.org`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -1938,18 +1894,7 @@ I dette kapittelet har du lært:
 | Valenselektroner | Elektroner i ytterste skall, avgjør kjemiske egenskaper |
 | Edelgasskonfigurasjon | Fullt ytterste skall (8 elektroner), svært stabilt |
 | Oktetregelen | Atomer streber etter 8 elektroner i ytterste skall |`,
-    },
-    {
-      id: 'nat-vg1-4-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: «Atom» - snl.no/atom
-- Periodesystemet.no - interaktivt periodesystem med informasjon om hvert grunnstoff
-- Cappelen Damm: «Kjemi for samfunnet» lærebok i naturfag
-- UiO Kjemisk institutt: «Atomets oppbygning» - mn.uio.no/kjemi
-- Store norske leksikon: «Isotop» - snl.no/isotop`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -2362,18 +2307,7 @@ I dette kapittelet har du lært:
 | Atomradius | Atomets størrelse, øker nedover og minker bortover |
 | Ioniseringsenergi | Energi som trengs for å fjerne et elektron |
 | Elektronegativitet | Et atoms evne til å tiltrekke seg elektroner i en binding |`,
-    },
-    {
-      id: 'nat-vg1-4-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Periodesystemet.no - interaktivt periodesystem med egenskaper og trender
-- Store norske leksikon: «Periodesystemet» - snl.no/periodesystemet
-- Cappelen Damm: «Kjemi for samfunnet» lærebok i naturfag
-- UiO Kjemisk institutt: «Periodesystemet» - mn.uio.no/kjemi
-- Store norske leksikon: «Dmitrij Mendelejev» - snl.no/Dmitrij_Mendelejev`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -2791,18 +2725,7 @@ I dette kapittelet har du lært:
 | Gitterenergi | Energi som frigjøres når gassformige ioner danner fast ionegitter |
 | Elektrolytt | Stoff som leder strøm når det er smeltet eller løst i vann |
 | Hydratisering | Prosessen der vannmolekyler omgir ioner og trekker dem ut av gitteret |`,
-    },
-    {
-      id: 'nat-vg1-4-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: «Ionebinding» - snl.no/ionebinding
-- Cappelen Damm: «Kjemi for samfunnet» lærebok i naturfag
-- UiO Kjemisk institutt: «Kjemisk binding» - mn.uio.no/kjemi
-- Periodesystemet.no - informasjon om ionedannelse og ladninger
-- Store norske leksikon: «Ion» - snl.no/ion`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -3283,18 +3206,7 @@ I dette kapittelet har du lært:
 | Dobbeltbinding | Deling av to elektronpar mellom to atomer |
 | Elektronegativitet | Et atoms evne til å tiltrekke seg elektroner i en binding |
 | Polart molekyl | Molekyl med ujevn ladningsfordeling og en dipol |`,
-    },
-    {
-      id: 'nat-vg1-4-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: «Kovalent binding» - snl.no/kovalent_binding
-- Cappelen Damm: «Kjemi for samfunnet» lærebok i naturfag
-- UiO Kjemisk institutt: «Kjemisk binding» - mn.uio.no/kjemi
-- Store norske leksikon: «Elektronegativitet» - snl.no/elektronegativitet
-- Periodesystemet.no - elektronegativitetsverdier for alle grunnstoffer`,
-    },
+    }
   ],
   exercises: [],
 };
@@ -3715,18 +3627,7 @@ I dette kapittelet har du lært:
 | Malleabilitet | Evnen til å hamres til plater uten å brytes |
 | Metallglans | Blank overflate fordi frie elektroner reflekterer lys |
 | Intermolekylære krefter | Svake krefter mellom molekyler i kovalente forbindelser |`,
-    },
-    {
-      id: 'nat-vg1-4-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: «Metallbinding» - snl.no/metallbinding
-- Cappelen Damm: «Kjemi for samfunnet» lærebok i naturfag
-- UiO Kjemisk institutt: «Kjemiske bindingstyper» - mn.uio.no/kjemi
-- Store norske leksikon: «Kjemisk binding» - snl.no/kjemisk_binding
-- Periodesystemet.no - oversikt over metaller og deres egenskaper`,
-    },
+    }
   ],
   exercises: [],
 };

@@ -247,17 +247,6 @@ I dette kapittelet har du lært:
         solution: 'Karbon har 4 valenselektroner og kan derfor danne 4 kovalente bindinger. Dette er en av grunnene til at karbon kan danne så mange ulike forbindelser.',
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
-- Store norske leksikon: [Organisk kjemi](https://snl.no/organisk_kjemi)
-- NDLA: [Organisk kjemi – karbonforbindelser](https://ndla.no/subject:naturfag)
-- Universitetsforlaget: *Tellus 11 Naturfag* (2022).`,
-    },
   ],
   exercises: [],
 };
@@ -499,17 +488,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
-- Store norske leksikon: [Hydrokarboner](https://snl.no/hydrokarboner)
-- NDLA: [Hydrokarboner – alkaner, alkener og alkyner](https://ndla.no/subject:naturfag)
-- Brandt, H. et al. (2020). *Tellus 11 Naturfag*. Aschehoug.`,
-    },
   ],
   exercises: [],
 };
@@ -750,17 +728,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
-- Store norske leksikon: [Funksjonell gruppe](https://snl.no/funksjonell_gruppe)
-- NDLA: [Funksjonelle grupper i organisk kjemi](https://ndla.no/subject:naturfag)
-- Steen, B.G. & Finholt, A. (2019). *Grunnleggende kjemi*. Universitetsforlaget.`,
     },
   ],
   exercises: [],
@@ -1006,17 +973,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Hannisdal, M. & Ringnes, V. (2021). *Kjemi 1*. Cappelen Damm.
-- Store norske leksikon: [Forbrenning](https://snl.no/forbrenning)
-- NDLA: [Reaksjoner i organisk kjemi](https://ndla.no/subject:naturfag)
-- Plastindustrien: [Polymerisering og plastproduksjon](https://www.plastindustrien.no)`,
-    },
   ],
   exercises: [],
 };
@@ -1236,17 +1192,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Karbondioksid](https://snl.no/karbondioksid)
-- Folkehelseinstituttet: [Karbonmonoksid (CO) – helseeffekter](https://www.fhi.no)
-- NDLA: [Uorganiske karbonforbindelser](https://ndla.no/subject:naturfag)
-- Miljødirektoratet: [Klimagassutslipp i Norge](https://www.miljodirektoratet.no)`,
     },
   ],
   exercises: [],
@@ -1483,17 +1428,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-5-6-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- CICERO Senter for klimaforskning: [Karbonkretsløpet](https://www.cicero.oslo.no)
-- Store norske leksikon: [Karbonets kretsløp](https://snl.no/karbonets_kretsløp)
-- NASA: [The Carbon Cycle](https://earthobservatory.nasa.gov/features/CarbonCycle)
-- NDLA: [Karbonkretsløpet og klimaendringer](https://ndla.no/subject:naturfag)`,
-    },
   ],
   exercises: [],
 };
@@ -1708,17 +1642,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-6-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon: [Økosystem](https://snl.no/økosystem)
-- NDLA: [Økosystemer og næringskjeder](https://ndla.no/subject:naturfag)
-- Miljølære: [Næringskjeder og energistrøm](https://www.miljolare.no)
-- Artsdatabanken: [Norske økosystemer](https://www.artsdatabanken.no)`,
     },
   ],
   exercises: [],
@@ -1950,17 +1873,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-6-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Miljødirektoratet: [Miljøgifter](https://www.miljodirektoratet.no/ansvarsomrader/kjemikalier/miljogifter/)
-- Folkehelseinstituttet: [Miljøgifter og helse](https://www.fhi.no)
-- Store norske leksikon: [Bioakkumulering](https://snl.no/bioakkumulering)
-- Stockholmkonvensjonen: [Om persistente organiske miljøgifter](https://www.pops.int)`,
-    },
   ],
   exercises: [],
 };
@@ -2188,17 +2100,6 @@ I dette kapittelet har du lært:
         allowsCanvasDrawing: true,
       },
     },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-6-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Miljødirektoratet: [Klimatiltak i Norge](https://www.miljodirektoratet.no)
-- FN-sambandet: [Parisavtalen](https://www.fn.no/om-fn/avtaler/miljoe-og-klima/parisavtalen)
-- NDLA: [Bærekraftig utvikling](https://ndla.no/subject:naturfag)
-- Regjeringen.no: [Sirkulær økonomi](https://www.regjeringen.no)`,
-    },
   ],
   exercises: [],
 };
@@ -2417,17 +2318,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-6-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- IPCC: [Sjette hovedrapport (AR6)](https://www.ipcc.ch/assessment-report/ar6/)
-- CICERO Senter for klimaforskning: [Klimaendringer](https://www.cicero.oslo.no)
-- Meteorologisk institutt: [Klima i Norge](https://www.met.no)
-- Store norske leksikon: [Drivhuseffekten](https://snl.no/drivhuseffekten)`,
     },
   ],
   exercises: [],
@@ -2670,17 +2560,6 @@ I dette kapittelet har du lært:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
-    },
-    // --- Kilder ---
-    {
-      id: 'nat-vg1-6-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Artsdatabanken: [Norsk rødliste for arter](https://www.artsdatabanken.no/rodliste)
-- IPBES: [Global Assessment Report on Biodiversity](https://www.ipbes.net)
-- Store norske leksikon: [Biologisk mangfold](https://snl.no/biologisk_mangfold)
-- Norsk institutt for naturforskning (NINA): [Klimaendringer og norsk natur](https://www.nina.no)`,
     },
   ],
   exercises: [],

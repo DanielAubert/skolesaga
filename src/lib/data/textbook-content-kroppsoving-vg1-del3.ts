@@ -416,14 +416,6 @@ I dette kapittelet har vi lært om:
 - **Spillposisjoner** og roller på banen
 - Å **gjøre andre gode** gjennom tilpassede pasninger og oppmuntring`,
     },
-    {
-      id: 'kroppsoving-vg1-5-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Fotballforbund: fotball.no
-- Norges Håndballforbund: handball.no`,
-    },
 ],
   exercises: []
 };
@@ -888,14 +880,6 @@ I dette kapittelet har vi lært om:
 - **Spillposisjoner** og taktisk forståelse
 - Samarbeid og kommunikasjon i lagspill`,
     },
-    {
-      id: 'kroppsoving-vg1-5-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Basketballforbund: basket.no
-- Norges Volleyballforbund: volleyball.no`,
-    },
 ],
   exercises: []
 };
@@ -1333,14 +1317,6 @@ I dette kapittelet har vi lært om:
 - **Tilpassede regler** for inkludering
 - Hvordan skape aktiviteter der alle kan delta`,
     },
-    {
-      id: 'kroppsoving-vg1-5-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Bandyforbund: bandyforbundet.no
-- Utdanningsdirektoratet: Kroppsøving i LK20`,
-    },
 ],
   exercises: []
 };
@@ -1736,14 +1712,6 @@ I dette kapittelet har vi lært om:
 - **Forsvarsprinsipper** som press, sikring og sammentrykking
 - **Beslutninger i spill** og evne til å lese situasjoner
 - **Spillanalyse** som verktøy for utvikling`,
-    },
-    {
-      id: 'kroppsoving-vg1-5-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Olympiatoppen: Spillutvikling
-- Norges idrettsforbund: idrettsforbundet.no`,
     },
 ],
   exercises: []
@@ -2142,14 +2110,6 @@ I dette kapittelet har vi lært om:
 - **Inkludering** og det å gjøre andre gode
 - **Lederskap** og ansvar i lagsammenheng`,
     },
-    {
-      id: 'kroppsoving-vg1-5-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Olympiatoppen: Lagutvikling
-- Norges idrettsforbund: idrettsforbundet.no`,
-    },
 ],
   exercises: []
 };
@@ -2536,14 +2496,6 @@ I dette kapittelet har vi lært om:
 - **Bevegelsesglede** som motivasjon
 - **Samskaping** av aktiviteter i samarbeid med andre`,
     },
-    {
-      id: 'kroppsoving-vg1-5-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Utdanningsdirektoratet: Kroppsøving i LK20
-- Norsk Friluftsliv: friluftsliv.no`,
-    },
 ],
   exercises: []
 };
@@ -2917,15 +2869,6 @@ I dette kapittelet har vi lært om:
 - **Etiske problemstillinger** i idrettssammenheng
 - Betydningen av rettferdig spill for idrettsglede`,
     },
-    {
-      id: 'kroppsoving-vg1-5-7-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges idrettsforbund: Fair play
-- FIFA: Laws of the Game
-- IHF: International Handball Federation`,
-    },
 ],
   exercises: []
 };
@@ -3297,14 +3240,6 @@ I dette kapittelet har vi lært om:
 - **Musikkforståelse** og kroppsbevissthet
 - Dans som uttrykksform og treningsform`,
     },
-    {
-      id: 'kroppsoving-vg1-6-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Danseforbund: danseforbundet.no
-- Utdanningsdirektoratet: Dans i LK20`,
-    },
 ],
   exercises: []
 };
@@ -3637,14 +3572,6 @@ I dette kapittelet har vi lært om:
 - **Norsk folkedans** som del av kulturarven
 - **Dansetradisjoner** og deres historiske bakgrunn
 - Dans som kulturell fellesopplevelse`,
-    },
-    {
-      id: 'kroppsoving-vg1-6-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norsk Folkemusikk og Folkedans: folkemusikk.no
-- Noregs Ungdomslag: ungdomslag.no`,
     },
 ],
   exercises: []
@@ -4012,14 +3939,6 @@ I dette kapittelet har vi lært om:
 - **Kreativt uttrykk** gjennom moderne dans
 - Moderne dans som populærkultur og kunstform`,
     },
-    {
-      id: 'kroppsoving-vg1-6-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Danseforbund: danseforbundet.no
-- Dansens Hus: dansenshus.com`,
-    },
 ],
   exercises: []
 };
@@ -4371,14 +4290,6 @@ I dette kapittelet har vi lært om:
 - **Kreativ prosess** fra ide til framføring
 - Samarbeid og kommunikasjon gjennom dans`,
     },
-    {
-      id: 'kroppsoving-vg1-6-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Danseforbund: danseforbundet.no
-- Dansens Hus: dansenshus.com`,
-    },
 ],
   exercises: []
 };
@@ -4723,14 +4634,6 @@ I dette kapittelet har vi lært om:
 - Evnen til å **følge og lede** bevegelser i gruppe
 - Gruppetrening som sosial og fysisk aktivitet`,
     },
-    {
-      id: 'kroppsoving-vg1-6-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges Danseforbund: danseforbundet.no
-- SATS/andre treningssentre: Gruppetreningstilbud`,
-    },
 ],
   exercises: []
 };
@@ -5062,15 +4965,6 @@ I dette kapittelet har vi lært om:
 - **Kulturelt mangfold** uttrykt gjennom bevegelse
 - Respekt og bevissthet rundt **kulturell appropriasjon**
 - Dans som **universelt uttrykk** på tvers av kulturer`,
-    },
-    {
-      id: 'kroppsoving-vg1-6-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- UNESCO: Immateriell kulturarv
-- Norges Danseforbund: danseforbundet.no
-- Dansens Hus: dansenshus.com`,
     },
 ],
   exercises: []

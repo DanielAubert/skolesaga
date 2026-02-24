@@ -145,17 +145,6 @@ Noen kritiserer WTO for å favorisere rike land og for å sette handelshensyn ov
 
 Globalisering er en prosess der verden knyttes tettere sammen økonomisk, kulturelt, politisk og teknologisk. Økonomisk globalisering innebærer friere handel, kapitalflyt og globale verdikjeder. Multinasjonale selskaper er viktige drivkrefter. WTO og handelsavtaler regulerer internasjonal handel, men det er uenighet om globaliseringen gagner alle likt eller forsterker ulikhet.`,
     },
-  
-    {
-      id: 'geo-7-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- WTO (Verdens handelsorganisasjon): wto.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Verdensbanken: data.worldbank.org
-- Store norske leksikon: snl.no (globalisering)`,
-    },
   ],
   exercises: [
     {
@@ -335,17 +324,6 @@ K-pop har blitt et globalt fenomen (f.eks. BTS, BLACKPINK) og sprer koreansk kul
       content: `## Oppsummering
 
 Kulturell globalisering innebærer at kulturelle impulser spres over landegrensene i et stadig raskere tempo. Mens kritikere peker på amerikansering og kulturimperialisme, viser begrepet glokalisering at lokale kulturer aktivt tilpasser og omformer globale impulser. Sosiale medier og internett har demokratisert kulturspredningen, men den digitale kløften gjør at ikke alle har like muligheter til å delta.`,
-    },
-  
-    {
-      id: 'geo-7-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- UNESCO: unesco.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Store norske leksikon: snl.no (kulturell globalisering)
-- Hylland Eriksen, T. (2014). *Globalization: The Key Concepts*. Bloomsbury.`,
     },
   ],
   exercises: [
@@ -556,17 +534,6 @@ HDI viser store forskjeller, men skjuler ulikhet innad i landene. Brasil har for
 
 Utvikling er en sammensatt prosess som handler om mer enn bare økonomisk vekst. HDI gir et bredere bilde ved å inkludere helse og utdanning, mens Gini-koeffisienten måler ulikhet innad i land. Det tradisjonelle nord-sør-skillet er fortsatt relevant, men BRICS-landene viser at maktforholdene i verden er i endring. Ulikhet – både mellom og innad i land – forblir en av verdens store utfordringer.`,
     },
-  
-    {
-      id: 'geo-7-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- UNDP (FNs utviklingsprogram): hdr.undp.org
-- Verdensbanken: data.worldbank.org
-- Gapminder: gapminder.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -766,17 +733,6 @@ Dette viser at bistand kan ha stor effekt når den er målrettet, godt organiser
       content: `## Oppsummering
 
 Bistand er et viktig verktøy i utviklingssamarbeid, men ingen enkel løsning på fattigdom. Det finnes ulike former for bistand – fra nødhjelp til langsiktig utviklingsstøtte – og den kan gis bilateralt, multilateralt eller gjennom NGOer. Norge er en stor bistandsaktør, med Norad som sentral forvalter. Kritikere peker på avhengighet, korrupsjon og manglende resultater, mens tilhengere viser til store fremskritt innen helse og utdanning.`,
-    },
-  
-    {
-      id: 'geo-7-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Norad (Direktoratet for utviklingssamarbeid): norad.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Verdensbanken: data.worldbank.org
-- FN: fn.no`,
     },
   ],
   exercises: [
@@ -985,17 +941,6 @@ Ett enkelt tiltak – jenters utdanning – bidrar altså til minst seks av bær
       content: `## Oppsummering
 
 FNs 17 bærekraftsmål er en ambisiøs plan for verdens utvikling frem mot 2030. Målene henger tett sammen – fremgang på ett område kan forsterke fremgang på andre, men det kan også oppstå konflikter. Norge gjør det bra på mange mål, men har betydelige utfordringer knyttet til forbruk, klimautslipp og olje- og gassproduksjon. Bærekraftsmålene gjelder alle land og krever samarbeid mellom stater, næringsliv og sivilsamfunn.`,
-    },
-  
-    {
-      id: 'geo-7-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- FN: fn.no/om-fn/fns-baerekraftsmaal
-- FN SDG-portalen: sdgs.un.org
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Norad: norad.no`,
     },
   ],
   exercises: [
@@ -1209,17 +1154,6 @@ Norge kan fremstå som dobbeltmoralsk – vi finansierer klimatiltak med penger 
       content: `## Oppsummering
 
 Norge er dypt integrert i den globaliserte verden gjennom handel, investeringer, bistand og migrasjon. EØS-avtalen sikrer tilgang til det europeiske markedet, mens Oljefondet gjør Norge til en global storspiller som investor. Norge er en sjenerøs bistandsgiver og aktiv fredsmekler, men står overfor paradokset med å være både klimaforkjemper og oljenasjon. Innvandring er en naturlig del av globaliseringen og bringer både muligheter og utfordringer for det norske samfunnet.`,
-    },
-  
-    {
-      id: 'geo-7-6-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Norsk Petroleum: norskpetroleum.no
-- NBIM (Norges Bank Investment Management): nbim.no
-- Regjeringen: regjeringen.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [

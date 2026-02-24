@@ -299,17 +299,6 @@ I dette kapittelet har vi lært om:
 - Svakeste person setter farten, og det er ingen skam å snu
 - Praktisk erfaring er den beste måten å lære friluftsliv på`,
     },
-    {
-      id: 'kroppsoving-vg1-7-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Den Norske Turistforening (DNT): ut.no
-- Friluftsloven (lov om friluftslivet, 1957)
-- Fjellvettreglene, Røde Kors og DNT
-- yr.no og varsom.no for vær- og skredvarsling
-- Helsedirektoratet: Anbefalinger om fysisk aktivitet`,
-    },
   ],
   exercises: [],
 };
@@ -704,17 +693,6 @@ I dette kapittelet har vi lært om:
 - **Digitale verktøy** som GPS og kartapper som supplement
 - Viktigheten av å kunne bruke kart og kompass som backup når teknologi svikter
 - Praktiske navigasjonsøvelser som bygger erfaring og trygghet`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Kartverket: kartverket.no
-- Norges orienteringsforbund: orientering.no
-- Den Norske Turistforening (DNT): ut.no
-- Norgeskart.no - gratis digitale kart
-- Turplanlegger-appen til DNT`,
     },
   ],
   exercises: [],
@@ -1166,17 +1144,6 @@ I dette kapittelet har vi lært om:
 - **Lokale vintertradisjoner** som del av norsk kulturarv
 - Praktiske ferdigheter for trygg og god vinterferdsel`,
     },
-    {
-      id: 'kroppsoving-vg1-7-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Varsom.no - snøskredvarsling og issikkerhet
-- Røde Kors: Førstehjelp og forebygging av hypotermi
-- Den Norske Turistforening (DNT): Vinterturråd
-- Norges Skiforbund: langrenn.no
-- yr.no - værvarsel`,
-    },
   ],
   exercises: [],
 };
@@ -1610,16 +1577,6 @@ I dette kapittelet har vi lært om:
 - **Telting** i utmark og praktiske tips for overnatting
 - Sikkerhet ved sommeraktiviteter i varierende terreng og vær`,
     },
-    {
-      id: 'kroppsoving-vg1-7-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Friluftsloven (lov om friluftslivet, 1957)
-- Redningsselskapet: badevett og vannsikkerhet
-- Den Norske Turistforening (DNT): ut.no
-- Norsk Friluftsliv: friluftsliv.no`,
-    },
   ],
   exercises: [],
 };
@@ -1936,16 +1893,6 @@ I dette kapittelet har vi lært om:
 - **Bærekraftig høsting** med respekt for naturen
 - Høsten som en rik sesong for friluftsliv i Norge
 - Praktiske tips for trygg ferdsel i mørke og kjølige forhold`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norsk Sopp- og Nyttevekstforbund: soppognyttevekster.no
-- Artsdatabanken: artsdatabanken.no
-- Mattilsynet: Råd om sopp og sanking
-- Norges Jeger- og Fiskerforbund: njff.no`,
     },
   ],
   exercises: [],
@@ -2295,16 +2242,6 @@ I dette kapittelet har vi lært om:
 - **Overnattingsformer** som telt, lavvo, gapahuk og tarp
 - Planlegging av pakkeliste og meny for overnattingstur`,
     },
-    {
-      id: 'kroppsoving-vg1-7-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Friluftsloven og bålforbudet
-- Den Norske Turistforening (DNT): ut.no
-- Direktoratet for samfunnssikkerhet og beredskap (DSB): Brannsikkerhet
-- Norsk Friluftsliv: friluftsliv.no`,
-    },
   ],
   exercises: [],
 };
@@ -2628,16 +2565,6 @@ I dette kapittelet har vi lært om:
 - **Naturvern** og vern av sårbare naturområder
 - **Bærekraftig friluftsliv** som tar hensyn til plante- og dyreliv
 - Praktiske tiltak som plogging og avfallshåndtering i naturen`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-7-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Miljødirektoratet: miljodirektoratet.no
-- Norsk Friluftsliv: friluftsliv.no
-- Leave No Trace: lnt.org
-- Naturvernforbundet: naturvernforbundet.no`,
     },
   ],
   exercises: [],
@@ -3062,16 +2989,6 @@ I dette kapittelet har vi lært om:
 - Verdien av å bevare og videreføre friluftslivstradisjoner
 - Praktisk utforsking av lokale tradisjoner gjennom feltarbeid og intervjuer`,
     },
-    {
-      id: 'kroppsoving-vg1-7-8-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norsk Kulturråd: kulturradet.no
-- Lokale historielag og museer
-- Norsk Friluftsliv: friluftsliv.no
-- Immateriell kulturarv i Norge (UNESCO)`,
-    },
   ],
   exercises: [],
 };
@@ -3409,15 +3326,6 @@ I dette kapittelet har vi lært om:
 - **Helsegevinster** av regelmessig trening for kropp og sinn
 - **Helsedirektoratets anbefalinger** for ungdom: minst 60 minutter daglig
 - Viktigheten av å reflektere over egne aktivitetsvaner`,
-    },
-    {
-      id: 'kroppsoving-vg1-8-1-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Anbefalinger om fysisk aktivitet
-- Folkehelseinstituttet: fhi.no
-- WHO: Retningslinjer for fysisk aktivitet`,
     },
   ],
   exercises: [],
@@ -3775,16 +3683,6 @@ I dette kapittelet har vi lært om:
 - **Forebygging** gjennom regelmessig aktivitet og sunt kosthold
 - Livsstilssykdommer som **samfunnsutfordring**, ikke bare individuelt problem`,
     },
-    {
-      id: 'kroppsoving-vg1-8-2-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Folkehelseinstituttet: fhi.no
-- Helsedirektoratet: helsedirektoratet.no
-- Diabetesforbundet: diabetes.no
-- WHO: Noncommunicable diseases`,
-    },
   ],
   exercises: [],
 };
@@ -4123,16 +4021,6 @@ I dette kapittelet har vi lært om:
 - Forskjellen mellom **sunn trening** og tvangstrening
 - Sammenhengen mellom kropp og sinn i et helhetlig helseperspektiv`,
     },
-    {
-      id: 'kroppsoving-vg1-8-3-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Psykisk helse og fysisk aktivitet
-- Folkehelseinstituttet: fhi.no
-- Mental Helse: mentalhelse.no
-- Ung.no: Informasjon om psykisk helse for ungdom`,
-    },
   ],
   exercises: [],
 };
@@ -4445,15 +4333,6 @@ I dette kapittelet har vi lært om:
 - **Sportsånd** og respekt for regler, medspillere og motstandere
 - **Etiske dilemmaer** i idrett og hvordan håndtere dem
 - **NIFs verdier** for norsk idrett: Glede, Fellesskap, Helse, Ærlighet, Frivillighet`,
-    },
-    {
-      id: 'kroppsoving-vg1-8-4-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges idrettsforbund: idrettsforbundet.no
-- Fair Play - Norsk Toppfotball
-- IOC: Olympic Values Education Programme`,
     },
   ],
   exercises: [],
@@ -4833,16 +4712,6 @@ I dette kapittelet har vi lært om:
 - **Etiske perspektiver** på hvorfor doping undergraver idrettens verdier
 - Lovlige prestasjonsfremmende metoder som god trening, søvn og kosthold`,
     },
-    {
-      id: 'kroppsoving-vg1-8-5-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Antidoping Norge: antidoping.no
-- WADA (World Anti-Doping Agency): wada-ama.org
-- Helsedirektoratet: Råd om kosttilskudd
-- Norges idrettsforbund: idrettsforbundet.no`,
-    },
   ],
   exercises: [],
 };
@@ -5138,16 +5007,6 @@ I dette kapittelet har vi lært om:
 - **Tilrettelegging** av regler, utstyr og organisering kan inkludere alle
 - **Mangfold** er en styrke som beriker kroppsøvingen
 - Praktiske eksempler på tilpasning av ulike idretter og aktiviteter`,
-    },
-    {
-      id: 'kroppsoving-vg1-8-6-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Norges idrettsforbund: Paraidrett og inkludering
-- Utdanningsdirektoratet: Tilpasset opplæring i kroppsøving
-- Beitostølen Helsesportsenter: bhss.no
-- Valnesfjord Helsesportssenter: vhss.no`,
     },
   ],
   exercises: [],
@@ -5462,16 +5321,6 @@ I dette kapittelet har vi lært om:
 - **Barrierer** for fysisk aktivitet og løsninger for å overvinne dem
 - **Lokale muligheter** for trening og aktivitet i nærmiljøet
 - Viktigheten av å finne aktiviteter du trives med for varig motivasjon`,
-    },
-    {
-      id: 'kroppsoving-vg1-8-7-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Helsedirektoratet: Anbefalinger om fysisk aktivitet
-- Folkehelseinstituttet: fhi.no
-- Norges idrettsforbund: idrettsforbundet.no
-- Den Norske Turistforening (DNT): ut.no`,
     },
   ],
   exercises: [],
@@ -5809,16 +5658,6 @@ I dette kapittelet har vi lært om:
 - **Kritisk tenkning** om mediebilder, reklame og kommersielle interesser
 - **Body positivity og body neutrality** som alternative perspektiver
 - Praktiske tiltak for å bygge et sunt forhold til egen kropp`,
-    },
-    {
-      id: 'kroppsoving-vg1-8-8-kilder',
-      type: 'text',
-      content: `## Kilder
-
-- Medietilsynet: Barn og medier-undersøkelsen
-- Rådgivning om spiseforstyrrelser (ROS): nettros.no
-- Ung.no: Kropp og helse
-- Helsedirektoratet: Råd om kropp og selvbilde`,
     },
   ],
   exercises: [],

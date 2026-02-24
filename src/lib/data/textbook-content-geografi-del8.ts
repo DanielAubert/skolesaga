@@ -175,16 +175,6 @@ Denne utviklingen skaper både muligheter og farer. Flere maktsentre kan gi bedr
 - **Innflytelsessfaerer** beskriver omraader der stormakter har dominerende innflytelse
 - Geopolitiske spenninger oppstaar ofte rundt strategiske omraader og handelsruter`,
     },
-    {
-      id: 'geo-8-1-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- NATO: nato.int
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Store norske leksikon: snl.no (geopolitikk)
-- NUPI (Norsk utenrikspolitisk institutt): nupi.no`,
-    },
   ],
   exercises: [
     {
@@ -390,16 +380,6 @@ Ressurskonflikter kan forebygges og løses gjennom internasjonalt samarbeid og b
 - **Ressursforbannelsen** beskriver paradokset der ressursrike land ofte har svak utvikling
 - **Sjeldne jordarter** er kritiske for moderne teknologi og skaper ny geopolitisk konkurranse
 - Klimaendringer kan forsterke ressurskonflikter gjennom oekt knapphet`,
-    },
-    {
-      id: 'geo-8-2-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- NUPI: nupi.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- SIPRI (Stockholm International Peace Research Institute): sipri.org
-- Store norske leksikon: snl.no (ressurskonflikter)`,
     },
   ],
   exercises: [
@@ -639,16 +619,6 @@ Arktisk råd, der alle åtte arktiske stater er medlemmer, har vært et viktig f
 - **Antarktistraktaten** freder Antarktis for vitenskapelig forskning og forbyr militaer aktivitet
 - Nordoeststpassasjen og Nordvestpassasjen aapner nye sjoruter naar isen smelter`,
     },
-    {
-      id: 'geo-8-3-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Norsk Polarinstitutt: npolar.no
-- Sysselmeisteren paa Svalbard: sysselmesteren.no
-- Antarktistraktaten: ats.aq
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
-    },
   ],
   exercises: [
     {
@@ -864,16 +834,6 @@ NVE (Norges vassdrags- og energidirektorat) har ansvar for å kartlegge naturfar
 - **Risiko** = fare x saarbarhet x eksponering
 - **Sendai-rammeverket** (2015-2030) er FNs globale plan for katastrofeforebygging
 - Klimaendringer oeker frekvensen og intensiteten av mange typer naturkatastrofer`,
-    },
-    {
-      id: 'geo-8-4-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- UNDRR (FNs kontor for katastrofeforebygging): undrr.org
-- EM-DAT (International Disaster Database): emdat.be
-- DSB (Direktoratet for samfunnssikkerhet og beredskap): dsb.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.`,
     },
   ],
   exercises: [
@@ -1097,16 +1057,6 @@ Norges internasjonale rolle er ikke uten spenninger og dilemmaer:
 - **Havrett** og **havretten** er viktig for Norge som kyst- og havnasjon
 - Norges interesser i **nordomraadene** knytter seg til ressurser, sikkerhet og miljoevern
 - Norge bidrar aktivt i FN, NATO og andre internasjonale organisasjoner`,
-    },
-    {
-      id: 'geo-8-5-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- Regjeringen: regjeringen.no (utenrikspolitikk)
-- NUPI: nupi.no
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Forsvarsdepartementet: regjeringen.no/forsvarsdepartementet`,
     },
   ],
   exercises: [
@@ -1342,16 +1292,6 @@ Framtidens geografer vil bruke avansert teknologi som GIS, fjernmåling og stord
 - Geografisk kompetanse er viktig for aa forstaa og haandtere globale utfordringer
 - Fremtiden krever tverrfaglig tenkning der natur, samfunn og teknologi ses i sammenheng
 - Geografi gir verktoy for aa analysere samspillet mellom mennesker og natur i en verden i endring`,
-    },
-    {
-      id: 'geo-8-6-kilder',
-      type: 'text',
-      content: `## Kilder og ressurser
-
-- FN: fn.no
-- IPCC: ipcc.ch
-- Nystad, J. F. m.fl. (2021). *Geografi VG1/VG2*. Cappelen Damm.
-- Verdensbanken: data.worldbank.org`,
     },
   ],
   exercises: [

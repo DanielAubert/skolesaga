@@ -389,18 +389,7 @@ I dette kapittelet har du lært:
 | Kontrollgruppe | Gruppe som ikke utsettes for testvariabelen, brukes som referansepunkt |
 | Placeboeffekt | Effekt forårsaket av troen på at man får behandling |
 | Dobbeltblind | Hverken forsøksperson eller forsker vet hvem som er i hvilken gruppe |`
-    },
-    {
-      id: 'nat-vg1-1-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Naturfag.no – Nasjonalt senter for naturfag i opplæringen: «Den naturvitenskapelige metoden»
-- Viten.no – Nettressurs for naturfag, undervisningsopplegg om vitenskapelig metode`
-    },
+    }
   ],
   exercises: [],
 };
@@ -847,18 +836,7 @@ I dette kapittelet har du lært:
 | Fysisk modell | Tredimensjonal representasjon (f.eks. globus, molekylmodell) |
 | Matematisk modell | Bruker ligninger og formler (f.eks. klimamodeller) |
 | Konseptuell modell | Diagrammer og ideer som viser sammenhenger (f.eks. næringskjeder) |`
-    },
-    {
-      id: 'nat-vg1-1-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Naturfag.no – «Modeller i naturfag» og «Vitenskapelig tenkemåte»
-- Store norske leksikon (snl.no) – «Vitenskapsteori» og «Naturvitenskapelig metode»`
-    },
+    }
   ],
   exercises: [],
 };
@@ -1274,18 +1252,7 @@ I dette kapittelet har du lært:
 | Sekundærkilde | Tolker eller oppsummerer primærkilder (f.eks. lærebok) |
 | Fagfellevurdering | Kvalitetskontroll der andre eksperter vurderer forskning |
 | Kildekritikk | Systematisk vurdering av en kildes troverdighet og relevans |`
-    },
-    {
-      id: 'nat-vg1-1-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Naturfag.no – «Rapportskriving i naturfag» og «Presentasjon av data»
-- Viten.no – Undervisningsressurser om vitenskapelig kommunikasjon og kildekritikk`
-    },
+    }
   ],
   exercises: [],
 };
@@ -1751,18 +1718,7 @@ I dette kapittelet har du lært:
 | SDS | Sikkerhetsdatablad – informasjon om kjemikaliers farer og håndtering |
 | Risikovurdering | Systematisk gjennomgang: Risiko = Sannsynlighet x Konsekvens |
 | Kontrollgruppe | Kjemisk avfall som syrer, baser, løsemidler og tungmetaller krever spesialhåndtering |`
-    },
-    {
-      id: 'nat-vg1-1-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål for VG1
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Arbeidstilsynet (arbeidstilsynet.no) – Forskrift om utførelse av arbeid, bruk og håndtering av kjemikalier
-- EcoOnline (ecoonline.no) – Sikkerhetsdatablad og stoffkartotek for norske skoler
-- Naturfag.no – «Sikkerhet i naturfagundervisningen» og «Risikovurdering i skolen»`
-    },
+    }
   ],
   exercises: [],
 };
@@ -2392,19 +2348,7 @@ I dette kapittelet har du lært:
 | While-løkke | Gjenta kode så lenge en betingelse er sann |
 | Matplotlib | Python-bibliotek for å lage grafer og diagrammer |
 | Modellering | Bruke programkode til å simulere naturfaglige fenomener |`
-    },
-    {
-      id: 'nat-vg1-1-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Utdanningsdirektoratet (udir.no) – Læreplan i naturfag (NAT01-04), kompetansemål om programmering og modellering
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Python.org – Offisiell dokumentasjon for Python-programmeringsspråket
-- Matplotlib.org – Dokumentasjon for matplotlib-biblioteket
-- Naturfag.no – «Programmering i naturfag» – undervisningsressurser og eksempler`
-    },
+    }
   ],
   exercises: [],
 };
@@ -2780,18 +2724,7 @@ I dette kapittelet har du lært:
 | Interferens | Når to bølger møtes og forsterker eller svekker hverandre |
 | Diffraksjon | Bølger som bøyer seg rundt hindringer eller gjennom åpninger |
 | Mekaniske bølger | Trenger et medium (lyd, vannbølger) |`
-    },
-    {
-      id: 'nat-vg1-2-1-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon (snl.no) – «Bølger», «Bølgelengde», «Interferens» og «Diffraksjon»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- NTNU – Institutt for fysikk: Undervisningsressurser om bølgefysikk
-- Naturfag.no – «Bølger og bølgefenomener» – undervisningsopplegg for VG1`
-    },
+    }
   ],
   exercises: [],
 };
@@ -3217,18 +3150,7 @@ I dette kapittelet har du lært:
 | Ekko | Refleksjon av lyd fra en overflate |
 | Klangfarge | Bestemt av overtoner – gjør at instrumenter høres forskjellig ut |
 | Kompresjon | Område med høyt trykk i en lydbølge |`
-    },
-    {
-      id: 'nat-vg1-2-2-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon (snl.no) – «Lyd», «Lydhastighet», «Desibel» og «Ultralyd»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Arbeidstilsynet (arbeidstilsynet.no) – «Støy på arbeidsplassen» og grenseverdier for støyeksponering
-- NTNU – Institutt for fysikk: Akustikk og lydbølger – undervisningsressurser`
-    },
+    }
   ],
   exercises: [],
 };
@@ -3658,18 +3580,7 @@ I dette kapittelet har du lært:
 | Foton | Partikkelen som bærer elektromagnetisk stråling |
 | Bølge-partikkel-dualitet | EM-stråling oppfører seg både som bølger og partikler |
 | Rayleigh-spredning | Lysavhengig spredning i atmosfæren – årsaken til blå himmel |`
-    },
-    {
-      id: 'nat-vg1-2-3-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Store norske leksikon (snl.no) – «Elektromagnetisk stråling», «Synlig lys» og «Ioniserende stråling»
-- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Hva er stråling?» og «Ikke-ioniserende stråling»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- WHO (who.int) – «Electromagnetic fields and public health» – faktaark om mobilstråling og helse`
-    },
+    }
   ],
   exercises: [],
 };
@@ -4143,18 +4054,7 @@ I dette kapittelet har du lært:
 | Gammastråling | Elektromagnetisk stråling med svært høy energi |
 | Massetall (A) | Antall protoner + nøytroner i kjernen |
 | Atomnummer (Z) | Antall protoner – bestemmer grunnstoffet |`
-    },
-    {
-      id: 'nat-vg1-2-4-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Radioaktivitet» og «Typer ioniserende stråling»
-- Store norske leksikon (snl.no) – «Radioaktivitet», «Alfastråling», «Betastråling» og «Gammastråling»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- Naturfag.no – «Radioaktivitet og stråling» – undervisningsressurser`
-    },
+    }
   ],
   exercises: [],
 };
@@ -4604,18 +4504,7 @@ I dette kapittelet har du lært:
 | Sievert (Sv) | Enhet for ekvivalent dose – tar hensyn til stråletype |
 | Karbondatering | Dateringsmetode basert på nedbrytning av C-14 |
 | Vektingsfaktor | Korreksjon for ulike stråletypers biologiske virkning |`
-    },
-    {
-      id: 'nat-vg1-2-5-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Stråledoser og enheter» og «Naturlig stråling i Norge»
-- Store norske leksikon (snl.no) – «Halveringstid», «Karbondatering» og «Stråledose»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- IAEA (iaea.org) – International Atomic Energy Agency: Ressurser om radioaktivitet og strålemåling`
-    },
+    }
   ],
   exercises: [],
 };
@@ -5080,18 +4969,7 @@ I dette kapittelet har du lært:
 | Radon | Radioaktiv edelgass som siver inn i bygninger fra berggrunnen |
 | UV-indeks | Mål på styrken til UV-stråling fra solen |
 | Frie radikaler | Reaktive molekyler som dannes ved strålingens ionisering av vann |`
-    },
-    {
-      id: 'nat-vg1-2-6-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Direktoratet for strålevern og atomsikkerhet, DSA (dsa.no) – «Radon i boliger», «UV-stråling» og «Medisinsk strålebruk»
-- WHO (who.int) – «Ionizing radiation, health effects and protective measures» og «Radon and health»
-- Kreftregisteret (kreftregisteret.no) – «Hudkreft i Norge» og «Stråling og kreftrisiko»
-- Store norske leksikon (snl.no) – «Strålevern», «Radon» og «UV-stråling»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.`
-    },
+    }
   ],
   exercises: [],
 };
@@ -5619,18 +5497,7 @@ I dette kapittelet har du lært:
 | Latency | Forsinkelse i signaloverføring (viktig for sanntidsapplikasjoner) |
 | Millimeterbølger | Bølger med bølgelengde på noen millimeter (brukt i 5G) |
 | IoT | Internet of Things – trådløs kommunikasjon mellom gjenstander |`
-    },
-    {
-      id: 'nat-vg1-2-7-kilder',
-      type: 'text',
-      content: `### Kilder og videre lesning
-
-- Nasjonal kommunikasjonsmyndighet, NKOM (nkom.no) – «Frekvensforvaltning», «5G i Norge» og «Trådløs kommunikasjon»
-- Store norske leksikon (snl.no) – «Radiokommunikasjon», «GPS» og «5G»
-- Hannisdal, M. et al. (2021). *Kosmos – Naturfag VG1*. Fagbokforlaget.
-- Heskestad, P. A. et al. (2020). *Tellus 11 – Naturfag VG1*. Cappelen Damm.
-- ESA (esa.int) – European Space Agency: «How satellite navigation works» – om GPS og Galileo`
-    },
+    }
   ],
   exercises: [],
 };
