@@ -19,6 +19,7 @@ import { CHAPTERS_NAT_VG1 } from './textbook-content-nat-vg1';
 import { NAT_VG1_NARRATIV_CHAPTERS } from './textbook-content-nat-vg1-narrativ';
 import { CHAPTERS_BI_OKONOMI } from './textbook-content-bi-okonomi';
 import { NATURFAG_10_CHAPTERS } from './textbook-content-naturfag-10';
+import { NATURFAG_10_NARRATIV_CHAPTERS } from './textbook-content-naturfag-10-narrativ';
 import { FYSIKK1_CHAPTERS } from './textbook-content-fysikk1';
 import { FYSIKK2_CHAPTERS } from './textbook-content-fysikk2';
 import { KJEMI1_CHAPTERS } from './textbook-content-kjemi1';
@@ -436,6 +437,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Naturfag 10. klasse
   ...NATURFAG_10_CHAPTERS,
+  ...Object.fromEntries(NATURFAG_10_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Fysikk 1
   ...FYSIKK1_CHAPTERS,

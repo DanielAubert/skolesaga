@@ -6229,7 +6229,7 @@ Alle energikilder påvirker miljøet på en eller annen måte – men i svært u
       type: 'text',
       content: `## Energiframtiden
 
-Verden står overfor en stor utfordring: Hvordan kan vi produsere nok energi til en voksende befolkning, uten å ødelegge klimaet?
+Verden står overfor en stor utfordring: Hvordan kan vi produsere nok energi til en voksende befolkning, og samtidig redusere klimagassutslipp?
 
 ### Hva må til for en bærekraftig energiframtid?
 
@@ -6277,7 +6277,7 @@ Hva kan **du** gjøre for en bærekraftig energiframtid?
 - **Spar energi** – slå av lys, apparater
 - **Gå, sykkel, kollektiv** – mindre bil
 - **Kjøp bevisst** – velg energieffektive produkter
-- **Snakk om det** – påvirk andre`,
+- **Del kunnskap** – del kunnskap om energi og klima med andre`,
     },
 
     // ========== EKSEMPEL: SAMMENLIGNE ENERGIKILDER ==========
@@ -8422,7 +8422,7 @@ I 2015 ble alle verdens land enige om **Parisavtalen** – et internasjonalt kli
 - Rike land skal hjelpe fattige land med klimatiltak
 
 **Status:**
-Vi er på god vei til å overskride 1.5°C-målet. Det kreves raskere utslippskutt for å nå målene.`,
+Vi er på god vei til å overskride 1.5°C-målet. Mange klimaforskere mener raskere utslippskutt er nødvendig for å nå målene.`,
     },
 
     // ========== OPPGAVE 8: UTSLIPPSREDUKSJONER ==========

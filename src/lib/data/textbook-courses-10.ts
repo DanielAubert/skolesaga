@@ -19,7 +19,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
   chapters: [
     // Kapittel 1: Naturvitenskapelige praksiser
     {
-      id: 'naturfag-10-1-1',
+      id: 'naturfag-10-1-1', linkedChapterId: 'naturfag-10-1-1-narrativ',
       number: '1.1',
       title: 'Hva er naturvitenskap?',
       description: 'Hva naturvitenskap er, naturvitenskapens rolle i samfunnet og hvordan kunnskap utvikles.',
@@ -30,7 +30,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-1-2',
+      id: 'naturfag-10-1-2', linkedChapterId: 'naturfag-10-1-2-narrativ',
       number: '1.2',
       title: 'Hypoteser og eksperimenter',
       description: 'Formulere hypoteser, planlegge og gjennomføre eksperimenter med kontrollerte variabler.',
@@ -42,7 +42,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-1-3',
+      id: 'naturfag-10-1-3', linkedChapterId: 'naturfag-10-1-3-narrativ',
       number: '1.3',
       title: 'Data, analyse og konklusjoner',
       description: 'Samle inn, organisere og analysere data, og trekke gyldige konklusjoner.',
@@ -54,7 +54,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-1-4',
+      id: 'naturfag-10-1-4', linkedChapterId: 'naturfag-10-1-4-narrativ',
       number: '1.4',
       title: 'Modeller i naturfag',
       description: 'Hvordan modeller brukes til å forklare og forutsi naturvitenskapelige fenomener.',
@@ -66,7 +66,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-1-5',
+      id: 'naturfag-10-1-5', linkedChapterId: 'naturfag-10-1-5-narrativ',
       number: '1.5',
       title: 'Kritisk tenkning og kildekritikk',
       description: 'Vurdere naturfaglig informasjon kritisk og skille mellom vitenskap og pseudovitenskap.',
@@ -80,7 +80,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
 
     // Kapittel 2: Kjemi
     {
-      id: 'naturfag-10-2-1',
+      id: 'naturfag-10-2-1', linkedChapterId: 'naturfag-10-2-1-narrativ',
       number: '2.1',
       title: 'Atomer og grunnstoffer',
       description: 'Atomets oppbygning med protoner, nøytroner og elektroner, og grunnstoffer.',
@@ -91,7 +91,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-2',
+      id: 'naturfag-10-2-2', linkedChapterId: 'naturfag-10-2-2-narrativ',
       number: '2.2',
       title: 'Periodesystemet',
       description: 'Periodesystemets oppbygning, grupper og perioder, og egenskaper til grunnstoffer.',
@@ -103,7 +103,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-3',
+      id: 'naturfag-10-2-3', linkedChapterId: 'naturfag-10-2-3-narrativ',
       number: '2.3',
       title: 'Kjemiske bindinger',
       description: 'Ulike typer kjemiske bindinger: ionebindinger, kovalente bindinger og metallbindinger.',
@@ -115,7 +115,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-4',
+      id: 'naturfag-10-2-4', linkedChapterId: 'naturfag-10-2-4-narrativ',
       number: '2.4',
       title: 'Kjemiske reaksjoner',
       description: 'Hva som skjer i kjemiske reaksjoner, og hvordan de skrives med reaksjonslikninger.',
@@ -127,7 +127,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-5',
+      id: 'naturfag-10-2-5', linkedChapterId: 'naturfag-10-2-5-narrativ',
       number: '2.5',
       title: 'Massebevaring og balansering',
       description: 'Massens bevaringsprinsipp og balansering av kjemiske reaksjonslikninger.',
@@ -139,7 +139,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-6',
+      id: 'naturfag-10-2-6', linkedChapterId: 'naturfag-10-2-6-narrativ',
       number: '2.6',
       title: 'Syrer og baser',
       description: 'Egenskaper til syrer og baser, pH-skalaen og nøytralisering.',
@@ -151,7 +151,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1617791160536-598cf32026fb?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-7',
+      id: 'naturfag-10-2-7', linkedChapterId: 'naturfag-10-2-7-narrativ',
       number: '2.7',
       title: 'Organisk kjemi I: Hydrokarboner og fossile brensler',
       description: 'Karbon som grunnstoff, alkaner, alkener, alkyner, og fossile brenslers kjemi.',
@@ -163,7 +163,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-2-8',
+      id: 'naturfag-10-2-8', linkedChapterId: 'naturfag-10-2-8-narrativ',
       number: '2.8',
       title: 'Organisk kjemi II: Alkoholer, syrer og polymerer',
       description: 'Funksjonelle grupper, alkoholer, karboksylsyrer, estere, karbohydrater, fett, proteiner og polymerer.',
@@ -177,7 +177,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
 
     // Kapittel 3: Fysikk
     {
-      id: 'naturfag-10-3-1',
+      id: 'naturfag-10-3-1', linkedChapterId: 'naturfag-10-3-1-narrativ',
       number: '3.1',
       title: 'Energi og energiformer',
       description: 'Ulike energiformer som kinetisk, potensiell, kjemisk, elektrisk og varmeenergi.',
@@ -188,7 +188,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1509390144992-caae4b8e5d9c?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-3-2',
+      id: 'naturfag-10-3-2', linkedChapterId: 'naturfag-10-3-2-narrativ',
       number: '3.2',
       title: 'Energibevaring og kvalitet',
       description: 'Energiens bevaringsprinsipp, energikvalitet og effektivitet.',
@@ -200,7 +200,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-3-3',
+      id: 'naturfag-10-3-3', linkedChapterId: 'naturfag-10-3-3-narrativ',
       number: '3.3',
       title: 'Elektrisitet og strømkretser',
       description: 'Elektrisk strøm, spenning, motstand, serie- og parallellkoblinger.',
@@ -212,7 +212,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1509869175650-a1d97972541a?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-3-4',
+      id: 'naturfag-10-3-4', linkedChapterId: 'naturfag-10-3-4-narrativ',
       number: '3.4',
       title: 'Bølger og stråling',
       description: 'Mekaniske og elektromagnetiske bølger, bølgelengde, frekvens og amplitude.',
@@ -223,7 +223,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-3-5',
+      id: 'naturfag-10-3-5', linkedChapterId: 'naturfag-10-3-5-narrativ',
       number: '3.5',
       title: 'Energiproduksjon og miljø',
       description: 'Fornybare og ikke-fornybare energikilder, og deres miljøpåvirkning.',
@@ -235,7 +235,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-3-6',
+      id: 'naturfag-10-3-6', linkedChapterId: 'naturfag-10-3-6-narrativ',
       number: '3.6',
       title: 'Klima og drivhuseffekten',
       description: 'Naturlig og menneskeskapt drivhuseffekt, klimaendringer og konsekvenser.',
@@ -249,7 +249,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
 
     // Kapittel 4: Jorda og livet på jorda
     {
-      id: 'naturfag-10-4-1',
+      id: 'naturfag-10-4-1', linkedChapterId: 'naturfag-10-4-1-narrativ',
       number: '4.1',
       title: 'Cellens oppbygning',
       description: 'Plante- og dyreceller, celleorganeller og deres funksjoner.',
@@ -260,7 +260,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-2',
+      id: 'naturfag-10-4-2', linkedChapterId: 'naturfag-10-4-2-narrativ',
       number: '4.2',
       title: 'Fotosyntese og celleånding',
       description: 'Fotosyntesens og celleåndingens prosesser og betydning for livet.',
@@ -272,19 +272,31 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-3',
+      id: 'naturfag-10-4-3', linkedChapterId: 'naturfag-10-4-3-narrativ',
       number: '4.3',
-      title: 'Arv og evolusjon',
-      description: 'DNA, gener, arvelighet, naturlig seleksjon og evolusjonsteori.',
-      estimatedMinutes: 55,
-      exerciseCount: 12,
-      topics: ['DNA', 'Gener', 'Arv', 'Mutasjon', 'Naturlig seleksjon', 'Evolusjon', 'Darwin'],
+      title: 'Arv og genetikk',
+      description: 'DNA, gener, kromosomer, celledeling, dominant og recessiv arv, Punnett-ruter og mutasjoner.',
+      estimatedMinutes: 50,
+      exerciseCount: 8,
+      topics: ['DNA', 'Gener', 'Kromosomer', 'Mitose', 'Meiose', 'Arv', 'Mutasjon', 'Punnett-rute'],
       prerequisites: ['naturfag-10-4-1'],
-      competenceGoals: ['forklare hvordan egenskaper arves', 'beskrive evolusjon ved naturlig seleksjon'],
+      competenceGoals: ['forklare hvordan egenskaper arves', 'bruke Punnett-ruter til å forutsi arvegangen'],
       coverImage: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-4',
+      id: 'naturfag-10-4-3b', linkedChapterId: 'naturfag-10-4-3b-narrativ',
+      number: '4.3b',
+      title: 'Evolusjon og artsdannelse',
+      description: 'Evolusjonsteorien, naturlig utvalg, bevis for evolusjon og artsdannelse.',
+      estimatedMinutes: 45,
+      exerciseCount: 12,
+      topics: ['Evolusjon', 'Naturlig utvalg', 'Darwin', 'Fossiler', 'Artsdannelse', 'Homologe strukturer'],
+      prerequisites: ['naturfag-10-4-3'],
+      competenceGoals: ['beskrive evolusjon ved naturlig seleksjon', 'gi eksempler på bevis for evolusjon'],
+      coverImage: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-4-4', linkedChapterId: 'naturfag-10-4-4-narrativ',
       number: '4.4',
       title: 'Økosystemer og næringskjeder',
       description: 'Økosystemers struktur, energiflyt, næringskjeder og næringsnett.',
@@ -295,7 +307,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-5',
+      id: 'naturfag-10-4-5', linkedChapterId: 'naturfag-10-4-5-narrativ',
       number: '4.5',
       title: 'Biologisk mangfold',
       description: 'Artsmangfold, trusler mot biologisk mangfold og bevaring.',
@@ -307,7 +319,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1535083783855-76ae62b2914e?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-6',
+      id: 'naturfag-10-4-6', linkedChapterId: 'naturfag-10-4-6-narrativ',
       number: '4.6',
       title: 'Jordens utvikling og platetektonikk',
       description: 'Jordens struktur, platetektonikk, vulkaner og jordskjelv.',
@@ -318,7 +330,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-7',
+      id: 'naturfag-10-4-7', linkedChapterId: 'naturfag-10-4-7-narrativ',
       number: '4.7',
       title: 'Stoffenes kretsløp',
       description: 'Karbonkretsløpet, nitrogenkretsløpet, vannets kretsløp og fosforkretsløpet.',
@@ -330,7 +342,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1500534314263-0869cceafd23?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-4-8',
+      id: 'naturfag-10-4-8', linkedChapterId: 'naturfag-10-4-8-narrativ',
       number: '4.8',
       title: 'Naturressurser, bærekraft og samisk naturkunnskap',
       description: 'Bærekraftig forvaltning av naturressurser, energiproduksjonens miljøpåvirkning og samisk tradisjonell kunnskap.',
@@ -344,7 +356,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
 
     // Kapittel 5: Kropp og helse
     {
-      id: 'naturfag-10-5-1',
+      id: 'naturfag-10-5-1', linkedChapterId: 'naturfag-10-5-1-narrativ',
       number: '5.1',
       title: 'Nervesystemet',
       description: 'Nervesystemets oppbygning, nerveceller, hjernen og signaloverføring.',
@@ -355,7 +367,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-5-2',
+      id: 'naturfag-10-5-2', linkedChapterId: 'naturfag-10-5-2-narrativ',
       number: '5.2',
       title: 'Hormonsystemet',
       description: 'Hormoner, kjertler og hormonell regulering av kroppsfunksjoner.',
@@ -367,7 +379,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-5-3',
+      id: 'naturfag-10-5-3', linkedChapterId: 'naturfag-10-5-3-narrativ',
       number: '5.3',
       title: 'Immunforsvaret og vaksiner',
       description: 'Kroppens forsvar mot sykdom, immunsystemet og hvordan vaksiner virker.',
@@ -378,18 +390,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-5-4',
-      number: '5.4',
-      title: 'Seksuell og reproduktiv helse',
-      description: 'Reproduksjon, prevensjon, kjønnssykdommer og seksuell helse.',
-      estimatedMinutes: 50,
-      exerciseCount: 8,
-      topics: ['Reproduksjon', 'Prevensjon', 'Kjønnssykdommer', 'Seksualitet', 'Reproduktiv helse'],
-      competenceGoals: ['forklare menneskets reproduksjon', 'diskutere seksuell og reproduktiv helse'],
-      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
-    },
-    {
-      id: 'naturfag-10-5-5',
+      id: 'naturfag-10-5-5', linkedChapterId: 'naturfag-10-5-5-narrativ',
       number: '5.5',
       title: 'Livsstil og helse',
       description: 'Kosthold, fysisk aktivitet, søvn og hvordan livsstil påvirker helse.',
@@ -400,7 +401,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-5-6',
+      id: 'naturfag-10-5-6', linkedChapterId: 'naturfag-10-5-6-narrativ',
       number: '5.6',
       title: 'Rusmidler, legemidler og doping',
       description: 'Hvordan rusmidler, legemidler, miljøgifter og doping påvirker nervesystemet og hormonsystemet.',
@@ -414,7 +415,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
 
     // Kapittel 6: Teknologi og programmering
     {
-      id: 'naturfag-10-6-1',
+      id: 'naturfag-10-6-1', linkedChapterId: 'naturfag-10-6-1-narrativ',
       number: '6.1',
       title: 'Teknologiske systemer',
       description: 'Hvordan teknologiske systemer fungerer og samspillet mellom komponenter.',
@@ -425,7 +426,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-6-2',
+      id: 'naturfag-10-6-2', linkedChapterId: 'naturfag-10-6-2-narrativ',
       number: '6.2',
       title: 'Sensorer og målinger',
       description: 'Ulike typer sensorer og bruk av teknologi til å samle inn data.',
@@ -437,7 +438,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-6-3',
+      id: 'naturfag-10-6-3', linkedChapterId: 'naturfag-10-6-3-narrativ',
       number: '6.3',
       title: 'Programmering i naturfag',
       description: 'Grunnleggende programmering for å løse naturfaglige problemer og analysere data.',
@@ -449,7 +450,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-6-4',
+      id: 'naturfag-10-6-4', linkedChapterId: 'naturfag-10-6-4-narrativ',
       number: '6.4',
       title: 'Simuleringer og modellering',
       description: 'Bruke digitale verktøy til å simulere og modellere naturfaglige fenomener.',
@@ -461,7 +462,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop',
     },
     {
-      id: 'naturfag-10-6-5',
+      id: 'naturfag-10-6-5', linkedChapterId: 'naturfag-10-6-5-narrativ',
       number: '6.5',
       title: 'Forskning og innovasjon',
       description: 'Hvordan forskning og teknologi bidrar til utvikling og løsninger for samfunnet.',
@@ -471,6 +472,67 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
       prerequisites: ['naturfag-10-1-5'],
       competenceGoals: ['beskrive forskningsprosesser', 'diskutere teknologis rolle i samfunnet'],
       coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+    },
+
+    // Kapittel 7: Seksuell og reproduktiv helse
+    {
+      id: 'naturfag-10-7-1', linkedChapterId: 'naturfag-10-7-1-narrativ',
+      number: '7.1',
+      title: 'Pubertet og hormonelle endringer',
+      description: 'Pubertet, hormoner som styrer utviklingen, og fysiske og følelsesmessige endringer.',
+      estimatedMinutes: 40,
+      exerciseCount: 8,
+      topics: ['Pubertet', 'Østrogen', 'Testosteron', 'Progesteron', 'Kjønnsmoden', 'Hypofysen'],
+      prerequisites: ['naturfag-10-5-2'],
+      competenceGoals: ['beskrive pubertet og hormonelle endringer'],
+      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-7-2', linkedChapterId: 'naturfag-10-7-2-narrativ',
+      number: '7.2',
+      title: 'Reproduksjonssystemene',
+      description: 'Det kvinnelige og mannlige reproduksjonssystemet, menstruasjonssyklusen og kjønnsceller.',
+      estimatedMinutes: 45,
+      exerciseCount: 9,
+      topics: ['Eggstokker', 'Livmor', 'Menstruasjon', 'Eggløsning', 'Testikler', 'Sædceller'],
+      prerequisites: ['naturfag-10-7-1'],
+      competenceGoals: ['forklare det kvinnelige og mannlige reproduksjonssystemet'],
+      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-7-3', linkedChapterId: 'naturfag-10-7-3-narrativ',
+      number: '7.3',
+      title: 'Befruktning, graviditet og fødsel',
+      description: 'Befruktning, fosterutvikling, morkakens funksjon, tvillinger og fødselen.',
+      estimatedMinutes: 45,
+      exerciseCount: 8,
+      topics: ['Befruktning', 'Zygote', 'Foster', 'Morkake', 'Trimester', 'Fødsel', 'Tvillinger'],
+      prerequisites: ['naturfag-10-7-2'],
+      competenceGoals: ['beskrive befruktning, graviditet og fødsel'],
+      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-7-4', linkedChapterId: 'naturfag-10-7-4-narrativ',
+      number: '7.4',
+      title: 'Prevensjon og seksuelt overførbare infeksjoner',
+      description: 'Prevensjonsmetoder, seksuelt overførbare infeksjoner (SOI) og beskyttelse.',
+      estimatedMinutes: 50,
+      exerciseCount: 12,
+      topics: ['Prevensjon', 'Kondom', 'P-piller', 'Spiral', 'Klamydia', 'HPV', 'HIV', 'SOI'],
+      prerequisites: ['naturfag-10-7-2'],
+      competenceGoals: ['kjenne til prevensjonsmetoder', 'forstå seksuelt overførbare infeksjoner'],
+      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
+    },
+    {
+      id: 'naturfag-10-7-5', linkedChapterId: 'naturfag-10-7-5-narrativ',
+      number: '7.5',
+      title: 'Samtykke, grenser og seksuell helse',
+      description: 'Samtykke, kommunikasjon, grensesetting og hjelperessurser for seksuell helse.',
+      estimatedMinutes: 40,
+      exerciseCount: 10,
+      topics: ['Samtykke', 'Grenser', 'Kommunikasjon', 'Seksuell helse', 'Hjelperessurser'],
+      competenceGoals: ['forstå samtykke og grensesetting', 'kjenne til hjelperessurser for seksuell helse'],
+      coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=400&fit=crop',
     },
   ],
 };

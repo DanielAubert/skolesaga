@@ -7582,11 +7582,9 @@ Genredigering er et kraftfullt verktøy som kan lindre mye lidelse. Men med stor
 ### Neste steg
 
 Nå som du forstår forskning og innovasjon, er du klar til å:
-- Følge med på ny forskning i media
-- Vurdere påliteligheten til informasjon
-- Forstå hvordan ny kunnskap skapes
-- Diskutere etiske dilemmaer i forskning
-- Kanskje bli forsker selv en dag?`,
+- Utforske **seksuell og reproduktiv helse** -- pubertet, reproduksjon, prevensjon og samtykke (seksjon 7)
+- Følge med på ny forskning i media og vurdere påliteligheten til informasjon
+- Diskutere etiske dilemmaer i forskning og samfunn`,
     },
 
     // ========== EKSEMPEL: VITENSKAPELIG METODE I PRAKSIS ==========

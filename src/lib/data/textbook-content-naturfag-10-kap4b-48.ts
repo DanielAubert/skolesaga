@@ -218,7 +218,7 @@ Norge produserer ca. 90 % av sin elektrisitet fra vannkraft.
 - Noe utslipp er knyttet til produksjon, transport og oppsetting av turbinene
 
 **Konflikten med reindriften:**
-Sørsamiske reindriftsutøvere brukte fjellområdene på Fosen som vinterbeiteland for reinen. Høyesterett fastslo i 2021 at utbyggingen krenket samenes rett til kulturutøvelse, fordi reindrift er en sentral del av samisk kultur og tradisjon. Denne saken viser at overgangen til fornybar energi må balanseres mot urfolks rettigheter og andre miljøhensyn.`,
+Vindkraftutbyggingen på Fosen ble igangsatt som del av Norges satsing på fornybar energi for å nå nasjonale klimamål og øke produksjonen av utslippsfri kraft. Samtidig brukte sørsamiske reindriftsutøvere fjellområdene som vinterbeiteland for reinen. Høyesterett fastslo i 2021 at utbyggingen krenket samenes rett til kulturutøvelse, fordi reindrift er en sentral del av samisk kultur og tradisjon. Denne saken viser at overgangen til fornybar energi må balanseres mot urfolks rettigheter og andre miljøhensyn.`,
     },
 
     // ========== OPPGAVE 3: MULTIPLE CHOICE ==========
@@ -292,7 +292,7 @@ Denne kunnskapen kjennetegnes av at den:
 
 **Samisk naturkunnskap** er et eksempel på tradisjonell økologisk kunnskap. Samene har levd i og av nordlige naturområder i flere tusen år og har utviklet detaljert kunnskap om klima, dyreliv, planter, snøforhold, vind og landskap.
 
-Tradisjonell kunnskap er ikke «gammel» eller «utdatert» – den er levende og utvikler seg stadig. I dag anerkjenner forskere og myndigheter at tradisjonell kunnskap er et verdifullt kunnskapssystem som utfyller naturvitenskapelig forskning.`,
+Tradisjonell kunnskap er ikke «gammel» eller «utdatert» – den er levende og utvikler seg stadig. I dag anerkjenner forskere og myndigheter at tradisjonell kunnskap er et erfaringsbasert kunnskapssystem som kan utfylle naturvitenskapelig forskning.`,
     },
 
     {
@@ -457,7 +457,7 @@ Bærekraftig utvikling har tre dimensjoner:
 - Mål 14: Livet i havet
 - Mål 15: Livet på land
 
-**Sirkulærøkonomi** er en økonomisk modell der materialer brukes om igjen i stedet for å kastes. I stedet for å ta ut råstoffer, produsere, bruke og kaste (lineær økonomi), skal produkter designes for gjenbruk, reparasjon og resirkulering.`,
+**Sirkulærøkonomi** er en økonomisk modell der materialer brukes om igjen i stedet for å kastes. I stedet for å ta ut råstoffer, produsere, bruke og kaste (lineær økonomi), legger denne modellen opp til at produkter designes for gjenbruk, reparasjon og resirkulering.`,
     },
 
     // ========== OPPGAVE 7: KLASSISK ==========

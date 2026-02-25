@@ -1,0 +1,521 @@
+/**
+ * Tekstbok kapitler for Naturfag 10 - Seksjon 7 del 3: Befruktning, graviditet og fødsel (7.3)
+ *
+ * LK20-kompetansemål: drøfte problemstillinger knyttet til seksuell og reproduktiv helse
+ */
+
+import type { TextbookChapter } from '@/lib/types/textbook';
+
+// ============================================================================
+// KAPITTEL 7.3: Befruktning, graviditet og fødsel
+// ============================================================================
+
+export const CHAPTER_NAT10_7_3: TextbookChapter = {
+  id: 'naturfag-10-7-3',
+  courseId: 'naturfag-10',
+  chapterNumber: '7.3',
+  title: 'Befruktning, graviditet og fødsel',
+  description: 'Lær om befruktning, fosterutvikling, morkakens funksjon, tvillinger og fødselen.',
+  estimatedMinutes: 45,
+  prerequisites: ['naturfag-10-7-2'],
+  competenceGoals: [
+    'beskrive befruktning og innfesting av befruktet egg',
+    'forklare fosterutviklingen gjennom de tre trimestrene',
+    'beskrive morkakens funksjon',
+    'forklare forskjellen mellom eneggede og toeggede tvillinger',
+    'beskrive fødselen og dens faser',
+  ],
+  content: [
+    // ========== INTRODUKSJON ==========
+    {
+      id: 'nat10-7-3-intro',
+      type: 'text',
+      content: `## Befruktning, graviditet og fødsel
+
+Hvordan oppstår egentlig et nytt menneske? Alt starter med to bittesmå celler -- en sædcelle og en eggcelle. Når disse to cellene smelter sammen, begynner en utrolig prosess der en enkelt celle utvikler seg til et fullstendig lite menneske i løpet av omtrent ni måneder.
+
+Fra befruktning til fødsel gjennomgår det ufødte barnet en enorm utvikling. Organer dannes, hjertet begynner å slå, fingre og tær vokser frem, og til slutt er barnet klart for å bli født. Denne reisen er en av naturens mest fascinerende prosesser.
+
+I dette kapitlet lærer du om:
+- Hvordan befruktningen skjer og hva som bestemmer barnets kjønn
+- Fosterutviklingen gjennom de tre trimestrene
+- Morkakens viktige funksjon som bindeledd mellom mor og foster
+- Forskjellen mellom eneggede og toeggede tvillinger
+- Fødselen og dens ulike faser`,
+    },
+
+    // ========================================================================
+    // BLOKK 1: BEFRUKTNING
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-befruktning',
+      type: 'text',
+      content: `## Befruktning
+
+Befruktning skjer når en sædcelle og en eggcelle smelter sammen og danner en ny celle med et komplett sett arvestoff. La oss se på hvordan dette foregår steg for steg.
+
+### Sædcellenes reise
+
+Ved seksuell omgang frigjøres sæd i skjeden. En sædutløsning inneholder omtrent 200--300 millioner sædceller. Sædcellene svømmer oppover gjennom livmorhalsen og inn i livmoren ved hjelp av halen sin. Derfra fortsetter de videre inn i egglederen. Selv om det starter med hundrevis av millioner sædceller, er det bare noen hundre som faktisk når frem til egget. Reisen tar vanligvis noen timer.
+
+### Møtet mellom sædcelle og egg
+
+Befruktningen skjer vanligvis i den øvre delen av egglederen. Etter eggløsning lever eggcellen i omtrent 12--24 timer, så timingen er avgjørende. Sædceller kan overleve i kvinnens kropp i opptil fem dager, noe som betyr at samleie noen dager før eggløsning også kan føre til befruktning.
+
+Når sædcellene når egget, omgir de det og forsøker å trenge gjennom det beskyttende laget rundt eggcellen. **Kun én sædcelle** klarer å trenge helt inn i egget. I det øyeblikket den første sædcellen slipper inn, endrer eggcellen overflaten sin slik at ingen flere sædceller kan komme inn.
+
+### Fra to celler til én
+
+Inne i eggcellen smelter kjernen fra sædcellen sammen med kjernen fra eggcellen. DNA-et fra far (23 kromosomer fra sædcellen) kombineres med DNA-et fra mor (23 kromosomer fra eggcellen), og det dannes en ny celle med 46 kromosomer. Denne cellen kalles en **zygote** -- det aller første stadiet av et nytt menneske.
+
+### Kjønnsbestemmelse
+
+Kjønnet til barnet bestemmes allerede ved befruktningen. Eggcellen har alltid et X-kromosom, mens sædcellen enten har et X- eller et Y-kromosom. Hvis sædcellen har et X-kromosom, blir kombinasjonen **XX** og barnet blir en jente. Har sædcellen et Y-kromosom, blir kombinasjonen **XY** og barnet blir en gutt. Det er altså sædcellen som avgjør kjønnet.
+
+### Celledeling og vandring
+
+Kort tid etter befruktningen begynner zygoten å dele seg. Først blir det to celler, så fire, åtte, seksten, og så videre. Samtidig som celledelingen pågår, vandrer den lille celleklumpen sakte nedover egglederen mot livmoren. Denne reisen tar 3--4 dager.
+
+### Innfesting i livmoren
+
+Etter 5--7 dager har celleklumpen utviklet seg til en **blastocyst** -- en hul kuleformet struktur med et indre cellelag som skal bli til fosteret. Blastocysten fester seg til livmorslimhinnen og graver seg inn. Denne prosessen kalles **innfesting** (implantasjon). Fra dette øyeblikket begynner utviklingen av morkaken, og kroppen til mor begynner å produsere hormoner som opprettholder svangerskapet.`,
+    },
+
+    // ========== DEFINISJON: BEFRUKTNING ==========
+    {
+      id: 'nat10-7-3-def-befruktning',
+      type: 'definition',
+      title: 'Nøkkelbegreper: Befruktning',
+      content: `**Befruktning:** Prosessen der en sædcelle og en eggcelle smelter sammen og danner en befruktet eggcelle med komplett arvestoff (46 kromosomer).
+
+**Zygote:** Den befruktede eggcellen -- det aller første stadiet av et nytt menneske. Inneholder DNA fra både mor og far.
+
+**Innfesting (implantasjon):** Når den befruktede eggcellen fester seg i livmorslimhinnen, omtrent 5--7 dager etter befruktning.
+
+**Blastocyst:** Stadiet der den befruktede eggcellen har blitt en hul celleklump som er klar til å feste seg i livmoren.`,
+    },
+
+    // ========== OPPGAVE 1: BEFRUKTNING (MC) ==========
+    {
+      id: 'nat10-7-3-ex-1-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-1',
+        number: '7.3.1',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvor skjer befruktningen vanligvis?',
+        options: [
+          'I egglederen',
+          'I livmoren',
+          'I skjeden',
+          'I eggstokken',
+        ],
+        answer: 0,
+        solution: 'Befruktningen skjer vanligvis i den øvre delen av egglederen. Etter eggløsningen beveger egget seg sakte nedover egglederen, og det er her sædcellen møter egget og smelter sammen med det. Først etterpå vandrer den befruktede eggcellen videre til livmoren der den fester seg.',
+      },
+    },
+
+    // ========================================================================
+    // BLOKK 2: FOSTERUTVIKLING
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-utvikling',
+      type: 'text',
+      content: `## Fosterutvikling
+
+Graviditeten varer omtrent 40 uker (280 dager) og deles inn i tre **trimestere** -- perioder på omtrent tre måneder hver. Gjennom disse ni månedene utvikler den befruktede eggcellen seg fra en liten celleklump til et fullstendig lite menneske.
+
+### 1. trimester (uke 1--12)
+
+Det første trimesteret er den mest kritiske perioden i fosterutviklingen fordi alle de viktigste organene dannes i denne fasen. I de første ukene deler cellene seg raskt og begynner å spesialisere seg til ulike celletyper.
+
+Allerede i **uke 3--4** begynner hjertet å dannes, og i uke 5--6 kan man se de første hjerteslagene på ultralyd. Hjernen, ryggmargen og nervesystemet starter også utviklingen tidlig. I uke 6--8 dannes ansiktstrekk, armer og bein begynner å vokse ut, og fingre og tær blir synlige.
+
+Fra befruktning til og med **uke 8** kalles det ufødte barnet et **embryo**. Fra uke 8 og utover kalles det et **foster**, fordi alle de viktigste organene nå er anlagt og skal videre modnes og vokse.
+
+Ved slutten av 1. trimester (uke 12) er fosteret omtrent **6 cm** langt og veier rundt 18 gram. Alle organer er dannet, selv om de ennå ikke er fullt utviklet. Risikoen for spontanabort er størst i dette trimesteret.
+
+### 2. trimester (uke 13--26)
+
+I det andre trimesteret vokser fosteret raskt og organene modnes videre. Mange gravide opplever dette som den mest behagelige perioden av svangerskapet.
+
+Fosteret begynner å bevege seg mer aktivt, og rundt **uke 18--20** kan moren vanligvis kjenne de første sparkene. Hjertet slår kraftig og kan høres med stetoskop. Fosteret utvikler hørsel og kan reagere på lyder, og øynene kan oppfatte lys gjennom magen.
+
+Huden dekkes av et tynt lag fine hår (lanugohår) og en beskyttende fettaktig hinne (verniks). Fosteret begynner å suge på tommelen, hikke og ha perioder med søvn og våkenhet.
+
+Ved slutten av 2. trimester (uke 26) er fosteret omtrent **35 cm** langt og veier rundt 800 gram. Lungene begynner å produsere et stoff som gjør at de kan utvide seg (surfaktant), men de er ennå ikke modne nok til å fungere selvstendig utenfor livmoren.
+
+### 3. trimester (uke 27--40)
+
+I det siste trimesteret handler det meste om modning og vekst. Fosteret legger på seg og bygger opp et lag med underhudsfett som er viktig for å holde kroppstemperaturen etter fødsel.
+
+Lungene modnes videre og forbereder seg på å puste luft. Hjernen utvikler seg raskt, og fosteret får stadig mer regulære sove- og våkneperioder. Det kan drømme, reagere på stemmer det kjenner, og blinke med øynene.
+
+Rundt **uke 36** snur de fleste fostre seg slik at hodet peker nedover -- klar for fødsel. Plassen i livmoren blir trang, og bevegelsene blir mer pressing og rulling enn de store sparkene fra tidligere.
+
+Ved **uke 40** (termin) er barnet omtrent **50 cm** langt og veier gjennomsnittlig **3--4 kg**. Det er klart til å bli født. Noen barn kommer litt før eller etter termin, og alt mellom uke 37 og 42 regnes som normal fødselstid.`,
+    },
+
+    // ========== EKSEMPEL: FOSTERETS UTVIKLING UKE FOR UKE ==========
+    {
+      id: 'nat10-7-3-example-1',
+      type: 'example',
+      title: 'Fosterets utvikling uke for uke',
+      problem: 'Hva er de viktigste milepælene i fosterutviklingen?',
+      solution: `**Tidslinje over viktige milepæler:**
+
+| Uke | Milepæl | Størrelse |
+|-----|---------|-----------|
+| **Uke 3--4** | Hjertet begynner å dannes | < 1 mm |
+| **Uke 5--6** | Første hjerteslag kan ses på ultralyd | ca. 4 mm |
+| **Uke 8** | Embryo blir foster -- alle organer er anlagt | ca. 2,5 cm |
+| **Uke 12** | Alle organer dannet, fingre og tær synlige | ca. 6 cm |
+| **Uke 18--20** | Mor kjenner de første sparkene | ca. 20 cm |
+| **Uke 24** | Øynene kan åpnes, fosteret reagerer på lyd | ca. 30 cm |
+| **Uke 26** | Lungene begynner å produsere surfaktant | ca. 35 cm |
+| **Uke 36** | De fleste fostre snur seg med hodet ned | ca. 47 cm |
+| **Uke 40** | Terminfødt barn | ca. 50 cm, 3--4 kg |
+
+**Viktig å huske:**
+- 1. trimester: organer **dannes** (mest sårbar periode)
+- 2. trimester: rask **vekst** og modning
+- 3. trimester: **modning** og forberedelse til fødsel`,
+    },
+
+    // ========== OPPGAVE 2: FOSTERUTVIKLING (KLASSISK) ==========
+    {
+      id: 'nat10-7-3-ex-2-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-2',
+        number: '7.3.2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Beskriv de viktigste endringene i fosterutviklingen gjennom de tre trimestrene. Ta med omtrentlig størrelse ved slutten av hvert trimester.',
+        solution: 'I 1. trimester (uke 1--12) dannes alle de viktigste organene. Hjertet begynner å slå allerede i uke 5--6, og hjernen, nervesystemet, armer, bein, fingre og tær utvikles. Frem til uke 8 kalles det et embryo, deretter et foster. Ved uke 12 er fosteret ca. 6 cm langt.\n\nI 2. trimester (uke 13--26) vokser fosteret raskt. Moren kan kjenne bevegelser fra uke 18--20. Fosteret utvikler hørsel, kan reagere på lyder og begynner å suge på tommelen. Ved uke 26 er fosteret ca. 35 cm og veier rundt 800 gram.\n\nI 3. trimester (uke 27--40) modnes organene videre, spesielt lungene og hjernen. Fosteret legger på seg underhudsfett og snur seg med hodet ned rundt uke 36. Ved termin (uke 40) er barnet ca. 50 cm langt og veier 3--4 kg.',
+      },
+    },
+
+    // ========================================================================
+    // BLOKK 3: MORKAKEN
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-morkake',
+      type: 'text',
+      content: `## Morkaken -- bindeleddet mellom mor og foster
+
+Morkaken (placenta) er et helt spesielt organ som utvikler seg under svangerskapet. Den begynner å dannes allerede når det befruktede egget fester seg i livmorslimhinnen, og er fullt utviklet rundt uke 12. Morkaken er det eneste organet i kroppen som er midlertidig -- det dannes for svangerskapet og støtes ut etter fødselen.
+
+### Morkakens funksjoner
+
+Morkaken har flere livsviktige funksjoner:
+
+**Oksygen og karbondioksid:** Oksygenrikt blod fra morens blodårer passerer over til fosterets blod gjennom morkaken, mens karbondioksid fra fosteret sendes tilbake til morens blod for å pustes ut av lungene hennes. Fosteret puster altså ikke selv -- det er morkaken som fungerer som fosterets lunger.
+
+**Næringsstoffer:** Glukose, aminosyrer, vitaminer, mineraler og andre næringsstoffer fra morens blod transporteres gjennom morkaken til fosteret. Det fosteret trenger for å vokse, kommer altså fra maten moren spiser.
+
+**Avfallshåndtering:** Avfallsstoffer fra fosterets stoffskifte, som urea, overføres til morens blod gjennom morkaken og fjernes deretter av morens nyrer. Morkaken fungerer altså som fosterets nyrer.
+
+**Hormonproduksjon:** Morkaken produserer hormoner som er nødvendige for å opprettholde svangerskapet, blant annet progesteron og østrogen. Disse hormonene hindrer ny eggløsning og forbereder kroppen på fødsel og amming.
+
+**Beskyttelse:** Morkaken fungerer delvis som et filter og kan hindre en del bakterier og skadelige stoffer i å nå fosteret. Antistoffer (immunstoffer) fra moren kan passere over til fosteret og gi det en viss beskyttelse mot infeksjoner. Men morkaken er ikke et perfekt filter -- alkohol, nikotin, mange legemidler og enkelte virus kan passere gjennom.
+
+### Viktig prinsipp: Blodet blandes aldri
+
+Et viktig poeng er at morens blod og fosterets blod **aldri blandes direkte**. I morkaken ligger fosterets og morens blodårer svært tett inntil hverandre, og stoffutvekslingen skjer gjennom tynne vegger mellom blodårene. Mor og foster kan til og med ha ulik blodtype.
+
+### Navlesnoren
+
+Navlesnoren er forbindelsen mellom fosteret og morkaken. Den er omtrent 50--60 cm lang og inneholder **to arterier og én vene**. Gjennom venen strømmer oksygenrikt blod og næring fra morkaken til fosteret, og gjennom arteriene strømmer blod med avfallsstoffer tilbake fra fosteret til morkaken. Etter fødselen klippes navlesnoren over -- det som er igjen blir til navlen.
+
+### Fosterhinner og fostervann
+
+Fosteret er omgitt av fosterhinner som danner en sektilslutet pose fylt med **fostervann**. Fostervannet har flere oppgaver: det beskytter fosteret mot støt og slag, gir plass til bevegelse, holder temperaturen stabil og bidrar til at lungene og fordøyelsessystemet utvikler seg normalt. Ved termin er det omtrent 0,5--1 liter fostervann.`,
+    },
+
+    // ========== DEFINISJON: MORKAKEN ==========
+    {
+      id: 'nat10-7-3-def-morkake',
+      type: 'definition',
+      title: 'Nøkkelbegreper: Morkaken',
+      content: `**Morkake (placenta):** Et midlertidig organ som dannes under svangerskapet og kobler fosteret til moren. Sørger for transport av oksygen, næring og avfallsstoffer, samt produksjon av hormoner.
+
+**Navlesnor:** Den 50--60 cm lange forbindelsen mellom foster og morkake som inneholder to arterier og én vene. Klippes over etter fødselen.
+
+**Fostervann:** Væsken som omgir fosteret inne i fosterhinnen. Beskytter mot støt, gir bevegelsesfrihet og holder temperaturen stabil.`,
+    },
+
+    // ========== OPPGAVE 3: MORKAKEN (MC) ==========
+    {
+      id: 'nat10-7-3-ex-3-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-3',
+        number: '7.3.3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er morkakens viktigste funksjon?',
+        options: [
+          'Å transportere oksygen, næring og avfallsstoffer mellom mor og foster',
+          'Å produsere blod til fosteret',
+          'Å bestemme kjønnet til barnet',
+          'Å beskytte fosteret mot alle typer virus',
+        ],
+        answer: 0,
+        solution: 'Morkakens viktigste funksjon er å sørge for utveksling av stoffer mellom mor og foster. Den transporterer oksygen og næringsstoffer fra morens blod til fosterets blod, og den fjerner avfallsstoffer fra fosterets blod tilbake til morens blod. Morkaken fungerer altså som fosterets lunger, tarm og nyrer. Den produserer også viktige hormoner som opprettholder svangerskapet.',
+      },
+    },
+
+    // ========================================================================
+    // BLOKK 4: TVILLINGER
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-tvillinger',
+      type: 'text',
+      content: `## Tvillinger
+
+Noen ganger resulterer et svangerskap i to barn i stedet for ett. Det finnes to typer tvillinger som oppstår på helt ulike måter: eneggede og toeggede tvillinger.
+
+### Eneggede tvillinger
+
+Eneggede tvillinger oppstår når **ett egg** befruktes av **én sædcelle**, men zygoten deler seg i to adskilte celleklumper i løpet av de første dagene etter befruktning. Disse to celleklumpene utvikler seg til to separate fostre.
+
+Fordi de to barna stammer fra nøyaktig samme befruktede egg, har de **identisk DNA**. Det betyr at eneggede tvillinger alltid er av **samme kjønn**, og de ligner hverandre svært mye fysisk. Eneggede tvillinger kan likevel utvikle noen forskjeller over tid på grunn av ulike miljøpåvirkninger.
+
+Eneggede tvillinger forekommer tilfeldig og er ikke arvelig. Det fødes omtrent **3--4 eneggede tvillingpar per 1000 fødsler**, og denne raten er ganske lik over hele verden.
+
+Avhengig av når delingen skjer, kan eneggede tvillinger dele morkake eller ha hver sin. Hvis delingen skjer tidlig (dag 1--3), får de hver sin morkake. Hvis delingen skjer senere (dag 4--8), deler de vanligvis morkake men har hver sin fostersekk.
+
+### Toeggede tvillinger
+
+Toeggede tvillinger oppstår når **to egg** løsner fra eggstokkene samtidig og befruktes av **to forskjellige sædceller**. Dette gir to zygoter som utvikler seg uavhengig av hverandre.
+
+Fordi de stammer fra to forskjellige egg og to forskjellige sædceller, har toeggede tvillinger **ulikt DNA** -- de er genetisk like forskjellige som vanlige søsken. De kan derfor være av **samme eller ulikt kjønn** og trenger ikke ligne hverandre spesielt mye.
+
+Toeggede tvillinger har alltid **hver sin morkake** og hver sin fostersekk.
+
+Tendensen til å få toeggede tvillinger er **arvelig fra morsiden**. Noen kvinner har en genetisk tendens til dobbel eggløsning, altså at to egg løsner i samme syklus. Toeggede tvillinger er vanligere enn eneggede og forekommer oftere hos kvinner over 35 år og ved assistert befruktning (IVF).`,
+    },
+
+    // ========== EKSEMPEL: ENEGGEDE VS. TOEGGEDE TVILLINGER ==========
+    {
+      id: 'nat10-7-3-example-2',
+      type: 'example',
+      title: 'Eneggede vs. toeggede tvillinger',
+      problem: 'Hva er de viktigste forskjellene mellom eneggede og toeggede tvillinger?',
+      solution: `**Sammenligning:**
+
+| Egenskap | Eneggede tvillinger | Toeggede tvillinger |
+|----------|--------------------|--------------------|
+| **Oppstår fra** | 1 egg + 1 sædcelle | 2 egg + 2 sædceller |
+| **DNA** | Identisk | Forskjellig (som vanlige søsken) |
+| **Kjønn** | Alltid samme | Kan være likt eller ulikt |
+| **Utseende** | Svært like | Kan ligne mye eller lite |
+| **Morkake** | Kan dele eller ha hver sin | Alltid hver sin |
+| **Hyppighet** | ca. 3--4 per 1000 fødsler | Vanligere, varierer med alder |
+| **Arvelig?** | Nei, tilfeldig | Ja, fra morens side |
+
+**Enkelt forklart:** Eneggede tvillinger oppstår ved en tilfeldig deling av det befruktede egget og har identisk arvestoff. Toeggede tvillinger oppstår fordi to egg ble befruktet samtidig og er genetisk like forskjellige som vanlige søsken.`,
+    },
+
+    // ========== OPPGAVE 4: TVILLINGER (MC) ==========
+    {
+      id: 'nat10-7-3-ex-4-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-4',
+        number: '7.3.4',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvorfor er eneggede tvillinger genetisk identiske?',
+        options: [
+          'Fordi de oppstår fra én befruktet eggcelle som deler seg i to',
+          'Fordi de befruktes av to identiske sædceller',
+          'Fordi de deler morkake under svangerskapet',
+          'Fordi de alltid er av samme kjønn',
+        ],
+        answer: 0,
+        solution: 'Eneggede tvillinger er genetisk identiske fordi de stammer fra én og samme befruktede eggcelle (zygote). Denne ene zygoten inneholder en unik kombinasjon av DNA fra mor og far. Når zygoten tilfeldig deler seg i to separate celleklumper tidlig i utviklingen, får begge klumpene nøyaktig det samme DNA-et. Derfor har eneggede tvillinger identisk arvestoff og er alltid av samme kjønn.',
+      },
+    },
+
+    // ========================================================================
+    // BLOKK 5: FØDSEL
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-fodsel',
+      type: 'text',
+      content: `## Fødsel
+
+Etter omtrent 40 uker i livmoren er barnet klart til å bli født. Fødselen er en naturlig prosess som styres av hormoner, og den deles inn i tre faser.
+
+### Når fødselen starter
+
+Fødselen starter vanligvis med **rier** -- regelmessige, kraftige sammentrekninger i livmoren. Riene kommer med jevne mellomrom og blir gradvis sterkere og hyppigere. Mange opplever også at fosterhinnen sprekker og fostervannet renner ut -- dette kalles **vanngang**. Hos noen starter vanngang før riene, hos andre skjer det underveis i fødselen.
+
+Hormonet oksytocin spiller en nøkkelrolle i fødselen. Det stimulerer livmoren til å trekke seg sammen, og jo sterkere sammentrekningene er, desto mer oksytocin frigjøres. Dette gir en selvforsterkende effekt som driver fødselen fremover.
+
+### Fase 1: Åpningsfasen
+
+Åpningsfasen er den lengste fasen og kan vare fra noen timer til over et døgn, spesielt ved første fødsel. I denne fasen arbeider riene med å åpne livmorhalsen gradvis fra **0 til 10 cm**. Livmorhalsen, som har vært lukket gjennom hele svangerskapet, må bli vid nok til at barnets hode kan passere gjennom.
+
+Riene kommer med stadig kortere mellomrom og blir sterkere. I begynnelsen kan det gå 15--20 minutter mellom hver ri, men mot slutten av åpningsfasen kan de komme hvert 2--3 minutt. Den fødende kan bruke pusteteknikker og ulike stillinger for å håndtere smertene, og mange velger smertelindring som lystgass eller epidural.
+
+### Fase 2: Utdrivningsfasen
+
+Når livmorhalsen er fullt åpen (10 cm), begynner utdrivningsfasen. Nå kan den fødende begynne å presse aktivt sammen med riene for å hjelpe barnet ut. Barnets hode passerer først gjennom fødselskanalen, etterfulgt av skuldrene og resten av kroppen.
+
+Utdrivningsfasen varer vanligvis fra **30 minutter til noen timer**. For førstegangsfødende tar det som regel lengre tid enn ved senere fødsler. Når barnet er ute, klippes navlesnoren over. Barnet tar sitt første pust og begynner å puste selvstendig.
+
+### Fase 3: Etterbyrden
+
+Den tredje og siste fasen kalles **etterbyrden**. Omtrent 15--30 minutter etter at barnet er født, støter livmoren ut morkaken og fosterhinnen. Dette skjer ved hjelp av noen svake rier. Jordmor eller lege undersøker morkaken for å forsikre seg om at alt er kommet ut, da rester av morkake kan føre til blødning eller infeksjon.
+
+### Keisersnitt
+
+Noen ganger er det ikke mulig eller trygt å gjennomføre en vaginal fødsel. Da utføres et **keisersnitt** -- et kirurgisk inngrep der barnet tas ut gjennom et snitt i magen og livmoren. Keisersnitt kan være planlagt på forhånd (for eksempel hvis barnet ligger feil eller morkaken blokkerer fødselskanalen) eller akutt (hvis det oppstår komplikasjoner under fødselen).
+
+I Norge fødes omtrent 16--17 % av alle barn med keisersnitt. Etter et keisersnitt trenger moren lenger tid til å komme seg enn etter en vaginal fødsel, da det er et kirurgisk inngrep.`,
+    },
+
+    // ========== DEFINISJON: FØDSEL ==========
+    {
+      id: 'nat10-7-3-def-fodsel',
+      type: 'definition',
+      title: 'Nøkkelbegreper: Fødsel',
+      content: `**Rier:** Regelmessige sammentrekninger i livmoren som driver fødselen fremover. Styres av hormonet oksytocin.
+
+**Åpningsfasen:** Den første og lengste fasen av fødselen, der livmorhalsen åpner seg fra 0 til 10 cm.
+
+**Utdrivningsfasen:** Den andre fasen, der barnet presses ut gjennom fødselskanalen. Varer fra 30 minutter til noen timer.
+
+**Etterbyrden:** Den tredje og siste fasen, der morkaken og fosterhinnen støtes ut av livmoren, vanligvis 15--30 minutter etter fødsel.
+
+**Keisersnitt:** Et kirurgisk inngrep der barnet tas ut gjennom et snitt i magen og livmoren, når vaginal fødsel ikke er mulig eller trygt.`,
+    },
+
+    // ========== OPPGAVE 5: FØDSEL (KLASSISK) ==========
+    {
+      id: 'nat10-7-3-ex-5-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-5',
+        number: '7.3.5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Beskriv fødselen steg for steg, fra riene starter til barnet er født. Ta med alle tre fasene.',
+        solution: 'Fødselen begynner med rier -- regelmessige sammentrekninger i livmoren. Vanngang (at fostervannet renner ut) kan skje før eller under fødselen.\n\nFase 1 -- Åpningsfasen: Dette er den lengste fasen. Riene åpner livmorhalsen gradvis fra 0 til 10 cm. Riene blir sterkere og kommer med kortere mellomrom. Denne fasen kan vare fra noen timer til over et døgn.\n\nFase 2 -- Utdrivningsfasen: Når livmorhalsen er fullt åpen, begynner den fødende å presse aktivt. Barnets hode passerer først gjennom fødselskanalen, etterfulgt av skuldrene og resten av kroppen. Denne fasen varer fra 30 minutter til noen timer. Etter at barnet er ute, klippes navlesnoren.\n\nFase 3 -- Etterbyrden: Omtrent 15--30 minutter etter fødselen støter livmoren ut morkaken og fosterhinnen ved hjelp av svake rier.',
+      },
+    },
+
+    // ========================================================================
+    // OPPSUMMERING
+    // ========================================================================
+
+    {
+      id: 'nat10-7-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+I dette kapitlet har du lært om hele prosessen fra befruktning til fødsel:
+
+- **Befruktning** skjer i egglederen når en sædcelle smelter sammen med en eggcelle og danner en zygote med 46 kromosomer
+- **Kjønnet** bestemmes av sædcellen: X-kromosom gir jente (XX), Y-kromosom gir gutt (XY)
+- Det befruktede egget vandrer til livmoren og fester seg i livmorslimhinnen etter 5--7 dager (**innfesting**)
+- **1. trimester** (uke 1--12): Alle organer dannes. Embryo blir foster ved uke 8. Ca. 6 cm ved uke 12
+- **2. trimester** (uke 13--26): Rask vekst, bevegelser kjennes, hørsel utvikles. Ca. 35 cm ved uke 26
+- **3. trimester** (uke 27--40): Modning av lunger og hjerne, fosteret snur seg. Ca. 50 cm og 3--4 kg ved termin
+- **Morkaken** transporterer oksygen, næring og avfallsstoffer mellom mor og foster, og produserer hormoner. Morens og fosterets blod blandes aldri direkte
+- **Navlesnoren** kobler fosteret til morkaken med blodårer
+- **Eneggede tvillinger** oppstår fra én befruktet eggcelle som deler seg -- identisk DNA, alltid samme kjønn
+- **Toeggede tvillinger** oppstår fra to egg befruktet av to sædceller -- forskjellig DNA, kan ha ulikt kjønn
+- **Fødselen** har tre faser: åpningsfasen (livmorhalsen åpner seg), utdrivningsfasen (barnet presses ut) og etterbyrden (morkaken støtes ut)
+- **Keisersnitt** utføres når vaginal fødsel ikke er mulig eller trygt
+
+| Begrep | Forklaring |
+|--------|-----------|
+| **Befruktning** | Sædcelle + eggcelle = zygote |
+| **Zygote** | Befruktet eggcelle med 46 kromosomer |
+| **Embryo** | Det ufødte barnet fra befruktning til uke 8 |
+| **Foster** | Det ufødte barnet fra uke 8 til fødsel |
+| **Morkake** | Organ for stoffutveksling mellom mor og foster |
+| **Navlesnor** | Forbindelsen mellom foster og morkake |
+| **Trimester** | En tredjedel av svangerskapet (ca. 3 mnd) |
+| **Rier** | Sammentrekninger i livmoren under fødsel |
+| **Eneggede tvillinger** | Fra 1 befruktet egg -- identisk DNA |
+| **Toeggede tvillinger** | Fra 2 befruktede egg -- ulikt DNA |`,
+    },
+
+    // ========================================================================
+    // SAMLEOPPGAVER
+    // ========================================================================
+
+    // ========== OPPGAVE 6: FRA BEFRUKTNING TIL FØDSEL (KLASSISK) ==========
+    {
+      id: 'nat10-7-3-ex-6-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-6',
+        number: '7.3.6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Beskriv hele prosessen fra befruktning til fødsel. Start med møtet mellom sædcelle og eggcelle, og forklar hovedtrekkene i fosterutviklingen gjennom de tre trimestrene, morkakens rolle, og avslutt med fødselen.',
+        solution: 'Befruktningen skjer i egglederen når en sædcelle trenger inn i eggcellen. DNA fra mor og far kombineres og danner en zygote med 46 kromosomer. Kjønnet bestemmes av sædcellen (XX = jente, XY = gutt). Zygoten deler seg mens den vandrer til livmoren og fester seg som en blastocyst etter 5--7 dager.\n\nI 1. trimester (uke 1--12) dannes alle organer. Hjertet begynner å slå rundt uke 5--6. Frem til uke 8 kalles det embryo, deretter foster. Ved uke 12 er fosteret ca. 6 cm.\n\nI 2. trimester (uke 13--26) vokser fosteret raskt. Moren kjenner bevegelser fra uke 18--20, og fosteret utvikler hørsel. Ved uke 26 er fosteret ca. 35 cm.\n\nI 3. trimester (uke 27--40) modnes lungene og hjernen. Fosteret snur seg med hodet ned og veier 3--4 kg ved termin.\n\nMorkaken er avgjørende gjennom hele svangerskapet. Den transporterer oksygen og næring fra mor til foster, fjerner avfallsstoffer, produserer hormoner og gir noe beskyttelse. Morens og fosterets blod blandes aldri -- stoffutvekslingen skjer gjennom tynne vegger i morkaken.\n\nFødselen har tre faser: Åpningsfasen (riene åpner livmorhalsen til 10 cm), utdrivningsfasen (barnet presses ut) og etterbyrden (morkaken støtes ut).',
+      },
+    },
+
+    // ========== OPPGAVE 7: MORKAKEN (KLASSISK) ==========
+    {
+      id: 'nat10-7-3-ex-7-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-7',
+        number: '7.3.7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar hvorfor morkaken er et helt avgjørende organ under graviditeten. Beskriv de ulike funksjonene morkaken har, og forklar hvorfor fosterets og morens blod aldri blandes direkte.',
+        solution: 'Morkaken er avgjørende fordi den er bindeleddet mellom mor og foster og utfører flere livsviktige funksjoner:\n\n1. Oksygentransport: Oksygen fra morens blod overføres til fosterets blod gjennom morkaken, og karbondioksid sendes tilbake. Morkaken fungerer som fosterets lunger.\n\n2. Næring: Glukose, aminosyrer, vitaminer og mineraler fra morens blod transporteres til fosteret. Morkaken fungerer som fosterets fordøyelsessystem.\n\n3. Avfallshåndtering: Avfallsstoffer fra fosterets stoffskifte overføres til morens blod og fjernes av hennes nyrer. Morkaken er fosterets nyrer.\n\n4. Hormonproduksjon: Morkaken produserer progesteron og østrogen som opprettholder svangerskapet og forbereder kroppen på fødsel.\n\n5. Beskyttelse: Morkaken fungerer delvis som et filter mot bakterier og overfører antistoffer fra moren til fosteret.\n\nBlodet blandes ikke direkte fordi morens og fosterets blodårer ligger tett inntil hverandre i morkaken uten å være koblet sammen. Stoffutvekslingen skjer gjennom de tynne veggene mellom blodårene. Dette er viktig fordi mor og foster kan ha ulik blodtype, og direkte blanding kunne føre til farlige reaksjoner.',
+      },
+    },
+
+    // ========== OPPGAVE 8: DNA OG KJØNNSBESTEMMELSE (MC) ==========
+    {
+      id: 'nat10-7-3-ex-8-block',
+      type: 'exercise',
+      exercise: {
+        id: 'nat10-7-3-ex-8',
+        number: '7.3.8',
+        type: 'multiple-choice',
+        difficulty: 'vanskelig',
+        task: 'En kvinne med kromosomsammensetningen XX og en mann med kromosomsammensetningen XY får et barn. Hva stemmer om barnets arvestoff?',
+        options: [
+          'Barnet arver 23 kromosomer fra hver forelder, og sædcellens kjønnskromosom (X eller Y) avgjør om barnet blir jente eller gutt',
+          'Barnet arver alle 46 kromosomer fra moren, og farens DNA avgjør bare kjønnet',
+          'Barnet arver tilfeldig antall kromosomer fra hver forelder, som til sammen gir 46',
+          'Barnets kjønn bestemmes av eggcellens kromosom, ikke sædcellens',
+        ],
+        answer: 0,
+        solution: 'Ved befruktningen bidrar eggcellen med 23 kromosomer (inkludert ett X-kjønnskromosom) og sædcellen med 23 kromosomer (inkludert enten et X- eller Y-kjønnskromosom). Til sammen får barnet 46 kromosomer -- 23 par. Kjønnet bestemmes av sædcellens kjønnskromosom: Hvis sædcellen bærer et X-kromosom, blir barnet XX (jente). Hvis sædcellen bærer et Y-kromosom, blir barnet XY (gutt). Eggcellen har alltid et X-kromosom, så det er alltid sædcellen som avgjør kjønnet til barnet.',
+      },
+    },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Befruktning', definition: 'Når en sædcelle og et egg smelter sammen og danner en befruktet eggcelle (zygote)' },
+    { term: 'Zygote', definition: 'En befruktet eggcelle som inneholder arvestoff fra både mor og far' },
+    { term: 'Embryo', definition: 'Det ufødte barnet fra befruktning til uke 8' },
+    { term: 'Foster', definition: 'Det ufødte barnet fra uke 8 til fødsel' },
+    { term: 'Morkake', definition: 'Organ som kobler fosteret til moren og sørger for næring, oksygen og avfallshåndtering' },
+    { term: 'Navlesnor', definition: 'Forbindelsen mellom foster og morkake som inneholder blodårer' },
+    { term: 'Trimester', definition: 'En tredjedel av graviditeten (ca. 3 måneder)' },
+    { term: 'Rier', definition: 'Sammentrekninger i livmoren under fødsel' },
+    { term: 'Eneggede tvillinger', definition: 'Tvillinger som oppstår fra en befruktet eggcelle som deler seg i to -- identisk DNA' },
+    { term: 'Toeggede tvillinger', definition: 'Tvillinger som oppstår fra to egg befruktet av to saedceller -- ulikt DNA' },
+  ],
+};
