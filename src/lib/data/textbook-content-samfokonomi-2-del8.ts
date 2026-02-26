@@ -238,7 +238,7 @@ For de fleste nordmenn er boligen den klart største investeringen i livet. Boli
 
 I dette kapittelet skal du lære:
 - Hvordan tilbud og etterspørsel bestemmer boligprisene
-- Hvilke faktorer som driver boligprisveksten
+- Hvilke faktører som driver boligprisveksten
 - Sammenhengen mellom boligpriser og gjeldsvekst
 - Boligpolitiske virkemidler og deres effekter`,
     },
@@ -255,14 +255,14 @@ I dette kapittelet skal du lære:
 
 Boligprisene bestemmes av samspillet mellom etterspørsel og tilbud. Vi kan dele driverne inn i:
 
-**Etterspørselsfaktorer:**
+**Etterspørselsfaktører:**
 - **Rente:** Lavere rente gjør det billigere å låne og øker etterspørselen. En rentenedgang på 1 prosentpoeng øker typisk boligprisene med 5–8 %.
 - **Inntektsvekst:** Høyere lønn gir rom for høyere boliglån.
 - **Befolkningsvekst og urbanisering:** Flere mennesker i byene øker etterspørselen.
 - **Forventninger:** Tro på videre prisvekst skaper selvforsterkende prosesser.
 - **Skattesystemet:** Rentefradrag og lav eiendomsbeskatning favoriserer boliginvestering.
 
-**Tilbudsfaktorer:**
+**Tilbudsfaktører:**
 - **Regulering:** Strenge reguleringsplaner bremser nybygging.
 - **Byggekostnader:** Materialer, arbeidskraft og tomtepriser.
 - **Tilgjengelig areal:** Topografiske begrensninger i byer som Oslo og Bergen.

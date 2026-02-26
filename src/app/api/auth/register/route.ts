@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 // Lazy initialization of Supabase admin client
 let supabaseAdmin: SupabaseClient | null = null;
@@ -26,6 +27,16 @@ function getSupabaseAdmin(): SupabaseClient {
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting: 5 forsøk per minutt per IP
+    const ip = getClientIp(request);
+    const rateLimit = checkRateLimit(`register:${ip}`, { limit: 5, windowSeconds: 60 });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { message: "For mange forsøk. Prøv igjen om litt." },
+        { status: 429, headers: { "Retry-After": String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)) } }
+      );
+    }
+
     const { email, password, name, role = "student" } = await request.json();
 
     // Valider input
@@ -36,9 +47,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (password.length < 6) {
+    if (password.length < 8) {
       return NextResponse.json(
-        { message: "Passordet må være minst 6 tegn" },
+        { message: "Passordet må være minst 8 tegn" },
         { status: 400 }
       );
     }
@@ -99,8 +110,8 @@ export async function POST(request: Request) {
         errorMessage = "E-postadressen er allerede registrert i systemet";
       } else if (authError?.message?.includes("invalid")) {
         errorMessage = "Ugyldig e-postadresse eller passord";
-      } else if (authError?.message) {
-        errorMessage = `Feil ved registrering: ${authError.message}`;
+      } else {
+        console.error("[Auth] Ukjent registreringsfeil:", authError?.message);
       }
       return NextResponse.json(
         { message: errorMessage },

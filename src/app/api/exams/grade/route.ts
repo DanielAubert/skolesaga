@@ -14,6 +14,8 @@
 
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth/config';
 import type { ChapterExam, ExamAnswer, ExamAIGrading, QuestionAIGrading } from '@/lib/types/textbook';
 
 const anthropic = new Anthropic();
@@ -32,6 +34,11 @@ interface GradeResponse {
 
 export async function POST(request: Request): Promise<NextResponse<GradeResponse>> {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ success: false, error: 'Du må være innlogget' }, { status: 401 });
+    }
+
     const body = await request.json() as GradeRequest;
     const { exam, answers } = body;
 

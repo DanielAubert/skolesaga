@@ -23,10 +23,16 @@ export async function GET(request: Request) {
     }
 
     const { searchParams } = new URL(request.url);
-    const search = searchParams.get("search") || "";
+    const search = (searchParams.get("search") || "").slice(0, 100);
     const role = searchParams.get("role") || "";
-    const limit = parseInt(searchParams.get("limit") || "50");
-    const offset = parseInt(searchParams.get("offset") || "0");
+    const limit = Math.max(1, Math.min(parseInt(searchParams.get("limit") || "50") || 50, 100));
+    const offset = Math.max(0, parseInt(searchParams.get("offset") || "0") || 0);
+
+    // Valider rolle-parameter
+    const VALID_ROLES = ["", "student", "teacher", "admin"];
+    if (!VALID_ROLES.includes(role)) {
+      return NextResponse.json({ message: "Ugyldig rolle" }, { status: 400 });
+    }
 
     const supabase = getSupabaseAdmin();
 

@@ -189,6 +189,7 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'okonomi-ledelse', name: 'Økonomi og ledelse', icon: '📊', color: 'from-emerald-500 to-green-600' },
       { courseId: 'markedsforing', name: 'Markedsføring og ledelse 1', icon: '📈', color: 'from-blue-500 to-indigo-600' },
       { courseId: 'entrebed-1', name: 'Entreprenørskap og bedriftsutvikling 1', icon: '💡', color: 'from-yellow-500 to-amber-600' },
+      { courseId: 'samfokonomi-1', name: 'Samfunnsøkonomi 1', icon: '💹', color: 'from-teal-500 to-emerald-600' },
       // Fremmedspråk nivå 2
       { courseId: 'spansk-2', name: 'Spansk nivå 2', icon: '🇪🇸', color: 'from-red-500 to-orange-600' },
       { courseId: 'tysk-2', name: 'Tysk nivå 2', icon: '🇩🇪', color: 'from-gray-600 to-gray-700' },
@@ -226,6 +227,7 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'rettslaere-2', name: 'Rettslære 2', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
       { courseId: 'markedsforing', name: 'Markedsføring og ledelse 2', icon: '📈', color: 'from-blue-500 to-indigo-600' },
       { courseId: 'entrebed-2', name: 'Entreprenørskap og bedriftsutvikling 2', icon: '💡', color: 'from-yellow-500 to-amber-600' },
+      { courseId: 'samfokonomi-2', name: 'Samfunnsøkonomi 2', icon: '💹', color: 'from-teal-500 to-emerald-600' },
     ],
   },
   'hoyere': {

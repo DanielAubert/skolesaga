@@ -4,6 +4,10 @@ import { useMemo } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
+function escapeHtml(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 interface LatexRendererProps {
   content: string;
   className?: string;
@@ -44,7 +48,7 @@ function renderInlineContent(content: string): string {
       katexBlocks.push(rendered);
       return `${KATEX_START}${katexBlocks.length - 1}${KATEX_END}`;
     } catch {
-      return `<span class="text-red-500">Feil i LaTeX: ${latex}</span>`;
+      return `<span class="text-red-500">Feil i LaTeX: ${escapeHtml(latex)}</span>`;
     }
   });
 
@@ -80,7 +84,7 @@ function renderMixedContent(content: string): string {
       katexBlocks.push(rendered);
       return `${KATEX_START}${katexBlocks.length - 1}${KATEX_END}`;
     } catch {
-      return `<span class="text-red-500">Feil i LaTeX: ${latex}</span>`;
+      return `<span class="text-red-500">Feil i LaTeX: ${escapeHtml(latex)}</span>`;
     }
   });
 
@@ -100,7 +104,7 @@ function renderMixedContent(content: string): string {
       katexBlocks.push(rendered);
       return `${KATEX_START}${katexBlocks.length - 1}${KATEX_END}`;
     } catch {
-      return `<span class="text-red-500">Feil i LaTeX: ${latex}</span>`;
+      return `<span class="text-red-500">Feil i LaTeX: ${escapeHtml(latex)}</span>`;
     }
   });
 
@@ -123,7 +127,10 @@ function renderMixedContent(content: string): string {
   result = result.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">$1</code>');
 
   // Images (![alt](url)) - max 200px on desktop for inline figures
-  result = result.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 200px; height: auto; margin: 1rem 0;" />');
+  result = result.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
+    const sanitizedUrl = /^https?:\/\//i.test(url) || url.startsWith('/') ? url : '';
+    return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 200px; height: auto; margin: 1rem 0;" />`;
+  });
 
   // Line breaks
   result = result.replace(/\n\n/g, '</p><p class="my-3">');

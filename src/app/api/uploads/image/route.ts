@@ -32,10 +32,11 @@ export async function POST(request: Request) {
       );
     }
 
-    // Valider filtype
-    if (!file.type.startsWith("image/")) {
+    // Valider filtype (MIME-type)
+    const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+    if (!ALLOWED_TYPES.includes(file.type)) {
       return NextResponse.json(
-        { message: "Kun bildefiler er tillatt" },
+        { message: "Kun bildefiler er tillatt (JPEG, PNG, GIF, WebP)" },
         { status: 400 }
       );
     }
@@ -45,6 +46,21 @@ export async function POST(request: Request) {
     if (file.size > MAX_SIZE) {
       return NextResponse.json(
         { message: "Bildet er for stort. Maks 5 MB." },
+        { status: 400 }
+      );
+    }
+
+    // Valider filinnhold med magic bytes
+    const headerBytes = new Uint8Array(await file.slice(0, 12).arrayBuffer());
+    const isJpeg = headerBytes[0] === 0xFF && headerBytes[1] === 0xD8 && headerBytes[2] === 0xFF;
+    const isPng = headerBytes[0] === 0x89 && headerBytes[1] === 0x50 && headerBytes[2] === 0x4E && headerBytes[3] === 0x47;
+    const isGif = headerBytes[0] === 0x47 && headerBytes[1] === 0x49 && headerBytes[2] === 0x46;
+    const isWebp = headerBytes[0] === 0x52 && headerBytes[1] === 0x49 && headerBytes[2] === 0x46 && headerBytes[3] === 0x46
+      && headerBytes[8] === 0x57 && headerBytes[9] === 0x45 && headerBytes[10] === 0x42 && headerBytes[11] === 0x50;
+
+    if (!isJpeg && !isPng && !isGif && !isWebp) {
+      return NextResponse.json(
+        { message: "Filinnholdet samsvarer ikke med en gyldig bildefil" },
         { status: 400 }
       );
     }

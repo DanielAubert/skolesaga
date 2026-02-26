@@ -21,6 +21,7 @@ import { LatexRenderer } from './latex-renderer';
 import { TextbookExerciseItem } from './textbook-exercise-item';
 import { SignDiagram, createSignDiagram } from './sign-diagram';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
+import DOMPurify from 'isomorphic-dompurify';
 import dynamic from 'next/dynamic';
 import {
   AngleIntroIllustration,
@@ -976,7 +977,7 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
     return (
       <figure className="my-6">
         <div className="flex justify-center">
-          <div className="max-w-full w-full sm:max-w-sm md:max-w-md" dangerouslySetInnerHTML={{ __html: block.illustrationId.svgContent }} />
+          <div className="max-w-full w-full sm:max-w-sm md:max-w-md" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(block.illustrationId.svgContent, { USE_PROFILES: { svg: true, svgFilters: true } }) }} />
         </div>
         {block.caption && (
           <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">

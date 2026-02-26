@@ -218,7 +218,7 @@ Selv om noen snakker om «de-globalisering», er det mer presist å snakke om en
         type: 'multiple-choice',
         task: 'Hva menes med «friendshoring»?',
         options: [
-          { id: 'a', text: 'At land gir toll-lettelser til sine nærmeste naboer', isCorrect: false },
+          { id: 'a', text: 'At land gir toll-lettelser til sine nærmeste nabør', isCorrect: false },
           { id: 'b', text: 'At selskaper flytter produksjon til allierte land for å redusere geopolitisk risiko', isCorrect: true },
           { id: 'c', text: 'At vennskapsavtaler mellom land erstatter formelle handelsavtaler', isCorrect: false },
           { id: 'd', text: 'At utenlandske arbeidere inviteres inn for å fylle arbeidskraftmangel', isCorrect: false },
@@ -382,7 +382,7 @@ Nyere forskning vektlegger «smart bistand» som fokuserer på institusjonsbyggi
       problem: 'Hvordan klarte Botswana å bli et av de rikeste landene i Afrika, til tross for at det startet som et av de fattigste?',
       solution: `Da Botswana ble selvstendig i 1966, var det blant verdens fattigste land med bare 12 km asfaltert vei. I dag har landet BNP per innbygger på over 8 000 dollar og er klassifisert som et høyere mellominntektsland.
 
-**Suksessfaktorer:**
+**Suksessfaktører:**
 1. **Gode institusjoner** – Stabile demokratiske institusjoner fra starten, med rettssikkerhet og lav korrupsjon
 2. **Klok ressursforvaltning** – Diamantinntekter ble investert i utdanning, helse og infrastruktur i stedet for å berike en elite
 3. **Partnerskap med De Beers** – 50/50-eierskap i diamantselskapet Debswana sikret at verdiene ble i landet
@@ -715,7 +715,7 @@ Til tross for reformene er det fortsatt debatt om eurosamarbeidets fundamentale 
         type: 'classic',
         task: 'Drøft årsakene til den europeiske gjeldskrisen og vurder om sparetiltakene (austerity) var riktig medisin.',
         hints: ['Skil mellom årsaker knyttet til enkeltland og systemiske årsaker', 'Trekk inn ulike økonomiske perspektiver på innstramming', 'Vurder sosiale konsekvenser'],
-        solution: 'Årsaker til gjeldskrisen var en kombinasjon av nasjonale og systemiske faktorer: Hellas hadde uholdbar finanspolitikk, Spania og Irland hadde eiendomsbobler, og systemisk var euroen konstruert uten tilstrekkelige mekanismer for kriser. Billig kreditt etter euroinnføringen forvrengte landenes insentiver. Sparetiltakene reduserte underskuddene, men keynesianske økonomer kritiserer at innstramming i en resesjon forsterker nedgangen (multiplikatoreffekt). BNP-fallet i Hellas var på 25 %. Alternativt kunne man brukt mer ekspansiv finanspolitikk, gjeldslette, eller intern devaluering mer gradvis. Konklusjon: Sparetiltakene var trolig nødvendige i noen grad, men for harde og for raske, noe som påførte enorme sosiale kostnader.',
+        solution: 'Årsaker til gjeldskrisen var en kombinasjon av nasjonale og systemiske faktører: Hellas hadde uholdbar finanspolitikk, Spania og Irland hadde eiendomsbobler, og systemisk var euroen konstruert uten tilstrekkelige mekanismer for kriser. Billig kreditt etter euroinnføringen forvrengte landenes insentiver. Sparetiltakene reduserte underskuddene, men keynesianske økonomer kritiserer at innstramming i en resesjon forsterker nedgangen (multiplikatoreffekt). BNP-fallet i Hellas var på 25 %. Alternativt kunne man brukt mer ekspansiv finanspolitikk, gjeldslette, eller intern devaluering mer gradvis. Konklusjon: Sparetiltakene var trolig nødvendige i noen grad, men for harde og for raske, noe som påførte enorme sosiale kostnader.',
       },
     },
     {
@@ -834,7 +834,7 @@ Denne prosessen kalles **Minsky-momentet** – punktet der optimisme slår over 
       type: 'text',
       content: `### Den globale finanskrisen 2007–2009
 
-Finanskrisen som startet i det amerikanske boligmarkedet ble den verste globale økonomiske krisen på 80 år. For å forstå den, må vi se på flere samvirkende faktorer:
+Finanskrisen som startet i det amerikanske boligmarkedet ble den verste globale økonomiske krisen på 80 år. For å forstå den, må vi se på flere samvirkende faktører:
 
 **Boligboblen:** Amerikanske boligpriser steg kraftig i årene etter 2000. Billige lån (lave renter etter 2001), slapp regulering og troen på at boligpriser «aldri faller nasjonalt» drev prisene oppover.
 

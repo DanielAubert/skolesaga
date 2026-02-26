@@ -120,6 +120,7 @@ import { FILOSOFI_ETIKK_CHAPTERS } from './textbook-content-filosofi-etikk';
 import { TRENING_2_CHAPTERS } from './textbook-content-trening-2';
 import { TRENING_3_CHAPTERS } from './textbook-content-trening-3';
 import { SAMFOKONOMI_2_CHAPTERS } from './textbook-content-samfokonomi-2';
+import { SAMFOKONOMI_2_NARRATIV_CHAPTERS } from './textbook-content-samfokonomi-2-narrativ';
 import { OKONOMI_DRIFT_CHAPTERS } from './textbook-content-okonomi-drift';
 import { SIKKERHETSFAG_CHAPTERS } from './textbook-content-sikkerhetsfag';
 // Helse- og oppvekstfag VG2
@@ -784,6 +785,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Samfunnsøkonomi 2
   ...Object.fromEntries(SAMFOKONOMI_2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SAMFOKONOMI_2_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Økonomi og driftsledelse
   ...Object.fromEntries(OKONOMI_DRIFT_CHAPTERS.map(c => [c.id, c])),

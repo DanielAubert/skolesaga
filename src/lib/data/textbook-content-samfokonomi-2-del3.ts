@@ -944,7 +944,7 @@ Valutakursen i et flytende kursregime bestemmes av tilbud og etterspørsel:
           'Kronen styrker seg fordi nordmenn reiser mer til utlandet',
         ],
         hints: ['Tenk på hva som skjer med etterspørselen etter norske kroner når oljeeksporten gir mer penger'],
-        solution: 'Når oljeprisen stiger, øker Norges eksportinntekter. Utenlandske kjøpere må veksle mer valuta til norske kroner for å betale for oljen. Etterspørselen etter NOK øker, og kronen styrker seg (appresiert). Empirisk er det en klar sammenheng mellom oljeprisen og kronekursen, selv om andre faktorer også spiller inn.',
+        solution: 'Når oljeprisen stiger, øker Norges eksportinntekter. Utenlandske kjøpere må veksle mer valuta til norske kroner for å betale for oljen. Etterspørselen etter NOK øker, og kronen styrker seg (appresiert). Empirisk er det en klar sammenheng mellom oljeprisen og kronekursen, selv om andre faktører også spiller inn.',
       },
     },
     {
@@ -975,7 +975,7 @@ Bedrifter kan beskytte seg mot valutarisiko gjennom finansielle instrumenter:
       problem: 'I mars 2020 svekket den norske kronen seg dramatisk - fra ca. 10 NOK/EUR til nesten 13 NOK/EUR på få uker. Forklar hvorfor dette skjedde.',
       solution: `**Løsning:**
 
-Kronens dramatiske fall i mars 2020 skyldtes flere samtidige faktorer:
+Kronens dramatiske fall i mars 2020 skyldtes flere samtidige faktører:
 
 **1. Oljeprisfall:**
 Oljeprisen stupte fra ca. 60 til under 20 dollar per fat. Siden Norge er en oljeeksportør, svekket dette etterspørselen etter kroner.

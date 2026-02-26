@@ -50,7 +50,7 @@ export async function DELETE(
       return NextResponse.json({ message: "Bruker ikke funnet" }, { status: 404 });
     }
 
-    console.log(`[Admin] Sletter bruker: ${user.name} (${user.email})`);
+    console.log(`[Admin] Sletter bruker: ${user.id}`);
 
     // Slett relaterte data i riktig rekkefølge (foreign key constraints)
     const deletions = [
@@ -84,7 +84,7 @@ export async function DELETE(
     if (deleteUserError) {
       console.error("[Admin] Feil ved sletting av bruker:", deleteUserError);
       return NextResponse.json(
-        { message: "Kunne ikke slette bruker", error: deleteUserError.message },
+        { message: "Kunne ikke slette bruker" },
         { status: 500 }
       );
     }
@@ -101,12 +101,11 @@ export async function DELETE(
       console.warn("[Admin] Supabase Auth sletting feilet:", authError);
     }
 
-    console.log(`[Admin] Bruker slettet: ${user.name} (${user.email})`);
+    console.log(`[Admin] Bruker slettet: ${user.id}`);
 
     return NextResponse.json({
       success: true,
-      message: `Bruker ${user.name} (${user.email}) er slettet`,
-      deletedUser: { id: user.id, email: user.email, name: user.name },
+      message: "Brukeren er slettet",
     });
   } catch (error) {
     console.error("[Admin] Feil ved sletting:", error);
@@ -152,7 +151,7 @@ export async function PATCH(
       return NextResponse.json({ message: "Kunne ikke oppdatere rolle" }, { status: 500 });
     }
 
-    console.log(`[Admin] Rolle oppdatert: ${user.name} (${user.email}) -> ${role}`);
+    console.log(`[Admin] Rolle oppdatert: ${user.id} -> ${role}`);
 
     return NextResponse.json({
       success: true,

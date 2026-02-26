@@ -3,47 +3,47 @@
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// Kapittel 1.1: Makrooekonomisk tenkning
+// Kapittel 1.1: Makroøkonomisk tenkning
 // ============================================================================
 
 export const CHAPTER_SAMFOKONOMI_2_1_1: TextbookChapter = {
   id: 'samfokonomi-2-1-1',
   courseId: 'samfokonomi-2',
   chapterNumber: '1.1',
-  title: 'Makrooekonomisk tenkning',
-  description: 'Introduksjon til makrooekonomiske begreper som BNP, konjunkturer og forskjellen mellom makro- og mikrooekonomi.',
+  title: 'Makroøkonomisk tenkning',
+  description: 'Introduksjon til makroøkonomiske begreper som BNP, konjunkturer og forskjellen mellom makro- og mikroøkonomi.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'gjore rede for sentrale makrooekonomiske begreper og sammenhenger',
-    'analysere konjunkturutvikling ved hjelp av makrooekonomiske modeller',
+    'gjore rede for sentrale makroøkonomiske begreper og sammenhenger',
+    'analysere konjunkturutvikling ved hjelp av makroøkonomiske modeller',
   ],
   content: [
     {
       id: 'sf2-1-1-intro',
       type: 'text',
-      content: `# Makrooekonomisk tenkning
+      content: `# Makroøkonomisk tenkning
 
-Makrooekonomi handler om oekonomien som helhet. Mens mikrooekonomi studerer enkeltbedrifter og forbrukere, ser makrooekonomi paa det store bildet: samlet produksjon, sysselsetting, prisnivaa og oekonomisk vekst i et land.
+Makroøkonomi handler om økonomien som helhet. Mens mikroøkonomi studerer enkeltbedrifter og forbrukere, ser makroøkonomi på det store bildet: samlet produksjon, sysselsetting, prisnivå og økonomisk vekst i et land.
 
 ## Makro vs. mikro
 
-**Mikrooekonomi** analyserer beslutninger til enkeltaktorer: Hva bestemmer prisen paa et produkt? Hvordan velger en bedrift sin produksjonsmengde? **Makrooekonomi** ser derimot paa aggregerte stoerrelserden samlede summen av alle beslutninger som tas i oekonomien.
+**Mikroøkonomi** analyserer beslutninger til enkeltaktører: Hva bestemmer prisen på et produkt? Hvordan velger en bedrift sin produksjonsmengde? **Makroøkonomi** ser derimot på aggregerte størrelserden samlede summen av alle beslutninger som tas i økonomien.
 
-Noen sentrale makrooekonomiske spoersmaal:
+Noen sentrale makroøkonomiske spørsmål:
 - Hva bestemmer den samlede produksjonen i et land?
-- Hvorfor oppstaar arbeidsledighet?
-- Hva foraarsaker inflasjon?
-- Hvilke virkemidler har myndighetene for aa pavirke oekonomien?`,
+- Hvorfor oppstår arbeidsledighet?
+- Hva forårsaker inflasjon?
+- Hvilke virkemidler har myndighetene for å påvirke økonomien?`,
     },
     {
       id: 'sf2-1-1-def-1',
       type: 'definition',
       title: 'Bruttonasjonalprodukt (BNP)',
-      content: `**Bruttonasjonalprodukt (BNP)** er den samlede verdien av alle varer og tjenester som produseres i et land i loepet av en bestemt periode (vanligvis ett aar).
+      content: `**Bruttonasjonalprodukt (BNP)** er den samlede verdien av alle varer og tjenester som produseres i et land i løpet av en bestemt periode (vanligvis ett år).
 
-BNP kan maales paa tre maater:
-- **Produksjonsmetoden**: Summen av verdiskapingen i alle naeringsgrener
-- **Inntektsmetoden**: Summen av alle inntekter (loenn, overskudd, renter)
+BNP kan måles på tre måter:
+- **Produksjonsmetoden**: Summen av verdiskapingen i alle næringsgrener
+- **Inntektsmetoden**: Summen av alle inntekter (lønn, overskudd, renter)
 - **Utgiftsmetoden**: $BNP = C + I + G + (X - M)$ der $C$ = privat konsum, $I$ = investering, $G$ = offentlig konsum, $X$ = eksport, $M$ = import`,
     },
     {
@@ -51,31 +51,31 @@ BNP kan maales paa tre maater:
       type: 'text',
       content: `## Nominelt og reelt BNP
 
-Naar vi sammenligner BNP over tid, maa vi skille mellom nominelt og reelt BNP. **Nominelt BNP** er maalt i loepende priser, mens **reelt BNP** er justert for prisstigning. Reelt BNP gir et bedre bilde av faktisk produksjonsendring.
+Når vi sammenligner BNP over tid, må vi skille mellom nominelt og reelt BNP. **Nominelt BNP** er målt i løpende priser, mens **reelt BNP** er justert for prisstigning. Reelt BNP gir et bedre bilde av faktisk produksjonsendring.
 
 $$\\text{Reelt BNP} = \\frac{\\text{Nominelt BNP}}{\\text{Prisindeks}} \\times 100$$
 
-BNP per innbygger brukes ofte som maal paa levestandard, men har sine begrensninger. Det fanger ikke opp ulikhet, fritid, miljoeforhold eller uformell oekonomi.`,
+BNP per innbygger brukes ofte som mål på levestandard, men har sine begrensninger. Det fanger ikke opp ulikhet, fritid, miljøforhold eller uformell økonomi.`,
     },
     {
       id: 'sf2-1-1-def-2',
       type: 'definition',
       title: 'Konjunkturer',
-      content: `**Konjunkturer** er svingninger i den oekonomiske aktiviteten rundt en langsiktig veksttrend. En konjunktursyklus har fire faser:
+      content: `**Konjunkturer** er svingninger i den økonomiske aktiviteten rundt en langsiktig veksttrend. En konjunktursyklus har fire faser:
 
 1. **Oppgang (ekspansjon)**: Stigende BNP, fallende ledighet
-2. **Hoeykonjunktur**: Oekonomien er paa sitt hoeyeste, press i arbeidsmarkedet
+2. **Høykonjunktur**: Økonomien er på sitt høyeste, press i arbeidsmarkedet
 3. **Nedgang (kontraksjon)**: Fallende BNP, stigende ledighet
-4. **Lavkonjunktur**: Oekonomien er paa sitt laveste, hoey ledighet
+4. **Lavkonjunktur**: Økonomien er på sitt laveste, høy ledighet
 
-**Produksjonsgapet** er forskjellen mellom faktisk BNP og potensiell BNP (trendnivaaet).`,
+**Produksjonsgapet** er forskjellen mellom faktisk BNP og potensiell BNP (trendnivået).`,
     },
     {
       id: 'sf2-1-1-example-1',
       type: 'example',
       title: 'Produksjonsgapet i Norge',
-      problem: 'I et gitt aar er Norges reelle BNP 3500 milliarder kroner, mens potensiell BNP er estimert til 3400 milliarder kroner. Beregn produksjonsgapet og forklar hva det betyr.',
-      solution: `**Loesning:**
+      problem: 'I et gitt år er Norges reelle BNP 3500 milliarder kroner, mens potensiell BNP er estimert til 3400 milliarder kroner. Beregn produksjonsgapet og forklar hva det betyr.',
+      solution: `**Løsning:**
 
 Produksjonsgapet beregnes slik:
 
@@ -83,43 +83,43 @@ $$\\text{Produksjonsgap} = \\text{Faktisk BNP} - \\text{Potensiell BNP} = 3500 -
 
 I prosent: $\\frac{100}{3400} \\times 100 \\approx 2{,}9\\%$
 
-Et positivt produksjonsgap betyr at oekonomien produserer **over** sitt langsiktige potensial. Dette indikerer hoeykonjunktur med press i arbeidsmarkedet, fare for loenns- og prisvekst, og kan tyde paa at oekonomien er overopphetet.`,
+Et positivt produksjonsgap betyr at økonomien produserer **over** sitt langsiktige potensial. Dette indikerer høykonjunktur med press i arbeidsmarkedet, fare for lønns- og prisvekst, og kan tyde på at økonomien er overopphetet.`,
     },
     {
       id: 'sf2-1-1-text-3',
       type: 'text',
-      content: `## Makrooekonomisk politikk
+      content: `## Makroøkonomisk politikk
 
-Myndighetene bruker to hovedverktoy for aa pavirke oekonomien:
+Myndighetene bruker to hovedverktoy for å påvirke økonomien:
 
 **Finanspolitikk** (statsbudsjettet):
 - Offentlige utgifter og skatter
 - Styres av regjering og Storting
-- Ekspansiv finanspolitikk: oekte utgifter eller lavere skatt
-- Kontraktiv finanspolitikk: reduserte utgifter eller hoeyere skatt
+- Ekspansiv finanspolitikk: økte utgifter eller lavere skatt
+- Kontraktiv finanspolitikk: reduserte utgifter eller høyere skatt
 
 **Pengepolitikk** (sentralbanken):
 - Styringsrenten og pengemengden
 - Styres av Norges Bank
-- Ekspansiv pengepolitikk: lav rente stimulerer laaneopptak og forbruk
-- Kontraktiv pengepolitikk: hoey rente demper aktiviteten
+- Ekspansiv pengepolitikk: lav rente stimulerer låneopptak og forbruk
+- Kontraktiv pengepolitikk: høy rente demper aktiviteten
 
-I Norge har Norges Bank et inflasjonsmaal paa 2 prosent aarlig.`,
+I Norge har Norges Bank et inflasjonsmål på 2 prosent årlig.`,
     },
     {
       id: 'sf2-1-1-example-2',
       type: 'example',
       title: 'Finanspolitikk i praksis',
-      problem: 'Forklar hvorfor myndighetene typisk foerer ekspansiv finanspolitikk i lavkonjunkturer.',
-      solution: `**Loesning:**
+      problem: 'Forklar hvorfor myndighetene typisk fører ekspansiv finanspolitikk i lavkonjunkturer.',
+      solution: `**Løsning:**
 
-I en lavkonjunktur er det hoey arbeidsledighet og lav etterspoersel, altsaa fallende BNP. Myndighetene kan da:
+I en lavkonjunktur er det høy arbeidsledighet og lav etterspørsel, altså fallende BNP. Myndighetene kan da:
 
-1. **Oeke offentlige utgifter**: Bygge veier, sykehus eller skoler, noe som skaper arbeidsplasser direkte og oeker ettersporselen
-2. **Senke skatter**: Gir husholdninger mer aa bruke, som stimulerer privat konsum
-3. **Oeke overforinger**: Hoeyere dagpenger eller andre stoennader oeker kjoepekraften til de med lavest inntekt
+1. **Øke offentlige utgifter**: Bygge veier, sykehus eller skoler, noe som skaper arbeidsplasser direkte og øker etterspørselen
+2. **Senke skatter**: Gir husholdninger mer å bruke, som stimulerer privat konsum
+3. **Øke overforinger**: Høyere dagpenger eller andre stønnader øker kjøpekraften til de med lavest inntekt
 
-Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell produksjon. I en aapen oekonomi som Norge maa man ogsaa ta hensyn til at deler av ettersporselen lekker ut gjennom import.`,
+Målet er å fylle produksjonsgapet og bringe økonomien tilbake til potensiell produksjon. I en åpen økonomi som Norge må man også ta hensyn til at deler av etterspørselen lekker ut gjennom import.`,
     },
     {
       id: 'sf2-1-1-ex-block-1',
@@ -129,7 +129,7 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hvilken av foelgende er den korrekte formelen for BNP maalt med utgiftsmetoden?',
+        task: 'Hvilken av følgende er den korrekte formelen for BNP målt med utgiftsmetoden?',
         options: [
           { id: 'a', text: '$BNP = C + I + G + (X - M)$', isCorrect: true },
           { id: 'b', text: '$BNP = C + I - G + (X - M)$', isCorrect: false },
@@ -147,14 +147,14 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva kjennetegner en hoeykonjunktur?',
+        task: 'Hva kjennetegner en høykonjunktur?',
         options: [
           { id: 'a', text: 'Positivt produksjonsgap, lav ledighet og press i arbeidsmarkedet', isCorrect: true },
-          { id: 'b', text: 'Negativt produksjonsgap og hoey arbeidsledighet', isCorrect: false },
+          { id: 'b', text: 'Negativt produksjonsgap og høy arbeidsledighet', isCorrect: false },
           { id: 'c', text: 'Stabilt BNP uten vekst', isCorrect: false },
           { id: 'd', text: 'Fallende eksport og stigende import', isCorrect: false },
         ],
-        solution: 'I en hoeykonjunktur produserer oekonomien over sitt potensial. Det betyr positivt produksjonsgap, lav arbeidsledighet og ofte press paa loenninger og priser.',
+        solution: 'I en høykonjunktur produserer økonomien over sitt potensial. Det betyr positivt produksjonsgap, lav arbeidsledighet og ofte press på lønninger og priser.',
       },
     },
     {
@@ -165,9 +165,9 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Forklar forskjellen mellom nominelt og reelt BNP. Hvorfor er reelt BNP et bedre maal paa oekonomisk utvikling over tid?',
-        hints: ['Tenk paa hva som skjer med BNP-tallet naar prisene stiger, selv om produksjonen er uendret.'],
-        solution: 'Nominelt BNP maales i loepende priser og pavirkes av baade produksjonsendringer og prisendringer. Reelt BNP er justert for inflasjon ved hjelp av en prisindeks, slik at det bare reflekterer endringer i faktisk produksjon. Reelt BNP er bedre fordi det viser om vi faktisk produserer mer, ikke bare at prisene har steget.',
+        task: 'Forklar forskjellen mellom nominelt og reelt BNP. Hvorfor er reelt BNP et bedre mål på økonomisk utvikling over tid?',
+        hints: ['Tenk på hva som skjer med BNP-tallet når prisene stiger, selv om produksjonen er uendret.'],
+        solution: 'Nominelt BNP måles i løpende priser og påvirkes av både produksjonsendringer og prisendringer. Reelt BNP er justert for inflasjon ved hjelp av en prisindeks, slik at det bare reflekterer endringer i faktisk produksjon. Reelt BNP er bedre fordi det viser om vi faktisk produserer mer, ikke bare at prisene har steget.',
       },
     },
     {
@@ -178,9 +178,9 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Et land har nominelt BNP paa 5000 milliarder kroner i aar 2. Prisindeksen er 125 (med basisaar = 100). Beregn reelt BNP.',
+        task: 'Et land har nominelt BNP på 5000 milliarder kroner i år 2. Prisindeksen er 125 (med basisår = 100). Beregn reelt BNP.',
         hints: ['Bruk formelen: Reelt BNP = (Nominelt BNP / Prisindeks) ganger 100'],
-        solution: 'Reelt BNP = (5000 / 125) ganger 100 = 4000 milliarder kroner. Prisoekningen fra basisaaret gjor at den reelle verdiskapingen er lavere enn det nominelle tallet tilsier.',
+        solution: 'Reelt BNP = (5000 / 125) ganger 100 = 4000 milliarder kroner. Prisøkningen fra basisåret gjor at den reelle verdiskapingen er lavere enn det nominelle tallet tilsier.',
       },
     },
     {
@@ -191,12 +191,12 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Droeft styrker og svakheter ved BNP som maal paa velstand og levestandard i et land. Gi minst tre argumenter for og tre argumenter mot.',
+        task: 'Drøft styrker og svakheter ved BNP som mål på velstand og levestandard i et land. Gi minst tre argumenter for og tre argumenter mot.',
         hints: [
-          'Tenk paa hva BNP fanger opp og hva det ikke fanger opp.',
-          'Vurder ulikhet, miljoe, fritid og uformell oekonomi.',
+          'Tenk på hva BNP fanger opp og hva det ikke fanger opp.',
+          'Vurder ulikhet, miljø, fritid og uformell økonomi.',
         ],
-        solution: 'Styrker: (1) Gir et objektivt og sammenlignbart maal paa oekonomisk aktivitet, (2) korrelerer med mange andre velstandsindikatorer som helse og utdanning, (3) er enkelt aa beregne og sammenligne mellom land. Svakheter: (1) Fanger ikke opp inntektsfordeling og ulikhet, (2) inkluderer ikke verdien av fritid eller ubetalt arbeid, (3) tar ikke hensyn til miljoeforringelse eller bruk av naturressurser, (4) fanger ikke opp uformell oekonomi eller svart arbeid.',
+        solution: 'Styrker: (1) Gir et objektivt og sammenlignbart mål på økonomisk aktivitet, (2) korrelerer med mange andre velstandsindikatorer som helse og utdanning, (3) er enkelt å beregne og sammenligne mellom land. Svakheter: (1) Fanger ikke opp inntektsfordeling og ulikhet, (2) inkluderer ikke verdien av fritid eller ubetalt arbeid, (3) tar ikke hensyn til miljøforringelse eller bruk av naturressurser, (4) fanger ikke opp uformell økonomi eller svart arbeid.',
       },
     },
     {
@@ -207,12 +207,12 @@ Maalet er aa fylle produksjonsgapet og bringe oekonomien tilbake til potensiell 
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Norge befinner seg i en lavkonjunktur med stigende arbeidsledighet og negativt produksjonsgap. Forklar hvilke finanspolitiske og pengepolitiske tiltak myndighetene kan sette inn, og droeft mulige konsekvenser av disse tiltakene.',
+        task: 'Norge befinner seg i en lavkonjunktur med stigende arbeidsledighet og negativt produksjonsgap. Forklar hvilke finanspolitiske og pengepolitiske tiltak myndighetene kan sette inn, og drøft mulige konsekvenser av disse tiltakene.',
         hints: [
           'Skill mellom finanspolitikk (statsbudsjettet) og pengepolitikk (Norges Bank).',
-          'Tenk paa baade kortsiktige og langsiktige virkninger.',
+          'Tenk på både kortsiktige og langsiktige virkninger.',
         ],
-        solution: 'Finanspolitiske tiltak: Oeke offentlige utgifter (infrastruktur, offentlige tjenester) og/eller senke skatter for aa stimulere ettersporselen. Pengepolitiske tiltak: Norges Bank kan senke styringsrenten for aa stimulere laaneopptak og investeringer. Konsekvenser: Paa kort sikt oeker ettersporselen og ledigheten faller. Paa lengre sikt kan ekspansiv politikk foere til inflasjonspress, hoeyere statsgjeld og svekkelse av konkurranseevnen. Handlingsregelen begrenser bruken av oljepenger i finanspolitikken.',
+        solution: 'Finanspolitiske tiltak: Øke offentlige utgifter (infrastruktur, offentlige tjenester) og/eller senke skatter for å stimulere etterspørselen. Pengepolitiske tiltak: Norges Bank kan senke styringsrenten for å stimulere låneopptak og investeringer. Konsekvenser: På kort sikt øker etterspørselen og ledigheten faller. På lengre sikt kan ekspansiv politikk føre til inflasjonspress, høyere statsgjeld og svekkelse av konkurranseevnen. Handlingsregelen begrenser bruken av oljepenger i finanspolitikken.',
       },
     },
   ],
@@ -228,10 +228,10 @@ export const CHAPTER_SAMFOKONOMI_2_1_2: TextbookChapter = {
   courseId: 'samfokonomi-2',
   chapterNumber: '1.2',
   title: 'Keynesiansk modell',
-  description: 'Keynes sin teori om samlet ettersporsel, multiplikatoreffekten og statens rolle i aa stabilisere oekonomien.',
+  description: 'Keynes sin teori om samlet etterspørsel, multiplikatoreffekten og statens rolle i å stabilisere økonomien.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'gjore rede for keynesiansk oekonomisk teori',
+    'gjore rede for keynesiansk økonomisk teori',
     'beregne og tolke multiplikatoreffekter',
   ],
   content: [
@@ -240,21 +240,21 @@ export const CHAPTER_SAMFOKONOMI_2_1_2: TextbookChapter = {
       type: 'text',
       content: `# Keynesiansk modell
 
-John Maynard Keynes revolusjonerte oekonomisk tenkning paa 1930-tallet med sin bok *The General Theory of Employment, Interest and Money*. Hans hovedbudskap var at markedet ikke alltid regulerer seg selv, og at oekonomien kan bli vaerende i likevekt med hoey arbeidsledighet.
+John Maynard Keynes revolusjonerte økonomisk tenkning på 1930-tallet med sin bok *The General Theory of Employment, Interest and Money*. Hans hovedbudskap var at markedet ikke alltid regulerer seg selv, og at økonomien kan bli værende i likevekt med høy arbeidsledighet.
 
 ## Bakgrunn: Den store depresjonen
 
-Klassisk oekonomisk teori hevdet at markedet alltid ville vende tilbake til full sysselsetting. Men under depresjonen i 1930-aarene falt produksjonen dramatisk og arbeidsledigheten forble hoey i mange aar. Keynes argumenterte for at:
+Klassisk økonomisk teori hevdet at markedet alltid ville vende tilbake til full sysselsetting. Men under depresjonen i 1930-årene falt produksjonen dramatisk og arbeidsledigheten forble høy i mange år. Keynes argumenterte for at:
 
-- **Ettersporselen styrer produksjonen** paa kort sikt
-- Loenninger og priser er **stive nedover** og tilpasser seg ikke raskt nok
-- Staten maa gripe inn med **aktiv finanspolitikk** for aa stabilisere oekonomien`,
+- **Etterspørselen styrer produksjonen** på kort sikt
+- Lønninger og priser er **stive nedover** og tilpasser seg ikke raskt nok
+- Staten må gripe inn med **aktiv finanspolitikk** for å stabilisere økonomien`,
     },
     {
       id: 'sf2-1-2-def-1',
       type: 'definition',
-      title: 'Samlet ettersporsel (AD)',
-      content: `**Samlet ettersporsel** (Aggregate Demand, AD) er den totale ettersporselen etter varer og tjenester i oekonomien:
+      title: 'Samlet etterspørsel (AD)',
+      content: `**Samlet etterspørsel** (Aggregate Demand, AD) er den totale etterspørselen etter varer og tjenester i økonomien:
 
 $$AD = C + I + G + (X - M)$$
 
@@ -264,7 +264,7 @@ der:
 - $G$ = offentlig konsum og investeringer
 - $X - M$ = nettoeksport
 
-I den keynesianske modellen antar vi at **tilbudet tilpasser seg ettersporselen** paa kort sikt, saa lenge det er ledig kapasitet i oekonomien.`,
+I den keynesianske modellen antar vi at **tilbudet tilpasser seg etterspørselen** på kort sikt, så lenge det er ledig kapasitet i økonomien.`,
     },
     {
       id: 'sf2-1-2-text-2',
@@ -277,16 +277,16 @@ $$C = c_0 + c_1 \\cdot Y_d$$
 
 der:
 - $c_0$ = autonomt konsum (konsum uavhengig av inntekt)
-- $c_1$ = marginal konsumtilboyelighet ($0 < c_1 < 1$)
+- $c_1$ = marginal konsumtilbøyelighet ($0 < c_1 < 1$)
 - $Y_d$ = disponibel inntekt (inntekt etter skatt)
 
-Den marginale konsumtilboyeligheten $c_1$ forteller hvor stor andel av en ekstra krone i inntekt som gaar til konsum. Hvis $c_1 = 0{,}8$, brukes 80 oere av hver ekstra krone paa konsum, mens 20 oere spares.`,
+Den marginale konsumtilbøyeligheten $c_1$ forteller hvor stor andel av en ekstra krone i inntekt som går til konsum. Hvis $c_1 = 0{,}8$, brukes 80 øre av hver ekstra krone på konsum, mens 20 øre spares.`,
     },
     {
       id: 'sf2-1-2-def-2',
       type: 'definition',
       title: 'Multiplikatoreffekten',
-      content: `**Multiplikatoreffekten** beskriver hvordan en initial endring i ettersporsel forsterkes gjennom oekonomien. Naar staten oeker sine utgifter med 1 milliard kroner, oeker BNP med mer enn 1 milliard.
+      content: `**Multiplikatoreffekten** beskriver hvordan en initial endring i etterspørsel forsterkes gjennom økonomien. Når staten øker sine utgifter med 1 milliard kroner, øker BNP med mer enn 1 milliard.
 
 **Multiplikatoren** i en enkel modell uten skatt og import:
 
@@ -296,33 +296,33 @@ Med skattesats $t$ og importandel $z$:
 
 $$m = \\frac{1}{1 - c_1(1 - t) + z}$$
 
-Jo hoeyere den marginale konsumtilboyeligheten, jo stoerre er multiplikatoren.`,
+Jo høyere den marginale konsumtilbøyeligheten, jo større er multiplikatoren.`,
     },
     {
       id: 'sf2-1-2-example-1',
       type: 'example',
       title: 'Beregning av multiplikatoren',
-      problem: 'I en oekonomi er marginal konsumtilboyelighet $c_1 = 0{,}8$, skattesatsen $t = 0{,}25$ og importandelen $z = 0{,}1$. Beregn multiplikatoren og finn virkningen paa BNP av en oekning i offentlige utgifter paa 10 milliarder kroner.',
-      solution: `**Loesning:**
+      problem: 'I en økonomi er marginal konsumtilbøyelighet $c_1 = 0{,}8$, skattesatsen $t = 0{,}25$ og importandelen $z = 0{,}1$. Beregn multiplikatoren og finn virkningen på BNP av en økning i offentlige utgifter på 10 milliarder kroner.',
+      solution: `**Løsning:**
 
 Multiplikatoren:
 $$m = \\frac{1}{1 - c_1(1 - t) + z} = \\frac{1}{1 - 0{,}8(1 - 0{,}25) + 0{,}1}$$
 
 $$= \\frac{1}{1 - 0{,}8 \\cdot 0{,}75 + 0{,}1} = \\frac{1}{1 - 0{,}6 + 0{,}1} = \\frac{1}{0{,}5} = 2$$
 
-Virkning paa BNP:
+Virkning på BNP:
 $$\\Delta Y = m \\cdot \\Delta G = 2 \\cdot 10 = 20 \\text{ mrd. kr}$$
 
-En oekning i offentlige utgifter paa 10 milliarder kroner gir altsaa en BNP-oekning paa 20 milliarder kroner. Mekanismen er at oekte offentlige utgifter gir hoeyere inntekter, som oeker konsumet, som igjen gir hoeyere inntekter osv.`,
+En økning i offentlige utgifter på 10 milliarder kroner gir altså en BNP-økning på 20 milliarder kroner. Mekanismen er at økte offentlige utgifter gir høyere inntekter, som øker konsumet, som igjen gir høyere inntekter osv.`,
     },
     {
       id: 'sf2-1-2-text-3',
       type: 'text',
       content: `## Multiplikatorkjeden
 
-La oss foelge en oekning i offentlige utgifter paa 100 gjennom oekonomien (med $c_1 = 0{,}8$ og uten skatt/import):
+La oss følge en økning i offentlige utgifter på 100 gjennom økonomien (med $c_1 = 0{,}8$ og uten skatt/import):
 
-| Runde | Ettersporselsoekning | Akkumulert |
+| Runde | Etterspørselsøkning | Akkumulert |
 |-------|----------------------|------------|
 | 1 | 100 | 100 |
 | 2 | 80 | 180 |
@@ -331,33 +331,33 @@ La oss foelge en oekning i offentlige utgifter paa 100 gjennom oekonomien (med $
 | ... | ... | ... |
 | Totalt | 500 | 500 |
 
-Multiplikatoren er $\\frac{1}{1 - 0{,}8} = 5$, saa total virkning er $100 \\cdot 5 = 500$.
+Multiplikatoren er $\\frac{1}{1 - 0{,}8} = 5$, så total virkning er $100 \\cdot 5 = 500$.
 
 ## Begrensninger ved keynesiansk modell
 
 - Antar ledige ressurser (fungerer best i lavkonjunktur)
 - Forenklet modell uten rente- og valutakurseffekter
-- Ignorerer tilbudssiden av oekonomien
+- Ignorerer tilbudssiden av økonomien
 - Tidsforsinkelser (lags) i virkeligheten
-- I en aapen oekonomi lekker mye ettersporsel ut gjennom import`,
+- I en åpen økonomi lekker mye etterspørsel ut gjennom import`,
     },
     {
       id: 'sf2-1-2-example-2',
       type: 'example',
       title: 'Spareparadokset',
-      problem: 'Forklar Keynes sitt spareparadoks: Hvorfor kan oekt sparing paa individnivaa foere til lavere sparing paa samfunnsnivaa?',
-      solution: `**Loesning:**
+      problem: 'Forklar Keynes sitt spareparadoks: Hvorfor kan økt sparing på individnivå føre til lavere sparing på samfunnsnivå?',
+      solution: `**Løsning:**
 
-Paa individnivaa virker det fornuftig aa spare mer i usikre tider. Men i keynesiansk teori:
+På individnivå virker det fornuftig å spare mer i usikre tider. Men i keynesiansk teori:
 
-1. Naar alle sparer mer, faller konsumet ($C$ gaar ned)
-2. Lavere konsum betyr lavere ettersporsel
+1. Når alle sparer mer, faller konsumet ($C$ går ned)
+2. Lavere konsum betyr lavere etterspørsel
 3. Bedrifter selger mindre og kutter produksjonen
-4. Lavere produksjon foerer til oppsigelser
-5. Hoeyere ledighet gir lavere inntekter
+4. Lavere produksjon fører til oppsigelser
+5. Høyere ledighet gir lavere inntekter
 6. Lavere inntekter kan bety at total sparing faktisk faller
 
-Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt for den enkelte, er ikke noedvendigvis bra for fellesskapet. Keynes brukte dette som argument for statlig motkonjunkturpolitikk.`,
+Dette er et eksempel på **sammensetningsfeilslutning**: Det som er rasjonelt for den enkelte, er ikke nødvendigvis bra for fellesskapet. Keynes brukte dette som argument for statlig motkonjunkturpolitikk.`,
     },
     {
       id: 'sf2-1-2-ex-block-1',
@@ -367,7 +367,7 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva er multiplikatoren naar marginal konsumtilboyelighet $c_1 = 0{,}75$ i en lukket oekonomi uten skatt?',
+        task: 'Hva er multiplikatoren når marginal konsumtilbøyelighet $c_1 = 0{,}75$ i en lukket økonomi uten skatt?',
         options: [
           { id: 'a', text: '4', isCorrect: true },
           { id: 'b', text: '3', isCorrect: false },
@@ -385,14 +385,14 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Ifoelge keynesiansk teori, hva styrer produksjonen paa kort sikt naar det er ledig kapasitet?',
+        task: 'Ifølge keynesiansk teori, hva styrer produksjonen på kort sikt når det er ledig kapasitet?',
         options: [
-          { id: 'a', text: 'Samlet ettersporsel', isCorrect: true },
+          { id: 'a', text: 'Samlet etterspørsel', isCorrect: true },
           { id: 'b', text: 'Samlet tilbud', isCorrect: false },
           { id: 'c', text: 'Pengemengden alene', isCorrect: false },
           { id: 'd', text: 'Teknologisk utvikling', isCorrect: false },
         ],
-        solution: 'I keynesiansk teori antar man at ettersporselen bestemmer produksjonen paa kort sikt, saa lenge det er ledig kapasitet. Bedrifter produserer det markedet etterspoer.',
+        solution: 'I keynesiansk teori antar man at etterspørselen bestemmer produksjonen på kort sikt, så lenge det er ledig kapasitet. Bedrifter produserer det markedet etterspør.',
       },
     },
     {
@@ -403,9 +403,9 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Konsumfunksjonen i en oekonomi er $C = 200 + 0{,}7 \\cdot Y_d$. Forklar hva tallene 200 og 0,7 betyr oekonomisk.',
-        hints: ['Tenk paa hva som skjer med konsumet naar inntekten er null, og naar inntekten oeker med 100 kroner.'],
-        solution: 'Tallet 200 er det autonome konsumet (c0), altsaa konsum som finner sted selv uten inntekt (for eksempel finansiert av sparing eller laan). Tallet 0,7 er den marginale konsumtilboyeligheten (c1), som betyr at for hver ekstra krone i disponibel inntekt, oeker konsumet med 70 oere. De resterende 30 oere spares.',
+        task: 'Konsumfunksjonen i en økonomi er $C = 200 + 0{,}7 \\cdot Y_d$. Forklar hva tallene 200 og 0,7 betyr økonomisk.',
+        hints: ['Tenk på hva som skjer med konsumet når inntekten er null, og når inntekten øker med 100 kroner.'],
+        solution: 'Tallet 200 er det autonome konsumet (c0), altså konsum som finner sted selv uten inntekt (for eksempel finansiert av sparing eller lån). Tallet 0,7 er den marginale konsumtilbøyeligheten (c1), som betyr at for hver ekstra krone i disponibel inntekt, øker konsumet med 70 øre. De resterende 30 øre spares.',
       },
     },
     {
@@ -416,12 +416,12 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'I en oekonomi er $c_1 = 0{,}6$, $t = 0{,}3$ og $z = 0{,}15$. Beregn multiplikatoren og finn effekten paa BNP av en skattelette som oeker disponibel inntekt med 5 milliarder kroner.',
+        task: 'I en økonomi er $c_1 = 0{,}6$, $t = 0{,}3$ og $z = 0{,}15$. Beregn multiplikatoren og finn effekten på BNP av en skattelette som øker disponibel inntekt med 5 milliarder kroner.',
         hints: [
           'Bruk formelen for multiplikatoren med skatt og import.',
           'Husk at skattelette virker gjennom konsumleddet.',
         ],
-        solution: 'Multiplikatoren: m = 1 / (1 - 0,6(1 - 0,3) + 0,15) = 1 / (1 - 0,42 + 0,15) = 1 / 0,73 = ca. 1,37. Virkning paa BNP: delta Y = 1,37 ganger 5 = ca. 6,85 milliarder kroner. Merk at skattelette har svakere multiplikatoreffekt enn direkte offentlige utgifter fordi noe av skatteletten spares.',
+        solution: 'Multiplikatoren: m = 1 / (1 - 0,6(1 - 0,3) + 0,15) = 1 / (1 - 0,42 + 0,15) = 1 / 0,73 = ca. 1,37. Virkning på BNP: delta Y = 1,37 ganger 5 = ca. 6,85 milliarder kroner. Merk at skattelette har svakere multiplikatoreffekt enn direkte offentlige utgifter fordi noe av skatteletten spares.',
       },
     },
     {
@@ -432,12 +432,12 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Forklar spareparadokset med utgangspunkt i den keynesianske modellen. Bruk multiplikatoreffekten til aa vise hvordan oekt sparing paa individnivaa kan foere til lavere total inntekt.',
+        task: 'Forklar spareparadokset med utgangspunkt i den keynesianske modellen. Bruk multiplikatoreffekten til å vise hvordan økt sparing på individnivå kan føre til lavere total inntekt.',
         hints: [
-          'Tenk paa hva som skjer med konsumfunksjonen naar sparingen oeker.',
-          'Hva skjer med multiplikatorkjeden naar c1 synker?',
+          'Tenk på hva som skjer med konsumfunksjonen når sparingen øker.',
+          'Hva skjer med multiplikatorkjeden når c1 synker?',
         ],
-        solution: 'Naar husholdningene oeker sparingen, synker den marginale konsumtilboyeligheten c1. Lavere c1 gir lavere multiplikator og dermed lavere samlet ettersporsel. Eksempel: Hvis c1 faller fra 0,8 til 0,6, faller multiplikatoren fra 5 til 2,5. Lavere ettersporsel gir lavere produksjon og inntekt, og ved lavere inntekt kan den totale sparingen faktisk bli lavere enn foer. Det som er rasjonelt for den enkelte (spare mer i usikre tider) kan vaere skadelig for oekonomien som helhet.',
+        solution: 'Når husholdningene øker sparingen, synker den marginale konsumtilbøyeligheten c1. Lavere c1 gir lavere multiplikator og dermed lavere samlet etterspørsel. Eksempel: Hvis c1 faller fra 0,8 til 0,6, faller multiplikatoren fra 5 til 2,5. Lavere etterspørsel gir lavere produksjon og inntekt, og ved lavere inntekt kan den totale sparingen faktisk bli lavere enn før. Det som er rasjonelt for den enkelte (spare mer i usikre tider) kan være skadelig for økonomien som helhet.',
       },
     },
     {
@@ -448,12 +448,12 @@ Dette er et eksempel paa **sammensetningsfeilslutning**: Det som er rasjonelt fo
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Droeft styrker og svakheter ved den keynesianske modellen. I hvilke situasjoner fungerer modellen best, og naar kommer den til kort?',
+        task: 'Drøft styrker og svakheter ved den keynesianske modellen. I hvilke situasjoner fungerer modellen best, og når kommer den til kort?',
         hints: [
-          'Tenk paa forutsetningene i modellen: ledige ressurser, stive priser, lukket/aapen oekonomi.',
+          'Tenk på forutsetningene i modellen: ledige ressurser, stive priser, lukket/åpen økonomi.',
           'Sammenlign med situasjoner med full kapasitetsutnyttelse.',
         ],
-        solution: 'Styrker: Modellen forklarer godt hvordan oekonomien kan havne i lavkonjunktur og hvordan aktiv finanspolitikk kan motvirke dette. Den viser multiplikatoreffekter og sammensetningsfeilslutninger. Svakheter: Modellen antar ledige ressurser og stive priser, og fungerer daarlig naar oekonomien er naer full kapasitet. Den ignorerer tilbudssiden, rente- og valutakurseffekter, forventninger og tidsforsinkelser. I en aapen oekonomi som Norge reduseres multiplikatoreffekten av hoey importandel. Modellen passer best for aa analysere kortsiktige svingninger i en oekonomi med ledig kapasitet.',
+        solution: 'Styrker: Modellen forklarer godt hvordan økonomien kan havne i lavkonjunktur og hvordan aktiv finanspolitikk kan motvirke dette. Den viser multiplikatoreffekter og sammensetningsfeilslutninger. Svakheter: Modellen antar ledige ressurser og stive priser, og fungerer dårlig når økonomien er nær full kapasitet. Den ignorerer tilbudssiden, rente- og valutakurseffekter, forventninger og tidsforsinkelser. I en åpen økonomi som Norge reduseres multiplikatoreffekten av høy importandel. Modellen passer best for å analysere kortsiktige svingninger i en økonomi med ledig kapasitet.',
       },
     },
   ],
@@ -469,11 +469,11 @@ export const CHAPTER_SAMFOKONOMI_2_1_3: TextbookChapter = {
   courseId: 'samfokonomi-2',
   chapterNumber: '1.3',
   title: 'AD-AS-modellen',
-  description: 'Aggregert ettersporsel og aggregert tilbud, makrooekonomisk likevekt og hvordan sjokk pavirker oekonomien.',
+  description: 'Aggregert etterspørsel og aggregert tilbud, makroøkonomisk likevekt og hvordan sjokk påvirker økonomien.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'bruke AD-AS-modellen til aa analysere makrooekonomiske sammenhenger',
-    'forklare hvordan tilbuds- og etterspoerselsjokk pavirker produksjon og prisnivaa',
+    'bruke AD-AS-modellen til å analysere makroøkonomiske sammenhenger',
+    'forklare hvordan tilbuds- og etterspørselsjokk påvirker produksjon og prisnivå',
   ],
   content: [
     {
@@ -481,25 +481,25 @@ export const CHAPTER_SAMFOKONOMI_2_1_3: TextbookChapter = {
       type: 'text',
       content: `# AD-AS-modellen
 
-AD-AS-modellen (Aggregate Demand - Aggregate Supply) er et sentralt verktoy i makrooekonomi. Den viser sammenhengen mellom prisnivaaet og samlet produksjon, og hvordan oekonomien finner sin likevekt.
+AD-AS-modellen (Aggregate Demand - Aggregate Supply) er et sentralt verktoy i makroøkonomi. Den viser sammenhengen mellom prisnivået og samlet produksjon, og hvordan økonomien finner sin likevekt.
 
 ## Hvorfor trenger vi AD-AS?
 
-Den keynesianske modellen i forrige kapittel antok at prisnivaaet var konstant. I virkeligheten endrer prisene seg, og vi trenger en modell som inkluderer baade etterspoersels- og tilbudssiden. AD-AS-modellen gjor nettopp dette.
+Den keynesianske modellen i forrige kapittel antok at prisnivået var konstant. I virkeligheten endrer prisene seg, og vi trenger en modell som inkluderer både etterspørsels- og tilbudssiden. AD-AS-modellen gjor nettopp dette.
 
 I diagrammet har vi:
 - **Horisontal akse**: Reelt BNP ($Y$)
-- **Vertikal akse**: Prisnivaa ($P$)`,
+- **Vertikal akse**: Prisnivå ($P$)`,
     },
     {
       id: 'sf2-1-3-def-1',
       type: 'definition',
-      title: 'Aggregert ettersporsel (AD)',
-      content: `**AD-kurven** viser sammenhengen mellom prisnivaaet og samlet ettersporsel etter varer og tjenester. AD-kurven heller nedover fordi:
+      title: 'Aggregert etterspørsel (AD)',
+      content: `**AD-kurven** viser sammenhengen mellom prisnivået og samlet etterspørsel etter varer og tjenester. AD-kurven heller nedover fordi:
 
-1. **Formueseffekten**: Hoeyere prisnivaa reduserer realverdien av formue, som senker konsumet
-2. **Renteeffekten**: Hoeyere prisnivaa oeker ettersporsel etter penger, som driver renten opp og reduserer investeringer
-3. **Valutakurseffekten**: Hoeyere rente styrker valutaen, som gjor eksport dyrere og reduserer nettoeksport
+1. **Formueseffekten**: Høyere prisnivå reduserer realverdien av formue, som senker konsumet
+2. **Renteeffekten**: Høyere prisnivå øker etterspørsel etter penger, som driver renten opp og reduserer investeringer
+3. **Valutakurseffekten**: Høyere rente styrker valutaen, som gjor eksport dyrere og reduserer nettoeksport
 
 AD-kurven skifter utover ved ekspansiv finans- eller pengepolitikk, og innover ved kontraktiv politikk.`,
     },
@@ -507,55 +507,55 @@ AD-kurven skifter utover ved ekspansiv finans- eller pengepolitikk, og innover v
       id: 'sf2-1-3-def-2',
       type: 'definition',
       title: 'Aggregert tilbud (AS)',
-      content: `**AS-kurven** viser sammenhengen mellom prisnivaaet og samlet produksjon. Vi skiller mellom:
+      content: `**AS-kurven** viser sammenhengen mellom prisnivået og samlet produksjon. Vi skiller mellom:
 
 **Kortsiktig AS (SRAS)**: Stigende kurve fordi:
-- Noen priser og loenninger er stive paa kort sikt
-- Hoeyere prisnivaa gir hoeyere profittmarginer
-- Bedrifter oeker produksjonen naar prisene stiger
+- Noen priser og lønninger er stive på kort sikt
+- Høyere prisnivå gir høyere profittmarginer
+- Bedrifter øker produksjonen når prisene stiger
 
 **Langsiktig AS (LRAS)**: Vertikal linje ved potensiell produksjon fordi:
-- Paa lang sikt tilpasses alle priser og loenninger
-- Produksjonen bestemmes av realfaktorer (arbeidskraft, kapital, teknologi)
-- Potensiell produksjon er uavhengig av prisnivaaet`,
+- På lang sikt tilpasses alle priser og lønninger
+- Produksjonen bestemmes av realfaktører (arbeidskraft, kapital, teknologi)
+- Potensiell produksjon er uavhengig av prisnivået`,
     },
     {
       id: 'sf2-1-3-text-2',
       type: 'text',
-      content: `## Makrooekonomisk likevekt
+      content: `## Makroøkonomisk likevekt
 
-Likevekt i AD-AS-modellen oppstaar der AD-kurven krysser AS-kurven. I krysningspunktet er:
-- Samlet ettersporsel lik samlet tilbud
-- Prisnivaaet og produksjonen bestemt simultant
+Likevekt i AD-AS-modellen oppstår der AD-kurven krysser AS-kurven. I krysningspunktet er:
+- Samlet etterspørsel lik samlet tilbud
+- Prisnivået og produksjonen bestemt simultant
 
 ### Kortsiktig vs. langsiktig likevekt
 
-**Kortsiktig likevekt**: Der AD krysser SRAS. Produksjonen kan vaere over eller under potensiell produksjon.
+**Kortsiktig likevekt**: Der AD krysser SRAS. Produksjonen kan være over eller under potensiell produksjon.
 
-**Langsiktig likevekt**: Der AD krysser baade SRAS og LRAS. Produksjonen er lik potensiell produksjon, og det er ingen tendens til endring.
+**Langsiktig likevekt**: Der AD krysser både SRAS og LRAS. Produksjonen er lik potensiell produksjon, og det er ingen tendens til endring.
 
-Naar kortsiktig likevekt avviker fra langsiktig likevekt, vil loenns- og pristilpasninger gradvis foere oekonomien tilbake.`,
+Når kortsiktig likevekt avviker fra langsiktig likevekt, vil lønns- og pristilpasninger gradvis føre økonomien tilbake.`,
     },
     {
       id: 'sf2-1-3-example-1',
       type: 'example',
-      title: 'Etterspoerselsjokk',
-      problem: 'Vis med AD-AS-modellen hva som skjer naar regjeringen oeker offentlige utgifter betydelig (positivt etterspoerselsjokk). Analyser baade kortsiktige og langsiktige virkninger.',
-      solution: `**Loesning:**
+      title: 'Etterspørselsjokk',
+      problem: 'Vis med AD-AS-modellen hva som skjer når regjeringen øker offentlige utgifter betydelig (positivt etterspørselsjokk). Analyser både kortsiktige og langsiktige virkninger.',
+      solution: `**Løsning:**
 
 **Kortsiktig virkning:**
-1. AD-kurven skifter utover (til hoeyre)
-2. Ny kortsiktig likevekt: hoeyere produksjon ($Y > Y^*$) og hoeyere prisnivaa
-3. Positivt produksjonsgap oppstaar
-4. Arbeidsledigheten faller under det naturlige nivaaet
+1. AD-kurven skifter utover (til høyre)
+2. Ny kortsiktig likevekt: høyere produksjon ($Y > Y^*$) og høyere prisnivå
+3. Positivt produksjonsgap oppstår
+4. Arbeidsledigheten faller under det naturlige nivået
 
 **Langsiktig tilpasning:**
-1. Hoeyere ettersporsel etter arbeidskraft presser loennene opp
-2. Hoeyere loennskostnader skifter SRAS-kurven oppover (til venstre)
+1. Høyere etterspørsel etter arbeidskraft presser lønnene opp
+2. Høyere lønnskostnader skifter SRAS-kurven oppover (til venstre)
 3. Produksjonen faller tilbake mot potensiell produksjon
-4. Prisnivaaet stiger ytterligere
+4. Prisnivået stiger ytterligere
 
-**Sluttresultat**: Paa lang sikt er produksjonen tilbake paa potensiell produksjon, men prisnivaaet er permanent hoeyere. Den ekspansive finanspolitikken har kun prisvirkninger paa lang sikt.`,
+**Sluttresultat**: På lang sikt er produksjonen tilbake på potensiell produksjon, men prisnivået er permanent høyere. Den ekspansive finanspolitikken har kun prisvirkninger på lang sikt.`,
     },
     {
       id: 'sf2-1-3-text-3',
@@ -563,42 +563,42 @@ Naar kortsiktig likevekt avviker fra langsiktig likevekt, vil loenns- og pristil
       content: `## Tilbudssjokk
 
 Et **negativt tilbudssjokk** (f.eks. oljeprissjokk, pandemi, krig) skifter SRAS-kurven oppover:
-- Produksjonen faller og prisnivaaet stiger
+- Produksjonen faller og prisnivået stiger
 - Denne kombinasjonen kalles **stagflasjon**
-- Myndighetene staar overfor et dilemma: stimulere ettersporselen (oeker inflasjonen) eller bekjempe inflasjon (forverrer nedgangen)
+- Myndighetene står overfor et dilemma: stimulere etterspørselen (øker inflasjonen) eller bekjempe inflasjon (forverrer nedgangen)
 
 Et **positivt tilbudssjokk** (f.eks. teknologisk gjennombrudd, fallende energipriser):
 - SRAS skifter nedover
-- Produksjonen oeker og prisnivaaet faller
-- Dette er den ideelle situasjonen for en oekonomi
+- Produksjonen øker og prisnivået faller
+- Dette er den ideelle situasjonen for en økonomi
 
 ## Politikkimplikasjoner
 
 AD-AS-modellen viser at:
-- **Etterspoerselspolitikk** kan pavirke produksjonen paa kort sikt, men bare prisnivaaet paa lang sikt
-- **Tilbudspolitikk** (utdanning, infrastruktur, innovasjon) kan oeke potensiell produksjon permanent
+- **Etterspørselspolitikk** kan påvirke produksjonen på kort sikt, men bare prisnivået på lang sikt
+- **Tilbudspolitikk** (utdanning, infrastruktur, innovasjon) kan øke potensiell produksjon permanent
 - Valg av politikk avhenger av typen sjokk og tidshorisonten`,
     },
     {
       id: 'sf2-1-3-example-2',
       type: 'example',
       title: 'Stagflasjon',
-      problem: 'Forklar med AD-AS-modellen hvorfor OPEC-landenes oljeprisoekning paa 1970-tallet skapte stagflasjon i vestlige oekonomier.',
-      solution: `**Loesning:**
+      problem: 'Forklar med AD-AS-modellen hvorfor OPEC-landenes oljeprisøkning på 1970-tallet skapte stagflasjon i vestlige økonomier.',
+      solution: `**Løsning:**
 
 1. **Sjokket**: OPEC firedoblet oljeprisen i 1973. Olje var en viktig innsatsfaktor i nesten all produksjon.
 
 2. **Virkning i AD-AS-modellen**:
-   - Hoeyere oljepris oekte produksjonskostnadene for bedrifter
+   - Høyere oljepris økte produksjonskostnadene for bedrifter
    - SRAS-kurven skiftet oppover (til venstre)
-   - Ny likevekt: Lavere produksjon ($Y < Y^*$) OG hoeyere prisnivaa
+   - Ny likevekt: Lavere produksjon ($Y < Y^*$) OG høyere prisnivå
 
-3. **Stagflasjon**: Kombinasjonen av stagnasjon (lav vekst, hoey ledighet) og inflasjon (stigende priser). Dette var et problem som den keynesianske modellen hadde vanskelig for aa forklare.
+3. **Stagflasjon**: Kombinasjonen av stagnasjon (lav vekst, høy ledighet) og inflasjon (stigende priser). Dette var et problem som den keynesianske modellen hadde vanskelig for å forklare.
 
 4. **Politikkdilemma**:
-   - Ekspansiv politikk ville oeke ettersporselen og redusere ledigheten, men ogsaa forsterke inflasjonen
+   - Ekspansiv politikk ville øke etterspørselen og redusere ledigheten, men også forsterke inflasjonen
    - Kontraktiv politikk ville dempe inflasjonen, men forverret resesjonen
-   - Mange land valgte aa stimulere oekonomien, noe som foerte til langvarig hoey inflasjon`,
+   - Mange land valgte å stimulere økonomien, noe som førte til langvarig høy inflasjon`,
     },
     {
       id: 'sf2-1-3-ex-block-1',
@@ -610,12 +610,12 @@ AD-AS-modellen viser at:
         difficulty: 'lett',
         task: 'Hvorfor heller AD-kurven nedover?',
         options: [
-          { id: 'a', text: 'Paa grunn av formueseffekten, renteeffekten og valutakurseffekten', isCorrect: true },
-          { id: 'b', text: 'Fordi hoeyere priser alltid betyr lavere kvalitet', isCorrect: false },
-          { id: 'c', text: 'Fordi staten alltid senker skattene naar prisene stiger', isCorrect: false },
-          { id: 'd', text: 'Fordi tilbudet alltid oeker naar prisene stiger', isCorrect: false },
+          { id: 'a', text: 'På grunn av formueseffekten, renteeffekten og valutakurseffekten', isCorrect: true },
+          { id: 'b', text: 'Fordi høyere priser alltid betyr lavere kvalitet', isCorrect: false },
+          { id: 'c', text: 'Fordi staten alltid senker skattene når prisene stiger', isCorrect: false },
+          { id: 'd', text: 'Fordi tilbudet alltid øker når prisene stiger', isCorrect: false },
         ],
-        solution: 'AD-kurven heller nedover paa grunn av tre effekter: Formueseffekten (hoeyere priser reduserer real formue), renteeffekten (hoeyere priser driver renten opp) og valutakurseffekten (hoeyere rente styrker valutaen og svekker nettoeksporten).',
+        solution: 'AD-kurven heller nedover på grunn av tre effekter: Formueseffekten (høyere priser reduserer real formue), renteeffekten (høyere priser driver renten opp) og valutakurseffekten (høyere rente styrker valutaen og svekker nettoeksporten).',
       },
     },
     {
@@ -628,12 +628,12 @@ AD-AS-modellen viser at:
         difficulty: 'medium',
         task: 'Hva kjennetegner stagflasjon?',
         options: [
-          { id: 'a', text: 'Kombinasjonen av hoey inflasjon og lav oekonomisk vekst (eller resesjon)', isCorrect: true },
-          { id: 'b', text: 'Hoey oekonomisk vekst og lav inflasjon', isCorrect: false },
+          { id: 'a', text: 'Kombinasjonen av høy inflasjon og lav økonomisk vekst (eller resesjon)', isCorrect: true },
+          { id: 'b', text: 'Høy økonomisk vekst og lav inflasjon', isCorrect: false },
           { id: 'c', text: 'Lav inflasjon og lav arbeidsledighet', isCorrect: false },
-          { id: 'd', text: 'Deflasjon og hoey oekonomisk vekst', isCorrect: false },
+          { id: 'd', text: 'Deflasjon og høy økonomisk vekst', isCorrect: false },
         ],
-        solution: 'Stagflasjon er kombinasjonen av stagnasjon (lav eller negativ vekst, hoey ledighet) og inflasjon (stigende priser). Det oppstaar typisk ved negative tilbudssjokk, som oljeprissjokk.',
+        solution: 'Stagflasjon er kombinasjonen av stagnasjon (lav eller negativ vekst, høy ledighet) og inflasjon (stigende priser). Det oppstår typisk ved negative tilbudssjokk, som oljeprissjokk.',
       },
     },
     {
@@ -645,8 +645,8 @@ AD-AS-modellen viser at:
         type: 'classic',
         difficulty: 'medium',
         task: 'Forklar forskjellen mellom kortsiktig og langsiktig aggregert tilbud (SRAS vs. LRAS). Hvorfor er LRAS vertikal?',
-        hints: ['Tenk paa hva som er stivt paa kort sikt og fleksibelt paa lang sikt.'],
-        solution: 'SRAS stiger fordi noen priser og loenninger er stive paa kort sikt. Naar prisnivaaet stiger, oeker profittmarginene og bedrifter produserer mer. LRAS er vertikal fordi alle priser og loenninger er fullt fleksible paa lang sikt. Produksjonen bestemmes da kun av realfaktorer som arbeidskraft, kapitalbeholdning og teknologi, uavhengig av prisnivaaet. LRAS representerer potensiell produksjon.',
+        hints: ['Tenk på hva som er stivt på kort sikt og fleksibelt på lang sikt.'],
+        solution: 'SRAS stiger fordi noen priser og lønninger er stive på kort sikt. Når prisnivået stiger, øker profittmarginene og bedrifter produserer mer. LRAS er vertikal fordi alle priser og lønninger er fullt fleksible på lang sikt. Produksjonen bestemmes da kun av realfaktører som arbeidskraft, kapitalbeholdning og teknologi, uavhengig av prisnivået. LRAS representerer potensiell produksjon.',
       },
     },
     {
@@ -657,12 +657,12 @@ AD-AS-modellen viser at:
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Bruk AD-AS-modellen til aa analysere virkningen av en rentenedsettelse fra Norges Bank. Beskriv hva som skjer paa kort og lang sikt.',
+        task: 'Bruk AD-AS-modellen til å analysere virkningen av en rentenedsettelse fra Norges Bank. Beskriv hva som skjer på kort og lang sikt.',
         hints: [
-          'Lavere rente pavirker foerst ettersporselen.',
-          'Tenk paa hva som skjer med investeringer, konsum og valutakurs.',
+          'Lavere rente påvirker først etterspørselen.',
+          'Tenk på hva som skjer med investeringer, konsum og valutakurs.',
         ],
-        solution: 'Kort sikt: Lavere rente stimulerer investeringer og konsum, og svekker kronekursen (som oeker nettoeksporten). AD-kurven skifter utover. Ny kortsiktig likevekt har hoeyere produksjon og noe hoeyere prisnivaa. Lang sikt: Oekt ettersporsel presser loenninger og kostnader opp. SRAS skifter oppover. Produksjonen vender tilbake til potensiell produksjon, men prisnivaaet er permanent hoeyere. Pengepolitikk er noytralt paa lang sikt.',
+        solution: 'Kort sikt: Lavere rente stimulerer investeringer og konsum, og svekker kronekursen (som øker nettoeksporten). AD-kurven skifter utover. Ny kortsiktig likevekt har høyere produksjon og noe høyere prisnivå. Lang sikt: Økt etterspørsel presser lønninger og kostnader opp. SRAS skifter oppover. Produksjonen vender tilbake til potensiell produksjon, men prisnivået er permanent høyere. Pengepolitikk er noytralt på lang sikt.',
       },
     },
     {
@@ -673,12 +673,12 @@ AD-AS-modellen viser at:
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En oekonomi rammes av et negativt tilbudssjokk (f.eks. en global energikrise). Analyser med AD-AS-modellen hvilke politikkalternativer myndighetene har, og droeft fordeler og ulemper ved hvert alternativ.',
+        task: 'En økonomi rammes av et negativt tilbudssjokk (f.eks. en global energikrise). Analyser med AD-AS-modellen hvilke politikkalternativer myndighetene har, og drøft fordeler og ulemper ved hvert alternativ.',
         hints: [
           'Et negativt tilbudssjokk skifter SRAS oppover.',
-          'Myndighetene kan velge mellom aa gjore ingenting, stimulere ettersporselen eller stramme inn.',
+          'Myndighetene kan velge mellom å gjore ingenting, stimulere etterspørselen eller stramme inn.',
         ],
-        solution: 'Ved negativt tilbudssjokk skifter SRAS oppover: produksjonen faller og prisene stiger (stagflasjon). Alternativ 1: Ekspansiv politikk (skift AD utover) stabiliserer produksjonen, men forsterker inflasjonen. Alternativ 2: Kontraktiv politikk (skift AD innover) demper inflasjonen, men forverrer resesjonen. Alternativ 3: Ingenting - la oekonomien tilpasse seg selv. Loenninger faller gradvis, SRAS skifter tilbake. Valget avhenger av hva myndighetene prioriterer: sysselsetting eller prisstabilitet.',
+        solution: 'Ved negativt tilbudssjokk skifter SRAS oppover: produksjonen faller og prisene stiger (stagflasjon). Alternativ 1: Ekspansiv politikk (skift AD utover) stabiliserer produksjonen, men forsterker inflasjonen. Alternativ 2: Kontraktiv politikk (skift AD innover) demper inflasjonen, men forverrer resesjonen. Alternativ 3: Ingenting - la økonomien tilpasse seg selv. Lønninger faller gradvis, SRAS skifter tilbake. Valget avhenger av hva myndighetene prioriterer: sysselsetting eller prisstabilitet.',
       },
     },
     {
@@ -689,12 +689,12 @@ AD-AS-modellen viser at:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Sammenlign den keynesianske modellen fra kapittel 1.2 med AD-AS-modellen. Hvilke fordeler gir AD-AS-modellen? Gi eksempler paa fenomener som AD-AS kan forklare, men som den enkle keynesianske modellen ikke kan.',
+        task: 'Sammenlign den keynesianske modellen fra kapittel 1.2 med AD-AS-modellen. Hvilke fordeler gir AD-AS-modellen? Gi eksempler på fenomener som AD-AS kan forklare, men som den enkle keynesianske modellen ikke kan.',
         hints: [
-          'Tenk paa prisnivaaets rolle i de to modellene.',
+          'Tenk på prisnivåets rolle i de to modellene.',
           'Vurder begrensningene i den keynesianske modellen.',
         ],
-        solution: 'Den keynesianske modellen antar fast prisnivaa og fokuserer paa ettersporselen. AD-AS-modellen inkluderer baade tilbuds- og etterspoerselssiden og lar prisnivaaet variere. Fordeler med AD-AS: (1) Kan analysere inflasjon og prisendringer, (2) kan forklare stagflasjon (tilbudssjokk), (3) skiller mellom kortsiktige og langsiktige virkninger, (4) viser at etterspoerselspolitikk kun pavirker prisnivaaet paa lang sikt. Fenomener AD-AS kan forklare men ikke Keynes: stagflasjon, langsiktig noeytralitet av pengemengden, og tilbudssjokk.',
+        solution: 'Den keynesianske modellen antar fast prisnivå og fokuserer på etterspørselen. AD-AS-modellen inkluderer både tilbuds- og etterspørselssiden og lar prisnivået variere. Fordeler med AD-AS: (1) Kan analysere inflasjon og prisendringer, (2) kan forklare stagflasjon (tilbudssjokk), (3) skiller mellom kortsiktige og langsiktige virkninger, (4) viser at etterspørselspolitikk kun påvirker prisnivået på lang sikt. Fenomener AD-AS kan forklare men ikke Keynes: stagflasjon, langsiktig nøytralitet av pengemengden, og tilbudssjokk.',
       },
     },
   ],
@@ -713,7 +713,7 @@ export const CHAPTER_SAMFOKONOMI_2_1_4: TextbookChapter = {
   description: 'IS-kurven (investering-sparing) og LM-kurven (likviditet-pengemengde), samspill mellom finans- og pengepolitikk.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'bruke IS-LM-modellen til aa analysere virkningen av finans- og pengepolitikk',
+    'bruke IS-LM-modellen til å analysere virkningen av finans- og pengepolitikk',
     'forklare samspillet mellom vare- og pengemarkedet',
   ],
   content: [
@@ -726,14 +726,14 @@ IS-LM-modellen ble utviklet av John Hicks i 1937 som en formalisering av Keynes 
 
 ## To markeder, to kurver
 
-Modellen bestaar av to kurver i et diagram med:
+Modellen består av to kurver i et diagram med:
 - **Horisontal akse**: Reelt BNP ($Y$)
 - **Vertikal akse**: Realrente ($r$)
 
 **IS-kurven** representerer likevekt i varemarkedet (investering = sparing).
-**LM-kurven** representerer likevekt i pengemarkedet (likviditetsettersporsel = pengemengde).
+**LM-kurven** representerer likevekt i pengemarkedet (likviditetsetterspørsel = pengemengde).
 
-Der de to kurvene krysser, er baade varemarkedet og pengemarkedet i likevekt simultant.`,
+Der de to kurvene krysser, er både varemarkedet og pengemarkedet i likevekt simultant.`,
     },
     {
       id: 'sf2-1-4-def-1',
@@ -742,14 +742,14 @@ Der de to kurvene krysser, er baade varemarkedet og pengemarkedet i likevekt sim
       content: `**IS-kurven** (Investment-Saving) viser alle kombinasjoner av rente ($r$) og produksjon ($Y$) som gir likevekt i varemarkedet.
 
 IS-kurven heller **nedover** fordi:
-- Hoeyere rente reduserer investeringer og rentesensitivt konsum
-- Lavere investeringer og konsum gir lavere samlet ettersporsel
-- Lavere ettersporsel gir lavere likevektsproduksjon
+- Høyere rente reduserer investeringer og rentesensitivt konsum
+- Lavere investeringer og konsum gir lavere samlet etterspørsel
+- Lavere etterspørsel gir lavere likevektsproduksjon
 
 **IS-kurven skifter utover** ved:
-- Oekning i offentlige utgifter ($G$)
+- Økning i offentlige utgifter ($G$)
 - Skattelettelser
-- Oekt eksport eller oekt forbrukertillit`,
+- Økt eksport eller økt forbrukertillit`,
     },
     {
       id: 'sf2-1-4-def-2',
@@ -758,13 +758,13 @@ IS-kurven heller **nedover** fordi:
       content: `**LM-kurven** (Liquidity-Money) viser alle kombinasjoner av rente ($r$) og produksjon ($Y$) som gir likevekt i pengemarkedet.
 
 LM-kurven heller **oppover** fordi:
-- Hoeyere produksjon oeker transaksjonsettersporsel etter penger
-- For aa opprettholde likevekt i pengemarkedet maa renten stige
-- Hoeyere rente reduserer spekulativ ettersporsel etter penger
+- Høyere produksjon øker transaksjonsetterspørsel etter penger
+- For å opprettholde likevekt i pengemarkedet må renten stige
+- Høyere rente reduserer spekulativ etterspørsel etter penger
 
 **LM-kurven skifter nedover** ved:
-- Oekning i pengemengden (ekspansiv pengepolitikk)
-- Reduksjon i ettersporsel etter penger
+- Økning i pengemengden (ekspansiv pengepolitikk)
+- Reduksjon i etterspørsel etter penger
 
 I moderne pengepolitikk, der sentralbanken setter renten direkte, kan LM-kurven betraktes som en horisontal linje ved den fastsatte renten.`,
     },
@@ -773,31 +773,31 @@ I moderne pengepolitikk, der sentralbanken setter renten direkte, kan LM-kurven 
       type: 'text',
       content: `## IS-LM-likevekt
 
-Likevekten i IS-LM-modellen bestemmer baade renten og produksjonen simultant. I krysningspunktet:
-- Varemarkedet er i likevekt (planlagt ettersporsel = produksjon)
-- Pengemarkedet er i likevekt (ettersporsel etter penger = tilbudt pengemengde)
+Likevekten i IS-LM-modellen bestemmer både renten og produksjonen simultant. I krysningspunktet:
+- Varemarkedet er i likevekt (planlagt etterspørsel = produksjon)
+- Pengemarkedet er i likevekt (etterspørsel etter penger = tilbudt pengemengde)
 
 ### Tilpasning til likevekt
 
-Hvis oekonomien er utenfor likevekt, virker markedsmekanismene:
-- **Utenfor IS-kurven**: Ulikevekt i varemarkedet foerer til lagerjusteringer
-- **Utenfor LM-kurven**: Ulikevekt i pengemarkedet foerer til rentejusteringer
+Hvis økonomien er utenfor likevekt, virker markedsmekanismene:
+- **Utenfor IS-kurven**: Ulikevekt i varemarkedet fører til lagerjusteringer
+- **Utenfor LM-kurven**: Ulikevekt i pengemarkedet fører til rentejusteringer
 - Rentejusteringer skjer typisk raskere enn produksjonsjusteringer`,
     },
     {
       id: 'sf2-1-4-example-1',
       type: 'example',
       title: 'Ekspansiv finanspolitikk i IS-LM',
-      problem: 'Vis med IS-LM-modellen hva som skjer naar regjeringen oeker offentlige utgifter. Sammenlign effekten med den enkle keynesianske multiplikatoren.',
-      solution: `**Loesning:**
+      problem: 'Vis med IS-LM-modellen hva som skjer når regjeringen øker offentlige utgifter. Sammenlign effekten med den enkle keynesianske multiplikatoren.',
+      solution: `**Løsning:**
 
-1. **IS-kurven skifter utover**: Oekte offentlige utgifter oeker samlet ettersporsel ved ethvert rentenivaa.
+1. **IS-kurven skifter utover**: Økte offentlige utgifter øker samlet etterspørsel ved ethvert rentenivå.
 
-2. **Ny likevekt**: Hoeyere produksjon ($Y$) OG hoeyere rente ($r$).
+2. **Ny likevekt**: Høyere produksjon ($Y$) OG høyere rente ($r$).
 
-3. **Fortreningseffekten (crowding out)**: Hoeyere produksjon oeker ettersporsel etter penger, som presser renten opp. Hoeyere rente reduserer private investeringer. Dermed fortrenger offentlige utgifter noe av den private investeringen.
+3. **Fortreningseffekten (crowding out)**: Høyere produksjon øker etterspørsel etter penger, som presser renten opp. Høyere rente reduserer private investeringer. Dermed fortrenger offentlige utgifter noe av den private investeringen.
 
-4. **Sammenligning med keynesiansk multiplikator**: I den enkle keynesianske modellen (uten pengemarkeder) er multiplikatoreffekten stoerre fordi man ignorerer renteokningen. IS-LM viser at den reelle BNP-okningen er mindre enn hva den enkle multiplikatoren tilsier, nettopp paa grunn av fortreningseffekten.`,
+4. **Sammenligning med keynesiansk multiplikator**: I den enkle keynesianske modellen (uten pengemarkeder) er multiplikatoreffekten større fordi man ignorerer renteokningen. IS-LM viser at den reelle BNP-okningen er mindre enn hva den enkle multiplikatoren tilsier, nettopp på grunn av fortreningseffekten.`,
     },
     {
       id: 'sf2-1-4-text-3',
@@ -806,20 +806,20 @@ Hvis oekonomien er utenfor likevekt, virker markedsmekanismene:
 
 ### Finanspolitikk i IS-LM
 - Skifter IS-kurven
-- Ekspansiv: IS skifter hoeyre (oekte utgifter/skattelette)
-- Gir hoeyere $Y$ og hoeyere $r$
+- Ekspansiv: IS skifter høyre (økte utgifter/skattelette)
+- Gir høyere $Y$ og høyere $r$
 - Delvis fortrenging av private investeringer
 
 ### Pengepolitikk i IS-LM
 - Skifter LM-kurven
-- Ekspansiv: LM skifter nedover (hoeyere pengemengde/lavere rente)
-- Gir hoeyere $Y$ og lavere $r$
+- Ekspansiv: LM skifter nedover (høyere pengemengde/lavere rente)
+- Gir høyere $Y$ og lavere $r$
 - Stimulerer private investeringer
 
 ### Kombinasjon av politikk
 Myndighetene kan kombinere finans- og pengepolitikk:
-- Ekspansiv finanspolitikk + ekspansiv pengepolitikk = sterk BNP-oekning
-- Ekspansiv finanspolitikk + kontraktiv pengepolitikk = hoeyere rente, usikker BNP-effekt
+- Ekspansiv finanspolitikk + ekspansiv pengepolitikk = sterk BNP-økning
+- Ekspansiv finanspolitikk + kontraktiv pengepolitikk = høyere rente, usikker BNP-effekt
 - Denne kombinasjonen kalles noen ganger "policy mix"`,
     },
     {
@@ -827,19 +827,19 @@ Myndighetene kan kombinere finans- og pengepolitikk:
       type: 'example',
       title: 'Likviditetsfellen',
       problem: 'Forklar hva en likviditetsfelle er, og hvorfor den gjor pengepolitikk ineffektiv.',
-      solution: `**Loesning:**
+      solution: `**Løsning:**
 
-**Likviditetsfellen** oppstaar naar renten er saa lav (naer null) at:
+**Likviditetsfellen** oppstår når renten er så lav (nær null) at:
 
-1. Folk er likegyldige mellom aa holde penger og obligasjoner (begge gir naer null avkastning)
-2. LM-kurven blir tilnaermet horisontal
-3. Oekning i pengemengden absorberes bare som oekte kassebeholdninger
+1. Folk er likegyldige mellom å holde penger og obligasjoner (begge gir nær null avkastning)
+2. LM-kurven blir tilnærmet horisontal
+3. Økning i pengemengden absorberes bare som økte kassebeholdninger
 4. Renten kan ikke falle ytterligere
 
 **Konsekvenser:**
-- Pengepolitikk blir ineffektiv: Mer penger i omloep endrer ikke renten
+- Pengepolitikk blir ineffektiv: Mer penger i omløp endrer ikke renten
 - Finanspolitikk er ekstra effektiv: IS-skiftet gir full multiplikatoreffekt uten fortreningseffekt
-- Japan paa 1990-2000-tallet og mange vestlige land etter finanskrisen 2008 opplevde dette
+- Japan på 1990-2000-tallet og mange vestlige land etter finanskrisen 2008 opplevde dette
 
 **Losningen**: Ukonvensjonell pengepolitikk (kvantitative lettelser), ekspansiv finanspolitikk, eller negativrenter.`,
     },
@@ -853,12 +853,12 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         difficulty: 'lett',
         task: 'Hvorfor heller IS-kurven nedover i IS-LM-diagrammet?',
         options: [
-          { id: 'a', text: 'Fordi hoeyere rente reduserer investeringer og dermed produksjonen', isCorrect: true },
-          { id: 'b', text: 'Fordi hoeyere produksjon oeker ettersporsel etter penger', isCorrect: false },
-          { id: 'c', text: 'Fordi sentralbanken senker renten naar produksjonen stiger', isCorrect: false },
-          { id: 'd', text: 'Fordi det er inflasjon naar produksjonen stiger', isCorrect: false },
+          { id: 'a', text: 'Fordi høyere rente reduserer investeringer og dermed produksjonen', isCorrect: true },
+          { id: 'b', text: 'Fordi høyere produksjon øker etterspørsel etter penger', isCorrect: false },
+          { id: 'c', text: 'Fordi sentralbanken senker renten når produksjonen stiger', isCorrect: false },
+          { id: 'd', text: 'Fordi det er inflasjon når produksjonen stiger', isCorrect: false },
         ],
-        solution: 'IS-kurven heller nedover fordi hoeyere rente gjor det dyrere aa laane og investere. Lavere investeringer reduserer samlet ettersporsel, som gir lavere likevektsproduksjon. Altsaa: hoeyere rente gir lavere Y langs IS-kurven.',
+        solution: 'IS-kurven heller nedover fordi høyere rente gjor det dyrere å låne og investere. Lavere investeringer reduserer samlet etterspørsel, som gir lavere likevektsproduksjon. Altså: høyere rente gir lavere Y langs IS-kurven.',
       },
     },
     {
@@ -869,14 +869,14 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         number: '2',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'Hva skjer med IS-LM-likevekten naar sentralbanken senker renten (ekspansiv pengepolitikk)?',
+        task: 'Hva skjer med IS-LM-likevekten når sentralbanken senker renten (ekspansiv pengepolitikk)?',
         options: [
-          { id: 'a', text: 'LM skifter nedover, produksjonen oeker og renten faller', isCorrect: true },
-          { id: 'b', text: 'IS skifter utover, produksjonen oeker og renten stiger', isCorrect: false },
-          { id: 'c', text: 'Baade IS og LM skifter utover', isCorrect: false },
+          { id: 'a', text: 'LM skifter nedover, produksjonen øker og renten faller', isCorrect: true },
+          { id: 'b', text: 'IS skifter utover, produksjonen øker og renten stiger', isCorrect: false },
+          { id: 'c', text: 'Både IS og LM skifter utover', isCorrect: false },
           { id: 'd', text: 'LM skifter oppover, produksjonen faller', isCorrect: false },
         ],
-        solution: 'Ekspansiv pengepolitikk (oekt pengemengde eller lavere styringsrente) skifter LM-kurven nedover. I ny likevekt er renten lavere og produksjonen hoeyere. Lavere rente stimulerer investeringer og konsum.',
+        solution: 'Ekspansiv pengepolitikk (økt pengemengde eller lavere styringsrente) skifter LM-kurven nedover. I ny likevekt er renten lavere og produksjonen høyere. Lavere rente stimulerer investeringer og konsum.',
       },
     },
     {
@@ -887,9 +887,9 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Forklar hva fortreningseffekten (crowding out) er i IS-LM-modellen, og hvorfor den oppstaar ved ekspansiv finanspolitikk.',
-        hints: ['Foelg virkningskjeden fra oekte offentlige utgifter til hoeyere rente og lavere private investeringer.'],
-        solution: 'Fortreningseffekten oppstaar naar oekte offentlige utgifter oeker produksjonen, som oeker ettersporsel etter penger, som presser renten opp. Hoeyere rente gjor det dyrere for bedrifter aa investere og for husholdninger aa laane. Dermed fortrenger offentlige utgifter en del private investeringer. Effekten av finanspolitikk paa BNP blir derfor mindre enn hva den enkle keynesianske multiplikatoren tilsier.',
+        task: 'Forklar hva fortreningseffekten (crowding out) er i IS-LM-modellen, og hvorfor den oppstår ved ekspansiv finanspolitikk.',
+        hints: ['Følg virkningskjeden fra økte offentlige utgifter til høyere rente og lavere private investeringer.'],
+        solution: 'Fortreningseffekten oppstår når økte offentlige utgifter øker produksjonen, som øker etterspørsel etter penger, som presser renten opp. Høyere rente gjor det dyrere for bedrifter å investere og for husholdninger å låne. Dermed fortrenger offentlige utgifter en del private investeringer. Effekten av finanspolitikk på BNP blir derfor mindre enn hva den enkle keynesianske multiplikatoren tilsier.',
       },
     },
     {
@@ -902,10 +902,10 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         difficulty: 'medium',
         task: 'Forklar hvorfor pengepolitikk er ineffektiv i en likviditetsfelle, mens finanspolitikk er spesielt effektiv.',
         hints: [
-          'Tenk paa hva som skjer med LM-kurven naar renten allerede er naer null.',
+          'Tenk på hva som skjer med LM-kurven når renten allerede er nær null.',
           'Vurder om fortreningseffekten er til stede i en likviditetsfelle.',
         ],
-        solution: 'I en likviditetsfelle er renten naer null og LM-kurven er tilnaermet horisontal. Oekning i pengemengden absorberes som oekte kassebeholdninger uten at renten faller, saa pengepolitikk har ingen effekt. Finanspolitikk er derimot spesielt effektiv fordi IS-kurven skifter utover uten at renten stiger (LM er flat). Det betyr ingen fortreningseffekt, og den fulle keynesianske multiplikatoren slaar inn.',
+        solution: 'I en likviditetsfelle er renten nær null og LM-kurven er tilnærmet horisontal. Økning i pengemengden absorberes som økte kassebeholdninger uten at renten faller, så pengepolitikk har ingen effekt. Finanspolitikk er derimot spesielt effektiv fordi IS-kurven skifter utover uten at renten stiger (LM er flat). Det betyr ingen fortreningseffekt, og den fulle keynesianske multiplikatoren slår inn.',
       },
     },
     {
@@ -916,12 +916,12 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Regjeringen vil oeke BNP uten aa endre rentenivaaet. Forklar med IS-LM-modellen hvilken kombinasjon av finans- og pengepolitikk som kan oppnaa dette.',
+        task: 'Regjeringen vil øke BNP uten å endre rentenivået. Forklar med IS-LM-modellen hvilken kombinasjon av finans- og pengepolitikk som kan oppnå dette.',
         hints: [
-          'Finanspolitikk skifter IS og gir hoeyere rente. Pengepolitikk skifter LM og gir lavere rente.',
+          'Finanspolitikk skifter IS og gir høyere rente. Pengepolitikk skifter LM og gir lavere rente.',
           'Kan man kombinere de to slik at renteeffektene oppveier hverandre?',
         ],
-        solution: 'For aa oeke BNP uten renteendring trenger man samtidig ekspansiv finanspolitikk (IS skifter utover, gir hoeyere Y og hoeyere r) og ekspansiv pengepolitikk (LM skifter nedover, gir hoeyere Y og lavere r). Naar begge gjennomfoeres samtidig, oeker produksjonen kraftig, mens renteeffektene oppveier hverandre. Denne strategien eliminerer ogsaa fortreningseffekten, saa baade offentlige og private investeringer kan oeke.',
+        solution: 'For å øke BNP uten renteendring trenger man samtidig ekspansiv finanspolitikk (IS skifter utover, gir høyere Y og høyere r) og ekspansiv pengepolitikk (LM skifter nedover, gir høyere Y og lavere r). Når begge gjennomføres samtidig, øker produksjonen kraftig, mens renteeffektene oppveier hverandre. Denne strategien eliminerer også fortreningseffekten, så både offentlige og private investeringer kan øke.',
       },
     },
     {
@@ -932,12 +932,12 @@ Myndighetene kan kombinere finans- og pengepolitikk:
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Sammenlign IS-LM-modellen med AD-AS-modellen. Hvilke spoersmaal er IS-LM best egnet til aa besvare, og hvilke er AD-AS bedre paa? Droeft ogsaa begrensninger ved IS-LM-modellen.',
+        task: 'Sammenlign IS-LM-modellen med AD-AS-modellen. Hvilke spørsmål er IS-LM best egnet til å besvare, og hvilke er AD-AS bedre på? Drøft også begrensninger ved IS-LM-modellen.',
         hints: [
-          'Tenk paa hva som er endogent (bestemt i modellen) i de to modellene.',
-          'Hva skjer med prisnivaaet i IS-LM?',
+          'Tenk på hva som er endogent (bestemt i modellen) i de to modellene.',
+          'Hva skjer med prisnivået i IS-LM?',
         ],
-        solution: 'IS-LM er best til aa analysere samspillet mellom finans- og pengepolitikk og hvordan renten og produksjonen bestemmes simultant. Den viser fortreningseffekten og likviditetsfellen. AD-AS er bedre til aa analysere prisnivaaendringer, inflasjon, stagflasjon og langsiktige tilpasninger. Begrensninger ved IS-LM: (1) Antar fast prisnivaa, (2) skiller ikke mellom kort og lang sikt, (3) forutsetter at sentralbanken styrer pengemengden (moderne sentralbanker styrer renten), (4) ignorerer forventninger og internasjonale kapitalstroemmer.',
+        solution: 'IS-LM er best til å analysere samspillet mellom finans- og pengepolitikk og hvordan renten og produksjonen bestemmes simultant. Den viser fortreningseffekten og likviditetsfellen. AD-AS er bedre til å analysere prisnivåendringer, inflasjon, stagflasjon og langsiktige tilpasninger. Begrensninger ved IS-LM: (1) Antar fast prisnivå, (2) skiller ikke mellom kort og lang sikt, (3) forutsetter at sentralbanken styrer pengemengden (moderne sentralbanker styrer renten), (4) ignorerer forventninger og internasjonale kapitalstrømmer.',
       },
     },
   ],
@@ -945,54 +945,54 @@ Myndighetene kan kombinere finans- og pengepolitikk:
 };
 
 // ============================================================================
-// Kapittel 1.5: Oekonomisk vekst
+// Kapittel 1.5: Økonomisk vekst
 // ============================================================================
 
 export const CHAPTER_SAMFOKONOMI_2_1_5: TextbookChapter = {
   id: 'samfokonomi-2-1-5',
   courseId: 'samfokonomi-2',
   chapterNumber: '1.5',
-  title: 'Oekonomisk vekst',
-  description: 'Solow-modellen, vekstfaktorer, humankapital og hva som bestemmer langsiktig oekonomisk vekst.',
+  title: 'Økonomisk vekst',
+  description: 'Solow-modellen, vekstfaktører, humankapital og hva som bestemmer langsiktig økonomisk vekst.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'gjore rede for teorier om oekonomisk vekst',
-    'analysere faktorer som pavirker langsiktig vekst, inkludert humankapital og teknologi',
+    'gjore rede for teorier om økonomisk vekst',
+    'analysere faktører som påvirker langsiktig vekst, inkludert humankapital og teknologi',
   ],
   content: [
     {
       id: 'sf2-1-5-intro',
       type: 'text',
-      content: `# Oekonomisk vekst
+      content: `# Økonomisk vekst
 
-Mens de foregaaende kapitlene handlet om kortsiktige svingninger (konjunkturer), ser vi naa paa det mest fundamentale spoersmalet i makrooekonomi: **Hva bestemmer langsiktig oekonomisk vekst?**
+Mens de foregående kapitlene handlet om kortsiktige svingninger (konjunkturer), ser vi nå på det mest fundamentale spørsmålet i makroøkonomi: **Hva bestemmer langsiktig økonomisk vekst?**
 
 ## Hvorfor er vekst viktig?
 
-Selv smaa forskjeller i veksttakt gir enorme utslag over tid. Med 2 prosent aarlig vekst dobles BNP per innbygger paa 35 aar. Med 1 prosent tar det 70 aar. Denne rentes-rente-effekten forklarer hvorfor noen land er rike og andre fattige.
+Selv små forskjeller i veksttakt gir enorme utslag over tid. Med 2 prosent årlig vekst dobles BNP per innbygger på 35 år. Med 1 prosent tar det 70 år. Denne rentes-rente-effekten forklarer hvorfor noen land er rike og andre fattige.
 
-## Vekstfaktorer
+## Vekstfaktører
 
-Oekonomisk vekst bestemmes av:
+Økonomisk vekst bestemmes av:
 - **Fysisk kapital**: Maskiner, bygninger, infrastruktur
 - **Arbeidskraft**: Antall arbeidstagere og arbeidstimer
 - **Humankapital**: Utdanning, kompetanse og erfaring
 - **Teknologi**: Innovasjon, forskning og utvikling
-- **Institusjoner**: Rettsstat, eiendomsrett, korrupsjonsnivaa`,
+- **Institusjoner**: Rettsstat, eiendomsrett, korrupsjonsnivå`,
     },
     {
       id: 'sf2-1-5-def-1',
       type: 'definition',
       title: 'Solow-modellen',
-      content: `**Solow-modellen** (Robert Solow, 1956) er den mest kjente modellen for oekonomisk vekst. Hovedresultatene er:
+      content: `**Solow-modellen** (Robert Solow, 1956) er den mest kjente modellen for økonomisk vekst. Hovedresultatene er:
 
 **Produksjonsfunksjon**: $Y = A \\cdot f(K, L)$
-der $Y$ = produksjon, $A$ = teknologinivaa (total faktorproduktivitet), $K$ = kapital, $L$ = arbeidskraft.
+der $Y$ = produksjon, $A$ = teknologinivå (total faktorproduktivitet), $K$ = kapital, $L$ = arbeidskraft.
 
 **Sentrale innsikter**:
 1. **Avtagende grensenytte av kapital**: Ekstra kapital gir stadig mindre ekstra produksjon
-2. **Stabil likevekt (steady state)**: Oekonomien konvergerer mot et stabilt kapitalnivaa per arbeider
-3. **Bare teknologisk fremgang driver varig vekst**: Kapitalakkumulasjon alene gir ikke varig vekst paa grunn av avtagende grensenytte
+2. **Stabil likevekt (steady state)**: Økonomien konvergerer mot et stabilt kapitalnivå per arbeider
+3. **Bare teknologisk fremgang driver varig vekst**: Kapitalakkumulasjon alene gir ikke varig vekst på grunn av avtagende grensenytte
 4. **Konvergens**: Fattigere land vokser raskere enn rike (betinget konvergens)`,
     },
     {
@@ -1000,9 +1000,9 @@ der $Y$ = produksjon, $A$ = teknologinivaa (total faktorproduktivitet), $K$ = ka
       type: 'text',
       content: `## Steady state i Solow-modellen
 
-I Solow-modellen konvergerer oekonomien mot en **steady state** der kapital per arbeider er konstant. I steady state:
+I Solow-modellen konvergerer økonomien mot en **steady state** der kapital per arbeider er konstant. I steady state:
 
-- Investeringene er akkurat store nok til aa erstatte slitasje (depresiering)
+- Investeringene er akkurat store nok til å erstatte slitasje (depresiering)
 - $s \\cdot f(k) = (\\delta + n) \\cdot k$
 
 der:
@@ -1013,93 +1013,93 @@ der:
 
 ### Veien til steady state
 
-Hvis $k$ er under steady state, er investeringene stoerre enn depresiering pluss befolkningsvekst, og $k$ oeker. Hvis $k$ er over steady state, er investeringene mindre enn behovet, og $k$ synker. Oekonomien konvergerer alltid mot steady state.
+Hvis $k$ er under steady state, er investeringene større enn depresiering pluss befolkningsvekst, og $k$ øker. Hvis $k$ er over steady state, er investeringene mindre enn behovet, og $k$ synker. Økonomien konvergerer alltid mot steady state.
 
-### Effekten av hoeyere sparerate
+### Effekten av høyere sparerate
 
-En permanent oekning i spareraten gir:
-- **Midlertidig** oekt veksttakt (mens oekonomien beveger seg mot ny steady state)
-- **Permanent** hoeyere nivaa paa BNP per innbygger
-- Men **ikke** permanent hoeyere veksttakt`,
+En permanent økning i spareraten gir:
+- **Midlertidig** økt veksttakt (mens økonomien beveger seg mot ny steady state)
+- **Permanent** høyere nivå på BNP per innbygger
+- Men **ikke** permanent høyere veksttakt`,
     },
     {
       id: 'sf2-1-5-def-2',
       type: 'definition',
       title: 'Humankapital',
-      content: `**Humankapital** er den oekonomiske verdien av arbeidernes kunnskaper, ferdigheter og erfaring. I motsetning til fysisk kapital er humankapital knyttet til enkeltpersoner.
+      content: `**Humankapital** er den økonomiske verdien av arbeidernes kunnskaper, ferdigheter og erfaring. I motsetning til fysisk kapital er humankapital knyttet til enkeltpersoner.
 
-Humankapital oeker gjennom:
-- **Formell utdanning**: Grunnskole, videregaaende, hoeyere utdanning
-- **Opplaering paa arbeidsplassen**: Kurs, internopplaering, mentoring
-- **Laering gjennom praksis**: Erfaring og kompetanse opparbeidet over tid
+Humankapital øker gjennom:
+- **Formell utdanning**: Grunnskole, videregående, høyere utdanning
+- **Opplæring på arbeidsplassen**: Kurs, internopplæring, mentoring
+- **Læring gjennom praksis**: Erfaring og kompetanse opparbeidet over tid
 - **Helse**: Bedre helse gir mer produktive arbeidere
 
 I utvidede vekstmodeller inkluderes humankapital ($H$):
 $$Y = A \\cdot f(K, H, L)$$
 
-Investeringer i humankapital har typisk hoey avkastning, saerlig i utviklingsland.`,
+Investeringer i humankapital har typisk høy avkastning, særlig i utviklingsland.`,
     },
     {
       id: 'sf2-1-5-example-1',
       type: 'example',
-      title: 'Vekstmiraklene i Oest-Asia',
-      problem: 'Soer-Korea hadde i 1960 et BNP per innbygger paa linje med mange afrikanske land. I dag er det blant verdens rikeste land. Forklar dette vekstmirakelet med utgangspunkt i vekstteorien.',
-      solution: `**Loesning:**
+      title: 'Vekstmiraklene i Øst-Asia',
+      problem: 'Sør-Korea hadde i 1960 et BNP per innbygger på linje med mange afrikanske land. I dag er det blant verdens rikeste land. Forklar dette vekstmirakelet med utgangspunkt i vekstteorien.',
+      solution: `**Løsning:**
 
-Soer-Koreas vekstmirakel kan forklares med flere faktorer fra vekstteorien:
+Sør-Koreas vekstmirakel kan forklares med flere faktører fra vekstteorien:
 
-1. **Hoey sparerate og investering**: Spareraten laa paa 30-40 prosent av BNP, langt over de fleste land. Ifoelge Solow gir dette hoeyere steady state.
+1. **Høy sparerate og investering**: Spareraten lå på 30-40 prosent av BNP, langt over de fleste land. Ifølge Solow gir dette høyere steady state.
 
-2. **Massiv investering i humankapital**: Fra 1960 til 2000 oekte andelen med hoeyere utdanning dramatisk. Dette oekte produktiviteten i arbeidsstyrken.
+2. **Massiv investering i humankapital**: Fra 1960 til 2000 økte andelen med høyere utdanning dramatisk. Dette økte produktiviteten i arbeidsstyrken.
 
 3. **Teknologisk fremgang**: Korea gikk fra imitasjon til innovasjon. Selskaper som Samsung og Hyundai ble teknologiledere.
 
-4. **Gode institusjoner**: Sterk stat som beskyttet eiendomsrett, satset paa eksportrettet industripolitikk og investerte i utdanning.
+4. **Gode institusjoner**: Sterk stat som beskyttet eiendomsrett, satset på eksportrettet industripolitikk og investerte i utdanning.
 
-5. **Konvergenseffekten**: Som et fattig land var Korea langt under sin potensielle steady state, noe som ga rask kapitalakkumulasjon og hoey vekst.
+5. **Konvergenseffekten**: Som et fattig land var Korea langt under sin potensielle steady state, noe som ga rask kapitalakkumulasjon og høy vekst.
 
-Koreas eksempel viser at Solow-modellens faktorer (kapital, humankapital, teknologi, institusjoner) alle spilte en rolle.`,
+Koreas eksempel viser at Solow-modellens faktører (kapital, humankapital, teknologi, institusjoner) alle spilte en rolle.`,
     },
     {
       id: 'sf2-1-5-text-3',
       type: 'text',
       content: `## Teknologisk fremgang og endogen vekst
 
-I Solow-modellen er teknologisk fremgang **eksogen** - den faller fra himmelen. **Endogen vekstteori** (Paul Romer, 1990) forsoeker aa forklare hva som driver innovasjon:
+I Solow-modellen er teknologisk fremgang **eksogen** - den faller fra himmelen. **Endogen vekstteori** (Paul Romer, 1990) forsøker å forklare hva som driver innovasjon:
 
 ### Sentrale ideer
-- **Kunnskap som innsatsfaktor**: Kunnskap har oekende skalautbytte (ikke avtagende grensenytte)
+- **Kunnskap som innsatsfaktor**: Kunnskap har økende skalautbytte (ikke avtagende grensenytte)
 - **Kunnskapsspredning**: Innovasjon i en bedrift har positive ringvirkninger for andre
 - **Forskning og utvikling (FoU)**: Bevisste investeringer i ny kunnskap driver veksten
 - **Humankapital**: Utdannede arbeidere er mer innovative
 
 ### Implikasjoner for politikk
-Endogen vekstteori antyder at myndighetene kan pavirke vekstraten gjennom:
-- Stoette til forskning og utvikling
+Endogen vekstteori antyder at myndighetene kan påvirke vekstraten gjennom:
+- Støtte til forskning og utvikling
 - Investering i utdanning og helse
 - Beskyttelse av immaterielle rettigheter (patenter)
-- Aapenhet for internasjonal handel og kunnskapsutveksling
+- Åpenhet for internasjonal handel og kunnskapsutveksling
 
-## Vekst og baerekraft
+## Vekst og bærekraft
 
-Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenkning vektlegger **groen vekst** og **baerekraftig utvikling**, der man soeker vekst som ikke gaar paa bekostning av fremtidige generasjoners muligheter.`,
+Økonomisk vekst målt i BNP tar ikke hensyn til miljø. Moderne økonomisk tenkning vektlegger **grønn vekst** og **bærekraftig utvikling**, der man søker vekst som ikke går på bekostning av fremtidige generasjoners muligheter.`,
     },
     {
       id: 'sf2-1-5-example-2',
       type: 'example',
       title: 'Spareraten og steady state',
-      problem: 'To land, A og B, er identiske bortsett fra spareraten. Land A har sparerate $s_A = 0{,}2$ og land B har $s_B = 0{,}4$. Forklar med Solow-modellen hva forskjellen betyr for de to landene paa kort og lang sikt.',
-      solution: `**Loesning:**
+      problem: 'To land, A og B, er identiske bortsett fra spareraten. Land A har sparerate $s_A = 0{,}2$ og land B har $s_B = 0{,}4$. Forklar med Solow-modellen hva forskjellen betyr for de to landene på kort og lang sikt.',
+      solution: `**Løsning:**
 
-**Steady state**: Land B har hoeyere sparerate og vil derfor konvergere mot en hoeyere steady-state kapital per arbeider. Det betyr hoeyere BNP per innbygger i likevekt.
+**Steady state**: Land B har høyere sparerate og vil derfor konvergere mot en høyere steady-state kapital per arbeider. Det betyr høyere BNP per innbygger i likevekt.
 
-**Kort sikt**: Hvis begge land starter fra lav kapital, vil land B vokse raskere fordi det investerer en stoerre andel av produksjonen.
+**Kort sikt**: Hvis begge land starter fra lav kapital, vil land B vokse raskere fordi det investerer en større andel av produksjonen.
 
-**Lang sikt**: Begge land naar sine respektive steady states. I steady state vokser begge med samme rate (bestemt av teknologisk fremgang). Men land B har permanent hoeyere BNP per innbygger.
+**Lang sikt**: Begge land når sine respektive steady states. I steady state vokser begge med samme rate (bestemt av teknologisk fremgang). Men land B har permanent høyere BNP per innbygger.
 
-**Viktig poeng**: Hoeyere sparerate gir hoeyere **nivaa** paa BNP per innbygger, men ikke hoeyere **veksttakt** paa lang sikt. Bare teknologisk fremgang kan drive varig vekst.
+**Viktig poeng**: Høyere sparerate gir høyere **nivå** på BNP per innbygger, men ikke høyere **veksttakt** på lang sikt. Bare teknologisk fremgang kan drive varig vekst.
 
-**Trade-off**: Hoeyere sparing betyr lavere konsum i dag for hoeyere konsum i fremtiden. Den optimale spareraten (den gylne regel) balanserer dagens og fremtidens konsum.`,
+**Trade-off**: Høyere sparing betyr lavere konsum i dag for høyere konsum i fremtiden. Den optimale spareraten (den gylne regel) balanserer dagens og fremtidens konsum.`,
     },
     {
       id: 'sf2-1-5-ex-block-1',
@@ -1109,14 +1109,14 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         number: '1',
         type: 'multiple-choice',
         difficulty: 'lett',
-        task: 'I Solow-modellen, hva er den eneste kilden til varig oekonomisk vekst per innbygger?',
+        task: 'I Solow-modellen, hva er den eneste kilden til varig økonomisk vekst per innbygger?',
         options: [
           { id: 'a', text: 'Teknologisk fremgang', isCorrect: true },
-          { id: 'b', text: 'Hoeyere sparerate', isCorrect: false },
+          { id: 'b', text: 'Høyere sparerate', isCorrect: false },
           { id: 'c', text: 'Befolkningsvekst', isCorrect: false },
           { id: 'd', text: 'Mer fysisk kapital', isCorrect: false },
         ],
-        solution: 'I Solow-modellen gir kapitalakkumulasjon avtagende grensenytte, saa mer kapital alene gir ikke varig vekst. Bare teknologisk fremgang (total faktorproduktivitet, A) kan drive varig vekst i BNP per innbygger.',
+        solution: 'I Solow-modellen gir kapitalakkumulasjon avtagende grensenytte, så mer kapital alene gir ikke varig vekst. Bare teknologisk fremgang (total faktorproduktivitet, A) kan drive varig vekst i BNP per innbygger.',
       },
     },
     {
@@ -1129,12 +1129,12 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         difficulty: 'medium',
         task: 'Hva menes med betinget konvergens i vekstteorien?',
         options: [
-          { id: 'a', text: 'Land med like fundamentale forhold konvergerer mot samme inntektsnivaa, saa fattigere land vokser raskest', isCorrect: true },
+          { id: 'a', text: 'Land med like fundamentale forhold konvergerer mot samme inntektsnivå, så fattigere land vokser raskest', isCorrect: true },
           { id: 'b', text: 'Alle land i verden konvergerer automatisk mot samme BNP', isCorrect: false },
           { id: 'c', text: 'Rike land vokser alltid raskere enn fattige land', isCorrect: false },
-          { id: 'd', text: 'Konvergens bare skjer naar landene handler med hverandre', isCorrect: false },
+          { id: 'd', text: 'Konvergens bare skjer når landene handler med hverandre', isCorrect: false },
         ],
-        solution: 'Betinget konvergens betyr at land med like fundamentale forhold (sparerate, utdanning, institusjoner) konvergerer mot samme steady state. Fattigere land som er lenger unna sin steady state vokser da raskere. Ubetinget konvergens (at alle land konvergerer uavhengig av forutsetninger) stoettes ikke av data.',
+        solution: 'Betinget konvergens betyr at land med like fundamentale forhold (sparerate, utdanning, institusjoner) konvergerer mot samme steady state. Fattigere land som er lenger unna sin steady state vokser da raskere. Ubetinget konvergens (at alle land konvergerer uavhengig av forutsetninger) støttes ikke av data.',
       },
     },
     {
@@ -1145,9 +1145,9 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Forklar hva som menes med steady state i Solow-modellen og hva som skjer naar et land oeker sin sparerate permanent.',
+        task: 'Forklar hva som menes med steady state i Solow-modellen og hva som skjer når et land øker sin sparerate permanent.',
         hints: ['Tegn en graf med investering og depresiering som funksjoner av kapital per arbeider.'],
-        solution: 'Steady state er den langsiktige likevekten der kapital per arbeider er konstant. Nye investeringer er akkurat nok til aa erstatte slitasje og utvidet befolkning. Naar spareraten oeker, stiger investeringskurven. Paa kort sikt er investeringene stoerre enn behovet, saa kapital per arbeider oeker. Oekonomien vokser midlertidig raskere til den naar en ny, hoeyere steady state. I den nye steady state er BNP per innbygger hoeyere, men veksttakten er tilbake paa normalt nivaa.',
+        solution: 'Steady state er den langsiktige likevekten der kapital per arbeider er konstant. Nye investeringer er akkurat nok til å erstatte slitasje og utvidet befolkning. Når spareraten øker, stiger investeringskurven. På kort sikt er investeringene større enn behovet, så kapital per arbeider øker. Økonomien vokser midlertidig raskere til den når en ny, høyere steady state. I den nye steady state er BNP per innbygger høyere, men veksttakten er tilbake på normalt nivå.',
       },
     },
     {
@@ -1158,11 +1158,11 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Forklar tre maater humankapital bidrar til oekonomisk vekst, og gi konkrete eksempler for hvert punkt.',
+        task: 'Forklar tre måter humankapital bidrar til økonomisk vekst, og gi konkrete eksempler for hvert punkt.',
         hints: [
-          'Tenk paa direkte produktivitetseffekter, innovasjon og spredningseffekter.',
+          'Tenk på direkte produktivitetseffekter, innovasjon og spredningseffekter.',
         ],
-        solution: '(1) Oekt arbeidsproduktivitet: Utdannede arbeidere produserer mer per time. Eksempel: En ingenioer kan bruke avansert utstyr mer effektivt. (2) Innovasjon: Hoeyere utdanning oeker evnen til forskning og utvikling. Eksempel: Forskere ved universiteter og i naeringslivet utvikler nye produkter og prosesser. (3) Teknologiadopsjon: Humankapital gjor det lettere aa ta i bruk ny teknologi utviklet andre steder. Eksempel: IT-kyndige arbeidere kan raskt implementere nye digitale loesninger i bedriften.',
+        solution: '(1) Økt arbeidsproduktivitet: Utdannede arbeidere produserer mer per time. Eksempel: En ingeniør kan bruke avansert utstyr mer effektivt. (2) Innovasjon: Høyere utdanning øker evnen til forskning og utvikling. Eksempel: Forskere ved universiteter og i næringslivet utvikler nye produkter og prosesser. (3) Teknologiadopsjon: Humankapital gjor det lettere å ta i bruk ny teknologi utviklet andre steder. Eksempel: IT-kyndige arbeidere kan raskt implementere nye digitale løsninger i bedriften.',
       },
     },
     {
@@ -1173,12 +1173,12 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Sammenlign Solow-modellen med endogen vekstteori. Hva er den viktigste forskjellen i synet paa teknologisk fremgang, og hvilke politikkimplikasjoner foelger av hver teori?',
+        task: 'Sammenlign Solow-modellen med endogen vekstteori. Hva er den viktigste forskjellen i synet på teknologisk fremgang, og hvilke politikkimplikasjoner følger av hver teori?',
         hints: [
           'I Solow er teknologi eksogen. I endogen vekstteori er den et resultat av bevisste valg.',
-          'Tenk paa hva myndighetene kan gjore for aa pavirke veksten i de to modellene.',
+          'Tenk på hva myndighetene kan gjore for å påvirke veksten i de to modellene.',
         ],
-        solution: 'I Solow-modellen er teknologisk fremgang eksogen, noe som betyr at myndighetene ikke kan pavirke den langsiktige vekstraten. Politikk kan bare pavirke inntektsnivaaet (gjennom sparerate, utdanning). I endogen vekstteori er innovasjon et resultat av bevisste investeringer i FoU og humankapital. Myndighetene kan dermed pavirke vekstraten permanent gjennom stoette til forskning, utdanning, patentbeskyttelse og kunnskapsspredning. Implikasjon: Endogen vekstteori gir stoerre rolle for aktiv naerings- og utdanningspolitikk.',
+        solution: 'I Solow-modellen er teknologisk fremgang eksogen, noe som betyr at myndighetene ikke kan påvirke den langsiktige vekstraten. Politikk kan bare påvirke inntektsnivået (gjennom sparerate, utdanning). I endogen vekstteori er innovasjon et resultat av bevisste investeringer i FoU og humankapital. Myndighetene kan dermed påvirke vekstraten permanent gjennom støtte til forskning, utdanning, patentbeskyttelse og kunnskapsspredning. Implikasjon: Endogen vekstteori gir større rolle for aktiv nærings- og utdanningspolitikk.',
       },
     },
     {
@@ -1189,12 +1189,12 @@ Oekonomisk vekst maalt i BNP tar ikke hensyn til miljoe. Moderne oekonomisk tenk
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Droeft hvordan Norge kan opprettholde oekonomisk vekst naar olje- og gassinntektene avtar. Bruk vekstteori til aa analysere hvilke faktorer som er viktigst for norsk oekonomisk vekst fremover.',
+        task: 'Drøft hvordan Norge kan opprettholde økonomisk vekst når olje- og gassinntektene avtar. Bruk vekstteori til å analysere hvilke faktører som er viktigst for norsk økonomisk vekst fremover.',
         hints: [
-          'Bruk Solow-modellens vekstfaktorer som rammeverk.',
-          'Tenk paa Norges komparative fortrinn og utfordringer.',
+          'Bruk Solow-modellens vekstfaktører som rammeverk.',
+          'Tenk på Norges komparative fortrinn og utfordringer.',
         ],
-        solution: 'Med utgangspunkt i vekstteorien: (1) Humankapital: Norge har allerede hoey utdanning, men maa fortsette aa investere i kompetanse tilpasset fremtidens naeringsliv (digitalisering, groen teknologi). (2) Teknologi og innovasjon: Satse paa FoU i nye naeringer som kan erstatte olje (havvind, havbruk, IT). Endogen vekstteori tilsier at oekt FoU gir varig vekst. (3) Institusjoner: Opprettholde gode institusjoner, lav korrupsjon og effektiv offentlig sektor. (4) Kapital: Bruke oljefondet strategisk til aa investere i produktiv kapasitet. (5) Internasjonal handel: Utnytte komparative fortrinn og delta i globale verdikjeder. Hovedutfordringen er aa erstatte oljeinntektene med verdiskaping basert paa kunnskap og innovasjon.',
+        solution: 'Med utgangspunkt i vekstteorien: (1) Humankapital: Norge har allerede høy utdanning, men må fortsette å investere i kompetanse tilpasset fremtidens næringsliv (digitalisering, grønn teknologi). (2) Teknologi og innovasjon: Satse på FoU i nye næringer som kan erstatte olje (havvind, havbruk, IT). Endogen vekstteori tilsier at økt FoU gir varig vekst. (3) Institusjoner: Opprettholde gode institusjoner, lav korrupsjon og effektiv offentlig sektor. (4) Kapital: Bruke oljefondet strategisk til å investere i produktiv kapasitet. (5) Internasjonal handel: Utnytte komparative fortrinn og delta i globale verdikjeder. Hovedutfordringen er å erstatte oljeinntektene med verdiskaping basert på kunnskap og innovasjon.',
       },
     },
   ],

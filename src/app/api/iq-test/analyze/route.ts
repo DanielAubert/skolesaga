@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth/config';
 import type { IQResult, CognitiveDomain } from '@/lib/types/iq-test';
 import { DOMAIN_LABELS } from '@/lib/types/iq-test';
 
@@ -12,6 +14,11 @@ const DOMAIN_ORDER: CognitiveDomain[] = [
 
 export async function POST(request: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Du må være innlogget' }, { status: 401 });
+    }
+
     const result = await request.json() as IQResult;
 
     if (!result || !result.domainScores || !result.estimatedIQ) {

@@ -66,7 +66,7 @@ Pengepolitiske beslutninger fattes av **komiteen for pengepolitikk og finansiell
       content: `**Styringsrenten** (også kalt foliorenten) er den renten bankene får på sine innskudd i Norges Bank opp til en viss kvote. Styringsrenten danner gulvet for pengemarkedsrentene og påvirker dermed alle andre renter i økonomien, fra boliglånsrenter til renter på bedriftslån.`
     },
     {
-      id: 'sf2-2-1-inflasjonsmaal',
+      id: 'sf2-2-1-inflasjonsmål',
       type: 'text',
       title: 'Inflasjonsmålet',
       content: `Siden 2001 har Norge hatt et eksplisitt inflasjonsmål for pengepolitikken. Regjeringen har fastsatt at det operative målet for pengepolitikken skal være en årsvekst i konsumprisene som over tid er nær **2,0 prosent** (justert fra 2,5 prosent i 2018).
@@ -302,7 +302,7 @@ Overskuddsskatten faller automatisk når bedriftenes overskudd synker i en nedga
 I nordiske land er de automatiske stabilisatorene relativt sterke fordi skattesystemet er progressivt og velferdsordningene er sjenerøse.`
     },
     {
-      id: 'sf2-2-2-diskresjonaer',
+      id: 'sf2-2-2-diskresjonær',
       type: 'text',
       title: 'Aktiv (diskresjonær) finanspolitikk',
       content: `Aktiv eller diskresjonær finanspolitikk innebærer at politikerne fatter bevisste vedtak om å endre skatter, overføringer eller offentlige utgifter for å påvirke konjunkturutviklingen.
@@ -535,7 +535,7 @@ Det vil si at inflasjonen tilsvarer veksten i pengemengden minus veksten i reell
 **Kritikk av kvantitetsteorien:**
 - Omløpshastigheten er ikke alltid stabil, særlig på kort sikt.
 - Sammenhengen mellom pengemengde og prisnivå kan være svak på kort sikt.
-- Andre faktorer (forventninger, kostnadssjokk) påvirker også inflasjonen.
+- Andre faktører (forventninger, kostnadssjokk) påvirker også inflasjonen.
 
 Likevel er kvantitetsteorien nyttig som langsiktig referansepunkt: Land med sterk pengemengdevekst har historisk hatt høy inflasjon.`
     },
@@ -678,7 +678,7 @@ Sentralbanken i Japan satte renten til null, men kunne ikke sette den lavere (nu
           id: 'sf2-2-3-ex3',
           type: 'classic',
           question: 'Forklar kvantitetslikningen og de forutsetningene som gjør den til en teori om inflasjon. Diskuter om disse forutsetningene er realistiske.',
-          explanation: 'Kvantitetslikningen M * V = P * Y er en identitet som alltid er sann. Den blir en teori når vi antar at: 1) Omløpshastigheten V er stabil, 2) Reelt BNP (Y) bestemmes av tilbudssiden og er uavhengig av M på lang sikt. Med disse antakelsene fører økt pengemengde direkte til økt prisnivå. Antakelsene er delvis realistiske: V har vært relativt stabil historisk i mange land, men kan variere på kort sikt (f.eks. under finanskriser). Y bestemmes av realøkonomiske faktorer på lang sikt, men på kort sikt kan pengemengden påvirke produksjonen. Konklusjon: Kvantitetsteorien er en rimelig god beskrivelse av sammenhengen mellom pengemengde og priser på lang sikt, men fungerer dårligere som kortidsbeskrivelse.'
+          explanation: 'Kvantitetslikningen M * V = P * Y er en identitet som alltid er sann. Den blir en teori når vi antar at: 1) Omløpshastigheten V er stabil, 2) Reelt BNP (Y) bestemmes av tilbudssiden og er uavhengig av M på lang sikt. Med disse antakelsene fører økt pengemengde direkte til økt prisnivå. Antakelsene er delvis realistiske: V har vært relativt stabil historisk i mange land, men kan variere på kort sikt (f.eks. under finanskriser). Y bestemmes av realøkonomiske faktører på lang sikt, men på kort sikt kan pengemengden påvirke produksjonen. Konklusjon: Kvantitetsteorien er en rimelig god beskrivelse av sammenhengen mellom pengemengde og priser på lang sikt, men fungerer dårligere som kortidsbeskrivelse.'
         },
         {
           id: 'sf2-2-3-ex4',
@@ -874,7 +874,7 @@ Tilhengere av rasjonelle forventninger argumenterer for at sjokk-terapi kan gi l
             'Den langsiktige Phillips-kurven er horisontal ved NAIRU'
           ],
           correctAnswer: 1,
-          explanation: 'Den langsiktige Phillips-kurven er vertikal ved NAIRU, noe som betyr at arbeidsledigheten på lang sikt bestemmes av strukturelle faktorer i arbeidsmarkedet og er uavhengig av inflasjonsraten. Forsøk på å holde arbeidsledigheten permanent under NAIRU fører bare til akselererende inflasjon.'
+          explanation: 'Den langsiktige Phillips-kurven er vertikal ved NAIRU, noe som betyr at arbeidsledigheten på lang sikt bestemmes av strukturelle faktører i arbeidsmarkedet og er uavhengig av inflasjonsraten. Forsøk på å holde arbeidsledigheten permanent under NAIRU fører bare til akselererende inflasjon.'
         },
         {
           id: 'sf2-2-4-ex2',
@@ -904,14 +904,14 @@ Tilhengere av rasjonelle forventninger argumenterer for at sjokk-terapi kan gi l
         {
           id: 'sf2-2-4-ex5',
           type: 'classic',
-          question: 'Forklar hva NAIRU er, og diskuter minst tre faktorer som kan påvirke NAIRU i et land. Hvorfor er det vanskelig å måle NAIRU presist?',
-          explanation: 'NAIRU er den arbeidsledighetsraten der inflasjonen verken akselererer eller deselererer. Faktorer som påvirker NAIRU: 1) Arbeidsmarkedsregulering - strengere oppsigelsesvern kan øke NAIRU ved å gjøre det vanskeligere å tilpasse arbeidsstyrken. 2) Fagforeningers forhandlingsstyrke - sterkere fagforeninger kan presse opp lønningene utover produktivitetsveksten og øke NAIRU. 3) Arbeidsledighetstrygdens generøsitet og varighet - sjenerøse ordninger kan redusere insentivene til aktiv jobbsøking og øke NAIRU. 4) Matchingeffektivitet - hvor godt ledige jobber og arbeidssøkere finner hverandre (påvirkes av utdanningssystem, geografisk mobilitet, informasjon). 5) Demografiske endringer og strukturelle skift i økonomien. Det er vanskelig å måle NAIRU fordi: den ikke er direkte observerbar, den endrer seg over tid, estimatene er usikre og avhenger av modellvalg, og vi bare kan observere faktisk arbeidsledighet og inflasjon, ikke den underliggende likevektsledigheten.'
+          question: 'Forklar hva NAIRU er, og diskuter minst tre faktører som kan påvirke NAIRU i et land. Hvorfor er det vanskelig å måle NAIRU presist?',
+          explanation: 'NAIRU er den arbeidsledighetsraten der inflasjonen verken akselererer eller deselererer. Faktører som påvirker NAIRU: 1) Arbeidsmarkedsregulering - strengere oppsigelsesvern kan øke NAIRU ved å gjøre det vanskeligere å tilpasse arbeidsstyrken. 2) Fagforeningers forhandlingsstyrke - sterkere fagforeninger kan presse opp lønningene utover produktivitetsveksten og øke NAIRU. 3) Arbeidsledighetstrygdens generøsitet og varighet - sjenerøse ordninger kan redusere insentivene til aktiv jobbsøking og øke NAIRU. 4) Matchingeffektivitet - hvor godt ledige jobber og arbeidssøkere finner hverandre (påvirkes av utdanningssystem, geografisk mobilitet, informasjon). 5) Demografiske endringer og strukturelle skift i økonomien. Det er vanskelig å måle NAIRU fordi: den ikke er direkte observerbar, den endrer seg over tid, estimatene er usikre og avhenger av modellvalg, og vi bare kan observere faktisk arbeidsledighet og inflasjon, ikke den underliggende likevektsledigheten.'
         },
         {
           id: 'sf2-2-4-ex6',
           type: 'classic',
           question: 'Et land har inflasjon på 10 prosent og ønsker å redusere den til 2 prosent. NAIRU er 6 prosent, og offer ratio er estimert til 3. Beregn det totale produksjonstapet. Diskuter fordeler og ulemper med gradvis versus rask disinflasjon.',
-          explanation: 'Nødvendig reduksjon i inflasjon: 10% - 2% = 8 prosentpoeng. Totalt produksjonstap: 8 * 3 = 24 prosent av ett aars BNP. Gradvis disinflasjon (f.eks. over 8 aar, 1 prosentpoeng per aar): Fordeler: Moderat økning i arbeidsledigheten (f.eks. 3 prosentpoeng over NAIRU = 9%), lavere sosiale kostnader per aar, gir tid til omstilling. Ulemper: Tar lang tid, risiko for at troverdigheten svekkes og forventningene ikke justeres ned, kan gi fatigue og politisk press for å gi opp. Rask disinflasjon (f.eks. over 2-3 aar): Fordeler: Kan forankre forventningene raskere dersom politikken er troverdig (offer ratio kan bli lavere enn antatt), kortere periode med høy ledighet. Ulemper: Svært høy arbeidsledighet i en kort periode (f.eks. over 14%), store sosiale kostnader, politisk vanskelig å gjennomføre. Med rasjonelle forventninger kan en troverdig rask disinflasjon senke de faktiske kostnadene fordi forventningene justeres raskt.'
+          explanation: 'Nødvendig reduksjon i inflasjon: 10% - 2% = 8 prosentpoeng. Totalt produksjonstap: 8 * 3 = 24 prosent av ett års BNP. Gradvis disinflasjon (f.eks. over 8 år, 1 prosentpoeng per år): Fordeler: Moderat økning i arbeidsledigheten (f.eks. 3 prosentpoeng over NAIRU = 9%), lavere sosiale kostnader per år, gir tid til omstilling. Ulemper: Tar lang tid, risiko for at troverdigheten svekkes og forventningene ikke justeres ned, kan gi fatigue og politisk press for å gi opp. Rask disinflasjon (f.eks. over 2-3 år): Fordeler: Kan forankre forventningene raskere dersom politikken er troverdig (offer ratio kan bli lavere enn antatt), kortere periode med høy ledighet. Ulemper: Svært høy arbeidsledighet i en kort periode (f.eks. over 14%), store sosiale kostnader, politisk vanskelig å gjennomføre. Med rasjonelle forventninger kan en troverdig rask disinflasjon senke de faktiske kostnadene fordi forventningene justeres raskt.'
         }
       ]
     }
@@ -938,7 +938,7 @@ export const CHAPTER_SAMFOKONOMI_2_2_5: TextbookChapter = {
     'generasjonsrettferdighet',
     'realavkastning',
     'NBIM',
-    'finanspolitisk baerekraft'
+    'finanspolitisk bærekraft'
   ],
   content: [
     {
@@ -1027,7 +1027,7 @@ Olje og gass er ikke-fornybare ressurser. Det ville være urettferdig overfor fr
 **3. Volatilitet i oljeinntektene**
 Oljeprisene svinger kraftig. Uten et fond og en regel ville statsbudsjettet vært svært avhengig av oljeprisen, noe som ville gitt ustabil finanspolitikk.
 
-**4. Langsiktig baerekraft**
+**4. Langsiktig bærekraft**
 Oljeproduksjonen på norsk sokkel vil gradvis avta. Fondet sikrer at Norge har en finansiell formue å trekke på også etter at olje- og gassproduksjonen er avsluttet.
 
 **5. Politisk disiplin**
@@ -1040,7 +1040,7 @@ Handlingsregelen gir en norm som gjør det vanskeligere for politikere å bruke 
       content: `Selv om det norske rammeverket er anerkjent internasjonalt, er det ikke uten utfordringer og debatt:
 
 **Fondets størrelse**
-Fondet har vokst til å bli svært stort (over 17 000 milliarder kroner). Tre prosent av et slikt fond utgjør en betydelig sum, og det debatteres om den gradvis økende pengebruken er baerekraftig.
+Fondet har vokst til å bli svært stort (over 17 000 milliarder kroner). Tre prosent av et slikt fond utgjør en betydelig sum, og det debatteres om den gradvis økende pengebruken er bærekraftig.
 
 **Svingninger i fondsverdien**
 Fondsverdienes svingninger gjør at 3 prosent av fondet varierer mye fra år til år. Et stort aksjekursfall kan redusere handlingsrommet vesentlig. Regelen tolkes derfor fleksibelt over konjunktursyklusen.
@@ -1114,7 +1114,7 @@ I tillegg kommer nye tilførsler fra petroleumsinntektene.`
 - Forsøker diversifisering gjennom Vision 2030
 - Utfordring: Stor offentlig sektor og subsidier som er vanskelige å redusere
 
-**Nøkkelfaktorer for Norges suksess:**
+**Nøkkelfaktører for Norges suksess:**
 1. Sterke institusjoner og rettsstat
 2. Uavhengig sentralbank
 3. Transparent forvaltning
@@ -1131,7 +1131,7 @@ I tillegg kommer nye tilførsler fra petroleumsinntektene.`
           type: 'multiple-choice',
           question: 'Hva innebærer handlingsregelen?',
           options: [
-            'At Norge ikke skal bruke mer enn 10 prosent av oljeinntektene hvert aar',
+            'At Norge ikke skal bruke mer enn 10 prosent av oljeinntektene hvert år',
             'At det strukturelle oljekorrigerte budsjettunderskuddet over tid skal tilsvare 3 prosent av fondets verdi',
             'At oljefondet bare kan investeres i norske aksjer og obligasjoner',
             'At petroleumsinntektene skal fordeles likt mellom alle innbyggere'

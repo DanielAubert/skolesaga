@@ -26,7 +26,7 @@ export const CHAPTER_SAMFOKONOMI_2_6_1: TextbookChapter = {
   estimatedMinutes: 20,
   competenceGoals: [
     'vurdere okonomisk barekraft',
-    'analysere hvordan markedssvikt og eksterne virkninger pavirker ressursbruk og miljo',
+    'analysere hvordan markedssvikt og eksterne virkninger påvirker ressursbruk og miljo',
   ],
   content: [
     {
@@ -45,7 +45,7 @@ Slike eksterne virkninger er en form for markedssvikt og et sentralt begrep i mi
       content: `**Markedssvikt** oppstar nar det frie markedet ikke klarer a fordele ressursene pa en samfunnsokonomisk effektiv mate. Markedsprisen gjenspeiler ikke den sanne samfunnsokonomiske kostnaden eller nytten.
 
 **Viktige former for markedssvikt:**
-- **Eksterne virkninger (eksternaliteter):** Kostnader eller nytte som pavirker tredjeparter uten a bli reflektert i prisen.
+- **Eksterne virkninger (eksternaliteter):** Kostnader eller nytte som påvirker tredjeparter uten a bli reflektert i prisen.
 - **Kollektive goder:** Goder som er ikke-rivaliserende og ikke-ekskluderbare, for eksempel rent miljo eller nasjonalt forsvar.
 - **Ufullkommen informasjon:** Aktorer mangler relevant informasjon til a ta optimale valg.
 - **Markedsmakt:** Monopoler eller oligopoler som begrenser konkurransen.
@@ -56,12 +56,12 @@ I miljookonomien er eksterne virkninger den viktigste formen for markedssvikt. N
       id: 'sf2-6-1-def-eksternalitet',
       type: 'definition',
       title: 'Eksternaliteter',
-      content: `**Eksternaliteter** (eksterne virkninger) er kostnader eller nytte som oppstar som folge av en okonomisk aktivitet, men som ikke bares av den som utforer aktiviteten. De pavirker tredjeparter uten at dette gjenspeiles i markedsprisen.
+      content: `**Eksternaliteter** (eksterne virkninger) er kostnader eller nytte som oppstar som folge av en okonomisk aktivitet, men som ikke bares av den som utforer aktiviteten. De påvirker tredjeparter uten at dette gjenspeiles i markedsprisen.
 
 **Negative eksternaliteter (eksterne kostnader):**
-- Forurensning fra fabrikker som skader naboers helse
+- Forurensning fra fabrikker som skader nabørs helse
 - CO₂-utslipp som bidrar til klimaendringer
-- Stoy fra flytrafikk som reduserer livskvaliteten for naboer
+- Stoy fra flytrafikk som reduserer livskvaliteten for nabør
 - Overfiske som truer fiskebestander
 
 **Positive eksternaliteter (ekstern nytte):**
@@ -100,13 +100,13 @@ I miljookonomien er eksterne virkninger den viktigste formen for markedssvikt. N
         difficulty: 'lett',
         task: 'Hva er en negativ eksternalitet?',
         multipleChoiceOptions: [
-          'En kostnad som pavirker tredjeparter uten a bli reflektert i markedsprisen',
+          'En kostnad som påvirker tredjeparter uten a bli reflektert i markedsprisen',
           'En kostnad som bedriften selv barer ved produksjonen',
-          'Et tap som oppstar nar ettersporselen faller',
+          'Et tap som oppstar nar etterspørselen faller',
           'En skatt som staten palegger bedrifter',
         ],
         hints: ['Tenk pa hva som skjer nar en fabrikk forurenser uten a betale for det.'],
-        solution: 'En negativ eksternalitet er en kostnad som pavirker tredjeparter (for eksempel naboer, miljoet) uten at denne kostnaden blir reflektert i markedsprisen pa varen. Eksempler er forurensning, stoy og klimagassutslipp. Markedet svikter fordi produsenten ikke tar hensyn til de fulle kostnadene aktiviteten paforerer samfunnet.',
+        solution: 'En negativ eksternalitet er en kostnad som påvirker tredjeparter (for eksempel nabør, miljøt) uten at denne kostnaden blir reflektert i markedsprisen pa varen. Eksempler er forurensning, stoy og klimagassutslipp. Markedet svikter fordi produsenten ikke tar hensyn til de fulle kostnadene aktiviteten paforerer samfunnet.',
       },
     },
     {
@@ -233,7 +233,7 @@ Derfor er Pigou-skatter og offentlig regulering vanligvis nodvendig for store mi
       content: `## Oppsummering - Markedssvikt og eksterne virkninger
 
 - **Markedssvikt** oppstar nar det frie markedet ikke fordeler ressursene effektivt.
-- **Eksternaliteter** er kostnader eller nytte som pavirker tredjeparter uten a bli reflektert i markedsprisen.
+- **Eksternaliteter** er kostnader eller nytte som påvirker tredjeparter uten a bli reflektert i markedsprisen.
 - Ved negative eksternaliteter produseres det **for mye** fordi den private kostnaden er lavere enn den samfunnsokonomiske.
 - **Pigou-skatt** internaliserer eksternaliteten ved a sette avgiften lik den marginale eksterne kostnaden.
 - **Coase-teoremet** viser at private forhandlinger kan lose eksternaliteter under ideelle forhold, men i praksis kreves offentlige inngrep for store miljoproblemer.`,
@@ -251,7 +251,7 @@ Derfor er Pigou-skatter og offentlig regulering vanligvis nodvendig for store mi
           'Tenk pa betingelsene for at Coase-teoremet skal gjelde.',
           'Vurder utfordringene nar milioner av mennesker er involvert.',
         ],
-        solution: 'Coase-teoremet forutsetter klare eiendomsrettigheter og lave transaksjonskostnader. For klimaendringer feiler begge: Ingen eier atmosfaren, og forhandlinger mellom milliarder av mennesker er umulig. I tillegg er informasjonen asymmetrisk, maktforholdene ulike, og virkningene strekker seg over generasjoner. Derfor kreves offentlige inngrep som CO₂-avgifter, kvotesystemer og internasjonale avtaler. Coase-teoremet er likevel verdifullt som tankeverktoy: det viser at problemet er manglende eiendomsrettigheter, og at kvotesystemer (der man tildeler utslippsrettigheter) kan ses som en praktisk tilnaerming til Coase-losningen.',
+        solution: 'Coase-teoremet forutsetter klare eiendomsrettigheter og lave transaksjonskostnader. For klimaendringer feiler begge: Ingen eier atmosfaren, og forhandlinger mellom milliarder av mennesker er umulig. I tillegg er informasjonen asymmetrisk, maktforholdene ulike, og virkningene strekker seg over generasjoner. Derfor kreves offentlige inngrep som CO₂-avgifter, kvotesystemer og internasjonale avtaler. Coase-teoremet er likevel verdifullt som tankeverktoy: det viser at problemet er manglende eiendomsrettigheter, og at kvotesystemer (der man tildeler utslippsrettigheter) kan ses som en praktisk tilnærming til Coase-losningen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -301,7 +301,7 @@ export const CHAPTER_SAMFOKONOMI_2_6_2: TextbookChapter = {
 
 Nar markedet svikter og eksternaliteter forer til overforbruk av miljoressurser, har myndighetene flere virkemidler tilgjengelig for a korrigere situasjonen. De viktigste kategoriene er okonomiske virkemidler (avgifter og kvoter), direkte regulering (palud og forbud) og subsidier til onsket atferd.
 
-Valget av virkemiddel avhenger av flere faktorer: kostnadseffektivitet, politisk gjennomforbarhet, fordelingsvirkninger og evnen til a fremme innovasjon. I dette kapittelet analyserer vi de viktigste virkemidlene og sammenligner deres styrker og svakheter.`,
+Valget av virkemiddel avhenger av flere faktører: kostnadseffektivitet, politisk gjennomforbarhet, fordelingsvirkninger og evnen til a fremme innovasjon. I dette kapittelet analyserer vi de viktigste virkemidlene og sammenligner deres styrker og svakheter.`,
     },
     {
       id: 'sf2-6-2-def-avgift',
@@ -363,7 +363,7 @@ Valget av virkemiddel avhenger av flere faktorer: kostnadseffektivitet, politisk
 
 **Kvotesystem:**
 - Myndighetene setter et utslippstak 30 % lavere enn navarende niva og utsteder tilsvarende antall kvoter.
-- Kvotene omsettes i markedet, og prisen bestemmes av tilbud og ettersporsel.
+- Kvotene omsettes i markedet, og prisen bestemmes av tilbud og etterspørsel.
 - **Fordel:** 30 % reduksjon er garantert (malet nas med sikkerhet).
 - **Ulempe:** Kvoteprisen kan svinge kraftig. I en lavkonjunktur faller prisen, noe som svekker insentivene til gronn innovasjon.
 
@@ -475,7 +475,7 @@ I virkeligheten bruker de fleste land en kombinasjon av virkemidler - en sa kalt
 - **Informasjon** som energimerking og klimaregnskap
 
 **Utfordringer med virkemiddelmiks:**
-- **Overlappende virkemidler** kan svekke hverandres effekt. Hvis en sektor bade er i kvotesystemet og har en avgift, kan den ekstra avgiften redusere ettersporselen etter kvoter og dermed senke kvoteprisen, slik at utslippene bare flyttes til andre bedrifter i kvotesystemet.
+- **Overlappende virkemidler** kan svekke hverandres effekt. Hvis en sektor bade er i kvotesystemet og har en avgift, kan den ekstra avgiften redusere etterspørselen etter kvoter og dermed senke kvoteprisen, slik at utslippene bare flyttes til andre bedrifter i kvotesystemet.
 - **Karbonlekkasje:** Strenge virkemidler i ett land kan fore til at bedrifter flytter produksjonen til land med svakere regulering, uten at globale utslipp reduseres.
 - **Fordelingshensyn:** Avgifter pa drivstoff og energi rammer lavinntektsgrupper hardere relativt sett, noe som krever kompenserende tiltak.`,
     },
@@ -740,11 +740,11 @@ Gronn omstilling innebarer a transformere okonomien fra fossil til fornybar ener
 **Gevinster pa lang sikt:**
 - Reduserte klimaskader (som ellers ville kostet langt mer)
 - Lavere energikostnader nar fornybar energi er utbygget (sol og vind har nesten null marginalkostnad)
-- Nye naeringer og arbeidsplasser i gronn sektor
+- Nye næringer og arbeidsplasser i gronn sektor
 - Forbedret luftkvalitet og folkehelse
 
 **Norges sarstilling:**
-Norge er en stor olje- og gasseksportor. Gronn omstilling innebarer en saerskilt utfordring: a fase ut den mest loennsomme naeringen. Samtidig har Norge unike fordeler: et stort oljefond, rikelig tilgang pa fornybar energi (vannkraft), og teknologisk kompetanse fra olje- og gassektoren som kan overfoeres til nye naeringer (havvind, karbonfangst, hydrogen).`,
+Norge er en stor olje- og gasseksportor. Gronn omstilling innebarer en saerskilt utfordring: a fase ut den mest lønnsomme næringen. Samtidig har Norge unike fordeler: et stort oljefond, rikelig tilgang pa fornybar energi (vannkraft), og teknologisk kompetanse fra olje- og gassektoren som kan overføres til nye næringer (havvind, karbonfangst, hydrogen).`,
     },
     {
       id: 'sf2-6-3-example-stranded',
@@ -758,7 +758,7 @@ For a na 1,5-2 °C-malet kan bare en begrenset mengde fossilt brensel forbrennes
 
 **Konsekvenser for Norge:**
 - Norges gjenvarende olje- og gassreserver har en estimert verdi pa mange tusen milliarder kroner.
-- Dersom verden lykkes med a na klimamalene, vil ettersporselen etter olje falle kraftig.
+- Dersom verden lykkes med a na klimamalene, vil etterspørselen etter olje falle kraftig.
 - Olje- og gassfelter som forventes a produsere i 30-40 ar, kan bli ulennsomme mye for.
 - Investeringer i ny letevirksomhet og feltutbygging innebarer en risiko for at verdier gar tapt.
 
@@ -777,7 +777,7 @@ For a na 1,5-2 °C-malet kan bare en begrenset mengde fossilt brensel forbrennes
           'Tenk pa alle de ulike typene skader klimaendringer forarsaker.',
           'Vurder rollen til diskonteringsrenten og usikkerhet om framtiden.',
         ],
-        solution: 'Den sosiale kostnaden av karbon (SCC) er et estimat pa den totale skaden ett ekstra tonn CO₂ forarsaker over hele sin levetid i atmosfaeren. Den inkluderer skader fra ekstremvar, tap av jordbruksproduksjon, helsekostnader, havnivastiging og tap av biologisk mangfold. Det er vanskelig a fastsette SCC fordi: 1) Klimamodellene er usikre - vi vet ikke noyaktig hvor mye oppvarming som kommer. 2) Skadene er spredt over mange tiar og vanskelige a verdsette i kroner. 3) Valget av diskonteringsrente pavirker verdien enormt. 4) Ulik vektlegging av fattige vs. rike lands skader gir ulike svar. Estimatene varierer fra noen hundre til flere tusen kroner per tonn.',
+        solution: 'Den sosiale kostnaden av karbon (SCC) er et estimat pa den totale skaden ett ekstra tonn CO₂ forarsaker over hele sin levetid i atmosfaeren. Den inkluderer skader fra ekstremvar, tap av jordbruksproduksjon, helsekostnader, havnivastiging og tap av biologisk mangfold. Det er vanskelig a fastsette SCC fordi: 1) Klimamodellene er usikre - vi vet ikke noyaktig hvor mye oppvarming som kommer. 2) Skadene er spredt over mange tiar og vanskelige a verdsette i kroner. 3) Valget av diskonteringsrente påvirker verdien enormt. 4) Ulik vektlegging av fattige vs. rike lands skader gir ulike svar. Estimatene varierer fra noen hundre til flere tusen kroner per tonn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -839,12 +839,12 @@ For a na 1,5-2 °C-malet kan bare en begrenset mengde fossilt brensel forbrennes
         number: '6.3.6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Norge er en stor olje- og gasseksportor som samtidig har ambisiose klimamal. Droft dilemmaet Norge star overfor, og vurder hvordan landet kan haandtere risikoen for stranded assets i overgangen til en gronnere okonomi.',
+        task: 'Norge er en stor olje- og gasseksportor som samtidig har ambisiose klimamal. Droft dilemmaet Norge star overfor, og vurder hvordan landet kan håndtere risikoen for stranded assets i overgangen til en gronnere okonomi.',
         hints: [
-          'Tenk pa risikoen ved a investere i ny oljeleting versus a satse pa nye naeringer.',
+          'Tenk pa risikoen ved a investere i ny oljeleting versus a satse pa nye næringer.',
           'Vurder oljefondets rolle som buffer i omstillingen.',
         ],
-        solution: 'Norge star i et dilemma: olje og gass er den mest loennsomme naeringen og finansierer velferdsstaten, men verdens klimamal innebarer at ettersporselen vil falle. Risikoen for stranded assets betyr at investeringer i ny oljeinfrastruktur kan tape verdi. Haandtering: 1) Gradvis omstilling - bruke kompetansen fra olje og gass i nye naeringer (havvind, hydrogen, karbonfangst). 2) Strengere loennsomhetskrav for nye felt - ikke bygge ut prosjekter som bare er loennsomme ved hoey oljepris. 3) Bruke oljefondet som buffer i omstillingen. 4) Investere i forskning, utdanning og infrastruktur for groenne naeringer. 5) Diversifisere okonomien for a redusere avhengigheten. Norges fordel er at oljefondet gir et unikt handlingsrom sammenlignet med andre olje-land.',
+        solution: 'Norge star i et dilemma: olje og gass er den mest lønnsomme næringen og finansierer velferdsstaten, men verdens klimamal innebarer at etterspørselen vil falle. Risikoen for stranded assets betyr at investeringer i ny oljeinfrastruktur kan tape verdi. Håndtering: 1) Gradvis omstilling - bruke kompetansen fra olje og gass i nye næringer (havvind, hydrogen, karbonfangst). 2) Strengere lønnsomhetskrav for nye felt - ikke bygge ut prosjekter som bare er lønnsomme ved høy oljepris. 3) Bruke oljefondet som buffer i omstillingen. 4) Investere i forskning, utdanning og infrastruktur for grønne næringer. 5) Diversifisere okonomien for a redusere avhengigheten. Norges fordel er at oljefondet gir et unikt handlingsrom sammenlignet med andre olje-land.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -891,7 +891,7 @@ Sirkulaer okonomi er et alternativt okonomisk system der produkter og materialer
 2. **Gjenbruk og deling:** Produkter brukes av flere (deleokonomi) eller far nytt liv hos nye eiere.
 3. **Reparasjon og oppgradering:** Produkter repareres fremfor a kastes.
 4. **Resirkulering:** Materialer gjenvinnes og brukes i ny produksjon.
-5. **Biologisk nedbryting:** Organisk materiale returneres til naturen som naeringsstoffer.
+5. **Biologisk nedbryting:** Organisk materiale returneres til naturen som næringsstoffer.
 
 **R-hierarkiet** (fra mest til minst foretrukket):
 - **Refuse** (avvis): Unnga unodvendig forbruk
@@ -950,7 +950,7 @@ Sirkulaer okonomi er et alternativt okonomisk system der produkter og materialer
 **Okonomiske barrierer:**
 - Nye ravarar er ofte billigere enn resirkulerte (fordi miljokostnaden ikke er inkludert i prisen).
 - Reparasjon er dyrere enn nykjop for mange produkter.
-- Investeringer i sirkulaere forretningsmodeller er risikable.
+- Investeringer i sirkulære forretningsmodeller er risikable.
 
 **Teknologiske barrierer:**
 - Mange produkter er ikke designet for demontering og resirkulering.
@@ -986,7 +986,7 @@ Sirkulaer okonomi er et alternativt okonomisk system der produkter og materialer
 - **Rebound-effekt:** Nar ting blir billigere a bruke, kan folk bruke dem mer (f.eks. kjore mer med delt bil fordi det er billig).
 - **Tap av arbeidsplasser:** Farre produkter produsert betyr farre jobber i tradisjonell industri.
 
-**Samfunnsokonomisk vurdering:** Deleokonomien kan oke velferden ved a gi tilgang til goder uten eierskap, men krever regulering for a sikre kvalitet, forsikring og rettferdig konkurranse med tradisjonelle naeringer.`,
+**Samfunnsokonomisk vurdering:** Deleokonomien kan oke velferden ved a gi tilgang til goder uten eierskap, men krever regulering for a sikre kvalitet, forsikring og rettferdig konkurranse med tradisjonelle næringer.`,
     },
     {
       id: 'sf2-6-4-ex-2',
@@ -1030,7 +1030,7 @@ Avfall fra en bedrift blir ravare for en annen. Bedrifter i et omrade samarbeide
 - Eksempel: Kalundborg i Danmark, der et kraftverk, et oljeraffineri, en gipsplateprodusentog et enzymselskap utveksler energi, vann og materialer.
 
 **Virkemidler for a fremme gronne verdikjeder:**
-- Offentlige innkjop med sirkulaere krav
+- Offentlige innkjop med sirkulære krav
 - Redusert moms pa reparasjonstjenester
 - Forbud mot planlagt foreldelse
 - Krav om at produkter skal vare reparerbare (EUs rett til a reparere)`,
@@ -1066,7 +1066,7 @@ Avfall fra en bedrift blir ravare for en annen. Bedrifter i et omrade samarbeide
           'Tenk pa okonomiske, teknologiske og atferdsmessige barrierer.',
           'Koble hvert virkemiddel direkte til barrieren det skal lose.',
         ],
-        solution: 'Barriere 1: Nye ravarar er billigere enn resirkulerte (markedssvikt). Virkemiddel: miljoavgifter pa utvinning og avfall, slik at resirkulering blir relativt billigere. Barriere 2: Produkter er ikke designet for reparasjon og resirkulering. Virkemiddel: krav om okodesign, rett til a reparere (EU-lovgivning), utvidet produsentansvar (EPR). Barriere 3: Forbrukere foretrekker nytt fremfor brukt. Virkemiddel: redusert moms pa reparasjon og brukte varer, informasjonskampanjer, merkeordninger for sirkulaere produkter. Tillegg: offentlige innkjop kan drive ettersporselen etter sirkulaere produkter og skape et marked for sirkulaere forretningsmodeller.',
+        solution: 'Barriere 1: Nye ravarar er billigere enn resirkulerte (markedssvikt). Virkemiddel: miljoavgifter pa utvinning og avfall, slik at resirkulering blir relativt billigere. Barriere 2: Produkter er ikke designet for reparasjon og resirkulering. Virkemiddel: krav om okodesign, rett til a reparere (EU-lovgivning), utvidet produsentansvar (EPR). Barriere 3: Forbrukere foretrekker nytt fremfor brukt. Virkemiddel: redusert moms pa reparasjon og brukte varer, informasjonskampanjer, merkeordninger for sirkulære produkter. Tillegg: offentlige innkjop kan drive etterspørselen etter sirkulære produkter og skape et marked for sirkulære forretningsmodeller.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1132,7 +1132,7 @@ export const CHAPTER_SAMFOKONOMI_2_6_5: TextbookChapter = {
   courseId: 'samfokonomi-2',
   chapterNumber: '6.5',
   title: 'Barekraftig utvikling',
-  description: 'FNs baerekraftsmal, ESG-kriterier og gronn finans i et samfunnsokonomisk perspektiv.',
+  description: 'FNs bærekraftsmal, ESG-kriterier og gronn finans i et samfunnsokonomisk perspektiv.',
   estimatedMinutes: 20,
   competenceGoals: [
     'vurdere okonomisk barekraft',
@@ -1142,17 +1142,17 @@ export const CHAPTER_SAMFOKONOMI_2_6_5: TextbookChapter = {
     {
       id: 'sf2-6-5-intro',
       type: 'text',
-      content: `# Baerekraftig utvikling
+      content: `# Bærekraftig utvikling
 
 Barekraftig utvikling ble definert av Brundtlandkommisjonen i 1987 som «utvikling som imotekommer dagens behov uten a odelegge mulighetene for at kommende generasjoner skal fa dekket sine behov.» Begrepet har tre dimensjoner: okonomisk, sosial og miljomessig barekraft.
 
-I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den kan fortsette a levere okosystemtjenester og ressurser for framtiden. I dette kapittelet ser vi pa FNs baerekraftsmal som globalt rammeverk, ESG-kriterier som verktoy for ansvarlige investeringer, og gronn finans som mekanisme for a kanalisere kapital mot barekraftige aktiviteter.`,
+I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den kan fortsette a levere okosystemtjenester og ressurser for framtiden. I dette kapittelet ser vi pa FNs bærekraftsmal som globalt rammeverk, ESG-kriterier som verktoy for ansvarlige investeringer, og gronn finans som mekanisme for a kanalisere kapital mot barekraftige aktiviteter.`,
     },
     {
-      id: 'sf2-6-5-def-baerekraftsmal',
+      id: 'sf2-6-5-def-bærekraftsmal',
       type: 'definition',
-      title: 'FNs baerekraftsmal (SDG)',
-      content: `**FNs baerekraftsmal** (Sustainable Development Goals, SDG) er 17 globale mal vedtatt i 2015 som skal nas innen 2030. De dekker okonomiske, sosiale og miljomessige dimensjoner av barekraft.
+      title: 'FNs bærekraftsmal (SDG)',
+      content: `**FNs bærekraftsmal** (Sustainable Development Goals, SDG) er 17 globale mal vedtatt i 2015 som skal nas innen 2030. De dekker okonomiske, sosiale og miljomessige dimensjoner av barekraft.
 
 **De 17 malene spenner fra:**
 - Utrydde fattigdom (mal 1) og sult (mal 2)
@@ -1166,21 +1166,21 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
 **Okonomisk relevans:**
 - Malene er gjensidig avhengige: okonomisk vekst (mal 8) ma skje pa en mate som er forenlig med klimaet (mal 13) og naturmangfold (mal 14, 15).
 - Konflikter mellom mal: okt energitilgang (mal 7) kan kollidere med klimamalet (mal 13) dersom energien er fossil.
-- Malene gir et felles spraak for myndigheter, naeringslivet og sivilsamfunnet.
+- Malene gir et felles språk for myndigheter, næringslivet og sivilsamfunnet.
 
-**Kritikk:** Malene er svaert ambisiose, og verden ligger etter skjema pa de fleste. De er ikke juridisk bindende, og det mangler effektive mekanismer for rapportering og ansvarliggjoring.`,
+**Kritikk:** Malene er svært ambisiose, og verden ligger etter skjema pa de fleste. De er ikke juridisk bindende, og det mangler effektive mekanismer for rapportering og ansvarliggjoring.`,
     },
     {
-      id: 'sf2-6-5-example-maalkonflikt',
+      id: 'sf2-6-5-example-målkonflikt',
       type: 'example',
       title: 'Eksempel: Malkonflikter i barekraftig utvikling',
       problem: 'FNs barekraftsmal 7 (ren energi for alle) og mal 13 (stoppe klimaendringene) kan komme i konflikt. Forklar hvordan, og droft hvordan konflikten kan handteres.',
       solution: `**Konflikten:**
 - Mal 7 krever at alle far tilgang til moderne energi. I dag mangler ca. 675 millioner mennesker elektrisitet.
 - Mal 13 krever drastiske kutt i klimagassutslipp.
-- Den raskeste og billigste maten a gi fattige land energi pa har tradisjonelt vaert kull og gass, som forverrer klimaproblemet.
+- Den raskeste og billigste maten a gi fattige land energi pa har tradisjonelt vært kull og gass, som forverrer klimaproblemet.
 
-**Eksempel:** Afrikanske land onsker a bruke sine gassressurser for a loefte befolkningen ut av energifattigdom, men klimamalet tilsier at fossile ressurser bor bli liggende.
+**Eksempel:** Afrikanske land onsker a bruke sine gassressurser for a løfte befolkningen ut av energifattigdom, men klimamalet tilsier at fossile ressurser bor bli liggende.
 
 **Mulige losninger:**
 1. **Teknologisprang:** Fornybar energi (sol, vind) har blitt sa billig at mange utviklingsland kan hoppe over fossil energi direkte til fornybart. Solceller i Afrika kan gi desentralisert energi uten store kraftnett.
@@ -1201,7 +1201,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
         multipleChoiceOptions: [
           'Utvikling som imotekommer dagens behov uten a odelegge mulighetene for kommende generasjoner',
           'Okonomisk vekst som er sa hoy som mulig pa kort sikt',
-          'En utviklingsmodell der miljoet alltid prioriteres over okonomisk vekst',
+          'En utviklingsmodell der miljøt alltid prioriteres over okonomisk vekst',
           'Utvikling som kun fokuserer pa a redusere klimagassutslipp',
         ],
         hints: ['Tenk pa Brundtlandkommisjonens definisjon og de tre dimensjonene av barekraft.'],
@@ -1224,7 +1224,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
 - Arbeidsforhold og arbeidstakerrettigheter
 - Mangfold og likestilling
 - Helse og sikkerhet pa arbeidsplassen
-- Lokalsamfunnspavirkning og menneskerettigheter
+- Lokalsamfunnspåvirkning og menneskerettigheter
 
 **G - Governance (selskapsstyring):**
 - Styresammensetning og uavhengighet
@@ -1251,9 +1251,9 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
 
 **Dilemmaer:**
 1. **Avkastning vs. etikk:** Kan utelukkelse av lonnsomme selskaper redusere avkastningen? Forskning viser blandede resultater.
-2. **Utelukkelse vs. paavirkning:** Er det mer effektivt a utelukke et selskap (miste innflytelse) eller forbli som eier og presse pa for endring innenfra?
+2. **Utelukkelse vs. påvirkning:** Er det mer effektivt a utelukke et selskap (miste innflytelse) eller forbli som eier og presse pa for endring innenfra?
 3. **Grensedragninger:** Hvor gar grensen? Fondet eier aksjer i olje- og gasselskaper, noe som er kontroversielt gitt Norges klimamal.
-4. **Dobbeltrolle:** Norge tjener penger pa olje og gass, men fondet investerer i selskaper som pavirkes negativt av klimaendringer.
+4. **Dobbeltrolle:** Norge tjener penger pa olje og gass, men fondet investerer i selskaper som påvirkes negativt av klimaendringer.
 
 **Trend:** ESG-investeringer har vokst kraftig globalt, og det er et okende press for a tilpasse finanssektoren til klimamalene.`,
     },
@@ -1295,7 +1295,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
 - Stiller krav til at aktiviteter bidrar vesentlig til minst ett miljomal og ikke gjor vesentlig skade pa andre.
 
 **Klimarisiko i finanssektoren:**
-- **Fysisk risiko:** Skader fra klimaendringer (flom, torke, brann) som pavirker eiendeler og forsikring.
+- **Fysisk risiko:** Skader fra klimaendringer (flom, torke, brann) som påvirker eiendeler og forsikring.
 - **Overgangsrisiko:** Verdtap nar okonomien omstilles (stranded assets, ny regulering, endrede preferanser).
 - Sentralbanker og finanstilsyn krever i okende grad at finansinstitusjoner rapporterer klimarisiko (TCFD-rammeverket).`,
     },
@@ -1307,7 +1307,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
       solution: `**Gronnvasking** er nar en bedrift eller et finansprodukt fremstiller seg som mer miljovennlig enn det faktisk er. Det kan skje gjennom:
 - Villedende markedsforing (bilder av natur pa produkter med hoyt fotavtrykk)
 - Selektiv rapportering (fremheve positive miljoaspekter, skjule negative)
-- Vage paastander («miljovennlig», «gronn» uten dokumentasjon)
+- Vage påstander («miljovennlig», «gronn» uten dokumentasjon)
 - Opprettelse av gronne fond som investerer i lite gronne selskaper
 
 **EUs taksonomi som mottiltak:**
@@ -1326,12 +1326,12 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
         number: '6.5.3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Gjor rede for FNs baerekraftsmal (SDG). Droft hvorfor det kan oppsta konflikter mellom malene, og gi et konkret eksempel pa en slik malkonflikt.',
+        task: 'Gjor rede for FNs bærekraftsmal (SDG). Droft hvorfor det kan oppsta konflikter mellom malene, og gi et konkret eksempel pa en slik malkonflikt.',
         hints: [
           'Tenk pa at malene dekker okonomiske, sosiale og miljomessige dimensjoner.',
           'Vurder hva som skjer nar et land forsaker a oke okonomisk vekst og samtidig kutte utslipp.',
         ],
-        solution: 'FNs baerekraftsmal er 17 globale mal vedtatt i 2015 som spenner fra fattigdomsbekjempelse til klimahandling. Malkonflikter oppstar fordi fremgang pa ett mal kan hindre fremgang pa et annet. Eksempel: Mal 8 (okonomisk vekst) kan komme i konflikt med mal 13 (klimahandling) dersom veksten er fossil-basert. Et utviklingsland som bruker kull for a industrialisere (mal 8, 9) forverrer klimaproblemet (mal 13) og kan skade okosystemer (mal 14, 15). Losningen krever integrert tenkning: bruke fornybar energi for a kombinere energitilgang og klimamal, og finne utviklingsveier som ivaretar flere dimensjoner samtidig.',
+        solution: 'FNs bærekraftsmal er 17 globale mal vedtatt i 2015 som spenner fra fattigdomsbekjempelse til klimahandling. Malkonflikter oppstar fordi fremgang pa ett mal kan hindre fremgang pa et annet. Eksempel: Mal 8 (okonomisk vekst) kan komme i konflikt med mal 13 (klimahandling) dersom veksten er fossil-basert. Et utviklingsland som bruker kull for a industrialisere (mal 8, 9) forverrer klimaproblemet (mal 13) og kan skade okosystemer (mal 14, 15). Losningen krever integrert tenkning: bruke fornybar energi for a kombinere energitilgang og klimamal, og finne utviklingsveier som ivaretar flere dimensjoner samtidig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1347,9 +1347,9 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
         task: 'Forklar hva ESG-kriterier er og hvordan de brukes i finanssektoren. Droft om ESG-investeringer kan bidra til barekraftig utvikling.',
         hints: [
           'Beskriv de tre komponentene E, S og G med eksempler.',
-          'Vurder om investorer som bruker ESG-kriterier faktisk pavirker bedrifters atferd.',
+          'Vurder om investorer som bruker ESG-kriterier faktisk påvirker bedrifters atferd.',
         ],
-        solution: 'ESG-kriterier vurderer bedrifter pa tre dimensjoner: Environmental (miljo - utslipp, energibruk), Social (sosialt - arbeidsforhold, menneskerettigheter) og Governance (styring - transparens, antikorrupsjon). Finanssektoren bruker ESG til a vurdere risiko og identifisere langsiktig verdiskaping. ESG kan bidra til barekraft fordi: 1) Kapital kanaliseres mot ansvarlige selskaper. 2) Bedrifter far insentiver til a forbedre ESG-prestasjon for a tiltrekke investorer. 3) Aktivt eierskap kan presse selskaper til endring. Begrensninger: ESG-ratinger er inkonsistente mellom ulike byraer, gronnvasking er utbredt, og sammenhengen mellom ESG-score og faktisk miljopavirkning er ikke alltid klar.',
+        solution: 'ESG-kriterier vurderer bedrifter pa tre dimensjoner: Environmental (miljo - utslipp, energibruk), Social (sosialt - arbeidsforhold, menneskerettigheter) og Governance (styring - transparens, antikorrupsjon). Finanssektoren bruker ESG til a vurdere risiko og identifisere langsiktig verdiskaping. ESG kan bidra til barekraft fordi: 1) Kapital kanaliseres mot ansvarlige selskaper. 2) Bedrifter far insentiver til a forbedre ESG-prestasjon for a tiltrekke investorer. 3) Aktivt eierskap kan presse selskaper til endring. Begrensninger: ESG-ratinger er inkonsistente mellom ulike byraer, gronnvasking er utbredt, og sammenhengen mellom ESG-score og faktisk miljopåvirkning er ikke alltid klar.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1361,7 +1361,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
       content: `## Oppsummering - Barekraftig utvikling
 
 - **Barekraftig utvikling** har tre dimensjoner: okonomisk, sosial og miljomessig.
-- **FNs baerekraftsmal** gir et globalt rammeverk, men er ambisiose og har malkonflikter.
+- **FNs bærekraftsmal** gir et globalt rammeverk, men er ambisiose og har malkonflikter.
 - **ESG-kriterier** (miljo, sosialt, styring) brukes av investorer til a vurdere barekraftsprestasjon.
 - **Gronn finans** kanaliserer kapital mot barekraftige aktiviteter gjennom gronne obligasjoner, taksonomier og klimarisikorapportering.
 - **Gronnvasking** er en utfordring som EUs taksonomi forsaker a motvirke med klare definisjoner.
@@ -1380,7 +1380,7 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
           'Tenk pa hvordan kapitalen styres og hvem som tar beslutningene.',
           'Vurder om finansmarkedet kan lose problemet uten politisk regulering.',
         ],
-        solution: 'Muligheter: Gronn finans kan kanalisere enorme mengder privat kapital mot klimavennlige investeringer - noe som er nodvendig fordi offentlige midler alene ikke er tilstrekkelige. Gronne obligasjoner gir oremerking av midler, EUs taksonomi gir klarhet om hva som er gronnt, og klimarisikorapportering gjor investorer bevisste pa risikoen ved fossile investeringer. Begrensninger: Gronne obligasjoner endrer ikke nddvendigvis bedriftens totale strategi, bare finansieringen av enkeltprosjekter. Taksonomien er politisk pavirket (kjernekraft/gass-debatten). Gronnvasking undergraver tilliten. Og finansmarkedet kan ikke alene drive omstillingen - det trengs ogsa karbonprising, regulering og offentlige investeringer for a endre de grunnleggende insentivene i okonomien.',
+        solution: 'Muligheter: Gronn finans kan kanalisere enorme mengder privat kapital mot klimavennlige investeringer - noe som er nodvendig fordi offentlige midler alene ikke er tilstrekkelige. Gronne obligasjoner gir oremerking av midler, EUs taksonomi gir klarhet om hva som er gronnt, og klimarisikorapportering gjor investorer bevisste pa risikoen ved fossile investeringer. Begrensninger: Gronne obligasjoner endrer ikke nddvendigvis bedriftens totale strategi, bare finansieringen av enkeltprosjekter. Taksonomien er politisk påvirket (kjernekraft/gass-debatten). Gronnvasking undergraver tilliten. Og finansmarkedet kan ikke alene drive omstillingen - det trengs ogsa karbonprising, regulering og offentlige investeringer for a endre de grunnleggende insentivene i okonomien.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1395,10 +1395,10 @@ I samfunnsokonomien handler barekraft om a forvalte naturkapitalen slik at den k
         difficulty: 'vanskelig',
         task: 'Norges oljefond bruker ESG-kriterier og har utelukket selskaper pa etisk grunnlag. Droft dilemmaene fondet star overfor, og vurder om utelukkelse eller aktivt eierskap er den mest effektive strategien for a fremme barekraft.',
         hints: [
-          'Tenk pa forskjellen mellom a selge seg ut og a bruke eierposisjonen til a pavirke.',
-          'Vurder signaleffekten av utelukkelse versus den direkte pavirkningen av aktivt eierskap.',
+          'Tenk pa forskjellen mellom a selge seg ut og a bruke eierposisjonen til a påvirke.',
+          'Vurder signaleffekten av utelukkelse versus den direkte påvirkningen av aktivt eierskap.',
         ],
-        solution: 'Dilemmaer: 1) Fondet eier aksjer i olje- og gasselskaper samtidig som Norge har ambisiose klimamal. 2) Utelukkelse reduserer innflytelsen, men sender et tydelig signal. 3) Aktivt eierskap krever ressurser og gir usikre resultater. 4) Norges dobbeltrolle som oljeprodusent og klimaforkjemper. Utelukkelse: effektivt signal, men aksjene kjopes av andre investorer som kanskje bryr seg mindre. Aktivt eierskap: direkte pavirkning gjennom stemmegiving og dialog, men krever at selskapet faktisk lytter. Optimal strategi er trolig en kombinasjon: utelukkelse for de groveste overgriperne (kjernevapen, kull) og aktivt eierskap for selskaper der fondet kan drive endring innenfra. Forskning tyder pa at aktivt eierskap kan vare mer effektivt enn utelukkelse for a endre bedriftspraksis.',
+        solution: 'Dilemmaer: 1) Fondet eier aksjer i olje- og gasselskaper samtidig som Norge har ambisiose klimamal. 2) Utelukkelse reduserer innflytelsen, men sender et tydelig signal. 3) Aktivt eierskap krever ressurser og gir usikre resultater. 4) Norges dobbeltrolle som oljeprodusent og klimaforkjemper. Utelukkelse: effektivt signal, men aksjene kjopes av andre investorer som kanskje bryr seg mindre. Aktivt eierskap: direkte påvirkning gjennom stemmegiving og dialog, men krever at selskapet faktisk lytter. Optimal strategi er trolig en kombinasjon: utelukkelse for de groveste overgriperne (kjernevapen, kull) og aktivt eierskap for selskaper der fondet kan drive endring innenfra. Forskning tyder pa at aktivt eierskap kan vare mer effektivt enn utelukkelse for a endre bedriftspraksis.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

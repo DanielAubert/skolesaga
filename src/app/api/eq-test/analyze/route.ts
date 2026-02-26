@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth/config';
 import type { EQResult } from '@/lib/types/eq-test';
 import { DIMENSION_LABELS, DIMENSION_ORDER } from '@/lib/types/eq-test';
 
@@ -7,6 +9,11 @@ const anthropic = new Anthropic();
 
 export async function POST(request: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Du må være innlogget' }, { status: 401 });
+    }
+
     const result = await request.json() as EQResult;
 
     if (!result || !result.dimensionScores || !result.dominantDimension) {

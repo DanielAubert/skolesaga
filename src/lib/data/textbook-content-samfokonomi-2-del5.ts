@@ -26,7 +26,7 @@ export const CHAPTER_SAMFOKONOMI_2_5_1: TextbookChapter = {
   estimatedMinutes: 20,
   competenceGoals: [
     'drofte ulike perspektiver pa rettferdig fordeling og velferd',
-    'analysere hvordan skattesystemet og offentlige overforinger pavirker inntektsfordelingen',
+    'analysere hvordan skattesystemet og offentlige overforinger påvirker inntektsfordelingen',
   ],
   content: [
     {
@@ -34,7 +34,7 @@ export const CHAPTER_SAMFOKONOMI_2_5_1: TextbookChapter = {
       type: 'text',
       content: `# Inntektsfordeling
 
-Hvordan inntekten i et samfunn er fordelt mellom innbyggerne, er et sentralt tema i samfunnsokonomien. Fordelingen pavirker levestandard, sosial stabilitet og okonomisk vekst. For a kunne diskutere fordelingspolitikk pa en meningsfull mate trenger vi presise verktoy for a male og sammenligne fordelinger.
+Hvordan inntekten i et samfunn er fordelt mellom innbyggerne, er et sentralt tema i samfunnsokonomien. Fordelingen påvirker levestandard, sosial stabilitet og okonomisk vekst. For a kunne diskutere fordelingspolitikk pa en meningsfull mate trenger vi presise verktoy for a male og sammenligne fordelinger.
 
 I dette kapittelet ser vi pa tre viktige analytiske verktoy: Lorenz-kurven, Gini-koeffisienten og desilinndelingen. Disse brukes av okonomer, politikere og internasjonale organisasjoner for a vurdere graden av ulikhet i et land og sammenligne land med hverandre.`,
     },
@@ -109,7 +109,7 @@ Gini-koeffisienten er nyttig fordi den gir ett enkelt tall som kan brukes til a 
 
 Desiler brukes ofte til a analysere:
 - Hvor mye av den samlede inntekten som tilfaller ulike grupper
-- Hvordan skattepolitikk og overforinger pavirker fordelingen
+- Hvordan skattepolitikk og overforinger påvirker fordelingen
 - Utviklingen i topp- og bunninntektene over tid
 
 Andre inndelinger som brukes er **kvintiler** (fem grupper a 20 %) og **persentiler** (hundre grupper a 1 %).`,
@@ -153,7 +153,7 @@ Andre inndelinger som brukes er **kvintiler** (fem grupper a 20 %) og **persenti
       title: 'Inntektsfordelingen i Norge',
       content: `## Inntektsfordelingen i Norge
 
-Norge har tradisjonelt hatt en relativt jevn inntektsfordeling sammenlignet med de fleste andre land. Flere faktorer bidrar til dette:
+Norge har tradisjonelt hatt en relativt jevn inntektsfordeling sammenlignet med de fleste andre land. Flere faktører bidrar til dette:
 
 - **Koordinert lonnsdannelse** - Trepartssamarbeidet mellom stat, arbeidsgivere og arbeidstakere holder lonnsforskjellene moderate.
 - **Progressivt skattesystem** - De som tjener mest, betaler en hoyere andel i skatt.
@@ -223,7 +223,7 @@ Likevel har ulikheten i Norge okt noe de siste tiarene, sarlig drevet av okte ka
           'Tenk pa endringer i arbeidsmarkedet, kapitalinntekter og globalisering.',
           'Vurder om noe ulikhet kan vare positivt for okonomien.',
         ],
-        solution: 'Okningen i Gini-koeffisienten kan skyldes flere faktorer: okte kapitalinntekter blant de rikeste (aksjegevinster, utbytte), globalisering som presser lonninger i noen sektorer, teknologisk endring som oker ettersporselen etter hoykompetent arbeidskraft, og politiske endringer som lavere toppskatt. Om 0,27 er et problem, avhenger av perspektiv. Sammenlignet med andre land er det fortsatt lavt. Noe ulikhet kan gi insentiver til utdanning og entreprenorskap. Men om trenden fortsetter, kan det svekke sosial tillit, redusere sosial mobilitet og skape politisk polarisering. Det handler ikke bare om tallet, men om retningen det utvikler seg i.',
+        solution: 'Okningen i Gini-koeffisienten kan skyldes flere faktører: okte kapitalinntekter blant de rikeste (aksjegevinster, utbytte), globalisering som presser lonninger i noen sektorer, teknologisk endring som oker etterspørselen etter hoykompetent arbeidskraft, og politiske endringer som lavere toppskatt. Om 0,27 er et problem, avhenger av perspektiv. Sammenlignet med andre land er det fortsatt lavt. Noe ulikhet kan gi insentiver til utdanning og entreprenorskap. Men om trenden fortsetter, kan det svekke sosial tillit, redusere sosial mobilitet og skape politisk polarisering. Det handler ikke bare om tallet, men om retningen det utvikler seg i.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -262,7 +262,7 @@ export const CHAPTER_SAMFOKONOMI_2_5_2: TextbookChapter = {
   description: 'Progressiv og flat skatt, skattegrunnlag, effektivitetstap og utforming av skattesystemet.',
   estimatedMinutes: 20,
   competenceGoals: [
-    'analysere hvordan skattesystemet og offentlige overforinger pavirker inntektsfordelingen',
+    'analysere hvordan skattesystemet og offentlige overforinger påvirker inntektsfordelingen',
     'drofte ulike perspektiver pa rettferdig fordeling og velferd',
   ],
   content: [
@@ -271,7 +271,7 @@ export const CHAPTER_SAMFOKONOMI_2_5_2: TextbookChapter = {
       type: 'text',
       content: `# Skattesystemet
 
-Skattesystemet er statens viktigste verktoy for a finansiere offentlige tjenester og omfordele inntekt. Hvordan skatten er utformet, pavirker ikke bare inntektsfordelingen, men ogsa insentivene til a arbeide, spare og investere. Et godt skattesystem ma balansere hensynet til rettferdig fordeling mot hensynet til okonomisk effektivitet.
+Skattesystemet er statens viktigste verktoy for a finansiere offentlige tjenester og omfordele inntekt. Hvordan skatten er utformet, påvirker ikke bare inntektsfordelingen, men ogsa insentivene til a arbeide, spare og investere. Et godt skattesystem ma balansere hensynet til rettferdig fordeling mot hensynet til okonomisk effektivitet.
 
 I samfunnsokonomien analyserer vi skattesystemet ut fra tre grunnleggende sporsmal: Hva skal beskattes (skattegrunnlaget)? Hvor mye skal beskattes (skattesatsen)? Og hvem skal betale mest (fordelingsprofilen)?`,
     },
@@ -305,7 +305,7 @@ I tillegg kommer alminnelig skatt (22 %) og trygdeavgift.`,
 
 **Gjennomsnittsskatt:** Total skatt delt pa total inntekt. Siden mye av inntekten beskattes i lavere trinn, vil gjennomsnittsskatten vare lavere enn marginalskatten, kanskje rundt 30-33 %.
 
-**Forskjellen er viktig:** Marginalskatten pavirker insentivene til a jobbe mer (gir den ekstra timen nok igjen?), mens gjennomsnittsskatten bestemmer den totale skattebelastningen og kjopekraften.`,
+**Forskjellen er viktig:** Marginalskatten påvirker insentivene til a jobbe mer (gir den ekstra timen nok igjen?), mens gjennomsnittsskatten bestemmer den totale skattebelastningen og kjopekraften.`,
     },
     {
       id: 'sf2-5-2-def-flat',
@@ -411,7 +411,7 @@ Alle skatter skaper et **effektivitetstap** (dodvektstap) fordi de vrir folks be
 - **Bred base, lav sats:** Mange sma vridninger er bedre enn noen fa store.
 - **Beskatt det som er vanskelig a flytte:** Eiendomsskatt gir lite effektivitetstap fordi eiendom ikke kan flyttes til utlandet.
 - **Unnga dobbeltbeskatning:** A beskatte samme inntekt flere ganger forsterker vridningene.
-- **Ramsey-regelen:** Varer med lav priselastisitet bor beskattes hardere fordi ettersporselen endrer seg lite.
+- **Ramsey-regelen:** Varer med lav priselastisitet bor beskattes hardere fordi etterspørselen endrer seg lite.
 
 Et godt skattesystem er et kompromiss mellom fordelingshensyn (progressivitet) og effektivitetshensyn (minimale vridninger).`,
     },
@@ -425,7 +425,7 @@ Et godt skattesystem er et kompromiss mellom fordelingshensyn (progressivitet) o
         difficulty: 'medium',
         task: 'Sammenlign progressiv skatt og flat skatt. Droft fordeler og ulemper ved hver av dem, med vekt pa hensynet til fordeling og okonomisk effektivitet.',
         hints: [
-          'Tenk pa hvordan de to systemene pavirker insentivene til a jobbe og investere.',
+          'Tenk pa hvordan de to systemene påvirker insentivene til a jobbe og investere.',
           'Vurder omfordelingseffekten og administrasjonskostnadene.',
         ],
         solution: 'Progressiv skatt gir sterkere omfordeling fordi de rike betaler en hoyere andel, men kan svekke insentivene til arbeid og investeringer for de med hoyest inntekt. Flat skatt er enklere a administrere og gir like insentiver for alle, men omfordeler mindre og kan oppfattes som urettferdig fordi en krone i skatt betyr mer for en lavinntektsfamilie. I praksis kombinerer mange land elementer av begge: en flat basisskatt med progressive tillegg, eller en flat skatt med store bunnfradrag som gir reell progressivitet.',
@@ -751,7 +751,7 @@ Ingen modell er objektivt best - det avhenger av hvilke verdier man vektlegger: 
           'Velg en konkret modell og beskriv hovedforskjellene systematisk.',
           'Bruk konkrete data eller eksempler for a underbygge argumentene.',
         ],
-        solution: 'Sammenlignet med den amerikanske modellen: Norge har universelle ordninger mot USAs behovsprovde, sterkere regulering av arbeidsmarkedet, og hoyere skatter. Konsekvenser for ulikhet: Norges Gini er 0,27 mot USAs 0,39. Sosial mobilitet: studier viser at det er storre sjanse for a klatre fra fattigdom til velstand i Norge. Okonomisk effektivitet: USA har potensielt sterkere insentiver for innovasjon og risikotaking, men hoyere ulikhet kan svekke den samlede ettersporselen og humankapitalutviklingen. Norges modell er dyrere i form av skatter, men genererer hoy produktivitet gjennom god utdanning og et friskt arbeidsliv.',
+        solution: 'Sammenlignet med den amerikanske modellen: Norge har universelle ordninger mot USAs behovsprovde, sterkere regulering av arbeidsmarkedet, og hoyere skatter. Konsekvenser for ulikhet: Norges Gini er 0,27 mot USAs 0,39. Sosial mobilitet: studier viser at det er storre sjanse for a klatre fra fattigdom til velstand i Norge. Okonomisk effektivitet: USA har potensielt sterkere insentiver for innovasjon og risikotaking, men hoyere ulikhet kan svekke den samlede etterspørselen og humankapitalutviklingen. Norges modell er dyrere i form av skatter, men genererer hoy produktivitet gjennom god utdanning og et friskt arbeidsliv.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -773,7 +773,7 @@ export const CHAPTER_SAMFOKONOMI_2_5_4: TextbookChapter = {
   estimatedMinutes: 20,
   competenceGoals: [
     'drofte ulike perspektiver pa rettferdig fordeling og velferd',
-    'analysere hvordan skattesystemet og offentlige overforinger pavirker inntektsfordelingen',
+    'analysere hvordan skattesystemet og offentlige overforinger påvirker inntektsfordelingen',
   ],
   content: [
     {
@@ -871,7 +871,7 @@ Relativ fattigdom er et mal som endrer seg med det generelle velstandsnivaet: Na
 
 **The Great Gatsby-kurven** viser en sammenheng mellom ulikhet og mobilitet: land med hoy ulikhet tenderer til a ha lav sosial mobilitet. Denne sammenhengen er oppkalt etter F. Scott Fitzgeralds roman om den amerikanske drommen.
 
-**Faktorer som pavirker sosial mobilitet:**
+**Faktører som påvirker sosial mobilitet:**
 - Tilgang til utdanning
 - Kvaliteten pa offentlige skoler
 - Segregering i boligmarkedet
@@ -909,7 +909,7 @@ Relativ fattigdom er et mal som endrer seg med det generelle velstandsnivaet: Na
           'At land med hoy ulikhet tenderer til a ha lav sosial mobilitet',
           'At rikere land alltid har hoyere sosial mobilitet',
           'At fattigdom oker automatisk med okonomisk vekst',
-          'At skattesystemet ikke pavirker sosial mobilitet',
+          'At skattesystemet ikke påvirker sosial mobilitet',
         ],
         hints: ['Tenk pa sammenhengen mellom Gini-koeffisient og intergenerasjonell mobilitet.'],
         solution: 'The Great Gatsby-kurven viser en positiv sammenheng mellom ulikhet (malt ved Gini-koeffisienten) og lav sosial mobilitet (malt ved intergenerasjonell inntektselastisitet). Land med hoy ulikhet, som USA og Brasil, har lavere sosial mobilitet enn land med lav ulikhet, som de nordiske landene. Det betyr at i ulike land har foreldrenes okonomiske posisjon storre innvirkning pa barnas fremtid.',
@@ -924,7 +924,7 @@ Relativ fattigdom er et mal som endrer seg med det generelle velstandsnivaet: Na
 Okonomisk ulikhet kan ha vidtrekkende konsekvenser for samfunnet. Forskningen viser at hoy ulikhet kan fore til:
 
 **Okonomiske konsekvenser:**
-- Svakere samlet ettersporsel (fattige bruker en hoyere andel av inntekten, men har ikke nok a bruke)
+- Svakere samlet etterspørsel (fattige bruker en hoyere andel av inntekten, men har ikke nok a bruke)
 - Underinvestering i humankapital (talenter i fattige familier realiseres ikke)
 - Finansiell ustabilitet (gjeldsdrevet forbruk blant de med lav inntekt)
 
@@ -967,12 +967,12 @@ Debatten handler ikke om a eliminere all ulikhet, men om a finne et niva som gir
         number: '5.4.4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Gjor rede for begrepet sosial mobilitet. Forklar forskjellen mellom intragenerasjonell og intergenerasjonell mobilitet, og droft hvilke faktorer som fremmer sosial mobilitet.',
+        task: 'Gjor rede for begrepet sosial mobilitet. Forklar forskjellen mellom intragenerasjonell og intergenerasjonell mobilitet, og droft hvilke faktører som fremmer sosial mobilitet.',
         hints: [
           'Tenk pa hva som gjor det mulig for en person a forbedre sin okonomiske situasjon.',
           'Vurder rollen til utdanning, helse og velferdsordninger.',
         ],
-        solution: 'Sosial mobilitet er graden av bevegelse mellom okonomiske posisjoner. Intragenerasjonell mobilitet handler om endring i lopet av en persons liv (f.eks. fra lav til hoy inntekt gjennom utdanning og karriere). Intergenerasjonell mobilitet handler om forholdet mellom foreldres og barns posisjon (f.eks. om barn av fattige foreldre kan bli velstaende). Faktorer som fremmer mobilitet: tilgjengelig utdanning av hoy kvalitet, universelle helsetjenester, progressive skatter og overforinger, desegregering i boligmarkedet og aktiv arbeidsmarkedspolitikk. De nordiske landene scorer hoyt pa sosial mobilitet nettopp fordi disse faktorene er godt utviklet.',
+        solution: 'Sosial mobilitet er graden av bevegelse mellom okonomiske posisjoner. Intragenerasjonell mobilitet handler om endring i lopet av en persons liv (f.eks. fra lav til hoy inntekt gjennom utdanning og karriere). Intergenerasjonell mobilitet handler om forholdet mellom foreldres og barns posisjon (f.eks. om barn av fattige foreldre kan bli velstaende). Faktører som fremmer mobilitet: tilgjengelig utdanning av hoy kvalitet, universelle helsetjenester, progressive skatter og overforinger, desegregering i boligmarkedet og aktiv arbeidsmarkedspolitikk. De nordiske landene scorer hoyt pa sosial mobilitet nettopp fordi disse faktorene er godt utviklet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1002,7 +1002,7 @@ Debatten handler ikke om a eliminere all ulikhet, men om a finne et niva som gir
           'Tenk pa hvordan ulikhet kan skape insentiver, men ogsa hindre investeringer i humankapital.',
           'Bruk eksempler fra land med ulike nivaer av ulikhet.',
         ],
-        solution: 'For: Noe ulikhet gir insentiver til arbeid, utdanning og risikotaking. Uten mulighet for a tjene mer enn andre, ville motivasjonen til a innovere og investere vare svakere. Mot for mye ulikhet: Nar ulikheten er svart hoy, realiseres ikke talentene til de fattige fordi de mangler tilgang til utdanning og helse. Ettersporselen svekkes nar kjopekraften konsentreres hos noen fa, og politisk ustabilitet kan undergrave investeringsklimaet. IMF har vist at moderat ulikhet kan fremme vekst, men at land med svart hoy ulikhet har lavere og mer ustabil vekst. De nordiske landene demonstrerer at lav ulikhet og hoy produktivitet kan ga hand i hand.',
+        solution: 'For: Noe ulikhet gir insentiver til arbeid, utdanning og risikotaking. Uten mulighet for a tjene mer enn andre, ville motivasjonen til a innovere og investere vare svakere. Mot for mye ulikhet: Nar ulikheten er svart hoy, realiseres ikke talentene til de fattige fordi de mangler tilgang til utdanning og helse. Etterspørselen svekkes nar kjopekraften konsentreres hos noen fa, og politisk ustabilitet kan undergrave investeringsklimaet. IMF har vist at moderat ulikhet kan fremme vekst, men at land med svart hoy ulikhet har lavere og mer ustabil vekst. De nordiske landene demonstrerer at lav ulikhet og hoy produktivitet kan ga hand i hand.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1284,7 +1284,7 @@ Reformen er et eksempel pa en automatisk stabilisator: den justerer utgiftene i 
         difficulty: 'vanskelig',
         task: 'Perspektivmeldingen viser et framtidig finansieringsgap i velferdsstaten. Droft minst tre ulike tiltak for a tette dette gapet, og vurder fordeler og ulemper ved hvert tiltak.',
         hints: [
-          'Tenk pa tiltak som pavirker henholdsvis inntektssiden og utgiftssiden.',
+          'Tenk pa tiltak som påvirker henholdsvis inntektssiden og utgiftssiden.',
           'Vurder bade okonomiske og sosiale konsekvenser av hvert tiltak.',
         ],
         solution: 'Tiltak 1: Oke skattene - gir okte inntekter, men kan svekke insentiver og konkurranseevne. Tiltak 2: Heve pensjonsalderen - oker arbeidsstyrken og skattegrunnlaget, men kan ramme yrkesgrupper med fysisk krevende arbeid urettferdig. Tiltak 3: Oke yrkesdeltakelsen blant innvandrere - utnytter et stort potensial, men krever investeringer i integrering og utdanning. Tiltak 4: Effektivisere offentlig sektor gjennom digitalisering - kan redusere kostnader, men kan ogsa fore til nedbemanning og tap av personlig kontakt. Tiltak 5: Redusere sykefravaret - Norge har hoyt sykefravar, og selv en liten reduksjon gir store besparelser. I praksis trengs en kombinasjon av tiltak fordi hvert enkelt tiltak har begrensninger.',
@@ -1302,7 +1302,7 @@ Reformen er et eksempel pa en automatisk stabilisator: den justerer utgiftene i 
         difficulty: 'vanskelig',
         task: 'Droft om den norske velferdsstaten er barekraftig pa lang sikt. Bruk okonomisk teori og konkrete eksempler til a argumentere for og mot barekraft, og foresla hva som ma gjores for a sikre velferden for kommende generasjoner.',
         hints: [
-          'Tenk pa demografiske, okonomiske og politiske faktorer.',
+          'Tenk pa demografiske, okonomiske og politiske faktører.',
           'Vurder om teknologisk utvikling kan vare en del av losningen.',
         ],
         solution: 'For barekraft: Norge har et enormt oljefond, hoy produktivitet, et velfungerende arbeidsmarked og tradisjon for omstilling. Pensjonsreformen viser evne til langsiktig tilpasning. Mot barekraft: Eldrebolgen vil oke utgiftene dramatisk, oljeinntektene vil avta, klimaomstillingen krever store investeringer, og hoy innvandring stiller krav til integrering. For a sikre velferden trengs: okt yrkesdeltakelse (sarlig innvandrere, eldre, ufore), fortsatt pensjonsreformer, effektivisering gjennom digitalisering og velferdsteknologi, forebygging framfor reparasjon, og vilje til a prioritere. Teknologi (AI, automatisering) kan oke produktiviteten og kompensere for farre yrkesaktive. Barekraften avhenger til syvende og sist av politisk vilje til a tilpasse modellen til nye realiteter.',

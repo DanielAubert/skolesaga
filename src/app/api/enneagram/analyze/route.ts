@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth/config';
 import type { EnneagramResult } from '@/lib/types/enneagram';
 import { TYPE_NAMES, TYPE_SUBTITLES, ENNEAGRAM_ORDER } from '@/lib/types/enneagram';
 
@@ -7,6 +9,11 @@ const anthropic = new Anthropic();
 
 export async function POST(request: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Du må være innlogget' }, { status: 401 });
+    }
+
     const result = await request.json() as EnneagramResult;
 
     if (!result || !result.typeScores || !result.dominantType) {
