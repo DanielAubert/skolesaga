@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookCheck, GraduationCap, Layers, HelpCircle } from 'lucide-react';
+import { GraduationCap, Layers, HelpCircle, Trophy, ArrowRight } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import {
   getOrganizedQuizData,
@@ -70,6 +70,26 @@ export default function QuizOverviewPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Gigaquiz Banner */}
+      <div className="container mx-auto px-4 pt-8">
+        <Link href="/quiz/gigaquiz/historie" className="block">
+          <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 p-6 md:p-8 text-white hover:shadow-lg transition-shadow">
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                <Trophy className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-xl md:text-2xl font-bold mb-1">Historie Gigaquiz</h2>
+                <p className="text-white/80 text-sm md:text-base">
+                  51 spørsmål over 17 kapitler – finn ut hva du kan og hva du bør repetere
+                </p>
+              </div>
+              <ArrowRight className="w-6 h-6 shrink-0 hidden sm:block" />
+            </div>
+          </div>
+        </Link>
       </div>
 
       {/* Main Content */}

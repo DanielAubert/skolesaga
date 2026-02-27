@@ -21,8 +21,8 @@ export default function HomePage() {
         <HomeHeader />
 
         {/* Lærebøker og Quiz - Hovedseksjon */}
-        <div className="relative container mx-auto px-4 py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="relative container mx-auto max-w-5xl px-6 py-12 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Lærebøker-kort */}
             <Link href="/bok" className="block group">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
@@ -48,9 +48,9 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Quiz-kort */}
-            <Link href="/quiz" className="block group">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
+            {/* Quiz-kort (under utvikling) */}
+            <Link href="/quiz" className="block group relative">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square grayscale-[40%] opacity-80">
                 <Image
                   src="/home/prove-quiz.jpg"
                   alt="Prøve Quiz"
@@ -60,7 +60,7 @@ export default function HomePage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 shadow-lg">
-                    Start quiz nå
+                    Kommer snart
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>

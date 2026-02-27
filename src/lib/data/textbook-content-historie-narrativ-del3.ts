@@ -67,10 +67,10 @@ Det er viktig å forstå at foydalsimen ikke var et enhetlig "system" som ble in
             id: 'historie-4-1-n-quiz1-q0',
             task: 'Hva var grunnprinsippet i føydalismen?',
             options: [
-              { id: 'a', text: 'Penger i bytte mot arbeid', isCorrect: false },
-              { id: 'b', text: 'Demokratisk valg av lokale ledere', isCorrect: false },
+              { id: 'a', text: 'Skatt i bytte mot kongelig beskyttelse og rettsorden', isCorrect: false },
+              { id: 'b', text: 'Handelsprivilegier i bytte mot militærtjeneste og avgifter', isCorrect: false },
               { id: 'c', text: 'Jord i bytte mot lojalitet og militærtjeneste', isCorrect: true },
-              { id: 'd', text: 'Kirken styrte all jord og fordelte den rettferdig', isCorrect: false },
+              { id: 'd', text: 'Kirken fordelte jord til vasaller mot tiende og troskap', isCorrect: false },
             ],
             solution:
               'Føydalismens grunnprinsipp var at kongen ga jord (len) til vasaller, som til gjengjeld sverget troskap og stilte med soldater. Det var et system bygd på personlige lojalitetsbånd der jord ble byttet mot tjeneste.',
@@ -79,9 +79,9 @@ Det er viktig å forstå at foydalsimen ikke var et enhetlig "system" som ble in
             id: 'historie-4-1-n-quiz1-q1',
             task: 'Hva kaltes jordområdene kongen ga til sine betrodde menn?',
             options: [
-              { id: 'a', text: 'Gods', isCorrect: false },
+              { id: 'a', text: 'Allodier', isCorrect: false },
               { id: 'b', text: 'Len', isCorrect: true },
-              { id: 'c', text: 'Teiger', isCorrect: false },
+              { id: 'c', text: 'Beneficier', isCorrect: false },
               { id: 'd', text: 'Domener', isCorrect: false },
             ],
             solution:
@@ -91,9 +91,9 @@ Det er viktig å forstå at foydalsimen ikke var et enhetlig "system" som ble in
             id: 'historie-4-1-n-quiz1-q2',
             task: 'Hva holdt det føydale hierarkiet sammen?',
             options: [
-              { id: 'a', text: 'Skriftlige lover vedtatt av en nasjonalforsamling', isCorrect: false },
-              { id: 'b', text: 'Et profesjonelt politi og rettsvesen', isCorrect: false },
-              { id: 'c', text: 'Kirkens autoritet alene', isCorrect: false },
+              { id: 'a', text: 'Skriftlige lovsamlinger som gjaldt i hele riket', isCorrect: false },
+              { id: 'b', text: 'Kongens sentraliserte forvaltning med embetsmenn i alle regioner', isCorrect: false },
+              { id: 'c', text: 'Kirkens ekskommunikasjon som trussel mot de som brøt sine forpliktelser', isCorrect: false },
               { id: 'd', text: 'Personlige vasallbånd bekreftet gjennom ed og seremoni', isCorrect: true },
             ],
             solution:
@@ -132,10 +132,10 @@ Standstilhørighet var noe du ble født med. Sosial mobilitet var sterkt begrens
             id: 'historie-4-1-n-quiz2-q0',
             task: 'Omtrent hvor stor andel av befolkningen tilhørte bondestanden i middelalderen?',
             options: [
-              { id: 'a', text: 'Omtrent 50 prosent', isCorrect: false },
-              { id: 'b', text: 'Omtrent 70 prosent', isCorrect: false },
+              { id: 'a', text: 'Omtrent 60 prosent', isCorrect: false },
+              { id: 'b', text: 'Omtrent 75 prosent', isCorrect: false },
               { id: 'c', text: 'Omtrent 90 prosent', isCorrect: true },
-              { id: 'd', text: 'Omtrent 30 prosent', isCorrect: false },
+              { id: 'd', text: 'Omtrent 80 prosent', isCorrect: false },
             ],
             solution:
               'Bondestanden utgjorde rundt 90 prosent av befolkningen i middelalderen. De produserte maten og betalte skatt, mens adel og geistlighet til sammen utgjorde en liten minoritet.',
@@ -145,8 +145,8 @@ Standstilhørighet var noe du ble født med. Sosial mobilitet var sterkt begrens
             task: 'Hvilken stand ble omtalt som "de som ber"?',
             options: [
               { id: 'a', text: 'Adelen', isCorrect: false },
-              { id: 'b', text: 'Bøndene', isCorrect: false },
-              { id: 'c', text: 'Kjøpmennene', isCorrect: false },
+              { id: 'b', text: 'Munkene og nonnene, som utgjorde en egen stand', isCorrect: false },
+              { id: 'c', text: 'Borgerstanden i byene', isCorrect: false },
               { id: 'd', text: 'Geistligheten', isCorrect: true },
             ],
             solution:
@@ -156,10 +156,10 @@ Standstilhørighet var noe du ble født med. Sosial mobilitet var sterkt begrens
             id: 'historie-4-1-n-quiz2-q2',
             task: 'Hva var "livegne" i middelalderen?',
             options: [
-              { id: 'a', text: 'Slaver som kunne kjøpes og selges fritt', isCorrect: false },
-              { id: 'b', text: 'Frie bønder som eide sin egen jord', isCorrect: false },
+              { id: 'a', text: 'Leilendinger som leide jord av herren og fritt kunne flytte til et annet gods', isCorrect: false },
+              { id: 'b', text: 'Frie bønder som eide sin egen jord, men betalte skatt til kongen', isCorrect: false },
               { id: 'c', text: 'Bønder som var bundet til jorden de dyrket, men som ikke var slaver', isCorrect: true },
-              { id: 'd', text: 'Riddere som hadde mistet sine len', isCorrect: false },
+              { id: 'd', text: 'Treller som var herrens personlige eiendom uten noen rettigheter', isCorrect: false },
             ],
             solution:
               'Livegne var bønder som var bundet til jorden de dyrket og ikke kunne flytte uten herrens tillatelse. Men de var ikke slaver - de hadde rett til sin egen jordlapp, kunne ikke selges, og herren hadde plikter overfor dem.',
@@ -168,10 +168,10 @@ Standstilhørighet var noe du ble født med. Sosial mobilitet var sterkt begrens
             id: 'historie-4-1-n-quiz2-q3',
             task: 'Hvilken mulighet for sosial mobilitet fantes for fattige gutter i middelalderen?',
             options: [
-              { id: 'a', text: 'De kunne bli riddere gjennom militærtjeneste', isCorrect: false },
+              { id: 'a', text: 'De kunne bli riddere gjennom å gjøre seg bemerket i krig', isCorrect: false },
               { id: 'b', text: 'Kirken var en vei oppover for begavede fattige gutter', isCorrect: true },
-              { id: 'c', text: 'De kunne stemme seg inn i adelen gjennom tinget', isCorrect: false },
-              { id: 'd', text: 'Det fantes ingen som helst mulighet for sosial mobilitet', isCorrect: false },
+              { id: 'c', text: 'De kunne bli laugsmedlemmer i byene og oppnå borgerskap', isCorrect: false },
+              { id: 'd', text: 'De kunne kjøpe seg inn i adelen gjennom handel og rikdom', isCorrect: false },
             ],
             solution:
               'Selv om sosial mobilitet var sterkt begrenset, var kirken et viktig unntak. Begavede fattige gutter kunne gjennom kirken få utdanning og oppnå innflytelsesrike posisjoner som prester, munker eller til og med biskoper.',
@@ -209,9 +209,9 @@ Sesongene styrer alt. Våren bringer såing, sommeren bringer luking og stell, h
             id: 'historie-4-1-n-quiz3-q0',
             task: 'Hva innebar "hoveri" for en middelalder-bonde?',
             options: [
-              { id: 'a', text: 'Rett til å jakte i herrens skog', isCorrect: false },
-              { id: 'b', text: 'Plikt til å betale skatt i penger', isCorrect: false },
-              { id: 'c', text: 'Rett til å delta i rettssaker', isCorrect: false },
+              { id: 'a', text: 'Plikt til å stille som soldat i herrens hær ved krig', isCorrect: false },
+              { id: 'b', text: 'Plikt til å betale tiende av avlingen til kirken', isCorrect: false },
+              { id: 'c', text: 'Plikt til å levere en andel av egen avling som landskyld', isCorrect: false },
               { id: 'd', text: 'Arbeidsplikt på herrens jord', isCorrect: true },
             ],
             solution:
@@ -221,10 +221,10 @@ Sesongene styrer alt. Våren bringer såing, sommeren bringer luking og stell, h
             id: 'historie-4-1-n-quiz3-q1',
             task: 'Hva var formålet med toskiftebruk eller treskiftebruk?',
             options: [
-              { id: 'a', text: 'Å gi bøndene mer fritid ved å redusere arbeidsmengden', isCorrect: false },
+              { id: 'a', text: 'Å veksle mellom ulike kornsorter for å øke avlingene', isCorrect: false },
               { id: 'b', text: 'Å la deler av jorden ligge brakk for å gjenvinne fruktbarheten', isCorrect: true },
-              { id: 'c', text: 'Å fordele jorden rettferdig mellom herren og bøndene', isCorrect: false },
-              { id: 'd', text: 'Å hindre bøndene i å dyrke for mye mat', isCorrect: false },
+              { id: 'c', text: 'Å fordele teigene rettferdig mellom bøndene i landsbyen', isCorrect: false },
+              { id: 'd', text: 'Å sørge for at herrens jord og bøndenes jord ble dyrket i tur', isCorrect: false },
             ],
             solution:
               'I toskiftebruk og treskiftebruk lot man deler av jorden ligge brakk hvert år, slik at næringsstoffene i jorden kunne bygge seg opp igjen. Dette var en viktig jordbruksteknikk for å opprettholde fruktbarheten over tid.',
@@ -233,10 +233,10 @@ Sesongene styrer alt. Våren bringer såing, sommeren bringer luking og stell, h
             id: 'historie-4-1-n-quiz3-q2',
             task: 'Hva var godseierens plikter overfor bøndene?',
             options: [
-              { id: 'a', text: 'Han hadde ingen plikter - bøndene måtte klare seg selv', isCorrect: false },
-              { id: 'b', text: 'Han skulle gi dem lønn i penger for arbeidet', isCorrect: false },
+              { id: 'a', text: 'Han skulle sørge for kirke og prest i landsbyen og betale tiende på deres vegne', isCorrect: false },
+              { id: 'b', text: 'Han skulle stille korn fra egne lagre til rådighet i uår og hungersperioder', isCorrect: false },
               { id: 'c', text: 'Han skulle beskytte dem, holde rettssaker og vedlikeholde veier og broer', isCorrect: true },
-              { id: 'd', text: 'Han skulle sørge for utdanning til bøndenes barn', isCorrect: false },
+              { id: 'd', text: 'Han skulle gi dem en fast andel av avlingen fra godsets fellesareal', isCorrect: false },
             ],
             solution:
               'Forholdet mellom godseier og bonde var gjensidig. Til gjengjeld for bøndenes avgifter og arbeidsplikt skulle herren beskytte dem mot fiender, holde rettssaker rettferdig, og vedlikeholde veier og broer.',
@@ -272,10 +272,10 @@ Vi kan sammenligne foydaleden med en moderne arbeidskontrakt, men forskjellene e
             id: 'historie-4-1-n-quiz4-q0',
             task: 'Hva var den viktigste forskjellen mellom føydaleden og en moderne arbeidskontrakt?',
             options: [
-              { id: 'a', text: 'Føydaleden var skriftlig, mens arbeidskontrakter er muntlige', isCorrect: false },
+              { id: 'a', text: 'Føydaleden ble regulert av kirkelig lov, mens arbeidskontrakter reguleres av verdslig lov', isCorrect: false },
               { id: 'b', text: 'Føydaleden var personlig og totalomfattende, mens arbeidskontrakter er saklige og avgrensede', isCorrect: true },
-              { id: 'c', text: 'Arbeidskontrakter er gjensidige, men føydaleden var ensidig', isCorrect: false },
-              { id: 'd', text: 'Føydaleden varte bare ett år om gangen', isCorrect: false },
+              { id: 'c', text: 'Føydaleden bandt bare vasallen, mens arbeidskontrakter forplikter begge parter', isCorrect: false },
+              { id: 'd', text: 'Føydaleden gjaldt bare i krigstid, mens arbeidskontrakter gjelder hele året', isCorrect: false },
             ],
             solution:
               'Føydaleden var et personlig lojalitetsforhold som omfattet hele livet - vasallen lovte troskap med livet som innsats. En arbeidskontrakt er saklig og avgrenset til bestemte oppgaver og kan sies opp. Begge er imidlertid gjensidige, med rettigheter og plikter for begge parter.',
@@ -284,10 +284,10 @@ Vi kan sammenligne foydaleden med en moderne arbeidskontrakt, men forskjellene e
             id: 'historie-4-1-n-quiz4-q1',
             task: 'Hva ble seremonien der vasallen avla ed til sin herre kalt?',
             options: [
-              { id: 'a', text: 'Kroning', isCorrect: false },
-              { id: 'b', text: 'Investitur', isCorrect: false },
+              { id: 'a', text: 'Investitur', isCorrect: false },
+              { id: 'b', text: 'Felicitas', isCorrect: false },
               { id: 'c', text: 'Hommage', isCorrect: true },
-              { id: 'd', text: 'Ekskommunikasjon', isCorrect: false },
+              { id: 'd', text: 'Kommendation', isCorrect: false },
             ],
             solution:
               'Seremonien ble kalt hommage, fra det franske ordet for mannskap. Vasallen knilet ned, la sine hender i herrens hender, og avla en høytidelig ed om troskap.',
@@ -296,9 +296,9 @@ Vi kan sammenligne foydaleden med en moderne arbeidskontrakt, men forskjellene e
             id: 'historie-4-1-n-quiz4-q2',
             task: 'Hva skjedde hvis herren sviktet sin plikt til å beskytte vasallen?',
             options: [
-              { id: 'a', text: 'Vasallen måtte likevel holde sin ed livet ut', isCorrect: false },
-              { id: 'b', text: 'Kirken straffet herren med ekskommunikasjon', isCorrect: false },
-              { id: 'c', text: 'Kongen grep inn og avsatte herren', isCorrect: false },
+              { id: 'a', text: 'Vasallen kunne kreve erstatning i form av ekstra jordeiendommer', isCorrect: false },
+              { id: 'b', text: 'Vasallen kunne klage saken inn for kirkens domstoler og få oppreisning', isCorrect: false },
+              { id: 'c', text: 'Kongen måtte gripe inn som øverste dommer og tildele vasallen en ny herre', isCorrect: false },
               { id: 'd', text: 'Vasallen kunne i teorien anse seg løst fra sin ed', isCorrect: true },
             ],
             solution:
@@ -337,9 +337,9 @@ Fra et **moderne perspektiv** bygger dagens demokratier på tanken om at mennesk
             id: 'historie-4-1-n-quiz5-q0',
             task: 'Hvordan ble standssamfunnet rettferdiggjort i middelalderen?',
             options: [
-              { id: 'a', text: 'Gjennom demokratiske valg der folk aksepterte systemet', isCorrect: false },
-              { id: 'b', text: 'Gjennom vitenskapelige argumenter om at noen var smartere enn andre', isCorrect: false },
-              { id: 'c', text: 'Gjennom militærmakt alene - folk hadde ikke noe valg', isCorrect: false },
+              { id: 'a', text: 'Gjennom sedvane og tradisjon - slik hadde det alltid vært siden romertiden', isCorrect: false },
+              { id: 'b', text: 'Gjennom naturrettslige argumenter hentet fra antikkens filosofi', isCorrect: false },
+              { id: 'c', text: 'Gjennom gjensidige forpliktelser der alle stender frivillig aksepterte sine roller', isCorrect: false },
               { id: 'd', text: 'Gjennom religiøs begrunnelse - det var Guds vilje at samfunnet var ordnet slik', isCorrect: true },
             ],
             solution:
@@ -349,10 +349,10 @@ Fra et **moderne perspektiv** bygger dagens demokratier på tanken om at mennesk
             id: 'historie-4-1-n-quiz5-q1',
             task: 'Hva skiller en livegen bonde fra en slave?',
             options: [
-              { id: 'a', text: 'Det var ingen forskjell - begge var ufrie', isCorrect: false },
+              { id: 'a', text: 'En livegen var bundet til herren personlig, mens en slave var bundet til jorden', isCorrect: false },
               { id: 'b', text: 'En livegen hadde rett til egen jordlapp, kunne ikke selges, og herren hadde plikter overfor ham', isCorrect: true },
-              { id: 'c', text: 'En livegen kunne fritt flytte til en annen herre', isCorrect: false },
-              { id: 'd', text: 'En livegen betalte lønn, mens en slave ikke gjorde det', isCorrect: false },
+              { id: 'c', text: 'En livegen kunne kjøpe seg fri etter et bestemt antall arbeidsår', isCorrect: false },
+              { id: 'd', text: 'En livegen ble beskyttet av kirkens lov, mens en slave sto utenfor all rett', isCorrect: false },
             ],
             solution:
               'En livegen bonde var bundet til jorden og kunne ikke flytte uten herrens tillatelse. Men til forskjell fra en slave hadde han rett til sin egen jordlapp, kunne ikke selges, og herren hadde plikter overfor ham.',
@@ -361,10 +361,10 @@ Fra et **moderne perspektiv** bygger dagens demokratier på tanken om at mennesk
             id: 'historie-4-1-n-quiz5-q2',
             task: 'Hvorfor advarer historikere mot å dømme føydalismen etter moderne målestokk?',
             options: [
-              { id: 'a', text: 'Fordi føydalismen egentlig var et rettferdig system', isCorrect: false },
-              { id: 'b', text: 'Fordi menneskene den gangen var dummere enn oss', isCorrect: false },
+              { id: 'a', text: 'Fordi føydalismen faktisk ga bedre levestandard enn de fleste moderne samfunn', isCorrect: false },
+              { id: 'b', text: 'Fordi middelalderens kilder er skrevet av adelen og gir et skjevt bilde', isCorrect: false },
               { id: 'c', text: 'Fordi middelalderens mennesker forstod sin verden ut fra helt andre forutsetninger enn våre', isCorrect: true },
-              { id: 'd', text: 'Fordi vi ikke har nok kilder til å vurdere systemet', isCorrect: false },
+              { id: 'd', text: 'Fordi føydalismen var en overgangsperiode som naturlig ledet til demokrati', isCorrect: false },
             ],
             solution:
               'Historikere advarer mot anakronisme - å bruke moderne verdier til å dømme fortiden. Føydalismen ga orden, beskyttelse og forutsigbarhet i en urolig tid, og menneskene som levde i systemet forstod verden ut fra helt andre forutsetninger enn våre. "Rettferdighet" endrer innhold med tiden.',
@@ -448,8 +448,8 @@ Senere styrket **Harald Hardråde** (1046-1066) kongemakten ytterligere, for han
             id: 'historie-4-2-n-quiz1-q0',
             task: 'Hvem er tradisjonelt regnet som den første kongen som samlet Norge?',
             options: [
-              { id: 'a', text: 'Olav Tryggvason', isCorrect: false },
-              { id: 'b', text: 'Harald Hardråde', isCorrect: false },
+              { id: 'a', text: 'Håkon den gode', isCorrect: false },
+              { id: 'b', text: 'Olav Tryggvason', isCorrect: false },
               { id: 'c', text: 'Harald Hårfagre', isCorrect: true },
               { id: 'd', text: 'Olav den hellige', isCorrect: false },
             ],
@@ -460,9 +460,9 @@ Senere styrket **Harald Hardråde** (1046-1066) kongemakten ytterligere, for han
             id: 'historie-4-2-n-quiz1-q1',
             task: 'Hvem fullførte kristningen av Norge og ble senere erklært helgen?',
             options: [
-              { id: 'a', text: 'Harald Hårfagre', isCorrect: false },
-              { id: 'b', text: 'Olav Tryggvason', isCorrect: false },
-              { id: 'c', text: 'Harald Hardråde', isCorrect: false },
+              { id: 'a', text: 'Håkon den gode, som var den første kristne kongen', isCorrect: false },
+              { id: 'b', text: 'Olav Tryggvason, som grunnla Nidaros og startet kristningen', isCorrect: false },
+              { id: 'c', text: 'Harald Hardråde, som styrket kongemakten med kirkens støtte', isCorrect: false },
               { id: 'd', text: 'Olav Haraldsson (Olav den hellige)', isCorrect: true },
             ],
             solution:
@@ -472,10 +472,10 @@ Senere styrket **Harald Hardråde** (1046-1066) kongemakten ytterligere, for han
             id: 'historie-4-2-n-quiz1-q2',
             task: 'Hvorfor var rikssamlingen ikke en rettlinjet prosess?',
             options: [
-              { id: 'a', text: 'Fordi kongene manglet militær styrke', isCorrect: false },
+              { id: 'a', text: 'Fordi norrøn arverett krevde at riket ble delt likt mellom alle sønner', isCorrect: false },
               { id: 'b', text: 'Fordi rikene falt fra hverandre når samlende konger døde, og lokale stormenn tok tilbake makten', isCorrect: true },
-              { id: 'c', text: 'Fordi kirken motarbeidet samlingen aktivt', isCorrect: false },
-              { id: 'd', text: 'Fordi Danmark kontrollerte hele Norge', isCorrect: false },
+              { id: 'c', text: 'Fordi de ulike landsdelene hadde forskjellige lover som forhindret samling', isCorrect: false },
+              { id: 'd', text: 'Fordi danske og svenske konger gjentatte ganger erobret og delte opp Norge', isCorrect: false },
             ],
             solution:
               'Rikssamlingen besto av perioder med samling og oppløsning. Når en samlende konge døde, falt riket gjerne fra hverandre igjen fordi lokale stormenn grep sjansen til å gjenerobre selvstendigheten. Prosessen tok flere hundre år.',
@@ -485,9 +485,9 @@ Senere styrket **Harald Hardråde** (1046-1066) kongemakten ytterligere, for han
             task: 'Hvilken by grunnla Olav Tryggvason?',
             options: [
               { id: 'a', text: 'Bergen', isCorrect: false },
-              { id: 'b', text: 'Oslo', isCorrect: false },
+              { id: 'b', text: 'Tønsberg', isCorrect: false },
               { id: 'c', text: 'Nidaros (Trondheim)', isCorrect: true },
-              { id: 'd', text: 'Stavanger', isCorrect: false },
+              { id: 'd', text: 'Sarpsborg', isCorrect: false },
             ],
             solution:
               'Olav Tryggvason grunnla Nidaros, det som i dag er Trondheim. Han regjerte fra 995 til 1000 og startet en systematisk kristning av Norge, før han falt i Slaget ved Svolder i år 1000.',
@@ -525,10 +525,10 @@ Men kristningen brakte også noe mer enn religion. Med kirken kom **skriftkultur
             id: 'historie-4-2-n-quiz2-q0',
             task: 'Hvordan hjalp kristningen kongene i rikssamlingen?',
             options: [
-              { id: 'a', text: 'Kristendommen lærte folk å lese og skrive, slik at de kunne følge kongens lover', isCorrect: false },
-              { id: 'b', text: 'Kirken ga penger til kongene slik at de kunne hyre soldater', isCorrect: false },
+              { id: 'a', text: 'Kirken brakte skriftkultur som gjorde det mulig for kongen å lovfeste sin makt', isCorrect: false },
+              { id: 'b', text: 'Kristendommen ga kongen kontroll over kirkens store jordeiendommer og inntekter', isCorrect: false },
               { id: 'c', text: 'Kristendommen svekket lokale høvdingers religiøse makt og ga kongen guddommelig legitimitet', isCorrect: true },
-              { id: 'd', text: 'Paven sendte soldater for å hjelpe kongene med å samle riket', isCorrect: false },
+              { id: 'd', text: 'Paven anerkjente kongens rett til hele Norge og forbød lokale høvdinger å gjøre motstand', isCorrect: false },
             ],
             solution:
               'Kristningen styrket kongemakten ved at kongen nå styrte "av Guds nåde", noe som ga guddommelig legitimitet. Samtidig ble lokale høvdinger svekket fordi de mistet sin religiøse rolle som blotmenn.',
@@ -537,10 +537,10 @@ Men kristningen brakte også noe mer enn religion. Med kirken kom **skriftkultur
             id: 'historie-4-2-n-quiz2-q1',
             task: 'Hvilken rolle hadde høvdingen i den norrøne religionen?',
             options: [
-              { id: 'a', text: 'Han var prest i et tempel', isCorrect: false },
+              { id: 'a', text: 'Han var gode - en kultleder med ansvar for å tolke gudenes vilje gjennom runer', isCorrect: false },
               { id: 'b', text: 'Han var blotmann - den som ledet de religiøse seremoniene', isCorrect: true },
-              { id: 'c', text: 'Han hadde ingen religiøs rolle', isCorrect: false },
-              { id: 'd', text: 'Han var utnevnt av en overordnet religiøs leder', isCorrect: false },
+              { id: 'c', text: 'Han var vølvens beskytter og ga henne myndighet til å utføre seid', isCorrect: false },
+              { id: 'd', text: 'Han var den som forvaltet helligdommen og mottok ofringer på vegne av bygda', isCorrect: false },
             ],
             solution:
               'I den norrøne religionen var høvdingen ofte blotmann - den som ledet de religiøse seremoniene lokalt. Religionen ga ham makt og legitimitet. Kristendommen fjernet denne rollen og svekket dermed høvdingenes maktgrunnlag.',
@@ -549,9 +549,9 @@ Men kristningen brakte også noe mer enn religion. Med kirken kom **skriftkultur
             id: 'historie-4-2-n-quiz2-q2',
             task: 'Hva brakte kristendommen med seg til Norge utover selve religionen?',
             options: [
-              { id: 'a', text: 'Demokratisk styreform og parlamentarisme', isCorrect: false },
-              { id: 'b', text: 'Militærteknologi som kruttvåpen', isCorrect: false },
-              { id: 'c', text: 'Pengeøkonomi og bankvirksomhet', isCorrect: false },
+              { id: 'a', text: 'Føydalsystemet med vasaller og len etter fransk modell', isCorrect: false },
+              { id: 'b', text: 'Steinbygningskunst, bybefestninger og en stående hær etter europeisk mønster', isCorrect: false },
+              { id: 'c', text: 'Et nytt rettssystem basert på romersk lov som erstattet tinget', isCorrect: false },
               { id: 'd', text: 'Skriftkultur, nye lover og tilknytning til det europeiske fellesskapet', isCorrect: true },
             ],
             solution:
@@ -590,10 +590,10 @@ Men den viktigste arven fra 1200-tallet er kanskje juridisk. **Magnus Lagabøtes
             id: 'historie-4-2-n-quiz3-q0',
             task: 'Hva var Magnus Lagabøtes landslov (1274)?',
             options: [
-              { id: 'a', text: 'En lov som ga kirken makt over kongen', isCorrect: false },
+              { id: 'a', text: 'En revisjon av Gulatingsloven som ble gjort gjeldende for hele Vestlandet', isCorrect: false },
               { id: 'b', text: 'Den første felles loven for hele Norge', isCorrect: true },
-              { id: 'c', text: 'En lov som forbød den norrøne religionen', isCorrect: false },
-              { id: 'd', text: 'En handelsavtale med Hansaforbundet', isCorrect: false },
+              { id: 'c', text: 'En ny kristenrett som regulerte forholdet mellom kirke og kongemakt', isCorrect: false },
+              { id: 'd', text: 'En arvelov som sikret at bare eldste sønn kunne arve tronen', isCorrect: false },
             ],
             solution:
               'Magnus Lagabøtes landslov fra 1274 var den første nasjonale lovsamlingen i Norden. Den innførte felles lover for hele Norge og erstattet de lokale tinglovene.',
@@ -602,10 +602,10 @@ Men den viktigste arven fra 1200-tallet er kanskje juridisk. **Magnus Lagabøtes
             id: 'historie-4-2-n-quiz3-q1',
             task: 'Hvilken konge innledet Norges storhetstid på 1200-tallet?',
             options: [
-              { id: 'a', text: 'Olav den hellige', isCorrect: false },
+              { id: 'a', text: 'Sverre Sigurdsson', isCorrect: false },
               { id: 'b', text: 'Magnus Lagabøte', isCorrect: false },
               { id: 'c', text: 'Håkon Håkonsson', isCorrect: true },
-              { id: 'd', text: 'Harald Hårfagre', isCorrect: false },
+              { id: 'd', text: 'Inge Bårdsson', isCorrect: false },
             ],
             solution:
               'Håkon Håkonsson (1217-1263) samlet riket etter borgerkrigsperioden og innledet en blomstringstid. Under ham var Norge på sitt aller største, med kontroll over Grønland, Island, Færøyene, Orknøyene, Shetland og Man.',
@@ -614,10 +614,10 @@ Men den viktigste arven fra 1200-tallet er kanskje juridisk. **Magnus Lagabøtes
             id: 'historie-4-2-n-quiz3-q2',
             task: 'Hva var Kongespeilet?',
             options: [
-              { id: 'a', text: 'Et stort speil i Håkonshallen', isCorrect: false },
-              { id: 'b', text: 'En lovsamling for hele Norge', isCorrect: false },
+              { id: 'a', text: 'En hirdskrå som beskrev reglene for kongens hird og hoff', isCorrect: false },
+              { id: 'b', text: 'En krønike som dokumenterte de norske kongenes historie fra Harald Hårfagre', isCorrect: false },
               { id: 'c', text: 'Et læreverk skrevet som dialog mellom far og sønn om kongens plikter, handel og krigskunst', isCorrect: true },
-              { id: 'd', text: 'En religiøs tekst skrevet av erkebiskopen i Nidaros', isCorrect: false },
+              { id: 'd', text: 'Et diplomatisk verk som beskrev Norges forhold til paven og andre europeiske makter', isCorrect: false },
             ],
             solution:
               'Kongespeilet var et læreverk fra 1200-tallet skrevet som en dialog mellom far og sønn. Det ga råd om kongens plikter, handel og krigskunst, og gir oss et fascinerende innblikk i hva nordmenn på den tiden verdsatte.',
@@ -626,10 +626,10 @@ Men den viktigste arven fra 1200-tallet er kanskje juridisk. **Magnus Lagabøtes
             id: 'historie-4-2-n-quiz3-q3',
             task: 'Hva var sysselmannssystemet?',
             options: [
-              { id: 'a', text: 'Et system der bøndene valgte sine egne ledere', isCorrect: false },
-              { id: 'b', text: 'Et skattesystem basert på jordeiendommer', isCorrect: false },
+              { id: 'a', text: 'Et system der lendmenn fikk lokale len mot militærtjeneste', isCorrect: false },
+              { id: 'b', text: 'Et leidangssystem der bønder langs kysten stilte skip til kongens flåte', isCorrect: false },
               { id: 'c', text: 'Et system med kongelige embetsmenn som representerte kongen lokalt', isCorrect: true },
-              { id: 'd', text: 'Et forsvarssystem med borger langs kysten', isCorrect: false },
+              { id: 'd', text: 'Et lagmannssystem der lokale lovkyndige dømte på vegne av tinget', isCorrect: false },
             ],
             solution:
               'Sysselmannssystemet var et system med kongelige embetsmenn (sysselmenn) som representerte kongen lokalt rundt om i landet. Det styrket den sentrale kongemakten og bidro til at lovene ble håndhevet over hele riket.',
@@ -665,10 +665,10 @@ Svartedauden markerte et brutalt vendepunkt i norsk historie. Fra å være et se
             id: 'historie-4-2-n-quiz4-q0',
             task: 'Hvilken konsekvens hadde svartedauden for Norge?',
             options: [
-              { id: 'a', text: 'Norge ble sterkere fordi de overlevende fikk mer jord', isCorrect: false },
+              { id: 'a', text: 'Bøndene fikk bedre kår fordi arbeidskraft ble knappere og lønningene steg', isCorrect: false },
               { id: 'b', text: 'Norge ble svekket og gikk inn i union med Danmark', isCorrect: true },
-              { id: 'c', text: 'Norge ble isolert fra resten av Europa', isCorrect: false },
-              { id: 'd', text: 'Pesten rammet bare byene, ikke landsbygda', isCorrect: false },
+              { id: 'c', text: 'Norske kjøpmenn overtok handelen fra hanseatene som ble hardest rammet', isCorrect: false },
+              { id: 'd', text: 'Kirken ble styrket fordi folk søkte til religionen i krisens kjølvann', isCorrect: false },
             ],
             solution:
               'Svartedauden drepte kanskje halvparten av Norges befolkning, ødela adelen, svekket statsmakten og førte til at Norge gikk inn i union med Danmark i 1380.',
@@ -678,9 +678,9 @@ Svartedauden markerte et brutalt vendepunkt i norsk historie. Fra å være et se
             task: 'Når nådde svartedauden Norge, og hvordan kom den?',
             options: [
               { id: 'a', text: 'I 1349, med et skip fra England som la til i Bergen', isCorrect: true },
-              { id: 'b', text: 'I 1380, med tyske handelsmenn fra Lübeck', isCorrect: false },
-              { id: 'c', text: 'I 1274, via landveien fra Sverige', isCorrect: false },
-              { id: 'd', text: 'I 1397, med soldater fra Danmark', isCorrect: false },
+              { id: 'b', text: 'I 1350, med hanseatiske handelsskip fra Lübeck til Bergen', isCorrect: false },
+              { id: 'c', text: 'I 1347, via landveien fra Sverige til Østlandet', isCorrect: false },
+              { id: 'd', text: 'I 1349, med et skip fra Flandern som la til i Oslo', isCorrect: false },
             ],
             solution:
               'Svartedauden nådde Norge i 1349. Et skip fra England la til i Bergen med pest ombord, og derfra spredte sykdommen seg raskt over hele landet. I løpet av to-tre år var kanskje halvparten av befolkningen død.',
@@ -689,10 +689,10 @@ Svartedauden markerte et brutalt vendepunkt i norsk historie. Fra å være et se
             id: 'historie-4-2-n-quiz4-q2',
             task: 'Hva var Kalmarunionen (1397)?',
             options: [
-              { id: 'a', text: 'En handelsavtale mellom Norge og Hansaforbundet', isCorrect: false },
-              { id: 'b', text: 'En fredsavtale mellom Norge og Sverige', isCorrect: false },
+              { id: 'a', text: 'En personalunion mellom Norge og Danmark som ekskluderte Sverige', isCorrect: false },
+              { id: 'b', text: 'Et forsvarsforbund mellom de nordiske landene rettet mot Hansaforbundet', isCorrect: false },
               { id: 'c', text: 'En union der Norge, Sverige og Danmark ble samlet under én felles konge', isCorrect: true },
-              { id: 'd', text: 'En allianse mellom de nordiske kirkene', isCorrect: false },
+              { id: 'd', text: 'En traktat som fordelte handelsrettigheter mellom de nordiske rikene', isCorrect: false },
             ],
             solution:
               'Kalmarunionen fra 1397 samlet Norge, Sverige og Danmark under én felles konge. For Norges del ble dette begynnelsen på en lang tid i skyggen av sterkere naboer. Unionen med Danmark skulle vare helt til 1814.',
@@ -730,10 +730,10 @@ Endelig var det **bøndenes motstand**. Norske bønder var friere enn sine europ
             id: 'historie-4-2-n-quiz5-q0',
             task: 'Hva var den viktigste geografiske hindringen for rikssamlingen i Norge?',
             options: [
-              { id: 'a', text: 'Mangel på naturressurser', isCorrect: false },
-              { id: 'b', text: 'For mange byer som konkurrerte om makten', isCorrect: false },
+              { id: 'a', text: 'Den lange kystlinjen som gjorde landet sårbart for angrep fra sjøen', isCorrect: false },
+              { id: 'b', text: 'Spredt bosetting med små befolkningssentre som var vanskelige å skattlegge', isCorrect: false },
               { id: 'c', text: 'Fjell, fjorder og enorme avstander som gjorde det vanskelig å kontrollere landet', isCorrect: true },
-              { id: 'd', text: 'Dårlig jordsmonn som hindret økonomisk vekst', isCorrect: false },
+              { id: 'd', text: 'Klimaet i nord som gjorde store deler av landet ubeboelig', isCorrect: false },
             ],
             solution:
               'Norges langstrakte geografi med fjell, fjorder og store avstander gjorde det ekstremt vanskelig å kontrollere hele landet fra ett senter. Reiser tok uker, og kommunikasjon var langsom.',
@@ -742,10 +742,10 @@ Endelig var det **bøndenes motstand**. Norske bønder var friere enn sine europ
             id: 'historie-4-2-n-quiz5-q1',
             task: 'Hva førte arvestrider typisk til i Norge i middelalderen?',
             options: [
-              { id: 'a', text: 'Fredelig maktoverføring mellom brødre', isCorrect: false },
-              { id: 'b', text: 'At kirken valgte den neste kongen', isCorrect: false },
+              { id: 'a', text: 'At riket ble delt i separate landsdeler styrt av hver sin sønn', isCorrect: false },
+              { id: 'b', text: 'At erkebiskopen i Nidaros avgjorde hvem som skulle bli konge', isCorrect: false },
               { id: 'c', text: 'Borgerkrig mellom rivaliserende tronkrevere', isCorrect: true },
-              { id: 'd', text: 'At riket ble styrt av et råd av stormenn', isCorrect: false },
+              { id: 'd', text: 'At stormennene på tinget valgte den mest egnede kandidaten', isCorrect: false },
             ],
             solution:
               'Når en konge døde, kunne flere sønner gjøre krav på tronen, og resultatet ble ofte borgerkrig. Borgerkrigsperioden fra 1130 til 1240 er et tydelig eksempel på dette problemet.',
@@ -756,8 +756,8 @@ Endelig var det **bøndenes motstand**. Norske bønder var friere enn sine europ
             options: [
               { id: 'a', text: 'Gulatingsloven og Frostatingsloven', isCorrect: false },
               { id: 'b', text: 'Arveloven av 1260 og Landsloven av 1274', isCorrect: true },
-              { id: 'c', text: 'Kristenretten og Magnus Lagabøtes handelslov', isCorrect: false },
-              { id: 'd', text: 'Hirdskråen og Byloven', isCorrect: false },
+              { id: 'c', text: 'Hirdskråen av 1273 og Byloven av 1276', isCorrect: false },
+              { id: 'd', text: 'Kristenretten av 1152 og Sættargjerden av 1277', isCorrect: false },
             ],
             solution:
               'Arveloven av 1260, som sikret fredelig tronskifte og forhindret arvestrider, og Landsloven av 1274, som ga felles lov for hele Norge, var begge avgjørende for å overkomme hindringene og etablere en varig rikssamling.',
@@ -849,10 +849,10 @@ Det viktigste å forstå er at kirken var en **overnasjonal organisasjon**. Den 
             id: 'historie-4-3-n-quiz1-q0',
             task: 'Når fikk Norge sitt eget erkebispesete i Nidaros?',
             options: [
-              { id: 'a', text: 'I 1030', isCorrect: false },
+              { id: 'a', text: 'I 1104', isCorrect: false },
               { id: 'b', text: 'I 1152', isCorrect: true },
-              { id: 'c', text: 'I 1274', isCorrect: false },
-              { id: 'd', text: 'I 1349', isCorrect: false },
+              { id: 'c', text: 'I 1163', isCorrect: false },
+              { id: 'd', text: 'I 1130', isCorrect: false },
             ],
             solution:
               'Norge fikk sitt eget erkebispesete i Nidaros (Trondheim) i 1152. Dette var et viktig tegn på at Norge var blitt et fullverdig medlem av det kristne Europa, med en egen kirkeprovins direkte under paven.',
@@ -861,10 +861,10 @@ Det viktigste å forstå er at kirken var en **overnasjonal organisasjon**. Den 
             id: 'historie-4-3-n-quiz1-q1',
             task: 'Hva var kirkens viktigste kjennetegn som organisasjon i middelalderen?',
             options: [
-              { id: 'a', text: 'Den var underlagt kongen i hvert enkelt land', isCorrect: false },
+              { id: 'a', text: 'Den var underlagt kongen i hvert land, men fulgte pavens religiøse retningslinjer', isCorrect: false },
               { id: 'b', text: 'Den var en overnasjonal organisasjon med egen domsmakt, skatt og administrasjon', isCorrect: true },
-              { id: 'c', text: 'Den var en løst organisert bevegelse uten fast struktur', isCorrect: false },
-              { id: 'd', text: 'Den opererte bare i Italia og Frankrike', isCorrect: false },
+              { id: 'c', text: 'Den var organisert i selvstyrte nasjonalkirker med biskopen som øverste leder', isCorrect: false },
+              { id: 'd', text: 'Den var primært en klosterbasert organisasjon der abbedene hadde den reelle makten', isCorrect: false },
             ],
             solution:
               'Kirken var en overnasjonal organisasjon som strakte seg over alle landegrenser. Den hadde egen domsmakt, krevde inn sin egen skatt (tiende), og administrerte seg selv parallelt med den verdslige makten i alle kongeriker.',
@@ -873,10 +873,10 @@ Det viktigste å forstå er at kirken var en **overnasjonal organisasjon**. Den 
             id: 'historie-4-3-n-quiz1-q2',
             task: 'Hvem valgte ny pave i middelalderen?',
             options: [
-              { id: 'a', text: 'Keiseren av Det hellige romerske rike', isCorrect: false },
-              { id: 'b', text: 'Alle kristne gjennom avstemning', isCorrect: false },
+              { id: 'a', text: 'Erkebiskopene i fellesskap på et kirkemøte', isCorrect: false },
+              { id: 'b', text: 'Biskopene i Roma og de italienske bystatene', isCorrect: false },
               { id: 'c', text: 'Kardinalene', isCorrect: true },
-              { id: 'd', text: 'Erkebiskopene i fellesskap', isCorrect: false },
+              { id: 'd', text: 'Det kirkelige konsil der alle biskoper i Europa deltok', isCorrect: false },
             ],
             solution:
               'Kardinalene var pavens nærmeste rådgivere og hadde ansvaret for å velge ny pave når den gamle døde. Kardinalkollegiet utgjorde dermed en av de viktigste maktgruppene i middelalderens kirke.',
@@ -915,9 +915,9 @@ Den fjerde søylen var **sosial makt**. Kirken definerte hva som var rett og gal
             task: 'Hva var "tiende" i middelalderen?',
             options: [
               { id: 'a', text: 'En skatt på ti prosent av all avling som gikk til kirken', isCorrect: true },
-              { id: 'b', text: 'En avgift for å bruke herrens mølle', isCorrect: false },
-              { id: 'c', text: 'En betaling for å få tilgivelse for synder', isCorrect: false },
-              { id: 'd', text: 'En gave bønder ga til kongen ved kroningen', isCorrect: false },
+              { id: 'b', text: 'En avgift som bøndene betalte til godseieren for bruk av fellesressurser', isCorrect: false },
+              { id: 'c', text: 'En frivillig gave til kirken som ble gitt ved høytidene jul og påske', isCorrect: false },
+              { id: 'd', text: 'En skatt som ble delt likt mellom kirken og kongen for å finansiere korstog', isCorrect: false },
             ],
             solution:
               'Tienden var en skatt på ti prosent av all avling som alle bønder måtte betale til kirken. Sammen med enorme jordeiendommer og testamenter utgjorde tienden grunnlaget for kirkens økonomiske makt.',
@@ -926,10 +926,10 @@ Den fjerde søylen var **sosial makt**. Kirken definerte hva som var rett og gal
             id: 'historie-4-3-n-quiz2-q1',
             task: 'Hva var "avlat" i middelalderen?',
             options: [
-              { id: 'a', text: 'En årlig avgift alle måtte betale til paven', isCorrect: false },
+              { id: 'a', text: 'En bot som ble pålagt i skriftemålet for å sone synder gjennom gode gjerninger', isCorrect: false },
               { id: 'b', text: 'Tilgivelse for synder mot betaling', isCorrect: true },
-              { id: 'c', text: 'En straff for de som brøt kirkens regler', isCorrect: false },
-              { id: 'd', text: 'En seremoni der presten velsignet avlingen', isCorrect: false },
+              { id: 'c', text: 'Et pavelig brev som ga tillatelse til å gifte seg på nytt etter ektefellens død', isCorrect: false },
+              { id: 'd', text: 'En pilegrimsreise til et hellig sted for å oppnå åndelig renselse', isCorrect: false },
             ],
             solution:
               'Avlat var tilgivelse for synder mot betaling. Folk betalte kirken for å få redusert sin tid i skjærsilden. Avlatshandelen ble en viktig inntektskilde for kirken, men ble også sterkt kritisert - ikke minst av Martin Luther på 1500-tallet.',
@@ -938,10 +938,10 @@ Den fjerde søylen var **sosial makt**. Kirken definerte hva som var rett og gal
             id: 'historie-4-3-n-quiz2-q2',
             task: 'Hva handlet investiturstriden om?',
             options: [
-              { id: 'a', text: 'Hvem som hadde rett til å kreve inn tiende', isCorrect: false },
-              { id: 'b', text: 'Om kirken eller kongen skulle styre universiteter', isCorrect: false },
+              { id: 'a', text: 'Om paven eller keiseren hadde rett til å krone europeiske konger', isCorrect: false },
+              { id: 'b', text: 'Om kirken eller keiseren hadde rett til å dømme geistlige i verdslige saker', isCorrect: false },
               { id: 'c', text: 'Hvem som hadde rett til å utnevne biskoper - paven eller kongen', isCorrect: true },
-              { id: 'd', text: 'Om munkene eller prestene hadde høyest rang i kirken', isCorrect: false },
+              { id: 'd', text: 'Om kirkens jordeiendommer skulle beskattes av verdslige myndigheter', isCorrect: false },
             ],
             solution:
               'Investiturstriden handlet om hvem som hadde rett til å utnevne biskoper. Biskoper hadde både åndelig og politisk makt, så både paven og konger/keisere ønsket å kontrollere utnevnelsene. Konflikten varte fra 1075 til 1122.',
@@ -950,10 +950,10 @@ Den fjerde søylen var **sosial makt**. Kirken definerte hva som var rett og gal
             id: 'historie-4-3-n-quiz2-q3',
             task: 'Omtrent hvor stor andel av all jord i Norge eide kirken i middelalderen?',
             options: [
-              { id: 'a', text: 'Omtrent fem prosent', isCorrect: false },
+              { id: 'a', text: 'Omtrent en tiendedel', isCorrect: false },
               { id: 'b', text: 'Omtrent halvparten', isCorrect: false },
               { id: 'c', text: 'Opptil en tredjedel', isCorrect: true },
-              { id: 'd', text: 'Nesten ingenting - kirken levde av tiende alene', isCorrect: false },
+              { id: 'd', text: 'Omtrent en fjerdedel', isCorrect: false },
             ],
             solution:
               'Kirken eide enorme jordeiendommer, i Norge opptil en tredjedel av all jord. Sammen med tiende, testamenter og avlat ga dette kirken et økonomisk grunnlag som overgikk mange kongers.',
@@ -991,10 +991,10 @@ Hendelsen ved **Canossa** viser kirkens makt på sitt mest dramatiske - selv ver
             id: 'historie-4-3-n-quiz3-q0',
             task: 'Hva skjedde i Canossa i 1077?',
             options: [
-              { id: 'a', text: 'Paven ble avsatt av keiseren', isCorrect: false },
-              { id: 'b', text: 'Det første universitetet ble grunnlagt', isCorrect: false },
+              { id: 'a', text: 'Pave Gregor VII og keiser Henrik IV inngikk en fredsavtale om bispevalg', isCorrect: false },
+              { id: 'b', text: 'Keiseren tvang paven til å oppheve ekskommunikasjonen gjennom militær trussel', isCorrect: false },
               { id: 'c', text: 'Keiser Henrik IV sto barfot i snøen og ba paven om tilgivelse etter å ha blitt ekskommunisert', isCorrect: true },
-              { id: 'd', text: 'Norge fikk sitt eget erkebispesete', isCorrect: false },
+              { id: 'd', text: 'De tyske fyrstene avsatte keiseren og valgte en ny med pavens støtte', isCorrect: false },
             ],
             solution:
               'I Canossa i 1077 ydmyket den ekskommuniserte keiser Henrik IV seg foran pave Gregor VII og fikk tilgivelse. Hendelsen er blitt et symbol på kirkens enorme makt i middelalderen.',
@@ -1003,10 +1003,10 @@ Hendelsen ved **Canossa** viser kirkens makt på sitt mest dramatiske - selv ver
             id: 'historie-4-3-n-quiz3-q1',
             task: 'Hva fastslo pave Gregor VII i dokumentet Dictatus Papae (1075)?',
             options: [
-              { id: 'a', text: 'At kirken og staten skulle ha like mye makt', isCorrect: false },
-              { id: 'b', text: 'At keiseren hadde rett til å utnevne biskoper', isCorrect: false },
+              { id: 'a', text: 'At kirke og stat hadde separate myndighetsområder som ikke skulle overlappe', isCorrect: false },
+              { id: 'b', text: 'At keiseren og paven sammen skulle utnevne biskoper gjennom felles rådslagning', isCorrect: false },
               { id: 'c', text: 'At bare paven kunne utnevne biskoper, og at paven hadde rett til å avsette keisere', isCorrect: true },
-              { id: 'd', text: 'At alle kristne skulle betale dobbel tiende', isCorrect: false },
+              { id: 'd', text: 'At alle kristne fyrster skyldte paven troskap og måtte betale en årlig avgift til Roma', isCorrect: false },
             ],
             solution:
               'I Dictatus Papae slo Gregor VII fast at bare paven kunne utnevne biskoper, at paven hadde rett til å avsette keisere, og at ingen kunne dømme paven. Det var et krav om absolutt makt over hele kristenheten.',
@@ -1015,10 +1015,10 @@ Hendelsen ved **Canossa** viser kirkens makt på sitt mest dramatiske - selv ver
             id: 'historie-4-3-n-quiz3-q2',
             task: 'Hvordan ble investiturstriden løst?',
             options: [
-              { id: 'a', text: 'Keiseren vant og fikk full kontroll over bispevalg', isCorrect: false },
-              { id: 'b', text: 'Paven vant og fikk kontroll over all verdslig makt', isCorrect: false },
+              { id: 'a', text: 'Gjennom Laterankonsilet (1123): paven fikk enerett til alle bispevalg i hele Europa', isCorrect: false },
+              { id: 'b', text: 'Gjennom Canossa-avtalen (1077): keiseren aksepterte pavens overherredømme i alle kirkelige saker', isCorrect: false },
               { id: 'c', text: 'Gjennom Wormskonkordatet (1122): paven utnevnte biskoper åndelig, keiseren ga dem verdslige len', isCorrect: true },
-              { id: 'd', text: 'Konflikten ble aldri løst og fortsatte i flere hundre år', isCorrect: false },
+              { id: 'd', text: 'Gjennom at domkapitlene i hver by fikk rett til å velge sine egne biskoper uten innblanding', isCorrect: false },
             ],
             solution:
               'Med Wormskonkordatet i 1122 ble et kompromiss nådd: Paven utnevnte biskoper til åndelig embete, mens keiseren ga dem verdslige len. Prinsippet om en grense mellom åndelig og verdslig makt ble etablert.',
@@ -1056,9 +1056,9 @@ I en tid der troen på himmel og helvete var dypt forankret i alle samfunnslag, 
             id: 'historie-4-3-n-quiz4-q0',
             task: 'Hvorfor var ekskommunikasjon et så effektivt maktmiddel i middelalderen?',
             options: [
-              { id: 'a', text: 'Fordi det innebar fysisk straff og fengsling', isCorrect: false },
-              { id: 'b', text: 'Fordi det førte til at man mistet all eiendom', isCorrect: false },
-              { id: 'c', text: 'Fordi det bare rammet fattige, ikke mektige mennesker', isCorrect: false },
+              { id: 'a', text: 'Fordi den ekskommuniserte mistet all eiendom som tilfalt kirken', isCorrect: false },
+              { id: 'b', text: 'Fordi det innebar landsforvisning og forbud mot å oppholde seg i kristne land', isCorrect: false },
+              { id: 'c', text: 'Fordi kirkens domstol kunne idømme fysisk straff og fengsling i tillegg', isCorrect: false },
               { id: 'd', text: 'Fordi det avskar fra frelse, løste andre fra troskap, og gjorde personen sosialt isolert', isCorrect: true },
             ],
             solution:
@@ -1068,10 +1068,10 @@ I en tid der troen på himmel og helvete var dypt forankret i alle samfunnslag, 
             id: 'historie-4-3-n-quiz4-q1',
             task: 'Hvorfor ga sakramentene kirken så stor makt over enkeltmennesker?',
             options: [
-              { id: 'a', text: 'Fordi sakramentene var svært kostbare og bare rike hadde råd til dem', isCorrect: false },
+              { id: 'a', text: 'Fordi sakramentene var knyttet til skatt og avgifter som ga kirken økonomisk kontroll', isCorrect: false },
               { id: 'b', text: 'Fordi sakramentene var nødvendige for frelse, og bare en ordinert prest kunne formidle dem', isCorrect: true },
-              { id: 'c', text: 'Fordi sakramentene ga folk magiske krefter', isCorrect: false },
-              { id: 'd', text: 'Fordi folk ble tvunget til å delta med fysisk makt', isCorrect: false },
+              { id: 'c', text: 'Fordi sakramentene ga kirken juridisk myndighet over folks ekteskapssaker og arv', isCorrect: false },
+              { id: 'd', text: 'Fordi sakramentene var offentlige seremonier som ga kirken sosial kontroll over lokalsamfunnet', isCorrect: false },
             ],
             solution:
               'Ifølge kirkelæren var sakramentene absolutt nødvendige for å oppnå frelse - evig liv. Og bare en ordinert prest kunne formidle dem. Kirken hadde altså monopol på det viktigste et middelaldermenneske kunne forestille seg: veien til himmelen.',
@@ -1080,10 +1080,10 @@ I en tid der troen på himmel og helvete var dypt forankret i alle samfunnslag, 
             id: 'historie-4-3-n-quiz4-q2',
             task: 'Hvor mange sakramenter hadde den katolske kirken i middelalderen?',
             options: [
-              { id: 'a', text: 'Tre: dåp, nattverd og skriftemål', isCorrect: false },
-              { id: 'b', text: 'Fem: dåp, nattverd, skriftemål, ekteskap og begravelse', isCorrect: false },
+              { id: 'a', text: 'Fem: dåp, nattverd, skriftemål, ekteskap og siste olje', isCorrect: false },
+              { id: 'b', text: 'Seks: dåp, konfirmasjon, nattverd, skriftemål, ekteskap og prestevielse', isCorrect: false },
               { id: 'c', text: 'Sju: dåp, konfirmasjon, nattverd, skriftemål, ekteskapsinngåelse, prestevielse og siste olje', isCorrect: true },
-              { id: 'd', text: 'Ti: ett for hvert av de ti bud', isCorrect: false },
+              { id: 'd', text: 'Fire: dåp, nattverd, skriftemål og konfirmasjon', isCorrect: false },
             ],
             solution:
               'Den katolske kirken hadde sju sakramenter: dåp, konfirmasjon, nattverd, skriftemål, ekteskapsinngåelse, prestevielse og siste olje. De fulgte et menneske fra fødsel til død og ga kirken en rolle i alle livets viktige overganger.',
@@ -1092,10 +1092,10 @@ I en tid der troen på himmel og helvete var dypt forankret i alle samfunnslag, 
             id: 'historie-4-3-n-quiz4-q3',
             task: 'Hvorfor ga skriftemålet presten spesiell makt i lokalsamfunnet?',
             options: [
-              { id: 'a', text: 'Fordi presten fikk betaling for hvert skriftemål', isCorrect: false },
-              { id: 'b', text: 'Fordi presten kunne nekte folk nattverd etter skriftemålet', isCorrect: false },
+              { id: 'a', text: 'Fordi presten bestemte hvilken bot synderen måtte gjøre for å oppnå tilgivelse', isCorrect: false },
+              { id: 'b', text: 'Fordi presten avgjorde hvem som fikk delta i nattverden basert på skriftemålet', isCorrect: false },
               { id: 'c', text: 'Fordi presten kjente folks innerste hemmeligheter gjennom bekjennelsene', isCorrect: true },
-              { id: 'd', text: 'Fordi bare presten hadde tilgang til Bibelen', isCorrect: false },
+              { id: 'd', text: 'Fordi skriftemålet var obligatorisk og presten kunne rapportere lovbrudd til myndighetene', isCorrect: false },
             ],
             solution:
               'Gjennom skriftemålet kjente presten folks innerste hemmeligheter - hvem som hadde vært utro, hvem som hadde stjålet, hvem som hatet sin nabo. Denne kunnskapen ga presten enorm uformell makt i lokalsamfunnet.',
@@ -1136,7 +1136,7 @@ Var kirkens rolle i middelalderen positiv eller negativ for vanlige mennesker? S
               { id: 'a', text: 'De kopierte bøker og bevarte antikkens tekster', isCorrect: false },
               { id: 'b', text: 'De drev utdanning og utviklet jordbruksmetoder', isCorrect: false },
               { id: 'c', text: 'De fungerte som militære festninger for kongen', isCorrect: true },
-              { id: 'd', text: 'De pleide syke og ga mat til fattige', isCorrect: false },
+              { id: 'd', text: 'De ga overnatting til reisende og drev handel og håndverk', isCorrect: false },
             ],
             solution:
               'Klostrene var sentre for lærdom, utdanning, jordbruk, fattigomsorg og sykestell - men de var ikke militære festninger. Klostrene var kirkelige institusjoner med fokus på bønn, arbeid og tjeneste for samfunnet.',
@@ -1146,9 +1146,9 @@ Var kirkens rolle i middelalderen positiv eller negativ for vanlige mennesker? S
             task: 'Hva var et scriptorium?',
             options: [
               { id: 'a', text: 'Et rom i klosteret der munker kopierte bøker for hånd', isCorrect: true },
-              { id: 'b', text: 'Et sted der munker ba og mediterte', isCorrect: false },
-              { id: 'c', text: 'Et lager for mat og forsyninger', isCorrect: false },
-              { id: 'd', text: 'Et rom der munker underviste bøndenes barn', isCorrect: false },
+              { id: 'b', text: 'Klosterets bibliotek der bøker og manuskripter ble oppbevart og studert', isCorrect: false },
+              { id: 'c', text: 'Klosterets skole der noviser lærte latin og teologi', isCorrect: false },
+              { id: 'd', text: 'Et rom der abbeden tok imot gjester og førte klosterets korrespondanse', isCorrect: false },
             ],
             solution:
               'Scriptoriet var rommet i klosteret der munker kopierte bøker for hånd. Dette arbeidet var avgjørende for å bevare mange av antikkens tekster for ettertiden, i en tid da trykkekunsten ennå ikke var oppfunnet.',
@@ -1157,10 +1157,10 @@ Var kirkens rolle i middelalderen positiv eller negativ for vanlige mennesker? S
             id: 'historie-4-3-n-quiz5-q2',
             task: 'Hvordan bidro den islamske verden til å bevare antikkens kunnskap?',
             options: [
-              { id: 'a', text: 'Islamske soldater brakte bøker til Europa under korstogene', isCorrect: false },
+              { id: 'a', text: 'Islamske biblioteker i Spania ble overtatt av kristne munker under reconquistaen', isCorrect: false },
               { id: 'b', text: 'Lærde i byer som Bagdad og Cordoba oversatte og videreutviklet gresk filosofi og vitenskap', isCorrect: true },
-              { id: 'c', text: 'Islamske handelsmenn solgte antikke tekster til europeiske klostre', isCorrect: false },
-              { id: 'd', text: 'Den islamske verden hadde ingen rolle i å bevare antikkens kunnskap', isCorrect: false },
+              { id: 'c', text: 'Europeiske studenter reiste til islamske universiteter og brakte kunnskapen tilbake', isCorrect: false },
+              { id: 'd', text: 'Korsfarerne erobret islamske byer og fraktet manuskriptsamlinger tilbake til Europa', isCorrect: false },
             ],
             solution:
               'Islamske lærde i byer som Bagdad, Cordoba og Kairo oversatte og kommenterte gresk filosofi og vitenskap. Mye av denne kunnskapen kom tilbake til Europa gjennom oversettelser fra arabisk på 1100- og 1200-tallet.',
@@ -1250,10 +1250,10 @@ Viktige handelsvarer var krydder fra Østen, som pepper og kanel, klede fra Flan
             id: 'historie-4-4-n-quiz1-q0',
             task: 'Hva kjennetegnet "naturaløkonomi" i tidlig middelalder?',
             options: [
-              { id: 'a', text: 'All handel foregikk med gullmynter', isCorrect: false },
+              { id: 'a', text: 'Handelen var begrenset til lokale markeder der sølvmynter ble brukt som betaling', isCorrect: false },
               { id: 'b', text: 'Byttehandel dominerte - varer ble byttet direkte mot andre varer', isCorrect: true },
-              { id: 'c', text: 'Handelen ble kontrollert av kirken', isCorrect: false },
-              { id: 'd', text: 'Bare adelen hadde lov til å drive handel', isCorrect: false },
+              { id: 'c', text: 'Avgifter og skatter ble betalt i penger, men handelen mellom bønder var byttebasert', isCorrect: false },
+              { id: 'd', text: 'All handel gikk gjennom godseierne som fordelte varer mellom sine bønder', isCorrect: false },
             ],
             solution:
               'Naturaløkonomi betyr at byttehandel dominerer - bønder betalte avgifter i korn, kjøtt eller arbeidsdager i stedet for penger. Overgangen til pengeøkonomi skjedde gradvis gjennom middelalderen.',
@@ -1262,10 +1262,10 @@ Viktige handelsvarer var krydder fra Østen, som pepper og kanel, klede fra Flan
             id: 'historie-4-4-n-quiz1-q1',
             task: 'Hva var et "laug" (gilde) i middelalderen?',
             options: [
-              { id: 'a', text: 'En religiøs orden for munker og nonner', isCorrect: false },
+              { id: 'a', text: 'Et handelskompani som organiserte fjernhandel mellom byer', isCorrect: false },
               { id: 'b', text: 'En forening som regulerte hvem som fikk drive et håndverk, priser og kvalitetskrav', isCorrect: true },
-              { id: 'c', text: 'En type skatteinnkreving for kongen', isCorrect: false },
-              { id: 'd', text: 'Et militært forsvarsforbund mellom byer', isCorrect: false },
+              { id: 'c', text: 'Et byforbund der kjøpmenn gikk sammen for å beskytte handelsveiene', isCorrect: false },
+              { id: 'd', text: 'En sammenslutning av byborgere som styrte byens politikk og forsvar', isCorrect: false },
             ],
             solution:
               'Laug var håndverkerforeninger som regulerte hvem som fikk drive et bestemt håndverk, hvilke priser som skulle gjelde, og hvilke kvalitetskrav som ble stilt. De sikret kvalitet, men begrenset også konkurransen.',
@@ -1274,10 +1274,10 @@ Viktige handelsvarer var krydder fra Østen, som pepper og kanel, klede fra Flan
             id: 'historie-4-4-n-quiz1-q2',
             task: 'Hvor ble pengeøkonomien først tatt i bruk igjen i middelalderen?',
             options: [
-              { id: 'a', text: 'På landsbygda blant bøndene', isCorrect: false },
-              { id: 'b', text: 'I klostrene', isCorrect: false },
+              { id: 'a', text: 'Ved de store årlige messene som Champagne-messene', isCorrect: false },
+              { id: 'b', text: 'I klostrene som drev utstrakt handel med jordbruksprodukter', isCorrect: false },
               { id: 'c', text: 'I byene', isCorrect: true },
-              { id: 'd', text: 'Ved kongens hoff', isCorrect: false },
+              { id: 'd', text: 'Ved kongens hoff og blant adelen', isCorrect: false },
             ],
             solution:
               'Overgangen fra naturaløkonomi til pengeøkonomi var gradvis og ujevn. I byene, der handel og håndverk var konsentrert, brukte man penger lenge før bøndene på landsbygda gjorde det.',
@@ -1313,10 +1313,10 @@ I byene organiserte håndverkerne seg i **laug** (også kalt gilder). Laugene fa
             id: 'historie-4-4-n-quiz2-q0',
             task: 'Hva betydde ordtaket "byluft gjør fri" i middelalderen?',
             options: [
-              { id: 'a', text: 'At luftkvaliteten var bedre i byene enn på landsbygda', isCorrect: false },
-              { id: 'b', text: 'At alle som bodde i byer automatisk ble adelige', isCorrect: false },
+              { id: 'a', text: 'At byborgere hadde ytringsfrihet og kunne kritisere godseiere uten straff', isCorrect: false },
+              { id: 'b', text: 'At håndverkere i byene var fritatt fra hoveri og andre føydale plikter', isCorrect: false },
               { id: 'c', text: 'At en livegen bonde som bodde i byen i ett år og en dag ble fri', isCorrect: true },
-              { id: 'd', text: 'At byene ikke trengte å betale skatt til kongen', isCorrect: false },
+              { id: 'd', text: 'At byene hadde egne privilegier og selvstyre uavhengig av den lokale godseieren', isCorrect: false },
             ],
             solution:
               'Ordtaket "byluft gjør fri" viste til at en livegen bonde som flyktet til en by og bodde der i ett år og en dag, automatisk ble fri fra sin godseier.',
@@ -1326,9 +1326,9 @@ I byene organiserte håndverkerne seg i **laug** (også kalt gilder). Laugene fa
             task: 'Hvilken rekkefølge fulgte opplæringen i laugene?',
             options: [
               { id: 'a', text: 'Svenn - lærling - mester', isCorrect: false },
-              { id: 'b', text: 'Mester - svenn - lærling', isCorrect: false },
+              { id: 'b', text: 'Lærling - gesell - svenn - mester', isCorrect: false },
               { id: 'c', text: 'Lærling - svenn - mester', isCorrect: true },
-              { id: 'd', text: 'Lærling - mester - svenn', isCorrect: false },
+              { id: 'd', text: 'Novise - lærling - svenn - mester', isCorrect: false },
             ],
             solution:
               'I laugssystemet gikk unge gutter først i lære hos en mester som lærling. Etter opplæringen ble de svenner, og etter mange år med erfaring og prøver kunne de bli mestere selv og drive eget verksted.',
@@ -1337,10 +1337,10 @@ I byene organiserte håndverkerne seg i **laug** (også kalt gilder). Laugene fa
             id: 'historie-4-4-n-quiz2-q2',
             task: 'Hva var den viktigste ulempen med laugssystemet?',
             options: [
-              { id: 'a', text: 'Det hindret utdanning av nye håndverkere', isCorrect: false },
-              { id: 'b', text: 'Det produserte varer av for lav kvalitet', isCorrect: false },
+              { id: 'a', text: 'Det førte til at opplæringstiden var for lang og svennene ble utnyttet som billig arbeidskraft', isCorrect: false },
+              { id: 'b', text: 'Det hindret teknologisk utvikling fordi nye metoder ble sett på som brudd på tradisjon', isCorrect: false },
               { id: 'c', text: 'Det begrenset konkurransen og holdt prisene oppe', isCorrect: true },
-              { id: 'd', text: 'Det lot hvem som helst starte et verksted uten opplæring', isCorrect: false },
+              { id: 'd', text: 'Det ekskluderte kvinner og utlendinger fra å drive håndverk i byene', isCorrect: false },
             ],
             solution:
               'Selv om laugene sikret kvalitet og ga håndverkerne fellesskap, begrenset de også konkurransen. Laugene kontrollerte hvem som fikk drive et håndverk og fastsatte priser, noe som holdt prisene kunstig oppe.',
@@ -1376,9 +1376,9 @@ For Norge var Hansaforbundet et tveegget sverd. På den ene siden sikret hanseat
             id: 'historie-4-4-n-quiz3-q0',
             task: 'Hvor hadde Hansaforbundet sitt hovedkvarter?',
             options: [
-              { id: 'a', text: 'Bergen', isCorrect: false },
-              { id: 'b', text: 'Hamburg', isCorrect: false },
-              { id: 'c', text: 'London', isCorrect: false },
+              { id: 'a', text: 'Hamburg', isCorrect: false },
+              { id: 'b', text: 'Bremen', isCorrect: false },
+              { id: 'c', text: 'Brugge', isCorrect: false },
               { id: 'd', text: 'Lübeck', isCorrect: true },
             ],
             solution:
@@ -1388,10 +1388,10 @@ For Norge var Hansaforbundet et tveegget sverd. På den ene siden sikret hanseat
             id: 'historie-4-4-n-quiz3-q1',
             task: 'Hva var de hanseatiske "kontorene"?',
             options: [
-              { id: 'a', text: 'Kontorlokaler der regnskaper ble ført', isCorrect: false },
+              { id: 'a', text: 'Regionale forsamlinger der hansabyene koordinerte sin handelspolitikk', isCorrect: false },
               { id: 'b', text: 'Faste handelsposter i strategisk viktige byer utenfor det tyske området', isCorrect: true },
-              { id: 'c', text: 'Militærbaser som beskyttet handelsveiene', isCorrect: false },
-              { id: 'd', text: 'Ambassader der hanseatene forhandlet med konger', isCorrect: false },
+              { id: 'c', text: 'Lagerhus i hansabyene der varer ble mellomlagret før videre transport', isCorrect: false },
+              { id: 'd', text: 'Handelshus i tyske byer der utenlandske kjøpmenn fikk drive handel', isCorrect: false },
             ],
             solution:
               'Hanseatene opererte gjennom kontorer - faste handelsposter i strategisk viktige byer. De fire viktigste lå i Bergen, London (Steelyard), Brugge og Novgorod. Gjennom disse kontrollerte de handelsstrømmene mellom Europas regioner.',
@@ -1400,10 +1400,10 @@ For Norge var Hansaforbundet et tveegget sverd. På den ene siden sikret hanseat
             id: 'historie-4-4-n-quiz3-q2',
             task: 'Hvorfor beskrives Hansaforbundet som et "tveegget sverd" for Norge?',
             options: [
-              { id: 'a', text: 'Fordi hanseatene både handlet og førte krig mot Norge', isCorrect: false },
+              { id: 'a', text: 'Fordi hanseatene brakte korn Norge trengte, men krevde stadig lavere priser på tørrfisk', isCorrect: false },
               { id: 'b', text: 'Fordi de sikret tilgang til europeiske markeder, men marginaliserte norske kjøpmenn', isCorrect: true },
-              { id: 'c', text: 'Fordi de brakte nye varer, men også pest og sykdom', isCorrect: false },
-              { id: 'd', text: 'Fordi de styrket Bergen, men svekket Trondheim', isCorrect: false },
+              { id: 'c', text: 'Fordi de bygde opp Bergens infrastruktur, men tvang norske kjøpmenn ut av byen', isCorrect: false },
+              { id: 'd', text: 'Fordi de styrket handelen, men forlangte politisk innflytelse over norske konger', isCorrect: false },
             ],
             solution:
               'Hansaforbundet var et tveegget sverd fordi det sikret at norsk fisk nådde europeiske markeder og ga tilgang til nødvendige varer som korn, men samtidig marginaliserte norske kjøpmenn, kontrollerte prisene og lot mye av handelsprofitten gå ut av landet.',
@@ -1412,10 +1412,10 @@ For Norge var Hansaforbundet et tveegget sverd. På den ene siden sikret hanseat
             id: 'historie-4-4-n-quiz3-q3',
             task: 'Omtrent hvor mange medlemsbyer hadde Hansaforbundet på sitt høydepunkt?',
             options: [
-              { id: 'a', text: 'Rundt 20', isCorrect: false },
-              { id: 'b', text: 'Rundt 50', isCorrect: false },
+              { id: 'a', text: 'Rundt 70', isCorrect: false },
+              { id: 'b', text: 'Rundt 120', isCorrect: false },
               { id: 'c', text: 'Opptil 200', isCorrect: true },
-              { id: 'd', text: 'Over 500', isCorrect: false },
+              { id: 'd', text: 'Over 300', isCorrect: false },
             ],
             solution:
               'På sitt høydepunkt hadde Hansaforbundet opptil 200 medlemsbyer. Forbundet dominerte all handel i Nord-Europa fra rundt 1200 til 1600 og hadde felles handelspolitikk, sanksjoner og til og med en felles flåte.',
@@ -1451,10 +1451,10 @@ Konsekvensene var sammensatte. Norske kjøpmenn ble utkonkurrert av hanseatenes 
             id: 'historie-4-4-n-quiz4-q0',
             task: 'Hva var den viktigste ulempen med hanseatenes dominans i Bergen for Norge?',
             options: [
-              { id: 'a', text: 'Hanseatene nektet å selge mat til nordmenn', isCorrect: false },
+              { id: 'a', text: 'Hanseatene kontrollerte prisene på tørrfisk og presset norske fiskere økonomisk', isCorrect: false },
               { id: 'b', text: 'Norske kjøpmenn ble marginalisert og handelsprofitten gikk ut av landet', isCorrect: true },
-              { id: 'c', text: 'Hanseatene forbød norsk fiske', isCorrect: false },
-              { id: 'd', text: 'Bergen ble ødelagt av hanseatiske krigshandlinger', isCorrect: false },
+              { id: 'c', text: 'Hanseatene hindret utviklingen av norsk skipsfart ved å monopolisere frakten', isCorrect: false },
+              { id: 'd', text: 'Bergen ble så dominert av tyske interesser at byen mistet sin status som norsk hovedstad', isCorrect: false },
             ],
             solution:
               'En viktig ulempe var at norske kjøpmenn ble utkonkurrert av hanseatenes kapital, nettverk og privilegier, og at mye av handelsprofitten gikk ut av landet.',
@@ -1463,10 +1463,10 @@ Konsekvensene var sammensatte. Norske kjøpmenn ble utkonkurrert av hanseatenes 
             id: 'historie-4-4-n-quiz4-q1',
             task: 'Hvilke spesielle privilegier hadde hanseatene i Bergen?',
             options: [
-              { id: 'a', text: 'De hadde rett til å kreve inn skatt fra norske bønder', isCorrect: false },
+              { id: 'a', text: 'De var fritatt for alle skatter og avgifter til den norske kongen', isCorrect: false },
               { id: 'b', text: 'De hadde egne lover og norsk lov gjaldt ikke i deres kvartaler', isCorrect: true },
-              { id: 'c', text: 'De fikk utnevne borgermesteren i Bergen', isCorrect: false },
-              { id: 'd', text: 'De hadde monopol på alt fiske langs norskekysten', isCorrect: false },
+              { id: 'c', text: 'De hadde enerett på all import av korn, klede og salt til Norge', isCorrect: false },
+              { id: 'd', text: 'De fikk stille egne væpnede vakter og hadde rett til å straffe norske borgere', isCorrect: false },
             ],
             solution:
               'Hanseatene i Bergen hadde oppsiktsvekkende privilegier: De beholdt sine egne lover og ble dømt etter dem - norsk lov gjaldt ikke innenfor deres kvartaler. Nordmenn hadde ikke engang lov til å drive handel der uten tillatelse.',
@@ -1475,10 +1475,10 @@ Konsekvensene var sammensatte. Norske kjøpmenn ble utkonkurrert av hanseatenes 
             id: 'historie-4-4-n-quiz4-q2',
             task: 'Hvorfor ga norske konger så omfattende privilegier til hanseatene?',
             options: [
-              { id: 'a', text: 'Fordi hanseatene truet med militær invasjon', isCorrect: false },
-              { id: 'b', text: 'Fordi paven beordret det', isCorrect: false },
+              { id: 'a', text: 'Fordi hanseatene hadde flåtestyrke som kunne blokkere norsk kystfart og presse kongen', isCorrect: false },
+              { id: 'b', text: 'Fordi privilegiene ble gitt i bytte mot hanseatisk militærhjelp under borgerkrigene', isCorrect: false },
               { id: 'c', text: 'Fordi Norge var avhengig av kornet og varene hanseatene fraktet, og trengte noen til å kjøpe tørrfisken', isCorrect: true },
-              { id: 'd', text: 'Fordi hanseatene var norske kongers slektninger', isCorrect: false },
+              { id: 'd', text: 'Fordi den danske kongen påla Norge å gi hanseatene frihandel som del av unionsavtalen', isCorrect: false },
             ],
             solution:
               'Norske konger ga privilegier fordi Norge var avhengig av handelen hanseatene brakte. Kongen trengte kornet de fraktet fra Nord-Tyskland, og han trengte noen til å kjøpe den norske tørrfisken. Det var et gjensidig avhengighetsforhold.',
@@ -1518,10 +1518,10 @@ Tørrfiskhandelen reiser spørsmål som historikere diskuterer den dag i dag: Hv
             id: 'historie-4-4-n-quiz5-q0',
             task: 'Hvorfor var tørrfisk en så etterspurt handelsvare i middelalderen?',
             options: [
-              { id: 'a', text: 'Fordi den smakte bedre enn fersk fisk', isCorrect: false },
+              { id: 'a', text: 'Fordi befolkningsveksten i Europa skapte et stort behov for billig protein', isCorrect: false },
               { id: 'b', text: 'Fordi kirken forbød kjøttspising mange dager i året, og tørrfisk kunne lagres og fraktes uten å bli dårlig', isCorrect: true },
-              { id: 'c', text: 'Fordi bare adelen hadde råd til den, noe som gjorde den til et statussymbol', isCorrect: false },
-              { id: 'd', text: 'Fordi tørrfisk ble brukt som betalingsmiddel i stedet for mynter', isCorrect: false },
+              { id: 'c', text: 'Fordi tørrfisk var lettere å skattlegge enn andre matvarer og ga gode tollinntekter', isCorrect: false },
+              { id: 'd', text: 'Fordi saltfisk fra andre land var av dårligere kvalitet og ikke holdt seg like lenge', isCorrect: false },
             ],
             solution:
               'Tørrfisk var etterspurt av to grunner: Kirkens mange fastedager skapte enorm etterspørsel etter fisk som alternativ til kjøtt, og tørrfiskens evne til å holde seg i årevis uten kjøling gjorde at den kunne fraktes til hele Europa.',
@@ -1530,10 +1530,10 @@ Tørrfiskhandelen reiser spørsmål som historikere diskuterer den dag i dag: Hv
             id: 'historie-4-4-n-quiz5-q1',
             task: 'Hvor foregikk hovedproduksjonen av tørrfisk?',
             options: [
-              { id: 'a', text: 'I Bergen og omegn', isCorrect: false },
+              { id: 'a', text: 'Langs vestlandskysten fra Stavanger til Bergen', isCorrect: false },
               { id: 'b', text: 'I Lofoten og resten av Nord-Norge', isCorrect: true },
-              { id: 'c', text: 'I Danmark og Sverige', isCorrect: false },
-              { id: 'd', text: 'På Island og Færøyene', isCorrect: false },
+              { id: 'c', text: 'I Trøndelag og på Mørekysten', isCorrect: false },
+              { id: 'd', text: 'På Island og langs Finnmarkskysten', isCorrect: false },
             ],
             solution:
               'Tørrfiskproduksjonen foregikk hovedsakelig i Lofoten og resten av Nord-Norge. Om vinteren kom fiskerne for sesongfisket, og torsken ble hengt til tørk på hjeller - trestativer langs kysten.',
@@ -1542,10 +1542,10 @@ Tørrfiskhandelen reiser spørsmål som historikere diskuterer den dag i dag: Hv
             id: 'historie-4-4-n-quiz5-q2',
             task: 'Hva var handelskjeden for tørrfisk i middelalderen?',
             options: [
-              { id: 'a', text: 'Fisker - Bergen - kongen - Europa', isCorrect: false },
+              { id: 'a', text: 'Fisker - Bergen - kongens tollstasjon - hanseatene - Europa', isCorrect: false },
               { id: 'b', text: 'Fisker - oppkjøper i Nord-Norge - Bergen - hanseatene - Europa', isCorrect: true },
-              { id: 'c', text: 'Fisker - Lübeck - hanseatene - Bergen', isCorrect: false },
-              { id: 'd', text: 'Fisker - kirken - bøndene i Sør-Europa', isCorrect: false },
+              { id: 'c', text: 'Fisker - hanseatiske oppkjøpere i Lofoten - Lübeck - Europa', isCorrect: false },
+              { id: 'd', text: 'Fisker - lokale markeder i Nord-Norge - Bergen - engelske kjøpmenn - Europa', isCorrect: false },
             ],
             solution:
               'Tørrfisken gikk fra fiskeren til en oppkjøper i Nord-Norge, videre til Bergen der hanseatene tok over, og til slutt ut til markeder over hele Europa. Bergen var det sentrale knutepunktet i denne handelskjeden.',
@@ -1554,10 +1554,10 @@ Tørrfiskhandelen reiser spørsmål som historikere diskuterer den dag i dag: Hv
             id: 'historie-4-4-n-quiz5-q3',
             task: 'Hvilken betydning hadde tørrfiskhandelen for Nord-Norges posisjon i riket?',
             options: [
-              { id: 'a', text: 'Nord-Norge ble isolert fordi all handelen gikk via Bergen', isCorrect: false },
-              { id: 'b', text: 'Nord-Norge forble ubetydelig for den norske økonomien', isCorrect: false },
+              { id: 'a', text: 'Nord-Norge ble et viktig skatteland, men fikk lite igjen fra sentralmakten i Bergen', isCorrect: false },
+              { id: 'b', text: 'Nord-Norge ble økonomisk avhengig av hanseatene og mistet kontroll over egen produksjon', isCorrect: false },
               { id: 'c', text: 'Nord-Norge ble uunnværlig for landets økonomi som produsent av den viktigste eksportvaren', isCorrect: true },
-              { id: 'd', text: 'Nord-Norge brøt ut av riket på grunn av urettferdig handel', isCorrect: false },
+              { id: 'd', text: 'Nord-Norge utviklet en egen handelselite som utfordret Bergens dominans', isCorrect: false },
             ],
             solution:
               'Tørrfiskhandelen gjorde Nord-Norge uunnværlig for landets økonomi. Selv om landsdelen lå i utkanten geografisk, var den produsent av Norges viktigste eksportvare. Tørrfisken bandt det langstrakte landet økonomisk sammen.',

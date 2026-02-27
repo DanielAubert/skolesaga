@@ -87,7 +87,9 @@ I 2015 vedtok FN **17 Sustainable Development Goals (SDGs)** — bærekraftsmål
 - **Evidence:** Konkrete tall og eksempler (USA 25%, Afrika 4%)
 - **Transitions:** "First of all", "For instance", "Furthermore", "Therefore"
 - **Academic tone:** Formelt språk, referanse til FN-prinsipper
-- **Ethical argument:** Moralsk og historisk ansvar kobles til fakta`,
+- **Ethical argument:** Moralsk og historisk ansvar kobles til fakta
+
+*Note: This is an example of how to structure an argument essay. A strong counter-essay could argue that all countries must take responsibility for their own emissions, or that market-based solutions are more effective than international redistribution. The essay above represents ONE perspective, chosen to demonstrate essay technique.*`,
     },
 
     // ========== OPPGAVE 1 ==========

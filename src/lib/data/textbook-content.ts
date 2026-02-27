@@ -15,6 +15,12 @@ import { CHAPTERS_S2 } from './textbook-content-s2';
 import { CHAPTERS_8KLASSE } from './textbook-content-8klasse';
 import { CHAPTERS_9KLASSE } from './textbook-content-9klasse';
 import { CHAPTERS_10KLASSE } from './textbook-content-10klasse';
+import { MATEMATIKK_10_DEL7_CHAPTERS } from './textbook-content-matematikk-10-del7';
+import { MATEMATIKK_10_DEL8_CHAPTERS } from './textbook-content-matematikk-10-del8';
+import { MATEMATIKK_10_DEL9_CHAPTERS } from './textbook-content-matematikk-10-del9';
+import { MATEMATIKK_10_DEL10_CHAPTERS } from './textbook-content-matematikk-10-del10';
+import { MATEMATIKK_10_DEL11_CHAPTERS } from './textbook-content-matematikk-10-del11';
+import { MATEMATIKK_10_DEL12_CHAPTERS } from './textbook-content-matematikk-10-del12';
 import { CHAPTERS_NAT_VG1 } from './textbook-content-nat-vg1';
 import { NAT_VG1_NARRATIV_CHAPTERS } from './textbook-content-nat-vg1-narrativ';
 import { CHAPTERS_BI_OKONOMI } from './textbook-content-bi-okonomi';
@@ -46,8 +52,11 @@ import { SPANSK_1_CHAPTERS } from './textbook-content-spansk-1';
 import { TYSK_1_CHAPTERS } from './textbook-content-tysk-1';
 import { FRANSK_1_CHAPTERS } from './textbook-content-fransk-1';
 import { NORSK_10_CHAPTERS } from './textbook-content-norsk-10';
+import { NORSK_10_NARRATIV_CHAPTERS } from './textbook-content-norsk-10-narrativ';
 import { ENGELSK_10_CHAPTERS } from './textbook-content-engelsk-10';
+import { ENGELSK_10_NARRATIV_CHAPTERS } from './textbook-content-engelsk-10-narrativ';
 import { SAMFUNNSFAG_10_CHAPTERS } from './textbook-content-samfunnsfag-10';
+import { SAMFUNNSFAG_10_NARRATIV_CHAPTERS } from './textbook-content-samfunnsfag-10-narrativ';
 import { KRLE_10_CHAPTERS } from './textbook-content-krle-10';
 import { KUNST_10_CHAPTERS } from './textbook-content-kunst-10';
 import { MUSIKK_10_CHAPTERS } from './textbook-content-musikk-10';
@@ -414,6 +423,12 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // 10. klasse matematikk
   ...CHAPTERS_10KLASSE,
+  ...Object.fromEntries(MATEMATIKK_10_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_DEL8_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_DEL9_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_DEL10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_DEL11_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_DEL12_CHAPTERS.map(c => [c.id, c])),
 
   // BI Økonomi
   ...CHAPTERS_BI_OKONOMI,
@@ -508,12 +523,15 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Norsk 10. klasse
   ...Object.fromEntries(NORSK_10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_10_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Engelsk 10. klasse
   ...Object.fromEntries(ENGELSK_10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(ENGELSK_10_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Samfunnsfag 10. klasse
   ...Object.fromEntries(SAMFUNNSFAG_10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SAMFUNNSFAG_10_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // KRLE 10. klasse
   ...Object.fromEntries(KRLE_10_CHAPTERS.map(c => [c.id, c])),
