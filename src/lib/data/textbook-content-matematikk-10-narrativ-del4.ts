@@ -123,10 +123,10 @@ En TV på 55 tommer med sideforhold 16:9: sett bredde $= 16k$ og høyde $= 9k$. 
             options: [
               { id: 'a', text: '11 cm', isCorrect: false },
               { id: 'b', text: '7 cm', isCorrect: true },
-              { id: 'c', text: '$\\sqrt{49}$ cm', isCorrect: false },
+              { id: 'c', text: '$\\sqrt{50}$ cm', isCorrect: false },
               { id: 'd', text: '6 cm', isCorrect: false },
             ],
-            solution: '$D = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$ cm. (Alternativ c er teknisk korrekt, men b gir det forenklede svaret.)',
+            solution: '$D = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$ cm.',
           },
           {
             id: '10-4-1-n-quiz2-q1',
@@ -332,7 +332,7 @@ Et helikopter i 500 m høyde måler depresjonsvinkler til to biler: 30 grader og
           },
           {
             id: '10-4-2-n-quiz2-q3',
-            task: 'Hosliggende katet 16 cm, vinkel 60 grader. Finn hosliggende katet med cosinus: $b = 16 \\cdot \\cos 60°$.',
+            task: 'Hypotenus 16 cm, vinkel 60 grader. Finn hosliggende katet med cosinus: $b = 16 \\cdot \\cos 60°$.',
             options: [
               { id: 'a', text: '8 cm', isCorrect: true },
               { id: 'b', text: '$8\\sqrt{3}$ cm', isCorrect: false },

@@ -1446,11 +1446,11 @@ $$\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$$
       id: '10-11-3-example-5',
       type: 'example',
       title: 'Eksempel: Statistikkprogram',
-      problem: 'Skriv et Python-program som beregner gjennomsnitt, median og variasjonsbredde for karakterene $[4, 5, 3, 6, 5, 4, 5, 3, 4, 6]$.',
+      problem: 'Skriv et Python-program som beregner gjennomsnitt, median og variasjonsbredde for karakterene $[4, 5, 3, 6, 5, 4, 5, 3, 4, 5]$.',
       solution: `**Løsning:**
 
 \`\`\`python
-karakterer = [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]
+karakterer = [4, 5, 3, 6, 5, 4, 5, 3, 4, 5]
 
 # Gjennomsnitt
 gjennomsnitt = sum(karakterer) / len(karakterer)
@@ -1479,15 +1479,15 @@ print(f"Variasjonsbredde: {variasjonsbredde}")
 
 Utskrift:
 \`\`\`
-Karakterer: [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]
-Sortert: [3, 3, 4, 4, 4, 5, 5, 5, 6, 6]
-Gjennomsnitt: 4.5
+Karakterer: [4, 5, 3, 6, 5, 4, 5, 3, 4, 5]
+Sortert: [3, 3, 4, 4, 4, 5, 5, 5, 5, 6]
+Gjennomsnitt: 4.4
 Median: 4.5
-Typetall: 4
+Typetall: 5
 Variasjonsbredde: 3
 \`\`\`
 
-Sjekk: Gjennomsnitt $= \\frac{4+5+3+6+5+4+5+3+4+6}{10} = \\frac{45}{10} = 4{,}5$ \\checkmark
+Sjekk: Gjennomsnitt $= \\frac{4+5+3+6+5+4+5+3+4+5}{10} = \\frac{44}{10} = 4{,}4$ \\checkmark
 
 Median: De to midterste er 4 og 5, median $= \\frac{4+5}{2} = 4{,}5$ \\checkmark`,
     },
@@ -1513,7 +1513,7 @@ print(f"Median: {median}")
 print(f"Typetall: {typetall}")
 print(f"Variasjonsbredde: {variasjonsbredde}")
 \`\`\`
-Gjennomsnitt: $60/15 = 4{,}00$. Median: 4 (det 8. elementet i sortert liste). Typetall: 4 (forekommer 5 ganger). Variasjonsbredde: $5 - 2 = 3$.`,
+Gjennomsnitt: $60/15 = 4{,}00$. Median: 4 (det 8. elementet i sortert liste). Typetall: 4 (forekommer 6 ganger). Variasjonsbredde: $5 - 2 = 3$.`,
         hints: ['Bruk `sorted()` for å sortere. For median med oddetall $n$, er det element nr. $n//2$.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,

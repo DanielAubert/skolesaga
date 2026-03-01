@@ -21,6 +21,7 @@ import { MATEMATIKK_10_DEL9_CHAPTERS } from './textbook-content-matematikk-10-de
 import { MATEMATIKK_10_DEL10_CHAPTERS } from './textbook-content-matematikk-10-del10';
 import { MATEMATIKK_10_DEL11_CHAPTERS } from './textbook-content-matematikk-10-del11';
 import { MATEMATIKK_10_DEL12_CHAPTERS } from './textbook-content-matematikk-10-del12';
+import { MATEMATIKK_10_NARRATIV_CHAPTERS } from './textbook-content-matematikk-10-narrativ';
 import { CHAPTERS_NAT_VG1 } from './textbook-content-nat-vg1';
 import { NAT_VG1_NARRATIV_CHAPTERS } from './textbook-content-nat-vg1-narrativ';
 import { CHAPTERS_BI_OKONOMI } from './textbook-content-bi-okonomi';
@@ -429,6 +430,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   ...Object.fromEntries(MATEMATIKK_10_DEL10_CHAPTERS.map(c => [c.id, c])),
   ...Object.fromEntries(MATEMATIKK_10_DEL11_CHAPTERS.map(c => [c.id, c])),
   ...Object.fromEntries(MATEMATIKK_10_DEL12_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_10_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // BI Økonomi
   ...CHAPTERS_BI_OKONOMI,

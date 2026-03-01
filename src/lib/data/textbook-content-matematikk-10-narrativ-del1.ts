@@ -831,8 +831,8 @@ Pass på fortegnene! Hvis konstantleddet er positivt, har begge tallene likt for
             options: [
               { id: 'a', text: '$(x - 7)(x + 5)$', isCorrect: false },
               { id: 'b', text: '$(x + 7)(x - 5)$', isCorrect: true },
-              { id: 'c', text: '$(x - 5)(x + 7)$', isCorrect: false },
-              { id: 'd', text: '$(x + 5)(x - 7)$', isCorrect: false },
+              { id: 'c', text: '$(x + 5)(x + 7)$', isCorrect: false },
+              { id: 'd', text: '$(x - 5)(x - 7)$', isCorrect: false },
             ],
             solution: 'Vi trenger to tall som ganget gir $-35$ og summert gir $2$. Det er $7$ og $-5$: $7 \\cdot (-5) = -35$ og $7 + (-5) = 2$. Altså $(x + 7)(x - 5)$.',
           },

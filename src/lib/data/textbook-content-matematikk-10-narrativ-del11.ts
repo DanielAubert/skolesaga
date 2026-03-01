@@ -1108,7 +1108,7 @@ Programmering er ikke bare et hjelpemiddel -- det er en mate a tenke pa. Nar du 
 };
 
 // Eksporter alle narrative kapitler i seksjon 11
-export const MATEMATIKK_10_NARRATIV_DEL11_CHAPTERS = [
+export const MATEMATIKK_10_NARRATIV_DEL11_CHAPTERS: TextbookChapter[] = [
   CHAPTER_10_11_1_NARRATIV,
   CHAPTER_10_11_2_NARRATIV,
   CHAPTER_10_11_3_NARRATIV,

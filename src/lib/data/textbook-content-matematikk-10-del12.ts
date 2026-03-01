@@ -1543,7 +1543,7 @@ $x \\geq 140$
         difficulty: 'medium',
         task: `En skoleklasse kjøpte brus og boller til klassefesten.
 
-De kjøpte totalt 45 stykk (brus og boller til sammen). Hver brus kostet 25 kr og hver bolle kostet 18 kr. Totalt betalte de 927 kr.
+De kjøpte totalt 45 stykk (brus og boller til sammen). Hver brus kostet 25 kr og hver bolle kostet 18 kr. Totalt betalte de 936 kr.
 
 Hvor mange brus og hvor mange boller kjøpte de?`,
         subTasks: [
@@ -1554,7 +1554,7 @@ Hvor mange brus og hvor mange boller kjøpte de?`,
 
 Likning 1 (antall): $b + p = 45$
 
-Likning 2 (pris): $25b + 18p = 927$`,
+Likning 2 (pris): $25b + 18p = 936$`,
           },
           {
             label: 'b',
@@ -1562,24 +1562,13 @@ Likning 2 (pris): $25b + 18p = 927$`,
             solution: `Fra likning 1: $b = 45 - p$
 
 Sett inn i likning 2:
-$25(45 - p) + 18p = 927$
-$1125 - 25p + 18p = 927$
-$1125 - 7p = 927$
-$-7p = -198$
-$p = \\frac{198}{7}$
+$25(45 - p) + 18p = 936$
+$1125 - 25p + 18p = 936$
+$1125 - 7p = 936$
+$-7p = -189$
+$p = 27$
 
-Hmm, det gir ikke heltall. La oss sjekke oppgaven og prøve $25b + 18p = 927$ med $b + p = 45$:
-
-$25(45-p) + 18p = 927$
-$1125 - 25p + 18p = 927$
-$-7p = -198$
-
-$198 / 7 \\approx 28{,}3$ — La oss justere: Med $p = 27$: $b = 18$, sjekk: $25 \\cdot 18 + 18 \\cdot 27 = 450 + 486 = 936 \\neq 927$.
-Med totalpris 936: $p = 27$, $b = 18$.
-
-**Korreksjon:** Endre totalpris til 936 kr.
-
-$-7p = 936 - 1125 = -189$, $p = 27$, $b = 18$.
+Da er $b = 45 - 27 = 18$.
 
 **Svar:** De kjøpte 18 brus og 27 boller.`,
           },

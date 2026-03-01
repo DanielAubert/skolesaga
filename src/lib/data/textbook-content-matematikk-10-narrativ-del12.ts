@@ -931,7 +931,7 @@ Pa Del 2 har du alle verktoyene tilgjengelig -- men det er hvordan du bruker dem
 };
 
 // Eksporter alle narrative kapitler i seksjon 12
-export const MATEMATIKK_10_NARRATIV_DEL12_CHAPTERS = [
+export const MATEMATIKK_10_NARRATIV_DEL12_CHAPTERS: TextbookChapter[] = [
   CHAPTER_10_12_1_NARRATIV,
   CHAPTER_10_12_2_NARRATIV,
   CHAPTER_10_12_3_NARRATIV,

@@ -2003,6 +2003,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 1: Tall og algebra
     {
       id: '10-1-1',
+      linkedChapterId: '10-1-1-narrativ',
       number: '1.1',
       title: 'Regning med røtter',
       description: 'Kvadratrøtter, forenkling og regning med røtter.',
@@ -2013,6 +2014,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-1-2',
+      linkedChapterId: '10-1-2-narrativ',
       number: '1.2',
       title: 'Rasjonale tall',
       description: 'Brøker, desimaltall og omgjøring mellom ulike representasjoner.',
@@ -2023,6 +2025,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-1-3',
+      linkedChapterId: '10-1-3-narrativ',
       number: '1.3',
       title: 'Faktorisering og forenkling',
       description: 'Faktorisere algebraiske uttrykk og forenkle brøker.',
@@ -2034,6 +2037,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-1-4',
+      linkedChapterId: '10-1-4-narrativ',
       number: '1.4',
       title: 'Potenser med rasjonale eksponenter',
       description: 'Potenser med brøkeksponenter og sammenhengen med røtter.',
@@ -2047,6 +2051,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 2: Likninger og ulikheter
     {
       id: '10-2-1',
+      linkedChapterId: '10-2-1-narrativ',
       number: '2.1',
       title: 'Førstegradslikninger',
       description: 'Løse førstegradslikninger med ulike metoder.',
@@ -2058,6 +2063,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-2-2',
+      linkedChapterId: '10-2-2-narrativ',
       number: '2.2',
       title: 'Andregradslikninger',
       description: 'Løse andregradslikninger med faktorisering og abc-formelen.',
@@ -2069,6 +2075,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-2-3',
+      linkedChapterId: '10-2-3-narrativ',
       number: '2.3',
       title: 'Likningssett',
       description: 'Løse likningssett med to ukjente grafisk og algebraisk.',
@@ -2081,6 +2088,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-2-4',
+      linkedChapterId: '10-2-4-narrativ',
       number: '2.4',
       title: 'Ulikheter',
       description: 'Løse første- og andregradsulikheter.',
@@ -2094,6 +2102,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 3: Funksjoner
     {
       id: '10-3-1',
+      linkedChapterId: '10-3-1-narrativ',
       number: '3.1',
       title: 'Lineære funksjoner',
       description: 'Egenskaper til lineære funksjoner, stigningstall og skjæringspunkter.',
@@ -2105,6 +2114,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-3-2',
+      linkedChapterId: '10-3-2-narrativ',
       number: '3.2',
       title: 'Andregradsfunksjoner',
       description: 'Parabeler, toppunkt/bunnpunkt og symmetrilinje.',
@@ -2116,6 +2126,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-3-3',
+      linkedChapterId: '10-3-3-narrativ',
       number: '3.3',
       title: 'Praktiske funksjoner',
       description: 'Bruke funksjoner til å modellere praktiske situasjoner.',
@@ -2127,6 +2138,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-3-4',
+      linkedChapterId: '10-3-4-narrativ',
       number: '3.4',
       title: 'Regresjon',
       description: 'Lineær regresjon og tilpasning av funksjoner til data.',
@@ -2140,6 +2152,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 4: Geometri
     {
       id: '10-4-1',
+      linkedChapterId: '10-4-1-narrativ',
       number: '4.1',
       title: 'Pytagoras\' setning',
       description: 'Pytagoras\' setning og dens anvendelser i praktiske situasjoner.',
@@ -2150,6 +2163,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-4-2',
+      linkedChapterId: '10-4-2-narrativ',
       number: '4.2',
       title: 'Trigonometri',
       description: 'Sinus, cosinus og tangens i rettvinklede trekanter.',
@@ -2162,6 +2176,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-4-3',
+      linkedChapterId: '10-4-3-narrativ',
       number: '4.3',
       title: 'Vektorer - introduksjon',
       description: 'Introduksjon til vektorer i planet.',
@@ -2172,6 +2187,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-4-4',
+      linkedChapterId: '10-4-4-narrativ',
       number: '4.4',
       title: 'Areal og volum',
       description: 'Beregne areal og volum av komplekse figurer.',
@@ -2185,6 +2201,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 5: Sannsynlighet og statistikk
     {
       id: '10-5-1',
+      linkedChapterId: '10-5-1-narrativ',
       number: '5.1',
       title: 'Kombinatorikk',
       description: 'Telle gunstige utfall systematisk med kombinatorikk.',
@@ -2195,6 +2212,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-5-2',
+      linkedChapterId: '10-5-2-narrativ',
       number: '5.2',
       title: 'Sannsynlighetsberegning',
       description: 'Beregne sannsynligheter for uavhengige og avhengige hendelser.',
@@ -2207,6 +2225,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-5-3',
+      linkedChapterId: '10-5-3-narrativ',
       number: '5.3',
       title: 'Statistiske undersøkelser',
       description: 'Planlegge, gjennomføre og analysere statistiske undersøkelser.',
@@ -2220,6 +2239,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 6: Økonomi
     {
       id: '10-6-1',
+      linkedChapterId: '10-6-1-narrativ',
       number: '6.1',
       title: 'Prosentregning',
       description: 'Avansert prosentregning og praktiske anvendelser.',
@@ -2231,6 +2251,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-6-2',
+      linkedChapterId: '10-6-2-narrativ',
       number: '6.2',
       title: 'Vekstfaktor',
       description: 'Bruke vekstfaktor til å beregne gjentatt prosentvis endring.',
@@ -2242,6 +2263,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-6-3',
+      linkedChapterId: '10-6-3-narrativ',
       number: '6.3',
       title: 'Rente og lån',
       description: 'Beregne renter, lån og nedbetaling.',
@@ -2255,6 +2277,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 7: Tall og tallteori
     {
       id: '10-7-1',
+      linkedChapterId: '10-7-1-narrativ',
       number: '7.1',
       title: 'Tallmengder og tallsystemer',
       description: 'Naturlige, hele, rasjonale, irrasjonale og reelle tall.',
@@ -2264,6 +2287,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-7-2',
+      linkedChapterId: '10-7-2-narrativ',
       number: '7.2',
       title: 'Standardform',
       description: 'Skrive store og små tall på standardform.',
@@ -2273,6 +2297,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-7-3',
+      linkedChapterId: '10-7-3-narrativ',
       number: '7.3',
       title: 'Primtall og primtallsfaktorisering',
       description: 'Primtall, sammensatte tall, SFF og MFF.',
@@ -2283,6 +2308,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-7-4',
+      linkedChapterId: '10-7-4-narrativ',
       number: '7.4',
       title: 'Forholdstall og proporsjonalitet',
       description: 'Forhold, direkte og omvendt proporsjonalitet, målestokk.',
@@ -2295,6 +2321,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 8: Polynomer og algebraiske uttrykk
     {
       id: '10-8-1',
+      linkedChapterId: '10-8-1-narrativ',
       number: '8.1',
       title: 'Multiplikasjon av polynomer',
       description: 'Multiplisere parenteser, FOIL-metoden og arealmodellen.',
@@ -2305,6 +2332,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-8-2',
+      linkedChapterId: '10-8-2-narrativ',
       number: '8.2',
       title: 'Kvadratsetningene',
       description: 'Første, andre og tredje kvadratsetning med bevis og anvendelser.',
@@ -2316,6 +2344,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-8-3',
+      linkedChapterId: '10-8-3-narrativ',
       number: '8.3',
       title: 'Algebraisk divisjon og rasjonale uttrykk',
       description: 'Dividere polynomer, forenkle og regne med algebraiske brøker.',
@@ -2328,6 +2357,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 9: Eksponentialfunksjoner og modellering
     {
       id: '10-9-1',
+      linkedChapterId: '10-9-1-narrativ',
       number: '9.1',
       title: 'Eksponentiell vekst og nedgang',
       description: 'Sammenhengen mellom prosentvis endring, vekstfaktor og eksponentialfunksjoner.',
@@ -2339,6 +2369,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-9-2',
+      linkedChapterId: '10-9-2-narrativ',
       number: '9.2',
       title: 'Eksponentialfunksjoner og grafer',
       description: 'Tegne og tolke grafer til eksponentialfunksjoner, asymptote.',
@@ -2350,6 +2381,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-9-3',
+      linkedChapterId: '10-9-3-narrativ',
       number: '9.3',
       title: 'Modellering med reelle datasett',
       description: 'Velge modell, tilpasse til data, vurdere gyldighet.',
@@ -2363,6 +2395,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 10: Kongruens og formlikhet
     {
       id: '10-10-1',
+      linkedChapterId: '10-10-1-narrativ',
       number: '10.1',
       title: 'Kongruens og kongruenssetningene',
       description: 'Kongruente figurer og kongruenssetningene SSS, SVS, VSV.',
@@ -2372,6 +2405,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-10-2',
+      linkedChapterId: '10-10-2-narrativ',
       number: '10.2',
       title: 'Formlike figurer og målestokk',
       description: 'Formlikhet, forstørrelsesfaktor, målestokk i kart og tegninger.',
@@ -2384,6 +2418,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 11: Programmering og digitale verktøy
     {
       id: '10-11-1',
+      linkedChapterId: '10-11-1-narrativ',
       number: '11.1',
       title: 'Algoritmer og pseudokode',
       description: 'Hva er en algoritme, flytdiagram og pseudokode.',
@@ -2394,6 +2429,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-11-2',
+      linkedChapterId: '10-11-2-narrativ',
       number: '11.2',
       title: 'Programmering med Python',
       description: 'Variabler, løkker, betingelser og lister i Python.',
@@ -2405,6 +2441,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-11-3',
+      linkedChapterId: '10-11-3-narrativ',
       number: '11.3',
       title: 'Matematisk programmering',
       description: 'Løse likninger, plotte funksjoner og simulere sannsynlighet med Python.',
@@ -2418,6 +2455,7 @@ export const COURSE_10: TextbookCourse = {
     // Kapittel 12: Eksamensforberedelse og problemløsning
     {
       id: '10-12-1',
+      linkedChapterId: '10-12-1-narrativ',
       number: '12.1',
       title: 'Eksamensformat og strategier',
       description: 'Forstå eksamensformatet, tidsstyring og vanlige feil.',
@@ -2427,6 +2465,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-12-2',
+      linkedChapterId: '10-12-2-narrativ',
       number: '12.2',
       title: 'Del 1 — Oppgaver uten hjelpemidler',
       description: 'Øving på typiske Del 1-oppgaver fra alle temaer.',
@@ -2436,6 +2475,7 @@ export const COURSE_10: TextbookCourse = {
     },
     {
       id: '10-12-3',
+      linkedChapterId: '10-12-3-narrativ',
       number: '12.3',
       title: 'Del 2 — Oppgaver med hjelpemidler',
       description: 'Øving på typiske Del 2-oppgaver med kalkulator, GeoGebra og regneark.',
