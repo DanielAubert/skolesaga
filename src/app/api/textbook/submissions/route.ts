@@ -147,11 +147,32 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseAdmin();
 
+    // Finn faktisk bruker-ID (håndter ID-mismatch mellom session og database)
+    let actualUserId = session.user.id;
+    const { data: userCheck } = await supabase
+      .from("users")
+      .select("id")
+      .eq("id", session.user.id)
+      .maybeSingle();
+
+    if (!userCheck && session.user.email) {
+      const { data: userByEmail } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", session.user.email)
+        .maybeSingle();
+
+      if (userByEmail) {
+        console.log("[Submissions] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id, "- bruker database-ID");
+        actualUserId = userByEmail.id;
+      }
+    }
+
     // Sjekk om det allerede finnes en besvarelse for denne oppgaven
     const { data: existing } = await supabase
       .from("textbook_submissions")
       .select("id")
-      .eq("student_id", session.user.id)
+      .eq("student_id", actualUserId)
       .eq("exercise_id", exerciseId)
       .eq("chapter_id", chapterId)
       .eq("course_id", courseId)
@@ -189,7 +210,7 @@ export async function POST(request: Request) {
         exercise_id: exerciseId,
         chapter_id: chapterId,
         course_id: courseId,
-        student_id: session.user.id,
+        student_id: actualUserId,
         submission_type: submissionType,
         content,
         image_url: imageUrl,

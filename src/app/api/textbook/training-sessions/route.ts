@@ -130,10 +130,31 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseAdmin();
 
+    // Finn faktisk bruker-ID (håndter ID-mismatch mellom session og database)
+    let actualUserId = session.user.id;
+    const { data: userCheck } = await supabase
+      .from("users")
+      .select("id")
+      .eq("id", session.user.id)
+      .maybeSingle();
+
+    if (!userCheck && session.user.email) {
+      const { data: userByEmail } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", session.user.email)
+        .maybeSingle();
+
+      if (userByEmail) {
+        console.log("[TrainingSessions] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id, "- bruker database-ID");
+        actualUserId = userByEmail.id;
+      }
+    }
+
     const { data: trainingSession, error } = await supabase
       .from("training_sessions")
       .insert({
-        student_id: session.user.id,
+        student_id: actualUserId,
         exercise_id: exerciseId,
         chapter_id: chapterId,
         course_id: courseId,
@@ -156,7 +177,7 @@ export async function POST(request: Request) {
     const { data: exerciseSessions } = await supabase
       .from("training_sessions")
       .select("*")
-      .eq("student_id", session.user.id)
+      .eq("student_id", actualUserId)
       .eq("exercise_id", exerciseId);
 
     const stats = {

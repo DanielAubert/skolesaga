@@ -105,11 +105,32 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseAdmin();
 
+    // Finn faktisk bruker-ID (håndter ID-mismatch mellom session og database)
+    let actualUserId = session.user.id;
+    const { data: userCheck } = await supabase
+      .from("users")
+      .select("id")
+      .eq("id", session.user.id)
+      .maybeSingle();
+
+    if (!userCheck && session.user.email) {
+      const { data: userByEmail } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", session.user.email)
+        .maybeSingle();
+
+      if (userByEmail) {
+        console.log("[Attempts] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id, "- bruker database-ID");
+        actualUserId = userByEmail.id;
+      }
+    }
+
     // 1. Lagre forsøket
     const { data: attempt, error: attemptError } = await supabase
       .from("textbook_exercise_attempts")
       .insert({
-        student_id: session.user.id,
+        student_id: actualUserId,
         exercise_id: exerciseId,
         chapter_id: chapterId,
         course_id: courseId,
@@ -132,7 +153,7 @@ export async function POST(request: Request) {
     const { data: allAttempts, error: fetchError } = await supabase
       .from("textbook_exercise_attempts")
       .select("*")
-      .eq("student_id", session.user.id)
+      .eq("student_id", actualUserId)
       .eq("course_id", courseId)
       .eq("chapter_id", chapterId)
       .order("created_at", { ascending: false })
@@ -158,7 +179,7 @@ export async function POST(request: Request) {
       .from("textbook_skill_levels")
       .upsert(
         {
-          student_id: session.user.id,
+          student_id: actualUserId,
           course_id: courseId,
           chapter_id: chapterId,
           skill_level: skillResult.skillLevel,
@@ -183,7 +204,7 @@ export async function POST(request: Request) {
     const { data: allCourseAttempts } = await supabase
       .from("textbook_exercise_attempts")
       .select("*")
-      .eq("student_id", session.user.id)
+      .eq("student_id", actualUserId)
       .eq("course_id", courseId)
       .order("created_at", { ascending: false })
       .limit(200);
@@ -202,7 +223,7 @@ export async function POST(request: Request) {
         .from("textbook_skill_levels")
         .upsert(
           {
-            student_id: session.user.id,
+            student_id: actualUserId,
             course_id: courseId,
             chapter_id: null,  // Null = kurs-nivå
             skill_level: courseSkillResult.skillLevel,

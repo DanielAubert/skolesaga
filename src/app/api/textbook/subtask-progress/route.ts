@@ -132,8 +132,11 @@ export async function POST(request: Request) {
       console.error("[SubtaskProgress] Feil ved brukersjekk:", userCheckError);
     }
 
+    // Faktisk bruker-ID som brukes for lagring (kan endres ved ID-mismatch)
+    let actualUserId = session.user.id;
+
     if (!userExists) {
-      console.error("[SubtaskProgress] KRITISK: Bruker-ID finnes ikke i users-tabellen!", {
+      console.error("[SubtaskProgress] Bruker-ID finnes ikke i users-tabellen!", {
         sessionUserId: session.user.id,
         sessionEmail: session.user.email
       });
@@ -146,25 +149,24 @@ export async function POST(request: Request) {
         .maybeSingle();
 
       if (userByEmail) {
-        console.log("[SubtaskProgress] Fant bruker via e-post:", userByEmail);
-        console.log("[SubtaskProgress] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id);
+        console.log("[SubtaskProgress] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id, "- bruker database-ID");
+        actualUserId = userByEmail.id;
       } else {
         console.log("[SubtaskProgress] Bruker finnes ikke i det hele tatt!");
+        return NextResponse.json(
+          { message: "Bruker ikke funnet i database" },
+          { status: 404 }
+        );
       }
-
-      return NextResponse.json(
-        { message: "Bruker ikke funnet i database" },
-        { status: 404 }
-      );
     }
 
-    console.log("[SubtaskProgress] Bruker verifisert:", userExists.name);
+    console.log("[SubtaskProgress] Bruker verifisert:", userExists?.name || session.user.email);
 
     // Hent eksisterende fremgang
     const { data: existing } = await supabase
       .from("exercise_completions")
       .select("subtask_details, started_at")
-      .eq("student_id", session.user.id)
+      .eq("student_id", actualUserId)
       .eq("course_id", courseId)
       .eq("chapter_id", chapterId)
       .eq("exercise_id", exerciseId)
@@ -187,7 +189,7 @@ export async function POST(request: Request) {
     // Upsert til databasen
     const { error } = await supabase.from("exercise_completions").upsert(
       {
-        student_id: session.user.id,
+        student_id: actualUserId,
         course_id: courseId,
         chapter_id: chapterId,
         exercise_id: exerciseId,
@@ -212,7 +214,7 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log("[SubtaskProgress] Lagret OK for bruker:", session.user.id);
+    console.log("[SubtaskProgress] Lagret OK for bruker:", actualUserId);
 
     return NextResponse.json({
       success: true,

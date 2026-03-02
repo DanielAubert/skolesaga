@@ -271,13 +271,32 @@ export const authOptions: NextAuthOptions = {
       // Oppdater token fra database ved behov (for OAuth-providers eller for å hente onboarding-status)
       if (token.email) {
         const supabaseDb = getSupabaseDb();
-        const { data: userData } = await supabaseDb
+        const { data: userData, error: userLookupError } = await supabaseDb
           .from("users")
           .select("*")
           .eq("email", token.email)
           .maybeSingle();
 
-        if (userData) {
+        if (userLookupError) {
+          // maybeSingle() feiler hvis det finnes duplikate e-poster - bruk limit(1) som fallback
+          console.error("[Auth JWT] maybeSingle feilet for email:", token.email, userLookupError.message);
+          const { data: fallbackUsers } = await supabaseDb
+            .from("users")
+            .select("*")
+            .eq("email", token.email)
+            .order("created_at", { ascending: true })
+            .limit(1);
+
+          const fallbackUser = fallbackUsers?.[0];
+          if (fallbackUser) {
+            token.id = fallbackUser.id;
+            token.role = fallbackUser.role;
+            token.schoolId = fallbackUser.school_id;
+            token.subscriptionTier = fallbackUser.subscription_tier;
+            token.onboardingCompleted = fallbackUser.onboarding_completed ?? false;
+            token.gradeLevel = fallbackUser.grade_level ?? undefined;
+          }
+        } else if (userData) {
           token.id = userData.id;
           token.role = userData.role;
           token.schoolId = userData.school_id;
