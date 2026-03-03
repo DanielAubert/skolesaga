@@ -369,20 +369,49 @@ export const CHAPTER_8_1_3: TextbookChapter = {
   title: 'Desimaltall',
   description: 'Lær om plassverdisystemet, regning med desimaltall og avrunding.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
   content: [
+    // ========== INTRO ==========
     {
       id: '8-1-3-intro',
       type: 'text',
       content: `## Desimaltall
 
-**Desimaltall** har en komma-del som viser brøkdeler:
+**Desimaltall** er tall med komma. Kommaet skiller heltalldelen fra brøkdelen:
 $$3,14 = 3 + \\frac{14}{100}$$
 
-**Plassverdier:**
-- Første siffer etter komma = tideler (0,1)
-- Andre siffer = hundredeler (0,01)
-- Tredje siffer = tusendeler (0,001)`,
+Desimaltall bruker vi overalt i hverdagen: priser i butikken ($49,90$ kr), lengder ($1,75$ m) og temperaturer ($36,5°C$). I dette kapitlet skal du lære å forstå plassverdisystemet for desimaltall, regne med desimaltall og avrunde.`,
+    },
+    // ========== BLOKK 1: Plassverdisystemet ==========
+    {
+      id: '8-1-3-def-plassverdi',
+      type: 'definition',
+      title: 'Plassverdisystemet for desimaltall',
+      content: `Hvert siffer i et desimaltall har en bestemt **plassverdi**:
+
+| Plass | Verdi | Eksempel i $3,147$ |
+|-------|-------|--------------------|
+| Enere | $1$ | $3$ |
+| Tideler | $0,1 = \\frac{1}{10}$ | $1$ |
+| Hundredeler | $0,01 = \\frac{1}{100}$ | $4$ |
+| Tusendeler | $0,001 = \\frac{1}{1000}$ | $7$ |
+
+Altså: $3,147 = 3 + \\frac{1}{10} + \\frac{4}{100} + \\frac{7}{1000}$`,
+    },
+    {
+      id: '8-1-3-example-1',
+      type: 'example',
+      title: 'Eksempel 1: Lese og tolke desimaltall',
+      problem: `Skriv tallet $2,365$ som en sum av plassverdier, og gjør om til brøk.`,
+      solution: `**Løsning:**
+
+$2,365 = 2 + \\frac{3}{10} + \\frac{6}{100} + \\frac{5}{1000}$
+
+For å skrive som én brøk, finner vi fellesnevner $1000$:
+
+$2,365 = \\frac{2000}{1000} + \\frac{300}{1000} + \\frac{60}{1000} + \\frac{5}{1000} = \\frac{2365}{1000}$
+
+Vi kan forkorte med $5$: $\\frac{2365}{1000} = \\frac{473}{200}$`,
     },
     {
       id: '8-1-3-ex-1',
@@ -392,13 +421,16 @@ $$3,14 = 3 + \\frac{14}{100}$$
         number: '1',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Skriv som brøk',
+        task: 'Skriv desimaltallet som brøk. Forkort hvis mulig.',
         subTasks: [
-          { label: 'a', task: '$0,5$', solution: '$\\frac{1}{2}$' },
-          { label: 'b', task: '$0,25$', solution: '$\\frac{1}{4}$' },
-          { label: 'c', task: '$0,75$', solution: '$\\frac{3}{4}$' },
+          { label: 'a', task: '$0,5$', solution: '$\\frac{5}{10} = \\frac{1}{2}$' },
+          { label: 'b', task: '$0,25$', solution: '$\\frac{25}{100} = \\frac{1}{4}$' },
+          { label: 'c', task: '$0,75$', solution: '$\\frac{75}{100} = \\frac{3}{4}$' },
+          { label: 'd', task: '$0,125$', solution: '$\\frac{125}{1000} = \\frac{1}{8}$' },
+          { label: 'e', task: '$1,6$', solution: '$\\frac{16}{10} = \\frac{8}{5}$' },
         ],
-        solution: 'a) 1/2, b) 1/4, c) 3/4',
+        solution: 'a) 1/2, b) 1/4, c) 3/4, d) 1/8, e) 8/5',
+        hints: ['Tell antall desimaler. Har du 1 desimal, er nevneren 10. Har du 2 desimaler, er nevneren 100.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -411,26 +443,52 @@ $$3,14 = 3 + \\frac{14}{100}$$
         number: '2',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Regn ut',
+        task: 'Sett riktig tegn: $<$, $>$ eller $=$',
         subTasks: [
-          { label: 'a', task: '$3,5 + 2,4$', solution: '$5,9$' },
-          { label: 'b', task: '$7,8 - 3,2$', solution: '$4,6$' },
-          { label: 'c', task: '$2,5 \\cdot 4$', solution: '$10$' },
-          { label: 'd', task: '$4,5 \\div 0,5$', solution: '$9$' },
+          { label: 'a', task: '$0,5 \\;\\square\\; 0,50$', solution: '$0,5 = 0,50$ (samme verdi)' },
+          { label: 'b', task: '$0,35 \\;\\square\\; 0,4$', solution: '$0,35 < 0,4$ (skriv om: $0,35 < 0,40$)' },
+          { label: 'c', task: '$1,09 \\;\\square\\; 1,1$', solution: '$1,09 < 1,1$ (skriv om: $1,09 < 1,10$)' },
+          { label: 'd', task: '$3,200 \\;\\square\\; 3,2$', solution: '$3,200 = 3,2$ (nullene endrer ikke verdien)' },
+          { label: 'e', task: '$0,8 \\;\\square\\; 0,78$', solution: '$0,8 > 0,78$ (skriv om: $0,80 > 0,78$)' },
         ],
-        solution: 'a) 5,9, b) 4,6, c) 10, d) 9',
-        hints: ['Still opp med komma under komma for + og −'],
+        solution: 'a) =, b) <, c) <, d) =, e) >',
+        hints: ['Skriv om tallene slik at de har like mange desimaler, da er det lettere å sammenligne.'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // ========== BLOKK 2: Addisjon og subtraksjon ==========
     {
-      id: '8-1-3-avrunding',
+      id: '8-1-3-def-addsub',
       type: 'definition',
-      title: 'Avrunding',
-      content: `Se på sifferet til høyre for der du avrunder:
-- 0, 1, 2, 3, 4 → avrund **ned**
-- 5, 6, 7, 8, 9 → avrund **opp**`,
+      title: 'Addisjon og subtraksjon av desimaltall',
+      content: `Når du adderer eller subtraherer desimaltall, er det viktig å **stille komma under komma**. Fyll eventuelt på med nuller slik at tallene har like mange desimaler.
+
+$$\\begin{align}
+  &12,\\!50 \\\\
++ \\;&\\;3,\\!75 \\\\
+\\hline
+  &16,\\!25
+\\end{align}$$
+
+**Tips:** Skriv tallene under hverandre med komma rett under komma.`,
+    },
+    {
+      id: '8-1-3-example-2',
+      type: 'example',
+      title: 'Eksempel 2: Addisjon og subtraksjon',
+      problem: `Regn ut:
+a) $4,7 + 3,85$
+b) $10,3 - 4,76$`,
+      solution: `**Løsning:**
+
+a) Still opp med komma under komma. Fyll på med null:
+$$4,70 + 3,85 = 8,55$$
+
+b) Fyll på med null og trekk fra:
+$$10,30 - 4,76 = 5,54$$
+
+(Pass på veksling: $0 - 6$ går ikke, vi må veksle fra tidelene.)`,
     },
     {
       id: '8-1-3-ex-3',
@@ -440,13 +498,190 @@ $$3,14 = 3 + \\frac{14}{100}$$
         number: '3',
         type: 'classic',
         difficulty: 'lett',
-        task: 'Avrund til én desimal',
+        task: 'Regn ut. Still opp med komma under komma.',
         subTasks: [
-          { label: 'a', task: '$3,47$', solution: '$3,5$' },
-          { label: 'b', task: '$8,24$', solution: '$8,2$' },
-          { label: 'c', task: '$5,95$', solution: '$6,0$' },
+          { label: 'a', task: '$3,5 + 2,4$', solution: '$5,9$' },
+          { label: 'b', task: '$7,8 - 3,2$', solution: '$4,6$' },
+          { label: 'c', task: '$5,63 + 1,8$', solution: '$7,43$' },
+          { label: 'd', task: '$12,4 - 7,65$', solution: '$4,75$' },
+          { label: 'e', task: '$0,99 + 0,11$', solution: '$1,10$' },
+          { label: 'f', task: '$20 - 8,35$', solution: '$11,65$' },
         ],
-        solution: 'a) 3,5, b) 8,2, c) 6,0',
+        solution: 'a) 5,9, b) 4,6, c) 7,43, d) 4,75, e) 1,10, f) 11,65',
+        hints: ['Fyll på med nuller slik at tallene har like mange desimaler. Husk: $20 = 20,00$.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // ========== BLOKK 3: Multiplikasjon og divisjon ==========
+    {
+      id: '8-1-3-text-multdiv',
+      type: 'text',
+      content: `## Multiplikasjon og divisjon med desimaltall
+
+**Multiplikasjon:**
+1. Gang tallene som om det ikke er komma.
+2. Tell det totale antallet desimaler i de to faktorene.
+3. Sett komma slik at svaret har like mange desimaler.
+
+**Divisjon:**
+- Flytt kommaet i divisor til du får et heltall. Flytt kommaet i dividenden like mange plasser.
+- Eksempel: $4,5 \\div 0,5 = 45 \\div 5 = 9$`,
+    },
+    {
+      id: '8-1-3-example-3',
+      type: 'example',
+      title: 'Eksempel 3: Multiplikasjon og divisjon',
+      problem: `Regn ut:
+a) $1,2 \\cdot 0,3$
+b) $2,5 \\cdot 4$
+c) $7,2 \\div 0,6$`,
+      solution: `**Løsning:**
+
+a) $1,2 \\cdot 0,3$: Gang uten komma: $12 \\cdot 3 = 36$. Totalt $1 + 1 = 2$ desimaler, altså $0,36$.
+
+b) $2,5 \\cdot 4$: Gang uten komma: $25 \\cdot 4 = 100$. Totalt $1$ desimal, altså $10,0 = 10$.
+
+c) $7,2 \\div 0,6$: Flytt komma ett hakk i begge tall: $72 \\div 6 = 12$.`,
+    },
+    {
+      id: '8-1-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: '8-1-3-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Regn ut',
+        subTasks: [
+          { label: 'a', task: '$0,4 \\cdot 0,3$', solution: '$0,12$' },
+          { label: 'b', task: '$2,5 \\cdot 6$', solution: '$15$' },
+          { label: 'c', task: '$1,5 \\cdot 0,2$', solution: '$0,30 = 0,3$' },
+          { label: 'd', task: '$4,5 \\div 0,5$', solution: '$9$' },
+          { label: 'e', task: '$3,6 \\div 1,2$', solution: '$3$' },
+          { label: 'f', task: '$0,48 \\div 0,08$', solution: '$6$' },
+        ],
+        solution: 'a) 0,12, b) 15, c) 0,3, d) 9, e) 3, f) 6',
+        hints: [
+          'Multiplikasjon: Gang uten komma og tell desimaler etterpå.',
+          'Divisjon: Flytt komma like mange plasser i begge tall til divisor er et heltall.',
+        ],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // ========== BLOKK 4: Avrunding ==========
+    {
+      id: '8-1-3-def-avrunding',
+      type: 'definition',
+      title: 'Avrunding',
+      content: `Når vi avrunder, ser vi på sifferet til **høyre** for den plassen vi avrunder til:
+- Er sifferet $0, 1, 2, 3$ eller $4$ $\\Rightarrow$ avrund **ned** (sifferet beholdes)
+- Er sifferet $5, 6, 7, 8$ eller $9$ $\\Rightarrow$ avrund **opp** (sifferet rundes opp med 1)
+
+**Eksempler på plassverdier vi avrunder til:**
+- Heltall (null desimaler)
+- Én desimal (tideler)
+- To desimaler (hundredeler)`,
+    },
+    {
+      id: '8-1-3-example-4',
+      type: 'example',
+      title: 'Eksempel 4: Avrunding',
+      problem: `Avrund $7,348$:
+a) til én desimal
+b) til to desimaler
+c) til nærmeste heltall`,
+      solution: `**Løsning:**
+
+a) Vi skal beholde 1 desimal ($3$). Sifferet til høyre er $4$ (avrund ned).
+$7,348 \\approx 7,3$
+
+b) Vi skal beholde 2 desimaler ($4$). Sifferet til høyre er $8$ (avrund opp).
+$7,348 \\approx 7,35$
+
+c) Vi skal avrunde til heltall ($7$). Sifferet til høyre er $3$ (avrund ned).
+$7,348 \\approx 7$`,
+    },
+    {
+      id: '8-1-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: '8-1-3-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Avrund tallene',
+        subTasks: [
+          { label: 'a', task: 'Avrund $3,47$ til én desimal', solution: '$3,5$' },
+          { label: 'b', task: 'Avrund $8,24$ til én desimal', solution: '$8,2$' },
+          { label: 'c', task: 'Avrund $5,95$ til én desimal', solution: '$6,0$' },
+          { label: 'd', task: 'Avrund $12,678$ til to desimaler', solution: '$12,68$' },
+          { label: 'e', task: 'Avrund $9,499$ til nærmeste heltall', solution: '$9$' },
+          { label: 'f', task: 'Avrund $0,0456$ til to desimaler', solution: '$0,05$' },
+        ],
+        solution: 'a) 3,5, b) 8,2, c) 6,0, d) 12,68, e) 9, f) 0,05',
+        hints: ['Se på sifferet til høyre for der du avrunder. 0-4: ned. 5-9: opp.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // ========== OPPSUMMERING ==========
+    {
+      id: '8-1-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+- **Plassverdier:** Etter komma har vi tideler ($0,1$), hundredeler ($0,01$) og tusendeler ($0,001$).
+- **Addisjon/subtraksjon:** Still opp med komma under komma. Fyll på med nuller ved behov.
+- **Multiplikasjon:** Gang uten komma, og sett komma slik at svaret har like mange desimaler som faktorene til sammen.
+- **Divisjon:** Flytt kommaet i begge tall slik at du deler med et heltall.
+- **Avrunding:** Se på sifferet til høyre. $0$-$4$: ned. $5$-$9$: opp.`,
+    },
+    // ========== SAMLEOPPGAVER ==========
+    {
+      id: '8-1-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: '8-1-3-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Samleoppgaver',
+        subTasks: [
+          { label: 'a', task: 'Skriv $0,375$ som brøk og forkort.', solution: '$\\frac{375}{1000} = \\frac{3}{8}$' },
+          { label: 'b', task: 'Regn ut $6,4 + 3,85 - 2,1$', solution: '$6,40 + 3,85 - 2,10 = 8,15$' },
+          { label: 'c', task: 'Regn ut $0,6 \\cdot 0,7$', solution: '$0,42$' },
+          { label: 'd', task: 'Regn ut $5,4 \\div 0,09$', solution: '$540 \\div 9 = 60$' },
+          { label: 'e', task: 'Avrund $4,5628$ til to desimaler', solution: '$4,56$' },
+          { label: 'f', task: 'Sorter i stigende rekkefølge: $0,52$, $0,5$, $0,502$, $0,25$', solution: '$0,25 < 0,5 < 0,502 < 0,52$' },
+        ],
+        solution: 'a) 3/8, b) 8,15, c) 0,42, d) 60, e) 4,56, f) 0,25 < 0,5 < 0,502 < 0,52',
+        hints: ['Bruk teknikkene du har lært i dette kapitlet.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: '8-1-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: '8-1-3-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Tekstoppgaver med desimaltall',
+        subTasks: [
+          { label: 'a', task: 'Emma kjøper en bok til $149,90$ kr og en penn til $24,50$ kr. Hun betaler med en $200$-lapp. Hvor mye får hun tilbake?', solution: '$149,90 + 24,50 = 174,40$. Vekslepenger: $200 - 174,40 = 25,60$ kr.' },
+          { label: 'b', task: 'Et tau er $8,4$ meter langt. Det kuttes i biter som er $0,7$ meter lange. Hvor mange biter blir det?', solution: '$8,4 \\div 0,7 = 84 \\div 7 = 12$ biter.' },
+          { label: 'c', task: 'Fire venner deler en restaurantregning på $743,80$ kr likt mellom seg. Hvor mye betaler hver person? Avrund til nærmeste krone.', solution: '$743,80 \\div 4 = 185,95$ kr. Avrundet: $186$ kr per person.' },
+          { label: 'd', task: 'En svømmer svømmer $50$ meter på $28,35$ sekunder. Neste gang svømmer hun $0,8$ sekunder raskere. Hva ble den nye tiden?', solution: '$28,35 - 0,8 = 28,35 - 0,80 = 27,55$ sekunder.' },
+        ],
+        solution: 'a) 25,60 kr, b) 12 biter, c) 186 kr, d) 27,55 sekunder',
+        hints: [
+          'Les oppgaven nøye og finn ut hvilken regneoperasjon du trenger.',
+          'Tegn gjerne en tegning eller skriv opp regnestykket før du regner ut.',
+        ],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -569,7 +804,7 @@ export const CHAPTER_8_1_5: TextbookChapter = {
   title: 'Potenser',
   description: 'Lær om potenser med heltallseksponenter og potensregler.',
   estimatedMinutes: 40,
-  competenceGoals: [],
+  competenceGoals: ['utforske og bruke eigenskapane ved potensar og røter i berekningar og i praktiske situasjonar'],
   content: [
     {
       id: '8-1-5-intro',
@@ -671,7 +906,7 @@ export const CHAPTER_8_2_1: TextbookChapter = {
   title: 'Bokstavregning',
   description: 'Lær å bruke bokstaver (variabler) i matematikken.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
   content: [
     {
       id: '8-2-1-intro',
@@ -891,7 +1126,7 @@ export const CHAPTER_8_2_2: TextbookChapter = {
   title: 'Parenteser og regning',
   description: 'Lær å regne med parenteser og løse opp parentesuttrykk.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
   content: [
     {
       id: '8-2-2-intro',
@@ -1088,7 +1323,7 @@ export const CHAPTER_8_2_3: TextbookChapter = {
   title: 'Likninger - introduksjon',
   description: 'Lær hva en likning er og hvordan du løser enkle likninger.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
   content: [
     {
       id: '8-2-3-intro',
@@ -1321,7 +1556,7 @@ export const CHAPTER_8_3_1: TextbookChapter = {
   title: 'Vinkler',
   description: 'Lær om vinkler, vinkeltyper og vinkelsummer.',
   estimatedMinutes: 40,
-  competenceGoals: [],
+  competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
   content: [
     // Introduksjon
     {
@@ -1751,7 +1986,7 @@ export const CHAPTER_8_3_2: TextbookChapter = {
   title: 'Lineære funksjoner',
   description: 'Lær om rette linjer og stigningstall.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
   content: [
     {
       id: '8-3-2-intro',
@@ -1944,7 +2179,7 @@ export const CHAPTER_8_3_3: TextbookChapter = {
   title: 'Proporsjonalitet',
   description: 'Lær om proporsjonale og omvendt proporsjonale størrelser.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
   content: [
     {
       id: '8-3-3-intro',
@@ -2846,7 +3081,7 @@ export const CHAPTER_8_3_5: TextbookChapter = {
   title: 'Omkrets',
   description: 'Beregne omkrets av ulike figurer.',
   estimatedMinutes: 35,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
   content: [
     // Introduksjon
     {
@@ -3830,7 +4065,7 @@ export const CHAPTER_8_4_1: TextbookChapter = {
   title: 'Vinkler og trekanter',
   description: 'Lær om vinkler, vinkelsum og ulike typer trekanter.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
   content: [
     {
       id: '8-4-1-intro',
@@ -4001,7 +4236,7 @@ export const CHAPTER_8_4_2: TextbookChapter = {
   title: 'Areal og omkrets',
   description: 'Lær å regne ut areal og omkrets av ulike figurer.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
   content: [
     {
       id: '8-4-2-intro',
@@ -4194,7 +4429,7 @@ export const CHAPTER_8_4_3: TextbookChapter = {
   title: "Pytagoras' setning",
   description: 'Lær å bruke Pytagoras til å finne ukjente sider i rettvinklede trekanter.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
   content: [
     {
       id: '8-4-3-intro',
@@ -4380,7 +4615,7 @@ export const CHAPTER_8_5_1: TextbookChapter = {
   title: 'Sentralmål',
   description: 'Lær om gjennomsnitt, median og typetall.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett'],
   content: [
     {
       id: '8-5-1-intro',
@@ -4574,7 +4809,7 @@ export const CHAPTER_8_5_2: TextbookChapter = {
   title: 'Diagrammer og tabeller',
   description: 'Lær å lese og lage ulike typer diagrammer.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
   content: [
     {
       id: '8-5-2-intro',
@@ -4737,7 +4972,7 @@ export const CHAPTER_8_5_3: TextbookChapter = {
   title: 'Sannsynlighet - introduksjon',
   description: 'Lær grunnleggende begreper i sannsynlighetsregning.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['bruke programmering til å utforske sannsyn'],
   content: [
     {
       id: '8-5-3-intro',

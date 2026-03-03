@@ -12,7 +12,7 @@ export const CHAPTER_9_1_1: TextbookChapter = {
   title: 'Potenser og røtter',
   description: 'Potensregler, kvadratrøtter og enkle røtter.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
   content: [
     {
       id: '9-1-1-intro',
@@ -455,7 +455,7 @@ export const CHAPTER_9_1_2: TextbookChapter = {
   title: 'Brøkregning',
   description: 'Multiplikasjon og divisjon med brøker, samt sammensatte uttrykk.',
   estimatedMinutes: 55,
-  competenceGoals: [],
+  competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
   content: [
     {
       id: '9-1-2-intro',
@@ -796,7 +796,7 @@ export const CHAPTER_9_1_3: TextbookChapter = {
   title: 'Prosent og prosentvis endring',
   description: 'Prosentvis økning og nedgang, vekstfaktor.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
   content: [
     {
       id: '9-1-3-intro',
@@ -1141,7 +1141,7 @@ export const CHAPTER_9_1_4: TextbookChapter = {
   title: 'Standardform',
   description: 'Skrive tall på standardform og regne med store og små tall.',
   estimatedMinutes: 40,
-  competenceGoals: [],
+  competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
   content: [
     {
       id: '9-1-4-intro',
@@ -1495,7 +1495,7 @@ export const CHAPTER_9_2_1: TextbookChapter = {
   title: 'Faktorisering',
   description: 'Faktorisere tall og enkle algebraiske uttrykk.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['bruke faktorisering og primtall i berekningar'],
   content: [
     {
       id: '9-2-1-intro',
@@ -1886,7 +1886,7 @@ export const CHAPTER_9_2_2: TextbookChapter = {
   title: 'Kvadratsetningene',
   description: 'De tre kvadratsetningene og deres anvendelser.',
   estimatedMinutes: 55,
-  competenceGoals: [],
+  competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
   content: [
     {
       id: '9-2-2-intro',
@@ -2556,7 +2556,7 @@ export const CHAPTER_9_2_4: TextbookChapter = {
   title: 'Ulikheter',
   description: 'Løse enkle ulikheter og fremstille løsningen grafisk.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
   content: [
     {
       id: '9-2-4-intro',
@@ -3221,7 +3221,7 @@ export const CHAPTER_9_3_2: TextbookChapter = {
   title: 'Stigningstall og konstantledd',
   description: 'Tolke og finne stigningstall og konstantledd fra grafer og funksjonsuttrykk.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
   content: [
     {
       id: '9-3-2-intro',
@@ -3555,7 +3555,7 @@ export const CHAPTER_9_3_3: TextbookChapter = {
   title: 'Grafer og tolkning',
   description: 'Tolke og lage grafer fra praktiske situasjoner.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['representere funksjonar på ulike måtar og veksle mellom representasjonane'],
   content: [
     {
       id: '9-3-3-intro',
@@ -4200,7 +4200,7 @@ export const CHAPTER_9_4_2: TextbookChapter = {
   title: 'Formlikhet',
   description: 'Formlike figurer, målestokk og forholdstall.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
   content: [
     {
       id: '9-4-2-intro',
@@ -4520,7 +4520,7 @@ export const CHAPTER_9_4_3: TextbookChapter = {
   title: 'Areal og volum',
   description: 'Beregne areal og volum av sammensatte figurer.',
   estimatedMinutes: 55,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
   content: [
     {
       id: '9-4-3-intro',
@@ -4834,7 +4834,7 @@ export const CHAPTER_9_4_4: TextbookChapter = {
   title: 'Konstruksjoner',
   description: 'Geometriske konstruksjoner med passer og linjal.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
   content: [
     {
       id: '9-4-4-intro',
@@ -5472,7 +5472,7 @@ export const CHAPTER_9_5_2: TextbookChapter = {
   title: 'Lån',
   description: 'Forstå og beregne lån, avdrag og terminbeløp.',
   estimatedMinutes: 50,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
   content: [
     {
       id: '9-5-2-intro',
@@ -5795,7 +5795,7 @@ export const CHAPTER_9_5_3: TextbookChapter = {
   title: 'Budsjett',
   description: 'Sette opp personlige budsjetter og forstå privatøkonomi.',
   estimatedMinutes: 45,
-  competenceGoals: [],
+  competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
   content: [
     {
       id: '9-5-3-intro',
