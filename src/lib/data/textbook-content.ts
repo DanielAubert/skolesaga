@@ -13,7 +13,21 @@ import { CHAPTERS_R2 } from './textbook-content-r2';
 import { CHAPTERS_S1 } from './textbook-content-s1';
 import { CHAPTERS_S2 } from './textbook-content-s2';
 import { CHAPTERS_8KLASSE } from './textbook-content-8klasse';
+import { MATEMATIKK_8_DEL7_CHAPTERS } from './textbook-content-matematikk-8-del7';
+import { MATEMATIKK_8_DEL8_CHAPTERS } from './textbook-content-matematikk-8-del8';
+import { MATEMATIKK_8_DEL9_CHAPTERS } from './textbook-content-matematikk-8-del9';
+import { MATEMATIKK_8_DEL10_CHAPTERS } from './textbook-content-matematikk-8-del10';
+import { MATEMATIKK_8_DEL11_CHAPTERS } from './textbook-content-matematikk-8-del11';
+import { MATEMATIKK_8_DEL12_CHAPTERS } from './textbook-content-matematikk-8-del12';
+import { MATEMATIKK_8_NARRATIV_CHAPTERS } from './textbook-content-matematikk-8-narrativ';
 import { CHAPTERS_9KLASSE } from './textbook-content-9klasse';
+import { MATEMATIKK_9_DEL7_CHAPTERS } from './textbook-content-matematikk-9-del7';
+import { MATEMATIKK_9_DEL8_CHAPTERS } from './textbook-content-matematikk-9-del8';
+import { MATEMATIKK_9_DEL9_CHAPTERS } from './textbook-content-matematikk-9-del9';
+import { MATEMATIKK_9_DEL10_CHAPTERS } from './textbook-content-matematikk-9-del10';
+import { MATEMATIKK_9_DEL11_CHAPTERS } from './textbook-content-matematikk-9-del11';
+import { MATEMATIKK_9_DEL12_CHAPTERS } from './textbook-content-matematikk-9-del12';
+import { MATEMATIKK_9_NARRATIV_CHAPTERS } from './textbook-content-matematikk-9-narrativ';
 import { CHAPTERS_10KLASSE } from './textbook-content-10klasse';
 import { MATEMATIKK_10_DEL7_CHAPTERS } from './textbook-content-matematikk-10-del7';
 import { MATEMATIKK_10_DEL8_CHAPTERS } from './textbook-content-matematikk-10-del8';
@@ -418,9 +432,23 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // 8. klasse
   ...CHAPTERS_8KLASSE,
+  ...Object.fromEntries(MATEMATIKK_8_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_DEL8_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_DEL9_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_DEL10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_DEL11_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_DEL12_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_8_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // 9. klasse
   ...CHAPTERS_9KLASSE,
+  ...Object.fromEntries(MATEMATIKK_9_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_DEL8_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_DEL9_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_DEL10_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_DEL11_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_DEL12_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_9_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // 10. klasse matematikk
   ...CHAPTERS_10KLASSE,
