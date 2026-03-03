@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import React, { useMemo, useState, useRef, useEffect } from "react";
-import { ArrowLeft, RefreshCw, Pencil, ArrowRight, Trophy } from "lucide-react";
+import { ArrowLeft, RefreshCw, Pencil, ArrowRight, Trophy, Keyboard } from "lucide-react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { LatexRenderer } from "@/components/textbook/latex-renderer";
@@ -810,35 +810,51 @@ export function ExerciseTrainer({
                     </div>
                   ) : (
                     /* Desktop: Same style as mobile - LaTeX preview inside input box */
-                    <div
-                      className={`relative w-32 md:w-40 lg:w-44 ${heightClass} border-2 rounded-md cursor-text transition-all duration-200 ${
-                        wrongAnswer
-                          ? 'border-red-500 bg-red-50 dark:bg-red-950/30'
-                          : wrongOrderMessage
-                            ? 'border-amber-500 bg-amber-50 dark:bg-amber-950/30'
-                            : 'border-blue-300 focus-within:border-blue-500'
-                      }`}
-                    >
-                      {/* Hidden input for keyboard input */}
-                      <input
-                        ref={inputRef}
-                        type="text"
-                        value={currentProblem.userAnswer}
-                        onChange={(e) => handleInputChange(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-text"
-                        disabled={!isActive}
-                        autoFocus
-                      />
-                      {/* Rendered LaTeX preview */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-1">
-                        {currentProblem.userAnswer ? (
-                          <LatexRenderer content={`$${toLatex(currentProblem.userAnswer)}$`} />
-                        ) : (
-                          <span className="text-muted-foreground/50 text-xl md:text-2xl lg:text-2xl">x⁵</span>
-                        )}
+                    <>
+                      <div
+                        className={`relative w-32 md:w-40 lg:w-44 ${heightClass} border-2 rounded-md cursor-text transition-all duration-200 ${
+                          wrongAnswer
+                            ? 'border-red-500 bg-red-50 dark:bg-red-950/30'
+                            : wrongOrderMessage
+                              ? 'border-amber-500 bg-amber-50 dark:bg-amber-950/30'
+                              : keyboardVisible
+                                ? 'border-blue-500 ring-2 ring-blue-500/20'
+                                : 'border-blue-300 focus-within:border-blue-500'
+                        }`}
+                      >
+                        {/* Hidden input for keyboard input */}
+                        <input
+                          ref={inputRef}
+                          type="text"
+                          value={currentProblem.userAnswer}
+                          onChange={(e) => handleInputChange(e.target.value)}
+                          onKeyPress={handleKeyPress}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-text"
+                          disabled={!isActive}
+                          autoFocus
+                        />
+                        {/* Rendered LaTeX preview */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-1">
+                          {currentProblem.userAnswer ? (
+                            <LatexRenderer content={`$${toLatex(currentProblem.userAnswer)}$`} />
+                          ) : (
+                            <span className="text-muted-foreground/50 text-xl md:text-2xl lg:text-2xl">x⁵</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                      <button
+                        type="button"
+                        onClick={() => setKeyboardVisible(!keyboardVisible)}
+                        title={keyboardVisible ? 'Skjul spesialtaster' : 'Vis spesialtaster'}
+                        className={`p-2 rounded-md transition-colors ${
+                          keyboardVisible
+                            ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400'
+                            : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                        }`}
+                      >
+                        <Keyboard className="h-5 w-5" />
+                      </button>
+                    </>
                   );
                 })()
               ) : needsNumericKeyboard && isTouchDevice ? (
@@ -861,21 +877,39 @@ export function ExerciseTrainer({
                 />
               ) : (
                 /* Desktop or standard numeric input */
-                <Input
-                  ref={inputRef}
-                  type="text"
-                  inputMode="numeric"
-                  value={currentProblem.userAnswer}
-                  onChange={(e) => handleInputChange(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  className={`w-16 md:w-20 lg:w-24 h-12 md:h-14 lg:h-14 text-center text-xl md:text-2xl lg:text-2xl font-mono border-2 ${
-                    wrongAnswer
-                      ? 'border-red-500 bg-red-50 dark:bg-red-950/30 focus:border-red-600'
-                      : 'border-blue-300 focus:border-blue-500'
-                  }`}
-                  disabled={!isActive}
-                  autoFocus
-                />
+                <>
+                  <Input
+                    ref={inputRef}
+                    type="text"
+                    inputMode="numeric"
+                    value={currentProblem.userAnswer}
+                    onChange={(e) => handleInputChange(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className={`w-16 md:w-20 lg:w-24 h-12 md:h-14 lg:h-14 text-center text-xl md:text-2xl lg:text-2xl font-mono border-2 ${
+                      wrongAnswer
+                        ? 'border-red-500 bg-red-50 dark:bg-red-950/30 focus:border-red-600'
+                        : keyboardVisible
+                          ? 'border-blue-500 ring-2 ring-blue-500/20'
+                          : 'border-blue-300 focus:border-blue-500'
+                    }`}
+                    disabled={!isActive}
+                    autoFocus
+                  />
+                  {needsNumericKeyboard && (
+                    <button
+                      type="button"
+                      onClick={() => setKeyboardVisible(!keyboardVisible)}
+                      title={keyboardVisible ? 'Skjul spesialtaster' : 'Vis spesialtaster'}
+                      className={`p-2 rounded-md transition-colors ${
+                        keyboardVisible
+                          ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400'
+                          : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                      }`}
+                    >
+                      <Keyboard className="h-5 w-5" />
+                    </button>
+                  )}
+                </>
               )}
             </div>
           );
@@ -1043,6 +1077,107 @@ export function ExerciseTrainer({
               </Card>
             )}
 
+            {/* Desktop inline keyboard panel */}
+            {!isTouchDevice && keyboardVisible && (hasAlgebraicAnswers || needsNumericKeyboard) && isActive && !showResults && (
+              <div className="bg-muted/50 dark:bg-zinc-800/50 border border-border rounded-lg p-3">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs text-muted-foreground font-medium">Spesialtaster</span>
+                  <button
+                    type="button"
+                    onClick={() => setKeyboardVisible(false)}
+                    className="text-muted-foreground hover:text-foreground text-xs px-2 py-0.5 rounded hover:bg-muted transition-colors"
+                  >
+                    Lukk
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {needsNumericKeyboard ? (
+                    /* Numeric keys for chapter 1.1 */
+                    <>
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((n) => (
+                        <button
+                          key={n}
+                          type="button"
+                          onClick={() => insertAtCursor(String(n))}
+                          className="w-10 h-10 text-lg font-light rounded-md bg-background border border-border text-foreground hover:bg-muted active:bg-muted/80 transition-colors"
+                          disabled={!isActive}
+                        >
+                          {n}
+                        </button>
+                      ))}
+                      <div className="w-px h-10 bg-border mx-1" />
+                      {[
+                        { label: '+', value: '+' },
+                        { label: '−', value: '-' },
+                        { label: ',', value: ',' },
+                      ].map((key) => (
+                        <button
+                          key={key.label}
+                          type="button"
+                          onClick={() => insertAtCursor(key.value)}
+                          className="w-10 h-10 text-lg font-medium rounded-md bg-muted border border-border text-foreground hover:bg-muted/80 active:bg-muted/60 transition-colors"
+                          disabled={!isActive}
+                        >
+                          {key.label}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={deleteAtCursor}
+                        className="w-10 h-10 text-base rounded-md bg-muted border border-border text-foreground hover:bg-muted/80 active:bg-muted/60 transition-colors flex items-center justify-center"
+                        disabled={!isActive}
+                      >
+                        ⌫
+                      </button>
+                    </>
+                  ) : (
+                    /* Algebraic keys */
+                    <>
+                      {['x', 'y', 'z', 'a', 'b', 'c'].map((v) => (
+                        <button
+                          key={v}
+                          type="button"
+                          onClick={() => insertAtCursor(v)}
+                          className="w-10 h-10 text-base font-medium rounded-md bg-muted border border-border text-foreground hover:bg-muted/80 active:bg-muted/60 transition-colors"
+                          disabled={!isActive}
+                        >
+                          {v}
+                        </button>
+                      ))}
+                      <div className="w-px h-10 bg-border mx-1" />
+                      {[
+                        { label: '^', value: '^' },
+                        { label: '×', value: '*' },
+                        { label: '÷', value: '/' },
+                        { label: '+', value: '+' },
+                        { label: '−', value: '-' },
+                        { label: '(', value: '(' },
+                        { label: ')', value: ')' },
+                      ].map((key) => (
+                        <button
+                          key={key.label}
+                          type="button"
+                          onClick={() => insertAtCursor(key.value)}
+                          className="w-10 h-10 text-lg font-medium rounded-md bg-muted border border-border text-foreground hover:bg-muted/80 active:bg-muted/60 transition-colors"
+                          disabled={!isActive}
+                        >
+                          {key.label}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={deleteAtCursor}
+                        className="w-10 h-10 text-base rounded-md bg-muted border border-border text-foreground hover:bg-muted/80 active:bg-muted/60 transition-colors flex items-center justify-center"
+                        disabled={!isActive}
+                      >
+                        ⌫
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Stats below exercise */}
             <StatsCounter className="mx-auto w-fit" />
           </div>
@@ -1138,152 +1273,152 @@ export function ExerciseTrainer({
               ) : (
                 /* Algebraisk tastatur (kap 1.2+) */
                 <>
-              {/* Left columns: Variables (x, y, z, a, b, c, u, v, A) in 3x3 grid */}
-              <div className="grid grid-cols-3 gap-1">
-                {['x', 'y', 'z', 'a', 'b', 'c', 'u', 'v', 'A'].map((v) => (
-                  <button
-                    key={v}
-                    type="button"
-                    onClick={() => insertAtCursor(v)}
-                    className="w-7 h-10 text-base font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    {v}
-                  </button>
-                ))}
-              </div>
+                  {/* Left columns: Variables (x, y, z, a, b, c, u, v, A) in 3x3 grid */}
+                  <div className="grid grid-cols-3 gap-1">
+                    {['x', 'y', 'z', 'a', 'b', 'c', 'u', 'v', 'A'].map((v) => (
+                      <button
+                        key={v}
+                        type="button"
+                        onClick={() => insertAtCursor(v)}
+                        className="w-7 h-10 text-base font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        {v}
+                      </button>
+                    ))}
+                  </div>
 
-              {/* Center: Number pad - 3 column grid */}
-              <div className="grid grid-cols-3 gap-1.5 flex-1">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    onClick={() => insertAtCursor(String(n))}
-                    className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    {n}
-                  </button>
-                ))}
+                  {/* Center: Number pad - 3 column grid */}
+                  <div className="grid grid-cols-3 gap-1.5 flex-1">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => insertAtCursor(String(n))}
+                        className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        {n}
+                      </button>
+                    ))}
 
-                {/* Row 4: (, 0, ) */}
-                <button
-                  type="button"
-                  onClick={() => insertAtCursor('(')}
-                  className="h-12 text-2xl font-light rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                  disabled={!isActive}
-                >
-                  (
-                </button>
-                <button
-                  type="button"
-                  onClick={() => insertAtCursor('0')}
-                  className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                  disabled={!isActive}
-                >
-                  0
-                </button>
-                <button
-                  type="button"
-                  onClick={() => insertAtCursor(')')}
-                  className="h-12 text-2xl font-light rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                  disabled={!isActive}
-                >
-                  )
-                </button>
-              </div>
+                    {/* Row 4: (, 0, ) */}
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor('(')}
+                      className="h-12 text-2xl font-light rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      (
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor('0')}
+                      className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor(')')}
+                      className="h-12 text-2xl font-light rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      )
+                    </button>
+                  </div>
 
-              {/* Right column(s): operators */}
-              {hasAlgebraicAnswers ? (
-                /* Algebra-tastatur: +, -, ×, ÷, ^, ⌫ i 2x3 grid */
-                <div className="grid grid-cols-2 gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('+')}
-                    className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    +
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('*')}
-                    className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ×
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('-')}
-                    className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    −
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('/')}
-                    className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ÷
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('^')}
-                    className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ^
-                  </button>
-                  <button
-                    type="button"
-                    onClick={deleteAtCursor}
-                    className="w-12 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
-                    disabled={!isActive}
-                  >
-                    ⌫
-                  </button>
-                </div>
-              ) : (
-                /* Standard potens-tastatur: ^, ×, ÷, ⌫ */
-                <div className="grid grid-cols-1 gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('^')}
-                    className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ^
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('*')}
-                    className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ×
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => insertAtCursor('/')}
-                    className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    ÷
-                  </button>
-                  <button
-                    type="button"
-                    onClick={deleteAtCursor}
-                    className="w-14 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
-                    disabled={!isActive}
-                  >
-                    ⌫
-                  </button>
-                </div>
-              )}
+                  {/* Right column(s): operators */}
+                  {hasAlgebraicAnswers ? (
+                    /* Algebra-tastatur: +, -, ×, ÷, ^, ⌫ i 2x3 grid */
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('+')}
+                        className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        +
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('*')}
+                        className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ×
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('-')}
+                        className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        −
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('/')}
+                        className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ÷
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('^')}
+                        className="w-12 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ^
+                      </button>
+                      <button
+                        type="button"
+                        onClick={deleteAtCursor}
+                        className="w-12 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
+                        disabled={!isActive}
+                      >
+                        ⌫
+                      </button>
+                    </div>
+                  ) : (
+                    /* Standard potens-tastatur: ^, ×, ÷, ⌫ */
+                    <div className="grid grid-cols-1 gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('^')}
+                        className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ^
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('*')}
+                        className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ×
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => insertAtCursor('/')}
+                        className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        ÷
+                      </button>
+                      <button
+                        type="button"
+                        onClick={deleteAtCursor}
+                        className="w-14 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
+                        disabled={!isActive}
+                      >
+                        ⌫
+                      </button>
+                    </div>
+                  )}
                 </>
               )}
             </div>
