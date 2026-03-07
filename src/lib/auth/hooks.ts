@@ -48,7 +48,14 @@ export function useAuth() {
         try {
           // Get CSRF token first
           const csrfRes = await fetch("/api/auth/csrf");
-          const { csrfToken } = await csrfRes.json();
+          if (!csrfRes.ok) {
+            throw new Error(`CSRF-feil (${csrfRes.status})`);
+          }
+          const csrfData = await csrfRes.json();
+          const csrfToken = csrfData?.csrfToken;
+          if (!csrfToken) {
+            throw new Error("Mangler CSRF-token");
+          }
 
           // Direct POST to NextAuth credentials callback
           const res = await fetch("/api/auth/callback/credentials", {
@@ -60,25 +67,37 @@ export function useAuth() {
             body: new URLSearchParams({
               email: credentials.email,
               password: credentials.password,
-              csrfToken: csrfToken || "",
+              csrfToken,
               callbackUrl: "/dashboard",
               json: "true",
             }),
           });
 
+          // Check if response is JSON
+          const contentType = res.headers.get("content-type") || "";
+          if (!contentType.includes("application/json")) {
+            const text = await res.text();
+            throw new Error(`Server-feil (${res.status}): ${text.substring(0, 100)}`);
+          }
+
           const data = await res.json();
 
-          if (!res.ok || (data.url && new URL(data.url, window.location.origin).searchParams.get("error"))) {
-            throw new Error("Ugyldig e-post eller passord");
+          if (!res.ok) {
+            throw new Error(`Innlogging feilet (${res.status}): ${JSON.stringify(data).substring(0, 100)}`);
+          }
+
+          if (data.url) {
+            const url = new URL(data.url, window.location.origin);
+            const error = url.searchParams.get("error");
+            if (error) {
+              throw new Error(error === "CredentialsSignin" ? "Ugyldig e-post eller passord" : `Auth-feil: ${error}`);
+            }
           }
 
           // Redirect to dashboard
           window.location.href = data.url || "/dashboard";
         } catch (err) {
-          if (err instanceof Error && err.message === "Ugyldig e-post eller passord") {
-            throw err;
-          }
-          throw new Error("Innlogging feilet. Vennligst prøv igjen.");
+          throw err instanceof Error ? err : new Error("Ukjent feil ved innlogging");
         }
         return;
       }
