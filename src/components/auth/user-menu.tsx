@@ -1,6 +1,7 @@
 "use client";
 
-import { useUser, useAuth } from "@/lib/auth/hooks";
+import { useUser } from "@/lib/auth/hooks";
+import { signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,7 +17,6 @@ import Link from "next/link";
 
 export function UserMenu() {
   const { user, isLoading, isAuthenticated } = useUser();
-  const { logout } = useAuth();
 
   if (isLoading) {
     return (
@@ -105,7 +105,7 @@ export function UserMenu() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
-          onClick={() => logout()}
+          onSelect={() => signOut({ callbackUrl: "/" })}
           className="cursor-pointer text-red-600 focus:text-red-600"
         >
           <LogOut className="mr-2 h-4 w-4" />

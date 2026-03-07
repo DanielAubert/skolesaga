@@ -11,8 +11,8 @@ const cspDirectives = [
   "img-src 'self' data: blob: https://images.unsplash.com https://img.youtube.com https://xerfxuoxqdptoxkiefju.supabase.co",
   // Fonts: self only (Next.js bundles fonts at build time)
   "font-src 'self'",
-  // API connections: self + Supabase + Feide/Dataporten + Google Analytics
-  "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://cdn.jsdelivr.net",
+  // API connections: self + Supabase + Feide/Dataporten + Google Analytics + Google OAuth
+  "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://cdn.jsdelivr.net https://accounts.google.com https://oauth2.googleapis.com",
   // Iframes: YouTube + Vimeo
   "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://player.vimeo.com https://www.geogebra.org",
   // Workers: self (PWA service worker)
@@ -21,7 +21,7 @@ const cspDirectives = [
   "object-src 'none'",
   // Restrict base URI and form targets
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' https://accounts.google.com https://auth.dataporten.no",
 ].join('; ');
 
 const nextConfig: NextConfig = {

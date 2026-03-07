@@ -51,7 +51,13 @@ export function useAuth() {
         });
 
         if (result?.error) {
-          throw new Error(result.error);
+          // NextAuth returns generic error codes - translate to Norwegian
+          const errorMessages: Record<string, string> = {
+            CredentialsSignin: "Ugyldig e-post eller passord",
+            SessionRequired: "Du må være innlogget",
+            Default: "Innlogging feilet. Vennligst prøv igjen.",
+          };
+          throw new Error(errorMessages[result.error] || errorMessages.Default);
         }
 
         router.push("/dashboard");
