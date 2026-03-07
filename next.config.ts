@@ -25,6 +25,9 @@ const cspDirectives = [
 
 const nextConfig: NextConfig = {
   /* config options here */
+  outputFileTracingIncludes: {
+    '/**': ['./src/lib/data/chapters/**/*.json'],
+  },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference
   },
