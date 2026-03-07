@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useAuth } from "@/lib/auth/hooks";
+import { signIn, getProviders } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
@@ -46,7 +46,6 @@ export function ProviderButtons({
   showGoogle = true,
   showFeide = true,
 }: ProviderButtonsProps) {
-  const { login } = useAuth();
   const [loadingProvider, setLoadingProvider] = useState<string | null>(null);
   const [availableProviders, setAvailableProviders] = useState<string[]>([]);
   const [isLoadingProviders, setIsLoadingProviders] = useState(true);
@@ -55,9 +54,10 @@ export function ProviderButtons({
   useEffect(() => {
     const fetchProviders = async () => {
       try {
-        const response = await fetch("/api/auth/providers");
-        const providers = await response.json();
-        setAvailableProviders(Object.keys(providers));
+        const providers = await getProviders();
+        if (providers) {
+          setAvailableProviders(Object.keys(providers));
+        }
       } catch {
         // Fallback til å vise alle
         setAvailableProviders(["google", "feide", "credentials"]);
@@ -68,15 +68,10 @@ export function ProviderButtons({
     fetchProviders();
   }, []);
 
-  const handleProviderLogin = async (provider: "google" | "feide") => {
+  const handleProviderLogin = (provider: "google" | "feide") => {
     setLoadingProvider(provider);
-    try {
-      await login(provider);
-    } catch {
-      // Feil håndteres av redirect
-    } finally {
-      setLoadingProvider(null);
-    }
+    // signIn with redirect navigates away from page - don't await it
+    signIn(provider, { callbackUrl: "/dashboard" });
   };
 
   if (isLoadingProviders) {
