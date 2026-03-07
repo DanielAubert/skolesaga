@@ -379,12 +379,12 @@ export default function StudentDashboard() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">Mine fag</h2>
-              <Link href={gradeUrl}>
-                <Button variant="outline" size="sm" className="gap-2">
+              <Button variant="outline" size="sm" className="gap-2" asChild>
+                <Link href={gradeUrl}>
                   <Plus className="h-4 w-4" />
                   Legg til fag
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             {coursesLoading ? (
@@ -401,12 +401,12 @@ export default function StudentDashboard() {
                   <p className="text-sm text-muted-foreground mb-4 max-w-sm">
                     Legg til fag fra lærebøkene for å få rask tilgang til dem her på dashboardet ditt.
                   </p>
-                  <Link href={gradeUrl}>
-                    <Button className="gap-2">
+                  <Button className="gap-2" asChild>
+                    <Link href={gradeUrl}>
                       <Plus className="h-4 w-4" />
                       Utforsk lærebøker
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             ) : (
