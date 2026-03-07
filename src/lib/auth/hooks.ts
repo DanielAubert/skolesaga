@@ -45,23 +45,42 @@ export function useAuth() {
   const login = useCallback(
     async (provider: "credentials" | "google" | "feide", credentials?: { email: string; password: string }) => {
       if (provider === "credentials" && credentials) {
-        const result = await signIn("credentials", {
-          ...credentials,
-          redirect: false,
-        });
+        try {
+          // Get CSRF token first
+          const csrfRes = await fetch("/api/auth/csrf");
+          const { csrfToken } = await csrfRes.json();
 
-        if (result?.error) {
-          // NextAuth returns generic error codes - translate to Norwegian
-          const errorMessages: Record<string, string> = {
-            CredentialsSignin: "Ugyldig e-post eller passord",
-            SessionRequired: "Du må være innlogget",
-            Default: "Innlogging feilet. Vennligst prøv igjen.",
-          };
-          throw new Error(errorMessages[result.error] || errorMessages.Default);
+          // Direct POST to NextAuth credentials callback
+          const res = await fetch("/api/auth/callback/credentials", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "X-Auth-Return-Redirect": "1",
+            },
+            body: new URLSearchParams({
+              email: credentials.email,
+              password: credentials.password,
+              csrfToken: csrfToken || "",
+              callbackUrl: "/dashboard",
+              json: "true",
+            }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok || (data.url && new URL(data.url, window.location.origin).searchParams.get("error"))) {
+            throw new Error("Ugyldig e-post eller passord");
+          }
+
+          // Redirect to dashboard
+          window.location.href = data.url || "/dashboard";
+        } catch (err) {
+          if (err instanceof Error && err.message === "Ugyldig e-post eller passord") {
+            throw err;
+          }
+          throw new Error("Innlogging feilet. Vennligst prøv igjen.");
         }
-
-        router.push("/dashboard");
-        return result;
+        return;
       }
 
       return signIn(provider, { callbackUrl: "/dashboard" });
