@@ -49,7 +49,7 @@ export function SignupForm({ onSwitchToLogin }: SignupFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       {error && (
         <div className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 dark:bg-red-950/50 dark:text-red-400 rounded-lg">
           <AlertCircle className="h-4 w-4 flex-shrink-0" />
@@ -110,7 +110,9 @@ export function SignupForm({ onSwitchToLogin }: SignupFormProps) {
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             id="signup-email"
-            type="email"
+            type="text"
+            inputMode="email"
+            autoComplete="email"
             placeholder="din@epost.no"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

@@ -48,7 +48,9 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             id="email"
-            type="email"
+            type="text"
+            inputMode="email"
+            autoComplete="email"
             placeholder="din@epost.no"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
