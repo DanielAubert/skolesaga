@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import NextAuth from "next-auth";
 import { authOptions } from "@/lib/auth/config";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
@@ -6,7 +7,10 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 const nextAuthHandler = NextAuth(authOptions);
 
 // Wrap POST to add rate limiting on login attempts
-async function POST(request: Request) {
+async function POST(
+  request: NextRequest,
+  context: { params: Promise<{ nextauth: string[] }> }
+) {
   // Only rate limit credential sign-in attempts (POST with body)
   const url = new URL(request.url);
   if (url.pathname.includes("callback/credentials")) {
@@ -20,7 +24,8 @@ async function POST(request: Request) {
     }
   }
 
-  return nextAuthHandler(request as unknown as Parameters<typeof nextAuthHandler>[0], {} as Parameters<typeof nextAuthHandler>[1]) as unknown as Response;
+  // Pass the actual context with params to NextAuth
+  return nextAuthHandler(request, context) as unknown as Response;
 }
 
 export { nextAuthHandler as GET, POST };

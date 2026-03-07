@@ -45,61 +45,21 @@ export function useAuth() {
   const login = useCallback(
     async (provider: "credentials" | "google" | "feide", credentials?: { email: string; password: string }) => {
       if (provider === "credentials" && credentials) {
-        try {
-          // Get CSRF token first
-          const csrfRes = await fetch("/api/auth/csrf");
-          if (!csrfRes.ok) {
-            throw new Error(`CSRF-feil (${csrfRes.status})`);
-          }
-          const csrfData = await csrfRes.json();
-          const csrfToken = csrfData?.csrfToken;
-          if (!csrfToken) {
-            throw new Error("Mangler CSRF-token");
-          }
+        const result = await signIn("credentials", {
+          ...credentials,
+          redirect: false,
+        });
 
-          // Direct POST to NextAuth credentials callback
-          const res = await fetch("/api/auth/callback/credentials", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              "X-Auth-Return-Redirect": "1",
-            },
-            body: new URLSearchParams({
-              email: credentials.email,
-              password: credentials.password,
-              csrfToken,
-              callbackUrl: "/dashboard",
-              json: "true",
-            }),
-          });
-
-          // Check if response is JSON
-          const contentType = res.headers.get("content-type") || "";
-          if (!contentType.includes("application/json")) {
-            const text = await res.text();
-            throw new Error(`Server-feil (${res.status}): ${text.substring(0, 100)}`);
-          }
-
-          const data = await res.json();
-
-          if (!res.ok) {
-            throw new Error(`Innlogging feilet (${res.status}): ${JSON.stringify(data).substring(0, 100)}`);
-          }
-
-          if (data.url) {
-            const url = new URL(data.url, window.location.origin);
-            const error = url.searchParams.get("error");
-            if (error) {
-              throw new Error(error === "CredentialsSignin" ? "Ugyldig e-post eller passord" : `Auth-feil: ${error}`);
-            }
-          }
-
-          // Redirect to dashboard
-          window.location.href = data.url || "/dashboard";
-        } catch (err) {
-          throw err instanceof Error ? err : new Error("Ukjent feil ved innlogging");
+        if (result?.error) {
+          throw new Error(
+            result.error === "CredentialsSignin"
+              ? "Ugyldig e-post eller passord"
+              : "Innlogging feilet. Vennligst prøv igjen."
+          );
         }
-        return;
+
+        router.push("/dashboard");
+        return result;
       }
 
       return signIn(provider, { callbackUrl: "/dashboard" });
