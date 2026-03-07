@@ -166,7 +166,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
 
         {/* Hero Image */}
         {course.coverImage && (
-          <div className="relative w-full h-72 md:h-96 lg:h-[28rem] rounded-xl overflow-hidden mb-8 bg-muted">
+          <div className="relative w-full h-44 sm:h-56 md:h-72 lg:h-96 rounded-xl overflow-hidden mb-8 bg-muted">
             <Image
               src={course.coverImage}
               alt={course.title}
