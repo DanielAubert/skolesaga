@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import {
   Dialog,
   DialogContent,
@@ -26,6 +26,14 @@ import { ArrowLeft, ArrowRight, Loader2, BookOpen, Calendar, Users, User } from 
 interface ClassData {
   id: string;
   name: string;
+}
+
+interface StudentData {
+  id: string;
+  name: string;
+  email: string;
+  className: string;
+  selectedCourses: string[];
 }
 
 interface CreateAssignmentDialogProps {
@@ -57,17 +65,15 @@ export function CreateAssignmentDialog({
   );
   const [targetMode, setTargetMode] = useState<"class" | "student">("class");
   const [selectedStudentIds, setSelectedStudentIds] = useState<string[]>([]);
-  const [availableStudents, setAvailableStudents] = useState<
-    { id: string; name: string; email: string; className: string }[]
-  >([]);
+  const [availableStudents, setAvailableStudents] = useState<StudentData[]>([]);
   const [studentsLoading, setStudentsLoading] = useState(false);
 
-  // Hent elever fra alle klasser
+  // Hent elever fra alle klasser (inkludert selectedCourses)
   const fetchStudents = useCallback(async () => {
     if (classes.length === 0) return;
     setStudentsLoading(true);
     try {
-      const allStudents: { id: string; name: string; email: string; className: string }[] = [];
+      const allStudents: StudentData[] = [];
       const seenIds = new Set<string>();
       for (const cls of classes) {
         const res = await fetch(`/api/classes/${cls.id}`);
@@ -76,7 +82,13 @@ export function CreateAssignmentDialog({
           for (const s of data.students || []) {
             if (!seenIds.has(s.id)) {
               seenIds.add(s.id);
-              allStudents.push({ id: s.id, name: s.name, email: s.email, className: cls.name });
+              allStudents.push({
+                id: s.id,
+                name: s.name,
+                email: s.email,
+                className: cls.name,
+                selectedCourses: s.selectedCourses || [],
+              });
             }
           }
         }
@@ -92,6 +104,37 @@ export function CreateAssignmentDialog({
   useEffect(() => {
     if (open) fetchStudents();
   }, [open, fetchStudents]);
+
+  // Beregn hvilke elever som er valgt (direkte eller via klasse)
+  const resolvedStudents = useMemo(() => {
+    if (targetMode === "student") {
+      return availableStudents.filter((s) => selectedStudentIds.includes(s.id));
+    }
+    // Klasse-modus: alle elever i valgte klasser
+    return availableStudents.filter((s) =>
+      selectedClassIds.some((classId) => {
+        const cls = classes.find((c) => c.id === classId);
+        return cls && s.className === cls.name;
+      })
+    );
+  }, [targetMode, selectedStudentIds, selectedClassIds, availableStudents, classes]);
+
+  // Filtrer kurs basert på elevenes valgte fag
+  const filteredCourses = useMemo(() => {
+    if (resolvedStudents.length === 0) return TEXTBOOK_COURSES;
+
+    // Samle alle unike kurs-IDer fra valgte elever
+    const studentCourseIds = new Set<string>();
+    for (const student of resolvedStudents) {
+      for (const courseId of student.selectedCourses) {
+        studentCourseIds.add(courseId);
+      }
+    }
+
+    if (studentCourseIds.size === 0) return TEXTBOOK_COURSES;
+
+    return TEXTBOOK_COURSES.filter((course) => studentCourseIds.has(course.id));
+  }, [resolvedStudents]);
 
   const selectedCourse = TEXTBOOK_COURSES.find((c) => c.id === selectedCourseId);
   const sectionMap = selectedCourseId ? getChaptersBySection(selectedCourseId) : new Map();
@@ -148,6 +191,9 @@ export function CreateAssignmentDialog({
         ? prev.filter((id) => id !== classId)
         : [...prev, classId]
     );
+    // Nullstill fag og kapitler når mottakere endres
+    setSelectedCourseId("");
+    setSelectedChapterIds([]);
   };
 
   const toggleStudent = (studentId: string) => {
@@ -156,6 +202,9 @@ export function CreateAssignmentDialog({
         ? prev.filter((id) => id !== studentId)
         : [...prev, studentId]
     );
+    // Nullstill fag og kapitler når mottakere endres
+    setSelectedCourseId("");
+    setSelectedChapterIds([]);
   };
 
   const handleSubmit = async () => {
@@ -210,10 +259,10 @@ export function CreateAssignmentDialog({
     return `${selectedCourse.title} - ${chapters.length} kapitler`;
   };
 
-  const canProceedStep1 = selectedCourseId !== "";
-  const canProceedStep2 = selectedChapterIds.length > 0;
-  const canProceedStep3 = dueDate !== "";
-  const canProceedStep4 = selectedClassIds.length > 0 || selectedStudentIds.length > 0;
+  const canProceedStep1 = selectedClassIds.length > 0 || selectedStudentIds.length > 0;
+  const canProceedStep2 = selectedCourseId !== "";
+  const canProceedStep3 = selectedChapterIds.length > 0;
+  const canProceedStep4 = dueDate !== "";
   const canSubmit = title.trim() !== "" && canProceedStep1 && canProceedStep2 && canProceedStep3 && canProceedStep4;
 
   return (
@@ -221,10 +270,10 @@ export function CreateAssignmentDialog({
       <DialogContent className="max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
         <DialogHeader>
           <DialogTitle>
-            {step === 1 && "Velg fag"}
-            {step === 2 && "Velg kapitler"}
-            {step === 3 && "Sett frist"}
-            {step === 4 && "Velg mottakere"}
+            {step === 1 && "Velg mottakere"}
+            {step === 2 && "Velg fag"}
+            {step === 3 && "Velg kapitler"}
+            {step === 4 && "Sett frist"}
             {step === 5 && "Bekreft lekse"}
           </DialogTitle>
           <DialogDescription>
@@ -233,126 +282,8 @@ export function CreateAssignmentDialog({
         </DialogHeader>
 
         <div className="flex-1 overflow-y-auto py-4 min-h-0">
-          {/* Steg 1: Velg fag */}
+          {/* Steg 1: Velg mottakere */}
           {step === 1 && (
-            <div className="space-y-4">
-              <Select value={selectedCourseId} onValueChange={(val) => {
-                setSelectedCourseId(val);
-                setSelectedChapterIds([]);
-              }}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Velg et fag" />
-                </SelectTrigger>
-                <SelectContent className="max-h-[300px]">
-                  {TEXTBOOK_COURSES.map((course) => (
-                    <SelectItem key={course.id} value={course.id}>
-                      {course.title} ({course.level})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {selectedCourse && (
-                <div className="p-3 rounded-lg bg-muted/50">
-                  <p className="font-medium">{selectedCourse.title}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {selectedCourse.level} &bull; {selectedCourse.chapters.length} kapitler
-                  </p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Steg 2: Velg kapitler */}
-          {step === 2 && selectedCourse && (
-            <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {selectedChapterIds.length} kapitler valgt ({totalExercises} oppgaver)
-              </p>
-              <div className="space-y-4">
-                {Array.from(sectionMap.entries()).map(([sectionNum, chapters]: [string, TextbookChapterMeta[]]) => {
-                  const allSelected = chapters.every((c) => selectedChapterIds.includes(c.id));
-                  const someSelected = chapters.some((c) => selectedChapterIds.includes(c.id));
-                  return (
-                    <div key={sectionNum} className="space-y-1">
-                      <div
-                        className="flex items-center gap-2 py-1 cursor-pointer hover:bg-muted/50 rounded px-2"
-                        onClick={() => toggleSection(chapters)}
-                      >
-                        <Checkbox
-                          checked={allSelected}
-                          className={someSelected && !allSelected ? "opacity-50" : ""}
-                          onCheckedChange={() => toggleSection(chapters)}
-                        />
-                        <span className="font-medium text-sm">
-                          {sectionNames[sectionNum]
-                            ? `${sectionNum}. ${sectionNames[sectionNum]}`
-                            : `Seksjon ${sectionNum}`}
-                        </span>
-                      </div>
-                      <div className="ml-6 space-y-0.5">
-                        {chapters.map((chapter) => (
-                          <div
-                            key={chapter.id}
-                            className="flex items-center gap-2 py-1 cursor-pointer hover:bg-muted/50 rounded px-2"
-                            onClick={() => toggleChapter(chapter.id)}
-                          >
-                            <Checkbox
-                              checked={selectedChapterIds.includes(chapter.id)}
-                              onCheckedChange={() => toggleChapter(chapter.id)}
-                            />
-                            <span className="text-sm flex-1">
-                              {chapter.number} {chapter.title}
-                            </span>
-                            <span className="text-xs text-muted-foreground">
-                              {chapter.exerciseCount} oppg.
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Steg 3: Sett frist */}
-          {step === 3 && (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Frist</label>
-                <input
-                  type="datetime-local"
-                  value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                  min={new Date().toISOString().slice(0, 16)}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Tittel</label>
-                <input
-                  type="text"
-                  value={title || generateTitle()}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Gi leksen en tittel"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Beskrivelse (valgfritt)</label>
-                <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Eventuell beskjed til elevene..."
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[80px]"
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Steg 4: Velg mottakere */}
-          {step === 4 && (
             <div className="space-y-4">
               {/* Tabs */}
               <div className="flex gap-1 p-1 bg-muted rounded-lg">
@@ -480,10 +411,175 @@ export function CreateAssignmentDialog({
             </div>
           )}
 
+          {/* Steg 2: Velg fag (filtrert basert på elevenes valgte fag) */}
+          {step === 2 && (
+            <div className="space-y-4">
+              {filteredCourses.length === 0 ? (
+                <div className="text-center py-8 space-y-2">
+                  <p className="text-muted-foreground">
+                    Ingen av de valgte elevene har lagt til fag ennå.
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Be elevene legge til fag i sin profil, eller velg fra alle fag nedenfor.
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      // Vis alle kurs som fallback
+                      setSelectedCourseId("");
+                    }}
+                  >
+                    Vis alle fag
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Select value={selectedCourseId} onValueChange={(val) => {
+                    setSelectedCourseId(val);
+                    setSelectedChapterIds([]);
+                  }}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Velg et fag" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                      {filteredCourses.map((course) => (
+                        <SelectItem key={course.id} value={course.id}>
+                          {course.title} ({course.level})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {filteredCourses.length < TEXTBOOK_COURSES.length && (
+                    <p className="text-xs text-muted-foreground">
+                      Viser {filteredCourses.length} fag basert på elevenes valg
+                    </p>
+                  )}
+                </>
+              )}
+              {selectedCourse && (
+                <div className="p-3 rounded-lg bg-muted/50">
+                  <p className="font-medium">{selectedCourse.title}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {selectedCourse.level} &bull; {selectedCourse.chapters.length} kapitler
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Steg 3: Velg kapitler */}
+          {step === 3 && selectedCourse && (
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                {selectedChapterIds.length} kapitler valgt ({totalExercises} oppgaver)
+              </p>
+              <div className="space-y-4">
+                {Array.from(sectionMap.entries()).map(([sectionNum, chapters]: [string, TextbookChapterMeta[]]) => {
+                  const allSelected = chapters.every((c) => selectedChapterIds.includes(c.id));
+                  const someSelected = chapters.some((c) => selectedChapterIds.includes(c.id));
+                  return (
+                    <div key={sectionNum} className="space-y-1">
+                      <div
+                        className="flex items-center gap-2 py-1 cursor-pointer hover:bg-muted/50 rounded px-2"
+                        onClick={() => toggleSection(chapters)}
+                      >
+                        <Checkbox
+                          checked={allSelected}
+                          className={someSelected && !allSelected ? "opacity-50" : ""}
+                          onCheckedChange={() => toggleSection(chapters)}
+                        />
+                        <span className="font-medium text-sm">
+                          {sectionNames[sectionNum]
+                            ? `${sectionNum}. ${sectionNames[sectionNum]}`
+                            : `Seksjon ${sectionNum}`}
+                        </span>
+                      </div>
+                      <div className="ml-6 space-y-0.5">
+                        {chapters.map((chapter) => (
+                          <div
+                            key={chapter.id}
+                            className="flex items-center gap-2 py-1 cursor-pointer hover:bg-muted/50 rounded px-2"
+                            onClick={() => toggleChapter(chapter.id)}
+                          >
+                            <Checkbox
+                              checked={selectedChapterIds.includes(chapter.id)}
+                              onCheckedChange={() => toggleChapter(chapter.id)}
+                            />
+                            <span className="text-sm flex-1">
+                              {chapter.number} {chapter.title}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {chapter.exerciseCount} oppg.
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Steg 4: Sett frist */}
+          {step === 4 && (
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Frist</label>
+                <input
+                  type="datetime-local"
+                  value={dueDate}
+                  onChange={(e) => setDueDate(e.target.value)}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                  min={new Date().toISOString().slice(0, 16)}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Tittel</label>
+                <input
+                  type="text"
+                  value={title || generateTitle()}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Gi leksen en tittel"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Beskrivelse (valgfritt)</label>
+                <textarea
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Eventuell beskjed til elevene..."
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[80px]"
+                />
+              </div>
+            </div>
+          )}
+
           {/* Steg 5: Bekreft */}
           {step === 5 && (
             <div className="space-y-4">
               <div className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <Users className="h-4 w-4 text-muted-foreground mt-0.5" />
+                  <div>
+                    <span className="text-sm font-medium">Mottakere:</span>
+                    <div className="text-sm mt-0.5">
+                      {selectedClassIds.length > 0 && (
+                        <p>{selectedClassIds.map((id) => classes.find((c) => c.id === id)?.name).join(", ")}</p>
+                      )}
+                      {selectedStudentIds.length > 0 && (
+                        <p>
+                          {selectedStudentIds
+                            .map((id) => availableStudents.find((s) => s.id === id)?.name)
+                            .filter(Boolean)
+                            .join(", ")}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
                 <div className="flex items-center gap-2">
                   <BookOpen className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Fag:</span>
@@ -520,25 +616,6 @@ export function CreateAssignmentDialog({
                       : "-"}
                   </span>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Users className="h-4 w-4 text-muted-foreground mt-0.5" />
-                  <div>
-                    <span className="text-sm font-medium">Mottakere:</span>
-                    <div className="text-sm mt-0.5">
-                      {selectedClassIds.length > 0 && (
-                        <p>{selectedClassIds.map((id) => classes.find((c) => c.id === id)?.name).join(", ")}</p>
-                      )}
-                      {selectedStudentIds.length > 0 && (
-                        <p>
-                          {selectedStudentIds
-                            .map((id) => availableStudents.find((s) => s.id === id)?.name)
-                            .filter(Boolean)
-                            .join(", ")}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
                 {title && (
                   <div className="p-3 rounded-lg bg-muted/50">
                     <p className="font-medium">{title || generateTitle()}</p>
@@ -571,7 +648,7 @@ export function CreateAssignmentDialog({
             {step < 5 ? (
               <Button
                 onClick={() => {
-                  if (step === 3 && !title) {
+                  if (step === 4 && !title) {
                     setTitle(generateTitle());
                   }
                   setStep(step + 1);

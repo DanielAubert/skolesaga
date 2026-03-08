@@ -57,7 +57,8 @@ export async function GET(
           id,
           name,
           email,
-          avatar_url
+          avatar_url,
+          selected_courses
         )
       `)
       .eq("class_id", id);
@@ -80,6 +81,7 @@ export async function GET(
             name: string;
             email: string;
             avatar_url: string | null;
+            selected_courses: string[] | null;
           } | null;
 
           if (!userData) {
@@ -112,6 +114,7 @@ export async function GET(
             name: userData.name,
             email: userData.email,
             avatarUrl: userData.avatar_url,
+            selectedCourses: userData.selected_courses || [],
             joinedAt: m.joined_at,
             stats: {
               totalAttempts,
