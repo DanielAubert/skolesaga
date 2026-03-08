@@ -263,63 +263,53 @@ export default function StudentDashboard() {
             )}
           </div>
 
-          {/* Stats cards */}
-          <div className="grid grid-cols-2 gap-2 md:gap-4 lg:grid-cols-4">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
-                <CardTitle className="text-xs md:text-sm font-medium">Denne uken</CardTitle>
-                <Target className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
-                <div className="text-xl md:text-2xl font-bold">{textbookCompletions.thisWeek}</div>
-                <p className="text-xs text-muted-foreground hidden md:block">
-                  {textbookCompletions.thisWeek > 0 ? "Oppgaver gjort" : "Start med å øve!"}
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
-                <CardTitle className="text-xs md:text-sm font-medium">Riktige svar</CardTitle>
-                <TrendingUp className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
-                {(() => {
-                  const rate = textbookCompletions.total > 0 ? Math.round((textbookCompletions.passed / textbookCompletions.total) * 100) : 0;
-                  return (
-                    <>
-                      <div className="text-xl md:text-2xl font-bold">{rate}%</div>
-                      <p className="text-xs text-muted-foreground hidden md:block">
-                        {textbookCompletions.passed} av {textbookCompletions.total} bestått
-                      </p>
-                    </>
-                  );
-                })()}
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
-                <CardTitle className="text-xs md:text-sm font-medium">Totalt</CardTitle>
-                <CheckCircle2 className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
-                <div className="text-xl md:text-2xl font-bold">{textbookCompletions.total}</div>
-                <p className="text-xs text-muted-foreground hidden md:block">
-                  Oppgaver totalt
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
-                <CardTitle className="text-xs md:text-sm font-medium">Streak</CardTitle>
-                <Flame className={`h-3.5 w-3.5 md:h-4 md:w-4 ${streak > 0 ? "text-orange-500" : "text-muted-foreground"}`} />
-              </CardHeader>
-              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
-                <div className="text-xl md:text-2xl font-bold">{streak} d</div>
-                <p className="text-xs text-muted-foreground hidden md:block">
-                  {streak > 0 ? "Fortsett sånn!" : "Øv daglig for streak"}
-                </p>
-              </CardContent>
-            </Card>
+          {/* Stats strip */}
+          <div className="grid grid-cols-4 gap-1.5 md:gap-2">
+            {[
+              {
+                value: textbookCompletions.thisWeek,
+                label: "denne uken",
+                icon: Target,
+                accent: "text-primary",
+                bg: "bg-primary/8 dark:bg-primary/15",
+              },
+              {
+                value: `${textbookCompletions.total > 0 ? Math.round((textbookCompletions.passed / textbookCompletions.total) * 100) : 0}%`,
+                label: "riktig",
+                icon: TrendingUp,
+                accent: "text-emerald-600 dark:text-emerald-400",
+                bg: "bg-emerald-500/8 dark:bg-emerald-500/15",
+              },
+              {
+                value: textbookCompletions.total,
+                label: "totalt",
+                icon: CheckCircle2,
+                accent: "text-violet-600 dark:text-violet-400",
+                bg: "bg-violet-500/8 dark:bg-violet-500/15",
+              },
+              {
+                value: `${streak}d`,
+                label: "streak",
+                icon: Flame,
+                accent: streak > 0 ? "text-orange-500" : "text-muted-foreground",
+                bg: streak > 0 ? "bg-orange-500/8 dark:bg-orange-500/15" : "bg-muted/50",
+              },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className={`${stat.bg} rounded-xl px-3 py-2.5 md:px-4 md:py-3 flex items-center gap-2.5 md:gap-3 transition-colors`}
+              >
+                <stat.icon className={`h-4 w-4 shrink-0 hidden sm:block ${stat.accent}`} />
+                <div className="min-w-0">
+                  <div className={`text-base md:text-lg font-bold leading-tight tracking-tight ${stat.accent}`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] md:text-xs text-muted-foreground leading-tight truncate">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Mine lekser */}
