@@ -166,7 +166,7 @@ export function TableOfContents({ currentChapterId, className }: TableOfContents
                           </span>
                         </div>
                         <p className={cn(
-                          "text-sm line-clamp-2 mb-1",
+                          "text-sm line-clamp-2 break-words mb-1",
                           isCurrent ? "font-semibold" : "font-medium"
                         )}>
                           {chapter.title}

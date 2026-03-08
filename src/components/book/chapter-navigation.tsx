@@ -29,7 +29,7 @@ export function ChapterNavigation({ currentChapterId }: ChapterNavigationProps) 
                     <h3 className="font-semibold text-base sm:text-lg mb-1 group-hover:text-primary transition-colors">
                       {prev.number}: {prev.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 break-words">
                       {prev.description}
                     </p>
                   </div>
@@ -68,7 +68,7 @@ export function ChapterNavigation({ currentChapterId }: ChapterNavigationProps) 
                     <h3 className="font-semibold text-base sm:text-lg mb-1 group-hover:text-primary transition-colors">
                       {next.number}: {next.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 break-words">
                       {next.description}
                     </p>
                   </div>
