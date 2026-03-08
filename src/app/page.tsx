@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
+import { DashboardBanner } from '@/components/home/dashboard-banner';
 
 export const metadata: Metadata = {
   title: 'Skolesaga - Interaktive lærebøker for norsk skole',
@@ -22,6 +23,7 @@ export default function HomePage() {
 
         {/* Lærebøker og Quiz - Hovedseksjon */}
         <div className="relative container mx-auto max-w-5xl px-6 py-12 md:py-20">
+          <DashboardBanner />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Lærebøker-kort */}
             <Link href="/bok" className="block group">
