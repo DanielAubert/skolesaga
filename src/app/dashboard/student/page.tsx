@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useRequireAuth, useAuth } from "@/lib/auth/hooks";
 import { useStudentCourses } from "@/lib/hooks/use-student-courses";
 import { TEXTBOOK_COURSES } from "@/lib/data/textbook-courses";
@@ -59,6 +60,7 @@ function getGradeUrl(gradeLevel: string | null | undefined): string {
 }
 
 export default function StudentDashboard() {
+  const router = useRouter();
   const { user, isLoading } = useRequireAuth();
   const { logout } = useAuth();
   const { courses: selectedCourses, removeCourse, isLoading: coursesLoading } = useStudentCourses();
@@ -447,12 +449,16 @@ export default function StudentDashboard() {
                 ))}
 
                 {/* Legg til flere kort */}
-                <Link href={gradeUrl} className="block">
-                  <div className="relative overflow-hidden rounded-xl aspect-[16/10] border-2 border-dashed border-muted-foreground/30 flex flex-col items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors">
-                    <Plus className="h-8 w-8 mb-2" />
-                    <span className="text-sm font-medium">Legg til fag</span>
-                  </div>
-                </Link>
+                <div
+                  onClick={() => router.push(gradeUrl)}
+                  role="link"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === "Enter") router.push(gradeUrl); }}
+                  className="relative overflow-hidden rounded-xl aspect-[16/10] border-2 border-dashed border-muted-foreground/30 flex flex-col items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors cursor-pointer"
+                >
+                  <Plus className="h-8 w-8 mb-2" />
+                  <span className="text-sm font-medium">Legg til fag</span>
+                </div>
               </div>
             )}
           </div>
