@@ -8,7 +8,7 @@ export function BreadcrumbHomeLink({ className }: { className?: string }) {
   const hasCourses = ctx && ctx.courses.length > 0;
 
   return (
-    <Link href={hasCourses ? "/" : "/bok"} className={className}>
+    <Link href={hasCourses ? "/dashboard/student" : "/bok"} className={className}>
       {hasCourses ? "Dashbord" : "Bøker"}
     </Link>
   );

@@ -385,7 +385,7 @@ export function FlashcardClient({
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href={hasCourses ? "/" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
+              <BreadcrumbLink href={hasCourses ? "/dashboard/student" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
