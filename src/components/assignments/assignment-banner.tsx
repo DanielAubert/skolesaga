@@ -15,8 +15,8 @@ interface AssignmentInfo {
   teacherName: string;
   className?: string | null;
   status: string;
-  completedExercises: number;
-  totalExercises: number;
+  completedSubtasks: number;
+  totalSubtasks: number;
   percentComplete: number;
 }
 
@@ -145,7 +145,7 @@ export function AssignmentBanner({ courseId, chapterId, compact = false }: Assig
       <div className="mt-3">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-xs text-muted-foreground">
-            Leksefremdrift: {assignment.completedExercises}/{assignment.totalExercises} oppgaver
+            Leksefremdrift: {assignment.completedSubtasks}/{assignment.totalSubtasks} deloppgaver
           </span>
           <span className="text-xs font-medium">
             {assignment.percentComplete}%

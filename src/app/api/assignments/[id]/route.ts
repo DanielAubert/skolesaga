@@ -2,12 +2,25 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/config";
 import { createClient } from "@supabase/supabase-js";
-import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
+import { getCourse } from "@/lib/data/textbook-courses";
+import { getChapterContent } from "@/lib/data/textbook-content";
+import type { TextbookExercise } from "@/lib/types/textbook";
 
 function getSupabaseAdmin() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
   return createClient(supabaseUrl, supabaseServiceKey);
+}
+
+// Count trainable subtasks for an exercise (matches exercise-trainer logic)
+function countExerciseSubtasks(exercise: TextbookExercise): number {
+  if (exercise.multipleChoiceOptions?.length && (!exercise.subTasks || exercise.subTasks.length === 0)) {
+    return 1;
+  }
+  const answerable = exercise.subTasks?.filter(
+    st => st.answer !== undefined || st.expressionAnswer !== undefined || st.multipleChoiceOptions
+  ) || [];
+  return answerable.length > 0 ? answerable.length : 1;
 }
 
 // GET - Hent leksedetaljer med fullføringsstatus per elev
@@ -48,17 +61,21 @@ export async function GET(
       return NextResponse.json({ message: "Ikke autorisert" }, { status: 403 });
     }
 
-    // Beregn totalt antall oppgaver
+    // Beregn totalt antall deloppgaver fra kapittelinnhold
     const course = getCourse(assignment.course_id);
-    let totalExercises = 0;
+    let totalSubtasks = 0;
 
-    if (assignment.exercise_ids && assignment.exercise_ids.length > 0) {
-      totalExercises = assignment.exercise_ids.length;
-    } else if (course) {
-      for (const chapterId of assignment.chapter_ids) {
-        const chapter = getChapterMeta(assignment.course_id, chapterId);
-        if (chapter) {
-          totalExercises += chapter.exerciseCount;
+    for (const chapterId of assignment.chapter_ids) {
+      const chapter = getChapterContent(chapterId);
+      if (chapter) {
+        for (const ex of chapter.exercises) {
+          if (assignment.exercise_ids && assignment.exercise_ids.length > 0) {
+            if (assignment.exercise_ids.includes(ex.id)) {
+              totalSubtasks += countExerciseSubtasks(ex);
+            }
+          } else {
+            totalSubtasks += countExerciseSubtasks(ex);
+          }
         }
       }
     }
@@ -91,39 +108,35 @@ export async function GET(
 
         if (!user) return null;
 
-        // Hent exercise_completions for denne eleven i relevante kapitler
-        let completedCount = 0;
+        // Hent exercise_completions for denne eleven (med deloppgaver)
+        let completedSubtaskCount = 0;
         let lastActivity: string | null = null;
 
         if (assignment.exercise_ids && assignment.exercise_ids.length > 0) {
           const { data: completions } = await supabase
             .from("exercise_completions")
-            .select("exercise_id, completed_at, is_passed")
+            .select("exercise_id, completed_at, completed_subtasks")
             .eq("student_id", studentId)
             .eq("course_id", assignment.course_id)
-            .in("exercise_id", assignment.exercise_ids)
-            .eq("is_passed", true);
+            .in("exercise_id", assignment.exercise_ids);
 
-          const uniqueExercises = new Set(completions?.map((c) => c.exercise_id));
-          completedCount = uniqueExercises.size;
-          if (completions && completions.length > 0) {
+          if (completions) {
+            completedSubtaskCount = completions.reduce((sum, c) => sum + (c.completed_subtasks || 0), 0);
             lastActivity = completions.reduce((latest, c) =>
-              c.completed_at > (latest || "") ? c.completed_at : latest, "" as string);
+              c.completed_at > (latest || "") ? c.completed_at : latest, "" as string) || null;
           }
         } else {
           const { data: completions } = await supabase
             .from("exercise_completions")
-            .select("exercise_id, completed_at, is_passed")
+            .select("exercise_id, completed_at, completed_subtasks")
             .eq("student_id", studentId)
             .eq("course_id", assignment.course_id)
-            .in("chapter_id", assignment.chapter_ids)
-            .eq("is_passed", true);
+            .in("chapter_id", assignment.chapter_ids);
 
-          const uniqueExercises = new Set(completions?.map((c) => c.exercise_id));
-          completedCount = uniqueExercises.size;
-          if (completions && completions.length > 0) {
+          if (completions) {
+            completedSubtaskCount = completions.reduce((sum, c) => sum + (c.completed_subtasks || 0), 0);
             lastActivity = completions.reduce((latest, c) =>
-              c.completed_at > (latest || "") ? c.completed_at : latest, "" as string);
+              c.completed_at > (latest || "") ? c.completed_at : latest, "" as string) || null;
           }
         }
 
@@ -132,9 +145,9 @@ export async function GET(
         const dueDate = new Date(assignment.due_date);
         let status: string;
 
-        if (completedCount === 0) {
+        if (completedSubtaskCount === 0) {
           status = now > dueDate ? "overdue" : "not_started";
-        } else if (completedCount >= totalExercises) {
+        } else if (completedSubtaskCount >= totalSubtasks) {
           status = lastActivity && new Date(lastActivity) <= dueDate ? "completed" : "completed_late";
         } else {
           status = now > dueDate ? "overdue" : "in_progress";
@@ -144,8 +157,8 @@ export async function GET(
           id: user.id,
           name: user.name,
           email: user.email,
-          completedExercises: completedCount,
-          totalExercises,
+          completedSubtasks: completedSubtaskCount,
+          totalSubtasks,
           status,
           lastActivity,
         };
@@ -181,7 +194,7 @@ export async function GET(
         ),
       },
       students: validStudents,
-      totalExercises,
+      totalSubtasks,
       courseName: course?.title || assignment.course_id,
     });
   } catch (error) {

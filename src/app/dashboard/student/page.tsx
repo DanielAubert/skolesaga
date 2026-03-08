@@ -84,8 +84,8 @@ export default function StudentDashboard() {
     teacherName: string;
     className?: string | null;
     status: string;
-    completedExercises: number;
-    totalExercises: number;
+    completedSubtasks: number;
+    totalSubtasks: number;
     percentComplete: number;
   }[]>([]);
   const [showCompletedAssignments, setShowCompletedAssignments] = useState(false);

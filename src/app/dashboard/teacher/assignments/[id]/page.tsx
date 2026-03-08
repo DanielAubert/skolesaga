@@ -35,8 +35,8 @@ interface StudentProgress {
   id: string;
   name: string;
   email: string;
-  completedExercises: number;
-  totalExercises: number;
+  completedSubtasks: number;
+  totalSubtasks: number;
   status: string;
   lastActivity: string | null;
 }
@@ -100,7 +100,7 @@ export default function AssignmentDetailPage({ params }: { params: Promise<{ id:
   const { isLoading: authLoading } = useRequireAuth("teacher");
   const [assignment, setAssignment] = useState<AssignmentDetail | null>(null);
   const [students, setStudents] = useState<StudentProgress[]>([]);
-  const [totalExercises, setTotalExercises] = useState(0);
+  const [totalSubtasks, setTotalSubtasks] = useState(0);
   const [courseName, setCourseName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -113,7 +113,7 @@ export default function AssignmentDetailPage({ params }: { params: Promise<{ id:
           const data = await response.json();
           setAssignment(data.assignment);
           setStudents(data.students);
-          setTotalExercises(data.totalExercises);
+          setTotalSubtasks(data.totalSubtasks);
           setCourseName(data.courseName);
         }
       } catch (error) {
@@ -328,7 +328,7 @@ export default function AssignmentDetailPage({ params }: { params: Promise<{ id:
             <CardHeader>
               <CardTitle>Elever</CardTitle>
               <CardDescription>
-                Fullføringsstatus per elev ({totalExercises} oppgaver totalt)
+                Fullføringsstatus per elev ({totalSubtasks} deloppgaver totalt)
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -340,8 +340,8 @@ export default function AssignmentDetailPage({ params }: { params: Promise<{ id:
               ) : (
                 <div className="space-y-3">
                   {students.map((student) => {
-                    const percent = totalExercises > 0
-                      ? Math.round((student.completedExercises / totalExercises) * 100)
+                    const percent = totalSubtasks > 0
+                      ? Math.round((student.completedSubtasks / totalSubtasks) * 100)
                       : 0;
                     return (
                       <div
@@ -359,7 +359,7 @@ export default function AssignmentDetailPage({ params }: { params: Promise<{ id:
                           <div className="w-32 hidden md:block">
                             <div className="flex items-center justify-between mb-1">
                               <span className="text-xs text-muted-foreground">
-                                {student.completedExercises}/{totalExercises}
+                                {student.completedSubtasks}/{totalSubtasks}
                               </span>
                               <span className="text-xs font-medium">{percent}%</span>
                             </div>

@@ -2,12 +2,24 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/config";
 import { createClient } from "@supabase/supabase-js";
-import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
+import { getChapterContent } from "@/lib/data/textbook-content";
+import type { TextbookExercise } from "@/lib/types/textbook";
 
 function getSupabaseAdmin() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
   return createClient(supabaseUrl, supabaseServiceKey);
+}
+
+// Count trainable subtasks for an exercise (matches exercise-trainer logic)
+function countExerciseSubtasks(exercise: TextbookExercise): number {
+  if (exercise.multipleChoiceOptions?.length && (!exercise.subTasks || exercise.subTasks.length === 0)) {
+    return 1;
+  }
+  const answerable = exercise.subTasks?.filter(
+    st => st.answer !== undefined || st.expressionAnswer !== undefined || st.multipleChoiceOptions
+  ) || [];
+  return answerable.length > 0 ? answerable.length : 1;
 }
 
 // GET - Hent alle aktive lekser for innlogget elev
@@ -110,48 +122,52 @@ export async function GET() {
       }
     }
 
-    // Beregn fullføring for hver lekse
+    // Beregn fullføring for hver lekse (basert på deloppgaver)
     const enriched = await Promise.all(
       (assignments || []).map(async (a) => {
-        const course = getCourse(a.course_id);
-        let totalExercises = 0;
+        // Beregn totalt antall deloppgaver fra kapittelinnhold
+        let totalSubtasks = 0;
 
-        if (a.exercise_ids && a.exercise_ids.length > 0) {
-          totalExercises = a.exercise_ids.length;
-        } else if (course) {
-          for (const chapterId of a.chapter_ids) {
-            const chapter = getChapterMeta(a.course_id, chapterId);
-            if (chapter) {
-              totalExercises += chapter.exerciseCount;
+        for (const chapterId of a.chapter_ids) {
+          const chapter = getChapterContent(chapterId);
+          if (chapter) {
+            for (const ex of chapter.exercises) {
+              if (a.exercise_ids && a.exercise_ids.length > 0) {
+                if (a.exercise_ids.includes(ex.id)) {
+                  totalSubtasks += countExerciseSubtasks(ex);
+                }
+              } else {
+                totalSubtasks += countExerciseSubtasks(ex);
+              }
             }
           }
         }
 
-        // Hent fullføring
-        let completedCount = 0;
+        // Hent fullføring (deloppgaver)
+        let completedSubtaskCount = 0;
 
         if (a.exercise_ids && a.exercise_ids.length > 0) {
           const { data: completions } = await supabase
             .from("exercise_completions")
-            .select("exercise_id")
+            .select("exercise_id, completed_subtasks")
             .eq("student_id", userId)
             .eq("course_id", a.course_id)
-            .in("exercise_id", a.exercise_ids)
-            .eq("is_passed", true);
+            .in("exercise_id", a.exercise_ids);
 
-          const uniqueExercises = new Set(completions?.map((c) => c.exercise_id));
-          completedCount = uniqueExercises.size;
+          if (completions) {
+            completedSubtaskCount = completions.reduce((sum, c) => sum + (c.completed_subtasks || 0), 0);
+          }
         } else {
           const { data: completions } = await supabase
             .from("exercise_completions")
-            .select("exercise_id")
+            .select("exercise_id, completed_subtasks")
             .eq("student_id", userId)
             .eq("course_id", a.course_id)
-            .in("chapter_id", a.chapter_ids)
-            .eq("is_passed", true);
+            .in("chapter_id", a.chapter_ids);
 
-          const uniqueExercises = new Set(completions?.map((c) => c.exercise_id));
-          completedCount = uniqueExercises.size;
+          if (completions) {
+            completedSubtaskCount = completions.reduce((sum, c) => sum + (c.completed_subtasks || 0), 0);
+          }
         }
 
         // Bestem status
@@ -159,9 +175,9 @@ export async function GET() {
         const dueDate = new Date(a.due_date);
         let status: string;
 
-        if (completedCount === 0) {
+        if (completedSubtaskCount === 0) {
           status = now > dueDate ? "overdue" : "not_started";
-        } else if (completedCount >= totalExercises) {
+        } else if (completedSubtaskCount >= totalSubtasks) {
           status = "completed";
         } else {
           status = now > dueDate ? "overdue" : "in_progress";
@@ -182,9 +198,9 @@ export async function GET() {
           teacherName: teacherNames[a.created_by] || "Ukjent lærer",
           className: relevantClassId ? classNames[relevantClassId] || null : null,
           status,
-          completedExercises: completedCount,
-          totalExercises,
-          percentComplete: totalExercises > 0 ? Math.round((completedCount / totalExercises) * 100) : 0,
+          completedSubtasks: completedSubtaskCount,
+          totalSubtasks,
+          percentComplete: totalSubtasks > 0 ? Math.round((completedSubtaskCount / totalSubtasks) * 100) : 0,
         };
       })
     );

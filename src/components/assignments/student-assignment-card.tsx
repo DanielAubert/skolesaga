@@ -15,8 +15,8 @@ interface StudentAssignment {
   teacherName: string;
   className?: string | null;
   status: string;
-  completedExercises: number;
-  totalExercises: number;
+  completedSubtasks: number;
+  totalSubtasks: number;
   percentComplete: number;
 }
 
@@ -126,7 +126,7 @@ export function StudentAssignmentCard({ assignment }: StudentAssignmentCardProps
         <div className="mt-3">
           <div className="flex items-center justify-between mb-1">
             <span className="text-xs text-muted-foreground">
-              {assignment.completedExercises}/{assignment.totalExercises} oppgaver
+              {assignment.completedSubtasks}/{assignment.totalSubtasks} deloppgaver
             </span>
             <span className="text-xs font-medium">{assignment.percentComplete}%</span>
           </div>
