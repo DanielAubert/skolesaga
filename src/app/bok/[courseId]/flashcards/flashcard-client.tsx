@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { useStudentCourses } from "@/lib/contexts/student-courses-context";
 import {
   Select,
   SelectContent,
@@ -56,6 +57,9 @@ export function FlashcardClient({
   sectionNames,
   initialSection,
 }: FlashcardClientProps) {
+  const { courses: studentCourses } = useStudentCourses();
+  const hasCourses = studentCourses.length > 0;
+
   // Tilstand
   const [sectionFilter, setSectionFilter] = useState<string>(initialSection ?? "all");
   const [sessionCards, setSessionCards] = useState<FlashcardDefinition[]>([]);
@@ -381,7 +385,7 @@ export function FlashcardClient({
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/bok">Bøker</BreadcrumbLink>
+              <BreadcrumbLink href={hasCourses ? "/" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

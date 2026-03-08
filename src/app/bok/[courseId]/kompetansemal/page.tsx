@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
+import { BreadcrumbHomeLink } from '@/components/book/breadcrumb-home-link';
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -69,9 +70,7 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/bok" className="hover:text-foreground">
-              Bøker
-            </Link>
+            <BreadcrumbHomeLink className="hover:text-foreground" />
             <ChevronRight className="h-4 w-4" />
             <Link href={`/bok/${courseId}`} className="hover:text-foreground">
               {course.title}

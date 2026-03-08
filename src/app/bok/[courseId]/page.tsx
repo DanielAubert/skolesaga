@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AddCourseButton } from '@/components/student/add-course-button';
+import { BreadcrumbHomeLink } from '@/components/book/breadcrumb-home-link';
 import {
   Clock, ChevronRight, GraduationCap,
   Calculator, Variable, Divide, Grid3X3, Sigma, Binary,
@@ -157,9 +158,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-          <Link href="/bok" className="hover:text-foreground">
-            Bøker
-          </Link>
+          <BreadcrumbHomeLink className="hover:text-foreground" />
           <ChevronRight className="h-4 w-4" />
           <span className="text-foreground">{course.title}</span>
         </nav>
@@ -282,11 +281,11 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                                 <Icon className="h-4 w-4" />
                               </div>
                               <div className="min-w-0 flex-1">
-                                <CardTitle className="text-sm leading-tight">
+                                <CardTitle className="text-xs sm:text-sm leading-tight">
                                   {!chapter.coverImage && (
                                     <span className={`font-mono text-xs font-semibold ${color.text}`}>{chapter.number}</span>
                                   )}
-                                  <span className="font-medium ml-1 line-clamp-2">{chapter.title}</span>
+                                  <span className="font-medium ml-1 line-clamp-2 break-words">{chapter.title}</span>
                                 </CardTitle>
                               </div>
                             </div>

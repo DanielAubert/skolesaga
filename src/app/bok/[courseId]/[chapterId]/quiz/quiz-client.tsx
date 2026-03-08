@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { useStudentCourses } from "@/lib/contexts/student-courses-context";
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowLeft, RefreshCw, ArrowRight, Trophy, BookCheck, CheckCircle2, XCircle } from "lucide-react";
 import Link from "next/link";
@@ -49,6 +50,9 @@ export function QuizClient({
   chapterNumber,
   questions,
 }: QuizClientProps) {
+  const { courses: studentCourses } = useStudentCourses();
+  const hasCourses = studentCourses.length > 0;
+
   const [problems, setProblems] = useState<QuizProblem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -268,7 +272,7 @@ export function QuizClient({
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/bok">Bøker</BreadcrumbLink>
+              <BreadcrumbLink href={hasCourses ? "/" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

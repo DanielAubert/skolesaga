@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { useStudentCourses } from "@/lib/contexts/student-courses-context";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Dumbbell, Timer, Target, CheckCircle, ArrowLeft, RotateCcw, AlertCircle } from "lucide-react";
 import Link from "next/link";
@@ -1175,6 +1176,8 @@ export function TrainingClient({
   chapterTitle,
 }: TrainingClientProps) {
   const { data: session } = useSession();
+  const { courses: studentCourses } = useStudentCourses();
+  const hasCourses = studentCourses.length > 0;
 
   // Check if exercise has trainable content
   const hasNumericAnswers = exercise.subTasks?.some(st => st.answer !== undefined) ?? false;
@@ -1469,11 +1472,7 @@ export function TrainingClient({
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/">Hjem</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/bok">Lærebok</BreadcrumbLink>
+                <BreadcrumbLink href={hasCourses ? "/" : "/bok"}>{hasCourses ? "Dashbord" : "Bøker"}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
