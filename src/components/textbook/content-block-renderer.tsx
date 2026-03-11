@@ -38,12 +38,79 @@ import {
   IsoscelesTriangleIllustration,
   RightTriangleIllustration,
   TriangleTypesOverviewIllustration,
+  Pythagorean345Illustration,
 } from './illustrations/triangle-illustrations';
 import {
   QuadrantsIllustration,
   PointsPlottingIllustration,
   BasicCoordinateSystemIllustration,
 } from './illustrations/coordinate-system-illustrations';
+import {
+  GraphX2Minus9StyleA,
+  GraphX2Minus9StyleB,
+  GraphX2Minus9StyleC,
+} from './illustrations/function-graph-illustrations';
+import {
+  RectangleAreaIllustration,
+  ParallelogramAreaIllustration,
+  TrapezoidAreaIllustration,
+  CircleAreaIllustration,
+} from './illustrations/area-illustrations';
+import {
+  PrismVolumeIllustration,
+  CylinderVolumeIllustration,
+  ConeVolumeIllustration,
+  PyramidVolumeIllustration,
+  SphereVolumeIllustration,
+} from './illustrations/volume-illustrations';
+import {
+  LinearFunctionIllustration,
+  ParallelLinesIllustration,
+  IntersectingLinesIllustration,
+} from './illustrations/linear-function-illustrations';
+import {
+  TrigRatiosIllustration,
+  UnitCircleIllustration,
+} from './illustrations/trigonometry-illustrations';
+import {
+  FractionCircleIllustration,
+  FractionBarIllustration,
+  PercentBarIllustration,
+} from './illustrations/fraction-illustrations';
+import {
+  FirstQuadraticIdentityIllustration,
+  SecondQuadraticIdentityIllustration,
+  ThirdQuadraticIdentityIllustration,
+} from './illustrations/quadratic-identities-illustrations';
+import {
+  SimilarTrianglesIllustration,
+  CongruenceSSS,
+  CongruenceSAS,
+  CongruenceASA,
+} from './illustrations/similarity-illustrations';
+import {
+  BoxPlotIllustration,
+  HistogramIllustration,
+  PieChartIllustration,
+} from './illustrations/statistics-illustrations';
+import {
+  ExponentialGrowthIllustration,
+  ExponentialDecayIllustration,
+  LinearVsExponentialIllustration,
+} from './illustrations/exponential-illustrations';
+import {
+  NumberLineInequalityIllustration,
+  NumberLineIntervalsIllustration,
+} from './illustrations/number-line-illustrations';
+import {
+  VectorBasicIllustration,
+  VectorAdditionIllustration,
+} from './illustrations/vector-illustrations';
+import {
+  TriangularNumbersIllustration,
+  SquareNumbersIllustration,
+  StaircaseNumbersIllustration,
+} from './illustrations/pattern-illustrations';
 
 // Dynamisk import av GeoGebra for å unngå SSR-problemer
 const GeoGebraEmbed = dynamic(
@@ -960,10 +1027,64 @@ const ILLUSTRATIONS: Record<string, React.ComponentType<{ className?: string }>>
   'triangle-isosceles': IsoscelesTriangleIllustration,
   'triangle-right': RightTriangleIllustration,
   'triangle-types-overview': TriangleTypesOverviewIllustration,
+  'pythagorean-345': Pythagorean345Illustration,
   // Koordinatsystem-illustrasjoner
   'coordinate-quadrants': QuadrantsIllustration,
   'coordinate-points-abcd': PointsPlottingIllustration,
   'coordinate-basic': BasicCoordinateSystemIllustration,
+  // Funksjonsgraf-illustrasjoner
+  'graph-x2-minus9-a': GraphX2Minus9StyleA,
+  'graph-x2-minus9-b': GraphX2Minus9StyleB,
+  'graph-x2-minus9-c': GraphX2Minus9StyleC,
+  // Areal-illustrasjoner
+  'area-rectangle': RectangleAreaIllustration,
+  'area-parallelogram': ParallelogramAreaIllustration,
+  'area-trapezoid': TrapezoidAreaIllustration,
+  'area-circle': CircleAreaIllustration,
+  // Volum-illustrasjoner
+  'volume-prism': PrismVolumeIllustration,
+  'volume-cylinder': CylinderVolumeIllustration,
+  'volume-cone': ConeVolumeIllustration,
+  'volume-pyramid': PyramidVolumeIllustration,
+  'volume-sphere': SphereVolumeIllustration,
+  // Lineære funksjoner
+  'linear-function': LinearFunctionIllustration,
+  'parallel-lines': ParallelLinesIllustration,
+  'intersecting-lines': IntersectingLinesIllustration,
+  // Trigonometri
+  'trig-ratios': TrigRatiosIllustration,
+  'unit-circle': UnitCircleIllustration,
+  // Brøk og prosent
+  'fraction-circle': FractionCircleIllustration,
+  'fraction-bar': FractionBarIllustration,
+  'percent-bar': PercentBarIllustration,
+  // Kvadratsetningene
+  'quadratic-identity-1': FirstQuadraticIdentityIllustration,
+  'quadratic-identity-2': SecondQuadraticIdentityIllustration,
+  'quadratic-identity-3': ThirdQuadraticIdentityIllustration,
+  // Formlikhet og kongruens
+  'similar-triangles': SimilarTrianglesIllustration,
+  'congruence-sss': CongruenceSSS,
+  'congruence-sas': CongruenceSAS,
+  'congruence-asa': CongruenceASA,
+  // Statistikk
+  'boxplot': BoxPlotIllustration,
+  'histogram': HistogramIllustration,
+  'pie-chart': PieChartIllustration,
+  // Eksponentialfunksjoner
+  'exponential-growth': ExponentialGrowthIllustration,
+  'exponential-decay': ExponentialDecayIllustration,
+  'linear-vs-exponential': LinearVsExponentialIllustration,
+  // Tallinjer
+  'number-line-inequality': NumberLineInequalityIllustration,
+  'number-line-intervals': NumberLineIntervalsIllustration,
+  // Vektorer
+  'vector-basic': VectorBasicIllustration,
+  'vector-addition': VectorAdditionIllustration,
+  // Figurtall
+  'triangular-numbers': TriangularNumbersIllustration,
+  'square-numbers': SquareNumbersIllustration,
+  'staircase-numbers': StaircaseNumbersIllustration,
 };
 
 function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {

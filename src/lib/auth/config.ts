@@ -159,7 +159,7 @@ export const authOptions: NextAuthOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             authorization: {
               params: {
-                prompt: "consent",
+                prompt: "select_account",
                 access_type: "offline",
                 response_type: "code",
               },
@@ -220,40 +220,75 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === "google" || account?.provider === "feide") {
-        const supabaseDb = getSupabaseDb();
-        // Sjekk om bruker finnes, ellers opprett
-        const { data: existingUser } = await supabaseDb
-          .from("users")
-          .select("*")
-          .eq("email", user.email)
-          .maybeSingle();
-
-        if (!existingUser) {
-          // Opprett ny bruker
-          // For Feide-brukere, sett role basert på om de er ansatt eller elev
-          const isFeide = account?.provider === "feide";
-          await supabaseDb.from("users").insert({
-            email: user.email,
-            name: user.name,
-            avatar_url: user.image,
-            auth_provider: account?.provider,
-            // Feide-brukere starter som student, kan oppgraderes til teacher manuelt
-            role: "student",
-            subscription_tier: isFeide ? "school" : "free",
-            // Lagre Feide-ID for fremtidig referanse
-            ...(isFeide && (user as { feideId?: string }).feideId && {
-              feide_id: (user as { feideId?: string }).feideId,
-            }),
-          });
-        } else if (account?.provider === "feide" && !existingUser.feide_id) {
-          // Oppdater eksisterende bruker med Feide-ID hvis de ikke har det
-          const feideId = (user as { feideId?: string }).feideId;
-          if (feideId) {
-            await supabaseDb
-              .from("users")
-              .update({ feide_id: feideId, auth_provider: "feide" })
-              .eq("email", user.email);
+        try {
+          if (!user.email) {
+            console.error("[Auth signIn] Ingen e-post fra provider:", account?.provider);
+            return false;
           }
+
+          const supabaseDb = getSupabaseDb();
+
+          // Sjekk om bruker finnes - bruk limit(1) for å håndtere eventuelle duplikater
+          const { data: users, error: lookupError } = await supabaseDb
+            .from("users")
+            .select("*")
+            .eq("email", user.email)
+            .order("created_at", { ascending: true })
+            .limit(1);
+
+          if (lookupError) {
+            console.error("[Auth signIn] Feil ved oppslag av bruker:", lookupError);
+            return false;
+          }
+
+          const existingUser = users?.[0];
+
+          if (!existingUser) {
+            // Opprett ny bruker
+            const isFeide = account?.provider === "feide";
+            const { error: insertError } = await supabaseDb.from("users").insert({
+              email: user.email,
+              name: user.name,
+              avatar_url: user.image,
+              auth_provider: account?.provider,
+              role: "student",
+              subscription_tier: isFeide ? "school" : "free",
+              ...(isFeide && (user as { feideId?: string }).feideId && {
+                feide_id: (user as { feideId?: string }).feideId,
+              }),
+            });
+
+            if (insertError) {
+              console.error("[Auth signIn] Feil ved opprettelse av bruker:", insertError);
+              // Prøv upsert som fallback (e-posten kan allerede finnes pga. race condition)
+              const { error: upsertError } = await supabaseDb
+                .from("users")
+                .upsert({
+                  email: user.email,
+                  name: user.name,
+                  avatar_url: user.image,
+                  auth_provider: account?.provider,
+                  role: "student",
+                  subscription_tier: isFeide ? "school" : "free",
+                }, { onConflict: "email", ignoreDuplicates: true });
+
+              if (upsertError) {
+                console.error("[Auth signIn] Upsert feilet også:", upsertError);
+                return false;
+              }
+            }
+          } else if (account?.provider === "feide" && !existingUser.feide_id) {
+            const feideId = (user as { feideId?: string }).feideId;
+            if (feideId) {
+              await supabaseDb
+                .from("users")
+                .update({ feide_id: feideId, auth_provider: "feide" })
+                .eq("email", user.email);
+            }
+          }
+        } catch (error) {
+          console.error("[Auth signIn] Uventet feil:", error);
+          return false;
         }
       }
       return true;

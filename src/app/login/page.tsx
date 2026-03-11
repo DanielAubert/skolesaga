@@ -9,7 +9,8 @@ import { ProviderButtons } from "@/components/auth/provider-buttons";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import { BookOpen, GraduationCap } from "lucide-react";
+import { AlertCircle, BookOpen, GraduationCap } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Logo } from "@/components/ui/logo";
 
 function LoginPageContent() {
@@ -18,7 +19,20 @@ function LoginPageContent() {
   const { isAuthenticated, isLoading } = useUser();
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
 
-  // Les tab fra URL-parameter
+  // Les tab og feil fra URL-parameter
+  const errorParam = searchParams.get("error");
+  const errorMessages: Record<string, string> = {
+    OAuthAccountNotLinked: "Denne e-postadressen er allerede knyttet til en annen innloggingsmetode. Prøv å logge inn med e-post og passord i stedet.",
+    OAuthCallback: "Noe gikk galt under innlogging med Google. Vennligst prøv igjen.",
+    OAuthSignin: "Kunne ikke starte innlogging med Google. Vennligst prøv igjen.",
+    OAuthCreateAccount: "Kunne ikke opprette konto. Vennligst prøv igjen eller bruk e-post og passord.",
+    Callback: "Noe gikk galt under innloggingen. Vennligst prøv igjen.",
+    AccessDenied: "Tilgang ble nektet. Vennligst prøv igjen.",
+    Configuration: "Det er en feil i serverkonfigurasjonen. Kontakt support.",
+    Default: "En uventet feil oppsto. Vennligst prøv igjen.",
+  };
+  const authError = errorParam ? (errorMessages[errorParam] || errorMessages.Default) : null;
+
   useEffect(() => {
     const tab = searchParams.get("tab");
     if (tab === "signup") {
@@ -64,6 +78,14 @@ function LoginPageContent() {
               Logg inn for å spore din progresjon og få tilgang til alle funksjoner
             </p>
           </div>
+
+          {/* Feilmelding fra OAuth */}
+          {authError && (
+            <Alert variant="destructive">
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>{authError}</AlertDescription>
+            </Alert>
+          )}
 
           {/* Auth card */}
           <Card>

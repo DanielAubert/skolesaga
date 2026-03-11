@@ -384,32 +384,42 @@ Disse kan legges som enkle `type: 'exercise'`-blokker med `difficulty: 'lett'` r
 Alle oppgaver har `hideInlineSolution: true`, hints, og støtte for opplasting/tegning.
 Verifisert med `npx tsc --noEmit` — 0 feil.
 
-### Fase 2: Oppsummering og formler
-| Steg | Oppgave | Omfang |
-|------|---------|--------|
-| 2a | Legg til oppsummering i Mat 8 base-kapitler (17 stk) | 17 blokker |
-| 2b | Legg til oppsummering i Mat 9 base-kapitler (18 stk) | 18 blokker |
-| 2c | Legg til oppsummering i Mat 10 kapitler som mangler | ~15 blokker |
-| 2d | Legg til formellister i relevante oppsummeringer | ~40 tillegg |
+### Fase 2: Oppsummering og formler — FULLFØRT
 
-### Fase 3: Varierte oppgavetyper
-| Steg | Oppgave | Omfang |
-|------|---------|--------|
-| 3a | Legg til 2-3 varierte oppgaver per kapittel (alle 3 bøker) | ~350 oppgaver |
-| 3b | Finn feilen, sant/usant, drøfting, undersøkelse | Blanding |
+| Steg | Oppgave | Omfang | Status |
+|------|---------|--------|--------|
+| 2a | Legg til oppsummering i Mat 8 (17 base + 7 del10/del11) | 24 blokker | FERDIG |
+| 2b | Legg til oppsummering i Mat 9 base-kapitler (21 stk) | 21 blokker | FERDIG |
+| 2c | Legg til oppsummering i Mat 10 base-kapitler (22 stk) | 22 blokker | FERDIG |
+| 2d | Formellister integrert i oppsummeringene | Inkludert i 2a-2c | FERDIG |
 
-### Fase 4: Kontekst og forankring
-| Steg | Oppgave | Omfang |
-|------|---------|--------|
-| 4a | Legg til «Matematikk i praksis»-bokser | ~200 bokser |
-| 4b | Legg til «Visste du at?»-historiske bokser | ~60 bokser |
-| 4c | Integrer eksamensoppgaver i Mat 10 | ~55 oppgaver |
+**Resultat:** 67 nye oppsummeringsblokker med nøkkelbegreper-tabell og viktige formler (der relevant).
+Alle 120 kapitler har nå oppsummering. Verifisert med `npx tsc --noEmit` — 0 feil.
 
-### Fase 5: Illustrasjoner (separat prosjekt)
-| Steg | Oppgave | Omfang |
-|------|---------|--------|
-| 5a | Planlegg illustrasjonsbehov per kapittel | Liste |
-| 5b | Generer/tegn SVG-figurer | ~300 figurer |
+### Fase 3: Varierte oppgavetyper — FULLFØRT
+
+| Steg | Oppgave | Omfang | Status |
+|------|---------|--------|--------|
+| 3a | Legg til F1/S1/D1 i Mat 8 (40 kapitler) | 120 oppgaver (3 per kapittel) | FERDIG |
+| 3b | Legg til F1/S1/D1 i Mat 9 (40 kapitler) | 120 oppgaver (3 per kapittel) | FERDIG |
+| 3c | Legg til F1/S1/D1 i Mat 10 (39 kapitler) | 117 oppgaver (3 per kapittel) | FERDIG |
+
+**Resultat:** 357 varierte oppgaver (F1 Finn feilen, S1 Sant/usant, D1 Drøfting) fordelt på 119 kapitler.
+Plassert før oppsummering, i rekkefølge F1 → S1 → D1.
+Verifisert med `npx tsc --noEmit` — 0 feil.
+
+### Fase 4: Kontekst og forankring — UTSATT
+| Steg | Oppgave | Omfang | Status |
+|------|---------|--------|--------|
+| 4a | Legg til «Matematikk i praksis»-bokser | ~200 bokser | UTSATT |
+| 4b | Legg til «Visste du at?»-historiske bokser | ~60 bokser | UTSATT |
+| 4c | Integrer eksamensoppgaver i Mat 10 | ~55 oppgaver | UTSATT |
+
+### Fase 5: Illustrasjoner (separat prosjekt) — UTSATT
+| Steg | Oppgave | Omfang | Status |
+|------|---------|--------|--------|
+| 5a | Planlegg illustrasjonsbehov per kapittel | Liste | UTSATT |
+| 5b | Generer/tegn SVG-figurer | ~300 figurer | UTSATT |
 
 ---
 
@@ -418,13 +428,13 @@ Verifisert med `npx tsc --noEmit` — 0 feil.
 | Kategori | Antall elementer | Prioritet |
 |----------|-----------------|-----------|
 | Repetisjonsoppgaver | 720 R-oppgaver (~4300 deloppgaver) | FULLFØRT |
-| Oppsummeringer | ~50 blokker | HØY |
-| Varierte oppgaver | ~350 oppgaver | HØY |
-| Eksamensoppgaver (Mat 10) | ~55 oppgaver | HØY |
-| Praksisbokser | ~200 bokser | MEDIUM |
-| Historiebokser | ~60 bokser | MEDIUM |
-| Formellister | ~40 tillegg | MEDIUM |
-| Illustrasjoner | ~300 figurer | KRITISK (separat) |
+| Oppsummeringer | 67 blokker (+ formellister) | FULLFØRT |
+| Varierte oppgaver (F1/S1/D1) | 357 oppgaver | FULLFØRT |
+| Eksamensoppgaver (Mat 10) | ~55 oppgaver | UTSATT |
+| Praksisbokser | ~200 bokser | UTSATT |
+| Historiebokser | ~60 bokser | UTSATT |
+| Formellister | ~40 tillegg | UTSATT |
+| Illustrasjoner | ~300 figurer | UTSATT |
 
 ---
 
