@@ -4,19 +4,15 @@
  * if critical env vars are missing.
  */
 
-const requiredServerVars = [
+const requiredServerVars = [] as const;
+
+const optionalServerVars = [
   'NEXTAUTH_SECRET',
   'NEXT_PUBLIC_SUPABASE_URL',
   'NEXT_PUBLIC_SUPABASE_ANON_KEY',
   'SUPABASE_SERVICE_ROLE_KEY',
-] as const;
-
-const optionalServerVars = [
-  'ANTHROPIC_API_KEY',
   'GOOGLE_CLIENT_ID',
   'GOOGLE_CLIENT_SECRET',
-  'ELEVENLABS_API_KEY',
-  'GEMINI_API_KEY',
 ] as const;
 
 function validateEnv() {

@@ -4,10 +4,6 @@ import { getToken } from 'next-auth/jwt';
 
 // Routes that require authentication
 const protectedRoutes = [
-  '/bok',
-  '/book',
-  '/geogebra',
-  '/hoderegning',
   '/dashboard',
   '/profil',
   '/join',
@@ -40,10 +36,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/bok/:path*',
-    '/book/:path*',
-    '/geogebra/:path*',
-    '/hoderegning/:path*',
     '/dashboard/:path*',
     '/profil/:path*',
     '/join/:path*',
