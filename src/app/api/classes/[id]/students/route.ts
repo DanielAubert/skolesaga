@@ -9,7 +9,7 @@ function getSupabaseAdmin() {
   return createClient(supabaseUrl, supabaseServiceKey);
 }
 
-// POST - Add students to a class (teachers only)
+// POST - Add students to a class (admin only, temporary restriction)
 export async function POST(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -22,20 +22,12 @@ export async function POST(
       return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
     }
 
-    const supabase = getSupabaseAdmin();
-
-    // Check that user is a teacher in this class
-    const { data: membership } = await supabase
-      .from("class_memberships")
-      .select("role")
-      .eq("class_id", classId)
-      .eq("user_id", session.user.id)
-      .eq("role", "teacher")
-      .single();
-
-    if (!membership) {
-      return NextResponse.json({ error: "Ikke autorisert" }, { status: 403 });
+    // Temporary restriction: only admin can add students to classes
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ error: "Kun admin kan legge til elever i klasser" }, { status: 403 });
     }
+
+    const supabase = getSupabaseAdmin();
 
     const body = await request.json();
     const { studentIds } = body;
@@ -122,7 +114,7 @@ export async function POST(
   }
 }
 
-// DELETE - Remove a student from a class (teachers only)
+// DELETE - Remove a student from a class (admin only, temporary restriction)
 export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -135,20 +127,12 @@ export async function DELETE(
       return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
     }
 
-    const supabase = getSupabaseAdmin();
-
-    // Check that user is a teacher in this class
-    const { data: membership } = await supabase
-      .from("class_memberships")
-      .select("role")
-      .eq("class_id", classId)
-      .eq("user_id", session.user.id)
-      .eq("role", "teacher")
-      .single();
-
-    if (!membership) {
-      return NextResponse.json({ error: "Ikke autorisert" }, { status: 403 });
+    // Temporary restriction: only admin can remove students from classes
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ error: "Kun admin kan fjerne elever fra klasser" }, { status: 403 });
     }
+
+    const supabase = getSupabaseAdmin();
 
     const body = await request.json();
     const { studentId } = body;

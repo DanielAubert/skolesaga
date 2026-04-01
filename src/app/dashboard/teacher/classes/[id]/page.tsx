@@ -80,7 +80,8 @@ interface ClassDetail {
 export default function ClassDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
-  const { isLoading: authLoading } = useRequireAuth("teacher");
+  const { user, isLoading: authLoading } = useRequireAuth("teacher");
+  const isAdmin = user?.role === "admin";
   const [classData, setClassData] = useState<ClassDetail | null>(null);
   const [students, setStudents] = useState<Student[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -354,8 +355,8 @@ export default function ClassDetailPage({ params }: { params: Promise<{ id: stri
               </CardContent>
             </Card>
 
-            {/* Add from organization card */}
-            {orgName && (
+            {/* Add from organization card (admin only, temporary restriction) */}
+            {isAdmin && orgName && (
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
