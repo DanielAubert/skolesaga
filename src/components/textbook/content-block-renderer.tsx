@@ -20,6 +20,7 @@ import { useIllustrationApproval } from '@/lib/illustration-approval-context';
 import { LatexRenderer } from './latex-renderer';
 import { TextbookExerciseItem } from './textbook-exercise-item';
 import { SignDiagram, createSignDiagram } from './sign-diagram';
+import { FinanceCalculator } from './finance-calculator';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
 import DOMPurify from 'isomorphic-dompurify';
 import dynamic from 'next/dynamic';
@@ -200,6 +201,8 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
       return <FilteredIllustrationBlock block={block} />;
     case 'asymptote':
       return <AsymptoteBlockComponent block={block} />;
+    case 'finance-calculator':
+      return <FinanceCalculator calculatorType={block.calculatorType} title={block.title} description={block.description} defaults={block.defaults} />;
     default:
       return null;
   }

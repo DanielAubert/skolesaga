@@ -83,7 +83,8 @@ export type TextbookContentBlock =
   | CollapsibleBlock
   | SignDiagramBlock
   | IllustrationBlock
-  | AsymptoteBlock;
+  | AsymptoteBlock
+  | FinanceCalculatorBlock;
 
 // Basis for alle innholdsblokker
 interface BaseContentBlock {
@@ -287,6 +288,24 @@ export interface AsymptoteBlock extends BaseContentBlock {
   caption?: string;
   showCode?: boolean;        // Vis kode til eleven (default: false)
   width?: number;            // Bredde i piksler
+}
+
+export type FinanceCalculatorType =
+  | 'compound-interest'
+  | 'effective-interest'
+  | 'present-value'
+  | 'annuity-pv'
+  | 'annuity-fv'
+  | 'loan-payment'
+  | 'npv'
+  | 'continuous';
+
+export interface FinanceCalculatorBlock extends BaseContentBlock {
+  type: 'finance-calculator';
+  calculatorType: FinanceCalculatorType;
+  title?: string;
+  description?: string;
+  defaults?: Record<string, number>;
 }
 
 // ============================================================================
