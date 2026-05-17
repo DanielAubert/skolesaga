@@ -36,7 +36,7 @@ export function normalizeExpression(expr: string): string {
     .replace(/([a-zA-Z])(\d)/g, '$1*$2')
     .replace(/\)(\d)/g, ')*$1')
     .replace(/(\d)\(/g, '$1*(')
-    .replace(/\)\(/g, ')**(')
+    .replace(/\)\(/g, ')*(')
     // Implisitt multiplikasjon mellom variabler: ab -> a*b
     .replace(/([a-zA-Z])([a-zA-Z])/g, '$1*$2')
     // Implisitt multiplikasjon etter parentes: )x -> )*x
@@ -69,7 +69,13 @@ export function evaluateExpression(expr: string, scope?: Record<string, number>)
 }
 
 /**
- * Sjekker om to uttrykk er matematisk ekvivalente
+ * Sjekker om to uttrykk er matematisk ekvivalente.
+ *
+ * Strategi:
+ * 1. Forenkle begge med mathjs.simplify og sammenlign strenger
+ * 2. Sammenlign differansen forenklet til "0"
+ * 3. Numerisk evaluering hvis uten variabler
+ * 4. Stokastisk sampling med distinkte verdier per variabel hvis med variabler
  */
 export function areEquivalent(expr1: string, expr2: string): boolean {
   try {
@@ -78,36 +84,57 @@ export function areEquivalent(expr1: string, expr2: string): boolean {
 
     if (!node1 || !node2) return false;
 
-    // Prøv å forenkle begge og sammenligne
+    // Strategi 1: Forenkle begge og sammenlign
     const simplified1 = simplify(node1).toString();
     const simplified2 = simplify(node2).toString();
-
     if (simplified1 === simplified2) return true;
 
-    // Prøv numerisk evaluering for uttrykk uten variabler
-    const val1 = evaluateExpression(expr1);
-    const val2 = evaluateExpression(expr2);
-
-    if (val1 !== null && val2 !== null) {
-      return Math.abs(val1 - val2) < 1e-10;
+    // Strategi 2: Forenkle differansen til null
+    try {
+      const normalized1 = normalizeExpression(expr1);
+      const normalized2 = normalizeExpression(expr2);
+      const diff = simplify(parse(`(${normalized1}) - (${normalized2})`)).toString();
+      if (diff === '0' || diff === '0.0') return true;
+    } catch {
+      // ignore
     }
 
-    // For uttrykk med variabler, test med flere verdier
+    // Strategi 3: Numerisk evaluering for uttrykk uten variabler
+    const val1 = evaluateExpression(expr1);
+    const val2 = evaluateExpression(expr2);
+    if (val1 !== null && val2 !== null) {
+      const tol = Math.max(Math.abs(val1), Math.abs(val2), 1) * 1e-9;
+      return Math.abs(val1 - val2) < tol;
+    }
+
+    // Strategi 4: Stokastisk sampling med DISTINKTE verdier per variabel.
+    // Den tidligere implementasjonen satte alle variabler til samme verdi —
+    // det ga falske positiver (eks: $x \cdot y$ og $x + y$ er like ved $x=y=2$).
     const variables = extractVariables(node1).concat(extractVariables(node2));
     const uniqueVars = [...new Set(variables)];
 
     if (uniqueVars.length > 0) {
-      // Test med 5 tilfeldige verdier
-      const testValues = [1, 2, -1, 0.5, 3];
-      for (const testVal of testValues) {
+      // 7 sampling-runder med distinkte verdier per variabel
+      for (let trial = 0; trial < 7; trial++) {
         const scope: Record<string, number> = {};
-        uniqueVars.forEach(v => { scope[v] = testVal; });
+        uniqueVars.forEach((v, idx) => {
+          // Gir hver variabel sin egen verdi i hver runde
+          const seed = trial * 13 + idx * 7 + 3;
+          scope[v] = ((seed * 0.7) % 6) - 2.5; // verdier ca i [-2.5, 3.5]
+          // Unngå 0 (kan trigge divisjon-på-null)
+          if (Math.abs(scope[v]) < 0.1) scope[v] = 0.5 + idx * 0.3;
+        });
 
         const result1 = evaluateExpression(expr1, scope);
         const result2 = evaluateExpression(expr2, scope);
 
+        // Hvis evaluering feilet for BEGGE (f.eks. log av negativt), hopp
+        if (result1 === null && result2 === null) continue;
+        // Hvis det feilet for den ene men ikke den andre, er de ulike
         if (result1 === null || result2 === null) return false;
-        if (Math.abs(result1 - result2) > 1e-10) return false;
+
+        const tol = Math.max(Math.abs(result1), Math.abs(result2), 1) * 1e-9;
+        if (Math.abs(result1 - result2) > tol) return false;
       }
       return true;
     }
