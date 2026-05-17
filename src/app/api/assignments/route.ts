@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     const classId = searchParams.get("classId");
 
     // Hent lekser opprettet av denne læreren
-    let query = supabase
+    const query = supabase
       .from("assignments")
       .select(`
         *,
