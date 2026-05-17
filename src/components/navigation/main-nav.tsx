@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator, Shield, Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/ui/logo";
+import { CommandPalette } from "@/components/navigation/command-palette";
 
 export function MainNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -83,8 +84,9 @@ export function MainNav() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Theme Toggle - Desktop and Mobile */}
+        {/* Søk + Theme Toggle - Desktop and Mobile */}
         <div className="ml-auto flex items-center gap-2">
+          <CommandPalette />
           <ThemeToggle />
           {/* Mobile Menu Button */}
           <Button
