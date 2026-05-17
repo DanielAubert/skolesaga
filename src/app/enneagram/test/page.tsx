@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import {
-  CircleDot, Clock, Loader2, Sparkles, RotateCcw, AlertTriangle,
+  CircleDot, Clock, Loader2, RotateCcw, AlertTriangle,
 } from 'lucide-react';
 import { allEnneagramItems, TOTAL_ENNEAGRAM_ITEMS } from '@/lib/data/enneagram/all-items';
 import { calculateEnneagramResult, getEffectiveScore } from '@/lib/data/enneagram/scoring';
@@ -16,7 +16,6 @@ import {
   TYPE_NAMES, TYPE_SUBTITLES, TYPE_DESCRIPTIONS, TYPE_COLORS,
   ENNEAGRAM_ORDER,
 } from '@/lib/types/enneagram';
-import ReactMarkdown from 'react-markdown';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   ResponsiveContainer,
@@ -35,8 +34,6 @@ export default function EnneagramTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<EnneagramResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
     if (phase !== 'testing') return;
@@ -73,26 +70,7 @@ export default function EnneagramTestPage() {
         const finalResult = calculateEnneagramResult(newAnswers);
         setResult(finalResult);
 
-        setAiLoading(true);
-        fetch('/api/enneagram/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         setCurrentIndex(currentIndex + 1);
         setQuestionStartTime(Date.now());
@@ -108,7 +86,6 @@ export default function EnneagramTestPage() {
     setQuestionStartTime(Date.now());
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
   };
 
   // Calculating phase
@@ -223,32 +200,6 @@ export default function EnneagramTestPage() {
                     <Progress value={score.percentile} className="h-2" />
                   </div>
                 ))}
-              </CardContent>
-            </Card>
-
-            {/* AI analysis */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-amber-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
               </CardContent>
             </Card>
 

@@ -8,7 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import {
   Fingerprint, Clock, Loader2, Palette, ListChecks, Users,
-  Heart, CloudLightning, Sparkles, RotateCcw, AlertTriangle,
+  Heart, CloudLightning, RotateCcw, AlertTriangle,
   CheckCircle2, AlertCircle,
 } from 'lucide-react';
 import { allPersonalityItems, TOTAL_ITEMS } from '@/lib/data/personality-test/all-items';
@@ -18,7 +18,6 @@ import {
   TRAIT_LABELS, TRAIT_COLORS, TRAIT_CHART_COLORS, TRAIT_DESCRIPTIONS,
   TRAIT_ORDER, FACET_LABELS, LIKERT_LABELS,
 } from '@/lib/types/personality-test';
-import ReactMarkdown from 'react-markdown';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   ResponsiveContainer,
@@ -43,8 +42,6 @@ export default function PersonlighetsTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<PersonalityResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
 
   // Timer
   useEffect(() => {
@@ -84,27 +81,7 @@ export default function PersonlighetsTestPage() {
         const finalResult = calculatePersonalityResult(newAnswers);
         setResult(finalResult);
 
-        // Fetch AI analysis
-        setAiLoading(true);
-        fetch('/api/personality-test/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         setCurrentIndex(currentIndex + 1);
         setQuestionStartTime(Date.now());
@@ -120,7 +97,6 @@ export default function PersonlighetsTestPage() {
     setQuestionStartTime(Date.now());
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
   };
 
   // Calculating phase
@@ -291,32 +267,6 @@ export default function PersonlighetsTestPage() {
                 </CardContent>
               </Card>
             </div>
-
-            {/* AI analysis */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-teal-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
-              </CardContent>
-            </Card>
 
             {/* Disclaimer */}
             <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950/20 mb-8">

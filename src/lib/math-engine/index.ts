@@ -34,11 +34,5 @@ export {
   suggestNextAlgebraStep,
 } from './rules/algebra';
 
-// AI Fallback
-export {
-  validateWithAI,
-  isComplexProblem,
-} from './ai-fallback';
-
 // Typer
 export * from './types';

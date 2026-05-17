@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   GraduationCap, Clock, Loader2, Wrench, Microscope, Palette,
-  Heart, TrendingUp, ClipboardList, Sparkles, RotateCcw, AlertTriangle,
+  Heart, TrendingUp, ClipboardList, RotateCcw, AlertTriangle,
 } from 'lucide-react';
 import { allRIASECItems, TOTAL_RIASEC_ITEMS } from '@/lib/data/riasec/all-items';
 import { calculateRIASECResult, getEffectiveScore } from '@/lib/data/riasec/scoring';
@@ -18,7 +18,6 @@ import {
   AREA_LABELS, AREA_COLORS, AREA_DESCRIPTIONS, AREA_CAREERS,
   AREA_ORDER, AREA_CHART_COLORS,
 } from '@/lib/types/riasec';
-import ReactMarkdown from 'react-markdown';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   ResponsiveContainer,
@@ -46,8 +45,6 @@ export default function RIASECTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<RIASECResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
     if (phase !== 'testing') return;
@@ -84,26 +81,7 @@ export default function RIASECTestPage() {
         const finalResult = calculateRIASECResult(newAnswers);
         setResult(finalResult);
 
-        setAiLoading(true);
-        fetch('/api/riasec/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         setCurrentIndex(currentIndex + 1);
         setQuestionStartTime(Date.now());
@@ -119,7 +97,6 @@ export default function RIASECTestPage() {
     setQuestionStartTime(Date.now());
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
   };
 
   // Calculating phase
@@ -274,32 +251,6 @@ export default function RIASECTestPage() {
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* AI analysis */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-blue-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
               </CardContent>
             </Card>
 

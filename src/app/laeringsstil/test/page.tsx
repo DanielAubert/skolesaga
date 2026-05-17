@@ -8,7 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import {
   GraduationCap, Clock, Loader2, Eye, Ear, BookOpen, Hand,
-  Sparkles, RotateCcw, AlertTriangle, Lightbulb,
+  RotateCcw, AlertTriangle, Lightbulb,
 } from 'lucide-react';
 import { allLearningItems, TOTAL_LEARNING_ITEMS } from '@/lib/data/learning-style/all-items';
 import { calculateLearningResult, getEffectiveScore } from '@/lib/data/learning-style/scoring';
@@ -17,7 +17,6 @@ import {
   STYLE_LABELS, STYLE_COLORS, STYLE_DESCRIPTIONS, STYLE_TIPS,
   STYLE_ORDER, STYLE_CHART_COLORS,
 } from '@/lib/types/learning-style';
-import ReactMarkdown from 'react-markdown';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   ResponsiveContainer,
@@ -43,8 +42,6 @@ export default function LearningStyleTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<LearningResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
     if (phase !== 'testing') return;
@@ -81,26 +78,7 @@ export default function LearningStyleTestPage() {
         const finalResult = calculateLearningResult(newAnswers);
         setResult(finalResult);
 
-        setAiLoading(true);
-        fetch('/api/learning-style/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         setCurrentIndex(currentIndex + 1);
         setQuestionStartTime(Date.now());
@@ -116,7 +94,6 @@ export default function LearningStyleTestPage() {
     setQuestionStartTime(Date.now());
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
   };
 
   // Calculating phase
@@ -267,32 +244,6 @@ export default function LearningStyleTestPage() {
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* AI analysis */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-indigo-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
               </CardContent>
             </Card>
 

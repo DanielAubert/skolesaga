@@ -9,14 +9,13 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import {
   Brain, Clock, Loader2, Hash, MessageSquare, GitBranch,
-  Eye, Boxes, MemoryStick, CheckCircle2, AlertCircle, Sparkles,
+  Eye, Boxes, MemoryStick, CheckCircle2, AlertCircle,
   ArrowRight, RotateCcw, AlertTriangle,
 } from 'lucide-react';
 import { allQuestions } from '@/lib/data/iq-test/all-questions';
 import { initCAT, selectNextQuestion, updateTheta, shouldStop, calculateResult } from '@/lib/data/iq-test/cat-algorithm';
 import type { CATState, IQResult, IQQuestion, CognitiveDomain } from '@/lib/types/iq-test';
 import { DOMAIN_LABELS, DOMAIN_COLORS } from '@/lib/types/iq-test';
-import ReactMarkdown from 'react-markdown';
 
 const DOMAIN_ICONS: Record<CognitiveDomain, typeof Brain> = {
   tallresonnering: Hash,
@@ -38,8 +37,6 @@ export default function IQTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<IQResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Pick first question
@@ -82,28 +79,7 @@ export default function IQTestPage() {
         const finalResult = calculateResult(newState);
         setResult(finalResult);
 
-        // Fetch AI analysis
-        setAiLoading(true);
-        fetch('/api/iq-test/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        // Show results even before AI analysis loads
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         // Next question
         const next = selectNextQuestion(newState, allQuestions);
@@ -123,7 +99,6 @@ export default function IQTestPage() {
     setSelectedOption(null);
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
     setIsTransitioning(false);
   };
 
@@ -303,32 +278,6 @@ export default function IQTestPage() {
                 </CardContent>
               </Card>
             </div>
-
-            {/* AI-analyse */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-violet-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
-              </CardContent>
-            </Card>
 
             {/* Disclaimer */}
             <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950/20 mb-8">

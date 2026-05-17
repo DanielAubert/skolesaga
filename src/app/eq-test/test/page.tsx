@@ -8,7 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import {
   Heart, Clock, Loader2, Eye, ShieldCheck, Flame,
-  HeartHandshake, Users, Sparkles, RotateCcw, AlertTriangle, Lightbulb,
+  HeartHandshake, Users, RotateCcw, AlertTriangle, Lightbulb,
 } from 'lucide-react';
 import { allEQItems, TOTAL_EQ_ITEMS } from '@/lib/data/eq-test/all-items';
 import { calculateEQResult, getEffectiveScore } from '@/lib/data/eq-test/scoring';
@@ -17,7 +17,6 @@ import {
   DIMENSION_LABELS, DIMENSION_COLORS, DIMENSION_DESCRIPTIONS, DIMENSION_TIPS,
   DIMENSION_ORDER,
 } from '@/lib/types/eq-test';
-import ReactMarkdown from 'react-markdown';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   ResponsiveContainer,
@@ -44,8 +43,6 @@ export default function EQTestTestPage() {
   const [testStartTime] = useState<number>(Date.now());
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [result, setResult] = useState<EQResult | null>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
     if (phase !== 'testing') return;
@@ -82,26 +79,7 @@ export default function EQTestTestPage() {
         const finalResult = calculateEQResult(newAnswers);
         setResult(finalResult);
 
-        setAiLoading(true);
-        fetch('/api/eq-test/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(finalResult),
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.analysis) {
-              setAiAnalysis(data.analysis);
-              setResult(prev => prev ? { ...prev, aiAnalysis: data.analysis } : prev);
-            }
-          })
-          .catch(() => setAiAnalysis(null))
-          .finally(() => {
-            setAiLoading(false);
-            setPhase('results');
-          });
-
-        setTimeout(() => setPhase('results'), 1500);
+        setPhase('results');
       } else {
         setCurrentIndex(currentIndex + 1);
         setQuestionStartTime(Date.now());
@@ -117,7 +95,6 @@ export default function EQTestTestPage() {
     setQuestionStartTime(Date.now());
     setPhase('testing');
     setResult(null);
-    setAiAnalysis(null);
   };
 
   // Calculating phase
@@ -272,32 +249,6 @@ export default function EQTestTestPage() {
                     );
                   })}
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* AI analysis */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-rose-600" />
-                  AI-analyse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {aiLoading && !aiAnalysis ? (
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Henter personlig analyse...</span>
-                  </div>
-                ) : aiAnalysis ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Kunne ikke hente AI-analyse. Prøv å laste siden på nytt.
-                  </p>
-                )}
               </CardContent>
             </Card>
 
