@@ -34,7 +34,7 @@ export function Logo({ className = '', size = 'md' }: LogoProps) {
   }
 
   const isDark = resolvedTheme === 'dark';
-  const logoSrc = isDark ? '/logo-dark.png' : '/logo-light.png';
+  const logoSrc = isDark ? '/logo-dark.webp' : '/logo-light.webp';
 
   return (
     <Image
@@ -69,7 +69,7 @@ export function LogoIcon({ className = '', size = 'md' }: LogoProps) {
 
   return (
     <Image
-      src="/logo-icon.png"
+      src="/logo-icon.webp"
       alt="Skolesaga"
       width={iconSize}
       height={iconSize}
