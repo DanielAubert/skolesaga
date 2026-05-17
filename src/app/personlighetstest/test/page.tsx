@@ -15,7 +15,7 @@ import { allPersonalityItems, TOTAL_ITEMS } from '@/lib/data/personality-test/al
 import { calculatePersonalityResult, getEffectiveScore } from '@/lib/data/personality-test/scoring';
 import type { PersonalityTrait, PersonalityAnswer, PersonalityResult } from '@/lib/types/personality-test';
 import {
-  TRAIT_LABELS, TRAIT_COLORS, TRAIT_CHART_COLORS, TRAIT_DESCRIPTIONS,
+  TRAIT_LABELS, TRAIT_COLORS, TRAIT_DESCRIPTIONS,
   TRAIT_ORDER, FACET_LABELS, LIKERT_LABELS,
 } from '@/lib/types/personality-test';
 import {

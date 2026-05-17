@@ -49,7 +49,6 @@ interface StandaloneQuizClientProps {
 }
 
 export function StandaloneQuizClient({
-  chapterId,
   subjectName,
   gradeName,
   chapterName,

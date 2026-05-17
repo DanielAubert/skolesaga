@@ -42,7 +42,6 @@ import {
   Dumbbell,
   ChevronRight,
   ClipboardList,
-  Plus,
   Calendar,
 } from "lucide-react";
 import { CreateAssignmentDialog } from "@/components/assignments/create-assignment-dialog";

@@ -56,7 +56,7 @@ export function StudentCoursesProvider({ children }: { children: ReactNode }) {
           coursesRef.current = apiCourses;
           localStorage.setItem(STORAGE_KEY, JSON.stringify(apiCourses));
         }
-      } catch (error) {
+      } catch {
         console.log("Using localStorage for courses");
       } finally {
         setIsLoading(false);
@@ -89,7 +89,7 @@ export function StudentCoursesProvider({ children }: { children: ReactNode }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ courseId }),
       });
-    } catch (error) {
+    } catch {
       console.log("API unavailable, using localStorage");
     }
     return true;
@@ -108,7 +108,7 @@ export function StudentCoursesProvider({ children }: { children: ReactNode }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ courseId }),
       });
-    } catch (error) {
+    } catch {
       console.log("API unavailable, using localStorage");
     }
     return true;

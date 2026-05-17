@@ -344,7 +344,7 @@ export function ExerciseTrainer({
 
           return hasChanges ? updatedProblems : currentProblems;
         });
-      } catch (error) {
+      } catch {
         // Silently ignore polling errors
       }
     }, 5000); // Poll every 5 seconds

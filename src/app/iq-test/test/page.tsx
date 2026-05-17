@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import {
   Brain, Clock, Loader2, Hash, MessageSquare, GitBranch,
   Eye, Boxes, MemoryStick, CheckCircle2, AlertCircle,
-  ArrowRight, RotateCcw, AlertTriangle,
+  RotateCcw, AlertTriangle,
 } from 'lucide-react';
 import { allQuestions } from '@/lib/data/iq-test/all-questions';
 import { initCAT, selectNextQuestion, updateTheta, shouldStop, calculateResult } from '@/lib/data/iq-test/cat-algorithm';
@@ -317,7 +317,6 @@ export default function IQTestPage() {
   }
 
   const answeredCount = catState.answeredQuestions.length;
-  const estimatedTotal = Math.max(answeredCount + 1, Math.min(35, Math.max(20, answeredCount + Math.ceil(catState.se / 0.3 * 3))));
   const progressPercent = Math.min(95, (answeredCount / 35) * 100);
   const DomainIcon = DOMAIN_ICONS[currentQuestion.domain];
 

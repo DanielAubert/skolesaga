@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { allEnneagramItems, TOTAL_ENNEAGRAM_ITEMS } from '@/lib/data/enneagram/all-items';
 import { calculateEnneagramResult, getEffectiveScore } from '@/lib/data/enneagram/scoring';
-import type { EnneagramType, EnneagramAnswer, EnneagramResult } from '@/lib/types/enneagram';
+import type { EnneagramAnswer, EnneagramResult } from '@/lib/types/enneagram';
 import {
   TYPE_NAMES, TYPE_SUBTITLES, TYPE_DESCRIPTIONS, TYPE_COLORS,
   ENNEAGRAM_ORDER,

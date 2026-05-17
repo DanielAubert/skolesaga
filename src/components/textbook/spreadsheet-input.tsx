@@ -61,7 +61,6 @@ export function SpreadsheetInput({
   template = 'custom',
   onSave,
 }: SpreadsheetInputProps) {
-  const [isLoadingFromDb, setIsLoadingFromDb] = useState(true);
   const [dbLoadedCells, setDbLoadedCells] = useState<SpreadsheetCell[][] | null>(null);
 
   const getInitialData = useCallback((): SpreadsheetCell[][] => {
@@ -107,8 +106,6 @@ export function SpreadsheetInput({
         }
       } catch (error) {
         console.error('Error loading spreadsheet from database:', error);
-      } finally {
-        setIsLoadingFromDb(false);
       }
     };
 
@@ -358,9 +355,11 @@ export function SpreadsheetInput({
   }, [cells]);
 
   // Initialize refs array
+  const rowCount = cells.length;
+  const colCount = cells[0]?.length || 0;
   useEffect(() => {
-    inputRefs.current = cells.map(() => Array(cells[0]?.length || 0).fill(null));
-  }, [cells.length, cells[0]?.length]);
+    inputRefs.current = Array.from({ length: rowCount }, () => Array(colCount).fill(null));
+  }, [rowCount, colCount]);
 
   // Recalculate formulas on mount
   useEffect(() => {

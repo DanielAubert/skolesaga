@@ -16,7 +16,7 @@ import { calculateRIASECResult, getEffectiveScore } from '@/lib/data/riasec/scor
 import type { RIASECArea, RIASECAnswer, RIASECResult } from '@/lib/types/riasec';
 import {
   AREA_LABELS, AREA_COLORS, AREA_DESCRIPTIONS, AREA_CAREERS,
-  AREA_ORDER, AREA_CHART_COLORS,
+  AREA_ORDER,
 } from '@/lib/types/riasec';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,

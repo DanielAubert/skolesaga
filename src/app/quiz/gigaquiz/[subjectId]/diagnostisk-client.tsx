@@ -461,8 +461,6 @@ export function DiagnostiskClient({
   if (view === 'results') {
     const allResults = liveChapterResults;
     const testedResults = allResults.filter(r => r.answered > 0);
-    const untestedResults = allResults.filter(r => r.answered === 0);
-    const partialResults = allResults.filter(r => r.answered > 0 && r.answered < r.total);
 
     const totalAnswered = allResults.reduce((sum, r) => sum + r.answered, 0);
     const totalCorrect = allResults.reduce((sum, r) => sum + r.correct, 0);

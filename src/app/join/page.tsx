@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { BookOpen, ChevronLeft, Users, Loader2, CheckCircle2, XCircle } from "lucide-react";
 
 export default function JoinClassPage() {
-  const { user, isLoading: authLoading } = useRequireAuth();
+  const { isLoading: authLoading } = useRequireAuth();
   const router = useRouter();
   const [code, setCode] = useState("");
   const [isJoining, setIsJoining] = useState(false);
@@ -59,7 +59,7 @@ export default function JoinClassPage() {
       setTimeout(() => {
         router.push("/dashboard");
       }, 2000);
-    } catch (err) {
+    } catch {
       setError("Noe gikk galt. Prøv igjen senere.");
     } finally {
       setIsJoining(false);

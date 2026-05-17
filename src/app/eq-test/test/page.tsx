@@ -127,7 +127,6 @@ export default function EQTestTestPage() {
       .sort((a, b) => b.percentile - a.percentile);
 
     const topDims = sortedDims.slice(0, 2);
-    const DominantIcon = DIM_ICONS[result.dominantDimension];
 
     return (
       <div className="flex min-h-screen flex-col">

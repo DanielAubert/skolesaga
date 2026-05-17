@@ -108,7 +108,7 @@ export default function StudentDashboard() {
           const data = await res.json();
           setMyClasses(data.classes || []);
         }
-      } catch (error) {
+      } catch {
         // Ignorer feil - API er kanskje ikke implementert ennå
       } finally {
         setClassesLoading(false);
@@ -155,12 +155,11 @@ export default function StudentDashboard() {
           const data = await res.json();
           setStudentAssignments(data.assignments || []);
         }
-      } catch (error) {
+      } catch {
         // Ignorer feil
       }
     };
     fetchAssignments();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoading) {

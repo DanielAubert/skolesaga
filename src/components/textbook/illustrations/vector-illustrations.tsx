@@ -31,7 +31,7 @@ function graphHelpers(cfg: GraphConfig) {
   return { tx, ty, ox: tx(0), oy: ty(0) };
 }
 
-function Axes({ cfg, tx, ty, ox, oy }: {
+function Axes({ cfg, tx: _tx, ty: _ty, ox, oy }: {
   cfg: GraphConfig;
   tx: (x: number) => number;
   ty: (y: number) => number;

@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@/lib/auth/hooks";
 import { Progress } from "@/components/ui/progress";
-import { ClipboardList, Clock, AlertCircle, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import { ClipboardList, Clock, AlertCircle } from "lucide-react";
 
 interface AssignmentInfo {
   id: string;

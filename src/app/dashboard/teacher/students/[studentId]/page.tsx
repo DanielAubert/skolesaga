@@ -420,6 +420,7 @@ export default function StudentDetailPage({ params }: { params: Promise<{ studen
                                       onClick={() => openImageDialog(submission)}
                                       className="relative group cursor-pointer rounded-lg overflow-hidden border bg-white dark:bg-gray-900"
                                     >
+                                      {/* eslint-disable-next-line @next/next/no-img-element -- dynamic canvas dataURL, next/image not applicable */}
                                       <img
                                         src={imageUrl}
                                         alt="Elevens besvarelse"
@@ -468,6 +469,7 @@ export default function StudentDetailPage({ params }: { params: Promise<{ studen
           {/* Bilde */}
           {selectedSubmission && getSubmissionImageUrl(selectedSubmission) && (
             <div className="flex-1 overflow-auto bg-gray-100 dark:bg-gray-900 rounded-lg p-4 flex items-center justify-center min-h-[300px]">
+              {/* eslint-disable-next-line @next/next/no-img-element -- dynamic canvas dataURL, next/image not applicable */}
               <img
                 src={getSubmissionImageUrl(selectedSubmission)!}
                 alt="Elevens besvarelse"

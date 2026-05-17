@@ -15,7 +15,7 @@ import { calculateLearningResult, getEffectiveScore } from '@/lib/data/learning-
 import type { LearningStyle, LearningAnswer, LearningResult } from '@/lib/types/learning-style';
 import {
   STYLE_LABELS, STYLE_COLORS, STYLE_DESCRIPTIONS, STYLE_TIPS,
-  STYLE_ORDER, STYLE_CHART_COLORS,
+  STYLE_ORDER,
 } from '@/lib/types/learning-style';
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
