@@ -84,7 +84,8 @@ export type TextbookContentBlock =
   | SignDiagramBlock
   | IllustrationBlock
   | AsymptoteBlock
-  | FinanceCalculatorBlock;
+  | FinanceCalculatorBlock
+  | DynamicPlotBlock;
 
 // Basis for alle innholdsblokker
 interface BaseContentBlock {
@@ -306,6 +307,52 @@ export interface FinanceCalculatorBlock extends BaseContentBlock {
   title?: string;
   description?: string;
   defaults?: Record<string, number>;
+}
+
+export interface DynamicPlotParameter {
+  name: string;
+  label?: string;
+  default: number;
+  min: number;
+  max: number;
+  step?: number;
+}
+
+export interface DynamicPlotFunction {
+  label?: string;
+  expression: string;
+  color?: string;
+  style?: 'solid' | 'dashed' | 'dotted';
+}
+
+export interface DynamicPlotPoint {
+  x: number | string;
+  y: number | string;
+  label?: string;
+  color?: string;
+}
+
+export interface DynamicPlotShade {
+  expression: string;
+  from: number | string;
+  to: number | string;
+  color?: string;
+  label?: string;
+}
+
+export interface DynamicPlotBlock extends BaseContentBlock {
+  type: 'dynamic-plot';
+  title?: string;
+  description?: string;
+  xRange?: [number, number];
+  yRange?: [number, number];
+  xLabel?: string;
+  yLabel?: string;
+  parameters?: DynamicPlotParameter[];
+  functions: DynamicPlotFunction[];
+  points?: DynamicPlotPoint[];
+  shade?: DynamicPlotShade;
+  height?: number;
 }
 
 // ============================================================================

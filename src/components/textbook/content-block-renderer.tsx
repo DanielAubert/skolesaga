@@ -21,6 +21,7 @@ import { LatexRenderer } from './latex-renderer';
 import { TextbookExerciseItem } from './textbook-exercise-item';
 import { SignDiagram, createSignDiagram } from './sign-diagram';
 import { FinanceCalculator } from './finance-calculator';
+import { DynamicPlot } from './dynamic-plot';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
 import DOMPurify from 'isomorphic-dompurify';
 import dynamic from 'next/dynamic';
@@ -203,6 +204,8 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
       return <AsymptoteBlockComponent block={block} />;
     case 'finance-calculator':
       return <FinanceCalculator calculatorType={block.calculatorType} title={block.title} description={block.description} defaults={block.defaults} />;
+    case 'dynamic-plot':
+      return <DynamicPlot title={block.title} description={block.description} xRange={block.xRange} yRange={block.yRange} xLabel={block.xLabel} yLabel={block.yLabel} parameters={block.parameters} functions={block.functions} points={block.points} shade={block.shade} height={block.height} />;
     default:
       return null;
   }
