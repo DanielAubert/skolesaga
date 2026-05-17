@@ -15,10 +15,11 @@ import {
   Laptop, Superscript, Plus,
   Radical, FunctionSquare, Target, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon, BookOpen
+  Waves, Activity, Hexagon, BookOpen, Layers
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
+import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
 
 // Fargepalett for individuelle kort - hver kort får sin egen farge
 const CARD_COLORS = [
@@ -202,8 +203,8 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         </div>
         )}
 
-        {/* Kompetansemål-lenke */}
-        <div className="mb-8">
+        {/* Kompetansemål- og flashcards-lenker */}
+        <div className="mb-8 flex flex-wrap gap-3">
           <Link
             href={`/bok/${courseId}/kompetansemal`}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
@@ -212,6 +213,18 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             <span className="font-medium">Se kompetansemål (LK20)</span>
             <ChevronRight className="h-4 w-4" />
           </Link>
+          {getFlashcardDefinitionCount(courseId) > 0 && (
+            <Link
+              href={`/bok/${courseId}/flashcards`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 transition-colors"
+            >
+              <Layers className="h-5 w-5" />
+              <span className="font-medium">
+                Flashcards ({getFlashcardDefinitionCount(courseId)} definisjoner)
+              </span>
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          )}
         </div>
 
         {/* Kapitler etter seksjon */}

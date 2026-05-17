@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getCourse, getChapterMeta, getNextChapter, getPrevChapter } from '@/lib/data/textbook-courses';
+import { getCourse, getChapterMeta, getNextChapter, getPrevChapter, getChapterPrerequisites, getDependentChapters } from '@/lib/data/textbook-courses';
 import { getChapterContent } from '@/lib/data/textbook-content';
 import { TextbookChapterView } from '@/components/textbook/textbook-chapter-view';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
@@ -62,6 +62,18 @@ export default async function ChapterPage({ params }: PageProps) {
   const chaptersWithExam = ['historie-1-2'];
   const hasExam = chaptersWithExam.includes(chapterId);
 
+  // Tverrkapittel-binding: forutsetninger og avhengige kapitler
+  const prerequisites = getChapterPrerequisites(courseId, chapterId).map((c) => ({
+    id: c.id,
+    number: c.number,
+    title: c.title,
+  }));
+  const dependents = getDependentChapters(courseId, chapterId).map((c) => ({
+    id: c.id,
+    number: c.number,
+    title: c.title,
+  }));
+
   return (
     <TextbookChapterView
       course={course}
@@ -73,6 +85,8 @@ export default async function ChapterPage({ params }: PageProps) {
       isNarrativeVersion={chapterMeta.isNarrativeVersion}
       hasQuiz={hasQuiz}
       hasExam={hasExam}
+      prerequisites={prerequisites}
+      dependents={dependents}
     />
   );
 }

@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import type { TextbookCourse, TextbookChapterMeta, TextbookChapter, TextbookExercise } from '@/lib/types/textbook';
 import { ContentBlockRenderer } from './content-block-renderer';
+import { ChapterRelations, type RelatedChapter } from './chapter-relations';
 import { TextbookExerciseList } from './textbook-exercise-list';
 import { ExerciseAnswerKey } from './exercise-answer-key';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -51,6 +52,8 @@ interface TextbookChapterViewProps {
   isNarrativeVersion?: boolean;
   hasQuiz?: boolean;
   hasExam?: boolean;
+  prerequisites?: RelatedChapter[];
+  dependents?: RelatedChapter[];
 }
 
 export function TextbookChapterView({
@@ -63,6 +66,8 @@ export function TextbookChapterView({
   isNarrativeVersion = false,
   hasQuiz = false,
   hasExam = false,
+  prerequisites = [],
+  dependents = [],
 }: TextbookChapterViewProps) {
   const hasContent = !!chapterContent;
   const { user } = useUser();
@@ -542,6 +547,13 @@ export function TextbookChapterView({
 
               return (
                 <>
+                  {/* Tverrkapittel-binding: forutsetninger og avhengige kapitler */}
+                  <ChapterRelations
+                    courseId={course.id}
+                    prerequisites={prerequisites}
+                    dependents={dependents}
+                  />
+
                   {/* Teoriinnhold */}
                   <section className="mb-12">
                     <div className="space-y-6">

@@ -397,6 +397,32 @@ export function getPrevChapter(courseId: string, currentChapterId: string): stri
   return course.chapters[currentIndex - 1].id;
 }
 
+/**
+ * Henter forutsetningene (prerequisites) til et kapittel som meta-objekter.
+ * Returnerer tom liste hvis kapittelet ikke har prerequisites eller ikke finnes.
+ */
+export function getChapterPrerequisites(courseId: string, chapterId: string) {
+  const course = getCourse(courseId);
+  if (!course) return [];
+  const chapter = course.chapters.find((c) => c.id === chapterId);
+  if (!chapter?.prerequisites) return [];
+
+  return chapter.prerequisites
+    .map((preId) => course.chapters.find((c) => c.id === preId))
+    .filter((c): c is NonNullable<typeof c> => c !== undefined);
+}
+
+/**
+ * Henter kapitler som har dette kapittelet som prerequisite (invers-graf).
+ * Brukes til å vise "Brukes videre i ..."-seksjonen.
+ */
+export function getDependentChapters(courseId: string, chapterId: string) {
+  const course = getCourse(courseId);
+  if (!course) return [];
+
+  return course.chapters.filter((c) => c.prerequisites?.includes(chapterId));
+}
+
 export function getChaptersBySection(courseId: string): Map<string, typeof COURSE_1T.chapters> {
   const course = getCourse(courseId);
   if (!course) return new Map();
