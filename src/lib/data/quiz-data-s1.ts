@@ -1342,6 +1342,1070 @@ const quizData_s1: Record<string, QuizQuestion[]> = {
 ],
 
 
+  's1-1-4': [
+  {
+    question: 'Hva er $|-7|$?',
+    options: ['$7$', '$-7$', '$0$', '$49$'],
+    explanation: 'Absoluttverdien angir avstanden fra tallet til 0 på tallinja, og er alltid ikke-negativ: $|-7| = 7$.',
+  },
+  {
+    question: 'Løs likningen $|x - 3| = 5$.',
+    options: ['$x = 8$ eller $x = -2$', '$x = 8$', '$x = 2$ eller $x = -8$', '$x = -8$ eller $x = -2$'],
+    explanation: 'To tilfeller: $x - 3 = 5$ gir $x = 8$, og $x - 3 = -5$ gir $x = -2$.',
+  },
+  {
+    question: 'Hva betyr ulikheten $|x| < 4$?',
+    options: ['$-4 < x < 4$', '$x < 4$', '$x < -4$ eller $x > 4$', '$0 \\leq x < 4$'],
+    explanation: '$|x| < a$ (med $a > 0$) betyr at $x$ ligger mindre enn $a$ fra null: $-a < x < a$.',
+  },
+  {
+    question: 'Hvor ligger bunnpunktet til grafen $f(x) = |x - 2|$?',
+    options: ['$(2, 0)$', '$(-2, 0)$', '$(0, 2)$', '$(0, -2)$'],
+    explanation: 'Grafen til $f(x) = |x - a|$ er V-formet med bunnpunkt i $(a, 0)$. Her er $a = 2$.',
+  },
+  {
+    question: 'Hvilken av disse er alltid sann for alle reelle tall $a$ og $b$?',
+    options: ['$|a + b| \\leq |a| + |b|$', '$|a + b| = |a| + |b|$', '$|a| = a$', '$|a - b| = |a| - |b|$'],
+    explanation: 'Trekantulikheten $|a + b| \\leq |a| + |b|$ gjelder alltid. Likhet gjelder bare når $a$ og $b$ har samme fortegn.',
+  },
+],
+
+  's1-1-5': [
+  {
+    question: 'Faktoriser $x^2 - 9$.',
+    options: ['$(x - 3)(x + 3)$', '$(x - 3)^2$', '$(x + 3)^2$', '$(x - 9)(x + 1)$'],
+    explanation: 'Konjugatsetningen: $a^2 - b^2 = (a - b)(a + b)$. Her: $x^2 - 9 = (x - 3)(x + 3)$.',
+  },
+  {
+    question: 'Forenkle $\\frac{x^2 - 4}{x + 2}$ for $x \\neq -2$.',
+    options: ['$x - 2$', '$x + 2$', '$x^2 - 2$', 'Uttrykket kan ikke forenkles'],
+    explanation: 'Faktoriser telleren: $x^2 - 4 = (x - 2)(x + 2)$. Forkort med $(x + 2)$: $\\frac{(x-2)(x+2)}{x+2} = x - 2$.',
+  },
+  {
+    question: 'Faktoriser $x^2 + 5x + 6$.',
+    options: ['$(x + 2)(x + 3)$', '$(x + 1)(x + 6)$', '$(x - 2)(x - 3)$', '$(x + 5)(x + 1)$'],
+    explanation: 'Vi trenger to tall med sum $5$ og produkt $6$: tallene $2$ og $3$. Altså $(x + 2)(x + 3)$.',
+  },
+  {
+    question: 'Hva kan strykes når man forkorter et rasjonalt uttrykk?',
+    options: ['Felles faktorer i teller og nevner', 'Felles ledd i teller og nevner', 'Hvilket som helst likt symbol', 'Bare tall, aldri variabler'],
+    explanation: 'Man kan bare forkorte felles faktorer, aldri ledd. Derfor må teller og nevner faktoriseres fullstendig først.',
+  },
+  {
+    question: 'Hva er den fullstendige faktoriseringen av $6x^2 + 9x$?',
+    options: ['$3x(2x + 3)$', '$3(2x^2 + 3x)$', '$x(6x + 9)$', '$6x(x + 9)$'],
+    explanation: 'Største felles faktor er $3x$: $6x^2 + 9x = 3x(2x + 3)$. Alternativene $3(2x^2+3x)$ og $x(6x+9)$ er ikke fullstendig faktorisert.',
+  },
+],
+
+  's1-1-6': [
+  {
+    question: 'Hva er stigningstallet til linja gjennom punktene $(1, 2)$ og $(3, 8)$?',
+    options: ['$3$', '$6$', '$2$', '$\\frac{1}{3}$'],
+    explanation: '$a = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{8 - 2}{3 - 1} = \\frac{6}{2} = 3$.',
+  },
+  {
+    question: 'Hva er ettpunktsformelen for en linje med stigningstall $a$ gjennom punktet $(x_1, y_1)$?',
+    options: ['$y - y_1 = a(x - x_1)$', '$y + y_1 = a(x + x_1)$', '$y = ax_1 + y_1$', '$y - x_1 = a(x - y_1)$'],
+    explanation: 'Ettpunktsformelen er $y - y_1 = a(x - x_1)$ — vi trenger bare ett punkt og stigningstallet.',
+  },
+  {
+    question: 'Finn likningen til linja med stigningstall $-2$ gjennom punktet $(2, 5)$.',
+    options: ['$y = -2x + 9$', '$y = -2x + 1$', '$y = -2x + 5$', '$y = 2x + 1$'],
+    explanation: 'Ettpunktsformelen: $y - 5 = -2(x - 2)$ gir $y = -2x + 4 + 5 = -2x + 9$. Kontroll: $-2 \\cdot 2 + 9 = 5$. ✓',
+  },
+  {
+    question: 'En linje har stigningstall $4$. Hva er stigningstallet til en linje som står vinkelrett på den?',
+    options: ['$-\\frac{1}{4}$', '$4$', '$-4$', '$\\frac{1}{4}$'],
+    explanation: 'Vinkelrette linjer oppfyller $a_1 \\cdot a_2 = -1$, så $a_2 = -\\frac{1}{a_1} = -\\frac{1}{4}$.',
+  },
+  {
+    question: 'Hva kjennetegner to parallelle linjer?',
+    options: ['De har samme stigningstall', 'De har samme konstantledd', 'Produktet av stigningstallene er $-1$', 'De skjærer hverandre i ett punkt'],
+    explanation: 'To linjer er parallelle hvis og bare hvis de har samme stigningstall ($a_1 = a_2$).',
+  },
+],
+
+  's1-1-7': [
+  {
+    question: 'Løs likningssettet $x + y = 5$ og $x - y = 1$.',
+    options: ['$x = 3, y = 2$', '$x = 2, y = 3$', '$x = 4, y = 1$', '$x = 1, y = 4$'],
+    explanation: 'Adder likningene: $2x = 6$, så $x = 3$. Da er $y = 5 - 3 = 2$. Kontroll: $3 - 2 = 1$. ✓',
+  },
+  {
+    question: 'Hva er løsningen av et lineært likningssett, tolket geometrisk?',
+    options: ['Skjæringspunktet mellom de to linjene', 'Nullpunktene til linjene', 'Arealet mellom linjene', 'Stigningstallet til linjene'],
+    explanation: 'Hver likning er en rett linje, og løsningen er punktet der linjene skjærer hverandre.',
+  },
+  {
+    question: 'Eliminasjon av et likningssett gir likningen $0 = 7$. Hva betyr det?',
+    options: ['Likningssettet har ingen løsning — linjene er parallelle', 'Likningssettet har uendelig mange løsninger', '$x = 7$ og $y = 0$', 'Likningssettet har nøyaktig én løsning'],
+    explanation: 'En selvmotsigelse som $0 = 7$ betyr at linjene er parallelle og aldri skjærer hverandre: ingen løsning.',
+  },
+  {
+    question: 'Eliminasjon av et likningssett gir identiteten $0 = 0$. Hva betyr det?',
+    options: ['Uendelig mange løsninger — linjene er identiske', 'Ingen løsning', 'Løsningen er origo $(0, 0)$', 'Likningssettet er feil satt opp'],
+    explanation: 'En identitet som $0 = 0$ betyr at de to likningene beskriver samme linje, og alle punkter på linja er løsninger.',
+  },
+  {
+    question: 'Sett $y = 2x + 1$ inn i $x + y = 7$. Hva blir $x$?',
+    options: ['$x = 2$', '$x = 3$', '$x = 6$', '$x = \\frac{7}{3}$'],
+    explanation: 'Innsetting gir $x + 2x + 1 = 7$, altså $3x = 6$ og $x = 2$.',
+  },
+],
+
+  's1-1-8': [
+  {
+    question: 'Diskriminanten til $x^2 - 4x + 4 = 0$ er $D = 0$. Hva betyr det?',
+    options: ['Likningen har nøyaktig én løsning (dobbeltrot)', 'Likningen har to ulike løsninger', 'Likningen har ingen reelle løsninger', 'Likningen har uendelig mange løsninger'],
+    explanation: '$D = b^2 - 4ac = 16 - 16 = 0$ gir én løsning (dobbeltrot) — parabelen tangerer $x$-aksen.',
+  },
+  {
+    question: 'Hva er symmetriaksen til parabelen $f(x) = x^2 - 6x + 5$?',
+    options: ['$x = 3$', '$x = -3$', '$x = 6$', '$x = 5$'],
+    explanation: 'Symmetriaksen er $x = -\\frac{b}{2a} = -\\frac{-6}{2 \\cdot 1} = 3$.',
+  },
+  {
+    question: 'Løs likningen $x^2 - 5x + 6 = 0$.',
+    options: ['$x = 2$ eller $x = 3$', '$x = -2$ eller $x = -3$', '$x = 1$ eller $x = 6$', '$x = 5$ eller $x = 6$'],
+    explanation: 'abc-formelen: $x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$, som gir $x = 2$ eller $x = 3$.',
+  },
+  {
+    question: 'Grafen til $f(x) = ax^2 + bx + c$ har et toppunkt. Hva vet vi om $a$?',
+    options: ['$a < 0$', '$a > 0$', '$a = 0$', '$a$ kan være hva som helst'],
+    explanation: 'Når $a < 0$ peker parabelen nedover og har et toppunkt. Når $a > 0$ har den et bunnpunkt.',
+  },
+  {
+    question: 'Et andregradsuttrykk har $a = 3$ og nullpunktene $x_1 = 2$ og $x_2 = -1$. Hva er faktoriseringen?',
+    options: ['$3(x - 2)(x + 1)$', '$3(x + 2)(x - 1)$', '$(x - 2)(x + 1)$', '$3(x - 2)(x - 1)$'],
+    explanation: 'Faktorisering med nullpunkter: $ax^2 + bx + c = a(x - x_1)(x - x_2) = 3(x - 2)(x - (-1)) = 3(x - 2)(x + 1)$.',
+  },
+],
+
+  's1-1-9': [
+  {
+    question: 'Hva er vekstfaktoren ved 4 % økning per år?',
+    options: ['$1{,}04$', '$0{,}96$', '$1{,}4$', '$1{,}004$'],
+    explanation: 'Vekstfaktoren er $v = 1 + \\frac{p}{100} = 1 + \\frac{4}{100} = 1{,}04$.',
+  },
+  {
+    question: 'Hva er vekstfaktoren ved 12 % nedgang per år?',
+    options: ['$0{,}88$', '$1{,}12$', '$0{,}12$', '$0{,}98$'],
+    explanation: 'Ved nedgang: $v = 1 - \\frac{12}{100} = 0{,}88$.',
+  },
+  {
+    question: 'I eksponentialfunksjonen $f(x) = a \\cdot b^x$, hva er $a$?',
+    options: ['Startverdien, fordi $f(0) = a$', 'Vekstfaktoren', 'Doblingstiden', 'Den prosentvise veksten'],
+    explanation: '$f(0) = a \\cdot b^0 = a$, så $a$ er startverdien. $b$ er vekstfaktoren.',
+  },
+  {
+    question: 'Du setter 5000 kr i banken med 3 % rente per år. Hvor mye har du etter 2 år?',
+    options: ['$5000 \\cdot 1{,}03^2 = 5304{,}50$ kr', '$5300$ kr', '$5150$ kr', '$5609$ kr'],
+    explanation: 'Eksponentiell vekst: $5000 \\cdot 1{,}03^2 = 5000 \\cdot 1{,}0609 = 5304{,}50$ kr. Svaret $5300$ kr ville vært lineær vekst uten rentesrente.',
+  },
+  {
+    question: 'En tabell viser at $\\frac{f(x+1)}{f(x)}$ er konstant for alle $x$. Hva slags vekst er det?',
+    options: ['Eksponentiell vekst', 'Lineær vekst', 'Kvadratisk vekst', 'Ingen vekst'],
+    explanation: 'Konstant kvotient betyr fast faktor per steg — kjennetegnet på eksponentiell vekst. Lineær vekst har konstant differanse.',
+  },
+],
+
+  's1-2-6': [
+  {
+    question: 'Hvor mange radianer er $90°$?',
+    options: ['$\\frac{\\pi}{2}$', '$\\pi$', '$\\frac{\\pi}{4}$', '$2\\pi$'],
+    explanation: '$180° = \\pi$ rad, så $90° = \\frac{\\pi}{2}$ rad.',
+  },
+  {
+    question: 'Hva er amplituden til $f(x) = 3\\sin(2x) + 1$?',
+    options: ['$3$', '$2$', '$1$', '$6$'],
+    explanation: 'I $f(x) = A\\sin(B(x - C)) + D$ er amplituden $|A|$. Her er $A = 3$.',
+  },
+  {
+    question: 'Hva er perioden til $f(x) = 3\\sin(2x) + 1$?',
+    options: ['$\\pi$', '$2\\pi$', '$4\\pi$', '$\\frac{\\pi}{2}$'],
+    explanation: 'Perioden er $T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{2} = \\pi$.',
+  },
+  {
+    question: 'Hva er den største verdien til $f(x) = 3\\sin(2x) + 1$?',
+    options: ['$4$', '$3$', '$1$', '$2$'],
+    explanation: 'Funksjonen svinger mellom $D - |A|$ og $D + |A|$, altså mellom $-2$ og $1 + 3 = 4$.',
+  },
+  {
+    question: 'Du skal modellere data som starter i et toppunkt. Hvilken funksjonstype passer best uten faseforskyvning?',
+    options: ['Cosinus, fordi $\\cos 0 = 1$ (maks)', 'Sinus, fordi $\\sin 0 = 0$', 'Tangens', 'En lineær funksjon'],
+    explanation: 'Cosinus starter i et toppunkt ($\\cos 0 = 1$), mens sinus starter på likevektslinja. Sammenhengen: $\\cos x = \\sin(x + \\frac{\\pi}{2})$.',
+  },
+],
+
+  's1-2-7': [
+  {
+    question: 'Hva er en stykkevis definert funksjon?',
+    options: ['En funksjon med ulike uttrykk på ulike deler av definisjonsmengden', 'En funksjon som ikke er kontinuerlig', 'En funksjon med flere variabler', 'En funksjon uten definisjonsmengde'],
+    explanation: 'En stykkevis funksjon bruker forskjellige funksjonsuttrykk på forskjellige intervaller, f.eks. i prismodeller og trinnskatt.',
+  },
+  {
+    question: 'La $f(x) = x + 1$ for $x < 2$ og $f(x) = 2x - 1$ for $x \\geq 2$. Er $f$ kontinuerlig i $x = 2$?',
+    options: ['Ja, begge uttrykkene gir verdien $3$ i $x = 2$', 'Nei, det er et sprang i $x = 2$', 'Nei, $f(2)$ er ikke definert', 'Det kan ikke avgjøres'],
+    explanation: 'Venstre grense: $2 + 1 = 3$. Høyre verdi: $2 \\cdot 2 - 1 = 3$. Verdiene er like, så funksjonen er kontinuerlig i $x = 2$.',
+  },
+  {
+    question: 'Hvordan skrives $|x|$ som stykkevis funksjon for $x < 0$?',
+    options: ['$|x| = -x$', '$|x| = x$', '$|x| = 0$', '$|x| = x^2$'],
+    explanation: 'For $x < 0$ er $|x| = -x$ (f.eks. $|-3| = -(-3) = 3$). For $x \\geq 0$ er $|x| = x$.',
+  },
+  {
+    question: 'La $f(x) = x^2$ for $x \\leq 1$ og $f(x) = 3x - 1$ for $x > 1$. Hva er $f(1)$?',
+    options: ['$1$', '$2$', '$0$', 'Udefinert'],
+    explanation: 'Siden $x = 1$ tilhører intervallet $x \\leq 1$, bruker vi $f(1) = 1^2 = 1$. (Funksjonen har forresten et sprang her, siden høyre grense er $2$.)',
+  },
+  {
+    question: 'Hva betyr en fylt sirkel på grafen til en stykkevis funksjon?',
+    options: ['Endepunktet er inkludert i intervallet', 'Endepunktet er ekskludert fra intervallet', 'Funksjonen har et nullpunkt der', 'Funksjonen er diskontinuerlig der'],
+    explanation: 'Fylt sirkel betyr at punktet hører med til grafen (inkludert endepunkt); åpen sirkel betyr at det ikke gjør det.',
+  },
+],
+
+  's1-3-6': [
+  {
+    question: 'Hva er den deriverte av $f(x) = \\sin x$?',
+    options: ['$f\'(x) = \\cos x$', '$f\'(x) = -\\cos x$', '$f\'(x) = -\\sin x$', '$f\'(x) = \\tan x$'],
+    explanation: 'Grunnregelen er $(\\sin x)\' = \\cos x$ (med $x$ i radianer).',
+  },
+  {
+    question: 'Hva er den deriverte av $f(x) = \\cos x$?',
+    options: ['$f\'(x) = -\\sin x$', '$f\'(x) = \\sin x$', '$f\'(x) = -\\cos x$', '$f\'(x) = \\frac{1}{\\cos^2 x}$'],
+    explanation: '$(\\cos x)\' = -\\sin x$. Legg merke til minustegnet — en vanlig feilkilde.',
+  },
+  {
+    question: 'Deriver $f(x) = \\sin(3x)$.',
+    options: ['$f\'(x) = 3\\cos(3x)$', '$f\'(x) = \\cos(3x)$', '$f\'(x) = 3\\sin(3x)$', '$f\'(x) = -3\\cos(3x)$'],
+    explanation: 'Kjerneregelen med kjerne $u = 3x$: $(\\sin u)\' = \\cos(u) \\cdot u\' = \\cos(3x) \\cdot 3 = 3\\cos(3x)$.',
+  },
+  {
+    question: 'Deriver $f(x) = x \\sin x$.',
+    options: ['$f\'(x) = \\sin x + x\\cos x$', '$f\'(x) = \\cos x$', '$f\'(x) = x\\cos x$', '$f\'(x) = \\sin x \\cdot \\cos x$'],
+    explanation: 'Produktregelen: $(uv)\' = u\'v + uv\' = 1 \\cdot \\sin x + x \\cdot \\cos x = \\sin x + x\\cos x$.',
+  },
+  {
+    question: 'Hvorfor må vinkelen måles i radianer når vi deriverer trigonometriske funksjoner?',
+    options: ['Fordi regelen $(\\sin x)\' = \\cos x$ bare gjelder i radianer', 'Fordi grader ikke kan brukes i funksjoner', 'Fordi radianer alltid gir penere tall', 'Det spiller ingen rolle'],
+    explanation: 'Med grader ville det dukket opp en faktor $\\frac{\\pi}{180}$ i derivasjonsreglene. Bare med radianer er $(\\sin x)\' = \\cos x$.',
+  },
+],
+
+  's1-3-7': [
+  {
+    question: 'Ved implisitt derivasjon, hva blir $\\frac{d}{dx}[y^2]$?',
+    options: ['$2y \\cdot \\frac{dy}{dx}$', '$2y$', '$2\\frac{dy}{dx}$', '$y^2 \\cdot \\frac{dy}{dx}$'],
+    explanation: 'Kjerneregelen: $y$ er en funksjon av $x$, så $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$.',
+  },
+  {
+    question: 'Deriver $x^2 + y^2 = 25$ implisitt og løs for $y\'$.',
+    options: ['$y\' = -\\frac{x}{y}$', '$y\' = \\frac{x}{y}$', '$y\' = -\\frac{y}{x}$', '$y\' = -2x$'],
+    explanation: 'Derivasjon gir $2x + 2y \\cdot y\' = 0$, altså $y\' = -\\frac{x}{y}$.',
+  },
+  {
+    question: 'Hvorfor bruker vi kjerneregelen på $y$-leddene ved implisitt derivasjon?',
+    options: ['Fordi $y$ er en funksjon av $x$', 'Fordi $y$ er en konstant', 'Fordi $x$ og $y$ er uavhengige', 'Fordi likningen ikke har løsning'],
+    explanation: 'Selv om $y$ ikke er løst ut, er $y$ en funksjon av $x$. Derfor gir hvert $y$-ledd en faktor $\\frac{dy}{dx}$.',
+  },
+  {
+    question: 'Deriver $xy = 6$ implisitt og løs for $y\'$.',
+    options: ['$y\' = -\\frac{y}{x}$', '$y\' = -\\frac{x}{y}$', '$y\' = \\frac{y}{x}$', '$y\' = -\\frac{6}{x}$'],
+    explanation: 'Produktregelen: $y + x \\cdot y\' = 0$, så $y\' = -\\frac{y}{x}$.',
+  },
+  {
+    question: 'Hva er siste steg i fremgangsmåten for implisitt derivasjon?',
+    options: ['Samle alle $y\'$-ledd, faktoriser ut $y\'$ og del', 'Sette $y = 0$', 'Integrere begge sider', 'Sette inn $x = 0$'],
+    explanation: 'Etter å ha derivert begge sider samler vi alle ledd med $y\'$ på én side, faktoriserer ut $y\'$ og deler på parentesen.',
+  },
+],
+
+  's1-3-8': [
+  {
+    question: 'Hva gjør vi med likningen som relaterer størrelsene i en oppgave om relaterte rater?',
+    options: ['Deriverer begge sider med hensyn på tiden $t$', 'Deriverer med hensyn på $x$', 'Integrerer begge sider', 'Setter den lik null'],
+    explanation: 'Når størrelsene endrer seg over tid, deriverer vi sammenhengen med hensyn på $t$ for å knytte endringsratene sammen.',
+  },
+  {
+    question: 'En sirkel har areal $A = \\pi r^2$. Radien vokser med $\\frac{dr}{dt} = 2$ cm/s. Hvor fort vokser arealet når $r = 5$ cm?',
+    options: ['$20\\pi$ cm²/s', '$10\\pi$ cm²/s', '$25\\pi$ cm²/s', '$4\\pi$ cm²/s'],
+    explanation: '$\\frac{dA}{dt} = 2\\pi r \\cdot \\frac{dr}{dt} = 2\\pi \\cdot 5 \\cdot 2 = 20\\pi$ cm²/s.',
+  },
+  {
+    question: 'Hva er den generelle sammenhengen mellom $\\frac{dA}{dt}$ og $\\frac{dr}{dt}$ for et sirkelareal $A = \\pi r^2$?',
+    options: ['$\\frac{dA}{dt} = 2\\pi r \\cdot \\frac{dr}{dt}$', '$\\frac{dA}{dt} = \\pi r^2 \\cdot \\frac{dr}{dt}$', '$\\frac{dA}{dt} = 2\\pi \\cdot \\frac{dr}{dt}$', '$\\frac{dA}{dt} = \\frac{dr}{dt}$'],
+    explanation: 'Deriver $A = \\pi r^2$ med hensyn på $t$ og bruk kjerneregelen: $\\frac{dA}{dt} = 2\\pi r \\cdot \\frac{dr}{dt}$.',
+  },
+  {
+    question: 'Når i løsningsprosessen skal vi sette inn tallverdiene?',
+    options: ['Etter at vi har derivert likningen', 'Før vi deriverer likningen', 'Det spiller ingen rolle', 'Vi trenger aldri sette inn verdier'],
+    explanation: 'Setter vi inn tall før derivasjonen, blir variablene konstanter og de deriverte blir null. Deriver først, sett inn etterpå.',
+  },
+  {
+    question: 'Sidelengden i et kvadrat vokser med $3$ cm/s. Hvor fort vokser arealet $A = s^2$ når $s = 4$ cm?',
+    options: ['$24$ cm²/s', '$12$ cm²/s', '$48$ cm²/s', '$9$ cm²/s'],
+    explanation: '$\\frac{dA}{dt} = 2s \\cdot \\frac{ds}{dt} = 2 \\cdot 4 \\cdot 3 = 24$ cm²/s.',
+  },
+],
+
+  's1-3-9': [
+  {
+    question: 'Hva er den gjennomsnittlige vekstfarten til $f$ over intervallet $[a, b]$, tolket geometrisk?',
+    options: ['Stigningstallet til sekanten gjennom $(a, f(a))$ og $(b, f(b))$', 'Stigningstallet til tangenten i $a$', 'Arealet under grafen', 'Funksjonsverdien i midtpunktet'],
+    explanation: 'Gjennomsnittlig vekstfart $= \\frac{f(b) - f(a)}{b - a}$ er stigningstallet til sekanten gjennom de to punktene.',
+  },
+  {
+    question: 'Hva er den momentane vekstfarten i $x = a$, tolket geometrisk?',
+    options: ['Stigningstallet til tangenten i punktet $(a, f(a))$', 'Stigningstallet til sekanten', 'Avstanden til $x$-aksen', 'Funksjonsverdien $f(a)$'],
+    explanation: 'Momentan vekstfart er $f\'(a)$ — grenseverdien av differansekvotienten — og er stigningstallet til tangenten.',
+  },
+  {
+    question: 'Finn den gjennomsnittlige vekstfarten til $f(x) = x^2$ på intervallet $[1, 3]$.',
+    options: ['$4$', '$2$', '$8$', '$5$'],
+    explanation: '$\\frac{f(3) - f(1)}{3 - 1} = \\frac{9 - 1}{2} = 4$.',
+  },
+  {
+    question: 'Finn den momentane vekstfarten til $f(x) = x^2$ i $x = 2$.',
+    options: ['$4$', '$2$', '$8$', '$16$'],
+    explanation: '$f\'(x) = 2x$, så $f\'(2) = 4$.',
+  },
+  {
+    question: 'Hvorfor brukes ofte den symmetriske differansekvotienten $\\frac{f(a+h) - f(a-h)}{2h}$ til numerisk estimering?',
+    options: ['Den gir vanligvis et mer nøyaktig estimat av $f\'(a)$', 'Den er enklere å regne ut', 'Den gir alltid eksakt svar', 'Den fungerer også når $f$ ikke er deriverbar'],
+    explanation: 'Den symmetriske differansekvotienten bruker punkter på begge sider av $a$, og feilene balanserer hverandre delvis ut.',
+  },
+],
+
+  's1-3-10': [
+  {
+    question: 'Hva vet vi om $f$ på et intervall der $f\'(x) > 0$?',
+    options: ['$f$ er stigende på intervallet', '$f$ er synkende på intervallet', '$f$ har et toppunkt på intervallet', '$f$ er konstant på intervallet'],
+    explanation: 'Positiv derivert betyr at funksjonen vokser: $f\'(x) > 0 \\Rightarrow f$ stigende.',
+  },
+  {
+    question: 'Hvordan kjenner vi igjen et toppunkt på fortegnslinja til $f\'$?',
+    options: ['$f\'$ skifter fortegn fra $+$ til $-$', '$f\'$ skifter fortegn fra $-$ til $+$', '$f\'$ er null uten å skifte fortegn', '$f\'\'$ er positiv'],
+    explanation: 'I et toppunkt går funksjonen fra stigende til synkende, så $f\'$ skifter fra positiv til negativ.',
+  },
+  {
+    question: 'Hva kjennetegner et vendepunkt?',
+    options: ['$f\'\'(x) = 0$ og $f\'\'$ skifter fortegn', '$f\'(x) = 0$', '$f(x) = 0$', '$f\'\'(x) > 0$'],
+    explanation: 'Et vendepunkt er der grafen skifter krumning: $f\'\' = 0$ og $f\'\'$ skifter fortegn (fra konkav til konveks eller omvendt).',
+  },
+  {
+    question: 'Hvor har $f(x) = \\frac{x + 1}{x - 2}$ en vertikal asymptote?',
+    options: ['$x = 2$', '$x = -1$', '$y = 2$', '$y = 1$'],
+    explanation: 'Vertikal asymptote der nevneren er null (og telleren ikke er null): $x - 2 = 0$ gir $x = 2$.',
+  },
+  {
+    question: 'Hva er den horisontale asymptoten til $f(x) = \\frac{x + 1}{x - 2}$?',
+    options: ['$y = 1$', '$y = 2$', '$x = 1$', '$y = 0$'],
+    explanation: 'Når $x \\to \\pm\\infty$ nærmer brøken seg forholdet mellom de ledende koeffisientene: $\\frac{1}{1} = 1$, så $y = 1$.',
+  },
+],
+
+  's1-4-4': [
+  {
+    question: 'Hva kjennetegner nullpunktet (break-even) i en lønnsomhetsanalyse?',
+    options: ['Inntekten er nøyaktig lik kostnadene: $I(x_0) = K(x_0)$', 'Inntekten er null', 'Kostnadene er null', 'Overskuddet er maksimalt'],
+    explanation: 'I nullpunktet dekker inntekten akkurat kostnadene, så overskuddet er null: $I(x_0) = K(x_0)$.',
+  },
+  {
+    question: 'Et produkt selges for 250 kr og har variabel kostnad 150 kr per enhet. Hva er dekningsbidraget per enhet?',
+    options: ['$100$ kr', '$250$ kr', '$150$ kr', '$400$ kr'],
+    explanation: 'DB $= p - v = 250 - 150 = 100$ kr per enhet.',
+  },
+  {
+    question: 'Faste kostnader er 50 000 kr og dekningsbidraget er 100 kr per enhet. Hva er nullpunktet?',
+    options: ['$500$ enheter', '$5000$ enheter', '$50$ enheter', '$200$ enheter'],
+    explanation: '$x_0 = \\frac{F}{\\text{DB}} = \\frac{50\\,000}{100} = 500$ enheter.',
+  },
+  {
+    question: 'Pris 250 kr, dekningsbidrag 100 kr. Hva er dekningsgraden?',
+    options: ['$40\\%$', '$60\\%$', '$67\\%$', '$25\\%$'],
+    explanation: 'DG $= \\frac{\\text{DB}}{p} \\cdot 100\\% = \\frac{100}{250} \\cdot 100\\% = 40\\%$.',
+  },
+  {
+    question: 'En bedrift selger flere enheter enn nullpunktet ($x > x_0$). Hva betyr det?',
+    options: ['Bedriften går med overskudd', 'Bedriften går med tap', 'Bedriften går akkurat i null', 'Bedriften må senke prisen'],
+    explanation: 'For $x > x_0$ er inntekten større enn kostnadene, så bedriften går med overskudd. For $x < x_0$ går den med tap.',
+  },
+],
+
+  's1-4-5': [
+  {
+    question: 'Hva betyr det at etterspørselen er elastisk?',
+    options: ['$|E_p| > 1$ — etterspørselen endres prosentvis mer enn prisen', '$|E_p| < 1$', '$E_p = 0$', 'Etterspørselen er konstant'],
+    explanation: 'Elastisk betyr $|E_p| > 1$: en prisendring gir en relativt større endring i etterspørselen.',
+  },
+  {
+    question: 'Hva er formelen for priselastisiteten til etterspørselsfunksjonen $x(p)$?',
+    options: ['$E_p = \\frac{p}{x(p)} \\cdot x\'(p)$', '$E_p = \\frac{x(p)}{p} \\cdot x\'(p)$', '$E_p = p \\cdot x(p)$', '$E_p = x\'(p)$'],
+    explanation: 'Priselastisiteten er $E_p = \\frac{p}{x(p)} \\cdot x\'(p)$ — forholdet mellom prosentvis endring i etterspørsel og pris.',
+  },
+  {
+    question: 'En vare har uelastisk etterspørsel ($|E_p| < 1$). Hva skjer med inntekten ved en prisøkning?',
+    options: ['Inntekten øker', 'Inntekten synker', 'Inntekten er uendret', 'Inntekten blir null'],
+    explanation: 'Ved uelastisk etterspørsel mister man få kunder ved prisøkning, så $I\'(p) > 0$ — inntekten øker.',
+  },
+  {
+    question: 'Krysspriselastisiteten mellom to varer er positiv ($E_{AB} > 0$). Hva er varene?',
+    options: ['Substitutter (erstatter hverandre)', 'Komplementer (brukes sammen)', 'Luksusvarer', 'Nødvendighetsvarer'],
+    explanation: 'Positiv krysspriselastisitet: når prisen på B øker, kjøper folk mer av A i stedet — varene er substitutter.',
+  },
+  {
+    question: 'Etterspørselen er $x(p) = 100 - 2p$. Beregn priselastisiteten ved $p = 20$.',
+    options: ['$E_p = -\\frac{2}{3} \\approx -0{,}67$ (uelastisk)', '$E_p = -2$ (elastisk)', '$E_p = -\\frac{3}{2}$ (elastisk)', '$E_p = 0{,}67$ (elastisk)'],
+    explanation: '$x(20) = 60$ og $x\'(p) = -2$. $E_p = \\frac{20}{60} \\cdot (-2) = -\\frac{2}{3}$. Siden $|E_p| < 1$ er etterspørselen uelastisk.',
+  },
+],
+
+  's1-4-6': [
+  {
+    question: 'Hva er indeksen i basisåret?',
+    options: ['$100$', '$0$', '$1$', 'Avhenger av prisnivået'],
+    explanation: 'Indeksen i basisåret settes alltid til 100, og andre år måles i forhold til dette.',
+  },
+  {
+    question: 'En lønn på 500 000 kr skal indeksreguleres fra indeks 100 til indeks 110. Hva blir ny lønn?',
+    options: ['$550\\,000$ kr', '$510\\,000$ kr', '$505\\,000$ kr', '$610\\,000$ kr'],
+    explanation: 'Ny lønn $= 500\\,000 \\cdot \\frac{110}{100} = 550\\,000$ kr.',
+  },
+  {
+    question: 'En vare kostet 80 kr i basisåret og koster 100 kr i dag. Hva er prisindeksen i dag?',
+    options: ['$125$', '$80$', '$120$', '$100$'],
+    explanation: 'Indeks $= \\frac{100}{80} \\cdot 100 = 125$.',
+  },
+  {
+    question: 'Hva betyr positiv reallønnsvekst?',
+    options: ['Lønnen har økt mer enn prisnivået — kjøpekraften har økt', 'Lønnen har økt i kroner', 'Prisene har sunket', 'KPI har økt'],
+    explanation: 'Reallønnsvekst sammenlikner lønnsvekst med prisvekst. Positiv reallønnsvekst betyr at du får kjøpt mer for lønnen.',
+  },
+  {
+    question: 'Lønnen din øker med 5 %, samtidig som KPI øker med 5 %. Hva er reallønnsveksten?',
+    options: ['$0\\%$ — kjøpekraften er uendret', '$5\\%$', '$10\\%$', '$-5\\%$'],
+    explanation: 'Reallønnsvekst $= \\frac{1{,}05}{1{,}05} - 1 = 0$. Lønnen øker akkurat like mye som prisene, så kjøpekraften er uendret.',
+  },
+],
+
+  's1-4-7': [
+  {
+    question: 'Hva kjennetegner etterspørsels- og tilbudsfunksjonene?',
+    options: ['Etterspørselen er avtagende, tilbudet er voksende', 'Begge er voksende', 'Etterspørselen er voksende, tilbudet er avtagende', 'Begge er avtagende'],
+    explanation: 'Kundene vil betale mindre per enhet jo flere enheter ($E\'(x) < 0$), mens produsentene krever mer for å tilby flere ($T\'(x) > 0$).',
+  },
+  {
+    question: 'Gitt $E(x) = 100 - 2x$ og $T(x) = 20 + 2x$. Finn markedslikevekten.',
+    options: ['$x_0 = 20$, $p_0 = 60$', '$x_0 = 40$, $p_0 = 20$', '$x_0 = 10$, $p_0 = 80$', '$x_0 = 20$, $p_0 = 40$'],
+    explanation: '$100 - 2x = 20 + 2x$ gir $80 = 4x$, altså $x_0 = 20$. Prisen: $p_0 = 100 - 2 \\cdot 20 = 60$.',
+  },
+  {
+    question: 'Hva er konsumentoverskuddet geometrisk?',
+    options: ['Arealet mellom etterspørselskurven og likevektsprisen fra $0$ til $x_0$', 'Arealet under tilbudskurven', 'Hele arealet under etterspørselskurven', 'Arealet mellom tilbuds- og etterspørselskurven for $x > x_0$'],
+    explanation: 'KO er gevinsten til kunder som ville betalt mer enn likevektsprisen: arealet mellom $E(x)$ og linja $p = p_0$ fra $x = 0$ til $x_0$.',
+  },
+  {
+    question: 'Inntekten i befolkningen øker. Hva skjer normalt med etterspørselskurven?',
+    options: ['Den skifter utover (øker)', 'Den skifter innover (minker)', 'Den blir brattere uten å skifte', 'Ingenting'],
+    explanation: 'Økt inntekt gjør at kundene vil kjøpe mer ved hver pris — etterspørselskurven skifter utover.',
+  },
+  {
+    question: 'Hva er spesielt med likevektsprisen $p_0$?',
+    options: ['Det er verken overproduksjon eller mangel i markedet', 'Produsentene tjener mest mulig', 'Konsumentene betaler minst mulig', 'Staten bestemmer den'],
+    explanation: 'Ved likevektsprisen er tilbudt mengde lik etterspurt mengde, så markedet «klareres» uten overskudd eller underskudd av varer.',
+  },
+],
+
+  's1-4-8': [
+  {
+    question: 'Hva er betingelsen for maksimal profitt?',
+    options: ['$I\'(x) = K\'(x)$ — marginalinntekt lik marginalkostnad', '$I(x) = K(x)$', '$I\'(x) = 0$', '$K\'(x) = 0$'],
+    explanation: 'Profitten $P(x) = I(x) - K(x)$ er maksimal når $P\'(x) = 0$, altså $I\'(x) = K\'(x)$ (og $P\'\'(x) < 0$).',
+  },
+  {
+    question: 'Hva er marginalkostnaden?',
+    options: ['$K\'(x)$ — den ekstra kostnaden ved å produsere én enhet til', '$\\frac{K(x)}{x}$ — kostnad per enhet', '$K(x) - I(x)$', 'De faste kostnadene'],
+    explanation: 'Marginalkostnaden er den deriverte av kostnadsfunksjonen, $K\'(x)$, og angir kostnadsøkningen ved én ekstra enhet.',
+  },
+  {
+    question: 'Gitt $I(x) = 200x$ og $K(x) = x^2 + 50x + 1000$. Hvilket produksjonsnivå gir maksimal profitt?',
+    options: ['$x = 75$', '$x = 100$', '$x = 50$', '$x = 25$'],
+    explanation: '$P(x) = 200x - x^2 - 50x - 1000$. $P\'(x) = 150 - 2x = 0$ gir $x = 75$. $P\'\'(x) = -2 < 0$, så det er et maksimum.',
+  },
+  {
+    question: 'Når er enhetskostnaden $e(x) = \\frac{K(x)}{x}$ minst?',
+    options: ['Når $K\'(x) = \\frac{K(x)}{x}$ — marginalkostnad lik enhetskostnad', 'Når $K\'(x) = 0$', 'Når $K(x) = 0$', 'Når $x$ er størst mulig'],
+    explanation: 'Derivasjon av $e(x)$ gir at minimum inntreffer der marginalkostnaden er lik enhetskostnaden: $K\'(x) = e(x)$.',
+  },
+  {
+    question: 'Du har funnet $x$ slik at $P\'(x) = 0$. Hva må du sjekke for å være sikker på at det er et maksimum?',
+    options: ['At $P\'\'(x) < 0$', 'At $P\'\'(x) > 0$', 'At $P(x) > 0$', 'At $x > 0$'],
+    explanation: '$P\'(x) = 0$ kan også være et minimum. $P\'\'(x) < 0$ bekrefter at grafen krummer nedover — et maksimumspunkt.',
+  },
+],
+
+  's1-5-4': [
+  {
+    question: 'Hva kjennetegner en situasjon der den hypergeometriske fordelingen brukes?',
+    options: ['Trekking uten tilbakelegging fra en populasjon med to kategorier', 'Trekking med tilbakelegging', 'Uavhengige forsøk med konstant sannsynlighet', 'Kontinuerlige målinger'],
+    explanation: 'Hypergeometrisk fordeling beskriver antall «suksesser» når vi trekker uten tilbakelegging — sannsynligheten endres for hvert trekk.',
+  },
+  {
+    question: 'Hva er $P(X = k)$ i den hypergeometriske fordelingen med $N$ totalt, $M$ av ønsket type og $n$ trekk?',
+    options: ['$\\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$', '$\\binom{n}{k} p^k (1-p)^{n-k}$', '$\\frac{\\binom{N}{k}}{\\binom{M}{n}}$', '$\\frac{M^k}{N^n}$'],
+    explanation: 'Vi velger $k$ av de $M$ spesielle og $n-k$ av de $N-M$ andre, delt på antall måter å trekke $n$ av $N$.',
+  },
+  {
+    question: 'En eske har $N = 20$ deler, hvorav $M = 8$ er defekte. Du trekker $n = 5$. Hva er $E(X)$, forventet antall defekte?',
+    options: ['$2$', '$4$', '$2{,}5$', '$1{,}6$'],
+    explanation: '$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{8}{20} = 2$.',
+  },
+  {
+    question: 'En urne har 5 røde og 5 blå kuler. Du trekker 2 uten tilbakelegging. Hva er sannsynligheten for to røde?',
+    options: ['$\\frac{2}{9}$', '$\\frac{1}{4}$', '$\\frac{5}{18}$', '$\\frac{1}{9}$'],
+    explanation: '$P = \\frac{5}{10} \\cdot \\frac{4}{9} = \\frac{20}{90} = \\frac{2}{9}$. Eller: $\\frac{\\binom{5}{2}}{\\binom{10}{2}} = \\frac{10}{45} = \\frac{2}{9}$.',
+  },
+  {
+    question: 'Hva er hovedforskjellen mellom hypergeometrisk og binomisk fordeling?',
+    options: ['Binomisk krever konstant sannsynlighet (med tilbakelegging), hypergeometrisk gjelder uten tilbakelegging', 'Hypergeometrisk gjelder bare for terninger', 'Binomisk gjelder bare for mynter', 'Det er ingen forskjell'],
+    explanation: 'Uten tilbakelegging endres sannsynligheten for hvert trekk, og da gjelder hypergeometrisk fordeling — ikke binomisk.',
+  },
+],
+
+  's1-5-5': [
+  {
+    question: 'Hvilket krav må en sannsynlighetsfordeling oppfylle?',
+    options: ['Summen av alle sannsynlighetene er $1$', 'Alle sannsynlighetene er like', 'Summen av verdiene er $1$', 'Forventningsverdien er $0$'],
+    explanation: 'Kravene er $\\sum_x P(X = x) = 1$ og $P(X = x) \\geq 0$ for alle verdier.',
+  },
+  {
+    question: 'I et lotteri vinner du 100 kr med sannsynlighet $0{,}1$, ellers ingenting. Hva er forventet gevinst?',
+    options: ['$10$ kr', '$100$ kr', '$0$ kr', '$50$ kr'],
+    explanation: '$E(X) = 100 \\cdot 0{,}1 + 0 \\cdot 0{,}9 = 10$ kr.',
+  },
+  {
+    question: '$E(X) = 5$ og $Y = 2X + 3$. Hva er $E(Y)$?',
+    options: ['$13$', '$10$', '$16$', '$8$'],
+    explanation: '$E(aX + b) = a \\cdot E(X) + b = 2 \\cdot 5 + 3 = 13$.',
+  },
+  {
+    question: '$\\text{Var}(X) = 4$ og $Y = 3X + 2$. Hva er $\\text{Var}(Y)$?',
+    options: ['$36$', '$12$', '$14$', '$6$'],
+    explanation: '$\\text{Var}(aX + b) = a^2 \\cdot \\text{Var}(X) = 9 \\cdot 4 = 36$. Konstanten $b$ påvirker ikke variansen.',
+  },
+  {
+    question: 'Hvordan tolkes forventningsverdien $E(X)$?',
+    options: ['Gjennomsnittet av $X$ over mange gjentatte forsøk', 'Den mest sannsynlige verdien av $X$', 'Den største mulige verdien av $X$', 'Medianen til $X$'],
+    explanation: '$E(X)$ er det vektede gjennomsnittet av verdiene — det vi i gjennomsnitt får på lang sikt. Det trenger ikke være en mulig verdi.',
+  },
+],
+
+  's1-5-6': [
+  {
+    question: 'Hvordan estimeres en sannsynlighet med Monte Carlo-metoden?',
+    options: ['$P(A) \\approx \\frac{f}{n}$, der $f$ er antall gunstige utfall av $n$ simuleringer', '$P(A) = \\frac{n}{f}$', '$P(A) = f \\cdot n$', '$P(A) = \\frac{1}{n}$'],
+    explanation: 'Vi gjentar eksperimentet $n$ ganger og bruker den relative frekvensen $\\frac{f}{n}$ som estimat for sannsynligheten.',
+  },
+  {
+    question: 'Hva sier store talls lov?',
+    options: ['Den relative frekvensen nærmer seg sannsynligheten når antall forsøk øker', 'Store tall er mer sannsynlige enn små', 'Alle utfall blir like sannsynlige etter hvert', 'Gjennomsnittet blir alltid null'],
+    explanation: 'Jo flere forsøk, desto nærmere kommer den relative frekvensen den teoretiske sannsynligheten.',
+  },
+  {
+    question: 'Hvordan kan du gjøre et Monte Carlo-estimat mer nøyaktig?',
+    options: ['Øke antall simuleringer $n$', 'Redusere antall simuleringer', 'Endre sannsynligheten', 'Bruke færre desimaler'],
+    explanation: 'Nøyaktigheten øker med antall simuleringer — usikkerheten avtar omtrent som $\\frac{1}{\\sqrt{n}}$.',
+  },
+  {
+    question: 'Hvorfor kan et forsikringsselskap forutsi samlede utbetalinger selv om hver enkelt skade er tilfeldig?',
+    options: ['Store talls lov gjør gjennomsnittet over mange kunder svært forutsigbart', 'Selskapet vet hvem som får skade', 'Skadene er ikke tilfeldige', 'De bruker ikke sannsynlighet'],
+    explanation: 'Enkeltutfall er uforutsigbare, men andelen skader blant 100 000 kunder er svært stabil — det er store talls lov i praksis.',
+  },
+  {
+    question: 'Du simulerer et forsøk 10 000 ganger og får 2530 gunstige utfall. Hva er sannsynlighetsestimatet?',
+    options: ['$0{,}253$', '$0{,}025$', '$2{,}53$', '$0{,}5$'],
+    explanation: '$P \\approx \\frac{2530}{10\\,000} = 0{,}253$.',
+  },
+],
+
+  's1-6-1': [
+  {
+    question: 'Hva er en stokastisk variabel?',
+    options: ['En funksjon som tilordner hvert utfall i utfallsrommet en tallverdi', 'Et tilfeldig valgt tall mellom 0 og 1', 'En variabel som alltid er ukjent', 'En sannsynlighet'],
+    explanation: 'En stokastisk variabel $X$ knytter en tallverdi til hvert utfall i et tilfeldig forsøk, f.eks. antall øyne på en terning.',
+  },
+  {
+    question: 'Hva er forventningsverdien ved kast av en rettferdig terning?',
+    options: ['$3{,}5$', '$3$', '$4$', '$21$'],
+    explanation: 'Uniform fordeling: $E(X) = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = 3{,}5$.',
+  },
+  {
+    question: 'Hva er den alternative beregningsformelen for varians?',
+    options: ['$\\text{Var}(X) = E(X^2) - [E(X)]^2$', '$\\text{Var}(X) = E(X)^2 - E(X^2)$', '$\\text{Var}(X) = E(X^2)$', '$\\text{Var}(X) = \\sqrt{E(X^2)}$'],
+    explanation: 'Variansen kan beregnes som $E(X^2) - [E(X)]^2$ — ofte enklere enn å bruke definisjonen direkte.',
+  },
+  {
+    question: '$X$ tar verdien $0$ med sannsynlighet $0{,}5$ og verdien $2$ med sannsynlighet $0{,}5$. Hva er $\\text{Var}(X)$?',
+    options: ['$1$', '$2$', '$0{,}5$', '$4$'],
+    explanation: '$E(X) = 1$ og $E(X^2) = 0 \\cdot 0{,}5 + 4 \\cdot 0{,}5 = 2$. $\\text{Var}(X) = 2 - 1^2 = 1$.',
+  },
+  {
+    question: 'Hvorfor er standardavviket ofte lettere å tolke enn variansen?',
+    options: ['Standardavviket har samme enhet som den stokastiske variabelen', 'Standardavviket er alltid mindre enn 1', 'Variansen kan være negativ', 'Standardavviket er alltid et helt tall'],
+    explanation: 'Variansen har kvadrert enhet (f.eks. kr²), mens standardavviket $\\sigma = \\sqrt{\\text{Var}(X)}$ har samme enhet som $X$.',
+  },
+],
+
+  's1-6-2': [
+  {
+    question: 'Hvilket krav gjelder IKKE for et binomisk forsøk?',
+    options: ['Sannsynligheten for suksess endrer seg for hvert delforsøk', 'Delforsøkene er uavhengige', 'Hvert delforsøk har nøyaktig to utfall', 'Antall delforsøk $n$ er bestemt på forhånd'],
+    explanation: 'I et binomisk forsøk skal sannsynligheten $p$ være konstant. Endres den (som ved trekking uten tilbakelegging), gjelder ikke modellen.',
+  },
+  {
+    question: 'Hva er $P(X = k)$ når $X \\sim \\text{Bin}(n, p)$?',
+    options: ['$\\binom{n}{k} p^k (1-p)^{n-k}$', '$p^k (1-p)^{n-k}$', '$\\binom{n}{k} p^k$', '$n \\cdot p \\cdot k$'],
+    explanation: 'Binomialkoeffisienten $\\binom{n}{k}$ teller rekkefølgene, og $p^k(1-p)^{n-k}$ er sannsynligheten for hver av dem.',
+  },
+  {
+    question: '$X \\sim \\text{Bin}(20, \\, 0{,}3)$. Hva er $E(X)$?',
+    options: ['$6$', '$4{,}2$', '$14$', '$0{,}6$'],
+    explanation: '$E(X) = np = 20 \\cdot 0{,}3 = 6$.',
+  },
+  {
+    question: 'Du kaster en mynt 3 ganger. Hva er sannsynligheten for nøyaktig 2 kron?',
+    options: ['$\\frac{3}{8}$', '$\\frac{1}{8}$', '$\\frac{1}{2}$', '$\\frac{1}{4}$'],
+    explanation: '$P(X = 2) = \\binom{3}{2} \\cdot 0{,}5^2 \\cdot 0{,}5^1 = 3 \\cdot \\frac{1}{8} = \\frac{3}{8}$.',
+  },
+  {
+    question: '$X \\sim \\text{Bin}(4, \\, 0{,}5)$. Hva er $P(X \\geq 1)$?',
+    options: ['$\\frac{15}{16}$', '$\\frac{1}{16}$', '$\\frac{1}{2}$', '$\\frac{3}{4}$'],
+    explanation: 'Komplementregelen: $P(X \\geq 1) = 1 - P(X = 0) = 1 - 0{,}5^4 = 1 - \\frac{1}{16} = \\frac{15}{16}$.',
+  },
+],
+
+  's1-6-3': [
+  {
+    question: 'Omtrent hvor stor andel av verdiene ligger innenfor $\\mu \\pm 2\\sigma$ i en normalfordeling?',
+    options: ['Ca. $95\\%$', 'Ca. $68\\%$', 'Ca. $99{,}7\\%$', 'Ca. $50\\%$'],
+    explanation: '68-95-99,7-regelen: ca. 68 % innenfor $\\pm\\sigma$, 95 % innenfor $\\pm 2\\sigma$ og 99,7 % innenfor $\\pm 3\\sigma$.',
+  },
+  {
+    question: 'Høyder er normalfordelt med $\\mu = 170$ cm og $\\sigma = 5$ cm. Hva er z-scoren til en person på 180 cm?',
+    options: ['$z = 2$', '$z = 10$', '$z = 0{,}5$', '$z = -2$'],
+    explanation: '$z = \\frac{x - \\mu}{\\sigma} = \\frac{180 - 170}{5} = 2$ — personen er 2 standardavvik over gjennomsnittet.',
+  },
+  {
+    question: 'Hva er $P(X < \\mu)$ for en normalfordelt variabel $X$?',
+    options: ['$0{,}5$', '$0{,}68$', '$0{,}95$', 'Avhenger av $\\sigma$'],
+    explanation: 'Normalfordelingen er symmetrisk om $\\mu$, så halvparten av sannsynligheten ligger under gjennomsnittet.',
+  },
+  {
+    question: 'Når er normalapproksimasjonen til binomisk fordeling god (etter tommelfingerregelen i kapittelet)?',
+    options: ['Når $np \\geq 5$ og $n(1-p) \\geq 5$', 'Når $n \\geq 5$', 'Når $p \\geq 0{,}5$', 'Alltid'],
+    explanation: 'Tommelfingerregelen krever at både $np$ og $n(1-p)$ er minst 5, slik at fordelingen er tilstrekkelig symmetrisk.',
+  },
+  {
+    question: 'En verdi har z-score $z = -1{,}5$. Hva betyr det?',
+    options: ['Verdien ligger $1{,}5$ standardavvik under gjennomsnittet', 'Verdien ligger $1{,}5$ standardavvik over gjennomsnittet', 'Verdien er negativ', 'Verdien er $1{,}5$'],
+    explanation: 'Negativ z-score betyr under gjennomsnittet; $|z| = 1{,}5$ angir avstanden målt i standardavvik.',
+  },
+],
+
+  's1-6-4': [
+  {
+    question: 'Hvordan beregnes $P(a < X < b)$ for en kontinuerlig fordeling med tetthetsfunksjon $f$?',
+    options: ['Som arealet under kurven: $\\int_a^b f(x)\\,dx$', 'Som $f(b) - f(a)$', 'Som $f(a) \\cdot f(b)$', 'Som $\\frac{b - a}{2}$'],
+    explanation: 'For kontinuerlige fordelinger er sannsynligheten arealet under tetthetskurven mellom $a$ og $b$.',
+  },
+  {
+    question: 'Omtrent hvor stor andel ligger innenfor $\\mu \\pm \\sigma$ i en normalfordeling?',
+    options: ['Ca. $68\\%$', 'Ca. $95\\%$', 'Ca. $99{,}7\\%$', 'Ca. $75\\%$'],
+    explanation: 'Den empiriske regelen: ca. 68 % av verdiene ligger innenfor ett standardavvik fra gjennomsnittet.',
+  },
+  {
+    question: 'Høyde er normalfordelt med $\\mu = 170$ cm og $\\sigma = 6$ cm. Hvilket intervall inneholder ca. 95 % av verdiene?',
+    options: ['$[158, 182]$ cm', '$[164, 176]$ cm', '$[152, 188]$ cm', '$[160, 180]$ cm'],
+    explanation: 'Ca. 95 % ligger innenfor $\\mu \\pm 2\\sigma = 170 \\pm 12$, altså mellom 158 og 182 cm.',
+  },
+  {
+    question: 'En prøve har $\\mu = 70$ og $\\sigma = 10$ poeng. Hva er z-scoren til 85 poeng?',
+    options: ['$z = 1{,}5$', '$z = 15$', '$z = 0{,}67$', '$z = -1{,}5$'],
+    explanation: '$z = \\frac{85 - 70}{10} = 1{,}5$ — resultatet ligger 1,5 standardavvik over gjennomsnittet.',
+  },
+  {
+    question: 'Hva skjer med normalfordelingskurven når standardavviket $\\sigma$ øker?',
+    options: ['Den blir bredere og lavere', 'Den blir smalere og høyere', 'Den flytter seg mot høyre', 'Den blir usymmetrisk'],
+    explanation: 'Større $\\sigma$ betyr større spredning: kurven blir bredere, og siden totalarealet er 1, blir toppen lavere.',
+  },
+],
+
+  's1-6-5': [
+  {
+    question: 'Når kan en hypergeometrisk fordeling approksimeres godt med en binomisk fordeling?',
+    options: ['Når utvalget er lite i forhold til populasjonen ($n < 0{,}05 \\cdot N$)', 'Når $n$ er større enn $N$', 'Når populasjonen er liten', 'Aldri'],
+    explanation: 'Når vi trekker få av mange, endres sannsynligheten nesten ikke, og binomisk fordeling med $p = \\frac{M}{N}$ er en god tilnærming.',
+  },
+  {
+    question: 'I den hypergeometriske formelen, hva angir parameteren $M$?',
+    options: ['Antall objekter av typen «suksess» i populasjonen', 'Antall objekter vi trekker', 'Totalt antall objekter', 'Antall suksesser i utvalget'],
+    explanation: '$N$ er totalt antall, $M$ er antall av spesialtypen i populasjonen, $n$ er antall trekk og $k$ er antall suksesser i utvalget.',
+  },
+  {
+    question: 'En populasjon har $N = 50$ objekter, hvorav $M = 10$ er spesielle. Du trekker $n = 5$. Hva er $E(X)$?',
+    options: ['$1$', '$2$', '$0{,}5$', '$5$'],
+    explanation: '$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{10}{50} = 1$.',
+  },
+  {
+    question: 'Et parti på 100 varer har 5 defekte. Du trekker 4 tilfeldige uten tilbakelegging. Hva er ca. sannsynligheten for ingen defekte?',
+    options: ['Ca. $0{,}81$', 'Ca. $0{,}95$', 'Ca. $0{,}19$', 'Ca. $0{,}66$'],
+    explanation: '$P = \\frac{95}{100} \\cdot \\frac{94}{99} \\cdot \\frac{93}{98} \\cdot \\frac{92}{97} \\approx 0{,}81$.',
+  },
+  {
+    question: 'Hvorfor kan vi ikke bruke binomisk fordeling direkte ved trekking uten tilbakelegging?',
+    options: ['Sannsynligheten endrer seg for hvert trekk, så trekkene er ikke uavhengige', 'Det blir for mange utfall', 'Binomisk fordeling gjelder bare mynter', 'Forventningsverdien blir feil definert'],
+    explanation: 'Uten tilbakelegging avhenger hvert trekk av de forrige — kravet om konstant $p$ og uavhengighet i binomisk modell brytes.',
+  },
+],
+
+  's1-6-6': [
+  {
+    question: 'Hvilke parametre har normalapproksimasjonen til $X \\sim \\text{Bin}(n, p)$?',
+    options: ['$\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$', '$\\mu = p$ og $\\sigma = n$', '$\\mu = np$ og $\\sigma = np(1-p)$', '$\\mu = n$ og $\\sigma = p$'],
+    explanation: 'Vi bruker binomialfordelingens forventningsverdi og standardavvik: $\\mu = np$, $\\sigma = \\sqrt{np(1-p)}$.',
+  },
+  {
+    question: 'Hvordan brukes kontinuitetskorreksjon for $P(X \\leq k)$?',
+    options: ['Bruk $k + 0{,}5$ i normalfordelingen', 'Bruk $k - 0{,}5$', 'Bruk $k$ uendret', 'Bruk $2k$'],
+    explanation: 'Ved $P(X \\leq k)$ korrigerer vi oppover til $k + 0{,}5$ for å dekke hele den diskrete verdien $k$.',
+  },
+  {
+    question: '$X \\sim \\text{Bin}(100, \\, 0{,}5)$. Hvilken normalfordeling approksimerer $X$?',
+    options: ['$N(50, \\, 5^2)$ — altså $\\mu = 50$, $\\sigma = 5$', '$\\mu = 50$, $\\sigma = 25$', '$\\mu = 25$, $\\sigma = 5$', '$\\mu = 100$, $\\sigma = 0{,}5$'],
+    explanation: '$\\mu = np = 50$ og $\\sigma = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = \\sqrt{25} = 5$.',
+  },
+  {
+    question: 'Hvordan tilnærmes $P(X = k)$ med kontinuitetskorreksjon?',
+    options: ['Som $P(k - 0{,}5 < X < k + 0{,}5)$ i normalfordelingen', 'Som $P(X < k)$', 'Som $f(k)$ direkte', 'Som $P(X > k)$'],
+    explanation: 'Den diskrete verdien $k$ representeres ved intervallet $[k - 0{,}5, \\, k + 0{,}5]$ i den kontinuerlige fordelingen.',
+  },
+  {
+    question: 'Hvorfor trengs kontinuitetskorreksjon i det hele tatt?',
+    options: ['Fordi vi tilnærmer en diskret fordeling med en kontinuerlig', 'Fordi normalfordelingen er usymmetrisk', 'Fordi $n$ er for liten', 'Fordi $p$ ikke er kjent'],
+    explanation: 'Binomialfordelingen er diskret (bare heltall), mens normalfordelingen er kontinuerlig. Korreksjonen kompenserer for denne forskjellen.',
+  },
+],
+
+  's1-6-7': [
+  {
+    question: 'Hva kjennetegner en god problemstilling i et statistisk prosjekt?',
+    options: ['Den er presis, målbar og avgrenset', 'Den er så vid som mulig', 'Den kan ikke besvares med data', 'Den inneholder minst tre spørsmål'],
+    explanation: 'En god problemstilling er presis, målbar og avgrenset — f.eks. med definert populasjon, variabler og tidsrom.',
+  },
+  {
+    question: 'Hva er et stratifisert utvalg?',
+    options: ['Populasjonen deles i grupper, og det trekkes tilfeldig fra hver gruppe', 'De første som melder seg blir med', 'Hele populasjonen undersøkes', 'Bare den største gruppen undersøkes'],
+    explanation: 'Stratifisert utvalg deler populasjonen i strata (f.eks. aldersgrupper) og trekker tilfeldig fra hver — det sikrer at små grupper er representert.',
+  },
+  {
+    question: 'Hvilken kilde er mest naturlig for norske samfunnsøkonomiske data (BNP, KPI, lønn)?',
+    options: ['Statistisk sentralbyrå (SSB)', 'Wikipedia', 'Sosiale medier', 'Egne gjetninger'],
+    explanation: 'SSB (statbank) er den sentrale åpne kilden for norsk statistikk om økonomi, befolkning, arbeid og mer.',
+  },
+  {
+    question: 'Hva krever GDPR når du samler inn data om enkeltpersoner?',
+    options: ['Rettslig grunnlag (ofte samtykke) og anonymisering så snart som mulig', 'At du publiserer navnene', 'At dataene lagres for alltid', 'Ingenting spesielt'],
+    explanation: 'Personvernforordningen krever bl.a. rettslig grunnlag, informasjon til deltakerne og anonymisering når det er mulig.',
+  },
+  {
+    question: 'Du finner en sterk sammenheng mellom to variabler i prosjektet ditt. Hva bør du vurdere før du konkluderer med årsakssammenheng?',
+    options: ['Om en konfunderende variabel kan forklare sammenhengen', 'Ingenting — korrelasjon beviser kausalitet', 'Om tallene er store nok', 'Om grafen ser fin ut'],
+    explanation: 'Korrelasjon er ikke kausalitet. En tredje, bakenforliggende variabel kan påvirke begge og skape en tilsynelatende sammenheng.',
+  },
+],
+
+  's1-7-1': [
+  {
+    question: 'Hva minimerer regresjonslinjen etter minste kvadraters metode?',
+    options: ['Summen av de kvadrerte residualene $\\sum (y_i - \\hat{y}_i)^2$', 'Summen av residualene', 'Avstanden til origo', 'Antall datapunkter utenfor linjen'],
+    explanation: 'Regresjonslinjen $\\hat{y} = ax + b$ velges slik at $\\sum (y_i - \\hat{y}_i)^2$ blir minst mulig.',
+  },
+  {
+    question: 'Et datapunkt er $(2, 10)$ og regresjonslinjen er $\\hat{y} = 3x + 2$. Hva er residualet?',
+    options: ['$e = 2$', '$e = -2$', '$e = 8$', '$e = 10$'],
+    explanation: '$\\hat{y} = 3 \\cdot 2 + 2 = 8$, så $e = y - \\hat{y} = 10 - 8 = 2$. Punktet ligger over linjen.',
+  },
+  {
+    question: 'En modell har $R^2 = 0{,}90$. Hva betyr det?',
+    options: ['Modellen forklarer $90\\%$ av variasjonen i dataene', 'Modellen er $90\\%$ sannsynlig', '$90\\%$ av punktene ligger på linjen', 'Stigningstallet er $0{,}90$'],
+    explanation: '$R^2$ angir andelen av den totale variasjonen i $y$ som forklares av regresjonsmodellen.',
+  },
+  {
+    question: 'Hvilket punkt går regresjonslinjen alltid gjennom?',
+    options: ['$(\\bar{x}, \\bar{y})$ — gjennomsnittspunktet', 'Origo $(0, 0)$', 'Det første datapunktet', 'Det punktet med størst residual'],
+    explanation: 'En egenskap ved minste kvadraters metode: linjen går alltid gjennom gjennomsnittet av begge variablene.',
+  },
+  {
+    question: 'Hva er summen av alle residualene for regresjonslinjen?',
+    options: ['$0$', '$1$', '$R^2$', 'Avhenger av dataene'],
+    explanation: 'For minste kvadraters regresjonslinje er $\\sum e_i = 0$ — de positive og negative avvikene balanserer hverandre.',
+  },
+],
+
+  's1-7-2': [
+  {
+    question: 'Hvilke verdier kan Pearsons korrelasjonskoeffisient $r$ ta?',
+    options: ['$-1 \\leq r \\leq 1$', '$0 \\leq r \\leq 1$', '$r \\geq 0$', 'Alle reelle tall'],
+    explanation: '$r$ ligger alltid mellom $-1$ og $1$. Fortegnet angir retningen, og $|r|$ angir styrken på den lineære sammenhengen.',
+  },
+  {
+    question: 'Hva betyr $r = -0{,}9$?',
+    options: ['Sterk negativ lineær sammenheng', 'Svak negativ sammenheng', 'Sterk positiv sammenheng', 'Ingen sammenheng'],
+    explanation: '$|r| = 0{,}9$ er nær 1, altså sterk sammenheng, og negativt fortegn betyr at $y$ avtar når $x$ øker.',
+  },
+  {
+    question: 'Hva er en konfunderende variabel?',
+    options: ['En tredje variabel som påvirker begge variablene og skaper en tilsynelatende sammenheng', 'En variabel med målefeil', 'Variabelen med størst varians', 'En variabel som alltid er konstant'],
+    explanation: 'En konfunderende (bakenforliggende) variabel påvirker både $x$ og $y$, slik at de korrelerer uten direkte årsakssammenheng.',
+  },
+  {
+    question: 'Issalg og drukningsulykker korrelerer positivt. Hva er den mest sannsynlige forklaringen?',
+    options: ['En konfunderende variabel: varmt sommervær øker både issalg og bading', 'Is forårsaker drukningsulykker', 'Drukningsulykker øker issalget', 'Sammenhengen er umulig'],
+    explanation: 'Temperatur/sommer er en konfunderende variabel: i varmt vær spises mer is OG flere bader (og dermed flere ulykker).',
+  },
+  {
+    question: 'To variabler har $r \\approx 0$. Hva kan vi konkludere?',
+    options: ['Det er ingen lineær sammenheng — men det kan finnes en sterk ikke-lineær sammenheng', 'Variablene er helt uavhengige', 'Dataene har feil', 'Det er en sterk sammenheng'],
+    explanation: '$r$ måler bare lineær sammenheng. F.eks. gir punkter langs en parabel $r \\approx 0$ selv om sammenhengen er perfekt ikke-lineær.',
+  },
+],
+
+  's1-7-3': [
+  {
+    question: 'Hvordan lineariseres den eksponentielle modellen $y = a \\cdot b^x$?',
+    options: ['Plot $\\ln y$ mot $x$ — det gir en rett linje', 'Plot $y$ mot $\\ln x$', 'Plot $y^2$ mot $x$', 'Plot $\\frac{1}{y}$ mot $x$'],
+    explanation: '$\\ln y = \\ln a + x \\ln b$ er lineær i $x$. Derfor gir $(x, \\ln y)$ en rett linje hvis modellen er eksponentiell.',
+  },
+  {
+    question: 'Hvordan lineariseres potensmodellen $y = a \\cdot x^b$?',
+    options: ['Plot $\\ln y$ mot $\\ln x$', 'Plot $\\ln y$ mot $x$', 'Plot $y$ mot $x^2$', 'Plot $y$ mot $\\frac{1}{x}$'],
+    explanation: '$\\ln y = \\ln a + b \\ln x$, så $(\\ln x, \\ln y)$ gir en rett linje med stigningstall $b$.',
+  },
+  {
+    question: 'Hvilken GeoGebra-kommando utfører eksponentiell regresjon?',
+    options: ['RegExp(liste)', 'RegLin(liste)', 'RegPot(liste)', 'RegPoly(liste, grad)'],
+    explanation: 'RegExp gir eksponentiell regresjon. RegLin er lineær, RegPot er potensregresjon og RegPoly er polynomregresjon.',
+  },
+  {
+    question: 'Hvilke kriterier bør du bruke når du velger mellom flere regresjonsmodeller?',
+    options: ['$R^2$, residualplott og faglig rimelighet — sammen', 'Bare høyest $R^2$', 'Bare den enkleste formelen', 'Den modellen med flest parametre'],
+    explanation: 'Høy $R^2$ alene er ikke nok: residualene skal være uten systematisk mønster, og modellen må gi faglig mening.',
+  },
+  {
+    question: 'Hva kjennetegner data som passer en eksponentiell modell?',
+    options: ['Verdiene endres med en fast prosent per enhet $x$', 'Verdiene endres med et fast beløp per enhet $x$', 'Verdiene er konstante', 'Verdiene veksler fortegn'],
+    explanation: 'Eksponentiell modell $y = a \\cdot b^x$ betyr konstant vekstfaktor — fast prosentvis endring per steg, som ved rentes rente.',
+  },
+],
+
+  's1-7-4': [
+  {
+    question: 'Hvordan ser residualplottet ut for en god regresjonsmodell?',
+    options: ['Residualene er tilfeldig spredt rundt null uten mønster', 'Residualene danner en tydelig U-form', 'Residualene øker jevnt med $x$', 'Alle residualene er positive'],
+    explanation: 'En god modell har residualer tilfeldig spredt rundt null med jevn spredning — ingen kurvatur, trakt eller bølge.',
+  },
+  {
+    question: 'Residualplottet viser en tydelig U-form. Hva betyr det?',
+    options: ['Modellen mangler kurvatur — prøv en annen modelltype', 'Modellen er perfekt', 'Dataene har for få punkter', 'Variansen er konstant'],
+    explanation: 'U-form betyr at den lineære modellen ikke fanger opp krumningen i dataene. Prøv f.eks. andregrads- eller eksponentiell modell.',
+  },
+  {
+    question: 'Residualplottet har traktform (liten spredning for små $x$, stor for store $x$). Hva betyr det?',
+    options: ['Spredningen er ujevn — variansen øker med $x$', 'Modellen passer perfekt', 'Det finnes ingen uteliggere', 'Korrelasjonen er 1'],
+    explanation: 'En trakt viser at residualenes spredning ikke er konstant. Da kan f.eks. en transformasjon av $y$ vurderes.',
+  },
+  {
+    question: 'Punktet $(3, 10)$ har modellverdi fra $\\hat{y} = 4x - 1$. Hva er residualet, og hva betyr det?',
+    options: ['$e = -1$ — modellen overvurderer denne observasjonen', '$e = 1$ — modellen undervurderer', '$e = -1$ — modellen undervurderer', '$e = 11$'],
+    explanation: '$\\hat{y} = 4 \\cdot 3 - 1 = 11$ og $e = 10 - 11 = -1$. Negativt residual: punktet ligger under modellen, som altså overvurderer.',
+  },
+  {
+    question: 'En modell har høy $R^2$, men residualplottet viser et systematisk mønster. Hva bør du konkludere?',
+    options: ['Modellen er trolig av feil type, til tross for høy $R^2$', 'Modellen er god siden $R^2$ er høy', 'Dataene må forkastes', '$R^2$ må regnes på nytt'],
+    explanation: 'Høy $R^2$ kan være misvisende. Et systematisk mønster i residualene betyr at modellen ikke fanger opp strukturen i dataene.',
+  },
+],
+
+  's1-8-1': [
+  {
+    question: 'Hva er en matematisk modell?',
+    options: ['En forenklet matematisk representasjon av virkeligheten', 'En nøyaktig kopi av virkeligheten', 'En graf i GeoGebra', 'En tabell med data'],
+    explanation: 'En modell forenkler virkeligheten med matematikk slik at vi kan beskrive, forutsi og forstå fenomener.',
+  },
+  {
+    question: 'Hva kjennetegner modelleringsprosessen?',
+    options: ['Den er syklisk: formulering, antakelser, matematikk, løsning, validering — og gjerne nye runder', 'Den gjøres alltid i ett steg', 'Den krever ingen antakelser', 'Den slutter når modellen er formulert'],
+    explanation: 'Modellering er en syklus: hvis valideringen viser svakheter, justerer vi antakelsene og modellen og prøver igjen.',
+  },
+  {
+    question: 'En størrelse vokser med fast prosent per tidsenhet. Hvilken modelltype passer?',
+    options: ['Eksponentiell: $f(x) = a \\cdot b^x$', 'Lineær: $f(x) = ax + b$', 'Kvadratisk: $f(x) = ax^2 + bx + c$', 'Potens: $f(x) = a \\cdot x^b$'],
+    explanation: 'Fast prosentvis endring betyr konstant vekstfaktor — kjennetegnet på eksponentiell modell (befolkning, renter, radioaktivitet).',
+  },
+  {
+    question: 'Hva kjennetegner en logistisk modell?',
+    options: ['Veksten flater ut mot en øvre grense (bæreevne)', 'Veksten er konstant', 'Funksjonen er periodisk', 'Veksten øker uten grense'],
+    explanation: 'Logistisk vekst starter nesten eksponentielt, men flater ut mot bæreevnen $K$ — typisk for populasjoner med begrensede ressurser.',
+  },
+  {
+    question: 'Hva er sensitivitetsanalyse?',
+    options: ['Å variere modellens parametre og undersøke hvor mye resultatet endres', 'Å fjerne følsomme data', 'Å beregne $R^2$', 'Å tegne grafen nøyaktig'],
+    explanation: 'I sensitivitetsanalyse varieres nøkkelparametre (f.eks. $\\pm 10\\%$) for å se om konklusjonene er robuste eller følsomme.',
+  },
+],
+
+  's1-8-2': [
+  {
+    question: 'Hvilket krav stiller halveringsmetoden til startintervallet $[a, b]$?',
+    options: ['$f(a)$ og $f(b)$ har motsatt fortegn: $f(a) \\cdot f(b) < 0$', '$f(a) = f(b)$', '$f(a)$ og $f(b)$ er begge positive', 'Intervallet må inneholde $x = 0$'],
+    explanation: 'Med fortegnsskifte og kontinuerlig $f$ garanterer skjæringssetningen minst ett nullpunkt i intervallet.',
+  },
+  {
+    question: 'Du bruker halveringsmetoden på $[0, 1]$ og halverer 10 ganger. Hva er feilgrensen?',
+    options: ['$\\frac{1}{2^{10}} = \\frac{1}{1024} \\approx 0{,}001$', '$\\frac{1}{10}$', '$\\frac{1}{20}$', '$\\frac{1}{100}$'],
+    explanation: 'Feilgrensen etter $n$ halveringer er $\\frac{b - a}{2^n} = \\frac{1}{2^{10}} = \\frac{1}{1024}$.',
+  },
+  {
+    question: 'Hva er iterasjonsformelen i Newtons metode?',
+    options: ['$x_{n+1} = x_n - \\frac{f(x_n)}{f\'(x_n)}$', '$x_{n+1} = x_n + \\frac{f(x_n)}{f\'(x_n)}$', '$x_{n+1} = \\frac{x_n}{2}$', '$x_{n+1} = f(x_n)$'],
+    explanation: 'Newtons metode følger tangenten fra $(x_n, f(x_n))$ ned til $x$-aksen: $x_{n+1} = x_n - \\frac{f(x_n)}{f\'(x_n)}$.',
+  },
+  {
+    question: 'Bruk Newtons metode på $f(x) = x^2 - 2$ med $x_0 = 1$. Hva er $x_1$?',
+    options: ['$x_1 = 1{,}5$', '$x_1 = 1{,}4142$', '$x_1 = 2$', '$x_1 = 0{,}5$'],
+    explanation: '$f(1) = -1$ og $f\'(1) = 2$. $x_1 = 1 - \\frac{-1}{2} = 1{,}5$. (Neste steg gir $\\approx 1{,}4167$, nær $\\sqrt{2}$.)',
+  },
+  {
+    question: 'Hva gjør trapesmetoden?',
+    options: ['Tilnærmer et integral ved å dele arealet i trapeser og summere', 'Finner nullpunkter med tangenter', 'Løser likningssett', 'Deriverer numerisk'],
+    explanation: 'Trapesmetoden tilnærmer $\\int_a^b f(x)\\,dx$ med trapesarealer. Flere delintervaller gir bedre tilnærming.',
+  },
+],
+
+  's1-8-3': [
+  {
+    question: 'Hvor ligger alltid den optimale løsningen i et lineært optimeringsproblem?',
+    options: ['I et hjørnepunkt av mulighetsområdet', 'I midten av mulighetsområdet', 'Utenfor mulighetsområdet', 'I origo'],
+    explanation: 'For lineær målfunksjon og lineære bibetingelser ligger optimum alltid i (minst) ett hjørnepunkt av det mulige området.',
+  },
+  {
+    question: 'Hva er skyggeprisen til en bibetingelse?',
+    options: ['Den marginale forbedringen i målfunksjonen hvis kapasiteten økes med 1 enhet', 'Prisen på den billigste varen', 'Verdien av målfunksjonen i origo', 'Kostnaden ved å fjerne bibetingelsen helt'],
+    explanation: 'Skyggeprisen forteller hvor mye den optimale verdien øker dersom høyresiden i bibetingelsen øker med én enhet.',
+  },
+  {
+    question: 'LP-løsningen gir $x = 3{,}7$ biler. Hva er riktig håndtering når antallet må være helt?',
+    options: ['Undersøk heltallspunkter i nærheten og velg det beste mulige (feasible)', 'Alltid runde av til nærmeste heltall uten å sjekke', 'Bruke $x = 3{,}7$ likevel', 'Forkaste hele problemet'],
+    explanation: 'Avrunding kan gi et punkt utenfor mulighetsområdet eller et dårligere resultat. Sjekk heltallskandidatene mot bibetingelsene.',
+  },
+  {
+    question: 'Hva er mulighetsområdet (feasible område) i lineær optimering?',
+    options: ['Mengden av alle punkter som oppfyller alle bibetingelsene', 'Hele koordinatsystemet', 'Bare hjørnepunktene', 'Grafen til målfunksjonen'],
+    explanation: 'Mulighetsområdet består av alle kombinasjoner av variablene som tilfredsstiller samtlige bibetingelser samtidig.',
+  },
+  {
+    question: 'Maksimer $z = 2x + 3y$ over hjørnepunktene $(0,0)$, $(5,0)$, $(0,4)$ og $(3,3)$. Hva er maksimum?',
+    options: ['$z = 15$ i punktet $(3, 3)$', '$z = 12$ i punktet $(0, 4)$', '$z = 10$ i punktet $(5, 0)$', '$z = 9$ i punktet $(3, 3)$'],
+    explanation: 'Verdiene er $0$, $10$, $12$ og $2 \\cdot 3 + 3 \\cdot 3 = 15$. Størst verdi er $15$ i $(3, 3)$.',
+  },
+],
+
+  's1-8-4': [
+  {
+    question: 'En modell har $R^2 = 0{,}95$. Hva betyr det?',
+    options: ['Modellen forklarer $95\\%$ av variasjonen i dataene', 'Modellen er riktig med $95\\%$ sannsynlighet', '$95\\%$ av punktene ligger på kurven', 'Prediksjoner bommer med høyst $5\\%$'],
+    explanation: '$R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}}$ angir andelen av total variasjon som modellen forklarer.',
+  },
+  {
+    question: 'Befolkningsdata viser konstant prosentvis vekst per år. Hvilken modelltype velger du?',
+    options: ['Eksponentiell: $y = a \\cdot b^x$', 'Lineær: $y = ax + b$', 'Logaritmisk: $y = a \\ln x + b$', 'Potens: $y = a \\cdot x^b$'],
+    explanation: 'Konstant prosentvis vekst er kjennetegnet på eksponentiell modell — som renter og befolkningsvekst.',
+  },
+  {
+    question: 'Hva er hovedrisikoen ved ekstrapolering?',
+    options: ['Modellen brukes utenfor dataområdet, der vi ikke vet om den gjelder', 'Beregningene tar for lang tid', '$R^2$ blir for høy', 'Residualene blir null'],
+    explanation: 'Utenfor dataområdet kan sammenhengen endre seg helt. Prediksjoner langt utenfor dataene er svært usikre.',
+  },
+  {
+    question: 'Hvordan kan du enkelt validere en modell tilpasset et datasett?',
+    options: ['Hold tilbake noen datapunkter, tilpass på resten og test prediksjonene', 'Bruke alle dataene og rapportere $R^2$', 'Velge modellen med flest parametre', 'Fjerne uteliggere til $R^2$ blir 1'],
+    explanation: 'Ved å teste modellen på data den ikke er bygget på, avslører vi overtilpasning og får et ærlig mål på prediksjonsevnen.',
+  },
+  {
+    question: 'Hva er overtilpasning (overfitting)?',
+    options: ['Modellen passer treningsdataene perfekt, men generaliserer dårlig til nye data', 'Modellen har for få parametre', 'Modellen har for lav $R^2$', 'Dataene har for mange punkter'],
+    explanation: 'En overtilpasset modell følger tilfeldig støy i dataene i stedet for den underliggende sammenhengen, og predikerer dårlig.',
+  },
+],
+
+  's1-8-5': [
+  {
+    question: 'Hva er hovedregelen for valg av digitalt verktøy i S1?',
+    options: ['Velg det enkleste verktøyet som løser oppgaven', 'Bruk alltid Python', 'Bruk alltid det mest avanserte verktøyet', 'Bruk alle verktøyene samtidig'],
+    explanation: 'Ikke bruk Python når Excel duger, og ikke GeoGebra når en blyant holder — enklest mulig verktøy for jobben.',
+  },
+  {
+    question: 'Hvilken GeoGebra-kommando gir en eksponentiell regresjonsmodell?',
+    options: ['FitExp(liste)', 'FitLine(liste)', 'FitPow(liste)', 'FitLog(liste)'],
+    explanation: 'FitExp gir eksponentiell modell. FitLine er lineær, FitPow er potens og FitLog er logaritmisk regresjon.',
+  },
+  {
+    question: 'Hva er en typisk arbeidsflyt i et samfunnsøkonomisk prosjekt med SSB-data?',
+    options: ['Last ned CSV fra SSB → rens i regneark → analyser → rapporter', 'Skriv rapporten først, finn data etterpå', 'Analyser dataene før de er renset', 'Bruk bare tall du husker'],
+    explanation: 'Pipeline: nedlasting fra statbank, rensing (fjerne fotnoter, sjekke tall), analyse i valgt verktøy, og dokumentert rapport.',
+  },
+  {
+    question: 'Hva krever faglig integritet ved bruk av digitale verktøy?',
+    options: ['Oppgi verktøy, kommandoer og data slik at andre kan etterprøve', 'Skjule hvilke kommandoer som ble brukt', 'Bare vise resultater med høy $R^2$', 'Endre data som ikke passer'],
+    explanation: 'Vis verktøyet, vis dataene og dokumenter endringer — da kan andre kontrollere og gjenta analysen.',
+  },
+  {
+    question: 'Når er Python et bedre valg enn GeoGebra eller Excel?',
+    options: ['Ved store datasett (100+ rader) og simuleringer', 'Når du skal tegne én enkel graf', 'Når du skal regne ut ett gjennomsnitt', 'Aldri'],
+    explanation: 'Python egner seg for store datasett, automatisering og simuleringer; for små, enkle oppgaver er GeoGebra/Excel raskere.',
+  },
+],
+
+  's1-8-6': [
+  {
+    question: 'Hva kjennetegner et godt prosjekttema i S1?',
+    options: ['Det er konkret, har tilgjengelige data og interesserer deg', 'Det er så bredt som mulig', 'Det krever data som ikke finnes', 'Det er valgt tilfeldig'],
+    explanation: 'Et godt tema er konkret, datatilgjengelig (f.eks. via SSB) og personlig interessant — ekte spørsmål gir bedre rapporter.',
+  },
+  {
+    question: 'Hvilke hoveddeler har en typisk S1-prosjektrapport?',
+    options: ['Sammendrag, innledning/problemstilling, data og metode, resultater, diskusjon og konklusjon', 'Bare grafer og tabeller', 'Innledning og konklusjon', 'Sammendrag og kildeliste'],
+    explanation: 'Rapporten følger strukturen: sammendrag, innledning med problemstilling, data/metode, resultater og diskusjon/konklusjon.',
+  },
+  {
+    question: 'Hvorfor er det en vanlig feil å predikere langt frem i tid med regresjonsmodellen?',
+    options: ['Ekstrapolering utenfor dataområdet er svært usikkert', 'Modellen blir mer nøyaktig over tid', 'Datamaskinen klarer ikke regne så langt', 'Det gir for lav $R^2$'],
+    explanation: 'Modellen er bare dokumentert gyldig i dataområdet. Å forutsi f.eks. BNP i 2050 fra ti års data er ren ekstrapolering.',
+  },
+  {
+    question: 'Hvorfor er $n = 4$ datapunkter for lite for en regresjonsanalyse?',
+    options: ['Med så få punkter kan tilsynelatende mønstre lett oppstå tilfeldig', 'Regresjon krever nøyaktig 100 punkter', 'GeoGebra nekter å regne på det', 'Fire punkter gir alltid $R^2 = 0$'],
+    explanation: 'Få datapunkter gir svært usikre estimater — en linje kan passe godt ved ren tilfeldighet. Flere observasjoner trengs.',
+  },
+  {
+    question: 'Hvordan bør datakilder oppgis i rapporten?',
+    options: ['Med URL og nedlastingsdato, slik at de kan kontrolleres', 'Det er ikke nødvendig å oppgi kilder', 'Bare med navnet på nettstedet', 'Kun i muntlig presentasjon'],
+    explanation: 'Vurderingskriteriene krever kontrollerbare kilder: oppgi URL og dato, så andre kan finne nøyaktig samme data.',
+  },
+],
+
 };
 
 export default quizData_s1;

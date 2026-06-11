@@ -89,6 +89,8 @@ import quizData_psykologi from './quiz-data-psykologi';
 import quizData_regnskap_revisjon from './quiz-data-regnskap-revisjon';
 import quizData_religion_etikk from './quiz-data-religion-etikk';
 import quizData_rettslaere from './quiz-data-rettslære';
+import quizData_r1 from './quiz-data-r1';
+import quizData_r2 from './quiz-data-r2';
 import quizData_s1 from './quiz-data-s1';
 import quizData_s2 from './quiz-data-s2';
 import quizData_samfunnsfag_5 from './quiz-data-samfunnsfag-5';
@@ -187,6 +189,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_regnskap_revisjon,
   ...quizData_religion_etikk,
   ...quizData_rettslaere,
+  ...quizData_r1,
+  ...quizData_r2,
   ...quizData_s1,
   ...quizData_s2,
   ...quizData_samfunnsfag_5,

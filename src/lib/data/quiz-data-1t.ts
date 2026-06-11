@@ -958,6 +958,644 @@ const quizData_1t: Record<string, QuizQuestion[]> = {
 ],
 
 
+
+  '1t-2-4': [
+  {
+    question: 'Hvilket tall må du legge til på begge sider for å fullføre kvadratet i likningen $x^2 + 6x = 7$?',
+    options: ['$9$', '$3$', '$6$', '$36$'],
+    explanation: 'Vi legger til $\\left(\\frac{b}{2}\\right)^2 = \\left(\\frac{6}{2}\\right)^2 = 3^2 = 9$ på begge sider.',
+  },
+  {
+    question: 'Løs likningen $x^2 + 6x = 7$ ved å fullføre kvadratet.',
+    options: ['$x = 1$ eller $x = -7$', '$x = -1$ eller $x = 7$', '$x = 1$ eller $x = 7$', '$x = 4$ eller $x = -4$'],
+    explanation: '$x^2 + 6x + 9 = 16$ gir $(x+3)^2 = 16$, så $x + 3 = \\pm 4$, altså $x = 1$ eller $x = -7$.',
+  },
+  {
+    question: 'Hvordan kan uttrykket $x^2 - 8x + 16$ skrives som et fullstendig kvadrat?',
+    options: ['$(x - 4)^2$', '$(x + 4)^2$', '$(x - 8)^2$', '$(x - 4)(x + 4)$'],
+    explanation: 'Etter andre kvadratsetning er $(x-4)^2 = x^2 - 2 \\cdot 4 \\cdot x + 4^2 = x^2 - 8x + 16$.',
+  },
+  {
+    question: 'I kvadratsetningen $(a + b)^2 = a^2 + 2ab + b^2$ — hva kjennetegner det midterste leddet $2ab$?',
+    options: ['Det er det dobbelte produktet av $a$ og $b$', 'Det er summen av $a$ og $b$', 'Det er kvadratet av $a$ og $b$', 'Det er halvparten av produktet av $a$ og $b$'],
+    explanation: 'Mønsteret i kvadratsetningene er at det midterste leddet alltid er dobbelt produkt av de to leddene.',
+  },
+  {
+    question: 'For hvilken verdi av $c$ er $x^2 + 10x + c$ et fullstendig kvadrat?',
+    options: ['$c = 25$', '$c = 5$', '$c = 10$', '$c = 100$'],
+    explanation: '$c = \\left(\\frac{10}{2}\\right)^2 = 5^2 = 25$, og da er $x^2 + 10x + 25 = (x+5)^2$.',
+  },
+],
+
+
+  '1t-2-11': [
+  {
+    question: 'Hvilken GeoGebra-kommando gir kvotienten (svaret uten rest) i en polynomdivisjon?',
+    options: ['Div(polynom, divisor)', 'Rest(polynom, divisor)', 'Faktoriser(polynom)', 'Løs(polynom = 0)'],
+    explanation: 'Div() utfører polynomdivisjonen og returnerer kvotienten, mens Rest() gir resten.',
+  },
+  {
+    question: 'Hvilken GeoGebra-kommando bruker du for å finne resten i en polynomdivisjon?',
+    options: ['Rest(polynom, divisor)', 'Div(polynom, divisor)', 'Nullpunkt(polynom)', 'Modulo(polynom)'],
+    explanation: 'Rest(polynom, divisor) returnerer resten etter divisjonen.',
+  },
+  {
+    question: 'Hva betyr det hvis Rest(P(x), x - 1) gir $0$ i GeoGebra CAS?',
+    options: ['$x - 1$ er en faktor i $P(x)$', '$P(x)$ har ingen nullpunkter', '$P(1) = 1$', 'Divisjonen er umulig'],
+    explanation: 'Rest lik null betyr at divisjonen går opp, altså er $x - 1$ en faktor og $x = 1$ et nullpunkt i $P(x)$.',
+  },
+  {
+    question: 'Hva gir kommandoen Div(x^3 - 2x^2 + 5x - 6, x - 1) i GeoGebra CAS?',
+    options: ['$x^2 - x + 4$', '$x^2 + x - 4$', '$x^2 - 2x + 5$', '$x^3 - x + 4$'],
+    explanation: 'Polynomdivisjonen $(x^3 - 2x^2 + 5x - 6) : (x - 1)$ gir kvotienten $x^2 - x + 4$.',
+  },
+  {
+    question: 'I hvilken del av GeoGebra skriver du kommandoene Div() og Rest()?',
+    options: ['I CAS-vinduet', 'I grafikkfeltet', 'I regnearkdelen', 'I sannsynlighetskalkulatoren'],
+    explanation: 'Polynomdivisjon med Div() og Rest() gjøres symbolsk i CAS-vinduet i GeoGebra.',
+  },
+],
+
+
+  '1t-3-9': [
+  {
+    question: 'Hvilken GeoGebra-kommando finner punktene der $f(x) = 0$?',
+    options: ['Nullpunkt(f)', 'Ekstrempunkt(f)', 'Skjæring(f)', 'Maks(f)'],
+    explanation: 'Nullpunkt(f) markerer alle punktene der grafen krysser $x$-aksen, altså der $f(x) = 0$.',
+  },
+  {
+    question: 'Hvilken kommando bruker du for å finne topp- og bunnpunkter til en funksjon i GeoGebra?',
+    options: ['Ekstrempunkt(f)', 'Nullpunkt(f)', 'Stigning(f)', 'Tangent(f)'],
+    explanation: 'Ekstrempunkt(f) finner alle lokale maksimums- og minimumspunkter til funksjonen.',
+  },
+  {
+    question: 'Hvordan finner du skjæringspunktene mellom to grafer $f$ og $g$ i GeoGebra?',
+    options: ['Skjæring(f, g)', 'Nullpunkt(f, g)', 'Ekstrempunkt(f, g)', 'Sum(f, g)'],
+    explanation: 'Skjæring(f, g) finner punktene der de to grafene møtes, altså der $f(x) = g(x)$.',
+  },
+  {
+    question: 'Hva er et nullpunkt for en funksjon $f$?',
+    options: ['En $x$-verdi der $f(x) = 0$', 'Punktet der grafen krysser $y$-aksen', 'Et punkt der grafen flater ut', 'Funksjonsverdien når $x = 0$'],
+    explanation: 'Nullpunktene er $x$-verdiene der grafen skjærer $x$-aksen, det vil si løsningene av $f(x) = 0$.',
+  },
+  {
+    question: 'Hva gjør kommandoen Maks(f, a, b) i GeoGebra?',
+    options: ['Finner maksimum for $f$ i intervallet $[a, b]$', 'Finner alle nullpunkter mellom $a$ og $b$', 'Tegner grafen fra $a$ til $b$', 'Finner den største av verdiene $a$ og $b$'],
+    explanation: 'Maks(f, a, b) finner det høyeste punktet på grafen til $f$ i intervallet $[a, b]$.',
+  },
+],
+
+
+  '1t-4-1': [
+  {
+    question: 'Hva er løsningen av et likningssett med to ukjente, grafisk sett?',
+    options: ['Skjæringspunktet mellom de to linjene', 'Nullpunktet til den ene linjen', 'Punktet der linjene krysser $y$-aksen', 'Stigningstallet til linjene'],
+    explanation: 'Løsningen er punktet $(x, y)$ som passer i begge likningene — der grafene skjærer hverandre.',
+  },
+  {
+    question: 'Hva er det første steget i innsettingsmetoden?',
+    options: ['Løse én likning for én variabel', 'Legge sammen de to likningene', 'Gjette en løsning', 'Sette begge likningene lik null'],
+    explanation: 'Først løser vi én likning for én variabel, deretter setter vi uttrykket inn i den andre likningen.',
+  },
+  {
+    question: 'Løs likningssettet $y = x + 1$ og $x + y = 5$.',
+    options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 1, y = 4$', '$x = 2, y = 2$'],
+    explanation: 'Innsetting gir $x + (x + 1) = 5$, så $2x = 4$ og $x = 2$. Da er $y = 2 + 1 = 3$.',
+  },
+  {
+    question: 'Løs likningssettet $2x + y = 7$ og $x - y = 2$ med addisjonsmetoden.',
+    options: ['$x = 3, y = 1$', '$x = 1, y = 3$', '$x = 2, y = 3$', '$x = 3, y = -1$'],
+    explanation: 'Vi adderer likningene: $3x = 9$, så $x = 3$. Da gir $x - y = 2$ at $y = 1$.',
+  },
+  {
+    question: 'Hvor mange likninger trenger du normalt for å bestemme tre ukjente entydig?',
+    options: ['Tre', 'To', 'Én', 'Seks'],
+    explanation: 'Vi trenger like mange uavhengige likninger som ukjente — tre ukjente krever tre likninger.',
+  },
+],
+
+
+  '1t-4-2': [
+  {
+    question: 'Når må du snu ulikhetstegnet når du løser en ulikhet?',
+    options: ['Når du ganger eller deler med et negativt tall', 'Når du legger til et negativt tall', 'Når du flytter et ledd over likhetstegnet', 'Alltid når du deler'],
+    explanation: 'Multiplikasjon eller divisjon med et negativt tall snur ulikhetstegnet. Addisjon og subtraksjon endrer det ikke.',
+  },
+  {
+    question: 'Løs ulikheten $-2x > 6$.',
+    options: ['$x < -3$', '$x > -3$', '$x < 3$', '$x > 3$'],
+    explanation: 'Vi deler på $-2$ og må da snu tegnet: $x < -3$.',
+  },
+  {
+    question: 'Løs ulikheten $3x - 4 < 5$.',
+    options: ['$x < 3$', '$x > 3$', '$x < \\frac{1}{3}$', '$x < 9$'],
+    explanation: '$3x < 9$ gir $x < 3$. Vi deler på et positivt tall, så tegnet beholdes.',
+  },
+  {
+    question: 'Hva er løsningen av en lineær ulikhet, i motsetning til en likning?',
+    options: ['Et intervall med uendelig mange verdier', 'Ett enkelt tall', 'Alltid to tall', 'Bare positive tall'],
+    explanation: 'En ulikhet har som regel uendelig mange løsninger som danner et intervall, f.eks. alle $x < 3$.',
+  },
+  {
+    question: 'Løs ulikheten $5 - x \\geq 2$.',
+    options: ['$x \\leq 3$', '$x \\geq 3$', '$x \\leq -3$', '$x \\geq 7$'],
+    explanation: '$-x \\geq -3$ gir $x \\leq 3$ når vi deler på $-1$ og snur tegnet.',
+  },
+],
+
+
+  '1t-4-3': [
+  {
+    question: 'Hva viser en fortegnslinje for et uttrykk?',
+    options: ['Hvor uttrykket er positivt, negativt eller null', 'Hvor grafen er brattest', 'Verdien av uttrykket i hvert punkt', 'Hvor mange løsninger likningen har'],
+    explanation: 'Fortegnslinjen viser fortegnet til uttrykket i ulike intervaller, med nullpunktene markert.',
+  },
+  {
+    question: 'For hvilke $x$-verdier er faktoren $(x - 2)$ positiv?',
+    options: ['$x > 2$', '$x < 2$', '$x > -2$', 'Alle $x$'],
+    explanation: '$x - 2 > 0$ når $x > 2$. For $x < 2$ er faktoren negativ, og i $x = 2$ er den null.',
+  },
+  {
+    question: 'Når er produktet av to faktorer positivt?',
+    options: ['Når begge faktorene har samme fortegn', 'Når begge faktorene er positive — bare da', 'Når faktorene har ulikt fortegn', 'Når minst én faktor er positiv'],
+    explanation: 'Pluss ganger pluss og minus ganger minus gir begge positivt produkt.',
+  },
+  {
+    question: 'For hvilke $x$ er $f(x) = (x - 1)(x + 3)$ negativ?',
+    options: ['$-3 < x < 1$', '$x < -3$ eller $x > 1$', '$1 < x < 3$', '$x < 1$'],
+    explanation: 'Mellom nullpunktene $-3$ og $1$ har faktorene ulikt fortegn, så produktet er negativt. Test $x = 0$: $(-1)(3) = -3 < 0$.',
+  },
+  {
+    question: 'Hva markerer vi med en $0$ på fortegnslinjen?',
+    options: ['Nullpunktene til faktorene', 'Origo', 'Toppunktet til grafen', 'Skjæringen med $y$-aksen'],
+    explanation: 'Vi markerer $x$-verdiene der hver faktor er null, for det er der fortegnet kan skifte.',
+  },
+],
+
+
+  '1t-4-4': [
+  {
+    question: 'Hva er standardmetoden for å løse en andregradsulikhet?',
+    options: ['Faktorisere uttrykket og bruke fortegnsskjema', 'Dele på $x$ på begge sider', 'Ta kvadratroten direkte på begge sider', 'Sette inn tilfeldige verdier'],
+    explanation: 'Vi flytter alt over på én side, faktoriserer og leser av fortegnene i et fortegnsskjema.',
+  },
+  {
+    question: 'Løs ulikheten $x^2 - 4 > 0$.',
+    options: ['$x < -2$ eller $x > 2$', '$-2 < x < 2$', '$x > 2$', '$x > \\pm 2$'],
+    explanation: '$(x-2)(x+2) > 0$ når begge faktorene har samme fortegn, altså for $x < -2$ eller $x > 2$.',
+  },
+  {
+    question: 'Løs ulikheten $x^2 - 5x + 6 \\leq 0$.',
+    options: ['$2 \\leq x \\leq 3$', '$x \\leq 2$ eller $x \\geq 3$', '$-3 \\leq x \\leq -2$', '$x \\leq 3$'],
+    explanation: '$x^2 - 5x + 6 = (x-2)(x-3)$. Produktet er negativt eller null mellom nullpunktene: $2 \\leq x \\leq 3$.',
+  },
+  {
+    question: 'Hva er løsningen av ulikheten $x^2 + 1 > 0$?',
+    options: ['Alle reelle tall', '$x > -1$', '$x > 1$', 'Ingen løsning'],
+    explanation: '$x^2 \\geq 0$ for alle $x$, så $x^2 + 1 \\geq 1 > 0$ alltid. Ulikheten gjelder for alle reelle tall.',
+  },
+  {
+    question: 'En elev løser $x^2 < 4$ og svarer $x < 2$. Hva er feilen?',
+    options: ['Løsningen er $-2 < x < 2$, eleven mister den nedre grensen', 'Svaret skal være $x < 16$', 'Svaret skal være $x > 2$', 'Eleven har gjort alt riktig'],
+    explanation: 'Også store negative tall har kvadrat større enn 4, f.eks. $(-3)^2 = 9$. Riktig løsning er $-2 < x < 2$.',
+  },
+],
+
+
+  '1t-4-5': [
+  {
+    question: 'Hvorfor kan vi ikke uten videre gange begge sider av en rasjonal ulikhet med nevneren?',
+    options: ['Fordi nevneren kan være negativ, og da må ulikhetstegnet snus', 'Fordi nevneren alltid er null', 'Fordi det gir for mange løsninger', 'Fordi brøker ikke kan ganges'],
+    explanation: 'Vi vet ikke fortegnet til nevneren når den inneholder $x$. Derfor samler vi alt på én side og bruker fortegnsskjema i stedet.',
+  },
+  {
+    question: 'Hva kalles en $x$-verdi der nevneren i et rasjonalt uttrykk blir null?',
+    options: ['Et bruddpunkt — uttrykket er ikke definert der', 'Et nullpunkt for uttrykket', 'Et toppunkt', 'En løsning av ulikheten'],
+    explanation: 'Der nevneren er null, er uttrykket udefinert. Slike bruddpunkter kan aldri være med i løsningen.',
+  },
+  {
+    question: 'Løs ulikheten $\\frac{x - 1}{x + 2} > 0$.',
+    options: ['$x < -2$ eller $x > 1$', '$-2 < x < 1$', '$x > 1$', '$x > -2$'],
+    explanation: 'Brøken er positiv når teller og nevner har samme fortegn: begge negative for $x < -2$, begge positive for $x > 1$.',
+  },
+  {
+    question: 'Løs ulikheten $\\frac{x + 3}{x - 1} \\leq 0$.',
+    options: ['$-3 \\leq x < 1$', '$-3 \\leq x \\leq 1$', '$x \\leq -3$ eller $x > 1$', '$-3 < x < 1$'],
+    explanation: 'Brøken er negativ mellom $-3$ og $1$. $x = -3$ gir null og er med, men $x = 1$ gjør nevneren null og må utelates.',
+  },
+  {
+    question: 'Hva er riktig fremgangsmåte for å løse en rasjonal ulikhet?',
+    options: ['Flytt alt over på én side, sett på felles brøkstrek og bruk fortegnsskjema', 'Gang med nevneren og løs som vanlig likning', 'Sett teller og nevner lik hverandre', 'Derivér uttrykket og finn nullpunktene'],
+    explanation: 'Med alt samlet i én brøk kan vi analysere fortegnet til teller og nevner i et fortegnsskjema.',
+  },
+],
+
+
+  '1t-5-8': [
+  {
+    question: 'Hvilken GeoGebra-kommando lager en trekant direkte av punktene $A$, $B$ og $C$?',
+    options: ['Mangekant(A, B, C)', 'Trekant(A, B, C)', 'Linje(A, B, C)', 'Sirkel(A, B, C)'],
+    explanation: 'Mangekant(A, B, C) tegner trekanten med de tre punktene som hjørner.',
+  },
+  {
+    question: 'Hvilken kommando tegner et linjestykke mellom punktene $A$ og $B$?',
+    options: ['Linjestykke(A, B)', 'Linje(A, B)', 'Stråle(A, B)', 'Vektor(A, B)'],
+    explanation: 'Linjestykke(A, B) tegner strekningen fra $A$ til $B$. Linje(A, B) tegner en uendelig lang linje.',
+  },
+  {
+    question: 'Hvilken kommando bruker du for å måle en vinkel i GeoGebra?',
+    options: ['Vinkel(A, B, C)', 'Grad(A, B, C)', 'Måling(A, B, C)', 'Bue(A, B, C)'],
+    explanation: 'Vinkel(A, B, C) måler vinkelen med toppunkt i $B$, mellom strålene mot $A$ og $C$.',
+  },
+  {
+    question: 'Hvilken sammenheng kan du kontrollere i GeoGebra når du har målt to vinkler og to sider i en trekant?',
+    options: ['Sinussetningen: $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$', 'Pytagoras i alle trekanter', 'At alle vinkler er $90°$', 'At arealet alltid er $a \\cdot b$'],
+    explanation: 'Sinussetningen knytter hver side til sinusen av motstående vinkel og kan kontrolleres med GeoGebra-målinger.',
+  },
+  {
+    question: 'Hva er fordelen med å konstruere figurer med kommandoer fremfor å tegne på frihånd i GeoGebra?',
+    options: ['Konstruksjonen beholder egenskapene sine når du drar i punktene', 'Det går raskere å tegne', 'Figuren får penere farger', 'Du slipper å bruke koordinater'],
+    explanation: 'En ekte konstruksjon er dynamisk: avhengigheter som rette vinkler og like lengder bevares når du flytter punkter.',
+  },
+],
+
+
+  '1t-6-2': [
+  {
+    question: 'Hva er et matematisk bevis?',
+    options: ['En kjede av logiske argumenter som viser at en påstand følger av aksiomer og kjente resultater', 'Mange eksempler som støtter en påstand', 'En overbevisende figur', 'En utregning med kalkulator'],
+    explanation: 'Et bevis bygger logisk på definisjoner, aksiomer og tidligere beviste setninger — eksempler alene er ikke nok.',
+  },
+  {
+    question: 'Hva kjennetegner et indirekte bevis (motsigelsesbevis)?',
+    options: ['Vi antar det motsatte av påstanden og viser at det fører til en selvmotsigelse', 'Vi sjekker mange tilfeller til vi er overbevist', 'Vi tegner en figur som illustrerer påstanden', 'Vi beviser en annen, enklere påstand'],
+    explanation: 'I et indirekte bevis antar vi at påstanden er usann. Når dette gir en motsigelse, må påstanden være sann.',
+  },
+  {
+    question: 'Hvilke to trinn består et induksjonsbevis av?',
+    options: ['Basistrinn og induksjonstrinn', 'Hypotese og konklusjon', 'Antakelse og motsigelse', 'Definisjon og eksempel'],
+    explanation: 'Vi viser at påstanden gjelder for det første tilfellet (basis), og at hvis den gjelder for $n$, gjelder den for $n+1$.',
+  },
+  {
+    question: 'Hva er et lemma?',
+    options: ['En hjelpesetning som brukes til å bevise et større resultat', 'En påstand som ikke kan bevises', 'Et moteksempel', 'En definisjon'],
+    explanation: 'Et lemma er en mindre setning som bevises først og deretter brukes som byggekloss i beviset for hovedresultatet.',
+  },
+  {
+    question: 'I beviset for 1. kvadratsetning regner vi ut $(a+b)(a+b) = a^2 + ab + ba + b^2$. Hvilken regneregel brukes?',
+    options: ['Den distributive loven', 'Pytagoras\' setning', 'Potensreglene', 'Konjugatsetningen'],
+    explanation: 'Vi ganger hvert ledd i den første parentesen med hvert ledd i den andre — det er den distributive loven.',
+  },
+],
+
+
+  '1t-7-1': [
+  {
+    question: 'Hva er den gjennomsnittlige vekstfarten til $f$ i intervallet $[x_1, x_2]$?',
+    options: ['Stigningstallet til sekanten gjennom $(x_1, f(x_1))$ og $(x_2, f(x_2))$', 'Stigningstallet til tangenten i $x_1$', 'Differansen $f(x_2) - f(x_1)$', 'Gjennomsnittet av $f(x_1)$ og $f(x_2)$'],
+    explanation: 'Gjennomsnittlig vekstfart er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$ — nettopp sekantens stigningstall.',
+  },
+  {
+    question: 'Finn den gjennomsnittlige vekstfarten til $f(x) = x^2$ fra $x = 1$ til $x = 3$.',
+    options: ['$4$', '$8$', '$2$', '$3$'],
+    explanation: '$\\frac{f(3) - f(1)}{3 - 1} = \\frac{9 - 1}{2} = \\frac{8}{2} = 4$.',
+  },
+  {
+    question: 'Hva er stigningstallet til linjen gjennom punktene $(1, 2)$ og $(4, 11)$?',
+    options: ['$3$', '$\\frac{1}{3}$', '$9$', '$-3$'],
+    explanation: '$a = \\frac{11 - 2}{4 - 1} = \\frac{9}{3} = 3$.',
+  },
+  {
+    question: 'Hva er ettpunktsformelen for en linje med stigningstall $a$ gjennom punktet $(x_0, y_0)$?',
+    options: ['$y - y_0 = a(x - x_0)$', '$y = ax_0 + y_0$', '$y + y_0 = a(x + x_0)$', '$y - x_0 = a(x - y_0)$'],
+    explanation: 'Ettpunktsformelen $y - y_0 = a(x - x_0)$ gir likningen for linjen direkte.',
+  },
+  {
+    question: 'Hva forteller stigningstallet $a$ til en rett linje?',
+    options: ['Hvor mye $y$-verdien endres når $x$ øker med $1$', 'Hvor linjen krysser $y$-aksen', 'Hvor linjen krysser $x$-aksen', 'Lengden av linjen'],
+    explanation: 'Stigningstallet er endringen i $y$ per enhet økning i $x$.',
+  },
+],
+
+
+  '1t-7-2': [
+  {
+    question: 'Hva er den momentane vekstfarten til $f$ i punktet $x = a$?',
+    options: ['Stigningstallet til tangenten i punktet $(a, f(a))$', 'Stigningstallet til sekanten over et stort intervall', 'Funksjonsverdien $f(a)$', 'Avstanden fra punktet til $x$-aksen'],
+    explanation: 'Momentan vekstfart er definert som tangentens stigningstall i punktet.',
+  },
+  {
+    question: 'Hva er forskjellen på gjennomsnittlig og momentan vekstfart?',
+    options: ['Gjennomsnittlig gjelder et intervall (sekant), momentan gjelder ett punkt (tangent)', 'De er alltid like store', 'Momentan gjelder et intervall, gjennomsnittlig ett punkt', 'Gjennomsnittlig er alltid størst'],
+    explanation: 'Gjennomsnittlig vekstfart bruker sekanten mellom to punkter, momentan vekstfart bruker tangenten i ett punkt.',
+  },
+  {
+    question: 'Hva kjennetegner tangenten til en graf i et punkt?',
+    options: ['Den berører grafen i punktet og har samme retning som grafen der', 'Den skjærer grafen i nøyaktig to punkter', 'Den står vinkelrett på grafen', 'Den går alltid gjennom origo'],
+    explanation: 'Tangenten følger grafens retning i berøringspunktet — derfor gir stigningstallet dens momentane vekstfart.',
+  },
+  {
+    question: 'Tangenten til en graf i punktet $(2, 3)$ går også gjennom $(4, 7)$. Hva er den momentane vekstfarten i $x = 2$?',
+    options: ['$2$', '$4$', '$\\frac{1}{2}$', '$3$'],
+    explanation: 'Tangentens stigningstall er $\\frac{7 - 3}{4 - 2} = \\frac{4}{2} = 2$, og det er den momentane vekstfarten.',
+  },
+  {
+    question: 'Hvordan kan vi tilnærme momentan vekstfart uten å kjenne tangenten?',
+    options: ['Beregne gjennomsnittlig vekstfart over et svært lite intervall rundt punktet', 'Beregne gjennomsnittlig vekstfart over et stort intervall', 'Lese av funksjonsverdien i punktet', 'Finne nullpunktene til funksjonen'],
+    explanation: 'Når intervallet krymper, nærmer sekantens stigningstall seg tangentens — altså den momentane vekstfarten.',
+  },
+],
+
+
+  '1t-7-3': [
+  {
+    question: 'Hva forteller $f\'(a)$ oss om funksjonen $f$?',
+    options: ['Stigningstallet til tangenten til grafen i $x = a$', 'Funksjonsverdien i $x = a$', 'Arealet under grafen frem til $a$', 'Avstanden fra grafen til $x$-aksen'],
+    explanation: '$f\'(a)$ er den momentane vekstfarten — tangentens stigningstall i punktet $(a, f(a))$.',
+  },
+  {
+    question: 'Hva er den deriverte av en konstant funksjon $f(x) = c$?',
+    options: ['$f\'(x) = 0$', '$f\'(x) = c$', '$f\'(x) = 1$', '$f\'(x) = x$'],
+    explanation: 'En konstant funksjon har en vannrett graf uten stigning, så den deriverte er $0$ overalt.',
+  },
+  {
+    question: 'Hva er $f\'(x)$ når $f(x) = 3x + 5$?',
+    options: ['$3$', '$5$', '$3x$', '$8$'],
+    explanation: 'En lineær funksjon $ax + b$ har konstant stigningstall $a$, så $f\'(x) = 3$.',
+  },
+  {
+    question: 'Bruk potensregelen: Hva er $f\'(x)$ når $f(x) = x^3$?',
+    options: ['$3x^2$', '$x^2$', '$3x$', '$\\frac{x^4}{4}$'],
+    explanation: 'Potensregelen gir $(x^n)\' = n \\cdot x^{n-1}$, så $(x^3)\' = 3x^2$.',
+  },
+  {
+    question: 'La $f(x) = x^2$. Hva er $f\'(2)$?',
+    options: ['$4$', '$2$', '$8$', '$1$'],
+    explanation: '$f\'(x) = 2x$, så $f\'(2) = 2 \\cdot 2 = 4$.',
+  },
+],
+
+
+  '1t-7-4': [
+  {
+    question: 'Hvilken GeoGebra-kommando finner den deriverte av funksjonen $f$?',
+    options: ['Derivert(f)', 'Tangent(f)', 'Stigning(f)', 'Integral(f)'],
+    explanation: 'Derivert(f) returnerer den deriverte funksjonen $f\'$.',
+  },
+  {
+    question: 'Hva gir kommandoen Derivert(x^2 - 3x + 1) i GeoGebra?',
+    options: ['$2x - 3$', '$2x + 1$', '$x - 3$', '$2x - 3x$'],
+    explanation: 'Vi deriverer ledd for ledd: $(x^2)\' = 2x$, $(-3x)\' = -3$ og $(1)\' = 0$, som gir $2x - 3$.',
+  },
+  {
+    question: 'Hva gjør kommandoen Tangent(A, f) i GeoGebra?',
+    options: ['Tegner tangenten til $f$ i punktet $A$', 'Finner den deriverte av $f$', 'Tegner sekanten gjennom $A$', 'Finner nullpunktet nærmest $A$'],
+    explanation: 'Tangent(A, f) tegner tangentlinjen til grafen i punktet $A$.',
+  },
+  {
+    question: 'Hvilken kommando gir stigningstallet til en linje i GeoGebra?',
+    options: ['Stigning(linje)', 'Derivert(linje)', 'Vinkel(linje)', 'Retning(linje)'],
+    explanation: 'Stigning(linje) returnerer stigningstallet, f.eks. til en tangent du har tegnet.',
+  },
+  {
+    question: 'Hvordan kan du finne $f\'(2)$ grafisk i GeoGebra?',
+    options: ['Tegn tangenten i punktet der $x = 2$ og bruk Stigning() på den', 'Bruk Nullpunkt(f) og les av verdien', 'Bruk Ekstrempunkt(f)', 'Les av $f(2)$ på grafen'],
+    explanation: 'Tangent((2, f(2)), f) etterfulgt av Stigning(tangenten) gir tangentens stigningstall, som er $f\'(2)$.',
+  },
+],
+
+
+  '1t-7-5': [
+  {
+    question: 'Hva er Newton-kvotienten for $f$ i punktet $x$ med steglengde $h$?',
+    options: ['$\\frac{f(x + h) - f(x)}{h}$', '$\\frac{f(x) - h}{x}$', '$\\frac{f(x + h) + f(x)}{h}$', '$\\frac{f(x+h) - f(x)}{x}$'],
+    explanation: 'Newton-kvotienten $\\frac{f(x+h) - f(x)}{h}$ er stigningstallet til sekanten gjennom $(x, f(x))$ og $(x+h, f(x+h))$.',
+  },
+  {
+    question: 'Hva er Newton-kvotienten geometrisk sett?',
+    options: ['Stigningstallet til en sekant', 'Stigningstallet til tangenten', 'Arealet under grafen', 'Avstanden mellom to punkter på grafen'],
+    explanation: 'Den måler gjennomsnittlig vekstfart mellom to punkter — altså sekantens stigningstall.',
+  },
+  {
+    question: 'Hvordan er den deriverte definert formelt?',
+    options: ['$f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$', '$f\'(x) = \\frac{f(x+h) - f(x)}{h}$ for $h = 1$', '$f\'(x) = \\lim_{h \\to \\infty} \\frac{f(x+h) - f(x)}{h}$', '$f\'(x) = \\frac{f(x)}{x}$'],
+    explanation: 'Den deriverte er grenseverdien av Newton-kvotienten når steglengden $h$ går mot null.',
+  },
+  {
+    question: 'La $f(x) = x^2$. Hva er Newton-kvotienten i $x = 1$ med $h = 0{,}1$?',
+    options: ['$2{,}1$', '$2$', '$0{,}21$', '$1{,}21$'],
+    explanation: '$\\frac{f(1{,}1) - f(1)}{0{,}1} = \\frac{1{,}21 - 1}{0{,}1} = 2{,}1$. Den eksakte deriverte er $2$, så tilnærmingen er god.',
+  },
+  {
+    question: 'Hva er sentraldifferansen, og hvorfor brukes den?',
+    options: ['$\\frac{f(x+h) - f(x-h)}{2h}$ — den gir vanligvis en mer nøyaktig numerisk derivert', 'En metode for å finne nullpunkter', '$\\frac{f(x+h) + f(x-h)}{2}$ — gjennomsnittet av to verdier', 'En formel for andrederiverte'],
+    explanation: 'Sentraldifferansen bruker punkter på begge sider av $x$ og gir som regel bedre tilnærming enn den ensidige Newton-kvotienten.',
+  },
+],
+
+
+  '1t-7-6': [
+  {
+    question: 'Hva sier potensregelen for derivasjon?',
+    options: ['$(x^n)\' = n \\cdot x^{n-1}$', '$(x^n)\' = x^{n-1}$', '$(x^n)\' = n \\cdot x^{n+1}$', '$(x^n)\' = \\frac{x^{n+1}}{n+1}$'],
+    explanation: 'Eksponenten kommer ned som faktor, og eksponenten reduseres med 1.',
+  },
+  {
+    question: 'Hva er $f\'(x)$ når $f(x) = 4x^3$?',
+    options: ['$12x^2$', '$4x^2$', '$12x^3$', '$7x^2$'],
+    explanation: 'Konstantfaktoren beholdes: $f\'(x) = 4 \\cdot 3x^2 = 12x^2$.',
+  },
+  {
+    question: 'Hva er $f\'(x)$ når $f(x) = x^4 - 3x^2 + 7$?',
+    options: ['$4x^3 - 6x$', '$4x^3 - 6x + 7$', '$4x^3 - 3x$', '$x^3 - 6x$'],
+    explanation: 'Sumregelen lar oss derivere ledd for ledd: $4x^3 - 6x + 0$. Konstanten $7$ forsvinner.',
+  },
+  {
+    question: 'Hva er $f\'(x)$ når $f(x) = x^{-2}$?',
+    options: ['$-2x^{-3}$', '$-2x^{-1}$', '$2x^{-3}$', '$x^{-3}$'],
+    explanation: 'Potensregelen gjelder også for negative eksponenter: $(x^{-2})\' = -2 \\cdot x^{-2-1} = -2x^{-3}$.',
+  },
+  {
+    question: 'La $f(x) = 2x^3 - x$. Hva er den andrederiverte $f\'\'(x)$?',
+    options: ['$12x$', '$6x^2 - 1$', '$12x - 1$', '$6x$'],
+    explanation: 'Først $f\'(x) = 6x^2 - 1$, deretter $f\'\'(x) = 12x$.',
+  },
+],
+
+
+  '1t-7-7': [
+  {
+    question: 'Hvordan kjenner du igjen et toppunkt med fortegnsanalyse av $f\'$?',
+    options: ['$f\'$ skifter fra positiv til negativ i punktet', '$f\'$ skifter fra negativ til positiv i punktet', '$f\'$ er positiv i punktet', '$f$ er null i punktet'],
+    explanation: 'Før et toppunkt vokser funksjonen ($f\' > 0$), etterpå avtar den ($f\' < 0$).',
+  },
+  {
+    question: 'Hvis $s(t)$ er posisjonen ved tiden $t$, hva er farten $v(t)$?',
+    options: ['$v(t) = s\'(t)$', '$v(t) = s(t) \\cdot t$', '$v(t) = s\'\'(t)$', '$v(t) = \\frac{s(t)}{t}$'],
+    explanation: 'Farten er den momentane endringen i posisjon, altså den deriverte av posisjonsfunksjonen.',
+  },
+  {
+    question: 'Hva er sammenhengen mellom akselerasjon og posisjon $s(t)$?',
+    options: ['$a(t) = s\'\'(t)$', '$a(t) = s\'(t)$', '$a(t) = s(t)^2$', '$a(t) = \\frac{1}{s(t)}$'],
+    explanation: 'Akselerasjonen er den deriverte av farten, og dermed den andrederiverte av posisjonen.',
+  },
+  {
+    question: 'Funksjonen $f(x) = -x^2 + 4x$ beskriver et overskudd. For hvilken $x$ er overskuddet størst?',
+    options: ['$x = 2$', '$x = 4$', '$x = -2$', '$x = 0$'],
+    explanation: '$f\'(x) = -2x + 4 = 0$ gir $x = 2$. Siden $f\'$ skifter fra $+$ til $-$, er dette et toppunkt.',
+  },
+  {
+    question: 'En bil har posisjon $s(t) = t^2$ (meter etter $t$ sekunder). Hva er farten ved $t = 3$?',
+    options: ['$6$ m/s', '$9$ m/s', '$3$ m/s', '$12$ m/s'],
+    explanation: '$v(t) = s\'(t) = 2t$, så $v(3) = 6$ m/s.',
+  },
+],
+
+
+  '1t-8-1': [
+  {
+    question: 'Hva er en matematisk modell?',
+    options: ['En forenklet matematisk beskrivelse av en virkelig situasjon', 'En nøyaktig kopi av virkeligheten', 'En graf uten tall', 'Et fysisk byggesett'],
+    explanation: 'En modell bruker funksjoner og likninger til å beskrive virkeligheten, men er alltid en forenkling.',
+  },
+  {
+    question: 'Hva betyr interpolering?',
+    options: ['Å bruke modellen til å anslå verdier mellom kjente datapunkter', 'Å bruke modellen utenfor dataområdet', 'Å fjerne datapunkter som ikke passer', 'Å tegne grafen på nytt'],
+    explanation: 'Interpolering skjer innenfor området der vi har data, og er som regel pålitelig.',
+  },
+  {
+    question: 'Hva betyr ekstrapolering?',
+    options: ['Å bruke modellen til å anslå verdier utenfor området vi har data for', 'Å anslå verdier mellom datapunktene', 'Å finne gjennomsnittet av dataene', 'Å bytte til en annen modelltype'],
+    explanation: 'Ekstrapolering går utenfor dataområdet og er derfor mer usikkert enn interpolering.',
+  },
+  {
+    question: 'Hvorfor er ekstrapolering risikabelt?',
+    options: ['Modellen er ikke testet utenfor dataområdet, og utviklingen kan endre seg', 'Det krever mer regning', 'Grafen blir vanskeligere å tegne', 'Det er forbudt i matematikk'],
+    explanation: 'Utenfor dataområdet vet vi ikke om sammenhengen fortsetter — modellen kan gi helt urimelige verdier.',
+  },
+  {
+    question: 'Kostnaden ved en produksjon er modellert ved $K(x) = 50x + 200$. Hva representerer tallet $200$?',
+    options: ['Den faste startkostnaden, altså kostnaden når $x = 0$', 'Kostnaden per produserte enhet', 'Maksimal kostnad', 'Antall enheter som produseres'],
+    explanation: 'Konstantleddet er verdien når $x = 0$ — en fast kostnad uavhengig av produksjonen. $50$ er kostnaden per enhet.',
+  },
+],
+
+
+  '1t-8-2': [
+  {
+    question: 'Hvilken form har en potensfunksjon?',
+    options: ['$f(x) = a \\cdot x^b$', '$f(x) = a \\cdot b^x$', '$f(x) = ax + b$', '$f(x) = a \\cdot \\sqrt{b} \\cdot x$'],
+    explanation: 'En potensfunksjon har variabelen i grunntallet: $f(x) = a \\cdot x^b$ med $a \\neq 0$.',
+  },
+  {
+    question: 'Hvilken av disse er en potensfunksjon?',
+    options: ['$f(x) = 3x^{2{,}5}$', '$f(x) = 2^x$', '$f(x) = 3x + 1$', '$f(x) = x^2 + x$'],
+    explanation: '$3x^{2{,}5}$ er på formen $a \\cdot x^b$. $2^x$ er en eksponentialfunksjon, og de andre er ikke rene potensfunksjoner.',
+  },
+  {
+    question: 'Fritt fall kan modelleres med $s(t) = 4{,}9t^2$. Hvor langt faller en gjenstand på $3$ sekunder?',
+    options: ['$44{,}1$ m', '$14{,}7$ m', '$29{,}4$ m', '$88{,}2$ m'],
+    explanation: '$s(3) = 4{,}9 \\cdot 3^2 = 4{,}9 \\cdot 9 = 44{,}1$ meter.',
+  },
+  {
+    question: 'La $f(x) = 2x^3$. Hva er $f(2)$?',
+    options: ['$16$', '$12$', '$8$', '$64$'],
+    explanation: '$f(2) = 2 \\cdot 2^3 = 2 \\cdot 8 = 16$.',
+  },
+  {
+    question: 'Hva er forskjellen på en potensfunksjon og en eksponentialfunksjon?',
+    options: ['Potensfunksjonen har variabelen i grunntallet, eksponentialfunksjonen har den i eksponenten', 'De er to navn på samme funksjonstype', 'Potensfunksjonen har variabelen i eksponenten', 'Eksponentialfunksjoner finnes bare for $x > 0$'],
+    explanation: '$x^b$ (potens) mot $b^x$ (eksponential) — plasseringen av variabelen avgjør funksjonstypen.',
+  },
+],
+
+
+  '1t-8-3': [
+  {
+    question: 'Hva er lineær regresjon?',
+    options: ['Å finne den rette linjen som passer best til et sett datapunkter', 'Å tegne en linje gjennom de to første punktene', 'Å finne gjennomsnittet av $y$-verdiene', 'Å fjerne avvikende datapunkter'],
+    explanation: 'Regresjonslinjen velges slik at summen av de kvadrerte vertikale avvikene blir minst mulig.',
+  },
+  {
+    question: 'En regresjonslinje er $y = 2{,}5x + 10$. Hvilken $y$-verdi predikerer modellen for $x = 4$?',
+    options: ['$20$', '$16{,}5$', '$12{,}5$', '$50$'],
+    explanation: '$y = 2{,}5 \\cdot 4 + 10 = 10 + 10 = 20$.',
+  },
+  {
+    question: 'Hva er riktig om korrelasjon og kausalitet?',
+    options: ['Korrelasjon betyr ikke nødvendigvis at den ene variabelen forårsaker den andre', 'Korrelasjon beviser alltid årsakssammenheng', 'Kausalitet og korrelasjon er det samme', 'To variabler kan aldri korrelere uten årsakssammenheng'],
+    explanation: 'To størrelser kan samvariere uten at den ene påvirker den andre — f.eks. på grunn av en felles bakenforliggende årsak.',
+  },
+  {
+    question: 'I regresjonslinjen $y = ax + b$ — hva forteller stigningstallet $a$?',
+    options: ['Hvor mye $y$ endres i gjennomsnitt når $x$ øker med $1$', 'Verdien av $y$ når $x = 0$', 'Hvor mange datapunkter som ble brukt', 'Hvor god modellen er'],
+    explanation: '$a$ angir den gjennomsnittlige endringen i $y$ per enhet økning i $x$. $b$ er verdien ved $x = 0$.',
+  },
+  {
+    question: 'Issalget øker når temperaturen øker. Hva slags korrelasjon er dette?',
+    options: ['Positiv korrelasjon', 'Negativ korrelasjon', 'Ingen korrelasjon', 'Omvendt proporsjonalitet'],
+    explanation: 'Når begge størrelsene øker sammen, er korrelasjonen positiv.',
+  },
+],
+
+
+  '1t-8-4': [
+  {
+    question: 'Hva er et residual i regresjonsanalyse?',
+    options: ['Forskjellen mellom observert verdi og modellens predikerte verdi', 'Modellens største verdi', 'Avstanden mellom to datapunkter', 'Stigningstallet til regresjonslinjen'],
+    explanation: 'Residualet er $e_i = y_i - \\hat{y}_i$, altså hvor mye observasjonen avviker fra modellen.',
+  },
+  {
+    question: 'Hva tyder det på når residualene er tilfeldig spredt rundt null?',
+    options: ['Modellen passer godt til dataene', 'Modellen er feil', 'Dataene inneholder feil', 'Vi må fjerne flere datapunkter'],
+    explanation: 'Tilfeldige residualer uten mønster betyr at modellen fanger opp strukturen i dataene.',
+  },
+  {
+    question: 'Et datasett vokser med en fast prosent per tidsenhet. Hvilken regresjonstype passer best?',
+    options: ['Eksponentialregresjon', 'Lineær regresjon', 'Polynomregresjon', 'Potensregresjon'],
+    explanation: 'Fast prosentvis vekst per tidsenhet er kjennetegnet på en eksponentiell sammenheng.',
+  },
+  {
+    question: 'Residualene viser et tydelig systematisk mønster (f.eks. en bue). Hva tyder det på?',
+    options: ['Modelltypen passer ikke — vi bør prøve en annen funksjonstype', 'Modellen er perfekt', 'Dataene er tilfeldige', 'Regresjonen er regnet feil'],
+    explanation: 'Et systematisk mønster i residualene betyr at modellen ikke fanger opp formen på sammenhengen.',
+  },
+  {
+    question: 'Hvilken form har modellen ved potensregresjon?',
+    options: ['$y = a \\cdot x^b$', '$y = a \\cdot b^x$', '$y = ax + b$', '$y = ax^2 + bx + c$'],
+    explanation: 'Potensregresjon tilpasser en potensfunksjon $y = a \\cdot x^b$ til dataene.',
+  },
+],
+
+
+  '1t-8-5': [
+  {
+    question: 'Hva betyr det at en modell har forklaringsgrad $r^2 = 1$?',
+    options: ['Modellen forklarer all variasjon i dataene — perfekt tilpasning', 'Modellen forklarer ingenting', 'Modellen har nøyaktig ett datapunkt', 'Modellen er lineær'],
+    explanation: '$r^2 = 1$ (100 %) betyr at alle datapunktene ligger nøyaktig på modellkurven.',
+  },
+  {
+    question: 'En modell har $r^2 = 0{,}85$. Hvordan tolker vi det?',
+    options: ['Modellen forklarer $85\\,\\%$ av variasjonen i dataene', 'Modellen er $85\\,\\%$ sannsynlig', '$85\\,\\%$ av datapunktene ligger på linjen', 'Modellen bommer med $85\\,\\%$'],
+    explanation: 'Forklaringsgraden angir andelen av variasjonen i dataene som modellen forklarer.',
+  },
+  {
+    question: 'Er en høy $r^2$-verdi alene nok til å si at modellen er god?',
+    options: ['Nei — vi må også vurdere residualer og om modellen er rimelig i praksis', 'Ja, høy $r^2$ garanterer en god modell', 'Ja, hvis $r^2 > 0{,}5$', 'Nei, $r^2$ sier ingenting om tilpasning'],
+    explanation: 'En modell kan ha høy $r^2$ og likevel gi meningsløse prediksjoner, særlig utenfor dataområdet.',
+  },
+  {
+    question: 'Hva bør du vurdere når du velger mellom flere modeller for samme datasett?',
+    options: ['Forklaringsgrad, residualmønster og om modellen gir mening i den praktiske situasjonen', 'Bare hvilken modell som har høyest $r^2$', 'Bare hvilken modell som er enklest å regne med', 'Bare hvilken graf som ser penest ut'],
+    explanation: 'God modellvurdering kombinerer tallmål som $r^2$ med residualanalyse og faglig rimelighet.',
+  },
+  {
+    question: 'En befolkningsmodell gir negativt folketall for år 2080. Hva forteller det oss?',
+    options: ['Modellen er ugyldig utenfor sitt gyldighetsområde og kan ikke brukes så langt frem', 'Folketallet vil faktisk bli negativt', 'Modellen må ganges med $-1$', 'Dataene fra fortiden er feil'],
+    explanation: 'Urimelige verdier ved ekstrapolering viser at modellen har et begrenset gyldighetsområde.',
+  },
+],
+
 };
 
 export default quizData_1t;
