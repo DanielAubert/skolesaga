@@ -15,14 +15,37 @@ from google import genai
 from google.genai import types
 
 # Konfigurasjon
-MODEL_ID = "gemini-2.0-flash"  # Gemini 2.0 Flash med bildegenerering
+MODEL_ID = "gemini-3-pro-image-preview"  # Nano Banana Pro - best på instruksjonsfølging og tekst i bildet
+MODEL_ID_FAST = "gemini-3.1-flash-image-preview"  # Nano Banana 2 - raskere/billigere alternativ
 
 
-def load_prompts_from_txt(filepath: str) -> list[str]:
-    """Les prompts fra en tekstfil (en prompt per linje)."""
+def load_prompts_from_txt(filepath: str) -> list:
+    """Les prompts fra tekstfil.
+
+    Stotter to formater:
+    1. Parformat (bildeprompter-*.txt): linje med filnavn som slutter pa .png,
+       etterfulgt av promptlinjen. Kommentarlinjer (#) og blanke linjer ignoreres.
+       Returnerer liste av (filnavn, prompt)-tupler.
+    2. Klassisk format: en prompt per linje. Returnerer liste av (None, prompt).
+    """
+    import re
     with open(filepath, 'r', encoding='utf-8') as f:
-        prompts = [line.strip() for line in f if line.strip()]
-    return prompts
+        lines = [l.rstrip('\n') for l in f]
+
+    pairs = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line or line.startswith('#'):
+            i += 1
+            continue
+        if re.match(r'^[a-z0-9._-]+\.png$', line) and i + 1 < len(lines) and lines[i+1].strip():
+            pairs.append((line, lines[i+1].strip()))
+            i += 2
+        else:
+            pairs.append((None, line))
+            i += 1
+    return pairs
 
 
 def load_prompts_from_excel(filepath: str) -> list[str]:
@@ -67,7 +90,7 @@ def sanitize_filename(text: str, max_length: int = 50) -> str:
     return text or "image"
 
 
-def generate_image_gemini(client: genai.Client, prompt: str, output_path: Path, index: int) -> bool:
+def generate_image_gemini(client: genai.Client, prompt: str, output_path: Path, index: int, target_name: str = None) -> bool:
     """Generer bilde med Gemini modellen."""
     try:
         # Legg til eksplisitt instruksjon for bildegenerering
@@ -77,6 +100,7 @@ def generate_image_gemini(client: genai.Client, prompt: str, output_path: Path, 
             contents=full_prompt,
             config=types.GenerateContentConfig(
                 response_modalities=['image', 'text'],
+                image_config=types.ImageConfig(aspect_ratio="16:9"),
             )
         )
 
@@ -87,9 +111,12 @@ def generate_image_gemini(client: genai.Client, prompt: str, output_path: Path, 
                 mime_type = part.inline_data.mime_type
                 extension = '.png' if 'png' in mime_type else '.jpg'
 
-                # Lag filnavn
-                safe_name = sanitize_filename(prompt)
-                filename = f"{index:03d}_{safe_name}{extension}"
+                # Lag filnavn: bruk angitt filnavn fra parformatet hvis det finnes
+                if target_name:
+                    filename = target_name if target_name.endswith(extension) else target_name.rsplit('.', 1)[0] + extension
+                else:
+                    safe_name = sanitize_filename(prompt)
+                    filename = f"{index:03d}_{safe_name}{extension}"
                 filepath = output_path / filename
 
                 # Lagre bildet
@@ -194,19 +221,27 @@ def main():
     output_path.mkdir(parents=True, exist_ok=True)
     print(f"Lagrer bilder til: {output_path.absolute()}")
 
-    # Velg genereringsfunksjon
-    generate_func = generate_image_gemini if args.model == 'gemini' else generate_image_imagen
-
     # Generer bilder
     successful = 0
     failed = 0
 
     print(f"\nStarter generering med {args.model} modellen...\n")
 
-    for i, prompt in enumerate(prompts, 1):
-        print(f"[{i}/{len(prompts)}] {prompt[:60]}{'...' if len(prompt) > 60 else ''}")
+    skipped = 0
+    for i, item in enumerate(prompts, 1):
+        target_name, prompt = item if isinstance(item, tuple) else (None, item)
+        # Hopp over allerede genererte bilder (gjenopptakbar kjoring)
+        if target_name and any((output_path / (target_name.rsplit('.', 1)[0] + ext)).exists() for ext in ('.png', '.jpg', '.webp')):
+            skipped += 1
+            continue
+        label = target_name or prompt[:60]
+        print(f"[{i}/{len(prompts)}] {label}")
 
-        if generate_func(client, prompt, output_path, i):
+        if args.model == 'gemini':
+            ok = generate_image_gemini(client, prompt, output_path, i, target_name)
+        else:
+            ok = generate_image_imagen(client, prompt, output_path, i)
+        if ok:
             successful += 1
         else:
             failed += 1
@@ -219,6 +254,7 @@ def main():
     print(f"\n{'='*50}")
     print(f"Ferdig!")
     print(f"  Vellykkede: {successful}")
+    print(f"  Hoppet over (fantes fra før): {skipped}")
     print(f"  Feilet: {failed}")
     print(f"  Bilder lagret i: {output_path.absolute()}")
 
