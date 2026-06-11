@@ -1,0 +1,214 @@
+{
+  "id": "s1-1-8-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.8",
+  "title": "Andregradsfunksjoner og -likninger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om prissetting og optimalisering — der abc-formelen, diskriminanten og toppunktet avgjør hvilken pris som gir størst inntekt.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løse andregradslikninger algebraisk og grafisk",
+    "bruke andregradsfunksjoner til å modellere og optimalisere praktiske situasjoner",
+    "analysere andregradsuttrykk ved hjelp av diskriminant og faktorisering"
+  ],
+  "linkedChapterId": "s1-1-8",
+  "content": [
+    {
+      "id": "s1-1-8-n-intro",
+      "type": "text",
+      "content": "## Prisen som gir mest\n\nEn food truck utenfor skolen selger lunsjbokser, og eieren har et dilemma: setter hun prisen for lavt, tjener hun lite per boks; setter hun den for høyt, forsvinner kundene. Et sted midt imellom ligger prisen som gir størst inntekt. Sammenhengen mellom pris og inntekt er ikke en rett linje — den stiger, når en topp, og faller. Den er en **parabel**, og funksjonen bak er en andregradsfunksjon.\n\nEn **andregradsfunksjon** har formen\n\n$$f(x) = ax^2 + bx + c, \\quad a \\neq 0$$\n\nGrafen er alltid en parabel. Dersom $a > 0$, peker parabelen oppover og har et **bunnpunkt**; dersom $a < 0$, peker den nedover og har et **toppunkt**. I inntektsmodellen til food trucken er $a$ negativ — derfor finnes det en optimal pris på toppen.\n\nTett knyttet til funksjonen er **andregradslikningen** $ax^2 + bx + c = 0$. Løsningene kalles **nullpunktene** til funksjonen, og grafisk er de stedene der parabelen krysser $x$-aksen. For food trucken er nullpunktene de prisene der inntekten er null — enten fordi prisen er null, eller fordi den er så høy at ingen kjøper.\n\nI dette kapittelet lærer du å løse andregradslikninger med abc-formelen, å avgjøre antall løsninger med diskriminanten, å finne toppunktet, å faktorisere — og til slutt å bruke alt sammen til å optimalisere. Det er kanskje det mest anvendelige kapittelet i hele S1 for alle som noen gang skal sette en pris."
+    },
+    {
+      "id": "s1-1-8-n-section1",
+      "type": "text",
+      "content": "## Abc-formelen og diskriminanten\n\nDen generelle andregradslikningen $ax^2 + bx + c = 0$ har en universalløsning, **abc-formelen** (også kalt den kvadratiske formelen):\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nFormelen er ikke magi — den kommer fra å fullføre kvadratet. Vi deler på $a$, flytter konstantleddet over og bygger et fullstendig kvadrat på venstresiden: $\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{b^2 - 4ac}{4a^2}$. Tar vi kvadratroten på begge sider og løser for $x$, faller formelen ut.\n\nUttrykket under rottegnet er så viktig at det har eget navn: **diskriminanten** $D = b^2 - 4ac$. Den avgjør antall løsninger uten at du trenger å løse likningen. Er $D > 0$, finnes to ulike reelle løsninger — parabelen skjærer $x$-aksen i to punkter. Er $D = 0$, finnes nøyaktig én løsning (en dobbeltrot) — parabelen tangerer $x$-aksen. Og er $D < 0$, finnes ingen reelle løsninger — parabelen ligger helt over eller helt under $x$-aksen.\n\nLa oss løse $2x^2 - 5x - 3 = 0$. Her er $a = 2$, $b = -5$ og $c = -3$, så diskriminanten er $D = (-5)^2 - 4 \\cdot 2 \\cdot (-3) = 25 + 24 = 49$. Positiv, altså to løsninger:\n\n$$x = \\frac{5 \\pm \\sqrt{49}}{4} = \\frac{5 \\pm 7}{4}$$\n\nsom gir $x_1 = 3$ og $x_2 = -\\frac{1}{2}$. To raske kontroller i hodet — $2 \\cdot 9 - 15 - 3 = 0$ — og svaret er bekreftet. Abc-formelen virker alltid, uansett hvor stygge koeffisientene er, og det gjør den til det mest pålitelige verktøyet i kapittelet."
+    },
+    {
+      "id": "s1-1-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på abc-formelen og diskriminanten:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-8-n-quiz1-q0",
+            "task": "Hva er diskriminanten til likningen $ax^2 + bx + c = 0$?",
+            "options": [
+              { "id": "a", "text": "$b^2 + 4ac$", "isCorrect": false },
+              { "id": "b", "text": "$\\sqrt{b^2 - 4ac}$", "isCorrect": false },
+              { "id": "c", "text": "$b^2 - 4ac$", "isCorrect": true },
+              { "id": "d", "text": "$-\\frac{b}{2a}$", "isCorrect": false }
+            ],
+            "solution": "Diskriminanten er $D = b^2 - 4ac$, uttrykket under rottegnet i abc-formelen."
+          },
+          {
+            "id": "s1-1-8-n-quiz1-q1",
+            "task": "Likningen $x^2 - 4x + 4 = 0$ har diskriminant $D = 16 - 16 = 0$. Hva betyr det?",
+            "options": [
+              { "id": "a", "text": "Likningen har ingen reelle løsninger", "isCorrect": false },
+              { "id": "b", "text": "Likningen har nøyaktig én løsning, og parabelen tangerer $x$-aksen", "isCorrect": true },
+              { "id": "c", "text": "Likningen har to ulike løsninger", "isCorrect": false },
+              { "id": "d", "text": "Likningen kan ikke løses med abc-formelen", "isCorrect": false }
+            ],
+            "solution": "$D = 0$ gir en dobbeltrot: $x = \\frac{4}{2} = 2$. Parabelen berører $x$-aksen i ett punkt."
+          },
+          {
+            "id": "s1-1-8-n-quiz1-q2",
+            "task": "Hva er løsningene til $2x^2 - 5x - 3 = 0$?",
+            "options": [
+              { "id": "a", "text": "$x = 3$ eller $x = -\\frac{1}{2}$", "isCorrect": true },
+              { "id": "b", "text": "$x = -3$ eller $x = \\frac{1}{2}$", "isCorrect": false },
+              { "id": "c", "text": "$x = 5$ eller $x = -1$", "isCorrect": false },
+              { "id": "d", "text": "$x = 1$ eller $x = -3$", "isCorrect": false }
+            ],
+            "solution": "$D = 25 + 24 = 49$, så $x = \\frac{5 \\pm 7}{4}$, som gir $x = 3$ eller $x = -\\frac{1}{2}$."
+          },
+          {
+            "id": "s1-1-8-n-quiz1-q3",
+            "task": "En andregradslikning har $D < 0$. Hva vet vi om grafen til $f(x) = ax^2 + bx + c$?",
+            "options": [
+              { "id": "a", "text": "Den tangerer $x$-aksen", "isCorrect": false },
+              { "id": "b", "text": "Den skjærer $x$-aksen to ganger", "isCorrect": false },
+              { "id": "c", "text": "Den går gjennom origo", "isCorrect": false },
+              { "id": "d", "text": "Den krysser aldri $x$-aksen", "isCorrect": true }
+            ],
+            "solution": "Negativ diskriminant betyr ingen reelle nullpunkter, så parabelen ligger helt over eller helt under $x$-aksen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-8-n-section2",
+      "type": "text",
+      "content": "## Toppunkt, symmetriakse og toppunktform\n\nFor food truck-eieren er nullpunktene bare halve historien — det hun egentlig vil finne, er *toppen* av parabelen. Toppunktet (eller bunnpunktet) til $f(x) = ax^2 + bx + c$ har koordinatene\n\n$$x_T = -\\frac{b}{2a}, \\qquad y_T = f\\left(-\\frac{b}{2a}\\right) = c - \\frac{b^2}{4a}$$\n\nDen vertikale linja $x = x_T$ kalles **symmetriaksen**, fordi parabelen er helt symmetrisk om den: like langt til venstre og høyre for aksen har funksjonen samme verdi. Det betyr også at toppunktet alltid ligger midt mellom nullpunktene, når de finnes.\n\nLa oss analysere $f(x) = -x^2 + 6x - 5$ fullstendig. Med $a = -1$, $b = 6$ og $c = -5$ blir $x_T = -\\frac{6}{2 \\cdot (-1)} = 3$ og $y_T = f(3) = -9 + 18 - 5 = 4$. Toppunktet er $(3, 4)$, og symmetriaksen er $x = 3$. Nullpunktene finner vi av $-x^2 + 6x - 5 = 0$, som er det samme som $x^2 - 6x + 5 = 0$: diskriminanten er $36 - 20 = 16$, og $x = \\frac{6 \\pm 4}{2}$ gir $x_1 = 5$ og $x_2 = 1$. Legg merke til symmetrien: 1 og 5 ligger like langt fra 3.\n\nFunksjonen kan også skrives på **toppunktform** (fullstendig kvadrat): $f(x) = a(x - x_T)^2 + y_T$. For vårt eksempel: $f(x) = -(x - 3)^2 + 4$. På denne formen leser du toppunktet, symmetriaksen og maks/min direkte ut av uttrykket — og siden $a = -1 < 0$, vet du at $(3, 4)$ er et maksimum. Grafen peker nedover, krysser $x$-aksen i $(1, 0)$ og $(5, 0)$, og skjærer $y$-aksen i $f(0) = -5$. Med toppunkt, nullpunkter og $y$-skjæring kan du skissere enhver parabel for hånd."
+    },
+    {
+      "id": "s1-1-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på toppunkt og symmetriakse:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-8-n-quiz2-q0",
+            "task": "Hvor ligger symmetriaksen til $f(x) = ax^2 + bx + c$?",
+            "options": [
+              { "id": "a", "text": "$x = -\\frac{b}{2a}$", "isCorrect": true },
+              { "id": "b", "text": "$x = \\frac{b}{2a}$", "isCorrect": false },
+              { "id": "c", "text": "$x = -\\frac{c}{b}$", "isCorrect": false },
+              { "id": "d", "text": "$x = \\frac{-b \\pm \\sqrt{D}}{2a}$", "isCorrect": false }
+            ],
+            "solution": "Symmetriaksen går gjennom topp-/bunnpunktet: $x = -\\frac{b}{2a}$."
+          },
+          {
+            "id": "s1-1-8-n-quiz2-q1",
+            "task": "Finn bunnpunktet til $f(x) = x^2 - 6x + 5$.",
+            "options": [
+              { "id": "a", "text": "$(3, 4)$", "isCorrect": false },
+              { "id": "b", "text": "$(-3, -4)$", "isCorrect": false },
+              { "id": "c", "text": "$(3, -4)$", "isCorrect": true },
+              { "id": "d", "text": "$(6, 5)$", "isCorrect": false }
+            ],
+            "solution": "$x_T = -\\frac{-6}{2} = 3$ og $f(3) = 9 - 18 + 5 = -4$. Siden $a = 1 > 0$, er $(3, -4)$ et bunnpunkt."
+          },
+          {
+            "id": "s1-1-8-n-quiz2-q2",
+            "task": "En parabel har nullpunkter i $x = 1$ og $x = 5$. Hvor ligger symmetriaksen?",
+            "options": [
+              { "id": "a", "text": "$x = 2$", "isCorrect": false },
+              { "id": "b", "text": "$x = 3$", "isCorrect": true },
+              { "id": "c", "text": "$x = 4$", "isCorrect": false },
+              { "id": "d", "text": "$x = 6$", "isCorrect": false }
+            ],
+            "solution": "Symmetriaksen ligger midt mellom nullpunktene: $x = \\frac{1 + 5}{2} = 3$."
+          },
+          {
+            "id": "s1-1-8-n-quiz2-q3",
+            "task": "Funksjonen $f(x) = -(x - 3)^2 + 4$ står på toppunktform. Hva kan vi lese direkte ut?",
+            "options": [
+              { "id": "a", "text": "Nullpunktene er $x = 3$ og $x = 4$", "isCorrect": false },
+              { "id": "b", "text": "Bunnpunktet er $(3, 4)$", "isCorrect": false },
+              { "id": "c", "text": "Grafen skjærer $y$-aksen i $4$", "isCorrect": false },
+              { "id": "d", "text": "Toppunktet er $(3, 4)$, og parabelen peker nedover", "isCorrect": true }
+            ],
+            "solution": "Formen $a(x - x_T)^2 + y_T$ med $a = -1 < 0$ viser et maksimum i $(x_T, y_T) = (3, 4)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-8-n-section3",
+      "type": "text",
+      "content": "## Faktorisering og optimalisering — food truckens fasit\n\nNår du kjenner nullpunktene $x_1$ og $x_2$, kan andregradsuttrykket alltid faktoriseres som\n\n$$ax^2 + bx + c = a(x - x_1)(x - x_2)$$\n\nHusk at $a$-en foran parentesene må være med: $2x^2 - 10x + 12 = 2(x - 2)(x - 3)$, ikke bare $(x-2)(x-3)$ — gang ut og sjekk selv. Ved dobbeltrot ($D = 0$) blir faktoriseringen $a(x - x_1)^2$, og ved $D < 0$ kan uttrykket ikke faktoriseres over de reelle tallene. Faktorisering er nyttig for å løse ulikheter, forenkle brøkuttrykk og forstå grafens oppførsel.\n\nSå til finalen: optimaliseringen. Food truck-eieren har testet ulike priser og funnet at hvis en lunsjboks koster $x$ kroner, selger hun omtrent $120 - 2x$ bokser per dag. Dagsinntekten blir dermed\n\n$$I(x) = x(120 - 2x) = 120x - 2x^2$$\n\nDette er en andregradsfunksjon med $a = -2 < 0$, så den har et maksimum i toppunktet:\n\n$$x_T = -\\frac{120}{2 \\cdot (-2)} = 30$$\n\nDen optimale prisen er altså 30 kroner. Da selger hun $120 - 2 \\cdot 30 = 60$ bokser, og maksimal dagsinntekt blir $I(30) = 30 \\cdot 60 = 1800$ kroner.\n\nLegg merke til strukturen i løsningen, for den går igjen i alle optimaliseringsoppgaver: oversett situasjonen til en andregradsfunksjon, sjekk fortegnet til $a$ for å vite om toppunktet er et maksimum eller minimum, finn $x_T = -\\frac{b}{2a}$, og regn ut funksjonsverdien. Fire steg fra dilemma til fasit — det er andregradsfunksjonen som beslutningsverktøy."
+    },
+    {
+      "id": "s1-1-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på faktorisering og optimalisering:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-8-n-quiz3-q0",
+            "task": "Hva er riktig faktorisering av $2x^2 - 10x + 12$?",
+            "options": [
+              { "id": "a", "text": "$(x - 2)(x - 3)$", "isCorrect": false },
+              { "id": "b", "text": "$(2x - 2)(2x - 3)$", "isCorrect": false },
+              { "id": "c", "text": "$2(x - 2)(x - 3)$", "isCorrect": true },
+              { "id": "d", "text": "$2(x + 2)(x + 3)$", "isCorrect": false }
+            ],
+            "solution": "Nullpunktene til $x^2 - 5x + 6$ er 2 og 3, og den ledende koeffisienten 2 må med: $2(x-2)(x-3)$."
+          },
+          {
+            "id": "s1-1-8-n-quiz3-q1",
+            "task": "Inntektsmodellen er $I(x) = 120x - 2x^2$. Hvilken pris gir størst inntekt?",
+            "options": [
+              { "id": "a", "text": "$x = 60$", "isCorrect": false },
+              { "id": "b", "text": "$x = 30$", "isCorrect": true },
+              { "id": "c", "text": "$x = 120$", "isCorrect": false },
+              { "id": "d", "text": "$x = 15$", "isCorrect": false }
+            ],
+            "solution": "Toppunktet ligger i $x_T = -\\frac{120}{2 \\cdot (-2)} = 30$. Prisen 30 kr maksimerer inntekten."
+          },
+          {
+            "id": "s1-1-8-n-quiz3-q2",
+            "task": "Hva er den maksimale dagsinntekten i modellen $I(x) = 120x - 2x^2$?",
+            "options": [
+              { "id": "a", "text": "$3600$ kr", "isCorrect": false },
+              { "id": "b", "text": "$1200$ kr", "isCorrect": false },
+              { "id": "c", "text": "$2400$ kr", "isCorrect": false },
+              { "id": "d", "text": "$1800$ kr", "isCorrect": true }
+            ],
+            "solution": "$I(30) = 120 \\cdot 30 - 2 \\cdot 30^2 = 3600 - 1800 = 1800$ kr."
+          },
+          {
+            "id": "s1-1-8-n-quiz3-q3",
+            "task": "Hvordan vet du at toppunktet til $I(x) = 120x - 2x^2$ er et maksimum og ikke et minimum?",
+            "options": [
+              { "id": "a", "text": "Fordi $a = -2 < 0$, slik at parabelen peker nedover", "isCorrect": true },
+              { "id": "b", "text": "Fordi konstantleddet er null", "isCorrect": false },
+              { "id": "c", "text": "Fordi diskriminanten er positiv", "isCorrect": false },
+              { "id": "d", "text": "Fordi $x_T$ er positiv", "isCorrect": false }
+            ],
+            "solution": "Fortegnet til $a$ avgjør: $a < 0$ gir en parabel med toppunkt (maksimum), $a > 0$ gir bunnpunkt (minimum)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: parabelens verktøykasse\n\nFood trucken endte på 30 kroner per lunsjboks og 1800 kroner i maksimal dagsinntekt — et svar regnet ut, ikke gjettet. Veien dit gikk gjennom hele verktøykassa til andregradsfunksjonen.\n\nEn **andregradsfunksjon** $f(x) = ax^2 + bx + c$ har en parabel som graf: bunnpunkt når $a > 0$, toppunkt når $a < 0$. **Abc-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ løser den tilhørende likningen, og **diskriminanten** $D = b^2 - 4ac$ avslører antall løsninger på forhånd: to når $D > 0$, én når $D = 0$, ingen når $D < 0$.\n\n**Toppunktet** ligger på symmetriaksen $x = -\\frac{b}{2a}$, midt mellom eventuelle nullpunkter, og **toppunktformen** $f(x) = a(x - x_T)^2 + y_T$ viser det direkte. **Faktoriseringen** $ax^2 + bx + c = a(x - x_1)(x - x_2)$ kobler uttrykket til nullpunktene — og husk alltid å ta med $a$-en.\n\nViktigst av alt er kanskje arbeidsflyten for **optimalisering**: oversett situasjonen til en andregradsfunksjon, bruk fortegnet til $a$ til å avgjøre om toppunktet er maks eller min, finn $x_T$, og regn ut verdien. Pris og inntekt, areal og omkrets, fart og drivstoff — overalt der noe først øker og så avtar, står parabelen klar. I funksjonsdelen av S1 møter du den igjen, da med deriverte som nytt verktøy for samme spørsmål: hvor er toppen?"
+    }
+  ],
+  "exercises": []
+}

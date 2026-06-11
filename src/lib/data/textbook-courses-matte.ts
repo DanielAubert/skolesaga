@@ -298,6 +298,7 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-1-7'],
       coverImage: '/images/subjects/1t-2-11-polynomdivisjon-i-geogebra.webp',
       wip: true,
+      linkedChapterId: '1t-2-11-narrativ',
     },
 
     // Kapittel 3: Funksjoner
@@ -415,6 +416,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['GeoGebra', 'Grafisk analyse', 'Nullpunkter', 'Ekstremalpunkter'],
       coverImage: '/images/subjects/1t-3-9-funksjonsdroftning-i-geogebra.webp',
       wip: true,
+      linkedChapterId: '1t-3-9-narrativ',
     },
 
     // Kapittel 4: Likningssett og ulikheter (NYTT KAPITTEL)
@@ -592,6 +594,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['GeoGebra Geometri', 'Konstruksjoner', 'Trigonometri'],
       coverImage: '/images/subjects/1t-5-8-geometri-og-trigonometri-i-geogebra.webp',
       wip: true,
+      linkedChapterId: '1t-5-8-narrativ',
     },
 
     // Kapittel 6: Bevis og argumentasjon (var kapittel 5)
@@ -676,6 +679,7 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-3'],
       coverImage: '/images/subjects/1t-7-4-derivasjon-i-geogebra.webp',
       wip: true,
+      linkedChapterId: '1t-7-4-narrativ',
     },
     {
       id: '1t-7-5',
@@ -812,6 +816,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Tusener', 'Titusen', 'Hundretusen', 'Millioner', 'Plassverdisystem'],
       competenceGoals: ['utforske og beskrive strukturar og mønster i tal og bruke plassverdisystemet'],
       coverImage: '/images/subjects/1t-8-5-modellvurdering-og-praktisk-bruk.webp',
+      linkedChapterId: '5-1-1-narrativ',
     },
     {
       id: '5-1-2',
@@ -823,6 +828,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Desimaltall', 'Tideler', 'Hundredeler', 'Plassverdisystem'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning med desimaltal'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      linkedChapterId: '5-1-2-narrativ',
     },
     {
       id: '5-1-3',
@@ -834,6 +840,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Brøk', 'Teller', 'Nevner', 'Del av helhet', 'Brøkstrek'],
       competenceGoals: ['samanlikne og rekne med brøk'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      linkedChapterId: '5-1-3-narrativ',
     },
     {
       id: '5-1-4',
@@ -845,6 +852,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Negative tall', 'Tallinje', 'Under null', 'Temperatur'],
       competenceGoals: ['utforske negative tal i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=400&fit=crop',
+      linkedChapterId: '5-1-4-narrativ',
     },
 
     // Kapittel 2: De fire regneartene
@@ -858,6 +866,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Addisjon', 'Subtraksjon', 'Flersifrede tall', 'Veksling', 'Tiervenner'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&h=400&fit=crop',
+      linkedChapterId: '5-2-1-narrativ',
     },
     {
       id: '5-2-2',
@@ -869,6 +878,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Multiplikasjon', 'Gangetabell', 'Tosifrede tall', 'Oppstilling'],
       competenceGoals: ['utvikle og bruke metodar for multiplikasjon'],
       coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
+      linkedChapterId: '5-2-2-narrativ',
     },
     {
       id: '5-2-3',
@@ -880,6 +890,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Divisjon', 'Kort divisjon', 'Rest', 'Dele likt'],
       competenceGoals: ['utvikle og bruke metodar for divisjon'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
+      linkedChapterId: '5-2-3-narrativ',
     },
     {
       id: '5-2-4',
@@ -891,6 +902,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Regnerekkefølge', 'Parenteser', 'Multiplikasjon før addisjon', 'Regneoperasjoner'],
       competenceGoals: ['bruke regnerekkjefølgja til å løyse oppgåver'],
       coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      linkedChapterId: '5-2-4-narrativ',
     },
 
     // Kapittel 3: Måling og enheter
@@ -904,6 +916,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Lengde', 'mm', 'cm', 'dm', 'm', 'km', 'Omregning'],
       competenceGoals: ['velje høvelege måleiningar og rekne om mellom ulike måleiningar'],
       coverImage: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop',
+      linkedChapterId: '5-3-1-narrativ',
     },
     {
       id: '5-3-2',
@@ -915,6 +928,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Areal', 'Kvadratmeter', 'Rektangel', 'Lengde ganger bredde'],
       competenceGoals: ['utforske og beskrive areal og samanlikne areal av figurar'],
       coverImage: 'https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=800&h=400&fit=crop',
+      linkedChapterId: '5-3-2-narrativ',
     },
     {
       id: '5-3-3',
@@ -926,6 +940,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Omkrets', 'Firkanter', 'Trekanter', 'Rundt figuren'],
       competenceGoals: ['utforske og beskrive omkrets av figurar'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      linkedChapterId: '5-3-3-narrativ',
     },
 
     // Kapittel 4: Geometri
@@ -939,6 +954,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Vinkler', 'Grader', 'Spiss vinkel', 'Stump vinkel', 'Rett vinkel', 'Gradskive'],
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      linkedChapterId: '5-4-1-narrativ',
     },
     {
       id: '5-4-2',
@@ -951,6 +967,7 @@ export const COURSE_5: TextbookCourse = {
       prerequisites: ['5-4-1'],
       competenceGoals: ['utforske eigenskapar ved trekanter'],
       coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
+      linkedChapterId: '5-4-2-narrativ',
     },
     {
       id: '5-4-3',
@@ -963,6 +980,7 @@ export const COURSE_5: TextbookCourse = {
       prerequisites: ['5-4-1'],
       competenceGoals: ['utforske eigenskapar ved firkantar'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      linkedChapterId: '5-4-3-narrativ',
     },
 
     // Kapittel 5: Statistikk
@@ -976,6 +994,7 @@ export const COURSE_5: TextbookCourse = {
       topics: ['Tabeller', 'Søylediagram', 'Sektordiagram', 'Avlesing', 'Fremstilling'],
       competenceGoals: ['samle inn, sortere og presentere data i tabellar og diagram'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '5-5-1-narrativ',
     },
     {
       id: '5-5-2',
@@ -1026,6 +1045,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Fellesnevner', 'Like brøker', 'Utviding', 'Forkorting'],
       competenceGoals: ['beskrive og bruke plassverdisystemet for desimaltal, rekne med positive og negative heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      linkedChapterId: '6-1-1-narrativ',
     },
     {
       id: '6-1-2',
@@ -1038,6 +1058,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-1-1'],
       competenceGoals: ['beskrive og bruke plassverdisystemet for desimaltal, rekne med positive og negative heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      linkedChapterId: '6-1-2-narrativ',
     },
     {
       id: '6-1-3',
@@ -1050,6 +1071,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-1-1'],
       competenceGoals: ['beskrive og bruke plassverdisystemet for desimaltal, rekne med positive og negative heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      linkedChapterId: '6-1-3-narrativ',
     },
     {
       id: '6-1-4',
@@ -1062,6 +1084,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-1-3'],
       competenceGoals: ['beskrive og bruke plassverdisystemet for desimaltal, rekne med positive og negative heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      linkedChapterId: '6-1-4-narrativ',
     },
 
     // Kapittel 2: Forhold og proporsjonalitet
@@ -1075,6 +1098,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Forhold', 'Forholdstall', 'Sammenligne størrelser'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
+      linkedChapterId: '6-2-1-narrativ',
     },
     {
       id: '6-2-2',
@@ -1087,6 +1111,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-2-1'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '6-2-2-narrativ',
     },
     {
       id: '6-2-3',
@@ -1099,6 +1124,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-2-1'],
       competenceGoals: ['bruke målestokk til å berekne avstandar og lage enkle kart og arbeidsteikningar'],
       coverImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop',
+      linkedChapterId: '6-2-3-narrativ',
     },
 
     // Kapittel 3: Måling og geometri
@@ -1112,6 +1138,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Areal', 'Trekant', 'Grunnlinje', 'Høyde', 'Arealformel'],
       competenceGoals: ['utforske og argumentere for formlar for areal og omkrets av trekanter og firkantar'],
       coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
+      linkedChapterId: '6-3-1-narrativ',
     },
     {
       id: '6-3-2',
@@ -1123,6 +1150,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Volum', 'Kubikkenheter', 'Prisme', 'Rektangulært prisme'],
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
+      linkedChapterId: '6-3-2-narrativ',
     },
     {
       id: '6-3-3',
@@ -1135,6 +1163,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-3-2'],
       competenceGoals: ['utforske og argumentere for formlar for areal og omkrets av trekanter og firkantar'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      linkedChapterId: '6-3-3-narrativ',
     },
     {
       id: '6-3-4',
@@ -1146,6 +1175,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Sirkel', 'Radius', 'Diameter', 'Omkrets', 'Pi'],
       competenceGoals: ['utforske og argumentere for formlar for areal og omkrets'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      linkedChapterId: '6-3-4-narrativ',
     },
 
     // Kapittel 4: Algebra - introduksjon
@@ -1159,6 +1189,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Variabler', 'Bokstavuttrykk', 'Ukjent tall'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
+      linkedChapterId: '6-4-1-narrativ',
     },
     {
       id: '6-4-2',
@@ -1171,6 +1202,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-4-1'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      linkedChapterId: '6-4-2-narrativ',
     },
     {
       id: '6-4-3',
@@ -1183,6 +1215,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-4-1'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
+      linkedChapterId: '6-4-3-narrativ',
     },
 
     // Kapittel 5: Sannsynlighet og statistikk
@@ -1196,6 +1229,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Sannsynlighet', 'Sjanse', 'Utfall', 'Tilfeldighet'],
       competenceGoals: ['utforske og beskrive sannsynlighet i daglegdagse situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      linkedChapterId: '6-5-1-narrativ',
     },
     {
       id: '6-5-2',
@@ -1207,6 +1241,7 @@ export const COURSE_6: TextbookCourse = {
       topics: ['Median', 'Typetall', 'Sentralmål', 'Datasett'],
       competenceGoals: ['bruke sentralmål til å analysere og samanlikne datasett'],
       coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      linkedChapterId: '6-5-2-narrativ',
     },
     {
       id: '6-5-3',
@@ -1219,6 +1254,7 @@ export const COURSE_6: TextbookCourse = {
       prerequisites: ['6-5-2'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '6-5-3-narrativ',
     },
   ],
 };
@@ -1244,6 +1280,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Negative tall', 'Addisjon', 'Subtraksjon', 'Tallinje'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning med heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      linkedChapterId: '7-1-1-narrativ',
     },
     {
       id: '7-1-2',
@@ -1255,6 +1292,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Regnerekkefølge', 'PEMDAS', 'Parenteser', 'Potenser'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      linkedChapterId: '7-1-2-narrativ',
     },
     {
       id: '7-1-3',
@@ -1266,6 +1304,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Brøk', 'Multiplikasjon', 'Divisjon', 'Brøkregning'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og skriftleg rekning med heile tal, desimaltal, brøkar og prosent'],
       coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      linkedChapterId: '7-1-3-narrativ',
     },
     {
       id: '7-1-4',
@@ -1277,6 +1316,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Potenser', 'Grunntall', 'Eksponent', 'Potensregler'],
       competenceGoals: ['utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar'],
       coverImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=400&fit=crop',
+      linkedChapterId: '7-1-4-narrativ',
     },
 
     // Kapittel 2: Algebra
@@ -1290,6 +1330,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Variabler', 'Bokstavuttrykk', 'Addisjon', 'Subtraksjon', 'Multiplikasjon'],
       competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
+      linkedChapterId: '7-2-1-narrativ',
     },
     {
       id: '7-2-2',
@@ -1301,6 +1342,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Likninger', 'Førstegradslikninger', 'Balanseprinsippet', 'Ukjent'],
       competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
       coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      linkedChapterId: '7-2-2-narrativ',
     },
     {
       id: '7-2-3',
@@ -1312,6 +1354,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Ulikheter', 'Større enn', 'Mindre enn', 'Tallinje'],
       competenceGoals: ['løyse likningar og ulikskapar og forklare kva det vil seie at ein storleik er ukjend'],
       coverImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=400&fit=crop',
+      linkedChapterId: '7-2-3-narrativ',
     },
     {
       id: '7-2-4',
@@ -1324,6 +1367,7 @@ export const COURSE_7: TextbookCourse = {
       prerequisites: ['7-2-2'],
       competenceGoals: ['bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
+      linkedChapterId: '7-2-4-narrativ',
     },
 
     // Kapittel 3: Funksjoner og grafer
@@ -1337,6 +1381,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Koordinatsystem', 'Fire kvadranter', 'Negative koordinater', 'Punkter'],
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '7-3-1-narrativ',
     },
     {
       id: '7-3-2',
@@ -1349,6 +1394,7 @@ export const COURSE_7: TextbookCourse = {
       prerequisites: ['7-3-1'],
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
+      linkedChapterId: '7-3-2-narrativ',
     },
     {
       id: '7-3-3',
@@ -1361,6 +1407,7 @@ export const COURSE_7: TextbookCourse = {
       prerequisites: ['7-3-1'],
       competenceGoals: ['utforske og beskrive funksjonar knytte til praktiske situasjonar'],
       coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      linkedChapterId: '7-3-3-narrativ',
     },
 
     // Kapittel 4: Geometri
@@ -1374,6 +1421,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Vinkler', 'Trekanter', 'Vinkelsum', 'Ukjent vinkel'],
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      linkedChapterId: '7-4-1-narrativ',
     },
     {
       id: '7-4-2',
@@ -1385,6 +1433,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Konstruksjoner', 'Passer', 'Linjal', 'Midtnormal', 'Halveringslinjer'],
       competenceGoals: ['utforske eigenskapar ved to- og tredimensjonale figurar og beskrive dei'],
       coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
+      linkedChapterId: '7-4-2-narrativ',
     },
     {
       id: '7-4-3',
@@ -1397,6 +1446,7 @@ export const COURSE_7: TextbookCourse = {
       prerequisites: ['7-4-1'],
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      linkedChapterId: '7-4-3-narrativ',
     },
     {
       id: '7-4-4',
@@ -1408,6 +1458,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Areal', 'Volum', 'Sammensatte figurer', 'Sylinder'],
       competenceGoals: ['utforske og argumentere for formlar for areal og volum'],
       coverImage: 'https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=800&h=400&fit=crop',
+      linkedChapterId: '7-4-4-narrativ',
     },
 
     // Kapittel 5: Statistikk og økonomi
@@ -1421,6 +1472,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Statistikk', 'Utvalg', 'Populasjon', 'Analyse', 'Datainnsamling'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '7-5-1-narrativ',
     },
     {
       id: '7-5-2',
@@ -1433,6 +1485,7 @@ export const COURSE_7: TextbookCourse = {
       prerequisites: ['7-5-1'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar og presentere resultat'],
       coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      linkedChapterId: '7-5-2-narrativ',
     },
     {
       id: '7-5-3',
@@ -1444,6 +1497,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Budsjett', 'Sparing', 'Inntekt', 'Utgift', 'Personlig økonomi'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      linkedChapterId: '7-5-3-narrativ',
     },
     {
       id: '7-5-4',
@@ -1455,6 +1509,7 @@ export const COURSE_7: TextbookCourse = {
       topics: ['Prosent', 'Rabatt', 'Påslag', 'Prosentvis endring'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      linkedChapterId: '7-5-4-narrativ',
     },
   ],
 };
@@ -3098,6 +3153,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: '/images/subjects/1p-1-1-prosentregning.webp',
       wip: true,
+      linkedChapterId: '1p-1-1-narrativ',
     },
     {
       id: '1p-1-2',
@@ -3110,6 +3166,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-1-1'],
       coverImage: '/images/subjects/1p-1-2-gjentatt-prosentvis-endring.webp',
       wip: true,
+      linkedChapterId: '1p-1-2-narrativ',
     },
     {
       id: '1p-1-3',
@@ -3122,6 +3179,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
       coverImage: '/images/subjects/1p-1-3-budsjett-og-regnskap.webp',
       wip: true,
+      linkedChapterId: '1p-1-3-narrativ',
     },
     {
       id: '1p-1-4',
@@ -3133,6 +3191,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Brøk', 'Forkorting', 'Utviding', 'Regnearter med brøk', 'Desimaltall'],
       competenceGoals: ['rekne med brøk og sjå samanhengen mellom brøk, prosent og desimaltal'],
       coverImage: '/images/subjects/1p-1-4-brokregning.webp',
+      linkedChapterId: '1p-1-4-narrativ',
     },
     {
       id: '1p-1-5',
@@ -3144,6 +3203,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Regnerekkefølge', 'Parenteser', 'Overslagsregning', 'Hoderegning'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og digital rekning'],
       coverImage: '/images/subjects/1p-1-5-regnerekkefolge-og-overslagsregning.webp',
+      linkedChapterId: '1p-1-5-narrativ',
     },
 
     // Kapittel 2: Algebra og likninger
@@ -3157,6 +3217,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Rasjonale tall', 'Brøk', 'Desimaltall', 'Prosent', 'Overslag'],
       coverImage: '/images/subjects/1p-2-1-tall-og-tallforstaelse.webp',
       wip: true,
+      linkedChapterId: '1p-2-1-narrativ',
     },
     {
       id: '1p-2-2',
@@ -3169,6 +3230,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: '/images/subjects/1p-2-2-forholdstall-og-skala.webp',
       wip: true,
+      linkedChapterId: '1p-2-2-narrativ',
     },
     {
       id: '1p-2-3',
@@ -3181,6 +3243,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['modellere og løyse praktiske problem ved å setje opp enkle likningar'],
       coverImage: '/images/subjects/1p-2-3-likninger-i-praksis.webp',
       wip: true,
+      linkedChapterId: '1p-2-3-narrativ',
     },
     {
       id: '1p-2-4',
@@ -3192,6 +3255,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Potenser', 'Potensregler', 'Multiplikasjon av potenser', 'Divisjon av potenser'],
       competenceGoals: ['bruke potensrekneregler'],
       coverImage: '/images/subjects/1p-2-4-potenser-og-potensregler.webp',
+      linkedChapterId: '1p-2-4-narrativ',
     },
     {
       id: '1p-2-5',
@@ -3203,6 +3267,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Kvadratrot', 'Tredjerot', 'Standardform', 'Store tall', 'Små tall'],
       competenceGoals: ['bruke standardform til å uttrykkje store og små tal'],
       coverImage: '/images/subjects/1p-2-5-rotter-og-standardform.webp',
+      linkedChapterId: '1p-2-5-narrativ',
     },
     {
       id: '1p-2-6',
@@ -3214,6 +3279,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Forholdstall', 'Proporsjonalitet', 'Omvendt proporsjonalitet', 'Kryssregning'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
       coverImage: '/images/subjects/1p-2-6-proporsjonalitet.webp',
+      linkedChapterId: '1p-2-6-narrativ',
     },
 
     // Kapittel 3: Funksjoner
@@ -3228,6 +3294,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['utforske og beskrive lineære funksjonar i praktiske situasjonar'],
       coverImage: '/images/subjects/1p-3-1-lineaere-funksjoner.webp',
       wip: true,
+      linkedChapterId: '1p-3-1-narrativ',
     },
     {
       id: '1p-3-2',
@@ -3240,6 +3307,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-3-1'],
       coverImage: '/images/subjects/1p-3-2-lineaer-modellering.webp',
       wip: true,
+      linkedChapterId: '1p-3-2-narrativ',
     },
     {
       id: '1p-3-3',
@@ -3252,6 +3320,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-1-2'],
       coverImage: '/images/subjects/1p-3-3-eksponentialfunksjoner.webp',
       wip: true,
+      linkedChapterId: '1p-3-3-narrativ',
     },
     {
       id: '1p-3-4',
@@ -3263,6 +3332,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Andregradsfunksjon', 'Parabel', 'Toppunkt', 'Bunnpunkt', 'Nullpunkter'],
       competenceGoals: ['utforske eigenskapane til andregradsfunksjonar'],
       coverImage: '/images/subjects/1p-3-4-andregradsfunksjoner.webp',
+      linkedChapterId: '1p-3-4-narrativ',
     },
     {
       id: '1p-3-5',
@@ -3274,6 +3344,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Doblingstid', 'Halveringstid'],
       competenceGoals: ['utforske eigenskapane til eksponentialfunksjonar'],
       coverImage: '/images/subjects/1p-3-5-eksponentialfunksjoner.webp',
+      linkedChapterId: '1p-3-5-narrativ',
     },
     {
       id: '1p-3-6',
@@ -3285,6 +3356,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Digital graftegning', 'GeoGebra', 'Nullpunkter', 'Skjæringspunkter', 'Grafisk løsning'],
       competenceGoals: ['bruke digitale verktøy i utforsking og problemløysing'],
       coverImage: '/images/subjects/1p-3-6-digital-graftegning-og-likningslosning.webp',
+      linkedChapterId: '1p-3-6-narrativ',
     },
 
     // Kapittel 4: Geometri og måling
@@ -3298,6 +3370,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Målestokk', 'Enheter', 'Omregning', 'Praktisk måling'],
       coverImage: '/images/subjects/1p-4-1-malestokk-og-enheter.webp',
       wip: true,
+      linkedChapterId: '1p-4-1-narrativ',
     },
     {
       id: '1p-4-2',
@@ -3310,6 +3383,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['bruke geometriske omgrep i praktiske samanhengar'],
       coverImage: '/images/subjects/1p-4-2-areal-og-omkrets.webp',
       wip: true,
+      linkedChapterId: '1p-4-2-narrativ',
     },
     {
       id: '1p-4-3',
@@ -3322,6 +3396,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-4-2'],
       coverImage: '/images/subjects/1p-4-3-volum-og-overflate.webp',
       wip: true,
+      linkedChapterId: '1p-4-3-narrativ',
     },
     {
       id: '1p-4-4',
@@ -3333,6 +3408,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['SI-systemet', 'Prefikser', 'Enhetsomregning', 'Lengde', 'Areal', 'Volum', 'Fart'],
       competenceGoals: ['velje høvelege einingar og rekne om mellom einingar'],
       coverImage: '/images/subjects/1p-4-4-maleenheter-og-enhetsomregning.webp',
+      linkedChapterId: '1p-4-4-narrativ',
     },
     {
       id: '1p-4-5',
@@ -3344,6 +3420,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Formlikhet', 'Formlikhetsfaktor', 'Målestokk', 'Areal og formlikhet', 'Volum og formlikhet'],
       competenceGoals: ['bruke formlikskap og målestokk til berekningar'],
       coverImage: '/images/subjects/1p-4-5-formlikhet.webp',
+      linkedChapterId: '1p-4-5-narrativ',
     },
 
     // Kapittel 5: Statistikk
@@ -3358,6 +3435,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar'],
       coverImage: '/images/subjects/1p-5-1-datainnsamling.webp',
       wip: true,
+      linkedChapterId: '1p-5-1-narrativ',
     },
     {
       id: '1p-5-2',
@@ -3370,6 +3448,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-5-1'],
       coverImage: '/images/subjects/1p-5-2-sentralmal-og-spredning.webp',
       wip: true,
+      linkedChapterId: '1p-5-2-narrativ',
     },
     {
       id: '1p-5-3',
@@ -3383,6 +3462,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['presentere og tolke statistiske data'],
       coverImage: '/images/subjects/1p-5-3-diagrammer-og-presentasjon.webp',
       wip: true,
+      linkedChapterId: '1p-5-3-narrativ',
     },
     {
       id: '1p-5-4',
@@ -3394,6 +3474,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Kritisk vurdering', 'Feilkilder', 'Manipulering', 'Representativitet'],
       prerequisites: ['1p-5-3'],
       coverImage: '/images/subjects/1p-5-4-kritisk-analyse.webp',
+      linkedChapterId: '1p-5-4-narrativ',
     },
 
     // Kapittel 6: Sannsynlighet
@@ -3408,6 +3489,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['bruke sannsynligheit i praktiske situasjonar'],
       coverImage: '/images/subjects/1p-6-1-grunnleggende-sannsynlighet.webp',
       wip: true,
+      linkedChapterId: '1p-6-1-narrativ',
     },
     {
       id: '1p-6-2',
@@ -3420,6 +3502,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-6-1'],
       coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.webp',
       wip: true,
+      linkedChapterId: '1p-6-2-narrativ',
     },
     {
       id: '1p-6-3',
@@ -3432,6 +3515,7 @@ export const COURSE_1P: TextbookCourse = {
       prerequisites: ['1p-6-2'],
       competenceGoals: ['bruke digitale verktøy til å simulere og berekne sannsyn'],
       coverImage: '/images/subjects/1p-6-3-simulering.webp',
+      linkedChapterId: '1p-6-3-narrativ',
     },
 
     // Kapittel 7: Modellering og funksjoner
@@ -3444,6 +3528,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Modellering', 'Lineære modeller', 'Gyldighetsområde'],
       competenceGoals: ['sette opp enkle matematiske modeller', 'vurdere modellers gyldighet'],
+      linkedChapterId: '1p-7-1-narrativ',
     },
     {
       id: '1p-7-2',
@@ -3454,6 +3539,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Regneark', 'Formler', 'Cellereferanser', 'Diagrammer'],
       competenceGoals: ['bruke regneark til beregninger og modellering', 'lage formler med cellereferanser'],
+      linkedChapterId: '1p-7-2-narrativ',
     },
     {
       id: '1p-7-3',
@@ -3465,6 +3551,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Lineær regresjon', 'Korrelasjonskoeffisient', 'Prediksjon', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne lineære modellar som passar til datamateriale'],
       coverImage: '/images/subjects/1p-7-3-lineaer-regresjon.webp',
+      linkedChapterId: '1p-7-3-narrativ',
     },
     {
       id: '1p-7-4',
@@ -3476,6 +3563,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Eksponentialregresjon', 'Eksponentiell vekst', 'Modellvalg', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne eksponentielle modellar som passar til datamateriale'],
       coverImage: '/images/subjects/1p-7-4-eksponentialregresjon.webp',
+      linkedChapterId: '1p-7-4-narrativ',
     },
     {
       id: '1p-7-5',
@@ -3487,6 +3575,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Definisjonsmengde', 'Verdimengde', 'Nullpunkter', 'Topp- og bunnpunkt', 'Vekstfart', 'Symmetri'],
       competenceGoals: ['tolke og bruke funksjonar og drøfte eigenskapane deira'],
       coverImage: '/images/subjects/1p-7-5-kjennetegn-ved-funksjoner.webp',
+      linkedChapterId: '1p-7-5-narrativ',
     },
 
     // Kapittel 8: Personlig økonomi
@@ -3499,6 +3588,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Bruttolønn', 'Nettolønn', 'Inntekt', 'Utgifter'],
       competenceGoals: ['forstå grunnleggende begreper i personlig økonomi', 'beregne netto inntekt etter skatt'],
+      linkedChapterId: '1p-8-1-narrativ',
     },
     {
       id: '1p-8-2',
@@ -3509,6 +3599,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Budsjett', 'Faste utgifter', 'Variable utgifter', 'Sparing'],
       competenceGoals: ['sette opp et realistisk budsjett', 'skille mellom faste og variable utgifter'],
+      linkedChapterId: '1p-8-2-narrativ',
     },
     {
       id: '1p-8-3',
@@ -3520,6 +3611,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Bruttolønn', 'Nettolønn', 'Skattetrekk', 'Trinnskatt', 'Trygdeavgift', 'Feriepenger'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
       coverImage: '/images/subjects/1p-8-3-lonn-og-skatt.webp',
+      linkedChapterId: '1p-8-3-narrativ',
     },
     {
       id: '1p-8-4',
@@ -3531,6 +3623,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Merverdiavgift', 'MVA-satser', 'Valutakurs', 'Veksling', 'Utenlandshandel'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
       coverImage: '/images/subjects/1p-8-4-mva-og-valuta.webp',
+      linkedChapterId: '1p-8-4-narrativ',
     },
     {
       id: '1p-8-5',
@@ -3542,6 +3635,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Konsumprisindeks', 'KPI', 'Reallønn', 'Kroneverdi', 'Prissammenligning'],
       competenceGoals: ['bruke indeks til å samanlikne tal over tid'],
       coverImage: '/images/subjects/1p-8-5-indeks-og-kroneverdi.webp',
+      linkedChapterId: '1p-8-5-narrativ',
     },
 
     // Kapittel 9: Algoritmisk tenkning og programmering
@@ -3555,6 +3649,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Algoritme', 'Flytskjema', 'Pseudokode', 'Steg-for-steg'],
       competenceGoals: ['formulere og løyse problem ved hjelp av algoritmisk tenking'],
       coverImage: '/images/subjects/1p-9-1-hva-er-en-algoritme.webp',
+      linkedChapterId: '1p-9-1-narrativ',
     },
     {
       id: '1p-9-2',
@@ -3567,6 +3662,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar'],
       prerequisites: ['1p-9-1'],
       coverImage: '/images/subjects/1p-9-2-programmering-med-python.webp',
+      linkedChapterId: '1p-9-2-narrativ',
     },
     {
       id: '1p-9-3',
@@ -3579,6 +3675,7 @@ export const COURSE_1P: TextbookCourse = {
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar', 'bruke digitale verktøy i utforsking og problemløysing'],
       prerequisites: ['1p-9-2'],
       coverImage: '/images/subjects/1p-9-3-matematikk-med-programmering.webp',
+      linkedChapterId: '1p-9-3-narrativ',
     },
   ],
 };
@@ -3605,6 +3702,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorisering', 'Nullpunkter'],
       competenceGoals: ['faktorisere polynom ved hjelp av polynomdivisjon'],
       coverImage: '/images/subjects/s1-1-1-polynomer.webp',
+      linkedChapterId: 's1-1-1-narrativ',
     },
     {
       id: 's1-1-2',
@@ -3616,6 +3714,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Rasjonale uttrykk', 'Forkorting', 'Fellesnevner', 'Algebraiske brøker'],
       prerequisites: ['s1-1-1'],
       coverImage: '/images/subjects/s1-1-2-rasjonale-uttrykk.webp',
+      linkedChapterId: 's1-1-2-narrativ',
     },
     {
       id: 's1-1-3',
@@ -3628,6 +3727,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-1-2'],
       competenceGoals: ['løyse likningar og ulikskapar med polynomuttrykk'],
       coverImage: '/images/subjects/s1-1-3-likninger-og-ulikheter.webp',
+      linkedChapterId: 's1-1-3-narrativ',
     },
     {
       id: 's1-1-4',
@@ -3639,6 +3739,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Rasjonale uttrykk', 'Delbrøkoppspalting', 'Komplekse brøker', 'Forenkling'],
       prerequisites: ['s1-1-3'],
       coverImage: '/images/subjects/s1-1-4-rasjonale-uttrykk.webp',
+      linkedChapterId: 's1-1-4-narrativ',
     },
     {
       id: 's1-1-5',
@@ -3650,6 +3751,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Polynomiske ulikheter', 'Rasjonale ulikheter', 'Fortegnslinje', 'Løsningsmengde'],
       prerequisites: ['s1-1-4'],
       coverImage: '/images/subjects/s1-1-5-ulikheter.webp',
+      linkedChapterId: 's1-1-5-narrativ',
     },
 
     // Kapittel 2: Funksjoner
@@ -3663,6 +3765,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Polynomfunksjon', 'Graf', 'Nullpunkter', 'Ekstremalpunkter', 'Vendepunkt'],
       competenceGoals: ['analysere eigenskapar ved polynomfunksjonar'],
       coverImage: '/images/subjects/s1-2-1-polynomfunksjoner.webp',
+      linkedChapterId: 's1-2-1-narrativ',
     },
     {
       id: 's1-2-2',
@@ -3674,6 +3777,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Rasjonale funksjoner', 'Vertikal asymptote', 'Horisontal asymptote', 'Definisjonsmengde'],
       prerequisites: ['s1-2-1'],
       coverImage: '/images/subjects/s1-2-2-rasjonale-funksjoner.webp',
+      linkedChapterId: 's1-2-2-narrativ',
     },
     {
       id: 's1-2-3',
@@ -3685,6 +3789,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Halvering', 'Dobling', 'e-funksjonen'],
       competenceGoals: ['utforske og beskrive eksponentiell vekst og nedbryting'],
       coverImage: '/images/subjects/s1-2-3-eksponentialfunksjoner.webp',
+      linkedChapterId: 's1-2-3-narrativ',
     },
     {
       id: 's1-2-4',
@@ -3696,6 +3801,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Logaritme', 'Logaritmefunksjon', 'Logaritmeregler', 'Naturlig logaritme'],
       prerequisites: ['s1-2-3'],
       coverImage: '/images/subjects/s1-2-4-logaritmefunksjoner.webp',
+      linkedChapterId: 's1-2-4-narrativ',
     },
     {
       id: 's1-2-5',
@@ -3707,6 +3813,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Omvendt funksjon', 'Invers', 'Symmetri', 'Eksistens'],
       prerequisites: ['s1-2-4'],
       coverImage: '/images/subjects/s1-2-5-omvendte-funksjoner.webp',
+      linkedChapterId: 's1-2-5-narrativ',
     },
     {
       id: 's1-2-6',
@@ -3718,6 +3825,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Matematisk modellering', 'Funksjonsvalg', 'Tilpasning', 'Praktiske problemer'],
       prerequisites: ['s1-2-5'],
       coverImage: '/images/subjects/s1-2-6-modellering-med-funksjoner.webp',
+      linkedChapterId: 's1-2-6-narrativ',
     },
 
     // Kapittel 3: Derivasjon
@@ -3731,6 +3839,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Grenseverdi', 'Kontinuitet', 'Ensidig grense', 'Uendelig'],
       competenceGoals: ['utforske og drøfte omgrepet grenseverdi'],
       coverImage: '/images/subjects/s1-3-1-grenser-og-kontinuitet.webp',
+      linkedChapterId: 's1-3-1-narrativ',
     },
     {
       id: 's1-3-2',
@@ -3742,6 +3851,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Derivasjon', 'Sekant', 'Tangent', 'Momentan vekstfart', 'Grenseverdi'],
       prerequisites: ['s1-3-1'],
       coverImage: '/images/subjects/s1-3-2-definisjon-av-derivasjon.webp',
+      linkedChapterId: 's1-3-2-narrativ',
     },
     {
       id: 's1-3-3',
@@ -3754,6 +3864,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-3-2'],
       competenceGoals: ['derivere polynomfunksjonar, potensfunksjonar og eksponentialfunksjonar'],
       coverImage: '/images/subjects/s1-3-3-derivasjonsregler.webp',
+      linkedChapterId: 's1-3-3-narrativ',
     },
     {
       id: 's1-3-4',
@@ -3765,6 +3876,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Derivasjon av e^x', 'Derivasjon av ln x', 'Derivasjon av a^x', 'Derivasjon av log_a x'],
       prerequisites: ['s1-3-3'],
       coverImage: '/images/subjects/s1-3-4-derivasjon-av-spesielle-funksjoner.webp',
+      linkedChapterId: 's1-3-4-narrativ',
     },
     {
       id: 's1-3-5',
@@ -3777,6 +3889,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-3-3'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar og løyse praktiske problem'],
       coverImage: '/images/subjects/s1-3-5-anvendelser-av-derivasjon.webp',
+      linkedChapterId: 's1-3-5-narrativ',
     },
     {
       id: 's1-3-6',
@@ -3788,6 +3901,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Kjerneregelen', 'Indre funksjon', 'Ytre funksjon', 'Kjedederivering'],
       prerequisites: ['s1-3-3'],
       coverImage: '/images/subjects/s1-3-6-kjerneregelen.webp',
+      linkedChapterId: 's1-3-6-narrativ',
     },
     {
       id: 's1-3-7',
@@ -3799,6 +3913,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Sammensatte funksjoner', 'Kombinert derivasjon', 'Produkt- og kvotregel med kjerne', 'Avanserte uttrykk'],
       prerequisites: ['s1-3-6'],
       coverImage: '/images/subjects/s1-3-7-derivasjon-av-sammensatte-funksjoner.webp',
+      linkedChapterId: 's1-3-7-narrativ',
     },
     {
       id: 's1-3-8',
@@ -3810,6 +3925,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Implisitt derivasjon', 'Implisitte funksjoner', 'Tangentlinje', 'dy/dx'],
       prerequisites: ['s1-3-7'],
       coverImage: '/images/subjects/s1-3-8-implisitt-derivasjon.webp',
+      linkedChapterId: 's1-3-8-narrativ',
     },
 
     // Kapittel 4: Økonomi (KM5/KM6 — derivasjon i økonomi)
@@ -3823,6 +3939,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Kostnadsfunksjon', 'Inntektsfunksjon', 'Overskuddsfunksjon', 'Enhetskostnad'],
       competenceGoals: ['anvende derivasjon til å analysere og forstå optimaliseringsproblemer'],
       coverImage: '/images/subjects/s1-4-1-kostnad-inntekt-og-overskudd.webp',
+      linkedChapterId: 's1-4-1-narrativ',
     },
     {
       id: 's1-4-2',
@@ -3835,6 +3952,7 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['anvende derivasjon til å analysere og forstå optimaliseringsproblemer'],
       prerequisites: ['s1-4-1', 's1-3-5'],
       coverImage: '/images/subjects/s1-4-2-grensekostnader-og-grenseinntekter.webp',
+      linkedChapterId: 's1-4-2-narrativ',
     },
     {
       id: 's1-4-3',
@@ -3847,6 +3965,7 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
       prerequisites: ['s1-4-2'],
       coverImage: '/images/subjects/s1-4-3-etterspørsel-og-elastisitet.webp',
+      linkedChapterId: 's1-4-3-narrativ',
     },
     {
       id: 's1-4-4',
@@ -3859,6 +3978,7 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['anvende derivasjon til å analysere og forstå optimaliseringsproblemer'],
       prerequisites: ['s1-4-3'],
       coverImage: '/images/subjects/s1-4-4-loennsomhetsanalyse.webp',
+      linkedChapterId: 's1-4-4-narrativ',
     },
     {
       id: 's1-4-5',
@@ -3871,6 +3991,7 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
       prerequisites: ['s1-4-3'],
       coverImage: '/images/subjects/s1-4-5-elastisitet.webp',
+      linkedChapterId: 's1-4-5-narrativ',
     },
     {
       id: 's1-4-6',
@@ -3883,6 +4004,7 @@ export const COURSE_S1: TextbookCourse = {
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
       prerequisites: ['s1-4-1'],
       coverImage: '/images/subjects/s1-4-6-indeksregning.webp',
+      linkedChapterId: 's1-4-6-narrativ',
     },
 
     // Kapittel 5: Sannsynlighet
@@ -3896,6 +4018,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Multiplikasjonsprinsippet', 'Permutasjon', 'Kombinasjon', 'Fakultet'],
       competenceGoals: ['bruke kombinatorikk til å berekne sannsyn'],
       coverImage: '/images/subjects/s1-5-1-kombinatorikk.webp',
+      linkedChapterId: 's1-5-1-narrativ',
     },
     {
       id: 's1-5-2',
@@ -3907,6 +4030,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Multiplikasjonsregelen', 'Tredjagram'],
       prerequisites: ['s1-5-1'],
       coverImage: '/images/subjects/s1-5-2-betinget-sannsynlighet.webp',
+      linkedChapterId: 's1-5-2-narrativ',
     },
     {
       id: 's1-5-3',
@@ -3919,6 +4043,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-5-2'],
       competenceGoals: ['bruke Bayes setning til å berekne sannsyn'],
       coverImage: '/images/subjects/s1-5-3-bayes-setning.webp',
+      linkedChapterId: 's1-5-3-narrativ',
     },
     {
       id: 's1-5-4',
@@ -3930,6 +4055,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Inklusjon-eksklusjon', 'Stjernemodellen', 'Ordnet utvalg', 'Avansert telling'],
       prerequisites: ['s1-5-3'],
       coverImage: '/images/subjects/s1-5-4-avansert-kombinatorikk.webp',
+      linkedChapterId: 's1-5-4-narrativ',
     },
 
     // Kapittel 6: Statistikk
@@ -3943,6 +4069,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Sannsynlighetsfordeling', 'Forventningsverdi', 'Varians', 'Standardavvik'],
       competenceGoals: ['berekne og tolke forventningsverdi og standardavvik'],
       coverImage: '/images/subjects/s1-6-1-diskrete-sannsynlighetsfordelinger.webp',
+      linkedChapterId: 's1-6-1-narrativ',
     },
     {
       id: 's1-6-2',
@@ -3954,6 +4081,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Binomisk forsøk', 'Binomisk fordeling', 'Forventning', 'Standardavvik'],
       prerequisites: ['s1-6-1', 's1-5-1'],
       coverImage: '/images/subjects/s1-6-2-binomisk-fordeling.webp',
+      linkedChapterId: 's1-6-2-narrativ',
     },
     {
       id: 's1-6-3',
@@ -3966,6 +4094,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-6-2'],
       competenceGoals: ['bruke normalfordelinga til å berekne sannsyn'],
       coverImage: '/images/subjects/s1-6-3-normalfordelingen.webp',
+      linkedChapterId: 's1-6-3-narrativ',
     },
     {
       id: 's1-6-4',
@@ -3977,6 +4106,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Nullhypotese', 'Alternativ hypotese', 'Signifikansnivå', 'p-verdi', 'Testobservator'],
       prerequisites: ['s1-6-3'],
       coverImage: '/images/subjects/s1-6-4-hypotesetesting.webp',
+      linkedChapterId: 's1-6-4-narrativ',
     },
 
     // Kapittel 7: Regresjon og korrelasjon (KM1/KM5)
@@ -3990,6 +4120,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Regresjonslinjen', 'Minste kvadraters metode', 'Residualer', 'R²'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
       coverImage: '/images/subjects/s1-7-1-lineaer-regresjon.webp',
+      linkedChapterId: 's1-7-1-narrativ',
     },
     {
       id: 's1-7-2',
@@ -4002,6 +4133,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-7-1'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
       coverImage: '/images/subjects/s1-7-2-korrelasjon-kausalitet.webp',
+      linkedChapterId: 's1-7-2-narrativ',
     },
     {
       id: 's1-7-3',
@@ -4014,6 +4146,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-7-1'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
       coverImage: '/images/subjects/s1-7-3-ikke-lineaer-regresjon.webp',
+      linkedChapterId: 's1-7-3-narrativ',
     },
     {
       id: 's1-7-4',
@@ -4026,6 +4159,7 @@ export const COURSE_S1: TextbookCourse = {
       prerequisites: ['s1-7-1'],
       competenceGoals: ['anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
       coverImage: '/images/subjects/s1-7-4-residualanalyse.webp',
+      linkedChapterId: 's1-7-4-narrativ',
     },
 
     // Kapittel 8: Modellering og anvendelser
@@ -4038,6 +4172,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Matematisk modellering', 'Modellbygging', 'Validering', 'Forutsetninger', 'Begrensninger'],
       coverImage: '/images/subjects/s1-8-1-matematisk-modellering.webp',
+      linkedChapterId: 's1-8-1-narrativ',
     },
     {
       id: 's1-8-2',
@@ -4049,6 +4184,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Lineær programmering', 'Tillatt område', 'Hjørnepunkt', 'Målfunksjon', 'Optimering'],
       prerequisites: ['s1-8-1'],
       coverImage: '/images/subjects/s1-8-2-lineaer-programmering.webp',
+      linkedChapterId: 's1-8-2-narrativ',
     },
     // Seksjon 1 utvidet
     {
@@ -4060,6 +4196,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Stigningstall', 'Ettpunktsformel', 'Topunktsformel', 'Parallelle linjer', 'Vinkelrette linjer'],
       competenceGoals: ['bruke rette linjers egenskaper til å modellere og løse praktiske problemer'],
+      linkedChapterId: 's1-1-6-narrativ',
     },
     {
       id: 's1-1-7',
@@ -4071,6 +4208,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Likningssett', 'Innsettingsmetoden', 'Addisjonsmetoden', 'Grafisk løsning'],
       prerequisites: ['s1-1-6'],
       competenceGoals: ['løse lineære likningssett med to ukjente ved ulike metoder'],
+      linkedChapterId: 's1-1-7-narrativ',
     },
     {
       id: 's1-1-8',
@@ -4081,6 +4219,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Andregradsfunksjon', 'Abc-formelen', 'Diskriminant', 'Toppunkt', 'Faktorisering'],
       competenceGoals: ['løse andregradslikninger algebraisk og grafisk og bruke dem til modellering'],
+      linkedChapterId: 's1-1-8-narrativ',
     },
     {
       id: 's1-1-9',
@@ -4091,6 +4230,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Potensfunksjon', 'Eksponentialfunksjon', 'Vekstfaktor', 'Halvering', 'Dobling'],
       competenceGoals: ['modellere eksponentiell vekst og avtagning og sammenligne med lineær vekst'],
+      linkedChapterId: 's1-1-9-narrativ',
     },
     // Seksjon 2 utvidet
     {
@@ -4102,6 +4242,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Stykkevis definert', 'Absoluttverdifunksjon', 'Kontinuitet'],
       competenceGoals: ['analysere stykkevis definerte funksjoner og absoluttverdifunksjoner'],
+      linkedChapterId: 's1-2-7-narrativ',
     },
     // Seksjon 3 utvidet
     {
@@ -4114,6 +4255,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Gjennomsnittlig vekstfart', 'Momentan vekstfart', 'Sekant', 'Tangent'],
       prerequisites: ['s1-3-1'],
       competenceGoals: ['beregne gjennomsnittlig og momentan vekstfart og tolke resultatene'],
+      linkedChapterId: 's1-3-9-narrativ',
     },
     {
       id: 's1-3-10',
@@ -4125,6 +4267,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Funksjonsdrøfting', 'Nullpunkter', 'Monotoni', 'Ekstremalpunkter', 'Vendepunkter'],
       prerequisites: ['s1-3-9'],
       competenceGoals: ['gjennomføre en fullstendig funksjonsdrøfting med derivasjon'],
+      linkedChapterId: 's1-3-10-narrativ',
     },
     // Seksjon 4 utvidet
     {
@@ -4137,6 +4280,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Tilbud', 'Etterspørsel', 'Markedslikevekt', 'Skift i kurver'],
       prerequisites: ['s1-4-1'],
       competenceGoals: ['anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
+      linkedChapterId: 's1-4-7-narrativ',
     },
     {
       id: 's1-4-8',
@@ -4148,6 +4292,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Profittmaksimering', 'Kostnadsminimering', 'Marginalanalyse', 'MR=MC'],
       prerequisites: ['s1-4-7', 's1-3-1'],
       competenceGoals: ['anvende derivasjon til å analysere og forstå optimaliseringsproblemer'],
+      linkedChapterId: 's1-4-8-narrativ',
     },
     // Seksjon 5 utvidet
     {
@@ -4160,6 +4305,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Stokastisk variabel', 'Forventningsverdi', 'Varians', 'Standardavvik'],
       prerequisites: ['s1-5-1'],
       competenceGoals: ['definere og bruke stokastiske variabler og beregne forventningsverdi'],
+      linkedChapterId: 's1-5-5-narrativ',
     },
     {
       id: 's1-5-6',
@@ -4171,6 +4317,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Simulering', 'Monte Carlo', 'GeoGebra', 'Store talls lov'],
       prerequisites: ['s1-5-5'],
       competenceGoals: ['bruke simulering og digitale verktøy til å utforske sannsynlighet'],
+      linkedChapterId: 's1-5-6-narrativ',
     },
     // Seksjon 6 utvidet
     {
@@ -4183,6 +4330,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Hypergeometrisk fordeling', 'Uten tilbakelegging', 'Kvalitetskontroll'],
       prerequisites: ['s1-6-1'],
       competenceGoals: ['anvende hypergeometrisk fordeling i kvalitetskontroll og utvalg'],
+      linkedChapterId: 's1-6-5-narrativ',
     },
     {
       id: 's1-6-6',
@@ -4194,6 +4342,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Normalapproksimasjon', 'Kontinuitetskorreksjon', 'Z-verdier'],
       prerequisites: ['s1-6-5'],
       competenceGoals: ['approksimere binomialfordelingen med normalfordelingen'],
+      linkedChapterId: 's1-6-6-narrativ',
     },
     {
       id: 's1-6-7',
@@ -4204,6 +4353,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Problemstilling', 'Datainnsamling', 'Utvalgsmetoder', 'GDPR', 'Rapportering'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
+      linkedChapterId: 's1-6-7-narrativ',
     },
     // Seksjon 8 utvidet
     {
@@ -4216,6 +4366,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Sensitivitetsanalyse', 'Heltallsbetingelser', 'Skyggepris', 'LP'],
       prerequisites: ['s1-8-2'],
       competenceGoals: ['gjennomføre sensitivitetsanalyse og håndtere heltallsbetingelser i LP'],
+      linkedChapterId: 's1-8-3-narrativ',
     },
     {
       id: 's1-8-4',
@@ -4227,6 +4378,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Modellvalg', 'Determinasjonskoeffisient', 'Residualer', 'Validering', 'SSB-data'],
       prerequisites: ['s1-8-1'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
+      linkedChapterId: 's1-8-4-narrativ',
     },
     {
       id: 's1-8-5',
@@ -4238,6 +4390,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['GeoGebra', 'Excel', 'Python', 'Pipeline', 'CSV'],
       prerequisites: ['s1-8-4'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
+      linkedChapterId: 's1-8-5-narrativ',
     },
     {
       id: 's1-8-6',
@@ -4249,6 +4402,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Prosjektrapport', 'Problemstilling', 'Datakilder', 'Vurderingskriterier', 'Faglig integritet'],
       prerequisites: ['s1-6-7', 's1-7-3', 's1-8-5'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn'],
+      linkedChapterId: 's1-8-6-narrativ',
     },
   ],
 };
@@ -4275,6 +4429,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Antiderivasjon', 'Ubestemt integral', 'Integrasjonskonstant', 'Integrasjonsregler'],
       competenceGoals: ['finne ubestemte integralar ved å bruke integrasjonsreglar'],
       coverImage: '/images/subjects/s2-1-1-ubestemte-integraler.webp',
+      linkedChapterId: 's2-1-1-narrativ',
     },
     {
       id: 's2-1-2',
@@ -4286,6 +4441,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Bestemt integral', 'Areal under graf', 'Analysens fundamentalteorem'],
       prerequisites: ['s2-1-1'],
       coverImage: '/images/subjects/s2-1-2-bestemte-integraler.webp',
+      linkedChapterId: 's2-1-2-narrativ',
     },
     {
       id: 's2-1-3',
@@ -4297,6 +4453,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Areal mellom kurver', 'Integrasjon', 'Skjæringspunkter'],
       prerequisites: ['s2-1-2'],
       coverImage: '/images/subjects/s2-1-3-areal-mellom-kurver.webp',
+      linkedChapterId: 's2-1-3-narrativ',
     },
     {
       id: 's2-1-4',
@@ -4308,6 +4465,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Delvis integrasjon', 'Substitusjon', 'Variabelskifte'],
       prerequisites: ['s2-1-2'],
       coverImage: '/images/subjects/s2-1-4-integrasjonsmetoder.webp',
+      linkedChapterId: 's2-1-4-narrativ',
     },
     {
       id: 's2-1-5',
@@ -4319,6 +4477,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Substitusjon', 'Variabelskifte', 'Sammensatte funksjoner', 'Kjerneregelen baklengs'],
       prerequisites: ['s2-1-4'],
       coverImage: '/images/subjects/s2-1-5-integrasjon-ved-substitusjon.webp',
+      linkedChapterId: 's2-1-5-narrativ',
     },
     {
       id: 's2-1-6',
@@ -4330,6 +4489,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Delvis integrasjon', 'Produktregel baklengs', 'Gjentatt delvis integrasjon', 'LIATE-regelen'],
       prerequisites: ['s2-1-4'],
       coverImage: '/images/subjects/s2-1-6-delvis-integrasjon.webp',
+      linkedChapterId: 's2-1-6-narrativ',
     },
     {
       id: 's2-1-7',
@@ -4341,6 +4501,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Delbrøkoppspalting', 'Rasjonale funksjoner', 'Partielle brøker', 'Logaritmiske integraler'],
       prerequisites: ['s2-1-5', 's2-1-6'],
       coverImage: '/images/subjects/s2-1-7-integrasjon-av-rasjonale-funksjoner.webp',
+      linkedChapterId: 's2-1-7-narrativ',
     },
 
     // Kapittel 2: Differensiallikninger
@@ -4354,6 +4515,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Differensiallikning', 'Løsning', 'Generell løsning', 'Partikulær løsning'],
       competenceGoals: ['løyse enkle differensiallikningar'],
       coverImage: '/images/subjects/s2-2-1-introduksjon-til-differensiallikninger.webp',
+      linkedChapterId: 's2-2-1-narrativ',
     },
     {
       id: 's2-2-2',
@@ -4365,6 +4527,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Separabel likning', 'Separasjon av variable', 'Initialbetingelse'],
       prerequisites: ['s2-2-1', 's2-1-1'],
       coverImage: '/images/subjects/s2-2-2-separable-differensiallikninger.webp',
+      linkedChapterId: 's2-2-2-narrativ',
     },
     {
       id: 's2-2-3',
@@ -4376,6 +4539,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Lineær differensiallikning', 'Homogen', 'Inhomogen', 'Integrerende faktor'],
       prerequisites: ['s2-2-2'],
       coverImage: '/images/subjects/s2-2-3-lineaere-differensiallikninger.webp',
+      linkedChapterId: 's2-2-3-narrativ',
     },
     {
       id: 's2-2-4',
@@ -4388,6 +4552,7 @@ export const COURSE_S2: TextbookCourse = {
       prerequisites: ['s2-2-3'],
       competenceGoals: ['modellere praktiske situasjonar med differensiallikningar'],
       coverImage: '/images/subjects/s2-2-4-modellering-med-differensiallikninger.webp',
+      linkedChapterId: 's2-2-4-narrativ',
     },
 
     // Kapittel 3: Funksjonsdrøfting
@@ -4401,6 +4566,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Funksjonsdrøfting', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter', 'Skisse'],
       competenceGoals: ['drøfte funksjonar systematisk med derivasjon'],
       coverImage: '/images/subjects/s2-3-1-fullstendig-funksjonsdr0fting.webp',
+      linkedChapterId: 's2-3-1-narrativ',
     },
     {
       id: 's2-3-2',
@@ -4412,6 +4578,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Andrederivert', 'Vendepunkt', 'Krumning', 'Konkavitet'],
       prerequisites: ['s2-3-1'],
       coverImage: '/images/subjects/s2-3-2-andrederiverte-og-vendepunkter.webp',
+      linkedChapterId: 's2-3-2-narrativ',
     },
     {
       id: 's2-3-3',
@@ -4424,6 +4591,7 @@ export const COURSE_S2: TextbookCourse = {
       prerequisites: ['s2-3-1'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske optimeringsproblem'],
       coverImage: '/images/subjects/s2-3-3-optimering.webp',
+      linkedChapterId: 's2-3-3-narrativ',
     },
     {
       id: 's2-3-4',
@@ -4435,6 +4603,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Rasjonale funksjoner', 'Vertikale asymptoter', 'Horisontale asymptoter', 'Diskontinuitet'],
       prerequisites: ['s2-3-1'],
       coverImage: '/images/subjects/s2-3-4-drofting-av-rasjonale-funksjoner.webp',
+      linkedChapterId: 's2-3-4-narrativ',
     },
     {
       id: 's2-3-5',
@@ -4446,6 +4615,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Parametere', 'Generell drøfting', 'Familier av funksjoner', 'Parameterbestemmelse'],
       prerequisites: ['s2-3-1'],
       coverImage: '/images/subjects/s2-3-5-drofting-med-parametere.webp',
+      linkedChapterId: 's2-3-5-narrativ',
     },
     {
       id: 's2-3-6',
@@ -4457,6 +4627,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Grenseverdier', 'Asymptotisk oppførsel', 'Uegentlige grenseverdier', 'Dominerende ledd'],
       prerequisites: ['s2-3-4'],
       coverImage: '/images/subjects/s2-3-6-asymptotisk-analyse.webp',
+      linkedChapterId: 's2-3-6-narrativ',
     },
 
     // Kapittel 4: Statistikk og sannsynlighet
@@ -4470,6 +4641,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Sannsynlighetsfordeling', 'Diskret', 'Kontinuerlig', 'Tetthetsfunksjon'],
       competenceGoals: ['bruke ulike sannsynlighetsfordelingar til å modellere situasjonar'],
       coverImage: '/images/subjects/s2-4-1-sannsynlighetsfordelinger.webp',
+      linkedChapterId: 's2-4-1-narrativ',
     },
     {
       id: 's2-4-2',
@@ -4481,6 +4653,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Hypergeometrisk fordeling', 'Binomisk fordeling', 'Utvalg', 'Tilnærming'],
       prerequisites: ['s2-4-1'],
       coverImage: '/images/subjects/s2-4-2-hypergeometrisk-og-binomisk-fordeling.webp',
+      linkedChapterId: 's2-4-2-narrativ',
     },
     {
       id: 's2-4-3',
@@ -4492,6 +4665,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Normalfordeling', 'Sentralgrensesetningen', 'Summen av stokastiske variable'],
       prerequisites: ['s2-4-2'],
       coverImage: '/images/subjects/s2-4-3-normalfordeling-og-sentralgrensesetningen.webp',
+      linkedChapterId: 's2-4-3-narrativ',
     },
 
     // Kapittel 5: Statistisk inferens
@@ -4505,6 +4679,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Punktestimat', 'Konfidensintervall', 'Feilmargin', 'Utvalgsstørrelse'],
       competenceGoals: ['konstruere konfidensintervall og tolke resultata'],
       coverImage: '/images/subjects/s2-5-1-estimering.webp',
+      linkedChapterId: 's2-5-1-narrativ',
     },
     {
       id: 's2-5-2',
@@ -4517,6 +4692,7 @@ export const COURSE_S2: TextbookCourse = {
       prerequisites: ['s2-5-1'],
       competenceGoals: ['gjennomføre hypotesetestar og tolke resultata'],
       coverImage: '/images/subjects/s2-5-2-hypotesetesting.webp',
+      linkedChapterId: 's2-5-2-narrativ',
     },
     {
       id: 's2-5-3',
@@ -4528,6 +4704,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Type I feil', 'Type II feil', 'Teststyrke', 'Utvalgsstørrelse'],
       prerequisites: ['s2-5-2'],
       coverImage: '/images/subjects/s2-5-3-feiltyper-og-teststyrke.webp',
+      linkedChapterId: 's2-5-3-narrativ',
     },
     {
       id: 's2-5-4',
@@ -4539,6 +4716,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Konfidensintervall', 'T-fordeling', 'Utvalgsstørrelse', 'Feilmargin', 'Konfidensgrad'],
       prerequisites: ['s2-5-3'],
       coverImage: '/images/subjects/s2-5-4-estimering-og-konfidensintervall.webp',
+      linkedChapterId: 's2-5-4-narrativ',
     },
     {
       id: 's2-5-5',
@@ -4550,6 +4728,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Bayes teorem', 'Prior', 'Posterior', 'Bayesiansk oppdatering', 'Betinget sannsynlighet'],
       prerequisites: ['s2-5-1'],
       coverImage: '/images/subjects/s2-5-5-bayesiansk-statistikk.webp',
+      linkedChapterId: 's2-5-5-narrativ',
     },
 
     // Kapittel 6: Regresjon og korrelasjon
@@ -4563,6 +4742,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Lineær regresjon', 'Minste kvadrat', 'Regresjonslinje', 'Prediksjon'],
       competenceGoals: ['utføre regresjonsanalyse og tolke resultata'],
       coverImage: '/images/subjects/s2-6-1-lineaer-regresjon.webp',
+      linkedChapterId: 's2-6-1-narrativ',
     },
     {
       id: 's2-6-2',
@@ -4574,6 +4754,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Korrelasjon', 'Korrelasjonskoeffisient', 'R²', 'Kausalitet'],
       prerequisites: ['s2-6-1'],
       coverImage: '/images/subjects/s2-6-2-korrelasjon.webp',
+      linkedChapterId: 's2-6-2-narrativ',
     },
     {
       id: 's2-6-3',
@@ -4586,6 +4767,7 @@ export const COURSE_S2: TextbookCourse = {
       prerequisites: ['s2-6-2'],
       competenceGoals: ['bruke digitale verktøy til å tilpasse modellar til data'],
       coverImage: '/images/subjects/s2-6-3-ikke-lineaer-regresjon.webp',
+      linkedChapterId: 's2-6-3-narrativ',
     },
     {
       id: 's2-6-4',
@@ -4597,6 +4779,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Residualer', 'Residualplott', 'Modellvalidering', 'Forutsetninger for regresjon'],
       prerequisites: ['s2-6-1'],
       coverImage: '/images/subjects/s2-6-4-residualanalyse-og-modellvalidering.webp',
+      linkedChapterId: 's2-6-4-narrativ',
     },
     {
       id: 's2-6-5',
@@ -4608,6 +4791,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Multippel regresjon', 'Flere forklaringsvariabler', 'Justert R²', 'Multikollinearitet'],
       prerequisites: ['s2-6-1'],
       coverImage: '/images/subjects/s2-6-5-multippel-regresjon.webp',
+      linkedChapterId: 's2-6-5-narrativ',
     },
 
     // Kapittel 7: Rekker og serier
@@ -4621,6 +4805,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Aritmetisk følge', 'Aritmetisk rekke', 'Sumformel', 'Differanse'],
       competenceGoals: ['utforske rekursive samanhengar og bruke rekker i modellering'],
       coverImage: '/images/subjects/s2-7-1-aritmetiske-rekker.webp',
+      linkedChapterId: 's2-7-1-narrativ',
     },
     {
       id: 's2-7-2',
@@ -4632,6 +4817,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Geometrisk følge', 'Geometrisk rekke', 'Kvotient', 'Sumformel'],
       prerequisites: ['s2-7-1'],
       coverImage: '/images/subjects/s2-7-2-geometriske-rekker.webp',
+      linkedChapterId: 's2-7-2-narrativ',
     },
     {
       id: 's2-7-3',
@@ -4643,6 +4829,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Uendelig rekke', 'Konvergens', 'Divergens', 'Konvergenskriterier', 'Geometrisk sum'],
       prerequisites: ['s2-7-2'],
       coverImage: '/images/subjects/s2-7-3-uendelige-rekker-og-konvergens.webp',
+      linkedChapterId: 's2-7-3-narrativ',
     },
     {
       id: 's2-7-4',
@@ -4654,6 +4841,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Potensrekke', 'Taylor-rekke', 'Maclaurin-rekke', 'Konvergensradius', 'Tilnærming'],
       prerequisites: ['s2-7-3'],
       coverImage: '/images/subjects/s2-7-4-potensrekker-og-taylor-rekker.webp',
+      linkedChapterId: 's2-7-4-narrativ',
     },
     {
       id: 's2-7-5',
@@ -4665,6 +4853,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Annuitet', 'Nåverdi', 'Rekker i økonomi', 'Tilnærminger', 'Anvendelser'],
       prerequisites: ['s2-7-3'],
       coverImage: '/images/subjects/s2-7-5-rekker-i-praksis.webp',
+      linkedChapterId: 's2-7-5-narrativ',
     },
 
     // Kapittel 8: Økonomi og matematisk modellering
@@ -4678,6 +4867,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Annuitet', 'Annuitetslån', 'Spareavtale', 'Terminbeløp', 'Restgjeld'],
       competenceGoals: ['bruke matematiske modellar i økonomiske samanhengar'],
       coverImage: '/images/subjects/s2-8-1-annuitetsmodeller.webp',
+      linkedChapterId: 's2-8-1-narrativ',
     },
     {
       id: 's2-8-2',
@@ -4689,6 +4879,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Nåverdi', 'Internrente', 'Investeringsanalyse', 'Diskontering', 'Kontantstrøm'],
       prerequisites: ['s2-8-1'],
       coverImage: '/images/subjects/s2-8-2-naverdi-og-investeringsanalyse.webp',
+      linkedChapterId: 's2-8-2-narrativ',
     },
     {
       id: 's2-8-3',
@@ -4700,6 +4891,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Logistisk vekst', 'Begrenset vekst', 'Vekstmodeller', 'Bæreevne'],
       prerequisites: ['s2-8-1'],
       coverImage: '/images/subjects/s2-8-3-matematiske-vekstmodeller.webp',
+      linkedChapterId: 's2-8-3-narrativ',
     },
     {
       id: 's2-8-4',
@@ -4711,6 +4903,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Differensiallikninger', 'Økonomisk modellering', 'Likevekt', 'Dynamiske modeller'],
       prerequisites: ['s2-8-3', 's2-2-4'],
       coverImage: '/images/subjects/s2-8-4-differensiallikninger-i-okonomi.webp',
+      linkedChapterId: 's2-8-4-narrativ',
     },
     {
       id: 's2-8-5',
@@ -4722,6 +4915,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Optimering', 'Bibetingelser', 'Lagrange-multiplikatorer', 'Lineær programmering'],
       prerequisites: ['s2-3-3'],
       coverImage: '/images/subjects/s2-8-5-optimering-med-bibetingelser.webp',
+      linkedChapterId: 's2-8-5-narrativ',
     },
     // Seksjon 3 utvidet
     {
@@ -4734,6 +4928,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Arealberegning', 'Bestemt integral', 'Rekonstruksjon', 'Grafisk tolkning'],
       prerequisites: ['s2-3-1', 's2-1-1'],
       competenceGoals: ['bruke integrasjon i funksjonsdrøfting og arealberegning'],
+      linkedChapterId: 's2-3-7-narrativ',
     },
     {
       id: 's2-3-8',
@@ -4745,6 +4940,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Implisitt derivasjon', 'Relaterte rater', 'Kjerneregelen'],
       prerequisites: ['s2-3-1'],
       competenceGoals: ['bruke implisitt derivasjon og relaterte rater i praktiske problemer'],
+      linkedChapterId: 's2-3-8-narrativ',
     },
     // Seksjon 4 utvidet
     {
@@ -4757,6 +4953,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Forventningsverdi', 'Varians', 'Standardisering', 'Lineærtransformasjon'],
       prerequisites: ['s2-4-1'],
       competenceGoals: ['beregne forventningsverdi, varians og standardavvik med regneregler'],
+      linkedChapterId: 's2-4-4-narrativ',
     },
     {
       id: 's2-4-5',
@@ -4768,6 +4965,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Monte Carlo', 'Simulering', 'Python', 'Store talls lov'],
       prerequisites: ['s2-4-4'],
       competenceGoals: ['bruke simulering og digitale verktøy til å estimere sannsynligheter'],
+      linkedChapterId: 's2-4-5-narrativ',
     },
     {
       id: 's2-4-6',
@@ -4779,6 +4977,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Tetthetsfunksjon', 'Kumulativ fordeling', 'Uniform fordeling', 'Eksponentialfordeling'],
       prerequisites: ['s2-4-4', 's2-1-1'],
       competenceGoals: ['forstå og bruke kontinuerlige sannsynlighetsfordelinger med integrasjon'],
+      linkedChapterId: 's2-4-6-narrativ',
     },
     // Seksjon 5 utvidet
     {
@@ -4791,6 +4990,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Statistisk prosjekt', 'Hypoteseformulering', 'GDPR', 'Rapportering'],
       prerequisites: ['s2-5-1'],
       competenceGoals: ['planlegge og gjennomføre en statistisk undersøkelse med konfidensintervaller'],
+      linkedChapterId: 's2-5-6-narrativ',
     },
     // Seksjon 8 utvidet
     {
@@ -4803,6 +5003,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Kostnadsfunksjon', 'Inntektsfunksjon', 'Overskudd', 'Break-even', 'Enhetskostnad'],
       prerequisites: ['s2-8-1'],
       competenceGoals: ['modellere og analysere kostnader, inntekter og overskudd med funksjoner'],
+      linkedChapterId: 's2-8-6-narrativ',
     },
     {
       id: 's2-8-7',
@@ -4814,6 +5015,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Grensekostnad', 'Grenseinntekt', 'Marginalanalyse', 'MC=MR'],
       prerequisites: ['s2-8-6'],
       competenceGoals: ['bruke marginalanalyse med derivasjon til å finne optimalt produksjonsnivå'],
+      linkedChapterId: 's2-8-7-narrativ',
     },
     {
       id: 's2-8-8',
@@ -4825,6 +5027,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Konsumentoverskudd', 'Produsentoverskudd', 'Samfunnsøkonomisk overskudd', 'Integrasjon'],
       prerequisites: ['s2-8-7', 's2-1-1'],
       competenceGoals: ['beregne konsument- og produsentoverskudd med integrasjon'],
+      linkedChapterId: 's2-8-8-narrativ',
     },
     // Seksjon 9: Følger og programmering
     {
@@ -4836,6 +5039,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Aritmetisk følge', 'Geometrisk følge', 'Konvergens', 'Summeformler'],
       competenceGoals: ['gjøre rede for begrepene følge, rekke, konvergens og divergens'],
+      linkedChapterId: 's2-9-1-narrativ',
     },
     {
       id: 's2-9-2',
@@ -4847,6 +5051,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Trekantall', 'Kvadrattall', 'Pentagonaltall', 'Matematisk induksjon'],
       prerequisites: ['s2-9-1'],
       competenceGoals: ['utforske rekursive sammenhenger og presentere egne framgangsmåter'],
+      linkedChapterId: 's2-9-2-narrativ',
     },
     {
       id: 's2-9-3',
@@ -4858,6 +5063,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Python', 'For-løkker', 'Konvergens', 'Matplotlib', 'Visualisering'],
       prerequisites: ['s2-9-1'],
       competenceGoals: ['bruke programmering til å utforske følger og rekker'],
+      linkedChapterId: 's2-9-3-narrativ',
     },
   ],
 };
@@ -5385,6 +5591,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Budsjett', 'Inntekt', 'Utgifter', 'Skatt', 'Nettolønn'],
       competenceGoals: ['planlegge og gjøre rede for egen økonomi', 'sette opp og bruke budsjett'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-1-1-narrativ',
     },
     {
       id: '2py-1-2',
@@ -5397,6 +5604,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-1-1'],
       competenceGoals: ['beregne renter på lån og sparing', 'forstå forskjellen på nominell og effektiv rente'],
       coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-1-2-narrativ',
     },
     {
       id: '2py-1-3',
@@ -5408,6 +5616,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Skatt', 'Merverdiavgift', 'Mva-satser', 'Fakturering'],
       competenceGoals: ['forstå grunnleggende skatteberegning', 'beregne merverdiavgift'],
       coverImage: 'https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-1-3-narrativ',
     },
     {
       id: '2py-1-4',
@@ -5420,6 +5629,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-1-2'],
       competenceGoals: ['planlegge og gjøre rede for egen økonomi', 'sammenligne ulike spare- og investeringsalternativer'],
       coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-1-4-narrativ',
     },
     // Seksjon 2: Funksjoner og grafer
     {
@@ -5432,6 +5642,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Lineære funksjoner', 'Stigningstall', 'Konstantledd', 'Grafer'],
       competenceGoals: ['forstå sammenhengen mellom lineære funksjoner og rette linjer', 'tolke og bruke stigningstall og konstantledd'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-2-1-narrativ',
     },
     {
       id: '2py-2-2',
@@ -5443,6 +5654,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Prosentregning', 'Vekstfaktor', 'Gjentatt endring', 'Avskrivning'],
       competenceGoals: ['beregne prosentvis endring', 'bruke vekstfaktor'],
       coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-2-2-narrativ',
     },
     {
       id: '2py-2-3',
@@ -5455,6 +5667,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-2-1', '2py-2-2'],
       competenceGoals: ['lage enkle matematiske modeller', 'tolke grafer og funksjoner i praktiske sammenhenger'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-2-3-narrativ',
     },
     {
       id: '2py-2-4',
@@ -5467,6 +5680,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-2-2'],
       competenceGoals: ['vurdere konsekvenser av avrunding og feil i beregninger'],
       coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-2-4-narrativ',
     },
     // Seksjon 3: Geometri og beregninger
     {
@@ -5479,6 +5693,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Areal', 'Omkrets', 'Sammensatte figurer', 'Materialberegning'],
       competenceGoals: ['beregne areal og omkrets av plane figurer', 'løse praktiske oppgaver med sammensatte figurer'],
       coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-3-1-narrativ',
     },
     {
       id: '2py-3-2',
@@ -5491,6 +5706,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-3-1'],
       competenceGoals: ['beregne volum av prismer, sylindre og andre romfigurer', 'beregne overflate av romfigurer'],
       coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-3-2-narrativ',
     },
     {
       id: '2py-3-3',
@@ -5502,6 +5718,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Pytagoras', 'Sinus', 'Cosinus', 'Tangens', 'Praktiske målinger'],
       competenceGoals: ['bruke Pytagoras setning til beregninger', 'bruke sinus, cosinus og tangens i rettvinklede trekanter'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-3-3-narrativ',
     },
     {
       id: '2py-3-4',
@@ -5514,6 +5731,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-3-1'],
       competenceGoals: ['bruke geometri til praktiske beregninger i yrkesrelevante sammenhenger'],
       coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-3-4-narrativ',
     },
     // Seksjon 4: Statistikk
     {
@@ -5526,6 +5744,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Datainnsamling', 'Frekvenstabeller', 'Diagrammer', 'Presentasjon'],
       competenceGoals: ['samle inn og organisere data', 'presentere data i tabeller og diagrammer'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-4-1-narrativ',
     },
     {
       id: '2py-4-2',
@@ -5538,6 +5757,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-4-1'],
       competenceGoals: ['beregne sentralmål: gjennomsnitt, median og typetall', 'beregne og tolke spredningsmål'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-4-2-narrativ',
     },
     {
       id: '2py-4-3',
@@ -5550,6 +5770,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-4-1'],
       competenceGoals: ['vurdere kritisk bruk av statistikk i media og samfunn'],
       coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-4-3-narrativ',
     },
     // Seksjon 5: Sannsynlighet
     {
@@ -5562,6 +5783,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Sannsynlighet', 'Relativ frekvens', 'Forventet verdi', 'Praktiske eksempler'],
       competenceGoals: ['forstå grunnleggende sannsynlighetsbegreper', 'beregne sannsynligheter for enkle hendelser'],
       coverImage: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-5-1-narrativ',
     },
     {
       id: '2py-5-2',
@@ -5574,6 +5796,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-5-1'],
       competenceGoals: ['vurdere risiko matematisk', 'bruke sannsynlighet i risikovurderinger'],
       coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-5-2-narrativ',
     },
     {
       id: '2py-5-3',
@@ -5586,6 +5809,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-5-1'],
       competenceGoals: ['bruke sannsynlighet til å vurdere spill og strategier'],
       coverImage: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-5-3-narrativ',
     },
     // Seksjon 6: Yrkesfaglige beregninger
     {
@@ -5598,6 +5822,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Materialbehov', 'Svinn', 'Kapp', 'Kostnadsberegning'],
       competenceGoals: ['beregne materialbehov for praktiske oppgaver', 'ta hensyn til svinn og kapp'],
       coverImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-6-1-narrativ',
     },
     {
       id: '2py-6-2',
@@ -5609,6 +5834,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Tidsbruk', 'Produktivitet', 'Akkordarbeid', 'Prosjektplanlegging'],
       competenceGoals: ['beregne tidsbruk for arbeidsoppgaver', 'vurdere produktivitet og effektivitet'],
       coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-6-2-narrativ',
     },
     {
       id: '2py-6-3',
@@ -5621,6 +5847,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-6-1'],
       competenceGoals: ['bruke digitale verktøy til avanserte beregninger og presentasjoner'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-6-3-narrativ',
     },
     // Seksjon 7: Måling og enheter
     {
@@ -5633,6 +5860,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Lengdeenheter', 'Arealenheter', 'Volumenheter', 'Masseenheter'],
       competenceGoals: ['omregne mellom ulike måleenheter', 'velge riktig enhet for ulike situasjoner'],
       coverImage: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-7-1-narrativ',
     },
     {
       id: '2py-7-2',
@@ -5644,6 +5872,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Måleverktøy', 'Nøyaktighet', 'Toleranser', 'Kvalitetskontroll'],
       competenceGoals: ['bruke måleverktøy med riktig nøyaktighet', 'forstå toleranser og avvik'],
       coverImage: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-7-2-narrativ',
     },
     {
       id: '2py-7-3',
@@ -5656,6 +5885,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-7-1'],
       competenceGoals: ['bruke funksjoner til å beskrive praktiske sammenhenger'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-7-3-narrativ',
     },
     // Seksjon 8: Problemløsning i praksis
     {
@@ -5668,6 +5898,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Problemløsning', 'Systematisk tilnærming', 'Sammensatte oppgaver'],
       competenceGoals: ['bruke systematiske problemløsningsstrategier', 'løse sammensatte praktiske problemer'],
       coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-8-1-narrativ',
     },
     {
       id: '2py-8-2',
@@ -5679,6 +5910,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Regneark', 'Kalkulatorer', 'Formler', 'Automatisering'],
       competenceGoals: ['bruke digitale verktøy til beregninger', 'lage enkle regneark for gjentatte beregninger'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-8-2-narrativ',
     },
 
     // Seksjon 9: Algebra og likninger
@@ -5692,6 +5924,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Likninger', 'Likningsvekt', 'Prøve i likning'],
       competenceGoals: ['løyse likningar og ulikskapar av første grad og enkle likningssystem med to ukjende'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-9-1-narrativ',
     },
     {
       id: '2py-9-2',
@@ -5704,6 +5937,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-9-1'],
       competenceGoals: ['løyse likningar og ulikskapar av første grad og enkle likningssystem med to ukjende'],
       coverImage: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-9-2-narrativ',
     },
     {
       id: '2py-9-3',
@@ -5715,6 +5949,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Proporsjonalitet', 'Blandingsforhold', 'Målestokk', 'Omvendt proporsjonalitet'],
       competenceGoals: ['løyse likningar og ulikskapar av første grad og enkle likningssystem med to ukjende'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-9-3-narrativ',
     },
     {
       id: '2py-9-4',
@@ -5727,6 +5962,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-9-1'],
       competenceGoals: ['bruke trigonometri til praktiske beregninger i yrkesrelevante sammenhenger'],
       coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-9-4-narrativ',
     },
 
     // Seksjon 10: Personlig økonomi
@@ -5741,6 +5977,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-1-1'],
       competenceGoals: ['planlegge og gjøre rede for egen økonomi', 'bruke vekstfaktor til beregningar innanfor økonomi'],
       coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-10-1-narrativ',
     },
     {
       id: '2py-10-2',
@@ -5752,6 +5989,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Valuta', 'Kjøpskurs', 'Salgskurs', 'KPI', 'Reallønn'],
       competenceGoals: ['planlegge og gjøre rede for egen økonomi'],
       coverImage: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-10-2-narrativ',
     },
 
     // Seksjon 11: Utvidet statistikk
@@ -5766,6 +6004,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-4-1'],
       competenceGoals: ['ordne og gruppere data, finne og drøfte sentralmål og spreiingsmål'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-11-1-narrativ',
     },
 
     // Seksjon 12: Tallforståelse og tallsystemer
@@ -5779,6 +6018,7 @@ export const COURSE_2PY: TextbookCourse = {
       topics: ['Titallsystemet', 'Totallsystemet', 'Sekstentallsystemet', 'Posisjonssystem'],
       competenceGoals: ['utforske og forstå ulike tallsystemer og posisjonssystemer'],
       coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-12-1-narrativ',
     },
     {
       id: '2py-12-2',
@@ -5791,6 +6031,7 @@ export const COURSE_2PY: TextbookCourse = {
       prerequisites: ['2py-12-1'],
       competenceGoals: ['bruke tallforståelse i praktiske situasjoner fra hverdagen'],
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      linkedChapterId: '2py-12-2-narrativ',
     },
   ],
 };
@@ -5817,6 +6058,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorteoremet', 'Nullpunkter'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-1-1-polynomer-og-polynomdivisjon.webp',
+      linkedChapterId: 'r1-1-1-narrativ',
     },
     {
       id: 'r1-1-2',
@@ -5828,6 +6070,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Potensregler', 'Logaritmeregler', 'Naturlig logaritme', 'Briggske logaritmer'],
       competenceGoals: ['utforske og forstå regneregler for potenser og logaritmer'],
       coverImage: '/images/subjects/r1-1-2-potenser-og-logaritmer.webp',
+      linkedChapterId: 'r1-1-2-narrativ',
     },
     {
       id: 'r1-1-3',
@@ -5840,6 +6083,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-1-2'],
       competenceGoals: ['bruke ulike strategier for å løse eksponentialligninger og logaritmeligninger'],
       coverImage: '/images/subjects/r1-1-3-eksponential-og-logaritmeligninger.webp',
+      linkedChapterId: 'r1-1-3-narrativ',
     },
     {
       id: 'r1-1-4',
@@ -5852,6 +6096,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-1-1'],
       competenceGoals: ['behandle, faktorisere og forenkle sammensatte rasjonale uttrykk'],
       coverImage: '/images/subjects/r1-1-4-rasjonale-uttrykk.webp',
+      linkedChapterId: 'r1-1-4-narrativ',
     },
     {
       id: 'r1-1-5',
@@ -5864,6 +6109,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-1-1'],
       competenceGoals: ['utføre og presentere bevis og argumentere for framgangsmåtar'],
       coverImage: '/images/subjects/r1-1-5-bevis-i-algebra.webp',
+      linkedChapterId: 'r1-1-5-narrativ',
     },
     // Seksjon 2: Funksjoner
     {
@@ -5876,6 +6122,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Polynomfunksjoner', 'Rasjonale funksjoner', 'Eksponentialfunksjoner', 'Definisjonsmengde'],
       competenceGoals: ['analysere og tolke ulike funksjoner'],
       coverImage: '/images/subjects/r1-2-1-funksjonstyper-og-egenskaper.webp',
+      linkedChapterId: 'r1-2-1-narrativ',
     },
     {
       id: 'r1-2-2',
@@ -5888,6 +6135,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
       coverImage: '/images/subjects/r1-2-2-omvendte-funksjoner.webp',
+      linkedChapterId: 'r1-2-2-narrativ',
     },
     {
       id: 'r1-2-3',
@@ -5900,6 +6148,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner'],
       coverImage: '/images/subjects/r1-2-3-sammensatte-funksjoner.webp',
+      linkedChapterId: 'r1-2-3-narrativ',
     },
     // Seksjon 3: Grenseverdi og kontinuitet
     {
@@ -5912,6 +6161,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Grenseverdi', 'Ensidig grenseverdi', 'Grenseverdi i uendelig'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner, og utforske og argumentere for anvendelser av grenseverdier'],
       coverImage: '/images/subjects/r1-3-1-grenseverdi.webp',
+      linkedChapterId: 'r1-3-1-narrativ',
     },
     {
       id: 'r1-3-2',
@@ -5924,6 +6174,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-3-1'],
       competenceGoals: ['gjøre rede for og argumentere for om en funksjon er kontinuerlig eller diskontinuerlig i et punkt i et definisjonsområde, og gi eksempler på anvendelser av diskontinuerlige funksjoner'],
       coverImage: '/images/subjects/r1-3-2-kontinuitet.webp',
+      linkedChapterId: 'r1-3-2-narrativ',
     },
     {
       id: 'r1-3-3',
@@ -5936,6 +6187,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-3-1'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer', 'bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder, og gi eksempler på funksjoner som ikke er deriverbare i gitte punkter'],
       coverImage: '/images/subjects/r1-3-3-derivasjonens-definisjon.webp',
+      linkedChapterId: 'r1-3-3-narrativ',
     },
     {
       id: 'r1-3-4',
@@ -5948,6 +6200,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-3-1', 'r1-3-3'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner'],
       coverImage: '/images/subjects/r1-3-4-lhopitals-regel.webp',
+      linkedChapterId: 'r1-3-4-narrativ',
     },
     {
       id: 'r1-3-5',
@@ -5960,6 +6213,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-3-3'],
       competenceGoals: ['bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder'],
       coverImage: '/images/subjects/r1-3-5-newtons-metode.webp',
+      linkedChapterId: 'r1-3-5-narrativ',
     },
     // Seksjon 4: Derivasjon
     {
@@ -5973,6 +6227,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-3-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-4-1-derivasjonsregler.webp',
+      linkedChapterId: 'r1-4-1-narrativ',
     },
     {
       id: 'r1-4-2',
@@ -5985,6 +6240,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-1', 'r1-1-2'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-4-2-derivasjon-av-eksponential-og-logaritmefunksjoner.webp',
+      linkedChapterId: 'r1-4-2-narrativ',
     },
     {
       id: 'r1-4-3',
@@ -5997,6 +6253,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-2', 'r1-2-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-4-3-kjerneregelen.webp',
+      linkedChapterId: 'r1-4-3-narrativ',
     },
     {
       id: 'r1-4-4',
@@ -6009,6 +6266,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-4-4-produktregelen-og-kvotientregelen.webp',
+      linkedChapterId: 'r1-4-4-narrativ',
     },
     {
       id: 'r1-4-5',
@@ -6021,6 +6279,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-4', 'r1-2-2'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
       coverImage: '/images/subjects/r1-4-5-derivasjon-av-omvendte-funksjoner.webp',
+      linkedChapterId: 'r1-4-5-narrativ',
     },
     {
       id: 'r1-4-6',
@@ -6033,6 +6292,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-4'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
       coverImage: '/images/subjects/r1-4-6-funksjonsdrøfting.webp',
+      linkedChapterId: 'r1-4-6-narrativ',
     },
     {
       id: 'r1-4-7',
@@ -6045,6 +6305,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-3', 'r1-4-5'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
       coverImage: '/images/subjects/r1-4-7-relaterte-rater.webp',
+      linkedChapterId: 'r1-4-7-narrativ',
     },
     {
       id: 'r1-4-8',
@@ -6057,6 +6318,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-4-6'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon', 'forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
       coverImage: '/images/subjects/r1-4-8-globale-ekstremalpunkter.webp',
+      linkedChapterId: 'r1-4-8-narrativ',
     },
     // Seksjon 5: Vekstmodeller og modellering
     {
@@ -6070,6 +6332,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-1-3', 'r1-4-3'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
       coverImage: '/images/subjects/r1-5-1-eksponentiell-vekst.webp',
+      linkedChapterId: 'r1-5-1-narrativ',
     },
     {
       id: 'r1-5-2',
@@ -6082,6 +6345,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-5-1'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
       coverImage: '/images/subjects/r1-5-2-logistisk-vekst.webp',
+      linkedChapterId: 'r1-5-2-narrativ',
     },
     {
       id: 'r1-5-3',
@@ -6094,6 +6358,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-5-1', 'r1-5-2'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til naturvitenskapelige temaer og forhold, og analysere og presentere funn', 'anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
       coverImage: '/images/subjects/r1-5-3-modellering-med-reelle-datasett.webp',
+      linkedChapterId: 'r1-5-3-narrativ',
     },
     // Seksjon 6: Vektorer og parameterframstilling
     {
@@ -6106,6 +6371,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Vektorbegrep', 'Vektoraddisjon', 'Skalar multiplikasjon', 'Koordinater'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
       coverImage: '/images/subjects/r1-6-1-vektorer-i-planet.webp',
+      linkedChapterId: 'r1-6-1-narrativ',
     },
     {
       id: 'r1-6-2',
@@ -6118,6 +6384,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-6-1'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
       coverImage: '/images/subjects/r1-6-2-vektorregning.webp',
+      linkedChapterId: 'r1-6-2-narrativ',
     },
     {
       id: 'r1-6-3',
@@ -6130,6 +6397,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-6-1'],
       competenceGoals: ['anvende parameterframstillinger til linjer og bruke parameterframstillinger til å løse naturvitenskapelige problemer'],
       coverImage: '/images/subjects/r1-6-3-parameterframstilling.webp',
+      linkedChapterId: 'r1-6-3-narrativ',
     },
 
     // Seksjon 7: Trigonometri
@@ -6143,6 +6411,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Enhetssirkelen', 'Sinus', 'Cosinus', 'Tangens', 'Radianer', 'Eksakte verdier'],
       competenceGoals: ['gjøre rede for definisjonen av sinus, cosinus og tangens og bruke disse til å beregne lengder, vinkler og areal i vilkårlige trekanter'],
       coverImage: '/images/subjects/r1-7-1-enhetssirkelen.webp',
+      linkedChapterId: 'r1-7-1-narrativ',
     },
     {
       id: 'r1-7-2',
@@ -6155,6 +6424,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-7-1'],
       competenceGoals: ['gjøre rede for definisjonen av sinus, cosinus og tangens og bruke disse til å beregne lengder, vinkler og areal i vilkårlige trekanter'],
       coverImage: '/images/subjects/r1-7-2-trigonometriske-grafer.webp',
+      linkedChapterId: 'r1-7-2-narrativ',
     },
     {
       id: 'r1-7-3',
@@ -6167,6 +6437,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-7-1'],
       competenceGoals: ['gjøre rede for definisjonen av sinus, cosinus og tangens og bruke disse til å beregne lengder, vinkler og areal i vilkårlige trekanter'],
       coverImage: '/images/subjects/r1-7-3-trigonometriske-likninger.webp',
+      linkedChapterId: 'r1-7-3-narrativ',
     },
     {
       id: 'r1-7-4',
@@ -6179,6 +6450,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-7-1'],
       competenceGoals: ['gjøre rede for definisjonen av sinus, cosinus og tangens og bruke disse til å beregne lengder, vinkler og areal i vilkårlige trekanter'],
       coverImage: '/images/subjects/r1-7-4-trigonometriske-identiteter.webp',
+      linkedChapterId: 'r1-7-4-narrativ',
     },
     {
       id: 'r1-7-5',
@@ -6191,6 +6463,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-7-1', 'r1-4-1'],
       competenceGoals: ['derivere og bruke de deriverte til polynomfunksjoner, potens- og eksponentialfunksjoner, logaritmefunksjoner, trigonometriske funksjoner og sammensatte funksjoner'],
       coverImage: '/images/subjects/r1-7-5-derivasjon-trigonometri.webp',
+      linkedChapterId: 'r1-7-5-narrativ',
     },
     {
       id: 'r1-7-6',
@@ -6203,6 +6476,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-7-1'],
       competenceGoals: ['gjøre rede for definisjonen av sinus, cosinus og tangens og bruke disse til å beregne lengder, vinkler og areal i vilkårlige trekanter'],
       coverImage: '/images/subjects/r1-7-6-sinussetningen-cosinussetningen.webp',
+      linkedChapterId: 'r1-7-6-narrativ',
     },
 
     // Seksjon 8: Kombinatorikk og sannsynlighet
@@ -6216,6 +6490,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Multiplikasjonsprinsippet', 'Telleprinsippet', 'Utfallsrom', 'Systematisk telling'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-1-multiplikasjonsprinsippet.webp',
+      linkedChapterId: 'r1-8-1-narrativ',
     },
     {
       id: 'r1-8-2',
@@ -6228,6 +6503,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-8-1'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-2-permutasjoner.webp',
+      linkedChapterId: 'r1-8-2-narrativ',
     },
     {
       id: 'r1-8-3',
@@ -6240,6 +6516,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-8-2'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-3-kombinasjoner.webp',
+      linkedChapterId: 'r1-8-3-narrativ',
     },
     {
       id: 'r1-8-4',
@@ -6252,6 +6529,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-8-3'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-4-binomialkoeffisienter-pascals-trekant.webp',
+      linkedChapterId: 'r1-8-4-narrativ',
     },
     {
       id: 'r1-8-5',
@@ -6264,6 +6542,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-8-1'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-5-sannsynlighetsmodeller.webp',
+      linkedChapterId: 'r1-8-5-narrativ',
     },
     {
       id: 'r1-8-6',
@@ -6276,6 +6555,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-8-5'],
       competenceGoals: ['bruke kombinatorikk og sannsynlighetsmodeller i praktiske situasjonar'],
       coverImage: '/images/subjects/r1-8-6-betinget-sannsynlighet.webp',
+      linkedChapterId: 'r1-8-6-narrativ',
     },
 
     // Seksjon 9: Bevisføring
@@ -6289,6 +6569,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Direkte bevis', 'Moteksempler', 'Logisk argumentasjon', 'Implikasjon'],
       competenceGoals: ['utføre og presentere bevis og argumentere for framgangsmåtar'],
       coverImage: '/images/subjects/r1-9-1-direkte-bevis-og-moteksempler.webp',
+      linkedChapterId: 'r1-9-1-narrativ',
     },
     {
       id: 'r1-9-2',
@@ -6301,6 +6582,7 @@ export const COURSE_R1: TextbookCourse = {
       prerequisites: ['r1-9-1'],
       competenceGoals: ['utføre og presentere bevis og argumentere for framgangsmåtar'],
       coverImage: '/images/subjects/r1-9-2-induksjon.webp',
+      linkedChapterId: 'r1-9-2-narrativ',
     },
     // Seksjon 2 utvidet
     {
@@ -6312,6 +6594,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Stykkevis definerte funksjoner', 'Diskontinuitet', 'Trappefunksjoner', 'Absoluttverdifunksjon'],
       competenceGoals: ['definere og analysere stykkevis definerte funksjoner og undersøke kontinuitet'],
+      linkedChapterId: 'r1-2-4-narrativ',
     },
     {
       id: 'r1-2-5',
@@ -6323,6 +6606,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Gjennomsnittlig vekstfart', 'Momentan vekstfart', 'Sekantlinje', 'Tangentlinje', 'Differenskvotient'],
       prerequisites: ['r1-2-3'],
       competenceGoals: ['beregne gjennomsnittlig og momentan vekstfart og forstå overgangen via grenseverdier'],
+      linkedChapterId: 'r1-2-5-narrativ',
     },
     // Seksjon 3 utvidet
     {
@@ -6335,6 +6619,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Numerisk derivasjon', 'Fremoverdifferanse', 'Sentraldifferanse', 'Regneark', 'CAS'],
       prerequisites: ['r1-3-1'],
       competenceGoals: ['bruke digitale verktøy til numerisk derivasjon og vurdere nøyaktighet'],
+      linkedChapterId: 'r1-3-6-narrativ',
     },
     // Seksjon 4 utvidet
     {
@@ -6347,6 +6632,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Optimering', 'Maksimalt volum', 'Minimalt areal', 'Praktiske problemer'],
       prerequisites: ['r1-4-1'],
       competenceGoals: ['sette opp og løse praktiske optimeringsproblemer ved hjelp av derivasjon'],
+      linkedChapterId: 'r1-4-9-narrativ',
     },
     // Seksjon 6 utvidet
     {
@@ -6359,6 +6645,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Vektorlengde', 'Avstand', 'Punkt-til-linje', 'Midtpunkt', 'Projeksjon'],
       prerequisites: ['r1-6-1'],
       competenceGoals: ['beregne vektorlengder, avstander og midtpunkter i planet'],
+      linkedChapterId: 'r1-6-4-narrativ',
     },
     {
       id: 'r1-6-5',
@@ -6370,6 +6657,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Normalform', 'Sirkellikning', 'Tangent', 'Skjæringspunkt'],
       prerequisites: ['r1-6-4'],
       competenceGoals: ['arbeide med linjer og sirkler i planet ved hjelp av vektorer og analytisk geometri'],
+      linkedChapterId: 'r1-6-5-narrativ',
     },
     {
       id: 'r1-6-6',
@@ -6381,6 +6669,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Hastighetsvektorer', 'Strøm og vind', 'Kollisjon', 'Kraftdekomposisjon'],
       prerequisites: ['r1-6-4'],
       competenceGoals: ['modellere naturvitenskapelige problemer med vektorer'],
+      linkedChapterId: 'r1-6-6-narrativ',
     },
     // Seksjon 8 utvidet
     {
@@ -6393,6 +6682,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Binomialfordeling', 'Hypergeometrisk fordeling', 'Med/uten tilbakelegging'],
       prerequisites: ['r1-8-1'],
       competenceGoals: ['beregne sannsynligheter med binomisk og hypergeometrisk fordeling'],
+      linkedChapterId: 'r1-8-7-narrativ',
     },
     // Seksjon 9 utvidet
     {
@@ -6405,6 +6695,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Kontrapositiv', 'Kontradiksjon', 'Irrasjonale tall', 'Primtall'],
       prerequisites: ['r1-9-1'],
       competenceGoals: ['utføre kontrapositiv bevisføring og bevis ved kontradiksjon'],
+      linkedChapterId: 'r1-9-3-narrativ',
     },
   ],
 };
@@ -6436,6 +6727,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Tallfølger', 'Eksplisitt formel', 'Rekursiv formel', 'Fibonacci'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
       coverImage: '/images/subjects/r2-1-1-folger-og-tallmonstre.webp',
+      linkedChapterId: 'r2-1-1-narrativ',
     },
     {
       id: 'r2-1-2',
@@ -6448,6 +6740,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
       coverImage: '/images/subjects/r2-1-2-aritmetiske-folger.webp',
+      linkedChapterId: 'r2-1-2-narrativ',
     },
     {
       id: 'r2-1-3',
@@ -6460,6 +6753,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-1'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
       coverImage: '/images/subjects/r2-1-3-geometriske-folger.webp',
+      linkedChapterId: 'r2-1-3-narrativ',
     },
     {
       id: 'r2-1-4',
@@ -6472,6 +6766,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-3'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
       coverImage: '/images/subjects/r2-1-4-rekker-og-summasjon.webp',
+      linkedChapterId: 'r2-1-4-narrativ',
     },
     {
       id: 'r2-1-5',
@@ -6484,6 +6779,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-4'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
       coverImage: '/images/subjects/r2-1-5-uendelige-rekker-og-konvergens.webp',
+      linkedChapterId: 'r2-1-5-narrativ',
     },
     {
       id: 'r2-1-6',
@@ -6496,6 +6792,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-2', 'r2-1-4'],
       competenceGoals: ['analysere og forstå matematiske bevis og forklare sentrale idear i bevis'],
       coverImage: '/images/subjects/r2-1-6-induksjonsbevis.webp',
+      linkedChapterId: 'r2-1-6-narrativ',
     },
     {
       id: 'r2-1-7',
@@ -6508,6 +6805,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske rekursive samanhengar ved å bruke programmering'],
       coverImage: '/images/subjects/r2-1-7-rekursive-sammenhenger-og-programmering.webp',
+      linkedChapterId: 'r2-1-7-narrativ',
     },
 
     // =========================================================================
@@ -6526,6 +6824,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Derivasjon', 'Derivasjonsregler', 'Kjerneregel', 'Produktregel'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar'],
       coverImage: '/images/subjects/r2-2-1-repetisjon-av-derivasjon.webp',
+      linkedChapterId: 'r2-2-1-narrativ',
     },
     {
       id: 'r2-2-2',
@@ -6537,6 +6836,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Antiderivasjon', 'Integrasjonsregler', 'Konstant', 'Potensregel'],
       competenceGoals: ['finne antiderivert til funksjonar'],
       coverImage: '/images/subjects/r2-2-2-ubestemt-integral.webp',
+      linkedChapterId: 'r2-2-2-narrativ',
     },
     {
       id: 'r2-2-3',
@@ -6549,6 +6849,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
       coverImage: '/images/subjects/r2-2-3-integrasjon-av-1x-og-eksponentialfunksjoner.webp',
+      linkedChapterId: 'r2-2-3-narrativ',
     },
     {
       id: 'r2-2-4',
@@ -6561,6 +6862,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-2'],
       competenceGoals: ['forklare integralet som grenseverdi av ein sum'],
       coverImage: '/images/subjects/r2-2-4-bestemt-integral-som-grenseverdi.webp',
+      linkedChapterId: 'r2-2-4-narrativ',
     },
     {
       id: 'r2-2-5',
@@ -6573,6 +6875,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-4'],
       competenceGoals: ['gjere greie for analysens fundamentalsetning og følgjene av denne'],
       coverImage: '/images/subjects/r2-2-5-analysens-fundamentalsetning.webp',
+      linkedChapterId: 'r2-2-5-narrativ',
     },
     {
       id: 'r2-2-6',
@@ -6585,6 +6888,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-5'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
       coverImage: '/images/subjects/r2-2-6-areal-under-grafer.webp',
+      linkedChapterId: 'r2-2-6-narrativ',
     },
     {
       id: 'r2-2-7',
@@ -6597,6 +6901,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-6'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
       coverImage: '/images/subjects/r2-2-7-areal-mellom-kurver.webp',
+      linkedChapterId: 'r2-2-7-narrativ',
     },
 
     // =========================================================================
@@ -6616,6 +6921,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
       coverImage: '/images/subjects/r2-3-1-variabelskifte-substitusjon.webp',
+      linkedChapterId: 'r2-3-1-narrativ',
     },
     {
       id: 'r2-3-2',
@@ -6628,6 +6934,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
       coverImage: '/images/subjects/r2-3-2-delvis-integrasjon.webp',
+      linkedChapterId: 'r2-3-2-narrativ',
     },
     {
       id: 'r2-3-3',
@@ -6640,6 +6947,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-3'],
       competenceGoals: ['finne antiderivert til funksjonar'],
       coverImage: '/images/subjects/r2-3-3-delbrokoppspalting.webp',
+      linkedChapterId: 'r2-3-3-narrativ',
     },
     {
       id: 'r2-3-4',
@@ -6652,6 +6960,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon'],
       coverImage: '/images/subjects/r2-3-4-numerisk-integrasjon.webp',
+      linkedChapterId: 'r2-3-4-narrativ',
     },
     {
       id: 'r2-3-5',
@@ -6664,6 +6973,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-3-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon ved å bruke programmering'],
       coverImage: '/images/subjects/r2-3-5-programmering-av-integrasjon.webp',
+      linkedChapterId: 'r2-3-5-narrativ',
     },
     {
       id: 'r2-3-6',
@@ -6676,6 +6986,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-6'],
       competenceGoals: ['bruke integrasjon til å rekne ut volum av omdreiningslegeme'],
       coverImage: '/images/subjects/r2-3-6-volum-av-omdreiningslegemer.webp',
+      linkedChapterId: 'r2-3-6-narrativ',
     },
     {
       id: 'r2-3-7',
@@ -6688,6 +6999,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-2-7', 'r2-3-6'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon'],
       coverImage: '/images/subjects/r2-3-7-funksjonsdrøfting-med-integrasjon.webp',
+      linkedChapterId: 'r2-3-7-narrativ',
     },
 
     // =========================================================================
@@ -6706,6 +7018,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved radianar'],
       coverImage: '/images/subjects/r2-4-1-radianer-og-vinkelmal.webp',
 
+      linkedChapterId: 'r2-4-1-narrativ',
     },
     {
       id: 'r2-4-2',
@@ -6719,6 +7032,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
       coverImage: '/images/subjects/r2-4-2-enhetssirkelen-og-trigonometriske-definisjoner.webp',
 
+      linkedChapterId: 'r2-4-2-narrativ',
     },
     {
       id: 'r2-4-3',
@@ -6732,6 +7046,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
       coverImage: '/images/subjects/r2-4-3-sinuslikninger.webp',
 
+      linkedChapterId: 'r2-4-3-narrativ',
     },
     {
       id: 'r2-4-4',
@@ -6745,6 +7060,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
       coverImage: '/images/subjects/r2-4-4-cosinuslikninger.webp',
 
+      linkedChapterId: 'r2-4-4-narrativ',
     },
     {
       id: 'r2-4-5',
@@ -6758,6 +7074,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
       coverImage: '/images/subjects/r2-4-5-tangenslikninger.webp',
 
+      linkedChapterId: 'r2-4-5-narrativ',
     },
     {
       id: 'r2-4-6',
@@ -6771,6 +7088,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
       coverImage: '/images/subjects/r2-4-6-trigonometriske-formler.webp',
 
+      linkedChapterId: 'r2-4-6-narrativ',
     },
     {
       id: 'r2-4-7',
@@ -6784,6 +7102,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
       coverImage: '/images/subjects/r2-4-7-trigonometriske-funksjoner-og-grafer.webp',
 
+      linkedChapterId: 'r2-4-7-narrativ',
     },
     {
       id: 'r2-4-8',
@@ -6795,6 +7114,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Trigonometriske grafer', 'Amplitude', 'Periode', 'Faseforskyvning', 'Periodiske fenomener'],
       prerequisites: ['r2-4-7'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon'],
+      linkedChapterId: 'r2-4-8-narrativ',
     },
     {
       id: 'r2-4-9',
@@ -6807,6 +7127,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-4-8', 'r2-2-1'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon', 'derivere trigonometriske funksjoner'],
       coverImage: '/images/subjects/r2-4-8-derivasjon-av-trigonometriske-funksjoner.webp',
+      linkedChapterId: 'r2-4-9-narrativ',
     },
 
     // =========================================================================
@@ -6824,6 +7145,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Romkoordinater', 'Vektor', 'Komponenter', 'Lengde'],
       competenceGoals: ['utforske reknereglar for vektorar i tre dimensjonar'],
       coverImage: '/images/subjects/r2-5-1-vektorer-i-tre-dimensjoner.webp',
+      linkedChapterId: 'r2-5-1-narrativ',
     },
     {
       id: 'r2-5-2',
@@ -6836,6 +7158,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-1'],
       competenceGoals: ['forstå reknereglar for vektorar i tre dimensjonar'],
       coverImage: '/images/subjects/r2-5-2-vektorkoordinater-og-regning.webp',
+      linkedChapterId: 'r2-5-2-narrativ',
     },
     {
       id: 'r2-5-3',
@@ -6848,6 +7171,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-3-skalarproduktet.webp',
+      linkedChapterId: 'r2-5-3-narrativ',
     },
     {
       id: 'r2-5-4',
@@ -6860,6 +7184,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-3'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-4-kryssproduktet.webp',
+      linkedChapterId: 'r2-5-4-narrativ',
     },
     {
       id: 'r2-5-5',
@@ -6872,6 +7197,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-5-areal-og-volum-med-vektorer.webp',
+      linkedChapterId: 'r2-5-5-narrativ',
     },
     {
       id: 'r2-5-6',
@@ -6884,6 +7210,7 @@ export const COURSE_R2: TextbookCourse = {
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-6-ligninger-for-plan.webp',
+      linkedChapterId: 'r2-5-6-narrativ',
     },
     {
       id: 'r2-5-7',
@@ -6897,6 +7224,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-7-linjer-i-rommet.webp',
       wip: true,
+      linkedChapterId: 'r2-5-7-narrativ',
     },
     {
       id: 'r2-5-8',
@@ -6910,6 +7238,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
       coverImage: '/images/subjects/r2-5-8-avstand-punkt-linje-og-punkt-plan.webp',
       wip: true,
+      linkedChapterId: 'r2-5-8-narrativ',
     },
 
     // =========================================================================
@@ -6929,6 +7258,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke parameterframstilling til kurver'],
       coverImage: '/images/subjects/r2-6-1-parameterframstilling-av-kurver.webp',
 
+      linkedChapterId: 'r2-6-1-narrativ',
     },
     {
       id: 'r2-6-2',
@@ -6942,6 +7272,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke parameterframstilling til kurver'],
       coverImage: '/images/subjects/r2-6-2-derivasjon-av-vektorfunksjoner.webp',
 
+      linkedChapterId: 'r2-6-2-narrativ',
     },
     {
       id: 'r2-6-3',
@@ -6955,6 +7286,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['løyse realfaglege problem som involverer fart og akselerasjon'],
       coverImage: '/images/subjects/r2-6-3-hastighet-og-akselerasjon.webp',
 
+      linkedChapterId: 'r2-6-3-narrativ',
     },
     {
       id: 'r2-6-4',
@@ -6967,6 +7299,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['gi døme på ulike situasjonar som kan modellerast med ulike matematiske funksjonar'],
       coverImage: '/images/subjects/r2-6-4-matematisk-modellering.webp',
 
+      linkedChapterId: 'r2-6-4-narrativ',
     },
     {
       id: 'r2-6-5',
@@ -6980,6 +7313,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['bruke derivasjon og integrasjon til å analysere og tolke eigne matematiske modellar av reelle data'],
       coverImage: '/images/subjects/r2-6-5-modellering-med-reelle-data.webp',
 
+      linkedChapterId: 'r2-6-5-narrativ',
     },
     {
       id: 'r2-6-6',
@@ -6992,6 +7326,7 @@ export const COURSE_R2: TextbookCourse = {
       competenceGoals: ['analysere og forstå matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis'],
       coverImage: '/images/subjects/r2-6-6-bevis-og-matematisk-argumentasjon.webp',
 
+      linkedChapterId: 'r2-6-6-narrativ',
     },
   ],
 };

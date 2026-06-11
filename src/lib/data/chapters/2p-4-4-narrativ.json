@@ -1,0 +1,169 @@
+{
+  "id": "2p-4-4-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "4.4",
+  "title": "Betinget sannsynlighet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kuler som ikke legges tilbake – hvordan sannsynligheter endrer seg når du vet hva som allerede har skjedd.",
+  "estimatedMinutes": 30,
+  "competenceGoals": ["berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet"],
+  "linkedChapterId": "2p-4-4",
+  "content": [
+    {
+      "id": "2p-4-4-n-intro",
+      "type": "text",
+      "content": "## Kortet som forandret alt\n\nDu spiller kort med venner og trenger et ess. I en full kortstokk er sjansen $\\frac{4}{52}$. Du trekker – og får et ess! Men så trekker du en gang til, uten å legge det første kortet tilbake. Hva er sjansen for ess nå? Ikke $\\frac{4}{52}$ lenger – det ligger jo bare $3$ ess igjen blant $51$ kort. Sannsynligheten har *endret seg*, fordi noe allerede har skjedd.\n\nDette er kjernen i **betinget sannsynlighet**: sjansen for en hendelse avhenger av hva vi vet fra før. Trekker du kuler fra en pose uten å legge dem tilbake, velger læreren elever til fremføring, eller tester en fabrikk produkter for feil – overalt dukker det samme mønsteret opp. I denne fortellingen lærer du å regne på det, med en formel, et prinsipp og et tegneverktøy som gjør alt oversiktlig."
+    },
+    {
+      "id": "2p-4-4-n-section1",
+      "type": "text",
+      "content": "## Gitt at … – den nye spillereglen\n\nVi skriver **betinget sannsynlighet** som $P(B \\mid A)$, og leser det «sannsynligheten for $B$ gitt at $A$ har inntruffet». Den loddrette streken betyr altså «gitt at» – informasjonen om at $A$ har skjedd, endrer spillebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynligheten for at *begge* hendelsene inntreffer.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynligheten for at begge skjer, er sjansen for den første, ganget med sjansen for den andre *gitt at* den første har skjedd.\n\nLa oss bruke det. En pose inneholder $4$ røde og $6$ blå kuler, og du trekker to kuler uten å legge den første tilbake. Hva er sjansen for at begge er røde? Første trekk: $P(R_1) = \\frac{4}{10}$. Men nå er situasjonen endret – det ligger bare $3$ røde igjen blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigste grepet: etter første trekk oppdaterer vi *både* telleren og nevneren. Én kule mindre i posen, én rød mindre å trekke. Det er nettopp dette «uten tilbakelegging» betyr – hvert trekk endrer forutsetningene for det neste."
+    },
+    {
+      "id": "2p-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på betinget sannsynlighet:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz1-q0",
+            "task": "Hva betyr $P(B \\mid A)$?",
+            "options": [
+              {"id": "a", "text": "Sannsynligheten for at både A og B skjer", "isCorrect": false},
+              {"id": "b", "text": "Sannsynligheten for B gitt at A har inntruffet", "isCorrect": true},
+              {"id": "c", "text": "Sannsynligheten for B delt på sannsynligheten for A", "isCorrect": false},
+              {"id": "d", "text": "Sannsynligheten for at A skjer før B", "isCorrect": false}
+            ],
+            "solution": "$P(B \\mid A)$ er den betingede sannsynligheten for $B$ gitt at $A$ har skjedd. Den regnes ut som $\\frac{P(A \\cap B)}{P(A)}$."
+          },
+          {
+            "id": "2p-4-4-n-quiz1-q1",
+            "task": "En pose har 5 grønne og 3 gule kuler. Du trekker to uten tilbakelegging. Hva er sannsynligheten for at begge er grønne?",
+            "options": [
+              {"id": "a", "text": "$\\frac{25}{64}$", "isCorrect": false},
+              {"id": "b", "text": "$\\frac{5}{8}$", "isCorrect": false},
+              {"id": "c", "text": "$\\frac{5}{14}$", "isCorrect": true},
+              {"id": "d", "text": "$\\frac{10}{56}$", "isCorrect": false}
+            ],
+            "solution": "$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. Etter første trekk er det 4 grønne igjen blant 7 kuler."
+          },
+          {
+            "id": "2p-4-4-n-quiz1-q2",
+            "task": "Hvorfor endrer sannsynlighetene seg når vi trekker uten tilbakelegging?",
+            "options": [
+              {"id": "a", "text": "Fordi antall mulige og gunstige utfall endres etter hvert trekk", "isCorrect": true},
+              {"id": "b", "text": "Fordi kulene blir tyngre", "isCorrect": false},
+              {"id": "c", "text": "De endrer seg ikke – sannsynligheten er alltid den samme", "isCorrect": false},
+              {"id": "d", "text": "Fordi vi runder av underveis", "isCorrect": false}
+            ],
+            "solution": "Hvert trekk fjerner en kule fra posen. Både totalen (nevneren) og antall gunstige utfall (telleren) kan endre seg, så neste trekk har nye sannsynligheter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-section2",
+      "type": "text",
+      "content": "## Valgtreet – kartet over alle muligheter\n\nNår situasjonene blir mer sammensatte, er et **valgtre** det beste verktøyet. Du tegner første trekk som grener ut fra start, og fra hver gren tegner du neste trekk – med *oppdaterte* sannsynligheter. Så gjelder to regler: **multipliser** langs grenene for å finne sannsynligheten for én bestemt vei, og **adder** sannsynlighetene for ulike veier som fører til samme resultat.\n\nPrøv dette: i en klasse er det $15$ jenter og $13$ gutter, altså $28$ elever, og to skal trekkes tilfeldig til en fremføring. Hva er sjansen for at begge er jenter? Langs «jente–jente»-veien i treet: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$.\n\nMen hva når flere veier fører til målet? En fruktskål har $3$ epler og $2$ pærer, og du forsyner deg med to tilfeldige frukter. Hva er sjansen for å få ett eple *og* én pære? Her finnes to veier: eple først og så pære, eller pære først og så eple. Den første veien gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, den andre gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Siden begge veiene fører til samme resultat, adderer vi: $\\frac{6}{20} + \\frac{6}{20} = \\frac{12}{20} = \\frac{3}{5}$.\n\nDet er lett å glemme den andre veien og ende på halvparten av riktig svar. Derfor er valgtreet gull verdt: når alle veier er tegnet opp, *ser* du hvilke som skal med. Multipliser langs grenene, adder mellom veiene – det er hele oppskriften."
+    },
+    {
+      "id": "2p-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valgtre og flere veier:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz2-q0",
+            "task": "I en klasse er det 15 jenter og 13 gutter. To elever trekkes tilfeldig. Hva er sannsynligheten for at begge er jenter?",
+            "options": [
+              {"id": "a", "text": "$\\frac{15}{28} \\cdot \\frac{15}{28} \\approx 28{,}7\\,\\%$", "isCorrect": false},
+              {"id": "b", "text": "$\\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{5}{18} \\approx 27{,}8\\,\\%$", "isCorrect": true},
+              {"id": "c", "text": "$\\frac{15}{28} \\approx 53{,}6\\,\\%$", "isCorrect": false},
+              {"id": "d", "text": "$\\frac{14}{27} \\approx 51{,}9\\,\\%$", "isCorrect": false}
+            ],
+            "solution": "Uten tilbakelegging: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$. Etter at én jente er trukket, er det 14 jenter igjen av 27 elever."
+          },
+          {
+            "id": "2p-4-4-n-quiz2-q1",
+            "task": "En skål har 3 epler og 2 pærer. Du trekker to frukter uten tilbakelegging. Hva er sannsynligheten for ett eple og én pære?",
+            "options": [
+              {"id": "a", "text": "$\\frac{6}{20}$", "isCorrect": false},
+              {"id": "b", "text": "$\\frac{1}{5}$", "isCorrect": false},
+              {"id": "c", "text": "$\\frac{6}{25}$", "isCorrect": false},
+              {"id": "d", "text": "$\\frac{3}{5}$", "isCorrect": true}
+            ],
+            "solution": "To veier: eple så pære gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, pære så eple gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sum: $\\frac{12}{20} = \\frac{3}{5}$. Husk å ta med begge veiene!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-section3",
+      "type": "text",
+      "content": "## Uavhengige hendelser – og trikset med «minst én»\n\nNoen ganger påvirker ikke hendelsene hverandre i det hele tatt. Da kalles de **uavhengige**, og kjennetegnet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrer ingenting. For uavhengige hendelser blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVærmeldingen sier $70\\,\\%$ sjanse for regn på mandag og $40\\,\\%$ på tirsdag, uavhengig av hverandre. Sjansen for regn begge dager er da $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Ingen oppdatering nødvendig – tirsdagens vær bryr seg ikke om mandagens.\n\nTil slutt et av sannsynlighetsregningens mest elegante triks. En fabrikk vet at $2\\,\\%$ av produktene er defekte, og du trekker to produkter fra et stort parti. Hva er sjansen for *minst ett* defekt? Å regne direkte er kronglete – «minst ett» kan bety ett eller to defekte, altså flere tilfeller å holde styr på. Men motsatsen til «minst ett defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser ordene «minst én» i en oppgave, gå via komplementet – det sparer deg nesten alltid for arbeid."
+    },
+    {
+      "id": "2p-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uavhengige hendelser:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz3-q0",
+            "task": "Det er 70 % sjanse for regn mandag og 40 % tirsdag, uavhengig av hverandre. Hva er sannsynligheten for regn begge dager?",
+            "options": [
+              {"id": "a", "text": "$110\\,\\%$", "isCorrect": false},
+              {"id": "b", "text": "$55\\,\\%$", "isCorrect": false},
+              {"id": "c", "text": "$28\\,\\%$", "isCorrect": true},
+              {"id": "d", "text": "$30\\,\\%$", "isCorrect": false}
+            ],
+            "solution": "Uavhengige hendelser: $P = 0{,}70 \\cdot 0{,}40 = 0{,}28 = 28\\,\\%$."
+          },
+          {
+            "id": "2p-4-4-n-quiz3-q1",
+            "task": "2 % av produktene fra en fabrikk er defekte. Du trekker to produkter fra et stort parti. Hva er sannsynligheten for minst ett defekt?",
+            "options": [
+              {"id": "a", "text": "$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)", "isCorrect": false},
+              {"id": "b", "text": "$1 - 0{,}98^2 \\approx 4{,}0\\,\\%$", "isCorrect": true},
+              {"id": "c", "text": "$0{,}02^2 = 0{,}04\\,\\%$", "isCorrect": false},
+              {"id": "d", "text": "$2\\,\\%$", "isCorrect": false}
+            ],
+            "solution": "Gå via komplementet: $P(\\text{ingen defekte}) = 0{,}98^2 = 0{,}9604$. Da er $P(\\text{minst ett}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$."
+          },
+          {
+            "id": "2p-4-4-n-quiz3-q2",
+            "task": "Hva kjennetegner to uavhengige hendelser A og B?",
+            "options": [
+              {"id": "a", "text": "$P(B \\mid A) = P(B)$ – informasjonen om A endrer ikke sannsynligheten for B", "isCorrect": true},
+              {"id": "b", "text": "$P(A \\cap B) = 0$", "isCorrect": false},
+              {"id": "c", "text": "A og B kan ikke skje samtidig", "isCorrect": false},
+              {"id": "d", "text": "$P(A) = P(B)$", "isCorrect": false}
+            ],
+            "solution": "Uavhengighet betyr at $P(B \\mid A) = P(B)$. Da forenkles multiplikasjonsprinsippet til $P(A \\cap B) = P(A) \\cdot P(B)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet med et ess som forandret kortstokken, og nå har du hele verktøykassen. **Betinget sannsynlighet** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allerede har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lar oss regne på hendelser i rekkefølge – og ved trekning *uten tilbakelegging* må både teller og nevner oppdateres etter hvert trekk.\n\n**Valgtreet** holder orden på det hele: multipliser langs grenene, og adder sannsynlighetene for ulike veier som fører til samme resultat – som de to veiene til «ett eple og én pære». Er hendelsene **uavhengige**, gjelder $P(B \\mid A) = P(B)$, og alt forenkles til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgaven spør om «minst én», husker du snarveien: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Fra kortspill til kvalitetskontroll – det er samme matematikk hele veien."
+    }
+  ],
+  "exercises": []
+}

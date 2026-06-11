@@ -1,0 +1,148 @@
+{
+  "id": "s1-1-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.4",
+  "title": "Absoluttverdifunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kvalitetskontroll og toleransegrenser — der absoluttverdien måler avvik, og likninger og ulikheter med absoluttverdi avgjør hva som godkjennes.",
+  "estimatedMinutes": 33,
+  "competenceGoals": ["analysere og løse likninger med absoluttverdi"],
+  "linkedChapterId": "s1-1-4",
+  "content": [
+    {
+      "id": "s1-1-4-n-intro",
+      "type": "text",
+      "content": "## Avvik teller — uansett retning\n\nDu har fått ansvar for kvalitetskontrollen i en liten bedrift som pakker kaffeposer. Hver pose skal veie 500 gram, men ingen maskin er perfekt: noen poser blir litt for tunge, andre litt for lette. Når du skal vurdere kvaliteten, bryr du deg ikke om *retningen* på feilen — en pose på 493 gram er like problematisk som en på 507. Det du trenger, er et mål på **avstanden** fra målverdien. Det målet heter absoluttverdi.\n\n**Absoluttverdien** til et tall $x$ angir avstanden fra $x$ til 0 på tallinja, og defineres slik:\n\n$$|x| = \\begin{cases} x & \\text{hvis } x \\geq 0 \\\\ -x & \\text{hvis } x < 0 \\end{cases}$$\n\nFor eksempel er $|3| = 3$, $|-5| = 5$ og $|0| = 0$. Er tallet positivt eller null, skjer ingenting; er det negativt, bytter vi fortegn. Resultatet er aldri negativt — en avstand kan jo ikke være det.\n\nFunksjonen $f(x) = |x|$ har en karakteristisk **V-formet graf** med bunnpunkt i origo. Mer generelt gir $f(x) = |g(x)|$ en graf der alle de negative verdiene av $g(x)$ speiles opp om $x$-aksen. Og grafen til $f(x) = |x - a|$ er V-formet med bunnpunkt i $(a, 0)$ — den måler avstanden fra $x$ til $a$. I kaffeposeeksempelet er avviket til en pose som veier $x$ gram nettopp $|x - 500|$. I dette kapittelet skal du lære regnereglene for absoluttverdi og hvordan du løser likninger og ulikheter der den dukker opp."
+    },
+    {
+      "id": "s1-1-4-n-section1",
+      "type": "text",
+      "content": "## Regneregler og likninger med absoluttverdi\n\nFør du kan bruke absoluttverdien i kontrollrapportene, trenger du regnereglene. For alle reelle tall $a$ og $b$ gjelder at $|a| \\geq 0$, at $|a \\cdot b| = |a| \\cdot |b|$ og at $\\left|\\frac{a}{b}\\right| = \\frac{|a|}{|b|}$ når $b \\neq 0$ — absoluttverdien fordeler seg altså pent over multiplikasjon og divisjon. Videre gjelder **trekantulikheten** $|a + b| \\leq |a| + |b|$: absoluttverdien av en sum kan aldri overstige summen av absoluttverdiene. Til slutt er $|a|^2 = a^2$, siden kvadrering uansett fjerner fortegnet.\n\nSå til likningene. Hvordan løser vi $|2x - 3| = 5$? Tenk på hva likningen sier: uttrykket $2x - 3$ har avstand 5 fra null. Det kan skje på to måter — uttrykket er enten $5$ eller $-5$. Vi deler derfor i to tilfeller.\n\nTilfelle 1: $2x - 3 = 5$, som gir $2x = 8$ og $x = 4$.\n\nTilfelle 2: $2x - 3 = -5$, som gir $2x = -2$ og $x = -1$.\n\nLøsningen er altså $x = 4$ eller $x = -1$. Generelt gjelder at $|u| = a$ (med $a > 0$) alltid gir de to tilfellene $u = a$ eller $u = -a$. Denne **tilfelledelingen** er selve nøkkelteknikken for absoluttverdilikninger: du fjerner absoluttverditegnet ved å vurdere begge fortegnsmulighetene hver for seg, og løser to vanlige likninger i stedet for én uvanlig."
+    },
+    {
+      "id": "s1-1-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på absoluttverdi og likninger:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-4-n-quiz1-q0",
+            "task": "Hva er $|-7|$?",
+            "options": [
+              { "id": "a", "text": "$-7$", "isCorrect": false },
+              { "id": "b", "text": "$7$", "isCorrect": true },
+              { "id": "c", "text": "$0$", "isCorrect": false },
+              { "id": "d", "text": "$49$", "isCorrect": false }
+            ],
+            "solution": "Absoluttverdien er avstanden til null: $|-7| = 7$."
+          },
+          {
+            "id": "s1-1-4-n-quiz1-q1",
+            "task": "Hvilken regneregel er riktig for alle reelle tall $a$ og $b$?",
+            "options": [
+              { "id": "a", "text": "$|a + b| = |a| + |b|$", "isCorrect": false },
+              { "id": "b", "text": "$|a| < 0$ for negative $a$", "isCorrect": false },
+              { "id": "c", "text": "$|a \\cdot b| = |a| \\cdot |b|$", "isCorrect": true },
+              { "id": "d", "text": "$|a|^2 = -a^2$", "isCorrect": false }
+            ],
+            "solution": "Absoluttverdien fordeler seg over multiplikasjon: $|a \\cdot b| = |a| \\cdot |b|$. For summer gjelder bare ulikheten $|a+b| \\leq |a| + |b|$."
+          },
+          {
+            "id": "s1-1-4-n-quiz1-q2",
+            "task": "Hva er løsningene til $|2x - 3| = 5$?",
+            "options": [
+              { "id": "a", "text": "$x = 4$", "isCorrect": false },
+              { "id": "b", "text": "$x = 4$ eller $x = -4$", "isCorrect": false },
+              { "id": "c", "text": "$x = 1$ eller $x = -1$", "isCorrect": false },
+              { "id": "d", "text": "$x = 4$ eller $x = -1$", "isCorrect": true }
+            ],
+            "solution": "Tilfelle 1: $2x - 3 = 5$ gir $x = 4$. Tilfelle 2: $2x - 3 = -5$ gir $x = -1$."
+          },
+          {
+            "id": "s1-1-4-n-quiz1-q3",
+            "task": "En kaffepose veier $x$ gram, og målvekten er 500 gram. Hvordan uttrykker vi avviket fra målvekten?",
+            "options": [
+              { "id": "a", "text": "$|x - 500|$", "isCorrect": true },
+              { "id": "b", "text": "$x - 500$", "isCorrect": false },
+              { "id": "c", "text": "$|x| - 500$", "isCorrect": false },
+              { "id": "d", "text": "$500 - x$", "isCorrect": false }
+            ],
+            "solution": "Avviket er avstanden mellom $x$ og 500, altså $|x - 500|$. Uten absoluttverdi ville fortegnet avhenge av om posen er for tung eller for lett."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-4-n-section2",
+      "type": "text",
+      "content": "## Toleransegrenser — ulikheter med absoluttverdi\n\nTilbake til kaffeposene. Bedriften har bestemt at en pose godkjennes hvis avviket fra 500 gram er mindre enn 10 gram. Som ulikhet: $|x - 500| < 10$. Hvordan løser vi slike?\n\nNøkkelen er igjen å tenke avstand. At $|u| < a$, betyr at $u$ ligger nærmere null enn $a$ — altså mellom $-a$ og $a$. Generelt gjelder\n\n$$|u| < a \\iff -a < u < a$$\n\nFor kaffeposene gir det $-10 < x - 500 < 10$, og ved å legge til 500 i alle ledd: $490 < x < 510$. Godkjente poser veier altså mellom 490 og 510 gram.\n\nDen motsatte varianten, $|u| > a$, betyr at $u$ ligger *lenger* fra null enn $a$, og det kan skje på to kanter:\n\n$$|u| > a \\iff u < -a \\text{ eller } u > a$$\n\nHvis kontrollsystemet skal slå alarm når avviket er større enn 10 gram, skjer det altså for $x < 490$ eller $x > 510$.\n\nLa oss ta et rent matematisk eksempel også: $|x + 1| < 4$ gir $-4 < x + 1 < 4$, altså $-5 < x < 3$, som vi skriver $x \\in \\langle -5, 3 \\rangle$.\n\nGrafisk er alt dette lett å se: grafen til $f(x) = |x - a|$ er en V med bunnpunkt i $(a, 0)$. Ulikheten $|x - a| < t$ beskriver de $x$-verdiene der V-en ligger under den horisontale linja $y = t$ — et symmetrisk intervall rundt $a$. Toleransegrenser i industrien er bokstavelig talt absoluttverdiulikheter i arbeid."
+    },
+    {
+      "id": "s1-1-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ulikheter med absoluttverdi:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-4-n-quiz2-q0",
+            "task": "Hva er løsningen på $|x + 1| < 4$?",
+            "options": [
+              { "id": "a", "text": "$x < 3$", "isCorrect": false },
+              { "id": "b", "text": "$-5 < x < 3$", "isCorrect": true },
+              { "id": "c", "text": "$-4 < x < 4$", "isCorrect": false },
+              { "id": "d", "text": "$x < -5$ eller $x > 3$", "isCorrect": false }
+            ],
+            "solution": "$|x+1| < 4$ betyr $-4 < x + 1 < 4$. Trekk fra 1 i alle ledd: $-5 < x < 3$."
+          },
+          {
+            "id": "s1-1-4-n-quiz2-q1",
+            "task": "Hva er løsningen på $|x| > 3$?",
+            "options": [
+              { "id": "a", "text": "$x > 3$", "isCorrect": false },
+              { "id": "b", "text": "$-3 < x < 3$", "isCorrect": false },
+              { "id": "c", "text": "$x < -3$ eller $x > 3$", "isCorrect": true },
+              { "id": "d", "text": "$x > -3$", "isCorrect": false }
+            ],
+            "solution": "$|x| > 3$ betyr at $x$ ligger lenger enn 3 fra null, altså $x < -3$ eller $x > 3$."
+          },
+          {
+            "id": "s1-1-4-n-quiz2-q2",
+            "task": "Poser godkjennes når $|x - 500| \\leq 10$, der $x$ er vekten i gram. Hvilke vekter godkjennes?",
+            "options": [
+              { "id": "a", "text": "$490 \\leq x \\leq 510$", "isCorrect": true },
+              { "id": "b", "text": "$x \\leq 510$", "isCorrect": false },
+              { "id": "c", "text": "$495 \\leq x \\leq 505$", "isCorrect": false },
+              { "id": "d", "text": "$x \\geq 490$", "isCorrect": false }
+            ],
+            "solution": "$|x - 500| \\leq 10$ gir $-10 \\leq x - 500 \\leq 10$, altså $490 \\leq x \\leq 510$."
+          },
+          {
+            "id": "s1-1-4-n-quiz2-q3",
+            "task": "Hvor har grafen til $f(x) = |x - 4|$ bunnpunktet sitt?",
+            "options": [
+              { "id": "a", "text": "$(0, 4)$", "isCorrect": false },
+              { "id": "b", "text": "$(-4, 0)$", "isCorrect": false },
+              { "id": "c", "text": "$(0, -4)$", "isCorrect": false },
+              { "id": "d", "text": "$(4, 0)$", "isCorrect": true }
+            ],
+            "solution": "$|x - 4|$ måler avstanden fra $x$ til 4 og er null nettopp når $x = 4$. Grafen er V-formet med bunnpunkt i $(4, 0)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: avstand som matematikk\n\nKvalitetskontrollen i kaffebedriften ga oss en konkret måte å forstå absoluttverdien på: den måler avvik uten å bry seg om retning. **Absoluttverdien** $|x|$ er avstanden fra $x$ til null på tallinja, definert ved at $|x| = x$ når $x \\geq 0$ og $|x| = -x$ når $x < 0$. Den er aldri negativ, og den følger regnereglene $|ab| = |a||b|$, $\\left|\\frac{a}{b}\\right| = \\frac{|a|}{|b|}$, trekantulikheten $|a+b| \\leq |a| + |b|$ og $|a|^2 = a^2$.\n\n**Likninger** med absoluttverdi løser du med tilfelledeling: $|u| = a$ (med $a > 0$) gir de to tilfellene $u = a$ eller $u = -a$, og dermed som regel to løsninger.\n\n**Ulikheter** leser du som avstandsutsagn. $|u| < a$ betyr at $u$ ligger mellom $-a$ og $a$, mens $|u| > a$ betyr at $u < -a$ eller $u > a$. Det er nøyaktig slik toleransegrenser fungerer: $|x - 500| \\leq 10$ beskriver et symmetrisk godkjenningsintervall rundt målverdien.\n\nGrafisk husker du absoluttverdifunksjonen som en **V**: $f(x) = |x - a|$ har bunnpunkt i $(a, 0)$, og $|g(x)|$ speiler de negative delene av $g$ opp om $x$-aksen. Avstand, tilfelledeling og V-grafen — det er hele kapittelet i tre stikkord, og du kommer til å møte alle tre igjen når vi senere arbeider med delte funksjonsuttrykk."
+    }
+  ],
+  "exercises": []
+}

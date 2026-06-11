@@ -1,0 +1,180 @@
+{
+  "id": "2p-2-4-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "2.4",
+  "title": "Stykkevis lineære funksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om priser som knekker – parkeringshus, overtidsbetaling og taxiturer der spillereglene endrer seg underveis.",
+  "estimatedMinutes": 30,
+  "competenceGoals": ["utforske og beskrive stykkevis lineære funksjoner i praktiske situasjoner"],
+  "linkedChapterId": "2p-2-4",
+  "content": [
+    {
+      "id": "2p-2-4-n-intro",
+      "type": "text",
+      "content": "## Når prisen endrer spilleregler\n\nDu står i et parkeringshus og leser på skiltet: «30 kr per time de første 2 timene, deretter 20 kr per time.» Hm. Det er ikke én fast timepris – reglene *endrer seg* underveis. Det samme skjer når mamma jobber overtid og plutselig får 50 prosent mer per time, eller når taxameteret bytter takst etter ti kilometer.\n\nSlike situasjoner kan ikke beskrives med én rett linje. De trenger en funksjon som er satt sammen av *flere* rette linjer – en **stykkevis lineær funksjon**. I denne fortellingen skal vi se hvordan slike funksjoner fungerer, hva som skjer i punktene der reglene skifter, og hvordan du regner deg trygt gjennom parkeringshus, strømregninger og lønnsslipper med overtid."
+    },
+    {
+      "id": "2p-2-4-n-section1",
+      "type": "text",
+      "content": "## Funksjoner med knekk\n\nEn **stykkevis lineær funksjon** er en funksjon som er definert med ulike lineære uttrykk på ulike intervaller. Formelt kan vi skrive den slik:\n\n$$f(x) = \\begin{cases} a_1 x + b_1, & x < c \\\\ a_2 x + b_2, & x \\geq c \\end{cases}$$\n\nGrafen ser ut som rette linjer som er limt sammen – og i skjøten, der funksjonen bytter regel, får grafen en knekk. Dette punktet kalles et **knekkpunkt**, og det er der stigningstallet endrer seg.\n\nLa oss se på et treningssenter som tar $200$ kroner per gang for de første $8$ treningene, og $100$ kroner per gang etterpå. For de første åtte gangene er kostnaden rett og slett $K(x) = 200x$. Etter åtte treninger har du betalt $200 \\cdot 8 = 1\\,600$ kroner, og hver ny trening koster bare $100$ kroner. For $x > 8$ blir kostnaden $K(x) = 1\\,600 + 100(x - 8)$, som vi kan forenkle til $K(x) = 100x + 800$.\n\nNår du skal regne ut en funksjonsverdi, er fremgangsmåten alltid den samme: finn først ut *hvilket intervall* $x$-verdien ligger i, og bruk deretter uttrykket som gjelder der. Skal du finne prisen for $10$ treninger, ser du at $10 > 8$, og bruker det andre uttrykket: $K(10) = 100 \\cdot 10 + 800 = 1\\,800$ kroner. Bruker du feil uttrykk, får du feil svar – det er den vanligste fellen."
+    },
+    {
+      "id": "2p-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på stykkevis lineære funksjoner:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-4-n-quiz1-q0",
+            "task": "Hva er et knekkpunkt i en stykkevis lineær funksjon?",
+            "options": [
+              {"id": "a", "text": "Punktet der grafen krysser x-aksen", "isCorrect": false},
+              {"id": "b", "text": "Punktet der funksjonen skifter regel og stigningstallet endres", "isCorrect": true},
+              {"id": "c", "text": "Punktet der funksjonen har sin høyeste verdi", "isCorrect": false},
+              {"id": "d", "text": "Punktet der grafen krysser y-aksen", "isCorrect": false}
+            ],
+            "solution": "Knekkpunktet er der funksjonen bytter fra ett lineært uttrykk til et annet. Der endres stigningstallet, og grafen får en «knekk»."
+          },
+          {
+            "id": "2p-2-4-n-quiz1-q1",
+            "task": "En funksjon er gitt ved $f(x) = 2x$ for $0 \\le x \\le 10$ og $f(x) = x + 10$ for $x > 10$. Hva er $f(16)$?",
+            "options": [
+              {"id": "a", "text": "$32$", "isCorrect": false},
+              {"id": "b", "text": "$20$", "isCorrect": false},
+              {"id": "c", "text": "$26$", "isCorrect": true},
+              {"id": "d", "text": "$16$", "isCorrect": false}
+            ],
+            "solution": "Siden $16 > 10$, bruker vi det andre uttrykket: $f(16) = 16 + 10 = 26$."
+          },
+          {
+            "id": "2p-2-4-n-quiz1-q2",
+            "task": "Treningssenteret tar 200 kr per gang for de 8 første treningene og 100 kr per gang deretter. Hva koster 10 treninger totalt?",
+            "options": [
+              {"id": "a", "text": "2 000 kr", "isCorrect": false},
+              {"id": "b", "text": "1 800 kr", "isCorrect": true},
+              {"id": "c", "text": "1 600 kr", "isCorrect": false},
+              {"id": "d", "text": "1 000 kr", "isCorrect": false}
+            ],
+            "solution": "De første 8 treningene: $200 \\cdot 8 = 1\\,600$ kr. De neste 2: $2 \\cdot 100 = 200$ kr. Totalt $1\\,800$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-4-n-section2",
+      "type": "text",
+      "content": "## Å lese knekken – hva forteller stigningstallet?\n\nTilbake til parkeringshuset: $30$ kroner per time de første $2$ timene, deretter $20$ kroner per time. Hva koster det å stå i $5$ timer? Vi deler opp: de første to timene koster $2 \\cdot 30 = 60$ kroner, og de tre neste koster $3 \\cdot 20 = 60$ kroner. Totalt $120$ kroner. Et annet parkeringshus tar $30$ kroner per time de første 2 timene og $50$ kroner per time etterpå – der ville $5$ timer kostet $60 + 3 \\cdot 50 = 210$ kroner. Samme oppskrift, men helt annen pris, fordi stigningstallet etter knekken er forskjellig.\n\nOg det er nettopp poenget: stigningstallet i hvert intervall forteller hvor *fort* kostnaden vokser der. Hvis en graf har stigningstall $3$ før knekkpunktet og $1$ etter, betyr det at funksjonen fortsatt stiger etter knekken – men saktere. Veksten avtar, den stopper ikke.\n\nNoen modeller har også en startverdi. En elektriker tar $800$ kroner i utrykningsgebyr, $400$ kroner per time de tre første timene og $600$ kroner per time deretter. En jobb på $5$ timer koster da $800 + 3 \\cdot 400 + 2 \\cdot 600 = 800 + 1\\,200 + 1\\,200 = 3\\,200$ kroner. Gebyr først, så takst for hvert intervall – del alltid regnestykket opp etter intervallene.\n\nDenne typen modell dukker opp overalt: mobilabonnement med datakvote, strømavtaler med fastpris opp til et forbruk, og trappetrinnene i skattesystemet. En progressiv skatt med $22\\,\\%$ på de første $200\\,000$ kronene og $34\\,\\%$ på resten gir for en inntekt på $350\\,000$: $200\\,000 \\cdot 0{,}22 + 150\\,000 \\cdot 0{,}34 = 44\\,000 + 51\\,000 = 95\\,000$ kroner."
+    },
+    {
+      "id": "2p-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å regne med knekkpunkter:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-4-n-quiz2-q0",
+            "task": "Parkering koster 30 kr/time de første 2 timene og 50 kr/time etterpå. Hva koster 5 timer?",
+            "options": [
+              {"id": "a", "text": "210 kr", "isCorrect": true},
+              {"id": "b", "text": "250 kr", "isCorrect": false},
+              {"id": "c", "text": "150 kr", "isCorrect": false},
+              {"id": "d", "text": "190 kr", "isCorrect": false}
+            ],
+            "solution": "$2 \\cdot 30 + 3 \\cdot 50 = 60 + 150 = 210$ kr."
+          },
+          {
+            "id": "2p-2-4-n-quiz2-q1",
+            "task": "En graf knekker ved $x = 10$. Stigningstallet er 3 for $x < 10$ og 1 for $x > 10$. Hva betyr det?",
+            "options": [
+              {"id": "a", "text": "Funksjonen synker etter $x = 10$", "isCorrect": false},
+              {"id": "b", "text": "Funksjonen har et toppunkt ved $x = 10$", "isCorrect": false},
+              {"id": "c", "text": "Veksten øker etter $x = 10$", "isCorrect": false},
+              {"id": "d", "text": "Funksjonen stiger fortsatt, men saktere", "isCorrect": true}
+            ],
+            "solution": "Stigningstallet går fra 3 til 1 – begge er positive, så funksjonen stiger hele veien, men veksten avtar etter knekkpunktet."
+          },
+          {
+            "id": "2p-2-4-n-quiz2-q2",
+            "task": "En elektriker tar 800 kr i utrykningsgebyr, 400 kr/time de 3 første timene og 600 kr/time deretter. Hva koster 5 timer?",
+            "options": [
+              {"id": "a", "text": "2 800 kr", "isCorrect": false},
+              {"id": "b", "text": "3 200 kr", "isCorrect": true},
+              {"id": "c", "text": "3 000 kr", "isCorrect": false},
+              {"id": "d", "text": "3 800 kr", "isCorrect": false}
+            ],
+            "solution": "$800 + 3 \\cdot 400 + 2 \\cdot 600 = 800 + 1\\,200 + 1\\,200 = 3\\,200$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-4-n-section3",
+      "type": "text",
+      "content": "## Baklengs gjennom knekken\n\nHittil har vi regnet fremover: gitt et antall timer, finn prisen. Men ofte er det motsatt – du vet hva noe kostet, og lurer på hvor mye du fikk. Da må du sette opp en likning.\n\nPetter parkerte i parkeringshuset med $30$ kroner per time de første $2$ timene og $20$ kroner per time deretter, og betalte $180$ kroner. Hvor lenge sto bilen? Først sjekker vi om han passerte knekkpunktet: $2$ timer koster $60$ kroner, og $180 > 60$, så ja. For tiden $t > 2$ gjelder $60 + 20(t - 2) = 180$. Da er $20(t - 2) = 120$, altså $t - 2 = 6$, som gir $t = 8$ timer.\n\nSamme teknikk fungerer på lønn. Sara tjener $180$ kroner per time de første $8$ timene, og får $50\\,\\%$ tillegg for overtid – altså $180 \\cdot 1{,}5 = 270$ kroner per overtidstime. En vanlig dag gir $1\\,440$ kroner. En dag tjente hun $2\\,520$ kroner. Da har hun jobbet overtid: $1\\,440 + 270(t - 8) = 2\\,520$ gir $270(t - 8) = 1\\,080$, så $t - 8 = 4$ og $t = 12$ timer.\n\nLegg merke til mønsteret: regn først verdien *i knekkpunktet*, sjekk hvilken side av knekken svaret ligger på, og løs likningen med riktig uttrykk. Knekkpunktet i Saras lønnsmodell er ved $8$ timer – der blir grafen brattere, fordi overtid betales bedre. Slik kan du lese en hel arbeidsavtale ut av formen på en graf."
+    },
+    {
+      "id": "2p-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å regne baklengs:",
+        "options": [{"id": "a", "text": "placeholder", "isCorrect": true}],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-4-n-quiz3-q0",
+            "task": "Parkering koster 30 kr/time de 2 første timene og 20 kr/time deretter. Petter betalte 180 kr. Hvor lenge parkerte han?",
+            "options": [
+              {"id": "a", "text": "6 timer", "isCorrect": false},
+              {"id": "b", "text": "9 timer", "isCorrect": false},
+              {"id": "c", "text": "8 timer", "isCorrect": true},
+              {"id": "d", "text": "7 timer", "isCorrect": false}
+            ],
+            "solution": "De 2 første timene koster $60$ kr. Likningen $60 + 20(t - 2) = 180$ gir $20(t-2) = 120$, så $t - 2 = 6$ og $t = 8$ timer."
+          },
+          {
+            "id": "2p-2-4-n-quiz3-q1",
+            "task": "Progressiv skatt: 22 % på de første 200 000 kr og 34 % på resten. Hva blir skatten på en inntekt på 350 000 kr?",
+            "options": [
+              {"id": "a", "text": "77 000 kr", "isCorrect": false},
+              {"id": "b", "text": "95 000 kr", "isCorrect": true},
+              {"id": "c", "text": "119 000 kr", "isCorrect": false},
+              {"id": "d", "text": "84 000 kr", "isCorrect": false}
+            ],
+            "solution": "$200\\,000 \\cdot 0{,}22 + 150\\,000 \\cdot 0{,}34 = 44\\,000 + 51\\,000 = 95\\,000$ kr. Bare beløpet over 200 000 kr skattlegges med den høye satsen."
+          },
+          {
+            "id": "2p-2-4-n-quiz3-q2",
+            "task": "Sara tjener 180 kr/time de første 8 timene og 270 kr/time for overtid. En dag tjente hun 2 520 kr. Hvor mange timer jobbet hun?",
+            "options": [
+              {"id": "a", "text": "12 timer", "isCorrect": true},
+              {"id": "b", "text": "10 timer", "isCorrect": false},
+              {"id": "c", "text": "14 timer", "isCorrect": false},
+              {"id": "d", "text": "11 timer", "isCorrect": false}
+            ],
+            "solution": "Vanlig dag: $180 \\cdot 8 = 1\\,440$ kr. $1\\,440 + 270(t - 8) = 2\\,520$ gir $270(t-8) = 1\\,080$, så $t = 12$ timer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet med et parkeringsskilt og endte med å kunne lese hele prismodeller ut av grafer. En **stykkevis lineær funksjon** er satt sammen av flere lineære uttrykk som gjelder på hvert sitt intervall, og i **knekkpunktene** skifter funksjonen regel – det er der stigningstallet endres. Et stigningstall som går fra høyt til lavt betyr at veksten avtar; går det fra lavt til høyt, blir grafen brattere, slik som når overtidsbetalingen slår inn.\n\nFremgangsmåten er alltid den samme: finn ut hvilket intervall $x$-verdien ligger i, og bruk uttrykket som gjelder der. Skal du regne baklengs fra en kjent verdi, sjekker du først verdien i knekkpunktet for å vite hvilken del av grafen du er på, og løser deretter likningen med riktig uttrykk. Med dette verktøyet kan du gjennomskue taxipriser, strømavtaler, treningsmedlemskap og trappetrinnene i skattesystemet – alle sammen er bare rette linjer limt sammen i knekkpunkter."
+    }
+  ],
+  "exercises": []
+}

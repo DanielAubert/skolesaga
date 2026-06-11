@@ -1,0 +1,188 @@
+{
+  "id": "s1-1-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.3",
+  "title": "Likninger og ulikheter",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om en markedsanalyse der polynomlikninger, rasjonale likninger og fortegnslinjer avgjør når et produkt faktisk lønner seg.",
+  "estimatedMinutes": 40,
+  "competenceGoals": ["løyse likningar og ulikskapar med polynomuttrykk"],
+  "linkedChapterId": "s1-1-3",
+  "content": [
+    {
+      "id": "s1-1-3-n-intro",
+      "type": "text",
+      "content": "## Når lønner det seg?\n\nDu har fått sommerjobb som analyseassistent i et lite konsulentfirma. Den første oppgaven din: en kunde vil vite for hvilke produksjonsnivåer overskuddsmodellen deres er lik null — og enda viktigere, når den er *positiv*. Det første spørsmålet er en **likning**, det andre en **ulikhet**. Dette kapittelet gir deg verktøyene til å svare på begge.\n\nEn **polynomlikning** har formen $P(x) = 0$ der $P(x)$ er et polynom. Vi har tre hovedmetoder for å løse slike: faktorisering ved hjelp av nullpunktene, polynomdivisjon når ett nullpunkt er kjent, og abc-formelen for andregradslikninger.\n\nSelve grunnprinsippet bak faktorisering kalles **nullpunktsmetoden**: et produkt er null hvis og bare hvis minst én faktor er null. Hvis $P(x) = (x - a_1)(x - a_2) \\cdots (x - a_n) = 0$, så er løsningene rett og slett $x = a_1, a_2, \\ldots, a_n$. Klarer du å skrive modellen som et produkt, kan du lese av løsningene direkte.\n\nDet høres nesten for enkelt ut, men det er nettopp dette som gjør faktorisering så verdifullt: en komplisert tredjegradslikning blir til tre små førstegradslikninger. Og som du skal se, er den samme faktoriseringen også nøkkelen når kunden spør om ulikheter — for da trenger vi å vite ikke bare *hvor* uttrykket er null, men *hvilket fortegn* det har imellom nullpunktene."
+    },
+    {
+      "id": "s1-1-3-n-section1",
+      "type": "text",
+      "content": "## Polynomlikninger — fra gjetning til løsning\n\nKundens modell koker ned til likningen $x^3 - 2x^2 - 5x + 6 = 0$. En tredjegradslikning har ingen enkel formel du kan slå opp, så vi bruker strategien fra kapittel 1.1.\n\nFørst leter vi etter ett nullpunkt blant divisorene av konstantleddet 6, altså $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $P(1) = 1 - 2 - 5 + 6 = 0$. Treff på første forsøk! Faktorsetningen forteller oss da at $(x - 1)$ er en faktor.\n\nSå utfører vi polynomdivisjonen $(x^3 - 2x^2 - 5x + 6) \\div (x - 1) = x^2 - x - 6$, og dette andregradsuttrykket faktoriserer vi videre: $x^2 - x - 6 = (x - 3)(x + 2)$, siden $-3 \\cdot 2 = -6$ og $-3 + 2 = -1$. Dermed er\n\n$$x^3 - 2x^2 - 5x + 6 = (x - 1)(x - 3)(x + 2) = 0$$\n\nog nullpunktsmetoden gir løsningene $x = 1$, $x = 3$ og $x = -2$. Tre tall som forteller kunden nøyaktig hvor modellen krysser null.\n\nOppskriften er alltid den samme: gjett et nullpunkt blant divisorene av konstantleddet, verifiser ved innsetting, del bort faktoren med polynomdivisjon, og løs resten med faktorisering eller abc-formelen $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. Slik reduserer du gradvis en vanskelig likning til noe du kan fra før."
+    },
+    {
+      "id": "s1-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på polynomlikninger:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-3-n-quiz1-q0",
+            "task": "Hva er løsningene til $(x - 2)(x + 5) = 0$?",
+            "options": [
+              { "id": "a", "text": "$x = -2$ og $x = 5$", "isCorrect": false },
+              { "id": "b", "text": "$x = 2$ og $x = -5$", "isCorrect": true },
+              { "id": "c", "text": "Bare $x = 2$", "isCorrect": false },
+              { "id": "d", "text": "$x = 2$ og $x = 5$", "isCorrect": false }
+            ],
+            "solution": "Et produkt er null når minst én faktor er null: $x - 2 = 0$ gir $x = 2$, og $x + 5 = 0$ gir $x = -5$."
+          },
+          {
+            "id": "s1-1-3-n-quiz1-q1",
+            "task": "Hva er løsningene til $x^3 - 4x = 0$?",
+            "options": [
+              { "id": "a", "text": "$x = 0$, $x = 2$ og $x = -2$", "isCorrect": true },
+              { "id": "b", "text": "$x = 2$ og $x = -2$", "isCorrect": false },
+              { "id": "c", "text": "$x = 0$ og $x = 4$", "isCorrect": false },
+              { "id": "d", "text": "$x = 4$ og $x = -4$", "isCorrect": false }
+            ],
+            "solution": "Faktoriser: $x^3 - 4x = x(x^2 - 4) = x(x-2)(x+2) = 0$. Løsningene er $x = 0$, $x = 2$ og $x = -2$."
+          },
+          {
+            "id": "s1-1-3-n-quiz1-q2",
+            "task": "Du skal løse $x^3 - 2x^2 - 5x + 6 = 0$ og har funnet at $P(1) = 0$. Hva er neste naturlige steg?",
+            "options": [
+              { "id": "a", "text": "Prøve alle de andre divisorene av 6", "isCorrect": false },
+              { "id": "b", "text": "Bruke abc-formelen direkte på tredjegradsuttrykket", "isCorrect": false },
+              { "id": "c", "text": "Dele polynomet på $(x - 1)$ med polynomdivisjon", "isCorrect": true },
+              { "id": "d", "text": "Sette inn $x = 0$ for å finne konstantleddet", "isCorrect": false }
+            ],
+            "solution": "Siden $P(1) = 0$, er $(x-1)$ en faktor. Polynomdivisjon med $(x-1)$ gir et andregradsuttrykk som kan faktoriseres videre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-3-n-section2",
+      "type": "text",
+      "content": "## Rasjonale likninger — og fellen med falske løsninger\n\nNeste oppdrag fra kunden inneholder brøker: $\\frac{1}{x} + \\frac{2}{x-1} = 3$. En **rasjonal likning** inneholder rasjonale uttrykk, og metoden er å finne fellesnevneren, multiplisere hele likningen med den, løse polynomlikningen som oppstår — og til slutt **sjekke** at ingen av løsningene gjør en nevner til null.\n\nHer er fellesnevneren $x(x-1)$. Vi ganger hvert ledd med den: $\\frac{x(x-1)}{x} + \\frac{2x(x-1)}{x-1} = 3x(x-1)$, som forenkles til $(x-1) + 2x = 3x(x-1)$. Venstresiden blir $3x - 1$, høyresiden $3x^2 - 3x$, så vi samler alt: $0 = 3x^2 - 6x + 1$.\n\nAbc-formelen med $a = 3$, $b = -6$ og $c = 1$ gir\n\n$$x = \\frac{6 \\pm \\sqrt{36 - 12}}{6} = \\frac{6 \\pm \\sqrt{24}}{6} = \\frac{6 \\pm 2\\sqrt{6}}{6} = 1 \\pm \\frac{\\sqrt{6}}{3}$$\n\nFør vi leverer svaret, kontrollerer vi: ingen av løsningene er $x = 0$ eller $x = 1$, så begge er gyldige.\n\nHvorfor er denne sjekken så viktig? Når vi multipliserer en likning med et uttrykk som inneholder $x$, kan vi innføre **falske løsninger** — verdier som løser den nye polynomlikningen, men som gjør en nevner i originalen til null. En falsk løsning er som et regnestykke som ser riktig ut i rapporten, men beskriver en situasjon som ikke finnes. Profesjonelle analytikere sjekker alltid; det bør du også gjøre."
+    },
+    {
+      "id": "s1-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rasjonale likninger:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-3-n-quiz2-q0",
+            "task": "Hva er fellesnevneren i likningen $\\frac{1}{x} + \\frac{2}{x-1} = 3$?",
+            "options": [
+              { "id": "a", "text": "$x$", "isCorrect": false },
+              { "id": "b", "text": "$x(x-1)$", "isCorrect": true },
+              { "id": "c", "text": "$x - 1$", "isCorrect": false },
+              { "id": "d", "text": "$3x$", "isCorrect": false }
+            ],
+            "solution": "Nevnerne er $x$ og $x-1$, som ikke har felles faktorer. Fellesnevneren er produktet $x(x-1)$."
+          },
+          {
+            "id": "s1-1-3-n-quiz2-q1",
+            "task": "Hva er en falsk løsning i en rasjonal likning?",
+            "options": [
+              { "id": "a", "text": "En løsning som er negativ", "isCorrect": false },
+              { "id": "b", "text": "En løsning som ikke er et heltall", "isCorrect": false },
+              { "id": "c", "text": "En løsning som gir null i telleren", "isCorrect": false },
+              { "id": "d", "text": "En løsning som gjør en nevner i den opprinnelige likningen til null", "isCorrect": true }
+            ],
+            "solution": "Når vi multipliserer med fellesnevneren, kan vi få løsninger som gjør en av de opprinnelige nevnerne til null. Slike løsninger må forkastes."
+          },
+          {
+            "id": "s1-1-3-n-quiz2-q2",
+            "task": "Du løser en rasjonal likning med nevnerne $x$ og $x - 2$, og polynomlikningen gir $x = 2$ og $x = 5$. Hva er løsningen på den opprinnelige likningen?",
+            "options": [
+              { "id": "a", "text": "Bare $x = 5$", "isCorrect": true },
+              { "id": "b", "text": "Både $x = 2$ og $x = 5$", "isCorrect": false },
+              { "id": "c", "text": "Bare $x = 2$", "isCorrect": false },
+              { "id": "d", "text": "Ingen av dem", "isCorrect": false }
+            ],
+            "solution": "$x = 2$ gjør nevneren $x - 2$ til null og er dermed en falsk løsning. Bare $x = 5$ er gyldig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-3-n-section3",
+      "type": "text",
+      "content": "## Ulikheter og fortegnslinjer — når er overskuddet positivt?\n\nNå til kundens egentlige spørsmål: ikke bare *hvor* modellen er null, men *når den er positiv*. For å løse polynomulikheter bruker vi **fortegnsskjema**, også kalt fortegnslinje. Metoden: flytt alt over på én side slik at høyre side blir 0, faktoriser venstresiden, finn nullpunktene, tegn fortegnslinje for hver faktor, og kombiner fortegnene.\n\nTa ulikheten $(x - 1)(x + 2) > 0$. Nullpunktene er $x = 1$ og $x = -2$, og de deler tallinja i tre intervaller. For $x < -2$ er begge faktorene negative, og produktet $(-)(-) = +$ er positivt. For $-2 < x < 1$ er $(x+2)$ positiv men $(x-1)$ negativ, så produktet er negativt. For $x > 1$ er begge positive, og produktet er positivt. Løsningen blir $x < -2$ eller $x > 1$, i intervallnotasjon $(-\\infty, -2) \\cup (1, \\infty)$.\n\nFor **rasjonale ulikheter** gjelder samme idé, men med to viktige tillegg. For det første: vi kan **ikke** multiplisere med et uttrykk som kan være negativt uten å snu ulikhetstegnet — derfor samler vi heller alt på én side og bruker fortegnslinje. For det andre: nullpunktene i nevneren er aldri med i løsningen, for der er uttrykket udefinert.\n\nSe på $\\frac{x+1}{x-2} > 0$. De kritiske punktene er $x = -1$ (teller null) og $x = 2$ (nevner null, udefinert). Brøken er positiv når teller og nevner har samme fortegn: for $x < -1$ er begge negative, for $x > 2$ er begge positive. Løsningen er $x < -1$ eller $x > 2$, altså $(-\\infty, -1) \\cup (2, \\infty)$. Fortegn skifter bare i nullpunktene til teller eller nevner — derfor er fortegnslinja et komplett kart over modellens oppførsel."
+    },
+    {
+      "id": "s1-1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ulikheter og fortegnslinjer:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-3-n-quiz3-q0",
+            "task": "Hva er løsningen på ulikheten $(x - 3)(x + 1) < 0$?",
+            "options": [
+              { "id": "a", "text": "$x < -1$ eller $x > 3$", "isCorrect": false },
+              { "id": "b", "text": "$-1 < x < 3$", "isCorrect": true },
+              { "id": "c", "text": "$x > 3$", "isCorrect": false },
+              { "id": "d", "text": "$x < -1$", "isCorrect": false }
+            ],
+            "solution": "Produktet er negativt når faktorene har ulikt fortegn, altså mellom nullpunktene: $-1 < x < 3$."
+          },
+          {
+            "id": "s1-1-3-n-quiz3-q1",
+            "task": "Hvorfor kan vi ikke uten videre multiplisere ulikheten $\\frac{x+1}{x-2} > 0$ med $(x - 2)$?",
+            "options": [
+              { "id": "a", "text": "Fordi $(x-2)$ kan være negativt, og da må ulikhetstegnet snus", "isCorrect": true },
+              { "id": "b", "text": "Fordi multiplikasjon ikke er lov i ulikheter", "isCorrect": false },
+              { "id": "c", "text": "Fordi telleren da blir null", "isCorrect": false },
+              { "id": "d", "text": "Fordi vi mister løsningen $x = 2$", "isCorrect": false }
+            ],
+            "solution": "Fortegnet til $(x-2)$ avhenger av $x$. Multipliserer vi med et negativt tall uten å snu tegnet, blir ulikheten feil. Derfor bruker vi fortegnslinje i stedet."
+          },
+          {
+            "id": "s1-1-3-n-quiz3-q2",
+            "task": "Hva er løsningen på $\\frac{x+4}{x-1} \\leq 0$?",
+            "options": [
+              { "id": "a", "text": "$-4 \\leq x \\leq 1$", "isCorrect": false },
+              { "id": "b", "text": "$x \\leq -4$ eller $x \\geq 1$", "isCorrect": false },
+              { "id": "c", "text": "$-4 \\leq x < 1$", "isCorrect": true },
+              { "id": "d", "text": "$-4 < x < 1$", "isCorrect": false }
+            ],
+            "solution": "Brøken er negativ mellom de kritiske punktene $x = -4$ og $x = 1$. Tegnet $\\leq$ tillater $x = -4$ (teller null), men $x = 1$ må utelates fordi nevneren da er null."
+          },
+          {
+            "id": "s1-1-3-n-quiz3-q3",
+            "task": "Hvor kan et rasjonalt uttrykk skifte fortegn?",
+            "options": [
+              { "id": "a", "text": "Hvor som helst på tallinja", "isCorrect": false },
+              { "id": "b", "text": "Bare i nullpunktene til telleren eller nevneren", "isCorrect": true },
+              { "id": "c", "text": "Bare der telleren er null", "isCorrect": false },
+              { "id": "d", "text": "Bare i $x = 0$", "isCorrect": false }
+            ],
+            "solution": "Fortegnsskifte kan bare skje der uttrykket er null (teller null) eller udefinert (nevner null). Mellom disse punktene er fortegnet konstant."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: analytikerens metode\n\nRapporten til kunden er klar, og den bygger på fire teknikker du nå mestrer. **Polynomlikninger** løser du ved å flytte alt over på én side, faktorisere — om nødvendig med et gjettet nullpunkt og polynomdivisjon — og bruke nullpunktsmetoden: et produkt er null når minst én faktor er null. For andregradsuttrykk har du alltid abc-formelen $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ i bakhånd.\n\n**Rasjonale likninger** løser du ved å multiplisere med fellesnevneren og løse polynomlikningen som oppstår — men husk kontrollen: en løsning som gjør en nevner til null, er en **falsk løsning** og må forkastes.\n\n**Polynomulikheter** krever fortegnslinje. Faktoriser, finn nullpunktene, og les av hvor produktet er positivt eller negativt. **Rasjonale ulikheter** behandles på samme måte, med to ekstra regler: multipliser aldri med et uttrykk som kan skifte fortegn, og husk at nullpunkter i nevneren aldri er med i løsningen.\n\nDen røde tråden er fortegnslinja: fortegn skifter bare i nullpunktene til teller eller nevner, så når du kjenner disse punktene, kjenner du hele oppførselen til uttrykket. For kunden betyr det et presist svar på når virksomheten lønner seg. For deg betyr det at likninger og ulikheter ikke lenger er to ulike verdener, men én sammenhengende analyse av nullpunkter og fortegn."
+    }
+  ],
+  "exercises": []
+}

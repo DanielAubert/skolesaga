@@ -1,0 +1,148 @@
+{
+  "id": "s1-1-5-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.5",
+  "title": "Faktorisering og forenkling",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å rydde opp i en rotete økonomimodell — med faktoriseringsmetodene som verktøykasse og forenkling av brøkuttrykk som mål.",
+  "estimatedMinutes": 33,
+  "competenceGoals": ["faktorisere og forenkle algebraiske uttrykk"],
+  "linkedChapterId": "s1-1-5",
+  "content": [
+    {
+      "id": "s1-1-5-n-intro",
+      "type": "text",
+      "content": "## Opprydding i regnearket\n\nEn elevbedrift på skolen din har bygget en prismodell i et regneark, men etter mange runder med endringer er formlene blitt et eneste kaos av brøker og parenteser. Du blir bedt om å rydde opp. Det du egentlig blir bedt om, er å **faktorisere og forenkle** — to av de mest brukte ferdighetene i hele S1.\n\nKjernen i oppryddingen er rasjonale uttrykk: brøker der teller og nevner er polynomer. Oppskriften for å forenkle dem har tre steg. Først faktoriserer du teller og nevner fullstendig. Så forkorter du felles faktorer. Til slutt angir du begrensningene på variabelen, slik at ingen senere setter inn en verdi som gjør nevneren til null.\n\nAlt står og faller på steget i midten: *faktorisering*. Et uttrykk som står som en sum, kan ikke forkortes mot noe som helst — men det samme uttrykket skrevet som et produkt, åpner seg som en lås. Derfor handler første del av dette kapittelet om verktøykassa: metodene som forvandler summer til produkter.\n\nDu kjenner allerede flere av dem fra ungdomsskolen og fra kapitlene foran, men nå skal de systematiseres. Når du møter et uttrykk i en modell — enten det er en kostnadsfunksjon i en elevbedrift eller et uttrykk på eksamen — skal du kunne gå gjennom metodene i hodet som en sjekkliste og vite hvilken som passer. Det er forskjellen på å prøve og feile i blinde og å arbeide som en analytiker."
+    },
+    {
+      "id": "s1-1-5-n-section1",
+      "type": "text",
+      "content": "## Verktøykassa — fem faktoriseringsmetoder\n\nDen første metoden du alltid sjekker, er **felles faktor**: finnes det noe alle leddene har til felles? I uttrykket $6x^2 + 9x$ deler begge leddene på $3x$, så vi setter det utenfor: $6x^2 + 9x = 3x(2x + 3)$.\n\nFor **andregradsuttrykk** på formen $x^2 + bx + c$ leter du etter to tall med sum $b$ og produkt $c$. I $x^2 + 5x + 6$ passer 2 og 3, så uttrykket blir $(x+2)(x+3)$. Hvis ingen pene tall finnes, kan du alltid finne nullpunktene $x_1$ og $x_2$ med abc-formelen og bruke at $ax^2 + bx + c = a(x - x_1)(x - x_2)$.\n\n**Konjugatsetningen** gjenkjenner du som en differanse mellom to kvadrater: $a^2 - b^2 = (a+b)(a-b)$. Dermed er $x^2 - 9 = (x-3)(x+3)$.\n\n**Kvadratsetningene** går motsatt vei av å gange ut: $a^2 + 2ab + b^2 = (a+b)^2$ og $a^2 - 2ab + b^2 = (a-b)^2$. Uttrykket $x^2 + 6x + 9$ passer mønsteret med $a = x$ og $b = 3$, så det er $(x+3)^2$.\n\nDen femte metoden er **gruppering**, som redder deg når uttrykket har fire ledd: $x^3 + x^2 - x - 1 = x^2(x+1) - (x+1) = (x+1)(x^2 - 1)$ — og her kan konjugatsetningen til og med brukes en gang til på $x^2 - 1$.\n\nNår du møter et nytt uttrykk, går du gjennom lista i denne rekkefølgen: felles faktor først, deretter mønstergjenkjenning (kvadrat- og konjugatsetning), så sum-og-produkt eller abc-formelen, og gruppering som spesialverktøy. Med denne sjekklista i bakhodet er du klar for selve oppryddingen."
+    },
+    {
+      "id": "s1-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på faktoriseringsmetodene:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-5-n-quiz1-q0",
+            "task": "Faktoriser $6x^2 + 9x$.",
+            "options": [
+              { "id": "a", "text": "$3x(2x + 3)$", "isCorrect": true },
+              { "id": "b", "text": "$3(2x^2 + 3x)$ er fullstendig faktorisert", "isCorrect": false },
+              { "id": "c", "text": "$6x(x + 9)$", "isCorrect": false },
+              { "id": "d", "text": "$(3x + 3)(2x + 3)$", "isCorrect": false }
+            ],
+            "solution": "Største felles faktor i $6x^2$ og $9x$ er $3x$: $6x^2 + 9x = 3x(2x + 3)$."
+          },
+          {
+            "id": "s1-1-5-n-quiz1-q1",
+            "task": "Faktoriser $x^2 - 16$.",
+            "options": [
+              { "id": "a", "text": "$(x - 4)^2$", "isCorrect": false },
+              { "id": "b", "text": "$(x - 4)(x + 4)$", "isCorrect": true },
+              { "id": "c", "text": "$(x - 8)(x + 2)$", "isCorrect": false },
+              { "id": "d", "text": "$x(x - 16)$", "isCorrect": false }
+            ],
+            "solution": "Dette er en differanse mellom to kvadrater. Konjugatsetningen gir $x^2 - 16 = (x-4)(x+4)$."
+          },
+          {
+            "id": "s1-1-5-n-quiz1-q2",
+            "task": "Faktoriser $x^2 + 10x + 25$.",
+            "options": [
+              { "id": "a", "text": "$(x + 5)(x - 5)$", "isCorrect": false },
+              { "id": "b", "text": "$(x + 10)(x + 15)$", "isCorrect": false },
+              { "id": "c", "text": "$(x + 5)^2$", "isCorrect": true },
+              { "id": "d", "text": "Kan ikke faktoriseres", "isCorrect": false }
+            ],
+            "solution": "Mønsteret $a^2 + 2ab + b^2$ med $a = x$ og $b = 5$: $x^2 + 10x + 25 = (x+5)^2$ (første kvadratsetning)."
+          },
+          {
+            "id": "s1-1-5-n-quiz1-q3",
+            "task": "Faktoriser $x^2 + 5x + 6$.",
+            "options": [
+              { "id": "a", "text": "$(x + 1)(x + 6)$", "isCorrect": false },
+              { "id": "b", "text": "$(x + 2)(x + 3)$", "isCorrect": true },
+              { "id": "c", "text": "$(x - 2)(x - 3)$", "isCorrect": false },
+              { "id": "d", "text": "$(x + 5)(x + 6)$", "isCorrect": false }
+            ],
+            "solution": "Vi trenger to tall med sum $5$ og produkt $6$: tallene 2 og 3. Altså $(x+2)(x+3)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-5-n-section2",
+      "type": "text",
+      "content": "## Forenkling i praksis — og fellen alle går i\n\nNå tar vi fatt på regnearket. Den verste formelen i elevbedriftens modell er $\\frac{x^2 - 4}{x^2 + 4x + 4}$. Vi følger oppskriften: faktoriser først. Telleren er en konjugat, $x^2 - 4 = (x-2)(x+2)$, og nevneren et fullstendig kvadrat, $x^2 + 4x + 4 = (x+2)^2$. Da kan vi forkorte:\n\n$$\\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nNeste formel er en sum av brøker: $\\frac{1}{x-1} + \\frac{2}{x+1}$. Her trenger vi **minste fellesnevner**, som vi finner ved å faktorisere nevnerne — de er allerede faktorisert, og siden de ikke deler noen faktor, er fellesnevneren produktet $(x-1)(x+1)$. Vi utvider og trekker sammen:\n\n$$\\frac{(x+1) + 2(x-1)}{(x-1)(x+1)} = \\frac{x + 1 + 2x - 2}{x^2 - 1} = \\frac{3x - 1}{x^2 - 1}$$\n\nTil slutt: fellen som hvert år koster eksamenspoeng. Du kan **bare forkorte faktorer, ikke ledd**. Å stryke $x$-ene i $\\frac{x+3}{x+5}$ og svare $\\frac{3}{5}$ er feil — $x$ er der et ledd i en sum, ikke en faktor. Derimot er $\\frac{x(x+3)}{x(x+5)} = \\frac{x+3}{x+5}$ riktig, fordi $x$ står som faktor utenfor parentesene i både teller og nevner. Test gjerne med tall: for $x = 1$ er $\\frac{1+3}{1+5} = \\frac{4}{6} = \\frac{2}{3}$, som slett ikke er $\\frac{3}{5}$. Når du er i tvil, sett inn et tall — modellen avslører selv om forenklingen din holder."
+    },
+    {
+      "id": "s1-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på forenkling av rasjonale uttrykk:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-5-n-quiz2-q0",
+            "task": "Forenkle $\\frac{x^2 - x}{x}$ for $x \\neq 0$.",
+            "options": [
+              { "id": "a", "text": "$x^2$", "isCorrect": false },
+              { "id": "b", "text": "$x - 1$", "isCorrect": true },
+              { "id": "c", "text": "$x^2 - 1$", "isCorrect": false },
+              { "id": "d", "text": "$x + 1$", "isCorrect": false }
+            ],
+            "solution": "Faktoriser telleren: $x^2 - x = x(x - 1)$. Da er $\\frac{x(x-1)}{x} = x - 1$ for $x \\neq 0$."
+          },
+          {
+            "id": "s1-1-5-n-quiz2-q1",
+            "task": "Hvilken forenkling er riktig?",
+            "options": [
+              { "id": "a", "text": "$\\frac{x+3}{x+5} = \\frac{3}{5}$", "isCorrect": false },
+              { "id": "b", "text": "$\\frac{x^2+1}{x^2} = 1$", "isCorrect": false },
+              { "id": "c", "text": "$\\frac{x(x+3)}{x(x+5)} = \\frac{x+3}{x+5}$, for $x \\neq 0$", "isCorrect": true },
+              { "id": "d", "text": "$\\frac{2x+4}{2} = x + 4$", "isCorrect": false }
+            ],
+            "solution": "I alternativ c er $x$ en felles faktor og kan forkortes. I a og b strykes ledd, som er feil, og i d skulle svaret vært $x + 2$."
+          },
+          {
+            "id": "s1-1-5-n-quiz2-q2",
+            "task": "Forenkle $\\frac{x^2 - 4}{x^2 + 4x + 4}$.",
+            "options": [
+              { "id": "a", "text": "$\\frac{x-2}{x+2}$, for $x \\neq -2$", "isCorrect": true },
+              { "id": "b", "text": "$\\frac{x+2}{x-2}$", "isCorrect": false },
+              { "id": "c", "text": "$-1$", "isCorrect": false },
+              { "id": "d", "text": "$\\frac{-4}{4x+4}$", "isCorrect": false }
+            ],
+            "solution": "Teller: $(x-2)(x+2)$. Nevner: $(x+2)^2$. Forkort $(x+2)$: $\\frac{x-2}{x+2}$, $x \\neq -2$."
+          },
+          {
+            "id": "s1-1-5-n-quiz2-q3",
+            "task": "Hva er $\\frac{1}{x-1} + \\frac{2}{x+1}$ skrevet som én brøk?",
+            "options": [
+              { "id": "a", "text": "$\\frac{3}{2x}$", "isCorrect": false },
+              { "id": "b", "text": "$\\frac{3}{x^2-1}$", "isCorrect": false },
+              { "id": "c", "text": "$\\frac{3x+1}{x^2-1}$", "isCorrect": false },
+              { "id": "d", "text": "$\\frac{3x-1}{x^2-1}$", "isCorrect": true }
+            ],
+            "solution": "Fellesnevner $(x-1)(x+1) = x^2-1$: telleren blir $(x+1) + 2(x-1) = 3x - 1$, så svaret er $\\frac{3x-1}{x^2-1}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: fra kaos til struktur\n\nDa du leverte det ryddede regnearket tilbake til elevbedriften, var formlene halvparten så lange og dobbelt så forståelige. Det du brukte, var en systematisk verktøykasse.\n\n**Faktoriseringsmetodene** er sjekklista di: sett felles faktor utenfor først, se etter mønstrene fra kvadratsetningene $a^2 \\pm 2ab + b^2 = (a \\pm b)^2$ og konjugatsetningen $a^2 - b^2 = (a+b)(a-b)$, finn to tall med riktig sum og produkt for andregradsuttrykk — eller bruk nullpunktene fra abc-formelen og skriv $ax^2 + bx + c = a(x - x_1)(x - x_2)$ — og husk gruppering når uttrykket har fire ledd.\n\n**Forenkling av rasjonale uttrykk** følger alltid samme rekkefølge: faktoriser teller og nevner fullstendig, forkort felles faktorer, og noter begrensningene på variabelen. Ved **addisjon av brøker** faktoriserer du nevnerne for å finne minste fellesnevner, utvider brøkene og trekker sammen tellerne.\n\nOg den ene regelen som står over alle andre: du kan bare forkorte *faktorer*, aldri *ledd*. Et uttrykk må være skrevet som produkt før noe kan strykes.\n\nFaktorisering er ikke et mål i seg selv — det er nøkkelen som låser opp forkorting, likningsløsning, fortegnslinjer og grafdrøfting. Hver gang du i resten av S1 står fast på et algebraisk uttrykk, er det første spørsmålet du skal stille deg: *kan dette faktoriseres?*"
+    }
+  ],
+  "exercises": []
+}

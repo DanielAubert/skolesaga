@@ -1,0 +1,137 @@
+{
+  "id": "s1-1-2-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.2",
+  "title": "Rasjonale uttrykk",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om gjennomsnittskostnader og brøker med polynomer — og om hvordan en økonomimodell blir enklere når du faktoriserer og forkorter riktig.",
+  "estimatedMinutes": 33,
+  "competenceGoals": ["rekne med rasjonale uttrykk"],
+  "linkedChapterId": "s1-1-2",
+  "content": [
+    {
+      "id": "s1-1-2-n-intro",
+      "type": "text",
+      "content": "## Kostnad per enhet\n\nDu sitter i et møte med ei venninne som driver et lite trykkeri. Hun viser deg regnearket sitt: totalkostnaden for å produsere plakater er et polynom, og når hun deler på antall plakater for å finne kostnaden *per plakat*, får hun en brøk der både teller og nevner inneholder $x$. «Kan dette forenkles?» spør hun. Svaret er ja — og uttrykket hun har laget, har et eget navn i matematikken.\n\nEt **rasjonalt uttrykk** er en brøk der teller og nevner er polynomer, altså et uttrykk på formen\n\n$$\\frac{P(x)}{Q(x)}$$\n\nder $P(x)$ og $Q(x)$ er polynomer og $Q(x) \\neq 0$. Typiske eksempler er $\\frac{x+2}{x-3}$, $\\frac{x^2-4}{x^2+2x+1}$ og $\\frac{2x}{x^2-1}$.\n\nRasjonale uttrykk følger de samme reglene som vanlige tallbrøker, men med én viktig tilleggsbekymring: **definisjonsmengden**. En brøk gir bare mening når nevneren ikke er null, så definisjonsmengden er alle verdier av $x$ der $Q(x) \\neq 0$. For uttrykket $\\frac{x+2}{x-3}$ betyr det at $x \\neq 3$. I trykkeriets modell tilsvarer det at vi ikke kan snakke om kostnad per plakat hvis vi ikke produserer noen — modellen har grenser, og de må vi holde styr på.\n\nI dette kapittelet lærer du å forkorte, multiplisere, dividere og addere rasjonale uttrykk, slik at modellene dine blir så enkle og oversiktlige som mulig."
+    },
+    {
+      "id": "s1-1-2-n-section1",
+      "type": "text",
+      "content": "## Forkorting — rydd i modellen\n\nVenninna di har endt opp med uttrykket $\\frac{x^2 - 4}{x^2 + 4x + 4}$ i regnearket. Det ser tungt ut, men forkorting følger en fast oppskrift: faktoriser teller og nevner, og stryk felles faktorer.\n\nTelleren kjenner vi igjen fra konjugatsetningen: $x^2 - 4 = (x-2)(x+2)$. Nevneren er et fullstendig kvadrat: $x^2 + 4x + 4 = (x+2)^2$. Dermed blir\n\n$$\\frac{x^2 - 4}{x^2 + 4x + 4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nLegg merke til at vi noterer begrensningen $x \\neq -2$. Selv om det forkortede uttrykket ser ut til å tåle alle verdier unntatt $-2$, må definisjonsmengden følge med fra det opprinnelige uttrykket.\n\nHer lurer også den vanligste feilen i hele kapittelet. Vi kan bare forkorte **faktorer**, aldri **ledd**. Det er fristende å stryke $x$-ene i $\\frac{x+3}{x+5}$ og påstå at svaret er $\\frac{3}{5}$ — men det er feil, like feil som å påstå at $\\frac{13}{15} = \\frac{3}{5}$ fordi vi stryker 1-tallene. Derimot er $\\frac{x(x+3)}{x(x+5)} = \\frac{x+3}{x+5}$ helt riktig, fordi $x$ der står som en faktor i både teller og nevner.\n\nTommelfingerregelen er enkel: faktoriser først, forkort etterpå. Står uttrykket som en sum, har du ingenting å stryke."
+    },
+    {
+      "id": "s1-1-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rasjonale uttrykk og forkorting:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-2-n-quiz1-q0",
+            "task": "Hva er definisjonsmengden til $\\frac{x+2}{x-3}$?",
+            "options": [
+              { "id": "a", "text": "Alle $x$ unntatt $x = -2$", "isCorrect": false },
+              { "id": "b", "text": "Alle $x$ unntatt $x = 3$", "isCorrect": true },
+              { "id": "c", "text": "Alle $x$ unntatt $x = -2$ og $x = 3$", "isCorrect": false },
+              { "id": "d", "text": "Alle reelle tall", "isCorrect": false }
+            ],
+            "solution": "Uttrykket er udefinert der nevneren er null: $x - 3 = 0$ gir $x = 3$. Telleren kan godt være null."
+          },
+          {
+            "id": "s1-1-2-n-quiz1-q1",
+            "task": "Forkort $\\frac{x^2 - 9}{x + 3}$.",
+            "options": [
+              { "id": "a", "text": "$x - 3$, for $x \\neq -3$", "isCorrect": true },
+              { "id": "b", "text": "$x + 3$, for $x \\neq 3$", "isCorrect": false },
+              { "id": "c", "text": "$x - 9$", "isCorrect": false },
+              { "id": "d", "text": "Uttrykket kan ikke forkortes", "isCorrect": false }
+            ],
+            "solution": "Konjugatsetningen gir $x^2 - 9 = (x-3)(x+3)$, så $\\frac{(x-3)(x+3)}{x+3} = x - 3$ for $x \\neq -3$."
+          },
+          {
+            "id": "s1-1-2-n-quiz1-q2",
+            "task": "Hvilken påstand er riktig?",
+            "options": [
+              { "id": "a", "text": "$\\frac{x+3}{x+5} = \\frac{3}{5}$, fordi vi kan stryke $x$-ene", "isCorrect": false },
+              { "id": "b", "text": "Vi kan forkorte både ledd og faktorer", "isCorrect": false },
+              { "id": "c", "text": "Vi kan bare forkorte felles faktorer, aldri ledd", "isCorrect": true },
+              { "id": "d", "text": "Forkorting endrer definisjonsmengden til uttrykket", "isCorrect": false }
+            ],
+            "solution": "Bare felles faktorer kan strykes. I $\\frac{x+3}{x+5}$ er $x$ et ledd, ikke en faktor, så uttrykket kan ikke forkortes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-2-n-section2",
+      "type": "text",
+      "content": "## Multiplikasjon, divisjon og addisjon\n\nTrykkeriet vurderer å kombinere to modeller — én for materialkostnad og én for tidsbruk — og da må rasjonale uttrykk ganges, deles og legges sammen. Heldigvis gjelder akkurat de samme reglene som for tallbrøker.\n\nVed **multiplikasjon** ganger vi teller med teller og nevner med nevner: $\\frac{P(x)}{Q(x)} \\cdot \\frac{R(x)}{S(x)} = \\frac{P(x) \\cdot R(x)}{Q(x) \\cdot S(x)}$. Det lønner seg å faktorisere først, så du kan forkorte før du multipliserer. Se på $\\frac{x^2-1}{x+3} \\cdot \\frac{x+3}{x-1}$. Vi faktoriserer $x^2 - 1 = (x-1)(x+1)$ og får\n\n$$\\frac{(x-1)(x+1)(x+3)}{(x+3)(x-1)} = x + 1, \\quad x \\neq -3, \\; x \\neq 1$$\n\nVed **divisjon** multipliserer vi med den omvendte brøken: $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)} = \\frac{P(x)}{Q(x)} \\cdot \\frac{S(x)}{R(x)}$ — å dele på en brøk er å gange med den snudd.\n\nVed **addisjon og subtraksjon** trenger vi **fellesnevner**, akkurat som når vi legger sammen $\\frac{1}{2}$ og $\\frac{1}{3}$. Skal vi regne ut $\\frac{2}{x-1} + \\frac{3}{x+1}$, bruker vi fellesnevneren $(x-1)(x+1) = x^2 - 1$ og utvider begge brøkene:\n\n$$\\frac{2(x+1)}{(x-1)(x+1)} + \\frac{3(x-1)}{(x-1)(x+1)} = \\frac{2x + 2 + 3x - 3}{x^2 - 1} = \\frac{5x - 1}{x^2 - 1}$$\n\nmed begrensningen $x \\neq \\pm 1$. Generelt gjelder $\\frac{a}{b} + \\frac{c}{d} = \\frac{ad + bc}{bd}$. Med disse fire regneartene kan du slå sammen og forenkle nesten enhver brøkmodell du møter — i økonomi som i resten av S1."
+    },
+    {
+      "id": "s1-1-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regning med rasjonale uttrykk:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-2-n-quiz2-q0",
+            "task": "Hva er $\\frac{1}{x} \\cdot \\frac{x}{x+1}$ etter forkorting?",
+            "options": [
+              { "id": "a", "text": "$\\frac{x}{x+1}$", "isCorrect": false },
+              { "id": "b", "text": "$\\frac{1}{x+1}$, for $x \\neq 0$", "isCorrect": true },
+              { "id": "c", "text": "$\\frac{1}{x^2+x}$", "isCorrect": false },
+              { "id": "d", "text": "$\\frac{x+1}{x}$", "isCorrect": false }
+            ],
+            "solution": "$\\frac{1}{x} \\cdot \\frac{x}{x+1} = \\frac{x}{x(x+1)} = \\frac{1}{x+1}$, der $x$ forkortes som felles faktor. Husk $x \\neq 0$ fra det opprinnelige uttrykket."
+          },
+          {
+            "id": "s1-1-2-n-quiz2-q1",
+            "task": "Hvordan dividerer vi $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)}$?",
+            "options": [
+              { "id": "a", "text": "Vi deler teller på teller og nevner på nevner", "isCorrect": false },
+              { "id": "b", "text": "Vi finner fellesnevner og trekker fra", "isCorrect": false },
+              { "id": "c", "text": "Vi snur begge brøkene og multipliserer", "isCorrect": false },
+              { "id": "d", "text": "Vi multipliserer med den omvendte av den andre brøken", "isCorrect": true }
+            ],
+            "solution": "Å dele på en brøk er det samme som å gange med den omvendte: $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$."
+          },
+          {
+            "id": "s1-1-2-n-quiz2-q2",
+            "task": "Hva er fellesnevneren til $\\frac{2}{x-1}$ og $\\frac{3}{x+1}$?",
+            "options": [
+              { "id": "a", "text": "$x - 1$", "isCorrect": false },
+              { "id": "b", "text": "$(x-1)(x+1) = x^2 - 1$", "isCorrect": true },
+              { "id": "c", "text": "$2x$", "isCorrect": false },
+              { "id": "d", "text": "$x^2 + 1$", "isCorrect": false }
+            ],
+            "solution": "Nevnerne $(x-1)$ og $(x+1)$ har ingen felles faktorer, så fellesnevneren er produktet $(x-1)(x+1) = x^2 - 1$."
+          },
+          {
+            "id": "s1-1-2-n-quiz2-q3",
+            "task": "Regn ut $\\frac{1}{x-1} + \\frac{1}{x+1}$.",
+            "options": [
+              { "id": "a", "text": "$\\frac{2}{x^2-1}$", "isCorrect": false },
+              { "id": "b", "text": "$\\frac{2}{2x}$", "isCorrect": false },
+              { "id": "c", "text": "$\\frac{2x}{x^2-1}$", "isCorrect": true },
+              { "id": "d", "text": "$\\frac{x}{x^2+1}$", "isCorrect": false }
+            ],
+            "solution": "Med fellesnevner $x^2 - 1$: $\\frac{(x+1) + (x-1)}{(x-1)(x+1)} = \\frac{2x}{x^2-1}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: brøker med polynomer\n\nDa venninna di lukket regnearket, var kostnadsmodellen redusert fra et uoversiktlig brøkuttrykk til noe hun faktisk kunne presentere for banken. Veien dit gikk gjennom fire ferdigheter du nå behersker.\n\nEt **rasjonalt uttrykk** er en brøk $\\frac{P(x)}{Q(x)}$ der teller og nevner er polynomer, og **definisjonsmengden** er alle $x$ der nevneren ikke er null. Den begrensningen følger uttrykket gjennom alle omforminger — glem den aldri.\n\n**Forkorting** gjør du ved å faktorisere teller og nevner og stryke felles faktorer. Husk den gylne regelen: du kan bare forkorte faktorer, aldri ledd. **Multiplikasjon** er teller ganger teller og nevner ganger nevner, helst etter at du har faktorisert og forkortet. **Divisjon** er multiplikasjon med den omvendte brøken. Og **addisjon og subtraksjon** krever fellesnevner, som du finner ved å faktorisere nevnerne, før du utvider brøkene og trekker sammen tellerne.\n\nFormlene er de samme som for tallbrøker: $\\frac{a}{b} \\cdot \\frac{c}{d} = \\frac{ac}{bd}$, $\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\cdot \\frac{d}{c}$ og $\\frac{a}{b} + \\frac{c}{d} = \\frac{ad+bc}{bd}$. Det nye er at byggesteinene er polynomer — og at faktorisering dermed er nøkkelen til alt. I neste kapittel skal vi bruke disse ferdighetene når rasjonale uttrykk dukker opp i likninger og ulikheter."
+    }
+  ],
+  "exercises": []
+}

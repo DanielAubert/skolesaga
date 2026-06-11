@@ -1,0 +1,203 @@
+{
+  "id": "s1-1-9-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.9",
+  "title": "Potens- og eksponentialfunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om sparing, befolkningsvekst og rentes rente — der vekstfaktorer, doblingstid og kampen mellom lineær og eksponentiell vekst avgjør utfallet.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "modellere eksponentiell vekst og avtagning",
+    "bruke vekstfaktor til å beregne prosentvis endring",
+    "sammenligne lineær og eksponentiell vekst"
+  ],
+  "linkedChapterId": "s1-1-9",
+  "content": [
+    {
+      "id": "s1-1-9-n-intro",
+      "type": "text",
+      "content": "## Vekst som ganger seg selv\n\nTo venner starter spareplaner samme dag, begge med 10 000 kroner. Den ene legger til et fast beløp hvert år; den andre lar pengene stå i et fond som vokser med en fast *prosent*. Hvem har mest etter 20 år? Svaret overrasker de fleste — og det handler om forskjellen mellom to fundamentalt ulike måter å vokse på.\n\nMange størrelser i virkeligheten endrer seg med en fast **prosentandel** per tidsenhet, ikke et fast **beløp**. Slik vekst kalles **eksponentiell**. Befolkninger vokser gjerne med rundt 1–2 prosent i året, sparepenger med rentesatsen, inflasjonen spiser kanskje 2,5 prosent av pengeverdien årlig, og radioaktive stoffer brytes ned slik at mengden halveres med faste mellomrom — for karbon-14 hvert 5730. år. Fellesnevneren er at endringen er **proporsjonal med nåværende verdi**: jo mer du har, desto mer vokser det.\n\nFør vi dykker ned i dette, må vi skille eksponentialfunksjoner fra slektningen **potensfunksjoner**. En potensfunksjon har formen $f(x) = a \\cdot x^n$, der eksponenten $n$ kan være et hvilket som helst reelt tall: $n = 1$ gir en lineær funksjon, $n = 2$ en kvadratisk, $n = -1$ en omvendt proporsjonalitet $f(x) = \\frac{a}{x}$, og $n = \\frac{1}{2}$ en rotfunksjon $f(x) = a\\sqrt{x}$.\n\nForskjellen er hvor variabelen står: i potensfunksjoner er **variabelen grunntallet** ($x^n$), i eksponentialfunksjoner er **variabelen eksponenten** ($b^x$). Den lille forskjellen får enorme konsekvenser — en eksponentialfunksjon med vekst vokser til slutt forbi enhver potensfunksjon, uansett hvor stor eksponenten er."
+    },
+    {
+      "id": "s1-1-9-n-section1",
+      "type": "text",
+      "content": "## Vekstfaktor — prosentregningens motor\n\nNøkkelen til all eksponentiell regning er **vekstfaktoren**. Når en størrelse endres med $p\\%$ per tidsenhet, er vekstfaktoren\n\n$$v = 1 + \\frac{p}{100}$$\n\nVed vekst er $p > 0$ og dermed $v > 1$: en økning på 5 % gir $v = 1{,}05$. Ved avtagning er $p < 0$ og $0 < v < 1$: en nedgang på 3 % gir $v = 0{,}97$. Å øke med 5 % er altså det samme som å gange med 1,05 — og det er nettopp *gangingen* som gjør prosentvis vekst så kraftfull.\n\nFor hver tidsperiode ganger vi med $v$ en gang til. Etter $n$ perioder med startverdi $y_0$ er verdien\n\n$$y(n) = y_0 \\cdot v^n$$\n\nTenk på fondet til den ene sparevennen: 10 000 kroner med 8 % årlig avkastning er verdt $10\\,000 \\cdot 1{,}08$ etter ett år, $10\\,000 \\cdot 1{,}08^2$ etter to, og $10\\,000 \\cdot 1{,}08^{20} \\approx 46\\,610$ kroner etter tjue. Renten beregnes av et stadig større beløp — det er dette som kalles rentes rente.\n\nVekstfaktorer er også grunnen til at prosentregning «baklengs» blir riktig. Synker en aksje med 20 %, ganger du med 0,80; stiger den så med 20 %, ganger du med 1,20 — og $0{,}80 \\cdot 1{,}20 = 0{,}96$, så du har fortsatt tapt 4 %. Den som behersker vekstfaktorer, gjennomskuer slike feller på sekunder. Og som vi straks skal se, er vekstfaktoren nøyaktig det tallet som spiller rollen som grunntall i eksponentialfunksjonen."
+    },
+    {
+      "id": "s1-1-9-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-9-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vekstfaktor og potensfunksjoner:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-9-n-quiz1-q0",
+            "task": "Hva er vekstfaktoren ved en økning på 5 % per år?",
+            "options": [
+              { "id": "a", "text": "$0{,}05$", "isCorrect": false },
+              { "id": "b", "text": "$1{,}5$", "isCorrect": false },
+              { "id": "c", "text": "$1{,}05$", "isCorrect": true },
+              { "id": "d", "text": "$5$", "isCorrect": false }
+            ],
+            "solution": "$v = 1 + \\frac{5}{100} = 1{,}05$."
+          },
+          {
+            "id": "s1-1-9-n-quiz1-q1",
+            "task": "Hva er vekstfaktoren ved en nedgang på 15 % per år?",
+            "options": [
+              { "id": "a", "text": "$0{,}15$", "isCorrect": false },
+              { "id": "b", "text": "$0{,}85$", "isCorrect": true },
+              { "id": "c", "text": "$1{,}15$", "isCorrect": false },
+              { "id": "d", "text": "$-0{,}15$", "isCorrect": false }
+            ],
+            "solution": "Nedgang på 15 % betyr at 85 % er igjen: $v = 1 - \\frac{15}{100} = 0{,}85$."
+          },
+          {
+            "id": "s1-1-9-n-quiz1-q2",
+            "task": "Hva er forskjellen på en potensfunksjon og en eksponentialfunksjon?",
+            "options": [
+              { "id": "a", "text": "I potensfunksjonen er variabelen grunntallet, i eksponentialfunksjonen er den eksponenten", "isCorrect": true },
+              { "id": "b", "text": "Potensfunksjoner vokser alltid raskere", "isCorrect": false },
+              { "id": "c", "text": "Eksponentialfunksjoner har alltid negative verdier", "isCorrect": false },
+              { "id": "d", "text": "Det er ingen forskjell", "isCorrect": false }
+            ],
+            "solution": "Potensfunksjon: $f(x) = a \\cdot x^n$ (variabelen i grunntallet). Eksponentialfunksjon: $f(x) = a \\cdot b^x$ (variabelen i eksponenten)."
+          },
+          {
+            "id": "s1-1-9-n-quiz1-q3",
+            "task": "En aksje faller 20 % og stiger deretter 20 %. Hva er totalendringen?",
+            "options": [
+              { "id": "a", "text": "Tilbake til utgangspunktet ($0\\,\\%$)", "isCorrect": false },
+              { "id": "b", "text": "Ned 4 %", "isCorrect": true },
+              { "id": "c", "text": "Opp 4 %", "isCorrect": false },
+              { "id": "d", "text": "Ned 40 %", "isCorrect": false }
+            ],
+            "solution": "Total vekstfaktor: $0{,}80 \\cdot 1{,}20 = 0{,}96$, altså en nedgang på 4 %."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-9-n-section2",
+      "type": "text",
+      "content": "## Eksponentialfunksjonen — med dobling og halvering\n\nNå samler vi trådene. En **eksponentialfunksjon** har formen\n\n$$f(x) = a \\cdot b^x, \\quad a \\neq 0, \\; b > 0, \\; b \\neq 1$$\n\nder $a$ er startverdien ($f(0) = a$) og $b$ er vekstfaktoren. For $b > 1$ er funksjonen voksende, for $0 < b < 1$ avtagende. Grafen passerer alltid gjennom $(0, a)$, har $x$-aksen som **horisontal asymptote**, og holder seg på samme side av den: alltid positiv når $a > 0$.\n\nEt klassisk samfunnseksempel: en by har 50 000 innbyggere og vokser med 2 % per år. Vekstfaktoren er $v = 1{,}02$, så modellen blir $N(t) = 50\\,000 \\cdot 1{,}02^t$. Etter 10 år: $N(10) = 50\\,000 \\cdot 1{,}02^{10} \\approx 60\\,950$ innbyggere.\n\nHvor lang tid tar det før byen er dobbelt så stor? **Doblingstiden** $T_2$ oppfyller $v^{T_2} = 2$ og kan regnes ut med logaritmer:\n\n$$T_2 = \\frac{\\ln 2}{\\ln v}$$\n\nFor byen: $T_2 = \\frac{\\ln 2}{\\ln 1{,}02} \\approx 35$ år. En praktisk tommelfingerregel for lav vekst (under ca. 15 %) er $T_2 \\approx \\frac{70}{p}$ — her $\\frac{70}{2} = 35$ år. Tilsvarende er **halveringstiden** $T_{1/2} = \\frac{\\ln(1/2)}{\\ln v}$ tiden det tar før verdien er halvert.\n\nHalveringstid styrer for eksempel radioaktiv nedbryting. Et stoff med halveringstid 8 timer og startmengde 200 gram følger $M(t) = 200 \\cdot \\left(\\frac{1}{2}\\right)^{t/8}$, der vekstfaktoren per time er $v = 2^{-1/8} \\approx 0{,}9170$. Etter 24 timer — tre halveringstider — er mengden $200 \\cdot \\left(\\frac{1}{2}\\right)^3 = 25$ gram. Det fine med dobling og halvering er at tiden er *konstant*: en eksponentiell størrelse bruker like lang tid på hver dobling, uansett hvor stor den er blitt."
+    },
+    {
+      "id": "s1-1-9-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-9-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentialfunksjoner, dobling og halvering:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-9-n-quiz2-q0",
+            "task": "I modellen $N(t) = 50\\,000 \\cdot 1{,}02^t$, hva betyr tallet 50 000?",
+            "options": [
+              { "id": "a", "text": "Veksten per år", "isCorrect": false },
+              { "id": "b", "text": "Startverdien $N(0)$", "isCorrect": true },
+              { "id": "c", "text": "Maksimal befolkning", "isCorrect": false },
+              { "id": "d", "text": "Doblingstiden", "isCorrect": false }
+            ],
+            "solution": "$N(0) = 50\\,000 \\cdot 1{,}02^0 = 50\\,000$. Tallet $a$ i $a \\cdot b^x$ er alltid startverdien."
+          },
+          {
+            "id": "s1-1-9-n-quiz2-q1",
+            "task": "En by vokser med 2 % per år. Omtrent hva er doblingstiden (tommelfingerregelen)?",
+            "options": [
+              { "id": "a", "text": "Ca. 50 år", "isCorrect": false },
+              { "id": "b", "text": "Ca. 20 år", "isCorrect": false },
+              { "id": "c", "text": "Ca. 70 år", "isCorrect": false },
+              { "id": "d", "text": "Ca. 35 år", "isCorrect": true }
+            ],
+            "solution": "Tommelfingerregelen gir $T_2 \\approx \\frac{70}{p} = \\frac{70}{2} = 35$ år, som stemmer med $\\frac{\\ln 2}{\\ln 1{,}02} \\approx 35$."
+          },
+          {
+            "id": "s1-1-9-n-quiz2-q2",
+            "task": "Et radioaktivt stoff har halveringstid 8 timer. Vi starter med 200 gram. Hvor mye er igjen etter 24 timer?",
+            "options": [
+              { "id": "a", "text": "$25$ gram", "isCorrect": true },
+              { "id": "b", "text": "$50$ gram", "isCorrect": false },
+              { "id": "c", "text": "$66{,}7$ gram", "isCorrect": false },
+              { "id": "d", "text": "$12{,}5$ gram", "isCorrect": false }
+            ],
+            "solution": "24 timer er tre halveringstider: $200 \\cdot \\left(\\frac{1}{2}\\right)^3 = 200 \\cdot \\frac{1}{8} = 25$ gram."
+          },
+          {
+            "id": "s1-1-9-n-quiz2-q3",
+            "task": "Hvilken egenskap har grafen til $f(x) = a \\cdot b^x$ med $a > 0$?",
+            "options": [
+              { "id": "a", "text": "Den krysser $x$-aksen i $x = b$", "isCorrect": false },
+              { "id": "b", "text": "Den har et toppunkt", "isCorrect": false },
+              { "id": "c", "text": "Den ligger alltid over $x$-aksen, med $y = 0$ som horisontal asymptote", "isCorrect": true },
+              { "id": "d", "text": "Den er symmetrisk om $y$-aksen", "isCorrect": false }
+            ],
+            "solution": "Eksponentialfunksjoner med $a > 0$ er alltid positive og nærmer seg $x$-aksen uten å nå den — $y = 0$ er horisontal asymptote."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-9-n-section3",
+      "type": "text",
+      "content": "## Lineær mot eksponentiell — sparekonkurransen avgjøres\n\nTilbake til de to sparevennene. Plan A er **lineær**: $A(t) = 10\\,000 + 1\\,000t$, tusen kroner ekstra hvert år. Plan B er **eksponentiell**: $B(t) = 10\\,000 \\cdot 1{,}08^t$, åtte prosent vekst årlig.\n\nDe første årene leder faktisk plan A. Etter 5 år står A i 15 000 kroner, mens B bare har nådd cirka 14 693. Men så snur det: etter 10 år har A 20 000 og B cirka 21 589, og etter 20 år har A 30 000 mens B har vokst til rundt 46 610 kroner — over 50 % mer. Rentes rente-effekten trenger tid, men når den først får virke, er den ustoppelig. Eksponentiell vekst tar *alltid* igjen lineær vekst til slutt, uansett hvor stor den lineære økningen er.\n\nForskjellen ligger i selve vekstmekanismen. Lineær vekst $f(x) = ax + b$ legger til samme **beløp** hvert steg: differansen $f(x+1) - f(x) = a$ er konstant. Eksponentiell vekst $f(x) = a \\cdot b^x$ ganger med samme **faktor** hvert steg: kvotienten $\\frac{f(x+1)}{f(x)} = b$ er konstant. Grafisk gir det en rett linje mot en kurve som blir brattere og brattere (eller flatere og flatere ved avtagning).\n\nDette gir deg også en praktisk test når du får et datasett og skal velge modell: regn ut både differansene og kvotientene mellom nabomålinger. Er differansene tilnærmet konstante, er veksten lineær. Er kvotientene tilnærmet konstante, er veksten eksponentiell. Den lille testen — trekk fra eller del — er ofte første steg i enhver modelleringsoppgave, og den avgjør hvilket av de to vekstuniversene dataene dine bor i."
+    },
+    {
+      "id": "s1-1-9-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-9-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineær mot eksponentiell vekst:",
+        "options": [{ "id": "a", "text": "placeholder", "isCorrect": true }],
+        "questions": [
+          {
+            "id": "s1-1-9-n-quiz3-q0",
+            "task": "Hva kjennetegner lineær vekst?",
+            "options": [
+              { "id": "a", "text": "Konstant tillegg per tidssteg", "isCorrect": true },
+              { "id": "b", "text": "Konstant faktor per tidssteg", "isCorrect": false },
+              { "id": "c", "text": "Konstant doblingstid", "isCorrect": false },
+              { "id": "d", "text": "Vekst proporsjonal med nåværende verdi", "isCorrect": false }
+            ],
+            "solution": "Lineær vekst legger til samme beløp hver periode: differansen $f(x+1) - f(x)$ er konstant."
+          },
+          {
+            "id": "s1-1-9-n-quiz3-q1",
+            "task": "Et datasett har tilnærmet konstante kvotienter $\\frac{f(x+1)}{f(x)}$ mellom nabomålinger. Hvilken modell passer?",
+            "options": [
+              { "id": "a", "text": "Lineær modell", "isCorrect": false },
+              { "id": "b", "text": "Eksponentiell modell", "isCorrect": true },
+              { "id": "c", "text": "Andregradsmodell", "isCorrect": false },
+              { "id": "d", "text": "Omvendt proporsjonalitet", "isCorrect": false }
+            ],
+            "solution": "Konstant kvotient betyr at vi ganger med samme faktor hvert steg — kjennetegnet på eksponentiell vekst."
+          },
+          {
+            "id": "s1-1-9-n-quiz3-q2",
+            "task": "Plan A: $10\\,000 + 1\\,000t$. Plan B: $10\\,000 \\cdot 1{,}08^t$. Hvilken påstand er riktig?",
+            "options": [
+              { "id": "a", "text": "Plan A er størst både etter 5 og 20 år", "isCorrect": false },
+              { "id": "b", "text": "Plan B er størst hele tiden", "isCorrect": false },
+              { "id": "c", "text": "Plan A leder etter 5 år, men plan B er klart størst etter 20 år", "isCorrect": true },
+              { "id": "d", "text": "De er alltid omtrent like store", "isCorrect": false }
+            ],
+            "solution": "Etter 5 år: A = 15 000, B ≈ 14 693. Etter 20 år: A = 30 000, B ≈ 46 610. Eksponentiell vekst tar igjen og passerer lineær vekst."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-9-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: å gjenkjenne veksten\n\nSparekonkurransen mellom de to vennene endte med klar seier til fondet — ikke fordi 8 % er et magisk tall, men fordi eksponentiell vekst ganger seg oppover mens lineær vekst bare legger til. Det er kapittelets viktigste innsikt.\n\n**Vekstfaktoren** er broen mellom prosent og funksjon: ved $p\\,\\%$ økning er $v = 1 + \\frac{p}{100}$, ved nedgang $v = 1 - \\frac{p}{100}$, og etter $n$ perioder er verdien $y_0 \\cdot v^n$. **Eksponentialfunksjonen** $f(x) = a \\cdot b^x$ samler dette: $a$ er startverdien, $b$ vekstfaktoren, og grafen har $y = 0$ som horisontal asymptote — voksende når $b > 1$, avtagende når $0 < b < 1$.\n\n**Doblingstid** og **halveringstid** er konstante for eksponentielle forløp og beregnes med $T_2 = \\frac{\\ln 2}{\\ln v}$, med tommelfingerregelen $T_2 \\approx \\frac{70}{p}$ som rask kontroll. **Potensfunksjoner** $f(x) = a \\cdot x^n$ er den andre familien du skal kjenne igjen — der står variabelen i grunntallet, ikke i eksponenten.\n\nOg til slutt testen du alltid kan bruke på data: konstante *differanser* betyr lineær vekst, konstante *kvotienter* betyr eksponentiell. Enten du vurderer en spareplan, leser en befolkningsprognose eller hører en politiker love «bare to prosent årlig økning», vet du nå hva som egentlig skjer over tid — og det er nettopp slike vurderinger eksponentialfunksjonene i kapittel 2 bygger videre på."
+    }
+  ],
+  "exercises": []
+}
