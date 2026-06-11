@@ -95,12 +95,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <FeatureCard
               icon={<BookOpen className="h-8 w-8" />}
-              title="60+ lærebøker"
+              title="140+ lærebøker"
               description="Komplette lærebøker for matematikk, naturfag, norsk, engelsk og mange flere fag."
             />
             <FeatureCard
               icon={<Brain className="h-8 w-8" />}
-              title="5000+ oppgaver"
+              title="30 000+ oppgaver"
               description="Interaktive øvingsoppgaver med umiddelbar tilbakemelding og AI-støtte."
             />
             <FeatureCard
