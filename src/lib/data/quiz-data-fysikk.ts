@@ -2460,6 +2460,1013 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
   },
 ],
 
+  'fysikk2-5-3': [
+  {
+    question: 'Hva sier Lenz\' lov om retningen til en indusert strøm?',
+    options: [
+      'Den induserte strømmen går alltid i en retning som motvirker fluksendringen som forårsaket den',
+      'Den induserte strømmen går alltid i samme retning som fluksendringen',
+      'Den induserte strømmen går alltid med klokken sett fra nordpolen',
+      'Den induserte strømmen forsterker alltid det opprinnelige magnetfeltet',
+    ],
+    explanation: 'Lenz\' lov sier at den induserte strømmen i en lukket krets alltid går slik at magnetfeltet den skaper, motvirker den fluksendringen som forårsaket strømmen.',
+  },
+  {
+    question: 'Hva representerer minustegnet i Faradays lov, $\\varepsilon = -N\\frac{d\\Phi}{dt}$?',
+    options: [
+      'Lenz\' lov – at indusert EMF motvirker fluksendringen',
+      'At fluksen alltid er negativ',
+      'At spolen har negativ ladning',
+      'En regnefeil som ofte ignoreres',
+    ],
+    explanation: 'Minustegnet i Faradays lov er det matematiske uttrykket for Lenz\' lov: den induserte EMF-en driver en strøm som motvirker endringen i magnetisk fluks.',
+  },
+  {
+    question: 'En stavmagnet føres med nordpolen først mot en spole. Hva skjer i spolen?',
+    options: [
+      'Det induseres en strøm som gjør spolens nærmeste ende til en nordpol, slik at magneten frastøtes',
+      'Det induseres en strøm som gjør spolens nærmeste ende til en sørpol, slik at magneten tiltrekkes',
+      'Det induseres ingen strøm fordi magneten ikke berører spolen',
+      'Spolen blir permanent magnetisert',
+    ],
+    explanation: 'Etter Lenz\' lov motvirker den induserte strømmen fluksendringen. Når nordpolen nærmer seg, øker fluksen, og spolen lager en nordpol mot magneten for å frastøte den og bremse bevegelsen.',
+  },
+  {
+    question: 'Hvilket fysisk prinsipp er Lenz\' lov en direkte konsekvens av?',
+    options: [
+      'Energibevaring',
+      'Bevaring av elektrisk ladning',
+      'Newtons tredje lov',
+      'Bevaring av bevegelsesmengde',
+    ],
+    explanation: 'Hvis den induserte strømmen forsterket fluksendringen, ville vi fått energi fra ingenting. Lenz\' lov sikrer at det må tilføres arbeid utenfra for å produsere elektrisk energi.',
+  },
+  {
+    question: 'En magnet slippes gjennom et vertikalt kobberrør. Hva observeres, og hvorfor?',
+    options: [
+      'Magneten faller langsommere enn i fritt fall fordi induserte virvelstrømmer bremser den',
+      'Magneten faller raskere enn i fritt fall fordi virvelstrømmene trekker den nedover',
+      'Magneten faller akkurat som i fritt fall fordi kobber ikke er magnetisk',
+      'Magneten stopper helt og blir hengende i røret',
+    ],
+    explanation: 'Magnetens bevegelse endrer fluksen gjennom rørveggen og induserer virvelstrømmer. Etter Lenz\' lov motvirker disse bevegelsen, så magneten bremses – men den stopper ikke helt.',
+  },
+],
+
+  'fysikk2-5-4': [
+  {
+    question: 'Hva er toppverdien til EMF-en fra en AC-generator med $N$ vindinger, magnetfelt $B$, spoleareal $A$ og vinkelfrekvens $\\omega$?',
+    options: [
+      '$\\varepsilon_0 = NBA\\omega$',
+      '$\\varepsilon_0 = \\frac{NBA}{\\omega}$',
+      '$\\varepsilon_0 = NBA\\omega^2$',
+      '$\\varepsilon_0 = \\frac{NB\\omega}{A}$',
+    ],
+    explanation: 'EMF-en fra en AC-generator er ε(t) = NBAω·sin(ωt), så toppverdien (amplituden) er ε₀ = NBAω.',
+  },
+  {
+    question: 'En generator har 100 vindinger, B = 0,5 T, spoleareal 0,01 m² og roterer med ω = 100 rad/s. Hva er toppverdien av EMF-en?',
+    options: [
+      '50 V',
+      '5 V',
+      '500 V',
+      '0,5 V',
+    ],
+    explanation: 'ε₀ = NBAω = 100 · 0,5 · 0,01 · 100 = 50 V.',
+  },
+  {
+    question: 'Nettspenningen har toppverdi V₀ = 325 V. Hva er effektivverdien (RMS)?',
+    options: [
+      'Ca. 230 V',
+      'Ca. 460 V',
+      'Ca. 163 V',
+      'Ca. 325 V',
+    ],
+    explanation: 'For sinusformet spenning er V_rms = V₀/√2 = 325/1,414 ≈ 230 V – nettopp den norske nettspenningen.',
+  },
+  {
+    question: 'Hvorfor trekker en elektrisk motor størst strøm i det øyeblikket den starter?',
+    options: [
+      'Fordi tilbake-EMF-en er null ved oppstart, slik at hele spenningen driver strøm gjennom motstanden',
+      'Fordi motstanden i viklingene er null ved oppstart',
+      'Fordi magnetfeltet er sterkest ved oppstart',
+      'Fordi spenningen fra kilden er høyest ved oppstart',
+    ],
+    explanation: 'Strømmen er I = (V − ε_tilbake)/R. Ved oppstart roterer ikke motoren, så ε_tilbake = 0 og I = V/R er maksimal. Når motoren får fart, vokser tilbake-EMF-en og strømmen synker.',
+  },
+  {
+    question: 'En motor er koblet til 12 V og har viklingsmotstand 2 Ω. Ved full hastighet er tilbake-EMF-en 10 V. Hva er strømmen da?',
+    options: [
+      '1 A',
+      '6 A',
+      '5 A',
+      '11 A',
+    ],
+    explanation: 'I = (V − ε_tilbake)/R = (12 − 10)/2 = 1 A. Uten tilbake-EMF ville strømmen vært 12/2 = 6 A.',
+  },
+],
+
+  'fysikk2-5-5': [
+  {
+    question: 'Hva er omsettingsforholdet $n$ til en transformator?',
+    options: [
+      '$n = \\frac{N_s}{N_p} = \\frac{V_s}{V_p}$ – forholdet mellom vindingstall i sekundær- og primærspolen',
+      '$n = \\frac{N_p}{N_s} = \\frac{V_s}{V_p}$ – forholdet mellom vindingstall i primær- og sekundærspolen',
+      '$n = N_s \\cdot N_p$ – produktet av vindingstallene',
+      '$n = \\frac{I_s}{I_p}$ – forholdet mellom strømmene',
+    ],
+    explanation: 'Omsettingsforholdet er n = N_s/N_p = V_s/V_p. Er n > 1, øker spenningen (step-up); er n < 1, synker den (step-down).',
+  },
+  {
+    question: 'En transformator har 500 vindinger i primærspolen og 25 i sekundærspolen. Primærspenningen er 230 V. Hva er sekundærspenningen?',
+    options: [
+      '11,5 V',
+      '4600 V',
+      '23 V',
+      '46 V',
+    ],
+    explanation: 'V_s = V_p · N_s/N_p = 230 · 25/500 = 230 · 0,05 = 11,5 V. Dette er en nedover-transformator.',
+  },
+  {
+    question: 'En ideell transformator leverer 11,5 V på sekundærsiden når primærsiden får 230 V og trekker 0,5 A. Hva er strømmen i sekundærkretsen?',
+    options: [
+      '10 A',
+      '0,025 A',
+      '0,5 A',
+      '20 A',
+    ],
+    explanation: 'I en ideell transformator er effekten bevart: V_p·I_p = V_s·I_s, så I_s = 230 · 0,5/11,5 = 10 A. Lavere spenning gir høyere strøm.',
+  },
+  {
+    question: 'Spenningen i en kraftledning dobles mens overført effekt er den samme. Hva skjer med effekttapet i ledningen?',
+    options: [
+      'Det reduseres til en fjerdedel',
+      'Det halveres',
+      'Det dobles',
+      'Det er uendret',
+    ],
+    explanation: 'Tapet er P_tap = P²R/V², altså omvendt proporsjonalt med V². Dobles spenningen, blir tapet fire ganger mindre. Derfor brukes høyspent overføring.',
+  },
+  {
+    question: 'Hvorfor fungerer ikke en transformator med likestrøm (DC)?',
+    options: [
+      'Konstant strøm gir konstant fluks, og uten fluksendring induseres ingen spenning i sekundærspolen',
+      'Likestrøm kan ikke skape noe magnetfelt i jernkjernen',
+      'Likestrøm smelter alltid transformatoren umiddelbart',
+      'Transformatorer leder bare strøm i én retning, som en diode',
+    ],
+    explanation: 'Transformatoren bygger på induksjon, som krever en fluksendring (dΦ/dt ≠ 0). Konstant likestrøm gir konstant fluks og dermed ingen indusert spenning.',
+  },
+],
+
+  'fysikk2-5-6': [
+  {
+    question: 'Et vannkraftverk har virkningsgrad 0,9, fallhøyde 100 m og volumstrøm 10 m³/s. Hva er den elektriske effekten? (ρ = 1000 kg/m³, g = 9,81 m/s²)',
+    options: [
+      'Ca. 8,8 MW',
+      'Ca. 0,88 MW',
+      'Ca. 88 MW',
+      'Ca. 9,8 MW',
+    ],
+    explanation: 'P = η·ρ·g·h·Q = 0,9 · 1000 · 9,81 · 100 · 10 = 8 829 000 W ≈ 8,8 MW.',
+  },
+  {
+    question: 'Hvordan avhenger den tilgjengelige effekten i vinden av vindhastigheten $v$?',
+    options: [
+      'Den er proporsjonal med $v^3$ – dobling av vindhastigheten gir 8 ganger mer effekt',
+      'Den er proporsjonal med $v$ – dobling av vindhastigheten gir dobbel effekt',
+      'Den er proporsjonal med $v^2$ – dobling av vindhastigheten gir 4 ganger mer effekt',
+      'Den er uavhengig av vindhastigheten',
+    ],
+    explanation: 'P_vind = ½ρAv³. Tredjepotensen gjør at små endringer i vindhastighet gir store utslag i effekt: 2³ = 8.',
+  },
+  {
+    question: 'Hva sier Betz\' grense om vindturbiner?',
+    options: [
+      'En vindturbin kan maksimalt hente ut ca. 59 % av effekten i vinden',
+      'En vindturbin kan maksimalt hente ut 100 % av effekten i vinden',
+      'En vindturbin kan maksimalt hente ut 25 % av effekten i vinden',
+      'En vindturbin må alltid stå minst 59 m over bakken',
+    ],
+    explanation: 'Betz\' grense sier at effektkoeffisienten C_p maksimalt kan være 16/27 ≈ 0,593. Vinden må beholde noe fart for å strømme videre bak turbinen.',
+  },
+  {
+    question: 'En vindturbin har rotorradius 50 m. Hva er tilgjengelig effekt i vinden ved v = 10 m/s? (ρ = 1,225 kg/m³)',
+    options: [
+      'Ca. 4,8 MW',
+      'Ca. 0,48 MW',
+      'Ca. 48 MW',
+      'Ca. 1,2 MW',
+    ],
+    explanation: 'A = πr² = π·2500 ≈ 7854 m². P = ½·1,225·7854·10³ ≈ 4,8 MW. Turbinen henter ut maksimalt 59 % av dette (Betz).',
+  },
+  {
+    question: 'Hvilket fysisk prinsipp er felles for strømproduksjonen i både vannkraftverk og vindturbiner?',
+    options: [
+      'Elektromagnetisk induksjon – en generator omdanner rotasjon til elektrisk energi',
+      'Fotoelektrisk effekt – lys frigjør elektroner',
+      'Termoelektrisk effekt – temperaturforskjeller skaper spenning',
+      'Piezoelektrisk effekt – trykk skaper spenning',
+    ],
+    explanation: 'Begge bruker en generator: bevegelsesenergi fra vann eller vind roterer en spole/magnet, og fluksendringen induserer EMF etter Faradays lov.',
+  },
+],
+
+  'fysikk2-6-1': [
+  {
+    question: 'Hva sier Einsteins andre postulat (lyshastighetspostulatet)?',
+    options: [
+      'Lysets hastighet i vakuum er den samme i alle inertielle referansesystemer, uavhengig av kildens eller observatørens bevegelse',
+      'Lysets hastighet avhenger av hvor fort lyskilden beveger seg',
+      'Lysets hastighet er bare konstant for observatører i ro',
+      'Lyset beveger seg uendelig raskt i vakuum',
+    ],
+    explanation: 'Andre postulat: alle observatører i inertialsystemer måler nøyaktig samme lyshastighet c = 3,00·10⁸ m/s, uansett egen bevegelse eller kildens bevegelse.',
+  },
+  {
+    question: 'Hva sier Einsteins første postulat (relativitetsprinsippet)?',
+    options: [
+      'Alle naturlover har samme form i alle inertielle referansesystemer',
+      'Bare mekanikkens lover er like i alle referansesystemer',
+      'Naturlovene gjelder bare i referansesystemer som er i ro',
+      'Alle bevegelser er absolutte og kan måles mot et universelt hvilesystem',
+    ],
+    explanation: 'Einstein utvidet Galileis relativitetsprinsipp fra å gjelde bare mekanikken til å gjelde alle naturlover, inkludert elektromagnetismen.',
+  },
+  {
+    question: 'Hva kjennetegner et inertielt referansesystem?',
+    options: [
+      'Et legeme uten netto kraft er i ro eller beveger seg rettlinjet med konstant fart',
+      'Systemet akselererer jevnt',
+      'Systemet roterer med konstant vinkelfart',
+      'Systemet er alltid i ro i forhold til jorden',
+    ],
+    explanation: 'I et inertielt referansesystem gjelder treghetsloven: uten netto kraft fortsetter et legeme i ro eller med konstant hastighet langs en rett linje.',
+  },
+  {
+    question: 'To hendelser skjer samtidig på forskjellige steder i ett inertialsystem. Hva gjelder i et annet inertialsystem i bevegelse i forhold til det første?',
+    options: [
+      'Hendelsene er generelt ikke samtidige der',
+      'Hendelsene er samtidige i alle referansesystemer',
+      'Hendelsene bytter alltid rekkefølge',
+      'Hendelsene skjer på samme sted der',
+    ],
+    explanation: 'Samtidighet er relativ: hendelser som er samtidige på ulike steder i ett system, er generelt ikke samtidige i et system i relativ bevegelse.',
+  },
+  {
+    question: 'Hva er forskjellen på Galileis og Einsteins relativitetsprinsipp?',
+    options: [
+      'Galilei begrenset prinsippet til mekanikkens lover, mens Einstein utvidet det til alle naturlover',
+      'Galilei mente lyshastigheten var konstant, Einstein mente den var variabel',
+      'Einstein begrenset prinsippet til mekanikken, Galilei til elektromagnetismen',
+      'Det er ingen forskjell – Einstein gjentok bare Galilei',
+    ],
+    explanation: 'Galilei sa at mekanikkens lover er like i alle inertialsystemer. Einstein utvidet dette til alle naturlover, også Maxwells ligninger for elektromagnetisme.',
+  },
+],
+
+  'fysikk2-6-2': [
+  {
+    question: 'Hva er formelen for tidsdilatasjon?',
+    options: [
+      '$\\Delta t = \\gamma \\Delta\\tau$, der $\\Delta\\tau$ er egentiden',
+      '$\\Delta t = \\Delta\\tau / \\gamma$, der $\\Delta\\tau$ er egentiden',
+      '$\\Delta t = \\gamma^2 \\Delta\\tau$',
+      '$\\Delta t = \\Delta\\tau$ i alle referansesystemer',
+    ],
+    explanation: 'Δt = γΔτ. Siden γ ≥ 1 måler en observatør i relativ bevegelse alltid et lengre tidsintervall enn egentiden – «bevegelige klokker går saktere».',
+  },
+  {
+    question: 'Hva er Lorentzfaktoren γ for v = 0,8c?',
+    options: [
+      'γ ≈ 1,67',
+      'γ ≈ 1,25',
+      'γ = 0,6',
+      'γ ≈ 2,5',
+    ],
+    explanation: 'γ = 1/√(1 − v²/c²) = 1/√(1 − 0,64) = 1/√0,36 = 1/0,6 ≈ 1,67.',
+  },
+  {
+    question: 'Hva er egentiden Δτ mellom to hendelser?',
+    options: [
+      'Tidsintervallet målt av en observatør for hvem hendelsene skjer på samme sted',
+      'Tidsintervallet målt av en observatør som beveger seg raskest',
+      'Det lengste mulige tidsintervallet mellom hendelsene',
+      'Tiden målt med en atomklokke på jorden',
+    ],
+    explanation: 'Egentiden er tiden målt i det referansesystemet der begge hendelsene skjer på samme sted. Den er det korteste mulige tidsintervallet mellom hendelsene.',
+  },
+  {
+    question: 'En astronaut måler 10 s mellom to blink på romskipet sitt, som passerer jorden med v = 0,6c. Hvor lang tid måler en observatør på jorden?',
+    options: [
+      '12,5 s',
+      '8,0 s',
+      '10 s',
+      '16,7 s',
+    ],
+    explanation: 'γ = 1/√(1 − 0,36) = 1/0,8 = 1,25. Jordobservatøren måler Δt = γΔτ = 1,25 · 10 s = 12,5 s.',
+  },
+  {
+    question: 'Hva skjer med Lorentzfaktoren γ når hastigheten v nærmer seg lyshastigheten c?',
+    options: [
+      'γ vokser mot uendelig',
+      'γ nærmer seg 1',
+      'γ nærmer seg 0',
+      'γ nærmer seg c',
+    ],
+    explanation: 'Når v → c går nevneren √(1 − v²/c²) mot 0, så γ → ∞. Ved v = 0 er γ = 1, og γ ≥ 1 for alle fysiske hastigheter.',
+  },
+],
+
+  'fysikk2-6-3': [
+  {
+    question: 'Hva er formelen for lengdekontraksjon?',
+    options: [
+      '$L = L_0\\sqrt{1 - v^2/c^2} = L_0/\\gamma$',
+      '$L = L_0 \\cdot \\gamma$',
+      '$L = L_0\\sqrt{1 + v^2/c^2}$',
+      '$L = L_0 \\cdot v/c$',
+    ],
+    explanation: 'L = L₀/γ = L₀√(1 − v²/c²). Den observerte lengden er alltid kortere enn eller lik egenlengden L₀.',
+  },
+  {
+    question: 'Hva er egenlengden L₀ til et objekt?',
+    options: [
+      'Lengden målt i referansesystemet der objektet er i ro – den lengste mulige lengden',
+      'Lengden målt av en observatør som beveger seg forbi objektet',
+      'Den korteste lengden noen observatør kan måle',
+      'Gjennomsnittet av lengdene målt i alle referansesystemer',
+    ],
+    explanation: 'Egenlengden er lengden i objektets hvilesystem. Alle observatører som ser objektet i bevegelse, måler en kortere lengde.',
+  },
+  {
+    question: 'Et romskip har egenlengde 100 m og passerer jorden med v = 0,8c. Hvor langt måles det fra jorden?',
+    options: [
+      '60 m',
+      '80 m',
+      '100 m',
+      '167 m',
+    ],
+    explanation: 'L = L₀√(1 − 0,8²) = 100·√(1 − 0,64) = 100·0,6 = 60 m.',
+  },
+  {
+    question: 'En meterstav beveger seg langs sin egen lengderetning med v = 0,6c. Hvor lang måles den av en observatør i ro?',
+    options: [
+      '0,80 m',
+      '1,25 m',
+      '0,60 m',
+      '1,00 m',
+    ],
+    explanation: 'L = L₀√(1 − 0,36) = 1,00 · 0,8 = 0,80 m.',
+  },
+  {
+    question: 'I hvilke retninger skjer lengdekontraksjon?',
+    options: [
+      'Bare langs bevegelsesretningen – tverrgående dimensjoner er uendret',
+      'I alle retninger likt',
+      'Bare på tvers av bevegelsesretningen',
+      'Bare i vertikal retning',
+    ],
+    explanation: 'Lengdekontraksjonen virker kun i bevegelsesretningen. Et romskip som kontraheres i lengden, beholder sin høyde og bredde.',
+  },
+],
+
+  'fysikk2-6-4': [
+  {
+    question: 'Hva uttrykker Einsteins ligning $E_0 = mc^2$?',
+    options: [
+      'At masse og energi er ekvivalente – hvileenergien er massen ganger lyshastigheten i annen',
+      'At energi alltid beveger seg med lyshastigheten',
+      'At masse øker lineært med hastigheten',
+      'At kinetisk energi er ½mv²',
+    ],
+    explanation: 'E₀ = mc² sier at et objekt i ro har en hvileenergi proporsjonal med massen. Fordi c² ≈ 9·10¹⁶ m²/s² inneholder selv små masser enorm energi.',
+  },
+  {
+    question: 'Hva er hvileenergien til 1 kg masse?',
+    options: [
+      'Ca. 9·10¹⁶ J',
+      'Ca. 3·10⁸ J',
+      'Ca. 9·10⁸ J',
+      'Ca. 3·10¹⁶ J',
+    ],
+    explanation: 'E₀ = mc² = 1 · (3,00·10⁸)² = 9·10¹⁶ J – omtrent like mye som energiforbruket til en stor by over flere år.',
+  },
+  {
+    question: 'Et elektron (hvileenergi 0,511 MeV) har Lorentzfaktor γ = 3. Hva er den kinetiske energien?',
+    options: [
+      'Ca. 1,02 MeV',
+      'Ca. 1,53 MeV',
+      'Ca. 0,51 MeV',
+      'Ca. 0,17 MeV',
+    ],
+    explanation: 'E_k = (γ − 1)mc² = (3 − 1) · 0,511 MeV = 1,022 MeV ≈ 1,02 MeV.',
+  },
+  {
+    question: 'Hva gjelder for en masseløs partikkel (m = 0), for eksempel et foton, ifølge relasjonen $E^2 = (pc)^2 + (mc^2)^2$?',
+    options: [
+      '$E = pc$ – energien er bevegelsesmengden ganger lyshastigheten',
+      '$E = 0$ – masseløse partikler har ingen energi',
+      '$E = mc^2$ – energien er lik hvileenergien',
+      '$E = \\frac{1}{2}pv$ – som klassisk kinetisk energi',
+    ],
+    explanation: 'Med m = 0 reduseres relasjonen til E = pc. Fotoner har null hvilemasse, men både energi og bevegelsesmengde.',
+  },
+  {
+    question: 'Hvorfor kan ingen partikkel med masse nå lyshastigheten?',
+    options: [
+      'Fordi den kinetiske energien $(\\gamma - 1)mc^2$ vokser mot uendelig når v nærmer seg c',
+      'Fordi partikkelen smelter ved høye hastigheter',
+      'Fordi friksjonen i rommet blir for stor',
+      'Fordi massen blir null ved lyshastigheten',
+    ],
+    explanation: 'Når v → c går γ → ∞, og dermed E_k = (γ − 1)mc² → ∞. Det ville kreve uendelig mye energi å akselerere en massiv partikkel helt opp til c.',
+  },
+],
+
+  'fysikk2-6-5': [
+  {
+    question: 'Hva sier ekvivalensprinsippet i generell relativitetsteori?',
+    options: [
+      'Virkningene av gravitasjon er lokalt uatskillelige fra virkningene av akselerasjon',
+      'Masse og elektrisk ladning er ekvivalente størrelser',
+      'Alle referansesystemer roterer like fort',
+      'Tiden går likt overalt i universet',
+    ],
+    explanation: 'I et lite nok område av rom-tid kan ingen eksperimenter skille mellom å være i et gravitasjonsfelt og å være i et akselererende referansesystem.',
+  },
+  {
+    question: 'Hvordan beskriver generell relativitetsteori gravitasjon?',
+    options: [
+      'Som krumning av rom-tiden forårsaket av masse og energi',
+      'Som en kraft som virker øyeblikkelig over avstand',
+      'Som utveksling av fotoner mellom masser',
+      'Som magnetisk tiltrekning mellom himmellegemer',
+    ],
+    explanation: 'I generell relativitetsteori er gravitasjon ikke en kraft, men en geometrisk effekt: masse og energi krummer rom-tiden, og legemer følger de retteste mulige banene i den krumme geometrien.',
+  },
+  {
+    question: 'Hva er Schwarzschild-radien til et svart hull?',
+    options: [
+      '$r_s = \\frac{2GM}{c^2}$ – grensen der unnslipningshastigheten blir lik lyshastigheten',
+      '$r_s = \\frac{GM}{c}$ – avstanden der lyset bøyes 90 grader',
+      '$r_s = \\frac{c^2}{2GM}$ – den inverse av massens krumning',
+      '$r_s = \\frac{GM}{2c^2}$ – halvparten av hendelseshorisonten',
+    ],
+    explanation: 'Schwarzschild-radien r_s = 2GM/c² definerer hendelseshorisonten. Innenfor denne kan verken masse, lys eller informasjon unnslippe.',
+  },
+  {
+    question: 'Hva er gravitasjonell tidsforlengelse?',
+    options: [
+      'Klokker nær en stor masse går saktere enn klokker lenger unna',
+      'Klokker nær en stor masse går fortere enn klokker lenger unna',
+      'Tiden stopper helt på jordoverflaten',
+      'Alle klokker går likt uansett gravitasjonsfelt',
+    ],
+    explanation: 'Generell relativitetsteori forutsier at tiden går saktere dypere i et gravitasjonsfelt. GPS-satellitter må korrigere for dette for å gi riktig posisjon.',
+  },
+  {
+    question: 'Hva er hendelseshorisonten til et svart hull?',
+    options: [
+      'En grense i rom-tiden der unnslipningshastigheten overstiger lyshastigheten – ikke en fysisk overflate',
+      'Den faste overflaten til det svarte hullet',
+      'Punktet i sentrum der all massen er samlet',
+      'Den ytterste banen en planet kan ha rundt hullet',
+    ],
+    explanation: 'Hendelseshorisonten ved r_s er ingen fysisk overflate, men en grense i rom-tid: innenfor den kan ingenting, heller ikke lys, slippe ut.',
+  },
+],
+
+  'fysikk2-7-1': [
+  {
+    question: 'Hva er energien til et foton med frekvens $f$?',
+    options: [
+      '$E = hf$, der h er Plancks konstant',
+      '$E = \\frac{h}{f}$, der h er Plancks konstant',
+      '$E = \\frac{1}{2}hf^2$',
+      '$E = hcf$',
+    ],
+    explanation: 'Fotonenergien er E = hf = hc/λ, med h = 6,626·10⁻³⁴ J·s. Høyere frekvens gir mer energirike fotoner.',
+  },
+  {
+    question: 'Hva sier Einsteins ligning for den fotoelektriske effekten?',
+    options: [
+      '$E_k = hf - W_0$ – fotonets energi minus arbeidsfunksjonen blir elektronets maksimale kinetiske energi',
+      '$E_k = hf + W_0$ – fotonets energi pluss arbeidsfunksjonen',
+      '$E_k = W_0 - hf$ – arbeidsfunksjonen minus fotonets energi',
+      '$E_k = \\frac{hf}{W_0}$ – forholdet mellom fotonenergi og arbeidsfunksjon',
+    ],
+    explanation: 'Fotonet gir hele energien hf til ett elektron. W₀ brukes til å frigjøre elektronet fra metallet, og resten blir kinetisk energi: E_k = hf − W₀.',
+  },
+  {
+    question: 'Hva er energien til et foton med frekvens 1,0·10¹⁵ Hz? (h = 6,626·10⁻³⁴ J·s)',
+    options: [
+      'Ca. 6,6·10⁻¹⁹ J (≈ 4,1 eV)',
+      'Ca. 6,6·10⁻³⁴ J',
+      'Ca. 1,5·10⁻¹⁹ J',
+      'Ca. 6,6·10⁻¹⁵ J',
+    ],
+    explanation: 'E = hf = 6,626·10⁻³⁴ · 1,0·10¹⁵ = 6,6·10⁻¹⁹ J. Delt på 1,602·10⁻¹⁹ J/eV gir det ca. 4,1 eV.',
+  },
+  {
+    question: 'Hva er grensefrekvensen $f_0$ for et metall med arbeidsfunksjon $W_0$?',
+    options: [
+      '$f_0 = \\frac{W_0}{h}$',
+      '$f_0 = W_0 \\cdot h$',
+      '$f_0 = \\frac{h}{W_0}$',
+      '$f_0 = \\frac{c}{W_0}$',
+    ],
+    explanation: 'Ved grensefrekvensen er fotonenergien akkurat nok til å frigjøre elektronet: hf₀ = W₀, altså f₀ = W₀/h.',
+  },
+  {
+    question: 'Lys med frekvens under grensefrekvensen treffer et metall. Hva skjer hvis vi øker lysintensiteten kraftig?',
+    options: [
+      'Det frigjøres fortsatt ingen elektroner – hvert enkelt foton har for lite energi',
+      'Elektroner frigjøres når intensiteten blir høy nok',
+      'Elektroner frigjøres, men med lavere fart',
+      'Metallet blir negativt ladet',
+    ],
+    explanation: 'Den fotoelektriske effekten skjer foton for foton. Økt intensitet gir flere fotoner, men hvert foton har fortsatt energi hf < W₀ og kan ikke frigjøre elektroner. Dette kunne ikke bølgemodellen forklare.',
+  },
+],
+
+  'fysikk2-7-2': [
+  {
+    question: 'Hva er bevegelsesmengden til et foton med bølgelengde $\\lambda$?',
+    options: [
+      '$p = \\frac{h}{\\lambda}$',
+      '$p = h\\lambda$',
+      '$p = \\frac{\\lambda}{h}$',
+      '$p = mc$, der m er fotonets hvilemasse',
+    ],
+    explanation: 'Fotonets bevegelsesmengde er p = E/c = h/λ. Fotonet har null hvilemasse, men likevel bevegelsesmengde fordi det beveger seg med lyshastigheten.',
+  },
+  {
+    question: 'Hva sier Bohrs komplementaritetsprinsipp?',
+    options: [
+      'Bølge- og partikkelegenskapene er komplementære og kan aldri observeres samtidig i samme eksperiment',
+      'Lys er alltid både bølge og partikkel samtidig i samme måling',
+      'Lys er bølge om dagen og partikkel om natten',
+      'Bølgeegenskapene gjelder bare for lyd, partikkelegenskapene bare for lys',
+    ],
+    explanation: 'Komplementaritetsprinsippet (1928): bølge- og partikkelbildet utfyller hverandre, men i et gitt eksperiment observeres bare det ene. Begge trengs for en fullstendig beskrivelse.',
+  },
+  {
+    question: 'Hva viser Comptoneffekten?',
+    options: [
+      'At fotoner har bevegelsesmengde og kolliderer med elektroner som partikler',
+      'At lys aldri kan oppføre seg som partikler',
+      'At elektroner ikke kan vekselvirke med stråling',
+      'At bølgelengden minker når fotonet spres på et elektron',
+    ],
+    explanation: 'I Comptonspredning kolliderer et foton med et elektron og overfører energi og bevegelsesmengde. Det spredte fotonet får lengre bølgelengde – et klart partikkelfenomen.',
+  },
+  {
+    question: 'Hva er bevegelsesmengden til et foton med bølgelengde 500 nm?',
+    options: [
+      'Ca. 1,3·10⁻²⁷ kg·m/s',
+      'Ca. 3,3·10⁻⁴⁰ kg·m/s',
+      'Ca. 1,3·10⁻³⁶ kg·m/s',
+      'Ca. 2,7·10⁻²⁵ kg·m/s',
+    ],
+    explanation: 'p = h/λ = 6,626·10⁻³⁴ / 5,00·10⁻⁷ ≈ 1,3·10⁻²⁷ kg·m/s.',
+  },
+  {
+    question: 'Ved hvilken spredningsvinkel θ er bølgelengdeendringen i Comptonspredning størst?',
+    options: [
+      'θ = 180° – fotonet spres rett bakover',
+      'θ = 0° – fotonet fortsetter rett frem',
+      'θ = 90° – fotonet spres vinkelrett',
+      'Endringen er like stor for alle vinkler',
+    ],
+    explanation: 'Δλ = (h/m_e c)(1 − cos θ). Ved θ = 180° er (1 − cos θ) = 2, som gir maksimal endring Δλ = 2h/(m_e c).',
+  },
+],
+
+  'fysikk2-7-3': [
+  {
+    question: 'Hva er de Broglie-bølgelengden til en partikkel med bevegelsesmengde $p$?',
+    options: [
+      '$\\lambda = \\frac{h}{p}$',
+      '$\\lambda = hp$',
+      '$\\lambda = \\frac{p}{h}$',
+      '$\\lambda = \\frac{h}{E}$',
+    ],
+    explanation: 'de Broglies hypotese (1924): enhver partikkel med bevegelsesmengde p har en tilknyttet bølgelengde λ = h/p = h/(mv).',
+  },
+  {
+    question: 'Hva er de Broglie-bølgelengden til et elektron med fart 1,0·10⁶ m/s? (m_e = 9,109·10⁻³¹ kg)',
+    options: [
+      'Ca. 7,3·10⁻¹⁰ m',
+      'Ca. 7,3·10⁻¹³ m',
+      'Ca. 1,4·10⁻⁹ m',
+      'Ca. 6,6·10⁻²⁸ m',
+    ],
+    explanation: 'λ = h/(mv) = 6,626·10⁻³⁴/(9,109·10⁻³¹ · 1,0·10⁶) ≈ 7,3·10⁻¹⁰ m – omtrent på størrelse med atomavstander, derfor kan elektroner diffrakteres i krystaller.',
+  },
+  {
+    question: 'Hvorfor observerer vi ikke bølgeegenskaper hos makroskopiske objekter som en fotball?',
+    options: [
+      'Fordi de Broglie-bølgelengden blir ekstremt liten når massen er stor',
+      'Fordi de Broglies hypotese bare gjelder elektroner',
+      'Fordi fotballer beveger seg for sakte til å ha bølgelengde',
+      'Fordi bølgelengden til store objekter er for stor til å måles',
+    ],
+    explanation: 'λ = h/(mv). Med stor masse blir bølgelengden ufattelig liten (typisk ~10⁻³⁴ m for en ball), langt mindre enn noe vi kan observere diffraksjonsfenomener med.',
+  },
+  {
+    question: 'Hva er de Broglie-bølgelengden til et elektron som akselereres gjennom potensialdifferansen $V$?',
+    options: [
+      '$\\lambda = \\frac{h}{\\sqrt{2m_e eV}}$',
+      '$\\lambda = \\frac{h}{m_e eV}$',
+      '$\\lambda = \\frac{\\sqrt{2m_e eV}}{h}$',
+      '$\\lambda = \\frac{h}{2m_e eV^2}$',
+    ],
+    explanation: 'Elektronet får kinetisk energi eV = p²/(2m_e), så p = √(2m_e eV) og dermed λ = h/√(2m_e eV).',
+  },
+  {
+    question: 'Hvilket eksperiment bekreftet de Broglies hypotese om materiebølger?',
+    options: [
+      'Elektrondiffraksjon i krystaller (Davisson og Germer)',
+      'Oljedråpeforsøket til Millikan',
+      'Rutherfords gullfolieeksperiment',
+      'Michelson-Morley-eksperimentet',
+    ],
+    explanation: 'Davisson og Germer (1927) viste at elektroner diffrakteres av et nikkelkrystall akkurat som bølger, med bølgelengde i samsvar med λ = h/p.',
+  },
+],
+
+  'fysikk2-7-4': [
+  {
+    question: 'Hva sier Heisenbergs usikkerhetsrelasjon for posisjon og bevegelsesmengde?',
+    options: [
+      '$\\Delta x \\cdot \\Delta p \\geq \\frac{\\hbar}{2}$ – produktet av usikkerhetene har en nedre grense',
+      '$\\Delta x \\cdot \\Delta p \\leq \\frac{\\hbar}{2}$ – produktet av usikkerhetene har en øvre grense',
+      '$\\Delta x + \\Delta p \\geq \\frac{\\hbar}{2}$ – summen av usikkerhetene har en nedre grense',
+      '$\\Delta x = \\Delta p$ – usikkerhetene er alltid like store',
+    ],
+    explanation: 'Δx·Δp ≥ ħ/2. Jo mer presist vi kjenner posisjonen, desto mer usikker er bevegelsesmengden – og omvendt.',
+  },
+  {
+    question: 'Hva er den dypeste betydningen av usikkerhetsrelasjonen?',
+    options: [
+      'Den er en fundamental egenskap ved naturen, ikke en begrensning ved måleinstrumentene',
+      'Den skyldes at måleinstrumentene våre foreløpig er for dårlige',
+      'Den gjelder bare når vi måler med synlig lys',
+      'Den gjelder bare for veldig varme partikler',
+    ],
+    explanation: 'Usikkerhetsrelasjonen er prinsipiell: en partikkel har ikke samtidig veldefinert posisjon og bevegelsesmengde. Bedre instrumenter kan aldri omgå den.',
+  },
+  {
+    question: 'Et elektron er lokalisert med usikkerhet Δx = 1,0·10⁻¹⁰ m. Hva er minste usikkerhet i bevegelsesmengden? (ħ = 1,055·10⁻³⁴ J·s)',
+    options: [
+      'Ca. 5,3·10⁻²⁵ kg·m/s',
+      'Ca. 1,1·10⁻²⁴ kg·m/s',
+      'Ca. 5,3·10⁻⁴⁴ kg·m/s',
+      'Ca. 6,6·10⁻²⁴ kg·m/s',
+    ],
+    explanation: 'Δp ≥ ħ/(2Δx) = 1,055·10⁻³⁴/(2 · 1,0·10⁻¹⁰) ≈ 5,3·10⁻²⁵ kg·m/s.',
+  },
+  {
+    question: 'Hva følger av energi-tid-usikkerhetsrelasjonen $\\Delta E \\cdot \\Delta t \\geq \\hbar/2$?',
+    options: [
+      'En tilstand med kort levetid har stor usikkerhet i energien',
+      'En tilstand med kort levetid har liten usikkerhet i energien',
+      'Energien er alltid eksakt bestemt uansett levetid',
+      'Tiden står stille for ustabile partikler',
+    ],
+    explanation: 'Kort Δt tvinger frem stor ΔE. Derfor har kortlivede eksiterte tilstander og ustabile partikler brede energifordelinger (brede spektrallinjer).',
+  },
+  {
+    question: 'Hva er sammenhengen mellom $\\hbar$ og Plancks konstant $h$?',
+    options: [
+      '$\\hbar = \\frac{h}{2\\pi}$',
+      '$\\hbar = 2\\pi h$',
+      '$\\hbar = \\frac{h}{2}$',
+      '$\\hbar = h^2$',
+    ],
+    explanation: 'Den reduserte Plancks konstant er ħ = h/(2π) ≈ 1,055·10⁻³⁴ J·s.',
+  },
+],
+
+  'fysikk2-7-5': [
+  {
+    question: 'Hva er energien til den n-te tilstanden i hydrogenatomet ifølge Bohrs modell?',
+    options: [
+      '$E_n = -\\frac{13{,}6 \\text{ eV}}{n^2}$',
+      '$E_n = -13{,}6 \\text{ eV} \\cdot n^2$',
+      '$E_n = \\frac{13{,}6 \\text{ eV}}{n}$',
+      '$E_n = -\\frac{13{,}6 \\text{ eV}}{n}$',
+    ],
+    explanation: 'E_n = −13,6 eV/n². Det negative fortegnet betyr at elektronet er bundet. Grunntilstanden (n = 1) har lavest energi, E₁ = −13,6 eV.',
+  },
+  {
+    question: 'Hva er energien til hydrogenatomets første eksiterte tilstand (n = 2)?',
+    options: [
+      '−3,4 eV',
+      '−6,8 eV',
+      '−27,2 eV',
+      '+3,4 eV',
+    ],
+    explanation: 'E₂ = −13,6/2² = −13,6/4 = −3,4 eV.',
+  },
+  {
+    question: 'Hvilken energi har fotonet som sendes ut ved overgangen fra n = 2 til n = 1 i hydrogen?',
+    options: [
+      '10,2 eV',
+      '13,6 eV',
+      '3,4 eV',
+      '17,0 eV',
+    ],
+    explanation: 'ΔE = E₂ − E₁ = −3,4 − (−13,6) = 10,2 eV. Fotonet bærer bort akkurat energiforskjellen mellom nivåene.',
+  },
+  {
+    question: 'Hvordan vokser baneradiene i Bohrs modell med kvantetallet n?',
+    options: [
+      '$r_n = n^2 a_0$ – radien vokser med kvadratet av n',
+      '$r_n = n \\cdot a_0$ – radien vokser lineært med n',
+      '$r_n = a_0/n^2$ – radien minker med kvadratet av n',
+      '$r_n = a_0 \\cdot 2^n$ – radien dobles for hvert nivå',
+    ],
+    explanation: 'r_n = n²a₀, der a₀ = 0,0529 nm er Bohr-radien. r₂ = 4a₀, r₃ = 9a₀ osv.',
+  },
+  {
+    question: 'Hva sier Bohrs første postulat om elektronene i atomet?',
+    options: [
+      'Elektronet kan bare være i bestemte stasjonære baner, der det ikke sender ut stråling',
+      'Elektronet sender kontinuerlig ut stråling mens det går i bane',
+      'Elektronet kan ha hvilken som helst baneradius rundt kjernen',
+      'Elektronet står stille i faste posisjoner rundt kjernen',
+    ],
+    explanation: 'I de stasjonære tilstandene stråler ikke elektronet, selv om det akselererer – i strid med klassisk elektromagnetisme. Stråling sendes bare ut ved overganger mellom nivåer.',
+  },
+],
+
+  'fysikk2-7-6': [
+  {
+    question: 'Hvilken kvantemekanisk prosess er grunnlaget for laseren?',
+    options: [
+      'Stimulert emisjon – et innkommende foton utløser et identisk foton fra et eksitert atom',
+      'Spontan emisjon – atomer sender ut fotoner i tilfeldige retninger',
+      'Absorpsjon – atomer fanger opp fotoner og varmes opp',
+      'Tunnelering – fotoner trenger gjennom energibarrierer',
+    ],
+    explanation: 'LASER står for Light Amplification by Stimulated Emission of Radiation. Ved stimulert emisjon får et foton et eksitert atom til å sende ut et identisk foton – samme frekvens, fase og retning.',
+  },
+  {
+    question: 'Hva bestemmer fargen på lyset fra en LED?',
+    options: [
+      'Båndgapet $E_g$ i halvledermaterialet',
+      'Størrelsen på LED-brikken',
+      'Strømstyrken gjennom dioden',
+      'Temperaturen i rommet',
+    ],
+    explanation: 'Ved rekombinasjon av elektroner og hull i p-n-overgangen frigis energi omtrent lik båndgapet som et foton: E_g ≈ hf. Ulike halvledermaterialer gir derfor ulike farger.',
+  },
+  {
+    question: 'En LED har båndgap 2,0 eV. Omtrent hvilken bølgelengde har lyset den sender ut?',
+    options: [
+      'Ca. 620 nm (rødoransje)',
+      'Ca. 310 nm (ultrafiolett)',
+      'Ca. 1240 nm (infrarødt)',
+      'Ca. 199 nm (ultrafiolett)',
+    ],
+    explanation: 'λ = hc/E = (6,626·10⁻³⁴ · 3,00·10⁸)/(2,0 · 1,602·10⁻¹⁹) ≈ 6,2·10⁻⁷ m = 620 nm.',
+  },
+  {
+    question: 'Hva kreves for å oppnå laservirkning i et medium?',
+    options: [
+      'Populasjonsinversjon – flere atomer i eksitert tilstand enn i grunntilstanden',
+      'At alle atomene er i grunntilstanden',
+      'At mediet er nedkjølt til det absolutte nullpunkt',
+      'At lyset sendes gjennom et prisme',
+    ],
+    explanation: 'Normalt er de fleste atomer i grunntilstanden. Ved å «pumpe» energi inn oppnås populasjonsinversjon, slik at stimulert emisjon dominerer over absorpsjon og lyset forsterkes.',
+  },
+  {
+    question: 'Hva er kvantemekanisk tunnelering?',
+    options: [
+      'At en partikkel har en viss sannsynlighet for å passere en energibarriere den klassisk sett ikke har nok energi til å overvinne',
+      'At partikler graver fysiske tunneler gjennom materialer',
+      'At partikler alltid reflekteres av energibarrierer',
+      'At partikler får ekstra energi fra barrieren slik at de kommer over',
+    ],
+    explanation: 'I kvantefysikken kan partikkelens bølgefunksjon strekke seg gjennom en barriere, slik at partikkelen kan dukke opp på andre siden selv med for lav energi – umulig i klassisk fysikk.',
+  },
+],
+
+  'fysikk2-8-1': [
+  {
+    question: 'Hva er forskjellen på uavhengig og avhengig variabel i et eksperiment?',
+    options: [
+      'Den uavhengige variabelen endrer vi bevisst, den avhengige observerer og måler vi',
+      'Den avhengige variabelen endrer vi bevisst, den uavhengige observerer vi',
+      'Begge variablene holdes konstante gjennom forsøket',
+      'Den uavhengige variabelen er alltid tid, den avhengige er alltid lengde',
+    ],
+    explanation: 'Vi manipulerer den uavhengige variabelen (påvirkningsvariabelen) og måler responsen i den avhengige variabelen. Kontrollvariabler holdes konstante.',
+  },
+  {
+    question: 'Hva er forskjellen på presisjon og nøyaktighet?',
+    options: [
+      'Presisjon er samsvar mellom gjentatte målinger, nøyaktighet er samsvar med den sanne verdien',
+      'Presisjon er samsvar med den sanne verdien, nøyaktighet er samsvar mellom gjentatte målinger',
+      'Begrepene betyr nøyaktig det samme',
+      'Presisjon gjelder bare digitale instrumenter, nøyaktighet bare analoge',
+    ],
+    explanation: 'Presisjon påvirkes av tilfeldige feil (spredning mellom målinger), mens nøyaktighet påvirkes av systematiske feil (avvik fra sann verdi).',
+  },
+  {
+    question: 'En lengde måles til 20,0 cm med absolutt usikkerhet 0,5 cm. Hva er den prosentvise (relative) usikkerheten?',
+    options: [
+      '2,5 %',
+      '0,5 %',
+      '5,0 %',
+      '0,25 %',
+    ],
+    explanation: 'Relativ usikkerhet = Δx/x = 0,5/20,0 = 0,025 = 2,5 %.',
+  },
+  {
+    question: 'Hvordan endres standardfeilen (usikkerheten i gjennomsnittet) når antall målinger N øker?',
+    options: [
+      'Den minker som $\\frac{s}{\\sqrt{N}}$ – fire ganger flere målinger halverer usikkerheten',
+      'Den øker proporsjonalt med N',
+      'Den er uavhengig av antall målinger',
+      'Den halveres hver gang vi gjør én ekstra måling',
+    ],
+    explanation: 'Standardfeilen er Δx̄ = s/√N. Siden den avtar med kvadratroten av N, må vi firedoble antall målinger for å halvere usikkerheten.',
+  },
+  {
+    question: 'Hva betyr det at en vitenskapelig hypotese må være falsifiserbar?',
+    options: [
+      'Det må være mulig å tenke seg observasjoner som kunne motbevise den',
+      'Den må være bevist å være falsk',
+      'Den må kunne bevises en gang for alle',
+      'Den må være formulert på latin',
+    ],
+    explanation: 'Falsifiserbarhet betyr at hypotesen kan testes: det finnes mulige eksperimentresultater som ville vist at den er gal. Utsagn som ikke kan motbevises, er ikke vitenskapelige hypoteser.',
+  },
+],
+
+  'fysikk2-8-2': [
+  {
+    question: 'Hva gjør minste kvadraters metode i lineær regresjon?',
+    options: [
+      'Den finner linjen som minimerer summen av de kvadrerte avvikene mellom datapunktene og linjen',
+      'Den finner linjen som går gjennom flest mulig datapunkter',
+      'Den finner linjen som maksimerer avstanden til datapunktene',
+      'Den fjerner de minste datapunktene fra datasettet',
+    ],
+    explanation: 'Minste kvadraters metode minimerer S = Σ(yᵢ − axᵢ − b)², altså summen av de kvadrerte residualene, og gir beste lineære tilpasning y = ax + b.',
+  },
+  {
+    question: 'Hva forteller bestemmelseskoeffisienten R² om en modell?',
+    options: [
+      'Andelen av variasjonen i den avhengige variabelen som forklares av modellen',
+      'Antall datapunkter som ble brukt i regresjonen',
+      'Den absolutte usikkerheten i stigningstallet',
+      'Hvor mange frihetsgrader modellen har',
+    ],
+    explanation: 'R² = 1 betyr perfekt tilpasning, R² = 0 betyr at modellen ikke forklarer noe av variasjonen. For lineære modeller er R² = r², kvadratet av korrelasjonskoeffisienten.',
+  },
+  {
+    question: 'Du mistenker sammenhengen $y = ax^n$. Hvilket plott gir en rett linje, og hva er stigningstallet?',
+    options: [
+      'ln y mot ln x, med stigningstall n',
+      'y mot x, med stigningstall a',
+      'ln y mot x, med stigningstall n',
+      'y mot ln x, med stigningstall a',
+    ],
+    explanation: 'Tar vi logaritmen: ln y = n·ln x + ln a. Plottet ln y mot ln x gir en rett linje med stigningstall n og skjæring ln a.',
+  },
+  {
+    question: 'Du mistenker eksponentiell sammenheng $y = ae^{bx}$. Hvilket plott lineariserer dataene?',
+    options: [
+      'ln y mot x – gir rett linje med stigningstall b',
+      'ln y mot ln x – gir rett linje med stigningstall b',
+      'y mot ln x – gir rett linje med stigningstall a',
+      'y² mot x – gir rett linje med stigningstall b',
+    ],
+    explanation: 'ln y = bx + ln a, så ln y plottet mot x gir en rett linje med stigningstall b og skjæring ln a.',
+  },
+  {
+    question: 'Hva er et residual i regresjonsanalyse?',
+    options: [
+      'Avviket mellom en målt verdi og verdien modellen forutsier',
+      'Det største datapunktet i datasettet',
+      'Usikkerheten i måleinstrumentet',
+      'Gjennomsnittet av alle målingene',
+    ],
+    explanation: 'Residualet for datapunkt i er yᵢ − (axᵢ + b): forskjellen mellom observert verdi og modellens prediksjon. Minste kvadraters metode minimerer summen av kvadrerte residualer.',
+  },
+],
+
+  'fysikk2-8-3': [
+  {
+    question: 'Hva beskriver Standardmodellen i partikkelfysikk?',
+    options: [
+      'Alle kjente elementærpartikler og tre av de fire fundamentale kreftene',
+      'Alle kjente elementærpartikler og alle fire fundamentale krefter, inkludert gravitasjon',
+      'Bare oppbygningen av protoner og nøytroner',
+      'Universets ekspansjon siden Big Bang',
+    ],
+    explanation: 'Standardmodellen omfatter 6 kvarker, 6 leptoner og kraftbærende bosoner, og beskriver elektromagnetisk, svak og sterk kraft – men ikke gravitasjon.',
+  },
+  {
+    question: 'Hvilken fundamental kraft er IKKE inkludert i Standardmodellen?',
+    options: [
+      'Gravitasjon',
+      'Den sterke kjernekraften',
+      'Den svake kjernekraften',
+      'Den elektromagnetiske kraften',
+    ],
+    explanation: 'Standardmodellen beskriver tre krefter kvantemekanisk, men gravitasjonen har så langt ikke latt seg forene med kvantefeltteorien.',
+  },
+  {
+    question: 'Hva er Higgs-feltets rolle ifølge Standardmodellen?',
+    options: [
+      'Det gir masse til de fundamentale partiklene',
+      'Det holder protonene sammen i kjernen',
+      'Det får universet til å ekspandere',
+      'Det skaper elektrisk ladning hos partiklene',
+    ],
+    explanation: 'Higgs-feltet gjennomstrømmer universet og gir masse til fundamentale partikler. Uten det ville alle partikler vært masseløse. Higgs-bosonet ble påvist ved CERN i 2012.',
+  },
+  {
+    question: 'Hva er gravitasjonsbølger?',
+    options: [
+      'Krusninger i rom-tiden skapt av akselererte masser, som brer seg med lyshastigheten',
+      'Lydbølger som brer seg gjennom jordens indre',
+      'Elektromagnetiske bølger fra svarte hull',
+      'Tidevannsbølger forårsaket av månen',
+    ],
+    explanation: 'Einstein forutsa gravitasjonsbølger i 1916. De ble først direkte observert i 2015 (LIGO), fra to svarte hull som smeltet sammen.',
+  },
+  {
+    question: 'Hva gjøres ved Large Hadron Collider (LHC) ved CERN?',
+    options: [
+      'Protoner akselereres til nær lyshastighet og kollideres for å studere elementærpartikler',
+      'Lys sendes gjennom 27 km lange fiberkabler for å måle lyshastigheten',
+      'Atomkjerner spaltes for å produsere elektrisk kraft',
+      'Satellitter skytes opp for å studere kosmisk stråling',
+    ],
+    explanation: 'LHC er en 27 km lang sirkulær akselerator der protoner kollideres med energier opptil 13,6 TeV. Her ble blant annet Higgs-bosonet oppdaget i 2012.',
+  },
+],
+
+  'fysikk2-8-4': [
+  {
+    question: 'Hva står IMRaD for i vitenskapelig rapportskriving?',
+    options: [
+      'Introduksjon, Metode, Resultater og Diskusjon',
+      'Idé, Måling, Rapport og Dokumentasjon',
+      'Innledning, Materiale, Referanser og Data',
+      'Introduksjon, Modell, Regresjon og Drøfting',
+    ],
+    explanation: 'IMRaD (Introduction, Methods, Results and Discussion) er den internasjonale standardstrukturen for vitenskapelige artikler og rapporter.',
+  },
+  {
+    question: 'Hva kjennetegner en god problemstilling for et fysikkprosjekt?',
+    options: [
+      'Den er avgrenset og testbar, for eksempel «Hvordan avhenger svingetiden av pendellengden?»',
+      'Den er så bred som mulig, for eksempel «Hva er fysikk?»',
+      'Den har et svar som allerede står i læreboken',
+      'Den kan ikke undersøkes med målinger',
+    ],
+    explanation: 'En god problemstilling er avgrenset (konkret nok til å besvares) og testbar (kan undersøkes med målinger og analyse).',
+  },
+  {
+    question: 'Hva skal metodedelen i en vitenskapelig rapport inneholde?',
+    options: [
+      'En beskrivelse av gjennomføringen som er detaljert nok til at andre kan gjenta forsøket',
+      'Bare en liste over utstyret som ble brukt',
+      'Konklusjonene fra eksperimentet',
+      'En diskusjon av feilkildene og deres betydning',
+    ],
+    explanation: 'Metodedelen skal gjøre eksperimentet reproduserbart: oppsett, utstyr, fremgangsmåte og målinger beskrives så andre kan gjenta det og kontrollere resultatene.',
+  },
+  {
+    question: 'Hvordan bør Wikipedia brukes som kilde i et fysikkprosjekt?',
+    options: [
+      'Som utgangspunkt for å finne informasjon, men de oppgitte kildene bør alltid sjekkes',
+      'Som hovedkilde som alltid kan siteres direkte',
+      'Aldri – Wikipedia inneholder bare feil',
+      'Bare hvis artikkelen er skrevet på norsk',
+    ],
+    explanation: 'Wikipedia kan gi god oversikt og pekere videre, men er ikke en primærkilde. God kildekritikk innebærer å vurdere hvem som har skrevet teksten og kontrollere originalkildene.',
+  },
+  {
+    question: 'Hva er et sammendrag (abstract) i en rapport?',
+    options: [
+      'En kort oppsummering (typisk 100–200 ord) av hele rapporten, inkludert resultater',
+      'En detaljert gjennomgang av alle målingene',
+      'Det samme som innledningen',
+      'En liste over alle referansene',
+    ],
+    explanation: 'Sammendraget er en kompakt oppsummering av problemstilling, metode, hovedresultater og konklusjon, slik at leseren raskt ser hva rapporten handler om.',
+  },
+],
+
 };
 
 export default quizData_fysikk;

@@ -2024,6 +2024,588 @@ const quizData_naturfag_10: Record<string, QuizQuestion[]> = {
     },
   ],
 
+  'naturfag-10-2-7': [
+    {
+      question: 'Hva er et hydrokarbon?',
+      options: [
+        'En forbindelse som bare inneholder karbon og hydrogen',
+        'En forbindelse som inneholder karbon, hydrogen og oksygen',
+        'En forbindelse som bare inneholder hydrogen',
+        'En forbindelse som inneholder vann',
+      ],
+      explanation: 'Et hydrokarbon er en kjemisk forbindelse som bare inneholder grunnstoffene karbon (C) og hydrogen (H).',
+    },
+    {
+      question: 'Hva er den generelle formelen for alkaner?',
+      options: [
+        'CₙH₂ₙ₊₂',
+        'CₙH₂ₙ',
+        'CₙH₂ₙ₋₂',
+        'CₙHₙ',
+      ],
+      explanation: 'Alkaner (mettede hydrokarboner) har formelen CₙH₂ₙ₊₂. For eksempel metan: C₁H₂₍₁₎₊₂ = CH₄.',
+    },
+    {
+      question: 'Hvor mange hydrogenatomer har propan (C₃H₈)?',
+      options: [
+        '8',
+        '6',
+        '3',
+        '10',
+      ],
+      explanation: 'Propan har 3 karbonatomer, så formelen blir C₃H₂₍₃₎₊₂ = C₃H₈, altså 8 hydrogenatomer.',
+    },
+    {
+      question: 'Hva kjennetegner et alkan (mettet hydrokarbon)?',
+      options: [
+        'Alle bindingene mellom karbonatomene er enkeltbindinger',
+        'Det har minst én dobbeltbinding mellom karbonatomene',
+        'Det har minst én trippelbinding mellom karbonatomene',
+        'Det inneholder en hydroksylgruppe',
+      ],
+      explanation: 'I et alkan er alle karbon-karbon-bindingene enkeltbindinger (C–C). Det er «mettet» fordi hvert karbon er bundet til så mange hydrogenatomer som mulig.',
+    },
+    {
+      question: 'Hvor mange kovalente bindinger kan ett karbonatom danne?',
+      options: [
+        '4',
+        '2',
+        '6',
+        '1',
+      ],
+      explanation: 'Karbon har 4 valenselektroner og kan danne 4 kovalente bindinger. Dette gjør at karbon kan lage lange kjeder, forgreininger og ringer.',
+    },
+  ],
+
+  'naturfag-10-2-8': [
+    {
+      question: 'Hvilken funksjonell gruppe kjennetegner alkoholer?',
+      options: [
+        'Hydroksylgruppe (-OH)',
+        'Karboksylgruppe (-COOH)',
+        'Aminogruppe (-NH₂)',
+        'Karbonylgruppe (C=O)',
+      ],
+      explanation: 'Alkoholer kjennetegnes av hydroksylgruppen (-OH), der ett hydrogenatom i hydrokarbonet er byttet ut med -OH.',
+    },
+    {
+      question: 'Hva er en funksjonell gruppe?',
+      options: [
+        'En bestemt gruppe atomer som gir molekylet sine karakteristiske kjemiske egenskaper',
+        'En gruppe karbonatomer i en rett kjede',
+        'Antallet hydrogenatomer i et molekyl',
+        'En type kjemisk binding mellom to karbonatomer',
+      ],
+      explanation: 'En funksjonell gruppe er en bestemt gruppe atomer som gir et organisk molekyl dets karakteristiske kjemiske egenskaper – som en «etikett» på molekylet.',
+    },
+    {
+      question: 'Hva er den kjemiske formelen for etanol?',
+      options: [
+        'C₂H₅OH',
+        'CH₃OH',
+        'C₃H₇OH',
+        'CH₃COOH',
+      ],
+      explanation: 'Etanol har to karbonatomer og en hydroksylgruppe: C₂H₅OH. Det er stoffet i alkoholholdige drikker.',
+    },
+    {
+      question: 'Hvilken funksjonell gruppe finnes i karboksylsyrer som eddiksyre?',
+      options: [
+        'Karboksylgruppe (-COOH)',
+        'Hydroksylgruppe (-OH)',
+        'Aminogruppe (-NH₂)',
+        'Metylgruppe (-CH₃)',
+      ],
+      explanation: 'Karboksylsyrer inneholder karboksylgruppen (-COOH). Eddiksyre (CH₃COOH) er et eksempel.',
+    },
+    {
+      question: 'Hvorfor er metanol farlig å drikke?',
+      options: [
+        'Det er svært giftig og kan føre til blindhet og død',
+        'Det smaker svært vondt',
+        'Det er ikke blandbart med vann',
+        'Det fordamper for raskt til å svelges',
+      ],
+      explanation: 'Metanol (CH₃OH, «tresprit») er svært giftig. Inntak kan forårsake blindhet og død, i motsetning til etanol som finnes i drikke.',
+    },
+  ],
+
+  'naturfag-10-4-3b': [
+    {
+      question: 'Hva er evolusjon?',
+      options: [
+        'Endringer i arvbare egenskaper i en populasjon over tid',
+        'At enkeltindivider forandrer kroppen sin i løpet av livet',
+        'At alle arter blir like over tid',
+        'At dyr velger hvilke egenskaper avkommet skal ha',
+      ],
+      explanation: 'Evolusjon er endringer i arvbare egenskaper i en populasjon over tid. Det er populasjoner, ikke enkeltindivider, som evolverer.',
+    },
+    {
+      question: 'Hva er den viktigste mekanismen som driver evolusjon?',
+      options: [
+        'Naturlig seleksjon',
+        'At individer trener opp nye egenskaper',
+        'Tilfeldig flaks alene',
+        'At arter bestemmer seg for å forandre seg',
+      ],
+      explanation: 'Naturlig seleksjon (naturlig utvalg) er den viktigste mekanismen. Individer med egenskaper best tilpasset miljøet overlever og formerer seg mest.',
+    },
+    {
+      question: 'Hvilken forsker reiste med HMS Beagle og utviklet evolusjonsteorien?',
+      options: [
+        'Charles Darwin',
+        'Gregor Mendel',
+        'Carl von Linné',
+        'Louis Pasteur',
+      ],
+      explanation: 'Charles Darwin reiste med HMS Beagle (1831–1836) og observerte blant annet finkene på Galapagos, som ble viktige for evolusjonsteorien.',
+    },
+    {
+      question: 'Hva er homologe strukturer et eksempel på?',
+      options: [
+        'Strukturer med samme grunnoppbygning men ulik funksjon, som tyder på felles opphav',
+        'Strukturer som er helt identiske i alle arter',
+        'Organer som ikke lenger har noen funksjon',
+        'Strukturer som bare finnes hos mennesker',
+      ],
+      explanation: 'Homologe strukturer (f.eks. menneskearm, hvalfinne, flaggermusvinge) har samme grunnoppbygning men ulik funksjon, og er et bevis på felles opphav.',
+    },
+    {
+      question: 'Hvilket utsagn om evolusjon er riktig?',
+      options: [
+        'Evolusjon har ikke noe mål eller en forhåndsbestemt retning',
+        'Evolusjon gjør alltid arter mer kompliserte',
+        'Evolusjon skjer for at arter skal bli «perfekte»',
+        'Enkeltindivider evolverer i løpet av sitt eget liv',
+      ],
+      explanation: 'Evolusjon har ikke noe mål eller retning. Naturlig seleksjon favoriserer bare det som fungerer i et gitt miljø her og nå, ikke en plan om «perfeksjon».',
+    },
+  ],
+
+  'naturfag-10-4-7': [
+    {
+      question: 'Hva kjennetegner fosforkretsløpet sammenlignet med de andre kretsløpene?',
+      options: [
+        'Det har ingen gassfase – fosfor finnes ikke som gass i atmosfæren',
+        'Det går bare gjennom atmosfæren',
+        'Det involverer ikke levende organismer',
+        'Det er det raskeste av alle kretsløpene',
+      ],
+      explanation: 'Fosforkretsløpet har ingen gassfase. Fosfor sirkulerer mellom bergarter, jord, vann og organismer, men ikke som gass i atmosfæren.',
+    },
+    {
+      question: 'Hvilken prosess tar CO₂ ut av atmosfæren i karbonkretsløpet?',
+      options: [
+        'Fotosyntese',
+        'Celleånding',
+        'Forbrenning',
+        'Forråtnelse',
+      ],
+      explanation: 'I fotosyntesen tar grønne planter og alger opp CO₂ fra atmosfæren og bygger organiske molekyler ved hjelp av solenergi.',
+    },
+    {
+      question: 'Hvorfor kan de fleste organismer ikke bruke nitrogengass (N₂) direkte?',
+      options: [
+        'N₂ har en sterk trippelbinding som er vanskelig å bryte',
+        'N₂ er for stort til å trenge inn i cellene',
+        'N₂ er giftig for de fleste organismer',
+        'N₂ finnes ikke i atmosfæren',
+      ],
+      explanation: 'N₂-molekylet har en svært sterk trippelbinding mellom nitrogenatomene. Den må først brytes (nitrogenfiksering) før nitrogenet kan brukes.',
+    },
+    {
+      question: 'Hva skjer ved fordamping i vannets kretsløp?',
+      options: [
+        'Vann går fra væske til vanndamp og stiger opp i lufta',
+        'Vanndamp avkjøles og danner skyer',
+        'Vann faller ned som regn eller snø',
+        'Planter tar opp vann gjennom røttene',
+      ],
+      explanation: 'Ved fordamping går flytende vann over til vanndamp (gass) når sola varmer opp havoverflaten, innsjøer og elver.',
+    },
+    {
+      question: 'Hvilket grunnstoff sirkulerer mellom atmosfæren, havet, organismer og jordskorpa i karbonkretsløpet?',
+      options: [
+        'Karbon',
+        'Nitrogen',
+        'Fosfor',
+        'Svovel',
+      ],
+      explanation: 'Karbonkretsløpet beskriver hvordan karbon (C) sirkulerer mellom atmosfæren (CO₂), havet, levende organismer og jordskorpa (bl.a. fossile brensler).',
+    },
+  ],
+
+  'naturfag-10-4-8': [
+    {
+      question: 'Hva er forskjellen på fornybare og ikke-fornybare naturressurser?',
+      options: [
+        'Fornybare kan naturen lage mer av i et menneskelig tidsperspektiv, ikke-fornybare finnes i begrenset mengde',
+        'Fornybare er alltid dyrere enn ikke-fornybare',
+        'Ikke-fornybare ressurser forurenser aldri',
+        'Fornybare ressurser finnes bare i havet',
+      ],
+      explanation: 'Fornybare ressurser (sol, vind, skog, fisk) kan fornyes i menneskelig tidsperspektiv. Ikke-fornybare (olje, kull, gass, mineraler) finnes i begrenset mengde.',
+    },
+    {
+      question: 'Hvilken energikilde har størst CO₂-utslipp per kWh?',
+      options: [
+        'Kull',
+        'Vannkraft',
+        'Vindkraft',
+        'Solkraft',
+      ],
+      explanation: 'Kull har de største CO₂-utslippene (ca. 820 g/kWh) av energikildene. Vann, vind og sol har svært lave utslipp.',
+    },
+    {
+      question: 'Hva er bærekraftig utvikling ifølge Brundtland-kommisjonen?',
+      options: [
+        'Utvikling som dekker dagens behov uten å ødelegge for fremtidige generasjoner',
+        'Utvikling som gir maksimal økonomisk vekst på kort sikt',
+        'Utvikling som stopper all bruk av naturressurser',
+        'Utvikling som bare gjelder rike land',
+      ],
+      explanation: 'Brundtland-kommisjonen (1987) definerte bærekraftig utvikling som utvikling som dekker dagens behov uten å ødelegge mulighetene for fremtidige generasjoner.',
+    },
+    {
+      question: 'Hvorfor regnes reindrift som et eksempel på bærekraftig naturbruk?',
+      options: [
+        'Reinen flyttes mellom beiteområder slik at beitene får tid til å vokse igjen',
+        'Reinen spiser bare planter som ikke er fornybare',
+        'Reindriften bruker ingen naturressurser',
+        'Reinen holdes alltid på samme beite hele året',
+      ],
+      explanation: 'Reindriften flytter dyrene mellom beiteområder gjennom året, slik at beitene fornyes, og tilpasser antall dyr til det beitene tåler.',
+    },
+    {
+      question: 'Hvor mange dimensjoner har bærekraftig utvikling?',
+      options: [
+        'Tre: miljømessig, sosial og økonomisk',
+        'To: miljømessig og økonomisk',
+        'Én: bare miljømessig',
+        'Fire: miljø, sosial, økonomi og teknologi',
+      ],
+      explanation: 'Bærekraftig utvikling har tre dimensjoner: miljømessig (ta vare på naturen), sosial (gode levekår for alle) og økonomisk bærekraft.',
+    },
+  ],
+
+  'naturfag-10-5-6': [
+    {
+      question: 'Hva er psykoaktive stoffer?',
+      options: [
+        'Stoffer som påvirker hjernen og endrer hvordan vi tenker, føler eller oppfører oss',
+        'Stoffer som bare påvirker musklene',
+        'Stoffer som alltid er ulovlige',
+        'Stoffer som ikke har noen virkning på kroppen',
+      ],
+      explanation: 'Psykoaktive stoffer påvirker hjernen og endrer tanker, følelser eller atferd ved å påvirke signaloverføringen mellom nerveceller.',
+    },
+    {
+      question: 'Hvordan virker alkohol (etanol) på nervesystemet?',
+      options: [
+        'Det er et dempende stoff som senker aktiviteten i hjernen',
+        'Det er et stimulerende stoff som øker aktiviteten i hjernen',
+        'Det er et hallusinogent stoff uten dempende effekt',
+        'Det har ingen virkning på nervesystemet',
+      ],
+      explanation: 'Etanol er et dempende rusmiddel. Det forsterker den dempende nevrotransmitteren GABA og hemmer den stimulerende glutamat, så hjerneaktiviteten senkes.',
+    },
+    {
+      question: 'Hva betyr 1 promille alkohol i blodet?',
+      options: [
+        '1 gram alkohol per liter blod',
+        '1 gram alkohol per desiliter blod',
+        '1 prosent alkohol i blodet',
+        '1 milligram alkohol per liter blod',
+      ],
+      explanation: 'Promille (‰) er et mål på alkoholmengden i blodet. 1 promille tilsvarer 1 gram alkohol per liter blod.',
+    },
+    {
+      question: 'Hva er et legemiddel?',
+      options: [
+        'Et stoff som brukes for å forebygge, lindre eller behandle sykdom, og som er vitenskapelig testet',
+        'Et hvilket som helst stoff som gir rus',
+        'Et stoff som bare leger kan ta',
+        'Et stoff som aldri har bivirkninger',
+      ],
+      explanation: 'Et legemiddel brukes for å forebygge, diagnostisere, lindre eller behandle sykdom, og har gjennomgått vitenskapelig testing for virkning og sikkerhet.',
+    },
+    {
+      question: 'Hvorfor er nikotin et problematisk stoff i tobakk?',
+      options: [
+        'Det er et av de mest avhengighetsskapende stoffene vi kjenner',
+        'Det er helt ufarlig og uten effekt',
+        'Det demper alltid all hjerneaktivitet fullstendig',
+        'Det finnes bare i e-sigaretter',
+      ],
+      explanation: 'Nikotin er det psykoaktive stoffet i tobakk og er et av de mest avhengighetsskapende stoffene vi kjenner.',
+    },
+  ],
+
+  'naturfag-10-7-1': [
+    {
+      question: 'Hva er pubertet?',
+      options: [
+        'Perioden der kroppen utvikler seg fra barn til voksen og blir kjønnsmoden',
+        'En enkelt hendelse som skjer på én dag',
+        'Perioden rett etter fødselen',
+        'Tiden da man slutter å vokse',
+      ],
+      explanation: 'Pubertet er perioden der kroppen utvikler seg fra barn til voksen og blir kjønnsmoden – altså i stand til å reprodusere seg. Det er en prosess over flere år.',
+    },
+    {
+      question: 'Hvilket er det viktigste kvinnelige kjønnshormonet?',
+      options: [
+        'Østrogen',
+        'Testosteron',
+        'Insulin',
+        'Adrenalin',
+      ],
+      explanation: 'Østrogen er det viktigste kvinnelige kjønnshormonet. Det produseres hovedsakelig i eggstokkene og styrer kvinnelige kjønnskarakteristika.',
+    },
+    {
+      question: 'Hvilket er det viktigste mannlige kjønnshormonet?',
+      options: [
+        'Testosteron',
+        'Østrogen',
+        'Progesteron',
+        'Tyroksin',
+      ],
+      explanation: 'Testosteron er det viktigste mannlige kjønnshormonet. Det produseres i testiklene og setter i gang mannlige kjønnskarakteristika.',
+    },
+    {
+      question: 'Hvor i kroppen starter den hormonelle kjedereaksjonen som setter i gang puberteten?',
+      options: [
+        'I hjernen (hypothalamus)',
+        'I hjertet',
+        'I leveren',
+        'I magesekken',
+      ],
+      explanation: 'Prosessen starter i hjernen, der hypothalamus begynner å produsere hormoner som setter i gang den hormonelle kjedereaksjonen.',
+    },
+    {
+      question: 'Hva er normalt om alderen puberteten starter?',
+      options: [
+        'Den starter på ulike tidspunkt – noen tidligere og noen senere, alt er normalt',
+        'Alle starter puberteten på nøyaktig samme alder',
+        'Gutter starter alltid før jenter',
+        'Puberteten må starte før fylte 8 år',
+      ],
+      explanation: 'Puberteten starter på forskjellige tidspunkt (jenter ca. 8–13 år, gutter ca. 9–14 år). Både tidlig og sen start er helt normalt.',
+    },
+  ],
+
+  'naturfag-10-7-2': [
+    {
+      question: 'Hva er hovedfunksjonen til eggstokkene (ovariene)?',
+      options: [
+        'Å produsere eggceller og hormonene østrogen og progesteron',
+        'Å transportere urin ut av kroppen',
+        'Å produsere sædceller',
+        'Å pumpe blod til livmoren',
+      ],
+      explanation: 'Eggstokkene produserer eggceller og hormonene østrogen og progesteron.',
+    },
+    {
+      question: 'Hvor skjer befruktningen vanligvis?',
+      options: [
+        'I egglederne (tuba uterina)',
+        'I livmoren',
+        'I skjeden',
+        'I eggstokken',
+      ],
+      explanation: 'Befruktningen skjer vanligvis i egglederen, der eggcellen møter sædcellen på vei mot livmoren.',
+    },
+    {
+      question: 'Når dannes eggcellene hos kvinner?',
+      options: [
+        'Alle dannes allerede før fødselen',
+        'De dannes på nytt hver måned',
+        'De dannes først ved puberteten',
+        'De dannes i livmoren under graviditet',
+      ],
+      explanation: 'Alle eggcellene (1–2 millioner umodne) dannes allerede før kvinnen er født. Etter fødselen dannes det aldri nye eggceller.',
+    },
+    {
+      question: 'Omtrent hvilken dag i menstruasjonssyklusen skjer eggløsningen vanligvis?',
+      options: [
+        'Rundt dag 14',
+        'Rundt dag 1',
+        'Rundt dag 28',
+        'Rundt dag 7',
+      ],
+      explanation: 'Eggløsningen (ovulasjon) skjer vanligvis rundt dag 14 i en syklus på omtrent 28 dager.',
+    },
+    {
+      question: 'Hva er livmorens (uterus) hovedfunksjon?',
+      options: [
+        'Å være stedet der fosteret utvikler seg under graviditet',
+        'Å produsere sædceller',
+        'Å lagre eggceller hele livet',
+        'Å transportere urin',
+      ],
+      explanation: 'Livmoren er et hult, muskuløst organ der fosteret utvikler seg. Slimhinnen bygges opp og støtes ut hver måned ved menstruasjon hvis det ikke blir graviditet.',
+    },
+  ],
+
+  'naturfag-10-7-3': [
+    {
+      question: 'Hva er en zygote?',
+      options: [
+        'Den befruktede eggcellen – det første stadiet av et nytt menneske',
+        'En umoden eggcelle',
+        'En sædcelle',
+        'Et ferdig utviklet foster',
+      ],
+      explanation: 'En zygote er den befruktede eggcellen, det aller første stadiet av et nytt menneske, med komplett arvestoff (46 kromosomer) fra mor og far.',
+    },
+    {
+      question: 'Hvor mange kromosomer har en befruktet eggcelle hos mennesket?',
+      options: [
+        '46',
+        '23',
+        '92',
+        '48',
+      ],
+      explanation: 'En befruktet eggcelle har 46 kromosomer – 23 fra eggcellen og 23 fra sædcellen.',
+    },
+    {
+      question: 'Hva er morkakens (placentas) funksjon?',
+      options: [
+        'Å transportere oksygen og næring til fosteret og fjerne avfallsstoffer',
+        'Å produsere sædceller',
+        'Å beskytte fosteret mot lyd',
+        'Å bestemme barnets kjønn',
+      ],
+      explanation: 'Morkaken kobler fosteret til moren og sørger for transport av oksygen, næring og avfallsstoffer, samt produksjon av hormoner.',
+    },
+    {
+      question: 'Hvordan oppstår eneggede tvillinger?',
+      options: [
+        'Ett egg befruktes av én sædcelle, og zygoten deler seg i to',
+        'To egg befruktes av to ulike sædceller',
+        'To sædceller befrukter samme egg',
+        'Ett egg deler seg før det blir befruktet',
+      ],
+      explanation: 'Eneggede tvillinger oppstår når ett egg befruktes av én sædcelle, og zygoten deler seg i to adskilte celleklumper. Derfor er de genetisk like.',
+    },
+    {
+      question: 'Omtrent hvor lenge varer et normalt svangerskap?',
+      options: [
+        'Omtrent 40 uker (280 dager)',
+        'Omtrent 20 uker',
+        'Omtrent 52 uker',
+        'Omtrent 30 uker',
+      ],
+      explanation: 'Et svangerskap varer omtrent 40 uker (280 dager) og deles inn i tre trimestere på cirka tre måneder hver.',
+    },
+  ],
+
+  'naturfag-10-7-4': [
+    {
+      question: 'Hvilken prevensjonsmetode beskytter mot både graviditet og seksuelt overførbare infeksjoner?',
+      options: [
+        'Kondom',
+        'P-piller',
+        'Hormonspiral',
+        'P-stav',
+      ],
+      explanation: 'Kondom er den eneste metoden som beskytter mot både graviditet og seksuelt overførbare infeksjoner (SOI). Hormonelle metoder beskytter bare mot graviditet.',
+    },
+    {
+      question: 'Hvordan virker hormonell prevensjon hovedsakelig?',
+      options: [
+        'Den hindrer eggløsning',
+        'Den dreper alle sædceller umiddelbart',
+        'Den fjerner livmoren',
+        'Den øker kroppstemperaturen permanent',
+      ],
+      explanation: 'Hormonell prevensjon virker hovedsakelig ved å hindre eggløsning, samt gjøre livmorslimhinnen tynnere og slimet i livmorhalsen tykkere.',
+    },
+    {
+      question: 'Hva menes med dobbel beskyttelse?',
+      options: [
+        'Å bruke kondom i tillegg til en annen prevensjonsmetode som p-piller',
+        'Å bruke to kondomer oppå hverandre',
+        'Å bruke prevensjon to ganger i måneden',
+        'Å ta p-piller dobbelt så ofte',
+      ],
+      explanation: 'Dobbel beskyttelse betyr å bruke kondom (mot SOI) sammen med en annen metode som p-piller (ekstra sikkerhet mot graviditet).',
+    },
+    {
+      question: 'Hva er en barrieremetode?',
+      options: [
+        'En metode som fysisk hindrer sædceller i å nå egget',
+        'En metode som bruker hormoner for å hindre eggløsning',
+        'En metode som bare virker etter samleie',
+        'En metode som krever operasjon',
+      ],
+      explanation: 'En barrieremetode (som kondom) hindrer fysisk sædceller i å nå egget, uten å påvirke kroppens hormonsystem.',
+    },
+    {
+      question: 'Hvilken rett har unge under 20 år i Norge når det gjelder prevensjon?',
+      options: [
+        'Rett til gratis eller subsidiert prevensjon',
+        'De har ingen rett til prevensjon før de er 18',
+        'De må alltid betale full pris',
+        'De kan bare få prevensjon med foreldrenes samtykke',
+      ],
+      explanation: 'I Norge har unge under 20 år rett til gratis eller subsidiert prevensjon, og kan blant annet henvende seg til helsestasjon for ungdom.',
+    },
+  ],
+
+  'naturfag-10-7-5': [
+    {
+      question: 'Hva betyr samtykke i seksuell sammenheng?',
+      options: [
+        'At alle involverte frivillig, entusiastisk og tydelig sier ja',
+        'At man ikke sier nei',
+        'At man en gang tidligere har sagt ja',
+        'At den ene parten bestemmer for begge',
+      ],
+      explanation: 'Samtykke betyr at alle involverte frivillig, entusiastisk og tydelig gir uttrykk for at de ønsker å delta. Det er et tydelig ja, ikke fravær av nei.',
+    },
+    {
+      question: 'Kan samtykke trekkes tilbake?',
+      options: [
+        'Ja, samtykke kan trekkes tilbake når som helst',
+        'Nei, et ja gjelder for alltid',
+        'Bare hvis man sier det skriftlig',
+        'Bare før man begynner',
+      ],
+      explanation: 'Samtykke kan trekkes tilbake når som helst. Et tidligere ja forplikter ingen til å fortsette.',
+    },
+    {
+      question: 'Hvilket av disse er IKKE gyldig samtykke?',
+      options: [
+        'Taushet – at noen ikke sier nei',
+        'Et tydelig «ja, det vil jeg»',
+        'Entusiastisk kroppsspråk som viser at man er med',
+        '«Ja, fortsett»',
+      ],
+      explanation: 'Taushet er ikke samtykke. Samtykke krever et tydelig ja – fravær av nei betyr ikke ja.',
+    },
+    {
+      question: 'Hvorfor kan en sterkt beruset person ikke gi gyldig samtykke?',
+      options: [
+        'Fordi rus svekker evnen til å ta frie og informerte valg',
+        'Fordi rus gjør at man alltid sier ja',
+        'Fordi det er ulovlig å drikke alkohol',
+        'Fordi beruselse fjerner all hukommelse',
+      ],
+      explanation: 'En sterkt beruset, sovende eller bevisstløs person kan ikke gi frivillig og informert samtykke, og kan derfor ikke samtykke gyldig.',
+    },
+    {
+      question: 'Hva handler grensesetting om?',
+      options: [
+        'Å kjenne egne grenser og kommunisere dem tydelig, og respektere andres',
+        'Å presse andre til å gjøre det man selv vil',
+        'Å aldri si nei til noe',
+        'Å bestemme grensene for andre',
+      ],
+      explanation: 'Grensesetting handler om å kjenne sine egne grenser og kommunisere dem tydelig, samtidig som man alltid respekterer andres grenser.',
+    },
+  ],
 
 };
 

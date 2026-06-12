@@ -16,6 +16,7 @@ export interface QuizQuestion {
 // Quiz questions organized by chapter ID (works for all subjects)
 // Import quiz data from per-subject files
 import quizData_1p from './quiz-data-1p';
+import quizData_biologi_1 from './quiz-data-biologi-1';
 import quizData_1t from './quiz-data-1t';
 import quizData_2p from './quiz-data-2p';
 import quizData_2py from './quiz-data-2py';
@@ -41,6 +42,7 @@ import quizData_historie from './quiz-data-historie';
 import quizData_int_engelsk from './quiz-data-int-engelsk';
 import quizData_it from './quiz-data-it';
 import quizData_kjemi1 from './quiz-data-kjemi1';
+import quizData_kjemi2 from './quiz-data-kjemi2';
 import quizData_komkult from './quiz-data-komkult';
 import quizData_krle_10 from './quiz-data-krle-10';
 import quizData_krle_5 from './quiz-data-krle-5';
@@ -58,9 +60,15 @@ import quizData_kroppsoving_vg1 from './quiz-data-kroppsoving-vg1';
 import quizData_kroppsoving_vg2 from './quiz-data-kroppsoving-vg2';
 import quizData_kroppsoving_vg3 from './quiz-data-kroppsoving-vg3';
 import quizData_kunst_10 from './quiz-data-kunst-10';
+import quizData_kunst_9 from './quiz-data-kunst-9';
+import quizData_kunst_8 from './quiz-data-kunst-8';
+import quizData_kunst_7 from './quiz-data-kunst-7';
+import quizData_kunst_6 from './quiz-data-kunst-6';
+import quizData_kunst_5 from './quiz-data-kunst-5';
 import quizData_markedsforing from './quiz-data-markedsforing';
 import quizData_mat_og_helse_8 from './quiz-data-mat-og-helse-8';
 import quizData_mat_og_helse_9 from './quiz-data-mat-og-helse-9';
+import quizData_mat_og_helse_10 from './quiz-data-mat-og-helse-10';
 import quizData_matematikk_5 from './quiz-data-matematikk-5';
 import quizData_matematikk_6 from './quiz-data-matematikk-6';
 import quizData_matematikk_7 from './quiz-data-matematikk-7';
@@ -120,6 +128,7 @@ import quizData_okonomi_ledelse from './quiz-data-økonomi-ledelse';
 // Merged quiz data from all subject files
 const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_1p,
+  ...quizData_biologi_1,
   ...quizData_1t,
   ...quizData_2p,
   ...quizData_2py,
@@ -145,6 +154,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_int_engelsk,
   ...quizData_it,
   ...quizData_kjemi1,
+  ...quizData_kjemi2,
   ...quizData_komkult,
   ...quizData_krle_10,
   ...quizData_krle_5,
@@ -162,9 +172,15 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_kroppsoving_vg2,
   ...quizData_kroppsoving_vg3,
   ...quizData_kunst_10,
+  ...quizData_kunst_9,
+  ...quizData_kunst_8,
+  ...quizData_kunst_7,
+  ...quizData_kunst_6,
+  ...quizData_kunst_5,
   ...quizData_markedsforing,
   ...quizData_mat_og_helse_8,
   ...quizData_mat_og_helse_9,
+  ...quizData_mat_og_helse_10,
   ...quizData_matematikk_5,
   ...quizData_matematikk_6,
   ...quizData_matematikk_7,
