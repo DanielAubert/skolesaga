@@ -124,7 +124,7 @@ def r1_1_2_logaritme_invers():
         fig.point(*a, color=P['main'])
         fig.point(*b, color=P['extra'])
     fig.text(tx(0) + 20, ty(1) - 18, '(0, 1)', 28, anchor='start', bold=True)
-    fig.text(tx(1), ty(0) + 46, '(1, 0)', 28, bold=True)
+    fig.text(tx(1) - 18, ty(0) + 44, '(1, 0)', 28, anchor='end', bold=True)
     fig.text(tx(1) - 20, ty(math.e) - 5, '(1, e)', 28, anchor='end', bold=True)
     fig.text(tx(math.e), ty(1) + 50, '(e, 1)', 28, bold=True)
     fig.text(tx(4.6), ty(4.6) - 16, 'y = x', 30, color=P['accent'], bold=True, anchor='end')
@@ -392,7 +392,7 @@ def r1_3_6_differanse():
     P = fig.p
     f = lambda x: 0.18 * x ** 3 - 0.4 * x + 2.4
     df = lambda x: 0.54 * x * x - 0.4
-    tx, ty = fig.coords(-0.4, 4.4, 0.2, 9.0, box=(190, 120, 1410, 700), grid=False,
+    tx, ty = fig.coords(-0.4, 4.4, 0.2, 12.0, box=(190, 120, 1410, 700), grid=False,
                         xticks=[], yticks=[], xlabel='x', ylabel='y')
     fig.plot(f, color=P['main'], width=5)
     x0, h = 2.0, 1.4
@@ -411,9 +411,9 @@ def r1_3_6_differanse():
     gc = chord(x0 - h, x0 + h, P['accent'], 4.5, 'sentral', 0)
     for k in pts.values():
         fig.point(k, f(k), color=P['accent'] if k == x0 else P['extra'], r=9)
-    fig.text(tx(4.0), ty(gf(4.0)) - 18, 'forover', 28, color=P['extra'], bold=True, anchor='end')
+    fig.text(tx(4.32), ty(gf(4.2)) - 24, 'forover', 28, color=P['extra'], bold=True, anchor='end')
     fig.text(tx(0.35), ty(gb(0.35)) - 20, 'bakover', 28, color=P['extra'], bold=True, anchor='start')
-    fig.text(tx(4.0), ty(gc(4.0)) + 44, 'sentral', 28, color=P['accent'], bold=True, anchor='end')
+    fig.text(tx(4.32), ty(gc(4.2)) + 90, 'sentral', 28, color=P['accent'], bold=True, anchor='end')
     fig.text(tx(0.3), ty(gt(0.3)) + 48, 'tangent', 28, color='#FFFFFF', anchor='start')
     fig.text(W / 2, 830, 'sentral er mest nøyaktig', 34, color=P['accent'], bold=True)
     save(fig, 'r1-3-6-differanseformler.svg')
@@ -433,7 +433,7 @@ def r1_4_6_drofting():
     for x, lab in [(0, '(0, 0)'), (2, '(2, −4)'), (1, '(1, −2)')]:
         fig.point(x, f(x), color=P['accent'])
     fig.text(tx(0) + 22, ty(0) - 22, '(0, 0)', 28, anchor='start', bold=True)
-    fig.text(tx(2) + 24, ty(-4) + 10, '(2, −4)', 28, anchor='start', bold=True)
+    fig.text(tx(2) + 24, ty(-4) + 48, '(2, −4)', 28, anchor='start', bold=True)
     fig.text(tx(1) + 24, ty(-2) + 10, '(1, −2) vendepunkt', 28, anchor='start', color=P['extra'])
     fig.line(tx(-0.45), ty(0), tx(0.45), ty(0), P['accent'], 4)
     fig.line(tx(1.55), ty(-4), tx(2.45), ty(-4), P['accent'], 4)
@@ -689,7 +689,7 @@ def r1_6_2_skalarprodukt():
     fig = Fig('r1')
     P = fig.p
     tx, ty = vcoords(fig, -0.8, 5.0, -0.8, 3.2, box=(190, 150, 1080, 790))
-    fig.vector(tx, ty, 0, 0, 4, 0, color=P['main'], label='a = [4, 0]', width=6, lab_off=(20, 40))
+    fig.vector(tx, ty, 0, 0, 4, 0, color=P['main'], label='a = [4, 0]', width=6, lab_off=(-14, -22))
     fig.vector(tx, ty, 0, 0, 2, 2, color=P['extra'], label='b = [2, 2]', width=6)
     angle_arc(fig, tx(0), ty(0), 90, 0, 45, P['accent'], 3.5, label='θ = 45°', lab_r=150)
     boxed_text(fig, 1310, 280, ['a · b = 8', 'cos θ = √2/2 ⇒ θ = 45°'], 30)
@@ -1079,7 +1079,7 @@ def r1_7_6_sinussetningen():
     # radius
     a = math.radians(30)
     fig.line(cx, cy, cx + R * math.cos(a), cy - R * math.sin(a), P['extra'], 4)
-    fig.text(cx + R / 2 * math.cos(a), cy - R / 2 * math.sin(a) - 18, 'R', 32, color=P['extra'], bold=True, italic=True)
+    fig.text(cx + 0.62 * R * math.cos(a), cy - 0.62 * R * math.sin(a) + 34, 'R', 32, color=P['extra'], bold=True, italic=True)
     boxed_text(fig, 1240, 700, ['a/sin A = b/sin B = c/sin C = 2R'], 30)
     fig.text(1240, 200, 'omskrevet sirkel', 32, color=P['accent'], bold=True)
     save(fig, 'r1-7-6-sinussetningen-omskrevet.svg')

@@ -125,7 +125,7 @@ def f_1_4():
     fig.plot(lambda x: abs(x - 2), color=GREEN, width=5)
     fig.point(2, 0, '(2, 0)', color=PURPLE, dx=20, dy=42)
     fig.arrow(tx(-0.6), ty(-2.6), tx(-0.6), ty(2.2), PURPLE, 4)
-    fig.text(tx(-0.4), ty(-0.4), 'den negative delen speiles opp', 28, anchor='start', color=PURPLE, bold=True)
+    fig.text(tx(-0.45), ty(-2.85), 'den negative delen speiles opp', 28, anchor='start', color=PURPLE, bold=True)
     save(fig, 's1-1-4-absoluttverdifunksjon.svg')
 
 
@@ -158,13 +158,13 @@ def f_1_6b():
         if not perp:
             fig.plot(lambda x: 2 * x + 1, color=GREEN, width=5)
             fig.plot(lambda x: 2 * x - 1.6, color=GREEN, width=5)
-            fig.text(tx(0.55), ty(2.6), 'a₁ = 2', 30, anchor='start', bold=True, color=GREEN)
+            fig.text(tx(0.65), ty(2.6), 'a₁ = 2', 30, anchor='end', bold=True, color=GREEN)
             fig.text(tx(2.0), ty(1.7), 'a₂ = 2', 30, anchor='start', bold=True, color=GREEN)
         else:
             fig.plot(lambda x: 2 * x, color=GREEN, width=5)
             fig.plot(lambda x: -x / 2, color=PURPLE, width=5)
-            fig.text(tx(1.05), ty(2.6), 'a₁ = 2', 30, anchor='start', bold=True, color=GREEN)
-            fig.text(tx(-2.9), ty(1.75), 'a₂ = −1/2', 30, anchor='start', bold=True, color=PURPLE)
+            fig.text(tx(1.5), ty(2.6), 'a₁ = 2', 30, anchor='start', bold=True, color=GREEN)
+            fig.text(tx(-2.9), ty(2.0), 'a₂ = −1/2', 30, anchor='start', bold=True, color=PURPLE)
             # kvadratsymbol i skjæringspunktet, rotert langs linjene
             s = 0.35
             u = (1 / math.sqrt(5), 2 / math.sqrt(5))   # retning a=2
@@ -279,7 +279,7 @@ def f_2_4():
     fig.line(tx(0), ty(1), tx(1), ty(0), GRAY, 2.5, dash='6 8')
     fig.point(0, 1, color=GREEN)
     fig.point(1, 0, color=PURPLE)
-    fig.text(tx(0.62), ty(3.6), 'y = 10ˣ', 34, anchor='end', bold=True, color=GREEN)
+    fig.text(tx(0.42), ty(3.6), 'y = 10ˣ', 34, anchor='end', bold=True, color=GREEN)
     fig.text(tx(2.6), ty(0.75), 'y = log x', 34, anchor='start', bold=True, color=PURPLE)
     fig.text(tx(3.6), ty(3.25), 'y = x', 30, anchor='start', color=GRAY, bold=True)
     save(fig, 's1-2-4-logaritme-som-omvendt.svg')
@@ -467,7 +467,7 @@ def f_3_9():
     fig.point(1, f(1), color=PURPLE)
     fig.point(4, f(4), color=PURPLE)
     fig.point(2, f(2), color=GREEN)
-    fig.text(tx(4.05), ty(sec(4.7)), 'gjennomsnittlig vekstfart', 29, anchor='start', color=PURPLE, bold=True)
+    fig.text(tx(3.55), ty(6.3), 'gjennomsnittlig vekstfart', 29, anchor='start', color=PURPLE, bold=True)
     fig.text(tx(3.4), ty(tang(3.9)) + 44, 'momentan vekstfart', 29, anchor='start', color=GREEN, bold=True)
     save(fig, 's1-3-9-gjennomsnittlig-momentan.svg')
 
@@ -489,10 +489,11 @@ def f_4_1():
     fig.plot(I, xmax=18, color=GREEN, width=5)
     fig.point(10, 500, color=fig.p['text'], r=10)
     fig.text(tx(10) - 14, ty(500) - 30, 'break-even', 30, anchor='end', bold=True)
-    fig.text(tx(5.5), ty(160), 'underskudd', 30, bold=True, color=RED)
-    fig.text(tx(15.3), ty(680), 'overskudd', 30, bold=True, color=GREEN)
+    fig.text(tx(6.5), ty(140), 'underskudd', 30, bold=True, color=RED)
+    fig.text(tx(13), ty(940), 'overskudd', 30, bold=True, color=GREEN)
+    fig.arrow(tx(13.6), ty(905), tx(14.6), ty(760), GREEN, 3, head=11)
     fig.text(tx(17.3), ty(K(17)) - 34, 'K(x)', 30, bold=True, color=PURPLE, italic=True)
-    fig.text(tx(16.2), ty(I(16.8)) + 16, 'I(x)', 30, bold=True, color=GREEN, italic=True)
+    fig.text(tx(15.6), ty(I(16.2)) - 18, 'I(x)', 30, bold=True, color=GREEN, italic=True)
     save(fig, 's1-4-1-kostnad-inntekt-overskudd.svg')
 
 
@@ -550,8 +551,8 @@ def f_4_7():
     fig.text(tx(xe), ty(0) + 42, 'x*', 30, bold=True, italic=True)
     fig.text(tx(2.6), ty(11.6), 'konsumentoverskudd', 29, anchor='start', bold=True, color=PURPLE)
     fig.text(tx(2.6), ty(8.0), 'produsentoverskudd', 29, anchor='start', bold=True, color=GREEN)
-    fig.text(tx(14.6), ty(S(15.4)), 'tilbud', 30, anchor='start', bold=True, color=GREEN)
-    fig.text(tx(14.6), ty(E(15.6)), 'etterspørsel', 30, anchor='start', bold=True, color=PURPLE)
+    fig.text(tx(14.2), ty(15.3), 'tilbud', 30, anchor='start', bold=True, color=GREEN)
+    fig.text(tx(14.6), ty(6.0), 'etterspørsel', 30, anchor='start', bold=True, color=PURPLE)
     save(fig, 's1-4-7-markedslikevekt-overskudd.svg')
 
 
@@ -628,7 +629,7 @@ def f_5_1b():
         fig.rect(x, y, bw, bh, fill=PURPLE, opacity=0.16, stroke=PURPLE, width=3, rx=12)
         fig.text(x + bw / 2, y + bh / 2 + 12, pp, 36, bold=True)
         rpos[pp] = (x, y)
-    for a, b in (('AB', 'AB'), ('BA', 'AB'), ('AC', 'AC'), ('CA', 'AC'), ('BC', 'BC'), ('CB', 'BC')):
+    for a, b in (('BA', 'AB'), ('CA', 'AC'), ('CB', 'BC')):
         x1, y1 = lpos[a][0] + bw, lpos[a][1] + bh / 2
         x2, y2 = rpos[b][0], rpos[b][1] + bh / 2
         fig.arrow(x1 + 8, y1, x2 - 12, y2, GRAY, 2, head=10)

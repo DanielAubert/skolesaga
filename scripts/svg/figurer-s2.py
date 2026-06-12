@@ -84,7 +84,10 @@ def f_1_1():
     Cs = [(-2, 'C = −2'), (0, 'C = 0'), (1, 'C = 1'), (3, 'C = 3')]
     for C, lab in Cs:
         fig.plot(lambda x, C=C: x * x + C, color=BLUE, width=4.5)
-        fig.text(tx(-0.62), ty(C + 0.42), lab, 27, anchor='end', color=BLUE, bold=True)
+    # etiketter i parabel-bunnene, med bakgrunnsfelt så aksen ikke skjærer teksten
+    for C, lab in Cs:
+        fig.rect(tx(0) - 62, ty(C + 0.5) - 21, 124, 40, fill=fig.p['bg'])
+        fig.text(tx(0), ty(C + 0.5) + 9, lab, 27, color=BLUE, bold=True)
     # tangentstreker i x = 1 (alle med stigning 2)
     for C, _ in Cs:
         x0, y0 = 1, 1 + C
@@ -239,13 +242,12 @@ def f_1_7a():
     fig.line(cx0 - 30, axy, 1480, axy, fig.p['text'], 3, dash='10 8')
     L = 500
     xr0 = cx0 + 40
-    prof = lambda u: 36 + 175 * math.sqrt(u)  # px-radius langs lengden
+    prof = lambda u: 211 * math.sqrt(u)  # px-radius langs lengden (0 ved venstre ende: f(0)=0)
     top = [(xr0 + L * u, axy - prof(u)) for u in [i / 60 for i in range(61)]]
     bot = [(xr0 + L * u, axy + prof(u)) for u in [i / 60 for i in range(61)]]
     fig.poly(top + bot[::-1], fill=BLUE, opacity=0.16, close=True)
     fig.poly(top, stroke=BLUE, width=4.5)
     fig.poly(bot, stroke=BLUE, width=4.5)
-    ellipse(fig, xr0, axy, 13, prof(0), stroke=BLUE, width=4)
     ellipse(fig, xr0 + L, axy, 56, prof(1), stroke=BLUE, width=4.5, fill=BLUE, opacity=0.12)
     # skive inni
     us = 0.55
@@ -344,11 +346,11 @@ def f_2_4a():
                         xticks=[], yticks=[], xlabel='t', ylabel='N')
     fig.line(tx(0), ty(M), tx(12.7), ty(M), RED, 4, dash='14 10')
     fig.line(tx(0), ty(M / 2), tx(t0), ty(M / 2), RED, 3, dash='8 8')
-    fig.plot(lambda t: logi(0) * math.exp(k * (t - 0) * 0.62), xmin=0, xmax=8.4, color=GRAY, width=3.5, dash='12 10')
+    fig.plot(lambda t: logi(0) * math.exp(k * (t - 0) * 0.62), xmin=0, xmax=10.35, color=GRAY, width=3.5, dash='12 10')
     fig.plot(logi, xmin=0, xmax=12.7, color=BLUE, width=5)
     fig.circle(tx(t0), ty(M / 2), 11, fill=RED)
     fig.text(tx(0.3), ty(M) - 20, 'bæreevne M', 31, anchor='start', bold=True, color=RED)
-    fig.text(tx(t0) + 24, ty(M / 2) + 10, 'M/2: raskest vekst', 30, anchor='start', bold=True, color=RED)
+    fig.text(tx(t0) - 20, ty(M / 2) - 28, 'M/2: raskest vekst', 30, anchor='end', bold=True, color=RED)
     fig.text(tx(7.2), ty(133), 'eksponentiell uten begrensning', 29, bold=True, color=GRAY)
     save(fig, 's2-2-4-logistisk-vekst.svg')
 
@@ -363,9 +365,9 @@ def f_2_4b():
         fig.line(tx(0) - 10, ty(v), tx(0) + 10, ty(v), fig.p['text'], 3)
     fig.line(tx(0), ty(20), tx(41), ty(20), RED, 4, dash='14 10')
     fig.plot(Tf, xmin=0, xmax=41, color=BLUE, width=5)
-    fig.text(tx(28), ty(20) - 22, 'romtemperatur 20 °C', 30, bold=True, color=RED)
-    # kaffekopp-silhuett ved start
-    cxp, cyp = tx(2.6), ty(97)
+    fig.text(tx(9), ty(20) + 44, 'romtemperatur 20 °C', 30, bold=True, color=RED)
+    # kaffekopp-silhuett ved start (under aksetittelen, klar av kurven)
+    cxp, cyp = tx(4.6), ty(86)
     fig.rect(cxp - 38, cyp - 50, 76, 62, fill=BLUE, opacity=0.85, rx=8)
     half_ellipse(fig, cxp + 52, cyp - 20, 16, 20, False, BLUE, 5)
     for ddx in (-16, 4):
@@ -628,7 +630,7 @@ def f_4_3c():
 
 def f_4_6a():
     fig = Fig('s2')
-    f = lambda x: 1.05 * npdf(math.log(max(x, 1e-9)) - 1.05, 0, 0.52) / max(x, 1e-9) * 3.4
+    f = lambda x: 1.05 * npdf(math.log(max(x, 1e-9)) - 1.05, 0, 0.52) / max(x, 1e-9) * 1.3  # topp ≈ 0,42 < ymax 0,5
     a, b = 2.0, 4.4
     tx, ty = fig.coords(0, 9, 0, 0.5, box=(220, 140, 1380, 690), grid=False,
                         xticks=[], yticks=[], xlabel='x')
@@ -954,8 +956,11 @@ def f_7_4():
         fig.rect(tx(x - bw / 2), ty(hr + ha), tx(x + bw / 2) - tx(x - bw / 2), ty(hr) - ty(hr + ha), fill=BLUE, opacity=0.8)
     fig.poly([(tx(i + 1), ty(rests[i])) for i in range(nterm)], stroke=GRAY, width=4.5)
     fig.text(tx(1.4), ty(rests[0] + 6), 'restgjeld', 29, bold=True, color=GRAY)
-    fig.text(tx(1 - bw / 2) - 14, ty(rents[0] * sc / 2) + 9, 'renter', 29, anchor='end', bold=True, color=RED)
-    fig.text(tx(1 - bw / 2) - 14, ty((rents[0] + avdrag[0] / 2) * sc) + 9, 'avdrag', 29, anchor='end', bold=True, color=BLUE)
+    # forklaring øverst til høyre (unngår kollisjon med y-aksen)
+    for j, (lab, col, op) in enumerate((('avdrag', BLUE, 0.8), ('renter', RED, 0.7))):
+        lx, lyv = tx(8.8), 110 - j * 13
+        fig.rect(lx, ty(lyv) - 15, 30, 30, fill=col, opacity=op)
+        fig.text(lx + 44, ty(lyv) + 10, lab, 29, anchor='start', bold=True, color=col)
     fig.text(W / 2, 85, 'fast terminbeløp: rentedel ned, avdragsdel opp', 35, bold=True)
     save(fig, 's2-7-4-annuitetslan.svg')
 
@@ -1159,10 +1164,10 @@ def f_9_3():
     fig.line(215, 760, 215, dy, fig.p['text'], 4)
     fig.arrow(215, dy, cx - dw - 8, dy, fig.p['text'], 4)
     # nei-gren til høyre
-    fig.line(cx + dw, dy, 1080, dy, fig.p['text'], 4)
+    fig.line(cx + dw, dy, 1000, dy, fig.p['text'], 4)
     fig.text(cx + dw + 30, dy - 16, 'nei', 29, anchor='start', bold=True, color=RED)
     boxr(dy, 'skriv ut sum', x=1240, bw=320)
-    fig.arrow(1080, dy, 1240 - 160 - 8, dy, fig.p['text'], 4)
+    fig.arrow(1000, dy, 1240 - 160 - 8, dy, fig.p['text'], 4)
     fig.raw(f'<ellipse cx="1240" cy="610" rx="120" ry="44" fill="{BLUE}22" stroke="{BLUE}" stroke-width="4"/>')
     fig.text(1240, 621, 'slutt', 29, bold=True)
     fig.arrow(1240, dy + 42, 1240, 560, fig.p['text'], 4)

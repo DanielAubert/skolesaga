@@ -232,8 +232,8 @@ def f_kredittkort():
                         xlabel='Måneder', ylabel='Gjeld (kr)')
     fig.plot(lambda x: 20000 * 1.25 ** (x / 12), 0, 24, color=fig.p['accent'], width=6)
     fig.plot(lambda x: 20000, 0, 24, color=fig.p['main'], width=4, dash='14 12')
-    fig.text(tx(10), ty(20000 * 1.25 ** (10 / 12)) - 60, '25 % årlig rente,', 30, color=fig.p['accent'], bold=True, anchor='start')
-    fig.text(tx(10), ty(20000 * 1.25 ** (10 / 12)) - 22, 'ingen nedbetaling', 30, color=fig.p['accent'], bold=True, anchor='start')
+    fig.text(tx(10), ty(20000 * 1.25 ** (10 / 12)) - 104, '25 % årlig rente,', 30, color=fig.p['accent'], bold=True, anchor='start')
+    fig.text(tx(10), ty(20000 * 1.25 ** (10 / 12)) - 66, 'ingen nedbetaling', 30, color=fig.p['accent'], bold=True, anchor='start')
     fig.text(tx(13), ty(20000) + 44, 'uten renter', 28, color=fig.p['main'])
     # enkelt kredittkort i hjørnet
     fig.rect(280, 200, 230, 145, fill=fig.p['main'], rx=14)
@@ -495,7 +495,8 @@ def f_frekvenstabell():
         fig.raw(f'<path d="M {ax},{y1} C {ax + 70},{y1 + 25} {ax + 70},{y2 - 25} {ax + 4},{y2}" '
                 f'fill="none" stroke="{fig.p["accent"]}" stroke-width="4"/>')
         fig.arrow(ax + 26, y2 - 16, ax + 4, y2, fig.p['accent'], 4, head=0.1)
-    fig.text(ax + 95, 460, '+ neste frekvens', 27, color=fig.p['accent'], anchor='start', bold=True)
+    fig.text(ax + 88, 438, '+ neste', 26, color=fig.p['accent'], anchor='start', bold=True)
+    fig.text(ax + 88, 478, 'frekvens', 26, color=fig.p['accent'], anchor='start', bold=True)
     fig.text(W / 2, 830, 'kumulativ = summen så langt', 30, bold=True)
     save(fig, '2p-3-1-frekvenstabell')
 
@@ -769,7 +770,7 @@ def f_uten_tilbake():
     fig.circle(*n_b, 12, fill=fig.p['extra'])
     fig.circle(1330, 190, 12, fill=fig.p['accent'])
     fig.circle(1330, 380, 12, fill=fig.p['extra'])
-    fig.text(1370, 200, 'to røde: 3/5 · 2/4 = 3/10', 30, anchor='start', bold=True, color=fig.p['accent'])
+    fig.text(1400, 130, 'to røde: 3/5 · 2/4 = 3/10', 30, anchor='end', bold=True, color=fig.p['accent'])
     fig.text(W / 2, 830, 'nevneren synker — kulen legges ikke tilbake', 30, bold=True)
     save(fig, '2p-4-2-uten-tilbakelegging')
 

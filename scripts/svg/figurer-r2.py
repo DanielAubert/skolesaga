@@ -108,9 +108,10 @@ def r2_1_1_folge():
     fig = Fig('r2')
     P = fig.p
     tx, ty = fig.coords(0, 12.8, -0.12, 1.18, box=(190, 160, 1410, 760),
-                        xticks=list(range(1, 13)), yticks=[0.5, 1], xlabel='n', ylabel='aₙ')
+                        xticks=list(range(1, 13)), yticks=[0.5, 1], xlabel='n')
+    fig.text(204, 152, 'aₙ', 28, anchor='start')
     fig.line(tx(0.3), ty(0), tx(12.6), ty(0), P['accent'], 3.5, dash='14 12')
-    fig.text(tx(12.5), ty(0) + 44, 'grenseverdi 0', 30, color=P['accent'], bold=True, anchor='end')
+    fig.text(tx(12.6), ty(0) + 88, 'grenseverdi 0', 30, color=P['accent'], bold=True, anchor='end')
     for n in range(1, 13):
         fig.circle(tx(n), ty(1 / n), 10, fill=P['main'])
     fig.text(tx(1) + 26, ty(1) + 8, '(1, 1)', 28, anchor='start', bold=True)
@@ -197,7 +198,8 @@ def r2_1_5_delsummer():
     fig = Fig('r2')
     P = fig.p
     tx, ty = fig.coords(0, 16, 0, 4.0, box=(190, 130, 1410, 740),
-                        xticks=[5, 10, 15], yticks=[1, 2, 3], xlabel='n', ylabel='Sₙ')
+                        xticks=[5, 10, 15], yticks=[1, 2, 3], xlabel='n')
+    fig.text(204, 122, 'Sₙ', 28, anchor='start')
     fig.line(tx(0.3), ty(2), tx(15.8), ty(2), P['accent'], 3, dash='14 12')
     # geometrisk
     s = 0
@@ -252,8 +254,8 @@ def r2_2_2_antiderivert():
     Cs = [-2, 0, 1, 3]
     for C in Cs:
         f = lambda x, C=C: x ** 3 / 3 + C
-        fig.plot(f, color=P['main'], width=4)
-        fig.text(tx(2.25), ty(f(2.25)) - 14, f'C = {fmt(C)}', 27, color=P['main'], bold=True, anchor='start')
+        fig.plot(f, xmax=2.2, color=P['main'], width=4)
+        fig.text(tx(2.26), ty(min(f(2.2), 6.3)) + 8, f'C = {fmt(C)}', 27, color=P['main'], bold=True, anchor='start')
         # tangent i x=1, stigning 1
         x0 = 1.0
         dxl = 0.35
@@ -269,11 +271,12 @@ def r2_2_3_integral_1x():
     P = fig.p
     f = lambda x: 1 / x
     tx, ty = fig.coords(0, 4.2, 0, 1.6, box=(190, 130, 1410, 720),
-                        xticks=[1, math.e, 2, 3, 4], yticks=[1], xlabel='x', ylabel='y')
+                        xticks=[1, 2, 3, 4], yticks=[1], xlabel='x', ylabel='y')
     fig.shade_under(f, 1, math.e, color=P['accent'], opacity=0.45)
     fig.plot(f, xmin=0.55, color=P['main'], width=5)
     for xv, lab in [(1, '1'), (math.e, 'e')]:
         fig.line(tx(xv), ty(0), tx(xv), ty(f(xv)), P['text'], 2.5, dash='10 8', opacity=0.8)
+    fig.text(tx(math.e), ty(0) + 46, 'e', 30, color=P['accent'], bold=True, italic=True)
     fig.text(tx((1 + math.e) / 2), ty(0.32), 'areal = 1', 32, color=P['accent'], bold=True)
     fig.text(tx(3.0), ty(1.05), 'y = 1/x', 32, color=P['main'], bold=True)
     boxed_text(fig, 1050, 250, ['∫(1/x) dx = ln|x| + C'], 32, color=P['extra'])
@@ -355,7 +358,7 @@ def r2_2_7_areal_mellom():
     fig.point(2, 4, color=P['text'], r=10)
     fig.text(tx(-1) - 22, ty(1) - 20, '(−1, 1)', 30, anchor='end', bold=True)
     fig.text(tx(2) + 24, ty(4) - 14, '(2, 4)', 30, anchor='start', bold=True)
-    fig.text(tx(0.5), ty(2.2), 'A = 4,5', 36, color=P['extra'], bold=True)
+    fig.text(tx(0.6), ty(1.55), 'A = 4,5', 36, color=P['extra'], bold=True)
     fig.text(1330, 240, 'y = x + 2', 32, color=P['accent'], bold=True)
     fig.text(1330, 300, 'y = x²', 32, color=P['main'], bold=True)
     fig.text(W / 2, 850, 'øverste minus nederste funksjon', 32, color=P['text'])
@@ -430,7 +433,7 @@ def r2_3_3_delbrok():
     fig.plot(h, color=P['accent'], width=5)
     fig.text(tx(2.1), ty(f1(2.1)) - 24, '1/(x−1)', 27, color=P['main'], bold=True, anchor='start')
     fig.text(tx(-4.4), ty(f2(-4.4)) - 24, '−1/(x+2)', 27, color=P['extra'], bold=True, anchor='start')
-    fig.text(tx(3.4), ty(h(3.4)) - 70, 'venstresiden', 27, color=P['accent'], bold=True)
+    fig.text(tx(3.3), ty(0) + 52, 'venstresiden', 27, color=P['accent'], bold=True)
     fig.text(W / 2, 860, 'én vanskelig brøk blir to enkle', 32, color=P['text'], bold=True)
     save(fig, 'r2-3-3-delbrokoppspalting.svg')
 
@@ -492,10 +495,10 @@ def r2_3_5_flytskjema():
     arr(cxL + 170, dy0 + 65, 946, dy0 + 24)
     fig.text(800, dy0 + 14, 'ja', 30, color=P['accent'], bold=True)
     arr(1185, dy0 + 62, 1185, dy0 + 116)
-    # sloyfe tilbake til romben
-    fig.poly([(1185, dy0 + 190), (1185, dy0 + 250), (cxL, dy0 + 250), (cxL, dy0 + 134)],
+    # sloyfe tilbake til rombens venstre hjorne (utenom boksene)
+    fig.poly([(1185, dy0 + 190), (1185, 886), (180, 886), (180, dy0 + 65)],
              stroke=P['main'], width=4)
-    fig.arrow(cxL, dy0 + 160, cxL, dy0 + 134, P['main'], 4, head=13)
+    fig.arrow(180, dy0 + 65, cxL - 174, dy0 + 65, P['main'], 4, head=13)
     arr(cxL, dy0 + 130, cxL, 676)
     fig.text(cxL + 24, 660, 'nei', 30, color=P['accent'], bold=True, anchor='start')
     arr(cxL, 756, cxL, 796)
@@ -951,10 +954,10 @@ def r2_5_1_vektorlengde():
     # grunnflatediagonal
     a, b = T(0, 0, 0), T(x, y, 0)
     fig.line(a[0], a[1], b[0], b[1], P['accent'], 4.5)
-    fig.text((a[0] + b[0]) / 2 + 10, (a[1] + b[1]) / 2 + 44, '√13', 30, color=P['accent'], bold=True)
+    fig.text(b[0] - 64, b[1] + 52, '√13', 30, color=P['accent'], bold=True)
     # romdiagonal
     vec3(fig, T, (0, 0, 0), (x, y, z), P['extra'], 6, label='v = [2, 3, 6]', lab_off=(24, -10))
-    boxed_text(fig, 1180, 730, ['|v| = √(2² + 3² + 6²) = 7'], 31)
+    boxed_text(fig, 1180, 170, ['|v| = √(2² + 3² + 6²) = 7'], 31)
     fig.text(330, 120, 'Pytagoras to ganger', 32, color=P['text'], bold=True, anchor='start')
     save(fig, 'r2-5-1-vektorlengde-rommet.svg')
 
@@ -962,14 +965,19 @@ def r2_5_1_vektorlengde():
 def r2_5_2_addisjon():
     fig = Fig('r2')
     P = fig.p
-    T = iso(700, 600, 105)
+    # dreid projeksjon slik at summen [3, 3, 2] ikke kollapser i skjermplanet
+    s3 = 105
+    def T(x, y, z):
+        px = 620 + (-0.30 * x + 0.95 * y) * s3
+        py = 540 + (0.62 * x + 0.18 * y - 0.95 * z) * s3
+        return px, py
     axes3d(fig, T, xlen=4.2, ylen=4.4, zlen=3.6)
     a = (3, 1, 0)
     b = (0, 2, 2)
     s = (3, 3, 2)
-    vec3(fig, T, (0, 0, 0), a, P['main'], 5.5, label='a', lab_off=(-10, 48))
-    vec3(fig, T, (0, 0, 0), b, P['extra'], 5.5, label='b', lab_off=(-34, -10))
-    vec3(fig, T, (0, 0, 0), s, '#FFFFFF', 6, label='a + b', lab_off=(24, -12))
+    vec3(fig, T, (0, 0, 0), a, P['main'], 5.5, label='a', lab_off=(-16, 40))
+    vec3(fig, T, (0, 0, 0), b, P['extra'], 5.5, label='b', lab_off=(12, -20))
+    vec3(fig, T, (0, 0, 0), s, '#FFFFFF', 6, label='a + b', lab_off=(22, 16))
     dash3(fig, T, a, s, P['extra'])
     dash3(fig, T, b, s, P['main'])
     boxed_text(fig, 1170, 170, ['[3, 1, 0] + [0, 2, 2] = [3, 3, 2]'], 30)
@@ -979,14 +987,19 @@ def r2_5_2_addisjon():
 def r2_5_3_vinkel():
     fig = Fig('r2')
     P = fig.p
-    T = iso(720, 640, 130)
+    # dreid projeksjon slik at b = [2, 2, 1] ikke kollapser i skjermplanet
+    s3 = 130
+    def T(x, y, z):
+        px = 660 + (-0.30 * x + 0.95 * y) * s3
+        py = 560 + (0.62 * x + 0.18 * y - 0.95 * z) * s3
+        return px, py
     axes3d(fig, T, xlen=2.6, ylen=3.4, zlen=3.4)
     a = (1, 2, 2)
     b = (2, 2, 1)
     o = T(0, 0, 0)
     pa, pb = T(*a), T(*b)
-    vec3(fig, T, (0, 0, 0), a, P['main'], 5.5, label='a = [1, 2, 2]', lab_off=(-20, -26))
-    vec3(fig, T, (0, 0, 0), b, P['extra'], 5.5, label='b = [2, 2, 1]', lab_off=(20, 28))
+    vec3(fig, T, (0, 0, 0), a, P['main'], 5.5, label='a = [1, 2, 2]', lab_off=(16, -22))
+    vec3(fig, T, (0, 0, 0), b, P['extra'], 5.5, label='b = [2, 2, 1]', lab_off=(16, 34))
     # vinkelbue i skjermplanet mellom de projiserte retningene
     a1 = math.degrees(math.atan2(o[1] - pa[1], pa[0] - o[0]))
     a2 = math.degrees(math.atan2(o[1] - pb[1], pb[0] - o[0]))
@@ -1056,7 +1069,7 @@ def r2_5_5_areal():
 def r2_5_5_trippel():
     fig = Fig('r2')
     P = fig.p
-    T = iso(740, 660, 120)
+    T = iso(740, 560, 105)
     b = (3.0, 0.4, 0)
     c = (0.5, 3.0, 0)
     a = (0.9, 0.9, 2.4)
@@ -1141,7 +1154,7 @@ def r2_5_7_linjepar():
 def r2_5_8_avstand_plan():
     fig = Fig('r2')
     P = fig.p
-    T = iso(740, 660, 120)
+    T = iso(740, 560, 100)
     quad = [(0.2, 0.2, 0), (3.6, 0.2, 0), (3.6, 4.4, 0), (0.2, 4.4, 0)]
     fig.poly([T(*q) for q in quad], fill=P['main'], close=True, opacity=0.18)
     fig.poly([T(*q) for q in quad], stroke=P['main'], width=2.5, close=True, opacity=0.7)
@@ -1222,9 +1235,9 @@ def r2_6_2_tangentvektor():
         fig.circle(tx(x0), ty(y0), 10, fill=P['main'])
         fig.arrow(tx(x0), ty(y0), tx(x0 + L * vx / d), ty(y0 + L * vy / d), P['accent'], 5, head=16)
     fig.text(tx(3.5) + 30, ty(ry(3.4) + 1.45), 'r′(t): fart og retning', 30, color=P['accent'], bold=True, anchor='start')
-    # bevegelsesretning langs kurven
+    # bevegelsesretning langs kurven (over kurven, unna tangentpilene)
     t0 = 4.5
-    fig.arrow(tx(rx(t0) - 0.3), ty(ry(t0 - 0.3)) + 60, tx(rx(t0) + 0.3), ty(ry(t0 + 0.3)) + 60, P['extra'], 3.5, head=12)
+    fig.arrow(tx(rx(t0) - 0.3), ty(ry(t0 - 0.3)) - 70, tx(rx(t0) + 0.3), ty(ry(t0 + 0.3)) - 70, P['extra'], 3.5, head=12)
     fig.text(W / 2, 840, 'hastighetsvektoren ligger tangentielt til banen', 30, color=P['text'])
     save(fig, 'r2-6-2-tangentvektor.svg')
 
@@ -1291,9 +1304,9 @@ def r2_6_4_modellering():
     fig = Fig('r2')
     P = fig.p
     steps = ['1. Forenkle', '2. Sett opp modell', '3. Løs matematikken', '4. Tolk svaret', '5. Vurder og forbedre']
-    cx, cy, R = 800, 460, 300
+    cx, cy, R = 800, 460, 330
     n = len(steps)
-    bw, bh = 360, 90
+    bw, bh = 340, 90
     centers = []
     for i in range(n):
         a = math.radians(90 - i * 360 / n)
