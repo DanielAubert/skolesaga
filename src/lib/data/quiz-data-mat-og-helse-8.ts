@@ -1,7 +1,7 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
-  'mat-og-helse-8-1-1': [
+  'mat-8-1-1': [
   {
     question: 'Hva er forskjellen mellom makro- og mikronaringsstoffer?',
     options: ['Makro trenger vi mye av, mikro trenger vi sma mengder av', 'Mikro gir energi, makro gir ikke energi', 'Det er ingen forskjell', 'Makro finnes bare i kjøtt'],
@@ -30,7 +30,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-1-2': [
+  'mat-8-1-2': [
   {
     question: 'Hvor mange ganger i uken anbefales det a spise fisk?',
     options: ['2-3 ganger', 'Hver dag', '1 gang', '5-7 ganger'],
@@ -59,7 +59,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-2-1': [
+  'mat-8-2-1': [
   {
     question: 'Hva kan være konsekvensen av dårlig mathygiene?',
     options: ['Matforgiftning med kvalme, oppkast og diare', 'Maten smaker bedre', 'Maten holder lenger', 'Ingen konsekvenser'],
@@ -88,7 +88,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-2-2': [
+  'mat-8-2-2': [
   {
     question: 'Hva er "faresonen" for matoppbevaring?',
     options: ['4-60 grader C der bakterier vokser raskt', 'Under 0 grader C', 'Over 100 grader C', 'Romtemperatur'],
@@ -117,7 +117,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-3-1': [
+  'mat-8-3-1': [
   {
     question: 'Hva er forskjellen mellom vate og torre tilberedningsteknikker?',
     options: ['Vate bruker vaeske, torre bruker ikke vaeske', 'Det er ingen forskjell', 'Torre er raskere', 'Vate er sunnere'],
@@ -146,7 +146,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-3-2': [
+  'mat-8-3-2': [
   {
     question: 'Hva betyr "mise en place"?',
     options: ['A male opp og gjøre klar alle ingredienser for stårt', 'A rydde etter matlaging', 'En type rett', 'A servere pent'],
@@ -175,7 +175,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-4-1': [
+  'mat-8-4-1': [
   {
     question: 'Hva viser tallerkenmodellen?',
     options: ['Halvparten grønnsaker, 1/4 karbohydrater, 1/4 protein', 'Bare kjøtt påtallerkenen', 'Like mye av alt', 'Mest karbohydrater'],
@@ -204,7 +204,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-4-2': [
+  'mat-8-4-2': [
   {
     question: 'Hva er kilopris og hvorfor er den nyttig?',
     options: ['Pris per kilo - gjør det lett a sammenligne pakker i ulike størrelser', 'Vekten påvaren', 'Antall kalorier', 'Holdbarhetsdato'],
@@ -233,7 +233,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-5-1': [
+  'mat-8-5-1': [
   {
     question: 'Hvor mye spiselig mat kastes i Norge hvert ar?',
     options: ['Over 400 000 tonn', 'Under 10 000 tonn', 'Ca. 1 million tonn', 'Nesten ingenting'],
@@ -262,7 +262,7 @@ const quizData_mat_og_helse_8: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-8-5-2': [
+  'mat-8-5-2': [
   {
     question: 'Hvilken matvare har generelt høyest klimaavtrykk?',
     options: ['Storfekjøtt', 'Gronnsaker', 'Korn', 'Egg'],

@@ -1,7 +1,7 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
-  'naturfag-vg1-1-1': [
+  'nat-vg1-1-1': [
   {
     question: 'Hva er riktig rekkefølge på stegene i den naturvitenskapelige metoden?',
     options: ['Observasjon, hypotese, eksperiment, dataanalyse, konklusjon', 'Hypotese, observasjon, konklusjon, eksperiment, analyse', 'Eksperiment, observasjon, hypotese, konklusjon, analyse', 'Konklusjon, hypotese, eksperiment, observasjon, analyse'],
@@ -30,7 +30,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'naturfag-vg1-1-2': [
+  'nat-vg1-1-2': [
   {
     question: 'Hva er en modell i naturfag?',
     options: ['En førenklet fremstilling av noe i naturen', 'En eksakt kopi av virkeligheten', 'Et kunstnerisk verk', 'En matematisk ligning som alltid er riktig'],
@@ -59,7 +59,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'naturfag-vg1-1-3': [
+  'nat-vg1-1-3': [
   {
     question: 'Hva star bokstaven "A" for i CRAAP-testen (den første A)?',
     options: ['Authority (Autoritet)', 'Accuracy (Noyyaktighet)', 'Aktualitet', 'Argument'],
@@ -88,7 +88,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'naturfag-vg1-1-4': [
+  'nat-vg1-1-4': [
   {
     question: 'Hva er forskningsetikk?',
     options: ['Retningslinjer og prinsipper for ansvårlig forskningspråksis', 'Regler for hvordan man skriver vitenskapelige artikler', 'Lover om hvem som kan drive forskning', 'Metoder for a analysere data'],
@@ -117,7 +117,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'naturfag-vg1-2-1': [
+  'nat-vg1-2-1': [
   {
     question: 'Hva er de tre hovedbestanddelene i et atom?',
     options: ['Protoner, nøytroner og elektroner', 'Protoner, kjernen og skall', 'Atomer, molekyler og ioner', 'Hydrogen, oksygen og karbon'],
@@ -146,7 +146,7 @@ const quizData_naturfag_vg1: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'naturfag-vg1-2-2': [
+  'nat-vg1-2-2': [
   {
     question: 'Hva forteller periodenummeret i periodesystemet?',
     options: ['Antall elektronskall atomet har', 'Antall valenselektroner', 'Atomets masse', 'Antall protoner'],

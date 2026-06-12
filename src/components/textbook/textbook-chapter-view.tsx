@@ -21,6 +21,7 @@ import { SkillLevelIndicator } from './skill-level-indicator';
 import { CompetenceGoalsDropdown } from './competence-goals-dropdown';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
 import { AssignmentBanner } from '@/components/assignments/assignment-banner';
+import { AiDisclosureNotice } from './feedback-dialog';
 
 function getLevelGradeSlug(level: string): string {
   const lower = level.toLowerCase();
@@ -599,6 +600,13 @@ export function TextbookChapterView({
               </AlertDescription>
             </Alert>
           )}
+
+          {/* KI-deklarasjon og tilbakemelding */}
+          <AiDisclosureNotice
+            courseId={course.id}
+            chapterId={chapterMeta.id}
+            chapterTitle={`${chapterMeta.number} ${chapterMeta.title}`}
+          />
 
           {/* Navigasjon nederst */}
           <nav className="mt-12 pt-8 border-t">

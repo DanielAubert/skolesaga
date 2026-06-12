@@ -1,7 +1,7 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
-  'mat-og-helse-9-1-1': [
+  'mat-9-1-1': [
   {
     question: 'Hvor i fordoyelsessystemet skjer hovedabsorpsjonen av næringsstoffer?',
     options: ['I tynntarmen', 'I magesekken', 'I munnen', 'I tykktarmen'],
@@ -30,7 +30,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-1-2': [
+  'mat-9-1-2': [
   {
     question: 'Hva er hovedforskjellen mellom matallergi og intoleranse?',
     options: ['Allergi involverer immunsystemet og kan være livstruende', 'De er det samme', 'Intoleranse er farligere', 'Allergi gir bare utslett'],
@@ -59,7 +59,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-2-1': [
+  'mat-9-2-1': [
   {
     question: 'Hva er Maillard-reaksjonen?',
     options: ['Reaksjon mellom aminosyrer og sukker som gir bruning og smak', 'Nårsukker smelter', 'Nårvann køker', 'Nårfett brennes'],
@@ -88,7 +88,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-2-2': [
+  'mat-9-2-2': [
   {
     question: 'Hva er hovedprinsippet bak all matkonservering?',
     options: ['A hemme veksten av mikroorganismer', 'A gjøre maten mer smakfull', 'A oke næringsinnholdet', 'A gjøre maten penere'],
@@ -117,7 +117,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-3-1': [
+  'mat-9-3-1': [
   {
     question: 'Hva er julienne-kutt?',
     options: ['Tynne strimler påca. 3mm x 5cm', 'Sma terninger', 'Store biter', 'Runde skiver'],
@@ -146,7 +146,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-3-2': [
+  'mat-9-3-2': [
   {
     question: 'Hva gjør gluten i en deig?',
     options: ['Gir elastisitet og holder pågassen fra gjaer', 'Gir sot smak', 'Gjor deigen kald', 'Fargelegger deigen'],
@@ -175,7 +175,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-4-1': [
+  'mat-9-4-1': [
   {
     question: 'Hva er Norges nasjonalrett?',
     options: ['Farikal', 'Lutefisk', 'Pizza', 'Taco'],
@@ -204,7 +204,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-4-2': [
+  'mat-9-4-2': [
   {
     question: 'Hva er første steg når du planlegger et selskap?',
     options: ['Finne ut hvem gjestene er og deres behov (allergier, preferanser)', 'Handle inn mat', 'Dekke bordet', 'Lage maten'],
@@ -233,7 +233,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-5-1': [
+  'mat-9-5-1': [
   {
     question: 'Hvor stor andel av verdens ferskvann brukes til jordbruk?',
     options: ['Ca. 70%', 'Ca. 10%', 'Ca. 30%', 'Ca. 90%'],
@@ -262,7 +262,7 @@ const quizData_mat_og_helse_9: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'mat-og-helse-9-5-2': [
+  'mat-9-5-2': [
   {
     question: 'Hva er grønnvasking?',
     options: ['Nårselskaper gir inntrykk av a være mer miljøvennlige enn de er', 'A vaske grønnsaker', 'A sortere søpla', 'A bruke grønn emballasje'],

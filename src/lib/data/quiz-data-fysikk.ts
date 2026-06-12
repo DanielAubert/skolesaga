@@ -1,7 +1,7 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_fysikk: Record<string, QuizQuestion[]> = {
-  'fysikk-2-1-1': [
+  'fysikk2-1-1': [
   {
     question: 'Hva er forskjellen mellom en skalar og en vektor?',
     options: [
@@ -55,7 +55,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-1-2': [
+  'fysikk2-1-2': [
   {
     question: 'Hva er sammenhengen mellom posisjonsvektoren r(t) og hastighetsvektoren v(t)?',
     options: [
@@ -109,7 +109,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-1-3': [
+  'fysikk2-1-3': [
   {
     question: 'Ved skråkast uten luftmotstand, hva er akselerasjonen i horisontal retning?',
     options: [
@@ -163,7 +163,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-1-4': [
+  'fysikk2-1-4': [
   {
     question: 'Hva er formelen for sentripetalakselerasjon ved uniform sirkelbevegelse?',
     options: [
@@ -217,7 +217,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-1-5': [
+  'fysikk2-1-5': [
   {
     question: 'Hva er hovedideen bak Eulers metode for numerisk modellering?',
     options: [
@@ -271,7 +271,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-2-1': [
+  'fysikk2-2-1': [
   {
     question: 'Hva sier Newtons gravitasjonslov om hvordan gravitasjonskraften avhenger av avstanden mellom to masser?',
     options: [
@@ -325,7 +325,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-2-2': [
+  'fysikk2-2-2': [
   {
     question: 'Hva er gravitasjonsfelt?',
     options: [
@@ -379,7 +379,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-2-3': [
+  'fysikk2-2-3': [
   {
     question: 'Hva er formelen for banehastigheten til en satellitt i sirkulær bane rundt jorda?',
     options: [
@@ -433,7 +433,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-2-4': [
+  'fysikk2-2-4': [
   {
     question: 'Hva sier Keplers første lov?',
     options: [
@@ -487,7 +487,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-2-5': [
+  'fysikk2-2-5': [
   {
     question: 'Hva er formelen for potensiell energi i et gravitasjonsfelt?',
     options: [
@@ -541,7 +541,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-3-1': [
+  'fysikk2-3-1': [
   {
     question: 'Hva er enheten for elektrisk ladning?',
     options: [
@@ -595,7 +595,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-3-2': [
+  'fysikk2-3-2': [
   {
     question: 'Hva er definisjonen av elektrisk felt?',
     options: [
@@ -649,7 +649,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-3-3': [
+  'fysikk2-3-3': [
   {
     question: 'Hva er elektrisk potensial?',
     options: [
@@ -703,7 +703,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-3-4': [
+  'fysikk2-3-4': [
   {
     question: 'Hva er kapasitans?',
     options: [
@@ -757,7 +757,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-3-5': [
+  'fysikk2-3-5': [
   {
     question: 'Hva er potensiell energi for en ladning q i et elektrisk potensial V?',
     options: [
@@ -811,7 +811,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-4-1': [
+  'fysikk2-4-1': [
   {
     question: 'Hva er enheten for magnetisk fluxtetthet (magnetisk felt)?',
     options: [
@@ -865,7 +865,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-4-2': [
+  'fysikk2-4-2': [
   {
     question: 'Hva er formelen for Lorentzkraften på en ladet partikkel i et magnetfelt?',
     options: [
@@ -919,7 +919,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-4-3': [
+  'fysikk2-4-3': [
   {
     question: 'Hva er formelen for kraften på en strømførende leder i et magnetfelt?',
     options: [
@@ -973,7 +973,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-4-4': [
+  'fysikk2-4-4': [
   {
     question: 'Hva sier Biot-Savarts lov kvalitativt?',
     options: [
@@ -1027,7 +1027,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-4-5': [
+  'fysikk2-4-5': [
   {
     question: 'Hva er magnetisk fluks?',
     options: [
@@ -1081,7 +1081,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-5-1': [
+  'fysikk2-5-1': [
   {
     question: 'Hva sier Faradays induksjonslov?',
     options: [
@@ -1135,7 +1135,7 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
 ],
 
 
-  'fysikk-2-5-2': [
+  'fysikk2-5-2': [
   {
     question: 'Hva er prinsippet bak en vekselstrømgenerator?',
     options: [
@@ -1185,6 +1185,1278 @@ const quizData_fysikk: Record<string, QuizQuestion[]> = {
       'Den trenger ikke magnetfelt',
     ],
     explanation: 'En likestrømgenerator har en kommutator (strømvender) som mekanisk snur koblingene hver halvperiode, slik at strømmen alltid går i samme retning.',
+  },
+],
+
+  'fys1-1-1': [
+  {
+    question: 'Hva kjennetegner en god hypotese i naturvitenskap?',
+    options: [
+      'Den er testbar og kan motbevises (falsifiseres) hvis den er feil',
+      'Den er bevist sann en gang for alle',
+      'Den er basert på flertallets mening',
+      'Den kan ikke testes eksperimentelt',
+    ],
+    explanation: 'En hypotese er en testbar og falsifiserbar forklaring på et naturlig fenomen. Den må kunne testes eksperimentelt og motbevises hvis den er feil.',
+  },
+  {
+    question: 'Hva er forskjellen mellom en naturlov og en vitenskapelig teori?',
+    options: [
+      'En lov beskriver matematisk HVA som skjer, en teori forklarer HVORFOR',
+      'En teori er en gjetning, en lov er bevist',
+      'En lov gjelder bare i laboratoriet, en teori gjelder overalt',
+      'Det er ingen forskjell, ordene betyr det samme',
+    ],
+    explanation: 'En naturlov (som $F = ma$) er en matematisk beskrivelse av et mønster i naturen, mens en teori er en omfattende forklaring på hvorfor fenomenene skjer. I vitenskap er en teori den høyeste formen for sikker kunnskap, ikke en gjetning.',
+  },
+  {
+    question: 'I et eksperiment undersøker du hvordan fallhøyden påvirker falltiden. Hva er den uavhengige variabelen?',
+    options: [
+      'Fallhøyden',
+      'Falltiden',
+      'Luftmotstanden',
+      'Tyngdeakselerasjonen',
+    ],
+    explanation: 'Den uavhengige variabelen er den forskeren bevisst endrer (fallhøyden). Falltiden er den avhengige variabelen som måles som respons.',
+  },
+  {
+    question: 'En lengde måles til 20,0 cm med usikkerhet ±0,5 cm. Hva er den relative usikkerheten?',
+    options: [
+      '2,5 %',
+      '0,5 %',
+      '5 %',
+      '25 %',
+    ],
+    explanation: 'Relativ usikkerhet = absolutt usikkerhet delt på måleverdien: 0,5/20,0 = 0,025 = 2,5 %.',
+  },
+  {
+    question: 'Hvor mange signifikante siffer har tallet 0,00340?',
+    options: [
+      '3',
+      '5',
+      '6',
+      '2',
+    ],
+    explanation: 'Ledende nuller teller ikke som signifikante siffer, men den avsluttende nullen etter 34 gjør det. Tallet har derfor 3 signifikante siffer: 3, 4 og 0.',
+  },
+],
+
+  'fys1-1-2': [
+  {
+    question: 'Hva er en fysisk modell?',
+    options: [
+      'En forenklet beskrivelse av virkeligheten som fanger essensen av et fenomen',
+      'En eksakt kopi av virkeligheten uten forenklinger',
+      'En fysisk gjenstand bygget i tre eller plast',
+      'En hypotese som ennå ikke er testet',
+    ],
+    explanation: 'En fysisk modell er en forenklet matematisk eller konseptuell beskrivelse som fanger essensen av et fenomen, men ignorerer irrelevante detaljer. Den skal være testbar, prediktiv og ha kjente gyldighetsgrenser.',
+  },
+  {
+    question: 'Hva betyr idealiseringen "punktmasse"?',
+    options: [
+      'Vi ser bort fra objektets størrelse og form og samler all masse i ett punkt',
+      'Objektet har ingen masse',
+      'Objektet er uendelig stort',
+      'Massen er jevnt fordelt over hele objektet',
+    ],
+    explanation: 'En punktmasse er en idealisering der vi ignorerer objektets utstrekning og form, og behandler all masse som samlet i ett punkt. Dette forenkler beregninger når formen er irrelevant.',
+  },
+  {
+    question: 'Når er modellen for fritt fall uten luftmotstand en god tilnærming?',
+    options: [
+      'For kompakte, tunge objekter ved lave farter over korte fall',
+      'For lette objekter som fjær og papirark',
+      'For fallskjermhoppere i lange fall',
+      'Modellen er alltid like god',
+    ],
+    explanation: 'Modellen gjelder når luftmotstanden er neglisjerbar sammenlignet med tyngdekraften, altså for kompakte og tunge objekter ved lave farter. For en fjær eller en fallskjermhopper i høy fart bryter modellen sammen.',
+  },
+  {
+    question: 'Hva bør vi gjøre når en modell ikke lenger stemmer med eksperimentene?',
+    options: [
+      'Bruke en mer avansert modell som gjelder i det nye området',
+      'Forkaste alle målinger som ikke passer modellen',
+      'Konkludere med at naturen oppfører seg feil',
+      'Slutte å bruke modeller i fysikk',
+    ],
+    explanation: 'Når en modell bryter sammen utenfor gyldighetsområdet sitt, erstatter vi den med en mer avansert modell som dekker det nye området. Den enkle modellen kan fortsatt brukes der den gjelder.',
+  },
+  {
+    question: 'Hva innebærer idealiseringen "masseløs snor"?',
+    options: [
+      'Snorkraften (spenningen) er like stor i hele snoren',
+      'Snoren kan ikke overføre krefter',
+      'Snoren strekker seg uendelig mye',
+      'Snoren har uendelig stor masse',
+    ],
+    explanation: 'I en masseløs snor er spenningen den samme overalt i snoren. Dette forenkler kraftanalyse av systemer med tau og trinser.',
+  },
+],
+
+  'fys1-1-3': [
+  {
+    question: 'Hva er en numerisk metode?',
+    options: [
+      'En algoritme som finner en tilnærmet løsning ved å dele problemet i mange små steg',
+      'En metode som alltid gir eksakte svar',
+      'En metode for å måle med tallverdier i laboratoriet',
+      'En grafisk metode for å lese av verdier fra diagram',
+    ],
+    explanation: 'En numerisk metode beregner en tilnærmet løsning på et matematisk problem ved å dele det opp i mange små steg. Den brukes når analytiske løsninger ikke finnes eller er for kompliserte.',
+  },
+  {
+    question: 'Hvordan oppdateres hastigheten i ett steg av Eulers metode?',
+    options: [
+      '$v_{ny} = v + a \\cdot \\Delta t$',
+      '$v_{ny} = v \\cdot a \\cdot \\Delta t$',
+      '$v_{ny} = a / \\Delta t$',
+      '$v_{ny} = v + \\frac{1}{2} a \\Delta t^2$',
+    ],
+    explanation: 'I Eulers metode antar vi at akselerasjonen er konstant i hvert lille tidssteg, slik at den nye hastigheten blir $v_{ny} = v + a \\cdot \\Delta t$.',
+  },
+  {
+    question: 'Et objekt starter i ro med akselerasjon 9,8 m/s². Hva blir hastigheten etter ett Euler-steg med Δt = 0,1 s?',
+    options: [
+      '0,98 m/s',
+      '9,8 m/s',
+      '0,098 m/s',
+      '1,96 m/s',
+    ],
+    explanation: '$v = v_0 + a \\cdot \\Delta t = 0 + 9{,}8 \\cdot 0{,}1 = 0{,}98$ m/s.',
+  },
+  {
+    question: 'Hvordan kan vi gjøre Eulers metode mer nøyaktig?',
+    options: [
+      'Bruke mindre tidssteg Δt',
+      'Bruke større tidssteg Δt',
+      'Fjerne startbetingelsene',
+      'Kjøre programmet flere ganger med samme Δt',
+    ],
+    explanation: 'Feilen i Eulers metode minker når tidssteget Δt blir mindre, fordi antakelsen om konstant akselerasjon i hvert steg da blir bedre. Prisen er flere beregninger.',
+  },
+  {
+    question: 'Hvorfor trenger vi numeriske metoder for å beregne fall med luftmotstand?',
+    options: [
+      'Fordi akselerasjonen avhenger av farten, noe som gjør likningen vanskelig å løse analytisk',
+      'Fordi tyngdeakselerasjonen endrer seg under fallet',
+      'Fordi datamaskiner ikke kan regne med konstant akselerasjon',
+      'Fordi luftmotstand gjør at energien ikke er bevart',
+    ],
+    explanation: 'Med luftmotstand avhenger akselerasjonen av farten (f.eks. $a = g - \\frac{k}{m}v^2$). Slike differensiallikninger er vanskelige eller umulige å løse analytisk, og da bruker vi Eulers metode.',
+  },
+],
+
+  'fys1-2-1': [
+  {
+    question: 'Hva er forskjellen mellom forflytning og tilbakelagt strekning?',
+    options: [
+      'Forflytning er en vektor fra start- til sluttposisjon, strekning er hele veilengden',
+      'Forflytning er alltid lengre enn strekningen',
+      'Strekning har retning, forflytning har det ikke',
+      'De er alltid like store',
+    ],
+    explanation: 'Forflytning $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er en vektor som peker fra startposisjon til sluttposisjon, mens strekning er den totale veilengden (en skalar). Strekningen er alltid minst like stor som forflytningens beløp.',
+  },
+  {
+    question: 'Hvordan er momentan hastighet definert?',
+    options: [
+      'Som den deriverte av posisjonen med hensyn på tid: $\\vec{v} = \\frac{d\\vec{r}}{dt}$',
+      'Som posisjonen delt på total tid',
+      'Som den deriverte av akselerasjonen med hensyn på tid',
+      'Som arealet under posisjonsgrafen',
+    ],
+    explanation: 'Momentan hastighet er den deriverte av posisjon med hensyn på tid, $\\vec{v} = \\frac{d\\vec{r}}{dt}$, og beskriver hvor raskt og i hvilken retning objektet beveger seg akkurat nå.',
+  },
+  {
+    question: 'En bil øker farten fra 10 m/s til 25 m/s på 5,0 s. Hva er gjennomsnittsakselerasjonen?',
+    options: [
+      '3,0 m/s²',
+      '5,0 m/s²',
+      '7,0 m/s²',
+      '15 m/s²',
+    ],
+    explanation: '$a = \\frac{\\Delta v}{\\Delta t} = \\frac{25 - 10}{5{,}0} = \\frac{15}{5{,}0} = 3{,}0$ m/s².',
+  },
+  {
+    question: 'En løper løper én hel runde på en 400 m bane på 50 s og ender der hun startet. Hva er beløpet av gjennomsnittshastigheten (vektoren)?',
+    options: [
+      '0 m/s',
+      '8 m/s',
+      '4 m/s',
+      '400 m/s',
+    ],
+    explanation: 'Gjennomsnittshastigheten er forflytning delt på tid. Siden løperen ender der hun startet, er forflytningen null, og gjennomsnittshastigheten blir 0 m/s. Gjennomsnittsfarten er derimot 400/50 = 8 m/s.',
+  },
+  {
+    question: 'Kan et objekt ha fart lik null og samtidig en akselerasjon forskjellig fra null?',
+    options: [
+      'Ja, for eksempel en ball i toppunktet av et vertikalt kast',
+      'Nei, akselerasjon krever alltid bevegelse',
+      'Bare hvis massen er null',
+      'Bare i vakuum',
+    ],
+    explanation: 'I toppunktet av et vertikalt kast er farten et øyeblikk null, men tyngdeakselerasjonen virker hele tiden ($a = -g$). Akselerasjon beskriver endring i hastighet, ikke hastigheten selv.',
+  },
+],
+
+  'fys1-2-2': [
+  {
+    question: 'Hva er bevegelseslikningen for et objekt med konstant fart $v$ og startposisjon $s_0$?',
+    options: [
+      '$s = s_0 + vt$',
+      '$s = s_0 + \\frac{1}{2}vt^2$',
+      '$s = vt^2$',
+      '$s = s_0 - vt$',
+    ],
+    explanation: 'Ved konstant fart endrer posisjonen seg lineært med tiden: $s = s_0 + vt$.',
+  },
+  {
+    question: 'Et objekt starter i posisjon 5,0 m og beveger seg med konstant fart 3,0 m/s. Hvor er det etter 4,0 s?',
+    options: [
+      '17 m',
+      '12 m',
+      '20 m',
+      '8,0 m',
+    ],
+    explanation: '$s = s_0 + vt = 5{,}0 + 3{,}0 \\cdot 4{,}0 = 5{,}0 + 12 = 17$ m.',
+  },
+  {
+    question: 'Hvordan ser grafen ut i et s-t-diagram for bevegelse med konstant fart?',
+    options: [
+      'En rett linje der stigningstallet er lik farten',
+      'En parabel som krummer oppover',
+      'En horisontal linje uansett fart',
+      'En rett linje der stigningstallet er lik akselerasjonen',
+    ],
+    explanation: 'Ved konstant fart er posisjonen en lineær funksjon av tiden, så s-t-grafen er en rett linje. Stigningstallet til linjen er lik farten.',
+  },
+  {
+    question: 'En bil kjører med konstant fart 12 m/s i 10 s. Hvordan finner vi strekningen fra v-t-diagrammet, og hvor langt kjører bilen?',
+    options: [
+      'Arealet under grafen; strekningen er 120 m',
+      'Stigningstallet til grafen; strekningen er 1,2 m',
+      'Arealet under grafen; strekningen er 22 m',
+      'Skjæringspunktet med v-aksen; strekningen er 12 m',
+    ],
+    explanation: 'I et v-t-diagram er strekningen lik arealet under grafen. Her er arealet et rektangel: $s = v \\cdot t = 12 \\cdot 10 = 120$ m.',
+  },
+  {
+    question: 'To biler A og B vises i samme s-t-diagram. Grafen til A er brattere enn grafen til B. Hva betyr det?',
+    options: [
+      'A har høyere fart enn B',
+      'A har større akselerasjon enn B',
+      'A startet lenger fremme enn B',
+      'A kjører bakover',
+    ],
+    explanation: 'Stigningstallet i et s-t-diagram er farten. En brattere linje betyr derfor høyere fart.',
+  },
+],
+
+  'fys1-2-3': [
+  {
+    question: 'En bil har startfart 2,0 m/s og akselererer med 3,0 m/s² i 4,0 s. Hva blir farten?',
+    options: [
+      '14 m/s',
+      '12 m/s',
+      '20 m/s',
+      '9,0 m/s',
+    ],
+    explanation: '$v = v_0 + at = 2{,}0 + 3{,}0 \\cdot 4{,}0 = 14$ m/s.',
+  },
+  {
+    question: 'Et objekt starter i ro og akselererer med 2,0 m/s² i 5,0 s. Hvor langt har det beveget seg?',
+    options: [
+      '25 m',
+      '50 m',
+      '10 m',
+      '12,5 m',
+    ],
+    explanation: '$s = v_0 t + \\frac{1}{2}at^2 = 0 + \\frac{1}{2} \\cdot 2{,}0 \\cdot 5{,}0^2 = \\frac{1}{2} \\cdot 2{,}0 \\cdot 25 = 25$ m.',
+  },
+  {
+    question: 'En bil bremser fra 20 m/s til stillstand over en strekning på 50 m. Hva er størrelsen på akselerasjonen (antatt konstant)?',
+    options: [
+      '4,0 m/s²',
+      '2,0 m/s²',
+      '8,0 m/s²',
+      '0,40 m/s²',
+    ],
+    explanation: 'Vi bruker $v^2 = v_0^2 + 2as$: $0 = 20^2 + 2a \\cdot 50$, som gir $a = -\\frac{400}{100} = -4{,}0$ m/s². Størrelsen er 4,0 m/s².',
+  },
+  {
+    question: 'Hvilken bevegelseslikning bruker vi når vi verken har eller trenger tiden $t$?',
+    options: [
+      '$v^2 = v_0^2 + 2as$',
+      '$v = v_0 + at$',
+      '$s = s_0 + v_0 t + \\frac{1}{2}at^2$',
+      '$s = s_0 + vt$',
+    ],
+    explanation: 'Likningen $v^2 = v_0^2 + 2as$ kobler fart, akselerasjon og strekning uten å involvere tiden.',
+  },
+  {
+    question: 'To kuler med ulik masse slippes samtidig fra samme høyde uten luftmotstand. Hva skjer?',
+    options: [
+      'De treffer bakken samtidig, fordi tyngdeakselerasjonen er den samme for alle objekter',
+      'Den tyngste treffer først, fordi tyngdekraften på den er størst',
+      'Den letteste treffer først, fordi den har mindre treghet',
+      'Det avhenger av kulenes form',
+    ],
+    explanation: 'I fritt fall (uten luftmotstand) faller alle objekter med samme tyngdeakselerasjon $g \\approx 9{,}8$ m/s², uavhengig av massen. Derfor lander de samtidig.',
+  },
+],
+
+  'fys1-2-4': [
+  {
+    question: 'En ball kastes med fart 20 m/s i vinkel 30° over horisontalen. Hva er den vertikale komponenten av starthastigheten?',
+    options: [
+      '10 m/s',
+      '17,3 m/s',
+      '20 m/s',
+      '5,0 m/s',
+    ],
+    explanation: '$v_y = v \\sin\\theta = 20 \\cdot \\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Den horisontale komponenten er $v_x = 20 \\cos 30° \\approx 17{,}3$ m/s.',
+  },
+  {
+    question: 'Hvordan beveger et prosjektil seg horisontalt i et skrått kast uten luftmotstand?',
+    options: [
+      'Med konstant fart, fordi ingen krefter virker horisontalt',
+      'Med konstant akselerasjon g',
+      'Det bremser gradvis opp',
+      'Det akselererer gradvis',
+    ],
+    explanation: 'Uten luftmotstand virker bare tyngdekraften, som er vertikal. Horisontalt er det derfor ingen akselerasjon, og $v_x$ er konstant under hele kastet.',
+  },
+  {
+    question: 'Hva gjelder for hastigheten i toppunktet av banen i et skrått kast?',
+    options: [
+      '$v_y = 0$, men $v_x$ er uendret',
+      'Både $v_x$ og $v_y$ er null',
+      '$v_x = 0$, men $v_y$ er uendret',
+      'Hastigheten er størst i toppunktet',
+    ],
+    explanation: 'I toppunktet er den vertikale hastighetskomponenten null ($v_y = 0$), mens den horisontale komponenten $v_x$ er den samme hele tiden. Total fart er derfor minst i toppunktet, men ikke null.',
+  },
+  {
+    question: 'En hastighetsvektor har komponentene $v_x = 3{,}0$ m/s og $v_y = 4{,}0$ m/s. Hva er beløpet av vektoren?',
+    options: [
+      '5,0 m/s',
+      '7,0 m/s',
+      '12 m/s',
+      '3,5 m/s',
+    ],
+    explanation: '$v = \\sqrt{v_x^2 + v_y^2} = \\sqrt{3{,}0^2 + 4{,}0^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5{,}0$ m/s.',
+  },
+  {
+    question: 'Ved hvilken utkastvinkel får et prosjektil størst rekkevidde på flat mark (uten luftmotstand)?',
+    options: [
+      '45°',
+      '30°',
+      '60°',
+      '90°',
+    ],
+    explanation: 'Rekkevidden er $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$, som er størst når $\\sin(2\\theta) = 1$, altså når $2\\theta = 90°$ og $\\theta = 45°$.',
+  },
+],
+
+  'fys1-3-1': [
+  {
+    question: 'Hva sier Newtons 1. lov om et objekt der summen av kreftene er null?',
+    options: [
+      'Det fortsetter i ro eller med konstant hastighet langs en rett linje',
+      'Det bremser gradvis ned til det stopper',
+      'Det akselererer i kraftens retning',
+      'Det begynner å bevege seg i sirkel',
+    ],
+    explanation: 'Newtons 1. lov (treghetsloven): Når den resulterende kraften er null, beholder objektet sin bevegelsestilstand — det forblir i ro eller fortsetter med konstant hastighet.',
+  },
+  {
+    question: 'En kraft på en kasse med masse 5,0 kg gir akselerasjonen 2,0 m/s². Hvor stor er den resulterende kraften?',
+    options: [
+      '10 N',
+      '2,5 N',
+      '7,0 N',
+      '25 N',
+    ],
+    explanation: 'Newtons 2. lov: $F = ma = 5{,}0 \\cdot 2{,}0 = 10$ N.',
+  },
+  {
+    question: 'Hvorfor opphever ikke kraftparene i Newtons 3. lov hverandre?',
+    options: [
+      'Fordi de to kreftene virker på forskjellige legemer',
+      'Fordi den ene kraften alltid er litt større enn den andre',
+      'Fordi de virker i samme retning',
+      'Fordi den ene kraften kommer litt senere i tid',
+    ],
+    explanation: 'Aksjons- og reaksjonskraften er like store og motsatt rettet, men de virker på hvert sitt legeme. Krefter kan bare oppheve hverandre når de virker på samme legeme.',
+  },
+  {
+    question: 'En astronaut reiser fra Jorden til Månen. Hva skjer med massen og vekten hennes?',
+    options: [
+      'Massen er uendret, vekten blir mindre',
+      'Både masse og vekt er uendret',
+      'Massen blir mindre, vekten er uendret',
+      'Både masse og vekt blir mindre',
+    ],
+    explanation: 'Massen er et mål på mengden stoff og treghet, og er den samme overalt. Vekten ($G = mg$) avhenger av tyngdeakselerasjonen, som er omtrent 1/6 så stor på Månen.',
+  },
+  {
+    question: 'En resulterende kraft på 24 N virker på et objekt med masse 8,0 kg. Hva blir akselerasjonen?',
+    options: [
+      '3,0 m/s²',
+      '0,33 m/s²',
+      '192 m/s²',
+      '16 m/s²',
+    ],
+    explanation: '$a = \\frac{F}{m} = \\frac{24}{8{,}0} = 3{,}0$ m/s².',
+  },
+],
+
+  'fys1-3-2': [
+  {
+    question: 'Hvor stor er tyngdekraften på en sekk med masse 10 kg? (g = 9,8 m/s²)',
+    options: [
+      '98 N',
+      '10 N',
+      '9,8 N',
+      '980 N',
+    ],
+    explanation: '$G = mg = 10 \\cdot 9{,}8 = 98$ N, rettet nedover mot Jordens sentrum.',
+  },
+  {
+    question: 'Er normalkraften alltid like stor som tyngdekraften?',
+    options: [
+      'Nei, den avhenger av situasjonen — på et skråplan er den for eksempel mindre enn mg',
+      'Ja, normalkraften er alltid lik mg',
+      'Nei, normalkraften er alltid større enn tyngdekraften',
+      'Ja, det følger av Newtons 3. lov',
+    ],
+    explanation: 'Normalkraften er kontaktkraften vinkelrett på overflaten, og størrelsen avhenger av situasjonen. På et skråplan er $N = mg\\cos\\theta$, og i en heis som akselererer endres N. Den er ikke reaksjonskraften til tyngdekraften.',
+  },
+  {
+    question: 'Hva er sammenhengen mellom statisk og kinetisk friksjonskoeffisient for samme flater?',
+    options: [
+      '$\\mu_k < \\mu_s$ — det krever mer å sette i gang bevegelsen enn å holde den i gang',
+      '$\\mu_k > \\mu_s$ — det krever mer å holde bevegelsen i gang',
+      '$\\mu_k = \\mu_s$ alltid',
+      'De kan ikke sammenlignes',
+    ],
+    explanation: 'Den kinetiske friksjonskoeffisienten er alltid mindre enn den statiske: $\\mu_k < \\mu_s$. Derfor er det tyngre å sette en kasse i bevegelse enn å holde den glidende.',
+  },
+  {
+    question: 'En kasse glir på et gulv med normalkraft 200 N og kinetisk friksjonskoeffisient 0,30. Hvor stor er friksjonskraften?',
+    options: [
+      '60 N',
+      '600 N',
+      '0,67 N',
+      '200 N',
+    ],
+    explanation: '$f_k = \\mu_k N = 0{,}30 \\cdot 200 = 60$ N, rettet mot bevegelsesretningen.',
+  },
+  {
+    question: 'Hva viser et frilegemediagram (FBD)?',
+    options: [
+      'Alle kreftene som virker PÅ ett bestemt objekt',
+      'Alle kreftene objektet utøver på omgivelsene',
+      'Bare tyngdekraften på objektet',
+      'Banen objektet følger gjennom rommet',
+    ],
+    explanation: 'Et frilegemediagram viser objektet isolert med alle krefter som virker på det (tyngdekraft, normalkraft, friksjon, snorkraft osv.). Krefter objektet utøver på andre, tas ikke med.',
+  },
+],
+
+  'fys1-3-3': [
+  {
+    question: 'Hva kjennetegner terminalfart ved fall med luftmotstand?',
+    options: [
+      'Luftmotstanden er like stor som tyngdekraften, og farten er konstant',
+      'Tyngdekraften slutter å virke',
+      'Akselerasjonen er lik g',
+      'Farten øker lineært med tiden',
+    ],
+    explanation: 'Ved terminalfart har luftmotstanden vokst til den balanserer tyngdekraften. Da er den resulterende kraften null, akselerasjonen null, og objektet faller med konstant fart.',
+  },
+  {
+    question: 'En kasse glir ned et skråplan med konstant fart. Hva vet vi da om friksjonskraften?',
+    options: [
+      'Den er like stor som komponenten av tyngdekraften langs planet: $f = mg\\sin\\theta$',
+      'Den er null',
+      'Den er lik hele tyngdekraften $mg$',
+      'Den er lik normalkraften',
+    ],
+    explanation: 'Konstant fart betyr at summen av kreftene er null. Langs skråplanet må friksjonskraften da balansere tyngdekraftkomponenten: $f = mg\\sin\\theta$.',
+  },
+  {
+    question: 'I den kvadratiske modellen for luftmotstand, hvordan avhenger luftmotstanden av farten?',
+    options: [
+      'Den er proporsjonal med farten i andre potens: $F \\propto v^2$',
+      'Den er proporsjonal med farten: $F \\propto v$',
+      'Den er uavhengig av farten',
+      'Den er proporsjonal med kvadratroten av farten',
+    ],
+    explanation: 'I den kvadratiske modellen er $F = \\frac{1}{2}\\rho C_d A v^2$. Dobler du farten, firedobles luftmotstanden.',
+  },
+  {
+    question: 'En fallskjermhopper med masse 80 kg faller med terminalfart. Hvor stor er luftmotstanden? (g = 9,8 m/s²)',
+    options: [
+      '784 N',
+      '80 N',
+      '0 N',
+      '392 N',
+    ],
+    explanation: 'Ved terminalfart balanserer luftmotstanden tyngdekraften: $F_L = mg = 80 \\cdot 9{,}8 = 784$ N.',
+  },
+  {
+    question: 'Hvorfor brukes numeriske metoder (som Eulers metode) for å beregne fall med luftmotstand?',
+    options: [
+      'Fordi akselerasjonen endrer seg med farten, slik at likningene for konstant akselerasjon ikke gjelder',
+      'Fordi tyngdekraften varierer tilfeldig',
+      'Fordi bevegelsen er todimensjonal',
+      'Fordi luftmotstanden er konstant under hele fallet',
+    ],
+    explanation: 'Luftmotstanden, og dermed akselerasjonen, avhenger av farten og endrer seg gjennom fallet. Da kan vi ikke bruke bevegelseslikningene for konstant akselerasjon, men må regne steg for steg numerisk.',
+  },
+],
+
+  'fys1-3-4': [
+  {
+    question: 'En bil kjører med fart 10 m/s i en sirkel med radius 20 m. Hva er sentripetalakselerasjonen?',
+    options: [
+      '5,0 m/s²',
+      '0,50 m/s²',
+      '2,0 m/s²',
+      '200 m/s²',
+    ],
+    explanation: '$a_s = \\frac{v^2}{r} = \\frac{10^2}{20} = \\frac{100}{20} = 5{,}0$ m/s².',
+  },
+  {
+    question: 'I hvilken retning peker sentripetalakselerasjonen ved uniform sirkelbevegelse?',
+    options: [
+      'Innover mot sentrum av sirkelen',
+      'Utover fra sentrum',
+      'Langs tangenten til sirkelen',
+      'Nedover mot bakken',
+    ],
+    explanation: 'Sentripetalakselerasjonen peker alltid mot sentrum av sirkelbanen. Den skyldes at hastighetens retning endrer seg hele tiden, selv om farten er konstant.',
+  },
+  {
+    question: 'Hva skjer med en stein i en slynge hvis snoren plutselig ryker?',
+    options: [
+      'Steinen fortsetter rett frem langs tangenten til sirkelen',
+      'Steinen fortsetter i sirkelbanen',
+      'Steinen slynges rett utover fra sentrum',
+      'Steinen stopper umiddelbart',
+    ],
+    explanation: 'Uten sentripetalkraft er det ingen kraft som bøyer banen, og steinen fortsetter med konstant hastighet langs tangenten (Newtons 1. lov). Den slynges ikke radielt utover — "sentrifugalkraften" er en fiktiv kraft.',
+  },
+  {
+    question: 'Et objekt med masse 2,0 kg går i sirkel med radius 4,0 m og fart 6,0 m/s. Hvor stor sentripetalkraft kreves?',
+    options: [
+      '18 N',
+      '3,0 N',
+      '12 N',
+      '72 N',
+    ],
+    explanation: '$F_s = \\frac{mv^2}{r} = \\frac{2{,}0 \\cdot 6{,}0^2}{4{,}0} = \\frac{72}{4{,}0} = 18$ N.',
+  },
+  {
+    question: 'Hvilken kraft gir sentripetalkraften når en bil kjører gjennom en flat rundkjøring?',
+    options: [
+      'Friksjonskraften mellom dekkene og veien',
+      'Normalkraften fra veien',
+      'Tyngdekraften',
+      'Motorkraften fremover',
+    ],
+    explanation: 'Sentripetalkraft er ikke en egen krafttype, men den resulterende kraften mot sentrum. På flat vei er det friksjonen mellom dekk og asfalt som peker mot sentrum og holder bilen i svingen.',
+  },
+],
+
+  'fys1-4-1': [
+  {
+    question: 'En kraft på 50 N trekker en kasse 10 m i kraftens retning. Hvor stort arbeid utfører kraften?',
+    options: [
+      '500 J',
+      '5,0 J',
+      '60 J',
+      '0 J',
+    ],
+    explanation: '$W = F \\cdot s \\cdot \\cos\\theta = 50 \\cdot 10 \\cdot \\cos 0° = 500$ J.',
+  },
+  {
+    question: 'Hvor stort arbeid utfører en kraft som står vinkelrett på bevegelsesretningen?',
+    options: [
+      'Null, fordi $\\cos 90° = 0$',
+      'Like stort som $F \\cdot s$',
+      'Negativt arbeid',
+      'Det avhenger av farten',
+    ],
+    explanation: 'Arbeid er $W = Fs\\cos\\theta$. Når kraften er vinkelrett på bevegelsen er $\\theta = 90°$ og $\\cos 90° = 0$, så arbeidet er null. Eksempel: normalkraften på en kasse som glir bortover gulvet.',
+  },
+  {
+    question: 'Hva er den kinetiske energien til en ball med masse 4,0 kg og fart 3,0 m/s?',
+    options: [
+      '18 J',
+      '36 J',
+      '6,0 J',
+      '12 J',
+    ],
+    explanation: '$E_k = \\frac{1}{2}mv^2 = \\frac{1}{2} \\cdot 4{,}0 \\cdot 3{,}0^2 = \\frac{1}{2} \\cdot 4{,}0 \\cdot 9{,}0 = 18$ J.',
+  },
+  {
+    question: 'Hva skjer med den kinetiske energien til en bil hvis farten dobles?',
+    options: [
+      'Den firedobles',
+      'Den dobles',
+      'Den åttedobles',
+      'Den er uendret',
+    ],
+    explanation: 'Kinetisk energi er proporsjonal med farten i andre potens: $E_k = \\frac{1}{2}mv^2$. Dobbel fart gir $2^2 = 4$ ganger så stor kinetisk energi. Derfor øker bremselengden dramatisk med farten.',
+  },
+  {
+    question: 'Hva sier arbeid-energi-teoremet?',
+    options: [
+      'Det samlede arbeidet på et objekt er lik endringen i kinetisk energi: $W_{netto} = \\Delta E_k$',
+      'Arbeid er alltid lik den potensielle energien',
+      'Energien til et objekt er alltid konstant',
+      'Arbeid kan bare øke energien, aldri redusere den',
+    ],
+    explanation: 'Arbeid-energi-teoremet: $W_{netto} = \\Delta E_k = E_{k,slutt} - E_{k,start}$. Positivt netto arbeid øker farten, negativt netto arbeid (f.eks. fra friksjon) bremser objektet.',
+  },
+],
+
+  'fys1-4-2': [
+  {
+    question: 'En stein med masse 2,0 kg løftes 5,0 m opp. Hvor mye øker den potensielle energien? (g = 9,81 m/s²)',
+    options: [
+      '98 J',
+      '10 J',
+      '49 J',
+      '196 J',
+    ],
+    explanation: '$E_p = mgh = 2{,}0 \\cdot 9{,}81 \\cdot 5{,}0 = 98{,}1 \\approx 98$ J.',
+  },
+  {
+    question: 'En fjær med fjærkonstant 200 N/m presses sammen 0,10 m. Hvor mye elastisk potensiell energi lagres?',
+    options: [
+      '1,0 J',
+      '20 J',
+      '2,0 J',
+      '10 J',
+    ],
+    explanation: '$E_p = \\frac{1}{2}kx^2 = \\frac{1}{2} \\cdot 200 \\cdot 0{,}10^2 = \\frac{1}{2} \\cdot 200 \\cdot 0{,}010 = 1{,}0$ J.',
+  },
+  {
+    question: 'En ball slippes fra 20 m høyde uten luftmotstand. Hva er farten like før den treffer bakken? (g = 9,81 m/s²)',
+    options: [
+      'Ca. 20 m/s',
+      'Ca. 14 m/s',
+      'Ca. 40 m/s',
+      'Ca. 10 m/s',
+    ],
+    explanation: 'Energibevaring: $mgh = \\frac{1}{2}mv^2$ gir $v = \\sqrt{2gh} = \\sqrt{2 \\cdot 9{,}81 \\cdot 20} = \\sqrt{392{,}4} \\approx 19{,}8 \\approx 20$ m/s.',
+  },
+  {
+    question: 'Hva kjennetegner en konservativ kraft?',
+    options: [
+      'Arbeidet den utfører er uavhengig av veien, bare avhengig av start- og sluttpunkt',
+      'Den utfører alltid positivt arbeid',
+      'Den omdanner mekanisk energi til varme',
+      'Den virker bare på objekter i ro',
+    ],
+    explanation: 'For en konservativ kraft (som tyngdekraften og fjærkraften) avhenger arbeidet bare av start- og sluttpunkt, ikke av veien. Friksjon er ikke konservativ — den omdanner mekanisk energi til varme.',
+  },
+  {
+    question: 'Hvorfor kan vi velge referansenivået for potensiell energi fritt?',
+    options: [
+      'Fordi bare endringer i potensiell energi har fysisk betydning',
+      'Fordi potensiell energi alltid er null ved bakken',
+      'Fordi potensiell energi ikke er en ekte energiform',
+      'Fordi g varierer med høyden',
+    ],
+    explanation: 'Det er bare endringer $\\Delta E_p$ som inngår i fysiske beregninger, så nullnivået ($h = 0$) kan velges der det er mest praktisk.',
+  },
+],
+
+  'fys1-4-3': [
+  {
+    question: 'Hva er bevegelsesmengden til en bil med masse 1500 kg som kjører med 20 m/s?',
+    options: [
+      '30 000 kg·m/s',
+      '3 000 kg·m/s',
+      '300 000 kg·m/s',
+      '75 kg·m/s',
+    ],
+    explanation: '$p = mv = 1500 \\cdot 20 = 30\\,000$ kg·m/s, i samme retning som hastigheten.',
+  },
+  {
+    question: 'En kraft på 100 N virker på en ball i 0,50 s. Hvor stor impuls får ballen?',
+    options: [
+      '50 N·s',
+      '200 N·s',
+      '100 N·s',
+      '0,005 N·s',
+    ],
+    explanation: '$J = F \\cdot \\Delta t = 100 \\cdot 0{,}50 = 50$ N·s. Impulsen er lik endringen i bevegelsesmengde: $J = \\Delta p$.',
+  },
+  {
+    question: 'Hva er forskjellen på et elastisk og et uelastisk støt?',
+    options: [
+      'I begge bevares bevegelsesmengden, men kinetisk energi bevares bare i det elastiske',
+      'Bevegelsesmengden bevares bare i det elastiske støtet',
+      'Verken energi eller bevegelsesmengde bevares i det uelastiske støtet',
+      'Kinetisk energi bevares i begge, men bevegelsesmengde bare i det elastiske',
+    ],
+    explanation: 'Bevegelsesmengden bevares i alle støt i et lukket system. Kinetisk energi bevares bare i elastiske støt — i uelastiske støt går noe av den over til varme og deformasjon.',
+  },
+  {
+    question: 'En vogn på 2,0 kg med fart 6,0 m/s treffer en vogn på 4,0 kg i ro, og de henger sammen etter støtet. Hva blir felles fart?',
+    options: [
+      '2,0 m/s',
+      '3,0 m/s',
+      '6,0 m/s',
+      '1,0 m/s',
+    ],
+    explanation: 'Bevaring av bevegelsesmengde: $m_1 v_1 = (m_1 + m_2)v$, så $v = \\frac{2{,}0 \\cdot 6{,}0}{2{,}0 + 4{,}0} = \\frac{12}{6{,}0} = 2{,}0$ m/s.',
+  },
+  {
+    question: 'Hvorfor reduserer en airbag skadene ved en kollisjon?',
+    options: [
+      'Den forlenger tiden kraften virker, slik at kraften blir mindre for samme endring i bevegelsesmengde',
+      'Den reduserer endringen i bevegelsesmengde',
+      'Den øker farten til passasjeren',
+      'Den gjør impulsen mindre ved å øke kraften',
+    ],
+    explanation: 'Endringen i bevegelsesmengde $\\Delta p$ er gitt av kollisjonen. Siden $F \\cdot \\Delta t = \\Delta p$, gir lengre stopptid $\\Delta t$ en mindre kraft $F$ på kroppen.',
+  },
+],
+
+  'fys1-4-4': [
+  {
+    question: 'Hvilken energiform regnes som høykvalitetsenergi?',
+    options: [
+      'Elektrisk energi',
+      'Varme ved lav temperatur',
+      'Spillvarme fra en motor',
+      'Varme i havvann',
+    ],
+    explanation: 'Høykvalitetsenergi er konsentrert og organisert energi som lett kan omdannes til andre former, som elektrisk, mekanisk og kjemisk energi. Varme ved lav temperatur er spredt og uorganisert — lavkvalitetsenergi.',
+  },
+  {
+    question: 'En motor tilføres 1000 J og leverer 300 J nyttig arbeid. Hva er virkningsgraden?',
+    options: [
+      '30 %',
+      '70 %',
+      '3 %',
+      '33 %',
+    ],
+    explanation: '$\\eta = \\frac{E_{nyttig}}{E_{tilført}} = \\frac{300}{1000} = 0{,}30 = 30\\%$.',
+  },
+  {
+    question: 'Hvorfor kan ikke virkningsgraden være over 100 %?',
+    options: [
+      'Det ville bety at det skapes energi, i strid med energibevaringsloven',
+      'Fordi friksjon alltid er nøyaktig 50 %',
+      'Fordi virkningsgrad bare er definert for elektriske maskiner',
+      'Det kan den, i svært effektive maskiner',
+    ],
+    explanation: 'Virkningsgrad over 100 % ville bety at maskinen leverer mer energi enn den får tilført — altså at energi skapes fra ingenting. Det bryter med loven om energibevaring.',
+  },
+  {
+    question: 'To energiomformere kobles i serie med virkningsgrader 0,80 og 0,50. Hva er total virkningsgrad?',
+    options: [
+      '0,40',
+      '0,65',
+      '1,30',
+      '0,30',
+    ],
+    explanation: 'Ved seriekobling multipliseres virkningsgradene: $\\eta_{total} = \\eta_1 \\cdot \\eta_2 = 0{,}80 \\cdot 0{,}50 = 0{,}40$.',
+  },
+  {
+    question: 'Hvorfor er prosessen der bremsene på en bil varmes opp irreversibel?',
+    options: [
+      'Varmen sprer seg til omgivelsene og kan ikke spontant samles og bli til bevegelsesenergi igjen',
+      'Fordi bremsene blir fysisk ødelagt',
+      'Fordi energien forsvinner helt',
+      'Fordi bilen ikke kan kjøre baklengs',
+    ],
+    explanation: 'Ved bremsing omdannes organisert kinetisk energi til uorganisert termisk energi som sprer seg. Energien er bevart, men kvaliteten er senket — den spredte varmen samler seg aldri spontant tilbake til nyttig arbeid.',
+  },
+],
+
+  'fys1-5-1': [
+  {
+    question: 'Hva er temperatur et mål på?',
+    options: [
+      'Gjennomsnittlig kinetisk energi per molekyl i stoffet',
+      'Total mengde varme i stoffet',
+      'Antall molekyler i stoffet',
+      'Stoffets evne til å lede strøm',
+    ],
+    explanation: 'Temperatur er et mål på den gjennomsnittlige kinetiske energien per molekyl — hvor raskt molekylene i gjennomsnitt beveger seg.',
+  },
+  {
+    question: 'Hva er 25 °C i kelvin?',
+    options: [
+      '298 K',
+      '248 K',
+      '25 K',
+      '273 K',
+    ],
+    explanation: '$T(K) = T(°C) + 273{,}15 = 25 + 273{,}15 = 298{,}15 \\approx 298$ K.',
+  },
+  {
+    question: 'Hvor mye energi kreves for å varme opp 2,0 kg vann med 10 K når c = 4200 J/(kg·K)?',
+    options: [
+      '84 000 J',
+      '8 400 J',
+      '42 000 J',
+      '840 J',
+    ],
+    explanation: '$Q = mc\\Delta T = 2{,}0 \\cdot 4200 \\cdot 10 = 84\\,000$ J = 84 kJ.',
+  },
+  {
+    question: 'Hva betyr det at to legemer er i termisk likevekt?',
+    options: [
+      'De har samme temperatur, og det er ingen netto varmeoverføring mellom dem',
+      'De har like mye energi totalt',
+      'De har samme masse og varmekapasitet',
+      'Det varme legemet fortsetter å varme opp det kalde',
+    ],
+    explanation: 'Termisk likevekt oppstår når legemene har samme temperatur. Da er det ingen netto varmeoverføring mellom dem.',
+  },
+  {
+    question: 'Hva er den fysiske betydningen av "varme"?',
+    options: [
+      'Energi som overføres fra et legeme med høy temperatur til et legeme med lavere temperatur',
+      'Energien som er lagret i et varmt legeme',
+      'Det samme som temperatur',
+      'Energi som bare finnes i gasser',
+    ],
+    explanation: 'Varme er energi i overføring fra varmt til kaldt legeme, målt i joule. Det er ikke en tilstand et legeme "har" — et legeme har indre energi, ikke varme.',
+  },
+],
+
+  'fys1-5-2': [
+  {
+    question: 'Hvilke tre mekanismer kan overføre varme?',
+    options: [
+      'Varmeledning, konveksjon og varmestråling',
+      'Friksjon, trykk og fordamping',
+      'Varmeledning, induksjon og refleksjon',
+      'Konveksjon, kondensasjon og diffusjon',
+    ],
+    explanation: 'Varme overføres ved varmeledning (direkte kontakt mellom molekyler), konveksjon (varmt stoff strømmer) og varmestråling (elektromagnetisk stråling).',
+  },
+  {
+    question: 'Hvilken varmeoverføringsmekanisme fungerer gjennom vakuum?',
+    options: [
+      'Bare varmestråling',
+      'Bare varmeledning',
+      'Bare konveksjon',
+      'Både ledning og konveksjon',
+    ],
+    explanation: 'Varmestråling er elektromagnetisk stråling og trenger ikke noe medium. Ledning og konveksjon krever stoff. Derfor når solenergien Jorden gjennom verdensrommet som stråling.',
+  },
+  {
+    question: 'Hva kjennetegner konveksjon?',
+    options: [
+      'Varmt stoff (væske eller gass) beveger seg og transporterer energien med seg',
+      'Energi overføres fra molekyl til molekyl uten at stoffet flytter seg',
+      'Energi overføres som elektromagnetiske bølger',
+      'Energi overføres bare i faste stoffer',
+    ],
+    explanation: 'Ved konveksjon er det selve stoffet som flytter seg og frakter energien, f.eks. varm luft som stiger over en radiator. Konveksjon skjer bare i væsker og gasser.',
+  },
+  {
+    question: 'Hva betyr en lav U-verdi for et vindu?',
+    options: [
+      'Vinduet isolerer godt og slipper lite varme gjennom',
+      'Vinduet isolerer dårlig',
+      'Vinduet slipper gjennom mye lys',
+      'Vinduet tåler høyt trykk',
+    ],
+    explanation: 'U-verdien (varmegjennomgangskoeffisienten, i W/(m²·K)) beskriver hvor mye varme som går gjennom bygningselementet. Lav U-verdi betyr god isolasjon.',
+  },
+  {
+    question: 'Hvorfor føles et metallhåndtak kaldere enn en trebenk når begge holder romtemperatur?',
+    options: [
+      'Metall leder varme mye bedre og frakter raskt varme bort fra hånden',
+      'Metallet har faktisk lavere temperatur enn treet',
+      'Treet stråler ut mer varme enn metallet',
+      'Metallet absorberer kulde fra luften',
+    ],
+    explanation: 'Begge har samme temperatur, men metall har mye høyere varmeledningsevne enn tre. Metallet leder derfor raskt varme bort fra huden, og det føles kaldt.',
+  },
+],
+
+  'fys1-5-3': [
+  {
+    question: 'Hva er et sort legeme i fysikken?',
+    options: [
+      'Et idealisert objekt som absorberer all innkommende stråling og stråler maksimalt for sin temperatur',
+      'Et objekt som ikke sender ut noen stråling',
+      'Et objekt som bare reflekterer synlig lys',
+      'Et objekt med temperatur lik det absolutte nullpunkt',
+    ],
+    explanation: 'Et sort legeme absorberer all innkommende stråling og sender ut maksimal stråling ved en gitt temperatur. Strålingen avhenger bare av temperaturen.',
+  },
+  {
+    question: 'Ifølge Stefan-Boltzmanns lov ($P = \\sigma A T^4$): Hva skjer med utstrålt effekt hvis temperaturen (i kelvin) dobles?',
+    options: [
+      'Den blir 16 ganger større',
+      'Den dobles',
+      'Den firedobles',
+      'Den blir 8 ganger større',
+    ],
+    explanation: 'Effekten er proporsjonal med $T^4$. Dobles temperaturen, øker effekten med faktoren $2^4 = 16$.',
+  },
+  {
+    question: 'Solens overflate holder ca. 5800 K. Hvilken bølgelengde stråler den mest ved? (Wiens lov, b = 2,90·10⁻³ m·K)',
+    options: [
+      'Ca. 500 nm (synlig lys)',
+      'Ca. 5000 nm (infrarødt)',
+      'Ca. 50 nm (røntgenområdet)',
+      'Ca. 5 mm (mikrobølger)',
+    ],
+    explanation: 'Wiens forskyvningslov: $\\lambda_{max} = \\frac{b}{T} = \\frac{2{,}90 \\cdot 10^{-3}}{5800} = 5{,}0 \\cdot 10^{-7}$ m = 500 nm, midt i det synlige området.',
+  },
+  {
+    question: 'Hva skjer med toppbølgelengden i strålingen fra et objekt når det blir varmere?',
+    options: [
+      'Den forskyves mot kortere bølgelengder',
+      'Den forskyves mot lengre bølgelengder',
+      'Den er uavhengig av temperaturen',
+      'Den blir alltid liggende i det infrarøde området',
+    ],
+    explanation: 'Etter Wiens lov er $\\lambda_{max} = b/T$: høyere temperatur gir kortere toppbølgelengde. Derfor skifter en glødende gjenstand farge fra rødt mot hvitt/blått når den varmes opp.',
+  },
+  {
+    question: 'Hva sier Kirchhoffs strålingslov om absorpsjon og emisjon?',
+    options: [
+      'En god absorbator er også en god emitter ved samme bølgelengde',
+      'En god absorbator er alltid en dårlig emitter',
+      'Absorpsjon og emisjon er helt uavhengige egenskaper',
+      'Bare sorte legemer kan absorbere stråling',
+    ],
+    explanation: 'Kirchhoffs lov sier at et legemes evne til å absorbere stråling er lik dets evne til å emittere stråling ved samme bølgelengde. En matt, sort overflate både absorberer og stråler godt.',
+  },
+],
+
+  'fys1-5-4': [
+  {
+    question: 'Hva er albedo?',
+    options: [
+      'Andelen av innkommende solstråling som reflekteres tilbake til verdensrommet',
+      'Andelen av solstrålingen som absorberes av bakken',
+      'Mengden infrarød stråling jorden sender ut',
+      'Tykkelsen på atmosfærens ozonlag',
+    ],
+    explanation: 'Albedo er refleksjonsevnen — andelen av solstrålingen som reflekteres. Jordens gjennomsnittlige albedo er ca. 0,30, altså reflekteres ca. 30 % av sollyset.',
+  },
+  {
+    question: 'En flate mottar 1000 W/m² solstråling og har albedo 0,30. Hvor mye absorberes per kvadratmeter?',
+    options: [
+      '700 W/m²',
+      '300 W/m²',
+      '1000 W/m²',
+      '970 W/m²',
+    ],
+    explanation: 'Albedo 0,30 betyr at 30 % (300 W/m²) reflekteres. Absorbert effekt = $1000 \\cdot (1 - 0{,}30) = 700$ W/m².',
+  },
+  {
+    question: 'Hvordan virker drivhuseffekten?',
+    options: [
+      'Atmosfæriske gasser absorberer utgående infrarød stråling fra jorden og sender deler av den tilbake',
+      'Atmosfæren reflekterer alt sollys tilbake til verdensrommet',
+      'Atmosfæren hindrer synlig lys i å nå bakken',
+      'Ozonlaget varmer opp jordoverflaten direkte',
+    ],
+    explanation: 'Drivhusgasser som CO₂ og vanndamp slipper gjennom det meste av sollyset, men absorberer den infrarøde strålingen jorden sender ut, og re-sender deler av den tilbake mot overflaten.',
+  },
+  {
+    question: 'Hva ville skjedd med jordens overflatetemperatur uten naturlig drivhuseffekt?',
+    options: [
+      'Den ville vært rundt -18 °C, langt kaldere enn i dag',
+      'Den ville vært omtrent som i dag',
+      'Den ville vært mye varmere enn i dag',
+      'Den ville vært over 100 °C',
+    ],
+    explanation: 'Uten drivhuseffekt ville jordens likevektstemperatur vært ca. -18 °C. Den naturlige drivhuseffekten løfter gjennomsnittstemperaturen til ca. +15 °C og gjør jorden beboelig.',
+  },
+  {
+    question: 'Hvorfor er issmelting i Arktis et eksempel på positiv tilbakekobling i klimasystemet?',
+    options: [
+      'Mindre is gir lavere albedo, mer absorbert solenergi og dermed enda mer oppvarming og smelting',
+      'Smeltevannet kjøler ned havet og stopper oppvarmingen',
+      'Isen reflekterer mer sollys jo mer den smelter',
+      'Smelting av is frigjør oksygen som kjøler atmosfæren',
+    ],
+    explanation: 'Is har høy albedo og reflekterer mye sollys. Når isen smelter, blottlegges mørkt hav med lav albedo som absorberer mer solenergi. Det gir mer oppvarming og mer smelting — en selvforsterkende (positiv) tilbakekobling.',
+  },
+],
+
+  'fys1-6-1': [
+  {
+    question: 'Hva er elementærladningen?',
+    options: [
+      '$e = 1{,}602 \\cdot 10^{-19}$ C',
+      '$e = 9{,}11 \\cdot 10^{-31}$ C',
+      '$e = 6{,}02 \\cdot 10^{23}$ C',
+      '$e = 1{,}602 \\cdot 10^{-19}$ J',
+    ],
+    explanation: 'Elementærladningen er $e = 1{,}602 \\cdot 10^{-19}$ C — ladningen til et proton (elektronet har $-e$). All ladning er hele multipler av denne.',
+  },
+  {
+    question: 'Hva skjer med kraften mellom to punktladninger hvis avstanden dobles?',
+    options: [
+      'Den blir en fjerdedel så stor',
+      'Den halveres',
+      'Den dobles',
+      'Den er uendret',
+    ],
+    explanation: 'Coulombs lov: $F = k\\frac{q_1 q_2}{r^2}$. Kraften avtar med kvadratet av avstanden, så dobbel avstand gir $F/4$.',
+  },
+  {
+    question: 'En ladning på 4,0·10⁻⁶ C opplever en elektrisk kraft på 2,0·10⁻³ N. Hvor sterkt er feltet der ladningen er?',
+    options: [
+      '500 N/C',
+      '8,0·10⁻⁹ N/C',
+      '2,0·10³ N/C',
+      '0,002 N/C',
+    ],
+    explanation: '$E = \\frac{F}{q} = \\frac{2{,}0 \\cdot 10^{-3}}{4{,}0 \\cdot 10^{-6}} = 500$ N/C.',
+  },
+  {
+    question: 'Hvilken retning har de elektriske feltlinjene?',
+    options: [
+      'Fra positive ladninger mot negative ladninger',
+      'Fra negative ladninger mot positive ladninger',
+      'Alltid i sirkler rundt ladningen',
+      'Alltid parallelt med jordoverflaten',
+    ],
+    explanation: 'Feltlinjene viser retningen en positiv prøveladning ville blitt dyttet — de peker ut fra positive ladninger og inn mot negative ladninger.',
+  },
+  {
+    question: 'To parallelle plater har spenningen 12 V og avstand 0,020 m. Hvor sterkt er det uniforme feltet mellom dem?',
+    options: [
+      '600 V/m',
+      '0,24 V/m',
+      '60 V/m',
+      '0,0017 V/m',
+    ],
+    explanation: 'For et uniformt felt: $E = \\frac{U}{d} = \\frac{12}{0{,}020} = 600$ V/m.',
+  },
+],
+
+  'fys1-6-2': [
+  {
+    question: 'En motstand på 4,0 Ω kobles til en spenning på 12 V. Hvor stor strøm går gjennom motstanden?',
+    options: [
+      '3,0 A',
+      '48 A',
+      '0,33 A',
+      '8,0 A',
+    ],
+    explanation: 'Ohms lov: $I = \\frac{U}{R} = \\frac{12}{4{,}0} = 3{,}0$ A.',
+  },
+  {
+    question: 'To motstander på 10 Ω og 20 Ω kobles i serie. Hva er total resistans, og hva gjelder for strømmen?',
+    options: [
+      '30 Ω, og strømmen er den samme gjennom begge motstandene',
+      '6,7 Ω, og strømmen deler seg mellom motstandene',
+      '30 Ω, og spenningen er lik over begge motstandene',
+      '200 Ω, og strømmen er den samme gjennom begge',
+    ],
+    explanation: 'I seriekobling adderes resistansene: $R = 10 + 20 = 30$ Ω, og samme strøm går gjennom alle komponentene. Spenningen fordeler seg derimot.',
+  },
+  {
+    question: 'To motstander på 6,0 Ω hver kobles i parallell. Hva er den totale resistansen?',
+    options: [
+      '3,0 Ω',
+      '12 Ω',
+      '6,0 Ω',
+      '36 Ω',
+    ],
+    explanation: 'For to like motstander i parallell: $R_{tot} = \\frac{R}{2} = \\frac{6{,}0}{2} = 3{,}0$ Ω. Generelt: $\\frac{1}{R_{tot}} = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6}$.',
+  },
+  {
+    question: 'Hva sier Kirchhoffs strømlov?',
+    options: [
+      'Summen av strømmer inn i et knutepunkt er lik summen av strømmer ut',
+      'Summen av spenningene i en lukket sløyfe er null',
+      'Strømmen er alltid proporsjonal med resistansen',
+      'Strømmen er like stor i alle parallelle grener',
+    ],
+    explanation: 'Kirchhoffs strømlov (1. lov): $\\sum I_{inn} = \\sum I_{ut}$ i ethvert knutepunkt. Den uttrykker at ladning er bevart — ingen ladning forsvinner eller hoper seg opp.',
+  },
+  {
+    question: 'Det passerer 60 C ladning gjennom en leder på 20 s. Hvor stor er strømmen?',
+    options: [
+      '3,0 A',
+      '1200 A',
+      '0,33 A',
+      '80 A',
+    ],
+    explanation: '$I = \\frac{Q}{t} = \\frac{60}{20} = 3{,}0$ A. 1 ampere er 1 coulomb per sekund.',
+  },
+],
+
+  'fys1-6-3': [
+  {
+    question: 'En varmeovn trekker 10 A fra nettet på 230 V. Hvor stor effekt har den?',
+    options: [
+      '2300 W',
+      '23 W',
+      '230 W',
+      '5290 W',
+    ],
+    explanation: '$P = UI = 230 \\cdot 10 = 2300$ W = 2,3 kW.',
+  },
+  {
+    question: 'Hvor mye energi i joule tilsvarer 1 kWh?',
+    options: [
+      '3,6 MJ',
+      '1000 J',
+      '3600 J',
+      '60 kJ',
+    ],
+    explanation: '1 kWh = 1000 W · 3600 s = 3 600 000 J = 3,6 MJ.',
+  },
+  {
+    question: 'En ovn på 2,0 kW står på i 3,0 timer. Hvor mye energi bruker den?',
+    options: [
+      '6,0 kWh',
+      '2,0 kWh',
+      '1,5 kWh',
+      '0,67 kWh',
+    ],
+    explanation: '$E = P \\cdot t = 2{,}0 \\text{ kW} \\cdot 3{,}0 \\text{ h} = 6{,}0$ kWh.',
+  },
+  {
+    question: 'En lyspære er koblet til 230 V og har resistans 529 Ω. Hvilken effekt utvikles? (Bruk $P = U^2/R$)',
+    options: [
+      '100 W',
+      '529 W',
+      '0,43 W',
+      '230 W',
+    ],
+    explanation: '$P = \\frac{U^2}{R} = \\frac{230^2}{529} = \\frac{52\\,900}{529} = 100$ W.',
+  },
+  {
+    question: 'Hvor stor effekt kan maksimalt belastes på en kurs med 10 A sikring og 230 V spenning?',
+    options: [
+      '2300 W',
+      '23 000 W',
+      '230 W',
+      '1000 W',
+    ],
+    explanation: '$P_{maks} = U \\cdot I_{maks} = 230 \\cdot 10 = 2300$ W. Trekkes mer effekt enn dette, blir strømmen for høy og sikringen løser ut.',
+  },
+],
+
+  'fys1-6-4': [
+  {
+    question: 'Hva er energien til elektronet i hydrogenatomet i nivået n = 2 ifølge Bohrs modell?',
+    options: [
+      '-3,4 eV',
+      '-13,6 eV',
+      '-6,8 eV',
+      '+3,4 eV',
+    ],
+    explanation: '$E_n = -\\frac{13{,}6 \\text{ eV}}{n^2}$, så $E_2 = -\\frac{13{,}6}{4} = -3{,}4$ eV.',
+  },
+  {
+    question: 'Hvor stor energi har fotonet som sendes ut når elektronet i hydrogen faller fra n = 2 til n = 1?',
+    options: [
+      '10,2 eV',
+      '17,0 eV',
+      '3,4 eV',
+      '13,6 eV',
+    ],
+    explanation: '$E = E_2 - E_1 = (-3{,}4) - (-13{,}6) = 10{,}2$ eV. Fotonenergien er differansen mellom energinivåene.',
+  },
+  {
+    question: 'Hva skjer i fotoelektrisk effekt hvis lysets frekvens er under grensefrekvensen?',
+    options: [
+      'Ingen elektroner frigjøres, uansett hvor intenst lyset er',
+      'Elektroner frigjøres hvis lyset er intenst nok',
+      'Elektroner frigjøres med høy kinetisk energi',
+      'Metallet smelter',
+    ],
+    explanation: 'Hvert foton har energien $E = hf$. Er $hf$ mindre enn arbeidsfunksjonen $W$, kan ikke ett foton frigjøre et elektron — og høyere intensitet betyr bare flere slike utilstrekkelige fotoner. Dette kunne ikke forklares klassisk.',
+  },
+  {
+    question: 'Hva viste Rutherfords gullfolie-eksperiment?',
+    options: [
+      'Atomet er for det meste tomrom med en liten, massiv og positivt ladet kjerne',
+      'Elektronene ligger jevnt fordelt i en positiv "deig"',
+      'Atomet er en udelelig kule',
+      'Nøytronet finnes i kjernen',
+    ],
+    explanation: 'De fleste alfapartiklene gikk rett gjennom folien, men noen få ble kraftig avbøyd. Det viste at den positive ladningen og nesten all massen er samlet i en bitteliten kjerne.',
+  },
+  {
+    question: 'Hvorfor sender hvert grunnstoff ut et linjespektrum med bestemte bølgelengder?',
+    options: [
+      'Fordi elektronene bare kan ha bestemte, diskrete energinivåer, og overgangene gir fotoner med bestemte energier',
+      'Fordi atomene roterer med bestemte frekvenser',
+      'Fordi kjernen sender ut lys ved oppvarming',
+      'Fordi elektronene kan ha hvilken som helst energi',
+    ],
+    explanation: 'Energinivåene i atomet er kvantiserte. Når et elektron hopper fra ett nivå til et lavere, sendes det ut et foton med energi nøyaktig lik differansen, $E = hf$. Hvert grunnstoff har sitt unike sett av nivåer og dermed sitt unike linjespektrum.',
+  },
+],
+
+  'fys1-6-5': [
+  {
+    question: 'Kjernen til jern-56 har massetall 56 og atomnummer 26. Hvor mange nøytroner har den?',
+    options: [
+      '30',
+      '26',
+      '56',
+      '82',
+    ],
+    explanation: 'Antall nøytroner er $N = A - Z = 56 - 26 = 30$.',
+  },
+  {
+    question: 'En kjerne har massedefekt 0,030 u. Hva er bindingsenergien? (1 u tilsvarer 931,5 MeV)',
+    options: [
+      'Ca. 28 MeV',
+      'Ca. 2,8 MeV',
+      'Ca. 280 MeV',
+      'Ca. 0,93 MeV',
+    ],
+    explanation: '$E_b = \\Delta m \\cdot 931{,}5 \\text{ MeV/u} = 0{,}030 \\cdot 931{,}5 \\approx 27{,}9 \\approx 28$ MeV.',
+  },
+  {
+    question: 'Hvilken prosess frigjør energien i Solen?',
+    options: [
+      'Fusjon av hydrogen til helium',
+      'Fisjon av uran',
+      'Kjemisk forbrenning av hydrogen',
+      'Gravitasjonell sammentrekning alene',
+    ],
+    explanation: 'I Solens kjerne smelter hydrogenkjerner sammen til helium (proton-proton-kjeden). Massedifferansen frigjøres som energi etter $E = mc^2$.',
+  },
+  {
+    question: 'Hvorfor frigjør både fusjon av lette kjerner og fisjon av tunge kjerner energi?',
+    options: [
+      'Fordi bindingsenergien per nukleon er størst rundt jern — begge prosessene går mot sterkere bundne kjerner',
+      'Fordi alle kjerneprosesser frigjør energi',
+      'Fordi protoner alltid frastøter hverandre',
+      'Fordi massen alltid øker i kjerneprosesser',
+    ],
+    explanation: 'Bindingsenergikurven har maksimum rundt jern (Fe-56). Fusjon av lette kjerner og fisjon av tunge kjerner gir begge produkter med høyere bindingsenergi per nukleon, og differansen frigjøres som energi.',
+  },
+  {
+    question: 'Hvor er tunge grunnstoff som gull og uran hovedsakelig dannet?',
+    options: [
+      'I supernovaeksplosjoner og kollisjoner mellom nøytronstjerner',
+      'I Big Bang',
+      'I jordens indre',
+      'I vanlige stjerner som Solen',
+    ],
+    explanation: 'Big Bang ga i hovedsak hydrogen og helium, og vanlige stjerner fusjonerer opp til jern. Grunnstoff tyngre enn jern krever de ekstreme forholdene i supernovaer og nøytronstjernekollisjoner.',
   },
 ],
 

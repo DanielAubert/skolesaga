@@ -41,7 +41,10 @@ export function Footer() {
               © 2025 Skolesaga · Alle rettigheter forbeholdt
             </p>
             <p className="text-center text-xs text-muted-foreground/70 mt-2">
-              Deler av innholdet er utviklet med hjelp av AI-verktøy
+              Innholdet er utviklet med støtte fra kunstig intelligens og kvalitetssikres løpende.{" "}
+              <Link href="/vilkar#ki-deklarasjon" className="underline hover:text-foreground transition-colors">
+                Les mer
+              </Link>
             </p>
           </div>
         </div>

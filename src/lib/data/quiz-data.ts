@@ -24,6 +24,7 @@ import quizData_engelsk_6 from './quiz-data-engelsk-6';
 import quizData_engelsk_7 from './quiz-data-engelsk-7';
 import quizData_engelsk_8 from './quiz-data-engelsk-8';
 import quizData_engelsk_9 from './quiz-data-engelsk-9';
+import quizData_engelsk_10 from './quiz-data-engelsk-10';
 import quizData_engelsk_vg1 from './quiz-data-engelsk-vg1';
 import quizData_entrebed from './quiz-data-entrebed';
 import quizData_filosofi_etikk from './quiz-data-filosofi-etikk';
@@ -39,6 +40,7 @@ import quizData_helseoppvekst_vg3 from './quiz-data-helseoppvekst-vg3';
 import quizData_historie from './quiz-data-historie';
 import quizData_int_engelsk from './quiz-data-int-engelsk';
 import quizData_it from './quiz-data-it';
+import quizData_kjemi1 from './quiz-data-kjemi1';
 import quizData_komkult from './quiz-data-komkult';
 import quizData_krle_10 from './quiz-data-krle-10';
 import quizData_krle_5 from './quiz-data-krle-5';
@@ -81,6 +83,7 @@ import quizData_norsk_6 from './quiz-data-norsk-6';
 import quizData_norsk_7 from './quiz-data-norsk-7';
 import quizData_norsk_8 from './quiz-data-norsk-8';
 import quizData_norsk_9 from './quiz-data-norsk-9';
+import quizData_norsk_10 from './quiz-data-norsk-10';
 import quizData_norsk_vg1 from './quiz-data-norsk-vg1';
 import quizData_norsk_vg2 from './quiz-data-norsk-vg2';
 import quizData_norsk_vg3 from './quiz-data-norsk-vg3';
@@ -98,6 +101,7 @@ import quizData_samfunnsfag_6 from './quiz-data-samfunnsfag-6';
 import quizData_samfunnsfag_7 from './quiz-data-samfunnsfag-7';
 import quizData_samfunnsfag_8 from './quiz-data-samfunnsfag-8';
 import quizData_samfunnsfag_9 from './quiz-data-samfunnsfag-9';
+import quizData_samfunnsfag_10 from './quiz-data-samfunnsfag-10';
 import quizData_samfunnskunnskap from './quiz-data-samfunnskunnskap';
 import quizData_samfokonomi from './quiz-data-samføkonomi';
 import quizData_sikkerhetsfag from './quiz-data-sikkerhetsfag';
@@ -124,6 +128,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_engelsk_7,
   ...quizData_engelsk_8,
   ...quizData_engelsk_9,
+  ...quizData_engelsk_10,
   ...quizData_engelsk_vg1,
   ...quizData_entrebed,
   ...quizData_filosofi_etikk,
@@ -139,6 +144,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_historie,
   ...quizData_int_engelsk,
   ...quizData_it,
+  ...quizData_kjemi1,
   ...quizData_komkult,
   ...quizData_krle_10,
   ...quizData_krle_5,
@@ -181,6 +187,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_norsk_7,
   ...quizData_norsk_8,
   ...quizData_norsk_9,
+  ...quizData_norsk_10,
   ...quizData_norsk_vg1,
   ...quizData_norsk_vg2,
   ...quizData_norsk_vg3,
@@ -198,6 +205,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_samfunnsfag_7,
   ...quizData_samfunnsfag_8,
   ...quizData_samfunnsfag_9,
+  ...quizData_samfunnsfag_10,
   ...quizData_samfunnskunnskap,
   ...quizData_samfokonomi,
   ...quizData_sikkerhetsfag,

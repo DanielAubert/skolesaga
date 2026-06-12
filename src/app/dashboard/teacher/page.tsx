@@ -45,6 +45,7 @@ import {
   XCircle,
   Shield,
   ClipboardList,
+  Flag,
 } from "lucide-react";
 import { CreateAssignmentDialog } from "@/components/assignments/create-assignment-dialog";
 import { useSession } from "next-auth/react";
@@ -846,6 +847,27 @@ export default function TeacherDashboard() {
                   </CardHeader>
                   <CardContent className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Administrer brukere</span>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  </CardContent>
+                </Link>
+              </Card>
+            )}
+            {isAdmin && (
+              <Card className="hover:border-destructive/50 transition-colors cursor-pointer border-destructive/30">
+                <Link href="/dashboard/admin/feedback">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-red-100 dark:bg-red-950/50">
+                        <Flag className="h-6 w-6 text-red-600" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">Tilbakemeldinger</CardTitle>
+                        <CardDescription>Meldte feil og forbedringer</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Se og kopier til Claude</span>
                     <ChevronRight className="h-5 w-5 text-muted-foreground" />
                   </CardContent>
                 </Link>

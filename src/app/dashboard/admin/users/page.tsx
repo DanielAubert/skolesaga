@@ -35,7 +35,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Trash2, Search, Users, RefreshCw, AlertTriangle } from "lucide-react";
+import Link from "next/link";
+import { Trash2, Search, Users, RefreshCw, AlertTriangle, Flag } from "lucide-react";
 
 interface User {
   id: string;
@@ -176,10 +177,18 @@ export default function AdminUsersPage() {
                 <CardTitle>Brukeradministrasjon</CardTitle>
                 <Badge variant="outline">{total} brukere</Badge>
               </div>
-              <Button variant="outline" size="sm" onClick={fetchUsers}>
-                <RefreshCw className="h-4 w-4 mr-2" />
-                Oppdater
-              </Button>
+              <div className="flex items-center gap-2">
+                <Link href="/dashboard/admin/feedback">
+                  <Button variant="outline" size="sm">
+                    <Flag className="h-4 w-4 mr-2" />
+                    Tilbakemeldinger
+                  </Button>
+                </Link>
+                <Button variant="outline" size="sm" onClick={fetchUsers}>
+                  <RefreshCw className="h-4 w-4 mr-2" />
+                  Oppdater
+                </Button>
+              </div>
             </div>
           </CardHeader>
           <CardContent>

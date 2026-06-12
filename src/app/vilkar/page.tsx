@@ -54,9 +54,33 @@ export default function VilkarPage() {
             </p>
           </section>
 
+          {/* KI-deklarasjon */}
+          <section id="ki-deklarasjon" className="scroll-mt-20">
+            <h2 className="text-xl font-semibold mb-4">3. Innhold utviklet med kunstig intelligens</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Lærebøkene, oppgavene, løsningsforslagene, quizene og illustrasjonene på
+              Skolesaga.no er utviklet med omfattende støtte fra kunstig intelligens (KI),
+              under menneskelig redaksjonell styring. Hvert kapittel bygges mot konkrete
+              kompetansemål i læreplanen (LK20), struktureres etter et fast
+              teori–eksempel–oppgave-mønster og kontrolleres med automatiserte verktøy for
+              blant annet svarvalidering og balansert fremstilling.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              KI-generert innhold kan inneholde feil, også der fremstillingen virker sikker.
+              Innholdet kvalitetssikres løpende, men er ikke fagfellevurdert på samme måte
+              som tradisjonelle læreverk. Bruk derfor Skolesaga som et supplement til
+              undervisning og pensumlitteratur, ikke som eneste kilde.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Oppdager du en feil, setter vi stor pris på om du melder fra via
+              «Meld feil eller forbedring»-knappen som finnes nederst i hvert kapittel.
+              Innmeldte feil rettes fortløpende.
+            </p>
+          </section>
+
           {/* Ingen garanti */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">3. Ingen garanti for nøyaktighet</h2>
+            <h2 className="text-xl font-semibold mb-4">4. Ingen garanti for nøyaktighet</h2>
             <p className="text-muted-foreground leading-relaxed">
               Innholdet på denne nettsiden tilbys &quot;som det er&quot;, uten garantier av noe slag,
               hverken uttrykte eller underforståtte. Vi garanterer ikke at informasjonen er
@@ -67,7 +91,7 @@ export default function VilkarPage() {
 
           {/* Ansvarsbegrensning */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">4. Ansvarsbegrensning</h2>
+            <h2 className="text-xl font-semibold mb-4">5. Ansvarsbegrensning</h2>
             <p className="text-muted-foreground leading-relaxed">
               Skolesaga.no, samt dets eiere, samarbeidspartnere og bidragsytere, kan ikke
               holdes ansvarlig for direkte eller indirekte tap, skader eller kostnader som måtte
@@ -85,7 +109,7 @@ export default function VilkarPage() {
 
           {/* Personlig ansvar */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">5. Personlig ansvar for bruk av informasjon</h2>
+            <h2 className="text-xl font-semibold mb-4">6. Personlig ansvar for bruk av informasjon</h2>
             <p className="text-muted-foreground leading-relaxed">
               Brukere av denne nettsiden oppfordres til å anvende eget skjønn og kritisk vurdering
               ved bruk av informasjonen som formidles her. All bruk av informasjon skjer på eget
@@ -96,7 +120,7 @@ export default function VilkarPage() {
 
           {/* Opphavsrett */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">6. Opphavsrett og immaterielle rettigheter</h2>
+            <h2 className="text-xl font-semibold mb-4">7. Opphavsrett og immaterielle rettigheter</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Eksamensoppgavene som presenteres på denne nettsiden er hentet fra
               Utdanningsdirektoratet (UDIR) og er offentlig tilgjengelige. Opphavsretten til
@@ -115,7 +139,7 @@ export default function VilkarPage() {
 
           {/* Brukergenerert innhold */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">7. Brukergenerert innhold</h2>
+            <h2 className="text-xl font-semibold mb-4">8. Brukergenerert innhold</h2>
             <p className="text-muted-foreground leading-relaxed">
               Dersom nettsiden tillater brukergenerert innhold (kommentarer, bidrag til løsninger,
               etc.), er brukeren selv ansvarlig for innholdet de publiserer. Vi forbeholder oss
@@ -126,7 +150,7 @@ export default function VilkarPage() {
 
           {/* Eksterne lenker */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">8. Eksterne lenker</h2>
+            <h2 className="text-xl font-semibold mb-4">9. Eksterne lenker</h2>
             <p className="text-muted-foreground leading-relaxed">
               Nettsiden kan inneholde lenker til eksterne nettsider. Vi har ingen kontroll over
               innholdet på disse sidene og påtar oss ikke ansvar for deres innhold,
@@ -136,7 +160,7 @@ export default function VilkarPage() {
 
           {/* Endringer */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">9. Endringer og oppdateringer</h2>
+            <h2 className="text-xl font-semibold mb-4">10. Endringer og oppdateringer</h2>
             <p className="text-muted-foreground leading-relaxed">
               Innholdet på nettsiden kan oppdateres, endres eller fjernes når som helst uten
               forvarsel. Vi påtar oss ikke ansvar for hvordan oppdateringer påvirker brukernes
@@ -148,7 +172,7 @@ export default function VilkarPage() {
 
           {/* Tilgjengelighet */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">10. Tilgjengelighet og nedetid</h2>
+            <h2 className="text-xl font-semibold mb-4">11. Tilgjengelighet og nedetid</h2>
             <p className="text-muted-foreground leading-relaxed">
               Vi garanterer ikke kontinuerlig tilgjengelighet til tjenesten. Nettsiden kan
               være utilgjengelig på grunn av vedlikehold, tekniske problemer eller andre
@@ -159,7 +183,7 @@ export default function VilkarPage() {
 
           {/* Brukerkontoer */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">11. Brukerkontoer</h2>
+            <h2 className="text-xl font-semibold mb-4">12. Brukerkontoer</h2>
             <p className="text-muted-foreground leading-relaxed">
               Dersom du oppretter en brukerkonto, er du ansvarlig for å holde
               påloggingsinformasjonen din konfidensiell. Du er ansvarlig for all aktivitet
@@ -170,7 +194,7 @@ export default function VilkarPage() {
 
           {/* Lærerfunksjonalitet */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">12. Lærerfunksjonalitet og klasseadministrasjon</h2>
+            <h2 className="text-xl font-semibold mb-4">13. Lærerfunksjonalitet og klasseadministrasjon</h2>
             <p className="text-muted-foreground leading-relaxed">
               Lærere som bruker klassefunksjonaliteten er selv ansvarlige for å informere
               elever og foresatte om bruk av tjenesten i samsvar med skolens retningslinjer
@@ -181,7 +205,7 @@ export default function VilkarPage() {
 
           {/* Aldersgrense */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">13. Aldersgrense</h2>
+            <h2 className="text-xl font-semibold mb-4">14. Aldersgrense</h2>
             <p className="text-muted-foreground leading-relaxed">
               Tjenesten er primært rettet mot elever i ungdomsskole og videregående skole.
               For brukere under 16 år anbefales det at foresatte er informert om bruken av
@@ -191,7 +215,7 @@ export default function VilkarPage() {
 
           {/* Lovvalg */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">14. Lovvalg og tvister</h2>
+            <h2 className="text-xl font-semibold mb-4">15. Lovvalg og tvister</h2>
             <p className="text-muted-foreground leading-relaxed">
               Disse vilkårene er underlagt norsk lov. Eventuelle tvister som måtte oppstå
               i forbindelse med bruken av nettsiden skal forsøkes løst i minnelighet. Dersom
@@ -201,7 +225,7 @@ export default function VilkarPage() {
 
           {/* Kontakt */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">15. Kontakt</h2>
+            <h2 className="text-xl font-semibold mb-4">16. Kontakt</h2>
             <p className="text-muted-foreground leading-relaxed">
               Har du spørsmål om disse vilkårene eller annen henvendelse, kan du kontakte
               oss på e-post. Se kontaktinformasjon på nettsiden.

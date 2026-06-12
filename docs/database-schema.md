@@ -130,6 +130,34 @@ CREATE INDEX IF NOT EXISTS idx_quiz_results_quiz ON quiz_results(quiz_id);
 CREATE INDEX IF NOT EXISTS idx_quiz_results_course ON quiz_results(course_id);
 ```
 
+### content_feedback
+
+Tilbakemeldinger fra brukere («Meld feil eller forbedring»-knappen i kapitlene).
+All lesing og skriving går gjennom `/api/feedback` med service role-nøkkel, så
+tabellen trenger ingen anon/authenticated-policies — bare aktivert RLS.
+
+```sql
+CREATE TABLE content_feedback (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  category TEXT NOT NULL CHECK (category IN ('feil', 'forbedring')),
+  message TEXT NOT NULL,
+  course_id TEXT,
+  chapter_id TEXT,
+  chapter_title TEXT,
+  page_url TEXT,
+  contact_email TEXT,
+  user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+  status TEXT NOT NULL DEFAULT 'ny' CHECK (status IN ('ny', 'under-arbeid', 'lost', 'avvist')),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_content_feedback_status ON content_feedback(status);
+CREATE INDEX idx_content_feedback_chapter ON content_feedback(chapter_id);
+
+ALTER TABLE content_feedback ENABLE ROW LEVEL SECURITY;
+```
+
 ## Row Level Security (RLS)
 
 For sikkerhet bør RLS aktiveres på alle tabeller:
