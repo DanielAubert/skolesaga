@@ -122,6 +122,7 @@ function getChapterIcon(chapter: TextbookChapterMeta): LucideIcon {
 }
 import { getCourse, getChaptersBySection, getSectionNames } from '@/lib/data/textbook-courses';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
+import { mediaUrl } from '@/lib/media';
 
 interface PageProps {
   params: Promise<{ courseId: string }>;
@@ -168,7 +169,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         {course.coverImage && (
           <div className="relative w-full h-44 sm:h-56 md:h-72 lg:h-96 rounded-xl overflow-hidden mb-8 bg-muted">
             <Image
-              src={course.coverImage}
+              src={mediaUrl(course.coverImage)}
               alt={course.title}
               fill
               priority
@@ -267,7 +268,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                           {chapter.coverImage ? (
                             <div className="relative h-32 w-full overflow-hidden bg-muted">
                               <Image
-                                src={chapter.coverImage}
+                                src={mediaUrl(chapter.coverImage)}
                                 alt={chapter.title}
                                 fill
                                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"

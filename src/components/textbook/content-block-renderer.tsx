@@ -25,6 +25,7 @@ import { DynamicPlot } from './dynamic-plot';
 import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
 import DOMPurify from 'isomorphic-dompurify';
 import dynamic from 'next/dynamic';
+import { mediaUrl } from '@/lib/media';
 import {
   AngleIntroIllustration,
   AngleTypesIllustration,
@@ -596,7 +597,7 @@ function AudioBlockComponent({
           className="w-full"
           preload="metadata"
         >
-          <source src={src} type="audio/mpeg" />
+          <source src={mediaUrl(src)} type="audio/mpeg" />
           Nettleseren din støtter ikke lydavspilling.
         </audio>
       </CardContent>
@@ -662,7 +663,7 @@ function ImageBlockComponent({ block }: { block: ImageBlock }) {
     <figure className="my-6">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={block.src}
+        src={mediaUrl(block.src)}
         alt={block.alt}
         className={cn(
           'rounded-lg mx-auto',
@@ -703,7 +704,7 @@ function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
-            src={block.svgPath}
+            src={mediaUrl(block.svgPath)}
             alt={block.caption || block.title || 'Asymptote-figur'}
             className="max-w-full h-auto"
             style={block.width ? { maxWidth: block.width } : undefined}

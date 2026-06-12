@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
+import { mediaUrl } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Interaktive Lærebøker',
@@ -27,7 +28,7 @@ function GradeCard({ href, grade, subtitle, gradient, textColor = 'text-white', 
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={image}
+            src={mediaUrl(image)}
             alt={grade}
             className="w-full h-auto object-cover block transition-transform duration-500 group-hover:scale-105"
             style={{ display: 'block' }}

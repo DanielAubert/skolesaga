@@ -22,6 +22,7 @@ import { CompetenceGoalsDropdown } from './competence-goals-dropdown';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
 import { AssignmentBanner } from '@/components/assignments/assignment-banner';
 import { AiDisclosureNotice } from './feedback-dialog';
+import { mediaUrl } from '@/lib/media';
 
 function getLevelGradeSlug(level: string): string {
   const lower = level.toLowerCase();
@@ -312,7 +313,7 @@ export function TextbookChapterView({
       {chapterMeta.coverImage && (
         <div className="relative w-full h-56 sm:h-72 md:h-96 overflow-hidden bg-muted">
           <Image
-            src={chapterMeta.coverImage}
+            src={mediaUrl(chapterMeta.coverImage)}
             alt={chapterMeta.title}
             fill
             priority

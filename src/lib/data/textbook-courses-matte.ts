@@ -3964,7 +3964,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Etterspørsel', 'Elastisitet', 'Priselastisitet', 'Markedslikevekt'],
       competenceGoals: ['anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
       prerequisites: ['s1-4-2'],
-      coverImage: '/images/subjects/s1-4-3-etterspørsel-og-elastisitet.webp',
+      coverImage: '/images/subjects/s1-4-3-ettersporsel-og-elastisitet.webp',
       linkedChapterId: 's1-4-3-narrativ',
     },
     {
@@ -6291,7 +6291,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Stigning og monotoni', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter'],
       prerequisites: ['r1-4-4'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-6-funksjonsdrøfting.webp',
+      coverImage: '/images/subjects/r1-4-6-funksjonsdrofting.webp',
       linkedChapterId: 'r1-4-6-narrativ',
     },
     {
@@ -6998,7 +6998,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Funksjonsdrøfting', 'Areal', 'Volum', 'Anvendelser'],
       prerequisites: ['r2-2-7', 'r2-3-6'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon'],
-      coverImage: '/images/subjects/r2-3-7-funksjonsdrøfting-med-integrasjon.webp',
+      coverImage: '/images/subjects/r2-3-7-funksjonsdrofting-med-integrasjon.webp',
       linkedChapterId: 'r2-3-7-narrativ',
     },
 

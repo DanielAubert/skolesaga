@@ -11,6 +11,8 @@ const cspDirectives = [
   "img-src 'self' data: blob: https://images.unsplash.com https://img.youtube.com https://xerfxuoxqdptoxkiefju.supabase.co",
   // Fonts: self only (Next.js bundles fonts at build time)
   "font-src 'self'",
+  // Audio/video: self + Supabase Storage (lydbøker ligger i media-bucketen)
+  "media-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co",
   // API connections: self + Supabase + Feide/Dataporten + Google Analytics + Google OAuth
   "connect-src 'self' https://xerfxuoxqdptoxkiefju.supabase.co https://auth.dataporten.no https://www.googletagmanager.com https://cdn.jsdelivr.net https://accounts.google.com https://oauth2.googleapis.com",
   // Iframes: YouTube + Vimeo
@@ -52,6 +54,27 @@ const nextConfig: NextConfig = {
       asyncWebAssembly: true,
     };
     return config;
+  },
+  // Sikkerhetsnett: mediefilene er flyttet til Supabase Storage (bucket: media).
+  // Render-koden bruker mediaUrl() fra src/lib/media.ts; disse redirectene fanger
+  // opp eventuelle direkte lenker og referanser som ikke går via hjelperen.
+  async redirects() {
+    const mediaBase = process.env.NEXT_PUBLIC_SUPABASE_URL
+      ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media`
+      : null;
+    if (!mediaBase) return [];
+    return [
+      {
+        source: '/audio/:path*',
+        destination: `${mediaBase}/audio/:path*`,
+        permanent: false,
+      },
+      {
+        source: '/images/:path*',
+        destination: `${mediaBase}/images/:path*`,
+        permanent: false,
+      },
+    ];
   },
   async headers() {
     return [

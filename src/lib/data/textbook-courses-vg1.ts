@@ -856,7 +856,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Sortlegeme', 'Stefan-Boltzmanns lov', 'Wiens lov', 'Emisjon', 'Absorpsjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer med ulik temperatur og overflate'],
-      coverImage: '/images/subjects/fysikk-5-3-varmestråling.webp',
+      coverImage: '/images/subjects/fysikk-5-3-varmestraling.webp',
     },
     {
       id: 'fys1-5-4',

@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { StudentAssignmentCard } from "@/components/assignments/student-assignment-card";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { mediaUrl } from '@/lib/media';
 
 interface StudentClass {
   id: string;
@@ -418,7 +419,7 @@ export default function StudentDashboard() {
                         {(course.coverImage || COURSE_IMAGES[course.id]) ? (
                           /* eslint-disable-next-line @next/next/no-img-element */
                           <img
-                            src={course.coverImage || COURSE_IMAGES[course.id]}
+                            src={mediaUrl(course.coverImage || COURSE_IMAGES[course.id])}
                             alt={course.title}
                             className="w-full h-full object-cover"
                           />

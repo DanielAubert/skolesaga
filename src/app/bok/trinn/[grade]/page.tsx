@@ -5,6 +5,7 @@ import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
 import { AddCourseButton } from '@/components/student/add-course-button';
+import { mediaUrl } from '@/lib/media';
 
 // Define grade configurations
 const GRADE_CONFIG: Record<string, {
@@ -328,7 +329,7 @@ function SubjectCard({ courseId, name, icon, color, image }: SubjectCardProps) {
           {image && (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
-              src={image}
+              src={mediaUrl(image)}
               alt={name}
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -394,7 +395,7 @@ export default async function GradePage({ params }: PageProps) {
           {/* Background image - cropped and centered */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={config.image}
+            src={mediaUrl(config.image)}
             alt={config.title}
             className="w-full h-full object-cover object-center"
           />
