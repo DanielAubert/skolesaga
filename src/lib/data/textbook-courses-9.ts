@@ -26,6 +26,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Etos', 'Patos', 'Logos', 'Appellformer', 'Argumentasjon', 'Kairos'],
       competenceGoals: ['bruke retoriske appellformer og språklige virkemidler i egen argumentasjon'],
+      linkedChapterId: 'norsk-9-1-1-narrativ',
     },
     {
       id: 'norsk-9-1-2',
@@ -36,6 +37,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Kildekritikk', 'Manipulerende språk', 'Fakta vs. meninger', 'Propaganda', 'Virkemidler'],
       competenceGoals: ['vurdere tekster kritisk med blikk for avsender, formål og virkemidler'],
+      linkedChapterId: 'norsk-9-1-2-narrativ',
     },
     {
       id: 'norsk-9-1-3',
@@ -46,6 +48,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Debatt', 'Diskusjon', 'Motargumenter', 'Saklig argumentasjon', 'Debattregler'],
       competenceGoals: ['delta i diskusjoner med saklige argumenter og lytte til andres synspunkter'],
+      linkedChapterId: 'norsk-9-1-3-narrativ',
     },
     {
       id: 'norsk-9-1-4',
@@ -56,6 +59,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Retorisk femkant', 'Taleanalyse', 'Tekstanalyse', 'Retorisk situasjon'],
       competenceGoals: ['gjenkjenne og bruke språklige virkemidler og retoriske appellformer'],
+      linkedChapterId: 'norsk-9-1-4-narrativ',
     },
     {
       id: 'norsk-9-1-5',
@@ -66,6 +70,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Stråmann', 'Ad hominem', 'Falsk dilemma', 'Skråplanargument', 'Autoritetsargument'],
       competenceGoals: ['bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte'],
+      linkedChapterId: 'norsk-9-1-5-narrativ',
     },
     {
       id: 'norsk-9-1-6',
@@ -76,6 +81,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Debattinnlegg', 'Leserbrev', 'Kampanjetekst', 'Overbevisning'],
       competenceGoals: ['informere, fortelle, argumentere og reflektere i ulike muntlige og skriftlige sjangre og for ulike formål'],
+      linkedChapterId: 'norsk-9-1-6-narrativ',
     },
     {
       id: 'norsk-9-2-1',
@@ -86,6 +92,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Novelleskriving', 'Vis ikke fortell', 'Freytags pyramide', 'Sanselig språk', 'Dialog', 'Skriveteknikker'],
       competenceGoals: ['skrive kreative, informative og reflekterende tekster med hensiktsmessig oppbygning'],
+      linkedChapterId: 'norsk-9-2-1-narrativ',
     },
     {
       id: 'norsk-9-2-2',
@@ -96,6 +103,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Artikkel', 'Ingress', 'Kildebruk', 'Sakprosa', 'Mottakertilpasning'],
       competenceGoals: ['skrive tekster med god struktur og tilpasse språk og innhold til formål og mottaker'],
+      linkedChapterId: 'norsk-9-2-2-narrativ',
     },
     {
       id: 'norsk-9-2-3',
@@ -106,6 +114,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Formelt språk', 'Uformelt språk', 'Virkemidler', 'Setningsvariasjon', 'Ordvalg', 'Tone'],
       competenceGoals: ['variere setningsbygning og ordvalg i egne tekster'],
+      linkedChapterId: 'norsk-9-2-3-narrativ',
     },
     {
       id: 'norsk-9-2-4',
@@ -116,6 +125,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Avsnitt', 'Temasetninger', 'Tekstbinding', 'Bindeord', 'Tekststrukturer', 'Tegnsetting'],
       competenceGoals: ['skrive tekster med funksjonell tekstbinding og riktig tegnsetting'],
+      linkedChapterId: 'norsk-9-2-4-narrativ',
     },
     {
       id: 'norsk-9-2-5',
@@ -126,6 +136,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Nynorsk', 'Verbbøying', 'Omsetjing', 'Rettskriving', 'Vanlige feil'],
       competenceGoals: ['skrive tekster med funksjonell tekstbinding og mestre rettskriving og ordbøying på hovedmål og sidemål'],
+      linkedChapterId: 'norsk-9-2-5-narrativ',
     },
     {
       id: 'norsk-9-2-6',
@@ -136,6 +147,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Refleksjon', 'Essay', 'Påstand-eksempel-refleksjon', 'Litterær refleksjon'],
       competenceGoals: ['uttrykke seg i ulike sjangre og eksperimentere med sjangre på kreative måter'],
+      linkedChapterId: 'norsk-9-2-6-narrativ',
     },
     {
       id: 'norsk-9-3-1',
@@ -146,6 +158,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Norrønt', 'Eddadiktning', 'Sagaer', 'Norrøn mytologi', 'Kenninger', 'Ragnarok'],
       competenceGoals: ['gjøre rede for kjennetegn ved norsk språkutvikling og utforske norrøne tekster'],
+      linkedChapterId: 'norsk-9-3-1-narrativ',
     },
     {
       id: 'norsk-9-3-2',
@@ -156,6 +169,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Språkutvikling', 'Svartedauden', 'Dansketiden', 'Ivar Aasen', 'Knud Knudsen', 'Bokmål og nynorsk', 'Rettskrivningsreformer'],
       competenceGoals: ['gjøre rede for sentrale hendelser i norsk språkhistorie'],
+      linkedChapterId: 'norsk-9-3-2-narrativ',
     },
     {
       id: 'norsk-9-3-3',
@@ -166,6 +180,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Dialekter', 'Østnorsk', 'Vestnorsk', 'Trøndersk', 'Nordnorsk', 'Dialektendringer', 'Kodeveksling'],
       competenceGoals: ['sammenligne særtrekk ved norske dialekter og reflektere over dialektenes rolle i samfunnet'],
+      linkedChapterId: 'norsk-9-3-3-narrativ',
     },
     {
       id: 'norsk-9-3-4',
@@ -176,6 +191,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Samnorsk', 'Språkloven', 'Sidemål', 'Rettskrivningsreformer', 'Språkdebatt'],
       competenceGoals: ['forklare den historiske bakgrunnen for bokmål og nynorsk og reflektere over statusen til de offisielle språkene i Norge i dag'],
+      linkedChapterId: 'norsk-9-3-4-narrativ',
     },
     {
       id: 'norsk-9-3-5',
@@ -186,6 +202,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Nordsamisk', 'Lulesamisk', 'Sørsamisk', 'Fornorsking', 'Språkrettigheter', 'Språkrevitalisering'],
       competenceGoals: ['utforske språklig variasjon og mangfold i Norge og reflektere over holdninger til ulike språk'],
+      linkedChapterId: 'norsk-9-3-5-narrativ',
     },
     {
       id: 'norsk-9-3-6',
@@ -196,6 +213,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Språkendring', 'Engelskpåvirkning', 'Ungdomsspråk', 'Digitale medier', 'Domenetap', 'Lånord'],
       competenceGoals: ['utforske og vurdere hvordan digitale medier påvirker og endrer språk og kommunikasjon'],
+      linkedChapterId: 'norsk-9-3-6-narrativ',
     },
     // Kapittel 4: Litteratur
     {
@@ -207,6 +225,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Realisme', 'Naturalisme', 'Henrik Ibsen', 'Amalie Skram', 'Alexander Kielland'],
       competenceGoals: ['lese og analysere tekster fra realismen og naturalismen i lys av deres samtid'],
+      linkedChapterId: 'norsk-9-4-1-narrativ',
     },
     {
       id: 'norsk-9-4-2',
@@ -217,6 +236,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Modernisme', 'Tarjei Vesaas', 'Autofiksjon', 'Samtidslitteratur', 'Postmodernisme'],
       competenceGoals: ['lese og tolke tekster fra ulike tider og reflektere over tekstenes historiske kontekst'],
+      linkedChapterId: 'norsk-9-4-2-narrativ',
     },
     {
       id: 'norsk-9-4-3',
@@ -227,6 +247,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Lyrikk', 'Bildespråk', 'Lydvirkemidler', 'Tolkningsstrategier', 'Norske diktere'],
       competenceGoals: ['sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid'],
+      linkedChapterId: 'norsk-9-4-3-narrativ',
     },
     {
       id: 'norsk-9-4-4',
@@ -237,6 +258,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Novelleanalyse', 'Fortellerteknikk', 'Symbolikk', 'Tematikk', 'Synsvinkel'],
       competenceGoals: ['lese skjønnlitteratur og sakprosa og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler'],
+      linkedChapterId: 'norsk-9-4-4-narrativ',
     },
     {
       id: 'norsk-9-4-5',
@@ -247,6 +269,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Drama', 'Sceneanvisning', 'Dialog', 'Monolog', 'Henrik Ibsen'],
       competenceGoals: ['sammenligne og tolke tekster ut fra historisk kontekst og egen samtid'],
+      linkedChapterId: 'norsk-9-4-5-narrativ',
     },
     {
       id: 'norsk-9-4-6',
@@ -257,6 +280,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Litteratur og samfunn', 'Sensur', 'Nasjonsbygging', 'Protestlitteratur'],
       competenceGoals: ['utforske og reflektere over hvordan tekster framstiller unges livssituasjon'],
+      linkedChapterId: 'norsk-9-4-6-narrativ',
     },
     {
       id: 'norsk-9-5-1',
@@ -267,6 +291,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Podcast', 'Video', 'Digital historiefortelling', 'Sammensatte tekster', 'Modaliteter'],
       competenceGoals: ['skape sammensatte tekster og tilpasse dem til formål og mottaker'],
+      linkedChapterId: 'norsk-9-5-1-narrativ',
     },
     {
       id: 'norsk-9-5-2',
@@ -277,6 +302,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Mediekritikk', 'Kildekritikk', 'Algoritmer', 'Ekkokammer', 'Falske nyheter', 'Reklame'],
       competenceGoals: ['vurdere kilder kritisk og være bevisst på hvordan medier påvirker oss'],
+      linkedChapterId: 'norsk-9-5-2-narrativ',
     },
     {
       id: 'norsk-9-5-3',
@@ -287,6 +313,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Nyhetskriterier', 'Journalistikk', 'Den omvendte pyramiden', 'Presseetikk', 'Vær Varsom-plakaten'],
       competenceGoals: ['bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte'],
+      linkedChapterId: 'norsk-9-5-3-narrativ',
     },
     {
       id: 'norsk-9-5-4',
@@ -297,6 +324,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Filmanalyse', 'Kameravinkler', 'Klipping', 'Mise-en-scène', 'Filmmusikk', 'Filmsjangrer'],
       competenceGoals: ['lage sammensatte tekster og begrunne valg av uttrykksformer'],
+      linkedChapterId: 'norsk-9-5-4-narrativ',
     },
     // Kapittel 6: Grammatikk og språksystem
     {
@@ -308,6 +336,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Hovedsetning', 'Leddsetning', 'Relativsetning', 'Setningstyper'],
       competenceGoals: ['bruke fagspråk og kunnskap om grammatikk, tekststruktur og sjanger'],
+      linkedChapterId: 'norsk-9-6-1-narrativ',
     },
     {
       id: 'norsk-9-6-2',
@@ -318,6 +347,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Determinativer', 'Konjunksjoner', 'Subjunksjoner', 'Interjeksjoner', 'Ordklasseambiguitet'],
       competenceGoals: ['bruke fagspråk og kunnskap om grammatikk'],
+      linkedChapterId: 'norsk-9-6-2-narrativ',
     },
     {
       id: 'norsk-9-6-3',
@@ -328,6 +358,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Semikolon', 'Kolon', 'Tankestrek', 'Parentes', 'Komma'],
       competenceGoals: ['skrive tekster med funksjonell tekstbinding og riktig tegnsetting'],
+      linkedChapterId: 'norsk-9-6-3-narrativ',
     },
     {
       id: 'norsk-9-6-4',
@@ -338,6 +369,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Nynorsk morfologi', 'Verbbøying', 'Pronomen', 'Sammenhengende tekst'],
       competenceGoals: ['mestre rettskriving og ordbøying på hovedmål og sidemål'],
+      linkedChapterId: 'norsk-9-6-4-narrativ',
     },
     // Kapittel 7: Lesing og analyse
     {
@@ -349,6 +381,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Analysemetode', 'SPRINT-modell', 'Analyseessay', 'Tolkningsfellesskap'],
       competenceGoals: ['lese skjønnlitteratur og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler'],
+      linkedChapterId: 'norsk-9-7-1-narrativ',
     },
     {
       id: 'norsk-9-7-2',
@@ -359,6 +392,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Sakprosaanalyse', 'Argumentstruktur', 'Appellformer', 'Retorisk analyse'],
       competenceGoals: ['gjenkjenne og bruke språklige virkemidler og retoriske appellformer'],
+      linkedChapterId: 'norsk-9-7-2-narrativ',
     },
     {
       id: 'norsk-9-7-3',
@@ -369,6 +403,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Komparativ analyse', 'Intertekstualitet', 'Perspektiv', 'Tematisk sammenligning'],
       competenceGoals: ['sammenligne og tolke romaner, noveller, lyrikk og andre tekster ut fra historisk kontekst og egen samtid'],
+      linkedChapterId: 'norsk-9-7-3-narrativ',
     },
     {
       id: 'norsk-9-7-4',
@@ -379,6 +414,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Svensk lesing', 'Dansk lesing', 'Nabospråkforståelse', 'Skandinavisk'],
       competenceGoals: ['lytte til og lese tekster på svensk og dansk og gjøre rede for innhold og språklige trekk'],
+      linkedChapterId: 'norsk-9-7-4-narrativ',
     },
     // Kapittel 8: Fordypning og eksamen
     {
@@ -390,6 +426,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Eksamensforberedelse', 'Disposisjon', 'Tidsbruk', 'Oppgavetyper'],
       competenceGoals: ['skrive tekster med funksjonell tekstbinding og riktig tegnsetting og mestre rettskriving'],
+      linkedChapterId: 'norsk-9-8-1-narrativ',
     },
     {
       id: 'norsk-9-8-2',
@@ -400,6 +437,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Muntlig eksamen', 'Fagsamtale', 'Presentasjon', 'Formidling'],
       competenceGoals: ['bruke fagspråk og argumentere saklig i muntlige presentasjoner'],
+      linkedChapterId: 'norsk-9-8-2-narrativ',
     },
     {
       id: 'norsk-9-8-3',
@@ -410,6 +448,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Fordypningsoppgave', 'Kildearbeid', 'Struktur', 'Kildetilvisning'],
       competenceGoals: ['bruke kilder på en kritisk måte, markere sitater og vise til kilder på en etterrettelig måte'],
+      linkedChapterId: 'norsk-9-8-3-narrativ',
     },
     {
       id: 'norsk-9-8-4',
@@ -420,6 +459,7 @@ export const COURSE_NORSK_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Repetisjon', 'Nøkkelbegreper', 'Eksamensøving', 'Sjekkliste'],
       competenceGoals: ['bruke fagspråk og kunnskap om grammatikk, tekststruktur og sjanger', 'lese skjønnlitteratur og reflektere over tekstenes formål, innhold, sjangertrekk og virkemidler'],
+      linkedChapterId: 'norsk-9-8-4-narrativ',
     },
   ],
 };
@@ -852,6 +892,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Kildekritikk', 'Troverdighet', 'Propaganda', 'Desinformasjon', 'Avsender og kontekst'],
       competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      linkedChapterId: 'samfunnsfag-9-1-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-1-2',
@@ -862,6 +903,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Statistikk', 'Grafer', 'Gjennomsnitt', 'Median', 'Prosentregning', 'Manipulasjon'],
       competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      linkedChapterId: 'samfunnsfag-9-1-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-1-3',
@@ -872,6 +914,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Kvalitativ metode', 'Kvantitativ metode', 'Intervju', 'Spørreundersøkelse', 'Feltarbeid'],
       competenceGoals: ['vurdere på kva måtar ulike kjelder gir informasjon om samfunnet'],
+      linkedChapterId: 'samfunnsfag-9-1-3-narrativ',
     },
 
     // Seksjon 2: Historie - 1700-tallet
@@ -884,6 +927,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Opplysningstiden', 'Fornuft', 'Montesquieu', 'Voltaire', 'Rousseau', 'Maktfordeling'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-2-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-2-2',
@@ -894,6 +938,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Amerikanske revolusjonen', 'Uavhengighetserklæringen', 'Grunnloven', 'Boston Tea Party'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-2-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-2-3',
@@ -904,6 +949,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Franske revolusjonen', 'Stendersamfunnet', 'Bastillen', 'Terrorveldet', 'Napoleon'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-2-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-2-4',
@@ -914,6 +960,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Industrialisering', 'Dampmaskin', 'Urbanisering', 'Barnearbeid', 'Arbeiderklassen'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-2-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-2-5',
@@ -924,6 +971,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Dansketiden', 'Unionen', 'Napoleonskrigene', 'Blokade', 'Nødsår'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-2-5-narrativ',
     },
 
     // Seksjon 3: Historie - 1800-tallet
@@ -936,6 +984,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['1814', 'Eidsvoll', 'Grunnloven', 'Christian Frederik', 'Riksforsamlingen'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-3-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-3-2',
@@ -946,6 +995,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Nasjonsbygging', 'Nasjonalromantikk', 'Språkstrid', 'Parlamentarisme', '1884'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-3-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-3-3',
@@ -956,6 +1006,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Imperialisme', 'Kolonialisme', 'Kappløpet om Afrika', 'Berlin-konferansen', 'Konsekvenser'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-3-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-3-4',
@@ -966,6 +1017,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Utvandring', 'Amerika', 'Push-faktorer', 'Pull-faktorer', 'Overreisen'],
       competenceGoals: ['utforske konsekvenser av befolkningsendringer og migrasjon'],
+      linkedChapterId: 'samfunnsfag-9-3-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-3-5',
@@ -976,6 +1028,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Arbeiderbevegelsen', 'Fagforeninger', 'Streik', 'Marcus Thrane', 'Rettigheter'],
       competenceGoals: ['gjere greie for sentrale hendingar som har påverka demokratiutviklinga i Noreg og verda'],
+      linkedChapterId: 'samfunnsfag-9-3-5-narrativ',
     },
 
     // Seksjon 4: Historie - 1900-tallet del 1
@@ -988,6 +1041,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Første verdenskrig', 'Skyttergravskrig', 'Allianser', 'Versailles', 'Konsekvenser'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-4-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-4-2',
@@ -998,6 +1052,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Mellomkrigstiden', 'Børskrakket', 'Arbeidsløshet', 'Weimarrepublikken', 'New Deal'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-4-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-4-3',
@@ -1008,6 +1063,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Fascisme', 'Nazisme', 'Kommunisme', 'Hitler', 'Stalin', 'Mussolini', 'Propaganda'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-4-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-4-4',
@@ -1018,6 +1074,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Andre verdenskrig', 'Holocaust', 'D-dagen', 'Østfronten', 'Atombombe', 'FN'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-4-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-4-5',
@@ -1028,6 +1085,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['9. april', 'Okkupasjonen', 'NS', 'Motstandsbevegelsen', 'Rettsoppgjøret', 'Jødene'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-4-5-narrativ',
     },
 
     {
@@ -1039,6 +1097,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Holocaust', 'Folkemord', 'Terrorisme', '22. juli', 'Forebygging', 'Ekstremisme'],
       competenceGoals: ['gjere greie for årsaker til og konsekvensar av terrorhandlingar og folkemord, som holocaust'],
+      linkedChapterId: 'samfunnsfag-9-4-6-narrativ',
     },
 
     // Seksjon 5: Geografi og globalisering
@@ -1051,6 +1110,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Klimasoner', 'Tropisk', 'Temperert', 'Arktisk', 'Økosystemer', 'Biologisk mangfold'],
       competenceGoals: ['utforske naturlege og menneskeskapte endringar i miljøet og drøfte korleis dei påverkar samfunnet'],
+      linkedChapterId: 'samfunnsfag-9-5-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-5-2',
@@ -1061,6 +1121,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Global ulikhet', 'HDI', 'BNP', 'Fattigdom', 'Bistand', 'Utvikling'],
       competenceGoals: ['utforske korleis ressursar er fordelte og drøfte kva konsekvensar fordelinga har'],
+      linkedChapterId: 'samfunnsfag-9-5-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-5-3',
@@ -1071,6 +1132,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Eksport', 'Import', 'Frihandel', 'Proteksjonisme', 'WTO', 'EØS', 'Oljefondet'],
       competenceGoals: ['utforske korleis handel og økonomisk samarbeid påverkar land og folk'],
+      linkedChapterId: 'samfunnsfag-9-5-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-5-4',
@@ -1081,6 +1143,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['FN', 'Sikkerhetsrådet', 'Vetomakt', 'NATO', 'EU', 'EØS', 'Fredsarbeid'],
       competenceGoals: ['drøfte årsaker til og konsekvensar av sentrale historiske og nåtidige konfliktar'],
+      linkedChapterId: 'samfunnsfag-9-5-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-5-5',
@@ -1091,6 +1154,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Flyktninger', 'Asylsøker', 'Push-pull', 'Flyktningkonvensjonen', 'Integrering'],
       competenceGoals: ['utforske konsekvenser av befolkningsendringer og migrasjon'],
+      linkedChapterId: 'samfunnsfag-9-5-5-narrativ',
     },
 
     // Seksjon 6: Demokrati og politikk
@@ -1103,6 +1167,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Stortinget', 'Regjeringen', 'Domstolene', 'Maktfordeling', 'Parlamentarisme', 'Kommuner'],
       competenceGoals: ['gjere greie for korleis det politiske systemet i Noreg er organisert'],
+      linkedChapterId: 'samfunnsfag-9-6-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-6-2',
@@ -1113,6 +1178,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Politiske partier', 'Venstre-høyre-aksen', 'Ideologier', 'Partiprogram', 'Flerpartisystem'],
       competenceGoals: ['gjere greie for korleis det politiske systemet i Noreg er organisert'],
+      linkedChapterId: 'samfunnsfag-9-6-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-6-3',
@@ -1123,6 +1189,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Stemmerett', 'Forholdstallsvalg', 'Sperregrense', 'Valgdeltakelse', 'Mandatfordeling'],
       competenceGoals: ['gjere greie for korleis det politiske systemet i Noreg er organisert'],
+      linkedChapterId: 'samfunnsfag-9-6-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-6-4',
@@ -1133,6 +1200,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Rettsstat', 'Rettssikkerhet', 'Domstolene', 'Uskyldspresumsjonen', 'Grunnloven', 'Straff'],
       competenceGoals: ['gjere greie for korleis det politiske systemet i Noreg er organisert'],
+      linkedChapterId: 'samfunnsfag-9-6-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-6-5',
@@ -1143,6 +1211,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Ytringsfrihet', 'Pressefrihet', 'Offentlighetsprinsippet', 'Fjerde statsmakt', 'Falske nyheter'],
       competenceGoals: ['utforske og beskrive korleis politiske prosessar fungerer'],
+      linkedChapterId: 'samfunnsfag-9-6-5-narrativ',
     },
 
     // Seksjon 7: Individ og samfunn
@@ -1155,6 +1224,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Sosialisering', 'Primærsosialisering', 'Sekundærsosialisering', 'Normer', 'Roller', 'Sanksjoner'],
       competenceGoals: ['utforske og beskrive korleis ulike sosialiseringsagentar påverkar unge'],
+      linkedChapterId: 'samfunnsfag-9-7-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-7-2',
@@ -1165,6 +1235,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Sosiale medier', 'Algoritmer', 'Filterbobler', 'Ekkokammer', 'Personvern', 'Desinformasjon'],
       competenceGoals: ['utforske og beskrive korleis ulike sosialiseringsagentar påverkar unge'],
+      linkedChapterId: 'samfunnsfag-9-7-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-7-3',
@@ -1175,6 +1246,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Kriminalitet', 'Årsaker', 'Ungdomskriminalitet', 'Forebygging', 'Konfliktråd', 'Straff'],
       competenceGoals: ['utforske kvifor konfliktar oppstår og korleis dei kan løysast'],
+      linkedChapterId: 'samfunnsfag-9-7-3-narrativ',
     },
     {
       id: 'samfunnsfag-9-7-4',
@@ -1185,6 +1257,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Ulikhet', 'Gini-koeffisient', 'Velferdsstat', 'Omfordeling', 'Barnefattigdom', 'Sosial mobilitet'],
       competenceGoals: ['utforske korleis ressursar er fordelte og drøfte kva konsekvensar fordelinga har'],
+      linkedChapterId: 'samfunnsfag-9-7-4-narrativ',
     },
     {
       id: 'samfunnsfag-9-7-5',
@@ -1195,6 +1268,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Skatt', 'Omfordeling', 'Arbeidskontrakt', 'Fagforeninger', 'Forbrukermakt', 'Fairtrade', 'Netthandel', 'Gjeld', 'Kredittkort'],
       competenceGoals: ['vurdere korleis arbeid, inntekt og forbruk kan påverke personleg økonomi, levestandard og livskvalitet'],
+      linkedChapterId: 'samfunnsfag-9-7-5-narrativ',
     },
 
     // Seksjon 8: Bærekraft og framtid
@@ -1207,6 +1281,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Bærekraftsmål', 'SDG', 'Bærekraftig utvikling', 'Brundtland-kommisjonen', 'Tre dimensjoner'],
       competenceGoals: ['utforske og beskrive korleis vi kan leve meir berekraftig'],
+      linkedChapterId: 'samfunnsfag-9-8-1-narrativ',
     },
     {
       id: 'samfunnsfag-9-8-2',
@@ -1217,6 +1292,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Klimaendringer', 'Drivhuseffekten', 'Parisavtalen', 'Klimarettferdighet', 'Grønn omstilling'],
       competenceGoals: ['utforske og beskrive korleis vi kan leve meir berekraftig'],
+      linkedChapterId: 'samfunnsfag-9-8-2-narrativ',
     },
     {
       id: 'samfunnsfag-9-8-3',
@@ -1227,6 +1303,7 @@ export const COURSE_SAMFUNNSFAG_9: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Kunstig intelligens', 'Automatisering', 'Personvern', 'Deepfakes', 'Etiske dilemmaer', 'Digital kompetanse'],
       competenceGoals: ['utforske korleis teknologisk utvikling påverkar samfunnet'],
+      linkedChapterId: 'samfunnsfag-9-8-3-narrativ',
     },
   ],
 };
@@ -1242,53 +1319,53 @@ export const COURSE_KRLE_9: TextbookCourse = {
   icon: '🕊️',
   chapters: [
     // Seksjon 1: Kristendommens utvikling
-    { id: 'krle-9-1-1', number: '1.1', title: 'Reformasjonen og dens konsekvenser', description: 'Lær om Martin Luther, reformasjonen og hvordan den endret kristendommen og Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Luther', 'Reformasjonen', '95 teser', 'Protestantisme', 'Konsekvenser'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'] },
-    { id: 'krle-9-1-2', number: '1.2', title: 'Kristendommen i den moderne verden', description: 'Lær om kristendommens utvikling i nyere tid og dens rolle i dagens samfunn.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Sekularisering', 'Økumenikk', 'Karismatisk', 'Migrasjon', 'Globalt'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'] },
-    { id: 'krle-9-1-3', number: '1.3', title: 'Kristne bevegelser og retninger i dag', description: 'Lær om pinsebevegelsen, karismatisk kristendom og nye kristne retninger.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pinsebevegelse', 'Karismatisk', 'Evangelikal', 'Frikirker', 'Vekst'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'] },
-    { id: 'krle-9-1-4', number: '1.4', title: 'Kristendom, vitenskap og evolusjon', description: 'Utforsk forholdet mellom kristen tro og naturvitenskap.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Skapelse', 'Evolusjon', 'Konflikt', 'Dialog', 'Kreasjonisme'], competenceGoals: ['sammenligne og vurdere kritisk ulike kilder til kunnskap om religioner og livssyn'] },
-    { id: 'krle-9-1-5', number: '1.5', title: 'Kristendom, kjønn og seksualitet', description: 'Lær om ulike kristne syn på kjønnsroller og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjønnsroller', 'Likestilling', 'Ekteskap', 'LHBT+', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'] },
+    { id: 'krle-9-1-1', number: '1.1', title: 'Reformasjonen og dens konsekvenser', description: 'Lær om Martin Luther, reformasjonen og hvordan den endret kristendommen og Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Luther', 'Reformasjonen', '95 teser', 'Protestantisme', 'Konsekvenser'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'], linkedChapterId: 'krle-9-1-1-narrativ' },
+    { id: 'krle-9-1-2', number: '1.2', title: 'Kristendommen i den moderne verden', description: 'Lær om kristendommens utvikling i nyere tid og dens rolle i dagens samfunn.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Sekularisering', 'Økumenikk', 'Karismatisk', 'Migrasjon', 'Globalt'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'], linkedChapterId: 'krle-9-1-2-narrativ' },
+    { id: 'krle-9-1-3', number: '1.3', title: 'Kristne bevegelser og retninger i dag', description: 'Lær om pinsebevegelsen, karismatisk kristendom og nye kristne retninger.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pinsebevegelse', 'Karismatisk', 'Evangelikal', 'Frikirker', 'Vekst'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'], linkedChapterId: 'krle-9-1-3-narrativ' },
+    { id: 'krle-9-1-4', number: '1.4', title: 'Kristendom, vitenskap og evolusjon', description: 'Utforsk forholdet mellom kristen tro og naturvitenskap.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Skapelse', 'Evolusjon', 'Konflikt', 'Dialog', 'Kreasjonisme'], competenceGoals: ['sammenligne og vurdere kritisk ulike kilder til kunnskap om religioner og livssyn'], linkedChapterId: 'krle-9-1-4-narrativ' },
+    { id: 'krle-9-1-5', number: '1.5', title: 'Kristendom, kjønn og seksualitet', description: 'Lær om ulike kristne syn på kjønnsroller og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjønnsroller', 'Likestilling', 'Ekteskap', 'LHBT+', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'], linkedChapterId: 'krle-9-1-5-narrativ' },
     // Seksjon 2: Islam i dybden
-    { id: 'krle-9-2-1', number: '2.1', title: 'Islamsk tro og praksis i dybden', description: 'Utdyp kunnskapen om islamsk teologi, jus og mystikk.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Teologi', 'Fiqh', 'Sufisme', 'Ijtihad', 'Mangfold'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'] },
-    { id: 'krle-9-2-2', number: '2.2', title: 'Sunni, shia og andre retninger', description: 'Lær om de viktigste retningene innen islam og bakgrunnen for splittelsen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Sunni', 'Shia', 'Sufisme', 'Ibadi', 'Splittelse'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'] },
-    { id: 'krle-9-2-3', number: '2.3', title: 'Islam i den moderne verden', description: 'Lær om islams rolle i dagens samfunn, politikk og kultur.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Modernisme', 'Tradisjonalisme', 'Islamisme', 'Reform', 'Europeisk islam'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'] },
-    { id: 'krle-9-2-4', number: '2.4', title: 'Islam, kjønn og seksualitet', description: 'Lær om ulike islamske syn på kjønnsroller og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjønnsroller', 'Hijab', 'Ekteskap', 'Likestilling', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'] },
-    { id: 'krle-9-2-5', number: '2.5', title: 'Islamofobi og fordommer', description: 'Lær om fordommer mot muslimer, islamofobi og hvordan bekjempe stereotypier.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Islamofobi', 'Fordommer', 'Stereotypier', 'Media', 'Bekjempelse'], competenceGoals: ['utforske andres perspektiv og håndtere uenighet og meningsbrytning'] },
+    { id: 'krle-9-2-1', number: '2.1', title: 'Islamsk tro og praksis i dybden', description: 'Utdyp kunnskapen om islamsk teologi, jus og mystikk.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Teologi', 'Fiqh', 'Sufisme', 'Ijtihad', 'Mangfold'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'], linkedChapterId: 'krle-9-2-1-narrativ' },
+    { id: 'krle-9-2-2', number: '2.2', title: 'Sunni, shia og andre retninger', description: 'Lær om de viktigste retningene innen islam og bakgrunnen for splittelsen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Sunni', 'Shia', 'Sufisme', 'Ibadi', 'Splittelse'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'], linkedChapterId: 'krle-9-2-2-narrativ' },
+    { id: 'krle-9-2-3', number: '2.3', title: 'Islam i den moderne verden', description: 'Lær om islams rolle i dagens samfunn, politikk og kultur.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Modernisme', 'Tradisjonalisme', 'Islamisme', 'Reform', 'Europeisk islam'], competenceGoals: ['utforske og drøfte hvordan kristendom og andre religioner inngår i historiske endringsprosesser globalt og nasjonalt'], linkedChapterId: 'krle-9-2-3-narrativ' },
+    { id: 'krle-9-2-4', number: '2.4', title: 'Islam, kjønn og seksualitet', description: 'Lær om ulike islamske syn på kjønnsroller og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjønnsroller', 'Hijab', 'Ekteskap', 'Likestilling', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'], linkedChapterId: 'krle-9-2-4-narrativ' },
+    { id: 'krle-9-2-5', number: '2.5', title: 'Islamofobi og fordommer', description: 'Lær om fordommer mot muslimer, islamofobi og hvordan bekjempe stereotypier.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Islamofobi', 'Fordommer', 'Stereotypier', 'Media', 'Bekjempelse'], competenceGoals: ['utforske andres perspektiv og håndtere uenighet og meningsbrytning'], linkedChapterId: 'krle-9-2-5-narrativ' },
     // Seksjon 3: Østlige religioner i dybden
-    { id: 'krle-9-3-1', number: '3.1', title: 'Hinduismens mangfold', description: 'Utforsk hinduismens mange retninger, filosofier og praksiser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bhakti', 'Yoga', 'Vedanta', 'Kastesystem', 'Reform'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'] },
-    { id: 'krle-9-3-2', number: '3.2', title: 'Buddhistisk filosofi og meditasjon', description: 'Lær om buddhistisk filosofi og ulike meditasjonspraksiser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mindfulness', 'Zen', 'Vipassana', 'Tomhet', 'Medfølelse'], competenceGoals: ['utforske og sammenligne etiske ideer fra sentrale skikkelser i religiøse og livssynsbaserte tradisjoner'] },
-    { id: 'krle-9-3-3', number: '3.3', title: 'Sikhisme', description: 'Lær om sikhismens opprinnelse, tro og praksis.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Guru Nanak', 'Gurdwara', 'Langar', 'Fem K-er', 'Likhet'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'] },
-    { id: 'krle-9-3-4', number: '3.4', title: 'Østlige religioner i Vesten', description: 'Lær om hvordan hinduisme, buddhisme og yoga har påvirket vestlig kultur.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Yoga', 'Mindfulness', 'Kulturutveksling', 'Tilpasning', 'Kritikk'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'] },
-    { id: 'krle-9-3-5', number: '3.5', title: 'Religion, kjønn og likestilling i østlige religioner', description: 'Utforsk syn på kjønn og likestilling i hinduisme, buddhisme og sikhisme.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Kjønnsroller', 'Likestilling', 'Reform', 'Tradisjoner', 'Endring'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'] },
+    { id: 'krle-9-3-1', number: '3.1', title: 'Hinduismens mangfold', description: 'Utforsk hinduismens mange retninger, filosofier og praksiser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bhakti', 'Yoga', 'Vedanta', 'Kastesystem', 'Reform'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'], linkedChapterId: 'krle-9-3-1-narrativ' },
+    { id: 'krle-9-3-2', number: '3.2', title: 'Buddhistisk filosofi og meditasjon', description: 'Lær om buddhistisk filosofi og ulike meditasjonspraksiser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mindfulness', 'Zen', 'Vipassana', 'Tomhet', 'Medfølelse'], competenceGoals: ['utforske og sammenligne etiske ideer fra sentrale skikkelser i religiøse og livssynsbaserte tradisjoner'], linkedChapterId: 'krle-9-3-2-narrativ' },
+    { id: 'krle-9-3-3', number: '3.3', title: 'Sikhisme', description: 'Lær om sikhismens opprinnelse, tro og praksis.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Guru Nanak', 'Gurdwara', 'Langar', 'Fem K-er', 'Likhet'], competenceGoals: ['utforske og presentere sentrale trekk ved kristendom og andre religions- og livssynstradisjoner og deres utbredelse i dag'], linkedChapterId: 'krle-9-3-3-narrativ' },
+    { id: 'krle-9-3-4', number: '3.4', title: 'Østlige religioner i Vesten', description: 'Lær om hvordan hinduisme, buddhisme og yoga har påvirket vestlig kultur.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Yoga', 'Mindfulness', 'Kulturutveksling', 'Tilpasning', 'Kritikk'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'], linkedChapterId: 'krle-9-3-4-narrativ' },
+    { id: 'krle-9-3-5', number: '3.5', title: 'Religion, kjønn og likestilling i østlige religioner', description: 'Utforsk syn på kjønn og likestilling i hinduisme, buddhisme og sikhisme.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Kjønnsroller', 'Likestilling', 'Reform', 'Tradisjoner', 'Endring'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'], linkedChapterId: 'krle-9-3-5-narrativ' },
     // Seksjon 4: Etiske teorier og filosofi
-    { id: 'krle-9-4-1', number: '4.1', title: 'Sokrates, Platon og Aristoteles', description: 'Lær om antikkens store filosofer og deres bidrag til etisk tenkning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sokrates', 'Platon', 'Aristoteles', 'Dialog', 'Dygd'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'] },
-    { id: 'krle-9-4-2', number: '4.2', title: 'Kant og pliktetikken', description: 'Lær om Immanuel Kants moralfilosofi og det kategoriske imperativ.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kant', 'Kategorisk imperativ', 'Plikt', 'Autonomi', 'Verdighet'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'] },
-    { id: 'krle-9-4-3', number: '4.3', title: 'Utilitarisme -- nyttefilosofien', description: 'Lær om Bentham, Mill og ideen om størst mulig lykke for flest mulig.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bentham', 'Mill', 'Nytte', 'Lykke', 'Konsekvenser'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'] },
-    { id: 'krle-9-4-4', number: '4.4', title: 'Eksistensialisme og frihet', description: 'Lær om eksistensialistisk filosofi og spørsmålet om frihet og ansvar.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kierkegaard', 'Sartre', 'De Beauvoir', 'Frihet', 'Ansvar'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'] },
-    { id: 'krle-9-4-5', number: '4.5', title: 'Etiske ideer i religionene', description: 'Sammenlign etiske ideer fra Jesus, Muhammad, Buddha og andre religiøse skikkelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Nestekjærlighet', 'Barmhjertighet', 'Ahimsa', 'Medfølelse', 'Sammenligning'], competenceGoals: ['utforske og sammenligne etiske ideer fra sentrale skikkelser i religiøse og livssynsbaserte tradisjoner'] },
+    { id: 'krle-9-4-1', number: '4.1', title: 'Sokrates, Platon og Aristoteles', description: 'Lær om antikkens store filosofer og deres bidrag til etisk tenkning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sokrates', 'Platon', 'Aristoteles', 'Dialog', 'Dygd'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'], linkedChapterId: 'krle-9-4-1-narrativ' },
+    { id: 'krle-9-4-2', number: '4.2', title: 'Kant og pliktetikken', description: 'Lær om Immanuel Kants moralfilosofi og det kategoriske imperativ.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kant', 'Kategorisk imperativ', 'Plikt', 'Autonomi', 'Verdighet'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'], linkedChapterId: 'krle-9-4-2-narrativ' },
+    { id: 'krle-9-4-3', number: '4.3', title: 'Utilitarisme -- nyttefilosofien', description: 'Lær om Bentham, Mill og ideen om størst mulig lykke for flest mulig.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bentham', 'Mill', 'Nytte', 'Lykke', 'Konsekvenser'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'], linkedChapterId: 'krle-9-4-3-narrativ' },
+    { id: 'krle-9-4-4', number: '4.4', title: 'Eksistensialisme og frihet', description: 'Lær om eksistensialistisk filosofi og spørsmålet om frihet og ansvar.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kierkegaard', 'Sartre', 'De Beauvoir', 'Frihet', 'Ansvar'], competenceGoals: ['utforske etiske ideer fra sentrale skikkelser i filosofihistorien og anvende ideene til å drøfte aktuelle etiske spørsmål'], linkedChapterId: 'krle-9-4-4-narrativ' },
+    { id: 'krle-9-4-5', number: '4.5', title: 'Etiske ideer i religionene', description: 'Sammenlign etiske ideer fra Jesus, Muhammad, Buddha og andre religiøse skikkelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Nestekjærlighet', 'Barmhjertighet', 'Ahimsa', 'Medfølelse', 'Sammenligning'], competenceGoals: ['utforske og sammenligne etiske ideer fra sentrale skikkelser i religiøse og livssynsbaserte tradisjoner'], linkedChapterId: 'krle-9-4-5-narrativ' },
     // Seksjon 5: Livssyn og verdensbilder
-    { id: 'krle-9-5-1', number: '5.1', title: 'Sekulære livssyn og ateisme', description: 'Lær om ateisme, agnostisisme og sekulære verdensbilder.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Ateisme', 'Agnostisisme', 'Sekularisme', 'Rasjonalisme', 'Vitenskap'], competenceGoals: ['undersøke og presentere sentrale ideer fra livssynshumanisme og andre ikke-religiøse livssyn'] },
-    { id: 'krle-9-5-2', number: '5.2', title: 'Humanisme i dybden', description: 'Utforsk humanismens filosofiske røtter og praktiske konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Renessansehumanisme', 'Opplysningstid', 'Menneskerettigheter', 'Etikk', 'Seremoni'], competenceGoals: ['undersøke og presentere sentrale ideer fra livssynshumanisme og andre ikke-religiøse livssyn'] },
-    { id: 'krle-9-5-3', number: '5.3', title: 'Religion og vitenskap', description: 'Utforsk forholdet mellom religiøse og vitenskapelige forklaringer på verden.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Skapelse', 'Evolusjon', 'Kosmologi', 'Konfliktmodell', 'Dialogmodell'], competenceGoals: ['sammenligne og vurdere kritisk ulike kilder til kunnskap om religioner og livssyn'] },
-    { id: 'krle-9-5-4', number: '5.4', title: 'Nyreligiøsitet og alternativ spiritualitet', description: 'Lær om nyreligiøse bevegelser, New Age og alternativ spiritualitet.', estimatedMinutes: 45, exerciseCount: 6, topics: ['New Age', 'Wicca', 'Neopaganisme', 'Alternativ', 'Eklektisisme'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'] },
-    { id: 'krle-9-5-5', number: '5.5', title: 'Religiøst mangfold utenfor organiserte samfunn', description: 'Lær om individuell religiøsitet, «spiritual but not religious» og nye former for tro.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Privatreligiøsitet', 'Spiritualitet', 'Synkretisme', 'Individualisering'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'] },
+    { id: 'krle-9-5-1', number: '5.1', title: 'Sekulære livssyn og ateisme', description: 'Lær om ateisme, agnostisisme og sekulære verdensbilder.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Ateisme', 'Agnostisisme', 'Sekularisme', 'Rasjonalisme', 'Vitenskap'], competenceGoals: ['undersøke og presentere sentrale ideer fra livssynshumanisme og andre ikke-religiøse livssyn'], linkedChapterId: 'krle-9-5-1-narrativ' },
+    { id: 'krle-9-5-2', number: '5.2', title: 'Humanisme i dybden', description: 'Utforsk humanismens filosofiske røtter og praktiske konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Renessansehumanisme', 'Opplysningstid', 'Menneskerettigheter', 'Etikk', 'Seremoni'], competenceGoals: ['undersøke og presentere sentrale ideer fra livssynshumanisme og andre ikke-religiøse livssyn'], linkedChapterId: 'krle-9-5-2-narrativ' },
+    { id: 'krle-9-5-3', number: '5.3', title: 'Religion og vitenskap', description: 'Utforsk forholdet mellom religiøse og vitenskapelige forklaringer på verden.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Skapelse', 'Evolusjon', 'Kosmologi', 'Konfliktmodell', 'Dialogmodell'], competenceGoals: ['sammenligne og vurdere kritisk ulike kilder til kunnskap om religioner og livssyn'], linkedChapterId: 'krle-9-5-3-narrativ' },
+    { id: 'krle-9-5-4', number: '5.4', title: 'Nyreligiøsitet og alternativ spiritualitet', description: 'Lær om nyreligiøse bevegelser, New Age og alternativ spiritualitet.', estimatedMinutes: 45, exerciseCount: 6, topics: ['New Age', 'Wicca', 'Neopaganisme', 'Alternativ', 'Eklektisisme'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'], linkedChapterId: 'krle-9-5-4-narrativ' },
+    { id: 'krle-9-5-5', number: '5.5', title: 'Religiøst mangfold utenfor organiserte samfunn', description: 'Lær om individuell religiøsitet, «spiritual but not religious» og nye former for tro.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Privatreligiøsitet', 'Spiritualitet', 'Synkretisme', 'Individualisering'], competenceGoals: ['utforske og presentere religiøst mangfold og religiøse praksiser utenfor etablerte religionssamfunn'], linkedChapterId: 'krle-9-5-5-narrativ' },
     // Seksjon 6: Religion, etikk og samfunn
-    { id: 'krle-9-6-1', number: '6.1', title: 'Menneskerettigheter og religionsfrihet', description: 'Utforsk forholdet mellom menneskerettigheter og religiøs praksis.', estimatedMinutes: 50, exerciseCount: 6, topics: ['FN', 'Religionsfrihet', 'Konflikter', 'Blasfemi', 'Grenser'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'] },
-    { id: 'krle-9-6-2', number: '6.2', title: 'Ytringsfrihet og religion', description: 'Drøft forholdet mellom ytringsfrihet og religiøse følelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Ytringsfrihet', 'Karikaturer', 'Blasfemi', 'Grenser', 'Respekt'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'] },
-    { id: 'krle-9-6-3', number: '6.3', title: 'Etikk og teknologi', description: 'Drøft etiske spørsmål knyttet til kunstig intelligens, sosiale medier og overvåking.', estimatedMinutes: 50, exerciseCount: 6, topics: ['KI', 'Personvern', 'Sosiale medier', 'Overvåking', 'Algoritmer'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'] },
-    { id: 'krle-9-6-4', number: '6.4', title: 'Bærekraft og rettferdighet', description: 'Utforsk religiøse og etiske perspektiver på miljø, bærekraft og global rettferdighet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Klima', 'Fattigdom', 'Rettferdighet', 'Forvalteransvar', 'FNs bærekraftsmål'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'] },
-    { id: 'krle-9-6-5', number: '6.5', title: 'Etikk og kommunikasjon', description: 'Lær om etiske utfordringer i digital og personlig kommunikasjon.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Nettmobbing', 'Hatprat', 'Falske nyheter', 'Kildekritikk', 'Ansvar'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'] },
+    { id: 'krle-9-6-1', number: '6.1', title: 'Menneskerettigheter og religionsfrihet', description: 'Utforsk forholdet mellom menneskerettigheter og religiøs praksis.', estimatedMinutes: 50, exerciseCount: 6, topics: ['FN', 'Religionsfrihet', 'Konflikter', 'Blasfemi', 'Grenser'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'], linkedChapterId: 'krle-9-6-1-narrativ' },
+    { id: 'krle-9-6-2', number: '6.2', title: 'Ytringsfrihet og religion', description: 'Drøft forholdet mellom ytringsfrihet og religiøse følelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Ytringsfrihet', 'Karikaturer', 'Blasfemi', 'Grenser', 'Respekt'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'], linkedChapterId: 'krle-9-6-2-narrativ' },
+    { id: 'krle-9-6-3', number: '6.3', title: 'Etikk og teknologi', description: 'Drøft etiske spørsmål knyttet til kunstig intelligens, sosiale medier og overvåking.', estimatedMinutes: 50, exerciseCount: 6, topics: ['KI', 'Personvern', 'Sosiale medier', 'Overvåking', 'Algoritmer'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'], linkedChapterId: 'krle-9-6-3-narrativ' },
+    { id: 'krle-9-6-4', number: '6.4', title: 'Bærekraft og rettferdighet', description: 'Utforsk religiøse og etiske perspektiver på miljø, bærekraft og global rettferdighet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Klima', 'Fattigdom', 'Rettferdighet', 'Forvalteransvar', 'FNs bærekraftsmål'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'], linkedChapterId: 'krle-9-6-4-narrativ' },
+    { id: 'krle-9-6-5', number: '6.5', title: 'Etikk og kommunikasjon', description: 'Lær om etiske utfordringer i digital og personlig kommunikasjon.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Nettmobbing', 'Hatprat', 'Falske nyheter', 'Kildekritikk', 'Ansvar'], competenceGoals: ['identifisere og drøfte etiske problemstillinger knyttet til ulike former for kommunikasjon'], linkedChapterId: 'krle-9-6-5-narrativ' },
     // Seksjon 7: Samisk religion og urfolk
-    { id: 'krle-9-7-1', number: '7.1', title: 'Samisk religion og kosmologi', description: 'Lær om den samiske religionens verdensbilde, guder og ritualer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kosmologi', 'Guder', 'Ritualer', 'Noaide', 'Runebomme'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'] },
-    { id: 'krle-9-7-2', number: '7.2', title: 'Kristningen av samene', description: 'Lær om tvangskristningen av samene og dens konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kristning', 'Misjon', 'Fornorsking', 'Undertrykkelse', 'Revitalisering'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'] },
-    { id: 'krle-9-7-3', number: '7.3', title: 'Urfolksreligioner i verden', description: 'Lær om religiøse tradisjoner blant urfolk i Afrika, Amerika, Asia og Oseania.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Aboriginer', 'Maori', 'Indianere', 'Animisme', 'Hellige steder'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'] },
-    { id: 'krle-9-7-4', number: '7.4', title: 'Urfolks rettigheter og religion i dag', description: 'Drøft urfolks kamp for religiøse og kulturelle rettigheter i dag.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Rettigheter', 'Landrettigheter', 'Revitalisering', 'FN', 'Sannhetskommisjon'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'] },
+    { id: 'krle-9-7-1', number: '7.1', title: 'Samisk religion og kosmologi', description: 'Lær om den samiske religionens verdensbilde, guder og ritualer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kosmologi', 'Guder', 'Ritualer', 'Noaide', 'Runebomme'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'], linkedChapterId: 'krle-9-7-1-narrativ' },
+    { id: 'krle-9-7-2', number: '7.2', title: 'Kristningen av samene', description: 'Lær om tvangskristningen av samene og dens konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kristning', 'Misjon', 'Fornorsking', 'Undertrykkelse', 'Revitalisering'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'], linkedChapterId: 'krle-9-7-2-narrativ' },
+    { id: 'krle-9-7-3', number: '7.3', title: 'Urfolksreligioner i verden', description: 'Lær om religiøse tradisjoner blant urfolk i Afrika, Amerika, Asia og Oseania.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Aboriginer', 'Maori', 'Indianere', 'Animisme', 'Hellige steder'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'], linkedChapterId: 'krle-9-7-3-narrativ' },
+    { id: 'krle-9-7-4', number: '7.4', title: 'Urfolks rettigheter og religion i dag', description: 'Drøft urfolks kamp for religiøse og kulturelle rettigheter i dag.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Rettigheter', 'Landrettigheter', 'Revitalisering', 'FN', 'Sannhetskommisjon'], competenceGoals: ['gjøre rede for og reflektere over samenes og andre urfolks religions- og livssynstradisjoner'], linkedChapterId: 'krle-9-7-4-narrativ' },
     // Seksjon 8: Eksistensielle spørsmål
-    { id: 'krle-9-8-1', number: '8.1', title: 'Livet og døden', description: 'Utforsk ulike religiøse og sekulære perspektiver på liv, død og etterlivet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Døden', 'Etterlivet', 'Sorg', 'Ritualer', 'Sekulære perspektiver'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'] },
-    { id: 'krle-9-8-2', number: '8.2', title: 'Kjærlighet, relasjoner og seksualitet', description: 'Utforsk ulike religiøse og sekulære syn på kjærlighet, samliv og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjærlighet', 'Ekteskap', 'Samliv', 'Seksualitet', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'] },
-    { id: 'krle-9-8-3', number: '8.3', title: 'Identitet i et mangfoldig samfunn', description: 'Drøft hvordan religion og livssyn former identitet i et flerkulturelt Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Identitet', 'Flerkulturell', 'Tilhørighet', 'Integrering', 'Mangfold'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'] },
-    { id: 'krle-9-8-4', number: '8.4', title: 'Mening, krise og håp', description: 'Utforsk hvordan mennesker finner mening i kriser gjennom religion, filosofi og fellesskap.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Meningssøking', 'Krise', 'Resiliens', 'Tro', 'Fellesskap'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'] },
-    { id: 'krle-9-8-5', number: '8.5', title: 'Aktuelle etiske problemstillinger', description: 'Drøft aktuelle etiske spørsmål om medisinsk etikk, teknologi og miljø.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Medisinsk etikk', 'KI-etikk', 'Miljøetikk', 'Dyrevelferd', 'Genteknologi'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'] },
-    { id: 'krle-9-8-6', number: '8.6', title: 'Å leve sammen med ulikhet', description: 'Drøft hvordan vi kan leve godt sammen i et samfunn med mange religioner og livssyn.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Sameksistens', 'Dialog', 'Toleranse', 'Uenighet', 'Demokrati'], competenceGoals: ['utforske andres perspektiv og håndtere uenighet og meningsbrytning'] },
+    { id: 'krle-9-8-1', number: '8.1', title: 'Livet og døden', description: 'Utforsk ulike religiøse og sekulære perspektiver på liv, død og etterlivet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Døden', 'Etterlivet', 'Sorg', 'Ritualer', 'Sekulære perspektiver'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'], linkedChapterId: 'krle-9-8-1-narrativ' },
+    { id: 'krle-9-8-2', number: '8.2', title: 'Kjærlighet, relasjoner og seksualitet', description: 'Utforsk ulike religiøse og sekulære syn på kjærlighet, samliv og seksualitet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kjærlighet', 'Ekteskap', 'Samliv', 'Seksualitet', 'Mangfold'], competenceGoals: ['gjøre rede for og reflektere over ulike syn på kjønn og seksualitet i kristendom og andre religioner og livssyn'], linkedChapterId: 'krle-9-8-2-narrativ' },
+    { id: 'krle-9-8-3', number: '8.3', title: 'Identitet i et mangfoldig samfunn', description: 'Drøft hvordan religion og livssyn former identitet i et flerkulturelt Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Identitet', 'Flerkulturell', 'Tilhørighet', 'Integrering', 'Mangfold'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'], linkedChapterId: 'krle-9-8-3-narrativ' },
+    { id: 'krle-9-8-4', number: '8.4', title: 'Mening, krise og håp', description: 'Utforsk hvordan mennesker finner mening i kriser gjennom religion, filosofi og fellesskap.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Meningssøking', 'Krise', 'Resiliens', 'Tro', 'Fellesskap'], competenceGoals: ['reflektere over eksistensielle spørsmål knyttet til det å vokse opp og leve i et mangfoldig og globalt samfunn'], linkedChapterId: 'krle-9-8-4-narrativ' },
+    { id: 'krle-9-8-5', number: '8.5', title: 'Aktuelle etiske problemstillinger', description: 'Drøft aktuelle etiske spørsmål om medisinsk etikk, teknologi og miljø.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Medisinsk etikk', 'KI-etikk', 'Miljøetikk', 'Dyrevelferd', 'Genteknologi'], competenceGoals: ['identifisere og drøfte aktuelle etiske problemstillinger knyttet til menneskerettigheter, bærekraft og fattigdom'], linkedChapterId: 'krle-9-8-5-narrativ' },
+    { id: 'krle-9-8-6', number: '8.6', title: 'Å leve sammen med ulikhet', description: 'Drøft hvordan vi kan leve godt sammen i et samfunn med mange religioner og livssyn.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Sameksistens', 'Dialog', 'Toleranse', 'Uenighet', 'Demokrati'], competenceGoals: ['utforske andres perspektiv og håndtere uenighet og meningsbrytning'], linkedChapterId: 'krle-9-8-6-narrativ' },
   ],
 };
 
