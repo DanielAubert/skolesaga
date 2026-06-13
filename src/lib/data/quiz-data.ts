@@ -66,6 +66,9 @@ import quizData_kunst_7 from './quiz-data-kunst-7';
 import quizData_kunst_6 from './quiz-data-kunst-6';
 import quizData_kunst_5 from './quiz-data-kunst-5';
 import quizData_markedsforing from './quiz-data-markedsforing';
+import quizData_mat_og_helse_5 from './quiz-data-mat-og-helse-5';
+import quizData_mat_og_helse_6 from './quiz-data-mat-og-helse-6';
+import quizData_mat_og_helse_7 from './quiz-data-mat-og-helse-7';
 import quizData_mat_og_helse_8 from './quiz-data-mat-og-helse-8';
 import quizData_mat_og_helse_9 from './quiz-data-mat-og-helse-9';
 import quizData_mat_og_helse_10 from './quiz-data-mat-og-helse-10';
@@ -155,6 +158,8 @@ import quizData_tof_2 from './quiz-data-tof-2';
 import quizData_trening_1 from './quiz-data-trening-1';
 import quizData_trening_2 from './quiz-data-trening-2';
 import quizData_trening_3 from './quiz-data-trening-3';
+import quizData_handverk_design_vg1 from './quiz-data-handverk-design-vg1';
+import quizData_samfokonomi_1 from './quiz-data-samfokonomi-1';
 
 // Merged quiz data from all subject files
 const quizData: Record<string, QuizQuestion[]> = {
@@ -209,6 +214,9 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_kunst_6,
   ...quizData_kunst_5,
   ...quizData_markedsforing,
+  ...quizData_mat_og_helse_5,
+  ...quizData_mat_og_helse_6,
+  ...quizData_mat_og_helse_7,
   ...quizData_mat_og_helse_8,
   ...quizData_mat_og_helse_9,
   ...quizData_mat_og_helse_10,
@@ -298,6 +306,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_trening_1,
   ...quizData_trening_2,
   ...quizData_trening_3,
+  ...quizData_handverk_design_vg1,
+  ...quizData_samfokonomi_1,
 };
 
 /**

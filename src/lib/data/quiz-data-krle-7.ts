@@ -173,6 +173,110 @@ const quizData_krle_7: Record<string, QuizQuestion[]> = {
     explanation: 'Norge ratifiserte barnekonvensjonen i 1991, og den er del av norsk lov.',
   },
 ],
+  'krle-7-4-1': [
+    {
+      question: 'Hva er et etisk dilemma?',
+      options: [
+        'En situasjon der det er vanskelig å velge fordi flere hensyn står mot hverandre',
+        'Et matematisk problem med flere svar',
+        'En regel som alle er enige om',
+        'Et valg som alltid har ett klart riktig svar',
+      ],
+      explanation: 'Et etisk dilemma oppstår når flere gode verdier eller hensyn kolliderer, og det ikke finnes ett opplagt riktig svar.',
+    },
+    {
+      question: 'Hva er forskjellen på moral og etikk?',
+      options: [
+        'Moral er normene vi lever etter, etikk er systematisk tenkning om rett og galt',
+        'Moral og etikk betyr nøyaktig det samme',
+        'Etikk er normene vi lever etter, moral er tenkning om dem',
+        'Moral handler bare om religion, etikk bare om lov',
+      ],
+      explanation: 'Moral er de verdiene og normene vi faktisk lever etter, mens etikk er den systematiske refleksjonen over hva som er rett og galt.',
+    },
+    {
+      question: 'Hva er hovedideen i konsekvensetikk?',
+      options: [
+        'En handling er rett hvis den fører til gode konsekvenser',
+        'Noen handlinger er alltid gale uansett resultat',
+        'Det viktigste er hva slags person du er',
+        'Man skal alltid følge reglene uansett',
+      ],
+      explanation: 'Konsekvensetikk bedømmer en handling ut fra resultatet. Utilitarismen sier: størst mulig lykke for flest mulig.',
+    },
+    {
+      question: 'Hvilken etisk tenkemåte er Immanuel Kant mest kjent for?',
+      options: [
+        'Pliktetikk',
+        'Konsekvensetikk',
+        'Dydsetikk',
+        'Utilitarisme',
+      ],
+      explanation: 'Kant er den mest kjente pliktetikeren. Han mente noen handlinger er gale i seg selv, og at mennesket alltid skal behandles som et mål, aldri bare som et middel.',
+    },
+    {
+      question: 'Hva er kjernespørsmålet i dydsetikken?',
+      options: [
+        '«Hva slags person vil jeg være?»',
+        '«Hvilke konsekvenser gir handlingen?»',
+        '«Hvilken regel må jeg følge?»',
+        '«Hva er mest lønnsomt for meg?»',
+      ],
+      explanation: 'Dydsetikken, knyttet til Aristoteles, fokuserer på karakteren til den som handler og hvilke gode egenskaper (dyder) man bør utvikle.',
+    },
+  ],
+  'krle-7-4-2': [
+    {
+      question: 'Hva menes med identitet?',
+      options: [
+        'Summen av det som gjør deg til deg',
+        'Bare navnet og adressen din',
+        'Hvilket land du er født i',
+        'Hva du liker å spise',
+      ],
+      explanation: 'Identitet er summen av personlige egenskaper, sosiale roller og kulturell bakgrunn som gjør deg til den du er.',
+    },
+    {
+      question: 'Hvilke tre typer identitet nevnes i kapittelet?',
+      options: [
+        'Personlig, sosial og kulturell identitet',
+        'Fysisk, psykisk og åndelig identitet',
+        'Nasjonal, regional og lokal identitet',
+        'Privat, offentlig og hemmelig identitet',
+      ],
+      explanation: 'Identitet omfatter personlig identitet (tanker og verdier), sosial identitet (grupper og roller) og kulturell identitet (språk og opphav).',
+    },
+    {
+      question: 'Hva påvirker identiteten vår?',
+      options: [
+        'Familie, venner, kultur, egne erfaringer og valg',
+        'Bare foreldrene våre',
+        'Bare det vi ser på sosiale medier',
+        'Ingenting – identitet er helt medfødt',
+      ],
+      explanation: 'Identiteten formes av mange ting: familie, venner, kultur og samfunn, egne erfaringer og de valgene vi selv tar.',
+    },
+    {
+      question: 'Hvorfor er tilhørighet viktig for mennesker?',
+      options: [
+        'Det gir trygghet, støtte, fellesskap og mening',
+        'Det er egentlig ikke viktig i det hele tatt',
+        'Det handler bare om å bli populær',
+        'Det gjør at man slipper å ta egne valg',
+      ],
+      explanation: 'Tilhørighet gir trygghet og støtte, skaper fellesskap og mening, og hjelper oss å forstå hvem vi er.',
+    },
+    {
+      question: 'Hva menes med at vi har sammensatte identiteter?',
+      options: [
+        'At vi kan tilhøre mange grupper samtidig',
+        'At identiteten aldri kan forandre seg',
+        'At man bare kan ha én tilhørighet om gangen',
+        'At alle mennesker egentlig er helt like',
+      ],
+      explanation: 'De fleste har sammensatte identiteter – man kan for eksempel være norsk-pakistansk, muslim, fotballspiller og elev på samme tid.',
+    },
+  ],
 
 
 };
