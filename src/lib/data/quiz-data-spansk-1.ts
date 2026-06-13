@@ -1560,6 +1560,563 @@ const quizData_spansk_1: Record<string, QuizQuestion[]> = {
       explanation: 'I Sevilla bæres pasos gjennom gatene. Alfombras (gatetepper) er typisk for Guatemala.',
     },
   ],
+  'spansk-1-13-1': [
+    {
+      question: 'Hva betyr "el primer plato" på en spansk meny?',
+      options: ['Første rett', 'Dessert', 'Drikke', 'Regningen'],
+      explanation: 'Spanske menyer deles inn i entrantes, primer plato, segundo plato, postres og bebidas. "Primer plato" er første rett.',
+    },
+    {
+      question: 'Hva er "la tortilla española"?',
+      options: [
+        'Spansk omelett med potet',
+        'En kald tomatsuppe',
+        'Friterte deigstenger med sukker',
+        'Lufttørket skinke',
+      ],
+      explanation: 'Tortilla española er en spansk omelett laget med egg og potet. Gazpacho er den kalde tomatsuppen.',
+    },
+    {
+      question: 'Hva er "tapas"?',
+      options: ['Smaretter', 'En hovedrett', 'En dessert', 'En type drikke'],
+      explanation: 'Tapas er smaretter, en viktig del av spansk matkultur. Ordet betyr opprinnelig "lokk".',
+    },
+    {
+      question: 'Hva betyr "La cuenta, por favor"?',
+      options: ['Regningen, takk', 'Menyen, takk', 'Mer vann, takk', 'En til, takk'],
+      explanation: '"La cuenta" er regningen. "La carta" er menyen.',
+    },
+    {
+      question: 'Hva er "el gazpacho"?',
+      options: [
+        'Kald tomatsuppe',
+        'Risrett med skalldyr',
+        'Stekte poteter med krydret saus',
+        'Friterte deigstenger',
+      ],
+      explanation: 'Gazpacho er en kald tomatsuppe. Paella er risretten, patatas bravas er de stekte potetene.',
+    },
+  ],
+  'spansk-1-13-2': [
+    {
+      question: 'Hva betyr "la salida" på en rutetabell?',
+      options: ['Avgang', 'Ankomst', 'Plattform', 'Forsinkelse'],
+      explanation: '"Salida" = avgang, "llegada" = ankomst, "andén" = plattform, "retraso" = forsinkelse.',
+    },
+    {
+      question: 'Hva betyr "ida y vuelta"?',
+      options: ['Tur-retur', 'Enveis', 'Første klasse', 'Forsinkelse'],
+      explanation: '"Ida" = enveis, "ida y vuelta" = tur-retur.',
+    },
+    {
+      question: 'Hva er AVE i Spania?',
+      options: [
+        'Høyhastighetstoget (Alta Velocidad Española)',
+        'Et busselskap',
+        'En flyplass',
+        'En billettype for barn',
+      ],
+      explanation: 'AVE står for Alta Velocidad Española, Spanias høyhastighetstog.',
+    },
+    {
+      question: 'Hva er det vanligste transportmiddelet for lange reiser i Latin-Amerika?',
+      options: ['Buss', 'Tog', 'Trikk', 'Ferje'],
+      explanation: 'I Latin-Amerika er buss vanligst for lange reiser, mens Spania har et godt tognettverk (Renfe).',
+    },
+    {
+      question: 'Hva spør du med "¿A qué hora sale el tren?"',
+      options: [
+        'Når går toget?',
+        'Hvor mye koster billetten?',
+        'Hvor lang tid tar reisen?',
+        'Fra hvilken plattform går toget?',
+      ],
+      explanation: '"¿A qué hora sale?" betyr "Når går det?". "¿Cuánto tarda?" spør om varigheten.',
+    },
+  ],
+  'spansk-1-13-3': [
+    {
+      question: 'Hva betyr forkortelsen "hab." i en boligannonse?',
+      options: ['Rom/soverom', 'Bad', 'Kjøkken', 'Møblert'],
+      explanation: '"hab." står for habitación = rom/soverom.',
+    },
+    {
+      question: 'Hva betyr "Se alquila"?',
+      options: ['Til leie', 'Til salgs', 'Solgt', 'Møblert'],
+      explanation: '"Se alquila" = til leie, "se vende" = til salgs.',
+    },
+    {
+      question: 'Hva betyr "amueblado" i en boligannonse?',
+      options: ['Møblert', 'Umøblert', 'Nyoppusset', 'Sentralt'],
+      explanation: '"Amueblado" = møblert, "sin amueblar" = umøblert.',
+    },
+    {
+      question: 'Hva betyr "jornada completa" i en jobbannonse?',
+      options: ['Heltid', 'Deltid', 'Erfaring kreves', 'God lønn'],
+      explanation: '"Jornada completa" = heltid, "media jornada" = deltid.',
+    },
+    {
+      question: 'Hva betyr "Se busca" i en jobbannonse?',
+      options: ['Søkes/trenger', 'Krav', 'Lønn', 'Umiddelbar oppstart'],
+      explanation: '"Se busca" eller "se necesita" betyr at man søker etter / trenger noen.',
+    },
+  ],
+  'spansk-1-13-4': [
+    {
+      question: 'Hva betyr "el corazón" i spansk poesi?',
+      options: ['Hjertet', 'Sjelen', 'Drømmen', 'Månen'],
+      explanation: '"El corazón" = hjertet, "el alma" = sjelen, "el sueño" = drømmen.',
+    },
+    {
+      question: 'Hva betyr "la luna"?',
+      options: ['Månen', 'Solen', 'Stjernen', 'Havet'],
+      explanation: '"La luna" = månen, "el sol" = solen, "la estrella" = stjernen.',
+    },
+    {
+      question: 'Hva uttrykker diminutiven "-ito/-ita"?',
+      options: [
+        'At noe er lite eller søtt',
+        'At noe er stort',
+        'Flertall',
+        'Fortid',
+      ],
+      explanation: 'Diminutiven -ito/-ita betyr at noe er lite eller kjært, f.eks. casita = lite hus.',
+    },
+    {
+      question: 'Hva blir "perro" (hund) med diminutiv?',
+      options: ['perrito', 'perrino', 'perrillo', 'perrón'],
+      explanation: 'Diminutiven av perro er perrito (liten hund / bisk).',
+    },
+    {
+      question: 'Hvorfor er sangtekster nyttige for språklæring?',
+      options: [
+        'De hjelper med uttale, vokabular, grammatikk og kultur',
+        'De er alltid grammatisk perfekte',
+        'De inneholder kun vanlige ord',
+        'De er kortere enn dikt',
+      ],
+      explanation: 'Sangtekster gir uttaletrening, nytt vokabular i kontekst, naturlig grammatikk og kulturkjennskap.',
+    },
+  ],
+  'spansk-1-14-1': [
+    {
+      question: 'Hvordan uttales bokstaven "h" på spansk?',
+      options: ['Den er stum', 'Som norsk h', 'Som j', 'Som ch'],
+      explanation: 'H er alltid stum på spansk: "hola" uttales "ola".',
+    },
+    {
+      question: 'Hvordan uttales spansk "ñ"?',
+      options: ['Som «nj» på norsk', 'Som vanlig «n»', 'Som «ng»', 'Den er stum'],
+      explanation: 'Ñ uttales som «nj», f.eks. España (Espanja).',
+    },
+    {
+      question: 'Hva er forskjellen på "r" og "rr" på spansk?',
+      options: [
+        'rr er en rulle-r med flere slag, r har ett lett slag',
+        'De uttales helt likt',
+        'rr er stum',
+        'r uttales som norsk r',
+      ],
+      explanation: 'Enkel r har ett lett slag (pero = men), dobbel rr er rulle-r (perro = hund). Forskjellen kan endre betydningen.',
+    },
+    {
+      question: 'Hvordan uttales vokalene på spansk?',
+      options: [
+        'Alltid korte og klare',
+        'Som lange norske vokaler',
+        'Ofte stumme',
+        'De varierer mye fra ord til ord',
+      ],
+      explanation: 'Spanske vokaler (a, e, i, o, u) er alltid korte og klare, uten lange eller stumme varianter.',
+    },
+    {
+      question: 'Hvordan uttales "g" foran e/i på spansk, som i "gente"?',
+      options: [
+        'Som spansk j (sterk h-lyd)',
+        'Som norsk g',
+        'Som k',
+        'Den er stum',
+      ],
+      explanation: 'Foran e/i uttales g som en sterk h-lyd (som j). Foran a/o/u uttales den som norsk g.',
+    },
+  ],
+  'spansk-1-14-2': [
+    {
+      question: 'Hvilken hilsen brukes om morgenen?',
+      options: ['¡Buenos días!', '¡Buenas tardes!', '¡Buenas noches!', '¡Hasta luego!'],
+      explanation: '"Buenos días" brukes om morgenen, "buenas tardes" om ettermiddagen, "buenas noches" om kvelden.',
+    },
+    {
+      question: 'Hva betyr "¿Cuánto cuesta?"',
+      options: ['Hvor mye koster det?', 'Hvor er det?', 'Hva heter du?', 'Hva ønsker du?'],
+      explanation: '"¿Cuánto cuesta?" eller "¿Cuánto es?" betyr "Hvor mye koster det?".',
+    },
+    {
+      question: 'Hva betyr "Siga recto"?',
+      options: ['Gå rett fram', 'Sving til høyre', 'Sving til venstre', 'Snu'],
+      explanation: '"Siga recto" = gå rett fram, "gire a la derecha/izquierda" = sving til høyre/venstre.',
+    },
+    {
+      question: 'Hvilket uttrykk bruker du for å bestille dessert?',
+      options: ['De postre quiero helado.', 'De primero quiero la sopa.', 'La cuenta, por favor.', '¿Dónde está?'],
+      explanation: '"De postre" = til dessert, "de primero" = til forrett, "de segundo" = til hovedrett.',
+    },
+    {
+      question: 'Hvordan spør du om veien til et sted?',
+      options: ['¿Cómo llego a...?', '¿Cuánto cuesta?', '¿Qué desea?', '¿Cómo te llamas?'],
+      explanation: '"¿Cómo llego a...?" = "Hvordan kommer jeg til...?". "¿Dónde está...?" = "Hvor er...?".',
+    },
+  ],
+  'spansk-1-14-3': [
+    {
+      question: 'Hva er riktig rekkefølge i en presentasjon?',
+      options: [
+        'Innledning - Hoveddel - Avslutning',
+        'Avslutning - Hoveddel - Innledning',
+        'Hoveddel - Innledning - Avslutning',
+        'Innledning - Avslutning - Hoveddel',
+      ],
+      explanation: 'En god presentasjon har introducción, desarrollo og conclusión i den rekkefølgen.',
+    },
+    {
+      question: 'Hvordan innleder du en presentasjon?',
+      options: ['Hoy voy a hablar de...', 'Ayer hablé de...', 'Mañana voy a hablar de...', '¡Gracias por escuchar!'],
+      explanation: '"Hoy voy a hablar de..." = "I dag skal jeg snakke om...". Avslutning: "¡Gracias por escuchar!".',
+    },
+    {
+      question: 'Hva betyr "Me encanta"?',
+      options: ['Jeg elsker', 'Jeg liker litt', 'Jeg hater', 'Jeg kjenner'],
+      explanation: '"Me encanta" = jeg elsker / er veldig glad i. Sterkere enn "me gusta".',
+    },
+    {
+      question: 'Hvordan sier du "Jeg er ... år gammel" på spansk?',
+      options: ['Tengo ... años.', 'Soy ... años.', 'Estoy ... años.', 'Hago ... años.'],
+      explanation: 'På spansk bruker man tener (å ha) om alder: "Tengo 16 años" = jeg er 16 år.',
+    },
+    {
+      question: 'Hvilket bindeord betyr "først"?',
+      options: ['Primero', 'Luego', 'Además', 'Al final'],
+      explanation: '"Primero" = først, "luego/después" = så/etterpå, "al final/por último" = til slutt.',
+    },
+  ],
+  'spansk-1-14-4': [
+    {
+      question: 'Hva betyr "Tengo una reserva a nombre de..."?',
+      options: [
+        'Jeg har en reservasjon i navnet...',
+        'Jeg vil bestille et rom',
+        'For hvor mange netter?',
+        'Hvor er heisen?',
+      ],
+      explanation: '"Tengo una reserva a nombre de..." = "Jeg har en reservasjon i navnet...".',
+    },
+    {
+      question: 'Hva betyr "un billete de ida y vuelta"?',
+      options: ['En tur-returbillett', 'En enveisbillett', 'Et boardingkort', 'En bussbillett'],
+      explanation: '"De ida y vuelta" = tur-retur, "de ida" = enveis.',
+    },
+    {
+      question: 'Hvordan sier du "Jeg har vondt i hodet" hos legen?',
+      options: ['Me duele la cabeza.', 'Tengo cabeza.', 'La cabeza no funciona.', 'Mi cabeza es mala.'],
+      explanation: '"Me duele la cabeza" = "Jeg har vondt i hodet". Verbet doler bøyes som gustar.',
+    },
+    {
+      question: 'Hva betyr "Tengo fiebre"?',
+      options: ['Jeg har feber', 'Jeg er forkjølet', 'Jeg har hoste', 'Jeg føler meg ikke bra'],
+      explanation: '"Tengo fiebre" = jeg har feber. "Estoy resfriado/a" = jeg er forkjølet.',
+    },
+    {
+      question: 'Hva sier du til noen som er syk for å ønske dem god bedring?',
+      options: ['¡Que te mejores! (God bedring!)', '¡Buena suerte! (Lykke til!)', '¡Bienvenido! (Velkommen!)', '¡Adiós! (Ha det!)'],
+      explanation: '"¡Que te mejores!" eller "¡Que te recuperes!" betyr "God bedring!".',
+    },
+  ],
+  'spansk-1-15-1': [
+    {
+      question: 'Hvilken hilsen passer i en formell e-post?',
+      options: [
+        'Estimado señor García:',
+        '¡Hola, María!',
+        '¿Qué tal?',
+        'Querido amigo,',
+      ],
+      explanation: '"Estimado/a señor/a" brukes i formelle e-poster. "¡Hola!" og "Querido/a" er uformelt.',
+    },
+    {
+      question: 'Hvordan avslutter du en formell e-post på spansk?',
+      options: ['Atentamente', 'Besos', 'Un abrazo', '¡Chao!'],
+      explanation: '"Atentamente" (med hilsen) er formelt. "Besos" og "Un abrazo" er uformelt.',
+    },
+    {
+      question: 'Når bruker du "usted" i stedet for "tú"?',
+      options: [
+        'Til ukjente voksne og i formelle sammenhenger',
+        'Til venner og familie',
+        'Bare til barn',
+        'Aldri i e-poster',
+      ],
+      explanation: '"Usted" er formell tiltale til ukjente voksne, bedrifter og lærere; "tú" er uformelt til venner og familie.',
+    },
+    {
+      question: 'Hva betyr "Querido/a" i en e-post?',
+      options: ['Kjære', 'Ærede', 'Til rette vedkommende', 'Vennlig hilsen'],
+      explanation: '"Querido/a" = kjære, brukes uformelt. "Estimado/a" = ærede, formelt.',
+    },
+    {
+      question: 'Hvilken avslutning er uformell?',
+      options: ['Un abrazo', 'Atentamente', 'Le saluda atentamente', 'Un cordial saludo'],
+      explanation: '"Un abrazo" (en klem) og "Besos" er uformelle avslutninger blant venner.',
+    },
+  ],
+  'spansk-1-15-2': [
+    {
+      question: 'Hva betyr forkortelsen "xq" i spanske meldinger?',
+      options: ['porque (fordi)', 'por qué (hvorfor)', 'por favor (vær så snill)', 'pequeño (liten)'],
+      explanation: '"xq" er en chatforkortelse for porque (fordi).',
+    },
+    {
+      question: 'Hva betyr "Hace sol"?',
+      options: ['Det er sol', 'Det er kaldt', 'Det regner', 'Det blåser'],
+      explanation: '"Hace sol" = det er sol, "hace frío" = det er kaldt, "hace viento" = det blåser.',
+    },
+    {
+      question: 'Hva betyr "Lo estamos pasando bien"?',
+      options: ['Vi har det fint', 'Vi går nå', 'Vi passerer', 'Vi venter'],
+      explanation: '"Lo estamos pasando bien" = "Vi har det fint / koser oss".',
+    },
+    {
+      question: 'Hva betyr forkortelsen "tb" i en melding?',
+      options: ['también (også)', 'trabajo (jobb)', 'tarde (sen)', 'todo (alt)'],
+      explanation: '"tb" er forkortelse for también (også).',
+    },
+    {
+      question: 'Hva er typisk for et postkort fra ferie?',
+      options: [
+        'Hilsen, hvor du er, hva du gjør, været og avslutning',
+        'En formell forretningstone',
+        'Lange grammatiske forklaringer',
+        'Bare en liste med ord',
+      ],
+      explanation: 'Et postkort er kort og personlig: hilsen, sted, aktiviteter, vær og en hyggelig avslutning.',
+    },
+  ],
+  'spansk-1-15-3': [
+    {
+      question: 'Hvilket verb brukes for fysiske trekk, som "Tiene los ojos marrones"?',
+      options: ['tener', 'ser', 'estar', 'haber'],
+      explanation: 'Tener brukes for fysiske trekk: "Tiene los ojos marrones" = han/hun har brune øyne.',
+    },
+    {
+      question: 'Hva betyr "Tiene el pelo rubio"?',
+      options: ['Han/hun har blondt hår', 'Han/hun har mørkt hår', 'Han/hun har blå øyne', 'Han/hun er høy'],
+      explanation: '"Pelo rubio" = blondt hår, "pelo moreno" = mørkt hår, "pelirrojo" = rødhåret.',
+    },
+    {
+      question: 'Hvilket bindeord legger til informasjon?',
+      options: ['También (også)', 'Pero (men)', 'Porque (fordi)', 'Por eso (derfor)'],
+      explanation: '"También" og "además" legger til informasjon. "Pero" uttrykker motsetning.',
+    },
+    {
+      question: 'Hvordan beskriver du best en person i en kort tekst?',
+      options: [
+        'ser for personlighet, tener for fysiske trekk',
+        'estar for alt',
+        'haber for personlighet',
+        'gustar for utseende',
+      ],
+      explanation: 'Bruk ser for personlighet (Es simpático), tener for fysiske trekk (Tiene el pelo rubio).',
+    },
+    {
+      question: 'Hva brukes "por la mañana / por la tarde" til i et dagboknotat?',
+      options: ['Tidsuttrykk for å strukturere dagen', 'Å beskrive personer', 'Å uttrykke følelser', 'Å sammenligne'],
+      explanation: 'Tidsuttrykk som "por la mañana" (om morgenen) og "por la tarde" (om ettermiddagen) strukturerer fortellingen.',
+    },
+  ],
+  'spansk-1-15-4': [
+    {
+      question: 'Hvordan begynner man typisk en spansk fortelling/eventyr?',
+      options: ['Había una vez (Det var en gang)', 'Al final (Til slutt)', 'De repente (Plutselig)', 'Mientras tanto (I mellomtiden)'],
+      explanation: '"Había una vez" eller "Érase una vez" = "Det var en gang", en typisk eventyrstart.',
+    },
+    {
+      question: 'Hva betyr "De repente"?',
+      options: ['Plutselig', 'Til slutt', 'I mellomtiden', 'Dagen etter'],
+      explanation: '"De repente" = plutselig, brukes til å introdusere en vending i handlingen.',
+    },
+    {
+      question: 'Hva er et "acróstico" (akrostikon)?',
+      options: [
+        'Et dikt der forbokstavene danner et ord',
+        'Et dikt med 5-7-5 stavelser',
+        'En kort fortelling',
+        'Et dikt uten rim',
+      ],
+      explanation: 'I et akrostikon danner forbokstavene i hver linje et ord, f.eks. S-O-L.',
+    },
+    {
+      question: 'Hvor mange stavelser har et haiku (5-7-5)?',
+      options: ['5-7-5', '7-5-7', '5-5-5', '3-3-3'],
+      explanation: 'Et haiku er et kort dikt med stavelsesmønsteret 5-7-5.',
+    },
+    {
+      question: 'Hva uttrykker "Si yo fuera invisible..."?',
+      options: [
+        'Hvis jeg var usynlig... (en tenkt situasjon)',
+        'Jeg er usynlig (et faktum)',
+        'Jeg var usynlig (fortid)',
+        'Jeg vil bli usynlig (framtid)',
+      ],
+      explanation: '"Si yo fuera..." = "Hvis jeg var...", brukes til å beskrive en tenkt/hypotetisk situasjon.',
+    },
+  ],
+  'spansk-1-16-1': [
+    {
+      question: 'Hvilken setning er riktig: "Jeg er på skolen"?',
+      options: ['Yo estoy en la escuela.', 'Yo soy en la escuela.', 'Yo es en la escuela.', 'Yo está en la escuela.'],
+      explanation: 'Estar brukes for sted: "estoy en la escuela". Ser brukes for identitet/egenskaper.',
+    },
+    {
+      question: 'Hva er riktig presens av "hablar" for "yo"?',
+      options: ['hablo', 'hablas', 'hablamos', 'habláis'],
+      explanation: 'For -ar-verb i yo-form er endelsen -o: hablo. Du-form: hablas.',
+    },
+    {
+      question: 'Hva er "yo"-formen av det uregelmessige verbet "tener"?',
+      options: ['tengo', 'tienes', 'tiene', 'tenemos'],
+      explanation: 'Tener er uregelmessig: tengo, tienes, tiene, tenemos, tenéis, tienen.',
+    },
+    {
+      question: 'Hvilken form av "gustar" brukes om flertall, f.eks. "Me ... los libros"?',
+      options: ['gustan', 'gusta', 'gusto', 'gustas'],
+      explanation: 'Gustar bøyes etter det som likes: "me gusta el libro" (entall), "me gustan los libros" (flertall).',
+    },
+    {
+      question: 'Hva betyr konstruksjonen "ir a + infinitiv", som "Voy a estudiar"?',
+      options: ['Nær framtid (jeg skal studere)', 'Fortid', 'Plikt', 'En ordre'],
+      explanation: '"Ir a + infinitiv" uttrykker nær framtid: "Voy a estudiar" = jeg skal studere.',
+    },
+  ],
+  'spansk-1-16-2': [
+    {
+      question: 'Hva er en "kognat" (cognado)?',
+      options: [
+        'Et ord som ligner i flere språk fordi de har samme opprinnelse',
+        'Et ord som betyr noe annet enn det ligner på',
+        'Et ord uten flertallsform',
+        'Et sammensatt ord',
+      ],
+      explanation: 'Kognater er ord som ligner på hverandre på tvers av språk, f.eks. hospital, música, teléfono.',
+    },
+    {
+      question: 'Hva betyr den falske vennen "embarazada" egentlig?',
+      options: ['Gravid', 'Flau', 'Forbauset', 'Nervøs'],
+      explanation: '"Embarazada" ligner engelsk "embarrassed" (flau), men betyr faktisk gravid.',
+    },
+    {
+      question: 'Hva betyr den falske vennen "constipado"?',
+      options: ['Forkjølet', 'Forstoppet', 'Forvirret', 'Sliten'],
+      explanation: '"Constipado" ligner engelsk "constipated", men betyr forkjølet på spansk.',
+    },
+    {
+      question: 'Hvilket ord hører til ordfamilien rundt "trabajo" (arbeid)?',
+      options: ['el trabajador (arbeideren)', 'la comida (maten)', 'el restaurante (restauranten)', 'el tranvía (trikken)'],
+      explanation: 'Ordfamilien til trabajo: trabajar (å arbeide), el trabajador (arbeideren).',
+    },
+    {
+      question: 'Hva betyr den falske vennen "largo"?',
+      options: ['Lang', 'Stor', 'Bred', 'Tung'],
+      explanation: '"Largo" ligner engelsk "large" (stor), men betyr lang. "Grande" betyr stor.',
+    },
+  ],
+  'spansk-1-16-3': [
+    {
+      question: 'Hva er en effektiv strategi for å lære nye ord?',
+      options: [
+        'Lære ord i kontekst og bruke repetisjonsintervaller',
+        'Bare lese ordlisten mange ganger',
+        'Skrive hvert ord hundre ganger',
+        'Bare lytte til spansk musikk',
+      ],
+      explanation: 'Å lære ord i setninger (kontekst) og bruke spaced repetition er mer effektivt enn ren pugging.',
+    },
+    {
+      question: 'Hva bør du gjøre FØRST når du lytter til en spansk tekst?',
+      options: [
+        'Lytte etter hovedideen',
+        'Forstå hvert eneste ord',
+        'Lese manuset samtidig',
+        'Slå opp alle ukjente ord',
+      ],
+      explanation: 'Lytt etter hovedideen først, og lytt etter detaljer andre gang. Ikke prøv å forstå alt med en gang.',
+    },
+    {
+      question: 'Hva er "omskriving" som kommunikasjonsstrategi?',
+      options: [
+        'Beskrive et ord du ikke kan med andre ord',
+        'Skrive teksten på nytt',
+        'Oversette ord for ord',
+        'Bruke ordbok hele tiden',
+      ],
+      explanation: 'Omskriving: hvis du ikke kan et ord, beskriv det, f.eks. "den tingen man spiser suppe med" = la cuchara.',
+    },
+    {
+      question: 'Hvilket uttrykk ber om at noe gjentas?',
+      options: ['¿Puede repetir?', '¿Qué significa?', '¿Cómo se dice...?', '¿Dónde está?'],
+      explanation: '"¿Puede repetir?" = "Kan du gjenta?". "¿Qué significa?" = "Hva betyr det?".',
+    },
+    {
+      question: 'Hvorfor er det greit å gjøre feil når man lærer språk?',
+      options: [
+        'Feil er en naturlig del av læringen',
+        'Feil betyr at man ikke kan lære språket',
+        'Man bør slutte å snakke til man er perfekt',
+        'Feil hindrer kommunikasjon helt',
+      ],
+      explanation: 'Feil er en naturlig og nødvendig del av språklæring; man bør tørre å bruke språket.',
+    },
+  ],
+  'spansk-1-16-4': [
+    {
+      question: 'Hva står "S" for i SMART-mål?',
+      options: ['Spesifikke', 'Spennende', 'Store', 'Spontane'],
+      explanation: 'SMART = Spesifikke, Målbare, Ambisiøse/oppnåelige, Relevante, Tidsbegrensede.',
+    },
+    {
+      question: 'Hvilket av disse er et godt SMART-mål?',
+      options: [
+        'Lære 15 nye ord om klær og bruke dem i setninger innen to uker.',
+        'Bli flinkere i spansk.',
+        'Lære alt spansk ordforråd på en uke.',
+        'Kanskje øve litt på spansk noen ganger.',
+      ],
+      explanation: 'Et SMART-mål er spesifikt, målbart og realistisk innen en tidsramme, som "15 ord om klær på to uker".',
+    },
+    {
+      question: 'Hva er hensikten med egenvurdering (autoevaluación)?',
+      options: [
+        'Å bli bevisst på egne styrker og svakheter for å lære mer effektivt',
+        'Å sammenligne seg med andre',
+        'Å få en karakter',
+        'Å unngå å øve mer',
+      ],
+      explanation: 'Egenvurdering gjør deg til en mer bevisst språklærer ved at du ser hva du kan og hva du må øve på.',
+    },
+    {
+      question: 'Hva betyr refleksjonsspørsmålet "¿Qué necesito mejorar?"',
+      options: [
+        'Hva trenger jeg å forbedre?',
+        'Hva har jeg lært?',
+        'Hva er jeg best på?',
+        'Hva motiverer meg?',
+      ],
+      explanation: '"¿Qué necesito mejorar?" = "Hva trenger jeg å forbedre?".',
+    },
+    {
+      question: 'Hva bør du være når du vurderer ferdighetene dine?',
+      options: ['Ærlig om både styrker og svakheter', 'Bare positiv', 'Bare kritisk', 'Likegyldig'],
+      explanation: 'Vær ærlig og identifiser både styrker og svakheter for å sette gode mål.',
+    },
+  ],
 
 };
 

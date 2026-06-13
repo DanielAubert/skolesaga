@@ -124,6 +124,15 @@ import quizData_tysk_2 from './quiz-data-tysk-2';
 import quizData_tysk_3 from './quiz-data-tysk-3';
 import quizData_okonomi_drift from './quiz-data-økonomi-drift';
 import quizData_okonomi_ledelse from './quiz-data-økonomi-ledelse';
+import quizData_byggAnleggVg1 from './quiz-data-bygg-anlegg-vg1';
+import quizData_elektroDataVg1 from './quiz-data-elektro-data-vg1';
+import quizData_frisor_blomster_vg1 from './quiz-data-frisor-blomster-vg1';
+import quizData_im_vg1 from './quiz-data-im-vg1';
+import quizData_naturbruk_vg1 from './quiz-data-naturbruk-vg1';
+import quizData_restaurant_mat_vg1 from './quiz-data-restaurant-mat-vg1';
+import quizDataSalgServiceVg1 from './quiz-data-salg-service-vg1';
+import quizData_samf_engelsk from './quiz-data-samf-engelsk';
+import quizData_tif_vg1 from './quiz-data-tif-vg1';
 
 // Merged quiz data from all subject files
 const quizData: Record<string, QuizQuestion[]> = {
@@ -236,6 +245,15 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_tysk_3,
   ...quizData_okonomi_drift,
   ...quizData_okonomi_ledelse,
+  ...quizData_byggAnleggVg1,
+  ...quizData_elektroDataVg1,
+  ...quizData_frisor_blomster_vg1,
+  ...quizData_im_vg1,
+  ...quizData_naturbruk_vg1,
+  ...quizData_restaurant_mat_vg1,
+  ...quizDataSalgServiceVg1,
+  ...quizData_samf_engelsk,
+  ...quizData_tif_vg1,
 };
 
 /**

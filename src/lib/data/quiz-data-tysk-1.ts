@@ -1600,6 +1600,619 @@ const quizData_tysk_1: Record<string, QuizQuestion[]> = {
     },
   ],
 
+  'tysk-1-13-1': [
+    {
+      question: 'Hva er en "Speisekarte" på en tysk restaurant?',
+      options: ['Menyen', 'Regningen', 'Bordreservasjonen', 'Servitøren'],
+      explanation: 'Die Speisekarte er menyen som viser hvilke retter restauranten tilbyr.',
+    },
+    {
+      question: 'Hva betyr "die Vorspeise"?',
+      options: ['Forretten', 'Hovedretten', 'Desserten', 'Drikken'],
+      explanation: 'Die Vorspeise er forretten, det første som serveres. Hauptgericht er hovedrett og Nachspeise er dessert.',
+    },
+    {
+      question: 'Hva er "die Beilage" på en tysk meny?',
+      options: ['Tilbehøret', 'Desserten', 'Forretten', 'Suppen'],
+      explanation: 'Die Beilage er tilbehøret, for eksempel Pommes, Reis eller Knödel.',
+    },
+    {
+      question: 'Hvilken av disse er en typisk tysk rett?',
+      options: [
+        'Wiener Schnitzel',
+        'Paella',
+        'Sushi',
+        'Tagine',
+      ],
+      explanation: 'Wiener Schnitzel (panert kjøttskive) er en klassisk tysk-østerriksk rett. De andre kommer fra Spania, Japan og Nord-Afrika.',
+    },
+    {
+      question: 'Hva ber du om når du vil betale på restauranten?',
+      options: ['die Rechnung', 'die Vorspeise', 'die Speisekarte', 'das Getränk'],
+      explanation: 'Du ber om "die Rechnung" (regningen) når du vil betale, ofte med "Die Rechnung, bitte!".',
+    },
+  ],
+
+  'tysk-1-13-2': [
+    {
+      question: 'Hva er "Deutsche Bahn" (DB)?',
+      options: [
+        'Det tyske jernbaneselskapet',
+        'Et tysk flyselskap',
+        'Et tysk veiselskap',
+        'Et tysk rederi',
+      ],
+      explanation: 'Deutsche Bahn (DB) er det tyske jernbaneselskapet med et stort nett av tog over hele landet.',
+    },
+    {
+      question: 'Hva betyr "die Abfahrt" på en Fahrplan?',
+      options: ['Avgangen', 'Ankomsten', 'Sporet', 'Forsinkelsen'],
+      explanation: 'Die Abfahrt er avgangstiden, mens die Ankunft er ankomsttiden.',
+    },
+    {
+      question: 'Hva betyr "das Gleis"?',
+      options: ['Sporet/plattformen', 'Billetten', 'Toget', 'Stasjonen'],
+      explanation: 'Das Gleis er sporet eller plattformen toget går fra.',
+    },
+    {
+      question: 'Hvilket tog er Tysklands raskeste?',
+      options: [
+        'ICE (InterCity Express)',
+        'RB (RegionalBahn)',
+        'S-Bahn',
+        'RE (RegionalExpress)',
+      ],
+      explanation: 'ICE (InterCity Express) er hurtigtoget som kjører opp til 300 km/t. RB og S-Bahn er lokaltog.',
+    },
+    {
+      question: 'Hva betyr "umsteigen"?',
+      options: ['Å bytte (tog)', 'Å gå av', 'Å kjøpe billett', 'Å vente'],
+      explanation: 'Umsteigen betyr å bytte tog underveis på en reise.',
+    },
+  ],
+
+  'tysk-1-13-3': [
+    {
+      question: 'Hva er en "Kleinanzeige"?',
+      options: ['En småannonse', 'En avisartikkel', 'Et reklameskilt', 'En kvittering'],
+      explanation: 'Kleinanzeigen er korte småannonser der folk tilbyr eller søker bolig, jobb og ting til salgs.',
+    },
+    {
+      question: 'Hva betyr forkortelsen "Whg." i en boligannonse?',
+      options: ['die Wohnung (leiligheten)', 'das Wetter', 'die Woche', 'der Weg'],
+      explanation: 'Whg. er forkortelse for die Wohnung (leiligheten). Zi. står for Zimmer (rom).',
+    },
+    {
+      question: 'Hva betyr "die Miete"?',
+      options: ['Husleien', 'Depositumet', 'Strømregningen', 'Eiendomsmegleren'],
+      explanation: 'Die Miete er husleien. Die Kaution er depositumet og die Nebenkosten er tilleggskostnadene.',
+    },
+    {
+      question: 'Hva betyr "die Kaution" i en boligannonse?',
+      options: ['Depositumet', 'Husleien', 'Adressen', 'Størrelsen'],
+      explanation: 'Die Kaution (forkortet KT) er depositumet du betaler ved innflytting.',
+    },
+    {
+      question: 'Hva betyr "gebraucht" i en salgsannonse?',
+      options: ['Brukt', 'Ny', 'Gratis', 'Reservert'],
+      explanation: 'Gebraucht betyr brukt. "Neu" betyr ny, og "gratis" betyr gratis.',
+    },
+  ],
+
+  'tysk-1-13-4': [
+    {
+      question: 'Hvem regnes som Tysklands mest berømte dikter?',
+      options: [
+        'Johann Wolfgang von Goethe',
+        'Albert Einstein',
+        'Ludwig van Beethoven',
+        'Karl Marx',
+      ],
+      explanation: 'Goethe (1749-1832) er Tysklands mest berømte dikter, kjent for blant annet "Heidenröslein" og "Faust".',
+    },
+    {
+      question: 'Hvilke endelser bruker man for å lage diminutiv (forminskelsesform) på tysk?',
+      options: ['-chen og -lein', '-ung og -heit', '-er og -in', '-isch og -lich'],
+      explanation: 'Diminutiv lages med -chen (vanlig) eller -lein (poetisk), som i Mädchen og Röslein.',
+    },
+    {
+      question: 'Hvilket grammatisk kjønn får alle diminutiver på tysk?',
+      options: ['das (intetkjønn)', 'der (hankjønn)', 'die (hunkjønn)', 'Det varierer'],
+      explanation: 'Alle diminutiver med -chen/-lein er alltid intetkjønn (das), uansett grunnordets kjønn.',
+    },
+    {
+      question: 'Hva blir diminutivformen av "das Brot"?',
+      options: ['das Brötchen', 'das Brotlein', 'der Brötchen', 'die Brötin'],
+      explanation: 'Das Brötchen (rundstykke) er diminutiv av Brot, med omlyd o → ö og endelsen -chen.',
+    },
+    {
+      question: 'Hva betyr "der Reim"?',
+      options: ['Rimet', 'Strofen', 'Verset', 'Sangen'],
+      explanation: 'Der Reim er rimet. Die Strophe er strofen, der Vers er verset og das Lied er sangen.',
+    },
+  ],
+
+  'tysk-1-14-1': [
+    {
+      question: 'Hva kalles de tre spesielle tyske vokalene ä, ö og ü?',
+      options: ['Umlaute', 'Diphthonge', 'Konsonanten', 'Eszett'],
+      explanation: 'Ä, ö og ü kalles Umlaute (omlyds-bokstaver) og skrives med to prikker over.',
+    },
+    {
+      question: 'Hva kalles den tyske bokstaven ß?',
+      options: ['Eszett', 'Umlaut', 'Doppel-A', 'Ach-Laut'],
+      explanation: 'ß kalles Eszett (eller scharfes S) og uttales som en dobbel-s.',
+    },
+    {
+      question: 'Etter hvilke vokaler får "ch" en dyp Ach-Laut?',
+      options: ['etter a, o, u, au', 'etter e og i', 'etter ä, ö, ü', 'etter konsonanter'],
+      explanation: 'Ach-Laut (dyp skrapende lyd) kommer etter a, o, u og au, som i Buch, noch, auch.',
+    },
+    {
+      question: 'Hvordan uttales den tyske r-lyden vanligvis?',
+      options: [
+        'Bak i halsen (uvular r)',
+        'Med tungespissen (rulle-r)',
+        'Som en norsk l',
+        'Den uttales ikke',
+      ],
+      explanation: 'Tysk r uttales vanligvis som en uvular r bak i halsen, ikke som den norske rulle-r-en.',
+    },
+    {
+      question: 'Hvilket ord inneholder en Umlaut?',
+      options: ['schön', 'Buch', 'Haus', 'rot'],
+      explanation: 'Schön inneholder ö, som er en Umlaut. De andre ordene har vanlige vokaler.',
+    },
+  ],
+
+  'tysk-1-14-2': [
+    {
+      question: 'Hva betyr "Entschuldigung" når du starter en samtale?',
+      options: ['Unnskyld', 'Takk', 'Vær så god', 'Ha det'],
+      explanation: 'Entschuldigung betyr "Unnskyld" og brukes for høflig å henvende seg til noen.',
+    },
+    {
+      question: 'Hva betyr den høflige bestillingsfrasen "Ich hätte gerne ..."?',
+      options: [
+        'Jeg vil gjerne ha ...',
+        'Jeg heter ...',
+        'Jeg kommer fra ...',
+        'Jeg forstår ikke ...',
+      ],
+      explanation: '"Ich hätte gerne ..." er en høflig måte å bestille på: "Jeg vil gjerne ha ...".',
+    },
+    {
+      question: 'Når bruker man den formelle "Sie"-formen på tysk?',
+      options: [
+        'Med fremmede, eldre og på jobben',
+        'Med nære venner',
+        'Med barn',
+        'Bare i skriftspråk',
+      ],
+      explanation: 'Sie (formelt) brukes med fremmede, eldre og i formelle situasjoner. Med venner og familie bruker man du.',
+    },
+    {
+      question: 'Hvordan spør du formelt om hjelp i en butikk?',
+      options: [
+        'Können Sie mir helfen?',
+        'Kannst du mir helfen?',
+        'Wie heißt du?',
+        'Woher kommst du?',
+      ],
+      explanation: '"Können Sie mir helfen?" er den formelle formen (De), passende med fremmede i en butikk.',
+    },
+    {
+      question: 'Hva betyr "die Rechnung" når du er på kafé?',
+      options: ['Regningen', 'Menyen', 'Kelneren', 'Bestillingen'],
+      explanation: 'Die Rechnung er regningen, som du ber om når du vil betale.',
+    },
+  ],
+
+  'tysk-1-14-3': [
+    {
+      question: 'Hva er den vanlige strukturen i en tysk presentasjon (Vortrag)?',
+      options: [
+        'Einleitung – Hauptteil – Schluss',
+        'Schluss – Hauptteil – Einleitung',
+        'Anrede – Betreff – Grußformel',
+        'Vorspeise – Hauptgericht – Nachspeise',
+      ],
+      explanation: 'En presentasjon bygges opp av Einleitung (innledning), Hauptteil (hoveddel) og Schluss (avslutning).',
+    },
+    {
+      question: 'Hva betyr "die Einleitung"?',
+      options: ['Innledningen', 'Avslutningen', 'Hoveddelen', 'Overskriften'],
+      explanation: 'Die Einleitung er innledningen. Der Schluss er avslutningen og der Hauptteil er hoveddelen.',
+    },
+    {
+      question: 'Hvilken frase kan du bruke for å innlede en presentasjon?',
+      options: [
+        'Heute spreche ich über ...',
+        'Mit freundlichen Grüßen',
+        'Die Rechnung, bitte',
+        'Auf Wiedersehen',
+      ],
+      explanation: '"Heute spreche ich über ..." (I dag snakker jeg om ...) er en typisk innledningsfrase.',
+    },
+    {
+      question: 'Hva er "Verknüpfungswörter" som zuerst, dann og außerdem?',
+      options: ['Bindeord', 'Spørreord', 'Tallord', 'Preposisjoner'],
+      explanation: 'Verknüpfungswörter er bindeord som binder setninger og avsnitt sammen i en presentasjon.',
+    },
+    {
+      question: 'Hva betyr bindeordet "zuerst"?',
+      options: ['Først', 'Deretter', 'Til slutt', 'I tillegg'],
+      explanation: 'Zuerst betyr "først". Dann/danach betyr "deretter" og außerdem betyr "i tillegg".',
+    },
+  ],
+
+  'tysk-1-14-4': [
+    {
+      question: 'Hva betyr "hin und zurück" når du kjøper togbillett?',
+      options: ['Tur-retur', 'Enveis', 'Med bytte', 'Første klasse'],
+      explanation: 'Hin und zurück betyr tur-retur. "Einfach" betyr enveisbillett.',
+    },
+    {
+      question: 'Hva er forskjellen mellom "Einzelzimmer" og "Doppelzimmer"?',
+      options: [
+        'Enkeltrom og dobbeltrom',
+        'Billig rom og dyrt rom',
+        'Rom uten og med bad',
+        'Etasje og kjeller',
+      ],
+      explanation: 'Das Einzelzimmer er enkeltrom (for én), das Doppelzimmer er dobbeltrom (for to).',
+    },
+    {
+      question: 'Hva sier du hos legen for å forklare at du har vondt?',
+      options: ['Ich habe Schmerzen.', 'Ich habe Hunger.', 'Ich habe Zeit.', 'Ich habe recht.'],
+      explanation: '"Ich habe Schmerzen" betyr "Jeg har smerter". Schmerzen er smerter.',
+    },
+    {
+      question: 'Hva betyr "die Fahrkarte"?',
+      options: ['Billetten', 'Rutetabellen', 'Plattformen', 'Toget'],
+      explanation: 'Die Fahrkarte er billetten (til tog eller buss).',
+    },
+    {
+      question: 'Hva betyr "das Medikament"?',
+      options: ['Medisin/medikament', 'Resept', 'Lege', 'Sykehus'],
+      explanation: 'Das Medikament er medisin/medikament, som legen kan skrive ut til deg.',
+    },
+  ],
+
+  'tysk-1-15-1': [
+    {
+      question: 'Hva er "der Betreff" i en e-post?',
+      options: ['Emnet', 'Hilsenen', 'Avslutningen', 'Avsenderen'],
+      explanation: 'Der Betreff er emnefeltet i en e-post, som kort sier hva e-posten handler om.',
+    },
+    {
+      question: 'Hvilken hilsen brukes i en FORMELL tysk e-post?',
+      options: [
+        'Sehr geehrte/r ...',
+        'Liebe/Lieber ...',
+        'Hallo ...',
+        'Hi ...',
+      ],
+      explanation: '"Sehr geehrter Herr / Sehr geehrte Frau ..." er den formelle hilsenen. Liebe/Lieber og Hallo er uformelle.',
+    },
+    {
+      question: 'Hva betyr avslutningen "Mit freundlichen Grüßen"?',
+      options: [
+        'Med vennlig hilsen (formell)',
+        'Kjærlig hilsen (uformell)',
+        'Takk for nå',
+        'På gjensyn',
+      ],
+      explanation: '"Mit freundlichen Grüßen" er den formelle avslutningshilsenen, som "Med vennlig hilsen".',
+    },
+    {
+      question: 'Hvilken avslutning passer i en UFORMELL e-post til en venn?',
+      options: [
+        'Liebe Grüße',
+        'Mit freundlichen Grüßen',
+        'Sehr geehrte Damen und Herren',
+        'Hochachtungsvoll',
+      ],
+      explanation: '"Liebe Grüße" (kjærlig hilsen) er en uformell avslutning til venner og familie.',
+    },
+    {
+      question: 'Hva kalles tiltalen i begynnelsen av et brev (f.eks. "Liebe Anna")?',
+      options: ['die Anrede', 'der Betreff', 'die Grußformel', 'der Schluss'],
+      explanation: 'Die Anrede er tiltalen/hilsenen i begynnelsen. Die Grußformel er avslutningshilsenen.',
+    },
+  ],
+
+  'tysk-1-15-2': [
+    {
+      question: 'Hva betyr "Viele Grüße aus ..." på et postkort?',
+      options: [
+        'Mange hilsener fra ...',
+        'Jeg savner deg',
+        'På gjensyn snart',
+        'Takk for sist',
+      ],
+      explanation: '"Viele Grüße aus ..." betyr "Mange hilsener fra ..." og brukes ofte på postkort fra ferien.',
+    },
+    {
+      question: 'Hva betyr "Ich vermisse dich"?',
+      options: ['Jeg savner deg', 'Jeg ser deg', 'Jeg ringer deg', 'Jeg besøker deg'],
+      explanation: '"Ich vermisse dich" betyr "Jeg savner deg".',
+    },
+    {
+      question: 'Hva betyr forkortelsen "LG" i en tysk melding?',
+      options: [
+        'Liebe Grüße (kjærlig hilsen)',
+        'Langer Gruß',
+        'Letzte Gelegenheit',
+        'Leider gut',
+      ],
+      explanation: 'LG står for Liebe Grüße (kjærlig hilsen), en vanlig forkortelse i meldinger.',
+    },
+    {
+      question: 'Hva betyr "Bis bald!"?',
+      options: ['På gjensyn snart!', 'God natt!', 'God tur!', 'Gratulerer!'],
+      explanation: '"Bis bald!" betyr "På gjensyn snart!" eller "Sees snart!".',
+    },
+    {
+      question: 'Hva bør et typisk postkort fra ferien inneholde?',
+      options: [
+        'Hilsen, sted, vær og aktiviteter',
+        'Bare adressen',
+        'En formell signatur og tittel',
+        'En regning',
+      ],
+      explanation: 'Et postkort har vanligvis en hilsen, hvor du er, hvordan været er, hva du gjør, og en avslutning.',
+    },
+  ],
+
+  'tysk-1-15-3': [
+    {
+      question: 'Hva er strukturen i en god kort tekst på tysk?',
+      options: [
+        'Einleitung – Hauptteil – Schluss',
+        'Anrede – Betreff – Grußformel',
+        'Nominativ – Akkusativ – Dativ',
+        'der – die – das',
+      ],
+      explanation: 'En god tekst har innledning (Einleitung), hoveddel (Hauptteil) og avslutning (Schluss).',
+    },
+    {
+      question: 'Hva er "Konnektoren" (bindeord) som und, aber og weil?',
+      options: [
+        'Ord som binder setninger sammen',
+        'Spørreord',
+        'Tallord',
+        'Artikler',
+      ],
+      explanation: 'Konnektoren er bindeord som binder setninger og avsnitt sammen, f.eks. und (og), aber (men), weil (fordi).',
+    },
+    {
+      question: 'Hva betyr bindeordet "weil"?',
+      options: ['fordi', 'men', 'og', 'eller'],
+      explanation: 'Weil betyr "fordi" og innleder en bisetning. Und = og, aber = men, oder = eller.',
+    },
+    {
+      question: 'Hva kjennetegner en "Nebensatz" (bisetning) på tysk?',
+      options: [
+        'Verbet står til slutt',
+        'Verbet står først',
+        'Den har ikke subjekt',
+        'Den har alltid to verb',
+      ],
+      explanation: 'I en bisetning (Nebensatz), f.eks. etter weil, dass eller wenn, står det bøyde verbet helt til slutt.',
+    },
+    {
+      question: 'Hva betyr "die Beschreibung"?',
+      options: ['Beskrivelsen', 'Dagboken', 'Blogginnlegget', 'Innledningen'],
+      explanation: 'Die Beschreibung er beskrivelsen, f.eks. en personbeskrivelse (Personenbeschreibung).',
+    },
+  ],
+
+  'tysk-1-15-4': [
+    {
+      question: 'Hva er et "Elfchen"?',
+      options: [
+        'Et dikt med 11 ord (1-2-3-4-1)',
+        'En kort historie',
+        'En sang med refreng',
+        'Et ordtak',
+      ],
+      explanation: 'Et Elfchen er en diktform med nøyaktig 11 ord fordelt på fem linjer i mønsteret 1-2-3-4-1.',
+    },
+    {
+      question: 'Hva betyr "die Kurzgeschichte"?',
+      options: ['Korthistorien', 'Romanen', 'Diktet', 'Avisartikkelen'],
+      explanation: 'Die Kurzgeschichte er en korthistorie, en kort fortelling.',
+    },
+    {
+      question: 'Hva betyr ordet "plötzlich", som ofte skaper spenning i fortellinger?',
+      options: ['Plutselig', 'Endelig', 'Heldigvis', 'Sakte'],
+      explanation: 'Plötzlich betyr "plutselig" og brukes for å skape spenning i en fortelling.',
+    },
+    {
+      question: 'Hvilke spørsmål bør en enkel Kurzgeschichte besvare?',
+      options: [
+        'Wer? Wo? Was passiert?',
+        'Wie viel? Wie teuer?',
+        'der? die? das?',
+        'Wann ist die Abfahrt?',
+      ],
+      explanation: 'En enkel korthistorie svarer på Wer? (hvem), Wo? (hvor) og Was passiert? (hva skjer).',
+    },
+    {
+      question: 'Hva betyr adjektivet "glücklich"?',
+      options: ['Lykkelig', 'Trist', 'Sint', 'Redd'],
+      explanation: 'Glücklich betyr lykkelig. Traurig = trist, ängstlich = engstelig/redd.',
+    },
+  ],
+
+  'tysk-1-16-1': [
+    {
+      question: 'Hvilke tre grammatiske kjønn har tyske substantiver?',
+      options: [
+        'der (m), die (f), das (n)',
+        'der, die, denn',
+        'ein, eine, eines',
+        'ich, du, er',
+      ],
+      explanation: 'Tyske substantiver er enten hankjønn (der), hunkjønn (die) eller intetkjønn (das).',
+    },
+    {
+      question: 'Hvilken endelse får et regelmessig verb i "du"-form, f.eks. spielen?',
+      options: ['du spielst', 'du spiele', 'du spielt', 'du spielen'],
+      explanation: 'I du-form får regelmessige verb endelsen -st: du spielst.',
+    },
+    {
+      question: 'Hvilken kasus brukes for subjektet i setningen?',
+      options: ['Nominativ', 'Akkusativ', 'Dativ', 'Genitiv'],
+      explanation: 'Nominativ er kasusen for subjektet – den som gjør noe i setningen.',
+    },
+    {
+      question: 'Hvilken kasus styrer preposisjonene "für, gegen, ohne, um, durch"?',
+      options: ['Akkusativ', 'Dativ', 'Nominativ', 'Genitiv'],
+      explanation: 'Für, gegen, ohne, um, durch og bis styrer alltid akkusativ.',
+    },
+    {
+      question: 'Hva er hovedregelen for ordstilling (Wortstellung) i en tysk hovedsetning?',
+      options: [
+        'Verbet står på andre plass',
+        'Verbet står først',
+        'Verbet står sist',
+        'Verbet utelates',
+      ],
+      explanation: 'I en hovedsetning står det bøyde verbet alltid på andreplass (V2-regelen).',
+    },
+  ],
+
+  'tysk-1-16-2': [
+    {
+      question: 'Hva er et "Kompositum" på tysk?',
+      options: [
+        'Et sammensatt ord',
+        'En forstavelse',
+        'En endelse',
+        'En bisetning',
+      ],
+      explanation: 'Et Kompositum er et sammensatt ord laget av to eller flere ord, f.eks. der Hauptbahnhof.',
+    },
+    {
+      question: 'I et sammensatt ord, hvilket ledd bestemmer kjønn og hovedbetydning?',
+      options: [
+        'Det siste ordet (Grundwort)',
+        'Det første ordet (Bestimmungswort)',
+        'Forstavelsen',
+        'Endelsen',
+      ],
+      explanation: 'Grunnordet (det siste ordet, Grundwort) bestemmer kjønn og hovedbetydning, f.eks. die Haustür → die.',
+    },
+    {
+      question: 'Hva betyr forstavelsen "un-", som i "unfreundlich"?',
+      options: [
+        'Den uttrykker negasjon (det motsatte)',
+        'Den forsterker betydningen',
+        'Den lager flertall',
+        'Den lager fortid',
+      ],
+      explanation: 'Forstavelsen un- gir negasjon: freundlich (vennlig) → unfreundlich (uvennlig).',
+    },
+    {
+      question: 'Hvilket kjønn får substantiver med endelsen "-ung"?',
+      options: ['die (feminin)', 'der (maskulin)', 'das (intetkjønn)', 'Det varierer'],
+      explanation: 'Substantiver på -ung er alltid feminine (die), f.eks. die Wohnung, die Übung.',
+    },
+    {
+      question: 'Hva kjennetegner "trennbare Verben" (delbare verb)?',
+      options: [
+        'Forstavelsen skilles fra verbet i presens',
+        'De har ingen forstavelse',
+        'De bøyes aldri',
+        'De er alltid intetkjønn',
+      ],
+      explanation: 'Delbare verb, som aufstehen, skiller forstavelsen fra verbet i presens: Ich stehe um 7 Uhr auf.',
+    },
+  ],
+
+  'tysk-1-16-3': [
+    {
+      question: 'Hva er en god strategi for å lage ordkort (Vokabelkarten)?',
+      options: [
+        'Alltid ta med artikkelen (der/die/das)',
+        'Bare skrive det norske ordet',
+        'Aldri bruke eksempelsetninger',
+        'Skrive ti ord på hvert kort',
+      ],
+      explanation: 'Gode ordkort tar alltid med artikkelen (der/die/das), og gjerne flertall og en eksempelsetning.',
+    },
+    {
+      question: 'Hva betyr "die Wiederholung"?',
+      options: ['Repetisjon', 'Oversettelse', 'Uttale', 'Lesing'],
+      explanation: 'Die Wiederholung er repetisjon, en sentral del av effektiv språklæring.',
+    },
+    {
+      question: 'Hva er "globales Lesen" (global lesing)?',
+      options: [
+        'Å lese raskt for å få tak i hovedinnholdet',
+        'Å lese hvert eneste ord nøye',
+        'Å slå opp alle ukjente ord',
+        'Å lese teksten baklengs',
+      ],
+      explanation: 'Globales Lesen betyr å lese raskt for å forstå hovedinnholdet, uten å stoppe ved hvert ukjent ord.',
+    },
+    {
+      question: 'Hva er en god lyttestrategi når du hører tysk?',
+      options: [
+        'Lytte etter nøkkelord uten å forstå hvert ord',
+        'Stoppe og slå opp hvert ord',
+        'Bare lytte én gang',
+        'Lese teksten i stedet',
+      ],
+      explanation: 'En god strategi er å lytte etter nøkkelord og bruke konteksten – du trenger ikke forstå hvert ord.',
+    },
+    {
+      question: 'Hva betyr "der Kontext" i språklæring?',
+      options: ['Kontekst/sammenheng', 'Ordboken', 'Grammatikkregelen', 'Uttalen'],
+      explanation: 'Der Kontext er sammenhengen et ord står i, som hjelper deg å gjette betydningen.',
+    },
+  ],
+
+  'tysk-1-16-4': [
+    {
+      question: 'Hva betyr "die Selbstevaluation"?',
+      options: ['Egenvurdering', 'Eksamen', 'Karakter', 'Lekse'],
+      explanation: 'Die Selbstevaluation er egenvurdering – å vurdere sine egne ferdigheter.',
+    },
+    {
+      question: 'Hvilke fire hovedferdigheter deles språkkompetanse inn i?',
+      options: [
+        'Hören, Sprechen, Lesen, Schreiben',
+        'Lesen, Rechnen, Singen, Malen',
+        'der, die, das, die',
+        'Nominativ, Akkusativ, Dativ, Genitiv',
+      ],
+      explanation: 'Språkferdigheter deles i Hören (lytting), Sprechen (snakking), Lesen (lesing) og Schreiben (skriving).',
+    },
+    {
+      question: 'Hva står "S" for i SMART-mål?',
+      options: ['Spesifikk (Spezifisch)', 'Spennende', 'Stor', 'Sterk'],
+      explanation: 'I SMART står S for Spezifisch (spesifikk): målet skal være tydelig og konkret.',
+    },
+    {
+      question: 'Hvilket er et godt (SMART) læringsmål?',
+      options: [
+        'Lære 20 nye ord om mat og drikke',
+        'Bli bedre i tysk',
+        'Kunne litt tysk',
+        'Forstå alt',
+      ],
+      explanation: 'Et SMART-mål er spesifikt og målbart, f.eks. "Lære 20 nye ord om mat og drikke", ikke vage "bli bedre i tysk".',
+    },
+    {
+      question: 'Hva betyr "verbessern"?',
+      options: ['Å forbedre', 'Å glemme', 'Å gjenta', 'Å oversette'],
+      explanation: 'Verbessern betyr å forbedre – det du gjør med ferdighetene dine gjennom øving.',
+    },
+  ],
+
   // __NESTE_BATCH__
 };
 

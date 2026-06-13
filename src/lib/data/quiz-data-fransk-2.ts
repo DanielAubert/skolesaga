@@ -1,294 +1,6 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_fransk_2: Record<string, QuizQuestion[]> = {
-  'fransk-2-1': [
-  {
-    question: 'Når brukes imparfait i stedet for passé composé?',
-    options: ['For avsluttede handlinger', 'For vaner og beskrivelser i fortiden', 'For plutselige hendelser', 'Aldri'],
-    explanation: 'Imparfait brukes for beskrivelser, vaner og bakgrunn i fortiden.',
-  },
-  {
-    question: 'Hvordan dannes imparfait?',
-    options: ['avoir + partisipp', 'Stamme fra nous-presens + endelser', 'être + partisipp', 'Infinitiv + endelser'],
-    explanation: 'Imparfait: stamme fra nous-presens (uten -ons) + -ais, -ais, -ait, -ions, -iez, -aient.',
-  },
-  {
-    question: 'Hva er imparfait av "être" for "il"?',
-    options: ['était', 'a été', 'est', 'soit'],
-    explanation: 'Être er uregelmessig i imparfait: j\'étais, tu étais, il était...',
-  },
-  {
-    question: 'Hvilken setning bruker riktig kombinasjon av fortidsformer?',
-    options: ['Il pleuvait quand je suis sorti', 'Il a plu quand je sortais', 'Il pleuvait quand je sortais', 'Il a plu quand je suis sorti'],
-    explanation: 'Imparfait (bakgrunn: pleuvait) + passé composé (hovedhandling: suis sorti).',
-  },
-  {
-    question: 'Hva er imparfait av "nous faisons"?',
-    options: ['nous avons fait', 'nous faisions', 'nous faisions', 'nous fîmes'],
-    explanation: 'Faire i imparfait: fais- + -ions = nous faisions.',
-  },
-],
-
-
-  'fransk-2-2': [
-  {
-    question: 'Når brukes subjonctif?',
-    options: ['For å uttrykke fakta', 'For ønsker, følelser og tvil', 'For fremtid', 'For fortid'],
-    explanation: 'Subjonctif uttrykker subjektivitet: ønsker, følelser, tvil, nødvendighet.',
-  },
-  {
-    question: 'Hva er subjonctif av "être" for "tu"?',
-    options: ['es', 'sois', 'soit', 'étais'],
-    explanation: 'Être i subjonctif: que je sois, que tu sois, qu\'il soit...',
-  },
-  {
-    question: 'Hvilket uttrykk krever IKKE subjonctif?',
-    options: ['Je doute que', 'Je sais que', 'Je veux que', 'Il faut que'],
-    explanation: '"Je sais que" uttrykker sikker kunnskap og tar indikativ.',
-  },
-  {
-    question: 'Hvorfor brukes infinitiv i "Je veux venir" men subjonctif i "Je veux que tu viennes"?',
-    options: ['Fordi verbet er forskjellig', 'Fordi subjektet er det samme/forskjellig', 'Fordi tidsformen er forskjellig', 'Det er ingen regel'],
-    explanation: 'Samme subjekt → infinitiv; forskjellig subjekt → subjonctif.',
-  },
-  {
-    question: 'Hva er subjonctif av "aller" for "elle"?',
-    options: ['va', 'aille', 'alle', 'irait'],
-    explanation: 'Aller i subjonctif: que j\'aille, que tu ailles, qu\'elle aille...',
-  },
-],
-
-
-  'fransk-2-3': [
-  {
-    question: 'Hvordan dannes conditionnel présent?',
-    options: ['avoir + partisipp', 'être + partisipp', 'Futurumstamme + imparfait-endelser', 'Presens + -ais'],
-    explanation: 'Conditionnel = futurumstamme + imparfait-endelser (-ais, -ais, -ait...).',
-  },
-  {
-    question: 'Hva er conditionnel av "vouloir" for "je"?',
-    options: ['veux', 'voudrai', 'voudrais', 'voulais'],
-    explanation: 'Vouloir i conditionnel: je voudrais, tu voudrais, il voudrait...',
-  },
-  {
-    question: 'Hvilken tidsform brukes etter "si" i hypotetiske setninger?',
-    options: ['Conditionnel', 'Futurum', 'Imparfait', 'Subjonctif'],
-    explanation: 'Si + imparfait, conditionnel. Man bruker ALDRI conditionnel etter si!',
-  },
-  {
-    question: 'Hvabrukes conditionnel til?',
-    options: ['Bare fremtid', 'Høflighet, hypoteser, ønsker', 'Bare fortid', 'Bare spørsmål'],
-    explanation: 'Conditionnel uttrykker høflighet, hypotetiske situasjoner og ønsker.',
-  },
-  {
-    question: 'Hva er conditionnel av "être" for "nous"?',
-    options: ['sommes', 'serons', 'serions', 'étions'],
-    explanation: 'Être i conditionnel: ser- + -ions = nous serions.',
-  },
-],
-
-
-  'fransk-2-4': [
-  {
-    question: 'Hva erstatter pronomenet "y"?',
-    options: ['Direkte objekt', 'Indirekte objekt', 'Stedsuttrykk med à/en/dans', 'Personer'],
-    explanation: '"Y" erstatter stedsuttrykk: "Tu vas à Paris?" → "Tu y vas?"',
-  },
-  {
-    question: 'Hva erstatter pronomenet "en"?',
-    options: ['Stedsuttrykk med à', 'Uttrykk med de + mengder', 'Personer', 'Tid'],
-    explanation: '"En" erstatter uttrykk med de og mengder: "Tu veux du café?" → "Tu en veux?"',
-  },
-  {
-    question: 'Hva er forskjellen mellom "qui" og "que" som relativpronomen?',
-    options: ['Ingen forskjell', 'Qui = subjekt, que = objekt', 'Qui = objekt, que = subjekt', 'Qui = ting, que = personer'],
-    explanation: '"Qui" er subjekt, "que" er objekt i relativsetningen.',
-  },
-  {
-    question: 'Hvabrukes "dont" til?',
-    options: ['Stedsuttrykk', 'Å erstatte de-uttrykk (som/hvis)', 'Å erstatte direkte objekt', 'Spørsmål'],
-    explanation: '"Dont" erstatter "de"-uttrykk: "Le livre dont je parle" (boken jeg snakker om).',
-  },
-  {
-    question: 'Hva er riktig rekkefølge for doble pronomen?',
-    options: ['le/la + me/te', 'me/te + le/la + lui', 'lui + le/la + me/te', 'Det er ingen regel'],
-    explanation: 'Rekkefølge: me/te/se/nous/vous + le/la/les + lui/leur + y + en.',
-  },
-],
-
-
-  'fransk-2-5': [
-  {
-    question: 'Hvem skrev "Les Misérables"?',
-    options: ['Alexandre Dumas', 'Victor Hugo', 'Gustave Flaubert', 'Émile Zola'],
-    explanation: 'Victor Hugo skrev "Les Misérables" (1862).',
-  },
-  {
-    question: 'Hvilken epoke tilhører Molière?',
-    options: ['Romantismen', 'Klassisismen', 'Modernismen', 'Realismen'],
-    explanation: 'Molière (1622-1673) tilhører klassisismen på 1600-tallet.',
-  },
-  {
-    question: 'Hvem vant Nobelprisen i litteratur i 2022?',
-    options: ['Patrick Modiano', 'Annie Ernaux', 'Albert Camus', 'Marguerite Duras'],
-    explanation: 'Annie Ernaux vant Nobelprisen i litteratur i 2022.',
-  },
-  {
-    question: 'Hva skrev La Fontaine?',
-    options: ['Romaner', 'Tragedier', 'Fabler', 'Poesi'],
-    explanation: 'Jean de La Fontaine er kjent for sine fabler med moralske lærdømmer.',
-  },
-  {
-    question: 'Hvem er eksistensialismens fåri fransk litteratur?',
-    options: ['Albert Camus', 'Jean-Paul Sartre', 'Simone de Beauvoir', 'Marcel Proust'],
-    explanation: 'Jean-Paul Sartre regnes som eksistensialismens far.',
-  },
-],
-
-
-  'fransk-2-6': [
-  {
-    question: 'Hva betyr "la société"?',
-    options: ['Selskapet', 'Samfunnet', 'Begge deler', 'Sirkelen'],
-    explanation: '"La société" kan bety både samfunn og selskap.',
-  },
-  {
-    question: 'Hva er "la culture"?',
-    options: ['Jordbruk', 'Kulturen', 'Begge deler', 'Dyrkingen'],
-    explanation: '"La culture" kan bety både kultur og dyrking/jordbruk.',
-  },
-  {
-    question: 'Hvordan sier du "tradisjon" på fransk?',
-    options: ['la tradition', 'la coutume', 'l\'habitude', 'a og b er riktige'],
-    explanation: 'Både "la tradition" og "la coutume" kan brukes.',
-  },
-  {
-    question: 'Hva betyr "l\'égalité"?',
-    options: ['Kvaliteten', 'Likheten', 'Legaliteten', 'Evnen'],
-    explanation: '"L\'égalité" betyr likhet (fra det franske mottoet: liberté, égalité, fraternité).',
-  },
-  {
-    question: 'Hva er "la diversité"?',
-    options: ['Universitetet', 'Mangfoldet', 'Forskjellen', 'Adspredelsen'],
-    explanation: '"La diversité" betyr mangfoldet.',
-  },
-],
-
-
-  'fransk-2-7': [
-  {
-    question: 'Hva betyr "l\'histoire"?',
-    options: ['Historien', 'Fortellingen', 'Begge deler', 'Historikeren'],
-    explanation: '"L\'histoire" kan bety både historie og fortelling.',
-  },
-  {
-    question: 'Hva er "la Révolution française"?',
-    options: ['Den franske revolusjonen', 'Omveltningen', 'Rotasjonen', 'Utviklingen'],
-    explanation: '"La Révolution française" (1789) er den franske revolusjonen.',
-  },
-  {
-    question: 'Når var den franske revolusjonen?',
-    options: ['1689', '1789', '1889', '1989'],
-    explanation: 'Den franske revolusjonen begynte i 1789.',
-  },
-  {
-    question: 'Hva betyr "le roi"?',
-    options: ['Roen', 'Kongen', 'Loven', 'Rettigheten'],
-    explanation: '"Le roi" betyr kongen.',
-  },
-  {
-    question: 'Hva er "la République"?',
-    options: ['Republikken', 'Publiseringen', 'Offentligheten', 'Gjentakelsen'],
-    explanation: '"La République française" er den franske republikken.',
-  },
-],
-
-
-  'fransk-2-8': [
-  {
-    question: 'Hva betyr "l\'environnement"?',
-    options: ['Omgivelsene', 'Miljøet', 'Begge deler', 'Avrundingen'],
-    explanation: '"L\'environnement" betyr miljøet.',
-  },
-  {
-    question: 'Hva er "le développement durable"?',
-    options: ['Varig utvikling', 'Bærekraftig utvikling', 'Rask utvikling', 'Økonomisk utvikling'],
-    explanation: '"Le développement durable" betyr bærekraftig utvikling.',
-  },
-  {
-    question: 'Hvordan sier du "fornybar energi" på fransk?',
-    options: ['énergie nouvelle', 'énergie renouvelable', 'énergie propre', 'b og c er riktige'],
-    explanation: '"Énergie renouvelable" (fornybar) og "énergie propre" (ren) brukes.',
-  },
-  {
-    question: 'Hva betyr "la pollution"?',
-    options: ['Pollineringen', 'Forurensningen', 'Befolkningen', 'Politikken'],
-    explanation: '"La pollution" betyr forurensningen.',
-  },
-  {
-    question: 'Hva er "recycler"?',
-    options: ['Å sykle igjen', 'Å resirkulære', 'Å sykle rundt', 'Å gjenta'],
-    explanation: '"Recycler" (eller "recycler") betyr å resirkulære.',
-  },
-],
-
-
-  'fransk-2-9': [
-  {
-    question: 'Hva betyr "le travail"?',
-    options: ['Reisen', 'Arbeidet', 'Trafikken', 'Transporten'],
-    explanation: '"Le travail" betyr arbeidet.',
-  },
-  {
-    question: 'Hva er "l\'emploi"?',
-    options: ['Arbeidsledigheten', 'Jobben/sysselsettingen', 'Arbeidsgiveren', 'Arbeidstakeren'],
-    explanation: '"L\'emploi" betyr jobb eller sysselsetting.',
-  },
-  {
-    question: 'Hvordan sier du "arbeidsledig" på fransk?',
-    options: ['employé', 'chômeur', 'travailleur', 'patron'],
-    explanation: '"Chômeur/chômeuse" er arbeidsledig, "le chômage" er arbeidsledighet.',
-  },
-  {
-    question: 'Hva betyr "le salaire"?',
-    options: ['Salen', 'Lønnen', 'Salget', 'Salaten'],
-    explanation: '"Le salaire" betyr lønnen.',
-  },
-  {
-    question: 'Hva er "l\'entreprise"?',
-    options: ['Foretagsomheten', 'Bedriften', 'Forsøket', 'Entreprenøren'],
-    explanation: '"L\'entreprise" betyr bedriften eller føretaket.',
-  },
-],
-
-
-  'fransk-2-10': [
-  {
-    question: 'Hva betyr "la santé"?',
-    options: ['Helligheten', 'Helsen', 'Saltet', 'Sannheten'],
-    explanation: '"La santé" betyr helsen.',
-  },
-  {
-    question: 'Hvordan sier du "lege" på fransk?',
-    options: ['le médecin', 'le docteur', 'Begge er riktige', 'l\'infirmier'],
-    explanation: 'Både "le médecin" og "le docteur" brukes for lege.',
-  },
-  {
-    question: 'Hva er "la maladie"?',
-    options: ['Ondskapen', 'Sykdømmen', 'Ubehaget', 'Ulykken'],
-    explanation: '"La maladie" betyr sykdømmen.',
-  },
-  {
-    question: 'Hva betyr "J\'ai mal à la tête"?',
-    options: ['Jeg har vondt i hodet', 'Hodet mitt er dårlig', 'Jeg er gal', 'Jeg har en dårlig ide'],
-    explanation: '"J\'ai mal à la tête" betyr at jeg har hodepine.',
-  },
-  {
-    question: 'Hva er "la pharmacie"?',
-    options: ['Farmasien', 'Apoteket', 'Gården', 'Farmen'],
-    explanation: '"La pharmacie" er apoteket.',
-  },
-],
 
 
   'fransk-2-1-1': [
@@ -1410,6 +1122,678 @@ const quizData_fransk_2: Record<string, QuizQuestion[]> = {
     explanation: 'Plus-que-parfait (avais mangé) viser at spisingen skjedde før han kom.',
   },
 ],
+
+  'fransk-2-11-1': [
+  {
+    question: 'Hvilket land i Vest-Afrika har fransk som offisielt språk og hovedstaden Dakar?',
+    options: ['Senegal', 'Marokko', 'Algerie', 'Tunisia'],
+    explanation: 'Senegal er et fransktalende land i Vest-Afrika med Dakar som hovedstad.',
+  },
+  {
+    question: 'Hva het den senegalesiske dikteren og presidenten som var sentral i «négritude»-bevegelsen?',
+    options: ['Léopold Sédar Senghor', 'Aimé Césaire', 'Victor Hugo', 'Albert Camus'],
+    explanation: 'Senghor var poet og Senegals første president, en av grunnleggerne av négritude.',
+  },
+  {
+    question: 'Hvorfor snakkes fransk i mange afrikanske land i dag?',
+    options: ['på grunn av den franske kolonihistorien', 'fordi Afrika ligger ved siden av Frankrike', 'fordi fransk er Afrikas eldste språk', 'det er en ren tilfeldighet'],
+    explanation: 'Fransk ble innført under kolonitiden og brukes fortsatt som offisielt språk og fellesspråk.',
+  },
+  {
+    question: 'Hva er typisk for språksituasjonen i fransktalende Afrika?',
+    options: ['fransk brukes ved siden av flere lokale språk (flerspråklighet)', 'fransk er det eneste språket', 'fransk snakkes bare av turister', 'fransk brukes bare skriftlig'],
+    explanation: 'Mange afrikanere er flerspråklige: de bruker fransk i tillegg til ett eller flere lokale morsmål.',
+  },
+  {
+    question: 'Hvilke av disse landene i Nord-Afrika (Maghreb) har sterk fransk språkpåvirkning?',
+    options: ['Marokko, Algerie og Tunisia', 'Spania, Italia og Hellas', 'Egypt, Sudan og Libya', 'Kenya, Tanzania og Uganda'],
+    explanation: 'Maghreb-landene Marokko, Algerie og Tunisia har omfattende bruk av fransk fra kolonitiden.',
+  },
+  ],
+
+  'fransk-2-11-2': [
+  {
+    question: 'I hvilket land ligger den fransktalende provinsen Québec?',
+    options: ['Canada', 'USA', 'Frankrike', 'Belgia'],
+    explanation: 'Québec er en provins i Canada der fransk er det offisielle språket.',
+  },
+  {
+    question: 'Hva er Québecs offisielle motto, som står på bilskiltene?',
+    options: ['Je me souviens', 'Liberté, égalité, fraternité', 'Vive le Québec', 'Bienvenue'],
+    explanation: '«Je me souviens» («Jeg husker») er Québecs motto.',
+  },
+  {
+    question: 'Hva kjennetegner québecfransk («le joual» / le québécois)?',
+    options: ['egen uttale, eget ordforråd og egne uttrykk', 'det er identisk med parisisk fransk', 'det er egentlig engelsk', 'det skrives med eget alfabet'],
+    explanation: 'Québecfransk har sin egen aksent, sitt eget ordforråd og uttrykk som skiller seg fra fransk i Frankrike.',
+  },
+  {
+    question: 'Hvilke karibiske øyer er franske «départements d\'outre-mer» (oversjøiske områder)?',
+    options: ['Guadeloupe og Martinique', 'Cuba og Jamaica', 'Sicilia og Sardinia', 'Mallorca og Ibiza'],
+    explanation: 'Guadeloupe og Martinique i Antillene er franske oversjøiske departementer.',
+  },
+  {
+    question: 'Hva er «le créole» i fransktalende Karibia?',
+    options: ['et eget språk med fransk grunnlag', 'en type fransk mat', 'en fransk dialekt fra Paris', 'navnet på en øy'],
+    explanation: 'Kreol er et eget språk basert blant annet på fransk, som snakkes ved siden av fransk på Antillene.',
+  },
+  ],
+
+  'fransk-2-11-3': [
+  {
+    question: 'Hvilket land i Sørøst-Asia hadde fransk som kolonispråk og har fortsatt fransk innflytelse?',
+    options: ['Vietnam', 'Japan', 'India', 'Thailand'],
+    explanation: 'Vietnam (som del av Indokina) var fransk koloni, og fransk innflytelse finnes fortsatt.',
+  },
+  {
+    question: 'Hva het det franske kolonområdet i Sørøst-Asia?',
+    options: ['Indokina (l\'Indochine)', 'Polynesia', 'Maghreb', 'Levanten'],
+    explanation: 'Indokina (Vietnam, Laos og Kambodsja) var fransk koloniområde i Sørøst-Asia.',
+  },
+  {
+    question: 'Hvilket fransk område i Stillehavet er kjent som «la Nouvelle-Calédonie»?',
+    options: ['Ny-Caledonia', 'Tahiti by', 'Madagaskar', 'Réunion'],
+    explanation: 'Ny-Caledonia (la Nouvelle-Calédonie) er et fransk territorium i Stillehavet.',
+  },
+  {
+    question: 'Hva er «la Polynésie française» kjent for?',
+    options: ['fransk territorium med øyer som Tahiti', 'et land i Asia', 'en fransk by', 'en type fransk dans'],
+    explanation: 'Fransk Polynesia omfatter øygrupper i Stillehavet, blant annet Tahiti.',
+  },
+  {
+    question: 'Hva er felles for de fransktalende områdene i Asia og Oseania?',
+    options: ['de viser fransk språks globale utbredelse gjennom historie og kolonitid', 'de ligger alle i Europa', 'de snakker bare engelsk', 'de er alle uavhengige nasjoner'],
+    explanation: 'Disse områdene illustrerer hvordan fransk har spredt seg globalt, ofte via kolonihistorien.',
+  },
+  ],
+
+  'fransk-2-11-4': [
+  {
+    question: 'Hva betyr «la diversité francophone»?',
+    options: ['mangfoldet i den fransktalende verden', 'at fransk er likt overalt', 'navnet på en fransk by', 'en fransk høytid'],
+    explanation: 'Begrepet viser til det store kulturelle og språklige mangfoldet blant fransktalende.',
+  },
+  {
+    question: 'Hva er en «variété» (varietet) av fransk?',
+    options: ['en regional variant med egen uttale og ordforråd', 'en fransk grammatikkfeil', 'et fransk tv-program', 'en type fransk vin'],
+    explanation: 'Fransk har mange varieteter (Québec, Belgia, Afrika osv.) med egne særtrekk.',
+  },
+  {
+    question: 'Hva er «l\'identité francophone»?',
+    options: ['følelsen av tilhørighet til den fransktalende verden', 'et fransk pass', 'et fransk telefonnummer', 'en fransk lov'],
+    explanation: 'Frankofon identitet er en kulturell tilhørighet som deles på tvers av land og kontinenter.',
+  },
+  {
+    question: 'Hva fremmer organisasjonen OIF (Organisation internationale de la Francophonie)?',
+    options: ['fransk språk og samarbeid mellom fransktalende land', 'fransk fotball', 'fransk vinproduksjon', 'fransk militærmakt'],
+    explanation: 'OIF arbeider for å fremme fransk språk, kultur og samarbeid mellom medlemslandene.',
+  },
+  {
+    question: 'Hvorfor regnes fransk som et viktig verdensspråk?',
+    options: ['det snakkes på flere kontinenter av flere hundre millioner mennesker', 'det snakkes bare i Frankrike', 'det er verdens eldste språk', 'det brukes bare i FN'],
+    explanation: 'Fransk er offisielt språk i rundt 30 land og brukes globalt i diplomati, kultur og handel.',
+  },
+  ],
+
+  'fransk-2-12-1': [
+  {
+    question: 'Hva betyr «un réseau social»?',
+    options: ['et sosialt medium', 'en søkemotor', 'en e-postadresse', 'et passord'],
+    explanation: '«un réseau social» = et sosialt medium/nettverk.',
+  },
+  {
+    question: 'Hva betyr «publier un post / une publication»?',
+    options: ['å legge ut et innlegg', 'å slette en konto', 'å logge inn', 'å laste ned en fil'],
+    explanation: '«publier» = å publisere/legge ut; «une publication» = et innlegg.',
+  },
+  {
+    question: 'Hva betyr «un abonné» på sosiale medier?',
+    options: ['en følger', 'en administrator', 'en annonse', 'en kommentar'],
+    explanation: '«un abonné» = en følger/abonnent. «s\'abonner» = å følge/abonnere.',
+  },
+  {
+    question: 'Hva betyr uttrykket «devenir viral»?',
+    options: ['å bli spredt svært raskt på nettet', 'å bli syk', 'å miste passordet', 'å logge ut'],
+    explanation: '«devenir viral» = å gå viralt, spre seg raskt på sosiale medier.',
+  },
+  {
+    question: 'Hva er et godt råd om personvern: «Il faut ___ ses données personnelles»?',
+    options: ['protéger', 'partager', 'publier', 'oublier'],
+    explanation: 'Man bør beskytte («protéger») personopplysningene sine på nett.',
+  },
+  ],
+
+  'fransk-2-12-2': [
+  {
+    question: 'Hva betyr «un ordinateur»?',
+    options: ['en datamaskin', 'en mobiltelefon', 'et tastatur', 'en skjerm'],
+    explanation: '«un ordinateur» = en datamaskin.',
+  },
+  {
+    question: 'Hva betyr «un logiciel»?',
+    options: ['en programvare', 'et tastatur', 'en skjerm', 'en mus'],
+    explanation: '«un logiciel» = programvare/et program.',
+  },
+  {
+    question: 'Hva er «un clavier»?',
+    options: ['et tastatur', 'en skjerm', 'en høyttaler', 'en skriver'],
+    explanation: '«un clavier» = et tastatur. «un écran» = en skjerm, «une souris» = en mus.',
+  },
+  {
+    question: 'Hva betyr «télécharger une application»?',
+    options: ['å laste ned en app', 'å slette en app', 'å oppdatere systemet', 'å lade telefonen'],
+    explanation: '«télécharger» = å laste ned; «une application» = en app.',
+  },
+  {
+    question: 'Hva er «une tablette»?',
+    options: ['et nettbrett', 'en bærbar datamaskin', 'en høyttaler', 'et kamera'],
+    explanation: '«une tablette» = et nettbrett (mellom telefon og laptop).',
+  },
+  ],
+
+  'fransk-2-12-3': [
+  {
+    question: 'Hvordan innleder man en formell e-post på fransk når man ikke kjenner mottakeren?',
+    options: ['Madame, Monsieur,', 'Salut!', 'Coucou,', 'Cher copain,'],
+    explanation: 'Formelt og upersonlig: «Madame, Monsieur,».',
+  },
+  {
+    question: 'Hva er en passende formell avslutning i en e-post?',
+    options: ['Cordialement', 'Bisous', 'A+', 'Coucou'],
+    explanation: '«Cordialement» er en høflig, formell avslutning (ca. «vennlig hilsen»).',
+  },
+  {
+    question: 'Hva er «une pièce jointe»?',
+    options: ['et vedlegg', 'en signatur', 'et emnefelt', 'en mottaker'],
+    explanation: '«une pièce jointe» = et vedlegg i en e-post.',
+  },
+  {
+    question: 'Hva er et godt råd for nettsikkerhet: «Il faut choisir un ___ solide»?',
+    options: ['mot de passe', 'clavier', 'écran', 'logiciel'],
+    explanation: 'Man bør velge et sterkt passord («un mot de passe solide»).',
+  },
+  {
+    question: 'Hva betyr «l\'hameçonnage» (phishing) i nettsikkerhet?',
+    options: ['svindel der man lures til å gi fra seg opplysninger', 'å sende vedlegg', 'å lagre i skyen', 'å oppdatere programvare'],
+    explanation: '«l\'hameçonnage» (phishing) er nettsvindel for å lure ut passord og personopplysninger.',
+  },
+  ],
+
+  'fransk-2-12-4': [
+  {
+    question: 'Hva betyr «l\'intelligence artificielle (IA)»?',
+    options: ['kunstig intelligens', 'et tastatur', 'en søkemotor', 'en datamaskin'],
+    explanation: '«l\'intelligence artificielle» (IA) = kunstig intelligens (KI).',
+  },
+  {
+    question: 'Hva betyr «l\'automatisation»?',
+    options: ['automatisering', 'en bilfabrikk', 'en app', 'en robot-leke'],
+    explanation: '«l\'automatisation» = automatisering, at maskiner overtar oppgaver.',
+  },
+  {
+    question: 'Velg riktig futur: «À l\'avenir, les robots ___ de plus en plus de tâches» (faire).',
+    options: ['feront', 'font', 'faisaient', 'fassent'],
+    explanation: 'Futur simple av faire for «ils»: feront. «À l\'avenir» (i framtiden) krever futur.',
+  },
+  {
+    question: 'Hvilket uttrykk innleder et argument FOR teknologi i en debatt?',
+    options: ['D\'un côté, la technologie facilite la vie ...', 'Au revoir', 'Il était une fois', 'C\'est combien?'],
+    explanation: '«D\'un côté ...» («på den ene siden ...») innleder et argument i en avveining.',
+  },
+  {
+    question: 'Hva betyr «poser problème» om teknologi (f.eks. personvern)?',
+    options: ['å skape/utgjøre et problem', 'å løse et problem', 'å stille et spørsmål', 'å unngå et problem'],
+    explanation: '«poser problème» = å være/skape et problem, f.eks. «La vie privée pose problème».',
+  },
+  ],
+
+  'fransk-2-13-1': [
+  {
+    question: 'Hva er «un titre» i en avisartikkel?',
+    options: ['overskriften', 'forfatteren', 'datoen', 'bildet'],
+    explanation: '«un titre» = tittelen/overskriften.',
+  },
+  {
+    question: 'Hva er «le chapeau» i en avisartikkel?',
+    options: ['ingressen (kort innledning under tittelen)', 'avslutningen', 'en hatt på et bilde', 'forfatterens navn'],
+    explanation: 'I journalistikk er «le chapeau» ingressen som sammenfatter saken under tittelen.',
+  },
+  {
+    question: 'Hva er en god lesestrategi for en avisartikkel man ikke forstår fullt ut?',
+    options: ['lese tittel og ingress for å få hovedinnholdet, og bruke konteksten', 'gi opp umiddelbart', 'oversette hvert eneste ord først', 'bare se på bildene'],
+    explanation: 'Å skumlese tittel/ingress og bruke kontekst gir hovedbudskapet uten å forstå hvert ord.',
+  },
+  {
+    question: 'Hva betyr «un fait divers»?',
+    options: ['en kort nyhetssak om en hendelse (ofte ulykke/kriminalitet)', 'en sportsreportasje', 'en lederartikkel', 'en værmelding'],
+    explanation: '«un fait divers» er en kort notis om en konkret hendelse, ofte kriminalitet eller ulykker.',
+  },
+  {
+    question: 'Hva betyr «une source fiable»?',
+    options: ['en pålitelig kilde', 'en utenlandsk avis', 'en falsk nyhet', 'en overskrift'],
+    explanation: '«fiable» = pålitelig; kildekritikk handler om å vurdere om kilden er til å stole på.',
+  },
+  ],
+
+  'fransk-2-13-2': [
+  {
+    question: 'Hva betyr «À louer» i en boligannonse?',
+    options: ['Til leie', 'Til salgs', 'Solgt', 'Ønskes kjøpt'],
+    explanation: '«À louer» = til leie. «À vendre» = til salgs.',
+  },
+  {
+    question: 'Hva er «le loyer» i en leieavtale?',
+    options: ['leien (det man betaler hver måned)', 'depositumet', 'kontrakten', 'utleieren'],
+    explanation: '«le loyer» = husleien.',
+  },
+  {
+    question: 'Hva er «un CV» i forbindelse med en stillingsannonse?',
+    options: ['en CV / levnetsløp', 'en lønnsslipp', 'en arbeidskontrakt', 'et stillingsintervju'],
+    explanation: '«un CV» (curriculum vitae) er den jobbsøkerens CV.',
+  },
+  {
+    question: 'Hva er «une lettre de motivation»?',
+    options: ['et søknadsbrev', 'en oppsigelse', 'en anbefaling', 'en faktura'],
+    explanation: '«une lettre de motivation» = søknadsbrevet man sender med CV-en.',
+  },
+  {
+    question: 'Hva betyr «recherche» i en kontaktannonse (f.eks. «recherche colocataire»)?',
+    options: ['søker/ønsker', 'tilbyr', 'selger', 'leier ut'],
+    explanation: '«recherche» (av chercher) = søker/ønsker.',
+  },
+  ],
+
+  'fransk-2-13-3': [
+  {
+    question: 'Hva finner du under «entrées» på en fransk restaurantmeny?',
+    options: ['forretter', 'hovedretter', 'desserter', 'drikke'],
+    explanation: '«les entrées» = forrettene.',
+  },
+  {
+    question: 'Hva betyr «le plat du jour»?',
+    options: ['dagens rett', 'barnemenyen', 'vinkartet', 'regningen'],
+    explanation: '«le plat du jour» = dagens rett.',
+  },
+  {
+    question: 'Hva betyr «départ» på en rutetabell?',
+    options: ['avgang', 'ankomst', 'forsinkelse', 'perrong'],
+    explanation: '«départ» = avgang. «arrivée» = ankomst.',
+  },
+  {
+    question: 'Hva betyr «service compris» på en regning?',
+    options: ['betjening (tips) er inkludert', 'maten er gratis', 'menyen er på engelsk', 'restauranten er stengt'],
+    explanation: '«service compris» = service/tips er inkludert i prisen.',
+  },
+  {
+    question: 'Hva er «un reçu» / «un ticket de caisse»?',
+    options: ['en kvittering', 'en meny', 'en billett til kino', 'en rutetabell'],
+    explanation: '«un reçu» / «un ticket de caisse» = en kvittering.',
+  },
+  ],
+
+  'fransk-2-13-4': [
+  {
+    question: 'Hva er «une rime» i et dikt?',
+    options: ['et rim (like lyder i slutten av verselinjer)', 'et vers', 'et refreng', 'en strofe'],
+    explanation: '«une rime» = et rim.',
+  },
+  {
+    question: 'Hva er «une strophe»?',
+    options: ['en strofe (gruppe av verselinjer)', 'en enkelt linje', 'et rim', 'en tittel'],
+    explanation: '«une strophe» = en strofe (et «vers» i dagligtale).',
+  },
+  {
+    question: 'Hva er «le refrain» i en sang?',
+    options: ['refrenget (som gjentas)', 'tittelen', 'introen', 'det første verset'],
+    explanation: '«le refrain» = refrenget som gjentas mellom versene.',
+  },
+  {
+    question: 'Hvilken fransk sangerinne er kjent for «La Vie en rose» og «Non, je ne regrette rien»?',
+    options: ['Édith Piaf', 'Céline Dion', 'Jeanne d\'Arc', 'Marie Curie'],
+    explanation: 'Édith Piaf er en av Frankrikes mest berømte sangerinner.',
+  },
+  {
+    question: 'Hva er «une métaphore» i et dikt?',
+    options: ['et bilde/sammenligning uten «som» (overført betydning)', 'et rim', 'et refreng', 'en strofe'],
+    explanation: 'En metafor er et språklig bilde som overfører betydning, f.eks. «mitt hjerte er et hav».',
+  },
+  ],
+
+  'fransk-2-14-1': [
+  {
+    question: 'Hvilken viktig revolusjon begynte i Frankrike i 1789?',
+    options: ['Den franske revolusjon', 'Den industrielle revolusjon', 'Oktoberrevolusjonen', 'Den amerikanske revolusjon'],
+    explanation: 'Den franske revolusjon startet i 1789 med blant annet stormingen av Bastillen.',
+  },
+  {
+    question: 'Hva er de tre ordene i Frankrikes nasjonale motto?',
+    options: ['Liberté, Égalité, Fraternité', 'Paix, Amour, Liberté', 'Travail, Famille, Patrie', 'Honneur, Gloire, Patrie'],
+    explanation: 'Mottoet er «Liberté, Égalité, Fraternité» (frihet, likhet, brorskap).',
+  },
+  {
+    question: 'Hvem var keiseren som tok makten i Frankrike etter revolusjonen?',
+    options: ['Napoléon Bonaparte', 'Ludvig XIV', 'Charles de Gaulle', 'Louis Pasteur'],
+    explanation: 'Napoléon Bonaparte ble keiser og preget Europa tidlig på 1800-tallet.',
+  },
+  {
+    question: 'Hva markerer datoen 14. juli (le 14 juillet) i fransk historie?',
+    options: ['stormingen av Bastillen i 1789', 'frigjøringen i 1945', 'starten på EU', 'Napoléons kroning'],
+    explanation: '14. juli minnes stormingen av Bastillen og er Frankrikes nasjonaldag.',
+  },
+  {
+    question: 'Hvem ledet den frie franske motstanden under andre verdenskrig?',
+    options: ['Charles de Gaulle', 'Napoléon III', 'Louis XVI', 'Robespierre'],
+    explanation: 'General Charles de Gaulle ledet «la France libre» og ble senere president.',
+  },
+  ],
+
+  'fransk-2-14-2': [
+  {
+    question: 'Hva slags styreform har Frankrike?',
+    options: ['en republikk', 'et monarki', 'et keiserdømme', 'et diktatur'],
+    explanation: 'Frankrike er en republikk («la République française»).',
+  },
+  {
+    question: 'Hva heter Frankrikes statsoverhode?',
+    options: ['le président de la République', 'le roi', 'le chancelier', 'l\'empereur'],
+    explanation: 'Statsoverhodet er presidenten («le président de la République»), valgt av folket.',
+  },
+  {
+    question: 'Hva heter regjeringssjefen i Frankrike?',
+    options: ['le Premier ministre', 'le président', 'le maire', 'le sénateur'],
+    explanation: 'Regjeringssjefen er statsministeren («le Premier ministre»).',
+  },
+  {
+    question: 'Hva kalles den franske nasjonalforsamlingen?',
+    options: ['l\'Assemblée nationale', 'le Sénat seul', 'le Conseil', 'la Mairie'],
+    explanation: 'Underhuset i parlamentet heter «l\'Assemblée nationale» (Senatet er overhuset).',
+  },
+  {
+    question: 'Hva heter den franske presidentboligen i Paris?',
+    options: ['le palais de l\'Élysée', 'le Louvre', 'Versailles', 'la tour Eiffel'],
+    explanation: 'Presidenten holder til i Élysée-palasset («le palais de l\'Élysée»).',
+  },
+  ],
+
+  'fransk-2-14-3': [
+  {
+    question: 'Hva er Frankrike i forhold til EU (l\'Union européenne)?',
+    options: ['et av grunnleggerlandene', 'aldri vært medlem', 'gikk nettopp ut av EU', 'søker fortsatt om medlemskap'],
+    explanation: 'Frankrike er et av de seks landene som grunnla det europeiske samarbeidet.',
+  },
+  {
+    question: 'Hvilken valuta bruker Frankrike?',
+    options: ['euro (l\'euro)', 'franc', 'pund', 'krone'],
+    explanation: 'Frankrike bruker euro (innført på 2000-tallet, erstattet den franske francen).',
+  },
+  {
+    question: 'I hvilken fransk by ligger Europaparlamentet?',
+    options: ['Strasbourg', 'Paris', 'Lyon', 'Marseille'],
+    explanation: 'Europaparlamentet har sitt offisielle sete i Strasbourg.',
+  },
+  {
+    question: 'Hva betyr «la coopération internationale»?',
+    options: ['internasjonalt samarbeid', 'internasjonal handel kun', 'en fransk lov', 'et fransk parti'],
+    explanation: '«la coopération internationale» = internasjonalt samarbeid mellom land.',
+  },
+  {
+    question: 'Hva er Frankrikes rolle i FN (l\'ONU)?',
+    options: ['fast medlem av Sikkerhetsrådet med vetorett', 'ikke medlem', 'observatør uten stemmerett', 'leder av FN permanent'],
+    explanation: 'Frankrike er ett av fem faste medlemmer av FNs sikkerhetsråd med vetorett.',
+  },
+  ],
+
+  'fransk-2-14-4': [
+  {
+    question: 'Hva betyr «l\'environnement» i en samfunnsdebatt?',
+    options: ['miljøet', 'økonomien', 'utdanningen', 'helsevesenet'],
+    explanation: '«l\'environnement» = miljøet (natur og klima).',
+  },
+  {
+    question: 'Hva betyr «le réchauffement climatique»?',
+    options: ['den globale oppvarmingen', 'vinterkulden', 'en værmelding', 'en fransk høytid'],
+    explanation: '«le réchauffement climatique» = global oppvarming / klimaendringer.',
+  },
+  {
+    question: 'Hvilket uttrykk innleder et argument på den ENE siden i en debatt?',
+    options: ['D\'un côté ...', 'Au revoir ...', 'Il était une fois ...', 'À bientôt ...'],
+    explanation: '«D\'un côté ... d\'un autre côté ...» = «på den ene siden ... på den andre siden ...».',
+  },
+  {
+    question: 'Hva betyr «l\'égalité des sexes»?',
+    options: ['likestilling mellom kjønnene', 'aldersgrenser', 'skolesystemet', 'ytringsfrihet'],
+    explanation: '«l\'égalité des sexes» = likestilling mellom kjønnene, et sentralt samfunnstema.',
+  },
+  {
+    question: 'Hva betyr verbet «débattre»?',
+    options: ['å debattere/diskutere', 'å være enig', 'å tie stille', 'å stemme'],
+    explanation: '«débattre» = å debattere; «un débat» = en debatt.',
+  },
+  ],
+
+  'fransk-2-15-1': [
+  {
+    question: 'Hva er «une liaison» i fransk uttale?',
+    options: ['en ellers stum sluttkonsonant uttales foran et ord som begynner på vokal', 'å snakke fort', 'å hviske', 'et stumt h'],
+    explanation: 'Liaison: «les amis» uttales med /z/ fordi neste ord begynner på vokal.',
+  },
+  {
+    question: 'Hva er «l\'enchaînement»?',
+    options: ['at en uttalt sluttkonsonant kobles til neste ords vokal', 'en stum konsonant', 'et aksenttegn', 'et spørsmål'],
+    explanation: 'Enchaînement binder ordene sammen i talestrømmen, f.eks. «il est» glir over i hverandre.',
+  },
+  {
+    question: 'Hva skjer med tonefallet i et fransk ja/nei-spørsmål?',
+    options: ['det stiger på slutten', 'det synker på slutten', 'det er helt flatt', 'det forsvinner'],
+    explanation: 'I ja/nei-spørsmål uten spørreord stiger intonasjonen mot slutten.',
+  },
+  {
+    question: 'Hvordan uttales bokstavkombinasjonen «ou» (som i «vous»)?',
+    options: ['som norsk «u»', 'som norsk «y»', 'som norsk «o»', 'som norsk «æ»'],
+    explanation: 'Fransk «ou» uttales som norsk u-lyd: vous, nous, bonjour.',
+  },
+  {
+    question: 'Hvorfor er det viktig å mestre liaison og enchaînement?',
+    options: ['for å snakke mer flytende og naturlig fransk', 'for å skrive uten feil', 'for å lære gloser raskere', 'det har ingen betydning'],
+    explanation: 'Disse fenomenene gir flyt og naturlig rytme i muntlig fransk.',
+  },
+  ],
+
+  'fransk-2-15-2': [
+  {
+    question: 'Hvilket uttrykk bruker du for å si din mening i en diskusjon?',
+    options: ['À mon avis, ...', 'Au revoir, ...', 'Il était une fois, ...', 'C\'est combien?'],
+    explanation: '«À mon avis ...» = «Etter min mening ...».',
+  },
+  {
+    question: 'Hvordan uttrykker du uenighet høflig?',
+    options: ['Je ne suis pas d\'accord, parce que ...', 'Merci beaucoup', 'Bonne nuit', 'D\'accord, tout à fait'],
+    explanation: '«Je ne suis pas d\'accord» = «jeg er ikke enig», gjerne fulgt av en begrunnelse.',
+  },
+  {
+    question: 'Hva betyr «D\'un côté ..., d\'un autre côté ...»?',
+    options: ['På den ene siden ..., på den andre siden ...', 'Først ..., til slutt ...', 'Her ..., der ...', 'I dag ..., i morgen ...'],
+    explanation: 'Uttrykket veier to sider mot hverandre i en argumentasjon.',
+  },
+  {
+    question: 'Hvilket uttrykk innfører en konklusjon i en debatt?',
+    options: ['En conclusion / Pour conclure', 'Tout d\'abord', 'Par exemple', 'D\'ailleurs'],
+    explanation: '«En conclusion» / «Pour conclure» = «for å konkludere».',
+  },
+  {
+    question: 'Hva betyr «Je suis tout à fait d\'accord»?',
+    options: ['Jeg er helt enig', 'Jeg er litt uenig', 'Jeg forstår ikke', 'Det er ikke sant'],
+    explanation: '«tout à fait» = helt/fullstendig; «Je suis tout à fait d\'accord» = jeg er helt enig.',
+  },
+  ],
+
+  'fransk-2-15-3': [
+  {
+    question: 'Hvordan innleder du gjerne en muntlig presentasjon?',
+    options: ['Bonjour, aujourd\'hui je vais vous parler de ...', 'Au revoir et merci', 'L\'addition, s\'il vous plaît', 'C\'est trop cher'],
+    explanation: 'En presentasjon innledes ofte med «Je vais vous parler de ...» (jeg skal snakke om ...).',
+  },
+  {
+    question: 'Hvilke bindeord strukturerer en presentasjon i rekkefølge?',
+    options: ['D\'abord ..., ensuite ..., enfin ...', 'Oui ..., non ..., peut-être ...', 'Ici ..., là ..., partout ...', 'Hier ..., aujourd\'hui ..., demain ...'],
+    explanation: '«D\'abord ..., ensuite ..., enfin ...» = «først ..., deretter ..., til slutt ...».',
+  },
+  {
+    question: 'Hvordan avslutter du en presentasjon?',
+    options: ['Pour conclure / Merci de votre attention', 'Bonjour tout le monde', 'Je m\'appelle ...', 'Tournez à droite'],
+    explanation: 'Man avrunder med «Pour conclure ...» og «Merci de votre attention».',
+  },
+  {
+    question: 'Hva er et godt råd for en vellykket muntlig presentasjon?',
+    options: ['snakke tydelig, ha en klar struktur og ha øyekontakt', 'lese alt ordrett fra arket uten å se opp', 'snakke så fort som mulig', 'bruke bare lange og kompliserte setninger'],
+    explanation: 'Tydelig tale, god struktur og øyekontakt gjør presentasjonen lettere å følge.',
+  },
+  {
+    question: 'Hva betyr «Avez-vous des questions?» på slutten av en presentasjon?',
+    options: ['Har dere noen spørsmål?', 'Hva er klokka?', 'Hvor bor dere?', 'Liker dere det?'],
+    explanation: '«Avez-vous des questions?» åpner for spørsmål fra publikum.',
+  },
+  ],
+
+  'fransk-2-15-4': [
+  {
+    question: 'I et jobbintervju, hva betyr spørsmålet «Pourquoi voulez-vous ce poste?»',
+    options: ['Hvorfor ønsker du denne stillingen?', 'Hvor gammel er du?', 'Hvor bor du?', 'Hva heter du?'],
+    explanation: '«Pourquoi voulez-vous ce poste?» = «Hvorfor ønsker De denne stillingen?».',
+  },
+  {
+    question: 'Hvilket uttrykk passer for å fremheve dine styrker i et intervju?',
+    options: ['Je suis motivé(e) et travailleur/travailleuse', 'Je voudrais l\'addition', 'Au secours!', 'C\'est combien?'],
+    explanation: 'Man trekker fram positive egenskaper: «Je suis motivé(e) ...» (jeg er motivert ...).',
+  },
+  {
+    question: 'Hvordan klager du høflig på en vare/tjeneste på fransk?',
+    options: ['Je voudrais me plaindre / Il y a un problème avec ...', 'Bonne nuit', 'Enchanté', 'Joyeux Noël'],
+    explanation: '«se plaindre» = å klage; «Il y a un problème avec ...» innleder en høflig reklamasjon.',
+  },
+  {
+    question: 'I en forhandling, hva betyr «Pouvons-nous trouver un compromis?»',
+    options: ['Kan vi finne et kompromiss?', 'Hvor mye koster det?', 'Jeg er ikke interessert', 'Vi ses senere'],
+    explanation: '«un compromis» = et kompromiss; uttrykket søker en løsning begge kan godta.',
+  },
+  {
+    question: 'Hvilken høflighetsform bruker man i et jobbintervju med en ukjent arbeidsgiver?',
+    options: ['vous', 'tu', 'on', 'je seul'],
+    explanation: 'Man bruker høflighetsformen «vous» i formelle situasjoner som jobbintervju.',
+  },
+  ],
+
+  'fransk-2-16-1': [
+  {
+    question: 'Når brukes imparfait i stedet for passé composé?',
+    options: ['for vaner og beskrivelser i fortiden', 'for plutselige, avsluttede handlinger', 'for framtid', 'for nåtid'],
+    explanation: 'Imparfait brukes for beskrivelser, vaner og bakgrunn; passé composé for avsluttede handlinger.',
+  },
+  {
+    question: 'Hvilket hjelpeverb tar bevegelsesverbet «aller» i passé composé?',
+    options: ['être', 'avoir', 'faire', 'aller selv'],
+    explanation: 'Bevegelsesverb som aller, venir, partir tar «être» i passé composé (med samsvarsbøyning).',
+  },
+  {
+    question: 'Hva er COI-pronomenet for både «il» og «elle»?',
+    options: ['lui', 'la', 'le', 'les'],
+    explanation: 'COI (indirekte objekt) for il/elle er «lui»: «Je lui parle». COD for elle er «la».',
+  },
+  {
+    question: 'Hvilket uttrykk krever subjonctif?',
+    options: ['Il faut que ...', 'Je sais que ...', 'Parce que ...', 'Si + imparfait'],
+    explanation: '«Il faut que» + subjonctif. «Je sais que» og «parce que» tar indikativ.',
+  },
+  {
+    question: 'Velg riktig si-setning type 2: «Si j\'avais le temps, je ___ » (venir).',
+    options: ['viendrais', 'viendrai', 'venais', 'vienne'],
+    explanation: '«Si + imparfait» → conditionnel présent: «je viendrais».',
+  },
+  ],
+
+  'fransk-2-16-2': [
+  {
+    question: 'Til hvilken temagruppe hører ordene «le médecin», «l\'infirmière» og «l\'hôpital»?',
+    options: ['helse (la santé)', 'transport', 'mat', 'klær'],
+    explanation: 'Disse ordene hører til temaet helse: lege, sykepleier, sykehus.',
+  },
+  {
+    question: 'Hvilket ord hører IKKE til temaet «les transports»?',
+    options: ['le fromage', 'le train', 'l\'avion', 'le métro'],
+    explanation: '«le fromage» (ost) hører til mat, ikke transport.',
+  },
+  {
+    question: 'Hvilke ord hører til temaet «l\'environnement»?',
+    options: ['le réchauffement climatique og la pollution', 'le pantalon og la robe', 'le petit déjeuner og le dîner', 'le clavier og l\'écran'],
+    explanation: 'Klimaoppvarming og forurensning hører til miljøtemaet.',
+  },
+  {
+    question: 'Hva er en effektiv strategi for å lære gloser tematisk?',
+    options: ['gruppere ord etter tema og bruke dem i setninger', 'lære dem i tilfeldig rekkefølge uten kontekst', 'bare oversette uten å øve', 'unngå å gjenta dem'],
+    explanation: 'Å gruppere ord tematisk og bruke dem aktivt gir best og mest varig læring.',
+  },
+  {
+    question: 'Til hvilket tema hører «le président», «l\'Assemblée nationale» og «voter»?',
+    options: ['politikk (la politique)', 'skole', 'fritid', 'familie'],
+    explanation: 'Disse ordene hører til politikk: president, nasjonalforsamling, å stemme.',
+  },
+  ],
+
+  'fransk-2-16-3': [
+  {
+    question: 'Hva er en god strategi for lytteforståelse til eksamen?',
+    options: ['fange nøkkelord og bruke konteksten, ikke fokusere på hvert ord', 'forsøke å oversette hvert ord mens du lytter', 'gi opp hvis du ikke forstår alt', 'bare lese oppgaveteksten'],
+    explanation: 'Effektiv lytting handler om å fange hovedinnholdet via nøkkelord og sammenheng.',
+  },
+  {
+    question: 'Hva bør du gjøre FØRST i en leseforståelsesoppgave?',
+    options: ['lese spørsmålene før du leser teksten grundig', 'oversette hele teksten ord for ord', 'svare uten å lese teksten', 'telle ordene'],
+    explanation: 'Å lese spørsmålene først gjør at du leter målrettet etter svarene i teksten.',
+  },
+  {
+    question: 'Hva er et godt råd for skriftlig produksjon på eksamen?',
+    options: ['planlegge teksten og bruke bindeord for sammenheng', 'skrive flest mulig kompliserte setninger uansett feil', 'aldri sjekke det du har skrevet', 'unngå avsnitt'],
+    explanation: 'God struktur, bindeord og en gjennomlesning til slutt løfter en skriftlig besvarelse.',
+  },
+  {
+    question: 'Hvorfor er det lurt å disponere tiden under eksamen?',
+    options: ['for å rekke alle delene av oppgaven', 'fordi tid ikke betyr noe', 'for å bruke all tid på første oppgave', 'for å levere så raskt som mulig'],
+    explanation: 'Tidsdisponering sikrer at du rekker over alle deloppgavene.',
+  },
+  {
+    question: 'Hva bør du gjøre med ord du ikke kan i en muntlig eksamen?',
+    options: ['omformulere med ord du kan', 'tie helt stille', 'bytte til norsk', 'avslutte eksamen'],
+    explanation: 'Å omskrive med kjente ord er en sentral kommunikasjonsstrategi når et ord mangler.',
+  },
+  ],
+
+  'fransk-2-16-4': [
+  {
+    question: 'Velg riktig passé composé: «Hier, elle ___ allée au cinéma».',
+    options: ['est', 'a', 'es', 'ont'],
+    explanation: '«aller» tar être: «elle est allée» (med samsvar -e for hunkjønn).',
+  },
+  {
+    question: 'Velg riktig imparfait: «Quand j\'étais petit, je ___ au foot tous les jours» (jouer).',
+    options: ['jouais', 'ai joué', 'jouerai', 'joue'],
+    explanation: 'Vane i fortid → imparfait: «je jouais». «tous les jours» signaliserer gjentakelse.',
+  },
+  {
+    question: 'Velg riktig subjonctif: «Il faut que tu ___ tes devoirs» (faire).',
+    options: ['fasses', 'fais', 'feras', 'faisais'],
+    explanation: '«Il faut que» + subjonctif: «que tu fasses».',
+  },
+  {
+    question: 'Velg riktig pronomen: «Tu parles à Marie? – Oui, je ___ parle.»',
+    options: ['lui', 'la', 'le', 'les'],
+    explanation: '«parler à quelqu\'un» tar indirekte objekt (COI): «lui» for il/elle.',
+  },
+  {
+    question: 'Velg riktig si-setning: «Si j\'avais de l\'argent, je ___ une voiture» (acheter).',
+    options: ['achèterais', 'achèterai', 'achetais', 'achète'],
+    explanation: 'Hypotetisk «si + imparfait» → conditionnel: «j\'achèterais».',
+  },
+  ],
 
 };
 

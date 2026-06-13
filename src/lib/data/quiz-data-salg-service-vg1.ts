@@ -755,6 +755,762 @@ const quizDataSalgServiceVg1: Record<string, QuizQuestion[]> = {
     explanation: 'KPI (Key Performance Indicator) er målbare nøkkeltall, f.eks. konverteringsrate eller gjennomsnittlig ordreverdi, som brukes i dataanalyse og styring.',
   },
 ],
+  'salg-service-vg1-5-1': [
+  {
+    question: 'Hva omfatter reiselivsnæringen?',
+    options: ['Alle virksomheter som tilbyr varer og tjenester til reisende, som overnatting, servering, transport og opplevelser', 'Kun hoteller og restauranter', 'Bare transportselskaper som fly og tog', 'Kun reisebyråer som selger pakketurer'],
+    explanation: 'Reiselivsnæringen omfatter alle virksomheter som tilbyr varer og tjenester til reisende: overnatting, servering, transport, opplevelser, attraksjoner og reiseformidling.',
+  },
+  {
+    question: 'Et kjennetegn ved reiselivsproduktet er at det:',
+    options: ['Konsumeres på stedet og ikke kan lagres', 'Alltid kan returneres etter bruk', 'Kan produseres på lager og selges senere', 'Aldri påvirkes av sesong'],
+    explanation: 'Reiselivsprodukter konsumeres på stedet og kan ikke lagres - et tomt hotellrom eller en ledig flyplass er tapt inntekt for alltid.',
+  },
+  {
+    question: 'Hvorfor regnes utenlandske turister som en eksportinntekt for Norge?',
+    options: ['De bringer inn valuta fra utlandet selv om de konsumerer i Norge', 'De tar med seg norske varer hjem gratis', 'De betaler ikke skatt i Norge', 'De reiser kun innenfor Norge'],
+    explanation: 'Når utenlandske turister bruker penger i Norge, tilfører de "fersk" valuta utenfra, på samme måte som vanlig eksport av varer.',
+  },
+  {
+    question: 'Hvilken av disse hører til delen "reiseformidling" i reiselivsnæringen?',
+    options: ['Reisebyråer og destinasjonsselskaper', 'Hoteller og campingplasser', 'Restauranter og kafeer', 'Tog og ferger'],
+    explanation: 'Reiseformidling omfatter reisebyråer, online-plattformer, turistinformasjon og destinasjonsselskaper - de som formidler reiser og tilbud.',
+  },
+  {
+    question: 'Hva menes med verdiskaping i reiselivsnæringen?',
+    options: ['Den økonomiske verdien næringen skaper gjennom omsetning, arbeidsplasser og ringvirkninger', 'Antall turister som besøker landet', 'Hvor mange hoteller som finnes', 'Prisen på en flybillett'],
+    explanation: 'Verdiskaping er den økonomiske verdien næringen tilfører gjennom omsetning, sysselsetting, skatteinntekter og ringvirkninger til andre næringer.',
+  },
+  ],
+  'salg-service-vg1-5-2': [
+  {
+    question: 'Hva er en overnattingsbedrift?',
+    options: ['En virksomhet som tilbyr overnatting mot betaling, som hoteller, vandrerhjem og campingplasser', 'En bedrift som kun serverer frokost', 'Et selskap som arrangerer guidede turer', 'En virksomhet som leier ut biler'],
+    explanation: 'En overnattingsbedrift tilbyr overnatting mot betaling - hoteller, moteller, pensjonater, vandrerhjem, campingplasser og private utleiere.',
+  },
+  {
+    question: 'Hvilken hotellavdeling har ansvar for innsjekking, utsjekking og reservasjoner?',
+    options: ['Resepsjon (Front Office)', 'Housekeeping', 'Mat og drikke (F&B)', 'Administrasjon'],
+    explanation: 'Resepsjonen (Front Office) håndterer innsjekking, utsjekking, reservasjoner, gjesteservice og informasjon.',
+  },
+  {
+    question: 'Hva er hovedoppgaven til housekeeping på et hotell?',
+    options: ['Romrengjøring, vask av tekstiler og stell av fellesområder', 'Innsjekking av gjester', 'Servering i restauranten', 'Salg og markedsføring'],
+    explanation: 'Housekeeping har ansvar for romrengjøring, vask og stell av tekstiler, fellesområder og påfylling av minibar.',
+  },
+  {
+    question: 'Hva kjennetegner et boutiquehotell?',
+    options: ['Unikt design og færre rom enn store kjedehoteller', 'Alltid alt-inkludert opphold', 'Kun overnatting uten frokost', 'Bygges alltid i fjellet'],
+    explanation: 'Et boutiquehotell kjennetegnes ved unikt design og en mindre, mer personlig skala med færre rom enn de store kjedehotellene.',
+  },
+  {
+    question: 'Hva er en serveringsbedrift?',
+    options: ['En virksomhet som selger mat og/eller drikke til fortæring på stedet eller som takeaway', 'En virksomhet som kun selger overnatting', 'Et selskap som driver med transport', 'En bedrift som arrangerer konferanser'],
+    explanation: 'En serveringsbedrift selger mat og/eller drikke til fortæring på stedet eller som takeaway - restauranter, kafeer, barer, kantiner, gatekjøkken og catering.',
+  },
+  ],
+  'salg-service-vg1-5-3': [
+  {
+    question: 'Hva omfatter reiselivstransport?',
+    options: ['Alle transportmidler som frakter reisende til, fra og på destinasjonen', 'Bare fly mellom land', 'Kun lokal kollektivtransport', 'Bare leiebil og drosje'],
+    explanation: 'Reiselivstransport omfatter alle transportmidler som frakter reisende - fly, tog, buss, ferge, cruiseskip, leiebil og lokale transportmidler.',
+  },
+  {
+    question: 'Hva kjennetegner et opplevelsesprodukt?',
+    options: ['Det er immaterielt, konsumeres i øyeblikket og involverer kundens aktive deltakelse', 'Det er en fysisk vare kunden tar med hjem', 'Det kan lagres og selges senere', 'Det krever ingen deltakelse fra kunden'],
+    explanation: 'Et opplevelsesprodukt er immaterielt (ikke fysisk), konsumeres i øyeblikket og involverer ofte kundens aktive deltakelse for å skape en minneverdig erfaring.',
+  },
+  {
+    question: 'Hvilket transportmiddel beskrives som "verdens vakreste sjøreise" og kombinerer transport og cruise?',
+    options: ['Hurtigruten', 'Flåmbanen', 'Bergensbanen', 'Flytoget'],
+    explanation: 'Hurtigruten kalles "verdens vakreste sjøreise", anløper 34 havner langs norskekysten og kombinerer transport og cruise.',
+  },
+  {
+    question: 'Hva er et eksempel på "transport som opplevelse"?',
+    options: ['Flåmbanen, der selve togturen er en attraksjon', 'En vanlig bussreise til jobben', 'En drosjetur i sentrum', 'En kort ferge over en elv'],
+    explanation: 'Flåmbanen er en av verdens bratteste jernbaner og er en attraksjon i seg selv - selve reisen er opplevelsen.',
+  },
+  {
+    question: 'Hvilken luftfartsform brukes typisk for pakkereiser?',
+    options: ['Charterfly', 'Rutefly', 'Helikopter', 'Privatfly'],
+    explanation: 'Charterfly brukes typisk til pakkereiser, der flytransporten er en del av en samlet reisepakke.',
+  },
+  ],
+  'salg-service-vg1-5-4': [
+  {
+    question: 'Hva er bærekraftig reiseliv?',
+    options: ['Turisme som tar hensyn til økonomiske, sosiale og miljømessige konsekvenser, også for fremtidige generasjoner', 'Turisme som er så billig som mulig', 'Turisme der man reiser så langt som mulig', 'Turisme uten regler eller begrensninger'],
+    explanation: 'Bærekraftig reiseliv tar hensyn til dagens og fremtidens økonomiske, sosiale og miljømessige konsekvenser, uten å ødelegge for fremtidige generasjoner.',
+  },
+  {
+    question: 'Hvilke tre dimensjoner inngår i bærekraftig reiseliv?',
+    options: ['Miljømessig, sosial og økonomisk bærekraft', 'Pris, kvalitet og tid', 'Transport, overnatting og servering', 'Markedsføring, salg og service'],
+    explanation: 'Bærekraft har tre dimensjoner: miljømessig (natur og klima), sosial (kultur og arbeidsforhold) og økonomisk (langsiktig lønnsomhet).',
+  },
+  {
+    question: 'Hva er overturisme?',
+    options: ['At for mange turister besøker samme sted, med slitasje og redusert opplevelseskvalitet som følge', 'At turister reiser for kort', 'At det er for få turister på et sted', 'At turister betaler for mye'],
+    explanation: 'Overturisme er når for mange turister samles på samme sted, noe som gir slitasje, køer, redusert opplevelseskvalitet og frustrasjon i lokalsamfunnet.',
+  },
+  {
+    question: 'Hvilket av disse er et eksempel på et norsk sted som opplever overturisme?',
+    options: ['Trolltunga', 'En tilfeldig skog uten stier', 'En industriby uten attraksjoner', 'En ubebodd øy uten adkomst'],
+    explanation: 'Steder som Trolltunga, Preikestolen og Geirangerfjorden opplever perioder med overturisme med slitasje på naturen som konsekvens.',
+  },
+  {
+    question: 'Hva er et eksempel på et tiltak for miljømessig bærekraft i reiselivet?',
+    options: ['Redusere klimagassutslipp og minimere avfall og forurensning', 'Senke prisene på alle reiser', 'Bygge så mange hoteller som mulig', 'Øke antall flyavganger'],
+    explanation: 'Miljømessig bærekraft handler om å redusere klimagassutslipp, bevare natur, minimere avfall og forurensning og bruke ressurser forsvarlig.',
+  },
+  ],
+  'salg-service-vg1-5-5': [
+  {
+    question: 'Hva er internasjonal turisme?',
+    options: ['Reiser der personer krysser landegrenser for fritid, forretning eller andre formål', 'Reiser kun innenfor eget land', 'Bare forretningsreiser', 'Reiser som varer over ett år'],
+    explanation: 'Internasjonal turisme omfatter reiser der personer krysser landegrenser - UNWTO rapporterte over 1,4 milliarder internasjonale turistankomster årlig før pandemien.',
+  },
+  {
+    question: 'Omtrent hvor stor andel av globalt BNP utgjør turismen?',
+    options: ['Ca. 10 %', 'Ca. 1 %', 'Ca. 30 %', 'Ca. 50 %'],
+    explanation: 'Turismen utgjør ca. 10 % av global BNP og skaper omtrent 1 av 10 arbeidsplasser globalt.',
+  },
+  {
+    question: 'Hva innebærer trenden "bleisure"?',
+    options: ['En kombinasjon av business (forretning) og leisure (fritid) på samme reise', 'Å reise kun for fritid', 'Å reise uten bagasje', 'Å booke reiser i siste liten'],
+    explanation: 'Bleisure er en sammensetning av "business" og "leisure" - der man kombinerer forretningsreise med fritid, ofte ved å forlenge oppholdet.',
+  },
+  {
+    question: 'Hva kjennetegner trenden "opplevelsesturisme"?',
+    options: ['En dreining fra å "se" til å "gjøre", med vekt på autentiske, lokale opplevelser', 'Å besøke flest mulig land på kortest tid', 'Å reise med så lav pris som mulig', 'Å unngå all kontakt med lokalbefolkningen'],
+    explanation: 'Opplevelsesturisme handler om å gå fra passiv observasjon ("se") til aktiv deltakelse ("gjøre") og søke autentiske, lokale opplevelser.',
+  },
+  {
+    question: 'Hvilket land har lenge vært verdens mest besøkte reisemål (før pandemien)?',
+    options: ['Frankrike', 'Norge', 'Kina', 'Brasil'],
+    explanation: 'Frankrike har vært verdens mest besøkte reisemål med rundt 90 millioner internasjonale turister i året, foran Spania og USA.',
+  },
+  ],
+  'salg-service-vg1-5-6': [
+  {
+    question: 'Hva er en destinasjon?',
+    options: ['Et geografisk område turister reiser til og oppholder seg i, med alle elementene turisten opplever', 'Kun et enkelt hotell', 'Bare en flyplass', 'En transportrute mellom to byer'],
+    explanation: 'En destinasjon er et geografisk område (by, region eller land) som omfatter alle elementene turisten opplever: attraksjoner, overnatting, transport, servering og atmosfære.',
+  },
+  {
+    question: 'Hva er et destinasjonsselskap?',
+    options: ['En organisasjon som utvikler og markedsfører en destinasjon og koordinerer reiselivsaktørene', 'Et flyselskap', 'Et hotell med mange rom', 'En restaurantkjede'],
+    explanation: 'Et destinasjonsselskap arbeider for å utvikle og markedsføre en destinasjon, koordinerer samarbeid mellom aktørene og jobber for økt besøk og verdiskaping.',
+  },
+  {
+    question: 'Hva menes med de "primære attraksjonene" i en destinasjon?',
+    options: ['Det som først og fremst får folk til å reise dit - destinasjonens ankerpunkt', 'Hotellene på stedet', 'Skiltingen og informasjonen', 'Servicekulturen blant de ansatte'],
+    explanation: 'Primære attraksjoner er det som får folk til å reise til destinasjonen - natur, kultur eller severdigheter som fungerer som "ankerpunktet".',
+  },
+  {
+    question: 'Hvilken oppgave hører til et destinasjonsselskap?',
+    options: ['Koordinere samarbeid mellom reiselivsaktørene og markedsføre destinasjonen', 'Drive ett enkelt hotell', 'Selge flybilletter til kunder', 'Lage maten på en restaurant'],
+    explanation: 'Destinasjonsselskapet markedsfører destinasjonen, koordinerer aktørene, driver produktutvikling og fungerer som vertskap, f.eks. Visit Oslo.',
+  },
+  {
+    question: 'Hva er et eksempel på et norsk destinasjonsselskap?',
+    options: ['Visit Oslo', 'SAS', 'Scandic Hotels', 'Vy'],
+    explanation: 'Visit Oslo er et destinasjonsselskap som markedsfører og utvikler Oslo som reisemål - SAS, Scandic og Vy er enkeltbedrifter i næringen.',
+  },
+  ],
+  'salg-service-vg1-5-7': [
+  {
+    question: 'Hva er reiselivsmarkedsføring?',
+    options: ['Alle aktiviteter for å gjøre potensielle gjester oppmerksomme på et reiselivsprodukt og få dem til å bestille', 'Bare å sette pris på et hotellrom', 'Kun å rengjøre rommene før gjester kommer', 'Å frakte gjester til destinasjonen'],
+    explanation: 'Reiselivsmarkedsføring omfatter alle aktiviteter som skaper oppmerksomhet, interesse og ønske om å bestille - profilering, annonsering, PR, sosiale medier og kundeoppfølging.',
+  },
+  {
+    question: 'Hvorfor er anmeldelser og anbefalinger spesielt viktige i reiselivsmarkedsføring?',
+    options: ['Fordi produktet er immaterielt og ikke kan prøves på forhånd', 'Fordi produktet alltid er billig', 'Fordi kundene aldri reiser igjen', 'Fordi produktet kan returneres'],
+    explanation: 'Reiselivsprodukter er immaterielle og kan ikke prøves på forhånd, så kunden stoler på bilder, historier, anmeldelser og anbefalinger for å redusere kjøpsrisikoen.',
+  },
+  {
+    question: 'Hva betyr det at reiselivsprodukter "ikke kan lagres"?',
+    options: ['Et tomt rom eller ledig sete i dag er tapt inntekt for alltid', 'At produktene råtner på lager', 'At man ikke kan ta bilder av dem', 'At de må selges til full pris'],
+    explanation: 'Reiselivsprodukter kan ikke lagres - et tomt hotellrom eller ledig flysete er tapt for godt. Dette gjør yield management og dynamisk prising viktig.',
+  },
+  {
+    question: 'Hva er et eksempel på et demografisk segmenteringskriterium?',
+    options: ['Alder, inntekt og familiesituasjon', 'Verdier og livsstil', 'Bookingvaner og reiseerfaring', 'Hvilken kanal kunden bruker'],
+    explanation: 'Demografisk segmentering deler markedet etter målbare kjennetegn som alder, inntekt, familiesituasjon og nasjonalitet.',
+  },
+  {
+    question: 'Hva er ofte den viktigste digitale markedsføringskanalen for en reiselivsbedrift?',
+    options: ['Bedriftens egen nettside', 'Faks', 'Avisannonser i papir', 'Plakater i resepsjonen'],
+    explanation: 'Egen nettside er den viktigste digitale kanalen, der bedriften kontrollerer informasjon, bilder og booking, supplert av sosiale medier og plattformer.',
+  },
+  ],
+  'salg-service-vg1-6-1': [
+  {
+    question: 'Hva er inntekter i en virksomhet?',
+    options: ['Verdien av det virksomheten selger, beregnet som antall solgte enheter ganger pris', 'Verdien av det virksomheten bruker for å drive', 'Pengene som blir igjen til slutt', 'Lønnen til de ansatte'],
+    explanation: 'Inntekter er verdien av det virksomheten selger: antall solgte enheter × pris per enhet.',
+  },
+  {
+    question: 'Hva er dekningsbidrag?',
+    options: ['Det som blir igjen av salgsinntekten når variable kostnader er trukket fra', 'Summen av alle inntekter', 'De faste kostnadene alene', 'Lønn til ledelsen'],
+    explanation: 'Dekningsbidrag = Salgsinntekt − Variable kostnader. Det skal dekke de faste kostnadene og gi overskudd.',
+  },
+  {
+    question: 'En kafé selger en kaffe for 40 kr. De variable kostnadene per kaffe er 15 kr. Hva er dekningsbidraget per kaffe?',
+    options: ['25 kr', '55 kr', '15 kr', '40 kr'],
+    explanation: 'Dekningsbidrag = Salgsinntekt − Variable kostnader = 40 − 15 = 25 kr per kaffe.',
+  },
+  {
+    question: 'Hvordan finner man resultatet (overskudd/underskudd) i en virksomhet?',
+    options: ['Ved å trekke kostnadene fra inntektene', 'Ved å legge sammen inntekter og kostnader', 'Ved å gange inntektene med kostnadene', 'Ved å dele inntektene på antall ansatte'],
+    explanation: 'Resultat = Inntekter − Kostnader. Et positivt resultat er overskudd, et negativt er underskudd.',
+  },
+  {
+    question: 'Hva menes med at en virksomhet er lønnsom?',
+    options: ['At inntektene er større enn kostnadene over tid', 'At den har mange ansatte', 'At den selger billig', 'At den har et stort varelager'],
+    explanation: 'Lønnsomhet betyr at virksomheten over tid har høyere inntekter enn kostnader, slik at det blir et overskudd.',
+  },
+  ],
+  'salg-service-vg1-6-2': [
+  {
+    question: 'Hva er et budsjett?',
+    options: ['En tallfestet plan for en fremtidig periode med forventede inntekter og kostnader', 'En registrering av det som allerede har skjedd', 'En liste over ansatte', 'En oversikt over varelageret'],
+    explanation: 'Et budsjett er en tallfestet plan for en fremtidig periode som viser forventede inntekter, kostnader og planlagt resultat.',
+  },
+  {
+    question: 'Hva er regnskap?',
+    options: ['Den systematiske registreringen av alle økonomiske hendelser i en virksomhet', 'En plan for fremtiden', 'Et anslag over forventet salg', 'En markedsføringsstrategi'],
+    explanation: 'Regnskap er den systematiske registreringen av faktiske økonomiske hendelser og gir oversikt over eiendeler, gjeld, inntekter og kostnader.',
+  },
+  {
+    question: 'Hva er hovedforskjellen mellom budsjett og regnskap?',
+    options: ['Budsjett viser planlagte/forventede tall, regnskap viser de faktiske tallene', 'De er nøyaktig det samme', 'Budsjett gjelder fortiden, regnskap gjelder fremtiden', 'Bare store bedrifter har budsjett'],
+    explanation: 'Budsjettet er en plan for fremtiden (forventede tall), mens regnskapet viser hva som faktisk skjedde (virkelige tall).',
+  },
+  {
+    question: 'Hvorfor fører virksomheter regnskap?',
+    options: ['Det er lovpålagt og gir oversikt over økonomien', 'Bare for å imponere kunder', 'Det er frivillig og sjelden brukt', 'For å slippe å betale skatt'],
+    explanation: 'Alle virksomheter er lovpålagt å føre regnskap. Det gir oversikt over økonomien og er grunnlag for skatt, styring og kontroll.',
+  },
+  {
+    question: 'En butikk budsjetterer med 800 000 kr i inntekter og 650 000 kr i kostnader. Hva er budsjettert resultat?',
+    options: ['150 000 kr', '1 450 000 kr', '650 000 kr', '50 000 kr'],
+    explanation: 'Budsjettert resultat = Inntekter − Kostnader = 800 000 − 650 000 = 150 000 kr i overskudd.',
+  },
+  ],
+  'salg-service-vg1-6-3': [
+  {
+    question: 'Hva er prissetting?',
+    options: ['Prosessen med å bestemme prisen på et produkt eller en tjeneste', 'Å telle opp varelageret', 'Å føre regnskap', 'Å ansette nye medarbeidere'],
+    explanation: 'Prissetting er å bestemme prisen på et produkt eller en tjeneste, slik at den dekker kostnader, gir fortjeneste og er konkurransedyktig.',
+  },
+  {
+    question: 'Hva er kalkulasjon?',
+    options: ['Beregningen av hva et produkt eller en tjeneste koster å produsere/levere', 'Den endelige salgsprisen til kunden', 'Antall solgte enheter', 'Markedsføringsbudsjettet'],
+    explanation: 'Kalkulasjon er beregningen av hva et produkt koster å produsere/levere, inkludert direkte og indirekte kostnader, og er grunnlaget for prissetting.',
+  },
+  {
+    question: 'En rett koster 60 kr i råvarer. Restauranten vil ha 200 % påslag på råvarekostnaden. Hva blir salgsprisen?',
+    options: ['180 kr', '120 kr', '60 kr', '260 kr'],
+    explanation: 'Påslag på 200 % av 60 kr er 120 kr. Salgspris = 60 + 120 = 180 kr.',
+  },
+  {
+    question: 'Hva må prisen som et minimum dekke for at virksomheten skal tjene penger over tid?',
+    options: ['Kostnadene knyttet til produktet, pluss en fortjeneste', 'Bare råvarekostnaden', 'Kun lønna til én ansatt', 'Ingenting - prisen kan settes fritt'],
+    explanation: 'Prisen må dekke alle kostnader (direkte og indirekte) og gi fortjeneste, samtidig som den er akseptabel for kundene og konkurransedyktig.',
+  },
+  {
+    question: 'Hva er bruttofortjeneste i kroner hvis en vare kjøpes inn for 80 kr og selges for 200 kr?',
+    options: ['120 kr', '280 kr', '80 kr', '160 kr'],
+    explanation: 'Bruttofortjeneste = Salgspris − Innkjøpspris = 200 − 80 = 120 kr.',
+  },
+  ],
+  'salg-service-vg1-6-4': [
+  {
+    question: 'Hva beskriver en verdikjede?',
+    options: ['Alle aktivitetene fra råvarer til ferdig produkt i hendene på kunden, der hvert ledd legger til verdi', 'Bare salget i butikken', 'Kun transporten av varer', 'Lønna til de ansatte'],
+    explanation: 'En verdikjede beskriver alle aktivitetene fra råvarer til ferdig produkt hos kunden - leverandører, produksjon, distribusjon, salg og ettermarked - der hvert ledd legger til verdi.',
+  },
+  {
+    question: 'Hva betyr ansvarlige innkjøp?',
+    options: ['Å velge leverandører og produkter ut fra miljømessige og sosiale kriterier i tillegg til pris og kvalitet', 'Å alltid velge det billigste alternativet', 'Å kun kjøpe fra utlandet', 'Å kjøpe inn mest mulig på lager'],
+    explanation: 'Ansvarlige innkjøp betyr å velge leverandører og produkter basert på miljømessige og sosiale kriterier i tillegg til pris og kvalitet - ansvar for hele verdikjeden.',
+  },
+  {
+    question: 'Hvorfor er det viktig å ta ansvar for hele verdikjeden, ikke bare egen virksomhet?',
+    options: ['Fordi miljømessige og sosiale problemer kan oppstå hos leverandører lenger ned i kjeden', 'Fordi det er gratis', 'Fordi leverandørene bestemmer prisen alene', 'Fordi loven forbyr egne innkjøp'],
+    explanation: 'Problemer som forurensning eller dårlige arbeidsforhold kan oppstå hos underleverandører. Ansvar for hele kjeden sikrer at bærekraft gjelder helheten.',
+  },
+  {
+    question: 'Hva legger hvert ledd i en verdikjede til?',
+    options: ['Verdi', 'Bare kostnader uten verdi', 'Avfall', 'Skatt'],
+    explanation: 'Hvert ledd i verdikjeden legger til verdi, slik at sluttproduktet er mer verdt for kunden enn summen av råvarene.',
+  },
+  {
+    question: 'Hva er et eksempel på et bærekraftig valg i en kafés verdikjede?',
+    options: ['Velge lokale leverandører med kortreiste råvarer og rettferdige arbeidsforhold', 'Alltid velge den billigste leverandøren uansett', 'Kaste mat som ikke selges med en gang', 'Bruke mest mulig engangsemballasje'],
+    explanation: 'Et bærekraftig valg er å velge leverandører med kortreiste råvarer, lavere utslipp og rettferdige arbeidsforhold - selv om de ikke alltid er billigst.',
+  },
+  ],
+  'salg-service-vg1-6-5': [
+  {
+    question: 'Hva står HMS for?',
+    options: ['Helse, Miljø og Sikkerhet', 'Handel, Marked og Salg', 'Hotell, Mat og Servering', 'Husleie, Moms og Skatt'],
+    explanation: 'HMS står for Helse, Miljø og Sikkerhet. HMS-arbeid forebygger skader og ulykker og sikrer et godt arbeidsmiljø.',
+  },
+  {
+    question: 'Hvem er lovpålagt å ha systematisk HMS-arbeid?',
+    options: ['Alle virksomheter', 'Kun store bedrifter med over 100 ansatte', 'Bare statlige virksomheter', 'Ingen - det er frivillig'],
+    explanation: 'Alle virksomheter er lovpålagt å ha systematisk HMS-arbeid, uavhengig av størrelse.',
+  },
+  {
+    question: 'Hva kan bli konsekvensen av brudd på lover og regler for drift?',
+    options: ['Bøter, tap av bevillinger, stenging og i verste fall straffeansvar', 'Bare en muntlig advarsel som aldri gjentas', 'Ingenting, så lenge man tjener penger', 'Automatisk skattefritak'],
+    explanation: 'Brudd kan gi bøter, tap av bevillinger, stenging av virksomheten, erstatningskrav og i verste fall straffeansvar.',
+  },
+  {
+    question: 'Hvilket regelverk handler om trygg håndtering av mat i en serveringsbedrift?',
+    options: ['Mattrygghet/næringsmiddelregelverket', 'Vegtrafikkloven', 'Opphavsrettsloven', 'Plan- og bygningsloven'],
+    explanation: 'Servering av mat reguleres av mattrygghets-/næringsmiddelregelverket, som stiller krav til hygiene og trygg håndtering av mat.',
+  },
+  {
+    question: 'Hvorfor lønner det seg å sette seg inn i regelverket som gjelder for virksomheten?',
+    options: ['For å unngå alvorlige konsekvenser som bøter og stenging', 'Fordi regler aldri håndheves', 'For å kunne ignorere dem trygt', 'Fordi det gir lavere skatt automatisk'],
+    explanation: 'Å kjenne og følge regelverket forebygger alvorlige konsekvenser som bøter, tap av bevillinger og stenging - det lønner seg alltid.',
+  },
+  ],
+  'salg-service-vg1-6-6': [
+  {
+    question: 'Hva beskriver en organisasjonsstruktur?',
+    options: ['Hvordan en virksomhet er bygget opp, med avdelinger, rapporteringslinjer og oppgavefordeling', 'Bare hvor mye virksomheten tjener', 'Kun navnene på kundene', 'Prisene på produktene'],
+    explanation: 'Organisasjonsstrukturen beskriver hvordan virksomheten er bygget opp - hvilke avdelinger som finnes, hvem som rapporterer til hvem, og hvordan oppgaver er fordelt.',
+  },
+  {
+    question: 'Hva viser et organisasjonskart?',
+    options: ['Den hierarkiske oppbygningen og ansvarslinjene i en virksomhet', 'Plasseringen av varer i butikken', 'Veibeskrivelse til virksomheten', 'En oversikt over priser'],
+    explanation: 'Et organisasjonskart viser virksomhetens struktur visuelt - avdelinger, roller og hvem som rapporterer til hvem.',
+  },
+  {
+    question: 'I et tradisjonelt hierarki, hvem rapporterer en medarbeider vanligvis til?',
+    options: ['Sin nærmeste leder', 'Alle kollegene samtidig', 'Kundene direkte', 'Ingen - alle er like'],
+    explanation: 'I et tradisjonelt hierarki rapporterer en medarbeider til sin nærmeste leder, som igjen rapporterer oppover i organisasjonen.',
+  },
+  {
+    question: 'Hvorfor er klar oppgavefordeling viktig i en virksomhet?',
+    options: ['Det gjør at alle vet hva de har ansvar for, og hindrer at oppgaver faller mellom to stoler', 'Det er bare viktig i store konsern', 'Det gjør arbeidet langsommere', 'Det har ingen praktisk betydning'],
+    explanation: 'Klar oppgavefordeling gjør at alle vet hva de har ansvar for, gir effektiv drift og hindrer at viktige oppgaver blir glemt.',
+  },
+  {
+    question: 'Hva er et eksempel på en typisk avdeling i et hotells organisasjon?',
+    options: ['Resepsjon (Front Office)', 'Departementet for samferdsel', 'Stortinget', 'Skatteetaten'],
+    explanation: 'Et hotell har typisk avdelinger som resepsjon, housekeeping, mat og drikke (F&B) og administrasjon.',
+  },
+  ],
+  'salg-service-vg1-6-7': [
+  {
+    question: 'Hva er administrative funksjoner i en virksomhet?',
+    options: ['Støttefunksjoner som holder virksomheten i gang uten direkte å produsere varene/tjenestene', 'Selve produksjonen av varene', 'Bare salget til kundene', 'Transporten av varer'],
+    explanation: 'Administrative funksjoner er støttefunksjoner som økonomi/regnskap, HR, IT, innkjøp og dokumentasjon - de holder virksomheten i gang uten å produsere selve varene/tjenestene.',
+  },
+  {
+    question: 'Hva er kvalitetsstyring?',
+    options: ['Systematisk arbeid for å sikre og forbedre kvaliteten på produkter og tjenester', 'Å sette laveste mulige pris', 'Å ansette flest mulig medarbeidere', 'Å selge til flest mulig kunder'],
+    explanation: 'Kvalitetsstyring er systematisk arbeid for å sikre og forbedre kvalitet - sette standarder, måle ytelse, finne avvik og iverksette forbedringer.',
+  },
+  {
+    question: 'Hva er rekkefølgen i et typisk forbedringsarbeid for kvalitet?',
+    options: ['Sette standarder, måle ytelse, identifisere avvik og iverksette forbedringer', 'Selge først, planlegge etterpå', 'Kun måle, aldri forbedre', 'Bare sette standarder uten å følge opp'],
+    explanation: 'Kvalitetsarbeid følger en logisk syklus: sette standarder, måle ytelse mot dem, identifisere avvik og iverksette forbedringer.',
+  },
+  {
+    question: 'Hvorfor er gode rutiner viktige for kvalitet, f.eks. en sjekk-inn-rutine på hotell?',
+    options: ['De sikrer at gjester får en jevn og forutsigbar god opplevelse hver gang', 'De gjør arbeidet tilfeldig', 'De er bare til pynt', 'De øker antall feil'],
+    explanation: 'Gode rutiner sikrer at oppgaver utføres likt og riktig hver gang, slik at kunden får en jevn og forutsigbar kvalitet.',
+  },
+  {
+    question: 'Hvilken av disse er en administrativ støttefunksjon?',
+    options: ['Regnskap', 'Å lage maten på kjøkkenet', 'Å servere gjestene i restauranten', 'Å rengjøre hotellrommene'],
+    explanation: 'Regnskap er en administrativ støttefunksjon. Matlaging, servering og rengjøring er derimot direkte produksjon av tjenestene.',
+  },
+  ],
+  'salg-service-vg1-7-1': [
+  {
+    question: 'Hva er kultur?',
+    options: ['Felles verdier, normer, skikker og væremåter som kjennetegner en gruppe mennesker', 'Bare kunst og musikk', 'Hvor mye penger man tjener', 'Hvilket språk man snakker hjemme'],
+    explanation: 'Kultur er de felles verdier, normer, skikker og væremåter som kjennetegner en gruppe, og påvirker hvordan vi kommuniserer og hva vi anser som høflig.',
+  },
+  {
+    question: 'Hvorfor er kulturforståelse viktig i servicenæringen?',
+    options: ['Fordi kunder fra ulike kulturer kan ha ulike forventninger til service og kommunikasjon', 'Fordi alle kunder er helt like', 'Fordi det aldri kommer utenlandske kunder', 'Fordi kultur ikke påvirker kjøp'],
+    explanation: 'Kunder fra ulike kulturer kan ha ulike forventninger til høflighet, tid og kommunikasjon. Kulturforståelse gjør at man kan gi god service til alle.',
+  },
+  {
+    question: 'Hva kan en kulturell misforståelse i kundekontakt føre til?',
+    options: ['At kunden føler seg dårlig behandlet selv om medarbeideren mente godt', 'At salget alltid øker', 'At kunden alltid blir fornøyd', 'At prisen automatisk går ned'],
+    explanation: 'Ulike kulturelle koder kan gjøre at en velment handling oppleves som uhøflig, slik at kunden føler seg dårlig behandlet uten at det var ment slik.',
+  },
+  {
+    question: 'Hva påvirker kultur ifølge kapittelet?',
+    options: ['Hvordan vi kommuniserer, forholder oss til tid og hva vi anser som høflig', 'Bare hvilken mat folk liker', 'Kun klesstilen', 'Ingenting i arbeidslivet'],
+    explanation: 'Kultur påvirker hvordan vi kommuniserer, hva vi anser som høflig, hvordan vi forholder oss til tid og hva vi forventer i ulike situasjoner.',
+  },
+  {
+    question: 'Hva er en god holdning i møte med kunder fra andre kulturer?',
+    options: ['Å være åpen, respektfull og nysgjerrig fremfor å dømme', 'Å anta at egen kultur alltid er riktig', 'Å unngå kontakt med dem', 'Å behandle dem dårligere'],
+    explanation: 'Kulturforståelse bygger på åpenhet, respekt og nysgjerrighet - å forstå at andre kan ha andre koder uten å dømme dem som "feil".',
+  },
+  ],
+  'salg-service-vg1-7-2': [
+  {
+    question: 'Hva betyr mangfold i arbeidslivet?',
+    options: ['Variasjon i hvem de ansatte er, f.eks. kjønn, alder, etnisitet, erfaring og bakgrunn', 'At alle ansatte er helt like', 'At det er mange ansatte', 'At bedriften selger mange ulike varer'],
+    explanation: 'Mangfold betyr variasjon i hvem de ansatte er - kjønn, alder, etnisitet, religion, funksjonsevne, utdanning og erfaring.',
+  },
+  {
+    question: 'Hva er diskriminering?',
+    options: ['Usaklig forskjellsbehandling basert på kjennetegn som kjønn, etnisitet eller funksjonsevne', 'Å behandle alle likt', 'Å ansette etter kvalifikasjoner', 'Å gi alle ansatte samme lønn'],
+    explanation: 'Diskriminering er usaklig forskjellsbehandling basert på kjennetegn som kjønn, etnisitet, religion, alder, funksjonsevne eller seksuell orientering, og er forbudt ved lov.',
+  },
+  {
+    question: 'Hvordan kan mangfold være en ressurs for en virksomhet?',
+    options: ['Ulike perspektiver og bakgrunner gir bedre forståelse av et mangfoldig kundegrunnlag', 'Det gjør at alle tenker helt likt', 'Det reduserer antall ideer', 'Det har ingen betydning for resultatet'],
+    explanation: 'Et mangfoldig team har ulike perspektiver og erfaringer, noe som gir bedre problemløsning og bedre forståelse av et mangfoldig kundegrunnlag.',
+  },
+  {
+    question: 'Hvilken lov forbyr diskriminering i arbeidslivet?',
+    options: ['Likestillings- og diskrimineringsloven', 'Vegtrafikkloven', 'Markedsføringsloven', 'Regnskapsloven'],
+    explanation: 'Likestillings- og diskrimineringsloven forbyr diskriminering, og arbeidsgivere har aktivitetsplikt til å fremme likestilling.',
+  },
+  {
+    question: 'Hva kan skje med en ansatt som diskriminerer kunder eller kolleger?',
+    options: ['Advarsler, oppsigelse og erstatningsansvar', 'Forfremmelse og bonus', 'Ingenting, det er lov', 'Automatisk lønnsøkning'],
+    explanation: 'En ansatt som diskriminerer kan få advarsler, oppsigelse og erstatningsansvar, fordi diskriminering er forbudt ved lov.',
+  },
+  ],
+  'salg-service-vg1-7-3': [
+  {
+    question: 'Hva er etikk?',
+    options: ['Læren om hva som er riktig og galt, godt og ondt', 'Reglene for regnskapsføring', 'Hvordan man setter priser', 'Læren om markedsføring'],
+    explanation: 'Etikk er læren om hva som er riktig og galt, godt og ondt. I arbeidslivet handler det om å handle moralsk forsvarlig overfor kunder, kolleger og samfunnet.',
+  },
+  {
+    question: 'Når oppstår et etisk dilemma?',
+    options: ['Når ulike verdier eller hensyn står mot hverandre', 'Når alt er klart og enkelt', 'Når man tjener mye penger', 'Når kunden er fornøyd'],
+    explanation: 'Et etisk dilemma oppstår når ulike verdier eller hensyn står mot hverandre, slik at det ikke finnes ett opplagt riktig valg.',
+  },
+  {
+    question: 'En kunde vil kjøpe et dyrere produkt enn de trenger. Hva er det etisk riktige?',
+    options: ['Å informere kunden ærlig om hva de faktisk trenger, selv om det gir lavere salg', 'Å selge det dyreste uansett behov', 'Å lyve om produktets egenskaper', 'Å presse kunden til å kjøpe mer'],
+    explanation: 'God forretningsetikk innebærer å gi ærlige råd ut fra kundens behov, selv om det gir lavere salg på kort sikt - det bygger tillit på lang sikt.',
+  },
+  {
+    question: 'Hvem berøres av de etiske valgene man tar i arbeidslivet?',
+    options: ['Kunder, kolleger, arbeidsgiver og samfunnet', 'Bare en selv', 'Ingen', 'Kun konkurrentene'],
+    explanation: 'Etiske valg i arbeidslivet berører kunder, kolleger, arbeidsgivere og samfunnet rundt - derfor er etisk bevissthet viktig.',
+  },
+  {
+    question: 'Hvorfor er det lurt å handle etisk, også forretningsmessig?',
+    options: ['Det bygger tillit og et godt omdømme over tid', 'Det er aldri lønnsomt', 'Det gir alltid lavere kvalitet', 'Det er bare et krav for ledere'],
+    explanation: 'Etisk handling bygger tillit hos kunder og et godt omdømme, som er verdifullt for virksomheten på lang sikt.',
+  },
+  ],
+  'salg-service-vg1-7-4': [
+  {
+    question: 'Hvem er "arbeidslivets parter"?',
+    options: ['Arbeidsgiversiden og arbeidstakersiden', 'Kunder og leverandører', 'Staten og kommunene', 'Konkurrenter i samme bransje'],
+    explanation: 'Arbeidslivets parter er arbeidsgiversiden (f.eks. NHO, Virke) og arbeidstakersiden (fagforeninger i LO, Unio, YS).',
+  },
+  {
+    question: 'Hva er en tariffavtale?',
+    options: ['En skriftlig avtale mellom fagforening og arbeidsgiverside om lønns- og arbeidsvilkår', 'En avtale mellom to konkurrenter', 'En kontrakt med en kunde', 'En leieavtale for lokaler'],
+    explanation: 'En tariffavtale er en skriftlig avtale mellom en fagforening og en arbeidsgiverorganisasjon (eller bedrift) om lønns- og arbeidsvilkår, vanligvis for to år.',
+  },
+  {
+    question: 'Hvilken organisasjon representerer arbeidstakersiden?',
+    options: ['LO (Landsorganisasjonen)', 'NHO', 'Virke', 'Skatteetaten'],
+    explanation: 'LO er en hovedorganisasjon på arbeidstakersiden. NHO og Virke representerer derimot arbeidsgiversiden.',
+  },
+  {
+    question: 'Hva sikrer en tariffavtale for de ansatte?',
+    options: ['Minimumsrettigheter for lønns- og arbeidsvilkår', 'Garantert forfremmelse hvert år', 'Fritak fra alt arbeid', 'Eierandel i bedriften'],
+    explanation: 'En tariffavtale sikrer minimumsrettigheter for lønn og arbeidsvilkår i avtaleperioden.',
+  },
+  {
+    question: 'Hva kalles forhandlingene der partene blir enige om nye lønns- og arbeidsvilkår?',
+    options: ['Tariffoppgjør', 'Generalforsamling', 'Varetelling', 'Markedsanalyse'],
+    explanation: 'Et tariffoppgjør er forhandlingene mellom arbeidslivets parter om nye lønns- og arbeidsvilkår, ofte hvert eller annethvert år.',
+  },
+  ],
+  'salg-service-vg1-7-5': [
+  {
+    question: 'Hva er hovedmålet med HMS-arbeid?',
+    options: ['Å sikre at arbeidsplassen er trygg og at ansatte ikke blir syke eller skadet av jobben', 'Å øke salget mest mulig', 'Å redusere lønnskostnadene', 'Å markedsføre bedriften'],
+    explanation: 'HMS-arbeid er systematisk arbeid for å sikre en trygg arbeidsplass der ansatte ikke blir syke eller skadet av jobben.',
+  },
+  {
+    question: 'Hva bør du gjøre hvis du oppdager noe farlig på arbeidsplassen, som en glatt gulvflate?',
+    options: ['Melde fra til leder eller verneombud med en gang', 'Vente til noen skader seg', 'Ignorere det', 'Holde det hemmelig'],
+    explanation: 'Du har plikt til å melde fra om farer til leder eller verneombud - ikke vent til en ulykke skjer.',
+  },
+  {
+    question: 'Hvem har ansvar for HMS på en arbeidsplass?',
+    options: ['Både arbeidsgiver og arbeidstakere har ansvar', 'Bare den nyeste medarbeideren', 'Kun kundene', 'Ingen har ansvar'],
+    explanation: 'Arbeidsgiver har hovedansvaret for HMS-systemet, men også arbeidstakere har plikt til å bidra og melde fra om farer.',
+  },
+  {
+    question: 'Hva er et eksempel på en HMS-utfordring i butikk?',
+    options: ['Tunge løft og risiko for ran eller trusler', 'For mange kunder som handler', 'At varene er populære', 'At kassaapparatet er moderne'],
+    explanation: 'HMS-utfordringer i butikk kan være tunge løft, glatte gulv, defekt utstyr og risiko for ran eller trusler fra kunder.',
+  },
+  {
+    question: 'Hvem er pålagt å ha et HMS-system?',
+    options: ['Alle virksomheter', 'Bare fabrikker', 'Kun bedrifter med over 50 ansatte', 'Ingen - det er valgfritt'],
+    explanation: 'Alle virksomheter er pålagt å ha et HMS-system, uavhengig av bransje og størrelse.',
+  },
+  ],
+  'salg-service-vg1-7-6': [
+  {
+    question: 'Hvordan kan risiko uttrykkes?',
+    options: ['Risiko = Sannsynlighet × Konsekvens', 'Risiko = Inntekt − Kostnad', 'Risiko = Pris × Antall', 'Risiko = Tid + Penger'],
+    explanation: 'Risiko er sannsynligheten for at noe uønsket skjer, kombinert med konsekvensene hvis det skjer: Risiko = Sannsynlighet × Konsekvens.',
+  },
+  {
+    question: 'Hva er en risikovurdering?',
+    options: ['En systematisk gjennomgang for å identifisere farer og vurdere risikoen de utgjør', 'En oversikt over inntektene', 'En markedsundersøkelse', 'En kundeundersøkelse'],
+    explanation: 'En risikovurdering er en systematisk gjennomgang for å identifisere farer og vurdere hvor stor risiko de utgjør, slik at man kan forebygge.',
+  },
+  {
+    question: 'En hendelse har høy sannsynlighet og svært alvorlige konsekvenser. Hvordan vurderes risikoen?',
+    options: ['Som høy - den bør prioriteres for tiltak', 'Som lav - den kan ignoreres', 'Som null', 'Som umulig å vurdere'],
+    explanation: 'Når både sannsynlighet og konsekvens er høye, blir risikoen høy. Slike farer bør prioriteres for forebyggende tiltak.',
+  },
+  {
+    question: 'Hva er hensikten med å forebygge etter en risikovurdering?',
+    options: ['Å redusere sannsynligheten for eller konsekvensen av uønskede hendelser', 'Å øke risikoen', 'Å spare tid ved å ikke gjøre noe', 'Å skjule farene'],
+    explanation: 'Etter en risikovurdering iverksetter man tiltak for å redusere enten sannsynligheten for eller konsekvensen av uønskede hendelser.',
+  },
+  {
+    question: 'Hva er et eksempel på en situasjon der risikovurdering er nyttig?',
+    options: ['Varemottak med tunge løft og trafikk av varebiler', 'Å skrive en e-post', 'Å spise lunsj', 'Å lese en bok'],
+    explanation: 'Risikovurdering er nyttig ved aktiviteter med fare for skade, f.eks. varemottak med tunge løft, kjøretøy og håndtering av utstyr.',
+  },
+  ],
+  'salg-service-vg1-7-7': [
+  {
+    question: 'Hva er beredskap?',
+    options: ['Planlegging og forberedelse for å kunne håndtere uønskede hendelser når de oppstår', 'En oversikt over varelageret', 'En markedsføringsplan', 'Et budsjett for neste år'],
+    explanation: 'Beredskap er planlegging og forberedelse for å kunne håndtere uønskede hendelser når de oppstår, f.eks. brann, ran eller ulykker.',
+  },
+  {
+    question: 'Hva inneholder en beredskapsplan?',
+    options: ['Hva som skal gjøres ved ulike hendelser, hvem som har ansvar, og hvordan varsling skal skje', 'Bare prisene på produktene', 'En liste over kundene', 'Oppskrifter til kjøkkenet'],
+    explanation: 'En beredskapsplan er en dokumentert plan som beskriver hva som skal gjøres ved ulike hendelser, hvem som har ansvar og hvordan varsling skal skje.',
+  },
+  {
+    question: 'Hvorfor er det viktig å øve på beredskapsplaner?',
+    options: ['Fordi man da handler riktig og raskt når en reell hendelse skjer', 'Fordi øvelser er gøy', 'Fordi loven forbyr planer', 'Fordi planer aldri brukes'],
+    explanation: 'En plan i en skuff hjelper ingen. Øvelser gjør at man handler riktig og raskt når adrenalinet pumper og en reell krise oppstår.',
+  },
+  {
+    question: 'Hva er et eksempel på en hendelse en beredskapsplan kan dekke?',
+    options: ['Ran eller brann i virksomheten', 'En vanlig arbeidsdag uten avvik', 'Et godt salgsresultat', 'En fornøyd kunde'],
+    explanation: 'Beredskapsplaner dekker uønskede hendelser som ran, brann, ulykker og andre kritiske situasjoner.',
+  },
+  {
+    question: 'Hva er en god rutine for varsling i en beredskapssituasjon?',
+    options: ['At det er klart på forhånd hvem som varsler hvem og i hvilken rekkefølge', 'At alle gjør hva de vil i øyeblikket', 'At ingen sier noe', 'At man venter til neste dag'],
+    explanation: 'God beredskap krever klare varslingsrutiner: hvem varsler hvem, i hvilken rekkefølge og hvilke nødetater som skal kontaktes.',
+  },
+  ],
+  'salg-service-vg1-8-1': [
+  {
+    question: 'Hva er innovasjon?',
+    options: ['Å skape noe nytt som har verdi og blir tatt i bruk', 'En idé som aldri blir realisert', 'Å kopiere det andre allerede gjør', 'Å føre regnskap'],
+    explanation: 'Innovasjon er å skape noe nytt som har verdi - et nytt produkt, en ny tjeneste, prosess eller forretningsmodell - og som faktisk tas i bruk.',
+  },
+  {
+    question: 'Hva er forskjellen mellom en oppfinnelse og en innovasjon?',
+    options: ['En innovasjon må tas i bruk og skape verdi, ikke bare være en idé', 'De er det samme', 'En oppfinnelse skaper alltid verdi, en innovasjon aldri', 'En innovasjon er alltid en fysisk maskin'],
+    explanation: 'En oppfinnelse er en ny idé eller løsning, mens en innovasjon krever at den tas i bruk og skaper verdi i praksis.',
+  },
+  {
+    question: 'Hva kjennetegner en entreprenør?',
+    options: ['En som ser muligheter, tar initiativ og er villig til å ta risiko for å realisere ideer', 'En som unngår all risiko', 'En som bare følger ordre', 'En som kun fører regnskap'],
+    explanation: 'En entreprenør ser muligheter, tar initiativ til å starte nye virksomheter eller prosjekter, og er villig til å ta risiko under usikre forhold.',
+  },
+  {
+    question: 'Hva er et eksempel på en norsk innovasjon?',
+    options: ['Too Good To Go, som reduserer matsvinn ved å selge overskuddsmat billig', 'Et helt vanlig supermarked', 'En tradisjonell bensinstasjon', 'En vanlig postkasse'],
+    explanation: 'Too Good To Go er et norsk-forankret eksempel på innovasjon: en app som reduserer matsvinn ved å selge overskuddsmat fra butikker og restauranter billig.',
+  },
+  {
+    question: 'Hva må til for at en god idé skal regnes som innovasjon?',
+    options: ['At den faktisk tas i bruk og skaper verdi', 'At den holdes hemmelig', 'At den er dyrest mulig', 'At den aldri brukes'],
+    explanation: 'En idé blir først innovasjon når den realiseres, tas i bruk og skaper verdi - ikke før.',
+  },
+  ],
+  'salg-service-vg1-8-2': [
+  {
+    question: 'Hva er en forretningsidé?',
+    options: ['En idé som beskriver hva du skal tilby, hvem du tilbyr det til, og hvordan du tjener penger', 'En tilfeldig tanke uten plan', 'En oversikt over konkurrentene', 'En oppskrift på en matrett'],
+    explanation: 'En forretningsidé beskriver hva du tilbyr, hvem målgruppen er, og hvordan du skal tjene penger på det.',
+  },
+  {
+    question: 'Hva kjennetegner en god forretningsidé?',
+    options: ['Den løser et reelt problem for en definert kundegruppe bedre enn alternativene', 'Den ligner mest mulig på alle andre', 'Den har ingen kunder', 'Den koster mest mulig å lage'],
+    explanation: 'En god forretningsidé løser et reelt problem for en definert kundegruppe på en måte som er bedre enn eksisterende alternativer.',
+  },
+  {
+    question: 'Hvilke spørsmål bør en forretningsidé svare på?',
+    options: ['Hva tilbyr vi, hvem er kundene, og hvordan tjener vi penger?', 'Hvor mange ansatte har konkurrenten?', 'Hvilken farge har logoen?', 'Når er det lunsjpause?'],
+    explanation: 'En forretningsidé svarer på hva man tilbyr, hvem kundene er, og hvordan man tjener penger - kjernen i forretningen.',
+  },
+  {
+    question: 'Hvorfor er det viktig at en forretningsidé løser et reelt problem?',
+    options: ['Fordi kundene bare betaler for noe som gir dem verdi eller løser et behov', 'Fordi problemer alltid er gratis å løse', 'Fordi det ikke spiller noen rolle', 'Fordi loven krever det'],
+    explanation: 'Kunder betaler for løsninger på reelle behov. Hvis ideen ikke løser et faktisk problem, vil få være villige til å betale for den.',
+  },
+  {
+    question: 'Hva er et naturlig steg fra en løs idé til en forretningsidé?',
+    options: ['Å konkretisere hvem kunden er og hvordan ideen skaper verdi for dem', 'Å holde ideen helt vag', 'Å glemme kundene', 'Å bare tenke på logoen'],
+    explanation: 'Veien fra idé til forretningsidé går gjennom å konkretisere kundegruppen, behovet og hvordan ideen skaper verdi og kan tjene penger.',
+  },
+  ],
+  'salg-service-vg1-8-3': [
+  {
+    question: 'Hva beskriver en forretningsmodell?',
+    options: ['Hvordan en bedrift skaper, leverer og fanger verdi', 'Bare hvor mange ansatte bedriften har', 'Kun logoen og fargene', 'Adressen til lokalene'],
+    explanation: 'En forretningsmodell beskriver hvordan en bedrift skaper, leverer og fanger verdi - hvem kundene er, hva de får, hvordan det leveres og hvordan bedriften tjener penger.',
+  },
+  {
+    question: 'Hvilket verktøy brukes ofte for å skissere en forretningsmodell?',
+    options: ['Business Model Canvas', 'Resultatbudsjett', 'Organisasjonskart', 'Risikomatrise'],
+    explanation: 'Business Model Canvas er et mye brukt verktøy som visualiserer forretningsmodellen med byggeklosser som kundesegmenter, verditilbud og inntektsstrømmer.',
+  },
+  {
+    question: 'Hva menes med at en forretningsmodell skal "fange verdi"?',
+    options: ['At bedriften klarer å tjene penger på verdien den skaper', 'At bedriften gir alt bort gratis', 'At verdien forsvinner', 'At kundene betaler tilfeldig'],
+    explanation: 'Å "fange verdi" betyr at bedriften gjennom inntektsmodellen sin klarer å tjene penger på den verdien den skaper og leverer til kundene.',
+  },
+  {
+    question: 'Hva er en del av forretningsmodellen til en matleveringstjeneste?',
+    options: ['Hvordan den leverer maten til kundene og tjener penger på det', 'Hvilken farge bilene har', 'Hva de ansatte spiser til lunsj', 'Hvor langt det er til konkurrenten'],
+    explanation: 'Forretningsmodellen til en matleveringstjeneste omfatter hvem kundene er, hva de får, hvordan maten leveres, og hvordan tjenesten tjener penger (f.eks. leveringsgebyr eller provisjon).',
+  },
+  {
+    question: 'Hvorfor er forretningsmodellen viktig for en gründer?',
+    options: ['Den viser om ideen faktisk kan tjene penger og være levedyktig', 'Den er bare et pyntedokument', 'Den har ingen praktisk nytte', 'Den erstatter behovet for kunder'],
+    explanation: 'Forretningsmodellen viser om ideen kan skape, levere og fange verdi - altså om den faktisk kan bli en levedyktig og lønnsom virksomhet.',
+  },
+  ],
+  'salg-service-vg1-8-4': [
+  {
+    question: 'Hva handler bærekraft om?',
+    options: ['Å dekke dagens behov uten å ødelegge for fremtidige generasjoners muligheter', 'Å bruke opp ressursene raskest mulig', 'Å kun fokusere på pris', 'Å unngå all utvikling'],
+    explanation: 'Bærekraft handler om å dekke dagens behov uten å ødelegge for fremtidige generasjoners mulighet til å dekke sine behov - den tredelte bunnlinjen: økonomisk, sosial og miljømessig.',
+  },
+  {
+    question: 'Hva kjennetegner en sirkulær økonomi?',
+    options: ['Produkter designes for å vare, repareres, gjenbrukes og resirkuleres i et lukket kretsløp', 'Produkter brukes én gang og kastes', 'Alt avfall brennes', 'Ingenting gjenbrukes'],
+    explanation: 'I en sirkulær økonomi designes produkter for å vare, repareres, gjenbrukes og resirkuleres - avfall blir råvarer i et lukket kretsløp, i motsetning til den lineære "produser-bruk-kast"-modellen.',
+  },
+  {
+    question: 'Hva er greenwashing?',
+    options: ['Å fremstille bedriften som mer miljøvennlig enn den faktisk er', 'Å vaske gulvene med miljøvennlig såpe', 'Å resirkulere papir', 'Å redusere strømforbruket'],
+    explanation: 'Greenwashing er å fremstille bedriften som mer miljøvennlig enn den er. Det er villedende markedsføring som kan straffes.',
+  },
+  {
+    question: 'Hvordan unngår en bedrift greenwashing?',
+    options: ['Ved å være ærlig, unngå vage påstander og dokumentere det den hevder', 'Ved å bruke ordet "miljøvennlig" mest mulig', 'Ved å skjule hva den gjør', 'Ved å overdrive miljøtiltakene'],
+    explanation: 'For å unngå greenwashing må bedriften være ærlig om hva den faktisk gjør, unngå vage påstander som "miljøvennlig" og dokumentere det den hevder.',
+  },
+  {
+    question: 'Hva er den lineære økonomien som sirkulærøkonomien er et alternativ til?',
+    options: ['Produser-bruk-kast', 'Resirkuler-gjenbruk-reparer', 'Spar-invester-vokse', 'Kjøp-selg-bytt'],
+    explanation: 'Den lineære økonomien følger mønsteret produser-bruk-kast, der ressurser brukes opp. Sirkulærøkonomien holder ressursene i kretsløp i stedet.',
+  },
+  ],
+  'salg-service-vg1-8-5': [
+  {
+    question: 'Hva er en pitch?',
+    options: ['En kort, overbevisende presentasjon av en forretningsidé', 'Et langt regnskapsdokument', 'En kundeklage', 'En prisliste'],
+    explanation: 'En pitch er en kort, overbevisende presentasjon av en forretningsidé, med mål om å vekke interesse og få tilhørerne til å ville vite mer eller handle.',
+  },
+  {
+    question: 'Hva er målet med en pitch?',
+    options: ['Å vekke interesse og få tilhørerne til å ville vite mer eller handle', 'Å fortelle alt i detalj på en time', 'Å unngå å nevne ideen', 'Å lese opp regnskapet'],
+    explanation: 'Målet med en pitch er å vekke interesse og engasjement, slik at tilhørerne (f.eks. investorer eller kunder) vil vite mer eller handle.',
+  },
+  {
+    question: 'Hva kjennetegner en "heispitch" (elevator pitch)?',
+    options: ['Den er så kort at den kan holdes på tiden en heistur tar', 'Den varer minst en time', 'Den må holdes i en heis', 'Den krever lysbilder'],
+    explanation: 'En heispitch er en svært kort pitch - så konsentrert at den kan holdes på den korte tiden en heistur tar, ofte 30-60 sekunder.',
+  },
+  {
+    question: 'Hva bør en god pitch tydelig få frem?',
+    options: ['Hvilket problem ideen løser og hvorfor den er verdifull', 'Alle tekniske detaljer i produktet', 'Navnene på alle ansatte', 'Hele regnskapshistorikken'],
+    explanation: 'En god pitch får tydelig frem problemet ideen løser, løsningen og hvorfor den skaper verdi - kort og engasjerende, ikke alle detaljer.',
+  },
+  {
+    question: 'I hvilke former kan en pitch presenteres?',
+    options: ['Muntlig, skriftlig, eller begge deler', 'Bare som et langt notat', 'Kun gjennom regnskap', 'Bare på papir'],
+    explanation: 'En pitch kan være muntlig, skriftlig eller begge deler - tilpasset situasjonen og mottakeren.',
+  },
+  ],
+  'salg-service-vg1-8-6': [
+  {
+    question: 'Hva er et prosjekt?',
+    options: ['En tidsavgrenset innsats for å skape et unikt produkt, en tjeneste eller et resultat', 'En oppgave som aldri tar slutt', 'Den daglige driften av en butikk', 'En fast rutine uten mål'],
+    explanation: 'Et prosjekt er en tidsavgrenset innsats for å skape noe unikt, med en definert start og slutt, klare mål og tildelte ressurser.',
+  },
+  {
+    question: 'Hva kjennetegner et prosjekt sammenlignet med daglig drift?',
+    options: ['Det har en definert start og slutt og et unikt mål', 'Det varer evig', 'Det har ingen mål', 'Det gjentas hver dag uendret'],
+    explanation: 'Et prosjekt har en definert start og slutt og et unikt mål, mens daglig drift er løpende og gjentakende.',
+  },
+  {
+    question: 'Hvilke ressurser tildeles vanligvis et prosjekt?',
+    options: ['Tid, penger og mennesker', 'Bare flaks', 'Ingen ressurser', 'Kun et navn'],
+    explanation: 'Et prosjekt får tildelt ressurser som tid, penger og mennesker for å nå det definerte målet.',
+  },
+  {
+    question: 'Hva er en fordel med god prosjektplanlegging, f.eks. ved lansering av en nettbutikk?',
+    options: ['Man får oversikt over oppgaver, ansvar og frister, og reduserer risikoen for at noe glemmes', 'Man slipper å gjøre noe', 'Man trenger ikke kunder', 'Man unngår å sette mål'],
+    explanation: 'God prosjektplanlegging gir oversikt over oppgaver, ansvar og frister, slik at arbeidet blir koordinert og risikoen for at noe glemmes reduseres.',
+  },
+  {
+    question: 'Hvorfor er godt samarbeid viktig i et prosjekt?',
+    options: ['Fordi medlemmene er avhengige av hverandre for å nå et felles mål', 'Fordi alle jobber helt uavhengig', 'Fordi samarbeid sjelden trengs', 'Fordi det gjør arbeidet langsommere'],
+    explanation: 'I et prosjekt er medlemmene avhengige av hverandre for å nå det felles målet, så godt samarbeid, kommunikasjon og rollefordeling er avgjørende.',
+  },
+  ],
+  'salg-service-vg1-8-7': [
+  {
+    question: 'Hva er digitalisering?',
+    options: ['Å ta i bruk digital teknologi for å endre forretningsmodeller, prosesser og kundeopplevelser', 'Å kun bruke papir', 'Å fjerne all teknologi', 'Å ansette flere ledere'],
+    explanation: 'Digitalisering er å ta i bruk digital teknologi for å endre forretningsmodeller, prosesser og kundeopplevelser - ikke bare å gjøre analoge ting digitalt, men finne nye måter å skape verdi på.',
+  },
+  {
+    question: 'Hva er kunstig intelligens (KI)?',
+    options: ['Datasystemer som kan utføre oppgaver som normalt krever menneskelig intelligens', 'Et vanlig kalkulatorprogram', 'En type kassaapparat', 'En markedsføringsplakat'],
+    explanation: 'Kunstig intelligens er datasystemer som kan utføre oppgaver som normalt krever menneskelig intelligens - forstå språk, gjenkjenne mønstre, ta beslutninger og lære av erfaring.',
+  },
+  {
+    question: 'Hvor brukes KI allerede i servicenæringen?',
+    options: ['I chatbots, anbefalingssystemer og automatisert kundeservice', 'Bare i romfart', 'Ingen steder ennå', 'Kun i banker'],
+    explanation: 'KI brukes allerede i chatbots, anbefalingssystemer og automatisert kundeservice i mange servicebedrifter.',
+  },
+  {
+    question: 'Hva er en utfordring teknologien gir for servicenæringen?',
+    options: ['Ansatte må lære nye ferdigheter og balansere teknologi med menneskelig kontakt', 'Teknologi gjør all service dårligere', 'Det blir umulig å selge noe', 'Kunder forsvinner alltid'],
+    explanation: 'Teknologien krever at ansatte stadig lærer nye ferdigheter, samtidig som virksomheten må balansere automatisering med den menneskelige kontakten kundene verdsetter.',
+  },
+  {
+    question: 'Hva handler digitalisering egentlig om, ut over å gjøre analoge ting digitalt?',
+    options: ['Å finne helt nye måter å skape verdi på', 'Å beholde alt akkurat som før', 'Å fjerne kundene', 'Å bruke mer papir'],
+    explanation: 'Digitalisering handler ikke bare om å gjøre analoge ting digitalt, men om å finne helt nye måter å skape verdi på gjennom teknologi.',
+  },
+  ],
 
 };
 
