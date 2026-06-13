@@ -231,6 +231,60 @@ const quizData_kroppsoving_vg3: Record<string, QuizQuestion[]> = {
     explanation: 'God kommunikasjon er tilpasset situasjonen og mottakeren.',
   },
 ],
+  'kroppsoving-vg3-9': [
+  {
+    question: 'Hva er egenvurdering?',
+    options: ['En systematisk prosess der du vurderer egen kompetanse og utvikling opp mot kriterier og mål', 'At læreren setter karakter uten din medvirkning', 'En test andre tar for deg', 'Å sammenligne seg med de beste i klassen'],
+    explanation: 'Egenvurdering krever ærlighet og selvrefleksjon for å identifisere styrker og forbedringsområder.',
+  },
+  {
+    question: 'Hva betyr begrepet metakognisjon?',
+    options: ['Å tenke om egen tenkning og læring', 'Å trene maksimal styrke', 'Å måle pulsen under aktivitet', 'Å huske fakta utenat'],
+    explanation: 'Metakognisjon innebærer å være bevisst på hvordan du lærer og hvilke strategier som fungerer.',
+  },
+  {
+    question: 'Hvilket verktøy egner seg godt for systematisk dokumentasjon av egen trening over tid?',
+    options: ['Treningsdagbok eller -logg', 'En enkelt maksimaltest', 'Bare hukommelsen', 'Karakteren fra forrige år'],
+    explanation: 'En treningsdagbok registrerer øvelser, belastning og opplevd form, og gjør det mulig å spore fremgang.',
+  },
+  {
+    question: 'Hvorfor er egenvurdering viktig for livslang læring?',
+    options: ['Den gir bevisstgjøring om styrker og svakheter og ansvar for egen utvikling', 'Den erstatter all fysisk aktivitet', 'Den gjør at man slipper å trene', 'Den er kun nyttig i konkurranser'],
+    explanation: 'Ved å vurdere egen kompetanse tar du kontroll over egen læringsprosess.',
+  },
+  {
+    question: 'Hva er en portfolio i vurderingssammenheng?',
+    options: ['En samling av arbeider over tid som viser bredde, dybde og utvikling', 'En enkeltstående prøve', 'En liste over feil man har gjort', 'En treningsøkt med maksimal belastning'],
+    explanation: 'En portfolio dokumenterer utvikling over tid og kan være digital.',
+  },
+],
+  'kroppsoving-vg3-10': [
+  {
+    question: 'Hva innebærer et livsløpsperspektiv på fysisk aktivitet?',
+    options: ['Å se fysisk aktivitet som en livslang praksis som tilpasses ulike aldre og livssituasjoner', 'Å bare trene mens man går på skolen', 'Å trene maksimalt hele livet uavhengig av alder', 'Å slutte å være aktiv etter fylte 30'],
+    explanation: 'Aktiviteten må tilpasses ulike livsfaser, livssituasjoner og helseutfordringer.',
+  },
+  {
+    question: 'Hva er funksjonell kapasitet?',
+    options: ['Evnen til å utføre dagliglivets aktiviteter selvstendig', 'Maksimal vekt man kan løfte én gang', 'Antall hjerteslag i hvile', 'Hvor raskt man løper 100 meter'],
+    explanation: 'Regelmessig aktivitet gjennom livet bevarer funksjonell kapasitet inn i alderdommen.',
+  },
+  {
+    question: 'Hvilken utfordring er typisk for aktivitet i livsfasen som voksen (30-50 år)?',
+    options: ['Tidsklemme der prioritering av aktivitet utfordres av familie og karriere', 'For høy kapasitet til å trene', 'Manglende muligheter for aktivitet', 'At kroppen ikke tåler noen form for trening'],
+    explanation: 'I denne fasen må man ofte finne effektive løsninger for å få plass til aktivitet.',
+  },
+  {
+    question: 'Hva menes med å bygge en bred bevegelsesbase?',
+    options: ['Å lære mange ferdigheter og ha flere aktiviteter å velge mellom', 'Å spesialisere seg på kun én idrett tidlig', 'Å trene bare styrke', 'Å unngå variasjon i trening'],
+    explanation: 'En bred bevegelsesbase gir fleksibilitet til å endre aktivitet gjennom livet.',
+  },
+  {
+    question: 'Hva er en sentral forutsetning for å være selvstendig aktiv resten av livet?',
+    options: ['Å kunne planlegge egen trening og forstå prinsipper og metoder', 'Å alltid ha en trener til stede', 'Å bare trene når noen tvinger deg', 'Å kun følge ferdige programmer uten forståelse'],
+    explanation: 'Selvstendighet betyr å kunne tilpasse trening til egne behov ut fra forståelse av prinsipper.',
+  },
+],
 
 
 };

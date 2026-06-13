@@ -133,6 +133,28 @@ import quizData_restaurant_mat_vg1 from './quiz-data-restaurant-mat-vg1';
 import quizDataSalgServiceVg1 from './quiz-data-salg-service-vg1';
 import quizData_samf_engelsk from './quiz-data-samf-engelsk';
 import quizData_tif_vg1 from './quiz-data-tif-vg1';
+import quizData_biOkonomi from './quiz-data-bi-okonomi';
+import quizData_biologi_2 from './quiz-data-biologi-2';
+import quizData_it_1 from './quiz-data-it-1';
+import quizData_it_2 from './quiz-data-it-2';
+import quizData_komkult_1 from './quiz-data-komkult-1';
+import quizData_komkult_2 from './quiz-data-komkult-2';
+import quizData_komkult_3 from './quiz-data-komkult-3';
+import quizData_matematikk_10 from './quiz-data-matematikk-10';
+import quizData_matematikk_8 from './quiz-data-matematikk-8';
+import quizData_matematikk_9 from './quiz-data-matematikk-9';
+import quizData_medieinfo_1 from './quiz-data-medieinfo-1';
+import quizData_medieinfo_2 from './quiz-data-medieinfo-2';
+import quizData_okonomistyring from './quiz-data-okonomistyring';
+import quizData_psykologi_1 from './quiz-data-psykologi-1';
+import quizData_psykologi_2 from './quiz-data-psykologi-2';
+import quizData_samfokonomi_2 from './quiz-data-samfokonomi-2';
+import quizData_sosiologi_full from './quiz-data-sosiologi-full';
+import quizData_tof_1 from './quiz-data-tof-1';
+import quizData_tof_2 from './quiz-data-tof-2';
+import quizData_trening_1 from './quiz-data-trening-1';
+import quizData_trening_2 from './quiz-data-trening-2';
+import quizData_trening_3 from './quiz-data-trening-3';
 
 // Merged quiz data from all subject files
 const quizData: Record<string, QuizQuestion[]> = {
@@ -254,6 +276,28 @@ const quizData: Record<string, QuizQuestion[]> = {
   ...quizDataSalgServiceVg1,
   ...quizData_samf_engelsk,
   ...quizData_tif_vg1,
+  ...quizData_biOkonomi,
+  ...quizData_biologi_2,
+  ...quizData_it_1,
+  ...quizData_it_2,
+  ...quizData_komkult_1,
+  ...quizData_komkult_2,
+  ...quizData_komkult_3,
+  ...quizData_matematikk_10,
+  ...quizData_matematikk_8,
+  ...quizData_matematikk_9,
+  ...quizData_medieinfo_1,
+  ...quizData_medieinfo_2,
+  ...quizData_okonomistyring,
+  ...quizData_psykologi_1,
+  ...quizData_psykologi_2,
+  ...quizData_samfokonomi_2,
+  ...quizData_sosiologi_full,
+  ...quizData_tof_1,
+  ...quizData_tof_2,
+  ...quizData_trening_1,
+  ...quizData_trening_2,
+  ...quizData_trening_3,
 };
 
 /**

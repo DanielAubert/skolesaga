@@ -53,7 +53,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Tomater og sitrusfrukter får best smak ved romtemperatur. Rotfrukter lagres kjølig og mørkt, bladgrønnsaker i kjøleskap.',
     },
   ],
-  'restaurant-mat-vg1-2': [
+  'restaurant-mat-vg1-7-2': [
     {
       question: 'Hva står HACCP for?',
       options: [
@@ -85,7 +85,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'I et fargekodet system brukes rødt for kjøtt, blått for fisk, grønt for grønnsaker, gult for fjørfe og hvitt for bakevarer. Dette forhindrer kryssmitte.',
     },
   ],
-  'restaurant-mat-vg1-3': [
+  'restaurant-mat-vg1-2-4': [
     {
       question: 'Hva er Maillard-reaksjonen?',
       options: [
@@ -127,7 +127,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Varmeoverføring skjer ved konveksjon (gjennom væske eller luft), konduksjon (gjennom direkte kontakt) eller stråling.',
     },
   ],
-  'restaurant-mat-vg1-4': [
+  'restaurant-mat-vg1-3-1': [
     {
       question: 'Hva er gluten?',
       options: [
@@ -179,7 +179,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Smør og egg i romtemperatur blander seg bedre og gir jevnere konsistens i deigen.',
     },
   ],
-  'restaurant-mat-vg1-5': [
+  'restaurant-mat-vg1-4-1': [
     {
       question: 'Hvilken grunnsmak signaliserer ofte proteiner?',
       options: ['Umami', 'Søtt', 'Surt', 'Bittert'],
@@ -221,7 +221,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Variasjon i kostholdet sikrer at man får i seg alle nødvendige næringsstoffer - både makronæringsstoffer, vitaminer og mineraler.',
     },
   ],
-  'restaurant-mat-vg1-6': [
+  'restaurant-mat-vg1-5-4': [
     {
       question: 'Hva er et viktig hensyn ved menyplanlegging?',
       options: [
@@ -273,7 +273,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Retter med ulik tilberedningstid gir bedre arbeidsflyt og fordeler belastningen, slik at kjøkkenet håndterer service mer effektivt.',
     },
   ],
-  'restaurant-mat-vg1-7': [
+  'restaurant-mat-vg1-5-1': [
     {
       question: 'Hva er kjernen i godt vertskap og servering?',
       options: [
@@ -325,7 +325,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Godt samspill og kommunikasjon mellom kjøkken og servering sikrer at riktig mat kommer ut til riktig tid og gir fornøyde gjester.',
     },
   ],
-  'restaurant-mat-vg1-8': [
+  'restaurant-mat-vg1-6-1': [
     {
       question: 'Hva er husmannskost?',
       options: [
@@ -367,7 +367,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Pinnekjøtt er saltet og tørket saueribbe som vannes ut og dampes over bjørkepinner, ofte servert med kålrabistappe.',
     },
   ],
-  'restaurant-mat-vg1-9': [
+  'restaurant-mat-vg1-6-4': [
     {
       question: 'Hvorfor er det verdifullt for en kokk å kunne internasjonal mat?',
       options: [
@@ -414,7 +414,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Å tilpasse internasjonale retter til lokale, tilgjengelige råvarer gir bedre kvalitet og ferskhet, samtidig som man bevarer rettens karakter.',
     },
   ],
-  'restaurant-mat-vg1-10': [
+  'restaurant-mat-vg1-4-3': [
     {
       question: 'Hva er matallergi?',
       options: [
@@ -461,7 +461,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'En veganer spiser ingen animalske produkter i det hele tatt - verken kjøtt, fisk, egg, melk eller honning. B12-tilskudd anbefales.',
     },
   ],
-  'restaurant-mat-vg1-11': [
+  'restaurant-mat-vg1-7-7': [
     {
       question: 'Hva betyr bærekraft i matproduksjon?',
       options: [
@@ -503,7 +503,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Kreativ resteutnyttelse er for eksempel å bruke grønnsaksskrell til buljong, gammelt brød til krutonger og kjøttben til fond - dette reduserer matsvinn.',
     },
   ],
-  'restaurant-mat-vg1-12': [
+  'restaurant-mat-vg1-8-2': [
     {
       question: 'Hva er foodcost (varekostnad)?',
       options: [
@@ -545,7 +545,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Break-even er punktet der inntekter er lik kostnader. Da går restauranten verken med fortjeneste eller tap.',
     },
   ],
-  'restaurant-mat-vg1-13': [
+  'restaurant-mat-vg1-7-5': [
     {
       question: 'Hva handler ergonomi om?',
       options: [
@@ -597,7 +597,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'I kjøkkenet er sklisikre sko og varmehansker viktig verneutstyr, sammen med rene kokkeklær og hårnett eller kokkelue.',
     },
   ],
-  'restaurant-mat-vg1-14': [
+  'restaurant-mat-vg1-8-4': [
     {
       question: 'Hva er et fagbrev i restaurant- og matfag?',
       options: [
@@ -649,7 +649,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'En konditor (eller baker) lager bakevarer og desserter og har et eget fagfelt med eget fagbrev.',
     },
   ],
-  'restaurant-mat-vg1-15': [
+  'restaurant-mat-vg1-1-1': [
     {
       question: 'Hva er modning av kjøtt?',
       options: [
@@ -691,7 +691,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Man bør skjære mot fiberet i tynne skiver. Det gjør kjøttet mørere å tygge.',
     },
   ],
-  'restaurant-mat-vg1-16': [
+  'restaurant-mat-vg1-1-2': [
     {
       question: 'Hva er filetering?',
       options: [
@@ -738,7 +738,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Friske blåskjell har lukket skall. Åpne skjell som ikke lukker seg når man banker på dem, bør kastes.',
     },
   ],
-  'restaurant-mat-vg1-17': [
+  'restaurant-mat-vg1-1-3': [
     {
       question: 'Hva er sesongvarer?',
       options: [
@@ -785,7 +785,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Jevn størrelse gir jevn koketid/steketid og pen presentasjon. Teknikker som julienne, brunoise og dice gir kontrollerte størrelser.',
     },
   ],
-  'restaurant-mat-vg1-18': [
+  'restaurant-mat-vg1-1-4': [
     {
       question: 'Hva er pasteurisering?',
       options: [
@@ -822,7 +822,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Bechamelsaus lages av melk jevnet med en hvit roux (smør og mel). Den er en av de fem moderne grunnsausene.',
     },
   ],
-  'restaurant-mat-vg1-19': [
+  'restaurant-mat-vg1-1-5': [
     {
       question: 'Hva er gluten?',
       options: [
@@ -854,7 +854,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Gjær liker ca. 37°C (kroppstemperatur). For kaldt gir treg heving, mens for varmt (over 50°C) dreper gjæren.',
     },
   ],
-  'restaurant-mat-vg1-20': [
+  'restaurant-mat-vg1-6-5': [
     {
       question: 'Hva er fermentering?',
       options: [
@@ -906,7 +906,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Gravning bruker salt, sukker og krydder for å konservere og smaksette, som gravet laks. Det krever 1-3 dager kjøling og gir en spesiell smak.',
     },
   ],
-  'restaurant-mat-vg1-21': [
+  'restaurant-mat-vg1-1-9': [
     {
       question: 'Hva er sensorikk?',
       options: [
@@ -948,7 +948,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Når man smaker mye, blir man "trett" for smaken. Nøytral mat som brød og vann nullstiller sansene mellom smakstestinger.',
     },
   ],
-  'restaurant-mat-vg1-22': [
+  'restaurant-mat-vg1-8-1': [
     {
       question: 'Hva betyr mise en place?',
       options: [
@@ -990,7 +990,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Man bør holde arbeidsplassen ryddig underveis fordi et rotete kjøkken er ineffektivt og utrygt. Vask opp og rydd mens du venter.',
     },
   ],
-  'restaurant-mat-vg1-23': [
+  'restaurant-mat-vg1-7-6': [
     {
       question: 'Hva er matsvinn?',
       options: [
@@ -1042,7 +1042,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Apper som Too Good To Go lar restauranter selge overskuddsmat billig mot slutten av dagen, noe som reduserer svinn og når nye kunder.',
     },
   ],
-  'restaurant-mat-vg1-24': [
+  'restaurant-mat-vg1-7-4': [
     {
       question: 'Hva er Mattilsynet?',
       options: [
@@ -1089,7 +1089,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Obligatorisk merking inkluderer produktnavn, ingrediensliste, uthevede allergener, nettovekt, best før-dato, produsent og opprinnelsesland.',
     },
   ],
-  'restaurant-mat-vg1-25': [
+  'restaurant-mat-vg1-5-3': [
     {
       question: 'Hva er en sommelier?',
       options: [
@@ -1126,7 +1126,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Rødt kjøtt parres klassisk med rødvin. Fisk passer til hvitvin, og sjokolade til kaffe.',
     },
   ],
-  'restaurant-mat-vg1-26': [
+  'restaurant-mat-vg1-5-5': [
     {
       question: 'Hva er catering?',
       options: [
@@ -1173,7 +1173,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'Ved storproduksjon er timing kritisk - maten skal bli ferdig samtidig, holde riktig temperatur og bevare kvaliteten. God koordinering er avgjørende.',
     },
   ],
-  'restaurant-mat-vg1-27': [
+  'restaurant-mat-vg1-1-8': [
     {
       question: 'Hva spiser en veganer?',
       options: [
@@ -1215,7 +1215,7 @@ const quizData_restaurant_mat_vg1: Record<string, QuizQuestion[]> = {
       explanation: 'B12-tilskudd anbefales ofte til veganere, siden B12 hovedsakelig finnes i animalske produkter.',
     },
   ],
-  'restaurant-mat-vg1-28': [
+  'restaurant-mat-vg1-1-7': [
     {
       question: 'Hva er kortreist mat?',
       options: [

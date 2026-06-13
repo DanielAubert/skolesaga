@@ -1,7 +1,7 @@
 import type { QuizQuestion } from './quiz-data';
 
 const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
-  'bygg-anlegg-vg1-1': [
+  'bygg-anlegg-vg1-1-1': [
   {
     question: 'Hvilket byggemateriale er Norges mest tradisjonelle, og binder CO₂?',
     options: ['Tre', 'Betong', 'Stål', 'Tegl'],
@@ -29,7 +29,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-2': [
+  'bygg-anlegg-vg1-8-1': [
   {
     question: 'Hvilken tegning viser bygningen ovenfra (horisontalt snitt) med rom, dører og vinduer?',
     options: ['Plantegning', 'Fasadetegning', 'Snitttegning', 'Situasjonsplan'],
@@ -57,7 +57,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-3': [
+  'bygg-anlegg-vg1-3-1': [
   {
     question: 'Hvorfor utføres grunnundersøkelser før bygging?',
     options: ['For å finne grunnens bæreevne og avdekke problematisk grunn', 'For å bestemme husets farge', 'For å beregne strømforbruket', 'For å velge takstein'],
@@ -85,7 +85,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-4': [
+  'bygg-anlegg-vg1-2-1': [
   {
     question: 'Hva er den vanligste konstruksjonsmetoden for trehus i Norge?',
     options: ['Bindingsverk', 'Laft', 'Stavverk', 'Massivtre'],
@@ -113,7 +113,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-5': [
+  'bygg-anlegg-vg1-3-6': [
   {
     question: 'Hva binder murblokkene sammen og fordeler lasten?',
     options: ['Mørtel', 'Lim', 'Skruer', 'Isolasjon'],
@@ -141,7 +141,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-6': [
+  'bygg-anlegg-vg1-7-4': [
   {
     question: 'Hvilket verktøy sjekker om noe er horisontalt (i vater)?',
     options: ['Vater', 'Lodd', 'Vinkelhake', 'Målebånd'],
@@ -169,7 +169,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-7': [
+  'bygg-anlegg-vg1-7-1': [
   {
     question: 'Hva er den vanligste dødsårsaken på byggeplass?',
     options: ['Fall fra høyder', 'Brann', 'Elektrisk støt', 'Drukning'],
@@ -197,7 +197,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-8': [
+  'bygg-anlegg-vg1-4-3': [
   {
     question: 'Hvilket isolasjonsmateriale er mest brukt i Norge og ikke brennbart?',
     options: ['Mineralull (glassull/steinull)', 'EPS (isopor)', 'XPS', 'Cellegummi'],
@@ -225,7 +225,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-9': [
+  'bygg-anlegg-vg1-4-5': [
   {
     question: 'På hvilke tre måter transporteres varme?',
     options: ['Ledning, stråling og konveksjon', 'Trykk, sug og fordamping', 'Lyd, lys og vibrasjon', 'Strøm, spenning og effekt'],
@@ -253,7 +253,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-10': [
+  'bygg-anlegg-vg1-8-3': [
   {
     question: 'Hvilken fase i et byggeprosjekt kommer FØRST?',
     options: ['Konseptfase (idéfase)', 'Entreprisefase (bygging)', 'Ferdigstillelse', 'Prosjekteringsfase'],
@@ -281,7 +281,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-11': [
+  'bygg-anlegg-vg1-7-6': [
   {
     question: 'Omtrent hvor stor andel av verdens energiforbruk står byggebransjen for?',
     options: ['Ca. 40 %', 'Ca. 5 %', 'Ca. 15 %', 'Ca. 70 %'],
@@ -309,7 +309,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-12': [
+  'bygg-anlegg-vg1-8-5': [
   {
     question: 'Hvilket yrke bygger trekonstruksjoner som vegger, tak og gulv?',
     options: ['Tømmermann', 'Murer', 'Taktekker', 'Rørlegger'],
@@ -337,7 +337,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-13': [
+  'bygg-anlegg-vg1-3-8': [
   {
     question: 'Hvorfor er drenering rundt et bygg viktig?',
     options: ['For å beskytte fundament og kjeller mot fukt og frostskader', 'For å gjøre bygget tyngre', 'For å lede strøm bort', 'For å øke innetemperaturen'],
@@ -365,7 +365,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-14': [
+  'bygg-anlegg-vg1-7-3': [
   {
     question: 'Hvilken type fallsikring er best ifølge prioriteringsrekkefølgen?',
     options: ['Kollektiv sikring (f.eks. stillas med rekkverk)', 'Individuell sikring med sele', 'Administrative tiltak', 'Ingen sikring'],
@@ -393,7 +393,7 @@ const quizData_byggAnleggVg1: Record<string, QuizQuestion[]> = {
   },
 ],
 
-  'bygg-anlegg-vg1-15': [
+  'bygg-anlegg-vg1-4-1': [
   {
     question: 'Hvilken takform har lite fall (2–5°) og krever god tetting og drenering?',
     options: ['Flatt tak', 'Valmet tak', 'Saltak med møne', 'Pulttak med bratt fall'],
