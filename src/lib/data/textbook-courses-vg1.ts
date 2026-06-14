@@ -412,70 +412,70 @@ export const COURSE_GEOGRAFI: TextbookCourse = {
   coverImage: '/images/subjects/geografi-hero.webp',
   chapters: [
     // SEKSJON 1: Geografiens verktøy (1.1-1.6)
-    { id: 'geografi-1-1-1', number: '1.1', title: 'Hva er geografi?', description: 'Introduksjon til geografi som fag – naturgeografi og samfunnsgeografi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Geografi', 'Naturgeografi', 'Samfunnsgeografi', 'Fagområder'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-1-2', number: '1.2', title: 'Kart og kartprojeksjoner', description: 'Lær om kart, målestokk og ulike kartprojeksjoner.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Kart', 'Målestokk', 'Kartprojeksjoner', 'Mercator', 'UTM'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-1-3', number: '1.3', title: 'GIS og digitale kart', description: 'Forstå geografiske informasjonssystemer og digitale kartverktøy.', estimatedMinutes: 20, exerciseCount: 5, topics: ['GIS', 'Digitale kart', 'Kartlag', 'Bufferanalyse', 'GPS'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-1-4', number: '1.4', title: 'Fjernanalyse og satellittbilder', description: 'Lær om fjernanalyse, satellittbilder og deres bruksområder.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fjernanalyse', 'Satellittbilder', 'Radar', 'Optiske bilder', 'Overvåking'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-1-5', number: '1.5', title: 'Feltarbeid og geografiske metoder', description: 'Praktiske metoder for feltarbeid og datainnsamling i geografi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Feltarbeid', 'Datainnsamling', 'Observasjon', 'Kvalitativ metode', 'Kvantitativ metode'], competenceGoals: ['bruke geografiske metoder'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-1-6', number: '1.6', title: 'Statistikk og datavisualisering', description: 'Lær å tolke og lage diagrammer, statistikk og tematiske kart.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Statistikk', 'Diagrammer', 'Datavisualisering', 'Kildekritikk', 'Tematiske kart'], competenceGoals: ['bruke geografiske metoder'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-1-1', number: '1.1', title: 'Hva er geografi?', description: 'Introduksjon til geografi som fag – naturgeografi og samfunnsgeografi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Geografi', 'Naturgeografi', 'Samfunnsgeografi', 'Fagområder'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-1-narrativ' },
+    { id: 'geografi-1-1-2', number: '1.2', title: 'Kart og kartprojeksjoner', description: 'Lær om kart, målestokk og ulike kartprojeksjoner.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Kart', 'Målestokk', 'Kartprojeksjoner', 'Mercator', 'UTM'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-2-narrativ' },
+    { id: 'geografi-1-1-3', number: '1.3', title: 'GIS og digitale kart', description: 'Forstå geografiske informasjonssystemer og digitale kartverktøy.', estimatedMinutes: 20, exerciseCount: 5, topics: ['GIS', 'Digitale kart', 'Kartlag', 'Bufferanalyse', 'GPS'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-3-narrativ' },
+    { id: 'geografi-1-1-4', number: '1.4', title: 'Fjernanalyse og satellittbilder', description: 'Lær om fjernanalyse, satellittbilder og deres bruksområder.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fjernanalyse', 'Satellittbilder', 'Radar', 'Optiske bilder', 'Overvåking'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-4-narrativ' },
+    { id: 'geografi-1-1-5', number: '1.5', title: 'Feltarbeid og geografiske metoder', description: 'Praktiske metoder for feltarbeid og datainnsamling i geografi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Feltarbeid', 'Datainnsamling', 'Observasjon', 'Kvalitativ metode', 'Kvantitativ metode'], competenceGoals: ['bruke geografiske metoder'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-5-narrativ' },
+    { id: 'geografi-1-1-6', number: '1.6', title: 'Statistikk og datavisualisering', description: 'Lær å tolke og lage diagrammer, statistikk og tematiske kart.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Statistikk', 'Diagrammer', 'Datavisualisering', 'Kildekritikk', 'Tematiske kart'], competenceGoals: ['bruke geografiske metoder'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-1-6-narrativ' },
 
     // SEKSJON 2: Geologi og landformer (2.1-2.7)
-    { id: 'geografi-1-2-1', number: '2.1', title: 'Jordens indre oppbygging', description: 'Forstå jordens lagdelte struktur fra kjerne til skorpe.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jordens kjerne', 'Mantelen', 'Skorpen', 'Litosfæren', 'Astenosfæren'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-2', number: '2.2', title: 'Platetektonikk', description: 'Lær om tektoniske plater, plategrenser og kontinentaldrift.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Platetektonikk', 'Plategrenser', 'Kontinentaldrift', 'Pangea', 'Subduksjon'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-3', number: '2.3', title: 'Vulkaner og vulkanisme', description: 'Forstå vulkantyper, vulkanisme og konsekvenser av utbrudd.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vulkaner', 'Skjoldvulkan', 'Stratovulkan', 'Hotspots', 'Lava'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-4', number: '2.4', title: 'Jordskjelv og tsunamier', description: 'Lær om jordskjelv, seismologi og tsunamier.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jordskjelv', 'Richterskala', 'Seismologi', 'Tsunamier', 'Forkastninger'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-5', number: '2.5', title: 'Forvitring og erosjon', description: 'Forstå mekanisk og kjemisk forvitring og erosjonsprosesser.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Forvitring', 'Erosjon', 'Mekanisk forvitring', 'Kjemisk forvitring', 'Sedimenttransport'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-6', number: '2.6', title: 'Elver og vassdrag', description: 'Utforsk elvers dannelse, erosjon og landformer knyttet til vassdrag.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Elver', 'Vassdrag', 'Meandersvinger', 'Delta', 'V-daler', 'Flom'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-2-7', number: '2.7', title: 'Isbreer, kyster og norske landformer', description: 'Lær om glasial erosjon, kystprosesser og Norges karakteristiske landformer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Isbreer', 'Kystlandskap', 'Fjorder', 'U-daler', 'Morener', 'Norske landformer'], competenceGoals: ['beskrive norsk naturgeografi'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-2-1', number: '2.1', title: 'Jordens indre oppbygging', description: 'Forstå jordens lagdelte struktur fra kjerne til skorpe.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jordens kjerne', 'Mantelen', 'Skorpen', 'Litosfæren', 'Astenosfæren'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-1-narrativ' },
+    { id: 'geografi-1-2-2', number: '2.2', title: 'Platetektonikk', description: 'Lær om tektoniske plater, plategrenser og kontinentaldrift.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Platetektonikk', 'Plategrenser', 'Kontinentaldrift', 'Pangea', 'Subduksjon'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-2-narrativ' },
+    { id: 'geografi-1-2-3', number: '2.3', title: 'Vulkaner og vulkanisme', description: 'Forstå vulkantyper, vulkanisme og konsekvenser av utbrudd.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vulkaner', 'Skjoldvulkan', 'Stratovulkan', 'Hotspots', 'Lava'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-3-narrativ' },
+    { id: 'geografi-1-2-4', number: '2.4', title: 'Jordskjelv og tsunamier', description: 'Lær om jordskjelv, seismologi og tsunamier.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jordskjelv', 'Richterskala', 'Seismologi', 'Tsunamier', 'Forkastninger'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-4-narrativ' },
+    { id: 'geografi-1-2-5', number: '2.5', title: 'Forvitring og erosjon', description: 'Forstå mekanisk og kjemisk forvitring og erosjonsprosesser.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Forvitring', 'Erosjon', 'Mekanisk forvitring', 'Kjemisk forvitring', 'Sedimenttransport'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-5-narrativ' },
+    { id: 'geografi-1-2-6', number: '2.6', title: 'Elver og vassdrag', description: 'Utforsk elvers dannelse, erosjon og landformer knyttet til vassdrag.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Elver', 'Vassdrag', 'Meandersvinger', 'Delta', 'V-daler', 'Flom'], competenceGoals: ['forklare geologiske prosesser'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-6-narrativ' },
+    { id: 'geografi-1-2-7', number: '2.7', title: 'Isbreer, kyster og norske landformer', description: 'Lær om glasial erosjon, kystprosesser og Norges karakteristiske landformer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Isbreer', 'Kystlandskap', 'Fjorder', 'U-daler', 'Morener', 'Norske landformer'], competenceGoals: ['beskrive norsk naturgeografi'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-2-7-narrativ' },
 
     // SEKSJON 3: Vær, klima og klimaendringer (3.1-3.7)
-    { id: 'geografi-1-3-1', number: '3.1', title: 'Atmosfæren og solinnstråling', description: 'Forstå atmosfærens oppbygging og jordens energibalanse.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Atmosfæren', 'Solinnstråling', 'Energibalanse', 'Albedo', 'Stråling'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-2', number: '3.2', title: 'Vind og værsystemer', description: 'Lær om lufttrykk, vind, fronter og globale sirkulasjonsmønstre.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vind', 'Lufttrykk', 'Corioliseffekten', 'Fronter', 'Passatvinder'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-3', number: '3.3', title: 'Nedbør og skyer', description: 'Forstå vannsyklusen, skydannelse og nedbørstyper.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Nedbør', 'Skyer', 'Vannsyklusen', 'Orografisk nedbør', 'Skytyper'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-4', number: '3.4', title: 'Klimasoner og klimaklassifikasjon', description: 'Lær om Köppens klimaklassifikasjon og verdens klimasoner.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Klimasoner', 'Köppen', 'Tropisk', 'Temperert', 'Polart klima'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-5', number: '3.5', title: 'Naturlige klimasvingninger', description: 'Forstå naturlige årsaker til klimaendringer gjennom historien.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Milankovitch-sykluser', 'Vulkaner og klima', 'El Niño', 'Havstrømmer', 'Istider'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-6', number: '3.6', title: 'Menneskeskapte klimaendringer og konsekvenser', description: 'Forstå drivhuseffekten, global oppvarming og konsekvenser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Drivhuseffekt', 'Global oppvarming', 'IPCC', 'Issmelting', 'Havnivåstigning'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-3-7', number: '3.7', title: 'Klimapolitikk og klimatilpasning', description: 'Lær om Parisavtalen, klimatilpasning og norsk klimapolitikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Parisavtalen', 'Klimatilpasning', 'Utslippsreduksjon', 'Klimapolitikk', 'Norges klimamål'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-3-1', number: '3.1', title: 'Atmosfæren og solinnstråling', description: 'Forstå atmosfærens oppbygging og jordens energibalanse.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Atmosfæren', 'Solinnstråling', 'Energibalanse', 'Albedo', 'Stråling'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-1-narrativ' },
+    { id: 'geografi-1-3-2', number: '3.2', title: 'Vind og værsystemer', description: 'Lær om lufttrykk, vind, fronter og globale sirkulasjonsmønstre.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vind', 'Lufttrykk', 'Corioliseffekten', 'Fronter', 'Passatvinder'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-2-narrativ' },
+    { id: 'geografi-1-3-3', number: '3.3', title: 'Nedbør og skyer', description: 'Forstå vannsyklusen, skydannelse og nedbørstyper.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Nedbør', 'Skyer', 'Vannsyklusen', 'Orografisk nedbør', 'Skytyper'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-3-narrativ' },
+    { id: 'geografi-1-3-4', number: '3.4', title: 'Klimasoner og klimaklassifikasjon', description: 'Lær om Köppens klimaklassifikasjon og verdens klimasoner.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Klimasoner', 'Köppen', 'Tropisk', 'Temperert', 'Polart klima'], competenceGoals: ['forklare værfenomener og klima'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-4-narrativ' },
+    { id: 'geografi-1-3-5', number: '3.5', title: 'Naturlige klimasvingninger', description: 'Forstå naturlige årsaker til klimaendringer gjennom historien.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Milankovitch-sykluser', 'Vulkaner og klima', 'El Niño', 'Havstrømmer', 'Istider'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-5-narrativ' },
+    { id: 'geografi-1-3-6', number: '3.6', title: 'Menneskeskapte klimaendringer og konsekvenser', description: 'Forstå drivhuseffekten, global oppvarming og konsekvenser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Drivhuseffekt', 'Global oppvarming', 'IPCC', 'Issmelting', 'Havnivåstigning'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-6-narrativ' },
+    { id: 'geografi-1-3-7', number: '3.7', title: 'Klimapolitikk og klimatilpasning', description: 'Lær om Parisavtalen, klimatilpasning og norsk klimapolitikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Parisavtalen', 'Klimatilpasning', 'Utslippsreduksjon', 'Klimapolitikk', 'Norges klimamål'], competenceGoals: ['drøfte klimaendringer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-3-7-narrativ' },
 
     // SEKSJON 4: Økosystemer og naturressurser (4.1-4.6)
-    { id: 'geografi-1-4-1', number: '4.1', title: 'Vegetasjonssoner og biomer', description: 'Utforsk verdens vegetasjonssoner fra tropisk regnskog til tundra.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vegetasjonssoner', 'Biomer', 'Regnskog', 'Savanne', 'Tundra', 'Barskog'], competenceGoals: ['forklare sammenhenger i naturen'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-4-2', number: '4.2', title: 'Jord og jordbruk', description: 'Lær om jorddannelse, jordtyper og jordbrukets utfordringer.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jord', 'Jordbruk', 'Matsikkerhet', 'Jorddannelse', 'Erosjon'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-4-3', number: '4.3', title: 'Vannressurser', description: 'Forstå vannets kretsløp, ferskvannsressurser og vannkonflikter.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vannressurser', 'Vannkraft', 'Vannknapphet', 'Grunnvann', 'Vannkonflikter'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-4-4', number: '4.4', title: 'Energiressurser', description: 'Utforsk fossile og fornybare energikilder og energiomstilling.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fossil energi', 'Fornybar energi', 'Energiomstilling', 'Olje og gass', 'Vindkraft'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-4-5', number: '4.5', title: 'Havressurser og fiskeri', description: 'Lær om havets ressurser, fiskeri og marin forvaltning.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fiskeri', 'Havbruk', 'Overfiske', 'Havressurser', 'Norsk fiskerinæring'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-4-6', number: '4.6', title: 'Bærekraftig ressursforvaltning', description: 'Forstå bærekraftig forvaltning, sirkulærøkonomi og økosystemtjenester.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bærekraft', 'Sirkulærøkonomi', 'Økosystemtjenester', 'Fornybare ressurser', 'Bærekraftsmål'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-4-1', number: '4.1', title: 'Vegetasjonssoner og biomer', description: 'Utforsk verdens vegetasjonssoner fra tropisk regnskog til tundra.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vegetasjonssoner', 'Biomer', 'Regnskog', 'Savanne', 'Tundra', 'Barskog'], competenceGoals: ['forklare sammenhenger i naturen'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-1-narrativ' },
+    { id: 'geografi-1-4-2', number: '4.2', title: 'Jord og jordbruk', description: 'Lær om jorddannelse, jordtyper og jordbrukets utfordringer.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Jord', 'Jordbruk', 'Matsikkerhet', 'Jorddannelse', 'Erosjon'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-2-narrativ' },
+    { id: 'geografi-1-4-3', number: '4.3', title: 'Vannressurser', description: 'Forstå vannets kretsløp, ferskvannsressurser og vannkonflikter.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vannressurser', 'Vannkraft', 'Vannknapphet', 'Grunnvann', 'Vannkonflikter'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-3-narrativ' },
+    { id: 'geografi-1-4-4', number: '4.4', title: 'Energiressurser', description: 'Utforsk fossile og fornybare energikilder og energiomstilling.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fossil energi', 'Fornybar energi', 'Energiomstilling', 'Olje og gass', 'Vindkraft'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-4-narrativ' },
+    { id: 'geografi-1-4-5', number: '4.5', title: 'Havressurser og fiskeri', description: 'Lær om havets ressurser, fiskeri og marin forvaltning.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fiskeri', 'Havbruk', 'Overfiske', 'Havressurser', 'Norsk fiskerinæring'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-5-narrativ' },
+    { id: 'geografi-1-4-6', number: '4.6', title: 'Bærekraftig ressursforvaltning', description: 'Forstå bærekraftig forvaltning, sirkulærøkonomi og økosystemtjenester.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bærekraft', 'Sirkulærøkonomi', 'Økosystemtjenester', 'Fornybare ressurser', 'Bærekraftsmål'], competenceGoals: ['vurdere ressursbruk'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-4-6-narrativ' },
 
     // SEKSJON 5: Befolkning og migrasjon (5.1-5.6)
-    { id: 'geografi-1-5-1', number: '5.1', title: 'Befolkningsvekst og demografisk overgang', description: 'Forstå verdens befolkningsutvikling og den demografiske overgangsmodellen.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Befolkningsvekst', 'Demografisk overgang', 'Fødselsrate', 'Dødsrate', 'Malthus'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-5-2', number: '5.2', title: 'Befolkningsstrukturer', description: 'Lær å tolke befolkningspyramider og forstå demografiske utfordringer.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Befolkningspyramide', 'Aldersfordeling', 'Forsørgelsesbyrde', 'Aldring', 'Ungdomsbølge'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-5-3', number: '5.3', title: 'Migrasjon – årsaker og typer', description: 'Forstå push- og pull-faktorer og ulike typer migrasjon.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Migrasjon', 'Push-faktorer', 'Pull-faktorer', 'Arbeidsinnvandring', 'Brain drain'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-5-4', number: '5.4', title: 'Flyktninger og asyl', description: 'Lær om flyktningkriser, FNs flyktningkonvensjon og UNHCR.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Flyktninger', 'Asyl', 'UNHCR', 'Flyktningkonvensjonen', 'Internt fordrevne'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-5-5', number: '5.5', title: 'Befolkningsutvikling i Norge', description: 'Utforsk norsk befolkningshistorie, innvandring og sentralisering.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norsk befolkning', 'Innvandring', 'Sentralisering', 'SSB', 'Befolkningsprognoser'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-5-6', number: '5.6', title: 'Demografiske utfordringer globalt', description: 'Drøft globale demografiske utfordringer som aldring og befolkningspolitikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Overbefolkning', 'Aldring', 'Befolkningspolitikk', 'Kinas ettbarnspolitikk', 'Bærekraft'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-5-1', number: '5.1', title: 'Befolkningsvekst og demografisk overgang', description: 'Forstå verdens befolkningsutvikling og den demografiske overgangsmodellen.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Befolkningsvekst', 'Demografisk overgang', 'Fødselsrate', 'Dødsrate', 'Malthus'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-1-narrativ' },
+    { id: 'geografi-1-5-2', number: '5.2', title: 'Befolkningsstrukturer', description: 'Lær å tolke befolkningspyramider og forstå demografiske utfordringer.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Befolkningspyramide', 'Aldersfordeling', 'Forsørgelsesbyrde', 'Aldring', 'Ungdomsbølge'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-2-narrativ' },
+    { id: 'geografi-1-5-3', number: '5.3', title: 'Migrasjon – årsaker og typer', description: 'Forstå push- og pull-faktorer og ulike typer migrasjon.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Migrasjon', 'Push-faktorer', 'Pull-faktorer', 'Arbeidsinnvandring', 'Brain drain'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-3-narrativ' },
+    { id: 'geografi-1-5-4', number: '5.4', title: 'Flyktninger og asyl', description: 'Lær om flyktningkriser, FNs flyktningkonvensjon og UNHCR.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Flyktninger', 'Asyl', 'UNHCR', 'Flyktningkonvensjonen', 'Internt fordrevne'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-4-narrativ' },
+    { id: 'geografi-1-5-5', number: '5.5', title: 'Befolkningsutvikling i Norge', description: 'Utforsk norsk befolkningshistorie, innvandring og sentralisering.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norsk befolkning', 'Innvandring', 'Sentralisering', 'SSB', 'Befolkningsprognoser'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-5-narrativ' },
+    { id: 'geografi-1-5-6', number: '5.6', title: 'Demografiske utfordringer globalt', description: 'Drøft globale demografiske utfordringer som aldring og befolkningspolitikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Overbefolkning', 'Aldring', 'Befolkningspolitikk', 'Kinas ettbarnspolitikk', 'Bærekraft'], competenceGoals: ['analysere befolkningsutvikling'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-5-6-narrativ' },
 
     // SEKSJON 6: Byer og urbanisering (6.1-6.6)
-    { id: 'geografi-1-6-1', number: '6.1', title: 'Urbanisering – drivkrefter og prosesser', description: 'Forstå urbaniseringens årsaker og historiske utvikling.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Urbanisering', 'Bygd-til-by', 'Push-faktorer', 'Pull-faktorer', 'Urbaniseringsgrad'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-6-2', number: '6.2', title: 'Byers funksjon og struktur', description: 'Lær om bymodeller, byfunksjoner og byplanlegging.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bymodeller', 'Sonemodell', 'Sektormodell', 'Byplanlegging', 'Sentrum-periferi'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-6-3', number: '6.3', title: 'Megabyer og slum', description: 'Utforsk megabyer, slum og urbane utfordringer i utviklingsland.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Megabyer', 'Slum', 'Uformelle bosettinger', 'Infrastruktur', 'Fattigdom'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-6-4', number: '6.4', title: 'Bærekraftig byutvikling', description: 'Lær om smarte byer, grønn transport og bærekraftsmål 11.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Smarte byer', 'Grønn transport', 'Bærekraftsmål 11', 'Byøkologi', 'Fortetting'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-6-5', number: '6.5', title: 'Byer i Norge', description: 'Utforsk norsk byhistorie, sentralisering og regional utvikling.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norske byer', 'Oslo', 'Bergen', 'Sentralisering', 'Regionalpolitikk'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-6-6', number: '6.6', title: 'Framtidens byer', description: 'Drøft urbanisering mot 2050, klimatilpassede byer og teknologi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Framtidens byer', 'Klimatilpasning', 'Teknologi', 'Segregering', 'Sosial bærekraft'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-6-1', number: '6.1', title: 'Urbanisering – drivkrefter og prosesser', description: 'Forstå urbaniseringens årsaker og historiske utvikling.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Urbanisering', 'Bygd-til-by', 'Push-faktorer', 'Pull-faktorer', 'Urbaniseringsgrad'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-1-narrativ' },
+    { id: 'geografi-1-6-2', number: '6.2', title: 'Byers funksjon og struktur', description: 'Lær om bymodeller, byfunksjoner og byplanlegging.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bymodeller', 'Sonemodell', 'Sektormodell', 'Byplanlegging', 'Sentrum-periferi'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-2-narrativ' },
+    { id: 'geografi-1-6-3', number: '6.3', title: 'Megabyer og slum', description: 'Utforsk megabyer, slum og urbane utfordringer i utviklingsland.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Megabyer', 'Slum', 'Uformelle bosettinger', 'Infrastruktur', 'Fattigdom'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-3-narrativ' },
+    { id: 'geografi-1-6-4', number: '6.4', title: 'Bærekraftig byutvikling', description: 'Lær om smarte byer, grønn transport og bærekraftsmål 11.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Smarte byer', 'Grønn transport', 'Bærekraftsmål 11', 'Byøkologi', 'Fortetting'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-4-narrativ' },
+    { id: 'geografi-1-6-5', number: '6.5', title: 'Byer i Norge', description: 'Utforsk norsk byhistorie, sentralisering og regional utvikling.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norske byer', 'Oslo', 'Bergen', 'Sentralisering', 'Regionalpolitikk'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-5-narrativ' },
+    { id: 'geografi-1-6-6', number: '6.6', title: 'Framtidens byer', description: 'Drøft urbanisering mot 2050, klimatilpassede byer og teknologi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Framtidens byer', 'Klimatilpasning', 'Teknologi', 'Segregering', 'Sosial bærekraft'], competenceGoals: ['drøfte urbanisering'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-6-6-narrativ' },
 
     // SEKSJON 7: Globalisering og utvikling (7.1-7.6)
-    { id: 'geografi-1-7-1', number: '7.1', title: 'Globalisering – økonomi og handel', description: 'Forstå økonomisk globalisering, frihandel og verdikjeder.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Globalisering', 'Frihandel', 'WTO', 'Verdikjeder', 'Multinasjonale selskaper'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-7-2', number: '7.2', title: 'Kulturell globalisering', description: 'Lær om kulturspredning, glokalisering og digital globalisering.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Kulturell globalisering', 'Glokalisering', 'Amerikanisering', 'Sosiale medier', 'Kulturmøter'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-7-3', number: '7.3', title: 'Utvikling og ulikhet', description: 'Analyser global ulikhet med HDI, Gini og andre utviklingsmål.', estimatedMinutes: 25, exerciseCount: 5, topics: ['HDI', 'Gini', 'Fattigdom', 'Ulikhet', 'BRICS', 'Nord-sør'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-7-4', number: '7.4', title: 'Bistand og utviklingssamarbeid', description: 'Forstå ulike typer bistand og norsk utviklingssamarbeid.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bistand', 'Norad', 'Multilateral bistand', 'Mikrofinans', 'Bistandskritikk'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-7-5', number: '7.5', title: 'Bærekraftsmålene (FNs SDGs)', description: 'Lær om FNs 17 bærekraftsmål og Agenda 2030.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bærekraftsmålene', 'Agenda 2030', 'FN', 'Bærekraftig utvikling', 'Klimarettferdighet'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-7-6', number: '7.6', title: 'Norge i en globalisert verden', description: 'Utforsk Norges rolle i global økonomi, bistand og politikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norsk økonomi', 'Oljefondet', 'EØS', 'Norsk bistand', 'Handelsavtaler'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-7-1', number: '7.1', title: 'Globalisering – økonomi og handel', description: 'Forstå økonomisk globalisering, frihandel og verdikjeder.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Globalisering', 'Frihandel', 'WTO', 'Verdikjeder', 'Multinasjonale selskaper'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-1-narrativ' },
+    { id: 'geografi-1-7-2', number: '7.2', title: 'Kulturell globalisering', description: 'Lær om kulturspredning, glokalisering og digital globalisering.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Kulturell globalisering', 'Glokalisering', 'Amerikanisering', 'Sosiale medier', 'Kulturmøter'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-2-narrativ' },
+    { id: 'geografi-1-7-3', number: '7.3', title: 'Utvikling og ulikhet', description: 'Analyser global ulikhet med HDI, Gini og andre utviklingsmål.', estimatedMinutes: 25, exerciseCount: 5, topics: ['HDI', 'Gini', 'Fattigdom', 'Ulikhet', 'BRICS', 'Nord-sør'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-3-narrativ' },
+    { id: 'geografi-1-7-4', number: '7.4', title: 'Bistand og utviklingssamarbeid', description: 'Forstå ulike typer bistand og norsk utviklingssamarbeid.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bistand', 'Norad', 'Multilateral bistand', 'Mikrofinans', 'Bistandskritikk'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-4-narrativ' },
+    { id: 'geografi-1-7-5', number: '7.5', title: 'Bærekraftsmålene (FNs SDGs)', description: 'Lær om FNs 17 bærekraftsmål og Agenda 2030.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bærekraftsmålene', 'Agenda 2030', 'FN', 'Bærekraftig utvikling', 'Klimarettferdighet'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-5-narrativ' },
+    { id: 'geografi-1-7-6', number: '7.6', title: 'Norge i en globalisert verden', description: 'Utforsk Norges rolle i global økonomi, bistand og politikk.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norsk økonomi', 'Oljefondet', 'EØS', 'Norsk bistand', 'Handelsavtaler'], competenceGoals: ['drøfte global ulikhet'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-7-6-narrativ' },
 
     // SEKSJON 8: Geopolitikk og konflikter (8.1-8.6)
-    { id: 'geografi-1-8-1', number: '8.1', title: 'Geopolitikk og maktforhold', description: 'Forstå geopolitiske maktforhold, stormakter og allianser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Geopolitikk', 'Stormakter', 'NATO', 'EU', 'Innflytelsessfærer'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-8-2', number: '8.2', title: 'Konflikter om ressurser', description: 'Lær om ressurskonflikter knyttet til vann, olje og mineraler.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Ressurskonflikter', 'Vannkonflikter', 'Oljekonflikter', 'Ressursforbannelsen', 'Sjeldne jordarter'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-8-3', number: '8.3', title: 'Arktis og Antarktis', description: 'Utforsk polarområdenes geografi, ressurser og geopolitikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Arktis', 'Antarktis', 'Svalbard', 'Antarktistraktaten', 'Nordområdene', 'Permafrost'], competenceGoals: ['beskrive polarområdene'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-8-4', number: '8.4', title: 'Naturkatastrofer og sårbarhet', description: 'Forstå naturkatastrofer, sårbarhet og katastrofeforebygging.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Naturkatastrofer', 'Sårbarhet', 'Risiko', 'Sendai-rammeverket', 'Forebygging'], competenceGoals: ['analysere naturkatastrofer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-8-5', number: '8.5', title: 'Norges rolle i verden', description: 'Lær om Norges rolle som fredsnasjon, i FN, NATO og havrett.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fredsnasjon', 'Nordområdene', 'Havrett', 'FN', 'Norsk utenrikspolitikk'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
-    { id: 'geografi-1-8-6', number: '8.6', title: 'Geografi og framtiden', description: 'Drøft globale megatrender og geografisk kompetanse for framtiden.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Megatrender', 'Befolkningsvekst', 'Urbanisering', 'Teknologi', 'Geografisk kompetanse'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop' },
+    { id: 'geografi-1-8-1', number: '8.1', title: 'Geopolitikk og maktforhold', description: 'Forstå geopolitiske maktforhold, stormakter og allianser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Geopolitikk', 'Stormakter', 'NATO', 'EU', 'Innflytelsessfærer'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-1-narrativ' },
+    { id: 'geografi-1-8-2', number: '8.2', title: 'Konflikter om ressurser', description: 'Lær om ressurskonflikter knyttet til vann, olje og mineraler.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Ressurskonflikter', 'Vannkonflikter', 'Oljekonflikter', 'Ressursforbannelsen', 'Sjeldne jordarter'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-2-narrativ' },
+    { id: 'geografi-1-8-3', number: '8.3', title: 'Arktis og Antarktis', description: 'Utforsk polarområdenes geografi, ressurser og geopolitikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Arktis', 'Antarktis', 'Svalbard', 'Antarktistraktaten', 'Nordområdene', 'Permafrost'], competenceGoals: ['beskrive polarområdene'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-3-narrativ' },
+    { id: 'geografi-1-8-4', number: '8.4', title: 'Naturkatastrofer og sårbarhet', description: 'Forstå naturkatastrofer, sårbarhet og katastrofeforebygging.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Naturkatastrofer', 'Sårbarhet', 'Risiko', 'Sendai-rammeverket', 'Forebygging'], competenceGoals: ['analysere naturkatastrofer'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-4-narrativ' },
+    { id: 'geografi-1-8-5', number: '8.5', title: 'Norges rolle i verden', description: 'Lær om Norges rolle som fredsnasjon, i FN, NATO og havrett.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Fredsnasjon', 'Nordområdene', 'Havrett', 'FN', 'Norsk utenrikspolitikk'], competenceGoals: ['analysere internasjonale forhold'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-5-narrativ' },
+    { id: 'geografi-1-8-6', number: '8.6', title: 'Geografi og framtiden', description: 'Drøft globale megatrender og geografisk kompetanse for framtiden.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Megatrender', 'Befolkningsvekst', 'Urbanisering', 'Teknologi', 'Geografisk kompetanse'], competenceGoals: ['bruke geografiske verktøy'], coverImage: 'https://images.unsplash.com/photo-1654691266843-4f52c1fd3228?w=800&h=400&fit=crop', linkedChapterId: 'geografi-1-8-6-narrativ' },
   ],
 };
 
@@ -665,8 +665,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering', 'Måling', 'Usikkerhet', 'Signifikante siffer'],
       competenceGoals: ['planlegge og gjennomføre forsøk', 'analysere data og trekke konklusjoner'],
-      coverImage: '/images/subjects/fysikk-1-1-metoder.webp',
-    },
+      coverImage: '/images/subjects/fysikk-1-1-metoder.webp', linkedChapterId: 'fys1-1-1-narrativ' },
     {
       id: 'fys1-1-2',
       number: '1.2',
@@ -676,8 +675,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fysiske modeller', 'Forenklinger', 'Idealisering', 'Modellbegrensninger'],
       competenceGoals: ['vurdere, bruke og lage modeller til å beskrive og forutsi fysiske fenomener'],
-      coverImage: '/images/subjects/fysikk-1-2-modeller.webp',
-    },
+      coverImage: '/images/subjects/fysikk-1-2-modeller.webp', linkedChapterId: 'fys1-1-2-narrativ' },
     {
       id: 'fys1-1-3',
       number: '1.3',
@@ -687,8 +685,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eulers metode', 'Python', 'Numerisk integrasjon', 'Simulering', 'Iterasjon'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere og utforske bevegelse'],
-      coverImage: '/images/subjects/fysikk-1-3-numeriske-metoder.webp',
-    },
+      coverImage: '/images/subjects/fysikk-1-3-numeriske-metoder.webp', linkedChapterId: 'fys1-1-3-narrativ' },
     // Seksjon 2: Klassisk mekanikk - Kinematikk
     {
       id: 'fys1-2-1',
@@ -699,8 +696,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Posisjon', 'Forflytning', 'Hastighet', 'Fart', 'Akselerasjon', 'Vektorer'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-1-posisjon-fart.webp',
-    },
+      coverImage: '/images/subjects/fysikk-2-1-posisjon-fart.webp', linkedChapterId: 'fys1-2-1-narrativ' },
     {
       id: 'fys1-2-2',
       number: '2.2',
@@ -710,8 +706,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Konstant fart', 's-t diagram', 'v-t diagram', 'Strekning', 'Tid'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-2-rettlinjet-bevegelse.webp',
-    },
+      coverImage: '/images/subjects/fysikk-2-2-rettlinjet-bevegelse.webp', linkedChapterId: 'fys1-2-2-narrativ' },
     {
       id: 'fys1-2-3',
       number: '2.3',
@@ -721,8 +716,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelseslikninger', 'Fritt fall', 'Tyngdeakselerasjon', 'a-t diagram'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-3-konstant-akselerasjon.webp',
-    },
+      coverImage: '/images/subjects/fysikk-2-3-konstant-akselerasjon.webp', linkedChapterId: 'fys1-2-3-narrativ' },
     {
       id: 'fys1-2-4',
       number: '2.4',
@@ -732,8 +726,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Skrå kast', 'Vektoroppløsning', 'Horisontal bevegelse', 'Vertikal bevegelse', 'Baneform'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-2-4-todimensjonal-bevegelse.webp',
-    },
+      coverImage: '/images/subjects/fysikk-2-4-todimensjonal-bevegelse.webp', linkedChapterId: 'fys1-2-4-narrativ' },
     // Seksjon 3: Klassisk mekanikk - Dynamikk
     {
       id: 'fys1-3-1',
@@ -744,8 +737,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons 1. lov', 'Newtons 2. lov', 'Newtons 3. lov', 'Kraft', 'Masse', 'Treghet'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-1-newtons-lover.webp',
-    },
+      coverImage: '/images/subjects/fysikk-3-1-newtons-lover.webp', linkedChapterId: 'fys1-3-1-narrativ' },
     {
       id: 'fys1-3-2',
       number: '3.2',
@@ -755,8 +747,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Tyngdekraft', 'Normalkraft', 'Friksjonskraft', 'Snorkraft', 'Kraftdiagram', 'Frilegemediagram'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-2-krefter-kraftanalyse.webp',
-    },
+      coverImage: '/images/subjects/fysikk-3-2-krefter-kraftanalyse.webp', linkedChapterId: 'fys1-3-2-narrativ' },
     {
       id: 'fys1-3-3',
       number: '3.3',
@@ -766,8 +757,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Statisk friksjon', 'Kinetisk friksjon', 'Friksjonskoeffisient', 'Luftmotstand', 'Terminalfart'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere bevegelse'],
-      coverImage: '/images/subjects/fysikk-3-3-friksjon-luftmotstand.webp',
-    },
+      coverImage: '/images/subjects/fysikk-3-3-friksjon-luftmotstand.webp', linkedChapterId: 'fys1-3-3-narrativ' },
     {
       id: 'fys1-3-4',
       number: '3.4',
@@ -777,8 +767,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Sirkelbevegelse', 'Sentripetalkraft', 'Sentripetalakselerasjon', 'Vinkelfrekvens', 'Periode'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-4-sirkelbevegelse.webp',
-    },
+      coverImage: '/images/subjects/fysikk-3-4-sirkelbevegelse.webp', linkedChapterId: 'fys1-3-4-narrativ' },
     // Seksjon 4: Energi og bevaring
     {
       id: 'fys1-4-1',
@@ -789,8 +778,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Arbeid', 'Kinetisk energi', 'Arbeid-energi-teoremet', 'Joule'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-4-1-arbeid-kinetisk-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk-4-1-arbeid-kinetisk-energi.webp', linkedChapterId: 'fys1-4-1-narrativ' },
     {
       id: 'fys1-4-2',
       number: '4.2',
@@ -800,8 +788,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Potensiell energi', 'Gravitasjonell energi', 'Elastisk energi', 'Energibevaring', 'Konservative krefter'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
-      coverImage: '/images/subjects/fysikk-4-2-potensiell-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk-4-2-potensiell-energi.webp', linkedChapterId: 'fys1-4-2-narrativ' },
     {
       id: 'fys1-4-3',
       number: '4.3',
@@ -811,8 +798,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelsesmengde', 'Impuls', 'Impuls-bevegelsesmengde-teoremet', 'Elastisk støt', 'Uelastisk støt'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
-      coverImage: '/images/subjects/fysikk-4-3-bevegelsesmengde.webp',
-    },
+      coverImage: '/images/subjects/fysikk-4-3-bevegelsesmengde.webp', linkedChapterId: 'fys1-4-3-narrativ' },
     {
       id: 'fys1-4-4',
       number: '4.4',
@@ -822,8 +808,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Energikvalitet', 'Virkningsgrad', 'Energitap', 'Irreversibilitet', 'Entropi'],
       competenceGoals: ['utforske hvordan energi kan gå fra en form til en annen, og vurdere energikvalitet og virkningsgrad'],
-      coverImage: '/images/subjects/fysikk-4-4-energikvalitet.webp',
-    },
+      coverImage: '/images/subjects/fysikk-4-4-energikvalitet.webp', linkedChapterId: 'fys1-4-4-narrativ' },
     // Seksjon 5: Varme og energi
     {
       id: 'fys1-5-1',
@@ -834,8 +819,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Temperatur', 'Kelvin', 'Celsius', 'Varme', 'Spesifikk varmekapasitet', 'Termisk likevekt'],
       competenceGoals: ['forstå begrepet temperatur og forklare hvordan tilført varme til et system fører til temperaturendring'],
-      coverImage: '/images/subjects/fysikk-5-1-temperatur-varme.webp',
-    },
+      coverImage: '/images/subjects/fysikk-5-1-temperatur-varme.webp', linkedChapterId: 'fys1-5-1-narrativ' },
     {
       id: 'fys1-5-2',
       number: '5.2',
@@ -845,8 +829,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Varmeledning', 'Konveksjon', 'Varmestråling', 'Varmeledningsevne', 'Isolasjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer'],
-      coverImage: '/images/subjects/fysikk-5-2-varmeoverfoeringer.webp',
-    },
+      coverImage: '/images/subjects/fysikk-5-2-varmeoverfoeringer.webp', linkedChapterId: 'fys1-5-2-narrativ' },
     {
       id: 'fys1-5-3',
       number: '5.3',
@@ -856,8 +839,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Sortlegeme', 'Stefan-Boltzmanns lov', 'Wiens lov', 'Emisjon', 'Absorpsjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer med ulik temperatur og overflate'],
-      coverImage: '/images/subjects/fysikk-5-3-varmestraling.webp',
-    },
+      coverImage: '/images/subjects/fysikk-5-3-varmestraling.webp', linkedChapterId: 'fys1-5-3-narrativ' },
     {
       id: 'fys1-5-4',
       number: '5.4',
@@ -867,8 +849,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Strålingsbalanse', 'Drivhuseffekt', 'Albedo', 'Klimamodeller', 'Global oppvarming'],
       competenceGoals: ['bruke modeller av strålingsbalansen til jorda til å gjøre beregninger', 'vurdere ulike påstander og argumenter om energi og klima'],
-      coverImage: '/images/subjects/fysikk-5-4-straalingsbalanse.webp',
-    },
+      coverImage: '/images/subjects/fysikk-5-4-straalingsbalanse.webp', linkedChapterId: 'fys1-5-4-narrativ' },
     // Seksjon 6: Elektrisitet og moderne fysikk
     {
       id: 'fys1-6-1',
@@ -879,8 +860,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk ladning', 'Coulombs lov', 'Elektrisk felt', 'Elektrisk potensial', 'Spenning'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
-      coverImage: '/images/subjects/fysikk-6-1-elektrisk-ladning.webp',
-    },
+      coverImage: '/images/subjects/fysikk-6-1-elektrisk-ladning.webp', linkedChapterId: 'fys1-6-1-narrativ' },
     {
       id: 'fys1-6-2',
       number: '6.2',
@@ -890,8 +870,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Ohms lov', 'Spenning', 'Strøm', 'Resistans', 'Seriekobling', 'Parallellkobling'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
-      coverImage: '/images/subjects/fysikk-6-2-elektriske-kretser.webp',
-    },
+      coverImage: '/images/subjects/fysikk-6-2-elektriske-kretser.webp', linkedChapterId: 'fys1-6-2-narrativ' },
     {
       id: 'fys1-6-3',
       number: '6.3',
@@ -901,8 +880,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk effekt', 'Energiforbruk', 'Joules lov', 'Watt', 'Kilowattime'],
       competenceGoals: ['utforske effektomsetning i elektriske kretser'],
-      coverImage: '/images/subjects/fysikk-6-3-effekt-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk-6-3-effekt-energi.webp', linkedChapterId: 'fys1-6-3-narrativ' },
     {
       id: 'fys1-6-4',
       number: '6.4',
@@ -912,8 +890,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Bohrs atommodell', 'Energinivåer', 'Spektrallinjer', 'Fotoner', 'Fotoelektrisk effekt', 'Plancks konstant'],
       competenceGoals: ['beskrive ulike atommodeller og drøfte hvordan observerbare effekter støtter eller utfordrer dem'],
-      coverImage: '/images/subjects/fysikk-6-4-atommodeller.webp',
-    },
+      coverImage: '/images/subjects/fysikk-6-4-atommodeller.webp', linkedChapterId: 'fys1-6-4-narrativ' },
     {
       id: 'fys1-6-5',
       number: '6.5',
@@ -923,8 +900,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Atomkjerne', 'Fusjon', 'Fisjon', 'Bindingsenergi', 'Stjerneutvikling', 'Nukleosyntes'],
       competenceGoals: ['forstå begrepet fusjon og vurdere hvordan ulike grunnstoff dannes når stjerner lever, kolliderer og dør'],
-      coverImage: '/images/subjects/fysikk-6-5-kjernefysikk.webp',
-    },
+      coverImage: '/images/subjects/fysikk-6-5-kjernefysikk.webp', linkedChapterId: 'fys1-6-5-narrativ' },
   ],
 };
 
@@ -949,8 +925,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Protoner', 'Nøytroner', 'Elektroner', 'Atomnummer', 'Massetall', 'Isotoper'],
       competenceGoals: ['forklare korleis atom er bygde opp', 'beskrive samanhengen mellom atomnummer og massetall'],
-      coverImage: '/images/subjects/kjemi1-1-1-atomets-oppbygging.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-1-1-atomets-oppbygging.webp', linkedChapterId: 'kjemi1-1-1-narrativ' },
     {
       id: 'kjemi1-1-2',
       number: '1.2',
@@ -961,8 +936,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektronskal', 'Energinivåer', 'Valenselektroner', 'Oktettregel', 'Elektronkonfigurasjon'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['beskrive elektronkonfigurasjonen til atom', 'forklare valenselektronar si rolle i kjemiske reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-1-2-elektronkonfigurasjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-1-2-elektronkonfigurasjon.webp', linkedChapterId: 'kjemi1-1-2-narrativ' },
     {
       id: 'kjemi1-1-3',
       number: '1.3',
@@ -973,8 +947,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Periodesystemet', 'Atomradius', 'Elektronegativitet', 'Ioniseringsenergi', 'Periodevise trender'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare periodevise trendar i periodesystemet', 'knytte periodevise trendar til atomstruktur'],
-      coverImage: '/images/subjects/kjemi1-1-3-periodevise-trender.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-1-3-periodevise-trender.webp', linkedChapterId: 'kjemi1-1-3-narrativ' },
     {
       id: 'kjemi1-1-4',
       number: '1.4',
@@ -985,8 +958,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['IUPAC-navnsetting', 'Ioniske forbindelser', 'Molekylforbindelser', 'Syrer', 'Baser', 'Salter'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['namngje uorganiske sambindingar systematisk', 'skilje mellom ulike typar kjemiske sambindingar'],
-      coverImage: '/images/subjects/kjemi1-1-4-navnsetting-uorganisk.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-1-4-navnsetting-uorganisk.webp', linkedChapterId: 'kjemi1-1-4-narrativ' },
 
     // Del 2 - Modeller
     {
@@ -999,8 +971,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Daltons modell', 'Thomsons modell', 'Rutherfords modell', 'Bohrs modell', 'Kvantemekanisk modell'],
       prerequisites: ['kjemi1-1-1', 'kjemi1-1-2'],
       competenceGoals: ['beskrive utviklinga av atommodellar', 'forklare korleis atommodellar har bidrege til vår forståing av atom'],
-      coverImage: '/images/subjects/kjemi1-2-1-utvikling-atommodeller.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-2-1-utvikling-atommodeller.webp', linkedChapterId: 'kjemi1-2-1-narrativ' },
     {
       id: 'kjemi1-2-2',
       number: '2.2',
@@ -1011,8 +982,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektromagnetisk spektrum', 'Emisjonsspektre', 'Absorpsjonsspektre', 'Bølgelengde', 'Frekvens', 'Energinivåer'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis spektroskopi kan brukast til å analysere stoff', 'knytte spektrallinjer til elektronovergangar'],
-      coverImage: '/images/subjects/kjemi1-2-2-spektroskopi.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-2-2-spektroskopi.webp', linkedChapterId: 'kjemi1-2-2-narrativ' },
 
     // Del 3 - Kjemiske bindinger
     {
@@ -1025,8 +995,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ioner', 'Ionedannelse', 'Ionebinding', 'Ioniske krystaller', 'Egenskaper til ioniske forbindelser'],
       prerequisites: ['kjemi1-1-2', 'kjemi1-1-3'],
       competenceGoals: ['forklare korleis ionebinding dannar seg', 'beskrive eigenskapane til ioniske sambindingar'],
-      coverImage: '/images/subjects/kjemi1-3-1-ionebinding.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-3-1-ionebinding.webp', linkedChapterId: 'kjemi1-3-1-narrativ' },
     {
       id: 'kjemi1-3-2',
       number: '3.2',
@@ -1037,8 +1006,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kovalent binding', 'Elektronpardeling', 'Enkelt-, dobbelt- og trippelbindinger', 'Lewis-strukturer', 'Molekylgeometri', 'Polaritet'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis kovalente bindingar dannar seg', 'teikne Lewis-strukturar for molekyl', 'forklare molekylgeometri og polaritet'],
-      coverImage: '/images/subjects/kjemi1-3-2-kovalent-binding.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-3-2-kovalent-binding.webp', linkedChapterId: 'kjemi1-3-2-narrativ' },
     {
       id: 'kjemi1-3-3',
       number: '3.3',
@@ -1049,8 +1017,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Van der Waals-krefter', 'Dipol-dipol-krefter', 'Hydrogenbinding', 'London-krefter', 'Kokepunkt', 'Smeltepunkt'],
       prerequisites: ['kjemi1-3-2'],
       competenceGoals: ['forklare ulike typar mellommolekylære krefter', 'knytte mellommolekylære krefter til stoffeigenskapar'],
-      coverImage: '/images/subjects/kjemi1-3-3-mellommolekylaere-krefter.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-3-3-mellommolekylaere-krefter.webp', linkedChapterId: 'kjemi1-3-3-narrativ' },
 
     // Del 4 - Kjemiske reaksjoner
     {
@@ -1062,8 +1029,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Syntesereaksjoner', 'Nedbrytningsreaksjoner', 'Substitusjon', 'Dobbeltomsetning', 'Forbrenning'],
       competenceGoals: ['klassifisere kjemiske reaksjonar', 'beskrive ulike typar reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-4-1-reaksjonstyper.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-4-1-reaksjonstyper.webp', linkedChapterId: 'kjemi1-4-1-narrativ' },
     {
       id: 'kjemi1-4-2',
       number: '4.2',
@@ -1074,8 +1040,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonslikninger', 'Balansering', 'Loven om massebevarelse', 'Støkiometriske koeffisienter'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['balansere kjemiske reaksjonslikningar', 'forklare lova om massebevarelse'],
-      coverImage: '/images/subjects/kjemi1-4-2-balansering.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-4-2-balansering.webp', linkedChapterId: 'kjemi1-4-2-narrativ' },
     {
       id: 'kjemi1-4-3',
       number: '4.3',
@@ -1086,8 +1051,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Oksidasjonstall', 'Redoksreaksjoner', 'Oksidasjon', 'Reduksjon', 'Elektronoverføring'],
       prerequisites: ['kjemi1-4-2'],
       competenceGoals: ['berekne oksidasjonstall', 'identifisere oksiderande og reduserende stoff', 'balansere redoksreaksjonar'],
-      coverImage: '/images/subjects/kjemi1-4-3-oksidasjonstall-redoks.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-4-3-oksidasjonstall-redoks.webp', linkedChapterId: 'kjemi1-4-3-narrativ' },
 
     // Del 5 - Støkiometri
     {
@@ -1099,8 +1063,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Stoffmengde', 'Mol', 'Molmasse', 'Avogadros tall', 'Beregninger med mol'],
       competenceGoals: ['forklare kva mol er', 'berekne molmasse', 'gjere omrekningar mellom masse og stoffmengd'],
-      coverImage: '/images/subjects/kjemi1-5-1-mol-molmasse.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-5-1-mol-molmasse.webp', linkedChapterId: 'kjemi1-5-1-narrativ' },
     {
       id: 'kjemi1-5-2',
       number: '5.2',
@@ -1111,8 +1074,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Molaritet', 'Massekonsentrasjon', 'Volumkonsentrasjon', 'ppm', 'Fortynning'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['berekne konsentrasjon i løysningar', 'gjere om mellom ulike konsentrasjonsmål', 'berekne fortynningar'],
-      coverImage: '/images/subjects/kjemi1-5-2-konsentrasjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-5-2-konsentrasjon.webp', linkedChapterId: 'kjemi1-5-2-narrativ' },
     {
       id: 'kjemi1-5-3',
       number: '5.3',
@@ -1123,8 +1085,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Støkiometri', 'Reaktantforhold', 'Teoretisk utbytte', 'Reelt utbytte', 'Prosentutbytte', 'Begrensende reaktant'],
       prerequisites: ['kjemi1-4-2', 'kjemi1-5-1'],
       competenceGoals: ['gjere støkiometriske berekningar', 'identifisere begrensande reaktant', 'berekne teoretisk og reelt utbytte'],
-      coverImage: '/images/subjects/kjemi1-5-3-stokiometriske-beregninger.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-5-3-stokiometriske-beregninger.webp', linkedChapterId: 'kjemi1-5-3-narrativ' },
     {
       id: 'kjemi1-5-4',
       number: '5.4',
@@ -1135,8 +1096,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ideell gasslov', 'Trykk', 'Volum', 'Temperatur', 'Molart volum', 'Gassberegninger'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['bruke ideell gasslov til berekningar', 'forklare samanhengen mellom trykk, volum og temperatur'],
-      coverImage: '/images/subjects/kjemi1-5-4-gassberegninger.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-5-4-gassberegninger.webp', linkedChapterId: 'kjemi1-5-4-narrativ' },
 
     // Del 6 - Termokjemi
     {
@@ -1148,8 +1108,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Entalpi', 'Endoterme reaksjoner', 'Eksoterme reaksjoner', 'Energidiagrammer', 'Standard dannelsesentalpi'],
       competenceGoals: ['forklare kva entalpi er', 'skilje mellom eksoterme og endoterme reaksjonar', 'tolke energidiagram'],
-      coverImage: '/images/subjects/kjemi1-6-1-energi-entalpi.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-6-1-energi-entalpi.webp', linkedChapterId: 'kjemi1-6-1-narrativ' },
     {
       id: 'kjemi1-6-2',
       number: '6.2',
@@ -1160,8 +1119,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsentalpi', 'Hess lov', 'Standard dannelsesentalpi', 'Bindingsenergier', 'Kalorimetri'],
       prerequisites: ['kjemi1-6-1'],
       competenceGoals: ['berekne reaksjonsentalpi', 'bruke Hess sin lov', 'relatere reaksjonsentalpi til bindingsenergiar'],
-      coverImage: '/images/subjects/kjemi1-6-2-reaksjonsentalpi.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-6-2-reaksjonsentalpi.webp', linkedChapterId: 'kjemi1-6-2-narrativ' },
     {
       id: 'kjemi1-6-3',
       number: '6.3',
@@ -1172,8 +1130,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsfart', 'Konsentrasjon', 'Temperatur', 'Katalysatorer', 'Overflate', 'Kollisjonsteorien'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['forklare kva som påverkar reaksjonsfart', 'bruke kollisjonsteori til å forklare reaksjonsfart'],
-      coverImage: '/images/subjects/kjemi1-6-3-reaksjonsfart.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-6-3-reaksjonsfart.webp', linkedChapterId: 'kjemi1-6-3-narrativ' },
 
     // Del 7 - Kjemisk likevekt
     {
@@ -1186,8 +1143,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kjemisk likevekt', 'Likevektskonstanten K', 'Dynamisk likevekt', 'Likevektsuttrykk'],
       prerequisites: ['kjemi1-5-2', 'kjemi1-6-3'],
       competenceGoals: ['forklare kva kjemisk likevekt er', 'berekne likevektskonstanten', 'tolke verdien til likevektskonstanten'],
-      coverImage: '/images/subjects/kjemi1-7-1-likevekt-likevektskonstanten.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-7-1-likevekt-likevektskonstanten.webp', linkedChapterId: 'kjemi1-7-1-narrativ' },
     {
       id: 'kjemi1-7-2',
       number: '7.2',
@@ -1198,8 +1154,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendringer', 'Trykkendringer', 'Temperaturendringer', 'Likevektsforskyvning'],
       prerequisites: ['kjemi1-7-1'],
       competenceGoals: ['bruke Le Chateliers prinsipp til å føreseie likevektsforskyving', 'forklare korleis endringar i konsentrasjon, trykk og temperatur påverkar likevekt'],
-      coverImage: '/images/subjects/kjemi1-7-2-le-chateliers-prinsipp.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-7-2-le-chateliers-prinsipp.webp', linkedChapterId: 'kjemi1-7-2-narrativ' },
 
     // Del 8 - Løsninger
     {
@@ -1212,8 +1167,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løsemiddel', 'Løst stoff', 'Hydratisering', 'Polaritet', 'Løsningsprosessen'],
       prerequisites: ['kjemi1-3-3'],
       competenceGoals: ['forklare løysingsprosessen', 'beskrive korleis polaritet påverkar løyseevne'],
-      coverImage: '/images/subjects/kjemi1-8-1-losningsprosessen.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-8-1-losningsprosessen.webp', linkedChapterId: 'kjemi1-8-1-narrativ' },
     {
       id: 'kjemi1-8-2',
       number: '8.2',
@@ -1224,8 +1178,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løselighet', 'Temperaturavhengighet', 'Mettet løsning', 'Umettet løsning', 'Overmettet løsning'],
       prerequisites: ['kjemi1-8-1'],
       competenceGoals: ['forklare korleis temperatur påverkar løyseevne', 'tolke løyselegheitskurver'],
-      coverImage: '/images/subjects/kjemi1-8-2-loselighet-temperatur.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-8-2-loselighet-temperatur.webp', linkedChapterId: 'kjemi1-8-2-narrativ' },
 
     // Del 9 - Syrer og baser
     {
@@ -1237,8 +1190,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Arrhenius', 'Brønsted-Lowry', 'Lewis', 'Protoner', 'Hydroksidioner', 'Konjugerte syrer og baser'],
       competenceGoals: ['forklare ulike definisjonar av syrer og baser', 'identifisere syrer og baser i reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-9-1-syrer-baser-definisjoner.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-9-1-syrer-baser-definisjoner.webp', linkedChapterId: 'kjemi1-9-1-narrativ' },
     {
       id: 'kjemi1-9-2',
       number: '9.2',
@@ -1249,8 +1201,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['pH', 'pOH', 'Hydroniumioner', 'Sterke syrer', 'Sterke baser', 'pH-beregninger'],
       prerequisites: ['kjemi1-9-1'],
       competenceGoals: ['berekne pH og pOH', 'forklare pH-skalaen', 'gjere pH-berekningar for sterke syrer og baser'],
-      coverImage: '/images/subjects/kjemi1-9-2-ph-sterke-syrer-baser.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-9-2-ph-sterke-syrer-baser.webp', linkedChapterId: 'kjemi1-9-2-narrativ' },
     {
       id: 'kjemi1-9-3',
       number: '9.3',
@@ -1261,8 +1212,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Svake syrer', 'Svake baser', 'Syrekonstanten Ka', 'Basekonstanten Kb', 'Bufferløsninger'],
       prerequisites: ['kjemi1-7-1', 'kjemi1-9-2'],
       competenceGoals: ['forklare skilnaden mellom sterke og svake syrer/baser', 'berekne pH for svake syrer og baser', 'beskrive korleis bufferløysningar verkar'],
-      coverImage: '/images/subjects/kjemi1-9-3-svake-syrer-baser.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-9-3-svake-syrer-baser.webp', linkedChapterId: 'kjemi1-9-3-narrativ' },
     {
       id: 'kjemi1-9-4',
       number: '9.4',
@@ -1273,8 +1223,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Titrering', 'Ekvivalenspunkt', 'Indikator', 'Titreringskurver', 'Syre-base-titrering'],
       prerequisites: ['kjemi1-9-2'],
       competenceGoals: ['forklare prinsippet for titrering', 'berekne konsentrasjon ved hjelp av titrering', 'tolke titreringskurver'],
-      coverImage: '/images/subjects/kjemi1-9-4-titrering.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-9-4-titrering.webp', linkedChapterId: 'kjemi1-9-4-narrativ' },
 
     // Del 10 - Organisk kjemi
     {
@@ -1286,8 +1235,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Organiske forbindelser', 'Karbonkjeder', 'Hydrokarboner', 'Alkaner', 'Strukturformler'],
       competenceGoals: ['forklare kva organiske sambindingar er', 'teikne strukturformlar for enkle organiske molekyl'],
-      coverImage: '/images/subjects/kjemi1-10-1-intro-organisk-kjemi.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-10-1-intro-organisk-kjemi.webp', linkedChapterId: 'kjemi1-10-1-narrativ' },
     {
       id: 'kjemi1-10-2',
       number: '10.2',
@@ -1298,8 +1246,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Funksjonelle grupper', 'Alkoholer', 'Aldehyder', 'Ketoner', 'Karboksylsyrer', 'Estere', 'Aminer'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['identifisere funksjonelle grupper', 'namngje organiske sambindingar med funksjonelle grupper', 'forklare eigenskapar til ulike funksjonelle grupper'],
-      coverImage: '/images/subjects/kjemi1-10-2-funksjonelle-grupper.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-10-2-funksjonelle-grupper.webp', linkedChapterId: 'kjemi1-10-2-narrativ' },
     {
       id: 'kjemi1-10-3',
       number: '10.3',
@@ -1310,8 +1257,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Strukturisomeri', 'Kjedeisomeri', 'Posisjonsisomeri', 'Funksjonell isomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['forklare ulike typar isomeri', 'teikne isomerar for enkle organiske molekyl'],
-      coverImage: '/images/subjects/kjemi1-10-3-isomeri.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-10-3-isomeri.webp', linkedChapterId: 'kjemi1-10-3-narrativ' },
 
     // Del 11 - Miljøkjemi
     {
@@ -1323,8 +1269,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Vannkvalitet', 'Luftkvalitet', 'Forurensning', 'Drivhuseffekten', 'Ozonlaget', 'Sur nedbør'],
       competenceGoals: ['beskrive kjemiske prosessar som påverkar vatn- og luftkvalitet', 'forklare årsaker til og konsekvensar av forureining'],
-      coverImage: '/images/subjects/kjemi1-11-1-vann-luftkvalitet.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-11-1-vann-luftkvalitet.webp', linkedChapterId: 'kjemi1-11-1-narrativ' },
     {
       id: 'kjemi1-11-2',
       number: '11.2',
@@ -1334,8 +1279,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Grønn kjemi', 'Bærekraftig kjemi', 'Atomøkonomi', 'Fornybare råvarer', 'Energieffektivitet', 'Avfallsreduksjon'],
       competenceGoals: ['forklare prinsippa for grøn kjemi', 'vurdere kjemiske prosessar ut frå berekraftigheit'],
-      coverImage: '/images/subjects/kjemi1-11-2-gronn-kjemi.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-11-2-gronn-kjemi.webp', linkedChapterId: 'kjemi1-11-2-narrativ' },
 
     // Del 12 - Laboratoriearbeid
     {
@@ -1347,8 +1291,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Laboratoriesikkerhet', 'Verneutstyr', 'Laboratorieutstyr', 'Måleteknikker', 'Sikkerhetsprosedyrer'],
       competenceGoals: ['arbeide trygt i laboratoriet', 'bruke laboratorieutstyr på riktig måte'],
-      coverImage: '/images/subjects/kjemi1-12-1-laboratoriesikkerhet.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-12-1-laboratoriesikkerhet.webp', linkedChapterId: 'kjemi1-12-1-narrativ' },
     {
       id: 'kjemi1-12-2',
       number: '12.2',
@@ -1359,8 +1302,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Måleusikkerhet', 'Systematiske feil', 'Tilfeldige feil', 'Nøyaktighet', 'Presisjon', 'Feilkilder'],
       prerequisites: ['kjemi1-12-1'],
       competenceGoals: ['vurdere måleusikkerheit i forsøk', 'identifisere feilkjelder', 'forklare skilnaden mellom nøyaktigheit og presisjon'],
-      coverImage: '/images/subjects/kjemi1-12-2-usikkerhet-feilkilder.webp',
-    },
+      coverImage: '/images/subjects/kjemi1-12-2-usikkerhet-feilkilder.webp', linkedChapterId: 'kjemi1-12-2-narrativ' },
   ],
 };
 

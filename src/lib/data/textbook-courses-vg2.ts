@@ -293,8 +293,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['IUPAC-nomenklatur', 'Kjemiske formler', 'Strukturformler', 'Kjemiske likninger', 'Støkiometri', 'Lewis-strukturer', 'Molekylgeometri'],
       competenceGoals: ['forstå og bruke kjemisk terminologi og fagspråk'],
-      coverImage: '/images/subjects/kjemi2-1-1-kjemisk-terminologi.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-1-1-kjemisk-terminologi.webp', linkedChapterId: 'kjemi2-1-1-narrativ' },
     {
       id: 'kjemi2-1-2',
       number: '1.2',
@@ -303,8 +302,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Elektronkonfigurasjon', 'Periodesystemet', 'Periodevise trender', 'Kovalente bindinger', 'Ioniske bindinger', 'Metalliske bindinger', 'Intermolekylære krefter'],
-      coverImage: '/images/subjects/kjemi2-1-2-atom-molekylstruktur.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-1-2-atom-molekylstruktur.webp', linkedChapterId: 'kjemi2-1-2-narrativ' },
     {
       id: 'kjemi2-1-3',
       number: '1.3',
@@ -314,8 +312,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Molbegrepet', 'Avogadros tall', 'Molar masse', 'Molart volum', 'Støkiometriske beregninger', 'Begrensende reaktant'],
       prerequisites: ['kjemi2-1-1'],
-      coverImage: '/images/subjects/kjemi2-1-3-mol-stokiometri.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-1-3-mol-stokiometri.webp', linkedChapterId: 'kjemi2-1-3-narrativ' },
 
     // ============================================================================
     // Del 2: Kjemisk termodynamikk
@@ -330,8 +327,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Termokjemi', 'Entalpi (H)', 'Eksoterme reaksjoner', 'Endoterme reaksjoner', 'Standard dannelsesentalpi', 'Hess\' lov', 'Bindingsentalpier', 'Kalorimetri'],
       prerequisites: ['kjemi2-1-3'],
       competenceGoals: ['bruke entalpi til å vurdere energiforandringer i reaksjoner'],
-      coverImage: '/images/subjects/kjemi2-2-1-entalpi-reaksjonsvarme.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-2-1-entalpi-reaksjonsvarme.webp', linkedChapterId: 'kjemi2-2-1-narrativ' },
     {
       id: 'kjemi2-2-2',
       number: '2.2',
@@ -342,8 +338,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Entropi (S)', 'Andre termodynamiske lov', 'Standard molar entropi', 'Entropiforandring (ΔS)', 'Faktorer som påvirker entropi'],
       prerequisites: ['kjemi2-2-1'],
       competenceGoals: ['bruke entropi og entalpi til å vurdere spontanitet'],
-      coverImage: '/images/subjects/kjemi2-2-2-entropi-uorden.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-2-2-entropi-uorden.webp', linkedChapterId: 'kjemi2-2-2-narrativ' },
     {
       id: 'kjemi2-2-3',
       number: '2.3',
@@ -354,8 +349,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Gibbs fri energi (G)', 'Spontanitet og ΔG', 'Standard fri energi (ΔG°)', 'G = H - TS', 'Temperaturavhengighet av spontanitet'],
       prerequisites: ['kjemi2-2-2'],
       competenceGoals: ['bruke Gibbs fri energi til å vurdere om reaksjoner er spontane'],
-      coverImage: '/images/subjects/kjemi2-2-3-gibbs-fri-energi.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-2-3-gibbs-fri-energi.webp', linkedChapterId: 'kjemi2-2-3-narrativ' },
     {
       id: 'kjemi2-2-4',
       number: '2.4',
@@ -365,8 +359,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Koplede reaksjoner', 'ATP og biologisk energi', 'Drivkraft i kjemiske prosesser', 'Industrielle anvendelser'],
       prerequisites: ['kjemi2-2-3'],
-      coverImage: '/images/subjects/kjemi2-2-4-termodynamikk-praksis.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-2-4-termodynamikk-praksis.webp', linkedChapterId: 'kjemi2-2-4-narrativ' },
 
     // ============================================================================
     // Del 3: Kjemisk likevekt
@@ -381,8 +374,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Reversible reaksjoner', 'Dynamisk likevekt', 'Kjennetegn på likevekt', 'Likevektspiler og notasjon'],
       prerequisites: ['kjemi2-2-4'],
       competenceGoals: ['utforske likevekt og bruke massevirkningsloven'],
-      coverImage: '/images/subjects/kjemi2-3-1-likevektsbegrepet.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-3-1-likevektsbegrepet.webp', linkedChapterId: 'kjemi2-3-1-narrativ' },
     {
       id: 'kjemi2-3-2',
       number: '3.2',
@@ -393,8 +385,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Likevektsuttrykket K', 'Kc og Kp', 'Beregning av likevektskonstant', 'Tolkning av K-verdier', 'Heterogen likevekt', 'ICE-tabeller'],
       prerequisites: ['kjemi2-3-1'],
       competenceGoals: ['bruke massevirkningsloven til å beregne likevektskonstanter'],
-      coverImage: '/images/subjects/kjemi2-3-2-massevirkningsloven.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-3-2-massevirkningsloven.webp', linkedChapterId: 'kjemi2-3-2-narrativ' },
     {
       id: 'kjemi2-3-3',
       number: '3.3',
@@ -404,8 +395,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendring', 'Trykkendring', 'Temperaturendring', 'Katalysatorers effekt'],
       prerequisites: ['kjemi2-3-2'],
-      coverImage: '/images/subjects/kjemi2-3-3-le-chateliers-prinsipp.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-3-3-le-chateliers-prinsipp.webp', linkedChapterId: 'kjemi2-3-3-narrativ' },
     {
       id: 'kjemi2-3-4',
       number: '3.4',
@@ -415,8 +405,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 22,
       topics: ['Likevektskonsentrasjoner', 'ICE-tabeller', 'Kvadratiske likninger', 'Tilnærmingsmetoder', 'Reaksjonskvotient Q'],
       prerequisites: ['kjemi2-3-3'],
-      coverImage: '/images/subjects/kjemi2-3-4-likevektsberegninger.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-3-4-likevektsberegninger.webp', linkedChapterId: 'kjemi2-3-4-narrativ' },
     {
       id: 'kjemi2-3-5',
       number: '3.5',
@@ -426,8 +415,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['ΔG° = -RT ln K', 'Beregne K fra termodynamiske data', 'Temperaturavhengighet av K'],
       prerequisites: ['kjemi2-3-4', 'kjemi2-2-3'],
-      coverImage: '/images/subjects/kjemi2-3-5-sammenheng-k-dg.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-3-5-sammenheng-k-dg.webp', linkedChapterId: 'kjemi2-3-5-narrativ' },
 
     // ============================================================================
     // Del 4: Syrer og baser
@@ -442,8 +430,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Brønsted-Lowrys teori', 'Konjugerte syre-basepar', 'Amfotere stoffer', 'Styrke vs. konsentrasjon', 'Ka og pKa'],
       prerequisites: ['kjemi2-3-5'],
       competenceGoals: ['utforske og beregne pH'],
-      coverImage: '/images/subjects/kjemi2-4-1-syre-base-teori.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-4-1-syre-base-teori.webp', linkedChapterId: 'kjemi2-4-1-narrativ' },
     {
       id: 'kjemi2-4-2',
       number: '4.2',
@@ -454,8 +441,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Vannets egenionisering (Kw)', 'pH-skalaen', 'pH, pOH og pKw', 'pH for sterke syrer/baser', 'pH for svake syrer/baser'],
       prerequisites: ['kjemi2-4-1'],
       competenceGoals: ['beregne pH i ulike syre-base-systemer'],
-      coverImage: '/images/subjects/kjemi2-4-2-ph-poh.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-4-2-ph-poh.webp', linkedChapterId: 'kjemi2-4-2-narrativ' },
     {
       id: 'kjemi2-4-3',
       number: '4.3',
@@ -465,8 +451,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Syrebasetitrering', 'Titreringskurver', 'Ekvivalenspunkt', 'Halvtitreringspunkt', 'Indikatorer'],
       prerequisites: ['kjemi2-4-2'],
-      coverImage: '/images/subjects/kjemi2-4-3-titrering-ekvivalenspunkt.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-4-3-titrering-ekvivalenspunkt.webp', linkedChapterId: 'kjemi2-4-3-narrativ' },
     {
       id: 'kjemi2-4-4',
       number: '4.4',
@@ -477,8 +462,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Bufferløsninger', 'Henderson-Hasselbalch-likningen', 'Bufferkapasitet', 'Fremstilling av buffere', 'Biologiske buffersystemer'],
       prerequisites: ['kjemi2-4-3'],
       competenceGoals: ['drøfte buffers betydning for pH-regulering'],
-      coverImage: '/images/subjects/kjemi2-4-4-bufferlosninger.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-4-4-bufferlosninger.webp', linkedChapterId: 'kjemi2-4-4-narrativ' },
     {
       id: 'kjemi2-4-5',
       number: '4.5',
@@ -488,8 +472,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Diprotiske syrer', 'Triprotiske syrer', 'Ka1, Ka2, Ka3', 'pH-beregninger for flerprotiske syrer', 'H2SO4, H3PO4, H2CO3'],
       prerequisites: ['kjemi2-4-4'],
-      coverImage: '/images/subjects/kjemi2-4-5-flerprotiske-syrer.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-4-5-flerprotiske-syrer.webp', linkedChapterId: 'kjemi2-4-5-narrativ' },
 
     // ============================================================================
     // Del 5: Løselighet og fellingsreaksjoner
@@ -504,8 +487,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsbegrepet', 'Mettet løsning', 'Faktorer som påvirker løselighet', 'Temperatureffekter'],
       prerequisites: ['kjemi2-4-5'],
       competenceGoals: ['utforske og beregne løselighet'],
-      coverImage: '/images/subjects/kjemi2-5-1-loselighet-maling.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-5-1-loselighet-maling.webp', linkedChapterId: 'kjemi2-5-1-narrativ' },
     {
       id: 'kjemi2-5-2',
       number: '5.2',
@@ -516,8 +498,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsproduktet Ksp', 'Beregning av Ksp fra løselighet', 'Beregning av løselighet fra Ksp', 'Sammenligning av løselighet'],
       prerequisites: ['kjemi2-5-1'],
       competenceGoals: ['beregne løselighet ved hjelp av løselighetsproduktet'],
-      coverImage: '/images/subjects/kjemi2-5-2-loselighetsproduktet.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-5-2-loselighetsproduktet.webp', linkedChapterId: 'kjemi2-5-2-narrativ' },
     {
       id: 'kjemi2-5-3',
       number: '5.3',
@@ -527,8 +508,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Ioneprodukt Q', 'Q vs. Ksp', 'Forutsi felling', 'Selektiv felling', 'Kvalitativ analyse'],
       prerequisites: ['kjemi2-5-2'],
-      coverImage: '/images/subjects/kjemi2-5-3-fellingsreaksjoner.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-5-3-fellingsreaksjoner.webp', linkedChapterId: 'kjemi2-5-3-narrativ' },
     {
       id: 'kjemi2-5-4',
       number: '5.4',
@@ -539,8 +519,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nyrestein og tannemalje', 'Vannrensing', 'Metallutvinning', 'Bærekraftige løsninger'],
       prerequisites: ['kjemi2-5-3'],
       competenceGoals: ['vurdere løselighet i biologisk og industriell kontekst'],
-      coverImage: '/images/subjects/kjemi2-5-4-loselighet-bio-industri.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-5-4-loselighet-bio-industri.webp', linkedChapterId: 'kjemi2-5-4-narrativ' },
 
     // ============================================================================
     // Del 6: Elektrokjemi
@@ -555,8 +534,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Oksidasjon og reduksjon', 'Oksidasjonstall', 'Balansering av redoksreaksjoner', 'Halvreaksjoner', 'Sur og basisk løsning'],
       prerequisites: ['kjemi2-5-4'],
       competenceGoals: ['utforske redoksreaksjoner'],
-      coverImage: '/images/subjects/kjemi2-6-1-oksidasjon-reduksjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-1-oksidasjon-reduksjon.webp', linkedChapterId: 'kjemi2-6-1-narrativ' },
     {
       id: 'kjemi2-6-2',
       number: '6.2',
@@ -567,8 +545,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Galvaniske celler', 'Anode og katode', 'Saltbro', 'Cellenotasjon', 'Standard elektrodepotensial (E°)', 'Spenningsrekken'],
       prerequisites: ['kjemi2-6-1'],
       competenceGoals: ['utforske elektrokjemi og bygge galvaniske celler'],
-      coverImage: '/images/subjects/kjemi2-6-2-galvaniske-celler.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-2-galvaniske-celler.webp', linkedChapterId: 'kjemi2-6-2-narrativ' },
     {
       id: 'kjemi2-6-3',
       number: '6.3',
@@ -579,8 +556,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nernst-likningen', 'Beregning av cellepotensial', 'Konsentrasjonseffekter', 'E og ΔG'],
       prerequisites: ['kjemi2-6-2'],
       competenceGoals: ['beregne sammenhenger mellom masse, ladning, spenning og energi'],
-      coverImage: '/images/subjects/kjemi2-6-3-spenningsrekken.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-3-spenningsrekken.webp', linkedChapterId: 'kjemi2-6-3-narrativ' },
     {
       id: 'kjemi2-6-4',
       number: '6.4',
@@ -590,8 +566,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Primærbatterier', 'Sekundærbatterier', 'Litium-ion-batterier', 'Brenselceller', 'Hydrogen', 'Bærekraft og resirkulering'],
       prerequisites: ['kjemi2-6-3'],
-      coverImage: '/images/subjects/kjemi2-6-4-elektrolyse.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-4-elektrolyse.webp', linkedChapterId: 'kjemi2-6-4-narrativ' },
     {
       id: 'kjemi2-6-5',
       number: '6.5',
@@ -601,8 +576,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Elektrolyse', 'Elektrolyse av smelte', 'Elektrolyse av løsning', 'Faradays lover', 'Industrielle anvendelser', 'Aluminium', 'Klor'],
       prerequisites: ['kjemi2-6-4'],
-      coverImage: '/images/subjects/kjemi2-6-5-batterier-brenselceller.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-5-batterier-brenselceller.webp', linkedChapterId: 'kjemi2-6-5-narrativ' },
     {
       id: 'kjemi2-6-6',
       number: '6.6',
@@ -612,8 +586,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Korrosjonsmekanismen', 'Faktorer som påvirker korrosjon', 'Maling', 'Galvanisering', 'Offeranode', 'Katodisk beskyttelse'],
       prerequisites: ['kjemi2-6-5'],
-      coverImage: '/images/subjects/kjemi2-6-6-korrosjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-6-6-korrosjon.webp', linkedChapterId: 'kjemi2-6-6-narrativ' },
 
     // ============================================================================
     // Del 7: Kjemisk kinetikk
@@ -627,8 +600,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Hastighetsuttrykk', 'Gjennomsnittlig hastighet', 'Momentan hastighet', 'Hastighetskonstanten k', 'Reaksjonsorden'],
       prerequisites: ['kjemi2-6-6'],
-      coverImage: '/images/subjects/kjemi2-7-1-reaksjonshastighet.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-7-1-reaksjonshastighet.webp', linkedChapterId: 'kjemi2-7-1-narrativ' },
     {
       id: 'kjemi2-7-2',
       number: '7.2',
@@ -638,8 +610,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Konsentrasjon', 'Temperatur', 'Arrhenius-likningen', 'Overflatearel', 'Kollisjonsteori', 'Aktiveringsenergi'],
       prerequisites: ['kjemi2-7-1'],
-      coverImage: '/images/subjects/kjemi2-7-2-hastighetslover.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-7-2-hastighetslover.webp', linkedChapterId: 'kjemi2-7-2-narrativ' },
     {
       id: 'kjemi2-7-3',
       number: '7.3',
@@ -650,8 +621,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Homogen katalyse', 'Heterogen katalyse', 'Katalysatorens rolle', 'Aktiveringsenergi', 'Enzymer', 'Katalytiske konvertere', 'Haber-Bosch'],
       prerequisites: ['kjemi2-7-2'],
       competenceGoals: ['forklare katalysatorens betydning i biologiske og industrielle prosesser'],
-      coverImage: '/images/subjects/kjemi2-7-3-faktorer-reaksjonshastighet.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-7-3-faktorer-reaksjonshastighet.webp', linkedChapterId: 'kjemi2-7-3-narrativ' },
     {
       id: 'kjemi2-7-4',
       number: '7.4',
@@ -661,8 +631,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Elementærtrinn', 'Mellomprodukter', 'Hastighetbestemmende trinn', 'Kinetikk og mekanisme'],
       prerequisites: ['kjemi2-7-3'],
-      coverImage: '/images/subjects/kjemi2-7-4-reaksjonsmekanismer.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-7-4-reaksjonsmekanismer.webp', linkedChapterId: 'kjemi2-7-4-narrativ' },
 
     // ============================================================================
     // Del 8: Organisk kjemi
@@ -676,8 +645,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Alkaner', 'Alkener', 'Alkyner', 'Aromater', 'Funksjonelle grupper', 'IUPAC-nomenklatur', 'Strukturisomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi2-7-4'],
-      coverImage: '/images/subjects/kjemi2-8-1-funksjonelle-grupper-klassifisering.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-1-funksjonelle-grupper-klassifisering.webp', linkedChapterId: 'kjemi2-8-1-narrativ' },
     {
       id: 'kjemi2-8-2',
       number: '8.2',
@@ -687,8 +655,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Primære alkoholer', 'Sekundære alkoholer', 'Tertiære alkoholer', 'Aldehyder', 'Ketoner', 'Karbonylgruppen', 'Oksidasjon av alkoholer'],
       prerequisites: ['kjemi2-8-1'],
-      coverImage: '/images/subjects/kjemi2-8-2-alkener-addisjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-2-alkener-addisjon.webp', linkedChapterId: 'kjemi2-8-2-narrativ' },
     {
       id: 'kjemi2-8-3',
       number: '8.3',
@@ -698,8 +665,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Karboksylsyrer', 'Estere', 'Esterdannelse', 'Fettsynres', 'Lipider', 'Forsåpning'],
       prerequisites: ['kjemi2-8-2'],
-      coverImage: '/images/subjects/kjemi2-8-3-alkoholer-oksidasjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-3-alkoholer-oksidasjon.webp', linkedChapterId: 'kjemi2-8-3-narrativ' },
     {
       id: 'kjemi2-8-4',
       number: '8.4',
@@ -709,8 +675,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Aminer som baser', 'Amider', 'Peptidbindinger', 'Nomenklatur', 'Biologisk betydning'],
       prerequisites: ['kjemi2-8-3'],
-      coverImage: '/images/subjects/kjemi2-8-4-aldehyder-ketoner.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-4-aldehyder-ketoner.webp', linkedChapterId: 'kjemi2-8-4-narrativ' },
     {
       id: 'kjemi2-8-5',
       number: '8.5',
@@ -721,8 +686,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Addisjonsreaksjoner', 'Eliminasjonsreaksjoner', 'Substitusjonsreaksjoner', 'SN1 og SN2', 'Hydrolysereaksjoner', 'Kondensasjonsreaksjoner', 'Elektrofile angrep', 'Nukleofile angrep'],
       prerequisites: ['kjemi2-8-4'],
       competenceGoals: ['beskrive addisjons-, eliminasjons-, substitusjons-, hydrolyse- og kondensasjonsreaksjoner'],
-      coverImage: '/images/subjects/kjemi2-8-5-karboksylsyrer-derivater.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-5-karboksylsyrer-derivater.webp', linkedChapterId: 'kjemi2-8-5-narrativ' },
     {
       id: 'kjemi2-8-6',
       number: '8.6',
@@ -733,8 +697,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Planlegging av syntese', 'Flertrinnssyntese', 'Teoretisk utbytte', 'Faktisk utbytte', 'Renhet og oprensning', 'Atomøkonomi', 'Grønn kjemi'],
       prerequisites: ['kjemi2-8-5'],
       competenceGoals: ['gjennomføre synteser og vurdere utbytte og renhet'],
-      coverImage: '/images/subjects/kjemi2-8-6-estere-kondensasjon.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-8-6-estere-kondensasjon.webp', linkedChapterId: 'kjemi2-8-6-narrativ' },
 
     // ============================================================================
     // Del 9: Analytisk kjemi
@@ -749,8 +712,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Separasjonsprinsipper', 'Stasjonær fase', 'Mobil fase', 'Retensjonsfaktor (Rf)', 'Tynnsjiktkromatografi (TLC)'],
       prerequisites: ['kjemi2-8-6'],
       competenceGoals: ['forklare prinsipper for kromatografi'],
-      coverImage: '/images/subjects/kjemi2-9-1-kvalitativ-analyse.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-9-1-kvalitativ-analyse.webp', linkedChapterId: 'kjemi2-9-1-narrativ' },
     {
       id: 'kjemi2-9-2',
       number: '9.2',
@@ -761,8 +723,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Søylekromatografi', 'Gasskromatografi (GC)', 'Væskekromatografi (HPLC)', 'Anvendelser i analyse'],
       prerequisites: ['kjemi2-9-1'],
       competenceGoals: ['bruke kromatografi til å separere og analysere organiske blandinger'],
-      coverImage: '/images/subjects/kjemi2-9-2-kvantitativ-gravimetri.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-9-2-kvantitativ-gravimetri.webp', linkedChapterId: 'kjemi2-9-2-narrativ' },
     {
       id: 'kjemi2-9-3',
       number: '9.3',
@@ -772,8 +733,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Elektromagnetisk stråling', 'Absorpsjon og emisjon', 'UV-vis-spektroskopi', 'Beer-Lamberts lov'],
       prerequisites: ['kjemi2-9-2'],
-      coverImage: '/images/subjects/kjemi2-9-3-spektroskopiske-metoder.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-9-3-spektroskopiske-metoder.webp', linkedChapterId: 'kjemi2-9-3-narrativ' },
     {
       id: 'kjemi2-9-4',
       number: '9.4',
@@ -783,8 +743,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['IR-spektroskopi', 'Funksjonelle grupper', 'NMR-spektroskopi', 'Strukturbestemmelse', 'Kombinasjon av metoder'],
       prerequisites: ['kjemi2-9-3'],
-      coverImage: '/images/subjects/kjemi2-9-4-kromatografi.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-9-4-kromatografi.webp', linkedChapterId: 'kjemi2-9-4-narrativ' },
 
     // ============================================================================
     // Del 10: Biokjemi og bærekraftig kjemi
@@ -799,8 +758,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Aminosyrer', 'Peptidbindinger', 'Primær struktur', 'Sekundær struktur', 'Tertiær struktur', 'Kvartær struktur', 'Denaturering', 'Enzymer'],
       prerequisites: ['kjemi2-9-4'],
       competenceGoals: ['beskrive struktur i biologiske makromolekyler'],
-      coverImage: '/images/subjects/kjemi2-10-1-karbohydrater.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-1-karbohydrater.webp', linkedChapterId: 'kjemi2-10-1-narrativ' },
     {
       id: 'kjemi2-10-2',
       number: '10.2',
@@ -811,8 +769,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Monosakkarider', 'Glukose', 'Fruktose', 'Disakkarider', 'Sukrose', 'Laktose', 'Polysakkarider', 'Stivelse', 'Cellulose', 'Glykogen'],
       prerequisites: ['kjemi2-10-1'],
       competenceGoals: ['beskrive struktur og funksjon av karbohydrater'],
-      coverImage: '/images/subjects/kjemi2-10-2-lipider.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-2-lipider.webp', linkedChapterId: 'kjemi2-10-2-narrativ' },
     {
       id: 'kjemi2-10-3',
       number: '10.3',
@@ -823,8 +780,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Fettsyrer', 'Triglycerider', 'Fosfolipider', 'Cellemembraner', 'DNA', 'RNA', 'Nukleotider', 'Baseparring'],
       prerequisites: ['kjemi2-10-2'],
       competenceGoals: ['beskrive struktur og funksjon av lipider og nukleinsyrer'],
-      coverImage: '/images/subjects/kjemi2-10-3-proteiner-aminosyrer.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-3-proteiner-aminosyrer.webp', linkedChapterId: 'kjemi2-10-3-narrativ' },
     {
       id: 'kjemi2-10-4',
       number: '10.4',
@@ -835,8 +791,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['pH-effekter', 'Temperatureffekter', 'Løsemidler og denaturering', 'Metallioner'],
       prerequisites: ['kjemi2-10-3'],
       competenceGoals: ['vurdere hvordan ytre faktorer påvirker egenskaper til molekyler'],
-      coverImage: '/images/subjects/kjemi2-10-4-dna-nukleinsyrer.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-4-dna-nukleinsyrer.webp', linkedChapterId: 'kjemi2-10-4-narrativ' },
     {
       id: 'kjemi2-10-5',
       number: '10.5',
@@ -847,8 +802,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Metallutvinning fra malm', 'Aluminiumproduksjon', 'Stålproduksjon', 'Resirkulering av metaller', 'Miljøkonsekvenser'],
       prerequisites: ['kjemi2-10-4'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av metaller'],
-      coverImage: '/images/subjects/kjemi2-10-5-enzymer-biokatalyse.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-5-enzymer-biokatalyse.webp', linkedChapterId: 'kjemi2-10-5-narrativ' },
     {
       id: 'kjemi2-10-6',
       number: '10.6',
@@ -859,8 +813,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Polymerisering', 'Addisjonspolymerisering', 'Kondensasjonspolymerisering', 'Vanlige plasttyper', 'Termoplast', 'Herdeplast', 'Nedbrytning', 'Mikroplast', 'Bioplast'],
       prerequisites: ['kjemi2-10-5'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av plast'],
-      coverImage: '/images/subjects/kjemi2-10-6-plast-polymerer.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-6-plast-polymerer.webp', linkedChapterId: 'kjemi2-10-6-narrativ' },
     {
       id: 'kjemi2-10-7',
       number: '10.7',
@@ -871,8 +824,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['De 12 prinsippene for grønn kjemi', 'Atomøkonomi', 'Fornybare råstoffer', 'Miljøvennlige løsemidler', 'Livssyklusanalyse'],
       prerequisites: ['kjemi2-10-6'],
       competenceGoals: ['drøfte prinsipper for bærekraftig kjemi'],
-      coverImage: '/images/subjects/kjemi2-10-7-gronn-kjemi-baerekraft.webp',
-    },
+      coverImage: '/images/subjects/kjemi2-10-7-gronn-kjemi-baerekraft.webp', linkedChapterId: 'kjemi2-10-7-narrativ' },
   ],
 };
 
@@ -899,8 +851,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vektorrepresentasjon', 'Komponentform', 'Vektoraddisjon', 'Vektorsubtraksjon', 'Skalarmultiplikasjon', 'Enhetsvektorer'],
       competenceGoals: ['bruke vektorer til å beskrive fysiske størrelser', 'utføre vektoroperasjoner'],
-      coverImage: '/images/subjects/fysikk2-1-1-vektorer.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-1-1-vektorer.webp', linkedChapterId: 'fysikk2-1-1-narrativ' },
     {
       id: 'fysikk2-1-2',
       number: '1.2',
@@ -911,8 +862,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Posisjonsvektorer', 'Hastighetsvektor', 'Akselerasjonsvektor', 'Bevegelseslikninger', 'Uavhengige komponenter'],
       prerequisites: ['fysikk2-1-1'],
       competenceGoals: ['analysere bevegelse i to dimensjoner', 'bruke vektornotasjon for kinematiske størrelser'],
-      coverImage: '/images/subjects/fysikk2-1-2-bevegelse-2d.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-1-2-bevegelse-2d.webp', linkedChapterId: 'fysikk2-1-2-narrativ' },
     {
       id: 'fysikk2-1-3',
       number: '1.3',
@@ -923,8 +873,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Horisontal kastering', 'Skrå kastering', 'Baneform (parabelbane)', 'Rekkevidde', 'Maksimal høyde', 'Luftmotstand'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere og beregne størrelser ved kastering', 'bruke kinematiske likninger i to dimensjoner'],
-      coverImage: '/images/subjects/fysikk2-1-3-kastering.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-1-3-kastering.webp', linkedChapterId: 'fysikk2-1-3-narrativ' },
     {
       id: 'fysikk2-1-4',
       number: '1.4',
@@ -935,8 +884,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Uniform sirkelbevegelse', 'Vinkelstørrelse', 'Perioden', 'Sentripetalakselerasjon', 'Sentripetalkraft', 'Kurvebevegelse'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere sirkelbevegelse', 'beregne sentripetalkraft og akselerasjon'],
-      coverImage: '/images/subjects/fysikk2-1-4-sirkelbevegelse2.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-1-4-sirkelbevegelse2.webp', linkedChapterId: 'fysikk2-1-4-narrativ' },
     {
       id: 'fysikk2-1-5',
       number: '1.5',
@@ -947,8 +895,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Eulers metode', 'Tidssteg', 'Numerisk integrering', 'Programmering av bevegelse', 'Feilanalyse'],
       prerequisites: ['fysikk2-1-3', 'fysikk2-1-4'],
       competenceGoals: ['bruke digitale verktøy til å modellere bevegelse numerisk', 'vurdere nøyaktighet i numeriske metoder'],
-      coverImage: '/images/subjects/fysikk2-1-5-numerisk-modellering.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-1-5-numerisk-modellering.webp', linkedChapterId: 'fysikk2-1-5-narrativ' },
 
     // ============================================================================
     // Seksjon 2: Gravitasjon
@@ -962,8 +909,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons gravitasjonslov', 'Gravitasjonskonstanten G', 'Gravitasjonskraft', 'Masse vs. vekt'],
       competenceGoals: ['bruke Newtons gravitasjonslov til å beregne gravitasjonskrefter'],
-      coverImage: '/images/subjects/fysikk2-2-1-gravitasjonslov.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-2-1-gravitasjonslov.webp', linkedChapterId: 'fysikk2-2-1-narrativ' },
     {
       id: 'fysikk2-2-2',
       number: '2.2',
@@ -974,8 +920,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonsfelt', 'Feltstyrke g', 'Superposisjonsprinsippet', 'Jordas gravitasjonsfelt'],
       prerequisites: ['fysikk2-2-1'],
       competenceGoals: ['beskrive og beregne gravitasjonsfelt', 'bruke superposisjon for flere masser'],
-      coverImage: '/images/subjects/fysikk2-2-2-gravitasjonsfelt.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-2-2-gravitasjonsfelt.webp', linkedChapterId: 'fysikk2-2-2-narrativ' },
     {
       id: 'fysikk2-2-3',
       number: '2.3',
@@ -986,8 +931,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonell potensiell energi', 'Nullnivå i uendelighet', 'Energibevarelse', 'Bindingsenergi'],
       prerequisites: ['fysikk2-2-2'],
       competenceGoals: ['beregne gravitasjonell potensiell energi', 'bruke energibevarelse i gravitasjonsfelt'],
-      coverImage: '/images/subjects/fysikk2-2-3-gravitasjonell-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-2-3-gravitasjonell-energi.webp', linkedChapterId: 'fysikk2-2-3-narrativ' },
     {
       id: 'fysikk2-2-4',
       number: '2.4',
@@ -998,8 +942,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Unnslippningsfart', 'Satellittbaner', 'Sirkulære baner', 'Geostasjonære satellitter', 'Banefart'],
       prerequisites: ['fysikk2-2-3', 'fysikk2-1-4'],
       competenceGoals: ['beregne unnslippningsfart og satellittbaner', 'analysere betingelser for ulike banetyper'],
-      coverImage: '/images/subjects/fysikk2-2-4-satellittbaner.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-2-4-satellittbaner.webp', linkedChapterId: 'fysikk2-2-4-narrativ' },
     {
       id: 'fysikk2-2-5',
       number: '2.5',
@@ -1010,8 +953,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Keplers første lov', 'Keplers andre lov', 'Keplers tredje lov', 'Planetbaner', 'Perioder og baneradier'],
       prerequisites: ['fysikk2-2-4'],
       competenceGoals: ['bruke Keplers lover til å analysere planetbevegelse', 'utlede sammenhenger fra Keplers tredje lov'],
-      coverImage: '/images/subjects/fysikk2-2-5-keplers-lover.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-2-5-keplers-lover.webp', linkedChapterId: 'fysikk2-2-5-narrativ' },
 
     // ============================================================================
     // Seksjon 3: Elektriske felt
@@ -1025,8 +967,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Elektrisk ladning', 'Elementærladning', 'Coulombs lov', 'Elektrostatisk kraft', 'Ladningsfordeling'],
       competenceGoals: ['bruke Coulombs lov til å beregne elektrostatiske krefter'],
-      coverImage: '/images/subjects/fysikk2-3-1-coulombs-lov.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-3-1-coulombs-lov.webp', linkedChapterId: 'fysikk2-3-1-narrativ' },
     {
       id: 'fysikk2-3-2',
       number: '3.2',
@@ -1037,8 +978,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk felt', 'Feltstyrke E', 'Feltlinjer', 'Superposisjon', 'Homogene felt', 'Ledere i felt'],
       prerequisites: ['fysikk2-3-1'],
       competenceGoals: ['beskrive og beregne elektriske felt', 'tegne feltlinjer', 'bruke superposisjonsprinsippet'],
-      coverImage: '/images/subjects/fysikk2-3-2-elektrisk-felt.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-3-2-elektrisk-felt.webp', linkedChapterId: 'fysikk2-3-2-narrativ' },
     {
       id: 'fysikk2-3-3',
       number: '3.3',
@@ -1049,8 +989,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk potensial', 'Spenning', 'Elektrisk potensiell energi', 'Ekvipotensialflater', 'Sammenhengen E og V'],
       prerequisites: ['fysikk2-3-2'],
       competenceGoals: ['beregne elektrisk potensial og spenning', 'relatere felt og potensial'],
-      coverImage: '/images/subjects/fysikk2-3-3-potensial-spenning.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-3-3-potensial-spenning.webp', linkedChapterId: 'fysikk2-3-3-narrativ' },
     {
       id: 'fysikk2-3-4',
       number: '3.4',
@@ -1061,8 +1000,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kondensatorer', 'Kapasitans', 'Parallellplatekondesator', 'Dielektrikum', 'Lagret energi', 'Serie- og parallellkobling'],
       prerequisites: ['fysikk2-3-3'],
       competenceGoals: ['beregne kapasitans og lagret energi', 'analysere kondensatorkoblinger'],
-      coverImage: '/images/subjects/fysikk2-3-4-kondensatorer.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-3-4-kondensatorer.webp', linkedChapterId: 'fysikk2-3-4-narrativ' },
     {
       id: 'fysikk2-3-5',
       number: '3.5',
@@ -1073,8 +1011,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på ladede partikler', 'Akselerasjon i homogene felt', 'Avbøyning', 'Katodestrålerør', 'Elektronkanoner'],
       prerequisites: ['fysikk2-3-2', 'fysikk2-1-2'],
       competenceGoals: ['analysere bevegelse av ladede partikler i elektriske felt', 'beregne baner og hastigheter'],
-      coverImage: '/images/subjects/fysikk2-3-5-partikler-i-felt.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-3-5-partikler-i-felt.webp', linkedChapterId: 'fysikk2-3-5-narrativ' },
 
     // ============================================================================
     // Seksjon 4: Magnetisme
@@ -1088,8 +1025,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Magnetfelt', 'Magnetiske feltlinjer', 'Magnetiske poler', 'Permanente magneter', 'Jordas magnetfelt'],
       competenceGoals: ['beskrive magnetfelt og magnetiske krefter'],
-      coverImage: '/images/subjects/fysikk2-4-1-magnetfelt.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-4-1-magnetfelt.webp', linkedChapterId: 'fysikk2-4-1-narrativ' },
     {
       id: 'fysikk2-4-2',
       number: '4.2',
@@ -1100,8 +1036,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lorentzkraft på partikler', 'Høyrehåndsregelen', 'Syklotronbevegelse', 'Helikalbaner', 'Massespektrometer'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk kraft på ladede partikler', 'analysere partikkelbaner i magnetfelt'],
-      coverImage: '/images/subjects/fysikk2-4-2-lorentzkraft-partikler.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-4-2-lorentzkraft-partikler.webp', linkedChapterId: 'fysikk2-4-2-narrativ' },
     {
       id: 'fysikk2-4-3',
       number: '4.3',
@@ -1112,8 +1047,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetfelt fra rett leder', 'Magnetfelt fra strømløkke', 'Solenoider', 'Biot-Savarts lov', 'Ampères lov'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetfelt fra strømførende ledere', 'bruke Ampères lov'],
-      coverImage: '/images/subjects/fysikk2-4-3-magnetfelt-strom.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-4-3-magnetfelt-strom.webp', linkedChapterId: 'fysikk2-4-3-narrativ' },
     {
       id: 'fysikk2-4-4',
       number: '4.4',
@@ -1124,8 +1058,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på rett leder', 'Motorkraft', 'Kraftretning', 'Høyrehåndsregelen for ledere', 'Elektromotorer'],
       prerequisites: ['fysikk2-4-3'],
       competenceGoals: ['beregne magnetisk kraft på strømførende ledere', 'forklare virkemåten til elektromotorer'],
-      coverImage: '/images/subjects/fysikk2-4-4-kraft-stromforer.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-4-4-kraft-stromforer.webp', linkedChapterId: 'fysikk2-4-4-narrativ' },
     {
       id: 'fysikk2-4-5',
       number: '4.5',
@@ -1136,8 +1069,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Total Lorentzkraft', 'Kombinerte felt', 'Hastighetsselektor', 'Halleffekten', 'Partikkelakseleratorer'],
       prerequisites: ['fysikk2-4-2', 'fysikk2-3-5'],
       competenceGoals: ['analysere bevegelse i kombinerte elektriske og magnetiske felt', 'beregne total Lorentzkraft'],
-      coverImage: '/images/subjects/fysikk2-4-5-lorentzkraften.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-4-5-lorentzkraften.webp', linkedChapterId: 'fysikk2-4-5-narrativ' },
 
     // ============================================================================
     // Seksjon 5: Induksjon
@@ -1152,8 +1084,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetisk fluks', 'Fluks gjennom flate', 'Enhetsnormalen', 'Flukstetthet'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk fluks gjennom flater'],
-      coverImage: '/images/subjects/fysikk2-5-1-magnetisk-fluks.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-1-magnetisk-fluks.webp', linkedChapterId: 'fysikk2-5-1-narrativ' },
     {
       id: 'fysikk2-5-2',
       number: '5.2',
@@ -1164,8 +1095,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektromagnetisk induksjon', 'Faradays lov', 'Indusert spenning', 'Fluksforandring', 'Bevegelsesinduksjon'],
       prerequisites: ['fysikk2-5-1'],
       competenceGoals: ['bruke Faradays lov til å beregne indusert spenning', 'forklare elektromagnetisk induksjon'],
-      coverImage: '/images/subjects/fysikk2-5-2-faradays-lov.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-2-faradays-lov.webp', linkedChapterId: 'fysikk2-5-2-narrativ' },
     {
       id: 'fysikk2-5-3',
       number: '5.3',
@@ -1176,8 +1106,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lenz lov', 'Retning av indusert strøm', 'Høyrehåndsregelen for induksjon', 'Motstand mot fluksforandring', 'Energibevarelse'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['bruke Lenz lov til å bestemme retning av indusert strøm', 'forklare energibevarelse ved induksjon'],
-      coverImage: '/images/subjects/fysikk2-5-3-lenz-lov.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-3-lenz-lov.webp', linkedChapterId: 'fysikk2-5-3-narrativ' },
     {
       id: 'fysikk2-5-4',
       number: '5.4',
@@ -1188,8 +1117,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Generatorer', 'AC-generatorer', 'Rotasjon i magnetfelt', 'Vekselstrøm', 'Motorer', 'Transformatorer'],
       prerequisites: ['fysikk2-5-3', 'fysikk2-4-4'],
       competenceGoals: ['forklare virkemåten til generatorer og motorer', 'beregne indusert spenning i roterande spole'],
-      coverImage: '/images/subjects/fysikk2-5-4-generatorer-motorer.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-4-generatorer-motorer.webp', linkedChapterId: 'fysikk2-5-4-narrativ' },
     {
       id: 'fysikk2-5-5',
       number: '5.5',
@@ -1200,8 +1128,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Transformatorer', 'Primærspole', 'Sekundærspole', 'Omsettingsforhold', 'Ideelle transformatorer', 'Effekttap'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['beregne spenning og strøm i transformatorer', 'forklare energioverføring'],
-      coverImage: '/images/subjects/fysikk2-5-5-transformatorer.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-5-transformatorer.webp', linkedChapterId: 'fysikk2-5-5-narrativ' },
     {
       id: 'fysikk2-5-6',
       number: '5.6',
@@ -1212,8 +1139,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Vindkraft', 'Vannkraft', 'Bølgekraft', 'Kraftoverføring', 'Bærekraftige energiløsninger'],
       prerequisites: ['fysikk2-5-4', 'fysikk2-5-5'],
       competenceGoals: ['forklare hvordan induksjon brukes i bærekraftig energiproduksjon', 'vurdere energieffektivitet'],
-      coverImage: '/images/subjects/fysikk2-5-6-barekraftig-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-5-6-barekraftig-energi.webp', linkedChapterId: 'fysikk2-5-6-narrativ' },
 
     // ============================================================================
     // Seksjon 6: Relativitetsteori
@@ -1227,8 +1153,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Einsteins postulater', 'Lysets konstante fart', 'Inertielle referansesystemer', 'Samtidighet', 'Michelson-Morley'],
       competenceGoals: ['forstå grunnlaget for spesiell relativitetsteori', 'diskutere samtidighet'],
-      coverImage: '/images/subjects/fysikk2-6-1-relativitetsteori.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-6-1-relativitetsteori.webp', linkedChapterId: 'fysikk2-6-1-narrativ' },
     {
       id: 'fysikk2-6-2',
       number: '6.2',
@@ -1239,8 +1164,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Tidsdilatasjon', 'Egentid', 'Observert tid', 'Lorentzfaktoren γ', 'Tvillingparadokset', 'Myoneksperiment'],
       prerequisites: ['fysikk2-6-1'],
       competenceGoals: ['beregne tidsforlengelse ved høye farter', 'forklare tidsdilatasjon'],
-      coverImage: '/images/subjects/fysikk2-6-2-tidsdilatasjon.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-6-2-tidsdilatasjon.webp', linkedChapterId: 'fysikk2-6-2-narrativ' },
     {
       id: 'fysikk2-6-3',
       number: '6.3',
@@ -1251,8 +1175,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lengdekontraksjon', 'Egenlengde', 'Observert lengde', 'Lorentzkontraksjon', 'Rom-tid-diagrammer'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne lengdekontraksjon', 'relatere lengdekontraksjon og tidsdilatasjon'],
-      coverImage: '/images/subjects/fysikk2-6-3-lengdekontraksjon.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-6-3-lengdekontraksjon.webp', linkedChapterId: 'fysikk2-6-3-narrativ' },
     {
       id: 'fysikk2-6-4',
       number: '6.4',
@@ -1263,8 +1186,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Relativistisk energi', 'E=mc²', 'Hvilemasse', 'Relativistisk kinetisk energi', 'Total energi', 'Masse-energi-ekvivalens'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne relativistisk energi og kinetisk energi', 'bruke E=mc² i praktiske problemstillinger'],
-      coverImage: '/images/subjects/fysikk2-6-4-relativistisk-energi.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-6-4-relativistisk-energi.webp', linkedChapterId: 'fysikk2-6-4-narrativ' },
     {
       id: 'fysikk2-6-5',
       number: '6.5',
@@ -1275,8 +1197,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Ekvivalensprinsippet', 'Krumning av rom-tid', 'Gravitasjonell tidsforlengelse', 'Gravitasjonsbøyning av lys', 'Svarte hull'],
       prerequisites: ['fysikk2-6-4', 'fysikk2-2-3'],
       competenceGoals: ['forstå grunnideen i generell relativitetsteori', 'diskutere gravitasjonens natur'],
-      coverImage: '/images/subjects/fysikk2-6-5-generell-relativitet.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-6-5-generell-relativitet.webp', linkedChapterId: 'fysikk2-6-5-narrativ' },
 
     // ============================================================================
     // Seksjon 7: Kvantefysikk
@@ -1290,8 +1211,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Fotoelektrisk effekt', 'Fotoner', 'Fotonenergi E=hf', 'Plancks konstant', 'Arbeidsfunksjon', 'Kinetisk energi til elektroner'],
       competenceGoals: ['forklare den fotoelektriske effekten', 'beregne fotonenergi og elektronhastigheter'],
-      coverImage: '/images/subjects/fysikk2-7-1-fotoelektrisk.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-1-fotoelektrisk.webp', linkedChapterId: 'fysikk2-7-1-narrativ' },
     {
       id: 'fysikk2-7-2',
       number: '7.2',
@@ -1302,8 +1222,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bølge-partikkel-dualitet', 'Dobbeltspaltforsøk', 'Interferens', 'Partikkelegenskaper', 'Komplementaritet'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare bølge-partikkel-dualitet', 'diskutere eksperimenter som viser dualitet'],
-      coverImage: '/images/subjects/fysikk2-7-2-bolge-partikkel.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-2-bolge-partikkel.webp', linkedChapterId: 'fysikk2-7-2-narrativ' },
     {
       id: 'fysikk2-7-3',
       number: '7.3',
@@ -1314,8 +1233,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['de Broglies bølgelengde', 'Materiens bølgenatur', 'Elektronbøyning', 'Davisson-Germer-eksperimentet'],
       prerequisites: ['fysikk2-7-2'],
       competenceGoals: ['beregne de Broglies bølgelengde', 'forklare materiens bølgeegenskaper'],
-      coverImage: '/images/subjects/fysikk2-7-3-de-broglie.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-3-de-broglie.webp', linkedChapterId: 'fysikk2-7-3-narrativ' },
     {
       id: 'fysikk2-7-4',
       number: '7.4',
@@ -1326,8 +1244,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Heisenbergs usikkerhetsrelasjon', 'Posisjon og impuls', 'Energi og tid', 'Måleprosessen', 'Kvantemekaniske implikasjoner'],
       prerequisites: ['fysikk2-7-3'],
       competenceGoals: ['bruke Heisenbergs usikkerhetsrelasjon', 'diskutere implikasjoner for målinger'],
-      coverImage: '/images/subjects/fysikk2-7-4-heisenberg.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-4-heisenberg.webp', linkedChapterId: 'fysikk2-7-4-narrativ' },
     {
       id: 'fysikk2-7-5',
       number: '7.5',
@@ -1338,8 +1255,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bohrs postulater', 'Energinivåer', 'Kvantisering', 'Spektrallinjer', 'Hydrogenspekteret', 'Rydbergs formel'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare Bohrs atommodell', 'beregne energinivåer og spektrallinjer'],
-      coverImage: '/images/subjects/fysikk2-7-5-bohrs-atommodell.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-5-bohrs-atommodell.webp', linkedChapterId: 'fysikk2-7-5-narrativ' },
     {
       id: 'fysikk2-7-6',
       number: '7.6',
@@ -1350,8 +1266,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lasere', 'Solceller', 'LED', 'Kvantedatamaskiner', 'Kvanteoptikk', 'Moderne teknologi'],
       prerequisites: ['fysikk2-7-5'],
       competenceGoals: ['forklare hvordan kvantefysikk brukes i teknologi', 'diskutere kvantemekanikkens betydning'],
-      coverImage: '/images/subjects/fysikk2-7-6-kvantefenomener.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-7-6-kvantefenomener.webp', linkedChapterId: 'fysikk2-7-6-narrativ' },
 
     // ============================================================================
     // Seksjon 8: Eksperimentelt arbeid
@@ -1365,8 +1280,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Vitenskapelig metode', 'Hypoteser', 'Eksperimentdesign', 'Måleusikkerhet', 'Absolutt og relativ usikkerhet', 'Feilkilder'],
       competenceGoals: ['planlegge og gjennomføre fysikkforsøk', 'vurdere måleusikkerhet'],
-      coverImage: '/images/subjects/fysikk2-8-1-eksperimentell-metode.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-8-1-eksperimentell-metode.webp', linkedChapterId: 'fysikk2-8-1-narrativ' },
     {
       id: 'fysikk2-8-2',
       number: '8.2',
@@ -1377,8 +1291,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Databehandling', 'Statistiske metoder', 'Grafisk framstilling', 'Systematiske feil', 'Tilfeldige feil', 'Presisjon og nøyaktighet'],
       prerequisites: ['fysikk2-8-1'],
       competenceGoals: ['analysere eksperimentelle data', 'identifisere og diskutere feilkilder'],
-      coverImage: '/images/subjects/fysikk2-8-2-dataanalyse.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-8-2-dataanalyse.webp', linkedChapterId: 'fysikk2-8-2-narrativ' },
     {
       id: 'fysikk2-8-3',
       number: '8.3',
@@ -1388,8 +1301,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Partikkelfysikk', 'Standardmodellen', 'CERN', 'Astrofysikk', 'Kosmologi', 'Fremtidens fysikk'],
       competenceGoals: ['beskrive sentrale områder i moderne fysikkforskning', 'diskutere fysikkens samfunnsrolle'],
-      coverImage: '/images/subjects/fysikk2-8-3-moderne-forskning.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-8-3-moderne-forskning.webp', linkedChapterId: 'fysikk2-8-3-narrativ' },
     {
       id: 'fysikk2-8-4',
       number: '8.4',
@@ -1400,8 +1312,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Prosjektplanlegging', 'Litteratursøk', 'Rapportskriving', 'Presentasjonsteknikk', 'Kildekritikk', 'Vitenskapelig kommunikasjon'],
       prerequisites: ['fysikk2-8-1', 'fysikk2-8-2'],
       competenceGoals: ['gjennomføre selvstendig prosjektarbeid i fysikk', 'kommunisere fysikk faglig'],
-      coverImage: '/images/subjects/fysikk2-8-4-prosjektarbeid.webp',
-    },
+      coverImage: '/images/subjects/fysikk2-8-4-prosjektarbeid.webp', linkedChapterId: 'fysikk2-8-4-narrativ' },
   ],
 };
 
