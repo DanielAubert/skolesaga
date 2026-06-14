@@ -7351,8 +7351,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Potenser', 'Heltallseksponenter', 'Potensregler', 'Negative eksponenter'],
       competenceGoals: ['beherske potensreglene', 'forenkle uttrykk med potenser'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-1-narrativ' },
     {
       id: 'bi-okonomi-1-2',
       number: '1.2',
@@ -7363,8 +7362,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Bokstavregning', 'Parentesregning', 'Faktorisering', 'Kvadratsetningene'],
       prerequisites: ['bi-okonomi-1-1'],
       competenceGoals: ['forenkle algebraiske uttrykk', 'faktorisere uttrykk'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-2-narrativ' },
     {
       id: 'bi-okonomi-1-3',
       number: '1.3',
@@ -7375,8 +7373,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Brøkregning', 'Forkorting', 'Utviding', 'Fellesnevner', 'Algebraiske brøker'],
       prerequisites: ['bi-okonomi-1-2'],
       competenceGoals: ['beherske brøkregning', 'forenkle algebraiske brøker'],
-      coverImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-3-narrativ' },
     {
       id: 'bi-okonomi-1-4',
       number: '1.4',
@@ -7387,8 +7384,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Prosent', 'Prosentpoeng', 'Vekstfaktor', 'Prosentvis endring', 'Gjentatt endring'],
       prerequisites: ['bi-okonomi-1-3'],
       competenceGoals: ['beregne prosentvis endring', 'bruke vekstfaktorer'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-4-narrativ' },
     {
       id: 'bi-okonomi-1-5',
       number: '1.5',
@@ -7399,8 +7395,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Primtallsfaktorisering', 'Faktorisering av uttrykk', 'Første kvadratsetning', 'Andre kvadratsetning', 'Konjugatsetningen'],
       prerequisites: ['bi-okonomi-1-2'],
       competenceGoals: ['faktorisere algebraiske uttrykk', 'bruke kvadratsetningene'],
-      coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-5-narrativ' },
     {
       id: 'bi-okonomi-1-6',
       number: '1.6',
@@ -7411,8 +7406,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Forkorting av algebraiske brøker', 'Multiplikasjon og divisjon', 'Fellesnevner'],
       prerequisites: ['bi-okonomi-1-3', 'bi-okonomi-1-5'],
       competenceGoals: ['forenkle algebraiske brøkuttrykk', 'utføre operasjoner med rasjonale uttrykk'],
-      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-1-6-narrativ' },
 
     // Seksjon 2: Likninger
     {
@@ -7425,8 +7419,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Lineære likninger', 'Likningsløsning', 'Parenteslikninger', 'Brøklikninger'],
       prerequisites: ['bi-okonomi-1-3'],
       competenceGoals: ['løse lineære likninger', 'sette opp likninger fra tekstoppgaver'],
-      coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-1-narrativ' },
     {
       id: 'bi-okonomi-2-2',
       number: '2.2',
@@ -7437,8 +7430,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Andregradslikninger', 'ABC-formelen', 'Faktorisering', 'Diskriminanten'],
       prerequisites: ['bi-okonomi-2-1'],
       competenceGoals: ['løse andregradslikninger', 'tolke antall løsninger'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-2-narrativ' },
     {
       id: 'bi-okonomi-2-3',
       number: '2.3',
@@ -7449,8 +7441,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Likningssett', 'Innsettingsmetoden', 'Addisjonsmetoden', 'Grafisk løsning'],
       prerequisites: ['bi-okonomi-2-1'],
       competenceGoals: ['løse likningssett med to ukjente', 'anvende likningssett i økonomiske problemer'],
-      coverImage: 'https://images.unsplash.com/photo-1545670723-196ed0954986?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1545670723-196ed0954986?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-3-narrativ' },
     {
       id: 'bi-okonomi-2-4',
       number: '2.4',
@@ -7461,8 +7452,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Lineære ulikheter', 'Andregradsulikheter', 'Fortegnsskjema', 'Intervallnotasjon'],
       prerequisites: ['bi-okonomi-2-2'],
       competenceGoals: ['løse ulikheter', 'angi løsninger med intervallnotasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-4-narrativ' },
     {
       id: 'bi-okonomi-2-5',
       number: '2.5',
@@ -7473,8 +7463,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Brøklikninger', 'Produktregelen', 'Likninger med brøk'],
       prerequisites: ['bi-okonomi-1-3', 'bi-okonomi-1-6'],
       competenceGoals: ['løse likninger med brøker', 'bruke produktregelen for brøklikninger'],
-      coverImage: 'https://images.unsplash.com/photo-1580894908361-967195033215?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1580894908361-967195033215?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-5-narrativ' },
     {
       id: 'bi-okonomi-2-6',
       number: '2.6',
@@ -7485,8 +7474,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Tekstoppgaver', 'Problemløsning', 'Modellering', 'Praktiske situasjoner'],
       prerequisites: ['bi-okonomi-2-1'],
       competenceGoals: ['omsetje problemstillingar til likningar', 'tolke og bruke likningsløysingar i kontekst'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-6-narrativ' },
     {
       id: 'bi-okonomi-2-7',
       number: '2.7',
@@ -7497,8 +7485,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Arealproblemer', 'Kastebevegelse', 'Optimering', 'Økonomiske modeller'],
       prerequisites: ['bi-okonomi-2-2', 'bi-okonomi-2-6'],
       competenceGoals: ['bruke andregradslikningar i praktiske situasjonar', 'tolke løysingar i kontekst'],
-      coverImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-2-7-narrativ' },
 
     // Seksjon 3: Funksjoner
     {
@@ -7510,8 +7497,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Lineære funksjoner', 'Stigningstall', 'Konstantledd', 'Ettpunktsformelen'],
       competenceGoals: ['tegne og tolke lineære funksjoner', 'finne funksjonsuttrykk fra graf'],
-      coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-1-narrativ' },
     {
       id: 'bi-okonomi-3-2',
       number: '3.2',
@@ -7522,8 +7508,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Andregradsfunksjoner', 'Parabel', 'Toppunkt', 'Bunnpunkt', 'Nullpunkter'],
       prerequisites: ['bi-okonomi-3-1', 'bi-okonomi-2-2'],
       competenceGoals: ['analysere andregradsfunksjoner', 'finne ekstremalpunkter'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-2-narrativ' },
     {
       id: 'bi-okonomi-3-3',
       number: '3.3',
@@ -7534,8 +7519,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor', 'Halveringstid', 'Doblingstid'],
       prerequisites: ['bi-okonomi-1-4'],
       competenceGoals: ['modellere vekst med eksponentialfunksjoner', 'beregne halveringstid og doblingstid'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-3-narrativ' },
     {
       id: 'bi-okonomi-3-4',
       number: '3.4',
@@ -7546,8 +7530,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Logaritmer', 'Briggske logaritmer', 'Naturlige logaritmer', 'Logaritmeregler'],
       prerequisites: ['bi-okonomi-3-3'],
       competenceGoals: ['bruke logaritmereglene', 'løse eksponentiallikninger med logaritmer'],
-      coverImage: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-4-narrativ' },
     {
       id: 'bi-okonomi-3-5',
       number: '3.5',
@@ -7558,8 +7541,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Nullpunkter', 'Fortegnslinje', 'Faktorisert form'],
       prerequisites: ['bi-okonomi-3-2', 'bi-okonomi-2-2'],
       competenceGoals: ['finne nullpunkter til funksjoner', 'bestemme fortegn med fortegnslinje'],
-      coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-5-narrativ' },
     {
       id: 'bi-okonomi-3-6',
       number: '3.6',
@@ -7570,8 +7552,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Rasjonale funksjoner', 'Asymptoter', 'Definisjonsmengde'],
       prerequisites: ['bi-okonomi-3-5', 'bi-okonomi-1-6'],
       competenceGoals: ['analysere rasjonale funksjoner', 'finne asymptoter og definisjonsmengde'],
-      coverImage: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-3-6-narrativ' },
 
     // Seksjon 4: Finansmatematikk
     {
@@ -7584,8 +7565,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Enkel rente', 'Rentes rente', 'Effektiv rente', 'Periodisk rente', 'Vekstfaktor'],
       prerequisites: ['bi-okonomi-3-3'],
       competenceGoals: ['beregne fremtidsverdi med ulike rentemodeller', 'forstå forskjellen mellom nominell og effektiv rente'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-4-1-narrativ' },
     {
       id: 'bi-okonomi-4-2',
       number: '4.2',
@@ -7596,8 +7576,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Nåverdi', 'Fremtidsverdi', 'Diskontering', 'Kontantstrøm', 'Tidsverdien av penger'],
       prerequisites: ['bi-okonomi-4-1'],
       competenceGoals: ['beregne nåverdi og fremtidsverdi', 'forstå tidsverdien av penger'],
-      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-4-2-narrativ' },
     {
       id: 'bi-okonomi-4-3',
       number: '4.3',
@@ -7608,8 +7587,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Annuitet', 'Ordinær annuitet', 'Annuitet forskudd', 'Annuitetsformel', 'Spareavtaler'],
       prerequisites: ['bi-okonomi-4-2'],
       competenceGoals: ['beregne nåverdi og sluttverdi av annuiteter', 'bruke annuitetsformler i praktiske situasjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-4-3-narrativ' },
     {
       id: 'bi-okonomi-4-4',
       number: '4.4',
@@ -7620,8 +7598,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Annuitetslån', 'Serielån', 'Nedbetalingsplan', 'Terminbeløp', 'Restgjeld'],
       prerequisites: ['bi-okonomi-4-3'],
       competenceGoals: ['sette opp nedbetalingsplaner', 'sammenligne ulike lånetyper'],
-      coverImage: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-4-4-narrativ' },
     {
       id: 'bi-okonomi-4-5',
       number: '4.5',
@@ -7632,10 +7609,10 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Netto nåverdi', 'NPV', 'Internrente', 'IRR', 'Tilbakebetalingstid', 'Lønnsomhet'],
       prerequisites: ['bi-okonomi-4-2'],
       competenceGoals: ['beregne og tolke NPV og IRR', 'vurdere lønnsomheten av investeringer'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-4-5-narrativ' },
     {
       id: 'bi-okonomi-4-6',
+      linkedChapterId: 'bi-okonomi-4-6-narrativ',
       number: '4.6',
       title: 'Kontinuerlig forrentning',
       description: 'Eksponentiell vekstmodell, kontinuerlig diskontering og effektiv rente med kontinuerlig kapitalisering.',
@@ -7656,8 +7633,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Gjennomsnittlig vekstfart', 'Momentan vekstfart', 'Sekant', 'Tangent', 'Grenseverdi'],
       competenceGoals: ['forstå forskjellen mellom gjennomsnittlig og momentan vekstfart', 'tolke den deriverte grafisk'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-1-narrativ' },
     {
       id: 'bi-okonomi-5-2',
       number: '5.2',
@@ -7668,8 +7644,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Potensregelen', 'Sumregelen', 'Produktregelen', 'Kvotientregelen', 'Kjerneregelen'],
       prerequisites: ['bi-okonomi-5-1'],
       competenceGoals: ['derivere polynomfunksjoner', 'bruke produkt-, kvotient- og kjerneregelen'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-2-narrativ' },
     {
       id: 'bi-okonomi-5-3',
       number: '5.3',
@@ -7680,8 +7655,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Eksponentialfunksjoner', 'Logaritmefunksjoner', 'e^x', 'ln x', 'Kjerneregelen'],
       prerequisites: ['bi-okonomi-5-2'],
       competenceGoals: ['derivere eksponential- og logaritmefunksjoner', 'anvende kjerneregelen på sammensatte funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-3-narrativ' },
     {
       id: 'bi-okonomi-5-4',
       number: '5.4',
@@ -7692,8 +7666,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Ekstremalpunkter', 'Vendepunkt', 'Fortegnsskjema', 'Grafskisse', 'Andrederivert'],
       prerequisites: ['bi-okonomi-5-2'],
       competenceGoals: ['finne og klassifisere ekstremalpunkter', 'drøfte funksjoner systematisk'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-4-narrativ' },
     {
       id: 'bi-okonomi-5-5',
       number: '5.5',
@@ -7704,8 +7677,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Optimering', 'Maksimering', 'Minimering', 'Randverdier', 'Praktiske problemer'],
       prerequisites: ['bi-okonomi-5-4'],
       competenceGoals: ['løse praktiske optimeringsproblemer', 'finne optimale verdier i økonomiske modeller'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-5-narrativ' },
     {
       id: 'bi-okonomi-5-6',
       number: '5.6',
@@ -7716,10 +7688,10 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Implisitt derivasjon', 'Kjerneregel', 'Tangentligning', 'MRS', 'Isokvant', 'Indifferenskurve'],
       prerequisites: ['bi-okonomi-5-2'],
       competenceGoals: ['derivere implisitt definerte sammenhenger', 'beregne MRS langs isokvanter og indifferenskurver'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-6-narrativ' },
     {
       id: 'bi-okonomi-5-7',
+      linkedChapterId: 'bi-okonomi-5-7-narrativ',
       number: '5.7',
       title: 'L\'Hôpitals regel og grenseverdier',
       description: 'Grenseverdier, ubestemte former og L\'Hôpitals regel for $\\tfrac{0}{0}$ og $\\tfrac{\\infty}{\\infty}$.',
@@ -7740,8 +7712,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Konveks', 'Konkav', 'Vendepunkt', 'Andrederivert', 'Risikoaversjon', 'Jensens ulikhet'],
       prerequisites: ['bi-okonomi-5-4'],
       competenceGoals: ['avgjøre om en funksjon er konveks eller konkav', 'tolke krumming økonomisk (risiko, grensenytte)'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-5-8-narrativ' },
     // Seksjon 6: Økonomiske funksjoner og marginalanalyse
     {
       id: 'bi-okonomi-6-1',
@@ -7753,8 +7724,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Faste kostnader', 'Variable kostnader', 'Totalkostnad', 'Gjennomsnittskostnad', 'Enhetskostnad'],
       prerequisites: ['bi-okonomi-3-1', 'bi-okonomi-3-2'],
       competenceGoals: ['modellere kostnader med funksjoner', 'beregne og tolke gjennomsnittskostnad'],
-      coverImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-6-1-narrativ' },
     {
       id: 'bi-okonomi-6-2',
       number: '6.2',
@@ -7765,8 +7735,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Inntektsfunksjon', 'Overskuddsfunksjon', 'Break-even', 'Profitt', 'Nullpunkt'],
       prerequisites: ['bi-okonomi-6-1'],
       competenceGoals: ['sette opp og analysere overskuddsfunksjoner', 'finne break-even-punkter'],
-      coverImage: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-6-2-narrativ' },
     {
       id: 'bi-okonomi-6-3',
       number: '6.3',
@@ -7777,8 +7746,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Grensekostnad', 'Grenseinntekt', 'Marginalkostnad', 'Marginalinntekt', 'Optimalt volum'],
       prerequisites: ['bi-okonomi-5-2', 'bi-okonomi-6-2'],
       competenceGoals: ['beregne og tolke grensekostnad og grenseinntekt', 'finne optimalt produksjonsvolum'],
-      coverImage: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-6-3-narrativ' },
     {
       id: 'bi-okonomi-6-4',
       number: '6.4',
@@ -7789,8 +7757,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Etterspørsel', 'Priselastisitet', 'Elastisk', 'Uelastisk', 'Optimal prissetting'],
       prerequisites: ['bi-okonomi-5-2'],
       competenceGoals: ['beregne og tolke priselastisitet', 'anvende elastisitet i prisbeslutninger'],
-      coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-6-4-narrativ' },
     {
       id: 'bi-okonomi-6-5',
       number: '6.5',
@@ -7801,8 +7768,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Tilbud', 'Etterspørsel', 'Likevekt', 'Konsumentoverskudd', 'Produsentoverskudd'],
       prerequisites: ['bi-okonomi-6-4'],
       competenceGoals: ['finne markedslikevekt algebraisk og grafisk', 'beregne konsument- og produsentoverskudd'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-6-5-narrativ' },
     // Seksjon 7: Funksjoner av flere variabler
     {
       id: 'bi-okonomi-7-1',
@@ -7814,8 +7780,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Funksjon av to variabler', 'Definisjonsmengde', 'Nivåkurver', 'Cobb-Douglas', 'Nyttefunksjon'],
       prerequisites: ['bi-okonomi-3-1', 'bi-okonomi-3-3'],
       competenceGoals: ['beregne funksjonsverdier og bestemme definisjonsmengde for $f(x,y)$', 'tegne og tolke nivåkurver'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-7-1-narrativ' },
     {
       id: 'bi-okonomi-7-2',
       number: '7.2',
@@ -7826,8 +7791,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Partielle deriverte', 'Marginalprodukt', 'Grensenytte', 'Andreordens partielle', 'Young\'s setning'],
       prerequisites: ['bi-okonomi-7-1', 'bi-okonomi-5-2'],
       competenceGoals: ['beregne partielle deriverte', 'tolke partielle deriverte som marginalstørrelser i økonomi'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-7-2-narrativ' },
     {
       id: 'bi-okonomi-7-3',
       number: '7.3',
@@ -7838,8 +7802,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Stasjonært punkt', 'Hessian', 'Lokalt maksimum', 'Lokalt minimum', 'Sadelpunkt', 'Profittmaksimering'],
       prerequisites: ['bi-okonomi-7-2'],
       competenceGoals: ['finne og klassifisere stasjonære punkter for funksjoner av to variabler', 'løse profittmaksimering med to produkter'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-7-3-narrativ' },
     {
       id: 'bi-okonomi-7-4',
       number: '7.4',
@@ -7850,8 +7813,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Lagranges multiplikatormetode', 'Bibetingelse', 'Skyggepris', 'Nyttemaksimering', 'Kostnadsminimering'],
       prerequisites: ['bi-okonomi-7-3'],
       competenceGoals: ['løse optimeringsproblemer med bibetingelse', 'tolke Lagrange-multiplikatoren som skyggepris'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-7-4-narrativ' },
     {
       id: 'bi-okonomi-7-5',
       number: '7.5',
@@ -7862,8 +7824,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Cobb-Douglas', 'Skalaavkastning', 'MRS', 'Komplementære goder', 'Eulers teorem'],
       prerequisites: ['bi-okonomi-7-4'],
       competenceGoals: ['analysere Cobb-Douglas-funksjoner', 'beregne MRS og avgjøre om goder er komplementære eller substituerbare'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-7-5-narrativ' },
     // Seksjon 8: Integrasjon
     {
       id: 'bi-okonomi-8-1',
@@ -7875,8 +7836,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Antiderivert', 'Ubestemt integral', 'Integrasjonskonstant', 'Standardintegraler', 'Totalkostnad'],
       prerequisites: ['bi-okonomi-5-2', 'bi-okonomi-5-3'],
       competenceGoals: ['beregne ubestemte integraler ved standardformler', 'finne totalkostnad og total inntekt fra marginalfunksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-8-1-narrativ' },
     {
       id: 'bi-okonomi-8-2',
       number: '8.2',
@@ -7887,8 +7847,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Bestemt integral', 'Fundamentalteoremet', 'Riemann-sum', 'Areal under graf', 'Areal mellom kurver'],
       prerequisites: ['bi-okonomi-8-1'],
       competenceGoals: ['beregne bestemte integraler', 'tolke integralet som akkumulert størrelse og areal'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-8-2-narrativ' },
     {
       id: 'bi-okonomi-8-3',
       number: '8.3',
@@ -7899,8 +7858,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Substitusjon', 'Delvis integrasjon', 'LIATE', 'Variabelskift'],
       prerequisites: ['bi-okonomi-8-2'],
       competenceGoals: ['løse integraler ved substitusjon og delvis integrasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-8-3-narrativ' },
     {
       id: 'bi-okonomi-8-4',
       number: '8.4',
@@ -7911,8 +7869,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Konsumentoverskudd', 'Produsentoverskudd', 'Samfunnsoverskudd', 'Kontinuerlig nåverdi', 'Gini-koeffisient'],
       prerequisites: ['bi-okonomi-8-3', 'bi-okonomi-4-6', 'bi-okonomi-6-5'],
       competenceGoals: ['beregne konsument- og produsentoverskudd som integral', 'beregne nåverdi av kontinuerlige kontantstrømmer'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-8-4-narrativ' },
     // Seksjon 9: Lineær algebra og matriser
     {
       id: 'bi-okonomi-9-1',
@@ -7923,8 +7880,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Matrise', 'Transponering', 'Identitetsmatrise', 'Matrise-multiplikasjon', 'Salgsmatrise'],
       competenceGoals: ['utføre grunnleggende matriseoperasjoner', 'multiplisere matriser og tolke produktet økonomisk'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-9-1-narrativ' },
     {
       id: 'bi-okonomi-9-2',
       number: '9.2',
@@ -7935,10 +7891,10 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       topics: ['Determinant', 'Sarrus-regel', 'Kofaktor', 'Invers matrise', 'Invertibilitet'],
       prerequisites: ['bi-okonomi-9-1'],
       competenceGoals: ['beregne determinanter', 'finne invers matrise og avgjøre invertibilitet'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-9-2-narrativ' },
     {
       id: 'bi-okonomi-9-3',
+      linkedChapterId: 'bi-okonomi-9-3-narrativ',
       number: '9.3',
       title: 'Lineære likningssystem og Gauss-eliminasjon',
       description: 'Matriseform $A\\mathbf{x}=\\mathbf{b}$, totalmatrise, radoperasjoner og Gauss-eliminasjon.',
@@ -7951,6 +7907,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
     },
     {
       id: 'bi-okonomi-9-4',
+      linkedChapterId: 'bi-okonomi-9-4-narrativ',
       number: '9.4',
       title: 'Cramers regel og økonomiske anvendelser',
       description: 'Cramers regel og Leontief input-output-modell $\\mathbf{x}=(I-A)^{-1}\\mathbf{d}$.',
@@ -7971,10 +7928,10 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Tallfølge', 'Eksplisitt formel', 'Rekursiv formel', 'Konvergens', 'Divergens'],
       competenceGoals: ['definere og analysere tallfølger', 'avgjøre om en følge konvergerer eller divergerer'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-    },
+      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop', linkedChapterId: 'bi-okonomi-10-1-narrativ' },
     {
       id: 'bi-okonomi-10-2',
+      linkedChapterId: 'bi-okonomi-10-2-narrativ',
       number: '10.2',
       title: 'Aritmetiske rekker',
       description: 'Aritmetisk følge $a_n = a_1 + (n-1)d$ og sumformelen $S_n = \\tfrac{n(a_1+a_n)}{2}$ (Gauss\' bevis).',
@@ -7987,6 +7944,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
     },
     {
       id: 'bi-okonomi-10-3',
+      linkedChapterId: 'bi-okonomi-10-3-narrativ',
       number: '10.3',
       title: 'Geometriske rekker',
       description: 'Geometrisk følge $a_n = a_1 k^{n-1}$ og sum $S_n = a_1\\frac{k^n-1}{k-1}$, med sluttverdi av annuitet som anvendelse.',
@@ -7999,6 +7957,7 @@ export const COURSE_BI_OKONOMI: TextbookCourse = {
     },
     {
       id: 'bi-okonomi-10-4',
+      linkedChapterId: 'bi-okonomi-10-4-narrativ',
       number: '10.4',
       title: 'Uendelige rekker og perpetuiteter',
       description: 'Uendelig geometrisk rekke $\\sum a_1 k^n = \\tfrac{a_1}{1-k}$, perpetuitet $\\tfrac{C}{r}$, Gordons formel og multiplikatoreffekten.',
