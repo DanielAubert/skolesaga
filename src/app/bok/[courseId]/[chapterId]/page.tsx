@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCourse, getChapterMeta, getNextChapter, getPrevChapter, getChapterPrerequisites, getDependentChapters } from '@/lib/data/textbook-courses';
-import { getChapterContent } from '@/lib/data/textbook-content';
+import { getChapterContent, hasNynorskVersion } from '@/lib/data/textbook-content';
+import { getMalform } from '@/lib/i18n/malform';
 import { TextbookChapterView } from '@/components/textbook/textbook-chapter-view';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { hasChemistryQuiz } from '@/lib/data/chemistry-quiz-data';
@@ -35,8 +36,12 @@ export default async function ChapterPage({ params }: PageProps) {
     notFound();
   }
 
+  // Målform (bokmål/nynorsk) fra cookie
+  const malform = await getMalform();
+
   // Hent kapittelinnhold (kan være undefined hvis ikke implementert ennå)
-  const chapterContent = getChapterContent(chapterId);
+  const chapterContent = getChapterContent(chapterId, malform);
+  const nynorskAvailable = hasNynorskVersion(chapterId);
 
   // Navigasjon
   const nextChapterId = getNextChapter(courseId, chapterId);
@@ -83,6 +88,8 @@ export default async function ChapterPage({ params }: PageProps) {
       prevChapter={prevChapter ? { id: prevChapter.id, number: prevChapter.number, title: prevChapter.title } : undefined}
       linkedChapter={linkedChapter ? { id: linkedChapter.id, title: linkedChapter.title, isNarrativeVersion: linkedChapter.isNarrativeVersion } : undefined}
       isNarrativeVersion={chapterMeta.isNarrativeVersion}
+      malform={malform}
+      nynorskAvailable={nynorskAvailable}
       hasQuiz={hasQuiz}
       hasExam={hasExam}
       prerequisites={prerequisites}

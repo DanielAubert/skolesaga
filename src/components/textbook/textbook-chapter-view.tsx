@@ -14,6 +14,7 @@ import { ChapterRelations, type RelatedChapter } from './chapter-relations';
 import { TextbookExerciseList } from './textbook-exercise-list';
 import { ExerciseAnswerKey } from './exercise-answer-key';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { MalformToggle } from './malform-toggle';
 import { StudentSelector } from './student-selector';
 import { UserMenu } from '@/components/auth/user-menu';
 import { useUser } from '@/lib/auth/hooks';
@@ -52,6 +53,8 @@ interface TextbookChapterViewProps {
   prevChapter?: ChapterNavInfo;
   linkedChapter?: LinkedChapterInfo;
   isNarrativeVersion?: boolean;
+  malform?: 'nb' | 'nn';
+  nynorskAvailable?: boolean;
   hasQuiz?: boolean;
   hasExam?: boolean;
   prerequisites?: RelatedChapter[];
@@ -66,6 +69,8 @@ export function TextbookChapterView({
   prevChapter,
   linkedChapter,
   isNarrativeVersion = false,
+  malform = 'nb',
+  nynorskAvailable = false,
   hasQuiz = false,
   hasExam = false,
   prerequisites = [],
@@ -290,6 +295,7 @@ export function TextbookChapterView({
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               )}
+              <MalformToggle malform={malform} available={nynorskAvailable} />
               <ThemeToggle />
               <UserMenu />
             </div>
