@@ -227,6 +227,100 @@ async function translateChapter(id, apiKey, { force = false } = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// EXTRACT/APPLY (ingen API — oversettelsen gjøres av Claude Code-agenten)
+//
+// Flyt:
+//   1) node ... --extract <ids|--all> [--limit N] [--out fil]
+//        -> skriver {id: [strenger som manglar omsetjing]} til fila
+//   2) agenten les fila, omset, skriv {id: [omsette strenger]} i SAME rekkjefølgje
+//   3) node ... --apply <done-fil>
+//        -> byggjer nn-filene + TM frå agentens omsetjingar
+// ---------------------------------------------------------------------------
+function collectRefsFor(id) {
+  const srcPath = path.join(CHAPTERS_DIR, id + '.json');
+  if (!fs.existsSync(srcPath)) return null;
+  const srcRaw = fs.readFileSync(srcPath, 'utf-8');
+  const obj = JSON.parse(srcRaw);
+  const refs = [];
+  collectStrings(obj, null, refs);
+  return { srcRaw, srcHash: sha(srcRaw), obj, refs };
+}
+
+function loadTm(id) {
+  const nnPath = path.join(NN_DIR, id + '.json');
+  if (fs.existsSync(nnPath)) {
+    try { return JSON.parse(fs.readFileSync(nnPath, 'utf-8'))._meta?.tm || {}; } catch { /* */ }
+  }
+  return {};
+}
+
+function extractChapter(id, { force = false } = {}) {
+  const c = collectRefsFor(id);
+  if (!c) return { id, status: 'missing-src', need: [] };
+  const nnPath = path.join(NN_DIR, id + '.json');
+  if (!force && fs.existsSync(nnPath)) {
+    try {
+      const ex = JSON.parse(fs.readFileSync(nnPath, 'utf-8'));
+      if (ex._meta?.sourceHash === c.srcHash) return { id, status: 'up-to-date', need: [] };
+    } catch { /* */ }
+  }
+  const tm = force ? {} : loadTm(id);
+  const seen = new Set();
+  const need = [];
+  for (const ref of c.refs) {
+    const s = ref.get();
+    const h = sha(s);
+    if (h in tm || seen.has(h)) continue;   // dedup innan fila
+    seen.add(h);
+    need.push(s);
+  }
+  return { id, status: need.length ? 'needs' : 'cached', need };
+}
+
+// Bygg nn-fila frå agentens omsetjingar. `provided` = array i SAME rekkjefølgje
+// som extract gav (dvs. unike strenger som mangla i TM).
+function applyChapter(id, provided, { force = false } = {}) {
+  const c = collectRefsFor(id);
+  if (!c) return { id, status: 'missing-src' };
+  const tm = force ? {} : loadTm(id);
+
+  // Map: kildehash -> omsetjing. Først eksisterande TM, så agentens nye (i rekkjefølgje
+  // av unike manglande strenger).
+  const seen = new Set();
+  const order = [];
+  for (const ref of c.refs) {
+    const s = ref.get();
+    const h = sha(s);
+    if (h in tm || seen.has(h)) continue;
+    seen.add(h);
+    order.push(h);
+  }
+  if (provided.length !== order.length) {
+    return { id, status: 'error', error: `lengdemismatch: fekk ${provided.length}, venta ${order.length}` };
+  }
+  const newTm = { ...tm };
+  order.forEach((h, i) => { newTm[h] = provided[i]; });
+
+  const finalTm = {};
+  for (const ref of c.refs) {
+    const s = ref.get();
+    const h = sha(s);
+    finalTm[h] = newTm[h] ?? s;
+    ref.set(finalTm[h]);
+  }
+  c.obj._meta = {
+    sourceHash: c.srcHash,
+    translatedAt: new Date().toISOString(),
+    model: 'claude-code-agent',
+    strings: c.refs.length,
+    tm: finalTm,
+  };
+  fs.mkdirSync(NN_DIR, { recursive: true });
+  fs.writeFileSync(path.join(NN_DIR, id + '.json'), JSON.stringify(c.obj));
+  return { id, status: 'applied', strings: c.refs.length };
+}
+
+// ---------------------------------------------------------------------------
 // Concurrency-pool
 // ---------------------------------------------------------------------------
 async function runPool(ids, worker, concurrency) {
@@ -268,12 +362,17 @@ function loadEnv() {
 }
 
 function parseArgs(argv) {
-  const opts = { ids: [], all: false, staged: false, limit: 0, concurrency: 6, force: false };
+  const opts = { ids: [], all: false, staged: false, limit: 0, concurrency: 6,
+    force: false, extract: false, apply: null, out: null, useApi: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--all') opts.all = true;
     else if (a === '--staged') opts.staged = true;
     else if (a === '--force') opts.force = true;
+    else if (a === '--extract') opts.extract = true;
+    else if (a === '--apply') opts.apply = argv[++i];
+    else if (a === '--out') opts.out = argv[++i];
+    else if (a === '--use-api') opts.useApi = true;
     else if (a === '--limit') opts.limit = parseInt(argv[++i], 10);
     else if (a === '--concurrency') opts.concurrency = parseInt(argv[++i], 10);
     else opts.ids.push(a);
@@ -281,14 +380,7 @@ function parseArgs(argv) {
   return opts;
 }
 
-async function main() {
-  loadEnv();
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) { console.error('Manglar ANTHROPIC_API_KEY'); process.exit(1); }
-
-  const opts = parseArgs(process.argv.slice(2));
-  const registry = JSON.parse(fs.readFileSync(path.join(CHAPTERS_DIR, '_registry.json'), 'utf-8'));
-
+function resolveIds(opts, registry) {
   let ids;
   if (opts.all) {
     ids = registry.chapterIds.slice();
@@ -301,9 +393,58 @@ async function main() {
     ids = opts.ids;
   }
   if (opts.limit > 0) ids = ids.slice(0, opts.limit);
+  return ids;
+}
+
+async function main() {
+  loadEnv();
+  const opts = parseArgs(process.argv.slice(2));
+  const registry = JSON.parse(fs.readFileSync(path.join(CHAPTERS_DIR, '_registry.json'), 'utf-8'));
+
+  // --- APPLY: bygg nn-filer frå agentens omsetjingar (ingen API) -----------
+  if (opts.apply) {
+    const done = JSON.parse(fs.readFileSync(opts.apply, 'utf-8'));
+    const tally = {};
+    for (const [id, provided] of Object.entries(done)) {
+      const r = applyChapter(id, provided, { force: opts.force });
+      tally[r.status] = (tally[r.status] || 0) + 1;
+      if (r.status === 'error') console.log(`  ${id}: ${r.error}`);
+    }
+    console.log('Apply ferdig:', tally);
+    return;
+  }
+
+  // --- EXTRACT: skriv ut strenger som treng omsetjing (ingen API) ----------
+  if (opts.extract) {
+    const ids = resolveIds(opts, registry);
+    const todo = {};
+    let totalStrings = 0;
+    const tally = {};
+    for (const id of ids) {
+      const r = extractChapter(id, { force: opts.force });
+      tally[r.status] = (tally[r.status] || 0) + 1;
+      if (r.need.length) { todo[id] = r.need; totalStrings += r.need.length; }
+    }
+    const outPath = opts.out || path.join(ROOT, 'tmp-nn-todo.json');
+    fs.writeFileSync(outPath, JSON.stringify(todo, null, 1));
+    console.log(`Extract: ${Object.keys(todo).length} kapitler, ${totalStrings} strenger -> ${outPath}`);
+    console.log('Status:', tally);
+    return;
+  }
+
+  // --- TRANSLATE via betalt API: BERRE med eksplisitt --use-api ------------
+  if (!opts.useApi) {
+    console.error('STOPP: standardmodus brukar ikkje betalt API.');
+    console.error('Bruk --extract / --apply (Claude Code gjer omsetjinga), eller');
+    console.error('--use-api dersom du HAR fått eksplisitt løyve til å bruke betalt Anthropic-API.');
+    process.exit(2);
+  }
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) { console.error('Manglar ANTHROPIC_API_KEY'); process.exit(1); }
+  const ids = resolveIds(opts, registry);
   if (ids.length === 0) { console.log('Ingen kapitler å oversette.'); return; }
 
-  console.log(`Oversetter ${ids.length} kapitler (modell: ${MODEL}, samtidige: ${opts.concurrency})`);
+  console.log(`[BETALT API] Oversetter ${ids.length} kapitler (modell: ${MODEL}, samtidige: ${opts.concurrency})`);
   const t0 = Date.now();
   const results = await runPool(ids, (id) => translateChapter(id, apiKey, { force: opts.force }), opts.concurrency);
 
