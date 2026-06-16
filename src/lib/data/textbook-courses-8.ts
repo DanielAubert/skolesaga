@@ -486,8 +486,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Skimming', 'Scanning', 'Context clues', 'Reading strategies', 'Text types'],
-      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'],
-    },
+      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'], linkedChapterId: 'engelsk-8-1-1-narrativ' },
     {
       id: 'engelsk-8-1-2',
       number: '1.2',
@@ -496,8 +495,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Active listening', 'Note-taking', 'Listening for gist', 'Listening for detail'],
-      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'],
-    },
+      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'], linkedChapterId: 'engelsk-8-1-2-narrativ' },
     {
       id: 'engelsk-8-1-3',
       number: '1.3',
@@ -506,8 +504,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Presentations', 'Discussion', 'Pronunciation', 'Body language', 'Filler words'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-1-3-narrativ' },
     {
       id: 'engelsk-8-1-4',
       number: '1.4',
@@ -516,8 +513,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Planning', 'Drafting', 'Revising', 'Editing', 'Proofreading'],
-      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-8-1-4-narrativ' },
     {
       id: 'engelsk-8-1-5',
       number: '1.5',
@@ -526,8 +522,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Email', 'Social media', 'Netiquette', 'Online safety', 'Formal vs informal'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-1-5-narrativ' },
     {
       id: 'engelsk-8-1-6',
       number: '1.6',
@@ -536,8 +531,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['TH-sounds', 'W/V distinction', 'Word stress', 'Intonation', 'Fluency', 'Communication strategies'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-1-6-narrativ' },
     // Section 2: Grammar Foundations
     {
       id: 'engelsk-8-2-1',
@@ -547,8 +541,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 7,
       topics: ['SVO word order', 'Questions', 'Negation', 'Adverb placement'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-2-1-narrativ' },
     {
       id: 'engelsk-8-2-2',
       number: '2.2',
@@ -557,8 +550,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 8,
       topics: ['Present simple', 'Present continuous', 'Past simple', 'Past continuous', 'Irregular verbs'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-2-2-narrativ' },
     {
       id: 'engelsk-8-2-3',
       number: '2.3',
@@ -567,8 +559,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Will', 'Going to', 'Present continuous for future', 'Predictions', 'Plans'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-2-3-narrativ' },
     {
       id: 'engelsk-8-2-4',
       number: '2.4',
@@ -577,8 +568,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 7,
       topics: ['Articles', 'Pronouns', 'Determiners', 'Possessives', 'Demonstratives'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-2-4-narrativ' },
     {
       id: 'engelsk-8-2-5',
       number: '2.5',
@@ -587,8 +577,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 7,
       topics: ['Adjectives', 'Comparative', 'Superlative', 'Adverbs', 'Prepositions'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-2-5-narrativ' },
     // Section 3: Vocabulary and Word Building
     {
       id: 'engelsk-8-3-1',
@@ -598,8 +587,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Nouns', 'Verbs', 'Adjectives', 'Adverbs', 'Prepositions', 'Conjunctions'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-3-1-narrativ' },
     {
       id: 'engelsk-8-3-2',
       number: '3.2',
@@ -608,8 +596,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Prefixes', 'Suffixes', 'Word families', 'Word formation'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-3-2-narrativ' },
     {
       id: 'engelsk-8-3-3',
       number: '3.3',
@@ -618,8 +605,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Idioms', 'Phrasal verbs', 'Collocations', 'Fixed expressions'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-3-3-narrativ' },
     {
       id: 'engelsk-8-3-4',
       number: '3.4',
@@ -628,8 +614,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Academic words', 'Formal language', 'Linking words', 'Subject vocabulary'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-3-4-narrativ' },
     // Section 4: Writing Skills
     {
       id: 'engelsk-8-4-1',
@@ -639,8 +624,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Topic sentence', 'Supporting sentences', 'Paragraph structure', 'TEXAS model'],
-      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for rettskrivning, ordbøyning, setnings- og tekstoppbygging i kommunikasjon'], linkedChapterId: 'engelsk-8-4-1-narrativ' },
     {
       id: 'engelsk-8-4-2',
       number: '4.2',
@@ -649,8 +633,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Story structure', 'Characters', 'Dialogue', 'Show dont tell', 'Sensory details'],
-      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'],
-    },
+      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'], linkedChapterId: 'engelsk-8-4-2-narrativ' },
     {
       id: 'engelsk-8-4-3',
       number: '4.3',
@@ -659,8 +642,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Sensory details', 'Simile', 'Metaphor', 'Adjectives', 'Show dont tell'],
-      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'],
-    },
+      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'], linkedChapterId: 'engelsk-8-4-3-narrativ' },
     {
       id: 'engelsk-8-4-4',
       number: '4.4',
@@ -669,8 +651,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Informal letter', 'Email', 'Greeting', 'Closing', 'Tone'],
-      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'],
-    },
+      competenceGoals: ['skrive formelle og uformelle tekster med struktur og sammenheng'], linkedChapterId: 'engelsk-8-4-4-narrativ' },
     {
       id: 'engelsk-8-4-5',
       number: '4.5',
@@ -679,8 +660,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Summary', 'Main idea', 'Key points', 'Paraphrasing', 'Conciseness'],
-      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-8-4-5-narrativ' },
     // Section 5: The English-Speaking World
     {
       id: 'engelsk-8-5-1',
@@ -690,8 +670,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['UK', 'England', 'Scotland', 'Wales', 'Northern Ireland', 'Monarchy', 'Culture'],
-      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'], linkedChapterId: 'engelsk-8-5-1-narrativ' },
     {
       id: 'engelsk-8-5-2',
       number: '5.2',
@@ -700,8 +679,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['USA', 'Geography', 'History', 'American Dream', 'Culture', 'Diversity'],
-      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'], linkedChapterId: 'engelsk-8-5-2-narrativ' },
     {
       id: 'engelsk-8-5-3',
       number: '5.3',
@@ -710,8 +688,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Australia', 'New Zealand', 'Aboriginal', 'Maori', 'Outback', 'Nature'],
-      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'], linkedChapterId: 'engelsk-8-5-3-narrativ' },
     {
       id: 'engelsk-8-5-4',
       number: '5.4',
@@ -720,8 +697,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Lingua franca', 'British Empire', 'Variants', 'Global English'],
-      competenceGoals: ['utforske og reflektere over engelskens rolle som verdensspråk'],
-    },
+      competenceGoals: ['utforske og reflektere over engelskens rolle som verdensspråk'], linkedChapterId: 'engelsk-8-5-4-narrativ' },
     {
       id: 'engelsk-8-5-5',
       number: '5.5',
@@ -730,8 +706,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Native Americans', 'Aboriginal Australians', 'Maori', 'Sami', 'Colonisation'],
-      competenceGoals: ['utforske og reflektere over situasjonen til urbefolkninger i den engelsktalende verden'],
-    },
+      competenceGoals: ['utforske og reflektere over situasjonen til urbefolkninger i den engelsktalende verden'], linkedChapterId: 'engelsk-8-5-5-narrativ' },
     {
       id: 'engelsk-8-5-6',
       number: '5.6',
@@ -740,8 +715,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Ireland', 'Celtic heritage', 'Great Famine', 'Easter Rising', 'The Troubles', 'Irish literature', 'Celtic Tiger'],
-      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tradisjoner og geografi i områder der engelsk snakkes'], linkedChapterId: 'engelsk-8-5-6-narrativ' },
     // Section 6: Literature and Texts
     {
       id: 'engelsk-8-6-1',
@@ -751,8 +725,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Plot', 'Character', 'Setting', 'Theme', 'Point of view', 'Conflict'],
-      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'],
-    },
+      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'], linkedChapterId: 'engelsk-8-6-1-narrativ' },
     {
       id: 'engelsk-8-6-2',
       number: '6.2',
@@ -761,8 +734,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Rhyme', 'Rhythm', 'Simile', 'Metaphor', 'Personification', 'Haiku', 'Limerick'],
-      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'],
-    },
+      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'], linkedChapterId: 'engelsk-8-6-2-narrativ' },
     {
       id: 'engelsk-8-6-3',
       number: '6.3',
@@ -771,8 +743,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Panels', 'Speech bubbles', 'Visual storytelling', 'Graphic novels'],
-      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'],
-    },
+      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'], linkedChapterId: 'engelsk-8-6-3-narrativ' },
     {
       id: 'engelsk-8-6-4',
       number: '6.4',
@@ -781,8 +752,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Film genres', 'Camera shots', 'Soundtrack', 'Lighting', 'Media literacy'],
-      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'],
-    },
+      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'], linkedChapterId: 'engelsk-8-6-4-narrativ' },
     {
       id: 'engelsk-8-6-5',
       number: '6.5',
@@ -791,8 +761,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Fairy tales', 'Fables', 'Myths', 'Legends', 'Cross-cultural stories'],
-      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'],
-    },
+      competenceGoals: ['lese og reflektere over innhold fra fiksjonstekster'], linkedChapterId: 'engelsk-8-6-5-narrativ' },
     {
       id: 'engelsk-8-6-6',
       number: '6.6',
@@ -801,8 +770,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 4,
       topics: ['Song lyrics', 'Music genres', 'Figurative language', 'Rhyme', 'Protest songs', 'Music analysis'],
-      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'],
-    },
+      competenceGoals: ['lese, diskutere og presentere innhold fra ulike typer tekster'], linkedChapterId: 'engelsk-8-6-6-narrativ' },
     // Section 7: Everyday English
     {
       id: 'engelsk-8-7-1',
@@ -812,8 +780,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['School subjects', 'School systems', 'Hobbies', 'Free time', 'Interview'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-7-1-narrativ' },
     {
       id: 'engelsk-8-7-2',
       number: '7.2',
@@ -822,8 +789,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Body parts', 'Health', 'At the doctor', 'Nutrition', 'Mental health'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-7-2-narrativ' },
     {
       id: 'engelsk-8-7-3',
       number: '7.3',
@@ -832,8 +798,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 6,
       topics: ['Climate change', 'Pollution', 'Biodiversity', 'Renewable energy', 'Sustainability'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-8-7-3-narrativ' },
     // Section 8: Study Skills
     {
       id: 'engelsk-8-8-1',
@@ -843,8 +808,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 40,
       exerciseCount: 6,
       topics: ['Dictionary types', 'Dictionary entries', 'Collocations', 'Online dictionaries'],
-      competenceGoals: ['bruke ulike digitale og analoge ressurser på en kritisk og hensiktsmessig måte'],
-    },
+      competenceGoals: ['bruke ulike digitale og analoge ressurser på en kritisk og hensiktsmessig måte'], linkedChapterId: 'engelsk-8-8-1-narrativ' },
     {
       id: 'engelsk-8-8-2',
       number: '8.2',
@@ -853,8 +817,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 40,
       exerciseCount: 6,
       topics: ['Learning styles', 'Vocabulary strategies', 'Flashcards', 'Spaced repetition'],
-      competenceGoals: ['utforske og reflektere over egen språklæring'],
-    },
+      competenceGoals: ['utforske og reflektere over egen språklæring'], linkedChapterId: 'engelsk-8-8-2-narrativ' },
     {
       id: 'engelsk-8-8-3',
       number: '8.3',
@@ -863,8 +826,7 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
       estimatedMinutes: 40,
       exerciseCount: 6,
       topics: ['Self-assessment', 'SMART goals', 'Exam techniques', 'Feedback', 'Error analysis'],
-      competenceGoals: ['utforske og reflektere over egen språklæring'],
-    },
+      competenceGoals: ['utforske og reflektere over egen språklæring'], linkedChapterId: 'engelsk-8-8-3-narrativ' },
   ],
 };
 

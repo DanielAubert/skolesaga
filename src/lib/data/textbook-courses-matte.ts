@@ -1827,8 +1827,7 @@ export const COURSE_8: TextbookCourse = {
       prerequisites: ['8-10-1'],
       competenceGoals: ['utforske, forklare og sammenligne funksjoner knyttet til praktiske situasjoner'],
       coverImage: 'https://images.unsplash.com/photo-1545987796-200d7b240791?w=800&h=400&fit=crop',
-      wip: true,
-    },
+      wip: true, linkedChapterId: '8-4-4-narrativ' },
     {
       id: '8-3-2',
       number: '5.3',
@@ -1879,8 +1878,7 @@ export const COURSE_8: TextbookCourse = {
       topics: ['Grafer', 'Avlesing', 'Tolkning', 'Praktiske sammenhenger'],
       competenceGoals: ['representere funksjoner på ulike måter og vise sammenhenger mellom representasjonene'],
       coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-      wip: true,
-    },
+      wip: true, linkedChapterId: '8-4-5-narrativ' },
     {
       id: '8-10-3',
       number: '5.7',

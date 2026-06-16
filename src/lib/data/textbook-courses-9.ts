@@ -483,8 +483,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 7,
       topics: ['Kritisk lesing', 'SQ3R-metoden', 'Forfatterens formål', 'Fakta vs. mening', 'Bias'],
-      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-9-1-1-narrativ' },
     {
       id: 'engelsk-9-1-2',
       number: '1.2',
@@ -493,8 +492,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Aktiv lytting', 'Cornell-metoden', 'Notatstrategier', 'Akademisk lytting', 'Forelesningsnotater'],
-      competenceGoals: ['lytte til og forstå varianter av engelsk fra autentiske situasjoner', 'bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['lytte til og forstå varianter av engelsk fra autentiske situasjoner', 'bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-9-1-2-narrativ' },
     {
       id: 'engelsk-9-1-3',
       number: '1.3',
@@ -503,8 +501,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 4,
       topics: ['Presentasjonsstruktur', 'Retoriske virkemidler', 'Kroppsspråk', 'Visuell støtte', 'Nervemestring'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-1-3-narrativ' },
     {
       id: 'engelsk-9-1-4',
       number: '1.4',
@@ -513,8 +510,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 3,
       topics: ['Debattstruktur', 'ARE-modellen', 'Motargumenter', 'Logiske feilslutninger', 'Debattspråk'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'], linkedChapterId: 'engelsk-9-1-4-narrativ' },
     {
       id: 'engelsk-9-1-5',
       number: '1.5',
@@ -523,8 +519,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Digitalt medborgerskap', 'Kildekritikk', 'SIFT-metoden', 'Nettikette', 'Digitalt fotavtrykk'],
-      competenceGoals: ['bruke digitale ressurser og ulike medier kritisk og hensiktsmessig', 'utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['bruke digitale ressurser og ulike medier kritisk og hensiktsmessig', 'utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-1-5-narrativ' },
     {
       id: 'engelsk-9-1-6',
       number: '1.6',
@@ -533,8 +528,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Presentasjonsstruktur', 'Hooks', 'Kroppsspråk', 'Visuell støtte', 'Nervemestring', 'Evaluering'],
-      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon', 'bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon', 'bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-9-1-6-narrativ' },
 
     // Seksjon 2: Grammatikk i dybden
     {
@@ -545,8 +539,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Present perfect', 'Past perfect', 'Present perfect continuous', 'For/since', 'Tidssignalord'],
-      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'], linkedChapterId: 'engelsk-9-2-1-narrativ' },
     {
       id: 'engelsk-9-2-2',
       number: '2.2',
@@ -555,8 +548,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 3,
       topics: ['Zero conditional', 'First conditional', 'Second conditional', 'Third conditional', 'Mixed conditionals'],
-      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'], linkedChapterId: 'engelsk-9-2-2-narrativ' },
     {
       id: 'engelsk-9-2-3',
       number: '2.3',
@@ -565,8 +557,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 3,
       topics: ['Aktiv vs. passiv', 'Passiv i ulike tider', 'Agens', 'Akademisk skriving', 'Nyhetsskriving'],
-      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'], linkedChapterId: 'engelsk-9-2-3-narrativ' },
     {
       id: 'engelsk-9-2-4',
       number: '2.4',
@@ -575,8 +566,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Direkte vs. indirekte tale', 'Tidsforskyvning', 'Pronomenendringer', 'Rapporteringsverb', 'Spørsmål i indirekte tale'],
-      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'], linkedChapterId: 'engelsk-9-2-4-narrativ' },
     {
       id: 'engelsk-9-2-5',
       number: '2.5',
@@ -585,8 +575,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Defining relative clauses', 'Non-defining relative clauses', 'Who/which/that/whose', 'Leddsetninger', 'Setningsbinding'],
-      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for setningsbygning, verbtider og tekstbinding i kommunikasjon'], linkedChapterId: 'engelsk-9-2-5-narrativ' },
 
     // Seksjon 3: Ordforråd
     {
@@ -597,8 +586,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 6,
       topics: ['Kollokasjoner', 'Make vs. do', 'Take/get/have', 'Verb-substantiv', 'Adjektiv-substantiv'],
-      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon'], linkedChapterId: 'engelsk-9-3-1-narrativ' },
     {
       id: 'engelsk-9-3-2',
       number: '3.2',
@@ -607,8 +595,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Register', 'Formelt språk', 'Uformelt språk', 'Akademisk skriving', 'Situasjonstilpasning'],
-      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'uttrykke seg med flyt og sammenheng tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'uttrykke seg med flyt og sammenheng tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-3-2-narrativ' },
     {
       id: 'engelsk-9-3-3',
       number: '3.3',
@@ -617,8 +604,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 5,
       topics: ['Simile', 'Metafor', 'Personifisering', 'Idiomer', 'Ordtak', 'Billedspråk'],
-      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'], linkedChapterId: 'engelsk-9-3-3-narrativ' },
     {
       id: 'engelsk-9-3-4',
       number: '3.4',
@@ -627,8 +613,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 3,
       topics: ['Akademisk ordforråd', 'AWL', 'Fagbegreper', 'Prefikser og suffikser', 'Orddannelse'],
-      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-9-3-4-narrativ' },
 
     // Seksjon 4: Avansert skriving
     {
@@ -639,8 +624,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 3,
       topics: ['Argumenterende tekst', 'Thesis statement', 'PEEL-struktur', 'Motargumenter', 'Overganger'],
-      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-4-1-narrativ' },
     {
       id: 'engelsk-9-4-2',
       number: '4.2',
@@ -649,8 +633,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 2,
       topics: ['Formelt brev', 'Formell e-post', 'Søknadsbrev', 'Klagebrev', 'Formelle hilsener'],
-      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-4-2-narrativ' },
     {
       id: 'engelsk-9-4-3',
       number: '4.3',
@@ -659,8 +642,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Artikkelskriving', 'Overskrifter', 'Lead/ingress', 'Kildebruk', 'Kronikk'],
-      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon', 'bruke kilder på en kritisk måte og vise til kilder på en etterrettelig måte'],
-    },
+      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon', 'bruke kilder på en kritisk måte og vise til kilder på en etterrettelig måte'], linkedChapterId: 'engelsk-9-4-3-narrativ' },
     {
       id: 'engelsk-9-4-4',
       number: '4.4',
@@ -669,8 +651,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Sammenligning', 'Block method', 'Point-by-point', 'Venn-diagram', 'Sammenligningsspråk'],
-      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['skrive ulike typer tekster med struktur og sammenheng tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-4-4-narrativ' },
     {
       id: 'engelsk-9-4-5',
       number: '4.5',
@@ -679,8 +660,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 3,
       topics: ['Novelleskriving', 'Show don\'t tell', 'Dialog', 'Diktskriving', 'Stemning og atmosfære'],
-      competenceGoals: ['skrive kreative tekster inspirert av tekster du har lest', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'],
-    },
+      competenceGoals: ['skrive kreative tekster inspirert av tekster du har lest', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'], linkedChapterId: 'engelsk-9-4-5-narrativ' },
 
     // Seksjon 5: Global engelsk
     {
@@ -691,8 +671,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 2,
       topics: ['India', 'Sør-Afrika', 'Kolonialisme', 'Apartheid', 'Gandhi', 'Mandela', 'Kulturelt mangfold'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-5-1-narrativ' },
     {
       id: 'engelsk-9-5-2',
       number: '5.2',
@@ -701,8 +680,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Canada', 'Karibien', 'Tospråklighet', 'Urfolk', 'Reggae', 'Kreolspråk', 'Mangfold'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-5-2-narrativ' },
     {
       id: 'engelsk-9-5-3',
       number: '5.3',
@@ -711,8 +689,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Lingua franca', 'Språkimperialisme', 'Kachrus modell', 'ELF', 'Globalisering'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-5-3-narrativ' },
     {
       id: 'engelsk-9-5-4',
       number: '5.4',
@@ -721,8 +698,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Migrasjon', 'Push/pull-faktorer', 'Identitet', 'Flerkulturelt samfunn', 'Diaspora'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'], linkedChapterId: 'engelsk-9-5-4-narrativ' },
     {
       id: 'engelsk-9-5-5',
       number: '5.5',
@@ -731,8 +707,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 2,
       topics: ['Menneskerettigheter', 'UDHR', 'Borgerrettigheter', 'Aktivisme', 'Sosial rettferdighet'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og drøfte fordeler og utfordringer'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og drøfte fordeler og utfordringer'], linkedChapterId: 'engelsk-9-5-5-narrativ' },
     {
       id: 'engelsk-9-5-6',
       number: '5.6',
@@ -741,8 +716,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Canada', 'Tospråklighet', 'Urfolk', 'Jamaica', 'Reggae', 'Trinidad', 'Karneval', 'Karibisk engelsk'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer'], linkedChapterId: 'engelsk-9-5-6-narrativ' },
 
     // Seksjon 6: Litteraturstudier
     {
@@ -753,8 +727,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 2,
       topics: ['Novelleanalyse', 'Narrativ struktur', 'Tema', 'Symbolikk', 'Karakterutvikling'],
-      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'],
-    },
+      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'], linkedChapterId: 'engelsk-9-6-1-narrativ' },
     {
       id: 'engelsk-9-6-2',
       number: '6.2',
@@ -763,8 +736,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Drama', 'Skuespill', 'Dialog', 'Sceneanvisninger', 'Shakespeare', 'Moderne drama'],
-      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'],
-    },
+      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'uttrykke seg med flyt og sammenheng tilpasset formål og situasjon'], linkedChapterId: 'engelsk-9-6-2-narrativ' },
     {
       id: 'engelsk-9-6-3',
       number: '6.3',
@@ -773,8 +745,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Poesianalyse', 'SMILE-metoden', 'Billedspråk', 'Rytme og rim', 'Fri vers'],
-      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa'],
-    },
+      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa'], linkedChapterId: 'engelsk-9-6-3-narrativ' },
     {
       id: 'engelsk-9-6-4',
       number: '6.4',
@@ -783,8 +754,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 2,
       topics: ['Sakprosa', 'Filmanalyse', 'Kameravinkel', 'Retorisk analyse', 'Dokumentar'],
-      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'],
-    },
+      competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur og sakprosa', 'lese, diskutere og reflektere over innhold og språklige virkemidler i ulike typer tekster'], linkedChapterId: 'engelsk-9-6-4-narrativ' },
 
     // Seksjon 7: Samfunn og kultur
     {
@@ -795,8 +765,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 4,
       topics: ['Mediekompetanse', 'Falske nyheter', 'Filterbobler', 'Kildekritikk', 'Propaganda'],
-      competenceGoals: ['bruke digitale ressurser og ulike medier kritisk og hensiktsmessig', 'bruke kilder på en kritisk måte og vise til kilder på en etterrettelig måte'],
-    },
+      competenceGoals: ['bruke digitale ressurser og ulike medier kritisk og hensiktsmessig', 'bruke kilder på en kritisk måte og vise til kilder på en etterrettelig måte'], linkedChapterId: 'engelsk-9-7-1-narrativ' },
     {
       id: 'engelsk-9-7-2',
       number: '7.2',
@@ -805,8 +774,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Ungdomskultur', 'Generasjoner', 'Sosiale medier', 'Subkulturer', 'Identitet'],
-      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og drøfte fordeler og utfordringer'],
-    },
+      competenceGoals: ['utforske og beskrive levemåter, tenkemåter, kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'delta i samtaler om samfunn og drøfte fordeler og utfordringer'], linkedChapterId: 'engelsk-9-7-2-narrativ' },
     {
       id: 'engelsk-9-7-3',
       number: '7.3',
@@ -815,8 +783,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Kunstig intelligens', 'Personvern', 'Etikk', 'Teknologisk ulikhet', 'Digital overvåking'],
-      competenceGoals: ['delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer', 'utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer', 'utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-7-3-narrativ' },
     {
       id: 'engelsk-9-7-4',
       number: '7.4',
@@ -825,8 +792,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 5,
       topics: ['Demokrati', 'Grunnlov', 'Valg', 'Ytringsfrihet', 'Medborgerskap', 'Aktivisme'],
-      competenceGoals: ['delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer', 'utforske og beskrive levemåter og tenkemåter i den engelskspråklige verden'],
-    },
+      competenceGoals: ['delta i samtaler om samfunn og arbeidsliv og drøfte fordeler og utfordringer', 'utforske og beskrive levemåter og tenkemåter i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-7-4-narrativ' },
 
     // Seksjon 8: Språkbevissthet
     {
@@ -837,8 +803,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 2,
       topics: ['Språkhistorie', 'Gammelengelsk', 'Middelengelsk', 'Moderne engelsk', 'Lånord', 'Språkendring'],
-      competenceGoals: ['utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'],
-    },
+      competenceGoals: ['utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden'], linkedChapterId: 'engelsk-9-8-1-narrativ' },
     {
       id: 'engelsk-9-8-2',
       number: '8.2',
@@ -847,8 +812,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 2,
       topics: ['Engelske varianter', 'Britisk vs. amerikansk', 'Dialekt', 'Aksent', 'Sosiolekt', 'Standard English'],
-      competenceGoals: ['utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'lytte til og forstå varianter av engelsk fra autentiske situasjoner'],
-    },
+      competenceGoals: ['utforske og beskrive kommunikasjonsmønstre og mangfold i den engelskspråklige verden', 'lytte til og forstå varianter av engelsk fra autentiske situasjoner'], linkedChapterId: 'engelsk-9-8-2-narrativ' },
     {
       id: 'engelsk-9-8-3',
       number: '8.3',
@@ -857,8 +821,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 2,
       topics: ['Oversettelse', 'False friends', 'Preposisjoner', 'Ordstilling', 'Idiomatisk engelsk'],
-      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'bruke lese- og skrivestrategier tilpasset formålet'],
-    },
+      competenceGoals: ['bruke sentrale mønstre for ordforråd og setningsbygning i kommunikasjon', 'bruke lese- og skrivestrategier tilpasset formålet'], linkedChapterId: 'engelsk-9-8-3-narrativ' },
     {
       id: 'engelsk-9-8-4',
       number: '8.4',
@@ -867,8 +830,7 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
       estimatedMinutes: 50,
       exerciseCount: 2,
       topics: ['Eksamensforberedelse', 'PLAN-strategi', 'Skriveoppgaver', 'Muntlig eksamen', 'Repetisjon'],
-      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet', 'uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon'],
-    },
+      competenceGoals: ['bruke lese- og skrivestrategier tilpasset formålet', 'uttrykke seg med flyt og sammenheng med et variert ordforråd tilpasset formål, mottaker og situasjon'], linkedChapterId: 'engelsk-9-8-4-narrativ' },
   ],
 };
 
