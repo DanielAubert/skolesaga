@@ -16,7 +16,7 @@ const CH = path.join(ROOT, 'src', 'lib', 'data', 'chapters');
 const NN = path.join(CH, 'nn');
 const SLICES = '/tmp/nn-slices';
 
-const LANG = ['fransk', 'spansk', 'tysk', 'engelsk']; // språkbøker — tas seinare
+const LANG = ['fransk', 'spansk', 'tysk', 'engelsk', 'int-engelsk', 'samf-engelsk']; // språk/engelskspråklege bøker — tas seinare
 
 const args = process.argv.slice(2);
 const get = (f, d) => { const i = args.indexOf(f); return i >= 0 ? args[i + 1] : d; };
