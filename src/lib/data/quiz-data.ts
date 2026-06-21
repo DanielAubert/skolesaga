@@ -5,12 +5,32 @@
  * Første alternativ er alltid riktig svar (vil bli shufflet ved visning).
  */
 
+import * as fs from 'fs';
+import * as path from 'path';
 import { getChapterContent } from './textbook-content';
+import type { Malform } from './textbook-content';
 
 export interface QuizQuestion {
   question: string;
   options: string[];  // First option is always correct
   explanation?: string;
+}
+
+// ----------------------------------------------------------------------------
+// Nynorsk-quiz lastast lazy frå quiz/_all.nn.json (sidecar bygd av combine-quiz).
+// Fell tilbake til bokmål dersom nn-versjon manglar.
+// ----------------------------------------------------------------------------
+let quizDataNn: Record<string, QuizQuestion[]> | null = null;
+function getQuizDataNn(): Record<string, QuizQuestion[]> {
+  if (!quizDataNn) {
+    try {
+      const p = path.join(process.cwd(), 'src', 'lib', 'data', 'quiz', '_all.nn.json');
+      quizDataNn = JSON.parse(fs.readFileSync(p, 'utf-8'));
+    } catch {
+      quizDataNn = {};
+    }
+  }
+  return quizDataNn!;
 }
 
 // Quiz questions organized by chapter ID (works for all subjects)
@@ -162,7 +182,7 @@ import quizData_handverk_design_vg1 from './quiz-data-handverk-design-vg1';
 import quizData_samfokonomi_1 from './quiz-data-samfokonomi-1';
 
 // Merged quiz data from all subject files
-const quizData: Record<string, QuizQuestion[]> = {
+export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_1p,
   ...quizData_biologi_1,
   ...quizData_1t,
@@ -313,7 +333,12 @@ const quizData: Record<string, QuizQuestion[]> = {
 /**
  * Henter quiz-spørsmål for et spesifikt kapittel
  */
-export function getQuizQuestions(chapterId: string): QuizQuestion[] {
+export function getQuizQuestions(chapterId: string, malform: Malform = 'nb'): QuizQuestion[] {
+  if (malform === 'nn') {
+    const nn = getQuizDataNn()[chapterId];
+    if (nn && nn.length) return nn;
+    // fall tilbake til bokmål
+  }
   return quizData[chapterId] || [];
 }
 
