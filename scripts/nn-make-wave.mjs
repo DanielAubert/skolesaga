@@ -23,11 +23,14 @@ const get = (f, d) => { const i = args.indexOf(f); return i >= 0 ? args[i + 1] :
 const PER = parseInt(get('--per', '10'), 10);
 const AGENTS = parseInt(get('--agents', '8'), 10);
 const PREFIX = get('--prefix', 'cur');
+const LANG_ONLY = args.includes('--lang'); // berre språkbøker (krev spesialhandsaming)
 
 const reg = JSON.parse(fs.readFileSync(path.join(CH, '_registry.json'), 'utf-8')).chapterIds;
 const have = new Set(fs.readdirSync(NN).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5)));
 const isLang = (id) => LANG.some(b => id === b || id.startsWith(b + '-'));
-const remaining = reg.filter(id => !have.has(id) && !isLang(id));
+const remaining = LANG_ONLY
+  ? reg.filter(id => !have.has(id) && isLang(id))
+  : reg.filter(id => !have.has(id) && !isLang(id));
 const langRemaining = reg.filter(id => !have.has(id) && isLang(id));
 
 fs.mkdirSync(SLICES, { recursive: true });
