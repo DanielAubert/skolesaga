@@ -5,8 +5,6 @@
  * Kursdata er splittet i separate filer per nivå/gruppe.
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 import type { TextbookCourse, TextbookChapterMeta } from '@/lib/types/textbook';
 import type { Malform } from './textbook-content';
 
@@ -385,6 +383,12 @@ let metaNn: Record<string, MetaNn> | null = null;
 function getMetaNn(): Record<string, MetaNn> {
   if (!metaNn) {
     try {
+      // Lazy, server-only innlasting. `eval('require')` hindrar at bundleren
+      // prøver å resolve 'fs'/'path' i klient-bundelen (denne fila vert importert
+      // av klientkomponentar via getCourse o.l.).
+      const nodeRequire = eval('require') as NodeRequire;
+      const fs = nodeRequire('fs') as typeof import('fs');
+      const path = nodeRequire('path') as typeof import('path');
       const p = path.join(process.cwd(), 'src', 'lib', 'data', 'meta', '_all.nn.json');
       metaNn = JSON.parse(fs.readFileSync(p, 'utf-8'));
     } catch {
