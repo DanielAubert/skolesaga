@@ -5,7 +5,10 @@
  * Kursdata er splittet i separate filer per nivå/gruppe.
  */
 
-import type { TextbookCourse } from '@/lib/types/textbook';
+import * as fs from 'fs';
+import * as path from 'path';
+import type { TextbookCourse, TextbookChapterMeta } from '@/lib/types/textbook';
+import type { Malform } from './textbook-content';
 
 // 5. klasse (unntatt matematikk)
 import {
@@ -372,9 +375,42 @@ export function getCourse(courseId: string): TextbookCourse | undefined {
   return TEXTBOOK_COURSES.find((c) => c.id === courseId);
 }
 
-export function getChapterMeta(courseId: string, chapterId: string) {
+// ----------------------------------------------------------------------------
+// Nynorsk chapterMeta (nav-titlar) frå meta/_all.nn.json — lazy, fs-basert.
+// Overlay title/subtitle/description/topics; resten (number/competenceGoals m.m.)
+// står som i bokmål-metadataen.
+// ----------------------------------------------------------------------------
+type MetaNn = { title?: string; subtitle?: string; description?: string; topics?: string[] };
+let metaNn: Record<string, MetaNn> | null = null;
+function getMetaNn(): Record<string, MetaNn> {
+  if (!metaNn) {
+    try {
+      const p = path.join(process.cwd(), 'src', 'lib', 'data', 'meta', '_all.nn.json');
+      metaNn = JSON.parse(fs.readFileSync(p, 'utf-8'));
+    } catch {
+      metaNn = {};
+    }
+  }
+  return metaNn!;
+}
+
+export function getChapterMeta(
+  courseId: string,
+  chapterId: string,
+  malform: Malform = 'nb',
+): TextbookChapterMeta | undefined {
   const course = getCourse(courseId);
-  return course?.chapters.find((c) => c.id === chapterId);
+  const meta = course?.chapters.find((c) => c.id === chapterId);
+  if (!meta || malform !== 'nn') return meta;
+  const nn = getMetaNn()[chapterId];
+  if (!nn) return meta;
+  return {
+    ...meta,
+    ...(nn.title ? { title: nn.title } : {}),
+    ...(nn.subtitle ? { subtitle: nn.subtitle } : {}),
+    ...(nn.description ? { description: nn.description } : {}),
+    ...(nn.topics ? { topics: nn.topics } : {}),
+  };
 }
 
 export function getNextChapter(courseId: string, currentChapterId: string): string | undefined {

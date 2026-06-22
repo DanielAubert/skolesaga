@@ -18,7 +18,7 @@ export default async function QuizPage({ params }: PageProps) {
   // Get chapter and course data
   const chapter = getChapterContent(chapterId, malform);
   const course = getCourse(courseId);
-  const chapterMeta = getChapterMeta(courseId, chapterId);
+  const chapterMeta = getChapterMeta(courseId, chapterId, malform);
 
   if (!chapter || !course || !chapterMeta) {
     notFound();

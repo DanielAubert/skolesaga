@@ -29,15 +29,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ChapterPage({ params }: PageProps) {
   const { courseId, chapterId } = await params;
+  // Målform (bokmål/nynorsk) fra cookie
+  const malform = await getMalform();
   const course = getCourse(courseId);
-  const chapterMeta = getChapterMeta(courseId, chapterId);
+  const chapterMeta = getChapterMeta(courseId, chapterId, malform);
 
   if (!course || !chapterMeta) {
     notFound();
   }
-
-  // Målform (bokmål/nynorsk) fra cookie
-  const malform = await getMalform();
 
   // Hent kapittelinnhold (kan være undefined hvis ikke implementert ennå)
   const chapterContent = getChapterContent(chapterId, malform);
@@ -47,12 +46,12 @@ export default async function ChapterPage({ params }: PageProps) {
   const nextChapterId = getNextChapter(courseId, chapterId);
   const prevChapterId = getPrevChapter(courseId, chapterId);
 
-  const nextChapter = nextChapterId ? getChapterMeta(courseId, nextChapterId) : undefined;
-  const prevChapter = prevChapterId ? getChapterMeta(courseId, prevChapterId) : undefined;
+  const nextChapter = nextChapterId ? getChapterMeta(courseId, nextChapterId, malform) : undefined;
+  const prevChapter = prevChapterId ? getChapterMeta(courseId, prevChapterId, malform) : undefined;
 
   // Hent alternativ versjon hvis den finnes
   const linkedChapter = chapterMeta.linkedChapterId
-    ? getChapterMeta(courseId, chapterMeta.linkedChapterId)
+    ? getChapterMeta(courseId, chapterMeta.linkedChapterId, malform)
     : undefined;
 
   // Arv hero-bilde fra tilknyttet kapittel hvis dette kapittelet mangler ett
