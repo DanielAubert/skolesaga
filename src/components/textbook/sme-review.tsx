@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { MainNav } from '@/components/navigation/main-nav';
 import { Footer } from '@/components/layout/footer';
 import { ContentBlockRenderer } from '@/components/textbook/content-block-renderer';
@@ -147,14 +146,12 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
       <main className="flex-1 container mx-auto max-w-4xl px-4 py-8">
-        <div className="mb-4 text-sm text-muted-foreground">
-          <Link href="/dashboard/admin" className="hover:underline">Admin</Link> / Nordsamisk review
-        </div>
+        <div className="mb-4 text-sm text-muted-foreground">Nordsamisk review</div>
         <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/30 p-4 mb-6 text-sm">
-          <p className="font-semibold mb-1">Nordsamisk review (kun admin) · {courseTitle} — {chapterTitle}</p>
+          <p className="font-semibold mb-1">Nordsamisk review · {courseTitle} — {chapterTitle}</p>
           <p>
             Maskinutkast som <b>må</b> kvalitetssjekkes av nordsamisktalende. Marker tekst hvor som helst →
-            «Rapporter», eller bruk ⚑ i hvert avsnitt. Bruk «Vis norsk» for å se originalen.
+            «Rapporter», eller bruk ⚑ i hvert avsnitt. Bruk «Vis norsk (bokmål)» for å se originalen.
             Rettinger lagres i feildatabasen og brukes til å forbedre senere kapitler.
           </p>
         </div>
@@ -178,7 +175,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
               <ContentBlockRenderer block={block} chapterId={chapterId} courseId={courseId} />
               {showNo && nbBlock && (
                 <div className="mt-2 border-t border-dashed border-green-400 pt-2">
-                  <div className="text-xs font-semibold text-green-700 mb-1">🇳🇴 Norsk original</div>
+                  <div className="text-xs font-semibold text-green-700 mb-1">🇳🇴 Norsk (bokmål)</div>
                   <ContentBlockRenderer block={nbBlock} chapterId={chapterId} courseId={courseId} />
                 </div>
               )}
@@ -193,7 +190,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
         onClick={() => setShowNo((v) => !v)}
         className="fixed right-5 bottom-6 z-[100] flex items-center gap-2 rounded-full bg-green-600 px-5 py-3 font-semibold text-white shadow-lg hover:bg-green-700"
       >
-        <Languages className="h-5 w-5" /> {showNo ? 'Skjul norsk' : 'Vis norsk'}
+        <Languages className="h-5 w-5" /> {showNo ? 'Skjul norsk (bokmål)' : 'Vis norsk (bokmål)'}
       </button>
 
       {/* Flytende «rapporter utvalg»-knapp */}
