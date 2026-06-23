@@ -13,7 +13,10 @@ import type { TextbookChapter } from '@/lib/types/textbook';
 // Lazy-loaded data fra _all.json
 // ============================================================================
 
-export type Malform = 'nb' | 'nn';
+// 'sme' (nordsamisk) er foreløpig et ADMIN-ONLY review-språk. Det er bevisst
+// IKKE en gyldig cookie-verdi (se isMalform i i18n/malform.ts), så det kan ikke
+// velges fra den offentlige målform-toggelen — kun lastes eksplisitt i admin-ruta.
+export type Malform = 'nb' | 'nn' | 'sme';
 
 type AllData = {
   chapters: Record<string, TextbookChapter>;
@@ -22,6 +25,7 @@ type AllData = {
 
 let allData: AllData | null = null;
 let allDataNn: AllData | null = null;
+let allDataSme: AllData | null = null;
 
 function getData() {
   if (!allData) {
@@ -43,6 +47,18 @@ function getDataNn(): AllData {
   return allDataNn!;
 }
 
+function getDataSme(): AllData {
+  if (!allDataSme) {
+    const jsonPath = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters', '_all.sme.json');
+    try {
+      allDataSme = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    } catch {
+      allDataSme = { chapters: {}, aliases: {} };
+    }
+  }
+  return allDataSme!;
+}
+
 // ============================================================================
 // Hjelpefunksjoner (samme API som før)
 // ============================================================================
@@ -51,6 +67,12 @@ export function getChapterContent(
   chapterId: string,
   malform: Malform = 'nb',
 ): TextbookChapter | undefined {
+  if (malform === 'sme') {
+    const { chapters, aliases } = getDataSme();
+    const sme = chapters[chapterId] ?? chapters[aliases[chapterId]];
+    if (sme) return sme;
+    // Fall tilbake til bokmål hvis nordsamisk-versjon ikke finnes ennå
+  }
   if (malform === 'nn') {
     const { chapters, aliases } = getDataNn();
     const nn = chapters[chapterId] ?? chapters[aliases[chapterId]];
@@ -64,6 +86,12 @@ export function getChapterContent(
 /** Finnes det en nynorsk-versjon av dette kapittelet? */
 export function hasNynorskVersion(chapterId: string): boolean {
   const { chapters, aliases } = getDataNn();
+  return chapterId in chapters || (aliases[chapterId] != null && aliases[chapterId] in chapters);
+}
+
+/** Finnes det en nordsamisk (review) versjon av dette kapittelet? */
+export function hasSmeVersion(chapterId: string): boolean {
+  const { chapters, aliases } = getDataSme();
   return chapterId in chapters || (aliases[chapterId] != null && aliases[chapterId] in chapters);
 }
 

@@ -40,3 +40,23 @@ fs.writeFileSync(
   JSON.stringify({ chapters: nnChapters, aliases: registry.aliases })
 );
 console.log(`Kombinerte ${nnCount} nynorsk-kapitler til _all.nn.json`);
+
+// Nordsamisk (sme) sidecar — ADMIN-ONLY review-språk. Samme mønster som nynorsk.
+const smeDir = path.join(dir, 'sme');
+const smeChapters = {};
+let smeCount = 0;
+if (fs.existsSync(smeDir)) {
+  for (const file of fs.readdirSync(smeDir)) {
+    if (!file.endsWith('.json')) continue;
+    const id = file.slice(0, -5);
+    const ch = JSON.parse(fs.readFileSync(path.join(smeDir, file), 'utf-8'));
+    delete ch._meta;
+    smeChapters[id] = ch;
+    smeCount++;
+  }
+}
+fs.writeFileSync(
+  path.join(dir, '_all.sme.json'),
+  JSON.stringify({ chapters: smeChapters, aliases: registry.aliases })
+);
+console.log(`Kombinerte ${smeCount} nordsamiske kapitler til _all.sme.json`);

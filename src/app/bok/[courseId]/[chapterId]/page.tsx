@@ -87,7 +87,7 @@ export default async function ChapterPage({ params }: PageProps) {
       prevChapter={prevChapter ? { id: prevChapter.id, number: prevChapter.number, title: prevChapter.title } : undefined}
       linkedChapter={linkedChapter ? { id: linkedChapter.id, title: linkedChapter.title, isNarrativeVersion: linkedChapter.isNarrativeVersion } : undefined}
       isNarrativeVersion={chapterMeta.isNarrativeVersion}
-      malform={malform}
+      malform={malform === 'sme' ? 'nb' : malform}
       nynorskAvailable={nynorskAvailable}
       hasQuiz={hasQuiz}
       hasExam={hasExam}
