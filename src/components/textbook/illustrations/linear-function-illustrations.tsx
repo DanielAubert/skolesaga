@@ -140,7 +140,7 @@ export function LinearFunctionIllustration({ className }: LinearFunctionIllustra
   const x1 = 1, y1 = f(x1), x2 = 2, y2 = f(x2);
 
   return (
-    <svg viewBox={`0 0 ${CFG_LIN.width} ${CFG_LIN.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_LIN.width} ${CFG_LIN.height}`} className={className}
       aria-label="Graf av y = 2x + 1 med stigningstall-trekant">
       <defs>
         <clipPath id={clipId}>
@@ -206,7 +206,7 @@ export function ParallelLinesIllustration({ className }: LinearFunctionIllustrat
   const clipId = 'clip-parallel';
 
   return (
-    <svg viewBox={`0 0 ${CFG_PAR.width} ${CFG_PAR.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_PAR.width} ${CFG_PAR.height}`} className={className}
       aria-label="To parallelle linjer med samme stigningstall">
       <defs>
         <clipPath id={clipId}>
@@ -266,7 +266,7 @@ export function IntersectingLinesIllustration({ className }: LinearFunctionIllus
   const clipId = 'clip-intersect';
 
   return (
-    <svg viewBox={`0 0 ${CFG_INT.width} ${CFG_INT.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_INT.width} ${CFG_INT.height}`} className={className}
       aria-label="To linjer som krysser hverandre i punkt (2, 3)">
       <defs>
         <clipPath id={clipId}>

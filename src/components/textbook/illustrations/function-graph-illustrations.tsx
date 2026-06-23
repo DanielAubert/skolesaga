@@ -162,7 +162,7 @@ export function GraphX2Minus9StyleA({ className }: GraphIllustrationProps) {
   const clipId = 'clipA-x2m9';
 
   return (
-    <svg viewBox={`0 0 ${CFG.width} ${CFG.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG.width} ${CFG.height}`} className={className}
       aria-label="Graf av f(x) = x² − 9">
       <defs>
         <clipPath id={clipId}>
@@ -208,7 +208,7 @@ export function GraphX2Minus9StyleB({ className }: GraphIllustrationProps) {
   const clipId = 'clipB-x2m9';
 
   return (
-    <svg viewBox={`0 0 ${CFG_B.width} ${CFG_B.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_B.width} ${CFG_B.height}`} className={className}
       aria-label="Graf av f(x) = x² − 9 med rutenett og nøkkelpunkter">
       <defs>
         <clipPath id={clipId}>
@@ -257,7 +257,7 @@ export function GraphX2Minus9StyleC({ className }: GraphIllustrationProps) {
   const clipId = 'clipC-x2m9';
 
   return (
-    <svg viewBox={`0 0 ${CFG.width} ${CFG.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG.width} ${CFG.height}`} className={className}
       aria-label="Graf av f(x) = x² − 9 med symmetriakse og annotasjoner">
       <defs>
         <clipPath id={clipId}>

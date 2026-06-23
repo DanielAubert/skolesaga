@@ -12,7 +12,7 @@ export function RectangleAreaIllustration({ className }: AreaIllustrationProps) 
   const x = 40, y = 40, w = 180, h = 100;
 
   return (
-    <svg viewBox="0 0 300 200" className={className} aria-label="Rektangel med lengde l og bredde b, areal A = l ganger b">
+    <svg role="img" viewBox="0 0 300 200" className={className} aria-label="Rektangel med lengde l og bredde b, areal A = l ganger b">
       {/* Rektangelet */}
       <rect x={x} y={y} width={w} height={h} fill="none" stroke="#000" strokeWidth="2" />
 
@@ -47,7 +47,7 @@ export function ParallelogramAreaIllustration({ className }: AreaIllustrationPro
   const p4 = { x: bx + offset, y: by - h };
 
   return (
-    <svg viewBox="0 0 320 200" className={className} aria-label="Parallellogram med grunnlinje g og høyde h">
+    <svg role="img" viewBox="0 0 320 200" className={className} aria-label="Parallellogram med grunnlinje g og høyde h">
       {/* Parallellogrammet */}
       <polygon
         points={`${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y} ${p4.x},${p4.y}`}
@@ -95,7 +95,7 @@ export function TrapezoidAreaIllustration({ className }: AreaIllustrationProps) 
   const botRight = { x: cx + botW / 2, y: botY };
 
   return (
-    <svg viewBox="0 0 320 220" className={className} aria-label="Trapes med parallelle sider a og b og høyde h">
+    <svg role="img" viewBox="0 0 320 220" className={className} aria-label="Trapes med parallelle sider a og b og høyde h">
       {/* Trapeset */}
       <polygon
         points={`${topLeft.x},${topLeft.y} ${topRight.x},${topRight.y} ${botRight.x},${botRight.y} ${botLeft.x},${botLeft.y}`}
@@ -140,7 +140,7 @@ export function CircleAreaIllustration({ className }: AreaIllustrationProps) {
   const cx = 150, cy = 100, r = 70;
 
   return (
-    <svg viewBox="0 0 300 230" className={className} aria-label="Sirkel med radius r">
+    <svg role="img" viewBox="0 0 300 230" className={className} aria-label="Sirkel med radius r">
       {/* Sirkelen */}
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="2" />
 

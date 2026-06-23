@@ -270,7 +270,7 @@ function TheoremBlock({ title, content, proof }: { title: string; content: strin
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setShowProof(!showProof)}
+              aria-expanded={showProof} onClick={() => setShowProof(!showProof)}
               className="text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
             >
               {showProof ? (
@@ -415,7 +415,7 @@ function ExampleBlock({
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setShowVideo(!showVideo)}
+              aria-expanded={showVideo} onClick={() => setShowVideo(!showVideo)}
               className="text-red-600 dark:text-red-400 p-0 h-auto"
             >
               <Play className="h-4 w-4 mr-1" />
@@ -723,7 +723,7 @@ function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => setShowCode(!showCode)}
+            aria-expanded={showCode} onClick={() => setShowCode(!showCode)}
             className="text-xs text-muted-foreground"
           >
             {showCode ? (
@@ -920,7 +920,7 @@ function CollapsibleBlockComponent({
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}
             className="gap-2"
           >
             {isOpen ? (

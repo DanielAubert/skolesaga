@@ -20,7 +20,7 @@ export function BoxPlotIllustration({ className }: StatisticsIllustrationProps) 
   const midY = oy + h / 2;
 
   return (
-    <svg viewBox="0 0 340 180" className={className} aria-label="Boksplott med minimum, kvartiler, median og maksimum">
+    <svg role="img" viewBox="0 0 340 180" className={className} aria-label="Boksplott med minimum, kvartiler, median og maksimum">
       {/* Tallinje */}
       <line x1={ox} y1={oy + boxH + 20} x2={ox + w} y2={oy + boxH + 20}
         stroke="#000" strokeWidth="1.5" />
@@ -81,7 +81,7 @@ export function HistogramIllustration({ className }: StatisticsIllustrationProps
   const barH = (v: number) => (v / maxVal) * maxH;
 
   return (
-    <svg viewBox="0 0 340 240" className={className} aria-label="Histogram med 6 stolper">
+    <svg role="img" viewBox="0 0 340 240" className={className} aria-label="Histogram med 6 stolper">
       {/* y-akse */}
       <line x1={ox} y1={oy} x2={ox} y2={oy - maxH - 20}
         stroke="#000" strokeWidth="1.5" />
@@ -166,7 +166,7 @@ export function PieChartIllustration({ className }: StatisticsIllustrationProps)
   });
 
   return (
-    <svg viewBox="0 0 300 260" className={className} aria-label="Sektordiagram med fire sektorer">
+    <svg role="img" viewBox="0 0 300 260" className={className} aria-label="Sektordiagram med fire sektorer">
       <defs>
         {patterns.map(p => (
           <pattern key={p.id} id={p.id} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform={`rotate(${p.angle})`}>

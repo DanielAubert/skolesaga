@@ -60,7 +60,7 @@ export function QuadrantsIllustration({ className }: CoordinateIllustrationProps
   const pointLabels = ['(2, 2)', '(−2, 2)', '(−2, −2)', '(2, −2)'];
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem med fire kvadranter">
+    <svg role="img" viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem med fire kvadranter">
       {/* Bakgrunn */}
       <rect width={width} height={height} fill="#f8fafc" rx="8" />
 
@@ -234,7 +234,7 @@ export function PointsPlottingIllustration({ className }: CoordinateIllustration
   ];
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem med punktene A, B, C og D">
+    <svg role="img" viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem med punktene A, B, C og D">
       {/* Bakgrunn */}
       <rect width={width} height={height} fill="#f8fafc" rx="8" />
 
@@ -412,7 +412,7 @@ export function BasicCoordinateSystemIllustration({ className }: CoordinateIllus
   }
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem">
+    <svg role="img" viewBox={`0 0 ${width} ${height}`} className={className} aria-label="Koordinatsystem">
       {/* Bakgrunn */}
       <rect width={width} height={height} fill="#f8fafc" rx="8" />
 

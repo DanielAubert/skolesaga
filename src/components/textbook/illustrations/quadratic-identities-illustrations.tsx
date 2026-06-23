@@ -15,7 +15,7 @@ export function FirstQuadraticIdentityIllustration({ className }: QuadraticIdent
   const total = a + b;
 
   return (
-    <svg viewBox="0 0 300 280" className={className} aria-label="Første kvadratsetning: (a pluss b) i andre er lik a i andre pluss 2ab pluss b i andre">
+    <svg role="img" viewBox="0 0 300 280" className={className} aria-label="Første kvadratsetning: (a pluss b) i andre er lik a i andre pluss 2ab pluss b i andre">
       {/* Stort kvadrat */}
       <rect x={ox} y={oy} width={total} height={total} fill="none" stroke="#000" strokeWidth="2" />
 
@@ -76,7 +76,7 @@ export function SecondQuadraticIdentityIllustration({ className }: QuadraticIden
   const amb = a - b; // a - b
 
   return (
-    <svg viewBox="0 0 300 280" className={className} aria-label="Andre kvadratsetning: (a minus b) i andre er lik a i andre minus 2ab pluss b i andre">
+    <svg role="img" viewBox="0 0 300 280" className={className} aria-label="Andre kvadratsetning: (a minus b) i andre er lik a i andre minus 2ab pluss b i andre">
       {/* Stort a²-kvadrat (hele) */}
       <rect x={ox} y={oy} width={a} height={a} fill="none" stroke="#000" strokeWidth="2" />
 
@@ -136,7 +136,7 @@ export function ThirdQuadraticIdentityIllustration({ className }: QuadraticIdent
   const a = 150, b = 50;
 
   return (
-    <svg viewBox="0 0 300 280" className={className} aria-label="Konjugatsetningen: (a pluss b) ganger (a minus b) er lik a i andre minus b i andre">
+    <svg role="img" viewBox="0 0 300 280" className={className} aria-label="Konjugatsetningen: (a pluss b) ganger (a minus b) er lik a i andre minus b i andre">
       {/* Stort a²-kvadrat */}
       <rect x={ox} y={oy} width={a} height={a} fill="none" stroke="#000" strokeWidth="2" />
 

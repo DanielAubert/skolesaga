@@ -21,6 +21,7 @@ export function CompetenceGoalsDropdown({ goals }: CompetenceGoalsDropdownProps)
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="gap-2 text-muted-foreground hover:text-foreground"
       >
         <Target className="h-4 w-4" />

@@ -25,7 +25,7 @@ export function PrismVolumeIllustration({ className }: VolumeIllustrationProps) 
   const backBR = { x: ox + w + dx, y: oy - dy };
 
   return (
-    <svg viewBox="0 0 300 220" className={className} aria-label="Rett prisme med grunnflate G og høyde h">
+    <svg role="img" viewBox="0 0 300 220" className={className} aria-label="Rett prisme med grunnflate G og høyde h">
       {/* Bakre kanter (stiplet) */}
       <line x1={ox + dx} y1={oy - dy} x2={ox + dx} y2={oy - h - dy}
         stroke="#000" strokeWidth="1" strokeDasharray="5,4" />
@@ -75,7 +75,7 @@ export function CylinderVolumeIllustration({ className }: VolumeIllustrationProp
   const cx = 150, topY = 45, botY = 155, r = 65, ry = 18;
 
   return (
-    <svg viewBox="0 0 300 230" className={className} aria-label="Sylinder med radius r og høyde h">
+    <svg role="img" viewBox="0 0 300 230" className={className} aria-label="Sylinder med radius r og høyde h">
       {/* Bakre halvdel av bunn-ellipsen (stiplet) */}
       <ellipse cx={cx} cy={botY} rx={r} ry={ry} fill="none"
         stroke="#000" strokeWidth="1" strokeDasharray="5,4" />
@@ -120,7 +120,7 @@ export function ConeVolumeIllustration({ className }: VolumeIllustrationProps) {
   const cx = 150, topY = 35, botY = 165, r = 65, ry = 18;
 
   return (
-    <svg viewBox="0 0 300 240" className={className} aria-label="Kjegle med radius r og høyde h">
+    <svg role="img" viewBox="0 0 300 240" className={className} aria-label="Kjegle med radius r og høyde h">
       {/* Bakre halvdel av bunn-ellipsen (stiplet) */}
       <path d={`M ${cx - r} ${botY} A ${r} ${ry} 0 0 1 ${cx + r} ${botY}`}
         fill="none" stroke="#000" strokeWidth="1" strokeDasharray="5,4" />
@@ -175,7 +175,7 @@ export function PyramidVolumeIllustration({ className }: VolumeIllustrationProps
   const tl = { x: 90, y: 125 };
 
   return (
-    <svg viewBox="0 0 300 230" className={className} aria-label="Pyramide med grunnflate G og høyde h">
+    <svg role="img" viewBox="0 0 300 230" className={className} aria-label="Pyramide med grunnflate G og høyde h">
       {/* Bakre kanter (stiplet) */}
       <line x1={tl.x} y1={tl.y} x2={cx} y2={topY}
         stroke="#000" strokeWidth="1" strokeDasharray="5,4" />
@@ -224,7 +224,7 @@ export function SphereVolumeIllustration({ className }: VolumeIllustrationProps)
   const cx = 150, cy = 110, r = 75;
 
   return (
-    <svg viewBox="0 0 300 250" className={className} aria-label="Kule med radius r">
+    <svg role="img" viewBox="0 0 300 250" className={className} aria-label="Kule med radius r">
       {/* Kulen */}
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000" strokeWidth="2" />
 

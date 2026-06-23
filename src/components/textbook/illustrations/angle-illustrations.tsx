@@ -34,7 +34,7 @@ export function AngleIntroIllustration({ className }: AngleIllustrationProps) {
   const endPoint = pointOnCircle(cx, cy, lineLength, angle);
 
   return (
-    <svg viewBox="0 0 200 160" className={className} aria-label="Illustrasjon av en vinkel">
+    <svg role="img" viewBox="0 0 200 160" className={className} aria-label="Illustrasjon av en vinkel">
       {/* Bakgrunn */}
       <rect width="200" height="160" fill="#f8fafc" rx="8" />
 
@@ -94,7 +94,7 @@ export function AngleTypesIllustration({ className }: AngleIllustrationProps) {
   ];
 
   return (
-    <svg viewBox="0 0 400 200" className={className} aria-label="De fire vinkeltypene">
+    <svg role="img" viewBox="0 0 400 200" className={className} aria-label="De fire vinkeltypene">
       <rect width="400" height="200" fill="#f8fafc" rx="8" />
 
       {angles.map((item, index) => {
@@ -208,7 +208,7 @@ export function ProtractorIllustration({ className }: AngleIllustrationProps) {
   const endPoint = pointOnCircle(cx, cy, radius - 20, exampleAngle);
 
   return (
-    <svg viewBox="0 0 300 180" className={className} aria-label="Gradskive med eksempelvinkel">
+    <svg role="img" viewBox="0 0 300 180" className={className} aria-label="Gradskive med eksempelvinkel">
       <rect width="300" height="180" fill="#f8fafc" rx="8" />
 
       {/* Halvsirkel */}
@@ -282,7 +282,7 @@ export function SupplementaryAnglesIllustration({ className }: AngleIllustration
   const point1 = pointOnCircle(cx, cy, lineLength, angle1);
 
   return (
-    <svg viewBox="0 0 300 150" className={className} aria-label="Supplementvinkler - summen er 180 grader">
+    <svg role="img" viewBox="0 0 300 150" className={className} aria-label="Supplementvinkler - summen er 180 grader">
       <rect width="300" height="150" fill="#f8fafc" rx="8" />
 
       {/* Grunnlinje */}
@@ -353,7 +353,7 @@ export function ComplementaryAnglesIllustration({ className }: AngleIllustration
   const point2 = pointOnCircle(cx, cy, lineLength, 90);
 
   return (
-    <svg viewBox="0 0 250 150" className={className} aria-label="Komplementvinkler - summen er 90 grader">
+    <svg role="img" viewBox="0 0 250 150" className={className} aria-label="Komplementvinkler - summen er 90 grader">
       <rect width="250" height="150" fill="#f8fafc" rx="8" />
 
       {/* Horisontal linje */}
@@ -445,7 +445,7 @@ export function VerticalAnglesIllustration({ className }: AngleIllustrationProps
   const point4 = pointOnCircle(cx, cy, lineLength, -angle);
 
   return (
-    <svg viewBox="0 0 300 200" className={className} aria-label="Toppvinkler er like store">
+    <svg role="img" viewBox="0 0 300 200" className={className} aria-label="Toppvinkler er like store">
       <rect width="300" height="200" fill="#f8fafc" rx="8" />
 
       {/* Linje 1 */}
@@ -529,7 +529,7 @@ export function VerticalAnglesIllustration({ className }: AngleIllustrationProps
 // Oversikt over alle vinkeltyper
 export function AngleTypesOverviewIllustration({ className }: AngleIllustrationProps) {
   return (
-    <svg viewBox="0 0 400 280" className={className} aria-label="Oversikt over vinkeltyper">
+    <svg role="img" viewBox="0 0 400 280" className={className} aria-label="Oversikt over vinkeltyper">
       <rect width="400" height="280" fill="#f8fafc" rx="8" />
 
       {/* Tittel */}

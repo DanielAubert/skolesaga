@@ -33,7 +33,7 @@ export function TriangularNumbersIllustration({ className }: PatternIllustration
   });
 
   return (
-    <svg viewBox="0 0 360 130" className={className} aria-label="Trekanttall T1 til T4 som prikkemønstre">
+    <svg role="img" viewBox="0 0 360 130" className={className} aria-label="Trekanttall T1 til T4 som prikkemønstre">
       {groups.map(g => (
         <g key={g.n}>
           {g.dots.map((d, i) => (
@@ -79,7 +79,7 @@ export function SquareNumbersIllustration({ className }: PatternIllustrationProp
   });
 
   return (
-    <svg viewBox="0 0 380 120" className={className} aria-label="Kvadrattall 1 i andre til 4 i andre som prikkrutenett">
+    <svg role="img" viewBox="0 0 380 120" className={className} aria-label="Kvadrattall 1 i andre til 4 i andre som prikkrutenett">
       {groups.map(g => (
         <g key={g.n}>
           {g.dots.map((d, i) => (
@@ -127,7 +127,7 @@ export function StaircaseNumbersIllustration({ className }: PatternIllustrationP
   });
 
   return (
-    <svg viewBox="0 0 400 120" className={className} aria-label="Trappetall som prikktrapper">
+    <svg role="img" viewBox="0 0 400 120" className={className} aria-label="Trappetall som prikktrapper">
       {groups.map(g => (
         <g key={g.n}>
           {g.dots.map((d, i) => (

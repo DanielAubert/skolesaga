@@ -14,7 +14,7 @@ export function NumberLineInequalityIllustration({ className }: NumberLineIllust
   const tx = (v: number) => ox + ((v - min) / (max - min)) * w;
 
   return (
-    <svg viewBox="0 0 340 140" className={className} aria-label="Tallinje med x større enn 3 og x mindre enn eller lik minus 1">
+    <svg role="img" viewBox="0 0 340 140" className={className} aria-label="Tallinje med x større enn 3 og x mindre enn eller lik minus 1">
       {/* x > 3 (øvre tallinje) */}
       <g>
         {/* Tallinje */}
@@ -84,7 +84,7 @@ export function NumberLineIntervalsIllustration({ className }: NumberLineIllustr
   const a = 1, b = 5;
 
   return (
-    <svg viewBox="0 0 340 130" className={className} aria-label="Tallinje med markert intervall fra a til b">
+    <svg role="img" viewBox="0 0 340 130" className={className} aria-label="Tallinje med markert intervall fra a til b">
       {/* Tallinje */}
       <line x1={ox} y1={oy} x2={ox + w} y2={oy} stroke="#000" strokeWidth="1.5" />
       <polygon points={`${ox + w},${oy} ${ox + w - 7},${oy - 3.5} ${ox + w - 7},${oy + 3.5}`} fill="#000" />

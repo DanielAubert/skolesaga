@@ -348,6 +348,7 @@ export default function StudentDashboard() {
                     <div>
                       <button
                         onClick={() => setShowCompletedAssignments(!showCompletedAssignments)}
+                        aria-expanded={showCompletedAssignments}
                         className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mt-2"
                       >
                         <ChevronDown className={`h-4 w-4 transition-transform ${showCompletedAssignments ? "rotate-180" : ""}`} />

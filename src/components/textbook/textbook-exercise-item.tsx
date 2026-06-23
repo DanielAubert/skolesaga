@@ -620,6 +620,7 @@ export function TextbookExerciseItem({
             variant="ghost"
             size="sm"
             onClick={() => setShowSolutionVideo(!showSolutionVideo)}
+            aria-expanded={showSolutionVideo}
             className="text-red-600 dark:text-red-400"
           >
             <Play className="h-4 w-4 mr-1" />
@@ -668,6 +669,7 @@ export function TextbookExerciseItem({
             variant="ghost"
             size="sm"
             onClick={() => setShowSolution(!showSolution)}
+            aria-expanded={showSolution}
             className="text-green-700 dark:text-green-300"
           >
             {showSolution ? (
@@ -730,6 +732,7 @@ function HintsSection({
         variant="ghost"
         size="sm"
         onClick={() => setShowHints(!showHints)}
+        aria-expanded={showHints}
         className="text-amber-700 dark:text-amber-300"
       >
         <Lightbulb className="h-4 w-4 mr-1" />

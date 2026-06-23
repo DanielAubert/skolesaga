@@ -9,7 +9,7 @@ interface TriangleIllustrationProps {
 // Enkel og ren vinkelsum-illustrasjon
 export function TriangleAngleSumIllustration({ className }: TriangleIllustrationProps) {
   return (
-    <svg viewBox="0 0 320 220" className={className} aria-label="Vinkelsum i trekant er 180 grader">
+    <svg role="img" viewBox="0 0 320 220" className={className} aria-label="Vinkelsum i trekant er 180 grader">
       {/* Bakgrunn */}
       <rect width="320" height="220" fill="#f8fafc" rx="8" />
 
@@ -75,7 +75,7 @@ export function EquilateralTriangleIllustration({ className }: TriangleIllustrat
   const C = { x: cx + size * Math.cos(Math.PI / 6), y: cy + size * Math.sin(Math.PI / 6) };
 
   return (
-    <svg viewBox="0 0 300 180" className={className} aria-label="Likesidet trekant med tre 60-graders vinkler">
+    <svg role="img" viewBox="0 0 300 180" className={className} aria-label="Likesidet trekant med tre 60-graders vinkler">
       <rect width="300" height="180" fill="#f8fafc" rx="8" />
 
       {/* Tittel */}
@@ -119,7 +119,7 @@ export function IsoscelesTriangleIllustration({ className }: TriangleIllustratio
   const C = { x: 220, y: 140 };
 
   return (
-    <svg viewBox="0 0 300 180" className={className} aria-label="Likebeint trekant">
+    <svg role="img" viewBox="0 0 300 180" className={className} aria-label="Likebeint trekant">
       <rect width="300" height="180" fill="#f8fafc" rx="8" />
 
       {/* Tittel */}
@@ -161,7 +161,7 @@ export function RightTriangleIllustration({ className }: TriangleIllustrationPro
   const C = { x: 50, y: 40 };
 
   return (
-    <svg viewBox="0 0 300 180" className={className} aria-label="Rettvinklet trekant">
+    <svg role="img" viewBox="0 0 300 180" className={className} aria-label="Rettvinklet trekant">
       <rect width="300" height="180" fill="#f8fafc" rx="8" />
 
       {/* Tittel */}
@@ -210,7 +210,7 @@ export function RightTriangleIllustration({ className }: TriangleIllustrationPro
 // Illustrasjon av trekanttyper oversikt
 export function TriangleTypesOverviewIllustration({ className }: TriangleIllustrationProps) {
   return (
-    <svg viewBox="0 0 400 220" className={className} aria-label="Oversikt over trekanttyper">
+    <svg role="img" viewBox="0 0 400 220" className={className} aria-label="Oversikt over trekanttyper">
       <rect width="400" height="220" fill="#f8fafc" rx="8" />
 
       {/* Tittel */}
@@ -280,7 +280,7 @@ export function Pythagorean345Illustration({ className }: TriangleIllustrationPr
   const sq = 12; // rettvinkelsymbol størrelse
 
   return (
-    <svg viewBox="0 0 260 210" className={className} aria-label="Rettvinklet trekant med sider 3, 4 og 5">
+    <svg role="img" viewBox="0 0 260 210" className={className} aria-label="Rettvinklet trekant med sider 3, 4 og 5">
       {/* Trekanten */}
       <polygon
         points={`${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`}
@@ -436,7 +436,7 @@ export function Triangle406080StyleA({ className }: TriangleIllustrationProps) {
   const sC = sideLabelPos(A, B, 16, centroid); // side c, opposite C
 
   return (
-    <svg viewBox="0 0 270 220" className={className} aria-label="Trekant med vinkler 40, 60 og 80 grader">
+    <svg role="img" viewBox="0 0 270 220" className={className} aria-label="Trekant med vinkler 40, 60 og 80 grader">
       <polygon
         points={`${A.x},${A.y} ${B.x},${B.y} ${C.x.toFixed(1)},${C.y.toFixed(1)}`}
         fill="none" stroke="#000" strokeWidth="2" strokeLinejoin="round"
@@ -480,7 +480,7 @@ export function Triangle406080StyleB({ className }: TriangleIllustrationProps) {
   const sC = sideLabelPos(A, B, 16, centroid);
 
   return (
-    <svg viewBox="0 0 280 225" className={className} aria-label="Trekant ABC med vinkler 40, 60 og 80 grader">
+    <svg role="img" viewBox="0 0 280 225" className={className} aria-label="Trekant ABC med vinkler 40, 60 og 80 grader">
       <polygon
         points={`${A.x},${A.y} ${B.x},${B.y} ${C.x.toFixed(1)},${C.y.toFixed(1)}`}
         fill="none" stroke="#000" strokeWidth="2" strokeLinejoin="round"
@@ -527,7 +527,7 @@ export function Triangle406080StyleC({ className }: TriangleIllustrationProps) {
   const sC = sideLabelPos(A, B, 16, centroid);
 
   return (
-    <svg viewBox="0 0 270 220" className={className} aria-label="Trekant med vinkler 40, 60 og 80 grader">
+    <svg role="img" viewBox="0 0 270 220" className={className} aria-label="Trekant med vinkler 40, 60 og 80 grader">
       <path d={angleWedgePath(A, B, C, wedgeR)} fill="#d4d4d4" stroke="#000" strokeWidth="0.5" />
       <path d={angleWedgePath(B, A, C, wedgeR)} fill="#d4d4d4" stroke="#000" strokeWidth="0.5" />
       <path d={angleWedgePath(C, A, B, wedgeR)} fill="#d4d4d4" stroke="#000" strokeWidth="0.5" />

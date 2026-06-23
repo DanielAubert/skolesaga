@@ -17,7 +17,7 @@ export function TrigRatiosIllustration({ className }: TrigIllustrationProps) {
   const sq = 14;
 
   return (
-    <svg viewBox="0 0 320 260" className={className} aria-label="Rettvinklet trekant med hosliggende, motstående og hypotenus markert for vinkel v">
+    <svg role="img" viewBox="0 0 320 260" className={className} aria-label="Rettvinklet trekant med hosliggende, motstående og hypotenus markert for vinkel v">
       {/* Trekanten */}
       <polygon
         points={`${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}`}
@@ -81,7 +81,7 @@ export function UnitCircleIllustration({ className }: TrigIllustrationProps) {
   const py = cy - r * Math.sin(angle);
 
   return (
-    <svg viewBox="0 0 320 310" className={className} aria-label="Enhetssirkel med sinus og cosinus avmerket">
+    <svg role="img" viewBox="0 0 320 310" className={className} aria-label="Enhetssirkel med sinus og cosinus avmerket">
       {/* Akser */}
       <line x1={30} y1={cy} x2={290} y2={cy} stroke="#000" strokeWidth="1.5" />
       <line x1={cx} y1={20} x2={cx} y2={280} stroke="#000" strokeWidth="1.5" />

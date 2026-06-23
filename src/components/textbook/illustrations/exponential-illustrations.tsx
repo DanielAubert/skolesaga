@@ -144,7 +144,7 @@ export function ExponentialGrowthIllustration({ className }: ExponentialIllustra
   const clipId = 'clip-exp-growth';
 
   return (
-    <svg viewBox={`0 0 ${CFG_EXP.width} ${CFG_EXP.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_EXP.width} ${CFG_EXP.height}`} className={className}
       aria-label="Graf av eksponentiell vekst f(x) = 2 opphøyd i x">
       <defs>
         <clipPath id={clipId}>
@@ -192,7 +192,7 @@ export function ExponentialDecayIllustration({ className }: ExponentialIllustrat
   const clipId = 'clip-exp-decay';
 
   return (
-    <svg viewBox={`0 0 ${CFG_EXP.width} ${CFG_EXP.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_EXP.width} ${CFG_EXP.height}`} className={className}
       aria-label="Graf av eksponentiell nedgang f(x) = (1/2) opphøyd i x">
       <defs>
         <clipPath id={clipId}>
@@ -249,7 +249,7 @@ export function LinearVsExponentialIllustration({ className }: ExponentialIllust
   const clipId = 'clip-lin-vs-exp';
 
   return (
-    <svg viewBox={`0 0 ${CFG_COMP.width} ${CFG_COMP.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_COMP.width} ${CFG_COMP.height}`} className={className}
       aria-label="Sammenligning av lineær og eksponentiell vekst">
       <defs>
         <clipPath id={clipId}>

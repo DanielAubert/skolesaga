@@ -83,6 +83,7 @@ export function ExerciseAnswerKey({ exercises }: ExerciseAnswerKeyProps) {
         <Button
           variant="ghost"
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
           className="w-full justify-between p-0 h-auto hover:bg-transparent"
         >
           <CardTitle className="text-lg flex items-center gap-2 text-green-700 dark:text-green-300">

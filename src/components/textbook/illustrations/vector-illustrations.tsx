@@ -154,7 +154,7 @@ export function VectorBasicIllustration({ className }: VectorIllustrationProps) 
   const ax = 1, ay = 1, bx = 5, by = 4;
 
   return (
-    <svg viewBox={`0 0 ${CFG_VEC.width} ${CFG_VEC.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_VEC.width} ${CFG_VEC.height}`} className={className}
       aria-label="Vektor fra punkt A til punkt B med komponentform">
       <GridLines cfg={CFG_VEC} tx={tx} ty={ty} />
       <Axes cfg={CFG_VEC} tx={tx} ty={ty} ox={ox} oy={oy} />
@@ -218,7 +218,7 @@ export function VectorAdditionIllustration({ className }: VectorIllustrationProp
   const sx = ux + vx, sy = uy + vy; // sum
 
   return (
-    <svg viewBox={`0 0 ${CFG_ADD.width} ${CFG_ADD.height}`} className={className}
+    <svg role="img" viewBox={`0 0 ${CFG_ADD.width} ${CFG_ADD.height}`} className={className}
       aria-label="Vektoraddisjon med parallelogramregelen">
       <GridLines cfg={CFG_ADD} tx={tx} ty={ty} />
       <Axes cfg={CFG_ADD} tx={tx} ty={ty} ox={ox} oy={oy} />

@@ -31,7 +31,7 @@ export function SimilarTrianglesIllustration({ className }: SimilarityIllustrati
   const s2 = { A: { x: 155, y: 175 }, B: { x: 300, y: 175 }, C: { x: 187, y: 63 } };
 
   return (
-    <svg viewBox="0 0 340 230" className={className} aria-label="To formlike trekanter med forholdstall k = 2">
+    <svg role="img" viewBox="0 0 340 230" className={className} aria-label="To formlike trekanter med forholdstall k = 2">
       {/* Liten trekant */}
       <polygon
         points={`${s1.A.x},${s1.A.y} ${s1.B.x},${s1.B.y} ${s1.C.x},${s1.C.y}`}
@@ -84,7 +84,7 @@ export function CongruenceSSS({ className }: SimilarityIllustrationProps) {
   const t2 = { A: { x: 170, y: 130 }, B: { x: 280, y: 130 }, C: { x: 210, y: 50 } };
 
   return (
-    <svg viewBox="0 0 310 180" className={className} aria-label="SSS-kongruens: to trekanter med tre like sider">
+    <svg role="img" viewBox="0 0 310 180" className={className} aria-label="SSS-kongruens: to trekanter med tre like sider">
       {/* Trekant 1 */}
       <polygon
         points={`${t1.A.x},${t1.A.y} ${t1.B.x},${t1.B.y} ${t1.C.x},${t1.C.y}`}
@@ -153,7 +153,7 @@ export function CongruenceSAS({ className }: SimilarityIllustrationProps) {
   const t2 = { A: { x: 170, y: 130 }, B: { x: 280, y: 130 }, C: { x: 210, y: 50 } };
 
   return (
-    <svg viewBox="0 0 310 180" className={className} aria-label="SAS-kongruens: to trekanter med to like sider og vinkelen mellom">
+    <svg role="img" viewBox="0 0 310 180" className={className} aria-label="SAS-kongruens: to trekanter med to like sider og vinkelen mellom">
       {/* Trekant 1 */}
       <polygon
         points={`${t1.A.x},${t1.A.y} ${t1.B.x},${t1.B.y} ${t1.C.x},${t1.C.y}`}
@@ -207,7 +207,7 @@ export function CongruenceASA({ className }: SimilarityIllustrationProps) {
   const t2 = { A: { x: 170, y: 130 }, B: { x: 280, y: 130 }, C: { x: 210, y: 50 } };
 
   return (
-    <svg viewBox="0 0 310 180" className={className} aria-label="ASA-kongruens: to trekanter med to like vinkler og siden mellom">
+    <svg role="img" viewBox="0 0 310 180" className={className} aria-label="ASA-kongruens: to trekanter med to like vinkler og siden mellom">
       {/* Trekant 1 */}
       <polygon
         points={`${t1.A.x},${t1.A.y} ${t1.B.x},${t1.B.y} ${t1.C.x},${t1.C.y}`}

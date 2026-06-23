@@ -28,7 +28,7 @@ export function FractionCircleIllustration({ className }: FractionIllustrationPr
   }
 
   return (
-    <svg viewBox="0 0 300 230" className={className} aria-label="Sirkel delt i 4 deler, 3 av 4 er skravert">
+    <svg role="img" viewBox="0 0 300 230" className={className} aria-label="Sirkel delt i 4 deler, 3 av 4 er skravert">
       {/* Skraverte deler */}
       <defs>
         <pattern id="frac-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -60,7 +60,7 @@ export function FractionBarIllustration({ className }: FractionIllustrationProps
   const partW = w / parts;
 
   return (
-    <svg viewBox="0 0 300 170" className={className} aria-label="Stolpe delt i 5 like deler, 3 av 5 er skravert">
+    <svg role="img" viewBox="0 0 300 170" className={className} aria-label="Stolpe delt i 5 like deler, 3 av 5 er skravert">
       <defs>
         <pattern id="bar-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <line x1="0" y1="0" x2="0" y2="6" stroke="#000" strokeWidth="1.5" />
@@ -92,7 +92,7 @@ export function PercentBarIllustration({ className }: FractionIllustrationProps)
   const filledW = (pct / 100) * w;
 
   return (
-    <svg viewBox="0 0 300 160" className={className} aria-label="Prosentstolpe med 65 prosent skravert">
+    <svg role="img" viewBox="0 0 300 160" className={className} aria-label="Prosentstolpe med 65 prosent skravert">
       <defs>
         <pattern id="pct-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <line x1="0" y1="0" x2="0" y2="6" stroke="#000" strokeWidth="1.5" />
