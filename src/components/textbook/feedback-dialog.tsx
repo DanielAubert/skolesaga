@@ -148,6 +148,8 @@ export function FeedbackDialog({ courseId, chapterId, chapterTitle }: FeedbackDi
                   id="feedback-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  aria-invalid={error ? true : undefined}
+                  aria-describedby={error ? "feedback-error" : undefined}
                   placeholder={
                     category === 'feil'
                       ? 'F.eks.: «I oppgave 3b står det at svaret er 12, men riktig svar er 14 fordi ...»'
@@ -169,7 +171,7 @@ export function FeedbackDialog({ courseId, chapterId, chapterTitle }: FeedbackDi
                 />
               </div>
 
-              {error && <p className="text-sm text-destructive">{error}</p>}
+              {error && <p id="feedback-error" role="alert" className="text-sm text-destructive">{error}</p>}
             </div>
 
             <DialogFooter>

@@ -150,6 +150,7 @@ export function MultipleChoiceExercise({
               key={option.id}
               onClick={() => handleSelect(option.id)}
               disabled={isSubmitted}
+              aria-pressed={isSelected}
               className={cn(
                 'w-full text-left p-4 rounded-lg border-2 transition-all',
                 'hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/50',

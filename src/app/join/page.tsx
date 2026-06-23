@@ -115,14 +115,14 @@ export default function JoinClassPage() {
                 </div>
 
                 {error && (
-                  <div className="flex items-center gap-2 p-3 rounded-lg bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-sm">
+                  <div role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-red-100 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-sm">
                     <XCircle className="h-4 w-4 flex-shrink-0" />
                     <span>{error}</span>
                   </div>
                 )}
 
                 {success && (
-                  <div className="flex items-center gap-2 p-3 rounded-lg bg-green-100 dark:bg-green-950/30 text-green-700 dark:text-green-400 text-sm">
+                  <div role="status" className="flex items-center gap-2 p-3 rounded-lg bg-green-100 dark:bg-green-950/30 text-green-700 dark:text-green-400 text-sm">
                     <CheckCircle2 className="h-4 w-4 flex-shrink-0" />
                     <span>{success}</span>
                   </div>
