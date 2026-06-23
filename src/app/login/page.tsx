@@ -7,7 +7,7 @@ import { LoginForm } from "@/components/auth/login-form";
 import { SignupForm } from "@/components/auth/signup-form";
 import { ProviderButtons } from "@/components/auth/provider-buttons";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Link from "next/link";
 import { AlertCircle, BookOpen, GraduationCap } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -88,9 +88,9 @@ function LoginPageContent() {
           )}
 
           {/* Auth card */}
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "login" | "signup")}>
           <Card>
             <CardHeader className="space-y-1 pb-4">
-              <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "login" | "signup")}>
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="login" className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4" />
@@ -101,7 +101,6 @@ function LoginPageContent() {
                     Registrer
                   </TabsTrigger>
                 </TabsList>
-              </Tabs>
             </CardHeader>
             <CardContent className="space-y-4">
               {/* SSO Providers */}
@@ -120,13 +119,15 @@ function LoginPageContent() {
               </div>
 
               {/* Forms */}
-              {activeTab === "login" ? (
+              <TabsContent value="login" className="space-y-4 mt-0">
                 <LoginForm onSwitchToRegister={() => setActiveTab("signup")} />
-              ) : (
+              </TabsContent>
+              <TabsContent value="signup" className="space-y-4 mt-0">
                 <SignupForm onSwitchToLogin={() => setActiveTab("login")} />
-              )}
+              </TabsContent>
             </CardContent>
           </Card>
+          </Tabs>
 
           {/* Info text */}
           <p className="text-center text-xs text-muted-foreground">

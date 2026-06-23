@@ -171,7 +171,7 @@ export default function HomePage() {
           <p className="text-sm text-muted-foreground">
             © 2025 Skolesaga · Alle rettigheter forbeholdt
           </p>
-          <p className="text-xs text-muted-foreground/70 mt-2">
+          <p className="text-xs text-muted-foreground mt-2">
             Deler av innholdet er utviklet med hjelp av AI-verktøy
           </p>
         </div>
