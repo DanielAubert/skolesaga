@@ -39,116 +39,150 @@ export default function PersonvernPage() {
             <section>
               <h2 className="text-xl font-semibold mt-8 mb-4">1. Behandlingsansvarlig</h2>
               <p>
-                Skolesaga.no er behandlingsansvarlig for behandlingen av personopplysninger
-                som beskrevet i denne personvernerklæringen.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">2. Hvilke opplysninger samler vi inn?</h2>
-
-              <h3 className="text-lg font-medium mt-6 mb-3">2.1 Lokal lagring (localStorage)</h3>
-              <p>
-                Vi bruker nettleserens lokale lagring (localStorage) for å lagre informasjon
-                som forbedrer din brukeropplevelse. Dette inkluderer:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>Fremgang i øvingsoppgaver og hoderegning</li>
-                <li>Dine favoritteksamener</li>
-                <li>Nylig viste eksamener</li>
-                <li>Kode du har skrevet i Python-editoren</li>
-                <li>Innstillinger som mørk/lys modus</li>
-              </ul>
-              <p className="mt-3">
-                <strong>Viktig:</strong> Denne informasjonen lagres kun lokalt i din nettleser og
-                sendes aldri til våre servere. Du kan når som helst slette denne informasjonen
-                ved å tømme nettleserens data.
-              </p>
-
-              <h3 className="text-lg font-medium mt-6 mb-3">2.2 Analyseverktøy</h3>
-              <p>
-                Vi bruker Vercel Analytics for å forstå hvordan nettsiden brukes.
-                Vercel Analytics er et personvernvennlig analyseverktøy som:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>Ikke bruker informasjonskapsler (cookies)</li>
-                <li>Ikke samler personidentifiserende informasjon</li>
-                <li>Kun samler aggregerte, anonyme data om sidevisninger</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">3. Informasjonskapsler (cookies)</h2>
-              <p>
-                Skolesaga.no bruker kun teknisk nødvendige informasjonskapsler
-                for grunnleggende funksjonalitet, som å huske ditt tema-valg (mørk/lys modus).
+                Når du oppretter en konto som privatperson, er <strong>Skolesaga.no</strong>{" "}
+                behandlingsansvarlig for personopplysningene dine.
               </p>
               <p className="mt-3">
-                Vi bruker ikke informasjonskapsler for sporing, markedsføring eller annonsering.
+                Når tjenesten tas i bruk gjennom en skole eller kommune/fylkeskommune, er{" "}
+                <strong>skoleeier (kommunen/fylkeskommunen) behandlingsansvarlig</strong>, og
+                Skolesaga opptrer som <strong>databehandler</strong> på skoleeiers vegne. Behandlingen
+                reguleres da av en egen databehandleravtale mellom skoleeier og Skolesaga.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">4. Tredjeparter</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">2. Hvilke opplysninger behandler vi?</h2>
+
+              <h3 className="text-lg font-medium mt-6 mb-3">2.1 Kontoopplysninger</h3>
               <p>
-                Vi deler ikke personopplysninger med tredjeparter, med unntak av:
+                Når du logger inn (med e-post/passord, Google eller Feide), lagrer vi opplysninger
+                knyttet til kontoen din på våre servere:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>
-                  <strong>Vercel:</strong> Vår hostingleverandør som behandler teknisk
-                  nødvendig informasjon for å levere nettsiden
-                </li>
-                <li>
-                  <strong>YouTube:</strong> Når du ser videoer embedded fra YouTube,
-                  gjelder YouTubes personvernregler
-                </li>
+                <li>Navn og e-postadresse</li>
+                <li>Feide-ID og skole-/gruppetilhørighet (ved innlogging med Feide)</li>
+                <li>Rolle (elev, lærer eller administrator) og klassetrinn</li>
+                <li>Eventuelt profilbilde fra innloggingsleverandøren</li>
               </ul>
-            </section>
 
-            <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">5. Dine rettigheter</h2>
+              <h3 className="text-lg font-medium mt-6 mb-3">2.2 Lærings- og aktivitetsdata</h3>
               <p>
-                I henhold til personopplysningsloven og GDPR har du rett til:
+                For innloggede brukere lagrer vi opplysninger om bruken av læremiddelet, slik at du
+                (og din lærer, dersom du er knyttet til en klasse) kan følge fremgangen din:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>Innsyn i hvilke opplysninger vi har om deg</li>
-                <li>Retting av uriktige opplysninger</li>
-                <li>Sletting av opplysninger</li>
-                <li>Begrensning av behandlingen</li>
-                <li>Dataportabilitet</li>
-                <li>Å protestere mot behandlingen</li>
+                <li>Fremgang og fullføring av kapitler og øvingsoppgaver</li>
+                <li>Quiz-resultater, oppgaveforsøk og innleveringer</li>
+                <li>Treningsøkter og flashcard-repetisjoner</li>
+                <li>Klassemedlemskap og oppgaver tildelt av lærer</li>
+                <li>Tilbakemeldinger du sender inn på innhold</li>
               </ul>
               <p className="mt-3">
-                Siden vi ikke samler personopplysninger utover det som lagres lokalt i din
-                nettleser, kan du selv utøve disse rettighetene ved å tømme nettleserens data.
+                Er du elev i en klasse, kan læreren din se din fremgang, dine resultater og dine
+                innleveringer.
+              </p>
+
+              <h3 className="text-lg font-medium mt-6 mb-3">2.3 Lokal lagring (localStorage)</h3>
+              <p>
+                Noe informasjon lagres kun lokalt i nettleseren din og sendes ikke til våre servere –
+                for eksempel tema-valg (mørk/lys modus), kode skrevet i Python-editoren, og fremgang
+                for deg som ikke er innlogget. Dette kan du når som helst slette ved å tømme
+                nettleserens data.
+              </p>
+
+              <h3 className="text-lg font-medium mt-6 mb-3">2.4 Analyseverktøy</h3>
+              <p>
+                Vi bruker Vercel Analytics, et personvernvennlig analyseverktøy som ikke bruker
+                informasjonskapsler, ikke samler personidentifiserende informasjon, og kun samler
+                aggregerte, anonyme data om sidevisninger.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">6. Sikkerhet</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">3. Behandlingsgrunnlag</h2>
               <p>
-                Vi tar personvern på alvor og har implementert følgende tiltak:
+                For privatbrukere behandler vi kontoopplysninger for å oppfylle avtalen om å levere
+                tjenesten (GDPR art. 6(1)(b)). Når tjenesten brukes gjennom en skole, er
+                behandlingsgrunnlaget skoleeiers utførelse av en oppgave i allmennhetens interesse /
+                offentlig myndighetsutøvelse innenfor opplæringen (GDPR art. 6(1)(e), jf.
+                opplæringslova).
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">4. Hvor lagres opplysningene?</h2>
+              <p>
+                Personopplysningene lagres i databasen vår hos Supabase, i et datasenter
+                <strong> innenfor EU/EØS (Stockholm, Sverige)</strong>. Enkelte av våre
+                tjenesteleverandører er amerikansk-eide; der det kan forekomme tilgang fra land
+                utenfor EØS, sikres overføringen med EUs standard personvernbestemmelser (SCC) og
+                supplerende tiltak.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">5. Databehandlere og tredjeparter</h2>
+              <p>
+                Vi selger ikke personopplysninger og deler dem ikke for markedsføring. Vi benytter
+                følgende databehandlere/tjenesteleverandører for å levere tjenesten:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-3">
-                <li>All trafikk er kryptert med HTTPS</li>
-                <li>Vi samler kun nødvendig informasjon</li>
-                <li>Brukerdata lagres lokalt i nettleseren, ikke på våre servere</li>
+                <li><strong>Supabase</strong> – database, innlogging og fillagring (EU/EØS)</li>
+                <li><strong>Vercel</strong> – drift og hosting av nettstedet</li>
+                <li><strong>Feide / Sikt</strong> – innlogging for skolebrukere</li>
+                <li><strong>Google</strong> – dersom du velger å logge inn med Google-konto</li>
+                <li><strong>YouTube / Vimeo</strong> – ved avspilling av innebygde videoer gjelder deres egne personvernregler</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">7. Endringer</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">6. Lagringstid</h2>
               <p>
-                Vi kan oppdatere denne personvernerklæringen ved behov.
-                Vesentlige endringer vil bli kommunisert på nettsiden.
+                Vi lagrer opplysningene så lenge du har en aktiv konto. For skolebrukere slettes eller
+                tilbakeleveres opplysningene i tråd med databehandleravtalen med skoleeier. Du kan be
+                om sletting av kontoen din når som helst.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">8. Kontakt</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">7. Dine rettigheter</h2>
               <p>
-                Har du spørsmål om personvern eller denne erklæringen,
-                kan du kontakte oss via nettsiden.
+                I henhold til personopplysningsloven og GDPR har du rett til innsyn, retting,
+                sletting, begrensning, dataportabilitet og å protestere mot behandlingen. Du kan også
+                klage til Datatilsynet.
+              </p>
+              <p className="mt-3">
+                Er du elev eller lærer som bruker tjenesten gjennom skolen din, retter du henvendelser
+                om disse rettighetene til skolen/skoleeier, som er behandlingsansvarlig. Bruker du
+                tjenesten som privatperson, kan du kontakte oss direkte.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">8. Sikkerhet</h2>
+              <ul className="list-disc pl-6 space-y-2 mt-3">
+                <li>All trafikk er kryptert med HTTPS/TLS, og data lagres kryptert</li>
+                <li>Rollebasert tilgangsstyring og tilgangskontroll på databasenivå</li>
+                <li>Vi samler kun de opplysningene som er nødvendige (dataminimering)</li>
+                <li>Databehandleravtaler med alle våre leverandører</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">9. Informasjonskapsler (cookies)</h2>
+              <p>
+                Vi bruker kun teknisk nødvendige informasjonskapsler, blant annet for å holde deg
+                innlogget og huske tema-valg. Vi bruker ikke informasjonskapsler for sporing,
+                markedsføring eller annonsering.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">10. Endringer og kontakt</h2>
+              <p>
+                Vi kan oppdatere denne personvernerklæringen ved behov, og vesentlige endringer vil
+                bli kommunisert på nettsiden. Har du spørsmål om personvern, kan du kontakte oss via
+                nettsiden.
               </p>
             </section>
           </div>

@@ -181,7 +181,12 @@ export const authOptions: NextAuthOptions = {
             authorization: {
               url: FEIDE_AUTHORIZATION_URL,
               params: {
-                scope: "openid email profile userid-feide groups",
+                // Dataminimering (GDPR art. 5(1)(c)): be kun om attributtene vi
+                // faktisk bruker (id, navn, e-post, Feide-ID). 'groups'-scopet er
+                // bevisst utelatt – klasse-/gruppetilhørighet bygges i appen, ikke
+                // hentet fra Feide. Legg til igjen (og oppdater databehandleravtalen)
+                // kun hvis en funksjon faktisk trenger gruppemedlemskap fra Feide.
+                scope: "openid email profile userid-feide",
               },
             },
             token: FEIDE_TOKEN_URL,
