@@ -404,7 +404,23 @@ export function getChapterMeta(
   malform: Malform = 'nb',
 ): TextbookChapterMeta | undefined {
   const course = getCourse(courseId);
-  const meta = course?.chapters.find((c) => c.id === chapterId);
+  let meta = course?.chapters.find((c) => c.id === chapterId);
+  // Fallback: narrativ-kapittel som ikke har en egen metadata-oppføring. Syntetiser
+  // meta fra originalkapittelet som peker hit via linkedChapterId, slik at både
+  // «Lesevennlig versjon»-toggle og selve narrativ-ruten virker — uten å måtte
+  // duplisere en metadata-oppføring for hvert eneste narrativ-kapittel.
+  if (!meta && chapterId.endsWith('-narrativ')) {
+    const original = course?.chapters.find((c) => c.linkedChapterId === chapterId);
+    if (original) {
+      meta = {
+        ...original,
+        id: chapterId,
+        subtitle: 'Lesevennlig versjon',
+        linkedChapterId: original.id,
+        isNarrativeVersion: true,
+      };
+    }
+  }
   if (!meta || malform !== 'nn') return meta;
   const nn = getMetaNn()[chapterId];
   if (!nn) return meta;
