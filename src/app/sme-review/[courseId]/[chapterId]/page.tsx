@@ -1,7 +1,9 @@
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import { getCourse, getChapterMeta } from '@/lib/data/textbook-courses';
 import { getChapterContentLocalized } from '@/lib/data/textbook-content';
-import { SmeReview } from '@/components/textbook/sme-review';
+import { SmeReview, type SpellFlag } from '@/components/textbook/sme-review';
 
 export const metadata = { title: 'Nordsamisk review' };
 
@@ -23,6 +25,16 @@ export default async function SmeReviewPage({ params }: PageProps) {
 
   const meta = getChapterMeta(courseId, chapterId);
 
+  // Automatisk språksjekk (Divvun-stavekontroll), forhåndskjørt offline av
+  // scripts/sme-validate.mjs og lagret som <id>.flags.json.
+  let flags: SpellFlag[] = [];
+  try {
+    const p = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters', 'sme', `${chapterId}.flags.json`);
+    flags = (JSON.parse(fs.readFileSync(p, 'utf-8')).flagged ?? []) as SpellFlag[];
+  } catch {
+    // ingen flags-fil for dette kapittelet ennå
+  }
+
   return (
     <SmeReview
       courseId={courseId}
@@ -31,6 +43,7 @@ export default async function SmeReviewPage({ params }: PageProps) {
       chapterTitle={meta?.title ?? chapterId}
       sme={sme}
       nb={nb}
+      flags={flags}
     />
   );
 }

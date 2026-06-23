@@ -10,6 +10,13 @@ import { useUser } from '@/lib/auth/hooks';
 import type { TextbookChapter, TextbookContentBlock } from '@/lib/types/textbook';
 import { Flag, Languages, X } from 'lucide-react';
 
+export interface SpellFlag {
+  word: string;
+  suggestions: string[];
+  count: number;
+  blocks: string[];
+}
+
 interface Props {
   courseId: string;
   chapterId: string;
@@ -17,6 +24,7 @@ interface Props {
   chapterTitle: string;
   sme: TextbookChapter;
   nb?: TextbookChapter;
+  flags?: SpellFlag[];
 }
 
 interface Ctx {
@@ -51,7 +59,7 @@ const CATEGORIES = [
   ['annet', 'Annet'],
 ];
 
-export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb }: Props) {
+export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [] }: Props) {
   const [showNo, setShowNo] = useState(false);
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
@@ -171,6 +179,35 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
             Rettinger lagres i feildatabasen og brukes til å forbedre senere kapitler.
           </p>
         </div>
+
+        {flags.length > 0 && (
+          <details className="rounded-lg border border-orange-300 bg-orange-50 dark:bg-orange-950/20 p-4 mb-6 text-sm" open>
+            <summary className="font-semibold cursor-pointer">
+              🔎 Automatisk språksjekk (Divvun stavekontroll): {flags.length} ord ikke funnet i nordsamisk ordbok
+            </summary>
+            <p className="mt-2 text-muted-foreground">
+              Sannsynlig oppdiktede eller feilstavede ord. NB: fanger ikke «gyldig form, feil ord»,
+              og engelske ord (f.eks. fra PEMDAS-huskeregelen) kan også dukke opp.
+            </p>
+            <ul className="mt-2 space-y-1">
+              {flags.map((f) => (
+                <li key={f.word} className="flex flex-wrap items-baseline gap-x-2">
+                  <code className="font-semibold text-orange-800 dark:text-orange-300">{f.word}</code>
+                  <span className="text-xs text-muted-foreground">({f.count}×)</span>
+                  {f.suggestions.length > 0 && (
+                    <span className="text-xs">forslag: {f.suggestions.slice(0, 4).join(', ')}</span>
+                  )}
+                  <button
+                    onClick={() => openModal({ segid: f.blocks[0] ?? '', no: '', wrong: f.word })}
+                    className="text-xs text-red-700 underline"
+                  >
+                    rapporter
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
 
         {sme.content.map((block) => {
           const nbBlock = nbById.get(block.id);
