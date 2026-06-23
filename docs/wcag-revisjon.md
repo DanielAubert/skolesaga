@@ -54,7 +54,14 @@ Legende: ✅ fikset · 🟡 delvis · ⬜ gjenstår
 
 ---
 
+## Automatisert verifisering (axe-core)
+Kjørt Playwright + axe-core (WCAG 2.1 AA-tagger) mot kjørende app på hjem, login, bok,
+personvern og tilgjengelighet. To brudd funnet og rettet:
+- ✅ Kontrast på KI-deklarasjon (`text-muted-foreground/70` ga 3.5:1 → fjernet opasitet)
+- ✅ Login-tabs: `TabsTrigger` uten `TabsContent` ga ugyldig `aria-controls` → la formene i paneler
+- **Resultat: 0 brudd på alle 5 skannede sider.**
+
 ## Gjenstår utenfor koden
 - ✅ Publisert tilgjengelighetserklæring (`/tilgjengelighet`, lenket i footer) — gjenstår: uustatus.no-registrering
-- ⬜ Automatisert a11y-testing (axe) i CI
+- 🟡 Automatisert a11y-testing (axe) — verifisert manuelt; gjenstår: fast i CI + flere ruter (kapittel/quiz/dashboard)
 - ⬜ Manuell skjermleser-/tastaturtest av hovedflyt
