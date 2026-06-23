@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import { getCourse, getChapterMeta } from '@/lib/data/textbook-courses';
-import { getChapterContentLocalized } from '@/lib/data/textbook-content';
-import { SmeReview, type SpellFlag, type GrammarNote } from '@/components/textbook/sme-review';
+import { getChapterContentLocalized, getSmeChapterIds } from '@/lib/data/textbook-content';
+import { SmeReview, type SpellFlag, type GrammarNote, type NavLink } from '@/components/textbook/sme-review';
 
 export const metadata = { title: 'Nordsamisk review' };
 
@@ -24,6 +24,16 @@ export default async function SmeReviewPage({ params }: PageProps) {
   }
 
   const meta = getChapterMeta(courseId, chapterId);
+
+  // Navigasjon mellom de oversatte delkapitlene (i kursets kapittelrekkefølge,
+  // begrenset til dem som faktisk har en nordsamisk versjon).
+  const smeIds = new Set(await getSmeChapterIds());
+  const ordered = (course.chapters ?? []).filter((c) => smeIds.has(c.id));
+  const idx = ordered.findIndex((c) => c.id === chapterId);
+  const toLink = (c: (typeof ordered)[number] | undefined): NavLink | null =>
+    c ? { id: c.id, title: getChapterMeta(courseId, c.id)?.title ?? c.id } : null;
+  const prev = idx > 0 ? toLink(ordered[idx - 1]) : null;
+  const next = idx >= 0 && idx < ordered.length - 1 ? toLink(ordered[idx + 1]) : null;
 
   // Automatisk språksjekk (Divvun-stavekontroll), forhåndskjørt offline av
   // scripts/sme-validate.mjs og lagret som <id>.flags.json.
@@ -48,6 +58,8 @@ export default async function SmeReviewPage({ params }: PageProps) {
       nb={nb}
       flags={flags}
       grammar={grammar}
+      prev={prev}
+      next={next}
     />
   );
 }

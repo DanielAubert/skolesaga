@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { MainNav } from '@/components/navigation/main-nav';
 import { Footer } from '@/components/layout/footer';
 import { ContentBlockRenderer } from '@/components/textbook/content-block-renderer';
@@ -8,7 +9,7 @@ import { getSupabase } from '@/lib/supabase/client';
 import { useFocusTrap } from '@/components/accessibility/skip-nav';
 import { useUser } from '@/lib/auth/hooks';
 import type { TextbookChapter, TextbookContentBlock } from '@/lib/types/textbook';
-import { Flag, Languages, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Flag, Languages, X } from 'lucide-react';
 
 export interface SpellFlag {
   word: string;
@@ -23,6 +24,11 @@ export interface GrammarNote {
   suggestions: string[];
 }
 
+export interface NavLink {
+  id: string;
+  title: string;
+}
+
 interface Props {
   courseId: string;
   chapterId: string;
@@ -32,6 +38,8 @@ interface Props {
   nb?: TextbookChapter;
   flags?: SpellFlag[];
   grammar?: GrammarNote[];
+  prev?: NavLink | null;
+  next?: NavLink | null;
 }
 
 interface Ctx {
@@ -66,7 +74,7 @@ const CATEGORIES = [
   ['annet', 'Annet'],
 ];
 
-export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [], grammar = [] }: Props) {
+export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [], grammar = [], prev = null, next = null }: Props) {
   const [showNo, setShowNo] = useState(false);
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
@@ -120,11 +128,22 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
       'Eksempel': 'Ovdamearka', 'Bevis': 'Duođaštus',
       'Forrige': 'Ovddit', 'Neste': 'Boahtte', 'Send inn': 'Sádde',
       'Oppgave': 'Bihttá', 'Oppgaver': 'Bihtát',
+      // Oppgave-/svar-knapper i kapittelviseren
+      'Last opp bilde': 'Sádde gova', 'Last opp': 'Sádde',
+      'Tegn løsning': 'Sárgo čovdosa', 'Tegn': 'Sárgo',
+      'Skriv svar': 'Čále vástádusa', 'Skriv': 'Čále',
+      'Løs oppgaven': 'Čoavdde bihtá', 'Løs oppgave': 'Čoavdde bihtá',
+      'Tren': 'Hárjehala', 'Øv': 'Hárjehala',
+      'Vis fasiten': 'Čájet čoavddus', 'Prøv igjen': 'Geahččal fas',
     };
     const fix = (node: Text) => {
       const t = node.nodeValue ?? '';
       const key = t.trim();
-      if (key && dict[key]) node.nodeValue = t.replace(key, dict[key]);
+      if (!key) return;
+      if (dict[key]) { node.nodeValue = t.replace(key, dict[key]); return; }
+      // Håndter teller-suffiks som «Vis hint (2)» → «Čájet veahki (2)».
+      const m = key.match(/^(.*?)(\s*\(\d+\))$/);
+      if (m && dict[m[1]]) node.nodeValue = t.replace(key, dict[m[1]] + m[2]);
     };
     const fixTree = (root: Node) => {
       const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -223,6 +242,80 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     setTimeout(() => setStatus(null), 3500);
   }
 
+  // Navigasjon mellom oversatte delkapitler (samiske etiketter: Ovddit/Boahtte).
+  const navBar = (prev || next) ? (
+    <nav className="flex items-stretch justify-between gap-3 my-6">
+      {prev ? (
+        <Link
+          href={`/sme-review/${courseId}/${prev.id}`}
+          className="group flex flex-1 items-center gap-2 rounded-lg border p-3 text-sm hover:bg-muted"
+        >
+          <ChevronLeft className="h-4 w-4 shrink-0" />
+          <span className="min-w-0">
+            <span className="block text-xs text-muted-foreground">Ovddit</span>
+            <span className="block truncate font-medium">{prev.title}</span>
+          </span>
+        </Link>
+      ) : <span className="flex-1" />}
+      {next ? (
+        <Link
+          href={`/sme-review/${courseId}/${next.id}`}
+          className="group flex flex-1 items-center justify-end gap-2 rounded-lg border p-3 text-right text-sm hover:bg-muted"
+        >
+          <span className="min-w-0">
+            <span className="block text-xs text-muted-foreground">Boahtte</span>
+            <span className="block truncate font-medium">{next.title}</span>
+          </span>
+          <ChevronRight className="h-4 w-4 shrink-0" />
+        </Link>
+      ) : <span className="flex-1" />}
+    </nav>
+  ) : null;
+
+  // Automatisk språksjekk-panel (flyttet til bunnen – mest nyttig som referanse,
+  // ikke det første en revisor skal møte).
+  const langCheck = flags.length > 0 ? (
+    <details className="rounded-lg border border-orange-300 bg-orange-50 dark:bg-orange-950/20 p-4 mt-8 text-sm">
+      <summary className="font-semibold cursor-pointer">
+        🔎 Automatisk språksjekk (Divvun stavekontroll): {flags.length} ord ikke funnet i nordsamisk ordbok
+      </summary>
+      <p className="mt-2 text-muted-foreground">
+        Sannsynlig oppdiktede eller feilstavede ord. NB: fanger ikke «gyldig form, feil ord»,
+        og engelske ord (f.eks. fra PEMDAS-huskeregelen) kan også dukke opp.
+      </p>
+      <ul className="mt-2 space-y-1">
+        {flags.map((f) => (
+          <li key={f.word} className="flex flex-wrap items-baseline gap-x-2">
+            <code className="font-semibold text-orange-800 dark:text-orange-300">{f.word}</code>
+            <span className="text-xs text-muted-foreground">({f.count}×)</span>
+            {f.suggestions.length > 0 && (
+              <span className="text-xs">forslag: {f.suggestions.slice(0, 4).join(', ')}</span>
+            )}
+            <button
+              onClick={() => openModal({ segid: f.blocks[0] ?? '', no: '', wrong: f.word })}
+              className="text-xs text-red-700 underline"
+            >
+              rapporter
+            </button>
+          </li>
+        ))}
+      </ul>
+      {grammar.length > 0 && (
+        <div className="mt-3 border-t border-orange-200 pt-2">
+          <div className="font-semibold">GramDivvun grammatikk-forslag ({grammar.length})</div>
+          <p className="text-xs text-muted-foreground">Kan stride med den offisielle termbasen (f.eks. nubbi-/nuppi-) — vurder, ikke automatisk fasit.</p>
+          <ul className="mt-1 space-y-0.5">
+            {grammar.map((g, i) => (
+              <li key={i} className="text-xs">
+                <code>{g.error}</code> → {g.suggestions.slice(0, 3).join(', ') || '—'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </details>
+  ) : null;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
@@ -237,47 +330,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
           </p>
         </div>
 
-        {flags.length > 0 && (
-          <details className="rounded-lg border border-orange-300 bg-orange-50 dark:bg-orange-950/20 p-4 mb-6 text-sm" open>
-            <summary className="font-semibold cursor-pointer">
-              🔎 Automatisk språksjekk (Divvun stavekontroll): {flags.length} ord ikke funnet i nordsamisk ordbok
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              Sannsynlig oppdiktede eller feilstavede ord. NB: fanger ikke «gyldig form, feil ord»,
-              og engelske ord (f.eks. fra PEMDAS-huskeregelen) kan også dukke opp.
-            </p>
-            <ul className="mt-2 space-y-1">
-              {flags.map((f) => (
-                <li key={f.word} className="flex flex-wrap items-baseline gap-x-2">
-                  <code className="font-semibold text-orange-800 dark:text-orange-300">{f.word}</code>
-                  <span className="text-xs text-muted-foreground">({f.count}×)</span>
-                  {f.suggestions.length > 0 && (
-                    <span className="text-xs">forslag: {f.suggestions.slice(0, 4).join(', ')}</span>
-                  )}
-                  <button
-                    onClick={() => openModal({ segid: f.blocks[0] ?? '', no: '', wrong: f.word })}
-                    className="text-xs text-red-700 underline"
-                  >
-                    rapporter
-                  </button>
-                </li>
-              ))}
-            </ul>
-            {grammar.length > 0 && (
-              <div className="mt-3 border-t border-orange-200 pt-2">
-                <div className="font-semibold">GramDivvun grammatikk-forslag ({grammar.length})</div>
-                <p className="text-xs text-muted-foreground">Kan stride med den offisielle termbasen (f.eks. nubbi-/nuppi-) — vurder, ikke automatisk fasit.</p>
-                <ul className="mt-1 space-y-0.5">
-                  {grammar.map((g, i) => (
-                    <li key={i} className="text-xs">
-                      <code>{g.error}</code> → {g.suggestions.slice(0, 3).join(', ') || '—'}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </details>
-        )}
+        {navBar}
 
         {sme.content.map((block) => {
           const nbBlock = nbById.get(block.id);
@@ -305,6 +358,9 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
             </div>
           );
         })}
+
+        {navBar}
+        {langCheck}
       </main>
       <Footer />
 

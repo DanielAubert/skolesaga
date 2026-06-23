@@ -110,6 +110,12 @@ export async function hasSmeVersion(chapterId: string): Promise<boolean> {
   return chapterId in chapters || (aliases[chapterId] != null && aliases[chapterId] in chapters);
 }
 
+/** Alle kapittel-id-er som har en nordsamisk (review) versjon, i vilkårlig rekkefølge. */
+export async function getSmeChapterIds(): Promise<string[]> {
+  const { chapters } = await getRemote('sme');
+  return Object.keys(chapters);
+}
+
 export function getAllChapterIds(): string[] {
   return Object.keys(getData().chapters);
 }
