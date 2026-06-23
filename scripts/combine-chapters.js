@@ -48,6 +48,7 @@ let smeCount = 0;
 if (fs.existsSync(smeDir)) {
   for (const file of fs.readdirSync(smeDir)) {
     if (!file.endsWith('.json')) continue;
+    if (file.endsWith('.flags.json')) continue; // språksjekk-sidecar, ikke et kapittel
     const id = file.slice(0, -5);
     const ch = JSON.parse(fs.readFileSync(path.join(smeDir, file), 'utf-8'));
     delete ch._meta;

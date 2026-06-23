@@ -17,6 +17,12 @@ export interface SpellFlag {
   blocks: string[];
 }
 
+export interface GrammarNote {
+  blockId: string;
+  error: string;
+  suggestions: string[];
+}
+
 interface Props {
   courseId: string;
   chapterId: string;
@@ -25,6 +31,7 @@ interface Props {
   sme: TextbookChapter;
   nb?: TextbookChapter;
   flags?: SpellFlag[];
+  grammar?: GrammarNote[];
 }
 
 interface Ctx {
@@ -59,7 +66,7 @@ const CATEGORIES = [
   ['annet', 'Annet'],
 ];
 
-export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [] }: Props) {
+export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [], grammar = [] }: Props) {
   const [showNo, setShowNo] = useState(false);
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
@@ -206,6 +213,19 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
                 </li>
               ))}
             </ul>
+            {grammar.length > 0 && (
+              <div className="mt-3 border-t border-orange-200 pt-2">
+                <div className="font-semibold">GramDivvun grammatikk-forslag ({grammar.length})</div>
+                <p className="text-xs text-muted-foreground">Kan stride med den offisielle termbasen (f.eks. nubbi-/nuppi-) — vurder, ikke automatisk fasit.</p>
+                <ul className="mt-1 space-y-0.5">
+                  {grammar.map((g, i) => (
+                    <li key={i} className="text-xs">
+                      <code>{g.error}</code> → {g.suggestions.slice(0, 3).join(', ') || '—'}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </details>
         )}
 

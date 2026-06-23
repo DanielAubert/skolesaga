@@ -3,7 +3,7 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import { getCourse, getChapterMeta } from '@/lib/data/textbook-courses';
 import { getChapterContentLocalized } from '@/lib/data/textbook-content';
-import { SmeReview, type SpellFlag } from '@/components/textbook/sme-review';
+import { SmeReview, type SpellFlag, type GrammarNote } from '@/components/textbook/sme-review';
 
 export const metadata = { title: 'Nordsamisk review' };
 
@@ -28,9 +28,12 @@ export default async function SmeReviewPage({ params }: PageProps) {
   // Automatisk språksjekk (Divvun-stavekontroll), forhåndskjørt offline av
   // scripts/sme-validate.mjs og lagret som <id>.flags.json.
   let flags: SpellFlag[] = [];
+  let grammar: GrammarNote[] = [];
   try {
     const p = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters', 'sme', `${chapterId}.flags.json`);
-    flags = (JSON.parse(fs.readFileSync(p, 'utf-8')).flagged ?? []) as SpellFlag[];
+    const data = JSON.parse(fs.readFileSync(p, 'utf-8'));
+    flags = (data.flagged ?? []) as SpellFlag[];
+    grammar = (data.grammar ?? []) as GrammarNote[];
   } catch {
     // ingen flags-fil for dette kapittelet ennå
   }
@@ -44,6 +47,7 @@ export default async function SmeReviewPage({ params }: PageProps) {
       sme={sme}
       nb={nb}
       flags={flags}
+      grammar={grammar}
     />
   );
 }

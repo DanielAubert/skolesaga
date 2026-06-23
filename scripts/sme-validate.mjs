@@ -64,23 +64,54 @@ async function speller(text) {
   return (await res.json()).results || [];
 }
 
+const GRAMMAR_API = 'https://api-giellalt.uit.no/grammar/se';
+async function grammar(text) {
+  const res = await fetch(GRAMMAR_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text }),
+  });
+  if (!res.ok) throw new Error(`grammar HTTP ${res.status}`);
+  return (await res.json()).errs || [];
+}
+
 const flags = {}; // word -> {suggestions, count, blocks:Set}
+const grammarErrs = []; // {blockId, error, suggestions}
 let checkedWords = 0;
 
 for (const seg of segments) {
   const text = clean(seg.text);
   if (!text) continue;
-  let results;
-  try { results = await speller(text); }
-  catch (e) { console.error(`  feil for blokk ${seg.blockId}: ${e.message}`); continue; }
-  for (const r of results) {
-    checkedWords++;
-    if (r.is_correct) continue;
-    const w = r.word;
-    if (!flags[w]) flags[w] = { word: w, suggestions: (r.suggestions || []).slice(0, 5).map((s) => s.value), count: 0, blocks: new Set() };
-    flags[w].count++;
-    flags[w].blocks.add(seg.blockId);
-  }
+  // 1) Stavekontroll (ord ikke i ordbok)
+  try {
+    const results = await speller(text);
+    for (const r of results) {
+      checkedWords++;
+      if (r.is_correct) continue;
+      const w = r.word;
+      if (!flags[w]) flags[w] = { word: w, suggestions: (r.suggestions || []).slice(0, 5).map((s) => s.value), count: 0, blocks: new Set() };
+      flags[w].count++;
+      flags[w].blocks.add(seg.blockId);
+    }
+  } catch (e) { console.error(`  speller-feil blokk ${seg.blockId}: ${e.message}`); }
+  // 2) Grammatikksjekk (GramDivvun) – kongruens/bøyning i kontekst
+  try {
+    const errs = await grammar(text);
+    for (const e of errs) {
+      // Divvun-format: [form, beg, end, type, msg, [forslag...]]
+      const form = Array.isArray(e) ? e[0] : (e.error_text ?? JSON.stringify(e));
+      const sug = Array.isArray(e) ? (e[5] || []) : (e.suggestions || []);
+      const norm = (s) => String(s).replace(/\s+/g, '');
+      // Hopp over rene mellomrom-/tegnsettingsartefakter (fra rensing av fasit-
+      // strenger som «a) 17, b) 4») og merknader uten bokstaver.
+      const spacingOnly = sug.length && norm(form) === norm(sug[0]);
+      // Hopp over fremmedord (engelsk huskeregel o.l.) som allerede er fanget av
+      // stavekontrollen — de er ikke ekte grammatikkfeil i samisk.
+      const firstTok = String(form).split(/\s+/)[0].replace(/[^\wáčđŋšŧžÁČĐŊŠŦŽ]+$/u, '');
+      if (spacingOnly || flags[firstTok] || !/[a-zA-ZáčđŋšŧžÁČĐŊŠŦŽ]{2,}/.test(form)) continue;
+      grammarErrs.push({ blockId: seg.blockId, error: form, suggestions: sug });
+    }
+  } catch (e) { console.error(`  grammar-feil blokk ${seg.blockId}: ${e.message}`); }
   await new Promise((r) => setTimeout(r, 120)); // høflig pause
 }
 
@@ -88,8 +119,10 @@ const out = Object.values(flags)
   .map((f) => ({ ...f, blocks: [...f.blocks] }))
   .sort((a, b) => b.count - a.count);
 
-fs.writeFileSync(path.join(dir, `${id}.flags.json`), JSON.stringify({ chapterId: id, checkedAt: new Date().toISOString().slice(0, 10), checkedWords, flagged: out }, null, 2));
+fs.writeFileSync(path.join(dir, `${id}.flags.json`), JSON.stringify({ chapterId: id, checkedAt: new Date().toISOString().slice(0, 10), checkedWords, flagged: out, grammar: grammarErrs }, null, 2));
 
 console.log(`Sjekket ~${checkedWords} ord i ${segments.length} segmenter.`);
 console.log(`Ukjente ord (ikke i nordsamisk ordbok): ${out.length}`);
 for (const f of out) console.log(`  ${f.word}  (${f.count}x)  → forslag: ${f.suggestions.join(', ') || '—'}`);
+console.log(`Grammatikk-merknader: ${grammarErrs.length}`);
+for (const g of grammarErrs) console.log(`  [${g.blockId}] ${g.error} → ${(g.suggestions || []).join(', ') || '—'}`);
