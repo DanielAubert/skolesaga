@@ -71,6 +71,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
   const selBtn = useRef<HTMLButtonElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
   const { user } = useUser();
 
   // form-felt
@@ -98,6 +99,55 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     setReviewer(user?.email ?? localStorage.getItem('sme-reviewer') ?? '');
     if (selBtn.current) selBtn.current.style.display = 'none';
   }, [user]);
+
+  // UI-etikett-overlegg: bytt ut hardkodede norske knappe-/UI-tekster i
+  // kapittelviseren med nordsamiske (kun innenfor innholdsområdet). Strengene
+  // er verifisert mot Divvun-stavekontrollen. Rører ikke delte komponenter.
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+    const dict: Record<string, string> = {
+      'Vis hint': 'Čájet veahki', 'Skjul hint': 'Čiega veahki',
+      'Vis tips': 'Čájet rávvaga', 'Skjul tips': 'Čiega rávvaga',
+      'Vis oppgaver': 'Čájet bihtáid', 'Skjul oppgaver': 'Čiega bihtáid',
+      'Vis løsning': 'Čájet čoavddus', 'Skjul løsning': 'Čiega čoavddus',
+      'Vis fasit': 'Čájet čoavddus', 'Løsning': 'Čoavddus', 'Fasit': 'Čoavddus',
+      'Løsningsforslag': 'Čoavddusevttohus',
+      'Sjekk svar': 'Dárkkis vástádusa', 'Sjekk': 'Dárkkis', 'Svar': 'Vástádus',
+      'Se videoløsning': 'Geahča video', 'Se videogjennomgang': 'Geahča video',
+      'Vis video': 'Čájet video', 'Skjul video': 'Čiega video',
+      'Tegning': 'Sárgun', 'Tekstsvar': 'Teakstavástádus',
+      'Eksempel': 'Ovdamearka', 'Bevis': 'Duođaštus',
+      'Forrige': 'Ovddit', 'Neste': 'Boahtte', 'Send inn': 'Sádde',
+      'Oppgave': 'Bihttá', 'Oppgaver': 'Bihtát',
+    };
+    const fix = (node: Text) => {
+      const t = node.nodeValue ?? '';
+      const key = t.trim();
+      if (key && dict[key]) node.nodeValue = t.replace(key, dict[key]);
+    };
+    const fixTree = (root: Node) => {
+      const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes: Text[] = [];
+      let n: Node | null;
+      while ((n = w.nextNode())) {
+        const p = (n as Text).parentElement;
+        if (p && !p.closest('input,textarea')) nodes.push(n as Text);
+      }
+      nodes.forEach(fix);
+    };
+    fixTree(el);
+    const obs = new MutationObserver((muts) => {
+      for (const m of muts) {
+        m.addedNodes.forEach((nd) => {
+          if (nd.nodeType === 1) fixTree(nd);
+          else if (nd.nodeType === 3) fix(nd as Text);
+        });
+      }
+    });
+    obs.observe(el, { childList: true, subtree: true });
+    return () => obs.disconnect();
+  }, []);
 
   // markering hvor som helst -> flytende knapp
   useEffect(() => {
@@ -176,7 +226,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
-      <main id="main-content" className="flex-1 container mx-auto max-w-4xl px-4 py-8">
+      <main ref={mainRef} id="main-content" className="flex-1 container mx-auto max-w-4xl px-4 py-8">
         <div className="mb-4 text-sm text-muted-foreground">Nordsamisk review</div>
         <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/30 p-4 mb-6 text-sm">
           <p className="font-semibold mb-1">Nordsamisk review · {courseTitle} — {chapterTitle}</p>
