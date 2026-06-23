@@ -30,10 +30,14 @@ export default async function SmeReviewPage({ params }: PageProps) {
   const smeIds = new Set(await getSmeChapterIds());
   const ordered = (course.chapters ?? []).filter((c) => smeIds.has(c.id));
   const idx = ordered.findIndex((c) => c.id === chapterId);
-  const toLink = (c: (typeof ordered)[number] | undefined): NavLink | null =>
-    c ? { id: c.id, title: getChapterMeta(courseId, c.id)?.title ?? c.id } : null;
-  const prev = idx > 0 ? toLink(ordered[idx - 1]) : null;
-  const next = idx >= 0 && idx < ordered.length - 1 ? toLink(ordered[idx + 1]) : null;
+  // Bruk den NORDSAMISKE kapitteltittelen i navigasjonen (ikke bokmål-metadataen).
+  const toLink = async (c: (typeof ordered)[number] | undefined): Promise<NavLink | null> => {
+    if (!c) return null;
+    const smeCh = await getChapterContentLocalized(c.id, 'sme');
+    return { id: c.id, title: smeCh?.title ?? getChapterMeta(courseId, c.id)?.title ?? c.id };
+  };
+  const prev = idx > 0 ? await toLink(ordered[idx - 1]) : null;
+  const next = idx >= 0 && idx < ordered.length - 1 ? await toLink(ordered[idx + 1]) : null;
 
   // Automatisk språksjekk (Divvun-stavekontroll), forhåndskjørt offline av
   // scripts/sme-validate.mjs og lagret som <id>.flags.json.
