@@ -1,0 +1,57 @@
+name: Tilgjengelighet (a11y)
+
+# Kjører axe-core (WCAG 2.1 AA) mot et utvalg ruter ved hver PR og push til main.
+# Feiler hvis det innføres nye tilgjengelighetsbrudd. Se scripts/a11y-check.mjs.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  a11y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Installer avhengigheter
+        run: npm ci
+
+      - name: Generer kapitteldata (uten Supabase-opplasting)
+        run: node scripts/combine-chapters.js
+
+      - name: Installer Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start appen (dev-server)
+        run: |
+          PORT=3100 npm run dev > dev-server.log 2>&1 &
+          echo "Venter på at serveren skal bli klar..."
+          for i in $(seq 1 60); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3100/ || true)
+            if [ "$code" = "200" ] || [ "$code" = "307" ]; then
+              echo "Server klar (HTTP $code)"; exit 0
+            fi
+            sleep 2
+          done
+          echo "Server ble ikke klar i tide:"; cat dev-server.log; exit 1
+
+      - name: Kjør tilgjengelighetssjekk (axe-core, WCAG 2.1 AA)
+        env:
+          BASE: http://localhost:3100
+        run: node scripts/a11y-check.mjs
+
+      - name: Last opp dev-server-logg ved feil
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-server-log
+          path: dev-server.log
+          if-no-files-found: ignore

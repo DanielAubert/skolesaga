@@ -41,55 +41,55 @@ const getResourceColors = (colorVariant: string) => {
       cardClasses: 'bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-blue-600 dark:text-blue-400',
-      buttonClasses: 'bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white'
+      buttonClasses: 'bg-blue-700 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-600 text-white'
     },
     red: {
       cardClasses: 'bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-red-600 dark:text-red-400',
-      buttonClasses: 'bg-red-600 dark:bg-red-500 hover:bg-red-700 dark:hover:bg-red-600 text-white'
+      buttonClasses: 'bg-red-700 dark:bg-red-500 hover:bg-red-800 dark:hover:bg-red-600 text-white'
     },
     orange: {
       cardClasses: 'bg-orange-50 dark:bg-orange-950 border-orange-200 dark:border-orange-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-orange-600 dark:text-orange-400',
-      buttonClasses: 'bg-orange-600 dark:bg-orange-500 hover:bg-orange-700 dark:hover:bg-orange-600 text-white'
+      buttonClasses: 'bg-orange-700 dark:bg-orange-500 hover:bg-orange-800 dark:hover:bg-orange-600 text-white'
     },
     amber: {
       cardClasses: 'bg-amber-50 dark:bg-amber-950 border-amber-200 dark:border-amber-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-amber-600 dark:text-amber-400',
-      buttonClasses: 'bg-amber-600 dark:bg-amber-500 hover:bg-amber-700 dark:hover:bg-amber-600 text-white'
+      buttonClasses: 'bg-amber-700 dark:bg-amber-500 hover:bg-amber-800 dark:hover:bg-amber-600 text-white'
     },
     purple: {
       cardClasses: 'bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-purple-600 dark:text-purple-400',
-      buttonClasses: 'bg-purple-600 dark:bg-purple-500 hover:bg-purple-700 dark:hover:bg-purple-600 text-white'
+      buttonClasses: 'bg-purple-700 dark:bg-purple-500 hover:bg-purple-800 dark:hover:bg-purple-600 text-white'
     },
     teal: {
       cardClasses: 'bg-teal-50 dark:bg-teal-950 border-teal-200 dark:border-teal-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-teal-600 dark:text-teal-400',
-      buttonClasses: 'bg-teal-600 dark:bg-teal-500 hover:bg-teal-700 dark:hover:bg-teal-600 text-white'
+      buttonClasses: 'bg-teal-700 dark:bg-teal-500 hover:bg-teal-800 dark:hover:bg-teal-600 text-white'
     },
     green: {
       cardClasses: 'bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-green-600 dark:text-green-400',
-      buttonClasses: 'bg-green-600 dark:bg-green-500 hover:bg-green-700 dark:hover:bg-green-600 text-white'
+      buttonClasses: 'bg-green-700 dark:bg-green-500 hover:bg-green-800 dark:hover:bg-green-600 text-white'
     },
     indigo: {
       cardClasses: 'bg-indigo-50 dark:bg-indigo-950 border-indigo-200 dark:border-indigo-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-indigo-600 dark:text-indigo-400',
-      buttonClasses: 'bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white'
+      buttonClasses: 'bg-indigo-700 dark:bg-indigo-500 hover:bg-indigo-800 dark:hover:bg-indigo-600 text-white'
     },
     emerald: {
       cardClasses: 'bg-emerald-50 dark:bg-emerald-950 border-emerald-200 dark:border-emerald-800',
       iconBgClasses: 'bg-white/70 dark:bg-white/10',
       iconClasses: 'text-emerald-600 dark:text-emerald-400',
-      buttonClasses: 'bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white'
+      buttonClasses: 'bg-emerald-700 dark:bg-emerald-500 hover:bg-emerald-800 dark:hover:bg-emerald-600 text-white'
     }
   };
   return colorMap[colorVariant as keyof typeof colorMap] || colorMap.blue;

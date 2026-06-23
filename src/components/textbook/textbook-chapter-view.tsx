@@ -279,7 +279,7 @@ export function TextbookChapterView({
                   </Button>
                 </Link>
               ) : (
-                <Button variant="ghost" size="sm" disabled className="opacity-50">
+                <Button variant="ghost" size="sm" disabled className="opacity-50" aria-label="Forrige kapittel (utilgjengelig)">
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
               )}
@@ -291,7 +291,7 @@ export function TextbookChapterView({
                   </Button>
                 </Link>
               ) : (
-                <Button variant="ghost" size="sm" disabled className="opacity-50">
+                <Button variant="ghost" size="sm" disabled className="opacity-50" aria-label="Neste kapittel (utilgjengelig)">
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               )}

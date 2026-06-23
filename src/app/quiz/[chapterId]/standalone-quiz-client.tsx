@@ -302,11 +302,11 @@ export function StandaloneQuizClient({
               <span className="text-muted-foreground">
                 Spørsmål {currentIndex + 1} av {problems.length}
               </span>
-              <span className="font-medium text-green-600">
+              <span className="font-medium text-green-700 dark:text-green-400">
                 {score} riktige
               </span>
             </div>
-            <Progress value={((currentIndex + 1) / problems.length) * 100} className="h-2" />
+            <Progress value={((currentIndex + 1) / problems.length) * 100} className="h-2" aria-label="Fremdrift i quizen" />
           </div>
 
           {/* Question card */}

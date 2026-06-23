@@ -496,6 +496,7 @@ export default function PoengkalkulatorPage() {
                       min={1}
                       max={6}
                       step={0.1}
+                      aria-label="Karaktersnitt"
                     />
                     <div className="flex justify-between text-xs text-muted-foreground mt-1">
                       <span>1.0</span>
@@ -511,6 +512,7 @@ export default function PoengkalkulatorPage() {
                     min={1}
                     max={6}
                     step={0.1}
+                    aria-label="Karaktersnitt (tall)"
                     value={snitt}
                     onChange={(e) => {
                       const v = parseFloat(e.target.value);
