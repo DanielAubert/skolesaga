@@ -5,6 +5,7 @@ import { MainNav } from '@/components/navigation/main-nav';
 import { Footer } from '@/components/layout/footer';
 import { ContentBlockRenderer } from '@/components/textbook/content-block-renderer';
 import { getSupabase } from '@/lib/supabase/client';
+import { useUser } from '@/lib/auth/hooks';
 import type { TextbookChapter, TextbookContentBlock } from '@/lib/types/textbook';
 import { Flag, Languages, X } from 'lucide-react';
 
@@ -54,6 +55,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
   const selBtn = useRef<HTMLButtonElement>(null);
+  const { user } = useUser();
 
   // form-felt
   const [wrong, setWrong] = useState('');
@@ -76,9 +78,10 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     setGlobal(false);
     setRule('');
     setNote('');
-    setReviewer(localStorage.getItem('sme-reviewer') ?? '');
+    // Auto-fyll med innlogget brukers e-post; ellers sist brukte navn.
+    setReviewer(user?.email ?? localStorage.getItem('sme-reviewer') ?? '');
     if (selBtn.current) selBtn.current.style.display = 'none';
-  }, []);
+  }, [user]);
 
   // markering hvor som helst -> flytende knapp
   useEffect(() => {
@@ -242,7 +245,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
             <textarea className="w-full rounded-lg border p-2 mb-2 bg-background" value={rule} onChange={(e) => setRule(e.target.value)} />
             <label className="block text-sm font-semibold mb-1">Notat (valgfritt)</label>
             <textarea className="w-full rounded-lg border p-2 mb-2 bg-background" value={note} onChange={(e) => setNote(e.target.value)} />
-            <label className="block text-sm font-semibold mb-1">Ditt navn</label>
+            <label className="block text-sm font-semibold mb-1">Ditt navn / e-post</label>
             <input className="w-full rounded-lg border p-2 mb-4 bg-background" value={reviewer} onChange={(e) => setReviewer(e.target.value)} />
             <div className="flex gap-3">
               <button onClick={submit} className="rounded-lg bg-red-700 px-4 py-2 font-semibold text-white">Send inn</button>
