@@ -23,8 +23,9 @@ Legende: ✅ ferdig · 🟡 påbegynt · ⬜ ikke startet · 🔒 krever ekstern
   - [ ] Resterende: h1 på enkelte sider, overskriftshierarki selvtest-sider, aria-pressed på svaralternativ, join/feedback role=alert, create-assignment-rader
   - [ ] `lang` på innholdsregion for nn/sme (3.1.2) — bevisst utsatt (perf), se wcag-revisjon.md
   - [ ] Bevegelse/animasjon: respektér `prefers-reduced-motion`
+  - [x] Axe-skann av kapittel/quiz/ressurser/poengkalkulator → 14 funn fikset (kontrast, navn, progressbar, slider)
 - [x] Publisert **tilgjengelighetserklæring** (`/tilgjengelighet`) — gjenstår: uustatus.no-registrering
-- [ ] Automatisert a11y-testing i CI (f.eks. axe)
+- [x] Automatisert a11y-testing i CI (axe) — `scripts/a11y-check.mjs` + `.github/workflows/a11y.yml`; gjenstår: innloggede ruter
 
 ## 3. Personvern / GDPR (LOVKRAV) — 🟡
 - ✅ Personvernerklæring rettet (reflekterer serverside-behandling)

@@ -54,14 +54,21 @@ Legende: ✅ fikset · 🟡 delvis · ⬜ gjenstår
 
 ---
 
-## Automatisert verifisering (axe-core)
-Kjørt Playwright + axe-core (WCAG 2.1 AA-tagger) mot kjørende app på hjem, login, bok,
-personvern og tilgjengelighet. To brudd funnet og rettet:
-- ✅ Kontrast på KI-deklarasjon (`text-muted-foreground/70` ga 3.5:1 → fjernet opasitet)
-- ✅ Login-tabs: `TabsTrigger` uten `TabsContent` ga ugyldig `aria-controls` → la formene i paneler
-- **Resultat: 0 brudd på alle 5 skannede sider.**
+## Automatisert verifisering (axe-core) — ✅ i CI
+`scripts/a11y-check.mjs` kjører Playwright + axe-core (WCAG 2.1 AA) mot 11 ruter (hjem, bok,
+trinn, kapittel, kapittel-quiz, quiz, ressurser, poengkalkulator, login, personvern,
+tilgjengelighet). `.github/workflows/a11y.yml` kjører det ved hver PR/push og feiler ved brudd.
+Kjør lokalt: `PORT=3100 npm run dev` så `npm run a11y`.
+
+Funn fra skannene (alle rettet — **0 brudd på alle 11 ruter**):
+- ✅ Kontrast KI-deklarasjon (`text-muted-foreground/70` → fjernet opasitet)
+- ✅ Login-tabs: `TabsTrigger` uten `TabsContent` → ugyldig `aria-controls`, la formene i paneler
+- ✅ Ressurser: hvit tekst på `bg-{farge}-600` (3.2–3.7:1) → `-700`
+- ✅ Quiz: `text-green-600` (3.1:1) → `green-700`; progressbar fikk `aria-label`
+- ✅ Poengkalkulator: slider-thumb + number-input fikk `aria-label` (Slider videresender nå til thumb)
+- ✅ Kapittel: disabled prev/next ikon-knapper fikk `aria-label`
 
 ## Gjenstår utenfor koden
 - ✅ Publisert tilgjengelighetserklæring (`/tilgjengelighet`, lenket i footer) — gjenstår: uustatus.no-registrering
-- 🟡 Automatisert a11y-testing (axe) — verifisert manuelt; gjenstår: fast i CI + flere ruter (kapittel/quiz/dashboard)
+- ✅ Automatisert a11y-testing (axe) i CI — gjenstår: utvide til innloggede ruter (dashboard) med testbruker
 - ⬜ Manuell skjermleser-/tastaturtest av hovedflyt
