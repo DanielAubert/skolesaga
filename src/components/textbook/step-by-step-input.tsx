@@ -159,6 +159,7 @@ export function StepByStepInput({
                   variant="ghost"
                   size="icon"
                   onClick={() => removeStep(index)}
+                  aria-label={`Fjern steg ${index + 1}`}
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>

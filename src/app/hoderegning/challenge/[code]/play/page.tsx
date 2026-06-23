@@ -279,7 +279,7 @@ export default function PlayPage({ params }: PageProps) {
       </div>
 
       {/* Main game area */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4">
+      <main id="main-content" className="flex-1 flex flex-col items-center justify-center px-4">
         <Card className="w-full max-w-lg">
           <CardContent className="pt-8 pb-8">
             {/* Problem display with inline input */}

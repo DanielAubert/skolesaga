@@ -355,7 +355,7 @@ export function TextbookChapterView({
       </div>
 
       {/* Hovedinnhold */}
-      <main className="container mx-auto px-4 py-8">
+      <main id="main-content" className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           {/* Kapitteltittel - bare hvis ingen hero image */}
           <div className="mb-8">

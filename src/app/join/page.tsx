@@ -79,7 +79,7 @@ export default function JoinClassPage() {
       </header>
 
       {/* Main content */}
-      <main className="container px-4 py-8">
+      <main id="main-content" className="container px-4 py-8">
         <div className="max-w-md mx-auto">
           <Link
             href="/dashboard"

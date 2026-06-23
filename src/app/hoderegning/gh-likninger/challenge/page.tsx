@@ -139,7 +139,7 @@ export default function LikningerChallengePage() {
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
 
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-4xl">
+      <main id="main-content" className="flex-1 container mx-auto px-4 py-8 max-w-4xl">
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>

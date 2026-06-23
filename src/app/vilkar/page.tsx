@@ -28,7 +28,7 @@ export default function VilkarPage() {
       </header>
 
       {/* Content */}
-      <main className="container max-w-3xl px-4 py-12">
+      <main id="main-content" className="container max-w-3xl px-4 py-12">
         <h1 className="text-3xl font-bold mb-8">Vilkår og ansvarsfraskrivelse</h1>
 
         <div className="prose prose-neutral dark:prose-invert max-w-none space-y-8">

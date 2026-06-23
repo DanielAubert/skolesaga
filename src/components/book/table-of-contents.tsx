@@ -90,6 +90,8 @@ export function TableOfContents({ currentChapterId, className }: TableOfContents
           size="icon"
           className="fixed top-4 left-4 z-50 lg:hidden shadow-lg"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Lukk innholdsfortegnelse" : "Åpne innholdsfortegnelse"}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </Button>

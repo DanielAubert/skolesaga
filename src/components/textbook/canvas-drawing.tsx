@@ -785,6 +785,7 @@ export function CanvasDrawing({
             size="icon"
             className="absolute top-2 right-2 h-6 w-6"
             onClick={() => setAiFeedback(null)}
+            aria-label="Lukk tilbakemelding"
           >
             <X className="h-4 w-4" />
           </Button>

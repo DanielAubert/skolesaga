@@ -168,7 +168,7 @@ export default function AdminUsersPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
 
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main id="main-content" className="flex-1 container mx-auto px-4 py-8">
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between">

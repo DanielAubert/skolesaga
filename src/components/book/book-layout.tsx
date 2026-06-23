@@ -23,7 +23,7 @@ export function BookLayout({ children, currentChapterId, className }: BookLayout
         <TableOfContents currentChapterId={currentChapterId} />
 
         {/* Main content */}
-        <main className={cn(
+        <main id="main-content" className={cn(
           "flex-1 bg-gray-100 dark:bg-gradient-to-b dark:from-background dark:via-background dark:to-muted/5",
           "w-full lg:w-auto", // Full width on mobile, auto on desktop
           className

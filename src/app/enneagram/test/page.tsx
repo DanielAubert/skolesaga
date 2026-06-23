@@ -93,7 +93,7 @@ export default function EnneagramTestPage() {
     return (
       <div className="flex min-h-screen flex-col">
         <MainNav />
-        <main className="flex-1 flex items-center justify-center">
+        <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
             <Loader2 className="h-12 w-12 animate-spin mx-auto text-amber-600" />
             <h2 className="text-2xl font-bold">Analyserer din enneagramtype...</h2>

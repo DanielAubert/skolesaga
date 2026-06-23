@@ -341,7 +341,7 @@ export function FlashcardClient({
     return (
       <div className="min-h-screen bg-background flex flex-col">
         <MainNav />
-        <main className="flex-1 container mx-auto px-4 py-8">
+        <main id="main-content" className="flex-1 container mx-auto px-4 py-8">
           <div className="max-w-lg mx-auto text-center">
             <Layers className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
             <h2 className="text-2xl font-bold mb-2">Alle kort gjennomgått!</h2>

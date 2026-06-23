@@ -150,7 +150,7 @@ export default function ProfilePage() {
       </header>
 
       {/* Main content */}
-      <main className="container px-4 py-8 max-w-2xl mx-auto">
+      <main id="main-content" className="container px-4 py-8 max-w-2xl mx-auto">
         <div className="space-y-6">
           {/* Back link */}
           <Link

@@ -148,7 +148,7 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <MainNav />
-      <main className="flex-1 container mx-auto max-w-4xl px-4 py-8">
+      <main id="main-content" className="flex-1 container mx-auto max-w-4xl px-4 py-8">
         <div className="mb-4 text-sm text-muted-foreground">Nordsamisk review</div>
         <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/30 p-4 mb-6 text-sm">
           <p className="font-semibold mb-1">Nordsamisk review · {courseTitle} — {chapterTitle}</p>

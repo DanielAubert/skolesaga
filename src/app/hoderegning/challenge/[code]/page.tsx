@@ -132,7 +132,7 @@ export default function LobbyPage({ params }: PageProps) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
         <MainNav />
-        <main className="flex-1 flex items-center justify-center">
+        <main id="main-content" className="flex-1 flex items-center justify-center">
           <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
         </main>
         <Footer />
@@ -222,6 +222,7 @@ export default function LobbyPage({ params }: PageProps) {
                     size="icon"
                     variant="outline"
                     onClick={handleCopyCode}
+                    aria-label={copied ? "Kode kopiert" : "Kopier kode"}
                   >
                     {copied ? (
                       <Check className="w-4 h-4 text-green-500" />
@@ -233,6 +234,7 @@ export default function LobbyPage({ params }: PageProps) {
                     size="icon"
                     variant="outline"
                     onClick={handleShare}
+                    aria-label="Del"
                   >
                     <Share2 className="w-4 h-4" />
                   </Button>

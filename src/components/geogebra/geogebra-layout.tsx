@@ -24,7 +24,7 @@ export function GeoGebraLayout({ children, currentChapterId, courseId, className
         <GeoGebraTableOfContents currentChapterId={currentChapterId} courseId={courseId} />
 
         {/* Main content */}
-        <main className={cn(
+        <main id="main-content" className={cn(
           "flex-1 bg-gray-100 dark:bg-gradient-to-b dark:from-background dark:via-background dark:to-muted/5",
           "w-full lg:w-auto",
           className

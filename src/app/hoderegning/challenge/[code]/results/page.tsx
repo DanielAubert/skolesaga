@@ -153,7 +153,7 @@ export default function ResultsPage({ params }: PageProps) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
         <MainNav />
-        <main className="flex-1 flex items-center justify-center">
+        <main id="main-content" className="flex-1 flex items-center justify-center">
           <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
         </main>
         <Footer />

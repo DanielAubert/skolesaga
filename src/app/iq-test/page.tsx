@@ -61,7 +61,7 @@ export default function IQTestPage() {
     <div className="flex min-h-screen flex-col">
       <MainNav />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="container py-6">
           <Breadcrumb>
             <BreadcrumbList>

@@ -129,6 +129,7 @@ export function StudentSelector({
               size="icon"
               className="h-5 w-5 hover:bg-destructive/20"
               onClick={() => onSelectStudent(null)}
+              aria-label="Fjern valgt elev"
             >
               <X className="h-3 w-3" />
             </Button>
@@ -184,6 +185,7 @@ export function StudentSelectorCompact({
           size="icon"
           className="h-8 w-8"
           onClick={() => onSelectStudent(null)}
+          aria-label="Nullstill elevvalg"
         >
           <X className="h-4 w-4" />
         </Button>

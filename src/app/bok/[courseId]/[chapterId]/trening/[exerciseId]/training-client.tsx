@@ -1261,7 +1261,7 @@ export function TrainingClient({
     return (
       <div className="flex min-h-screen flex-col">
         <MainNav />
-        <main className="flex-1 flex items-center justify-center">
+        <main id="main-content" className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-4">
             <h1 className="text-2xl font-bold">Ingen treningsoppgaver</h1>
             <p className="text-muted-foreground">Denne oppgaven har ikke treningsmodus.</p>

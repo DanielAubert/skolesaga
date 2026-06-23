@@ -186,7 +186,7 @@ export function QuizClient({
     return (
       <div className="min-h-screen bg-background">
         <MainNav />
-        <main className="container mx-auto px-4 py-8">
+        <main id="main-content" className="container mx-auto px-4 py-8">
           <Card className="max-w-2xl mx-auto">
             <CardContent className="pt-6 text-center">
               <BookCheck className="h-16 w-16 mx-auto text-muted-foreground mb-4" />

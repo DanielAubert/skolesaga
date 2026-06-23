@@ -178,7 +178,7 @@ export default function StudentExercisesPage({ params }: { params: Promise<{ stu
       </header>
 
       {/* Main content */}
-      <main className="container px-4 py-8">
+      <main id="main-content" className="container px-4 py-8">
         <div className="space-y-8">
           {/* Student header */}
           <div className="flex items-center gap-4">

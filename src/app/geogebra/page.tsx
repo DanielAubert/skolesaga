@@ -42,7 +42,7 @@ export default function GeoGebraIndexPage() {
     <div className="flex min-h-screen flex-col bg-gray-100 dark:bg-gradient-to-b dark:from-background dark:via-background dark:to-muted/5">
       <MainNav />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="container max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-background rounded-lg shadow-sm p-6 sm:p-8">
             {/* Hero Section */}

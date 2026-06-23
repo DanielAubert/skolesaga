@@ -694,7 +694,7 @@ export default function NegativeTallRegnerekkefolgePage() {
       <div className="flex min-h-screen flex-col bg-gradient-to-b from-background via-background to-muted/5">
         <MainNav />
 
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <div className="container max-w-4xl mx-auto py-8">
             <Breadcrumb>
               <BreadcrumbList>

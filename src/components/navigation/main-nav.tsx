@@ -23,7 +23,7 @@ export function MainNav() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b glass shadow-sm" role="banner">
-      <nav className="container flex h-16 items-center" aria-label="Hovednavigasjon">
+      <nav id="navigation" className="container flex h-16 items-center" aria-label="Hovednavigasjon">
         <Link href="/" className="mr-6 hover:opacity-80 transition-opacity">
           <Logo size="sm" />
         </Link>

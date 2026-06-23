@@ -545,6 +545,7 @@ function YouTubeEmbed({ videoId, title }: { videoId: string; title?: string }) {
         onClick={() => setIsPlaying(true)}
         className="w-full aspect-video rounded-lg overflow-hidden bg-cover bg-center relative group cursor-pointer"
         style={{ backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)` }}
+        aria-label="Spill av video"
       >
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
         <div className="absolute inset-0 flex items-center justify-center">

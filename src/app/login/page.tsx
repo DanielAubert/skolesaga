@@ -67,7 +67,7 @@ function LoginPageContent() {
       </header>
 
       {/* Main content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
+      <main id="main-content" className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md space-y-6">
           {/* Welcome text */}
           <div className="text-center space-y-4">

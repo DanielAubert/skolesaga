@@ -210,7 +210,7 @@ function OnboardingContent() {
             </Link>
           </div>
         </header>
-        <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <main id="main-content" className="flex-1 flex items-center justify-center px-4 py-12">
           <Card className="w-full max-w-md">
             <CardContent className="pt-6">
               <div className="flex flex-col items-center gap-4 text-center">
