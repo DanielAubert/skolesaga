@@ -12,17 +12,18 @@ Legende: ✅ ferdig · 🟡 påbegynt · ⬜ ikke startet · 🔒 krever ekstern
 - ✅ Bokmål + nynorsk komplett (kapitler, quiz, chapterMeta), gratis = samme pris
 - ⬜ Sluttverifisering: alle surfacede ruter har faktisk nynorsk (ikke bare datalaget)
 
-## 2. Universell utforming WCAG 2.1 AA (LOVKRAV) — 🟡 STØRSTE GAP
-- 🟡 Kodebase-revisjon mot WCAG 2.1 AA (pågår — se `docs/wcag-revisjon.md`)
-  - [ ] Tastaturnavigasjon (alle interaktive elementer, fokusrekkefølge, fokus synlig)
-  - [ ] Tekstalternativ/alt-tekst på alle bilder og illustrasjoner
-  - [ ] Fargekontrast AA (4.5:1 tekst / 3:1 store elementer / UI)
-  - [ ] Skjermleser: aria-roller, landmarks, overskriftshierarki
-  - [ ] Skjemaer: labels, feilmeldinger, instruksjoner
-  - [ ] `lang`-attributt korrekt (nb/nn/sme) per innhold
-  - [ ] Lyd/video: tekstalternativ (narrativ-tekst dekker lydbøker)
+## 2. Universell utforming WCAG 2.1 AA (LOVKRAV) — 🟡 STORE FREMSKRITT
+- 🟡 Kodebase-revisjon mot WCAG 2.1 AA (se `docs/wcag-revisjon.md`)
+  - [x] Skip-nav-mål + landemerker (id på nav + 80 main-elementer)
+  - [x] Tastaturnavigasjon: flashcard-flipp, deloppgaver, modal-fokusfelle, fokusringer
+  - [x] Tekstalternativ: ikon-knapper navngitt, role="img" på 59 illustrasjoner, aria-hidden på brand-ikoner
+  - [x] Skjermleser: aria-expanded på collapsibles, dialog-roller
+  - [x] Skjemaer: role=alert + aria-invalid på innlogging, label-kobling i sme-review
+  - [ ] Fargekontrast AA (4.5:1 tekst / 3:1 UI) — krever visuell/automatisert sjekk (axe)
+  - [ ] Resterende: h1 på enkelte sider, overskriftshierarki selvtest-sider, aria-pressed på svaralternativ, join/feedback role=alert, create-assignment-rader
+  - [ ] `lang` på innholdsregion for nn/sme (3.1.2) — bevisst utsatt (perf), se wcag-revisjon.md
   - [ ] Bevegelse/animasjon: respektér `prefers-reduced-motion`
-- [ ] Publisert **tilgjengelighetserklæring** (egen side + uustatus.no-registrering)
+- [x] Publisert **tilgjengelighetserklæring** (`/tilgjengelighet`) — gjenstår: uustatus.no-registrering
 - [ ] Automatisert a11y-testing i CI (f.eks. axe)
 
 ## 3. Personvern / GDPR (LOVKRAV) — 🟡

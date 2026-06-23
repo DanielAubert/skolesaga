@@ -35,23 +35,25 @@ Legende: ✅ fikset · 🟡 delvis · ⬜ gjenstår
 
 ## Middels alvorlighet
 
-- 🟡 `aria-expanded` på disclosure-/dropdown-knapper (competence-goals, exercise-answer-key, content-block collapsibles m.fl.)
-- 🟡 `<html lang>` dynamisk for nn/sme (i dag hardkodet `nb`) — krever at root-layout leser malform-cookie (gjør layout dynamisk; vurderes)
+- ✅ `aria-expanded` på disclosure-/dropdown-knapper (kompetansemål, fasit, bevis, video, kode, løsning, hint, fullførte lekser)
+- ✅ `python-console.tsx` input: fokusindikator + `aria-label`
+- 🟡 `<html lang>` dynamisk for nn/sme — **bevisst utsatt:** å lese malform-cookie i root-layout gjør HELE appen dynamisk (stor ytelse-/SEO-kostnad). `<html lang="nb">` beholdes som nettstedets standardspråk (UI er bokmål, korrekt per 3.1.1). Språkmerking av innholdsregion (3.1.2) er en fremtidig forbedring uten perf-kostnad.
 - 🟡 Manglende `<h1>` på enkelte sider (`page.tsx`, `profil`, `join`, `bok`)
 - 🟡 Overskriftshopp h1→h3 på selvtest-sidene (enneagram, eq-test, iq-test, laeringsstil, personlighetstest m.fl.)
-- ✅ `python-console.tsx` input fokusindikator
+- 🟡 `join/page.tsx` + `feedback-dialog.tsx`: feilmelding `role="alert"`
+- 🟡 `create-assignment-dialog.tsx`: rad-`<div>` tastatur + `label htmlFor`
 
 ---
 
 ## Lav alvorlighet
-- ⬜ Math-illustrasjons-SVG: legg til `role="img"` (har allerede `aria-label`)
-- ⬜ Brand-ikon-SVG i `provider-buttons.tsx`: `aria-hidden="true"`
+- ✅ Math-illustrasjons-SVG: `role="img"` lagt på 59 SVG-er
+- ✅ Brand-ikon-SVG i `provider-buttons.tsx`: `aria-hidden="true"`
+- ✅ `lang="se"` på nordsamiske tekstfragmenter (sme-review)
 - ⬜ `aria-pressed`/`role=radio` på svaralternativ-knapper (multiple-choice, sequential-quiz)
-- ⬜ `lang="se"` på nordsamiske tekstfragmenter (sme-review)
 
 ---
 
 ## Gjenstår utenfor koden
-- ⬜ Publisert tilgjengelighetserklæring (egen side + uustatus.no-registrering)
+- ✅ Publisert tilgjengelighetserklæring (`/tilgjengelighet`, lenket i footer) — gjenstår: uustatus.no-registrering
 - ⬜ Automatisert a11y-testing (axe) i CI
 - ⬜ Manuell skjermleser-/tastaturtest av hovedflyt

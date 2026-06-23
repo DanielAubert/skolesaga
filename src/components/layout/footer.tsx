@@ -36,6 +36,9 @@ export function Footer() {
               <Link href="/vilkar" className="hover:text-foreground transition-colors">
                 Vilkår
               </Link>
+              <Link href="/tilgjengelighet" className="hover:text-foreground transition-colors">
+                Tilgjengelighet
+              </Link>
             </div>
             <p className="text-center text-sm text-muted-foreground font-medium">
               © 2025 Skolesaga · Alle rettigheter forbeholdt

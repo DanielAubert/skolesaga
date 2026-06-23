@@ -283,7 +283,8 @@ export function PythonConsole({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               disabled={!isPyodideReady || isExecuting}
-              className="flex-1 bg-transparent border-none outline-none text-white"
+              aria-label="Python-konsoll – skriv kode"
+              className="flex-1 bg-transparent border-none outline-none text-white rounded focus-visible:ring-1 focus-visible:ring-yellow-400/60"
               placeholder={isPyodideReady ? "Skriv Python-kode her..." : "Venter på Python..."}
             />
             {isExecuting && (
