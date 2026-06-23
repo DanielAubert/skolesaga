@@ -23,6 +23,7 @@ export default function HomePage() {
 
         {/* Lærebøker og Quiz - Hovedseksjon */}
         <div className="relative container mx-auto max-w-5xl px-6 py-12 md:py-20">
+          <h1 className="sr-only">Skolesaga – interaktive lærebøker for norsk skole</h1>
           <DashboardBanner />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Lærebøker-kort */}
