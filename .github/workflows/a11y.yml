@@ -22,7 +22,9 @@ jobs:
           cache: npm
 
       - name: Installer avhengigheter
-        run: npm ci
+        # npm install (ikke npm ci) fordi den committede lock-fila har
+        # forhåndseksisterende drift; install reconcilerer den ved behov.
+        run: npm install --no-audit --no-fund
 
       - name: Generer kapitteldata (uten Supabase-opplasting)
         run: node scripts/combine-chapters.js
