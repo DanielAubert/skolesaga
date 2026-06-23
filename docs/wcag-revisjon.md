@@ -40,7 +40,8 @@ Legende: ✅ fikset · 🟡 delvis · ⬜ gjenstår
 - 🟡 `<html lang>` dynamisk for nn/sme — **bevisst utsatt:** å lese malform-cookie i root-layout gjør HELE appen dynamisk (stor ytelse-/SEO-kostnad). `<html lang="nb">` beholdes som nettstedets standardspråk (UI er bokmål, korrekt per 3.1.1). Språkmerking av innholdsregion (3.1.2) er en fremtidig forbedring uten perf-kostnad.
 - 🟡 Manglende `<h1>` på enkelte sider (`page.tsx`, `profil`, `join`, `bok`)
 - 🟡 Overskriftshopp h1→h3 på selvtest-sidene (enneagram, eq-test, iq-test, laeringsstil, personlighetstest m.fl.)
-- 🟡 `join/page.tsx` + `feedback-dialog.tsx`: feilmelding `role="alert"`
+- ✅ `join/page.tsx` + `feedback-dialog.tsx`: feilmelding `role="alert"` (+ aria-invalid/describedby i feedback)
+- ✅ `prefers-reduced-motion` + kontrast for muted-tekst (fantes allerede i `globals.css`)
 - 🟡 `create-assignment-dialog.tsx`: rad-`<div>` tastatur + `label htmlFor`
 
 ---
@@ -49,7 +50,7 @@ Legende: ✅ fikset · 🟡 delvis · ⬜ gjenstår
 - ✅ Math-illustrasjons-SVG: `role="img"` lagt på 59 SVG-er
 - ✅ Brand-ikon-SVG i `provider-buttons.tsx`: `aria-hidden="true"`
 - ✅ `lang="se"` på nordsamiske tekstfragmenter (sme-review)
-- ⬜ `aria-pressed`/`role=radio` på svaralternativ-knapper (multiple-choice, sequential-quiz)
+- ✅ `aria-pressed` på svaralternativ-knapper (multiple-choice, sequential-quiz)
 
 ---
 
