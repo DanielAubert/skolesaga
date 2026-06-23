@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getChapterContent } from "@/lib/data/textbook-content";
+import { getChapterContentLocalized } from "@/lib/data/textbook-content";
 import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
 import { QuizClient } from "./quiz-client";
 import { getQuizQuestions } from "@/lib/data/quiz-data";
@@ -16,7 +16,7 @@ export default async function QuizPage({ params }: PageProps) {
   const malform = await getMalform();
 
   // Get chapter and course data
-  const chapter = getChapterContent(chapterId, malform);
+  const chapter = await getChapterContentLocalized(chapterId, malform);
   const course = getCourse(courseId);
   const chapterMeta = getChapterMeta(courseId, chapterId, malform);
 

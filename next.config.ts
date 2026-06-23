@@ -27,8 +27,16 @@ const cspDirectives = [
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Bokmål bundles inn (synkron fs-lasting). Nynorsk/nordsamisk hentes fra
+  // Supabase Storage ved kjøretid og må IKKE bundles (273 MB > 250 MB-grensa).
   outputFileTracingIncludes: {
     '/**': ['./src/lib/data/chapters/_all.json'],
+  },
+  outputFileTracingExcludes: {
+    '/**': [
+      './src/lib/data/chapters/_all.nn.json',
+      './src/lib/data/chapters/_all.sme.json',
+    ],
   },
   turbopack: {
     root: __dirname, // Explicitly set root to prevent parent directory inference

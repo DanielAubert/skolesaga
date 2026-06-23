@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth/config';
 import { getCourse, getChapterMeta } from '@/lib/data/textbook-courses';
-import { getChapterContent } from '@/lib/data/textbook-content';
+import { getChapterContentLocalized } from '@/lib/data/textbook-content';
 import { SmeReview } from './sme-review';
 
 export const metadata = { title: 'Nordsamisk review (admin)' };
@@ -20,8 +20,8 @@ export default async function SmeReviewPage({ params }: PageProps) {
 
   const { courseId, chapterId } = await params;
   const course = getCourse(courseId);
-  const sme = getChapterContent(chapterId, 'sme');
-  const nb = getChapterContent(chapterId, 'nb');
+  const sme = await getChapterContentLocalized(chapterId, 'sme');
+  const nb = await getChapterContentLocalized(chapterId, 'nb');
 
   if (!course || !sme) {
     notFound();

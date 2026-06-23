@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCourse, getChapterMeta, getNextChapter, getPrevChapter, getChapterPrerequisites, getDependentChapters } from '@/lib/data/textbook-courses';
-import { getChapterContent, hasNynorskVersion } from '@/lib/data/textbook-content';
+import { getChapterContentLocalized, hasNynorskVersion } from '@/lib/data/textbook-content';
 import { getMalform } from '@/lib/i18n/malform';
 import { TextbookChapterView } from '@/components/textbook/textbook-chapter-view';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
@@ -39,8 +39,8 @@ export default async function ChapterPage({ params }: PageProps) {
   }
 
   // Hent kapittelinnhold (kan være undefined hvis ikke implementert ennå)
-  const chapterContent = getChapterContent(chapterId, malform);
-  const nynorskAvailable = hasNynorskVersion(chapterId);
+  const chapterContent = await getChapterContentLocalized(chapterId, malform);
+  const nynorskAvailable = await hasNynorskVersion(chapterId);
 
   // Navigasjon
   const nextChapterId = getNextChapter(courseId, chapterId);
