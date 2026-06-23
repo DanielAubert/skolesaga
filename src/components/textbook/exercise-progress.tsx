@@ -112,8 +112,16 @@ export function SubTaskGrid({
         return (
           <div
             key={subTask.label}
-            className={`flex gap-2 items-baseline ${isClickable ? 'cursor-pointer' : ''}`}
-            onClick={() => onSubTaskClick?.(subTask.label)}
+            className={`flex gap-2 items-baseline ${isClickable ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded' : ''}`}
+            onClick={isClickable ? () => onSubTaskClick?.(subTask.label) : undefined}
+            role={isClickable ? 'button' : undefined}
+            tabIndex={isClickable ? 0 : undefined}
+            onKeyDown={isClickable ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onSubTaskClick?.(subTask.label);
+              }
+            } : undefined}
           >
             <Badge variant="outline" className={badgeClasses}>
               {subTask.label}

@@ -36,7 +36,7 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       {error && (
-        <div className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 dark:bg-red-950/50 dark:text-red-400 rounded-lg">
+        <div id="login-error" role="alert" className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 dark:bg-red-950/50 dark:text-red-400 rounded-lg">
           <AlertCircle className="h-4 w-4 flex-shrink-0" />
           <span>{error}</span>
         </div>
@@ -57,6 +57,8 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             className="pl-10"
             required
             disabled={isLoading}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? "login-error" : undefined}
           />
         </div>
       </div>
@@ -82,6 +84,8 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             className="pl-10"
             required
             disabled={isLoading}
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? "login-error" : undefined}
           />
         </div>
       </div>

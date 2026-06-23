@@ -463,10 +463,19 @@ export function FlashcardClient({
           <div className="max-w-sm sm:max-w-lg mx-auto">
             {/* 3D flip-container */}
             <div
-              className="relative w-full h-[60vh] sm:h-[400px] cursor-pointer select-none"
+              className="relative w-full h-[60vh] sm:h-[400px] cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xl"
               style={{ perspective: "1000px" }}
+              role="button"
+              tabIndex={0}
+              aria-label={isFlipped ? "Snu kortet tilbake" : "Snu kortet for å se svaret"}
               onClick={() => {
                 if (!isDragging.current) handleFlip();
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleFlip();
+                }
               }}
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}

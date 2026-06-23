@@ -5,6 +5,7 @@ import { MainNav } from '@/components/navigation/main-nav';
 import { Footer } from '@/components/layout/footer';
 import { ContentBlockRenderer } from '@/components/textbook/content-block-renderer';
 import { getSupabase } from '@/lib/supabase/client';
+import { useFocusTrap } from '@/components/accessibility/skip-nav';
 import { useUser } from '@/lib/auth/hooks';
 import type { TextbookChapter, TextbookContentBlock } from '@/lib/types/textbook';
 import { Flag, Languages, X } from 'lucide-react';
@@ -109,6 +110,18 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     document.addEventListener('mouseup', onMouseUp);
     return () => document.removeEventListener('mouseup', onMouseUp);
   }, []);
+
+  // Tilgjengelighet for modalen: fokusfelle + lukk på Escape
+  const modalRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(modalRef, !!ctx);
+  useEffect(() => {
+    if (!ctx) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setCtx(null);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [ctx]);
 
   async function submit() {
     if (!correct.trim()) {
@@ -221,32 +234,32 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
       {/* Modal */}
       {ctx && (
         <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/45 p-4" onClick={() => setCtx(null)}>
-          <div className="w-full max-w-lg max-h-[90vh] overflow-auto rounded-2xl bg-background p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <div ref={modalRef} role="dialog" aria-modal="true" aria-labelledby="sme-modal-title" className="w-full max-w-lg max-h-[90vh] overflow-auto rounded-2xl bg-background p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-1">
-              <h2 className="text-lg font-bold">Rapporter feil</h2>
-              <button onClick={() => setCtx(null)}><X className="h-5 w-5" /></button>
+              <h2 id="sme-modal-title" className="text-lg font-bold">Rapporter feil</h2>
+              <button onClick={() => setCtx(null)} aria-label="Lukk"><X className="h-5 w-5" /></button>
             </div>
             <div className="mb-3 rounded-lg bg-muted p-2 text-xs text-muted-foreground">
               Avsnitt: {ctx.segid || '?'}{ctx.no ? ` · Norsk: "${ctx.no.slice(0, 90)}"` : ''}
             </div>
-            <label className="block text-sm font-semibold mb-1">Feil (nordsamisk)</label>
-            <input className="w-full rounded-lg border p-2 mb-2 bg-background" value={wrong} onChange={(e) => setWrong(e.target.value)} placeholder="t.d. gerdojuvvon" />
-            <label className="block text-sm font-semibold mb-1">Riktig (nordsamisk)</label>
-            <input className="w-full rounded-lg border p-2 mb-2 bg-background" value={correct} onChange={(e) => setCorrect(e.target.value)} placeholder="slik det skal være" />
-            <label className="block text-sm font-semibold mb-1">Kategori</label>
-            <select className="w-full rounded-lg border p-2 mb-2 bg-background" value={category} onChange={(e) => setCategory(e.target.value)}>
+            <label htmlFor="sme-wrong" className="block text-sm font-semibold mb-1">Feil (nordsamisk)</label>
+            <input id="sme-wrong" lang="se" className="w-full rounded-lg border p-2 mb-2 bg-background" value={wrong} onChange={(e) => setWrong(e.target.value)} placeholder="t.d. gerdojuvvon" />
+            <label htmlFor="sme-correct" className="block text-sm font-semibold mb-1">Riktig (nordsamisk)</label>
+            <input id="sme-correct" lang="se" className="w-full rounded-lg border p-2 mb-2 bg-background" value={correct} onChange={(e) => setCorrect(e.target.value)} placeholder="slik det skal være" />
+            <label htmlFor="sme-category" className="block text-sm font-semibold mb-1">Kategori</label>
+            <select id="sme-category" className="w-full rounded-lg border p-2 mb-2 bg-background" value={category} onChange={(e) => setCategory(e.target.value)}>
               {CATEGORIES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
             </select>
             <label className="flex items-start gap-2 text-sm mb-2">
               <input type="checkbox" className="mt-1" checked={global} onChange={(e) => setGlobal(e.target.checked)} />
               <span><b>Gjelder globalt</b> – samme retting kan brukes automatisk overalt (kun faste ord/termer, ikke setningsspesifikt).</span>
             </label>
-            <label className="block text-sm font-semibold mb-1">Regel / lærdom (valgfritt)</label>
-            <textarea className="w-full rounded-lg border p-2 mb-2 bg-background" value={rule} onChange={(e) => setRule(e.target.value)} />
-            <label className="block text-sm font-semibold mb-1">Notat (valgfritt)</label>
-            <textarea className="w-full rounded-lg border p-2 mb-2 bg-background" value={note} onChange={(e) => setNote(e.target.value)} />
-            <label className="block text-sm font-semibold mb-1">Ditt navn / e-post</label>
-            <input className="w-full rounded-lg border p-2 mb-4 bg-background" value={reviewer} onChange={(e) => setReviewer(e.target.value)} />
+            <label htmlFor="sme-rule" className="block text-sm font-semibold mb-1">Regel / lærdom (valgfritt)</label>
+            <textarea id="sme-rule" className="w-full rounded-lg border p-2 mb-2 bg-background" value={rule} onChange={(e) => setRule(e.target.value)} />
+            <label htmlFor="sme-note" className="block text-sm font-semibold mb-1">Notat (valgfritt)</label>
+            <textarea id="sme-note" className="w-full rounded-lg border p-2 mb-2 bg-background" value={note} onChange={(e) => setNote(e.target.value)} />
+            <label htmlFor="sme-reviewer" className="block text-sm font-semibold mb-1">Ditt navn / e-post</label>
+            <input id="sme-reviewer" className="w-full rounded-lg border p-2 mb-4 bg-background" value={reviewer} onChange={(e) => setReviewer(e.target.value)} />
             <div className="flex gap-3">
               <button onClick={submit} className="rounded-lg bg-red-700 px-4 py-2 font-semibold text-white">Send inn</button>
               <button onClick={() => setCtx(null)} className="rounded-lg bg-muted px-4 py-2 font-semibold">Avbryt</button>
