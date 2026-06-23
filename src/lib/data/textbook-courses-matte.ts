@@ -2065,6 +2065,7 @@ export const COURSE_8: TextbookCourse = {
       coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
       linkedChapterId: '8-11-3-narrativ',
     },
+      { id: '8-4-2', number: '4.2', title: 'Areal og omkrets', description: 'Lær å regne ut areal og omkrets av ulike figurer.', estimatedMinutes: 50, exerciseCount: 4, topics: [], competenceGoals: ['utforske og argumentere for formlar for areal og volum'], linkedChapterId: '8-4-2-narrativ' },
   ],
 };;
 
