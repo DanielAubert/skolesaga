@@ -16,6 +16,7 @@ export interface SpellFlag {
   suggestions: string[];
   count: number;
   blocks: string[];
+  level?: 'orange' | 'red' | null;
 }
 
 export interface GrammarNote {
@@ -76,6 +77,7 @@ const CATEGORIES = [
 
 export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme, nb, flags = [], grammar = [], prev = null, next = null }: Props) {
   const [showNo, setShowNo] = useState(false);
+  const [showUncertainty, setShowUncertainty] = useState(true);
   const [ctx, setCtx] = useState<Ctx | null>(null);
   const [status, setStatus] = useState<{ msg: string; ok: boolean } | null>(null);
   const selBtn = useRef<HTMLButtonElement>(null);
@@ -167,6 +169,89 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
     obs.observe(el, { childList: true, subtree: true });
     return () => obs.disconnect();
   }, []);
+
+  // Usikkerhets-fargekoding: marker ord i den samiske teksten etter Divvun-nivå
+  // (orange = litt usikker / bøyingsform, red = svært usikker / konstruert) samt
+  // «(no: …)»-flagg (red). Rører kun innholdsblokkene ([data-segid]), ikke matte
+  // (.katex), skjema eller norsk-blokken. Manipulerer DOM direkte (utenfor React),
+  // derfor rydder vi alltid opp først så av/på-bryteren virker.
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+    // 1) Fjern tidligere markeringer (gjør av/på idempotent)
+    el.querySelectorAll('span.sme-uncertain').forEach((s) => {
+      const t = document.createTextNode(s.textContent ?? '');
+      s.parentNode?.replaceChild(t, s);
+    });
+    if (!showUncertainty) return;
+
+    const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const red = [...new Set(flags.filter((f) => f.level === 'red').map((f) => f.word))].sort((a, b) => b.length - a.length);
+    const orange = [...new Set(flags.filter((f) => f.level === 'orange').map((f) => f.word))].sort((a, b) => b.length - a.length);
+    const parts = ['(?<no>\\(no:[^)]*\\))'];
+    if (red.length) parts.push('(?<red>(?<!\\p{L})(?:' + red.map(esc).join('|') + ')(?!\\p{L}))');
+    if (orange.length) parts.push('(?<orange>(?<!\\p{L})(?:' + orange.map(esc).join('|') + ')(?!\\p{L}))');
+    let re: RegExp;
+    try {
+      re = new RegExp(parts.join('|'), 'gu');
+    } catch {
+      return;
+    }
+
+    const STYLE = {
+      red: { background: 'rgba(239,68,68,0.16)', borderBottom: '2px solid rgb(220,38,38)' },
+      orange: { background: 'rgba(251,146,60,0.18)', borderBottom: '2px solid rgb(234,88,12)' },
+    } as const;
+    const TITLE = {
+      red: 'Svært usikker – konstruert/ubekreftet, bør verifiseres av nordsamisktalende',
+      orange: 'Litt usikker – bøyings-/kasusform Divvun ikke kjenner, bør sjekkes',
+    } as const;
+
+    const highlight = (node: Text) => {
+      const p = node.parentElement;
+      if (!p || p.closest('.sme-uncertain, .katex, input, textarea')) return;
+      if (!p.closest('[data-segid]')) return; // kun selve innholdet
+      const text = node.nodeValue ?? '';
+      re.lastIndex = 0;
+      if (!re.test(text)) return;
+      re.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      let m: RegExpExecArray | null;
+      while ((m = re.exec(text))) {
+        if (m[0].length === 0) { re.lastIndex++; continue; }
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const level: 'red' | 'orange' = m.groups?.orange ? 'orange' : 'red';
+        const span = document.createElement('span');
+        span.className = 'sme-uncertain';
+        Object.assign(span.style, STYLE[level], { borderRadius: '2px', padding: '0 1px', cursor: 'help' });
+        span.title = TITLE[level];
+        span.textContent = m[0];
+        frag.appendChild(span);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode?.replaceChild(frag, node);
+    };
+    const scan = (root: Node) => {
+      const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes: Text[] = [];
+      let n: Node | null;
+      while ((n = w.nextNode())) nodes.push(n as Text);
+      nodes.forEach(highlight);
+    };
+    scan(el);
+    const obs = new MutationObserver((muts) => {
+      for (const mu of muts) {
+        mu.addedNodes.forEach((nd) => {
+          if (nd.nodeType === 1 && !(nd as Element).closest?.('.sme-uncertain')) scan(nd);
+          else if (nd.nodeType === 3) highlight(nd as Text);
+        });
+      }
+    });
+    obs.observe(el, { childList: true, subtree: true });
+    return () => obs.disconnect();
+  }, [showUncertainty, flags]);
 
   // markering hvor som helst -> flytende knapp
   useEffect(() => {
@@ -328,6 +413,21 @@ export function SmeReview({ courseId, chapterId, courseTitle, chapterTitle, sme,
             «Rapporter», eller bruk ⚑ i hvert avsnitt. Bruk «Vis norsk (bokmål)» for å se originalen.
             Rettinger lagres i feildatabasen og brukes til å forbedre senere kapitler.
           </p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-amber-200 pt-3">
+            <span className="font-semibold">Usikkerhet:</span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="inline-block h-3 w-5 rounded" style={{ background: 'rgba(251,146,60,0.18)', borderBottom: '2px solid rgb(234,88,12)' }} />
+              litt usikker (bøying/form)
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="inline-block h-3 w-5 rounded" style={{ background: 'rgba(239,68,68,0.16)', borderBottom: '2px solid rgb(220,38,38)' }} />
+              svært usikker (konstruert / «(no: …)»)
+            </span>
+            <label className="inline-flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" checked={showUncertainty} onChange={(e) => setShowUncertainty(e.target.checked)} />
+              vis markering
+            </label>
+          </div>
         </div>
 
         {navBar}

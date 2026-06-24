@@ -20,6 +20,28 @@ const dir = path.join(process.cwd(), 'src', 'lib', 'data', 'chapters', 'sme');
 const chapter = JSON.parse(fs.readFileSync(path.join(dir, `${id}.json`), 'utf-8'));
 const API = 'https://api-giellalt.uit.no/speller/se';
 
+// Termbase-ord (alle sme-former + synonym, tokenisert) – brukes til å avgjøre
+// usikkerhetsnivå: termbase-ord skal ALDRI fargelegges (termbasen vinner over speller).
+const termbase = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'scripts', 'sme-termbase.json'), 'utf-8')).terms;
+const termSet = new Set();
+for (const t of Object.values(termbase)) {
+  for (const chunk of [t.sme, t.syn]) {
+    if (chunk) for (const tok of String(chunk).split(/[\s;(),]+/)) if (tok) termSet.add(tok.toLowerCase());
+  }
+}
+// Usikkerhetsnivå for review-fargekoding:
+//   null   = ikke fargelegg (engelsk huskeregel-ord, eller ekte termbase-ord)
+//   orange = litt usikker (Divvun kjenner ikke ordet MEN har forslag → trolig bøyings-/kasusform)
+//   red    = svært usikker (ukjent uten forslag → trolig konstruert). «(no: …)»-flagg håndteres i klienten.
+function classifyLevel(word, suggestions) {
+  // Rent ASCII = engelsk huskeregel (PEMDAS), LaTeX-navn (red/blue) eller matte-rest
+  // (a-b) — ikke en oversettelses-usikkerhet. Ekte samiske ord har diakritiske
+  // tegn (á č đ ŋ š ŧ ž) eller norske (æ ø å), og fanges.
+  if (/^[\x00-\x7F]+$/.test(word)) return null;
+  if (termSet.has(word.toLowerCase())) return null;  // termbase-ord (termbasen vinner)
+  return suggestions && suggestions.length ? 'orange' : 'red';
+}
+
 // Samle (tekst, blokk-id) for alle oversatte tekstfelt
 const TEXT_FIELDS = ['title', 'description', 'content', 'problem', 'solution', 'task', 'buttonText'];
 const segments = []; // {blockId, text}
@@ -89,7 +111,10 @@ for (const seg of segments) {
       checkedWords++;
       if (r.is_correct) continue;
       const w = r.word;
-      if (!flags[w]) flags[w] = { word: w, suggestions: (r.suggestions || []).slice(0, 5).map((s) => s.value), count: 0, blocks: new Set() };
+      if (!flags[w]) {
+        const sug = (r.suggestions || []).slice(0, 5).map((s) => s.value);
+        flags[w] = { word: w, suggestions: sug, count: 0, blocks: new Set(), level: classifyLevel(w, sug) };
+      }
       flags[w].count++;
       flags[w].blocks.add(seg.blockId);
     }
