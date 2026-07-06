@@ -95,13 +95,41 @@ docs/hoyskole-boker/
 Per emne: ≥500 quizspørsmål, ≥500 flashcards, ≥4 prøver per tema, utfyllende
 studieguide. Skjelettet fordeler disse per kapittel.
 
-## Pilotemner
+## Statustavle
 
-| Emne | Arketype | Arkiv | Status |
-|---|---|---|---|
-| ECON1310 Makroøkonomi I (UiO) | regnefag | 98 filer, SV 2015–2025 | pilot |
-| JUS1111 Privatrett I (UiO) | jus | 104 filer, SV 2015–2025 | pilot |
-| SVMET1010 Kvalitative metoder (UiO) | drøfting | 44 filer, SV 2016–2025 | pilot |
+Status: **analyse** = EKSAMENSANALYSE.md ferdig · **skjelett** = SKJELETT.md
+ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
+**bok** = bygget og wiret i plattformen.
 
-Skalering: 156 aktive emner er kartlagt i `fagbeskrivelser-samlet` (Desktop);
-137 har eksamensarkiv, 67 har sensorveiledningsinnsikt i fagbeskrivelsen.
+| Emne | Arketype | Status |
+|---|---|---|
+| ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
+| JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
+| SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
+| ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
+| ECON2130 Statistikk 1 (UiO) | regnefag | analyse (skjelett underveis) |
+| ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |
+| ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
+| EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
+| FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
+| JUS1211 Privatrett II (UiO) | jus | analyse (skjelett i kø) |
+| MAT1100 Kalkulus (UiO) | regnefag | analyse (skjelett underveis) |
+| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
+| TMA4245 Statistikk (NTNU) | regnefag | skjelett |
+| ECON3150 Econometrics (UiO) | regnefag | i kø |
+| FYS1120 Elektromagnetisme (UiO) | regnefag | i kø |
+| MAT111 Grunnkurs matematikk I (UiB) | regnefag | i kø |
+| STK1100 Sannsynlighet (UiO) | regnefag | i kø |
+| IN1900 Python-programmering (UiO) | regnefag | i kø |
+| TDT4120 Algoritmer (NTNU) | regnefag | i kø |
+| MET4 Empiriske metoder (NHH) | regnefag/hybrid | i kø |
+| JUS2111 Statsforfatningsrett (UiO) | jus | i kø |
+| SOSANT1000 Sosialantropologi (UiO) | drøfting | i kø |
+
+**Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
+instansier `BYGGEKONTRAKT-MAL.md` til `<emne>/BYGGEKONTRAKT.md` (fyll
+fagspesifikk stil fra skjelettets identitetsseksjon), kjør byggebølge
+(én Opus-agent per del, maks 2 samtidige), wiring, verifiseringsbølge, build.
+
+Skalering videre: 156 aktive emner kartlagt i `fagbeskrivelser-samlet`
+(Desktop); 137 har eksamensarkiv, 67 har sensorveiledningsinnsikt.
