@@ -1,13 +1,14 @@
 # TODO: Bokbygging med Opus — bare å sette i gang
 
 Alt her er forberedt slik at en Opus-økt kan bygge én bok om gangen uten
-forarbeid. **Kickoff per fag = lim inn denne ene setningen i Claude Code
+forarbeid — og uten kvalitetssikring i etterkant: kvalitetsdommene ligger i
+skjelettkontraktene, de ferdigskrevne promptene og de deterministiske
+portene. **Kickoff per fag = lim inn denne ene setningen i Claude Code
 (repo-rot), med fagets id:**
 
-> Bygg boka for `<emne>` etter docs/hoyskole-boker/PRODUKSJONSLOYPE.md
-> fase 3–7. Rammeverket ligger i docs/hoyskole-boker/`<emne>`/
-> (EKSAMENSANALYSE.md + SKJELETT.md). Bruk Opus på alle agenter,
-> maks 2 samtidige. Commit + push når build og curl-verifisering er grønn.
+> Bygg boka for `<emne>` ved å følge docs/hoyskole-boker/BYGGEPLAN-MAL.md
+> steg 0–4 MEKANISK (rammeverk: docs/hoyskole-boker/`<emne>`/). Bruk Opus på
+> alle agenter, maks 2 samtidige, og gå aldri videre forbi en rød port.
 
 Erfaringstall per bok (fra econ1310/jus1111): ~9 byggeagenter + wiring +
 4–5 verifikatorer; med maks 2 samtidige ≈ 4–6 timer veggklokke, mest venting.
@@ -34,11 +35,14 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       var pilot og følger eldre headingformat — konverter number til
       del-basert i fase 5 (wiring-skriptet håndterer det, jf. jus1111).
 
+- [ ] `mat1100` — MAT1100 Kalkulus (UiO). To treningsformer (flervalg midtveis
+      + langsvar slutteksamen); signaturoppgave-drillen i skjelettets 3.3.
+- [ ] `econ2130` — ECON2130 Statistikk 1 (UiO). R-integrert (2025-regimet
+      hands-on med CSV); metodesignalene bærer poengene.
+
 ## B. Skjelett underveis/i kø (klare når fabrikken er ferdig — sjekk README-statustavlen)
 
-- [ ] `mat1100` — MAT1100 Kalkulus (UiO) — analyse ✅, skjelett underveis
-- [ ] `econ2130` — ECON2130 Statistikk 1 (UiO) — analyse ✅, skjelett underveis
-- [ ] `jus1211` — JUS1211 Privatrett II (UiO) — analyse ✅, skjelett i kø.
+- [ ] `jus1211` — JUS1211 Privatrett II (UiO) — analyse ✅, skjelett underveis.
       NB jus: fase 6 SKAL ha Lovdata-verifikatør (arveloven 2019-risiko
       er flagget i analysen).
 

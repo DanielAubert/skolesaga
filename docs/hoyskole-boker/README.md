@@ -107,16 +107,16 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
-| ECON2130 Statistikk 1 (UiO) | regnefag | analyse (skjelett underveis) |
+| ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
 | EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
 | FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
-| JUS1211 Privatrett II (UiO) | jus | analyse (skjelett i kø) |
-| MAT1100 Kalkulus (UiO) | regnefag | analyse (skjelett underveis) |
+| JUS1211 Privatrett II (UiO) | jus | analyse (skjelett underveis) |
+| MAT1100 Kalkulus (UiO) | regnefag | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
-| ECON3150 Econometrics (UiO) | regnefag | i kø |
+| ECON3150 Econometrics (UiO) | regnefag | analyse underveis |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | i kø |
 | MAT111 Grunnkurs matematikk I (UiB) | regnefag | i kø |
 | STK1100 Sannsynlighet (UiO) | regnefag | i kø |
