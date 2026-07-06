@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""
+Deterministisk kvalitetsport for en BYGGET høyskolebok (fase 7, før build/commit).
+Bruk: python3 scripts/hoyskolebok/sjekk-bok.py <emne> [forbudt-term-regex]
+
+Sjekker: JSON-validitet, forkunnskaper-blokk i alle kapitler, symbol-/formelliste
+(eller eksplisitt symbolfritt), typiske feil-warning, kvoter (definisjoner >= 500,
+quiz >= 500 fra quiz-data-<emne>.ts), døde kryssbok-lenker, forbudt-termer,
+(verifiser)-rester, blokk-id-unikhet. Exit 1 ved avvik.
+"""
+import json, re, sys, os, glob
+
+REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+CH = os.path.join(REPO, "src/lib/data/chapters")
+emne = sys.argv[1]
+forbudt = sys.argv[2] if len(sys.argv) > 2 else None
+
+files = sorted(glob.glob(f"{CH}/{emne}-*.json"))
+issues, defs_tot = [], 0
+assert files, f"ingen kapittelfiler for {emne}"
+
+for f in files:
+    cid = os.path.basename(f)[:-5]
+    try:
+        d = json.load(open(f))
+    except Exception as e:
+        issues.append(f"{cid}: UGYLDIG JSON — {e}"); continue
+    c = d.get("content", [])
+    txt = open(f).read()
+    defs_tot += sum(1 for b in c if b.get("type") == "definition")
+    # blokk-id-unikhet
+    ids = [b.get("id") for b in c if b.get("id")]
+    if len(ids) != len(set(ids)): issues.append(f"{cid}: duplikate blokk-id-er")
+    # forkunnskaper
+    if "orkunnskaper" not in txt: issues.append(f"{cid}: mangler Forkunnskaper-blokk")
+    # symbolliste (kreves hvis kapitlet har LaTeX-symboler utenfor symbollisten)
+    har_liste = "Symbol- og formelliste" in txt
+    har_latex = bool(re.search(r"\$[^$]*[A-Za-z\\][^$]*\$", txt))
+    if har_latex and not har_liste:
+        issues.append(f"{cid}: bruker LaTeX-symboler men mangler «Symbol- og formelliste»")
+    # typiske feil: warning-blokk kreves i teori-/regel-/drillkapitler.
+    # Unntak (per DNA-ene): prøver, øvingseksamener/simuleringer, typetilfelle-
+    # og praktikumkapitler (de har må/pluss/feller-fasit eller Sensorblikket).
+    tittel = d.get("title", "")
+    unntak = bool(re.search(r"øvingseksamen|eksamenssimulering|prøve|typetilfelle|praktikum", tittel, re.I)) \
+        or "Feller" in txt or "typiske feil" in txt.lower()
+    if not cid.endswith("-prove") and not unntak and not any(b.get("type") == "warning" for b in c):
+        issues.append(f"{cid}: mangler warning-blokk (Typiske feil)")
+    # (verifiser)-rester
+    if re.search(r"verifiser", txt, re.I): issues.append(f"{cid}: uavklarte (verifiser)-markeringer")
+    # forbudte felt
+    if re.search(r"solutionVideo|allowsUpload|allowsCanvasDrawing", txt):
+        issues.append(f"{cid}: forbudte exercise-felt")
+    # døde lenker
+    for m in re.finditer(r"\]\(/bok/([a-z0-9-]+)/([a-z0-9-]+)\)", txt):
+        if not os.path.exists(f"{CH}/{m.group(2)}.json"):
+            issues.append(f"{cid}: død lenke {m.group(0)}")
+    # forbudt-termer
+    if forbudt and re.search(forbudt, txt, re.I) and not cid.endswith("-0-1"):
+        issues.append(f"{cid}: treff på forbudt-term-regex ({forbudt})")
+
+# kvoter
+qf = os.path.join(REPO, f"src/lib/data/quiz-data-{emne}.ts")
+quiz = open(qf).read().count("question:") if os.path.exists(qf) else 0
+print(f"{emne}: {len(files)} kapittelfiler | {defs_tot} definisjoner | {quiz} quiz")
+if defs_tot < 500: issues.append(f"KVOTE: kun {defs_tot} definisjoner (< 500)")
+if quiz < 500: issues.append(f"KVOTE: kun {quiz} quiz (< 500) — er quiz-data-{emne}.ts wiret?")
+
+if issues:
+    print(f"AVVIK ({len(issues)}):")
+    for i in issues[:40]: print(" -", i)
+    sys.exit(1)
+print("BOKPORT OK — kjør npx tsc --noEmit && npm run build, deretter prod-curl")

@@ -420,6 +420,337 @@ Prioritetsklasser: **perfekt** (nivå 1) / **kunne** (nivå 2) / **kjenne** (niv
 
 **Prøve-kvote Del 4:** 4 prøver (spesifisert i §4).
 
-<!-- FORTSETTES -->
+---
+
+### Del 5 — Lineær algebra og flervariabel *(prioritet: PERFEKT — slutteksamenens åpning)*
+
+#### Kapittel 5.1: Vektorer, determinant og volum
+
+- **id:** `mat1100-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
+- **kapitteltype:** teori
+- **description:** Determinant ved kofaktorutvikling, kryss- og trippelprodukt, og volumformlene — med pyramidefaktoren 1/6 som fasit vet at glemmes.
+- **Forkunnskaper (kryssbok):** [Vektorer i tre dimensjoner](/bok/r2/r2-5-1), [Skalarproduktet](/bok/r2/r2-5-3), [Kryssproduktet](/bok/r2/r2-5-4), [Areal og volum med vektorer](/bok/r2/r2-5-5).
+- **Eksamensbelegg:** Sjanger C i 17/21 sett (2–3 flervalg per sett i flervalgsepoken, egne delpunkter senere): volum av parallellepiped/pyramide fra fire punkter er gjengangeren. Prioritet: **kunne** (grensende til perfekt).
+- **Innholdskontrakt:** Vektorer i $\mathbb{R}^2$/$\mathbb{R}^3$, skalarprodukt (vinkel/ortogonalitet — brukes i 5.4); kryssprodukt og egenskapene; determinant 2×2 og 3×3 ved **kofaktorutvikling langs valgfri rad/kolonne** (aktiv); radoperasjoners effekt (kjennskap); **areal = $|\det|$** (parallellogram), **volum av parallellepiped = $|\det[\mathbf{a}\,\mathbf{b}\,\mathbf{c}]|$** — alternativt $|(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}|$ (begge godtas i fasit; vis begge); **pyramide/tetraeder = 1/6 av parallellepipedet** (faktoren er dokumentert glemsel); arbeidsgangen fra fire punkter: kantvektorer fra felles hjørne først.
+- **Oppgavesjangre:** C. Mønstereksempel: «Finn volumet av pyramiden med hjørner $(1,0,0)$, $(2,1,1)$, $(0,2,1)$ og $(1,1,3)$.»
+- **Typiske feil:** Glemme 1/6-faktoren (dokumentert gjenganger); bruke posisjonsvektorene i stedet for kantvektorer; fortegnsslurv i kofaktorutviklingen (sjakkbrettmønsteret); glemme absoluttverdien.
+- **Quiz: 15 · Flashcards: 15**
+
+#### Kapittel 5.2: Matriser: regning, invers og determinantregler
+
+- **id:** `mat1100-5-2` · **number:** 5.2 · **estimatedMinutes:** 45 · **prerequisites:** `mat1100-5-1`
+- **kapitteltype:** teori
+- **description:** Matriseproduktet, invers 2×2, «inverterbar ⇔ det ≠ 0» og strukturtriksene for matrisepotenser.
+- **Forkunnskaper (kryssbok):** Kap. 5.1. (Matriseregning dekkes ikke i VGS-bøkene — kapitlet bygger alt fra grunnen.)
+- **Eksamensbelegg:** Del av sjanger C (17/21): invers 2×2 via standardformel («ved regning» — kalkulatorsnarvei underkjent 2014); verifisering av invers: fasit 2014 sier eksplisitt at det holder å sjekke $AB = I$ (da følger $BA = I$); strukturinnsikt $M(a)M(b) = M(a+b) \Rightarrow M(a)^{-1} = M(-a)$; $\det(A^n) = (\det A)^n$ var deloppgave 2022. Prioritet: **kunne**.
+- **Innholdskontrakt:** Matriseprodukt (rekkefølgen betyr noe — ikke-kommutativitet med eksempel); identitetsmatrisen; invers: definisjon, entydighet, **2×2-standardformelen** $\frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$ (aktiv); **«inverterbar ⇔ $\det \ne 0$»** som navngitt kriterium; $\det(AB) = \det A \cdot \det B$ og korollaret $\det(A^n) = (\det A)^n$ (aktiv bruk); verifikasjonsregelen ($AB = I$ holder); matrisepotenser med strukturinnsikt (parametriserte familier $M(a)$, rotasjonstype-strukturer); matrise-vektor-produkt som forberedelse til 5.3.
+- **Oppgavesjangre:** C. Mønstereksempel: «$A = \begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}$. Finn $A^{-1}$ ved regning, og kontroller svaret.»
+- **Typiske feil:** Bytte $b$/$c$-fortegnene i 2×2-formelen; glemme $1/\det$-faktoren; anta kommutativitet; konkludere inverterbarhet uten å ha regnet determinanten.
+- **Quiz: 15 · Flashcards: 15**
+
+#### Kapittel 5.3: Overgangsmatriser: modellering, matrisepotens og induksjon
+
+- **id:** `mat1100-5-3` · **number:** 5.3 · **estimatedMinutes:** 60 · **prerequisites:** `mat1100-5-2`
+- **kapitteltype:** teori
+- **description:** Den anvendte gjengangeren (9 av 12 siste år): verbal modell → rekursjonslikninger → matrise, M^k fremover, det-kriteriet bakover — og induksjonsbeviset når mønsteret skal fastslås.
+- **Forkunnskaper (kryssbok):** Kap. 5.2, 2.3 (rekursjon); [Induksjon](/bok/r1/r1-9-2) eller [Induksjonsbevis](/bok/r2/r2-1-6).
+- **Eksamensbelegg:** Sjanger B i 12/21 sett — **9 av 12 siste år**; kontekstene varierer (aldersklasser, filialer, velgere, insekter, fisk, kaniner …), strukturen er identisk. Fasit begrunner **hver rad for seg** ut fra teksten; «finnes en vei tilbake?» = inverterbarhet via kofaktorutviklet determinant; begge det-utfall er testet over år (det = 0 i 2015/2018 → «nei»; det ≠ 0 i 2020 → «ja») — konklusjonen kan ikke pugges; likevekt/egenvektor-varianten 2006/2021 ($M\mathbf{v} = k\mathbf{v}$ for gitt $k$); endrede rater → ny matrise (2020). Sjanger L (induksjon): 3/21 (2010, 2012, 2015), **alltid koblet til matrisepotens**, ofte etterfulgt av grensebetraktning eller partall/oddetall-casedeling; ren tallteori-induksjon forekommer aldri i arkivet. Prioritet: **perfekt** (induksjonsdelen: kjenne).
+- **Innholdskontrakt:** Modelleringsoppskriften (aktiv): (1) oversett den verbale modellen til **rekursjonslikninger** ($x_{n+1} = \dots$, $y_{n+1} = \dots$ — skriv ut alle ledd, også $0 \cdot$-leddene); (2) les av koeffisientene **rad for rad med begrunnelse fra teksten** før matrisen skrives ($\mathbf{x}_{n+1} = M\mathbf{x}_n$, rader = mottaker); (3) $k$ steg frem = $M^k$ med full utregning; (4) bakover: «entydig vei tilbake ⇔ $M$ inverterbar ⇔ $\det M \ne 0$» — regn determinanten og konkluder; **eksistens holder** (inversen regnes ikke ut med mindre det spørres); (5) likevekt/egenvektor: løs $M\mathbf{v} = k\mathbf{v}$ som lineært system; (6) endrede rater → sett opp ny matrise fra ny tekst. **Induksjonsmalen for matrisepotenser** (aktiv): regn $M^2$, $M^3$/$M^4$, gjett mønster for $M^n$ (eller $M^{2n}$), bevis med full struktur (basis verifisert mot regningen; trinn $M^{k+1} = M^k \cdot M$ elementvis); påbygg: langtidsgrense og partall/oddetall-casedeling.
+- **Oppgavesjangre:** B + L. Mønstereksempel: «En insektbestand består av unge og voksne. Hver voksen får i snitt to avkom per sesong, og en tredel av de unge overlever til voksen alder. (a) Forklar hvorfor utviklingen kan skrives $\mathbf{x}_{n+1} = A\mathbf{x}_n$, og begrunn hver rad i $A$. (b) Finn matrisen som beskriver fire sesonger. (c) Kan man entydig regne seg én sesong bakover? Begrunn.»
+- **Typiske feil:** Matrise satt opp etter magefølelse — rader/kolonner byttet (fasit krever begrunnelse rad for rad); regne ut inversen når bare eksistens spørres; pugge det-konklusjonen i stedet for å regne; induksjonsbevis uten eksplisitt basisverifikasjon eller uten elementvis trinn.
+- **Quiz: 15 · Flashcards: 15**
+
+#### Kapittel 5.4: Gradient og retningsderivert
+
+- **id:** `mat1100-5-4` · **number:** 5.4 · **estimatedMinutes:** 55 · **prerequisites:** `mat1100-3-2`
+- **kapitteltype:** teori
+- **description:** Sjangeren med 100 % frekvens: partiellderiverte, ∇f, retningsderivert med kursets konvensjon, og «raskest vekst»-formuleringen som skal uttales verbalt.
+- **Forkunnskaper (kryssbok):** Kap. 3.2, 5.1 (skalarprodukt); [Skalarproduktet](/bok/r2/r2-5-3).
+- **Eksamensbelegg:** Sjanger A i **21/21 sett — nesten alltid åpningsoppgave**, 1–4 delpunkter; billige poeng med kjent oppskrift. Variantene: retningsderivert i gitt retning, raskest vekst-retning, maksimal vekstrate, retning med retningsderivert 0. Prioritet: **perfekt** — dette skal sitte i søvne.
+- **Innholdskontrakt:** Partiellderiverte (definisjon via grense + praktisk regning komponentvis); $\nabla f$ satt sammen og evaluert i punktet; **retningsderivert med kursets konvensjon**: $f'(\mathbf{a}; \mathbf{r}) = \nabla f(\mathbf{a}) \cdot \mathbf{r}$ — gjelder ubetinget, **også for unormalisert $\mathbf{r}$**; normaliser KUN når oppgaven eksplisitt ber om enhetsvektor/«retningen til» (sjekk om gitt $\mathbf{r}$ alt er enhetsvektor); de tre verbalfaktaene (skal uttales i besvarelsen): $f$ vokser raskest i retningen til $\nabla f(\mathbf{a})$; maksimal vekstrate = $|\nabla f(\mathbf{a})|$; retningsderivert 0 ⇔ $\mathbf{r} \perp \nabla f(\mathbf{a})$ (finn slike retninger); kjerneregelen for kurver $\frac{d}{dt}f(\mathbf{r}(t)) = \nabla f \cdot \mathbf{r}'(t)$ (bruk); nivåkurver og gradientens ortogonalitet (kjennskap — tyngre topologi ble flyttet ut av pensum etter 2011).
+- **Oppgavesjangre:** A. Mønstereksempel: «La $f(x, y, z) = x y^2 z^3$. (a) Finn $\nabla f(1, 1, 1)$. (b) I hvilken retning ut fra $(1,1,1)$ vokser $f$ raskest, og hva er vekstraten? Begrunn. (c) Finn en retning der retningsderiverten er 0.»
+- **Typiske feil:** Normalisere når konvensjonen $f'(\mathbf{a};\mathbf{r}) = \nabla f \cdot \mathbf{r}$ gjelder direkte — eller la være når oppgaven ber om enhetsretning (begge dokumentert); oppgi $|\nabla f|$ som «retning»; svar uten den verbale begrunnelsen (ubegrunnet = 0); slurv i partiellderivasjon (behandle feil variabler som konstante).
+- **Quiz: 20 · Flashcards: 20**
+
+#### Kapittel 5.5: Drill: gradientpakken som åpningsoppgave
+
+- **id:** `mat1100-5-5` · **number:** 5.5 · **estimatedMinutes:** 90 · **prerequisites:** `mat1100-5-4`
+- **kapitteltype:** drill
+- **description:** Slutteksamenens faste åpning drillet til automatikk: alle fire variantene av gradient/retningsderivert-oppgaven med A-besvarelsens føring.
+- **Eksamensbelegg:** Sjanger A (21/21, alltid tidlig) — analysens nivå 1 punkt 1: «billige poeng med kjent oppskrift». Variantkatalogen fra arkivet: evaluert retningsderivert (normalisert og unormalisert $\mathbf{r}$), raskest vekst + rate, nullretning, kjedet mot Jacobi/kurver. Prioritet: **perfekt**.
+- **Innholdskontrakt:** Løsningsoppskrift (algoritme): (1) regn ALLE partiellderiverte komponentvis; (2) sett sammen $\nabla f$ og evaluer i punktet (vis innsettingen); (3) les oppgaven: står det «enhetsvektor»/«retningen til»? → normaliser; ellers bruk $\mathbf{r}$ direkte; (4) prikkprodukt med føring; (5) verbal konklusjonssetning med teoremfaktaene. Gjennomregnet eksamenscase med sensor-margnotater (hvor de billige poengene hentes og mistes). 8–12 varianter på eksamensnivå: to og tre variabler, alle fire spørsmålstypene, minst én med unormalisert $\mathbf{r}$ og én der gitt vektor alt er enhetsvektor, én kjedet mot nivåkurve/tangentplan-formulering.
+- **Oppgavesjangre:** A. Mønstereksempel: «$g(x, y) = x^2 e^{3y} - y$. Finn retningsderiverten av $g$ i punktet $(2, 0)$ i retningen $\mathbf{r} = (3, 4)$, og avgjør om $g$ vokser eller avtar i denne retningen.»
+- **Typiske feil:** Normaliseringsfellene i alle varianter under tidspress; manglende verbal begrunnelse; forveksle «retning for raskest vekst» (vektor) med «maksimal vekstrate» (tall).
+- **Quiz: 15 · Flashcards: 5**
+
+#### Kapittel 5.6: Jacobimatrisen og deriverbarhet i flere variable
+
+- **id:** `mat1100-5-6` · **number:** 5.6 · **estimatedMinutes:** 40 · **prerequisites:** `mat1100-5-4`, `mat1100-3-1`
+- **kapitteltype:** teori
+- **description:** Jacobimatrisen av partiellderiverte og de to måtene å begrunne deriverbarhet på — teoremveien og definisjonsveien (2022-nivå).
+- **Forkunnskaper (kryssbok):** Kap. 3.1, 5.2, 5.4.
+- **Eksamensbelegg:** Sjanger N i 4/21 (2016, 2018, 2022 + flervalg): Jacobimatrise + deriverbarhetsbegrunnelse; skjerpet variant 2022 krevde definisjonen direkte (partiellderiverte via grensedefinisjon + restleddsgrense). Prioritet: **kunne** (definisjonsvarianten: kjenne).
+- **Innholdskontrakt:** Vektorfunksjoner $F: \mathbb{R}^n \to \mathbb{R}^m$; **Jacobimatrisen** av partiellderiverte (rad = komponentfunksjon); deriverbarhetsdefinisjonen i flere variable: lineariseringsrestleddet $\frac{|F(\mathbf{x}) - F(\mathbf{a}) - M(\mathbf{x} - \mathbf{a})|}{|\mathbf{x} - \mathbf{a}|} \to 0$ med $M$ = Jacobimatrisen; **teoremveien** (hovedverktøy): «kontinuerlige partiellderiverte ⇒ deriverbar» — navngis/refereres slik fasit gjør; **definisjonsveien** (skjerpet variant): partiellderiverte via grensedefinisjonen + restleddsgrensen vist direkte; lineariseringen som beste lineære tilnærming (kobling til tangentplan-intuisjonen).
+- **Oppgavesjangre:** N. Mønstereksempel: «$F(x, y) = (x^2 + y, \; xy, \; e^x - 1)$. Finn Jacobimatrisen til $F$ i origo, og begrunn at $F$ er deriverbar der.»
+- **Typiske feil:** Transponert Jacobimatrise (rader/kolonner byttet); «deriverbar fordi partiellderiverte finnes» (kontinuitet av dem kreves for teoremet); restleddsgrense uten normering med $|\mathbf{x} - \mathbf{a}|$.
+- **Quiz: 10 · Flashcards: 10**
+
+**Prøve-kvote Del 5:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 6 — Taylor, rekker og differensialligninger *(prioritet: KJENNE — pensumkrav med tynt/null arkivbelegg)*
+
+#### Kapittel 6.1: Taylorpolynomer med restledd
+
+- **id:** `mat1100-6-1` · **number:** 6.1 · **estimatedMinutes:** 45 · **prerequisites:** `mat1100-3-4`, `mat1100-4-3`
+- **kapitteltype:** teori
+- **description:** Taylorpolynom rundt et punkt med Lagrange-restledd — pensumkrav som arkivet bare har testet som teorioppgave bygget fra bunnen.
+- **Forkunnskaper (kryssbok):** Kap. 3.2, 3.4, 4.3; [Potensrekker og Taylor-rekker](/bok/s2/s2-7-4) (S2-nivå intuisjon).
+- **Eksamensbelegg:** **Ærlig eksamensvinkel:** 1/21 — kun 2017, og da som teorioppgave der førsteordens restledd ble bygget fra bunnen via delvis integrasjon og brukt i et motsigelsesbevis med følger ($f \to 0$ og $f''$ begrenset ⇒ $f' \to 0$); implisitt verktøy 2023. Står i gjeldende emnebeskrivelse (arkivet stopper 2023 — kan ha fått større plass i nyere sett; sjekk nye sett når de foreligger). Prioritet: **kjenne**.
+- **Innholdskontrakt:** Taylorpolynomet $T_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x - a)^k$ (aktiv beregning rundt 0 og generelt $a$ for standardfunksjonene $e^x$, $\sin x$, $\cos x$, $\ln(1+x)$); **Lagrange-restleddet** $R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ — formulering + bruk til feilestimat; **integralformen av restleddet bygget via delvis integrasjon** for $n = 1$ (2017-sjangeren — aktiv skisse); anvendelser: tilnærmingsverdier med feilgaranti, grenser via Taylor (alternativ til L'Hôpital); MVT som Taylor for $n = 0$ (rød tråd fra 3.4).
+- **Oppgavesjangre:** I-variant + potensielt MV. Mønstereksempel: «Finn andregrads Taylorpolynom til $f(x) = \ln(1 + x)$ rundt $0$, og bruk restleddet til å avgrense feilen på $[0, 1/2]$.»
+- **Typiske feil:** Glemme $k!$ i nevneren; evaluere restleddets deriverte i $a$ i stedet for i det ukjente punktet $c$; feilestimat uten å maksimere $|f^{(n+1)}|$ over intervallet.
+- **Quiz: 10 · Flashcards: 15**
+
+#### Kapittel 6.2: Uendelige rekker og konvergenstester
+
+- **id:** `mat1100-6-2` · **number:** 6.2 · **estimatedMinutes:** 45 · **prerequisites:** `mat1100-2-3`, `mat1100-4-6`
+- **kapitteltype:** teori
+- **description:** Konvergens av rekker med sammenlignings-, forholds- og integraltest — pensumkrav uten én eneste arkivforekomst; lær metodene, ikke jag sjangre som ikke finnes.
+- **Forkunnskaper (kryssbok):** Kap. 2.3, 4.6; [Uendelige rekker og konvergens](/bok/r2/r2-1-5), [Geometriske følger](/bok/r2/r2-1-3).
+- **Eksamensbelegg:** **Ærlig eksamensvinkel: 0 forekomster i 21 slutteksamener og 16 midtveiseksamener.** Dekkes fordi gjeldende emnebeskrivelse eksplisitt nevner konvergensteori for rekker — og fordi metodene speiler 4.6 (der sammenligningslogikken ER eksamensstoff). Hvis temaet dukker opp i nyere sett, er verktøyene her det naturlige formatet. Prioritet: **kjenne**.
+- **Innholdskontrakt:** Rekke som grense av delsummer; geometrisk rekke med sumformel og konvergenskriterium $|k| < 1$ (aktiv); divergenstesten ($a_n \not\to 0$ ⇒ divergens — og at $a_n \to 0$ IKKE er nok: harmonisk rekke); p-rekker (parallellen til p-integralene i 4.6 gjøres eksplisitt); **integraltesten** (broen til 4.6); **sammenlignings- og grensesammenligningstest** (samme disiplin som 4.6: navngi sammenligningsrekken); **forholdstesten** (kvotienttesten); alternerende rekker og Leibniz-kriteriet (kjennskap); absolutt vs. betinget konvergens (kjennskap); kobling til Taylorrekker (når $R_n \to 0$).
+- **Oppgavesjangre:** Ingen arkivbelagt sjanger — oppgavene skrives i 4.6-format overført til rekker. Mønstereksempel: «Avgjør om $\sum_{n=1}^\infty \frac{n}{n^3 + 2}$ konvergerer, og navngi testen du bruker.»
+- **Typiske feil:** «$a_n \to 0$, altså konvergerer rekken»; forholdstest med $L = 1$ tolket som konvergens (testen er inkonklusiv); sammenligning med feil ulikhetsretning; blande rekkesum og følgegrense.
+- **Quiz: 10 · Flashcards: 15**
+
+#### Kapittel 6.3: Differensialligninger: separable og lineære første ordens
+
+- **id:** `mat1100-6-3` · **number:** 6.3 · **estimatedMinutes:** 40 · **prerequisites:** `mat1100-4-3`
+- **kapitteltype:** teori
+- **description:** Standardmetodene for første ordens differensialligninger — pensumkrav uten arkivforekomster, dekket kompakt med integrasjonsteknikkene fra Del 4.
+- **Forkunnskaper (kryssbok):** Kap. 4.3–4.4; [Separable differensiallikninger](/bok/s2/s2-2-2), [Lineære differensiallikninger](/bok/s2/s2-2-3).
+- **Eksamensbelegg:** **Ærlig eksamensvinkel: 0 forekomster i hele arkivet.** Dekkes fordi emnebeskrivelsen krever det; behandlingen er kompakt og gjenbruker integrasjonsteknikk-repertoaret (som ER 95 %-stoff). Sjekk nyere sett før eksamen — dukker temaet opp, er metodene her standardformatet. Prioritet: **kjenne**.
+- **Innholdskontrakt:** Hva en løsning er (verifikasjon ved innsetting — åpne konstruksjonsoppgavers disiplin gjelder); **separable ligninger**: $y' = f(x)g(y)$ → separer, integrer begge sider, løs for $y$, sjekk konstantløsninger $g(y) = 0$; **lineære første ordens**: $y' + p(x)y = q(x)$ → integrerende faktor $e^{\int p\,dx}$ (aktiv); initialverdiproblemer (bestem konstanten); enkle modeller (eksponentiell vekst/avkjøling) som kontekst; retningsfelt (kjennskap).
+- **Oppgavesjangre:** Ingen arkivbelagt sjanger — oppgaver i E-format med diffligning-ramme. Mønstereksempel: «Løs initialverdiproblemet $y' + 2y = e^{-x}$, $y(0) = 3$.»
+- **Typiske feil:** Miste konstantløsningene ved separasjon; glemme integrasjonskonstanten før man løser for $y$ (plassere $C$ feil); integrerende faktor med fortegnsfeil i $\int p$; ikke verifisere løsningen.
+- **Quiz: 10 · Flashcards: 15**
+
+**Prøve-kvote Del 6:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 7 — Eksamenstrening
+
+#### Kapittel 7.1: Føringsstandarden: slik skriver du en A-besvarelse
+
+- **id:** `mat1100-7-1` · **number:** 7.1 · **estimatedMinutes:** 50 · **prerequisites:** Del 1–5
+- **kapitteltype:** teori (metodekapittel)
+- **description:** Sensorregelen «ubegrunnet svar = 0» operasjonalisert: teoremnavning, føringsboksene, lim-disiplinen og konklusjonssetningen — samlet på ett sted.
+- **Eksamensbelegg:** Metaregel-kapittel bygget på fasitpraksis 2012–2020: (i) «Svar som ikke er begrunnet, får 0 poeng selv om de er riktige» (ordrett instruks 2012–2016, videreført siden, skjerpet på hjemmeeksamenene der all programbruk måtte forklares); (ii) teoremer navngis når de bærer argumentet (fasit markerer til og med $[0/0]$ før hver L'Hôpital; henvisning til nummererte pensumsetninger aksepteres); (iii) føringsstandarden (substitusjonsboks, u/v′-valg, fortegnsskjema, lim-føring, verbal konklusjonssetning, markert sluttsvar); (iv) delpunkt-kjedingen: fasit gjenbruker eksplisitt tidligere delsvar, og instruksen gir rett til å bruke resultater fra ubesvarte punkter; (v) alternative løsninger honoreres konsekvent (trippelprodukt vs. determinant, direkte vs. GS-test, to integrerbarhetsteoremer); (vi) i åpne oppgaver: eksempel + verifikasjon av ALLE krav; (vii) kalkulatorsnarveier underkjennes der regning etterspørres. Prioritet: **perfekt** (regelen bærer 2/3 av karakteren).
+- **Innholdskontrakt:** «Begrunnelsestrappen» per sjanger: hva som er tilstrekkelig begrunnelse for A–N (én tabell); sjekklisten før innlevering (alle teoremnavn på plass? alle bokser ført? konklusjonssetninger? delpunkt-koblinger utnyttet?); to kontrastpar «samme matematikk, ulik føring» (én 0-poengs- og én full-scorings-versjon av samme løsning — ett integrasjons- og ett bevis-eksempel); strategien for kjedede delpunkter: les hele oppgaven først, bruk «anta resultatet fra (a)»-formuleringen når (a) ikke er løst.
+- **Oppgavesjangre:** Meta. Mønstereksempel: «Besvarelsen under gir riktig svar, men ville fått 0 poeng. Pek på de tre manglene og skriv den om til full uttelling.»
+- **Typiske feil:** Hele feilkatalogens føringsdel: uttalt begrensethet mangler i skvis, kontinuitet unevnt før skjæringssetningen, forutsetninger usjekket før Rolle, $[0/0]$ umarkert, «satt inn $\infty$», svar uten konklusjonssetning.
+- **Quiz: 15 · Flashcards: 30** (teoremnavn-bank + føringsregler — flashcard-gull)
+
+#### Kapittel 7.2: Midtveissimulering: komplett flervalgssett
+
+- **id:** `mat1100-7-2` · **number:** 7.2 · **estimatedMinutes:** 120 · **prerequisites:** `mat1100-7-1` (+ Del 1–3)
+- **kapitteltype:** øvingseksamen (flervalg)
+- **description:** Fullt midtveissett etter arkivmalen: 20 nyskrevne flervalgsspørsmål på 2 timer med fasitens dramaturgi og distraktordesign.
+- **Eksamensbelegg/miks:** Speiler H2012–H2018-malen (20 spm, 10×2 p + 10×3 p, 5 alternativer, ingen gjettestraff, 2 timer): **6 komplekse tall** (polarform begge veier som åpning, de Moivre-potens, n-te røtter, likning, polynomrekonstruksjon, geometrisk mengde) + **3 grenser** (dekker $1^\infty$/$\infty - \infty$/veksthierarki) + **3 derivasjon** (kjerneregel-tårn, logaritmisk, derivert av invers i punkt) + **2 drøfting** (skråasymptote $x e^{k/x}$, konveksitetsintervall) + **2 følger** (rasjonal, rekursiv med fikspunkt) + **2 teori/definisjon** (kvantorspørsmål med byttet rekkefølge som distraktor, MVT-formulering) + **2 tekstoppgaver med figur** (relaterte rater, optimering) — 2/3 regnetempo, ~20 % teorigjenkjenning, ~10 % modellering, i arkivets faste dramaturgi (komplekse først, teori + figuroppgaver sist). Alle spørsmål nyskrevne; hver distraktor bygget på en dokumentert felle. Løsningsforslag i `collapsible` per spørsmål: raskeste vei + hvorfor hver distraktor frister + tidsbudsjett-tips (6 min/oppgave; 2-poengs først).
+- **Quiz: 5 · Flashcards: 0**
+
+#### Kapittel 7.3: Slutteksamen-simulering 1: klassisk 12-delpunkts sett
+
+- **id:** `mat1100-7-3` · **number:** 7.3 · **estimatedMinutes:** 240 · **prerequisites:** `mat1100-7-2` (+ Del 4–5)
+- **kapitteltype:** øvingseksamen (langsvar)
+- **description:** Komplett 4-timers slutteksamen etter 2018–2023-malen med prognosens temamiks og kjedede delpunkter.
+- **Eksamensbelegg/miks:** Speiler post-2017-malen (12 delpunkter som teller likt, 4 timer, «begrunn alle svar»): **gradient/retningsderivert-åpning** (2 delpunkter: $\nabla f$ + raskest vekst, sjanger A) → **overgangsmatrise-case** (3 delpunkter: modell rad for rad → $M^k$ → inverterbarhet, sjanger B; nyskrevet kontekst, det ≠ 0-utfallet) → **integrasjonsteknikk-kjede** (2 delpunkter: substitusjon → delvis; delbrøk/fullført kvadrat-kombinasjon, sjanger E) → **uegentlig integral** (1 delpunkt, GS-test med navngitt p-integral, sjanger F) → **omdreiningsvolum om y-aksen** (1 delpunkt, skallmetoden, sjanger D) → **signaturoppgave** (2 delpunkter: kontinuitet med skvis + deriverbarhet med definisjonen, oscillasjonsfamilien, sjanger H) → **FTC + kjerneregel** (1 delpunkt, sjanger J). Delpunktene kjedes som i arkivet (faktorisering fra ett punkt gjenbrukes senere; instruksen «resultater fra ubesvarte punkter kan brukes» gjengis). Alle oppgaver nyskrevne. Løsningsforslag i `collapsible` per delpunkt som A-besvarelse etter 7.1-standarden, med `tip`-notat om tidsbudsjett (~18–20 min/delpunkt) og hvor begrunnelsespoengene sitter.
+- **Quiz: 5 · Flashcards: 0**
+
+#### Kapittel 7.4: Slutteksamen-simulering 2: teoritung variant
+
+- **id:** `mat1100-7-4` · **number:** 7.4 · **estimatedMinutes:** 240 · **prerequisites:** `mat1100-7-3`
+- **kapitteltype:** øvingseksamen (langsvar)
+- **description:** Komplett sett nummer to med bevis-tung hale: Rolle med hjelpefunksjon, komplekse tall og de sjangrene simulering 1 ikke traff.
+- **Eksamensbelegg/miks:** Speiler samme mal, men dekker restsjangrene (sammen dekker 7.3 + 7.4 alle A–N): **gradient-åpning i variant** (retningsderivert med unormalisert $\mathbf{r}$ + nullretning, sjanger A) → **determinant/volum** (pyramide fra fire punkter + invers 2×2 ved regning, sjanger C) → **matrisepotens med induksjon** (2 delpunkter: mønster for $M^{2n}$ + induksjonsbevis + grensebetraktning, sjanger L/B) → **komplekse tall** (2 delpunkter: vis at $z_0$ er rot → begge faktoriseringene, sjanger G) → **integrasjonsteknikk** (1 delpunkt, kjede) → **omvendt volumoppgave** (gitt volumkrav, finn parameter — fri parameter velges med begrunnelse, sjanger D) → **Rolle-bevis med hjelpefunksjon** (1 delpunkt, forutsetningssjekk + navngiving, sjanger I) → **Jacobimatrise + deriverbarhet** (1 delpunkt, teoremveien, sjanger N) → **funksjonsdrøfting** (1 delpunkt: asymptoter + konveksitet, sjanger K). Alle oppgaver nyskrevne; løsningsforslag som A-besvarelse med vektings-/tidstips per delpunkt.
+- **Quiz: 5 · Flashcards: 0**
+
+**Prøve-kvote Del 7:** ingen egne temaprøver — simuleringene (7.2–7.4) er delens prøver.
+
+---
+
+### Summeringskontroll (quiz/flashcards) — AUTORITATIV for alle senere faser
+
+| Del | Kapitler | Quiz | Flashcards |
+|---|---|---|---|
+| 0 | 0.1 | 10 | 10 |
+| 1 | 1.1–1.4 | 25+20+25+20 = **90** | 25+25+20+5 = **75** |
+| 2 | 2.1–2.5 | 20+25+20+15+20 = **100** | 20+20+15+20+5 = **80** |
+| 3 | 3.1–3.6 | 15+25+20+15+20+15 = **110** | 15+20+15+20+15+10 = **95** |
+| 4 | 4.1–4.7 | 10+15+20+15+20+15+15 = **110** | 15+10+20+15+5+15+15 = **95** |
+| 5 | 5.1–5.6 | 15+15+15+20+15+10 = **90** | 15+15+15+20+5+10 = **80** |
+| 6 | 6.1–6.3 | 10+10+10 = **30** | 15+15+15 = **45** |
+| 7 | 7.1–7.4 | 15+5+5+5 = **30** | 30+0+0+0 = **30** |
+| **Sum** | **36 kap.** | **570 ≥ 500 ✓** | **510 ≥ 500 ✓** |
+
+Kvotene er minimum per kapittel; forfatteren kan overskyte, aldri underskride.
+Fordelingen speiler eksamensvektene: Del 1–3 (midtveisstoffet) bærer 300 av 570
+quiz — quizbanken ER midtveistreningen og skrives i flervalgsformat med
+distraktorer fra feilkatalogen. Del 4–5 (slutteksamensryggraden) bærer 200 quiz
++ de tyngste oppgavekvotene i kapitlene.
+
+---
+
+## 4. Prøver og simuleringer
+
+### Kapittel-/temaprøver (4 per temadel 1–6, 24 totalt)
+
+Alle prøver består av nyskrevne oppgaver i arkivets sjangre, med løsningsforslag
+etter føringsstandarden (7.1) og poengfordeling. Midtveisformat = flervalg med
+5 alternativer; langsvar = full begrunnelse.
+
+**Del 1 — Komplekse tall**
+1. Prøve 1.A (30 min, flervalg): Polarform begge veier + geometri i planet — 8 spørsmål i midtveistempo (kap. 1.1).
+2. Prøve 1.B (30 min, flervalg): de Moivre — potenser, n-te røtter, argument-dobling — 8 spørsmål (kap. 1.2).
+3. Prøve 1.C (40 min, langsvar): Likninger og faktorisering — vis rot → begge faktoriseringer + rekonstruksjon (kap. 1.3, sjanger G i slutteksamensform).
+4. Prøve 1.D (45 min, blandet): Full midtveisblokk — 6 flervalg på klokka + 1 langsvar med føringskrav (hele delen).
+
+**Del 2 — Grenser, følger og kontinuitet**
+1. Prøve 2.A (30 min, flervalg): Definisjonene — kvantorspørsmål, negasjoner, teoremformuleringer (kap. 2.1, 2.4).
+2. Prøve 2.B (35 min, flervalg): Grensetempo — alle sju ubestemte former (kap. 2.2).
+3. Prøve 2.C (40 min, langsvar): Følger — rekursiv følge med fikspunkt/monotoni/begrensethet + åpen konstruksjonsoppgave med verifikasjon (kap. 2.3).
+4. Prøve 2.D (45 min, langsvar): Eksistensbevis — skjæringssetnings-mal + ε-δ-bevis med δ = min-grepet (kap. 2.1, 2.4, sjanger I).
+
+**Del 3 — Derivasjon**
+1. Prøve 3.A (35 min, flervalg): Derivasjonsteknikk i midtveistempo — kjerneregel-tårn, logaritmisk, derivert av invers i punkt (kap. 3.1–3.2).
+2. Prøve 3.B (50 min, langsvar): Signaturoppgaven — oscillasjonsfamilien med kontinuitet, deriverbarhet og $f'$-kontinuitet + parametervariant (kap. 3.3, sjanger H på eksamensnivå).
+3. Prøve 3.C (40 min, langsvar): MVT/Rolle — hjelpefunksjonsbevis med forutsetningssjekk + korollarbruk (kap. 3.4, sjanger I).
+4. Prøve 3.D (45 min, blandet): Drøfting + anvendelser — skråasymptote-familien, fullt fortegnsskjema, én relatert rate med figur (kap. 3.5–3.6, sjanger K + M).
+
+**Del 4 — Integrasjon**
+1. Prøve 4.A (40 min, langsvar): Substitusjon og delvis med føringsbokser — inkl. én konstruksjonsoppgave (kap. 4.3).
+2. Prøve 4.B (40 min, langsvar): Rasjonale integrander — delbrøk med gjentatt faktor + fullført kvadrat/splitt (kap. 4.4).
+3. Prøve 4.C (45 min, langsvar): Uegentlige integraler — én direkte beregning med lim-føring + to konvergensavgjørelser (én per test) med navngitt p-integral (kap. 4.6, sjanger F).
+4. Prøve 4.D (60 min, langsvar): Integrasjons-delpunktkjede på eksamensnivå — teknikk-kjede → FTC/kjerneregel → omdreiningsvolum om y-aksen (kap. 4.2–4.7, sjanger E + J + D som kjedet eksamensoppgave).
+
+**Del 5 — Lineær algebra og flervariabel**
+1. Prøve 5.A (35 min, langsvar): Determinant og volum — pyramide fra fire punkter (begge metoder honoreres) + invers ved regning (kap. 5.1–5.2, sjanger C).
+2. Prøve 5.B (50 min, langsvar): Overgangsmatrise-case — modell rad for rad, $M^k$, inverterbarhet (det = 0-utfallet), endrede rater (kap. 5.3, sjanger B).
+3. Prøve 5.C (40 min, langsvar): Gradientpakken — alle fire spørsmålsvariantene inkl. normaliseringsfellene (kap. 5.4–5.5, sjanger A).
+4. Prøve 5.D (50 min, langsvar): Kombinert — gradient-åpning + induksjonsbevis for matrisepotens + Jacobimatrise med deriverbarhetsbegrunnelse (kap. 5.3–5.6, sjanger A + L + N).
+
+**Del 6 — Taylor, rekker og differensialligninger**
+1. Prøve 6.A (30 min, langsvar): Taylorpolynom med restleddsestimat (kap. 6.1).
+2. Prøve 6.B (30 min, langsvar): Rekkekonvergens — tre rekker, tre tester, alle navngitt (kap. 6.2).
+3. Prøve 6.C (30 min, langsvar): Differensialligninger — én separabel + én lineær med integrerende faktor, begge med verifikasjon (kap. 6.3).
+4. Prøve 6.D (40 min, blandet): Tverrgående — 2017-inspirert teorioppgave (restledd via delvis integrasjon) + GS-test-parallellen rekke/integral (kap. 6.1–6.2 + 4.6).
+
+### Simuleringer (3 komplette sett — se kap. 7.2–7.4)
+
+| Sett | Form den speiler | Miks |
+|---|---|---|
+| Midtveissimulering (kap. 7.2) | Midtveis H2012–H2018 | 20 flervalg / 2 t: 6 komplekse + 3 grenser + 3 derivasjon + 2 drøfting + 2 følger + 2 teori + 2 figuroppgaver |
+| Slutteksamen-simulering 1 (kap. 7.3) | Post-2017-mal, prognosens miks | 12 kjedede delpunkter / 4 t: A(2) + B(3) + E(2) + F(1) + D(1) + H(2) + J(1) |
+| Slutteksamen-simulering 2 (kap. 7.4) | Samme mal, teoritung variant | 12 delpunkter / 4 t: A(1) + C(2) + L/B(2) + G(2) + E(1) + D(1) + I(1) + N(1) + K(1) |
+
+Til sammen dekker de tre settene samtlige sjangre A–N + MV minst én gang.
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **To eksamener, to treningsformer** — vurderingsformen, den nesten disjunkte
+   temadelingen midtveis/slutt, formathistorikken og prognosene (fra kap. 0.1).
+2. **Prioriteringskartet** — frekvens-tabellene omgjort til tre lesenivåer:
+   perfekt (Del 1, kap. 3.3 + gradient 5.4–5.5, integrasjon 4.3–4.7,
+   overgangsmatriser 5.3), kunne (Del 2, resten av Del 3, 4.1–4.2, 5.1–5.2, 5.6),
+   kjenne (Del 6, induksjonsdelen av 5.3, definisjonsvarianten i 5.6) — med
+   ærlighetsnotatet om 0-frekvenstemaene.
+3. **Sjangerguiden** — A–N + MV med løsningsoppskriftene fra drillkapitlene
+   (1.4, 2.5, 3.3, 4.5, 5.5) i kortform.
+4. **Sensorreglene** — «ubegrunnet = 0», teoremnavning, føringsstandarden,
+   delpunkt-gjenbruk, definisjonskravet, alternative løsninger honoreres
+   (fra kap. 7.1) + karakterskille-listen (definisjonsbruk, oscillasjonsfellen,
+   fullførte bevis, delpunkt-koblinger, randtilfeller, verifiserte eksempler).
+5. **Feilkatalogen** — de 12 typiske feilene fra analysen samlet, hver med
+   henvisning til kapitlet som forebygger den.
+6. **Formelliste i kursets notasjon** — teorem- og formelapparatet fra
+   innholdskontraktene (skvis, standardgrenser, L'Hôpital-disiplin,
+   skjæringssetning, MVT/Rolle + korollarer, grense-av-derivert, FTC +
+   kjerneregel, p-integraler + tester, volumformlene med aksevalg, de Moivre +
+   konjugatrot, determinant/volum + 1/6, $\nabla f$ og $f'(\mathbf{a};\mathbf{r})$,
+   Jacobimatrise) — med markering *utlede aktivt* vs. *kun bruke*.
+7. **Studieløp** — 12-ukers plan synkronisert med semesteret: Del 0 → Del 1–3 +
+   midtveissimulering FØR midtveis i oktober (1/3 av karakteren!); deretter
+   Del 4–5 → Del 6 → prøver → slutteksamen-simuleringene de to siste ukene
+   under tidspress (240 min, ~18 min/delpunkt). 3-ukers intensivvariant for
+   bare slutteksamen: Del 4–5 + 3.3 + 7.1 + simuleringene.
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først**: `TextbookCourse`-oppføring for `mat1100` med alle 36
+   kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
+   etter mønster `COURSE_BI_OKONOMI`, + `sectionNames` fra §2-tabellen.
+2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N/MV og frekvenstallene
+   som resten refererer til.
+3. **Midtveis-kritiske deler i avhengighetsrekkefølge**: Del 1 → Del 2 → Del 3
+   (studenter møter midtveis først — bokas verdi står og faller på at disse er
+   komplette tidlig).
+4. **Slutteksamens-ryggraden**: Del 4 → Del 5 (5.1–5.3 kan bygges parallelt med
+   Del 4; 5.4–5.6 krever 3.2).
+5. Del 6 → Del 7 (simuleringene til slutt — de gjenbruker alt).
+6. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert
+   som kapitlene ferdigstilles; temaprøvene (§4) legges som prøvekapitler
+   (`mat1100-<del>-prove`, chapterNumber `<del>.P`) etter plattformens mønster.
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering**: hver kapittelfil parser (`json.load`); generer JSON
+      via `json.dump`, ikke håndskriving — LaTeX krever `\\` i JSON-strenger;
+      `npm run build` grønn.
+- [ ] **LaTeX**: all matematikk i `$...$`/`$$...$$`; ingen unicode-brøker;
+      konsistent notasjon: $\nabla f$, $f'(\mathbf{a}; \mathbf{r})$, $M^k$,
+      $re^{i\theta}$, $\bar{z}$, $[0/0]$-markering i løsninger.
+- [ ] **Notasjonskonsistens (grep over alle mat1100-filer)**: retningsderivert
+      skrives $f'(\mathbf{a}; \mathbf{r})$ — ALDRI $D_{\mathbf{v}}f$ eller
+      $\partial f/\partial \mathbf{v}$; «GS-testen» og «p-integral» brukes som
+      fasitspråk; overgangsmodeller som $\mathbf{x}_{n+1} = M\mathbf{x}_n$.
+- [ ] **Føringsstandard i ALLE løsningsforslag**: substitusjonsboks med nye
+      grenser; dokumentert u/v′-valg; fortegnsskjema; lim-føring for uegentlige
+      integraler; teoremnavn; verbal konklusjonssetning. Ubegrunnet fasitsvar
+      i et løsningsforslag er en byggefeil.
+- [ ] **Deriverbarhet i punkt**: alle løsninger bruker grensedefinisjonen (eller
+      eksplisitt begrunnet grense-av-derivert); INGEN løsning konkluderer «ikke
+      deriverbar» fra at $\lim f'$ ikke finnes.
+- [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med
+      tallene fra dette skjelettet — inkl. ærlighetsnotatene i Del 6),
+      Forkunnskaper-blokk med kryssbok-lenker (kun til kapitler som finnes —
+      verifiser id-ene), `collapsible` Symbol- og formelliste per delkapittel,
+      Typiske feil-`warning`, 2–4 eksempler (siste på eksamensnivå), 6–12
+      øvinger med `solution` + `hints`, repetisjons-`collapsible`; drillkapitler
+      har løsningsoppskrift + sensor-kommentert case + 8–15 oppgaver.
+- [ ] **Quiz-sum ≥ 570 og flashcard-sum ≥ 510** per kvotetabellen
+      (kontrollsummér mot §3-tabellen); quiz i Del 1–3 skrives som
+      midtveisflervalg (5 alternativer, distraktorer fra feilkatalogen).
+- [ ] **Prøver**: 4 per temadel 1–6 (24 stk) + midtveissimulering + 2
+      slutteksamen-simuleringer som sammen dekker A–N + MV.
+- [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne tall, funksjoner og
+      kontekster; ingen formuleringer fra reelle sett eller fasiter
+      (skjelettets mønstereksempler er selv omskrivninger og skal varieres
+      videre, ikke kopieres ordrett inn); pensumboka refereres, aldri siteres
+      i lengde.
+- [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og
+      narrativ-ruter (200 + innholdssjekk), jf. `getChapterMeta`-lærdommen.
+
+
 
 
