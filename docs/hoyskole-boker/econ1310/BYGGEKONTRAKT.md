@@ -114,6 +114,12 @@ skattelekkasje) — ikke tullesvar.
   eksamenssjanger den trener (f.eks. «Typisk deloppgave (a) på eksamen») —
   eller (b) ha en kontekst som gjør den åpenbart relevant (aktuell norsk
   økonomi, tall studenten kjenner). Ingen «regn ut for øvelsens skyld»-oppgaver.
+- **Symbol- og formelliste**: hvert delkapittel som bruker symboler/formler
+  har en `collapsible` (title «Symbol- og formelliste», buttonText «Vis
+  symboler og formler») rett etter Forkunnskaper-blokken, med en markdown-
+  tabell som forklarer ALLE symboler brukt i delkapitlet ($Y$ = BNP …) og
+  formlene med ett-linjes tolkning. Per delkapittel — ikke stol på at forrige
+  kapittel forklarte symbolet. Unntak kun for kapitler helt uten symboler.
 
 ## Faglig stil (ufravikelig)
 

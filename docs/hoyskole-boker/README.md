@@ -66,6 +66,13 @@ docs/hoyskole-boker/
   eksempler før formalisme — uten faglige feil; presisjon vinner ved tvil.
 - **Meningsfulle oppgaver**: hver oppgave er eksplisitt eksamensforankret
   (si hvilken sjanger den trener) eller åpenbart relevant på annen måte.
+- **Symbol- og formelliste per delkapittel**: hvert delkapittel som bruker
+  symboler/formler skal ha en egen blokk (collapsible «Symbol- og formelliste»
+  rett etter Forkunnskaper) som forklarer ALLE variabler og formler brukt i
+  delkapitlet — f.eks. at $Y$ = BNP, $C$ = privat konsum osv. Unntak kun når
+  det er smertefritt åpenbart (kapitler helt uten symboler/formler). Et symbol
+  regnes ikke som «forklart» fordi et tidligere kapittel forklarte det —
+  listen er per delkapittel.
 
 ### Eksamensrettede krav (gjelder alle arketyper)
 - Hvert kapittel skal ha en **«Eksamensvinkel»**-blokk (type `tip`): hvordan og hvor

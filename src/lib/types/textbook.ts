@@ -20,6 +20,7 @@ export interface TextbookCourse {
   curriculum: 'LK20' | 'LK06';
   icon?: string;                 // Emoji eller ikon
   coverImage?: string;           // Forsidebilde for kurset
+  sectionNames?: Record<string, string>; // Seksjonsnummer → beskrivende tittel («Kapittel N: <tittel>»)
 }
 
 export interface TextbookChapterMeta {

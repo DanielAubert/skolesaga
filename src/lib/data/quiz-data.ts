@@ -158,6 +158,7 @@ import quizData_samf_engelsk from './quiz-data-samf-engelsk';
 import quizData_tif_vg1 from './quiz-data-tif-vg1';
 import quizData_biOkonomi from './quiz-data-bi-okonomi';
 import quizData_econ1310 from './quiz-data-econ1310';
+import quizData_jus1111 from './quiz-data-jus1111';
 import quizData_biologi_2 from './quiz-data-biologi-2';
 import quizData_it_1 from './quiz-data-it-1';
 import quizData_it_2 from './quiz-data-it-2';
@@ -307,6 +308,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_tif_vg1,
   ...quizData_biOkonomi,
   ...quizData_econ1310,
+  ...quizData_jus1111,
   ...quizData_biologi_2,
   ...quizData_it_1,
   ...quizData_it_2,

@@ -26,6 +26,11 @@ Rekkefølgen under er obligatorisk; blokktypene er plattformens
 
 1. `tip` **Eksamensvinkel** — hvor ofte/hvordan temaet testes, typisk vekting,
    hvilke oppgavesjangre det inngår i (fra skjelettets per-kapittel-DNA).
+1b. `text` **Forkunnskaper** — kapitler i boka det bygger på + kryssbok-lenker
+   (jf. Leserkrav i README), etterfulgt av `collapsible` **Symbol- og
+   formelliste** som forklarer ALLE symboler og formler brukt i delkapitlet
+   (per delkapittel — ikke arv fra tidligere kapitler; unntak kun for helt
+   symbolfrie kapitler).
 2. `text` **Motivasjon** — kort: hvorfor modellen/verktøyet finnes, hvilket
    spørsmål den besvarer. Maks 2–3 avsnitt; dette er ikke et dannelsesfag.
 3. `definition` / `theorem` — begreper og resultater i EMNETS NOTASJON (bruk

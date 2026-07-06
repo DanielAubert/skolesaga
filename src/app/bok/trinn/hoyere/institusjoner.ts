@@ -30,6 +30,7 @@ export const INSTITUSJONER: Institusjon[] = [
     color: 'from-red-600 to-rose-700',
     subjects: [
       { courseId: 'econ1310', name: 'ECON1310 Makroøkonomi I', icon: '📈', color: 'from-emerald-500 to-teal-600' },
+      { courseId: 'jus1111', name: 'JUS1111 Privatrett I', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
     ],
   },
   {

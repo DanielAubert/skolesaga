@@ -106,7 +106,7 @@ import {
 } from './textbook-courses-matte';
 
 // Høyskole
-import { COURSE_ECON1310 } from './textbook-courses-hoyskole';
+import { COURSE_ECON1310, COURSE_JUS1111 } from './textbook-courses-hoyskole';
 
 // VG1 fellesfag
 import {
@@ -282,6 +282,7 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_R2,
   COURSE_BI_OKONOMI,
   COURSE_ECON1310,
+  COURSE_JUS1111,
   COURSE_NATURFAG_10,
   COURSE_NAT_VG1,
   COURSE_KJEMI1,
@@ -788,6 +789,12 @@ export const SECTION_NAMES_FYSIKK1: Record<string, string> = {
 
 // Hjelpefunksjon for å hente seksjonsnavn basert på kurs
 export function getSectionNames(courseId: string): Record<string, string> {
+  // Generell regel: kurs kan definere seksjonstitler direkte i metadata (sectionNames).
+  // De hardkodede SECTION_NAMES_*-mappene under er legacy for eldre kurs.
+  const course = getCourse(courseId);
+  if (course?.sectionNames) {
+    return course.sectionNames;
+  }
   switch (courseId) {
     case '8':
       return SECTION_NAMES_8;
