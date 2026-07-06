@@ -172,8 +172,8 @@ export default function TextbookOverviewPage() {
               <div className="w-56">
                 <GradeCard
                   href="/bok/trinn/hoyere"
-                  grade="Universitet"
-                  subtitle="19+ år"
+                  grade="Høyskole/universitet"
+                  subtitle="Velg institusjon"
                   gradient="bg-gradient-to-br from-amber-400 to-orange-500"
                 />
               </div>

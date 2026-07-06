@@ -1,0 +1,267 @@
+{
+  "id": "econ1310-2-5",
+  "courseId": "econ1310",
+  "chapterNumber": "2.5",
+  "title": "Drill: komparativ statikk («vis matematisk»)",
+  "description": "Sjangerdrill på hele E/F/G-komplekset: fra oppgitt modell til fullført A-besvarelse på endringsform.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "gjennomføre en komparativ statikk-analyse steg for steg etter en fast algoritme",
+    "utlede BNP-virkningen av alle sjokkvariabler på tilvekstform og fastsette fortegnet",
+    "regne ut følgestørrelser og flagge fortegnsubestemthet",
+    "skrive et løsningsforslag på A-nivå med to-lags mekanismeforklaring"
+  ],
+  "content": [
+    {
+      "id": "econ1310-2-5-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er den viktigste enkeltferdigheten i hele emnet. Sjanger E («vis matematisk hvordan sjokket virker på BNP») er i **samtlige 22 sett (100 %)** og alltid den tyngst vektede deloppgaven — eksplisitt «særlig vektlagt» i H2024 og H2025. Sammen med følgestørrelsene (F, 64 %) og modellutvidelsene (G) utgjør dette **50–60 %** av hver eksamen.\n\nSjokk-katalogen roterer, men *øvelsen er den samme*: $\\Delta z^C$, $\\Delta z^I$, $\\Delta z^T$, $\\Delta G$ og $\\Delta X$ — bare sjokkvariabel, fortegn og modellvariant varierer. Dette kapitlet gir deg én fast algoritme og driller den gjennom hele katalogen, i alle variantene fra 2.4. Målet: at du kan skrive en A-besvarelse på autopilot og bruke tiden på mekanismeforklaringen der poengene faktisk sitter."
+    },
+    {
+      "id": "econ1310-2-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet forutsetter hele **kapittel 2.1–2.4** — modelloppsett og telleregel (2.1), multiplikator på tilvekstform (2.2), følgestørrelser (2.3) og modellvarianter (2.4). Er én av delene rusten, gå tilbake dit før du driller; her setter vi bitene sammen til fulle A-besvarelser.\n\nRegneteknisk trenger du **brøkregning**, bokstavregning og lineær likningsløsning. Repetisjon: [Brøkregning (Matematikk for økonomer 1.3)](/bok/bi-okonomi/bi-okonomi-1-3), [Algebra og bokstavregning (Matematikk for økonomer 1.2)](/bok/bi-okonomi/bi-okonomi-1-2) og [Lineære likninger (Matematikk for økonomer 2.1)](/bok/bi-okonomi/bi-okonomi-2-1)."
+    },
+    {
+      "id": "econ1310-2-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (algoritmen)\n\nEnhver «vis matematisk»-oppgave løses i disse stegene. Følg dem i rekkefølge — sensor gir uttelling for hvert.\n\n**1. Klassifiser modellen (sjanger C-åpningen).** Tell ligninger og endogene variabler; er de like mange, er modellen determinert. Navngi de endogene. Avgjør åpen vs. lukket (finnes eksport-/importledd?) og endogen vs. eksogen skatt ($t > 0$ eller $t = 0$?).\n\n**2. Sett likevekten på tilvekstform.** Skriv $\\Delta Y = \\Delta C + \\Delta I + \\Delta G \\;(+\\Delta X - \\Delta Q)$ og sett inn endringsformen av hver atferdsligning. Renten holdes fast → rentleddene faller bort.\n\n**3. Isolér multiplikatoren.** Saml alle $\\Delta Y$-ledd på venstre side: $\\Delta Y = m \\cdot \\Delta z$, med riktig nevner for varianten:\n$$m_{\\text{lukket}} = \\tfrac{1}{1 - c_1(1-t) - b_1}, \\quad m_{\\text{åpen}} = \\tfrac{1}{1 - c_1(1-t) - b_1 + a}, \\quad m_{\\text{regel}} = \\tfrac{1}{1 - c_1(1-t) - b_1 + a + g}.$$\n\n**4. Fastsett fortegnet.** Påberop stabilitetsvilkåret (nevneren $> 0$), så $m > 0$. Fortegnet på $\\Delta Y$ følger av fortegnet på $\\Delta z$. **Skriv det eksplisitt.** (For skattesjokk: telleren er $-c_1 < 0$, så $\\Delta Y$ får motsatt fortegn av $\\Delta z^T$.)\n\n**5. Mekanisme i to lag (sensorkravet).** (i) *Direkte effekt* av sjokket i første runde. (ii) *Multiplikatorrundene:* økt $Y$ → økt inntekt → økt $C$ og $I$ → økt $Y$ … **dempet** av skattelekkasjen $t$ og importlekkasjen $a$, **forsterket** av investeringsakseleratoren $b_1$. Bruk kun demperne som *finnes i varianten*.\n\n**6. Følgestørrelser ved innsetting (sjanger F).** Sett multiplikatoruttrykket inn i definisjonene og signér:\n$$\\Delta C = \\Delta z^C + c_1(1-t)\\Delta Y, \\quad \\Delta T = t\\,\\Delta Y, \\quad \\Delta B = \\Delta T - \\Delta G, \\quad \\Delta S = (1 - c_1(1-t))\\Delta Y \\;(\\text{ved } \\Delta z^C = 0).$$\n\n**7. Flagg fortegnsubestemthet.** Der totaleffekten avhenger av parametrene (typisk $\\Delta B$ når to ledd trekker hver sin vei), skriv det eksplisitt og resonner om hva som er rimelig. Dette er toppkandidat-markøren."
+    },
+    {
+      "id": "econ1310-2-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensor-margnotater)",
+      "problem": "Betrakt en lukket økonomi med endogen skatt og fast rente:\n$$Y = C + I + G, \\quad C = z^C + c_1(Y - T), \\quad I = z^I + b_1 Y, \\quad T = z^T + tY.$$\n(a) Er modellen determinert? (b) Bedriftenes investeringsvilje faller ($\\Delta z^I < 0$). Vis matematisk virkningen på BNP og forklar mekanismene. (c) Hva skjer med skatteinngangen og budsjettbalansen? (d) Anta i stedet en åpen økonomi — blir BNP-utslaget større eller mindre? Begrunn.",
+      "solution": "**(a) Determinerthet.** Endogene variabler: $Y, C, I, T$ — fire. Ligninger: likevekten, konsum-, investerings- og skattefunksjonen — fire. Antall ligninger = antall endogene → **modellen er determinert**. ($z$-leddene og parametrene er eksogene; $G$ er eksogen her.)\n\n> *Sensornotat:* Full uttelling krever at du *teller eksplisitt* og *navngir* de endogene. En vanlig feil er å telle $z$-variablene som endogene.\n\n**(b) Investeringsfall.** Likevekt på tilvekstform (rente fast, $\\Delta z^C = 0$, $\\Delta G = 0$):\n$$\\Delta Y = c_1(1-t)\\Delta Y + \\Delta z^I + b_1\\Delta Y \\;\\Rightarrow\\; \\Delta Y\\big[1 - c_1(1-t) - b_1\\big] = \\Delta z^I$$\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1}\\,\\Delta z^I.$$\n\n*Fortegn:* Stabilitetsvilkåret $1 - c_1(1-t) - b_1 > 0$ gir $m > 0$; siden $\\Delta z^I < 0$, blir $\\Delta Y < 0$ — **BNP faller**.\n\n*Mekanisme i to lag:* (i) Direkte trekker den svakere investeringsviljen samlet etterspørsel og produksjon ned krone for krone i første runde. (ii) Lavere inntekt reduserer konsumet ($c_1(1-t)$ per krone) og investeringene via akseleratoren ($b_1$), som senker inntekten videre — rundene **dempes** av skattelekkasjen $t$ og **forsterkes** av $b_1$.\n\n> *Sensornotat:* Korrekt algebra *uten* mekanismeforklaring i ord gir ikke full uttelling (§5.7). Både første runde og de påfølgende rundene må med (§5.1).\n\n**(c) Følgestørrelser.** Skatteinngang: $\\Delta T = t\\,\\Delta Y < 0$ — skatten faller fordi inntekten faller (endogen dempning). Budsjettbalanse: $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y < 0$ (siden $\\Delta G = 0$). Budsjettet **svekkes**: et privat investeringsfall trekker automatisk ned skatteinngangen og gir underskudd, selv uten aktiv politikk.\n\n**(d) Åpen økonomi.** Da blir $\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a}\\Delta z^I$. Nevneren har fått importleddet $+a$, så den er større og multiplikatoren mindre. BNP-utslaget blir **mindre** i åpen økonomi, fordi en del av etterspørselsfallet lekker ut via lavere import (importen fungerer som støtpute).\n\n> *Sensornotat:* Toppkandidatene begrunner sammenligningen ved å peke på *nevneren* og navngi importlekkasjen — ikke bare påstå at «det blir mindre»."
+    },
+    {
+      "id": "econ1310-2-5-warning",
+      "type": "warning",
+      "title": "Typiske feil på regnedelen (hele §5-repertoaret)",
+      "content": "**§5.1 — Bare den direkte effekten:** Å nevne førsterundeeffekten men glemme multiplikatorrundene (eller omvendt: bare «multiplikatoren» uten første runde). Begge lag må med.\n\n**§5.2 — Fremmede mekanismer:** Å importere skatte-, import- eller renteeffekter i en variant der de ikke finnes. Bruk kun variantens egne ledd.\n\n**§5.5 — Sparebegreps-forveksling:** Privat sparing $S^P = Y - T - C$ er ikke det samme som total sparing $S = Y - C - C^G$. Hold dem fra hverandre.\n\n**§5.6 — Endogen/eksogen skatt:** Feil valg her gir feil multiplikator *og* feil budsjetteffekt.\n\n**§5.7 — Matematikk uten ord:** Riktig algebra uten mekanismeforklaring gir ikke full uttelling.\n\n**§5.11 — Glemte dempere:** Å utelate skattelekkasjen $t$ (og importlekkasjen $a$) eller forsterkeren $b_1$ i mekanismekjeden."
+    },
+    {
+      "id": "econ1310-2-5-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Husholdningene blir mer pessimistiske og kutter forbruket eksogent ($\\Delta z^C < 0$). Vis matematisk virkningen på BNP, fastsett fortegnet, og forklar mekanismen i to lag.",
+        "solution": "**Multiplikator:** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta z^C$.\n\n**Fortegn:** Stabilitetsvilkåret $1 - c_1(1-t) - b_1 > 0$ gir $m > 0$; $\\Delta z^C < 0$ gir $\\Delta Y < 0$ (BNP faller).\n\n**Mekanisme:** (i) Direkte kutter det lavere autonome forbruket etterspørsel og produksjon i første runde. (ii) Lavere inntekt reduserer konsumet ($c_1(1-t)$ per krone) og investeringene ($b_1$), som senker inntekten videre — dempet av skattelekkasjen $t$, forsterket av $b_1$.",
+        "hints": ["Nevner: $1 - c_1(1-t) - b_1$.", "Direkte effekt + runder, med dempere/forsterker."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Investeringsviljen stiger ($\\Delta z^I > 0$). (a) Vis BNP-virkningen. (b) Regn ut $\\Delta C$ og $\\Delta T$ og forklar fortegnene.",
+        "solution": "**(a)** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta z^I > 0$ (positiv multiplikator, positivt sjokk → BNP stiger).\n\n**(b)** $\\Delta C = \\Delta z^C + c_1(1-t)\\Delta Y = c_1(1-t)\\Delta Y > 0$ (her $\\Delta z^C = 0$, så bare den indirekte delen: høyere inntekt løfter konsumet). $\\Delta T = t\\,\\Delta Y > 0$: skatteinngangen stiger fordi den høyere aktiviteten trekker inn mer skatt. Begge er positive fordi $\\Delta Y > 0$.",
+        "hints": ["$\\Delta C = \\Delta z^C + c_1(1-t)\\Delta Y$; her $\\Delta z^C = 0$.", "$\\Delta T = t\\Delta Y$."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Myndighetene hever den autonome skatten ($\\Delta z^T > 0$). (a) Vis BNP-virkningen med skattemultiplikatoren og fastsett fortegnet. (b) Forklar hvorfor skatteinngangen øker mindre enn satsøkningen isolert skulle tilsi.",
+        "solution": "**(a)** Skattemultiplikatoren: $\\Delta Y = \\dfrac{-c_1}{1 - c_1(1-t) - b_1}\\,\\Delta z^T$. Nevneren er positiv (stabilitetsvilkåret), telleren $-c_1 < 0$; med $\\Delta z^T > 0$ blir $\\Delta Y < 0$ — **BNP faller**. (Skattemultiplikatoren er svakere enn G-multiplikatoren fordi $c_1 < 1$.)\n\n**(b)** Samlet skatteinngang er $T = z^T + tY$, så $\\Delta T = \\Delta z^T + t\\,\\Delta Y$. Satsøkningen $\\Delta z^T > 0$ trekker opp, men fallet i BNP gir $t\\,\\Delta Y < 0$ som trekker ned. Skatteinngangen øker altså med *mindre* enn $\\Delta z^T$ — den endogene dempningen: høyere skatt senker aktiviteten, som reduserer skattegrunnlaget.",
+        "hints": ["Telleren i skattemultiplikatoren er $-c_1$.", "$\\Delta T = \\Delta z^T + t\\Delta Y$: to motstridende ledd."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Offentlige kjøp økes ($\\Delta G > 0$). (a) Vis BNP-virkningen. (b) Regn ut $\\Delta B$ og avgjør fortegnet.",
+        "solution": "**(a)** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta G > 0$: BNP stiger (G virker krone for krone i første runde, deretter multiplikatorrunder).\n\n**(b)** $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$. Sett inn $\\Delta Y = m\\,\\Delta G$: $\\Delta B = (t\\,m - 1)\\Delta G$. Siden $t\\,m < 1$ (skatteinngangen dekker bare en brøkdel av utgiftsøkningen), er $t\\,m - 1 < 0$, så $\\Delta B < 0$: budsjettet **svekkes**. Den økte aktiviteten drar inn noe ekstra skatt, men ikke nok til å dekke utgiftsøkningen.",
+        "hints": ["$\\Delta B = t\\Delta Y - \\Delta G$.", "Er $t \\cdot m$ større eller mindre enn 1?"]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Offentlige kjøp kuttes i en innstrammingsrunde ($\\Delta G < 0$). Vis hva som skjer med budsjettbalansen $\\Delta B$, og drøft hvorfor totaleffekten kan være fortegnsubestemt.",
+        "solution": "$\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$. Kuttet gir $\\Delta Y = m\\,\\Delta G < 0$ (BNP faller), så $\\Delta T = t\\,\\Delta Y < 0$ (skatteinngangen faller). Samtidig er $-\\Delta G > 0$ (mindre utgifter forbedrer balansen). To ledd trekker hver sin vei: **skattefallet forverrer, utgiftskuttet forbedrer**.\n\nSett inn: $\\Delta B = (t\\,m - 1)\\Delta G$. Med $\\Delta G < 0$ og $t\\,m - 1 < 0$ blir $\\Delta B > 0$ — budsjettet forbedres, men *mindre* enn selve kuttet, fordi den svakere aktiviteten spiser opp deler av innsparingen via lavere skatt. Poenget: nettoeffekten på balansen er dempet, og i en mer generell modell (f.eks. med sterke andrerundeeffekter) er det parameteravhengig hvor mye balansen faktisk bedres. Det skal påpekes eksplisitt — ikke påstå en bestemt tallverdi uten parametre.",
+        "hints": ["To motstridende ledd: $t\\Delta Y < 0$ og $-\\Delta G > 0$.", "Skriv $\\Delta B = (tm-1)\\Delta G$ og resonner om fortegnet."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Lukket økonomi, endogen skatt, fast rente. Husholdningene får økt sparelyst og kutter forbruket ($\\Delta z^C < 0$). Vis hva som skjer med samlet sparing $\\Delta S$, og forklar spareparadokset.",
+        "solution": "BNP-virkning: $\\Delta Y = m\\,\\Delta z^C < 0$. Samlet sparing (med $S = Y - C - C^G$, lukket): den generelle sammenhengen er $\\Delta S = (1 - c_1(1-t))\\Delta Y$ *når* $\\Delta z^C = 0$; her har vi et autonomt spareskift, så vi bruker at i lukket økonomi er $S = I$. Investeringene er $I = z^I + b_1 Y$, så $\\Delta S = \\Delta I = b_1\\,\\Delta Y < 0$ (siden $\\Delta Y < 0$): samlet sparing **faller**.\n\n**Spareparadokset:** Selv om hver husholdning *ønsker* å spare mer, senker det samlede forbrukskuttet BNP så mye at samlet sparing ender lavere. Det som er fornuftig for den enkelte, er selvmotsigende for økonomien som helhet — fordi lavere etterspørsel gir lavere inntekt, og lavere inntekt gir lavere sparing.",
+        "hints": ["I lukket økonomi: $S = I = z^I + b_1 Y$.", "Fallende $Y$ senker investeringene og dermed sparingen."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Åpen økonomi, endogen skatt, fast rente. Eksporten faller ($\\Delta X < 0$). (a) Vis BNP-virkningen. (b) Vis at utslaget er mindre enn det samme sjokket ville gitt i en lukket økonomi, og forklar hvorfor.",
+        "solution": "**(a)** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a}\\,\\Delta X$. Stabilitetsvilkåret gir $m > 0$; $\\Delta X < 0$ gir $\\Delta Y < 0$ (BNP faller).\n\n**(b)** Den lukkede multiplikatoren mangler leddet $+a$: nevneren er $1 - c_1(1-t) - b_1$, altså mindre → multiplikatoren større. Med samme $\\Delta X$ gir den åpne modellen dermed et *mindre* BNP-fall. Grunn: en del av det reduserte forbruket i multiplikatorrundene ville uansett gått til import, så importlekkasjen $a$ demper hver runde. Importen fungerer som en støtpute mot sjokket.",
+        "hints": ["Åpen nevner har $+a$.", "Sammenlign nevnerne og navngi importlekkasjen."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Full deloppgave-kjede (eksamensnivå). Åpen økonomi, endogen skatt, fast rente. (a) Er modellen determinert? (b) Investeringsviljen faller ($\\Delta z^I < 0$) — vis matematisk virkningen på BNP og forklar mekanismene. (c) Hva skjer med skatteinngangen og budsjettbalansen? (d) Ville et rent forbruksfall av samme størrelse gitt et annerledes BNP-utslag? Begrunn.",
+        "solution": "**(a)** Endogene: $Y, C, I, T, Q$ (fem); ligninger: likevekt + konsum + investering + skatt + import (fem) → determinert. Åpen (import-/eksportledd med), endogen skatt ($t > 0$).\n\n**(b)** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a}\\,\\Delta z^I$. Positiv multiplikator (stabilitetsvilkår), $\\Delta z^I < 0$ → $\\Delta Y < 0$. Mekanisme: (i) direkte trekker svakere investeringsvilje etterspørsel/produksjon ned; (ii) lavere inntekt senker konsum ($c_1(1-t)$) og investeringer ($b_1$) videre, dempet av skattelekkasje $t$ og importlekkasje $a$, forsterket av $b_1$.\n\n**(c)** $\\Delta T = t\\,\\Delta Y < 0$ (skatt faller med aktiviteten); $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y < 0$ ($\\Delta G = 0$): budsjettet svekkes automatisk.\n\n**(d)** Nei — samme størrelse. Både $\\Delta z^I$ og $\\Delta z^C$ er autonome etterspørselsledd som samles i $\\Delta z$ og virker gjennom *samme* multiplikator $\\frac{1}{1-c_1(1-t)-b_1+a}$. Et forbruksfall av samme kronestørrelse gir dermed identisk BNP-utslag.",
+        "hints": ["(a) tell fem og fem.", "(d) begge sjokk går gjennom samme multiplikator."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Sammenlign to lukkede modeller ved et positivt konsumsjokk ($\\Delta z^C > 0$): den ene med endogen skatt ($t > 0$), den andre med eksogen skatt ($t = 0$). Vis multiplikatoren i begge og forklar hvilken som gir størst BNP-utslag.",
+        "solution": "Endogen skatt: $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta z^C$. Eksogen skatt ($t = 0$): $\\Delta Y = \\dfrac{1}{1 - c_1 - b_1}\\,\\Delta z^C$.\n\nSiden $c_1(1-t) < c_1$ når $t > 0$, er nevneren *større* i den endogene modellen → multiplikatoren *mindre*. Den **eksogene** modellen gir størst BNP-utslag. Grunn: uten skattelekkasjen $t$ lekker ingenting til skatt i rundene, så mer av hver krone sirkulerer videre. Den endogene skatten er en automatisk stabilisator som demper utslaget.",
+        "hints": ["Sett $t = 0$ i den ene.", "$c_1(1-t)$ mot $c_1$ i nevneren."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Åpen økonomi, endogen skatt, motsyklisk G-regel $G = z^G - gY$, fast rente. Offentlige kjøp økes eksogent ($\\Delta z^G > 0$). (a) Vis BNP-virkningen. (b) Forklar hvorfor utslaget er mindre enn uten regelen. (c) Hva skjer med budsjettbalansen?",
+        "solution": "**(a)** Med $\\Delta G = \\Delta z^G - g\\,\\Delta Y$ blir $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a + g}\\,\\Delta z^G > 0$.\n\n**(b)** Nevneren har det ekstra leddet $+g$ sammenlignet med den åpne modellen uten regel. Når den økte $z^G$ løfter inntekten, kutter regelen automatisk noe av $G$ igjen ($-g\\Delta Y$), som demper multiplikatorrundene. Større nevner → mindre multiplikator → mindre BNP-utslag.\n\n**(c)** $B = T - G = z^T + tY - (z^G - gY) = (z^T - z^G) + (t+g)Y$, så $\\Delta B = -\\Delta z^G + (t+g)\\Delta Y$. Det direkte utgiftsløftet $-\\Delta z^G < 0$ svekker balansen, mens den høyere aktiviteten $(t+g)\\Delta Y > 0$ trekker opp. Nettofortegnet er parameteravhengig og skal flagges som fortegnsubestemt.",
+        "hints": ["Regelvariantens nevner har $+g$.", "$\\Delta B = -\\Delta z^G + (t+g)\\Delta Y$: to motstridende ledd."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En regjering gir skattelette ($\\Delta z^T < 0$). (a) Vis BNP-virkningen i den lukkede modellen med endogen skatt, med fortegn. (b) Sammenlign størrelsen på dette utslaget med utslaget av en like stor økning i offentlige kjøp, og forklar forskjellen.",
+        "solution": "**(a)** $\\Delta Y = \\dfrac{-c_1}{1 - c_1(1-t) - b_1}\\,\\Delta z^T$. Nevner positiv, teller $-c_1 < 0$; med $\\Delta z^T < 0$ blir $\\Delta Y > 0$ — **BNP stiger** (skattelette virker ekspansivt).\n\n**(b)** En like stor $\\Delta G = |\\Delta z^T|$ gir $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta G$. Sammenlign tellerne: $1$ (for $G$) mot $c_1$ (for skatt). Siden $c_1 < 1$, gir G-økningen **større** BNP-utslag. Grunn: offentlige kjøp virker krone for krone på etterspørselen, mens skatteletten bare virker indirekte — bare andelen $c_1$ av den økte disponible inntekten brukes, resten spares (lekkasje).",
+        "hints": ["Skattemultiplikatorens teller er $-c_1$; G-multiplikatorens er $1$.", "$c_1 < 1$ gir svakere skatteeffekt."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-ex-block-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-5-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Kombinasjonsoppgave (eksamensnivå). Åpen økonomi, endogen skatt, fast rente. Samtidig svikter eksporten ($\\Delta X < 0$) og investeringsviljen stiger ($\\Delta z^I > 0$). (a) Vis samlet BNP-virkning. (b) Under hvilken betingelse stiger BNP netto? (c) Regn ut $\\Delta C$ uttrykt ved $\\Delta Y$.",
+        "solution": "**(a)** Begge er autonome etterspørselsledd og samles i $\\Delta z = \\Delta z^I + \\Delta X$. Samlet: $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a}\\,(\\Delta z^I + \\Delta X)$.\n\n**(b)** Multiplikatoren er positiv, så fortegnet på $\\Delta Y$ følger fortegnet på summen $\\Delta z^I + \\Delta X$. BNP stiger netto hvis og bare hvis $\\Delta z^I > |\\Delta X|$ — altså hvis investeringsløftet er større enn eksportfallet. Hvis de er like store, er $\\Delta Y = 0$.\n\n**(c)** $\\Delta C = \\Delta z^C + c_1(1-t)\\Delta Y = c_1(1-t)\\Delta Y$ (siden $\\Delta z^C = 0$): konsumet endres kun via den indirekte inntektskanalen, med fortegn lik $\\Delta Y$.",
+        "hints": ["Summér de autonome leddene i $\\Delta z$.", "Nettofortegn avgjøres av $\\Delta z^I + \\Delta X$."]
+      }
+    },
+    {
+      "id": "econ1310-2-5-begrepsbank-header",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDe sentrale begrepene og verktøyene i komparativ statikk-drillen, i eksamensrettet kortform."
+    },
+    {
+      "id": "econ1310-2-5-def-komparativ",
+      "type": "definition",
+      "title": "Komparativ statikk",
+      "content": "Analyse av hvordan en likevekt endres når en eksogen variabel endres — «før mot etter». I Keynes-modellen gjøres den på tilvekstform: $\\Delta Y = m\\cdot\\Delta z$, med fortegn og mekanisme."
+    },
+    {
+      "id": "econ1310-2-5-def-tilvekstform",
+      "type": "definition",
+      "title": "Tilvekstform (endringsform)",
+      "content": "Å skrive modellen i endringer ($\\Delta$) i stedet for nivåer. Konstanter faller bort, og man isolerer $\\Delta Y$ som multiplikatoren ganger den autonome endringen. Standardmetoden for sjanger E."
+    },
+    {
+      "id": "econ1310-2-5-def-multiplikator",
+      "type": "definition",
+      "title": "Multiplikator ($m$)",
+      "content": "Faktoren $m = \\frac{1}{\\text{nevner}}$ som et autonomt etterspørselssjokk forsterkes med gjennom inntektsrundene. Nevneren består av 1 minus konsum- og investeringstilbøyeligheter, pluss eventuelle lekkasjeledd ($a$, $g$)."
+    },
+    {
+      "id": "econ1310-2-5-def-stabvilkar",
+      "type": "definition",
+      "title": "Stabilitetsvilkår",
+      "content": "Kravet om at multiplikatorens nevner er positiv, f.eks. $1 - c_1(1-t) - b_1 > 0$. Sikrer en positiv, endelig multiplikator og brukes til å fastsette fortegnet på $\\Delta Y$."
+    },
+    {
+      "id": "econ1310-2-5-def-tolags",
+      "type": "definition",
+      "title": "To-lags mekanisme",
+      "content": "Sensorkravet i sjanger E: forklar (i) den direkte effekten av sjokket i første runde og (ii) multiplikatorrundene som følger, med dempere (skatt $t$, import $a$) og forsterker (akselerator $b_1$)."
+    },
+    {
+      "id": "econ1310-2-5-def-folgestorrelse",
+      "type": "definition",
+      "title": "Følgestørrelse",
+      "content": "En avledet variabel man finner ved å sette multiplikatoruttrykket for $\\Delta Y$ inn i en definisjon: $\\Delta C$, $\\Delta T$, $\\Delta B$, $\\Delta S$. Sjanger F. Resultatet skal alltid signeres."
+    },
+    {
+      "id": "econ1310-2-5-def-fortegnsubestemt",
+      "type": "definition",
+      "title": "Fortegnsubestemthet",
+      "content": "Når to ledd i en totaleffekt trekker hver sin vei slik at nettofortegnet avhenger av parameterverdiene — typisk $\\Delta B$ når skatteendring og utgiftsendring virker mot hverandre. Skal flagges eksplisitt; toppkandidat-markør."
+    },
+    {
+      "id": "econ1310-2-5-def-skattemult",
+      "type": "definition",
+      "title": "Skattemultiplikator",
+      "content": "$\\Delta Y = \\frac{-c_1}{1-c_1(1-t)-b_1}\\Delta z^T$. Negativ (skatteøkning senker BNP) og svakere i tallverdi enn G-multiplikatoren fordi telleren er $-c_1$ med $c_1 < 1$."
+    },
+    {
+      "id": "econ1310-2-5-def-spareparadoks",
+      "type": "definition",
+      "title": "Spareparadokset",
+      "content": "At økt sparelyst ($\\Delta z^C < 0$) senker BNP så mye at samlet sparing ikke øker — det som er rasjonelt for den enkelte, er selvmotsigende for økonomien samlet. I lukket økonomi følger det av $S = I = z^I + b_1 Y$."
+    },
+    {
+      "id": "econ1310-2-5-def-determinert",
+      "type": "definition",
+      "title": "Determinert modell",
+      "content": "En modell der antall ligninger er lik antall endogene variabler, slik at likevekten er entydig bestemt. Klassifiseringen (sjanger C) er standardåpningen på en modelloppgave: tell og navngi de endogene."
+    }
+  ],
+  "exercises": []
+}

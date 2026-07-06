@@ -1,0 +1,373 @@
+{
+  "id": "econ1310-5-1",
+  "courseId": "econ1310",
+  "chapterNumber": "5.1",
+  "title": "Renteregelen og RR-kurven",
+  "description": "Sentralbankens renteregel, innsettingen av Phillips-kurven og dekomponeringen d₁β + d₂ — toppsjikt-spørsmålet fremfor noen.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp renteregelen og tolke parametrene $d_1$ og $d_2$",
+    "utlede RR-kurven ved å sette Phillips-kurven inn i renteregelen",
+    "forklare økonomisk hvorfor produksjonsgapet virker på renten gjennom både en direkte kanal ($d_2$) og en indirekte kanal ($d_1\\beta$)",
+    "avgjøre hvilke sjokk som skifter RR-kurven og hvilke som bare flytter økonomien langs den"
+  ],
+  "content": [
+    {
+      "id": "econ1310-5-1-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel — kap. 5.1",
+      "content": "Renteregelen og RR-kurven er selve fundamentet i IS-RR-PK-apparatet, som dukker opp i **19 av 22 eksamenssett (86 %)** — sammen med Keynes-multiplikatoren og Phillips-kurven bærer det den tyngste modelloppgaven.\n\n- **Parametertolkning av $d_1$ og $d_2$** kommer i *samtlige* sett med renteregel (sjanger D).\n- **Dekomponeringen $d_1\\beta + d_2$** foran produksjonsgapet er en eksplisitt **toppsjikt-markør** i sensorveiledningene: den skiller A/B-besvarelsene fra resten. Du må kunne forklare den *direkte* kanalen ($d_2$) og den *indirekte* kanalen via Phillips-kurven ($d_1\\beta$) i ord.\n- **RR utledes aktivt**: du skal kunne sette Phillips-kurven inn i renteregelen steg for steg.\n\nPrioritet: **PERFEKT**. Dette kapitlet er forutsetningen for hele Del 5 — den grafiske analysen (5.2) og kostnadssjokk-målkonflikten (5.3) hviler på at du forstår hva som skifter RR og hva som ikke gjør det."
+    },
+    {
+      "id": "econ1310-5-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på to kapitler tidligere i boka:\n\n- **Kap. 2.2 — Multiplikatoren på tilvekstform.** Du bør kunne hvordan et etterspørselssjokk forplanter seg gjennom multiplikatorrundene; RR-kurven kobles senere til akkurat denne etterspørselssiden.\n- **Kap. 4.2 — Phillips-kurven.** Hele RR-utledningen består i å *sette Phillips-kurven inn i* renteregelen. Sitter ikke $\\beta$-mekanismen (kausalkjeden fra produksjonsgap til inflasjon), får du ikke tak i den indirekte kanalen $d_1\\beta$.\n\nUtenfor boka trenger du bare litt derivasjon: vi bruker den deriverte $\\partial i/\\partial Y$ til å lese av helningen på RR. Trenger du en oppfriskning, se **[Derivasjonsregler (Matematikk for økonomer 5.2)](/bok/bi-okonomi/bi-okonomi-5-2)**."
+    },
+    {
+      "id": "econ1310-5-1-text-motiv",
+      "type": "text",
+      "content": "## Fra passiv rente til aktiv sentralbank\n\nI Keynes-modellen (Del 2) holdt vi renten $i$ fast mens vi analyserte etterspørselssjokk. Men en moderne sentralbank sitter ikke stille: den *reagerer* på tilstanden i økonomien. Norges Bank hever styringsrenten når inflasjonen er for høy og aktiviteten for sterk, og setter den ned når inflasjonen er lav og ledigheten stiger.\n\nDenne systematiske reaksjonen fanger vi i én ligning — **renteregelen**. Regelen sier hvordan sentralbanken setter renten som svar på to avvik: hvor langt inflasjonen $\\pi$ ligger fra inflasjonsmålet $\\pi^*$, og hvor stort produksjonsgapet $\\frac{Y-Y^n}{Y^n}$ er.\n\nNår vi kombinerer renteregelen med Phillips-kurven fra kap. 4.2, får vi **RR-kurven** («rente-regel-kurven») — den ene av de to kurvene i det øvre panelet av IS-RR-PK-diagrammet. RR er stigende i BNP: høyere aktivitet gir høyere rente. Men *hvorfor* den er stigende, og *hvor bratt* den er, avhenger av en kombinasjon av parametre som er selve kjernen i dette kapitlet."
+    },
+    {
+      "id": "econ1310-5-1-def-renteregel",
+      "type": "definition",
+      "title": "Renteregelen",
+      "content": "Sentralbankens systematiske rentesetting som funksjon av inflasjonsavvik og produksjonsgap:\n\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}, \\qquad d_1 > 0,\\; d_2 > 0$$\n\nRenten $i$ heves når inflasjonen $\\pi$ overstiger målet $\\pi^*$ (positivt inflasjonsavvik) og når BNP $Y$ ligger over potensielt BNP $Y^n$ (positivt produksjonsgap). $z^i$ er et pengepolitisk sjokk (renteintercept)."
+    },
+    {
+      "id": "econ1310-5-1-def-d1",
+      "type": "definition",
+      "title": "Vekten på inflasjonsavviket ($d_1$)",
+      "content": "Parameteren $d_1 > 0$ måler hvor kraftig sentralbanken hever renten per prosentpoeng inflasjonsavvik $(\\pi - \\pi^*)$. Stor $d_1$ betyr en «hauk» som prioriterer inflasjonsmålet høyt; liten $d_1$ betyr større toleranse for inflasjonsavvik."
+    },
+    {
+      "id": "econ1310-5-1-def-d2",
+      "type": "definition",
+      "title": "Vekten på produksjonsgapet ($d_2$)",
+      "content": "Parameteren $d_2 > 0$ måler hvor kraftig sentralbanken hever renten per prosentpoeng produksjonsgap $\\frac{Y-Y^n}{Y^n}$. Stor $d_2$ betyr at sentralbanken legger stor vekt på realøkonomien (sysselsetting/aktivitet) i tillegg til inflasjonen — kjernen i *fleksibel* inflasjonsstyring."
+    },
+    {
+      "id": "econ1310-5-1-def-zi",
+      "type": "definition",
+      "title": "Pengepolitisk sjokk ($z^i$)",
+      "content": "Leddet $z^i$ er et eksogent skift i renteregelen: en renteendring som *ikke* skyldes inflasjons- eller produksjonsgapet. En kontraktiv innstramming (sentralbanken vil ha høyere rente for gitt tilstand) er $\\Delta z^i > 0$; en ekspansiv lettelse er $\\Delta z^i < 0$."
+    },
+    {
+      "id": "econ1310-5-1-text-pk-repetisjon",
+      "type": "text",
+      "content": "## Byggeklossen: Phillips-kurven (fra kap. 4.2)\n\nRR-kurven bygger direkte på Phillips-kurven. Vi gjentar den i Holden-form:\n\n$$\\pi = \\pi^e + \\beta\\,\\frac{Y - Y^n}{Y^n} + z^\\pi, \\qquad \\beta > 0$$\n\nInflasjonen $\\pi$ drives av tre ting: forventet inflasjon $\\pi^e$, produksjonsgapet (via kausalkjeden aktivitet → ledighet → lønnspress → marginalkostnad → påslagsprising) med styrke $\\beta$, og kostnadssjokk $z^\\pi$ (energipriser, kronekurs, råvarer).\n\nPoenget vi trenger nå: **inflasjonen henger sammen med produksjonsgapet**. Når sentralbanken reagerer på inflasjonen, reagerer den derfor *indirekte* også på produksjonsgapet — fordi gapet presser inflasjonen. Det er dette som gir opphav til den doble kanalen i RR."
+    },
+    {
+      "id": "econ1310-5-1-text-utledning",
+      "type": "text",
+      "content": "## Utledning av RR-kurven (steg for steg)\n\n**Steg 1 — start med renteregelen:**\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 2 — sett inn Phillips-kurven for $\\pi$.** Vi erstatter $\\pi$ med $\\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$:\n$$i = z^i + d_1\\left(\\pi^e + \\beta\\,\\frac{Y - Y^n}{Y^n} + z^\\pi - \\pi^*\\right) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 3 — multipliser ut $d_1$-parentesen:**\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + d_1\\beta\\,\\frac{Y - Y^n}{Y^n} + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 4 — samle de to gap-leddene** (begge har faktoren $\\frac{Y-Y^n}{Y^n}$):\n$$\\boxed{\\;i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y - Y^n}{Y^n}\\;}$$\n\nDette er **RR-kurven**. Den gir renten $i$ sentralbanken vil sette for hvert nivå på BNP $Y$, når vi har tatt hensyn til at BNP også påvirker inflasjonen.\n\n**Egenskaper å merke seg:**\n- **RR er stigende i $Y$** fordi koeffisienten foran gapet, $(d_1\\beta + d_2)$, er positiv. Høyere aktivitet → høyere rente.\n- **Skjæringspunkt/intercept** bestemmes av $z^i$, inflasjonsforventningsavviket $d_1(\\pi^e - \\pi^*)$ og kostnadssjokket $d_1 z^\\pi$.\n- **$Y^n$-normaliseringen** i nevneren skal alltid med — renten reagerer på gapet *relativt* til potensielt BNP, ikke på nivået $Y$ direkte."
+    },
+    {
+      "id": "econ1310-5-1-def-rr",
+      "type": "definition",
+      "title": "RR-kurven",
+      "content": "Sentralbankens renteregel med Phillips-kurven innsatt, uttrykt i $(Y, i)$-rommet:\n\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y - Y^n}{Y^n}$$\n\nRR er **stigende** i $Y$ med helning proporsjonal med $(d_1\\beta + d_2)$. Den viser hvilken rente sentralbanken setter for hvert BNP-nivå. RR er den ene kurven i det øvre panelet av IS-RR-PK-diagrammet (den andre er IS)."
+    },
+    {
+      "id": "econ1310-5-1-text-dekomponering",
+      "type": "text",
+      "content": "## Dekomponeringen $d_1\\beta + d_2$: to kanaler til renten\n\nKoeffisienten foran produksjonsgapet består av to ledd som forteller *hvorfor* et høyt produksjonsgap fører til høyere rente:\n\n**Direkte kanal ($d_2$):** Renteregelen inneholder produksjonsgapet eksplisitt. Sentralbanken bryr seg om realøkonomien i seg selv, og strammer inn når aktiviteten er høy — helt uavhengig av hva som skjer med inflasjonen. Dette er $d_2$-leddet.\n\n**Indirekte kanal ($d_1\\beta$):** Et høyt produksjonsgap presser *også* inflasjonen opp, med styrke $\\beta$ (Phillips-kurven). Denne ekstra inflasjonen svarer sentralbanken på med vekten $d_1$. Kombinasjonen $d_1 \\cdot \\beta$ er altså renteøkningen som kommer *via* inflasjonen: gapet → $\\beta$-mekanismen → høyere $\\pi$ → sentralbanken hever med $d_1$.\n\nSamlet renterespons på gapet blir derfor $d_1\\beta + d_2$ — den **indirekte** pluss den **direkte** kanalen.\n\n> **Ikke dobbelttelling.** En vanlig feil er å tro at $d_1\\beta$ og $d_2$ teller det samme to ganger. De gjør det ikke: $d_2$ er sentralbankens *egenmotiverte* respons på aktivitetsnivået, mens $d_1\\beta$ er responsen på den *inflasjonen aktiviteten skaper*. To ulike økonomiske mekanismer som begge trekker renten opp når $Y$ stiger."
+    },
+    {
+      "id": "econ1310-5-1-def-direkte",
+      "type": "definition",
+      "title": "Direkte kanal ($d_2$)",
+      "content": "Den delen av renteresponsen på produksjonsgapet som kommer fra at gapet står *eksplisitt* i renteregelen. Sentralbanken hever renten fordi den bryr seg om realøkonomien i seg selv — uavhengig av inflasjonseffekten. Bidrar med $d_2$ til gap-koeffisienten $(d_1\\beta + d_2)$."
+    },
+    {
+      "id": "econ1310-5-1-def-indirekte",
+      "type": "definition",
+      "title": "Indirekte kanal ($d_1\\beta$)",
+      "content": "Den delen av renteresponsen på produksjonsgapet som går *via* Phillips-kurven: gapet presser inflasjonen opp med styrke $\\beta$, og sentralbanken svarer på den ekstra inflasjonen med vekten $d_1$. Bidrar med $d_1\\beta$ til gap-koeffisienten $(d_1\\beta + d_2)$."
+    },
+    {
+      "id": "econ1310-5-1-text-skift",
+      "type": "text",
+      "content": "## Hva skifter RR — og hva gjør det ikke?\n\nDette er den kanskje viktigste innsikten fra kapitlet, og forutsetningen for hele den grafiske analysen i 5.2–5.3. Se på RR-uttrykket:\n\n$$i = \\underbrace{z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi}_{\\text{intercept}} + (d_1\\beta + d_2)\\,\\frac{Y - Y^n}{Y^n}$$\n\n**RR skifter (hele kurven flyttes) bare når interceptet endres**, altså ved:\n- **kostnadssjokk** $\\Delta z^\\pi$ (flytter RR med $d_1\\Delta z^\\pi$),\n- **endrede inflasjonsforventninger** $\\Delta \\pi^e$ (flytter RR med $d_1\\Delta\\pi^e$),\n- **pengepolitisk sjokk** $\\Delta z^i$,\n- **endret potensielt BNP** $\\Delta Y^n$ (endrer normaliseringen/nullpunktet for gapet).\n\n**Et rent etterspørselssjokk skifter IKKE RR.** Et sjokk i $z^C$, $z^I$, $z^T$ eller $G$ endrer $Y$, men Phillips-kurven er allerede *bakt inn* i RR. Etterspørselssjokket flytter derfor økonomien **langs** RR-kurven (sentralbanken svarer med å bevege renten oppover eller nedover kurven), det skifter ikke selve kurven.\n\n> **Huskeregel:** RR er sentralbankens reaksjonsfunksjon. Den skifter bare når *forutsetningene* for reaksjonen endres ($z^\\pi$, $\\pi^e$, $Y^n$, $z^i$), ikke når økonomien beveger seg på grunn av et etterspørselssjokk. Denne distinksjonen er hele forskjellen mellom kap. 5.2 (etterspørselssjokk) og 5.3 (kostnadssjokk)."
+    },
+    {
+      "id": "econ1310-5-1-example-1",
+      "type": "example",
+      "title": "Eksempel 1: Tolke parametrene",
+      "problem": "En sentralbank følger renteregelen $i = z^i + d_1(\\pi - \\pi^*) + d_2\\frac{Y-Y^n}{Y^n}$ med $d_1 = 1{,}5$ og $d_2 = 0{,}5$. Inflasjonsmålet er $\\pi^* = 2\\,\\%$.\n\na) Inflasjonen stiger fra 2 % til 3 %, mens produksjonsgapet er null. Hvor mye endres renten (via renteregelen direkte)?\n\nb) Forklar økonomisk hva den høye verdien på $d_1$ relativt til $d_2$ sier om sentralbankens prioriteringer.",
+      "solution": "**a)** Inflasjonsavviket øker fra $0$ til $(\\pi - \\pi^*) = 3 - 2 = 1$ prosentpoeng. Produksjonsgapet er uendret ($=0$). Renteendringen blir\n$$\\Delta i = d_1 \\cdot \\Delta(\\pi - \\pi^*) = 1{,}5 \\cdot 1 = 1{,}5 \\text{ prosentpoeng.}$$\nSentralbanken hever renten med 1,5 prosentpoeng. Legg merke til at $d_1 > 1$: renten heves *mer* enn inflasjonen steg, slik at også **realrenten** $(i - \\pi^e)$ stiger — ellers ville en renteøkning som bare matchet inflasjonen ikke virket dempende. (Dette kalles ofte «Taylor-prinsippet», men vi holder oss til Holden-notasjonen.)\n\n**b)** $d_1 = 1{,}5$ er tre ganger så stor som $d_2 = 0{,}5$. Sentralbanken reagerer altså langt kraftigere på inflasjonsavvik enn på produksjonsgap: den er relativt «haukete» — inflasjonsmålet veier tungt, realøkonomien mindre. En sentralbank med stor $d_2$ ville i stedet vært villig til å tolerere større inflasjonsavvik for å skjerme sysselsettingen. At begge er positive er nettopp **fleksibel inflasjonsstyring**: inflasjonsmålet er hovedanker, men realøkonomien teller også."
+    },
+    {
+      "id": "econ1310-5-1-example-2",
+      "type": "example",
+      "title": "Eksempel 2: Utled RR fra bunnen",
+      "problem": "Gitt renteregelen $i = z^i + d_1(\\pi - \\pi^*) + d_2\\frac{Y-Y^n}{Y^n}$ og Phillips-kurven $\\pi = \\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$. Utled RR-kurven, og angi helningen dens i $(Y,i)$-rommet.",
+      "solution": "Vi setter Phillips-kurven inn for $\\pi$ i renteregelen:\n$$i = z^i + d_1\\left(\\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi - \\pi^*\\right) + d_2\\frac{Y-Y^n}{Y^n}$$\n\nMultipliser ut $d_1$:\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + d_1\\beta\\frac{Y-Y^n}{Y^n} + d_2\\frac{Y-Y^n}{Y^n}$$\n\nSaml gap-leddene:\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\frac{Y-Y^n}{Y^n}$$\n\n**Helning:** Deriverer vi $i$ med hensyn på $Y$, får vi\n$$\\frac{\\partial i}{\\partial Y} = \\frac{d_1\\beta + d_2}{Y^n} > 0.$$\nRR er altså **stigende** i $Y$, med helning $\\frac{d_1\\beta + d_2}{Y^n}$. Jo større inflasjonsvekt $d_1$, inflasjonsfølsomhet $\\beta$ eller gap-vekt $d_2$, desto brattere RR — sentralbanken reagerer skarpere på aktivitetsendringer."
+    },
+    {
+      "id": "econ1310-5-1-example-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Forklar den doble kanalen",
+      "problem": "I renteregelen med Phillips-kurven innsatt står kombinasjonen $d_1\\beta + d_2$ foran produksjonsgapet. Forklar økonomisk hvorfor produksjonsgapet påvirker renten gjennom nettopp denne summen av en direkte og en indirekte kanal, og hvorfor det *ikke* er en dobbelttelling. Vis også hvorfor et rent positivt etterspørselssjokk ikke skifter RR-kurven, men flytter økonomien langs den.",
+      "solution": "**A-besvarelse:**\n\nProduksjonsgapet $\\frac{Y-Y^n}{Y^n}$ løfter renten gjennom to *atskilte* økonomiske mekanismer:\n\n**Direkte kanal ($d_2$).** Renteregelen har gapet som eget argument. Sentralbanken driver fleksibel inflasjonsstyring og bryr seg om realøkonomien i seg selv: når aktiviteten er høyere enn det opprettholdbare nivået $Y^n$, strammer den inn for å motvirke overoppheting — uavhengig av hva inflasjonen gjør akkurat nå. Dette bidrar med $d_2$ per enhet gap.\n\n**Indirekte kanal ($d_1\\beta$).** Et positivt gap presser samtidig inflasjonen opp gjennom Phillips-kurvens kausalkjede (høyere aktivitet → lavere ledighet → sterkere forhandlingsmakt → høyere lønnsvekst → høyere marginalkostnad → høyere påslagspriser). Styrken på dette er $\\beta$. Den ekstra inflasjonen svarer sentralbanken på med sin inflasjonsvekt $d_1$. Renteøkningen som kommer *via inflasjonen* er derfor $d_1 \\cdot \\beta$.\n\nSummen $d_1\\beta + d_2$ er altså den totale renteresponsen på gapet. **Det er ikke dobbelttelling**: $d_2$ er responsen på selve aktivitetsnivået, mens $d_1\\beta$ er responsen på *inflasjonen aktiviteten skaper*. To ulike årsaker — realøkonomisk hensyn og inflasjonshensyn — som tilfeldigvis begge utløses av det samme gapet.\n\n**Hvorfor etterspørselssjokk ikke skifter RR.** Fordi Phillips-kurven allerede er substituert inn i RR, er inflasjonens avhengighet av gapet innebygd i kurven. Et rent etterspørselssjokk (f.eks. $\\Delta z^C > 0$) endrer bare $Y$ — det endrer ingen av interceptleddene $z^i$, $d_1(\\pi^e-\\pi^*)$ eller $d_1 z^\\pi$. Sentralbanken beveger seg derfor **oppover langs** den uendrede RR-kurven (setter høyere rente fordi $Y$ er høyere), men selve kurven står stille. Bare $\\Delta z^\\pi$, $\\Delta\\pi^e$, $\\Delta z^i$ eller $\\Delta Y^n$ flytter RR."
+    },
+    {
+      "id": "econ1310-5-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil (sensorveiledningene)",
+      "content": "- **Tolke $d_1\\beta$ som «dobbelttelling».** De to leddene fanger to *ulike* mekanismer — direkte realøkonomisk respons ($d_2$) og respons på gap-skapt inflasjon ($d_1\\beta$). Ingen størrelse telles to ganger.\n- **Glemme at RR er stigende i $Y$ *både* via $d_2$ og via $d_1\\beta$.** Mange nevner bare den ene kanalen. Full uttelling krever begge.\n- **Utelate $Y^n$-normaliseringen.** Renten reagerer på gapet $\\frac{Y-Y^n}{Y^n}$, ikke på BNP-nivået $Y$ direkte.\n- **Tro at et etterspørselssjokk skifter RR.** Det gjør det ikke — PK er bakt inn i RR, så etterspørselssjokk beveger økonomien *langs* RR. Bare $z^\\pi$, $\\pi^e$, $z^i$ og $Y^n$ skifter kurven.\n- **Blande realrente og nominell rente.** Renteregelen setter den nominelle renten $i$; at $d_1 > 1$ sikrer at også *realrenten* stiger når inflasjonen stiger."
+    },
+    {
+      "id": "econ1310-5-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Sett opp renteregelen i Holden-notasjon og forklar med ett par ord hva hvert av leddene $z^i$, $d_1(\\pi-\\pi^*)$ og $d_2\\frac{Y-Y^n}{Y^n}$ representerer.",
+        "solution": "$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\frac{Y-Y^n}{Y^n}$$\n\n- $z^i$: pengepolitisk sjokk / renteintercept — en renteendring som ikke skyldes gap eller inflasjonsavvik.\n- $d_1(\\pi - \\pi^*)$: responsen på inflasjonsavviket; $d_1 > 0$ er vekten sentralbanken legger på å nå inflasjonsmålet.\n- $d_2\\frac{Y-Y^n}{Y^n}$: responsen på produksjonsgapet; $d_2 > 0$ er vekten på realøkonomien (fleksibel inflasjonsstyring).",
+        "hints": ["Renten heves ved positivt inflasjonsavvik OG positivt produksjonsgap.", "$z^i$ er det eksogene skiftleddet."]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En sentralbank har $d_1 = 2{,}0$ og $d_2 = 0{,}25$. Inflasjonen ligger 1,5 prosentpoeng over målet, og produksjonsgapet er $+2\\,\\%$. Regn ut hvor mye renteregelen tilsier at renten skal ligge over $z^i$.",
+        "solution": "$$i - z^i = d_1(\\pi-\\pi^*) + d_2\\frac{Y-Y^n}{Y^n} = 2{,}0 \\cdot 1{,}5 + 0{,}25 \\cdot 2 = 3{,}0 + 0{,}5 = 3{,}5 \\text{ prosentpoeng.}$$\n\nRenten settes altså 3,5 prosentpoeng over renteinterceptet $z^i$. Merk at inflasjonsavviket dominerer (3,0 av 3,5) fordi $d_1$ er mye større enn $d_2$.",
+        "hints": ["Sett tallene rett inn i renteregelen.", "Hold $z^i$ på venstre side: $i - z^i = \\ldots$"]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Utled RR-kurven ved å sette Phillips-kurven $\\pi = \\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$ inn i renteregelen. Vis alle stegene, og skriv opp helningen til RR.",
+        "solution": "Innsetting:\n$$i = z^i + d_1\\left(\\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi - \\pi^*\\right) + d_2\\frac{Y-Y^n}{Y^n}$$\n\nMultipliser ut $d_1$:\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + d_1\\beta\\frac{Y-Y^n}{Y^n} + d_2\\frac{Y-Y^n}{Y^n}$$\n\nSaml gap-leddene:\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\frac{Y-Y^n}{Y^n}$$\n\nHelning i $(Y,i)$: $\\dfrac{\\partial i}{\\partial Y} = \\dfrac{d_1\\beta + d_2}{Y^n} > 0$ — RR er stigende.",
+        "hints": ["Bytt ut $\\pi$ med hele PK-uttrykket.", "De to leddene med $\\frac{Y-Y^n}{Y^n}$ kan trekkes sammen."]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Forklar forskjellen på den direkte kanalen ($d_2$) og den indirekte kanalen ($d_1\\beta$) i gap-koeffisienten, og argumenter for hvorfor det ikke er dobbelttelling.",
+        "solution": "**Direkte kanal ($d_2$):** produksjonsgapet står eksplisitt i renteregelen. Sentralbanken strammer inn fordi den bryr seg om realøkonomien i seg selv (fleksibel inflasjonsstyring) — uavhengig av inflasjonseffekten.\n\n**Indirekte kanal ($d_1\\beta$):** gapet presser inflasjonen opp med styrke $\\beta$ (Phillips-kurven), og sentralbanken svarer på den ekstra inflasjonen med vekten $d_1$. Renteøkningen via inflasjonen er derfor $d_1\\beta$.\n\n**Ikke dobbelttelling:** $d_2$ er respons på *aktivitetsnivået*, $d_1\\beta$ er respons på *inflasjonen aktiviteten skaper*. To distinkte økonomiske grunner — realøkonomisk hensyn og inflasjonshensyn — som begge utløses av samme gap.",
+        "hints": ["Den ene kanalen bryr seg om aktiviteten selv, den andre om inflasjonen aktiviteten gir.", "Tenk: hvorfor står $\\beta$ (Phillips-kurvens helning) sammen med nettopp $d_1$?"]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør for hvert av følgende sjokk om RR-kurven skifter, og begrunn kort: (a) et positivt konsumsjokk $\\Delta z^C > 0$, (b) et kostnadssjokk $\\Delta z^\\pi > 0$, (c) høyere inflasjonsforventninger $\\Delta \\pi^e > 0$, (d) en økning i potensielt BNP $\\Delta Y^n > 0$.",
+        "solution": "**a) $\\Delta z^C > 0$: skifter IKKE RR.** Etterspørselssjokket endrer $Y$, men ingen av interceptleddene. Phillips-kurven er bakt inn i RR, så økonomien beveger seg *langs* RR (sentralbanken setter høyere rente fordi $Y$ er høyere).\n\n**b) $\\Delta z^\\pi > 0$: skifter RR opp** med $d_1\\Delta z^\\pi$. Kostnadssjokket står i interceptet ($d_1 z^\\pi$).\n\n**c) $\\Delta \\pi^e > 0$: skifter RR opp** med $d_1\\Delta\\pi^e$. Forventningsleddet står i interceptet ($d_1(\\pi^e-\\pi^*)$).\n\n**d) $\\Delta Y^n > 0$: skifter RR.** Normaliseringen/nullpunktet for gapet endres — for et gitt $Y$ blir gapet mindre, så RR flyttes (og PK skifter parallelt).",
+        "hints": ["Se på RR-uttrykket: hva står i interceptet, og hva ganges med $\\frac{Y-Y^n}{Y^n}$?", "Bare endringer i interceptleddene skifter kurven."]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To land har identiske Phillips-kurver med $\\beta = 0{,}4$, men ulik pengepolitikk: land A har $d_1 = 1{,}5,\\ d_2 = 0{,}5$; land B har $d_1 = 1{,}5,\\ d_2 = 0{,}1$. Regn ut gap-koeffisienten $(d_1\\beta + d_2)$ for begge, og forklar hvilket land som har brattest RR og hva det betyr.",
+        "solution": "**Land A:** $d_1\\beta + d_2 = 1{,}5 \\cdot 0{,}4 + 0{,}5 = 0{,}6 + 0{,}5 = 1{,}1$.\n\n**Land B:** $d_1\\beta + d_2 = 1{,}5 \\cdot 0{,}4 + 0{,}1 = 0{,}6 + 0{,}1 = 0{,}7$.\n\nLand A har størst koeffisient (1,1 mot 0,7) og dermed **brattest RR**. Fordi A legger mer vekt på produksjonsgapet ($d_2 = 0{,}5$), reagerer sentralbanken der kraftigere på aktivitetsendringer — renten stiger mer per enhet BNP-økning. Den indirekte kanalen $d_1\\beta = 0{,}6$ er lik i begge; forskjellen ligger helt i den direkte kanalen $d_2$.",
+        "hints": ["Regn ut $d_1\\beta$ først (likt i begge), legg så til $d_2$.", "Brattere RR = større renterespons på gap."]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Anta $d_1 = 1{,}5$, $d_2 = 0{,}5$, $\\beta = 0{,}4$, $\\pi^* = 2\\,\\%$, $\\pi^e = 2\\,\\%$ og $z^i = 1\\,\\%$, med $z^\\pi = 0$. (a) Skriv opp den tallfestede RR-kurven. (b) Hvilken rente setter sentralbanken ved et produksjonsgap på $+3\\,\\%$? (c) Et kostnadssjokk gir $\\Delta z^\\pi = +2$ prosentpoeng. Hvor mye skifter RR opp, og hva blir renten ved samme gap på $+3\\,\\%$? *(Eksamenssjanger D — tallfestet RR og parametertolkning.)*",
+        "solution": "**a)** RR: $i = z^i + d_1(\\pi^e-\\pi^*) + d_1 z^\\pi + (d_1\\beta+d_2)\\frac{Y-Y^n}{Y^n}$.\nMed $\\pi^e = \\pi^* = 2$ er $d_1(\\pi^e-\\pi^*)=0$, og $z^\\pi = 0$. Gap-koeffisienten er $1{,}5\\cdot0{,}4+0{,}5 = 1{,}1$. Altså:\n$$i = 1 + 1{,}1\\cdot\\frac{Y-Y^n}{Y^n} \\quad (\\%)$$\n\n**b)** Ved gap $+3\\,\\%$: $i = 1 + 1{,}1 \\cdot 3 = 1 + 3{,}3 = 4{,}3\\,\\%$.\n\n**c)** Kostnadssjokket flytter RR opp med $d_1\\Delta z^\\pi = 1{,}5 \\cdot 2 = 3$ prosentpoeng. Ny RR: $i = 1 + 3 + 1{,}1\\frac{Y-Y^n}{Y^n} = 4 + 1{,}1\\frac{Y-Y^n}{Y^n}$. Ved samme gap $+3\\,\\%$: $i = 4 + 1{,}1\\cdot3 = 4 + 3{,}3 = 7{,}3\\,\\%$.",
+        "hints": ["Sett først inn alt som er kjent i interceptet.", "Kostnadssjokket flytter interceptet med $d_1\\Delta z^\\pi$, ikke helningen."]
+      }
+    },
+    {
+      "id": "econ1310-5-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-5-1-exc-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En medstudent hevder: «Siden RR allerede inneholder produksjonsgapet, må et positivt etterspørselssjokk skifte RR oppover.» Forklar presist hvorfor dette er feil, og hva som faktisk skjer med rente og BNP. *(Eksamenssjanger D — skift av RR vs. bevegelse langs RR; klassisk karakterskille.)*",
+        "solution": "Utsagnet forveksler **bevegelse langs kurven** med **skift av kurven**. RR er sentralbankens reaksjonsfunksjon: den gir renten $i$ som funksjon av $Y$ (og av interceptleddene $z^i, \\pi^e, z^\\pi, Y^n$). Et etterspørselssjokk, f.eks. $\\Delta z^C > 0$, endrer *ingen* av interceptleddene. Det endrer bare hvor i $(Y,i)$-rommet økonomien havner.\n\nDet som skjer: etterspørselssjokket løfter $Y$ (via IS-kurven, kap. 5.2). Høyere $Y$ betyr større produksjonsgap, og sentralbanken svarer med å sette høyere rente — men den beveger seg da **oppover langs den uendrede RR-kurven**, ikke på en ny kurve. Fordi Phillips-kurven er substituert inn i RR, er gapets inflasjonseffekt allerede innbakt; ingenting skifter selve kurven. Bare $\\Delta z^\\pi$, $\\Delta\\pi^e$, $\\Delta z^i$ eller $\\Delta Y^n$ ville flyttet RR.\n\nResultat: både $Y$ og $i$ (og $\\pi$) stiger, men langs eksisterende RR.",
+        "hints": ["Skille mellom å bevege seg PÅ en kurve og å FLYTTE kurven.", "Hvilke størrelser står i RR-interceptet? Er $z^C$ blant dem?"]
+      }
+    },
+    {
+      "id": "econ1310-5-1-collapsible-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (forutsetninger fra kap. 2.2 og 4.2)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1310-5-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-5-1-rep-exc-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp Keynes-multiplikatoren for lukket økonomi med endogen skatt (fra kap. 2.2), og forklar med ett ord hva $t$ gjør med den.",
+            "solution": "$$m = \\frac{1}{1 - c_1(1-t) - b_1}$$\nSkattesatsen $t$ er en **skattelekkasje** som *demper* multiplikatoren: høyere $t$ gir mindre $m$.",
+            "hideInlineSolution": true,
+            "hints": ["Nevneren inneholder $1 - c_1(1-t) - b_1$."]
+          }
+        },
+        {
+          "id": "econ1310-5-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-5-1-rep-exc-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Gjengi Phillips-kurvens kausalkjede fra kap. 4.2: hvorfor gir et høyere produksjonsgap høyere inflasjon?",
+            "solution": "Høyere BNP-gap → lavere ledighet → sterkere forhandlingsmakt for arbeidstakerne → høyere lønnsvekst → høyere marginalkostnad → bedriftene setter pris som påslag over marginalkostnad → høyere inflasjon. Styrken er $\\beta$ i $\\pi = \\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$.",
+            "hideInlineSolution": true,
+            "hints": ["Sju ledd fra aktivitetsnivå til prissetting.", "Marginalkostnad → påslag er leddet mange glemmer."]
+          }
+        },
+        {
+          "id": "econ1310-5-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-5-1-rep-exc-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hva betyr $z^\\pi$ i Phillips-kurven, og nevn to konkrete eksempler på slike sjokk?",
+            "solution": "$z^\\pi$ er et **kostnadssjokk** — en inflasjonsdriver som ikke kommer fra produksjonsgapet. Eksempler: kraftig endring i energipriser (strøm, olje) og endring i kronekursen som slår ut i importprisene (importert inflasjon). Andre: råvarepriser, fraktkostnader.",
+            "hideInlineSolution": true,
+            "hints": ["Skiller seg fra gap-drevet inflasjon.", "Tenk energi og valutakurs (kobling kap. 1.5)."]
+          }
+        },
+        {
+          "id": "econ1310-5-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-5-1-rep-exc-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hva er $\\pi^e$ i Phillips-kurven, og hvorfor er forventningskanalen viktig for inflasjonen?",
+            "solution": "$\\pi^e$ er **forventet inflasjon**. Den inngår direkte i PK fordi lønns- og prissetting skjer fremadskuende: forventer partene høy inflasjon, forhandler de inn høyere nominell lønn og setter høyere priser, som gjør forventningen selvoppfyllende. Godt forankrede forventninger (nær $\\pi^*$) gjør inflasjonen mer stabil.",
+            "hideInlineSolution": true,
+            "hints": ["Fremadskuende lønns-/prissetting.", "Kan bli selvoppfyllende."]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ1310-5-1-begrepsbank-text",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKortdefinisjoner du skal kunne gjengi presist på kortsvar (2–3 setninger). Sammen med definisjonene tidligere i kapitlet utgjør de begrepsbanken for kap. 5.1."
+    },
+    {
+      "id": "econ1310-5-1-def-gapkoeff",
+      "type": "definition",
+      "title": "Gap-koeffisienten ($d_1\\beta + d_2$)",
+      "content": "Den samlede renteresponsen på produksjonsgapet i RR-kurven, satt sammen av den indirekte kanalen $d_1\\beta$ (via Phillips-kurven) og den direkte kanalen $d_2$ (gapet i renteregelen). Bestemmer RR-kurvens helning: $\\frac{d_1\\beta + d_2}{Y^n}$."
+    },
+    {
+      "id": "econ1310-5-1-def-styringsrente",
+      "type": "definition",
+      "title": "Styringsrente ($i$)",
+      "content": "Sentralbankens pengepolitiske virkemiddel — renten den setter, og som via transmisjonsmekanismen smitter til markedsrentene. I renteregelen er $i$ venstresidevariabelen sentralbanken velger; RR-kurven viser hvilken $i$ den velger for hvert BNP-nivå."
+    },
+    {
+      "id": "econ1310-5-1-def-fleksibel",
+      "type": "definition",
+      "title": "Fleksibel inflasjonsstyring",
+      "content": "Pengepolitisk regime der sentralbanken legger vekt på *både* inflasjonsmålet og realøkonomien (produksjonsgap/sysselsetting). I renteregelen speiles dette ved at *begge* vektene $d_1 > 0$ og $d_2 > 0$: inflasjonsmålet er hovedanker, men aktiviteten teller også."
+    },
+    {
+      "id": "econ1310-5-1-def-inflasjonsmaal",
+      "type": "definition",
+      "title": "Inflasjonsmål ($\\pi^*$)",
+      "content": "Målet sentralbanken styrer inflasjonen mot (for Norges Bank 2 % over tid). Renteregelen reagerer på *avviket* $\\pi - \\pi^*$: er inflasjonen over målet, heves renten."
+    },
+    {
+      "id": "econ1310-5-1-def-produksjonsgap",
+      "type": "definition",
+      "title": "Produksjonsgap ($\\frac{Y-Y^n}{Y^n}$)",
+      "content": "Det relative avviket mellom faktisk BNP $Y$ og potensielt BNP $Y^n$. Positivt gap = høykonjunktur (overoppheting, inflasjonspress); negativt gap = lavkonjunktur (ledig kapasitet). Normaliseringen med $Y^n$ i nevneren skal alltid med."
+    },
+    {
+      "id": "econ1310-5-1-def-potensielt",
+      "type": "definition",
+      "title": "Potensielt BNP ($Y^n$)",
+      "content": "Produksjonsnivået ved langsiktig opprettholdbar faktorutnyttelse — verken over- eller underoppheting. Bestemmes av tilbudssiden (arbeidsmarked, likevektsledighet $u^n$, kap. 4.1). En økning i $Y^n$ (f.eks. arbeidsinnvandring) endrer gap-normaliseringen og skifter både PK og RR."
+    },
+    {
+      "id": "econ1310-5-1-def-realrente",
+      "type": "definition",
+      "title": "Realrente ($i - \\pi^e$)",
+      "content": "Den nominelle renten $i$ korrigert for forventet inflasjon $\\pi^e$. Det er realrenten som styrer konsum og investeringer i modellen (via $c_2$ og $b_2$). At $d_1 > 1$ i renteregelen sikrer at realrenten stiger når inflasjonen stiger — ellers ville en renteøkning ikke virket dempende."
+    },
+    {
+      "id": "econ1310-5-1-def-reaksjonsfunksjon",
+      "type": "definition",
+      "title": "Reaksjonsfunksjon",
+      "content": "En regel som beskriver hvordan sentralbanken systematisk setter renten som svar på økonomiens tilstand. Renteregelen (og dermed RR-kurven) *er* sentralbankens reaksjonsfunksjon; den skifter bare når selve reaksjonsforutsetningene endres ($z^i$, $\\pi^e$, $z^\\pi$, $Y^n$)."
+    },
+    {
+      "id": "econ1310-5-1-def-transmisjon",
+      "type": "definition",
+      "title": "Transmisjonsmekanisme",
+      "content": "Kjeden fra styringsrenten til realøkonomien: renten påvirker markedsrentene, som påvirker konsum ($c_2$), investeringer ($b_2$) og — i en liten åpen økonomi — valutakursen og dermed importpriser og eksport (kobling kap. 1.5)."
+    },
+    {
+      "id": "econ1310-5-1-def-inflasjonsforventninger",
+      "type": "definition",
+      "title": "Inflasjonsforventninger ($\\pi^e$)",
+      "content": "Aktørenes forventede fremtidige inflasjon, som inngår i både Phillips-kurven og RR-kurven. Godt forankrede forventninger (nær $\\pi^*$) stabiliserer inflasjonen; en økning i $\\pi^e$ skifter RR opp med $d_1\\Delta\\pi^e$."
+    },
+    {
+      "id": "econ1310-5-1-def-pk",
+      "type": "definition",
+      "title": "Phillips-kurven (PK)",
+      "content": "Sammenhengen $\\pi = \\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$ mellom inflasjon, forventninger, produksjonsgap og kostnadssjokk. Den bakes inn i renteregelen for å gi RR-kurven, og er grunnen til at gapet virker på renten også indirekte (via $d_1\\beta$)."
+    },
+    {
+      "id": "econ1310-5-1-def-beta",
+      "type": "definition",
+      "title": "Inflasjonsfølsomheten ($\\beta$)",
+      "content": "Phillips-kurvens helning: hvor mye inflasjonen stiger per enhet produksjonsgap. Stor $\\beta$ gir sterk indirekte kanal $d_1\\beta$ og dermed brattere RR — inflasjonspresset fra aktivitet er kraftig."
+    },
+    {
+      "id": "econ1310-5-1-def-is-forhaand",
+      "type": "definition",
+      "title": "IS-kurven (forhåndsvisning til kap. 5.2)",
+      "content": "Den fallende kurven i det øvre panelet av IS-RR-PK-diagrammet: kombinasjoner av $Y$ og $i$ der vare-/tjenestemarkedet er i likevekt. Fallende fordi høyere rente demper konsum og investeringer (via $c_2$ og $b_2$) og dermed BNP. Etterspørselssjokk skifter IS."
+    }
+  ],
+  "exercises": []
+}

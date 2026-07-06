@@ -1,0 +1,388 @@
+{
+  "id": "econ1310-2-4",
+  "courseId": "econ1310",
+  "chapterNumber": "2.4",
+  "title": "Modellvarianter: åpen økonomi, eksogen skatt og finanspolitiske regler",
+  "description": "Sammenligne multiplikatorer på tvers av modellvarianter og forklare forskjellene økonomisk — importlekkasje, automatiske stabilisatorer og motsykliske G-regler.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "utlede multiplikatoren i åpen økonomi, med eksogen skatt og under en motsyklisk G-regel",
+    "forklare hvorfor importlekkasje og endogen skatt demper multiplikatoren",
+    "begrunne at endogen skatt er en automatisk stabilisator og at budsjettbalansering i nedgang virker prosyklisk",
+    "anvende bare modellvariantens egne mekanismer i en komparativ statikk-analyse"
+  ],
+  "content": [
+    {
+      "id": "econ1310-2-4-tip-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Åpen Keynes-modell dukker opp i **12 av 22 sett (55 %)** — og i alle fire settene 2022–2023. Sjanger G (modellutvidelse / multiplikator-sammenligning) er testet i V2016 (balansert budsjett), H2019 (budsjettbalansering), H2020 og V2021 (G-regel), H2021 (eksogen → endogen skatt), H2022 (lukket enkel vs. åpen full) og V2024 ($t=0$: blir utslaget sterkere?). Når den kommer, er den verdt **10–20 %**.\n\nSensor vil se at du kan **utlede** den nye multiplikatoren på tilvekstform *og* forklare forskjellen fra grunnmodellen med ord: hvilken ny lekkasje er kommet til, og hvorfor demper den? Den store fellen (eksplisitt advart mot i H2022) er å dra inn mekanismer som ikke finnes i varianten — skattelekkasje i en modell uten skatt, eller importlekkasje i en lukket modell. **Bruk kun variantens egne ledd.**"
+    },
+    {
+      "id": "econ1310-2-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på følgestørrelsene i **kapittel 2.3** og på multiplikatorutledningen i **kapittel 2.2** — her varierer vi bare *modellen* og utleder nye multiplikatorer med nøyaktig samme teknikk. Modelloppsettet står i **kapittel 2.1**.\n\nRegneteknisk holder det med **brøkregning** og bokstavregning: samle $\\Delta Y$-ledd på én side, og sammenligne nevnere. Repetisjon ved behov: [Brøkregning (Matematikk for økonomer 1.3)](/bok/bi-okonomi/bi-okonomi-1-3) og [Algebra og bokstavregning (Matematikk for økonomer 1.2)](/bok/bi-okonomi/bi-okonomi-1-2)."
+    },
+    {
+      "id": "econ1310-2-4-intro",
+      "type": "text",
+      "content": "I kapittel 2.2 utledet vi kjernemultiplikatoren i den lukkede modellen med endogen skatt:\n\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1} \\cdot \\Delta z \\equiv m \\cdot \\Delta z, \\qquad m > 1$$\n\nMen eksamen bytter jevnlig ut *modellen* — ikke bare sjokkvariabelen. Norge er en liten åpen økonomi, myndighetene kan la skatten være fast eller la den følge konjunkturene, og de kan binde offentlige kjøp til aktivitetsnivået gjennom en regel. Hver slik variant endrer nevneren i multiplikatoren — og dermed hvor kraftig et sjokk slår ut i BNP.\n\nDette kapitlet gjør tre ting. Vi utleder multiplikatoren i **åpen økonomi** (import lekker etterspørsel ut), med **eksogen kontra endogen skatt** (skatten som automatisk stabilisator), og under en **motsyklisk G-regel** (myndighetene demper aktivt). Gjennomgående er poenget det samme: hver ny mekanisme legger seg til i nevneren og gjør multiplikatoren mindre — og hver demping har en pris, ofte et budsjettunderskudd. Rammeverket og notasjonen er nøyaktig som i 2.1–2.3; renten holdes fast også her (IS-RR-PK-koblingen kommer i Del 5)."
+    },
+    {
+      "id": "econ1310-2-4-def-apen",
+      "type": "definition",
+      "title": "Åpen økonomi (modellvariant)",
+      "content": "En modell der produktmarkedslikevekten inkluderer utenrikshandel: $Y = C + I + G + X - Q$, med eksport $X$ (her eksogen, $X = z^X$) og import $Q = aY$. En del av innenlandsk etterspørsel rettes mot utenlandske varer og forsvinner ut av det innenlandske inntektskretsløpet."
+    },
+    {
+      "id": "econ1310-2-4-def-import",
+      "type": "definition",
+      "title": "Marginal importandel ($a$)",
+      "content": "Parameteren $a$ i importfunksjonen $Q = aY$: den andelen av en ekstra krone i innenlandsk inntekt som brukes på import. $0 < a < 1$. Jo høyere $a$, desto mer av hver multiplikatorrunde lekker ut til utlandet."
+    },
+    {
+      "id": "econ1310-2-4-def-importlekkasje",
+      "type": "definition",
+      "title": "Importlekkasje",
+      "content": "At en del av økt innenlandsk etterspørsel dekkes av import og dermed ikke skaper innenlandsk inntekt i neste multiplikatorrunde. Importlekkasjen legger leddet $+a$ til i nevneren og gjør multiplikatoren mindre enn i lukket økonomi."
+    },
+    {
+      "id": "econ1310-2-4-utledning-apen",
+      "type": "text",
+      "content": "**Utledning: multiplikatoren i åpen økonomi.**\n\nVi tar utgangspunkt i den åpne likevekten og lar renten være fast, så rentleddene faller bort på endringsform:\n\n$$Y = C + I + G + X - Q$$\n$$C = z^C + c_1(Y-T), \\quad I = z^I + b_1 Y, \\quad T = z^T + tY, \\quad Q = aY$$\n\nSett opp likevekten på **tilvekstform** (rente fast) og bruk $\\Delta T = t\\,\\Delta Y$ (når $\\Delta z^T = 0$):\n\n$$\\Delta Y = \\underbrace{\\Delta z^C + c_1(1-t)\\Delta Y}_{\\Delta C} + \\underbrace{\\Delta z^I + b_1 \\Delta Y}_{\\Delta I} + \\Delta z^G + \\Delta z^X - \\underbrace{a\\,\\Delta Y}_{\\Delta Q}$$\n\nSaml alle $\\Delta Y$-ledd på venstre side. Alle de eksogene skiftene samler vi i $\\Delta z$:\n\n$$\\Delta Y\\big[\\,1 - c_1(1-t) - b_1 + a\\,\\big] = \\Delta z$$\n\n$$\\boxed{\\;\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a}\\cdot \\Delta z\\;}$$\n\n**Intuisjonen bak $+a$:** I den lukkede modellen ble hele den økte inntekten i hver runde brukt innenlands (minus det som lekket til sparing og skatt). Nå lekker i tillegg en andel $a$ ut til import i hver runde. Færre kroner sirkulerer videre i den innenlandske økonomien, multiplikatorrundene blir svakere, og den samlede multiplikatoren blir **mindre** enn i lukket økonomi — sammenlign nevnerne: $1 - c_1(1-t) - b_1 + a$ er større enn $1 - c_1(1-t) - b_1$, så brøken er mindre. Stabilitetsvilkåret her er $1 - c_1(1-t) - b_1 + a > 0$, som gir positiv multiplikator; fortegnet fastsettes alltid eksplisitt."
+    },
+    {
+      "id": "econ1310-2-4-theorem-apen",
+      "type": "theorem",
+      "title": "Multiplikatoren i åpen økonomi",
+      "content": "Med endogen skatt, fast rente og import $Q = aY$:\n\n$$m_{\\text{åpen}} = \\frac{1}{1 - c_1(1-t) - b_1 + a}$$\n\nDenne er **mindre** enn den lukkede $m_{\\text{lukket}} = \\dfrac{1}{1 - c_1(1-t) - b_1}$ fordi importleddet $+a$ er en ekstra lekkasje. Et eksportsjokk $\\Delta X$ og et importskift $\\Delta z^Q$ virker gjennom nøyaktig samme apparat: $\\Delta Y = m_{\\text{åpen}}\\cdot \\Delta X$."
+    },
+    {
+      "id": "econ1310-2-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Eksportfall i åpen økonomi",
+      "problem": "Handelspartnernes etterspørsel etter landets eksport svikter, slik at eksporten faller eksogent ($\\Delta X < 0$). Modellen er åpen med endogen skatt og fast rente. Utled virkningen på BNP på tilvekstform, fastsett fortegnet, og forklar mekanismen.",
+      "solution": "**Multiplikator.** I åpen økonomi er\n\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a}\\cdot \\Delta X$$\n\n**Fortegn.** Stabilitetsvilkåret $1 - c_1(1-t) - b_1 + a > 0$ gir positiv multiplikator. Siden $\\Delta X < 0$, blir $\\Delta Y < 0$: BNP faller.\n\n**Mekanisme i to lag.**\n\n(i) *Direkte effekt:* Lavere eksport trekker samlet etterspørsel — og dermed produksjon og inntekt — ned krone for krone i første runde.\n\n(ii) *Multiplikatorrundene:* Lavere inntekt reduserer privat konsum ($c_1(1-t)$ av inntektsfallet) og investeringene faller via akseleratoren ($b_1$). Dette senker etterspørselen ytterligere, som senker inntekten enda mer, og så videre. Rundene **dempes** av skattelekkasjen $t$, av **importlekkasjen** $a$ (en del av det reduserte forbruket ville uansett gått til import) og forsterkes av investeringsakseleratoren $b_1$.\n\n**Sammenligning:** Fordi importlekkasjen er med, blir BNP-fallet **mindre** enn et tilsvarende sjokk ville gitt i en lukket økonomi — importen fungerer som en støtpute mot innenlandske sjokk, men også som en brems på innenlandsk finanspolitikk."
+    },
+    {
+      "id": "econ1310-2-4-def-eksogen",
+      "type": "definition",
+      "title": "Eksogen skatt",
+      "content": "Skatteinntekten er fast og uavhengig av aktivitetsnivået: $T = z^T$ (altså $t = 0$). En endring i inntekten $Y$ endrer ikke skatteinngangen. Motsatsen er endogen skatt, der $T = z^T + tY$."
+    },
+    {
+      "id": "econ1310-2-4-def-endogen",
+      "type": "definition",
+      "title": "Endogen skatt",
+      "content": "Skatteinntekten avhenger av aktivitetsnivået gjennom skattesatsen $t$: $T = z^T + tY$. Når $Y$ stiger, stiger skatteinngangen automatisk (og motsatt i nedgang). Parameteren $t$ måler skattesystemets konjunkturfølsomhet."
+    },
+    {
+      "id": "econ1310-2-4-def-stabilisator",
+      "type": "definition",
+      "title": "Automatisk stabilisator",
+      "content": "En mekanisme som demper konjunktursvingninger uten nye politiske vedtak. Endogen skatt ($t > 0$) er den viktigste: i oppgang trekkes mer skatt inn og bremser, i nedgang trekkes mindre inn og støtter. Også konjunkturavhengige overføringer (dagpenger) virker slik."
+    },
+    {
+      "id": "econ1310-2-4-utledning-eksogen",
+      "type": "text",
+      "content": "**Eksogen kontra endogen skatt: skatten som automatisk stabilisator.**\n\nHva skjer med multiplikatoren hvis skatten er *fast* ($t = 0$) i stedet for konjunkturavhengig? Sett $t = 0$ i den lukkede multiplikatoren:\n\n$$m(t=0) = \\frac{1}{1 - c_1 - b_1} \\qquad \\text{mot} \\qquad m(t>0) = \\frac{1}{1 - c_1(1-t) - b_1}$$\n\nSiden $c_1(1-t) < c_1$ når $t > 0$, er nevneren *større* med endogen skatt — altså er multiplikatoren **mindre** med endogen skatt. Med andre ord: den endogene skatten demper utslaget av ethvert sjokk. Det er nettopp det vi mener med en **automatisk stabilisator**: uten et eneste politisk vedtak trekker skattesystemet inn mer kjøpekraft når økonomien vokser og mindre når den krymper, og glatter dermed konjunkturene.\n\nMerk fella i V2024, som spurte «motsatt vei»: *blir* utslaget sterkere hvis vi fjerner den endogene skatten? Ja — uten skattelekkasjen $t$ blir multiplikatoren større, og et gitt sjokk gir større BNP-utslag. Å fjerne stabilisatoren gjør økonomien mer følsom for sjokk. Prisen for stabiliseringen er samtidig at budsjettbalansen svinger mer med konjunkturene (mer underskudd i nedgang)."
+    },
+    {
+      "id": "econ1310-2-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Blir utslaget sterkere uten endogen skatt?",
+      "problem": "En regjering vurderer å erstatte et konjunkturavhengig skattesystem ($t > 0$) med en fast skatt ($t = 0$, uendret nivå). Vis hvordan dette påvirker multiplikatoren i den lukkede modellen, og forklar konsekvensen for konjunkturstabiliteten.",
+      "solution": "**Sammenligning av multiplikatorene.**\n\n$$m(t>0) = \\frac{1}{1 - c_1(1-t) - b_1}, \\qquad m(t=0) = \\frac{1}{1 - c_1 - b_1}$$\n\nFordi $c_1(1-t) < c_1$, er nevneren i $m(t=0)$ mindre, så $m(t=0) > m(t>0)$: **multiplikatoren blir større** når skatten gjøres eksogen.\n\n**Konsekvens.** Med større multiplikator gir ethvert etterspørselssjokk et *større* BNP-utslag. Den endogene skatten var en automatisk stabilisator — den dempet svingningene ved å trekke inn mer skatt i oppgang og mindre i nedgang, uten politiske vedtak. Fjernes den, blir økonomien mer følsom for sjokk, og konjunktursvingningene blir kraftigere.\n\n**Sensorpoeng:** Merk at spørsmålet om «sterkere utslag» besvares fullt ut ved å sammenligne nevnerne og navngi mekanismen (automatisk stabilisator). Tallverdier trengs ikke; det er *retningen* og begrunnelsen som gir uttelling."
+    },
+    {
+      "id": "econ1310-2-4-def-gregel",
+      "type": "definition",
+      "title": "Motsyklisk G-regel",
+      "content": "En finanspolitisk regel der offentlige kjøp bindes til aktivitetsnivået: $G = z^G - gY$, med $g > 0$. Når BNP stiger, kuttes $G$ automatisk (bremser oppgang); når BNP faller, økes $G$ (støtter nedgang). Regelen legger leddet $+g$ til i nevneren og demper multiplikatoren ytterligere."
+    },
+    {
+      "id": "econ1310-2-4-utledning-gregel",
+      "type": "text",
+      "content": "**Utledning: multiplikatoren under en motsyklisk G-regel.**\n\nAnta at myndighetene forplikter seg til å redusere offentlige kjøp når aktiviteten stiger, gjennom regelen\n\n$$G = z^G - gY, \\qquad g > 0$$\n\nDa er $G$ ikke lenger eksogen — den reagerer på $Y$. På tilvekstform: $\\Delta G = \\Delta z^G - g\\,\\Delta Y$. Vi bygger videre på den åpne likevekten:\n\n$$\\Delta Y = \\Delta z^C + c_1(1-t)\\Delta Y + \\Delta z^I + b_1 \\Delta Y + \\underbrace{\\Delta z^G - g\\,\\Delta Y}_{\\Delta G} + \\Delta z^X - a\\,\\Delta Y$$\n\nFlytt alle $\\Delta Y$-ledd (nå også $-g\\,\\Delta Y$) over:\n\n$$\\Delta Y\\big[\\,1 - c_1(1-t) - b_1 + a + g\\,\\big] = \\Delta z$$\n\n$$\\boxed{\\;\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a + g}\\cdot \\Delta z\\;}$$\n\n**Intuisjonen bak $+g$:** Regelen virker som en ekstra lekkasje i multiplikatorprosessen. Hver gang et sjokk løfter inntekten, trekker myndighetene automatisk tilbake en del av offentlige kjøp ($g$ per krone), som demper neste runde. Multiplikatoren blir enda mindre enn i den rene åpne modellen. Et eksportfall gir dermed *mindre* BNP-utslag med regelen enn uten — det er hele hensikten: å stabilisere.\n\n**Prisen: budsjettet blir endogent.** Budsjettbalansen er $B = T - G = z^T + tY - (z^G - gY) = (z^T - z^G) + (t+g)Y$, så $\\Delta B = (t+g)\\Delta Y - \\Delta z^G$. Ved et negativt sjokk faller $Y$, altså synker $\\Delta B$: myndighetene bruker mer og tar inn mindre samtidig → **budsjettunderskudd**. Stabiliseringen koster altså et underskudd. Det er den sentrale avveiningen: regelen glatter konjunkturene, men gjør budsjettbalansen til noe som svinger med økonomien i stedet for å ligge fast."
+    },
+    {
+      "id": "econ1310-2-4-theorem-gregel",
+      "type": "theorem",
+      "title": "Multiplikatoren under motsyklisk G-regel",
+      "content": "Med åpen økonomi, endogen skatt, fast rente og regelen $G = z^G - gY$:\n\n$$m_{\\text{regel}} = \\frac{1}{1 - c_1(1-t) - b_1 + a + g}$$\n\nDette er den minste av de tre multiplikatorene ($m_{\\text{regel}} < m_{\\text{åpen}} < m_{\\text{lukket}}$), fordi nevneren har flest lekkasjeledd. Prisen for den ekstra dempingen er at budsjettbalansen blir endogen: $\\Delta B = (t+g)\\Delta Y - \\Delta z^G$."
+    },
+    {
+      "id": "econ1310-2-4-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: G-regel som stabilisator — med budsjettpris",
+      "problem": "Myndighetene innfører regelen $G = z^G - gY$. Vis at et eksportfall ($\\Delta X < 0$) nå gir et mindre BNP-utslag enn uten regelen, og forklar hvorfor prisen er et budsjettunderskudd.",
+      "solution": "**Ny multiplikator.** Med regelen blir\n\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a + g}\\cdot \\Delta X$$\n\n**Mindre utslag.** Sammenlign nevnerne: uten regel er nevneren $1 - c_1(1-t) - b_1 + a$; med regel legges $+g$ til. Større nevner → mindre multiplikator. Et gitt eksportfall $\\Delta X < 0$ gir dermed et *mindre* fall i BNP med regelen enn uten. Mekanisk: når inntekten begynner å falle, øker regelen automatisk offentlige kjøp ($G = z^G - gY$ stiger når $Y$ synker), som demper fallet i hver runde.\n\n**Hvorfor budsjettunderskudd?** Budsjettbalansen er $B = T - G$. Ved eksportfallet faller $Y$, så\n\n$$\\Delta B = (t+g)\\,\\Delta Y - \\Delta z^G = (t+g)\\,\\Delta Y < 0 \\quad (\\text{siden } \\Delta z^G = 0,\\ \\Delta Y < 0).$$\n\nTo ting trekker balansen ned samtidig: skatteinngangen faller ($t\\,\\Delta Y < 0$) *og* offentlige kjøp økes automatisk ($G$ opp). Myndighetene tar altså inn mindre og bruker mer nettopp når økonomien svikter — det er stabiliseringen som virker, men den finansieres med et underskudd.\n\n**Toppkandidat-poeng:** Nettopp fordi budsjettet blir endogent, er en motsyklisk G-regel og en regel om *balansert budsjett hvert år* motsetninger — det siste ville tvinge fram kutt i nedgang (se neste avsnitt)."
+    },
+    {
+      "id": "econ1310-2-4-def-prosyklisk",
+      "type": "definition",
+      "title": "Prosyklisk finanspolitikk",
+      "content": "Finanspolitikk som forsterker konjunktursvingningene i stedet for å dempe dem: strammer inn i nedgang og bruker mer i oppgang. Å balansere budsjettet hvert år (kutte $G$ når $T$ faller) er prosyklisk, fordi kuttet forsterker nedgangen."
+    },
+    {
+      "id": "econ1310-2-4-def-budsjettbalansering",
+      "type": "definition",
+      "title": "Budsjettbalansering (årlig balansekrav)",
+      "content": "En regel som krever at budsjettbalansen holdes uendret hvert år, altså $\\Delta B = 0$, slik at $\\Delta G = \\Delta T$. I en nedgang der $\\Delta T = t\\,\\Delta Y < 0$ tvinger regelen fram $\\Delta G < 0$ — kutt i offentlige kjøp — som forsterker fallet. Derfor virker den prosyklisk."
+    },
+    {
+      "id": "econ1310-2-4-text-budsjettbalansering",
+      "type": "text",
+      "content": "**Budsjettbalansering i nedgang virker prosyklisk (H2019).**\n\nMotsatsen til den motsykliske regelen er et krav om at budsjettet skal balansere hvert år: $\\Delta B = 0$, altså $\\Delta G = \\Delta T = t\\,\\Delta Y$. Tenk deg et negativt etterspørselssjokk. BNP faller, skatteinngangen $\\Delta T = t\\,\\Delta Y$ faller — og balansekravet tvinger da fram et *kutt* i offentlige kjøp, $\\Delta G = t\\,\\Delta Y < 0$. Dette kuttet reduserer etterspørselen ytterligere og **forsterker** nedgangen. En slik regel virker altså prosyklisk: den strammer inn akkurat når økonomien trenger støtte. Dette er kjernen i H2019-oppgaven — kravet «vis at budsjettbalansering i en lavkonjunktur er prosyklisk» besvares med nettopp denne kjeden.\n\n**Balansert budsjettøkning (Haavelmo, V2016) er derimot ekspansiv.** En engangsøkning der myndighetene øker $G$ og $T$ like mye ($\\Delta G = \\Delta T$) som et *aktivt vedtak* har positiv nettoeffekt på BNP. I den enkle lukkede modellen (uten rente, med eksogen skatt) er\n\n$$\\Delta Y = c_1(\\Delta Y - \\Delta T) + \\Delta G \\;\\Rightarrow\\; \\Delta Y(1 - c_1) = (1 - c_1)\\Delta G \\;\\Rightarrow\\; \\Delta Y = \\Delta G.$$\n\nDen **balanserte budsjettmultiplikatoren er 1**: BNP øker like mye som utgiftsøkningen. Grunnen er at $G$ virker krone for krone, mens skatteøkningen bare trekker ned konsumet med andelen $c_1 < 1$ (resten tas fra sparingen). Med investeringsakselerator ($b_1 > 0$) blir effekten enda sterkere: $\\Delta Y = \\frac{1-c_1}{1-c_1-b_1}\\Delta G > \\Delta G$. Merk skillet: *aktiv* balansert budsjettøkning er ekspansiv (multiplikator $\\geq 1$), mens et *passivt* årlig balansekrav som reagerer på fallende skatteinngang er prosyklisk."
+    },
+    {
+      "id": "econ1310-2-4-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Full deloppgave-kjede (eksamensnivå)",
+      "problem": "Betrakt en åpen økonomi med endogen skatt og fast rente: $Y = C + I + G + X - Q$, $C = z^C + c_1(Y-T)$, $I = z^I + b_1 Y$, $T = z^T + tY$, $Q = aY$, $X = z^X$. (a) Er modellen determinert? (b) Investeringsviljen faller ($\\Delta z^I < 0$). Utled BNP-virkningen på tilvekstform, fastsett fortegnet og forklar mekanismen. (c) Anta i stedet at myndighetene innfører $G = z^G - gY$. Hva skjer med BNP-utslaget, og hvorfor koster stabiliseringen et budsjettunderskudd?",
+      "solution": "**(a) Determinerthet.** De endogene variablene er $Y, C, I, G, T, Q, X$ — men $G$ og $X$ er her eksogene ($G = z^G$, $X = z^X$), så de endogene er $Y, C, I, T, Q$: **fem** stykker. Ligningene er likevekten $Y = C+I+G+X-Q$, konsum-, investerings-, skatte- og importfunksjonen: **fem** ligninger. Antall ligninger = antall endogene variabler, så modellen er **determinert**. (Modellen er åpen fordi eksport- og importledd er med.)\n\n**(b) Investeringsfall.** Multiplikatoren i åpen økonomi:\n\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a}\\cdot \\Delta z^I$$\n\n*Fortegn:* Stabilitetsvilkåret $1 - c_1(1-t) - b_1 + a > 0$ gir positiv multiplikator; siden $\\Delta z^I < 0$, blir $\\Delta Y < 0$ — BNP faller.\n\n*Mekanisme i to lag:* (i) Direkte trekker den svakere investeringsviljen samlet etterspørsel og produksjon ned i første runde. (ii) Lavere inntekt gir lavere konsum ($c_1(1-t)$ per krone) og lavere investeringer via akseleratoren ($b_1$), som senker inntekten videre — rundene dempes av skattelekkasjen $t$ og importlekkasjen $a$, forsterkes av $b_1$.\n\n**(c) Med G-regel.** Nå er $\\Delta G = -g\\,\\Delta Y$, og multiplikatoren blir\n\n$$\\Delta Y = \\frac{1}{1 - c_1(1-t) - b_1 + a + g}\\cdot \\Delta z^I.$$\n\nStørre nevner ($+g$) → mindre multiplikator → **mindre BNP-fall**. Regelen støtter økonomien ved automatisk å øke $G$ når $Y$ faller.\n\n*Budsjettpris:* $\\Delta B = (t+g)\\Delta Y - \\Delta z^G = (t+g)\\Delta Y < 0$ (siden $\\Delta Y < 0$). Skatteinngangen faller *og* offentlige kjøp økes samtidig → underskudd. Stabiliseringen er reell, men finansieres over budsjettet.\n\n**Sensornotat:** Full uttelling krever (a) eksplisitt telling og navngiving, (b) utledet multiplikator + fortegn + to-lags mekanisme med *variantens egne* dempere (skatt og import, ikke rente — den er fast), og (c) sammenligning av nevnerne pluss budsjettresonnementet."
+    },
+    {
+      "id": "econ1310-2-4-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil (fra sensorveiledningene)",
+      "content": "**1. Fremmede mekanismer i en forenklet variant (§5.2 — eksplisitt advart mot i H2022).** Ikke omtal skattelekkasje i en modell uten skatt, importlekkasje i en lukket modell eller renteeffekter når renten er fast. Bruk *kun* leddene som faktisk står i variantens nevner.\n\n**2. Forveksle endogen og eksogen skatt (§5.6 — karakterskille i H2020).** Med eksogen skatt ($t = 0$) er det ingen skattelekkasje, og skatteinngangen endres ikke av $Y$. Feil valg her gir feil multiplikator *og* feil budsjetteffekt.\n\n**3. Overse at budsjettbalansen er uendret når både $T$ og $G$ er eksogene (H2020).** Reagerer verken skatt eller kjøp på $Y$, endres ikke $B$ av et $Y$-drevet sjokk — bare av de eksogene skiftene selv.\n\n**4. Glemme importlekkasjen i mekanismekjeden for åpen modell.** Nevner du $+a$ i multiplikatoren, må du også nevne importlekkasjen når du forklarer *hvorfor* utslaget dempes.\n\n**5. Blande prosyklisk balansekrav og ekspansiv balansert budsjettøkning.** Et årlig balansekrav som reagerer på fallende skatt er prosyklisk; en aktiv $\\Delta G = \\Delta T$-økning har multiplikator $\\geq 1$. Ikke slå dem sammen."
+    },
+    {
+      "id": "econ1310-2-4-ex-block-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger G — multiplikator-sammenligning på tvers av modellvarianter.) Ranger de tre multiplikatorene $m_{\\text{lukket}} = \\frac{1}{1 - c_1(1-t) - b_1}$, $m_{\\text{åpen}} = \\frac{1}{1 - c_1(1-t) - b_1 + a}$ og $m_{\\text{regel}} = \\frac{1}{1 - c_1(1-t) - b_1 + a + g}$ etter størrelse, og forklar med ett ord for hver hvorfor den ene er mindre enn den forrige.",
+        "solution": "$m_{\\text{lukket}} > m_{\\text{åpen}} > m_{\\text{regel}}$. Fra lukket til åpen legges importlekkasjen $+a$ til i nevneren (mindre multiplikator). Fra åpen til regel legges G-regel-dempingen $+g$ til (enda mindre). Flere lekkasjeledd i nevneren → mindre brøk → mindre multiplikator.",
+        "hints": ["Jo større nevner, desto mindre brøk.", "Hvilket nytt ledd kommer inn i hvert steg?"]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger G — nettopp det V2024 spurte om, «motsatt vei».) Forklar med ord hvorfor endogen skatt kalles en automatisk stabilisator, og hva som skjer med konjunkturfølsomheten hvis skatten gjøres eksogen ($t = 0$).",
+        "solution": "Endogen skatt ($t > 0$) trekker automatisk inn mer skatt i oppgang og mindre i nedgang — uten nye vedtak — og demper dermed svingningene. Formelt: leddet $c_1(1-t)$ i nevneren er mindre enn $c_1$, så multiplikatoren er mindre med endogen skatt. Gjøres skatten eksogen ($t = 0$), forsvinner denne dempingen: nevneren blir $1 - c_1 - b_1$, multiplikatoren blir *større*, og økonomien blir mer følsom for sjokk — konjunktursvingningene blir kraftigere.",
+        "hints": ["Sammenlign $c_1(1-t)$ med $c_1$.", "Stabilisator = demper svingninger uten vedtak."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En åpen økonomi med endogen skatt og fast rente rammes av et positivt konsumsjokk ($\\Delta z^C > 0$). Utled BNP-virkningen på tilvekstform, fastsett fortegnet, og gjør rede for både første runde og de påfølgende rundene i multiplikatorprosessen.",
+        "solution": "**Multiplikator:** $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a}\\,\\Delta z^C$.\n\n**Fortegn:** Stabilitetsvilkåret $1 - c_1(1-t) - b_1 + a > 0$ gir positiv multiplikator; $\\Delta z^C > 0$ gir $\\Delta Y > 0$ (BNP stiger).\n\n**Første runde:** Husholdningene øker forbruket eksogent, som løfter samlet etterspørsel og produksjon krone for krone.\n\n**Påfølgende runder:** Høyere inntekt løfter konsumet videre ($c_1(1-t)$ per krone) og investeringene via akseleratoren ($b_1$), som løfter inntekten igjen osv. Rundene **dempes** av skattelekkasjen $t$ og **importlekkasjen** $a$ (en del av forbruket går til import og skaper ikke innenlandsk inntekt), og **forsterkes** av $b_1$. Summen av rundene gir totalutslaget $\\Delta Y = m_{\\text{åpen}}\\,\\Delta z^C$.",
+        "hints": ["Direkte effekt + runder.", "Nevn både demperne ($t$, $a$) og forsterkeren ($b_1$)."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Utled multiplikatoren i en åpen økonomi med eksogen skatt ($T = z^T$, altså $t = 0$) og fast rente. Sammenlign med tilfellet endogen skatt og forklar forskjellen.",
+        "solution": "Med $t = 0$ er $\\Delta T = 0$, så $\\Delta C = \\Delta z^C + c_1\\,\\Delta Y$. Likevekten på tilvekstform:\n\n$$\\Delta Y = \\Delta z^C + c_1\\Delta Y + \\Delta z^I + b_1\\Delta Y + \\Delta z^G + \\Delta z^X - a\\Delta Y$$\n$$\\Delta Y(1 - c_1 - b_1 + a) = \\Delta z \\;\\Rightarrow\\; \\Delta Y = \\frac{1}{1 - c_1 - b_1 + a}\\,\\Delta z.$$\n\nMed endogen skatt er nevneren $1 - c_1(1-t) - b_1 + a$. Fordi $c_1(1-t) < c_1$, er nevneren *større* med endogen skatt → multiplikatoren er *mindre* med endogen skatt. Forskjellen er skattelekkasjen: med eksogen skatt lekker ingenting til skatt i rundene, så multiplikatoren er større og økonomien mer følsom for sjokk.",
+        "hints": ["Sett $t = 0$, altså $\\Delta T = 0$.", "Skattelekkasjen forsvinner fra nevneren."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis, i den enkle lukkede modellen uten rente og med eksogen skatt, at en balansert budsjettøkning ($\\Delta G = \\Delta T > 0$) løfter BNP, og finn den balanserte budsjettmultiplikatoren.",
+        "solution": "Likevekt: $Y = C + I + G$ med $C = z^C + c_1(Y - T)$ og $I$ eksogen ($b_1 = 0$). På tilvekstform:\n\n$$\\Delta Y = c_1(\\Delta Y - \\Delta T) + \\Delta G.$$\n\nSett $\\Delta T = \\Delta G$:\n\n$$\\Delta Y = c_1\\Delta Y - c_1\\Delta G + \\Delta G \\;\\Rightarrow\\; \\Delta Y(1 - c_1) = (1 - c_1)\\Delta G \\;\\Rightarrow\\; \\Delta Y = \\Delta G.$$\n\nDen balanserte budsjettmultiplikatoren er **1**: BNP øker like mye som utgiftsøkningen. Intuisjon: $G$ virker krone for krone på etterspørselen, mens skatteøkningen bare demper konsumet med $c_1 < 1$ (resten tas fra sparingen). Nettoeffekten er positiv. (Med $b_1 > 0$ blir multiplikatoren $\\frac{1-c_1}{1-c_1-b_1} > 1$.)",
+        "hints": ["Sett $\\Delta T = \\Delta G$ i tilvekstlikningen.", "Faktoren $(1-c_1)$ forkortes."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En regjering vil balansere budsjettet hvert år. Vis, på tilvekstform, hvorfor dette forsterker en nedgangskonjunktur, altså virker prosyklisk.",
+        "solution": "Balansekrav hvert år betyr $\\Delta B = 0$, altså $\\Delta G = \\Delta T$. I en åpen/lukket modell med endogen skatt faller skatteinngangen i en nedgang: $\\Delta T = t\\,\\Delta Y < 0$ når $\\Delta Y < 0$. Balansekravet tvinger da $\\Delta G = t\\,\\Delta Y < 0$ — myndighetene *kutter* offentlige kjøp. Kuttet reduserer samlet etterspørsel ytterligere, forsterker fallet i $Y$, som senker skatteinngangen mer, som krever nye kutt … Regelen strammer altså inn nettopp når økonomien trenger støtte, og forsterker svingningen — den er prosyklisk. Kontrast: en motsyklisk G-regel ($G = z^G - gY$) gjør det motsatte og aksepterer et midlertidig underskudd.",
+        "hints": ["Balanse hvert år: $\\Delta G = \\Delta T$.", "I nedgang: $\\Delta T = t\\Delta Y < 0$."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En åpen økonomi med endogen skatt og en motsyklisk G-regel $G = z^G - gY$ rammes av et positivt eksportsjokk ($\\Delta X > 0$). (a) Utled BNP-virkningen på tilvekstform og fastsett fortegnet. (b) Hva skjer med budsjettbalansen $\\Delta B$? (c) Forklar hvorfor regelen gjør at et eksportsjokk gir mindre BNP-utslag enn uten regelen.",
+        "solution": "**(a)** Multiplikatoren under regelen: $\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1 + a + g}\\,\\Delta X$. Stabilitetsvilkåret gir positiv multiplikator; $\\Delta X > 0$ gir $\\Delta Y > 0$ (BNP stiger).\n\n**(b)** $B = T - G = z^T + tY - (z^G - gY) = (z^T - z^G) + (t+g)Y$, så $\\Delta B = (t+g)\\Delta Y - \\Delta z^G = (t+g)\\Delta Y > 0$ (siden $\\Delta z^G = 0$, $\\Delta Y > 0$). Budsjettet **forbedres**: skatten stiger med aktiviteten *og* regelen kutter automatisk $G$ når $Y$ stiger. (Speilvendt ville et negativt sjokk gitt underskudd — stabiliseringens pris.)\n\n**(c)** Med regelen har nevneren det ekstra leddet $+g$. Mekanisk: når eksportsjokket løfter inntekten, kutter regelen automatisk offentlige kjøp ($G = z^G - gY$ synker når $Y$ stiger), som demper hver multiplikatorrunde. Større nevner → mindre multiplikator → mindre BNP-utslag enn uten regel. Det er hele hensikten: å stabilisere aktiviteten.",
+        "hints": ["Legg $+g$ til i nevneren.", "$\\Delta B = (t+g)\\Delta Y - \\Delta z^G$."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-ex-block-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-4-ex-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En student skriver om et importskift i en åpen modell: «Når $\\Delta z^Q > 0$ (folk vil kjøpe mer import ved gitt inntekt), stiger BNP fordi importen øker etterspørselen.» Finn feilen, utled den riktige virkningen på tilvekstform, og forklar mekanismen.",
+        "solution": "**Feilen:** Import er en *lekkasje* ut av innenlandsk etterspørsel — den inngår med negativt fortegn i $Y = C + I + G + X - Q$. Et autonomt ønske om mer import ved gitt inntekt trekker innenlandsk etterspørsel *ned*, ikke opp.\n\n**Riktig utledning:** La importfunksjonen ha et eksogent skift: $Q = z^Q + aY$. På tilvekstform, med $\\Delta z^Q > 0$:\n\n$$\\Delta Y = \\ldots - \\Delta z^Q - a\\Delta Y \\;\\Rightarrow\\; \\Delta Y(1 - c_1(1-t) - b_1 + a) = -\\Delta z^Q$$\n$$\\Delta Y = \\frac{-1}{1 - c_1(1-t) - b_1 + a}\\,\\Delta z^Q < 0.$$\n\nBNP **faller**. Mekanisme: den autonome importøkningen vrir etterspørsel fra innenlandske til utenlandske varer; innenlandsk produksjon og inntekt faller i første runde, og multiplikatorrundene forsterker fallet (dempet av $t$ og $a$).",
+        "hints": ["Import har negativt fortegn i likevekten.", "Legg et eksogent ledd $z^Q$ i importfunksjonen."]
+      }
+    },
+    {
+      "id": "econ1310-2-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1310-2-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-2-4-rep-ex-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp den lukkede multiplikatoren med endogen skatt (fra kap. 2.2) og oppgi stabilitetsvilkåret.",
+            "solution": "$\\Delta Y = \\dfrac{1}{1 - c_1(1-t) - b_1}\\,\\Delta z$. Stabilitetsvilkåret er $1 - c_1(1-t) - b_1 > 0$, som garanterer positiv multiplikator.",
+            "hints": ["Nevneren består av 1 minus konsum- og investeringstilbøyeligheter."]
+          }
+        },
+        {
+          "id": "econ1310-2-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-2-4-rep-ex-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Fra kap. 2.1: i en åpen modell $Y = C + I + G + X - Q$ med $Q = aY$, $T = z^T + tY$, hvilke variabler er endogene når $G$ og $X$ er eksogene? Er modellen determinert?",
+            "solution": "Endogene: $Y, C, I, T, Q$ (fem). Ligninger: likevekt, konsum-, investerings-, skatte- og importfunksjon (fem). Antall ligninger = antall endogene → determinert.",
+            "hints": ["Tell ligninger og endogene variabler; $z$-ledd er eksogene."]
+          }
+        },
+        {
+          "id": "econ1310-2-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-2-4-rep-ex-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Fra kap. 2.3: skriv opp følgestørrelsene $\\Delta C$, $\\Delta T$ og $\\Delta B$ etter et sjokk med $\\Delta z^C = 0$ og eksogene $G$.",
+            "solution": "$\\Delta C = c_1(1-t)\\,\\Delta Y$ (bare den indirekte delen, siden $\\Delta z^C = 0$); $\\Delta T = t\\,\\Delta Y$; $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y$ (siden $\\Delta G = 0$ når $G$ er eksogen og uendret).",
+            "hints": ["$\\Delta C = \\Delta z^C + c_1(1-t)\\Delta Y$; her er $\\Delta z^C = 0$."]
+          }
+        },
+        {
+          "id": "econ1310-2-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1310-2-4-rep-ex-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar hvorfor G-multiplikatoren er større enn skattemultiplikatoren i den lukkede modellen (kap. 2.2–2.3).",
+            "solution": "G-multiplikatoren er $\\frac{1}{1-c_1(1-t)-b_1}$; skattemultiplikatoren er $\\frac{-c_1}{1-c_1(1-t)-b_1}$. I tallverdi er den siste mindre (faktoren $c_1 < 1$ foran). Grunnen: økte offentlige kjøp virker krone for krone på etterspørselen, mens et skattekutt bare virker indirekte via konsumet — bare andelen $c_1$ av inntektsøkningen brukes, resten spares.",
+            "hints": ["Sammenlign telleren: $1$ mot $-c_1$."]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ1310-2-4-begrepsbank-header",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKorte, eksamensrettede definisjoner av de sentrale begrepene i modellvariantene. Målet er 2–3 presise setninger — akkurat nok til full uttelling på et kortsvar."
+    },
+    {
+      "id": "econ1310-2-4-def-apenmult",
+      "type": "definition",
+      "title": "Åpen multiplikator",
+      "content": "Multiplikatoren når import er med: $m_{\\text{åpen}} = \\dfrac{1}{1 - c_1(1-t) - b_1 + a}$. Mindre enn den lukkede fordi importleddet $+a$ er en ekstra lekkasje."
+    },
+    {
+      "id": "econ1310-2-4-def-eksportsjokk",
+      "type": "definition",
+      "title": "Eksportsjokk ($\\Delta X$)",
+      "content": "En eksogen endring i etterspørselen etter landets eksport, f.eks. som følge av konjunkturer hos handelspartnerne. Virker gjennom multiplikatoren som ethvert autonomt etterspørselsledd: $\\Delta Y = m_{\\text{åpen}}\\,\\Delta X$."
+    },
+    {
+      "id": "econ1310-2-4-def-importsjokk",
+      "type": "definition",
+      "title": "Importskift ($\\Delta z^Q$)",
+      "content": "En eksogen endring i importlysten ved gitt inntekt. Fordi import er en lekkasje, gir økt autonom import lavere innenlandsk BNP: $\\Delta Y = \\frac{-1}{1-c_1(1-t)-b_1+a}\\,\\Delta z^Q$."
+    },
+    {
+      "id": "econ1310-2-4-def-stabvilkar-apen",
+      "type": "definition",
+      "title": "Stabilitetsvilkår (åpen økonomi)",
+      "content": "Kravet $1 - c_1(1-t) - b_1 + a > 0$, som sikrer at nevneren er positiv og dermed at multiplikatoren er positiv og endelig. Fortegnet på $\\Delta Y$ fastsettes alltid ved å påberope dette vilkåret."
+    },
+    {
+      "id": "econ1310-2-4-def-nettoeksport",
+      "type": "definition",
+      "title": "Nettoeksport / handelsbalanse",
+      "content": "$NX = X - Q$: eksport minus import, bidraget fra utenrikshandelen til samlet etterspørsel. Positiv nettoeksport (overskudd) løfter BNP; import trekker fra fordi den dekkes av utenlandsk produksjon."
+    },
+    {
+      "id": "econ1310-2-4-def-konjfolsomhet",
+      "type": "definition",
+      "title": "Skattesystemets konjunkturfølsomhet ($t$)",
+      "content": "Marginalskattesatsen $t$ i $T = z^T + tY$ måler hvor sterkt skatteinngangen reagerer på aktivitetsnivået. Høy $t$ gir sterk automatisk stabilisering (liten multiplikator), men også kraftigere svingninger i budsjettbalansen."
+    },
+    {
+      "id": "econ1310-2-4-def-diskresjonaer",
+      "type": "definition",
+      "title": "Diskresjonær finanspolitikk",
+      "content": "Aktiv finanspolitikk vedtatt ved konkrete beslutninger (skatteendringer, utgiftsvedtak), i motsetning til automatiske stabilisatorer som virker uten vedtak. Diskresjonær politikk har besluttings- og virkningslag."
+    },
+    {
+      "id": "econ1310-2-4-def-gregel-mult",
+      "type": "definition",
+      "title": "G-regel-multiplikator",
+      "content": "Multiplikatoren under $G = z^G - gY$: $m_{\\text{regel}} = \\dfrac{1}{1 - c_1(1-t) - b_1 + a + g}$. Minst av variantene fordi regelen legger en ekstra demping $+g$ til; prisen er at budsjettbalansen blir endogen."
+    },
+    {
+      "id": "econ1310-2-4-def-balansert-mult",
+      "type": "definition",
+      "title": "Balansert budsjettmultiplikator",
+      "content": "Virkningen på BNP av en aktiv, budsjettbalansert utgiftsøkning ($\\Delta G = \\Delta T$). I den enkle lukkede modellen er den lik 1 ($\\Delta Y = \\Delta G$), fordi $G$ virker krone for krone mens skatteøkningen bare demper konsumet med $c_1 < 1$."
+    },
+    {
+      "id": "econ1310-2-4-def-lekkasje",
+      "type": "definition",
+      "title": "Lekkasje",
+      "content": "En del av inntekten i en multiplikatorrunde som ikke går videre til innenlandsk etterspørsel: sparing ($1 - c_1$), skatt ($t$) og import ($a$). Jo flere og større lekkasjer, desto større nevner og desto mindre multiplikator."
+    },
+    {
+      "id": "econ1310-2-4-def-nettoskatt",
+      "type": "definition",
+      "title": "Nettoskatt",
+      "content": "Skatteinntekter fratrukket overføringer: $T = z^T + tY$ tolkes ofte som netto skatt. Konjunkturavhengige overføringer (f.eks. dagpenger) virker som en negativ komponent av $t$ og forsterker den automatiske stabiliseringen i nedgangstider."
+    }
+  ],
+  "exercises": []
+}

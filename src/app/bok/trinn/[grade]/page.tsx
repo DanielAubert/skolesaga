@@ -231,15 +231,8 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'samfokonomi-2', name: 'Samfunnsøkonomi 2', icon: '💹', color: 'from-teal-500 to-emerald-600', image: '/images/subjects/samfokonomi-2-hero.webp' },
     ],
   },
-  'hoyere': {
-    title: 'Høyere utdanning',
-    subtitle: 'Universitet og høyskole',
-    ageRange: '19+ år',
-    gradient: 'from-amber-400 to-orange-500',
-    subjects: [
-      { courseId: 'bi-okonomi', name: 'BI Økonomi', icon: '📊', color: 'from-amber-500 to-orange-600' },
-    ],
-  },
+  // 'hoyere' håndteres av den statiske ruta /bok/trinn/hoyere
+  // (Høyskole/universitet → institusjon → fagkode + fagnavn)
 };
 
 interface PageProps {

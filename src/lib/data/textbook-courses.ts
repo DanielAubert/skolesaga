@@ -105,6 +105,9 @@ import {
   COURSE_BI_OKONOMI,
 } from './textbook-courses-matte';
 
+// Høyskole
+import { COURSE_ECON1310 } from './textbook-courses-hoyskole';
+
 // VG1 fellesfag
 import {
   COURSE_NORSK_VG1,
@@ -278,6 +281,7 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_R1,
   COURSE_R2,
   COURSE_BI_OKONOMI,
+  COURSE_ECON1310,
   COURSE_NATURFAG_10,
   COURSE_NAT_VG1,
   COURSE_KJEMI1,

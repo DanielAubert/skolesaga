@@ -132,6 +132,18 @@ function renderMixedContent(content: string): string {
     return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 200px; height: auto; margin: 1rem 0;" />`;
   });
 
+  // Links ([text](url)) - internal chapter links (/bok/...) and external https
+  // Must run after image handling so ![..](..) is already consumed
+  result = result.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, text, url) => {
+    if (url.startsWith('/')) {
+      return `<a href="${escapeHtml(url)}" class="text-sky-600 dark:text-sky-400 underline underline-offset-2 hover:text-sky-800 dark:hover:text-sky-300">${text}</a>`;
+    }
+    if (/^https?:\/\//i.test(url)) {
+      return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 underline underline-offset-2 hover:text-sky-800 dark:hover:text-sky-300">${text}</a>`;
+    }
+    return match;
+  });
+
   // Line breaks
   result = result.replace(/\n\n/g, '</p><p class="my-3">');
   result = result.replace(/\n/g, '<br />');
