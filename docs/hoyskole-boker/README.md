@@ -105,6 +105,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 |---|---|---|
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
+| AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
 | ECON1100 Matematikk I (UiO) | regnefag | skjelett |
