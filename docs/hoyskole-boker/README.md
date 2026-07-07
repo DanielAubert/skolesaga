@@ -174,7 +174,11 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
 | TTM4100 Kommunikasjon — Tjenester og nett (NTNU) | regnefag/hybrid | skjelett |
 | SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett |
-| SOSANT1090 Antropologisk metode (UiO) | drøfting | analyse underveis |
+| SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
+| JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
+| ECON3010 Anvendt økonomisk analyse (UiO) | drøfting | skjelett |
+| ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
+| TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
