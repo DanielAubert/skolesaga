@@ -185,6 +185,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett |
 | SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
 | JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
+| JUS3213 Formuerett II (UiO) | jus | skjelett |
 | ECON3010 Anvendt økonomisk analyse (UiO) | drøfting | skjelett |
 | ECON4260 Behavioral Economics (UiO) | regnefag/drøfting-hybrid | skjelett |
 | ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
