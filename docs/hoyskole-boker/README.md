@@ -111,6 +111,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
 | ECON1220 Velferd og økonomisk politikk (UiO) | drøfting/hybrid | skjelett |
 | ECON1410 Internasjonal økonomi (UiO) | regnefag | skjelett |
+| ECON2610 Ressursallokering, fordeling og strategisk atferd (UiO) | regnefag/figur-i-ord-hybrid | skjelett |
 | ECON1910 Poverty and Distribution (UiO) | drøfting/hybrid | skjelett |
 | ECON4915 Development Economics (UiO) | drøfting | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
