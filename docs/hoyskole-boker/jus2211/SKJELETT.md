@@ -71,8 +71,8 @@ eksamen i dag tester som *ulovfestet* — **myndighetsmisbrukslæren** (kap. 3.2
 ugyldighetslæren** (kap. 4.1) og **vilkårslæren** (kap. 3.3) skal etter forarbeidene inn i lovs
 form. Innvirkningsnormen i § 41 («kan ha virket bestemmende på vedtakets innhold») videreføres i
 **§ 74** i lett omformulert språkdrakt *(verifiser presis ordlyd)*. Alle slike punkter merkes i
-boken med `(verifiser — endres ved ikrafttredelse ny fvl.)`, og kapitlene 2.1, 2.2, 2.3, 3.2,
-3.3, 4.1, 4.2, 4.3, 4.4, 4.5 har «Ny lov 2027»-boks.
+boken med `(verifiser — endres ved ikrafttredelse ny fvl.)`, og de berørte kapitlene (1.3, 2.1,
+2.2, 2.3, 3.2, 3.3, 4.1, 4.2, 4.3, 4.4, 4.5 og 5.3) har «Ny lov 2027»-boks.
 
 **B. EØS-rettsdelen er stabil (verifisert 2026-07-07).** Fire friheter i EØS-avtalens hoveddel
 (varer art. 8/11/12/13, personer art. 28, etablering art. 31, tjenester art. 36, kapital art.
@@ -904,3 +904,319 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 **Prøve-kvote Del 10:** 4 prøver (én identifikasjons-/sorteringsprøve (nye korte faktum → spor + rettsgrunnlag + disposisjon); én fellekatalog-prøve (felle → riktig spor); én tidfestet minisimulering (flerdelt forvaltning+EØS med metodefelle-fokus); én koblingssimulering (full firetrinns-EØS + gjennomskjæring + ugyldighet)).
 
 ---
+## Kvotesammendrag (kontrollregning) — AUTORITATIV
+
+Denne tabellen er fasit for alle senere faser — ikke overstyr per-kapittel-kvotene i prompt.
+
+| Del | Kapitler | Quiz | Flashcards | Prøver |
+|---|---|---|---|---|
+| Del 0 | 4 | 48 | 46 | 4 |
+| Del 1 | 4 | 50 | 54 | 4 |
+| Del 2 | 5 | 62 | 68 | 4 |
+| Del 3 | 4 | 54 | 58 | 4 |
+| Del 4 | 6 | 82 | 90 | 4 |
+| Del 5 | 4 | 48 | 52 | 4 |
+| Del 6 | 4 | 46 | 50 | 4 |
+| Del 7 | 3 | 40 | 44 | 4 |
+| Del 8 | 5 | 70 | 78 | 4 |
+| Del 9 | 2 | 24 | 24 | 4 |
+| Del 10 | 5 | 52 | 36 | 4 |
+| **Sum** | **46** | **576** | **600** | **44** |
+
+**Delsummer-kontroll:**
+- Quiz: 48 + 50 + 62 + 54 + 82 + 48 + 46 + 40 + 70 + 24 + 52 = **576** (≥500 ✓)
+- Flashcards: 46 + 54 + 68 + 58 + 90 + 52 + 50 + 44 + 78 + 24 + 36 = **600** (sikt 550–650 ✓)
+- Prøver: 4 per del × 11 deler = **44** (≥4 per del ✓)
+- Kapitler: 4 + 4 + 5 + 4 + 6 + 4 + 4 + 3 + 5 + 2 + 5 = **46**
+- Komplette praktikum med modellbesvarelser: kap. 10.2, 10.3, 10.4 (+ 10.5 simulering) = **≥3 ✓**, hvorav **10.4 er koblingspraktikum** (krav ✓)
+
+**Per-kapittel quiz-kvoter (fasit):** 0.1=10, 0.2=14, 0.3=12, 0.4=12 | 1.1=14, 1.2=12, 1.3=14, 1.4=10 | 2.1=16, 2.2=14, 2.3=12, 2.4=10, 2.5=10 | 3.1=16, 3.2=16, 3.3=12, 3.4=10 | 4.1=14, 4.2=18, 4.3=12, 4.4=14, 4.5=14, 4.6=10 | 5.1=14, 5.2=12, 5.3=12, 5.4=10 | 6.1=12, 6.2=12, 6.3=12, 6.4=10 | 7.1=16, 7.2=14, 7.3=10 | 8.1=16, 8.2=14, 8.3=14, 8.4=16, 8.5=10 | 9.1=14, 9.2=10 | 10.1=12, 10.2=10, 10.3=10, 10.4=10, 10.5=10.
+
+**Per-kapittel flashcard-kvoter (fasit):** 0.1=8, 0.2=12, 0.3=12, 0.4=14 | 1.1=16, 1.2=14, 1.3=16, 1.4=8 | 2.1=18, 2.2=16, 2.3=14, 2.4=12, 2.5=8 | 3.1=18, 3.2=18, 3.3=14, 3.4=8 | 4.1=16, 4.2=22, 4.3=14, 4.4=16, 4.5=14, 4.6=8 | 5.1=16, 5.2=14, 5.3=14, 5.4=8 | 6.1=14, 6.2=14, 6.3=14, 6.4=8 | 7.1=20, 7.2=16, 7.3=8 | 8.1=20, 8.2=16, 8.3=16, 8.4=18, 8.5=8 | 9.1=16, 9.2=8 | 10.1=12, 10.2=6, 10.3=6, 10.4=6, 10.5=6.
+
+**Kvotebegrunnelse (jf. audit-lærdom «≥500 er gulv»):** Faget er både begreps-/hjemmeltungt (paragrafnumre × to lovregimer via «Ny lov»-mapping, EØS-artikler, domskanon) og metode-/subsumsjonstungt. Flashcards er derfor lagt over gulvet (600, i sikt-intervallet 550–650) og konsentrert på vilkårslister, paragrafmapping og EØS-prinsipp↔dom. De tunge Tier-1-kapitlene (§ 41 kap. 4.2; skjønn/myndighetsmisbruk 3.1/3.2; EØS-stilling 7.1; restriksjonsanalyse/rettferdiggjøring 8.1/8.4; koblingen 9.1) har høyest tetthet. Praktikum-/modellkapitlene (Del 10) har bevisst lav flashcard-kvote — de er treningsformater, ikke pugge-stoff.
+
+---
+
+## Seksjonstitler (sectionNames)
+
+Del-nummer → beskrivende tittel (blir `sectionNames` i `TextbookCourse`; vises som
+«Kapittel N: <tittel>» på bokforsiden — obligatorisk):
+
+| Del | sectionName |
+|---|---|
+| 0 | Eksamenskart og praktikumhåndverk |
+| 1 | Legalitetsprinsippet og forvaltningsvedtaket |
+| 2 | Saksbehandlingen og habiliteten |
+| 3 | Forvaltningsskjønnet og myndighetsmisbruk |
+| 4 | Ugyldighet, § 41, klage og overprøving |
+| 5 | Velferdsrett |
+| 6 | Miljørett |
+| 7 | EØS-rettens stilling i norsk rett |
+| 8 | De fire friheter og restriksjonsanalysen |
+| 9 | Koblingsdelen: forvaltning ↔ EØS |
+| 10 | Eksamenstrening: praktikum og modellbesvarelser |
+
+---
+
+## Praktikumstrening — samlekrav og komplette spesifikasjoner
+
+- **Tre komplette flerdelte praktikum** (kap. 10.2–10.4), hvert med: nyskrevet flerdelt faktum
+  (Del I/II/(III), med minst én avgrensningsinstruks); `collapsible` A-besvarelse; `collapsible`
+  kommentert C-besvarelse med margnotater; `tip` Sensorblikket med må/pluss/felle-vekting og
+  påminnelse om at konklusjonene er underordnet. **Kap. 10.4 ER koblingspraktikumet** (forvaltning↔EØS).
+- **Full 6-timers eksamenssimulering + fellekatalog** (kap. 10.5).
+- Hvert praktikum baker inn 2–3 **skjulte metode-/koblingsspørsmål** (hvor gjennomskjæres hjemmelen;
+  fritt vs. rettsanvendelsesskjønn; hvilket rettferdiggjøringsspor; er det et enkeltvedtak) og minst
+  to **feller** fra empirien (hoppe over § 41; EØS som direkte hinder; rent økonomiske hensyn;
+  kommuneøkonomi mot rettskrav; feil startpunkt i myndighetsmisbrukslæren; behandle det avgrensede).
+- **44 prøver** fordelt 4 per del, alle i minipraktikum-/sorterings-/vilkårsdrill-format med fasit
+  strukturert «må-punkter / pluss-punkter / metodefeller».
+- ALLE faktum, parter, kommuner, tall og hendelser er nye — ingen gjenkjennbare eksamensfakta.
+  Fiktive partsnavn (Peder Ås, Marte Kirkerud osv.) og kommuner (Lillevik, Storevik, Grusby) kan
+  brukes som sjangermarkører, men hendelser/tiltak/tall skal være nyskrevne.
+
+### Spesifikasjon — Praktikum 1 (kap. 10.2): Forvaltningspraktikumet
+
+**Faktum-skisse (NYSKREVET):** En kommune/etat treffer et inngripende enkeltvedtak (f.eks. avslag
+eller pålegg overfor en næringsdrivende eller privatperson) etter en spesiallov. En saksforbereder
+har et nært personlig forhold til en berørt tredjepart, faktum er ufullstendig utredet, og vedtaket
+begrunnes delvis i et hensyn av tvilsom saklighet. Vedtaket påklages av parten og en berørt nabo.
+Flerdelt (Del I gyldighet, Del II klage), med én avgrensning («erstatningsspørsmålet skal ikke
+behandles»).
+
+**Tvistepunktliste (fasitstruktur):**
+1. *(forvaltning)* Enkeltvedtak (§ 2) og hjemmel/rekkevidde (§ 113 + spesiallov).
+2. *(forvaltning)* Inhabilitet (§ 6(2)) + utredningssvikt (§ 17) → **§ 41-innvirkning**.
+3. *(forvaltning)* Skjønn: fritt vs. rettsanvendelse + myndighetsmisbruk (utenforliggende hensyn).
+4. *(forvaltning)* Klageinteresse for naboen (§ 28) + klageinstansens kompetanse (§ 34(2)).
+5. **Skjult delspørsmål:** ikke hopp over § 41; skill fritt skjønn fra rettsanvendelse.
+- **Må:** 1, 2 (feil + § 41), 3 (riktig skjønnskategori). **Pluss:** 4, subsidiære grunnlag.
+  **Feller:** hoppe over § 41; blande skjønnstyper; feil startpunkt i myndighetsmisbrukslæren;
+  drøfte det bortavgrensede.
+
+### Spesifikasjon — Praktikum 2 (kap. 10.3): Velferds-Del I + forvaltnings/klage-Del II
+
+**Faktum-skisse (NYSKREVET):** En pasient/bruker nektes en helse-/omsorgstjeneste (eller en
+trygdeytelse) med henvisning til budsjett; vedtaket er tynt begrunnet og bygger på et ufullstendig
+faktum. Del II: parten klager, og et saksbehandlings-/klagespørsmål oppstår. Flerdelt, med én
+avgrensning («de materielle vilkårene for X skal ikke drøftes»).
+
+**Tvistepunktliste:**
+1. *(velferd)* Rettskrav vs. skjønn — er forsvarlighets-/minstestandardterskelen nådd (pbrl./hol.)?
+2. *(velferd/forvaltning)* Kommuneøkonomi mot rettskrav (ulovlig avslagsgrunn?).
+3. *(forvaltning)* Utredning (§ 17) + begrunnelse (§ 25) → forsvarlig skjønn → § 41.
+4. *(forvaltning)* Klage (§ 28/§ 34(2)).
+5. **Skjult delspørsmål:** forsvarlighet er rettsanvendelse (full prøving), ikke fritt skjønn.
+- **Må:** 1, 2, 3. **Pluss:** 4, skillet rettskrav/nivåskjønn. **Feller:** kommuneøkonomi mot
+  rettskrav; forsvarlighet som fritt skjønn; overse saksbehandlingssporet; behandle det avgrensede.
+
+### Spesifikasjon — Praktikum 3 (kap. 10.4): Koblingspraktikumet forvaltning ↔ EØS
+
+**Faktum-skisse (NYSKREVET):** En etat/kommune treffer et inngripende nærings-/miljøvedtak etter en
+spesiallov (f.eks. en tillatelse nektes eller en eksport-/tjeneste-/etableringsbegrensning ilegges).
+Vedtaket har en saksbehandlingssvakhet, OG tiltaket hindrer en grensekryssende aktivitet — en part
+anfører at tiltaket er en ulovlig EØS-restriksjon. Del I forvaltning (gyldighet), Del II EØS
+(restriksjon/rettferdiggjøring/forholdsmessighet + gjennomskjæring), med én avgrensning
+(«årsakssammenheng og erstatningsutmåling skal ikke behandles»).
+
+**Tvistepunktliste:**
+1. *(forvaltning)* Enkeltvedtak (§ 2), hjemmel isolert (§ 113 + spesiallov), evt. saksbehandlingsfeil → § 41.
+2. *(EØS)* Restriksjonsanalysen firetrinns (omfattet + riktig frihet → restriksjon → rettferdiggjøring
+   → forholdsmessighet); diskriminerende vs. ikke-diskriminerende; rent økonomiske hensyn-fella.
+3. *(kobling)* Gjennomskjæring — hjemmelen faller bort for det EØS-stridige tiltaket via EØS-loven § 2
+   / presumsjon → ugyldighet (kompetansemangel).
+4. *(EØS, subsidiært)* Statlig erstatningsansvar (kvalifisert brudd) — men respekter avgrensningen om utmåling.
+5. **Skjult delspørsmål:** EØS kommer inn via § 2/presumsjon, ikke som direkte hinder; hold sporene fra hverandre.
+- **Må:** 1, 2 (firetrinns), 3 (koblingen). **Pluss:** 4 (subsidiært statsansvar); riktig
+  rettferdiggjøringsspor; forholdsmessighet/mindre inngripende middel. **Feller:** se bare ett spor;
+  EØS som direkte hinder; feil rettferdiggjøringsspor; rent økonomiske hensyn; glemt forholdsmessighet;
+  behandle det avgrensede.
+
+**Format alle tre:** A-besvarelse + kommentert C-besvarelse (C-en gjør de listede fellene) + Sensorblikket.
+
+### Spesifikasjon — Simulering (kap. 10.5)
+
+**Full 6-timers flerdelt simulering (NYSKREVET):** ett sammenhengende faktum som fletter et
+forvaltningsspor (ugyldighet), et velferds- eller miljøspor og et EØS-koblingsspor, med
+prioriteringsfasit (må/pluss/felle per punkt) og tidsbudsjett (sortering + disposisjon + delene
+innenfor 6 t). Fellekatalogen (§5-fellene) som separat drill i samme kapittel.
+
+---
+
+## Avvik fra DNA-jus (dokumentert)
+
+DNA-jus er skrevet med JUS1111s ett-fags praktikum-eksamen som forbilde. JUS2211 avviker på fire
+punkter, alle empirisk begrunnet:
+
+1. **To rettssystemer som skal holdes metodisk fra hverandre, med en egen brodel.** Fagets signatur
+   er koblingen forvaltningsrett↔EØS («hjemmel gjennomskåret av EØS»). Derfor har boken (a) en tidlig
+   koblings-introduksjon (kap. 0.3) og en verktøykasse med to sjekklister (kap. 0.4), og (b) en **egen
+   koblingsdel (Del 9)** som er bokas dokumenterte tyngdepunkt, i tillegg til at koblingspraktikumet er
+   ett av de tre komplette praktikumene (kap. 10.4). *Begrunnelse:* koblingen er normalformen fra 2021
+   (V2024/V2023/H2022) og selve A-ferdigheten (analysens §1.3, §2.5, §7).
+
+2. **Fire delfelt (30 sp) gir flere deler enn DNA-forbildet.** Emnet spenner over alminnelig
+   forvaltningsrett (13 sp), velferdsrett (7 sp), miljørett (5 sp) og EØS (5 sp). Velferds- og
+   miljørett får egne deler (Del 5–6) fordi de er de faktiske arenaene forvaltningsreglene oftest
+   testes i (velferd ofte hele Del I), men er skrevet som **anvendelse** av den alminnelige
+   forvaltningsretten (Del 1–4), ikke som løsrevet spesialstoff. *Begrunnelse:* analysens §2.2–2.3 og
+   kombinasjonsmønstrene §2.5. Resultatet er **46 kapitler / 11 deler** — over DNA-ens veiledende
+   25–40, men skalert til emnets omfang (JUS2111 hadde 39 kap. for 20 sp; 30 sp/fire felt tilsier flere)
+   og til audit-lærdommen om at store fag skal bære mer enn gulvet.
+
+3. **Rettstilstandens «to-lags»-blikk er innebygd i kapittelstrukturen.** Fordi ny forvaltningslov er
+   vedtatt men ikke i kraft, har hvert berørt saksbehandlings-/ugyldighetskapittel en **«Ny lov
+   2027»-boks** med paragrafmapping, og de ulovfestede lærene (myndighetsmisbruk/ugyldighet/vilkår) er
+   flagget som **kodifiseres**. *Begrunnelse:* analysens §0 (rettstilstandsflagg) og PRODUKSJONSLOYPE
+   v3-lærdommen om foreldet doktrine (fkjl. § 17 i JUS1111).
+
+4. **Sensorkravene er utledet, ikke siterte, og statsstøtte er bevisst nedprioritert.** Fordi arkivet
+   ikke har sensorveiledninger, er «Eksamensvinkel»- og «Typiske feil»-blokkene utledet fra oppgave-
+   mønster og fagtradisjon (merket i kap. 0.1 og i studieguiden), og statsstøtte (art. 61) dekkes kun
+   som kort «bør kjenne til». *Begrunnelse:* analysens §4-forbehold og §2.4-frekvensnote. Fase 6 skal
+   hente UiOs publiserte sensorveiledninger og verifisere.
+
+Ingen andre avvik: kapittel-DNA (regel-/typetilfelle-/praktikum-modell), blokktyper,
+«Eksamensvinkel»/«Typiske feil»/«Paragraf- og domsregister» og kvotekravene følger DNA-jus.
+
+---
+
+## Rettstilstands-sjekk (utført mot analysens Lovdata-/nettverifikasjon, juli 2026)
+
+Analysens §0/§8 verifiserte rettstilstanden 2026-07-07 FØR regelkontraktene her ble skrevet, jf.
+produksjonsløypen fase 2 og v3-lærdommen om foreldet doktrine. Sammendrag av det som er innarbeidet:
+
+**Bekreftet — endringer som MÅ håndteres (innarbeidet i regelkontraktene):**
+- **Ny forvaltningslov LOV-2025-06-20-81 er vedtatt, men «Ikke i kraft»** (§ 99, Kongen bestemmer,
+  forventet 2027). Hovedfremstillingen bygger på **fvl. 1967** (det eksamen tester); «Ny lov
+  2027»-bokser med paragrafmapping i kap. 1.3, 2.1, 2.2, 2.3, 3.2, 3.3, 4.1, 4.2, 4.3, 4.4, 4.5 og 5.3.
+  Paragrafmapping (**verifiser mot endelig lovtekst**): § 6→§§ 25–29, § 16→§ 42, § 17→§ 44,
+  §§ 24–25→§§ 56–57, §§ 28–34→§§ 61–69, § 29→§ 63, § 35→§§ 71–72, **§ 41→§ 74**.
+- **Kodifisering:** myndighetsmisbruks-, ugyldighets- og vilkårslæren blir lovfestet ved
+  ikrafttredelse — flagget i kap. 3.2, 3.3, 4.1 med `(verifiser — endres ved ikrafttredelse ny fvl.)`.
+
+**Bekreftet gjeldende (uendret) — EØS-kjernen:**
+- Fire friheter (varer art. 11/12/13, personer art. 28, etablering art. 31, tjenester art. 36,
+  kapital art. 40), EØS-loven § 1/§ 2, presumsjonsprinsippet, konform tolkning, statsansvar (E-9/97
+  Sveinbjörnsdóttir; Rt. 2005 s. 1365 Finanger II), homogenitet (art. 6). Numrene brukes ordrett i
+  oppgavene og er stabile.
+
+**Merket `(verifiser)` — sluttkontrolleres i fase 6 (obligatorisk Lovdata-verifikatør):**
+- **Ny fvl.-paragrafmapping** (hele tabellen) mot endelig lovtekst og ikrafttredelsesrundskriv; presis
+  ordlyd i § 74 (innvirkningsnormen).
+- **Forvaltnings-domskanon** der analysen ikke ga et konkret dommavn: legalitetsprinsippets
+  grunnlovsfesting (kap. 1.1), fritt/rettsanvendelsesskjønn-domskanon (kap. 3.1 — Naturfredning/Trallfa
+  er kandidater, verifiser), Fusa-dommen Rt. 1990 s. 874 (forsvarlighet/minstestandard, kap. 5.1),
+  § 41-innvirkningskanon (kap. 4.2). **Stikkprøv også UMARKEDE referanser** (jf. JUS1111-lærdommen om
+  feilattribuert HR-dom).
+- **EØS-/EU-domskanon:** Dassonville (8/74), Cassis de Dijon (120/78), Keck (C-267/268/91), Gebhard
+  (C-55/94), Säger (C-76/90), Campus Oil (72/83), E-9/97, Finanger I (Rt. 2000 s. 1811)/II (Rt. 2005 s.
+  1365), Rt. 2010 s. 1500, Klimasaken HR-2020-2472-P — Rt.-/HR-/EFTA-/EU-numre og årstall bekreftes.
+- **Barnevernslov** (kap. 5.2): hvilken lov de nyeste settene bruker (ny bvl. 2021 vs. bvl. 1992).
+- **Paragrafer i spesiallover** (pbrl., hol., phvl., ftrl., pbl., naturmangfoldloven, forurensningsloven,
+  offentleglova) bekreftes mot Lovdata.
+
+**Forbehold (fra analysen):** Ingen sensorveiledninger i arkivet — sensorkravene er utledet; hent UiOs
+publiserte sensorveiledninger (uio.no/…/JUS2211/oppgaver/) og verifiser før kontraktene låses. Tre sett
+(H2016, V2025, H2025) er kun skannet uten tekstlag — OCR-behandles og innarbeides; frekvenser bygger på
+19/22.
+
+---
+
+## Studieguide-disposisjon
+
+Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
+
+1. **Slik består du JUS2211 (og løfter til A)** — eksamensformen (6 t flerdelt praktikum, Inspera,
+   Lovdata Pro, A–F), koblings-normalformen, vektingslogikken (forvaltning 13 / velferd 7 / miljø 5 /
+   EØS 5 sp) og prioriteringskartet (frekvenstabellene fra kap. 0.1). Eksplisitt C→A-liste: subsumsjon,
+   koblingen, se de subsidiære sporene. **Merk: sensorkrav er utledet** (ingen veiledninger i arkivet).
+2. **De to rettssystemene og koblingen på én side** — forvaltningssporet (ugyldighets-sjekklisten) og
+   EØS-sporet (restriksjonsanalyse-sjekklisten) side om side; hvordan hjemmelen gjennomskjæres via
+   EØS-loven § 2 / presumsjon; når man er i hvilket spor.
+3. **Praktikumsmetoden på én side** — sortering per delfelt/spor, to-trinns-metoden (normklarlegging
+   FØR subsumsjon), problemstilling/rettsgrunnlag/norm/subsumsjon/konklusjon; prinsipalt/subsidiært;
+   avgrensningsdrillen; fellekatalogen som negativ sjekkliste.
+4. **Fagsammendrag** (fire seksjoner): (a) **alminnelig forvaltningsrett** — legalitet/hjemmel (§ 113),
+   saksbehandling (§§ 6/16/17/24–25), skjønn (fritt vs. rettsanvendelse + myndighetsmisbruk + vilkår),
+   ugyldighet (tre feiltyper → § 41 → virkning), klage/omgjøring (§§ 28/34/35) — med vilkårsstiger,
+   paragrafregister og «Ny lov 2027»-mapping; (b) **velferdsrett** — rettskrav vs. skjønn, forsvarlighet,
+   tvang, trygd; (c) **miljørett** — pbl. dispensasjon, naturmangfoldlov, KU/§ 112; (d) **EØS-rett** —
+   stilling (§ 2/presumsjon), statsansvar, restriksjonsanalysens fire trinn, rettferdiggjøring/
+   forholdsmessighet, koblingen. Hver seksjon med paragraf-/artikkelregister og dom→kallenavn→bruk-tabell.
+5. **De to sjekklistene** — ugyldighets-sjekklisten (tre feiltyper → § 41 → virkning) og restriksjons-
+   analyse-sjekklisten (fire trinn) som gjenbrukbare disposisjonsskjeletter.
+6. **Fellekatalogen** — samtlige tolv hjemmels-/metodefeller fra analysens §5 i tabellform (felle →
+   riktig spor): behandle det avgrensede; hoppe over § 41; blande fritt/rettsanvendelsesskjønn; feil
+   rettferdiggjøringsspor; godta rent økonomiske hensyn; glemme forholdsmessighet; kommuneøkonomi mot
+   rettskrav; feil på enkeltvedtaksbegrepet; overse subsidiære spørsmål; sitere dommer løsrevet; overse
+   koblingen / EØS som direkte hinder; feil startpunkt i myndighetsmisbrukslæren.
+7. **Koblingsradaren** — signalliste (faktumtrekk → koblingsspørsmålet det varsler): grensekryssende
+   aktivitet + norsk vedtak → restriksjonsanalyse + gjennomskjæring; spesiallovhjemmel + EØS-anførsel →
+   § 2/presumsjon; miljøvedtak + KU → KU-direktivets EØS-side; feilgjennomføring + tap → statsansvar.
+8. **«Ny lov 2027»-arket** — paragrafmapping fvl. 1967 → ny fvl., og hvilke ulovfestede lærer som
+   kodifiseres, på én side (med den kritiske påminnelsen om at eksamen fortsatt bygger på 1967-loven).
+9. **Leseplaner** — 14-dagers og 4-ukers plan mot eksamen med kapittelrekkefølge, prøvetidspunkter og
+   simuleringsdag (kap. 10.5 på nest siste dag).
+10. **Siste-døgnet-arket** — én side: vilkårslistene for «må beherskes perfekt»-punktene (ugyldighet +
+    § 41, fritt/rettsanvendelsesskjønn, myndighetsmisbruk, legalitet/hjemmel, § 6-habilitet, § 28-klage-
+    interesse, EØS-loven § 2, restriksjonsanalysens fire trinn, rettferdiggjøring/forholdsmessighet,
+    koblingen/gjennomskjæringen).
+
+---
+
+## Byggerekkefølge og verifikasjon
+
+### Byggerekkefølge for Opus
+
+1. **Metadata først:** `TextbookCourse`-oppføring for `jus2211` (mønster: `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-matte.ts`) med alle 46 kapitler (id/number/title/description/
+   estimatedMinutes/topics/competenceGoals/prerequisites fra dette skjelettet) og `sectionNames`.
+2. **Del 0** (kap. 0.1–0.4) — metodespråket («må/pluss/felle», to-trinns-metoden, koblingen, de to
+   sjekklistene) etableres her og gjenbrukes ordrett i alle senere kapitler.
+3. **Del 1 → Del 2 → Del 3 → Del 4** (forvaltningssporet) — regelkapitler før typetilfellekapitler
+   innen hver del; kap. 4.2 (§ 41) er navet flere kapitler bygger bro til.
+4. **Del 5 → Del 6** (velferd/miljø) — skrives som anvendelse av Del 1–4; koble alltid tilbake.
+5. **Del 7 → Del 8** (EØS) — kap. 7.1 (stilling/§ 2) og kap. 8.1 (restriksjonsskjemaet) før resten.
+6. **Del 9** (koblingen) — forutsetter Del 1–8; etablerer gjennomskjæringsmetoden brukt i kap. 10.4.
+7. **Del 10** (eksamenstrening) — sorterings-/fellekatalog-drill, deretter de tre praktikumene, så
+   simuleringen; kap. 10.4 (koblingspraktikum) og 10.5 forutsetter hele boka.
+8. **Batching (fase 4):** én agent per hel del; gi agenten HELE delens kontrakter (+ nabodelers ved
+   avhengighet). Del 10 bygges av én agent som leser hele skjelettet. Del 4 (6 kap.) er stor — flagg for
+   konsistenssjekk i fase 6.
+9. **Narrativ-versjoner** (`<id>-narrativ.json` per kapittel) og quiz/flashcards per kvotene — quiz
+   skrives samtidig med hvert kapittel, ikke som etterarbeid.
+10. **Prøvene** (4 per del) etter at delens kapitler er ferdige.
+11. **Studieguiden** til slutt (destillerer ferdige kapitler).
+
+### Verifikasjonssjekkliste (kjøres FØR ferdigmelding)
+
+- [ ] **JSON-validering:** samtlige nye `chapters/*.json` parses med `json.load` (én uescapet
+      anførselstegn kan blokkere hele prebuild — særlig risiko ved paragraftegn og «4'33"»-lignende).
+- [ ] **Obligatorisk Lovdata-verifikatør (fase 6):** ALLE paragraf-, artikkel- og domsreferanser mot
+      GJELDENDE rett; grep `-i verifiser` (ikke bare `(verifiser)`) for sammensatte varianter.
+      **Særlig:** «Ny lov 2027»-mappingen mot endelig lovtekst; § 74-ordlyden; at hovedfremstillingen
+      bygger på **fvl. 1967**, ikke på 2025-loven; at kodifiserings-flaggene står i kap. 3.2/3.3/4.1.
+- [ ] **Hent UiOs sensorveiledninger:** de utledede «Eksamensvinkel»/«Typiske feil»-blokkene sjekkes mot
+      publiserte veiledninger (uio.no/…/JUS2211/oppgaver/) og justeres der de spriker.
+- [ ] **Domsreferanser mot Lovdata/EUR-Lex:** hele EØS-/EU-kanonen (Dassonville/Cassis/Keck/Gebhard/
+      Säger/Campus Oil/E-9/97/Finanger I+II/Rt. 2010 s. 1500/Klimasaken) + forvaltnings-kanonen
+      (Rådhushospits/Mortvedt/Fusa + § 41-/skjønnskanon). **Stikkprøv også UMARKEDE referanser.**
+- [ ] **Metode innprentet:** hvert EØS-kapittel understreker at EØS kommer inn via § 2/presumsjon (ikke
+      direkte hinder); koblingsdelen viser gjennomskjæringen; sporene holdes fra hverandre; § 41 hoppes
+      aldri over; fritt/rettsanvendelsesskjønn blandes ikke; riktig rettferdiggjøringsspor velges.
+- [ ] **Quiz-/flashcard-sum:** ≥500 quiz og 550–650 flashcards totalt, samsvar med kvotetabellen
+      (±10 % per kapittel OK; totalene 576/600 skal holde). definition-telling (flashcards) før/etter fase 6.
+- [ ] **Prøver:** 4 per del, 44 totalt, alle med må/pluss/felle-fasit.
+- [ ] **Opphavsrett:** ALLE faktum, parter, kommuner, tall og hendelser er nyskrevne — ingen
+      gjenkjennbare eksamensfakta.
+- [ ] **Avgrensning:** statsstøtte (art. 61), tjenestedirektivet og trygdeforordningen kun som kort «bør
+      kjenne til» (ikke bygget ut); avgrensnings-drillen (kap. 0.3/10.1) trener å la det avskårne ligge;
+      kryssbok-lenker til jus1111/jus2111 peker på EKSISTERENDE kapitler ([jus1111-0-1](/bok/jus1111/jus1111-0-1),
+      -0-2, -0-3; [jus2111-0-3](/bok/jus2111/jus2111-0-3)).
+- [ ] **DNA-blokkene på plass:** hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil» (`warning`),
+      «Paragraf- og begrepsliste» (`collapsible`, per delkapittel), «Ny lov 2027»-boks i berørte
+      saksbehandlings-/ugyldighetskapitler, og regel-/typetilfellekapitlene har «Paragraf- og
+      domsregister» (`collapsible`); praktikumskapitlene har A + kommentert C + Sensorblikket.
+- [ ] **`npm run build`** grønn før ferdigmelding (arbeidsregel i CLAUDE.md).
