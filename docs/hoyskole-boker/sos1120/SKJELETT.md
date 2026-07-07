@@ -1455,3 +1455,264 @@ SE(b)$ = `[95% Conf. Interval]`).
   krysstabellmål og kausalitetsdrøfting lever videre, og et blandet sett trener
   bredden. Full fasit med markerte A-skiller; `tip` om vekting.
 - **Kvote:** 4 quiz / 2 flashcards.
+
+### Kvotesammendrag (AUTORITATIV for alle senere faser)
+
+| Del | Kapitler | Quiz | Flashcards | Prøver |
+|---|---|---|---|---|
+| 0 | 2 | 26 | 18 | — |
+| 1 | 4 | 82 | 86 | 4 |
+| 2 | 1 | 30 | 34 | 4 |
+| 3 | 2 | 44 | 40 | 4 |
+| 4 | 2 | 42 | 42 | 4 |
+| 5 | 3 | 70 | 64 | 4 |
+| 6 | 3 | 66 | 62 | 4 |
+| 7 | 2 | 42 | 44 | 4 |
+| 8 | 5 | 118 | 108 | 4 |
+| 9 | 2 | 32 | 30 | 4 |
+| 10 | 11 | 114 | 64 | 3 øvingseksamener |
+| **Sum** | **37** | **666 ✓ (≥500)** | **592 ✓ (≥500)** | **36 + 3** |
+
+Summeringskontroll per del (quiz): Del 0: 12+14=26 · Del 1: 20+24+22+16=82 ·
+Del 2: 30 · Del 3: 24+20=44 · Del 4: 22+20=42 · Del 5: 22+26+22=70 ·
+Del 6: 24+18+24=66 · Del 7: 22+20=42 · Del 8: 28+24+22+24+20=118 ·
+Del 9: 18+14=32 · Del 10: 20+14+16+14+20+6+6+6+4+4+4=114. Totalsum
+26+82+30+44+42+70+66+42+118+32+114 = **666**.
+
+Summeringskontroll per del (flashcards): Del 0: 8+10=18 · Del 1: 20+26+22+18=86 ·
+Del 2: 34 · Del 3: 22+18=40 · Del 4: 22+20=42 · Del 5: 22+22+20=64 ·
+Del 6: 24+16+22=62 · Del 7: 22+22=44 · Del 8: 26+20+20+22+20=108 ·
+Del 9: 18+12=30 · Del 10: 8+8+8+8+14+4+4+4+2+2+2=64. Totalsum
+18+86+34+40+42+64+62+44+108+30+64 = **592**.
+
+**Kvotebegrunnelse (jf. produksjonsløypas «≥500 er GULV»):** Quiz er høyt (666) fordi
+det nye regimet har en HEL auto-rettet **flervalgsdel** (MC / Bolk 1) — flervalgsbanken
+er direkte flervalgstrening og skal dekke hele pensumbredden (deskriptiv, SD/SE,
+boksplott, normalfordeling/Z, samplingfordeling, KI-tolkning, målenivå, spuriøsitet,
+utvalg). Flashcards (592) ligger solid over gulvet fordi faget er begrepsrikt
+(målenivåtypologien, standardavvik↔standardfeil, samplingfordeling/CLT, KI-tolkning,
+korrelasjonsmål, dummy-/samspill-/kontrollapparatet, kausalbegrepene) — men lavere enn
+et rent puggefag fordi den regnetunge halvparten (Del 3–9) har færre definisjonsbegreper
+per kapittel. Ryggrads-kapitlene (2.1 målenivå ~95 %, 3.1 deskriptiv ~95 %, 8.1 tolke
+koeffisient ~95 %, 5.2 KI ~85 %, 6.3 kjikvadrat ~85 %) er tyngst kvotert; kjenne-
+kapitlene (1.4 gammelt regime, 7.2 Pearsons r) lettest. Den ekstra tyngden mot STV1020
+(37 vs. 35 kapitler; Del 8 har 5 kapitler) reflekterer at SOS1120 er MER regnetungt og
+har to SOS-unike deler (Del 4 sannsynlighet, Del 5 standardfeil/KI) + en Stata-del.
+
+**Flashcard-profil:** hovedvekt på **begrep↔definisjon↔kontrastbegrep**-par
+(nominal↔ordinal↔intervall↔forholdstall, standardavvik↔standardfeil, samplingfordeling↔
+datafordeling, spuriøs↔mediert, kontroll↔interaksjon, to-↔ensidig test, type I↔II,
+frekventistisk↔feilaktig KI-tolkning, deskriptiv↔inferens, målenivå↔korrelasjonsmål) —
+nøyaktig presisjonen deloppgavene og feilene #1/#4/#7/#12 tester. Flashcards genereres
+KUN fra toppnivå `definition`-blokker med `title` (plattformregel).
+**Quiz-profil (= flervalgstrening):** flervalg med nabobegrep-distraktorer, «hvilket
+målenivå/korrelasjonsmål?»-format, «hvilken feil begår kandidaten?»-format,
+tolkningskontrakt-varianter (teknisk vs. kontekst; frekventistisk vs. løs KI-tolkning)
+og små regne-/tolkningsspørsmål med oppgitt tabell/formel.
+
+---
+
+## 4. Prøver
+
+### Temadelprøver (4 per temadel, Del 1–9 = 36 prøver)
+
+Hver prøve speiler eksamens format (flervalgsinnslag + utregnings-/scenariobaserte
+a/b/c-ledd). Omfang 20–45 min. Alle scenarier, tabeller og tall er nyskrevne.
+Prøvekapitler får id `sos1120-<del>-prove`, chapterNumber `<del>.P`.
+
+- **Del 1:** (1) Hypotese og variabler — 10 flervalg + populasjon/enhet/variabel-
+  diagnose på 2 hypoteser; (2) Kausalmodell-verksted — tegn og case-tilpass
+  bakenforliggende/mellomliggende/spuriøs for 2 scenarier + Simpsons-identifikasjon
+  (IKKE kjikvadrat); (3) Utvalg — velg/vurder sannsynlighetsutvalg for 2 scenarier +
+  frafall/skjevhet vs. usikkerhet; (4) Full designdrøfting (gammelt regime: likhets-/
+  forskjellsteknikk, tidsdesign, etikk, momentliste).
+- **Del 2:** (1) Målenivå-diagnosen — klassifiser og begrunn 8 variabler (nominal/
+  ordinal/intervall/forholdstall) + operasjonskonsekvens; (2) Målenivå-flervalg (12
+  spørsmål med nabofeller); (3) «Kan vi bruke dette målet?» — 6 mål-på-variabel-
+  diagnoser (median på nominal, gjennomsnitt på ordinal osv.); (4) Blandet delprøve
+  (målenivå + konsekvens for sentralmål i case-format).
+- **Del 3:** (1) Deskriptiv regneprøve — frekvenstabell: modus/median via kumulativ
+  %/gjennomsnitt/andel/variasjonsbredde (oppgitt formel) + målenivåkonsekvens; (2)
+  Spredning og form — regn standardavvik + les skjevhet fra gjennomsnitt/median +
+  boksplott; (3) Deskriptiv-flervalg (10 spørsmål: SD, skjevhet, boksplott, kumulativ
+  %); (4) Blandet deskriptiv delprøve.
+- **Del 4:** (1) Normalfordeling — standardiser + tabelloppslag (areal og kritiske
+  verdier), 4 oppgaver; (2) Samplingfordeling/CLT — forklar konseptuelt + P(x̄ > verdi),
+  2 scenarier; (3) Normalfordeling/sampling-flervalg (10 spørsmål); (4) Blandet
+  sannsynlighets-delprøve.
+- **Del 5:** (1) Standardfeil — regn SE(gjennomsnitt), SE(andel), SE(differanse) fra
+  oppgitte tall (30 min) + SD vs. SE-forklaring; (2) Konfidensintervall — regn KI for
+  gjennomsnitt (t), andel (z) og differanse med riktig kritisk verdi; (3) KI-tolkning
+  — formuler frekventistisk tolkning for 3 intervaller og pek ut feilformuleringene;
+  (4) Full KI-oppgave (a–c: SE → KI → tolkning, momentliste).
+- **Del 6:** (1) Hypotesetest/t-test — H0/HA (to-/ensidig) + t = estimat/SE + df +
+  konklusjon med retning, 2 scenarier; (2) Kjikvadrat — regn forventede frekvenser, χ²,
+  df=(r−1)(c−1), konkluder mot kritisk verdi; (3) Hypotesetest-flervalg (12 spørsmål:
+  to-/ensidig, p↔α, type I/II, retning); (4) Full inferens-delprøve (to-utvalgs t-test
+  + kjikvadrat, momentliste).
+- **Del 7:** (1) Krysstabell — regn prosentdifferanse + tolk Cramers V + regn gamma fra
+  ordinal-tabell; (2) Korrelasjonsmål-valg — 5 variabelpar → riktig mål med begrunnelse;
+  (3) Pearsons r — tolk korrelasjonstabell + hvilken variabel hører ikke hjemme; (4)
+  Blandet bivariat delprøve.
+- **Del 8:** (1) Regresjonsligning + tolkning — skriv generell (med residual!) og
+  estimert form + tolk konstant/koeffisienter (teknisk + substansielt, «kontrollert
+  for», Stata-form); (2) R²/prediksjon/residual — regn og tolk fra oppgitt tabell;
+  (3) t-test av koeffisient (df=N−k−1, kritisk verdi/KI for b, konkluder i kontekst);
+  (4) Dummy/samspill/kontroll — kod dummyer, utled to likninger fra samspillsledd,
+  drøft koeffisientfall (spuriøs vs. mediert), momentliste.
+- **Del 9:** (1) Les Stata-utskrift — identifiser alle størrelser i en `reg`-utskrift +
+  verifiser én t-verdi for hånd; (2) `ttest`/`sum`-lesing — les og tolk med retning;
+  (3) Skriv kommandoer — riktig kommando for 4 oppgaver + tolkning; (4) Full Stata-bolk
+  (åpne, kjøre `ttest`+`reg`, lime kode, tolke, momentliste).
+
+### Komplette øvingseksamener (3 — se kap. 10.9–10.11)
+
+Alle: 4 timer, flervalgsdel + utregningsdel som følger forskningsprosessen; full
+momentliste-fasit per deloppgave med markerte A-skiller (kjerne vs. A-lag); nyskrevne
+scenarier og tall. Profilene dekker de tre eksamensformene: A (2015–2017, flervalg +
+utregning, håndregning), B (V2018, tre bolker med egen Stata-bolk), C (blandet med
+krysstabell-/gammelt-regime-innslag).
+
+---
+
+## 5. Studieguide-disposisjon
+
+1. **Slik er eksamen** — regimeskiftet 2015, todelingen (flervalg + utregning + Stata),
+   forskningsprosess-løypa utregningsdelen følger, hjelpemidler (formelark + tabeller +
+   bøker fra 2015), tidsbudsjett, «regn — tolk i kontekst — konkluder» (fra kap.
+   0.1–0.2); nedlagt/etterfølger-note (SOS1120 → SOSGEO1120).
+2. **De fire ryggrads-ferdighetene** — bestem+begrunn målenivå (2.1), deskriptiv
+   statistikk fra frekvenstabell (3.1), tolke konstant/koeffisient i kontekst (8.1) og
+   tolke R² (8.2) som ferdige forløp, med tolkningskontrakten (§2d) og de farligste
+   feilene (#1, #2, #5, #6) innfelt.
+3. **Fagets bærebjelke: standardfeil og konfidensintervall** — SE (5.1), KI-utregning
+   (5.2) og den frekventistiske tolkningen (5.3) som ett forløp, med SD↔SE-skillet og
+   feil #4/#7 uthevet.
+4. **Sannsynlighet som fundament** — normalfordeling/Z (4.1) og samplingfordeling/CLT
+   (4.2) som oppslag: hvorfor vi kan bruke normalfordelingen på et gjennomsnitt.
+5. **Forskningsprosessen som ett forløp** — utregningscasens masteroppskrift (10.2) fra
+   målenivå til årsak, med «hva sensor ser etter» ved hvert trinn.
+6. **Regne- og tolkningskort** — alle regneferdighetene (deskriptiv, SE, KI, kjikvadrat
+   df=(r−1)(c−1), t-test df=N−k−1/N−1, prediksjon, dummy) med formler, ett minieksempel
+   hver og tolkningskontrakt-maler; Stata-utskrift-lesing (§2d).
+7. **Drøftekartet** — stimodellene (tegnet: bakenforliggende/mellomliggende/spuriøs),
+   Simpsons paradoks (≠ kjikvadrat), kontroll↔interaksjon, utvalg/generalisering
+   (usikkerhet↔skjevhet) som oppslag.
+8. **Begrepsbank med kontraster** — kontrastparene (nominal↔ordinal↔intervall↔
+   forholdstall, SD↔SE, samplingfordeling↔datafordeling, spuriøs↔mediert, kontroll↔
+   interaksjon, to-↔ensidig, type I↔II, frekventistisk↔løs KI-tolkning) i tabellform —
+   flashcard-speilet i prosa.
+9. **Feilvaksine-kortversjonen** — de 15 feilene som énlinjers varsellamper, med de
+   farligste (#4, #5, #7, #8, #9/#10, #13) uthevet.
+10. **Flervalgs- og Stata-strategien** — flervalgsberedskap (10.1: eliminasjon,
+    nabobegrep-feller, «hopp over ved trekk») og Stata-kommandoene (9.1–9.2).
+11. **Ukeplan** — 6-ukers og 2-ukers løp mot eksamen med prøve-innplassering
+    (temadelprøver underveis; øvingseksamen A først, B og C de siste to ukene;
+    feilvaksinen som siste gjennomgang).
+
+---
+
+## 6. Byggerekkefølge og verifikasjon
+
+### Rekkefølge for forfatter-agenten (Opus)
+
+1. **Metadata først:** `TextbookCourse`-oppføring (mønster `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-matte.ts`; wiring i `textbook-courses-hoyskole.ts`
+   per produksjonsløypa fase 5): id `sos1120`, title, `level: 'Høyskole'`, alle 37
+   kapitler + 9 prøvekapitler med id/number/title/description/estimatedMinutes/topics/
+   competenceGoals/prerequisites fra dette skjelettet; `sectionNames` fra §2-tabellen.
+   **`number` er DEL-BASERT («8.1»), ALDRI lineær** — prosareferanser i innholdet
+   bruker samme form («kap. 8.1»). Prøvekapitler: `sos1120-<del>-prove`, chapterNumber
+   `<del>.P`. Bokforsidens description skal formidle nedlagt/etterfølger-noten.
+2. **Del 0** (etablerer mantraene alle senere kapitler refererer: «regn — tolk i
+   kontekst — konkluder», tolkningskontrakten §2d, regimeskiftet, todeling-strategien,
+   nedlagt/etterfølger-noten).
+3. **Del 1 → 9** i rekkefølge (respekterer forskningsprosessen og prerequisites —
+   2.1 før 3.1/7.2/8.1; 4.1 før 4.2 før 5.1; 5.1 før 5.2 før 5.3; 5.2 før 6.1; 6.1 før
+   6.2/6.3/8.3; 8.1 før 8.2–8.5; 8.5 bygger på 1.2; 8.3 før 9.1). Én byggeagent per hel
+   del (produksjonsløypa fase 4); Del 8 (5 kap) kan splittes, men gi begge agentene
+   HELE delens kontrakter og flagg for konsistenssjekk.
+4. **Del 10** til slutt (sjanger-, drill-, feilvaksine- og modellbesvarelseskapitlene
+   gjenbruker oppskrifter og begreper fra temadelene; øvingseksamenene bygges av én
+   agent som leser HELE skjelettet).
+5. **Prøvekapitler** (bygges av samme agent som delen) etter at delens temakapitler
+   finnes.
+6. **Narrativ-versjoner** (`<id>-narrativ.json` per kapittel, jf. `/narrativ`) og
+   quiz-registrering til slutt.
+
+Per kapittel gjelder arketypens blokkstruktur: drøftingskapitler (Del 1) følger
+drøftings-DNAet (tip Eksamensvinkel → text Forkunnskaper med kryssbok-lenker +
+collapsible **Symbol- og formelliste** → text landskap → definition kjernebegreper →
+text posisjoner/spenninger → example anvendelse → warning typiske feil → exercise →
+collapsible begrepskart); statistikk-/inferens-/regresjonskapitler (Del 3–9) følger
+regnefag-lånet (tip Eksamensvinkel → text Forkunnskaper + Symbol- og formelliste →
+text motivasjon → definition/formel → gjennomregnede `example` med tolkningskontrakt →
+warning typiske feil → `exercise` med solution + hints i stigende serie → collapsible
+repetisjon). **Tolkningskontrakten (§2d) er obligatorisk etter hvert regnestykke og
+hver koeffisient.** Eksamensvinkel- og Typiske feil-blokkene fylles med belegget og
+feilnumrene fra dette skjelettet — forfatteren skal IKKE finne på frekvenstall.
+Flashcards genereres KUN fra toppnivå `definition`-blokker med `title`.
+
+### Verifikasjonssjekkliste (kjøres FØR ferdigmelding)
+
+- [ ] **JSON-validering:** alle nye `src/lib/data/chapters/sos1120-*.json` parser med
+      `json.load`/`JSON.parse` (generer via `json.dump` — LaTeX i JSON krever `\\`).
+      `npm run build` grønn — vis output.
+- [ ] **Metadata-konsistens:** alle 37 kapittel-id-er + 9 prøvekapitler i course-
+      oppføringen har eksisterende content-fil; prerequisites peker på eksisterende
+      id-er; `sectionNames` satt (ellers viser bokforsiden «Seksjon N»); narrativ-id-er
+      registrert slik at toggle rendrer (verifiser med prod-server + curl at
+      narrativ-ruter gir 200).
+- [ ] **`number` del-basert:** alle chapterNumber på formen `<del>.<nr>`/`<del>.P`,
+      aldri lineær; prosareferanser i innholdet bruker samme form.
+- [ ] **Notasjonskontrakt:** all statistikknotasjon følger §2c ($\bar{X}$, $s$, $Z$,
+      SE-formlene, KI $= \text{estimat} \pm \text{kritisk} \cdot SE$, $\chi^2$,
+      df-reglene, $Y_i = b_0 + \dots + e_i$, $\hat{Y}$, $R^2$, $t = b/SE(b)$, Stata-
+      kolonnene, målenivåtermene) — ingen lærebok-alternativer.
+- [ ] **Tolkningskontrakten:** hvert regnestykke og hver koeffisient i boka ender i en
+      substansiell tolkning i kontekst (§2d ledd 2 + 4); ingen «fasit uten mening».
+- [ ] **Harde krav som warnings:** **«kontrollert for»** eksplisitt ved koeffisient-
+      tolkning (8.1, 0,5 trekk uten); **Beta med tall** når «betyr mest» spørres (8.1);
+      **frekventistisk KI-tolkning** (5.3, feil #7); **to- vs. ensidig test** (6.1,
+      ensidig der tosidig kreves = halv uttelling); **retning i t-test-konklusjonen**
+      (6.1/6.2); **df** korrekt — kjikvadrat (r−1)(c−1) (6.3), ett gjennomsnitt N−1
+      (6.1), regresjon N−k−1 (8.3); **residualleddet** på generell form (8.1);
+      **Simpsons paradoks ≠ kjikvadrat** (1.2, feil #13, 0 poeng) — hver har en
+      eksplisitt warning-blokk.
+- [ ] **Følgefeil straffes ikke:** boka lærer eksplisitt at galt mellomsvar ikke
+      trekker videre, og at forståelse gir uttelling selv ved regnefeil (Del 0.2) —
+      drill-løsningene poengsetter trinn for seg.
+- [ ] **Stata-utskrift:** gjengitt som tekst-tabell (§2d) med egne NYSKREVNE tall der
+      den forekommer (8.1, 8.3, 9.1–9.2, 10.7, 10.10); kandidaten kjører enkle
+      kommandoer (`sum`/`tabstat`/`ttest`/`reg`) — ingen loops/programmering.
+- [ ] **SOS-unikt dekket:** reell sannsynlighetsregning (Del 4: normalfordeling/Z,
+      samplingfordeling/CLT, P(x̄ > verdi)); standardfeil/konfidensintervall som egen
+      bærebjelke-del (Del 5); Stata hands-on (Del 9) — de tre tingene som skiller
+      SOS1120 fra STV1020.
+- [ ] **Regime- og etterfølger-håndtering:** boka prioriterer nytt regime (2015→,
+      nærmest SOSGEO1120), men beholder ett krysstabell-/gamma-kapittel (7.1) og ett
+      kompakt gammelt-regime-design-/etikkapittel (1.4); nedlagt/etterfølger-noten
+      formidlet i Del 0 + bokforside; alt som kan ha endret seg med omleggingen merket
+      `(verifiser mot SOSGEO1120)`.
+- [ ] **Pensumforankring:** INGEN oppdiktede forfattere, sidetall eller sitater;
+      «Ringdal-type» og «statistikkorientert bok» brukt kun som regime-etiketter, aldri
+      som falske sitater; norske fagtermer presentert som fagets allmenne begrepsapparat.
+- [ ] **Utelatt stoff:** ingen tunge sannsynlighetsbevis, fordelingsteori utover
+      normalfordelingen, kombinatorikk, maximum likelihood, logistisk regresjon (OLS
+      gjennomgående), avansert Stata-programmering, matriseregning (analysen §6).
+- [ ] **Kvotesum:** quiz ≥666 og flashcards ≥592 fordelt per kapittel som angitt
+      (hardt minstekrav ≥500/≥500); 4 prøver per temadel (Del 1–9 = 36) + 3
+      øvingseksamener i flervalg-+-utregning-format (én med Stata-bolk); fasit-
+      svaralternativer rebalansert (jevn a/b/c/d — husk options[0] = riktig i staging,
+      runtime stokker).
+- [ ] **Opphavsrett:** alle oppgaver, scenarier, tallsett, tabeller, Stata-utskrifter
+      og modellbesvarelser er NYSKREVNE — mønstre og deloppgaveforløp klones tett, men
+      ingen formuleringer, case-navn eller talloppsett fra UiO-sett/veiledninger
+      gjenbrukes (bruk NYE analoge caser: sosial bakgrunn/inntekt, oppvekst/kriminalitet,
+      helse/levekår, utdanning/kulturbruk, arbeid/fagforening — med egne tall).
+- [ ] **Kalibreringssjekk:** boka organisert etter forskningsprosessen (Del 1→9);
+      ~60/40 statistikk/drøfting (mer regnetungt enn STV1020); flervalgsdelen dekket av
+      quizbanken; ryggrads-temaene (målenivå 2.1, deskriptiv 3.1, tolke koeffisient
+      8.1, R² 8.2, KI 5.2, kjikvadrat 6.3) tyngst dekket; gammelt-regime-stoff (gamma
+      7.1, design-essay 1.4) og Pearsons r (7.2) holdt kompakte; alle 15 feil fra §5
+      dekket i sine hjemkapitler OG samlet i 10.5.
