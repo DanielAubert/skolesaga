@@ -155,6 +155,28 @@ Diskret matematikk UTGÅTT → dekket av `ma0301`; TFY4102 ERSTATTET → dekket 
 for transje 7: JUS3112 (arkiv JUS3111, 14), JUS4212/JUS4213 (arkiv JUS4211,
 20, splittet etterfølger), TMA4121 (arkiv TMA4120, 47), resten av BI-porteføljen.
 
+## C7. Transje 7 — analyse + skjelett underveis (8. juli 2026; sluttfører det vettede universet)
+
+Mål: fullføre ALLE gjenværende fagbeskrivelse-vettede emner med brukbart arkiv.
+Bygges (AKTIVE med ≥5 filer + høyverdi-etterfølgere):
+- **Matte-reform-etterfølgere (NTNU):** `tma4106` (←TMA4105, 114 f), `tma4111`
+  (←TMA4110, 196 f), `tma4121` (←TMA4120, 47 f). Etterfølger-profilert.
+- **BI-portefølje (første BI-fag i fabrikken):** `met2910-bi`, `sok3500-bi`,
+  `met2920-bi`, `met1190-bi`, `bok3423-bi`, `bok3532-bi`, `bok3632-bi`,
+  `fin3521-bi`, `jur3420-bi`, `str3605-bi`, `org3620-bi`, `mrk3481-bi`.
+- **UiO:** `ling1100`, `econ4260`, `econ4220`, `econ2610`, `jus3213`, `jus5511`,
+  `fil1003`, `in1030`, `in2040`, `mat2500`, `jus3112` (←JUS3111), `jus4212`+
+  `jus4213` (←JUS4211 splittet), `kj1020`/`in1140`/`econ4160` (etterfølger-profilert).
+- **NTNU:** `tdt4160`, `tdt4300`, `tdt4137`, `it2805`, `ttk4240`, `tio4215`,
+  `tdt4102`, `tdt4260`, `tdt4225`, `tfe4101`, `tfe4171`, `ttt4120`, `tgb4100`.
+
+Hoppet over (dokumentert): TMA4240 Statistikk → dekket av `tma4245`; TMA4115
+Matematikk 3 → dekket av `tma4111`-familien; MET3590/EMS3666 (≤2 filer),
+FARM1110/BIOS1100/BIOS1110 (0 filer), samt rene 3–4-fils avanserte valgemner
+uten sensorveiledning (TDT4200/4215/4242/4258, TTT4185, MRK3580, ORG3403/3610,
+BØK3430/3657, FYS1105) — for tynt arkiv for kvalitetsanalyse. Kan tas senere
+ved behov; arkiv finnes.
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
