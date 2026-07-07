@@ -469,3 +469,86 @@ aritmetikk ($Z_n$) og grunnleggende gruppeteori bygges opp fra grunnen i Del 1.
 - **Quiz: 16 · Flashcards: 8**
 
 **Prøve-kvote Del 5:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 6 — Ringer, idealer og kvotientringer *(prioritet: PERFEKT — idealer prim/maksimal ~75 %, argumentmaskin (iii))*
+
+#### Kapittel 6.1: Ringer, integritetsområder, nulldelere og enheter
+
+- **id:** `mat2200-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-1-1`
+- **kapitteltype:** teori
+- **description:** Ringspråket: ringaksiomene, enheter og nulldelere i Z_n via gcd-kriteriet, og skillet integritetsområde vs. kropp — grunnlaget for hele ringteorien og for kvotient-kriteriet.
+- **Forkunnskaper (kryssbok):** Kap. 1.1 (gruppestruktur under addisjon). *(forgjenger — modulær aritmetikk i $\mathbb{Z}_n$; aktiver lenke når den finnes)*.
+- **Eksamensbelegg:** Sjanger G (~40 %). Fasitens grep: nulldelerne i $\mathbb{Z}_n$ er nettopp $d$ med $\gcd(d,n)\ne1$; «ikke integritetsområde» = pek på ett konkret par ikke-null med produkt 0 ($3\cdot4=0$ i $\mathbb{Z}_{12}$). Prioritet: **kunne**.
+- **Innholdskontrakt:** **Ring** (*ring*): abelsk gruppe under $+$, assosiativ $\cdot$ med distributivitet; **kommutativ ring med enhet** (*commutative ring with unity*); **enhet** (*unit*, inverterbart element), enhetsgruppen $U(R)=R^*$; **nulldeler** (*zero divisor*): $a\ne0$ med $ab=0$ for en $b\ne0$; **integritetsområde** (*integral domain*): kommutativ ring med enhet, uten nulldelere; **kropp** (*field*): alle ikke-null-elementer er enheter; **hver kropp er et integritetsområde**, og hvert **endelig** integritetsområde er en kropp; i $\mathbb{Z}_n$: nulldelerne er $\{d:\gcd(d,n)\ne1\}$, enhetene $\{d:\gcd(d,n)=1\}$, så $\mathbb{Z}_n$ kropp ⇔ $\mathbb{Z}_n$ int.område ⇔ $n$ primtall; karakteristikk (*characteristic*).
+- **Oppgavesjangre:** G. Mønstereksempel: «Bestem alle nulldelere og alle enheter i $\mathbb{Z}_{10}$. Er $\mathbb{Z}_{10}$ et integritetsområde? Begrunn med et konkret nulldeler-par.»
+- **Typiske feil:** Forveksle nulldeler og ikke-enhet (i $\mathbb{Z}_n$ sammenfaller de for $d\ne0$, men ikke generelt); glemme at 0 per konvensjon ikke regnes som nulldeler; påstå «ikke int.område» uten konkret par; blande karakteristikk og orden.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 6.2: Idealer, kvotientringer og kjerne til ringhomomorfi
+
+- **id:** `mat2200-6-2` · **number:** 6.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-6-1`, `mat2200-3-2`
+- **kapitteltype:** teori
+- **description:** Ringanalogien til normale undergrupper: idealer (absorpsjon rI⊆I) gir kvotientringer R/I, og fasitens snarvei — vis at et ideal er kjernen til en ringhomomorfi og få R/I≅im φ gratis.
+- **Forkunnskaper (kryssbok):** Kap. 6.1 (ringer), 3.2 (kjerne/isomorfiteorem for grupper — analogien).
+- **Eksamensbelegg:** Sjanger H (~75 %). Fasitens grep: vis ideal enten **direkte** (additiv undergruppe + absorpsjon) **eller — snarveien — som kjerne** $I=\ker\pi$, som gir $R/I\cong\pi[R]$ gratis. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Ideal** (*ideal*) $I\subseteq R$: additiv undergruppe med **absorpsjon** $rI\subseteq I$ og $Ir\subseteq I$ for alle $r\in R$; **prinsipalideal** (*principal ideal*) $\langle a\rangle=aR$; **kvotientring** (*quotient ring*) $R/I$ med veldefinert $+,\cdot$ på kosetter; **ringhomomorfi** (*ring homomorphism*), **kjernen er et ideal** (og ethvert ideal er kjerne til projeksjonen $\pi:R\to R/I$); **isomorfiteoremet for ringer** $R/\ker\varphi\cong\operatorname{im}\varphi$ (navngis). **«Alternatively»-paret** (regel 1.5.6): vis $I$ er ideal ved direkte absorpsjon vs. ved å konstruere en ringhomomorfi med $\ker=I$. Standardeksempler: $n\mathbb{Z}\subseteq\mathbb{Z}$; $\pi:\mathbb{Z}\times\mathbb{Z}\to\mathbb{Z}$ projeksjon; evaluering $\operatorname{ev}_a:k[x]\to k$.
+- **Oppgavesjangre:** H. Mønstereksempel: «La $I=\{(a,0):a\in\mathbb{Z}\}\subseteq\mathbb{Z}\times\mathbb{Z}$. Vis at $I$ er et ideal — først direkte, deretter ved å skrive $I$ som kjernen til projeksjonen på andre koordinat — og identifisér $(\mathbb{Z}\times\mathbb{Z})/I$.»
+- **Typiske feil:** Sjekke absorpsjon bare fra én side i ikke-kommutativ ring; forveksle delring og ideal (delring trenger ikke absorpsjon); glemme at kjernen automatisk er et ideal; ikke bruke isomorfiteoremet der kjerne-snarveien gir kvotienten gratis.
+- **Quiz: 16 · Flashcards: 22**
+
+#### Kapittel 6.3: Prim- og maksimalidealer via kvotient-kriteriet
+
+- **id:** `mat2200-6-3` · **number:** 6.3 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-6-2`
+- **kapitteltype:** teori
+- **description:** Ringteoriens ryggrad: I prim ⇔ R/I integritetsområde, I maksimal ⇔ R/I kropp — og hvordan hele ekvivalenskjeden føres, med det klassiske eksemplet på et prim men ikke maksimalt ideal.
+- **Forkunnskaper (kryssbok):** Kap. 6.2 (kvotientring), 6.1 (int.område/kropp).
+- **Eksamensbelegg:** Sjanger H (~75 %), ringteoriens mest gjentatte deloppgave. Fasitens grep: **kvotient-kriteriet** — $I$ prim ⇔ $R/I$ int.område; $I$ maksimal ⇔ $R/I$ kropp; klassisk: $I$ i $\mathbb{Z}\times\mathbb{Z}$ prim men ikke maksimal fordi $R/I\cong\mathbb{Z}$ int.område men ikke kropp. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Primideal** (*prime ideal*): $ab\in I\Rightarrow a\in I$ eller $b\in I$; **maksimalideal** (*maximal ideal*): ingen ideal strengt mellom $I$ og $R$; **kvotient-kriteriet** (navngis): $I$ prim ⇔ $R/I$ integritetsområde; $I$ maksimal ⇔ $R/I$ kropp; **maksimal ⇒ prim** (kropp ⇒ int.område); i $\mathbb{Z}$: primidealene er $\{0\}$ og $p\mathbb{Z}$, maksimalidealene er $p\mathbb{Z}$; «$n\mathbb{Z}$ ikke prim når $n$ sammensatt»: $n=ab$, $a,b\notin n\mathbb{Z}$; i $\mathbb{Z}_{p^n}$ er $\langle p\rangle$ det entydige maksimalidealet. **«Alternatively»-par**: direkte prim/maksimal-argument vs. kvotient-kriteriet. Full ekvivalenskjede forventes (regel 1.5.7).
+- **Oppgavesjangre:** H. Mønstereksempel: «Vis at $I=\{(a,0):a\in\mathbb{Z}\}\subseteq\mathbb{Z}\times\mathbb{Z}$ er et primideal, men ikke maksimalt, ved å identifisere $(\mathbb{Z}\times\mathbb{Z})/I$.»
+- **Typiske feil:** Blande prim og maksimal ($R/I$ int.område vs. kropp); glemme at maksimal medfører prim; ufullstendig ekvivalenskjede; påstå «$n\mathbb{Z}$ prim» for sammensatt $n$; ikke identifisere kvotienten eksplisitt.
+- **Quiz: 16 · Flashcards: 22**
+
+#### Kapittel 6.4: Drill (argumentmaskin iii): kvotient-kriteriet + kjerne-snarvei
+
+- **id:** `mat2200-6-4` · **number:** 6.4 · **estimatedMinutes:** 85 · **prerequisites:** `mat2200-6-3`
+- **kapitteltype:** drill
+- **description:** Hele idealpakken drillet til automatikk: vis ideal (direkte eller som kjerne), identifiser kvotientringen, og les av prim/maksimal via kvotient-kriteriet — med begge «Alternatively»-veiene tilgjengelige.
+- **Eksamensbelegg:** Dekker sjanger H samlet (~75 %, halvparten av alle ring-deloppgaver). Variantkatalogen: ideal via kjerne + kvotient gratis; prim men ikke maksimal ($R/I\cong\mathbb{Z}$); maksimal ($R/I$ kropp); $\langle p\rangle$ i $\mathbb{Z}_{p^n}$; ideal i polynomring (bro til Del 7). Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Løsningsoppskrift (algoritme):** (1) er $I$ ideal? — direkte (additiv + absorpsjon) eller **snarvei**: konstruér ringhomomorfi $\varphi$ med $\ker\varphi=I$; (2) identifisér $R/I$ (via isomorfiteoremet $R/I\cong\operatorname{im}\varphi$ hvis kjerne-veien); (3) er $R/I$ integritetsområde? kropp? (kvotient-kriteriet); (4) konkluder prim/maksimal med navngitt kriterium + full ekvivalenskjede. **Gjennomregnet eksamenscase** ($I=\ker(\operatorname{ev}_0:\mathbb{Z}[x]\to\mathbb{Z})$, altså konstantledd-null-polynomene: ideal via kjerne, $R/I\cong\mathbb{Z}$, prim ikke maksimal) med sensor-margnotater (kjerne-snarveien brukt, kvotient identifisert, kriteriet navngitt). 10–15 oppgaver: minst én kjerne-snarvei, én prim-ikke-maksimal, én maksimal, én der begge «Alternatively»-veier vises.
+- **Oppgavesjangre:** H. Mønstereksempel: «La $\varphi:\mathbb{R}[x]\to\mathbb{C}$, $\varphi(f)=f(i)$. Vis at $\ker\varphi=\langle x^2+1\rangle$, identifisér $\mathbb{R}[x]/\langle x^2+1\rangle$, og avgjør om idealet er prim/maksimalt.»
+- **Typiske feil:** Hele fellekatalogen fra 6.2–6.3 under tidspress; ikke bruke kjerne-snarveien der den sparer alt arbeidet; blande prim/maksimal; ufullstendig ekvivalenskjede; feil identifikasjon av kvotientringen.
+- **Quiz: 16 · Flashcards: 8**
+
+**Prøve-kvote Del 6:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 7 — Polynomringer og faktorisering *(prioritet: KUNNE — irredusibilitet/Eisenstein ~60 %)*
+
+#### Kapittel 7.1: Polynomringer k[x], divisjonsalgoritmen og PID
+
+- **id:** `mat2200-7-1` · **number:** 7.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-6-2`
+- **kapitteltype:** teori
+- **description:** Polynomringen k[x] over en kropp: grad, divisjonsalgoritme, at k[x] er et prinsipalidealområde, og telleargumentet «et ideal som inneholder polynomer uten felles faktor er hele ringen».
+- **Forkunnskaper (kryssbok):** Kap. 6.2 (idealer), 6.1 (kropp). [Polynomdivisjon](/bok/r2/r2-2-3) (polynomdivisjon fra VGS — verifiser id i fase 6).
+- **Eksamensbelegg:** Sjanger I-grunnlag + polynomdivisjon → ideal (~25 %). Fasitens grep: hvis et ideal $I\subseteq k[x]$ inneholder $f$ og $g$, produsér rest av lavere grad (euklidsk algoritme) til en enhet (konstant $\ne0$) ⇒ $I=k[x]$. Prioritet: **kunne**.
+- **Innholdskontrakt:** **Polynomring** (*polynomial ring*) $k[x]$ over kropp $k$; grad, ledende koeffisient, monisk polynom; **divisjonsalgoritmen** ($f=qg+r$, $\deg r<\deg g$); **$k[x]$ er et prinsipalidealområde (PID)** — hvert ideal er $\langle d\rangle$ for et $d$ av minste grad (bro: dette er hvorfor $\langle f\rangle$ maksimal ⇔ $f$ irredusibel, Del 8/10); **euklidsk algoritme** for $\gcd$ i $k[x]$; **polynomdivisjon → ideal = hele ringen**: to polynomer med $\gcd=1$ genererer $\langle1\rangle=k[x]$ (Bézout i $k[x]$); enheter i $k[x]$ = de ikke-null-konstantene.
+- **Oppgavesjangre:** I. Mønstereksempel: «Vis at et ideal $I\subseteq\mathbb{Q}[x]$ som inneholder $x^3-x^2+x$ og $x^2-1$ er hele $\mathbb{Q}[x]$.» (reduser til en konstant via euklidsk algoritme).
+- **Typiske feil:** Anta at $R[x]$ er PID for en ring $R$ som ikke er kropp (kun kropp gir PID); regnefeil i polynomdivisjonen; ikke redusere helt til en enhet før man konkluderer $I=k[x]$; blande grad av rest.
+- **Quiz: 16 · Flashcards: 22**
+
+#### Kapittel 7.2: Irredusibilitet: Eisenstein, grad ≤ 3-argument og faktorisering over Z_p
+
+- **id:** `mat2200-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-7-1`
+- **kapitteltype:** teori
+- **description:** Verktøyene for å avgjøre irredusibilitet: Eisensteins kriterium over Q, «ingen rot ⇒ irredusibel» for grad ≤ 3, faktoriseringsforsøk for grad 4, og rot-sjekk over Z_p — grunnlaget for at k[x]/⟨f⟩ blir en kropp.
+- **Forkunnskaper (kryssbok):** Kap. 7.1 (k[x], divisjon). *(forgjenger — primtall, gcd; aktiver lenke når den finnes)*.
+- **Eksamensbelegg:** Sjanger I (~60 %). Fasitens grep: **Eisenstein** (favoritter $x^n-2$, $x^5-2$, $x^3\pm5$); grad ≤ 3 uten rot ⇒ irredusibel (evaluér i **alle** elementer av $\mathbb{Z}_p$); grad 4 uten rot: prøv $(x^2+ax+b)(x^2+cx+d)$ og før til motsigelse. Prioritet: **kunne**.
+- **Innholdskontrakt:** **Irredusibelt polynom** (*irreducible polynomial*): ikke produkt av to polynomer av lavere grad; **Eisensteins kriterium** (*Eisenstein's criterion*, navngis): et primtall $p$ deler alle koeffisienter unntatt den ledende, og $p^2$ deler ikke konstantleddet ⇒ irredusibel over $\mathbb{Q}$ (forutsetning-sjekk er obligatorisk, regel 1.5.5); **rot-kriteriet for grad ≤ 3**: ingen rot i $k$ ⇒ irredusibel, **fordi** en faktorisering ville gi en lineær faktor og dermed en rot (argumentet må stå, regel 1.5.7); **grad 4**: fravær av rot er ikke nok — prøv produkt av to andregradsfaktorer; **over $\mathbb{Z}_p$**: evaluér i alle $p$ elementer; kvadratisk irredusibel ⇔ ingen rot ⇔ diskriminant er ikke-kvadrat; Gauss' lemma (kjennskap: irredusibel over $\mathbb{Z}$ ⇔ over $\mathbb{Q}$).
+- **Oppgavesjangre:** I. Mønstereksempel: «(a) Vis at $x^5-2$ er irredusibel over $\mathbb{Q}$. (b) Er $x^3+x+1$ irredusibel over $\mathbb{Z}_2$? (c) Faktorisér $x^4+1$ over $\mathbb{Z}_2$.»
+- **Typiske feil:** Bruke Eisenstein uten å sjekke forutsetningene; påstå «grad 3 uten rot ⇒ irredusibel» uten begrunnelsen; tro at grad 4 uten rot er irredusibel (kan splitte i to kvadratiske); glemme å evaluere i **alle** $\mathbb{Z}_p$-elementer; regne i feil karakteristikk.
+- **Quiz: 18 · Flashcards: 22**
+
+**Prøve-kvote Del 7:** 4 prøver (spesifisert i §4).

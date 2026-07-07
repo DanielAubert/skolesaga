@@ -31,7 +31,7 @@
 | Level | `'Høyskole'` |
 | Institusjon | NTNU (Norges teknisk-naturvitenskapelige universitet) |
 | Arketype | Regnefag (kvantitativt fag med faste flervalgs-oppgavemaler) |
-| Antall kapitler | **40** (1 eksamenskart + 15 mekanikk-tema + 15 termofysikk-tema + 1 numerikk + 4 eksamenstrening) + 11 prøvekapitler |
+| Antall kapitler | **37** (1 eksamenskart + 16 mekanikk-tema + 15 termofysikk-tema + 1 numerikk + 4 eksamenstrening) + 11 prøvekapitler |
 | Estimert totaltid | **≈ 2 500 min innholdskapitler + ≈ 1 380 min prøver/øvingseksamener ≈ 65 timer** |
 | Quiz totalt | **710** (krav ≥500 — bevisst høyt, se §4) |
 | Flashcards totalt | **564** (krav ≥500) |
@@ -762,7 +762,7 @@ tall» (MC-oppskrift)**, samt en **avrundings-/faktorfelle-`warning`**.
 | 10 | 10.1–10.3 | 20+18+14 = **52** | 18+16+8 = **42** |
 | 11 | 11.1 | **18** | **14** |
 | 12 | 12.1–12.4 | 16+6+6+6 = **34** | 14+0+0+0 = **14** |
-| **Sum** | **40 kap.** | **710 ≥ 500 ✓** | **564 ≥ 500 ✓** |
+| **Sum** | **37 kap.** | **710 ≥ 500 ✓** | **564 ≥ 500 ✓** |
 
 **Kontrollsum mekanikk (Del 1–5):** quiz 64+66+56+84+62 = **332**; flashcards 50+52+44+70+50 = **266**.
 **Kontrollsum termofysikk (Del 6–10):** quiz 66+66+64+62+52 = **310**; flashcards 54+54+52+50+42 = **252**.
@@ -873,7 +873,7 @@ Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokke
 
 ### Rekkefølge
 
-1. **Metadata først:** `TextbookCourse`-oppføring for `tfy4115` med alle 40
+1. **Metadata først:** `TextbookCourse`-oppføring for `tfy4115` med alle 37
    kapitler + 11 prøvekapitler (id/number/title/description/estimatedMinutes/
    topics/prerequisites) etter mønster `COURSE_BI_OKONOMI` i
    `src/lib/data/textbook-courses-hoyskole.ts` (append); `sectionNames` fra

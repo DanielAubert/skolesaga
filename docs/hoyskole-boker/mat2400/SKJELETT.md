@@ -752,3 +752,147 @@ arkivkalibreringen), og trener **både «vis at»-, moteksempel- og beregn-med-
 begrunnelse-sjangrene**. Hver deloppgave er 10 poeng, alt begrunnet, ~22 min/blokk.
 
 ---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Et rent bevisemne på ti likt vektede punkter** — vurderingsformen (4-timers
+   skriftlig skoleeksamen, ~10 likt vektede 10-poengs deloppgaver, ingen
+   hjelpemidler ut over et lite faktaark), oppgavefordelingen (~75 % «vis at»,
+   ~12 % moteksempel, ~12 % beregn-med-begrunnelse) og hovedfunnet: dette kan ikke
+   «regnes» som MAT1100 — hele faget er bevishåndverk (fra kap. 0.1).
+2. **Prioriteringskartet** — frekvens-tabellen omgjort til tre lesenivåer:
+   **perfekt** (Del 4 normerte rom/operatornorm 67 %, Del 5 Fréchet/invers 50 %
+   stigende, Del 6 Fourier 58 % stigende, Del 1 metriske rom/kompletthet/kompakthet
+   58 %), **kunne** (Del 2 uniform konvergens, Del 3 uniform kontinuitet/Arzelà–
+   Ascoli, Del 4.4 Hilbert, Del 5.1 Banach), **kjenne** (Del 2.3 potensrekker, Del
+   3.2 Weierstrass-approksimasjon, **Del 7 målteori — ikke arkivbelagt etter 2015**)
+   — med notatet om at Fréchet-firetrinnet er den enkeltferdigheten som skiller
+   karakterene mest.
+3. **Bevismal-biblioteket** — de faste malene fra kap. 0.2 og drillkapitlene i
+   kortform: metrikk/norm-aksiomene (i)–(iii), Fréchet-firetrinnet, operatornorm to
+   veier, kompletthetsmalen, Arzelà–Ascolis tre krav, kontraksjon+kompletthet,
+   Fourier-beregning med paritet, moteksempel-oppskriften.
+4. **Sensorreglene** — «alle svar begrunnes», de faste malene fulgt til punkt og
+   prikke, **forutsetningssjekk før teorem** (kompletthet før Banach,
+   ekvikontinuitet før Ascoli, kompakthet før ekstremverdi, uniform konvergens før
+   ledd-for-ledd), **navngi teoremet**, **moteksempel krever verifikasjon**,
+   **«Alternatively»** (begge veier), kjeding a)→b) (fra kap. 8.1) +
+   karakterskille-listen (bestått/midt/topp).
+5. **Feilkatalogen** — de 12 typiske feilene fra analysen samlet (manglende
+   Fréchet-ledd, Gateaux forvekslet med Fréchet, teorem uten forutsetningssjekk,
+   «lukket+begrenset ⇒ kompakt» i uendelig dimensjon, ledd-for-ledd uten uniform
+   konvergens, uniform «bevist» punktvis, ufullstendige norm-/metrikk-aksiomer,
+   operatornorm én vei, kompletthet forvekslet med lukkethet, Fourier-paritet ikke
+   utnyttet / rekkesum i diskontinuitetspunkt, moteksempel uten verifikasjon,
+   ε–δ-slurv), hver med henvisning til kapitlet som forebygger den.
+6. **Teorem-, definisjons- og notasjonsliste i Lindstrøms notasjon** — apparatet fra
+   innholdskontraktene, med markering *utlede/bevise aktivt* vs. *kun bruke*: metrikk/
+   norm-aksiomene, topologi via følger, kompletthet + kompakthet (Heine–Borel,
+   ekstremverdi, Arzelà–Ascoli), M-test + uniform konvergens, uniform kontinuitet,
+   operatornorm + normekvivalens, indreprodukt/Hilbert (Cauchy–Schwarz, Bessel,
+   Parseval, Riesz), Banach + Fréchet-firetrinnet + invers/implisitt funksjonsteorem,
+   Fourier (koeffisienter, Dini, uniform under $\sum\lvert\alpha_n\rvert<\infty$,
+   Fejér, Riemann–Lebesgue, konvolusjon), målteori (beredskap: σ-algebra,
+   dominert/monoton konvergens) — med **teoremnavn-banken** (alt må kunne påberopes
+   utenat) og en påminnelse om at bare et lite faktaark deles ut.
+7. **Studieløp** — semesterplan: Del 0 (etabler bevishåndverket) → Del 1
+   (grunnmuren, drill til automatikk) → Del 2–3 (konvergens + kontinuitet) →
+   **Del 4 (ryggraden — bruk mye tid)** → **Del 5 (den stigende signaturen — Fréchet
+   til automatikk i eget drillkapittel)** → Del 6 (Fourier, nesten årlig) → Del 7
+   (målteori kort — beredskap, ikke tyngdepunkt) → temaprøvene → bevismal-standarden
+   (8.1) → de tre øvingseksamenene under tidspress (4 timer, ingen hjelpemidler).
+   Ærlighetsnotat: målteori nedprioriteres bevisst; **verifiser kalibreringen mot
+   første sett fra 2023 og senere** før eksamen.
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først**: `TextbookCourse`-oppføring for `mat2400` med alle 33
+   kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
+   etter mønster `COURSE_BI_OKONOMI` i `textbook-courses-matte.ts`, + `sectionNames`
+   fra §2-tabellen (del-nummer → seksjonstittel). **`number` SKAL være del-basert**
+   («5.2», ALDRI lineær «22») — bokforsiden grupperer på `number.split('.')[0]`.
+   Prosareferanser i innholdet bruker samme del-baserte form («kap. 5.2»).
+2. **Del 0** (kap. 0.1–0.2) — etablerer sjangernavnene A–O, frekvenstallene og
+   bevismal-biblioteket som resten refererer til.
+3. **Grunnmuren**: Del 1 (metriske rom er grunnlaget alt hviler på; 1.4 kompakthet
+   krever 1.3 kompletthet).
+4. **Konvergens og kontinuitet**: Del 2 (uniform konvergens; krever 1.3) → Del 3
+   (uniform kontinuitet + Arzelà–Ascoli; 3.2 krever 1.4 + 2.1).
+5. **Ryggraden**: Del 4 (normerte rom/operatornorm/Hilbert; 4.1 krever 1.3, 4.4
+   krever 4.1).
+6. **Den stigende signaturen**: Del 5 (Banach krever 1.3; Fréchet 5.2 krever 4.2;
+   invers/implisitt 5.4 krever 5.2 + 5.1).
+7. **Fourier**: Del 6 (krever 4.4 Hilbert + 2.2 M-test).
+8. **Beredskap**: Del 7 (målteori; krever 1.2 + 2.1) — merk «ikke arkivbelagt etter
+   2015» i hver Eksamensvinkel.
+9. **Del 8** til slutt (bevismal-standard + de tre øvingseksamenene gjenbruker alt
+   og må dekke A–N + begge produksjonsmåter). Temaprøvene (§4) legges som
+   prøvekapitler (`mat2400-<del>-prove`, chapterNumber `<del>.P`), én per temadel
+   1–7 (28 stk).
+10. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert som
+    kapitlene ferdigstilles.
+
+**Batching (fase 4):** én agent per hel del. Del 1, 4 og 5 (5 kap. hver) og Del 8
+(4 kap., hvorav 3 øvingseksamener) er de største — hold hver del samlet hos én
+agent, flagg dem for konsistenssjekk. Del 5 (Fréchet/invers) bygges av en agent som
+også leser 4.1–4.2 og 5.1 (Banach bærer invers-beviset). Del 6 (Fourier) bygges av
+en agent som også leser 4.4 (Hilbert) og 2.2 (M-test). Øvingseksamenene (8.2–8.4)
+bygges av én agent som leser HELE skjelettet (de gjenbruker alle sjangre).
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering**: hver kapittelfil parser (`json.load`); generer JSON via
+      `json.dump`, ikke håndskriving — LaTeX krever `\\` i JSON-strenger;
+      `npm run build` grønn (combine-chapters fanger ugyldig JSON i registry).
+- [ ] **LaTeX + Lindstrøms notasjon**: all matematikk i `$...$`/`$$...$$`; ingen
+      unicode-brøker; konsistent notasjon: $d$, $\lVert\cdot\rVert$,
+      $\lVert\cdot\rVert_\infty$, $\lVert\cdot\rVert_1$, $\langle\cdot,\cdot\rangle$,
+      $\bar A$, $\partial A$, $B(a;r)$, $F'(x;r)$, $F'(x)$/$A$, $\sigma(r)$,
+      $\alpha_n=\langle u,e_n\rangle$, $e_n(x)=e^{inx}$, $\ell^p$, $C[a,b]$.
+- [ ] **Bevismal-konsistens (grep over alle mat2400-filer)**: metrikk/norm-aksiomene
+      listet (i)–(iii); Fréchet-bevis har **alle fire ledd** (retningsderivert,
+      linearitet, begrensethet, restledd); operatornorm vist **begge veier** der
+      eksakt norm kreves; kompletthet sjekket **før** Banach påberopes;
+      ekvikontinuitet sjekket **før** Arzelà–Ascoli; teoremer **navngitt**;
+      moteksempler **verifisert**.
+- [ ] **A-besvarelse i ALLE løsningsforslag**: aksiomlister; fire Fréchet-ledd;
+      testfunksjon med $\lVert f\rVert=1$; forutsetningssjekk før hvert teorem;
+      navngitt teorem der argumentet bæres; riktig kvantorrekkefølge i ε–δ; verbal
+      konklusjonssetning. **Et fasitsvar uten bevisføring er en byggefeil.**
+- [ ] **Arkiv-ærlighet**: Del 7 (målteori) og hver Eksamensvinkel der merker
+      «ikke arkivbelagt etter 2015»; kap. 0.1, Del 7-intro og kap. 8.4 sier
+      eksplisitt at arkivet stopper 2022 og at kalibreringen skal **verifiseres mot
+      første sett fra 2023 og senere** (særlig om målteori er gjeninnført). Metode
+      uten skreven fasit merkes «⚠️ metode = faglig standard».
+- [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med tallene
+      fra dette skjelettet), Forkunnskaper-blokk med kryssbok-lenker (kun til
+      kapitler som finnes — R1/R2 lenket og verifisert; **MAT1100/MAT1110 som
+      klartekst med aktiveringsmarkør**), `collapsible` Symbol- og formelliste per
+      delkapittel (alle symboler forklart — $d$, $\lVert\cdot\rVert$,
+      $\langle\cdot,\cdot\rangle$, $\sigma(r)$, $\alpha_n$ osv.), Typiske
+      feil-`warning` (med forutsetningssjekk-advarslene), 2–4 eksempler (siste på
+      eksamensnivå), 6–12 bevisøvinger med `solution` + `hints`, repetisjons-
+      `collapsible`; drillkapitler har løsningsoppskrift + sensor-kommentert case +
+      10–16 bevisoppgaver; øvingseksamenene fører komplette A-besvarelser per
+      deloppgave.
+- [ ] **Quiz-sum ≥ 509 og flashcard-sum ≥ 636** per kvotetabellen i §3
+      (kontrollsummér). Flashcards KUN fra toppnivå `definition`-blokker med `title`
+      (definisjoner, teoremer med navn, bevismaler — puggematerialet).
+- [ ] **Prøver**: 4 per temadel 1–7 (28 stk) + 3 øvingseksamener (8.2–8.4) som
+      sammen dekker A–N; hver øvingseksamen har ~10 likt vektede 10-poengs
+      bevis-deloppgaver.
+- [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne funksjoner, tall og
+      kontekster; ingen formuleringer fra reelle sett eller fasiter (skjelettets
+      mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
+      ordrett inn); Lindstrøm refereres (apparat/notasjon), aldri siteres i lengde.
+- [ ] **Navigasjon**: `mat2400` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+      under **Universitetet i Oslo (UiO)**, navn = «MAT2400 Reell analyse».
+- [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og
+      minst 3 kapittel-/narrativ-ruter (teori/drill/prøve — f.eks. 4.1, 5.3, 6.3) +
+      quiz- og flashcard-rute (200 + innholdssjekk), jf. `getChapterMeta`-lærdommen.
