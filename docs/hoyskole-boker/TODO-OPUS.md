@@ -159,8 +159,20 @@ for transje 7: JUS3112 (arkiv JUS3111, 14), JUS4212/JUS4213 (arkiv JUS4211,
 
 Mål: fullføre ALLE gjenværende fagbeskrivelse-vettede emner med brukbart arkiv.
 Bygges (AKTIVE med ≥5 filer + høyverdi-etterfølgere):
-- **Matte-reform-etterfølgere (NTNU):** `tma4106` (←TMA4105, 114 f), `tma4111`
-  (←TMA4110, 196 f), `tma4121` (←TMA4120, 47 f). Etterfølger-profilert.
+- **Matte-reform-etterfølgere (NTNU):** `tma4121` (←TMA4120, 47 f). NB: NTNUs
+  matematikkreform spredte innhold på tvers av koder, så de to store matte-
+  arkivene er retargetet til det de FAKTISK inneholder (ikke kodeetiketten):
+  - ⚠ `tma4106` → bygget som `tma4101` «Flervariabel kalkulus og vektoranalyse»:
+    TMA4105-arkivet (114 f) er 100 % flervariabel/vektoranalyse; reformen la det i
+    TMA4101 Matematikk 1, mens TMA4106 tester ODE/Fourier/kompleks (annet pensum).
+  - ⚠ `tma4111` → bygget som `tma4110` «Lineær algebra, komplekse tall og
+    differensiallikninger»: TMA4110-arkivet (196 f) er lin.alg + elementære
+    komplekse tall + ODE; dagens TMA4111 (vektorkalkulus/PDE) dekkes av tma4101 +
+    tma4135. Arkivet fikk ærlig, arkivbelagt hjem under sitt gamle innhold.
+  - Begge har kodetilhørighet merket (verifiser); TMA4106/TMA4111s greenfield-
+    pensum (ODE/Fourier hhv. vektorkalkulus/PDE-som-eget-emne) HOPPET OVER —
+    krever egne post-reform eksamenssett (ikke i arkivet); dekkes delvis av
+    tma4101/tma4135/tma4110.
 - **BI-portefølje (første BI-fag i fabrikken):** `met2910-bi`, `sok3500-bi`,
   `met2920-bi`, `met1190-bi`, `bok3423-bi`, `bok3532-bi`, `bok3632-bi`,
   `fin3521-bi`, `jur3420-bi`, `str3605-bi`, `org3620-bi`, `mrk3481-bi`.
