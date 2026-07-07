@@ -26,7 +26,9 @@ if not any(int(x) >= 500 for x in qm): issues.append("Fant ingen kvotesum >= 500
 
 # 3. Prøve-kvoter per del
 pk = re.findall(r"\*\*Prøve-kvote Del (\d+)", s)
-if len(pk) < 3: issues.append(f"Kun {len(pk)} prøve-kvote-linjer (forventet en per temadel)")
+# Godta også tabell-/temaprøve-format («4 per temadel», «Prøve N.X»)
+alt_prove = len(re.findall(r"Prøve \d+\.[A-Z]", s)) + len(re.findall(r"per temadel", s, re.I))
+if len(pk) < 3 and alt_prove < 3: issues.append(f"Kun {len(pk)} prøve-kvote-linjer og {alt_prove} alt.prøve-treff (forventet prøver per temadel)")
 
 # 4. Seksjonstitler
 if not re.search(r"seksjonstit|sectionNames", s, re.I): issues.append("Mangler seksjonstitler/sectionNames-angivelse")
