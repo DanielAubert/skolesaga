@@ -110,6 +110,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON1220 Velferd og økonomisk politikk (UiO) | drøfting/hybrid | skjelett |
 | ECON1410 Internasjonal økonomi (UiO) | regnefag | skjelett |
 | ECON1910 Poverty and Distribution (UiO) | drøfting/hybrid | skjelett |
+| ECON4915 Development Economics (UiO) | drøfting | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
@@ -146,6 +147,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | Matematikk 1000 / DAFE1000 (OsloMet) | regnefag | skjelett |
 | AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
+| MED1100 Medisinstudiet modul 1 (UiO) | fakta/pugg-hybrid | skjelett |
 | PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
