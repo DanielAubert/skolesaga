@@ -101,7 +101,7 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `mat112-uib` — Kalkulus II (UiB, 65 filer; oppfølger MAT111)
 - [ ] `tfy4104` — Fysikk (NTNU, 55 filer; nær TFY4115)
 - [ ] `psy1000` — Innføring i generell psykologi (UiO, 42 filer)
-- [ ] `econ2200` — Matematikk 1 / Mikro 1 – MM1 (UiO, 41 filer)
+- [ ] ~~`econ2200`~~ — NEDLAGT (siste V2018); pensum delt mellom ECON1100 + ECON2220, som begge har rammeverk. Skjelett droppet (redundant); analyse beholdt.
 - [ ] `sok1002` — Mikroøkonomi (NTNU, 34 filer)
 - [ ] `tma4135` — Matematikk 4D (NTNU, 26 filer)
 - [ ] `sos1001` — Sosiologisk teori/metode (UiO, 25 filer)
