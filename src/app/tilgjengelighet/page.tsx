@@ -91,8 +91,12 @@ export default function TilgjengelighetPage() {
               <h2 className="text-xl font-semibold mt-8 mb-4">4. Meld fra om barrierer</h2>
               <p>
                 Opplever du barrierer eller mangler ved tilgjengeligheten på nettstedet, vil vi gjerne
-                høre fra deg. Ta kontakt via nettsiden, så følger vi opp så raskt vi kan. Vi besvarer
-                normalt henvendelser innen rimelig tid.
+                høre fra deg. Send en e-post til{" "}
+                <a href="mailto:studenthjelp@gmail.com" className="underline">
+                  studenthjelp@gmail.com
+                </a>{" "}
+                eller bruk «Meld feil eller forbedring»-knappen nederst i kapitlene, så følger vi opp
+                så raskt vi kan. Vi besvarer normalt henvendelser innen rimelig tid.
               </p>
             </section>
 
@@ -108,8 +112,14 @@ export default function TilgjengelighetPage() {
             <section>
               <h2 className="text-xl font-semibold mt-8 mb-4">6. Om erklæringen</h2>
               <p>
-                Erklæringen bygger på en intern gjennomgang av nettstedet mot WCAG 2.1 AA. Den
-                oppdateres etter hvert som avvik rettes og ny funksjonalitet kommer til.
+                Erklæringen bygger på en intern gjennomgang av nettstedet mot WCAG 2.1 AA,
+                gjennomført i juni 2026 med både manuell vurdering og automatisert testing
+                (axe-core). Den oppdateres etter hvert som avvik rettes og ny funksjonalitet
+                kommer til. Erklæringen gjelder for skolesaga.no og utgis av Studenthjelp
+                Privatundervisning AS (org.nr 913 117 387).
+              </p>
+              <p className="mt-3">
+                Sist oppdatert: 7. juli 2026.
               </p>
             </section>
           </div>

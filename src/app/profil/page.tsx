@@ -18,6 +18,8 @@ import {
   Calendar,
   Phone,
   Pencil,
+  Download,
+  Trash2,
 } from "lucide-react";
 
 interface UserProfile {
@@ -49,6 +51,25 @@ export default function ProfilePage() {
   const { logout } = useAuth();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [profileLoading, setProfileLoading] = useState(true);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+
+  const handleDeleteAccount = async () => {
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      const response = await fetch("/api/user/data", { method: "DELETE" });
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Kunne ikke slette kontoen");
+      }
+      await logout();
+    } catch (error) {
+      setDeleteError(error instanceof Error ? error.message : "En feil oppstod");
+      setDeleting(false);
+    }
+  };
 
   // Fetch full profile from API
   useEffect(() => {
@@ -280,6 +301,70 @@ export default function ProfilePage() {
                   Logg ut
                 </Button>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Personvern og data */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Personvern og data</CardTitle>
+              <CardDescription>
+                Last ned en kopi av opplysningene dine, eller slett kontoen din permanent
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <a href="/api/user/data" download className="block">
+                <Button variant="outline" className="w-full justify-start">
+                  <Download className="h-4 w-4 mr-2" />
+                  Last ned mine data (JSON)
+                </Button>
+              </a>
+
+              {!confirmDelete ? (
+                <Button
+                  variant="outline"
+                  className="w-full justify-start text-destructive hover:text-destructive"
+                  onClick={() => setConfirmDelete(true)}
+                >
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Slett kontoen min
+                </Button>
+              ) : (
+                <div className="rounded-lg border border-destructive/50 bg-destructive/5 p-4 space-y-3">
+                  <p className="text-sm font-medium">
+                    Er du sikker? Kontoen din og alle lagrede data (fremgang, resultater og
+                    innleveringer) slettes permanent. Dette kan ikke angres.
+                  </p>
+                  {deleteError && (
+                    <p className="text-sm text-destructive" role="alert">{deleteError}</p>
+                  )}
+                  <div className="flex gap-3">
+                    <Button
+                      variant="destructive"
+                      onClick={handleDeleteAccount}
+                      disabled={deleting}
+                    >
+                      <Trash2 className="h-4 w-4 mr-2" />
+                      {deleting ? "Sletter…" : "Ja, slett kontoen permanent"}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => setConfirmDelete(false)}
+                      disabled={deleting}
+                    >
+                      Avbryt
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              <p className="text-xs text-muted-foreground">
+                Les mer om hvordan vi behandler opplysningene dine i{" "}
+                <Link href="/personvern" className="underline hover:text-foreground">
+                  personvernerklæringen
+                </Link>
+                .
+              </p>
             </CardContent>
           </Card>
 

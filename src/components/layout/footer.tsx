@@ -29,7 +29,7 @@ export function Footer() {
               <BookOpen className="h-4 w-4" />
               Lærebok
             </Link>
-            <div className="flex gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <Link href="/personvern" className="hover:text-foreground transition-colors">
                 Personvern
               </Link>
@@ -39,9 +39,18 @@ export function Footer() {
               <Link href="/tilgjengelighet" className="hover:text-foreground transition-colors">
                 Tilgjengelighet
               </Link>
+              <Link href="/kontakt" className="hover:text-foreground transition-colors">
+                Kontakt
+              </Link>
             </div>
             <p className="text-center text-sm text-muted-foreground font-medium">
-              © 2025 Skolesaga · Alle rettigheter forbeholdt
+              © {new Date().getFullYear()} Skolesaga · Alle rettigheter forbeholdt
+            </p>
+            <p className="text-center text-xs text-muted-foreground/70">
+              Skolesaga.no eies og drives av Studenthjelp Privatundervisning AS · Org.nr 913 117 387 ·{" "}
+              <a href="mailto:studenthjelp@gmail.com" className="underline hover:text-foreground transition-colors">
+                studenthjelp@gmail.com
+              </a>
             </p>
             <p className="text-center text-xs text-muted-foreground/70 mt-2">
               Innholdet er utviklet med støtte fra kunstig intelligens og kvalitetssikres løpende.{" "}

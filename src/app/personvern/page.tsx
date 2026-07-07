@@ -33,14 +33,22 @@ export default function PersonvernPage() {
 
           <div className="prose prose-gray dark:prose-invert max-w-none space-y-8">
             <p className="text-muted-foreground">
-              Sist oppdatert: {new Date().toLocaleDateString('nb-NO', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Sist oppdatert: 7. juli 2026
             </p>
 
             <section>
               <h2 className="text-xl font-semibold mt-8 mb-4">1. Behandlingsansvarlig</h2>
               <p>
-                Når du oppretter en konto som privatperson, er <strong>Skolesaga.no</strong>{" "}
-                behandlingsansvarlig for personopplysningene dine.
+                Skolesaga.no eies og drives av <strong>Studenthjelp Privatundervisning AS</strong>,
+                org.nr 913 117 387, Aksel Olsens vei 10B, 1597 Moss. Spørsmål om personvern kan
+                rettes til{" "}
+                <a href="mailto:studenthjelp@gmail.com" className="underline">
+                  studenthjelp@gmail.com
+                </a>.
+              </p>
+              <p className="mt-3">
+                Når du oppretter en konto som privatperson, er Studenthjelp Privatundervisning AS
+                (heretter «Skolesaga») behandlingsansvarlig for personopplysningene dine.
               </p>
               <p className="mt-3">
                 Når tjenesten tas i bruk gjennom en skole eller kommune/fylkeskommune, er{" "}
@@ -60,8 +68,9 @@ export default function PersonvernPage() {
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-3">
                 <li>Navn og e-postadresse</li>
-                <li>Feide-ID og skole-/gruppetilhørighet (ved innlogging med Feide)</li>
+                <li>Feide-ID (ved innlogging med Feide – vi henter ikke gruppe- eller klasselister fra Feide)</li>
                 <li>Rolle (elev, lærer eller administrator) og klassetrinn</li>
+                <li>Skole/organisasjon, fødselsår og eventuelt telefonnummer, dersom du selv oppgir dette ved registrering</li>
                 <li>Eventuelt profilbilde fra innloggingsleverandøren</li>
               </ul>
 
@@ -95,6 +104,23 @@ export default function PersonvernPage() {
                 Vi bruker Vercel Analytics, et personvernvennlig analyseverktøy som ikke bruker
                 informasjonskapsler, ikke samler personidentifiserende informasjon, og kun samler
                 aggregerte, anonyme data om sidevisninger.
+              </p>
+              <p className="mt-3">
+                Vi bruker også Google Analytics for aggregert statistikk om bruken av nettstedet.
+                Verktøyet er satt opp uten informasjonskapsler: samtykke til lagring er slått av
+                som standard, og IP-adresser anonymiseres før behandling. Google Analytics leveres
+                av Google, og opplysningene kan behandles på servere utenfor EØS – overføringen er
+                sikret gjennom EU-U.S. Data Privacy Framework og EUs standard
+                personvernbestemmelser (SCC). Behandlingsgrunnlaget er vår berettigede interesse i
+                å forstå og forbedre bruken av tjenesten (GDPR art. 6(1)(f)).
+              </p>
+
+              <h3 className="text-lg font-medium mt-6 mb-3">2.5 Selvtester (personlighetstest, IQ-test m.m.)</h3>
+              <p>
+                Resultater fra selvtestene på nettstedet (personlighetstest, IQ-test, EQ-test,
+                enneagram, læringsstil og yrkesinteresser) beregnes utelukkende i nettleseren din.
+                De lagres ikke hos oss, knyttes ikke til kontoen din og deles ikke med noen –
+                resultatet forsvinner når du forlater siden.
               </p>
             </section>
 
@@ -138,9 +164,11 @@ export default function PersonvernPage() {
             <section>
               <h2 className="text-xl font-semibold mt-8 mb-4">6. Lagringstid</h2>
               <p>
-                Vi lagrer opplysningene så lenge du har en aktiv konto. For skolebrukere slettes eller
-                tilbakeleveres opplysningene i tråd med databehandleravtalen med skoleeier. Du kan be
-                om sletting av kontoen din når som helst.
+                Vi lagrer opplysningene så lenge du har en aktiv konto. Sletter du kontoen din,
+                slettes kontoopplysningene og læringsdataene dine permanent. For skolebrukere
+                slettes eller tilbakeleveres opplysningene i tråd med databehandleravtalen med
+                skoleeier. Du kan når som helst slette kontoen din selv fra profilsiden, eller
+                kontakte oss for å få den slettet.
               </p>
             </section>
 
@@ -152,14 +180,41 @@ export default function PersonvernPage() {
                 klage til Datatilsynet.
               </p>
               <p className="mt-3">
+                Innsyn og dataportabilitet kan du utøve selv: på profilsiden kan du laste ned en
+                kopi av alle opplysningene vi har lagret om deg, og du kan slette kontoen din og
+                alle tilhørende data permanent.
+              </p>
+              <p className="mt-3">
                 Er du elev eller lærer som bruker tjenesten gjennom skolen din, retter du henvendelser
                 om disse rettighetene til skolen/skoleeier, som er behandlingsansvarlig. Bruker du
-                tjenesten som privatperson, kan du kontakte oss direkte.
+                tjenesten som privatperson, kan du kontakte oss på{" "}
+                <a href="mailto:studenthjelp@gmail.com" className="underline">
+                  studenthjelp@gmail.com
+                </a>.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">8. Sikkerhet</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">8. Barn og unges personvern</h2>
+              <p>
+                Skolesaga er laget for barn og unge, og vi tar deres personvern på særlig alvor.
+                Vi samler kun inn det som er nødvendig for å levere tjenesten, viser ingen
+                annonser, og selger eller deler aldri opplysninger om barn.
+              </p>
+              <p className="mt-3">
+                Barn under 13 år som ønsker å opprette en privat konto, må ha samtykke fra
+                foresatte (jf. personopplysningsloven § 5). Når tjenesten brukes gjennom skolen,
+                er det skolen/skoleeier som har ansvaret for behandlingen, og samtykke fra
+                foresatte er da ikke grunnlaget for behandlingen.
+              </p>
+              <p className="mt-3">
+                Foresatte kan når som helst kontakte oss for innsyn i, retting eller sletting av
+                opplysninger om egne barn.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold mt-8 mb-4">9. Sikkerhet</h2>
               <ul className="list-disc pl-6 space-y-2 mt-3">
                 <li>All trafikk er kryptert med HTTPS/TLS, og data lagres kryptert</li>
                 <li>Rollebasert tilgangsstyring og tilgangskontroll på databasenivå</li>
@@ -169,7 +224,7 @@ export default function PersonvernPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">9. Informasjonskapsler (cookies)</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">10. Informasjonskapsler (cookies)</h2>
               <p>
                 Vi bruker kun teknisk nødvendige informasjonskapsler, blant annet for å holde deg
                 innlogget og huske tema-valg. Vi bruker ikke informasjonskapsler for sporing,
@@ -178,12 +233,24 @@ export default function PersonvernPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mt-8 mb-4">10. Endringer og kontakt</h2>
+              <h2 className="text-xl font-semibold mt-8 mb-4">11. Endringer og kontakt</h2>
               <p>
                 Vi kan oppdatere denne personvernerklæringen ved behov, og vesentlige endringer vil
-                bli kommunisert på nettsiden. Har du spørsmål om personvern, kan du kontakte oss via
-                nettsiden.
+                bli kommunisert på nettsiden.
               </p>
+              <p className="mt-3">
+                Har du spørsmål om personvern, kan du kontakte oss:
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mt-3">
+                <li>Studenthjelp Privatundervisning AS (org.nr 913 117 387)</li>
+                <li>Aksel Olsens vei 10B, 1597 Moss</li>
+                <li>
+                  E-post:{" "}
+                  <a href="mailto:studenthjelp@gmail.com" className="underline">
+                    studenthjelp@gmail.com
+                  </a>
+                </li>
+              </ul>
             </section>
           </div>
         </section>

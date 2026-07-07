@@ -29,15 +29,17 @@ Legende: ✅ ferdig · 🟡 påbegynt · ⬜ ikke startet · 🔒 krever ekstern
 
 ## 3. Personvern / GDPR (LOVKRAV) — 🟡
 - ✅ Personvernerklæring rettet (reflekterer serverside-behandling)
+- ✅ Personvernerklæring utvidet (juli 2026): GA4 deklarert, telefonnummer/fødselsår listet, Feide-overrapportering fjernet, eget avsnitt om barn og unge (pol. § 5), selvtester dokumentert som ikke-lagret, faste revisjonsdatoer (ikke `new Date()`)
+- ✅ Behandlingsansvarlig identifisert med org.nr/adresse/e-post (Studenthjelp Privatundervisning AS, 913 117 387) i personvern, vilkår, footer + ny `/kontakt`-side (ehandelsloven § 8)
 - ✅ Feide-dataminimering (`groups`-scope fjernet)
 - ✅ EØS-lagring (Supabase Stockholm) + Vercel-region pinnet til EØS
 - ✅ Databehandleravtale-utkast (`docs/databehandleravtale-utkast.md`)
 - ✅ DPIA-grunnlag (`docs/dpia-grunnlag.md`)
+- ✅ Slettefunksjon for konto (selvbetjent) + dataeksport: `/api/user/data` (GET=eksport, DELETE=slett) + UI på `/profil`
 - 🔒 Juridisk gjennomgang av DPA + DPIA (fyll ut frister/ansvar)
 - 🔒 Innhent SCC + SOC 2/ISO 27001 fra Supabase og Vercel
 - [ ] Bekreft hvilket Supabase-prosjekt som er produksjon (eu-north-1 vs eu-central-1)
 - [ ] Verifiser at Vercel faktisk deployer til arn1 etter neste deploy
-- [ ] Slettefunksjon for konto (selvbetjent) + dokumentert sletterutine
 
 ## 4. LK20-samsvar (LOVKRAV) — ✅
 - ✅ Innhold bygget rundt LK20-kompetansemål
@@ -49,10 +51,12 @@ Legende: ✅ ferdig · 🟡 påbegynt · ⬜ ikke startet · 🔒 krever ekstern
 - [ ] Avklar innkjøps-/anskaffelsesmodell mot kommuner
 - [ ] Læringsanalyse: vurder ekstra personvernkrav for lærer-dashboard
 
-## 6. Tillit / AI-innhold (IKKE LOVKRAV, men avgjørende for adopsjon) — ⬜
-- [ ] Transparent merking av AI-generert innhold (AiDisclosure-komponent)
+## 6. Tillit / AI-innhold (IKKE LOVKRAV, men avgjørende for adopsjon) — 🟡
+- [x] Transparent merking av AI-generert innhold — implementert på tre nivåer: vilkår §3 (KI-deklarasjon, `#ki-deklarasjon`), footer-notis, og `AiDisclosureNotice` nederst i hvert kapittel (`feedback-dialog.tsx`)
+- [x] NLOD-attribusjon for LK20-kompetansemål + Unsplash-lisensomtale (vilkår §7)
 - [ ] Kvalitetssikrings-/fagfellevurderingsprosess (minst stikkprøve per fag)
 - [ ] Dokumentert faktasjekk-prosess
+- [ ] Verifiser ElevenLabs-lisens (abonnementsnivå for kommersiell bruk + stemmelisens)
 
 ---
 

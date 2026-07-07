@@ -29,6 +29,8 @@ const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[numb
   { path: '/eq-test/test', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/personvern', changeFrequency: 'yearly', priority: 0.2 },
   { path: '/vilkar', changeFrequency: 'yearly', priority: 0.2 },
+  { path: '/tilgjengelighet', changeFrequency: 'yearly', priority: 0.2 },
+  { path: '/kontakt', changeFrequency: 'yearly', priority: 0.2 },
 ];
 
 const GRADE_LEVELS = ['5', '6', '7', '8', '9', '10', 'vg1', 'vg2', 'vg3', 'hoyere'];

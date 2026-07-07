@@ -108,6 +108,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
+| SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |
 | ECON1100 Matematikk I (UiO) | regnefag | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |

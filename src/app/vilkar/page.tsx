@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { GraduationCap, ArrowLeft } from "lucide-react";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Vilkår og ansvarsfraskrivelse | Skolesaga",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function VilkarPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container flex h-16 items-center justify-between px-4">
@@ -36,10 +37,17 @@ export default function VilkarPage() {
           {/* Generelle vilkår */}
           <section>
             <h2 className="text-xl font-semibold mb-4">1. Generelle vilkår</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Skolesaga.no eies og drives av Studenthjelp Privatundervisning AS
+              (org.nr 913 117 387). Tjenesten er gratis å bruke, og det knyttes ingen
+              betalingsforpliktelser til å opprette konto.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              Ved å bruke Skolesaga.no aksepterer du disse vilkårene i sin helhet.
+              Ved å bruke Skolesaga.no aksepterer du disse vilkårene.
               Dersom du ikke godtar vilkårene, ber vi deg om å ikke benytte tjenesten.
-              Vi forbeholder oss retten til å endre disse vilkårene når som helst uten forvarsel.
+              Vi kan endre vilkårene ved behov. Ved vesentlige endringer varsler vi på
+              nettsiden i rimelig tid før endringene trer i kraft, og gjeldende versjon
+              er alltid tilgjengelig på denne siden.
             </p>
           </section>
 
@@ -131,9 +139,25 @@ export default function VilkarPage() {
               er beskyttet av opphavsrett. Kopiering, distribusjon eller kommersiell bruk av
               dette materialet uten skriftlig samtykke er ikke tillatt.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-4">
               Bilder og illustrasjoner fra originaleksamener er fjernet grunnet
               opphavsrettsbegrensninger.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Kompetansemålene som gjengis i lærebøkene er hentet fra læreplanverket LK20,
+              utarbeidet av Utdanningsdirektoratet og tilgjengeliggjort under{" "}
+              <a
+                href="https://data.norge.no/nlod/no"
+                className="underline hover:text-foreground"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Norsk lisens for offentlige data (NLOD)
+              </a>.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Forsidebilder til enkelte kapitler benyttes fra Unsplash i henhold til
+              Unsplash-lisensen. Øvrige illustrasjoner er produsert for Skolesaga.
             </p>
           </section>
 
@@ -205,11 +229,19 @@ export default function VilkarPage() {
 
           {/* Aldersgrense */}
           <section>
-            <h2 className="text-xl font-semibold mb-4">14. Aldersgrense</h2>
+            <h2 className="text-xl font-semibold mb-4">14. Aldersgrense og mindreårige</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Tjenesten er rettet mot elever i grunnskole og videregående skole. Den er
+              gratis, og bruk av tjenesten medfører ingen økonomiske forpliktelser for
+              brukeren.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              Tjenesten er primært rettet mot elever i ungdomsskole og videregående skole.
-              For brukere under 16 år anbefales det at foresatte er informert om bruken av
-              tjenesten, spesielt ved opprettelse av brukerkonto.
+              Barn under 13 år må ha samtykke fra foresatte for å opprette en privat
+              brukerkonto (jf. personopplysningsloven § 5). Når tjenesten brukes gjennom
+              skolen, er det skolen som administrerer tilgangen. Vi anbefaler at foresatte
+              til alle mindreårige brukere er informert om bruken av tjenesten. Se også
+              vår <Link href="/personvern" className="underline hover:text-foreground">personvernerklæring</Link>{" "}
+              om barn og unges personvern.
             </p>
           </section>
 
@@ -226,21 +258,32 @@ export default function VilkarPage() {
           {/* Kontakt */}
           <section>
             <h2 className="text-xl font-semibold mb-4">16. Kontakt</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Har du spørsmål om disse vilkårene eller annen henvendelse, kan du kontakte
-              oss på e-post. Se kontaktinformasjon på nettsiden.
+            <p className="text-muted-foreground leading-relaxed mb-2">
+              Har du spørsmål om disse vilkårene eller annen henvendelse, kan du kontakte oss:
             </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              <li>Studenthjelp Privatundervisning AS (org.nr 913 117 387)</li>
+              <li>Aksel Olsens vei 10B, 1597 Moss</li>
+              <li>
+                E-post:{" "}
+                <a href="mailto:studenthjelp@gmail.com" className="underline hover:text-foreground">
+                  studenthjelp@gmail.com
+                </a>
+              </li>
+            </ul>
           </section>
 
           {/* Sist oppdatert */}
           <section className="pt-8 border-t">
             <p className="text-sm text-muted-foreground">
-              Sist oppdatert: {new Date().toLocaleDateString('nb-NO', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Sist oppdatert: 7. juli 2026
             </p>
           </section>
 
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
