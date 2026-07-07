@@ -105,6 +105,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 |---|---|---|
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
+| ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
 | AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
@@ -127,6 +128,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | STK1100 Sannsynlighet (UiO) | regnefag | skjelett |
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
 | TDT4120 Algoritmer (NTNU) | regnefag | skjelett |
+| TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | JUS2111 Statsforfatningsrett (UiO) | jus | skjelett |
