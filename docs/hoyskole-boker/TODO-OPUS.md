@@ -129,6 +129,32 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `in2060` — Digitalteknikk og datamaskinarkitektur (UiO, 12 filer)
 - [ ] `tdt4186` — Operativsystemer (NTNU, 11 filer)
 
+## C6. Transje 6 — analyse + skjelett underveis (8. juli 2026; status verifisert per fag)
+
+- [ ] `jus2211` — Forvaltningsrett og EØS-rett (UiO, 22 filer; jus, AKTIV)
+- [ ] `med1100` — Medisinstudiet modul 1 (UiO, 42 filer; AKTIV)
+- [ ] `ttm4100` — Kommunikasjon: Tjenester og nett (NTNU, 32 filer; AKTIV)
+- [ ] `met2910-bi` — Matematikk for økonomer (BI, 23 filer; AKTIV)
+- [ ] `sok3500-bi` — Samfunnsøkonomi II (BI, 21 filer; AKTIV)
+- [ ] `econ3120` — Mathematics 2 (UiO, 18+15 filer; AKTIV; «equivalent with
+      ECON4120» — ett rammeverk dekker begge kodene)
+- [ ] `econ3010` — Anvendt økonomisk analyse (UiO, 19 filer; AKTIV)
+- [ ] `ttm4135` — Anvendt kryptografi og nettverkssikkerhet (NTNU, 27 filer; AKTIV)
+- [ ] `tma4111` — Matematikk 3 (NTNU; arkiv TMA4110 196 filer; TMA4110 ERSTATTET
+      av TMA4111 fra reformen — etterfølger-profilert, sos1004-metoden)
+- [ ] `tma4106` — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
+      TMA4106 — etterfølger-profilert)
+- [ ] `tdt4237` — Programvaresikkerhet og personvern (NTNU, 13 filer; AKTIV)
+- [ ] `ling1100` — Innføring i semantikk og pragmatikk (UiO, 13 filer; AKTIV)
+- [ ] `econ4915` — Development Economics (UiO, 11 filer; AKTIV; bygger på econ1910)
+- [ ] `econ4260` — Behavioral Economics (UiO, 10 filer; AKTIV)
+
+Hoppet over (verifisert, dokumentert her så de ikke gjenåpnes): TMA4140
+Diskret matematikk UTGÅTT → dekket av `ma0301`; TFY4102 ERSTATTET → dekket av
+`tfy4104`; ECON3610 UTGÅTT uten etterfølger (econ2200-presedens). Kandidater
+for transje 7: JUS3112 (arkiv JUS3111, 14), JUS4212/JUS4213 (arkiv JUS4211,
+20, splittet etterfølger), TMA4121 (arkiv TMA4120, 47), resten av BI-porteføljen.
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
