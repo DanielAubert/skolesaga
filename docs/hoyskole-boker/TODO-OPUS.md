@@ -40,6 +40,9 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 - [ ] `econ2130` — ECON2130 Statistikk 1 (UiO). R-integrert (2025-regimet
       hands-on med CSV); metodesignalene bærer poengene.
 
+- [ ] `econ3150` — ECON3150 Introductory Econometrics (UiO). Regnefag;
+      kausalitet som akse, OVB-baklengs-drill, tospråklig begrepsbank
+      (eksamen på engelsk).
 - [ ] `jus1211` — JUS1211 Privatrett II (UiO). Jus; rettstilstandssjekk gjort
       i skjelettet (arveloven 2019, 15G-tak, hevdslova § 8). NB: fase 6 SKAL
       ha Lovdata-verifikatør — el. § 59/§ 61-leddstruktur er (verifiser)-merket.
@@ -52,7 +55,6 @@ Kickoff: «Kjør fase 1–2 i docs/hoyskole-boker/PRODUKSJONSLOYPE.md for
 `<emne>` (arkiv: `~/Desktop/Eksamner/<inst>/<kode>/`, fagbeskrivelse i
 `~/Desktop/fagbeskrivelser-samlet 2.md`). Maks 2 samtidige agenter.»
 
-- [ ] `econ3150` — Econometrics (UiO, 74 filer)
 - [ ] `fys1120` — Elektromagnetisme (UiO, 80 filer)
 - [ ] `mat111-uib` — Grunnkurs matematikk I (UiB, 102 filer)
 - [ ] `stk1100` — Sannsynlighet (UiO, 24 filer)
