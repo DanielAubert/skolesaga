@@ -121,7 +121,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MAT111 Grunnkurs matematikk I (UiB) | regnefag | skjelett |
 | STK1100 Sannsynlighet (UiO) | regnefag | skjelett |
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
-| TDT4120 Algoritmer (NTNU) | regnefag | i kø |
+| TDT4120 Algoritmer (NTNU) | regnefag | skjelett |
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | i kø |
 | JUS2111 Statsforfatningsrett (UiO) | jus | i kø |
 | SOSANT1000 Sosialantropologi (UiO) | drøfting | i kø |
