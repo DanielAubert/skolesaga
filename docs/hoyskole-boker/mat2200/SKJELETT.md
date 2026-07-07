@@ -27,7 +27,7 @@
 | Institusjon | Universitetet i Oslo (UiO) |
 | Arketype | Regnefag (men **bevisdrevet** teorifag — abstrakt algebra på Fraleighs struktur) |
 | Antall kapitler | **39** (2 eksamenskart/bevishåndverk + 32 tema/bevis/drill + 1 spesialsjangre + 3 øvingseksamener + 1 bevisverksted) |
-| Estimert totaltid | **~2 830 min ≈ 47 timer** |
+| Estimert totaltid | **~2 855 min ≈ 48 timer** |
 | Quiz totalt | **593** (krav ≥500) |
 | Flashcards totalt | **690** (krav ≥500; sikt 600–700 for et definisjons-/teoremrikt bevisfag) |
 
@@ -552,3 +552,455 @@ aritmetikk ($Z_n$) og grunnleggende gruppeteori bygges opp fra grunnen i Del 1.
 - **Quiz: 18 · Flashcards: 22**
 
 **Prøve-kvote Del 7:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 8 — Kroppsutvidelser, tårnformelen og minimalpolynom *(prioritet: PERFEKT — ~95 %, argumentmaskin (iv) del 1)*
+
+#### Kapittel 8.1: Enkle kroppsutvidelser, minimalpolynom og basis
+
+- **id:** `mat2200-8-1` · **number:** 8.1 · **estimatedMinutes:** 60 · **prerequisites:** `mat2200-7-2`
+- **kapitteltype:** teori
+- **description:** Grunnbegrepene bak halve eksamenen: en enkel utvidelse k(α) har grad = grad(irr(α,k)) med basis 1,α,…,α^{n−1}, og potenser av α regnes ved å redusere modulo minimalpolynomet.
+- **Forkunnskaper (kryssbok):** Kap. 7.2 (irredusibilitet), 6.3 (maksimalideal → kropp). [Komplekse tall](/bok/r2/r2-3-1) (i, algebraiske tall fra VGS — verifiser id i fase 6).
+- **Eksamensbelegg:** Sjanger K (~95 %, grunnlaget). Fasitens grep: $[k(\alpha):k]=\deg(\operatorname{irr}(\alpha,k))$ med **basis $\{1,\alpha,\dots,\alpha^{n-1}\}$**; potenser reduseres via $f(\alpha)=0$ (f.eks. $\alpha^3=-(2\alpha+1)$ i $\mathbb{Z}_3$). Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Kroppsutvidelse** (*field extension*) $K/k$; **algebraisk element** (*algebraic element*), **minimalpolynom** $\operatorname{irr}(\alpha,k)$ (*minimal polynomial*): det moniske irredusible polynomet av minste grad med $\alpha$ som rot (entydig); **grad av enkel utvidelse** $[k(\alpha):k]=\deg\operatorname{irr}(\alpha,k)$; **$k(\alpha)\cong k[x]/\langle\operatorname{irr}(\alpha,k)\rangle$** (bro til 6.3: idealet er maksimalt fordi minimalpolynomet er irredusibelt); **basis $\{1,\alpha,\dots,\alpha^{n-1}\}$** som $k$-vektorrom; **potensregning**: reduser $\alpha^n$ og høyere modulo $f(\alpha)=0$; invers av et element via euklidsk algoritme / basis. Endelig vs. algebraisk utvidelse (endelig ⇒ algebraisk). Tallverdier oppgis eksplisitt (grad, basis).
+- **Oppgavesjangre:** K/J. Mønstereksempel: «La $\alpha$ være en rot av $x^3-x-1$ over $\mathbb{Q}$. Vis at polynomet er irredusibelt, oppgi $[\mathbb{Q}(\alpha):\mathbb{Q}]$ og en basis, og skriv $\alpha^4$ og $\alpha^{-1}$ i basisen.»
+- **Typiske feil:** Bruke et ikke-irredusibelt polynom som «minimalpolynom»; feil grad (ikke ta graden av minimalpolynomet); regnefeil i potensreduksjonen (ikke bruke $f(\alpha)=0$); glemme å redusere koeffisienter i $\mathbb{Z}_p$; feil basis-lengde.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 8.2: Tårnformelen [K:k]=[K:E][E:k]
+
+- **id:** `mat2200-8-2` · **number:** 8.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-8-1`
+- **kapitteltype:** teori
+- **description:** Formelen som brukes overalt: grader multipliserer gjennom et kropp-tårn, og trikset for å konkludere likhet av kropper når en grad er primtall — verktøyet under alle utvidelsesgrad-oppgaver og hele Galois-delen.
+- **Forkunnskaper (kryssbok):** Kap. 8.1 (grad, minimalpolynom).
+- **Eksamensbelegg:** Sjanger K (~95 %, som selvstendig krav eller inne i Galois-oppgaven). Fasitens grep: sett opp mellomtrinn $\mathbb{Q}\subset\mathbb{Q}(\sqrt2)\subset\mathbb{Q}(\sqrt2,\sqrt5)$, vis at hvert trinn har grad 2 (neste generator ligger ikke i forrige kropp); $[\mathbb{Q}(2^{1/p},\zeta_p):\mathbb{Q}]=p(p-1)$. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Tårnformelen** (*tower law*) $[K:k]=[K:E]\,[E:k]$ for $k\subseteq E\subseteq K$ (bevis via basis-produkt — skisseres, brukes aktivt); **multiplikativitet av grader**; **primtall-trikset**: hvis $[\mathbb{Q}(\alpha):\mathbb{Q}]=p$ primtall og $\beta\in\mathbb{Q}(\alpha)\setminus\mathbb{Q}$, tvinger tårnet $\mathbb{Q}(\beta)=\mathbb{Q}(\alpha)$; **grad av flertrinns-utvidelse**: $[\mathbb{Q}(\alpha,\beta):\mathbb{Q}]$ regnes trinnvis, med sjekk av at hvert trinn har full grad (neste minimalpolynom forblir irredusibelt over den større kroppen); advarsel mot å anta $[\mathbb{Q}(\alpha,\beta):\mathbb{Q}]=[\mathbb{Q}(\alpha):\mathbb{Q}]\cdot[\mathbb{Q}(\beta):\mathbb{Q}]$ uten begrunnelse; grad deler alltid ordenen til splittkroppens Galois-gruppe (bro til Del 9).
+- **Oppgavesjangre:** K. Mønstereksempel: «Regn $[\mathbb{Q}(\sqrt2,\sqrt[3]{5}):\mathbb{Q}]$ ved tårnformelen, og vis at hvert trinn har den graden du oppgir.»
+- **Typiske feil:** Hoppe over tårnformelen (multiplisere grader uvørent); anta full grad i et trinn uten å sjekke at minimalpolynomet forblir irredusibelt; feil rekkefølge av utvidelser; glemme primtall-trikset der det gir likhet av kropper gratis.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 8.3: Drill (argumentmaskin iv, del 1): tårnformel-beregning av [K:Q] + basis
+
+- **id:** `mat2200-8-3` · **number:** 8.3 · **estimatedMinutes:** 90 · **prerequisites:** `mat2200-8-2`
+- **kapitteltype:** drill
+- **description:** Grad-regning drillet til automatikk: bygg tårnet, vis full grad i hvert trinn, oppgi en basis for hele utvidelsen, og bruk primtall-trikset til å avgjøre likhet av kropper — forberedelsen til Galois-oppgaven.
+- **Eksamensbelegg:** Dekker sjanger K samlet (~95 %). Testede utvidelser: $\mathbb{Q}(\sqrt2,\sqrt5)$, $\mathbb{Q}(\sqrt[3]{2},i\sqrt3)$, $\mathbb{Q}(2^{1/p},\zeta_p)$, $\mathbb{Q}(\alpha)$ for irredusibel femtegrads $\alpha$. Variantkatalogen: to-generator-grad via tårn; basis for hele utvidelsen (produktbasis); primtall-trikset ($\mathbb{Q}(\beta)=\mathbb{Q}(\alpha)$); grad av $\mathbb{Q}(2^{1/p},\zeta_p)$. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Løsningsoppskrift (algoritme):** (1) identifisér generatorene og deres minimalpolynomer over grunnkroppen; (2) bygg tårnet ett trinn av gangen; (3) for hvert trinn: vis at neste generator **ikke** ligger i forrige kropp, så minimalpolynomet forblir irredusibelt → trinngraden; (4) multiplisér gradene (tårnformelen, navngitt); (5) oppgi en **basis** for hele $K$ som produkter av trinnbasene; (6) for likhet av kropper: primtall-trikset. **Gjennomregnet eksamenscase** ($[\mathbb{Q}(\sqrt[3]{2},i\sqrt3):\mathbb{Q}]=6$ med basis, deretter vis $\mathbb{Q}(\sqrt[3]{2}+\sqrt[3]{2}^2)=\mathbb{Q}(\sqrt[3]{2})$ via primtall-trikset) med sensor-margnotater (hvert trinn begrunnet, tårnformelen navngitt, basis eksplisitt). 10–15 oppgaver: minst én to-generator-grad med basis, én primtall-trikk-likhet, én $\mathbb{Q}(2^{1/p},\zeta_p)$-grad, én der et trinn **ikke** har full grad (fella).
+- **Oppgavesjangre:** K. Mønstereksempel: «(a) Regn $[\mathbb{Q}(\sqrt2,\sqrt5):\mathbb{Q}]$ og oppgi en basis. (b) La $\alpha$ ha minimalpolynom av grad 5 over $\mathbb{Q}$; vis at $\mathbb{Q}(\alpha^2)=\mathbb{Q}(\alpha)$.»
+- **Typiske feil:** Hele fellekatalogen fra 8.1–8.2 under tidspress; anta full grad uten å sjekke; feil produktbasis; ikke bruke primtall-trikset; regnefeil i minimalpolynom over den større kroppen.
+- **Quiz: 16 · Flashcards: 8**
+
+**Prøve-kvote Del 8:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 9 — Galois-teori *(prioritet: PERFEKT — ~90 %, nesten alltid SISTE oppgave, argumentmaskin (iv) del 2)*
+
+#### Kapittel 9.1: Splittkropp, separabilitet og normal utvidelse
+
+- **id:** `mat2200-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-8-2`, `mat2200-7-2`
+- **kapitteltype:** teori
+- **description:** Byggesteinen i Galois-oppgaven: splittkroppen der f faktoriserer fullstendig, hvorfor Q er perfekt (alt separabelt), og hva som gjør en utvidelse normal — grunnlaget for at |G(K/Q)|=[K:Q].
+- **Forkunnskaper (kryssbok):** Kap. 8.2 (tårnformel), 7.2 (irredusibilitet), 8.1 (minimalpolynom).
+- **Eksamensbelegg:** Sjanger L-grunnlag (~90 %). Fasitens grep: finn **splittkroppen** ved å adjungere alle røttene (ofte $\mathbb{Q}(\sqrt[3]{a},\zeta_n)$ eller $\mathbb{Q}(\sqrt a,\sqrt b)$), regn graden via tårnformelen. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Splittkropp** (*splitting field*) $K$ til $f$ over $k$: den minste utvidelsen der $f$ faktoriserer i lineære faktorer (adjunger alle røttene); eksistens og entydighet opp til isomorfi; **separabelt polynom** (*separable*, ingen multiple røtter), **$\mathbb{Q}$ og endelige kropper er perfekte** (alt separabelt); **normal utvidelse** (*normal extension*): splittkropp av en polynomfamilie ⇔ hvert irredusibelt polynom med en rot i $K$ splitter i $K$; **Galois-utvidelse** = endelig, normal, separabel; grad av splittkropp via tårnformelen (Del 8). Standardsplittkropper: $x^2-a\to\mathbb{Q}(\sqrt a)$; $x^3-a\to\mathbb{Q}(\sqrt[3]{a},\zeta_3)$ grad 6; $x^n-1\to\mathbb{Q}(\zeta_n)$.
+- **Oppgavesjangre:** L. Mønstereksempel: «Finn splittkroppen $K$ til $x^3-2$ over $\mathbb{Q}$, og regn $[K:\mathbb{Q}]$.» (→ $\mathbb{Q}(\sqrt[3]{2},\zeta_3)$, grad 6).
+- **Typiske feil:** Adjungere bare én rot (glemme $\zeta_3$ / komplekse røtter); regne splittkropp-graden uten tårnformelen; forveksle normal og separabel; anta at $\mathbb{Q}(\sqrt[3]{2})$ er splittkroppen til $x^3-2$ (den er ikke normal).
+- **Quiz: 16 · Flashcards: 22**
+
+#### Kapittel 9.2: Galois-gruppen, |G(K/Q)|=[K:Q] og korrespondansen
+
+- **id:** `mat2200-9-2` · **number:** 9.2 · **estimatedMinutes:** 60 · **prerequisites:** `mat2200-9-1`, `mat2200-3-1`
+- **kapitteltype:** teori
+- **description:** Hovedsetningen i Galois-teori: for en Galois-utvidelse er |G(K/Q)|=[K:Q], gruppa er en undergruppe av S_n på røttene, og korrespondansen kobler undergrupper til mellomkropper (normalitet ↔ normal utvidelse) — kjernen i eksamenens siste oppgave.
+- **Forkunnskaper (kryssbok):** Kap. 9.1 (splittkropp/normal), 3.1 (normale undergrupper), 2.1 (S_n på røttene), 8.2 (grad).
+- **Eksamensbelegg:** Sjanger L (~90 %). Fasitens grep: **$|G(K/\mathbb{Q})|=[K:\mathbb{Q}]$** (Galois), $G$ er isomorf med en undergruppe av $S_n$ (permuterer røttene) — gradtellingen avgjør hvilken; mellomkropper via korrespondansen. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Galois-gruppe** (*Galois group*) $G(K/k)$ = automorfiene av $K$ som fikserer $k$; **$|G(K/k)|=[K:k]$** for Galois-utvidelser (navngis); $G$ virker trofast på røttene ⇒ **isomorf med en undergruppe av $S_n$**; gradtellingen avgjør typen ($S_3$, $D_4$, Klein-firergruppen $V$, syklisk $\mathbb{Z}_n$, «$ax+b$-gruppen», $S_5$); **hovedsetningen i Galois-teori / korrespondansen** (*fundamental theorem of Galois theory*, navngis): **bijektiv, ordensvendende** korrespondanse mellom undergrupper $H\le G$ og mellomkropper $L$ med $k\subseteq L\subseteq K$, gitt ved $H\mapsto E^H$ (fikskropp) og $L\mapsto G(K/L)$; $[K:L]=|H|$, $[L:k]=[G:H]$; **normalitet**: $G(K/L)\trianglelefteq G(K/k)$ ⇔ $L$ er normal utvidelse av $k$, og da $G(L/k)\cong G/H$. Anvendt begge veier (undergruppe → mellomkropp og omvendt).
+- **Oppgavesjangre:** L. Mønstereksempel: «For splittkroppen $K$ av $x^3-2$ over $\mathbb{Q}$: vis at $G(K/\mathbb{Q})\cong S_3$, og finn mellomkroppen som svarer til den entydige undergruppa av orden 3.»
+- **Typiske feil:** Påstå Galois-gruppa uten å regne graden først ($|G|=[K:\mathbb{Q}]$ må etableres); glemme at $G\le S_n$ på røttene; bruke korrespondansen i feil retning (ordensvendende); forveksle normal undergruppe ↔ normal mellomkropp-utvidelse.
+- **Quiz: 18 · Flashcards: 24**
+
+#### Kapittel 9.3: Cyklotomiske utvidelser og fikskropp via ζ+ζ⁻¹
+
+- **id:** `mat2200-9-3` · **number:** 9.3 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-9-2`
+- **kapitteltype:** teori
+- **description:** Enhetsrot-utvidelsene Q(ζ_n): grad φ(n), Galois-gruppa (Z_n)*, komplekskonjugasjon som σ², og fikskropp-bestemmelse via ζ+ζ⁻¹=2cos(2π/n) — toppsjiktets gradargument.
+- **Forkunnskaper (kryssbok):** Kap. 9.2 (Galois-gruppe/korrespondanse), 1.4 (φ-funksjon). [Komplekse tall på polarform](/bok/r2/r2-3-2) (enhetsrøtter — verifiser id i fase 6).
+- **Eksamensbelegg:** Sjanger L-variant (~35 %, toppsjikt). Fasitens grep: for $\mathbb{Q}(\zeta_n)$, komplekskonjugasjon svarer til $\sigma^2$ i sykliske tilfeller; identifisér fikskroppen via $\zeta+\zeta^{-1}=2\cos(2\pi/n)$ og et gradargument. Prioritet: **kunne/kjenne** (karakterskiller).
+- **Innholdskontrakt:** **Cyklotomisk utvidelse** (*cyclotomic extension*) $\mathbb{Q}(\zeta_n)$, $\zeta_n=e^{2\pi i/n}$; det cyklotomiske polynomet $\Phi_n$, $[\mathbb{Q}(\zeta_n):\mathbb{Q}]=\varphi(n)$; $[\mathbb{Q}(\zeta_p):\mathbb{Q}]=p-1$; Galois-gruppa $G(\mathbb{Q}(\zeta_n)/\mathbb{Q})\cong(\mathbb{Z}_n)^*$ (abelsk); **komplekskonjugasjon** som automorfi ($\zeta\mapsto\zeta^{-1}=\bar\zeta$); **fikskropp**: den reelle delkroppen $\mathbb{Q}(\zeta+\zeta^{-1})=\mathbb{Q}(\cos(2\pi/n))$ er fikskroppen til $\langle$konjugasjon$\rangle$, med $[\mathbb{Q}(\zeta_n):\mathbb{Q}(\zeta_n+\zeta_n^{-1})]=2$; gradargumentet som identifiserer fikskroppen. Kobling til konstruerbarhet (bro til 11.1, kort).
+- **Oppgavesjangre:** L. Mønstereksempel: «La $\zeta=\zeta_5$. Vis at $[\mathbb{Q}(\zeta):\mathbb{Q}]=4$, at $G(\mathbb{Q}(\zeta)/\mathbb{Q})$ er syklisk av orden 4, og at fikskroppen til komplekskonjugasjon er $\mathbb{Q}(\zeta+\zeta^{-1})=\mathbb{Q}(\cos72°)$.»
+- **Typiske feil:** Feil grad ($\varphi(n)$, ikke $n$); anta $G$ syklisk for alle $n$ (bare når $(\mathbb{Z}_n)^*$ er syklisk); ikke bruke gradargumentet for fikskroppen; regnefeil i $\zeta+\zeta^{-1}$-uttrykket.
+- **Quiz: 14 · Flashcards: 18**
+
+#### Kapittel 9.4: Drill (argumentmaskin iv, del 2): splittkropp → Galois-gruppe → mellomkropp/fikskropp
+
+- **id:** `mat2200-9-4` · **number:** 9.4 · **estimatedMinutes:** 90 · **prerequisites:** `mat2200-9-2`, `mat2200-9-3`
+- **kapitteltype:** drill
+- **description:** Eksamenens nesten garanterte siste oppgave drillet til automatikk: finn splittkroppen til en konkret f, regn [K:Q] via tårnformelen, bestem og identifiser Galois-gruppa, og bruk korrespondansen til mellomkropper og fikskropper — begge veier.
+- **Eksamensbelegg:** Dekker sjanger L samlet (~90 %, siste oppgave). Testede: $x^3-2$ ($S_3$), $x^5-2$ («$ax+b$»-gruppe orden 20), $x^4-2$ / $(x^2-2)(x^2-5)$ ($D_4$/Klein $V$), $\mathbb{Q}(\zeta_n)$ (syklisk/abelsk). Variantkatalogen: full splittkropp + grad + gruppetype; mellomkropp fra undergruppe (f.eks. $S_5$ har undergruppe av orden 5 → mellomkropp grad 24); fikskropp via gradargument; normalitet ↔ normal utvidelse. Prioritet: **perfekt**.
+- **Innholdskontrakt:** **Løsningsoppskrift (algoritme):** (1) finn **splittkroppen** $K$ (adjunger alle røttene, husk enhetsrøtter); (2) regn $[K:\mathbb{Q}]$ via tårnformelen (kap. 8.3); (3) $|G(K/\mathbb{Q})|=[K:\mathbb{Q}]$, $G\le S_n$ på røttene → **identifisér typen** via orden + virkning ($S_3$/$D_4$/$V$/syklisk/orden-20-gruppe/$S_5$); (4) **korrespondanse**: for en undergruppe $H$ av gitt orden, sett $L=E^H$, bruk $[K:L]=|H|$, $[L:\mathbb{Q}]=[G:H]$; for fikskropp bruk gradargument; (5) normalitet ↔ normal utvidelse. **Gjennomregnet eksamenscase** ($x^3-2$: splittkropp $\mathbb{Q}(\sqrt[3]{2},\zeta_3)$ grad 6, $G\cong S_3$, de tre mellomkroppene av grad 2/3 via korrespondansen) med sensor-margnotater (graden regnet FØR gruppa identifiseres, virkning på røttene, korrespondansen begge veier). 10–15 oppgaver: minst én full $S_3$/$D_4$-analyse, én med «$ax+b$»/orden-20-gruppe, én mellomkropp-fra-undergruppe, én fikskropp via gradargument.
+- **Oppgavesjangre:** L. Mønstereksempel: «La $K$ være splittkroppen til $x^4-2$ over $\mathbb{Q}$. Finn $[K:\mathbb{Q}]$, vis at $G(K/\mathbb{Q})\cong D_4$, og bestem alle mellomkropper av grad 2 via korrespondansen.»
+- **Typiske feil:** Hele fellekatalogen fra 9.1–9.3 under tidspress; identifisere gruppa før graden er regnet; glemme enhetsrøtter i splittkroppen; korrespondansen i feil retning; feil undergruppe-orden ↔ mellomkropp-grad.
+- **Quiz: 16 · Flashcards: 8**
+
+**Prøve-kvote Del 9:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 10 — Endelige kropper *(prioritet: KUNNE — ~65 %, ØKENDE vekt V2019–2023)*
+
+#### Kapittel 10.1: Endelige kropper F_{p^n}: k[x]/⟨f⟩ og potensregning modulo f
+
+- **id:** `mat2200-10-1` · **number:** 10.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-8-1`, `mat2200-7-2`
+- **kapitteltype:** teori
+- **description:** Konstruksjonen av endelige kropper: Z_p[x]/⟨f⟩ er en kropp nøyaktig når f er irredusibel, med p^{deg f} elementer og basis 1,θ,…,θ^{n−1} — og hvordan man regner med potenser av θ modulo f.
+- **Forkunnskaper (kryssbok):** Kap. 8.1 (enkel utvidelse/basis), 7.2 (irredusibilitet), 6.3 (maksimalideal → kropp).
+- **Eksamensbelegg:** Sjanger J (~65 %). Fasitens grep: $k[x]/\langle f\rangle$ kropp ⇔ $f$ irredusibel; antall elementer $=|k|^{\deg f}=p^n$; regn potenser av $\theta=\bar x$ ved å redusere mod $f(\theta)=0$. Prioritet: **kunne**.
+- **Innholdskontrakt:** **Endelig kropp** (*finite field*) $F_{p^n}$/$\mathrm{GF}(p^n)$; **$k[x]/\langle f\rangle$ er en kropp ⇔ $f$ irredusibel** (⇔ $\langle f\rangle$ maksimal, kap. 6.3); **antall elementer** $=p^{\deg f}$; hver endelig kropp har orden en primpotens $p^n$ og karakteristikk $p$; **$\theta=\bar x$** er rot av $f$, basis $\{1,\theta,\dots,\theta^{n-1}\}$ over $\mathbb{Z}_p$; **potensregning** modulo $f(\theta)=0$ (f.eks. i $\mathbb{Z}_3[x]/\langle x^2+1\rangle$: $\theta^2=-1=2$); invers via euklidsk algoritme; multiplikativgruppa $F_{p^n}^*$ er **syklisk** av orden $p^n-1$ (primitivt element). Tallverdier eksplisitt (antall elementer, basis).
+- **Oppgavesjangre:** J. Mønstereksempel: «Vis at $\mathbb{Z}_3[x]/\langle x^2+1\rangle$ er en kropp, oppgi antall elementer og en basis, og regn $(\theta+1)^{-1}$ i basisen.»
+- **Typiske feil:** Bruke et reduktibelt $f$ (da blir det ikke en kropp — nulldelere); feil antall elementer (ikke $p^{\deg f}$); regnefeil i potensreduksjon; glemme å redusere koeffisienter i $\mathbb{Z}_p$ ($2+1=0$ i $\mathbb{Z}_3$); anta $F_{p^n}^*$ ikke syklisk.
+- **Quiz: 16 · Flashcards: 22**
+
+#### Kapittel 10.2: Frobenius, Fermat, primitive polynomer og F_16
+
+- **id:** `mat2200-10-2` · **number:** 10.2 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-10-1`
+- **kapitteltype:** teori
+- **description:** Den økende spesialiseringen (V2019–2023): Frobenius-automorfien σ(a)=a^p med freshman's dream, Fermat α^p=α, primitive polynomer og entydigheten av F_{p^n} — med F_16 som gjennomgangseksempel.
+- **Forkunnskaper (kryssbok):** Kap. 10.1 (endelige kropper), 2.2 (konjugerte røtter via automorfi).
+- **Eksamensbelegg:** Sjanger J (~65 %, ØKENDE). Fasitens grep: **Frobenius** $\sigma(a)=a^p$ med **freshman's dream** $(a+b)^p=a^p+b^p$; **Fermat** $\alpha^p=\alpha$ for alle $\alpha\in\mathbb{Z}_p$ (nullpunkter for $x^p-x$); irredusibelt $f$ splitter via $\theta,\theta^p,\theta^{p^2},\dots$; $F_{p^n}$ entydig opp til isomorfi. Prioritet: **kunne** (og økende).
+- **Innholdskontrakt:** **Frobenius-automorfien** (*Frobenius automorphism*) $\sigma_p(a)=a^p$: en kroppsautomorfi i karakteristikk $p$, med **freshman's dream** $(a+b)^p=a^p+b^p$ (fordi $p\mid\binom{p}{k}$); genererer $G(F_{p^n}/\mathbb{Z}_p)$, syklisk av orden $n$; **Fermats lille teorem** $\alpha^p=\alpha$ for $\alpha\in\mathbb{Z}_p$ (så $\mathbb{Z}_p$ er nullpunktmengden for $x^p-x$); $F_{p^n}$ = nullpunktmengden for $x^{p^n}-x$, **entydig opp til isomorfi**; **konjugerte røtter** til irredusibel $f$: $\theta,\theta^p,\theta^{p^2},\dots,\theta^{p^{n-1}}$ (Frobenius-banen); **primitivt element/polynom** (*primitive element/polynomial*): generator for $F_{p^n}^*$; delkropper $F_{p^m}\subseteq F_{p^n}$ ⇔ $m\mid n$. Gjennomgangseksempel **$F_{16}=F_{2^4}$**. «Alternatively»: to isomorfe konstruksjoner av samme $F_{p^n}$ via ulike irredusible polynomer.
+- **Oppgavesjangre:** J. Mønstereksempel: «I $F_{16}=\mathbb{Z}_2[x]/\langle x^4+x+1\rangle$ med rot $\theta$: skriv $\sigma(\theta)$ og $\sigma^2(\theta)$ i basisen $\{1,\theta,\theta^2,\theta^3\}$ og finn de konjugerte røttene til $\theta$.»
+- **Typiske feil:** Bruke freshman's dream i karakteristikk 0 ($(a+b)^p\ne a^p+b^p$ i $\mathbb{Q}$); anta at $\alpha\mapsto\beta$ mellom to røtter alltid gir isomorfi (kun ved samme minimalpolynom); feil delkropp-kriterium ($m\mid n$); regnefeil i Frobenius-banen; blande $x^{p^n}-x$ og $x^{p^n-1}-1$.
+- **Quiz: 16 · Flashcards: 22**
+
+**Prøve-kvote Del 10:** 4 prøver (spesifisert i §4).
+
+---
+
+### Del 11 — Spesialsjangre og passer-linjal *(prioritet: KJENNE — topp-poeng/lav frekvens)*
+
+#### Kapittel 11.1: Spesialsjangre: nilpotente, automorfigrupper, moteksempler, cyklisk-karakterisering og passer-linjal
+
+- **id:** `mat2200-11-1` · **number:** 11.1 · **estimatedMinutes:** 55 · **prerequisites:** `mat2200-6-1`, `mat2200-3-2`, `mat2200-9-3`
+- **kapitteltype:** teori
+- **description:** Sekkeposten av lavfrekvente sjangre som skiller på toppen: nilpotente elementer som ideal, automorfi-/kommutatorgrupper, uendelige gruppe-moteksempler, cyklisk-karakteriseringen via Σφ(d), og en kort orientering om passer-og-linjal.
+- **Forkunnskaper (kryssbok):** Kap. 6.1 (ringer), 3.2 (homomorfier/automorfier), 1.4 (φ-funksjon), 9.3 (konstruerbarhet-kobling).
+- **Eksamensbelegg:** Sjanger N (~5–15 % per undertema, topp-karakterskiller). Dokumenterte: nilpotente danner ideal ($(a+b)^{n+m}=0$ via binomialteorem); nilpotent matrise ⇒ $\det=0$ (V2016); uendelige moteksempler ($G=\cup gHg^{-1}$ krever uendelig $G$, V2006); cyklisk-karakterisering ($\sum_{d\mid n}\varphi(d)=n$-argument, V2021); passer-linjal (i pensum, ~5 % i sett). Prioritet: **kjenne**.
+- **Innholdskontrakt:** **Nilpotent element** (*nilpotent*): $a^m=0$; i en kommutativ ring danner nilpotentene et ideal (nilradikalet) — bevis via binomialteoremet $(a+b)^{n+m}=0$; nilpotent matrise ⇒ $\det=0$. **Automorfigruppe** (*automorphism group*) $\operatorname{Aut}(G)$, indre automorfier $\operatorname{Inn}(G)\cong G/Z(G)$; **kommutator** (*commutator*) $[x,y]=xyx^{-1}y^{-1}$, kommutatorundergruppe (kjennskap). **Uendelige gruppe-moteksempler**: en endelig-indeks-undergruppe kan ikke dekke $G$ som union av konjugater med mindre $G$ er uendelig. **Cyklisk-karakterisering**: en endelig gruppe der hver divisor $d\mid|G|$ har høyst én undergruppe av orden $d$, er syklisk ($\sum_{d\mid n}\varphi(d)=n$-telling). **Passer og linjal** (*straightedge and compass*, KORT, «bør kjenne til»): et tall er konstruerbart ⇔ det ligger i en kropp nådd ved en kjede av kvadratiske utvidelser ⇒ konstruerbar grad er en 2-potens (derav umulighet av vinkeltredeling, terningsdobling); kobling til $\mathbb{Q}(\zeta_n)$ (9.3).
+- **Oppgavesjangre:** N. Mønstereksempel: «Vis at mengden av nilpotente elementer i en kommutativ ring $R$ er et ideal.» og «Vis at en endelig gruppe med høyst én undergruppe av hver orden $d\mid|G|$ er syklisk.»
+- **Typiske feil:** Glemme binomialteorem-graden for nilradikalet (må velge eksponent stor nok); bruke nilradikal-argumentet i ikke-kommutativ ring; feil i $\sum\varphi(d)$-tellingen; overvurdere passer-linjal (lav eksamensvekt — hold kort); forveksle $\operatorname{Aut}$ og $\operatorname{Inn}$.
+- **Quiz: 12 · Flashcards: 16**
+
+**Prøve-kvote Del 11:** 4 korte prøver (spesifisert i §4 — dekker de fem undertemaene).
+
+---
+
+### Del 12 — Eksamenstrening
+
+#### Kapittel 12.1: Bevisverkstedet: de åtte standardargumentene og «Alternatively»-katalogen
+
+- **id:** `mat2200-12-1` · **number:** 12.1 · **estimatedMinutes:** 55 · **prerequisites:** Del 1–10
+- **kapitteltype:** teori (metode)
+- **description:** De åtte argumentmaskinene samlet på ett sted som førbare oppskrifter med navngitte teoremer og forutsetningssjekk, pluss «Alternatively»-katalogen (nabometodene sensor premierer) og teoremnavn-banken du må kunne utenat.
+- **Eksamensbelegg:** Metaregel-kapittel bygget på fasitstilen og de fire argumentmaskinene (analysen §4/§6): studenten må kunne **føre**, ikke bare gjengi, de åtte standardargumentene. Prioritet: **perfekt** (bevisføring bærer karakteren).
+- **Innholdskontrakt:** **De åtte standardargumentene** som algoritmiske oppskrifter med navngitt teorem + forutsetningssjekk: (1) **Sylow-eksklusjon** → normal Sylow (kap. 4.4); (2) **coprime-produkt-dekomposisjon** $G\cong H\times K$ (3.3); (3) **kvotient-kriteriet** for prim/maksimal (6.3); (4) **irredusibilitet** (Eisenstein + grad ≤ 3-argument, 7.2); (5) **tårnformel-beregning** av $[K:\mathbb{Q}]$ (8.3); (6) **splittkropp + Galois-gruppe-identifikasjon** (9.4); (7) **fikskropp-bestemmelse** med gradargument (9.3); (8) **$p$-gruppe-fikspunkt** via klasseligning (4.2). **«Alternatively»-katalogen**: for hvert relevante mønster de to veiene sensor honorerer (undergruppetest vs. aksiomer; ideal som kjerne vs. absorpsjon; kvotient-kriterium vs. direkte prim/maksimal; coprime-produkt vs. eksplisitt isomorfi; primtall-trikset vs. eksplisitt basisregning). **Teoremnavn-banken** (norsk/engelsk): Lagrange, Cauchy, Sylow I–III, strukturteoremet, isomorfiteoremet, kvotient-kriteriet, Eisenstein, tårnformelen, hovedsetningen i Galois-teori, Frobenius, Fermat — alle må kunne navngis, formuleres og bevis-skisseres utenat (ingen hjelpemidler). Sjekklisten før innlevering: forutsetning sjekket? teorem navngitt? begge retninger av ⇔? tallverdier oppgitt? «Alternatively»-snarvei sett?
+- **Oppgavesjangre:** Meta/bevis. Mønstereksempel: «Nedenfor er en Sylow-besvarelse som konkluderer ‘normal’ etter bare å ha vist $N_p\equiv1\pmod p$. Pek på det manglende leddet ($N_p\mid$ indeks + eksklusjon) og skriv om til full uttelling.»
+- **Typiske feil:** De åtte argumentenes fellekataloger samlet: ufullstendig Sylow-eksklusjon, manglende forutsetningssjekk (Eisenstein/Sylow/tårnformel), bare én retning av en ⇔, gruppa identifisert før graden, freshman's dream i feil karakteristikk, korrespondansen i feil retning, ubegrunnet irredusibilitet.
+- **Quiz: 14 · Flashcards: 32** (de åtte oppskriftene + «Alternatively»-par + teoremnavn-bank — flashcard-gull for et hjelpemiddelfritt bevisemne)
+
+#### Kapittel 12.2: Øvingseksamen 1: klassisk 4-oppgavers skoleeksamen (bred kjerne)
+
+- **id:** `mat2200-12-2` · **number:** 12.2 · **estimatedMinutes:** 240 · **prerequisites:** `mat2200-12-1`
+- **kapitteltype:** øvingseksamen (skriftlig)
+- **description:** Komplett 4-timers sett etter den klassiske malen 2006–2019/2023: fire likt vektede bevisoppgaver med deloppgaver a–d som treffer hele bredden — gruppeteori, permutasjons-/ringteori, endelige kropper, Galois — fullt bevist.
+- **Eksamensbelegg/miks:** Speiler den klassiske skoleeksamenen (**4 oppgaver med lik vekt, deloppgaver a–d, 4 timer, ingen hjelpemidler, engelsk, «Justification must be provided»**), kalibrert på prognosen i analysens §7: **O1 (gruppeteori)** vis at (mengde) er gruppe (sjanger A) + list abelske grupper av gitt orden (B) + Sylow-argument for normal undergruppe (F) → **O2 (permutasjons-/ringteori)** syklenotasjon/paritet/orden=mfm (D) + ideal via kjerne + prim/maksimal via kvotient-kriteriet (H) → **O3 (endelige kropper)** $\mathbb{Z}_p[x]/\langle f\rangle$ som kropp: irredusibilitet + antall elementer + basis + Frobenius (J) → **O4 (Galois)** splittkropp til konkret $f$ + $[K:\mathbb{Q}]$ via tårnformelen + Galois-gruppe + mellomkropp via korrespondansen (K + L). Alle oppgaver nyskrevne med «pene» tall/små strukturer (regnbart uten hjelpemidler). Løsningsforslag i `collapsible` per deloppgave som **A-besvarelse med navngitte teoremer og forutsetningssjekk** (føringsstandarden), med `tip`-notat om tidsbudsjett og hvor bevis-poengene sitter (justification, ikke svaret).
+- **Quiz: 5 · Flashcards: 0**
+
+#### Kapittel 12.3: Øvingseksamen 2: klassisk 4-oppgavers skoleeksamen (restsjangre + endelige kropper-tung)
+
+- **id:** `mat2200-12-3` · **number:** 12.3 · **estimatedMinutes:** 240 · **prerequisites:** `mat2200-12-2`
+- **kapitteltype:** øvingseksamen (skriftlig)
+- **description:** Komplett sett nummer to som treffer sjangrene sett 1 ikke gjorde — matrisegruppe, gruppevirkning/fikspunkt, homomorfi/direkte produkt, nulldelere, polynomirredusibilitet, cyklotomisk Galois — så de to settene sammen dekker A–N.
+- **Eksamensbelegg/miks:** Samme mal (4 likt vektede bevisoppgaver a–d, 4 timer, ingen hjelpemidler), med **restsjangrene** (sammen dekker 12.2 + 12.3 alle A–N): **O1 (gruppeteori)** matrisegruppe: gruppe/orden/abelsk (A) + gruppevirkning: orbit–stabilisator eller $p$-gruppe-fikspunkt (E) → **O2 (grupper/homomorfi)** orden av element i produkt = mfm + kvotient opp til isomorfi (C) + homomorfi/kjerne/isomorfiteorem + coprime-produkt $G\cong H\times K$ (M) → **O3 (ringer/polynomer)** nulldelere/integritetsområde i $\mathbb{Z}_n$ (G) + irredusibilitet: Eisenstein + grad ≤ 3 + faktorisering over $\mathbb{Z}_p$ (I) + polynomdivisjon → ideal = hele ringen → **O4 (Galois, cyklotomisk)** $\mathbb{Q}(\zeta_n)$: grad $\varphi(n)$ + Galois-gruppe $(\mathbb{Z}_n)^*$ + fikskropp via $\zeta+\zeta^{-1}$ og gradargument (L). Alle nyskrevne; løsningsforslag som A-besvarelse med teoremnavning + forutsetningssjekk og `tip`-notat om delpoeng.
+- **Quiz: 5 · Flashcards: 0**
+
+#### Kapittel 12.4: Øvingseksamen 3: 5-oppgavers korona-variant (ekstra Galois, «all aids»)
+
+- **id:** `mat2200-12-4` · **number:** 12.4 · **estimatedMinutes:** 240 · **prerequisites:** `mat2200-12-3`
+- **kapitteltype:** øvingseksamen (skriftlig, sekundær variant)
+- **description:** Beredskapsformatet: 5 oppgaver med en ekstra Galois-oppgave slik V2020/V2022 var bygget, med eksplisitte poeng og «all aids» — men fortsatt fullt bevist, fordi «most points given for the justification».
+- **Eksamensbelegg/miks:** **Sekundær variant** (verifiser mot første sett etter analysedato — normalformen er 4-oppgavers skoleeksamen uten hjelpemidler). Speiler korona-hjemmeeksamenene V2020/V2022: **5 oppgaver med eksplisitte poeng** (à la 5/10/10 per deloppgave), «all aids», men samme oppgavetyper: **O1** gruppe + Sylow (A + F) → **O2** ring/ideal + endelig kropp (H + J) → **O3** kroppsutvidelse + tårnformel (K) → **O4** Galois: splittkropp + gruppe + korrespondanse (L) → **O5 (ekstra Galois/blandet)** cyklotomisk fikskropp eller en andre splittkropp-analyse + et spesialsjanger-bevis fra §11 (L + N). `warning` om at «all aids» **ikke** senker bevis-kravet — «most points for the justification» gjaldt fortsatt. Løsningsforslag som A-besvarelse med eksplisitt poengfordeling per deloppgave og `tip`-notat om at dette er beredskapsformatet.
+- **Quiz: 5 · Flashcards: 0**
+
+**Prøve-kvote Del 12:** ingen egne temaprøver — øvingseksamenene (12.2–12.4) er delens prøver.
+
+---
+
+### Summeringskontroll (quiz/flashcards) — AUTORITATIV for alle senere faser
+
+| Del | Kapitler | Quiz | Flashcards |
+|---|---|---|---|
+| 0 | 0.1–0.2 | 10+12 = **22** | 14+28 = **42** |
+| 1 | 1.1–1.5 | 18+16+18+16+16 = **84** | 22+20+22+22+6 = **92** |
+| 2 | 2.1–2.2 | 18+16 = **34** | 20+20 = **40** |
+| 3 | 3.1–3.4 | 16+18+16+16 = **66** | 22+22+20+18 = **82** |
+| 4 | 4.1–4.4 | 16+14+18+16 = **64** | 22+18+22+8 = **70** |
+| 5 | 5.1–5.2 | 18+16 = **34** | 22+8 = **30** |
+| 6 | 6.1–6.4 | 18+16+16+16 = **66** | 22+22+22+8 = **74** |
+| 7 | 7.1–7.2 | 16+18 = **34** | 22+22 = **44** |
+| 8 | 8.1–8.3 | 18+18+16 = **52** | 22+22+8 = **52** |
+| 9 | 9.1–9.4 | 16+18+14+16 = **64** | 22+24+18+8 = **72** |
+| 10 | 10.1–10.2 | 16+16 = **32** | 22+22 = **44** |
+| 11 | 11.1 | **12** | **16** |
+| 12 | 12.1–12.4 | 14+5+5+5 = **29** | 32+0+0+0 = **32** |
+| **Sum** | **39 kap.** | **593 ≥ 500 ✓** | **690 (mål 600–700) ✓** |
+
+Kvotene er minimum per kapittel; forfatteren kan overskyte, aldri underskride.
+**Flashcard-tettheten er bevisst høy (690, ikke ~510):** MAT2200 er et
+**definisjons- og teoremrikt bevisemne uten hjelpemidler** — alt apparatet
+(definisjoner, teoremformuleringer, forutsetningssjekklister, standardbevis-
+oppskrifter, tospråklige termpar norsk/engelsk) må sitte utenat, så det er selve
+puggematerialet. De teoritunge kapitlene og de to metode-/bevisverksted-
+kapitlene (0.2 og 12.1) bærer tettheten; drillkapitlene holdes lave (6–8) fordi
+deres verdi er oppgaver, ikke kort. Quiz-fordelingen speiler eksamensvektene:
+**Del 8+9 (tårnformel + Galois — ryggraden og siste oppgave) bærer 116 quiz**,
+Del 1 (grupper) 84, Del 4+6 (Sylow + idealer, argumentmaskiner ii og iii) 130;
+øvingseksamenene holdes lave på quiz (5 hver) fordi verdien er hele oppgavesett.
+
+---
+
+## 4. Prøver og øvingseksamener
+
+### Kapittel-/temaprøver (4 per temadel 1–11, 44 totalt)
+
+Alle prøver består av nyskrevne oppgaver i arkivets sjangre, med løsningsforslag
+som **A-besvarelse** (navngitte teoremer, forutsetningssjekk, full bevisføring),
+poengfordeling og eksakte tallverdier. Legges som prøvekapitler
+(`mat2200-<del>-prove`, chapterNumber `<del>.P`) etter plattformens mønster.
+
+**Del 1 — Grupper, undergrupper og Lagrange**
+1. Prøve 1.A (35 min): Gruppeaksiomer + undergruppetest (kap. 1.1, sjanger A).
+2. Prøve 1.B (35 min): Matrisegruppe — gruppe/orden/abelsk (kap. 1.2, sjanger A).
+3. Prøve 1.C (35 min): Lagrange + sykliske grupper (undergrupper $d\mid n$, $\varphi(d)$) (kap. 1.3–1.4).
+4. Prøve 1.D (40 min): Oppgave 1a-simulering — vis gruppe/undergruppe, begge «Alternatively»-veier (kap. 1.1–1.5, sjanger A).
+
+**Del 2 — Permutasjonsgrupper**
+1. Prøve 2.A (30 min): Syklenotasjon + paritet + $A_n$ (kap. 2.1, sjanger D).
+2. Prøve 2.B (30 min): Orden = mfm + konjugasjonsformel (kap. 2.2, sjanger D).
+3. Prøve 2.C (30 min): $A_n$ ikke abelsk + $\sigma^2$-syklestruktur (kap. 2.2, sjanger D).
+4. Prøve 2.D (35 min): Permutasjons-tverrsnitt — sammensetning + orden + paritet + konjugasjon (kap. 2.1–2.2, sjanger D).
+
+**Del 3 — Homomorfier, kvotienter og isomorfiteoremene**
+1. Prøve 3.A (35 min): Normal undergruppe + kvotientgruppe (kap. 3.1, sjanger M).
+2. Prøve 3.B (35 min): Homomorfi + kjerne + isomorfiteoremet (kap. 3.2, sjanger M).
+3. Prøve 3.C (35 min): Direkte produkt $G\cong H\times K$ med full injektivitet/surjektivitet (kap. 3.3, sjanger M).
+4. Prøve 3.D (40 min): Orden i produkt (mfm) + kvotient opp til isomorfi (kap. 3.4, sjanger C).
+
+**Del 4 — Gruppevirkninger og Sylow**
+1. Prøve 4.A (35 min): Orbit–stabilisator + klasseligning (kap. 4.1, sjanger E).
+2. Prøve 4.B (30 min): $p$-gruppe-fikspunkt + Cauchy (kap. 4.2, sjanger E).
+3. Prøve 4.C (40 min): Sylow I–III + $N_p$-betingelsene (kap. 4.3, sjanger F).
+4. Prøve 4.D (45 min): Argumentmaskin ii — full Sylow-eksklusjon + coprime-produkt → normal/abelsk (kap. 4.4, sjanger F).
+
+**Del 5 — Klassifikasjon av endelige abelske grupper**
+1. Prøve 5.A (30 min): List abelske grupper av gitt orden + entydighet (kap. 5.1, sjanger B).
+2. Prøve 5.B (35 min): Antall abelske grupper + isomorfi mellom produkter (kap. 5.1, sjanger B).
+3. Prøve 5.C (35 min): Kvotient-identifikasjon via elementorden (kap. 5.2, sjanger B + C).
+4. Prøve 5.D (40 min): Argumentmaskin i — full klassifikasjon + kvotient-kobling (kap. 5.1–5.2, sjanger B).
+
+**Del 6 — Ringer, idealer og kvotientringer**
+1. Prøve 6.A (35 min): Nulldelere/enheter/integritetsområde i $\mathbb{Z}_n$ (kap. 6.1, sjanger G).
+2. Prøve 6.B (35 min): Ideal via kjerne + kvotientring via isomorfiteoremet (kap. 6.2, sjanger H).
+3. Prøve 6.C (40 min): Prim/maksimal via kvotient-kriteriet — full ekvivalenskjede (kap. 6.3, sjanger H).
+4. Prøve 6.D (45 min): Argumentmaskin iii — ideal + kvotient + prim/maksimal, begge «Alternatively»-veier (kap. 6.4, sjanger H).
+
+**Del 7 — Polynomringer og faktorisering**
+1. Prøve 7.A (35 min): Polynomdivisjon + euklidsk algoritme → ideal = hele ringen (kap. 7.1, sjanger I).
+2. Prøve 7.B (35 min): Eisenstein + grad ≤ 3-argument over $\mathbb{Q}$ (kap. 7.2, sjanger I).
+3. Prøve 7.C (35 min): Irredusibilitet + faktorisering over $\mathbb{Z}_p$ (kap. 7.2, sjanger I).
+4. Prøve 7.D (40 min): Polynom-tverrsnitt — irredusibilitet (grad 3 og 4) + ideal-argument (kap. 7.1–7.2, sjanger I).
+
+**Del 8 — Kroppsutvidelser, tårnformelen og minimalpolynom**
+1. Prøve 8.A (35 min): Minimalpolynom + grad + basis + potensregning (kap. 8.1, sjanger K).
+2. Prøve 8.B (40 min): Tårnformelen — flertrinns-grad med trinnsjekk (kap. 8.2, sjanger K).
+3. Prøve 8.C (35 min): Primtall-trikset — likhet av kropper (kap. 8.2, sjanger K).
+4. Prøve 8.D (45 min): Argumentmaskin iv/1 — full $[K:\mathbb{Q}]$-beregning + basis (kap. 8.3, sjanger K).
+
+**Del 9 — Galois-teori**
+1. Prøve 9.A (40 min): Splittkropp + grad via tårnformelen (kap. 9.1, sjanger L).
+2. Prøve 9.B (45 min): Galois-gruppe $|G|=[K:\mathbb{Q}]$ + identifikasjon + korrespondanse (kap. 9.2, sjanger L).
+3. Prøve 9.C (40 min): Cyklotomisk $\mathbb{Q}(\zeta_n)$ + fikskropp via $\zeta+\zeta^{-1}$ (kap. 9.3, sjanger L).
+4. Prøve 9.D (50 min): Argumentmaskin iv/2 — full siste-oppgave-simulering: splittkropp → gruppe → mellomkropp/fikskropp (kap. 9.4, sjanger L).
+
+**Del 10 — Endelige kropper**
+1. Prøve 10.A (35 min): $\mathbb{Z}_p[x]/\langle f\rangle$ kropp + antall elementer + basis (kap. 10.1, sjanger J).
+2. Prøve 10.B (35 min): Potensregning modulo $f$ + invers (kap. 10.1, sjanger J).
+3. Prøve 10.C (40 min): Frobenius + freshman's dream + konjugerte røtter (kap. 10.2, sjanger J).
+4. Prøve 10.D (40 min): Endelig-kropp-tverrsnitt — $F_{16}$: kropp + Frobenius-bane + primitivt element (kap. 10.1–10.2, sjanger J).
+
+**Del 11 — Spesialsjangre og passer-linjal**
+1. Prøve 11.A (25 min): Nilpotente danner ideal (binomialteorem) (kap. 11.1, sjanger N).
+2. Prøve 11.B (25 min): Automorfigrupper/kommutatorer + $\operatorname{Inn}(G)\cong G/Z(G)$ (kap. 11.1, sjanger N).
+3. Prøve 11.C (25 min): Cyklisk-karakterisering ($\sum_{d\mid n}\varphi(d)=n$) + uendelig moteksempel (kap. 11.1, sjanger N).
+4. Prøve 11.D (25 min): Passer-linjal (konstruerbar grad = 2-potens) — kort (kap. 11.1, sjanger N).
+
+### Øvingseksamener (3 komplette sett — se kap. 12.2–12.4)
+
+| Sett | Form den speiler | Miks |
+|---|---|---|
+| Øvingseksamen 1 (kap. 12.2) | Klassisk 4-oppgavers skoleeksamen 2006–2019/2023 (primær) | Bred kjerne: O1 A+B+F, O2 D+H, O3 J, O4 K+L |
+| Øvingseksamen 2 (kap. 12.3) | Samme mal, restsjangre | O1 A+E, O2 C+M, O3 G+I, O4 L (cyklotomisk) |
+| Øvingseksamen 3 (kap. 12.4) | 5-oppgavers korona-variant V2020/V2022 (sekundær) | O1 A+F, O2 H+J, O3 K, O4 L, O5 L+N (ekstra Galois) |
+
+Til sammen dekker de tre settene samtlige sjangre A–N minst én gang og trener
+den **hjelpemiddelfrie, fullt beviste** produksjonen (primær, 12.2–12.3) samt
+5-oppgavers «all aids»-varianten (sekundær, 12.4). Alle løsningsforslag føres som
+A-besvarelser med navngitte teoremer og forutsetningssjekk.
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen: eksamenskart + bevishåndverk) +
+kapitlenes Eksamensvinkel-blokker:
+
+1. **Én bred bevistung eksamen, fire argumentmaskiner** — vurderingsformen (4-timers
+   skriftlig skoleeksamen, ingen hjelpemidler, engelsk, 4 likt vektede oppgaver
+   a–d), formathistorikken (papir → korona-hjemmeeksamen → retur til skoleeksamen)
+   og hovedfunnet: temaene og oppgavetypene er bemerkelsesverdig stabile, hvert
+   sett dekker hele bredden, ~85–90 % er bevisføring (fra kap. 0.1).
+2. **Bevishåndverket** — hvordan et algebrabevis føres: navngi teoremet, sjekk
+   forutsetningene, skill ⇒ og ⇔, før ekvivalenskjeder fullt ut, se
+   «Alternatively»-snarveien; den tospråklige begrepsbanken (norsk/engelsk) for å
+   lese engelsk oppgavetekst og svare på engelsk (fra kap. 0.2).
+3. **Prioriteringskartet** — frekvens-tabellen omgjort til tre lesenivåer: **perfekt**
+   (Del 8 kroppsutvidelser/tårnformel ~95 %, Del 9 Galois ~90 %, Del 4 Sylow ~85 %,
+   Del 5 klassifikasjon ~80 %, Del 6 idealer ~75 %), **kunne** (Del 1 grupper ~70 %,
+   Del 2 permutasjon ~65 %, Del 10 endelige kropper ~65 %, Del 3 homomorfi ~65 %,
+   Del 7 polynomirredusibilitet ~60 %), **kjenne** (Del 11 spesialsjangre, passer-
+   linjal ~5 %) — med notatet om at hvert sett dekker hele bredden, så
+   **beherskelsesdybde i de fire argumentmaskinene** slår tema-utvalg.
+4. **Sjangerguiden** — A–N med løsningsoppskriftene fra drillkapitlene (4.4, 5.2,
+   6.4, 8.3, 9.4) og bevisverkstedet (12.1) i kortform.
+5. **De fire argumentmaskinene** — (i) strukturteoremet, (ii) Sylow-eksklusjon +
+   coprime-produkt, (iii) kvotient-kriteriet + kjerne-snarvei, (iv) tårnformel +
+   Galois-korrespondanse — hver som en førbar oppskrift med navngitte teoremer.
+6. **Sensorreglene** — «Justification must be provided», teoremnavning (må pugges,
+   ingen hjelpemidler), forutsetningssjekk, ekvivalenskjeder fullt ut,
+   «Alternatively»-bevissthet, eksakte tallverdier — pluss karakterskille-listen
+   (bestått/midt/topp fra kap. 0.1).
+7. **Feilkatalogen** — de 12 typiske feilene fra analysen §5 samlet (mengde uten
+   inverssjekk, orden = produkt i stedet for mfm, ubegrunnet irredusibilitet,
+   prim/maksimal-forveksling, Galois-gruppe uten gradregning, hoppe over
+   tårnformelen, ufullstendig Sylow-eksklusjon, entydighet ikke nevnt, freshman's
+   dream i feil karakteristikk, konjugerte-element-forveksling, ubegrunnet
+   isomorfi, regne i feil ring/kropp), hver med henvisning til kapitlet som
+   forebygger den.
+8. **Teorem- og definisjonsapparatet (norsk/engelsk, Fraleigh-notasjon)** — hele
+   apparatet fra innholdskontraktene med markering **formulere/bevise/anvende
+   aktivt** vs. **kun bruke**, og påminnelsen om at alt må kunnes utenat (ingen
+   hjelpemidler): Lagrange, Sylow I–III, strukturteoremet, isomorfiteoremet,
+   kvotient-kriteriet, Eisenstein, tårnformelen, hovedsetningen i Galois-teori,
+   Frobenius, Fermat.
+9. **Studieløp** — semesterplan: Del 0 (eksamenskart + bevishåndverk) → Del 1–3
+   (gruppespråket) → Del 4 (Sylow, argumentmaskin ii) → Del 5 (klassifikasjon,
+   maskin i) → Del 6–7 (ringer/polynomer, maskin iii) → **Del 8 (tårnformel — bruk
+   mest tid, ryggraden) → Del 9 (Galois — siste oppgave, maskin iv)** → Del 10
+   (endelige kropper, økende) → Del 11 (spesialsjangre for toppkarakter) →
+   temaprøvene → bevisverkstedet (12.1) → de tre øvingseksamenene under tidspress
+   (4 timer, ingen hjelpemidler). Notat: Galois er vanskeligst MEN mest
+   forutsigbar (garantert siste oppgave) — prioriter den høyt tross vanskegraden.
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først**: `TextbookCourse`-oppføring for `mat2200` med alle 39
+   kapitler (id/number/title/description/estimatedMinutes/topics/prerequisites)
+   etter mønster `COURSE_BI_OKONOMI` i `textbook-courses-matte.ts`, + `sectionNames`
+   fra §2-tabellen (del-nummer → seksjonstittel). **`number` SKAL være del-basert**
+   («9.2», ALDRI lineær «34») — bokforsiden grupperer på `number.split('.')[0]`.
+   Prosareferanser i innholdet bruker samme del-baserte form («kap. 9.2»).
+2. **Del 0** (kap. 0.1–0.2) — etablerer sjangernavnene A–N, frekvenstallene, de
+   fire argumentmaskinene og bevishåndverk-standarden som resten refererer til.
+3. **Gruppedelene i avhengighetsrekkefølge**: Del 1 (grupper/Lagrange/sykliske) →
+   Del 2 (permutasjon; krever 1.1) → Del 3 (homomorfi/kvotient/direkte produkt;
+   krever 1.3) → Del 4 (gruppevirkning/Sylow; krever 4.2→4.3, og 4.4 krever 3.3) →
+   Del 5 (klassifikasjon; krever 3.3 + 1.4).
+4. **Ring-/polynomdelene**: Del 6 (ringer/idealer; 6.2 krever 3.2-analogien) →
+   Del 7 (polynomringer; krever 6.2).
+5. **Kropps-/Galois-tyngdepunktet**: Del 8 (kroppsutvidelser/tårnformel; krever 7.2)
+   → Del 9 (Galois; 9.1 krever 8.2 + 7.2, 9.2 krever 3.1) → Del 10 (endelige
+   kropper; krever 8.1 + 7.2).
+6. **Spesialsjangre**: Del 11 (krever 6.1, 3.2, 9.3).
+7. **Del 12** til slutt (bevisverkstedet + de tre øvingseksamenene gjenbruker alt
+   og må dekke A–N + begge produksjonsmåter). Temaprøvene (§4) legges som
+   prøvekapitler (`mat2200-<del>-prove`, chapterNumber `<del>.P`), 4 per temadel
+   1–11 (44 stk).
+8. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert som
+   kapitlene ferdigstilles.
+
+**Batching (fase 4):** én agent per hel del. Del 1, 4 og 6 (4–5 kap.) og Del 12
+(4 kap., hvorav 3 øvingseksamener) er de største — hold hver del samlet hos én
+agent, flagg dem for konsistenssjekk. Del 9 (Galois) bygges av en agent som også
+leser 8.2–8.3 (grad-regningen bæres dit) og 3.1 (normale undergrupper).
+Øvingseksamenene (12.2–12.4) og bevisverkstedet (12.1) bygges av én agent som
+leser HELE skjelettet (de gjenbruker alle sjangre og de åtte argumentene).
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering**: hver kapittelfil parser (`json.load`); generer JSON via
+      `json.dump`, ikke håndskriving — LaTeX krever `\\` i JSON-strenger;
+      `npm run build` grønn (combine-chapters fanger ugyldig JSON i registry).
+- [ ] **LaTeX + Fraleigh-notasjon**: all matematikk i `$...$`/`$$...$$`; ingen
+      unicode-brøker; konsistent Fraleigh-notasjon: $Z_n$, $Z_n^*$/$U(Z_n)$, $S_n$,
+      $A_n$, $D_n$, $\langle a\rangle$, $H\trianglelefteq G$, $[G:H]$, $G/H$,
+      $H\times K$, $R/I$, $k[x]/\langle f\rangle$, $\operatorname{irr}(\alpha,k)$,
+      $[K:k]$, $G(K/Q)$, $E^H$, $\zeta_n$, $F_{p^n}$, Frobenius $\sigma_p$.
+- [ ] **Bevisstandard i ALLE eksempler og løsningsforslag**: løsningen ER et bevis
+      i A-besvarelse-form — forutsetning navngis, **teoremet navngis** (Lagrange,
+      Sylow, Eisenstein, strukturteoremet, isomorfiteoremet, tårnformelen,
+      hovedsetningen i Galois-teori, Frobenius/Fermat), begge retninger av ⇔ vist,
+      ekvivalenskjeder fullt ut, konklusjonen trukket eksplisitt, tallverdier
+      oppgitt (orden, $[K:Q]$, $p^n$, basis, $N_p$). Ubegrunnet fasitsvar er en
+      byggefeil (dette er et bevisemne — ~85–90 % av poengene).
+- [ ] **«Alternatively»-par**: kapitlene 1.1, 3.3, 6.2, 6.3, 8.2 og bevisverkstedet
+      (12.1) viser eksplisitt de to veiene sensor premierer (undergruppetest vs.
+      aksiomer; ideal som kjerne vs. absorpsjon; kvotient-kriterium vs. direkte;
+      coprime-produkt vs. eksplisitt isomorfi; primtall-trikset vs. basisregning).
+- [ ] **Tospråklig begrepsbank**: hvert fagbegrep har norsk forklaring + engelsk
+      term ved første forekomst; hvert teorikapittel har `collapsible` Symbol-,
+      formel- og begrepsliste (norsk/engelsk); flashcards koder termparet.
+- [ ] **Format-ærlighet**: kap. 0.1 og øvingseksamen 3 (12.4) sier eksplisitt at
+      normalformen er 4-oppgavers skoleeksamen uten hjelpemidler, at 5-oppgavers
+      «all aids»-varianten (V2020/V2022) er sekundær, at bevis-kravet gjaldt selv
+      med «all aids» («most points for the justification»), og at format/Fraleigh-
+      utgave skal verifiseres mot første sett etter analysedato.
+- [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med tallene
+      fra dette skjelettet), Forkunnskaper-blokk med kryssbok-lenker (kun til
+      kapitler som finnes — `bi-okonomi`/R1/R2 lenket og verifisert i fase 6;
+      forgjenger i tall-/gruppeteori som klartekst med aktiveringsmarkør),
+      `collapsible` Symbol-, formel- og begrepsliste (norsk/engelsk) per delkapittel,
+      Typiske feil-`warning`, 2–4 eksempler (siste på eksamensnivå, ført som bevis),
+      6–12 øvinger med `solution` + `hints`, repetisjons-`collapsible`; drillkapitler
+      (4.4, 5.2, 6.4, 8.3, 9.4) har løsningsoppskrift + sensor-kommentert case +
+      10–15 oppgaver; metode-/bevisverksted-kapitlene (0.2, 12.1) fører komplette
+      modellbevis med forutsetningssjekk.
+- [ ] **Quiz-sum ≥ 593 og flashcard-sum ≥ 690** per kvotetabellen i §3
+      (kontrollsummér). Flashcards KUN fra toppnivå `definition`-blokker med `title`.
+- [ ] **Prøver**: 4 per temadel 1–11 (44 stk) + 3 øvingseksamener (12.2–12.4) som
+      sammen dekker A–N og begge produksjonsmåter (4-oppgavers + 5-oppgavers).
+- [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne tall, grupper, ringer, kropper
+      og polynomer; ingen formuleringer fra reelle sett eller fasiter (skjelettets
+      mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
+      ordrett inn); Fraleigh refereres (begrep/notasjon/struktur), aldri siteres i
+      lengde.
+- [ ] **Navigasjon**: `mat2200` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+      under **Universitetet i Oslo (UiO)**, navn = «MAT2200 Grupper, ringer og kropper».
+- [ ] **Verifiser rendering**: prod-server + curl mot institusjonsside, bokforside og
+      minst 3 kapittel-/narrativ-ruter (teori/drill/prøve) + quiz- og flashcard-rute
+      (200 + innholdssjekk), jf. `getChapterMeta`-lærdommen.
