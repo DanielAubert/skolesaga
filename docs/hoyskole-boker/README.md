@@ -169,7 +169,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TMA4135 Matematikk 4D (NTNU) | regnefag | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
-| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | analyse underveis |
+| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett |
 | SOSANT1090 Antropologisk metode (UiO) | drøfting | analyse underveis |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
 

@@ -1354,3 +1354,198 @@ sin paradoks-drøftingsakse:
 
 **Prøve-kvote Del 8:** dekkes av de tre øvingseksamenene (8.7–8.9) — egne del-prøver ville
 dublere modellbesvarelses- og øvingsbankene.
+
+---
+
+## Kvotesammendrag (AUTORITATIV for alle senere faser)
+
+| Del | Kapitler | Quiz | Flashcards | Prøver |
+|---|---|---|---|---|
+| 0 | 3 | 46 | 30 | 0 (dekkes av øvingseksamenene) |
+| 1 | 3 | 74 | 76 | 4 |
+| 2 | 5 | 130 | 138 | 4 |
+| 3 | 3 | 74 | 78 | 4 |
+| 4 | 2 | 48 | 50 | 4 |
+| 5 | 4 | 88 | 92 | 4 |
+| 6 | 3 | 72 | 76 | 4 |
+| 7 | 2 | 44 | 46 | 4 |
+| 8 | 9 | 82 | 54 | 0 (3 øvingseksamener) |
+| **Sum** | **34** | **658 ✓ (≥600)** | **640 ✓ (600–700)** | **28 + 3 øvingseksamener** |
+
+**Summeringskontroll per del:**
+- Del 0: 12+16+18 = **46 q** / 8+12+10 = **30 f**
+- Del 1: 24+26+24 = **74 q** / 28+26+22 = **76 f**
+- Del 2: 26+30+26+26+22 = **130 q** / 28+32+28+28+22 = **138 f**
+- Del 3: 28+24+22 = **74 q** / 30+26+22 = **78 f**
+- Del 4: 22+26 = **48 q** / 22+28 = **50 f**
+- Del 5: 24+20+22+22 = **88 q** / 26+20+24+22 = **92 f**
+- Del 6: 24+24+24 = **72 q** / 26+26+24 = **76 f**
+- Del 7: 22+22 = **44 q** / 22+24 = **46 f**
+- Del 8: 16+16+8+8+8+8+6+6+6 = **82 q** / 14+8+5+5+5+5+4+4+4 = **54 f**
+- **Totalt: 658 q / 640 f** (quiz ≥600 ✓, flashcards 600–700 ✓)
+
+**Kvotebegrunnelse (jf. PRODUKSJONSLOYPE «≥500 er GULV»):** SOS1004 er et **begrepsrikt
+drøftingsfag med minuspoeng-flervalg som 1/3 av karakteren** — begge trekk trekker
+kvoten opp. **Quiz siktes høyt (658)** fordi flervalg ER en eksamenssjanger: banken er
+autentisk eksamenstrening, ikke bare repetisjon, og hele pensumbredden er nedslagsfelt.
+**Flashcards siktes mot midten av 600–700-båndet (640)** fordi faget er distinksjonstungt
+— hvert tema har begrepspar sensor eksplisitt tester (statistisk/smaks-/stereotypi-
+diskriminering; de-kommodifisering/de-familisering; belonging/belief/behaviour; absolutt/
+relativ mobilitet; horisontal/vertikal kjønnsdeling). Tettheten er høyest i **Del 2**
+(signaturdelen, 138 f på 5 kap) og **Del 3** (regimebegrepene, 78 f på 3 kap). Del 8s
+lavere flashcard-tetthet er tilsiktet (sjanger-/modellsvarkapitler puggermindre begrep).
+
+**Flashcard-profil:** tre korttyper i om lag lik andel. (1) **Begrepskort med avsender og
+distinksjon** — «hva er X hos Y, og hva skiller det fra nabobegrepet Z» (statistisk
+diskriminering vs. smaks-; de-kommodifisering vs. de-familisering). (2) **Norske
+empirikort** — «studie → design → funn → hva det betyr» (Midtbøens felteksperiment →
+innkallingsgapet; Lappegårds tre mekanismer; Waters' Katrina → hopingseffekter; Hansen &
+Uvaag → absolutt løft/relativ stabilitet). (3) **Paradokskort** — «paradoks → begge sider
+→ hvilken oppgave det bærer» (integreringsparadokset, fruktbarhetsparadokset osv.).
+**Quiz-profil:** flervalg med **nabobegrep-distraktorer** (den autentiske eksamensfellen)
++ «hvem eier begrepet»-koblinger + «hvilket funn viste studien X»-spørsmål + «hvilken feil
+begår kandidaten»-gjenkjenning + rene minuspoeng-kalibreringsspørsmål. Quiz = flervalgs-
+trening i eksamensform (options[0] = riktig i staging; runtime stokker).
+
+---
+
+## 4. Prøver
+
+Fire prøver per temadel (Del 1–7 = 28 prøver), spesifisert under hver del over. Hver prøve
+speiler eksamensformatet i miniatyr (flervalgsbolk med minuspoeng-fasit + begreps-/langsvar-
+moment), omfang 20–45 min, alle oppgaver nyskrevne, med C/A-momentlister. Prøvekapittel-id:
+`sos1004-<del>-prove`, chapterNumber `<del>.P`. Del 0 og Del 8 har ingen egne prøvekapitler
+(dekkes av håndverkskapitlene og de tre øvingseksamenene).
+
+### Komplette øvingseksamener (3) — todelt form (kap. 8.7–8.9)
+
+Alle i gjeldende eksamensform (**Del I: 20 flervalg, +1/−0,5/0** + **Del II: langsvar, velg
+1 av 2 fra ulike temaakser**, 4 timer, A–F, begge deler må bestås). Flervalgene har
+minuspoeng-fasit med «svar/la stå»-kommentar; langsvarene har full momentliste med C/A-
+beskrivelse på de fire aksene og eksplisitt paradoks-motor. Alle oppgaver nyskrevne.
+Fordelingen sikrer at en student som gjør alle tre har møtt begge de årlige temaaksene
+(velferd/demografi/arbeid/klima ↔ diskriminering/rasisme/kultur/avvik) flere ganger.
+
+---
+
+## 5. Studieguide-disposisjon
+
+1. **Slik er eksamen** — todelt digital skoleeksamen (Del I flervalg 20 spm +1/−0,5/0 = 1/3,
+   Del II langsvar 1 av 2 = 2/3, begge bestått), terskelverdiene, A–F, tidsbudsjett, og de
+   tre mantraene «redegjør OG drøft», «funn ikke navn», «bær paradokset» (fra kap. 0.1–0.3).
+2. **Minuspoeng-kortet** — regnestykket (blind gjetting negativ; eliminér to → gjett;
+   eliminér null → la stå) som ett oppslag.
+3. **Forsker-galleriet** — én rute per kjerneforsker (Mills, Aakvaag, Brochmann, Midtbøen,
+   Hermansen & Midtbøen, Larsen & Di Stasio, Andersson & Midtbøen, Esping-Andersen, Lappegård,
+   Lyngstad & Tønnessen, Alsos & Dølvik, Oppegaard, Flemmen, Hansen & Uvaag, Teigen & Skjeie,
+   Furseth, Goffman, Link & Phelan, Pedersen, Grue, Fukuyama, Hochschild, Engelstad, Beck,
+   Waters, Klinenberg): kjernebegrep + studiens funn + hvilken oppgave/år + farligste
+   presisjonsfeil. **⚠ merk utgave-sensitive koblinger** (artikkellaget, grunnboka).
+4. **Begrepsbank med avsender og distinksjon** — alle kjernebegreper alfabetisk, hver med
+   én-setnings definisjon + forfatter + nabobegrepet det skilles fra (flashcard-speilet i
+   prosaform): statistisk/smaks-/stereotypidiskriminering, de-kommodifisering/de-familisering,
+   integrasjon/assimilering/segregering, absolutt/relativ mobilitet, biologisk/kulturell/
+   strukturell rasisme, de tre B-ene, risikosamfunn, hopingseffekter, megatrendene,
+   horisontal/vertikal kjønnsdeling, deep story/empathy walls, stigma m/makt, m.fl.
+5. **Empirikort-lageret** — de ~20 navngitte norske studiene som «studie → design → funn →
+   hva det betyr», sortert etter tema (SOS1004s motstykke til etnografi-lageret).
+6. **Paradoks-galleriet** — de seks (+1) drøftingsparadoksene som énlinjers drøftingsmotorer
+   (fra kap. 8.1).
+7. **Sjangerformlene** — firetrinns-langsvaret + flervalgs-/minuspoeng-strategien + «funn
+   ikke navn» som huskeliste med eksempelfraser.
+8. **Feilvaksine-kortversjonen** — de ti feilene som énlinjers varsellamper.
+9. **Karakterkalibrering** — de fire aksene og A/B/C/D/E/F-rubrikken i tabellform, med
+   begge-bestått-regelen og «drøfting kan kompensere redegjørelse».
+10. **De to temaaksene** — oversikt over hvordan de to årlige langsvarsalternativene fordeler
+    seg (velferd/demografi/arbeid/klima ↔ diskriminering/rasisme/kultur/avvik), med råd om å
+    beherske minst én akse i dybden og den andre til C-nivå.
+11. **Ukeplan** — 6-ukers og 2-ukers løp mot eksamen med prøve-innplassering (temadelprøver
+    underveis; øvingseksamen 1/2/3 de siste to ukene).
+
+---
+
+## 6. Byggerekkefølge og verifikasjon
+
+### Rekkefølge for forfatter-agenten (Opus)
+
+1. **Metadata først:** `TextbookCourse`-oppføring (mønster `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-matte.ts`, skrives til `textbook-courses-hoyskole.ts`):
+   id `sos1004`, title, `level: 'Høyskole'`, alle 34 kapitler + 7 prøvekapitler med
+   id/number/title/description/estimatedMinutes/topics/competenceGoals/prerequisites fra
+   dette skjelettet, `sectionNames` fra del 2-tabellen. **`number` del-basert («2.1»,
+   prøver «2.P»), ALDRI lineær** (jf. PRODUKSJONSLOYPE-lærdommen fra JUS1111);
+   prosareferanser i innholdet bruker samme form («kap. 2.1»).
+2. **⚠ FØR temakapitlene: sjekk GJELDENDE Leganto-pensumliste** (pensumrevisjon varslet
+   H2025/H2026 — grunnbok og artikkellag kan være endret). Behold temafamiliene og
+   antologi-ankeret; oppdater forfatterkoblinger til skiftende artikler. Merk usikre
+   pensumdetaljer/funn/tall `(verifiser)`.
+3. **Del 0** (etablerer mantraene og rubrikken alle senere kapitler refererer: «redegjør OG
+   drøft», «funn ikke navn», paradoks-motoren, minuspoeng-strategien, de fire aksene).
+4. **Del 1 → 7** i rekkefølge (prerequisites peker bakover; Del 2 bygger på 1.2 felteksperiment,
+   Del 3 på 2.1, Del 7.2 på 7.1). Én byggeagent per hel del (Del 2 er størst — 5 kap; hold
+   den samlet hos én agent, ev. splitt med HELE delens kontrakter til begge og flagg for
+   konsistenssjekk). Prøvekapitlet til en del bygges av samme agent som delen.
+5. **Del 8** til slutt (paradoks-galleri, feilvaksine, modellbesvarelser og øvingseksamener
+   gjenbruker begreper, empirikort og paradokser fra temadelene — 8.3 på Del 2, 8.4 på Del 3,
+   8.5 på Del 4, 8.6 på Del 2.4). Bygges av én agent som leser HELE skjelettet.
+6. **Narrativ-versjoner** (`<id>-narrativ.json` per kapittel, jf. `/narrativ`) og quiz-
+   registrering til slutt.
+
+Per temakapittel gjelder DNA-blokkstrukturen (SOS1004-tilpasset): `tip` Eksamensvinkel →
+`text` temaet i fagets landskap → `definition` kjernebegreper (flashcard-kilden — toppnivå
+med title!, distinksjonene) → `text` posisjoner og spenninger (paradoks-aksen) →
+`collapsible` **Norske empirikort** (studie → design → funn → betydning) → `example`
+anvendelse ×1–3 (skrevet som en god langsvarsdel med navngitt empiri) → `warning` typiske
+feil → `tip` **A-markør** → `exercise` ×4–8 (2–3 begreps-/flervalgsoppgaver, 1–2
+kortdrøftinger med disposisjonsforslag, 1–2 eksamenslike L med momentliste) → `collapsible`
+pensumkart. Sjanger-, modellbesvarelses- og øvingseksamenkapitler følger sine oppsett over.
+Eksamensvinkel- og Typiske feil-blokkene fylles med belegget og feilkodene fra dette
+skjelettet — forfatteren skal IKKE finne på frekvenstall.
+
+### Verifikasjonssjekkliste (kjøres FØR ferdigmelding)
+
+- [ ] **JSON-validering:** alle nye `src/lib/data/chapters/sos1004-*.json` parser med
+      `json.load` (generer via `json.dump`). `npm run build` grønn — vis output.
+- [ ] **Metadata-konsistens:** alle 34 kapittel-id-er + 7 prøvekapitler i course-oppføringen
+      har eksisterende content-fil; `number` er del-basert («2.1», prøver «2.P», ALDRI
+      lineær); prosareferanser bruker samme form; prerequisites peker på eksisterende id-er;
+      `sectionNames` satt; narrativ-id-er registrert slik at toggle rendrer (verifiser med
+      prod-server + curl at narrativ-ruter gir 200).
+- [ ] **Pensumreferanser EKTE:** kun forfattere/verk fra dette skjelettets begrepskontrakter
+      (Mills, Aakvaag, Brochmann, Midtbøen, Hermansen & Midtbøen, Larsen & Di Stasio,
+      Andersson & Midtbøen, Esping-Andersen, Lappegård, Lyngstad & Tønnessen, Alsos & Dølvik,
+      Oppegaard, Flemmen, Hansen & Uvaag, Teigen & Skjeie, Furseth, Berger, Goffman, Link &
+      Phelan, Pedersen, Grue, Fukuyama, Hochschild, Engelstad, Beck, Waters, Klinenberg;
+      klassikerne Marx/Weber/Durkheim KUN i kap. 1.3/flervalg). ALDRI oppdiktede referanser.
+      Etnografiske/empiriske detaljer, tall og sidetall merket `(verifiser)` sjekkes eller
+      formuleres forsiktig; usikre tall utelates hellere enn gjettes.
+- [ ] **Scope-avgrensning (feil #10):** klassikerkanonen (Marx/Weber/Durkheim/Bourdieu/
+      Foucault) opptrer KUN som flervalgs-/faghistorielag i kap. 1.3 — ALDRI som essaymodul
+      eller anbefalt langsvarsstoff. Unntakene Goffman/Beck/Berger er merket som pensum-
+      forankrede. Kap. 1.3 inneholder den eksplisitte #10-advarselen.
+- [ ] **Empirisk forankring («funn ikke navn»):** hvert temakapittel har «Norske empirikort»-
+      blokk (studie → design → funn → betydning); hvert modellsvar (A-nivå) bruker konkrete
+      funn aktivt, ikke bare forskernavn; ingen abstrakt drøfting uten empirisk belegg.
+- [ ] **Paradoks-motoren:** hvert temakapittel som «eier» et paradoks har en paradoks-
+      drøftingsakse; kap. 8.1 samler de seks (+1); hver L-fasit i prøver/øvingseksamener og
+      hvert A-modellsvar bærer dobbeltheten; C-versjonene demonstrerer feil #5 (mistet paradoks).
+- [ ] **Minuspoeng-/flervalgstrening:** kap. 0.3 har det matematiske regnestykket; hver
+      del-prøve og øvingseksamen har en flervalgsbolk i eksamensform (+1/−0,5/0) med «svar/la
+      stå»-fasit; nabobegrep-distraktorer brukes gjennomgående.
+- [ ] **Kvotesum:** quiz ≥658 og flashcards ≥640 fordelt per kapittel som angitt (hardt
+      minimum ≥500/≥500; mål quiz ≥600, flashcards 600–700); 4 prøver per temadel (Del 1–7 =
+      28) + 3 øvingseksamener i todelt form; fasit-svaralternativer rebalansert (jevn a/b/c/d
+      — options[0] alltid riktig i staging, runtime stokker).
+- [ ] **Opphavsrett:** alle oppgaver, case, «modellsvar» og eksempler er NYSKREVNE — ingen
+      formuleringer fra UiO-oppgavesett eller sensorveiledninger, ingen ordrette sitater fra
+      pensumlitteratur (referer og parafraser; tall, parter og formuleringer endres).
+- [ ] **Leserkrav:** forkunnskaper-blokk med lenker først i hvert kapittel (lenk kun til
+      eksisterende kapitler); Eksamensvinkel-`tip`, Typiske feil-`warning` og A-markør-`tip`
+      i hvert temakapittel; hver oppgave sjangerforankret (L/MC/B); «bør kjenne til»-stoff
+      (klassikerdetaljer, Berger, prekaritetsdetaljer) plassert ETTER kjernestoffet og
+      eksplisitt merket; symbol-/formelliste-kravet er ikke-relevant (fag uten symboler/
+      formler — README-unntaket gjelder).
+- [ ] **Kalibrering A–F + begge bestått:** rubrikken (C = begge deler ok, kompensasjon mulig;
+      B = presis begrep + aktiv empiri + nyanse; A = uavhengig grep + kritisk perspektiv;
+      F = synsing uten pensum) brukes gjennomgående i modellsvar og studieguide; begge-
+      bestått-kravet og minuspoengmodellen er korrekt gjengitt overalt.
