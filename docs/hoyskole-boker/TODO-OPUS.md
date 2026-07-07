@@ -40,11 +40,11 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 - [ ] `econ2130` — ECON2130 Statistikk 1 (UiO). R-integrert (2025-regimet
       hands-on med CSV); metodesignalene bærer poengene.
 
-## B. Skjelett underveis/i kø (klare når fabrikken er ferdig — sjekk README-statustavlen)
+- [ ] `jus1211` — JUS1211 Privatrett II (UiO). Jus; rettstilstandssjekk gjort
+      i skjelettet (arveloven 2019, 15G-tak, hevdslova § 8). NB: fase 6 SKAL
+      ha Lovdata-verifikatør — el. § 59/§ 61-leddstruktur er (verifiser)-merket.
 
-- [ ] `jus1211` — JUS1211 Privatrett II (UiO) — analyse ✅, skjelett underveis.
-      NB jus: fase 6 SKAL ha Lovdata-verifikatør (arveloven 2019-risiko
-      er flagget i analysen).
+## B. Skjelett underveis/i kø (klare når fabrikken er ferdig — sjekk README-statustavlen)
 
 ## C. Trenger analyse + skjelett først (fabrikk-kø; kjøres også fint av Opus)
 

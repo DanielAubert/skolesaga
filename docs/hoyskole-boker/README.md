@@ -112,12 +112,12 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
 | EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
 | FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
-| JUS1211 Privatrett II (UiO) | jus | analyse (skjelett underveis) |
+| JUS1211 Privatrett II (UiO) | jus | skjelett |
 | MAT1100 Kalkulus (UiO) | regnefag | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | ECON3150 Econometrics (UiO) | regnefag | analyse underveis |
-| FYS1120 Elektromagnetisme (UiO) | regnefag | i kø |
+| FYS1120 Elektromagnetisme (UiO) | regnefag | analyse underveis |
 | MAT111 Grunnkurs matematikk I (UiB) | regnefag | i kø |
 | STK1100 Sannsynlighet (UiO) | regnefag | i kø |
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
