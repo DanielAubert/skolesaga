@@ -192,6 +192,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON4260 Behavioral Economics (UiO) | regnefag/drøfting-hybrid | skjelett |
 | ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
 | TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
+| IT2805 Webteknologi (NTNU) | kodefag-hybrid | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
