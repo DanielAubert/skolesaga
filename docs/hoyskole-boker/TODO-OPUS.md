@@ -111,6 +111,21 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `psyc1201` — Sosialpsykologi (UiO, 17 filer)
 - [ ] `sosant1090` — Sosialantropologi (UiO, 16 filer)
 
+## C5. Transje 5 — analyse + skjelett underveis (7. juli 2026; alle AKTIV-verifisert)
+
+- [ ] `sos2200` — Organisasjon, ledelse og arbeid (UiO, 38 filer)
+- [ ] `jus4111` — Metode og etikk (UiO, 22 filer; jus)
+- [ ] `econ2500` — Investering og finansiering (UiO, 22 filer)
+- [ ] `econ1910` — Poverty and Distribution in Developing Countries (UiO, 21 filer)
+- [ ] `tdt4136` — Introduksjon til kunstig intelligens (NTNU, 17 filer)
+- [ ] `tdt4110` — Informasjonsteknologi grunnkurs (NTNU, 17 filer)
+- [ ] `econ4310` — Macroeconomic Theory (UiO, 16 filer)
+- [ ] `tdt4171` — Metoder i kunstig intelligens (NTNU, 15 filer)
+- [ ] `fys2140` — Kvantefysikk (UiO, 15 filer)
+- [ ] `mat1120` — Lineær algebra (UiO, 12 filer)
+- [ ] `in2060` — Digitalteknikk og datamaskinarkitektur (UiO, 12 filer)
+- [ ] `tdt4186` — Operativsystemer (NTNU, 11 filer)
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
