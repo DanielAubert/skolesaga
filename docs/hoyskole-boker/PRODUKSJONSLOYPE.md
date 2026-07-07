@@ -28,6 +28,16 @@ metadata — vises som «Kapittel N: <beskrivende tittel>» på bokforsiden),
 **kvotesammendrag-tabell** (quiz/flashcards/prøver per del — AUTORITATIV for
 alle senere faser) og prøvekvoter per del (`**Prøve-kvote Del N:** 4 prøver (…)`).
 
+**LÆRDOM (audit 7. juli): ≥500 er et GULV, ikke et mål.** 23 av 32 skjeletter
+i første runder hugget 500–515-taket, verst på flashcards — faktatunge og store
+fag underleverte relativt (NOKUT-AFB, det reneste puggefaget, hadde LAVEST
+flashcards/kapittel). Skjelettagenten skal skalere kvoten til fagets omfang og
+natur: fakta/pugg-fag og begrepsrike drøftingsfag → høy flashcard-tetthet
+(gjerne 650–800); bøker med >32 kapitler → tilsvarende høyere sum; rene
+regnefag med få begreper kan ligge nær 500. Ikke fyll opp til akkurat 500 hvis
+faget bærer mer — la kapittelinnholdet bestemme, og forklar tettheten i
+kvotesammendraget.
+
 **For jus-/lovtunge fag:** skjelettagenten skal sjekke sentrale lover mot
 GJELDENDE lovtekst (WebFetch mot lovdata.no) FØR regelkontraktene skrives —
 sensorveiledninger speiler rettstilstanden i sitt år, ikke dagens (JUS1111:
