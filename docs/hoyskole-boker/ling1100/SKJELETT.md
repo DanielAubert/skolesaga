@@ -878,3 +878,183 @@ inklusiv/eksklusiv, homonymi/polysemi, accomplishment/achievement) + fasit-spør
 (sannhetstabellrader, rolletilordning, situasjonstype-klasse, predikatlogisk
 oversettelse, modell-evaluering, ∈-medlemskap) + «hvem hevder hva»-koblinger +
 prosedyre-rekkefølge (F2-evaluering, entailment-test, tre-diagram-trinn).
+
+---
+
+## 4. Prøver og øvingseksamener
+
+### Kapittel-/temaprøver (4 per temadel 1–10, 40 totalt)
+
+Alle prøver består av nyskrevne oppgaver i arkivets sjangre. Legges som prøvekapitler
+(`ling1100-<del>-prove`, chapterNumber `<del>.P`) etter plattformens mønster.
+Semantikk-prøvene (Del 1–7) har **fasit-løsning** (presist svar → test → eget
+eksempel); pragmatikk-prøvene (Del 8–10) har **momentliste-/modellsvar** med krav om
+egne eksempler. Der en prøve krever logikk/mengder gjengis notasjon fra symbollisten.
+
+**Del 1 — Mening, referanse:** 1) 10 flervalg (setning/ytring/proposisjon, sense/reference, referansetyper) + kortredegjørelse (semantikk/pragmatikk-skillet). 2) A2 klassifiser referansetype (konstant/variabel/ingen) med begrunnelse. 3) A3 referensiell vs. representasjonell mening (momentliste). 4) Blandet a–c: (a) setning/ytring/proposisjon, (b) sense/reference, (c) bestemte beskrivelser (Russell/Strawson).
+
+**Del 2 — Leksikalsk semantikk:** 1) 12 flervalg (5 antonymityper, homonymi/polysemi, hyponymi/meronymi). 2) F/A2 klassifiser antonymitype + test + eget ordpar (fasit). 3) A2 meningsrelasjon-batteri med tester. 4) A1 komponentanalyse + «bør kjenne til»-note universalitet.
+
+**Del 3 — Sannhet, entailment, presupposisjon:** 1) F1 sannhetstabeller (inkl. XOR) + sannhetsbetingelser (fasit, ingen slark). 2) A2 entailment-avgjørelser med negasjonstest. 3) A1/A2 presupposisjon: trigger-identifikasjon + negasjonstest. 4) Tre-slutningstype-batteri (entailment/presupposisjon/implikatur) + ett Venn/mengde-spørsmål.
+
+**Del 4 — Formell verktøykasse:** 1) F2 oversett til predikatlogikk (∀/∃-parring). 2) F2 scope-flertydighet (begge lesninger). 3) F2 modell-evaluering mot gitt $F$ (ordnede par, ∈, trinnvis). 4) Kombinert F2-simulering (oversett + evaluer) på ett domene.
+
+**Del 5 — Situasjonstyper:** 1) 10 flervalg (tre begrepspar, Vendler/Dowty-klasser, semelfaktiver). 2) F3 klassifiser situasjonstype + tester + egne eksempelsetninger. 3) F3 + tempus (Reichenbach S/R/E) samtidig. 4) Blandet F3-simulering på nyskrevne testsetninger.
+
+**Del 6 — Tematiske roller:** 1) 12 flervalg (rollekatalog, argument/adjunkt, agens/actor, proto-roller). 2) F4 rolletilordning med begrunnelse + mismatch syntaks/rolle. 3) F4 forklar proto-roller som egenskapsknipper + argumentseleksjon (forklart, ikke bare eksemplifisert). 4) F4-simulering (roller + actor + proto-roller kjedet).
+
+**Del 7 — Kompositsjonalitet/Jackendoff:** 1) 8 flervalg (kompositsjonalitet, konseptuelle funksjoner GO/BE/CAUSE, Thing/Path/Place). 2) A1 kompositsjonalitet med eget oppbyggings-eksempel. 3) F5 tegn Jackendoff-tre (fasit-tre). 4) Blandet: kompositsjonalitet + tre-diagram.
+
+**Del 8 — Grice/implikatur:** 1) 12 flervalg (4 maksimer, håning/gardering, konvensjonell/konversasjonell, Huangs 7, Horn Q/R). 2) A1 implikatur-utledning ved håning + eget eksempel. 3) A1 navngi OG forklar 4 av Huangs egenskaper. 4) A3 Grice-maksimer vs. Horn Q/R (momentliste).
+
+**Del 9 — Talehandlinger:** 1) 12 flervalg (konstativ/performativ, Austins tredeling, Searles fem kategorier, hell-vilkår, FTA). 2) A1 Austin-analyse (tre lag) + egne eksempler. 3) A1 Searles fem kategorier med eget eksempel per kategori + ansikt-kobling. 4) A3 Austin vs. Grice (momentliste).
+
+**Del 10 — Deiksis/grenseland:** 1) 10 flervalg (deiksistyper, character/content, epistemisk/deontisk, eksplikatur/implikatur). 2) A2 character vs. content (character som funksjon) + egne eksempler. 3) A1 modalitet epistemisk/deontisk + relevansteori. 4) Blandet a–c: (a) deiksis, (b) høflighet/ansikt, (c) informasjonsstruktur (bør kjenne til).
+
+### Øvingseksamener (3 komplette sett — se kap. 11.6–11.8)
+
+| Sett | Form den speiler | Profil |
+|---|---|---|
+| Øvingseksamen 1 (11.6) | H2024 temablokk (5 Topics × velg 2), engelsk, symbolliste | Bred kjerne: referanse/relasjoner, sannhet/slutning/presupposisjon, formell verktøykasse, situasjonstyper+roller, Grice+talehandlinger |
+| Øvingseksamen 2 (11.7) | H2024 temablokk, formell tyngde | F2/F5-vektet: predikatlogikk+modell, sannhetstabell+downward entailment, Jackendoff-tre, situasjonstyper, implikatur/Horn |
+| Øvingseksamen 3 (11.8) | Eldre valg-/Inspera-format (min. 2 sem + 2 prag) | Redegjørende tyngde: antonymi, talehandlinger, Grice, deiksis/character-content, presupposisjon, referanse + formelle innslag |
+
+De tre settene dekker samtlige sjangre F1–F5 + A1–A4 minst én gang, begge
+eksamensregimer (temablokk + valgformat), og alle tre valgfordelings-fellene (feil
+#9). Sett 1–2 gjengir symbollisten og er engelskspråklige (jf. H2024).
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Eksamensformen og temablokk-formatet** — 4-timers skoleeksamen uten
+   hjelpemidler, H2024s 5 Topics × velg 2, engelsk, symbolliste, håndtegning, og
+   valgstrategien (nøyaktig 2 av 3) — fra kap. 0.1.
+2. **Den formell-hybride profilen** — ~55–60 % formell fasit / ~35–40 % redegjørelse
+   / ~5 % fri drøfting, og de to svarhåndverkene (fasit uten slark vs. redegjørelse
+   med egne eksempler) — fra kap. 0.2.
+3. **Prioriteringskartet** — frekvens-tabellen i tre nivåer: **perfekt** (talehandlinger,
+   roller, situasjonstyper, antonymi, presupposisjon, Grice, entailment, logikk),
+   **kunne** (formell verktøykasse, referanse/mening, deiksis/character-content,
+   setning/ytring/proposisjon, modalitet, tempus, høflighet, relevansteori),
+   **kjenne** (Jackendoff-tre, Horn, komponentanalyse, informasjonsstruktur,
+   universalitet/relativitet, Berlin & Kay).
+4. **Sjangerguiden** — F1–F5 + A1–A4 med løsningsoppskriftene fra drill- og
+   sjangerkapitlene i kortform.
+5. **Den formelle verktøykassa** — sannhetstabeller → entailment/presupposisjons-test
+   → predikatlogikk-oversettelse → modell-evaluering → Jackendoff-tre, med
+   symbol-listen samlet (den største kompetansehullrisikoen).
+6. **Begrepsbank med teoretiker** — kjernebegreper alfabetisk, hver med
+   éndefinisjon (norsk + engelsk term) + teoretiker/pensumbok — flashcard-speilet i
+   prosaform (Saeed/Huang/Elbourne/Z&S).
+7. **Parvise begreper-katalogen** — character/content, agens/actor,
+   proto-agent/proto-patient, telisk/atelisk, epistemisk/deontisk,
+   konstativ/performativ, entailment/presupposisjon/implikatur, inklusiv/eksklusiv,
+   konvensjonell/konversasjonell, sense/reference, homonymi/polysemi,
+   accomplishment/achievement — med den skarpe forskjellen per par (feil #2).
+8. **Sensorreglene** — fasit uten slark, egne eksempler obligatoriske, parvise
+   begreper ikke forvekslet, mekanisme forklart (Huangs 7 navngitt+forklart, Horn↔Q,
+   proto-roller forklart), situasjonstyper/roller «fyldig og riktig», tidsbudsjett
+   (overskudd til siste oppgave) — alle med `(verifiser)` der de hviler på H2022 alene.
+9. **Feilkatalogen** — de ti feilene fra §2.2 samlet, hver med henvisning til
+   kapitlet som forebygger den.
+10. **Studieløp** — semesterplan: Del 0 → semantikk (Del 1 → 2 → 3 → **4 formell
+    verktøykasse, prioriter tidlig** → 5 → 6 → 7) → pragmatikk (Del 8 → 9 → 10) →
+    temaprøvene → sjanger-/feilvaksine-kapitlene → de tre øvingseksamenene under
+    tidspress (4 t). Notat: den formelle verktøykassa (Del 4) er ny og differensierer
+    — ikke utsett den.
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først:** `TextbookCourse`-oppføring for `ling1100` (mønster
+   `COURSE_BI_OKONOMI` i `textbook-courses-matte.ts`, skrives til
+   `textbook-courses-hoyskole.ts`): id, title, `level: 'Høyskole'`, alle 43 kapitler
+   med id/number/title/description/estimatedMinutes/topics/competenceGoals/
+   prerequisites fra dette skjelettet, `sectionNames` fra §2-tabellen. **`number` SKAL
+   være del-basert** («9.2», ALDRI lineær «34») — bokforsiden grupperer på
+   `number.split('.')[0]`. Prosareferanser bruker samme form («kap. 9.2»).
+2. **Del 0** (etablerer sjangernavnene F1–F5/A1–A4, frekvenstallene, de to
+   svarhåndverkene og mantraene resten refererer).
+3. **Semantikk-halvdelen i avhengighetsrekkefølge:** Del 1 (mening/referanse) → Del 2
+   (leksikalsk) → Del 3 (sannhet/slutning/presupposisjon — bygger på 3.1) → **Del 4
+   (formell verktøykasse — krever 3.1/3.4; den nye modulen, bygg nøye fra bunnen)** →
+   Del 5 (situasjonstyper) → Del 6 (roller) → Del 7 (kompositsjonalitet/Jackendoff —
+   7.1 krever 4.3, 7.2 krever 6.1).
+4. **Pragmatikk-halvdelen:** Del 8 (Grice) → Del 9 (talehandlinger) → Del 10 (deiksis/
+   grenseland — 10.2 krever 9.2/8.1/3.3). Presupposisjonens pragmatiske status i 10.2
+   bygger på 3.3.
+5. **Del 11** til slutt (sjangerbank, feilvaksine, de to modellbesvarelsene og de tre
+   øvingseksamenene gjenbruker begreper og prosedyrer fra alle temadeler).
+6. **Prøver** (`ling1100-<del>-prove`, chapterNumber `<del>.P`, én per temadel 1–10 =
+   40 stk) etter at alle kapitler finnes.
+7. **Narrativ-versjoner** (`<id>-narrativ.json` per kapittel, jf. `/narrativ`) og
+   quiz-registrering til slutt.
+
+**Batching (fase 4):** én agent per hel del. Del 3 (5 kap.), Del 4 (4 kap.) og de tre
+store topptema-delene (5, 6, 9) holdes samlet hos én agent hver. **Semantikk- og
+pragmatikk-agentene må lese HELE §1.1–1.3** (hybrid-reglene) — semantikk-agentene
+bygger DNA-regnefag (fasit/theorem/drill), pragmatikk-agentene DNA-drofting
+(redegjørelse/egne eksempler). Del 11-agenten leser HELE skjelettet (gjenbruker alle
+sjangre og trenger symbollisten + begge svarmodusene).
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering:** hver `src/lib/data/chapters/ling1100-*.json` parser
+      (`json.load`); generer via `json.dump` (LaTeX krever `\\`; NB: tospråklige
+      termer med anførselstegn ‘speech acts’ — pass på at de ikke bryter JSON).
+      `npm run build` grønn (combine-chapters fanger ugyldig JSON) — vis output.
+- [ ] **Formell notasjon:** all logikk/mengdelære i `$...$`; symbollisten
+      ($\land \lor \lnot \rightarrow \leftrightarrow \veebar \forall \exists \in
+      \llbracket\;\rrbracket \langle\,\rangle$) brukt konsistent; tre-diagrammer i
+      ASCII/tekst; **`collapsible` Symbol- og formelliste per formelt delkapittel**
+      (Del 3, 4, samt 3.1/4.1/4.3/7.2 og andre med symboler).
+- [ ] **Tospråklighet:** norsk brødtekst + engelsk fagterm i parentes ved første
+      forekomst i HVERT kapittel (ikke arv); øvingseksamen 1–2 engelskspråklige.
+- [ ] **Hybrid-DNA per del:** semantikk-kapitler (Del 1–7) har `theorem`-blokker for
+      prosedyrer, `example` med fasit, `warning` **«Fasit — ikke slark»**, drill med
+      løsningsoppskrift + variantkatalog; pragmatikk-kapitler (Del 8–10) har
+      `definition` med teoretiker-forankring (flashcard-kilden, toppnivå m/title!),
+      `example` med **egne eksempler**, redegjørelses-drill, pensumkart.
+- [ ] **Parvise begreper-warning:** hvert kapittel med et par har `warning`
+      **«Ikke bland …»** (character/content som funksjon; agens/actor; proto-roller;
+      telisk/atelisk; epistemisk/deontisk; konstativ/performativ; de tre
+      slutningstypene; inklusiv/eksklusiv; konvensjonell/konversasjonell;
+      sense/reference; homonymi/polysemi).
+- [ ] **Egne eksempler-krav:** pragmatikk- og redegjørelses-oppgaver ber eksplisitt
+      om egne eksempler; modellbesvarelsene (11.4/11.5) demonstrerer «forklart + eget
+      eksempel» mot «bare kategorinavn».
+- [ ] **Mekanisme forklart:** proto-roller (egenskapsknipper + argumentseleksjon),
+      Huangs 7 (navngitt OG forklart), Horn (koblet til Q), character (funksjon fra
+      kontekst til proposisjon) — ikke bare eksemplifisert.
+- [ ] **Kapittel-DNA:** hvert teori-/temakapittel har Eksamensvinkel-`tip` (med
+      tallene fra dette skjelettet), Forkunnskaper-blokk med kryssbok-lenker (kun til
+      kapitler som finnes), Symbol-/term-liste, Typiske feil-`warning` (feilkodene
+      §2.2), eksempler (siste på eksamensnivå), øvinger med `solution`/`hints`.
+- [ ] **Kvotesum:** quiz ≥681 og flashcards ≥678 fordelt per kapittel som i
+      Summeringskontrollen (hardt minimum ≥500/≥500); flashcards KUN fra toppnivå
+      `definition`-blokker med `title`; fasit-svaralternativer rebalansert (jevn
+      a/b/c/d; options[0] alltid riktig i staging, runtime stokker).
+- [ ] **Prøver + øvingseksamener:** 4 per temadel 1–10 (40 stk) + 3 øvingseksamener
+      (11.6–11.8) som dekker F1–F5 + A1–A4, begge eksamensregimer og symbollisten.
+- [ ] **Ærlighet/forbehold:** sensorpraksis/terskler merket `(verifiser)` (kun H2022);
+      ingen karaktergrenser oppgitt; fasit til formelle oppgaver merket «⚠️ fasit =
+      faglig standard» der den er rekonstruert; kap. 0.1 sier at arkivet er lite (12
+      sett, bare høst, mangler 2016/2023) og at boka er kalibrert mot flerboksregimet
+      + H2024.
+- [ ] **Opphavsrett:** ALLE oppgaver, eksempelsetninger og modellbesvarelser
+      nyskrevne (arkivets gjengangere — bil/vase, presupposisjonstriggere, «Har du
+      sluttet å slå …?» — gjenskapt med endrede fakta/ord); Saeed/Huang/Elbourne/Z&S
+      refereres, aldri sitert i lengde.
+- [ ] **Navigasjon:** `ling1100` inn i `src/app/bok/trinn/hoyere/institusjoner.ts`
+      under **Universitetet i Oslo (UiO)**, navn = «LING1100 Innføring i semantikk og
+      pragmatikk».
+- [ ] **Verifiser rendering:** prod-server + curl mot institusjonsside, bokforside og
+      minst 3 kapittel-/narrativ-ruter (ett formelt teori-, ett drill-, ett
+      pragmatikk-kapittel) + quiz- og flashcard-rute (200 + innholdssjekk), jf.
+      `getChapterMeta`-lærdommen.
