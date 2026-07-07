@@ -670,3 +670,243 @@ krisepolitikk, **H** prising av knapp kapasitet/nest-best. Prioritetsklasser:
 **Prøve-kvote Del 6:** 4 prøver (6.A markedssvikt-katalogen: koble virkemiddel → svikt + styringssvikt, sjanger H-fundament; 6.B prising av knapp kapasitet med figur-i-ord + kø-rasjonering, sjanger H; 6.C nest-best-avveiingen med feilpriset nabomarked, sjanger H; 6.D krisepolitikk: allokerings- + fordelingsvirkninger med riktig avgrensning, sjanger G).
 
 ---
+
+### Del 7 — Eksamenstrening
+
+#### Kapittel 7.1: Begrepsdrill: gjengangerne med forankring
+
+- **id:** `econ3010-7-1` · **number:** 7.1 · **estimatedMinutes:** 60 · **prerequisites:** Del 1–6
+- **Kapitteltype:** drill (begreper)
+- **description:** Presisjonstrening på hele begrepsrepertoaret: presis definisjon + forankring (modell/NOU/foreleser) + figur-i-ord der naturlig + eksempel + A/B-markøren.
+- **Eksamensbelegg:** Begreper inngår i mange sett (lav-vekts deler, sikre poeng). Sensor honorerer presis anvendelse og «det lille ekstra». Prioritet: **kunne** (sikre poeng).
+- **Innholdskontrakt:** Malen «presis definisjon + forankring + figur/eksempel + A/B-markør» demonstreres; deretter drillbank som dekker ALLE gjengangerbegrepene med fasitsvar i deloppgave-format og henvisning til teorikapitlet: signalfunksjon/marginalkostnad → 1.1; alternativkostnad → 1.2; svarnøkkelen (pris-signal vs. separat omfordeling) → 1.3; alternativverdi/strøm → 1.4; ekstern virkning/SMK → 2.1; lik pris → like MAC/avgift vs. kvoter/gratiskvote → 2.2; subsidie med/uten eksternalitet/elbil-feilargumentet → 2.3; de tre kriteriene → 2.4; næringsnøytralitet/«plukke vinnere» → 3.1; komparativt fortrinn/frihandelsgevinst → 4.1; toll pristaker (b+d)/konsentrert-spredt → 4.2; optimal toll/kjøpermakt/Heckscher-Ohlin → 4.3; skjermet/konkurranseutsatt/driftsbalanse → 4.4; inntektssikring/behovsprøvd/universell/borgerlønn → 5.1; vridningstap/grunnrente/badekar → 5.2; boligbeskatning/målrettet vs. generell → 5.3; markedssvikt-katalogen/styringssvikt → 6.1; knapp kapasitet/nest-best → 6.2. Engel-elastisitet < 1 → 1.3/1.4.
+- **Oppgavesjangre:** Begreper (alle sjangre). Mønstereksempel: «Gjør kort rede for hva som skiller en subsidie med og uten positive eksterne effekter, gi ett eksempel på hver, og forklar hvorfor skillet avgjør om subsidien er forsvarlig.»
+- **Typiske feil:** Definisjon uten anvendelse/forankring; utelate A/B-markøren; utflytende svar som stjeler tid fra hovedoppgaven; belære i stedet for å belyse.
+- **Quiz: 14 · Flashcards: 50**
+
+#### Kapittel 7.2: Modellbesvarelse: klima-/karbonprising-oppgaven (A vs. C)
+
+- **id:** `econ3010-7-2` · **number:** 7.2 · **estimatedMinutes:** 50 · **prerequisites:** `econ3010-2-5`
+- **Kapitteltype:** modellbesvarelse
+- **description:** Én nyskrevet klima-utredning besvart på to nivåer, som viser presist hva som skiller A fra C i emnets signatursjanger.
+- **Eksamensbelegg:** Signatursjangeren A (71 %). Viser sensorblikket i praksis. Prioritet: **perfekt** (mønster for besvarelsesnivå).
+- **Innholdskontrakt (modellbesvarelse-DNA):** 1) **Nyskrevet oppgave** i reell sjanger (f.eks. «offentlig utredning om virkemidler mot utslipp i en sektor, med en fordelingsbekymring»). 2) `collapsible` **A-besvarelse** — full tekst med margnotater («her: avgrensning», «her: lik pris → like MAC», «her: subsidie-skillet — dette løfter til A», «her: gratiskvote-nyansen», «her: svarnøkkelen — separat kompensasjon», «her: refleksjon om forutsetninger»). 3) `collapsible` **Kommentert C-besvarelse** — korrekt men flat (priser utslippet riktig, men behandler all grønn subsidie som effektiv, foreslår avgiftsfritak for fordeling, ingen avgrensning), med notater om gapet opp til A. 4) `tip` **Sensorblikket** — momentliste og vektlegging + C-terskelen.
+- **Oppgavesjangre:** A. Mønstereksempel: se innholdskontrakt.
+- **Typiske feil:** (vises i C-besvarelsen) subsidie-skillet-fellen, gratiskvote-fellen, kompensasjon-som-fritak (svarnøkkelbrudd), momentliste uten avgrensning, belære.
+- **Quiz: 8 · Flashcards: 10**
+
+#### Kapittel 7.3: Øvingseksamen 1: to oppgaver 70/30 — handel + klima
+
+- **id:** `econ3010-7-3` · **number:** 7.3 · **estimatedMinutes:** 180 · **prerequisites:** `econ3010-7-1`
+- **Kapitteltype:** øvingseksamen (+ modellbesvarelse)
+- **description:** Komplett 3-timers skoleeksamenssett etter V2025-malen (to obligatoriske oppgaver, 70/30), med handel som hovedoppgave.
+- **Eksamensbelegg/miks:** Speiler V2025 (Oppg 1 = 70 % handel, Oppg 2 = 30 % klima). **Oppgave 1 (70 %) internasjonal handel:** nyskrevet case (f.eks. gjengjeldelsestoll mot en handelspartner) — frihandelsgevinst, toll pristaker (figur i ord, b+d), optimal toll ved kjøpermakt, Heckscher-Ohlin-fordeling, Norge vs. USA, kompensasjon framfor toll. **Oppgave 2 (30 %) klima:** offentlig utredning om et grønt virkemiddel med subsidie-skillet og fordelingskompensasjon. Alle nyskrevne. Løsningsforslag som **A-besvarelse** i `collapsible` per oppgave (med figurbeskrivelser i ord), **kommentert C-besvarelse på oppgave 1**, `tip`-notat om C-terskel/vekting og tidsbudsjett (≈ 125/55 min).
+- **Quiz: 6 · Flashcards: 0**
+
+#### Kapittel 7.4: Øvingseksamen 2: to oppgaver 70/30 — fordeling/skatt + næringsstøtte
+
+- **id:** `econ3010-7-4` · **number:** 7.4 · **estimatedMinutes:** 180 · **prerequisites:** `econ3010-7-3`
+- **Kapitteltype:** øvingseksamen (+ modellbesvarelse)
+- **description:** Komplett sett med en anvendt fordelings-/effektivitetsoppgave som hovedoppgave og en næringsstøtte-oppgave som biooppgave.
+- **Eksamensbelegg/miks:** Speiler den andre sannsynlige hovedprofilen (fordeling/skatt). **Oppgave 1 (70 %) fordeling + effektiv beskatning:** nyskrevet case (f.eks. reform av en støtteordning + finansiering) — inntektssikring vs. behovsprøvd vs. universell, arbeidstilbud, grunnrente/badekarsdiagram, svarnøkkelen (separat omfordeling). **Oppgave 2 (30 %) næringsstøtte:** «hva sier du som samfunnsøkonom?» om støtte til en bransje — alternativkostnad, markedssvikt-unntakene. Løsningsforslag som **A-besvarelse** + **kommentert C-besvarelse på oppgave 1**, med vektings-`tip` og tidsbudsjett (≈ 125/55 min).
+- **Quiz: 6 · Flashcards: 0**
+
+#### Kapittel 7.5: Øvingseksamen 3: to oppgaver 70/30 — strøm/allokering + nest-best
+
+- **id:** `econ3010-7-5` · **number:** 7.5 · **estimatedMinutes:** 180 · **prerequisites:** `econ3010-7-4`
+- **Kapitteltype:** øvingseksamen (+ modellbesvarelse)
+- **description:** Komplett sett med strøm-/allokeringsoppgave som hovedoppgave og en nest-best-/knapp-kapasitet-oppgave som biooppgave.
+- **Eksamensbelegg/miks:** Speiler en aktuell strømkrise-innramming + utsatt-favoritten. **Oppgave 1 (70 %) energi/allokering:** nyskrevet case (priskrise) — kraftens alternativverdi, subsidie/eksportbegrensning vs. signal, Engel-elastisitet, kontantutbetaling vs. prissubsidie (svarnøkkelen). **Oppgave 2 (30 %) nest-best/knapp kapasitet:** tidsdifferensiert prising (f.eks. vei/kollektiv/parkering) med nest-best-forbeholdet. Løsningsforslag som **A-besvarelse** + **kommentert C-besvarelse på oppgave 1**, med vektings-`tip` og tidsbudsjett (≈ 125/55 min). Sammen dekker de tre settene sjangrene A, B, C, D, E, F, H; G dekkes av prøve 6.D.
+- **Quiz: 6 · Flashcards: 0**
+
+**Prøve-kvote Del 7:** ingen egne prøver (delen består av begrepsdrill + modellbesvarelse + 3 øvingseksamener).
+
+---
+
+### Kvotesammendrag (quiz/flashcards/prøver) — AUTORITATIV for alle senere faser
+
+| Del | Kapitler | Quiz | Flashcards | Prøver |
+|---|---|---|---|---|
+| 0 | 0.1–0.3 | 10+10+12 = **32** | 10+10+14 = **34** | 0 |
+| 1 | 1.1–1.4 | 22+20+22+20 = **84** | 26+24+26+24 = **100** | 4 |
+| 2 | 2.1–2.5 | 20+24+22+18+14 = **98** | 24+28+26+22+10 = **110** | 4 |
+| 3 | 3.1–3.3 | 22+18+14 = **54** | 26+22+10 = **58** | 4 |
+| 4 | 4.1–4.5 | 20+22+20+18+14 = **94** | 24+26+24+22+10 = **106** | 4 |
+| 5 | 5.1–5.4 | 22+22+16+14 = **74** | 26+26+20+10 = **82** | 4 |
+| 6 | 6.1–6.3 | 20+18+14 = **52** | 24+22+18 = **64** | 4 |
+| 7 | 7.1–7.5 | 14+8+6+6+6 = **40** | 50+10+0+0+0 = **60** | 0 (3 øvingseksamener) |
+| **Sum** | **32 kap.** | **528 ≥ 500 ✓** | **614 (sikt 550–650) ✓** | **24 + 3 ØE** |
+
+**Kvotene er minimum per kapittel; forfatteren kan overskyte, aldri underskride.**
+Fordelingen speiler frekvens og natur: Del 2 (klima, ryggraden, 71 %) er størst
+(98 quiz / 110 flashcards), fulgt av Del 4 (handel, stigende 70 %-oppgave) og Del 1
+(fundamentet/svarnøkkelen). **Om tetthetsnivået (jf. PRODUKSJONSLOYPE «≥500 er
+GULV»):** ECON3010 er et **begrepsrikt drøftingsfag** med tung anvendelses- og
+mekanismeforankring (signalfunksjon, alternativkostnad, marginal rensekostnad,
+subsidie-skillet, gratiskvote-nyansen, komparativt fortrinn, optimal toll,
+Heckscher-Ohlin, inntektssikring/behovsprøvd/universell, grunnrente, badekar,
+nest-best), og begrep↔mekanisme-koblinger er ideelt flashcard-råstoff — derfor er
+flashcards (614) satt **godt over** quiz (528) og innenfor 550–650-siktet. Faget er
+verbalt og drøftende (ikke rent faktatungt pugg), så flashcards når ikke det rene
+puggefagets 700–800. 32 kapitler tilsier en sum tydelig over 500-gulvet, som
+reflektert.
+
+---
+
+## 4. Prøver og øvingseksamener
+
+### Kapittel-/temaprøver (4 per temadel 1–6, 24 totalt)
+
+Hver prøve består av nyskrevne oppgaver i eksamens sjangre, med løsningsforslag
+(A-besvarelse med figurbeskrivelser i ord der naturlig, avgrensning og anvendelse)
+og poengfordeling. Omfang i minutter. Prøvekapitler bygges som `econ3010-<del>-prove`,
+chapterNumber `<del>.P` (jf. byggekontrakten). Prøvene per del er spesifisert i
+«Prøve-kvote Del N»-linjene under hver del over. Kort oppsummert dekker de:
+
+- **Del 1:** signalfunksjon, alternativkostnad, svarnøkkelen (prisvridning vs. separat omfordeling), strøm/alternativverdi.
+- **Del 2:** eksternalitet/prise skaden, karbonprising-mekanikk + gratiskvote, subsidie-skillet + elbil, full klima-utredning mot tre kriterier.
+- **Del 3:** næringsnøytralitet/alternativkostnad, forsvarlig vs. uforsvarlig støtte, miljøkostnad som reell kostnad, full «hva sier du som samfunnsøkonom?».
+- **Del 4:** frihandelsgevinst, toll pristaker (b+d)/konsentrert-spredt, optimal toll/Heckscher-Ohlin, full handelsoppgave/eksport-som-mål.
+- **Del 5:** inntektssikring/behovsprøvd/universell/borgerlønn, effektiv beskatning/badekar, boligbeskatning/kompensasjon, full fordelings-/skatteoppgave.
+- **Del 6:** markedssvikt-katalog/styringssvikt, knapp kapasitet/kø-rasjonering, nest-best-avveiing, krisepolitikk med avgrensning.
+
+### Øvingseksamener (3 komplette sett — se kap. 7.3–7.5)
+
+| Sett | Mal den speiler | Miks (70 % / 30 %) |
+|---|---|---|
+| Øvingseksamen 1 (kap. 7.3) | V2025 skoleeksamen (2 oppg., 70/30) | Internasjonal handel (hoved) + klima/karbonprising (bi) |
+| Øvingseksamen 2 (kap. 7.4) | V2025-profil, alternativ hovedoppgave | Fordeling + effektiv beskatning (hoved) + næringsstøtte (bi) |
+| Øvingseksamen 3 (kap. 7.5) | V2025-profil, aktuell strøm-innramming | Energi/allokering (hoved) + nest-best/knapp kapasitet (bi) |
+
+Hver øvingseksamen har full A-besvarelse per oppgave **og** en kommentert
+C-besvarelse på 70 %-oppgaven + sensorblikk — sammen med kap. 7.2 gir det **≥3
+modellbesvarelser** (DNA-drofting-kravet). Til sammen dekker settene sjangrene A–F
+og H minst én gang; G (makro/krise) dekkes av prøve 6.D. **Alle øvingseksamener er i
+skoleeksamensform (to oppgaver, ulik vekt, verbalt, ingen kildeapparat).**
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Slik ser eksamen ut** — 3-timers skoleeksamen fra V2025, to obligatoriske
+   oppgaver med ulik vekt (70/30), A–F med C-terskel, verbalt, ingen kildeapparat,
+   INGEN regning; formatskiftet fra essay; prognosen (fra kap. 0.1).
+2. **Svarnøkkelen** — den røde tråden: *priser skal reflektere reelle
+   marginalkostnader og fungere som signaler; fordeling løses med separate
+   omfordelingsverktøy, ikke ved å vri prisene* — med operasjonaliseringen per
+   temadel (klima, strøm, næringsstøtte, handel, fordeling/skatt) fra §1.
+3. **Prioriteringskartet** — temafrekvens omgjort til tre lesenivåer: **perfekt**
+   (Del 1 signalfunksjon/fundament, Del 2 klima [ryggraden], Del 3 næringsstøtte,
+   Del 4 handel), **kunne** (Del 5 fordeling/skatt), **kjenne** (Del 6 markedssvikt/
+   nest-best/makro).
+4. **Drøftingshåndverket** — «belyse, ikke belære»-malen fra kap. 0.2
+   (avgrens selv → anvend, ikke referer → drøft begge sider → reflekter om
+   forutsetninger) + avgrensningstrening (mikro vs. makro, formål før virkemiddel,
+   ikke godta premisset) + C→A-løftet.
+5. **Sjangerguiden** — oppgavetypene A–H med løsningsoppskriftene fra drill-
+   kapitlene (2.5, 3.3, 4.5, 5.4) i kortform: klimaens tre-kriterie-algoritme,
+   næringsstøttens markedssvikt-spørsmål + alternativkostnad, handelens
+   pristaker-vs-kjøpermakt-prosedyre, fordelingens ordningsvalg + finansiering.
+6. **A/B-differensiatorene** — de åtte andreordens-poengene fra §1 (subsidie-skillet,
+   elbil-feilargumentet, gratiskvote-nyansen, alternativkostnad mot næringsstøtte,
+   prisens alternativverdi, fordeling separat + Engel, toll konsentrert/spredt +
+   optimal toll, inntektssikring vs. behovsprøvd/universell), hver med
+   kapittelhenvisning.
+7. **Feilkatalogen** — de typiske feilene fra analysen §5 samlet, hver med henvisning
+   til kapitlet som forebygger den (momentliste, makro-i-mikro, belære, subsidie-
+   skillet, fordeling-mot-prising, godta-premisset, overse-alternativverdi, blande-
+   ordningstyper, løsrevet-empiri).
+8. **Figurbiblioteket i ord** — de fire standardfigurene fra kap. 0.3 (partiell
+   markedsmodell, badekarsdiagram, produksjonsmulighetskurve, gevinst-ved-handel/
+   toll-figur) med merkekrav — **støtte, ikke krav; aldri utregning**.
+9. **Pensumkart** — modell/kilde → begreper de forankrer (ECON1210 → partiell
+   marked/Pigou; ECON2610/Krugman-Obstfeld-Melitz → komparative fortrinn/optimal
+   toll/Heckscher-Ohlin; NOU 2015:15 → tre kriterier; NOU 2019:18/2014:13 → effektiv
+   skatt/bolig; Hoel → brun/grønn; von der Fehr → kraftmarked; Nyborg → fagtekst;
+   Mehlum & Torvik → corona) — flashcard-råstoff, `(verifiser)` mot pensum.
+10. **Studieløp** — anbefalt progresjon (8-ukers og 3-ukers intensivvariant):
+    Del 0 → 1 (svarnøkkelen først) → 2 (klima — ryggraden) → 4 (handel) → 3 → 5,
+    deretter 6, prøver underveis, de tre øvingseksamenene de siste ukene under
+    tidspress (180 min, to oppgaver 70/30).
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først**: `TextbookCourse`-oppføring for `econ3010` med alle 32
+   kapitler (id/number/title/description/estimatedMinutes/topics/competenceGoals/
+   prerequisites) etter mønster `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-matte.ts`; `sectionNames` fra makrostruktur-
+   tabellen (§2). **NB:** `number` SKAL være del-basert («2.3»), aldri lineær.
+2. **Del 0** (kap. 0.1–0.3) — etablerer sjangernavnene A–H, frekvenstallene,
+   drøftingshåndverket, svarnøkkelen og figurverktøykassen som resten refererer til.
+3. **Fundamentet/svarnøkkelen**: Del 1 (signalfunksjon, alternativkostnad,
+   effektivitet-vs-fordeling, strøm) — den røde tråden resten hviler på.
+4. **Ryggraden tidlig**: Del 2 (klima) bygges rett etter Del 1, fordi den bærer
+   71 % av settene og er størst. Deretter Del 4 (handel — stigende, 70 %-oppgave),
+   Del 3 (næringsstøtte), Del 5 (fordeling/skatt).
+5. Del 6 (markedssvikt/nest-best/makro-beredskap).
+6. Del 7 til slutt (begrepsdrill, modellbesvarelse og øvingseksamener gjenbruker
+   alt).
+7. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert;
+   prøvene legges i prøvekapitler per del (`econ3010-<del>-prove`, chapterNumber
+   `<del>.P`).
+
+**Batching for byggebølgen (fase 4):** én agent per hel del; Del 2 og Del 4 (5 kap
+hver, tunge) kan deles, men gi begge agentene HELE delens kontrakter. Del 7
+(øvingseksamener) bygges av én agent som leser HELE skjelettet.
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering**: hver kapittelfil parser med `json.load`/`JSON.parse`
+  (generer via `json.dump`; escape `"` i norske sitattegn); `npm run build` grønn.
+- [ ] **INGEN REGNING**: tekstsøk — ingen utregnede tallsvar/likevektspriser/
+  overskuddsarealer/komparative-fortrinn-fasit; ingen derivasjon/optimeringsformler;
+  forbudte mønstre (avansert spillteori/mekanismedesign/auksjoner som pensum, tung
+  makromodellering, kildeapparat-/ordgrensekrav) gir null treff. Kvalitative
+  talleksempler *uten* utregnet svar er de eneste tallene.
+- [ ] **Figur = valgfri støtte**: hvert eksempel/løsningsforslag med figur har både
+  figurbeskrivelse i ord (akser, kurver, skift, arealer a/b/c/d, MAC, SMK navngitt)
+  og verbal mekanisme; **verbalt uten figur fremstilles aldri som mangelfullt;
+  arealer navngis, aldri regnes ut**.
+- [ ] **Kapittel-DNA (drøfting)**: hvert teorikapittel har Eksamensvinkel-`tip`
+  (med tallene fra dette skjelettet), Temaet-i-landskapet-`text`, Kjernebegreper-
+  `definition` MED forankring, Drøftingsakser-`text`, Anvendelse-`example`, Typiske
+  feil-`warning`, «Belyse, ikke belære»-`tip` + avgrensningstrening, oppgaver
+  (begreps- + kortdrøftings- + drøftingsoppgaver med momentliste/disposisjon som
+  løsning), Pensumkart-`collapsible`. Drillkapitler (2.5, 3.3, 4.5, 5.4):
+  løsningsoppskrift + sensor-kommentert case + 8–12 oppgaver. Modellbesvarelse (7.2)
+  + øvingseksamener (7.3–7.5): A-besvarelse + kommentert C-besvarelse + sensorblikk.
+- [ ] **Svarnøkkelen synlig**: pris-signal-vs-separat-omfordeling er eksplisitt
+  markert (`tip` «Svarnøkkelen») i kap. 1.3 og gjenbrukt i 1.4, 2.4, 3.1, 4.2, 5.3.
+- [ ] **Forkunnskaper/kryssbok**: hvert kapittel har Forkunnskaper-blokk;
+  **ECON1210-referanser som KLARTEKST** med id (ikke live lenke — ikke bygget);
+  ECON1310-lenke (`/bok/econ1310/econ1310-0-1`) i kap. 4.4, spesifikk driftsbalanse-
+  id `(verifiser id)`; ECON2610 kun som pensumkilde (Krugman/Obstfeld/Melitz), ingen
+  lenke; interne prerequisites peker på eksisterende econ3010-kapitler. Symbol-/
+  formelliste-`collapsible` i delkapitler som bruker MK/SMK/MSK/MAC/KO/PO/SO/a-b-c-d.
+- [ ] **Forankring EKTE**: kun kildene i §1 (ECON1210, Krugman/Obstfeld/Melitz, NOU
+  2015:15/2019:18/2014:13/2017:6, Hoel, von der Fehr, Nyborg, Mehlum & Torvik);
+  ingen oppdiktede referanser; `(verifiser)`-markører beholdt til fase 6.
+- [ ] **A/B-differensiatorene**: de åtte andreordens-poengene fra §1 er eksplisitt
+  markert (`tip`/`warning`) i sine kapitler (subsidie-skillet + elbil → 2.3;
+  gratiskvote → 2.2; alternativkostnad → 3.1; alternativverdi → 1.4; fordeling
+  separat + Engel → 1.3/5.3; toll konsentrert-spredt/optimal → 4.2/4.3;
+  inntektssikring vs. behovsprøvd/universell → 5.1).
+- [ ] **Quiz-sum ≥ 528 og flashcard-sum ≥ 614** per kvotetabellen (§3 er
+  autoritativ; kontrollsummér).
+- [ ] **Prøver**: 4 per temadel 1–6 (24 stk) + 3 øvingseksamener; settene og prøvene
+  dekker samlet sjangrene A–H minst én gang.
+- [ ] **Skoleeksamensform**: øvingseksamenene (7.3–7.5) har to obligatoriske oppgaver
+  med ulik vekt (70/30), verbale løsningsforslag, tidsbudsjett i minutter, INGEN
+  kildeapparat/ordgrense.
+- [ ] **Opphavsrett**: ALLE oppgaver nyskrevne — egne case, bransjer og formuleringer;
+  ingen formuleringer fra reelle sett/sensorveiledninger (skjelettets mønster-
+  eksempler er selv omskrivninger og skal varieres videre); pensum refereres, aldri
+  siteres i lengde.
+- [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og narrativ-ruter
+  (200 + kapittelspesifikk streng), jf. lærdommen om `getChapterMeta`.

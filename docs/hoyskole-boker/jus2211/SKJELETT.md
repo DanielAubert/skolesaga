@@ -714,3 +714,193 @@ bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komple
 **Prøve-kvote Del 7:** 4 prøver (én forrang-/presumsjonsprøve (EØS-loven § 2 + konform tolkning); én statsansvarsprøve (E-9/97/Finanger II — kvalifisert brudd); én EFTA-domstol-prøve (ODA art. 34 — rådgivende, ikke ankbar); ett EØS-i-norsk-sak-praktikum (gjennomført vs. ugjennomført)).
 
 ---
+### DEL 8 — De fire friheter og restriksjonsanalysen
+
+> EØS-sporets tyngste materielle del (~8), nå ett spor i så godt som hvert nyere sett. Bygger på
+> **restriksjonsanalysen** (firetrinns) som gjenbrukbart verktøy: omfattet → restriksjon/tiltak med
+> tilsvarende virkning → rettferdiggjøring → forholdsmessighet. Tjenester + varer er tyngst. Hvert
+> kapittel innprenter **EØS-analyseskjemaet** og de tre EØS-spesifikke fellene (feil
+> rettferdiggjøringsspor, rent økonomiske hensyn, glemt forholdsmessighet).
+
+---
+
+#### Kapittel 8.1: Restriksjonsanalysen — det firetrinns rammeverket
+- **id:** `jus2211-8-1` · **number:** 8.1 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-7-1`
+- **Kapitteltype:** regel (EØS-verktøyet)
+- **description:** Det gjenbrukbare firetrinns-skjemaet for enhver frihet: (1) er forholdet omfattet av EØS-avtalen (grensekryssende element, riktig frihet), (2) foreligger en restriksjon / et tiltak med tilsvarende virkning, (3) kan den rettferdiggjøres, (4) er den forholdsmessig?
+- **Eksamensbelegg:** Fire friheter/restriksjonsanalyse ~8 (fast oppbygning på tvers av alle frihetene). Prioritetsklasse: **perfekt** (det bærende EØS-verktøyet).
+- **EØS-analyseskjema (skal gjenbrukes ordrett i 8.2–8.4 og Del 9):**
+  1. **Omfattet?** — grensekryssende element; hvilken frihet (varer/tjenester/etablering/personer/kapital); avgrensning mot rent interne forhold.
+  2. **Restriksjon / tiltak med tilsvarende virkning?** — Dassonville-formelen (ethvert tiltak som direkte/indirekte, faktisk/potensielt kan hindre samhandelen); skille **diskriminerende** (direkte/indirekte) fra **ikke-diskriminerende** restriksjoner; Keck-unntaket for visse «selling arrangements» (varer).
+  3. **Rettferdiggjøring?** — **diskriminerende** restriksjon kan bare rettferdiggjøres av **traktatunntakene** (f.eks. varer art. 13); **ikke-diskriminerende** restriksjon kan i tillegg rettferdiggjøres av **tvingende allmenne hensyn** (rule of reason, Cassis/Gebhard). **Rent økonomiske hensyn kan ikke rettferdiggjøre.**
+  4. **Forholdsmessighet?** — tiltaket må være **egnet** til å nå målet og **nødvendig** (ikke gå lenger enn nødvendig; finnes et mindre inngripende middel?).
+- **Regelkontrakt:** Rammeverket over + de sentrale rammedommer: **Dassonville** (sak 8/74), **Cassis de Dijon** (sak 120/78), **Keck** (C-267/268/91), **Gebhard** (C-55/94), **Säger** (C-76/90). Homogenitet (kap. 7.1): bruk EU-praksis.
+- **Typetilfeller:** Minipraktikum: et nasjonalt tiltak kjøres gjennom alle fire trinn på et nøytralt eksempel; vis at diskriminerende og ikke-diskriminerende tiltak går ulike rettferdiggjøringsspor.
+- **Metodepoenger:** Kjør alle fire trinn i rekkefølge — hopp aldri over forholdsmessighet. Avgjør diskriminerende/ikke-diskriminerende FØR rettferdiggjøringssporet velges. Rent økonomiske hensyn rettferdiggjør ikke.
+- **Typiske feil:** Å hoppe over forholdsmessighet; å bruke traktatunntak på en ikke-diskriminerende restriksjon (eller rule of reason på en diskriminerende); å godta rent økonomiske hensyn.
+- **Kvote:** quiz 16 · flashcards 20 (flashcards: de fire trinnene; Dassonville-formelen; Keck-unntaket; diskriminerende vs. ikke-diskriminerende rettferdiggjøringsspor; egnet + nødvendig; rammedommene)
+
+---
+
+#### Kapittel 8.2: Fri bevegelighet for varer — art. 11, 12 og 13
+- **id:** `jus2211-8-2` · **number:** 8.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-8-1`
+- **Kapitteltype:** regel
+- **description:** Vareområdet: forbudet mot kvantitative import-/eksportrestriksjoner og tiltak med tilsvarende virkning (art. 11 import, art. 12 eksport), traktatunntakene (art. 13), og den domstolsskapte læren (Dassonville, Cassis, Keck, Campus Oil).
+- **Eksamensbelegg:** Varer ~3 (V2024 eksportrestriksjon art. 12 + Campus Oil; V2023 takstein, tiltak med tilsvarende virkning). Prioritetsklasse: **perfekt** (innen EØS).
+- **EØS-analyseskjema:** Bruk firetrinns-skjemaet (kap. 8.1) på varer.
+- **Regelkontrakt:** **EØS art. 11** forbud mot kvantitative importrestriksjoner og tiltak med tilsvarende virkning; **art. 12** tilsvarende for **eksport** (V2024); **art. 13** traktatunntakene (offentlig moral, orden, sikkerhet, vern om menneskers/dyrs/planters liv og helse m.m.) — for **diskriminerende** tiltak. **Tiltak med tilsvarende virkning** (Dassonville). **Rule of reason / tvingende allmenne hensyn** (Cassis) for **ikke-diskriminerende** tiltak. **Keck** — visse «selling arrangements» faller utenfor. **Campus Oil** (sak 72/83) — forsyningssikkerhet/beredskap kan være tvingende hensyn, men **rent økonomiske hensyn kan ikke** rettferdiggjøre (V2024: statens egen petroleum kunne dekke beredskapsbehovet → forholdsmessighet). Skille art. 11 (import) fra art. 12 (eksport).
+- **Typetilfeller:** Minipraktikum: en eksportrestriksjon begrunnes i forsyningssikkerhet (art. 12 + Campus Oil + forholdsmessighet/mindre inngripende middel); et produktkrav som er tiltak med tilsvarende virkning (Cassis/rule of reason).
+- **Metodepoenger:** Skill import (art. 11) fra eksport (art. 12). Diskriminerende → traktatunntak (art. 13); ikke-diskriminerende → også rule of reason. Forsyningssikkerhet kan telle, men rent økonomiske hensyn ikke, og forholdsmessigheten (mindre inngripende middel) må drøftes (V2024-fella).
+- **Typiske feil:** Å bruke art. 13 på en ikke-diskriminerende restriksjon; å godta rent økonomiske hensyn; å glemme forholdsmessighet/mindre inngripende middel (V2024).
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 8.3: Tjenester, etablering og personer — art. 36, 31 og 28
+- **id:** `jus2211-8-3` · **number:** 8.3 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-8-1`
+- **Kapitteltype:** regel
+- **description:** De personrelaterte frihetene: tjenester (art. 36 — den tyngste i nyere sett), etablering (art. 31), og fri bevegelighet for arbeidstakere/personer (art. 28), med restriksjonsbegrepet (Säger) og firetrinnstesten (Gebhard).
+- **Eksamensbelegg:** Tjenester art. 36 ~4 (H2022, H2023 helsetjenester over grensen, H2024, V2024); etablering art. 31 ~2 (H2022 skjenkebevilling); personer ~2 (V2024 del III oppholdsrett familie, H2021 diskriminerende arbeidskraftvilkår). Prioritetsklasse: **perfekt** (tjenester) / **kunne** (etablering/personer).
+- **EØS-analyseskjema:** Bruk firetrinns-skjemaet (kap. 8.1) på tjenester/etablering/personer.
+- **Regelkontrakt:** **EØS art. 36** fri tjenesteflyt (grensekryssende tjenesteyting/-mottak, herunder helsetjenester over grensen); **Säger** (C-76/90) — restriksjonsbegrepet dekker også ikke-diskriminerende hindringer. **Art. 31** etableringsfrihet (varig tilstedeværelse — skjenkebevilling H2022); **Gebhard** (C-55/94) firetrinnstesten (ikke-diskriminerende + tvingende allmenne hensyn + egnet + nødvendig). **Art. 28** arbeidstakere/personer — forbud mot diskriminering (H2021 «norsk arbeidskraft»-vilkår); oppholdsrett for familie (V2024). **Tjenestedirektivet/tjenesteloven** — kort, ofte **avgrenset bort** (respekter). Skille tjenester (midlertidig) fra etablering (varig).
+- **Typetilfeller:** Minipraktikum: et krav som hindrer en utenlandsk tjenesteyter (art. 36 + Säger + Gebhard); et etableringskrav (art. 31); et diskriminerende arbeidskraftvilkår (art. 28, H2021).
+- **Metodepoenger:** Skill tjenester (midlertidig) fra etablering (varig). Restriksjonsbegrepet (Säger) er vidt — også ikke-diskriminerende hindringer. Diskriminerende arbeidskraftvilkår (art. 28) rettferdiggjøres bare av traktatunntak. Respekter avgrensning om tjenestedirektivet.
+- **Typiske feil:** Å blande tjenester og etablering; å behandle den bortavgrensede tjenesteloven; å bruke rule of reason på et direkte diskriminerende vilkår.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 8.4: Rettferdiggjøring og forholdsmessighet
+- **id:** `jus2211-8-4` · **number:** 8.4 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-8-2`, `jus2211-8-3`
+- **Kapitteltype:** regel (kjernevurdering)
+- **description:** De to siste trinnene, samlet fordi de bærer karakteren: å velge riktig rettferdiggjøringsspor (traktatunntak vs. tvingende allmenne hensyn), unngå rent økonomiske hensyn, og gjennomføre forholdsmessighetsvurderingen (egnet + nødvendig + mindre inngripende middel).
+- **Eksamensbelegg:** Rettferdiggjøring + forholdsmessighet ~6 (V2024, V2018, H2021 — «rent økonomiske hensyn kan ikke rettferdiggjøre»). Prioritetsklasse: **perfekt**.
+- **EØS-analyseskjema:** Trinn 3 og 4 i skjemaet (kap. 8.1), utdypet.
+- **Regelkontrakt:** **Rettferdiggjøringssporet:** (a) **diskriminerende** restriksjon (direkte/indirekte) → bare **traktatunntakene** (art. 13 varer / tilsvarende for de andre frihetene); (b) **ikke-diskriminerende** → i tillegg **tvingende allmenne hensyn** (rule of reason — miljø, forbrukervern, folkehelse, forsyningssikkerhet). **Rent økonomiske hensyn** (arbeidsplasser, skatteinntekter, sysselsetting) **kan ikke** rettferdiggjøre (V2024, V2018, H2021). **Forholdsmessighet:** tiltaket må være **egnet** (bidrar konsistent til målet) og **nødvendig** (finnes et **mindre inngripende middel** som når målet like godt? — V2024: statens egen petroleum). Bevisbyrde: staten må sannsynliggjøre rettferdiggjøring og forholdsmessighet.
+- **Typetilfeller:** Minipraktikum: et tiltak begrunnes dels i et allment hensyn, dels i arbeidsplasser (skill det legitime fra det rent økonomiske); en forholdsmessighetsvurdering der et mindre inngripende middel finnes.
+- **Metodepoenger:** Velg rettferdiggjøringsspor etter diskriminerende/ikke-diskriminerende. Rent økonomiske hensyn rettferdiggjør aldri. Forholdsmessighet er obligatorisk og todelt (egnet + nødvendig) — let alltid etter et mindre inngripende middel.
+- **Typiske feil:** Feil rettferdiggjøringsspor; å godta rent økonomiske hensyn; å glemme forholdsmessighet / mindre inngripende middel; å overse at staten har bevisbyrden.
+- **Kvote:** quiz 16 · flashcards 18 (flashcards: traktatunntak vs. rule of reason; rent økonomiske hensyn-forbudet; egnet + nødvendig; mindre inngripende middel; bevisbyrde; diskriminerende/ikke-diskriminerende-skillets betydning)
+
+---
+
+#### Kapittel 8.5: Typetilfelle — restriksjonspraktikumet
+- **id:** `jus2211-8-5` · **number:** 8.5 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-8-1`, `jus2211-8-4`
+- **Kapitteltype:** typetilfelle
+- **description:** Den fulle EØS-restriksjonsdrøftelsen på ett faktum: et nasjonalt tiltak kjøres gjennom hele firetrinns-analysen med alle fellene innebygd — riktig frihet, diskriminerende/ikke, riktig rettferdiggjøringsspor, forholdsmessighet.
+- **Eksamensbelegg:** Restriksjonspraktikumet er EØS-sporets normalform (~8). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** Firetrinns-skjemaet (kap. 8.1) fullt ut: (1) omfattet + riktig frihet; (2) restriksjon (Dassonville/Säger) + diskriminerende/ikke; (3) rettferdiggjøringsspor; (4) forholdsmessighet. Se komplett spesifikasjon i §6.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. et nasjonalt krav som hindrer en grensekryssende tjeneste, begrunnet dels i folkehelse dels i lokale arbeidsplasser). Full drøftelse med margkommentarer. Varianter (3–5) flytter tvilen mellom frihet, diskrimineringskarakter og forholdsmessighet.
+- **Metodepoenger:** Kjør alle fire trinn; velg riktig rettferdiggjøringsspor; skill legitimt fra rent økonomisk hensyn; drøft forholdsmessighet konkret.
+- **Typiske feil:** Å hoppe over et trinn; feil rettferdiggjøringsspor; rent økonomiske hensyn; glemt forholdsmessighet.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 8:** 4 prøver (én restriksjonsanalyse-drill (fire trinn på nytt faktum); én vareprøve (art. 11/12/13 + Dassonville/Cassis/Keck/Campus Oil); én tjeneste-/etableringsprøve (art. 36/31/28 + Säger/Gebhard); én rettferdiggjørings-/forholdsmessighetsprøve (sporvalg + rent økonomiske hensyn + mindre inngripende middel)).
+
+---
+
+### DEL 9 — Koblingsdelen: forvaltning ↔ EØS
+
+> **Bokas tyngdepunkt.** Fagets signatur er koblingen: ett faktum med et forvaltningsspor og et
+> EØS-spor, flettet slik at en internrettslig hjemmel «gjennomskjæres» av EØS. Å mestre
+> **overgangen** mellom de to rettssystemene er selve A-ferdigheten. Denne delen forutsetter Del 1–8
+> og forbereder de komplette praktikumene i Del 10.
+
+---
+
+#### Kapittel 9.1: Hjemmel gjennomskåret av EØS — signaturkoblingen
+- **id:** `jus2211-9-1` · **number:** 9.1 · **estimatedMinutes:** 65 · **prerequisites:** `jus2211-1-2`, `jus2211-7-1`, `jus2211-8-4`
+- **Kapitteltype:** regel (fagets signatur)
+- **description:** Den bærende koblingen: hvordan en internrettslig hjemmel som isolert sett rekker, likevel faller bort for et tiltak fordi tiltaket er en ulovlig EØS-restriksjon — og hvordan overgangen mellom forvaltningssporet og EØS-sporet håndteres metodisk korrekt.
+- **Eksamensbelegg:** «Hjemmel gjennomskåret av EØS» ~4 og økende (V2024 petroleumsloven § 4-11 gjennomskåret av art. 12; V2023 akvakultur; H2022 alkoholforskrift/etablering). Fagets signaturkobling og selve A-ferdigheten. Prioritetsklasse: **perfekt** (bokas tyngdepunkt).
+- **Regelkontrakt (koblingsmetoden):**
+  1. **Forvaltningssporet:** rekker den internrettslige hjemmelen isolert sett (kap. 1.1–1.2)?
+  2. **EØS-sporet:** er tiltaket en restriksjon som ikke kan rettferdiggjøres/er uforholdsmessig (Del 8)?
+  3. **Gjennomskjæringen:** hvis tiltaket er EØS-stridig, kan hjemmelen ikke anvendes på det — via **EØS-loven § 2** (forrang) / **presumsjonsprinsippet** / EØS-konform tolkning (kap. 7.1). Hjemmelen «faller bort» for det EØS-stridige tiltaket, og vedtaket blir ugyldig (kompetansemangel, kap. 4.1).
+  4. **Metodekravet:** hold sporene fra hverandre — først internrettslig hjemmelsvurdering, så EØS-restriksjonsanalyse, deretter koblingen via § 2/presumsjon. Ikke behandle EØS-regelen som et direkte «hinder».
+- **Typetilfeller:** Minipraktikum: et vedtak bygger på en spesiallovhjemmel som isolert rekker, men tiltaket er en uforholdsmessig restriksjon → hjemmelen gjennomskjæres (V2024-mønster); et tiltak som er EØS-lovlig (hjemmelen står).
+- **Metodepoenger:** Kjør begge spor separat, koble dem via § 2/presumsjon. EØS gjennomskjærer hjemmelen — det gjør ikke EØS-regelen til direkte hjemmelsgrunnlag. Se at gjennomskjæringen leder til kompetansemangel/ugyldighet.
+- **Typiske feil:** Å behandle EØS-regelen som direkte bindende «hinder» uten § 2/presumsjon (**den navngitte koblingsfellen**); å glemme at hjemmelen kan gjennomskjæres (behandle sporene isolert uten kobling); å blande de to sporenes metode.
+- **Kvote:** quiz 14 · flashcards 16 (flashcards: gjennomskjæringsmekanismen; EØS-loven § 2-veien; hjemmel isolert vs. EØS-anvendelse; kobling → kompetansemangel/ugyldighet)
+
+---
+
+#### Kapittel 9.2: Typetilfelle — koblingspraktikumet
+- **id:** `jus2211-9-2` · **number:** 9.2 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-9-1`
+- **Kapitteltype:** typetilfelle
+- **description:** Den fulle koblingsoppgaven i miniatyr: ett faktum der Del I angriper vedtaket forvaltningsrettslig (hjemmel/saksbehandling/skjønn) og Del II reiser EØS-sporet, flettet slik at hjemmelen gjennomskjæres — malen for det komplette koblingspraktikumet i kap. 10.4.
+- **Eksamensbelegg:** Koblingsoppgaven er normalformen fra 2021 (V2024, V2023, H2022). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) **forvaltningssporet** — enkeltvedtak, hjemmel, evt. saksbehandlingsfeil/skjønn (Del 1–4); (2) **EØS-sporet** — restriksjonsanalysen firetrinns (Del 8); (3) **koblingen** — gjennomskjæring via § 2/presumsjon (kap. 9.1); (4) **virkning** — ugyldighet + evt. statsansvar (kap. 7.2, subsidiært). Respekter avgrensninger. Se komplett spesifikasjon i §6.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en kommune/etat gir et inngripende næringsvedtak som både har saksbehandlingssvakheter og utgjør en EØS-restriksjon). Full drøftelse med margkommentarer. Varianter (3–5) flytter tvilen mellom hjemmel, restriksjon og gjennomskjæring.
+- **Metodepoenger:** Hold sporene fra hverandre, koble via § 2/presumsjon. Se BÅDE forvaltnings- og EØS-sporet (å se bare ett er stryk-risiko). Se de subsidiære sporene (statsansvar).
+- **Typiske feil:** Å se bare ett spor; å behandle EØS som direkte hinder; å overse gjennomskjæringen; å drøfte det bortavgrensede.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 9:** 4 prøver (én gjennomskjæringsprøve (hjemmel rekker isolert, men EØS-stridig → § 2-veien); én spor-sorteringsprøve (hvilket spor hører spørsmålet til + rekkefølge); ett kort koblingspraktikum (forvaltning Del I + EØS Del II); én koblingsfelle-prøve (EØS som «direkte hinder»-fella + isolert-spor-fella)).
+
+---
+
+### DEL 10 — Eksamenstrening: praktikum og modellbesvarelser
+
+> DNA-obligatorisk sluttdel: først en **se-tvistepunktene-/avgrensnings-drill**, deretter **tre
+> komplette flerdelte praktikum** med A- og kommentert C-besvarelse (inkl. ett **koblings-
+> praktikum**, kap. 10.4), og til slutt **fellekatalogen + full 6-timers eksamenssimulering**.
+> Alle faktum er nyskrevne — ingen gjenkjennbare eksamensfakta.
+
+---
+
+#### Kapittel 10.1: Se tvistepunktene — identifikasjons-, sorterings- og avgrensningsdrill
+- **id:** `jus2211-10-1` · **number:** 10.1 · **estimatedMinutes:** 55 · **prerequisites:** Del 0–9
+- **Kapitteltype:** drill
+- **description:** Ferdigheten som skiller nivåene: å lese et sammensatt faktum, identifisere ALLE tvistepunktene (prinsipale og subsidiære), sortere hvert til riktig delfelt/spor og rettsgrunnlag, og fange de faste avgrensningene («skal ikke behandles»).
+- **Eksamensbelegg:** Standard ordlyd om prinsipale/subsidiære spørsmål; faste avgrensninger hvert år. Å overse subsidiære spørsmål eller behandle det avskårne er navngitte feller. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (drill-metode):** (1) marker vedtaket/tiltaket; (2) list partsanførslene → tvistepunkter + rettsgrunnlag; (3) sorter per delfelt (forvaltning/velferd/miljø/EØS) og spor; (4) skill prinsipalt/subsidiært; (5) identifisér avgrensninger og legg dem til side; (6) sett opp disposisjonsskjelett med tidsbudsjett.
+- **Typetilfeller:** 4–6 korte nyskrevne faktum → studenten sorterer (fasit med må/pluss/felle): et koblingsfaktum, et velferds-Del I-faktum, et miljøfaktum med KU-svikt, et faktum med en tydelig avgrensning og et skjult subsidiært spørsmål.
+- **Metodepoenger:** Se ALLE spørsmålene, inkl. subsidiære. Fang avgrensningene FØR disponering. Sorter riktig spor/delfelt — det styrer metoden.
+- **Typiske feil:** Å overse subsidiære spørsmål; å behandle det avgrensede; å sortere spørsmål til feil delfelt/spor.
+- **Kvote:** quiz 12 · flashcards 12
+
+---
+
+#### Kapittel 10.2: Praktikum 1 — Forvaltningspraktikumet (modellbesvarelse)
+- **id:** `jus2211-10-2` · **number:** 10.2 · **estimatedMinutes:** 85 · **prerequisites:** Del 1–4, `jus2211-10-1`
+- **Kapitteltype:** praktikum-modellbesvarelse
+- **description:** Komplett flerdelt forvaltningspraktikum: et vedtak angripes som ugyldig — hjemmel + saksbehandlingsfeil + myndighetsmisbruk + § 41 + klage — med full A-besvarelse og kommentert C-besvarelse.
+- **Eksamensbelegg (kombinasjonen speiler):** Ugyldighetsrammen + saksbehandlingsfeil-kjeden + skjønnstrio + klage (den faste forvaltningsrammen ~16). Se komplett spesifikasjon i §6.
+- **Format:** `collapsible` A-besvarelse (ser alle feiltypene, ikke § 41, ser de subsidiære sporene) + `collapsible` kommentert C-besvarelse (finner hovedspørsmålene, men hopper over § 41, blander fritt/rettsanvendelsesskjønn, flat subsumsjon — margnotater om hva som mangler til A) + `tip` Sensorblikket (må/pluss/felle-vekting + påminnelse om at konklusjonene er underordnet).
+- **Kvote:** quiz 10 · flashcards 6
+
+---
+
+#### Kapittel 10.3: Praktikum 2 — Velferds-Del I + forvaltnings/klage-Del II (modellbesvarelse)
+- **id:** `jus2211-10-3` · **number:** 10.3 · **estimatedMinutes:** 85 · **prerequisites:** Del 4, Del 5, `jus2211-10-1`
+- **Kapitteltype:** praktikum-modellbesvarelse
+- **description:** Komplett flerdelt praktikum i H2023/H2024-mønsteret: Del I reiser et rettskrav på ytelse (helsehjelp/trygd) med forsvarlighet og skjønnsprøving; Del II dreier mot saksbehandling/klage. A- og kommentert C-besvarelse.
+- **Eksamensbelegg (kombinasjonen speiler):** Velferds-Del I + forvaltnings-/klage-Del II (H2023, H2024, V2022). Se komplett spesifikasjon i §6.
+- **Format:** A-besvarelse + kommentert C-besvarelse (C-en lar kommuneøkonomi avgjøre rettskravet, behandler forsvarlighet som fritt skjønn, overser saksbehandlingssporet) + Sensorblikket.
+- **Kvote:** quiz 10 · flashcards 6
+
+---
+
+#### Kapittel 10.4: Praktikum 3 — Koblingspraktikumet forvaltning ↔ EØS (modellbesvarelse)
+- **id:** `jus2211-10-4` · **number:** 10.4 · **estimatedMinutes:** 90 · **prerequisites:** Del 1–9, `jus2211-10-1`
+- **Kapitteltype:** praktikum-modellbesvarelse (koblings-praktikum — bokas tyngdepunkt)
+- **description:** Bokas viktigste modellbesvarelse: et komplett flerdelt koblingspraktikum i V2024/V2023-mønsteret — Del I angriper vedtaket forvaltningsrettslig (hjemmel/saksbehandling/skjønn), Del II reiser EØS-restriksjonssporet, flettet slik at hjemmelen gjennomskjæres. A- og kommentert C-besvarelse.
+- **Eksamensbelegg (kombinasjonen speiler):** «Hjemmel gjennomskåret av EØS» (V2024 petroleum/art. 12; V2023 akvakultur; H2022 etablering) + restriksjonsanalyse + evt. statsansvar. Se komplett spesifikasjon i §6.
+- **Format:** A-besvarelse (holder sporene fra hverandre, kobler via § 2/presumsjon, ser gjennomskjæringen og de subsidiære sporene) + kommentert C-besvarelse (ser bare ett spor eller behandler EØS som direkte hinder, glemmer forholdsmessighet, godtar rent økonomiske hensyn) + Sensorblikket.
+- **Kvote:** quiz 10 · flashcards 6
+
+---
+
+#### Kapittel 10.5: Fellekatalogen og full eksamenssimulering
+- **id:** `jus2211-10-5` · **number:** 10.5 · **estimatedMinutes:** 85 · **prerequisites:** hele boka (Del 0–10)
+- **Kapitteltype:** fellekatalog + simulering
+- **description:** Generalprøven: samtlige hjemmels-/metodefeller fra empirien samlet som «typisk feil»-oppgaver (felle → riktig spor), og en full nyskrevet 6-timers flerdelt tre-felts-simulering med prioriteringsfasit (må/pluss/felle) og tidsbudsjett.
+- **Eksamensbelegg:** Speiler gjeldende normalform (6 t flerdelt praktikum, A–F) + fellekatalogen fra analysens §5. Se komplett spesifikasjon i §6.
+- **Innhold:** (a) **Fellekatalogen** som drill — de tolv fellene fra analysens §5 (behandle det avgrensede; hoppe over § 41; blande fritt/rettsanvendelsesskjønn; feil rettferdiggjøringsspor; godta rent økonomiske hensyn; glemme forholdsmessighet; la kommuneøkonomi avgjøre rettskrav; feil på enkeltvedtaksbegrepet; overse subsidiære spørsmål; sitere dommer løsrevet; overse koblingen forvaltning↔EØS / behandle EØS som direkte hinder; feil startpunkt i myndighetsmisbrukslæren) — hver som kort felle-oppgave med riktig spor; (b) NYSKREVET **6-timers flerdelt simulering** (forvaltning + velferd/miljø + EØS-kobling i ett faktum) med **prioriteringsfasit** per punkt (må/pluss/felle) og et tidsbudsjett (sortering + disposisjon + delene innenfor 6 t).
+- **Format:** A-besvarelse for simuleringen + kommentert C-/svakere besvarelse + Sensorblikket med den eksplisitte påminnelsen: konklusjonene er underordnet; se de prinsipale OG subsidiære spørsmålene; respekter avgrensningene; selvforskyldt tidsnød straffes strengere.
+- **Kvote:** quiz 10 · flashcards 6
+
+**Prøve-kvote Del 10:** 4 prøver (én identifikasjons-/sorteringsprøve (nye korte faktum → spor + rettsgrunnlag + disposisjon); én fellekatalog-prøve (felle → riktig spor); én tidfestet minisimulering (flerdelt forvaltning+EØS med metodefelle-fokus); én koblingssimulering (full firetrinns-EØS + gjennomskjæring + ugyldighet)).
+
+---
