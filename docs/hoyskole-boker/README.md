@@ -128,6 +128,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | JUS2111 Statsforfatningsrett (UiO) | jus | skjelett |
 | SOSANT1000 Sosialantropologi (UiO) | drøfting | skjelett |
+| STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
 instansier `BYGGEKONTRAKT-MAL.md` til `<emne>/BYGGEKONTRAKT.md` (fyll
