@@ -181,6 +181,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
 | JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
 | ECON3010 Anvendt økonomisk analyse (UiO) | drøfting | skjelett |
+| ECON4260 Behavioral Economics (UiO) | regnefag/drøfting-hybrid | skjelett |
 | ECON3120/4120 Mathematics 2 (UiO) | regnefag | skjelett |
 | TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
