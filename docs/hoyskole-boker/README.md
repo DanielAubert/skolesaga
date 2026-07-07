@@ -165,6 +165,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
 | TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
+| TDT4237 Programvaresikkerhet og personvern (NTNU) | drøfting/prosedyre-hybrid | skjelett |
 | TFY4104 Fysikk (NTNU) | regnefag | skjelett |
 | TFY4115 Fysikk (NTNU) | regnefag | skjelett |
 | TFY4125 Fysikk (NTNU) | regnefag | skjelett |
