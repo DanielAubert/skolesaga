@@ -96,6 +96,21 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `in1000` — Introduksjon til objektorientert programmering (UiO, 27 filer)
 - [ ] `fil1001` — Innføring i metafysikk og bevissthetsfilosofi (UiO, 22 filer)
 
+## C4. Transje 4 — analyse + skjelett underveis (7. juli 2026)
+
+- [ ] `mat112-uib` — Kalkulus II (UiB, 65 filer; oppfølger MAT111)
+- [ ] `tfy4104` — Fysikk (NTNU, 55 filer; nær TFY4115)
+- [ ] `psy1000` — Innføring i generell psykologi (UiO, 42 filer)
+- [ ] `econ2200` — Matematikk 1 / Mikro 1 – MM1 (UiO, 41 filer)
+- [ ] `sok1002` — Mikroøkonomi (NTNU, 34 filer)
+- [ ] `tma4135` — Matematikk 4D (NTNU, 26 filer)
+- [ ] `sos1001` — Sosiologisk teori/metode (UiO, 25 filer)
+- [ ] `kjm1110` — Kjemi (UiO, 22 filer)
+- [ ] `in1020` — Introduksjon til datateknologi (UiO, 22 filer)
+- [ ] `econ1220` — Velferd og økonomisk politikk (UiO, 22 filer)
+- [ ] `psyc1201` — Sosialpsykologi (UiO, 17 filer)
+- [ ] `sosant1090` — Sosialantropologi (UiO, 16 filer)
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
