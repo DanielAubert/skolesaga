@@ -122,7 +122,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | STK1100 Sannsynlighet (UiO) | regnefag | skjelett |
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
 | TDT4120 Algoritmer (NTNU) | regnefag | skjelett |
-| MET4 Empiriske metoder (NHH) | regnefag/hybrid | i kø |
+| MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | JUS2111 Statsforfatningsrett (UiO) | jus | i kø |
 | SOSANT1000 Sosialantropologi (UiO) | drøfting | i kø |
 
