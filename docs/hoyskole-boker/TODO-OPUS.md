@@ -82,6 +82,20 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `tdt4145` — Datamodellering og databasesystemer (NTNU, 40 filer, SV)
 
 
+## C3. Transje 3 — analyse + skjelett underveis (7. juli 2026, bred fagdekning)
+
+- [ ] `mat121-uib` — Lineær algebra (UiB, 110 filer)
+- [ ] `tfy4125` — Fysikk (NTNU, 92 filer, SV)
+- [ ] `tfy4115` — Fysikk (NTNU, 50 filer)
+- [ ] `mat2200` — Grupper, ringer og kropper (UiO, 43 filer)
+- [ ] `ma0301` — Elementær diskret matematikk (NTNU, 43 filer)
+- [ ] `sos1120` — Kvantitativ metode (UiO, 41 filer)
+- [ ] `mat2400` — Reell analyse (UiO, 33 filer)
+- [ ] `stv1020` — Politisk analyse 2: forskningsdesign/kvantitativ (UiO, 32 filer)
+- [ ] `kj2050` — Analytisk kjemi grunnkurs (NTNU, 28 filer)
+- [ ] `in1000` — Introduksjon til objektorientert programmering (UiO, 27 filer)
+- [ ] `fil1001` — Innføring i metafysikk og bevissthetsfilosofi (UiO, 22 filer)
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
