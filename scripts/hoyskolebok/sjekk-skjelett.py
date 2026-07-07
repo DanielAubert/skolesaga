@@ -19,8 +19,8 @@ bad_nums = [n for n in nums if not re.match(r"\d+\.\d+$", n)]
 if bad_nums: issues.append(f"Ikke-delbaserte number-felt: {bad_nums[:5]}")
 
 # 2. Kvotesammendrag + minstekrav
-m = re.search(r"(kvotesammendrag|summeringskontroll)", s, re.I)
-if not m: issues.append("Mangler kvotesammendrag/summeringskontroll")
+m = re.search(r"(kvotesammendrag|summeringskontroll|[Qq]uiz totalt|[Qq]uiz:? *\d{3})", s)
+if not m: issues.append("Mangler kvotesammendrag/summeringskontroll/quiz-totalt")
 qm = re.findall(r"\*\*(\d{3,4})\*\*", s) + re.findall(r"totalt:\*\*\s*(\d{3,4})", s)
 if not any(int(x) >= 500 for x in qm): issues.append("Fant ingen kvotesum >= 500 i fet skrift (sjekk manuelt)")
 
