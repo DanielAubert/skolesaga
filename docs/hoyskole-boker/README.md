@@ -123,7 +123,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
 | TDT4120 Algoritmer (NTNU) | regnefag | skjelett |
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
-| JUS2111 Statsforfatningsrett (UiO) | jus | i kø |
+| JUS2111 Statsforfatningsrett (UiO) | jus | skjelett |
 | SOSANT1000 Sosialantropologi (UiO) | drøfting | skjelett |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —

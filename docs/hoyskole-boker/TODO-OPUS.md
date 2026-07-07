@@ -47,22 +47,29 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       i skjelettet (arveloven 2019, 15G-tak, hevdslova § 8). NB: fase 6 SKAL
       ha Lovdata-verifikatør — el. § 59/§ 61-leddstruktur er (verifiser)-merket.
 
-## B. Skjelett underveis/i kø (klare når fabrikken er ferdig — sjekk README-statustavlen)
+- [ ] `fys1120` — FYS1120 Elektromagnetisme (UiO). Eget Python-spor (100 %
+      siden 2018); «navngi loven» + symmetriargument er drillmål.
+- [ ] `mat111-uib` — MAT111 (UiB). Åpen bok; difflikninger/Newton/Taylor-
+      restledd-ryggrad; arkiv 2003–2020 (ærlighetsforbehold i Del 0).
+- [ ] `stk1100` — STK1100 (UiO). Pivotal-kjeden som ryggrad; ingen
+      hypotesetesting/kombinatorikk (UiO-egenart).
+- [ ] `in1900` — IN1900 (UiO). Kodefag-DNA (API-lister, kodesporing);
+      ODESolver post-2023-signatur; rekursjon forbudt.
+- [ ] `tdt4120` — TDT4120 (NTNU). Kortsvars-presisjon («lange svar teller
+      ikke positivt»); CLRS-standard; reduksjonsretning-drill.
+- [ ] `met4-nhh` — MET4 (NHH). 2025-formen (6 t, R-del + regnedel);
+      tidsrekker tungt; IV/DiD/RDD utelatt (aldri testet på skoleeksamen).
+- [ ] `jus2111` — JUS2111 (UiO). Jus; rettstilstandssjekk gjort (§ 89-ordlyd
+      2020, CRPD inkorporert 1.1.2026, derogasjon nedstemt). Fase 6 SKAL ha
+      Lovdata-verifikatør.
+- [ ] `sosant1000` — SOSANT1000 (UiO). Drøfting; etnografisk eksempellager
+      per tema; monografikapittel ⚠ utgavesensitiv (sjekk pensumliste).
 
-## C. Trenger analyse + skjelett først (fabrikk-kø; kjøres også fint av Opus)
+## C. Trenger analyse + skjelett først
 
-Kickoff: «Kjør fase 1–2 i docs/hoyskole-boker/PRODUKSJONSLOYPE.md for
-`<emne>` (arkiv: `~/Desktop/Eksamner/<inst>/<kode>/`, fagbeskrivelse i
-`~/Desktop/fagbeskrivelser-samlet 2.md`). Maks 2 samtidige agenter.»
+(Tom — alle 22 fag i porteføljen har komplett rammeverk. Nye fag: kjør
+fase 1–2 i PRODUKSJONSLOYPE med arkiv fra `~/Desktop/Eksamner/`.)
 
-- [ ] `fys1120` — Elektromagnetisme (UiO, 80 filer)
-- [ ] `mat111-uib` — Grunnkurs matematikk I (UiB, 102 filer)
-- [ ] `stk1100` — Sannsynlighet (UiO, 24 filer)
-- [ ] `in1900` — Python-programmering (UiO, 76 filer)
-- [ ] `tdt4120` — Algoritmer og datastrukturer (NTNU, 45 filer)
-- [ ] `met4-nhh` — Empiriske metoder (NHH, 59 filer)
-- [ ] `jus2111` — Statsforfatningsrett og folkerett (UiO, 56 filer; jus-regler)
-- [ ] `sosant1000` — Sosialantropologi (UiO, 28 filer; drøfting)
 
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
