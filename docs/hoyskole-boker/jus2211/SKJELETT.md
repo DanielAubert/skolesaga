@@ -1,0 +1,716 @@
+# Bokskjelett: JUS2211 Forvaltningsrett og EØS-rett — eksamensrettet lærebok
+
+> Dette skjelettet er forfatterens ENESTE kilde til eksamensempiri — forfatter-agenten
+> (Opus) leser IKKE eksamensarkivet. Alt eksamensbelegg (årganger, frekvenser, sensor-
+> krav, feller) står derfor eksplisitt per kapittel. Alle faktum-mønstre er omskrevne
+> maler; forfatteren skal skrive HELT NYE faktum i samme sjanger (nye parter, kommuner,
+> tall, hendelser, tiltak). Arketype: **DNA-jus.md**.
+>
+> **Rettstilstand (KRITISK — les §1.2 og §8 før regelkontraktene brukes):** Boken bygger på
+> **GJELDENDE rett** per juli 2026. To lag må håndteres samtidig: (1) **Ny forvaltningslov
+> LOV-2025-06-20-81 er VEDTATT men IKKE i kraft** (ventes 2027, Kongen bestemmer, § 99) —
+> eksamen og hovedfremstillingen bygger på **fvl. 1967**, men hvert berørt saksbehandlings-/
+> ugyldighetskapittel har en **«Ny lov 2027»-boks** med paragrafmapping; (2) den **ulovfestede**
+> myndighetsmisbruks-, ugyldighets- og vilkårslæren **KODIFISERES** ved ikrafttredelse og blir
+> da delvis foreldet som «ulovfestet» — samme doktrinære drift som fkjl. § 17 skapte i JUS1111.
+> EØS-kjernen (fire friheter, EØS-loven § 2, statsansvar E-9/97/Finanger II) er **stabil**.
+> **Forbehold:** Det finnes **ingen sensorveiledninger** i arkivet — sensorkravene er UTLEDET
+> (merket der de brukes); tre av 22 sett foreligger kun som skann uten tekstlag, så frekvenser
+> bygger på 19/22. Poster merket *(verifiser)* har kjent usikkerhet og skal sluttkontrolleres i
+> fase 6 av en obligatorisk **Lovdata-verifikatør**, som også henter og innarbeider **UiOs
+> publiserte sensorveiledninger** før kontraktene låses (se §8/§9).
+
+---
+
+## 1. Bokens identitet
+
+### 1.1 Kortfakta
+
+| Felt | Verdi |
+|---|---|
+| Kurs-id | `jus2211` |
+| Tittel | **JUS2211 Forvaltningsrett og EØS-rett** |
+| Level | `Høyskole` |
+| Institusjon | Universitetet i Oslo (Det juridiske fakultet) |
+| Arketype | jus (rettsdogmatisk med praktikum) — med dokumenterte DNA-avvik, se §7 |
+| Pitch | Boka trener nøyaktig det JUS2211-eksamen prøver: ett stort, flerdelt praktikum der ett sammenhengende faktum reiser spørsmål i **to rettssystemer** — norsk forvaltningsrett og EØS-rett — og der A-ferdigheten er å mestre **overgangen** mellom dem: å se når en internrettslig hjemmel «gjennomskjæres» av EØS. Du lærer å angripe et forvaltningsvedtak systematisk (hjemmel → saksbehandling → skjønn/myndighetsmisbruk → ugyldighet og § 41), å kjøre EØS-restriksjonsanalysen firetrinns, å holde fritt skjønn og rettsanvendelsesskjønn fra hverandre, å velge riktig rettferdiggjøringsspor, og å respektere oppgavens avgrensninger. Bygget på 22 eksamensgjennomføringer 2015–2025 (19 lest). **Materiell kunnskap alene gir C** — denne boka trener subsumsjon, koblingen forvaltning↔EØS, og å se de prinsipale OG subsidiære spørsmålene. |
+| Kapittelantall | **46** (Del 0: 4, Del 1: 4, Del 2: 5, Del 3: 4, Del 4: 6, Del 5: 4, Del 6: 4, Del 7: 3, Del 8: 5, Del 9: 2, Del 10: 5) |
+| Estimert totaltid | **~2 640 minutter (~44 timer)** |
+| Quiz totalt | **576** (krav ≥500) |
+| Flashcards totalt | **600** (sikt 550–650) |
+| Prøver | **44** (4 per del × 11 deler; krav ≥4 per del) |
+| Eksamensform boka kalibreres mot | **6 timers digital skoleeksamen (Inspera)**, ett stort flerdelt praktikum (Del I/II/(III)) over forvaltningsrett + velferds-/miljørett + EØS; **Lovdata Pro i eksamensmodus** + rettskrivningsordbøker; **karakterskala A–F** |
+
+**Emnets omfang:** 30 studiepoeng, fire delfelt: **alminnelig forvaltningsrett** (13 sp — kjernen),
+**velferdsrett** (7 sp), **miljørett** (5 sp), **EØS-rett** (5 sp). Studiepoengvekten er
+retningsgivende for tyngde, men eksamen fletter feltene og bedømmer helhetlig.
+
+### 1.2 Rettstilstandsflagg — «to-lags»-blikket (ufravikelig)
+
+**A. Ny forvaltningslov (LOV-2025-06-20-81) er vedtatt, men ikke i kraft (verifisert 2026-07-07).**
+Loven ble vedtatt juni 2025 (Prop. 79 L (2024–2025)) og står som «Ikke i kraft»; § 99: *«Loven
+trer i kraft fra den tiden Kongen bestemmer»*, forventet **2027**. **Til ikrafttredelsen gjelder
+fvl. 1967**, og alle leste eksamenssett — inkludert de nyeste — bygger på 1967-loven. Boken
+forankres derfor i **fvl. 1967**, men hvert berørt kapittel har en **«Ny lov 2027»-boks** (`tip`
+eller `collapsible`) med paragrafmapping. Foreløpig mapping (**verifiser mot endelig lovtekst og
+ikrafttredelsesrundskriv** før publisering):
+
+| Institutt | Fvl. 1967 | Ny fvl. 2025 *(verifiser)* | Kapittel |
+|---|---|---|---|
+| Inhabilitet | § 6 | §§ 25–29 | 2.1 |
+| Utrednings-/opplysningsplikt | § 17 | § 44 | 2.2 |
+| Forhåndsvarsel | § 16 | § 42 | 2.3 |
+| Begrunnelse | §§ 24–25 | §§ 56–57 | 2.3 |
+| Klagerett/klageinstans/prøving | §§ 28–34 | §§ 61–69 | 4.4, 4.5 |
+| Klagefrist | § 29 | § 63 | 4.5 |
+| Omgjøring | § 35 | §§ 71–72 | 4.3 |
+| **Virkning av saksbehandlingsfeil** | **§ 41** | **§ 74** | 4.2 |
+
+**Materiell endring, ikke bare renummerering:** Den nye loven **kodifiserer** ulovfestet rett som
+eksamen i dag tester som *ulovfestet* — **myndighetsmisbrukslæren** (kap. 3.2), den **ulovfestede
+ugyldighetslæren** (kap. 4.1) og **vilkårslæren** (kap. 3.3) skal etter forarbeidene inn i lovs
+form. Innvirkningsnormen i § 41 («kan ha virket bestemmende på vedtakets innhold») videreføres i
+**§ 74** i lett omformulert språkdrakt *(verifiser presis ordlyd)*. Alle slike punkter merkes i
+boken med `(verifiser — endres ved ikrafttredelse ny fvl.)`, og kapitlene 2.1, 2.2, 2.3, 3.2,
+3.3, 4.1, 4.2, 4.3, 4.4, 4.5 har «Ny lov 2027»-boks.
+
+**B. EØS-rettsdelen er stabil (verifisert 2026-07-07).** Fire friheter i EØS-avtalens hoveddel
+(varer art. 8/11/12/13, personer art. 28, etablering art. 31, tjenester art. 36, kapital art.
+40), EØS-loven § 1/§ 2 (inkorporasjon + forrang), presumsjonsprinsippet, EØS-konform tolkning, og
+statlig erstatningsansvar (E-9/97 Sveinbjörnsdóttir; Rt. 2005 s. 1365 Finanger II) er uendret og
+gjeldende. Doktrinær stabilitet betyr *ikke* at domsreferanser er trygge — domsårstall og
+EFTA-/EU-saksnumre sjekkes individuelt i fase 6.
+
+**Avgrensning (bevisst nedprioritering):** **Statsstøtte (EØS art. 61)** er formelt pensum, men
+opptrer **nesten aldri** som eget praktikumtvistepunkt i de leste settene. Behandles i boken som
+kort **pensumdekning/«bør kjenne til»** (kort omtale i kap. 8.1), ikke som høyfrekvent
+praktikumtema. Tjenestedirektivet/tjenesteloven og trygdeforordningen dekkes tilsvarende kort —
+de er ofte **eksplisitt avgrenset bort** i oppgavene.
+
+---
+
+## 2. Makrostruktur
+
+Ryggraden er den **gjennomgående ferdigheten** faget signerer med: å møte ett faktum som reiser
+**både** et forvaltningsrettslig hovedspor (*er vedtaket ugyldig?*) **og** et EØS-spor (*er
+tiltaket en ulovlig restriksjon?*), ofte flettet slik at hjemmelen «gjennomskjæres» av EØS.
+Rekkefølgen er pedagogisk: eksamenskart og praktikumhåndverk først (Del 0), deretter den
+alminnelige forvaltningsretten bygget opp som en angreps-sekvens mot et vedtak (Del 1–4:
+hjemmel → saksbehandling → skjønn/myndighetsmisbruk → ugyldighet/klage), så de to spesielle
+forvaltningsfeltene der forvaltningsretten oftest testes (Del 5 velferdsrett, Del 6 miljørett),
+så EØS-retten som eget system (Del 7 stilling, Del 8 fire friheter), så **koblingsdelen** som er
+bokas tyngdepunkt (Del 9), og til slutt den samlede eksamenstreningen med komplette praktikum
+(Del 10). **Omfanget** følger gjenganger-score fra analysen §2 og prioriteringen i §7.
+
+| Del | Innhold (sectionName) | Kap. | Begrunnelse (gjenganger-score av 19 leste sett 2015–2025) |
+|---|---|---|---|
+| **Del 0** | Eksamenskart og praktikumhåndverk | 4 | DNA-obligatorisk. Praktikum er eneste hovedsjanger; subsumsjon + prinsipalt/subsidiært + avgrensninger + koblingen forvaltning↔EØS er kalibreringen. Egen verktøykasse (ugyldighets- + restriksjonsanalyse-sjekkliste). |
+| **Del 1** | Legalitetsprinsippet og forvaltningsvedtaket | 4 | Legalitet/hjemmel (Grl. § 113) ~8; vedtaks-/enkeltvedtaksbegrepet (fvl. § 2) ~4. Fundamentet for hjemmelsangrepet og for koblingen (hjemmel gjennomskåret av EØS). |
+| **Del 2** | Saksbehandlingen og habiliteten | 5 | Saksbehandlingsfeil ~10; inhabilitet § 6 ~8; utredningsplikt § 17 ~6; varsel/begrunnelse ~3/~2; innsyn ~1–2. De to hyppigste feiltypene bor her. |
+| **Del 3** | Forvaltningsskjønnet og myndighetsmisbruk | 4 | Skjønnsprøving fritt vs. rettsanvendelse ~10 (kjerneferdighet); myndighetsmisbruk/utenforliggende hensyn ~8; vilkårslære ~2. «Skjønnstrioen» er fast kombinasjonsmønster. |
+| **Del 4** | Ugyldighet, § 41, klage og overprøving | 6 | Ugyldighet som ramme ~16 (STØRST) + § 41-innvirkning; klagerett § 28 ~7; klageinstans/kommunalt selvstyre § 34(2) ~4; omgjøring § 35 ~4; klagefrist ~2. Bokas tyngste forvaltningsdel. |
+| **Del 5** | Velferdsrett | 4 | Nødvendig helsehjelp + forsvarlighet ~5; tvang ~4; trygd ~4; pasientrettigheter ~2. Ofte hele Del I i settet (7 sp). |
+| **Del 6** | Miljørett | 4 | Pbl. dispensasjon/reguleringsplan ~4; KU ~3; naturmangfoldlov ~3; forurensning ~2; § 112/klima ~2 (5 sp). |
+| **Del 7** | EØS-rettens stilling i norsk rett | 3 | Direkte virkning/forrang/presumsjon (EØS-loven § 2) ~4; statsansvar ~2; EFTA-domstolen ~2. Inngangsporten til hele EØS-sporet og koblingen. |
+| **Del 8** | De fire friheter og restriksjonsanalysen | 5 | Fire friheter/restriksjonsanalyse ~8 (tjenester+varer tyngst); rettferdiggjøring + forholdsmessighet ~6. EØS er nå ett spor i så godt som hvert nyere sett. |
+| **Del 9** | Koblingsdelen: forvaltning ↔ EØS | 2 | **Bokas tyngdepunkt.** «Hjemmel gjennomskåret av EØS» (V2024/V2023/H2022) er fagets signaturkobling og selve A-ferdigheten — egen brodel. |
+| **Del 10** | Eksamenstrening: praktikum og modellbesvarelser | 5 | DNA-obligatorisk sluttdel: se-tvistepunktene-drill + ≥3 komplette flerdelte praktikum (inkl. ett koblingspraktikum) + fellekatalog + full simulering. |
+
+**Prioritetsklassene** (fra analysens §7) styrer oppgavemengde og dybde per kapittel:
+- **perfekt** = «må beherskes perfekt» (bærer karakteren)
+- **kunne** = «må kunne» (skiller sterke besvarelser)
+- **kjenne** = «bør kjenne til» (pensumdekning/plusspoeng)
+
+**Gjennomgående byggekrav** (gjelder ALLE kapitler, gjentas ikke per kapittel):
+- Hvert kapittel har `tip`-blokk **«Eksamensvinkel»** og `warning`-blokk **«Typiske feil»**
+  (innhold angitt per kapittel).
+- Regel- og typetilfellekapitler avsluttes med `collapsible` **«Paragraf- og domsregister»** —
+  hurtigoppslag for de fvl.-/spesiallovs-§§, EØS-artikler og dommer kapitlet bruker.
+- Hvert delkapittel som bruker paragraf-/vilkårsapparat får en `collapsible` **«Paragraf- og
+  begrepsliste»** rett etter Forkunnskaper (jus-analogen til symbol-/formellista) — forklarer alle
+  sentrale bestemmelser og faguttrykk i delkapitlet (f.eks. «fritt skjønn» = forvaltningen velger
+  fritt innenfor rammen, domstolene prøver ikke hensiktsmessigheten; «rettsanvendelsesskjønn» =
+  tolkning/subsumsjon av et rettslig vilkår, prøves fullt; «tiltak med tilsvarende virkning» =
+  ethvert tiltak som direkte/indirekte, faktisk/potensielt kan hindre samhandelen).
+- **Alle saksbehandlings-/ugyldighetskapitler (2.1–2.3, 3.2, 3.3, 4.1–4.5) har «Ny lov 2027»-boks**
+  med paragrafmapping (§1.2) og merknad om kodifisering der relevant.
+- Oppgaver følger sjangrene fra analysen §3: anførselsdrevet, flerdelt **minipraktikum** (kort
+  faktum, ett–to tvistepunkter, med rettsgrunnlag lagt i partsanførslene), disponert
+  **problemstilling → rettsgrunnlag → normklarlegging → subsumsjon → konklusjon**, med fasit merket
+  **må-punkter / pluss-punkter / metodefeller**. Stigende vanskelighet som ender på eksamensnivå.
+- **Subsumsjonen er kongen.** Fordi Lovdata Pro er tilgjengelig gir regel-/domsgjengivelse
+  tilnærmet null; poengene ligger i den konkrete anvendelsen på faktum og i å se **alle** spørsmål,
+  inkludert de subsidiære. Dette innprentes i hvert kapittel.
+- **To-trinns-metode:** normklarlegging (ordlyd + rettskilder) FØR subsumsjon (faktum) — aldri bland.
+- **Respekter avgrensningene:** boka trener eksplisitt å identifisere «skal ikke behandles» og la
+  det avskårne ligge (fast skille-element hvert år — egen drillferdighet, kap. 0.3 og 10.1).
+- **Hold de to rettssystemene fra hverandre:** internrettslig hjemmelslære vs. EØS-restriksjons-
+  analyse; EØS-retten kommer inn i norsk rett via **EØS-loven § 2 / presumsjonsprinsippet**, ikke
+  som direkte «hinder». Fagets mest premierte/straffede metodiske akse — innprentes i hvert
+  EØS-relevant kapittel.
+- Dommer refereres (kallenavn + Rt./HR-/EFTA-/EU-saksnummer + hva de brukes til), aldri gjengis i
+  lengde. **Alle paragraf-, artikkel- og domsreferanser verifiseres mot Lovdata/EUR-Lex i fase 6**;
+  referanser merket *(verifiser)* har kjent usikkerhet. Der analysen ikke ga et konkret dommavn,
+  står `(sentral HR-/EFTA-praksis — verifiser konkret avgjørelse i fase 6)`.
+- **Konklusjonen er nesten alltid underordnet** — drøftelsen bærer. Oppgavefasitene sier
+  eksplisitt «begge løsninger godtas» der spørsmålet er åpent.
+
+---
+
+## 3. Kapitler
+
+### DEL 0 — Eksamenskart og praktikumhåndverk
+
+---
+
+#### Kapittel 0.1: Eksamenskartet — slik testes JUS2211
+- **id:** `jus2211-0-1` · **number:** 0.1 · **estimatedMinutes:** 35 · **prerequisites:** ingen
+- **Kapitteltype:** eksamenskart
+- **description:** Hva eksamen faktisk er: ett stort, flerdelt 6-timers digitalt praktikum som fletter forvaltningsrett, velferds-/miljørett og EØS i ett faktum; hvilke felt som vektes hvor mye; det faste Del I/II/(III)-mønsteret; og hva som skiller A fra C fra E.
+- **Forkunnskaper (kryssbok):** Bygger på den generelle juridiske arbeidsmåten fra JUS1111 — lenk til [Eksamenskartet — slik testes JUS1111](/bok/jus1111/jus1111-0-1) og [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2).
+- **Eksamensbelegg:** Hele empirien 2015–2025 (19 leste sett). Presenter: (a) **formhistorikken** — 6 t papireksamen med teori+praktikum 2015–2017, nedkortet til 4 t og renere praktikum 2018–2019, hjemmeeksamen (covid) 2020–2021, **digital skoleeksamen (Inspera) 6 t fra V2022**; A–F normalform; Lovdata Pro i eksamensmodus; (b) den store innholdsendringen: **EØS-rett vokser INN** (motsatt av JUS2111) og ligger nå i så godt som hvert sett; (c) fire delfelt med sp-vekt (forvaltning 13 / velferd 7 / miljø 5 / EØS 5) — men eksamen fletter og bedømmer helhetlig; (d) **normalformen: koblingsoppgaven** — ett faktum genererer ett forvaltningsspor og ett EØS-spor.
+- **Regelkontrakt:** Ingen materielle regler — men frekvenstabellene gjengis som studentens **prioriteringskart**: ugyldighet+§ 41 ~16, skjønnsprøving ~10, saksbehandlingsfeil ~10, legalitet/hjemmel ~8, inhabilitet § 6 ~8, myndighetsmisbruk ~8, klagerett § 28 ~7, utredning § 17 ~6; EØS fire friheter ~8, rettferdiggjøring/forholdsmessighet ~6, forrang/presumsjon ~4; velferd (forsvarlighet ~5, tvang ~4, trygd ~4); miljø (pbl. ~4, KU ~3, naturmangfoldlov ~3).
+- **Metodepoenger:** Emnet prøver TO rettssystemer som må holdes fra hverandre — og A-ferdigheten er overgangen mellom dem. Konklusjonene er underordnede. «Ingen forventes å se alt.» Kandidaten er andreårsstudent; «ukjent lovtekst» (spesiallovers mindre kjente bestemmelser) testes som metode, ikke paratkunnskap. En besvarelse som dekker bare ett delfelt eller mangler juridisk arbeidsmåte er stryk-risiko.
+- **Typiske feil:** Å lese boka som pensumdekning i stedet for eksamenstrening; å pugge konklusjoner; å behandle EØS som randsone; å bruke tid på lovtekst-/domsgjengivelse (gratis med Lovdata).
+- **Kvote:** quiz 10 · flashcards 8
+
+---
+
+#### Kapittel 0.2: Praktikumsmetoden — subsumsjon, prinsipalt/subsidiært og disposisjonen
+- **id:** `jus2211-0-2` · **number:** 0.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-0-1`
+- **Kapitteltype:** metode
+- **description:** Slik bygges en JUS2211-praktikumsbesvarelse: identifiser vedtaket/tiltaket, sorter spørsmålene per delfelt, gjør **normklarlegging FØR subsumsjon** for hvert tvistepunkt, konkluder klart — og drøft deretter de **subsidiære** sporene der hovedstandpunktet kan falle.
+- **Forkunnskaper (kryssbok):** Firetrinnsmetoden er felles med JUS1111 — lenk til [Praktikumsmetoden — fra anførsler til disposisjon](/bok/jus1111/jus1111-0-2) og [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3).
+- **Eksamensbelegg:** Samtlige sett fra 2018. Standard ordlyd: *«Drøft og ta stilling til de prinsipale og subsidiære rettsspørsmålene oppgaven reiser»* / *«Drøft og avgjør de rettslige spørsmålene …»*. Partsanførslene peker ut BÅDE tvistepunktene OG rettsgrunnlagene — de er kompass, men skal subsumeres, ikke refereres. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (metoderegler, utledet fra oppgavemønster + fagtradisjon):**
+  1. **Identifiser og sorter:** hva er vedtaket/tiltaket, hva angripes, hvilket delfelt (forvaltning / velferd / miljø / EØS) hører spørsmålet til?
+  2. **Presis problemstilling** — ett spørsmål av gangen; skill prinsipalt/subsidiært.
+  3. **Rettslig grunnlag** — riktig lov og bestemmelse (fvl., spesiallov, EØS-artikkel).
+  4. **Normklarlegging FØR subsumsjon** — først normens innhold (ordlyd + rettskilder), deretter subsumsjon (faktum). Bland aldri de to argumentasjonstypene.
+  5. **Subsumsjonen er tyngst vektet** — faktums konkrete momenter kobles eksplisitt til hvert vilkår.
+  6. **Klar konklusjon → subsidiære drøftelser** der primærkonklusjonen avskjærer resten. Kumulative vilkår ett for ett.
+  7. **Kort om det klare, dybde i tvilen.** Å drøfte det opplagte eller det bortavgrensede trekker.
+- **Typetilfeller:** 2 `example`-blokker: (a) et flerdelt koblingsfaktum (nyskrevet) → vist sortering per delfelt → disposisjonsskisse med prinsipalt/subsidiært markert; (b) samme tvistepunkt drøftet to ganger — én gang som ren regelgjengivelse (verdiløst med Lovdata), én gang med to-trinns-metode og faktumnær subsumsjon — A/C-skillet visualisert.
+- **Metodepoenger:** Normklarlegging før subsumsjon er den gjennomgående sensorregelen. Selvforskyldt tidsnød (skrev seg bort i teori/avgrenset stoff) bedømmes strengere enn tidsnød etter grundig, relevant arbeid.
+- **Typiske feil:** Konstatering i stedet for drøftelse; å blande normklarlegging og subsumsjon; regel-/domsgjengivelse på bekostning av subsumsjon; å overse subsidiære spørsmål; svak struktur i flerdelte sett.
+- **Kvote:** quiz 14 · flashcards 12
+
+---
+
+#### Kapittel 0.3: Koblingen, avgrensningene og rolleoppgaven
+- **id:** `jus2211-0-3` · **number:** 0.3 · **estimatedMinutes:** 45 · **prerequisites:** `jus2211-0-2`
+- **Kapitteltype:** metode (signatur-introduksjon)
+- **description:** Fagets signatur presentert tidlig: hvordan ett faktum kobler et forvaltningsspor og et EØS-spor, hvordan de to rettssystemene holdes fra hverandre, hvordan man drillfast identifiserer de faste avgrensningene («skal ikke behandles»), og hvordan notat-/rolleoppgaver håndteres.
+- **Eksamensbelegg:** Koblingen forvaltning↔EØS er normalformen fra 2021 (V2024, V2023, H2022). Faste avgrensninger i nesten hvert sett (H2022 tjenestedirektiv, V2024 årsak/utmåling, V2022 materiell trygdeforordning). Rolleoppgaver: V2021 (tre roller), V2024 del III notat, V2020. Prioritetsklasse: **perfekt** (koblingen) / **kunne** (rolle+avgrensning).
+- **Regelkontrakt (metode, ikke materiell rett):**
+  (a) **Koblingen:** det typiske settet har ett forvaltningsspor (*er vedtaket ugyldig?*) og ett EØS-spor (*er tiltaket en ulovlig restriksjon?*), ofte flettet slik at hjemmelen «gjennomskjæres» av EØS (utdypes i Del 9). Riktig metode i hvert spor: internrettslig hjemmelslære vs. EØS-restriksjonsanalyse.
+  (b) **EØS inn i norsk rett:** via EØS-loven § 2 og presumsjonsprinsippet — ikke som direkte «hinder» (utdypes i Del 7).
+  (c) **Avgrensningsdrill:** nesten hvert sett avskjærer noe uttrykkelig; å drøfte det avskårne gir null uttelling. Tren å lese oppgaveteksten for «skal ikke behandles» FØR disponering.
+  (d) **Rolle-/notatgrep:** notat (saksbehandler/advokatfullmektig/ombud), svar på henvendelse, kort oversikt — behandles metodisk som praktikum; sjangergrepet skal ikke trekke, men å treffe rollen premieres.
+- **Typetilfeller:** Minipraktikum: et kort faktum med både et forvaltnings- og et EØS-spor → vis sorteringen og markér én avgrensningsinstruks; samme faktum som «skriv et notat til kommunaldirektøren» (rollegrepet).
+- **Metodepoenger:** Les oppgaven for avgrensninger og for perspektivet FØR du disponerer. Hold sporene fra hverandre. La EØS komme inn via § 2/presumsjon, ikke som direkte binding.
+- **Typiske feil:** Å behandle det bortavgrensede; å behandle en EØS-regel som direkte bindende uten å gå via § 2/presumsjon; å blande de to sporenes metode; å trekke seg for en rolle man ikke kan (skal ikke trekke).
+- **Kvote:** quiz 12 · flashcards 12
+
+---
+
+#### Kapittel 0.4: Verktøykassa — ugyldighets-sjekklisten og restriksjonsanalyse-sjekklisten
+- **id:** `jus2211-0-4` · **number:** 0.4 · **estimatedMinutes:** 45 · **prerequisites:** `jus2211-0-2`
+- **Kapitteltype:** metode-verktøy (gjenbrukbare maler)
+- **description:** De to gjenbrukbare tenke-verktøyene hele boka hviler på, etablert tidlig og gjenbrukt ordrett senere: **ugyldighets-sjekklisten** (tre feiltyper → § 41-innvirkning → virkning) for forvaltningssporet, og **restriksjonsanalyse-sjekklisten** (firetrinns) for EØS-sporet.
+- **Eksamensbelegg:** Ugyldighet er rammen i ~16 sett; restriksjonsanalysen i ~8. Begge er faste, gjenkjennbare strukturer sensor forventer. Prioritetsklasse: **perfekt** (begge er bærende verktøy).
+- **Regelkontrakt (to sjekklister som skjelett — fylles materielt i Del 1–9):**
+  1. **Ugyldighets-sjekklisten (forvaltningssporet):** (i) **hjemmels-/kompetansemangel** — mangler tiltaket lovhjemmel, eller rekker ordlyden ikke (kap. 1.1–1.2)? (ii) **saksbehandlingsfeil** — inhabilitet § 6 / utredning § 17 / varsel § 16 / begrunnelse §§ 24–25 (Del 2)? (iii) **innholdsmangel** — feil rettsanvendelse eller myndighetsmisbruk (Del 3)? → deretter **innvirkning § 41** (kap. 4.2): «kan feilen ha virket bestemmende på vedtakets innhold?» → **virkning** (nullitet/delvis/gunst-ugunst, kap. 4.3).
+  2. **Restriksjonsanalyse-sjekklisten (EØS-sporet, firetrinns):** (i) **omfattet** av EØS-avtalen (grensekryssende element, riktig frihet)? (ii) **restriksjon / tiltak med tilsvarende virkning** (Dassonville-vidt)? (iii) **rettferdiggjøring** — diskriminerende (bare traktatunntak) eller ikke-diskriminerende (også tvingende allmenne hensyn/rule of reason)? (iv) **forholdsmessighet** — egnet + nødvendig (mindre inngripende middel)?
+- **Typetilfeller:** To `example`-blokker: samme korte forvaltningsfaktum kjørt gjennom ugyldighets-sjekklisten; samme korte EØS-faktum kjørt gjennom restriksjons-sjekklisten. Vis at sjekklistene er disposisjonsskjeletter, ikke fasitsvar.
+- **Metodepoenger:** Sjekklistene sikrer at du ser ALLE spørsmålene (inkl. de subsidiære) og ikke hopper over § 41 eller forholdsmessighet. De to listene svarer til de to sporene — bland dem ikke.
+- **Typiske feil:** Å hoppe over § 41 etter konstatert feil; å hoppe over forholdsmessighet i restriksjonsanalysen; å bruke ugyldighetslogikk på EØS-spørsmålet eller omvendt.
+- **Kvote:** quiz 12 · flashcards 14 (flashcards: de tre feiltypene; § 41-spørsmålet; restriksjonsanalysens fire trinn; diskriminerende vs. ikke-diskriminerende rettferdiggjøringsspor)
+
+**Prøve-kvote Del 0:** 4 prøver (koblingsidentifikasjon: kort faktum → hvilket delfelt/spor + rettsgrunnlag per spørsmål; to-trinns-metode-feilfinning (normklarlegging vs. subsumsjon blandet); avgrensnings-drill (finn «skal ikke behandles»); sjekkliste-drill (ugyldighet + restriksjonsanalyse på nye korte faktum)).
+
+---
+
+### DEL 1 — Legalitetsprinsippet og forvaltningsvedtaket
+
+> Fundamentet for hele forvaltningssporet: krever tiltaket lovhjemmel (Grl. § 113), hvor langt
+> rekker den påberopte spesialloven, og er beslutningen i det hele tatt et enkeltvedtak som
+> utløser saksbehandlingsreglene (fvl. § 2)? Hjemmelsspørsmålet er også inngangen til fagets
+> signaturkobling — en hjemmel kan «gjennomskjæres» av EØS (Del 9).
+
+---
+
+#### Kapittel 1.1: Legalitetsprinsippet og hjemmelskravet — Grl. § 113
+- **id:** `jus2211-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-0-2`
+- **Kapitteltype:** regel
+- **description:** Kravet om lovhjemmel for inngrep i borgernes rettssfære: legalitetsprinsippet (Grl. § 113), det relative hjemmelskravet («jo mer inngripende, desto klarere hjemmel») og forholdet til andre kompetansegrunnlag (organisasjons- og eierrådighet, privat autonomi).
+- **Forkunnskaper (kryssbok):** Bygger på lovtolkning fra JUS1111 — lenk til [Lovdata Pro og rettskildebruk under eksamen](/bok/jus1111/jus1111-0-3).
+- **Eksamensbelegg:** Legalitetsprinsippet/hjemmelsspørsmålet ~8 (H2015, H2018 analogisk hundelov, V2019 klarhet forurl. § 7, V2023 akvakultur, V2024 petroleumslov). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** **Grl. § 113** — «Myndighetenes inngrep overfor den enkelte må ha grunnlag i lov.» Vilkår/momenter: (a) hva regnes som «inngrep» i rettssfæren; (b) hjemmelskravets **relativitet** — inngrepets art og styrke skjerper klarhetskravet (H2018: analogisk anvendelse av en straffe-/forbudshjemmel på et beslektet forhold rekker ikke ved inngripende tiltak); (c) forholdet til **kompetansegrunnlag utenfor legalitetsprinsippet** (privatautonomi, eierrådighet, organisasjons- og bevilgningsmyndighet); (d) delegasjon av lovgivningsmyndighet og forskriftshjemmel. Domskanon: Rt. 1995 s. 530 (Fjordlaks) / Rt. 2014 s. 1281 om legalitetsprinsippets grunnlovsfesting *(verifiser konkret dom i fase 6)*.
+- **EØS-bro:** Legalitetsprinsippet er inngangen til koblingen — selv en tilsynelatende klar hjemmel kan være avskåret av EØS (Del 9). Nevn broen, drøft den ikke her.
+- **Typetilfeller:** Minipraktikum: et inngripende forbud bygges på en spesiallovhjemmel som språklig ikke helt dekker tiltaket (rekker ordlyden?); et tiltak anvendes analogisk på et beslektet forhold (klarhetskravet).
+- **Metodepoenger:** Jo mer inngripende, desto klarere hjemmel — dette er selve terskelverktøyet. Analogisk anvendelse er problematisk ved inngrep. Skill inngrepstilfeller (krever lovhjemmel) fra tilfeller der forvaltningen handler på annet kompetansegrunnlag.
+- **Typiske feil:** Å behandle hjemmelskravet som absolutt/konstant i stedet for relativt; å godta analogisk hjemmel ved inngripende tiltak; å overse at et tiltak kan bygge på annet grunnlag enn lov.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 1.2: Hjemmelsspørsmålet — hvor langt rekker spesialloven
+- **id:** `jus2211-1-2` · **number:** 1.2 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-1-1`
+- **Kapitteltype:** regel
+- **description:** Den konkrete hjemmelstolkningen: å prøve om ordlyden i en påberopt spesiallov (petroleumslov, akvakulturlov, forurensningslov, alkohollov) faktisk rekker over det aktuelle tiltaket — normklarlegging (ordlyd, formål, forarbeider) før subsumsjon.
+- **Eksamensbelegg:** Hjemmelsrekkevidde ~8, ofte som del av ugyldighetsrammen (V2019 forurl. § 7 «klarhet», V2023 akvakulturtillatelse, V2024 petroleumsloven § 4-11). Ofte «ukjent lovtekst» — metodetest, ikke paratkunnskap. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** Rettskildebruk ved hjemmelstolkning — **ordlyd** (utgangspunkt), lovens **formål**, **forarbeider**, systembetraktninger, reelle hensyn; **klarhetskravet** skjerpes med inngrepets styrke (kap. 1.1). Skille **hjemmelsmangel** (ingen/utilstrekkelig hjemmel → kompetansemangel, kap. 4.1) fra **feil rettsanvendelse** innenfor en gyldig hjemmel (innholdsmangel, kap. 3.1). Metode med Lovdata Pro: kandidaten må ofte tolke en bestemmelse han ikke kan fra før — start i ordlyden.
+- **EØS-bro:** Selv om ordlyden rekker, kan anvendelsen være i strid med EØS — da faller hjemmelen bort for det EØS-stridige tiltaket (Del 9, V2024: petroleumsloven § 4-11 gir ikke hjemmel når EØS art. 12 forbyr tiltaket).
+- **Typetilfeller:** Minipraktikum: en spesiallovhjemmel påberopes for et tiltak i ytterkanten av ordlyden (tolk ordlyd → formål → forarbeider → subsumér); grensetilfelle der spørsmålet egentlig er feil rettsanvendelse, ikke hjemmelsmangel.
+- **Metodepoenger:** Start i ordlyden, ikke i forarbeidene eller en dom. Skill hjemmelsmangel fra feil rettsanvendelse — de leder til ulike deler av ugyldighetslæren. «Ukjent lovtekst» tolkes; ikke forutsett den kjent.
+- **Typiske feil:** Å hoppe over ordlyden; å blande hjemmelsmangel og feil rettsanvendelse; å forutsette en spesialbestemmelse kjent i stedet for å tolke den.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 1.3: Vedtaksbegrepet og enkeltvedtaket — fvl. § 2
+- **id:** `jus2211-1-3` · **number:** 1.3 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-1-1`
+- **Kapitteltype:** regel
+- **description:** Portvokterspørsmålet: er beslutningen et **enkeltvedtak** (fvl. § 2 første ledd bokstav b, jf. a) som utløser forvaltningslovens saksbehandlingsregler — eller en prosessledende avgjørelse, faktisk handling, privatrettslig disposisjon eller forskrift?
+- **Eksamensbelegg:** Vedtaks-/enkeltvedtaksbegrepet ~4 (V2017 erstatningskrav vs. vedtak, V2023 «ikke truffet vedtak», H2019). Avgjør hvilke saksbehandlingsregler som gjelder — bomming her forplanter seg. Prioritetsklasse: **kunne** (men portvokter for hele saksbehandlingen).
+- **Regelkontrakt:** **Fvl. § 2 første ledd bokstav a** «vedtak» = en avgjørelse truffet under utøving av **offentlig myndighet** som er **bestemmende for rettigheter eller plikter** til private personer; **bokstav b** «enkeltvedtak» = vedtak som gjelder rettigheter/plikter til en eller flere **bestemte** personer; **bokstav c** «forskrift» = gjelder et ubestemt antall/en ubestemt krets. Vilkårene ett for ett: (i) offentlig myndighetsutøvelse; (ii) «bestemmende for rettigheter eller plikter»; (iii) bestemt(e) person(er). Grensetilfeller: prosessledende avgjørelser, realitetsavgjørelser vs. avvisning, faktiske handlinger, privatrettslige disposisjoner (kommunen som avtalepart), interne instrukser.
+- **Ny lov 2027-boks:** Vedtaksdefinisjonen videreføres i ny fvl. i omarbeidet form *(verifiser paragraf og ordlyd i ny lov)*.
+- **Typetilfeller:** Minipraktikum: kommunen avslår en henvendelse — er avslaget et enkeltvedtak eller en faktisk handling (V2023-mønster)?; kommunen inngår en avtale (privatrettslig, ikke vedtak).
+- **Metodepoenger:** Avgjør enkeltvedtaksspørsmålet FØRST — det bestemmer hvilke saksbehandlingsregler som gjelder. «Bestemmende for rettigheter eller plikter» er kjernevilkåret. Skill offentlig myndighetsutøvelse fra privatrettslig/faktisk opptreden.
+- **Typiske feil:** Å behandle noe som enkeltvedtak som ikke er det (eller omvendt) og dermed bomme på saksbehandlingsreglene (V2017, V2023); å overse at kommunen kan opptre privatrettslig.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 1.4: Typetilfelle — hjemmelsangrepet
+- **id:** `jus2211-1-4` · **number:** 1.4 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-1-2`, `jus2211-1-3`
+- **Kapitteltype:** typetilfelle
+- **description:** Den gjennomgående inngangsmalen: et inngripende vedtak angripes fordi hjemmelen ikke rekker — vist som komplett tvistepunkt-kart fra enkeltvedtaksspørsmål → hjemmelstolkning → klarhetskrav → (bro til EØS-gjennomskjæring og til ugyldighet/§ 41).
+- **Eksamensbelegg:** Hjemmelsangrepet forekom H2018, V2019, V2023, V2024. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) er beslutningen et **enkeltvedtak** (§ 2)? (2) foreligger **hjemmel**, og **rekker ordlyden** (§ 113 + spesiallov)? (3) skjerpes klarhetskravet av inngrepets styrke? (4) **bro:** er hjemmelen avskåret av EØS (Del 9)? (5) hvis hjemmelsmangel — **kompetansemangel** → ugyldighet (kap. 4.1). Hold hjemmelsmangel (ingen kompetanse) fra feil rettsanvendelse (innholdsmangel).
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en kommune ilegger et næringsdrivende et inngripende driftsforbud med hjemmel i en spesiallov som språklig treffer noe annet). Full drøftelse med margkommentarer om hva som gir uttelling. Varianter (3–5) som flytter tvilen: (i) tiltaket rammes klart av ordlyden (kort kontrollspørsmål); (ii) analogisk anvendelse (klarhetskravet); (iii) hjemmelen rekker, men anvendelsen er EØS-stridig (bro).
+- **Metodepoenger:** Se hele kjeden: enkeltvedtak → hjemmel → klarhet → EØS-bro → ugyldighet. Kort om det klare, dybde i tvilen. Skill kompetansemangel fra innholdsmangel.
+- **Typiske feil:** Å hoppe over enkeltvedtaksspørsmålet; å behandle hjemmelsmangel som feil rettsanvendelse; å overse EØS-broen.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 1:** 4 prøver (ett hjemmelsangreps-praktikum (§ 113 + spesiallovtolkning + klarhetskrav); én enkeltvedtaks-avgrensningsprøve (§ 2 — vedtak/faktisk handling/forskrift); én legalitetsprinsipp-vilkårsprøve; én ren paragraf-/begrepsprøve for Del 1).
+
+---
+
+### DEL 2 — Saksbehandlingen og habiliteten
+
+> De to hyppigste feiltypene i ugyldighetsrammen bor her: **inhabilitet (§ 6)** ~8 og
+> **utredningsplikt (§ 17)** ~6, pluss forhåndsvarsel, begrunnelse og innsyn. Fast avslutning
+> etter enhver konstatert feil er **innvirkning (§ 41)** — som får eget kapittel i Del 4, men
+> hvis bro forberedes i typetilfellet 2.5. Alle kapitler har «Ny lov 2027»-boks (§1.2).
+
+---
+
+#### Kapittel 2.1: Inhabilitet — fvl. § 6
+- **id:** `jus2211-2-1` · **number:** 2.1 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-1-3`
+- **Kapitteltype:** regel
+- **description:** Den hyppigste saksbehandlingsfeilen: de automatiske inhabilitetsgrunnene (§ 6 første ledd) og den skjønnsmessige oppsamlingsregelen (§ 6 andre ledd — «særegne forhold … egnet til å svekke tilliten»), med virkning for vedtakets gyldighet.
+- **Eksamensbelegg:** Inhabilitet § 6 ~8 (H2022 romanse saksforbereder/folkevalgt, H2021 vennskap/fadder, V2019 aktivisme i sosiale medier, V2022 forutinntatt Twitter-melding, V2020 nabofiendskap, V2015 fagengasjement). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** **§ 6 første ledd** — automatiske (absolutte) grunner: part selv, slektskap/svogerskap, verge/fullmektig, styreverv m.m. **§ 6 andre ledd** — «andre særegne forhold … som er egnet til å svekke tilliten til hans upartiskhet», bl.a. om avgjørelsen kan innebære særlig fordel/tap/ulempe for ham selv eller noen han har nær personlig tilknytning til; **momentliste:** tilknytningens art og styrke (vennskap/uvennskap, økonomisk interesse, forhåndsstandpunkt), sakens karakter, hvor sentral personens rolle er. **§ 6 tredje ledd** — også for den underordnede som tilrettelegger grunnlaget. **§ 6 fjerde ledd** — inhabilitet for underordnet når overordnet er inhabil. Virkning: inhabilitet er en saksbehandlingsfeil → § 41-vurdering (kap. 4.2). Skille forhåndsstandpunkt (fritt ytringsrom for folkevalgte) fra tillitssvekkende forutinntatthet (V2019/V2022).
+- **Ny lov 2027-boks:** § 6 → **§§ 25–29** i ny fvl.; habilitetsreglene «klargjort og forenklet» *(verifiser struktur og ordlyd)*.
+- **Typetilfeller:** Minipraktikum: en saksforberedende tjenestemann har et nært personlig forhold til en part (§ 6(2)); en folkevalgt har uttalt seg forhåndsdømmende i sosiale medier (forhåndsstandpunkt vs. forutinntatthet); et automatisk tilfelle (§ 6(1)) som kontrollspørsmål.
+- **Metodepoenger:** Prøv § 6(1) FØRST (automatisk → ferdig), deretter § 6(2)-momentene. «Egnet til å svekke tilliten» er en objektiv, tillitsbasert norm — ikke om vedkommende faktisk var partisk. Inhabilitet fører ikke automatisk til ugyldighet — § 41 avgjør.
+- **Typiske feil:** Å hoppe over § 41 etter konstatert inhabilitet; å blande forhåndsstandpunkt (tillatt) med tillitssvekkende forutinntatthet; å behandle § 6(2) subjektivt.
+- **Kvote:** quiz 16 · flashcards 18 (flashcards: § 6(1) automatiske grunner; § 6(2) momentliste; § 6(3)/(4); forhåndsstandpunkt vs. forutinntatthet; virkning via § 41)
+
+---
+
+#### Kapittel 2.2: Utrednings- og opplysningsplikten — fvl. § 17
+- **id:** `jus2211-2-2` · **number:** 2.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-2-1`
+- **Kapitteltype:** regel
+- **description:** Kravet om at saken skal være «så godt opplyst som mulig» før vedtak treffes (§ 17): terskelen, forholdet til partens medvirkning, og de to typiske sviktene — feil faktum og manglende (miljø-/konsekvens-)utredning.
+- **Eksamensbelegg:** Utredningsplikt § 17 ~6 (H2024 feil faktum: mor oppgitt til 77 i stedet for 87; H2021/H2020/V2024 manglende miljø-/konsekvensutredning). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** **§ 17 første ledd** — forvaltningsorganet skal påse at saken er «så godt opplyst som mulig» før vedtak treffes; **forsvarlighetsnorm** avhengig av sakens art og inngrepets styrke. **§ 17 andre/tredje ledd** — plikt til å forelegge nye opplysninger for parten. Forholdet til § 16 (varsel) og til konsekvensutredning etter pbl. kap. 14 / KU-direktivet (miljøsaker, kap. 7.3). Utredningssvikt er saksbehandlingsfeil → § 41 (feil/ufullstendig faktum kan lett ha virket bestemmende). Kobling til forsvarlig skjønn (mangelfull utredning → skjønnet blir uforsvarlig, kap. 3.1).
+- **Ny lov 2027-boks:** § 17 → **§ 44** i ny fvl. *(verifiser ordlyd)*.
+- **Typetilfeller:** Minipraktikum: et vedtak bygger på et faktisk feil faktum (§ 17 → § 41); et miljøvedtak treffes uten påkrevd konsekvensutredning (§ 17 + pbl. kap. 14, bro til kap. 7.3).
+- **Metodepoenger:** «Så godt opplyst som mulig» er en forsvarlighetsnorm som skjerpes med inngrepets styrke. Feil/manglende faktum leder nesten alltid til at feilen «kan ha virket bestemmende» (§ 41). Koble utredningssvikt til forsvarlig skjønn der skjønnet angripes.
+- **Typiske feil:** Å hoppe over § 41; å overse koblingen utredning→forsvarlig skjønn; å blande § 17 (utredning) og § 16 (varsel).
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 2.3: Forhåndsvarsel og begrunnelse — fvl. §§ 16 og 24–25
+- **id:** `jus2211-2-3` · **number:** 2.3 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-2-1`
+- **Kapitteltype:** regel
+- **description:** To kontradiksjons-/etterprøvbarhetsregler: forhåndsvarsel (§ 16 — partens rett til å uttale seg før vedtak) og begrunnelsesplikten (§§ 24–25 — når og hvor grundig et vedtak må begrunnes), begge koblet til § 41.
+- **Eksamensbelegg:** Forhåndsvarsel § 16 ~3 (V2017, V2020 — ofte koblet til § 41); begrunnelse §§ 24–25 ~2 (V2022 trygdekjennelse uten omtale av alderskriteriet). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **§ 16** — parten skal varsles og gis anledning til å uttale seg før enkeltvedtak treffes; unntak (§ 16 tredje ledd); formålet er kontradiksjon. **§ 24** — enkeltvedtak skal grunngis (som hovedregel samtidig); unntak. **§ 25** — begrunnelsens innhold: regler vedtaket bygger på, faktum, og de hovedhensyn som har vært avgjørende ved skjønnsutøvelsen. Mangelfull begrunnelse kan indikere uforsvarlig skjønn (V2022 — manglende omtale av et lovbestemt vurderingskriterium). Begge feiltyper → § 41-vurdering.
+- **Ny lov 2027-boks:** § 16 → **§ 42**; §§ 24–25 → **§§ 56–57** i ny fvl. *(verifiser ordlyd)*.
+- **Typetilfeller:** Minipraktikum: vedtak uten forhåndsvarsel der unntaket ikke gjelder (§ 16 → § 41); en avgjørelse der begrunnelsen ikke nevner et lovbestemt vurderingskriterium (§ 25 → forsvarlig skjønn, V2022-mønster).
+- **Metodepoenger:** Begrunnelsens omtale av skjønnshensynene er også et redskap for å prøve forsvarligheten av skjønnet (kap. 3.1). Begge feiltyper leder til § 41, ikke automatisk ugyldighet.
+- **Typiske feil:** Å hoppe over § 41; å behandle enhver begrunnelsesmangel som ugyldighetsgrunn i seg selv; å overse koblingen begrunnelse→skjønnsprøving.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 2.4: Innsyn og offentlighet — offentleglova
+- **id:** `jus2211-2-4` · **number:** 2.4 · **estimatedMinutes:** 40 · **prerequisites:** `jus2211-1-3`
+- **Kapitteltype:** regel
+- **description:** Allmennhetens innsynsrett etter offentleglova (hovedregel om innsyn, unntakshjemler, «uten ugrunnet opphold») og partsinnsyn etter fvl. §§ 18–19 — et lavfrekvent, men gjennomgående kontrollspørsmål.
+- **Eksamensbelegg:** Innsyn/offentlighet ~1–2 (H2021 innsyn i statsråds e-poster; «uten ugrunnet opphold»); instruksjonsmyndighet ~1 (H2021). Lavere frekvens enn i ren forvaltningsrett — merk. Prioritetsklasse: **kjenne**.
+- **Regelkontrakt:** **Offentleglova** § 3 hovedregel om innsyn i saksdokumenter; **§ 29** krav om at innsynskrav avgjøres «uten ugrunnet opphold»; sentrale unntak (organinterne dokumenter § 14, unntak for opplysninger underlagt taushetsplikt § 13, merinnsynsvurdering § 11). **Fvl. §§ 18–19** partsinnsyn (partens rett til sakens dokumenter, med unntak). Skille allmennhetens innsyn (offentleglova) fra partsinnsyn (fvl.). Kort om instruksjonsmyndighet (overordnet kan instruere underordnet organ, med grenser).
+- **Typetilfeller:** Minipraktikum: et innsynskrav i interne e-poster (offentleglova § 14 vs. merinnsyn § 11); et partsinnsynskrav i sakens dokumenter (fvl. §§ 18–19).
+- **Metodepoenger:** Skill allmennhetens innsyn fra partsinnsyn — ulike hjemler. «Uten ugrunnet opphold» er en fristnorm. Dette er ofte et kort kontrollspørsmål — ikke bruk mye plass.
+- **Typiske feil:** Å blande offentleglova og fvl. §§ 18–19; å glenne merinnsynsvurderingen; å behandle et kort innsynsspørsmål bredt.
+- **Kvote:** quiz 10 · flashcards 12
+
+---
+
+#### Kapittel 2.5: Typetilfelle — saksbehandlingsfeil-kjeden
+- **id:** `jus2211-2-5` · **number:** 2.5 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-2-1`, `jus2211-2-2`, `jus2211-2-3`
+- **Kapitteltype:** typetilfelle
+- **description:** Den faste kjeden: én eller flere konstaterte saksbehandlingsfeil (inhabilitet § 6 og/eller utredningssvikt § 17 og/eller manglende varsel/begrunnelse) → **innvirkning (§ 41)** → ugyldighet. Malen som avslutter nesten hvert forvaltningsspor.
+- **Eksamensbelegg:** Saksbehandlingsfeil-kjeden ~10 (den faste avslutningen etter konstatert feil). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) konstatér hver **feil** for seg (§ 6 / § 17 / § 16 / §§ 24–25); (2) for hver feil: **§ 41-vurdering** — «kan feilen ha virket bestemmende på vedtakets innhold?» (utdypes kap. 4.2); (3) samlet vurdering der flere feil forsterker hverandre; (4) **virkning** (kap. 4.3). Bro til kap. 4.2 (§ 41) — her vises kjeden, § 41-normen fylles i Del 4.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. et kommunalt vedtak der en inhabil saksforbereder også har lagt feil faktum til grunn og unnlatt å varsle parten). Full drøftelse med margkommentarer. Varianter (3–5): (i) én bagatellmessig feil som klart ikke virket inn (kort); (ii) feil der utfallet var åpenbart uansett (§ 41-terskelen); (iii) flere feil som samlet virket inn.
+- **Metodepoenger:** Konstatér feilene FØR § 41. Flere feil kan forsterke hverandre i innvirkningsvurderingen. Feilen leder ikke automatisk til ugyldighet — § 41 er obligatorisk mellomledd.
+- **Typiske feil:** Å hoppe rett fra konstatert feil til ugyldighet uten § 41; å vurdere feilene samlet uten å konstatere hver for seg; å overse at små feil samlet kan virke inn.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 2:** 4 prøver (ett inhabilitets-praktikum (§ 6(1)/(2) + § 41-bro); ett utredningssvikt-praktikum (§ 17 + feil faktum/manglende KU); én varsel-/begrunnelsesprøve (§§ 16/24–25); én saksbehandlingsfeil-kjede-prøve (flere feil → § 41)).
+
+---
+### DEL 3 — Forvaltningsskjønnet og myndighetsmisbruk
+
+> Kjerneferdigheten (~10): å skille **fritt skjønn** fra **rettsanvendelsesskjønn** og dermed treffe
+> riktig prøvingsintensitet, og å anvende den **ulovfestede myndighetsmisbrukslæren** (~8) som
+> skranke også for det frie skjønnet. «Skjønnstrioen» (kategorisering → misbruksskranker →
+> prøvingsintensitet) er et fast kombinasjonsmønster. Myndighetsmisbruks- og vilkårslæren
+> **kodifiseres i ny fvl.** — se «Ny lov 2027»-boksene.
+
+---
+
+#### Kapittel 3.1: Fritt skjønn vs. rettsanvendelsesskjønn og prøvingsintensiteten
+- **id:** `jus2211-3-1` · **number:** 3.1 · **estimatedMinutes:** 65 · **prerequisites:** `jus2211-1-2`
+- **Kapitteltype:** regel (kjerneferdighet)
+- **description:** Emnets sikreste ferdighetsskille: å avgjøre om et rettslig spørsmål er **rettsanvendelse** (tolkning/subsumsjon av et vilkår — prøves fullt av domstol/klageinstans) eller **fritt (hensiktsmessighets)skjønn** (forvaltningens valg innenfor rammen — prøves bare begrenset), og hva domstolen/klageinstansen da faktisk kan prøve.
+- **Eksamensbelegg:** Skjønnsprøving fritt vs. rettsanvendelse ~10 (V2022, V2023, H2017, H2018, H2019, V2024, V2021). «Kan retten prøve dette spørsmålet?» Kjerneferdighet. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** Todelingen: (a) **rettsanvendelsesskjønn** — hva et rettslig vilkår betyr og om faktum oppfyller det (lovtolkning + subsumsjon) prøves **fullt**; (b) **fritt skjønn / «kan»-skjønn** — når vilkårene er oppfylt og loven gir forvaltningen valgfrihet («kan»), prøver domstolen/klageinstansen **ikke hensiktsmessigheten**, bare (i) at rammene/vilkårene er tolket riktig, (ii) saksbehandlingen, og (iii) at **myndighetsmisbruksskrankene** (kap. 3.2) er overholdt. Grensedragningen avgjøres ved tolkning av den enkelte bestemmelse (ordlyd «kan»/«skal», vurderingspregede vs. faktiske vilkår, lovens formål). **Klageinstansen** kan derimot prøve alle sider, også hensiktsmessigheten (fvl. § 34(2), kap. 4.5) — skill domstolsprøving fra klageinstansprøving. Domskanon: sentral HR-praksis om domstolskontrollens intensitet ved forvaltningsskjønn *(verifiser konkret avgjørelse i fase 6 — f.eks. Rt. 1995 s. 1427 (Naturfredning) / Rt. 2007 s. 257 (Trallfa) er kandidater, verifiser)*.
+- **Typetilfeller:** Minipraktikum: et vurderingspreget vilkår angripes — er «forsvarlig»/«nødvendig» rettsanvendelse (full prøving) eller overlatt til fritt skjønn?; et «kan»-vedtak angripes på hensiktsmessigheten (domstolen prøver ikke — bare misbruksskrankene); samme sak for klageinstansen (som prøver alt).
+- **Metodepoenger:** Kategorisér spørsmålet FØRST (rettsanvendelse eller fritt skjønn) — det avgjør prøvingsintensiteten. Skill domstolsprøving (begrenset ved fritt skjønn) fra klageinstansprøving (full). Ved fritt skjønn: prøv rammene + saksbehandling + myndighetsmisbruk, ikke innholdet.
+- **Typiske feil:** Å blande fritt skjønn og rettsanvendelsesskjønn og dermed bomme på prøvingsintensiteten (V2022, V2023, H2018, H2017); å prøve hensiktsmessigheten av fritt skjønn som domstol; å forveksle domstols- og klageinstansprøving.
+- **Kvote:** quiz 16 · flashcards 18 (flashcards: rettsanvendelse vs. fritt skjønn; hva domstolen prøver ved fritt skjønn; klageinstans vs. domstol; grensedragningens tolkningsmomenter)
+
+---
+
+#### Kapittel 3.2: Myndighetsmisbrukslæren
+- **id:** `jus2211-3-2` · **number:** 3.2 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-3-1`
+- **Kapitteltype:** regel
+- **description:** Den ulovfestede skranken som gjelder også for det frie skjønnet: forbudet mot **utenforliggende hensyn**, **usaklig forskjellsbehandling**, **vilkårlighet** og **grov urimelighet** — de fire misbrukskategoriene domstolen alltid kan prøve.
+- **Eksamensbelegg:** Myndighetsmisbruk/utenforliggende hensyn ~8 (H2015 «umoralsk» konsept, H2017 teori, V2018 sysselsetting som vekt, H2021 «norsk arbeidskraft»/miljø oversett, V2023, V2024 økonomiske hensyn). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** Fire ulovfestede skranker: (1) **utenforliggende hensyn** — forvaltningen har lagt vekt på hensyn loven ikke tillater (Rt. 1933 s. 548 Rådhushospits; Rt. 1951 s. 19 Mortvedt); (2) **usaklig forskjellsbehandling** — like tilfeller behandlet ulikt uten saklig grunn; (3) **vilkårlighet** — vedtak uten forsvarlig grunnlag; (4) **grov urimelighet** — kvalifisert, ikke bare «uheldig», resultat (høy terskel). **Startpunktet:** ved fritt skjønn prøver domstolen KUN misbruksskrankene, ikke om skjønnet var «riktig». Rent økonomiske/utenforliggende hensyn som ulovlig vekt (sysselsetting, kommunale skatteinntekter — V2018, H2021, V2024) — men skill lovlige fra utenforliggende hensyn ved å tolke lovens formål. Kobling: begrunnelsen (kap. 2.3) og utredningen (kap. 2.2) er redskaper for å avdekke misbruk.
+- **Ny lov 2027-boks:** Myndighetsmisbrukslæren **kodifiseres** i ny fvl. — blir da delvis foreldet som ren *ulovfestet* lære `(verifiser — endres ved ikrafttredelse ny fvl.)`. Boken bygger på den ulovfestede læren (det eksamen tester) og flagger kodifiseringen.
+- **Typetilfeller:** Minipraktikum: en tillatelse nektes med begrunnelse i et hensyn loven ikke verner (utenforliggende hensyn); to like søknader behandlet ulikt (usaklig forskjellsbehandling); et vedtak som er grovt urimelig (høy terskel — kontroller at det ikke bare er «uheldig»).
+- **Metodepoenger:** **Feil startpunkt er den navngitte fellen** — prøv misbruksskrankene, ikke innholdet av det frie skjønnet. Skill utenforliggende fra lovlige hensyn ved formålstolkning. Grov urimelighet har en høy terskel. Rent økonomiske hensyn er ofte, men ikke alltid, utenforliggende — drøft.
+- **Typiske feil:** Å prøve *innholdet* av det frie skjønnet i stedet for misbruksskrankene; å senke terskelen for grov urimelighet; å stemple ethvert økonomisk hensyn som utenforliggende uten formålstolkning.
+- **Kvote:** quiz 16 · flashcards 18 (flashcards: de fire misbrukskategoriene; utenforliggende hensyn + Rådhushospits/Mortvedt; grov urimelighets terskel; startpunktet ved fritt skjønn)
+
+---
+
+#### Kapittel 3.3: Vilkårslæren — tyngende vilkår i begunstigende vedtak
+- **id:** `jus2211-3-3` · **number:** 3.3 · **estimatedMinutes:** 45 · **prerequisites:** `jus2211-3-2`
+- **Kapitteltype:** regel
+- **description:** Når forvaltningen knytter **tyngende vilkår** til et begunstigende vedtak (tillatelse/tilskudd): kravene til saklig sammenheng og forholdsmessighet mellom vilkåret og det tillatelsen gjelder.
+- **Eksamensbelegg:** Vilkårslære ~2 (H2024 del II husordensregler; H2021 vilkår i tillatelse). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Vilkårslæren (ulovfestet):** forvaltningen kan sette tyngende vilkår i begunstigende vedtak selv uten uttrykkelig hjemmel, men vilkåret må (a) ha **saklig sammenheng** med det vedtaket gjelder, og (b) ikke være **uforholdsmessig** tyngende. Ytre ramme: vilkåret kan ikke pålegge noe forvaltningen ellers ikke kunne kreve (myndighetsmisbruksskrankene, kap. 3.2, gjelder også). Skille vilkår (i begunstigende vedtak) fra rene påbud.
+- **Ny lov 2027-boks:** Vilkårslæren **kodifiseres** i ny fvl. `(verifiser — endres ved ikrafttredelse ny fvl.)`.
+- **Typetilfeller:** Minipraktikum: en tillatelse gis på et tyngende vilkår uten klar saklig sammenheng (saklighet + forholdsmessighet); et vilkår som er uforholdsmessig tyngende.
+- **Metodepoenger:** Prøv saklig sammenheng OG forholdsmessighet — begge kreves. Vilkårslæren ligger tett på myndighetsmisbrukslæren; behandle dem ryddig hver for seg.
+- **Typiske feil:** Å bare prøve saklig sammenheng (eller bare forholdsmessighet); å blande vilkårslæren og myndighetsmisbrukslæren uten struktur; å behandle et vilkår som selvstendig vedtak.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 3.4: Typetilfelle — skjønnstrioen
+- **id:** `jus2211-3-4` · **number:** 3.4 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-3-1`, `jus2211-3-2`
+- **Kapitteltype:** typetilfelle
+- **description:** Det faste kombinasjonsmønsteret: et «kan»-vedtak angripes, og de tre spørsmålene drøftes samlet — (1) er dette fritt skjønn eller rettsanvendelse, (2) er myndighetsmisbruksskrankene overholdt, (3) hvor intenst kan domstolen/klageinstansen prøve?
+- **Eksamensbelegg:** Skjønnstrioen (H2015, V2018, H2021, V2023). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) **kategorisér** spørsmålet (rettsanvendelse → full prøving; fritt skjønn → begrenset); (2) hvis fritt: prøv **misbruksskrankene** (utenforliggende hensyn / usaklig forskjellsbehandling / vilkårlighet / grov urimelighet); (3) fastslå **prøvingsintensiteten** (domstol vs. klageinstans § 34(2)); (4) bro til § 41/ugyldighet hvis feil konstateres.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en kommune avslår en «kan»-søknad om en tillatelse og legger vekt på et hensyn av tvilsom saklighet). Full drøftelse med margkommentarer. Varianter (3–5): (i) klart rettsanvendelsesskjønn (full prøving); (ii) rent hensiktsmessighetsavslag uten misbruk (domstolen prøver ikke); (iii) samme sak for klageinstansen (full prøving + kommunalt selvstyre).
+- **Metodepoenger:** Kjør trioen i riktig rekkefølge: kategoriser → misbruksskranker → prøvingsintensitet. Ikke prøv hensiktsmessigheten av fritt skjønn. Skill domstol fra klageinstans.
+- **Typiske feil:** Å blande de tre spørsmålene; feil startpunkt i misbrukslæren; å prøve fritt skjønn som om det var rettsanvendelse.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 3:** 4 prøver (én kategoriseringsprøve (fritt skjønn vs. rettsanvendelse + prøvingsintensitet); ett myndighetsmisbruks-praktikum (utenforliggende hensyn/usaklig forskjellsbehandling); én vilkårslære-prøve (saklighet + forholdsmessighet); én skjønnstrio-prøve (samlet, med § 41-bro)).
+
+---
+
+### DEL 4 — Ugyldighet, § 41, klage og overprøving
+
+> **Bokas tyngste forvaltningsdel.** Ugyldighet som ramme er det største enkelttemaet (~16), med
+> **innvirkningsnormen § 41** som kjernen. Deretter overprøvingsapparatet: klagerett/rettslig
+> klageinteresse (§ 28, ~7), klageinstansens kompetanse + kommunalt selvstyre (§ 34(2), ~4),
+> klagefrist (§ 29) og omgjøring (§ 35, ~4). Alle kapitler har «Ny lov 2027»-boks (§1.2), og
+> den ulovfestede ugyldighetslæren **kodifiseres**.
+
+---
+
+#### Kapittel 4.1: Ugyldighetslæren som ramme — de tre feiltypene
+- **id:** `jus2211-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-1-4`, `jus2211-2-5`, `jus2211-3-4`
+- **Kapitteltype:** regel (rammen)
+- **description:** Den gjennomgående rammen i nesten hvert praktikum: er vedtaket ugyldig? Den ulovfestede ugyldighetslærens tredeling — (a) hjemmels-/kompetansemangel, (b) saksbehandlingsfeil, (c) innholdsmangel/myndighetsmisbruk — og hvordan feiltypen styrer den videre analysen.
+- **Eksamensbelegg:** Ugyldighet som rammespørsmål ~16 (nesten hvert sett). Prioritetsklasse: **perfekt** (bokas viktigste ramme).
+- **Regelkontrakt:** **Ulovfestet ugyldighetslære** (kodifiseres i ny fvl.). Tre feiltyper: (a) **kompetanse-/hjemmelsmangel** (kap. 1.1–1.2) — personell (feil organ), materiell (manglende hjemmel), prosessuell; (b) **saksbehandlingsfeil** (Del 2) — § 6/§ 17/§ 16/§§ 24–25; (c) **innholdsmangel** — feil rettsanvendelse (kap. 3.1) eller myndighetsmisbruk (kap. 3.2). Etter konstatert feil: **innvirkning (§ 41, kap. 4.2)** → **virkning** (kap. 4.3). Systematikken: sorter feilen inn i riktig type, fordi typen styrer om § 41 kommer inn (særlig ved saksbehandlings-/innholdsfeil) og hvilken virkning som følger.
+- **Ny lov 2027-boks:** Ugyldighetslæren **kodifiseres** i ny fvl. `(verifiser — endres ved ikrafttredelse ny fvl.)`. Boken bygger på den ulovfestede læren og flagger kodifiseringen.
+- **Typetilfeller:** Minipraktikum: et vedtak angripes på flere grunnlag — sorter hver anførsel inn i riktig feiltype før drøftelse; grensetilfelle kompetansemangel vs. innholdsmangel (samme faktum, ulik behandling).
+- **Metodepoenger:** Sorter feilen inn i riktig type FØRST — det styrer den videre analysen. Ugyldighet er sluttresultatet, ikke inngangen: konstatér feil → § 41 → virkning. Kompetansemangel behandles ulikt fra saksbehandlings-/innholdsfeil.
+- **Typiske feil:** Å konkludere «ugyldig» uten å plassere feilen i en type; å hoppe over § 41; å blande kompetansemangel og innholdsmangel.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 4.2: Innvirkningsnormen — fvl. § 41
+- **id:** `jus2211-4-2` · **number:** 4.2 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-4-1`
+- **Kapitteltype:** regel (kjernen i ugyldighetsvurderingen)
+- **description:** Det obligatoriske mellomleddet mellom konstatert feil og ugyldighet: § 41-vurderingen — «kan feilen ha virket bestemmende på vedtakets innhold?» — normklarlegging av innvirkningsnormen og subsumsjon på ulike feiltyper.
+- **Eksamensbelegg:** Saksbehandlingsfeil + innvirkning § 41 ~10 (gjennomgående etter enhver konstatert feil). Å **hoppe over** § 41 er en av de mest navngitte fellene. Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** **Fvl. § 41** — når regler om saksbehandlingen er brutt, er vedtaket **likevel gyldig** «når det er grunn til å regne med at feilen ikke kan ha virket bestemmende på vedtakets innhold». Innvirkningsnormen (formulert positivt): ugyldighet forutsetter en **reell mulighet** for at feilen påvirket innholdet. Momenter: feilens art og grovhet, hvor sentral den var for utfallet, om utfallet var åpenbart uansett, kumulasjon av flere feil. **§ 41 gjelder direkte saksbehandlingsfeil**; ved innholds-/kompetansemangel bygger ugyldigheten på den ulovfestede læren med en beslektet innvirknings-/vesentlighetsbetraktning (drøft, ikke bland). Virkning kan bli hel eller delvis ugyldighet (kap. 4.3).
+- **Ny lov 2027-boks:** § 41 → **§ 74** i ny fvl.; innvirkningsnormen videreføres i lett omformulert språkdrakt («reell mulighet for at feilen kan ha påvirket vedtakets innhold») `(verifiser presis ordlyd — endres ved ikrafttredelse ny fvl.)`.
+- **Typetilfeller:** Minipraktikum: en saksbehandlingsfeil der utfallet var åpenbart uansett (§ 41 → gyldig); en feil som klart kan ha påvirket innholdet (ugyldig); flere små feil som samlet kan ha virket inn (kumulasjon).
+- **Metodepoenger:** § 41 er obligatorisk etter enhver saksbehandlingsfeil — hopp den aldri over. Normen er «reell mulighet for påvirkning», ikke sikkerhet. Flere feil vurderes kumulativt. Skill § 41 (saksbehandling) fra den ulovfestede innvirkningsbetraktningen ved innholdsmangel.
+- **Typiske feil:** Å hoppe over § 41 og gå rett til ugyldighet; å kreve sikker påvirkning i stedet for reell mulighet; å bruke § 41 på ren kompetanse-/innholdsmangel uten å skille.
+- **Kvote:** quiz 18 · flashcards 22 (flashcards: § 41-ordlyden; «kan ha virket bestemmende»-terskelen; innvirkningsmomentene; § 41 vs. innholdsmangel-innvirkning; kumulasjon av feil; ny lov § 74)
+
+---
+
+#### Kapittel 4.3: Virkningene av ugyldighet og omgjøring — fvl. § 35
+- **id:** `jus2211-4-3` · **number:** 4.3 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-4-2`
+- **Kapitteltype:** regel
+- **description:** Hva ugyldighet fører til (nullitet, delvis ugyldighet, betydningen av om vedtaket er til gunst eller ugunst, og partens gode tro) — og forvaltningens adgang til å omgjøre eget vedtak av eget tiltak (§ 35), inkludert tilbakekall.
+- **Eksamensbelegg:** Omgjøring § 35 ~4 (V2020, H2024, H2019, V2023 tilbakekall akvakulturtillatelse). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Virkning av ugyldighet:** utgangspunktet er at et ugyldig vedtak er en nullitet, men virkningen nyanseres — **delvis** ugyldighet, betydningen av **gunst/ugunst** (ugyldighet til gunst for parten kan opprettholdes), partens **gode tro** og innrettelse, tredjemannsinteresser. **Fvl. § 35 (omgjøring av eget tiltak):** (a) endre eget vedtak til gunst; (b) til ugunst dersom vedtaket er ugyldig eller underretning ikke er kommet frem; (c) omgjøring når hensynet til andre/allmennheten veier tyngre enn partens innrettelse; ulovfestet tilleggsgrunnlag ved sterke allmenne hensyn. **Tilbakekall** av begunstigende vedtak/tillatelse (V2023) — avveining mot innrettelse og Grl. § 97 (tilbakevirkning) der aktuelt.
+- **Ny lov 2027-boks:** § 35 → **§§ 71–72** i ny fvl.; klageinstans uten instruksjonsmyndighet får begrenset omgjøringsadgang utenfor klagesak `(verifiser)`.
+- **Typetilfeller:** Minipraktikum: et ugyldig vedtak til gunst for en godtroende part (opprettholdelse?); forvaltningen vil tilbakekalle en gitt tillatelse (§ 35 + innrettelse + § 97).
+- **Metodepoenger:** Ugyldighet er ikke automatisk full nullitet — nyansér etter gunst/ugunst og god tro. Ved tilbakekall: avvei innrettelse og allmenne hensyn; vurder Grl. § 97. Skill omgjøring av eget tiltak (§ 35) fra klageinstansens overprøving (§ 34, kap. 4.5).
+- **Typiske feil:** Å behandle ugyldighet som mekanisk nullitet; å overse partens innrettelse/god tro ved tilbakekall; å blande § 35 (omgjøring) og § 34 (klage).
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 4.4: Klagerett og rettslig klageinteresse — fvl. § 28
+- **id:** `jus2211-4-4` · **number:** 4.4 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-1-3`
+- **Kapitteltype:** regel
+- **description:** Hvem kan klage: parten og «annen med rettslig klageinteresse» (§ 28) — nabo, ad hoc-forening, pårørende, miljøorganisasjon — og hvordan klageinteressen avgrenses, ofte konstruert som en felle i faktum.
+- **Eksamensbelegg:** Klagerett/rettslig klageinteresse § 28 ~7 (V2018 miljøforening konstruert for søksmål, H2020 «Vern Gerberskogen!», H2022 Grethe Gram over gata, V2023, H2023 pårørende, V2015). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt:** **Fvl. § 28 første ledd** — enkeltvedtak kan påklages av en **part** eller **annen med rettslig klageinteresse** i saken. «Rettslig klageinteresse»: tilknytning/berøring av en viss styrke og aktualitet — momenter: nærhet til vedtaket, om interessen er individuell eller allmenn, for foreninger: formål, representativitet, om den er reell og etablert (ikke konstruert ad hoc for saken, V2018). Naboer, pårørende, miljø-/interesseorganisasjoner: konkret vurdering. Skille klageinteresse (forvaltningsklage) fra rettslig søksmålsinteresse (tvl. § 1-3 — «ukjent lovtekst», metodetest). § 28 andre ledd underinstansklage.
+- **Ny lov 2027-boks:** § 28 → **§§ 61 flg.** i ny fvl. *(verifiser paragraf og «rettslig klageinteresse»-terminologi)*.
+- **Typetilfeller:** Minipraktikum: en nyopprettet miljøforening klager på en tillatelse (reell/etablert vs. konstruert ad hoc); en nabo på andre siden av gata (nærhet/berøring); en pårørende i en helsesak (individuell interesse).
+- **Metodepoenger:** «Rettslig klageinteresse» er en tilknytnings-/aktualitetsnorm — drøft nærhet og reell interesse. En forening konstruert kun for saken har svakere interesse (V2018-felle). Skill klageinteresse fra søksmålsinteresse.
+- **Typiske feil:** Å godta enhver forening/nabo uten å prøve tilknytningen; å blande klageinteresse (§ 28) og søksmålsinteresse (tvl. § 1-3); å overse ad hoc-konstruksjonsfellen.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 4.5: Klageinstansens kompetanse, kommunalt selvstyre og klagefrist — fvl. §§ 34 og 29
+- **id:** `jus2211-4-5` · **number:** 4.5 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-4-4`, `jus2211-3-1`
+- **Kapitteltype:** regel
+- **description:** Hva klageinstansen kan prøve (§ 34 — alle sider, også skjønnet), den lovbestemte bremsen «stor vekt på det kommunale selvstyret» (§ 34(2)) når statsforvalteren overprøver kommunen, og når klagefristen løper (§ 29 / spesiallov).
+- **Eksamensbelegg:** Klageinstans + kommunalt selvstyre § 34(2) ~4 (H2022, H2024, H2019); klagefrist § 29 ~2 (H2024 pbrl. § 7-5: forverring vs. vedtakstidspunkt). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Fvl. § 34 andre ledd** — klageinstansen kan prøve **alle sider** av saken, herunder ta hensyn til nye omstendigheter og prøve det frie skjønnet (til forskjell fra domstolen, kap. 3.1); men ved overprøving av **kommunale** vedtak skal statsforvalteren «legge stor vekt på hensynet til det kommunale selvstyret» ved prøving av det frie skjønnet. **§ 34 første ledd** klageinstansens plikt til å vurdere klagerens synspunkter. **§ 29** klagefrist (tre uker fra underretning) — når begynner fristen (spesiallov kan avvike, H2024 pbrl. § 7-5: fristens utgangspunkt ved forverring). **§ 31** oversittet frist / oppreisning. Skille full klageinstansprøving fra begrenset domstolsprøving.
+- **Ny lov 2027-boks:** §§ 28–34 → **§§ 61–69**; klagefrist § 29 → **§ 63**; klageinstans uten instruksjonsmyndighet får begrenset kompetanse `(verifiser)`.
+- **Typetilfeller:** Minipraktikum: statsforvalteren overprøver et kommunalt skjønnsvedtak (§ 34(2) — full prøving, men stor vekt på selvstyret); en klage inngis etter fristen (§ 29 utgangspunkt + § 31 oppreisning).
+- **Metodepoenger:** Klageinstansen prøver ALT, også skjønnet — men «stor vekt på det kommunale selvstyret» bremser ved kommunale vedtak. Skill dette fra domstolens begrensede prøving. Klagefristens utgangspunkt kan avvike i spesiallov.
+- **Typiske feil:** Å likestille klageinstansens og domstolens prøvingsintensitet; å overse selvstyre-bremsen § 34(2); å regne klagefristen feil (H2024).
+- **Kvote:** quiz 14 · flashcards 14
+
+---
+
+#### Kapittel 4.6: Typetilfelle — ugyldighets- og klagekomplekset
+- **id:** `jus2211-4-6` · **number:** 4.6 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-4-2`, `jus2211-4-4`, `jus2211-4-5`
+- **Kapitteltype:** typetilfelle
+- **description:** Rammemalen for hele forvaltningssporet: et vedtak angripes gjennom klage — klageinteresse (§ 28) → de tre feiltypene → § 41 → virkning → klageinstansens kompetanse (§ 34(2)) — det komplette ugyldighets-/klageforløpet i ett faktum.
+- **Eksamensbelegg:** Ugyldighets-/klagekomplekset er den faste forvaltningsrammen (~16). Prioritetsklasse: **perfekt**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) **klageinteresse** (§ 28); (2) **feiltype(r)** (hjemmel / saksbehandling / innhold); (3) **§ 41-innvirkning**; (4) **virkning** (kap. 4.3); (5) **klageinstansens kompetanse** + kommunalt selvstyre (§ 34(2)); (6) evt. **omgjøring/tilbakekall** (§ 35). Se komplett spesifikasjon i §6.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en nabo og en interesseorganisasjon klager på en gitt tillatelse; underinstansen har oversett et hensyn og lagt feil faktum til grunn; statsforvalteren overprøver). Full drøftelse med margkommentarer. Varianter (3–5) som flytter tvilen mellom klageinteresse, feiltype og prøvingsintensitet.
+- **Metodepoenger:** Kjør hele forløpet i rekkefølge; ikke hopp over § 41 eller klageinteresse. Skill klageinstansprøving fra domstolsprøving. Se de subsidiære sporene.
+- **Typiske feil:** Å hoppe over klageinteresse eller § 41; å likestille klage- og domstolsprøving; å overse subsidiære grunnlag.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 4:** 4 prøver (ett ugyldighets-rammepraktikum (tre feiltyper → § 41 → virkning); én § 41-innvirkningsprøve (ulike feiltyper, kumulasjon); ett klageinteresse-praktikum (§ 28 — nabo/forening/pårørende); én klageinstans-/omgjøringsprøve (§ 34(2) + kommunalt selvstyre + § 35)).
+
+---
+### DEL 5 — Velferdsrett
+
+> Det felt som oftest utgjør hele Del I i settet (7 sp). Kjernen: skillet mellom et **rettskrav**
+> på ytelse (som forvaltningen ikke kan avslå på ressursgrunnlag alene) og **ressursbasert skjønn**,
+> forsvarlighetskravet som minstestandard, tvang, og trygdeytelser koblet til skjønnsprøving.
+> Velferdsretten er også den vanligste **faktiske arenaen** der de alminnelige forvaltningsreglene
+> (Del 1–4) testes — koble alltid tilbake.
+
+---
+
+#### Kapittel 5.1: Rett til nødvendig helsehjelp og forsvarlighetskravet
+- **id:** `jus2211-5-1` · **number:** 5.1 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-3-1`
+- **Kapitteltype:** regel
+- **description:** Velferdsrettens kjernespørsmål: retten til nødvendige helse- og omsorgstjenester (pbrl. § 2-1a/§ 2-1e, hol. § 3-1), forsvarlighetskravet som rettslig minstestandard, og hvorfor **kommuneøkonomi ikke alene kan avslå et rettskrav**.
+- **Eksamensbelegg:** Nødvendig helsehjelp + forsvarlighet ~5 (H2019 «The Edge», H2023 slagrehabilitering, H2024 sykehjemsplass). Prioritetsklasse: **perfekt** (innen velferd).
+- **Regelkontrakt:** **Pbrl. § 2-1a** rett til nødvendig helsehjelp fra kommunen; **§ 2-1e**/§ 2-1a om nødvendige omsorgstjenester, herunder sykehjemsplass når det er eneste forsvarlige tilbud (H2024). **Hol. § 3-1** kommunens ansvar for nødvendige og **forsvarlige** tjenester. **Forsvarlighetskravet** som rettslig standard (minstestandard): et **rettskrav** når terskelen er nådd — kan ikke avslås under henvisning til kommuneøkonomi alene (Fusa-dommen Rt. 1990 s. 874 *(verifiser)*). Over minstestandarden: ressursbasert **skjønn** (kap. 3.1) om nivå/omfang. Skille rettskrav (full prøving av om minstestandarden er nådd — rettsanvendelse) fra det ressursbaserte skjønnet (begrenset prøving). Kobling til utredningsplikt (§ 17) og begrunnelse (§ 25).
+- **Typetilfeller:** Minipraktikum: en kommune avslår en tjeneste med henvisning til budsjett (er minstestandarden nådd? → rettskrav); nivået på en innvilget tjeneste angripes (ressursbasert skjønn).
+- **Metodepoenger:** Avgjør FØRST om minstestandarden/forsvarlighetsterskelen er nådd — da er det et rettskrav, og økonomi er irrelevant. Over standarden er nivået fritt skjønn. Forsvarlighet er rettsanvendelse (full prøving).
+- **Typiske feil:** Å la kommuneøkonomi avgjøre et rettskrav (H2024, H2019); å behandle forsvarlighetsterskelen som fritt skjønn; å blande rettskravet og nivåskjønnet.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 5.2: Tvang i velferdsretten
+- **id:** `jus2211-5-2` · **number:** 5.2 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-1-1`, `jus2211-5-1`
+- **Kapitteltype:** regel
+- **description:** Tvangsinngrep i velferdsretten (psykisk helsevern, rus, barnevern): grunnvilkårene, legalitetskravet ved inngrep i den personlige integritet, rettssikkerhetsgarantiene og domstolsprøvingen.
+- **Eksamensbelegg:** Tvang ~4 (H2017 tvungent psykisk helsevern, H2023 tvang rus, V2015 teori, V2016 omsorgsovertakelse/adopsjon). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Psykisk helsevernloven § 3-3** grunnvilkår for tvungent psykisk helsevern (hovedvilkår + tilleggsvilkår + helhetsvurdering); kap. 7 domstolsprøving. **Hol. § 10-2** tvang overfor rusmiddelavhengige. **Barnevernsloven** — omsorgsovertakelse/adopsjon (ny bvl. 2021 erstattet 1992-loven `(verifiser hvilken lov nyeste sett bruker)`). Fellestrekk: skjerpet **legalitetskrav** ved inngrep i personlig integritet (Grl. § 113, § 94, EMK art. 5/8), kumulative grunnvilkår, **forholdsmessighet/minste inngreps prinsipp**, rettssikkerhetsgarantier og domstolsprøving. Skille grunnvilkår (rettsanvendelse, full prøving) fra skjønnsmessig helhetsvurdering.
+- **Typetilfeller:** Minipraktikum: vilkårene for tvungent psykisk helsevern prøves (§ 3-3, kumulativt); et tvangsinngrep angripes som uforholdsmessig (minste inngreps prinsipp).
+- **Metodepoenger:** Prøv grunnvilkårene kumulativt, ett for ett. Legalitetskravet er skjerpet ved integritetsinngrep. Forholdsmessighet/minste inngrep er selvstendig vilkår. Skill grunnvilkår fra helhetsskjønn.
+- **Typiske feil:** Å hoppe over ett kumulativt grunnvilkår; å overse forholdsmessighet; å behandle grunnvilkårene som fritt skjønn.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 5.3: Trygdeytelser og skjønnsprøving — folketrygdloven
+- **id:** `jus2211-5-3` · **number:** 5.3 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-3-1`
+- **Kapitteltype:** regel
+- **description:** Trygderettslige ytelser (uføretrygd, dagpenger, sykepenger) og hvordan vurderingspregede vilkår som «hensiktsmessig behandling» prøves — koblet til skjønnsprøvingen og til trygdeforordningen (EØS).
+- **Eksamensbelegg:** Trygdeytelser ~4 (uføre § 12-5 «hensiktsmessig behandling» V2022; dagpenger kap. 4 V2020; sykepenger § 8-4 V2017); ofte koblet til skjønnsprøving og trygdeforordningen (883/2004) ~1 (V2022 — men ofte materielt avgrenset bort). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Folketrygdloven** § 8-4 arbeidsuførhet/sykepenger; kap. 4 dagpenger; § 12-2 medlemskap; § 12-5 «hensiktsmessig behandling»/arbeidsrettede tiltak (uføre). Vurderingspregede vilkår («hensiktsmessig», «arbeidsufør») — rettsanvendelsesskjønn (full prøving) vs. forsvarlighetsvurdering (V2022: mangelfull begrunnelse → uforsvarlig skjønn). **Trygdeforordningen (883/2004)** — koordinering, sammenlegging av trygdetid (V2022) — **ofte eksplisitt avgrenset bort materielt**; behandles kort (respekter avgrensningen). Trygderettsloven § 26 om kjennelser.
+- **Ny lov 2027-boks:** Ikke direkte berørt, men klage-/begrunnelsesreglene endres — se §1.2.
+- **Typetilfeller:** Minipraktikum: et uførevedtak avslås fordi «hensiktsmessig behandling» ikke er prøvd ut (§ 12-5 — vurderingsvilkår + forsvarlighet); en trygdekjennelse uten omtale av et lovbestemt kriterium (begrunnelse → forsvarlig skjønn, V2022).
+- **Metodepoenger:** Vurderingspregede vilkår er ofte rettsanvendelse (full prøving) — ikke fritt skjønn. Begrunnelsen er redskap for å prøve forsvarligheten. Respekter avgrensninger om trygdeforordningen.
+- **Typiske feil:** Å behandle vurderingsvilkår som fritt skjønn; å drøfte den bortavgrensede trygdeforordningen (V2022); å overse begrunnelse→forsvarlighet-koblingen.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 5.4: Typetilfelle — velferdspraktikumet (rettskrav + forsvarlighet + skjønn)
+- **id:** `jus2211-5-4` · **number:** 5.4 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-5-1`, `jus2211-5-3`
+- **Kapitteltype:** typetilfelle
+- **description:** Malen for velferds-Del I: et krav på ytelse (helsehjelp/trygd) angripes — er terskelen for et rettskrav nådd (forsvarlighet), avslås det ulovlig på ressursgrunnlag, og hvordan prøves det vurderingspregede vilkåret? Ofte koblet til saksbehandling (utredning/begrunnelse) i Del II.
+- **Eksamensbelegg:** Velferds-Del I + forvaltnings-/klage-Del II (H2023, H2024, V2022). Prioritetsklasse: **perfekt** (innen velferd).
+- **Regelkontrakt (tvistepunkt-kartet):** (1) er **terskelen for et rettskrav** nådd (forsvarlighet/minstestandard)? (2) er avslaget begrunnet i **ulovlig ressurshensyn**? (3) hvordan prøves det **vurderingspregede vilkåret** (rettsanvendelse vs. skjønn)? (4) bro til **saksbehandling** (utredning § 17 / begrunnelse § 25) og **klage** (Del 4). Se komplett spesifikasjon i §6.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en pasient/bruker nektes en tjeneste med henvisning til budsjett, og vedtaket er tynt begrunnet). Full drøftelse med margkommentarer. Varianter (3–5): (i) terskelen klart nådd (rettskrav); (ii) over minstestandarden (nivåskjønn); (iii) begrunnelse-/utredningssvikt → forsvarlig skjønn.
+- **Metodepoenger:** Rettskrav vs. skjønn er inngangen. Kommuneøkonomi avgjør ikke et rettskrav. Koble til saksbehandlingsfeil der begrunnelsen er tynn.
+- **Typiske feil:** Å la økonomi avgjøre rettskravet; å behandle forsvarlighet som fritt skjønn; å overse saksbehandlingssporet i Del II.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 5:** 4 prøver (ett nødvendig-helsehjelp-praktikum (rettskrav + forsvarlighet + kommuneøkonomi-fella); én tvangsprøve (grunnvilkår + forholdsmessighet); én trygdeprøve (vurderingsvilkår + skjønnsprøving); ett velferds-Del I + saksbehandlings-Del II-praktikum).
+
+---
+
+### DEL 6 — Miljørett
+
+> Den andre faktiske arenaen (5 sp): plan- og bygningsrett, naturmangfoldloven, forurensning,
+> konsekvensutredning og Grl. § 112/klima. Miljøvedtaket er et fast kombinasjonsmønster:
+> vern/dispensasjon + manglende KU (EØS-direktiv) + klagerett for miljøorganisasjon + § 112.
+> KU-koblingen er også en bro til EØS-retten.
+
+---
+
+#### Kapittel 6.1: Plan- og bygningsrett — reguleringsplan og dispensasjon
+- **id:** `jus2211-6-1` · **number:** 6.1 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-3-1`
+- **Kapitteltype:** regel
+- **description:** Arealstyringens verktøy: forholdet mellom arealdel og reguleringsplan, dispensasjonsadgangen (pbl. §§ 19-1/19-2) med dens vilkår, og skjønnsprøvingen av dispensasjonsvedtak.
+- **Eksamensbelegg:** Pbl. reguleringsplan/dispensasjon ~4 (H2022 dispensasjon til meglerkontor, V2021 vindturbiner/byggetillatelse, H2020 reguleringsplan vs. arealdel). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Pbl. §§ 11-7** arealformål (arealdel), **kap. 12** reguleringsplan; **§ 19-1** søknad om dispensasjon; **§ 19-2** dispensasjonsvilkårene: hensynene bak bestemmelsen det dispenseres fra (og lovens formålsbestemmelse) må ikke bli «vesentlig tilsidesatt», og fordelene ved dispensasjon må være «klart større» enn ulempene — kumulative vilkår. Forholdet arealdel/reguleringsplan (trinnhøyde/rekkefølge). Skjønnsprøving: dispensasjonsvilkårene er dels rettsanvendelse (full prøving), dels «kan»-skjønn selv når vilkårene er oppfylt (kap. 3.1).
+- **Typetilfeller:** Minipraktikum: en dispensasjon gis der hensynene bak planen tilsidesettes vesentlig (§ 19-2 første vilkår); avveiningen fordeler/ulemper (§ 19-2 andre vilkår, «klart større»).
+- **Metodepoenger:** § 19-2-vilkårene er kumulative — begge må være oppfylt. «Vesentlig tilsidesatt» og «klart større fordeler» er rettsanvendelse (full prøving); selv når de er oppfylt gjenstår «kan»-skjønn. Skill arealdel fra reguleringsplan.
+- **Typiske feil:** Å behandle bare ett av de to § 19-2-vilkårene; å behandle dispensasjonsvilkårene som rent fritt skjønn; å blande arealdel og reguleringsplan.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 6.2: Naturmangfoldloven og forurensningsloven
+- **id:** `jus2211-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-1-1`
+- **Kapitteltype:** regel
+- **description:** Naturvernets hjemler (vern, prioritert art, biotopvern) og de miljørettslige prinsippene (kunnskapsgrunnlag, føre-var), samt forurensningslovens opprydding og utslippstillatelse.
+- **Eksamensbelegg:** Naturmangfoldloven ~3 (V2023 landskapsvernområde, H2020 eremittbille/hule eiker, V2021 biotopvern); forurensningsloven ~2 (V2019 grunnforurensning, V2018 fjorddeponi gruveavfall). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Naturmangfoldloven** § 23 prioritert art, § 34 verneprosess, § 36 landskapsvernområde, § 38 biotopvern; **§§ 8–12** miljørettslige prinsipper — § 8 kunnskapsgrunnlaget, § 9 føre-var-prinsippet, § 10 økosystemtilnærming, § 11 kostnadene ved miljøforringelse bæres av tiltakshaver, § 12 miljøforsvarlige teknikker; disse skal legges til grunn som «retningslinjer» ved myndighetsutøvelse (kobling til utredningsplikt § 17 og forsvarlig skjønn). **Forurensningsloven** § 7 opprydding/ansvar, § 11 utslippstillatelse. Skille vernehjemler (rettsanvendelse på vilkår) fra det skjønnsmessige.
+- **Typetilfeller:** Minipraktikum: et vedtak treffes uten at kunnskapsgrunnlaget (§ 8) er tilstrekkelig (kobling § 17 → forsvarlig skjønn); et vern etableres (§ 34/§ 36 — vilkår og prosess).
+- **Metodepoenger:** §§ 8–12-prinsippene kobler til utrednings- og forsvarlighetskravet — svakt kunnskapsgrunnlag kan gjøre skjønnet uforsvarlig. Skill vernehjemlenes vilkår fra skjønnet.
+- **Typiske feil:** Å overse §§ 8–12-koblingen til § 17/forsvarlig skjønn; å behandle prinsippene som selvstendige forbud; å blande de ulike vernehjemlene.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 6.3: Konsekvensutredning, Grl. § 112 og klima
+- **id:** `jus2211-6-3` · **number:** 6.3 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-2-2`
+- **Kapitteltype:** regel
+- **description:** Konsekvensutredning (pbl. kap. 14 / KU-direktivet, EØS) som skjerpet utredningsplikt koblet til § 17/§ 41, og Grl. § 112 som «begrenset» miljørettighet slik den ble avklart i Klimasaken.
+- **Eksamensbelegg:** Konsekvensutredning ~3 (V2024 miljø-KU, H2021 manglende KU oljeleting, H2020); Grl. § 112/klima ~2 (V2024 del II mindretallsvotum, H2020 klimalov/CO2-lagring). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Pbl. kap. 14** konsekvensutredning; **KU-direktivet (EØS)** — en manglende/mangelfull KU er en skjerpet utredningssvikt (§ 17) → § 41-vurdering. **Grl. § 112** miljøparagrafen — rett til et miljø som sikrer helse; tolket som en **«begrenset» rettighetsbestemmelse** med en høy terskel for domstolsinngrep (Klimasaken **HR-2020-2472-P** — § 112 kan påberopes, men gir domstolene en snever prøvingsadgang overfor lovgivers avveininger). **Klimaloven** som rammelov. Kobling: KU-direktivet er en **EØS-bro** — manglende KU kan reise både internrettslig ugyldighet og et EØS-spørsmål (Del 9).
+- **Typetilfeller:** Minipraktikum: et miljøvedtak treffes uten påkrevd KU (§ 17 + pbl. kap. 14 → § 41); § 112 påberopes mot et vedtak/lovforslag (Klimasaken-terskelen).
+- **Metodepoenger:** Manglende KU behandles som utredningssvikt (§ 17) → § 41 — ikke som selvstendig ugyldighetsgrunn løsrevet. § 112 har en høy terskel (Klimasaken). KU-direktivet gir en EØS-inngang.
+- **Typiske feil:** Å behandle manglende KU uten § 41-vurderingen; å behandle § 112 som en ubetinget rettighet; å overse KU-direktivets EØS-side.
+- **Kvote:** quiz 12 · flashcards 14
+
+---
+
+#### Kapittel 6.4: Typetilfelle — miljøvedtaket
+- **id:** `jus2211-6-4` · **number:** 6.4 · **estimatedMinutes:** 50 · **prerequisites:** `jus2211-6-1`, `jus2211-6-3`, `jus2211-4-4`
+- **Kapitteltype:** typetilfelle
+- **description:** Det faste miljømønsteret: et vedtak (vern/dispensasjon/reguleringsplan) angripes — manglende konsekvensutredning (§ 17/KU-direktiv) + klagerett for miljøorganisasjon (§ 28) + § 112/klima, ofte med en EØS-bro.
+- **Eksamensbelegg:** Miljøvedtaket (H2020, H2021, V2021, V2023, V2024). Prioritetsklasse: **kunne** (men gjennomgående mønster).
+- **Regelkontrakt (tvistepunkt-kartet):** (1) **klageinteresse** for miljøorganisasjonen (§ 28, kap. 4.4); (2) **hjemmel/vilkår** for vedtaket (pbl./naturmangfoldlov); (3) **utredning/KU** (§ 17 + kap. 14 → § 41); (4) **§ 112/klima** (Klimasaken-terskelen); (5) **EØS-bro** (KU-direktivet, evt. restriksjon). Se komplett spesifikasjon i §6.
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en tillatelse til et inngrep i et sårbart område gis uten fullstendig KU; en miljøorganisasjon klager; § 112 påberopes). Full drøftelse med margkommentarer. Varianter (3–5) flytter tvilen mellom klageinteresse, KU-svikt og § 112.
+- **Metodepoenger:** Se hele mønsteret; KU-svikt går via § 17/§ 41. Miljøorganisasjonens klageinteresse må prøves (ikke forutsettes). § 112 har høy terskel. Se EØS-broen.
+- **Typiske feil:** Å forutsette miljøorganisasjonens klageinteresse; å behandle KU-svikt uten § 41; å overse EØS-broen.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 6:** 4 prøver (én dispensasjonsprøve (pbl. § 19-2 kumulative vilkår); én naturmangfold-/forurensningsprøve (vern + §§ 8–12-prinsipper); én KU-/§ 112-prøve (utredningssvikt → § 41 + Klimasaken-terskelen); ett miljøvedtak-praktikum (vern/dispensasjon + KU + klagerett + § 112)).
+
+---
+
+### DEL 7 — EØS-rettens stilling i norsk rett
+
+> Inngangsporten til hele EØS-sporet og til koblingen. Her etableres HVORDAN EØS-retten virker i
+> norsk rett — inkorporasjon, forrang (EØS-loven § 2), presumsjonsprinsippet og konform tolkning —
+> og statsansvaret + EFTA-domstolen. Denne delen er metodisk stabil (verifisert 2026-07-07) og
+> danner grunnlaget for restriksjonsanalysen (Del 8) og koblingen (Del 9).
+
+---
+
+#### Kapittel 7.1: EØS-rettens stilling — inkorporasjon, forrang, presumsjon og konform tolkning
+- **id:** `jus2211-7-1` · **number:** 7.1 · **estimatedMinutes:** 60 · **prerequisites:** `jus2211-0-3`
+- **Kapitteltype:** regel (EØS-sporets fundament)
+- **description:** Hvordan EØS-retten kommer inn i og virker i norsk rett: inkorporasjon av hoveddelen (EØS-loven § 1), forrangsregelen ved motstrid (§ 2), presumsjonsprinsippet, EØS-konform tolkning — og hvorfor EØS-retten ikke er et «direkte hinder» men virker gjennom disse mekanismene.
+- **Forkunnskaper (kryssbok):** Bygger på forholdet folkerett–norsk rett (dualisme/presumsjon) fra JUS2111 — lenk til [De tre rettssystemene fra hverandre — dualisme, presumsjon, § 92 og Maria-formelen](/bok/jus2111/jus2111-0-3).
+- **Eksamensbelegg:** Direkte virkning/forrang/presumsjon (EØS-loven § 2) ~4 (V2024 hjemmel gjennomskåret av EØS, V2023). Prioritetsklasse: **perfekt** (fundamentet for hele EØS-sporet).
+- **Regelkontrakt:** **EØS-loven § 1** inkorporerer EØS-avtalens hoveddel som norsk lov. **EØS-loven § 2** — ved motstrid går en gjennomført EØS-regel foran annen (senere) norsk lovbestemmelse (**forrang** for gjennomførte EØS-regler). **Presumsjonsprinsippet** — norsk rett tolkes «så vidt mulig» i samsvar med EØS-retten. **EØS-konform tolkning.** **Homogenitetsmålet** (EØS art. 6 — EØS-reglene tolkes i samsvar med relevant EU-domstolspraksis). Skille: en gjennomført EØS-regel (forrang via § 2) fra en ikke-gjennomført forpliktelse (bare tolkningsmoment/statsansvar). **Statsstøtte (art. 61)** — kort «bør kjenne til»-omtale her (avgrenset, se §1.2). Kobling: forrangen er selve mekanismen bak «hjemmel gjennomskåret av EØS» (Del 9).
+- **Typetilfeller:** Minipraktikum: en norsk lovbestemmelse strider mot en gjennomført EØS-regel (§ 2 forrang); en ikke-gjennomført forpliktelse påberopes (presumsjon/statsansvar, ikke direkte forrang).
+- **Metodepoenger:** EØS kommer inn via § 1/§ 2 og presumsjon — ikke som direkte «hinder». Skill gjennomførte regler (forrang) fra ugjennomførte (tolkningsmoment/statsansvar). Homogenitet: bruk EU-praksis.
+- **Typiske feil:** Å behandle en EØS-regel som direkte bindende uten å gå via § 2/presumsjon; å gi en ugjennomført forpliktelse forrang; å overse homogenitetsmålet.
+- **Kvote:** quiz 16 · flashcards 20 (flashcards: EØS-loven § 1 vs. § 2; forrang for gjennomførte regler; presumsjonsprinsippet; konform tolkning; homogenitet art. 6; gjennomført vs. ugjennomført)
+
+---
+
+#### Kapittel 7.2: Statlig erstatningsansvar for EØS-brudd og EFTA-domstolen
+- **id:** `jus2211-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `jus2211-7-1`
+- **Kapitteltype:** regel
+- **description:** Statens erstatningsansvar når EØS-retten er brutt (vilkårene fra E-9/97 og Finanger II, «tilstrekkelig kvalifisert brudd»), forholdet til internrettslig ansvarsgrunnlag, og hvordan en sak kan bringes inn for EFTA-domstolen (rådgivende uttalelse, ODA art. 34).
+- **Eksamensbelegg:** Statlig erstatningsansvar ~2 (V2024 kvalifisert brudd + forholdet til internrettslig ansvarsgrunnlag Rt. 2010 s. 1500); EFTA-domstolen ODA art. 34 ~2 (V2022 del II — kan *ikke* ankes). Prioritetsklasse: **kunne**.
+- **Regelkontrakt:** **Statlig erstatningsansvar for EØS-brudd** — vilkårene fra EFTA-domstolens sak **E-9/97 Sveinbjörnsdóttir** og Høyesteretts tilslutning i **Rt. 2005 s. 1365 (Finanger II)**: (1) regelen skal gi rettigheter til private, (2) bruddet må være **tilstrekkelig kvalifisert**, (3) årsakssammenheng mellom brudd og tap. Forholdet til internrettslig ansvarsgrunnlag (**Rt. 2010 s. 1500**, V2024). **EFTA-domstolen** — rådgivende uttalelse etter **ODA art. 34** (nasjonal domstol kan be om uttalelse; den kan **ikke ankes**, V2022); ESAs håndhevingsrolle (ofte avgrenset bort). Homogenitet (kap. 7.1). NB (analysens avgrensning V2024): «årsakssammenheng og erstatningsutmåling skal ikke behandles» — respekter slike avgrensninger.
+- **Typetilfeller:** Minipraktikum: staten har gjennomført et direktiv feil og en privat lider tap (kvalifisert brudd-vilkåret); en norsk domstol vil be EFTA-domstolen om en rådgivende uttalelse (ODA art. 34 — ikke bindende, kan ikke ankes).
+- **Metodepoenger:** «Tilstrekkelig kvalifisert brudd» er kjernevilkåret. Skill EØS-ansvaret fra internrettslig ansvarsgrunnlag. EFTA-domstolens uttalelse er rådgivende og kan ikke ankes. Respekter avgrensninger om utmåling/årsak.
+- **Typiske feil:** Å senke terskelen for «kvalifisert brudd»; å blande EØS-ansvar og internrettslig ansvar; å drøfte det bortavgrensede (utmåling); å behandle EFTA-uttalelsen som bindende.
+- **Kvote:** quiz 14 · flashcards 16
+
+---
+
+#### Kapittel 7.3: Typetilfelle — EØS-retten i en norsk sak
+- **id:** `jus2211-7-3` · **number:** 7.3 · **estimatedMinutes:** 45 · **prerequisites:** `jus2211-7-1`, `jus2211-7-2`
+- **Kapitteltype:** typetilfelle
+- **description:** Hvordan EØS-retten faktisk gjøres gjeldende i en norsk sak: identifisér om regelen er gjennomført (forrang § 2) eller ikke (presumsjon/statsansvar), hvordan den påberopes, og hvilken virkning den får — broen mellom Del 7 og restriksjonsanalysen/koblingen.
+- **Eksamensbelegg:** Forholdet EØS–norsk rett som eget spor (V2024, V2023). Prioritetsklasse: **kunne**.
+- **Regelkontrakt (tvistepunkt-kartet):** (1) er EØS-regelen **gjennomført** (forrang § 2) eller ikke (presumsjon/statsansvar)? (2) hvordan **påberopes** den (konform tolkning / forrang / erstatning)? (3) hvilken **virkning** — settes norsk regel til side, eller tolkes den konformt? (4) bro til restriksjonsanalysen (Del 8) og koblingen (Del 9).
+- **Typetilfeller:** Gjennomdrøftet variant (NYSKREVET — f.eks. en privat part påberoper en gjennomført EØS-regel mot et norsk vedtak). Full drøftelse med margkommentarer. Varianter (3–5): gjennomført vs. ugjennomført; konform tolkning vs. tilsidesettelse; statsansvar som subsidiært spor.
+- **Metodepoenger:** Avgjør gjennomføringsstatus FØRST — den styrer virkningen. La EØS komme inn via § 2/presumsjon. Se det subsidiære statsansvarssporet.
+- **Typiske feil:** Å behandle EØS-regelen som direkte bindende; å forveksle forrang og presumsjon; å overse statsansvaret som subsidiært spor.
+- **Kvote:** quiz 10 · flashcards 8
+
+**Prøve-kvote Del 7:** 4 prøver (én forrang-/presumsjonsprøve (EØS-loven § 2 + konform tolkning); én statsansvarsprøve (E-9/97/Finanger II — kvalifisert brudd); én EFTA-domstol-prøve (ODA art. 34 — rådgivende, ikke ankbar); ett EØS-i-norsk-sak-praktikum (gjennomført vs. ugjennomført)).
+
+---
