@@ -65,10 +65,21 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 - [ ] `sosant1000` — SOSANT1000 (UiO). Drøfting; etnografisk eksempellager
       per tema; monografikapittel ⚠ utgavesensitiv (sjekk pensumliste).
 
-## C. Trenger analyse + skjelett først
+## C. Transje 2 — analyse + skjelett underveis i fabrikken (7. juli 2026)
 
-(Tom — alle 22 fag i porteføljen har komplett rammeverk. Nye fag: kjør
-fase 1–2 i PRODUKSJONSLOYPE med arkiv fra `~/Desktop/Eksamner/`.)
+Prioritert etter studentvolum og materialstyrke:
+- [ ] `nokut-afb` — Nasjonal deleksamen anatomi/fysiologi/biokjemi, sykepleie (87 filer; alle sykepleiestudenter i Norge)
+- [ ] `oslomet-mat1000` — Matematikk 1000, ingeniør (OsloMet, 669 filer)
+- [ ] `econ1100` — Matematikk I (UiO, 60 filer, SV)
+- [ ] `econ1410` — Internasjonal økonomi (UiO, 45 filer, SV)
+- [ ] `fys1100` — Mekanikk og modellering (UiO, 36 filer, SV)
+- [ ] `mek1100` — Feltteori og vektoranalyse (UiO, 50 filer)
+- [ ] `mat1110` — Kalkulus og lineær algebra (UiO, 26 filer)
+- [ ] `stk1110` — Statistiske metoder og dataanalyse (UiO, 41 filer; oppfølger til stk1100)
+- [ ] `in1010` — Objektorientert programmering (UiO, 25 filer, SV)
+- [ ] `in2010` — Algoritmer og datastrukturer (UiO, 34 filer, SV)
+- [ ] `tdt4100` — Objektorientert programmering (NTNU, 45 filer)
+- [ ] `tdt4145` — Datamodellering og databasesystemer (NTNU, 40 filer, SV)
 
 
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
