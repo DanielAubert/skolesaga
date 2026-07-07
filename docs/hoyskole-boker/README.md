@@ -105,37 +105,73 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 |---|---|---|
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
-| ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
-| AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
-| SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
+| ECON1100 Matematikk I for økonomer (UiO) | regnefag | skjelett |
 | ECON1210 Mikroøkonomi 1 (UiO) | regnefag | skjelett |
-| SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |
-| ECON1100 Matematikk I (UiO) | regnefag | skjelett |
+| ECON1220 Velferd og økonomisk politikk (UiO) | drøfting/hybrid | skjelett |
+| ECON1410 Internasjonal økonomi (UiO) | regnefag | skjelett |
+| ECON1910 Poverty and Distribution (UiO) | drøfting/hybrid | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
+| ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
+| ECON3150 Introductory Econometrics (UiO) | regnefag | skjelett |
+| ECON4310 Macroeconomic Theory (UiO) | regnefag/essay-hybrid | skjelett |
 | EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
+| FIL1001 Metafysikk og bevissthetsfilosofi (UiO) | drøfting | skjelett |
 | FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
-| JUS1211 Privatrett II (UiO) | jus | skjelett |
-| MAT1100 Kalkulus (UiO) | regnefag | skjelett |
-| MAT1120 Lineær algebra (UiO) | regnefag | skjelett |
-| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
-| TMA4245 Statistikk (NTNU) | regnefag | skjelett |
-| KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
-| KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | skjelett |
-| ECON3150 Econometrics (UiO) | regnefag | skjelett |
+| FYS1100 Mekanikk og modellering (UiO) | regnefag | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
 | FYS2140 Kvantefysikk (UiO) | regnefag | skjelett |
+| IN1000 Intro. objektorientert programmering (UiO) | regnefag/kodefag | skjelett |
+| IN1010 Objektorientert programmering (UiO) | regnefag/kodefag | skjelett |
+| IN1020 Introduksjon til datateknologi (UiO) | regnefag | skjelett |
+| IN1900 Python-programmering (UiO) | regnefag/kodefag | skjelett |
+| IN2010 Algoritmer og datastrukturer (UiO) | regnefag | skjelett |
+| IN2060 Digitalteknikk og datamaskinarkitektur (UiO) | regnefag | skjelett |
+| JUS1211 Privatrett II (UiO) | jus | skjelett |
+| JUS2111 Statsforfatningsrett og folkerett (UiO) | jus | skjelett |
+| JUS4111 Metode og etikk (UiO) | jus/drøfting-hybrid | skjelett |
+| KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
+| KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | skjelett |
+| MA0301 Elementær diskret matematikk (NTNU) | regnefag | skjelett |
 | MAT111 Grunnkurs matematikk I (UiB) | regnefag | skjelett |
-| STK1100 Sannsynlighet (UiO) | regnefag | skjelett |
-| IN1900 Python-programmering (UiO) | regnefag | i kø |
-| TDT4120 Algoritmer (NTNU) | regnefag | skjelett |
+| MAT112 Grunnkurs matematikk II (UiB) | regnefag | skjelett |
+| MAT121 Lineær algebra (UiB) | regnefag | skjelett |
+| MAT1100 Kalkulus (UiO) | regnefag | skjelett |
+| MAT1110 Kalkulus og lineær algebra (UiO) | regnefag | skjelett |
+| MAT1120 Lineær algebra (UiO) | regnefag | skjelett |
+| MAT2200 Grupper, ringer og kropper (UiO) | regnefag | skjelett |
+| MAT2400 Reell analyse (UiO) | regnefag | skjelett |
+| MEK1100 Feltteori og vektoranalyse (UiO) | regnefag | skjelett |
+| MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
+| Matematikk 1000 / DAFE1000 (OsloMet) | regnefag | skjelett |
+| AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
+| PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
+| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
+| PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
+| SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |
+| SOS1120 / SOSGEO1120 Kvantitativ metode (UiO) | hybrid (statistikk-tyngdepunkt) | skjelett |
+| SOS2200 Organisasjon, ledelse og arbeid (UiO) | drøfting | skjelett |
+| SOSANT1000 Innføring i sosialantropologi (UiO) | drøfting | skjelett |
+| STK1100 Sannsynlighet og statistisk modellering (UiO) | regnefag | skjelett |
+| STK1110 Statistiske metoder og dataanalyse (UiO) | regnefag | skjelett |
+| STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
+| SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
+| TDT4100 Objektorientert programmering (NTNU) | regnefag/kodefag | skjelett |
+| TDT4110 Informasjonsteknologi grunnkurs (NTNU) | regnefag/kodefag | skjelett |
+| TDT4120 Algoritmer og datastrukturer (NTNU) | regnefag | skjelett |
 | TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
-| MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
-| JUS2111 Statsforfatningsrett (UiO) | jus | skjelett |
-| SOSANT1000 Sosialantropologi (UiO) | drøfting | skjelett |
-| STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
+| TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
+| TFY4104 Fysikk (NTNU) | regnefag | skjelett |
+| TFY4115 Fysikk (NTNU) | regnefag | skjelett |
+| TFY4125 Fysikk (NTNU) | regnefag | skjelett |
+| TMA4135 Matematikk 4D (NTNU) | regnefag | skjelett |
+| TMA4245 Statistikk (NTNU) | regnefag | skjelett |
+| TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | analyse (skjelett underveis) |
+| SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | analyse underveis |
+| SOSANT1090 Antropologisk metode (UiO) | drøfting | analyse underveis |
+| ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
 instansier `BYGGEKONTRAKT-MAL.md` til `<emne>/BYGGEKONTRAKT.md` (fyll

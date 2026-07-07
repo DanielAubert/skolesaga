@@ -65,7 +65,7 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 - [ ] `sosant1000` — SOSANT1000 (UiO). Drøfting; etnografisk eksempellager
       per tema; monografikapittel ⚠ utgavesensitiv (sjekk pensumliste).
 
-## C. Transje 2 — analyse + skjelett underveis i fabrikken (7. juli 2026)
+## C. Transje 2 — rammeverk FERDIG (klare til bygging, samme kickoff som A)
 
 Prioritert etter studentvolum og materialstyrke:
 - [ ] `nokut-afb` — Nasjonal deleksamen anatomi/fysiologi/biokjemi, sykepleie (87 filer; alle sykepleiestudenter i Norge)
@@ -82,7 +82,7 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `tdt4145` — Datamodellering og databasesystemer (NTNU, 40 filer, SV)
 
 
-## C3. Transje 3 — analyse + skjelett underveis (7. juli 2026, bred fagdekning)
+## C3. Transje 3 — rammeverk FERDIG (klare til bygging, samme kickoff som A)
 
 - [ ] `mat121-uib` — Lineær algebra (UiB, 110 filer)
 - [ ] `tfy4125` — Fysikk (NTNU, 92 filer, SV)
@@ -96,7 +96,7 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `in1000` — Introduksjon til objektorientert programmering (UiO, 27 filer)
 - [ ] `fil1001` — Innføring i metafysikk og bevissthetsfilosofi (UiO, 22 filer)
 
-## C4. Transje 4 — analyse + skjelett underveis (7. juli 2026)
+## C4. Transje 4 — rammeverk FERDIG (klare til bygging, samme kickoff som A)
 
 - [ ] `mat112-uib` — Kalkulus II (UiB, 65 filer; oppfølger MAT111)
 - [ ] `tfy4104` — Fysikk (NTNU, 55 filer; nær TFY4115)
@@ -104,14 +104,17 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] ~~`econ2200`~~ — NEDLAGT (siste V2018); pensum delt mellom ECON1100 + ECON2220, som begge har rammeverk. Skjelett droppet (redundant); analyse beholdt.
 - [ ] `sok1002` — Mikroøkonomi (NTNU, 34 filer)
 - [ ] `tma4135` — Matematikk 4D (NTNU, 26 filer)
-- [ ] `sos1001` — Sosiologisk teori/metode (UiO, 25 filer)
+- [ ] `sos1004` — Innføring i sosiologi (UiO; SOS1001/SOS1000/SOS1003 nedlagt →
+      etterfølger-profilert mot aktivt SOS1004, arkiv ~72 filer på tvers av
+      forgjengerkodene). Rammeverk underveis (8. juli 2026).
 - [ ] `kjm1110` — Kjemi (UiO, 22 filer)
 - [ ] `in1020` — Introduksjon til datateknologi (UiO, 22 filer)
 - [ ] `econ1220` — Velferd og økonomisk politikk (UiO, 22 filer)
 - [ ] `psyc1201` — Sosialpsykologi (UiO, 17 filer)
-- [ ] `sosant1090` — Sosialantropologi (UiO, 16 filer)
+- [ ] `sosant1090` — Antropologisk metode (UiO, 16 filer; AKTIVT — sensor-
+      veiledning t.o.m. V2026). Rammeverk underveis (8. juli 2026).
 
-## C5. Transje 5 — analyse + skjelett underveis (7. juli 2026; alle AKTIV-verifisert)
+## C5. Transje 5 — rammeverk FERDIG unntatt tdt4186-skjelett underveis (8. juli 2026; alle AKTIV-verifisert)
 
 - [ ] `sos2200` — Organisasjon, ledelse og arbeid (UiO, 38 filer)
 - [ ] `jus4111` — Metode og etikk (UiO, 22 filer; jus)
