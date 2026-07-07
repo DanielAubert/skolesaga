@@ -744,3 +744,228 @@ har både **symbolsk utledning** og en tydelig merket **«Rask vei til tall»
 **Prøve-kvote Del 11:** dekkes av de 3 øvingseksamenene (11.2–11.4) + MC-strategien (11.1) — ingen separate delprøver.
 
 ---
+
+## 4. Kvotesammendrag (AUTORITATIV for alle senere faser)
+
+### Quiz og flashcards per kapittel (summeringskontroll)
+
+| Del | Kapitler | Quiz | Flashcards |
+|---|---|---|---|
+| 0 | 0.1–0.2 | 12+14 = **26** | 14+12 = **26** |
+| 1 | 1.1–1.3 | 26+26+16 = **68** | 22+22+8 = **52** |
+| 2 | 2.1–2.4 | 24+26+24+16 = **90** | 20+24+22+8 = **74** |
+| 3 | 3.1–3.3 | 24+20+14 = **58** | 20+18+8 = **46** |
+| 4 | 4.1–4.4 | 26+24+20+16 = **86** | 24+22+18+8 = **72** |
+| 5 | 5.1–5.3 | 24+22+16 = **62** | 22+20+8 = **50** |
+| 6 | 6.1–6.3 | 26+20+16 = **62** | 24+18+8 = **50** |
+| 7 | 7.1–7.3 | 24+24+16 = **64** | 22+22+8 = **52** |
+| 8 | 8.1–8.4 | 24+22+20+16 = **82** | 22+20+18+8 = **68** |
+| 9 | 9.1–9.3 | 24+20+16 = **60** | 22+18+8 = **48** |
+| 10 | 10.1 | **16** | **16** |
+| 11 | 11.1–11.4 | 16+6+6+6 = **34** | 14+0+0+0 = **14** |
+| **Sum** | **37 kap.** | **708 ≥ 500 ✓** | **568 ≥ 500 ✓** |
+
+**Hvorfor quiz-kvoten er bevisst høy (708):** TFY4104-eksamen ER flervalg med tette
+distraktorer, så **quizbanken er direkte eksamenstrening** — hvert quizspørsmål er
+en mini-eksamensoppgave med realistisk tette avledere (de vanlige regnefeilene som
+gale alternativer: glemt rotasjonsledd, feil $c$, forbyttet serie/parallell,
+$\tau=RC$ vs. $L/R$, gal feltretning). Derfor sikter boka høyt (600–750-sjiktet),
+ikke på gulvet 500 — litt høyere enn TFY4125s 686 fordi TFY4104 har ett ekstra
+teorikapittel (de to signatur-kapitlene 1.2 og 2.3 + statikk 4.3). Fordelingen
+speiler frekvensen: mekanikk-kjernen (Del 1–2, 4–5) bærer 306 quiz, med Del 2
+tyngst (90) fordi den rommer begge signaturene (rulling + krum bane); EM-kjernen
+(Del 6–9) bærer 268, med Del 8 (magnetisme, $B$ fra strøm 100 %) tyngst (82).
+Flashcards (568) er formel-, oppskrift- og felle-orienterte: hvert kort er enten en
+kjerneformel (med markering av om den står på formelarket), et steg i en «rask vei
+til tall»-oppskrift, eller en typisk felle — dette er et regnefag med moderat
+begrepsmengde, men rikt formel- og oppskriftsapparat, så flashcards ligger
+komfortabelt over gulvet uten å blåses opp.
+
+### Prøver per del (4 per temadel 1–9, 36 totalt)
+
+Hver prøve består av nyskrevne oppgaver i eksamens sjangre. **Prøvekapittel-id:**
+`tfy4104-<del>-prove`, chapterNumber `<del>.P`. Del 1–9 har hver ett prøvekapittel
+med 4 prøver (36 prøver totalt); minst én prøve per del er i **MC-format** (tette
+flervalgsspørsmål, kun bokstavsvar) for å speile eksamen, mens de øvrige kan vise
+symbolsk løsning + rask vei til tall. Løsningsforslag i `collapsible` per oppgave,
+med markering av felle-alternativene. Del 0, 10 og 11 har ingen separate delprøver
+(eksamenskart/måling, historisk kjenne-stoff, og øvingseksamener).
+
+**Del 1 — Kinematikk og luftmotstand:** 1.A kinematikk fra $v(t)$: maks-$a$ + strekning (25 min) · 1.B luftmotstand: terminalfart + tid til brøk av $v_t$ (25) · 1.C graf-gjenkjenning + eksponentiell modell (25) · 1.D MC-format kinematikk/luftmotstand (30).
+
+**Del 2 — Kraft, energi, rulling og krum bane:** 2.A skråplan m/friksjon (25) · 2.B rullende legeme energibevaring + $a=\tfrac{g\sin\beta}{1+c}$ (25) · 2.C sirkelbevegelse/normalkraft + rulling på krum bane (30) · 2.D MC-format med rotasjonsledd-fella (30).
+
+**Del 3 — Bevegelsesmengde, støt og baner:** 3.A elastisk/uelastisk støt + energitap (25) · 3.B impuls + ballistisk pendel (30) · 3.C satellittbane + skrått kast + rakett (25) · 3.D MC-format støt/impuls/bane (30).
+
+**Del 4 — Rotasjon:** 4.A massesenter + treghetsmoment (25) · 4.B Steiner + dreieimpuls m/fortegn + støt mot stang (30) · 4.C statikk/velting + momentbalanse (25) · 4.D MC-format rotasjon/statikk (30).
+
+**Del 5 — Svingninger:** 5.A egenfrekvens + seriefjærer (25) · 5.B hengslet stang m/Steiner (25) · 5.C dempet amplitude + $b$ fra reduksjon (30) · 5.D MC-format svingninger (30).
+
+**Del 6 — Elektrostatikk:** 6.A felt + potensial fra punktladninger (25) · 6.B dipolmoment + ladningsenergi (25) · 6.C ladet stav/linjeladning (30) · 6.D MC-format elektrostatikk (30).
+
+**Del 7 — Kondensatorer og kretser:** 7.A kondensatornettverk + dielektrikum/tankmåler + energi (30) · 7.B motstandsnettverk + effekt + resistivitet (25) · 7.C RC-transient (30) · 7.D MC-format kretser (30).
+
+**Del 8 — Magnetfelt, ladd partikkel og strømsløyfe:** 8.A $B$ fra leder/ring/solenoide + superposisjon (25) · 8.B ladd partikkel: akselerasjon + $r=mv/qB$ (25) · 8.C dreiemoment på sløyfe + hysterese (25) · 8.D MC-format magnetisme (30).
+
+**Del 9 — Induksjon og induktans:** 9.A roterende sløyfe + selvinduktans + magnetisk energi (25) · 9.B gjensidig induktans + motional EMS (30) · 9.C RL/LC-kretser + tidskonstant (30) · 9.D MC-format induksjon/induktans (30).
+
+### Øvingseksamener (3 komplette 4-timers MC-sett — kap. 11.2–11.4)
+
+| Sett | Mal den speiler | Miks |
+|---|---|---|
+| Øvingseksamen 1 (11.2) | Standard 40-spm (2023–2025) | Spm. 1–20 mekanikk-kjerne, 21–40 EM-kjerne; hver 100 %-sjanger minst én gang |
+| Øvingseksamen 2 (11.3) | Tyngre varianter | Samme mal, tyngre varianter + TFY4104-signaturene (luftmotstand-graf, rulling på krum bane, hengslet stang, tankmåler, gjensidig induktans, hysterese) |
+| Øvingseksamen 3 (11.4) | Generalprøve (full dekning) | Samme mal + de resterende sjangervariantene (effekt, skrått kast, rakett, dipol/stav, RL/LC, måling); ekstra tette alternativer |
+
+Til sammen dekker de tre settene samtlige sjangre M1–M13/E1–E16 minst én gang,
+alle med den faste todelingen (spm. 1–20 mekanikk, 21–40 EM) og tette
+svaralternativer der kun bokstavsvaret teller.
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Slik ser eksamen ut** — formen (4 t ren flervalg, 40 spm. A–F, 1 poeng riktig
+   / 0 feil eller blankt, kun bokstavsvaret teller, hjelpemiddelkode C med formelark
+   + treghetsmoment-tabell), den faste todelingen (spm. 1–20 mekanikk, 21–40 EM) og
+   prognosen fra kap. 0.1.
+2. **Prioriteringskartet** — temafrekvens-tabellen som tre lesenivåer:
+   *perfekt* (kinematikk fra $v(t)$ **inkl. luftmotstand**, rullende legeme/
+   energibevaring, skråplan m/friksjon, treghetsmoment/Steiner, dreieimpuls/støt,
+   svingninger, felt+potensial superposisjon, kondensator/kretser, magnetfelt fra
+   strøm, induktans/magnetisk energi), *kunne* (sirkelbevegelse+normalkraft,
+   **rulling på krum bane**, statikk/velting, gravitasjon/skrått kast, dielektrikum,
+   RC, resistivitet, dreiemoment på sløyfe, ladd partikkel i $B$, Faraday),
+   *kjenne* (rakett, elektrisk dipol/linjeladning, motional EMS, RL/LC, hysterese,
+   måling, **termofysikk som historisk beredskap**).
+3. **Rask vei til tall** — «MC-oppskriftene» fra drillkapitlene (1.3, 2.4, 3.3,
+   4.4, 5.3, 6.3, 7.3, 8.4, 9.3) i kortform: for hver kjerne-sjanger, den korteste
+   feilfrie regnekjeden fra tall til bokstavsvar.
+4. **Sensorreglene og MC-strategien** — kun bokstavsvaret teller; alle spm. likt;
+   ingen minuspoeng (gjett aldri blankt til slutt); **svaralternativene ligger
+   tett** → avrundingsdisiplin (behold 3–4 siffer, rund til slutt), tidsbudsjett
+   (~6 min/spm.), hopp-og-merk, eliminasjon ved dimensjon/størrelsesorden (kap. 11.1).
+5. **Feilkatalogen** — de typiske fellene fra analysen §5 samlet, hver med
+   henvisning til kapitlet som forebygger den: glemt rotasjonsledd ($\tfrac12(1+c)mv^2$)
+   → 2.2; $a$ størst ved $t=0$ (luftmotstand) → 1.2; $N\neq mg$ på krum bane → 2.3;
+   glemt Steiner → 4.1; fortegn på dreieimpuls → 4.2; serie/parallell kondensator
+   vs. motstand → 7.1/7.2; $\tau=RC$ vs. $L/R$ → 7.2/9.2; høyrehåndsregel/feltretning
+   → 8.1; magnetarbeid ≠ 0 → 8.2; akselerér-før-baneradius → 8.2; glemt $N$/$N^2$ i
+   induktans → 9.1; dele på $N$ vs. $N-1$ → 0.2.
+6. **Formelarket i praksis** — kjerneverktøyene per tema med markering **må kunne
+   brukes/utledes aktivt** vs. **hentes fra formelark** (konstanter,
+   krumningsradius-formelen, treghetsmoment-tabellen, kondensator-/solenoide-/
+   induktansuttrykk, Faradays lov). Treningsråd: løs alltid oppgaver MED formelarket
+   ved siden av, slik eksamen er — boka trener *rask, feilfri bruk*, ikke pugg.
+7. **Hva du IKKE trenger** — eksplisitt: bølger, optikk, fluid/Bernoulli,
+   relativitet, kjernefysikk (0 treff, aldri pensum i den nåværende formen) og
+   numeriske Python-metoder (utfaset). Termofysikk (Del 10) kun hvis du øver på sett
+   før 2013.
+8. **Studieløp** — anbefalt progresjon (12-ukers og 3-ukers intensivvariant):
+   Del 0 → mekanikk (1 → 2 → 3 → 4 → 5) → EM (6 → 7 → 8 → 9) → MC-strategi (11.1
+   spres utover) → de tre øvingseksamenene (11.2–11.4) de siste ukene under fullt
+   tidspress (240 min); drillkapitlene brukes som repetisjon rett før eksamen.
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først:** `TextbookCourse`-oppføring for `tfy4104` med alle 37
+   kapitler + 9 prøvekapitler (id/number/title/description/estimatedMinutes/topics/
+   prerequisites) etter mønster `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-hoyskole.ts` (append); `sectionNames` fra
+   §2-tabellen (obligatorisk — ellers viser bokforsiden «Seksjon N»). Legg emnet i
+   `src/app/bok/trinn/hoyere/institusjoner.ts` under NTNU, navn «TFY4104 Fysikk».
+2. **Del 0** (0.1 + 0.2) — etablerer sjangernavnene M1–M13/E1–E16, todelingen,
+   frekvenstallene og MC-formen som resten av boka refererer til.
+3. **Mekanikk-kjeden Del 1 → 2 → 3 → 4 → 5** (faglig avhengighet: kinematikk/
+   luftmotstand → kraft/energi/rulling/krum bane → bevegelsesmengde → rotasjon →
+   svingninger). 2.3 (krum bane) bygger på 2.2 (rulling); 5.1 (hengslet stang)
+   bruker 4.1 (Steiner).
+4. **EM-kjeden Del 6 → 7 → 8 → 9** (elektrostatikk → kretser → magnetisme →
+   induksjon). 9.2 (LC/RLC) refererer 5.2 (dempet svingning) i klartekst — ingen
+   hard avhengighet, men flagg koblingen.
+5. **Del 10** (termofysikk) — selvstendig, kompakt, tydelig merket kjenne; kan
+   bygges når som helst.
+6. **Del 11 til slutt** — MC-strategien (11.1) og de tre øvingseksamenene
+   (11.2–11.4) gjenbruker hele boka; bygges av én agent som leser HELE skjelettet.
+   Sørg for at 11.2–11.4 til sammen dekker alle sjangre M1–M13/E1–E16.
+7. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert som
+   kapitlene ferdigstilles; prøvene (§4) legges som prøvekapitler per del
+   (`tfy4104-<del>-prove`, chapterNumber `<del>.P`) — endelig blokk-skjema fastsettes
+   i BYGGEKONTRAKT.md (fase 3).
+
+### Batching-forslag til byggebølgen (én agent per del, jf. produksjonsløype fase 4)
+- Agent A: Del 0 + Del 1 (+ prøve 1)
+- Agent B: Del 2 (+ prøve 2) — størst del (4 kap., begge signaturene); les hele delen samlet
+- Agent C: Del 3 + Del 4 (+ prøver 3, 4)
+- Agent D: Del 5 + Del 6 (+ prøver 5, 6) — leverer 5.2 som 9.2 refererer
+- Agent E: Del 7 (+ prøve 7)
+- Agent F: Del 8 (+ prøve 8)
+- Agent G: Del 9 (+ prøve 9) — les 5.2-kontrakten (LC/RLC-analogien, klartekst)
+- Agent H: Del 10 + Del 11 (les HELE skjelettet for øvingseksamenene)
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering:** hver kapittelfil parser (`json.load`); generer JSON via
+      `json.dump`, aldri råskriving (LaTeX-`\\`-fellen); `npm run build` grønn.
+- [ ] **LaTeX:** alle formler i `$...$`/`$$...$$`; ingen unicode-brøker; konsistente
+      symboler ($\mathbf{F}$, $\mathbf{E}$, $\mathbf{B}$, $\mathbf{L}$, $\mathbf{p}$,
+      $\mathbf{m}$, $\omega_0$, $\gamma$, $\varepsilon_0$, $\mu_0$, $I$ (treghets-
+      moment/strøm — hold adskilt per kontekst), $\lambda$, $\tau$, $\rho$
+      (krumning/resistivitet — hold adskilt), $c$ (rotasjonsfaktor)).
+- [ ] **Notasjonskonsistens (tekstsøk over alle tfy4104-filer):** vektor
+      (kraft/felt/dreieimpuls) aldri forvekslet med skalar (energi/potensial/
+      treghetsmoment); fortegn/retning eksplisitt på dreieimpuls og feltbidrag;
+      $\tau=RC$ (aldri $L/R$) i RC og $\tau=L/R$ i RL; $\gamma=b/2m$ i mekanikk;
+      rotasjonsledd $\tfrac12(1+c)mv^2$ konsekvent; **forbudt som satsingsstoff**
+      (kun i Del 0-avgrensningen og Del 10 som eksplisitt historisk kjenne):
+      termofysikk som kjernepensum, numeriske Python-metoder, og — helt utelatt —
+      bølger, optikk, fluid/Bernoulli, relativitet, kjernefysikk (0 treff i tekstsøk
+      utenfor Del 0-avgrensningen).
+- [ ] **Signatur-drill (TFY4104-egenart):** luftmotstand/eksponentielle fartsmodeller
+      (kap. 1.2, «$a$ størst i $t=0$») og rulling på krum bane med krumningsradius
+      (kap. 2.3) skal ha tydelig ekstra plass — dette er den viktigste kalibreringen
+      mot TFY4104. Statikk (4.3) og hysterese (8.3) er også høyere her enn i TFY4125.
+- [ ] **Rask vei til tall + avrundingsdisiplin:** HVERT teori-/drillkapittel har et
+      tydelig merket «Rask vei til tall (MC-oppskrift)»-avsnitt OG en
+      avrundings-/faktorfelle-`warning`; alle talleksempler beholder 3–4 siffer og
+      runder til slutt.
+- [ ] **Formelark-disiplin:** hvert delkapittels Symbol- og formelliste markerer
+      «står på formelarket» vs. «må kunne brukes/utledes aktivt»; ingen konstant-
+      verdier presenteres som puggestoff.
+- [ ] **Enhets- og sifferdisiplin:** alle løsningsforslag og eksempler har enhet på
+      hvert tallsvar og riktig antall gjeldende siffer — boka *modellerer* sensor-
+      kravet (tette alternativer).
+- [ ] **Kapittel-DNA:** hvert teorikapittel har Eksamensvinkel-`tip` (med frekvens/
+      vekt fra dette skjelettet), Forkunnskaper med kryssbok-lenker (KUN til kapitler
+      som finnes — de lenkede fysikk2-/r2-kapitlene i §3 gjenbrukes fra
+      TFY4125-skjelettet; **reverifiser mot metadataene FØR bygging**; **tfy4125,
+      fys1120 og fys1001 skal IKKE lenkes, kun refereres i klartekst**), `collapsible`
+      Symbol- og formelliste, 2–4 eksempler (siste på eksamensnivå), Typiske
+      feil-`warning`, 6–12 øvinger med `solution` + `hints` (stigende), repetisjons-
+      `collapsible`; drillkapitler har løsningsoppskrift + gjennomregnet MC-case +
+      12–15 oppgaver på eksamensnivå.
+- [ ] **MC-kalibrering av quiz:** quizspørsmålene er numeriske flervalgsspørsmål med
+      realistisk tette avledere (de vanlige regnefeilene som gale alternativer);
+      `options[0]` = riktig svar (runtime stokker).
+- [ ] **Quiz-sum ≥ 708 og flashcard-sum ≥ 568** per kvotetabellen i §4 (kontroll-
+      summér per del). Quiz bevisst høyt (direkte eksamenstrening).
+- [ ] **Prøver:** 4 per temadel 1–9 (36 stk, `tfy4104-<del>-prove`) — minst én per
+      del i MC-format + 3 øvingseksamener (11.2–11.4) som til sammen dekker sjangrene
+      M1–M13/E1–E16; hver øvingseksamen følger 40-spørsmålsmalen med todelingen
+      (1–20 mekanikk, 21–40 EM).
+- [ ] **Termofysikk-merking:** Del 10 åpner og lukker med tydelig ramme «historisk —
+      ikke gjeldende pensum, kun for eldre øvingssett før 2013»; ingen andre kapitler
+      behandler termofysikk som kjernepensum.
+- [ ] **Opphavsrett:** ALLE oppgaver nyskrevne — egne tall, kontekster og
+      formuleringer; ingen tekst fra reelle sett/løsningsforslag; skjelettets
+      mønstereksempler er selv omskrivninger og skal varieres videre, ikke kopieres
+      ordrett inn som oppgaver.
+- [ ] **Verifiser rendering:** prod-server + curl mot kapittel- og narrativ-ruter
+      (200 + kapittelspesifikk streng), jf. `getChapterMeta`-lærdommen. ALDRI meld
+      ferdig uten dette.
