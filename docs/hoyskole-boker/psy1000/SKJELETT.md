@@ -1735,3 +1735,249 @@ Sjanger-, feildrill- og modellbesvarelseskapitlene (Del 11) har egne oppsett —
   GAS (T1), (6) den nye eksperimentalpsykologien Wundt/Ebbinghaus (T5), (7) trekk vs. Freud
   — drøft (T3). Full momentliste-fasit + Sensorblikket med A/B/C/D/E-terskelbeskrivelse.
 - **Kvote:** 6 quiz / 2 flashcards.
+
+---
+
+## Kvotesammendrag (AUTORITATIV for alle senere faser)
+
+| Del | Kapitler | Quiz | Flashcards | Prøver |
+|---|---|---|---|---|
+| 0 | 2 | 22 | 22 | 0 (dekkes av øvingseksamenene) |
+| 1 | 8 | 96 | 130 | 4 |
+| 2 | 2 | 26 | 34 | 4 |
+| 3 | 4 | 50 | 68 | 4 |
+| 4 | 3 | 36 | 48 | 4 |
+| 5 | 4 | 48 | 66 | 4 |
+| 6 | 4 | 52 | 72 | 4 |
+| 7 | 4 | 46 | 64 | 4 |
+| 8 | 4 | 46 | 64 | 4 |
+| 9 | 5 | 58 | 80 | 4 |
+| 10 | 5 | 64 | 92 | 4 |
+| 11 | 11 | 92 | 56 | 0 (= 3 øvingseksamener) |
+| **Sum** | **56** | **636 ✓ (≥500)** | **796 ✓ (sikt 650–800)** | **40 + 3 øvingseksamener** |
+
+Summeringskontroll per del (quiz / flashcards):
+- Del 0: 10+12=22 / 10+12=22
+- Del 1: 12+12+10+14+12+12+10+14=96 / 16+16+14+18+16+16+14+20=130
+- Del 2: 12+14=26 / 16+18=34
+- Del 3: 10+14+14+12=50 / 14+18+20+16=68
+- Del 4: 12+12+12=36 / 16+16+16=48
+- Del 5: 12+10+14+12=48 / 16+14+20+16=66
+- Del 6: 14+12+10+16=52 / 20+16+14+22=72
+- Del 7: 12+10+14+10=46 / 16+14+20+14=64
+- Del 8: 14+10+10+12=46 / 20+14+14+16=64
+- Del 9: 10+12+12+14+10=58 / 14+16+16+20+14=80
+- Del 10: 10+14+14+12+14=64 / 14+20+20+18+20=92
+- Del 11: 10+10+12+12+12+6+6+6+6+6+6=92 / 6+6+10+10+6+4+4+4+2+2+2=56
+- **Totalt: 636 quiz / 796 flashcards.**
+
+**Flashcard-tetthet (begrunnelse):** PSY1000 er et **faktarikt bredde- og
+reproduksjonsfag** der grunnvalutaen er presis, dekkende gjengivelse av navngitt
+lærebokstoff (begreper, teoretikere, klassiske studier, momentlister). Per
+audit-lærdommen (≥500 er GULV) er flashcards derfor siktet HØYT (796, øvre del av
+650–800-båndet): faget bærer mange begrep↔avsender-koblinger, faste momentlister og
+studie-galleri som egner seg for kort. Historiedelen (Del 1) og klinikk-delen (Del
+10) har høyest flashcard-tetthet fordi de er mest begreps-/navnetunge.
+
+**Flashcard-profil:** hovedvekt på **begrep↔teoretiker↔verk-koblinger** (Wundt↔første
+laboratorium↔1879; Piaget↔preoperasjonelt stadium↔konservering; Erikson↔generativitet
+vs. stagnasjon; McCrae/Costa↔Big Five↔OCEAN; Ekman↔basisemosjoner↔visningsregler;
+Selye↔GAS↔alarm/motstand/utmattelse; Kahneman & Tversky↔representativitetsheuristikk↔
+Linda; Beck↔kognitiv triade; Melzack–Wall↔portkontrollteori) + **momentliste-kort**
+(dybde-cues; fargesynsteoriene; Kohlbergs tre nivåer; angsttypene) + **studie↔funn↔
+generalisering**-kort. **Quiz-profil:** flervalg med nabobegrep-distraktorer (US/CS,
+positiv/negativ forsterkning, staver/tapper, trikromatisk/motfarge, monokular/binokular,
+James–Lange/Cannon–Bard/Schachter–Singer, assimilasjon/akkomodasjon, positive/negative
+symptomer, antipsykotika/antidepressiva, representativitet/tilgjengelighet) +
+historisk «hvem-hører-til-hvilken-retning»-koblinger (F6-vaksine) + «hva-mangler-i-
+momentlista»-spørsmål (F1-vaksine).
+
+---
+
+## 4. Prøver
+
+Fire prøver per temadel (Del 1–10 = 40 prøver). Hver prøve speiler eksamensformatet i
+miniatyr: en blanding av begreps-/kontrollspørsmål (flervalg, med fasit) og
+kortessay-oppgaver (T1/T3 med momentliste-fasit). Omfang 25–45 min. Alle oppgaver
+NYSKREVNE. Prøvekapittel-id `psy1000-<del>-prove`, chapterNumber `<del>.P` (jf.
+BYGGEKONTRAKT). Del 0 og Del 11 har ingen egen prøve (Del 11s tre øvingseksamener
+dekker helheten).
+
+**Prøve-kvote Del 1:** 4 prøver: (1) *Retningskartet* — 10 flervalg «hvem hører til
+hvilken retning» (Wundt/Titchener/James/Watson/Tolman/Skinner) + tidslinje-rekkefølge
+(F6-vaksine). (2) *Den kognitive revolusjon* — kortessay (T5/T3) med kontinuitetsnyansen
+som obligatorisk moment (F10). (3) *Darwin og dyrestudiene* — kortessay (T5) der begge
+temaers momentlister trenes. (4) *Blandet historie* — assosiasjon + ny eksperimentalpsyk.
++ neobehaviorisme, momentliste-drill.
+
+**Prøve-kvote Del 2:** 4 prøver: (1) *Nervesystemet* — 8 flervalg (sympatikus/parasympatikus,
+nevron) + «beskriv det autonome nervesystemet». (2) *Hjernen* — hjernedeler↔funksjon-
+kobling + de fire lappene. (3) *Metoder* — kortessay «metoder for å knytte hjernestruktur
+til funksjon» (flere metoder kontrastert). (4) *Blandet Del 2* — arvelighet (tvilling/
+adopsjon) + lateralisering.
+
+**Prøve-kvote Del 3:** 4 prøver: (1) *Dybdepersepsjon* — «beskriv hvordan vi skaper
+dybdeinntrykk» (full cue-momentliste + illusjonsbonus). (2) *Fargesyn* — begge teorier +
+totrinnsmodellen. (3) *Hørsel* — sted/frekvensteori + ørets vei. (4) *Psykofysikk og
+smerte* — terskler/Webers lov + portkontrollteorien.
+
+**Prøve-kvote Del 4:** 4 prøver: (1) *Klassisk betinging* — US/UR/CS/CR-kobling (F6) +
+ekstinksjon/generalisering. (2) *Operant betinging* — forsterkning/straff-matrise
+(negativ forsterkning ≠ straff) + skjemaene. (3) *Observasjonslæring* — Bandura +
+delprosessene. (4) *Blandet Del 4* — atferdsterapiens læringsprinsipper.
+
+**Prøve-kvote Del 5:** 4 prøver: (1) *Hukommelse* — systemene + fysiologisk grunnlag.
+(2) *Heuristikker og Linda* — nyskrevet vignett (T4): funn → konjunksjonsfeil →
+representativitet → generalisering (F7-vaksine). (3) *Intelligens* — g vs. flere evner +
+målingshistorie. (4) *Tenkning og språk* — problemløsningsfeil + Whorf sterk/svak.
+
+**Prøve-kvote Del 6:** 4 prøver: (1) *Piaget* — stadiene + preoperasjonelt i detalj +
+kritikk. (2) *Voksenutvikling* — «beskriv sosial-emosjonell utvikling hos voksne og eldre»
+(alle bolker; F1-vaksine). (3) *Moralutvikling* — Kohlberg + Gilligan-kritikk. (4)
+*Blandet Del 6* — tilknytning + spedbarnsmetoder.
+
+**Prøve-kvote Del 7:** 4 prøver: (1) *Freud* — id/ego/superego + forsvarsmekanismer +
+kritikk. (2) *Trekk/Big Five* — leksikalsk/faktoranalyse-skillet + de fem trekkene
+(F1/F2-vaksine). (3) *Humanistisk* — Rogers/selvaktualisering + kritikken (bonusen).
+(4) *Personlighetsforstyrrelser* — definisjonskriterier + antisosial.
+
+**Prøve-kvote Del 8:** 4 prøver: (1) *Konformitet og lydighet* — FAKTORENE (ikke
+prosedyren; F4-vaksine) + normativ/informasjonell. (2) *Krysskulturelle studier* —
+universalitet/relativitet + oversettelsesproblemet (bonusen). (3) *Attribusjon og
+dissonans* — fundamental attribusjonsfeil + Festinger-mekanismen. (4) *Fordommer og
+gruppe* — oppstår/opprettholdes/reduseres + kontakthypotesens betingelser.
+
+**Prøve-kvote Del 9:** 4 prøver: (1) *Emosjonsteorier* — James–Lange/Cannon–Bard/
+Schachter–Singer (F6) + kognisjon–emosjon-drøfting. (2) *Universelle emosjoner* — Ekman
++ visningsregler (balanse universalitet/kultur). (3) *Stress/GAS* — Selyes faser +
+HPA/sympatikus + helseatferdsmodell. (4) *Motivasjon og bevissthet* — hunger indre/ytre
++ søvnens funksjon/drømmeteorier.
+
+**Prøve-kvote Del 10:** 4 prøver: (1) *Schizofreni* — positive/negative symptomer (F6) +
+diatese-stress. (2) *Angstlidelser* — typer + forklaringsmodeller + eksponering. (3)
+*Terapiene* — kognitiv terapi (Ellis/Beck) kontrastert med andre former. (4) *Biologisk
+behandling* — de tre medikamentgruppene + ECT/psykokirurgi + kritisk vurdering (bonusen).
+
+### Komplette øvingseksamener (3 — kapitlene 11.9–11.11)
+
+Tre nyskrevne «6 av 7»-sett i gjeldende format (6 t, ingen hjelpemidler, 7 spørsmål,
+besvar 6), med ulik men typisk temaprofil (~1/3 historie hver), full momentliste-fasit
+og A/E-nivåbeskrivelse per spørsmål (jf. §3 Del 11). Begrunnelse: øvingssettene er
+studentens eneste helhetlige formatspeil og trener tidsdisiplin + bredde (F9) — og
+siden arkivets spørsmål resirkuleres, er de reell eksamenstrening.
+
+---
+
+## 5. Studieguide-disposisjon
+
+1. **Slik er eksamen** — gjeldende form (6 t skoleeksamen, ingen hjelpemidler, 7
+   spørsmål/besvar 6), «6 av 10»→«6 av 7»-skiftet, temafrekvens-tabellen, gjenbruks-
+   mønstrene, nedlagt-statusen (verifiser mot dagens innføringsemne) — fra kap. 0.1.
+2. **Sjanger- og momentlistehåndverket** — T1–T5, momentliste-metoden, tilleggspoeng-
+   laget, nivåkjennetegn A/C/E (fra kap. 0.2/11.1–11.5).
+3. **Historie-retningskartet** — tidslinjen assosiasjonisme → psykofysikk/Wundt →
+   strukturalisme/funksjonalisme → behaviorisme → neobehaviorisme → kognitiv revolusjon
+   → humanisme, med kontinuitets-/bruddmarkører og «hvem-hører-til-hvor»-vaksinen (F6/F10).
+4. **Teoretiker- og studiegalleriet** — én kompakt oppføring per kjerneteoretiker/studie
+   (kjerneidé + tekst/verk + frekvens + typisk oppgaveformulering + farligste feil):
+   Wundt, James, Watson, Skinner, Tolman, Darwin, Piaget, Kohlberg, Erikson, Bandura,
+   Ekman, Selye, Kahneman/Tversky, Cattell/Eysenck/McCrae, Freud, Rogers, Asch, Milgram,
+   Festinger, Ellis, Beck.
+5. **Momentliste-samlingen** — de faste sjekklistene som gjentas (dybde-cues,
+   fargesynsteoriene, Erikson+Super, Big Five leksikalsk/faktoranalyse, Kohlbergs nivåer,
+   GAS-fasene, angsttypene, biologisk behandling) — huskeliste med fullstendighet
+   understreket (F1-vaksine).
+6. **Begrepsbank med avsender** — kjernebegrepene alfabetisk, hver med én-setnings
+   definisjon + teoretiker + verk (flashcard-speilet i prosaform).
+7. **Tilleggspoeng-formelen** — de fire faste bonustypene (kritikk, kontrast, illusjon/
+   anvendelse, overordnet prinsipp) med eksempelfraser per kjernetema.
+8. **Feilvaksinen** — de ti feilene (F1–F10) som énlinjers varsellamper, med F1
+   (ufullstendig momentdekning), F3 (droppe bonuslaget), F6/F10 (historieforvekslinger)
+   og F7 (Linda) uthevet.
+9. **Karakterkalibrering** — nivåbildet (A/B = full momentliste + tilleggspoeng +
+   prinsipper; C = korrekt men tørr gjengivelse; D/E = ufullstendig/pensumløs; F = to
+   eller færre reelt besvarte) i tabellform.
+10. **Ukeplan** — 6-ukers og 2-ukers lesningsløp mot eksamen med prøve-innplassering
+    (temadelprøver underveis; øvingseksamen A/B/C de siste to ukene). Historiedelen
+    prioriteres tidlig (bærebjelken).
+
+---
+
+## 6. Byggerekkefølge og verifikasjon
+
+### Rekkefølge for forfatter-agenten (Opus)
+
+1. **Metadata først:** `TextbookCourse`-oppføring (mønster `COURSE_BI_OKONOMI` i
+   `src/lib/data/textbook-courses-matte.ts`, skrives til
+   `textbook-courses-hoyskole.ts`): id `psy1000`, title, `level: 'Høyskole'`, alle 56
+   kapitler med id/number/title/description/estimatedMinutes/topics/competenceGoals/
+   prerequisites fra dette skjelettet, `sectionNames` fra §2-tabellen.
+2. **Del 0** først (etablerer sjangrene T1–T5, momentliste-metoden, tilleggspoeng-
+   begrepet, sensorkravene og mantraene «forankring uten avsender er C-stoff» /
+   «gjengivelse uten tilleggspoeng lar A-poeng ligge» som alle senere kapitler refererer).
+3. **Del 1 (historie) → 2 → 3 → … → 10** i rekkefølge. Prerequisites peker bakover
+   (f.eks. 3.1 bygger på historie-psykofysikken 1.2; 4.1 på behaviorismen 1.5; 5.4 på
+   Darwin 1.4; 7.3 på 5.4; 9.2/9.4 på 2.1; 10.2 på 10.1). **Historiedelen (Del 1) er
+   bærebjelken — bygg den grundig og tidlig.**
+4. **Del 11** til slutt (sjanger-, feildrill- og modellbesvarelseskapitlene + de tre
+   øvingseksamenene gjenbruker momentlister, studie-galleriet og retningskartet fra
+   temadelene).
+5. **Prøver** (`psy1000-<del>-prove`) etter at delens kapitler finnes.
+6. **Narrativ-versjoner** (`<id>-narrativ.json` per kapittel, jf. `/narrativ`) og
+   quiz-registrering til slutt.
+
+Per temakapittel gjelder blokk-rekkefølgen i §2 «Kapittel-DNA» (tip Eksamensvinkel →
+text Forkunnskaper + collapsible Begreps- og navneliste → text Temaet i fagets landskap
+→ definition Kjernefakta og begreper (flashcard-kilden — toppnivå med title!) →
+theorem/text Sensors momentliste → example Modellbesvarelse C→A → tip Tilleggspoeng →
+warning Typiske feil → exercise ×4–8 blandet sjanger → collapsible Pensumkart og
+repetisjon). Eksamensvinkel- og Typiske feil-blokkene fylles med belegget og feilkodene
+fra dette skjelettet — forfatteren skal IKKE finne på frekvenstall.
+
+### Verifikasjonssjekkliste (kjøres FØR ferdigmelding)
+
+- [ ] **JSON-validering:** alle nye `src/lib/data/chapters/psy1000-*.json` parser med
+      `json.load` (generer via `json.dump`). `npm run build` grønn — vis output.
+- [ ] **Metadata-konsistens:** alle 56 kapittel-id-er har eksisterende content-fil;
+      `number` er del-basert («6.4», ALDRI lineær); prosareferanser bruker samme form
+      («kap. 6.4»); prerequisites peker på eksisterende id-er (og bakover); `sectionNames`
+      satt; narrativ-id-er registrert slik at toggle rendrer (verifiser med prod-server +
+      curl at narrativ-ruter gir 200).
+- [ ] **Faglig presisjon / `(verifiser)`-markeringer:** grep `-i verifiser` — alle
+      markerte detaljer (hypothalamus-kjerner, nevrotransmitter-eksempel, DSM-klynger,
+      Kübler-Ross-status, Cattell flytende/krystallisert, System 1/2-omfang, Rosenhan,
+      Chomsky-omfang i pensum) fagfellesjekkes i fase 6. INGEN oppdiktede teoretiker-
+      attribusjoner eller studier.
+- [ ] **Pensumforankring EKTE:** kun teoretikere/verk fra dette skjelettets
+      faktakontrakter (Wundt, Fechner, Ebbinghaus, Titchener, James, Darwin, Watson,
+      Pavlov, Thorndike, Tolman, Hull, Skinner, Köhler/Gestalt, Piaget, Kohlberg,
+      Gilligan, Bowlby, Ainsworth, Erikson, Super, Freud, Rogers, Maslow, Cattell,
+      Eysenck, Costa & McCrae, Asch, Milgram, Festinger, Ekman, Selye, Lazarus, Kahneman
+      & Tversky, Beck, Ellis, Seligman, Melzack–Wall, Spearman/Thurstone/Gardner/Binet).
+      Forankres i Holt (systematisk fag) / Teigen 2004 / Benjamin 2007 (historie). ALDRI
+      oppdiktede referanser; ALDRI sidetall utover de attesterte (Holt s. 189ff, 392,
+      559–566, 644–651, 805–811; Teigen s. 204–215, 302, kap. 4/6/12; Benjamin s.
+      144–153) — alle beholder ⚠-forbehold (utgaveavhengig).
+- [ ] **Nedlagt-status håndtert:** Del 0.1 merker at emnet er nedlagt (siste eksamen
+      H2018) og anbefaler verifisering av lærebok-/pensumkobling mot gjeldende UiO-
+      innføringsemne; profilen «Innføring i generell psykologi» beholdes; ingen
+      påstander om at settet fortsatt gis.
+- [ ] **Kvotesum:** quiz ≥636 og flashcards ≥796 fordelt per kapittel som angitt (hardt
+      minimum ≥500/≥500; flashcards siktet HØYT fordi faget er faktarikt); 4 prøver per
+      del for Del 1–10 (40) + 3 øvingseksamener; fasit-svaralternativer rebalansert (jevn
+      a/b/c/d — options[0] alltid riktig i staging, runtime stokker).
+- [ ] **Momentliste- og tilleggspoeng-laget operasjonalisert:** hvert temakapittel har
+      BÅDE en fullstendig «Sensors momentliste»-blokk OG et markert «Tilleggspoeng»-felt
+      OG en modellbesvarelse i C- og A-versjon (forskjellen = tilleggspoenglaget/
+      prinsippforståelsen). Historie-bredden (Del 1, ~1/3) er bygd ut fullt.
+- [ ] **Opphavsrett:** alle oppgaver, vignetter (Linda-lignende), case og modellbesvarelser
+      er NYSKREVNE — ingen formuleringer fra UiO-oppgavesett eller sensorveiledninger,
+      ingen ordrette Holt/Teigen/Benjamin-sitater (referer og parafraser). Teoretikeres
+      posisjoner tilskrives korrekt; direkte sitater unngås.
+- [ ] **Leserkrav:** Forkunnskaper-blokk med lenker + collapsible «Begreps- og navneliste»
+      først i hvert kapittel (lenk kun til eksisterende kapitler); Eksamensvinkel-`tip` og
+      Typiske feil-`warning` i hvert kapittel; hver oppgave sjangerforankret (T1–T5);
+      «bør kjenne til»-stoff (søvn/drøm/hypnose/placebo, Lewin, fakultetspsykologi,
+      prososial, korrelasjonskoeffisient) plassert ETTER kjernestoffet og eksplisitt
+      merket; «Begreps- og navneliste»-kravet erstatter symbol-/formelliste-kravet
+      (faget er nesten uten formler — README-unntaket).
