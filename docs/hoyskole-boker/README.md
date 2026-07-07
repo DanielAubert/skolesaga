@@ -118,6 +118,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
 | JUS1211 Privatrett II (UiO) | jus | skjelett |
 | MAT1100 Kalkulus (UiO) | regnefag | skjelett |
+| MAT1120 Lineær algebra (UiO) | regnefag | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
