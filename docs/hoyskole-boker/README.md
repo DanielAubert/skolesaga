@@ -123,6 +123,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON4310 Macroeconomic Theory (UiO) | regnefag/essay-hybrid | skjelett |
 | EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
 | FIL1001 Metafysikk og bevissthetsfilosofi (UiO) | drøfting | skjelett |
+| FIL1003 Innføring i etikk (UiO) | drøfting | skjelett |
 | FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
 | FYS1100 Mekanikk og modellering (UiO) | regnefag | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
