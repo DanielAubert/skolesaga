@@ -119,6 +119,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
+| KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | skjelett |
 | ECON3150 Econometrics (UiO) | regnefag | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
 | MAT111 Grunnkurs matematikk I (UiB) | regnefag | skjelett |
