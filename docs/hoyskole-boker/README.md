@@ -118,7 +118,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | ECON3150 Econometrics (UiO) | regnefag | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
-| MAT111 Grunnkurs matematikk I (UiB) | regnefag | analyse underveis |
+| MAT111 Grunnkurs matematikk I (UiB) | regnefag | skjelett |
 | STK1100 Sannsynlighet (UiO) | regnefag | i kø |
 | IN1900 Python-programmering (UiO) | regnefag | i kø |
 | TDT4120 Algoritmer (NTNU) | regnefag | i kø |
