@@ -569,3 +569,1169 @@ Sjanger-, feildrill- og modellbesvarelseskapitlene (Del 11) har egne oppsett —
   differensierende nyansen); F6 (blande inspirasjonskildene/aktørene); F1 (metaforen
   uten inspirasjonskildene, eller omvendt).
 - **Kvote:** 14 quiz / 20 flashcards.
+
+### Del 2 — Biologisk psykologi og nevrovitenskap
+
+#### Kapittel 2.1: Nervesystemets byggesteiner og det autonome nervesystemet
+**id:** `psy1000-2-1` · **number:** 2.1 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Nevronet og synapsen, sentralnervesystem vs. perifert, og det
+  autonome nervesystemet (sympatikus/parasympatikus) — det biologiske grunnlaget for
+  stress, emosjon og atferd.
+- **Eksamensbelegg:** Det autonome nervesystemet 1 sett (V2012). Grunnlag for stress
+  (9.4), emosjon (9.2) og biologisk behandling (10.5). Sjangre: T1, T2. Prioritet:
+  kunne (§7 pkt. 18 — grunnfag; autonome NS er direkte spurt).
+- **Faktakontrakt:** Holt kap. 4 ⚠: **nevron** (dendritter, cellekropp, akson,
+  synapse); **synapse** og nevrotransmitter (signaloverføring kort); sentralnervesystem
+  (hjerne + ryggmarg) vs. perifert nervesystem; **det autonome nervesystemet** delt i
+  **sympatikus** («fight or flight» — mobilisering) og **parasympatikus** («rest and
+  digest» — restitusjon); det somatiske vs. autonome.
+- **Sensors momentliste:** (1) nevronets deler og signaloverføringens grunnprinsipp;
+  (2) inndelingen sentralt/perifert og somatisk/autonomt; (3) sympatikus vs.
+  parasympatikus med typiske effekter og motsatt virkning; (4) autonom styring av
+  indre organer (kobling til stressresponsen 9.4).
+- **Tilleggspoeng:** koble sympatikusaktivering til Selyes alarmreaksjon (9.4) og til
+  emosjonsteoriene (9.2 — James–Lange bygger på kroppslig aktivering); nevne
+  nevrotransmitteres rolle i psykofarmaka (10.5).
+- **Typiske feil:** F6 (sympatikus/parasympatikus byttet; afferent/efferent); F1
+  (nevronet uten den funksjonelle koblingen til atferd).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 2.2: Hjernen — struktur, lateralisering og lokaliseringsmetoder
+**id:** `psy1000-2-2` · **number:** 2.2 · **estimatedMinutes:** 60 · **prerequisites:** `psy1000-2-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Hjernens hoveddeler og de fire lappene, lateralisering/split-brain,
+  metodene for å knytte struktur til funksjon, og arvelighet av psykologiske
+  egenskaper.
+- **Eksamensbelegg:** Hjernen 3 sett (H2010 lateralisering, H2011 struktur,
+  H2018-utsatt metoder — attestert kap. 4/8); arvelighet 1 (V2013). Sjangre: T1, T2,
+  T3. Prioritet: **perfekt** (metoder-spørsmålet var på det aller siste settet).
+- **Faktakontrakt:** Holt kap. 4 ⚠: **hjernens hoveddeler** (hjernestamme, lillehjerne/
+  cerebellum, det limbiske system, hjernebarken); **de fire lappene** (frontal-,
+  parietal-, temporal-, oksipitallappen) med hovedfunksjoner; **lateralisering** og
+  **split-brain**-studiene (Sperry — venstre/høyre hemisfære, språk vs. romlig);
+  **metoder for å knytte struktur til funksjon**: lesjons-/kliniske studier (Broca,
+  Phineas Gage-typen), **EEG/ERP**, hjerneavbildning (**fMRI**, PET); **arvelighet**
+  (tvilling- og adopsjonsstudier, arvbarhetsbegrepet).
+- **Sensors momentliste:** (1) hjernens hoveddeler og de fire lappenes funksjoner;
+  (2) lateralisering med split-brain-belegg; (3) de ulike lokaliseringsmetodene med
+  hva hver *kan* og *ikke kan* vise (lesjon = nødvendighet, avbildning = korrelasjon);
+  (4) tvilling-/adopsjonsdesign for arvelighet. Metode-spørsmålet krever *flere*
+  metoder kontrastert, ikke bare én.
+- **Tilleggspoeng:** vurdere metodenes styrker/svakheter mot hverandre (korrelasjon vs.
+  kausalitet i avbildning; generaliserbarhet fra lesjoner); koble arvbarhet til
+  intelligensdebatten (5.4) og til diatese-stress i schizofreni (10.2); peke på at
+  «arvbarhet» gjelder populasjon, ikke individ.
+- **Typiske feil:** F1 (én metode når «metoder» spørres); F6 (blande lappene/
+  hjernedelene; venstre/høyre hemisfærefunksjon); F5 (arvbarhet misforstått som
+  individuell skjebne).
+- **Kvote:** 14 quiz / 18 flashcards.
+
+### Del 3 — Sansing og persepsjon
+
+> Persepsjonstrioen (dybde, fargesyn, hørsel) + psykofysikk gir *billige, forutsigbare
+> poeng*: sensorveiledningene har faste, gjenbrukte momentlister (dybde 4 sett med
+> IDENTISK liste). Nøkkelen er fullstendig cue-/teori-oppregning + illusjons-/anvendelses-
+> bonusen. Gestalt-persepsjon (1.7) og psykofysikk-historien (1.2) forutsettes.
+
+#### Kapittel 3.1: Psykofysikk, terskler og sansning
+**id:** `psy1000-3-1` · **number:** 3.1 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-1-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Absolutt og differensiell terskel, Webers lov, signaldeteksjon og
+  transduksjon — hvordan fysisk stimulus blir psykologisk opplevelse.
+- **Eksamensbelegg:** Psykofysikk/terskler 3 sett (V2010, V2012, V2017). Sjangre: T2,
+  T1. Prioritet: **perfekt** (§7 pkt. 4 — persepsjonstrioens grunnlag).
+- **Faktakontrakt:** Holt ⚠: **psykofysikk** (studiet av forholdet fysisk stimulus ↔
+  psykologisk opplevelse); **absolutt terskel** (minste påvisbare stimulus); **differensiell
+  terskel / JND** (minste merkbare forskjell); **Webers lov** (JND proporsjonal med
+  utgangsstimulus); signaldeteksjonsteori (sensitivitet vs. responskriterium, kort);
+  **transduksjon** (fysisk energi → nerveimpuls); sensorisk adaptasjon.
+- **Sensors momentliste:** (1) hva psykofysikk er og hva den måler; (2) absolutt vs.
+  differensiell terskel med eksempler; (3) Webers lov og hva den innebærer; (4)
+  transduksjon som fellesprinsipp for alle sanser; (5) (bonus) signaldeteksjon som
+  forbedring av det klassiske terskelbegrepet.
+- **Tilleggspoeng:** koble til psykofysikkens historiske rolle (Weber/Fechner, 1.2);
+  vise Webers lov med talleksempel; peke på signaldeteksjonsteoriens fremskritt (skille
+  sansing fra beslutning).
+- **Typiske feil:** F6 (absolutt/differensiell terskel byttet); F2 (Webers lov som
+  formel uten forståelse); F1 (terskler uten transduksjon).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 3.2: Synet og teorier om fargesyn
+**id:** `psy1000-3-2` · **number:** 3.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-3-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Øyets grovstruktur, staver og tapper, og de to fargesynsteoriene
+  (trikromatisk vs. motfarge) — en fast gjenganger med forutsigbar momentliste.
+- **Eksamensbelegg:** Fargesyn 4 sett (V2010, H2013, H2015, H2017 — gjenganger).
+  Sjangre: T1, T2, T3. Prioritet: **perfekt** (§7 pkt. 4).
+- **Faktakontrakt:** Holt ⚠: øyets vei til retina (kort); **staver** (lys/mørke,
+  perifert, skotopisk) vs. **tapper** (farge, fovea, fotopisk); **trikromatisk teori**
+  (Young–Helmholtz — tre tappetyper følsomme for kort/middels/lang bølgelengde);
+  **motfargeteori** (Hering — rød–grønn, blå–gul, svart–hvit motpar; forklarer
+  etterbilder og fargekonstans); **totrinnsmodellen** (begge teorier gjelder på ulike
+  nivåer — reseptor vs. gangliecelle/CNS); fargeblindhet.
+- **Sensors momentliste:** (1) staver vs. tapper og deres rolle; (2) trikromatisk
+  teori med belegg; (3) motfargeteori med belegg (etterbilder); (4) at teoriene IKKE er
+  konkurrenter men gjelder ulike prosesseringsnivåer (totrinn); (5) fargeblindhet som
+  bevis.
+- **Tilleggspoeng:** forklare etterbilder og fargekonstans som motfargeteoriens
+  styrke; vise hvordan totrinnsmodellen løser den historiske striden; koble til
+  fargeblindhets-typer.
+- **Typiske feil:** F1 (bare én teori — sensor vil ha *begge* + integrasjonen); F6
+  (Young–Helmholtz vs. Hering byttet; staver/tapper); F2 (teorinavnene uten
+  mekanismene).
+- **Kvote:** 14 quiz / 18 flashcards.
+
+#### Kapittel 3.3: Dybdepersepsjon — monokulare og binokulare cues
+**id:** `psy1000-3-3` · **number:** 3.3 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-3-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Hvordan vi skaper inntrykk av dybde i et todimensjonalt bilde —
+  emnets mest forutsigbare momentliste-oppgave (4 sett med IDENTISK sensorliste).
+- **Eksamensbelegg:** Dybdepersepsjon 4 sett (H2014, V2018, H2018, H2018-utsatt —
+  gjenganger med *identisk* sensormomentliste, attestert s. 189ff). Sjangre: T1.
+  Prioritet: **perfekt** (§7 pkt. 4 — den reneste momentliste-oppgaven i emnet).
+- **Faktakontrakt:** Holt s. 189ff ⚠: **monokulare cues** (kreves fullstendig oppregnet)
+  — lineært perspektiv, interposisjon/overlapping, relativ størrelse, teksturgradient,
+  lys og skygge, høyde i synsfeltet, bevegelsesparallakse; **binokulare cues** —
+  **binokulær disparitet** (netthinnedisparitet) og **konvergens**; skillet monokular/
+  binokular er selve kravet; persepsjonskonstans (størrelse); illusjoner (Ames-rommet).
+- **Sensors momentliste:** (1) SKILLE monokulare fra binokulare cues (grunnkravet);
+  (2) regne opp og forklare hver monokular cue (de sju over); (3) begge binokulare cues
+  (disparitet, konvergens); (4) hvordan bilde-/kunst-eksempler utnytter monokulare cues.
+  Å beskrive bare monokulare (glemme binokulare) er den typiske halveringen.
+- **Tilleggspoeng:** trekke inn **optiske illusjoner** (Ames-rommet), astronautstudier
+  eller analyse av flyulykker som utnyttet dybde-cues — nøyaktig det veiledningene
+  eksplisitt gir tilleggspoeng for; koble til persepsjonskonstans.
+- **Typiske feil:** F1 (bare monokulare cues — glemme binokulare; ufullstendig
+  cue-liste); F3 (droppe illusjons-/anvendelsesbonusen); F6 (disparitet vs. konvergens
+  blandet).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 3.4: Hørsel og smertepersepsjon
+**id:** `psy1000-3-4` · **number:** 3.4 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-3-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Ørets oppbygning og de to hørselsteoriene (sted vs. frekvens), pluss
+  smertepersepsjonens portkontrollteori og kulturelle variasjon.
+- **Eksamensbelegg:** Hørselssansen 3 sett (V2014, V2015, H2016 — gjenganger);
+  smertepersepsjon 2 sett (H2011, V2012). Sjangre: T1, T2, T3. Prioritet: **perfekt**
+  (hørsel) / kunne (smerte, §7 pkt. 4/17).
+- **Faktakontrakt:** Holt ⚠: **lyd** (frekvens→tonehøyde, amplitude→lydstyrke); ørets
+  tre deler (ytre, mellomøre med øreknoklene, indre med **cochlea/sneglehuset**);
+  transduksjon i cochlea (basilarmembranen, hårceller); **stedteori** (frekvens kodes
+  ved sted på basilarmembranen — høye toner) vs. **frekvensteori/temporal teori** (lave
+  toner, fyringsrate), volley-prinsippet; **smerte** — **portkontrollteorien**
+  (Melzack–Wall: «port» i ryggmargen som modulerer smertesignaler), kulturell og
+  individuell variasjon, psykologiske faktorer (oppmerksomhet, forventning, placebo →
+  9.5).
+- **Sensors momentliste:** (1) hvordan lyd omdannes til nerveimpuls (ørets vei →
+  cochlea → transduksjon); (2) sted- vs. frekvensteori og hva hver forklarer; (3) at
+  teoriene er komplementære (ulikt frekvensområde); (4) smerte: portkontrollteorien +
+  at smerte moduleres av psykologiske/kulturelle faktorer (ikke ren stimulus-respons).
+- **Tilleggspoeng:** vise hvorfor begge hørselsteoriene trengs (frekvensområdene);
+  koble smertens kulturelle variasjon til krysskulturell psykologi (8.4) og placebo
+  (9.5); portteoriens forklaring av at avledning demper smerte.
+- **Typiske feil:** F1 (bare én hørselsteori); F6 (sted-/frekvensteori byttet; cochlea/
+  buegangene); F5 (smerte som ren fysiologi uten den psykologiske modulasjonen).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+### Del 4 — Læring og betinging
+
+> Læringsmekanikken (den historiske behaviorisme-/neobehaviorisme-konteksten ligger i
+> Del 1.5–1.6). Vekten her er på *mekanismene* og *anvendelsene* (atferdsterapi → Del 10).
+
+#### Kapittel 4.1: Klassisk betinging — Pavlov
+**id:** `psy1000-4-1` · **number:** 4.1 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-1-5`
+
+- **Kapitteltype:** tema.
+- **Description:** Pavlovs klassiske betinging med hele begrepsapparatet (US/UR/CS/CR),
+  ekstinksjon, generalisering og diskriminering — læringens grunnmodell.
+- **Eksamensbelegg:** Inngår i lærings-/atferdsterapitemaene (V2013, H2015) og som
+  historisk grunnpilar (1.5). Sjangre: T1, T2, T4 (Pavlovs hund som klassisk studie).
+  Prioritet: kunne, høy (§7 pkt. 13 — grunnlag for angst 10.3 og atferdsterapi 4.3/10.4).
+- **Faktakontrakt:** Holt ⚠: **ubetinget stimulus (US)** og **ubetinget respons (UR)**;
+  **betinget stimulus (CS)** og **betinget respons (CR)**; betingingsprosessen
+  (paring); **ekstinksjon** og spontan gjenoppretting; **generalisering** og
+  **diskriminering**; høyere ordens betinging; anvendelse (fobier via betinging → 10.3;
+  «Lille Albert»); biologisk beredskap/smaksaversjon (Garcia — grenser for betinging).
+- **Sensors momentliste:** (1) de fire grunnbegrepene US/UR/CS/CR med et klart eksempel;
+  (2) betingingsprosessen; (3) ekstinksjon, generalisering, diskriminering; (4)
+  anvendelse på fobidannelse; (5) (bonus) biologiske grenser for betinging.
+- **Tilleggspoeng:** koble til fobiers betingingsforklaring (10.3) og systematisk
+  desensitivisering (4.3); Garcia-effekten som utfordring av «alt kan betinges»;
+  kontrast klassisk vs. operant (4.2).
+- **Typiske feil:** F6 (US/CS eller UR/CR byttet — den klassiske forvekslingen); F1
+  (grunnbegrepene uten ekstinksjon/generalisering); F2 (begrepene uten et konkret
+  eksempel).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 4.2: Operant betinging — Thorndike og Skinner
+**id:** `psy1000-4-2` · **number:** 4.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-4-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Thorndikes effektlov og Skinners operante betinging — forsterkning,
+  straff, forsterkningsskjemaer og shaping.
+- **Eksamensbelegg:** Forsterkning/operant betinging 2 sett direkte (V2010, H2012) +
+  Skinner som historie (H2010) og neobehaviorisme (1.6). Sjangre: T1, T2, T3. Prioritet:
+  kunne, høy (§7 pkt. 13).
+- **Faktakontrakt:** Holt ⚠: **Thorndike** (effektloven, puzzle box); **Skinner**
+  (operant betinging, Skinner-boks); **positiv/negativ forsterkning** (begge ØKER
+  atferd — negativ = fjerne noe aversivt) vs. **positiv/negativ straff** (reduserer
+  atferd); primær vs. sekundær forsterker; **forsterkningsskjemaer** (fast/variabel,
+  ratio/intervall — og hvorfor variabel ratio gir mest ekstinksjonsresistent atferd);
+  **shaping** (suksessiv tilnærming); skillet operant (frivillig atferd) vs. klassisk
+  (refleksiv).
+- **Sensors momentliste:** (1) skillet forsterkning (øker) vs. straff (reduserer) og
+  positiv/negativ (legge til/fjerne); (2) Thorndikes effektlov som grunnlag; (3)
+  forsterkningsskjemaene med effekter; (4) shaping; (5) skillet operant vs. klassisk
+  betinging.
+- **Tilleggspoeng:** forklare hvorfor variabel ratio motstår ekstinksjon (spilleautomat-
+  eksempel); drøfte straffens svakheter vs. forsterkning; koble til token economy (4.3)
+  og Skinners radikale behaviorisme (1.6).
+- **Typiske feil:** F6 (negativ forsterkning forvekslet med straff — den vanligste
+  feilen); F1 (forsterkning uten skjemaene/shaping); F2 (skjematyper uten effektene).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 4.3: Observasjonslæring, innsiktslæring og læring i atferdsterapi
+**id:** `psy1000-4-3` · **number:** 4.3 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-4-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Banduras observasjonslæring (Bobo-dukken), Köhlers innsiktslæring, og
+  hvordan læringsprinsippene anvendes i atferdsterapi.
+- **Eksamensbelegg:** Observasjonslæring 4 sett (V2012, H2012, V2014, H2014 —
+  gjenganger); læringsprinsipper i atferdsterapi 2 (V2013, H2015); Thorndike & Köhler 1
+  (V2011). Sjangre: T1, T3, T4 (Bobo-dukken). Prioritet: **perfekt** (observasjonslæring,
+  §7 pkt. 13).
+- **Faktakontrakt:** Holt ⚠: **Bandura** — sosial læringsteori, **observasjonslæring/
+  modell-læring** (Bobo-dukke-eksperimentet); de fire delprosessene (oppmerksomhet,
+  retensjon, motorisk gjengivelse, motivasjon); stedfortredende forsterkning; læring vs.
+  utførelse (latent læring, jf. Tolman 1.6); **Köhlers innsiktslæring** (Gestalt,
+  «aha», kontrast til prøving-og-feiling); **atferdsterapi** — systematisk
+  desensitivisering (klassisk betinging + gjensidig hemming), eksponering, token economy
+  (operant), aversjonsterapi (→ utdypes i Del 10.4).
+- **Sensors momentliste:** (1) hva observasjonslæring er og Bobo-dukke-belegget; (2) de
+  fire delprosessene; (3) stedfortredende forsterkning + latent læring (læring ≠
+  utførelse); (4) hvordan klassisk og operant betinging anvendes i atferdsterapi
+  (desensitivisering, eksponering, token economy).
+- **Tilleggspoeng:** vise at observasjonslæring utfordret ren behaviorisme (indre
+  representasjon → kognitiv vending, 1.8); koble Köhler til Gestalt (1.7); knytte
+  desensitivisering til fobiers betingingsopphav (4.1/10.3).
+- **Typiske feil:** F1 (Bobo-dukken uten delprosessene); F6 (blande observasjonslæring
+  med ren imitasjon eller med operant betinging); F4 (utbrodere Bobo-prosedyren når
+  prinsippene spørres).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+### Del 5 — Hukommelse, kognisjon og intelligens
+
+#### Kapittel 5.1: Hukommelse — systemer og fysiologisk grunnlag
+**id:** `psy1000-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Hukommelsessystemene (sensorisk/korttids-/langtidsminne, arbeidsminne),
+  enkoding–lagring–gjenhenting, eksplisitt vs. implisitt, og det fysiologiske grunnlaget.
+- **Eksamensbelegg:** Hukommelse 2 sett (H2011 typer, H2016 fysiologisk). Sjangre: T1,
+  T2. Prioritet: kunne (§7 pkt. 21). (Ebbinghaus' historiske hukommelsesforskning i 1.2.)
+- **Faktakontrakt:** Holt kap. 8 ⚠: **flerlagermodellen** (sensorisk register →
+  korttidsminne → langtidsminne); **arbeidsminne** (Baddeley — sentral eksekutiv,
+  fonologisk løkke, visuospatial skisseblokk); **enkoding, lagring, gjenhenting**;
+  **eksplisitt** (deklarativt: episodisk/semantisk) vs. **implisitt** (prosedural)
+  hukommelse; **fysiologisk grunnlag** — hippocampus (konsolidering), LTP
+  (langtidspotensering), amnesi (anterograd/retrograd, HM-kasuset).
+- **Sensors momentliste:** (1) de tre lagrene med kapasitet/varighet; (2) arbeidsminne
+  som utvidelse av korttidsminnet; (3) de tre prosessene enkoding/lagring/gjenhenting;
+  (4) eksplisitt vs. implisitt; (5) fysiologisk: hippocampus, konsolidering, LTP,
+  amnesityper.
+- **Tilleggspoeng:** koble til den kognitive revolusjonens informasjonsmodell (1.8);
+  bruke HM-kasuset til å vise dissosiasjon eksplisitt/implisitt; nevne
+  rekonstruktiv hukommelse (Bartlett/Loftus, øyenvitne — kobling til 8/rettspsyk.).
+- **Typiske feil:** F6 (korttidsminne/arbeidsminne likestilt; anterograd/retrograd
+  amnesi byttet); F1 (systemene uten det fysiologiske eller omvendt); F5 (hukommelse
+  som «lagring» uten rekonstruksjon).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 5.2: Tenkning, problemløsning og språk
+**id:** `psy1000-5-2` · **number:** 5.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-5-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Problemløsningens faser og feil, språkets struktur og funksjon, og
+  forholdet mellom språk og tenkning.
+- **Eksamensbelegg:** Problemløsning 1 sett (V2010); språk (struktur/funksjon) 1 (H2011);
+  språk↔tenkning 1 (H2013). Sjangre: T1, T2, T3. Prioritet: kunne/kjenne (§7 pkt. 21).
+- **Faktakontrakt:** Holt ⚠: **problemløsning** (velavgrensede/uklare problemer;
+  algoritme vs. heuristikk; faser); hindringer — **mentalt sett**, **funksjonell
+  fasthet**; **språkets byggeklosser** (fonem, morfem, syntaks, semantikk, pragmatikk);
+  språkets funksjoner (kommunikasjon, tenkning); **språktilegnelse** (Chomskys medfødte
+  språkevne vs. Skinners betingingssyn — jf. 1.8); **Sapir–Whorf-hypotesen** (språklig
+  relativitet: språket former tenkningen — sterk vs. svak versjon).
+- **Sensors momentliste:** (1) problemløsningens faser og de typiske feilene (mentalt
+  sett, funksjonell fasthet); (2) språkets strukturnivåer (fonem→pragmatikk); (3)
+  språkets funksjoner; (4) forholdet språk↔tenkning (Whorf, sterk/svak); (5) Chomsky vs.
+  Skinner om tilegnelse.
+- **Tilleggspoeng:** vurdere Whorf-hypotesens empiriske status (svak versjon støttes,
+  sterk avvises); koble Chomsky–Skinner-debatten til den kognitive revolusjon (1.8);
+  funksjonell fasthet illustrert med et konkret problem.
+- **Typiske feil:** F6 (fonem/morfem, mentalt sett/funksjonell fasthet); F1 (språk uten
+  språk↔tenkning-koblingen der den spørres); F8 (Whorf påstått som fakta uten drøfting
+  av sterk/svak).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 5.3: Heuristikker, biaser og Linda-problemet
+**id:** `psy1000-5-3` · **number:** 5.3 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-5-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Kahneman og Tverskys heuristikker og biaser, med Linda-problemet som
+  den rendyrkede studieoppgaven — og rasjonalitetsdebatten som tilleggspoeng.
+- **Eksamensbelegg:** Linda/heuristikker 4 sett (V2016, H2017, H2018, H2018-utsatt —
+  gjenganger med ordrett vignett, attestert s. 392 + Teigen s. 302). Sjangre: T4
+  (vignett), T2, T3. Prioritet: **perfekt** (§7 pkt. 10).
+- **Faktakontrakt:** Holt s. 392 / Teigen s. 302 ⚠: **heuristikker** (mentale
+  snarveier); **representativitetsheuristikken** (bedømme sannsynlighet ut fra likhet
+  med stereotypi); **tilgjengelighetsheuristikken**; **forankring og justering**;
+  **Linda-problemet** (konjunksjonsfeilen: «feminist OG bankfunksjonær» rangeres som
+  mer sannsynlig enn «bankfunksjonær» — logisk umulig fordi konjunksjonen er en
+  DELMENGDE); Kahneman & Tversky; rasjonalitetsdebatten (er mennesket «irrasjonelt»?).
+- **Sensors momentliste:** (1) beskrive utfallet i Linda (folk begår konjunksjonsfeilen);
+  (2) forklare HVORFOR det er en normativ/logisk feil (konjunksjon ⊂ enkelthendelse);
+  (3) forklare mekanismen (representativitetsheuristikken — likhet med stereotypi
+  overstyrer sannsynlighet); (4) generalisere til heuristikker/biaser og menneskelig
+  bedømming. Å bare gjenfortelle vignetten gir lite (F7).
+- **Tilleggspoeng:** knytte funnet til heuristikker/biaser GENERELT og til
+  **rasjonalitetsdebatten** (Kahneman vs. Gigerenzer — er heuristikker feil eller
+  økologisk rasjonelle?); koble til System 1/System 2 `(verifiser i pensum)`; andre
+  biaser (tilgjengelighet, forankring) som paralleller.
+- **Typiske feil:** F7 (beskrive funnet uten å forklare konjunksjonsfeilen ELLER uten å
+  navngi representativitetsheuristikken — kjernefeilen); F1 (Linda uten generaliseringen);
+  F6 (representativitet/tilgjengelighet blandet).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 5.4: Intelligens — én evne eller flere, og målingens historie
+**id:** `psy1000-5-4` · **number:** 5.4 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-1-4`
+
+- **Kapitteltype:** tema.
+- **Description:** Debatten om intelligens er én generell evne eller flere, og
+  intelligensmålingens historie fra Binet til IQ, arv/miljø og Flynn-effekten.
+- **Eksamensbelegg:** Intelligens 4 sett (H2010, V2011, V2013, H2016 — «én evne eller
+  flere?» / «måling i historisk perspektiv»). Sjangre: T1, T3, T5 (målingshistorie).
+  Prioritet: **perfekt** (§7 pkt. 12).
+- **Faktakontrakt:** Holt ⚠: **Spearman** (g-faktor, generell intelligens);
+  **Thurstone** (primære mentale evner); **Gardner** (multiple intelligenser);
+  Cattell (flytende vs. krystallisert) `(verifiser i pensum)`; **målingshistorie** —
+  **Binet** (den første intelligenstesten, mental alder), Stern/Terman (IQ-begrepet,
+  Stanford–Binet), Wechsler; koblingen til Darwin/Galton (individuelle forskjeller, 1.4);
+  **arv vs. miljø** (arvbarhet, tvillingstudier, 2.2); **Flynn-effekten** (stigende
+  IQ-skårer over generasjoner); testkritikk (kulturell skjevhet).
+- **Sensors momentliste:** (1) g-faktor vs. flere evner (Spearman/Thurstone/Gardner);
+  (2) hva som skiller posisjonene (faktoranalyse-tolkning); (3) målingshistorien
+  (Binet→IQ→Wechsler) i historisk perspektiv; (4) arv/miljø-debatten; (5) (bonus)
+  Flynn-effekten og testkritikk.
+- **Tilleggspoeng:** koble intelligensmåling til Darwin/Galton og funksjonalismen (1.4);
+  bruke Flynn-effekten mot ren arvelighet; drøfte kulturell testskjevhet (kobling 8.4);
+  «prinsipper > navn» — hva faktoranalysen faktisk viser.
+- **Typiske feil:** F1 (bare struktur-debatten ELLER bare historien når begge spørres);
+  F6 (Spearman/Thurstone/Gardner-posisjonene blandet); F2 (testnavnene uten
+  målekonseptet).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+### Del 6 — Utviklingspsykologi (tyngdepunkt)
+
+> Emnets tyngste temaklynge: sosial-emosjonell voksen/eldre (7 sett — emnets hyppigste
+> enkeltspørsmål) og Piaget (6 sett, ofte det preoperasjonelle stadiet spesifikt). Full
+> momentdrill og høyest kvote.
+
+#### Kapittel 6.1: Piagets kognitive utvikling
+**id:** `psy1000-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Piagets stadiemodell med det preoperasjonelle stadiet i detalj,
+  assimilasjon/akkomodasjon, og kritikken av modellen.
+- **Eksamensbelegg:** Piaget 6 sett (H2009, V2010, V2011, V2012, H2013, V2017 — flere
+  ganger *det preoperasjonelle stadiet spesifikt*). Sjangre: T1, T2, T3. Prioritet:
+  **perfekt** (§7 pkt. 2).
+- **Faktakontrakt:** Holt kap. 12 ⚠: **de fire stadiene** — sensomotorisk
+  (objektpermanens), **preoperasjonelt** (egosentrisme, **sentrering**, manglende
+  **konservering**, animisme, symbolsk tenkning), konkret-operasjonelt (konservering,
+  reversibilitet), formelt-operasjonelt (abstrakt/hypotetisk tenkning);
+  **assimilasjon** vs. **akkomodasjon** og skjemabegrepet; **kritikk** (undervurderte
+  barns evner; stadiene mindre skarpe; Vygotskys sosiokulturelle alternativ; kulturell
+  variasjon).
+- **Sensors momentliste:** (1) de fire stadiene i rekkefølge med kjennetegn; (2) det
+  preoperasjonelle stadiet i detalj (egosentrisme, sentrering, manglende konservering)
+  — spurt separat flere ganger; (3) assimilasjon/akkomodasjon som utviklingsmekanisme;
+  (4) kritikk av modellen.
+- **Tilleggspoeng:** trekke inn kritikken (barn undervurdert; Vygotsky; kulturvariasjon)
+  — det som løfter mot A; konservering illustrert konkret; koble til moralutvikling
+  (6.2 — Kohlberg bygger på Piaget).
+- **Typiske feil:** F1 (stadiene uten det preoperasjonelle i detalj når det er spurt);
+  F6 (assimilasjon/akkomodasjon byttet; stadiene i feil rekkefølge/alder); F3 (droppe
+  kritikklaget).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 6.2: Moralutvikling — Kohlberg, Piaget-basisen og Gilligans kritikk
+**id:** `psy1000-6-2` · **number:** 6.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-6-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Kohlbergs tre nivåer for moralsk resonnement, Piaget-grunnlaget,
+  Gilligans omsorgskritikk og kulturvariasjon.
+- **Eksamensbelegg:** Moralutvikling 3 sett (H2012, V2014, V2018 — gjenganger).
+  Sjangre: T1, T3. Prioritet: **perfekt/kunne** (§7 pkt. 15).
+- **Faktakontrakt:** Holt kap. 12 ⚠: **Kohlberg** — de tre nivåene (**prekonvensjonell**:
+  straff/belønning; **konvensjonell**: sosial godkjenning/lov og orden;
+  **postkonvensjonell**: sosial kontrakt/universelle prinsipper), Heinz-dilemmaet som
+  metode; **Piaget-basisen** (moral bygger på kognitiv utvikling); **Gilligans kritikk**
+  (omsorgsetikk vs. rettferdighetsetikk; kjønnsskjevhet i Kohlbergs utvalg);
+  **kulturvariasjon** og innvendinger mot stadietenkningen.
+- **Sensors momentliste:** (1) Kohlbergs tre nivåer med kjennetegn og metode; (2)
+  koblingen til Piagets kognitive stadier; (3) Gilligans kritikk (omsorg vs.
+  rettferdighet, kjønn); (4) kulturvariasjon og kritikk av stadiene.
+- **Tilleggspoeng:** eksplisitt levere Gilligan-kritikken OG innvendingene mot
+  stadietenkningen OG kulturvariasjon — nettopp de tre bonusmomentene veiledningene
+  premierer; koble til Piagets metodekritikk (6.1).
+- **Typiske feil:** F1 (Kohlbergs nivåer uten kritikklaget — halveringen); F3 (droppe
+  Gilligan); F6 (nivåene i feil rekkefølge/innhold).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 6.3: Tilknytning, spedbarnsforskning og språkutvikling
+**id:** `psy1000-6-3` · **number:** 6.3 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-6-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Bowlby/Ainsworths tilknytningsteori, metodene for å studere
+  persepsjon/tenkning hos spedbarn, og barns språkutvikling.
+- **Eksamensbelegg:** Persepsjon/tenkning hos spedbarn (metoder) 1 sett (H2014);
+  språkutvikling 1 (H2010). Tilknytning er sentralt utviklingsstoff. Sjangre: T1, T2.
+  Prioritet: kunne/kjenne (§7 pkt. 19/21).
+- **Faktakontrakt:** Holt kap. 12 ⚠: **Bowlby** (tilknytning som evolusjonært system) og
+  **Ainsworth** (fremmedsituasjonen — trygg/utrygg-unnvikende/utrygg-ambivalent);
+  **spedbarnsmetoder** (habituering/dishabituering, preferanselook, visuell klippe —
+  hvordan studere kognisjon før språk); **språkutvikling** (kurring→babling→ettords→
+  toords→telegrafisk tale; overgeneralisering; medfødt disposisjon vs. miljø, jf. 5.2).
+- **Sensors momentliste:** (1) tilknytningstypene og fremmedsituasjonen; (2) spedbarns-
+  metodene og hva de omgår (manglende språk/motorikk); (3) språkutviklingens stadier;
+  (4) arv/miljø i språktilegnelsen.
+- **Tilleggspoeng:** koble spedbarnsmetodene til at de avdekket mer kompetanse enn
+  Piaget antok (kritikk 6.1); tilknytningens evolusjonære (Bowlby) og langsiktige
+  betydning; overgeneralisering som bevis på regeltilegnelse (ikke ren imitasjon).
+- **Typiske feil:** F1 (tilknytningstypene uten metoden/fremmedsituasjonen); F6
+  (tilknytningskategoriene blandet); F4 (utbrodere én metode når «metoder» spørres).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 6.4: Sosial-emosjonell utvikling hos voksne og eldre
+**id:** `psy1000-6-4` · **number:** 6.4 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-6-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Eriksons voksenstadier, Supers karrierestadier, ekteskap/familie,
+  midtlivskrise, pensjon og døden — emnets aller hyppigste enkeltspørsmål (7 sett,
+  ofte ordrett).
+- **Eksamensbelegg:** Sosial-emosjonell utvikling hos voksne og eldre **7 sett**
+  (V2014, H2014, V2015, H2015, H2017, V2018, H2018 — emnets hyppigste, ofte ordrett,
+  attestert s. 559–566); ungdomsutvikling 1 (H2016). Sjangre: T1. Prioritet:
+  **perfekt** (§7 pkt. 1 — MÅ sitte perfekt).
+- **Faktakontrakt:** Holt s. 559–566 ⚠: **Eriksons psykososiale stadier** for voksenlivet
+  — **intimitet vs. isolasjon** (ung voksen), **generativitet vs. stagnasjon** (middelalder),
+  **integritet vs. fortvilelse** (alderdom); **Supers karrierestadier** (utforskning →
+  etablering → vedlikehold → tilbaketrekning); **ekteskap og familie** (overganger,
+  foreldreskap, det tomme rede); **midtlivskrise** (og hvor empirisk holdbar den er);
+  **pensjon**; **døden og sorg** (Kübler-Ross' faser `(verifiser status i pensum)`).
+- **Sensors momentliste:** (1) Eriksons TRE voksenstadier med konflikt og utfall; (2)
+  Supers karrierestadier; (3) ekteskap/familie-temaene; (4) midtlivskrise; (5) alderdom,
+  pensjon, døden. Toppsvaret dekker ALLE disse bolkene — å ta bare Erikson er den
+  typiske halveringen. Avgrensning: stabilitet skal IKKE være hovedfokus (F4).
+- **Tilleggspoeng:** problematisere midtlivskrisens empiriske grunnlag; koble Erikson til
+  hele det psykososiale stadieløpet (barndomsstadiene som bakgrunn); nyansere Kübler-Ross'
+  faser (ikke universelle/lineære).
+- **Typiske feil:** F1 (bare Erikson — glemme Super/ekteskap/alderdom/død; den vanligste
+  feilen på emnets vanligste spørsmål); F4 (gjøre stabilitet til hovedpoeng — eksplisitt
+  avgrenset); F6 (Erikson-stadiene i feil rekkefølge/innhold).
+- **Kvote:** 16 quiz / 22 flashcards.
+
+### Del 7 — Personlighet
+
+#### Kapittel 7.1: Psykodynamisk personlighet — Freud og det ubevisste
+**id:** `psy1000-7-1` · **number:** 7.1 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Freuds syn på det ubevisste, personlighetsstrukturen (id/ego/superego),
+  forsvarsmekanismene og de psykoseksuelle stadiene — med kritikk.
+- **Eksamensbelegg:** Freuds syn på det ubevisste 2 sett (H2011, V2013). Sjangre: T1, T2,
+  T3. Prioritet: kunne (§7 pkt. 17). (Psykoanalytisk behandling i 10.4.)
+- **Faktakontrakt:** Holt ⚠: **det ubevisste** (topografisk modell: bevisst/førbevisst/
+  ubevisst); **strukturmodellen** (**id** — lystprinsipp, **ego** — realitetsprinsipp,
+  **superego** — moral); **forsvarsmekanismer** (fortrengning, projeksjon, fornektelse,
+  sublimering m.fl.); **psykoseksuelle stadier** (oral/anal/fallisk/latens/genital);
+  **kritikk** (uvitenskapelig/ikke-falsifiserbar, overbetoning av seksualitet, svakt
+  empirisk grunnlag) og psykoanalysens historiske betydning.
+- **Sensors momentliste:** (1) det ubevisstes sentrale rolle; (2) strukturmodellen
+  id/ego/superego med prinsipper; (3) forsvarsmekanismer med eksempler; (4)
+  psykoseksuelle stadier; (5) kritikk og betydning.
+- **Tilleggspoeng:** vurdere Freuds vitenskapelige status (falsifiserbarhet, jf.
+  vitenskapsteori); skille det historisk betydningsfulle fra det empirisk holdbare;
+  koble til psykoanalytisk behandling (10.4) og humanismens/behaviorismens reaksjon.
+- **Typiske feil:** F6 (id/ego/superego-funksjonene blandet); F1 (det ubevisste uten
+  strukturmodellen/forsvarsmekanismene); F3 (droppe kritikklaget der «drøft» spørres).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 7.2: Humanistisk personlighet — Rogers og selvaktualisering
+**id:** `psy1000-7-2` · **number:** 7.2 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-7-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Rogers' selvteori, Maslows selvaktualisering og behovshierarki — og
+  hvorfor selvaktualiseringsbegrepet er blitt kritisert.
+- **Eksamensbelegg:** Rogers/selvaktualisering 2 sett (V2011 Rogers, V2017
+  selvaktualisering + kritikk). Sjangre: T2, T3. Prioritet: kunne (§7 pkt. 17).
+- **Faktakontrakt:** Holt ⚠: **Rogers** (selvbegrepet, det reelle vs. ideelle selv,
+  kongruens/inkongruens, **ubetinget positiv aktelse**, den fullt fungerende person);
+  **Maslow** (behovshierarkiet, **selvaktualisering** som toppbehov); humanismens
+  menneskesyn (vekst, valg, mening — «tredje kraft», jf. 1.7); **kritikk** av
+  selvaktualisering (vagt/sirkulært begrep, kulturelt/individualistisk skjevt, vanskelig
+  å operasjonalisere).
+- **Sensors momentliste:** (1) hva selvaktualisering betyr og dens plass i Maslows
+  hierarki; (2) Rogers' selvteori og ubetinget positiv aktelse; (3) det humanistiske
+  menneskesynet; (4) kritikken av begrepet (V2017 inviterte eksplisitt til dette).
+- **Tilleggspoeng:** levere kritikken (vaghet, målbarhet, kulturell skjevhet) — som
+  V2017-spørsmålet direkte ba om; kontrastere humanismens optimistiske menneskesyn mot
+  Freud og behaviorisme; koble ubetinget positiv aktelse til klientsentrert terapi (10.4).
+- **Typiske feil:** F3 (selvaktualisering uten kritikken — når kritikken er selve
+  bonusinvitasjonen); F6 (Rogers/Maslow-begrepene blandet); F5 (populærpsykologisk
+  «selvrealisering» uten pensumforankring).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 7.3: Trekktilnærmingen og femfaktormodellen (Big Five)
+**id:** `psy1000-7-3` · **number:** 7.3 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-5-4`
+
+- **Kapitteltype:** tema.
+- **Description:** Leksikalsk tilnærming vs. faktoranalyse, Cattell/Eysenck/femfaktor-
+  modellen, og skillet struktur vs. prosess — der «prinsipper > navn» er eksplisitt.
+- **Eksamensbelegg:** Trekktilnærming/Big Five 4 sett (V2010 Big Five, H2016, V2018,
+  H2018 — gjenganger, attestert s. 644–651). Sjangre: T1, T3. Prioritet: **perfekt**
+  (§7 pkt. 9).
+- **Faktakontrakt:** Holt s. 644–651 ⚠: **trekk** (stabile disposisjoner); **leksikalsk
+  hypotese** (viktige egenskaper nedfelt i språket) vs. **faktoranalyse** (statistisk
+  reduksjon av trekk til dimensjoner); **Cattell** (16PF); **Eysenck** (to/tre
+  dimensjoner: ekstroversjon, nevrotisisme, (psykotisisme)); **femfaktormodellen/Big
+  Five** (åpenhet, planmessighet, ekstroversjon, medmenneskelighet, nevrotisisme —
+  «OCEAN»; Costa & McCrae); **struktur vs. prosess** (trekkteorier beskriver struktur,
+  men sier lite om underliggende prosesser); trekkenes stabilitet over tid/situasjon;
+  person–situasjon-debatten (Mischel).
+- **Sensors momentliste:** (1) definer «trekk»; (2) SKILLE leksikalsk tilnærming fra
+  faktoranalyse (hvordan man kommer fram til trekkene); (3) de faktoranalytiske
+  modellene (Cattell 16PF, Eysencks dimensjoner, femfaktormodellen); (4) navngi og
+  beskrive de fem trekkene; (5) hvorfor ulikt antall faktorer betyr noe (prinsippet,
+  ikke bare tallene). Å hoppe over leksikalsk/faktoranalyse-skillet er halveringen.
+- **Tilleggspoeng:** nevne trekkenes stabilitet over tid/situasjon; peke på at
+  trekkteorier beskriver STRUKTUR men lite om PROSESS; person–situasjon-debatten
+  (Mischel); «prinsipper > navn» — hva faktoranalyse faktisk gjør.
+- **Typiske feil:** F1 (Big Five uten leksikalsk/faktoranalyse-skillet); F2 (ramse
+  «Cattell, Eysenck, McCrae» uten å forklare faktoranalyse eller hvorfor antall faktorer
+  betyr noe — eksplisitt straffet); F6 (Eysenck/Cattell-dimensjonene blandet).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 7.4: Personlighetsforstyrrelser
+**id:** `psy1000-7-4` · **number:** 7.4 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-7-3`
+
+- **Kapitteltype:** tema.
+- **Description:** Hva personlighetsforstyrrelser er, hovedgruppene, og den antisosiale
+  personlighetsforstyrrelsen spesielt.
+- **Eksamensbelegg:** Personlighetsforstyrrelser 3 sett (V2012 antisosial, H2012, V2017).
+  Sjangre: T2, T1. Prioritet: kunne (§7 pkt. 17). (Bygger bro til klinikk, Del 10.)
+- **Faktakontrakt:** Holt ⚠: **personlighetsforstyrrelse** (vedvarende, gjennomgripende,
+  fleksibelt mønster av opplevelse/atferd som avviker fra kulturens forventning og gir
+  lidelse/funksjonssvikt); klyngeinndelingen (A odd/eksentrisk, B dramatisk/emosjonell,
+  C engstelig) `(verifiser DSM-detalj)`; **antisosial personlighetsforstyrrelse**
+  (manglende empati/anger, normbrudd, impulsivitet; forklaringsmodeller: arv,
+  underarousal, oppvekst); diagnostiske utfordringer (overlapp, stigma, stabilitet).
+- **Sensors momentliste:** (1) definisjonskriteriene for personlighetsforstyrrelse
+  (vedvarende, gjennomgripende, avvik, lidelse); (2) hovedgruppene; (3) antisosial PF
+  i detalj med forklaringsmodeller; (4) diagnostiske problemer.
+- **Tilleggspoeng:** drøfte grensen normal/patologisk personlighet (kobling til trekk
+  7.3 — dimensjonell vs. kategorisk); stigma og diagnosekritikk (kobling 10.1);
+  forklaringsmodellenes samspill (diatese-stress).
+- **Typiske feil:** F1 (nevne typer uten definisjonskriteriene); F5 («psykopat» som
+  dagligtale uten faglig kriterium); F6 (blande klyngene/typene).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+### Del 8 — Sosialpsykologi
+
+#### Kapittel 8.1: Konformitet og lydighet — Asch og Milgram
+**id:** `psy1000-8-1` · **number:** 8.1 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Konformitet (Asch) og lydighet (Milgram), med hovedvekten på
+  FAKTORENE som påvirker dem — ikke på inngående studiebeskrivelse.
+- **Eksamensbelegg:** Konformitet og lydighet 5 sett (V2012, V2014, H2014, V2015, V2018 —
+  gjenganger, attestert kap. 14, med eksplisitt avgrensning: vekt på faktorene).
+  Sjangre: T1, T4 (studiene), T3. Prioritet: **perfekt** (§7 pkt. 5).
+- **Faktakontrakt:** Holt kap. 14 ⚠: **konformitet** (Asch' linjeeksperiment — tilpasning
+  til gruppepress); **lydighet** (Milgrams lydighetsstudie — å adlyde autoritet);
+  **faktorene** (dette er hovedsaken): **sosial støtte/alliert** (én avviker reduserer
+  konformitet), **gruppestørrelse**, **enstemmighet**, **ansvarsdiffusjon**, **autoritetens
+  nærhet/legitimitet**, **offerets nærhet**, normativ vs. informasjonell påvirkning.
+  Avgrensning (F4): IKKE inngående Asch/Milgram-prosedyre; polarisering, deindividuering,
+  gruppetenkning faller UTENFOR dette spørsmålet.
+- **Sensors momentliste:** (1) hva konformitet og lydighet er (kort, med Asch/Milgram som
+  ramme); (2) FAKTORENE som øker/reduserer konformitet (sosial støtte, enstemmighet,
+  gruppestørrelse); (3) FAKTORENE for lydighet (autoritetens nærhet/legitimitet,
+  ansvarsdiffusjon, offerets nærhet); (4) normativ vs. informasjonell påvirkning.
+- **Tilleggspoeng:** skille normativ fra informasjonell påvirkning som forklaring; koble
+  til virkelige hendelser (ansvarsdiffusjon i grupper); vurdere studienes etikk og
+  generaliserbarhet (kort — men ikke som hovedfokus).
+- **Typiske feil:** F4 (bruke plassen på Asch-/Milgram-prosedyren i stedet for faktorene
+  — eksplisitt avgrenset); F1 (bare faktorer for én av dem); F6 (konformitet/lydighet
+  likestilt uten skillet gruppepress vs. autoritet).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 8.2: Attribusjon, holdninger og kognitiv dissonans
+**id:** `psy1000-8-2` · **number:** 8.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-8-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Hvordan vi forklarer atferd (attribusjon, den fundamentale
+  attribusjonsfeilen) og hvordan holdninger endres (kognitiv dissonans).
+- **Eksamensbelegg:** Feilbedømming/attribusjon 2 sett (H2010, V2017 attribusjon/
+  fundamental attribusjonsfeil); kognitiv dissonans 1 (H2015). Sjangre: T1, T2, T4
+  (Festinger). Prioritet: kunne (§7 pkt. 17/20).
+- **Faktakontrakt:** Holt ⚠: **attribusjon** (indre/disposisjonell vs. ytre/situasjonell);
+  **den fundamentale attribusjonsfeilen** (overvurdere indre årsaker hos andre);
+  aktør–observatør-asymmetri; selvtjenende skjevhet; **holdninger** (komponenter);
+  **kognitiv dissonans** (Festinger — ubehag ved motstridende kognisjoner driver
+  holdningsendring; $1/$20-eksperimentet — mindre belønning gir STØRRE holdningsendring).
+- **Sensors momentliste:** (1) attribusjon indre/ytre; (2) den fundamentale
+  attribusjonsfeilen med eksempel; (3) kognitiv dissonans-mekanismen (Festinger); (4)
+  hvorfor liten ytre begrunnelse gir størst dissonans/endring.
+- **Tilleggspoeng:** forklare det kontraintuitive dissonansfunnet (mindre belønning →
+  mer endring) som teoriens styrke; koble attribusjonsfeilen til krysskulturell
+  variasjon (8.4 — mer utbredt i individualistiske kulturer); aktør–observatør som
+  nyanse.
+- **Typiske feil:** F6 (indre/ytre attribusjon; fundamental attribusjonsfeil vs.
+  selvtjenende skjevhet); F7-lignende (dissonansfunnet gjenfortalt uten mekanismen);
+  F1 (attribusjon uten den fundamentale feilen).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 8.3: Fordommer, gruppeprosesser og prososial atferd
+**id:** `psy1000-8-3` · **number:** 8.3 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-8-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Hvordan fordommer oppstår, opprettholdes og reduseres; fordeler og
+  ulemper ved gruppetilhørighet; og prososial atferd/bystander-effekten.
+- **Eksamensbelegg:** Fordommer 2 sett (H2009 oppstår, H2011 reduseres); konsekvenser av
+  gruppetilhørighet 2 (V2011, V2015); prososial atferd 1 (H2013). Sjangre: T1, T3.
+  Prioritet: kunne/kjenne (§7 pkt. 20).
+- **Faktakontrakt:** Holt ⚠: **stereotypier/fordommer/diskriminering** (kognitiv/affektiv/
+  atferdskomponent); **dannelse** (sosial kategorisering, inn-/utgruppe, sosial
+  identitet, syndebukk); **opprettholdelse** (bekreftelsestendens, selvoppfyllende
+  profeti); **reduksjon** (**kontakthypotesen** og dens betingelser: lik status,
+  felles mål, samarbeid, institusjonell støtte); **gruppeprosesser** (fordeler: støtte,
+  identitet, effektivitet; ulemper: konformitet, gruppetenkning, polarisering,
+  ansvarspulverisering, sosial loffing); **prososial atferd** (empati; **bystander-
+  effekten**/ansvarsdiffusjon; hjelpeatferdens trinn).
+- **Sensors momentliste:** (1) hvordan fordommer OPPSTÅR (kategorisering, inn/utgruppe);
+  (2) hvordan de OPPRETTHOLDES; (3) hvordan de REDUSERES (kontakthypotesen med
+  betingelser); (4) for gruppetema: både positive OG negative konsekvenser; (5) for
+  prososial: bystander-effekten og ansvarsdiffusjon.
+- **Tilleggspoeng:** presisere kontakthypotesens BETINGELSER (ikke bare «mer kontakt»);
+  drøfte positive OG negative gruppekonsekvenser balansert (drøftetema); koble
+  ansvarsdiffusjon til lydighet (8.1).
+- **Typiske feil:** F1 (fordommer: bare dannelse ELLER bare reduksjon når begge/spesifikt
+  ett spørres); F3 (kontakthypotesen uten betingelsene); F8 (gruppetema besvart ensidig
+  positivt/negativt).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 8.4: Krysskulturelle studiers betydning
+**id:** `psy1000-8-4` · **number:** 8.4 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-8-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Universalitet vs. kulturvariasjon i psykologiske fenomener, og de
+  metodiske problemene ved å oversette studier mellom kulturer.
+- **Eksamensbelegg:** Krysskulturelle studier 4 sett (H2009, V2013, H2017, H2018-utsatt —
+  gjenganger). Sjangre: T3, T1. Prioritet: **perfekt** (§7 pkt. 14).
+- **Faktakontrakt:** Holt ⚠: hvorfor krysskulturelle studier trengs (teste om funn er
+  **universelle** eller **kulturspesifikke**); **individualistiske vs. kollektivistiske**
+  kulturer; eksempler på variasjon (attribusjonsfeil, konformitet, selvoppfatning) og
+  universalitet (Ekmans basisemosjoner, 9.3); **metodeproblemer** — oversettelse av
+  tester/prosedyrer/begreper mellom kulturer, ekvivalens, etnosentrisk skjevhet i
+  instrumentene.
+- **Sensors momentliste:** (1) hvorfor krysskulturell forskning er viktig (universalitet
+  vs. relativitet); (2) eksempler på både kulturvariasjon OG universalitet; (3)
+  individualisme/kollektivisme; (4) de metodiske PROBLEMENE (oversettelse, ekvivalens).
+  Avgrensning: poenget er å DISKUTERE viktigheten, ikke ramse flest mulig studier (F4).
+- **Tilleggspoeng:** eksplisitt problematisere oversettelses-/ekvivalensproblemene —
+  det veiledningene gir tilleggspoeng for; balansere universalitet mot relativitet i
+  stedet for å velge side; koble til Ekman (9.3) som universalitets-case og
+  attribusjonsfeilen (8.2) som variasjons-case.
+- **Typiske feil:** F4 (ramse mange studier i stedet for å drøfte betydningen); F3
+  (droppe metodekritikk-bonusen — oversettelsesproblemet); F8 (ensidig «alt er kulturelt»
+  uten universalitetssiden).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+### Del 9 — Motivasjon, emosjon, stress og bevissthet
+
+#### Kapittel 9.1: Motivasjon — driv, homøostase og hunger
+**id:** `psy1000-9-1` · **number:** 9.1 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-2-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Motivasjonsteoriene (driv, homøostase, behovshierarki) og regulering
+  av hunger/metthet, inkludert overspising.
+- **Eksamensbelegg:** Overspising/hunger 3 sett (H2010, V2012, V2013). Sjangre: T1, T3.
+  Prioritet: kunne (§7 pkt. 16).
+- **Faktakontrakt:** Holt ⚠: **drivteori** og **homøostase**; **insentiv-/inneremotivasjon**
+  (indre vs. ytre); Maslows behovshierarki (jf. 7.2); **hunger og metthet** —
+  hypothalamus (lateral/ventromedial `(verifiser)`), **set-point**-teori, indre
+  signaler (blodsukker, leptin) vs. ytre signaler (syn, sosial kontekst, porsjonsstørrelse);
+  **overspising/overvekt** (samspill biologi–miljø; hvorfor set-point ikke forklarer alt).
+- **Sensors momentliste:** (1) grunnleggende motivasjonsteorier (driv/homøostase/insentiv);
+  (2) regulering av hunger via indre og ytre signaler; (3) set-point og dens grenser; (4)
+  hvorfor overspising oppstår (biologisk + miljømessig).
+- **Tilleggspoeng:** drøfte hvorfor rene biologiske modeller ikke forklarer overspising
+  (ytre/sosiale signaler); indre vs. ytre motivasjon (overrettferdiggjøringseffekten);
+  koble til helseatferd (9.4).
+- **Typiske feil:** F1 (hunger uten både indre og ytre signaler); F5 («viljestyrke» uten
+  fysiologien); F6 (lateral/ventromedial hypothalamus byttet).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 9.2: Emosjonsteorier og forholdet kognisjon–emosjon
+**id:** `psy1000-9-2` · **number:** 9.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-2-1`
+
+- **Kapitteltype:** tema.
+- **Description:** De klassiske emosjonsteoriene (James–Lange, Cannon–Bard,
+  Schachter–Singer) og debatten om forholdet mellom kognisjon og emosjon.
+- **Eksamensbelegg:** Kognisjon og emosjon 3 sett (V2010 funksjoner, V2011, V2015).
+  Sjangre: T3, T1. Prioritet: kunne, høy (§7 pkt. 16). (Universelle emosjoner: 9.3.)
+- **Faktakontrakt:** Holt ⚠: **James–Lange** (kroppslig reaksjon FØRST → emosjon);
+  **Cannon–Bard** (kroppslig reaksjon og emosjon samtidig); **Schachter–Singer
+  tofaktorteori** (fysiologisk aktivering + kognitiv tolkning/attribusjon);
+  **appraisal-teori** (Lazarus — kognitiv vurdering avgjør emosjon); **debatten
+  kognisjon↔emosjon** (Lazarus vs. Zajonc — trengs kognisjon for emosjon, eller kan
+  emosjon oppstå «prekognitivt»?); emosjonenes funksjoner (kommunikasjon, handlings-
+  beredskap, sosial regulering).
+- **Sensors momentliste:** (1) de tre/fire emosjonsteoriene og hva som skiller dem
+  (rekkefølge kropp/kognisjon/emosjon); (2) tofaktorteoriens rolle for kognisjon; (3)
+  Lazarus–Zajonc-debatten; (4) emosjonenes funksjoner.
+- **Tilleggspoeng:** ta begrunnet stilling i Lazarus–Zajonc-debatten (drøftelaget);
+  koble Schachter–Singer til attribusjon (8.2); knytte emosjonsfunksjoner til
+  evolusjon (Darwin 1.4) og universelle emosjoner (9.3).
+- **Typiske feil:** F6 (James–Lange/Cannon–Bard/Schachter–Singer byttet — den vanligste
+  forvekslingen); F1 (teoriene uten kognisjon–emosjon-koblingen); F8 («drøft forholdet»
+  besvart som ren teorioppramsing).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 9.3: Universelle emosjoner — Ekman, ansiktsuttrykk og kulturvariasjon
+**id:** `psy1000-9-3` · **number:** 9.3 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-9-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Ekmans basisemosjoner og universelle ansiktsuttrykk, evolusjonsgrunnlaget
+  (Darwin), og hvor kulturen likevel setter sitt preg.
+- **Eksamensbelegg:** Universelle emosjoner 4 sett (H2009, V2013, H2013, V2016 —
+  gjenganger). Sjangre: T1, T3. Prioritet: **perfekt** (§7 pkt. 8).
+- **Faktakontrakt:** Holt ⚠: **Ekman** — de **basisemosjonene** (glede, sinne, frykt,
+  avsky, tristhet, overraskelse) med **universelle ansiktsuttrykk**; tverrkulturelle
+  gjenkjenningsstudier (inkl. skriftløse kulturer); **Darwins** evolusjonære forklaring
+  (uttrykk som tilpasning/kommunikasjon, 1.4); **kulturell variasjon** —
+  **visningsregler** (display rules: kultur styrer NÅR/HVORDAN emosjoner uttrykkes, ikke
+  grunnrepertoaret).
+- **Sensors momentliste:** (1) hva som menes med universelle emosjoner (basisemosjoner +
+  gjenkjennelige uttrykk på tvers av kultur); (2) belegget (Ekmans tverrkulturelle
+  studier); (3) evolusjonsgrunnlaget (Darwin); (4) kulturvariasjonen via visningsregler
+  (universelt repertoar, kulturelt uttrykk).
+- **Tilleggspoeng:** balansere universalitet mot kulturell variasjon (visningsregler) —
+  ikke velge side; koble til krysskulturell metode (8.4 — Ekman som universalitets-case);
+  Darwins uttrykksbok som historisk rot.
+- **Typiske feil:** F1 (universalitet uten kulturvariasjonen/visningsregler, eller omvendt);
+  F5 (emosjoner uten Ekman-belegget); F6 (basisemosjoner blandet med komplekse/sosiale
+  emosjoner).
+- **Kvote:** 12 quiz / 16 flashcards.
+
+#### Kapittel 9.4: Stress, Selyes GAS og helseatferd
+**id:** `psy1000-9-4` · **number:** 9.4 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-2-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Stressbegrepet, kroppslige stressreaksjoner (Selyes generelle
+  adaptasjonssyndrom), mestring og teoriene om helseatferd.
+- **Eksamensbelegg:** Stress/GAS 4 sett (V2010 GAS, V2011, H2012, H2013); helseatferds-
+  teorier 3 (V2015, H2015, V2016). Sjangre: T1, T3, T4 (Selye). Prioritet: **perfekt**
+  (§7 pkt. 8/16).
+- **Faktakontrakt:** Holt ⚠: **stressbegrepet** (stressor, transaksjonell modell —
+  Lazarus' primær/sekundær appraisal); **Selyes generelle adaptasjonssyndrom (GAS)** —
+  **alarm → motstand → utmattelse**; kroppslige reaksjoner (sympatikus 2.1, **HPA-aksen**,
+  kortisol); stressets helsekonsekvenser (immunsuppresjon); **mestring** (problem- vs.
+  emosjonsfokusert); **helseatferdsteorier** (helseoppfatningsmodellen, teorien om
+  planlagt atferd; opplevd sårbarhet/alvorlighet, holdning/norm/kontroll).
+- **Sensors momentliste:** (1) stressbegrepet og at stress avhenger av vurdering (appraisal);
+  (2) Selyes GAS-faser i rekkefølge; (3) de kroppslige reaksjonene (sympatikus, HPA,
+  kortisol); (4) mestringsstrategier; (5) for helseatferd: minst én modell med
+  komponentene.
+- **Tilleggspoeng:** koble GAS til det autonome/endokrine (2.1); drøfte transaksjonell
+  vs. ren stimulus-basert stressmodell (Lazarus); vurdere helseatferdsmodellenes
+  prediktive verdi; placebo/forventning (9.5).
+- **Typiske feil:** F9-lignende (GAS-fasene i feil rekkefølge); F1 (stress uten
+  vurderingskomponenten, eller GAS uten fysiologien); F6 (alarm/motstand/utmattelse
+  blandet).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 9.5: Bevissthet — søvn, drømmer, hypnose og placebo
+**id:** `psy1000-9-5` · **number:** 9.5 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema (samlekapittel — lavfrekvent, «bør kjenne til»).
+- **Description:** Søvnstadier og søvnens funksjon, drømmeteorier, hypnose og
+  placeboeffekten — fagets bevissthetstemaer, kompakt men fullstendig.
+- **Eksamensbelegg:** Søvnens funksjon 2 sett (H2012, V2013); drømmer 2 (V2011, V2015);
+  hypnose 1 (H2009); placebo 1 (V2011). Sjangre: T3, T2. Prioritet: kjenne (§7 pkt. 19 —
+  «bør kjenne til», dekkes ETTER kjernestoffet).
+- **Faktakontrakt:** Holt ⚠: **søvnstadier** (NREM 1–3/4, **REM**); søvnsyklusen;
+  **teorier om søvnens funksjon** (restitusjon/energisparing, **hukommelseskonsolidering**,
+  evolusjonær/beskyttelse); **drømmeteorier** (Freuds ønskeoppfyllelse vs. **aktiverings-
+  syntese**-hypotesen Hobson–McCarley); **hypnose** (tilstands-/dissosiasjonsteori vs.
+  sosial-kognitiv/rolleteori); **placeboeffekten** (forventning, kobling til smerte 3.4
+  og biologisk behandling 10.5).
+- **Sensors momentliste:** (1) søvnstadiene med REM; (2) de konkurrerende teoriene om
+  søvnens funksjon; (3) drømmeteoriene (Freud vs. aktiverings-syntese); (4) hypnose-
+  teoriene (tilstand vs. sosial-kognitiv); (5) placebo som forventningseffekt.
+- **Tilleggspoeng:** drøfte hvilken søvnfunksjonsteori som støttes best; kontrastere
+  drømmeteoriene (mening vs. biologisk biprodukt); placeboens metodiske betydning
+  (kontrollgruppe i behandlingsforskning, 10.5).
+- **Typiske feil:** F6 (NREM/REM; drømmeteoriene byttet); F1 (søvn uten funksjonsteoriene
+  når «funksjon» spørres); F8 (søvn/drøm gjenfortalt uten drøfting av funksjon).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+### Del 10 — Psykiske lidelser og behandling
+
+#### Kapittel 10.1: Normalitet, abnormalitet og diagnostikk
+**id:** `psy1000-10-1` · **number:** 10.1 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-0-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Hva som skiller normalt fra abnormalt, diagnosesystemene (DSM), og
+  diagnostikkens hensikt og problemer.
+- **Eksamensbelegg:** Normal vs. abnormal 1 sett (V2011); diagnostikk (hensikt/problemer)
+  1 (H2010). Sjangre: T2, T3. Prioritet: kunne (§7 pkt. 19). (Grunnlag for 10.2–10.5.)
+- **Faktakontrakt:** Holt ⚠: **kriterier for abnormalitet** (statistisk sjeldenhet, avvik
+  fra norm, lidelse/ubehag, funksjonssvikt, fare — og ingen av dem er tilstrekkelig
+  alene); **DSM** (og ICD) som klassifikasjonssystemer; den **medisinske modellen**;
+  **diagnostikkens hensikt** (kommunikasjon, behandlingsvalg, forskning, forsikring/
+  rettigheter) og **problemer** (reliabilitet/validitet, **stigma**, sykeliggjøring,
+  Rosenhan-typen `(verifiser)`, kulturell variasjon).
+- **Sensors momentliste:** (1) kriteriene for abnormalitet og at ingen holder alene; (2)
+  DSM/den medisinske modellen; (3) diagnostikkens hensikt; (4) diagnostikkens problemer
+  (reliabilitet, stigma).
+- **Tilleggspoeng:** drøfte fordeler MOT ulemper ved diagnostisering (balansert); koble
+  stigma til personlighetsforstyrrelser (7.4) og kulturvariasjon (8.4); dimensjonell
+  vs. kategorisk diagnostikk.
+- **Typiske feil:** F1 (ett abnormalitetskriterium som «fasit»); F8 (diagnostikk besvart
+  ensidig positivt/negativt); F5 (dagligdags «gal/frisk» uten kriteriene).
+- **Kvote:** 10 quiz / 14 flashcards.
+
+#### Kapittel 10.2: Schizofreni — symptomer og årsaksmodeller
+**id:** `psy1000-10-2` · **number:** 10.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-10-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Schizofreniens positive og negative symptomer og de ulike
+  forklaringsmodellene (biologisk, genetisk, diatese-stress).
+- **Eksamensbelegg:** Schizofreni 4 sett (V2010, H2011, H2013, H2016 — gjenganger).
+  Sjangre: T1, T3. Prioritet: **perfekt** (§7 pkt. 7).
+- **Faktakontrakt:** Holt ⚠: **symptomer** — **positive** (hallusinasjoner, vrangforestillinger,
+  desorganisert tale/atferd) vs. **negative** (affektavflatning, apati/avolisjon,
+  tilbaketrekning); forløp/undertyper (kort); **årsaksmodeller** — **genetisk**
+  (tvilling-/adopsjonsstudier, arvbarhet, 2.2), **dopaminhypotesen** (og dens grenser),
+  hjerneavvik, **diatese-stress-modellen** (sårbarhet × miljøbelastning), psykososiale
+  faktorer (expressed emotion).
+- **Sensors momentliste:** (1) positive vs. negative symptomer med eksempler; (2) den
+  genetiske sårbarheten (tvillingdata); (3) dopaminhypotesen; (4) diatese-stress som
+  integrerende modell (arv OG miljø).
+- **Tilleggspoeng:** bruke diatese-stress til å vise at ingen enkeltmodell er
+  tilstrekkelig; dopaminhypotesens støtte og problemer (antipsykotika, 10.5); koble
+  arvbarhet til metodene i 2.2.
+- **Typiske feil:** F6 (positive/negative symptomer byttet); F1 (symptomer uten
+  årsaksmodeller eller omvendt); F5 («splittet personlighet»-misforståelsen).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 10.3: Angstlidelser — typer, forklaringsmodeller og behandling
+**id:** `psy1000-10-3` · **number:** 10.3 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-10-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Angstlidelsenes hovedtyper, de konkurrerende forklaringsmodellene og
+  behandlingsprinsippene.
+- **Eksamensbelegg:** Angstlidelser 4 sett (H2012, V2013, V2014, H2014 — gjenganger);
+  PTSD 1 (H2010). Sjangre: T1, T3. Prioritet: **perfekt** (§7 pkt. 7).
+- **Faktakontrakt:** Holt ⚠: **typer** — fobier (spesifikke, agorafobi, sosial angst),
+  panikklidelse, **generalisert angstlidelse (GAD)**, tvangslidelse (OCD), **PTSD**;
+  **forklaringsmodeller** — **betingingsmodellen** (klassisk betinging + unngåelse
+  opprettholder, 4.1; forberedt betinging), **kognitiv** (katastrofetenkning, feil-
+  tolkning av kroppssignaler), **biologisk** (arv, nevrotransmittere); **behandling** —
+  eksponering/systematisk desensitivisering (4.3), kognitiv terapi (10.4), medikamenter
+  (10.5).
+- **Sensors momentliste:** (1) hovedtypene angstlidelser med kjennetegn; (2)
+  forklaringsmodellene (betinging, kognitiv, biologisk); (3) hvordan modellene peker
+  mot ulik behandling; (4) sentrale behandlingsprinsipper (eksponering).
+- **Tilleggspoeng:** koble betingingsmodellen til eksponeringsterapiens logikk
+  (unngåelse hindrer ekstinksjon); integrere modellene (diatese-stress); vurdere hvorfor
+  unngåelse opprettholder angst.
+- **Typiske feil:** F6 (angsttypene blandet; panikk vs. GAD); F1 (typer uten
+  forklaringsmodeller/behandling); F5 (dagligdags «angst» uten diagnosekriterier).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+#### Kapittel 10.4: Depresjon og de psykologiske terapiene
+**id:** `psy1000-10-4` · **number:** 10.4 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-10-1`
+
+- **Kapitteltype:** tema.
+- **Description:** Depresjonens forklaringsmodeller, og de psykologiske terapiformene —
+  psykoanalyse, kognitiv terapi (Ellis, Beck), atferdsterapi og klientsentrert — pluss
+  psykoterapiens fellestrekk.
+- **Eksamensbelegg:** Kognitiv terapi (Ellis/Beck) 2 sett (H2017, H2018); depresjon 1
+  (V2013); psykoanalytisk behandling 1 (V2015); psykoterapiens fellestrekk/eklektisisme
+  2 (H2012, H2013). Sjangre: T1, T3. Prioritet: kunne, høy (§7 pkt. 18).
+- **Faktakontrakt:** Holt kap. 18 ⚠: **depresjon** — **Becks kognitive triade** (negativt
+  syn på selv/verden/fremtid), **lært hjelpeløshet** (Seligman), monoaminhypotesen
+  (biologisk, 10.5); **psykoanalytisk terapi** (fri assosiasjon, overføring, tolkning av
+  det ubevisste, 7.1); **kognitiv terapi** — **Ellis' RET/REBT** (ABC-modellen, irrasjonelle
+  antakelser) og **Becks** depresjonsterapi (identifisere/utfordre negative automatiske
+  tanker); **atferdsterapi** (4.3); **klientsentrert/humanistisk** (Rogers, ubetinget
+  positiv aktelse, 7.2); **psykoterapiens fellestrekk** (terapeutisk allianse,
+  forventning) og **eklektisisme/integrasjon**.
+- **Sensors momentliste:** (1) depresjonens psykologiske forklaringer (kognitiv triade,
+  lært hjelpeløshet); (2) kognitiv terapi (Ellis ABC + Beck) i detalj; (3) kontrast til
+  andre terapiformer (psykoanalyse, atferds-, klientsentrert); (4) fellestrekk/
+  eklektisisme.
+- **Tilleggspoeng:** kontrastere terapiformene systematisk (menneskesyn, mekanisme,
+  metode) — det veiledningene ber om for kognitiv terapi; drøfte fordeler/svakheter;
+  koble fellestrekk-forskningen til eklektisisme-trenden.
+- **Typiske feil:** F6 (Ellis vs. Beck; kognitiv vs. atferdsterapi); F1 (kognitiv terapi
+  uten kontrasten til andre former når det spørres); F3 (droppe fellestrekk-/kritikklaget).
+- **Kvote:** 12 quiz / 18 flashcards.
+
+#### Kapittel 10.5: Biologisk behandling av psykiske lidelser
+**id:** `psy1000-10-5` · **number:** 10.5 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-10-2`
+
+- **Kapitteltype:** tema.
+- **Description:** Psykofarmaka mot psykose, angst og depresjon, ECT og psykokirurgi —
+  virkning, bivirkninger og kritisk vurdering.
+- **Eksamensbelegg:** Biologisk behandling 5 sett (V2014, H2014, V2016, V2017,
+  H2018-utsatt — gjenganger, attestert s. 805–811). Sjangre: T1, T3. Prioritet:
+  **perfekt** (§7 pkt. 6).
+- **Faktakontrakt:** Holt s. 805–811 ⚠: **psykofarmaka** — **antipsykotika**
+  (dopaminblokade mot psykose, bivirkninger inkl. ekstrapyramidale/tardiv dyskinesi),
+  **anxiolytika** (benzodiazepiner mot angst, avhengighet), **antidepressiva** (SSRI mot
+  depresjon, monoaminhypotesen, virketid); **placebo** som referanse (9.5); **ECT**
+  (elektrokonvulsiv behandling — indikasjon ved alvorlig depresjon, bivirkninger,
+  historisk kontrovers); **psykokirurgi** (lobotomiens historie — kritisk); den kritiske
+  vurderingen (symptomdemping vs. helbredelse; bivirkningsbyrde; biologisk vs.
+  psykososial modell).
+- **Sensors momentliste:** (1) de tre hovedmedikamentgruppene med hva de brukes mot og
+  virkemåte; (2) bivirkninger; (3) ECT (indikasjon, virkning, bivirkninger); (4)
+  psykokirurgi (historisk, kritisk); (5) kritisk vurdering av biologisk behandling.
+- **Tilleggspoeng:** vurdere biologisk behandling KRITISK (symptom vs. årsak, bivirkninger,
+  placebo-andel, historiske overgrep ved psykokirurgi/ECT) — eksplisitt belønnet; koble
+  til diatese-stress (10.2) og kombinasjon med psykoterapi (10.4).
+- **Typiske feil:** F6 (medikamentgruppene/lidelsene byttet — antipsykotika vs.
+  antidepressiva); F3 (ukritisk oppramsing uten den kritiske vurderingen — bonusen);
+  F1 (medikamenter uten ECT/psykokirurgi når hele feltet spørres).
+- **Kvote:** 14 quiz / 20 flashcards.
+
+### Del 11 — Eksamenstrening
+
+> Sjanger-/drillkapitler (T1–T5 + feilvaksine), tre modellbesvarelser (DNA-krav ≥3) og
+> tre komplette øvingseksamener i «6 av 7»-format. Alle oppgaver, vignetter og
+> modellbesvarelser er NYSKREVNE — modellert tett på arkivets gjenbruksmønstre, men
+> med endrede formuleringer. Sensormomentlistene er reell fasit for de gjentatte temaene.
+
+#### Kapittel 11.1: Redegjørelsessjangeren og momentliste-metoden (T1 + T2)
+**id:** `psy1000-11-1` · **number:** 11.1 · **estimatedMinutes:** 50 · **prerequisites:** Del 1–10 (les spesielt `psy1000-0-2`, `psy1000-3-3`, `psy1000-6-4`)
+
+- **Kapitteltype:** sjanger (T1 + T2).
+- **Description:** De to dominerende sjangrene: den fullstendige redegjørelsen «beskriv/
+  gjør rede for» og begrepsredegjørelsen «hva menes med» — med oppskrift, momentliste-
+  metoden og tidsbudsjett.
+- **Eksamensbelegg:** T1 er den dominerende sjangeren; T2 nest hyppigst. Grunnvalutaen er
+  fullstendig momentdekning (sensor retter mot sjekkliste). Prioritet: perfekt (porten
+  til nesten hvert spørsmål).
+- **Innhold (DNA sjangerkapittel):** **T1-oppskriften (~35 min):** (1) rammesett/definer
+  kort; (2) gå SYSTEMATISK gjennom alle deltemaene sensor forventer, med rette fagbegreper
+  og klassiske studier; (3) legg til tilleggspoeng-laget. **T2-oppskriften:** definisjon
+  → historisk/teoretisk kontekst → kjernetrekk → (for de sterke) kritisk kommentar.
+  **Momentliste-metoden:** skriv strukturert mot en sjekkliste, ikke en løs fortelling;
+  fullstendighet slår lengde. Liste over de faste momentlistene som gjentas (dybde-cues,
+  fargesynsteoriene, Erikson+Super, Big Five leksikalsk/faktoranalyse, GAS-fasene). To
+  gjennomskrevne eksempler med margkommentarer (én T1: dybdepersepsjon; én T2: «hva menes
+  med psykofysikk»). 4 nyskrevne øvingsoppgaver (2 T1 + 2 T2) med momentliste-løsninger.
+- **Typiske feil:** F1 (ufullstendig momentdekning); F2 (navneramsing uten prinsipp);
+  F5 (pensumløs prat).
+- **Kvote:** 10 quiz / 6 flashcards.
+
+#### Kapittel 11.2: Drøftingssjangeren og tilleggspoeng-laget (T3)
+**id:** `psy1000-11-2` · **number:** 11.2 · **estimatedMinutes:** 50 · **prerequisites:** `psy1000-11-1`
+
+- **Kapitteltype:** sjanger (T3).
+- **Description:** «Drøft X»-sjangeren: hvordan legge vurderingslaget oppå kunnskapsbunnen,
+  og hvordan tilleggspoeng-laget faktisk høstes.
+- **Eksamensbelegg:** T3-spørsmål honoreres først og fremst på DEKKENDE kunnskap;
+  vurderingen er tilleggslaget som løfter mot A/B. Ren meningsytring uten kunnskapsbunn
+  gir lite; tørr gjengivelse på «drøft» taper også. Prioritet: perfekt (ferdigheten som
+  skiller A/B fra C).
+- **Innhold:** Firetrinns drøftingsstruktur: (1) presenter posisjonene/mekanismene
+  (kunnskapsbunnen — samme som T1); (2) sett dem opp mot hverandre / vei fordeler og
+  ulemper; (3) trekk inn kritikk/kontrast/anvendelse (tilleggspoeng-laget); (4) ta en
+  begrunnet stilling. De fire faste tilleggspoeng-typene med eksempelfraser (illusjoner:
+  «Ames-rommet viser at …»; kontrast: «i motsetning til …»; kritikk: «modellen kritiseres
+  for …»; overordnet prinsipp: «dette illustrerer heuristikkenes generelle …»).
+  Motargument-/kontrastgeneratoren (hent kontrasten fra en nabo-teori: James–Lange mot
+  Cannon–Bard; trikromatisk mot motfarge; Kohlberg mot Gilligan). Gjennomskrevet eksempel
+  med margkommentarer: «Drøft forholdet mellom kognisjon og emosjon». 4 nyskrevne
+  drøftingsoppgaver med momentliste + disposisjonsforslag (ikke fulle essays).
+- **Typiske feil:** F8 («drøft» besvart som ren gjengivelse — eller mening uten
+  kunnskap); F3 (droppe tilleggspoeng-laget); F1 (tynn kunnskapsbunn under drøftingen).
+- **Kvote:** 10 quiz / 6 flashcards.
+
+#### Kapittel 11.3: Studie-/vignettsjangeren — klassisk-studie-galleriet (T4)
+**id:** `psy1000-11-3` · **number:** 11.3 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-11-1`
+
+- **Kapitteltype:** sjanger (T4).
+- **Description:** Hvordan besvare studie-/vignettoppgaver etter malen «studie → funn →
+  hva det betyr → generalisering», med et galleri over de klassiske studiene.
+- **Eksamensbelegg:** Den rendyrkede varianten er Linda-problemet (4 sett med ordrett
+  vignett); samme sjanger dekker Asch/Milgram, Selyes GAS, Festingers dissonans, Pavlov,
+  Skinner, Bandura/Bobo, Tolman, Ebbinghaus, Ekman. Prioritet: perfekt (Linda alene 4 sett).
+- **Innhold:** Firetrinnsmalen: (1) beskriv studien/funnet presist; (2) forklar HVORFOR
+  (mekanismen — f.eks. representativitetsheuristikken for Linda); (3) hva det lærer oss;
+  (4) generaliser til det overordnede prinsippet. **Klassisk-studie-galleriet** — én
+  kompakt oppføring per studie (oppsett · funn · mekanisme · generalisering · typisk
+  oppgaveformulering): Linda/konjunksjonsfeilen, Asch, Milgram, Selye/GAS, Festinger/
+  dissonans, Pavlov, Thorndike, Skinner, Bandura/Bobo, Tolman/kognitive kart, Ebbinghaus,
+  Ekman, Sperry/split-brain, Ainsworth/fremmedsituasjonen. Gjennomskrevet eksempel med
+  margkommentarer: full Linda-besvarelse (nyskrevet vignett) som treffer alle fire trinn.
+  4 nyskrevne vignettoppgaver med momentlister.
+- **Typiske feil:** F7 (gjenfortelle vignetten uten mekanisme/konjunksjonsfeil); F4
+  (utbrodere prosedyren når poenget er hva studien BETYR); F1 (mangle
+  generaliseringstrinnet).
+- **Kvote:** 12 quiz / 10 flashcards.
+
+#### Kapittel 11.4: Historieoppgaven — tidslinje, retningskart og sammenhenger (T5)
+**id:** `psy1000-11-4` · **number:** 11.4 · **estimatedMinutes:** 55 · **prerequisites:** `psy1000-11-1`, `psy1000-1-8`
+
+- **Kapitteltype:** sjanger (T5).
+- **Description:** Hvordan besvare historiespørsmål slik sensor vil ha dem: sammenhenger
+  og flere sider, ikke navnelister — med en tidslinje og et retningskart å tenke i.
+- **Eksamensbelegg:** Historie er ~1/3 av hvert sett (kognitiv revolusjon 6, Darwin 4,
+  assosiasjon 4, dyrestudier 4, ny eksperimentalpsyk. 3, neobehaviorisme 3). Sensor vil
+  ha *sammenhenger* (hvorfor oppsto retningen, hva brøt/bygde den på, hva ble
+  konsekvensen). Prioritet: perfekt (bærebjelken).
+- **Innhold:** **Historieoppgavens struktur:** rammesett epoken/personen → kjerneideene →
+  hva den brøt med / bygde på → betydning/ettermæle → (bonus) kritisk vurdering av hvor
+  «revolusjonær»/betydningsfull den egentlig var. **Retningskartet** (tidslinje med
+  kontinuitets-/bruddmarkører): assosiasjonisme → psykofysikk/Wundt (1879) →
+  strukturalisme/funksjonalisme → behaviorisme → neobehaviorisme → kognitiv revolusjon →
+  humanisme; med Darwin som gjennomgripende innflytelse. **Forvekslingsvaksinen** — hvem
+  hører til hvor (Wundt≠Titchener≠Ebbinghaus; Tolman≠Hull≠Skinner; Gestalt-Köhler≠
+  behaviorist-Thorndike). Gjennomskrevet eksempel med margkommentarer: «Hva menes med den
+  kognitive revolusjon?» der A-versjonen leverer kontinuitetsnyansen (F10-vaksinen).
+  4 nyskrevne historieoppgaver med momentlister (dekk minst: én retning, én person, én
+  «hvor revolusjonær?»-drøfting).
+- **Typiske feil:** F6 (blande teoretikere/retninger — historiebolkens vanligste feil);
+  F10 (historisk overforenkling — brudd uten kontinuitet); F2 (navneliste uten
+  sammenhenger).
+- **Kvote:** 12 quiz / 10 flashcards.
+
+#### Kapittel 11.5: Feilvaksinen — de ti feilene som senker karakteren
+**id:** `psy1000-11-5` · **number:** 11.5 · **estimatedMinutes:** 45 · **prerequisites:** Del 0–10
+
+- **Kapitteltype:** sjanger (tverrgående feildrill).
+- **Description:** Alle ti sensordokumenterte feil (F1–F10) drillet med før/etter-
+  omskrivinger og gjenkjenningsoppgaver — feilunngåelse er karakterforsikring.
+- **Eksamensbelegg:** Analysen §5 komplett. F1 (ufullstendig momentdekning) er selve
+  C→A-aksen; F2/F3 avgjør A/B; F6/F10 er historiebolkens fartsfeller; F7 er Linda-fellen;
+  F9 er tidsdisiplinen på «6 av 7». Prioritet: perfekt.
+- **Innhold:** Én seksjon per feil: (a) feilen slik sensor ser den, (b) et nyskrevet «slik
+  ser den ut i en besvarelse»-utdrag, (c) omskrevet A-versjon av samme passasje, (d)
+  varsellampe-heuristikk. Feilenes hjemkapitler: F1→0.2/3.3/6.4/7.3, F2→0.2/7.3,
+  F3→0.2/8.4/10.5, F4→8.1/6.4, F5→0.2/alle, F6→hele Del 1/3.2/4.1/9.2, F7→5.3, F8→11.2,
+  F9→0.1, F10→1.6/1.8. Driller «hvilken feil begår denne kandidaten?» (utmerket flervalg).
+- **Typiske feil:** kapitlet ER feilene.
+- **Kvote:** 12 quiz / 6 flashcards.
+
+#### Kapittel 11.6: Modellbesvarelse — redegjørelse (dybdepersepsjon, C og A)
+**id:** `psy1000-11-6` · **number:** 11.6 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-11-1`, `psy1000-3-3`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Oppgavesjanger:** T1 (ren redegjørelse) — den reneste momentliste-oppgaven, med
+  IDENTISK sensorliste i 4 sett.
+- **Tema/oppgave (nyskrevet):** «Beskriv hvordan vi skaper inntrykk av dybde i et
+  todimensjonalt bilde.»
+- **Karakternivåer:** A-besvarelse i full tekst med margnotater («her: skillet monokular/
+  binokular etablert først», «her: alle sju monokulare cues dekket», «her: Ames-rommet/
+  illusjon → tilleggspoeng») + kommentert C-besvarelse (korrekt, men bare monokulare cues
+  dekket, binokulare glemt, ingen illusjonsbonus — F1 og F3 demonstrert; notater om gapet
+  opp til A). Avsluttes med `tip` **Sensorblikket**: momentlista (sju monokulare + to
+  binokulare + illusjonsbonus) og hvordan poengene faller.
+- **Typiske feil demonstrert i C-versjonen:** F1, F3.
+- **Kvote:** 6 quiz / 4 flashcards.
+
+#### Kapittel 11.7: Modellbesvarelse — sammensatt tema (voksenutvikling, C og A)
+**id:** `psy1000-11-7` · **number:** 11.7 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-11-1`, `psy1000-6-4`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Oppgavesjanger:** T1 sammensatt (flere obligatoriske bolker) — emnets hyppigste
+  spørsmål (7 sett).
+- **Tema/oppgave (nyskrevet):** «Beskriv sosial-emosjonell utvikling hos voksne og eldre.»
+- **Karakternivåer:** A-besvarelse i full tekst med margnotater (alle bolkene dekket:
+  Erikson ×3 stadier, Super, ekteskap/familie, midtlivskrise, alderdom/død; «her:
+  midtlivskrisens empiriske status problematisert → tilleggspoeng»; unngår stabilitet
+  som hovedfokus) + kommentert C-besvarelse (kun Erikson dekket, Super/ekteskap/alderdom
+  glemt — F1; bruker plass på stabilitet — F4). Sensorblikket: den fulle momentlista og
+  hvorfor bredden er alt her.
+- **Typiske feil demonstrert i C-versjonen:** F1, F4.
+- **Kvote:** 6 quiz / 4 flashcards.
+
+#### Kapittel 11.8: Modellbesvarelse — historie (den kognitive revolusjon, C og A)
+**id:** `psy1000-11-8` · **number:** 11.8 · **estimatedMinutes:** 45 · **prerequisites:** `psy1000-11-4`, `psy1000-1-8`
+
+- **Kapitteltype:** modellbesvarelse.
+- **Oppgavesjanger:** T5/T3 (historie med vurderingslag) — emnets hyppigste historietema
+  (6 sett).
+- **Tema/oppgave (nyskrevet):** «Hva menes med den kognitive revolusjon, og hvor
+  revolusjonær var den egentlig?»
+- **Karakternivåer:** A-besvarelse i full tekst med margnotater (informasjonsbehandler-
+  metaforen, bruddet med behaviorismen, de tverrfaglige inspirasjonskildene; «her:
+  kontinuiteten med neobehaviorismens mellomliggende variabler → dette løfter til A,
+  F10-vaksinen») + kommentert C-besvarelse (metaforen og bruddet korrekt, men fremstilt
+  som RENT brudd uten kontinuiteten — F10; inspirasjonskildene tynne). Sensorblikket:
+  momentlista + hvorfor «hvor revolusjonær?»-nyansen er den A-differensierende.
+- **Typiske feil demonstrert i C-versjonen:** F10, F1.
+- **Kvote:** 6 quiz / 4 flashcards.
+
+#### Kapittel 11.9: Øvingseksamen A (komplett «6 av 7»-sett)
+**id:** `psy1000-11-9` · **number:** 11.9 · **estimatedMinutes:** 90 · **prerequisites:** `psy1000-11-5`
+
+- **Kapitteltype:** øvingseksamen.
+- **Description:** Et komplett, nyskrevet sett i gjeldende format: 7 selvstendige
+  kortessay-spørsmål, besvar 6, 6 timer, ingen hjelpemidler — temaspredt over hele faget
+  med den obligatoriske historiekomponenten.
+- **Innhold:** 7 nyskrevne spørsmål modellert på bærebjelke-mønsteret (~1/3 historie),
+  f.eks.: (1) dybdepersepsjon (T1), (2) sosial-emosjonell voksenutvikling (T1), (3) den
+  kognitive revolusjon (T5/T3), (4) trekktilnærmingen/Big Five (T1), (5) konformitet og
+  lydighet — faktorene (T1), (6) Linda/heuristikker (T4), (7) biologisk behandling (T3).
+  `collapsible` full momentliste-fasit per spørsmål (med tilleggspoeng-markører); `tip`
+  **Sensorblikket** (hvordan seks besvarelser vektes; hva C-kandidaten leverer vs. hva A
+  krever; F9-tidsdisiplin).
+- **Kvote:** 6 quiz / 2 flashcards.
+
+#### Kapittel 11.10: Øvingseksamen B (komplett «6 av 7»-sett)
+**id:** `psy1000-11-10` · **number:** 11.10 · **estimatedMinutes:** 90 · **prerequisites:** `psy1000-11-9`
+
+- **Kapitteltype:** øvingseksamen.
+- **Description:** Andre komplette sett med en annen, men fortsatt typisk, temaprofil —
+  for å vise bredden i hvilke temaer som kan komme.
+- **Innhold:** 7 nyskrevne spørsmål med annen miks, f.eks.: (1) fargesyn (T1), (2) Piaget/
+  preoperasjonelt stadium (T1), (3) Darwins innflytelse (T5), (4) schizofreni (T1/T3), (5)
+  universelle emosjoner (T1), (6) assosiasjonsbegrepet i historien (T5), (7) krysskulturelle
+  studier (T3). Full momentliste-fasit + Sensorblikket.
+- **Kvote:** 6 quiz / 2 flashcards.
+
+#### Kapittel 11.11: Øvingseksamen C (komplett «6 av 7»-sett)
+**id:** `psy1000-11-11` · **number:** 11.11 · **estimatedMinutes:** 90 · **prerequisites:** `psy1000-11-10`
+
+- **Kapitteltype:** øvingseksamen.
+- **Description:** Tredje komplette sett, vektlagt mot en tredje profil med ekstra tyngde
+  på drøftings- (T3) og historietemaer (T5) for A-trening.
+- **Innhold:** 7 nyskrevne spørsmål, f.eks.: (1) hørselssansen (T1), (2) moralutvikling
+  Kohlberg/Gilligan (T3), (3) neobehaviorismen (T5), (4) angstlidelser (T1/T3), (5) stress/
+  GAS (T1), (6) den nye eksperimentalpsykologien Wundt/Ebbinghaus (T5), (7) trekk vs. Freud
+  — drøft (T3). Full momentliste-fasit + Sensorblikket med A/B/C/D/E-terskelbeskrivelse.
+- **Kvote:** 6 quiz / 2 flashcards.
