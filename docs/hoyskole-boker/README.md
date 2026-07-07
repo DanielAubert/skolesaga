@@ -115,6 +115,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON4915 Development Economics (UiO) | drøfting | skjelett |
 | ECON2130 Statistikk 1 (UiO) | regnefag | skjelett |
 | ECON2220 Mikroøkonomi 2 (UiO) | regnefag | skjelett |
+| ECON4220 Microeconomics 3 (UiO) | regnefag | skjelett |
 | ECON2310 Makroøkonomi 2 (UiO) | regnefag | skjelett |
 | ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
 | ECON3150 Introductory Econometrics (UiO) | regnefag | skjelett |
