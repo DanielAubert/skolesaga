@@ -172,6 +172,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | Matematikk 1000 / DAFE1000 (OsloMet) | regnefag | skjelett |
 | AFB Anatomi, fysiologi og biokjemi (NOKUT, sykepleie) | fakta/pugg | skjelett |
+| GLU-matte Nasjonal deleksamen i matematikk (GLU) (NOKUT) | regnefag/didaktikk-hybrid | skjelett |
 | NB Nasjonal deleksamen i barnevern (rettsanvendelse) (NOKUT) | jus | skjelett |
 | MED1100 Medisinstudiet modul 1 (UiO) | fakta/pugg-hybrid | skjelett |
 | PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
