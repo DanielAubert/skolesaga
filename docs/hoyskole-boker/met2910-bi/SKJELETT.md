@@ -32,7 +32,7 @@
 | Level | `'Høyskole'` |
 | Institusjon | **Handelshøyskolen BI** (bachelor i økonomi og administrasjon; 7,5 ECTS, obligatorisk grunnleggende matematikkfag) |
 | Arketype | Regnefag (anvendt verktøymatematikk med fast oppgavemal og gjennomført bedriftsøkonomisk innramming) |
-| Antall kapitler | **40** (2 eksamenskart/håndverk + 31 tema/drill + 4 eksamenstrening) + 7 prøvekapitler |
+| Antall kapitler | **40** (2 eksamenskart/håndverk + 34 tema/drill + 4 eksamenstrening) + 7 prøvekapitler |
 | Estimert totaltid | **≈ 2 210 min ≈ 37 timer** (uten prøver) |
 | Quiz totalt | **601** (krav ≥500) |
 | Flashcards totalt | **534** (krav ≥500) |

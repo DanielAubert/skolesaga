@@ -271,7 +271,7 @@ A-besvarelse med all utregning **og** avsluttende tolkningssetning i kontekst),
 Typiske feil-`warning`, 6–12 øvinger med `solution` + `hints`, og en
 `collapsible` med repetisjonsoppgaver. **Test-/KI-/regresjonskapitler har i
 tillegg to kontraktfestede `warning`-blokker: «Vis utregning» og «Tolk i
-kontekst».** KI-kapitler (5.2) og regresjon (8.2/8.3) har dessuten en
+kontekst».** KI-kapitlene (5.2, 7.1) og regresjon (8.2) har dessuten en
 kontraktfestet **KI-tolkningsfelle-`warning`**.
 
 ---

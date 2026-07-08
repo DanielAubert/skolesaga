@@ -120,7 +120,7 @@ notasjonspåstander*):
 |---|---|
 | $k_E$, $k_G$, $k_T$, $k_U$ | egenkapital-, gjelds-, total- (WACC) og ugiret kapitalkostnad |
 | $\beta_E$, $\beta_I$ (= $\beta_U$), $\beta_G$ | egenkapitalbeta, ugiret / investeringsbeta, gjeldsbeta |
-| OER, OFR, OFRS | overskudd til egenkapital; overskudd før renter (u/skatt); overskudd før renter etter skatt |
+| OER, OFR, OFRS | overskudd til egenkapital; overskudd før renter; overskudd før renter og skatt (derfor multipliseres OFRS med $(1-s)$ i $V_U$-formelen) |
 | DES, DFRSI | driftsresultat etter skatt; driftsresultat før renter, skatt og avskrivning på immaterielle eiendeler |
 | APIK | avkastning på investert kapital |
 | DPA, OPA | dividende per aksje; overskudd/resultat per aksje |
@@ -139,6 +139,8 @@ Skriv rentestørrelser i prosent i teksten (7 %) og desimal i formlene (0,07).
 avviksanalyse) — 0 forekomster i arkivet.
 
 ### Arbeidsdeling mot FIN 3521 (nabofag — begge corporate finance II)
+
+> NB: FIN 3521-kolonnen bygger på fin3521-skjelettet/-analysen, ikke på BØK 3632-arkivet — *(verifiser mot fin3521-boka ved bygging)*.
 
 BØK 3632 og [FIN 3521](/bok/fin3521-bi) overlapper delvis (begge er videregående
 bedriftsfinansiering), men har **egne oppgavebanker og ulik kalibrering**.

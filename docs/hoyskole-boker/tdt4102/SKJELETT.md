@@ -147,6 +147,10 @@ av koden.
   store objekter du bare leser»; `virtual ~Base()` — «uten dette kalles ikke subklassens
   destruktør via basispeker → lekkasje»). Regelen «per delkapittel, ikke arv fra tidligere»
   beholdes. (Samme avvik som TDT4100/IN1010/IN1900.)
+- **MÅLSTANDARD: C++11.** All kode i boka skrives konsekvent mot C++11 (nullptr, override,
+  auto, range-for, using-alias, delegerende konstruktører er tillatt; smart pointers
+  (unique_ptr/shared_ptr) brukes IKKE — Del 3–4 trener rå new/delete/Rule of Three slik
+  arkivet tester det; ikke «moderniser» kopisemantikk-delene). Merk standarden i kap. 0.1.
 - **Hjelpemiddel C/lærebok tillatt → «tren bruk, ikke pugg».** Savitch var tillatt; poenget er
   at studenten skriver kompakt SELV i stedet for å bla. API- og konstruksjonslistene rammer
   kunnskapen som **«når velger jeg dette / hvorfor / hva gjør det»**, ikke eksakt

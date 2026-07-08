@@ -37,7 +37,7 @@
 | Level | `'Høyskole'` |
 | Arketype | Regnefag (matematikk, skriftlig slutteksamen) |
 | Antall kapitler | **35** (2 eksamenskart/føringsstandard + 26 tema/drill + 4 vektoranalyse + 3 øvingseksamener) + **32 prøvekapitler** |
-| Estimert totaltid | **≈ 2 350 min ≈ 39 timer** (uten prøver) |
+| Estimert totaltid | **≈ 1 970 min ≈ 33 timer** for temakapitlene (≈ 2 690 min inkl. øvingseksamenene i Del 9) |
 | Quiz totalt | **572** (krav ≥500) |
 | Flashcards totalt | **558** (krav ≥500; formel-/teoremrikt fag → over gulvet) |
 

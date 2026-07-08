@@ -668,8 +668,8 @@ begrepsstoff enn et rent regnefag, derfor ligger flashcards godt over 500-gulvet
 Flashcards $= 40+68+48+64+34+16+16+40+50+16+88+16+15 = \mathbf{511}$.
 Prøver $= 4 \times 10$ temadeler $= \mathbf{40}$, pluss 3 komplette øvingseksamener.
 
-Perfekt-delene (1, 2, 3, 7, 8) + flervalgstreningen (11) står for **374 av 606
-quiz** (62 %) — i tråd med at disse temaene avgjør karakteren og at flervalg er
+Perfekt-delene (1, 2, 3, 7, 8) + flervalgstreningen (11) står for **356 av 606
+quiz** (59 %) — i tråd med at disse temaene avgjør karakteren og at flervalg er
 1/3 av eksamen.
 
 ---

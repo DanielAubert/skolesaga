@@ -41,7 +41,7 @@
 | Level | `'Høyskole'` |
 | Institusjon | NTNU |
 | Arketype | Regnefag (kvantitativt emne med svært fast oppgavetradisjon i kjernen) |
-| Antall kapitler | **41** (1 eksamenskart + 34 tema, hvorav 6 drill + 4 eksamenstrening + 2 merkede tilleggsmoduler) |
+| Antall kapitler | **41** (1 eksamenskart + 34 tema, hvorav 7 drill + 4 eksamenstrening + 2 merkede tilleggsmoduler) |
 | Estimert totaltid | **3 165 min ≈ 52,75 timer** |
 | Quiz totalt | **613** (krav ≥500) |
 | Flashcards totalt | **630** (krav ≥500) |

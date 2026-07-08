@@ -609,7 +609,7 @@ innholdet de skal dekke.
 
 #### Kapittel 9.1: Gordons vekstmodell og aksjeverdsetting
 
-- **id:** `bok3423-bi-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `bok3423-bi-1-1` · **kapitteltype:** teori
+- **id:** `bok3423-bi-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `bok3423-bi-1-1`, `bok3423-bi-7-2` · **kapitteltype:** teori
 - **description:** Aksjeprising med Gordons vekstmodell — timingfellen (DIV$_1$ = DIV$_0(1+g)$), to-fase-varianten og halvårsforskyvning — formelen som IKKE står på arket og MÅ pugges.
 - **Eksamensbelegg:** Gordon 67 %, ofte i case (V2024 O2e–f, VROOM/BioCycle). Timing og to-fase er faste feller. **Formelen er IKKE på arket — må pugges.** Prioritet: **KUNNE**.
 - **Forkunnskaper:** Bygger på kap. 1.1 (voksende evig strøm) og 7.2 ($r_E$ fra CAPM). **Symbol- og formelliste:** $P_0$, DIV$_0$, DIV$_1$, $r_E$, $g$ — **(må pugges — IKKE på arket)**.
