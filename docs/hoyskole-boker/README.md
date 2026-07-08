@@ -106,6 +106,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | JUR 3420 Forretningsjus (BI) | jus | skjelett |
+| STR 3605 Strategi (BI) | drøfting/case-analyse | skjelett |
 | BØK 3423 Finans (BI) | regnefag | skjelett |
 | BØK 3532 Finansregnskap og regnskapsanalyse (BI) | regnefag | skjelett |
 | SØK 3500 Samfunnsøkonomi II (BI) | regnefag | skjelett |
