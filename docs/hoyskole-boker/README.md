@@ -108,6 +108,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | JUS4213 Strafferett og straffeprosess (UiO) | jus | skjelett |
 | TGB4100 Geologi, innføring (NTNU) | fakta/pugg | skjelett |
 | TTT4120 Digital signalbehandling (NTNU) | regnefag | skjelett |
+| TFE4171 Design av digitale systemer 2 (NTNU) | regnefag/verifikasjonsfag | skjelett |
 | JUR 3420 Forretningsjus (BI) | jus | skjelett |
 | ORG 3620 Arbeids- og personaljus (BI) | jus | skjelett |
 | STR 3605 Strategi (BI) | drøfting/case-analyse | skjelett |
