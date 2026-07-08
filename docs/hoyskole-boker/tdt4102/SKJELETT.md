@@ -461,3 +461,241 @@ oppførsel OG begrunnelse). Prioritetsklasser: **perfekt** (nivå 1) / **kunne**
 - **Oppgavesjangre:** A, D, E, (F flagges mot Del 8). Mønstereksempel: «Lag `Tallfølge` med `int* data`, `int n`: konstruktør `Tallfølge(int n)`, destruktør, `int& operator[](int i)` (foregriper 5.3) som kaster `out_of_range` ved ugyldig `i`, og `int lengde() const`. Hvorfor trenger denne klassen snart også en kopikonstruktør?»
 - **Typiske feil:** Hele §5-minne-katalogen: §5.2 (dinglende), §5.5 (lekkasje/glemt `delete[]`), manglende destruktør, indekssjekk som ikke kaster. Og: glemme at dynamisk-minne-klassen trenger Rule of Three (bro til Del 4).
 - **Quiz: 18 · Flashcards: 12**
+
+---
+
+### Del 4 — Kopisemantikk *(VANSKELIGST: PERFEKT, ~3/3 — MEST DRILL)*
+
+> **Fagets vanskeligste og mest differensierende tema — der eksamen skiller kandidatene.**
+> Rule of Three, deep vs. shallow copy, kopikonstruktør/tilordningsoperator, `copy-swap`-idiomet
+> (roses eksplisitt) og referansetelling (`use`-teller + peker-til-peker for delt struktur). Egen
+> hovedoppgave på 2 av 3 sett, teorispørsmål på det tredje. Bygger direkte på Del 3 (eierskap/
+> `new`/`delete`/`T**`). Fire teorikapitler + stort drill (kap. 4.5). Dette er C++-temaet Java
+> aldri trenger å tenke på.
+
+#### Kapittel 4.1: Rule of Three og deep vs. shallow copy
+
+- **id:** `tdt4102-4-1` · **number:** 4.1 · **estimatedMinutes:** 55 · **prerequisites:** `tdt4102-3-2` · **kapitteltype:** teori
+- **description:** Når medlemsvis (shallow) kopiering går galt, og **Rule of Three**: eier klassen `new`-et minne, hører destruktør + kopikonstruktør + tilordningsoperator sammen. Begrepene deep (eget minne, uavhengige kopier) vs. shallow (delt peker) etableres her; når hver trengs, og — like viktig — **når standardkopiering holder** (ingen dynamisk minne).
+- **Eksamensbelegg:** Kopisemantikk ~3/3, fagets vanskeligste. «Begrunn når kopikonstruktør/tilordning IKKE trengs» gir poeng. Prioritet: **perfekt** (MEST DRILL, sammen med Del 3).
+- **Kodekontrakt (API- og konstruksjonsliste):** **Standard (medlemsvis) kopi** — kompilatoren lager kopikonstruktør/tilordning som kopierer felt-for-felt; for **peker-felt** kopieres bare adressen (**shallow**) → to objekter deler samme `new`-et minne → dobbel-frigjøring og utilsiktet deling; **deep copy** — allokér eget minne og kopiér innholdet, så kopiene er uavhengige; **Rule of Three:** trenger klassen én av {destruktør, kopikonstruktør, tilordningsoperator} (fordi den eier `new`-et minne), trenger den vanligvis alle tre; **når trengs de IKKE:** klasser uten dynamisk minne (bare verditype-felt) → standard medlemsvis kopi holder — å kunne *avgjøre* dette gir poeng. `theorem`-idiom: **Rule of Three**. `warning` (**sentral**): shallow kopi av en peker-eiende klasse → to destruktører frigir samme minne (dobbel-`delete`, §5.5/5.11); OG motsatt overkill: skrive Rule of Three der ingen dynamisk minne finnes.
+- **Oppgavesjangre:** E + A. Mønstereksempel: «Klassen `Tallfølge` (fra 3.5) har `int* data`. Forklar hva som skjer hvis to `Tallfølge`-objekter kopieres med standard medlemsvis kopi, og hvorfor Rule of Three trengs. Trenger `Vektor2D` (kun `double x,y`) det samme? Begrunn.»
+- **Typiske feil:** Tro at standardkopi holder for en peker-eiende klasse (shallow → dobbel-`delete`); skrive Rule of Three der det ikke trengs (overkomplisert); glemme én av de tre (f.eks. destruktør + kopikonstruktør men ikke tilordning).
+- **Quiz: 20 · Flashcards: 24**
+
+#### Kapittel 4.2: Kopikonstruktør og tilordningsoperator (deep copy)
+
+- **id:** `tdt4102-4-2` · **number:** 4.2 · **estimatedMinutes:** 60 · **prerequisites:** `tdt4102-4-1` · **kapitteltype:** teori
+- **description:** Implementere deep copy fullt ut: kopikonstruktør (`Navn(const Navn&)`) som allokerer eget minne og kopierer, og tilordningsoperator (`operator=`) som i tillegg må rydde gammelt minne og håndtere selvtilordning — den «håndlagde» veien før `copy-swap`.
+- **Eksamensbelegg:** Kopisemantikk-hovedoppgave 2/3. Implementer deep copy eksplisitt. Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **Kopikonstruktør** `Navn(const Navn& other) : n(other.n), data(new int[other.n]) { for(...) data[i]=other.data[i]; }` (allokér eget minne, kopiér innhold — `const&`-parameter er påkrevd); **tilordningsoperator** `Navn& operator=(const Navn& other)` med fire steg: (1) **selvtilordningssjekk** `if (this == &other) return *this;`; (2) frigi gammelt minne (`delete[] data;`); (3) allokér nytt + kopiér; (4) **`return *this;`** (return-by-reference for kjeding `a=b=c`); **hvorfor `const&`-parameter** (unngå kopi + ikke endre kilden); **hvorfor `Navn&` retur** (return-by-reference, kjeding). `theorem`-idiom: **deep-copy-malen**. `warning` (**sentral**): glemme selvtilordningssjekk (`a = a` frigir eget minne før kopiering → krasj); glemme å frigi gammelt minne før ny allokering (lekkasje); returnere by value i stedet for `Navn&`.
+- **Oppgavesjangre:** A + E. Mønstereksempel: «Skriv kopikonstruktør og `operator=` for `Tekstbuffer` (som eier `char* data`). Vis alle fire stegene i `operator=` og forklar hvorfor selvtilordningssjekken trengs.»
+- **Typiske feil:** Glemt selvtilordningssjekk (§5.11-nær); glemt frigjøring av gammelt minne (lekkasje); shallow kopi (bare kopiere pekeren); returnere by value fra `operator=`; ikke-`const` parameter.
+- **Quiz: 20 · Flashcards: 22**
+
+#### Kapittel 4.3: `copy-swap`-idiomet
+
+- **id:** `tdt4102-4-3` · **number:** 4.3 · **estimatedMinutes:** 55 · **prerequisites:** `tdt4102-4-2` · **kapitteltype:** teori
+- **description:** Det eleganteste kopimønsteret, som sensor eksplisitt roser: ta argumentet **by value** (kopieres via kopikonstruktøren), **`swap`** medlemmene med kopien, og `return *this` — én implementasjon som automatisk håndterer både selvtilordning og unntakssikkerhet.
+- **Eksamensbelegg:** `copy-swap` eksplisitt rost i sensorkommentar («håndterer selvtilordning og unntakssikkerhet»). Del av kopisemantikk-hovedoppgave. Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **`copy-swap`-idiomet:** `Navn& operator=(Navn rhs) { swap(*this, rhs); return *this; }` — parameteren tas **by value** (kopien lages av kopikonstruktøren *før* kroppen), man `swap`-er medlemmene (`std::swap(data, rhs.data); std::swap(n, rhs.n);`), og `rhs` (nå med gammelt minne) destrueres automatisk ved retur; **hvorfor det virker:** selvtilordning er trygt (man bytter med en kopi), unntakssikkert (allokeringen skjer i kopieringen før noe endres), og gjenbruker kopikonstruktør + destruktør (mindre kode); en egen **`swap`-medlemsfunksjon** eller frittstående `swap` som bytter medlemmene; sammenlign med den håndlagde firestegs-`operator=` fra 4.2 (begge gir full uttelling — sidestilt). `theorem`-idiom: **`copy-swap`-idiomet**. `warning`: `swap` må bytte ALLE medlemmene (glemt et felt → inkonsistent tilstand); ikke ta `rhs` by reference (da mister man kopien som er hele poenget).
+- **Oppgavesjangre:** A + E. Mønstereksempel: «Skriv `operator=` for `Tallfølge` med `copy-swap`-idiomet. Forklar med egne ord hvordan det tar seg av selvtilordning og unntakssikkerhet uten en eksplisitt `if (this == &other)`.»
+- **Typiske feil:** Ta `rhs` by reference (ødelegger idiomet); glemme et medlem i `swap` (inkonsistent); ikke forstå at kopien lages av parameteroverføringen; skrive både `copy-swap` og manuell firestegs samtidig (velg én).
+- **Quiz: 18 · Flashcards: 18**
+
+#### Kapittel 4.4: Referansetelling og delt (shallow) eierskap
+
+- **id:** `tdt4102-4-4` · **number:** 4.4 · **estimatedMinutes:** 55 · **prerequisites:** `tdt4102-4-2`, `tdt4102-3-4` · **kapitteltype:** teori
+- **description:** Det andre kopidesignet: delt (shallow) data med **referansetelling** — en `use`-teller som teller opp ved kopiering, ned ved destruksjon, og frigir minnet når den når 0. Krever ofte **peker-til-peker** for delt liste-hode (`first`/`last`). Alternativet til deep copy når deling er ønsket.
+- **Eksamensbelegg:** Shallow copy m/ referansetelling eksplisitt (2015-kont oppg. 3: deep vs. shallow). Peker-til-peker for delt `first`/`last` (§5.11). Prioritet: **perfekt** (differensierende — det vanskeligste enkelt-mønsteret).
+- **Kodekontrakt (API- og konstruksjonsliste):** **Referansetelling:** delt data + `int* use` (delt teller); **konstruktør** `use = new int(1)`; **kopikonstruktør** deler pekerne og `++(*use)`; **destruktør** `if (--(*use) == 0) { delete[] data; delete use; }`; **tilordning** teller ned den gamle, opp den nye (rekkefølge!); **peker-til-peker for delt struktur:** når flere objekter deler en liste og `first`/`last` må kunne endres av alle, holdes de som `Node**` (delt) — ellers ser ikke de andre objektene endringen (§5.11); **deep vs. shallow — valget:** deep = uavhengige kopier (trygt, men kopieringskostnad); shallow m/ telling = delt data (billig, men delte endringer synlige for alle). `theorem`-idiom: **referansetelling-malen**. `warning` (**sentral**): shallow copy uten `T**` der delt `first`/`last` må endres av flere (delingen går tapt, §5.11); feil rekkefølge i tilordning (ned gammel før opp ny, ellers feil ved selvtilordning); glemme å `delete use` når telleren når 0.
+- **Oppgavesjangre:** A + E. Mønstereksempel: «Lag `DeltBuffer` med referansetelling: to `DeltBuffer` som kopierer hverandre skal dele samme `char*`-data via en `int* use`. Skriv konstruktør, kopikonstruktør og destruktør. Forklar hvorfor `use` er en peker (delt), ikke en `int`.»
+- **Typiske feil:** `use` som `int` i stedet for `int*` (ikke delt → telling virker ikke); frigi data mens andre fortsatt bruker det (telte ikke riktig); shallow uten `T**` for delt hode (§5.11); minnelekkasje av selve telleren.
+- **Quiz: 18 · Flashcards: 20**
+
+#### Kapittel 4.5: DRILL — Kopisemantikk (Del 4)
+
+- **id:** `tdt4102-4-5` · **number:** 4.5 · **estimatedMinutes:** 85 · **prerequisites:** `tdt4102-4-4` · **kapitteltype:** drill
+- **description:** Full drill på fagets vanskeligste tema: gitt en klasse som eier `new`-et minne, implementer hele Rule of Three — både som deep copy (kopikonstruktør + firestegs-`operator=` ELLER `copy-swap`) og som shallow copy med referansetelling — og begrunn valget. Der eksamen skiller kandidatene.
+- **Eksamensbelegg:** Kopisemantikk-hovedoppgave (10–25 %, nesten alltid egen sluttdel). To parallelle klasser (deep vs. shallow) er et fast mønster (`ValArr`/`RefArr`). Prioritet: **perfekt** (MEST DRILL).
+- **Kodekontrakt (løsningsoppskrift):** Algoritmisk fremgangsmåte: 1) **avgjør** — eier klassen `new`-et minne? Ja → Rule of Three; nei → standardkopi holder (begrunn); 2) **deep-varianten:** kopikonstruktør (allokér eget + kopiér) + `operator=` (fire steg ELLER `copy-swap`) + destruktør; 3) **shallow-varianten:** referansetelling (`int* use`, opp/ned, frigi ved 0), `T**` for delt hode; 4) **begrunn** valget deep vs. shallow (uavhengighet vs. deling/kostnad). Gjennomgått eksamenscase med **sensor-margnotater** (Rule of Three komplett; selvtilordning håndtert; `copy-swap` roses; deep/shallow-valg begrunnet; kompakt kode). 8–12 oppgaver på eksamensnivå — ofte **parvise** klasser (`ValArr`-erstatning `DypTabell` med deep vs. `DeltTabell` med telling), hver med kort fasit + begrunnelse.
+- **Oppgavesjangre:** A, E, (F flagges). Mønstereksempel: «Gitt `DypTabell` (skal ha uavhengige kopier) og `DeltTabell` (skal dele data): implementer Rule of Three for begge — deep for den første (bruk gjerne `copy-swap`), referansetelling for den andre. Begrunn deep vs. shallow for hver.»
+- **Typiske feil:** Hele §5-kopi-katalogen: §5.11 (shallow uten `T**`), glemt selvtilordning, glemt frigjøring av gammelt minne, shallow der deep trengs (dobbel-`delete`) eller motsatt, ufullstendig Rule of Three (mangler én av tre). Å skrive lang kode der `copy-swap` gir kort.
+- **Quiz: 18 · Flashcards: 12**
+
+---
+
+### Del 5 — Operatoroverlasting *(operatoroverlasting: PERFEKT, 3/3)*
+
+> Hele operatorkatalogen (3/3): medlem vs. frittstående (og «hvilke MÅ ha call-by-reference?»),
+> sammenligning (`<`, `==`), aritmetikk (`+`, `+=`, `*`, `*=` med `reduce()`/normalisering og
+> `return *this`), postfiks `++` (temp-kopi), `operator[]` (retur `int&`) og `operator<<` for
+> `ostream`. Bygger på klasser (Del 2) og `const`/`&` (Del 1–2). Tre teorikapitler + drill (5.4).
+
+#### Kapittel 5.1: Operatoroverlasting — medlem vs. frittstående, og call-by-reference
+
+- **id:** `tdt4102-5-1` · **number:** 5.1 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-2-3` · **kapitteltype:** teori
+- **description:** Hva operatoroverlasting er, når en operator skal være **medlem** (venstre operand er egen klasse, endrer tilstand: `+=`, `[]`) vs. **frittstående** (symmetriske/`<<`), og det eksplisitte spørsmålet «hvilke operatorer MÅ ha call-by-reference?» (de som må endre eller unngå kopi/kjeding).
+- **Eksamensbelegg:** Operatoroverlasting 3/3. «Hvilke operatorer MÅ ha call-by-reference?» er eget spørsmål (2016/17 oppg. 1). Parameteroverføring for operatorer 3/3. Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **Overlasting** `returtype operator@(parametre)` (`@` = operatoren); **medlem** `Navn operator+(const Navn& r) const` (venstre operand er `*this`); **frittstående** `Navn operator+(const Navn& a, const Navn& b)` (symmetrisk — begge operander som parametre; ofte `friend` for privat tilgang); **når medlem:** modifiserende operatorer (`+=`, `*=`, `=`, `[]`, `++`) og de som naturlig hører til objektet; **når frittstående:** `<<`/`>>` (venstre operand er `ostream`, ikke egen klasse) og symmetriske aritmetiske; **call-by-reference kreves** for: operatorer som **endrer** operanden (`+=` returnerer `Navn&`), `operator[]` (returnerer `int&` for å kunne endres), `operator<<` (`ostream&` inn og ut for kjeding), `operator=` (return-by-ref); **`const`** på ikke-modifiserende operatorer og deres parametre. `theorem`-idiom: (bruker parameteroverførings-valget fra 1.2). `warning`: skrive `<<` som medlem (venstre operand er `ostream`, går ikke); glemme `const` på ikke-modifiserende operator; returnere by value der by-ref kreves for kjeding.
+- **Oppgavesjangre:** E + A. Mønstereksempel: «For `Pengebeløp`: hvilke av `+`, `+=`, `<<`, `[]` bør være medlem, og hvilke frittstående? Hvilke MÅ ha call-by-reference, og hvorfor?»
+- **Typiske feil:** `operator<<` som medlem; glemme `const`; feil retur-type (by value der by-ref trengs); ikke vite hvilke operatorer som må endre operanden.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 5.2: Sammenligning og aritmetikk — `<`, `==`, `+`, `+=`, `*`, `*=`
+
+- **id:** `tdt4102-5-2` · **number:** 5.2 · **estimatedMinutes:** 55 · **prerequisites:** `tdt4102-5-1` · **kapitteltype:** teori
+- **description:** Sammenligningsoperatorene (`<`, `==` — bl.a. for sortering/`std::sort`) og de aritmetiske (`+`, `+=`, `*`, `*=`), med to sentrale sensorkrav: modifiserende operatorer skal kalle **`reduce()`/normalisering** og **`return *this`**, og `operator*` bør **gjenbruke** `operator*=`.
+- **Eksamensbelegg:** Aritmetiske operatorer + `<`/`==` 3/3. Sensor-sjekkliste for `*=`: `reduce()`, `return *this`, enkel implementasjon, gjenbruk. Manglende normalisering er en fast felle (§5.9). Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **`operator<`** `bool operator<(const Navn& r) const` (for sortering — total orden); **`operator==`** `bool operator==(const Navn& r) const` (verdilikhet); **`operator+=`** `Navn& operator+=(const Navn& r) { …; normaliser(); return *this; }` (modifiserer `*this`, returnerer `Navn&`); **`operator+`** — **gjenbruk** `+=`: `Navn operator+(const Navn& r) const { Navn t = *this; t += r; return t; }` (returnerer ny verdi by value); tilsvarende **`operator*=`** og **`operator*`**; **`reduce()`/normalisering** — privat hjelpemetode som rydder tilstanden etter aritmetikk (forkort brøk / bær over ører / normaliser vinkel), kalles av hver modifiserende operator. `theorem`-idiom: **`*=`-og-gjenbruk-malen**. `warning` (**sentral**): glemme `reduce()`/normalisering etter aritmetikk (§5.9 — tilstanden blir ugyldig, f.eks. `4/8` ikke forkortet, `70` ører ikke båret over); glemme `return *this` i `+=`; ikke gjenbruke `+=` i `+` (duplisert kode).
+- **Oppgavesjangre:** A + E. Mønstereksempel: «For `Pengebeløp` (kroner + ører): skriv `operator+=` som bærer over 100 ører til én krone (normalisering), og la `operator+` gjenbruke `+=`. Skriv `operator<` for sortering. Hvorfor må `+=` kalle normaliseringen og returnere `*this`?»
+- **Typiske feil:** Glemt normalisering/`reduce()` etter aritmetikk (§5.9); glemt `return *this`; duplisere logikk i `+` i stedet for å gjenbruke `+=`; `operator<` som ikke gir total orden.
+- **Quiz: 18 · Flashcards: 20**
+
+#### Kapittel 5.3: Postfiks `++`, `operator[]` og `operator<<`
+
+- **id:** `tdt4102-5-3` · **number:** 5.3 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-5-2` · **kapitteltype:** teori
+- **description:** De tre «spesielle» operatorene: postfiks `++` (dummy `int`-parameter, returnerer verdien FØR inkrementering via en temp-kopi), `operator[]` (returnerer `int&` så elementet kan endres), og `operator<<` for `ostream` (frittstående, `ostream&` inn og ut).
+- **Eksamensbelegg:** `operator<<` 3/3, `operator[]` med `int&` 3/3, postfiks `++` 2/3. Postfiks-fellen (returnere ny i stedet for gammel verdi) er fast (§5.6). Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **Postfiks `++`** `Navn operator++(int) { Navn temp = *this; ++(*this); return temp; }` (dummy `int` skiller postfiks fra prefiks; returnér **temp** = verdien før — `int`-parameteren «er mindre viktig på eksamen»); **prefiks `++`** `Navn& operator++() { …; return *this; }` (returnér ny verdi by ref); **`operator[]`** `int& operator[](int i) { return data[i]; }` (returnér **referanse** så `a[i] = x` virker) + `const`-overlast `int operator[](int i) const` (lesing på `const`-objekt); **`operator<<`** `ostream& operator<<(ostream& os, const Navn& x) { os << …; return os; }` (frittstående, ofte `friend`; returnér `os` for kjeding `cout << a << b`); `boolalpha`/`endl` i utskrift. `theorem`-idiomer: **postfiks-`++`-malen**, **`operator[]`-malen**, **`operator<<`-malen**. `warning` (**sentral**): postfiks som returnerer ny verdi i stedet for temp (§5.6); `operator[]` som returnerer `int` (kopi) i stedet for `int&` (kan ikke tilordnes); `operator<<` som ikke returnerer `os` (bryter kjeding).
+- **Oppgavesjangre:** A + C + E. Mønstereksempel: «Skriv postfiks `operator++` for en `Teller`-klasse. Spor: `Teller t(5); cout << t++ << ' ' << t;` — hva skrives ut? Skriv `int& operator[](int)` for `Tallfølge` og `friend ostream& operator<<`.»
+- **Typiske feil:** Postfiks returnerer ny verdi (§5.6); `operator[]` returnerer verdi i stedet for `int&`; `operator<<` returnerer `void`/ikke `os` (ingen kjeding); glemme `const`-overlast av `[]`.
+- **Quiz: 16 · Flashcards: 20**
+
+#### Kapittel 5.4: DRILL — Operatorkatalogen (Del 5)
+
+- **id:** `tdt4102-5-4` · **number:** 5.4 · **estimatedMinutes:** 80 · **prerequisites:** `tdt4102-5-3` · **kapitteltype:** drill
+- **description:** Full drill på operatoroverlasting: gitt en verditype-klasse (`Rational`-slekten), implementer hele operatorkatalogen — `<`, `==`, `+`/`+=`, `*`/`*=` (med normalisering + gjenbruk), postfiks `++`, `operator[]`, `operator<<` — med riktig medlem/frittstående-valg og call-by-ref-begrunnelse.
+- **Eksamensbelegg:** «Én klasse med operatoroverlasting» (20–45 %, svært sannsynlig). Full operatorkatalog + `const`/`&`-begrunnelse + template-avslutning. Prioritet: **perfekt**.
+- **Kodekontrakt (løsningsoppskrift):** Algoritmisk fremgangsmåte: 1) **medlem eller frittstående?** (modifiserende/`[]`/`++` → medlem; `<<` → frittstående/`friend`); 2) **call-by-ref?** (endring/kjeding/`[]` → ja); 3) modifiserende operator: normaliser (`reduce()`) + `return *this`; 4) `+`/`*` **gjenbruker** `+=`/`*=`; 5) postfiks `++`: temp-kopi, returnér gammel; 6) `[]`: returnér `int&` (+ `const`-overlast); 7) `<<`: `ostream&` inn/ut. Gjennomgått eksamenscase med **sensor-margnotater** (sjekklista `reduce()`/`return *this`/enkel/gjenbruk; postfiks returnerer temp; `<<` frittstående; kompakt kode). 8–12 oppgaver på eksamensnivå (`Pengebeløp`, `Vektor2D`, en egen `Rational`-erstatning `Brøk`), hver med kort fasit + medlem/ref-begrunnelse.
+- **Oppgavesjangre:** A, E, (F flagges mot 8.3). Mønstereksempel: «Implementer for `Vektor2D`: `operator+`/`+=`, `operator*` (skalar), `operator==`, `operator[]` (retur `double&`) og `friend operator<<`. Begrunn medlem vs. frittstående og hvilke som må ha call-by-reference.»
+- **Typiske feil:** Hele §5-operator-katalogen: §5.6 (postfiks), §5.9 (glemt normalisering), `[]` uten `int&`, `<<` som medlem eller uten `os`-retur, manglende gjenbruk av `*=` i `*`.
+- **Quiz: 16 · Flashcards: 12**
+
+---
+
+### Del 6 — Arv, virtuelle funksjoner og polymorfi *(arv: PERFEKT/KUNNE, 2/3 tungt)*
+
+> Arv (`: public`), `protected`, superkonstruktør via initialiseringsliste, **virtuelle funksjoner**
+> og polymorfi, **`virtual`-destruktor** («hvorfor blir ikke subklassens destruktør kalt?») og
+> **objektavskjæring (slicing)** — en ren C++-felle. Full arvedel i 2016/17 (Creature-hierarki),
+> `virtual`-destruktor i 2015-ord. Tre teorikapitler + drill (6.4). Bygger på klasser (Del 2) og
+> pekere/minne (Del 3).
+
+#### Kapittel 6.1: Arv og `protected` — `: public Base`, `super`-konstruktør
+
+- **id:** `tdt4102-6-1` · **number:** 6.1 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-2-3` · **kapitteltype:** teori
+- **description:** Arv (`class Sub : public Base`), hva subklassen arver, `protected` (tilgjengelig for subklasser), og hvordan subklassens konstruktør kaller basisklassens konstruktør via **initialiseringslisten** (`: Base(args)`).
+- **Eksamensbelegg:** Arv 2/3 tungt (Creature/Demon/Balrog). `protected` eksplisitt. Superkonstruktør via init-liste. Prioritet: **perfekt/kunne**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **`class Sub : public Base { … };`** (offentlig arv — «Sub er-en Base»); subklassen arver felt/metoder; **`protected`** (synlig for subklasser, ikke utad — for det subklasser må nå, mellomting mellom `private` og `public`); **superkonstruktør** `Sub::Sub(int a, int b) : Base(a), egetFelt(b) { }` (kall basiskonstruktøren først i initialiseringslisten); redefinere en arvet metode (utdypes med `virtual` i 6.2); tilgang til basens `protected`-medlemmer i subklassen. **Begrunnelsesmalen:** hvorfor `protected` (subklasser trenger tilgang, utsiden ikke). `theorem`-idiom: (bruker initialiseringsliste-malen). `warning`: glemme å kalle basiskonstruktøren i init-lista (feiler hvis basen ikke har standardkonstruktør); bruke `private`-felt fra basen direkte i subklassen (må være `protected` eller nås via metode).
+- **Oppgavesjangre:** A + E + G. Mønstereksempel: «Lag `Figur` (basisklasse med `protected` navn) og `Sirkel : public Figur` med radius. Skriv `Sirkel`-konstruktøren som kaller `Figur`-konstruktøren. Hvorfor er navnet `protected` og ikke `private`?»
+- **Typiske feil:** Glemme basiskonstruktør-kall i init-lista; forsøke å nå `private`-basefelt fra subklasse; forveksle `protected` og `private`; feil arverekkefølge (basen konstrueres først, destrueres sist).
+- **Quiz: 16 · Flashcards: 20**
+
+#### Kapittel 6.2: Virtuelle funksjoner, polymorfi og `virtual`-destruktor
+
+- **id:** `tdt4102-6-2` · **number:** 6.2 · **estimatedMinutes:** 55 · **prerequisites:** `tdt4102-6-1`, `tdt4102-3-2` · **kapitteltype:** teori
+- **description:** `virtual`-funksjoner og polymorfi (rett metode velges ut fra objektets *virkelige* type via en basispeker/-referanse), og det sentrale sensorspørsmålet: hvorfor en basisklasse med subklasser MÅ ha **`virtual`-destruktor** — ellers kalles ikke subklassens destruktør ved `delete` via basispeker (minnelekkasje).
+- **Eksamensbelegg:** `virtual`-destruktor 3/3 («hvorfor blir ikke subklassens destruktør kalt?»). Virtuelle funksjoner/polymorfi 2/3. Prioritet: **perfekt** (`virtual`-destruktor er et fast E-spørsmål).
+- **Kodekontrakt (API- og konstruksjonsliste):** **`virtual R m(...);`** i basen + redefinering i subklassen (`R m(...) override;`) — kall via `Base*`/`Base&` velger subklassens versjon (**dynamisk binding/polymorfi**); uten `virtual` velges basens versjon (statisk binding); **`override`** (kompilatorsjekk på at man faktisk redefinerer — anbefalt); **ren virtuell / abstrakt** `virtual R m(...) = 0;` (ingen kropp → abstrakt klasse, kan ikke instansieres — «pure virtual»); **`virtual`-destruktor** `virtual ~Base();` — MÅ være `virtual` når man `delete`-er en subklasse via `Base*`, ellers kalles bare basens destruktør (subklassens `new`-et minne lekker); polymorf bruk: `vector<Figur*>` med ulike subtyper, `for (Figur* f : figurer) f->tegn();`. **Begrunnelsesmalen:** hvorfor `virtual` (velg subtypens metode), hvorfor `virtual`-destruktor (rydd subtypen). `theorem`-idiom: **`virtual`-destruktor-malen**. `warning` (**sentral**): manglende `virtual`-destruktor → subklassens destruktør kalles aldri via basispeker → lekkasje (§5.3-analyse); redefinere uten `virtual` i basen (ingen polymorfi — statisk binding).
+- **Oppgavesjangre:** A + D + E. Mønstereksempel: «`Figur` har `virtual double areal() const`. `Sirkel`/`Rektangel` redefinerer den. Finn feilen: en `Figur* f = new Sirkel(...); delete f;` lekker — hvorfor, og hva mangler i `Figur`? Forklar hva polymorfi betyr her.»
+- **Typiske feil:** Manglende `virtual`-destruktor (§5.3 — lekkasje); redefinere uten `virtual` (statisk binding, feil metode kalles); instansiere en abstrakt klasse; glemme `override`; tro at Java-vaner (alt virtuelt by default) gjelder.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 6.3: Objektavskjæring (slicing)
+
+- **id:** `tdt4102-6-3` · **number:** 6.3 · **estimatedMinutes:** 45 · **prerequisites:** `tdt4102-6-2` · **kapitteltype:** teori
+- **description:** Den rene C++-fellen: når et subklasseobjekt sendes/lagres **by value** som basistype, «skjæres» subklasse-delen bort og polymorfien tapes — og motgiften: ta/lagre objekter som `Base&` eller `Base*`, aldri by value.
+- **Eksamensbelegg:** Slicing er en fast «finn feilen»-oppgave (2016/17: `duel(Creature, Creature)` by value). Ren C++-felle (umulig i Java). Prioritet: **perfekt** (differensierende feilgjenkjenning).
+- **Kodekontrakt (API- og konstruksjonsliste):** **Objektavskjæring (slicing):** `void f(Base b)` som tar en `Base` **by value** — når man kaller `f(subObjekt)`, kopieres bare `Base`-delen, subklasse-feltene og den virtuelle oppførselen skjæres bort → alle subtyper «oppfører seg likt»; **motgift:** ta `Base&` (call-by-reference) eller `Base*` (peker) — da bevares den virkelige typen og polymorfien; samme ved lagring: `vector<Figur>` slicer, `vector<Figur*>` bevarer subtypene; `Base b = subObjekt;` slicer også (tilordning by value). `theorem`-idiom: **slicing-unngåelse**. `warning` (**sentral**): objekter i polymorf bruk må sendes/lagres som referanse eller peker, ALDRI by value (§5.4); en `vector<Base>` av subtyper slicer alle.
+- **Oppgavesjangre:** D + E. Mønstereksempel: «Finn feilen: `void beskriv(Figur f) { cout << f.areal(); }` gir samme svar uansett figurtype. Hvorfor (slicing), og hvordan retter du signaturen?»
+- **Typiske feil:** Ta polymorfe objekter by value (slicing, §5.4); lagre subtyper i `vector<Base>` i stedet for `vector<Base*>`; tro at `virtual` alene redder by-value-tilfellet (det gjør det ikke — må være ref/peker).
+- **Quiz: 14 · Flashcards: 14**
+
+#### Kapittel 6.4: DRILL — Arvehierarki (Del 6)
+
+- **id:** `tdt4102-6-4` · **number:** 6.4 · **estimatedMinutes:** 75 · **prerequisites:** `tdt4102-6-3` · **kapitteltype:** drill
+- **description:** Full drill på arv: bygg et 2-nivås hierarki med abstrakt/virtuell basisklasse, `protected`-felt, superkonstruktør, redefinerte virtuelle metoder, `virtual`-destruktor, polymorf bruk via `vector<Base*>` — ofte kombinert med fil-innlesing og unntak — og unngå slicing.
+- **Eksamensbelegg:** Full arvedel (20 %, 2016/17), ofte med fil-innlesing + unntak. Prioritet: **perfekt/kunne**.
+- **Kodekontrakt (løsningsoppskrift):** Algoritmisk fremgangsmåte: 1) **basisklasse** med `protected`-felt + `virtual`-metoder (evt. `= 0` abstrakt) + **`virtual`-destruktor**; 2) **subklasser** `: public Base`, superkonstruktør i init-lista, `override` på virtuelle; 3) **polymorf beholder** `vector<Base*>` (peker — unngå slicing); 4) evt. les subtyper fra fil (bestem `type`-felt, `new` riktig subklasse) + kast unntak ved ugyldig; 5) `delete` alle via basispeker (virker fordi destruktør er `virtual`). Gjennomgått eksamenscase med **sensor-margnotater** (`virtual`-destruktor til stede; peker-beholder unngår slicing; superkonstruktør korrekt; polymorfi virker). 8–12 oppgaver på eksamensnivå (`Figur`-hierarki, `Konto`-hierarki, sensor-hierarki med fil-innlesing), hver med kort fasit + minnenotat.
+- **Oppgavesjangre:** A, D, E, G. Mønstereksempel: «Bygg `Figur` (abstrakt, `virtual double areal() const = 0`, `virtual`-destruktor), `Sirkel` og `Rektangel`. Les figurer fra fil (`S 3` / `R 2 4`), lagre i `vector<Figur*>`, skriv sumareal, og `delete` alle. Hvorfor `vector<Figur*>` og ikke `vector<Figur>`?»
+- **Typiske feil:** §5.3 (manglende `virtual`-destruktor → lekkasje), §5.4 (slicing via `vector<Figur>`), glemt superkonstruktør-kall, instansiere abstrakt klasse, glemt `delete` av peker-beholderen.
+- **Quiz: 14 · Flashcards: 10**
+
+---
+
+### Del 7 — Unntakshåndtering *(unntak: PERFEKT, 3/3)*
+
+> `try`/`catch`/`throw`, standardunntakene (`invalid_argument`, `bad_alloc`, `exception::what()`),
+> rethrow (`throw;`) og validering som kaster — gjennomgående følgesvenn til klasser, datastruktur
+> og minne (validering ved ugyldig indeks; rydde delvis allokert minne ved unntak). Ett teorikapittel
+> + drill (7.2). Bygger på klasser (Del 2) og minne (Del 3).
+
+#### Kapittel 7.1: Unntak — `try`/`catch`/`throw`, standardunntak og rethrow
+
+- **id:** `tdt4102-7-1` · **number:** 7.1 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-2-2` · **kapitteltype:** teori
+- **description:** Kaste unntak ved ugyldig tilstand/argument (`throw std::invalid_argument("...")`), fange dem (`try`/`catch`), standardunntakshierarkiet (`exception`/`what()`, `invalid_argument`, `out_of_range`, `bad_alloc`), og videresending (`throw;` rethrow) — apparatet som gjør validering og minne robust.
+- **Eksamensbelegg:** Unntak 3/3 (validering kaster; rethrow `throw;` i minnedel). `bad_alloc` fra `new`. `invalid_argument`/`out_of_range` ved ugyldig indeks. Prioritet: **perfekt**.
+- **Kodekontrakt (API- og konstruksjonsliste):** **`throw std::invalid_argument("melding")`** (kast unntak ved ugyldig argument — trenger `<stdexcept>`); **`try { … } catch (const std::exception& e) { cout << e.what(); }`** (fang og les meldingen via `what()`); **standardunntak:** `std::invalid_argument` (ugyldig argument), `std::out_of_range` (ugyldig indeks), `std::bad_alloc` (kastet av `new` ved tomt minne), `std::runtime_error`, alle under `std::exception` med `what()`; **fang spesifikk før generell** (`catch (const out_of_range&)` før `catch (const exception&)`); **rethrow** `catch (...) { rydd(); throw; }` (fang, rydd opp, videresend samme unntak — brukes for å frigi delvis allokert minne før feilen bobler opp); **kast ved ugyldig indeks** i `operator[]`/uthenting; unntak i konstruktør (destruktøren kalles IKKE for et halvferdig objekt → rydd manuelt eller bruk RAII-medlemmer). `warning` (**sentral**): svelge unntak stille (tomt `catch`); fange for generelt før spesifikt; ikke rydde delvis allokert minne før rethrow (lekkasje, §5.5); forveksle `throw` (kast) og `throws` (finnes ikke i C++).
+- **Oppgavesjangre:** A + E. Mønstereksempel: «Gi `Tallfølge::operator[]` en indekssjekk som kaster `std::out_of_range`. Skriv en `main`-snutt som fanger unntaket og skriver `e.what()`. Hvorfor kaste et unntak i stedet for å returnere en feilverdi?»
+- **Typiske feil:** Tomt/svelgende `catch`; fange for generelt før spesifikt; ikke rydde minne før rethrow (§5.5); glemme `<stdexcept>`; forvente Java-stil `throws`-deklarasjon.
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 7.2: DRILL — Unntak og validering (Del 7)
+
+- **id:** `tdt4102-7-2` · **number:** 7.2 · **estimatedMinutes:** 70 · **prerequisites:** `tdt4102-7-1` · **kapitteltype:** drill
+- **description:** Full drill på unntak i praksis: valider argumenter/indekser ved å kaste riktige standardunntak, fang og håndter dem, og bruk rethrow til å rydde delvis allokert minne — kombinert med klasse- og datastrukturkode fra Del 2–3.
+- **Eksamensbelegg:** Validering-som-kaster + rethrow i minnedel (3/3). Prioritet: **perfekt**.
+- **Kodekontrakt (løsningsoppskrift):** Algoritmisk fremgangsmåte: 1) **valider** argument/indeks → `throw` riktig standardunntak (`invalid_argument`/`out_of_range`); 2) **fang** spesifikt før generelt, les `what()`; 3) i allokerende konstruktør: hvis unntak etter delvis `new` → fang, `delete` det allokerte, `throw;` (rethrow); 4) aldri svelg unntak stille. Gjennomgått eksamenscase med **sensor-margnotater** (riktig unntakstype; spesifikk før generell; rydd før rethrow). 8–12 oppgaver på eksamensnivå (validert konstruktør, indeksert uthenting, delvis allokert 2D-tabell med rethrow), hver med kort fasit.
+- **Oppgavesjangre:** A, D, E. Mønstereksempel: «Skriv en konstruktør for `Matrise(int r, int k)` som allokerer en dynamisk 2D-tabell, men som ved `bad_alloc` midtveis rydder de allerede allokerte radene og videresender unntaket (`throw;`). Forklar hvorfor opprydningen trengs.»
+- **Typiske feil:** §5.5 (ikke rydde før rethrow → lekkasje), svelgende `catch`, generell før spesifikk, feil unntakstype, `throws` i stedet for `throw`.
+- **Quiz: 14 · Flashcards: 10**
+
+---
+
+### Del 8 — STL og maler *(STL 2/3, templates 3/3 liten: PERFEKT/KUNNE)*
+
+> Standardbibliotekets sekvenscontainere (`vector`/`list`/`deque`) med **valg og ytelse** (sentral
+> sensorregel), `map`/iteratorer/range-based for, og **maler** (`template<typename T>` — «gjør
+> klassen generisk», fast liten avslutnings-deloppgave på hvert sett). Tre teorikapitler + drill
+> (8.4). Bygger på klasser/operatorer og datastruktur.
+
+#### Kapittel 8.1: Sekvenscontainere — `vector`, `list`, `deque` og containervalg
+
+- **id:** `tdt4102-8-1` · **number:** 8.1 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-2-1` · **kapitteltype:** teori
+- **description:** STL-sekvenscontainerne og det sentrale sensorkravet: **velg riktig container og begrunn med ytelse** — `vector` (rask indeks, dyrt å sette inn/fjerne i front), `list` (rask innsetting/fjerning hvor som helst), `deque` (rask i begge ender). Med oversiktstabellen arkivet la ved.
+- **Eksamensbelegg:** STL-containere 2/3 («hvorfor er `vector` dårlig her? bruk `list`/`deque`»). Containervalg-med-ytelse er sentral sensorregel. Prioritet: **perfekt** (valg + begrunnelse).
+- **Kodekontrakt (API- og konstruksjonsliste):** **`vector<T>`** — dynamisk array, `push_back`/`pop_back` (O(1) amortisert), indeks `v[i]`/`at(i)` (O(1)), innsetting/fjerning i front dyrt (O(n) — flytter alt); **`list<T>`** — dobbeltlenket, `push_front`/`push_back`/`pop_*` (O(1)), ingen indeks (må traversere); **`deque<T>`** — rask i begge ender (`push_front`/`push_back` O(1)) + indeks; felles: `size()`, `empty()`, `front()`, `back()`, `clear()`, range-based for; **containervalg-regelen:** indeks/lesing → `vector`; innsetting/fjerning i endene → `deque`; innsetting/fjerning hvor som helst → `list`; **ytelsesbegrunnelsen er poenget** (ikke bare riktig svar). **Gjenskap arkivets oversiktstabell** over sekvenscontainere pedagogisk (container × operasjon → kostnad). `theorem`-idiom: **containervalg-malen**. `warning` (**sentral**): bruke `vector` der man stadig setter inn/fjerner i front (`list`/`deque` er riktig); indeksere en `list` (finnes ikke); velge container uten å begrunne ytelsen.
+- **Oppgavesjangre:** E + A. Mønstereksempel: «Et køsystem legger til bakerst og fjerner forrest hele tiden. Hvorfor er `vector` et dårlig valg her, og hva bør du bruke i stedet? Begrunn med ytelse.»
+- **Typiske feil:** `vector` der `list`/`deque` trengs for endehåndtering (§5.8); indeksere `list`; velge riktig container uten ytelsesbegrunnelse (mister poenget); glemme at `vector`-front-innsetting er O(n).
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 8.2: `map`, iteratorer og range-based for
+
+- **id:** `tdt4102-8-2` · **number:** 8.2 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-8-1` · **kapitteltype:** teori
+- **description:** `map<K,V>` for nøkkeloppslag (bl.a. ordtelling `m[ord]++`), iteratorer (`begin()`/`end()`, `it->`) og range-based for (`for (auto& x : c)`) — verktøyene for telling og traversering.
+- **Eksamensbelegg:** `map` for ordtelling 1–2/3; iteratorer & range-based for 2/3 (`it->`, `front()`, `for (Rectangle& s : snake)`). Prioritet: **kunne** (`map`/iterator), **perfekt** (range-based for som daglig verktøy).
+- **Kodekontrakt (API- og konstruksjonsliste):** **`map<K,V>`** — sorterte nøkkel-verdi-par: `m[nøkkel] = verdi`, `m[nøkkel]++` (oppretter med 0 hvis ny — idiom for telling), `m.count(nøkkel)`/`m.find(nøkkel)`, `m.at(nøkkel)`, traversér `for (auto& par : m) { par.first; par.second; }`; `unordered_map` (hashet, raskere, usortert — nevnes); **iteratorer** `auto it = c.begin(); it != c.end(); ++it`, `*it` (elementet), `it->felt` (medlem), `c.front()`/`c.back()`; **range-based for** `for (const auto& x : c)` (lesing) / `for (auto& x : c)` (endring) — foretrukket når du ikke trenger iteratoren selv; **`auto`** (kompilatoren utleder typen — nyttig for iterator-typer). `warning`: `m[nøkkel]` oppretter nøkkelen hvis den mangler (bruk `count`/`find` for å bare sjekke); endre en container mens du itererer over den (ugyldiggjør iteratorer); kopiere store elementer i range-for (bruk `const auto&`).
+- **Oppgavesjangre:** B + A. Mønstereksempel: «Skriv `map<string,int> tellOrd(const vector<string>& ord)` med `m[o]++`. Skriv den mest brukte ordet ut. Traversér med range-based for.»
+- **Typiske feil:** `m[nøkkel]` når man bare vil sjekke (oppretter uønsket nøkkel); endre container under iterasjon; kopiere i range-for i stedet for `const auto&`; forveksle `first`/`second` i map-par.
+- **Quiz: 16 · Flashcards: 18**
+
+#### Kapittel 8.3: Maler (templates) — `template <typename T>`
+
+- **id:** `tdt4102-8-3` · **number:** 8.3 · **estimatedMinutes:** 50 · **prerequisites:** `tdt4102-2-1` · **kapitteltype:** teori
+- **description:** Generisk kode med maler: `template <typename T>` på funksjoner og klasser, hvordan «gjøre en klasse generisk» (den faste avslutnings-deloppgaven), og fallgruvene (alt i header, krav til `T`-operasjoner).
+- **Eksamensbelegg:** Templates 3/3, men alltid liten («gjør om til template»-avslutning). Krever refleksjon over en fallgruve. Prioritet: **perfekt** (som liten fast avslutning), **kunne** (dypere).
+- **Kodekontrakt (API- og konstruksjonsliste):** **Funksjonsmal** `template <typename T> T maks(T a, T b) { return a < b ? b : a; }` (`T` utledes av argumentene); **klassemal** `template <typename T> class Beholder { T* data; … };` (bytt konkret type med `T` i felt/metoder); **medlemsdefinisjon utenfor klassen** `template <typename T> T Beholder<T>::hent(int i) const { … }`; **instansiering** `Beholder<int> b;` (typen oppgis); **fallgruver:** all template-kode må ligge i header (kompileres ved instansiering, ikke separat); `T` må støtte operasjonene du bruker (f.eks. `<`, kopiering — «duck typing» på kompileringstid); `typename`/`class` er utbyttbare i `template`-hodet. `theorem`-idiom: (F-sjangeren — «gjør om til template»). `warning`: skille template-deklarasjon og -definisjon i separate filer (lenkefeil); bruke en operasjon på `T` som ikke alle typer støtter; glemme `<T>` på medlemsdefinisjoner utenfor klassen.
+- **Oppgavesjangre:** F + A. Mønstereksempel: «Gjør `Tallfølge` (som holder `int`) om til `template <typename T> class Følge`. Vis klasse-deklarasjonen og én medlemsdefinisjon utenfor klassen, og nevn én fallgruve ved templates.»
+- **Typiske feil:** Legge template-definisjon i `.cpp` (lenkefeil); glemme `template <typename T>` / `<T>` på medlemsdefinisjoner; bruke en operasjon `T` ikke støtter; forveksle med Java-generics (typesletting — C++ genererer kode per type).
+- **Quiz: 16 · Flashcards: 18**
+
+#### Kapittel 8.4: DRILL — Containervalg og template (Del 8)
+
+- **id:** `tdt4102-8-4` · **number:** 8.4 · **estimatedMinutes:** 75 · **prerequisites:** `tdt4102-8-3` · **kapitteltype:** drill
+- **description:** Full drill på STL og maler: velg og begrunn container ut fra bruksmønster, bruk `map`/iteratorer/range-for, og gjør en konkret klasse generisk med `template` — den faste avslutningen på et klassekapittel.
+- **Eksamensbelegg:** Containervalg-med-ytelse (2/3) + template-avslutning (3/3). Prioritet: **perfekt/kunne**.
+- **Kodekontrakt (løsningsoppskrift):** Algoritmisk fremgangsmåte: 1) **containervalg** — analyser bruksmønster (indeks? ende-innsetting? nøkkeloppslag?) → velg + **begrunn ytelse**; 2) traversér med range-for / iterator; 3) `map[k]++` for telling; 4) **template-avslutning** — bytt konkret type med `T`, header-only, nevn fallgruve. Gjennomgått eksamenscase med **sensor-margnotater** (ytelsesbegrunnelse teller; kompakt bruk av STL; korrekt template-syntaks). 8–12 oppgaver på eksamensnivå (velg container for gitt scenario + begrunn; gjør en Del 2/3-klasse generisk), hver med kort fasit + begrunnelse.
+- **Oppgavesjangre:** E, B, F. Mønstereksempel: «(a) Et system trenger rask innsetting i begge ender — velg container og begrunn. (b) Tell ord med `map`. (c) Gjør `Følge`-klassen generisk med `template <typename T>` og nevn én fallgruve.»
+- **Typiske feil:** §5.8 (feil container), containervalg uten ytelsesbegrunnelse, template-definisjon i `.cpp`, `m[k]` som oppretter uønsket nøkkel, kopiering i range-for.
+- **Quiz: 14 · Flashcards: 10**
