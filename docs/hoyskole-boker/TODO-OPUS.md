@@ -183,11 +183,20 @@ Bygges (AKTIVE med ≥5 filer + høyverdi-etterfølgere):
   `tdt4102`, `tdt4260`, `tdt4225`, `tfe4101`, `tfe4171`, `ttt4120`, `tgb4100`.
 
 Hoppet over (dokumentert): TMA4240 Statistikk → dekket av `tma4245`; TMA4115
-Matematikk 3 → dekket av `tma4111`-familien; MET3590/EMS3666 (≤2 filer),
-FARM1110/BIOS1100/BIOS1110 (0 filer), samt rene 3–4-fils avanserte valgemner
-uten sensorveiledning (TDT4200/4215/4242/4258, TTT4185, MRK3580, ORG3403/3610,
-BØK3430/3657, FYS1105) — for tynt arkiv for kvalitetsanalyse. Kan tas senere
-ved behov; arkiv finnes.
+Matematikk 3 → dekket av `tma4111`-familien; TFE4101 Krets- og digitalteknikk
+(nedlagt; krets+digital dekket av `ttk4240`/`in2060`/`tdt4160`); ECON4130
+Statistics 2 (nedlagt uten etterfølger, dekket av `stk1110`); ECON4160 (nedlagt);
+MET3590/EMS3666 (≤2 filer), FARM1110/BIOS1100/BIOS1110 (0 filer), samt rene
+3–4-fils avanserte valgemner uten sensorveiledning (TDT4200/4215/4242/4258,
+TTT4185, MRK3580, ORG3403/3610, BØK3430/3657, FYS1105) — for tynt arkiv for
+kvalitetsanalyse. Kan tas senere ved behov; arkiv finnes.
+
+**STATUS transje 7 (8. juli 2026):** ~40 skjeletter levert, gatet og pushet.
+GJENSTÅR (Opus-ukesgrense nådd midt i siste bølge, reset 17:00 Oslo): 2 skjeletter
+— `kj1020` (analyse ferdig, skjelett AVKUTTET i front-matter — slett stubben og
+kjør skjelettprompten på nytt) og `tfe4171` (analyse ferdig, skjelett MANGLER —
+kjør skjelettprompten). Begge analyser er committet; kjør fase 2-promptene fra
+denne økten når Opus er tilbake. Etter det: hele det vettede universet komplett.
 
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 

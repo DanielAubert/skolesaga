@@ -5,6 +5,8 @@
 > temafrekvens, sensorkrav, prioritering) og `<emne>/SKJELETT.md` (kalibrering).
 > Denne fila samler proveniensen ett sted og forklarer *hvorfor*, ikke bare *hva*.
 
+> **NB (8. juli 2026):** Fabrikken er utvidet fra 77 til **121 fag** i transje 6–7. Tabellen under dekker de første 77; **README-statustavlen er nå den autoritative fag-listen**, og per-fag-grunnlaget ligger i hver `EKSAMENSANALYSE.md`. Full oppdatering av denne tabellen gjenstår.
+
 ## Metoden — og hvorfor den er nødvendig
 
 Hvert fag bygges i to grunnlagsfaser før noen bok skrives:
