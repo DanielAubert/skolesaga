@@ -161,6 +161,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
+| MRK 3481 Forbrukerpsykologi (BI) | drøfting/fakta-hybrid | skjelett |
 | SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |
 | SOS1120 / SOSGEO1120 Kvantitativ metode (UiO) | hybrid (statistikk-tyngdepunkt) | skjelett |
 | SOS2200 Organisasjon, ledelse og arbeid (UiO) | drøfting | skjelett |
