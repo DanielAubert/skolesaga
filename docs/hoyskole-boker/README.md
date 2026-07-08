@@ -137,6 +137,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | IN1030 Systemer, krav og konsekvenser (UiO) | drøfting/prosedyre-hybrid | skjelett |
 | IN1900 Python-programmering (UiO) | regnefag/kodefag | skjelett |
 | IN2010 Algoritmer og datastrukturer (UiO) | regnefag | skjelett |
+| IN2040 Funksjonell programmering (UiO) | regnefag/kodefag | skjelett |
 | IN2060 Digitalteknikk og datamaskinarkitektur (UiO) | regnefag | skjelett |
 | JUS1211 Privatrett II (UiO) | jus | skjelett |
 | JUS2111 Statsforfatningsrett og folkerett (UiO) | jus | skjelett |
@@ -177,6 +178,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TDT4137 Kognitive systemer (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
 | TDT4160 Datamaskiner (NTNU) | regnefag | skjelett |
+| TDT4300 Datavarehus og datagruvedrift (NTNU) | regnefag | skjelett |
 | TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4237 Programvaresikkerhet og personvern (NTNU) | drøfting/prosedyre-hybrid | skjelett |
 | TFY4104 Fysikk (NTNU) | regnefag | skjelett |
