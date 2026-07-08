@@ -174,6 +174,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | TDT4100 Objektorientert programmering (NTNU) | regnefag/kodefag | skjelett |
+| TDT4102 Prosedyre- og objektorientert programmering (C++) (NTNU) | regnefag/kodefag | skjelett |
 | TDT4110 Informasjonsteknologi grunnkurs (NTNU) | regnefag/kodefag | skjelett |
 | TDT4120 Algoritmer og datastrukturer (NTNU) | regnefag | skjelett |
 | TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
@@ -205,6 +206,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU) | regnefag/hybrid | skjelett |
 | TTK4240 Industriell elektroteknikk (NTNU) | regnefag | skjelett |
 | IT2805 Webteknologi (NTNU) | kodefag-hybrid | skjelett |
+| TIØ4215 Kontraktsrett og kontraktsforhandlinger (NTNU) | jus/forhandling-hybrid | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —

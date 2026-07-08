@@ -699,3 +699,255 @@ oppførsel OG begrunnelse). Prioritetsklasser: **perfekt** (nivå 1) / **kunne**
 - **Oppgavesjangre:** E, B, F. Mønstereksempel: «(a) Et system trenger rask innsetting i begge ender — velg container og begrunn. (b) Tell ord med `map`. (c) Gjør `Følge`-klassen generisk med `template <typename T>` og nevn én fallgruve.»
 - **Typiske feil:** §5.8 (feil container), containervalg uten ytelsesbegrunnelse, template-definisjon i `.cpp`, `m[k]` som oppretter uønsket nøkkel, kopiering i range-for.
 - **Quiz: 14 · Flashcards: 10**
+
+---
+
+### Del 9 — Eksamenstrening
+
+> Tre komplette 4-timers papirsett, hvert med 3–4 hoveddeler à 10–45 % rundt ett nyskrevet
+> domenecase, etter arkivets faglige stige: én klasse med operatorer → prosedyre/kodesporing →
+> datastruktur med rå pekere → minne/kopisemantikk (tyngst, sist) → arv, med en fast liten
+> template-deloppgave. Les HELE skjelettet før du skriver dem. Løsningsforslag i eget `collapsible`
+> per deloppgave (kort idiomatisk C++ + begrunnelse), med `tip`-notat om delpoeng/vekting og at
+> deloppgaver kan løses uavhengig.
+
+#### Kapittel 9.1: Øvingseksamen 1 — klasse/operatorer + minne (`Pengebeløp`/`Tallfølge`)
+
+- **id:** `tdt4102-9-1` · **number:** 9.1 · **estimatedMinutes:** 240 · **prerequisites:** `tdt4102-8-4` · **kapitteltype:** øvingseksamen
+- **description:** Komplett 4-timers sett rundt et verdiobjekt-domene (`Pengebeløp`) og en dynamisk datastruktur (`Tallfølge`): Del A én klasse med full operatorkatalog (40 %), Del B prosedyre + kodesporing (25 %), Del C datastruktur med rå pekere + destruktør (20 %), Del D kopisemantikk deep vs. shallow (15 %), med template-avslutning.
+- **Eksamensbelegg:** Speiler 2015-ord-profilen (`Rational`-klasse m/operatorer tungt + minne). Prioritet: **perfekt** (integrerende).
+- **Kodekontrakt:** Nyskrevne oppgaver i sjangrene A–F med vekting ≈ 40/25/20/15. Løsningsforslag som A-besvarelse (kompakt), med sensor-`tip` per del (hva gir uttelling; `reduce()`/`return *this`/`virtual`-destruktor/deep der relevant; deloppgaver uavhengige).
+- **Oppgavesjangre:** A, B, C, E, F (+ D-moment). Mønstereksempel-miks: `Pengebeløp` med `+`/`+=`/`==`/`<`/`<<`/`[]` + `static`-fabrikk; prosedyre-kjede + kodesporing (heltallsdivisjon/postinkrement); `Tallfølge` med `new`/`delete`/indekssjekk; Rule of Three (deep, `copy-swap`); «gjør `Tallfølge` generisk».
+- **Typiske feil:** §5-katalogen samlet: heltallsdivisjon, postfiks, glemt normalisering, dinglende peker, manglende destruktør, shallow-`delete`. Å bruke for mye tid på Del A og ikke rekke minnedelen (Del D).
+- **Quiz: 10 · Flashcards: 6**
+
+#### Kapittel 9.2: Øvingseksamen 2 — prosedyre/brett + arv (`lysrutenett`/`Figur`)
+
+- **id:** `tdt4102-9-2` · **number:** 9.2 · **estimatedMinutes:** 240 · **prerequisites:** `tdt4102-9-1` · **kapitteltype:** øvingseksamen
+- **description:** Komplett 4-timers sett rundt et 2D-brett-domene (lysrutenett) og et arvehierarki (`Figur`): Del A prosedyre + kodesporing + `enum`/2D-brett (35 %), Del B `operator<<` + `main`/spilløkke (20 %), Del C arv med `virtual`/`protected`/slicing + fil-innlesing + unntak (30 %), Del D minne/kopisemantikk med referansetelling (15 %).
+- **Eksamensbelegg:** Speiler 2016/17-profilen (fire-på-rad-brett + Creature-arv + minne). Prioritet: **perfekt/kunne**.
+- **Kodekontrakt:** Nyskrevne oppgaver i sjangrene B–G med vekting ≈ 35/20/30/15. Løsningsforslag som A-besvarelse, sensor-`tip` per del (slicing unngått; `virtual`-destruktor; rethrow-opprydning; containervalg begrunnet).
+- **Oppgavesjangre:** B, C, D, E, G (+ A/F-moment). Mønstereksempel-miks: brettfunksjoner over `int[8][8]` + `enum Retning` + kodesporing; `operator<<` for brett + spilløkke; `Figur`/`Sirkel`/`Rektangel` lest fra fil i `vector<Figur*>` med `virtual`-destruktor; `DeltBuffer` med referansetelling.
+- **Typiske feil:** §5.3 (`virtual`-destruktor), §5.4 (slicing), §5.5 (rethrow-lekkasje), §5.8 (container), 2D-indeksering. Å hoppe over minnedelen.
+- **Quiz: 10 · Flashcards: 6**
+
+#### Kapittel 9.3: Øvingseksamen 3 — lenket liste + full kopisemantikk (`Spilleliste`/`DeltListe`)
+
+- **id:** `tdt4102-9-3` · **number:** 9.3 · **estimatedMinutes:** 240 · **prerequisites:** `tdt4102-9-2` · **kapitteltype:** øvingseksamen
+- **description:** Komplett 4-timers sett med tyngdepunkt på datastruktur og kopisemantikk (fagets vanskeligste): Del A klasse med operatorer + `const`-korrekthet (25 %), Del B egendefinert lenket liste med `friend`/iterator/unntak (35 %), Del C full kopisemantikk deep vs. shallow med `copy-swap` OG referansetelling + `T**` (30 %), Del D template + kodesporing (10 %). Sier eksplisitt at minne/kopi er der kandidatene skilles.
+- **Eksamensbelegg:** Speiler 2015-kont-profilen (dobbelt-lenket liste `DynamicMultiArray`/`RowNode` + full minnedel). Prioritet: **perfekt** (fagets tyngste integrasjon).
+- **Kodekontrakt:** Nyskrevne oppgaver i sjangrene A–F med vekting ≈ 25/35/30/10. Løsningsforslag som A-besvarelse, sensor-`tip` per del (Rule of Three komplett; `copy-swap`/referansetelling; `T**` for delt hode; selvtilordning; kompakt kode belønnes over avskrift).
+- **Oppgavesjangre:** A, B, C, E, F (+ D-moment). Mønstereksempel-miks: `Tidsintervall` med operatorer + `const`; `Spilleliste` (lenket liste av `Node`) med `friend`, indeksuthenting som kaster, iterator; deep-`DypListe` (`copy-swap`) vs. shallow-`DeltListe` (referansetelling + `T**`); «gjør `Spilleliste` generisk» + kodesporing (peker-swap/rekursjon).
+- **Typiske feil:** §5.11 (shallow uten `T**`), §5.2 (dinglende), §5.5 (lekkasje), glemt selvtilordning, ufullstendig Rule of Three. Å skrive langt der `copy-swap` gir kort.
+- **Quiz: 10 · Flashcards: 6**
+
+---
+
+## 5. Kvotesammendrag (AUTORITATIV)
+
+Denne tabellen er **fasit for alle senere faser** (byggekontrakt, byggebølge, verifisering).
+Ikke overstyr i prompt. Quiz kalibreres som **kodesporing (C) / finn-feilen (D) / begrunnelse (E)
+/ konstruksjons-MC** (§1-avvik) — `options[0]` = riktig svar. Flashcards fra toppnivå
+`definition`-blokker (API-/konstruksjons-/begrepskort). **Kodesporing gjør quiz til reell
+eksamenstrening**, derfor er quiz-taket høyt; flashcard-taket er høyt fordi faget er svært
+konstruksjonsrikt.
+
+| Del | Kapitler | Quiz | Flashcards |
+|---|---|---|---|
+| 0 — Eksamenskart og kodehåndverk | 0.1, 0.2 | 38 | 34 |
+| 1 — C++-grunnlag og prosedyre | 1.1–1.5 | 92 | 94 |
+| 2 — Klasser og objekter | 2.1–2.4 | 74 | 80 |
+| 3 — Pekere og dynamisk minne | 3.1–3.5 | 100 | 102 |
+| 4 — Kopisemantikk | 4.1–4.5 | 94 | 96 |
+| 5 — Operatoroverlasting | 5.1–5.4 | 68 | 74 |
+| 6 — Arv, virtuelle funksjoner og polymorfi | 6.1–6.4 | 62 | 66 |
+| 7 — Unntakshåndtering | 7.1–7.2 | 32 | 32 |
+| 8 — STL og maler | 8.1–8.4 | 64 | 68 |
+| 9 — Eksamenstrening | 9.1–9.3 | 30 | 18 |
+| **SUM** | **38 kapitler** | **654** | **664** |
+
+**Summeringskontroll:** Quiz 38+92+74+100+94+68+62+32+64+30 = **654** (≥500 ✓). Flashcards
+34+94+80+102+96+74+66+32+68+18 = **664** (≥500 ✓, mål 640–680). Tyngdepunktet ligger på Del 3
+(dynamisk minne, ryggrad — 100/102) og Del 4 (kopisemantikk, vanskeligst — 94/96), i tråd med
+prioriteringen i EKSAMENSANALYSE §7.
+
+---
+
+## 6. Prøver (4 per temadel)
+
+Hver prøve er nyskrevne oppgaver i eksamens sjangre (A–G), med løsningsforslag (kort idiomatisk
+C++ + begrunnelse) og poengfordeling. Prøvekapitler bygges som `tdt4102-<del>-prove`
+(chapterNumber `<del>.P`) etter plattformmønsteret, eller som egne exercise-seksjoner i delens
+drillkapittel. Del 0 (meta) og Del 9 (som ER eksamenene) får ikke egne prøver.
+
+**Prøve-kvote Del 1:** 4 prøver (C++-grunnlag og prosedyre)
+1. Prøve 1.A (25 min): Typer/kontrollflyt + **heltallsdivisjon/`static_cast`** + kodesporing (sjanger B, C).
+2. Prøve 1.B (30 min): Funksjoner + **parameteroverføring** verdi/`&`/`const&`/peker + begrunnelse (sjanger B, E).
+3. Prøve 1.C (25 min): C-arrays/2D-brett + `enum` + `using` (sjanger B).
+4. Prøve 1.D (40 min): Full Del 1 — kjedede frittstående funksjoner over array/streng + kodesporing (sjanger B, C).
+
+**Prøve-kvote Del 2:** 4 prøver (klasser og objekter)
+1. Prøve 2.A (30 min): Klasse med felt/konstruktør m/ **initialiseringsliste** + `const`-medlemsfunksjoner (sjanger A).
+2. Prøve 2.B (25 min): **`const`-korrekthet på tre posisjoner** — forklar + bruk (sjanger E, A).
+3. Prøve 2.C (25 min): `static` (fabrikk/teller/konstant) + `friend` + begrunnelse (sjanger A, E).
+4. Prøve 2.D (40 min): Full Del 2 — komplett innkapslet klasse (`Tidsintervall`) med init-liste, `const`, `static`, `friend`.
+
+**Prøve-kvote Del 3:** 4 prøver (pekere og dynamisk minne)
+1. Prøve 3.A (30 min): Pekere/referanser + `nullptr` + **peker-swap-kodesporing** (sjanger A, C).
+2. Prøve 3.B (35 min): `new`/`delete`/`new[]`/`delete[]` + destruktør + **RAII** (sjanger A, E).
+3. Prøve 3.C (30 min): **Dinglende peker/lekkasje — finn feilen** + peker-til-peker/2D (sjanger D, A).
+4. Prøve 3.D (45 min): Full Del 3 — datastruktur med rå pekere (`Tallfølge`/lenket liste), konstruktør/destruktør/indekssjekk.
+
+**Prøve-kvote Del 4:** 4 prøver (kopisemantikk)
+1. Prøve 4.A (30 min): **Rule of Three** + deep vs. shallow — «trengs kopikonstruktør her?» (sjanger E, A).
+2. Prøve 4.B (35 min): Kopikonstruktør + firestegs-`operator=` (deep) + selvtilordning (sjanger A).
+3. Prøve 4.C (30 min): **`copy-swap`-idiomet** + forklar hvordan det håndterer selvtilordning/unntak (sjanger A, E).
+4. Prøve 4.D (45 min): Full Del 4 — **referansetelling** med `T**` for delt hode + deep vs. shallow-valg begrunnet.
+
+**Prøve-kvote Del 5:** 4 prøver (operatoroverlasting)
+1. Prøve 5.A (25 min): Medlem vs. frittstående + **hvilke MÅ ha call-by-reference?** (sjanger E, A).
+2. Prøve 5.B (30 min): `<`/`==`/aritmetiske med **`reduce()`/normalisering** + `*` gjenbruker `*=` (sjanger A).
+3. Prøve 5.C (30 min): **Postfiks `++`** (temp-kopi) + `operator[]` (`int&`) + `operator<<` (sjanger A, C).
+4. Prøve 5.D (40 min): Full Del 5 — hele operatorkatalogen for en verditype (`Vektor2D`/`Brøk`) + begrunnelse.
+
+**Prøve-kvote Del 6:** 4 prøver (arv, virtuelle funksjoner og polymorfi)
+1. Prøve 6.A (30 min): Arv + `protected` + superkonstruktør i init-liste (sjanger A, E).
+2. Prøve 6.B (35 min): **Virtuelle funksjoner + `virtual`-destruktor** — «hvorfor kalles ikke destruktøren?» (sjanger D, E).
+3. Prøve 6.C (25 min): **Slicing — finn feilen** + motgift (ref/peker) (sjanger D, E).
+4. Prøve 6.D (40 min): Full Del 6 — arvehierarki (`Figur`) med `virtual`-destruktor + `vector<Base*>` + fil-innlesing.
+
+**Prøve-kvote Del 7:** 4 prøver (unntakshåndtering)
+1. Prøve 7.A (25 min): `try`/`catch`/`throw` + standardunntak + `what()` (sjanger A, E).
+2. Prøve 7.B (30 min): Validering-som-kaster (`invalid_argument`/`out_of_range` ved ugyldig indeks) (sjanger A).
+3. Prøve 7.C (30 min): **Rethrow (`throw;`)** — rydd delvis allokert minne før videresending (sjanger A, D).
+4. Prøve 7.D (35 min): Full Del 7 — validert allokerende konstruktør med opprydning + fangst i `main`.
+
+**Prøve-kvote Del 8:** 4 prøver (STL og maler)
+1. Prøve 8.A (30 min): **Containervalg med ytelsesbegrunnelse** (`vector` vs. `list`/`deque`) (sjanger E, A).
+2. Prøve 8.B (25 min): `map` (ordtelling `m[k]++`) + iteratorer + range-based for (sjanger B).
+3. Prøve 8.C (30 min): **Maler** — gjør en klasse generisk (`template <typename T>`) + fallgruve (sjanger F).
+4. Prøve 8.D (35 min): Full Del 8 — velg/begrunn container + `map`-telling + template-avslutning på en Del 3-klasse.
+
+Til sammen dekker de 32 prøvene + 3 øvingseksamenene samtlige sjangre A–G flere ganger, med
+tyngdepunkt på minne (Del 3), kopisemantikk (Del 4) og operatorer (Del 5).
+
+---
+
+## 7. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Slik ser eksamen ut** — én skriftlig skoleeksamen (4 t, 100 %, papir, lærebok tillatt), 3–4
+   hoveddeler à 10–45 % rundt ett domenecase, at oppgaven er **hybrid** (implementer kode +
+   kodesporing + finn feilen + kort teori), ingen flervalg/diagram, og at **minnedelen nesten
+   alltid er sist og tyngst** (fra kap. 0.1). Evidensforbeholdet (kalibrering på 3 sett; dagens
+   form `(verifiser)`).
+2. **Prioriteringskartet** — temafrekvensen omgjort til tre lesenivåer: **perfekt** (Del 3
+   dynamisk minne + Del 4 kopisemantikk — der kandidatene skilles; Del 2 klasser, Del 5
+   operatorer, Del 1 parameteroverføring, Del 6 `virtual`-destruktor/slicing, Del 7 unntak),
+   **kunne** (STL-containervalg, `map`/iteratorer, `const`-korrekthet i dybden, `friend`,
+   fil-I/O), **kjenne** (`static`-detaljer, `rand()`, enkel GUI/testing, `unordered_map`).
+3. **Sjangerguiden** — de 7 oppgavetypene A–G med løsningsoppskriftene fra drillkapitlene (1.5,
+   2.4, 3.5, 4.5, 5.4, 6.4, 7.2, 8.4) i kortform, inkl. **kodesporings-** og
+   **finn-feilen-**sjekklistene fra kap. 0.2.
+4. **Idiomarket** — de 17 kode-/minnemålene (§3b) på ett oppslag, med **Rule of Three**,
+   **`copy-swap`-idiomet** og **referansetelling-malen** fremhevet (de differensierende).
+5. **Sensorreglene** — de fem reglene (teknikk > syntaks; kompakt egen løsning > avskrift; manuell
+   minnehåndtering/RAII/Rule of Three; `const`/`&` begrunnes; containervalg begrunnes) +
+   begrunnelseskravet (E-sjangeren) + metareglene (skriv bare det oppgaven ber om; `include`/`;`/
+   norske bokstaver teller ikke; deloppgaver kan løses uavhengig; svar på riktig nivå
+   implementer/deklarer/vis).
+6. **Feilkatalogen** — de 11 typiske feilene (§5 i analysen) samlet, hver med henvisning til
+   kapitlet som forebygger den: heltallsdivisjon (1.1), dinglende peker (3.3), glemt
+   `virtual`-destruktor (6.2), slicing (6.3), minnelekkasje/dobbel-`delete` (3.2/3.3), feil
+   postfiks (5.3), `=`/`==` og `=!` (0.2/1.1), feil container (8.1), glemt normalisering (5.2),
+   `static`/`friend` misforstått (2.3), shallow uten `T**` (4.4).
+7. **C++/Java-arket** — kontrasttabellen (§8 i analysen) for lesere fra TDT4100/Java: minnet ordner
+   seg IKKE selv; Rule of Three; rå pekere; operatoroverlasting; `const`-korrekthet; eksplisitt
+   `virtual`; slicing; prosedyre-halvdel.
+8. **Studieløp** — anbefalt progresjon (12-ukers og 3-ukers intensivvariant): Del 1 (grunnlag) →
+   Del 2 (klasser) → **Del 3 (dynamisk minne — bruk mye tid) → Del 4 (kopisemantikk — mest tid,
+   der poengene skilles)** → Del 5 (operatorer) → Del 6 (arv) → Del 7 (unntak) → Del 8 (STL/
+   templates) → prøvene underveis → de tre øvingseksamenene de siste ukene under tidspress
+   (240 min). Nivå-3-stoff (GUI/testing) leses lett; prioritér minne/kopisemantikk.
+
+---
+
+## 8. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først**: `TextbookCourse`-oppføring for `tdt4102` med alle 38 kapitler
+   (id/number/title/description/estimatedMinutes/topics/competenceGoals/prerequisites/
+   linkedChapterId) etter mønster `COURSE_BI_OKONOMI` i `src/lib/data/textbook-courses-matte.ts`;
+   `sectionNames` fra §2-tabellen (obligatorisk). **`number` er del-basert («3.2»), ALDRI lineær**
+   (JUS1111-lærdommen — bokforsiden grupperer på `number.split('.')[0]`); prosareferanser i
+   innholdet bruker samme form («kap. 3.2»).
+2. **Del 0** (kap. 0.1–0.2) — etablerer sjangernavnene A–G, idiomkatalogen, frekvenstallene, de
+   fem sensorreglene og de tre tverrgående sjangrene (kodesporing/finn-feilen/begrunn-valget) som
+   resten refererer til; skriv EVIDENSFORBEHOLDET (3 sett, indikativt) tydelig.
+3. **Delene i avhengighetsrekkefølge**: Del 1 (grunnlag/prosedyre — kreves av alt) → Del 2 (klasser)
+   → **Del 3 (dynamisk minne, ryggrad; bygger på 3.1/2.2)** → **Del 4 (kopisemantikk; bygger på
+   3.2/3.4)** → Del 5 (operatorer; bygger på 2.3/1.2) → Del 6 (arv; bygger på 2.3/3.2) → Del 7
+   (unntak; bygger på 2.2/3.2) → Del 8 (STL/templates; bygger på 2.1). Bygg tyngst i Del 3–4.
+4. Del 9 (øvingseksamenene til slutt — de gjenbruker alle sjangrene; les HELE skjelettet før du
+   skriver dem).
+5. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert; prøvene (§6) legges
+   i respektive delers prøvekapittel/exercise-seksjoner.
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering**: hver kapittelfil parser med `json.load`/`JSON.parse` (escape `"` i
+  norske sitattegn OG i C++-strenger som `"pris kan ikke være negativ"`); `npm run build` grønn.
+- [ ] **Minnehåndtering-ryggraden**: hvert kapittel som allokerer dynamisk (Del 3, 4, 6, 7) har
+  `warning` om lekkasje/dobbel-`delete`; `new`↔`delete`/`new[]`↔`delete[]`-parvishet og RAII står
+  som `theorem`; Rule of Three står ordrett som `theorem` i 4.1 og driller i 4.5.
+- [ ] **De fem sensorreglene** finnes som `warning`/`tip` der de hører hjemme: (1) teknikk >
+  syntaks (0.1, 0.2); (2) kompakt egen løsning > avskrift (0.1, alle drill); (3) manuell
+  minnehåndtering/RAII (3.2, 3.3, 4.x); (4) `const`/`&` begrunnes (1.2, 2.3, 5.1); (5) containervalg
+  begrunnes (8.1).
+- [ ] **`copy-swap`-idiomet + referansetelling** står som `theorem` (4.3, 4.4), driller i 4.5, med
+  `warning` om shallow uten `T**` (§5.11) og manglende selvtilordningshåndtering.
+- [ ] **`virtual`-destruktor + slicing** dekket eksplisitt (6.2, 6.3) som `theorem` + `warning` +
+  «finn feilen»-oppgaver; begrunnelsen «hvorfor kalles ikke subklassens destruktør» er E-oppgave.
+- [ ] **De to spesialsjangrene**: «hva skrives ut?»-kodesporing (C) og «finn feilen» (D) etablert i
+  0.2 og driller i minst 1.5, 3.3, 3.5, 5.3, 6.2, 6.3 — med de innbygde fellene (heltallsdivisjon,
+  postinkrement, peker-swap, dinglende, `=!`, manglende `virtual`, slicing).
+- [ ] **De 11 klassiske fellene** (§5) finnes som `warning` i angitt kapittel (se studieguide §6).
+- [ ] **API- og konstruksjonsliste per delkapittel**: hvert delkapittel har `collapsible` «API- og
+  konstruksjonsliste» rett etter Forkunnskaper, som forklarer ALLE C++-konstruksjoner brukt i
+  delkapitlet med **når/hvorfor**, ikke signaturpugg (lærebok tillatt — «tren bruk»); per
+  delkapittel, ikke arv fra tidligere.
+- [ ] **Kryssbok-lenker**: interne TDT4102-lenker (`[tittel](/bok/tdt4102/<id>)`) peker kun på
+  kapitler som finnes; forgjenger TDT4110 og søster TDT4100 refereres som **klartekst med
+  aktiveringsmarkør** (`[aktiver lenke /bok/tdt4110/<id> når TDT4110 er bygget]` /
+  `[aktiver lenke /bok/tdt4100/<id> når TDT4100 er bygget]`), aldri som live lenke.
+- [ ] **Idiomkatalogen (§3b)**: de 17 kode-/minnemålene finnes som `theorem`-blokker i angitte
+  kapitler og gjentas i drill/studieguide.
+- [ ] **Begrunnelse i løsningsforslag**: alle løsningsforslag (drill + øvingseksamener) markerer hva
+  som gir uttelling steg for steg, at riktig teknikk belønnes selv med detaljfeil («ikke viktig å
+  huske bibliotekssyntaks eksakt»), at deloppgaver kan løses uavhengig, og at kompakte egne
+  løsninger belønnes over bok-avskrift.
+- [ ] **Kapittel-DNA**: hvert teorikapittel har Eksamensvinkel-`tip` (med tallene fra dette
+  skjelettet), Typiske feil-`warning`, 2–4 eksempler (siste på eksamensnivå), 6–12 øvinger med
+  `solution` + `hints`, repetisjons-`collapsible`; drillkapitler (1.5, 2.4, 3.5, 4.5, 5.4, 6.4,
+  7.2, 8.4) har løsningsoppskrift + sensor-kommentert case + 8–12 oppgaver.
+- [ ] **Quiz-sum ≥ 654 og flashcard-sum ≥ 664** per kvotetabellen (§5); quiz kalibrert som
+  kodesporing/finn-feilen/begrunnelse/konstruksjons-MC, `options[0]` = riktig svar.
+- [ ] **Prøver**: 4 per temadel 1–8 (32 stk) + 3 øvingseksamener (kap. 9.1–9.3) som sammen dekker
+  sjangrene A–G flere ganger.
+- [ ] **Domenecase i øvingseksamenene**: kap. 9.1–9.3 følger arkivets faglige stige (klasse/
+  operatorer → prosedyre/kodesporing → datastruktur m/pekere → minne/kopisemantikk tyngst sist →
+  arv), over nyskrevne domener (`Pengebeløp`/`Tallfølge`, lysrutenett/`Figur`, `Spilleliste`/
+  `DeltListe`), med template-avslutning og delpoeng-`tip` per del.
+- [ ] **EVIDENSFORBEHOLD synlig**: Del 0 (og kap. 0.1) sier eksplisitt at kalibreringen bygger på
+  3 sett (indikativt, ikke statistisk), at arkivet er papirbasert t.o.m. ~2017, og at dagens
+  eksamensform (IDE-/kodebasert?) er `(verifiser)`; usikre detaljer merkes `(verifiser)`.
+- [ ] **C++/Java-kontrasten synlig**: kap. 0.1 har kontrasttabellen + egen note om at Java-kyndige
+  må avlære at «minnet ordner seg selv»; studieguiden har C++/Java-arket.
+- [ ] **Opphavsrett**: ALLE oppgaver og kodeeksempler nyskrevne — egne klassenavn, egne tall, egne
+  domener (IKKE `Rational`/Snake/`DynamicMultiArray`/fire-på-rad/`Creature` fra arkivet);
+  kodemønstrene er standard C++-idiomer, men ingen oppgavetekster/fasiter fra reelle sett gjengis;
+  pensumlitteratur (Savitch o.l.) refereres, aldri siteres i lengde.
+- [ ] **Verifiser rendering**: prod-server + curl mot kapittel- og narrativ-ruter (200 + innhold),
+  jf. lærdommen om `getChapterMeta`.
