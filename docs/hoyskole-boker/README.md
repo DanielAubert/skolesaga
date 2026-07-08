@@ -185,6 +185,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TDT4136 Introduksjon til kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4137 Kognitive systemer (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
+| TDT4225 Store, distribuerte datamengder (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4160 Datamaskiner (NTNU) | regnefag | skjelett |
 | TDT4260 Datamaskinarkitektur (NTNU) | regnefag/begrepsdrevet hybrid | skjelett |
 | TDT4300 Datavarehus og datagruvedrift (NTNU) | regnefag | skjelett |
