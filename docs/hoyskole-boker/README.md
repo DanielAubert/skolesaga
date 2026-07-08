@@ -105,6 +105,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 |---|---|---|
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
+| JUS4213 Strafferett og straffeprosess (UiO) | jus | skjelett |
 | TGB4100 Geologi, innføring (NTNU) | fakta/pugg | skjelett |
 | TTT4120 Digital signalbehandling (NTNU) | regnefag | skjelett |
 | JUR 3420 Forretningsjus (BI) | jus | skjelett |
