@@ -175,6 +175,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | GLU-matte Nasjonal deleksamen i matematikk (GLU) (NOKUT) | regnefag/didaktikk-hybrid | skjelett |
 | NB Nasjonal deleksamen i barnevern (rettsanvendelse) (NOKUT) | jus | skjelett |
 | MED1100 Medisinstudiet modul 1 (UiO) | fakta/pugg-hybrid | skjelett |
+| MFFAGPR Fagprøven for leger utdannet utenfor EU/EØS (UiO) | fakta/klinisk beslutning | skjelett |
 | PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
 | PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
 | PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
