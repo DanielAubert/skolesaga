@@ -43,7 +43,7 @@
 | Fagområde | jus |
 | Arketype | jus (rettsdogmatisk med praktikum) — med dokumenterte BI-avvik, se §8 |
 | Pitch | Boka trener nøyaktig det ORG 3620-eksamen prøver: en **individuell skriftlig skoleeksamen (100 %, A–F), maks 10 sider**, der hvert sett er en **fiktiv virksomhet med navngitte personer og et sammenhengende personalkonflikt-forløp** — **ren praktikum/case, aldri flervalg og aldri ren teori**. Eksamen kommer i **to sjangre** som begge må beherskes: **nummererte delspørsmål** (problemet er gitt, tyngden ligger i hjemmelvalg + subsumsjon) og **åpent mandat / issue-spotting** («Drøft og ta stilling til de rettslige spørsmål oppgaven reiser» — kandidaten spotter selv alle tvistene). Faktumet er **HR-praktisk**: en leder «som husker et arbeidsrettskurs feil» planter presist den regelen kandidaten skal korrigere. Fordi **Lovdata Pro og lovsamling er åpne på eksamen gir avskrift av lovtekst NULL** — poengene ligger i **riktig hjemmelvalg** og **subsumsjon på de plantede fakta**, og i å **skille materielt fra prosessuelt**. Fire institutter bærer eksamen: **deltidstriaden §§ 14-1 b / 14-3 / 14-4 a** (signaturtema — H2024 bygde tre av fire spørsmål på deltid), **styringsrett/omplassering/endringsoppsigelse** (Nøkk/Kårstø + § 15-7), **diskriminering med riktig lovvalg** (ldl. vs. aml. kap. 13), og **midlertidig ansettelse § 14-9 + innleie § 14-12**. Den klassiske trekkfeilen er **feil lovvalg** — å blande de tre deltidsreglene, eller bruke aml. kap. 13 på kjønn/religion i stedet for ldl. **Studentene er økonomi-/HR-studenter med ett emne personaljus, ikke jusstudenter** — ambisjonen er korrekt hovedhjemmel + fornuftig subsumsjon på hele bredden, ikke UiO-metodisk rettskildedybde. |
-| Kapittelantall | **35** (Del 0: 4, Del 1: 4, Del 2: 6, Del 3: 3, Del 4: 4, Del 5: 5, Del 6: 4, Del 7: 4, Del 8: 5) |
+| Kapittelantall | **39** (Del 0: 4, Del 1: 4, Del 2: 6, Del 3: 3, Del 4: 4, Del 5: 5, Del 6: 4, Del 7: 4, Del 8: 5) |
 | Estimert totaltid | **~1 910 minutter (~32 timer)** |
 | Quiz totalt | **620** (krav ≥500; siktet høyt fordi faget er paragraf- og vilkårsrikt med tung lovvalgs-drill) |
 | Flashcards totalt | **636** (sikt 550–650; **paragraf↔vilkår + arbeidsrettsbegreper**) |
@@ -772,16 +772,16 @@ materielt/prosessuelt).
 | 6 — Opphør | 4 | 66 | 72 | 4 |
 | 7 — Underveis (arbeidstid/varsling/lønnstrekk/kontroll) | 4 | 62 | 66 | 4 |
 | 8 — Eksamenstrening | 5 | 64 | 54 | 4 |
-| **Sum** | **35** | **620** | **636** | **36** |
+| **Sum** | **39** | **620** | **636** | **36** |
 
 **Summeringskontroll:**
 - Quiz: 58 + 60 + 106 + 52 + 66 + 86 + 66 + 62 + 64 = **620** (≥500 ✓)
 - Flashcards: 48 + 64 + 112 + 56 + 70 + 94 + 72 + 66 + 54 = **636** (sikt 550–650 ✓)
 - Prøver: 4 per del × 9 deler = **36** (≥4 per del ✓)
-- Kapitler: 4 + 4 + 6 + 3 + 4 + 5 + 4 + 4 + 5 = **35** (25–40 ✓)
+- Kapitler: 4 + 4 + 6 + 3 + 4 + 5 + 4 + 4 + 5 = **39** (25–40 ✓)
 - Praktikum med modellbesvarelser: kap. 8.2 (deltidstriade), 8.3 (åpent issue-spotting), 8.4 (kombinasjon) = **≥3 ✓**, inkl. ett deltidstriade-praktikum (8.2) og ett åpent issue-spotting-praktikum (8.3) ✓
 
-**Flashcard-tetthet:** 636/35 ≈ 18,2 per kapittel — godt over 500-gulvet fordi arbeids- og personaljus er
+**Flashcard-tetthet:** 636/39 ≈ 16,3 per kapittel — godt over 500-gulvet fordi arbeids- og personaljus er
 paragraf- og vilkårsrikt (hvert institutt har kumulative vilkårslister, tre selvstendige deltidsregler, og et
 gjennomgående lovvalgs-apparat), jf. audit-lærdommen om at begrepsrike drøftingsfag skal ligge høyt.
 Flashcards konsentreres om **paragraf↔vilkår**-koblinger (deltidstriadens tre regler + vilkår; § 14-9-
@@ -941,7 +941,7 @@ Studieguiden bygges som ett sammenhengende dokument med disse seksjonene:
 ### Byggerekkefølge for Opus
 
 1. **Metadata først**: `TextbookCourse`-oppføring for `org3620-bi` (mønster: `COURSE_BI_OKONOMI` i
-   `src/lib/data/textbook-courses-matte.ts`) med alle 35 kapitler (id/number/title/description/
+   `src/lib/data/textbook-courses-matte.ts`) med alle 39 kapitler (id/number/title/description/
    estimatedMinutes/topics/competenceGoals/prerequisites fra dette skjelettet) og `sectionNames` (§6).
    `level: 'Høyskole'`.
 2. **Del 0** (kap. 0.1–0.4) — metodespråket («må/pluss/felle», tvistepunkt-analyse, lovvalgs-radaren,
