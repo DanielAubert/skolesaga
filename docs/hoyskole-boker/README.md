@@ -150,6 +150,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | JUS1211 Privatrett II (UiO) | jus | skjelett |
 | JUS2111 Statsforfatningsrett og folkerett (UiO) | jus | skjelett |
 | JUS4111 Metode og etikk (UiO) | jus/drøfting-hybrid | skjelett |
+| JUS4212 Sivilprosess (UiO) | jus | skjelett |
 | KJ2050 Analytisk kjemi, grunnkurs (NTNU) | regnefag/prosedyre-hybrid | skjelett |
 | KJM1110 / KJM1111 Organisk kjemi I (UiO) | regnefag/kjemi-konstruksjon-hybrid | skjelett |
 | MA0301 Elementær diskret matematikk (NTNU) | regnefag | skjelett |
