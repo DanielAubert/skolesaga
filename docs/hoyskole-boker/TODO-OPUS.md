@@ -201,6 +201,56 @@ profilert, eller dokumentert hoppet over (nedlagt-uten-etterfølger / for tynt
 arkiv). Neste steg er BOKBYGGING (fase 3–7) via kickoff-setningene over — ikke
 flere rammeverk.
 
+## C8. Transje 8-kandidater — funn fra full arkivgjennomgang (8. juli 2026)
+
+Brukeren ba om ny nøye gjennomgang av hele ~/Desktop/Eksamner. Konklusjon:
+innenfor det fagbeskrivelse-vettede mandatet er ingenting glemt (alle hopp er
+dokumentert i C7), MEN korpuset har ~130 udekkede arkiver med ≥5 løsninger/
+sensorveiledninger som aldri var i mandatet. Prioritert etter kategori:
+
+**K1 — reelle glipper (samme kategori som fag vi HAR bygget):**
+- [ ] `nokut-glu-matte` — NOKUT nasjonal deleksamen GLU-matematikk (103 filer,
+      30 sensorveil.; ALLE grunnskolelærerstudenter nasjonalt — søster til
+      nokut-afb som ble bygget). Klarest glipp i hele korpuset.
+- [ ] `nokut-barnevern` — NOKUT nasjonal deleksamen barnevern (36 f, 8 sv).
+- [ ] `med-avsluttende` — UiO/nasjonal felles avsluttende deleksamen medisin
+      (71 f, 56 m/fasit!); med1100-analysen holdt den bevisst utenfor modul
+      1-boka — men den bærer sin EGEN bok (klinisk sluttkompetanse).
+- [ ] `med-fagproven` — fagprøven for leger utdannet utenfor EØS (40 f, 24 sv).
+- [ ] MEDISIN-modul 2–6 + 8 (7–23 f hver) — framtidig medisinserie ved behov.
+
+**K2 — sterke arkiver utenfor fagbeskrivelses-mandatet (topp etter løsninger):**
+- HiØ IT-serie: ITD15020/13-matematikk (125 f/56 løsn), ITF10705-diskret
+  (98/46), ITF20006-algdat (141/0)
+- HVL MAS116 Hydrodynamikk (188/53 — størst udekket m/løsninger)
+- NTNU matte-/statistikkserie: TMA4125 Matematikk 4N (116/52), MA1101 (78/41),
+  MA1301 (82/34), MA0001 (63/29), MA1102 (73/28), TMA4123 (38/27), TMA4180
+  optimering (34/23), TMA4250 (57/22), TMA4165 (43/20), TMA4265 (41/17),
+  MA1202 (60/15), TMA4160 kryptografi (40/14), TMA4145 (44/13), TMA4320 (24/13)
+- NTNU SOK-serie (Trondheim-økonomi, parallelt program): SOK1012 (43/18),
+  SOK3004 (48/13), SOK1011 (40/13), SOK3001 (50/12), SOK1000 (39/11) m.fl.
+- OsloMet: DAPE1300 diskret matematikk (120/26), DATA2500 operativsyst. (40/20)
+- UiO-bredde: SVEXFAC03 exfac SV (29/17), PSYC2104 (25/15), PSYC1202 (25/13),
+  IN2080 beregnbarhet (25/12), PSYC4305 (35/11), PSY2101 (34/11), SOS2100
+  (28/11), SOSANT1200 (18/11), MAT2410 kompleks analyse (44/10), SGO1001 (48/8),
+  STK2100 (42/7), OD-serien (odontologi)
+- NIH (idrettshøgskolen): SPM103 (20/10), SPM102 (18/9) + ~15 småfag m/fasit
+- NMBU ECN-serien (økonomi, uten løsninger)
+
+**K3 — vurdert og IKKE verdt:**
+- USN HiT-arkiv (3 273 f): semesterdumper uten faggruppering — krever stor
+  manuell sortering før noe kan bygges.
+- _sortering/publiserbart (13 449 f): samme korpus re-kategorisert (manifest-
+  bekreftet) — ingen nye fag.
+- MEDISIN-modul-1 (45 f): identisk med MED1100-arkivet (42/42 overlapp).
+- Småinstitusjoner (Ansgar/Nord/HiMolde/Kristiania/Volda/UiT/USN-toppnivå):
+  1–15 filer per fag, som regel uten løsninger — under kvalitetsterskelen.
+- FY/TFY/SIF-serier uten løsninger der tilsv. fag alt er dekket.
+
+NB: K1/K2-fagene mangler fagbeskrivelse-ekstrakt → analyseagentene må hente
+emnebeskrivelse fra institusjonssidene (WebFetch) og statusverifisere AKTIV
+selv, som sos1004/sosant1090-mønsteret.
+
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
 - [ ] Narrativ-versjoner (lesevennlig toggle) for `econ1310` (35 kap) og
