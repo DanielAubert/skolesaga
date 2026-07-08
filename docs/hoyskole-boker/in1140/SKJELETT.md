@@ -25,8 +25,8 @@
 | Arketype | **Regnefag / formell-hybrid** — computasjonelt regne-/prosedyrefag (`DNA-regnefag.md`: teori → gjennomregnet eksempel med *alle* mellomregninger → øvingsoppgaver med fasit, `theorem`-blokker for formelle prosedyrer, drillkapitler). Den «forklar-begrep»-halvdelen bygges som presise, korte modellsvar mot en poeng-sjekkliste — se §1.1. |
 | Antall kapitler | **38** (Del 0: 2 · DEL A [Del 1–5]: 14 · DEL B [Del 6–12]: 17 · Eksamenstrening [Del 13]: 5) + 12 prøvekapitler (ett per temadel 1–12) |
 | Estimert totaltid | **~2 060 min ≈ 34 timer** (per kapittel under; prøver kommer i tillegg) |
-| Quiz totalt | **724** (krav ≥500; formell/regne + klassifisering ER autorettbart, og begrepsbanken er stor → siktet høyt, jf. README «≥500 er et gulv») |
-| Flashcards totalt | **628** (krav ≥500; begrepsrikt fag [leksikale relasjoner, roller, ordklasser, BIO, morfologi, evaluering] + formler → sikt godt over gulvet) |
+| Quiz totalt | **716** (krav ≥500; formell/regne + klassifisering ER autorettbart, og begrepsbanken er stor → siktet høyt, jf. README «≥500 er et gulv») |
+| Flashcards totalt | **618** (krav ≥500; begrepsrikt fag [leksikale relasjoner, roller, ordklasser, BIO, morfologi, evaluering] + formler → sikt godt over gulvet) |
 | Status | **NEDLAGT (verifiser).** Siste ordinære undervisning høst 2025; eksamen tilbys t.o.m. **høst 2027** kun for studenter med tidligere godkjente obliger. Ingen 1:1-erstatning; delvis videreført i **INF1820 – Introduksjon til språk- og kommunikasjonsteknologi** *(verifiser)*. Boka kalibreres mot IN1140s egne 7 sett fordi eksamen lever t.o.m. 2027 og pensumkjernen (klassisk, før-nevral NLP) er stabil. |
 
 **Pitch (ett avsnitt):** IN1140-eksamen er én **4-timers digital skoleeksamen i
@@ -909,17 +909,17 @@ eksamen.
 | 10 | 10.1–10.2 | 20+18 = **38** | 24+20 = **44** |
 | 11 | 11.1–11.2 | 22+18 = **40** | 24+10 = **34** |
 | 12 | 12.1 | **16** | **20** |
-| 13 | 13.1–13.5 | 14+12+8+8+8 = **58** | 10+10+0+0+0 = **30** |
-| **Sum** | **38 kap.** | **724 ≥ 500 ✓** | **628 ≥ 500 ✓** |
+| 13 | 13.1–13.5 | 14+12+8+8+8 = **50** | 10+10+0+0+0 = **20** |
+| **Sum** | **38 kap.** | **716 ≥ 500 ✓** | **618 ≥ 500 ✓** |
 
 Kvotene er **minimum** per kapittel; forfatteren kan overskyte, aldri underskride.
-Fordelingen speiler frekvens, eksamensform og fagets natur. **Quiz siktes høyt (724)**
+Fordelingen speiler frekvens, eksamensform og fagets natur. **Quiz siktes høyt (716)**
 fordi nesten alt er autorettbart: regex-matching (R1/R2), telle n-grammer og regne
 sannsynlighet (N1/N2), klassifisere ordklasse/rolle/relasjon/BIO (P1/M1/M2/NER1) og
 korte begrepssvar (E1) egner seg alle for automatisk retting — de to store formelle
 delene (Del 2 regex = 90, Del 8 syntaks = 126) og regnedelen (Del 3–4 = 130) bærer
 mest quiz, i tråd med at der ligger poengene og de mekaniske sjekklistene.
-**Flashcards siktes godt over gulvet (628)** fordi faget er begrepsrikt: leksikale
+**Flashcards siktes godt over gulvet (618)** fordi faget er begrepsrikt: leksikale
 relasjoner, semantiske roller, ordklasser, BIO-kategorier, morfologi, evaluering,
 glatting og komposisjonalitet gir en stor begrep↔definisjon-bank, og formlene (MLE,
 add-1, Naive Bayes, prior, precision/recall/F1) gir formel↔navn-kort. Teoridelene
@@ -1041,7 +1041,7 @@ sjekklistene) ordrett. Del 13-agenten leser HELE skjelettet.
       eksamensnivå), Typiske feil-`warning` (feilkodene §2.2), 6–12 øvinger med
       `solution`/`hints`, repetisjons-`collapsible`; drillkapitler har
       løsningsoppskrift + sensor-kommentert case + 8–16 varianter.
-- [ ] **Kvotesum:** quiz ≥724 og flashcards ≥628 fordelt per kapittel som i
+- [ ] **Kvotesum:** quiz ≥716 og flashcards ≥618 fordelt per kapittel som i
       kvotesammendraget (§5) (hardt minimum ≥500/≥500); flashcards KUN fra toppnivå
       `definition`-blokker med `title`; fasit-svaralternativer rebalansert (jevn
       a/b/c/d; `options[0]` alltid riktig i staging, runtime stokker).

@@ -872,7 +872,7 @@ eksamensbelagt og styrker samtidig quiz-/flashcardkravet. Ellers ren drøftingsa
   samfunns moralske kode bestemmer hva som er riktig i dette samfunnet» — og
   standardinnvendingene (reformkritikk blir umulig; toleranse-selvmotsigelsen).
   **Thomas Nagel**: **moralsk flaks** (moralsk vurdering påvirkes av faktorer utenfor
-  aktørens kontroll — resultat-, omstendighets-, konstitusjonsflaks — i spenning med
+  aktørens kontroll — resultat-, omstendighets-, konstitusjons- og kausalflaks (fire typer) — i spenning med
   prinsippet om at vi bare er ansvarlige for det vi rår over). **Bør kjenne til
   (verifiser mot gjeldende pensumliste):** en kort oversikt over metaetisk semantikk/
   ontologi — moralsk **realisme** (finnes objektive moralske fakta?) vs. **antirealisme**;
