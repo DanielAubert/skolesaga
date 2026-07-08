@@ -151,6 +151,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | MAT1120 Lineær algebra (UiO) | regnefag | skjelett |
 | MAT2200 Grupper, ringer og kropper (UiO) | regnefag | skjelett |
 | MAT2400 Reell analyse (UiO) | regnefag | skjelett |
+| MAT2500 Geometri (UiO) | regnefag | skjelett |
 | MEK1100 Feltteori og vektoranalyse (UiO) | regnefag | skjelett |
 | MET4 Empiriske metoder (NHH) | regnefag/hybrid | skjelett |
 | Matematikk 1000 / DAFE1000 (OsloMet) | regnefag | skjelett |
