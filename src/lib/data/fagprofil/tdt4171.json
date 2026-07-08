@@ -1,0 +1,44 @@
+{
+  "courseId": "tdt4171",
+  "tittel": "TDT4171 Metoder i kunstig intelligens (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag/konseptuell hybrid med negativ retting",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen (Inspera), 4 timer, karakter A–F, teller 100 %. Hjelpemiddelkode D (bestemt, enkel kalkulator). Oppgaveteksten er på engelsk; besvarelsen kan skrives på norsk eller engelsk. Ikke rent flervalg: blander store auto-rettede sant/usant-/flervalgsbatterier (med negativ retting) med fritekst «regn/tegn på papir»-oppgaver og korte teori-/drøftespørsmål. Innholdsmessig svært stabilt 2015–2024; det er innpakningen (klassisk skriftlig → Inspera) som har endret seg.",
+    "varighetMinutter": 240,
+    "sprak": "engelsk",
+    "hjelpemidler": "kode D — bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Ca. 9 nummererte oppgaver (V2024) med sum 100 %, jevnt fordelt: KI-grunnlag (T/F) ~6 %, usikkerhet/Bayes-nett ~10 %, beslutningsnett ~16 %, HMM ~20 %, nevrale nett/gradient ~10 %, dyp læring ~10 %, NLP ~8 %, forsterkende læring ~10 %, CBR ~10 %. HMM-filtrering og beslutningsnett er de tyngst vektede regneoppgavene; bredden dekker nesten hele emnet."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Negativ retting på T/F og d-separasjon. Klassisk (t.o.m. ~2019): +2 rett, −3 galt, 0 blankt, med gulv 0 på hele oppgaven. Moderne Inspera (2020→): typisk +1 % rett / −1 % galt (noen ledd +0,5/−0,5), 0 blankt, fortsatt totalgulv 0. Enkelte blokker er alt-eller-intet: null poeng på hele blokken hvis ett delsvar er galt eller blankt.",
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Vis symbolsk form før tall i HMM-/inferensutregninger og rund til to desimaler som anvist — full uttelling for korrekt flyt selv med litt feil tall, men null hvis flyten er helt gal",
+    "Beslektede korrekte svar godtas bredt (nettverkskonstruksjon, utility-design, HMM-tabellformat, CBR, etikk); null bare når studenten ikke vet hva et Bayes-/beslutningsnett er",
+    "Delvis uttelling er regelen; list-oppgaver (etikk) gis proporsjonalt med antall gyldige punkter",
+    "Negativ retting på T/F og d-separasjon — la ledd stå blankt ved usikkerhet; disiplinert blanking er en egen ferdighet",
+    "Følg oppgitt rundings-/formatinstruks bokstavelig (to desimaler; «én desimal, f.eks. −2.3»)",
+    "Spesifiser antakelser ved tvetydighet — oppfordret eksplisitt, løses da etter egne antakelser uten trekk"
+  ],
+  "typiskeFeil": [
+    "Påstå uavhengighet uten d-separasjon — særlig glemme at en collider blir aktiv når en etterkommer er observert",
+    "Dobbelttelle celler i P(a ∨ b) ved å legge sammen P(a)+P(b) uten å trekke fra overlappet",
+    "Glemme å summere ut skjulte variabler i posterior-spørringer (P(I|H,L,E))",
+    "Sette inn tall før symbolsk form i filtrering, eller glemme normaliseringen α i oppdateringssteget",
+    "Feil nodetype i beslutningsnett (oval/rektangel/diamant) eller feil kantretning; la utility-noden få barn",
+    "Bygge Bayes-nettet «bakvendt» (kant fra virkning til årsak) så en domeneekspert ikke lett kan oppgi CPT-ene",
+    "Gjette på negativt rettede ledd, eller blande filtrering/prediksjon/glatting/mest sannsynlig forklaring"
+  ],
+  "sjangre": ["flervalg", "regne", "tegning", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/tdt4171/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Nøyaktige minuspoengsatser varierer per periode/blokk (+2/−3 klassisk vs. +1/−1 Inspera, noen +0,5/−0,5, noen alt-eller-intet) — bekreft mot gjeldende sett",
+    "NLP/word embeddings er ferskt (V2024, 13 %) og i vekst — omfanget på neste eksamen er usikkert",
+    "Vektingsprofilen (V2024) er representativ men kan variere mellom år"
+  ]
+}

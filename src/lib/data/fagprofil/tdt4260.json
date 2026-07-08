@@ -1,0 +1,46 @@
+{
+  "courseId": "tdt4260",
+  "tittel": "TDT4260 Datamaskinarkitektur / Computer Architecture (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "begrepsdrevet flervalg/forklaring-hybrid",
+  "eksamensform": {
+    "beskrivelse": "3 timers skriftlig skoleeksamen, teller 100 % av karakteren (skala A–F). Flervalgstungt format med negativ scoring, supplert med korte og lange forklaringsessays samt sporadisk match/paring og innebygde regne-flervalg. I 2015 talte eksamen 80 % (rest semesterprosjekt med gem5-simulering), men dagens ordning er 100 % skriftlig. Oppgaveteksten er på engelsk; svar godtas på engelsk eller norsk.",
+    "varighetMinutter": 180,
+    "sprak": "engelsk",
+    "hjelpemidler": "hjelpemiddelkode D: kun bestemt, enkel kalkulator (trengs kun til noen få formler som AMAT, Amdahl, PUE). Ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Flervalg (multiple choice) dominerer og bærer ~65–75 % av poengene (4-alternativers gjenkjennings- og «not true»-oppgaver), innebygde regne-flervalg ~10 %, korte «concisely describe»-essays og lange 10-poengs essays ~15–25 %, match/paring få prosent. Menyen speiler Hennessy & Patterson-kapitlene: kvantitative prinsipper, minnehierarki/cache, ILP, DLP, TLP/multiprosessorer, interconnects, WSC/energi, prefetching"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Negativ scoring på flervalg: +3/−1,5 (2015 og 2017) eller +2/−1 (2016), blankt gir 0. Match-oppgaven har ingen minuspoeng (1 poeng per rett)",
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Negativ scoring straffer aktiv gjetting: blankt (0) er bedre enn feil gjett — la tvilsomme flervalg stå blanke",
+    "«Not true / incorrect / false»-oppgaver krever at man kan alle alternativene, ikke bare det riktige svaret",
+    "Essays vurderes på presisjon og tetthet, ikke volum — «answer as concisely as possible, use the space wisely»",
+    "MESI/MSI må forklares med eierskap + clean/dirty per tilstand; ett ord per bokstav gir ikke full score",
+    "Forskningsartikkel-svar må gjengi mekanismen (f.eks. matching unit = hashing + overflow unit), ikke bare navnet",
+    "Match-oppgaven har ingen minuspoeng — ta alle rette der du kan MSI-diagrammet",
+    "AMAT (flernivå) og Amdahl-speedup må regnes riktig og raskt — de faste, sikre regnepoengene"
+  ],
+  "typiskeFeil": [
+    "Forveksle de kvantitative lovene (Moore vs. Dennard vs. Pollack vs. Amdahl) — distraktorene bytter dem bevisst om",
+    "De fire Cs: velge «concurrent» som felle; riktig sett er compulsory/capacity/conflict/coherence",
+    "Hazard-typer: tro «execution hazard» finnes, eller at WAR/WAW er sanne dataavhengigheter (kun RAW er sann; WAR/WAW er navnavhengigheter)",
+    "Flernivå-AMAT: legge sammen aksesstider flatt i stedet for å vekte rekursivt med miss-ratene",
+    "Amdahl-nevneren: bruke 1/s i stedet for 1/(s + (1−s)/N) — 5 % og 300 kjerner gir ~18,8×, ikke 20× eller 300×",
+    "Blande coherence (samme adresse i flere cacher) og consistency (rekkefølge av minneoperasjoner på tvers av adresser)",
+    "Tro snooping skalerer bedre enn directory — directory skalerer bedre (snooping krever broadcast)",
+    "SIMD/vektor-forvekslinger og at GPU skjuler minnelatens via store cacher i stedet for mange tråder"
+  ],
+  "sjangre": ["flervalg", "essay", "regne", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/tdt4260/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Arkivet har kun 3 unike sett (vår 2015–2017, alle engelsk) — temavekting og eksakte gjenganger-scorer er grovkornet",
+    "MCQ-fasitnøkler mangler for 2016/2017 (kun essay-modellsvar finnes) — distraktor-analysen bygger på fagkunnskap, ikke offisiell nøkkel",
+    "Dagens læringsutbytte vektlegger GPGPU/akseleratorer og maskinvaresikkerhet/sidekanalangrep, som er svake/fraværende i arkivet — vekten er ikke arkivbelagt"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "courseId": "tma4245",
+  "tittel": "TMA4245 Statistikk (NTNU) — tvillingemne med TMA4240",
+  "institusjon": "NTNU",
+  "arketype": "regnefag (sannsynlighet + statistisk inferens, med simuleringskapittel)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, bokstavkarakter A–F. Hver eksamen dekker begge søyler: sannsynlighetsteori (~40–50 %) og statistisk inferens (~50–60 %). Ryggraden er inferens-kjeden ML → egenskaper → KI → test (→ styrke) som sammenhengende storoppgave. Python/Monte Carlo er fast innslag siden desember 2023. Kontekstene er ingeniør- og naturvitenskapsnære.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "Kode C: «Tabeller og formler i statistikk» (Akademika/Fagbokforlaget) + godkjent enkel kalkulator + gult A5-ark med egne håndskrevne notater (fra ~2018–19). Eksamen tester valg/bruk av formel og utledning, ikke memorering. Koronaårene 2020–2021 hadde kode A (alle hjelpemidler) — atypisk",
+    "struktur": "Varierer per epoke; gjeldende form (2024–2026): skoleeksamen, ofte Inspera-hybrid med 4–6 kortsvarsoppgaver (5–10 p, kun tallsvar, ingen begrunnelse) + 2–4 store håndrettede oppgaver (10–30 p, full begrunnelse). Den store oppgaven er nesten alltid en inferens-kjede"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Definer stokastiske variable eksplisitt før du regner («La X = antall …, da er X ~ …» med parametre) — svar uten definert modell er ufullstendige",
+    "Oppgi antagelser der de brukes: uavhengighet, fordelingsantagelse, normaltilnærmingens krav (np₀ og n(1−p₀) store nok), Poisson-prosessens forutsetninger",
+    "Hypotesetestens rituale er obligatorisk: H₀/H₁ i parametre → testobservator med fordeling under H₀ → α/forkastningsområde eller p-verdi → tallfesting → konklusjon i ord i kontekst",
+    "Vis mellomregninger og angi tabelloppslag (hvilken tabell, frihetsgrader, kvantil); ML-utledninger skal ha alle trinn og kommentere at kritisk punkt er maksimum",
+    "Riktig fordeling til riktig situasjon: t (ikke z) når σ estimeres; riktige frihetsgrader (n−1, n−2 i regresjon, 2n i eksponensial-pivotalen); parret vs. to-utvalgs design",
+    "Konklusjoner i ord — et tall uten tolkning gir ikke full uttelling",
+    "I Inspera-kortsvar er kun tallet riktig/galt og presisjonskravet (2–3 desimaler) håndheves strengt; i papirdelen teller metoden og små regnefeil straffes mildt",
+    "Python-kode skal være korrekt og kjørbar (numpy-idiomatisk); delvis kode med riktig struktur gir delvis uttelling"
+  ],
+  "typiskeFeil": [
+    "z der det skal være t (σ estimert), eller feil frihetsgrader (n vs. n−1; n−1 vs. n−2 i regresjon)",
+    "Behandle parrede data som to uavhengige utvalg — differansene skal analyseres som ett utvalg",
+    "Glemme å sjekke normaltilnærmingens gyldighet (np og n(1−p) store nok)",
+    "Blande tetthet og sannsynlighet — tro at P(X=x)=f(x) for kontinuerlig X; anta at disjunkte hendelser er uavhengige",
+    "Feil retning/oppsett i H₁; mistolke p-verdi og konfidensintervall (klassiske feiltolkninger som distraktorer)",
+    "Glemme kovariansleddet i Var(aX+bY) når X og Y er korrelerte (eller ta det med når de er uavhengige)",
+    "Misforstå/misbruke minneløsheten (bruke den på fordelinger som ikke har den, f.eks. Weibull)",
+    "ML-slurv (derivere uten logaritme, ikke verifisere maksimum), forventningsretthet-slurv, feil intervall (KI der PI kreves) og avrundingsfeil i Inspera-kortsvar"
+  ],
+  "sjangre": ["regne", "kodeskriving", "kodesporing", "flervalg"],
+  "kilde": "docs/hoyskole-boker/tma4245/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Eksamensformen har variert mye per epoke (papir vs. Inspera-hybrid, korona-kode A) — bekreft gjeldende format og poengoppsett mot nyeste sett",
+    "Enkelte 2009–2015-sett er kun skumlest og har filnavn-/dateringsavvik; frekvenser for perioden er nedre anslag",
+    "Fortegnstest og feilforplantning er nye sjangre fra 2024 (2 sett hver) — vekten fremover er usikker"
+  ]
+}

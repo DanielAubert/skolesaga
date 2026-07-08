@@ -1,0 +1,44 @@
+{
+  "courseId": "tdt4160",
+  "tittel": "TDT4160 Datamaskiner (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag med tungt lag begreps-kortsvar",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, 100 % av karakteren, skala A–F. Hjelpemiddelkode D (bestemt/enkel kalkulator, ingen trykte eller håndskrevne hjelpemidler). Ikke flervalg — alle sett er frittekst med regne- og forklaringsoppgaver, manuelt rettet. Både bokmål, nynorsk og engelsk målform forekommer (samme oppgave, oversatt). Arkivet (2015–2017) er fra før et dokumentert læreplanskifte (Tanenbaum/IJVM → RISC-V, navnebytte, ny emneansvarlig Jahre).",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "kode D — bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Fast oppgavemeny: 4 hovedoppgaver à 25 % (2015) eller 5 à 20 % (2016–2017), hver delt i deloppgaver a–e med synlig prosentvekt. Faste temablokker: (1) blandede begreps-kortsvar, (2) digitalt logisk nivå (adressedekoding, FSM, ALU), (3) mikroarkitektur/IJVM (trolig utgått i RISC-V-emnet), (4) ISA, (5) ytelse (cache, pipeline, ILP/CMP). Dagens emne bør speile RISC-V-datasti + flyttall + virtuelt minne, med arkivets sjangre som oppgavemal."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Delpoeng er sjenerøse — «godkjenner alt som er rett», og alternative løsninger og typo-lesninger godtas",
+    "Vis forståelse av modellen framfor eksakt fasit — også korrekt konklusjon om at noe er umulig premieres",
+    "Regnesvar krever mellomregning: formel → innsatte tall → svar med enhet; bart tall er svakt",
+    "Minnekart må faktisk tegnes for uttelling, ikke bare listes opp som adresseområder",
+    "«Forklar kort» betyr kort — 1–3 setninger; presisjon og korrekt terminologi teller mer enn lengde",
+    "Sterk besvarelse leser blokkdiagram/krets riktig og begrunner «hvorfor/hvorfor ikke»"
+  ],
+  "typiskeFeil": [
+    "Pipeline-klokke fra feil trinn — klokka bestemmes av det tregeste trinnet, ikke summen/gjennomsnittet",
+    "Cache-formel snudd — glemme å gange miss-raten (1−h) med hovedminnetiden, eller bruke h i stedet",
+    "Adresserom: bit vs. antall — 32-bit adressebuss gir 2^32 adresser, ikke «32»",
+    "Forveksle Moore og Mealy (Mealy: utgang av tilstand OG inngang; Moore: kun tilstand)",
+    "Glemme B-buss-begrensningen i IJVM — kun én kilde per microinstruksjon krever mellomlagring i H",
+    "Tro at overlapp i adressekart automatisk er problem — read-only vs. write-only gir aldri konflikt",
+    "Stoppe pseudokode-trace for tidlig — bare siste flagg-settende instruksjon før hoppet styrer branch"
+  ],
+  "sjangre": ["regne", "kodesporing", "tegning", "identifikasjon", "essay"],
+  "kilde": "docs/hoyskole-boker/tdt4160/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Eksakt temavekting for dagens RISC-V-baserte emne er svak/ukjent — arkivets IJVM-vekting (20–25 %) skal ikke overføres 1:1",
+    "Flyttall (IEEE 754) og virtuelt minne er eksplisitt i dagens læringsutbytte men mangler i arkivet — må bygges inn",
+    "Gjeldende pensumbok (trolig Harris & Harris eller Patterson & Hennessy, RISC-V-utgave) og evt. nyere eksempelsett bør skaffes før kvotene låses"
+  ]
+}

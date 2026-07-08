@@ -1,0 +1,46 @@
+{
+  "courseId": "stk1100",
+  "tittel": "STK1100 Sannsynlighetsregning og statistisk modellering",
+  "institusjon": "UiO",
+  "arketype": "regnefag (sannsynlighet/modellering med utledning)",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig skoleeksamen (kl. 09–13). Karakter A–F. Emnet vurderes samlet med midtveiseksamen (flervalg, teller 1/3) + avsluttende skoleeksamen (teller 2/3). Denne profilen dekker den avsluttende skoleeksamenen. Eksamen tester bruk og utledning, ikke pugging.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "godkjent kalkulator + formelsamling for STK1100/STK1110 (enkelte sett legger nødvendige hjelperesultater direkte i oppgaveteksten)",
+    "struktur": "3–4 store fortellingsoppgaver, hver en kjede med 3–7 deloppgaver i samme kontekst. Typisk firedeling: (1) sannsynlighet/diskret modell (Bayes/total sannsynlighet eller Poisson/geometrisk); (2) kontinuerlig/simultantetthet; (3) estimering + eksakt pivotal-KI (kjernen); (4) transformasjon/Jacobi/binormal eller (fra 2022) enkel lineær regresjon, ofte med simulerings-/bootstrap-/Python-innslag. Ingen kortsvars-/flervalgsdel på selve skoleeksamen."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Definer variable og hendelser eksplisitt før du regner («La X = …, da er X ~ …» med parametre) — uten definert modell er svaret ufullstendig",
+    "Uavhengighet skal bevises ved faktorisering f(x,y) = fX(x)·fY(y) for alle (x,y), inkludert null-området — ikke intuisjon",
+    "Tegn integrasjonsområdet for dobbeltintegral; feil grenser er den vanligste tabben",
+    "ML-utledninger skal ha alle trinn (L → ℓ = log L → derivér → løs); MGF-utledninger skal ha konvergenskravet med",
+    "Forventningsretthet og varians vises fullstendig; skjevhet skal kvantifiseres og korrigeres når en forventningsrett estimator kreves",
+    "Eksakt pivotal-KI foretrekkes framfor Wald når standardavviket avhenger av parameteren; et asymmetrisk eksakt intervall er riktig, ikke en feil",
+    "Sentralgrenseteoremet nevnes eksplisitt når normaltilnærming brukes til tilnærmet KI",
+    "Bootstrap-svar skal beskrive algoritmen presist; Python-kode skal være kjørbar og numpy-idiomatisk (ddof=1 der n−1 kreves)"
+  ],
+  "typiskeFeil": [
+    "Påstå uavhengighet uten å sjekke faktoriseringen, eller sjekke den bare der tettheten er positiv og glemme null-området",
+    "Feil grenser i dobbeltintegral fordi integrasjonsområdet ikke er tegnet (særlig P(Y ≥ X) og Jacobi-marginalisering)",
+    "Hoppe rett til Wald/CLT-KI uten å vurdere det eksakte pivotal-intervallet, eller tro at et asymmetrisk eksakt intervall er feil",
+    "Blande tetthet og sannsynlighet (tro at P(X = x) = f(x) for kontinuerlig X)",
+    "Glemme konvergenskravet på t i MGF-utledninger",
+    "Reparametriserings-forvirring: eksponensial med rate λ vs. forventning µ = 1/λ — les oppgavens parametrisering",
+    "Skjevhets-slurv: anta at enhver ML-estimator er forventningsrett, eller glemme Γ-faktoren i Weibull-/gamma-estimatorer",
+    "Bootstrap/Python-feil: glemme ddof=1, eller beskrive bootstrap uten trekking med tilbakelegging / fra tilpasset fordeling"
+  ],
+  "sjangre": ["regne", "kodeskriving", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/stk1100/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Skoleeksamen teller 2/3; midtveiseksamen (flervalg) teller 1/3 og ligger ikke i arkivet — samlet karaktervekting bør bekreftes mot gjeldende emnebeskrivelse",
+    "Hypotesetesting glimrer med sitt fravær på skoleeksamen (ligger i STK1110); enkel lineær regresjon er ny (2022/2024) og kan bli fast innslag"
+  ]
+}

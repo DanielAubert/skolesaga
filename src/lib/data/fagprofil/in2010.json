@@ -1,0 +1,47 @@
+{
+  "courseId": "in2010",
+  "tittel": "IN2010 Algoritmer og datastrukturer",
+  "institusjon": "UiO",
+  "arketype": "kodefag/regnefag-hybrid",
+  "eksamensform": {
+    "beskrivelse": "4 timers digital skoleeksamen i Inspera, ingen hjelpemidler. Alt (også pseudokode) skrives inn i Inspera; ingen håndskrevne svar. Gjeldende form (epoke 3, 2021–2024). Tidligere epoker skiller seg vesentlig: INF2220-arven (2015–2017) krevde Java-kode med alle hjelpemidler, og H2020 var korona-hjemmeeksamen med alle hjelpemidler.",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "ingen",
+    "struktur": "Fast oppvarming (2 p, gratispoeng) + Del 1 (mange små, automatisk rettede sant/usant og korte svar med antigjettings-skalering) + Del 2 (5–7 større pseudokode- og resonneringsoppgaver, der karakteren avgjøres)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Sant/usant-blokkene i Del 1 skaleres for gjetning slik at ren tilfeldig gjetting i snitt gir null; formelen varierer per år (H2023: 2·max(n−16,0) av 32 riktige; H2024: 2·max(n−11,0) av 22). H2021: −1 for feil eller ubesvart på sant/usant, kan ikke gå under 0. Vanlige korte svar straffes ikke, så det lønner seg alltid å svare på dem.",
+    "bestaattKrav": "Obligatoriske innleveringer må være godkjent for å gå opp til eksamen",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Les oppgaveteksten svært nøye og svar på nøyaktig det som spørres om — det mest gjentatte sensortipset.",
+    "Lavere kjøretidskompleksitet gir mer poeng, ofte med eksplisitt poengtrapp (O(n) > O(n log n) > O(n²) på samme oppgave).",
+    "Oppgi kjøretidskompleksitet og la den matche algoritmen du faktisk ga; trekk for manglende/feil kompleksitet og for å bruke n uten å definere det.",
+    "En klar naturlig-språk-forklaring kan gi like mye som eller mer enn rotete pseudokode — presisjon og entydighet er kravet, ikke syntaks.",
+    "Oppgi antagelser om representasjon (grafer som nabolister/matrise/objektstil, node med de feltene du trenger); sensor binder seg ikke til representasjon.",
+    "Delvis uttelling er regelen, med eksplisitt poengfordeling per delmoment — ta med hovedmomentet først.",
+    "Antigjetting straffer usikkerhet: fakta må kunnes sikkert, siden halvparten riktig gjetting i snitt gir null poeng.",
+    "Uklare eller tvetydige oppgaver tas ut av vurderingen eller tolkes til kandidatens fordel (robust sensur)."
+  ],
+  "typiskeFeil": [
+    "Full/naiv traversering der beskjæring var mulig — full in-order i InRange, eller søk fra hver node i stedet for én reversert Dijkstra/SCC-kjøring — koster halve poengsummen.",
+    "Kvadratisk løsning der lineær var mulig — tre-diameter med høyde per node (O(n²)) i stedet for én DFS (O(n)); checkBST med FindMin/FindMax per node.",
+    "Bruke bucket/counting/radix sort på generelle sammenlignbare elementer — disse krever kjent, begrenset verdiområde.",
+    "Hevde at binærsøk returnerer indeks uten å nevne at pensums binærsøk (true/false) må modifiseres.",
+    "Forveksle DFS fra én node (O(E)) med DFS-full (O(V+E)) i kjøretidsanalysen.",
+    "Reversere reduksjonsretningen i NP-teori — redusér FRA det vanskelige problemet, ikke til det, for å bevise vanskelighet.",
+    "Forveksle BST-egenskapen (venstre ≤ node ≤ høyre) med heap-egenskapen (forelder ≤/≥ begge barn).",
+    "Uklar/lang pseudokode eller drøfting uten definert n og uten referanse til O-notasjon — eksplisitte trekk (bl.a. −3 p i H2020)."
+  ],
+  "sjangre": ["flervalg", "regne", "kodeskriving", "kodesporing", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/in2010/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Antigjettings-formelen på Del 1 varierer per år (H2023: n−16 av 32; H2024: n−11 av 22) — nøyaktig terskel for neste sett bør bekreftes.",
+    "Karaktergrenser (poeng per A–F) er ikke dokumentert i analysen og bør bekreftes mot offisiell sensur.",
+    "Del 1/Del 2-vekting oppgis som typisk (Del 1 ~20–35 p, Del 2 5–7 oppgaver à 8–12 p), ikke som fast prosentsplitt — bekreft mot aktuelt sett."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "courseId": "in2040",
+  "tittel": "IN2040 Funksjonell programmering (tidligere INF2810)",
+  "institusjon": "UiO",
+  "arketype": "kodefag (kodeskriving + kodesporing + kort teori)",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig digital eksamen i Inspera. Ingen flervalgsdel — alt er kodeskriving i Scheme, kodesporing/diagramtegning eller korte teoriforklaringer. Faget het tidligere INF2810 og er kun omdøpt (samme pensum og struktur).",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "ingen",
+    "struktur": "Normert til 100 poeng, typisk ~6 seksjoner: par/lister+mutasjon, mysterium-kodeforståelse, stor rekursjons-/idiomseksjon med cons-celle-telling (~25 p), stor innkapslings-/OO-seksjon med lokal tilstand (~20-25 p), strømseksjon, og teori om funksjonell kode/evalueringsstrategier."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": "Obligatoriske innleveringer må være godkjent for å gå opp til eksamen",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Terminologi belønnes eksplisitt — bruk kursord som strukturdeling, halerekursjon, spesialform, utsatt evaluering, applicative-/normal-order og message passing aktivt.",
+    "Prosesstype-spørsmål krever presist svar (iterativ/lineær-rekursiv/trerekursiv) med begrunnelse i om det finnes utsatte operasjoner.",
+    "Cons-celle-telling må begrunnes: destruktiv = 0 nye celler, strøm = én cons (resten utsatt), funksjonell rekursjon = én per element.",
+    "Full pott på closure-oppgaver krever lokal (ikke global) tilstand, variadisk argumenthåndtering med apply, alle beskjeder implementert og korrekt gjenoppretting av tilstand.",
+    "Diagrammer må vise deling/identitet (eq?-relasjoner) korrekt, ikke bare print-verdien.",
+    "Flere gyldige løsninger godtas — sensor ser etter riktig idiom og prosesstype, ikke ett fasitsvar.",
+    "Pseudokode med kommentarer gir delpoeng mens blankt gir null; egne antakelser er tillatt men må redegjøres for."
+  ],
+  "typiskeFeil": [
+    "Blander halerekursjon og vanlig rekursjon — (cons x (rec …)) er ikke halerekursivt fordi det utestående cons-kallet gjør prosessen rekursiv.",
+    "Feil om strukturdeling — separate (list …) gir egne strukturer, mens delt struktur endres i begge «synene» ved set-car!.",
+    "Glemmer at cons-stream er en spesialform som utsetter andre-argumentet; bruker vanlig cons der cons-stream trengs og får uendelig løkke.",
+    "Destruktiv versjon lager likevel nye celler — poenget er 0 nye cons via set-car!/set-cdr! på eksisterende struktur.",
+    "Forveksler memoisering med lazy generelt; memoisering (call-by-need) er irrelevant under applicative-order fordi alt evalueres uansett.",
+    "Message passing uten variadisk håndtering — objekter med ulikt antall argumenter per beskjed krever (lambda arguments …) + apply, ikke fast arity.",
+    "Omgivelsesdiagram med closure som peker feil — en lambda fanger sin definisjonsramme (leksikalsk), ikke kall-rammen.",
+    "Feil valg mellom let (parallell binding) og let* (sekvensiell), som gir «unbound variable»."
+  ],
+  "sjangre": ["kodeskriving", "kodesporing", "tegning", "essay"],
+  "kilde": "docs/hoyskole-boker/in2040/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Analysen er tynn: kun n=4 sett fra INF2810-æraen (2014–2016) + én IN2040-prøveeksamen. Gjenganger-scorer og oppgavevekter bør reverifiseres mot 2018–2023-settene når UiO-arkivet (github.uio.no/IN2040, Feide) blir tilgjengelig.",
+    "Sensorkravene (§4) og typiske feil (§5) er utledet av fasitkommentarer, særlig prøveeksamen-fasiten — ikke en formell sensorveiledning.",
+    "Metasirkulær evaluator og makroer testes ikke som koding i arkivet (kun konseptuelt); dette kan ha fått større kodingsvekt i nyere sett.",
+    "4 timers varighet og Inspera-format er «dagens form» per analysen, men bør bekreftes mot gjeldende emneside da grunnlaget er eldre sett."
+  ]
+}

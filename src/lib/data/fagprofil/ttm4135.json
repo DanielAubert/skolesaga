@@ -1,0 +1,46 @@
+{
+  "courseId": "ttm4135",
+  "tittel": "TTM4135 Anvendt kryptografi og nettverkssikkerhet (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "hybrid regnefag/konsept (kryptomatematikk + anvendt sikkerhet)",
+  "eksamensform": {
+    "beskrivelse": "Digital skriftlig skoleeksamen, 3 timer (09:00–12:00), hjelpemiddelkode D. Karakterskala A–F, eksamen på engelsk. Faget er hybrid: kvantitativ kryptomatematisk kjerne (modulær aritmetikk, RSA, Diffie–Hellman, primalitet) + konseptuell anvendt-sikkerhet-del (moduser, hash/MAC, signaturer, PKI, TLS, Kerberos, Signal). Sluttkarakteren er en mappevurdering.",
+    "varighetMinutter": 180,
+    "sprak": "engelsk",
+    "hjelpemidler": "Kode D — ingen trykte/håndskrevne hjelpemidler; kun en bestemt enkel kalkulator",
+    "struktur": "Todelt sett på maks 60 poeng. Exercise 1 = 30 flervalgsspørsmål (30 p), hver med fire alternativer og ett riktig, som feier hele pensumbredden. Exercise 2 = 5 skriftlige oppgaver (30 p), hver maks 6 p med deloppgaver som deler poengene likt. Poengbalansen er nøyaktig 50/50 mellom flervalg og skriftlig"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Feil avkryssing på flervalg gir trekk (−0,33 poeng i gjeldende 2024-form); blankt gir ingen trekk. I 2020–2022-formen (15 spm, 3 alternativer) var trekket −0,5",
+    "bestaattKrav": "Mappevurdering: avsluttende eksamen teller 60 % og praktisk lab-arbeid + nettbaserte quizer teller 40 %; begge deler må bestås",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Kort og utledningsdrevet — modellsvarene er 2–6 setninger per deloppgave; oppgi tallsvaret konkret og forklar «hvorfor» i én–to setninger, ingen essay",
+    "Vis mellomregningen i regneoppgavene («Show your working»): square-and-multiply-tellingen, Euklid-kjeden, Miller–Rabin-sekvensen, matriseinvertering mod n — rett tallsvar uten utregning gir sjelden full uttelling",
+    "Navngi teoremet (Euler, Fermats lille teorem, Euklid, fødselsdagsparadokset) der det er naturlig",
+    "Poeng deles likt på deler; delvis uttelling per del — en riktig del redder poeng selv om en annen bommer",
+    "Presisjon i regnedelen (modulær invers, RSA-CRT, Miller–Rabin, DH-hemmelighet, Hill-matrise) er de sikreste poengene med én entydig fasit",
+    "På protokolloppgaver: skriv ned de konkrete angrepsmeldingene (hvilke verdier angriperen sender/bytter) og konsekvensen — ikke bare «protokollen er usikker»",
+    "Riktig retning på egenskapene (forward secrecy vs. post-compromise security straffes ved sammenblanding); flere korrekte varianter godtas når antakelsene forklares"
+  ],
+  "typiskeFeil": [
+    "Telle Hill-nøkler som m^(d²) uten forbehold (ikke alle matriser er invertible mod m); glemme at matrisemultiplikasjon ikke er kommutativ",
+    "Anta parallell kryptering i kjedede moduser (umulig når Ct avhenger av Ct−1), eller feil feilforplantning (maskemoduser vs. kjedede)",
+    "Regne square-and-multiply feil — glemme å telle multiplikasjonene eller blande kvadreringer og multiplikasjoner",
+    "Tro at CRT kan brukes i split-d-oppsett (krever faktorene og ødelegger hemmelighetsdelingen)",
+    "Stole på Fermat-testen — Carmichael-tall passerer den men avsløres av Miller–Rabin via en ikke-triviell √1",
+    "Feil hash-størrelse mot fødselsdagsparadokset (k-bit symmetrisk krever 2k-bit hashutdata)",
+    "Blande forward secrecy og post-compromise security; hoppe over ferskhets-/identitetssjekk i protokollanalyse",
+    "Forveksle offentlig/privat nøkkelbruk (kryptering med mottakers offentlige, signering med signerers private); skrive essay i stedet for konkret angrep"
+  ],
+  "sjangre": ["flervalg", "regne", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/ttm4135/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Formen er stabil i sjanger, men har variert i telling (30 vs. 15 MCQ, 4 vs. 3 alternativer, 5 vs. 6–8 skriftlige, trekksats −0,33 vs. −0,5); 2020–2022 (korona) er ikke representativ for gjeldende MCQ-form",
+    "2024V finnes kun som oppgavesett og 2022V kun som løsningsforslag; noen svar er utledet mot det svært like 2023V-settet",
+    "Post-kvante og Signal er voksende områder (økende MCQ- og skriftlig-vekt) — forvent økt vekt fremover"
+  ]
+}

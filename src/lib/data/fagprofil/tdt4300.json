@@ -1,0 +1,46 @@
+{
+  "courseId": "tdt4300",
+  "tittel": "TDT4300 Datavarehus og datagruvedrift (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "bred, regnetung fem-søyle-arketype",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, teller 100 %, karakterskala A–F, avviklet i Inspera. Bred eksamen der alle fem pensumsøyler kommer i hvert sett; ingen deleksamen eller mappevurdering, men obligatoriske øvinger må være godkjent for å gå opp. Undervisning på engelsk. Regnetungt: ~60–70 % regn/konstruer, ~30–40 % forklar/teori.",
+    "varighetMinutter": 240,
+    "sprak": "engelsk",
+    "hjelpemidler": "hjelpemiddelkode D: bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler eller formelark (definisjoner, algoritme-steg og formler må sitte i hodet). Kalkulatoren brukes aktivt (Gini, Jaccard)",
+    "struktur": "5–6 nummererte hovedoppgaver med prosentvekt oppgitt i overskriften, ofte delt i a/b/c med egen delvekt. Fast mal: (1) «Diverse»/dataforbehandling+Jaccard 15–20 %, (2) datavarehus/OLAP 15–30 %, (3–4) klynging 10–20 %, (4–5) klassifisering+Gini 10–25 %, (5–6) assosiasjonsregler 20–25 %"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": "obligatoriske øvinger må være godkjent for å få gå opp til eksamen",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Sensuren er metode- og begrunnelsesorientert: «andre svar godtas med god grunngjeving» — sjelden én fasit",
+    "Vis metoden / begrunn tallet: Jaccard, Gini og støtte skal ha synlig utregning, ellers trekk",
+    "Oppgi forutsetninger ved modellering — upresise case skal tolkes av kandidaten",
+    "Presis lærebokterminologi der det bes om definisjoner («Sjå læreboka» i skissene)",
+    "Fakta-mål i stjerneskjema må være numeriske og aggregerbare — det gjennomgående modelleringskravet",
+    "Gini/GAINsplit må inkludere foreldrenoden (p(j|Parent)) før vektet barne-Gini",
+    "Join-indeks skal leveres som (dimensjonsnøkkel, tuppel-ID)-par, ikke som det ferdige join-resultatet"
+  ],
+  "typiskeFeil": [
+    "Jaccard som symmetrisk (SMC) — å ta med M00 (0-0-treff); bit-vektor-Jaccard er asymmetrisk M11/(M11+M01+M10)",
+    "Gini uten foreldrenoden — glemme GINI(parent)-leddet slik at GAINsplit blir feil",
+    "Drill-down på materialisert kuboid — tro man kan bryte ned en aggregert kuboid; kun roll-up er mulig",
+    "Join-indeks levert som join-resultat gir 0 poeng — indeksen er (nøkkel, tuppel-ID)-par",
+    "Fakta-mål lagt i dimensjonstabell, eller manglende dimensjonstabell (typisk lokasjon) / ikke-aggregerbare fakta",
+    "DBSCAN uten Core/Border/Noise-klassifisering av hvert punkt",
+    "Apriori uten pruning — beholde kandidater med ikke-frekvente delsett",
+    "Konfidens forvekslet med støtte: konfidens er støtte(regel)/støtte(venstreside), ikke støtte(regel)/N"
+  ],
+  "sjangre": ["regne", "tegning", "case", "essay"],
+  "kilde": "docs/hoyskole-boker/tdt4300/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Kun 3 unike sett (V2015, V2016, K2016) fra to nabo-årganger med samme faglærer (Kjetil Nørvåg) — temafrekvensen (x/3) er en indikasjon, ikke robust statistikk",
+    "Ingen publiserte karaktergrenser i arkivet; nivåbeskrivelsene er utledet av løsningsskissenes vektlegging",
+    "10+ år gammelt materiale — 2027-oppsettingen kan ha ny faglærer og justert vekt (mer naive Bayes / k-NN / lift / evaluering enn arkivet viser)"
+  ]
+}

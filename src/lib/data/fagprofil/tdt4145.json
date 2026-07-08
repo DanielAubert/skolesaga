@@ -1,0 +1,50 @@
+{
+  "courseId": "tdt4145",
+  "tittel": "TDT4145 Datamodellering og databasesystemer (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag/modelleringshybrid",
+  "eksamensform": {
+    "beskrivelse": "Tredelt vurdering i dag: avsluttende skriftlig skoleeksamen (40 %), semesterprøve (30 %) og prosjekt (30 %). Karakter A–F, hjelpemiddelkode D (ingen oppslagsverk; bestemt, enkel kalkulator). Gjeldende slutteksamen (2023 →) er en 2-timers blanding av auto-rettede flervalgs-/tallsvarsoppgaver i Inspera, mens ER/EER-modellering og B+-tre-tegning besvares på papir via InsperaScan. Eldre 4-timers frisvarssett (2015–2019) er beste kilde til dybde, men speiler ikke lengden.",
+    "varighetMinutter": 120,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "kode D — bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Slutteksamen (2 t): 1 stor ER-/EER-modelleringsoppgave på papir (12–35 %) + auto-rettede flervalg/tallsvar for maskineriet (normalisering, hashing, join-/sorteringskostnad, aksessveier, 2PL-commitrekkefølge, ARIES REDO/UNDO). Semesterprøven tester den konseptuelle halvdelen: modellering, relasjonsteori, normalisering, SQL/algebra — aldri lagring, indeksering, transaksjoner eller recovery."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": {
+      "E": "≈ 41 poeng (39–41)",
+      "D": "≈ 52–53",
+      "C": "≈ 64–65",
+      "B": "≈ 76–77",
+      "A": "≈ 86–89"
+    }
+  },
+  "sensornokler": [
+    "Oppgi forutsetningene — rimelige, oppgitte antagelser legges til grunn ved ER/EER og skjema-oversettelse",
+    "Struktur foran detaljmengde ved modellering; presisjon og begrunnelse ved utledninger og klassifiseringer",
+    "Delvis uttelling er regelen, ofte eksplisitt gradert; ta hovedpoenget først",
+    "Vis metoden — tallsvar skal ha begrunnelse, dekomponeringer sjekkes mot de fire egenskapene, ARIES bygger på analysen",
+    "Beslektede korrekte svar godtas (natural/inner/equijoin, to hash-konvensjoner, to B+-tre-splitregler)",
+    "Robust sensur — feilformulerte eller for vanskelige oppgaver tas ut eller lempes"
+  ],
+  "typiskeFeil": [
+    "Bruke INNER JOIN der oppgaven krever rader uten treff (skal være LEFT OUTER JOIN)",
+    "Feil boolsk negasjon i relasjonsalgebra: NOT(A ∧ B) behandlet som (¬A ∧ ¬B) i stedet for (¬A ∨ ¬B)",
+    "Kopiere lærebokens normalform-eksempel (PostNr→PostSted) når det bes om et originalt — gir null",
+    "ARIES REDO «per blokk» eller med «committed» som kriterium — REDO er per loggpost i stigende LSN",
+    "Ikke bygge ARIES-fasene på hverandre (hopper over analysen → tak på ~3 poeng)",
+    "Modellere én trinær relasjonsklasse der to binære er riktig — den vanligste ER-fellen",
+    "Glemme sidepekere på B+-tre-løvnivå, eller feil fyllingsgrad/avrundingsretning i blokkregning"
+  ],
+  "sjangre": ["flervalg", "regne", "tegning", "kodeskriving", "identifikasjon", "case"],
+  "kilde": "docs/hoyskole-boker/tdt4145/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Karaktergrensene er stabile gjennom perioden men «tentative» og kan justeres ved sensurslutt",
+    "Format-caveat: settene skifter mellom 4-timers frisvar, covid-hjemmeeksamen (kode A, bestått/IB), rene flervalg og gjeldende blandede 2-timersformat — bekreft gjeldende semesters ordning",
+    "Vektingen 40/30/30 (eksamen/semesterprøve/prosjekt) bør bekreftes mot gjeldende emnebeskrivelse"
+  ]
+}

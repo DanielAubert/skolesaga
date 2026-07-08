@@ -1,0 +1,44 @@
+{
+  "courseId": "tdt4186",
+  "tittel": "TDT4186 Operativsystemer (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag/drøftefag-hybrid (to tradisjoner)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, karakter A–F, teller 100 %. Hjelpemiddelkode D (ingen trykte/håndskrevne hjelpemidler; kun bestemt, enkel kalkulator) — konstant gjennom hele arkivet og gjentatt i emnebeskrivelsen for det gjenåpnede emnet. Ikke flervalg — gjennomgående frisvarsoppgaver (forklar, drøft, sammenlign, definer, og i én tradisjon regn ut). Fast metabudskap: korte, konsise, presise svar, men sensor gir eksplisitt pluss for ekstra korrekt detalj.",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "kode D — bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Arkivet deler seg i to tradisjoner læreboka må dekke unionen av: (A) «regne-tradisjonen» (Bratsberg, Tanenbaum) — 8 oppgaver med ulik vekt (5–25 %), blanding av konsept + konkrete beregninger (sideerstatnings-trace, blokkallokering, avbruddstiming, SJF); (B) «drøfte-tradisjonen» (Nygård, Stallings) — 5–6 likevektede, sterkt malbaserte diskursive oppgaver (RAID, sanntid, buddy, Bankier). Dagens faglærer (Di Liu, fra vår 2027) er ukjent; kjernepensumet er identisk i begge."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "«Korte og konsise svar ønskes» — presisjon over lengde",
+    "«Les oppgaveteksten meget nøye» — mange deloppgaver har spissformuleringer («minst to måter», «sammenlign mht. relevans OG ytelse») der uttellingen henger på å treffe akkurat det",
+    "«Beskriv antagelsene du gjør» — eksplisitte, konsistente antagelser gir full uttelling selv når oppgaven er underbestemt",
+    "Pluss for ekstra korrekt detalj — dekning premieres når den er korrekt og relevant (i motsetning til flere andre fag)",
+    "Flere gyldige svar godtas — løsningsforslagene lister ofte 2–4 akseptable svar",
+    "Toppsjikt krever de tunge beregningene feilfritt OG «hvorfor» (hvorfor skitne sider ikke stjeles, hvorfor guarded wait trenger while), samt formell betingelse (RMS-/EDF-grense, Bankier) ikke bare navnet"
+  ],
+  "typiskeFeil": [
+    "Glemme at modifiserte (skitne) sider ikke kan stjeles ved sideerstatning uten å skrives ut først",
+    "Glemme å allokere indirekteblokka i inode-/UNIX V7-blokkregning",
+    "Blande FAT og inode mht. hull (FAT kan ikke ha hull; inode kan)",
+    "Guarded wait med if i stedet for while — betingelsen må sjekkes på nytt etter oppvåkning",
+    "Tro at «disable interrupts» løser synkronisering på multiprosessor — man må bruke TSL med bysslåsing",
+    "Bruke CPU-utnyttelsesformelen 1 − p^n når ikke alle prosesser er i minnet (gjelder ikke ved thrashing)",
+    "Forveksle usikker tilstand med vranglås; overse den andre halvdelen av OS-definisjonen; enhetsfeil i avbruddstiming"
+  ],
+  "sjangre": ["regne", "essay", "kodesporing", "identifikasjon", "case"],
+  "kilde": "docs/hoyskole-boker/tdt4186/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Dagens faglærer (Di Liu) og pensumbok for 2027 er ikke bekreftet (mulig OSTEP/Silberschatz/Tanenbaum) — verifiser pensum før innhold låses",
+    "Arkivet stopper i 2016; oppgaveformatet kan endres med ny faglærer, men kjernepensumet i OS er stabilt",
+    "Randtemaene er tradisjonsavhengige (sikkerhet/malware/virtualisering kun trad. A; sanntid/RAID/arbeidssett kun trad. B) — vekting for dagens emne er usikker"
+  ]
+}

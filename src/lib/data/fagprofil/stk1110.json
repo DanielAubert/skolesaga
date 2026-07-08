@@ -1,0 +1,46 @@
+{
+  "courseId": "stk1110",
+  "tittel": "STK1110 Statistiske metoder og dataanalyse (tidl. med «1»-suffiks)",
+  "institusjon": "UiO",
+  "arketype": "regnefag (statistisk inferens og dataanalyse)",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig skoleeksamen (klokkeslett veksler formiddag/ettermiddag). Karakter A–F. Avsluttende eksamen teller 100 %; to obligatoriske innleveringer må være godkjent for adgang. Emnet er inferens-oppfølgeren til STK1100 og forutsetter STK1100s sannsynlighetsapparat uten å re-teste det. Eksamen tester bruk og utledning, ikke pugging.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "godkjent kalkulator + formelsamling for STK1100/STK1110 (nødvendige kvantiler z, t, χ², F legges ofte inn i oppgaveteksten)",
+    "struktur": "2–3 store fortellingsoppgaver (nyere sett har færre), hver en kjede med 4–7 deloppgaver. Fast tredeling: (1) estimeringsteori (moment vs. ML, forventningsretthet/varians, Fisher-info/Cramér–Rao, av og til Bayes); (2) hypotesetesting + konfidensintervall (t-test ett/to utvalg/parvis, andeler, styrke, CI↔test-dualitet, F-test, ANOVA); (3) lineær regresjon (enkel + multippel, LS/matriseform, diagnostikk, prediksjon, tolkning av R-utskrift). Ingen kodeskriving."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": "to obligatoriske innleveringer må være godkjent for adgang til eksamen (avsluttende eksamen teller 100 %)",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Definer modell og variable eksplisitt før du regner — uten definert modell er svaret ufullstendig",
+    "ML-utledninger skal ha alle trinn (L → ℓ → score → løs) OG bekrefte maksimum med fortegn på ℓ''(θ̂); skill estimator (stokastisk) fra estimat (tall)",
+    "Hypotesetestens rituale er obligatorisk: H0/Ha med begrunnet retning → testobservator med fordeling under H0 → utled at nivået blir α → tallfest → konkluder i ord i kontekst",
+    "Riktig fordeling og frihetsgrader: t (ikke z) når σ er estimert; n−1, n−2 (enkel regresjon), m+n−2 (pooled to-utvalg), n−k−1 (multippel)",
+    "Nevn MLE-asymptotikk/CLT eksplisitt ved normaltilnærming; koble Wald-variansen til 1/(nI(θ)) og Cramér–Rao der relevant",
+    "Eksakt/pivot-CI foretrekkes framfor Wald når standardavviket avhenger av parameteren; et asymmetrisk eksakt intervall er riktig",
+    "Regresjon: tolk koeffisientene i kontekst, bruk justert R² (ikke R²) til modellvalg, forklar konfundering, advar mot ekstrapolering",
+    "Tolk R-utskrift presist (Estimate, Std. Error, t value, Pr(>|t|), Residual standard error, R²/justert R², F) og les residualplott i mønstre"
+  ],
+  "typiskeFeil": [
+    "z der det skal være t, eller feil frihetsgrader (n vs. n−1; n−1 vs. n−2 i regresjon; glemme m+n−2 i pooled to-utvalg)",
+    "Hoppe rett til Wald-CI uten å vurdere eksakt/pivot der SD avhenger av parameteren, eller tro at et asymmetrisk eksakt intervall er feil",
+    "Glemme å bekrefte at ML-punktet er et maksimum (ℓ''(θ̂) < 0)",
+    "Behandle parrede data som to uavhengige utvalg i stedet for å analysere differansene Di",
+    "Feil retning i Ha (ensidig/tosidig), eller mistolke P-verdien som «sannsynligheten for at H0 er sann»",
+    "Bruke R² i stedet for justert R² til modellsammenligning, eller forveksle konfidens- og prediksjonsintervall",
+    "Ekstrapolere regresjonsmodellen langt utenfor dataområdet, eller feiltolke en multippel-koeffisient som «hele effekten» (konfundering)",
+    "Lese R-utskrift feil — forveksle Std. Error-kolonnen med t-verdien, eller tolke en ikke-signifikant koeffisient uten hensyn til de øvrige variablene"
+  ],
+  "sjangre": ["regne", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/stk1110/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Emnet het tidligere «Statistiske metoder og dataanalyse 1»; løsningsforslaget for H2015 har feilaktig «STK1100» i topptekst",
+    "Bayes/konjugering (nytt siden 2022) og ANOVA (2020–2021) er roterende innslag som kan variere fra sett til sett"
+  ]
+}

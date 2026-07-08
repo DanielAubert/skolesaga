@@ -1,0 +1,54 @@
+{
+  "courseId": "tma4135",
+  "tittel": "TMA4135 Matematikk 4D (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag (metode-/oppgavesjanger-drevet eksamenstrening)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer (09:00–13:00), bokstavkarakter A–F. Ingen flervalgsdel. Fire søyler er praktisk talt garantert hvert år: Laplace-transform, Fourier (rekke og transform), separasjon av variable for PDE, og numeriske metoder. Fra 2018 felles eksamen med TMA4130 (4N), der kun én oppgave per sett har egne 4D-varianter (typisk PDE-verifikasjon eller gradient-innslag).",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "Kode C. Bestemt enkel kalkulator + Rottmann formelsamling (t.o.m. 2017); fra 2018 kun ett gult stemplet A5-ark med egne håndskrevne notater. Et formelark deles alltid ut (Laplace-/Fourier-tabeller + full numerikk-side, fra 2022 også RK-ordensbetingelser) — eksamen tester bruk og utledning, ikke pugging",
+    "struktur": "6–10 oppgaver med deloppgaver. 2015–2017: deloppgaver teller likt uten eksplisitt vekting. Fra 2018: eksplisitt poengvekting med sum 100 (2023–2024: 10 oppgaver à 10 poeng). Delpunkter er ofte kjedet. Numerikk-blokken er bredest (interpolasjon, integrasjon, ODE-løsere, differansemetoder, rotsøking)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": {
+      "A": "80–90 %",
+      "B": "69–79 %",
+      "C": "59–68 %",
+      "D": "48–58 %",
+      "E": "37–47 %",
+      "F": "0–36 %"
+    }
+  },
+  "sensornokler": [
+    "Begrunn alle svar; ta med nok mellomregning til at tenkemåten klart framgår — ubegrunnet svar gir ikke full uttelling selv om det er riktig",
+    "Metode-/teoremnavn skal bæres eksplisitt (fikspunktteoremet, andreforskyvningsteoremet, konvolusjonsteoremet, mellomverdisetningen, d'Alemberts formel)",
+    "Føringsstandard: transformoppslag markeres («fra tabellen …»), delbrøk-/kvadratkompletteringssteg vises, svar oppgis eksakt der mulig",
+    "Delpunktgjenbruk er designet inn («bruk formelen fra b) i c)»; finn f(t) før forskyvning) — å se koblingen premieres",
+    "Poeng vektes eksplisitt fra 2018 (sum 100) med intern grading manual per delpunkt; karakterskala er prosentbasert",
+    "Feilforplantning tolereres: feil mellomverdi som regnes riktig videre gir full uttelling i senere delpunkt",
+    "Flere metoder honoreres eksplisitt (delbrøk vs. kvadratkomplettering; reell vs. kompleks delbrøk; Lagrange vs. Newton)",
+    "Toppsjiktet: korrekt andreforskyvningsteorem, begge fikspunktvilkårene, ordensverifikasjon rad-for-rad i Butcher-tabell, korrekt falsk-rand-behandling og stabilitetsanalyse"
+  ],
+  "typiskeFeil": [
+    "Kun ett av fikspunktvilkårene — sjekke |g′|<1 uten å vise at g avbilder intervallet inn i seg selv (eller motsatt)",
+    "Feil forskyvningsteorem for Heaviside-ledd (første i stedet for andre), eller glemme å skrive y(t)=u(t−a)f(t−a)",
+    "Hoppe over ett k-tilfelle i separasjon (ikke vise at k>0 og k=0 gir triviell løsning)",
+    "Glemt midling i diskontinuitetspunkt — Fourier-rekka konvergerer til ½(f⁺+f⁻), ikke funksjonsverdien",
+    "Feil fortegn/plassering i delbrøk, eller glemme kvadratkomplettering til tabellform",
+    "Ufullstendig ordenssjekk i Runge–Kutta, eller feillese Butcher-tabellen fra koden",
+    "Feil implementering av rand-/initialbetingelse i differanseskjema (feil r=k/h², feil falsk-rand-ledd, oversett kodefeil)",
+    "Presisjonsgrad feilbestemt; feil a-priori-iterasjonsestimat; feil stabilitet (R(z), h≤2/|λ|, r≤½); tidsfelle på tunge separasjons- og differanseoppgaver"
+  ],
+  "sjangre": ["regne", "kodesporing", "tegning"],
+  "kilde": "docs/hoyskole-boker/tma4135/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Prosent-karaktergrensene er eksplisitte fra kontinuasjonssettene 2023/2024; verifiser at samme skala brukes på ordinære 4D-sett",
+    "DFT, innfelt RK-par og Gauss–Legendre er konsentrert i 2022–2024-settene (delvis 4N-merket kont) — verifiser vekten mot første framtidige ordinære 4D-sett",
+    "Sjekk om formelarket er utvidet ytterligere; ingen 2021-sett i arkivet og enkelte 2016/2017-sett var ikke tekstutvinnbare"
+  ]
+}

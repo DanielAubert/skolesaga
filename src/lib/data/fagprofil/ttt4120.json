@@ -1,0 +1,46 @@
+{
+  "courseId": "ttt4120",
+  "tittel": "TTT4120 Digital signalbehandling (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "regnefag (fire faste oppgavefamilier, regnetung problemløsning)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, bokstavkarakter A–F. Ingen flervalg — regnetung med utledninger, korte konseptuelle forklaringer og mange skisser (pol-nullpunktdiagram, spektra, filterstrukturer). Emnet undervises og eksamineres på engelsk. En av de mest maldrevne eksamenene: samme fire oppgavefamilier går igjen sett etter sett med bare tallbytte.",
+    "varighetMinutter": 240,
+    "sprak": "engelsk",
+    "hjelpemidler": "Kode D — enkel kalkulator tillatt (2015 oppga «ingen kalkulator», 2016/2017 og dagens emneside: enkel kalkulator; tallene er uansett håndregnbare brøker). Et kort formelark deles ut (geometriske summer, transformer, samplingsteoremet, autokorrelasjon/Parseval, multirate, Yule–Walker, z-transformpar-tabell)",
+    "struktur": "Invariant 4-oppgavers skjelett, ~72–83 poeng, 3–5 deloppgaver hver med oppgitt vekt: (1) filterteori/-design (H(z), poler/nullpunkt, ROC, kaskade/parallell, invers z-transform), (2) filterstrukturer og fixed-point avrundingsstøy, (3) parametrisk modellering (AR/MA/ARMA, lineær prediksjon, Wiener/whitening), (4) sampling, rate-konvertering og DFT/FFT. Ett filter gjenbrukes ofte gjennom oppgave 1→2→3"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Begrunnelse kreves for alle klassifiseringspåstander («state the reason») — «ja, stabilt» uten å vise at polene ligger innenfor enhetssirkelen gir ikke full uttelling",
+    "Alle steg må vises i «vis at»-oppgaver — fasiten fører delbrøkoppspaltning, residyregning og indeksdeling eksplisitt; poeng gis for veien, ikke fasiten",
+    "Pragmatisk om valgfri rigor — støykilder i strukturtegninger «is not default required»; korrekt hovedresonnement belønnes framfor pedantisk fullstendighet",
+    "Flere gyldige veier godtas som likeverdige (alternative utregningsmåter for r_hh[0] o.l.)",
+    "Kombinatorisk/telle-resonnement premieres (f.eks. antall mulige kaskadestrukturer) — argumenter, ikke puggede svar",
+    "Deloppgavevekting styrer innsatsen; skissekvalitet (riktig plassering av poler/nullpunkt, riktig periodisitet/skalering i spektra) teller selvstendig"
+  ],
+  "typiskeFeil": [
+    "Nullpunkt på enhetssirkelen ≠ minimum fase — blande sammen stabilitet (poler innenfor) med minimum fase (poler OG nullpunkt innenfor)",
+    "Feil telling av avrundingsstøykilder per struktur (DF-II vs. parallell)",
+    "Feil delfilter i støyregningen — summere over impulsresponsen fra støyinjeksjonspunktet til utgangen, ikke fra inngangen",
+    "Skalering: sjekke feil sum-node — skaleringsfaktoren bestemmes av den største Σ|h| blant alle noder, ikke utgangsnoden automatisk",
+    "Fortegn-/indeksfeil i par/odde-splitting av Σ|h[n]| for alternerende responser; delbrøk-/residyfeil (fortegn på A og B, glemt z⁻¹-ledd)",
+    "ROC-forvirring for kausalt vs. antikausalt/inverst filter (inverst filter bytter poler og nullpunkt → ny ROC)",
+    "Aliasing-resonnement: feil Nyquist-grense ved desimering; glemme lavpassfilter før nedsampling med D",
+    "DFT-lengde: glemme at lineær konvolusjon krever N ≥ M+L−1 før opprunding til toerpotens; forveksle Yule–Walker og Normal-likninger"
+  ],
+  "sjangre": ["regne", "tegning", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/ttt4120/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Arkivet er lite (4 sett 2015–2017) og bare ett har fullstendig lesbart løsningsforslag (des-2015); sensorkrav for 2016/2017 er utledet, ikke lest fra egen fasit",
+    "Emnet er aktivt (ordinær eksamen 2. desember 2026); arkivet stopper i 2017 — verifiser dagens vekting, særlig DFT/FFT vs. multirate i oppgave 4 og Wiener/whitening i oppgave 3",
+    "Hjelpemiddelkoden varierte i arkivet (ingen kalkulator 2015 vs. enkel kalkulator 2016/2017); dagens emneside bekrefter enkel kalkulator",
+    "Antatt pensumbok Proakis & Manolakis, Digital Signal Processing — verifiser mot gjeldende emneside før bokskriving"
+  ]
+}

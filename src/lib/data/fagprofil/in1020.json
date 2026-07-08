@@ -1,0 +1,46 @@
+{
+  "courseId": "in1020",
+  "tittel": "IN1020 Introduksjon til datateknologi",
+  "institusjon": "UiO",
+  "arketype": "flervalg-tungt/regnefag-hybrid",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig digital skoleeksamen (Inspera), utelukkende flervalg (velg ett/flere, sant/usant-matriser, dra-og-slipp, nedtrekk). Bestått/ikke bestått. H2020 var en kortere korona-hjemmeeksamen (2 t) og er ikke representativ.",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "uavklart — arkiverte sett (2017–2023) oppgir alle trykte/skrevne hjelpemidler + enkel kalkulator, mens gjeldende emnebeskrivelse oppgir ingen hjelpemidler",
+    "struktur": "Fire faste seksjoner à 25 poeng = 100 (H2022/H2023): (1) digital representasjon og assembler, (2) maskinvare og arkitektur, (3) datasikkerhet, (4) datanettverk. Hver seksjon må bestås for seg."
+  },
+  "scoring": {
+    "karakterskala": "bestått/ikke bestått",
+    "minuspoeng": true,
+    "minuspoengRegel": "Pluss for riktig avkrysning, minus for gal (typisk −0,5 eller lik plussverdien), men aldri under 0 poeng på en enkelt oppgave. Enkelte maskinvareoppgaver gir bonuspoeng for full pott.",
+    "bestaattKrav": "Hver av de fire seksjonene må bestås for seg",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Begrunn hvorfor hvert gale alternativ er galt, ikke bare hvorfor det riktige er riktig — formatet har minuspoeng",
+    "Regn eksplisitt og med enheter; hver beregningsoppgave har én entydig verdi, vis kompakt mellomregning",
+    "Presisjon over synsing — ett riktig avkrysset alternativ slår gjetting, som straffes med minus",
+    "Bruk direkte konverteringsteknikk binær↔oktal/hex (3-er/4-er blokker) uten omvei via desimal",
+    "Riktig nøkkelretning i asymmetrisk krypto er det enkeltpoenget sikkerhetsveiledningene oftest presiserer",
+    "Delvis/gradert uttelling er vanlig, og flere svar kan være riktige samtidig (f.eks. begge byte-tolkninger)",
+    "Bredden er eksamensformen: kandidaten må dekke alle fire seksjoner, ikke droppe én"
+  ],
+  "typiskeFeil": [
+    "Blande sikkerhetsmål (CIA + sporbarhet osv.) og sikkerhetstiltak (brannmur, kryptering, backup, tofaktor) — gir minuspoeng",
+    "Glemme byte→bit-omregningen (×8) i overføringstid — svaret blir en faktor 8 for lite",
+    "Glemme de to reserverte adressene i vertstelling — svaret er 2^n − 2, ikke 2^n",
+    "Tro at digital signatur gir konfidensialitet — den gir uavviselighet/autentisitet",
+    "Snu sender-/mottakernøklene i asymmetrisk krypto (signering = senders private; hemmelig melding = mottakers offentlige)",
+    "Overse selvmodifiserende LMC-kode — glemme at instruksjoner er tall som kan endres under kjøring",
+    "Bare oppgi den positive byte-tolkningen når 2-er komplement krever begge verdier",
+    "Bruke gammelt pensum (Karnaugh/multiplekser/dekoder, Moores lov, OSI-7-lag, flip-flop) som om det fortsatt testes"
+  ],
+  "sjangre": ["flervalg", "regne", "kodesporing", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/in1020/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Hjelpemidler: reelt avvik mellom arkiverte sett (alle hjelpemidler + kalkulator) og gjeldende emnebeskrivelse (ingen) — sjekk gjeldende semester før publisering",
+    "Seksjonskrav «hver seksjon må bestås» er eksplisitt i H2022 — bekreft at det fortsatt gjelder",
+    "Minustrekket varierer per oppgave (−0,5 eller lik plussverdi) og er ikke uniformt dokumentert"
+  ]
+}

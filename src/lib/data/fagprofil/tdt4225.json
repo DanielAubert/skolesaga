@@ -1,0 +1,44 @@
+{
+  "courseId": "tdt4225",
+  "tittel": "TDT4225 Store, distribuerte datamengder (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "konsept-drevet drøftefag med kvantitativ regnetrening",
+  "eksamensform": {
+    "beskrivelse": "Delt vurdering i dagens emne (emneansvarlig Bratsberg): skriftlig skoleeksamen (60 %, 3 t) + to gruppeprosjekter (40 %, 20 % + 20 %), bokstavkarakter A–F. Dagens fag er et distribuerte-systemer-fag bygget rundt Kleppmanns Designing Data-Intensive Applications (DDIA). Skriftlig eksamensformat (flervalg vs. frisvar) er ikke verifisert — ingen sett fra dagens regime finnes; DDIA-baserte emner tester erfaringsmessig forklar-og-drøft tungt med noen kvantitative innslag. Arkivet (3 sett, 2009–2012) er fra en nedlagt versjon av faget (annen faglærer og pensum) og er ikke representativt.",
+    "varighetMinutter": 180,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "kode D i arkivet (bestemt, enkel kalkulator); gjeldende hjelpemiddelkode for dagens skriftlige del er ikke verifisert",
+    "struktur": "Skriftlig eksamen (60 %, 3 t): trolig forklar-og-drøft over DDIA-bredden (definisjoner + avveiinger + kvantitative/ræsonnerende innslag), med tyngdepunkt på replikering + partisjonering og transaksjoner + konsistens/konsensus. Prosjekt (40 %, to gruppeprosjekter à 20 %): praktisk implementasjon (typisk MySQL/MongoDB o.l. + dataanalyse) som ikke fanges av skriftlig eksamen."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Presiser forutsetningene — hyppigst gjentatte instruks i systemdimensjonering; rimelige antagelser legges til grunn selv om tallene avviker",
+    "Vis hvordan du kommer fram til resultatet — I/O-volum utledes som formel, ikke gjettes; bart tallsvar er svakt",
+    "Flere løsninger godtas («alle alternativer gir full uttelling») — sensor belønner et konsistent, begrunnet valg",
+    "Identifiser det dominerende leddet i dimensjonering (hvilken kostnad/flaskehals dominerer)",
+    "For dagens fag: presis begrepsbruk (lineariserbarhet vs. serialiserbarhet; eventual vs. kausal konsistens)",
+    "For dagens fag: avveiingsdrøfting (intet distribuert designvalg er gratis) og korrekt ræsonnement om feilmodeller"
+  ],
+  "typiskeFeil": [
+    "Glemme å presisere forutsetninger i dimensjoneringsoppgaver — trekker selv om tallet er riktig",
+    "Feil operand i arbeidslager ved relasjonsalgebra — den minste operandens nøkler skal ligge i WS",
+    "Feil avrundingsretning/fyllingsgrad i blokkregning (poster/blokk ⌊·⌋, antall blokker ⌈·⌉)",
+    "Ikke identifisere flaskehalsen (regne disk når bussen begrenser, eller motsatt)",
+    "Blande sammen lineariserbarhet og serialiserbarhet (recency på ett objekt vs. transaksjons-isolasjon)",
+    "Tro at «eventual consistency» = ingen garantier (glemme kausal/lese-dine-egne-skrivinger)",
+    "Feillese CAP som «velg to av tre» i stedet for «ved partisjon: velg C eller A»; anta at 2PC gir høy tilgjengelighet"
+  ],
+  "sjangre": ["essay", "regne", "case", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/tdt4225/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Analysen er tynn for dagens emne: kun 3 sett (2009–2012) fra en nedlagt versjon (annen faglærer og pensum) — temafrekvensene er irrelevante som prognose for dagens DDIA-eksamen. Prognosen hviler på fagbeskrivelse + DDIA-kanon, ikke arkivert evidens",
+    "Skriftlig eksamensformat (flervalg vs. frisvar), varighet og hjelpemiddelkode for dagens regime er uverifisert — skaff minst 2–3 ferske Bratsberg-sett før innhold finpusses",
+    "Vektingen 60 % skriftlig (3 t) + 40 % to gruppeprosjekter er hentet fra NTNUs emneside (verifisert juli 2026) og bør bekreftes for det aktuelle året"
+  ]
+}

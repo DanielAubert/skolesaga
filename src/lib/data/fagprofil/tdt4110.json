@@ -1,0 +1,45 @@
+{
+  "courseId": "tdt4110",
+  "tittel": "TDT4110 Informasjonsteknologi grunnkurs (Python)",
+  "institusjon": "NTNU",
+  "arketype": "kodefag/flervalg-hybrid",
+  "eksamensform": {
+    "beskrivelse": "Én avsluttende skriftlig skoleeksamen, 4 timer, teller 100 %. Tredelt: teori/flervalg om datateknologi (~25 %), kodeforståelse/kodesporing (~15–20 %), og prosedyreorientert kodeskriving i Python (~50–60 %, hovedtyngden). Rent prosedyreorientert — ingen klasser/OOP.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "Kode D: kun en bestemt, enkel kalkulator — ingen trykte/håndskrevne hjelpemidler. En «Useful Python functions»-appendiks med signaturer følger hvert sett",
+    "struktur": "Oppgave 1 teori/flervalg (~20 spørsmål: maskinvare, tallrepresentasjon, nettverk, sikkerhet, komprimering/sampling, systemutvikling, algoritmer). Kodeforståelse (4–6 deloppgaver: «hva skrives ut», fyll-inn-linje, «forklar hva funksjonen gjør»). Programmering (1–2 oppgaver: kjede funksjoner — les fil → tabell/ordbok → analysér → skriv ut/lagre)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": "Fra og med 2015 gir feil flervalgssvar IKKE minuspoeng → kryss alltid av. (H2014 hadde −½ poeng per feil kryss, 0 for blankt; fjernet etterpå.)",
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Svar kort og klart — uklare eller unødig lange svar trekker ned, særlig i «forklar hva funksjonen gjør» og teori",
+    "Gjør rimelige antakelser ved underspesifikasjon, men skriv kort hva du antar",
+    "Gjenbruk av egne funksjoner forventes og belønnes framfor kopiert kode — programmeringsdelen er kjeder der senere deloppgaver bygger på tidligere",
+    "Flere korrekte løsninger sidestilles; snarveier (max/min/sum/sorted/set/index) er tillatt og brukt i fasit ved siden av eksplisitte løkkevarianter",
+    "Riktig idé/struktur belønnes selv med småfeil (indeks-/kantfeil); syntaksfeil en editor lett fanger trekker minimalt",
+    "Robusthet gir toppscore: håndtér ukjent kolonnerekkefølge (finn indeks dynamisk), tomtilfeller, og ingen duplikater der oppgaven krever unike verdier",
+    "Flervalg fra 2015 har ingen minuspoeng — kryss alltid av, også ved gjetting"
+  ],
+  "typiskeFeil": [
+    "Glemme int()/float()-konvertering ved filinnlesing eller input() — data leses som streng og aritmetikk/sammenligning feiler",
+    "Glemme .strip() ved filinnlesing (linjeskift henger med) eller feil separator i .split()",
+    "Anta fast kolonne-/radrekkefølge i stedet for dynamisk oppslag (data[0].index(navn))",
+    "Av-med-én / feil løkkegrenser i range og indeksering; ikke håndtere tomtilfeller (returner []/None)",
+    "Returnere/telle duplikater når oppgaven krever unike verdier",
+    "Ikke terminere input-løkka riktig — spørre én gang i stedet for i while-løkke til gyldig verdi",
+    "Feil på rekursjonens grunntilfelle/steg → uendelig rekursjon; blande / og // i tidskonvertering",
+    "Teori: forveksle tett formulerte alternativer (Nyquist «minst dobbelt», IPv4 32 vs. IPv6 128 bit, tapsløs vs. tap, offentlig vs. privat nøkkel)"
+  ],
+  "sjangre": ["flervalg", "kodeskriving", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/tdt4110/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Pensumutvikling etter 2019: gjeldende emnebeskrivelse nevner NumPy/Matplotlib, KI som kodehjelp og f-strenger — ikke belagt i arkivet (2014–2019); bekreft mot gjeldende pensum",
+    "Teoriinnholdet forskjøv seg fra systemutvikling/algoritmekompleksitet (2014–2017) mot nettverk/sikkerhet/maskinvare (2018–2019); vektlegging bør sjekkes mot nyeste sett"
+  ]
+}

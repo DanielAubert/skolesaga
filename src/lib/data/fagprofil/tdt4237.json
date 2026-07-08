@@ -1,0 +1,44 @@
+{
+  "courseId": "tdt4237",
+  "tittel": "TDT4237 Programvaresikkerhet og personvern / Software Security and Data Privacy (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "konseptuelt drøftefag med prosedyre-/sjangerkapitler",
+  "eksamensform": {
+    "beskrivelse": "Grunnbeskrivelsen i dag oppgir 4 timers skriftlig skoleeksamen som teller 100 %, hjelpemiddelkode E, karakter A–F — en tredje ordning som avløser 70/30- (2015–2019) og 50/50-modellen (2020). Undervisning og eksamen på engelsk; svar kan gis på engelsk eller norsk. Overveiende konseptuelt (ingen tallregning): ~85 % forklaring/drøfting og ~15 % kodeanalyse, begge kvalitative. Inspera-formen (2022–2023) la til rene flervalgspørsmål à 1 poeng over hele pensumbredden.",
+    "varighetMinutter": 240,
+    "sprak": "engelsk",
+    "hjelpemidler": "kode E",
+    "struktur": "Ett stort RMF-risikovurderingscase (~25–40 p) er garantert hvert år og følger fast kjede: forretningsmål → verdier/assets → forretningsrisiko → misuse cases + attack trees → ≥10 tekniske risikoer → sikkerhetskrav → black-box pen-test-caser → personvern/GDPR. Rundt caset: kortsvar à 3–4 p (OWASP-sårbarheter, krypto-konsepter, tilgangskontroll, SDLC, personvern, kode-fiks) + en bolk flervalg à 1 p (2023-formen)."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "«Your answers should be brief and to the point» — konkret og punktvis belønnes, ikke langt og svevende",
+    "Poeng deles per delelement og antallskrav er absolutte («minst 3 motmidler», «10 tekniske risikoer») — treff antallet",
+    "Kodeanalyse må alltid ha (a) linje/lokasjon + (b) utnyttelsesvei + (c) forklart fiks; mangler ett, mistes poeng",
+    "Koble hver teknisk risiko eksplisitt til misuse case/attack tree OG til caset OG til en business risk — generisk liste gir typisk −2 poeng",
+    "Pen-test-caser må ha teststeg + forventet resultat per steg, ikke bare «test for SQLi»",
+    "Strukturell fiks slår «saniter input»; presis navngiving kreves (XSS «stored», Biba «no write up/no read down», CVE≠CVSS, BSIMM deskriptiv vs. OpenSAMM preskriptiv)"
+  ],
+  "typiskeFeil": [
+    "Ramse opp tekniske risikoer uten å koble dem til misuse case/attack tree og til caset — den dyreste feilen (−2 p)",
+    "Glemme teststeg/forventet resultat i pen-test-casene — halv uttelling",
+    "Blande sammen forretningsmål og verdier (assets) i RMF-trinn 1, eller hoppe over risikomatrise-rangeringen",
+    "Kodeanalyse uten linjenummer eller uten utnyttelsesvei — ett av de tre obligatoriske leddene mangler",
+    "«Saniter input» som eneste fiks der sensor vil ha den strukturelle løsningen (prepared statements / tilgangskontroll / whitelist / SecureRandom)",
+    "Bytte om tilgangskontrollreglene (Biba integritet vs. Bell-LaPadula konfidensialitet); forveksle CVE/CVSS og BSIMM/OpenSAMM",
+    "Feil nøkkel i asymmetrisk kryptering/signatur (krypter med mottakers offentlige; signer med egen private); glemme personvernkoblingen til slutt i caset"
+  ],
+  "sjangre": ["case", "praktikum", "kodesporing", "kodeskriving", "essay", "flervalg", "tegning"],
+  "kilde": "docs/hoyskole-boker/tdt4237/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Vektingen har skiftet to ganger (70/30 → 50/50 → dagens 100 %); bekreft vekting og hjelpemiddelkode mot emnebeskrivelsen for det aktuelle året",
+    "STRIDE-avviket: fagbeskrivelsen nevner STRIDE, men alle åtte sett bruker misuse cases + attack trees — verifiser hvilken metode gjeldende kull undervises i",
+    "Lavfrekvente/voksende temaer (AI/ML-sikkerhet, CVE/CVSS, anonymisering) er svakt belagt (8 sett, 5 med fasit) og bør verifiseres mot gjeldende pensum før tung vekting; ingen fasit i arkivet oppgir trekkregel for flervalg"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "courseId": "in1010",
+  "tittel": "IN1010 Objektorientert programmering",
+  "institusjon": "UiO",
+  "arketype": "kodefag",
+  "eksamensform": {
+    "beskrivelse": "To digitale eksamener i Inspera: midtveiseksamen i mars (25 %, 2 timer) og avsluttende eksamen i juni (75 %, 4 timer). Begge må bestås separat, og obligatoriske innleveringer må være godkjent. Den avsluttende er nesten ren Java-kodeskriving uten flervalg. Kodestilen skiftet på moderne skoleeksamen (2023–2024): lenker skal bo i domeneobjektet, ikke i Node-objekter.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "ingen",
+    "struktur": "Avsluttende (75 %, 100 poeng): ett gjennomgående domenecase løses stegvis i fem oppgaver — O1 tegn klassehierarki (5 p), O2 programmér klassene (15 p), O3 egendefinert lenket liste med iterator (28–40 p), O4 unntak og aggregering (16–20 p), O5 tråder og monitor (20–36 p)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": "begge deler (midtveis og avsluttende) må bestås separat",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Skriv bare det oppgaven ber om; svar ut over dette teller ikke og kan trekke hvis det vitner om misforståelse.",
+    "Import, kommentarer og aksessmodifikatorer vektlegges ikke, og norske bokstaver i kode er greit.",
+    "Rimelige antagelser tillates ved underspesifikasjon, men de skal skrives ned i besvarelsen.",
+    "Riktig idé og struktur belønnes selv med småfeil, og alle korrekte rekursive varianter gir full uttelling.",
+    "Deloppgaver kan løses uavhengig; man kan bruke iteratoren fra O3 i O4 selv om O3 ikke er løst.",
+    "På moderne skoleeksamen skal listen lenkes via domeneobjektets egne neste/forrige-variabler, ikke via Node-objekter; monitor skal bruke ReentrantLock og Condition, ikke synchronized.",
+    "Innlimt generisk listekode som ikke er tilpasset domenet gir ingen uttelling, mens småfeil som manglende semikolon eller klamme ignoreres når koden ellers gir mening."
+  ],
+  "typiskeFeil": [
+    "Bruke Node-objekter der lenkene skal bo i domeneobjektet, eller motsatt glemme Node-klassen der den eksplisitt kreves.",
+    "Traversere listen i leggTil i stedet for å bruke første-/siste-pekeren direkte, og glemme spesialtilfellene i taUt (tom liste, første, siste, ett element).",
+    "Bruke await() i en if i stedet for en while, slik at spuriøs oppvekking ikke testes på nytt.",
+    "Bruke synchronized i stedet for ReentrantLock/Condition der oppgaven forbyr det, og låse uten try/finally slik at unlock() ikke nås ved unntak.",
+    "Glemme super(...) i konstruktøren eller bruke feil rekkefølge på parametrene.",
+    "Opprette array før man har talt elementene i instanceof-uttrekket, og glemme null-retur når et element ikke finnes.",
+    "Manglende eller feil basissteg i den rekursive metoden, og iterator som returnerer node-objektet i stedet for domeneobjektet.",
+    "Interface uten implements-pil eller hierarki uten abstract i tegneoppgaven, og skrive mer enn oppgaven ber om (fullt program, main, ekstra I/O)."
+  ],
+  "sjangre": ["kodeskriving", "tegning", "case"],
+  "kilde": "docs/hoyskole-boker/in1010/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Frekvensanalysen bygger kun på avsluttende sett; arkivet inneholder ingen midtveissett, så midtveisformen (2 t, tidlig-pensum) er utledet fra emnebeskrivelsen.",
+    "Formatet har gått fra papireksamen med lærebok (2015–2016) via digital designeksamen og korona-hjemmeeksamen til moden 4-timers skoleeksamen (2023–2024); dagens form og vekting bør bekreftes mot neste sett.",
+    "Poengfordelingen mellom O3 og O5 har variert mellom sett (O3 28–40 p, O5 20–36 p)."
+  ]
+}

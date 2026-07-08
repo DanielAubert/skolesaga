@@ -1,0 +1,45 @@
+{
+  "courseId": "met4-nhh",
+  "tittel": "MET4 Empiriske metoder (NHH)",
+  "institusjon": "NHH",
+  "arketype": "regnefag med kraftig R- og tolkningskomponent (hybrid)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig, individuell digital skoleeksamen med tilsyn, karakter A-F. Fra V2025: 6 timer (09-15), Del 1 Dataanalyse med R (medfoelgende .Rdata-datasett) + Del 2 Regneoppgaver, 5-7 oppgaver. Var 3 t (2017-2018), deretter 3-4 t (2019-2024). Hjemmeeksamen (gruppeprosjekt) avviklet foer 2025; boka maalrettes mot skoleeksamenen.",
+    "varighetMinutter": 360,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "Kalkulator; alle trykte/egenskrevne hjelpemidler (kategori 3); en tospraaklig ordbok. Medfoelgende digitale vedlegg: MET4Formler.pdf og relevante_r_kommandoer.pdf. R (base-R + dplyr/ggplot2) tilgjengelig",
+    "struktur": "Del 1 (R-hands-on paa ett oppgitt datasett): beskriv -> hypotesetest(er) (F-test + to-utvalgs t og/eller chi-kvadrat) -> regresjon (lineaer og/eller logistisk) med tolkning/prediksjon -> klassifisering (terskel/forvekslingsmatrise/KNN) + beslutnings-/gevinstvurdering. Del 2 (frittstaaende regneoppgaver): proporsjons-/sannsynlighet, tidsrekke (stasjonaritet + dekomponering/ARIMA/glatting + prognose), kausalitet/datakritikk. Hver deloppgave teller likt, maks 10 poeng."
+  },
+  "scoring": {
+    "karakterskala": "A-F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Hver deloppgave teller likt (maks 10 poeng); prioriter tiden deretter - ingen enkelt oppgave baerer eksamenen",
+    "Ingen stilpoeng: figurer og ligninger vurderes paa innhold, ikke utseende; notasjonsslurv (S2 vs sigma2, mu1=mu2) straffes ikke naar meningen er klar",
+    "R-kode kreves ikke i besvarelsen (men gir ikke trekk); kandidaten kan svare for haand",
+    "Metodefrihet med begrunnelsesplikt: flere ekvivalente framgangsmaater gir full pott, men valget skal begrunnes (ensidig/tosidig, pooled/Welch, z/t)",
+    "Konklusjon i kontekst avslutter hvert resonnement - aldri bare forkast H0",
+    "Delpoeng er finmasket (typisk 3 oppsett + 4 gjennomfoering + 3 konklusjon); regnefeil gir fast trekk, men riktig konklusjon gitt regnefeil premieres (foelgefeil straffes ikke dobbelt)",
+    "Tolk logistisk regresjon via odds (e^beta-1), ikke via sannsynlighet; skill RCT (kausal tolkning tillatt) fra observasjonsdata (seleksjon/OVB maa nevnes)"
+  ],
+  "typiskeFeil": [
+    "SE forvekslet med SD i F-testen (glemme S = SE*sqrt(n); eksplisitt -3 p)",
+    "Feil teller/hale i F-testen - ikke legge stoerste varians i telleren, saa man ender med feil kritisk verdi",
+    "Tosidig test paa et ensidig spoersmaal (eller motsatt); pooled vs. Welch valgt uten kobling til F-testen",
+    "Dummy/kategorivariabel tolket som kontinuerlig (en enhets oekning i garasje/kjoenn/race2)",
+    "Logistisk modell skrevet som log-lineaer (0 poeng), eller tolkning ikke via odds",
+    "Kausal tolkning av observasjonsdata uten aa nevne seleksjon/OVB (eller motsatt: nekte kausal tolkning i et rent RCT)",
+    "Prediksjonsintervall forvekslet med konfidensintervall; koeffisienttolkning ved autoregressive ledd; glemme kovariansleddet i Var(aU+bV)",
+    "Eksponentiell glatting brukt ukritisk ved trend (underpredikerer systematisk); stasjonaritet feilvurdert; regning uten hypoteseoppsett/kontekst-konklusjon"
+  ],
+  "sjangre": ["regne", "essay", "kodeskriving", "kodesporing", "case"],
+  "kilde": "docs/hoyskole-boker/met4-nhh/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Emnebeskrivelsen fremhever IV/2SLS, DiD og RDD, men disse forekommer aldri i skoleeksamenen (kun i det avviklede hjemme-prosjektsporet); boka foelger skoleeksamenens faktiske innhold",
+    "6-timers 2-delt format er ferskt (fra V2025); klassifisering/KNN og beslutningsteori (forventet nettogevinst) er nye tilskudd 2024-2025"
+  ]
+}

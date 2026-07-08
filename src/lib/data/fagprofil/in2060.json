@@ -1,0 +1,46 @@
+{
+  "courseId": "in2060",
+  "tittel": "IN2060 Digitalteknikk og datamaskinarkitektur",
+  "institusjon": "UiO",
+  "arketype": "regnefag/kodesporing-hybrid",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig digital skoleeksamen i Inspera, fullt auto-rettbar (gjeldende form fra H2019). Settet har ca. 23 nummererte oppgaver gruppert i åtte faste temablokker, 100 poeng totalt. Frem til H2018 var eksamen en hybrid med manuelt rettede frisvarsoppgaver (tegn tidsdiagram, skriv VHDL, tegn tilstandsdiagram); disse formatene forekommer ikke lenger.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "ingen personlige hjelpemidler, men eksamen leverer selv et ARM-instruksjonsformat-vedlegg (datablad) som skal brukes til å kode/dekode maskinkode",
+    "struktur": "Åtte faste temablokker i rekkefølge: digital representasjon, kombinatorisk logikk, sekvensiell logikk, digital design/HDL, digitale byggeblokker, arkitektur/ARM-assembly, mikroarkitektur, minnesystemer. VHDL 10-14 p, cache/minne 8-10 p og ARM-assembly 6-10 p er de tyngste blokkene."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Entydige, korte svar: hver oppgave har ett alternativ eller ett tall; tallsvar aksepteres ofte som intervall eller brøk, og løsningen bør holde samme form som fasiten.",
+    "Ingen trekk for feil avkrysning (forsidearket fra H2019) — det lønner seg alltid å svare; Inspera låser antall avkrysninger til korrekt antall på «velg de N»-oppgaver.",
+    "Assembly og maskinkode skal løses ved oppslag i det medfølgende instruksjonsformat-vedlegget, ikke ved pugging av opcode-bit.",
+    "Løsninger skal følge pensumbokas konvensjoner (Harris & Harris, ARM Edition): 5-stegs pipeline, registerfil skrives i første og leses i andre halvsykel, PC+8-forskyvning, caller/callee-inndeling.",
+    "Presisjon på regneoppgavene (tallkonvertering, cache-bit, miss-rate, klokkesykler, imm24) gir billige, sikre poeng og skiller sterk fra svak besvarelse.",
+    "Riktig skille mellom latch (nivåstyrt) og flip-flop (flankestyrt) og riktig retning på caller/callee-save avgjør ofte de mellomstore oppgavene.",
+    "VHDL-klassifisering (kodestil og kretstype) er den tyngste blokka der flest poeng hentes eller tapes."
+  ],
+  "typiskeFeil": [
+    "Forveksle latch (nivåstyrt, følger D så lenge clk er høy) og flip-flop (flankestyrt, oppdaterer bare på klokkeflanke) i tidsdiagram-paringen.",
+    "Blande caller-save (R0–R3) og callee-save (R4–R11) i funksjonskallkonvensjonen.",
+    "Regne cache-indeks/tag feil — glemme byte-offset eller sette antall veier N feil inn i S = kapasitet/(blokkstørrelse·N).",
+    "Glemme PC+8-forskyvningen i branch target: imm24 = (mål − (adresse+8))/4, ikke (mål − adresse)/4.",
+    "Feil VHDL-kodestil: kalle en klokket process for «dataflow» eller en port map-instansiering for «behavioral» (klokke+register ⇒ RTL/sekvensiell; samtidige <= ⇒ dataflow; delkomponenter ⇒ structural).",
+    "Regne 2-er-komplement uten +1 etter inverteringen, eller glemme at fortegnsbiten har vekt −2⁷.",
+    "Plassere sidetabellen i cache (den ligger i hovedminne/disk) eller tro at TLB-en er direktemappet (den er typisk fullt assosiativ).",
+    "Bruke H2018-oppgavetyper som mal (tegne tidsforløp for hånd eller skrive full VHDL) — stoffet er det samme, men formatet testes nå gjennom gjenkjenning."
+  ],
+  "sjangre": ["flervalg", "regne", "kodesporing", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/in2060/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Eksamensspråk er ikke eksplisitt oppgitt i analysen; antatt norsk ut fra fagets UiO-tilknytning og analysens språk — bør bekreftes mot emnesiden.",
+    "Varighet på 4 timer (240 min) er hentet fra grunnformbeskrivelsen; bør bekreftes mot gjeldende emneside for H2025/H2026.",
+    "H2018-hybridformen er ikke representativ for dagens auto-rettede form; profilen beskriver gjeldende form fra H2019 og fremover."
+  ]
+}

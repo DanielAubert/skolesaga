@@ -20,6 +20,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
 import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
+import { hasQuizQuestions } from '@/lib/data/quiz-data';
 
 // Fargepalett for individuelle kort - hver kort får sin egen farge
 const CARD_COLORS = [
@@ -153,6 +154,12 @@ export default async function CourseOverviewPage({ params }: PageProps) {
   const sections = getChaptersBySection(courseId);
   const sectionNames = getSectionNames(courseId);
 
+  // Antall quizspørsmål på tvers av kapitlene — avgjør om eksamenstrening tilbys.
+  const eksamensbankAntall = course.chapters
+    .filter((ch) => !ch.isNarrativeVersion && hasQuizQuestions(ch.id))
+    .length;
+  const harEksamenstrening = eksamensbankAntall >= 4;
+
   return (
     <div className="min-h-screen bg-background">
       <TextbookHeader />
@@ -223,6 +230,16 @@ export default async function CourseOverviewPage({ params }: PageProps) {
               <span className="font-medium">
                 Flashcards ({getFlashcardDefinitionCount(courseId)} definisjoner)
               </span>
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          )}
+          {harEksamenstrening && (
+            <Link
+              href={`/bok/${courseId}/eksamen`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950/50 text-amber-700 dark:text-amber-400 transition-colors"
+            >
+              <GraduationCap className="h-5 w-5" />
+              <span className="font-medium">Eksamenstrening</span>
               <ChevronRight className="h-4 w-4" />
             </Link>
           )}

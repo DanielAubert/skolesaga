@@ -1,0 +1,45 @@
+{
+  "courseId": "tfe4171",
+  "tittel": "TFE4171 Design av digitale systemer 2 (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "verifikasjonshåndbok med kode/forklaring-hybrid",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, karakterskala A–F, undervisnings- og eksamensspråk engelsk. Gjeldende sammensetning er eksamen 75 % + prosjektrapport 25 %, med obligatoriske labøvinger som må være godkjent for å gå opp. Ingen numeriske regneoppgaver — faget testes gjennom å lese, forklare, skrive og resonnere om HDL-kode (SystemVerilog/SystemC) og formelle modeller. NB: gjeldende hjelpemiddelkode er D (lukket bok); arkivsettene 2015–2017 hadde kode C (materiale tillatt, SystemC Quickreference vedlagt), så studenten må i dag kunne notasjonen utenat.",
+    "varighetMinutter": 240,
+    "sprak": "engelsk",
+    "hjelpemidler": "hjelpemiddelkode D: kun enkel kalkulator (i praksis lukket bok — kalkulatoren er nesten overflødig). Ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "Fire faste problemblokker hvert år: (1) flervalg med minuspoeng ~36–40 %, (2) SystemVerilog Assertions (SVA) 10–12 p, (3) formell verifikasjon 10–18 p (IPC/reachability hos Morrison; Kripke/CTL + FSM/SVA hos Svarstad), (4) SystemC/TLM 10–12 p. Grovt ~40 % konsept/teori (inkl. flervalg), ~25 % kodeforståelse/sporing, ~20 % kodeskriving, ~15 % formell resonnering/diagram"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Minuspoeng på flervalg (Problem 1): +2 (2015/2016) eller +3 (2017) for riktig, 0 for blankt, og −1 / −1,5 for galt eller for mange avkryssede. Gjett kun når nok alternativer kan elimineres",
+    "bestaattKrav": "selve eksamenen må bestås separat (karakter E eller bedre) — det holder ikke at totalkarakteren er bestått",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Delpoeng er finkornet og additivt — et fullt svar må treffe hvert delmoment eksplisitt, ikke bare være i nærheten",
+    "Fasiten aksepterer flere korrekte løsninger — sensor er ute etter riktig resonnement og ekvivalens, ikke én fasitstreng",
+    "Syntaks vurderes mildt på skriveoppgaver, men logikken strengt — poenget er å forstå hva som skal dekkes",
+    "Å skille ekte fra spuriøst (falskt) IPC-motbevis er kjerneferdigheten: klassifiser korrekt og foreslå riktig botemiddel",
+    "Completeness-argumenter må være konkrete — vis hvilke transisjoner/utganger som ikke er dekket, ikke vage svar",
+    "Bruk fagets terminologi (Interval Property Checking, operational properties, reachability invariants, CTL/Kripke)"
+  ],
+  "typiskeFeil": [
+    "Blande $rose (boolsk funksjon i uttrykk) og $posedge (klokke-/kant-hendelse); boolean vs. event",
+    "Blande overlappende |-> og ikke-overlappende |=> implikasjon og telle ##-forsinkelser feil",
+    "Tro at 100 % code coverage = ferdig verifisert — både code- og functional coverage kreves",
+    "Tro at IPC ser færre tilstander enn de reachable — formelle teknikker over-approksimerer (falske negative, aldri falske positive)",
+    "Glemme reachability i formell prov og dermed feilklassifisere et falskt motbevis som ekte designfeil",
+    "Glemme sensitivity list i SystemC — en SC_METHOD uten sensitivity kjøres kun én gang (ved t=0)",
+    "Feil om SystemC-faser: elaboration skjer før sc_start(), evaluate-update-løkken starter med sc_start()",
+    "Rapportere vacuous pass (PASS når antecedent aldri er sann) og tro det betyr noe"
+  ],
+  "sjangre": ["flervalg", "kodeskriving", "kodesporing", "tegning", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/tfe4171/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Formskifte: arkivsettene 2015–2017 hadde hjelpemiddelkode C (materiale tillatt); NTNUs gjeldende emnebeskrivelse oppgir kode D (lukket bok) — bekreft at dette fortsatt gjelder",
+    "Kun 3 sett (2015–2017) og et faglærerskifte (Morrison→Svarstad) gjør formell del usikker: vi vet ikke om nåværende eksamen følger IPC/SAT-linja eller CTL/Kripke-linja",
+    "UVM står i emnebeskrivelsen, men er ikke eksplisitt eksaminert i de tre settene — dekk lett, prioriter SVA/SystemC/formell"
+  ]
+}

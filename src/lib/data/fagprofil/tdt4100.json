@@ -1,0 +1,45 @@
+{
+  "courseId": "tdt4100",
+  "tittel": "TDT4100 Objektorientert programmering (Java)",
+  "institusjon": "NTNU",
+  "arketype": "kodefag/hybrid kode-teori",
+  "eksamensform": {
+    "beskrivelse": "Én skriftlig skoleeksamen, 4 timer, 100 % av karakteren. Hybrid kode + teori: skriv Java-kode (hoveddelen), forklar/begrunn valg i tekst, og tegn diagram. Ingen flervalgsdel. Fra 2018 leveres eksamen som kjørbar Java-kode i IDE (GitLab-repo), men kjernetemaene er faglig kontinuerlige.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "Kode C: utvalgt trykt/håndskrevet materiale + enkel kalkulator. Historisk var læreboka «Big Java» (Horstmann) tillatt t.o.m. 2017",
+    "struktur": "Ett gjennomgående domenecase løst stegvis i 4–5 deler med oppgitt prosentvekt: Del 1 innkapsling (15–30 %), Del 2 klasse med bibliotekssamling (tyngst, 40–55 %), Del 3 arv/abstrakt superklasse (10–20 %), Del 4 grensesnitt + designmønster + testing (10–20 %), Del 5 modellering/UML (10 %)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Deloppgaver kan løses uavhengig — klasser/metoder fra tidligere deler kan brukes selv om de ikke ble ferdig implementert",
+    "Begrunnelse teller: der oppgaven spør «hvorfor static/abstract/protected» eller «hva slags teknikk», er den forklarende teksten poenggivende, ikke bare koden",
+    "Alternative løsninger sidestilles — både løkke- og Stream-variant, både Comparable og Comparator, gir full uttelling når idéen er riktig",
+    "Validering skal kaste unntak (IllegalArgumentException), ikke bare unngå å sette verdien med en if",
+    "Deklarér felt som grensesnittet og instansiér implementasjonen — aldri instansiér selve grensesnittet",
+    "Riktig anvendt designmønster (observatør-observert / delegering) belønnes selv om detaljlogikken glipper",
+    "Les oppgaven nøye og skriv ned rimelige antagelser ved underspesifikasjon"
+  ],
+  "typiskeFeil": [
+    "Instansiere et grensesnitt (new Collection<>()) i stedet for en implementasjonsklasse (new ArrayList<>())",
+    "Bruke en if rundt tilordningen i stedet for å kaste unntak ved ugyldig verdi",
+    "Eksponere intern tilstand — returnere den interne lista direkte i stedet for en kopi",
+    "Feil synlighet: public felt, eller glemme static/protected/final der det trengs; glemme eller feilplassere super() som første setning i subklassekonstruktøren",
+    "Glemme å gjøre superklassen abstract når den ikke skal kunne instansieres",
+    "== vs. .equals — sammenligne objekter med ==, eller mangle equals/hashCode ved bruk i HashSet/contains",
+    "compareTo med feil fortegn (snudd sorteringsretning)",
+    "Ufullstendig observatør-oppsett — mangle ett av de fem trinnene, typisk kallet på kringkastingsmetoden ved en av flere tilstandsendringer"
+  ],
+  "sjangre": ["kodeskriving", "kodesporing", "essay", "tegning"],
+  "kilde": "docs/hoyskole-boker/tdt4100/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Moderne form (2018→): eksamen leveres som kjørbar Java i IDE med JUnit; formatdetaljer er rekonstruert fra README og emnebeskrivelse, ikke fra PDF-sett — bekreft mot gjeldende semester",
+    "Emnebeskrivelsen legger nå til JavaFX-GUI, bredere UML-familie og AI-baserte hjelpemidler; omfanget av dette på eksamen bør bekreftes"
+  ]
+}

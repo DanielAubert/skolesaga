@@ -1,0 +1,47 @@
+{
+  "courseId": "mat1120",
+  "tittel": "MAT1120 Lineær algebra",
+  "institusjon": "UiO",
+  "arketype": "regnefag med teori-/bevisinnslag (abstrakt/bevisorientert lineær algebra)",
+  "eksamensform": {
+    "beskrivelse": "Én avsluttende skriftlig skoleeksamen på 4 timer, karakter A–F, teller 100 %. To obligatoriske innleveringer må være godkjent. Formatet er usedvanlig stabilt: 10 deloppgaver som teller likt (10 poeng hver), gruppert i 4–5 hovedoppgaver med bokstavdeler; alt er skriftlig langsvar med begrunnelseskrav, ingen flervalg.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "ingen, men hvert sett har et vedlegg (Matlab-utskrift med rref/poly/eig t.o.m. 2022, eller ferdige RREF-ark fra 2024) som studenten aktivt skal lese — den rå regningen er tatt bort, argumentasjonen testes",
+    "struktur": "Bred, jevn dekning hvert år: (1) Col A/Nul A/basis fra RREF, (2) egenverdier/diagonalisering, (3) et abstrakt vektorrom (polynom-/funksjonsrom) med koordinater og matriserepresentasjon, (4) ortogonalitet/minste kvadrater (ofte i ikke-standard indreprodukt), pluss symmetriske matriser/kvadratiske former og av og til SVD, diff.likninger eller et kort bevis."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Begrunn alle svar og vis nok mellomregning til at argumentene lett kan følges; rene tallsvar uten utledning gir lite eller ingen uttelling",
+    "Bruk vedlegget — ikke radreduser store matriser for hånd; fasiten siterer konsekvent «fra vedlegget/Matlab-utskriften ser vi at RREF/karakteristisk polynom er …»",
+    "Riktig basis-avlesning: basis for Col A = de OPPRINNELIGE pivotkolonnene i A (ikke de reduserte); Nul A-basis = spesielle løsninger",
+    "Ortogonal basis før projeksjon (Gram–Schmidt først); i et ikke-standard indreprodukt skal ALLE skalarprodukt regnes med den oppgitte definisjonen, også normen",
+    "Diagonaliserbarhet skal begrunnes med multiplisitet (n distinkte egenverdier, symmetrisk/spektralteoremet, eller geometrisk = algebraisk multiplisitet); for ikke-diagonaliserbar: vis at et egenrom er for lite",
+    "P og D skal matche søyle for søyle; for ortogonal diagonalisering skal P ha ortonormale kolonner (P^T P = I)",
+    "Riktig retning på basisskiftematrisen (P_{C<-B} vs. P_{B<-C}) og riktig teoremhenvisning (Lays teoremer, emnets notater)",
+    "Delpunktgjenbruk er designet inn: å se at samme matrise/underrom går igjen sparer tid og er belønnet"
+  ],
+  "typiskeFeil": [
+    "Standard prikkprodukt der oppgaven har oppgitt et vektet/integral-/evaluerings-indreprodukt (den vanligste MAT1120-fellen)",
+    "Feil Col A-basis: oppgir de reduserte pivotkolonnene i stedet for de opprinnelige kolonnene i A",
+    "Diagonaliserbarhet påstått uten multiplisitetssjekk (glemmer å vise geometrisk = algebraisk, eller å utnytte symmetrisk/distinkte egenverdier)",
+    "Projeksjon uten ortogonal basis (projeksjonsformelen brukt uten Gram–Schmidt først)",
+    "Minste kvadraters løsning behandlet som entydig ved rangdefekt — glemmer at den er affin (partikulær + Nul C)",
+    "Ikke-normaliserte egenvektorer i P der ortogonal diagonalisering kreves; eller glemt Gram–Schmidt innen et egenrom med multiplisitet",
+    "Kvadratisk form med feil symmetrisering: hele kryssleddskoeffisienten lagt i a_ij i stedet for å dele på 2",
+    "Abstrakt vektorrom underbehandlet (hopper over ett underroms-aksiom eller dimensjonsargumentet); [T]_B-kolonner ikke uttrykt i B-koordinater"
+  ],
+  "sjangre": ["regne", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/mat1120/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Vedleggsformatet endret seg fra Matlab-utskrift (2018–2022) til rene RREF-ark (H2024) — bekreft format på nyeste sett",
+    "H2020 var hjemmeeksamen med endrede hjelpemiddelregler (korona-avvik), innhold og struktur uendret",
+    "Sjekk gjeldende Lay-utgave som pensum"
+  ]
+}

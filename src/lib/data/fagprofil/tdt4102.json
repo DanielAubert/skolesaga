@@ -1,0 +1,46 @@
+{
+  "courseId": "tdt4102",
+  "tittel": "TDT4102 Prosedyre- og objektorientert programmering (C++)",
+  "institusjon": "NTNU",
+  "arketype": "kodefag/hybrid kode-teori",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen på papir, 4 timer, 100 % av karakteren. Hybrid kodeskriving + kodesporing + kort teori: skriv C++-kode (hoveddelen), «hva skrives ut?»-kodesporing, «finn feilen»-feilsøking, og korte begrunnelsesspørsmål. Ingen flervalgsdel og ingen diagramtegning. Manuell minnehåndtering er fagets signatur.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "Arkivet (t.o.m. ~2017): hjelpemiddelkode C — spesifiserte trykte/håndskrevne hjelpemidler + enkel kalkulator; lærebok (Savitch «Absolute C++» eller Loudon) tillatt. Fagbeskrivelse 2026/2027 oppgir kode G",
+    "struktur": "3–4 hoveddeler à 10–45 %, hver bygd rundt ett gjennomgående domenecase løst gjennom mange deloppgaver: én klasse med operatoroverlasting, en prosedyre-/funksjonsdel med kodesporing, en datastruktur med rå pekere, en minnehåndteringsdel (nesten alltid egen sluttdel), og ofte en arvedel"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Teknikk og forståelse veier tyngre enn plettfri syntaks — biblioteksignaturer trenger ikke huskes eksakt, include/navnerom er ikke tema",
+    "Flyttallsdivisjon krever static_cast (eller at én operand er double); int/int er den klassiske fellen som vektlegges eksplisitt",
+    "Postfiks ++ skal returnere verdien FØR inkrementering via en temp-kopi; operator*= skal kalle reduce() og returnere *this, og operator* bør gjenbruke *=",
+    "Begrunn når kopikonstruktør/tilordning IKKE trengs (ingen dynamisk minne → medlemsvis kopiering holder) — å kunne avgjøre dette gir poeng",
+    "Containervalg skal begrunnes med ytelse (vector dårlig ved innsetting/fjerning i endene → list/deque)",
+    "const på tre posisjoner og & på to skal forklares presist og kort; virtual-destruktor kreves for å unngå lekkasje via basispeker",
+    "Kompakte egne løsninger belønnes over avskrift fra boka — tid brukt på å bla i boka er tid tapt"
+  ],
+  "typiskeFeil": [
+    "Heltallsdivisjon der man vil ha flyttall — n/d eller sum/size uten cast til double",
+    "Retur av peker/referanse til lokal variabel — dingler etter at funksjonen returnerer",
+    "Glemt virtual-destruktor — subklassens destruktør kalles aldri via basispeker → minnelekkasje",
+    "Objektavskjæring (slicing) — polymorfi tapt fordi objekter sendes/lagres by value i stedet for referanse/peker",
+    "Minnelekkasje / dobbel-frigjøring — glemt delete[] for radene før delete av radpeker-array; delvis allokert minne ikke ryddet ved unntak",
+    "Feil postfiks-inkrement (returnerer ny verdi i stedet for temp); = vs. == og x=!y (tilordning + unær minus) i betingelser",
+    "Feil container — vector der list/deque trengs; glemme reduce()/normalisering etter aritmetikk",
+    "Shallow copy uten peker-til-peker der delt liste (first/last) må kunne endres av flere objekter"
+  ],
+  "sjangre": ["kodeskriving", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/tdt4102/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Lite arkiv (3 distinkte sett, 2 med fasit) — frekvenstall er indikative, ikke statistisk robuste",
+    "Hjelpemiddelkode: arkivet viser kode C (t.o.m. ~2017), mens fagbeskrivelsen for 2026/2027 oppgir kode G — bekreft gjeldende regime",
+    "Om TDT4102 har gått over til IDE-/kodebasert eksamen (slik TDT4100 har) er ikke verifisert fra arkivet; kjernetemaene antas kontinuerlige"
+  ]
+}

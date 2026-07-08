@@ -1,0 +1,45 @@
+{
+  "courseId": "met2920-bi",
+  "tittel": "MET 2920 Statistikk for oekonomer (BI, oppgaveark: MET 29201)",
+  "institusjon": "Handelshoeyskolen BI",
+  "arketype": "anvendt statistisk slutning (oppskriftsdrevet)",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 3 timer (kl. 09), karakter A-F. 5 oppgaver (H2025: 4, men O4 dobbelt saa tung), med a)-i)-deler; sum ca. 34-43 poeng. Hele settet bygd rundt ett gjennomgaaende datasett/case. Ingen midtveiseksamen.",
+    "varighetMinutter": 180,
+    "sprak": "norsk",
+    "hjelpemidler": "BI-definert eksamenskalkulator (+ enkel kalkulator fra V2025) med innebygde Z- og t-fordelinger; formelhefte utdeles (ingen tabeller)",
+    "struktur": "Stabil 5-oppgavemal: O1 sannsynlighetsblokk eller innledende konsept (simultanfordeling / normal+binomisk+SGT / R-kode / flervalg); O2 simultanfordeling eller normal/andel-blokk; O3 KI + hypotesetest for gjennomsnitt (en + to grupper); O4 estimering, KI og test for andel (en + ofte to andeler); O5 (tyngst, 9-12 p) enkel lineaer regresjon + korrelasjon (R-utskrift eller haand fra raadata). Poeng, ikke vekttall."
+  },
+  "scoring": {
+    "karakterskala": "A-F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Vis all utregning: formel -> innsatte tall -> referansefordeling (Z/t) med df -> tallsvar med enhet; bare svar gir lite selv om det er riktig",
+    "Konkluder i kontekst - forkaster/forkaster-ikke alene gir NULL poeng (eksplisitt); skriv hva resultatet betyr for pris/andel/boligverdi",
+    "Riktig fordeling og df: t for mu (sigma ukjent, df = n-1), z for andel, df = n-2 (regresjon), (r-1)(k-1) (kjikvadrat)",
+    "Ensidig vs. tosidig etter formuleringen; halver den tosidige R-P-verdien ved ensidig test",
+    "Bruk p0 (ikke p-hatt) i standardfeilen ved test av en andel; pooled til test og upooled til KI for to andeler",
+    "Riktig KI-tolkning (konfidensutsagn, ikke sannsynlighetsutsagn om mu); fortegn paa r = fortegn paa beta-hatt-1",
+    "Bevis uavhengighet kun via alle celler i simultanfordelingen (Cov = 0 medfoerer ikke uavhengighet); vurder kjikvadrat-kriterier (forventet >= 5) foer testen"
+  ],
+  "typiskeFeil": [
+    "Oppgi svar uten utregning; straffet eksplisitt",
+    "Bare forkaster/forkaster-ikke uten kontekst-tolkning - null poeng (uttrykkelig)",
+    "Bruke z i stedet for t for gjennomsnitt med ukjent sigma, eller feil df (n-1 vs. n-2)",
+    "Bruke p-hatt i stedet for p0 i testobservatoren for en andel; blande pooled og upooled mellom test og KI for to andeler",
+    "Feil KI-tolkning (sannsynlighetsutsagn om mu i stedet for konfidensutsagn)",
+    "Feil fortegn paa r (positiv r med negativt stigningstall); forveksle korrelasjon og kovarians",
+    "Bevise uavhengighet fra Cov = 0; glemme aa halvere tosidig R-P-verdi ved ensidig test",
+    "Slutte fra korrelasjon til aarsak uten aa vurdere konfundering; glemme kontinuitetskorreksjon/tilnaermingsvilkaar ved normaltilnaerming; hoppe over kjikvadrat-kriteriene"
+  ],
+  "sjangre": ["regne", "flervalg", "essay", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/met2920-bi/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Kun fem sett og ingen offisiell sensorveiledning/fasit; sensorkravene er utledet fra oppgavetekstenes eksplisitte instruksjoner, ikke fra verifisert rettemal",
+    "H2025 har 4 oppgaver (avvik fra 5-oppgavemalen); plasseringen av sannsynlighetstemaene i O1-O2 varierer"
+  ]
+}

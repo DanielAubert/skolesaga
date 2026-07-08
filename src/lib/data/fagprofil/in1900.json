@@ -1,0 +1,48 @@
+{
+  "courseId": "in1900",
+  "tittel": "IN1900 Introduksjon til programmering med vitenskapelige anvendelser (tidligere INF1100)",
+  "institusjon": "UiO",
+  "arketype": "kodefag/flervalg-hybrid",
+  "eksamensform": {
+    "beskrivelse": "To digitale eksamener i Inspera uten hjelpemidler (kun innebygd kalkulator), all kode i Python 3: midtveiseksamen i oktober (25 %) og avsluttende eksamen i desember (75 %). Emnet het INF1100 t.o.m. ca. 2016 og skiftet til IN1900 rundt 2017; formatet gikk fra papir/fritekst til Inspera med flervalg fra 2016–2018.",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "ingen (kun Insperas innebygde kalkulator)",
+    "struktur": "Avsluttende (75 p, 4 t): flervalgsskall på 4–7 oppgaver (~15–25 % av poengene) + fritekst kodeskriving/«hva skrives ut» (~75–85 %). Midtveis (25 p): 100 % flervalg, 20 spørsmål. Karakteren settes samlet av begge (summeres til 100)."
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Kort, idiomatisk kode belønnes; unødvendige main-program, ekstra I/O eller overflødige kommentarer gir ingen uttelling.",
+    "Rimelige antagelser tillates når oppgaven er underspesifisert, men de må dokumenteres i kommentar.",
+    "Nødvendige import (from math, numpy, matplotlib) skal med når oppgaven ber om det.",
+    "Flere løsninger gir full uttelling — fasiten er bare ett eksempel på en kompakt besvarelse.",
+    "Riktig overordnet struktur/idé belønnes selv med små indeksfeil (f.eks. B-splines- og fast-bredde-oppgaver).",
+    "Deloppgaver kan løses uavhengig — man kan bruke en klasse eller skrive testfunksjon selv om forrige deloppgave ikke er løst.",
+    "Testfunksjoner skal bruke assert abs(forventet − beregnet) < tol, aldri == på flyttall; __add__/__mul__ skal returnere ny instans.",
+    "På flervalg gir blankt og feil likt (0 poeng) — man skal alltid krysse av."
+  ],
+  "typiskeFeil": [
+    "Av-én-feil i range/antall punkter: N intervaller krever range(N+1) og linspace(a,b,N+1).",
+    "Feil oppdateringsrekkefølge i koblede differenslikninger (f.eks. Bogdanov: y[n+1] må regnes før x[n+1]).",
+    "Glemme self i metodesignatur eller attributt-tilgang (def __call__(x) eller a i stedet for self.a).",
+    "__add__ returnerer feil type (tuppel/liste i stedet for ny klasse-instans).",
+    "Forveksle liste-konkatenering med array-addisjon ([1,2]+[3,4] mot np.array-sum).",
+    "Feil exception-match — overse hvilken feil som utløses først, eller glemme at sys.argv[0] er filnavnet.",
+    "Glemme .strip() eller infile.readline()-header-hopp ved fillesing, eller feil separator i .split().",
+    "Bruke rekursjon der løkke er forventet (rekursjon er utenfor pensum og markeres som uønsket)."
+  ],
+  "sjangre": ["flervalg", "kodeskriving", "kodesporing", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/in1900/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Avsluttende eksamen er 4 t og midtveis oppgir 2 t effektiv tid innenfor et vindu 15:00–19:00; varighetMinutter=240 gjelder finalen (midtveis avviker).",
+    "Oppgavespråket veksler mellom engelsk (oppgavekode/-tekst) og norsk — bekreft gjeldende malform mot nyeste sett.",
+    "Midtveiseksamen deles med parallellemner (IN-KJM1900/IN-GEO1900) — formatet kan avvike noe fra rent IN1900-innhold.",
+    "ODESolver-API-et har driftet (f(u,t)/solve(time_points) før 2023 → f(t,u)/solve(t_span,N) fra 2023); nyeste vedlagte modul bør sjekkes hvert år."
+  ]
+}

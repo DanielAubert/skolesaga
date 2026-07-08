@@ -1,0 +1,46 @@
+{
+  "courseId": "met1190-bi",
+  "tittel": "MET 1190 Statistikk (BI, oppgaveark: MET 11901)",
+  "institusjon": "Handelshøyskolen BI",
+  "arketype": "regnefag/statistikk med aktiv R-modul",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen (kl. 09), karakter A-F. Dagens format (fra V2024, stabilt fra V2025): 4 oppgaver der Oppgave 1 er fem R-flervalg (P1-P5) uten begrunnelse; eldre sett hadde 5 oppgaver uten R-flervalg. Ingen midtveiseksamen.",
+    "varighetMinutter": null,
+    "sprak": "norsk",
+    "hjelpemidler": "Formelhefte + statistiske tabeller (z- og t-tabell) utdeles; kalkulator tillatt (tabelloppslag forventes)",
+    "struktur": "O1 (vekt ~0,10) R-flervalg P1-P5; O2 (~0,25-0,30) teoretisk/algebraisk (lineaerkombinasjon E/Var/Cov/Cor eller estimatorteori); O3 (~0,25-0,30) inferens for en parameter (mu eller p, KI + hypotesetest); O4 (~0,35, tyngst) enkel lineaer regresjon + korrelasjon. Vekttall summerer til 1,0; deloppgaver teller likt innen hver oppgave."
+  },
+  "scoring": {
+    "karakterskala": "A-F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Vis all utregning fra Oppgave 2 og utover: formel fra vedlegget -> innsatte tall -> referansefordeling (Z/T) med df -> tallsvar med enhet; naken tallverdi gir ikke full uttelling",
+    "Bruk t (ikke z) for mu med ukjent sigma (df = n-1), z for andel p, og df = n-2 i regresjon",
+    "Bruk hypoteseverdien p0 (ikke p-hatt) i standardfeilen ved test av en andel",
+    "Ensidig vs. tosidig styres av formuleringen (overskrider/hoyere enn/flertall -> ensidig; forskjellig fra -> tosidig)",
+    "Konkluder og kommenter i kontekst; ren forkaster/forkaster-ikke uten tolkning gir svak uttelling",
+    "Svar symbolsk der teksten ber om det (uten aa anta noe om a,b,c); fortegn paa r foelger beta-hatt-2",
+    "R-flervalg (Oppgave 1) krever ingen begrunnelse; korrekt matematisk notasjon og velorganisert framstilling vektlegges eksplisitt ellers"
+  ],
+  "typiskeFeil": [
+    "Oppgi svar uten utregning fra Oppgave 2 og utover",
+    "Bare forkaster/forkaster-ikke uten kontekst-tolkning der oppgaven ber om aa kommentere/konkludere",
+    "Bruke z i stedet for t for mu med ukjent sigma, eller feil df (n-1 vs. n-2)",
+    "Bruke p-hatt i stedet for p0 i testobservatoren for en andel",
+    "R-flervalg: forveksle dbinom (noeyaktig k) med pbinom (kumulativt), feil lower.tail/alpha vs. alpha/2 ved qt, eller sette varians der sd skal staa i pnorm",
+    "Feil fortegn paa r (skal foelge beta-hatt-2); forveksle korrelasjon og kovarians",
+    "Glemme symbolsk svar der teksten sier uten aa anta noe om a,b,c (setter inn tall for tidlig)",
+    "Algebrafeil i estimatorbevis eller glemme aa begrunne normaltilnaermingen (stor n/SGT)"
+  ],
+  "sjangre": ["flervalg", "regne", "essay", "identifikasjon", "kodesporing"],
+  "kilde": "docs/hoyskole-boker/met1190-bi/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Eksakt varighet i minutter er ikke oppgitt i analysen (kl. 09-start; forsoek maa bekreftes mot emnebeskrivelsen)",
+    "Kun fem sett og ingen offisiell sensorveiledning/fasit; sensorkravene er utledet fra oppgavetekstenes instruksjoner, ikke fra verifisert rettemal",
+    "To formatgenerasjoner i arkivet (eldste sett har 5 oppgaver uten R-flervalg); kalibrer mot 2025-malen (4 oppgaver)"
+  ]
+}

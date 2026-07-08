@@ -1,0 +1,46 @@
+{
+  "courseId": "ttm4100",
+  "tittel": "TTM4100 Kommunikasjon – Tjenester og nett (NTNU)",
+  "institusjon": "NTNU",
+  "arketype": "bredde-drillfag (lagdelt top-down, flervalg + regne-verktøykasse)",
+  "eksamensform": {
+    "beskrivelse": "Digital skoleeksamen, 4 timer, hjelpemiddelkode D. Bokstavkarakter A–F, 100 poeng totalt, hele karakteren på slutteksamen. Gis parallelt på engelsk og norsk (bokmål/nynorsk); ved tvil gjelder den engelske. Hvert sett dekker hele protokollstakken (alle fem TCP/IP-lag + sikkerhet + multimedia) hvert år — bredde er selve eksamensformen. Bygger på Kurose & Ross' top-down-modell.",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "Kode D — kun enkel kalkulator, ingen trykte eller håndskrevne hjelpemidler. Obligatoriske øvinger må være godkjent samme semester for eksamensadgang",
+    "struktur": "Gjeldende form (2023–2024, familie C): Q1 = stor flervalgs-/matching-/utfyllingsblokk (65–100 p) inndelt etter Kurose-kapittel (introduksjon → app+transport → nettverk → lenke/trådløst), fulgt av Q2–Q6 arbeidsviste kortsvars-/regneoppgaver med full utregning. Arkivet har tre historiske formatfamilier (objektiv MC / fritekst / stor MC-blokk)"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Gjeldende (2024): rabatt-modell med gulv 0 — poeng = maks{(antall riktige avkryssinger − rabatt), 0} × x, der 5 gale avkryssinger gir ingen rabatt og i>5 gale gir (i−5)·0,5 rabattpoeng; manglende riktig kryss teller ikke som feil. Eldre objektive sett hadde harde avkryssingstak (maks 10 kryss, ellers minuspoeng; −3 p per kryss utover 20 i 2019)",
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Poeng gis per moment — fritekst-/kortsvarfasitene lister eksplisitte delpoeng per moment; dekk bredden av forventede momenter",
+    "Ekvivalent og ekstra korrekt resonnement belønnes; poengforslagene er veiledende og alternative korrekte formuleringer godtas",
+    "Fritekst skal være KORT — flere sett har harde lengdegrenser (maks 3 setninger); «riktig et sted i mengden» belønnes ikke og kan gi 0",
+    "Regning: vis metoden — formel → innsetting med enheter → tallsvar; å plugge tall inn i en bokformel uten forklaring er ikke godt nok",
+    "Flervalg — tenk hvert alternativ isolert; i gjeldende rabatt-modell er 5 feilkryss gratis, deretter −0,5 p, gulv 0; ikke over-kryss",
+    "Presisjon på regneoppgavene (subnetting, CRC, forsinkelse, stop-and-wait, seq/ACK) gir billige, sikre poeng med én entydig verdi",
+    "Riktig skille på «X vs. Y»-momentene (flyt/overlast, TCP/UDP, CSMA-CD/CA, svitsj/ruter, symmetrisk/offentlig nøkkel) avgjør de konseptuelle poengene"
+  ],
+  "typiskeFeil": [
+    "Forveksle flytkontroll (mottakerbuffer, ende-til-ende) og overlastkontroll (nettet)",
+    "Tro at UDP har oppsett/overlastkontroll, eller at TCP mangler checksum/er upålitelig (begge har checksum; UDP-hode 8 byte, TCP 20)",
+    "Glemme propagasjon i forsinkelsesregning, ikke gange transmisjonstiden med antall linker for store-and-forward, eller blande bit og byte",
+    "Plassere CSMA/CD i 802.11 (trådløst bruker CSMA/CA)",
+    "Signere med feil nøkkel (skal være privat), kalle offentlig-nøkkel-krypto «symmetrisk», eller påstå at SSL sikrer IP (sikrer TCP)",
+    "IPv4/IPv6-fakta feil (IPv4 = 32 bit, IPv6 = 128 bit, ingen IPv6-hode-checksum, IPv6-rutere fragmenterer ikke)",
+    "Subnetting-feil: glemme nett-/broadcast-adressene (2^(32−n)−2) eller velge for lite prefiks; feil oktett-ekspansjon i lengste-prefiks-match",
+    "Tro at CRC er en sikkerhetsmekanisme, at 2D-paritet korrigerer mer enn én bitfeil, eller at en lenkelagssvitsj har IP-adresse"
+  ],
+  "sjangre": ["flervalg", "regne", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/ttm4100/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Formatet har skiftet tre ganger (objektiv MC → fritekst → stor MC-blokk + kortsvar); gjeldende C-format bør drilles, men verifiser mot nyeste sett",
+    "Den nøyaktige rabatt-/avkryssingsregelen varierer per sett — bekreft gjeldende poenggivning før publisering",
+    "Det eldste settet (2005: OSI 7-lag, PSTN/GSM, SIP, WiMAX, Manchester) er utgått og ikke representativt"
+  ]
+}

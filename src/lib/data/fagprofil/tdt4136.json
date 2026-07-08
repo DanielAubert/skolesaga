@@ -1,0 +1,46 @@
+{
+  "courseId": "tdt4136",
+  "tittel": "TDT4136 Introduksjon til kunstig intelligens",
+  "institusjon": "NTNU",
+  "arketype": "regnefag/kortsvar-hybrid",
+  "eksamensform": {
+    "beskrivelse": "Skriftlig skoleeksamen, 4 timer, teller 100 %. Ingen delprøve som teller. Blanding av tre svartyper: «kjør algoritmen for hånd»-oppgaver (kjernen og mest karaktergivende), korte teori-/kortsvarsspørsmål, og sant/usant + flervalg (særlig eldre sett). Algoritmenavn og notasjon følger AIMA (Russell & Norvig).",
+    "varighetMinutter": 240,
+    "sprak": "norsk/engelsk",
+    "hjelpemidler": "Kode D — bestemt, enkel kalkulator; ingen trykte/håndskrevne hjelpemidler",
+    "struktur": "6–9 hovedoppgaver, sum 100 poeng, relativt jevnt fordelt. Fast skjelett hvert år: én søkeoppgave, én A*-heuristikkoppgave, én CSP-oppgave, én logikkoppgave, én adversariell oppgave, én planleggingsoppgave, en PEAS-/agentbolk, ofte spillteori, pluss korte teorispørsmål"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": true,
+    "minuspoengRegel": "Negativ retting på sant/usant- og flervalgsoppgaver (særlig 2015–2018): typisk +2 for rett, −1 for galt, 0 for blankt, med gulv på 0 poeng for hele oppgaven. Svar bare når du er sikker.",
+    "bestaattKrav": null,
+    "terskler": null
+  },
+  "sensornokler": [
+    "Vis utledningen steg for steg — for søk/minimax/CSP/resolusjon gir rekkefølgen og verdiene/klausulkjeden uttelling, ikke prosa; bare å oppgi sluttstien gir null",
+    "Følg oppgitt tie-breaking bokstavelig — feil bruddregel gir feil ekspansjonssekvens selv om metoden er riktig",
+    "Beslektede korrekte svar godtas bredt (logikk-oversettelser, PDDL/STRIPS, PEAS, etikk) — fasiten viser bare ett eksempel",
+    "Delvis uttelling er regelen — ta med hovedpoenget først i definisjoner og forklaringer",
+    "Robust sensur til kandidatens fordel: flere konsistente tolkninger godtas ved tvetydig oppgavetekst",
+    "Toppsvar løser sammensatte oppgaver komplett og begrunnet: full resolusjonskjede til ⊥ med unifikasjoner, alle kant-ulikheter i konsistensintervall, konkrete mutex-relasjoner, expectiminimax med all mellomregning",
+    "Negativ retting på T/F — ikke gjett"
+  ],
+  "typiskeFeil": [
+    "Glemme AC-3-resjekk — ikke sjekke berørte buer på nytt etter at et domene er krympet (den mest fremhevede CSP-feilen)",
+    "Binde en eksistenskvantor med implikasjon i stedet for konjunksjon (⇒ under ∃)",
+    "Skolem-konstant i stedet for Skolem-funksjon (H1 der det skulle vært H(x))",
+    "Inklusiv «eller» der eksklusiv menes — kode «én er brun, én er hvit» som B∨B i stedet for eksklusiv eller",
+    "Feil måltest-tidspunkt i BFS (teste mål ved generering vs. ved ekspansjon); sjekke løkker i «tree search» der rent tresøk kreves",
+    "Ufullstendig konsistenssjekk — bare sjekke noen kanter, ikke alle par inkludert målnoden (h(mål)=0)",
+    "Forveksle dominant strategi med Nash-likevekt («ingen dominant strategi» betyr ikke «ingen Nash»)",
+    "Feil retning på progresjon/regresjon; bare oppgi sluttstien uten synlig kø/ekspansjon; ikke inkludere hele den beskårne grenen i alfa-beta-svaret"
+  ],
+  "sjangre": ["regne", "flervalg", "essay", "identifikasjon"],
+  "kilde": "docs/hoyskole-boker/tdt4136/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Innholdsdrift: NLP/informasjonsgjenfinning (presisjon/recall/F1, sentiment, bag-of-words) var tungt 2015–2017 men er utgått fra og med 2018 — dekk maks som historisk fotnote",
+    "Ferske tilskudd med lav historisk frekvens men i vekst: expectiminimax, Monte Carlo-tresøk, belief states, KI-etikk — bekreft vekting mot nyeste sett",
+    "Negativ retting dokumentert på T/F i 2015–2018; bekreft om den fortsatt brukes i gjeldende form (mindre T/F i 2022–2023)"
+  ]
+}

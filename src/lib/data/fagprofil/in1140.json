@@ -1,0 +1,47 @@
+{
+  "courseId": "in1140",
+  "tittel": "IN1140 Introduksjon til språkteknologi",
+  "institusjon": "UiO",
+  "arketype": "formell-hybrid med regnedel (computasjonelt fag)",
+  "eksamensform": {
+    "beskrivelse": "4 timers skriftlig digital skoleeksamen i Inspera, ingen hjelpemidler. Miks av sjangre i samme sett (flervalg/paring, skriv regex/grammatikk, sannsynlighetsregning, kortsvar-forklaring, digital tretegning). Alle obligatoriske programmeringsøvelser i Python må være godkjent på forhånd, men programmering foregår i obligene, ikke på eksamen. Unntaksåret H2020 (korona) hadde 4,5 timer og alle hjelpemidler tillatt.",
+    "varighetMinutter": 240,
+    "sprak": "norsk",
+    "hjelpemidler": "ingen",
+    "struktur": "Ca. 35-40 % formell utregning/artefakt-skriving (regex, grammatikk, sannsynlighetsregning), ca. 30-35 % klassifiser/tildel (ordklasse, semantisk rolle, leksikal relasjon, BIO-tagging), ca. 25-30 % forklar-begrep-kortsvar"
+  },
+  "scoring": {
+    "karakterskala": "A–F",
+    "minuspoeng": false,
+    "minuspoengRegel": null,
+    "bestaattKrav": "Alle obligatoriske øvelser må være godkjent for å få gå opp til eksamen",
+    "terskler": null
+  },
+  "sensornokler": [
+    "Formler må være eksakt riktige — MLE- og n-gram-formelen må være identisk til løsningsforslaget for full pott, og å forveksle w_i og w_{i-1} koster 2 poeng",
+    "Vis alle mellomregninger — på sannsynlighetsoppgaver gir prosessen poengene, ikke svaret alene; P(w_i|w_{i-1}) og tellingen C(w_{i-1},w_i)/C(w_{i-1}) må vises for hvert ord",
+    "Grensesymboler og fullstendighet — <s>/</s> må være med i n-gram, og leksikale/terminale regler må være med i CFG (ikke bare de ikke-terminale)",
+    "Eksplisitt begrepsmarkering — regelbaserte taggere må beskrives som manuelt definerte, statistiske taggere må nevne både annotert korpus og statistisk modell, og Naive Bayes-uavhengigheten må vises i formelen (før/etter ≈)",
+    "Egne eksempler forventes der det bes om det (leksikale relasjoner, semantiske roller, entailment); manglende eller feil eksempel trekker",
+    "Malen for begrepssvar er definisjon + eksempel + (logisk) presisering, der hvert ledd har egne poeng",
+    "Ingen minuspoeng på klassifiserings-flervalg (semantiske roller, enkelte leksikale relasjoner) — det lønner seg alltid å gjette"
+  ],
+  "typiskeFeil": [
+    "Utelate <s>/</s> i n-gram-telling og -produkt",
+    "Snu retningen på betinget sannsynlighet — skrive P(w_{i-1}|w_i) i stedet for P(w_i|w_{i-1}) (−2 poeng)",
+    "Bare gi svaret uten mellomregning på sannsynlighetsoppgaver og dermed miste prosesspoengene",
+    "Glemme leksikale/terminale regler i CFG, eller ikke løse kjønnssamsvar på både D/N-nivå og NP-nivå",
+    "Naive Bayes uten glatting gir null-sannsynlighet (hele produktet blir 0), eller feil nevner ved add-1 (glemme +|V|)",
+    "Forveksle homonymi og polysemi (urelaterte vs. relaterte betydninger)",
+    "Regex som ikke håndterer norske tegn (æøåÆØÅ) eller kanttilfeller (0-foran-tall, opsjonelt prefiks) i skriv-selv-oppgavene",
+    "Begrepssvar uten det etterspurte eksemplet (entailment, leksikale relasjoner, semantiske roller) — trekker selv om definisjonen er riktig"
+  ],
+  "sjangre": ["flervalg", "regne", "kodeskriving", "tegning", "identifikasjon", "essay"],
+  "kilde": "docs/hoyskole-boker/in1140/EKSAMENSANALYSE.md",
+  "verifiser": [
+    "Emnet er nedlagt (verifisert 2026-07-08); eksamen tilbys t.o.m. H2027 kun for studenter med tidligere godkjente obliger. Kalibrert mot H2017–H2022; profil bør sjekkes mot nyere sett hvis de dukker opp",
+    "Karaktergrenser (A/B/C…) er ikke dokumentert i arkivet — kun poengfordeling per oppgave er eksplisitt belagt",
+    "H2020 (korona) hadde avvikende form: 4,5 timer og alle hjelpemidler tillatt; nyeste hjelpemiddelfrie gjeldende form (H2022) er lagt til grunn",
+    "Embeddings/nevrale nett er ikke testet i noen av de 7 settene, men nevnes i fagbeskrivelsen — bør verifiseres mot nyere sett med moderne NLP"
+  ]
+}
