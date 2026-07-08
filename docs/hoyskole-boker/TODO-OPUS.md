@@ -191,12 +191,15 @@ MET3590/EMS3666 (≤2 filer), FARM1110/BIOS1100/BIOS1110 (0 filer), samt rene
 TTT4185, MRK3580, ORG3403/3610, BØK3430/3657, FYS1105) — for tynt arkiv for
 kvalitetsanalyse. Kan tas senere ved behov; arkiv finnes.
 
-**STATUS transje 7 (8. juli 2026):** ~40 skjeletter levert, gatet og pushet.
-GJENSTÅR (Opus-ukesgrense nådd midt i siste bølge, reset 17:00 Oslo): 2 skjeletter
-— `kj1020` (analyse ferdig, skjelett AVKUTTET i front-matter — slett stubben og
-kjør skjelettprompten på nytt) og `tfe4171` (analyse ferdig, skjelett MANGLER —
-kjør skjelettprompten). Begge analyser er committet; kjør fase 2-promptene fra
-denne økten når Opus er tilbake. Etter det: hele det vettede universet komplett.
+**STATUS transje 7 FULLFØRT (8. juli 2026):** alle skjeletter levert, gatet og
+pushet — inkludert de to siste (`kj1020`, `tfe4171`) etter at Opus-kvoten kom
+tilbake. **HELE DET VETTEDE FAGBESKRIVELSES-UNIVERSET ER NÅ KOMPLETT:** 118
+skjeletter (115 gjennom porten; 3 kjente ufarlige avvik = econ1310/jus1111 live-
+bøker + svmet1010-pilot), 119 analyser, ~4 112 kapitler, ~69 900 quiz og ~69 000
+flashcards planlagt. Alle gjenværende arkiver er enten bygget, etterfølger-
+profilert, eller dokumentert hoppet over (nedlagt-uten-etterfølger / for tynt
+arkiv). Neste steg er BOKBYGGING (fase 3–7) via kickoff-setningene over — ikke
+flere rammeverk.
 
 ## D. Etterarbeid på eksisterende bøker (valgfritt, når som helst)
 
