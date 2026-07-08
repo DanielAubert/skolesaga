@@ -111,6 +111,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | BØK 3423 Finans (BI) | regnefag | skjelett |
 | FIN 3521 Finansiering av bedrifter (BI) | regnefag | skjelett |
 | BØK 3532 Finansregnskap og regnskapsanalyse (BI) | regnefag | skjelett |
+| BØK 3632 Finansiell styring (BI) | regnefag/corporate finance II | skjelett |
 | SØK 3500 Samfunnsøkonomi II (BI) | regnefag | skjelett |
 | MET 2910 Matematikk for økonomer (BI) | regnefag | skjelett |
 | MET 2920 Statistikk for økonomer (BI) | regnefag | skjelett |
