@@ -48,12 +48,12 @@
 formuerett 14 stp** (kreditorbeslag, rettsvern, godtroerverv/ekstinksjon, prioritet, panterett,
 konkurs/omstøtelse, kollisjon i enkle pengekrav). Studiepoengvekten er retningsgivende for tyngde
 (dynamisk formuerett er størst), men eksamen fletter søylene og bedømmer helhetlig. Statisk
-tingsrett, kontraktsrett/kjøpsrett og erstatningsrettens alminnelige del ligger i **JUS3211
+tingsrett, kontraktsrett/kjøpsrett og erstatningsrettens alminnelige del ligger i **JUS3112
 Formuerett I** og testes her bare der de griper inn i den dynamiske konflikten (særlig aksjeloven
 § 17-1).
 
 **Avgrensning (ufravikelig):** Boka skal IKKE ha egne kapitler om kjøpsrettslig mangelslære,
-alminnelig kontraktstolkning, culpanormen eller erstatningsutmåling — det er JUS3211-/JUS1111-stoff.
+alminnelig kontraktstolkning, culpanormen eller erstatningsutmåling — det er JUS3112-/JUS1111-stoff.
 § 17-1 dekkes kun i sin dynamiske funksjon (ledelsesansvar som ett av flere konkurrerende grunnlag
 mot samme verdi). Foreldelsesloven er lavprioritet (nevnt som bakgrunnslov, ikke praktikum-bærende
 i noe sett).
@@ -959,7 +959,7 @@ Verifisert FØR regelkontraktene ble skrevet, jf. produksjonsløypens fase 2 + j
 - [ ] **Opphavsrett:** ALLE faktum, parter, selskaper, beløp, datoer, bransjer og eiendeler er nyskrevne
       — ingen gjenkjennbare eksamensfakta; aktivt varierte konstellasjoner i forhold til mal-skissene.
 - [ ] **Pensumavgrensning:** null forekomster av kjøpsrettslig mangelslære / alminnelig kontraktstolkning
-      / erstatningsutmåling som fagstoff (JUS3211); § 17-1 kun i dynamisk funksjon.
+      / erstatningsutmåling som fagstoff (JUS3112); § 17-1 kun i dynamisk funksjon.
 - [ ] **DNA-blokkene på plass:** hvert kapittel har «Eksamensvinkel» (`tip`), «Typiske feil» (`warning`),
       «Paragraf- og begrepsliste» (`collapsible`, per delkapittel), og regel-/typetilfellekapitlene har
       «Paragraf- og domsregister» (`collapsible`); kap. 5.3 har «Endret/kommende lov»-boks;

@@ -261,7 +261,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-1-1` · **number:** 1.1 · **estimatedMinutes:** 55 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Motoren under hele faget: skriv et lineært system som totalmatrise, radreduser til (redusert) trappeform ved elementære radoperasjoner, og les av pivoter og frie variabler — grunnteknikken bak Col/Nul, egenrom og alt annet.
-- **Forkunnskaper (kryssbok):** Likninger med flere ukjente fra [Likningssystem](/bok/r1/r1-1-1) og vektorer fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1). Videre matriseregning modnes i Del 2.
+- **Forkunnskaper (kryssbok):** Likninger med flere ukjente fra lineære likningssystemer fra VGS (dekkes ikke som eget VGS-kapittel — kap. 1.1 bygger fra grunnen) og vektorer fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1). Videre matriseregning modnes i Del 2.
 - **Eksamensbelegg:** Sjanger A (~78 %) og motoren bak sjanger E/G. Fasitens grep: radreduser til trappeform, marker pivotene, les løsningen. Prioritet: **perfekt** (bærer hele faget).
 - **Innholdskontrakt:** **Lineært system** og **totalmatrise** $[A\mid\mathbf b]$; **elementære radoperasjoner** (bytt, skaler, adder multiplum); **trappeform** og **redusert trappeform (RREF)**; **pivotposisjon, pivotkolonne, fri variabel**; Gauss-eliminasjon (fremover) og Gauss–Jordan (bakover); ledende og frie variabler; hvordan løsningen leses av RREF. Homogene system $A\mathbf x=\mathbf 0$ (alltid $\mathbf x=\mathbf 0$; ikke-trivielle løsninger ⇔ frie variabler). Alt til aktiv bruk (kode E — radreduksjon for hånd).
 - **Oppgavesjangre:** A. Mønstereksempel: «Løs systemet $\begin{cases}x+2y-z=3\\ 2x+y+z=4\\ x-y+2z=1\end{cases}$ ved Gauss-eliminasjon. Oppgi pivotene og eventuelle frie variabler.»
@@ -302,7 +302,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-2-1` · **number:** 2.1 · **estimatedMinutes:** 50 · **prerequisites:** `tma4110-1-1`
 - **kapitteltype:** teori
 - **description:** Matrisealgebraen faget hviler på: addisjon, skalering, matriseprodukt (rad-gang-kolonne), transponert, og de spesielle matrisene (identitet, symmetrisk, diagonal, triangulær) — med regnereglene som brukes i bevis senere.
-- **Forkunnskaper (kryssbok):** Kap. 1.1. Matrisebegrep fra [Matriser](/bok/r2/r2-5-1) modnes her *(NTNU-forkunnskapsemne for utfyllende matriseregning, ikke bygget ennå; aktiver lenke når den finnes)*.
+- **Forkunnskaper (kryssbok):** Kap. 1.1. Matrisebegrep fra matriser (dekkes ikke i VGS-bøkene — kap. 2.1 bygger fra grunnen) modnes her *(NTNU-forkunnskapsemne for utfyllende matriseregning, ikke bygget ennå; aktiver lenke når den finnes)*.
 - **Eksamensbelegg:** Sjanger B (~36 %), og verktøy i nesten alle bevis (sjanger N). Fasitens grep: bruk regnereglene $(AB)^{T}=B^{T}A^{T}$, $A(BC)=(AB)C$ presist i utledninger. Prioritet: **kunne** (nivå 2), men $(AB)^{T}=B^{T}A^{T}$ og $A^{T}A$-triks er nøkkel i bevis.
 - **Innholdskontrakt:** **Matriseaddisjon/skalering**; **matriseprodukt** (definert, rad-gang-kolonne, ikke-kommutativt); **regneregler** (assosiativ, distributiv, $I A=A$); **transponert** $A^{T}$ med reglene $(A+B)^{T}=A^{T}+B^{T}$, $(cA)^{T}=cA^{T}$, $(AB)^{T}=B^{T}A^{T}$, $(A^{T})^{T}=A$; **spesielle matriser**: identitet $I$, diagonal, triangulær (øvre/nedre), **symmetrisk** ($A^{T}=A$), skjevsymmetrisk; potenser $A^k$; blokkmatriser (kjennskap); at $A^{T}A$ er symmetrisk (bro til minste kvadrater/bevis). Alt til aktiv bruk.
 - **Oppgavesjangre:** B/N. Mønstereksempel: «Vis at $A^{T}A$ er symmetrisk for enhver matrise $A$, og at $AB\ne BA$ generelt ved et eksempel.»
@@ -326,7 +326,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-2-3` · **number:** 2.3 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-2-2`
 - **kapitteltype:** teori
 - **description:** Determinanten regnet ved kofaktorutvikling og radreduksjon, egenskapene (produktregel, transponert, radoperasjoners virkning), koblingen det A ≠ 0 ⇔ inverterbar, og Cramers regel — pluss det A = ∏λᵢ som bro til egenverdier.
-- **Forkunnskaper (kryssbok):** Kap. 2.2. Determinant på VGS-nivå fra [Determinant og areal](/bok/r2/r2-5-1).
+- **Forkunnskaper (kryssbok):** Kap. 2.2. Determinant på VGS-nivå fra [Areal og volum med vektorer](/bok/r2/r2-5-5).
 - **Eksamensbelegg:** Sjanger C (~45 %). Fasitens grep: velg rad/kolonne med flest nuller for kofaktorutvikling; bruk radreduksjon for store determinanter; $\det A\ne0$ ⇔ inverterbar. Prioritet: **kunne**, men brukes overalt (karakteristisk likning i Del 5).
 - **Innholdskontrakt:** **Determinant** for 2×2 og 3×3; **kofaktorutvikling** langs rad/kolonne (velg med flest nuller); **radoperasjoners virkning** (bytte ⇒ fortegn, skalering ⇒ faktor, adder multiplum ⇒ uendret); **egenskaper**: $\det(AB)=\det A\det B$, $\det A^{T}=\det A$, $\det A^{-1}=1/\det A$, $\det(cA)=c^n\det A$, triangulær ⇒ produkt av diagonalen; **$\det A\ne0$ ⇔ inverterbar** (del av inverterbarhetssetningen); **Cramers regel** (kjennskap/bruk); **$\det A=\prod\lambda_i$** og $\operatorname{spor}A=\sum\lambda_i$ (bro til Del 5). Alt til aktiv bruk; store determinanter reduseres, ikke kofaktoreres blindt.
 - **Oppgavesjangre:** C. Mønstereksempel: «Regn ut $\det A$ for en gitt 4×4-matrise ved radreduksjon, og avgjør om $A$ er inverterbar.»
@@ -344,7 +344,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-3-1` · **number:** 3.1 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-1-2`
 - **kapitteltype:** teori
 - **description:** Løftet fra ℝⁿ til abstrakte vektorrom: de åtte aksiomene, underrom via de tre betingelsene, og de eksamensviktige familiene — polynomrommet Pₙ, matriserommet og funksjonsrom. Grunnmuren under 82 %-søylen.
-- **Forkunnskaper (kryssbok):** Kap. 1.1. Konkret vektorrom fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1); polynomer fra [Polynomfunksjoner](/bok/r1/r1-1-1).
+- **Forkunnskaper (kryssbok):** Kap. 1.1. Konkret vektorrom fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1); polynomer fra [Polynomer og polynomdivisjon](/bok/r1/r1-1-1).
 - **Eksamensbelegg:** Sjanger D, **~82 %** — hvert sett har en oppgave i et ikke-$\mathbb R^n$-rom eller et underrom å verifisere. Fasitens grep: vis underrom via de tre betingelsene ($\mathbf 0\in W$, lukket under $+$, lukket under skalar). Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Vektorromsaksiomene** (de åtte, presentert som «regler du kjenner fra $\mathbb R^n$, nå abstrakt»); **underrom** via de **tre betingelsene** og sjekkprosedyren; **polynomrommet** $\operatorname{P}_n$ (grad $\le n$) med standardbasis $\{1,t,\dots,t^n\}$ og $\dim\operatorname{P}_n=n+1$; **matriserommet** $M_{m\times n}$; **funksjonsrom** som underrom av $C(\mathbb R)$; typiske underrom å verifisere ($W=\{p\in\operatorname{P}_3:p(1)=0\}$, $\{A:A^{T}=A\}$, løsningsrommet til et homogent system); hvorfor delmengder uten $\mathbf 0$ eller uten lukkethet (f.eks. $\{p:p(0)=1\}$) IKKE er underrom. Alt til aktiv bruk (underrom-bevis er fast, sjanger N).
 - **Oppgavesjangre:** D/N. Mønstereksempel: «Vis at $W=\{p\in\operatorname{P}_3:p(1)=0\}$ er et underrom av $\operatorname{P}_3$, og finn dimensjonen.»
@@ -421,7 +421,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-4-2` · **number:** 4.2 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-4-1`
 - **kapitteltype:** teori
 - **description:** Kjerne (ker T = Nul A) og bilde (im T = Col A), injektiv/surjektiv via rang, dimensjonsteoremet for transformasjoner, og matrisen [T]_B til en avbildning på et abstrakt rom (særlig derivasjonsoperatoren T(p)=p′).
-- **Forkunnskaper (kryssbok):** Kap. 4.1, 3.3–3.4. Derivasjon fra [Derivasjon](/bok/r2/r2-3-1).
+- **Forkunnskaper (kryssbok):** Kap. 4.1, 3.3–3.4. Derivasjon fra [Repetisjon av derivasjon](/bok/r2/r2-2-1).
 - **Eksamensbelegg:** Sjanger F, **~38 %**, ofte koblet til abstrakt vektorrom (Del 3). Fasitens grep: $\ker T=\operatorname{Nul}[T]$, $\operatorname{im}T=\operatorname{Col}[T]$; bygg $[T]_{\mathcal B}$ kolonnevis fra $T(\mathbf b_j)$ i $\mathcal B$-koordinater. Prioritet: **kunne**.
 - **Innholdskontrakt:** **Kjerne** $\ker T=\{\mathbf x:T\mathbf x=\mathbf 0\}$ (= $\operatorname{Nul}A$) og **bilde** $\operatorname{im}T$ (= $\operatorname{Col}A$); **injektiv** ⇔ $\ker T=\{\mathbf 0\}$, **surjektiv** ⇔ $\operatorname{im}T=$ hele kodomenet; **dimensjonsteoremet for transformasjoner** $\dim\ker T+\dim\operatorname{im}T=\dim V$; **matriserepresentasjon** $[T]_{\mathcal B}$ (kolonne $j=[T(\mathbf b_j)]_{\mathcal B}$) med $[T\mathbf x]_{\mathcal B}=[T]_{\mathcal B}[\mathbf x]_{\mathcal B}$; **derivasjonsoperatoren** $T(p)=p'$ på $\operatorname{P}_n$; oversettelse av $\ker T$/$\operatorname{Nul}[T]_{\mathcal B}$ tilbake til polynomer. Alt til aktiv bruk.
 - **Oppgavesjangre:** F. Mønstereksempel: «$T:\operatorname{P}_2\to\operatorname{P}_2$, $T(p)=p'$. Finn $[T]_{\mathcal B}$ for $\mathcal B=\{1,t,t^2\}$, $\ker T$ og $\operatorname{im}T$.»
@@ -439,7 +439,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-5-1` · **number:** 5.1 · **estimatedMinutes:** 60 · **prerequisites:** `tma4110-2-3`, `tma4110-3-3`
 - **kapitteltype:** teori
 - **description:** Egenverdier og egenvektorer: verifiser en oppgitt egenvektor ved Av=λv, finn egenverdier fra karakteristisk likning det(A−λI)=0, og egenrommet fra Nul(A−λI) ved radreduksjon — pluss algebraisk vs. geometrisk multiplisitet.
-- **Forkunnskaper (kryssbok):** Kap. 2.3 (determinant), 3.3 ($\operatorname{Nul}A$). Faktorisering av polynom fra [Polynomdivisjon](/bok/r2/r2-1-1).
+- **Forkunnskaper (kryssbok):** Kap. 2.3 (determinant), 3.3 ($\operatorname{Nul}A$). Faktorisering av polynom fra [Polynomer og polynomdivisjon](/bok/r1/r1-1-1).
 - **Eksamensbelegg:** Sjanger G, **~95 %** (fast oppgave). Fasitens grep: når egenvektor er oppgitt, verifiser ved **innsetting** $A\mathbf v=\lambda\mathbf v$; ellers karakteristisk likning; egenrom = $\operatorname{Nul}(A-\lambda I)$. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Egenverdi/egenvektor** ($A\mathbf v=\lambda\mathbf v$, $\mathbf v\ne\mathbf 0$); **verifisering ved innsetting** (foretrukket når $\mathbf v$ er gitt); **karakteristisk likning** $\det(A-\lambda I)=0$ (faktoriser polynomet); **egenrom** $E_\lambda=\operatorname{Nul}(A-\lambda I)$ fra radreduksjon; **algebraisk multiplisitet** (rotmultiplisitet) vs. **geometrisk multiplisitet** ($\dim E_\lambda$), med geo $\le$ alg; kontrollrelasjonene $\operatorname{spor}A=\sum\lambda_i$, $\det A=\prod\lambda_i$; triangulær ⇒ egenverdier på diagonalen; $\lambda=0$ egenverdi ⇔ $A$ singulær; egenverdier for $A^2=A$/$A^k$-oppgaver (bevis-bro: $A^2=A\Rightarrow\lambda\in\{0,1\}$). Alt til aktiv bruk (kode E — karakteristisk likning for 2×2/3×3 for hånd).
 - **Oppgavesjangre:** G/N. Mønstereksempel: «Finn egenverdiene til $A=\left[\begin{smallmatrix}2&1&0\\0&2&0\\0&0&3\end{smallmatrix}\right]$ og egenrommet til den minste. Vis at hvis $A^2=A$, er alle egenverdier $0$ eller $1$.»
@@ -475,7 +475,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-5-4` · **number:** 5.4 · **estimatedMinutes:** 50 · **prerequisites:** `tma4110-5-1`, `tma4110-7-2`
 - **kapitteltype:** teori
 - **description:** Når karakteristisk likning har komplekse røtter: kompleks-konjugerte egenverdier og egenvektorer, rotasjons-skalerings-tolkningen, og broen til komplekse tall (Del 7) og ODE-systemer med svingninger (Del 10).
-- **Forkunnskaper (kryssbok):** Kap. 5.1 og Del 7 (komplekse tall, polarform). Komplekse tall fra [Komplekse tall](/bok/r2/r2-2-1).
+- **Forkunnskaper (kryssbok):** Kap. 5.1 og Del 7 (komplekse tall, polarform). Komplekse tall fra komplekse tall (dekkes ikke i VGS-bøkene LK20 — Del 7 bygger fra grunnen).
 - **Eksamensbelegg:** Sjanger G, del av ~95 %-egenverdioppgaven når røttene er komplekse; forkunnskap for ODE-system (Del 10). Fasitens grep: løs karakteristisk likning over $\mathbb C$, egenverdier og egenvektorer opptrer i konjugerte par. Prioritet: **kunne**, men nødvendig bro.
 - **Innholdskontrakt:** **Komplekse egenverdier** $\lambda=a\pm bi$ som konjugerte par for reell $A$; **komplekse egenvektorer** (også konjugerte par); det reelle 2×2-tilfellet $\left[\begin{smallmatrix}a&-b\\b&a\end{smallmatrix}\right]$ som skalering ($r=\sqrt{a^2+b^2}$) + rotasjon ($\theta=\arg(a+bi)$); at reell diagonalisering er umulig, men kompleks diagonalisering finnes; sammenheng med spor/determinant. Bro til Del 10 (svingende løsninger). Alt til aktiv bruk.
 - **Oppgavesjangre:** G/J. Mønstereksempel: «Finn de (komplekse) egenverdiene og egenvektorene til $A=\left[\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right]$, og tolk $A$ geometrisk.»
@@ -504,7 +504,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-6-1` · **number:** 6.1 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-3-2`
 - **kapitteltype:** teori
 - **description:** Prikkproduktet i ℝⁿ og indreprodukt som abstrakt begrep, norm, avstand, ortogonalitet og de nyttige ulikhetene — grunnlaget for Gram–Schmidt og projeksjon, med en advarsel om ikke-standard indreprodukt.
-- **Forkunnskaper (kryssbok):** Kap. 3.2. Prikkprodukt fra [Skalarprodukt](/bok/r1/r1-6-3); integral (ved integral-indreprodukt) fra [Integralregning](/bok/r2/r2-4-1).
+- **Forkunnskaper (kryssbok):** Kap. 3.2. Prikkprodukt fra [Skalarproduktet](/bok/r2/r2-5-3); integral (ved integral-indreprodukt) fra [Ubestemt integral](/bok/r2/r2-2-2).
 - **Eksamensbelegg:** Sjanger H-grunnlag, **~80 %**. Fasitens grep: alle skalarprodukt/normer regnes i det **oppgitte** indreproduktet. Prioritet: **perfekt** (grunnlag).
 - **Innholdskontrakt:** **Prikkprodukt** $\mathbf u\cdot\mathbf v=\sum u_iv_i$; **indreprodukt** $\langle\cdot,\cdot\rangle$ (aksiomer: symmetri, linearitet, positiv definitthet); eksempler: standard, **vektet** $\sum w_ix_iy_i$, **integral** $\int_a^b p(t)q(t)\,dt$ på $\operatorname{P}_n$; **norm** $\|\mathbf v\|=\sqrt{\langle\mathbf v,\mathbf v\rangle}$; **avstand** $\|\mathbf u-\mathbf v\|$; **ortogonalitet** $\langle\mathbf u,\mathbf v\rangle=0$; Pytagoras ($\|\mathbf u+\mathbf v\|^2=\|\mathbf u\|^2+\|\mathbf v\|^2$ ved ortogonalitet); Cauchy–Schwarz og trekantulikheten (kjennskap); vinkel mellom vektorer. Alt til aktiv bruk, med understreking av at indreproduktet må være det oppgitte.
 - **Oppgavesjangre:** H. Mønstereksempel: «I $\mathbb R^3$: finn vinkelen mellom $(1,2,2)$ og $(2,0,1)$, og en vektor ortogonal på begge.»
@@ -569,7 +569,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-7-1` · **number:** 7.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Komplekse tall på kartesisk form z=x+iy: addisjon, multiplikasjon, divisjon (utvid med konjugat), konjugat z̄, modulus |z|, og det komplekse planet — grunnlaget for den 95 %-sikre komplekstall-oppgaven.
-- **Forkunnskaper (kryssbok):** Andregradslikninger fra [Andregradslikninger](/bok/1t/1t-3-1); komplekse tall introduseres i [Komplekse tall](/bok/r2/r2-2-1).
+- **Forkunnskaper (kryssbok):** Andregradslikninger fra [Andregradslikninger - faktorisering](/bok/1t/1t-2-2); komplekse tall introduseres i komplekse tall (dekkes ikke i VGS-bøkene LK20 — Del 7 bygger fra grunnen).
 - **Eksamensbelegg:** Sjanger J-grunnlag, **~95 %**. Fasitens grep: divisjon ved å utvide med konjugatet av nevneren; $|z|^2=z\bar z$. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Kartesisk form** $z=x+iy$, real- og imaginærdel; **aritmetikk** (addisjon, multiplikasjon med $i^2=-1$, **divisjon** ved å utvide med konjugatet); **konjugat** $\bar z=x-iy$ med reglene $\overline{z+w}=\bar z+\bar w$, $\overline{zw}=\bar z\bar w$, $z\bar z=|z|^2$; **modulus** $|z|=\sqrt{x^2+y^2}$ med $|zw|=|z||w|$; det **komplekse planet** (Argand-diagram), plassering av $z$, $\bar z$, $-z$; geometriske steder ($|z-a|=r$ sirkel, $|z-a|=|z-b|$ midtnormal). Alt til aktiv bruk.
 - **Oppgavesjangre:** J. Mønstereksempel: «Skriv $\frac{3+i}{1-2i}$ på formen $x+iy$, og finn $|z|$ og $\bar z$.»
@@ -581,7 +581,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-7-2` · **number:** 7.2 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-7-1`
 - **kapitteltype:** teori
 - **description:** Polar/eksponentialform z=r(cos θ+i sin θ)=re^{iθ}, Eulers formel, multiplikasjon/divisjon i polar form, og de Moivres formel for potenser — motoren bak røtter og binomiske likninger.
-- **Forkunnskaper (kryssbok):** Kap. 7.1. Trigonometri (eksakte verdier) fra [Trigonometriske funksjoner](/bok/r2/r2-2-1).
+- **Forkunnskaper (kryssbok):** Kap. 7.1. Trigonometri (eksakte verdier) fra [Trigonometriske funksjoner og grafer](/bok/r2/r2-4-7).
 - **Eksamensbelegg:** Sjanger J, **~95 %**. Fasitens grep: konverter til polar, bruk de Moivre for potenser, $r_1e^{i\theta_1}\cdot r_2e^{i\theta_2}=r_1r_2e^{i(\theta_1+\theta_2)}$. Prioritet: **perfekt** (kode E — de Moivre og eksakte trig-verdier utenat).
 - **Innholdskontrakt:** **Polar form** $z=r(\cos\theta+i\sin\theta)$ med $r=|z|$, $\theta=\arg z$ (bestem riktig kvadrant); **Eulers formel** $e^{i\theta}=\cos\theta+i\sin\theta$ og **eksponentialform** $z=re^{i\theta}$; **multiplikasjon/divisjon** i polar (modulus ganges/deles, argument adderes/subtraheres); **de Moivres formel** $z^n=r^n(\cos n\theta+i\sin n\theta)=r^ne^{in\theta}$; kartesisk↔polar-konvertering med eksakte verdier ($e^{i\pi/2}=i$, $e^{i\pi}=-1$); anvendelse på trig-identiteter (kjennskap). Alt til aktiv bruk (utenat: enhetssirkelens eksakte vinkler).
 - **Oppgavesjangre:** J. Mønstereksempel: «Skriv $z=-1+i$ på polarform og regn ut $z^{6}$ ved de Moivres formel. Gi svaret på kartesisk form.»
@@ -622,7 +622,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-8-1` · **number:** 8.1 · **estimatedMinutes:** 50 · **prerequisites:** ingen
 - **kapitteltype:** teori
 - **description:** Første ordens separable differensiallikninger y′=f(x)g(y): separer variablene, integrer begge sider, løs for y, og bestem konstanten fra en initialbetingelse — pluss konstantløsningene g(y)=0.
-- **Forkunnskaper (kryssbok):** Integrasjonsteknikk fra [Integralregning](/bok/r2/r2-4-1); separable difflikninger på VGS-nivå fra [Separable differensiallikninger](/bok/s2/s2-2-2).
+- **Forkunnskaper (kryssbok):** Integrasjonsteknikk fra [Ubestemt integral](/bok/r2/r2-2-2); separable difflikninger på VGS-nivå fra [Separable differensiallikninger](/bok/s2/s2-2-2).
 - **Eksamensbelegg:** Sjanger K-grunnlag. Ærlig eksamensvinkel: 1. orden er sjelden en egen tung oppgave, men er nødvendig forkunnskap for Del 9–10 og forekommer som deloppgave. Fasitens grep: separer, integrer, løs for $y$, sjekk konstantløsninger. Prioritet: **kjenne**.
 - **Innholdskontrakt:** Hva en løsning av en ODE er (verifikasjon ved innsetting); **retningsfelt** (kjennskap); **separable likninger** $y'=f(x)g(y)$ → separer $\frac{dy}{g(y)}=f(x)\,dx$, integrer begge sider, løs for $y$; **konstantløsninger** ($g(y)=0$); **initialverdiproblem** (bestem integrasjonskonstanten fra $y(x_0)=y_0$); eksistens/entydighet (kort, kjennskap); enkle modeller (eksponentiell vekst/henfall). Alt til aktiv bruk.
 - **Oppgavesjangre:** K. Mønstereksempel: «Løs initialverdiproblemet $y'=xy^2$, $y(0)=1$, og oppgi definisjonsintervallet.»
@@ -652,7 +652,7 @@ Bygde bøker (R1, R2, 1T, S2) lenkes normalt, kun til kapitler som finnes.
 - **id:** `tma4110-9-1` · **number:** 9.1 · **estimatedMinutes:** 55 · **prerequisites:** `tma4110-7-2`
 - **kapitteltype:** teori
 - **description:** Homogene y″+py′+qy=0: karakteristisk likning r²+pr+q=0 og de tre tilfellene — reelle ulike røtter, dobbel rot (med xe^{rx}), og kompleks-konjugerte røtter (med e^{ax}(cos bx, sin bx) via Eulers formel).
-- **Forkunnskaper (kryssbok):** Kap. 7.2 (Eulers formel, komplekse tall). Andregradslikninger fra [Andregradslikninger](/bok/1t/1t-3-1).
+- **Forkunnskaper (kryssbok):** Kap. 7.2 (Eulers formel, komplekse tall). Andregradslikninger fra [Andregradslikninger - faktorisering](/bok/1t/1t-2-2).
 - **Eksamensbelegg:** Sjanger L, **~82 %**. Fasitens grep: sett opp karakteristisk likning, finn røttene, velg riktig løsningsform blant de tre tilfellene. Prioritet: **perfekt**.
 - **Innholdskontrakt:** **Homogen lineær 2. ordens** $y''+py'+qy=0$; **karakteristisk likning** $r^2+pr+q=0$; **tre tilfeller**: (i) reelle ulike $r_1\ne r_2$ ⇒ $y=C_1e^{r_1x}+C_2e^{r_2x}$; (ii) **dobbel rot** $r$ ⇒ $y=(C_1+C_2x)e^{rx}$; (iii) **kompleks-konjugerte** $r=a\pm bi$ ⇒ $y=e^{ax}(C_1\cos bx+C_2\sin bx)$ (via Eulers formel); **superposisjonsprinsippet** og **lineær uavhengighet** av løsninger (Wronski-determinanten, fundamentalt løsningssett); initialverdi- og randverdiproblem; dimensjon 2 på løsningsrommet. Alt til aktiv bruk (kode E — de tre formene utenat).
 - **Oppgavesjangre:** L. Mønstereksempel: «Løs $y''-4y'+13y=0$ med $y(0)=1$, $y'(0)=0$.»

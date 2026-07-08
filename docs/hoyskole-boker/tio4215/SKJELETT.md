@@ -45,7 +45,7 @@
 | Estimert totaltid | **~1 560 minutter (~26 timer)** |
 | Quiz totalt | **512** (krav ≥500) |
 | Flashcards totalt | **568** (sikt 550–650) |
-| Prøver | **32** (4 per del × 8 deler; krav ≥4 per del) |
+| Prøver | **36** (4 per del × 9 deler; krav ≥4 per del) |
 | Eksamensform boka kalibreres mot | **4 timers skriftlig skoleeksamen**, hjelpemiddelkode **C** (avtaleloven + kjøpsloven 1988 som særtrykk + lovsamling + bestemt, enkel kalkulator; Lovdata-utskrift IKKE tillatt), **karakterskala A–F**, bokmål. **Praktikum-dominert** med vektede delspørsmål; tre observerte strukturvarianter (se §1.4). *(verifiser format 2026 mot fersk emnebeskrivelse — emnet er aktivt, og faglærerbyttet Skjønhals→Wedø 2019 kan ha endret profil.)* |
 
 **Emnets omfang:** Faget dekker **kontraktsrett** (avtaleinngåelse, fullmakt,
@@ -726,7 +726,7 @@ metadata; vises som «Kapittel N: <tittel>» på bokforsiden):**
 | Del 8 | 4 | 52 | 44 | 4 |
 | **Sum** | **30** | **512** | **568** | **32** |
 
-Krav: quiz ≥500 ✓ (**512**) · flashcards sikt 550–650 ✓ (**568**) · ≥4 prøver per del ✓ (4×8=**32**) · 25–40 kapitler ✓ (30) · ≥3 praktikum med modellbesvarelser ✓ (kap. 8.2 med prisavslag-regning, 8.3 todelt juss/forhandling, 8.4 simulering).
+Krav: quiz ≥500 ✓ (**512**) · flashcards sikt 550–650 ✓ (**568**) · ≥4 prøver per del ✓ (4×9=**36**) · 25–40 kapitler ✓ (30) · ≥3 praktikum med modellbesvarelser ✓ (kap. 8.2 med prisavslag-regning, 8.3 todelt juss/forhandling, 8.4 simulering).
 
 **Kvotebegrunnelse (tetthet):** Faget er begrepsrikt (jus-paragrafer + forhandlingsbegreper), og flashcards egner seg for paragraf↔vilkår-par (kjl. §§ 17–20, 37–39, 27, 67; avtl. §§ 10/33/36; aksjl. § 6-14) og forhandlingsbegreper (fordeling/integrasjon/intervensjon/jiu-jitsu). Derfor er flashcards vektet over gulvet (568, sikt 550–650). Tyngdepunktet ligger på de fire «må beherskes perfekt»-temaene: mangel (Del 3, 92 flashcards), beføyelser (Del 4, 110), avtale/fullmakt (Del 1, 66) og reklamasjon (Del 5, 46 på bare 2 kap.). Forhandlingsmodulen (Del 7, 74 flashcards) er tettere enn 25 %-vekten skulle tilsi fordi terminologi-presisjon er der marginalkarakterene tapes.
 
@@ -747,7 +747,7 @@ Krav: quiz ≥500 ✓ (**512**) · flashcards sikt 550–650 ✓ (**568**) · �
   (§ 33/lojalitet, § 20-undersøkelse, § 39(2), § 27(2), § 19(1)-alternativene,
   risikoovertakelsens rekkevidde) og minst to **feller** (bare ett § 19-alternativ;
   blande prisavslag/erstatning; feil forhandlingsterminologi; NS 3430 som gjeldende).
-- **32 prøver** fordelt 4 per del, alle i minipraktikum-/begrepsdrill-format med fasit
+- **36 prøver** fordelt 4 per del, alle i minipraktikum-/begrepsdrill-format med fasit
   strukturert **må-punkter / pluss-punkter / feller**.
 
 ---
@@ -858,7 +858,7 @@ C-besvarelse).
   regneeksemplene i kap. 4.2 og 8.2 etterregnes.
 - [ ] **Quiz-/flashcard-sum**: ≥500 quiz / 550–650 flashcards totalt og samsvar med
   kvotetabellen (±10 % per kapittel OK; totalen skal holde: 512/568).
-- [ ] **Prøver**: 4 per del, 32 totalt, alle med må/pluss/felle-fasit.
+- [ ] **Prøver**: 4 per del, 36 totalt, alle med må/pluss/felle-fasit.
 - [ ] **Opphavsrett**: ALLE faktum, parter, tall, datoer og bransjer er nyskrevne —
   ingen gjenkjennbare eksamensfakta (variér bransje/maskin/prosjekt fra mal-skissene
   her).
