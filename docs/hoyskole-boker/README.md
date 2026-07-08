@@ -146,6 +146,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | IN1010 Objektorientert programmering (UiO) | regnefag/kodefag | skjelett |
 | IN1020 Introduksjon til datateknologi (UiO) | regnefag | skjelett |
 | IN1030 Systemer, krav og konsekvenser (UiO) | drøfting/prosedyre-hybrid | skjelett |
+| IN1140 Introduksjon til språkteknologi (UiO) | regnefag/formell-hybrid | skjelett |
 | IN1900 Python-programmering (UiO) | regnefag/kodefag | skjelett |
 | IN2010 Algoritmer og datastrukturer (UiO) | regnefag | skjelett |
 | IN2040 Funksjonell programmering (UiO) | regnefag/kodefag | skjelett |
