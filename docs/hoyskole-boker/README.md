@@ -180,6 +180,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TFY4125 Fysikk (NTNU) | regnefag | skjelett |
 | TMA4101 Flervariabel kalkulus og vektoranalyse (NTNU) | regnefag | skjelett |
 | TMA4110 Lineær algebra, komplekse tall og differensiallikninger (NTNU) | regnefag | skjelett |
+| TMA4121 Matematikk 4 (NTNU) | regnefag | skjelett |
 | TMA4135 Matematikk 4D (NTNU) | regnefag | skjelett |
 | TMA4245 Statistikk (NTNU) | regnefag | skjelett |
 | TDT4186 Operativsystemer (NTNU) | regnefag/hybrid | skjelett |
