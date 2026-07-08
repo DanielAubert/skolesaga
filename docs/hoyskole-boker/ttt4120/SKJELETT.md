@@ -571,3 +571,289 @@ skisser der sensor forventer skisse), `warning` **Typiske feil**, 6–12 `exerci
 - **Quiz: 12 · Flashcards: 10**
 
 **Prøve-kvote Del 7:** 4 prøver (7.A samplingsteorem/Nyquist/aliasing + spektrumskisse · 7.B desimering og interpolasjon med antialiasfilter/skisser · 7.C brøkvis rate-konvertering $I/D$ · 7.D full oppg 4-klone på eksamensnivå (sampling + multirate + evt. DFT-lengde))
+
+---
+
+### Del 8 — FIR/IIR-filterdesign  *(prioritet: KJENNE — beredskap, verifiser mot pensum)*
+
+> **Merk (verifiser mot pensum):** «design» står i oppg 1-tittelen («Basics of filter
+> theory **and design**»), men de fire lesbare settene tester bare *analyse/
+> klassifisering* — ikke designmetoder. Denne delen er derfor **kompakt beredskap**
+> mot at et fremtidig sett faktisk ber om filterdesign, og merkes gjennomgående
+> `(verifiser)`. Ikke drill den like hardt som familiene 1–4.
+
+#### Kapittel 8.1: FIR-design — vindusmetoden og lineær-fase-FIR  *(verifiser)*
+
+- **id:** `ttt4120-8-1` · **number:** 8.1 · **estimatedMinutes:** 50 · **prerequisites:** `ttt4120-4-1` · **kapitteltype:** teori (beredskap)
+- **description:** FIR-filterdesign ved vindusmetoden: fra ideell frekvensrespons via invers DTFT til trunkert, vindusvektet $h[n]$ — og lineær fase via symmetri.
+- **Eksamensbelegg:** Ikke belagt i arkivet (analyse-temaene stopper ved klassifisering). Beredskap; lineær-fase-FIR knytter til tema 6 (filtertype 3/4) og fase-klassifisering (kap. 3.3). Prioritet: **kjenne** *(verifiser)*.
+- **Forkunnskaper/kryssbok:** kap. 4.1 (frekvensrespons), 4.3 (vindu).
+- **Innholdskontrakt:** MÅ KJENNE. **Vindusmetoden:** ideell frekvensrespons $H_d(f)$ → ideell $h_d[n]$ ved invers DTFT (f.eks. sinc for ideelt lavpass) → **trunkér og vindusvekt** ($h[n]=h_d[n]w[n]$); vindusvalg (rektangulært vs. Hann/Hamming) og oppløsning–sidelobe-avveiningen (fra kap. 4.3); **lineær fase** via symmetrisk $h[n]$ ($h[n]=h[N-1-n]$), konstant gruppeforsinkelse $(N-1)/2$; de fire lineær-fase-typene (konseptuelt). **Formelark-markering:** invers-DTFT-definisjonen *står på arket*; designprosedyren er *ferdighet* *(verifiser om pensum krever den)*.
+- **Oppgavesjangre:** C/N *(verifiser)*. Mønstereksempel: «Design et 7-taps lineær-fase-FIR-lavpassfilter med grensefrekvens $f_c=\tfrac14$ ved vindusmetoden med rektangulært vindu. Vis at $h[n]$ er symmetrisk.»
+- **Typiske feil:** Glemme at trunkering gir Gibbs-oscillasjoner (derfor vindu); bryte symmetrien (mister lineær fase); feil grensefrekvens i sinc-en.
+- **Quiz: 14 · Flashcards: 16**
+
+#### Kapittel 8.2: IIR-design — bilineær transform fra analogt prototyp  *(verifiser)*
+
+- **id:** `ttt4120-8-2` · **number:** 8.2 · **estimatedMinutes:** 50 · **prerequisites:** `ttt4120-3-2` · **kapitteltype:** teori (beredskap)
+- **description:** IIR-design ved bilineær transform: fra et analogt prototypfilter $H_a(s)$ til digitalt $H(z)$, med frekvensforvrengning (warping).
+- **Eksamensbelegg:** Ikke belagt i arkivet. Beredskap; knytter til pol-nullpunkt (kap. 3.2) og stabilitet. Prioritet: **kjenne** *(verifiser)*.
+- **Forkunnskaper/kryssbok:** kap. 3.1–3.2.
+- **Innholdskontrakt:** MÅ KJENNE. **Bilineær transform** $s=\dfrac{2}{T}\dfrac{1-z^{-1}}{1+z^{-1}}$: avbilder venstre $s$-halvplan til innsiden av enhetssirkelen (⇒ **stabilt analogt → stabilt digitalt**); **frekvensforvrengning** (frequency warping) $\Omega=\tfrac{2}{T}\tan(\pi f)$ og **prewarping** av grensefrekvenser; prosedyren analogt prototyp (Butterworth-lavpass, 1.–2. orden) → sett inn $s$ → $H(z)$. **Formelark-markering:** ingen — konseptuelt/*ferdighet* *(verifiser om pensum krever den)*.
+- **Oppgavesjangre:** C/N *(verifiser)*. Mønstereksempel: «Bruk bilineær transform (med $T=1$) på det analoge 1.-ordens lavpasset $H_a(s)=\dfrac{1}{1+s}$ og finn det digitale $H(z)$. Er filteret stabilt? Begrunn med polens plassering.»
+- **Typiske feil:** Glemme prewarping (feil grensefrekvens); regnefeil i $s$-substitusjonen; ikke sjekke stabilitet på det digitale filteret; blande impulsinvarians og bilineær transform.
+- **Quiz: 14 · Flashcards: 16**
+
+**Prøve-kvote Del 8:** 2 prøver *(færre enn 4 — beredskap uten arkivbelegg, se §2-avvik 4)* (8.A FIR-vindusmetode + lineær-fase-symmetri · 8.B IIR bilineær transform + stabilitetssjekk)
+
+---
+
+### Del 9 — Eksamenstrening
+
+#### Kapittel 9.1: Konsept- og definisjonsdrill (sjanger N + 1/4-bredde)
+
+- **id:** `ttt4120-9-1` · **number:** 9.1 · **estimatedMinutes:** 75 · **prerequisites:** Del 1–7 · **kapitteltype:** drill
+- **description:** Den korte, presise konseptoppgaven: definisjoner (stabilitet/kausalitet/tidsinvarians, WSS/ergodisitet), Wiener-prinsipp, aliasing, samt 1/4-breddetemaene (overlap-add, vindu/lekkasje, radix-2) — billige, sikre poeng.
+- **Eksamensbelegg:** Sjanger N i minst én deloppgave per sett; 1/4-breddetemaene (21–24, 26) samles her. Prioritet: **perfekt** (billige, sikre poeng) for definisjonene; **kjenne** for breddetemaene.
+- **Innholdskontrakt:** Svarmalen etableres: 1) navngi begrepet/loven (fagbegrep, engelsk); 2) knytt til situasjonen; 3) konkludér presist — kort, ingen gardering. **Definisjonsbank** (med modellsvar, minst 20): stabilitet (BIBO ⇔ $\sum|h|<\infty$ ⇔ poler innenfor), kausalitet, tidsinvarians, linearitet, minimum/lineær fase, allpass, WSS, ergodisitet, korttidsstasjonaritet, hvit støy, AR/MA/ARMA, aliasing, Nyquist, whitening, Wiener-prinsipp; **1/4-bredde konseptsvar:** overlap-add-mekanikken, vindu/lekkasje-avveiningen, radix-2-kompleksiteten ($N^2\to\tfrac{N}{2}\log_2 N$). Hver med henvisning til teorikapitlet. **Gjentar de to kritiske sensorreglene** (A polkriterie-begrunnelse, B minimum-fase-fallgruven) som konseptspørsmål.
+- **Oppgavesjangre:** N (+ M). Mønstereksempel: «Definer BIBO-stabilitet og forklar, med polkriteriet, hvorfor et kausalt filter med en pol ved $z=1{,}2$ er ustabilt.»
+- **Typiske feil:** Svada uten fagbegrep; helgardering (to motstridende svar); essay der to–tre setninger er svaret; klassifisering uten polkriterie-begrunnelse (regel A); minimum-fase-fallgruven (regel B).
+- **Quiz: 18 · Flashcards: 22**
+
+#### Kapittel 9.2: Øvingseksamen 1 — 4-oppgavers-malen (standard)
+
+- **id:** `ttt4120-9-2` · **number:** 9.2 · **estimatedMinutes:** 240 · **prerequisites:** `ttt4120-9-1` · **kapitteltype:** øvingseksamen
+- **description:** Komplett 4-timers skoleeksamen etter standardmalen: fire oppgaver (~18/18/16/16 p) med ETT gjennomgående filter i oppg 1→2→3, løst med formelark ved siden av.
+- **Eksamensbelegg/miks:** Speiler et typisk sett (des-2015/des-2017-form): **O1** familie 1 (differanselikning → $H(z)$ → poler/nullpunkt → kaskade + parallell → $h[n]$ → stabilitet/fase med begrunnelse), **O2** familie 2 (samme filter: DF-II/kaskade/parallell + avrundingsstøy + sammenlikning), **O3** familie 3 (samme filter som formende: AR/MA/ARMA + prediksjon/Normal-likninger + $\sigma_f^2$ + Wiener), **O4** familie 4 (samplingsteorem/aliasing + multirate + DFT-lengde). ~70 % regning/utledning, ~30 % skisse/konsept. **Ett nyskrevet gjennomgående filter** (ikke bokas hovedeksempel). Løsningsforslag som A-besvarelse i `collapsible` per oppgave — med **polkriterie-begrunnelser, skisser (pol-nullpunkt/spektra/struktur), selvsjekk på oppgitte resultater, flere metoder der de finnes**. `tip`-notat om deloppgavevekting og tidsbudsjett (~60 min/oppgave). **Typiske feil:** samme fallgruver som familiene; egen sjekkliste i løsningen.
+- **Oppgavesjangre:** A–L (full 4-oppgavers-mal). 
+- **Quiz: 6 · Flashcards: 0**
+
+#### Kapittel 9.3: Øvingseksamen 2 — 4-oppgavers-malen (Werner-stil, «vis at»)
+
+- **id:** `ttt4120-9-3` · **number:** 9.3 · **estimatedMinutes:** 240 · **prerequisites:** `ttt4120-9-2` · **kapitteltype:** øvingseksamen
+- **description:** Komplett sett i samme mal, men i «vis at»-stilen (svaret oppgitt, studenten skal utlede det) — med whitening-grenen i oppg 3 og multirate-tyngde i oppg 4.
+- **Eksamensbelegg/miks:** Speiler Werner-settene (2016/aug-2017): mer **«vis at …»-skaffolderte** deloppgaver (impulsrespons, $\gamma_{XX}$, spekter oppgitt — studenten fører veien). **O1** familie 1 med inverst/allpass-innslag, **O2** familie 2 med skalering, **O3** familie 3 med **whitening-filter** (i stedet for Wiener), **O4** familie 4 med **multirate-tyngde** (desimering + interpolasjon + rate-konvertering, mindre DFT). Nytt gjennomgående filter. Løsningsforslag som A-besvarelse med **hvert steg vist** (poeng for veien), skisser og selvsjekk. `tip` om at «vis at»-oppgaver premierer metoden, ikke fasiten.
+- **Oppgavesjangre:** A–L med «vis at»-vekt (+ C/J whitening). 
+- **Quiz: 6 · Flashcards: 0**
+
+#### Kapittel 9.4: Øvingseksamen 3 — 4-oppgavers-malen (DFT/FFT-tung, 2015-type)
+
+- **id:** `ttt4120-9-4` · **number:** 9.4 · **estimatedMinutes:** 240 · **prerequisites:** `ttt4120-9-3` · **kapitteltype:** øvingseksamen
+- **description:** Komplett sett som vekter oppg 4 mot DFT/FFT-grenen (overlap-add, radix-2, vindu) og oppg 3 mot Wiener — speiler Johnsen-2015-profilen.
+- **Eksamensbelegg/miks:** Speiler des-2015 (DFT/FFT-tung oppg 4, Wiener i oppg 3, kombinatorisk telle-resonnement). **O1** familie 1 med telle-resonnement (antall kaskaderealiseringer), **O2** familie 2 med full skalering + S/N-sammenlikning, **O3** familie 3 med **Wiener-filterprinsipp** + blokkskjema, **O4** familie 4 mot **DFT/FFT** (lengdekrav $N\ge M+L-1$, radix-2-valg, overlap-add, vindu/lekkasje). Dekker sammen med 9.2–9.3 samtlige sjangre A–N minst én gang. Nytt gjennomgående filter. Løsningsforslag som A-besvarelse med telle-resonnement, DFT-lengdevalg og konsept-korthet på N-delene (2–4 setninger). `tip` om vekting.
+- **Oppgavesjangre:** A–N (full mal + DFT/FFT- og Wiener-tyngde). 
+- **Quiz: 6 · Flashcards: 0**
+
+**Prøve-kvote Del 9:** dekkes av konseptdrillen (9.1) og de 3 øvingseksamenene (9.2–9.4) — ingen separate delprøver.
+
+---
+
+## 4. Kvotesammendrag (AUTORITATIV for alle senere faser)
+
+### Quiz og flashcards per kapittel (summeringskontroll)
+
+| Del | Kapitler | Quiz | Flashcards |
+|---|---|---|---|
+| 0 | 0.1 | 14 | 16 |
+| 1 | 1.1–1.3 | 18+22+16 = **56** | 20+24+20 = **64** |
+| 2 | 2.1–2.3 | 20+16+22 = **58** | 22+24+22 = **68** |
+| 3 | 3.1–3.5 | 22+24+22+22+12 = **102** | 24+26+24+22+10 = **106** |
+| 4 | 4.1–4.3 | 20+16+14 = **50** | 22+18+16 = **56** |
+| 5 | 5.1–5.4 | 20+22+16+12 = **70** | 22+24+18+10 = **74** |
+| 6 | 6.1–6.5 | 22+22+22+16+12 = **94** | 24+24+24+18+10 = **100** |
+| 7 | 7.1–7.3 | 22+22+12 = **56** | 24+24+10 = **58** |
+| 8 | 8.1–8.2 | 14+14 = **28** | 16+16 = **32** |
+| 9 | 9.1–9.4 | 18+6+6+6 = **36** | 22+0+0+0 = **22** |
+| **Sum** | **33 kap.** | **564 ≥ 500 ✓** | **596 ≥ 500 ✓** |
+
+Kvotene er minimum per kapittel; forfatteren kan overskyte, aldri underskride.
+Fordelingen speiler frekvensen og bredden: de fire 4/4-oppgavefamiliene (Del 3, 5,
+6, 7) bærer **322 av 564 quiz** (57 %), med de to store familiene (Del 3 pol-
+nullpunkt/fase og Del 6 stokastisk modellering) tyngst. Verktøykasse-delene
+(1, 2, 4) er kompakte men uunnværlige. Beredskapen (Del 8) og bredden (4.3, 9.1)
+er bevisst lettere. Flashcards er symbol-/formel- og definisjonstunge (DSP har et
+rikt notasjonsapparat: $\gamma_{XX}$/$r_{hh}$/$\Gamma_{XX}$, ROC, min./lineær
+fase, allpass, AR/MA/ARMA, Normal-likninger, multirate) — derfor ligger flashcard-
+summen (596) et hakk over quiz (564), i tråd med audit-lærdommen om at
+symbol-/begrepsrike regnefag skal ha høyere flashcard-tetthet enn 500-gulvet.
+
+### Prøver per del (4 per temadel 1–7, 2 for beredskaps-Del 8 → 30 totalt)
+
+Hver prøve består av nyskrevne oppgaver i eksamens sjangre med løsningsforslag
+skrevet som A-besvarelse (polkriterie-begrunnelser, skisser, selvsjekk på oppgitte
+resultater, flere metoder der de finnes) og deloppgavevekting oppgitt. Omfang i
+minutter. Prøvekapittel-id: `ttt4120-<del>-prove`, chapterNumber `<del>.P`.
+
+**Del 1 — Signaler/LTI:** 1.A standardsekvenser + energi via geometrisk sum (30) ·
+1.B konvolusjon og impulsrespons (35) · 1.C FIR/IIR + systemdefinisjoner, sjanger N (30) ·
+1.D blandet verktøykasse (35).
+
+**Del 2 — z-transform:** 2.A z-transform + ROC (kausal/antikausal) (35) · 2.B egenskaper
+og transformpar → $H(z)$ (30) · 2.C invers z-transform delbrøk/residy → $h[n]$ med
+selvsjekk (40) · 2.D blandet z-transform (40).
+
+**Del 3 — Familie 1:** 3.A differanselikning↔$H(z)$↔$h[n]$ (35) · 3.B pol-nullpunkt/ROC/
+stabilitet med begrunnelse + minimum-fase-fallgruven (40) · 3.C kaskade/parallell +
+telle-resonnement (40) · 3.D full oppg 1-klone (45).
+
+**Del 4 — Frekvensanalyse:** 4.A DTFT/frekvensrespons + filtertype (skisse) (35) ·
+4.B DFT + lineær konvolusjon ($N\ge M+L-1$) (35) · 4.C radix-2/overlap-add/vindu, bredde (30) ·
+4.D blandet frekvensanalyse (40).
+
+**Del 5 — Familie 2:** 5.A tegne DF-II/kaskade/parallell (30) · 5.B avrundingsstøy
+$\sigma_z^2=\sigma_e^2\sum h^2$ per struktur (40) · 5.C skalering + S/N-sammenlikning (40) ·
+5.D full oppg 2-klone (45).
+
+**Del 6 — Familie 3:** 6.A hvit støy → $\gamma_{XX}$/$\Gamma_{XX}$ + WSS-def. (35) ·
+6.B AR/MA/ARMA + orden (35) · 6.C Normal-likninger AR(2) + $\sigma_f^2$ (40) ·
+6.D full oppg 3-klone med whitening/Wiener (45).
+
+**Del 7 — Familie 4:** 7.A samplingsteorem/aliasing + spektrumskisse (35) · 7.B desimering/
+interpolasjon m/antialiasfilter (35) · 7.C rate-konvertering $I/D$ (40) · 7.D full oppg
+4-klone (45).
+
+**Del 8 — FIR/IIR-design (beredskap):** 8.A FIR-vindusmetode + lineær-fase-symmetri (35) ·
+8.B IIR bilineær transform + stabilitetssjekk (35). *(2 prøver — verifiser mot pensum.)*
+
+### Øvingseksamener (3 komplette 4-timers sett — kap. 9.2–9.4)
+
+| Sett | Mal den speiler | Miks |
+|---|---|---|
+| Øvingseksamen 1 (9.2) | Standard (des-2015/des-2017-form) | O1 fam.1, O2 fam.2, O3 fam.3 (Wiener), O4 fam.4; ETT gjennomgående filter gjennom O1→O3; ~70 % regning |
+| Øvingseksamen 2 (9.3) | Werner-stil «vis at» | Svaret oppgitt, veien premieres; O3 med whitening-filter; O4 multirate-tung |
+| Øvingseksamen 3 (9.4) | Johnsen-2015-type | O4 DFT/FFT-tung (overlap-add/radix-2/vindu), O3 Wiener-prinsipp, O1 telle-resonnement |
+
+Til sammen dekker de tre settene + konseptdrillen (9.1) samtlige sjangre A–N minst
+én gang, hver med **ETT gjennomgående filter gjenbrukt gjennom oppg 1→2→3** slik de
+reelle settene gjør, og alle løst **med formelarket ved siden av**.
+
+---
+
+## 5. Studieguide-disposisjon
+
+Studieguiden settes sammen av Del 0 (kjernen) + kapitlenes Eksamensvinkel-blokker:
+
+1. **Slik ser eksamen ut** — formen (4 t skriftlig, kode D med utdelt formelark,
+   engelsk, A–F, ingen flervalg, ~70 % regning/~30 % skisse+konsept), den invariante
+   4-oppgavers-malen (~18/18/16/16 p) og gjenbruket av ETT filter gjennom oppg 1→2→3,
+   fra kap. 0.1.
+2. **Prioriteringskartet** — temafrekvens-tabellen som tre lesenivåer: *perfekt*
+   (familiene 1–4: pol-nullpunkt/kaskade/parallell/invers-z/differanselikning;
+   strukturer + avrundingsstøy; AR/MA/ARMA + γ/Γ + prediksjon; samplingsteorem +
+   spektrumskisse + multirate), *kunne* (skalering/S-N, whitening/Wiener, allpass/
+   inverst filter, DTFT/frekvensrespons, DFT-lengder), *kjenne* (overlap-add, vindu/
+   lekkasje, radix-2, formelle definisjoner, FIR/IIR-design som beredskap).
+3. **De fire oppgavefamiliene** — hvordan settet er bygd (O1 pol-nullpunkt/fase,
+   O2 struktur/avrundingsstøy, O3 stokastisk modellering/prediksjon, O4 sampling/
+   multirate), og løsningsoppskriftene fra familiedrillene (3.5, 5.4, 6.5, 7.3) i
+   kortform. Det gjennomgående eksempelfilteret gjennomgås som rød tråd.
+4. **Sensorreglene** — de to kritiske: (A) **begrunn hver klassifisering med
+   polkriterier** (stabil/kausal/minimum fase — ikke bare ja/nei); (B) **minimum-
+   fase-fallgruven** (nullpunkt på enhetssirkelen ⇒ ikke minimum fase); pluss den
+   pragmatiske rigoren (støykilder i strukturer valgfrie; flere veier godtas; telle-
+   resonnement premieres; deloppgavevekting styrer innsatsen) — og karakterskille-
+   listen (bestå/middels→god/topp).
+5. **Feilkatalogen** — de typiske feilene fra analysen §5 samlet, hver med henvisning
+   til kapitlet som forebygger den: min.fase-fallgruve → 3.3; klassifisering uten
+   begrunnelse → 3.2; delbrøk-/residyfortegn → 2.3/3.4; feil støykildetelling/delfilter
+   → 5.2; par/odde-indeksdeling → 5.2; feil sum-node ved skalering → 5.3; γ/r-forveksling
+   → 6.1; Normal vs. $n=0$-likning + $a_0=1$ → 6.3; ROC-forvirring inverst filter → 3.3;
+   manglende antialiasfilter/feil $I/D$-rekkefølge → 7.2; DFT-lengdekrav → 4.2.
+6. **Formelarket i praksis** — kjerneverktøyene per familie med markering **står på
+   arket / hentes** (transformdefinisjoner, geometriske summer, samplingsteoremet,
+   Parseval, Normal-/Yule–Walker-oppsettet, z-transformpar-tabellen) vs. **ferdighet /
+   må beherskes aktivt** (faktorisering, delbrøk/residy, pol-nullpunkt-analyse,
+   støyvarians, Normal-likninger, spektrumskisser). Treningsråd: løs alltid oppgaver
+   **med formelarket ved siden av**, slik eksamen er — boka trener *bruk og utledning*,
+   ikke pugg.
+7. **Selvsjekk-disiplinen** — siden svaret ofte er oppgitt («show that $h[n]=\dots$»),
+   avslutt hver utledning med en kontroll mot den oppgitte fasiten (f.eks. $h[0],h[1]$
+   mot rekursjonen); dette er DSP-eksamens innebygde kvalitetssikring.
+8. **Studieløp** — anbefalt progresjon (10-ukers og 3-ukers intensivvariant): Del 0 →
+   1 → 2 (verktøykasse) → 3 (familie 1, størst) → 4 → 5 (familie 2) → 6 (familie 3,
+   nest størst) → 7 (familie 4) → 8 (beredskap, lett) → 9; konseptdrillen 9.1 spres
+   utover; de tre øvingseksamenene (9.2–9.4) de siste ukene under tidspress (240 min,
+   med formelark).
+
+---
+
+## 6. Byggerekkefølge og verifikasjon (for Opus)
+
+### Rekkefølge
+
+1. **Metadata først:** `TextbookCourse`-oppføring for `ttt4120` med alle 33 kapitler
+   (id/number/title/description/estimatedMinutes/topics/prerequisites) etter mønster
+   `COURSE_BI_OKONOMI`; `sectionNames` fra §2-tabellen (obligatorisk — ellers viser
+   bokforsiden «Seksjon N»). Legg emnet i `src/app/bok/trinn/hoyere/institusjoner.ts`
+   under NTNU, navn «TTT4120 Digital signalbehandling».
+2. **Del 0** (kap. 0.1) — etablerer sjangernavnene A–N, 4-oppgavers-malen, det
+   gjennomgående eksempelfilteret, de to sensorreglene og formelark-prinsippet som
+   resten av boka refererer til.
+3. **Del 1 → 2** (verktøykasse: signaler/LTI → z-transform/ROC/invers — avhengighetskjede).
+4. **Del 3** (familie 1) — bygger på Del 2 (delbrøk/residy); største del, egen agent.
+   Det gjennomgående filteret analyseres fullt ut her (poler/nullpunkt/kaskade/parallell/
+   $h[n]$/fase) og gjenbrukes i Del 5 og 6.
+5. **Del 4** (frekvensanalyse) — bygger på Del 3.2 (pol-nullpunkt → $|H(f)|$).
+6. **Del 5** (familie 2) — bruker kaskade/parallell fra Del 3.4; **samme filter
+   implementeres** (struktur → avrundingsstøy). Egen agent, men les Del 3s kontrakter.
+7. **Del 6** (familie 3) — bruker det gjennomgående filteret som formende filter;
+   nest største del, egen agent. Les Del 3 (samme filter) og Del 4.1 (DTFT/effekttetthet).
+8. **Del 7** (familie 4) — bygger på Del 4.1 (DTFT); egen agent.
+9. **Del 8** (FIR/IIR-design, beredskap) — kort, kan bygges av samme agent som Del 4.
+10. **Del 9 til slutt** — konseptdrillen (9.1) og øvingseksamenene (9.2–9.4) gjenbruker
+    hele boka; bygges av én agent som leser HELE skjelettet. Hver øvingseksamen har ETT
+    nyskrevet gjennomgående filter gjennom O1→O3.
+11. Narrativ-versjoner (`<id>-narrativ.json`) og quiz per kapittel etter hvert; prøvene
+    (§4) legges som prøvekapitler per del (`ttt4120-<del>-prove`, chapterNumber
+    `<del>.P`) — endelig blokk-skjema fastsettes i BYGGEKONTRAKT.md (fase 3).
+
+### Sjekkliste før «ferdig»
+
+- [ ] **JSON-validering:** hver kapittelfil parser (`json.load`); generer JSON via
+      `json.dump`, aldri råskriving (LaTeX-`\\`-fellen); `npm run build` grønn.
+- [ ] **LaTeX:** alle formler i `$...$`/`$$...$$`; ingen unicode-brøker; konsistente
+      symboler ($x[n],h[n],y[n]$, $H(z)$, $H(f)$, ROC, $\gamma_{XX}[l]$, $r_{hh}[l]$,
+      $\Gamma_{XX}(f)$, $\sigma_e^2$, $\sigma_f^2$, $\sigma_W^2$, AR/MA/ARMA).
+- [ ] **Det gjennomgående filteret er konsistent** på tvers av Del 3, 5, 6: samme
+      $H(z)=\frac{1-z^{-1}}{(1-\tfrac12 z^{-1})(1+\tfrac14 z^{-1})}$, poler $\tfrac12,-\tfrac14$,
+      nullpunkt $z=1$ (på sirkelen), residyer $A=-\tfrac23,B=\tfrac53$, $h[0]=1,h[1]=-\tfrac34$.
+- [ ] **Sensorregel A (polkriterie-begrunnelse):** hver klassifiseringspåstand
+      (stabil/kausal/minimum fase) i boka er begrunnet med polkriteriet, aldri bare
+      ja/nei — egen `warning` i 0.1, 1.3, 3.2, 3.5, 9.1.
+- [ ] **Sensorregel B (minimum-fase-fallgruven):** eksplisitt `warning` om at nullpunkt
+      på enhetssirkelen ≠ minimum fase i 0.1, 3.2, 3.3, 3.5 og studieguiden; illustrert
+      med det gjennomgående filterets nullpunkt ved $z=1$.
+- [ ] **Formelark-disiplin:** hvert delkapittels Symbol- og formelliste markerer «står
+      på formelarket — hentes» vs. «ferdighet — må beherskes aktivt»; ingen formel
+      presenteres som puggestoff.
+- [ ] **Selvsjekk-disiplin:** hver «vis at»-utledning ender på det oppgitte resultatet
+      med en eksplisitt kontroll (f.eks. $h[0],h[1]$ mot rekursjonen).
+- [ ] **Skissekrav:** pol-nullpunktdiagram (m/enhetssirkel + ROC) i familie 1;
+      filterstruktur-blokkskjema i familie 2; effekttetthet/blokkskjema i familie 3;
+      spektra (samplet/desimert/interpolert/rate-konvertert) i familie 4.
+- [ ] **Kvalitativ-kvoten:** ~30 % av øvingene i teorikapitlene er skisse-/konsept-/
+      «begrunn»-oppgaver (sjanger B/C/F/K/L/N) med modellsvar (speiler eksamens ~30 %).
+- [ ] **Beredskaps-merking (Del 8):** FIR/IIR-design merket `(verifiser mot pensum)`;
+      ikke drillet som familiene 1–4; bare 2 prøver.
+- [ ] **Kapittel-DNA:** hvert teorikapittel har Eksamensvinkel-`tip` (med frekvens/vekt
+      fra dette skjelettet), Forkunnskaper (+ `collapsible` Symbol- og formelliste
+      m/formelark-markering, per delkapittel), 2–4 eksempler (siste på eksamensnivå,
+      m/skisse der sensor forventer skisse), Typiske feil-`warning`, 6–12 øvinger med
+      `solution` + `hints` (stigende; minst én N-oppgave), repetisjons-`collapsible`;
+      drillkapitler har løsningsoppskrift + sensor-kommentert gjennomregnet case +
+      10–15 oppgaver på eksamensnivå.
+- [ ] **Quiz-sum ≥ 564 og flashcard-sum ≥ 596** per kvotetabellen i §4 (kontrollsummér
+      per del).
+- [ ] **Prøver:** 4 per temadel 1–7 + 2 for beredskaps-Del 8 (30 stk) + konseptdrill
+      (9.1) + 3 øvingseksamener (9.2–9.4) som sammen dekker sjangrene A–N; hver
+      øvingseksamen har ETT gjennomgående filter gjennom O1→O3.
+- [ ] **Kryssbok-lenker:** KUN til kapitler som finnes ved bygg; matematikk-forkunnskaper
+      (geometriske rekker, komplekse tall, Fourier) refereres i klartekst der søsterboka
+      ikke er bygget — aldri død lenke.
+- [ ] **Opphavsrett:** ALLE oppgaver nyskrevne — egne tall, filtre, kontekster og
+      formuleringer; ingen tekst fra reelle sett/løsningsforslag; skjelettets
+      mønstereksempler og det gjennomgående filteret er selv omskrivninger og skal
+      varieres videre.
+- [ ] **Verifiser rendering:** prod-server + curl mot kapittel- og narrativ-ruter
+      (200 + kapittelspesifikk streng), jf. `getChapterMeta`-lærdommen. ALDRI meld
+      ferdig uten dette.
