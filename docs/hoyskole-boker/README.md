@@ -106,8 +106,10 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON1310 Makroøkonomi I (UiO) | regnefag | **bok** (live) |
 | JUS1111 Privatrett I (UiO) | jus | **bok** (live) |
 | JUR 3420 Forretningsjus (BI) | jus | skjelett |
+| ORG 3620 Arbeids- og personaljus (BI) | jus | skjelett |
 | STR 3605 Strategi (BI) | drøfting/case-analyse | skjelett |
 | BØK 3423 Finans (BI) | regnefag | skjelett |
+| FIN 3521 Finansiering av bedrifter (BI) | regnefag | skjelett |
 | BØK 3532 Finansregnskap og regnskapsanalyse (BI) | regnefag | skjelett |
 | SØK 3500 Samfunnsøkonomi II (BI) | regnefag | skjelett |
 | MET 2910 Matematikk for økonomer (BI) | regnefag | skjelett |
@@ -183,6 +185,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TDT4137 Kognitive systemer (NTNU) | drøfting/regne-hybrid | skjelett |
 | TDT4145 Datamodellering og databasesystemer (NTNU) | regnefag | skjelett |
 | TDT4160 Datamaskiner (NTNU) | regnefag | skjelett |
+| TDT4260 Datamaskinarkitektur (NTNU) | regnefag/begrepsdrevet hybrid | skjelett |
 | TDT4300 Datavarehus og datagruvedrift (NTNU) | regnefag | skjelett |
 | TDT4171 Metoder i kunstig intelligens (NTNU) | regnefag | skjelett |
 | TDT4237 Programvaresikkerhet og personvern (NTNU) | drøfting/prosedyre-hybrid | skjelett |
