@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useAuth } from "@/lib/auth/hooks";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -20,6 +21,7 @@ export function SignupForm({ onSwitchToLogin }: SignupFormProps) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState<UserRole>("student");
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -40,7 +42,7 @@ export function SignupForm({ onSwitchToLogin }: SignupFormProps) {
     setIsLoading(true);
 
     try {
-      await register(email, password, name, role);
+      await register(email, password, name, role, marketingConsent);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Registrering feilet");
     } finally {
@@ -154,6 +156,24 @@ export function SignupForm({ onSwitchToLogin }: SignupFormProps) {
             required
             disabled={isLoading}
           />
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3 rounded-lg border p-3">
+        <Checkbox
+          id="marketing-consent"
+          checked={marketingConsent}
+          onCheckedChange={(checked) => setMarketingConsent(checked === true)}
+          disabled={isLoading}
+          className="mt-0.5"
+        />
+        <div className="space-y-1">
+          <Label htmlFor="marketing-consent" className="font-normal cursor-pointer leading-snug">
+            Ja, send meg e-post om nyheter, nytt innhold og tilbud fra Skolesaga (valgfritt)
+          </Label>
+          <p className="text-xs text-muted-foreground">
+            Du kan når som helst melde deg av på profilsiden eller via lenke i e-postene.
+          </p>
         </div>
       </div>
 

@@ -32,6 +32,8 @@ import {
 } from "lucide-react";
 import { StudentAssignmentCard } from "@/components/assignments/student-assignment-card";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ConsentBanner } from "@/components/consent-banner";
+import { RecentItemsCard } from "@/components/student/recent-items-card";
 import { mediaUrl } from '@/lib/media';
 
 interface StudentClass {
@@ -242,6 +244,7 @@ export default function StudentDashboard() {
 
       {/* Main content */}
       <main id="main-content" className="container px-4 py-3 md:py-8">
+        <ConsentBanner />
         <div className="space-y-4 md:space-y-8">
           {/* Welcome section */}
           <div className="flex items-center justify-between">
@@ -262,6 +265,9 @@ export default function StudentDashboard() {
               </div>
             )}
           </div>
+
+          {/* Fortsett der du slapp */}
+          <RecentItemsCard />
 
           {/* Stats strip */}
           <div className="grid grid-cols-4 gap-1.5 md:gap-2">

@@ -72,12 +72,12 @@ export function useAuth() {
   }, []);
 
   const register = useCallback(
-    async (email: string, password: string, name: string, role: UserRole = "student") => {
+    async (email: string, password: string, name: string, role: UserRole = "student", marketingConsent = false) => {
       // Registrer via API-rute
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, name, role }),
+        body: JSON.stringify({ email, password, name, role, marketingConsent }),
       });
 
       if (!response.ok) {

@@ -7,6 +7,7 @@ import { TextbookChapterView } from '@/components/textbook/textbook-chapter-view
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { hasChemistryQuiz } from '@/lib/data/chemistry-quiz-data';
 import { hasSamfunnskunnskapQuiz } from '@/lib/data/samfunnskunnskap-quiz-data';
+import { TrackRecentVisit } from '@/components/track-recent-visit';
 
 interface PageProps {
   params: Promise<{ courseId: string; chapterId: string }>;
@@ -79,6 +80,13 @@ export default async function ChapterPage({ params }: PageProps) {
   }));
 
   return (
+    <>
+    <TrackRecentVisit
+      itemType="chapter"
+      itemId={`${courseId}/${chapterId}`}
+      title={`${course.title}: ${chapterMeta.number} ${chapterMeta.title}`}
+      url={`/bok/${courseId}/${chapterId}`}
+    />
     <TextbookChapterView
       course={course}
       chapterMeta={resolvedChapterMeta}
@@ -94,5 +102,6 @@ export default async function ChapterPage({ params }: PageProps) {
       prerequisites={prerequisites}
       dependents={dependents}
     />
+    </>
   );
 }

@@ -52,6 +52,7 @@ import { useSession } from "next-auth/react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ConsentBanner } from "@/components/consent-banner";
 
 interface Organization {
   id: string;
@@ -403,6 +404,7 @@ export default function TeacherDashboard() {
 
       {/* Main content */}
       <main id="main-content" className="container px-4 py-8">
+        <ConsentBanner />
         <div className="space-y-8">
           {/* Welcome section */}
           <div className="flex items-center justify-between">

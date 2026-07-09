@@ -16,8 +16,37 @@ CREATE TABLE users (
   image TEXT,
   role TEXT DEFAULT 'student', -- 'student', 'teacher', 'admin'
   school_id UUID REFERENCES schools(id),
+  marketing_consent BOOLEAN NOT NULL DEFAULT false, -- samtykke til markedsførings-e-post (mfl. § 15)
+  marketing_consent_at TIMESTAMPTZ, -- når samtykket sist ble endret (dokumentasjonskrav)
+  marketing_consent_source TEXT, -- 'signup' eller 'profil'
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+```
+
+Merk: `marketing_consent` styrer kun reklame/nyhetsbrev. Nødvendige meldinger
+(vilkårsoppdateringer, kontoinformasjon) kan sendes til alle brukere uavhengig
+av dette feltet. E-postlister eksporteres fra `/api/admin/users/export`.
+
+### user_saved_items
+
+Lagrede elementer per bruker: «nylig sett» (Fortsett der du slapp på dashbordet)
+og favoritter. Skrives fra `/api/user/saved-items`; besøk spores av
+`TrackRecentVisit`-komponenten på bok- og kapittelsider. Maks 10 `recent` per
+bruker (beskjæres ved innsetting).
+
+```sql
+CREATE TABLE user_saved_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL CHECK (kind IN ('favorite','recent')),
+  item_type TEXT NOT NULL DEFAULT 'book', -- 'book' | 'chapter'
+  item_id TEXT NOT NULL, -- courseId eller courseId/chapterId
+  title TEXT NOT NULL,
+  url TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (user_id, kind, item_id)
 );
 ```
 

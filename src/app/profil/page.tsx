@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useAuth, useRequireAuth } from "@/lib/auth/hooks";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import {
   BookOpen,
@@ -31,6 +33,7 @@ interface UserProfile {
   gradeLevel?: string;
   phone?: string;
   subscriptionTier?: string;
+  marketingConsent?: boolean;
 }
 
 const GRADE_LABELS: Record<string, string> = {
@@ -54,6 +57,31 @@ export default function ProfilePage() {
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [savingConsent, setSavingConsent] = useState(false);
+  const [consentError, setConsentError] = useState<string | null>(null);
+
+  const handleConsentChange = async (checked: boolean) => {
+    const previous = marketingConsent;
+    setMarketingConsent(checked);
+    setSavingConsent(true);
+    setConsentError(null);
+    try {
+      const response = await fetch("/api/user/profile", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ marketingConsent: checked }),
+      });
+      if (!response.ok) {
+        throw new Error("Kunne ikke lagre innstillingen");
+      }
+    } catch (error) {
+      setMarketingConsent(previous);
+      setConsentError(error instanceof Error ? error.message : "En feil oppstod");
+    } finally {
+      setSavingConsent(false);
+    }
+  };
 
   const handleDeleteAccount = async () => {
     setDeleting(true);
@@ -81,6 +109,7 @@ export default function ProfilePage() {
         if (response.ok) {
           const data = await response.json();
           setProfile(data);
+          setMarketingConsent(data.marketingConsent === true);
         }
       } catch (error) {
         console.error("Failed to fetch profile:", error);
@@ -301,6 +330,40 @@ export default function ProfilePage() {
                   Logg ut
                 </Button>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* E-postvarsler */}
+          <Card>
+            <CardHeader>
+              <CardTitle>E-post fra Skolesaga</CardTitle>
+              <CardDescription>
+                Velg om du vil motta e-post om nyheter, nytt innhold og tilbud
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center justify-between gap-4 p-3 rounded-lg bg-muted/50">
+                <div className="space-y-0.5">
+                  <Label htmlFor="marketing-consent-toggle" className="font-medium cursor-pointer">
+                    Nyheter og tilbud
+                  </Label>
+                  <p className="text-sm text-muted-foreground">
+                    E-post om nytt innhold, funksjoner og tilbud. Du kan melde deg av når som helst.
+                  </p>
+                </div>
+                <Switch
+                  id="marketing-consent-toggle"
+                  checked={marketingConsent}
+                  onCheckedChange={handleConsentChange}
+                  disabled={savingConsent}
+                />
+              </div>
+              {consentError && (
+                <p className="text-sm text-destructive" role="alert">{consentError}</p>
+              )}
+              <p className="text-xs text-muted-foreground">
+                Viktige meldinger om kontoen din og endringer i vilkårene sendes uavhengig av dette valget.
+              </p>
             </CardContent>
           </Card>
 

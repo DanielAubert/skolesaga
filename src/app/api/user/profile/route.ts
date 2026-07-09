@@ -34,7 +34,7 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from("users")
-      .select("name, email, role, organization, birth_year, grade_level, phone, subscription_tier")
+      .select("name, email, role, organization, birth_year, grade_level, phone, subscription_tier, marketing_consent, marketing_consent_source, auth_provider")
       .eq("id", session.user.id)
       .single();
 
@@ -55,7 +55,62 @@ export async function GET() {
       gradeLevel: data.grade_level,
       phone: data.phone,
       subscriptionTier: data.subscription_tier,
+      marketingConsent: data.marketing_consent === true,
+      // null = brukeren har aldri tatt stilling til e-postsamtykke
+      marketingConsentAsked: data.marketing_consent_source !== null,
+      authProvider: data.auth_provider,
     });
+  } catch (error) {
+    console.error("[Profile] Error:", error);
+    return NextResponse.json(
+      { error: "En feil oppstod" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PATCH(request: Request) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    if (!session?.user?.id) {
+      return NextResponse.json(
+        { error: "Du må være logget inn" },
+        { status: 401 }
+      );
+    }
+
+    const body = await request.json();
+
+    if (typeof body.marketingConsent !== "boolean") {
+      return NextResponse.json(
+        { error: "Ugyldig forespørsel" },
+        { status: 400 }
+      );
+    }
+
+    const source = body.source === "banner" ? "banner" : "profil";
+
+    const supabase = getSupabaseAdmin();
+
+    const { error } = await supabase
+      .from("users")
+      .update({
+        marketing_consent: body.marketingConsent,
+        marketing_consent_at: new Date().toISOString(),
+        marketing_consent_source: source,
+      })
+      .eq("id", session.user.id);
+
+    if (error) {
+      console.error("[Profile] Database error:", error);
+      return NextResponse.json(
+        { error: "Kunne ikke oppdatere innstillingen" },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ marketingConsent: body.marketingConsent });
   } catch (error) {
     console.error("[Profile] Error:", error);
     return NextResponse.json(

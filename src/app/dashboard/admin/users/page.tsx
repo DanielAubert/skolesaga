@@ -36,7 +36,7 @@ import {
 } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { Trash2, Search, Users, RefreshCw, AlertTriangle, Flag } from "lucide-react";
+import { Trash2, Search, Users, RefreshCw, AlertTriangle, Flag, Mail, Download } from "lucide-react";
 
 interface User {
   id: string;
@@ -47,6 +47,8 @@ interface User {
   auth_provider: string | null;
   created_at: string;
   organization_id: string | null;
+  marketing_consent: boolean | null;
+  marketing_consent_at: string | null;
 }
 
 export default function AdminUsersPage() {
@@ -56,7 +58,9 @@ export default function AdminUsersPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
+  const [consentFilter, setConsentFilter] = useState("");
   const [total, setTotal] = useState(0);
+  const [consentTotal, setConsentTotal] = useState(0);
   const [deleteUser, setDeleteUser] = useState<User | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [updatingRoleId, setUpdatingRoleId] = useState<string | null>(null);
@@ -91,6 +95,7 @@ export default function AdminUsersPage() {
       const params = new URLSearchParams();
       if (search) params.set("search", search);
       if (roleFilter) params.set("role", roleFilter);
+      if (consentFilter && consentFilter !== "all") params.set("consent", consentFilter);
 
       const response = await fetch(`/api/admin/users?${params}`);
       const data = await response.json();
@@ -98,6 +103,7 @@ export default function AdminUsersPage() {
       if (response.ok) {
         setUsers(data.users);
         setTotal(data.total);
+        setConsentTotal(data.marketingConsentTotal ?? 0);
       } else {
         console.error("Feil:", data.message);
       }
@@ -106,7 +112,7 @@ export default function AdminUsersPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [search, roleFilter]);
+  }, [search, roleFilter, consentFilter]);
 
   useEffect(() => {
     if (status === "loading") return;
@@ -176,8 +182,24 @@ export default function AdminUsersPage() {
                 <Users className="h-6 w-6" />
                 <CardTitle>Brukeradministrasjon</CardTitle>
                 <Badge variant="outline">{total} brukere</Badge>
+                <Badge variant="outline" className="gap-1">
+                  <Mail className="h-3 w-3" />
+                  {consentTotal} med nyhetsbrev-samtykke
+                </Badge>
               </div>
               <div className="flex items-center gap-2">
+                <a href="/api/admin/users/export?list=marketing" download>
+                  <Button variant="outline" size="sm" title="CSV med brukere som har samtykket til markedsføring — bruk denne til reklame/nyhetsbrev">
+                    <Download className="h-4 w-4 mr-2" />
+                    E-postliste (samtykket)
+                  </Button>
+                </a>
+                <a href="/api/admin/users/export?list=all" download>
+                  <Button variant="outline" size="sm" title="CSV med alle brukere — kun til nødvendige meldinger som vilkårsoppdateringer, IKKE reklame">
+                    <Download className="h-4 w-4 mr-2" />
+                    E-postliste (alle)
+                  </Button>
+                </a>
                 <Link href="/dashboard/admin/feedback">
                   <Button variant="outline" size="sm">
                     <Flag className="h-4 w-4 mr-2" />
@@ -215,6 +237,16 @@ export default function AdminUsersPage() {
                   <SelectItem value="admin">Admin</SelectItem>
                 </SelectContent>
               </Select>
+              <Select value={consentFilter} onValueChange={setConsentFilter}>
+                <SelectTrigger className="w-44">
+                  <SelectValue placeholder="Nyhetsbrev: alle" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Nyhetsbrev: alle</SelectItem>
+                  <SelectItem value="yes">Har samtykket</SelectItem>
+                  <SelectItem value="no">Ikke samtykket</SelectItem>
+                </SelectContent>
+              </Select>
               <Button onClick={fetchUsers}>Søk</Button>
             </div>
 
@@ -234,6 +266,7 @@ export default function AdminUsersPage() {
                     <TableHead>Bruker</TableHead>
                     <TableHead>Rolle</TableHead>
                     <TableHead>Innlogging</TableHead>
+                    <TableHead>Nyhetsbrev</TableHead>
                     <TableHead>Opprettet</TableHead>
                     <TableHead className="w-20">Handlinger</TableHead>
                   </TableRow>
@@ -289,6 +322,23 @@ export default function AdminUsersPage() {
                             ? "Feide"
                             : "E-post"}
                         </span>
+                      </TableCell>
+                      <TableCell>
+                        {user.marketing_consent ? (
+                          <Badge
+                            variant="default"
+                            className="bg-green-100 text-green-700 hover:bg-green-100 dark:bg-green-950/30 dark:text-green-400"
+                            title={
+                              user.marketing_consent_at
+                                ? `Samtykket ${new Date(user.marketing_consent_at).toLocaleDateString("nb-NO")}`
+                                : undefined
+                            }
+                          >
+                            Ja
+                          </Badge>
+                        ) : (
+                          <Badge variant="secondary">Nei</Badge>
+                        )}
                       </TableCell>
                       <TableCell>
                         <span className="text-sm text-muted-foreground">

@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AddCourseButton } from '@/components/student/add-course-button';
 import { BreadcrumbHomeLink } from '@/components/book/breadcrumb-home-link';
+import { TrackRecentVisit } from '@/components/track-recent-visit';
 import {
   Clock, ChevronRight, GraduationCap,
   Calculator, Variable, Divide, Grid3X3, Sigma, Binary,
@@ -163,6 +164,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-background">
       <TextbookHeader />
+      <TrackRecentVisit itemType="book" itemId={courseId} title={course.title} url={`/bok/${courseId}`} />
       <div className="container mx-auto px-4 py-8">
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}

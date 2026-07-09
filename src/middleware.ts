@@ -7,6 +7,7 @@ const protectedRoutes = [
   '/dashboard',
   '/profil',
   '/join',
+  '/endre-passord',
 ];
 
 export async function middleware(request: NextRequest) {
@@ -39,5 +40,6 @@ export const config = {
     '/dashboard/:path*',
     '/profil/:path*',
     '/join/:path*',
+    '/endre-passord/:path*',
   ],
 };

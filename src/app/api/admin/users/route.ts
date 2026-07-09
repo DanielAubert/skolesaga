@@ -36,9 +36,14 @@ export async function GET(request: Request) {
 
     const supabase = getSupabaseAdmin();
 
+    const consent = searchParams.get("consent") || "";
+    if (!["", "yes", "no"].includes(consent)) {
+      return NextResponse.json({ message: "Ugyldig samtykke-filter" }, { status: 400 });
+    }
+
     let query = supabase
       .from("users")
-      .select("id, email, name, role, avatar_url, auth_provider, created_at, organization_id", { count: "exact" })
+      .select("id, email, name, role, avatar_url, auth_provider, created_at, organization_id, marketing_consent, marketing_consent_at", { count: "exact" })
       .order("created_at", { ascending: false })
       .range(offset, offset + limit - 1);
 
@@ -50,6 +55,10 @@ export async function GET(request: Request) {
       query = query.eq("role", role);
     }
 
+    if (consent) {
+      query = query.eq("marketing_consent", consent === "yes");
+    }
+
     const { data: users, error, count } = await query;
 
     if (error) {
@@ -57,9 +66,16 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: "Kunne ikke hente brukere" }, { status: 500 });
     }
 
+    // Totalt antall med markedsføringssamtykke (uavhengig av filtre)
+    const { count: consentCount } = await supabase
+      .from("users")
+      .select("id", { count: "exact", head: true })
+      .eq("marketing_consent", true);
+
     return NextResponse.json({
       users: users || [],
       total: count || 0,
+      marketingConsentTotal: consentCount || 0,
       limit,
       offset,
     });

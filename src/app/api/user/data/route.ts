@@ -36,6 +36,7 @@ const USER_DATA_TABLES: { table: string; column: string }[] = [
   { table: "training_sessions", column: "student_id" },
   { table: "class_memberships", column: "user_id" },
   { table: "content_feedback", column: "user_id" },
+  { table: "user_saved_items", column: "user_id" },
 ];
 
 // GET - Eksporter alle personopplysninger om innlogget bruker (GDPR art. 15/20)

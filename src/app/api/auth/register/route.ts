@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, password, name, role = "student" } = await request.json();
+    const { email, password, name, role = "student", marketingConsent = false } = await request.json();
 
     // Valider input
     if (!email || !password || !name) {
@@ -127,6 +127,10 @@ export async function POST(request: Request) {
       role: role === "teacher" ? "teacher" : "student",
       auth_provider: "email",
       subscription_tier: "free",
+      marketing_consent: marketingConsent === true,
+      // source settes alltid: null betyr «aldri spurt» og trigger samtykke-banneret
+      marketing_consent_at: new Date().toISOString(),
+      marketing_consent_source: "signup",
     });
 
     if (dbError) {
