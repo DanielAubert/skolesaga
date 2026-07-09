@@ -973,7 +973,7 @@ export function ExerciseTrainer({
         <section className="container pb-12">
           <div className="mb-3 md:mb-6 text-center">
             {(() => {
-              const genreTag = extractGenreTag(exercise.task);
+              const genreTag = extractGenreTag(exercise.task, courseId);
               const taskText = genreTag ? genreTag.rest : exercise.task;
               return (
                 <>

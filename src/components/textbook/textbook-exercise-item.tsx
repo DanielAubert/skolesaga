@@ -159,7 +159,7 @@ export function TextbookExerciseItem({
 
   // Trekk ut evt. ledende sjanger-/drill-prefiks fra oppgaveteksten så det
   // vises som badge i stedet for støy i brødteksten. rest = tekst uten prefiks.
-  const genreTag = extractGenreTag(exercise.task);
+  const genreTag = extractGenreTag(exercise.task, courseId);
   const taskText = genreTag ? genreTag.rest : exercise.task;
 
   // Er vi i lærervisning?

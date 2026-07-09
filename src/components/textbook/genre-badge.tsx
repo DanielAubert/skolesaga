@@ -17,8 +17,8 @@ interface GenreBadgeProps {
 /**
  * Liten hoverbar badge som viser sjanger-/drill-prefikset til en oppgave.
  * Selve prefiks-teksten er tatt ut av brødteksten (se extractGenreTag) og vises
- * her i stedet, med hele parentes-innholdet i en tooltip. Fallback via
- * title-attributt for touch-enheter uten hover.
+ * her i stedet, med forklaring av koden + oppgavens forankring i en tooltip.
+ * (Ikke title-attributt — den ga dobbel tooltip oppå den stylede.)
  */
 export function GenreBadge({ tag, className }: GenreBadgeProps) {
   return (
@@ -27,13 +27,12 @@ export function GenreBadge({ tag, className }: GenreBadgeProps) {
         <TooltipTrigger asChild>
           <Badge
             variant="outline"
-            title={tag.tooltip}
             className={`cursor-help text-[0.7rem] font-medium text-muted-foreground border-muted-foreground/30 ${className ?? ''}`}
           >
             {tag.label}
           </Badge>
         </TooltipTrigger>
-        <TooltipContent className="max-w-xs text-xs leading-snug">
+        <TooltipContent className="max-w-sm text-xs leading-snug whitespace-pre-line">
           {tag.tooltip}
         </TooltipContent>
       </Tooltip>

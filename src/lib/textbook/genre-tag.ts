@@ -85,7 +85,39 @@ function makeLabel(inner: string): string {
   return base.trimEnd() + '…';
 }
 
-export function extractGenreTag(task: string): GenreTag | null {
+
+/**
+ * Ordliste: hva sjangerkodene faktisk BETYR, per bok. Vises øverst i tooltipen
+ * slik at badgen forklarer seg selv (produkteier-krav: «RED» alene sier ingenting).
+ * Tekstene er destillert fra bøkenes egne sjangerkapitler (Del 0).
+ */
+const GENRE_GLOSSARY: Record<string, Record<string, string>> = {
+  stv1100: {
+    RED: 'Redegjørelse — «gjør rede for X»: plasser tenkeren og spørsmålet, og gjengi posisjonen trinnvis med pensumets kjernebegreper, presist og pensumnært.',
+    SIT: 'Sitattolkning — parafraser utdraget med egne ord, identifiser funksjonen (premiss, innvending eller konklusjon) og knytt det til riktig tenker og begrep.',
+    SAM: 'Sammenligning — presis redegjørelse for begge posisjoner, deretter eksplisitte likheter og forskjeller langs klare dimensjoner.',
+    ANV: 'Anvendelse — bruk teorien på et konkret tilfelle: hent det relevante begrepet og vis hva tenkeren ville ment om akkurat denne situasjonen.',
+    HYB: 'Drøftingshybrid — solid redegjørelse først (vektes tyngst), deretter én til to innvendinger med kort selvstendig vurdering.',
+  },
+  econ1310: {
+    C: 'Telleregelen — klassifiser eller tell poster etter nasjonalregnskapets definisjoner (liten kortsvarssjanger).',
+    D: 'Parametertolkning — forklar den økonomiske betydningen av en modellparameter i klartekst.',
+    E: 'Komparativ statikk — «vis matematisk» hva som skjer med en endogen størrelse når en eksogen endres.',
+    L: 'Teoridrøfting — verbal drøfting i ren tekst uten matematikk.',
+    M: 'Rollecase — du spiller en rolle (typisk økonomisk rådgiver) og argumenterer for et politikkvalg.',
+  },
+};
+
+/** Slår opp forklaring for en badge-etikett («RED», «Sjanger D») i ordlista. */
+function glossaryFor(label: string, courseId?: string): string | null {
+  if (!courseId) return null;
+  const book = GENRE_GLOSSARY[courseId];
+  if (!book) return null;
+  const key = label.replace(/^Sjanger\s+/, '').trim();
+  return book[key] ?? null;
+}
+
+export function extractGenreTag(task: string, courseId?: string): GenreTag | null {
   if (!task) return null;
   const trimmed = task.trimStart();
   if (trimmed[0] !== '(') return null;
@@ -100,5 +132,22 @@ export function extractGenreTag(task: string): GenreTag | null {
   const label = makeLabel(inner.trimStart());
   if (!label) return null;
 
-  return { label, tooltip: inner.trim(), rest };
+  // Bygg tooltip: forklaring fra ordlista først, deretter oppgavens egen
+  // forankring — men bare hvis den tilfører noe utover selve etiketten
+  // (unngå tautologier som «Eksamenssjanger RED.»).
+  const annotation = inner.trim();
+  const explanation = glossaryFor(label, courseId);
+  const stripped = annotation
+    .replace(/^Eksamenssjanger\s+/i, '')
+    .replace(/^Sjanger\s+/i, '')
+    .replace(label.replace('…', ''), '')
+    .replace(/^[\s.—:-]+|[\s.—:-]+$/g, '');
+  const annotationAddsInfo = stripped.length > 8;
+
+  let tooltip: string;
+  if (explanation && annotationAddsInfo) tooltip = explanation + '\n\n' + annotation;
+  else if (explanation) tooltip = explanation;
+  else tooltip = annotation;
+
+  return { label, tooltip, rest };
 }
