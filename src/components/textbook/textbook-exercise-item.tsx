@@ -29,6 +29,7 @@ import { MultipleChoiceExercise } from './multiple-choice-exercise';
 import { SequentialQuizExercise } from './sequential-quiz-exercise';
 import { TeacherCommentPanel, TeacherCommentDisplay } from './teacher-comment-panel';
 import { AiSensorPanel, aiSensorEnabled } from './ai-sensor-panel';
+import { FasitGate } from './fasit-gate';
 import { useExerciseSubmission, useSubmitAnswer, useRecordAttempt, Submission } from '@/lib/textbook/hooks';
 import { useUser } from '@/lib/auth/hooks';
 import { CheckCircle2 } from 'lucide-react';
@@ -687,6 +688,7 @@ export function TextbookExerciseItem({
           </Button>
 
           {showSolution && (
+            <FasitGate exerciseId={exercise.id}>
             <div className="mt-3 p-4 bg-green-50/50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
               <h4 className="font-semibold text-green-700 dark:text-green-300 mb-3">Løsning</h4>
               {exercise.subTasks && exercise.subTasks.some(st => st.solution) ? (
@@ -710,6 +712,7 @@ export function TextbookExerciseItem({
                 </div>
               ) : null}
             </div>
+            </FasitGate>
           )}
         </div>
       )}
