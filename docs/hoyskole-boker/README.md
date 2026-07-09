@@ -168,7 +168,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | ECON2500 Investering og finansiering (UiO) | regnefag | skjelett |
 | ECON3150 Introductory Econometrics (UiO) | regnefag | skjelett |
 | ECON4310 Macroeconomic Theory (UiO) | regnefag/essay-hybrid | skjelett |
-| EXPHIL03 Examen philosophicum (UiO) | drøfting | skjelett |
+| EXPHIL03 Examen philosophicum (UiO) | drøfting | **bok** (live) |
 | FIL1001 Metafysikk og bevissthetsfilosofi (UiO) | drøfting | skjelett |
 | LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | skjelett |
 | FIL1003 Innføring i etikk (UiO) | drøfting | skjelett |

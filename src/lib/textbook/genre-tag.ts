@@ -99,6 +99,15 @@ const GENRE_GLOSSARY: Record<string, Record<string, string>> = {
     ANV: 'ANV = Anvendelse. Bruk teorien på et konkret eksempel: finn begrepet som passer, og vis hva tenkeren ville sagt om akkurat denne situasjonen.',
     HYB: 'HYB = Drøftingshybrid. Forklar først teorien grundig (det teller mest), og løft deretter én til to innvendinger med en kort egen vurdering.',
   },
+  exphil03: {
+    S1: 'S1 = Redegjørelse. Kunnskapsdelen (a/b): gjør rede for en tenker eller et begrep — plasser det, og forklar posisjonen presist med pensumbegrepene.',
+    S2: 'S2 = Sitattolkning. Du får et utdrag og skal forklare med egne ord hva det sier, hvilken rolle det spiller i argumentet, og hvilken tenker det hører til. (Den vanligste sjangeren fra 2021.)',
+    S3: 'S3 = Sammenlign to tenkere. Forklar hver posisjon kort og presist, og pek tydelig på likhetene og forskjellene.',
+    S4: 'S4 = Drøfting. Drøftingsdelen (c/d): vei argumenter for og mot mot hverandre og land et begrunnet standpunkt.',
+    S5: 'S5 = Anvendelse. Bruk teorien på et konkret case eller tankeeksperiment: finn begrepet som passer, og vis hva tenkeren ville sagt.',
+    S6: 'S6 = Kortsvar. Kort, presist svar på ett avgrenset spørsmål.',
+    S7: 'S7 = Semesteroppgave. Den lengre seminarvarianten (800–1000 ord) med krav til struktur og referanser.',
+  },
   econ1310: {
     C: 'Sjanger C = Telleregelen. Kort oppgave der du skal plassere eller telle poster riktig etter nasjonalregnskapets definisjoner.',
     D: 'Sjanger D = Parametertolkning. Forklar med vanlige ord hva en parameter i modellen betyr økonomisk.',
