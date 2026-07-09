@@ -16,8 +16,15 @@ emne = sys.argv[1]
 forbudt = sys.argv[2] if len(sys.argv) > 2 else None
 
 files = sorted(glob.glob(f"{CH}/{emne}-*.json"))
-issues, defs_tot = [], 0
+issues, notes, defs_tot = [], [], 0
 assert files, f"ingen kapittelfiler for {emne}"
+
+# Nybegynner-sjargong: RÅDGIVENDE merknader (feiler ALDRI porten — se
+# minne «nybegynner-sjargong»). Snever + whitelistet for å unngå falske positive.
+GRADE_SLANG = re.compile(r"\b[A-E]-(stoff|porten|markør|kandidat)\b")
+BARE_CODE = re.compile(r"\b(RED|SIT|SAM|ANV|HYB|S[1-7])\b|\bsjanger [A-N]\b")
+def _forklart(s):  # whitelist: teksten forklarer skala/kode ⇒ ikke merknad
+    return bool(re.search(r"karakter|A[–-]F|bestått|forkort|= |betyr|dvs\.", s, re.I))
 
 for f in files:
     cid = os.path.basename(f)[:-5]
@@ -58,6 +65,17 @@ for f in files:
     # forbudt-termer
     if forbudt and re.search(forbudt, txt, re.I) and not cid.endswith("-0-1"):
         issues.append(f"{cid}: treff på forbudt-term-regex ({forbudt})")
+    # RÅDGIVENDE nybegynner-merknader (feiler ikke porten):
+    #  (a) karaktersjargong («C-stoff»/«A-markør») i FØRSTE innholdsblokk uten at
+    #      skalaen forklares i samme blokk.
+    if c:
+        b0 = " ".join(str(c[0].get(k, "")) for k in ("content", "title"))
+        if GRADE_SLANG.search(b0) and not _forklart(b0):
+            notes.append(f"{cid}: karaktersjargong i første blokk uten forklaring av skalaen")
+    #  (b) bar sjanger-/oppgavekode i competenceGoals (læringsmål) uten forklaring.
+    for g in d.get("competenceGoals", []) or []:
+        if BARE_CODE.search(g) and not _forklart(g):
+            notes.append(f"{cid}: uforklart kode i læringsmål — «{g[:60]}…»"); break
 
 # kvoter
 qf = os.path.join(REPO, f"src/lib/data/quiz-data-{emne}.ts")
@@ -65,6 +83,10 @@ quiz = open(qf).read().count("question:") if os.path.exists(qf) else 0
 print(f"{emne}: {len(files)} kapittelfiler | {defs_tot} definisjoner | {quiz} quiz")
 if defs_tot < 500: issues.append(f"KVOTE: kun {defs_tot} definisjoner (< 500)")
 if quiz < 500: issues.append(f"KVOTE: kun {quiz} quiz (< 500) — er quiz-data-{emne}.ts wiret?")
+
+if notes:
+    print(f"MERKNADER — nybegynner-sjargong (RÅDGIVENDE, feiler ikke porten; {len(notes)}):")
+    for n in notes[:20]: print(" ·", n)
 
 if issues:
     print(f"AVVIK ({len(issues)}):")
