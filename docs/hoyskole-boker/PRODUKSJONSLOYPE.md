@@ -78,6 +78,16 @@ alt, så blir fase 6 en billig verifisering i stedet for en dyr omskriving.
   ikke har møtt ennå — bare stoff introdusert t.o.m. eksempelet foran eller i et
   eksplisitt refererte forkunnskapskapittel. Agenten verifiserer forkunnskaps-
   dekningen eksplisitt før ferdigmelding.
+- **Nybegynner-inngang (UFRAVIKELIG, jf. README «Leserkrav» + DNA-malene):**
+  boka skal forstås av en student som ALDRI har hatt faget — det er META-språket
+  rundt eksamen (sjanger-/oppgavekoder, karaktersjargong som «C-stoff»/«A-markør»,
+  feilkoder #N, insider-termer) som må ryddes. HVER kode/term forklares i
+  klarspråk ved FØRSTE bruk; ingen kald kode i `competenceGoals`/læringsmål eller
+  i aller første tekstboks. Del 0 skal ha en **«Slik leser du denne boka»-
+  orienteringsboks (type `text`/`tip`, ALDRI `definition` — ville endret
+  flashcard-kvoten)** med karakter-/vurderingsskala + kompakt kodeliste + at feil
+  har et samlet register. Karaktersjargong som motsier eksamensformen (f.eks.
+  «A-kandidat» der eksamen er bestått/ikke-bestått) unngås eller rammes inn.
 - Egenvalidering per agent: json.load, kvotetelling, fagets forbudt-termer-grep.
 - Maks ~8 samtidige agenter; ved degradert API, vent (jf. 16. juni-lærdommen).
 - **Agenter kan dø på sesjonsgrenser midt i bølgen** (JUS1111: 2 av 9 traff
@@ -107,6 +117,12 @@ Redaktører per del-gruppe. IKKE omskriving — verifisering med kirurgiske fiks
   veksler teori→eksempel→oppgave i løkker (ikke all teori topp / alle oppgaver
   bunn), oppgaver ligger inline, og INGEN oppgave krever et begrep/regel/formel
   som ikke er introdusert tidligere i kapitlet eller i en refererte forkunnskap.
+- **Nybegynner-lesning av kap. 0** (jf. README «Leserkrav»): les Del 0 som en
+  student som aldri har hatt faget — er alle koder (sjanger-/oppgavekoder,
+  feilkoder #N), karaktersjargong («C-stoff»/«A-markør») og insider-termer
+  forklart ved FØRSTE bruk? Finnes «Slik leser du denne boka»-orienteringsboksen
+  (type `text`/`tip`, ALDRI `definition`) med skala + kodeliste + feilregister?
+  Ingen kald kode i `competenceGoals`/læringsmål eller i første tekstboks?
 - Faktasjekk mot skjelettkontraktene; etterregn alle talleksempler.
 - Konsistens på tvers av agentgrenser (notasjon, ingen motstridende påstander).
 - Fagspesifikk kildeverifisering: jus → paragrafer/domsreferanser sjekkes mot

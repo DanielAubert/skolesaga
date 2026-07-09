@@ -59,6 +59,15 @@ definisjoner til flashcard-kvoten + `collapsible` repetisjon (teorikapitler).
   formel eller en metode som ikke er introdusert tidligere i kapitlet (t.o.m.
   eksempelet rett foran) eller i et tidligere kapittel referert i Forkunnskaper-
   blokken. Bygg oppgaveprogresjonen bit for bit.
+- **Nybegynner-inngang / ingen uforklart sjargong:** HVER kode (sjanger-/
+  oppgavekode, feilkode #N, karakterbokstav) og all karaktersjargong («C-stoff»/
+  «A-markør») + insider-term forklares i klarspråk ved FØRSTE bruk; ingen kald
+  kode i `competenceGoals`/læringsmål eller i aller første tekstboks. Del 0 skal
+  ha en **«Slik leser du denne boka»-orienteringsboks (type `text`/`tip`, ALDRI
+  `definition` — ville endret flashcard-kvoten)** med karakter-/vurderingsskala +
+  kompakt kodeliste + at feil har et samlet register. Karaktersjargong som
+  motsier eksamensformen (f.eks. «A-kandidat» ved bestått/ikke-bestått) unngås
+  eller rammes inn.
 
 ## Prøvekapitler
 Id `<emne>-<del>-prove`, chapterNumber `<del>.P`, tittel «Prøver til del
@@ -91,4 +100,8 @@ peker på eksisterende filer; 5. **læringsløkke**: `content[]` veksler
 teori→eksempel→oppgave i løkker med `exercise`-blokker inline (ikke all teori
 topp / alle oppgaver bunn); 6. **forkunnskapsdekning**: gå gjennom hver
 `exercise` og bekreft at den bare hviler på stoff introdusert tidligere i
-kapitlet eller i en refererte forkunnskap — ingen usett begrep/regel/formel.
+kapitlet eller i en refererte forkunnskap — ingen usett begrep/regel/formel;
+7. **nybegynner-inngang**: alle koder/karaktersjargong/insider-termer forklart ved
+første bruk, ingen kald kode i competenceGoals/første tekstboks, og Del 0 har
+«Slik leser du denne boka»-orienteringsboksen (type `text`/`tip`, ALDRI
+`definition`) med skala + kodeliste + feilregister.

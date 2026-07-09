@@ -14,7 +14,11 @@ besvarelser som viser karakternivåene.
    temafrekvens, oppgavesjangre; HVORDAN en drøftingsbesvarelse bygges
    (problemforståelse → begrepsavklaring MED pensumreferanse → strukturert
    drøfting med motargumenter → konklusjon som svarer på spørsmålet), og hva
-   som skiller A/C/E ifølge sensorveiledningene.
+   som skiller A/C/E ifølge sensorveiledningene. Del 0 skal ha en kort **«Slik
+   leser du denne boka»-boks (type `text` eller `tip`, ALDRI `definition` —
+   påvirker flashcard-kvoten)** som forklarer karakter-/vurderingsskalaen (og hva
+   «C-stoff»/«A-markør» betyr), en kompakt liste over sjanger-/oppgavekodene
+   (skrevet fullt ut), og at typiske feil har et samlet register.
 2. **Del 1..N — Temadeler** etter analysens temafrekvens; omfang etter
    gjenganger-score.
 3. **Siste del — Eksamenstrening**: sjangerkapitler (f.eks. «design en studie»,
@@ -63,6 +67,19 @@ som allerede er introdusert — tidligere i SAMME kapittel (t.o.m. eksempelet re
 foran) eller i et tidligere kapittel referert i Forkunnskaper-blokken. Ingen
 oppgave skal forutsette et begrep leseren ikke har møtt ennå. Sjekk dette
 eksplisitt ved bygging.
+
+**Ingen uforklart sjargong — sjangerkoder og vurderingsakser (UFRAVIKELIG — jf.
+README «Leserkrav»).** Fagstoffet er allerede nybegynner-vennlig; det er
+METASPRÅKET rundt eksamen som må ryddes. Sjangerkodene (f.eks. RED = redegjørelse,
+SIT = situasjonsanalyse, SAM = sammenlikning, ANV = anvendelse, HYB = hybrid, og
+strukturkoder S1–S7) skrives ALLTID fullt ut i klarspråk ved FØRSTE bruk, og skal
+aldri stå kald i `competenceGoals`/læringsmål eller i aller første tekstboks. Har
+faget en samlet skala av vurderingsakser og/eller feilkoder (#N), skal disse ha
+én samlet forklaring (i Del 0-orienteringsboksen og/eller sjangerkapitlet), ikke
+strøs utover teksten uforklart. Bruker faget «utdrag a)–e)» / et «utdragslager»,
+forklares dette tidlig (hva et utdrag er, hvordan a)–e) refererer til dem).
+Del 0-orienteringsboksen (over) samler skala + kodeliste + feilregister — som
+`text`/`tip`, ALDRI `definition`.
 
 ## Kapittel-DNA (sjangerkapittel)
 

@@ -43,7 +43,15 @@ av én agent som leser hele skjelettet.
 > oppgaver nederst — med `exercise`-blokkene INLINE rett etter eksempelet de
 > hører til (plattformen renderer inline). INGEN oppgave får kreve et begrep/
 > regel/formel/metode som ikke er introdusert tidligere (t.o.m. eksempelet foran
-> eller en refererte forkunnskap). Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
+> eller en refererte forkunnskap). NYBEGYNNER-INNGANG (jf. README «Leserkrav»):
+> boka skal forstås av en som ALDRI har hatt faget — skriv HVER kode (sjanger-/
+> oppgavekode, feilkode #N, karakterbokstav) og all karaktersjargong («C-stoff»/
+> «A-markør») + insider-term FULLT UT i klarspråk ved FØRSTE bruk; ingen kald
+> kode i competenceGoals/læringsmål eller i aller første tekstboks. Bygger du
+> Del 0: legg inn en «Slik leser du denne boka»-orienteringsboks (type `text`
+> eller `tip`, ALDRI `definition` — ville endret flashcard-kvoten) med karakter-/
+> vurderingsskala + kompakt kodeliste + at feil har et samlet register; ramm inn
+> karaktersjargong som motsier eksamensformen. Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
 > (kvoter = skjelettets kvotesammendrag, AUTORITATIVT; options[0] alltid
 > riktig). Referanser du er usikker på merkes (verifiser).
 > VALIDER: python3 json.load per fil; kvotetelling mot skjelettet;
@@ -79,6 +87,12 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > content[] veksler teori→eksempel→oppgave i løkker med `exercise` inline, ikke
 > all teori topp / alle oppgaver bunn; INGEN oppgave krever usett forkunnskap —
 > bare stoff introdusert tidligere i kapitlet eller i en refererte forkunnskap);
+> (3b) nybegynner-lesning av Del 0 (jf. README «Leserkrav»): les kap. 0 som en
+> student som ALDRI har hatt faget — er alle koder (sjanger-/oppgavekoder,
+> feilkoder #N), karaktersjargong («C-stoff»/«A-markør») og insider-termer
+> forklart ved FØRSTE bruk? Finnes «Slik leser du denne boka»-orienteringsboksen
+> (type `text`/`tip`, ALDRI `definition`) med skala + kodeliste + feilregister?
+> Ingen kald kode i competenceGoals/første tekstboks?;
 > (4) faktasjekk mot skjelettkontraktene: ETTERREGN alle talleksempler /
 > kontroller vilkårslister og kausalkjeder ordrett; (5) kvoter må IKKE
 > endres (tell definition-blokker før/etter).
@@ -98,7 +112,12 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > behov). Slutt: grep -i verifiser = 0. Rapporter tabell referanse → utfall.
 
 ## Steg 4 — Sluttport + deploy (deterministisk)
-- [ ] `python3 scripts/hoyskolebok/sjekk-bok.py <emne> "<forbudt-termer>"` → BOKPORT OK
+- [ ] `python3 scripts/hoyskolebok/sjekk-bok.py <emne> "<forbudt-termer>"` → BOKPORT OK.
+      Sjekk også den RÅDGIVENDE «MERKNADER — nybegynner-sjargong»-seksjonen i
+      utskriften (feiler ALDRI porten): karaktersjargong i første blokk uten
+      forklart skala, eller uforklart kode i læringsmål. Rydd merknadene før
+      deploy (jf. README «Leserkrav» — orienteringsboks type `text`/`tip`, ALDRI
+      `definition`).
 - [ ] `npx tsc --noEmit` → stille
 - [ ] `npm run build` → «✓ Compiled successfully» + «Kombinerte NNNN kapitler»
 - [ ] Prod-curl: `PORT=3111 npm run start` i bakgrunn, deretter 200 +

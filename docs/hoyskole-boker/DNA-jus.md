@@ -13,6 +13,11 @@ begge deler eksplisitt — materiell rett alene gir C.
    besvarelse disponeres (tvistepunkt-identifikasjon → hovedregel → vilkår →
    subsumsjon → konklusjon); hva som skiller A fra C fra E (fra sensor-
    veiledningene); bruk av tillatte hjelpemidler (Lovdata) under eksamen.
+   Del 0 skal ha en kort **«Slik leser du denne boka»-boks (type `text` eller
+   `tip`, ALDRI `definition` — påvirker flashcard-kvoten)** som forklarer
+   karakter-/vurderingsskalaen (og at jus-eksamen som oftest er bestått/ikke-
+   bestått — se under), en kompakt liste over sjanger-/oppgavekodene, og at
+   typiske feil har et samlet register.
 2. **Del 1..N — Rettsområder**: én del per rettsområde (fra EKSAMENSANALYSE §2),
    omfang etter gjenganger-score. Innen hver del: regelkapitler → typetilfelle-
    kapitler.
@@ -56,6 +61,20 @@ praktikum-/subsumsjonsoppgave får bare kreve hjemler, vilkår, dommer og læres
 som allerede er introdusert — tidligere i SAMME kapittel (t.o.m. eksempelet rett
 foran) eller i et tidligere kapittel referert i Forkunnskaper-blokken. Ingen oppgave
 skal forutsette en regel leseren ikke har møtt. Sjekk dette eksplisitt ved bygging.
+
+**Ingen uforklart sjargong — jus-insidertermer (UFRAVIKELIG — jf. README
+«Leserkrav»).** Boka skal være forståelig for en student som ALDRI har hatt jus.
+Fagstoffet er allerede nybegynner-vennlig; det er METASPRÅKET rundt eksamen og
+metoden som må ryddes. HVER insider-term forklares i klarspråk ved FØRSTE bruk —
+minst: praktikum, faktum, kumulative vilkår (alle må være oppfylt samtidig),
+subsumsjon, hjemmel, Rt./Ot.prp./NOU, årskoder som V2024/H2023 (vår/høst),
+skjult delspørsmål, beføyelser. Kode og karakterbokstav skal ALDRI stå kald i
+`competenceGoals`/læringsmål eller i aller første tekstboks. **«A-kandidat»-/
+«A-besvarelse»-språket må rammes inn** siden jus-eksamen som oftest er bestått/
+ikke-bestått — bruk det bare som bilde på kvalitetsnivå på en enkeltdrøftelse
+(«slik en sterk besvarelse gjør det»), aldri som om det fantes en A-karakter på
+eksamen. Orienteringsboksen i Del 0 (over) samler skala + kodeliste + at feil
+har register — som `text`/`tip`, ALDRI `definition`.
 
 ## Kapittel-DNA (typetilfellekapittel)
 

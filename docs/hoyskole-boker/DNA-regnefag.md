@@ -10,7 +10,14 @@ mot nettopp disse mønstrene.
 
 1. **Del 0 — Eksamenskart** (1 kapittel): eksamensform, vekting, temafrekvens-
    oversikt («dette testes, så ofte, så tungt»), lesestrategi frem mot eksamen.
-   Dette kapitlet er studentens prioriteringsverktøy.
+   Dette kapitlet er studentens prioriteringsverktøy. Del 0 skal ha en kort
+   **«Slik leser du denne boka»-boks (type `text` eller `tip`, ALDRI
+   `definition` — påvirker flashcard-kvoten)** som forklarer karakter-/
+   vurderingsskalaen, en kompakt liste over oppgave-/sjangerkodene (f.eks.
+   sjanger A–N), og at typiske feil har et samlet register. Boksen skal
+   eksplisitt ramme inn tunge symboler leseren vil møte senere («du trenger ikke
+   forstå disse symbolene ennå — de forklares der de brukes»), slik at et første
+   møte med heavy notasjon ikke skremmer.
 2. **Del 1..N — Temadeler**: én del per hovedtema, ordnet etter faglig
    avhengighet (prerequisites), IKKE etter frekvens. Frekvensen styrer i stedet
    *omfanget*: «må beherskes perfekt»-temaer får 2–4 kapitler + eget
@@ -67,6 +74,16 @@ regneoppgave får bare bruke formler, teoremer og teknikker som allerede er vist
 — tidligere i SAMME kapittel (t.o.m. eksempelet rett foran) eller i et tidligere
 kapittel referert i Forkunnskaper-blokken. Ingen oppgave skal kreve en metode
 leseren ikke har møtt ennå. Sjekk dette eksplisitt ved bygging.
+
+**Ingen uforklart sjargong — koder og fagtermer (UFRAVIKELIG — jf. README
+«Leserkrav»).** Fagstoffet er allerede nybegynner-vennlig; det er METASPRÅKET
+rundt eksamen som må ryddes. HVER oppgavekode (sjanger A–N o.l.), feilkode #N og
+karakterbokstav forklares i klarspråk ved FØRSTE bruk, og skal ALDRI stå kald i
+`competenceGoals`/læringsmål eller i aller første tekstboks. Det samme gjelder
+tunge fagtermer som komparativ statikk, fortegnsubestemthet, IS-RR-PK-modellen,
+Holden-notasjon og endogen/eksogen — skriv termen ut med en klarspråksforklaring
+første gang. Eksamenskart-kapitlet (Del 0, orienteringsboksen over) rammer i
+tillegg eksplisitt inn tunge symboler med «du trenger ikke forstå disse ennå».
 
 ## Kapittel-DNA (drillkapittel — kun for «må beherskes perfekt»-temaer)
 
