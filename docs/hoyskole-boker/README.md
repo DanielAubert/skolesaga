@@ -226,6 +226,20 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | IT2805 Webteknologi (NTNU) | kodefag-hybrid | skjelett |
 | TIØ4215 Kontraktsrett og kontraktsforhandlinger (NTNU) | jus/forhandling-hybrid | skjelett |
 | ECON2200 Matematikk 1/mikro (UiO) | — | analyse (NEDLAGT; dekkes av ECON1100+ECON2220) |
+| MA1301 Tallteori (NTNU) | regnefag/bevis | skjelett (K2) |
+| SØK1011 Markeder og markedssvikt (NTNU) | regnefag/drøfting | skjelett (K2; komplement SOK1002) |
+| OD2200 Odontologi 4. sem – patologi/kraniofacial (UiO) | fakta/pugg-klinisk | skjelett (K2) |
+| MAS116 Hydrodynamikk (HVL) | regnefag | skjelett (K2) |
+| STK2100 Maskinlæring og statistiske metoder (UiO) | regnefag/drøfting | skjelett (K2) |
+| MAT2410 Innføring i kompleks analyse (UiO) | regnefag/bevis | skjelett (K2) |
+| THP100 Humanfysiologi (NIH) | fakta/pugg-mekanisme | skjelett (K2) |
+| THP101 Funksjonell anatomi (NIH) | fakta/pugg + moment | skjelett (K2) |
+| THP202 Treningsfysiologi (NIH) | mekanisme/pugg | skjelett (K2) |
+| THP203 Basal biomekanikk (NIH) | regnefag | skjelett (K2) |
+| THP204 Metabolisme (NIH) | fakta/pugg-biokjemi | skjelett (K2) |
+| LKI235 Treningsfysiologi for idrettsfag (NIH) | mekanisme/pugg | skjelett (K2; THP202-tvilling) |
+| IDR109 Treningslære (NIH) | anvendt/case | skjelett (K2) |
+| MA460 Exercise Biology and Sport Performance Analysis I (NIH master) | drøfting/masternivå | skjelett (K2) |
 
 **Slik settes Opus på et fag senere:** følg PRODUKSJONSLOYPE fase 3–7 —
 instansier `BYGGEKONTRAKT-MAL.md` til `<emne>/BYGGEKONTRAKT.md` (fyll

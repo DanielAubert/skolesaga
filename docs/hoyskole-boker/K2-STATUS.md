@@ -81,8 +81,23 @@ Sterkeste bok-kandidater fra K2, prioritert:
 5. **NIH fysiologi-klyngen + SPM245/SPM-ledelse** — nytt men velbelagt fagfelt.
 De ~28 «analyse gjenstår» er nå analysert ferdig (9. juli).
 
-### Fase 2 (b) — skjelettbygging PÅGÅR (9. juli 2026)
-Bygger skjeletter (maks 4 samtidige Opus-agenter, gate + commit enkeltvis) for
-den prioriterte kandidatlista over. Tier 1: ma1301, sok1011, od2200, mas116-hvl,
-stk2100, mat2410. Tier 2: NIH fysiologiklyngen (thp/lki/idr/ma460) som gruppe.
-Status per skjelett spores i README-statustavla + scratchpad-kø.
+### Fase 2 (b) — skjelettbygging FULLFØRT (9. juli 2026)
+Bygde 14 skjeletter (maks 4 samtidige Opus-agenter, gate + commit enkeltvis), alle
+KVALITETSPORT OK, alt committet:
+- **Tier 1 (6):** ma1301 (32 kap, 523q/548fc), sok1011 (27, 538/524, komplement
+  SOK1002), od2200 (34, 560/656, lav bildeavh.), mas116-hvl (30, 556/588),
+  stk2100 (28, 610/540), mat2410 (29, 564/566).
+- **Tier 2 NIH fysiologiklynge (8):** thp100 (36, 554/576, fundament), thp101
+  (30, 596/662, minuspoeng-MC), thp202 (21, 560/520, navet), thp203 (24, 560/586,
+  regnefag 70/20/10), thp204 (26, 540/594, biokjemi), lki235 (29, 558/594,
+  thp202-tvilling), idr109 (22, 590/596, anvendt), ma460 (30, 662/672, master).
+Klyngen bygget med søsken-kryssreferanser (forkunnskaps-lenker, ikke dybdegjentakelse).
+
+MERKNADER for fase 3–7 (bokbygging/wiring):
+- Sjekk at NTNU/HVL/NIH finnes i src/app/bok/trinn/hoyere/institusjoner.ts.
+- mat2410: gate rapporterte 0 prøve-kvote-linjer (prøver finnes, format-avvik) — verifiser prøvekvoter ved bokbygging.
+- Alle skjeletter har *(verifiser)*-flagg på usikre tall/paragrafer/pensumankere — Opus må sjekke ved bygging.
+
+GJENSTÅR i K2 (ikke bygget, dokumentert som lavere prioritet): øvrige ~88 aktive
+K2-fag med analyse (bl.a. NTNU MA-grunnkurs 1101–1202, SOK-serien, UiO psykologi/
+samfunnsfag/odontologi-rest, resten av NIH). Klare for skjelett hvis mandatet utvides.
