@@ -28,7 +28,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "«Gjør rede for X» er fagets grunnform — redegjørelse (RED): presis, trinnvis rekonstruksjon av en tenkers argument.",
     },
     {
-      question: "En oppgave sier: «Forklar hva Rawls mener med utdraget [A].» Hvilken sjanger er dette?",
+      question: "En oppgave sier: «Forklar hva Rawls mener med utdraget a).» Hvilken sjanger er dette?",
       options: ["Sitattolkning (SIT)", "Redegjørelse (RED)", "Sammenligning (SAM)", "Redegjør-og-drøft-hybrid (HYB)"],
       explanation: "«Forklar hva X mener med utdraget» er sitattolkning (SIT): parafraser utdraget, identifiser dets funksjon og plasser det i argumentets helhet.",
     },
@@ -44,7 +44,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner redegjør-og-drøft-hybriden (HYB), den økende sjangeren fra 2023?",
-      options: ["Solid redegjørelse først, deretter en kort, forbeholden selvstendig vurdering", "Kun en fri, personlig mening uten redegjørelse", "Ren gjengivelse av teorien to ganger", "Utelukkende sitattolkning av [A]–[E]"],
+      options: ["Solid redegjørelse først, deretter en kort, forbeholden selvstendig vurdering", "Kun en fri, personlig mening uten redegjørelse", "Ren gjengivelse av teorien to ganger", "Utelukkende sitattolkning av a)–e)"],
       explanation: "HYB krever solid redegjørelse etterfulgt av en kort, forbeholden vurdering — gjerne med en innvending forankret i pensum. Sensor bruker skjønn og raushet, siden dette er et innføringsemne.",
     },
     {
@@ -105,7 +105,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "En illustrasjon anskueliggjør poenget, men vekten ligger i premissene den viser. En vanlig feil er å behandle illustrasjonen som om den var selve argumentet.",
     },
     {
-      question: "Hva krever kalibreringsregelen «behandle alle utdragene» i en [A]–[E]-oppgave?",
+      question: "Hva krever kalibreringsregelen «behandle alle utdragene» i en a)–e)-oppgave?",
       options: ["Hvert utdrag må tolkes og plasseres i argumentets helhet", "Man velger det beste utdraget og hopper over resten", "Man oversetter alle utdragene ordrett uten kommentar", "Man behandler kun de engelske utdragene"],
       explanation: "Å konsentrere seg om ett utdrag og hoppe over resten (feil #4) svekker svaret vesentlig. Alle utdrag må behandles, om enn kortere per utdrag.",
     },
@@ -135,7 +135,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Det subtile ekstra er A-markøren: f.eks. at det er muligheten (ikke handlingen) som er poenget, eller at ulike deler av en teori er ulikt godt begrunnet. Legg det til — men aldri på bekostning av det sentrale poenget.",
     },
     {
-      question: "Omtrent hvor mye tid bør du sette av per utdrag i en [A]–[E]-sitattolkningsoppgave?",
+      question: "Omtrent hvor mye tid bør du sette av per utdrag i en a)–e)-sitattolkningsoppgave?",
       options: ["Cirka 8–12 minutter per utdrag, slik at alle blir behandlet", "Cirka 40–60 minutter på det viktigste utdraget og null på resten", "Ett minutt per utdrag for å rekke over andre oppgaver", "All tiden på det første utdraget"],
       explanation: "Regn ~8–12 min per utdrag og fordel tiden slik at alle behandles — bedre å plassere alle kort enn å utbrodere ett og hoppe over resten.",
     },
@@ -163,7 +163,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en sammenligningsdimensjon?",
-      options: ["En eksplisitt akse begge posisjoner måles langs, f.eks. «hva teller som ufrihet?»", "En innledning som presenterer begge tenkerne", "Et sitatutdrag merket [A]", "Antall sider man bruker på hver tenker"],
+      options: ["En eksplisitt akse begge posisjoner måles langs, f.eks. «hva teller som ufrihet?»", "En innledning som presenterer begge tenkerne", "Et sitatutdrag merket a)", "Antall sider man bruker på hver tenker"],
       explanation: "En dimensjon er en eksplisitt akse der de to posisjonene måles mot hverandre. Egne, treffende dimensjoner er selvstendighet (Akse 4) og A-markøren i SAM.",
     },
     {
@@ -334,14 +334,14 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Verdipluralismen er bakgrunnen for Berlins skepsis mot at én «sannhet» om det gode liv skal tvinges på alle.",
     },
     {
-      question: "Hvilken funksjon har utdrag [A] (om negativ frihet) i Berlins argument?",
+      question: "Hvilken funksjon har utdrag a) (om negativ frihet) i Berlins argument?",
       options: ["Definisjon/premiss — det fastlegger hva negativ frihet er", "Illustrasjon av positiv frihet", "Motargument mot Berlin", "En historisk digresjon uten funksjon"],
-      explanation: "[A] definerer negativ frihet (fravær av hindring påført av andre) og bærer det sentrale poenget — grunnmuren i den negative delen.",
+      explanation: "a) definerer negativ frihet (fravær av hindring påført av andre) og bærer det sentrale poenget — grunnmuren i den negative delen.",
     },
     {
-      question: "Hvilken funksjon har utdrag [B] (empirisk vs. egentlig selv)?",
+      question: "Hvilken funksjon har utdrag b) (empirisk vs. egentlig selv)?",
       options: ["Kritisk premiss — det avdekker faren i positiv frihet", "Nøytral definisjon av positiv frihet", "Illustrasjon av negativ frihet", "Berlins konklusjon om at frihet er umulig"],
-      explanation: "[B] viser mekanismen bak «tvang til frihet» — det er broen fra beskrivelse til advarsel, ikke en nøytral definisjon.",
+      explanation: "b) viser mekanismen bak «tvang til frihet» — det er broen fra beskrivelse til advarsel, ikke en nøytral definisjon.",
     },
     {
       question: "Hva er forskjellen på personlig og politisk frihet i despot-caset?",
@@ -446,9 +446,9 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Å stå under vilkårlig makt er ufrihet selv om makten aldri brukes — kjernen i dominans.",
     },
     {
-      question: "Hva er funksjonen til utdrag [C] (om den liberale despoten) i Pettits argument?",
+      question: "Hva er funksjonen til utdrag c) (om den liberale despoten) i Pettits argument?",
       options: ["Anvendelse/illustrasjon — det viser hvor ikke-dominans slår Berlin", "Nøytral definisjon av frihet", "Et motargument mot Pettit", "En historisk digresjon"],
-      explanation: "[C] anvender dominansbegrepet på despoten og avslører grensen for Berlins negative frihet.",
+      explanation: "c) anvender dominansbegrepet på despoten og avslører grensen for Berlins negative frihet.",
     },
     {
       question: "«Deres frihet er en gave han kan ta tilbake» — hva uttrykker dette?",
@@ -563,9 +563,9 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "I begge tilfeller er ufriheten avhengigheten (mulig tilbaketrekking), ikke faktisk innblanding.",
     },
     {
-      question: "Hva er funksjonen til utdrag [B] (om bemyndigelse som kan trekkes tilbake)?",
+      question: "Hva er funksjonen til utdrag b) (om bemyndigelse som kan trekkes tilbake)?",
       options: ["Kritisk premiss mot kontraktsmyndighet — kontroll > samtykke", "Nøytral definisjon av staten", "Illustrasjon av veldedighet", "Et argument for engangssamtykke"],
-      explanation: "[B] innfører det subtile poenget: løpende, tilbaketrekkbar bemyndigelse fjerner dominans, ikke opprinnelig ja.",
+      explanation: "b) innfører det subtile poenget: løpende, tilbaketrekkbar bemyndigelse fjerner dominans, ikke opprinnelig ja.",
     },
     {
       question: "Hva følger av ikke-dominans for velferdsstaten?",
@@ -842,7 +842,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Rawls uten sløret/utgangsposisjonen er den klassiske kjernefeilen (#1) — svaret faller til svakt.",
     },
     {
-      question: "I en [A]–[E]-sitatoppgave om Rawls, hva er den typiske feilen (#4)?",
+      question: "I en a)–e)-sitatoppgave om Rawls, hva er den typiske feilen (#4)?",
       options: ["Å konsentrere seg om ett–to utdrag og hoppe over resten", "Å tolke alle utdragene grundig", "Å plassere hvert utdrag i argumentets helhet", "Å identifisere funksjonen til hvert utdrag"],
       explanation: "Alle utdrag skal behandles; å hoppe over noen svekker svaret vesentlig.",
     },
@@ -959,7 +959,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Ulikheten er instrumentelt begrunnet — lov i den grad den løfter bunnen, ikke fordi noen «fortjener» den.",
     },
     {
-      question: "Hva er Rawls' presise poeng om fordelingen av talenter (utdrag [B])?",
+      question: "Hva er Rawls' presise poeng om fordelingen av talenter (utdrag b))?",
       options: ["Selve fordelingen er verken rettferdig eller urettferdig — det er institusjonenes håndtering av den som kan bedømmes", "At ulik talent i seg selv er urettferdig", "At talent alltid bør belønnes maksimalt", "At talent er jevnt fordelt i befolkningen"],
       explanation: "Urettferdigheten ligger i strukturen, ikke i naturen. Et subtilt, presist poeng.",
     },
@@ -1554,7 +1554,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Det moralsk vilkårlige lotteriet er premisset for forskjellsprinsippet.",
     },
     {
-      question: "Hva er den alvorligste feilen i en [A]–[D] sitatoppgave?",
+      question: "Hva er den alvorligste feilen i en a)–d) sitatoppgave?",
       options: ["Å hoppe over ett eller flere utdrag (#4)", "Å tolke alle fire", "Å plassere utdragene i helheten", "Å bruke presise begreper"],
       explanation: "Behandle ALLE utdrag — å hoppe over noen svekker svaret vesentlig.",
     },
@@ -1736,17 +1736,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Utdraget «makt, men ikke ære» viser en dom over handlingen som konsekvensregnestykket ikke opphever.",
     },
     {
-      question: "Utdrag [B]: «Den som når makten ved svik og grusomhet mot venner kan vinne herredømme, men ikke ære.» Hvilken funksjon har utdraget?",
+      question: "Utdrag b): «Den som når makten ved svik og grusomhet mot venner kan vinne herredømme, men ikke ære.» Hvilken funksjon har utdraget?",
       options: ["Det viser det deontologiske innslaget — en moralsk grense i seg selv som utfallet ikke opphever", "Det viser ren konsekvensialisme — bare utfallet teller", "Det er en tom retorisk floskel uten funksjon", "Det viser at Machiavelli er generelt amoralsk"],
       explanation: "«Makt, men ikke ære» er nøkkelutdraget mot feilkode #10 — beviset på vekslingen.",
     },
     {
-      question: "Utdrag [A]: «Grusomhet godt brukt er den som skjer på én gang, av nødvendighet.» Hvilken funksjon har utdraget?",
+      question: "Utdrag a): «Grusomhet godt brukt er den som skjer på én gang, av nødvendighet.» Hvilken funksjon har utdraget?",
       options: ["Det er et premiss i den kloke (instrumentelle) politikken — et effektivitetskriterium, ikke et moralsk", "Det er et deontologisk forbud mot grusomhet", "Det viser at Machiavelli fordømmer all grusomhet", "Det er en moralsk anbefaling om godhet"],
       explanation: "Kriteriet god/dårlig gjelder hva som *virker* for å feste makten — den konsekvensialistiske siden av vekslingen.",
     },
     {
-      question: "Utdrag [C]: «En fyrste bør synes barmhjertig og tro, men ha sinnet beredt til det motsatte når nødvendigheten byder det.» Hva viser utdraget?",
+      question: "Utdrag c): «En fyrste bør synes barmhjertig og tro, men ha sinnet beredt til det motsatte når nødvendigheten byder det.» Hva viser utdraget?",
       options: ["Å *fremstå* som moralsk — klok politikk anvendt på fyrstens omdømme", "At fyrsten faktisk bør være moralsk god", "Et deontologisk forbud mot løgn", "At Fortuna styrer alt"],
       explanation: "Dydens *utseende* tjener maktens formål — et tydelig sted der «virker det?» skilles fra «er det rett?».",
     },
@@ -1883,7 +1883,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Kjernefeilen er å ikke levere de tre distinkte argumentene.",
     },
     {
-      question: "Utdrag [A]: «Om alle minus én var enige, ville menneskeheten ikke være mer berettiget til å tie den ene enn han til å tie menneskeheten.» Hvilket argument støtter utdraget?",
+      question: "Utdrag a): «Om alle minus én var enige, ville menneskeheten ikke være mer berettiget til å tie den ene enn han til å tie menneskeheten.» Hvilket argument støtter utdraget?",
       options: ["Argument 1 (intellektuell ydmykhet) — flertallsstyrke gir ikke rett, det ville forutsette ufeilbarlighet", "Argument 3 (anti-dogmatisk)", "Skadeprinsippet", "Brisons kritikk"],
       explanation: "Utdraget etablerer at feilbarligheten, ikke flertallsstyrke, avgjør.",
     },
@@ -2174,7 +2174,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Trinn 1 er å plassere tenkeren og spørsmålet i én setning. Innledning (#3) er bortkastet, og illustrasjon kommer sist (trinn 4).",
     },
     {
-      question: "Hva er den avgjørende regelen i en SIT-oppgave med utdrag [A]–[E]?",
+      question: "Hva er den avgjørende regelen i en SIT-oppgave med utdrag a)–e)?",
       options: ["Behandle hvert eneste utdrag og plasser det i argumentets helhet", "Velg det klareste utdraget og hopp over resten", "Parafrasere hvert utdrag linje for linje uten å plassere det", "Bruke utdragene bare som pynt i innledningen"],
       explanation: "Jernregelen er å behandle alle utdrag (feil #4-vaksine) og plassere hvert i helheten. Å hoppe over utdrag eller kun parafrasere løsrevet (feil #5) svekker svaret.",
     },
@@ -2395,9 +2395,9 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "A ≈ C i lengde; A navngir apparatet presist, kobler maximin til uvissheten, skiller utdragspremissene og legger til det subtile ekstra. Gapet er presisjon, ikke lengde.",
     },
     {
-      question: "I modell 1s SIT-del: hva er forskjellen på utdrag [A] og [B]?",
-      options: ["[A] motiverer sløret (upartiskhet), [B] motiverer maximin (rasjonalitet under uvisse)", "De er samme poeng", "[A] gjelder Locke, [B] gjelder Rawls", "[B] motiverer sløret, ikke maximin"],
-      explanation: "Å skille de to premissene er A-grepet. Å smelte dem sammen er feil #7. [A] begrunner hvorfor sløret trengs; [B] begrunner valgregelen under sløret.",
+      question: "I modell 1s SIT-del: hva er forskjellen på utdrag a) og b)?",
+      options: ["a) motiverer sløret (upartiskhet), b) motiverer maximin (rasjonalitet under uvisse)", "De er samme poeng", "a) gjelder Locke, b) gjelder Rawls", "b) motiverer sløret, ikke maximin"],
+      explanation: "Å skille de to premissene er A-grepet. Å smelte dem sammen er feil #7. a) begrunner hvorfor sløret trengs; b) begrunner valgregelen under sløret.",
     },
     {
       question: "Hvilken akse er tyngst i en Berlin vs. Pettit-sammenligning (modell 2)?",
@@ -2719,9 +2719,9 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "«Hva ville X ment om dette?» er ANV — begrepsapparatet skal *brukes* på situasjonen, ikke gjengis generelt.",
     },
     {
-      question: "En oppgave gir fire utdrag [A]–[D] og ber deg forklare hva de betyr. Hvilken sjanger?",
+      question: "En oppgave gir fire utdrag a)–d) og ber deg forklare hva de betyr. Hvilken sjanger?",
       options: ["SIT (sitattolkning)", "RED (redegjørelse)", "SAM (sammenligning)", "ANV (anvendelse)"],
-      explanation: "Utdrag [A]–[D] som skal tolkes og plasseres er SIT. Behandle alle utdrag (feil #4-vaksine).",
+      explanation: "Utdrag a)–d) som skal tolkes og plasseres er SIT. Behandle alle utdrag (feil #4-vaksine).",
     },
     {
       question: "En oppgave lyder «Gjør rede for X og drøft kort i lys av en kritiker». Hvilken sjanger?",
@@ -2764,9 +2764,9 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
       explanation: "Ikke-dominans = fravær av *evne* til ukontrollert innblanding. Muligheten er frihetsberøvelse — den liberale despoten dominerer uten å gripe inn.",
     },
     {
-      question: "I prøve 2s SIT-del: hva skiller utdrag [A] (om at velgerne ikke skal kjenne sin plass) fra [B] (om å sikre seg mot det verste)?",
-      options: ["[A] motiverer sløret, [B] motiverer maximin", "De er samme poeng", "[A] gjelder Locke", "[B] motiverer sløret"],
-      explanation: "[A] begrunner uvitenhetssløret (upartiskhet); [B] begrunner maximin (rasjonalitet under uvisse). Å smelte dem sammen er feil #7.",
+      question: "I prøve 2s SIT-del: hva skiller utdrag a) (om at velgerne ikke skal kjenne sin plass) fra b) (om å sikre seg mot det verste)?",
+      options: ["a) motiverer sløret, b) motiverer maximin", "De er samme poeng", "a) gjelder Locke", "b) motiverer sløret"],
+      explanation: "a) begrunner uvitenhetssløret (upartiskhet); b) begrunner maximin (rasjonalitet under uvisse). Å smelte dem sammen er feil #7.",
     },
     {
       question: "Hva må ANV-svaret om veldedighet (prøve 3b) gjøre?",

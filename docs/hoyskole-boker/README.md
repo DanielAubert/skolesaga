@@ -64,6 +64,13 @@ docs/hoyskole-boker/
   som finnes.
 - **Lett å lese og engasjerende**: korte avsnitt, aktiv «du»-form, konkrete
   eksempler før formalisme — uten faglige feil; presisjon vinner ved tvil.
+- **Godt, flytende norsk (UFRAVIKELIG, fra produkteier)**: hele setninger, ikke
+  telegramstil («Funksjon: premiss. Plass: startpunktet.» er FORBUDT — skriv
+  «Utdraget fungerer som premiss og er startpunktet i argumentet»). Naturlig
+  norsk ordstilling, ingen anglisismer eller stivt kansellispråk.
+- **Listemerking med små bokstaver (UFRAVIKELIG, fra produkteier)**: utdrag,
+  alternativer og deloppgaver merkes a), b), c) — ALDRI A), B), [A], [B].
+  (Unntak: karakteruttrykk som «en A-besvarelse» er ikke listemerking.)
 - **Meningsfulle oppgaver**: hver oppgave er eksplisitt eksamensforankret
   (si hvilken sjanger den trener) eller åpenbart relevant på annen måte.
 - **Læringsløkke per delkapittel — Teori → Eksempel → Oppgave (UFRAVIKELIG, fra produkteier):**
