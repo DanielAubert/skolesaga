@@ -241,17 +241,17 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er negativ frihet hos Berlin?",
       options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også naturlige", "Evnen til å realisere sitt egentlige selv", "Statens plikt til å sikre borgernes velferd"],
-      explanation: "Negativ frihet = fravær av *forsettlig* innblanding fra andre («hvor mange dører står åpne»). «Fravær av enhver hindring» mister forsettlig-poenget; selvrealisering er positiv frihet.",
+      explanation: "Negativ frihet = fravær av hindring *påført av andre mennesker* («hvor mange dører står åpne») — ofte skjerpet (Hayek-nært) til *forsettlig* innblanding. «Fravær av enhver hindring» mister grunnskillet andres hindring vs. manglende egen evne; selvrealisering er positiv frihet.",
     },
     {
-      question: "Hvilket ord er kjernen i Berlins negative frihetsbegrep?",
+      question: "Hvilket av disse ordene hører til Berlins *negative* frihetsbegrep (og ikke til det positive)?",
       options: ["Forsettlig", "Egentlig", "Rasjonelt", "Politisk"],
-      explanation: "«Forsettlig» avgrenser: bare bevisst hindring fra en annen vilje teller. «Egentlig»/«rasjonelt» hører til positiv frihet.",
+      explanation: "«Forsettlig» hører til den negative siden — en vanlig (Hayek-nær) skjerping av grunnskillet «hindring fra andre vs. manglende egen evne». «Egentlig»/«rasjonelt» hører til positiv frihet.",
     },
     {
       question: "Er fattigdom i seg selv ufrihet i Berlins negative forstand?",
-      options: ["Nei — det er manglende evne, ikke forsettlig innblanding", "Ja — enhver hindring er ufrihet", "Ja — fordi den skyldes staten", "Bare hvis den er selvforskyldt"],
-      explanation: "Fattigdom er manglende evne, ikke forsettlig innblanding fra en annen vilje. Berlin: det er et onde, men å kalle det «ufrihet» tømmer begrepet.",
+      options: ["Nei — i utgangspunktet manglende evne, ikke en hindring påført av andre", "Ja — enhver hindring er ufrihet", "Ja — fordi den skyldes staten", "Bare hvis den er selvforskyldt"],
+      explanation: "Fattigdom er i utgangspunktet manglende evne, ikke en hindring fra en annen vilje. Berlin kaller den et onde, men åpner selv for at den *kan* være ufrihet dersom den skyldes menneskeskapte ordninger andre opprettholder — å kalle enhver manglende evne «ufrihet» tømmer likevel begrepet.",
     },
     {
       question: "Hva er positiv frihet hos Berlin?",
@@ -286,12 +286,12 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken av disse innskrenker negativ frihet?",
       options: ["Et lovforbud vedtatt av myndighetene", "At du ikke kan puste under vann", "At du er for fattig til å reise", "At du mangler talent for musikk"],
-      explanation: "Forbudet er forsettlig innblanding fra andre. De øvrige er naturlige grenser eller manglende evne.",
+      explanation: "Forbudet er en hindring påført av andre (staten) — bevisst, altså også forsettlig. De øvrige er naturlige grenser eller manglende evne.",
     },
     {
       question: "Hva menes med at negativ frihet handler om «hvor mange dører som står åpne»?",
       options: ["Friheten måles ved handlingsmuligheter ingen andre bevisst har stengt", "Friheten måles ved hva du faktisk klarer å gjøre", "Friheten måles ved graden av selvstyre", "Friheten måles ved hvor mye eiendom du har"],
-      explanation: "Bildet fanger fravær av forsettlig innblanding, ikke faktisk evne eller selvstyre.",
+      explanation: "Bildet fanger fravær av hindring påført av andre, ikke faktisk evne eller selvstyre.",
     },
     {
       question: "Hva er det subtile ekstra poenget som løfter et Berlin-svar til A?",
@@ -310,13 +310,13 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil begår kandidaten som definerer negativ frihet som «fravær av enhver hindring»?",
-      options: ["Feil #1/#7 — mister forsettlig-poenget og blander mot manglende evne", "Ingen feil — det er en korrekt definisjon", "Feil #3 — unødig innledning", "Feil #6 — besvarer bare halve settet"],
-      explanation: "Uten «forsettlig» teller også naturlige grenser og manglende evne som ufrihet — kjernefeilen.",
+      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Ingen feil — det er en korrekt definisjon", "Feil #3 — unødig innledning", "Feil #6 — besvarer bare halve settet"],
+      explanation: "«Fravær av enhver hindring» viser bort grunnskillet: da teller også naturlige grenser og manglende evne som ufrihet — kjernefeilen.",
     },
     {
       question: "En arbeidsgiver truer med oppsigelse hvis du stemmer «feil». Er dette negativ ufrihet?",
       options: ["Ja — trusselen er bevisst hindring fra en annen aktør", "Nei — det er bare en indre bekymring", "Nei — ingen fysisk hindring reises", "Bare hvis du faktisk blir sagt opp"],
-      explanation: "Trusler innsnevrer handlingsrommet gjennom en annens forsett; det teller som forsettlig innblanding uansett om trusselen realiseres.",
+      explanation: "Trusselen er en hindring påført av en annen aktør — og attpåtil en bevisst, forsettlig en; den innsnevrer handlingsrommet uansett om den realiseres.",
     },
     {
       question: "Hvilket spørsmål stiller positiv frihet, i motsetning til negativ?",
@@ -336,7 +336,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvilken funksjon har utdrag [A] (om negativ frihet) i Berlins argument?",
       options: ["Definisjon/premiss — det fastlegger hva negativ frihet er", "Illustrasjon av positiv frihet", "Motargument mot Berlin", "En historisk digresjon uten funksjon"],
-      explanation: "[A] definerer negativ frihet (fravær av forsettlig hindring) og bærer det sentrale poenget — grunnmuren i den negative delen.",
+      explanation: "[A] definerer negativ frihet (fravær av hindring påført av andre) og bærer det sentrale poenget — grunnmuren i den negative delen.",
     },
     {
       question: "Hvilken funksjon har utdrag [B] (empirisk vs. egentlig selv)?",
@@ -351,7 +351,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor sier Berlin at manglende evne ikke er ufrihet?",
       options: ["Fordi ufrihet krever en annen vilje som bevisst stenger en dør", "Fordi manglende evne alltid er selvforskyldt", "Fordi evne og frihet er det samme", "Fordi staten uansett har ansvaret"],
-      explanation: "Uten en forsettlig hindring fra en annen aktør er det ingen negativ ufrihet — bare en begrensning i evne.",
+      explanation: "Uten en hindring påført av en annen aktør er det ingen negativ ufrihet — bare en begrensning i egen evne.",
     },
     {
       question: "Hva binder kapittel 1.1 sammen med 1.2 (drøftingsaksen)?",
@@ -607,7 +607,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Negativ frihet er fravær av hva?",
       options: ["Forsettlig innblanding fra andre", "Enhver hindring, også naturlige", "Alle ønsker man ikke får oppfylt", "Statlig velferd"],
-      explanation: "Kjernen er *forsettlig* innblanding fra en annen vilje — ikke enhver hindring.",
+      explanation: "Kjernen er hindring påført av andre mennesker (ofte skjerpet Hayek-nært til *forsettlig* innblanding) — ikke enhver hindring.",
     },
     {
       question: "Hvilket begrep eier Berlin?",
@@ -621,8 +621,8 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er fattigdom i seg selv negativ ufrihet hos Berlin?",
-      options: ["Nei — det er manglende evne, ikke forsettlig innblanding", "Ja, alltid", "Ja, fordi den skyldes staten", "Bare hvis den er selvforskyldt"],
-      explanation: "Negativ ufrihet krever forsettlig innblanding fra en annen vilje.",
+      options: ["Nei — i utgangspunktet manglende evne, ikke en hindring påført av andre", "Ja, alltid", "Ja, fordi den skyldes staten", "Bare hvis den er selvforskyldt"],
+      explanation: "Negativ ufrihet krever en hindring påført av en annen vilje. Berlin åpner riktignok for at fattigdom *kan* være ufrihet dersom den skyldes menneskeskapte ordninger, men i seg selv er den manglende evne.",
     },
     {
       question: "Hva spør positiv frihet om?",
@@ -706,8 +706,8 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil er det å definere negativ frihet som «fravær av enhver hindring»?",
-      options: ["Feil #1/#7 — mister forsettlig-poenget", "Feil #3 — unødig innledning", "Feil #6 — halve settet", "Ingen feil"],
-      explanation: "Uten «forsettlig» teller også manglende evne som ufrihet — kjernefeilen.",
+      options: ["Feil #1/#7 — mister grunnskillet «andres hindring vs. manglende egen evne»", "Feil #3 — unødig innledning", "Feil #6 — halve settet", "Ingen feil"],
+      explanation: "Da viskes grunnskillet ut, og også manglende evne teller som ufrihet — kjernefeilen.",
     },
     {
       question: "Hvilken feil er det å gjengi Pettit uten dominans-/kontrollpoenget?",
@@ -2191,7 +2191,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det sentrale poenget i Berlins negative frihet?",
       options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
-      explanation: "Negativ frihet = fravær av *forsettlig* innblanding. Å definere den som fravær av enhver hindring mister «forsettlig»-poenget; det egentlige selv hører til positiv frihet.",
+      explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Å definere den som fravær av enhver hindring mister grunnskillet andres hindring vs. manglende egen evne; det egentlige selv hører til positiv frihet.",
     },
     {
       question: "Hva er det sentrale poenget i en Platon-redegjørelse?",
@@ -2468,8 +2468,8 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget i øvingseksamen A oppgave 1 (Berlin vs. Pettit)?",
-      options: ["Negativ frihet = forsettlig innblanding; ikke-dominans = evne til ukontrollert innblanding", "At begge er opptatt av frihet", "At Pettit levde etter Berlin", "Communal provision"],
-      explanation: "Begge sentrale poeng må med: Berlins forsettlige innblanding og Pettits evne til ukontrollert innblanding, med despoten som testcase.",
+      options: ["Negativ frihet = fravær av hindring fra andre; ikke-dominans = fravær av evne til ukontrollert innblanding", "At begge er opptatt av frihet", "At Pettit levde etter Berlin", "Communal provision"],
+      explanation: "Begge sentrale poeng må med: Berlins hindring påført av andre (faktisk innblanding) og Pettits evne til ukontrollert innblanding (dominans), med despoten som testcase.",
     },
     {
       question: "I øvingseksamen A oppgave 2: hva er funksjonen til utdraget om at ingen skal ha forhandlingsmakt fra tilfeldige fødselsfortrinn?",
@@ -2509,7 +2509,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er negativ frihet hos Berlin?",
       options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
-      explanation: "Negativ frihet = fravær av *forsettlig* innblanding. Manglende evne (fattigdom) er ikke i seg selv ufrihet negativt sett.",
+      explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Manglende evne (fattigdom) er i utgangspunktet ikke ufrihet negativt sett.",
     },
     {
       question: "Hva er dominans hos Pettit?",
@@ -2831,7 +2831,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er det sentrale poenget i Berlins negative frihet?",
       options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering"],
-      explanation: "Negativ frihet = fravær av *forsettlig* innblanding. Å definere den som fravær av enhver hindring mister «forsettlig»-poenget (feil #1/#7).",
+      explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Å definere den som fravær av enhver hindring mister grunnskillet andres hindring vs. manglende egen evne (feil #1/#7).",
     },
     {
       question: "Hva er strukturen i firetrinns-RED?",
