@@ -57,6 +57,21 @@ export default function ProfilePage() {
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [deletionImpact, setDeletionImpact] = useState<{ label: string; count: number }[] | null>(null);
+
+  const handleOpenConfirmDelete = async () => {
+    setConfirmDelete(true);
+    // Kontoen er felles med eksamenssett.no – sjekk om kjøp/abonnement ryker
+    try {
+      const response = await fetch("/api/user/deletion-impact");
+      if (response.ok) {
+        const data = await response.json();
+        setDeletionImpact(data.eksamenssett?.hasActivity ? data.eksamenssett.details : []);
+      }
+    } catch {
+      setDeletionImpact([]);
+    }
+  };
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [savingConsent, setSavingConsent] = useState(false);
   const [consentError, setConsentError] = useState<string | null>(null);
@@ -387,7 +402,7 @@ export default function ProfilePage() {
                 <Button
                   variant="outline"
                   className="w-full justify-start text-destructive hover:text-destructive"
-                  onClick={() => setConfirmDelete(true)}
+                  onClick={handleOpenConfirmDelete}
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
                   Slett kontoen min
@@ -398,6 +413,23 @@ export default function ProfilePage() {
                     Er du sikker? Kontoen din og alle lagrede data (fremgang, resultater og
                     innleveringer) slettes permanent. Dette kan ikke angres.
                   </p>
+                  {deletionImpact && deletionImpact.length > 0 && (
+                    <div className="rounded-md border border-destructive bg-destructive/10 p-3 text-sm">
+                      <p className="font-semibold text-destructive">
+                        ⚠️ Kontoen din brukes også på eksamenssett.no
+                      </p>
+                      <p className="mt-1">
+                        Sletter du den, mister du også dette der:
+                      </p>
+                      <ul className="list-disc list-inside mt-1">
+                        {deletionImpact.map((d) => (
+                          <li key={d.label}>
+                            {d.count} {d.label}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   {deleteError && (
                     <p className="text-sm text-destructive" role="alert">{deleteError}</p>
                   )}

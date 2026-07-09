@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/config";
 import { createClient } from "@supabase/supabase-js";
+import { getEksamenssettImpact } from "@/lib/eksamenssett-impact";
 
 function getSupabaseAdmin() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -50,7 +51,25 @@ export async function DELETE(
       return NextResponse.json({ message: "Bruker ikke funnet" }, { status: 404 });
     }
 
-    console.log(`[Admin] Sletter bruker: ${user.id}`);
+    // Kontoen er felles med eksamenssett.no. Har brukeren kjøp/abonnement der,
+    // kreves eksplisitt bekreftelse (?force=true) før sletting.
+    const { searchParams } = new URL(request.url);
+    const force = searchParams.get("force") === "true";
+
+    const impact = await getEksamenssettImpact(supabase, userId);
+
+    if (impact.hasActivity && !force) {
+      return NextResponse.json(
+        {
+          message: "Brukeren har kjøp eller abonnement på eksamenssett.no",
+          requiresConfirmation: true,
+          impact: impact.details,
+        },
+        { status: 409 }
+      );
+    }
+
+    console.log(`[Admin] Sletter bruker: ${user.id}${impact.hasActivity ? " (med eksamenssett.no-aktivitet, force bekreftet)" : ""}`);
 
     // Slett relaterte data i riktig rekkefølge (foreign key constraints)
     const deletions = [

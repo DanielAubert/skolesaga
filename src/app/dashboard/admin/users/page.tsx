@@ -62,6 +62,7 @@ export default function AdminUsersPage() {
   const [total, setTotal] = useState(0);
   const [consentTotal, setConsentTotal] = useState(0);
   const [deleteUser, setDeleteUser] = useState<User | null>(null);
+  const [deleteImpact, setDeleteImpact] = useState<{ label: string; count: number }[] | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [updatingRoleId, setUpdatingRoleId] = useState<string | null>(null);
 
@@ -130,9 +131,12 @@ export default function AdminUsersPage() {
 
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/admin/users/${deleteUser.id}`, {
-        method: "DELETE",
-      });
+      // Andre klikk (etter 409-varsel) bekrefter med force=true
+      const force = deleteImpact !== null;
+      const response = await fetch(
+        `/api/admin/users/${deleteUser.id}${force ? "?force=true" : ""}`,
+        { method: "DELETE" }
+      );
 
       const data = await response.json();
 
@@ -140,6 +144,10 @@ export default function AdminUsersPage() {
         setUsers(users.filter((u) => u.id !== deleteUser.id));
         setTotal(total - 1);
         setDeleteUser(null);
+        setDeleteImpact(null);
+      } else if (response.status === 409 && data.requiresConfirmation) {
+        // Brukeren har kjøp på eksamenssett.no — vis varsel og krev nytt klikk
+        setDeleteImpact(data.impact || []);
       } else {
         alert(`Feil: ${data.message}`);
       }
@@ -373,7 +381,13 @@ export default function AdminUsersPage() {
       <Footer />
 
       {/* Bekreftelsesdialog */}
-      <AlertDialog open={!!deleteUser} onOpenChange={() => setDeleteUser(null)}>
+      <AlertDialog
+        open={!!deleteUser}
+        onOpenChange={() => {
+          setDeleteUser(null);
+          setDeleteImpact(null);
+        }}
+      >
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
@@ -396,16 +410,43 @@ export default function AdminUsersPage() {
               <span className="text-destructive font-medium">
                 Denne handlingen kan ikke angres.
               </span>
+              {deleteImpact && (
+                <>
+                  <br />
+                  <br />
+                  <span className="block rounded-lg border border-destructive bg-destructive/10 p-3 text-left">
+                    <strong className="text-destructive">
+                      ⚠️ Kontoen er felles med eksamenssett.no
+                    </strong>
+                    <br />
+                    Brukeren har aktivitet der som også slettes:
+                    <ul className="list-disc list-inside mt-1">
+                      {deleteImpact.map((d) => (
+                        <li key={d.label}>
+                          {d.count} {d.label}
+                        </li>
+                      ))}
+                    </ul>
+                  </span>
+                </>
+              )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel disabled={isDeleting}>Avbryt</AlertDialogCancel>
             <AlertDialogAction
-              onClick={handleDelete}
+              onClick={(e) => {
+                e.preventDefault();
+                handleDelete();
+              }}
               disabled={isDeleting}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
-              {isDeleting ? "Sletter..." : "Ja, slett bruker"}
+              {isDeleting
+                ? "Sletter..."
+                : deleteImpact
+                ? "Ja, slett likevel (inkl. kjøp på eksamenssett.no)"
+                : "Ja, slett bruker"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
