@@ -28,6 +28,7 @@ import { SpreadsheetInput } from './spreadsheet-input';
 import { MultipleChoiceExercise } from './multiple-choice-exercise';
 import { SequentialQuizExercise } from './sequential-quiz-exercise';
 import { TeacherCommentPanel, TeacherCommentDisplay } from './teacher-comment-panel';
+import { AiSensorPanel, aiSensorEnabled } from './ai-sensor-panel';
 import { useExerciseSubmission, useSubmitAnswer, useRecordAttempt, Submission } from '@/lib/textbook/hooks';
 import { useUser } from '@/lib/auth/hooks';
 import { CheckCircle2 } from 'lucide-react';
@@ -711,6 +712,11 @@ export function TextbookExerciseItem({
             </div>
           )}
         </div>
+      )}
+
+      {/* KI-vurdering av besvarelse — skjult bak feature-flagg (av som standard) */}
+      {aiSensorEnabled() && (
+        <AiSensorPanel courseId={courseId} chapterId={chapterId} exerciseId={exercise.id} />
       )}
     </div>
   );
