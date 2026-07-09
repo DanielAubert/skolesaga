@@ -2,6 +2,12 @@
 
 Skolesaga bruker Supabase (PostgreSQL) for lagring av brukerdata og fremgang.
 
+> **⚠️ Databasen deles med eksamenssett.no.** Tabellene `users`, `classes`,
+> `class_memberships`, `organizations`, `quiz_results`, `challenges`,
+> `challenge_players` og `geogebra_progress` brukes av begge apper.
+> Kun additive migrasjoner er tillatt — se reglene i `CLAUDE.md` før du
+> endrer noe som helst i databasen.
+
 ## Tabeller
 
 ### users
