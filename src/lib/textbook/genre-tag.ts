@@ -93,20 +93,20 @@ function makeLabel(inner: string): string {
  */
 const GENRE_GLOSSARY: Record<string, Record<string, string>> = {
   stv1100: {
-    RED: 'Redegjørelse — «gjør rede for X»: plasser tenkeren og spørsmålet, og gjengi posisjonen trinnvis med pensumets kjernebegreper, presist og pensumnært.',
-    SIT: 'Sitattolkning — parafraser utdraget med egne ord, identifiser funksjonen (premiss, innvending eller konklusjon) og knytt det til riktig tenker og begrep.',
-    SAM: 'Sammenligning — presis redegjørelse for begge posisjoner, deretter eksplisitte likheter og forskjeller langs klare dimensjoner.',
-    ANV: 'Anvendelse — bruk teorien på et konkret tilfelle: hent det relevante begrepet og vis hva tenkeren ville ment om akkurat denne situasjonen.',
-    HYB: 'Drøftingshybrid — solid redegjørelse først (vektes tyngst), deretter én til to innvendinger med kort selvstendig vurdering.',
+    RED: 'RED = Redegjørelse. Oppgaven ber deg forklare en teori eller et begrep. Si kort hvem tenkeren er og hvilket spørsmål det handler om, og forklar så standpunktet steg for steg med de viktigste begrepene fra pensum.',
+    SIT: 'SIT = Sitattolkning. Du får et sitat og skal forklare med egne ord hva det sier, hvilken rolle det spiller i argumentet (premiss, innvending eller konklusjon), og hvilken tenker og hvilket begrep det hører til.',
+    SAM: 'SAM = Sammenligning. Sett to tenkere eller begreper opp mot hverandre: forklar hver av dem kort, og pek tydelig på hva som er likt og hva som er forskjellig.',
+    ANV: 'ANV = Anvendelse. Bruk teorien på et konkret eksempel: finn begrepet som passer, og vis hva tenkeren ville sagt om akkurat denne situasjonen.',
+    HYB: 'HYB = Drøftingshybrid. Forklar først teorien grundig (det teller mest), og løft deretter én til to innvendinger med en kort egen vurdering.',
   },
   econ1310: {
-    C: 'Telleregelen — klassifiser eller tell poster etter nasjonalregnskapets definisjoner (liten kortsvarssjanger).',
-    D: 'Parametertolkning — forklar den økonomiske betydningen av en modellparameter i klartekst.',
-    E: 'Komparativ statikk — «vis matematisk» hva som skjer med en endogen størrelse når en eksogen endres.',
-    L: 'Teoridrøfting — verbal drøfting i ren tekst uten matematikk.',
-    M: 'Rollecase — du spiller en rolle (typisk økonomisk rådgiver) og argumenterer for et politikkvalg.',
+    C: 'Sjanger C = Telleregelen. Kort oppgave der du skal plassere eller telle poster riktig etter nasjonalregnskapets definisjoner.',
+    D: 'Sjanger D = Parametertolkning. Forklar med vanlige ord hva en parameter i modellen betyr økonomisk.',
+    E: 'Sjanger E = Komparativ statikk. Vis matematisk hva som skjer med en størrelse i modellen når noe utenfor modellen endres.',
+    L: 'Sjanger L = Teoridrøfting. Ren tekstoppgave uten matematikk der du drøfter et økonomisk spørsmål.',
+    M: 'Sjanger M = Rollecase. Du er økonomisk rådgiver og skal anbefale og begrunne et politikkvalg.',
   },
-};
+}
 
 /** Slår opp forklaring for en badge-etikett («RED», «Sjanger D») i ordlista. */
 function glossaryFor(label: string, courseId?: string): string | null {
@@ -144,8 +144,15 @@ export function extractGenreTag(task: string, courseId?: string): GenreTag | nul
     .replace(/^[\s.—:-]+|[\s.—:-]+$/g, '');
   const annotationAddsInfo = stripped.length > 8;
 
+  // Når vi har en forklaring, er «Eksamenssjanger RED —»-delen av annotasjonen
+  // overflødig — vis bare det oppgavespesifikke, tydelig merket.
+  const specific = annotation
+    .replace(/^(Eksamenssjanger|Sjanger)\s+[A-ZÆØÅ]+\s*[—:.-]?\s*/i, '')
+    .trim();
+
   let tooltip: string;
-  if (explanation && annotationAddsInfo) tooltip = explanation + '\n\n' + annotation;
+  if (explanation && annotationAddsInfo && specific)
+    tooltip = explanation + '\n\nOm denne oppgaven: ' + specific;
   else if (explanation) tooltip = explanation;
   else tooltip = annotation;
 
