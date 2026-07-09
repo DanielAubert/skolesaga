@@ -2,6 +2,9 @@
 
 Status-spor for å gjøre bøkene brukbare som læremidler i norsk skole. Oppdateres etter hvert som ting fullføres.
 
+> **Gjenopptak juridisk spor:** alt som gjenstår etter totalgjennomgangen juli 2026 er samlet
+> med kontekst og fremgangsmåte i `docs/juridisk-todo.md`.
+
 **Bakgrunn:** Det finnes ingen statlig godkjenningsordning (avskaffet 2000). Skoleeier velger selv. Fire bindende lovkrav + praktiske/tillitsmessige krav.
 
 Legende: ✅ ferdig · 🟡 påbegynt · ⬜ ikke startet · 🔒 krever ekstern part (jurist/Sikt/leverandør)
