@@ -94,6 +94,13 @@ docs/hoyskole-boker/
   regnes ikke som «forklart» fordi et tidligere kapittel forklarte det —
   listen er per delkapittel.
 
+### Læringsmål-deklarasjon (fra produkteier)
+`competenceGoals` i høyskolebøker er Skolesagas EGNE formuleringer (destillert fra
+eksamensanalysen/emnebeskrivelsen) — aldri kopier av institusjonens offisielle
+læringsutbyttebeskrivelser. UI-et deklarerer dette automatisk med kildelinje
+(«utformet av Skolesaga …, ikke institusjonens offisielle»); skriv målene deretter:
+konkrete, eksamensforankrede kunnskaps-/ferdighetsmål.
+
 ### Eksamensrettede krav (gjelder alle arketyper)
 - Hvert kapittel skal ha en **«Eksamensvinkel»**-blokk (type `tip`): hvordan og hvor
   ofte temaet testes, med hvilken vekt, og hva sensor ser etter — hentet fra

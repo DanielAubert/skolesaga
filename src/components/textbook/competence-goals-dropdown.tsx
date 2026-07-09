@@ -53,6 +53,11 @@ export function CompetenceGoalsDropdown({ goals, higherEd }: CompetenceGoalsDrop
               </li>
             ))}
           </ul>
+          <p className="text-xs text-muted-foreground mt-3 pt-2 border-t">
+            {higherEd
+              ? 'Kilde: Læringsmålene er utformet av Skolesaga på grunnlag av emnets eksamensoppgaver, sensorveiledninger og emnebeskrivelse. De er ikke institusjonens offisielle læringsutbyttebeskrivelser.'
+              : 'Kilde: Kompetansemål fra læreplanverket LK20 (Utdanningsdirektoratet, udir.no).'}
+          </p>
         </div>
       )}
     </div>

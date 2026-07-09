@@ -93,6 +93,11 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
                 ? `Oversikt over læringsmål dekket i ${course.title}`
                 : `Oversikt over LK20-kompetansemål dekket i ${course.title}`}
             </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              {course.level === 'Høyskole'
+                ? 'Kilde: Læringsmålene er utformet av Skolesaga på grunnlag av emnets eksamensoppgaver, sensorveiledninger og emnebeskrivelse. De er ikke institusjonens offisielle læringsutbyttebeskrivelser.'
+                : 'Kilde: Kompetansemål fra læreplanverket LK20 (Utdanningsdirektoratet, udir.no).'}
+            </p>
 
             {/* Statistikk */}
             <div className="flex flex-wrap gap-4 mt-4">
