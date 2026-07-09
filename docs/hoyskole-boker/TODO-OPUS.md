@@ -269,3 +269,35 @@ selv, som sos1004/sosant1090-mønsteret.
 5. Verifiseringsbølge FØR commit; jus alltid med Lovdata-agent.
 6. ALDRI meld ferdig uten grønn `npm run build` + prod-server-curl (200 +
    innholdssjekk). Commit + push til slutt.
+
+## §C9 — Restanse per 10. juli 2026 (neste økt starter her)
+
+**Læringsløkke-kontrakten er nå satt inn i ALLE skjeletter** (Teori→Eksempel→
+Oppgave inline + full forkunnskapsdekning) — bøker bygget fra skjelettene får
+riktig rekkefølge med en gang. Autoritativ kilde: README «Leserkrav» + DNA-filene.
+jus1111 + econ1310 (live) er allerede ombygd til løkker.
+
+### Skjelettkø som gjenstår (~24 fag, analyse finnes — samme oppskrift som §C8)
+Én Opus-agent per fag («IKKE spawn under-agenter»), verifiser AKTIV først
+(ellers STATUS-SKIP.md), v3 + kvotegulv (per-kapittel MÅ summere ≥500/≥500),
+gate `sjekk-skjelett.py`, commit enkeltvis, maks 4 samtidige:
+- **UiO realfag/CS:** econ4130, fys-mek1110
+- **UiO odontologi (analyse finnes, husk bildeavhengighet fra analysene):**
+  od4200, od5100, od5200
+- **NIH rest (12):** nih-ti100, nih-ti300, nih-met200, nih-met402, nih-is205,
+  nih-is225, nih-faf311, nih-ppu406, nih-spm102, nih-spm103, nih-spm105, nih-spm245
+- **Ingeniørmatte (5):** hio-diskretmatte, hio-ingmatte, hio-statistikk-okonomi,
+  oslomet-diskretmatte, oslomet-data2500
+- **NTNU TMA advanced (14) — agent MÅ verifisere aktiv (mange reformdøde):**
+  tma4123, tma4125, tma4145, tma4150, tma4160, tma4165, tma4180, tma4185,
+  tma4195, tma4212, tma4250, tma4265, tma4275, tma4320
+- SKIP-liste (ikke bygg): econ2200, jus4211, met2911-bi, psyc4305
+
+### Forretningslansering
+Se `docs/LANSERING-TODO.md` (betaling/Stripe-Vipps størst; stubber i
+`checkCredits()` + `hasPlusAccess()`; /priser; DPIA for AI-sensor; emnekode-SEO).
+AI-sensor + fasit-mur er BYGGET og SKJULT bak flagg — ikke ute på siden.
+
+### Kjente pilot-avvik (bevisst, ikke fiks uoppfordret)
+econ1310/jus1111/svmet1010-skjelettene mangler sectionNames (pre-v3) — bøkene
+er live og fungerer; avviket gjelder kun skjelettfila.

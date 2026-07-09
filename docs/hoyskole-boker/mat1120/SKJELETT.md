@@ -1,5 +1,17 @@
 # Bokskjelett: MAT1120 Lineær algebra (UiO) — eksamensrettet lærebok
 
+> **LÆRINGSLØKKE-KONTRAKT (ufravikelig, produkteier 9. juli 2026):** Ved bygging
+> struktureres HVERT kapittels `content[]` som gjentatte små løkker
+> **Teori → Eksempel → Oppgave** — `exercise`-blokker INLINE rett etter
+> teorien/eksempelet de trener, aldri all teori øverst med oppgavene samlet
+> nederst. Ingen oppgave får kreve stoff som ikke er dekket tidligere i
+> kapitlet eller i eksplisitt refererte forkunnskaper (flytt teoribiten
+> tidligere ved behov). Autoritativ kilde: README «Leserkrav» + arketypens
+> DNA-fil. Unntak: øvingseksamen-/prøve-/modellbesvarelseskapitler følger sin
+> egen arketype (komplett sett først, løsninger i collapsibles). Kvotene og
+> innholdskontraktene i dette skjelettet er uendret — løkka styrer REKKEFØLGEN.
+
+
 > Dette dokumentet er forfatter-agentens (Opus) eneste kilde til eksamensbelegg —
 > forfatteren leser IKKE eksamensarkivet. Alt av frekvenser, vekter, sjangre,
 > sensorkrav og typiske feil per kapittel er destillert fra

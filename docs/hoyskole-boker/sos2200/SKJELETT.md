@@ -1,5 +1,17 @@
 # Bokskjelett: SOS2200 Organisasjon, ledelse og arbeid — eksamensrettet lærebok
 
+> **LÆRINGSLØKKE-KONTRAKT (ufravikelig, produkteier 9. juli 2026):** Ved bygging
+> struktureres HVERT kapittels `content[]` som gjentatte små løkker
+> **Teori → Eksempel → Oppgave** — `exercise`-blokker INLINE rett etter
+> teorien/eksempelet de trener, aldri all teori øverst med oppgavene samlet
+> nederst. Ingen oppgave får kreve stoff som ikke er dekket tidligere i
+> kapitlet eller i eksplisitt refererte forkunnskaper (flytt teoribiten
+> tidligere ved behov). Autoritativ kilde: README «Leserkrav» + arketypens
+> DNA-fil. Unntak: øvingseksamen-/prøve-/modellbesvarelseskapitler følger sin
+> egen arketype (komplett sett først, løsninger i collapsibles). Kvotene og
+> innholdskontraktene i dette skjelettet er uendret — løkka styrer REKKEFØLGEN.
+
+
 > Byggedokument for forfatter-agent (Opus). Forfatteren leser IKKE eksamensarkivet —
 > alt eksamensbelegg som trengs står i dette skjelettet, destillert fra
 > `EKSAMENSANALYSE.md` (20 oppgavesett 2004V–2024V + utsatt 2022, 9 sensorveiledninger
