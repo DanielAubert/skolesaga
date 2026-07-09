@@ -301,3 +301,7 @@ AI-sensor + fasit-mur er BYGGET og SKJULT bak flagg — ikke ute på siden.
 ### Kjente pilot-avvik (bevisst, ikke fiks uoppfordret)
 econ1310/jus1111/svmet1010-skjelettene mangler sectionNames (pre-v3) — bøkene
 er live og fungerer; avviket gjelder kun skjelettfila.
+
+**STV1100 BYGGET 10. juli 2026** — første bok med læringsløkke fra første bygg
+(24 kap, 560 quiz, 588 flashcards, BOKPORT OK, build grønn, prod-curl 7/7).
+Gjenstår for stv1100 (som econ1310/jus1111): narrativ-versjoner + coverImage.
