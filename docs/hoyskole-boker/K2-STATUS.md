@@ -5,16 +5,24 @@ utvid det vi vet om dem (som K1) FØR vi eventuelt bygger.» K2 = arkiver med
 løsningsforslag som lå UTENFOR det opprinnelige fagbeskrivelses-mandatet.
 
 **Resultat: hele K2 (~120 fag, ≥5 løsningsforslag) er statusverifisert mot
-institusjonenes emnesider.** ~74 nye fulle eksamensanalyser skrevet; ~28 aktive
-med analyse gjenstående; ~18 nedlagt (hoppet eller etterfølger-notert). Alt
-committet. Ingen skjeletter/bygging — kun fase 1 (kunnskap), som bestilt.
+institusjonenes emnesider.** ~74 nye fulle eksamensanalyser skrevet i første runde;
+~18 nedlagt (hoppet eller etterfølger-notert). Alt committet.
+
+**OPPDATERING 9. juli 2026 (bruker ba: «gjør a) så b)»):** De ~28 «aktive med
+analyse gjenstående» er nå ANALYSERT FERDIG (fase 1 komplett for hele aktive K2).
+Runde 2 (maks 4 samtidige enkeltfag-Opus-agenter, ingen fan-out):
+- 17 NIH-idrettsfag (commit d3efd68d): fysiologiklyngen thp100/101/202/203/204 +
+  lki235/idr109/ma460, ti100/ti300, met200/met402, is205/is225, faf311, ppu406, spm105.
+- 11 UiO/OsloMet/HiØ (commit f723bed2): od2200/od4200/od5100/od5200, in2080,
+  sos4010/sos4200, sosant1400/sosant2600, oslomet-data2500, hio-statistikk-okonomi.
+Nå PÅGÅR fase 2 (b): skjelettbygging for de sterkeste kandidatene (se nederst).
 
 ## Buckets
 
 | Kategori | Antall | Betydning |
 |---|--:|---|
-| AKTIV + full analyse skrevet | ~74 | Klar for fase 2 (skjelett) hvis mandatet utvides |
-| AKTIV — analyse gjenstår | ~28 | Statusverifisert aktiv; full analyse ikke skrevet ennå |
+| AKTIV + full analyse skrevet | ~102 | Klar for fase 2 (skjelett) — HELE aktive K2 analysert per 9. juli |
+| AKTIV — analyse gjenstår | 0 | Alle 28 restanalyser ferdige (commit d3efd68d + f723bed2) |
 | Nedlagt m/etterfølger | ~10 | Bygg mot etterfølgerkoden (etterfølger-profilering) |
 | Nedlagt/hoppet u/etterfølger el. dekket | ~8 | Ikke bygg-verdig |
 
@@ -71,4 +79,10 @@ Sterkeste bok-kandidater fra K2, prioritert:
 3. **OD2200** — odontologiens MED1100-ekvivalent.
 4. **MAS116, STK2100, MAT2410** — sterke arkiver, aktive, delvis gjenbruk.
 5. **NIH fysiologi-klyngen + SPM245/SPM-ledelse** — nytt men velbelagt fagfelt.
-De ~28 «analyse gjenstår» kan analyseres ferdig i en oppfølgingsrunde før bygging.
+De ~28 «analyse gjenstår» er nå analysert ferdig (9. juli).
+
+### Fase 2 (b) — skjelettbygging PÅGÅR (9. juli 2026)
+Bygger skjeletter (maks 4 samtidige Opus-agenter, gate + commit enkeltvis) for
+den prioriterte kandidatlista over. Tier 1: ma1301, sok1011, od2200, mas116-hvl,
+stk2100, mat2410. Tier 2: NIH fysiologiklyngen (thp/lki/idr/ma460) som gruppe.
+Status per skjelett spores i README-statustavla + scratchpad-kø.
