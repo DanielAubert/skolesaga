@@ -220,7 +220,9 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
           >
             <Target className="h-5 w-5" />
-            <span className="font-medium">Se kompetansemål (LK20)</span>
+            <span className="font-medium">
+              {course.level === 'Høyskole' ? 'Se læringsmål' : 'Se kompetansemål (LK20)'}
+            </span>
             <ChevronRight className="h-4 w-4" />
           </Link>
           {getFlashcardDefinitionCount(courseId) > 0 && (

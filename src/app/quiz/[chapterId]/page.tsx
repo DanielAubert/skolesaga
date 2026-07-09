@@ -2,10 +2,38 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getQuizQuestions, hasQuizQuestions } from '@/lib/data/quiz-data';
 import { getChemistryQuizQuestions, hasChemistryQuiz } from '@/lib/data/chemistry-quiz-data';
+import { getCourse } from '@/lib/data/textbook-courses';
 import { StandaloneQuizClient } from './standalone-quiz-client';
 
 interface Props {
   params: Promise<{ chapterId: string }>;
+}
+
+/**
+ * Slå opp fag/kapittel i ekte kursmetadata. Nødvendig for høyskolebøker der
+ * fagkoden selv inneholder sifre (stv1100, econ1310, jus1111 …) — den gamle
+ * heuristikken tolket sifrene som klassetrinn («Stv1100 2. klasse»).
+ * Prøver å kutte 1–2 halesegmenter av kapittel-id-en for å finne kurs-id.
+ */
+function resolveFromCourse(
+  chapterId: string
+): { subjectName: string; gradeName: string; chapterName: string } | null {
+  const parts = chapterId.split('-');
+  for (let cut = 2; cut >= 1; cut--) {
+    if (parts.length <= cut) continue;
+    const courseId = parts.slice(0, parts.length - cut).join('-');
+    const course = getCourse(courseId);
+    if (!course) continue;
+    const meta = course.chapters.find((c) => c.id === chapterId);
+    if (meta) {
+      return {
+        subjectName: course.title,
+        gradeName: course.level || '',
+        chapterName: `Kapittel ${meta.number}: ${meta.title}`,
+      };
+    }
+  }
+  return null;
 }
 
 // Parse chapter ID to get human-readable title
@@ -98,7 +126,8 @@ function parseChapterInfo(chapterId: string): { subjectName: string; gradeName: 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { chapterId } = await params;
-  const { subjectName, gradeName, chapterName } = parseChapterInfo(chapterId);
+  const { subjectName, gradeName, chapterName } =
+    resolveFromCourse(chapterId) ?? parseChapterInfo(chapterId);
 
   return {
     title: `Quiz: ${subjectName} ${gradeName} - ${chapterName}`,
@@ -121,7 +150,8 @@ export default async function QuizPage({ params }: Props) {
     notFound();
   }
 
-  const { subjectName, gradeName, chapterName } = parseChapterInfo(chapterId);
+  const { subjectName, gradeName, chapterName } =
+    resolveFromCourse(chapterId) ?? parseChapterInfo(chapterId);
 
   return (
     <StandaloneQuizClient

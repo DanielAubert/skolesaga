@@ -398,6 +398,7 @@ export function TextbookChapterView({
             {(chapterContent?.competenceGoals || chapterMeta.competenceGoals) && (
               <CompetenceGoalsDropdown
                 goals={chapterContent?.competenceGoals || chapterMeta.competenceGoals || []}
+                higherEd={course.level === 'Høyskole'}
               />
             )}
 

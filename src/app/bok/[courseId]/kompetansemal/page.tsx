@@ -22,7 +22,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Kompetansemål - ${course.title} | Skolesaga`,
-    description: `Oversikt over alle kompetansemål (LK20) dekket i ${course.title}`,
+    description:
+      course.level === 'Høyskole'
+        ? `Oversikt over alle læringsmål dekket i ${course.title}`
+        : `Oversikt over alle kompetansemål (LK20) dekket i ${course.title}`,
   };
 }
 
@@ -83,10 +86,12 @@ export default async function CompetenceGoalsPage({ params }: PageProps) {
           <div className="mb-8">
             <h1 className="text-3xl font-bold flex items-center gap-3 mb-2">
               <Target className="h-8 w-8 text-primary" />
-              Kompetansemål
+              {course.level === 'Høyskole' ? 'Læringsmål' : 'Kompetansemål'}
             </h1>
             <p className="text-lg text-muted-foreground">
-              Oversikt over LK20-kompetansemål dekket i {course.title}
+              {course.level === 'Høyskole'
+                ? `Oversikt over læringsmål dekket i ${course.title}`
+                : `Oversikt over LK20-kompetansemål dekket i ${course.title}`}
             </p>
 
             {/* Statistikk */}
