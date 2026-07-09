@@ -64,6 +64,21 @@ docs/hoyskole-boker/
   som finnes.
 - **Lett å lese og engasjerende**: korte avsnitt, aktiv «du»-form, konkrete
   eksempler før formalisme — uten faglige feil; presisjon vinner ved tvil.
+- **Ingen uforklart sjargong / nybegynner-inngang (UFRAVIKELIG, fra produkteier):**
+  Boka skal være forståelig for en student som ALDRI har hatt faget. (a) HVERT
+  fagbegrep, hver kode og all karaktersjargong forklares ved FØRSTE bruk, i
+  klarspråk — skriv «redegjørelse (forkortes RED)», «vår 2024 (V2024)»,
+  «kumulative vilkår (alle må være oppfylt samtidig)», aldri koden/forkortelsen
+  kald. (b) Kodenavn (sjangerkoder, feilkoder #N, karakterbokstaver) skal ALDRI
+  stå i competenceGoals/læringsmål eller i aller første tekstboks uten at de er
+  forklart. (c) Del 0 / første kapittel skal ha en kort «Slik leser du denne
+  boka»-boks (type text/tip, IKKE definition — påvirker ikke flashcard-kvoten)
+  som forklarer: karakter-/vurderingsskalaen (og hva «C-stoff»/«A-markør» betyr),
+  en kompakt liste over sjanger-/oppgavekodene, og at feil har et samlet register.
+  (d) Karaktersjargong som motsier eksamensformen (f.eks. «A-kandidat» der
+  eksamen er bestått/ikke-bestått) skal enten unngås eller eksplisitt rammes inn
+  som bilde. Fagstoffet er allerede nybegynner-vennlig — det er META-språket rundt
+  eksamen som må ryddes.
 - **Godt, flytende norsk (UFRAVIKELIG, fra produkteier)**: hele setninger, ikke
   telegramstil («Funksjon: premiss. Plass: startpunktet.» er FORBUDT — skriv
   «Utdraget fungerer som premiss og er startpunktet i argumentet»). Naturlig
