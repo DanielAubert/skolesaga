@@ -22,6 +22,8 @@ import {
 import Link from 'next/link';
 import type { TextbookExercise } from '@/lib/types/textbook';
 import { LatexRenderer } from './latex-renderer';
+import { GenreBadge } from './genre-badge';
+import { extractGenreTag } from '@/lib/textbook/genre-tag';
 import { ImageUpload } from './image-upload';
 import { CanvasDrawing } from './canvas-drawing';
 import { SpreadsheetInput } from './spreadsheet-input';
@@ -155,6 +157,11 @@ export function TextbookExerciseItem({
   // Er dette 8. klasse? (adaptiv vanskelighetsgrad)
   const is8thGrade = courseId === '8';
 
+  // Trekk ut evt. ledende sjanger-/drill-prefiks fra oppgaveteksten så det
+  // vises som badge i stedet for støy i brødteksten. rest = tekst uten prefiks.
+  const genreTag = extractGenreTag(exercise.task);
+  const taskText = genreTag ? genreTag.rest : exercise.task;
+
   // Er vi i lærervisning?
   const isTeacher = user?.role === 'teacher' || user?.role === 'admin';
   const isViewingAsStudent = isTeacher && !!viewingAsStudentId;
@@ -241,8 +248,13 @@ export function TextbookExerciseItem({
         {isRecommended && exercise.difficulty && (
           <RecommendedBadge difficulty={exercise.difficulty} />
         )}
+        {genreTag && (
+          <div className="mb-2">
+            <GenreBadge tag={genreTag} />
+          </div>
+        )}
         <div className="prose prose-slate dark:prose-invert max-w-none">
-          <LatexRenderer content={exercise.task} />
+          <LatexRenderer content={taskText} />
         </div>
         {/* Oppgaveillustrasjon - rendres alltid for å unngå hydration mismatch */}
         <div className="my-4" style={{ display: exercise.image ? 'block' : 'none' }}>
@@ -292,8 +304,13 @@ export function TextbookExerciseItem({
         {isRecommended && exercise.difficulty && (
           <RecommendedBadge difficulty={exercise.difficulty} />
         )}
+        {genreTag && (
+          <div className="mb-2">
+            <GenreBadge tag={genreTag} />
+          </div>
+        )}
         <div className="prose prose-slate dark:prose-invert max-w-none">
-          <LatexRenderer content={exercise.task} />
+          <LatexRenderer content={taskText} />
         </div>
         {/* Oppgaveillustrasjon - rendres alltid for å unngå hydration mismatch */}
         <div className="my-4" style={{ display: exercise.image ? 'block' : 'none' }}>
@@ -329,8 +346,13 @@ export function TextbookExerciseItem({
         {isRecommended && exercise.difficulty && (
           <RecommendedBadge difficulty={exercise.difficulty} />
         )}
+        {genreTag && (
+          <div className="mb-2">
+            <GenreBadge tag={genreTag} />
+          </div>
+        )}
         <div className="prose prose-slate dark:prose-invert max-w-none">
-          <LatexRenderer content={exercise.task} />
+          <LatexRenderer content={taskText} />
         </div>
         {/* Oppgaveillustrasjon - rendres alltid for å unngå hydration mismatch */}
         <div className="my-4" style={{ display: exercise.image ? 'block' : 'none' }}>
@@ -371,9 +393,16 @@ export function TextbookExerciseItem({
         <InvestigationBadge />
       )}
 
+      {/* Sjanger-/drill-badge (prefiks flyttet ut av brødteksten) */}
+      {genreTag && (
+        <div>
+          <GenreBadge tag={genreTag} />
+        </div>
+      )}
+
       {/* Oppgavetekst */}
       <div className="prose prose-slate dark:prose-invert max-w-none">
-        <LatexRenderer content={exercise.task} />
+        <LatexRenderer content={taskText} />
       </div>
 
       {/* Oppgaveillustrasjon - rendres alltid for å unngå hydration mismatch */}

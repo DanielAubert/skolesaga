@@ -12,6 +12,8 @@ import { ArrowLeft, RefreshCw, Pencil, ArrowRight, Trophy, Keyboard } from "luci
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { LatexRenderer } from "@/components/textbook/latex-renderer";
+import { GenreBadge } from "@/components/textbook/genre-badge";
+import { extractGenreTag } from "@/lib/textbook/genre-tag";
 import { ExerciseProgressBar } from "@/components/textbook/exercise-progress";
 import { incrementProblems } from "@/lib/hoderegning/stats";
 import { StatsCounter } from "@/components/hoderegning/stats-counter";
@@ -970,14 +972,27 @@ export function ExerciseTrainer({
 
         <section className="container pb-12">
           <div className="mb-3 md:mb-6 text-center">
-            <div className="flex items-center justify-center gap-2">
-              <div className="rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 p-1.5 md:p-2">
-                <Pencil className="h-4 w-4 md:h-5 md:w-5 text-white" />
-              </div>
-              <h1 className="text-lg md:text-2xl font-bold">
-                Oppgave {exercise.number}: {exercise.task}
-              </h1>
-            </div>
+            {(() => {
+              const genreTag = extractGenreTag(exercise.task);
+              const taskText = genreTag ? genreTag.rest : exercise.task;
+              return (
+                <>
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 p-1.5 md:p-2">
+                      <Pencil className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                    </div>
+                    <h1 className="text-lg md:text-2xl font-bold">
+                      Oppgave {exercise.number}: {taskText}
+                    </h1>
+                  </div>
+                  {genreTag && (
+                    <div className="mt-2 flex justify-center">
+                      <GenreBadge tag={genreTag} />
+                    </div>
+                  )}
+                </>
+              );
+            })()}
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
