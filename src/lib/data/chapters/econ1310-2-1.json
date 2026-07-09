@@ -39,7 +39,12 @@
     {
       "id": "econ1310-2-1-intro",
       "type": "text",
-      "content": "Hele den tyngste eksamensoppgaven i ECON1310 — den som utgjør 50–60 % av poengene — bygger på én liten modell av produktmarkedet. Før vi kan regne på den (kapittel 2.2), må vi bli fortrolige med **anatomien**: hvilke ligninger modellen består av, hvilke størrelser den bestemmer selv, hvilke vi mater inn utenfra, og hva hver parameter betyr økonomisk.\n\nModellen er Steinar Holdens Keynes-modell for en økonomi der prisene er faste på kort sikt, slik at det er **etterspørselen** som bestemmer produksjonen. Vi bruker konsekvent Holden-notasjon med $z$-skiftledd og små bokstaver for atferdsparametrene. Det er dette apparatet — og bare dette — som testes på eksamen, og som hele denne boka bygger på."
+      "content": "Hele den tyngste eksamensoppgaven i ECON1310 — den som utgjør 50–60 % av poengene — bygger på én liten modell av produktmarkedet. Før vi kan regne på den (kapittel 2.2), må vi bli fortrolige med **anatomien**: hvilke ligninger modellen består av, hvilke størrelser den bestemmer selv, hvilke vi mater inn utenfra, og hva hver parameter betyr økonomisk.\n\nModellen er Steinar Holdens Keynes-modell for en økonomi der prisene er faste på kort sikt, slik at det er **etterspørselen** som bestemmer produksjonen. Vi bruker konsekvent Holden-notasjon med $z$-skiftledd og små bokstaver for atferdsparametrene. Det er dette apparatet — og bare dette — som testes på eksamen, og som hele denne boka bygger på.\n\nKapitlet er bygget som to **læringsløkker**: først setter vi opp modellens ligninger og lærer å tolke hver parameter (løkke 1), så lærer vi skillet endogen/eksogen og telleregelen som avgjør om modellen er løsbar (løkke 2). Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver, så du kan jobbe deg gjennom stoffet bit for bit."
+    },
+    {
+      "id": "econ1310-2-1-lokke1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Modellens ligninger og parametrene"
     },
     {
       "id": "econ1310-2-1-oppsett",
@@ -77,29 +82,6 @@
       "content": "$$Q = aY$$\n\nI den åpne økonomien stiger importen med inntekten: jo mer vi produserer og tjener, desto mer kjøper vi fra utlandet. $a$ er den **marginale importtilbøyeligheten** ($0 < a < 1$). Importleddet trekkes fra i generalbudsjettligningen fordi det er etterspørsel som lekker ut av landet."
     },
     {
-      "id": "econ1310-2-1-endogen-eksogen",
-      "type": "text",
-      "content": "### Endogent eller eksogent?\n\nSkillet mellom **endogene** og **eksogene** størrelser er selve nøkkelen til telleregelen. En endogen variabel bestemmes *inne* i modellen; en eksogen størrelse mates inn *utenfra* og holdes fast når vi regner."
-    },
-    {
-      "id": "econ1310-2-1-def-endogen",
-      "type": "definition",
-      "title": "Endogen variabel",
-      "content": "En størrelse modellen **bestemmer selv**, ved at ligningene løses simultant. I den lukkede modellen over er $Y$, $C$, $I$ og $T$ endogene: hver har sin egen ligning, og verdiene faller ut når systemet løses. Endogene variabler er de vi finner endringen i når et sjokk treffer."
-    },
-    {
-      "id": "econ1310-2-1-def-eksogen",
-      "type": "definition",
-      "title": "Eksogen variabel",
-      "content": "En størrelse som **gis utenfra** og holdes fast. Her er $G$, renten $i$, $\\pi^e$ og alle $z$-leddene ($z^C, z^I, z^T$) samt parametrene ($c_1, c_2, b_1, b_2, t, a$) eksogene. Et «sjokk» er nettopp en endring i en eksogen størrelse."
-    },
-    {
-      "id": "econ1310-2-1-def-zledd",
-      "type": "definition",
-      "title": "z-ledd (skiftvariabel / sjokk)",
-      "content": "$z^C, z^I, z^T$ (og i pengepolitikken $z^i, z^\\pi, z^W$) er **eksogene skiftledd** som fanger opp alt som flytter en atferdsligning uten at inntekt eller rente endres. En endring $\\Delta z$ er et *sjokk* — utgangspunktet for all komparativ statikk. **Merk:** $z$-leddene er eksogene og skal aldri telles som endogene variabler."
-    },
-    {
       "id": "econ1310-2-1-parametre",
       "type": "text",
       "content": "### Parametrene — den økonomiske begrunnelsen\n\nSjanger D-oppgavene spør nesten alltid om *hvorfor* en parameter har det fortegnet den har. Her er begrunnelsene sensor vil se."
@@ -123,10 +105,99 @@
       "content": "$b_1 > 0$: investeringene stiger med aktivitetsnivået $Y$. Begrunnelse: høy produksjon krever mer produksjonskapasitet (maskiner, bygg), og høy aktivitet gir bedre inntjening og lettere finansiering. $b_1$ er «akseleratoren» fordi den gjør at oppgang forsterker seg selv — den er forsterkeren i multiplikatorprosessen."
     },
     {
+      "id": "econ1310-2-1-bb-b2",
+      "type": "definition",
+      "title": "Investeringenes renteeffekt $b_2$",
+      "content": "$b_2 > 0$: hvor sterkt investeringene faller når realrenten stiger. Begrunnes med dyrere lånefinansiering og høyere alternativavkastning ved renteplassering. I den forenklede modellen settes $b_2 = 0$."
+    },
+    {
       "id": "econ1310-2-1-def-t",
       "type": "definition",
       "title": "Skattesatsen $t$",
       "content": "$t$ er skattesystemets konjunkturfølsomhet: andelen av en inntektsøkning som trekkes inn i skatt ($0 < t < 1$). Jo høyere $t$, desto mer av en inntektsøkning lekker ut som skatt før den kan brukes på konsum. Derfor er $t$ en **automatisk stabilisator** — den demper konjunktursvingninger uten politiske vedtak (utdypes i kap. 3.1)."
+    },
+    {
+      "id": "econ1310-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Tolkning av $c_1$ og $b_1$ (sjanger D)",
+      "problem": "Ta utgangspunkt i konsum- og investeringsfunksjonen over. Forklar den økonomiske begrunnelsen for at $0 < c_1 < 1$ og at $b_1 > 0$.",
+      "solution": "**$0 < c_1 < 1$:** $c_1$ er den marginale konsumtilbøyeligheten — økningen i konsum per ekstra krone disponibel inntekt. Fortegnet er positivt fordi mer inntekt gir mer forbruk. At tallet er *mindre enn 1* betyr at husholdningene sparer en del av hver ekstra krone; de bruker ikke alt. Denne sparelekkasjen er grunnen til at et etterspørselssjokk får en endelig (ikke uendelig) virkning på BNP.\n\n**$b_1 > 0$:** $b_1$ er investeringsakseleratoren. Når produksjonen $Y$ stiger, trenger bedriftene mer kapasitet (maskiner, lokaler) for å møte etterspørselen, og høyere aktivitet gir bedre inntjening og lettere tilgang på finansiering. Begge deler trekker investeringene opp. Derfor er sammenhengen positiv."
+    },
+    {
+      "id": "econ1310-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — parametertolkning, i samtlige 22 sett.) Forklar med én til to setninger hva hver av disse betyr: (a) $c_1$, (b) $t$, (c) $z^C$.",
+        "solution": "(a) $c_1$ = marginal konsumtilbøyelighet: økningen i konsum per ekstra krone disponibel inntekt, $0<c_1<1$.\n(b) $t$ = effektiv marginal skattesats: andelen av en inntektsøkning som trekkes inn i skatt.\n(c) $z^C$ = eksogent konsumskift («konsumsjokk»): den delen av konsumet som skyldes stemning/forventninger/formue, uavhengig av inntekt og rente.",
+        "hints": [
+          "Tenk «per ekstra krone» for $c_1$ og $t$.",
+          "$z$-ledd = alt som flytter atferdsligningen uten at inntekt/rente endres."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-1-m1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — parametertolkning.) Forklar den økonomiske begrunnelsen for at $b_2 > 0$ i investeringsfunksjonen $I = z^I + b_1 Y - b_2(i - \\pi^e)$.",
+        "solution": "$b_2 > 0$ betyr at investeringene faller når realrenten $i - \\pi^e$ stiger. Begrunnelse: (i) høyere rente gjør lånefinansiering av investeringsprosjekter dyrere, så færre prosjekter er lønnsomme; (ii) alternativavkastningen ved å plassere penger til rente stiger, så terskelen for å investere i realkapital heves. Begge kanaler demper investeringslysten når renten går opp.",
+        "hints": [
+          "Investeringer finansieres ofte med lån.",
+          "Sammenlign avkastningen på realkapital med renten."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-1-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — parametertolkning med kobling til stabilitetsvilkåret.) Forklar hvorfor det er avgjørende for modellens virkemåte at $c_1 < 1$ (og ikke $c_1 = 1$ eller $c_1 > 1$).",
+        "solution": "$c_1 < 1$ betyr at husholdningene sparer en del av hver ekstra krone inntekt. Dette skaper en **lekkasje** ut av inntektsstrømmen. Ville $c_1 = 1$, ville alt av ekstra inntekt gått rett tilbake i konsum, og et lite sjokk kunne gitt uendelig store utslag — multiplikatoren ville ikke konvergert. $c_1 > 1$ ville vært økonomisk urimelig (mer forbruk enn inntektsøkning) og gjort systemet ustabilt. At $0<c_1<1$ garanterer sammen med $b_1$ og $t$ at nevneren $1 - c_1(1-t) - b_1$ er positiv og multiplikatoren endelig.",
+        "hints": [
+          "Tenk på hva som lekker ut av inntektsstrømmen.",
+          "Knytt til stabilitetsvilkåret i nevneren."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-1-lokke2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Endogent/eksogent og telleregelen"
+    },
+    {
+      "id": "econ1310-2-1-endogen-eksogen",
+      "type": "text",
+      "content": "### Endogent eller eksogent?\n\nSkillet mellom **endogene** og **eksogene** størrelser er selve nøkkelen til telleregelen. En endogen variabel bestemmes *inne* i modellen; en eksogen størrelse mates inn *utenfra* og holdes fast når vi regner."
+    },
+    {
+      "id": "econ1310-2-1-def-endogen",
+      "type": "definition",
+      "title": "Endogen variabel",
+      "content": "En størrelse modellen **bestemmer selv**, ved at ligningene løses simultant. I den lukkede modellen over er $Y$, $C$, $I$ og $T$ endogene: hver har sin egen ligning, og verdiene faller ut når systemet løses. Endogene variabler er de vi finner endringen i når et sjokk treffer."
+    },
+    {
+      "id": "econ1310-2-1-def-eksogen",
+      "type": "definition",
+      "title": "Eksogen variabel",
+      "content": "En størrelse som **gis utenfra** og holdes fast. Her er $G$, renten $i$, $\\pi^e$ og alle $z$-leddene ($z^C, z^I, z^T$) samt parametrene ($c_1, c_2, b_1, b_2, t, a$) eksogene. Et «sjokk» er nettopp en endring i en eksogen størrelse."
+    },
+    {
+      "id": "econ1310-2-1-def-zledd",
+      "type": "definition",
+      "title": "z-ledd (skiftvariabel / sjokk)",
+      "content": "$z^C, z^I, z^T$ (og i pengepolitikken $z^i, z^\\pi, z^W$) er **eksogene skiftledd** som fanger opp alt som flytter en atferdsligning uten at inntekt eller rente endres. En endring $\\Delta z$ er et *sjokk* — utgangspunktet for all komparativ statikk. **Merk:** $z$-leddene er eksogene og skal aldri telles som endogene variabler."
     },
     {
       "id": "econ1310-2-1-telleregel-tekst",
@@ -151,31 +222,11 @@
       "content": "### Den forenklede varianten uten rente\n\nSom førstetrinn setter vi ofte $c_2 = b_2 = 0$, altså ser bort fra renteeffektene. Da forenkles modellen til\n\n$$Y = C + I + G, \\qquad C = z^C + c_1(Y - T), \\qquad I = z^I + b_1 Y, \\qquad T = z^T + tY.$$\n\nDette er den varianten multiplikatoren utledes i (kap. 2.2), fordi renten holdes fast der. **Viktig regel:** i en variant der en mekanisme ikke er med (f.eks. ingen rente, ingen import), skal du *ikke* trekke den inn i forklaringen — bruk bare modellens egne mekanismer."
     },
     {
-      "id": "econ1310-2-1-ex-1",
-      "type": "example",
-      "title": "Eksempel 1: Tolkning av $c_1$ og $b_1$ (sjanger D)",
-      "problem": "Ta utgangspunkt i konsum- og investeringsfunksjonen over. Forklar den økonomiske begrunnelsen for at $0 < c_1 < 1$ og at $b_1 > 0$.",
-      "solution": "**$0 < c_1 < 1$:** $c_1$ er den marginale konsumtilbøyeligheten — økningen i konsum per ekstra krone disponibel inntekt. Fortegnet er positivt fordi mer inntekt gir mer forbruk. At tallet er *mindre enn 1* betyr at husholdningene sparer en del av hver ekstra krone; de bruker ikke alt. Denne sparelekkasjen er grunnen til at et etterspørselssjokk får en endelig (ikke uendelig) virkning på BNP.\n\n**$b_1 > 0$:** $b_1$ er investeringsakseleratoren. Når produksjonen $Y$ stiger, trenger bedriftene mer kapasitet (maskiner, lokaler) for å møte etterspørselen, og høyere aktivitet gir bedre inntjening og lettere tilgang på finansiering. Begge deler trekker investeringene opp. Derfor er sammenhengen positiv."
-    },
-    {
       "id": "econ1310-2-1-ex-2",
       "type": "example",
       "title": "Eksempel 2: Er modellen determinert? (sjanger C)",
       "problem": "En lukket økonomi beskrives ved:\n$$Y = C + I + G, \\quad C = z^C + c_1(Y - T), \\quad I = z^I + b_1 Y, \\quad T = z^T + tY.$$\nAvgjør om modellen er determinert. Navngi de endogene variablene, og forklar hvorfor modellen er lukket.",
       "solution": "**Tell ligningene:** Vi har fire ligninger (én for $Y$, én for $C$, én for $I$, én for $T$).\n\n**Tell og navngi de endogene:** De variablene modellen skal bestemme, er $Y$, $C$, $I$ og $T$ — fire stykker. De øvrige størrelsene er eksogene: $G$ (offentlige kjøp), $z^C, z^I, z^T$ (skiftledd) og parametrene $c_1, b_1, t$. Renten er ikke med (forenklet variant).\n\n**Konklusjon:** Antall ligninger (4) = antall endogene variabler (4), så modellen er **determinert** — den har entydig løsning.\n\n**Lukket:** Modellen inneholder verken eksport ($X$) eller import ($Q$), altså ingen handel med utlandet. Derfor er den for en lukket økonomi. (At renten mangler gjør den ikke åpen — åpen/lukket avgjøres kun av handelsleddene.)"
-    },
-    {
-      "id": "econ1310-2-1-ex-3",
-      "type": "example",
-      "title": "Eksempel 3: Full åpning på eksamensnivå (C + D)",
-      "problem": "En åpen økonomi med rente beskrives ved:\n$$Y = C + I + G + X - Q, \\quad C = z^C + c_1(Y-T) - c_2(i-\\pi^e), \\quad I = z^I + b_1 Y - b_2(i-\\pi^e),$$\n$$T = z^T + tY, \\quad Q = aY.$$\nRenten $i$ og eksporten $X$ er eksogene. (a) Er modellen determinert? (b) Forklar hvorfor $c_2 > 0$, og hva som skal med for full uttelling.",
-      "solution": "**(a)** Tell ligningene: fem ($Y, C, I, T, Q$). Tell de endogene: $Y$, $C$, $I$, $T$ og $Q$ bestemmes av modellen — fem stykker. Eksogent: $G$, $X$, $i$, $\\pi^e$, alle $z$-ledd og parametrene $c_1, c_2, b_1, b_2, t, a$. Fem ligninger = fem endogene → modellen er **determinert**. Den er **åpen** fordi den inneholder eksport- og importledd ($X$ og $Q = aY$).\n\n**(b)** $c_2 > 0$ betyr at høyere realrente $i - \\pi^e$ demper konsumet. For full uttelling må alle tre kanaler med:\n1. *Substitusjonseffekt:* høyere rente gjør sparing mer lønnsomt, så husholdningene utsetter forbruk.\n2. *Inntektseffekt:* for netto låntakere spiser dyrere lån av det som er igjen til forbruk.\n3. *Gjeldskanalen:* norske husholdninger har samlet sett mer gjeld enn innskudd, så inntektseffekten forsterker substitusjonseffekten i stedet for å motvirke den.\n\nÅ nevne bare substitusjonseffekten er den vanligste grunnen til trekk her."
-    },
-    {
-      "id": "econ1310-2-1-warn-typiske-feil",
-      "type": "warning",
-      "title": "Typiske feil",
-      "content": "- **Telle $z$-variablene som endogene.** $z^C, z^I, z^T$ er eksogene skiftledd. Endogene er bare $Y, C, I, T$ (og $Q$ i åpen modell).\n- **Kalle modellen «åpen» fordi renten er med.** Åpen/lukket avgjøres *utelukkende* av om det finnes eksport-/importledd. Rente kan finnes i begge.\n- **Tolke $c_2$ bare som substitusjonseffekt.** Inntektseffekten og gjeldskanalen må med for full uttelling.\n- **Forveksle $z^T$ og $t$.** $z^T$ er det eksogene skattenivået; $t$ er den endogene skattesatsen som kobler skatt til inntekt.\n- **Utflytende kortsvar.** Sensor gir ikke ekstra for en halvside der 2–3 presise setninger holder."
     },
     {
       "id": "econ1310-2-1-oppg-1",
@@ -194,22 +245,6 @@
       }
     },
     {
-      "id": "econ1310-2-1-oppg-2",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-1-l2",
-        "number": "2",
-        "type": "classic",
-        "difficulty": "lett",
-        "task": "(Sjanger D — parametertolkning, i samtlige 22 sett.) Forklar med én til to setninger hva hver av disse betyr: (a) $c_1$, (b) $t$, (c) $z^C$.",
-        "solution": "(a) $c_1$ = marginal konsumtilbøyelighet: økningen i konsum per ekstra krone disponibel inntekt, $0<c_1<1$.\n(b) $t$ = effektiv marginal skattesats: andelen av en inntektsøkning som trekkes inn i skatt.\n(c) $z^C$ = eksogent konsumskift («konsumsjokk»): den delen av konsumet som skyldes stemning/forventninger/formue, uavhengig av inntekt og rente.",
-        "hints": [
-          "Tenk «per ekstra krone» for $c_1$ og $t$.",
-          "$z$-ledd = alt som flytter atferdsligningen uten at inntekt/rente endres."
-        ]
-      }
-    },
-    {
       "id": "econ1310-2-1-oppg-3",
       "type": "exercise",
       "exercise": {
@@ -221,22 +256,6 @@
         "solution": "Fire ligninger og fire endogene variabler ($Y, C, I, T$). Antall ligninger = antall endogene → modellen er **determinert** og har entydig løsning.",
         "hints": [
           "Tell ligninger. Tell endogene. Sammenlign tallene."
-        ]
-      }
-    },
-    {
-      "id": "econ1310-2-1-oppg-4",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-1-m1",
-        "number": "4",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Sjanger D — parametertolkning.) Forklar den økonomiske begrunnelsen for at $b_2 > 0$ i investeringsfunksjonen $I = z^I + b_1 Y - b_2(i - \\pi^e)$.",
-        "solution": "$b_2 > 0$ betyr at investeringene faller når realrenten $i - \\pi^e$ stiger. Begrunnelse: (i) høyere rente gjør lånefinansiering av investeringsprosjekter dyrere, så færre prosjekter er lønnsomme; (ii) alternativavkastningen ved å plassere penger til rente stiger, så terskelen for å investere i realkapital heves. Begge kanaler demper investeringslysten når renten går opp.",
-        "hints": [
-          "Investeringer finansieres ofte med lån.",
-          "Sammenlign avkastningen på realkapital med renten."
         ]
       }
     },
@@ -257,20 +276,17 @@
       }
     },
     {
-      "id": "econ1310-2-1-oppg-6",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-1-m3",
-        "number": "6",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Sjanger D — parametertolkning med kobling til stabilitetsvilkåret.) Forklar hvorfor det er avgjørende for modellens virkemåte at $c_1 < 1$ (og ikke $c_1 = 1$ eller $c_1 > 1$).",
-        "solution": "$c_1 < 1$ betyr at husholdningene sparer en del av hver ekstra krone inntekt. Dette skaper en **lekkasje** ut av inntektsstrømmen. Ville $c_1 = 1$, ville alt av ekstra inntekt gått rett tilbake i konsum, og et lite sjokk kunne gitt uendelig store utslag — multiplikatoren ville ikke konvergert. $c_1 > 1$ ville vært økonomisk urimelig (mer forbruk enn inntektsøkning) og gjort systemet ustabilt. At $0<c_1<1$ garanterer sammen med $b_1$ og $t$ at nevneren $1 - c_1(1-t) - b_1$ er positiv og multiplikatoren endelig.",
-        "hints": [
-          "Tenk på hva som lekker ut av inntektsstrømmen.",
-          "Knytt til stabilitetsvilkåret i nevneren."
-        ]
-      }
+      "id": "econ1310-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Full åpning på eksamensnivå (C + D)",
+      "problem": "En åpen økonomi med rente beskrives ved:\n$$Y = C + I + G + X - Q, \\quad C = z^C + c_1(Y-T) - c_2(i-\\pi^e), \\quad I = z^I + b_1 Y - b_2(i-\\pi^e),$$\n$$T = z^T + tY, \\quad Q = aY.$$\nRenten $i$ og eksporten $X$ er eksogene. (a) Er modellen determinert? (b) Forklar hvorfor $c_2 > 0$, og hva som skal med for full uttelling.",
+      "solution": "**(a)** Tell ligningene: fem ($Y, C, I, T, Q$). Tell de endogene: $Y$, $C$, $I$, $T$ og $Q$ bestemmes av modellen — fem stykker. Eksogent: $G$, $X$, $i$, $\\pi^e$, alle $z$-ledd og parametrene $c_1, c_2, b_1, b_2, t, a$. Fem ligninger = fem endogene → modellen er **determinert**. Den er **åpen** fordi den inneholder eksport- og importledd ($X$ og $Q = aY$).\n\n**(b)** $c_2 > 0$ betyr at høyere realrente $i - \\pi^e$ demper konsumet. For full uttelling må alle tre kanaler med:\n1. *Substitusjonseffekt:* høyere rente gjør sparing mer lønnsomt, så husholdningene utsetter forbruk.\n2. *Inntektseffekt:* for netto låntakere spiser dyrere lån av det som er igjen til forbruk.\n3. *Gjeldskanalen:* norske husholdninger har samlet sett mer gjeld enn innskudd, så inntektseffekten forsterker substitusjonseffekten i stedet for å motvirke den.\n\nÅ nevne bare substitusjonseffekten er den vanligste grunnen til trekk her."
+    },
+    {
+      "id": "econ1310-2-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Telle $z$-variablene som endogene.** $z^C, z^I, z^T$ er eksogene skiftledd. Endogene er bare $Y, C, I, T$ (og $Q$ i åpen modell).\n- **Kalle modellen «åpen» fordi renten er med.** Åpen/lukket avgjøres *utelukkende* av om det finnes eksport-/importledd. Rente kan finnes i begge.\n- **Tolke $c_2$ bare som substitusjonseffekt.** Inntektseffekten og gjeldskanalen må med for full uttelling.\n- **Forveksle $z^T$ og $t$.** $z^T$ er det eksogene skattenivået; $t$ er den endogene skattesatsen som kobler skatt til inntekt.\n- **Utflytende kortsvar.** Sensor gir ikke ekstra for en halvside der 2–3 presise setninger holder."
     },
     {
       "id": "econ1310-2-1-oppg-7",
@@ -333,12 +349,6 @@
       "type": "definition",
       "title": "Åpen økonomi",
       "content": "En modell **med** utenrikshandel: $Y = C + I + G + X - Q$. Importen $Q = aY$ innfører en ekstra lekkasje ($a$) som demper multiplikatoren, og eksport-/importsjokk blir nye kilder til konjunktursvingninger."
-    },
-    {
-      "id": "econ1310-2-1-bb-b2",
-      "type": "definition",
-      "title": "Investeringenes renteeffekt $b_2$",
-      "content": "$b_2 > 0$: hvor sterkt investeringene faller når realrenten stiger. Begrunnes med dyrere lånefinansiering og høyere alternativavkastning ved renteplassering. I den forenklede modellen settes $b_2 = 0$."
     },
     {
       "id": "econ1310-2-1-bb-a",

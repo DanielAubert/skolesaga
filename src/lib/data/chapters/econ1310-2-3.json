@@ -39,13 +39,18 @@
     {
       "id": "econ1310-2-3-intro",
       "type": "text",
-      "content": "I kapittel 2.2 fant vi hvor mye BNP endrer seg av et sjokk: $\\Delta Y = m\\,\\Delta z$. Men eksamen stopper sjelden der. Neste deloppgave spør nesten alltid: *hva skjer så med konsumet, skatteinngangen, budsjettbalansen og sparingen?* Dette er **følgestørrelsene** — variabler som endrer seg som en *følge* av at $Y$ endret seg.\n\nDen gode nyheten er at du allerede har gjort det tunge arbeidet. Framgangsmåten er mekanisk og alltid lik:\n\n1. Skriv definisjonen av følgestørrelsen på tilvekstform.\n2. Sett inn $\\Delta Y = m\\,\\Delta z$.\n3. **Signér** resultatet — fastsett fortegnet, og flagg hvis det er ubestemt.\n\nVi jobber i samme modell som før: lukket økonomi, endogen skatt $T = z^T + tY$, fast rente."
+      "content": "I kapittel 2.2 fant vi hvor mye BNP endrer seg av et sjokk: $\\Delta Y = m\\,\\Delta z$. Men eksamen stopper sjelden der. Neste deloppgave spør nesten alltid: *hva skjer så med konsumet, skatteinngangen, budsjettbalansen og sparingen?* Dette er **følgestørrelsene** — variabler som endrer seg som en *følge* av at $Y$ endret seg.\n\nDen gode nyheten er at du allerede har gjort det tunge arbeidet. Framgangsmåten er mekanisk og alltid lik:\n\n1. Skriv definisjonen av følgestørrelsen på tilvekstform.\n2. Sett inn $\\Delta Y = m\\,\\Delta z$.\n3. **Signér** resultatet — fastsett fortegnet, og flagg hvis det er ubestemt.\n\nVi jobber i samme modell som før: lukket økonomi, endogen skatt $T = z^T + tY$, fast rente.\n\nKapitlet er bygget som tre **læringsløkker**, én per følgestørrelse-gruppe: konsum og skatteinngang (løkke 1), budsjettbalansen (løkke 2), sparing og spareparadokset (løkke 3). Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver."
     },
     {
       "id": "econ1310-2-3-def-folgestorrelse",
       "type": "definition",
       "title": "Følgestørrelse",
       "content": "En variabel som endrer seg som en *konsekvens* av at BNP endret seg etter et sjokk — typisk konsum $C$, skatteinngang $T$, budsjettbalanse $B$ og sparing $S$. Følgestørrelsene finnes ved å sette multiplikatoruttrykket $\\Delta Y = m\\,\\Delta z$ inn i størrelsens definisjon."
+    },
+    {
+      "id": "econ1310-2-3-lokke1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Konsumendringen $\\Delta C$ og skatteinngangen $\\Delta T$"
     },
     {
       "id": "econ1310-2-3-dc-tekst",
@@ -70,6 +75,34 @@
       "content": "$$\\Delta T = \\Delta z^T + t\\,\\Delta Y.$$\nEndringen i samlet skatteinngang har et **direkte** ledd (endret skattenivå $\\Delta z^T$) og et **indirekte, endogent** ledd $t\\,\\Delta Y$ som følger av at inntektsgrunnlaget endres. Den endogene delen demper: en kontraktiv politikk som senker $Y$ gir lavere $t\\,\\Delta Y$ og dermed mindre skatteinngang enn satsøkningen isolert skulle tilsi."
     },
     {
+      "id": "econ1310-2-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): Skatteøkning — skatteinngang og privat konsum ($\\Delta z^T > 0$)",
+      "problem": "«Vis hvor mye samlet skatteinngang og privat konsum endres etter en skatteøkning $\\Delta z^T > 0$, og forklar hvorfor skatteinngangen øker mindre enn satsøkningen isolert sett skulle tilsi.»",
+      "solution": "**Utgangspunkt.** Fra kap. 2.2: $\\Delta Y = \\dfrac{-c_1}{1 - c_1(1-t) - b_1}\\,\\Delta z^T < 0$ (BNP faller).\n\n**Privat konsum.** Konsumendringen med skattesjokk:\n$$\\Delta C = c_1(1-t)\\,\\Delta Y - c_1\\,\\Delta z^T.$$\nBegge ledd er negative (siden $\\Delta Y<0$ og $\\Delta z^T>0$), så $\\Delta C < 0$: konsumet faller — både direkte (skatten reduserer disponibel inntekt) og indirekte (lavere BNP reduserer inntekten ytterligere).\n\n**Skatteinngang.**\n$$\\Delta T = \\Delta z^T + t\\,\\Delta Y.$$\nDet direkte leddet $\\Delta z^T > 0$ trekker skatteinngangen opp, men det indirekte leddet $t\\,\\Delta Y < 0$ trekker den ned. Netto stiger skatteinngangen (det direkte dominerer), men **mindre enn $\\Delta z^T$**.\n\n**Forklaring.** Grunnen er den endogene dempningen: skatteøkningen senker aktiviteten $Y$, og et lavere inntektsgrunnlag gir lavere skatteinngang på marginen ($t\\,\\Delta Y < 0$). Myndighetene «får ikke inn» hele den tiltenkte satsøkningen, fordi de selv har krympet skattegrunnlaget. Dette er et kjerneinnsikt sensor ser etter: skattepolitikk har en selvmotvirkende effekt gjennom BNP."
+    },
+    {
+      "id": "econ1310-2-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-3-m2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En skatteøkning $\\Delta z^T > 0$ gir $\\Delta Y < 0$. Forklar hvorfor samlet skatteinngang likevel stiger, men mindre enn $\\Delta z^T$.",
+        "solution": "$\\Delta T = \\Delta z^T + t\\,\\Delta Y$. Det direkte leddet $\\Delta z^T > 0$ trekker opp; det indirekte $t\\,\\Delta Y < 0$ (fordi BNP faller) trekker ned. Netto dominerer det direkte, så $\\Delta T > 0$, men fordi det indirekte leddet spiser av det, blir økningen *mindre* enn $\\Delta z^T$. Dette er den endogene dempningen: skatteøkningen krymper inntektsgrunnlaget og reduserer dermed skatteinngangen på marginen.",
+        "hints": [
+          "Skill det direkte ($\\Delta z^T$) fra det indirekte ($t\\,\\Delta Y$).",
+          "$\\Delta Y < 0$ trekker skatteinngangen ned."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-3-lokke2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Budsjettbalansen $\\Delta B$"
+    },
+    {
       "id": "econ1310-2-3-db-tekst",
       "type": "text",
       "content": "## Budsjettbalansen $\\Delta B$\n\nOffentlig budsjettbalanse (overskudd) er inntekter minus utgifter:\n\n$$B = T - G, \\qquad \\Delta B = \\Delta T - \\Delta G.$$\n\nHer dukker det viktigste toppkandidat-momentet i kapitlet opp: **fortegnet på $\\Delta B$ er ofte ubestemt**.\n\nTa et kutt i offentlige kjøp, $\\Delta G < 0$ (innstramming). Da er:\n- $-\\Delta G > 0$: mindre utgifter trekker balansen *opp* (mot overskudd).\n- $\\Delta T = t\\,\\Delta Y = t \\cdot m\\,\\Delta G < 0$: men BNP faller, så skatteinngangen faller også, noe som trekker balansen *ned*.\n\nDe to leddene trekker hver sin vei. Om innstrammingen faktisk bedrer budsjettbalansen avhenger av parametrene ($t$, $m$): den umiddelbare utgiftsbesparelsen kjempes mot det endogene skattebortfallet. **Riktig eksamenssvar er å påpeke fortegnsubestemtheten og resonnere om hva som er rimelig**, ikke å påstå et bestemt fortegn."
@@ -85,6 +118,74 @@
       "type": "definition",
       "title": "Budsjettbalanseendringen $\\Delta B$",
       "content": "$$\\Delta B = \\Delta T - \\Delta G = (\\Delta z^T + t\\,\\Delta Y) - \\Delta G.$$\nFortegnet er ofte **ubestemt** fordi de to leddene kan trekke hver sin vei — f.eks. ved $\\Delta G < 0$ trekker utgiftsbesparelsen $-\\Delta G$ opp mens det endogene skattebortfallet $t\\,\\Delta Y$ trekker ned. Resultatet avhenger av parametrene; man skal påpeke dette, ikke gjette."
+    },
+    {
+      "id": "econ1310-2-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Følgestørrelser etter økte offentlige kjøp ($\\Delta G > 0$)",
+      "problem": "Etter en økning i offentlige kjøp, $\\Delta G > 0$, har vi funnet $\\Delta Y = m\\,\\Delta G > 0$. Finn $\\Delta C$, $\\Delta T$ og $\\Delta B$, og signér hvert resultat.",
+      "solution": "**Konsum.** Her er $\\Delta z^C = 0$ og $\\Delta z^T = 0$, så bare den indirekte delen gjenstår:\n$$\\Delta C = c_1(1-t)\\,\\Delta Y > 0.$$\nKonsumet stiger fordi inntekten stiger; fortegnet er positivt.\n\n**Skatteinngang.** $\\Delta z^T = 0$, så\n$$\\Delta T = t\\,\\Delta Y > 0.$$\nSkatteinngangen stiger automatisk fordi inntektsgrunnlaget vokser.\n\n**Budsjettbalanse.** $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$. Her er $\\Delta Y = m\\,\\Delta G$, så\n$$\\Delta B = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\,\\Delta G.$$\nSiden $t\\,m < 1$ (skatten dekker aldri hele utgiftsøkningen — bare en brøkdel av inntektsøkningen skattlegges), er $t\\,m - 1 < 0$, og med $\\Delta G > 0$ blir $\\Delta B < 0$: budsjettbalansen **forverres**. Den økte skatteinngangen finansierer bare en del av de økte utgiftene. Her er fortegnet altså bestemt — utgiftsøkningen dominerer."
+    },
+    {
+      "id": "econ1310-2-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Budsjettbalansen ved innstramming ($\\Delta G < 0$) — fortegnsubestemthet",
+      "problem": "Myndighetene kutter offentlige kjøp for å bedre budsjettet, $\\Delta G < 0$. Vis at det ikke er opplagt at budsjettbalansen faktisk bedres.",
+      "solution": "Fra kap. 2.2: $\\Delta Y = m\\,\\Delta G < 0$ (BNP faller). Følgestørrelsene:\n$$\\Delta T = t\\,\\Delta Y = t\\,m\\,\\Delta G < 0 \\quad (\\text{skatteinngangen faller}).$$\n$$\\Delta B = \\Delta T - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\,\\Delta G.$$\n\nHer er $\\Delta G < 0$ og $(t\\,m - 1) < 0$, så $\\Delta B = (\\text{negativt})\\cdot(\\text{negativt}) > 0$ — i denne modellen bedres balansen faktisk. Men poenget er *hvorfor* det ikke er opplagt: to krefter kjemper.\n- Utgiftskuttet $-\\Delta G > 0$ trekker balansen mot overskudd.\n- Men BNP faller, så skatteinngangen faller ($t\\,m\\,\\Delta G < 0$) og trekker balansen mot underskudd.\n\nNettoresultatet avhenger av $t$ og $m$. Med sterk endogen skatt (høy $t$) og stor multiplikator kan skattebortfallet spise mye av den tiltenkte innsparingen. **Riktig eksamenssvar:** vis begge motstridende ledd, konkluder at nettoeffekten er parameteravhengig, og resonner om at innstrammingen bedrer balansen mindre enn utgiftskuttet isolert skulle tilsi — fordi det endogene skattebortfallet motvirker."
+    },
+    {
+      "id": "econ1310-2-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F — byggeklossene for følgestørrelsene, verdt 8–15 % på eksamen.) Skriv opp definisjonen (på tilvekstform) av (a) skatteinngangen $\\Delta T$, (b) budsjettbalansen $\\Delta B$, når skattenivået er uendret ($\\Delta z^T = 0$).",
+        "solution": "(a) $\\Delta T = t\\,\\Delta Y$ (bare det endogene leddet, siden $\\Delta z^T = 0$).\n(b) $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$.",
+        "hints": [
+          "$T = z^T + tY$, $B = T - G$.",
+          "Med $\\Delta z^T = 0$ faller det direkte skatteleddet bort."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-3-m1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ved et positivt $\\Delta G$ er $\\Delta Y = m\\,\\Delta G$. Vis at $\\Delta B = (t\\,m - 1)\\,\\Delta G$ og forklar hvorfor budsjettbalansen forverres.",
+        "solution": "$\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\Delta G$. Fordi $t\\,m < 1$ (bare andelen $t$ av inntektsøkningen skattlegges, og $t\\cdot m$ er mindre enn 1), er faktoren negativ. Med $\\Delta G > 0$ blir $\\Delta B < 0$: den økte skatteinngangen dekker bare en del av de økte utgiftene, så balansen forverres.",
+        "hints": [
+          "Sett inn $\\Delta T = t\\,\\Delta Y$ og $\\Delta Y = m\\,\\Delta G$.",
+          "Vis at $t\\,m < 1$."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1310-2-3-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Myndighetene kutter offentlige kjøp $\\Delta G < 0$ i en nedgangskonjunktur for å «rydde i budsjettet». (a) Finn $\\Delta Y$, $\\Delta T$ og $\\Delta B$. (b) Drøft om innstrammingen faktisk bedrer budsjettbalansen, og hva det avhenger av.",
+        "solution": "**(a)** $\\Delta Y = m\\,\\Delta G < 0$. $\\Delta T = t\\,\\Delta Y = t\\,m\\,\\Delta G < 0$ (skatteinngangen faller når BNP faller). $\\Delta B = \\Delta T - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\Delta G$.\n\n**(b)** Med $t\\,m - 1 < 0$ og $\\Delta G < 0$ blir $\\Delta B > 0$: i denne modellen bedres balansen. Men størrelsen — og i mer utbygde modeller også fortegnet — avhenger av parametrene:\n- *Utgiftskuttet* $-\\Delta G > 0$ bedrer balansen direkte.\n- *Skattebortfallet* $t\\,m\\,\\Delta G < 0$ (lavere BNP → lavere skatteinngang) motvirker.\nNettoinnsparingen på budsjettet er derfor $(1 - t\\,m)|\\Delta G|$, altså *mindre* enn selve utgiftskuttet $|\\Delta G|$. Jo høyere $t$ og $m$, desto mer av innsparingen spises av det endogene skattebortfallet. Poenget for eksamen: å kutte i en nedgang bedrer budsjettet *mindre* enn man skulle tro, fordi innstrammingen selv forsterker nedgangen (prosyklisk) og krymper skattegrunnlaget. Riktig svar påpeker de to motstridende leddene og konkluderer at nettoeffekten er parameteravhengig.",
+        "hints": [
+          "$\\Delta B = (t\\,m - 1)\\Delta G$.",
+          "To motstridende ledd: utgiftskutt vs. skattebortfall.",
+          "Nettoinnsparing $< |\\Delta G|$."
+        ]
+      }
+    },
+    {
+      "id": "econ1310-2-3-lokke3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Sparingen $\\Delta S$ og spareparadokset"
     },
     {
       "id": "econ1310-2-3-ds-tekst",
@@ -116,27 +217,6 @@
       "content": "Fenomenet der en eksogen *økning* i sparelysten ($\\Delta z^C < 0$) senker BNP så mye at samlet sparing ikke øker — og kan falle. Det som er fornuftig for den enkelte husholdning, gir uønsket resultat for økonomien samlet, fordi den samlede inntekten (sparegrunnlaget) krymper."
     },
     {
-      "id": "econ1310-2-3-ex-1",
-      "type": "example",
-      "title": "Eksempel 1: Følgestørrelser etter økte offentlige kjøp ($\\Delta G > 0$)",
-      "problem": "Etter en økning i offentlige kjøp, $\\Delta G > 0$, har vi funnet $\\Delta Y = m\\,\\Delta G > 0$. Finn $\\Delta C$, $\\Delta T$ og $\\Delta B$, og signér hvert resultat.",
-      "solution": "**Konsum.** Her er $\\Delta z^C = 0$ og $\\Delta z^T = 0$, så bare den indirekte delen gjenstår:\n$$\\Delta C = c_1(1-t)\\,\\Delta Y > 0.$$\nKonsumet stiger fordi inntekten stiger; fortegnet er positivt.\n\n**Skatteinngang.** $\\Delta z^T = 0$, så\n$$\\Delta T = t\\,\\Delta Y > 0.$$\nSkatteinngangen stiger automatisk fordi inntektsgrunnlaget vokser.\n\n**Budsjettbalanse.** $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$. Her er $\\Delta Y = m\\,\\Delta G$, så\n$$\\Delta B = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\,\\Delta G.$$\nSiden $t\\,m < 1$ (skatten dekker aldri hele utgiftsøkningen — bare en brøkdel av inntektsøkningen skattlegges), er $t\\,m - 1 < 0$, og med $\\Delta G > 0$ blir $\\Delta B < 0$: budsjettbalansen **forverres**. Den økte skatteinngangen finansierer bare en del av de økte utgiftene. Her er fortegnet altså bestemt — utgiftsøkningen dominerer."
-    },
-    {
-      "id": "econ1310-2-3-ex-2",
-      "type": "example",
-      "title": "Eksempel 2: Budsjettbalansen ved innstramming ($\\Delta G < 0$) — fortegnsubestemthet",
-      "problem": "Myndighetene kutter offentlige kjøp for å bedre budsjettet, $\\Delta G < 0$. Vis at det ikke er opplagt at budsjettbalansen faktisk bedres.",
-      "solution": "Fra kap. 2.2: $\\Delta Y = m\\,\\Delta G < 0$ (BNP faller). Følgestørrelsene:\n$$\\Delta T = t\\,\\Delta Y = t\\,m\\,\\Delta G < 0 \\quad (\\text{skatteinngangen faller}).$$\n$$\\Delta B = \\Delta T - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\,\\Delta G.$$\n\nHer er $\\Delta G < 0$ og $(t\\,m - 1) < 0$, så $\\Delta B = (\\text{negativt})\\cdot(\\text{negativt}) > 0$ — i denne modellen bedres balansen faktisk. Men poenget er *hvorfor* det ikke er opplagt: to krefter kjemper.\n- Utgiftskuttet $-\\Delta G > 0$ trekker balansen mot overskudd.\n- Men BNP faller, så skatteinngangen faller ($t\\,m\\,\\Delta G < 0$) og trekker balansen mot underskudd.\n\nNettoresultatet avhenger av $t$ og $m$. Med sterk endogen skatt (høy $t$) og stor multiplikator kan skattebortfallet spise mye av den tiltenkte innsparingen. **Riktig eksamenssvar:** vis begge motstridende ledd, konkluder at nettoeffekten er parameteravhengig, og resonner om at innstrammingen bedrer balansen mindre enn utgiftskuttet isolert skulle tilsi — fordi det endogene skattebortfallet motvirker."
-    },
-    {
-      "id": "econ1310-2-3-ex-3",
-      "type": "example",
-      "title": "Eksempel 3 (eksamensnivå): Skatteøkning — skatteinngang og privat konsum ($\\Delta z^T > 0$)",
-      "problem": "«Vis hvor mye samlet skatteinngang og privat konsum endres etter en skatteøkning $\\Delta z^T > 0$, og forklar hvorfor skatteinngangen øker mindre enn satsøkningen isolert sett skulle tilsi.»",
-      "solution": "**Utgangspunkt.** Fra kap. 2.2: $\\Delta Y = \\dfrac{-c_1}{1 - c_1(1-t) - b_1}\\,\\Delta z^T < 0$ (BNP faller).\n\n**Privat konsum.** Konsumendringen med skattesjokk:\n$$\\Delta C = c_1(1-t)\\,\\Delta Y - c_1\\,\\Delta z^T.$$\nBegge ledd er negative (siden $\\Delta Y<0$ og $\\Delta z^T>0$), så $\\Delta C < 0$: konsumet faller — både direkte (skatten reduserer disponibel inntekt) og indirekte (lavere BNP reduserer inntekten ytterligere).\n\n**Skatteinngang.**\n$$\\Delta T = \\Delta z^T + t\\,\\Delta Y.$$\nDet direkte leddet $\\Delta z^T > 0$ trekker skatteinngangen opp, men det indirekte leddet $t\\,\\Delta Y < 0$ trekker den ned. Netto stiger skatteinngangen (det direkte dominerer), men **mindre enn $\\Delta z^T$**.\n\n**Forklaring.** Grunnen er den endogene dempningen: skatteøkningen senker aktiviteten $Y$, og et lavere inntektsgrunnlag gir lavere skatteinngang på marginen ($t\\,\\Delta Y < 0$). Myndighetene «får ikke inn» hele den tiltenkte satsøkningen, fordi de selv har krympet skattegrunnlaget. Dette er et kjerneinnsikt sensor ser etter: skattepolitikk har en selvmotvirkende effekt gjennom BNP."
-    },
-    {
       "id": "econ1310-2-3-ex-4",
       "type": "example",
       "title": "Eksempel 4: Spareparadokset ($\\Delta z^C < 0$)",
@@ -148,22 +228,6 @@
       "type": "warning",
       "title": "Typiske feil",
       "content": "- **Blande sparebegrepene.** Privat sparing $S^P = Y - T - C$ er *ikke* det samme som total sparing $S = Y - C - C^G$. Å bruke feil er et eksplisitt karakterskille (V2018).\n- **Glemme den direkte komponenten $\\Delta z^C$ i $\\Delta C$.** Ved et konsumsjokk har $\\Delta C$ *både* et direkte ledd ($\\Delta z^C$) og et indirekte ($c_1(1-t)\\Delta Y$).\n- **Påstå bestemt fortegn på $\\Delta B$ der det er parameteravhengig.** Vis begge motstridende ledd og konkluder at nettoeffekten avhenger av parametrene.\n- **Tro at skatteinngangen stiger like mye som satsøkningen.** Den endogene dempningen ($t\\,\\Delta Y < 0$ ved kontraktiv politikk) gjør at $\\Delta T$ blir mindre enn $\\Delta z^T$.\n- **Sette $\\Delta T = t\\,\\Delta Y$ når skattenivået også endres.** Ved skattesjokk er $\\Delta T = \\Delta z^T + t\\,\\Delta Y$ — ikke glem det direkte leddet."
-    },
-    {
-      "id": "econ1310-2-3-oppg-1",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-3-l1",
-        "number": "1",
-        "type": "classic",
-        "difficulty": "lett",
-        "task": "(Sjanger F — byggeklossene for følgestørrelsene, verdt 8–15 % på eksamen.) Skriv opp definisjonen (på tilvekstform) av (a) skatteinngangen $\\Delta T$, (b) budsjettbalansen $\\Delta B$, når skattenivået er uendret ($\\Delta z^T = 0$).",
-        "solution": "(a) $\\Delta T = t\\,\\Delta Y$ (bare det endogene leddet, siden $\\Delta z^T = 0$).\n(b) $\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G$.",
-        "hints": [
-          "$T = z^T + tY$, $B = T - G$.",
-          "Med $\\Delta z^T = 0$ faller det direkte skatteleddet bort."
-        ]
-      }
     },
     {
       "id": "econ1310-2-3-oppg-2",
@@ -197,38 +261,6 @@
       }
     },
     {
-      "id": "econ1310-2-3-oppg-4",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-3-m1",
-        "number": "4",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "Ved et positivt $\\Delta G$ er $\\Delta Y = m\\,\\Delta G$. Vis at $\\Delta B = (t\\,m - 1)\\,\\Delta G$ og forklar hvorfor budsjettbalansen forverres.",
-        "solution": "$\\Delta B = \\Delta T - \\Delta G = t\\,\\Delta Y - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\Delta G$. Fordi $t\\,m < 1$ (bare andelen $t$ av inntektsøkningen skattlegges, og $t\\cdot m$ er mindre enn 1), er faktoren negativ. Med $\\Delta G > 0$ blir $\\Delta B < 0$: den økte skatteinngangen dekker bare en del av de økte utgiftene, så balansen forverres.",
-        "hints": [
-          "Sett inn $\\Delta T = t\\,\\Delta Y$ og $\\Delta Y = m\\,\\Delta G$.",
-          "Vis at $t\\,m < 1$."
-        ]
-      }
-    },
-    {
-      "id": "econ1310-2-3-oppg-5",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-3-m2",
-        "number": "5",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "En skatteøkning $\\Delta z^T > 0$ gir $\\Delta Y < 0$. Forklar hvorfor samlet skatteinngang likevel stiger, men mindre enn $\\Delta z^T$.",
-        "solution": "$\\Delta T = \\Delta z^T + t\\,\\Delta Y$. Det direkte leddet $\\Delta z^T > 0$ trekker opp; det indirekte $t\\,\\Delta Y < 0$ (fordi BNP faller) trekker ned. Netto dominerer det direkte, så $\\Delta T > 0$, men fordi det indirekte leddet spiser av det, blir økningen *mindre* enn $\\Delta z^T$. Dette er den endogene dempningen: skatteøkningen krymper inntektsgrunnlaget og reduserer dermed skatteinngangen på marginen.",
-        "hints": [
-          "Skill det direkte ($\\Delta z^T$) fra det indirekte ($t\\,\\Delta Y$).",
-          "$\\Delta Y < 0$ trekker skatteinngangen ned."
-        ]
-      }
-    },
-    {
       "id": "econ1310-2-3-oppg-6",
       "type": "exercise",
       "exercise": {
@@ -258,23 +290,6 @@
           "Ta med den direkte komponenten $\\Delta z^C$ i $\\Delta C$.",
           "Med $b_1=0$ er $[1-c_1(1-t)]m = 1$.",
           "Knytt til $S = I$."
-        ]
-      }
-    },
-    {
-      "id": "econ1310-2-3-oppg-8",
-      "type": "exercise",
-      "exercise": {
-        "id": "econ1310-2-3-v2",
-        "number": "8",
-        "type": "classic",
-        "difficulty": "vanskelig",
-        "task": "(Eksamensnivå.) Myndighetene kutter offentlige kjøp $\\Delta G < 0$ i en nedgangskonjunktur for å «rydde i budsjettet». (a) Finn $\\Delta Y$, $\\Delta T$ og $\\Delta B$. (b) Drøft om innstrammingen faktisk bedrer budsjettbalansen, og hva det avhenger av.",
-        "solution": "**(a)** $\\Delta Y = m\\,\\Delta G < 0$. $\\Delta T = t\\,\\Delta Y = t\\,m\\,\\Delta G < 0$ (skatteinngangen faller når BNP faller). $\\Delta B = \\Delta T - \\Delta G = t\\,m\\,\\Delta G - \\Delta G = (t\\,m - 1)\\Delta G$.\n\n**(b)** Med $t\\,m - 1 < 0$ og $\\Delta G < 0$ blir $\\Delta B > 0$: i denne modellen bedres balansen. Men størrelsen — og i mer utbygde modeller også fortegnet — avhenger av parametrene:\n- *Utgiftskuttet* $-\\Delta G > 0$ bedrer balansen direkte.\n- *Skattebortfallet* $t\\,m\\,\\Delta G < 0$ (lavere BNP → lavere skatteinngang) motvirker.\nNettoinnsparingen på budsjettet er derfor $(1 - t\\,m)|\\Delta G|$, altså *mindre* enn selve utgiftskuttet $|\\Delta G|$. Jo høyere $t$ og $m$, desto mer av innsparingen spises av det endogene skattebortfallet. Poenget for eksamen: å kutte i en nedgang bedrer budsjettet *mindre* enn man skulle tro, fordi innstrammingen selv forsterker nedgangen (prosyklisk) og krymper skattegrunnlaget. Riktig svar påpeker de to motstridende leddene og konkluderer at nettoeffekten er parameteravhengig.",
-        "hints": [
-          "$\\Delta B = (t\\,m - 1)\\Delta G$.",
-          "To motstridende ledd: utgiftskutt vs. skattebortfall.",
-          "Nettoinnsparing $< |\\Delta G|$."
         ]
       }
     },
