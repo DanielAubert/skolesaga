@@ -66,6 +66,26 @@ docs/hoyskole-boker/
   eksempler før formalisme — uten faglige feil; presisjon vinner ved tvil.
 - **Meningsfulle oppgaver**: hver oppgave er eksplisitt eksamensforankret
   (si hvilken sjanger den trener) eller åpenbart relevant på annen måte.
+- **Læringsløkke per delkapittel — Teori → Eksempel → Oppgave (UFRAVIKELIG, fra produkteier):**
+  Lærestoffet i hvert delkapittel bygges som gjentatte SMÅ sykluser: en liten bit
+  teori → ett eksempel som direkte illustrerer nettopp den teoribiten → én (eller
+  få) oppgave(r) som lar leseren anvende akkurat den biten — deretter neste teoribit,
+  osv., til ALT stoffet i delkapitlet er dekket. Poenget er at leseren skal kunne
+  jobbe seg gjennom stoffet bit for bit og forstå det underveis.
+  - IKKE all teori øverst og alle oppgaver samlet nederst. Det betyr heller IKKE at
+    hver enkelt teorisetning skal ha egen oppgave — grupper til meningsfulle biter.
+  - Plassér `exercise`-blokker INLINE i `content[]`, rett etter eksempelet/teorien de
+    hører til (plattformen renderer inline oppgaver — bekreftet). `content[]`-rekkefølgen
+    veksler altså text/definition → example → exercise i løkker gjennom delkapitlet.
+  - Eksamensvinkel- (`tip`) og Typiske feil- (`warning`) blokkene kan stå der de er
+    mest relevante (ofte tidlig og sent); selve lærestoffet følger løkka.
+- **Full oppgavedekning — ingen usett forkunnskap (UFRAVIKELIG, fra produkteier):**
+  En oppgave får bare kreve stoff som allerede er dekket — tidligere i SAMME
+  delkapittel/kapittel, eller i et tidligere kapittel som er eksplisitt referert i
+  Forkunnskaper-blokken øverst. Ingen oppgave skal forutsette et begrep, en regel,
+  en formel eller en metode leseren ikke har møtt ennå. Bygg oppgaveprogresjonen slik
+  at hver nye oppgave kun hviler på det som er introdusert t.o.m. eksempelet rett foran
+  (pluss eksplisitt refererte forkunnskaper). Sjekk dette eksplisitt ved bygging.
 - **Symbol- og formelliste per delkapittel**: hvert delkapittel som bruker
   symboler/formler skal ha en egen blokk (collapsible «Symbol- og formelliste»
   rett etter Forkunnskaper) som forklarer ALLE variabler og formler brukt i
@@ -214,6 +234,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | TTM4100 Kommunikasjon — Tjenester og nett (NTNU) | regnefag/hybrid | skjelett |
 | SOS1004 Innføring i sosiologi (UiO; arkiv SOS1000/1001/1003) | drøfting | skjelett |
 | SOSANT1090 Antropologiens historie (UiO) | drøfting | skjelett |
+| SOSANT1400 Antropologi og religion (UiO) | drøfting | skjelett |
 | JUS2211 Forvaltningsrett og EØS-rett (UiO) | jus | skjelett |
 | JUS3213 Formuerett II (UiO) | jus | skjelett |
 | JUS3112 Formuerett I (UiO) | jus | skjelett |
