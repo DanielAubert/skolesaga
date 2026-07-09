@@ -70,6 +70,14 @@ alt, så blir fase 6 en billig verifisering i stedet for en dyr omskriving.
   kontrakter ved avhengighet) + referansekapittel-JSON. Skriv kapittelfiler +
   quiz-staging. **Kvotene fra skjelettets kvotesammendrag er fasit** — ikke
   overstyr i prompt (ECON1310 mistet 15 quiz på en prompt-forenkling).
+- **Læringsløkke-struktur (UFRAVIKELIG, jf. README «Leserkrav» + DNA-malene):**
+  hvert delkapittel bygges som gjentatte små løkker teori → eksempel → oppgave,
+  IKKE all teori øverst og alle oppgaver nederst. `exercise`-blokkene ligger
+  INLINE i `content[]` rett etter eksempelet/teorien de hører til (plattformen
+  renderer inline). Ingen oppgave får kreve en regel/formel/metode/begrep leseren
+  ikke har møtt ennå — bare stoff introdusert t.o.m. eksempelet foran eller i et
+  eksplisitt refererte forkunnskapskapittel. Agenten verifiserer forkunnskaps-
+  dekningen eksplisitt før ferdigmelding.
 - Egenvalidering per agent: json.load, kvotetelling, fagets forbudt-termer-grep.
 - Maks ~8 samtidige agenter; ved degradert API, vent (jf. 16. juni-lærdommen).
 - **Agenter kan dø på sesjonsgrenser midt i bølgen** (JUS1111: 2 av 9 traff
@@ -95,6 +103,10 @@ Parameterisert skript (mønster: `wire-econ1310.py`, tilpasset skjelettformatet)
 Redaktører per del-gruppe. IKKE omskriving — verifisering med kirurgiske fiks:
 - Leserkrav oppfylt (forkunnskaper-blokk finnes, lenker peker på eksisterende
   kapitler, sjangerforankring per oppgave)?
+- **Læringsløkke + forkunnskapsdekning** (jf. README «Leserkrav»): `content[]`
+  veksler teori→eksempel→oppgave i løkker (ikke all teori topp / alle oppgaver
+  bunn), oppgaver ligger inline, og INGEN oppgave krever et begrep/regel/formel
+  som ikke er introdusert tidligere i kapitlet eller i en refererte forkunnskap.
 - Faktasjekk mot skjelettkontraktene; etterregn alle talleksempler.
 - Konsistens på tvers av agentgrenser (notasjon, ingen motstridende påstander).
 - Fagspesifikk kildeverifisering: jus → paragrafer/domsreferanser sjekkes mot

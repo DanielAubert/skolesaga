@@ -41,6 +41,22 @@ begge deler eksplisitt — materiell rett alene gir C.
    løsningsforslag disponert som besvarelse, + kontrollspørsmål om vilkårene.
 8. `collapsible` **Paragraf- og domsregister** for kapitlet — hurtigoppslag.
 
+**Læringsløkke per regel (UFRAVIKELIG — jf. README «Leserkrav»).** Blokkene 3–7
+over er IKKE tre samlede bolker (alle regler, så alle eksempler, så alle
+oppgaver). De veksler i løkker gjennom kapitlet, én løkke per regel/vilkårssett:
+liten regel med hjemmel (`definition` + `text` om vilkårene) → subsumsjons-
+eksempel som drøfter nettopp den regelen (`example`) → praktikum-/domsanalyse-
+oppgave på nettopp den regelen (`exercise`), plassert INLINE i `content[]` rett
+etter eksempelet (plattformen renderer oppgaver inline). Deretter neste regel,
+osv., til alle regelsettene i kapitlet er dekket. `tip` Eksamensvinkel og
+`warning` Typiske feil kan stå der de er mest relevante.
+
+**Full oppgavedekning — ingen usett hjemmel (UFRAVIKELIG — jf. README).** En
+praktikum-/subsumsjonsoppgave får bare kreve hjemler, vilkår, dommer og læresetninger
+som allerede er introdusert — tidligere i SAMME kapittel (t.o.m. eksempelet rett
+foran) eller i et tidligere kapittel referert i Forkunnskaper-blokken. Ingen oppgave
+skal forutsette en regel leseren ikke har møtt. Sjekk dette eksplisitt ved bygging.
+
 ## Kapittel-DNA (typetilfellekapittel)
 
 Ett kapittel per gjennomgående typetilfelle fra analysen (f.eks. «binding ved

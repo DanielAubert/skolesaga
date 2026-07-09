@@ -37,11 +37,19 @@ av én agent som leser hele skjelettet.
 > DINE FILER (<n>): <id-liste med kapittelnavn>.
 > Følg per-kapittel-DNA-en slavisk. Leserkravene (Forkunnskaper-blokk,
 > Symbol- og formelliste, sjangerforankring per oppgave) SKAL inn i
-> førsteutkastet. Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
+> førsteutkastet. STRUKTURER `content[]` som læringsløkker (jf. README
+> «Leserkrav»): teori (text/definition/theorem) → example → exercise i
+> gjentatte små løkker gjennom delkapitlet — IKKE all teori øverst og alle
+> oppgaver nederst — med `exercise`-blokkene INLINE rett etter eksempelet de
+> hører til (plattformen renderer inline). INGEN oppgave får kreve et begrep/
+> regel/formel/metode som ikke er introdusert tidligere (t.o.m. eksempelet foran
+> eller en refererte forkunnskap). Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
 > (kvoter = skjelettets kvotesammendrag, AUTORITATIVT; options[0] alltid
 > riktig). Referanser du er usikker på merkes (verifiser).
 > VALIDER: python3 json.load per fil; kvotetelling mot skjelettet;
-> grep "<forbudt-termer>" = 0. Rapporter kort: filer, kvotestatus, validering.
+> grep "<forbudt-termer>" = 0; sjekk at content[] veksler teori→eksempel→oppgave
+> i løkker (oppgaver inline) og at ingen oppgave krever usett forkunnskap.
+> Rapporter kort: filer, kvotestatus, validering.
 
 Etter HVER batch: `python3 -c "import json,glob; [json.load(open(f)) for f in
 glob.glob('src/lib/data/chapters/<emne>-*.json')]"` — feil ⇒ fiks før neste.
@@ -67,7 +75,10 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > ingen motstridende påstander — særlig i splittede deler); (2) alle
 > «kap. X.Y»-referanser i prosa peker riktig; (3) leserkrav komplette
 > (Forkunnskaper, Symbol- og formelliste der kapitlet bruker symboler,
-> sjangerforankring per oppgave — prøvekapitler skal også ha Forkunnskaper);
+> sjangerforankring per oppgave — prøvekapitler skal også ha Forkunnskaper;
+> content[] veksler teori→eksempel→oppgave i løkker med `exercise` inline, ikke
+> all teori topp / alle oppgaver bunn; INGEN oppgave krever usett forkunnskap —
+> bare stoff introdusert tidligere i kapitlet eller i en refererte forkunnskap);
 > (4) faktasjekk mot skjelettkontraktene: ETTERREGN alle talleksempler /
 > kontroller vilkårslister og kausalkjeder ordrett; (5) kvoter må IKKE
 > endres (tell definition-blokker før/etter).
@@ -94,7 +105,9 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       innholds-grep på: `/bok/trinn/hoyere/<inst>`, `/bok/<emne>`,
       3 kapittelruter (teori/drill/prøve), `/quiz/<et-kapittel>`,
       `/bok/<emne>/flashcards`. Sjekk at «Forkunnskaper» og «Symbol- og
-      formelliste» finnes i servert HTML. Stopp serveren.
+      formelliste» finnes i servert HTML, og at minst ett teorikapittel viser
+      en `exercise` INLINE mellom teoriblokker (læringsløkke — ikke alle
+      oppgaver samlet nederst). Stopp serveren.
 - [ ] Oppdater statustavlen i docs/hoyskole-boker/README.md og kryss av i
       TODO-OPUS.md
 - [ ] Commit + push (melding: «<EMNEKODE>-bok (<inst>): eksamensrettet

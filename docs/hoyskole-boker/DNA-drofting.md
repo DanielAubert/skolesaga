@@ -46,6 +46,24 @@ besvarelser som viser karakternivåene.
 8. `collapsible` **Pensumkart for kapitlet** — forfatter → verk → hvilke
    begreper/poenger de «eier» (flashcard-råstoff).
 
+**Læringsløkke per begrep (UFRAVIKELIG — jf. README «Leserkrav»).** Blokkene
+3–7 over er IKKE tre samlede bolker (alle begreper, så alle eksempler, så alle
+oppgaver nederst). De veksler i løkker gjennom kapitlet, én løkke per begrep/
+teoribit: begrep eller teori med pensumforankring (`definition` + evt. `text`
+om posisjoner) → anvendt illustrasjon eller mini-case som viser begrepet i bruk
+(`example`) → drøftings-/anvendelsesoppgave på samme begrep (`exercise`),
+plassert INLINE i `content[]` rett etter eksempelet (plattformen renderer
+oppgaver inline). Deretter neste begrep, osv., til alt stoffet i delkapitlet er
+dekket. `tip` Eksamensvinkel og `warning` Typiske feil kan stå der de er mest
+relevante.
+
+**Full oppgavedekning — ingen usett teori (UFRAVIKELIG — jf. README).** En
+drøftings-/anvendelsesoppgave får bare kreve begreper, teorier og posisjoner
+som allerede er introdusert — tidligere i SAMME kapittel (t.o.m. eksempelet rett
+foran) eller i et tidligere kapittel referert i Forkunnskaper-blokken. Ingen
+oppgave skal forutsette et begrep leseren ikke har møtt ennå. Sjekk dette
+eksplisitt ved bygging.
+
 ## Kapittel-DNA (sjangerkapittel)
 
 Ett per oppgavesjanger fra EKSAMENSANALYSE §3:

@@ -44,12 +44,21 @@ per-kapittel-kontrakt. Alltid, i denne rekkefølgen først i kapitlet:
 Og alltid: `warning` **Typiske feil** (fra skjelettet) + begrepsbank-
 definisjoner til flashcard-kvoten + `collapsible` repetisjon (teorikapitler).
 
-## Leserkrav (ufravikelig)
+## Leserkrav (ufravikelig — full ordlyd i README «Leserkrav»)
 - Kun eksamensrelevant stoff; «kjenne til» sist og merket.
 - Korte avsnitt (2–4 setninger), «du»-form, konkret norsk knagg før
   formalisme — presisjon vinner ved tvil.
 - Hver oppgave synlig eksamensforankret («(Eksamenssjanger X — …)») eller
   åpenbart relevant.
+- **Læringsløkke Teori → Eksempel → Oppgave:** `content[]` veksler teori
+  (`text`/`definition`/`theorem`) → `example` → `exercise` i gjentatte små
+  løkker gjennom delkapitlet, IKKE all teori øverst og alle oppgaver samlet
+  nederst. `exercise`-blokkene plasseres INLINE i `content[]` rett etter
+  eksempelet/teorien de hører til (plattformen renderer inline oppgaver).
+- **Ingen usett forkunnskap:** ingen oppgave får kreve et begrep, en regel, en
+  formel eller en metode som ikke er introdusert tidligere i kapitlet (t.o.m.
+  eksempelet rett foran) eller i et tidligere kapittel referert i Forkunnskaper-
+  blokken. Bygg oppgaveprogresjonen bit for bit.
 
 ## Prøvekapitler
 Id `<emne>-<del>-prove`, chapterNumber `<del>.P`, tittel «Prøver til del
@@ -78,4 +87,8 @@ aldri siteres i lengde. Referanser fag-agenten er usikker på merkes
 ## Kvalitetskrav før ferdigmelding (per agent)
 1. `python3 json.load` på hver fil; 2. kvotetelling mot skjelettet
 (definitions + quiz); 3. fagets forbudt-termer-grep = 0; 4. kryssbok-lenker
-peker på eksisterende filer.
+peker på eksisterende filer; 5. **læringsløkke**: `content[]` veksler
+teori→eksempel→oppgave i løkker med `exercise`-blokker inline (ikke all teori
+topp / alle oppgaver bunn); 6. **forkunnskapsdekning**: gå gjennom hver
+`exercise` og bekreft at den bare hviler på stoff introdusert tidligere i
+kapitlet eller i en refererte forkunnskap — ingen usett begrep/regel/formel.

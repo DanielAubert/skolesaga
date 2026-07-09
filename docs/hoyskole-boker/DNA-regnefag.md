@@ -50,6 +50,24 @@ Rekkefølgen under er obligatorisk; blokktypene er plattformens
 8. `collapsible` **Repetisjonsoppgaver** — 4–6 korte oppgaver fra tidligere
    kapitler som dette kapitlet bygger på.
 
+**Læringsløkke per metode (UFRAVIKELIG — jf. README «Leserkrav»).** Blokkene
+3–7 over er IKKE tre samlede bolker (all teori, så alle eksempler, så alle
+oppgaver nederst). De veksler i løkker gjennom kapitlet, én løkke per metode/
+formel: metode eller formel (`definition`/`theorem` + evt. `text`-utledning) →
+gjennomregnet eksempel på nettopp den metoden (`example`) → øvingsoppgave(r) på
+samme metode (`exercise`), plassert INLINE i `content[]` rett etter eksempelet
+(plattformen renderer oppgaver inline). Deretter neste metode, osv., til alt
+stoffet i delkapitlet er dekket. `tip` Eksamensvinkel og `warning` Typiske feil
+kan stå der de er mest relevante. Den store, stigende oppgavepuljen (blokk 7)
+kan fortsatt samles til slutt som eksamensdrill — men grunnstoffet skal først
+være gjennomarbeidet løkke for løkke.
+
+**Full oppgavedekning — ingen usett teknikk (UFRAVIKELIG — jf. README).** En
+regneoppgave får bare bruke formler, teoremer og teknikker som allerede er vist
+— tidligere i SAMME kapittel (t.o.m. eksempelet rett foran) eller i et tidligere
+kapittel referert i Forkunnskaper-blokken. Ingen oppgave skal kreve en metode
+leseren ikke har møtt ennå. Sjekk dette eksplisitt ved bygging.
+
 ## Kapittel-DNA (drillkapittel — kun for «må beherskes perfekt»-temaer)
 
 1. `tip` Eksamensvinkel: hvilke varianter av sjangeren som har forekommet.
