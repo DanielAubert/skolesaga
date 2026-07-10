@@ -484,6 +484,68 @@ export default async function GradePage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* Slik virker det — LK20-basert bygging med KI (grunnskole + VGS) */}
+      <section id="slik-virker-det" className="py-12 md:py-16 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Slik virker det</h2>
+            <p className="text-muted-foreground mb-10 max-w-2xl">
+              Bøkene er bygget med læreplanen som grunnmur — så du alltid vet
+              hvorfor du leser det du leser.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  step: '1',
+                  title: 'KI bygger bøkene på læreplanen (LK20)',
+                  description:
+                    'KI-en vår leser kompetansemålene i LK20 og skriver hvert kapittel mot konkrete mål — ikke løsrevet fagstoff, men det læreplanen faktisk sier at du skal mestre.',
+                },
+                {
+                  step: '2',
+                  title: 'Alt er knyttet til kompetansemålene',
+                  description:
+                    'Hvert kapittel viser hvilke kompetansemål det dekker («Se kompetansemål» på hver bok og hvert kapittel), slik at lesing, oppgaver og quiz alltid peker tilbake på målene du vurderes etter.',
+                },
+                {
+                  step: '3',
+                  title: 'Teori, eksempel og oppgave – i én løkke',
+                  description:
+                    'Du leser aldri lenge uten å bruke stoffet: hver bit teori følges av eksempler og oppgaver med umiddelbar tilbakemelding — pluss quiz og flashcards per kapittel.',
+                },
+                {
+                  step: '4',
+                  title: 'KI-agenter kjører kvalitetskontrollen',
+                  description:
+                    'Uavhengige KI-agenter kontrollerer innholdet: automatiske valideringsporter, faglige revisjoner og simulerte lesertester. Innholdet er foreløpig ikke manuelt gjennomgått — finner du en feil, melder du fra med ett klikk i kapitlet, og den rettes fortløpende.',
+                },
+              ].map((c) => (
+                <div key={c.step} className="rounded-2xl border bg-card p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                      {c.step}
+                    </span>
+                    <h3 className="font-semibold">{c.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{c.description}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-xs text-muted-foreground max-w-2xl">
+              Full åpenhet: bøkene er skrevet og satt sammen av KI, og
+              kvalitetskontrollen gjøres av KI-agenter.{' '}
+              <Link
+                href="/vilkar#ki-deklarasjon"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
+                Les KI-deklarasjonen
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
