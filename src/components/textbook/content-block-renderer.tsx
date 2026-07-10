@@ -26,6 +26,7 @@ import { getExerciseSubTaskProgress } from '@/lib/textbook/progress';
 import DOMPurify from 'isomorphic-dompurify';
 import dynamic from 'next/dynamic';
 import { mediaUrl } from '@/lib/media';
+import { ProveSvarFelt } from './prove-svar-felt';
 import {
   AngleIntroIllustration,
   AngleTypesIllustration,
@@ -826,6 +827,29 @@ function ExerciseBlockComponent({
 // Collapsible (Sammenleggbar seksjon)
 // ============================================================================
 
+// Prøve-heuristikk: svarfelt vises på collapsibles som ER prøveoppgaver,
+// aldri på fasit-/løsningsforslag-/nøkkelkort-bokser.
+function erProveOppgave(title: string): boolean {
+  if (!/^(prøve|delprøve|øvingseksamen)\s*\d/i.test(title)) return false;
+  return !/fasit|løsningsforslag|selvdiagnose|nøkkelkort/i.test(title);
+}
+
+// Trekk ut prøvens oppgavetekst til KI-vurderingen: tekstlige toppnivå-blokker,
+// men IKKE nestede collapsibles (der bor gjerne fasiten).
+function hentProveTekst(blocks: TextbookContentBlock[]): string {
+  const deler: string[] = [];
+  for (const b of blocks) {
+    if (b.type === 'collapsible') continue;
+    const rec = b as unknown as Record<string, unknown>;
+    for (const felt of ['title', 'content', 'problem'] as const) {
+      const v = rec[felt];
+      if (typeof v === 'string' && v.trim()) deler.push(v);
+    }
+    if (deler.join('\n').length > 6000) break;
+  }
+  return deler.join('\n\n').slice(0, 6000);
+}
+
 function CollapsibleBlockComponent({
   title,
   buttonText,
@@ -991,6 +1015,16 @@ function CollapsibleBlockComponent({
               viewingAsStudentId={viewingAsStudentId}
             />
           ))}
+          {/* Prøver: eget svarfelt (autolagres) + KI-vurdering når aktivert.
+              Kun på oppgave-delen — aldri på fasit-/løsningsforslag-bokser. */}
+          {courseId && chapterId && erProveOppgave(title) && (
+            <ProveSvarFelt
+              courseId={courseId}
+              chapterId={chapterId}
+              proveTittel={title}
+              oppgaveTekst={hentProveTekst(content)}
+            />
+          )}
         </CardContent>
       )}
     </Card>
