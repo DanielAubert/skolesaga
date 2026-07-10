@@ -74,6 +74,64 @@ Anbefaling: per-fag er forsvarlig akkurat her, i motsetning til fasit-muren:
 - Utrulling: PILOT på 1–2 store fag (exphil03 er åpenbar: størst kull,
   «les på bussen»-caset), mål konvertering før flere produseres.
 
+## Adopsjon og selling points (oppfølgingsrunde: alle 20 panelstudenter spurt direkte)
+
+**«Ville du brukt dette fremfor alternativene?» — 20 av 20 JA.**
+16 som hovedressurs/primærressurs, 4 (toppjegerne) som «ryggrad, ikke eneste
+kilde» (beholder primærkilder som kontroll — sunt, og ærlig markedsføringsvinkel:
+«ha Lovdata åpen, den er ikke ufeilbarlig»).
+
+**Hva produktet ERSTATTER (viktig for posisjonering):**
+- Pensumbok lest lineært: droppet av 18/20 («600 sider, 6 dager — nei»;
+  beholdes som oppslagsverk)
+- Forelesninger/opptak: droppet helt eller delvis av 12/20 («passer ikke i
+  togvinduet», «kan ikke søke i dem», «filosoferer i sanntid, uten kriterier»)
+- Privatkurs (flere tusen kr) og privatlærer (450 kr/t): eksplisitt erstattet
+- Kompendier/notat-svartebørs, YouTube (unntak: se diagramtegning)
+
+**Hva som beholdes VED SIDEN AV (ikke konkurrenter, komplementer):**
+- Gamle eksamenssett som kontroll (skippertakere + toppjegere)
+- Lovdata (jus — boka krever selv drillen)
+- Kollokvier — men med NY rolle: bokas prøver som agenda, E/C/A-listene som
+  rettenorm (produktet gjør kollokvier bedre, ikke overflødige)
+
+**ChatGPT-vollgraven bekreftet:** 14/20 sa uoppfordret at de IKKE stoler på
+ChatGPT om sensorkrav («finner på fortegn med større selvsikkerhet enn denne
+boka noensinne gjør», «vet ikke hva UiO-sensor krever», «smigrer meg»).
+ChatGPT degraderes til «forklar dummere»-nødhjelp og muntlig forhør.
+→ Sensorveilednings-forankringen ER vollgraven — front den i all markedsføring.
+
+**KI-sensor-behovet spontant bekreftet 4 ganger** («det eneste boka ikke kan,
+er å lese MITT svar og si om det holder», «boka svarer ikke tilbake», «rette
+drøftingsskissene mine», «kritisere veiingen min») — KI-vurdering er det
+naturlige neste trinnet i studentenes egne ord.
+
+**Selling points i studentenes egne ord (bruk i markedsføring):**
+- «Alt annet forteller deg hva Kant mente. Denne forteller deg hva DU må
+  skrive.» (skippertak)
+- «Som å få sensorveiledningen før eksamen.» / «oversatt til bruksanvisning»
+  (skippertak/toppjeger)
+- «Den viser en besvarelse som misser nesten alt og LIKEVEL består — gulvet
+  er nåbart på ei uke.» (skippertak, jus)
+- «Det føles som å få juksearket alle de med akademikerforeldre fikk gratis
+  hjemme.» (stryk-redd) ← panelets sterkeste linje
+- «Jeg sluttet å være redd for å stryke i uke tre.» (stryk-redd)
+- «Det er den eneste jusboka jeg har lest ferdig.» (vegrer)
+- «Du slipper å late som du liker filosofi; du følger bare oppskriften.» (vegrer)
+- «Den eneste boka som behandler toppkarakter som håndverk, ikke talent.»
+  (toppjeger)
+- «Pensum har alle; sensorens sjekkliste har bare de som leser denne.» (toppjeger)
+- «Bygget for at INGEN av de 8 timene dine i uka skal være bortkastet.» (deltid)
+- «Det er ikke innholdet som er gull — det er at noen endelig har tatt ansvar
+  for PLANEN.» (deltid)
+- «Du trenger ikke slutte i jobben for å klare dette.» (deltid, jus)
+
+**Segmentering av budskap:** skippertak/stryk-redd → «hva som er NOK + gulvet»;
+vegrere → «oversatt til norsk / oppskrift»; toppjegere → «sensorens sjekkliste,
+håndverk ikke talent»; deltid → «planen er tatt ansvar for, timene kastes ikke
+bort». Fellesnevneren på tvers: **«vi har lest sensorveiledningene for deg»** —
+det er kjernebudskapet.
+
 ## Åpne punkter før lansering
 
 - Betalingsinfrastruktur (størst — se docs/LANSERING-TODO.md);
