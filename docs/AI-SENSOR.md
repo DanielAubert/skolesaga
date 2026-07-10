@@ -61,3 +61,20 @@ lav terskel for å oppleve verdien før betaling.
 3. Ev. prompt-caching av pensumlisten per kapittel (kutter input-kostnad ~50 %
    ved gjentatte vurderinger i samme kapittel).
 4. Logging/statistikk per fag for kvalitetsovervåkning.
+
+## Oppdatering 10. juli 2026 — modellstige, lagring og refusjon
+
+- **To nivåer** (panel-testet; ingen synlig Haiku — tynt gratisnivå skader
+  tilliten): 1 «Karakter + hvorfor» (Sonnet, 1 klipp, også gratis-smaken) og
+  2 «Ditt avsnitt til A» (Opus, 3 klipp: + A-stresstest-rubrikk + omskriving
+  av studentens svakeste avsnitt + neste øvelse). Konfig: src/lib/ai-sensor/tiers.ts.
+  Skjult nødbrems: AI_SENSOR_MODEL_OVERRIDE.
+- **karakterBokstav**: eget felt, nøyaktig én bokstav A–F (stor visning i UI);
+  prompten krever konservativ kalibrering.
+- **Lagring**: alle vurderinger lagres i ai_sensor_vurderinger (se
+  docs/database-schema.md) — best effort, svaret feiler aldri på lagring.
+- **Refusjon**: student kan melde inn en dårlig vurdering med begrunnelse
+  (knapp under vurderingen) → admin behandler i /dashboard/admin/ki-sensor
+  (godkjenn/avvis + valgfritt svar). Klipp-tilbakeføring kobles til
+  betalingsløsningen (stubb markert i koden).
+- Fortsatt HELT skjult bak AI_SENSOR_ENABLED + NEXT_PUBLIC_AI_SENSOR_ENABLED.

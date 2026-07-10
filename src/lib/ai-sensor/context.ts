@@ -145,17 +145,46 @@ export function buildSensorContext(opts: {
   };
 }
 
-/** Systemprompt + brukermelding for vurderingen. */
-export function buildSensorPrompt(ctx: SensorContext, answer: string): {
+/** Systemprompt + brukermelding for vurderingen. Tier styrer dybden:
+ * 1 «Karakter + hvorfor» (standard): siterer studentens formuleringer, kobler
+ *   til sensornøkler/typiske feil.
+ * 2 «Ditt avsnitt til A» (premium): + A-stresstest-rubrikk, omskriver ETT
+ *   avsnitt til toppnivå, anbefaler neste øvelse. */
+export function buildSensorPrompt(
+  ctx: SensorContext,
+  answer: string,
+  tier: 1 | 2 = 1
+): {
   system: string;
   user: string;
 } {
-  const system = [
+  const felles = [
     'Du er en erfaren, rettferdig norsk sensor som vurderer en students besvarelse.',
     'Vurder KUN mot pensum studenten har møtt så langt (listen under) og teorien i gjeldende kapittel — aldri trekk for at senere stoff ikke er brukt, og ikke krev begreper utenfor listen.',
     'Vær konkret og konstruktiv, på norsk bokmål. Ikke skriv fasit-besvarelsen for studenten; pek på hva som mangler og hvordan de kan forbedre seg.',
+    'Kalibrer karakteren KONSERVATIVT — heller ett hakk streng enn snill.',
+    'Feltet karakterBokstav skal være NØYAKTIG én bokstav: A, B, C, D, E eller F. Der faget vurderes bestått/ikke bestått er bokstaven karakterekvivalenten, og kortDom sier eksplisitt bestått/ikke bestått.',
+    'SITER studentens egne formuleringer (korte, ordrette utdrag i anførselstegn) der du påpeker styrker og mangler, og koble hver mangel til fagets sensornøkler/typiske feil der de er oppgitt.',
+  ];
+  const tierEkstra =
+    tier === 2
+      ? [
+          'I tillegg (premium-vurdering):',
+          '- Fyll "rubrikk" med en A-stresstest — svar kort på: (i) er den sterkeste innvendingen/motargumentet med? (ii) er betingelsen som ville snudd konklusjonen navngitt? (iii) gjør drøftingen/subsumsjonen faktisk arbeid, eller listes det bare? (iv) er konklusjonen en posisjon eller en balanseøvelse?',
+          '- Fyll "omskriving": velg avsnittet i studentens svar med størst forbedringspotensial og skriv det om til toppnivå (A) — behold studentens innhold og stemme, vis grepet.',
+          '- Fyll "nesteOvelse": anbefal én konkret neste øvelse (helst et kapittel/en oppgavetype fra pensumlisten over, ellers en presis egentreningsøvelse).',
+        ]
+      : [];
+  const jsonFelter =
+    tier === 2
+      ? '{"karakterBokstav": "<A-F, én bokstav>", "karakter": "<kort vurdering, f.eks. «C, på grensen til B»>", "kortDom": "<1-2 setninger>", "styrker": ["..."], "mangler": ["..."], "forbedring": "<konkret råd, 2-4 setninger>", "rubrikk": ["<(i)>", "<(ii)>", "<(iii)>", "<(iv)>"], "omskriving": "<svakeste avsnitt omskrevet til A-nivå>", "nesteOvelse": "<én konkret anbefaling>"}'
+      : '{"karakterBokstav": "<A-F, én bokstav>", "karakter": "<kort vurdering, f.eks. «C, på grensen til B»>", "kortDom": "<1-2 setninger>", "styrker": ["..."], "mangler": ["..."], "forbedring": "<konkret råd, 2-4 setninger>"}';
+
+  const system = [
+    ...felles,
+    ...tierEkstra,
     'Svar UTELUKKENDE med gyldig JSON (ingen markdown rundt) med feltene:',
-    '{"karakter": "<vurdering på skalaen>", "kortDom": "<1-2 setninger>", "styrker": ["..."], "mangler": ["..."], "forbedring": "<konkret råd, 2-4 setninger>"}',
+    jsonFelter,
   ].join('\n');
 
   const user = [

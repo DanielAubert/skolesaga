@@ -244,3 +244,28 @@ CREATE POLICY "Teachers can view student progress" ON textbook_chapter_progress
 ## Migrering fra eksisterende database
 
 Hvis du migrerer fra en eksisterende eksamenssett.no database, kan du dele Supabase-instansen. Lærebok-tabellene er separate fra eksamen-tabellene.
+
+### ai_sensor_vurderinger
+
+KI-sensorens lagrede vurderinger + refusjonsflyt (opprettet 10. juli 2026 via
+Management API; kun Skolesaga bruker tabellen — additiv, RLS PÅ uten
+anon-policyer: all tilgang går via service-nøkkel i API-rutene).
+
+| Kolonne | Type | Beskrivelse |
+|---|---|---|
+| id | uuid PK | gen_random_uuid() |
+| user_id | uuid nullable | innlogget bruker (null ved anonym bruk) |
+| course_id / chapter_id / exercise_id | text | hvor vurderingen hører til |
+| tier | smallint | 1 = «Karakter + hvorfor» (Sonnet), 2 = «Ditt avsnitt til A» (Opus) |
+| model | text | modell-id brukt |
+| question / answer | text | oppgaven + studentens svar |
+| karakter_bokstav | text | én bokstav A–F (eget felt for UI) |
+| verdict | jsonb | hele vurderingen (SensorVerdict) |
+| klipp_kostnad | smallint | klipp trukket (refunderes ved godkjent refusjon) |
+| refusjon_status | text | ingen / forespurt / godkjent / avvist |
+| refusjon_begrunnelse / refusjon_svar | text | studentens begrunnelse / admins svar |
+| created_at | timestamptz | now() |
+
+Indekser: (user_id, created_at DESC); partial på refusjon_status <> 'ingen'.
+Ruter: POST /api/ai-sensor (vurder + lagre), POST/GET/PATCH /api/ai-sensor/refusjon.
+Admin-UI: /dashboard/admin/ki-sensor.
