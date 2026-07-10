@@ -2,17 +2,22 @@
 
 /**
  * Svarfelt for prøver: eleven skriver besvarelsen sin i et eget felt under
- * prøveoppgaven (lagres automatisk lokalt, per prøve), og kan — når KI-sensoren
- * er aktivert (NEXT_PUBLIC_AI_SENSOR_ENABLED) — be om KI-vurdering av
- * besvarelsen med samme modellstige som oppgave-panelet.
+ * prøveoppgaven, og kan — når KI-sensoren er aktivert — be om KI-vurdering.
  *
- * Rendres automatisk i prøve-collapsibles (se content-block-renderer).
+ * Lagring: alltid lokalt (localStorage, per prøve). Innloggede brukere synkes
+ * i tillegg til kontoen (/api/textbook/prove-svar) så svaret følger dem på
+ * tvers av enheter. Grensesnittet sier ærlig hvilken av delene som gjelder.
+ *
+ * Studentpanel-krav bakt inn: bestått-fag får bestått-gradering (ikke
+ * bokstav), valgfri «skjul karakteren»-modus, og «kalibrert mot bokas
+ * kriterier»-merking under vurderingen.
  */
 
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { PenLine, Sparkles, Loader2, Check } from 'lucide-react';
+import { PenLine, Sparkles, Loader2, Check, Eye } from 'lucide-react';
 import { aiSensorEnabled } from './ai-sensor-panel';
+import { useUser } from '@/lib/auth/hooks';
 
 interface Verdict {
   karakterBokstav: string;
@@ -40,25 +45,41 @@ interface ProveSvarFeltProps {
 
 export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }: ProveSvarFeltProps) {
   const storageKey = `prove-svar:${courseId}:${chapterId}:${proveTittel}`;
+  const { user } = useUser();
   const [answer, setAnswer] = useState('');
   const [saved, setSaved] = useState(false);
   const [tier, setTier] = useState<1 | 2>(1);
+  const [skjulKarakter, setSkjulKarakter] = useState(false);
+  const [karakterVist, setKarakterVist] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Last inn lagret svar
+  // Last inn lagret svar: lokalt først; innlogget uten lokalt svar → hent fra konto.
   useEffect(() => {
+    let lokalt = '';
     try {
-      const lagret = localStorage.getItem(storageKey);
-      if (lagret) setAnswer(lagret);
+      lokalt = localStorage.getItem(storageKey) ?? '';
     } catch {
-      /* localStorage utilgjengelig — feltet virker fortsatt, bare uten lagring */
+      /* localStorage utilgjengelig */
     }
-  }, [storageKey]);
+    if (lokalt) {
+      setAnswer(lokalt);
+      return;
+    }
+    if (user?.id) {
+      const params = new URLSearchParams({ courseId, chapterId, prove: proveTittel });
+      fetch(`/api/textbook/prove-svar?${params}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          if (d?.text) setAnswer(d.text as string);
+        })
+        .catch(() => {});
+    }
+  }, [storageKey, user?.id, courseId, chapterId, proveTittel]);
 
-  // Autolagre (debounce)
+  // Autolagre (debounce): alltid lokalt, + kontosynk når innlogget.
   function onChange(v: string) {
     setAnswer(v);
     setSaved(false);
@@ -66,17 +87,25 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
     saveTimer.current = setTimeout(() => {
       try {
         localStorage.setItem(storageKey, v);
-        setSaved(true);
       } catch {
         /* ignorer */
       }
-    }, 600);
+      setSaved(true);
+      if (user?.id) {
+        fetch('/api/textbook/prove-svar', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ courseId, chapterId, prove: proveTittel, text: v }),
+        }).catch(() => {});
+      }
+    }, 800);
   }
 
   async function vurder() {
     setLoading(true);
     setError(null);
     setVerdict(null);
+    setKarakterVist(false);
     try {
       const res = await fetch('/api/ai-sensor', {
         method: 'POST',
@@ -104,6 +133,8 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
     }
   }
 
+  const visGrade = verdict && (!skjulKarakter || karakterVist);
+
   return (
     <div className="mt-4 rounded-md border border-primary/20 bg-primary/[0.02] p-4 space-y-3">
       <div className="flex items-center justify-between gap-2">
@@ -113,13 +144,16 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
         </div>
         {saved && (
           <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-            <Check className="h-3 w-3 text-green-600" /> Lagret på denne enheten
+            <Check className="h-3 w-3 text-green-600" />
+            {user
+              ? 'Lagret — synkes til kontoen din'
+              : 'Lagret kun på denne enheten — logg inn for å ta svaret med deg'}
           </span>
         )}
       </div>
       <textarea
         className="w-full min-h-40 rounded-md border bg-background p-3 text-sm"
-        placeholder="Skriv svaret ditt før du åpner løsningsforslaget — det er slik du finner ut hva du faktisk kan. Svaret lagres automatisk på denne enheten."
+        placeholder="Skriv svaret ditt før du åpner løsningsforslaget — det er slik du finner ut hva du faktisk kan. Svaret lagres automatisk."
         value={answer}
         onChange={(e) => onChange(e.target.value)}
       />
@@ -140,11 +174,7 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
                 {t.navn} · {t.klipp} klipp
               </button>
             ))}
-            <Button
-              size="sm"
-              onClick={vurder}
-              disabled={loading || answer.trim().length < 20}
-            >
+            <Button size="sm" onClick={vurder} disabled={loading || answer.trim().length < 20}>
               {loading ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" /> Vurderer …
@@ -156,20 +186,51 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
               )}
             </Button>
           </div>
+          {/* Karakterfri modus: «noen dager tåler jeg bare hvorfor-et, ikke bokstaven» */}
+          <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer">
+            <input
+              type="checkbox"
+              checked={skjulKarakter}
+              onChange={(e) => {
+                setSkjulKarakter(e.target.checked);
+                setKarakterVist(false);
+              }}
+              disabled={loading}
+              className="h-3.5 w-3.5"
+            />
+            Skjul karakteren — vis bare vurderingen (du kan hente den frem etterpå)
+          </label>
           {error && <p className="text-sm text-destructive">{error}</p>}
           {verdict && (
             <div className="space-y-3 text-sm border rounded-md p-4 bg-muted/40">
               <div className="flex items-center gap-4">
-                {verdict.karakterBokstav && (
-                  <div
-                    className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border-2 border-primary bg-background text-4xl font-bold text-primary"
-                    aria-label={`Karakter: ${verdict.karakterBokstav}`}
+                {visGrade ? (
+                  verdict.karakterBokstav ? (
+                    <div
+                      className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border-2 border-primary bg-background text-4xl font-bold text-primary"
+                      aria-label={`Karakter: ${verdict.karakterBokstav}`}
+                    >
+                      {verdict.karakterBokstav}
+                    </div>
+                  ) : (
+                    // Bestått/ikke bestått-fag: gradering i stedet for bokstav
+                    <div className="shrink-0 rounded-lg border-2 border-primary bg-background px-4 py-3 text-lg font-bold text-primary">
+                      {verdict.karakter}
+                    </div>
+                  )
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setKarakterVist(true)}
+                    className="flex h-16 shrink-0 items-center gap-2 rounded-lg border-2 border-dashed px-4 text-sm text-muted-foreground hover:text-foreground"
                   >
-                    {verdict.karakterBokstav}
-                  </div>
+                    <Eye className="h-4 w-4" /> Vis karakter
+                  </button>
                 )}
                 <div>
-                  <p className="font-semibold">{verdict.karakter}</p>
+                  {visGrade && verdict.karakterBokstav && (
+                    <p className="font-semibold">{verdict.karakter}</p>
+                  )}
                   <p className="text-muted-foreground">{verdict.kortDom}</p>
                 </div>
               </div>
@@ -211,6 +272,10 @@ export function ProveSvarFelt({ courseId, chapterId, proveTittel, oppgaveTekst }
                   <span className="font-medium">Neste øvelse:</span> {verdict.nesteOvelse}
                 </p>
               )}
+              <p className="border-t pt-2 text-xs text-muted-foreground">
+                Vurderingen er kalibrert mot bokas kriterier og pensum så langt — veiledende,
+                ikke en garanti for sensors dom.
+              </p>
             </div>
           )}
         </div>

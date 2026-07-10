@@ -182,7 +182,20 @@ KI-FRAMING BACKLOG (fra studentenes lesning 11. juli 2026)
    Toppjeger: «én signatur på 20 % er verdt mer enn hundre anonyme agent-pass»
    → ambassadør-effekt. + feilstatistikk (innmeldt/rettet/median rettetid).
 ## KI-vurdering på prøver — forbedringer fra runde 2 (11. juli)
-   Status: [ ] Ikke startet
+   Status: [x] IMPLEMENTERT 11. juli (commit etter runde 2), unntatt (d)-kjøring:
+   (a) B/IB-skala ✅ (fagprofil karakterskala inneholder «bestått» → prompt gir
+       bestått-gradering, UI viser gradering i stedet for bokstav)
+   (b) karakterfri modus ✅ (skjul karakteren-checkbox, hent frem etterpå)
+   (c) dom bundet til bokas sensornøkler/feilkoder ✅ (prompt skjerpet: eksplisitt
+       kode-referanse påkrevd, aldri generiske råd)
+   (d) konsistens ✅ (temperature 0.2) + kalibreringsdemo-SKRIPT skrevet
+       (scripts/ai-sensor-kalibrering.mjs) — KJØRING krever API-samtykke
+   (e) «kalibrert mot bokas kriterier»-merking ✅ (under hver vurdering)
+   (f) fagtilpasset kontrolltekst ✅ (paragrafer/dommer i trinn-kort + vilkår)
+   (g) kontosynk ✅ (/api/textbook/prove-svar via textbook_submissions; lokal
+       default; ærlig UI-tekst «logg inn for å ta svaret med deg»)
+   (h) skånsom ved svak besvarelse ✅ (prompt: konkrete grep + aldri nedlatende)
+   GJENSTÅR fra runde 2: datostempel/endringslogg (egen post under).
    (a) B/IB-skala for bestått/ikke-bestått-fag (jus1111): «bestått med margin /
        på marginen / under streken» i stedet for bokstav (2 studenter uavh.)
    (b) «Vurdering uten karakter»-modus (valgfri, mattevegrer)

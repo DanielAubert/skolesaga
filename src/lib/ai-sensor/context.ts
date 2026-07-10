@@ -158,13 +158,22 @@ export function buildSensorPrompt(
   system: string;
   user: string;
 } {
+  // Bestått/ikke bestått-fag (f.eks. JUS1111): bokstavkarakter er feil skala —
+  // gi en bestått-gradering i stedet (studentpanel-krav, 2 uavhengige).
+  const bestattFag = ctx.karakterskala.toLowerCase().includes('bestått');
+  const karakterInstruks = bestattFag
+    ? 'Dette faget vurderes BESTÅTT/IKKE BESTÅTT. Feltet karakterBokstav skal være TOM streng (""). Feltet karakter skal være NØYAKTIG ett av: «Bestått med god margin», «Bestått», «Bestått på marginen», «Ikke bestått (på grensen)», «Ikke bestått».'
+    : 'Feltet karakterBokstav skal være NØYAKTIG én bokstav: A, B, C, D, E eller F.';
+
   const felles = [
     'Du er en erfaren, rettferdig norsk sensor som vurderer en students besvarelse.',
     'Vurder KUN mot pensum studenten har møtt så langt (listen under) og teorien i gjeldende kapittel — aldri trekk for at senere stoff ikke er brukt, og ikke krev begreper utenfor listen.',
     'Vær konkret og konstruktiv, på norsk bokmål. Ikke skriv fasit-besvarelsen for studenten; pek på hva som mangler og hvordan de kan forbedre seg.',
     'Kalibrer karakteren KONSERVATIVT — heller ett hakk streng enn snill.',
-    'Feltet karakterBokstav skal være NØYAKTIG én bokstav: A, B, C, D, E eller F. Der faget vurderes bestått/ikke bestått er bokstaven karakterekvivalenten, og kortDom sier eksplisitt bestått/ikke bestått.',
-    'SITER studentens egne formuleringer (korte, ordrette utdrag i anførselstegn) der du påpeker styrker og mangler, og koble hver mangel til fagets sensornøkler/typiske feil der de er oppgitt.',
+    karakterInstruks,
+    'SITER studentens egne formuleringer (korte, ordrette utdrag i anførselstegn) der du påpeker styrker og mangler.',
+    'Der fagets SENSORNØKLER og TYPISKE FEIL er oppgitt under, skal du referere dem EKSPLISITT i mangler-listen — med kode/formulering der den finnes (f.eks. «#8 — du lister argumentene i stedet for å veie dem»). Aldri generiske råd («god struktur») når en fagspesifikk kobling finnes.',
+    'Er besvarelsen svak (E/F eller ikke bestått): vær ekstra konkret om de 2–3 første grepene videre, og finn alltid minst én reell styrke — aldri nedlatende. Dommen skal være til å handle på, ikke til å gi opp av.',
   ];
   const tierEkstra =
     tier === 2

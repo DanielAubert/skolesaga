@@ -518,7 +518,7 @@ export default async function GradePage({ params }: PageProps) {
                   step: '4',
                   title: 'Kvalitetskontroll — og kontinuerlig forbedring',
                   description:
-                    'Uavhengige KI-agenter kontrollerer innholdet: automatiske valideringsporter, faglige revisjoner — som etterregning av regnestykker og kontroll av kilder — og simulerte lesertester. Større oppdateringer gjør vi mellom semestrene, så boka er stabil mens du leser. Alvorlige feil rettes selvsagt fortløpende — meld fra med ett klikk i kapitlet.',
+                    'Uavhengige KI-agenter kontrollerer innholdet: automatiske valideringsporter, faglige revisjoner — som etterregning av regnestykker og kontroll av paragrafer, dommer og andre kilder — og simulerte lesertester. Større oppdateringer gjør vi mellom semestrene, så boka er stabil mens du leser. Alvorlige feil rettes selvsagt fortløpende — meld fra med ett klikk i kapitlet.',
                 },
               ].map((c) => (
                 <div key={c.step} className="rounded-2xl border bg-card p-6">

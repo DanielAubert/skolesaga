@@ -62,6 +62,8 @@ export function aiSensorEnabled(): boolean {
 export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanelProps) {
   const [answer, setAnswer] = useState('');
   const [tier, setTier] = useState<1 | 2>(1);
+  const [skjulKarakter, setSkjulKarakter] = useState(false);
+  const [karakterVist, setKarakterVist] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
@@ -82,6 +84,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
     setVisRefusjon(false);
     setRefStatus('ingen');
     setRefBegrunnelse('');
+    setKarakterVist(false);
     try {
       const res = await fetch('/api/ai-sensor', {
         method: 'POST',
@@ -158,6 +161,20 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
           ))}
         </div>
 
+        <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer">
+          <input
+            type="checkbox"
+            checked={skjulKarakter}
+            onChange={(e) => {
+              setSkjulKarakter(e.target.checked);
+              setKarakterVist(false);
+            }}
+            disabled={loading}
+            className="h-3.5 w-3.5"
+          />
+          Skjul karakteren — vis bare vurderingen (du kan hente den frem etterpå)
+        </label>
+
         <textarea
           className="w-full min-h-32 rounded-md border bg-background p-3 text-sm"
           placeholder="Skriv eller lim inn besvarelsen din her …"
@@ -188,16 +205,33 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
           <div className="space-y-3 text-sm border rounded-md p-4 bg-muted/40">
             {/* Bokstavkarakter — eget, stort felt */}
             <div className="flex items-center gap-4">
-              {verdict.karakterBokstav && (
-                <div
-                  className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border-2 border-primary bg-background text-4xl font-bold text-primary"
-                  aria-label={`Karakter: ${verdict.karakterBokstav}`}
+              {!skjulKarakter || karakterVist ? (
+                verdict.karakterBokstav ? (
+                  <div
+                    className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg border-2 border-primary bg-background text-4xl font-bold text-primary"
+                    aria-label={`Karakter: ${verdict.karakterBokstav}`}
+                  >
+                    {verdict.karakterBokstav}
+                  </div>
+                ) : (
+                  // Bestått/ikke bestått-fag: gradering i stedet for bokstav
+                  <div className="shrink-0 rounded-lg border-2 border-primary bg-background px-4 py-3 text-lg font-bold text-primary">
+                    {verdict.karakter}
+                  </div>
+                )
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setKarakterVist(true)}
+                  className="flex h-16 shrink-0 items-center gap-2 rounded-lg border-2 border-dashed px-4 text-sm text-muted-foreground hover:text-foreground"
                 >
-                  {verdict.karakterBokstav}
-                </div>
+                  Vis karakter
+                </button>
               )}
               <div>
-                <p className="font-semibold">{verdict.karakter}</p>
+                {(!skjulKarakter || karakterVist) && verdict.karakterBokstav && (
+                  <p className="font-semibold">{verdict.karakter}</p>
+                )}
                 <p className="text-muted-foreground">{verdict.kortDom}</p>
               </div>
             </div>
@@ -254,6 +288,11 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
                 <span className="font-medium">Neste øvelse:</span> {verdict.nesteOvelse}
               </p>
             )}
+
+            <p className="border-t pt-2 text-xs text-muted-foreground">
+              Vurderingen er kalibrert mot bokas kriterier og pensum så langt — veiledende,
+              ikke en garanti for sensors dom.
+            </p>
 
             {/* Refusjon */}
             {vurderingId && refStatus !== 'sendt' && (

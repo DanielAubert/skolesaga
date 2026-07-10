@@ -73,7 +73,8 @@ export default function VilkarPage() {
               Nano Banana Pro, og lyd/opplesning er laget med ElevenLabs.
               Innholdet er per i dag ikke manuelt gjennomlest i sin helhet. Kvalitetskontrollen gjøres i stedet systematisk med KI-agenter:
               automatiske valideringsporter, faglige revisjoner (blant annet numerisk
-              etterregning av regneeksempler og kontroll av kilder) og simulerte
+              etterregning av regneeksempler, og kontroll av kilder — i juridiske
+              emner også lovhenvisninger og dommer) og simulerte
               lesertester fra ulike studentperspektiver. Hvert kapittel bygges mot
               konkrete kompetansemål i læreplanen (LK20) eller fagets eksamenskrav, og
               struktureres etter et fast teori–eksempel–oppgave-mønster. Innholdet

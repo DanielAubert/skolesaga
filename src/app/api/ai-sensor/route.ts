@@ -169,6 +169,9 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: tier.model,
         max_tokens: tier.maxOutputTokens,
+        // Lav temperatur: samme besvarelse skal gi (tilnærmet) samme dom —
+        // «ellers er det en terning, ikke en sensor» (studentpanelet).
+        temperature: 0.2,
         system,
         messages: [{ role: 'user', content: user }],
       }),
