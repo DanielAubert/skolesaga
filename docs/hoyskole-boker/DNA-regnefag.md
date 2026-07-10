@@ -17,7 +17,12 @@ mot nettopp disse mønstrene.
    sjanger A–N), og at typiske feil har et samlet register. Boksen skal
    eksplisitt ramme inn tunge symboler leseren vil møte senere («du trenger ikke
    forstå disse symbolene ennå — de forklares der de brukes»), slik at et første
-   møte med heavy notasjon ikke skremmer.
+   møte med heavy notasjon ikke skremmer. Del 0 skal også ha en
+   **formel-minimum-side** (collapsible «Formlene du må kunne utenat — og
+   resten kan du slå opp»): de ~5–8 uunngåelige formlene, hver med én ordlinje
+   («multiplikatoren = 1 delt på lekkasjen»), + eksplisitt beskjed om at resten
+   kan slås opp. I tillegg: Del 0-pakken fra README «Leserkrav» («Lite tid?»-
+   boks, kildenote for frekvens-empirien, prosedyre-/sjangerkort).
 2. **Del 1..N — Temadeler**: én del per hovedtema, ordnet etter faglig
    avhengighet (prerequisites), IKKE etter frekvens. Frekvensen styrer i stedet
    *omfanget*: «må beherskes perfekt»-temaer får 2–4 kapitler + eget
@@ -34,18 +39,25 @@ Rekkefølgen under er obligatorisk; blokktypene er plattformens
 1. `tip` **Eksamensvinkel** — hvor ofte/hvordan temaet testes, typisk vekting,
    hvilke oppgavesjangre det inngår i (fra skjelettets per-kapittel-DNA).
 1b. `text` **Forkunnskaper** — kapitler i boka det bygger på + kryssbok-lenker
-   (jf. Leserkrav i README), etterfulgt av `collapsible` **Symbol- og
-   formelliste** som forklarer ALLE symboler og formler brukt i delkapitlet
-   (per delkapittel — ikke arv fra tidligere kapitler; unntak kun for helt
-   symbolfrie kapitler).
+   (jf. Leserkrav i README). `collapsible` **Symbol- og formelliste** forklarer
+   ALLE symboler og formler brukt i delkapitlet (per delkapittel — ikke arv fra
+   tidligere kapitler; unntak kun for helt symbolfrie kapitler) og plasseres
+   SIST i kapitlet med åpningsnotisen «Oppslagsverk — alt her forklares
+   underveis i kapitlet.» (studentpanel: en symbolvegg i døråpningen skremmer
+   — vegrere hopper av før teksten starter).
 2. `text` **Motivasjon** — kort: hvorfor modellen/verktøyet finnes, hvilket
    spørsmål den besvarer. Maks 2–3 avsnitt; dette er ikke et dannelsesfag.
 3. `definition` / `theorem` — begreper og resultater i EMNETS NOTASJON (bruk
-   notasjonen fra eksamenssettene, ikke lærebok-alternativer).
+   notasjonen fra eksamenssettene, ikke lærebok-alternativer). Definition-
+   blokker åpner med forklaringen i ORD; formelen kommer etter — aldri en
+   ligning som første linje (studentpanel: vegrere hopper ellers over hele
+   blokken, og dermed flashcard-stoffet).
 4. `text` **Utledning med intuisjon** — utledninger som eksamen krever aktivt
-   («kunne utlede») vises steg for steg med intuisjonsforklaring per steg;
-   resultater som bare skal *brukes* presenteres uten utledning (merk skillet —
-   det står i EKSAMENSANALYSE §6).
+   («kunne utlede») vises steg for steg med en «Intuisjon:»-linje i ord etter
+   HVERT steg (ikke bare per utledning); resultater som bare skal *brukes*
+   presenteres uten utledning (merk skillet — det står i EKSAMENSANALYSE §6).
+   Symbolgrep leseren ikke har fra R1/R2-nivå (∂-notasjon, «differensiere»)
+   introduseres eksplisitt ved første bruk eller omskrives (Δ/subtraksjon).
 5. `example` × 2–4 — første eksempel enkelt, siste på EKSAMENSNIVÅ og modellert
    på en reell oppgavesjanger. Løsningen skrives slik en A-besvarelse ser ut
    (inkl. figur/graf-beskrivelse der sensor forventer figur).
@@ -84,6 +96,38 @@ tunge fagtermer som komparativ statikk, fortegnsubestemthet, IS-RR-PK-modellen,
 Holden-notasjon og endogen/eksogen — skriv termen ut med en klarspråksforklaring
 første gang. Eksamenskart-kapitlet (Del 0, orienteringsboksen over) rammer i
 tillegg eksplisitt inn tunge symboler med «du trenger ikke forstå disse ennå».
+
+## Figurkrav (UFRAVIKELIG — fra studentpanel bølge 1–3)
+
+Fag der eksamen krever grafisk analyse (tegne/lese/skifte kurver i diagram)
+SKAL ha statiske SVG-figurer: minst utgangslikevekt + hvert sjokk/skift som
+drilles. Et «grafisk drill»-kapittel uten figur er FORBUDT — to paneldeltakere
+var nær ved å forlate boka på nettopp dette. Prosabeskrivelsen beholdes som
+forklaring TIL figuren, aldri i stedet for den.
+
+- Filer: `public/images/textbook/<emne>/<navn>.svg`; wire som image-blokker
+  (`{type:'image', src:'/images/textbook/<emne>/<fil>.svg', alt, caption}`)
+  der analysen står. Gjenbruk samme `src` som referansefigur i drillkapitler
+  («slik skal diagrammet ditt se ut — merk aksene»; ny id/caption).
+- Stil: akser i `#6b7280`, kurver i mid-tone farger, norsk tekst, transparent
+  bakgrunn (lesbar i både lys og mørk modus), viewBox ca. 480x360, tydelige
+  akse-/kurveetiketter (f.eks. i, Y, π / IS, RR, PK) og likevektspunkter med
+  stiplede hjelpelinjer til aksene. Valider XML før wiring.
+- ETTER at nye figurer er skrevet: kjør `npx tsx scripts/upload-media-storage.ts`
+  (bilder serveres fra Supabase Storage) — ellers 404 i prod.
+- Lover en caption/tip en figur («figuren i kapittel X»), skal figuren faktisk
+  finnes der det loves.
+
+## Enhets- og konvensjonsvalg (fra studentpanel)
+
+Måleenheter og konvensjoner (desimal vs. prosentpoeng, gap-definisjoner,
+fortegnskonvensjoner, kalibrerte koeffisienter) deklareres ÉN gang (Del 0
+eller ved første bruk). Hvert sted konvensjonen byttes varsles med en
+`warning`-blokk («NB: to måleenheter i omløp — sjekk alltid hva oppgaven
+bruker»), og tall-kalibrerte oppgaver sier eksplisitt i OPPGAVETEKSTEN hvilke
+enheter koeffisientene er målt i og hvilken enhet svaret kommer i. Samme
+størrelse skal ikke kalibreres ulikt i to kapitler uten at begge stedene
+flagger det.
 
 ## Kapittel-DNA (drillkapittel — kun for «må beherskes perfekt»-temaer)
 

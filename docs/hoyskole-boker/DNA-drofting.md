@@ -18,7 +18,10 @@ besvarelser som viser karakternivåene.
    leser du denne boka»-boks (type `text` eller `tip`, ALDRI `definition` —
    påvirker flashcard-kvoten)** som forklarer karakter-/vurderingsskalaen (og hva
    «C-stoff»/«A-markør» betyr), en kompakt liste over sjanger-/oppgavekodene
-   (skrevet fullt ut), og at typiske feil har et samlet register.
+   (skrevet fullt ut), og at typiske feil har et samlet register. I tillegg:
+   Del 0-pakken fra README «Leserkrav» («Lite tid?»-boks, kildenote for
+   frekvens-empirien, prosedyre-/sjangerkort på ÉN side — særlig viktig i
+   drøftingsfag med mange sjangre/strukturkoder).
 2. **Del 1..N — Temadeler** etter analysens temafrekvens; omfang etter
    gjenganger-score.
 3. **Siste del — Eksamenstrening**: sjangerkapitler (f.eks. «design en studie»,
@@ -81,6 +84,28 @@ forklares dette tidlig (hva et utdrag er, hvordan a)–e) refererer til dem).
 Del 0-orienteringsboksen (over) samler skala + kodeliste + feilregister — som
 `text`/`tip`, ALDRI `definition`.
 
+## Drøftingstrening — selvretting og formidling (UFRAVIKELIG — fra studentpanel bølge 1–3)
+
+- **Binær selvrettingsrubrikk for drøfting:** sjangerkapitlet for drøfting skal
+  ha en 0/1-sjekkliste leseren kan rette egen tekst mot uten skjønn:
+  ☐ standpunkt i første avsnitt? ☐ minst én eksplisitt kobling («som vist i
+  (a)»)? ☐ innvending fra navngitt pensumtenker? ☐ svart på innvendingen?
+  ☐ forbehold i konklusjonen? ☐ alle delspørsmål besvart? Prøvefasitene
+  refererer kort til rubrikken. (Panelet: momentlister alene lar ikke leseren
+  verifisere egen VEIING — rubrikken må være binær.)
+- **Sitatlager-bro:** der sitat-/utdragstolkning trenes med bokas egne
+  parafraser, forklares ved FØRSTE forekomst hvordan et EKTE eksamensutdrag
+  skiller seg fra bokas (oversettelse med sidetall, ofte lengre og mer
+  arkaisk) — og at grepene som trenes (funksjon, plassering, presisjon) er de
+  samme. Uten broen blir modelltreningen en modellrisiko for den dominerende
+  sjangeren.
+- **Relevans-ramme for «rare» teorier:** teorier moderne lesere instinktivt
+  avviser (gjenerindringslæren, naturtilstanden, dydsetikk …) selges med
+  hvilket REELT problem de svarer på + en moderne parallell («hvordan
+  gjenkjenner vi matematiske sannheter vi aldri har lært? — medfødt vs.
+  lært») — aldri bare med eksamensfrekvens. Frekvens forklarer HVORFOR lese;
+  rammen forklarer HVORFOR det ikke er tull.
+
 ## Kapittel-DNA (sjangerkapittel)
 
 Ett per oppgavesjanger fra EKSAMENSANALYSE §3:
@@ -99,7 +124,13 @@ Ett per oppgavesjanger fra EKSAMENSANALYSE §3:
    forankring», «her: motargument — dette løfter til A»).
 3. `collapsible` **Kommentert C-besvarelse** — samme oppgave, korrekt men flat
    (gjengivelse uten drøfting, tynn forankring), med notater om gapet opp til A.
-4. `tip` **Sensorblikket** — momentliste og vektlegging.
+   Merk ÆRLIG: en boks som heter «C-besvarelse» skal VÆRE en C (jf. README
+   «Karakter-realisme» — tittel og margnotat skal stemme).
+4. `collapsible` **Autentisk B-/midtnivå-besvarelse** (minst én i boka, jf.
+   README): ekte studentspråk, litt rotete men god, med notater om hva som er
+   BRA NOK og de 2–3 grepene som skiller den fra A — leseren trenger et
+   realistisk sammenligningspunkt, ikke bare polert A + karikatur-C.
+5. `tip` **Sensorblikket** — momentliste og vektlegging.
 
 ## Skjelett-krav (hva SKJELETT.md må angi per kapittel)
 

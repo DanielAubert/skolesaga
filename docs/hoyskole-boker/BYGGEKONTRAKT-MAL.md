@@ -36,13 +36,20 @@ per-kapittel-kontrakt. Alltid, i denne rekkefølgen først i kapitlet:
 2. `text` **Forkunnskaper** (kapitler i boka + kryssbok-lenker
    `[tittel](/bok/<courseId>/<chapterId>)` — KUN til kapitler som finnes i
    `src/lib/data/chapters/`; «kan leses uten forkunnskaper» hvis ingen)
-3. `collapsible` **Symbol- og formelliste** (title «Symbol- og formelliste»,
-   buttonText «Vis symboler og formler»): markdown-tabell `| Symbol | Betydning |`
-   + «**Formler i dette delkapitlet:**» med display-LaTeX + tolkning. ALLE
-   symboler/formler brukt i delkapitlet — per delkapittel, ikke arv. Unntak
-   kun for helt symbolfrie kapitler.
+Og SIST i kapitlet: `collapsible` **Symbol- og formelliste** (title «Symbol-
+og formelliste», buttonText «Vis symboler og formler»): første linje
+«Oppslagsverk — alt her forklares underveis i kapitlet.», deretter
+markdown-tabell `| Symbol | Betydning |` + «**Formler i dette
+delkapitlet:**» med display-LaTeX + tolkning. ALLE symboler/formler brukt i
+delkapitlet — per delkapittel, ikke arv. Unntak kun for helt symbolfrie
+kapitler. (Studentpanel: symbolvegg i døråpningen skremmer — listen er
+oppslag, ikke inngang.) Collapsibles skal ALDRI være tomme — `content` er
+feltnavnet og skal ha blokker (ikke `text`).
 Og alltid: `warning` **Typiske feil** (fra skjelettet) + begrepsbank-
-definisjoner til flashcard-kvoten + `collapsible` repetisjon (teorikapitler).
+definisjoner til flashcard-kvoten (hver stor begrepsbank åpner med
+standard-notisen «flashcard-/repetisjonsstoff — hopp trygt over ved
+førstegangslesing; tidsanslaget gjelder kjernestoffet») + `collapsible`
+repetisjon (teorikapitler).
 
 ## Leserkrav (ufravikelig — full ordlyd i README «Leserkrav»)
 - Kun eksamensrelevant stoff; «kjenne til» sist og merket.
@@ -72,12 +79,38 @@ definisjoner til flashcard-kvoten + `collapsible` repetisjon (teorikapitler).
   kompakt kodeliste + at feil har et samlet register. Karaktersjargong som
   motsier eksamensformen (f.eks. «A-kandidat» ved bestått/ikke-bestått) unngås
   eller rammes inn.
+- **Stokket flervalg i prøvetekster:** statiske flervalg i prøve-collapsibles
+  har stokkede fasit-bokstaver (ALDRI «alle a»); prøve-tipen sier hvor
+  flervalget bor (inline/quiz). Quiz-filene beholder options[0]-invarianten.
+- **Del 0-pakken:** «Lite tid?»-boks (hurtigrute 3–5 dager + ukeplan fra
+  summerte `estimatedMinutes`) + kildenote for frekvens-empirien (hvilke
+  sett/veiledninger, årstall, forbehold — fra EKSAMENSANALYSE.md, aldri
+  oppdiktet) + prosedyre-/sjangerkort på ÉN side (kortet selv, ikke lenkeliste).
+- **Klikkbare kap-referanser:** «kap. X.Y» i forkunnskaper og fasiter =
+  markdown-lenke `[kap. X.Y](/bok/<emne>/<emne>-X-Y)`; død «se kapittel»-tekst
+  er FORBUDT (aldri lenker i title-felt).
+- **Karakter-realisme:** «C er en god og vanlig karakter» eksplisitt i Del 0;
+  «Prioritet: perfekt» FORBUDT (skriv «høyeste prioritet»); «Gapet til A» =
+  oppgraderingsmeny; modellbesvarelser ærlig merket (en «C-besvarelse» ER C) +
+  minst én autentisk B-/midtnivå-besvarelse; bestått/ikke-bestått-fag: én
+  «bestått-på-marginen»-besvarelse.
+- **Selvdiagnose:** avkryssbar sjekkliste (☐) etter hver prøvefasit; lett
+  innstegsoppgave (difficulty lett, ren gjengivelse) tidlig i teorikapitler
+  der første oppgave ellers er full eksamenssjanger.
+- **Hverdagsanker + verdens-caser:** abstrakte kjernetemaer åpner med
+  hverdagsanker før apparatet; eksempler er verdens-caser, ikke «en medstudent
+  skriver …»-metaeksempler.
+- **Tidsbudsjett-konsistens:** avvik mellom deklarert oppgavetid og sum
+  deltider forklares (skrivetid vs. total).
 
 ## Prøvekapitler
 Id `<emne>-<del>-prove`, chapterNumber `<del>.P`, tittel «Prøver til del
 <del>: <deltittel>»: `tip` (dekning + tidsbruk) + `text` Forkunnskaper + fire
 `collapsible` («Prøve 1»–«Prøve 4», buttonText «Vis prøve N») med oppgaver og
 full fasit (jus/drøfting: «må-punkter / pluss-punkter / feller»-struktur).
+Flervalg i prøve-collapsibles: stokkede fasit-bokstaver (aldri «alle a») og
+prøve-tipen sier hvor flervalget bor. Etter hver prøvefasit: avkryssbar
+selvdiagnose-sjekkliste (☐). Kap-referanser i fasitene som markdown-lenker.
 Ingen quiz/begrepsbank.
 
 ## Quiz
@@ -108,4 +141,12 @@ kapitlet eller i en refererte forkunnskap — ingen usett begrep/regel/formel;
 7. **nybegynner-inngang**: alle koder/karaktersjargong/insider-termer forklart ved
 første bruk, ingen kald kode i competenceGoals/første tekstboks, og Del 0 har
 «Slik leser du denne boka»-orienteringsboksen (type `text`/`tip`, ALDRI
-`definition`) med skala + kodeliste + feilregister.
+`definition`) med skala + kodeliste + feilregister; 8. **prøve-flervalg**:
+fasitmønsteret sjekket — riktig svar varierer posisjon (aldri «alle a»);
+9. grep «Prioritet: perfekt» = 0; 10. **ingen tom collapsible** (feltet heter
+`content` og skal ha blokker — aldri `text`-nøkkel eller tom array);
+11. kap-referanser i fasiter/forkunnskaper er markdown-lenker til
+eksisterende filer; 12. **Del 0-pakken** på plass («Lite tid?»-boks,
+kildenote for frekvens-empiri, prosedyrekort) og begrepsbank-notisene står
+først i hver stor bank; 13. **tidsbudsjett**: deklarert oppgavetid vs. sum
+deltider forklart der de avviker.

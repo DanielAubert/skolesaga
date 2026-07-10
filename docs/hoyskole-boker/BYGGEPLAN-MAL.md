@@ -54,6 +54,28 @@ av én agent som leser hele skjelettet.
 > karaktersjargong som motsier eksamensformen. DELOPPGAVER a), b), c) i task/
 > solution: HVER på egen linje med fet merking — `…\n\n**a)** …\n**b)** …`,
 > ALDRI bak hverandre i løpende tekst (ikke bruk subTasks-feltet).
+> STUDENTPANEL-KRAV (jf. README «Leserkrav» — SKAL inn i førsteutkastet):
+> statiske flervalg i prøve-collapsibles har STOKKEDE fasit-bokstaver (aldri
+> «alle a»; quiz-filene beholder options[0]-invarianten) og prøve-tipen sier
+> hvor flervalget bor; Del 0 har «Lite tid?»-boks (hurtigrute + ukeplan fra
+> summerte estimatedMinutes), kildenote for frekvens-empirien (fra
+> EKSAMENSANALYSE.md, aldri oppdiktet) og prosedyre-/sjangerkort på ÉN side;
+> «kap. X.Y» i forkunnskaper/fasiter skrives som markdown-lenker
+> [kap. X.Y](/bok/<emne>/<emne>-X-Y); hver stor begrepsbank åpner med
+> «flashcard-stoff — hopp trygt over ved førstegangslesing»-notisen (og
+> definition-blokker slettes ALDRI for å «rydde»); karakter-realisme: «C er
+> en god og vanlig karakter» i Del 0, ALDRI «Prioritet: perfekt» (skriv
+> «høyeste prioritet»), modellbesvarelser ærlig merket + minst én autentisk
+> B-/midtnivå- (ved bestått/ikke-bestått: «bestått-på-marginen»-)besvarelse;
+> avkryssbar selvdiagnose-sjekkliste (☐) etter hver prøvefasit; én lett
+> innstegsoppgave tidlig i teorikapitler der første oppgave ellers er full
+> eksamenssjanger; abstrakte kjernetemaer åpner med hverdagsanker og bruker
+> verdens-caser (ikke «en medstudent skriver …»); avvik mellom deklarert
+> oppgavetid og sum deltider forklares; collapsibles har `content`-nøkkel
+> med blokker (aldri tom, aldri `text`). Følg også DNA-ens studentpanel-
+> seksjoner (regnefag: figurkrav + symbolliste SIST + formel-minimum +
+> enhetsdeklarasjon; jus: lovhenvisningsboks + Lovdata-driller + lovprefiks;
+> drøfting: binær selvrettingsrubrikk + sitatlager-bro + relevans-ramme).
 > Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
 > (kvoter = skjelettets kvotesammendrag, AUTORITATIVT; options[0] alltid
 > riktig). Referanser du er usikker på merkes (verifiser).
@@ -98,6 +120,19 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > Ingen kald kode i competenceGoals/første tekstboks?;
 > (3c) deloppgave-format: a), b), c) i task/solution står HVER på egen linje
 > med fet merking (`**a)**`), aldri bak hverandre i løpende tekst;
+> (3d) studentpanel-sjekker (jf. README «Leserkrav»): les fasitlinjene i alle
+> prøve-flervalg — riktig svar SKAL variere posisjon (aldri «alle a»); «les
+> Del 0 med lite tid»-test: finner en stresset student hurtigrute/ukeplan,
+> kildenoten for frekvens-empirien og prosedyrekortet uten å lese resten?;
+> tomme collapsibles: feltet skal hete `content` og ha blokker (en `text`-
+> nøkkel eller tom array rendrer som tom boks); korrektur-grep: brukne ord
+> (« vilk », «adekv »), ødelagte setninger, danske former («æ» utenom navn/
+> sitat), «kapittel 0\.»-rester; grep «Prioritet: perfekt» = 0; tidsbudsjett-
+> konsistens (deklarert oppgavetid vs. sum deltider forklart); «kap. X.Y» i
+> fasiter er markdown-lenker til eksisterende kapitler; modellbesvarelse-
+> merking konsistent (tittel vs. margnotat — en «C-besvarelse» skal VÆRE C);
+> begrepsbank-notiser står først i hver stor bank; regnefag: ingen «grafisk
+> drill» uten figur, og lovede figurer finnes der de loves;
 > (4) faktasjekk mot skjelettkontraktene: ETTERREGN alle talleksempler /
 > kontroller vilkårslister og kausalkjeder ordrett; (5) kvoter må IKKE
 > endres (tell definition-blokker før/etter).
@@ -123,7 +158,12 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       forklart skala, eller uforklart kode i læringsmål. Rydd merknadene før
       deploy (jf. README «Leserkrav» — orienteringsboks type `text`/`tip`, ALDRI
       `definition`).
-- [ ] `npx tsc --noEmit` → stille
+- [ ] Studentpanel-port (jf. README «Leserkrav»): grep «Prioritet: perfekt»
+      = 0; skann prøve-fasitlinjene for «alle a»-mønster; python-sjekk at
+      ingen collapsible har tom/manglende `content`-array; stikkprøv at Del 0
+      har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
+      fasiter er markdown-lenker. Regnefag med nye SVG-er: kjør
+      `npx tsx scripts/upload-media-storage.ts` FØR deploy.
 - [ ] `npm run build` → «✓ Compiled successfully» + «Kombinerte NNNN kapitler»
 - [ ] Prod-curl: `PORT=3111 npm run start` i bakgrunn, deretter 200 +
       innholds-grep på: `/bok/trinn/hoyere/<inst>`, `/bok/<emne>`,

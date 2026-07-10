@@ -118,12 +118,68 @@ docs/hoyskole-boker/
   at hver nye oppgave kun hviler på det som er introdusert t.o.m. eksempelet rett foran
   (pluss eksplisitt refererte forkunnskaper). Sjekk dette eksplisitt ved bygging.
 - **Symbol- og formelliste per delkapittel**: hvert delkapittel som bruker
-  symboler/formler skal ha en egen blokk (collapsible «Symbol- og formelliste»
-  rett etter Forkunnskaper) som forklarer ALLE variabler og formler brukt i
-  delkapitlet — f.eks. at $Y$ = BNP, $C$ = privat konsum osv. Unntak kun når
-  det er smertefritt åpenbart (kapitler helt uten symboler/formler). Et symbol
-  regnes ikke som «forklart» fordi et tidligere kapittel forklarte det —
-  listen er per delkapittel.
+  symboler/formler skal ha en egen blokk (collapsible «Symbol- og formelliste»)
+  som forklarer ALLE variabler og formler brukt i delkapitlet — f.eks. at
+  $Y$ = BNP, $C$ = privat konsum osv. Unntak kun når det er smertefritt
+  åpenbart (kapitler helt uten symboler/formler). Et symbol regnes ikke som
+  «forklart» fordi et tidligere kapittel forklarte det — listen er per
+  delkapittel. Listen plasseres SIST i delkapitlet og åpner med notisen
+  «Oppslagsverk — alt her forklares underveis i kapitlet.» (studentpanel: en
+  symbolvegg i døråpningen skremmer nybegynnere; listen er oppslag, ikke
+  inngangsport).
+- **Stokket flervalg i prøvetekster (UFRAVIKELIG, fra studentpanel):** flervalg
+  skrevet statisk i prøve-collapsibles SKAL ha stokkede fasit-bokstaver —
+  posisjonen til riktig svar varierer, ALDRI «alle a». (Quiz-SYSTEMET stokker
+  selv ved kjøretid — der gjelder options[0]-invarianten; statisk prøvetekst
+  stokker IKKE.) Prøve-tipen sier eksplisitt hvor flervalget bor (inline i
+  prøven eller i den interaktive quizen), så formatskifter er varslet.
+- **Del 0-pakken (fra studentpanel):** Del 0 skal i tillegg til
+  orienteringsboksen ha (a) en **«Lite tid?»-boks** (type `tip`): eksplisitt
+  hurtigrute for 3–5 dager (kapittelrekkefølge + timeanslag) og ukeplan(er)
+  bygget av summerte `estimatedMinutes`; (b) en **kildenote for frekvens-/
+  sensor-empirien**: hvilke eksamenssett/sensorveiledninger analysen bygger på
+  (semestre/årstall) og forbehold om at nye sett kan endre bildet — hentet fra
+  EKSAMENSANALYSE.md, ALDRI oppdiktet; (c) et **prosedyre-/sjangeroversikts-
+  kort på ÉN side** som ER kortet (sjanger → én linjes oppskrift →
+  tidsbudsjett → vanligste feil), ikke en lenkeliste.
+- **Klikkbare kapittelreferanser (fra studentpanel):** «kap. X.Y»-referanser i
+  forkunnskaps-blokker og prøve-/oppgavefasiter skrives som markdown-lenker
+  `[kap. X.Y](/bok/<emne>/<emne>-X-Y)` til kapitler som finnes — «se kapittel
+  2.5» som død tekst er FORBUDT. (Kun i prosa-/fasittekst, aldri i
+  title-felt.)
+- **Begrepsbank = oppslagsverk (fra studentpanel):** hver stor begrepsbank/
+  pensumkart åpner med en kort standard-notis: «Begrepsbanken er flashcard-/
+  repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved
+  førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.»
+  Definition-blokkene er flashcard-KILDEN og skal aldri slettes, slås sammen
+  eller flyttes inn i collapsibles for å «rydde» — fiksen er merking.
+- **Karakter-realisme (UFRAVIKELIG, fra studentpanel):** Del 0 sier eksplisitt
+  at C er en god og vanlig karakter (særlig tidlig i studiet); «Gapet til A»-
+  lister rammes inn som oppgraderingsmeny, ikke mangelliste; formuleringen
+  «Prioritet: perfekt» er FORBUDT (skriv «høyeste prioritet» — behold
+  prioriteringen, fjern trusselen). Modellbesvarelser merkes ÆRLIG: en boks
+  som heter «C-besvarelse» skal VÆRE en C (tittel og margnotat skal stemme),
+  og boka skal ha minst én autentisk B-/midtnivå-besvarelse (ekte
+  studentspråk, litt rotete men god, med notater om hva som er BRA NOK) —
+  ikke bare polert A + karikatur-C. Er eksamen bestått/ikke-bestått: minst én
+  «bestått-på-marginen»-besvarelse som viser terskelen nedenfra.
+- **Selvdiagnose (fra studentpanel):** etter HVER prøvefasit: en kompakt
+  avkryssbar sjekkliste (☐) leseren kan rette seg selv med («står X i svaret
+  ditt? konkluderte du per delspørsmål?»). I teorikapitler der første oppgave
+  ellers er full eksamenssjanger: én lett innstegsoppgave tidlig (difficulty
+  lett, ren gjengivelse med egne ord, vennlig fasit).
+- **Hverdagsanker før apparatet (fra studentpanel):** bokas mest testede
+  ABSTRAKTE kjernetemaer åpner med et konkret hverdagsanker FØR formalisme/
+  begrepsapparat, og apparatets deler kobles tilbake til ankeret. Eksempler
+  skal være verdens-caser (arv, forsikring, NAV, priser …), ikke eksamens-
+  metaeksempler («en medstudent skriver …») — særlig der teorien er tåkete.
+  Vurder et case-bibliotek («hvilken teori/tenker biter på denne
+  situasjonen?») i repetisjonsdelen.
+- **Tidsbudsjett-konsistens (fra studentpanel):** der en oppgaves deklarerte
+  tid avviker fra summen av deltidene, forklares differansen eksplisitt
+  (anbefalingene er skrivetid; resten er lesing av oppgavesettet, kladd,
+  disponering og gjennomlesing). Kapitlenes tidsanslag gjelder kjernestoffet
+  (jf. begrepsbank-notisen).
 
 ### Læringsmål-deklarasjon (fra produkteier)
 `competenceGoals` i høyskolebøker er Skolesagas EGNE formuleringer (destillert fra

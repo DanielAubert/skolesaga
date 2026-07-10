@@ -88,6 +88,17 @@ alt, så blir fase 6 en billig verifisering i stedet for en dyr omskriving.
   flashcard-kvoten)** med karakter-/vurderingsskala + kompakt kodeliste + at feil
   har et samlet register. Karaktersjargong som motsier eksamensformen (f.eks.
   «A-kandidat» der eksamen er bestått/ikke-bestått) unngås eller rammes inn.
+- **Studentpanel-krav (jf. README «Leserkrav» + byggeprompten i
+  BYGGEPLAN-MAL):** inn i FØRSTEUTKASTET (retrofit er dyrt) — stokkede
+  prøve-flervalg (aldri «alle a»), Del 0-pakke («Lite tid?»-boks, kildenote
+  for frekvens-empiri, prosedyrekort), klikkbare kap-lenker i fasiter/
+  forkunnskaper, begrepsbank-notiser, karakter-realisme (aldri «Prioritet:
+  perfekt»; ærlig merkede modellbesvarelser + B-/marginal-besvarelse),
+  selvdiagnose-sjekklister etter prøvefasiter, lette innstegsoppgaver,
+  hverdagsanker + verdens-caser for abstrakte kjernetemaer, tidsbudsjett-
+  konsistens — pluss arketypens studentpanel-seksjon (regnefag: figurkrav/
+  symbolliste sist/formel-minimum; jus: lovhenvisningsboks/Lovdata-driller/
+  lovprefiks; drøfting: selvrettingsrubrikk/sitatlager-bro/relevans-ramme).
 - Egenvalidering per agent: json.load, kvotetelling, fagets forbudt-termer-grep.
 - Maks ~8 samtidige agenter; ved degradert API, vent (jf. 16. juni-lærdommen).
 - **Agenter kan dø på sesjonsgrenser midt i bølgen** (JUS1111: 2 av 9 traff
@@ -123,6 +134,14 @@ Redaktører per del-gruppe. IKKE omskriving — verifisering med kirurgiske fiks
   forklart ved FØRSTE bruk? Finnes «Slik leser du denne boka»-orienteringsboksen
   (type `text`/`tip`, ALDRI `definition`) med skala + kodeliste + feilregister?
   Ingen kald kode i `competenceGoals`/læringsmål eller i første tekstboks?
+- **Studentpanel-sjekker** (jf. README «Leserkrav» + verifikatorprompten i
+  BYGGEPLAN-MAL): «alle a»-mønster i prøve-flervalg; «les Del 0 med lite
+  tid»-test (hurtigrute/kildenote/prosedyrekort finnbare); tomme collapsibles
+  (`content`-nøkkel med blokker, aldri `text`/tom array); korrektur-grep
+  (brukne ord, danske former, «kapittel 0.»-rester); grep «Prioritet:
+  perfekt» = 0; tidsbudsjett-konsistens; døde kap-referanser i fasiter;
+  feilmerkede modellbesvarelser (tittel vs. margnotat); regnefag: ingen
+  «grafisk drill» uten figur.
 - Faktasjekk mot skjelettkontraktene; etterregn alle talleksempler.
 - Konsistens på tvers av agentgrenser (notasjon, ingen motstridende påstander).
 - Fagspesifikk kildeverifisering: jus → paragrafer/domsreferanser sjekkes mot

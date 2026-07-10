@@ -17,7 +17,18 @@ begge deler eksplisitt — materiell rett alene gir C.
    `tip`, ALDRI `definition` — påvirker flashcard-kvoten)** som forklarer
    karakter-/vurderingsskalaen (og at jus-eksamen som oftest er bestått/ikke-
    bestått — se under), en kompakt liste over sjanger-/oppgavekodene, og at
-   typiske feil har et samlet register.
+   typiske feil har et samlet register. Del 0 skal OGSÅ ha en
+   **«Slik leser du en lovhenvisning»-boks (type `tip`, UFRAVIKELIG — fra
+   studentpanel)**: (a) «jf.» = jamfør («sammenhold med») — hovedhjemmelen
+   står FØRST i kjeden, det etter jf. er støtte/vilkårskilde, kjeden leses
+   venstre→høyre; (b) «§ 4 (2)» = «§ 4 annet ledd» — samme sak, to
+   skrivemåter; (c) paragraf-anatomien ledd (avsnitt) → punktum (setning) →
+   bokstav a/b/c; (d) at enkelte lover er på nynorsk (f.eks. bilansvarslova:
+   «gjer», «skadebot») — så Lovdata ikke sjokkerer i eksamensmodus. 10–15
+   linjer klarspråk. (Panelet fant «jf.» brukt hundrevis av ganger uten at
+   «jamfør» sto noe sted — det bryter bokas eget nybegynner-løfte.)
+   I tillegg: Del 0-pakken fra README «Leserkrav» («Lite tid?»-boks,
+   kildenote for frekvens-empirien, prosedyrekort).
 2. **Del 1..N — Rettsområder**: én del per rettsområde (fra EKSAMENSANALYSE §2),
    omfang etter gjenganger-score. Innen hver del: regelkapitler → typetilfelle-
    kapitler.
@@ -76,6 +87,26 @@ ikke-bestått — bruk det bare som bilde på kvalitetsnivå på en enkeltdrøft
 eksamen. Orienteringsboksen i Del 0 (over) samler skala + kodeliste + at feil
 har register — som `text`/`tip`, ALDRI `definition`.
 
+## Lovhenvisnings- og Lovdata-krav (UFRAVIKELIG — fra studentpanel bølge 1–3)
+
+- **Lovdata-driller:** 3–4 små «åpne Lovdata nå»-oppgaver spredt i boka
+  (additive exercises: «Åpne Lovdata og finn kjl. § 67 tredje ledd bokstav a.
+  Stemmer bokas gjengivelse? Hvor lang tid tok det?») med kort fasit som
+  bekrefter teksten og normaliserer ubehaget. Eksamen ER Lovdata i Inspera —
+  boka får aldri la leseren slippe å navigere ekte lovtekst.
+- **Alltid lovprefiks ved nummerkollisjon:** der to lover er i spill i samme
+  kapittel skrives §-referanser ALLTID med lovprefiks (kjl. § 36 / avtl. § 36),
+  og ved kjente kollisjoner legges et «ikke forveksle»-varsel («kjl. § 36 —
+  retteretten; NB: ikke avtl. § 36, urimelighetsregelen»).
+- **Eksamensvinkler: metoderåd først.** Lange årstallslister komprimeres
+  («10 av 30 sett — se kildenoten i kap. 0.1»); metoderådet står FØRST i
+  boksen, dokumentasjonen kort til slutt. (Panelet: årstallstapet fikk lesere
+  til å hoppe over hele boksen — og miste metoderådet bakerst.)
+- **Lovhistorikk klarspråk-først:** ved lovendringer formidles POENGET først
+  («reglene ble vesentlig endret fra 1.1.2024; det DU må vite er …»), lovnummer
+  og historikk i kort parentes til slutt — aldri en historikk-innledning som
+  skjuler regelen leseren trenger.
+
 ## Kapittel-DNA (typetilfellekapittel)
 
 Ett kapittel per gjennomgående typetilfelle fra analysen (f.eks. «binding ved
@@ -97,7 +128,12 @@ mellommann uten fullmakt», «ugyldighet pga. tilblivelsesmangler»):
 3. `collapsible` **Kommentert C-besvarelse** — samme oppgave løst «greit men
    flatt», med margnotater om nøyaktig hva som mangler til A (dette er det mest
    lærerike formatet ifølge sensorveiledningenes karakterskille-beskrivelser).
-4. `tip` **Sensorblikket** — momentliste: hva ga uttelling, vekting mellom
+4. `collapsible` **«Bestått-på-marginen»-besvarelse** (minst én i boka, jf.
+   README «Karakter-realisme») — viser terskelen NEDENFRA med margnotater om
+   hva som så vidt holder; panelets høyest roste enkeltformat («terskelen
+   nedenfra»). Bestått-minimum angis også per praktikum i Sensorblikket
+   («Minimum for bestått på denne oppgaven: …», utledet fra må-punktene).
+5. `tip` **Sensorblikket** — momentliste: hva ga uttelling, vekting mellom
    tvistepunktene.
 
 ## Skjelett-krav (hva SKJELETT.md må angi per kapittel)
