@@ -31,6 +31,19 @@ Per-fag-prising av fasit-muren er forkastet fordi:
 5. Per-fag-betalingsviljen (panel: 300–500 kr/bok) fanges i stedet av
    eksamenspasset, klippekortene og premium-trinnet.
 
+## Hint: GRATIS (besluttet 10. juli)
+
+Hint skal IKKE bak muren — de er selgeren av fasiten, ikke konkurrenten:
+- Hint øker investeringen i oppgaven → både mestring og fortsatt-fast-frustrasjon
+  øker kjøpssannsynligheten; selv den som løser med hint vil VERIFISERE (og
+  verifisering = må/pluss/felle-fasitens verdi).
+- Trappen per oppgave: hint (gratis) → fasit (Pluss) → KI-vurdering av eget
+  svar (klikk). Hvert trinn selger neste.
+- Konkurrenten på hint-nivå er gratis ChatGPT — mur foran hintet mister
+  brukeren i det avgjørende øyeblikket.
+- UX-krok: etter brukt hint, vis «Sjekk svaret ditt mot full fasit»-knapp
+  (møter muren for gratisbrukere).
+
 ## KI-vurderinger (AI-sensor)
 
 - Løser panelets største udekkede behov på tvers av ALLE bølger: «ingen kan
