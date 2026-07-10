@@ -26,6 +26,9 @@ BARE_CODE = re.compile(r"\b(RED|SIT|SAM|ANV|HYB|S[1-7])\b|\bsjanger [A-N]\b")
 # Deloppgaver a) b) i løpende tekst (skal stå på egen linje med **a)**).
 # Krav: a) og b) i SAMME linje med ≥8 tegn mellom (utelukker «jf. a) og b)»).
 INLINE_SUBTASK = re.compile(r"(?<!\*)\ba\) [^\n]{8,}?\bb\) ")
+# Statisk prøve-flervalg der fasitlista er «alle a» (død selvtest — panelfunn):
+# fanger fasitlinjer som «1a · 2a · 3a» / «1a, 2a, 3a» med ≥3 a-er på rad.
+ALL_A_FASIT = re.compile(r"\b1a\b[^\n]{0,12}\b2a\b[^\n]{0,12}\b3a\b")
 def _forklart(s):  # whitelist: teksten forklarer skala/kode ⇒ ikke merknad
     return bool(re.search(r"karakter|A[–-]F|bestått|forkort|= |betyr|dvs\.", s, re.I))
 
@@ -90,6 +93,20 @@ for f in files:
             if isinstance(s, str) and INLINE_SUBTASK.search(s):
                 notes.append(f"{cid}: deloppgaver a) b) i løpende {felt} (id {b.get('id','?')}) — skal ha egen linje + **fet** merking")
                 break
+    #  (d) statisk flervalg med «alle a»-fasit (død selvtest) og (e) tomme
+    #      collapsibles (innhold under feil nøkkel, f.eks. 'text' i stedet for
+    #      'content' — panelfunn i econ Del 6-7).
+    for b in c:
+        bt = b.get("type")
+        if bt == "collapsible":
+            cc = b.get("content") or ""
+            tom = (not cc) if isinstance(cc, list) else (not str(cc).strip())
+            if tom:
+                notes.append(f"{cid}: tom collapsible (id {b.get('id','?')}) — ligger innholdet under feil nøkkel?")
+            elif isinstance(cc, str) and ALL_A_FASIT.search(cc):
+                notes.append(f"{cid}: flervalgsfasit «1a·2a·3a…» i collapsible (id {b.get('id','?')}) — stokk bokstavene (død selvtest)")
+        elif bt in ("text", "tip") and ALL_A_FASIT.search(str(b.get("content", ""))):
+            notes.append(f"{cid}: flervalgsfasit «1a·2a·3a…» (id {b.get('id','?')}) — stokk bokstavene (død selvtest)")
 
 # kvoter
 qf = os.path.join(REPO, f"src/lib/data/quiz-data-{emne}.ts")

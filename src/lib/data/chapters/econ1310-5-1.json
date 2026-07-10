@@ -24,17 +24,10 @@
       "content": "## Forkunnskaper\n\nDette kapitlet bygger på to kapitler tidligere i boka:\n\n- **[Kap. 2.2](/bok/econ1310/econ1310-2-2) — Multiplikatoren på tilvekstform.** Du bør kunne hvordan et etterspørselssjokk forplanter seg gjennom multiplikatorrundene; RR-kurven kobles senere til akkurat denne etterspørselssiden.\n- **[Kap. 4.2](/bok/econ1310/econ1310-4-2) — Phillips-kurven.** Hele RR-utledningen består i å *sette Phillips-kurven inn i* renteregelen. Sitter ikke $\\beta$-mekanismen (kausalkjeden fra produksjonsgap til inflasjon), får du ikke tak i den indirekte kanalen $d_1\\beta$.\n\nUtenfor boka trenger du bare skrivemåten $\\partial i/\\partial Y$, som brukes til å lese av helningen på RR. Den leses «hvor mye $i$ endres når $Y$ øker litt» — tolk den ganske enkelt som et **stigningstall**, så trenger du ikke R2-derivasjon for å følge kapitlet. Vil du likevel ha en oppfriskning av derivasjon, se **[Derivasjonsregler (Matematikk for økonomer 5.2)](/bok/bi-okonomi/bi-okonomi-5-2)**."
     },
     {
-      "id": "econ1310-5-1-symbolliste",
-      "type": "collapsible",
-      "title": "Symbol- og formelliste",
-      "buttonText": "Vis symboler og formler",
-      "content": [
-        {
-          "id": "econ1310-5-1-symbolliste-text",
-          "type": "text",
-          "content": "Alle symboler og formler som brukes i dette delkapitlet (5.1) — inkludert eksempler, oppgaver og repetisjonsoppgaver.\n\n| Symbol | Betydning |\n| --- | --- |\n| $i$ | Styringsrenten — sentralbankens virkemiddel (nominell rente) |\n| $z^i$ | Pengepolitisk sjokk / renteintercept (eksogent skift i renteregelen) |\n| $d_1$ | Vekten på inflasjonsavviket $(\\pi-\\pi^*)$ i renteregelen, $d_1>0$ |\n| $d_2$ | Vekten på produksjonsgapet i renteregelen, $d_2>0$ (direkte kanal) |\n| $\\pi$ | Faktisk inflasjon |\n| $\\pi^*$ | Inflasjonsmålet (Norges Bank: 2 % over tid) |\n| $\\pi^e$ | Forventet (fremtidig) inflasjon |\n| $Y$ | Faktisk BNP |\n| $Y^n$ | Potensielt BNP (langsiktig opprettholdbart produksjonsnivå) |\n| $\\dfrac{Y-Y^n}{Y^n}$ | Produksjonsgapet (relativt avvik mellom faktisk og potensielt BNP) |\n| $\\beta$ | Inflasjonsfølsomheten — Phillips-kurvens helning, $\\beta>0$ |\n| $z^\\pi$ | Kostnadssjokk (energi, valuta, råvarer) i Phillips-kurven |\n| $d_1\\beta$ | Indirekte kanal: renterespons på gapet som går via inflasjonen |\n| $d_1\\beta+d_2$ | Gap-koeffisienten — samlet renterespons på produksjonsgapet (bestemmer RR-helningen) |\n| $i-\\pi^e$ | Realrenten — nominell rente korrigert for forventet inflasjon |\n| $u^n$ | Likevektsledigheten (bestemmer $Y^n$ på tilbudssiden) |\n| $c_1$ | Marginal konsumtilbøyelighet, $0<c_1<1$ |\n| $c_2$ | Konsumets rentefølsomhet |\n| $b_1$ | Investeringsakseleratoren (BNP-følsomhet i investeringene) |\n| $b_2$ | Investeringenes rentefølsomhet |\n| $t$ | Skattesatsen (endogen skatt) |\n| $m$ | Keynes-multiplikatoren |\n| $z^C,\\ z^I,\\ z^T,\\ G$ | Etterspørselssjokk (konsum, investering, skatt, offentlige kjøp) |\n\n**Formler i dette delkapitlet:**\n\nRenteregelen (sentralbankens rentesetting):\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y-Y^n}{Y^n}$$\n\nPhillips-kurven (byggeklossen som settes inn):\n$$\\pi = \\pi^e + \\beta\\,\\frac{Y-Y^n}{Y^n} + z^\\pi$$\n\nRR-kurven (renteregelen med Phillips-kurven innsatt):\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y-Y^n}{Y^n}$$\n\nRR-kurvens helning i $(Y,i)$-rommet (positiv $\\Rightarrow$ stigende):\n$$\\frac{\\partial i}{\\partial Y} = \\frac{d_1\\beta + d_2}{Y^n} > 0$$\n\nKeynes-multiplikatoren (fra repetisjonsoppgavene, kap. 2.2):\n$$m = \\frac{1}{1 - c_1(1-t) - b_1}$$"
-        }
-      ]
+      "id": "econ1310-5-1-tip-forvarsel",
+      "type": "tip",
+      "title": "Utledningen i dette kapitlet testes aktivt på eksamen — og den er kortere enn den ser ut",
+      "content": "RR-utledningen (løkke 2 under) er et fast innslag i modelloppgaven: du skal kunne sette Phillips-kurven inn i renteregelen på egen hånd. Den gode nyheten er at den består av bare **fire korte steg** — ett er ren innsetting, ett er å gange ut en parentes, og ett er å samle to ledd — og hvert steg forklares i ord med en egen intuisjonslinje. Du trenger ingen derivasjon. Les den rolig én gang, og gjør den deretter selv i oppgave 3."
     },
     {
       "id": "econ1310-5-1-text-motiv",
@@ -129,7 +122,13 @@
     {
       "id": "econ1310-5-1-text-utledning",
       "type": "text",
-      "content": "## Utledning av RR-kurven (steg for steg)\n\n**Steg 1 — start med renteregelen:**\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 2 — sett inn Phillips-kurven for $\\pi$.** Vi erstatter $\\pi$ med $\\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$:\n$$i = z^i + d_1\\left(\\pi^e + \\beta\\,\\frac{Y - Y^n}{Y^n} + z^\\pi - \\pi^*\\right) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 3 — multipliser ut $d_1$-parentesen:**\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + d_1\\beta\\,\\frac{Y - Y^n}{Y^n} + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n**Steg 4 — samle de to gap-leddene** (begge har faktoren $\\frac{Y-Y^n}{Y^n}$):\n$$\\boxed{\\;i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y - Y^n}{Y^n}\\;}$$\n\nDette er **RR-kurven**. Den gir renten $i$ sentralbanken vil sette for hvert nivå på BNP $Y$, når vi har tatt hensyn til at BNP også påvirker inflasjonen.\n\n**Egenskaper å merke seg:**\n- **RR er stigende i $Y$** fordi koeffisienten foran gapet, $(d_1\\beta + d_2)$, er positiv. Høyere aktivitet → høyere rente.\n- **Skjæringspunkt/intercept** bestemmes av $z^i$, inflasjonsforventningsavviket $d_1(\\pi^e - \\pi^*)$ og kostnadssjokket $d_1 z^\\pi$.\n- **$Y^n$-normaliseringen** i nevneren skal alltid med — renten reagerer på gapet *relativt* til potensielt BNP, ikke på nivået $Y$ direkte.\n- **To måleenheter for gapet:** i faget skrives gapet snart som desimal ($5\\,\\% = 0{,}05$, slik som i kap. 4.2), snart direkte i prosenttall ($5\\,\\% = 5$, slik som i oppgavene nedenfor). Begge er riktige — les oppgaven, og hold samme enhet gjennom hele regnestykket."
+      "content": "## Utledning av RR-kurven (steg for steg)\n\n**Steg 1 — start med renteregelen:**\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n*Intuisjon:* dette er bare regelen slik sentralbanken har formulert den — renten svarer på avvik fra inflasjonsmålet og på produksjonsgapet.\n\n**Steg 2 — sett inn Phillips-kurven for $\\pi$.** Vi erstatter $\\pi$ med $\\pi^e + \\beta\\frac{Y-Y^n}{Y^n} + z^\\pi$:\n$$i = z^i + d_1\\left(\\pi^e + \\beta\\,\\frac{Y - Y^n}{Y^n} + z^\\pi - \\pi^*\\right) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n*Intuisjon:* ren innsetting — vi bytter ut $\\pi$ med det Phillips-kurven sier at inflasjonen *er*. Ingen ny matematikk, bare en erstatning.\n\n**Steg 3 — multipliser ut $d_1$-parentesen:**\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + d_1\\beta\\,\\frac{Y - Y^n}{Y^n} + d_2\\,\\frac{Y - Y^n}{Y^n}$$\n\n*Intuisjon:* vi ganger $d_1$ inn i parentesen, ledd for ledd — akkurat som å gange ut $2(a+b) = 2a + 2b$.\n\n**Steg 4 — samle de to gap-leddene** (begge har faktoren $\\frac{Y-Y^n}{Y^n}$):\n$$\\boxed{\\;i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y - Y^n}{Y^n}\\;}$$\n\n*Intuisjon:* gapet sto i to ledd; vi samler dem og ser sentralbankens *samlede* renterespons på gapet: $d_1\\beta + d_2$.\n\nDette er **RR-kurven**. Den gir renten $i$ sentralbanken vil sette for hvert nivå på BNP $Y$, når vi har tatt hensyn til at BNP også påvirker inflasjonen.\n\n**Egenskaper å merke seg:**\n- **RR er stigende i $Y$** fordi koeffisienten foran gapet, $(d_1\\beta + d_2)$, er positiv. Høyere aktivitet → høyere rente.\n- **Skjæringspunkt/intercept** bestemmes av $z^i$, inflasjonsforventningsavviket $d_1(\\pi^e - \\pi^*)$ og kostnadssjokket $d_1 z^\\pi$.\n- **$Y^n$-normaliseringen** i nevneren skal alltid med — renten reagerer på gapet *relativt* til potensielt BNP, ikke på nivået $Y$ direkte.\n- **To måleenheter for gapet:** i faget skrives gapet snart som desimal ($5\\,\\% = 0{,}05$, slik som i kap. 4.2), snart direkte i prosenttall ($5\\,\\% = 5$, slik som i oppgavene nedenfor). Begge er riktige — les oppgaven, og hold samme enhet gjennom hele regnestykket."
+    },
+    {
+      "id": "econ1310-5-1-warn-enheter",
+      "type": "warning",
+      "title": "NB: to måleenheter i omløp — sjekk alltid hva oppgaven bruker",
+      "content": "Produksjonsgapet skrives i faget på to måter: **som desimaltall** ($5\\,\\% = 0{,}05$, slik kap. 4.2 gjør) og **direkte i prosenttall** ($5\\,\\% = 5$, slik flere av oppgavene i dette kapitlet gjør). Begge er riktige, men de kan ikke blandes i samme regnestykke — da bommer du med en faktor 100 på renteutslaget. Sjekk alltid hvilken enhet oppgaven bruker, og hold den samme enheten gjennom hele utregningen. Oppgavene i boka sier eksplisitt hvilken konvensjon de bruker."
     },
     {
       "id": "econ1310-5-1-def-rr",
@@ -363,7 +362,7 @@
     {
       "id": "econ1310-5-1-begrepsbank-text",
       "type": "text",
-      "content": "## Begrepsbank til eksamen\n\nKortdefinisjoner du skal kunne gjengi presist på kortsvar (2–3 setninger). Sammen med definisjonene tidligere i kapitlet utgjør de begrepsbanken for kap. 5.1."
+      "content": "## Begrepsbank til eksamen\n\nKortdefinisjoner du skal kunne gjengi presist på kortsvar (2–3 setninger). Sammen med definisjonene tidligere i kapitlet utgjør de begrepsbanken for kap. 5.1.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
     },
     {
       "id": "econ1310-5-1-def-gapkoeff",
@@ -442,6 +441,19 @@
       "type": "definition",
       "title": "IS-kurven (forhåndsvisning til kap. 5.2)",
       "content": "Den fallende kurven i det øvre panelet av IS-RR-PK-diagrammet: kombinasjoner av $Y$ og $i$ der vare-/tjenestemarkedet er i likevekt. Fallende fordi høyere rente demper konsum og investeringer (via $c_2$ og $b_2$) og dermed BNP. Etterspørselssjokk skifter IS."
+    },
+    {
+      "id": "econ1310-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1310-5-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (5.1) — inkludert eksempler, oppgaver og repetisjonsoppgaver.\n\n| Symbol | Betydning |\n| --- | --- |\n| $i$ | Styringsrenten — sentralbankens virkemiddel (nominell rente) |\n| $z^i$ | Pengepolitisk sjokk / renteintercept (eksogent skift i renteregelen) |\n| $d_1$ | Vekten på inflasjonsavviket $(\\pi-\\pi^*)$ i renteregelen, $d_1>0$ |\n| $d_2$ | Vekten på produksjonsgapet i renteregelen, $d_2>0$ (direkte kanal) |\n| $\\pi$ | Faktisk inflasjon |\n| $\\pi^*$ | Inflasjonsmålet (Norges Bank: 2 % over tid) |\n| $\\pi^e$ | Forventet (fremtidig) inflasjon |\n| $Y$ | Faktisk BNP |\n| $Y^n$ | Potensielt BNP (langsiktig opprettholdbart produksjonsnivå) |\n| $\\dfrac{Y-Y^n}{Y^n}$ | Produksjonsgapet (relativt avvik mellom faktisk og potensielt BNP) |\n| $\\beta$ | Inflasjonsfølsomheten — Phillips-kurvens helning, $\\beta>0$ |\n| $z^\\pi$ | Kostnadssjokk (energi, valuta, råvarer) i Phillips-kurven |\n| $d_1\\beta$ | Indirekte kanal: renterespons på gapet som går via inflasjonen |\n| $d_1\\beta+d_2$ | Gap-koeffisienten — samlet renterespons på produksjonsgapet (bestemmer RR-helningen) |\n| $i-\\pi^e$ | Realrenten — nominell rente korrigert for forventet inflasjon |\n| $u^n$ | Likevektsledigheten (bestemmer $Y^n$ på tilbudssiden) |\n| $c_1$ | Marginal konsumtilbøyelighet, $0<c_1<1$ |\n| $c_2$ | Konsumets rentefølsomhet |\n| $b_1$ | Investeringsakseleratoren (BNP-følsomhet i investeringene) |\n| $b_2$ | Investeringenes rentefølsomhet |\n| $t$ | Skattesatsen (endogen skatt) |\n| $m$ | Keynes-multiplikatoren |\n| $z^C,\\ z^I,\\ z^T,\\ G$ | Etterspørselssjokk (konsum, investering, skatt, offentlige kjøp) |\n\n**Formler i dette delkapitlet:**\n\nRenteregelen (sentralbankens rentesetting):\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y-Y^n}{Y^n}$$\n\nPhillips-kurven (byggeklossen som settes inn):\n$$\\pi = \\pi^e + \\beta\\,\\frac{Y-Y^n}{Y^n} + z^\\pi$$\n\nRR-kurven (renteregelen med Phillips-kurven innsatt):\n$$i = z^i + d_1(\\pi^e - \\pi^*) + d_1 z^\\pi + (d_1\\beta + d_2)\\,\\frac{Y-Y^n}{Y^n}$$\n\nRR-kurvens helning i $(Y,i)$-rommet (positiv $\\Rightarrow$ stigende):\n$$\\frac{\\partial i}{\\partial Y} = \\frac{d_1\\beta + d_2}{Y^n} > 0$$\n\nKeynes-multiplikatoren (fra repetisjonsoppgavene, kap. 2.2):\n$$m = \\frac{1}{1 - c_1(1-t) - b_1}$$"
+        }
+      ]
     }
   ],
   "exercises": []

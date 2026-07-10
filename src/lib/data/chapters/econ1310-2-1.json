@@ -24,19 +24,6 @@
       "content": "**Forkunnskaper:** Dette kapitlet bygger på nasjonalregnskapet i **[kapittel 1.1](/bok/econ1310/econ1310-1-1)** — generalbudsjettligningen $Y = C + I + G$, skillet mellom lukket og åpen økonomi, og sammenhengen $S = I$. Kjenner du de begrepene, er du klar.\n\nDet eneste matematiske du trenger, er å sette opp og lese et **likningssett** og gjøre trygg bokstavregning: telleregelen handler jo nettopp om å telle ligninger mot ukjente. Vil du friske opp regneteknikken, se [Algebra og bokstavregning (Matematikk for økonomer 1.2)](/bok/bi-okonomi/bi-okonomi-1-2), [Lineære likninger (Matematikk for økonomer 2.1)](/bok/bi-okonomi/bi-okonomi-2-1) og [Likningssett (Matematikk for økonomer 2.3)](/bok/bi-okonomi/bi-okonomi-2-3)."
     },
     {
-      "id": "econ1310-2-1-symbolliste",
-      "type": "collapsible",
-      "title": "Symbol- og formelliste",
-      "buttonText": "Vis symboler og formler",
-      "content": [
-        {
-          "id": "econ1310-2-1-symbolliste-text",
-          "type": "text",
-          "content": "## Symbol- og formelliste\n\nAlle symboler og formler som brukes i dette delkapitlet (2.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $Y$ | Produksjon / BNP — **endogen** |\n| $C$ | Privat konsum — **endogen** |\n| $I$ | Private realinvesteringer — **endogen** |\n| $T$ | Nettoskatter — **endogen** |\n| $Q$ | Import — **endogen** (kun åpen økonomi) |\n| $G$ | Offentlige kjøp av varer og tjenester — eksogen |\n| $X$ | Eksport — eksogen |\n| $i$ | Nominell rente — eksogen |\n| $\\pi^e$ | Forventet inflasjon — eksogen |\n| $i - \\pi^e$ | Realrenten — den reelle kostnaden ved å låne / avkastningen ved å spare |\n| $z^C$ | Eksogent konsumskift («konsumsjokk») |\n| $z^I$ | Eksogent investeringsskift (investeringsvilje) |\n| $z^T$ | Eksogent skattenivå — skatten myndighetene fastsetter |\n| $z^i, z^\\pi, z^W$ | Andre eksogene skiftledd i pengepolitikken (nevnt, utdypes i Del 5) |\n| $c_1$ | Marginal konsumtilbøyelighet, $0 < c_1 < 1$ |\n| $c_2$ | Konsumets realrentefølsomhet, $c_2 > 0$ |\n| $b_1$ | Investeringsakseleratoren, $b_1 > 0$ |\n| $b_2$ | Investeringenes rentefølsomhet, $b_2 > 0$ |\n| $t$ | Marginal (effektiv) skattesats, $0 < t < 1$ |\n| $a$ | Marginal importtilbøyelighet, $0 < a < 1$ |\n| $S$ | Samlet sparing (i lukket økonomi $S = I$) |\n| $Y - T$ | Disponibel inntekt — inntekt etter nettoskatt |\n| $\\pi$ | Faktisk inflasjon (i renteregelen, oppg. 5) |\n| $\\pi^*$ | Inflasjonsmål (i renteregelen, oppg. 5) |\n| $Y^n$ | Normalt (potensielt) BNP (i renteregelen, oppg. 5) |\n| $d_1, d_2$ | Koeffisienter i renteregelen (nevnt, utdypes i kap. 5.1) |\n\n**Formler i dette delkapitlet:**\n\n$$Y = C + I + G$$\nGeneralbudsjettligningen (likevekt), lukket økonomi: samlet produksjon = samlet etterspørsel.\n\n$$Y = C + I + G + X - Q$$\nGeneralbudsjettligningen, åpen økonomi: eksport legges til, import trekkes fra.\n\n$$C = z^C + c_1(Y - T) - c_2(i - \\pi^e)$$\nKonsumfunksjonen: konsum stiger med disponibel inntekt ($c_1$) og faller med realrenten ($c_2$).\n\n$$I = z^I + b_1 Y - b_2(i - \\pi^e)$$\nInvesteringsfunksjonen: investeringer stiger med aktiviteten ($b_1$) og faller med realrenten ($b_2$).\n\n$$T = z^T + tY$$\nSkattefunksjonen med endogen skatt: fast nivå $z^T$ pluss et inntektsavhengig ledd $tY$.\n\n$$Q = aY$$\nImportfunksjonen: importen stiger med inntekten via importtilbøyeligheten $a$.\n\n$$Y - T = (1 - t)Y - z^T$$\nDisponibel inntekt med endogen skatt: én ekstra krone inntekt gir bare $(1-t)$ kroner til rådighet.\n\n$$1 - c_1(1-t) - b_1$$\nNevneren / stabilitetsuttrykket som gir multiplikatoren dens størrelse (utledes i kap. 2.2).\n\n$$S = I$$\nI lukket økonomi er samlet sparing lik samlet realinvestering.\n\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\nRenteregelen (oppg. 5): sentralbanken hever renten når inflasjon og aktivitet er høye (utdypes i kap. 5.1)."
-        }
-      ]
-    },
-    {
       "id": "econ1310-2-1-intro",
       "type": "text",
       "content": "Hele den tyngste eksamensoppgaven i ECON1310 — den som utgjør 50–60 % av poengene — bygger på én liten modell av produktmarkedet. Før vi kan regne på den (kapittel 2.2), må vi bli fortrolige med **anatomien**: hvilke ligninger modellen består av, hvilke størrelser den bestemmer selv, hvilke vi mater inn utenfra, og hva hver parameter betyr økonomisk.\n\nModellen er Steinar Holdens Keynes-modell for en økonomi der prisene er faste på kort sikt, slik at det er **etterspørselen** som bestemmer produksjonen. Vi bruker konsekvent Holden-notasjon (skrivemåten fra Steinar Holdens lærebok) med $z$-skiftledd og små bokstaver for atferdsparametrene. Det er dette apparatet — og bare dette — som testes på eksamen, og som hele denne boka bygger på.\n\nKapitlet er bygget som to **læringsløkker**: først setter vi opp modellens ligninger og lærer å tolke hver parameter (løkke 1), så lærer vi skillet endogen/eksogen og telleregelen som avgjør om modellen er løsbar (løkke 2). Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver, så du kan jobbe deg gjennom stoffet bit for bit."
@@ -55,31 +42,31 @@
       "id": "econ1310-2-1-def-generalbudsjett",
       "type": "definition",
       "title": "Generalbudsjettligningen (likevektsbetingelsen)",
-      "content": "$$Y = C + I + G \\quad (\\text{lukket}), \\qquad Y = C + I + G + X - Q \\quad (\\text{åpen})$$\n\nBetingelsen sier at samlet produksjon er lik samlet **etterspørsel** etter varer og tjenester. I Keynes-modellen med faste priser tilpasser produksjonen seg etterspørselen — det er derfor denne ligningen bestemmer likevekts-$Y$."
+      "content": "Likevektsbetingelsen for produktmarkedet — samlet produksjon skal være lik samlet etterspørsel:\n\n$$Y = C + I + G \\quad (\\text{lukket}), \\qquad Y = C + I + G + X - Q \\quad (\\text{åpen})$$\n\nBetingelsen sier at samlet produksjon er lik samlet **etterspørsel** etter varer og tjenester. I Keynes-modellen med faste priser tilpasser produksjonen seg etterspørselen — det er derfor denne ligningen bestemmer likevekts-$Y$."
     },
     {
       "id": "econ1310-2-1-def-konsumfunksjon",
       "type": "definition",
       "title": "Konsumfunksjonen",
-      "content": "$$C = z^C + c_1(Y - T) - c_2(i - \\pi^e)$$\n\nEn **atferdsligning** for husholdningene: konsumet avhenger positivt av disponibel inntekt $Y - T$ (gjennom $c_1$) og negativt av realrenten $i - \\pi^e$ (gjennom $c_2$). $z^C$ er den delen av konsumet som ikke forklares av inntekt og rente — stemning, forventninger, formue — og fungerer som eksogen skiftvariabel («konsumsjokk»)."
+      "content": "Husholdningenes forbruk bestemmes av inntekten etter skatt og av realrenten — i symboler:\n\n$$C = z^C + c_1(Y - T) - c_2(i - \\pi^e)$$\n\nEn **atferdsligning** for husholdningene: konsumet avhenger positivt av disponibel inntekt $Y - T$ (gjennom $c_1$) og negativt av realrenten $i - \\pi^e$ (gjennom $c_2$). $z^C$ er den delen av konsumet som ikke forklares av inntekt og rente — stemning, forventninger, formue — og fungerer som eksogen skiftvariabel («konsumsjokk»)."
     },
     {
       "id": "econ1310-2-1-def-investering",
       "type": "definition",
       "title": "Investeringsfunksjonen",
-      "content": "$$I = z^I + b_1 Y - b_2(i - \\pi^e)$$\n\nBedriftenes realinvesteringer stiger med aktivitetsnivået $Y$ (gjennom akseleratoren $b_1$) og faller med realrenten (gjennom $b_2$). $z^I$ er eksogen investeringsvilje — teknologioptimisme, framtidsforventninger — og er sjokkvariabelen $z^I$."
+      "content": "Bedriftenes investeringer stiger med aktiviteten og faller når lån blir dyrere — i symboler:\n\n$$I = z^I + b_1 Y - b_2(i - \\pi^e)$$\n\nBedriftenes realinvesteringer stiger med aktivitetsnivået $Y$ (gjennom akseleratoren $b_1$) og faller med realrenten (gjennom $b_2$). $z^I$ er eksogen investeringsvilje — teknologioptimisme, framtidsforventninger — og er sjokkvariabelen $z^I$."
     },
     {
       "id": "econ1310-2-1-def-skatt",
       "type": "definition",
       "title": "Skattefunksjonen (endogen skatt)",
-      "content": "$$T = z^T + tY$$\n\nNettoskatter består av et eksogent ledd $z^T$ (skattenivået myndighetene fastsetter) og et **endogent** ledd $tY$ som stiger automatisk med inntekten. $t$ er den effektive marginale skattesatsen. Av og til forenkles skatten til å være helt eksogen: $T = z^T$ (da er $t = 0$)."
+      "content": "Skatten har en fast del og en del som automatisk følger inntekten — i symboler:\n\n$$T = z^T + tY$$\n\nNettoskatter består av et eksogent ledd $z^T$ (skattenivået myndighetene fastsetter) og et **endogent** ledd $tY$ som stiger automatisk med inntekten. $t$ er den effektive marginale skattesatsen. Av og til forenkles skatten til å være helt eksogen: $T = z^T$ (da er $t = 0$)."
     },
     {
       "id": "econ1310-2-1-def-import",
       "type": "definition",
       "title": "Importfunksjonen",
-      "content": "$$Q = aY$$\n\nI den åpne økonomien stiger importen med inntekten: jo mer vi produserer og tjener, desto mer kjøper vi fra utlandet. $a$ er den **marginale importtilbøyeligheten** ($0 < a < 1$). Importleddet trekkes fra i generalbudsjettligningen fordi det er etterspørsel som lekker ut av landet."
+      "content": "Jo mer vi tjener, desto mer kjøper vi fra utlandet — i symboler:\n\n$$Q = aY$$\n\nI den åpne økonomien stiger importen med inntekten: jo mer vi produserer og tjener, desto mer kjøper vi fra utlandet. $a$ er den **marginale importtilbøyeligheten** ($0 < a < 1$). Importleddet trekkes fra i generalbudsjettligningen fordi det er etterspørsel som lekker ut av landet."
     },
     {
       "id": "econ1310-2-1-parametre",
@@ -96,19 +83,19 @@
       "id": "econ1310-2-1-def-c2",
       "type": "definition",
       "title": "Realrentens konsumeffekt $c_2$",
-      "content": "$c_2 > 0$: høyere realrente demper konsumet. For **full uttelling** må tre kanaler nevnes: (i) *substitusjonseffekten* — det blir mer lønnsomt å spare og utsette forbruk; (ii) *inntektseffekten* — for netto låntakere blir gjelden dyrere, mindre igjen til forbruk; (iii) *gjeldskanalen* — norske husholdninger har samlet mer gjeld enn innskudd, så inntekts- og substitusjonseffekt trekker samme vei. Å nevne bare substitusjonseffekten gir *ikke* full score."
+      "content": "Høyere realrente demper konsumet — det er det $c_2 > 0$ måler. For **full uttelling** må tre kanaler nevnes: (i) *substitusjonseffekten* — det blir mer lønnsomt å spare og utsette forbruk; (ii) *inntektseffekten* — for netto låntakere blir gjelden dyrere, mindre igjen til forbruk; (iii) *gjeldskanalen* — norske husholdninger har samlet mer gjeld enn innskudd, så inntekts- og substitusjonseffekt trekker samme vei. Å nevne bare substitusjonseffekten gir *ikke* full score."
     },
     {
       "id": "econ1310-2-1-def-b1",
       "type": "definition",
       "title": "Investeringsakseleratoren $b_1$",
-      "content": "$b_1 > 0$: investeringene stiger med aktivitetsnivået $Y$. Begrunnelse: høy produksjon krever mer produksjonskapasitet (maskiner, bygg), og høy aktivitet gir bedre inntjening og lettere finansiering. $b_1$ er «akseleratoren» fordi den gjør at oppgang forsterker seg selv — den er forsterkeren i multiplikatorprosessen."
+      "content": "Investeringene stiger med aktivitetsnivået $Y$ — styrken er $b_1 > 0$. Begrunnelse: høy produksjon krever mer produksjonskapasitet (maskiner, bygg), og høy aktivitet gir bedre inntjening og lettere finansiering. $b_1$ er «akseleratoren» fordi den gjør at oppgang forsterker seg selv — den er forsterkeren i multiplikatorprosessen."
     },
     {
       "id": "econ1310-2-1-bb-b2",
       "type": "definition",
       "title": "Investeringenes renteeffekt $b_2$",
-      "content": "$b_2 > 0$: hvor sterkt investeringene faller når realrenten stiger. Begrunnes med dyrere lånefinansiering og høyere alternativavkastning ved renteplassering. I den forenklede modellen settes $b_2 = 0$."
+      "content": "Hvor sterkt investeringene faller når realrenten stiger — det måler $b_2 > 0$. Begrunnes med dyrere lånefinansiering og høyere alternativavkastning ved renteplassering. I den forenklede modellen settes $b_2 = 0$."
     },
     {
       "id": "econ1310-2-1-def-t",
@@ -324,19 +311,19 @@
     {
       "id": "econ1310-2-1-begrepsbank-tekst",
       "type": "text",
-      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i eksamensrettet kortform. Sammen med definisjonene over gir de deg repertoaret for sjanger C- og D-oppgavene."
+      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i eksamensrettet kortform. Sammen med definisjonene over gir de deg repertoaret for sjanger C- og D-oppgavene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
     },
     {
       "id": "econ1310-2-1-bb-realrente",
       "type": "definition",
       "title": "Realrente",
-      "content": "$i - \\pi^e$: den nominelle renten $i$ fratrukket forventet inflasjon $\\pi^e$. Det er realrenten, ikke den nominelle renten, som styrer konsum- og investeringsbeslutninger, fordi den måler den *reelle* kostnaden ved å låne og den reelle avkastningen ved å spare."
+      "content": "Den nominelle renten $i$ fratrukket forventet inflasjon $\\pi^e$: $i - \\pi^e$. Det er realrenten, ikke den nominelle renten, som styrer konsum- og investeringsbeslutninger, fordi den måler den *reelle* kostnaden ved å låne og den reelle avkastningen ved å spare."
     },
     {
       "id": "econ1310-2-1-bb-disponibel",
       "type": "definition",
       "title": "Disponibel inntekt",
-      "content": "$Y - T$: inntekten husholdningene har igjen etter nettoskatt, og som konsumbeslutningen bygger på. Med endogen skatt er $Y - T = Y - z^T - tY = (1-t)Y - z^T$, så en inntektsøkning på én krone gir bare $(1-t)$ kroner mer å bruke."
+      "content": "Inntekten husholdningene har igjen etter nettoskatt, og som konsumbeslutningen bygger på: $Y - T$. Med endogen skatt er $Y - T = Y - z^T - tY = (1-t)Y - z^T$, så en inntektsøkning på én krone gir bare $(1-t)$ kroner mer å bruke."
     },
     {
       "id": "econ1310-2-1-bb-lukket",
@@ -355,6 +342,19 @@
       "type": "definition",
       "title": "Marginal importtilbøyelighet $a$",
       "content": "$a$ ($0 < a < 1$) er økningen i import per ekstra krone inntekt. I den åpne modellen er den en lekkasje på linje med sparing og skatt: en del av økt etterspørsel går til utenlandske varer og løfter derfor ikke innenlandsk produksjon."
+    },
+    {
+      "id": "econ1310-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1310-2-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $Y$ | Produksjon / BNP — **endogen** |\n| $C$ | Privat konsum — **endogen** |\n| $I$ | Private realinvesteringer — **endogen** |\n| $T$ | Nettoskatter — **endogen** |\n| $Q$ | Import — **endogen** (kun åpen økonomi) |\n| $G$ | Offentlige kjøp av varer og tjenester — eksogen |\n| $X$ | Eksport — eksogen |\n| $i$ | Nominell rente — eksogen |\n| $\\pi^e$ | Forventet inflasjon — eksogen |\n| $i - \\pi^e$ | Realrenten — den reelle kostnaden ved å låne / avkastningen ved å spare |\n| $z^C$ | Eksogent konsumskift («konsumsjokk») |\n| $z^I$ | Eksogent investeringsskift (investeringsvilje) |\n| $z^T$ | Eksogent skattenivå — skatten myndighetene fastsetter |\n| $z^i, z^\\pi, z^W$ | Andre eksogene skiftledd i pengepolitikken (nevnt, utdypes i Del 5) |\n| $c_1$ | Marginal konsumtilbøyelighet, $0 < c_1 < 1$ |\n| $c_2$ | Konsumets realrentefølsomhet, $c_2 > 0$ |\n| $b_1$ | Investeringsakseleratoren, $b_1 > 0$ |\n| $b_2$ | Investeringenes rentefølsomhet, $b_2 > 0$ |\n| $t$ | Marginal (effektiv) skattesats, $0 < t < 1$ |\n| $a$ | Marginal importtilbøyelighet, $0 < a < 1$ |\n| $S$ | Samlet sparing (i lukket økonomi $S = I$) |\n| $Y - T$ | Disponibel inntekt — inntekt etter nettoskatt |\n| $\\pi$ | Faktisk inflasjon (i renteregelen, oppg. 5) |\n| $\\pi^*$ | Inflasjonsmål (i renteregelen, oppg. 5) |\n| $Y^n$ | Normalt (potensielt) BNP (i renteregelen, oppg. 5) |\n| $d_1, d_2$ | Koeffisienter i renteregelen (nevnt, utdypes i kap. 5.1) |\n\n**Formler i dette delkapitlet:**\n\n$$Y = C + I + G$$\nGeneralbudsjettligningen (likevekt), lukket økonomi: samlet produksjon = samlet etterspørsel.\n\n$$Y = C + I + G + X - Q$$\nGeneralbudsjettligningen, åpen økonomi: eksport legges til, import trekkes fra.\n\n$$C = z^C + c_1(Y - T) - c_2(i - \\pi^e)$$\nKonsumfunksjonen: konsum stiger med disponibel inntekt ($c_1$) og faller med realrenten ($c_2$).\n\n$$I = z^I + b_1 Y - b_2(i - \\pi^e)$$\nInvesteringsfunksjonen: investeringer stiger med aktiviteten ($b_1$) og faller med realrenten ($b_2$).\n\n$$T = z^T + tY$$\nSkattefunksjonen med endogen skatt: fast nivå $z^T$ pluss et inntektsavhengig ledd $tY$.\n\n$$Q = aY$$\nImportfunksjonen: importen stiger med inntekten via importtilbøyeligheten $a$.\n\n$$Y - T = (1 - t)Y - z^T$$\nDisponibel inntekt med endogen skatt: én ekstra krone inntekt gir bare $(1-t)$ kroner til rådighet.\n\n$$1 - c_1(1-t) - b_1$$\nNevneren / stabilitetsuttrykket som gir multiplikatoren dens størrelse (utledes i kap. 2.2).\n\n$$S = I$$\nI lukket økonomi er samlet sparing lik samlet realinvestering.\n\n$$i = z^i + d_1(\\pi - \\pi^*) + d_2\\,\\frac{Y - Y^n}{Y^n}$$\nRenteregelen (oppg. 5): sentralbanken hever renten når inflasjon og aktivitet er høye (utdypes i kap. 5.1)."
+        }
+      ]
     }
   ],
   "exercises": []
