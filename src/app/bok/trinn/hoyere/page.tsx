@@ -114,21 +114,21 @@ export default function HoyerePage() {
               {[
                 {
                   step: '1',
-                  title: 'Vi analyserer eksamensarkivet',
+                  title: 'KI leser hele eksamensarkivet',
                   description:
-                    'Frekvensanalyse av tidligere eksamener viser hva som faktisk kommer – så du prioriterer temaene som gir uttelling, ikke de som tilfeldigvis står først i pensumboka.',
+                    'KI-agentene våre leser fagets tidligere eksamener og lager frekvensanalyse av hva som faktisk kommer – så du prioriterer temaene som gir uttelling, ikke de som tilfeldigvis står først i pensumboka.',
                 },
                 {
                   step: '2',
                   title: 'Sensorkravene – oversatt til bruksanvisning',
                   description:
-                    'Der arkivet har sensorveiledninger, destillerer vi dem til sensornøkler per tema: hva som må med for å bestå, og hva som skiller en C fra en A. Hver bok oppgir kildene sine i kapittel 0.',
+                    'Der arkivet har sensorveiledninger, destillerer KI-en dem til sensornøkler per tema: hva som må med for å bestå, og hva som skiller en C fra en A. Hver bok oppgir kildene sine i kapittel 0.',
                 },
                 {
                   step: '3',
-                  title: 'Modellbesvarelser du kan måle deg mot',
+                  title: 'KI setter sammen boka – med modellbesvarelser',
                   description:
-                    'Nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent.',
+                    'KI skriver kapitlene og nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent.',
                 },
                 {
                   step: '4',
@@ -148,6 +148,15 @@ export default function HoyerePage() {
                 </div>
               ))}
             </div>
+            <p className="mt-8 text-xs text-muted-foreground max-w-2xl">
+              Full åpenhet: bøkene er skrevet og satt sammen av KI, og kvalitetskontrollen
+              gjøres av uavhengige KI-agenter — innholdet er foreløpig ikke manuelt
+              gjennomgått. Innmeldte feil rettes fortløpende.{' '}
+              <Link href="/vilkar#ki-deklarasjon" className="underline underline-offset-2 hover:text-foreground">
+                Les KI-deklarasjonen
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
