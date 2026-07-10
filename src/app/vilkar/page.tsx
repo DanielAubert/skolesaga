@@ -78,7 +78,9 @@ export default function VilkarPage() {
               konkrete kompetansemål i læreplanen (LK20) eller fagets eksamenskrav, og
               struktureres etter et fast teori–eksempel–oppgave-mønster. Innholdet
               oppdateres aktivt etter hvert som nyere KI-modeller blir tilgjengelige —
-              fra mindre rettinger til fullstendige omskrivinger.
+              fra mindre rettinger til fullstendige omskrivinger. Større oppdateringer
+              gjøres som hovedregel mellom semestrene, slik at innholdet holdes stabilt
+              gjennom semesteret; alvorlige feil rettes fortløpende.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               KI-generert innhold kan inneholde feil, også der fremstillingen virker sikker.

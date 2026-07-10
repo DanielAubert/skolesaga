@@ -149,9 +149,10 @@ export default function HoyerePage() {
               ))}
             </div>
             <p className="mt-8 text-sm font-medium max-w-2xl">
-              Velg læreboka som kontinuerlig blir bedre: hver gang nyere modeller
-              kommer, oppdaterer vi bøkene med dem — fra små rettinger til totale
-              omskrivinger.
+              Velg læreboka som kontinuerlig blir bedre: mellom semestrene
+              oppdaterer vi bøkene med nyere modeller og friskere eksamensanalyser
+              — og holder dem stabile mens du leser. Alvorlige feil rettes
+              selvsagt fortløpende.
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
               <Link

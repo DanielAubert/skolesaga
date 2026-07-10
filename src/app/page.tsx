@@ -220,8 +220,8 @@ export default function HomePage() {
             </Link>
             <p className="text-center text-xs text-muted-foreground">
               Innholdet er skrevet av Anthropics toppmodeller (Claude Opus og Claude Fable),
-              kvalitetskontrollert av KI-agenter og oppdatert etter hvert som nyere modeller
-              kommer — foreløpig ikke manuelt gjennomgått.{' '}
+              kvalitetskontrollert av KI-agenter og oppdatert med nyere modeller mellom
+              semestrene — foreløpig ikke manuelt gjennomgått.{' '}
               <Link
                 href="/vilkar#ki-deklarasjon"
                 className="underline underline-offset-2 hover:text-foreground transition-colors"
