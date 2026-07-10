@@ -67,11 +67,14 @@ export default function VilkarPage() {
             <h2 className="text-xl font-semibold mb-4">3. Innhold utviklet med kunstig intelligens</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Lærebøkene, oppgavene, løsningsforslagene, quizene og illustrasjonene på
-              Skolesaga.no er utviklet med omfattende støtte fra kunstig intelligens (KI),
-              under menneskelig redaksjonell styring. Hvert kapittel bygges mot konkrete
-              kompetansemål i læreplanen (LK20), struktureres etter et fast
-              teori–eksempel–oppgave-mønster og kontrolleres med automatiserte verktøy for
-              blant annet svarvalidering og balansert fremstilling.
+              Skolesaga.no er skrevet av kunstig intelligens (KI), under menneskelig
+              produktstyring. Innholdet er per i dag ikke manuelt gjennomlest i sin
+              helhet. Kvalitetskontrollen gjøres i stedet systematisk med KI-agenter:
+              automatiske valideringsporter, faglige revisjoner (blant annet numerisk
+              etterregning av regneeksempler og kontroll av kilder) og simulerte
+              lesertester fra ulike studentperspektiver. Hvert kapittel bygges mot
+              konkrete kompetansemål i læreplanen (LK20) eller fagets eksamenskrav, og
+              struktureres etter et fast teori–eksempel–oppgave-mønster.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               KI-generert innhold kan inneholde feil, også der fremstillingen virker sikker.

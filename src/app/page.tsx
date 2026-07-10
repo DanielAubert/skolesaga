@@ -12,10 +12,6 @@ import {
   Calculator,
   School,
   Backpack,
-  FileSearch,
-  ClipboardCheck,
-  PenLine,
-  Target,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
@@ -24,7 +20,7 @@ import { DashboardBanner } from '@/components/home/dashboard-banner';
 export const metadata: Metadata = {
   title: 'Skolesaga - Eksamensrettede lærebøker for høyskole og skole',
   description:
-    'Eksamensrettede lærebøker for høyskole bygget på fagets eksamensarkiv – tidligere eksamener og, der de finnes, sensorveiledninger. Hver bok oppgir kildene sine. Komplette lærebøker for videregående og ungdomsskole.',
+    'Komplette, interaktive lærebøker for ungdomsskole, videregående og høyskole – teori, eksempler og oppgaver i én løkke, med quiz og flashcards innebygd. Gratis å lese.',
 };
 
 export default function HomePage() {
@@ -41,18 +37,16 @@ export default function HomePage() {
           <DashboardBanner />
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-5">
-              <FileSearch className="h-3.5 w-3.5" />
-              Bygget på ekte eksamensarkiv
+              <BookOpen className="h-3.5 w-3.5" />
+              Fra 8. trinn til universitetet
             </p>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-              Vi har lest eksamens&shy;arkivet for deg
+              Lærebøker som er bygget for eksamen
             </h1>
             <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl">
-              De eksamensrettede høyskolebøkene våre er bygget på fagets
-              eksamensarkiv — tidligere eksamener og, der de finnes,
-              sensorveiledninger: frekvensanalyse av hva som faktisk kommer,
-              sensornøkler for hva som gir poeng, og modellbesvarelser du kan
-              måle deg mot. Hver bok oppgir nøyaktig hvilke kilder den bygger på.
+              Komplette, interaktive lærebøker for ungdomsskole, videregående
+              og høyskole: teori, eksempler og oppgaver i én løkke — med quiz,
+              flashcards og prøver innebygd. Gratis å lese, rett i nettleseren.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="text-base px-8">
@@ -62,7 +56,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-base px-8 bg-background/60 backdrop-blur-sm">
-                <Link href="#slik-virker-det">Se hvordan det virker</Link>
+                <Link href="/bok/trinn/hoyere#slik-virker-det">Student? Se hvordan det virker</Link>
               </Button>
             </div>
           </div>
@@ -136,42 +130,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Slik virker det */}
-      <section id="slik-virker-det" className="py-16 md:py-20 bg-muted/30 scroll-mt-20">
-        <div className="container mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Slik virker det</h2>
-          <p className="text-muted-foreground mb-10 max-w-2xl">
-            Alle andre forteller deg hva pensum sier. Vi viser deg hva sensor
-            gir poeng for.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <HowItWorksCard
-              step="1"
-              icon={<FileSearch className="h-5 w-5" />}
-              title="Vi analyserer eksamensarkivet"
-              description="Frekvensanalyse av tidligere eksamener viser hva som faktisk kommer – så du prioriterer temaene som gir uttelling, ikke de som tilfeldigvis står først i pensumboka."
-            />
-            <HowItWorksCard
-              step="2"
-              icon={<ClipboardCheck className="h-5 w-5" />}
-              title="Sensorkravene – oversatt til bruksanvisning"
-              description="Der arkivet har sensorveiledninger, destillerer vi dem til sensornøkler per tema: hva som må med for å bestå, og hva som skiller en C fra en A. Hver bok oppgir kildene sine i kapittel 0."
-            />
-            <HowItWorksCard
-              step="3"
-              icon={<PenLine className="h-5 w-5" />}
-              title="Modellbesvarelser du kan måle deg mot"
-              description="Nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent."
-            />
-            <HowItWorksCard
-              step="4"
-              icon={<Target className="h-5 w-5" />}
-              title="Teori, eksempel og oppgave – i én løkke"
-              description="Du leser aldri lenge uten å bruke stoffet: hver bit teori følges av gjennomregnede eksempler og oppgaver med umiddelbar tilbakemelding."
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Utforsk – illustrasjoner */}
       <section className="container mx-auto max-w-5xl px-6 py-16 md:py-20">
@@ -266,7 +224,7 @@ export default function HomePage() {
             Klar til å begynne?
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">
-            Velg fag eller emne – hver eksamensrettet bok oppgir hvilket eksamensarkiv den bygger på.
+            Velg fag eller emne og kom i gang – det er gratis å lese.
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8">
             <Link href="/bok">
@@ -303,7 +261,7 @@ export default function HomePage() {
             © 2025 Skolesaga · Alle rettigheter forbeholdt
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            Innholdet er utviklet med KI-verktøy og kvalitetssikres løpende –{' '}
+            Innholdet er skrevet av KI og kvalitetskontrollert av KI-agenter — foreløpig ikke manuelt gjennomgått –{' '}
             <Link href="/vilkar#ki-deklarasjon" className="underline underline-offset-2 hover:text-foreground transition-colors">
               les KI-deklarasjonen
             </Link>
@@ -359,30 +317,6 @@ function AudienceCard({
   );
 }
 
-function HowItWorksCard({
-  step,
-  icon,
-  title,
-  description,
-}: {
-  step: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="rounded-2xl border bg-card p-6 shadow-sm">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold shrink-0">
-          {step}
-        </span>
-        <span className="text-primary">{icon}</span>
-      </div>
-      <h3 className="font-semibold text-lg mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
-  );
-}
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (

@@ -7,7 +7,8 @@ import { INSTITUSJONER } from './institusjoner';
 
 export const metadata: Metadata = {
   title: 'Høyskole/universitet | Interaktive Lærebøker',
-  description: 'Eksamensrettede lærebøker for høyskole- og universitetsemner. Velg institusjon for å se fagene.',
+  description:
+    'Vi har lest eksamensarkivet for deg: eksamensrettede lærebøker per emne, bygget på tidligere eksamener og – der de finnes – sensorveiledninger. Velg institusjon for å se fagene.',
 };
 
 function countAvailable(subjects: { courseId: string }[]) {
@@ -48,10 +49,14 @@ export default function HoyerePage() {
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-              Høyskole/universitet
+              Vi har lest eksamens&shy;arkivet for deg
             </h1>
-            <p className="text-xl text-white/80 max-w-xl">
-              Eksamensrettede lærebøker per emne. Velg institusjon for å se fagene.
+            <p className="text-xl text-white/85 max-w-2xl">
+              Eksamensrettede lærebøker per emne, bygget på fagets eksamensarkiv
+              — tidligere eksamener og, der de finnes, sensorveiledninger:
+              frekvensanalyse av hva som faktisk kommer, sensornøkler for hva
+              som gir poeng, og modellbesvarelser du kan måle deg mot. Hver bok
+              oppgir kildene sine. Velg institusjon for å se fagene.
             </p>
           </div>
         </div>
@@ -95,6 +100,57 @@ export default function HoyerePage() {
           </div>
         </div>
       </div>
+
+      {/* Slik virker det (flyttet fra forsiden — dette er høyskolebøkenes metodikk) */}
+      <section id="slik-virker-det" className="py-12 md:py-16 bg-muted/30 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Slik virker det</h2>
+            <p className="text-muted-foreground mb-10 max-w-2xl">
+              Alle andre forteller deg hva pensum sier. Vi viser deg hva sensor
+              gir poeng for.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  step: '1',
+                  title: 'Vi analyserer eksamensarkivet',
+                  description:
+                    'Frekvensanalyse av tidligere eksamener viser hva som faktisk kommer – så du prioriterer temaene som gir uttelling, ikke de som tilfeldigvis står først i pensumboka.',
+                },
+                {
+                  step: '2',
+                  title: 'Sensorkravene – oversatt til bruksanvisning',
+                  description:
+                    'Der arkivet har sensorveiledninger, destillerer vi dem til sensornøkler per tema: hva som må med for å bestå, og hva som skiller en C fra en A. Hver bok oppgir kildene sine i kapittel 0.',
+                },
+                {
+                  step: '3',
+                  title: 'Modellbesvarelser du kan måle deg mot',
+                  description:
+                    'Nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent.',
+                },
+                {
+                  step: '4',
+                  title: 'Teori, eksempel og oppgave – i én løkke',
+                  description:
+                    'Du leser aldri lenge uten å bruke stoffet: hver bit teori følges av gjennomregnede eksempler og oppgaver med umiddelbar tilbakemelding.',
+                },
+              ].map((c) => (
+                <div key={c.step} className="rounded-2xl border bg-card p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                      {c.step}
+                    </span>
+                    <h3 className="font-semibold">{c.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{c.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
