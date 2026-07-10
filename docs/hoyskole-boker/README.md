@@ -51,6 +51,18 @@ docs/hoyskole-boker/
   institusjon → fagkode + fagnavn. Nye emner registreres i
   `src/app/bok/trinn/hoyere/institusjoner.ts` under riktig institusjon, med
   visningsnavn «FAGKODE Fagnavn» (f.eks. «ECON1310 Makroøkonomi I»).
+- **Juridiske deklarasjoner (plattformnivå — automatisk)**: komponenten
+  `hoyskole-disclaimer.tsx` viser uavhengighets-deklarasjon (Skolesaga ≠
+  institusjonen; emnekode kun for identifikasjon; ikke offisielt
+  studiemateriell) på kurs- og kapittelsider for `level: 'Høyskole'`, pluss
+  fagspesifikke linjer (jus → «ikke juridisk rådgivning, sjekk Lovdata»;
+  helse/psykologi → «ikke helseråd»). Full tekst i `/vilkar#uavhengighet`.
+  KRAV ved nytt emne: (a) registrer emnet i `institusjoner.ts` (driver
+  institusjonsnavnet i deklarasjonen); (b) sjekk at jus-/helse-heuristikken i
+  `hoyskole-disclaimer.tsx` treffer emnet — utvid den om ikke; (c) bokINNHOLD
+  skal aldri fremstille seg som offisielt, godkjent eller institusjons-
+  tilknyttet, og aldri love eksamensutfall (frekvensanalyse formidles alltid
+  med kildenote + forbehold, jf. leserkravet under).
 - Matematikk i LaTeX (`$...$` / `$$...$$`). Norsk bokmål.
 
 ### Leserkrav (gjelder alle arketyper — fra produkteier)

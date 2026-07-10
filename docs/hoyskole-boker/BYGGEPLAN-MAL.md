@@ -93,6 +93,12 @@ på disk; gap-fill manglende med samme prompt-mal (én fil per agent).
 - [ ] `python3 scripts/hoyskolebok/wire-bok.py <emne>` → «WIRING OK»
 - [ ] Slett `src/lib/data/quiz-staging/` (mellomprodukt)
 - [ ] Ny institusjon? Legg den i `src/app/bok/trinn/hoyere/institusjoner.ts` først.
+- [ ] Juridiske deklarasjoner: emnet registrert i institusjoner.ts (driver
+      uavhengighets-deklarasjonen) OG jus-/helse-heuristikken i
+      `src/components/textbook/hoyskole-disclaimer.tsx` treffer emnet der den
+      skal (jus-emner → Lovdata-linje; helse-/psykologi-emner → ikke-helseråd-
+      linje) — utvid heuristikken om nødvendig. Jf. README «Juridiske
+      deklarasjoner».
 
 ## Steg 3 — Verifiseringsbølge (2 om gangen; IKKE hopp over)
 Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID

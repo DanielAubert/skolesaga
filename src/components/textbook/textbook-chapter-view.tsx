@@ -23,6 +23,7 @@ import { CompetenceGoalsDropdown } from './competence-goals-dropdown';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
 import { AssignmentBanner } from '@/components/assignments/assignment-banner';
 import { AiDisclosureNotice } from './feedback-dialog';
+import { HoyskoleDisclaimer } from './hoyskole-disclaimer';
 import { mediaUrl } from '@/lib/media';
 
 function getLevelGradeSlug(level: string): string {
@@ -615,6 +616,11 @@ export function TextbookChapterView({
             chapterId={chapterMeta.id}
             chapterTitle={`${chapterMeta.number} ${chapterMeta.title}`}
           />
+
+          {/* Høyskole: uavhengighet + fagspesifikke ansvarslinjer */}
+          {course.level === 'Høyskole' && (
+            <HoyskoleDisclaimer courseId={course.id} courseTitle={course.title} compact />
+          )}
 
           {/* Navigasjon nederst */}
           <nav className="mt-12 pt-8 border-t">

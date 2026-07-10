@@ -22,6 +22,7 @@ import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
 import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
+import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';
 
 // Fargepalett for individuelle kort - hver kort får sin egen farge
 const CARD_COLORS = [
@@ -359,6 +360,11 @@ export default async function CourseOverviewPage({ params }: PageProps) {
           );
           })}
         </div>
+
+        {/* Høyskole: uavhengighet + fagspesifikke ansvarslinjer */}
+        {course.level === 'Høyskole' && (
+          <HoyskoleDisclaimer courseId={course.id} courseTitle={course.title} />
+        )}
       </div>
       </div>
     </div>

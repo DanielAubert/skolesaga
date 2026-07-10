@@ -149,4 +149,8 @@ fasitmønsteret sjekket — riktig svar varierer posisjon (aldri «alle a»);
 eksisterende filer; 12. **Del 0-pakken** på plass («Lite tid?»-boks,
 kildenote for frekvens-empiri, prosedyrekort) og begrepsbank-notisene står
 først i hver stor bank; 13. **tidsbudsjett**: deklarert oppgavetid vs. sum
-deltider forklart der de avviker.
+deltider forklart der de avviker; 14. **juridiske deklarasjoner**: innholdet
+fremstiller seg ALDRI som offisielt/institusjons-tilknyttet og lover aldri
+eksamensutfall (uavhengighets-/rådgivningsdeklarasjonene vises automatisk av
+plattformen — se README «Juridiske deklarasjoner»; ved wiring: registrer i
+institusjoner.ts og sjekk jus-/helse-heuristikken i hoyskole-disclaimer.tsx).

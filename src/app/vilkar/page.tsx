@@ -86,6 +86,34 @@ export default function VilkarPage() {
             </p>
           </section>
 
+          {/* Uavhengighet fra institusjoner */}
+          <section id="uavhengighet" className="scroll-mt-20">
+            <h2 className="text-xl font-semibold mb-4">3.1 Uavhengighet fra utdanningsinstitusjoner</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Skolesaga er en uavhengig, privat læringsressurs. Vi er ikke tilknyttet,
+              godkjent av, sponset av eller utarbeidet i samarbeid med Utdanningsdirektoratet
+              eller noen utdanningsinstitusjon — herunder universiteter og høyskoler som
+              Universitetet i Oslo, NTNU, Handelshøyskolen BI eller andre institusjoner hvis
+              emner omtales på plattformen. Emnekoder (f.eks. «EXPHIL03», «JUS1111») og
+              institusjonsnavn brukes utelukkende for å identifisere hvilket emne
+              læringsstoffet er rettet mot, og innebærer ingen godkjenning fra institusjonen.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Innholdet er ikke offisielt studiemateriell. Pensum, læringsutbytte­beskrivelser
+              og eksamensordninger fastsettes av institusjonene og kan endres — sjekk alltid
+              emnets offisielle sider. Læringsmålene i bøkene er Skolesagas egne formuleringer,
+              ikke institusjonenes offisielle. Omtale av eksamensmønstre og temafrekvens bygger
+              på analyser av offentlig tilgjengelige eksamensoppgaver og sensorveiledninger,
+              og gir ingen garanti for innholdet i fremtidige eksamener.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Innhold i juridiske emner er læringsstoff til eksamensforberedelse og utgjør
+              ikke juridisk rådgivning; lover og forskrifter endres, og Lovdata er kilden til
+              gjeldende rett. Innhold i helsefaglige emner utgjør tilsvarende ikke helse-
+              eller medisinske råd.
+            </p>
+          </section>
+
           {/* Ingen garanti */}
           <section>
             <h2 className="text-xl font-semibold mb-4">4. Ingen garanti for nøyaktighet</h2>
