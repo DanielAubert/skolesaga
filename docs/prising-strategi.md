@@ -31,6 +31,49 @@ Per-fag-prising av fasit-muren er forkastet fordi:
 5. Per-fag-betalingsviljen (panel: 300–500 kr/bok) fanges i stedet av
    eksamenspasset, klippekortene og premium-trinnet.
 
+## KI-sensor modellstige (testet på 4 panelstudenter 10. juli — simulert, ingen API)
+
+Test: 4 besvarelser skrevet tro mot studentenes dokumenterte svakheter, vurdert
+på 3 modellnivåer med den ekte sensor-prompten; studentene reagerte i persona.
+
+| Nivå | Modell | Innhold | Tokenkost | Pris | Margin |
+|---|---|---|---|---|---|
+| 1 «Karakter» | Haiku 4.5 | karakter + kort dom + 2-3 styrker/mangler + råd | ~0,06–0,11 kr | **GRATIS-nivået** (de 3 gratis + inkludert i abo) | — |
+| 2 «Karakter + hvorfor» | Sonnet 4.6 | + siterer studentens EGNE formuleringer, kobler til sensornøkler/feilkoder, prioritert liste | ~0,4–0,8 kr | 2 klipp (~16 kr) | ~25× |
+| 3 «Ditt avsnitt til A» | Opus 4.8 | + nivå 2-rubrikk (A-stresstest), omskriver ETT av studentens avsnitt til A, «neste øvelse»-peker | ~2–4 kr | 4 klipp (~32 kr) | ~10× |
+
+**Testresultat (4/4):**
+- Vurderingene TRAFF — alle fire sa den fanget ting de ikke så selv («første
+  gang noen har skilt mellom hva jeg FORSTÅR og hva jeg klarer å LEVERE»;
+  «første gang 'lese alene om kvelden' ikke betyr 'vurdere alene'»). Selv
+  «Ikke bestått»-dommen ble opplevd som «vondt på den riktige måten» fordi
+  N3 la til veien videre.
+- **Alle fire valgte nivå 2 som standard.** Nivå 1 ble slaktet som betalt
+  produkt av alle («angst uten oppskrift», «nesten verdiløst for alle som har
+  lest boka», «for vag der det gjaldt») → nivå 1 er GRATIS-/inngangs-nivået,
+  nivå 2 er kjerneproduktet, nivå 3 er premium-øyeblikkene (store praktikum,
+  søndagsprøver, siste to uker).
+- **Navnene må si hva man FÅR** (3/4 uavhengig): ikke «Rask/Grundig/Sensor+»
+  («Rask høres ut som dårligere kvalitet»), men «Karakter / Karakter + hvorfor
+  (med dine sitater) / + ditt avsnitt omskrevet til A».
+- Betalingsvilje opp hos alle. Deltidsstudenten sprenger 10-klippskvoten
+  naturlig (~12/mnd) → påfyll-designet virker. Vegreren ville SKREVET MER
+  («med en sensor som svarer blir skriving en løkke i stedet for et rop ut i
+  tomrommet») — adferdsendring som øker hele produktets verdi.
+- Toppjegeren bekreftet: nivå 3 ER «A-stresstesten» han ville betalt dobbelt
+  for («eneste av de tre som gjør noe boka ikke allerede gjør»).
+
+**Betingelser fra studentene (produktkrav):**
+1. Faglig presisjon absolutt: «hvis den selv bommer på en paragraf, mister
+   jeg all tillit på dagen» → sensor-konteksten må hente hjemler/nøkler fra
+   bøkene (som den gjør), og jus-vurderinger bør QA-es ekstra.
+2. Karakteren kalibreres KONSERVATIVT — heller streng enn snill («gir den meg
+   B når sensor gir C, slutter jeg å stole på den»).
+3. Vis eksempel-vurdering per nivå FØR kjøp (ingen skjønte stigen av navnene
+   alene).
+4. Månedsabo uten årsbinding — «sagt opp 16. mai» er naturlig og OK (årsabo
+   kun som frivillig rabatt).
+
 ## Hint: GRATIS (besluttet 10. juli)
 
 Hint skal IKKE bak muren — de er selgeren av fasiten, ikke konkurrenten:
