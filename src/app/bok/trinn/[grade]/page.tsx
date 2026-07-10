@@ -535,17 +535,13 @@ export default async function GradePage({ params }: PageProps) {
             <p className="mt-8 text-sm font-medium max-w-2xl">
               Velg læreboka som kontinuerlig blir bedre.
             </p>
-            <p className="mt-2 text-xs text-muted-foreground max-w-2xl">
-              Full åpenhet: bøkene er skrevet og satt sammen av KI og er
-              foreløpig ikke manuelt gjennomgått — kvalitetskontrollen gjøres
-              av KI-agenter.{' '}
+            <p className="mt-1 text-xs text-muted-foreground">
               <Link
                 href="/vilkar#ki-deklarasjon"
                 className="underline underline-offset-2 hover:text-foreground"
               >
                 Les KI-deklarasjonen
               </Link>
-              .
             </p>
           </div>
         </div>

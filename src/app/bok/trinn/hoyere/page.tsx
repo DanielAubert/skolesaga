@@ -153,14 +153,13 @@ export default function HoyerePage() {
               kommer, oppdaterer vi bøkene med dem — fra små rettinger til totale
               omskrivinger.
             </p>
-            <p className="mt-2 text-xs text-muted-foreground max-w-2xl">
-              Full åpenhet: bøkene er skrevet og satt sammen av KI, og kvalitetskontrollen
-              gjøres av uavhengige KI-agenter — innholdet er foreløpig ikke manuelt
-              gjennomgått. Innmeldte feil rettes fortløpende.{' '}
-              <Link href="/vilkar#ki-deklarasjon" className="underline underline-offset-2 hover:text-foreground">
+            <p className="mt-1 text-xs text-muted-foreground">
+              <Link
+                href="/vilkar#ki-deklarasjon"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
                 Les KI-deklarasjonen
               </Link>
-              .
             </p>
           </div>
         </div>
