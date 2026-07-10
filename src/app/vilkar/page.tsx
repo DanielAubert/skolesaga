@@ -66,11 +66,12 @@ export default function VilkarPage() {
           <section id="ki-deklarasjon" className="scroll-mt-20">
             <h2 className="text-xl font-semibold mb-4">3. Innhold utviklet med kunstig intelligens</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Lærebøkene, oppgavene, løsningsforslagene, quizene og illustrasjonene på
-              Skolesaga.no er skrevet av kunstig intelligens — Anthropics toppmodeller
-              (Claude Opus og Claude Fable) — under menneskelig
-              produktstyring. Innholdet er per i dag ikke manuelt gjennomlest i sin
-              helhet. Kvalitetskontrollen gjøres i stedet systematisk med KI-agenter:
+              Alt innhold på Skolesaga.no er laget med kunstig intelligens, under
+              menneskelig produktstyring: lærebøkene, oppgavene, løsningsforslagene og
+              quizene er skrevet av Anthropics toppmodeller (Claude Opus og Claude
+              Fable), illustrasjoner og bilder er generert med Googles bildemodell
+              Nano Banana Pro, og lyd/opplesning er laget med ElevenLabs.
+              Innholdet er per i dag ikke manuelt gjennomlest i sin helhet. Kvalitetskontrollen gjøres i stedet systematisk med KI-agenter:
               automatiske valideringsporter, faglige revisjoner (blant annet numerisk
               etterregning av regneeksempler og kontroll av kilder) og simulerte
               lesertester fra ulike studentperspektiver. Hvert kapittel bygges mot
