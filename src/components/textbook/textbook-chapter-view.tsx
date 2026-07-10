@@ -373,7 +373,7 @@ export function TextbookChapterView({
             <p className={`text-lg text-muted-foreground ${chapterMeta.coverImage ? '' : 'mt-2'}`}>{chapterMeta.description}</p>
 
             {/* Metadata — dempet */}
-            <div className="flex flex-wrap gap-4 mt-3 text-sm text-muted-foreground/80">
+            <div className="flex flex-wrap gap-4 mt-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" />
                 <span>{chapterMeta.estimatedMinutes} min</span>

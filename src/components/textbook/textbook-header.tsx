@@ -13,6 +13,7 @@ export function TextbookHeader() {
           {/* Logo - alltid Skolesaga som går til hovedsiden */}
           <Link
             href="/"
+            aria-label="Skolesaga – til forsiden"
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <Logo size="sm" />

@@ -9,7 +9,7 @@ export function HomeHeader() {
   return (
     <header className="relative container mx-auto px-4 py-6">
       <nav className="flex items-center justify-between">
-        <Link href="/" className="hover:opacity-80 transition-opacity">
+        <Link href="/" aria-label="Skolesaga – til forsiden" className="hover:opacity-80 transition-opacity">
           <Logo size="md" />
         </Link>
         <div className="flex items-center gap-4">
