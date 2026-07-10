@@ -73,7 +73,11 @@ docs/hoyskole-boker/
   bygger på og hvilke forkunnskaper som kreves — med markdown-lenker
   (`[tittel](/bok/<courseId>/<chapterId>)`) til kapitler i ANDRE bøker i
   systemet når forkunnskapen ikke dekkes i boka selv. Lenk kun til kapitler
-  som finnes.
+  som finnes. **«Sist du var her» (fra studentpanel bølge 5):** i tunge
+  kapitler med stor tidsavstand til forkunnskapen (typisk sene deler) skal
+  blokken VISE de 2–3 nøkkelformlene/kjernereglene ferdig oppfrisket, ikke
+  bare lenke — deltidsleseren skal slippe å bla tilbake for å komme i gang
+  (særlig viktig i regnefag).
 - **Lett å lese og engasjerende**: korte avsnitt, aktiv «du»-form, konkrete
   eksempler før formalisme — uten faglige feil; presisjon vinner ved tvil.
 - **Ingen uforklart sjargong / nybegynner-inngang (UFRAVIKELIG, fra produkteier):**
@@ -139,12 +143,67 @@ docs/hoyskole-boker/
   «Oppslagsverk — alt her forklares underveis i kapitlet.» (studentpanel: en
   symbolvegg i døråpningen skremmer nybegynnere; listen er oppslag, ikke
   inngangsport).
-- **Stokket flervalg i prøvetekster (UFRAVIKELIG, fra studentpanel):** flervalg
-  skrevet statisk i prøve-collapsibles SKAL ha stokkede fasit-bokstaver —
+- **Stokket flervalg og varierte fasit-mønstre (UFRAVIKELIG, fra studentpanel):**
+  flervalg skrevet statisk i prøve-collapsibles SKAL ha stokkede fasit-bokstaver —
   posisjonen til riktig svar varierer, ALDRI «alle a». (Quiz-SYSTEMET stokker
   selv ved kjøretid — der gjelder options[0]-invarianten; statisk prøvetekst
   stokker IKKE.) Prøve-tipen sier eksplisitt hvor flervalget bor (inline i
   prøven eller i den interaktive quizen), så formatskifter er varslet.
+  **Gjelder ALLE ensartede fasitlister (bølge 4):** også riktig/galt-lister og
+  «finn fellen»-øvelser skal variere fasiten — aldri «alle felle», aldri «alle
+  riktig». Ethvert mønster leseren kan lære seg i stedet for stoffet dreper
+  selvtesten.
+- **Distraktorer straffer aldri grundig lesing (fra studentpanel bølge 4):**
+  flervalgsdistraktorer skal ikke gjengi bokas egne nyanser/presiseringer som
+  «galt» svar — den som har lest grundigst skal aldri lokkes av en distraktor
+  fordi den ligner bokas eget presisjonspoeng. Ligger en distraktor nær sannheten,
+  skal fasit-kommentaren eksplisitt forklare hvorfor den ikke holder.
+- **Difficulty-spredning + kald bank (fra studentpanel bølge 4):** boka skal ha
+  noen genuint krevende oppgaver, tydelig merket («(krevende)» / difficulty
+  vanskelig) — ikke alt på middels med strukturrøpende hint. I tillegg: én
+  «kald bank» (8–10 oppgaver med uvante vinklinger/kombinasjoner) UTEN hint,
+  der fasiten kun er momentliste — tydelig merket som kald, plassert i
+  eksamenstreningsdelen. Toppleseren skal strekkes, ikke bare bekreftes.
+- **Hint på alle oppgaver (fra studentpanel bølge 5):** hvert exercise har
+  utfylte `hints` (første hint = hjemmelen/formelen/første grep; ALDRI
+  konklusjonen) — leseren skal ha noe mellom å stå fast og å få hele fasiten.
+  Eneste unntak er den merkede kalde banken (over).
+- **A-konklusjonsvariasjon (fra studentpanel bølge 4):** modellbesvarelsene i en
+  bok skal ikke alle lande på samme kompromissform («X er et hensyn, ikke hele
+  svaret») — minst én skal vise at en SKARP, men veid konklusjon også når
+  toppnivå. Forbehold er et verktøy, ikke obligatorisk garnityr; sensor merker
+  malen etter femti like.
+- **Meta-fasit forbudt (fra studentpanel bølge 4):** «en A-besvarelse ville her
+  ha drøftet …» er en regibemerkning, ikke en fasit — skriv drøftelsen faktisk
+  UT (kort, skarp, lander begrunnet). Gjelder modellbesvarelser og prøvefasiter.
+- **Signal-/hintbokser ETTER oppgaven (fra studentpanel bølge 4):** en boks som
+  varsler hva en drilloppgave tester («her lurer et skjult delspørsmål om X»),
+  plasseres ETTER oppgaven — som del av fasit-oppfølgingen eller som collapsible
+  hint — aldri rett foran. Drillen skal teste radaren, ikke oppslaget.
+- **Frekvenstall = telte belegg (fra studentpanel bølge 4):** en frekvenspåstand
+  («5 av 8 sett») skal stemme EKSAKT med belegg-listen som følger den — tell
+  beleggene før tallet skrives, og synk ved endringer.
+- **Faglige påstander verifiseres FØR de skrives (UFRAVIKELIG, fra studentpanel
+  bølge 4):** regnefag — fortegns-/entydighets-/«alltid mindre enn»-påstander
+  parametersjekkes numerisk i modellens FULLE parameterrom før de påstås
+  ubetinget; er påstanden betinget, skrives betingelsen ut (detaljer i
+  DNA-regnefag). Jus — hjemmels- og domspåstander (særlig tersklers RETNING:
+  skjerpet/senket) verifiseres mot Lovdata/kilde, og dommer refereres MED 1–2
+  setninger faktum ved første omtale (detaljer i DNA-jus).
+- **Øktmerking og prøvedeling (fra studentpanel bølge 5):** kapitler med
+  estimatedMinutes > 45 har tidsanslag per løkke («Løkke 2 — … (~20 min)»)
+  eller eksplisitte «— naturlig pausepunkt —»-markører; lange modellbesvarelser
+  har pausepunkt-markører mellom hovedseksjonene. Prøvekapitler deklareres som
+  «N prøver à ~X min» med eksplisitt «kan trygt deles over flere kvelder — én
+  prøve per økt» — aldri bare en skremmende totalsum.
+- **Feilkode-gloss per kapittel (fra studentpanel bølge 5):** feilkoder («#7»)
+  glosses ved FØRSTE bruk i HVERT kapittel — «(#7 — upresise nabobegreper)» —
+  ikke bare i registeret/per bok. Deltidslesere glemmer kodene mellom økter.
+- **Samlet oppslagskort per bok (fra studentpanel bølge 5):** hver bok har ETT
+  printbart oversiktsoppslag samlet på ett sted (collapsible med ren tabell):
+  jus → hjemmelskart (lov → § → én linjes innhold → kapittellenke); drøfting →
+  «hvem eier hva»-kort (eksempel → tenker → poeng); regnefag → formel-minimum-
+  siden i Del 0 dekker kravet. Detaljer i arketypens DNA.
 - **Del 0-pakken (fra studentpanel):** Del 0 skal i tillegg til
   orienteringsboksen ha (a) en **«Lite tid?»-boks** (type `tip`): eksplisitt
   hurtigrute for 3–5 dager (kapittelrekkefølge + timeanslag) og ukeplan(er)
@@ -153,7 +212,14 @@ docs/hoyskole-boker/
   (semestre/årstall) og forbehold om at nye sett kan endre bildet — hentet fra
   EKSAMENSANALYSE.md, ALDRI oppdiktet; (c) et **prosedyre-/sjangeroversikts-
   kort på ÉN side** som ER kortet (sjanger → én linjes oppskrift →
-  tidsbudsjett → vanligste feil), ikke en lenkeliste.
+  tidsbudsjett → vanligste feil), ikke en lenkeliste; (d) en **deltidsrute
+  (fra studentpanel bølge 5)**: 10–12-ukers plan (~8 t/uke) i tillegg til
+  hurtigruta og fulltidsplanen, med generalprøver/øvingseksamener fordelt på
+  flere økter (f.eks. tre søndager) — aldri stablet i siste uke; (e) en
+  **«lese mye, skrive lite»-boks (bølge 5)**: legitim rute for lese-øveren
+  (les oppgaven → formuler svaret mentalt i én setning → les fasiten som
+  sensor) + minimumsråd om skrivekondis: skriv minst ÉN øvingseksamen for
+  hånd på tid — fire timer håndskrift er en fysisk ferdighet.
 - **Klikkbare kapittelreferanser (fra studentpanel):** «kap. X.Y»-referanser i
   forkunnskaps-blokker og prøve-/oppgavefasiter skrives som markdown-lenker
   `[kap. X.Y](/bok/<emne>/<emne>-X-Y)` til kapitler som finnes — «se kapittel
@@ -191,7 +257,9 @@ docs/hoyskole-boker/
   tid avviker fra summen av deltidene, forklares differansen eksplisitt
   (anbefalingene er skrivetid; resten er lesing av oppgavesettet, kladd,
   disponering og gjennomlesing). Kapitlenes tidsanslag gjelder kjernestoffet
-  (jf. begrepsbank-notisen).
+  (jf. begrepsbank-notisen). **Gjøre- vs. lese-tider (bølge 5):** «Lite
+  tid?»-boksen i Del 0 sier eksplisitt at tidsanslagene er LESEtid — den som
+  skriver oppgavene for hånd, bør regne ca. ×1,5.
 
 ### Læringsmål-deklarasjon (fra produkteier)
 `competenceGoals` i høyskolebøker er Skolesagas EGNE formuleringer (destillert fra

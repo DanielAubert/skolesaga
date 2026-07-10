@@ -107,6 +107,39 @@ har register — som `text`/`tip`, ALDRI `definition`.
   og historikk i kort parentes til slutt — aldri en historikk-innledning som
   skjuler regelen leseren trenger.
 
+## Faglig presisjon og toppnivå (UFRAVIKELIG — fra studentpanel bølge 4+5)
+
+- **Hjemmelspåstander verifiseres FØR de skrives** (jf. README «Faglige
+  påstander verifiseres»): særlig tersklers RETNING (skjerpet/senket) og
+  spesialregler for typetilfeller er høyrisiko — bølge 4 fant en A-besvarelse
+  som misset sitt eget skjulte delspørsmål fordi boka manglet spesialregelen
+  for tilvirkningskjøp (kjl. § 26) OG lærte motsatt terskelretning. Når et
+  faktum utløser en spesialregel («spesialtilvirket», «forbrukerkjøp»), skal
+  regelen være undervist og med i registrene.
+- **Dommer refereres MED faktum:** 1–2 setninger domsfaktum ved første omtale —
+  et domsnavn uten faktum kan ikke brukes i argumentasjon, bare navngis
+  (og blir angstflashkort).
+- **Signalbokser ETTER drilloppgaven** (jf. README): «her lurer X»-bokser i
+  drill-/radarkapitler står etter oppgaven eller som collapsible hint — aldri
+  rett foran; drillen skal teste radaren, ikke oppslaget.
+- **Meta-subsumsjon forbudt** (jf. README «Meta-fasit forbudt»): adekvans-/
+  rimelighets-/vesentlighetsdrøftelser i modellbesvarelser skrives faktisk UT
+  (regel → faktum → veiing → begrunnet landing) — aldri «det kan argumenteres
+  begge veier; en sterk besvarelse ser tvilen».
+- **Grensetilfelle-trening:** minst ett praktikum/typetilfelle-avsnitt med
+  vippe-faktum (vesentlighet på terskelen, divergerende momenter, 50/50) og TO
+  fullt utskrevne, motsatte men begrunnede landinger + forklaring på hvorfor
+  begge når opp. Friksjonsfritt faktum hele boka igjennom trener aldri det som
+  skiller topp fra midt. Faktum nyskrevet.
+- **Hint = hjemmel først** (jf. README «Hint på alle oppgaver»): alle oppgaver
+  har hints — første hint er riktig paragraf/hjemmel, andre er første moment/
+  vilkåret å starte med; aldri konklusjonen.
+- **Samlet hjemmelskart** (jf. README «Samlet oppslagskort»): én printbar
+  collapsible (i Del 0 eller praktikumsdelen) med lov → § → én linjes innhold
+  → kapittellenke, bygget fra kapittelregistrene.
+- **Prøve-fasitmønstre varierer** (jf. README): riktig/galt- og fellekatalog-
+  prøver skal ALDRI ha «felle» på alle påstander — bland reelle og feller.
+
 ## Kapittel-DNA (typetilfellekapittel)
 
 Ett kapittel per gjennomgående typetilfelle fra analysen (f.eks. «binding ved
@@ -124,7 +157,9 @@ mellommann uten fullmakt», «ugyldighet pga. tilblivelsesmangler»):
 
 1. Komplett nyskrevet praktikum i eksamenssjanger (partskonstellasjon +
    tvistepunkter som speiler reelle kombinasjonsmønstre).
-2. `collapsible` **A-besvarelse** — full modellbesvarelse.
+2. `collapsible` **A-besvarelse** — full modellbesvarelse, med «— naturlig
+   pausepunkt —»-markører mellom hovedseksjonene (jf. README «Øktmerking»);
+   minst én i boka lander SKARPT (jf. README «A-konklusjonsvariasjon»).
 3. `collapsible` **Kommentert C-besvarelse** — samme oppgave løst «greit men
    flatt», med margnotater om nøyaktig hva som mangler til A (dette er det mest
    lærerike formatet ifølge sensorveiledningenes karakterskille-beskrivelser).

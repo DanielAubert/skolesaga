@@ -97,8 +97,22 @@ alt, så blir fase 6 en billig verifisering i stedet for en dyr omskriving.
   selvdiagnose-sjekklister etter prøvefasiter, lette innstegsoppgaver,
   hverdagsanker + verdens-caser for abstrakte kjernetemaer, tidsbudsjett-
   konsistens — pluss arketypens studentpanel-seksjon (regnefag: figurkrav/
-  symbolliste sist/formel-minimum; jus: lovhenvisningsboks/Lovdata-driller/
-  lovprefiks; drøfting: selvrettingsrubrikk/sitatlager-bro/relevans-ramme).
+  symbolliste sist/formel-minimum/matematisk sannhetskontroll; jus:
+  lovhenvisningsboks/Lovdata-driller/lovprefiks/faglig presisjon-seksjonen;
+  drøfting: selvrettingsrubrikk/sitatlager-bro/relevans-ramme/erfarings-bro).
+- **Studentpanel bølge 4+5 (jf. README «Leserkrav» + byggeprompten i
+  BYGGEPLAN-MAL):** også inn i FØRSTEUTKASTET — varierte fasitmønstre i ALLE
+  ensartede lister (aldri «alle a»/«alle felle»); distraktorer gjengir aldri
+  bokas egne nyanser; hints på alle oppgaver (aldri konklusjonen) + merket
+  kald bank uten hint og noen «(krevende)»-oppgaver; minst én skarp
+  A-konklusjon (ikke alle på kompromissform); meta-fasit forbudt (skriv
+  drøftelsen ut); signalbokser ETTER oppgaven; frekvenstall = telte belegg;
+  faglige påstander verifisert FØR skriving (regnefag: numerisk
+  parametersjekk; jus: terskelretning mot Lovdata + dommer med faktum);
+  øktmerking per løkke (> 45 min) + pausepunkter i lange modellbesvarelser;
+  prøver som «N à ~X min» + deling; lesetid-setningen i «Lite tid?»-boksen;
+  feilkode-gloss per kapittel; «Sist du var her»-blokker; deltidsrute +
+  «lese mye, skrive lite»-boks; samlet oppslagskort per bok.
 - Egenvalidering per agent: json.load, kvotetelling, fagets forbudt-termer-grep.
 - Maks ~8 samtidige agenter; ved degradert API, vent (jf. 16. juni-lærdommen).
 - **Agenter kan dø på sesjonsgrenser midt i bølgen** (JUS1111: 2 av 9 traff
@@ -142,6 +156,18 @@ Redaktører per del-gruppe. IKKE omskriving — verifisering med kirurgiske fiks
   perfekt» = 0; tidsbudsjett-konsistens; døde kap-referanser i fasiter;
   feilmerkede modellbesvarelser (tittel vs. margnotat); regnefag: ingen
   «grafisk drill» uten figur.
+- **Bølge 4+5-sjekker** (jf. README «Leserkrav» + verifikatorprompten i
+  BYGGEPLAN-MAL): ensartede fasitmønstre i ALLE lister (også «alle felle»);
+  distraktorer som gjengir bokas egne nyanser; tomme hint-felt (unntatt
+  merket kald bank — sjekk at den finnes); meta-fasit-grep («en A-besvarelse
+  ville», «ville ha drøftet») = 0; alle A-konklusjoner på samme
+  kompromissform; signalbokser plassert FORAN oppgaven de varsler; TELL
+  frekvenspåstander mot belegg-listene; øktmerking/pausepunkter i kapitler
+  > 45 min og prøvedeklarasjon «N à ~X min»; feilkode-gloss per kapittel;
+  «Sist du var her»-blokker i tunge kapitler; samlet oppslagskort finnes;
+  regnefag: etterregn fortegns-/entydighetspåstander numerisk i fullt
+  parameterrom (usanne «Vis at …»-oppgaver kan ikke løses); jus: dommer har
+  faktum, spesialregel-utløsende faktum har regelen undervist og i registrene.
 - Faktasjekk mot skjelettkontraktene; etterregn alle talleksempler.
 - Konsistens på tvers av agentgrenser (notasjon, ingen motstridende påstander).
 - Fagspesifikk kildeverifisering: jus → paragrafer/domsreferanser sjekkes mot

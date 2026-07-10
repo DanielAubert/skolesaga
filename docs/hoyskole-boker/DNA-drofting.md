@@ -98,7 +98,31 @@ Del 0-orienteringsboksen (over) samler skala + kodeliste + feilregister — som
   skiller seg fra bokas (oversettelse med sidetall, ofte lengre og mer
   arkaisk) — og at grepene som trenes (funksjon, plassering, presisjon) er de
   samme. Uten broen blir modelltreningen en modellrisiko for den dominerende
-  sjangeren.
+  sjangeren. **Sitatlager-disiplin (bølge 5):** tolkningen trykkes ALDRI rett
+  under utdraget i lageret — den bor kun i oppgavefasiten, ellers undergraves
+  selve øvelsen. **Ekte-kalibrerte utdrag (bølge 4+5):** for de toppfrekvente
+  tenkerne skal minst ett utdrag hver ha realistisk eksamenslengde og
+  oversettelses-/arkaisk tone (NYSKREVET parafrase, merket «(illustrasjon —
+  slik ser et ekte utdrag ut)», med fiktivt sidetall og full fasit) — korte,
+  moderne parafraser alene trener ikke møtet med ekte tekst.
+- **Erfarings-bro (fra studentpanel bølge 5):** der faget møter leserens
+  yrkes-/livserfaring (helse, skole, omsorg, arbeidsliv), skal boka vise
+  hvordan erfaringen KONVERTERES til pensumforankret argument — kort
+  `tip`-boks: (1) start i tenkerens begrep, (2) bruk erfaringen som
+  ILLUSTRASJON av begrepet (aldri som begrunnelse alene), (3) koble tilbake
+  til drøftingsaksen. Å bare ADVARE mot pensum-løs synsing uten å vise
+  konverteringen, skyver bort nettopp de leserne som har mest materiale.
+- **Konklusjonsvariasjon (jf. README «A-konklusjonsvariasjon»):** minst én
+  modellbesvarelse konkluderer SKARPT og er likevel toppnivå, med margnotat om
+  at forbehold er verktøy, ikke obligatorisk garnityr — kompromissformen er
+  ikke eneste A-form.
+- **Vippe-caser (fra studentpanel bølge 4):** minst én drøftingsoppgave/case
+  der to tenkervalg/landinger er fullt forsvarlige — fasiten skriver UT begge
+  lesningene og merker oppgaven «(omstridt — begge forsvarlige)». Entydige
+  fasiter hele veien trener aldri håndtering av ekte ambivalens.
+- **«Hvem eier hva»-kort (jf. README «Samlet oppslagskort»):** én collapsible
+  (i Del 0 eller repetisjonsdelen) med tabellen eksempel → tenker → poeng over
+  bokas gjennomgående eksempler — den glemsomme leserens gjenopptaksverktøy.
 - **Relevans-ramme for «rare» teorier:** teorier moderne lesere instinktivt
   avviser (gjenerindringslæren, naturtilstanden, dydsetikk …) selges med
   hvilket REELT problem de svarer på + en moderne parallell («hvordan
@@ -121,7 +145,9 @@ Ett per oppgavesjanger fra EKSAMENSANALYSE §3:
 
 1. Nyskrevet eksamensoppgave i reell sjanger.
 2. `collapsible` **A-besvarelse** — full tekst, med margnotater («her: begrep +
-   forankring», «her: motargument — dette løfter til A»).
+   forankring», «her: motargument — dette løfter til A»). Lange besvarelser
+   får «— naturlig pausepunkt —»-markører mellom hovedseksjonene (jf. README
+   «Øktmerking»).
 3. `collapsible` **Kommentert C-besvarelse** — samme oppgave, korrekt men flat
    (gjengivelse uten drøfting, tynn forankring), med notater om gapet opp til A.
    Merk ÆRLIG: en boks som heter «C-besvarelse» skal VÆRE en C (jf. README

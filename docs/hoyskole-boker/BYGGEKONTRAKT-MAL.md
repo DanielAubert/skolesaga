@@ -101,17 +101,44 @@ repetisjon (teorikapitler).
   hverdagsanker før apparatet; eksempler er verdens-caser, ikke «en medstudent
   skriver …»-metaeksempler.
 - **Tidsbudsjett-konsistens:** avvik mellom deklarert oppgavetid og sum
-  deltider forklares (skrivetid vs. total).
+  deltider forklares (skrivetid vs. total). «Lite tid?»-boksen sier at
+  anslagene er LESEtid (×1,5 ved håndskriving).
+- **Hint + difficulty-spredning (bølge 4+5):** alle exercises har utfylte
+  `hints` (første = hjemmel/formel/første grep, ALDRI konklusjonen); boka har
+  noen «(krevende)»-merkede oppgaver + én merket kald bank UTEN hint (fasit =
+  momentliste) i eksamenstreningsdelen.
+- **Fasitmønster-variasjon (bølge 4):** gjelder ALLE ensartede fasitlister —
+  aldri «alle a», aldri «alle felle»/«alle riktig». Distraktorer gjengir ALDRI
+  bokas egne nyanser som «galt» svar (ev. nær-sanne distraktorer forklares
+  eksplisitt i fasit-kommentaren).
+- **Meta-fasit forbudt (bølge 4):** «en A-besvarelse ville ha drøftet …»
+  erstattes av faktisk utskrevet drøftelse. Minst én modellbesvarelse lander
+  SKARPT (ikke alle på samme kompromissform).
+- **Signalbokser ETTER oppgaven (bølge 4):** varsel om hva en drilloppgave
+  tester står etter oppgaven/som collapsible hint, aldri foran.
+- **Frekvenstall = telte belegg (bølge 4):** «N av M sett» skal stemme eksakt
+  med belegg-listen som følger. Faglige påstander verifiseres FØR skriving
+  (arketype-DNA: regnefag → numerisk parametersjekk av fortegnspåstander;
+  jus → Lovdata + dommer med 1–2 setninger faktum).
+- **Øktmerking + prøvedeling + feilkode-gloss (bølge 5):** kapitler > 45 min
+  har tidsanslag per løkke/pausepunkt-markører; lange modellbesvarelser har
+  «— naturlig pausepunkt —»; feilkoder glosses ved første bruk PER KAPITTEL;
+  tunge kapitler har «Sist du var her»-forkunnskapsblokk som VISER
+  nøkkelformler/kjerneregler; Del 0 har deltidsrute (10–12 uker) og «lese mye,
+  skrive lite»-boks; boka har sitt samlede oppslagskort (jus: hjemmelskart;
+  drøfting: «hvem eier hva»-kort; regnefag: formel-minimum).
 
 ## Prøvekapitler
 Id `<emne>-<del>-prove`, chapterNumber `<del>.P`, tittel «Prøver til del
 <del>: <deltittel>»: `tip` (dekning + tidsbruk) + `text` Forkunnskaper + fire
 `collapsible` («Prøve 1»–«Prøve 4», buttonText «Vis prøve N») med oppgaver og
 full fasit (jus/drøfting: «må-punkter / pluss-punkter / feller»-struktur).
-Flervalg i prøve-collapsibles: stokkede fasit-bokstaver (aldri «alle a») og
-prøve-tipen sier hvor flervalget bor. Etter hver prøvefasit: avkryssbar
-selvdiagnose-sjekkliste (☐). Kap-referanser i fasitene som markdown-lenker.
-Ingen quiz/begrepsbank.
+Tip/description deklarerer «N prøver à ~X min» + «kan trygt deles over flere
+kvelder — én prøve per økt» (aldri bare totalsum). Flervalg i prøve-
+collapsibles: stokkede fasit-bokstaver (aldri «alle a») og prøve-tipen sier
+hvor flervalget bor; riktig/galt-/felleprøver blander reelle og feller (aldri
+«alle felle»). Etter hver prøvefasit: avkryssbar selvdiagnose-sjekkliste (☐).
+Kap-referanser i fasitene som markdown-lenker. Ingen quiz/begrepsbank.
 
 ## Quiz
 `src/lib/data/quiz-staging/<kapittel-id>.quiz.json`:
@@ -146,11 +173,23 @@ fasitmønsteret sjekket — riktig svar varierer posisjon (aldri «alle a»);
 9. grep «Prioritet: perfekt» = 0; 10. **ingen tom collapsible** (feltet heter
 `content` og skal ha blokker — aldri `text`-nøkkel eller tom array);
 11. kap-referanser i fasiter/forkunnskaper er markdown-lenker til
-eksisterende filer; 12. **Del 0-pakken** på plass («Lite tid?»-boks,
-kildenote for frekvens-empiri, prosedyrekort) og begrepsbank-notisene står
+eksisterende filer; 12. **Del 0-pakken** på plass («Lite tid?»-boks m/
+lesetid-setningen, kildenote for frekvens-empiri, prosedyrekort, deltidsrute,
+«lese mye, skrive lite»-boks) og begrepsbank-notisene står
 først i hver stor bank; 13. **tidsbudsjett**: deklarert oppgavetid vs. sum
 deltider forklart der de avviker; 14. **juridiske deklarasjoner**: innholdet
 fremstiller seg ALDRI som offisielt/institusjons-tilknyttet og lover aldri
 eksamensutfall (uavhengighets-/rådgivningsdeklarasjonene vises automatisk av
 plattformen — se README «Juridiske deklarasjoner»; ved wiring: registrer i
-institusjoner.ts og sjekk jus-/helse-heuristikken i hoyskole-disclaimer.tsx).
+institusjoner.ts og sjekk jus-/helse-heuristikken i hoyskole-disclaimer.tsx);
+15. **fasitmønster** sjekket i ALLE ensartede fasitlister (flervalg,
+riktig/galt, feller) — riktig svar varierer, aldri «alle a»/«alle felle»;
+16. **hints** utfylt på alle exercises (unntatt merket kald bank), første hint
+røper aldri konklusjonen; 17. **frekvenstall** = antall listede belegg (tell
+hver «N av M»-påstand); 18. grep for meta-fasit («en A-besvarelse ville»,
+«ville ha drøftet») = 0 — drøftelsene er utskrevet; 19. **øktmerking**:
+kapitler > 45 min har løkke-tidsanslag/pausepunkter og prøvekapitler
+deklarerer «N prøver à ~X min» + deling; 20. **feilkode-gloss** ved første
+bruk per kapittel; 21. regnefag: alle fortegns-/entydighetspåstander
+parametersjekket numerisk (jf. DNA-regnefag «Matematisk sannhetskontroll»);
+jus: dommer har kort faktum ved første omtale.

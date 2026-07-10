@@ -21,8 +21,11 @@ mot nettopp disse mønstrene.
    **formel-minimum-side** (collapsible «Formlene du må kunne utenat — og
    resten kan du slå opp»): de ~5–8 uunngåelige formlene, hver med én ordlinje
    («multiplikatoren = 1 delt på lekkasjen»), + eksplisitt beskjed om at resten
-   kan slås opp. I tillegg: Del 0-pakken fra README «Leserkrav» («Lite tid?»-
-   boks, kildenote for frekvens-empirien, prosedyre-/sjangerkort).
+   kan slås opp. Denne siden er også regnefagets «samlede oppslagskort»
+   (jf. README «Leserkrav» — printbar ren tabell). I tillegg: Del 0-pakken
+   fra README «Leserkrav» («Lite tid?»-boks m/gjøre- vs. lese-tider, kildenote
+   for frekvens-empirien, prosedyre-/sjangerkort, deltidsrute, «lese mye,
+   skrive lite»-boks).
 2. **Del 1..N — Temadeler**: én del per hovedtema, ordnet etter faglig
    avhengighet (prerequisites), IKKE etter frekvens. Frekvensen styrer i stedet
    *omfanget*: «må beherskes perfekt»-temaer får 2–4 kapitler + eget
@@ -39,7 +42,10 @@ Rekkefølgen under er obligatorisk; blokktypene er plattformens
 1. `tip` **Eksamensvinkel** — hvor ofte/hvordan temaet testes, typisk vekting,
    hvilke oppgavesjangre det inngår i (fra skjelettets per-kapittel-DNA).
 1b. `text` **Forkunnskaper** — kapitler i boka det bygger på + kryssbok-lenker
-   (jf. Leserkrav i README). `collapsible` **Symbol- og formelliste** forklarer
+   (jf. Leserkrav i README). I tunge kapitler med stor tidsavstand til
+   forkunnskapen (typisk siste deler) skal blokken VISE de 2–3 nøkkelformlene
+   ferdig oppfrisket («Sist du var her» — jf. README), ikke bare lenke.
+   `collapsible` **Symbol- og formelliste** forklarer
    ALLE symboler og formler brukt i delkapitlet (per delkapittel — ikke arv fra
    tidligere kapitler; unntak kun for helt symbolfrie kapitler) og plasseres
    SIST i kapitlet med åpningsnotisen «Oppslagsverk — alt her forklares
@@ -65,7 +71,13 @@ Rekkefølgen under er obligatorisk; blokktypene er plattformens
    dette temaet.
 7. `exercise` × 6–12 — stigende: 2–3 innøving (lett), 2–4 standard (middels),
    2–4 eksamensklone (vanskelig, samme sjanger/vekt som reelle oppgaver, med
-   nyskrevne tall/kontekst). Alle med `solution` + `hints`.
+   nyskrevne tall/kontekst). Alle med `solution` + `hints` (første hint =
+   formelen/første grep, aldri konklusjonen — jf. README «Hint på alle
+   oppgaver»). Boka SAMLET skal i tillegg ha genuint krevende merkede oppgaver
+   og en kald bank uten hint i eksamenstreningsdelen (jf. README
+   «Difficulty-spredning + kald bank») — f.eks. parameterbetingelse-oppgaver,
+   selvfinansieringsgrad, algebraisk løsning av hele modellen. Varier
+   kalibreringene: samme tallsett gjenbrukt overalt gir autopilot.
 8. `collapsible` **Repetisjonsoppgaver** — 4–6 korte oppgaver fra tidligere
    kapitler som dette kapitlet bygger på.
 
@@ -128,6 +140,26 @@ bruker»), og tall-kalibrerte oppgaver sier eksplisitt i OPPGAVETEKSTEN hvilke
 enheter koeffisientene er målt i og hvilken enhet svaret kommer i. Samme
 størrelse skal ikke kalibreres ulikt i to kapitler uten at begge stedene
 flagger det.
+
+## Matematisk sannhetskontroll (UFRAVIKELIG — fra studentpanel bølge 4)
+
+Fortegns-, entydighets- og «alltid mindre/større enn»-påstander (f.eks.
+«multiplikatoren med skattefinansiering er alltid < 1») skal PARAMETERSJEKKES
+NUMERISK (python3) i modellens FULLE parameterrom FØR de skrives — inkludert
+alle ledd modellen faktisk har (bølge 4 fant en hel familie påstander som var
+sanne uten akselerator, men falske med b₁>0, «bevist» sirkulært i teksten).
+
+- Er påstanden bare betinget sann: skriv betingelsen eksplisitt («tm<1 hviss
+  b₁<(1−c₁)(1−t)») og si når hvilken variant gjelder. Parameterbetingelser er
+  A-stoff — «vis at påstanden gjelder uten akselerator, og finn betingelsen
+  med» er en bedre oppgave enn en usann «vis at …».
+- En «Vis at …»-oppgave der påstanden ikke holder ubetinget, KAN IKKE LØSES —
+  det er verre enn en manglende oppgave.
+- Fasiter etterregnes numerisk; talleksempler begge veier der en betingelse
+  kan slå begge veier.
+- «Formelt ubestemt» vs. utregnbart: velg ÉN linje per størrelse — i en lineær
+  modell kan fortegnet ofte regnes ut; si det, og vis når intuisjon og
+  regnestykke skiller lag. To selvrettingssteder skal aldri lande motsatt.
 
 ## Kapittel-DNA (drillkapittel — kun for «må beherskes perfekt»-temaer)
 

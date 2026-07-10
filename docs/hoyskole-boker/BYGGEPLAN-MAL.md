@@ -74,8 +74,31 @@ av én agent som leser hele skjelettet.
 > oppgavetid og sum deltider forklares; collapsibles har `content`-nøkkel
 > med blokker (aldri tom, aldri `text`). Følg også DNA-ens studentpanel-
 > seksjoner (regnefag: figurkrav + symbolliste SIST + formel-minimum +
-> enhetsdeklarasjon; jus: lovhenvisningsboks + Lovdata-driller + lovprefiks;
-> drøfting: binær selvrettingsrubrikk + sitatlager-bro + relevans-ramme).
+> enhetsdeklarasjon + matematisk sannhetskontroll; jus: lovhenvisningsboks +
+> Lovdata-driller + lovprefiks + faglig presisjon/toppnivå;
+> drøfting: binær selvrettingsrubrikk + sitatlager-bro + relevans-ramme +
+> erfarings-bro/vippe-caser). STUDENTPANEL BØLGE 4+5 (jf. README «Leserkrav»
+> — SKAL inn i førsteutkastet): ALLE ensartede fasitlister varierer (aldri
+> «alle a», aldri «alle felle»); distraktorer gjengir ALDRI bokas egne
+> nyanser som «galt» svar; alle exercises har utfylte hints (første hint =
+> hjemmel/formel/første grep, ALDRI konklusjonen) — unntak kun merket kald
+> bank; boka har noen «(krevende)»-merkede oppgaver + én kald bank uten hint
+> (fasit = momentliste); modellbesvarelser lander IKKE alle på samme
+> kompromissform — minst én skarp-men-veid konklusjon; meta-fasit forbudt
+> («en A-besvarelse ville ha drøftet …» → skriv drøftelsen UT); signal-/
+> hintbokser står ETTER oppgaven de varsler; frekvenspåstander («N av M
+> sett») stemmer eksakt med belegg-listene (tell!); faglige påstander
+> verifiseres FØR skriving (regnefag: parametersjekk fortegnspåstander
+> numerisk; jus: hjemmels-/terskelretning mot Lovdata + dommer med 1–2
+> setninger faktum); kapitler > 45 min har tidsanslag per løkke eller
+> pausepunkt-markører, lange modellbesvarelser har «— naturlig pausepunkt —»;
+> prøvekapitler deklarerer «N prøver à ~X min» + «kan deles over flere
+> kvelder»; «Lite tid?»-boksen sier at anslag er lesetid (×1,5 ved
+> håndskriving); feilkoder glosses ved første bruk PER KAPITTEL; tunge
+> kapitler har «Sist du var her»-forkunnskapsblokk som VISER nøkkelformlene;
+> Del 0 har deltidsrute (10–12 uker, generalprøver fordelt) + «lese mye,
+> skrive lite»-boks; boka har sitt samlede oppslagskort (jus: hjemmelskart;
+> drøfting: «hvem eier hva»-kort; regnefag: formel-minimum).
 > Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
 > (kvoter = skjelettets kvotesammendrag, AUTORITATIVT; options[0] alltid
 > riktig). Referanser du er usikker på merkes (verifiser).
@@ -139,6 +162,24 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > merking konsistent (tittel vs. margnotat — en «C-besvarelse» skal VÆRE C);
 > begrepsbank-notiser står først i hver stor bank; regnefag: ingen «grafisk
 > drill» uten figur, og lovede figurer finnes der de loves;
+> (3e) bølge 4+5-sjekker (jf. README «Leserkrav»): ALLE ensartede
+> fasitlister varierer (også riktig/galt og feller — aldri «alle felle»);
+> ingen flervalgsdistraktor gjengir bokas egne nyanser som «galt» svar (nær-
+> sanne distraktorer forklares i fasit-kommentaren); alle exercises har
+> utfylte hints uten konklusjonsrøping (unntak: merket kald bank — sjekk at
+> den finnes og er merket); minst én modellbesvarelse lander skarpt (ikke
+> alle på samme kompromissform); grep etter meta-fasit («en A-besvarelse
+> ville», «ville ha drøftet») = 0; signal-/hintbokser står ETTER oppgaven de
+> varsler; TELL hver frekvenspåstand («N av M sett») mot belegg-listen som
+> følger den; kapitler > 45 min har løkke-tidsanslag/pausepunkter og
+> prøvekapitler deklarerer «N prøver à ~X min» + deling over flere kvelder;
+> feilkoder har gloss ved første bruk PER KAPITTEL; tunge kapitler har
+> «Sist du var her»-blokk som VISER nøkkelformlene; bokas samlede
+> oppslagskort finnes (jus: hjemmelskart; drøfting: «hvem eier hva»-kort;
+> regnefag: formel-minimum); regnefag: ETTERREGN fortegns-/entydighets-
+> påstander numerisk i fullt parameterrom (python3 — jf. DNA-regnefag
+> «Matematisk sannhetskontroll»); jus: dommer har kort faktum ved første
+> omtale, og faktum som utløser spesialregler har regelen undervist;
 > (4) faktasjekk mot skjelettkontraktene: ETTERREGN alle talleksempler /
 > kontroller vilkårslister og kausalkjeder ordrett; (5) kvoter må IKKE
 > endres (tell definition-blokker før/etter).
@@ -170,6 +211,13 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
       har «Lite tid?»-boks + kildenote + prosedyrekort, og at «kap. X.Y» i
       fasiter er markdown-lenker. Regnefag med nye SVG-er: kjør
       `npx tsx scripts/upload-media-storage.ts` FØR deploy.
+- [ ] Bølge 4+5-port (jf. README «Leserkrav»): grep «en A-besvarelse ville» /
+      «ville ha drøftet» = 0 (meta-fasit); skann riktig/galt-/felle-fasiter
+      for ensartet mønster (aldri «alle felle»); python-sjekk at exercises
+      har ikke-tomme `hints` (unntatt merket kald bank) og at minst noen
+      oppgaver er merket krevende/vanskelig; stikkprøv 3 frekvenspåstander
+      mot belegg-listene; stikkprøv at prøvekapitler deklarerer «N prøver à
+      ~X min» og at et kapittel > 45 min har løkke-tidsanslag/pausepunkt.
 - [ ] `npm run build` → «✓ Compiled successfully» + «Kombinerte NNNN kapitler»
 - [ ] Prod-curl: `PORT=3111 npm run start` i bakgrunn, deretter 200 +
       innholds-grep på: `/bok/trinn/hoyere/<inst>`, `/bok/<emne>`,
