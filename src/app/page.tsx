@@ -24,7 +24,7 @@ import { DashboardBanner } from '@/components/home/dashboard-banner';
 export const metadata: Metadata = {
   title: 'Skolesaga - Eksamensrettede lærebøker for høyskole og skole',
   description:
-    'Vi har lest sensorveiledningene for deg. Eksamensrettede lærebøker bygget på ekte eksamensarkiv – frekvensanalyse, sensornøkler og modellbesvarelser – for høyskole, videregående og ungdomsskole.',
+    'Eksamensrettede lærebøker for høyskole bygget på fagets eksamensarkiv – tidligere eksamener og, der de finnes, sensorveiledninger. Hver bok oppgir kildene sine. Komplette lærebøker for videregående og ungdomsskole.',
 };
 
 export default function HomePage() {
@@ -45,12 +45,14 @@ export default function HomePage() {
               Bygget på ekte eksamensarkiv
             </p>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-              Vi har lest sensor&shy;veiledningene for deg
+              Vi har lest eksamens&shy;arkivet for deg
             </h1>
             <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Eksamensrettede lærebøker bygget på ekte eksamensarkiv:
-              frekvensanalyse av hva som faktisk kommer, sensornøkler for hva
-              som gir poeng, og modellbesvarelser du kan måle deg mot.
+              De eksamensrettede høyskolebøkene våre er bygget på fagets
+              eksamensarkiv — tidligere eksamener og, der de finnes,
+              sensorveiledninger: frekvensanalyse av hva som faktisk kommer,
+              sensornøkler for hva som gir poeng, og modellbesvarelser du kan
+              måle deg mot. Hver bok oppgir nøyaktig hvilke kilder den bygger på.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="text-base px-8">
@@ -79,7 +81,7 @@ export default function HomePage() {
             href="/bok/trinn/hoyere"
             icon={<GraduationCap className="h-6 w-6" />}
             title="Høyskole og universitet"
-            description="Emne for emne, lærested for lærested – med sensorveiledninger og tidligere eksamener som ryggrad."
+            description="Emne for emne, lærested for lærested – med tidligere eksamener og, der de finnes, sensorveiledninger som ryggrad."
             chips={[
               { label: 'EXPHIL03', href: '/bok/exphil03' },
               { label: 'JUS1111', href: '/bok/jus1111' },
@@ -152,14 +154,14 @@ export default function HomePage() {
             <HowItWorksCard
               step="2"
               icon={<ClipboardCheck className="h-5 w-5" />}
-              title="Sensorveiledningen – oversatt til bruksanvisning"
-              description="Hvert tema har sensornøkler: hva som må med for å bestå, og hva som skiller en C fra en A. Pensum har alle – sensorens sjekkliste har bare de som leser her."
+              title="Sensorkravene – oversatt til bruksanvisning"
+              description="Der arkivet har sensorveiledninger, destillerer vi dem til sensornøkler per tema: hva som må med for å bestå, og hva som skiller en C fra en A. Hver bok oppgir kildene sine i kapittel 0."
             />
             <HowItWorksCard
               step="3"
               icon={<PenLine className="h-5 w-5" />}
               title="Modellbesvarelser du kan måle deg mot"
-              description="Se ekte besvarelsesnivåer side om side – også den som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent."
+              description="Nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent."
             />
             <HowItWorksCard
               step="4"
@@ -264,7 +266,7 @@ export default function HomePage() {
             Klar til å begynne?
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">
-            Velg fag eller emne og les med sensorveiledningen i ryggen.
+            Velg fag eller emne – hver eksamensrettet bok oppgir hvilket eksamensarkiv den bygger på.
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8">
             <Link href="/bok">

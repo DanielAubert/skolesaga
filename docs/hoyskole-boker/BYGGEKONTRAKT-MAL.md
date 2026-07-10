@@ -117,7 +117,11 @@ repetisjon (teorikapitler).
 - **Signalbokser ETTER oppgaven (bølge 4):** varsel om hva en drilloppgave
   tester står etter oppgaven/som collapsible hint, aldri foran.
 - **Frekvenstall = telte belegg (bølge 4):** «N av M sett» skal stemme eksakt
-  med belegg-listen som følger. Faglige påstander verifiseres FØR skriving
+  med belegg-listen som følger. **Sannferdige kildepåstander (UFRAVIKELIG, fra
+  produkteier):** kildenoten, beskrivelsen og all omtale av grunnlaget nevner
+  KUN kildetyper som faktisk finnes i fagets arkiv — skriv aldri
+  «sensorveiledninger» hvis arkivet bare har oppgavesett/løsningsforslag;
+  modellbesvarelser omtales som nyskrevne, aldri som ekte studentbesvarelser. Faglige påstander verifiseres FØR skriving
   (arketype-DNA: regnefag → numerisk parametersjekk av fortegnspåstander;
   jus → Lovdata + dommer med 1–2 setninger faktum).
 - **Øktmerking + prøvedeling + feilkode-gloss (bølge 5):** kapitler > 45 min
