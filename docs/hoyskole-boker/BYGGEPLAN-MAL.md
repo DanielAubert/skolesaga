@@ -51,7 +51,10 @@ av én agent som leser hele skjelettet.
 > Del 0: legg inn en «Slik leser du denne boka»-orienteringsboks (type `text`
 > eller `tip`, ALDRI `definition` — ville endret flashcard-kvoten) med karakter-/
 > vurderingsskala + kompakt kodeliste + at feil har et samlet register; ramm inn
-> karaktersjargong som motsier eksamensformen. Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
+> karaktersjargong som motsier eksamensformen. DELOPPGAVER a), b), c) i task/
+> solution: HVER på egen linje med fet merking — `…\n\n**a)** …\n**b)** …`,
+> ALDRI bak hverandre i løpende tekst (ikke bruk subTasks-feltet).
+> Skriv quiz til src/lib/data/quiz-staging/<id>.quiz.json
 > (kvoter = skjelettets kvotesammendrag, AUTORITATIVT; options[0] alltid
 > riktig). Referanser du er usikker på merkes (verifiser).
 > VALIDER: python3 json.load per fil; kvotetelling mot skjelettet;
@@ -93,6 +96,8 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 > forklart ved FØRSTE bruk? Finnes «Slik leser du denne boka»-orienteringsboksen
 > (type `text`/`tip`, ALDRI `definition`) med skala + kodeliste + feilregister?
 > Ingen kald kode i competenceGoals/første tekstboks?;
+> (3c) deloppgave-format: a), b), c) i task/solution står HVER på egen linje
+> med fet merking (`**a)**`), aldri bak hverandre i løpende tekst;
 > (4) faktasjekk mot skjelettkontraktene: ETTERREGN alle talleksempler /
 > kontroller vilkårslister og kausalkjeder ordrett; (5) kvoter må IKKE
 > endres (tell definition-blokker før/etter).

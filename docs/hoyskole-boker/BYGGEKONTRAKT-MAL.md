@@ -59,6 +59,10 @@ definisjoner til flashcard-kvoten + `collapsible` repetisjon (teorikapitler).
   formel eller en metode som ikke er introdusert tidligere i kapitlet (t.o.m.
   eksempelet rett foran) eller i et tidligere kapittel referert i Forkunnskaper-
   blokken. Bygg oppgaveprogresjonen bit for bit.
+- **Deloppgaver på egen linje, fet merking:** deloppgaver a), b), c) i `task`/
+  `solution` skal HVER starte på egen linje med merket i fet — format
+  `…\n\n**a)** …\n**b)** …`. ALDRI a) b) c) bak hverandre i løpende tekst.
+  (Bruk ikke `subTasks`-feltet — det kobler inn egen fremdriftslogikk.)
 - **Nybegynner-inngang / ingen uforklart sjargong:** HVER kode (sjanger-/
   oppgavekode, feilkode #N, karakterbokstav) og all karaktersjargong («C-stoff»/
   «A-markør») + insider-term forklares i klarspråk ved FØRSTE bruk; ingen kald

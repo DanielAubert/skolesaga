@@ -23,6 +23,9 @@ assert files, f"ingen kapittelfiler for {emne}"
 # minne «nybegynner-sjargong»). Snever + whitelistet for å unngå falske positive.
 GRADE_SLANG = re.compile(r"\b[A-E]-(stoff|porten|markør|kandidat)\b")
 BARE_CODE = re.compile(r"\b(RED|SIT|SAM|ANV|HYB|S[1-7])\b|\bsjanger [A-N]\b")
+# Deloppgaver a) b) i løpende tekst (skal stå på egen linje med **a)**).
+# Krav: a) og b) i SAMME linje med ≥8 tegn mellom (utelukker «jf. a) og b)»).
+INLINE_SUBTASK = re.compile(r"(?<!\*)\ba\) [^\n]{8,}?\bb\) ")
 def _forklart(s):  # whitelist: teksten forklarer skala/kode ⇒ ikke merknad
     return bool(re.search(r"karakter|A[–-]F|bestått|forkort|= |betyr|dvs\.", s, re.I))
 
@@ -76,6 +79,17 @@ for f in files:
     for g in d.get("competenceGoals", []) or []:
         if BARE_CODE.search(g) and not _forklart(g):
             notes.append(f"{cid}: uforklart kode i læringsmål — «{g[:60]}…»"); break
+    #  (c) deloppgaver a) b) i løpende tekst i exercise task/solution
+    #      (README-regel: hver deloppgave på egen linje med **a)** i fet).
+    for b in c:
+        if b.get("type") != "exercise":
+            continue
+        e = b.get("exercise", b)  # oppgavedata ligger nestet i 'exercise'-objektet
+        for felt in ("task", "solution"):
+            s = e.get(felt, "") or ""
+            if isinstance(s, str) and INLINE_SUBTASK.search(s):
+                notes.append(f"{cid}: deloppgaver a) b) i løpende {felt} (id {b.get('id','?')}) — skal ha egen linje + **fet** merking")
+                break
 
 # kvoter
 qf = os.path.join(REPO, f"src/lib/data/quiz-data-{emne}.ts")

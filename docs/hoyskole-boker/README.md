@@ -86,6 +86,15 @@ docs/hoyskole-boker/
 - **Listemerking med små bokstaver (UFRAVIKELIG, fra produkteier)**: utdrag,
   alternativer og deloppgaver merkes a), b), c) — ALDRI A), B), [A], [B].
   (Unntak: karakteruttrykk som «en A-besvarelse» er ikke listemerking.)
+- **Deloppgaver på egen linje med fet merking (UFRAVIKELIG, fra produkteier)**:
+  når en oppgave-/fasittekst lister deloppgaver a), b), c) …, skal HVER deloppgave
+  starte på egen linje (`\n` i JSON-strengen) og merket stå i fet: `**a)**`,
+  `**b)**`, `**c)**`. ALDRI bak hverandre i løpende tekst («… begrunn kort.
+  a) … b) … c) …» er FORBUDT). LatexRenderer gjør `**x)**` → fet skrift og `\n`
+  → linjeskift, så formatet er `…begrunn kort.\n\n**a)** «…»\n**b)** «…»`.
+  Gjelder `task` og `solution` i exercise-blokker samt tilsvarende opplistinger
+  i prøve-fasiter. (IKKE bruk `subTasks`-feltet til dette uten eksplisitt
+  beslutning — det kobler inn egen fremdriftslogikk per deloppgave.)
 - **Meningsfulle oppgaver**: hver oppgave er eksplisitt eksamensforankret
   (si hvilken sjanger den trener) eller åpenbart relevant på annen måte.
 - **Læringsløkke per delkapittel — Teori → Eksempel → Oppgave (UFRAVIKELIG, fra produkteier):**
