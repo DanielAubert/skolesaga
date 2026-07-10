@@ -1,99 +1,228 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight, Calculator } from 'lucide-react';
+import {
+  BookOpen,
+  GraduationCap,
+  Brain,
+  Code,
+  ChartLine,
+  Users,
+  ArrowRight,
+  Calculator,
+  School,
+  Backpack,
+  FileSearch,
+  ClipboardCheck,
+  PenLine,
+  Target,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
 import { DashboardBanner } from '@/components/home/dashboard-banner';
 
 export const metadata: Metadata = {
-  title: 'Skolesaga - Interaktive lærebøker for norsk skole',
-  description: 'Interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3.',
+  title: 'Skolesaga - Eksamensrettede lærebøker for høyskole og skole',
+  description:
+    'Vi har lest sensorveiledningene for deg. Eksamensrettede lærebøker bygget på ekte eksamensarkiv – frekvensanalyse, sensornøkler og modellbesvarelser – for høyskole, videregående og ungdomsskole.',
 };
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* Hero */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:bg-none dark:bg-black" />
         <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
         <HomeHeader />
 
-        {/* Lærebøker og Quiz - Hovedseksjon */}
-        <div className="relative container mx-auto max-w-5xl px-6 py-12 md:py-20">
-          <h1 className="sr-only">Skolesaga – interaktive lærebøker for norsk skole</h1>
+        <div className="relative container mx-auto max-w-5xl px-6 pt-10 pb-16 md:pt-16 md:pb-24">
           <DashboardBanner />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Lærebøker-kort */}
-            <Link href="/bok" className="block group">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
-                <Image
-                  src="/home/interaktive-lareboker.jpg"
-                  alt="Interaktive lærebøker"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute top-0 left-0 right-0 p-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm text-sm font-medium text-gray-800">
-                    <BookOpen className="w-4 h-4" />
-                    5. klasse til VG3
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8 shadow-lg">
-                    Utforsk lærebøker
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </div>
-            </Link>
-
-            {/* Quiz-kort (under utvikling) */}
-            <Link href="/quiz" className="block group relative">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square grayscale-[40%] opacity-80">
-                <Image
-                  src="/home/prove-quiz.jpg"
-                  alt="Prøve Quiz"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 shadow-lg">
-                    Kommer snart
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Verktøy-lenker */}
-          <div className="mt-6">
-            <Link href="/poengkalkulator" className="group flex items-center gap-4 rounded-2xl bg-white/80 dark:bg-white/10 backdrop-blur-sm p-4 shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
-              <div className="rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 p-3 shrink-0">
-                <Calculator className="h-6 w-6 text-white" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold">Poengkalkulator</h3>
-                <p className="text-sm text-muted-foreground">Beregn dine opptakspoeng</p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all shrink-0" />
-            </Link>
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-5">
+              <FileSearch className="h-3.5 w-3.5" />
+              Bygget på ekte eksamensarkiv
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+              Vi har lest sensor&shy;veiledningene for deg
+            </h1>
+            <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl">
+              Eksamensrettede lærebøker bygget på ekte eksamensarkiv:
+              frekvensanalyse av hva som faktisk kommer, sensornøkler for hva
+              som gir poeng, og modellbesvarelser du kan måle deg mot.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Button asChild size="lg" className="text-base px-8">
+                <Link href="/bok">
+                  Finn faget ditt
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-base px-8 bg-background/60 backdrop-blur-sm">
+                <Link href="#slik-virker-det">Se hvordan det virker</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Målgrupper */}
+      <section className="container mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">Hvor er du i utdanningen?</h2>
+        <p className="text-muted-foreground mb-8">
+          Velg nivå – hver bok er bygget rundt eksamen du faktisk skal opp i.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Høyskole/universitet */}
+          <AudienceCard
+            href="/bok/trinn/hoyere"
+            icon={<GraduationCap className="h-6 w-6" />}
+            title="Høyskole og universitet"
+            description="Emne for emne, lærested for lærested – med sensorveiledninger og tidligere eksamener som ryggrad."
+            chips={[
+              { label: 'EXPHIL03', href: '/bok/exphil03' },
+              { label: 'JUS1111', href: '/bok/jus1111' },
+              { label: 'ECON1310', href: '/bok/econ1310' },
+              { label: 'STV1100', href: '/bok/stv1100' },
+            ]}
+            linkLabel="Finn emnet ditt"
+          />
+          {/* Videregående */}
+          <AudienceCard
+            href="/bok"
+            icon={<School className="h-6 w-6" />}
+            title="Videregående"
+            description="Fellesfag og programfag med teori, eksempler og eksamensrettede oppgaver – fra 1P til R2."
+            chips={[
+              { label: 'VG1', href: '/bok/trinn/vg1' },
+              { label: 'VG2', href: '/bok/trinn/vg2' },
+              { label: 'VG3', href: '/bok/trinn/vg3' },
+            ]}
+            linkLabel="Se fagene"
+          />
+          {/* Ungdomsskole */}
+          <AudienceCard
+            href="/bok"
+            icon={<Backpack className="h-6 w-6" />}
+            title="Ungdomsskole"
+            description="Alle fag for 8.–10. trinn, med øvingsoppgaver og forberedelse til eksamen i 10. klasse."
+            chips={[
+              { label: '8. trinn', href: '/bok/trinn/8' },
+              { label: '9. trinn', href: '/bok/trinn/9' },
+              { label: '10. trinn', href: '/bok/trinn/10' },
+            ]}
+            linkLabel="Se fagene"
+          />
+        </div>
+
+        {/* Verktøy */}
+        <div className="mt-6">
+          <Link
+            href="/poengkalkulator"
+            className="group flex items-center gap-4 rounded-2xl border bg-card p-4 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="rounded-xl bg-primary/10 p-3 shrink-0 text-primary">
+              <Calculator className="h-6 w-6" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold">Poengkalkulator</h3>
+              <p className="text-sm text-muted-foreground">Beregn dine opptakspoeng</p>
+            </div>
+            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all shrink-0" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Slik virker det */}
+      <section id="slik-virker-det" className="py-16 md:py-20 bg-muted/30 scroll-mt-20">
+        <div className="container mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Slik virker det</h2>
+          <p className="text-muted-foreground mb-10 max-w-2xl">
+            Alle andre forteller deg hva pensum sier. Vi viser deg hva sensor
+            gir poeng for.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <HowItWorksCard
+              step="1"
+              icon={<FileSearch className="h-5 w-5" />}
+              title="Vi analyserer eksamensarkivet"
+              description="Frekvensanalyse av tidligere eksamener viser hva som faktisk kommer – så du prioriterer temaene som gir uttelling, ikke de som tilfeldigvis står først i pensumboka."
+            />
+            <HowItWorksCard
+              step="2"
+              icon={<ClipboardCheck className="h-5 w-5" />}
+              title="Sensorveiledningen – oversatt til bruksanvisning"
+              description="Hvert tema har sensornøkler: hva som må med for å bestå, og hva som skiller en C fra en A. Pensum har alle – sensorens sjekkliste har bare de som leser her."
+            />
+            <HowItWorksCard
+              step="3"
+              icon={<PenLine className="h-5 w-5" />}
+              title="Modellbesvarelser du kan måle deg mot"
+              description="Se ekte besvarelsesnivåer side om side – også den som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent."
+            />
+            <HowItWorksCard
+              step="4"
+              icon={<Target className="h-5 w-5" />}
+              title="Teori, eksempel og oppgave – i én løkke"
+              description="Du leser aldri lenge uten å bruke stoffet: hver bit teori følges av gjennomregnede eksempler og oppgaver med umiddelbar tilbakemelding."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Utforsk – illustrasjoner */}
+      <section className="container mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8">Utforsk Skolesaga</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link href="/bok" className="block group">
+            <div className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-shadow aspect-[16/10]">
+              <Image
+                src="/home/interaktive-lareboker.jpg"
+                alt="Interaktive lærebøker"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                <div className="text-white">
+                  <h3 className="font-semibold text-lg">Interaktive lærebøker</h3>
+                  <p className="text-sm text-white/80">5. klasse til høyskole</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+          <Link href="/quiz" className="block group">
+            <div className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-shadow aspect-[16/10] grayscale-[40%] opacity-90">
+              <Image
+                src="/home/prove-quiz.jpg"
+                alt="Prøve og quiz"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                <div className="text-white">
+                  <h3 className="font-semibold text-lg">Quiz og prøver</h3>
+                  <p className="text-sm text-white/80">Kommer snart</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Features */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Alt du trenger for å lære
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <FeatureCard
               icon={<BookOpen className="h-8 w-8" />}
               title="140+ lærebøker"
@@ -129,17 +258,17 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Klar til å begynne?
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">
-            Velg ditt klassetrinn og start å lære med interaktive lærebøker.
+            Velg fag eller emne og les med sensorveiledningen i ryggen.
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8">
             <Link href="/bok">
-              Finn din lærebok
+              Finn faget ditt
             </Link>
           </Button>
         </div>
@@ -155,7 +284,7 @@ export default function HomePage() {
             <span className="font-bold text-lg">Skolesaga</span>
           </Link>
           <p className="text-sm text-muted-foreground mb-4">
-            Interaktive lærebøker for norsk skole
+            Eksamensrettede lærebøker for norsk skole og høyere utdanning
           </p>
           <div className="flex justify-center gap-6 text-sm text-muted-foreground mb-4">
             <Link href="/test-deg-selv" className="hover:text-foreground transition-colors">
@@ -172,10 +301,83 @@ export default function HomePage() {
             © 2025 Skolesaga · Alle rettigheter forbeholdt
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            Deler av innholdet er utviklet med hjelp av AI-verktøy
+            Innholdet er utviklet med KI-verktøy og kvalitetssikres løpende –{' '}
+            <Link href="/vilkar#ki-deklarasjon" className="underline underline-offset-2 hover:text-foreground transition-colors">
+              les KI-deklarasjonen
+            </Link>
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function AudienceCard({
+  href,
+  icon,
+  title,
+  description,
+  chips,
+  linkLabel,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  chips: { label: string; href: string }[];
+  linkLabel: string;
+}) {
+  return (
+    <div className="relative flex flex-col rounded-2xl border bg-card p-6 shadow-sm hover:shadow-md transition-shadow">
+      <div className="rounded-xl bg-primary/10 p-3 w-fit text-primary mb-4">
+        {icon}
+      </div>
+      <h3 className="font-semibold text-lg mb-2">
+        <Link href={href} className="after:absolute after:inset-0 hover:text-primary transition-colors">
+          {title}
+        </Link>
+      </h3>
+      <p className="text-sm text-muted-foreground mb-4 flex-1">{description}</p>
+      <div className="relative z-10 flex flex-wrap gap-2 mb-4">
+        {chips.map((chip) => (
+          <Link
+            key={chip.label}
+            href={chip.href}
+            className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+          >
+            {chip.label}
+          </Link>
+        ))}
+      </div>
+      <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+        {linkLabel}
+        <ArrowRight className="h-4 w-4" />
+      </span>
+    </div>
+  );
+}
+
+function HowItWorksCard({
+  step,
+  icon,
+  title,
+  description,
+}: {
+  step: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-2xl border bg-card p-6 shadow-sm">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold shrink-0">
+          {step}
+        </span>
+        <span className="text-primary">{icon}</span>
+      </div>
+      <h3 className="font-semibold text-lg mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }

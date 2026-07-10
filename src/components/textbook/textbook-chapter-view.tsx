@@ -372,23 +372,23 @@ export function TextbookChapterView({
             )}
             <p className={`text-lg text-muted-foreground ${chapterMeta.coverImage ? '' : 'mt-2'}`}>{chapterMeta.description}</p>
 
-            {/* Metadata */}
-            <div className="flex flex-wrap gap-4 mt-4 text-sm text-muted-foreground">
+            {/* Metadata — dempet */}
+            <div className="flex flex-wrap gap-4 mt-3 text-sm text-muted-foreground/80">
               <div className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4" />
+                <Clock className="h-3.5 w-3.5" />
                 <span>{chapterMeta.estimatedMinutes} min</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <GraduationCap className="h-4 w-4" />
+                <GraduationCap className="h-3.5 w-3.5" />
                 <span>{chapterMeta.exerciseCount} oppgaver</span>
               </div>
             </div>
 
             {/* Emner */}
             {chapterMeta.topics.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-1.5 mt-3">
                 {chapterMeta.topics.map((topic) => (
-                  <Badge key={topic} variant="secondary">
+                  <Badge key={topic} variant="outline" className="font-normal text-muted-foreground">
                     {topic}
                   </Badge>
                 ))}
@@ -405,9 +405,9 @@ export function TextbookChapterView({
 
             {/* Versjonsvelger */}
             {linkedChapter && (
-              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 rounded-lg">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-sm text-blue-800 dark:text-blue-200">
+              <div className="mt-4 p-3 bg-muted/40 border border-border/60 rounded-lg">
+                <div className="flex items-center justify-between gap-3 flex-wrap">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <ArrowLeftRight className="h-4 w-4" />
                     <span>
                       {isNarrativeVersion
@@ -416,7 +416,7 @@ export function TextbookChapterView({
                     </span>
                   </div>
                   <Link href={`/bok/${course.id}/${linkedChapter.id}`}>
-                    <Button variant="outline" size="sm" className="gap-2 bg-white dark:bg-background">
+                    <Button variant="outline" size="sm" className="gap-2">
                       <BookOpen className="h-4 w-4" />
                       {linkedChapter.isNarrativeVersion
                         ? 'Lesevennlig versjon'
@@ -432,10 +432,10 @@ export function TextbookChapterView({
               <AssignmentBanner courseId={course.id} chapterId={chapterMeta.id} />
             </div>
 
-            {/* Fremgang */}
-            <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+            {/* Fremgang + øv-handlinger (gruppert) */}
+            <div className="mt-6 p-4 bg-muted/30 border border-border/60 rounded-lg">
               <div className="flex items-center justify-between text-sm mb-2">
-                <span>{selectedStudentId ? 'Elevens fremgang i kapitlet' : 'Din fremgang i kapitlet'}</span>
+                <span className="font-medium">{selectedStudentId ? 'Elevens fremgang i kapitlet' : 'Din fremgang i kapitlet'}</span>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   {subTaskStats.total > 0 && (
                     <span className="flex items-center gap-1.5">
@@ -485,40 +485,42 @@ export function TextbookChapterView({
                   );
                 })()}
               </div>
+
+              {/* Handlinger: én primær (Test deg selv), resten sekundær */}
+              {(hasQuiz || hasExam) && (
+                <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                  {hasQuiz && (
+                    <div className="flex-1">
+                      <Link href={`/bok/${course.id}/${chapterMeta.id}/quiz`}>
+                        <Button className="w-full gap-2">
+                          <BookCheck className="h-5 w-5" />
+                          Test deg selv
+                        </Button>
+                      </Link>
+                      {quizResult && (
+                        <div className="mt-2 text-center text-sm text-muted-foreground">
+                          <span className={`font-medium ${quizResult.percentage >= 70 ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                            {quizResult.percentage}% riktig
+                          </span>
+                          <span className="mx-1">•</span>
+                          <span>{quizResult.score}/{quizResult.total} poeng</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {hasExam && (
+                    <div className="flex-1">
+                      <Link href={`/bok/${course.id}/${chapterMeta.id}/prove`}>
+                        <Button variant="outline" className="w-full gap-2">
+                          <ClipboardCheck className="h-5 w-5" />
+                          Ta prøve
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-
-            {/* Quiz-knapp - vises for alle fag med quiz-data */}
-            {hasQuiz && (
-              <div className="mt-4">
-                <Link href={`/bok/${course.id}/${chapterMeta.id}/quiz`}>
-                  <Button className="w-full gap-2 bg-purple-600 hover:bg-purple-700 text-white">
-                    <BookCheck className="h-5 w-5" />
-                    Test deg selv
-                  </Button>
-                </Link>
-                {quizResult && (
-                  <div className="mt-2 text-center text-sm text-muted-foreground">
-                    <span className={`font-medium ${quizResult.percentage >= 70 ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
-                      {quizResult.percentage}% riktig
-                    </span>
-                    <span className="mx-1">•</span>
-                    <span>{quizResult.score}/{quizResult.total} poeng</span>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Prøve-knapp */}
-            {hasExam && (
-              <div className="mt-4">
-                <Link href={`/bok/${course.id}/${chapterMeta.id}/prove`}>
-                  <Button className="w-full gap-2 bg-orange-600 hover:bg-orange-700 text-white">
-                    <ClipboardCheck className="h-5 w-5" />
-                    Ta prøve
-                  </Button>
-                </Link>
-              </div>
-            )}
 
             {/* Adaptiv vanskelighetsgrad - kun for 8. klasse */}
             {course.id === '8' && (
@@ -566,7 +568,7 @@ export function TextbookChapterView({
 
                   {/* Teoriinnhold */}
                   <section className="mb-12">
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                       {chapterContent.content.map((block) => (
                         <ContentBlockRenderer
                           key={block.id}

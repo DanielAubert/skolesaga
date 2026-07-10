@@ -16,32 +16,80 @@ import {
   Laptop, Superscript, Plus,
   Radical, FunctionSquare, Target, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon, BookOpen, Layers
+  Waves, Activity, Hexagon, BookOpen, Layers, FileCheck
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
 import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';
+import { INSTITUSJONER } from '@/app/bok/trinn/hoyere/institusjoner';
 
-// Fargepalett for individuelle kort - hver kort får sin egen farge
-const CARD_COLORS = [
-  { bg: 'bg-blue-500', hover: 'hover:bg-blue-600', light: 'bg-blue-50 dark:bg-blue-950/30', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800' },
-  { bg: 'bg-emerald-500', hover: 'hover:bg-emerald-600', light: 'bg-emerald-50 dark:bg-emerald-950/30', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800' },
-  { bg: 'bg-violet-500', hover: 'hover:bg-violet-600', light: 'bg-violet-50 dark:bg-violet-950/30', text: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800' },
-  { bg: 'bg-orange-500', hover: 'hover:bg-orange-600', light: 'bg-orange-50 dark:bg-orange-950/30', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800' },
-  { bg: 'bg-pink-500', hover: 'hover:bg-pink-600', light: 'bg-pink-50 dark:bg-pink-950/30', text: 'text-pink-600 dark:text-pink-400', border: 'border-pink-200 dark:border-pink-800' },
-  { bg: 'bg-cyan-500', hover: 'hover:bg-cyan-600', light: 'bg-cyan-50 dark:bg-cyan-950/30', text: 'text-cyan-600 dark:text-cyan-400', border: 'border-cyan-200 dark:border-cyan-800' },
-  { bg: 'bg-amber-500', hover: 'hover:bg-amber-600', light: 'bg-amber-50 dark:bg-amber-950/30', text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-200 dark:border-amber-800' },
-  { bg: 'bg-rose-500', hover: 'hover:bg-rose-600', light: 'bg-rose-50 dark:bg-rose-950/30', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-200 dark:border-rose-800' },
-  { bg: 'bg-indigo-500', hover: 'hover:bg-indigo-600', light: 'bg-indigo-50 dark:bg-indigo-950/30', text: 'text-indigo-600 dark:text-indigo-400', border: 'border-indigo-200 dark:border-indigo-800' },
-  { bg: 'bg-teal-500', hover: 'hover:bg-teal-600', light: 'bg-teal-50 dark:bg-teal-950/30', text: 'text-teal-600 dark:text-teal-400', border: 'border-teal-200 dark:border-teal-800' },
-  { bg: 'bg-fuchsia-500', hover: 'hover:bg-fuchsia-600', light: 'bg-fuchsia-50 dark:bg-fuchsia-950/30', text: 'text-fuchsia-600 dark:text-fuchsia-400', border: 'border-fuchsia-200 dark:border-fuchsia-800' },
-  { bg: 'bg-lime-500', hover: 'hover:bg-lime-600', light: 'bg-lime-50 dark:bg-lime-950/30', text: 'text-lime-600 dark:text-lime-400', border: 'border-lime-200 dark:border-lime-800' },
-];
+// Én aksentfarge per bok (designspråk regel 1): kapittelkortene i samme bok
+// bruker samme fagfarge — aldri tilfeldig farge per kort.
+interface Accent {
+  solid: string;   // fylt flate (ikon-chip, nummer-chip)
+  text: string;    // aksentfarget tekst
+  soft: string;    // svak bakgrunn (dempet variant / lenker)
+  softHover: string;
+  border: string;  // kortkant
+}
 
-function getCardColor(index: number) {
-  return CARD_COLORS[index % CARD_COLORS.length];
+const ACCENTS: Record<string, Accent> = {
+  blue:    { solid: 'bg-blue-600',    text: 'text-blue-700 dark:text-blue-400',       soft: 'bg-blue-50 dark:bg-blue-950/30',       softHover: 'hover:bg-blue-100 dark:hover:bg-blue-900/40',       border: 'border-blue-200 dark:border-blue-900' },
+  emerald: { solid: 'bg-emerald-600', text: 'text-emerald-700 dark:text-emerald-400', soft: 'bg-emerald-50 dark:bg-emerald-950/30', softHover: 'hover:bg-emerald-100 dark:hover:bg-emerald-900/40', border: 'border-emerald-200 dark:border-emerald-900' },
+  violet:  { solid: 'bg-violet-600',  text: 'text-violet-700 dark:text-violet-400',   soft: 'bg-violet-50 dark:bg-violet-950/30',   softHover: 'hover:bg-violet-100 dark:hover:bg-violet-900/40',   border: 'border-violet-200 dark:border-violet-900' },
+  orange:  { solid: 'bg-orange-600',  text: 'text-orange-700 dark:text-orange-400',   soft: 'bg-orange-50 dark:bg-orange-950/30',   softHover: 'hover:bg-orange-100 dark:hover:bg-orange-900/40',   border: 'border-orange-200 dark:border-orange-900' },
+  teal:    { solid: 'bg-teal-600',    text: 'text-teal-700 dark:text-teal-400',       soft: 'bg-teal-50 dark:bg-teal-950/30',       softHover: 'hover:bg-teal-100 dark:hover:bg-teal-900/40',       border: 'border-teal-200 dark:border-teal-900' },
+  indigo:  { solid: 'bg-indigo-600',  text: 'text-indigo-700 dark:text-indigo-400',   soft: 'bg-indigo-50 dark:bg-indigo-950/30',   softHover: 'hover:bg-indigo-100 dark:hover:bg-indigo-900/40',   border: 'border-indigo-200 dark:border-indigo-900' },
+  rose:    { solid: 'bg-rose-600',    text: 'text-rose-700 dark:text-rose-400',       soft: 'bg-rose-50 dark:bg-rose-950/30',       softHover: 'hover:bg-rose-100 dark:hover:bg-rose-900/40',       border: 'border-rose-200 dark:border-rose-900' },
+  cyan:    { solid: 'bg-cyan-600',    text: 'text-cyan-700 dark:text-cyan-400',       soft: 'bg-cyan-50 dark:bg-cyan-950/30',       softHover: 'hover:bg-cyan-100 dark:hover:bg-cyan-900/40',       border: 'border-cyan-200 dark:border-cyan-900' },
+  amber:   { solid: 'bg-amber-600',   text: 'text-amber-700 dark:text-amber-400',     soft: 'bg-amber-50 dark:bg-amber-950/30',     softHover: 'hover:bg-amber-100 dark:hover:bg-amber-900/40',     border: 'border-amber-200 dark:border-amber-900' },
+  red:     { solid: 'bg-red-600',     text: 'text-red-700 dark:text-red-400',         soft: 'bg-red-50 dark:bg-red-950/30',         softHover: 'hover:bg-red-100 dark:hover:bg-red-900/40',         border: 'border-red-200 dark:border-red-900' },
+  slate:   { solid: 'bg-slate-600',   text: 'text-slate-700 dark:text-slate-300',     soft: 'bg-slate-100 dark:bg-slate-800/40',    softHover: 'hover:bg-slate-200 dark:hover:bg-slate-800/60',     border: 'border-slate-200 dark:border-slate-700' },
+};
+
+// Rekkefølgen deterministisk hash plukker fra (kun for bøker uten
+// institusjonsfarge). Endres rekkefølgen, bytter bøker farge.
+const ACCENT_KEYS = ['blue', 'emerald', 'violet', 'orange', 'teal', 'indigo', 'rose', 'cyan', 'amber'];
+
+function getCourseAccent(courseId: string): Accent {
+  // Høyskole: bruk fagets gradient fra institusjoner.ts (f.eks. «from-slate-600 …»).
+  for (const inst of INSTITUSJONER) {
+    const fag = inst.subjects.find((s) => s.courseId === courseId);
+    if (fag) {
+      const family = fag.color.match(/from-([a-z]+)-/)?.[1];
+      if (family && ACCENTS[family]) return ACCENTS[family];
+    }
+  }
+  // Ellers: deterministisk fra courseId — samme bok gir alltid samme farge.
+  let hash = 0;
+  for (const ch of courseId) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  return ACCENTS[ACCENT_KEYS[hash % ACCENT_KEYS.length]];
+}
+
+function formatMinutes(min: number): string {
+  if (min < 60) return `${min} min`;
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  return m > 0 ? `${h} t ${m} min` : `${h} t`;
+}
+
+// Høyskole-beskrivelsene følger mønsteret
+// «<intro> — kalibrert mot <kalibrering>: <temaliste>».
+// Vi løfter kalibreringen ut som salgslinje uten å hardkode tall.
+function parseHoyskoleDescription(description: string): {
+  intro: string;
+  calibration?: string;
+  topics?: string[];
+} {
+  const m = description.match(/^(.*?)\s*—\s*kalibrert mot\s+([^:]+?)\s*(?::\s*(.+?))?\.?$/);
+  if (!m) return { intro: description };
+  return {
+    intro: m[1].trim(),
+    calibration: m[2].trim(),
+    topics: m[3]?.split(/,\s*|\s+og\s+/).map((t) => t.trim()).filter(Boolean),
+  };
 }
 
 // Ikonmapping basert på emner og kapitteltitler - mer spesifikke ikoner
@@ -155,6 +203,9 @@ export default async function CourseOverviewPage({ params }: PageProps) {
 
   const sections = getChaptersBySection(courseId);
   const sectionNames = getSectionNames(courseId);
+  const accent = getCourseAccent(courseId);
+  const erHoyskole = course.level === 'Høyskole';
+  const hoyskoleDesc = erHoyskole ? parseHoyskoleDescription(course.description) : null;
 
   // Antall quizspørsmål på tvers av kapitlene — avgjør om eksamenstrening tilbys.
   const eksamensbankAntall = course.chapters
@@ -204,88 +255,125 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             </div>
             <div className="flex items-center gap-3">
               <AddCourseButton courseId={courseId} variant="full" />
+              {/* LK20/LK06 gjelder grunnskole/VGS — høyskolebøker er eksamensrettede */}
               <Badge variant="outline" className="text-sm">
-                {course.curriculum}
+                {course.level === 'Høyskole' ? 'Eksamensrettet' : course.curriculum}
               </Badge>
             </div>
           </div>
 
-          <p className="text-lg text-muted-foreground">{course.description}</p>
+          <p className="text-lg text-muted-foreground">
+            {hoyskoleDesc ? hoyskoleDesc.intro : course.description}
+          </p>
         </div>
         )}
 
-        {/* Kompetansemål- og flashcards-lenker */}
+        {/* Høyskole: kalibreringen mot ekte eksamenssett løftes ut som salgslinje */}
+        {hoyskoleDesc?.calibration && (
+          <div className={`mb-8 rounded-lg border ${accent.border} ${accent.soft} px-4 py-3`}>
+            <div className="flex items-start gap-3">
+              <FileCheck className={`h-5 w-5 mt-0.5 shrink-0 ${accent.text}`} aria-hidden="true" />
+              <div className="min-w-0">
+                <p className="text-sm sm:text-base">
+                  <span className="font-semibold">Bygget på {hoyskoleDesc.calibration}</span>
+                  <span className="text-muted-foreground"> — hvert kapittel er kalibrert mot det som faktisk gis til eksamen.</span>
+                </p>
+                {hoyskoleDesc.topics && hoyskoleDesc.topics.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {hoyskoleDesc.topics.map((topic) => (
+                      <Badge key={topic} variant="outline" className="text-xs font-normal bg-background/60">
+                        {topic}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Handlinger: én primær (fylt), resten sekundære (outline) — designspråk regel 2 */}
         <div className="mb-8 flex flex-wrap gap-3">
           <Link
             href={`/bok/${courseId}/kompetansemal`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             <Target className="h-5 w-5" />
             <span className="font-medium">
-              {course.level === 'Høyskole' ? 'Se læringsmål' : 'Se kompetansemål (LK20)'}
+              {erHoyskole ? 'Se læringsmål' : 'Se kompetansemål (LK20)'}
             </span>
             <ChevronRight className="h-4 w-4" />
           </Link>
           {getFlashcardDefinitionCount(courseId) > 0 && (
             <Link
               href={`/bok/${courseId}/flashcards`}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
             >
-              <Layers className="h-5 w-5" />
+              <Layers className="h-5 w-5 text-muted-foreground" />
               <span className="font-medium">
                 Flashcards ({getFlashcardDefinitionCount(courseId)} definisjoner)
               </span>
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </Link>
           )}
           {harEksamenstrening && (
             <Link
               href={`/bok/${courseId}/eksamen`}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 hover:bg-amber-100 dark:hover:bg-amber-950/50 text-amber-700 dark:text-amber-400 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
             >
-              <GraduationCap className="h-5 w-5" />
+              <GraduationCap className="h-5 w-5 text-muted-foreground" />
               <span className="font-medium">Eksamenstrening</span>
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </Link>
           )}
         </div>
 
         {/* Kapitler etter seksjon */}
-        <div className="space-y-10">
+        <div className="space-y-8">
           {Array.from(sections.entries()).map(([sectionNumber, chapters]) => {
             // Filtrer ut narrative versjoner fra hovedlisten
             const mainChapters = chapters.filter(ch => !ch.isNarrativeVersion);
 
-            // Beregn start-indeks for farger i denne seksjonen
-            let colorStartIndex = 0;
-            Array.from(sections.entries()).forEach(([secNum, chs]) => {
-              if (Number(secNum) < Number(sectionNumber)) {
-                const mainChs = chs.filter(ch => !ch.isNarrativeVersion);
-                colorStartIndex += mainChs.length;
-              }
-            });
-
             if (mainChapters.length === 0) return null;
 
+            // Del 0 (introduksjon/metode) er nøytral grå; del 1–N bruker fagfargen
+            const erDelNull = Number(sectionNumber) === 0;
+            const totalMinutes = mainChapters.reduce((sum, ch) => sum + (ch.estimatedMinutes || 0), 0);
+
             return (
-            <div key={sectionNumber}>
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-muted text-muted-foreground text-sm font-bold">
+            <section key={sectionNumber}>
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className={`inline-flex items-center justify-center w-10 h-10 rounded-lg text-base font-bold shrink-0 ${
+                    erDelNull ? 'bg-muted text-muted-foreground' : `${accent.solid} text-white`
+                  }`}
+                  aria-hidden="true"
+                >
                   {sectionNumber}
                 </span>
-                <span>Kapittel {sectionNumber}: {sectionNames[sectionNumber] || `Seksjon ${sectionNumber}`}</span>
-              </h2>
+                <div className="min-w-0">
+                  <h2 className="text-xl font-bold leading-tight">
+                    Kapittel {sectionNumber}: {sectionNames[sectionNumber] || `Seksjon ${sectionNumber}`}
+                  </h2>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {mainChapters.length} {mainChapters.length === 1 ? 'delkapittel' : 'delkapitler'}
+                    {totalMinutes > 0 && <> · ca. {formatMinutes(totalMinutes)}</>}
+                  </p>
+                </div>
+              </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                {mainChapters.map((chapter, idx) => {
+                {mainChapters.map((chapter) => {
                   const Icon = getChapterIcon(chapter);
-                  const color = getCardColor(colorStartIndex + idx);
                   const hasNarrativeVersion = chapter.linkedChapterId;
+                  // Prøve-kapitler får dempet variant av fagfargen
+                  const erProve = chapter.id.endsWith('-prove');
+                  const dempet = erProve || erDelNull;
 
                   return (
                     <div key={chapter.id} className="flex flex-col">
                       <Link href={`/bok/${courseId}/${chapter.id}`}>
-                        <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${color.border} overflow-hidden`}>
+                        <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${erDelNull ? 'border-border' : accent.border} ${erProve ? 'border-dashed' : ''} overflow-hidden`}>
                           {/* Cover image or colored top-bar */}
                           {chapter.coverImage ? (
                             <div className="relative h-32 w-full overflow-hidden bg-muted">
@@ -297,7 +385,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                                 className={`object-contain transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                              <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${color.bg}`}>
+                              <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${erDelNull ? 'bg-slate-600' : accent.solid}`}>
                                 {chapter.number}
                               </div>
                               {chapter.wip && (
@@ -307,19 +395,25 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                               )}
                             </div>
                           ) : (
-                            <div className={`h-1.5 w-full ${color.bg}`} />
+                            <div className={`h-1.5 w-full ${erDelNull ? 'bg-muted' : dempet ? accent.soft : accent.solid}`} />
                           )}
 
                           <CardHeader className="p-3">
                             <div className="flex items-start gap-2">
-                              {/* Kompakt ikon */}
-                              <div className={`p-2 rounded-lg ${color.bg} text-white shrink-0`}>
+                              {/* Kompakt ikon — fylt i fagfargen, dempet for del 0 og prøver */}
+                              <div className={`p-2 rounded-lg shrink-0 ${
+                                erDelNull
+                                  ? 'bg-muted text-muted-foreground'
+                                  : dempet
+                                    ? `${accent.soft} ${accent.text}`
+                                    : `${accent.solid} text-white`
+                              }`}>
                                 <Icon className="h-4 w-4" />
                               </div>
                               <div className="min-w-0 flex-1">
                                 <CardTitle className="text-xs sm:text-sm leading-tight">
                                   {!chapter.coverImage && (
-                                    <span className={`font-mono text-xs font-semibold ${color.text}`}>{chapter.number}</span>
+                                    <span className={`font-mono text-xs font-semibold ${erDelNull ? 'text-muted-foreground' : accent.text}`}>{chapter.number}</span>
                                   )}
                                   <span className="font-medium ml-1 line-clamp-2 break-words">{chapter.title}</span>
                                 </CardTitle>
@@ -346,7 +440,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                       {hasNarrativeVersion && (
                         <Link
                           href={`/bok/${courseId}/${chapter.linkedChapterId}`}
-                          className="mt-1 px-2 py-1 text-xs text-center rounded-md bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors flex items-center justify-center gap-1"
+                          className={`mt-1 px-2 py-1 text-xs text-center rounded-md ${accent.soft} ${accent.text} ${accent.softHover} transition-colors flex items-center justify-center gap-1`}
                         >
                           <BookOpen className="h-3 w-3" />
                           Lesevennlig versjon
@@ -356,7 +450,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                   );
                 })}
               </div>
-            </div>
+            </section>
           );
           })}
         </div>

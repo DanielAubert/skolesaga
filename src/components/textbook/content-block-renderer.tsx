@@ -217,8 +217,10 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
 // ============================================================================
 
 function TextBlock({ content }: { content: string }) {
+  // Typografisk ro: begrens linjelengden på løpende tekst (~70ch),
+  // men la tabeller, figurer og display-LaTeX beholde full bredde.
   return (
-    <div className="prose prose-slate dark:prose-invert max-w-none">
+    <div className="prose prose-slate dark:prose-invert max-w-none [&_p]:max-w-[70ch] [&_h2]:max-w-[70ch] [&_h3]:max-w-[70ch] [&_h4]:max-w-[70ch] [&_h5]:max-w-[70ch] [&_ul]:max-w-[70ch] [&_ol]:max-w-[70ch] [&_blockquote]:max-w-[70ch]">
       <LatexRenderer content={content} />
     </div>
   );
@@ -230,10 +232,10 @@ function TextBlock({ content }: { content: string }) {
 
 function DefinitionBlock({ title, content }: { title: string; content: string }) {
   return (
-    <Card className="border-l-4 border-l-blue-500 bg-blue-50/50 dark:bg-blue-950/20 pt-3 pb-4 !gap-0">
+    <Card className="border-border/60 border-l-4 border-l-primary/60 bg-muted/40 shadow-none pt-3 pb-4 !gap-0">
       <CardHeader className="px-4 py-0">
-        <CardTitle className="text-lg flex items-center gap-2 text-blue-700 dark:text-blue-300">
-          <BookOpen className="h-5 w-5" />
+        <CardTitle className="text-lg flex items-center gap-2">
+          <BookOpen className="h-5 w-5 text-primary" />
           {title}
         </CardTitle>
       </CardHeader>
@@ -254,7 +256,7 @@ function TheoremBlock({ title, content, proof }: { title: string; content: strin
   const [showProof, setShowProof] = useState(false);
 
   return (
-    <Card className="border-l-4 border-l-purple-500 bg-purple-50/50 dark:bg-purple-950/20">
+    <Card className="border-purple-200/60 dark:border-purple-900/40 border-l-4 border-l-purple-500/70 bg-purple-50/40 dark:bg-purple-950/15 shadow-none">
       <CardHeader className="pb-2">
         <CardTitle className="text-lg flex items-center gap-2 text-purple-700 dark:text-purple-300">
           <span className="text-xl">📜</span>
@@ -286,7 +288,7 @@ function TheoremBlock({ title, content, proof }: { title: string; content: strin
               )}
             </Button>
             {showProof && (
-              <div className="mt-2 p-4 bg-purple-100/50 dark:bg-purple-900/20 rounded-lg">
+              <div className="mt-2 p-4 bg-purple-100/40 dark:bg-purple-900/15 rounded-lg">
                 <div className="prose prose-slate dark:prose-invert max-w-none prose-p:my-2">
                   <LatexRenderer content={proof} />
                 </div>
@@ -305,9 +307,9 @@ function TheoremBlock({ title, content, proof }: { title: string; content: strin
 
 function ProofBlock({ title, content }: { title?: string; content: string }) {
   return (
-    <Card className="border-l-4 border-l-gray-400 bg-gray-50/50 dark:bg-gray-900/20">
+    <Card className="border-border/60 border-l-4 border-l-muted-foreground/40 bg-muted/30 shadow-none">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg text-gray-700 dark:text-gray-300">
+        <CardTitle className="text-lg text-muted-foreground">
           {title || 'Bevis'}
         </CardTitle>
       </CardHeader>
@@ -384,7 +386,7 @@ function ExampleBlock({
   };
 
   return (
-    <Card className="border-l-4 border-l-green-500 bg-green-50/50 dark:bg-green-950/20 py-4 gap-3">
+    <Card className="border-green-200/60 dark:border-green-900/40 border-l-4 border-l-green-600/70 bg-green-50/40 dark:bg-green-950/15 shadow-none py-4 gap-3">
       <CardHeader className="px-4">
         <CardTitle className="text-lg flex items-center gap-2 text-green-700 dark:text-green-300">
           <span className="text-xl">✏️</span>
@@ -396,7 +398,7 @@ function ExampleBlock({
           <LatexRenderer content={problem} />
         </div>
 
-        <div className="p-2 bg-green-100/50 dark:bg-green-900/20 rounded">
+        <div className="p-3 bg-green-100/40 dark:bg-green-900/15 rounded-md">
           {steps && steps.length > 0 ? (
             <ol className="list-decimal list-inside space-y-1">
               {steps.map((step, index) => (
@@ -438,7 +440,7 @@ function ExampleBlock({
 
 function NoteBlock({ content }: { content: string }) {
   return (
-    <Alert className="border-blue-200 bg-blue-50/50 dark:border-blue-800 dark:bg-blue-950/20">
+    <Alert className="border-blue-200/60 bg-blue-50/40 dark:border-blue-900/40 dark:bg-blue-950/15">
       <Info className="h-4 w-4 text-blue-500" />
       <AlertDescription className="text-blue-800 dark:text-blue-200">
         <LatexRenderer content={content} />
@@ -453,7 +455,7 @@ function NoteBlock({ content }: { content: string }) {
 
 function WarningBlock({ title, content }: { title?: string; content: string }) {
   return (
-    <Alert className="border-amber-200 bg-amber-50/50 dark:border-amber-800 dark:bg-amber-950/20">
+    <Alert className="border-amber-200/70 bg-amber-50/40 dark:border-amber-900/50 dark:bg-amber-950/20">
       <AlertTriangle className="h-4 w-4 text-amber-500" />
       {title && <AlertTitle className="text-amber-800 dark:text-amber-200">{title}</AlertTitle>}
       <AlertDescription className="text-amber-800 dark:text-amber-200">
@@ -469,9 +471,9 @@ function WarningBlock({ title, content }: { title?: string; content: string }) {
 
 function TipBlock({ content }: { content: string }) {
   return (
-    <Alert className="border-emerald-200 bg-emerald-50/50 dark:border-emerald-800 dark:bg-emerald-950/20">
-      <Lightbulb className="h-4 w-4 text-emerald-500" />
-      <AlertDescription className="text-emerald-800 dark:text-emerald-200">
+    <Alert className="border-primary/25 bg-primary/5">
+      <Lightbulb className="h-4 w-4 text-primary" />
+      <AlertDescription className="text-foreground/90">
         <LatexRenderer content={content} />
       </AlertDescription>
     </Alert>
@@ -580,7 +582,7 @@ function AudioBlockComponent({
   description?: string;
 }) {
   return (
-    <Card className="border-2 border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/20">
+    <Card className="border-teal-200/60 dark:border-teal-900/40 bg-teal-50/40 dark:bg-teal-950/15 shadow-none">
       <CardHeader className="pb-2">
         <CardTitle className="text-lg flex items-center gap-2 text-teal-700 dark:text-teal-300">
           <Headphones className="h-5 w-5" />
@@ -624,7 +626,7 @@ function GeoGebraBlockComponent({
   appType?: 'graphing' | 'geometry' | 'classic' | '3d' | 'cas' | 'scientific';
 }) {
   return (
-    <Card className="border-2 border-orange-200 dark:border-orange-800">
+    <Card className="border-orange-200/60 dark:border-orange-900/40 shadow-none">
       <CardHeader className="pb-2">
         <CardTitle className="text-lg flex items-center gap-2 text-orange-700 dark:text-orange-300">
           <span className="text-xl">📊</span>
@@ -763,7 +765,7 @@ function FormulaBlock({
   description?: string;
 }) {
   return (
-    <Card className="border-2 border-indigo-200 dark:border-indigo-800 bg-indigo-50/50 dark:bg-indigo-950/20">
+    <Card className="border-indigo-200/60 dark:border-indigo-900/40 border-l-4 border-l-indigo-500/70 bg-indigo-50/40 dark:bg-indigo-950/15 shadow-none">
       {title && (
         <CardHeader className="pb-2">
           <CardTitle className="text-lg text-indigo-700 dark:text-indigo-300">
@@ -801,9 +803,9 @@ function ExerciseBlockComponent({
   viewingAsStudentId?: string | null;
 }) {
   return (
-    <Card className="border-l-4 border-l-orange-500 bg-orange-50/50 dark:bg-orange-950/20 py-4 gap-3">
+    <Card className="border-blue-200/60 dark:border-blue-900/40 border-l-4 border-l-blue-500/70 bg-blue-50/40 dark:bg-blue-950/15 shadow-none py-4 gap-3">
       <CardHeader className="px-4">
-        <CardTitle className="text-lg flex items-center gap-2 text-orange-700 dark:text-orange-300">
+        <CardTitle className="text-lg flex items-center gap-2 text-blue-700 dark:text-blue-300">
           <span className="text-xl">📝</span>
           Oppgave {exercise.number}
         </CardTitle>
@@ -913,7 +915,7 @@ function CollapsibleBlockComponent({
     : 0;
 
   return (
-    <Card className="border-2 border-dashed border-muted-foreground/30">
+    <Card className="border border-dashed border-muted-foreground/25 shadow-none">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl font-bold">{title}</CardTitle>

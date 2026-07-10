@@ -130,7 +130,7 @@ export function AiSensorPanel({ courseId, chapterId, exerciseId }: AiSensorPanel
   }
 
   return (
-    <Card className="mt-3 border-dashed">
+    <Card className="mt-3 border-dashed border-primary/30 bg-primary/[0.03] shadow-none">
       <CardContent className="pt-4 space-y-3">
         <div className="flex items-center gap-2 text-sm font-medium">
           <Sparkles className="h-4 w-4 text-primary" />

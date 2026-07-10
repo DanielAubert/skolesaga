@@ -78,7 +78,7 @@ export function ExerciseAnswerKey({ exercises }: ExerciseAnswerKeyProps) {
   }
 
   return (
-    <Card className="mt-8 border-green-200 dark:border-green-800">
+    <Card className="mt-8 border-green-200/60 dark:border-green-900/40 border-l-4 border-l-green-600/70 bg-green-50/30 dark:bg-green-950/10 shadow-none">
       <CardHeader className="py-3 px-4">
         <Button
           variant="ghost"
