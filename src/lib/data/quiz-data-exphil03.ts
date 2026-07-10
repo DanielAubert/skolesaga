@@ -2875,6 +2875,58 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
       explanation: "De fleste karaktertap skyldes behandling, ikke innhold: gjengivelse uten drøfting (#1), mening uten grunner (#2), presisjonsglipp (#6) eller ensidighet (#8). En jevn, feilfri C slår en briljant, men ujevn besvarelse.",
     },
   ],
+  'exphil03-4-7': [
+    {
+      question: "Hva er funksjonen til Mill-utdraget i (b) i 4.7-modellen — hvilken jobb gjør det i argumentet?",
+      options: ["Det svarer på «fornøyd gris»-innvendingen ved å innføre kvalitetsskillet mellom høyere og lavere gleder", "Det beviser at all nytelse er like mye verdt", "Det innfører nytteprinsippet for første gang", "Det argumenterer for at plikt går foran lykke"],
+      explanation: "S2-kjernen er å identifisere funksjonen først: utdraget er Mills forsvar mot innvendingen om at utilitarismen reduserer moralen til nytelsesjag. Det innfører det kvalitative skillet og gir kriteriet — det kompetente flertalls dom.",
+    },
+    {
+      question: "Hva er kriteriet Mill gir for hvilke gleder som er de høyeste, ifølge (b) i modellen?",
+      options: ["Dommen til den som har erfart begge slags gleder", "Mengden nytelse gleden gir", "Hva flertallet i samfunnet stemmer for", "Hva som gir minst smerte på kort sikt"],
+      explanation: "Den som kjenner både tankens og sansenes gleder, foretrekker varig de høyere — og det er den kompetente dommen, ikke nytelsesmengden, som avgjør. Uten kriteriet er kvalitetsskillet bare en påstand.",
+    },
+    {
+      question: "A-besvarelsens (c) sammenligner Mill og Kant langs tre navngitte dimensjoner. Hvilke?",
+      options: ["Hvor verdien ligger (følger/sinnelag), hvilket prinsipp som avgjør (betinget/ubetinget), og menneskets stilling (kan ofres/formål i seg selv)", "Biografi, historisk epoke og politisk ståsted", "Lengde, struktur og språkføring i tekstene", "Religion, vitenskap og kunst"],
+      explanation: "S3-kjernen er å sammenligne langs akser, ikke skrive to parallelle referater. Den tredje dimensjonen (mennesket som middel mot formål i seg selv) peker rett inn i drøftingen i (d) — en bevisst bro.",
+    },
+    {
+      question: "Hva er rettferdighetsinnvendingen mot utilitarismen, slik (d) i modellen bruker den?",
+      options: ["Fordi bare summen av lykke teller, kan prinsippet i teorien rettferdiggjøre å ofre én uskyldig for de mange", "At utilitarismen er for vanskelig å regne ut i praksis", "At Mill ikke definerte lykke presist nok", "At teorien er for gammel til å brukes i dag"],
+      explanation: "Innvendingen følger av den konsekvensialistiske strukturen fra (a) og hentes med Kant-forankring fra (c): mennesket brukes bare som middel. Det er slik A-besvarelsen bygger motstemmen — ikke som ekstern synsing.",
+    },
+    {
+      question: "Hvordan kan Mill svare på rettferdighetsinnvendingen, ifølge veiingen i (d)?",
+      options: ["Med regelnivået (en regel som tillater å ofre uskyldige, senker samlet lykke) og kvalitetsskillet fra (b)", "Med at rettferdighet ikke betyr noe i utilitarismen", "Med at Kant egentlig er enig med ham", "Med at innvendingen bare gjelder i fattige samfunn"],
+      explanation: "A-besvarelsen tar Mills svar på alvor: på regelnivå undergraver en slik regel tryggheten og dermed lykken. Men den viser også hvor svaret svikter — det hviler på empiriske antakelser som kan feile i konstruerte tilfeller.",
+    },
+    {
+      question: "Hva er A-besvarelsens forbeholdne konklusjon om utilitarismens holdbarhet?",
+      options: ["Holdbar som ett moralsk hensyn (upartiskheten er reell), men neppe som hele moralen — den sliter med å forankre ukrenkelige rettigheter", "Fullstendig holdbar — innvendingene er misforståelser", "Fullstendig uholdbar — Kant har rett i alt", "Spørsmålet kan ikke besvares og bør ikke drøftes"],
+      explanation: "Femtrinnsstrukturens siste trinn: en forbeholden konklusjon med «hva ville endret vurderingen» (et regelutilitaristisk forsvar uten tvilsomme empiriske antakelser). Klar stillingtagen, men med presist forbehold.",
+    },
+    {
+      question: "Hvorfor sperres C-besvarelsens (d) for A, selv om alle delene er faglig korrekte?",
+      options: ["Den forlenger referatet (#1), starter «på nytt» uten å bruke (a)/(b)/(c) (#5) og ender i ubegrunnet mening (#2)", "Den er for kort til å kunne vurderes", "Den bruker for mange faguttrykk", "Den tar stilling for tidlig og for tydelig"],
+      explanation: "Gapet til A er drøftingskvalitet og kobling, ikke kunnskap: Kant-innvendingen nevnes men veies aldri mot Mills svar, og «jeg synes … stort sett god» er mening uten grunner.",
+    },
+    {
+      question: "Hva er gjenbruksbonusen slik 4.7-modellen demonstrerer den i praksis?",
+      options: ["(a)s upartiskhet blir argumentet FOR, (c)s mennesket-som-middel blir innvendingen MOT, og (b)s kvalitetsskille blir en nyanse i veiingen", "At man kan kopiere formuleringer fra gamle eksamenssett", "At sensor gir ekstra poeng for lange svar", "At samme svar kan leveres på flere delspørsmål"],
+      explanation: "Å føre poeng fra kunnskapsdelene inn i drøftingen belønnes i samtlige veiledninger 2024–2025. C-besvarelsen kaster bort bonusen ved å starte (d) uten å bruke noe av det den allerede har etablert (feil #5).",
+    },
+    {
+      question: "Hva viser sensorblikkets poeng «kort + korrekt = fullgodt» i 4.7?",
+      options: ["A-besvarelsen er knapt lengre enn C-en — forskjellen er at (d) veier og kobler, ikke at den er lang", "Jo kortere besvarelsen er, desto bedre karakter", "Lange besvarelser trekkes automatisk i karakter", "Lengden avgjør karakteren når innholdet er likt"],
+      explanation: "A ≈ C i lengde: gapet ligger i drøftingskvalitet og (a)/(b)/(c)→(d)-kobling. Å skrive mer uten å treffe er ikke veien til A.",
+    },
+    {
+      question: "Tenk deg at (c) i 4.7-oppgaven hadde stått blank, mens (a), (b) og (d) var gode. Hva skjer med helheten, og hvorfor?",
+      options: ["Helheten faller under C — jevnhetsregelen krever «god» på alle delspørsmålene", "Ingenting — de tre gode delene kompenserer", "Karakteren blir B fordi gjennomsnittet er høyt", "Sensor ser bort fra (c) hvis resten er sterkt"],
+      explanation: "C-porten er en jevnhetsterskel: én blank del stenger for C uansett hvor sterke de andre er (feil #4). Derfor slår en kort men korrekt del alltid en tom.",
+    },
+  ],
   'exphil03-4-8': [
     {
       question: "I 4.8-modellen: hva er den avgjørende presisjonsfeilen C-besvarelsen begår i (b)?",
@@ -2905,6 +2957,21 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
       question: "Hvorfor når ikke C-besvarelsens (c) A-nivå, selv om (a) er solid?",
       options: ["Den forlenger referatet (#1), starter «på nytt» uten å bruke (a)/(b) (#5) og ender i ubegrunnet mening (#2)", "Den bruker for avanserte begreper og blir uklar", "Den tar for tydelig stilling for tidlig", "Den siterer Wikforss ordrett og for langt"],
       explanation: "Jevnhetsregelen: C-porten krever «god» på Kunnskap OG Forståelse/analyse i ALLE delspørsmål. En solid (a) kompenserer ikke for en upresis (b) og en flat, ukoblet (c).",
+    },
+    {
+      question: "Hvorfor er «gode grunner er ikke bevis» et avgjørende poeng i (b) i 4.8-modellen?",
+      options: ["Evidenskravet er ikke et visshetskrav — gjør man gode grunner om til bevis, faller man tilbake til Descartes' sikkerhetskrav", "Fordi bevis ikke finnes i noen vitenskap", "Fordi Wikforss mener grunner er unødvendige for kunnskap", "Fordi bare matematiske bevis teller som kunnskap"],
+      explanation: "Wikforss' tredje vilkår krever gode grunner/evidens, ikke absolutt visshet. Å skjerpe kravet til «bevis» er å gjeninnføre nettopp det sikkerhetsidealet utdraget avviser som umulig.",
+    },
+    {
+      question: "Hvilket dagliglivseksempel bruker A-besvarelsen i (c), og hva viser det?",
+      options: ["Legen som vet at pasienten har lungebetennelse uten å utelukke enhver ond ånd-hypotese — kunnskap krever gode nok grunner, ikke visshet", "En student som gjetter riktig på eksamen — flaks er kunnskap", "En pilot som stoler blindt på instrumentene — sansene lyver aldri", "En dommer som krever full visshet før dom — skeptisisme i praksis"],
+      explanation: "Eksemplet er et selvstendig bidrag som konkretiserer fallibilismen: dagliglivets og vitenskapens kunnskap er aldri hevet over enhver tenkelig tvil, men den er likevel kunnskap.",
+    },
+    {
+      question: "Hva er A-besvarelsens forbeholdne konklusjon i (c) — trenger vi sikkerhet for å ha kunnskap?",
+      options: ["Nei — gode grunner holder, ellers kollapser kunnskapsbegrepet i skeptisisme; Descartes' krav er feilplassert (det gjelder cogito, ikke verdenskunnskap)", "Ja — uten absolutt visshet finnes ingen kunnskap i det hele tatt", "Spørsmålet er meningsløst og kan ikke drøftes", "Ja for vitenskapen, nei for dagliglivet"],
+      explanation: "Konklusjonen tar stilling med forbehold: Descartes' innsikt består for ett smalt punkt (cogito er sikkert fordi det er innholdstomt), men den sikkerheten kan ikke være målestokk for all kunnskap.",
     },
   ],
   'exphil03-4-9': [
@@ -2937,6 +3004,21 @@ const quizData_exphil03: Record<string, QuizQuestion[]> = {
       question: "Hvorfor er tidsbudsjett en «strategi» og ikke bare husholdning i H2025-formatet?",
       options: ["Fordi jevnhet er karakterporten — en glimrende del som spiser tiden til en annen senker helheten under C", "Fordi sensor trekker fra poeng for hvert minutt over grensen", "Fordi den lengste besvarelsen alltid får best karakter", "Fordi man må bruke nøyaktig like mange ord i hver del"],
       explanation: "Siden C-porten krever «god» på alle tre delene, senker en utsultet del helheten uansett hvor sterk en annen del er. Å fordele tiden jevnt (~75 min per del) og levere tre jevne deler er derfor selve karakterstrategien.",
+    },
+    {
+      question: "Hvor mange oppgaver besvarer du totalt i H2025-formatet, og hvordan velges de?",
+      options: ["Tre — én av to valgfrie oppgaver i hver av delene A (Vite), B (Være) og C (Gjøre)", "Seks — begge oppgavene i alle tre delene", "Én — du velger den delen du kan best", "To — Vite og Gjøre er obligatoriske, Være er valgfri"],
+      explanation: "Formatet speiler bokas tredeling: ett valg per del, tre kortere besvarelser på fire timer. Å svare på begge alternativene i en del er feil #12 og sprer svaret for tynt.",
+    },
+    {
+      question: "Hva gjør A-besvarelsen med Lockes to forbehold i del C, som C-besvarelsen ikke gjør?",
+      options: ["Bruker dem aktivt i drøftingen: forbeholdene innrømmer allerede at eieren står i forhold til andre — noe Held radikaliserer", "Nevner dem ikke, siden de er uvesentlige for Held", "Bruker dem til å avvise Held fullstendig", "Erstatter dem med Kants kategoriske imperativ"],
+      explanation: "A-markøren i del C: «nok og like godt igjen» og «ikke la råtne» viser at selv Lockes eier er bundet til andre. C-besvarelsen glemmer forbeholdene helt, slik at retten fremstår ubetinget (feil #6).",
+    },
+    {
+      question: "Hva bør du gjøre FØR du begynner å skrive i H2025-formatet, ifølge modellen?",
+      options: ["Sette en tidsplan — om lag 75 minutter per del — og holde den", "Skrive en lang innledning om filosofiens historie", "Besvare den letteste delen dobbelt så grundig", "Lese bare den første delen og begynne umiddelbart"],
+      explanation: "Tidsbudsjettet er strategien: fordi jevnhet er karakterporten, må ingen del sultes ut for å pynte på en annen. Planen settes før skrivingen, ikke underveis.",
     },
   ],
 };
