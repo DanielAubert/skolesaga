@@ -219,8 +219,9 @@ export default function HomePage() {
               <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all shrink-0" />
             </Link>
             <p className="text-center text-xs text-muted-foreground">
-              Innholdet er skrevet av KI og kvalitetskontrollert av KI-agenter — foreløpig ikke
-              manuelt gjennomgått.{' '}
+              Innholdet er skrevet av Anthropics toppmodeller (Claude Opus og Claude Fable),
+              kvalitetskontrollert av KI-agenter og oppdatert etter hvert som nyere modeller
+              kommer — foreløpig ikke manuelt gjennomgått.{' '}
               <Link
                 href="/vilkar#ki-deklarasjon"
                 className="underline underline-offset-2 hover:text-foreground transition-colors"

@@ -200,7 +200,8 @@ export function AiDisclosureNotice({ courseId, chapterId, chapterTitle }: Feedba
         <div className="flex items-start gap-2 text-sm text-muted-foreground">
           <Sparkles className="h-4 w-4 mt-0.5 shrink-0" />
           <p>
-            Dette kapitlet er skrevet av kunstig intelligens og er foreløpig ikke manuelt
+            Dette kapitlet er skrevet av Anthropics toppmodeller (Claude Opus og Claude
+            Fable) og er foreløpig ikke manuelt
             gjennomgått — kvalitetskontrollen gjøres av uavhengige KI-agenter, og innmeldte
             feil rettes fortløpende. Funnet en feil? Meld fra, så retter vi den.{' '}
             <Link href="/vilkar#ki-deklarasjon" className="underline hover:text-foreground">
