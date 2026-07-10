@@ -498,9 +498,9 @@ export default async function GradePage({ params }: PageProps) {
               {[
                 {
                   step: '1',
-                  title: 'KI bygger bøkene på læreplanen (LK20)',
+                  title: 'Bygget med Anthropics toppmodeller',
                   description:
-                    'KI-en vår leser kompetansemålene i LK20 og skriver hvert kapittel mot konkrete mål — ikke løsrevet fagstoff, men det læreplanen faktisk sier at du skal mestre.',
+                    'Bøkene er skrevet av Claude Opus og Claude Fable — toppmodellene til Anthropic. De leser kompetansemålene i LK20 og skriver hvert kapittel mot konkrete mål: ikke løsrevet fagstoff, men det læreplanen faktisk sier at du skal mestre.',
                 },
                 {
                   step: '2',
@@ -516,9 +516,9 @@ export default async function GradePage({ params }: PageProps) {
                 },
                 {
                   step: '4',
-                  title: 'KI-agenter kjører kvalitetskontrollen',
+                  title: 'Kvalitetskontroll — og kontinuerlig forbedring',
                   description:
-                    'Uavhengige KI-agenter kontrollerer innholdet: automatiske valideringsporter, faglige revisjoner og simulerte lesertester. Innholdet er foreløpig ikke manuelt gjennomgått — finner du en feil, melder du fra med ett klikk i kapitlet, og den rettes fortløpende.',
+                    'Uavhengige KI-agenter kjører valideringsporter, faglige revisjoner og simulerte lesertester. Og hver gang nyere modeller kommer, oppdaterer vi bøkene med dem — fra små rettinger til totale omskrivinger. Finner du en feil, melder du fra med ett klikk, og den rettes fortløpende.',
                 },
               ].map((c) => (
                 <div key={c.step} className="rounded-2xl border bg-card p-6">
@@ -532,9 +532,13 @@ export default async function GradePage({ params }: PageProps) {
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-xs text-muted-foreground max-w-2xl">
-              Full åpenhet: bøkene er skrevet og satt sammen av KI, og
-              kvalitetskontrollen gjøres av KI-agenter.{' '}
+            <p className="mt-8 text-sm font-medium max-w-2xl">
+              Velg læreboka som kontinuerlig blir bedre.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground max-w-2xl">
+              Full åpenhet: bøkene er skrevet og satt sammen av KI og er
+              foreløpig ikke manuelt gjennomgått — kvalitetskontrollen gjøres
+              av KI-agenter.{' '}
               <Link
                 href="/vilkar#ki-deklarasjon"
                 className="underline underline-offset-2 hover:text-foreground"

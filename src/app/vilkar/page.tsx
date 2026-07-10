@@ -74,7 +74,9 @@ export default function VilkarPage() {
               etterregning av regneeksempler og kontroll av kilder) og simulerte
               lesertester fra ulike studentperspektiver. Hvert kapittel bygges mot
               konkrete kompetansemål i læreplanen (LK20) eller fagets eksamenskrav, og
-              struktureres etter et fast teori–eksempel–oppgave-mønster.
+              struktureres etter et fast teori–eksempel–oppgave-mønster. Innholdet
+              oppdateres aktivt etter hvert som nyere KI-modeller blir tilgjengelige —
+              fra mindre rettinger til fullstendige omskrivinger.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               KI-generert innhold kan inneholde feil, også der fremstillingen virker sikker.

@@ -126,9 +126,9 @@ export default function HoyerePage() {
                 },
                 {
                   step: '3',
-                  title: 'KI setter sammen boka – med modellbesvarelser',
+                  title: 'Bygget med Anthropics toppmodeller',
                   description:
-                    'KI skriver kapitlene og nyskrevne modellbesvarelser på ulike nivåer, side om side – også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent.',
+                    'Claude Opus og Claude Fable — toppmodellene til Anthropic — skriver kapitlene og nyskrevne modellbesvarelser på ulike nivåer, side om side: også en som misser mye og likevel består. Gulvet er nåbart, og veien til toppen er beskrevet som håndverk, ikke talent.',
                 },
                 {
                   step: '4',
@@ -148,7 +148,12 @@ export default function HoyerePage() {
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-xs text-muted-foreground max-w-2xl">
+            <p className="mt-8 text-sm font-medium max-w-2xl">
+              Velg læreboka som kontinuerlig blir bedre: hver gang nyere modeller
+              kommer, oppdaterer vi bøkene med dem — fra små rettinger til totale
+              omskrivinger.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground max-w-2xl">
               Full åpenhet: bøkene er skrevet og satt sammen av KI, og kvalitetskontrollen
               gjøres av uavhengige KI-agenter — innholdet er foreløpig ikke manuelt
               gjennomgått. Innmeldte feil rettes fortløpende.{' '}
