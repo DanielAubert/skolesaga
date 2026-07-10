@@ -1187,11 +1187,11 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Kjøper har videresolgt varen når hevingskravet fremmes. Hva slår inn?",
-      options: ["Hevingssperren § 66 (1) c — hevingsretten er som utgangspunkt tapt fordi varen ikke kan tilbakeleveres", "Ingenting — heving kan alltid kreves", "Selgers retterett § 36", "Reklamasjonsfristen § 32 forlenges"],
-      explanation: "§ 66 (1) c: heving forutsetter tilbakelevering i vesentlig samme stand. Videresalg stenger som utgangspunkt heving (med unntakene a–c); kjøper faller tilbake på prisavslag/erstatning.",
+      options: ["Hevingssperren § 66 (1) — hevingsretten er som utgangspunkt tapt fordi varen ikke kan tilbakeleveres", "Ingenting — heving kan alltid kreves", "Selgers retterett § 36", "Reklamasjonsfristen § 32 forlenges"],
+      explanation: "§ 66 (1): heving forutsetter tilbakelevering i vesentlig samme stand og mengde. Videresalg stenger som utgangspunkt heving — med mindre et unntak i bokstav a–c slår inn, særlig bokstav c (videresalg i vanlig omsetning eller forbruk under forutsatt bruk før mangelen ble eller burde blitt oppdaget). Ellers faller kjøper tilbake på prisavslag/erstatning.",
     },
     {
-      question: "Hvilke beføyelser rammes IKKE av hevingssperren i § 66 (1) c?",
+      question: "Hvilke beføyelser rammes IKKE av hevingssperren i § 66 (1)?",
       options: ["Prisavslag og erstatning", "Alle beføyelser rammes likt", "Bare erstatning rammes ikke; prisavslag rammes", "Ingen beføyelser kan gjøres gjeldende når sperren slår inn"],
       explanation: "Hevingssperren gjelder bare hevingsretten. Kjøper kan fortsatt kreve prisavslag (§ 38) og erstatning (§ 40/§ 67) selv om varen er videresolgt eller forbrukt.",
     },
@@ -1539,9 +1539,9 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
       explanation: "Prisavslag etter § 38 er forholdsmessig: kjøpesummen settes ned i samme forhold som mangelen reduserer verdien. Det krever verken vesentlig kontraktsbrudd eller skyld, og er derfor en robust beføyelse når heving er tvilsom.",
     },
     {
-      question: "En næringsdrivende bruktbutikk selger en klipper i kommisjon for en privat eier, som beholder eiendomsretten til salget. Hvilken lov gjelder?",
-      options: ["Kjøpsloven, fordi den reelle selgeren er den private eieren", "Forbrukerkjøpsloven, fordi kjøpet skjedde i et butikklokale", "Forbrukerkjøpsloven, fordi en næringsdrivende var involvert i salget", "Angrerettloven, fordi salget skjedde gjennom en butikk"],
-      explanation: "Lovvalget avgjøres av hvem som er den reelle selgeren. Selger butikken i kommisjon for en privat eier som beholder eiendomsretten, er selgersiden reelt privat, og kjøpsloven gjelder. Hadde butikken kjøpt og solgt for egen regning, ville fkjl. gjeldt.",
+      question: "En næringsdrivende bruktbutikk selger en klipper i kommisjon for en privat eier, som beholder eiendomsretten til salget. En forbruker kjøper klipperen. Hvilken lov gjelder?",
+      options: ["Forbrukerkjøpsloven — representantregelen i fkjl. § 1 fjerde ledd likestiller den næringsdrivende mellommannen med selgeren, og butikken og eieren svarer solidarisk", "Kjøpsloven, fordi den reelle selgeren er den private eieren", "Kjøpsloven, fordi eiendomsretten først går over ved salget", "Angrerettloven, fordi salget skjedde gjennom en butikk"],
+      explanation: "Etter representantregelen i fkjl. § 1 fjerde ledd gjelder forbrukerkjøpsloven når en næringsdrivende opptrer som representant for en privat selger — typisk kommisjonssalg. Både representanten (butikken) og selgeren (eieren) er solidarisk ansvarlige for selgerens forpliktelser. Fellen er å stoppe ved «eieren er privat» og konkludere med kjøpsloven.",
     },
     {
       question: "Hvorfor er kjl. § 19 (1) b og c beskrevet som «alternative» grunnlag?",
@@ -2454,7 +2454,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En leverandørkjede med en underleverandør eller transportør i faktum skal få radaren til å blinke for hvilket skjulte delspørsmål?",
-      options: ["kjl. § 27 (2) — dobbelt hindringsfritak", "kjl. § 66 (1) c — hevingssperren", "avtl. § 4 (2) — taushet etter for sen aksept", "skl. § 5-1 nr. 2 — tapsbegrensningsplikt"],
+      options: ["kjl. § 27 (2) — dobbelt hindringsfritak", "kjl. § 66 (1) — hevingssperren", "avtl. § 4 (2) — taushet etter for sen aksept", "skl. § 5-1 nr. 2 — tapsbegrensningsplikt"],
       explanation: "§ 27 (2) gir fritak bare hvis både selger og tredjeperson ville vært fritatt etter § 27 (1) — bokas hyppigste skjulte delspørsmål.",
     },
     {
@@ -2499,7 +2499,7 @@ const quizData_jus1111: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Selgeren i et næringskjøp tilbyr å reparere mangelen, men kjøper vil heve straks. Hvilken bestemmelse kan stenge hevingskravet?",
-      options: ["kjl. § 36 — selgers retterett", "kjl. § 39 — vesentlig kontraktsbrudd", "kjl. § 66 (1) c — hevingssperren", "kjl. § 32 — reklamasjon"],
+      options: ["kjl. § 36 — selgers retterett", "kjl. § 39 — vesentlig kontraktsbrudd", "kjl. § 66 (1) — hevingssperren", "kjl. § 32 — reklamasjon"],
       explanation: "Selgers retterett etter § 36 kan avverge heving/prisavslag når retting skjer uten vesentlig ulempe for kjøper — ofte det skjulte delspørsmålet.",
     },
     {

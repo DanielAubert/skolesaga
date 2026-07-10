@@ -240,7 +240,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-1-1': [
     {
       question: "Hva er negativ frihet hos Berlin?",
-      options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også naturlige", "Evnen til å realisere sitt egentlige selv", "Statens plikt til å sikre borgernes velferd"],
+      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også naturlige", "Evnen til å realisere sitt egentlige selv", "Statens plikt til å sikre borgernes velferd"],
       explanation: "Negativ frihet = fravær av hindring *påført av andre mennesker* («hvor mange dører står åpne») — ofte skjerpet (Hayek-nært) til *forsettlig* innblanding. «Fravær av enhver hindring» mister grunnskillet andres hindring vs. manglende egen evne; selvrealisering er positiv frihet.",
     },
     {
@@ -606,7 +606,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
   'stv1100-1-prove': [
     {
       question: "Negativ frihet er fravær av hva?",
-      options: ["Forsettlig innblanding fra andre", "Enhver hindring, også naturlige", "Alle ønsker man ikke får oppfylt", "Statlig velferd"],
+      options: ["Hindring påført av andre mennesker", "Enhver hindring, også naturlige", "Alle ønsker man ikke får oppfylt", "Statlig velferd"],
       explanation: "Kjernen er hindring påført av andre mennesker (ofte skjerpet Hayek-nært til *forsettlig* innblanding) — ikke enhver hindring.",
     },
     {
@@ -2190,7 +2190,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget i Berlins negative frihet?",
-      options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
+      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
       explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Å definere den som fravær av enhver hindring mister grunnskillet andres hindring vs. manglende egen evne; det egentlige selv hører til positiv frihet.",
     },
     {
@@ -2508,7 +2508,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er negativ frihet hos Berlin?",
-      options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
+      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering av det egentlige selv"],
       explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Manglende evne (fattigdom) er i utgangspunktet ikke ufrihet negativt sett.",
     },
     {
@@ -2830,7 +2830,7 @@ const quizData_stv1100: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det sentrale poenget i Berlins negative frihet?",
-      options: ["Fravær av forsettlig innblanding fra andre", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering"],
+      options: ["Fravær av hindring påført av andre mennesker", "Fravær av enhver hindring, også manglende evne", "Evne til ukontrollert innblanding", "Selvrealisering"],
       explanation: "Negativ frihet = fravær av hindring påført av andre (ofte skjerpet Hayek-nært til *forsettlig* innblanding). Å definere den som fravær av enhver hindring mister grunnskillet andres hindring vs. manglende egen evne (feil #1/#7).",
     },
     {
