@@ -272,23 +272,20 @@ selv, som sos1004/sosant1090-mønsteret.
 
 ## §C9 — Restanse per 10. juli 2026 (neste økt starter her)
 
-> **FREMDRIFT 11. juli 2026 (bølge 1–7 av 8 kjørt, 4 samtidige Opus-agenter):**
-> FERDIG med skjelett + KVALITETSPORT OK + pushet: od4200, od5100, od5200,
-> nih-ti100, nih-ti300, nih-met200, nih-met402, nih-is205, nih-is225,
-> nih-faf311, nih-ppu406, nih-spm102, nih-spm103, nih-spm105, nih-spm245,
-> hio-diskretmatte, hio-ingmatte, hio-statistikk-okonomi (etterfølger-
-> profilert, ITD20106 utfaset), oslomet-diskretmatte, oslomet-data2500,
-> tma4145, tma4150. Dokumentert SKIP (STATUS.md): tma4123, tma4125 (begge
-> nedlagt, dekket av tma4135/tma4121). Fra før: econ4130 ✅, fys-mek1110/
-> tma4185/tma4212 skip ✅.
-> **BØLGE 7 PÅGIKK ved øktslutt:** tma4160, tma4165, tma4180, tma4195 —
-> sjekk om katalogene har SKJELETT.md/STATUS.md committet; kjør
-> `python3 scripts/hoyskolebok/sjekk-skjelett.py <emne>` på skjelettene og
-> gap-fill det som mangler.
-> **GJENSTÅR (bølge 8):** tma4250, tma4265, tma4275, tma4320 — samme
-> oppskrift (statusverifiser AKTIV først, mange TMA er reformdøde;
-> trepunkts-mandat: bygg / etterfølger-profilert / STATUS.md-skip).
-> Deretter: push + oppdater denne blokka.
+> **STATUS: §C9-SKJELETTKØEN ER FULLFØRT (11. juli 2026, bølge 1–8, 4
+> samtidige Opus-agenter).** 30 skjeletter bygget med KVALITETSPORT OK +
+> committet enkeltvis + pushet: od4200, od5100, od5200; hele NIH-serien
+> (nih-ti100, ti300, met200, met402, is205, is225, faf311, ppu406, spm102,
+> spm103, spm105, spm245); ingeniørmatte (hio-diskretmatte, hio-ingmatte,
+> hio-statistikk-okonomi [etterfølger-profilert, ITD20106 utfaset],
+> oslomet-diskretmatte, oslomet-data2500); TMA (tma4145, tma4150, tma4160,
+> tma4165, tma4180, tma4195, tma4250, tma4265, tma4275, tma4320 — alle ti
+> statusverifisert AKTIVE ved NTNU). Dokumentert SKIP (STATUS.md): tma4123,
+> tma4125 (nedlagt, dekket av tma4135/tma4121). Fra før: econ4130 ✅,
+> fys-mek1110/tma4185/tma4212 skip ✅. Køen under er dermed TOM — neste
+> steg er BOKBYGGING (kickoff-setningene øverst i denne fila).
+> Wiring-merknad: OsloMet/HiØ/NIH må inn i institusjoner.ts ved bokbygging
+> (dokumentert i skjelettene).
 
 **Læringsløkke-kontrakten er nå satt inn i ALLE skjeletter** (Teori→Eksempel→
 Oppgave inline + full forkunnskapsdekning) — bøker bygget fra skjelettene får
