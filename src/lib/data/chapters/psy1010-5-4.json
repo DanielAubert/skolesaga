@@ -1,0 +1,237 @@
+{
+  "id": "psy1010-5-4",
+  "courseId": "psy1010",
+  "chapterNumber": "5.4",
+  "title": "Randsonen — andre koeffisienter og kausal kontroll i korrelasjonsdata",
+  "description": "Korrelasjonsfamiliens spesialverktøy — Spearman, punkt-biserial, phi og kurvlineære sammenhenger — valgt etter målenivå, og stigen mot bedre kausal kontroll uten eksperiment (longitudinelle design, statistisk kontroll og dens grenser).",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "velge riktig korrelasjonskoeffisient (Pearson, Spearman, punkt-biserial, phi) ut fra de to variablenes målenivå og begrunne valget",
+    "gjenkjenne kurvlineær-fellen: at r ≈ 0 bare utelukker en lineær sammenheng, ikke en buet",
+    "beskrive stigen mot kausal kontroll uten eksperiment og forklare at statistisk kontroll bare fjerner målte tredjevariabler"
+  ],
+  "content": [
+    {
+      "id": "psy1010-5-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**To ting bor her: «bør kjenne til»-koeffisientene og et stigende V2024-tema.**\n\n- **Andre korrelasjonskoeffisienter** (Spearman, punkt-biserial, phi) og kurvlineær korrelasjon: 5 sett (H2012, H2013, V2017, V2018u, V2022). Prioritet: *kjenne* — du skal kunne *velge* riktig koeffisient etter målenivå, ikke regne den.\n- **Kausal kontroll i korrelasjonsdata** (V2024s «tenk selv»-ledd): hvordan komme nærmere kausalitet *uten* eksperiment. Prioritet: *kunne* — dette er stigende.\n\n**Sensorregelen:** for koeffisientene teller *begrunnelsen* (målenivåene på de to variablene), ikke navnet alene. For kausal kontroll teller at du kjenner **stigen** og dens grenser: statistisk kontroll kan bare fjerne *målte* tredjevariabler."
+    },
+    {
+      "id": "psy1010-5-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 5.2](/bok/psy1010/psy1010-5-2)** (tredjevariabler og kausalmodeller) og **[kap. 5.3](/bok/psy1010/psy1010-5-3)** (regresjon). Målenivåene kommer fra **[kap. 1.2](/bok/psy1010/psy1010-1-2)** (nominal, ordinal, intervall, forhold).\n\n**Sist du var her (oppfrisket):**\n\n- Pearsons $r$ forutsetter *lineær* sammenheng og *intervall/forhold*-data på begge variabler.\n- En **konfunder** ($z \\rightarrow X$, $z \\rightarrow Y$) kan gjøre en sammenheng spuriøs; å *kontrollere for* $z$ tester dette.\n- Målenivået bestemmer hvilke statistiske mål som er meningsfulle (fra 1.2).\n\nHer utvider vi verktøykassen når Pearsons forutsetninger ikke holder, og går opp stigen mot bedre kausal kontroll."
+    },
+    {
+      "id": "psy1010-5-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-5-4-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $r$ | Pearsons korrelasjon (intervall/forhold, lineær) |\n| $r_s$ (rho) | Spearmans rangkorrelasjon (ordinaldata) |\n| $z$ | tredjevariabel/kontrollvariabel |\n\n**«Formelen» i dette delkapitlet er koeffisientvalg-tabellen** (målenivå-par → riktig koeffisient):\n\n| Variabel X | Variabel Y | Koeffisient |\n|---|---|---|\n| intervall/forhold | intervall/forhold | **Pearsons r** |\n| ordinal (rangert) | ordinal (rangert) | **Spearmans rho** ($r_s$) |\n| dikotom (to kategorier) | intervall/forhold | **punkt-biserial** |\n| dikotom | dikotom | **phi** ($\\phi$) |\n\nIngen av disse regnes ut på eksamen — valget og begrunnelsen er poenget."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-5-4-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Pearsons $r$ er en skiftenøkkel som passer de fleste bolter — men ikke alle. Rangeringer (1., 2., 3. plass), ja/nei-variabler (bestått/strøk) og buede sammenhenger krever andre verktøy. Og selv med riktig verktøy gjenstår det store spørsmålet: kan vi komme *nærmere* årsak uten et eksperiment?\n\nDette er et kompakt «bør kjenne til»-kapittel. ~40 min. Vi tar først koeffisientfamilien, så kurvlineær-fellen, og til slutt stigen mot kausal kontroll."
+    },
+    {
+      "id": "psy1010-5-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Koeffisientfamilien: valg etter målenivå (~14 min)"
+    },
+    {
+      "id": "psy1010-5-4-def-spearman",
+      "type": "definition",
+      "title": "Spearmans rho (rangkorrelasjon)",
+      "content": "**Spearmans rho** ($r_s$) er korrelasjonen for **ordinaldata** — data som er *rangert* men ikke har like store steg (plasseringer, rangeringer, ordinale skalaer). Den regner Pearson-korrelasjonen på *rangtallene* i stedet for rådataene. Bruk den når minst én variabel er ordinal, eller når sammenhengen er monoton men ikke rettlinjet. Tolkes som Pearsons $r$: $-1$ til $+1$, fortegn = retning, tallverdi = styrke."
+    },
+    {
+      "id": "psy1010-5-4-def-punkt-biserial",
+      "type": "definition",
+      "title": "Punkt-biserial korrelasjon",
+      "content": "**Punkt-biserial** korrelasjon brukes når den ene variabelen er **dikotom** (to kategorier: kjønn, bestått/strøk) og den andre er **kontinuerlig** (intervall/forhold: testskåre, reaksjonstid). Den tallfester hvor mye den kontinuerlige variabelen skiller seg mellom de to kategoriene. Eksempel: sammenhengen mellom kjønn (dikotom) og en testskåre (kontinuerlig)."
+    },
+    {
+      "id": "psy1010-5-4-def-phi",
+      "type": "definition",
+      "title": "Phi-koeffisienten",
+      "content": "**Phi** ($\\phi$) er korrelasjonen mellom **to dikotome** variabler — begge har bare to kategorier (f.eks. røyker/ikke-røyker × bestått/strøk). Den måler sammenhengen i en $2\\times 2$-tabell. Bruk den når begge variabler er ja/nei-aktige."
+    },
+    {
+      "id": "psy1010-5-4-tip-valg",
+      "type": "tip",
+      "title": "Regelen: målenivået styrer valget",
+      "content": "Du velger koeffisient etter **målenivåene** på de to variablene (kobling til [kap. 1.2](/bok/psy1010/psy1010-1-2)) — ikke etter hva som «føles riktig». To intervall/forhold → Pearson; to ordinale → Spearman; én dikotom + én kontinuerlig → punkt-biserial; to dikotome → phi. På eksamen honoreres *begrunnelsen* (hvilke målenivåer variablene har), ikke bare navnet."
+    },
+    {
+      "id": "psy1010-5-4-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-4-exc1-e",
+        "number": "5.4.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T1/T6 — koeffisientvalg. Lett innstegsoppgave.)*\n\nVelg riktig korrelasjonskoeffisient og begrunn med målenivåene:\n\n**a)** Sammenhengen mellom deltakernes *rangerte* trivsel (1.–20. plass) og *rangerte* innsats.\n**b)** Sammenhengen mellom kjønn (mann/kvinne) og en kontinuerlig reaksjonstidsskåre.",
+        "solution": "**a)** Begge variabler er **ordinale** (rangeringer). Riktig koeffisient er **Spearmans rho** ($r_s$), som regner korrelasjonen på rangtallene.\n\n**b)** Kjønn er **dikotom** (to kategorier) og reaksjonstid er **kontinuerlig** (forholdstall). Riktig koeffisient er **punkt-biserial**.\n\n*Merk: begrunnelsen (målenivåene) er det som gir uttelling — ikke navnet alene.*",
+        "hints": [
+          "Bestem målenivået på *begge* variabler først.",
+          "To ordinale → Spearman; dikotom + kontinuerlig → punkt-biserial.",
+          "Skriv målenivåene eksplisitt i svaret — det er begrunnelsen."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Kurvlineær-fellen: når r ≈ 0 lyver (~10 min)"
+    },
+    {
+      "id": "psy1010-5-4-def-kurvlineaer",
+      "type": "definition",
+      "title": "Kurvlineær sammenheng",
+      "content": "En **kurvlineær** sammenheng er buet, ikke rettlinjet. Det klassiske eksemplet er **aktivering og prestasjon**: for lite aktivering gir svak prestasjon, passe aktivering gir best, og for mye aktivering gir svak igjen — en *omvendt U*.\n\nProblemet: **Pearsons $r$ fanger bare lineære sammenhenger.** For en symmetrisk omvendt U kan $r$ bli **nær 0** — selv om sammenhengen er sterk. Da vil et lavt $r$ *lyve*: det ser ut som «ingen sammenheng», men det er bare ingen *lineær* sammenheng. Motgiften er å alltid se på et **spredningsdiagram** før man stoler på $r \\approx 0$."
+    },
+    {
+      "id": "psy1010-5-4-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-4-exc2-e",
+        "number": "5.4.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T1 — kurvlineær-fellen.)*\n\nEt forskerteam måler $r = 0{,}03$ mellom stressnivå og eksamensprestasjon og konkluderer: «Det er ingen sammenheng mellom stress og prestasjon.»\n\n**a)** Hvorfor kan konklusjonen være feil?\n**b)** Hva burde de sjekket, og hvilken sammenhengsform mistenker du?",
+        "solution": "**a)** Konklusjonen kan være feil fordi $r \\approx 0$ bare utelukker en **lineær** sammenheng. Pearsons $r$ er blind for buede (kurvlineære) mønstre. En sterk omvendt-U-sammenheng gir nettopp $r$ nær null.\n\n**b)** De burde plottet dataene i et **spredningsdiagram**. Mistanken er en **kurvlineær** (omvendt U) sammenheng: passe stress gir best prestasjon, mens både for lite og for mye stress gir dårligere — et velkjent mønster (aktivering–prestasjon). Da er det en sterk sammenheng, men ikke en lineær en.",
+        "hints": [
+          "Hva slags sammenheng er det bare $r$ fanger?",
+          "Tenk på stress og prestasjon — er mer alltid bedre, eller verre?",
+          "Hvilken figur avslører en bue som $r$ ikke ser?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Stigen mot kausal kontroll uten eksperiment (~14 min)\n\n*— naturlig pausepunkt før V2024-stoffet —*"
+    },
+    {
+      "id": "psy1010-5-4-def-statistisk-kontroll",
+      "type": "definition",
+      "title": "Statistisk kontroll (multippel regresjon)",
+      "content": "**Statistisk kontroll** betyr å *ta inn* en mulig tredjevariabel $z$ i analysen — typisk i en **multippel regresjon** (flere prediktorer samtidig) — for å se om X–Y-sammenhengen består *når $z$ holdes konstant*. Krymper sammenhengen mot null, var den (delvis) konfundert av $z$.\n\n**Den avgjørende begrensningen:** statistisk kontroll kan bare fjerne **målte** tredjevariabler. Umålte eller ukjente konfundere består. Det er *dette* som skiller statistisk kontroll fra **eksperimentell kontroll**: randomisering ([kap. 2.1](/bok/psy1010/psy1010-2-1)) jevner ut *alle* tredjevariabler — også de man ikke tenkte på — mens statistisk kontroll bare håndterer dem man har målt."
+    },
+    {
+      "id": "psy1010-5-4-def-stigen",
+      "type": "definition",
+      "title": "Stigen mot kausal kontroll",
+      "content": "Når et ekte eksperiment ikke er mulig (etisk eller praktisk), finnes en *stige* av design som gir gradvis bedre kausal kontroll i ikke-eksperimentelle data:\n\n1. **Enkel korrelasjon** — svakest: bare samvariasjon.\n2. **Longitudinelt design** — måler X *før* Y, fastslår tidsrekkefølge (utelukker Y→X).\n3. **Multippel regresjon med kontrollvariabler** — kontrollerer statistisk for *målte* tredjevariabler.\n4. **Gruppesammenligninger / matching** — sammenligner grupper som ligner på kjente konfundere.\n5. **RCT (ekte eksperiment)** — sterkest, men ofte etisk/praktisk umulig for det man vil studere.\n\nHvert trinn opp utelukker flere rivaliserende hypoteser, men bare RCT-en utelukker *alle*."
+    },
+    {
+      "id": "psy1010-5-4-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-4-exc3-e",
+        "number": "5.4.3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T1/T6 — V2024s «tenk selv»-ledd, kausal kontroll uten eksperiment. (krevende).)*\n\nForskere finner en korrelasjon mellom å vokse opp med mange bøker hjemme (X) og senere utdanningsnivå (Y). De kan ikke randomisere barn til «bøker/ingen bøker».\n\n**a)** Hvorfor kan de ikke bruke et ekte eksperiment her?\n**b)** Beskriv to trinn *opp stigen* de kan bruke i stedet, og hva hvert trinn løser.\n**c)** Hva kan statistisk kontroll *ikke* fjerne, og hvorfor er det viktig å si?",
+        "solution": "**a)** Fordi man ikke kan (og ikke bør) *tildele* barn tilfeldig til å vokse opp med eller uten bøker — det er både praktisk umulig og etisk uforsvarlig å manipulere barns oppvekstmiljø. Randomisering er utelukket.\n\n**b)** To trinn opp stigen:\n\n- **Multippel regresjon med kontrollvariabler:** ta inn *foreldrenes utdanning og inntekt* som kontrollvariabler, og se om bok–utdanning-sammenhengen består når disse holdes konstant. Løser: fjerner (delvis) den *målte* konfunderen foreldrebakgrunn.\n- **Longitudinelt design:** følg barna over tid og mål bøker i barndommen *før* utdanningsnivået fastsettes. Løser: fastslår tidsrekkefølgen (utelukker at utdanning → bøker).\n\n**c)** Statistisk kontroll kan bare fjerne **målte** tredjevariabler. Umålte eller ukjente konfundere (f.eks. foreldrenes generelle læringskultur, som er vanskelig å måle) består. Det er viktig å si fordi det er *nettopp* grensen mellom statistisk og eksperimentell kontroll: uten randomisering kan man aldri være helt sikker på at en umålt $z$ ikke driver sammenhengen — konklusjonen må derfor forbeholdes.",
+        "hints": [
+          "For (a): kan man etisk/praktisk tildele barn til oppvekstvilkår?",
+          "For (b): tenk på longitudinelt design (tid) og multippel regresjon (kontrollvariabler).",
+          "For (c): hvilke tredjevariabler kan statistisk kontroll *ikke* nå — de målte eller de umålte?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å bruke Pearson på rangdata uten forbehold.** Rangeringer/ordinaldata krever **Spearmans rho**, ikke Pearson. Å velge koeffisient uten å nevne målenivåene mister begrunnelsespoenget.\n\n**Å tro $r \\approx 0$ betyr «ingen sammenheng».** Et lavt $r$ utelukker bare en *lineær* sammenheng — en sterk kurvlineær (omvendt U) sammenheng gir også $r \\approx 0$. Sjekk spredningsdiagrammet.\n\n**Å behandle statistisk kontroll som eksperimentell kontroll.** Multippel regresjon fjerner bare *målte* tredjevariabler; randomisering fjerner *alle*. Å skrive at «vi kontrollerte statistisk, altså er sammenhengen kausal» overselger — umålte konfundere består.\n\n**Feil #3 igjen** (feilkode #3 = kausal tolkning av korrelasjon, se [kap. 5.2](/bok/psy1010/psy1010-5-2)). Selv øverst på stigen (uten RCT) forblir konklusjonen forbeholden: kausal tolkning av ikke-eksperimentelle data krever eksplisitte forbehold."
+    },
+    {
+      "id": "psy1010-5-4-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — koeffisienter og kontroll\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-5-4-def-fb-pearson-forut",
+      "type": "definition",
+      "title": "Pearsons r — forutsetninger",
+      "content": "Pearsons $r$ forutsetter intervall/forhold-data på begge variabler og en *lineær* sammenheng. Bryter forutsetningene, trengs en annen koeffisient (Spearman, punkt-biserial, phi)."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-spearman",
+      "type": "definition",
+      "title": "Spearmans rho",
+      "content": "Rangkorrelasjonen: Pearson regnet på rangtall. Brukes for ordinaldata (rangeringer, plasseringer) eller monotone, ikke-rettlinjede sammenhenger. Tolkes som $r$ ($-1$ til $+1$)."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-punktbiserial",
+      "type": "definition",
+      "title": "Punkt-biserial",
+      "content": "Korrelasjon mellom én dikotom (to kategorier) og én kontinuerlig variabel. Måler hvor mye den kontinuerlige skiller seg mellom de to kategoriene. Eks: kjønn × testskåre."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-phi",
+      "type": "definition",
+      "title": "Phi (φ)",
+      "content": "Korrelasjon mellom to dikotome variabler (2×2-tabell). Eks: røyker/ikke-røyker × bestått/strøk. Brukes når begge variabler er ja/nei-aktige."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-malenivavalg",
+      "type": "definition",
+      "title": "Målenivået styrer koeffisientvalget",
+      "content": "Koeffisienten velges etter de to variablenes målenivå: to intervall/forhold → Pearson; to ordinale → Spearman; dikotom + kontinuerlig → punkt-biserial; to dikotome → phi. Begrunnelsen (målenivåene) gir uttelling."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-kurvlineaer",
+      "type": "definition",
+      "title": "Kurvlineær sammenheng",
+      "content": "Buet (ikke-lineær) sammenheng, f.eks. omvendt U (aktivering–prestasjon). Pearsons $r$ fanger den ikke og kan gi $r \\approx 0$ selv om sammenhengen er sterk. Sjekk spredningsdiagram."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-longitudinell",
+      "type": "definition",
+      "title": "Longitudinelt design",
+      "content": "Måling på flere tidspunkter. Fastslår tidsrekkefølge (X før Y utelukker Y→X) og er trinn 2 opp stigen mot kausal kontroll — men fjerner ikke umålte konfundere."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-statkontroll",
+      "type": "definition",
+      "title": "Statistisk kontroll",
+      "content": "Å ta en mulig tredjevariabel inn i en multippel regresjon og se om X–Y-sammenhengen består når $z$ holdes konstant. Fjerner bare *målte* konfundere — ikke umålte/ukjente."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-eksp-vs-stat",
+      "type": "definition",
+      "title": "Eksperimentell vs. statistisk kontroll",
+      "content": "Randomisering (eksperiment) jevner ut *alle* tredjevariabler, også de umålte. Statistisk kontroll håndterer bare de man har målt. Dette er hvorfor bare eksperimentet gir full kausal kontroll."
+    },
+    {
+      "id": "psy1010-5-4-def-fb-multippel",
+      "type": "definition",
+      "title": "Multippel regresjon",
+      "content": "En regresjon med flere prediktorer samtidig. Lar oss vurdere X→Y mens andre målte variabler holdes konstant — grunnlaget for statistisk kontroll av tredjevariabler."
+    },
+    {
+      "id": "psy1010-5-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 5.4",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-5-4-rep-txt",
+          "type": "text",
+          "content": "**Koeffisientvalg etter målenivå:**\n\n| X | Y | Koeffisient |\n|---|---|---|\n| intervall/forhold | intervall/forhold | Pearsons r |\n| ordinal | ordinal | Spearmans rho |\n| dikotom | kontinuerlig | punkt-biserial |\n| dikotom | dikotom | phi |\n\n**Kurvlineær-fellen:** $r \\approx 0$ = ingen *lineær* sammenheng — kan skjule en sterk bue (omvendt U). Sjekk spredningsdiagrammet.\n\n**Stigen mot kausal kontroll (uten RCT):** korrelasjon → longitudinelt (tidsrekkefølge) → multippel regresjon (statistisk kontroll av *målte* $z$) → gruppesammenligning → RCT (sterkest).\n\n**Kjernegrense:** statistisk kontroll fjerner bare *målte* tredjevariabler; randomisering fjerner *alle*.\n\n**Fallgruver:** Pearson på rangdata; $r \\approx 0$ lest som «ingen sammenheng»; statistisk kontroll oversolgt som kausalitet.\n\n**Del 5 er nå komplett** — se prøvekapitlet [kap. 5.P](/bok/psy1010/psy1010-5-prove)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

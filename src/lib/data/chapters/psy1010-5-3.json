@@ -1,0 +1,308 @@
+{
+  "id": "psy1010-5-3",
+  "courseId": "psy1010",
+  "chapterNumber": "5.3",
+  "title": "Regresjon — prediksjon, minste kvadrater og r²",
+  "description": "«Regresjon som videreføring av korrelasjon» — resonnementet som har stått i minst ti sett — pluss Ŷ = a + bX ledd for ledd, prediksjon med tall, minste kvadraters metode og r² som delt/forklart varians. Hvert regnestykke ender i prosatolkning.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "tolke a og b i regresjonsligningen Ŷ = a + bX i ord og predikere Ŷ for en gitt X med synlig utregning",
+    "regne r² fra r og tolke det som delt/forklart varians, og forklare hvorfor r bare kan rangeres mens r² kan sammenlignes",
+    "forklare minste kvadraters metode, residualer og ekstrapoleringsfaren, og at regresjon predikerer uten å gi kausalitet"
+  ],
+  "content": [
+    {
+      "id": "psy1010-5-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Regresjon er nesten alltid siste ledd i korrelasjonsoppgaven (T1) — og det ferdig innøvde resonnementet «regresjon er en videreføring av korrelasjon» har stått i minst ti sett.**\n\n- Regresjon dukker opp i 14 av 29 sett (2008–2025). Delen om $r^2$ (forklart varians) var fast d-ledd til og med 2020 og finnes i 11 sett.\n- To ferdigheter honoreres: (1) *tolke* $\\hat{Y} = a + bX$ i ord (hva betyr $a$ og $b$ her?), og (2) *regne* en prediksjon $\\hat{Y}$ og gjøre om $r$ til $r^2$. Begge tall er «snille», og formelen oppgis alltid.\n\n**Sensorregelen:** vis regningen (usynlig utregning = feil #13), og la hvert tall ende i en **prosatolkning** — «modellen forklarer 9 % av variasjonen; 91 % skyldes annet». Regresjon predikerer, men gir **fortsatt ikke kausalitet** (feil #3 lurer også her)."
+    },
+    {
+      "id": "psy1010-5-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 5.1](/bok/psy1010/psy1010-5-1)** (korrelasjon: retning, styrke, samvariasjon ≠ kausalitet).\n\n**Sist du var her (oppfrisket):**\n\n- $r$ måler *styrke og retning* på en lineær sammenheng, mellom $-1$ og $+1$.\n- $r$ sier ingenting om *hvor mye* Y endrer seg per enhet X — bare hvor tett de følger hverandre.\n- Korrelasjon er samvariasjon, ikke kausalitet — det gjelder også regresjonen vi bygger her.\n\nDu trenger ingen ny statistikk-formel utover det som oppgis; men her *regner* vi (i motsetning til 5.1). Ha en enkel kalkulator klar."
+    },
+    {
+      "id": "psy1010-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-5-3-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{Y}$ | predikert (estimert) verdi av Y — «Y-hatt» |\n| $Y$ | den faktisk observerte verdien av Y |\n| $a$ | konstantledd/intercept — $\\hat{Y}$ når $X = 0$ |\n| $b$ | regresjonsvekt — endring i $\\hat{Y}$ per én enhet økning i $X$ |\n| $X$ | prediktorvariabel (den vi predikerer *fra*) |\n| $r$ | korrelasjonen mellom X og Y (fra [kap. 5.1](/bok/psy1010/psy1010-5-1)) |\n| $r^2$ | delt/forklart varians — andelen av variasjonen i Y som deles med X |\n\n**Formler i dette delkapitlet (begge oppgis på eksamen):**\n\n$$\\hat{Y} = a + bX \\qquad \\text{(regresjonsligningen: predikert Y fra X)}$$\n\n$$r^2 = (r)^2 \\qquad \\text{(delt varians; f.eks. } r = 0{,}30 \\Rightarrow r^2 = 0{,}09 = 9\\,\\%)$$\n\n**Residual:** $\\;Y - \\hat{Y}\\;$ (avstanden fra en faktisk verdi til linjen)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-5-3-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** En korrelasjon forteller deg at studietimer og eksamensskår henger sammen — men ikke *hvor mange poeng* du kan vente av én ekstra time. Regresjon svarer på nettopp det: den gir en **ligning** som predikerer Y fra X.\n\nDette er grunnen til at regresjon kalles «en videreføring av korrelasjon»: samme data, samme sammenheng — men nå med en linje du kan sette tall inn i. Vi tolker linjen i ord, predikerer med tall, og regner delt varians $r^2$. ~60 min."
+    },
+    {
+      "id": "psy1010-5-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra korrelasjon til linje: hva a og b betyr (~15 min)"
+    },
+    {
+      "id": "psy1010-5-3-def-regresjon",
+      "type": "definition",
+      "title": "Regresjon og regresjonsligningen",
+      "content": "**Regresjon** bygger videre på korrelasjonen ved å tilpasse en rett linje til dataene — en linje som lar oss **predikere** Y fra en gitt X:\n\n$$\\hat{Y} = a + bX$$\n\n- $\\hat{Y}$ («Y-hatt») er den **predikerte** verdien av Y — modellens beste gjett, ikke en observert verdi.\n- $a$ (**intercept/konstantledd**) er $\\hat{Y}$ når $X = 0$: der linjen krysser Y-aksen.\n- $b$ (**regresjonsvekt/stigningstall**) er *endringen i $\\hat{Y}$ per én enhets økning i X*. Fortegnet på $b$ følger fortegnet på $r$.\n\nRegresjon gir altså mer enn korrelasjonen: ikke bare *at* X og Y henger sammen, men *hvor mye* Y ventes å endre seg. Men den gir **fortsatt ikke kausalitet** — det er samme naturlige variasjon som i [kap. 5.1](/bok/psy1010/psy1010-5-1)."
+    },
+    {
+      "id": "psy1010-5-3-def-prediktor-kriterium",
+      "type": "definition",
+      "title": "Prediktor og kriterium",
+      "content": "I regresjon er variabelrollene *ikke* vilkårlige (i motsetning til korrelasjon):\n\n- **Prediktorvariabel** ($X$): den vi predikerer *fra*.\n- **Kriterievariabel** ($Y$): den vi predikerer.\n\nBytter du om X og Y i en regresjon, får du en *annen* linje — fordi $\\hat{Y} = a + bX$ minimerer feilen i Y, ikke i X. Dette er en viktig kontrast til korrelasjonen, der $r$ er symmetrisk og rollene er et fritt valg."
+    },
+    {
+      "id": "psy1010-5-3-feilkode-gloss",
+      "type": "text",
+      "content": "> **Feilkode #13** (glosset her ved første bruk): «usynlig utregning» — å skrive svaret uten mellomregning. I regnedeler kan sensor da ikke gi «riktig metode»-uttelling. **Feilkode #3** (fra [kap. 5.2](/bok/psy1010/psy1010-5-2)): kausal tolkning av en (korrelasjons)sammenheng — lurer også i regresjon."
+    },
+    {
+      "id": "psy1010-5-3-ex-tolk-ab",
+      "type": "example",
+      "title": "Eksempel 1 — tolke a og b i ord",
+      "problem": "En regresjon av eksamensskår ($Y$, poeng) på antall studietimer ($X$) gir ligningen $\\hat{Y} = 20 + 2{,}5X$. Tolk $a$ og $b$ i ord.",
+      "solution": "**Intercept $a = 20$:** en student som studerer $X = 0$ timer predikeres til $\\hat{Y} = 20$ poeng. Altså modellens gjett for «null timer». *Merk:* $a$ er ikke «effekten av X» — det er utgangspunktet når X er null. (Og det gir bare mening hvis $X = 0$ er innenfor det observerte området.)\n\n**Regresjonsvekt $b = 2{,}5$:** for hver ekstra studietime *øker den predikerte skåren med 2,5 poeng*. Det positive fortegnet betyr at sammenhengen er positiv (samsvarer med et positivt $r$).\n\n**Prosatolkning:** modellen sier at studenter som ikke studerer ventes å få 20 poeng, og at hver studietime i snitt henger sammen med 2,5 poeng høyere skår. Dette er en *prediksjon*, ikke et bevis på at timene *forårsaker* poengene — det er fortsatt korrelasjonsdata."
+    },
+    {
+      "id": "psy1010-5-3-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-3-exc1-e",
+        "number": "5.3.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T1/T3 — tolke ligningen. Lett innstegsoppgave.)*\n\nEn regresjon gir $\\hat{Y} = 30 + 1{,}5X$, der $Y$ er trivselsskår og $X$ er antall timer fysisk aktivitet per uke.\n\n**a)** Hva betyr $a = 30$?\n**b)** Hva betyr $b = 1{,}5$?",
+        "solution": "**a)** $a = 30$: en person med $X = 0$ timer aktivitet predikeres til en trivselsskår på **30**. Det er linjens utgangspunkt når X er null — ikke «effekten av aktivitet».\n\n**b)** $b = 1{,}5$: for hver ekstra time fysisk aktivitet per uke *øker den predikerte trivselsskåren med 1,5 poeng*. Positivt fortegn = positiv sammenheng.\n\n**Prosatolkning:** modellen predikerer trivsel 30 uten aktivitet, og 1,5 poeng høyere per aktivitetstime — en samvariasjon, ikke et bevis på årsak.",
+        "hints": [
+          "$a$ er $\\hat{Y}$ når $X = 0$ — les det som «startverdien».",
+          "$b$ er endringen i $\\hat{Y}$ per +1 i X.",
+          "Avslutt med én setning om hva ligningen betyr for en person."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Prediksjon: sett inn og regn Ŷ (~14 min)"
+    },
+    {
+      "id": "psy1010-5-3-thm-prediksjon",
+      "type": "theorem",
+      "title": "Prediksjon med regresjonsligningen",
+      "content": "For å predikere Y for en gitt X, sett X-verdien rett inn i ligningen:\n\n$$\\hat{Y} = a + bX$$\n\n1. Skriv opp ligningen med de oppgitte $a$ og $b$.\n2. Sett inn X-verdien.\n3. Regn ut — vis mellomregningen ($a + b \\cdot X$).\n4. Tolk resultatet i ord, og sjekk om X ligger *innenfor* det observerte området (ellers **ekstrapolerer** du — se advarselen under)."
+    },
+    {
+      "id": "psy1010-5-3-ex-prediksjon",
+      "type": "example",
+      "title": "Eksempel 2 — regn en prediksjon",
+      "problem": "Med $\\hat{Y} = 20 + 2{,}5X$ (studietimer → eksamensskår): hva predikeres skåren for en student som studerer $X = 12$ timer? Og hva er residualen hvis studenten faktisk fikk 52 poeng?",
+      "solution": "**Prediksjon:**\n\n$$\\hat{Y} = 20 + 2{,}5 \\cdot 12 = 20 + 30 = 50 \\text{ poeng}$$\n\n**Residual:** residualen er den faktiske verdien minus den predikerte:\n\n$$Y - \\hat{Y} = 52 - 50 = 2 \\text{ poeng}$$\n\n**Prosatolkning:** modellen gjettet 50 poeng for 12 timer; studenten fikk faktisk 52 — altså 2 poeng *bedre* enn modellen forutsa. Residualen på $+2$ er modellens «bomavstand» for denne personen. Studenter over linjen har positive residualer (gjorde det bedre enn ventet), de under har negative."
+    },
+    {
+      "id": "psy1010-5-3-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-3-exc2-e",
+        "number": "5.3.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — prediksjon + residual, gjenganger.)*\n\nEn regresjon av søvnkvalitet ($Y$, skala 0–100) på minutter skjermtid før leggetid ($X$) gir $\\hat{Y} = 100 - 4X$ (der $X$ måles i *ti-minutters bolker*: $X = 3$ betyr 30 min).\n\n**a)** Predikér søvnkvaliteten for $X = 3$ (30 minutter skjermtid).\n**b)** En person med $X = 3$ rapporterer faktisk 82. Regn residualen og tolk den.\n**c)** Hva betyr det negative $b = -4$?",
+        "solution": "**a)** $\\hat{Y} = 100 - 4 \\cdot 3 = 100 - 12 = 88$. Modellen predikerer søvnkvalitet **88** for 30 minutters skjermtid.\n\n**b)** Residual $= Y - \\hat{Y} = 82 - 88 = -6$. Personen skårer **6 poeng lavere** enn modellen forutsa — en negativ residual (dårligere søvn enn ventet gitt skjermtiden).\n\n**c)** $b = -4$: for hver ekstra ti-minutters bolk skjermtid *synker* den predikerte søvnkvaliteten med 4 poeng. Det negative fortegnet speiler en negativ sammenheng (mer skjerm ↔ lavere søvnkvalitet).\n\n**Prosatolkning:** modellen predikerer fallende søvnkvalitet med økende skjermtid, men denne personen lå under linjen — en samvariasjon, ikke bevis på at skjermen *ødela* søvnen.",
+        "hints": [
+          "Sett $X = 3$ inn i $\\hat{Y} = 100 - 4X$ — husk fortegnet.",
+          "Residual $= Y - \\hat{Y}$ (faktisk minus predikert); negativ = under linjen.",
+          "Negativt $b$ betyr at $\\hat{Y}$ *synker* når X øker."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-3-warning-ekstrapolering",
+      "type": "warning",
+      "title": "Ekstrapoleringsfaren (les før du predikerer vilt)",
+      "content": "En regresjonslinje er bare pålitelig *innenfor* det X-området dataene dekker. Predikerer du langt utenfor (f.eks. $\\hat{Y}$ for 40 studietimer når ingen i utvalget studerte mer enn 20), **ekstrapolerer** du — og sammenhengen kan bryte sammen der ute. Linjen «vet» ingenting om områder den aldri så data fra. Oppgi alltid forbeholdet når en oppgitt X ligger utenfor det rimelige/observerte området."
+    },
+    {
+      "id": "psy1010-5-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — r² som delt varians: fra rangering til andel (~16 min)\n\n*— naturlig pausepunkt før det faste d-leddet —*"
+    },
+    {
+      "id": "psy1010-5-3-def-r2",
+      "type": "definition",
+      "title": "r² — delt (forklart) varians",
+      "content": "$r^2$ er **kvadratet av korrelasjonen** og tolkes som **andelen av variasjonen i Y som deles med (kan «forklares» av) X**:\n\n$$r^2 = (r)^2$$\n\nEt eksempel: $r = 0{,}30 \\Rightarrow r^2 = 0{,}09 = 9\\,\\%$. Det betyr at **9 % av variasjonen i Y henger sammen med X** — og de resterende **91 %** skyldes andre faktorer (og tilfeldig variasjon).\n\nHvorfor er dette nyttig? Fordi $r$ selv bare kan **rangeres**: $r = 0{,}4$ er *sterkere* enn $r = 0{,}2$, men ikke «dobbelt så sterk». $r^2$ gir derimot **andeler som kan sammenlignes direkte**: $r = 0{,}4$ deler $r^2 = 0{,}16 = 16\\,\\%$, mens $r = 0{,}2$ deler bare $0{,}04 = 4\\,\\%$ — altså *fire ganger* så mye forklart varians. Det er dette målenivåskiftet (fra rangering til andel) som gjør $r^2$ verdt et eget svarledd."
+    },
+    {
+      "id": "psy1010-5-3-ex-r2",
+      "type": "example",
+      "title": "Eksempel 3 — regn og tolk r²",
+      "problem": "En studie rapporterer $r = 0{,}40$ mellom motivasjon og prestasjon. Regn $r^2$ og tolk det. Sammenlign så med en annen sammenheng der $r = 0{,}20$.",
+      "solution": "**Regning:** $r^2 = (0{,}40)^2 = 0{,}16$, altså **16 %**.\n\n**Prosatolkning:** 16 % av variasjonen i prestasjon henger sammen med motivasjon; de resterende **84 %** skyldes andre faktorer (evner, undervisning, tilfeldig variasjon m.m.). En «moderat» korrelasjon forklarer altså en ganske beskjeden andel — et nyttig realitetssjekk.\n\n**Sammenligning:** for $r = 0{,}20$ er $r^2 = (0{,}20)^2 = 0{,}04 = 4\\,\\%$. Selv om $r = 0{,}40$ *tallmessig* bare er dobbelt så stor som $0{,}20$, forklarer den **fire ganger** så mye varians ($16\\,\\%$ mot $4\\,\\%$). Det er nettopp poenget: $r$ kan ikke ganges/sammenlignes lineært — men $r^2$ kan."
+    },
+    {
+      "id": "psy1010-5-3-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-3-exc3-e",
+        "number": "5.3.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T1/T3 — r² som delt varians, fast d-ledd.)*\n\nEn studie finner $r = 0{,}50$ mellom en ny konsentrasjonstest og karaktersnitt.\n\n**a)** Regn $r^2$ og tolk det i prosa.\n**b)** En kollega sier: «$r = 0{,}50$, så testen forklarer halvparten av karakterene.» Hva er feil?\n**c)** Hvor mye mer forklart varians gir $r = 0{,}50$ enn $r = 0{,}25$?",
+        "solution": "**a)** $r^2 = (0{,}50)^2 = 0{,}25 = 25\\,\\%$. **Prosatolkning:** 25 % av variasjonen i karaktersnitt deles med konsentrasjonstesten; de øvrige 75 % skyldes andre forhold.\n\n**b)** Feilen er å lese $r$ som en prosentandel. $r = 0{,}50$ betyr *ikke* «50 % forklart» — det er $r^2 = 0{,}25 = 25\\,\\%$ som er den forklarte andelen. Å forveksle $r$ med $r^2$ dobler den forklarte variansen i tolkningen.\n\n**c)** $r = 0{,}50 \\Rightarrow r^2 = 0{,}25 = 25\\,\\%$; $r = 0{,}25 \\Rightarrow r^2 = 0{,}0625 \\approx 6{,}25\\,\\%$. Forskjellen er $25 - 6{,}25 = 18{,}75$ prosentpoeng — altså om lag **fire ganger** så mye forklart varians, selv om $r$ bare er dobbelt så stor.",
+        "hints": [
+          "$r^2 = r \\times r$ — kvadrer, ikke halver.",
+          "For (b): er den forklarte andelen $r$ eller $r^2$?",
+          "For (c): regn $r^2$ for begge og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Minste kvadrater og regresjonslinjen i diagrammet (~13 min)"
+    },
+    {
+      "id": "psy1010-5-3-def-minste-kvadrater",
+      "type": "definition",
+      "title": "Minste kvadraters metode",
+      "content": "Hvordan velges *den* linjen blant alle mulige? Ved **minste kvadraters metode**: man velger $a$ og $b$ slik at **summen av de kvadrerte residualene** (de kvadrerte avstandene $Y - \\hat{Y}$ fra hvert punkt ned til linjen) blir *minst mulig*.\n\nKonseptuelt: linjen legges der den samlet ligger nærmest alle punktene, med ekstra straff for store bom (fordi avstandene kvadreres). Du regner *aldri* dette for hånd på eksamen — men du skal kunne forklare *hva* linjen minimerer: de kvadrerte prediksjonsfeilene."
+    },
+    {
+      "id": "psy1010-5-3-def-residual",
+      "type": "definition",
+      "title": "Residual — modellens ærlighet",
+      "content": "En **residual** er avstanden fra en faktisk observert verdi til linjen: $Y - \\hat{Y}$. Den forteller hvor mye modellen *bommet* for den enkelte personen.\n\n- Positiv residual: punktet ligger *over* linjen (skåren var høyere enn predikert).\n- Negativ residual: punktet ligger *under* linjen.\n\nResidualene er modellens ærlighet: store residualer betyr at linjen forklarer lite (lav $r^2$), små residualer betyr god tilpasning (høy $r^2$). Minste kvadrater gjør nettopp den samlede kvadrerte residualsummen minst mulig."
+    },
+    {
+      "id": "psy1010-5-3-l4-skisse",
+      "type": "text",
+      "content": "### Å skissere regresjonslinjen\n\nI et spredningsdiagram (hvert punkt = én person, med X vannrett og Y loddrett) er regresjonslinjen den rette linjen som best følger punktskyen:\n\n- Den krysser Y-aksen i $a$ (der $X = 0$).\n- Den stiger med $b$ (opp hvis $b > 0$, ned hvis $b < 0$).\n- Punktene sprer seg rundt linjen; jo tettere de ligger, jo høyere $r^2$.\n\nÅ *plassere to punkter* fra ligningen (f.eks. $\\hat{Y}$ ved en lav og en høy X) og trekke linjen mellom dem er nok til en skisse. En sky uten tydelig stigning ($r \\approx 0$) gir en nesten flat linje."
+    },
+    {
+      "id": "psy1010-5-3-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-3-exc4-e",
+        "number": "5.3.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T1/T3 — hele regresjonspakken på eksamensnivå. (krevende).)*\n\nEn studie av 60 studenter gir regresjonen $\\hat{Y} = 40 + 2X$, der $Y$ er eksamensskår (poeng) og $X$ er antall gjennomførte øvingsoppgaver (observert område: 0–20 oppgaver). Korrelasjonen er $r = 0{,}60$.\n\n**a)** Tolk $a$ og $b$ i ord.\n**b)** Predikér skåren for en student med $X = 15$ oppgaver, og for én med $X = 40$. Kommentér den siste.\n**c)** Regn $r^2$ og tolk det.\n**d)** Forklar med denne oppgaven hvorfor «regresjon er en videreføring av korrelasjon» er en presis beskrivelse — og hva regresjonen *ikke* legger til.",
+        "solution": "**a)** $a = 40$: en student med 0 øvingsoppgaver predikeres til 40 poeng (utgangspunktet). $b = 2$: hver ekstra øvingsoppgave henger sammen med 2 poeng høyere predikert skår.\n\n**b)** For $X = 15$: $\\hat{Y} = 40 + 2 \\cdot 15 = 40 + 30 = 70$ poeng. For $X = 40$: $\\hat{Y} = 40 + 2 \\cdot 40 = 40 + 80 = 120$ poeng — men $X = 40$ ligger **langt utenfor** det observerte området (0–20). Dette er **ekstrapolering**: prediksjonen er upålitelig (og 120 poeng kan til og med sprenge skalaen). Linjen kjenner ikke terrenget der ute.\n\n**c)** $r^2 = (0{,}60)^2 = 0{,}36 = 36\\,\\%$. **Tolkning:** 36 % av variasjonen i eksamensskår deles med antall øvingsoppgaver; de resterende 64 % skyldes andre faktorer.\n\n**d)** Regresjon er en videreføring fordi den bruker *samme* sammenheng som korrelasjonen ($r = 0{,}60$) og gjør den om til en *prediksjonslinje* — den legger til *hvor mye* Y ventes å endre seg per X ($b = 2$) og lar oss predikere ($\\hat{Y}$). Men den legger **ikke** til kausalitet: dette er fortsatt naturlig variasjon, så $b = 2$ betyr ikke at én ekstra oppgave *forårsaker* 2 poeng — bare at det er den predikerte samvariasjonen.",
+        "hints": [
+          "$a$ = startverdi ved X=0, $b$ = endring per +1 X.",
+          "For (b): sett inn X, men sjekk om X ligger innenfor 0–20 (ellers ekstrapolering).",
+          "$r^2 = r \\times r$; for (d): hva legger regresjonen til utover $r$, og hva legger den *ikke* til?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #3 — prediksjon lest som årsak.** At regresjonen predikerer Y fra X betyr *ikke* at X forårsaker Y. $b$ er en predikert samvariasjon, ikke en kausal effekt (med mindre dataene kommer fra et eksperiment). Skriv det eksplisitt.\n\n**Feil #13 — usynlig $\\hat{Y}$-regning.** Vis $a + b \\cdot X$-mellomregningen. Bare et sluttall kan ikke reddes av «riktig metode».\n\n**Å tolke $a$ som «effekten av X».** $a$ er $\\hat{Y}$ *når $X = 0$* — utgangspunktet, ikke en effekt. Effekten (endring per X) er $b$.\n\n**Å forveksle $r$ og $r^2$.** $r = 0{,}50$ er *ikke* «50 % forklart». Den forklarte andelen er $r^2 = 0{,}25 = 25\\,\\%$. Kvadrer alltid før du snakker prosent.\n\n**Ekstrapolering.** Å predikere langt utenfor det observerte X-området gir upålitelige (noen ganger absurde) tall. Sjekk om X ligger innenfor dataene."
+    },
+    {
+      "id": "psy1010-5-3-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — regresjon\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-5-3-def-fb-yhat",
+      "type": "definition",
+      "title": "Predikert verdi Ŷ",
+      "content": "«Y-hatt»: modellens beste gjett for Y gitt en X, lest av regresjonslinjen. Til forskjell fra $Y$ (den faktisk observerte verdien). Regnes ved å sette X inn i $\\hat{Y} = a + bX$."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-intercept",
+      "type": "definition",
+      "title": "Intercept a",
+      "content": "Konstantleddet: $\\hat{Y}$ når $X = 0$ — der linjen krysser Y-aksen. Utgangspunktet, ikke «effekten av X». Gir bare mening hvis $X = 0$ er innenfor det observerte området."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-vekt",
+      "type": "definition",
+      "title": "Regresjonsvekt b",
+      "content": "Stigningstallet: endringen i predikert Y per én enhets økning i X. Fortegnet følger $r$ (positivt $r$ → positiv $b$). Dette er «hvor mye», som korrelasjonen alene ikke gir."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-ligning",
+      "type": "definition",
+      "title": "Regresjonsligningen",
+      "content": "$\\hat{Y} = a + bX$: linjen som predikerer kriteriet Y fra prediktoren X. Videreføring av korrelasjonen — samme sammenheng, nå som prediksjonsverktøy. Gir ikke kausalitet."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-prediktor",
+      "type": "definition",
+      "title": "Prediktorvariabel (X)",
+      "content": "Variabelen vi predikerer *fra* i en regresjon. Til forskjell fra korrelasjon er X/Y-rollene her ikke vilkårlige: bytter du prediktor og kriterium, får du en annen linje."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-kriterium",
+      "type": "definition",
+      "title": "Kriterievariabel (Y)",
+      "content": "Variabelen vi predikerer *til* i en regresjon. Minste kvadraters metode minimerer feilen i Y (ikke i X) — derfor er regresjonen asymmetrisk."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-r2",
+      "type": "definition",
+      "title": "r² (delt/forklart varians)",
+      "content": "Kvadratet av korrelasjonen: andelen av variasjonen i Y som deles med X. $r = 0{,}30 \\Rightarrow r^2 = 0{,}09 = 9\\,\\%$; resten skyldes andre faktorer. Gir andeler som kan sammenlignes."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-r-vs-r2",
+      "type": "definition",
+      "title": "r kan rangeres, r² sammenlignes",
+      "content": "$r$ sier bare at 0,4 er sterkere enn 0,2 (ikke «dobbelt»). $r^2$ gir andeler: $0{,}16$ vs. $0{,}04$ — fire ganger så mye forklart varians. Målenivåskiftet som gjør $r^2$ verdt et eget svarledd."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-minste-kvadrater",
+      "type": "definition",
+      "title": "Minste kvadraters metode",
+      "content": "Linjen velges så summen av *kvadrerte* residualer ($Y - \\hat{Y}$) blir minst mulig — nærmest alle punkter, med ekstra straff for store bom. Regnes aldri for hånd; skal kunne forklares."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-residual",
+      "type": "definition",
+      "title": "Residual (Y − Ŷ)",
+      "content": "Avstanden fra en faktisk verdi til linjen: hvor mye modellen bommet for den personen. Positiv = over linjen, negativ = under. Store residualer = lav $r^2$; små = god tilpasning."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-ekstrapolering",
+      "type": "definition",
+      "title": "Ekstrapolering",
+      "content": "Å predikere for X-verdier utenfor det observerte området. Upålitelig — linjen «kjenner» ikke terrenget der ute, og sammenhengen kan bryte sammen. Oppgi forbeholdet."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-spredningsdiagram",
+      "type": "definition",
+      "title": "Spredningsdiagram",
+      "content": "Figuren regresjonslinjen tegnes i: hvert punkt = én person (X vannrett, Y loddrett). Linjen krysser Y-aksen i $a$ og stiger med $b$; tett punktsky = høy $r^2$."
+    },
+    {
+      "id": "psy1010-5-3-def-fb-videreforing",
+      "type": "definition",
+      "title": "«Regresjon som videreføring av korrelasjon»",
+      "content": "Det ferdig innøvde resonnementet (10+ sett): regresjon bruker samme sammenheng som $r$, men legger til en prediksjonslinje (hvor mye Y endrer seg per X). Den legger *ikke* til kausalitet."
+    },
+    {
+      "id": "psy1010-5-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 5.3",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-5-3-rep-txt",
+          "type": "text",
+          "content": "**Regresjonsligningen:** $\\hat{Y} = a + bX$\n\n- $a$ = intercept ($\\hat{Y}$ ved $X = 0$) — utgangspunkt, ikke effekt.\n- $b$ = regresjonsvekt (endring i $\\hat{Y}$ per +1 X) — «hvor mye», fortegn følger $r$.\n- **Predikér:** sett X inn, vis $a + b\\cdot X$.\n- **Residual** $= Y - \\hat{Y}$ (faktisk minus predikert).\n\n**r² (delt varians):** $r^2 = (r)^2$; $r = 0{,}30 \\Rightarrow 9\\,\\%$ forklart, 91 % annet. $r$ rangeres, $r^2$ sammenlignes.\n\n**Minste kvadrater:** linjen som minimerer summen av kvadrerte residualer.\n\n**Kjernehusk:** «regresjon = videreføring av korrelasjon» — legger til prediksjon, *ikke* kausalitet.\n\n**Fallgruver:** prediksjon lest som årsak (#3); usynlig $\\hat{Y}$-regning (#13); $a$ tolket som effekt; $r$/$r^2$-forveksling; ekstrapolering.\n\n**Framover:** [kap. 5.4](/bok/psy1010/psy1010-5-4) tar andre koeffisienter og statistisk kontroll."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

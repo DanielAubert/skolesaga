@@ -29,6 +29,7 @@ export const INSTITUSJONER: Institusjon[] = [
     icon: '🎓',
     color: 'from-red-600 to-rose-700',
     subjects: [
+      { courseId: 'psy1010', name: 'PSY1010 Innføring i metode', icon: '🧠', color: 'from-slate-500 to-slate-700' },
       { courseId: 'exphil03', name: 'EXPHIL03 Examen philosophicum', icon: '🦉', color: 'from-slate-500 to-slate-700' },
       { courseId: 'stv1100', name: 'STV1100 Politisk teori', icon: '🏛️', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ1310', name: 'ECON1310 Makroøkonomi I', icon: '📈', color: 'from-emerald-500 to-teal-600' },

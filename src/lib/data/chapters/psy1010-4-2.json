@@ -1,0 +1,289 @@
+{
+  "id": "psy1010-4-2",
+  "courseId": "psy1010",
+  "chapterNumber": "4.2",
+  "title": "Type I- og Type II-feil, power og utvalgsstørrelse",
+  "description": "De to feilbeslutningene og balansen mellom dem — med power som det stigende A-temaet: hvorfor større utvalg gjør det lettere å avsløre en falsk H0.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "definere Type I- og Type II-feil, koble dem til α og β, og si hva hver feil betyr i et konkret scenario",
+    "tegne og tolke beslutningsmatrisen og drøfte hvilken feiltype som er verst gitt konteksten",
+    "forklare power = 1 − β og kjeden større n → mindre SE → høyere power"
+  ],
+  "content": [
+    {
+      "id": "psy1010-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Type I- og Type II-feil er en del av hypotesetestingsgjengangeren: spurt i rundt 17 av de 29 settene. Power (styrke) er det stigende A-temaet — egen deloppgave i V2024.**\n\n- Kjernedelen (**perfekt**-nivå): definere de to feiltypene, koble dem til α og β, og si hva hver feil BETYR konkret i det gitte scenariet.\n- Power-delen (**kunne**, stigende): power = 1 − β, og kjeden *større utvalg → mindre standardfeil → lettere å avsløre en falsk H0*.\n- Den vanligste tabben (**feil #2** — vi glosser feilkodene ved første bruk; hele registeret står i kap. 8.6) er å blande Type I og Type II. V2024-veiledningen skriver rett ut at «det er ganske vanlig at studentene blander». Vi bygger en fast huskeregel.\n\n**Øktmerking:** ~55 min lesetid (×1,5 ved håndskriving), delt i tre løkker med pausepunkter."
+    },
+    {
+      "id": "psy1010-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 4.1](/bok/psy1010/psy1010-4-1)** (hypoteser, α, beslutningsregelen) og **[kap. 3.3](/bok/psy1010/psy1010-3-3)** (standardfeil og hvordan n påvirker den).\n\n**Sist du var her (nøkkelbegrepene oppfrisket):**\n\n- $\\alpha$ = signifikansnivået = terskelen p sammenlignes mot, og risikoen for å forkaste en sann $H_0$ (fra 4.1).\n- Beslutningsregelen: forkast $H_0$ hvis $p \\leq \\alpha$ (fra 4.1).\n- $SE = \\dfrac{SD}{\\sqrt{n}}$: standardfeilen krymper når $n$ vokser (fra 3.3) — dette er nøkkelen til power.\n\nHer ser vi på hva som kan gå *galt* i en beslutning, og hvordan vi gjør det lettere å oppdage ekte effekter."
+    },
+    {
+      "id": "psy1010-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De to feilbeslutningene (~20 min)"
+    },
+    {
+      "id": "psy1010-4-2-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Tenk på en brannalarm. Den kan svikte på to måter: den kan **ule uten at det brenner** (falsk alarm — irriterende, unødvendig evakuering), eller den kan **tie mens det brenner** (den oversette brannen — potensielt katastrofalt). En perfekt alarm gjør ingen av delene, men i praksis må vi balansere de to risikoene mot hverandre.\n\nEn hypotesetest står overfor nøyaktig de samme to feilene. Vi vet aldri sikkert om $H_0$ egentlig er sann eller ikke, så beslutningen vår (forkaste eller beholde) kan bomme på to måter."
+    },
+    {
+      "id": "psy1010-4-2-def-type1",
+      "type": "definition",
+      "title": "Type I-feil (falsk alarm)",
+      "content": "En **Type I-feil** er å **forkaste en sann $H_0$** — å konkludere med at det finnes en effekt når det i virkeligheten ikke gjør det. Dette er alarmen som uler uten at det brenner.\n\nRisikoen for en Type I-feil er nettopp **$\\alpha$** (signifikansnivået). Setter vi $\\alpha = 0{,}05$, godtar vi 5 % sjanse for falsk alarm hver gang $H_0$ faktisk er sann. Vil vi ha færre falske alarmer, senker vi $\\alpha$ (til 0,01) — men det har en pris (se Type II)."
+    },
+    {
+      "id": "psy1010-4-2-def-type2",
+      "type": "definition",
+      "title": "Type II-feil (oversett effekt)",
+      "content": "En **Type II-feil** er å **beholde en falsk $H_0$** — å overse en effekt som faktisk finnes. Dette er alarmen som tier mens det brenner.\n\nRisikoen for en Type II-feil kalles **$\\beta$** (den greske bokstaven «beta»). $\\beta$ avhenger av tre ting: hvor stor den ekte effekten er, hvor stort utvalget ($n$) er, og hvilket $\\alpha$ vi valgte. Vi kan ikke lese $\\beta$ direkte av α — de to feiltypene henger sammen via en avveining."
+    },
+    {
+      "id": "psy1010-4-2-warning-huskeregel",
+      "type": "warning",
+      "title": "Feil #2 — Type I/II-forveksling (fast huskeregel)",
+      "content": "Å blande de to feiltypene er den vanligste tabben her — V2024-veiledningen skriver rett ut at «det er ganske vanlig at studentene blander». Lær denne analogien:\n\n- **Type I = alarmen varsler brann uten røyk** (falsk alarm, forkaster en *sann* $H_0$, risiko = $\\alpha$).\n- **Type II = alarmen overser brannen** (den ekte effekten glipper, beholder en *falsk* $H_0$, risiko = $\\beta$).\n\nHuskeregelen med tallene: **1 kommer før 2** — akkurat som du først *setter* α (Type I) når du planlegger testen, og β (Type II) er konsekvensen som følger av valgene dine. Type I handler om å se noe som ikke er der; Type II om å ikke se noe som er der."
+    },
+    {
+      "id": "psy1010-4-2-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-2-exc1-e",
+        "number": "4.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T2 — hypotesetestingsoppgaven. Lett innstegsoppgave: gjenkjenn feiltypen.)*\n\nEn forsker tester en ny medisin. I virkeligheten virker medisinen ikke ($H_0$ er sann), men testen gir $p = 0{,}03$, og forskeren konkluderer at den virker.\n\n**a)** Hvilken feiltype er dette?\n**b)** Hvilken risiko (symbol) styrer hvor ofte en slik feil skjer?",
+        "solution": "**a)** Dette er en **Type I-feil** — forskeren *forkaster en sann $H_0$* og «ser» en effekt som ikke finnes (falsk alarm).\n\n**b)** Risikoen styres av **$\\alpha$** (signifikansnivået). Med $\\alpha = 0{,}05$ vil en sann $H_0$ bli forkastet 5 % av gangene ved ren tilfeldighet.",
+        "hints": [
+          "Spør: er H0 sann eller falsk her? (Sann — medisinen virker ikke.)",
+          "Å forkaste en *sann* H0 = falsk alarm.",
+          "Type I-risikoen er selve α."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-2-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-2-exc2-e",
+        "number": "4.2.2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T2 — den andre feiltypen.)*\n\nEn annen medisin *virker faktisk* ($H_0$ er falsk), men studien er liten og gir $p = 0{,}20$, så forskeren beholder $H_0$ og konkluderer at medisinen ikke virker.\n\n**a)** Hvilken feiltype er dette?\n**b)** Hva heter risikoen for en slik feil, og hva er power uttrykt ved den?",
+        "solution": "**a)** Dette er en **Type II-feil** — forskeren *beholder en falsk $H_0$* og overser en ekte effekt.\n\n**b)** Risikoen kalles **$\\beta$**. **Power** (styrke) er sannsynligheten for å *unngå* denne feilen — å oppdage en ekte effekt: $\\text{power} = 1 - \\beta$. Her var studien liten, som ofte gir høy $\\beta$ (lav power).",
+        "hints": [
+          "Er H0 sann eller falsk? (Falsk — medisinen virker.)",
+          "Å beholde en *falsk* H0 = oversett effekt.",
+          "Power = 1 − β."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Beslutningsmatrisen og avveiningen (~18 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-2-thm-matrise",
+      "type": "theorem",
+      "title": "Beslutningsmatrisen (2×2)",
+      "content": "Alle fire utfall av en test kan settes i en tabell — sannhet (rad) mot beslutning (kolonne):\n\n| | **H0 er sann** (ingen effekt) | **H0 er falsk** (ekte effekt) |\n|---|---|---|\n| **Forkast H0** | ❌ Type I-feil (risiko $\\alpha$) | ✔ Riktig (power $= 1-\\beta$) |\n| **Behold H0** | ✔ Riktig | ❌ Type II-feil (risiko $\\beta$) |\n\nDe to riktige rutene ligger på diagonalen. De to feilene ligger på motdiagonalen: Type I øverst til venstre (så noe som ikke var der), Type II nederst til høyre (overså noe som var der). **Å kunne tegne og tolke denne tabellen er selve kjernen i deloppgaven.**"
+    },
+    {
+      "id": "psy1010-4-2-def-power",
+      "type": "definition",
+      "title": "Power (statistisk styrke)",
+      "content": "**Power** er sannsynligheten for å forkaste $H_0$ *når $H_0$ faktisk er falsk* — altså for å oppdage en ekte effekt:\n\n$$\\text{power} = 1 - \\beta$$\n\nKonvensjonen er **80 % power** (β = 0,20). En test med lav power vil ofte overse ekte effekter (mange Type II-feil). Power øker med (i) større ekte effekt, (ii) større utvalg $n$, og (iii) et mildere (større) $\\alpha$. Merk at 80 %-konvensjonen aksepterer en langt høyere feilrisiko for Type II ($\\beta = 0{,}20$) enn for Type I ($\\alpha = 0{,}05$) — falsk alarm regnes vanligvis som mer alvorlig enn en oversett effekt."
+    },
+    {
+      "id": "psy1010-4-2-text-avveining",
+      "type": "text",
+      "content": "**Avveiningen mellom feiltypene.** De to feilene trekker mot hverandre. Senker du $\\alpha$ (færre falske alarmer, færre Type I-feil), gjør du det samtidig vanskeligere å forkaste $H_0$ — så du overser flere ekte effekter (flere Type II-feil, høyere $\\beta$). Du kan ikke minimere begge samtidig ved bare å skru på $\\alpha$.\n\n**Hvilken feil er verst?** Det avhenger av konteksten. Ved *screening* for en alvorlig sykdom er en oversett sykdom (Type II) verst — man vil heller ha noen falske alarmer. Ved *godkjenning av et nytt medikament* er det motsatt: å godkjenne noe virkningsløst (Type I) kan være farligere. En A-besvarelse drøfter dette i lys av det konkrete scenariet, ikke abstrakt."
+    },
+    {
+      "id": "psy1010-4-2-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-2-exc3-e",
+        "number": "4.2.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — anvend feiltypene på et konkret scenario (A-krav: hva hver feil BETYR her).)*\n\nEn ny behandling mot flyskrekk testes mot ingen behandling. $H_0$: behandlingen har ingen effekt.\n\n**a)** Hva ville en Type I-feil bety *konkret i denne studien*?\n**b)** Hva ville en Type II-feil bety konkret?\n**c)** Hvis behandlingen er billig og ufarlig, hvilken feil er da mest bekymringsfull? Begrunn.",
+        "solution": "**a)** **Type I:** å konkludere at behandlingen virker når den egentlig ikke gjør det — altså ta i bruk (og anbefale) en *virkningsløs* behandling mot flyskrekk. Falsk alarm.\n\n**b)** **Type II:** å konkludere at behandlingen ikke virker når den egentlig gjør det — altså *forkaste en virksom* behandling som kunne hjulpet folk. Oversett effekt.\n\n**c)** Er behandlingen billig og ufarlig, koster en Type I-feil lite (folk bruker en harmløs behandling forgjeves), mens en Type II-feil betyr at en faktisk nyttig behandling går tapt. Da er **Type II mest bekymringsfull** — vi vil heller ta sjansen på å tilby den. (Var behandlingen dyr eller risikabel, ville vurderingen snudd.)",
+        "hints": [
+          "Sett først opp hva H0 sier (ingen effekt), så hva hver feilbeslutning innebærer.",
+          "Type I = tro den virker når den ikke gjør det; Type II = tro den ikke virker når den gjør det.",
+          "For (c): vei kostnaden av hver feil mot hverandre — det avhenger av konteksten."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Power og utvalgsstørrelse: V2024-leddet (~17 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-2-text-powerkjede",
+      "type": "text",
+      "content": "**Hvorfor større utvalg gir mer power.** Dette er kjeden V2024 spurte om som egen deloppgave, og den henger direkte på standardfeilen fra [kap. 3.3](/bok/psy1010/psy1010-3-3):\n\n$$\\text{større } n \\;\\Rightarrow\\; \\text{mindre } SE = \\frac{SD}{\\sqrt{n}} \\;\\Rightarrow\\; \\text{samme ekte effekt gir større testobservator} \\;\\Rightarrow\\; \\text{lettere å forkaste en falsk } H_0 \\;\\Rightarrow\\; \\text{høyere power}$$\n\nMed et større utvalg blir utvalgsfordelingen smalere. En ekte forskjell som «drukner i støyen» ved lite $n$, stikker tydelig fram når $SE$ er liten. Å doble utvalget reduserer $SE$ med faktoren $1/\\sqrt{2} \\approx 0{,}71$ — presisjonen øker, men langsommere enn utvalget vokser (√-effekten)."
+    },
+    {
+      "id": "psy1010-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel — hvorfor en kollega vil doble utvalget",
+      "problem": "En pilotstudie ($n = 25$ per gruppe) finner en liten, men ekte forskjell mellom to grupper. Resultatet blir *ikke* signifikant (p = 0,14). En kollega foreslår å gjenta studien med dobbelt så mange deltakere. Forklar hva doblingen gjør, og hvorfor det hjelper.",
+      "solution": "Effekten er ekte (H0 er egentlig falsk), men pilotstudien overså den — en **Type II-feil**, fordi lav $n$ ga stor $SE$ og dermed en liten testobservator og stor p.\n\n**Hva doblingen gjør:** flere deltakere gir mindre standardfeil. Med $SE = SD/\\sqrt{n}$ reduseres $SE$ med faktoren $1/\\sqrt{2} \\approx 0{,}71$ når $n$ dobles. Samme ekte forskjell deles nå på et mindre tall og gir en større testobservator — altså en mindre p-verdi.\n\n**Tolkning i ord:** doblingen **øker studiens power** (1 − β) — sjansen for å oppdage den ekte effekten. Den endrer *ikke* den ekte effektstørrelsen eller SD, bare presisjonen vi måler den med. Derfor er kollegaens forslag fornuftig: en større studie har bedre sjanse til å avsløre en falsk $H_0$."
+    },
+    {
+      "id": "psy1010-4-2-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-2-exc4-e",
+        "number": "4.2.4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — power-leddet, mønsterklon av V2024 (krevende).)*\n\nEt forskerteam finner en ikke-signifikant forskjell mellom to studieteknikker og lurer på om de bør øke utvalget.\n\n**a)** Definer power, uttrykt ved β.\n**b)** Forklar kjeden fra 'større n' til 'høyere power'. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n**c)** Nevn tre ting som påvirker power, og si hvilken av dem forskerne faktisk kan styre her.",
+        "solution": "**a)** **Power = 1 − β** — sannsynligheten for å forkaste $H_0$ når den er falsk, altså for å oppdage en ekte effekt (og unngå en Type II-feil).\n\n**b)** Kjeden: større $n$ ⟹ mindre $SE = SD/\\sqrt{n}$ (utvalgsfordelingen blir smalere) ⟹ samme ekte effekt gir en større testobservator ⟹ mindre p ⟹ lettere å forkaste en falsk $H_0$ ⟹ høyere power. Doblet $n$ reduserer $SE$ med $\\approx 0{,}71$.\n\n**c)** Power påvirkes av (i) den ekte effektstørrelsen, (ii) utvalgsstørrelsen $n$, og (iii) valgt $\\alpha$. Forskerne kan i praksis styre **$n$** (og til dels α) — effektstørrelsen i naturen er gitt. Derfor er å øke $n$ det mest realistiske grepet.",
+        "hints": [
+          "Power = 1 − β; β er Type II-risikoen.",
+          "Kjeden går via SE: større n ⟹ mindre SE ⟹ større testobservator ⟹ mindre p.",
+          "De tre faktorene: effektstørrelse, n, α — hvilken er under forskerens kontroll?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #2 — Type I/II-forveksling.** Den vanligste tabben (V2024: «ganske vanlig at studentene blander»). Fast huskeregel: **Type I = varsler brann uten røyk** (forkaster sann $H_0$, risiko α); **Type II = overser brannen** (beholder falsk $H_0$, risiko β).\n\n**Å tro at α og β summerer til 1.** De gjør ikke det — α gjelder når $H_0$ er *sann*, β når $H_0$ er *falsk*. Det er $\\beta$ og *power* som summerer til 1 (power = 1 − β).\n\n**Å tro at større n reduserer SD.** Nei — større $n$ reduserer $SE$ (presisjonen i snittet), ikke $SD$ (den ekte spredningen mellom personer). Det er nettopp fallende $SE$ som gir høyere power.\n\n**Å avgjøre 'hvilken feil er verst' abstrakt.** Svaret avhenger av konteksten (screening vs. medikamentgodkjenning). En A-besvarelse begrunner ut fra kostnadene i det konkrete scenariet."
+    },
+    {
+      "id": "psy1010-4-2-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — feiltyper og power\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-4-2-def-bank-1",
+      "type": "definition",
+      "title": "Type I ↔ Type II (kontrastpar)",
+      "content": "**Type I:** forkaste en *sann* $H_0$ (falsk alarm, risiko $\\alpha$) — ser noe som ikke er der. **Type II:** beholde en *falsk* $H_0$ (oversett effekt, risiko $\\beta$) — ser ikke noe som er der. De er hverandres speilbilder over beslutningsmatrisens diagonal."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-2",
+      "type": "definition",
+      "title": "α ↔ β (kontrastpar)",
+      "content": "**$\\alpha$** = Type I-risiko, gjelder når $H_0$ er *sann*, velges av forskeren (ofte 0,05). **$\\beta$** = Type II-risiko, gjelder når $H_0$ er *falsk*, følger av effektstørrelse, $n$ og α. De summerer IKKE til 1."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-3",
+      "type": "definition",
+      "title": "Power = 1 − β",
+      "content": "Power er sannsynligheten for å oppdage en ekte effekt (forkaste en falsk $H_0$). $\\text{power} = 1 - \\beta$. Konvensjonen er 80 % power, altså $\\beta = 0{,}20$."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-4",
+      "type": "definition",
+      "title": "Falsk alarm",
+      "content": "Dagligtale for Type I-feil: testen roper «effekt!» når det ikke er noen. Risikoen er α. Analogien: brannalarmen uler uten røyk."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-5",
+      "type": "definition",
+      "title": "Oversett effekt",
+      "content": "Dagligtale for Type II-feil: testen tier når det faktisk er en effekt. Risikoen er β. Analogien: brannalarmen overser brannen."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-6",
+      "type": "definition",
+      "title": "Beslutningsmatrisen",
+      "content": "2×2-tabellen sannhet (H0 sann/falsk) × beslutning (forkast/behold). Riktige utfall på diagonalen; Type I og Type II på motdiagonalen. Å tegne den er kjernen i deloppgaven."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-7",
+      "type": "definition",
+      "title": "Power-determinant: effektstørrelse",
+      "content": "Jo større den ekte effekten er, desto lettere er den å oppdage — høyere power. En bitteliten ekte effekt krever stort utvalg for å bli sett. Effektstørrelsen i naturen kan forskeren ikke styre."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-8",
+      "type": "definition",
+      "title": "Power-determinant: utvalgsstørrelse n",
+      "content": "Større $n$ ⟹ mindre $SE = SD/\\sqrt{n}$ ⟹ smalere utvalgsfordeling ⟹ ekte effekter stikker tydeligere fram ⟹ høyere power. Dette er faktoren forskeren lettest kan styre (V2024-leddet)."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-9",
+      "type": "definition",
+      "title": "Power-determinant: α",
+      "content": "Et mildere (større) $\\alpha$ gjør det lettere å forkaste $H_0$ og øker power — men på bekostning av flere Type I-feil. Et strengere α (0,01) senker Type I-risikoen, men øker β."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-10",
+      "type": "definition",
+      "title": "Avveiningen α mot β",
+      "content": "Senker du $\\alpha$ (færre Type I-feil), øker du $\\beta$ (flere Type II-feil), alt annet likt. Du kan ikke minimere begge feiltypene bare ved å justere α — det krever mer data (større n)."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-11",
+      "type": "definition",
+      "title": "80 %-konvensjonen",
+      "content": "Standarden er 80 % power ($\\beta = 0{,}20$). Den godtar en langt høyere risiko for Type II (20 %) enn for Type I (5 %), fordi en falsk alarm ofte regnes som mer alvorlig enn en oversett effekt — men dette er en konvensjon, ikke en naturlov."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-12",
+      "type": "definition",
+      "title": "Hvilken feil er verst?",
+      "content": "Kontekstavhengig. Ved screening for alvorlig sykdom er Type II (oversett sykdom) verst; ved medikamentgodkjenning er Type I (godkjenne noe virkningsløst) ofte verst. En A-besvarelse begrunner ut fra scenariets kostnader."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-13",
+      "type": "definition",
+      "title": "SD vs. SE i power-sammenheng",
+      "content": "Større $n$ reduserer $SE$ (presisjonen i gjennomsnittet), IKKE $SD$ (den ekte spredningen mellom personer). Det er fallende $SE$ som løfter power. Å tro n krymper SD er en fast felle."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-14",
+      "type": "definition",
+      "title": "√n-effekten på power",
+      "content": "Doblet utvalg reduserer $SE$ med bare $1/\\sqrt{2} \\approx 0{,}71$ — presisjon (og power) øker, men langsommere enn $n$ vokser. Å firedoble $n$ halverer $SE$. Presisjon er «dyr»."
+    },
+    {
+      "id": "psy1010-4-2-def-bank-15",
+      "type": "definition",
+      "title": "H0 sann vs. falsk styrer feiltypen",
+      "content": "Nøkkelen til å skille feiltypene: spør først om $H_0$ i virkeligheten er sann eller falsk. Feil ved *sann* $H_0$ = Type I; feil ved *falsk* $H_0$ = Type II. Uten dette utgangspunktet blander man dem (feil #2)."
+    },
+    {
+      "id": "psy1010-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 4.2",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-4-2-rep-txt",
+          "type": "text",
+          "content": "**Matrisen:** sannhet × beslutning. Type I (forkast sann H0, risiko α); Type II (behold falsk H0, risiko β); riktige utfall på diagonalen.\n\n**Huskeregel (feil #2):** Type I = varsler brann uten røyk; Type II = overser brannen.\n\n**Power = 1 − β.** Øker med: større ekte effekt, større $n$ (via mindre $SE$), mildere $\\alpha$. Konvensjon: 80 % power. Forskeren styrer lettest $n$.\n\n**Avveining:** lavere α ⟹ høyere β (og omvendt). «Hvilken feil verst» avhenger av konteksten.\n\n**Framover:** [kap. 4.3](/bok/psy1010/psy1010-4-3) tar hvilken test du skal velge (t vs. ANOVA vs. ANCOVA)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-4-2-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\alpha$ | signifikansnivå = Type I-risiko (forkaste sann $H_0$) |\n| $\\beta$ | Type II-risiko (beholde falsk $H_0$) |\n| $1 - \\beta$ | power (styrke): sjansen for å oppdage en ekte effekt |\n| $H_0, H_1$ | null- og alternativhypotese |\n| $SE$ | standardfeil $= SD/\\sqrt{n}$ |\n| $SD$ | standardavvik (spredning mellom personer) |\n| $n$ | utvalgsstørrelse |\n\n**Sammenhenger i dette delkapitlet:**\n\n$$\\text{power} = 1 - \\beta \\qquad \\text{(sjansen for å forkaste en falsk } H_0)$$\n\n$$\\text{større } n \\Rightarrow \\text{mindre } SE = \\frac{SD}{\\sqrt{n}} \\Rightarrow \\text{høyere power}$$\n\n$$\\text{lavere } \\alpha \\;\\Leftrightarrow\\; \\text{høyere } \\beta \\quad (\\text{avveiningen mellom feiltypene})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

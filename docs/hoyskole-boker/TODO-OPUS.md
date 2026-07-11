@@ -19,7 +19,8 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 
 - [ ] `exphil03` — EXPHIL03 Examen philosophicum (UiO). Størst volum av alle
       (obligatorisk for alle UiO-studenter). Drøfting; 30 kap planlagt.
-- [ ] `psy1010` — PSY1010 Innføring i metode (UiO). Hybrid drøfting/tall;
+- [x] `psy1010` — **BYGGET 11. juli 2026** (41 kap, 548 quiz, 520 fc, BOKPORT OK,
+      4 verifikatorer grønne, prod-curl 9/9, kildegrunnlag-side). Hybrid drøfting/tall;
       stort kull. NB: hybrid-valgene står i skjelettets §2.
 - [ ] `econ1210` — ECON1210 Mikroøkonomi 1 (UiO). Regnefag; CORE-anleggs-
       modellen er bokstandard (IKKE standard produsentteori).

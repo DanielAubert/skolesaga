@@ -184,6 +184,44 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  psy1010: {
+      courseId: 'psy1010',
+    institusjon: 'Universitetet i Oslo (UiO) — Psykologisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot PSY1010s eksamensarkiv ved UiO: 29 eksamenssett fra 2008 til 2025 (inkludert to utsatte prøver) og 10 sensorveiledninger fra 2018–2025. Emnet samkjøres med PSYC1100 (profesjonsstudiet) med identiske oppgavesett, så arkivet dekker begge. Temavekting, oppgavesjangre og tolkningskravene i boka speiler det arkivet faktisk viser.',
+    eksamenssett: [
+      {
+        tittel: '29 eksamenssett (2008–2025, inkl. to utsatte prøver)',
+        detalj:
+          'Settene fra 2015–2025 er lest i sin helhet; 2008–2014 er skumlest for temaregistrering. Årene 2020–2022 var hjemmeeksamen med åpen bok — regimeforskjellen er tatt hensyn til i kalibreringen.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '10 sensorveiledninger (2018–2025)',
+        detalj:
+          'Alle lest grundig — de er kjernen i analysen og viser hva sensor belønner per oppgavetype: begrepsredegjørelse, tolkning av statistiske resultater og små regneoppgaver med oppgitte formler.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for PSY1010',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform). Emnestatus verifisert aktiv i 2026.',
+      },
+      {
+        tittel: 'Pensumreferanser slik veiledningene navngir dem',
+        detalj:
+          'Bordens & Abbott (forskningsmetode) og Kvale & Brinkmann (kvalitativt intervju) refereres slik sensorveiledningene selv gjør — de siteres aldri i lengde.',
+      },
+    ],
+    forbehold: [
+      'Egne oppgave-PDF-er for vår 2024 og vår 2025 mangler i arkivet; de fullstendige oppgavetekstene står i sensorveiledningene for de årene.',
+      'Sensorveiledninger finnes kun for 2018–2025. For eldre årganger er sensorlogikken utledet av oppgaveformuleringene alene.',
+      'Én arkivfil (vår 2022) har trykkfeil i dokumentoverskriften («våren 2021»); innholdet er verifisert mot riktig årgang.',
+      'Alle oppgaver, caser og tall i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, vurderingskrav) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {

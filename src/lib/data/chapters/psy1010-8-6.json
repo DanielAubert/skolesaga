@@ -1,0 +1,285 @@
+{
+  "id": "psy1010-8-6",
+  "courseId": "psy1010",
+  "chapterNumber": "8.6",
+  "title": "Feilvaksinen — de 16 feilene som senker karakteren",
+  "description": "Bokas samlede feilregister: alle 16 sensordokumenterte feilene på ett sted, hver med hva feilen er, et nyskrevet eksempel, hvordan sensor ser den og vaksinen — med de fire farligste (p-verdien, Type I/II, kasus vs. N=1, testvaliditet) i før/etter-par til pugging.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kjenne igjen alle 16 sensordokumenterte feilene i et besvarelsesutdrag og navngi dem",
+    "formulere den korrekte versjonen av de fire farligste feilene (p-verdien, Type I/II, kasus vs. N=1, testvaliditet vs. slutningsvaliditet) ordrett",
+    "kjøre relevante selvsjekker før innlevering for å unngå fellene",
+    "diagnostisere flere feil i en sammenhengende passasje"
+  ],
+  "content": [
+    {
+      "id": "psy1010-8-6-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er bokas samlede feilregister** — de 16 feilene sensorveiledningene dokumenterer, samlet på ett sted. Å unngå dem er ren karakterforsikring: hver felle du ikke går i, er poeng du ikke taper.\n\n- Gjennom hele boka har «Typiske feil»-blokkene henvist til disse med kortnumre (**feil #1** til **feil #16**). Her er hele registeret, hver med samme fem deler: (a) hva feilen faktisk er, (b) et konkret utdrag som viser den, (c) hvordan sensor ser den, (d) vaksinen — grepet som unngår den.\n- **De fire farligste får dobbel dose:** #1 (p-verdien — den *eneste* med eksplisitt trekk-instruks), #2 (Type I/II — «ganske vanlig» ifølge V2024), #4 (kasus vs. N=1 — advart mot to ganger) og #5 (testvaliditet vs. slutningsvaliditet — påpekt hvert år det spørres). For dem finner du før/etter-formuleringspar til pugging.\n- **Kapitlet er også et oppslagsverk.** Registeret under er sortert etter nummer og kan skummes: finn feilen du er usikker på, les de fem linjene, gå videre.\n\n*Tidsbruk: ~60 minutter for en full gjennomlesing, men kapitlet er bygget for oppslag — du trenger ikke lese alt på én gang. Naturlige pausepunkter er markert (etter #8). Gjenkjennings-oppgavene til slutt driller «hvilken feil begår kandidaten?».*"
+    },
+    {
+      "id": "psy1010-8-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet samler feil fra hele boka, så det bygger på Del 0–7. Hver feil har et *hjemkapittel* der begrepet forklares grundig — de er lenket ved hver feil. Du får mest ut av registeret hvis du har lest temadelene, men det kan også brukes som frittstående oppslagsverk og repetisjon rett før eksamen. Håndverksmantraene «definer — anvend på caset — begrunn» og relevansfilteret kommer fra [kap. 0.2](/bok/psy1010/psy1010-0-2)."
+    },
+    {
+      "id": "psy1010-8-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-8-6-symbolliste-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis (og grundig i hjemkapitlene).\n\n| Symbol | Betydning |\n|---|---|\n| $H_0$, $H_1$ | null- og alternativhypotese |\n| $\\mu$ | populasjonsgjennomsnitt (hypotesene gjelder $\\mu$, ikke $\\bar{x}$) |\n| $\\bar{x}$ | utvalgsgjennomsnitt |\n| $p$ | p-verdi (sannsynlighet for minst så ekstreme data *gitt at* $H_0$ er sann) |\n| $\\alpha$, $\\beta$ | risiko for Type I- og Type II-feil |\n| SD, SE | standardavvik (spredning i data) og standardfeil (presisjon i snittet); SE = SD/$\\sqrt{n}$ |\n| $r$, $r^2$ | korrelasjon; delt/forklart varians |\n\n**Formler i dette delkapitlet:** ingen som skal regnes. De to som *forekommer* i feilbeskrivelsene:\n\n$$SE = \\frac{SD}{\\sqrt{n}} \\qquad \\text{power} = 1 - \\beta$$\n\nTolkning: $SE$ krymper med større $n$ mens $SD$ ikke gjør det (feil #6); *power* (sjansen for å oppdage en ekte effekt) er komplementet til Type II-risikoen $\\beta$ (feil #2)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-8-6-register-intro",
+      "type": "text",
+      "content": "## Feilregisteret (~35 min, eller slå opp etter behov)\n\nHver feil har fem linjer: **hva den er**, et **utdrag** som viser den, **slik ser sensor den**, og **vaksinen**. De fire farligste (#1, #2, #4, #5) har i tillegg et **før/etter-par** til pugging."
+    },
+    {
+      "id": "psy1010-8-6-feil-1",
+      "type": "warning",
+      "title": "Feil #1 — p-verdien som «sannsynligheten for at H₀ er feil» (FARLIGST — dobbel dose)",
+      "content": "**Hjemkapittel:** [kap. 4.1](/bok/psy1010/psy1010-4-1), drillet i [kap. 8.2](/bok/psy1010/psy1010-8-2).\n\n**Hva feilen er:** å definere p-verdien som sannsynligheten for at hypotesen ($H_0$ eller $H_1$) er sann eller feil. p er i stedet sannsynligheten for **dataene gitt hypotesen** — ikke for hypotesen gitt dataene.\n\n**Slik ser den ut i en besvarelse (feil):** «$p = 0{,}03$ betyr at det er 3 % sannsynlig at $H_0$ er riktig, så vi er 97 % sikre på $H_1$.»\n\n**Slik ser sensor den:** dette er den *eneste* feilen med en **eksplisitt trekk-instruks** i en veiledning (H2018). Den fanges umiddelbart og koster.\n\n**Vaksine (før/etter — lær utenat):**\n\n- ❌ *Før:* «$p = 0{,}03$ = 3 % sjanse for at $H_0$ er sann.»\n- ✔ *Etter:* «$p = 0{,}03$ betyr at *hvis* $H_0$ var sann, ville vi fått et resultat minst så ekstremt som dette bare 3 % av gangene.»\n\nHele forskjellen: p er sannsynligheten for **data gitt hypotese**, ikke **hypotese gitt data** (som å forveksle «våte gater hvis regn» med «regn hvis våte gater»). Si alltid leddet «gitt at $H_0$ er sann» høyt når du definerer p."
+    },
+    {
+      "id": "psy1010-8-6-feil-2",
+      "type": "warning",
+      "title": "Feil #2 — Type I/II-forveksling (blant de farligste — dobbel dose)",
+      "content": "**Hjemkapittel:** [kap. 4.2](/bok/psy1010/psy1010-4-2).\n\n**Hva feilen er:** å bytte om de to feilbeslutningene. **Type I** = forkaste en *sann* $H_0$ (falsk alarm, risiko $\\alpha$). **Type II** = beholde en *falsk* $H_0$ (oversett effekt, risiko $\\beta$).\n\n**Slik ser den ut (feil):** «Type I-feil er når vi overser en ekte effekt.» (Det er Type II.)\n\n**Slik ser sensor den:** V2024-veiledningen skriver rett ut at «det er ganske vanlig at studentene blander» — den er ventet og lett å oppdage.\n\n**Vaksine (før/etter + huskeregel):**\n\n- ❌ *Før:* «Type I = å ikke oppdage effekten.»\n- ✔ *Etter:* «Type I = alarmen varsler brann uten røyk (forkaster sann $H_0$, risiko $\\alpha$); Type II = alarmen overser brannen (beholder falsk $H_0$, risiko $\\beta$).»\n\nHuskeregel: **1 kommer før 2** — du *setter* $\\alpha$ (Type I) når du planlegger; $\\beta$ (Type II) er konsekvensen. Type I = å se noe som ikke er der; Type II = å ikke se noe som er der. (Og: power = $1-\\beta$, ikke $1-\\alpha$.)"
+    },
+    {
+      "id": "psy1010-8-6-feil-3",
+      "type": "warning",
+      "title": "Feil #3 — kausal tolkning av korrelasjon",
+      "content": "**Hjemkapittel:** [kap. 5.1](/bok/psy1010/psy1010-5-1) og [kap. 5.2](/bok/psy1010/psy1010-5-2).\n\n**Hva feilen er:** å hoppe fra en korrelasjon ($r$) til «X fører til Y». En korrelasjon alene tillater aldri en årsaksslutning.\n\n**Slik ser den ut (feil):** «Det er en negativ sammenheng mellom skjermtid og karakterer, altså senker skjermtid karakterene.»\n\n**Slik ser sensor den:** kausalspranget er bokas viktigste korrelasjonsfelle — sensor ser etter om du eksplisitt *avviser* det og peker på alternativer.\n\n**Vaksine:** skriv alltid at samvariasjon ikke er kausalitet, og pek på minst ett alternativ — retningsproblemet (Y kan påvirke X), en tredjevariabel/konfunder, eller spuriøsitet. «Sammenhengen kan skyldes en bakenforliggende faktor, f.eks. …»."
+    },
+    {
+      "id": "psy1010-8-6-feil-4",
+      "type": "warning",
+      "title": "Feil #4 — kasusstudie forvekslet med N=1-eksperiment (blant de farligste — dobbel dose)",
+      "content": "**Hjemkapittel:** [kap. 2.4](/bok/psy1010/psy1010-2-4).\n\n**Hva feilen er:** å kalle en beskrivende kasusstudie et «N=1-eksperiment» fordi begge involverer én person. Et **N=1/single-subject-design er et EKTE eksperiment** (manipulasjon + kontrollfaser, f.eks. ABAB); en **kasusstudie er ren beskrivelse** uten manipulasjon.\n\n**Slik ser den ut (feil):** «Freuds beskrivelse av én pasient er et N=1-eksperiment fordi det bare er én deltaker.»\n\n**Slik ser sensor den:** advart mot **to ganger** i veiledningene — en forventet felle.\n\n**Vaksine (før/etter):**\n\n- ❌ *Før:* «Det er én person, altså N=1-eksperiment.»\n- ✔ *Etter:* «Manipuleres en betingelse med kontrollfaser (ABAB)? Da er det et N=1-eksperiment. Bare rik beskrivelse av én person uten manipulasjon? Da er det en kasusstudie.»\n\nTesten er alltid: **manipuleres noe her?** Antall deltakere avgjør *ingenting*."
+    },
+    {
+      "id": "psy1010-8-6-feil-5",
+      "type": "warning",
+      "title": "Feil #5 — testvaliditet forvekslet med slutningsvaliditet (blant de farligste — dobbel dose)",
+      "content": "**Hjemkapittel:** [kap. 1.3](/bok/psy1010/psy1010-1-3) og [kap. 2.1](/bok/psy1010/psy1010-2-1).\n\n**Hva feilen er:** å svare «indre og ytre validitet» når spørsmålet gjelder om en *test/et måleinstrument* er godt. Indre/ytre validitet gjelder **slutninger fra studier**; om en *test* måler riktig, er **testvaliditet** (face, innhold, kriterium, begrep).\n\n**Slik ser den ut (feil):** «For å vurdere om spørreskjemaet er valid, ser vi på indre validitet (er sammenhengen kausal?) og ytre validitet (kan den generaliseres?).»\n\n**Slik ser sensor den:** påpekt **hvert år** det spørres om — en pålitelig differensieringsfelle.\n\n**Vaksine (før/etter):**\n\n- ❌ *Før:* «Testens validitet = indre og ytre validitet.»\n- ✔ *Etter:* «Testens validitet vurderes gjennom face-, innholds-, kriterie- og begrepsvaliditet: dekker leddene fenomenet (innhold), samsvarer skalaen med et etablert mål (kriterium), oppfører den seg som teorien forutsier (begrep)?»\n\nSpør alltid: **gjelder spørsmålet en studie eller et måleinstrument?** Studie → indre/ytre validitet. Instrument → testvaliditet."
+    },
+    {
+      "id": "psy1010-8-6-feil-6",
+      "type": "warning",
+      "title": "Feil #6 — SD forvekslet med SE",
+      "content": "**Hjemkapittel:** [kap. 3.3](/bok/psy1010/psy1010-3-3) og [kap. 3.4](/bok/psy1010/psy1010-3-4).\n\n**Hva feilen er:** å behandle standardfeilen (SE) som «enda et spredningsmål», eller å bruke SD der SE(D) skal stå. **SD** = spredning mellom personer (endres ikke av $n$). **SE** = presisjonen i gjennomsnittsestimatet (krymper med $\\sqrt{n}$): SE = SD/$\\sqrt{n}$.\n\n**Slik ser den ut (feil):** «Med større utvalg blir SD mindre, så dataene blir mindre spredt.»\n\n**Slik ser sensor den:** den vanligste og mest kostbare feilen i statistikkdelen — et eksplisitt A-skille.\n\n**Vaksine:** spør alltid — **beskriver tallet folk eller snittet?** Folk (spredning) → SD; presisjonen i snittet → SE. Større $n$ reduserer $SE$, ikke $SD$. I t-brøken deler du på SE(D) (standardfeilen for differansen), aldri på SD."
+    },
+    {
+      "id": "psy1010-8-6-feil-7",
+      "type": "warning",
+      "title": "Feil #7 — mange t-tester ved 3+ grupper / ANOVA uten begrunnelsen",
+      "content": "**Hjemkapittel:** [kap. 4.3](/bok/psy1010/psy1010-4-3), drillet i [kap. 8.4](/bok/psy1010/psy1010-8-4).\n\n**Hva feilen er:** å kjøre parvise t-tester ved tre eller flere grupper — *eller* å velge ANOVA uten å kunne **hvorfor** (familywise error). Begrunnelsen er selve poenget.\n\n**Slik ser den ut (feil):** «Med fem grupper kjørte jeg t-test mellom hvert par.» / «Jeg brukte ANOVA.» (uten begrunnelse).\n\n**Slik ser sensor den:** testvalget er en drøfting; en test uten begrunnelse gir lite uttelling.\n\n**Vaksine:** ved 3+ grupper → **enveis ANOVA**, fordi mange parvise t-tester blåser opp den samlede (**familywise**) feilraten (5 grupper → 10 par à 5 % risiko ≫ 5 % samlet). Skriv begrunnelsen, ikke bare testnavnet. (ANOVA regnes aldri ut på eksamen.)"
+    },
+    {
+      "id": "psy1010-8-6-feil-8",
+      "type": "warning",
+      "title": "Feil #8 — oppramsing uten begrunnelse (remsefeilen)",
+      "content": "**Hjemkapittel:** [kap. 0.2](/bok/psy1010/psy1010-0-2), [kap. 1.4](/bok/psy1010/psy1010-1-4), drillet i [kap. 8.4](/bok/psy1010/psy1010-8-4).\n\n**Hva feilen er:** å liste alle momentene (utvalgsmetoder, validitetsformer, designtrusler, forskningstrinn) uten å velge og *begrunne* for det konkrete caset. Gir **C-tak** — besvarelsen kan ikke nå over C uansett hvor komplett lista er.\n\n**Slik ser den ut (feil):** «Utvalgsmetoder: enkel tilfeldig, stratifisert, systematisk, klynge, bekvemmelighet.» (og stopp der).\n\n**Slik ser sensor den:** veiledningene ber sensor sjekke nettopp at kandidaten *velger* og *begrunner* — ikke bare remser.\n\n**Vaksine:** for hvert moment, **én setning om hvordan det slår inn i akkurat dette scenariet**. Velg framfor å liste; anvend framfor å definere. «Definer — anvend på caset — begrunn».\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-8-6-feil-9",
+      "type": "warning",
+      "title": "Feil #9 — bekvemmelighetsutvalg behandlet som representativt",
+      "content": "**Hjemkapittel:** [kap. 1.4](/bok/psy1010/psy1010-1-4).\n\n**Hva feilen er:** å konkludere som om et bekvemmelighetsutvalg (forelesningssalen, en Facebook-gruppe) var en miniatyrkopi av populasjonen.\n\n**Slik ser den ut (feil):** «Vi spurte 150 studenter i forelesningen, så resultatet gjelder norske studenter generelt.»\n\n**Slik ser sensor den:** en av de sikreste måtene å tape utvalgspoeng på — sensor ser etter om du navngir utvalgstypen og gjør generaliseringen betinget.\n\n**Vaksine:** navngi **bekvemmelighetsutvalget** og **frivillighetsbias**, og gjør generaliseringen betinget: «resultatet gjelder først og fremst denne gruppen; generalisering til alle studenter er usikker på grunn av mulig frivillighets- og oppmøteskjevhet»."
+    },
+    {
+      "id": "psy1010-8-6-feil-10",
+      "type": "warning",
+      "title": "Feil #10 — hypoteseformet «kvalitativt» forskningsspørsmål",
+      "content": "**Hjemkapittel:** [kap. 6.1](/bok/psy1010/psy1010-6-1), drillet i [kap. 8.5](/bok/psy1010/psy1010-8-5).\n\n**Hva feilen er:** å levere en hypotese eller et ja/nei-spørsmål der oppgaven ber om et åpent, kvalitativt forskningsspørsmål. Dette er den kvalitative oppgavens **eneste stryk-felle**.\n\n**Slik ser den ut (feil):** «Reduserer kveldsskjermbruk søvnkvaliteten hos ungdom?» (hypoteseformet, ja/nei).\n\n**Slik ser sensor den:** eksplisitt i veiledningen — den ene tingen som kan felle en ellers lettvint oppgave.\n\n**Vaksine:** kjør selvsjekken før du leverer — **åpent spørreord? ingen påstand? ikke ja/nei?** Tre ganger ja = gyldig. Malen «Hvordan opplever [gruppe] [fenomen]?» treffer alltid."
+    },
+    {
+      "id": "psy1010-8-6-feil-11",
+      "type": "warning",
+      "title": "Feil #11 — retningsbestemt H₁ uten begrunnelse",
+      "content": "**Hjemkapittel:** [kap. 4.1](/bok/psy1010/psy1010-4-1).\n\n**Hva feilen er:** å velge en enhalet (retningsbestemt) test — og dermed halvere p — uten en faglig forhåndsbegrunnelse for retningen.\n\n**Slik ser den ut (feil):** «Vi antar at gruppen skårer høyere, så vi bruker enhalet test», uten noe grunnlag for antakelsen før dataene ble sett.\n\n**Slik ser sensor den:** V2025-veiledningen trekker eksplisitt for enhalet valg *uten* begrunnelse.\n\n**Vaksine:** enhalet test er kun tillatt når retningen er **begrunnet før dataene ble sett** (teori eller tidligere funn). Er du i tvil, velg **tohalet** — det er det trygge standardvalget."
+    },
+    {
+      "id": "psy1010-8-6-feil-12",
+      "type": "warning",
+      "title": "Feil #12 — hypoteser om utvalgsverdier i stedet for populasjon (μ)",
+      "content": "**Hjemkapittel:** [kap. 4.1](/bok/psy1010/psy1010-4-1) og [kap. 3.3](/bok/psy1010/psy1010-3-3).\n\n**Hva feilen er:** å formulere hypoteser om utvalgsgjennomsnittet ($\\bar{x}$) i stedet for populasjonsgjennomsnittet ($\\mu$). All slutningsstatistikk handler om det ukjente $\\mu$ — utvalgssnittet kjenner vi allerede.\n\n**Slik ser den ut (feil):** «$H_0: \\bar{x} = 50$.»\n\n**Slik ser sensor den:** en presisjonsfeil som røper at slutningslogikken ikke sitter.\n\n**Vaksine:** skriv alltid hypotesene om **populasjonen**: «$H_0: \\mu = 50$; $H_1: \\mu \\neq 50$». Vi tester en påstand om det vi *ikke* kjenner ($\\mu$), ved hjelp av det vi *målte* ($\\bar{x}$)."
+    },
+    {
+      "id": "psy1010-8-6-feil-13",
+      "type": "warning",
+      "title": "Feil #13 — usynlig utregning",
+      "content": "**Hjemkapittel:** [kap. 3.1](/bok/psy1010/psy1010-3-1) og [kap. 3.4](/bok/psy1010/psy1010-3-4), drillet i [kap. 8.3](/bok/psy1010/psy1010-8-3).\n\n**Hva feilen er:** å oppgi et regnesvar uten å vise mellomregningen.\n\n**Slik ser den ut (feil):** «$SD = 8{,}09$.» (og ingenting mer).\n\n**Slik ser sensor den:** uten synlig fremgangsmåte kan sensor ikke gi «riktig metode»-uttellingen — og én tastefeil feller hele svaret. På eksamen er «vis utregningen» en fast regel.\n\n**Vaksine:** sett opp **alle ledd synlig** — avvikstabell, deling, kvadratrot — og avslutt med en tolkning i ord. Fremgangsmåten teller mer enn tallet."
+    },
+    {
+      "id": "psy1010-8-6-feil-14",
+      "type": "warning",
+      "title": "Feil #14 — å svare på alle fire oppgaver",
+      "content": "**Hjemkapittel:** [kap. 0.1](/bok/psy1010/psy1010-0-1).\n\n**Hva feilen er:** å bruke tid på å besvare alle fire eksamensoppgavene når du bare skal velge tre. Sensor ser bort fra den siste — arbeidet er bortkastet.\n\n**Slik ser den ut:** kandidaten leverer fire fulle besvarelser, hver litt kortere enn de kunne vært.\n\n**Slik ser sensor den:** den fjerde oppgaven telles ikke; tiden den tok, mangler på de tre som teller.\n\n**Vaksine:** **velg tre bevisst** de første minuttene, og bruk *hele* tiden på dem. Alle tre teller likt, så en halvferdig tredjeoppgave er dyrere enn en «bare god nok» favoritt."
+    },
+    {
+      "id": "psy1010-8-6-feil-15",
+      "type": "warning",
+      "title": "Feil #15 — «jeg kan også dette»-utbrodering",
+      "content": "**Hjemkapittel:** [kap. 0.2](/bok/psy1010/psy1010-0-2), drillet i [kap. 8.5](/bok/psy1010/psy1010-8-5).\n\n**Hva feilen er:** å øse på med tilstøtende kunnskap som ikke besvarer spørsmålet. Særlig fristende i den kvalitative oppgaven, som er *billig* men ikke *gratis-å-utbrodere*.\n\n**Slik ser den ut (feil):** oppgaven ber om ett kvalitativt spørsmål; kandidaten skriver tre avsnitt om kvalitativ metodes historie og filosofi.\n\n**Slik ser sensor den:** relevansfilteret — stoff honoreres bare når det gjøres relevant for spørsmålet. Utbrodering gir null og stjeler tid (den trekker ikke ned, men koster minuttene du trenger til A-skillene).\n\n**Vaksine:** svar **knapt og presist**. Treff kjernepoengene, så videre. Spør ved hvert avsnitt: «besvarer dette spørsmålet?»"
+    },
+    {
+      "id": "psy1010-8-6-feil-16",
+      "type": "warning",
+      "title": "Feil #16 — etikk som moralprat uten fagbegrepene",
+      "content": "**Hjemkapittel:** [kap. 7.1](/bok/psy1010/psy1010-7-1) og [kap. 7.2](/bok/psy1010/psy1010-7-2).\n\n**Hva feilen er:** å svare på et etikk-spørsmål med generelle betraktninger om å «behandle folk fint», uten fagbegrepene.\n\n**Slik ser den ut (feil):** «Det er viktig at deltakerne blir behandlet med respekt og ikke får det vondt, og at forskeren er ærlig.» (riktig følelse, null fagbegreper).\n\n**Slik ser sensor den:** moralprat gir ikke uttelling; sensor vil ha fagforankring.\n\n**Vaksine:** navngi og anvend begrepene: **informert samtykke, personvern/konfidensialitet, rett til å trekke seg, deception + debriefing**. (Samme prinsipp gjelder åpen vitenskap: navngi HARKing, pre-registrering, p-hacking, publikasjonsskjevhet — ikke bare «forskning bør være åpen».)"
+    },
+    {
+      "id": "psy1010-8-6-farligste",
+      "type": "tip",
+      "title": "De fire farligste — pugg før/etter-parene",
+      "content": "Hvis du bare rekker fire ting før eksamen, pugg disse:\n\n**#1 (p-verdien):** ❌ «3 % sjanse for at $H_0$ er sann» → ✔ «*hvis* $H_0$ var sann, ville data minst så ekstreme forekomme 3 % av gangene». *Den eneste med trekk-instruks.*\n\n**#2 (Type I/II):** ❌ «Type I = å overse effekten» → ✔ «Type I = falsk alarm (forkaster sann $H_0$, $\\alpha$); Type II = overser brannen (beholder falsk $H_0$, $\\beta$)». Huskeregel: 1 før 2.\n\n**#4 (kasus vs. N=1):** ❌ «én person → N=1» → ✔ «manipuleres noe? Ja → N=1-eksperiment; nei → kasusstudie». Antall deltakere avgjør ingenting.\n\n**#5 (testvaliditet vs. slutningsvaliditet):** ❌ «testens validitet = indre/ytre» → ✔ «test → face/innhold/kriterium/begrep; studie → indre/ytre». Spør: studie eller instrument?"
+    },
+    {
+      "id": "psy1010-8-6-ovelser-intro",
+      "type": "text",
+      "content": "## Gjenkjenning: «hvilken feil begår kandidaten?» (~20 min)\n\nDen beste vaksinen er å kjenne feilen igjen i en tekst. Oppgavene under gir deg utdrag fra tenkte besvarelser — nyskrevne — og ber deg diagnostisere. NB: ikke alle utdrag inneholder en feil (én er faktisk riktig)."
+    },
+    {
+      "id": "psy1010-8-6-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Diagnose. Hvilken feilkode — hvis noen — begår kandidaten?) For hvert utdrag: navngi feilen (nummer og navn), eller skriv «ingen feil» hvis utdraget er korrekt.\n\n**a)** «$p = 0{,}02$ betyr at det er 2 % sannsynlig at nullhypotesen stemmer.»\n\n**b)** «Med fem behandlingsgrupper kjørte jeg en t-test mellom hvert mulige par av grupper.»\n\n**c)** «Utvalget er et bekvemmelighetsutvalg fra én forelesning, så resultatene gjelder først og fremst denne gruppen; bredere generalisering er usikker.»\n\n**d)** «Freuds detaljerte beskrivelse av pasienten Anna O. er et N=1-eksperiment siden det bare er én person.»",
+        "solution": "**a)** **Feil #1** — p som «sannsynligheten for at $H_0$ er sann». p er sannsynligheten for data *gitt* $H_0$, ikke for $H_0$ selv.\n\n**b)** **Feil #7** — mange t-tester ved 3+ grupper. Fem grupper krever enveis ANOVA (familywise error).\n\n**c)** **Ingen feil.** Kandidaten navngir bekvemmelighetsutvalget og gjør generaliseringen betinget — dette er riktig håndtering, ikke feil #9.\n\n**d)** **Feil #4** — kasusstudie forvekslet med N=1-eksperiment. En beskrivelse uten manipulasjon er en kasusstudie, uansett antall personer.\n\nMerk at c) var fella-fri — ikke alle utdrag er feil.",
+        "hints": [
+          "Første grep: still hvert utdrag mot registeret — særlig p-definisjonen (#1), gruppetellingen (#7) og «manipuleres noe?» (#4).",
+          "Ett av utdragene er faktisk korrekt håndtert. Ikke tving en feilkode på det."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-6-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Diagnose + rett.) For hvert utdrag: navngi feilen og skriv en kort korrigert versjon.\n\n**a)** «$H_0: \\bar{x} = 100$.»\n\n**b)** «Testens validitet vurderes ved indre og ytre validitet.»\n\n**c)** «Med et større utvalg blir standardavviket (SD) mindre, så målingene blir mer presise.»",
+        "solution": "**a)** **Feil #12** — hypotese om utvalgsverdi. *Rettet:* «$H_0: \\mu = 100$» — hypotesen gjelder populasjonsgjennomsnittet, ikke utvalgssnittet vi allerede kjenner.\n\n**b)** **Feil #5** — testvaliditet forvekslet med slutningsvaliditet. *Rettet:* «Testens validitet vurderes ved face-, innholds-, kriterie- og begrepsvaliditet; indre/ytre validitet gjelder slutninger fra studier, ikke instrumentet.»\n\n**c)** **Feil #6** — SD forvekslet med SE. *Rettet:* «Med større utvalg blir *standardfeilen* (SE = SD/$\\sqrt{n}$) mindre, så *gjennomsnittsestimatet* blir mer presist — SD (spredningen mellom personer) endres ikke.»",
+        "hints": [
+          "Første grep: b bruker feil validitetsbegrep; c bytter om SD og SE; a formulerer hypotesen om feil størrelse.",
+          "For c): hva krymper med √n — spredningen mellom folk (SD) eller presisjonen i snittet (SE)?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-6-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — flere feil i én passasje.) Ett sammenhengende utdrag kan inneholde flere feil. Finn og navngi alle feilene i passasjen under, og forklar kort hver.\n\n«Vi fant en korrelasjon på $r = 0{,}45$ mellom timer på sosiale medier og angstnivå, altså gjør sosiale medier folk engstelige. Deltakerne meldte seg via en Instagram-annonse, så funnet gjelder ungdom generelt. Type I-feil her ville vært å overse at sammenhengen finnes.»",
+        "solution": "Passasjen inneholder **tre** feil:\n\n1. **Feil #3 — kausal tolkning av korrelasjon.** «$r = 0{,}45$ … altså gjør sosiale medier folk engstelige» hopper fra samvariasjon til årsak. Retningen kan være motsatt (engstelige bruker mer sosiale medier), eller en tredjevariabel kan forklare begge.\n\n2. **Feil #9 — bekvemmelighetsutvalg som representativt.** Deltakere fra en Instagram-annonse er et bekvemmelighetsutvalg med frivillighetsbias; «gjelder ungdom generelt» er ubegrunnet generalisering.\n\n3. **Feil #2 — Type I/II-forveksling.** «Type I-feil … ville vært å overse at sammenhengen finnes» beskriver en **Type II**-feil (å overse en ekte effekt). Type I er å *forkaste en sann $H_0$* — å se en effekt som ikke er der.\n\n*Poeng:* på eksamen sitter feilene ofte i klynger. Å avsløre flere i samme passasje er A-nivå gjenkjenning.",
+        "hints": [
+          "Første grep: les setning for setning og hold hver mot registeret — det er minst én kausal-, én utvalgs- og én feiltype-feil her.",
+          "Sjekk Type I/II-setningen nøye: å «overse» en effekt — er det Type I eller Type II?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-6-signal",
+      "type": "tip",
+      "title": "Slik bruker du registeret på eksamen",
+      "content": "Du kan ikke slå opp her under eksamen, men du kan bygge inn selvsjekkene: før du leverer en oppgave, kjør de relevante vaksinespørsmålene. **Statistikk?** Sa jeg p riktig (#1)? Blandet jeg SD og SE (#6) eller Type I/II (#2)? **Design/måling?** Skilte jeg test- fra studievaliditet (#5), kasus fra N=1 (#4)? **Alle oppgaver?** Begrunnet jeg framfor å remse (#8)? De fleste av de 16 feilene fanges av én rask selvsjekk."
+    },
+    {
+      "id": "psy1010-8-6-begrepsbank-notis",
+      "type": "text",
+      "content": "## Feil↔riktig-parene i kortform\n\n**Rene repetisjonskort — hopp trygt over ved førstegangslesing; tidsanslaget gjelder registeret over.** Hvert kort setter feilen mot den riktige formuleringen — pugge-stoff for de vanligste tabbene."
+    },
+    {
+      "id": "psy1010-8-6-def-1",
+      "type": "definition",
+      "title": "Feil #1 ↔ riktig p-definisjon",
+      "content": "❌ «p = sannsynligheten for at H₀ er sann/feil». ✔ p = sannsynligheten for data minst så ekstreme GITT at H₀ er sann. Den eneste feilen med eksplisitt trekk-instruks."
+    },
+    {
+      "id": "psy1010-8-6-def-2",
+      "type": "definition",
+      "title": "Feil #2 ↔ Type I vs. Type II",
+      "content": "❌ blande de to. ✔ Type I = forkaste sann H₀ (falsk alarm, risiko α); Type II = beholde falsk H₀ (oversett effekt, risiko β). Huskeregel: 1 før 2; power = 1 − β."
+    },
+    {
+      "id": "psy1010-8-6-def-4",
+      "type": "definition",
+      "title": "Feil #4 ↔ kasus vs. N=1",
+      "content": "❌ «én person → N=1». ✔ N=1 = ekte eksperiment (manipulasjon + kontrollfaser, ABAB); kasusstudie = ren beskrivelse. Test: manipuleres noe? Antall personer avgjør ingenting."
+    },
+    {
+      "id": "psy1010-8-6-def-5",
+      "type": "definition",
+      "title": "Feil #5 ↔ test- vs. slutningsvaliditet",
+      "content": "❌ «testens validitet = indre/ytre». ✔ test → face/innhold/kriterium/begrep; studie → indre/ytre validitet. Spør: gjelder spørsmålet et instrument eller en studie?"
+    },
+    {
+      "id": "psy1010-8-6-def-6",
+      "type": "definition",
+      "title": "Feil #6 ↔ SD vs. SE",
+      "content": "❌ «større n gir mindre SD». ✔ SD = spredning mellom personer (uendret av n); SE = presisjon i snittet, SE = SD/√n (krymper med n). Spør: beskriver tallet folk eller snittet?"
+    },
+    {
+      "id": "psy1010-8-6-def-8",
+      "type": "definition",
+      "title": "Feil #8 ↔ begrunn, ikke remse",
+      "content": "❌ liste alle momentene uten valg → C-tak. ✔ velg og begrunn for caset — én setning per moment om hvordan det slår inn her. «Definer — anvend — begrunn»."
+    },
+    {
+      "id": "psy1010-8-6-def-10",
+      "type": "definition",
+      "title": "Feil #10 ↔ gyldig kvalitativt spørsmål",
+      "content": "❌ hypotese-/ja-nei-spørsmål der det bes om kvalitativt. ✔ åpent spørreord + ingen påstand + ikke ja/nei. Selvsjekk tre ganger ja = gyldig. T7s eneste stryk-felle."
+    },
+    {
+      "id": "psy1010-8-6-def-12",
+      "type": "definition",
+      "title": "Feil #12 ↔ hypoteser om μ",
+      "content": "❌ «H₀: x̄ = 50». ✔ «H₀: μ = 50» — hypotesene gjelder populasjonen (det ukjente), ikke utvalgssnittet vi allerede har målt."
+    },
+    {
+      "id": "psy1010-8-6-def-13",
+      "type": "definition",
+      "title": "Feil #13 ↔ vis utregningen",
+      "content": "❌ bare svaret «SD = 8,09». ✔ vis alle ledd (avvik, deling, kvadratrot) + tolkning. Uten synlig fremgangsmåte ingen «riktig metode»-uttelling; én tastefeil feller svaret."
+    },
+    {
+      "id": "psy1010-8-6-def-16",
+      "type": "definition",
+      "title": "Feil #16 ↔ etikk med fagbegreper",
+      "content": "❌ «behandle folk fint» (moralprat). ✔ informert samtykke, konfidensialitet, trekk-rett, deception + debriefing. Navngi og anvend begrepene på caset."
+    },
+    {
+      "id": "psy1010-8-6-pensumkart",
+      "type": "collapsible",
+      "title": "Pensumkart og repetisjon",
+      "buttonText": "Vis feilregister-oversikt",
+      "content": [
+        {
+          "id": "psy1010-8-6-pensumkart-txt",
+          "type": "text",
+          "content": "**Hele registeret på én skjerm (feil → kjerne → hjemkapittel):**\n\n| # | Feil | Kjerne | Hjem |\n|---|---|---|---|\n| 1 | p-verdien | data gitt H₀, ikke H₀ gitt data | [4.1](/bok/psy1010/psy1010-4-1) |\n| 2 | Type I/II | I = falsk alarm (α); II = oversett effekt (β) | [4.2](/bok/psy1010/psy1010-4-2) |\n| 3 | kausal korrelasjon | samvariasjon ≠ årsak | [5.1](/bok/psy1010/psy1010-5-1) |\n| 4 | kasus vs. N=1 | manipuleres noe? | [2.4](/bok/psy1010/psy1010-2-4) |\n| 5 | test- vs. slutningsvaliditet | instrument vs. studie | [1.3](/bok/psy1010/psy1010-1-3) |\n| 6 | SD vs. SE | folk vs. snittet; SE = SD/√n | [3.3](/bok/psy1010/psy1010-3-3) |\n| 7 | mange t-tester / ANOVA | familywise error | [4.3](/bok/psy1010/psy1010-4-3) |\n| 8 | remsefeilen | begrunn for caset | [0.2](/bok/psy1010/psy1010-0-2) |\n| 9 | bekvemmelighetsutvalg | betinget generalisering | [1.4](/bok/psy1010/psy1010-1-4) |\n| 10 | hypoteseformet «kvalitativt» spm | åpent spørreord | [6.1](/bok/psy1010/psy1010-6-1) |\n| 11 | enhalet uten begrunnelse | begrunn retning før data | [4.1](/bok/psy1010/psy1010-4-1) |\n| 12 | hypoteser om x̄ | hypotesene gjelder μ | [4.1](/bok/psy1010/psy1010-4-1) |\n| 13 | usynlig utregning | vis alle ledd | [3.1](/bok/psy1010/psy1010-3-1) |\n| 14 | svare på alle fire | velg tre bevisst | [0.1](/bok/psy1010/psy1010-0-1) |\n| 15 | utbrodering | relevansfilteret | [0.2](/bok/psy1010/psy1010-0-2) |\n| 16 | etikk-moralprat | fagbegreper | [7.1](/bok/psy1010/psy1010-7-1) |\n\n**De fire farligste:** #1, #2, #4, #5 — pugg før/etter-parene.\n\n**A-grep:** de fleste feilene fanges av én rask selvsjekk før du leverer (se «Slik bruker du registeret»).\n\n**Pensumforankring:** feilene er destillert fra sensorveiledningene (V2018–V2025); begrepsforankringen ligger i hjemkapitlene (Bordens & Abbott; Kvale & Brinkmann; Johannessen m.fl. — pensum-/utgaveavhengig)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

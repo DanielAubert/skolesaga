@@ -1,0 +1,237 @@
+{
+  "id": "psy1010-3-4",
+  "courseId": "psy1010",
+  "chapterNumber": "3.4",
+  "title": "t-regnestykket — fra varians til t",
+  "description": "Den komplette regnesekvensen for togruppesammenligning — varians → SD → SE → SE(D) → t — slik den sto på eksamen 2018–2021, med tolkning av hva tallet betyr som mål, ikke formelpugging.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne seg gjennom hele t-kjeden fra varians via SD, Sp og SE(D) til t med oppgitte formler",
+    "tolke t som differanse målt i standardfeil og forklare hvorfor stor |t| gir liten p",
+    "skille statistisk signifikans fra praktisk viktighet og unngå SD/SE-forveksling i differansetesten"
+  ],
+  "content": [
+    {
+      "id": "psy1010-3-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er regnesekvensen sensor spurte om direkte 2018–2021 — og forståelsestreningen for hele slutningsdelen.**\n\n- Den fulle **t-sekvensen** (varians → SD → SE → SE(D) → t) sto på tre sett: V2018 (der oppgitt p = 0,295), H2018 (p = 0,0012) og V2021 (p = 0,002). Tyngst 2018–2021; i praksis borte 2023–2025.\n- Men sensorveiledningenes standardtekst åpner for at regnekravet **kan komme tilbake**, og sekvensen er den beste treningen for å *forstå* hva en t-test og en p-verdi egentlig er.\n\n**Sensorregelen:** vis hele regningen (usynlig utregning = feil #13), og la siste ledd alltid være en **konklusjon i ord**: «differansen er 3,2 standardfeil — usannsynlig hvis $H_0$ stemmer; oppgitt p = 0,002 < 0,05, så vi forkaster $H_0$.» Formelen SE = SD/√n er et A-plusspoeng å kunne uoppfordret."
+    },
+    {
+      "id": "psy1010-3-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 3.3](/bok/psy1010/psy1010-3-3)** (standardfeil og slutningslogikk) og **[kap. 3.1](/bok/psy1010/psy1010-3-1)** (varians og standardavvik).\n\n**Sist du var her (nøkkelformlene oppfrisket):**\n\n- $s^2 = \\dfrac{\\sum(x - \\bar{x})^2}{n-1}$ og $SD = \\sqrt{s^2}$ (fra 3.1).\n- $SE = \\dfrac{SD}{\\sqrt{n}}$ — standardfeilen til *ett* gjennomsnitt (fra 3.3).\n- At $SE$ måler hvor presist et gjennomsnitt er bestemt (ikke spredningen mellom personer).\n\nDette kapitlet setter alt sammen til én kjede for å sammenligne **to** grupper. Ha formlene over friskt i minne."
+    },
+    {
+      "id": "psy1010-3-4-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** To undervisningsmetoder gir gjennomsnittsskårer på 24 og 21. Er de 3 poengene en ekte forskjell mellom metodene — eller kunne to tilfeldige grupper lett spriket så mye av seg selv? For å svare må vi måle forskjellen **mot støyen**: hvor stor er 3-poengsdifferansen sammenlignet med hvor mye slike gjennomsnitt normalt varierer? Det er akkurat det **t-observatoren** gjør.\n\nt er ikke en formel å pugge, men en kjede av meningsbærende ledd: varians per gruppe → SD → SE per gruppe → SE for differansen SE(D) → t. Vi bygger den ledd for ledd, med et fullt gjennomregnet eksempel og en øvingsstige som ender på eksamensnivå. ~50 min."
+    },
+    {
+      "id": "psy1010-3-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva t «ser»: differanse målt i standardfeil (~15 min)"
+    },
+    {
+      "id": "psy1010-3-4-def-t-observator",
+      "type": "definition",
+      "title": "t-observatoren",
+      "content": "t sammenligner den observerte forskjellen mellom to gruppegjennomsnitt med hvor mye slike forskjeller normalt varierer (standardfeilen for differansen):\n\n$$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{SE(D)}$$\n\nt er altså **differansen målt i standardfeil-enheter**. En stor $|t|$ betyr at forskjellen er stor *relativt til støyen* — usannsynlig hvis gruppene egentlig er like ($H_0$ sann). En liten $|t|$ betyr at forskjellen lett kan skyldes tilfeldig utvalgsvariasjon."
+    },
+    {
+      "id": "psy1010-3-4-def-sed",
+      "type": "definition",
+      "title": "Standardfeilen for differansen, SE(D)",
+      "content": "Når vi sammenligner to grupper, trenger vi standardfeilen til *forskjellen* mellom gjennomsnittene:\n\n$$SE(D) = S_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$$\n\nder $S_p$ er det **samlede (poolede) standardavviket** — en vektet sammenslåing av spredningen i begge gruppene. SE(D) spiller for differansen samme rolle som SE spilte for ett gjennomsnitt i [kap. 3.3](/bok/psy1010/psy1010-3-3): den sier hvor mye differansen typisk varierer på grunn av tilfeldig utvalgsvariasjon."
+    },
+    {
+      "id": "psy1010-3-4-l1-storet",
+      "type": "text",
+      "content": "### Hvorfor store |t| gir små p\n\nt og p henger sammen: jo lenger fra null t ligger (stor $|t|$), jo lenger ute i halen av utvalgsfordelingen ligger resultatet — og desto **mindre** er sannsynligheten (p) for å få noe så ekstremt hvis $H_0$ er sann. \n\n- **Stor $|t|$** (f.eks. 3,2) ⟹ **liten p** (f.eks. 0,002) ⟹ forskjellen er vanskelig å forklare med tilfeldighet ⟹ vi forkaster $H_0$.\n- **Liten $|t|$** (f.eks. 0,5) ⟹ **stor p** ⟹ forskjellen kan lett være tilfeldig ⟹ vi beholder $H_0$.\n\nSelve p-tolkningen og hypotesene får full dybde i Del 4; her er poenget å se **hvordan tallet bygges opp** og at t og p peker motsatt vei."
+    },
+    {
+      "id": "psy1010-3-4-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-4-exc1-e",
+        "number": "3.4.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven. Lett innstegsoppgave: bare siste ledd i kjeden.)*\n\nTo grupper har gjennomsnitt $\\bar{x}_1 = 15$ og $\\bar{x}_2 = 13$, og standardfeilen for differansen er oppgitt: $SE(D) = 0{,}5$. Bruk $t = \\frac{\\bar{x}_1 - \\bar{x}_2}{SE(D)}$.\n\n**a)** Regn ut t.\n**b)** Tolk hva tallet betyr, uten å regne p.",
+        "solution": "**a)** $t = \\dfrac{15 - 13}{0{,}5} = \\dfrac{2}{0{,}5} = 4{,}0$.\n\n**b)** Differansen på 2 poeng tilsvarer **4 standardfeil**. Det er svært mye — forskjellen er 4 ganger så stor som den typiske tilfeldige variasjonen. En så stor $|t|$ gir en svært liten p-verdi, altså sterk grunn til å tro at gruppene faktisk skiller seg (vi forkaster $H_0$). Konklusjonen gjelder populasjonene bak gruppene, ikke bare de målte deltakerne.",
+        "hints": [
+          "Sett rett inn i $t = (\\bar{x}_1 - \\bar{x}_2)/SE(D)$.",
+          "Tolk t som «hvor mange standardfeil skiller de to snittene».",
+          "Stor $|t|$ ⟹ liten p ⟹ usannsynlig at forskjellen er ren tilfeldighet."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hele kjeden fra rådata til t (~22 min)\n\n*— naturlig pausepunkt før den fulle sekvensen —*"
+    },
+    {
+      "id": "psy1010-3-4-thm-kjeden",
+      "type": "theorem",
+      "title": "Hele t-kjeden (togruppe-sammenligning)",
+      "content": "For to grupper regner du deg gjennom denne kjeden — hvert ledd oppgis som formel på eksamen:\n\n1. **Varians per gruppe:** $s^2 = \\dfrac{\\sum(x-\\bar{x})^2}{n-1}$\n2. **SD per gruppe:** $SD = \\sqrt{s^2}$\n3. **Samlet SD (poolet):** $S_p = \\sqrt{\\dfrac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}}$\n4. **SE for differansen:** $SE(D) = S_p\\sqrt{\\dfrac{1}{n_1} + \\dfrac{1}{n_2}}$\n5. **t-observatoren:** $t = \\dfrac{\\bar{x}_1 - \\bar{x}_2}{SE(D)}$\n\nTil slutt sammenlignes oppgitt p mot signifikansnivået $\\alpha$ (som regel 0,05). **Rund først helt til slutt** — avrunding underveis gir avrundingskaskader."
+    },
+    {
+      "id": "psy1010-3-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1 — Full sekvens med margkommentar per steg",
+      "problem": "To undervisningsmetoder testes. Gruppe 1 (ny metode) og gruppe 2 (vanlig metode) får hver $n = 9$ elever. Skårene (poeng) er:\n\n- **Gruppe 1:** $5, 5, 6, 7, 7, 7, 8, 9, 9$\n- **Gruppe 2:** $3, 3, 4, 5, 5, 5, 6, 7, 7$\n\nBruk formlene i kjeden over. Regn deg helt fram til t, og tolk resultatet. (Oppgitt p for denne t-verdien er 0,012.)",
+      "solution": "**Steg 1 — gjennomsnitt.** Gruppe 1: sum $= 63$, $\\bar{x}_1 = 63/9 = 7{,}0$. Gruppe 2: sum $= 45$, $\\bar{x}_2 = 45/9 = 5{,}0$. *Margkommentar: differansen er 2 poeng — men er den stor nok?*\n\n**Steg 2 — varians per gruppe.** Avvik fra 7 i gruppe 1: $-2,-2,-1,0,0,0,1,2,2$; kvadrert: $4,4,1,0,0,0,1,4,4$; sum $= 18$. $s_1^2 = 18/(9-1) = 18/8 = 2{,}25$. Gruppe 2 har nøyaktig samme avviksmønster (bare forskjøvet ned to poeng), så $s_2^2 = 2{,}25$ også. *Margkommentar: del på $n-1 = 8$, ikke 9 — utvalgsvarians.*\n\n**Steg 3 — SD per gruppe.** $SD_1 = SD_2 = \\sqrt{2{,}25} = 1{,}5$. *Margkommentar: tilbake til poeng-skala.*\n\n**Steg 4 — samlet SD.** Siden gruppene er like store og har lik varians:\n\n$$S_p = \\sqrt{\\frac{(9-1)\\cdot 2{,}25 + (9-1)\\cdot 2{,}25}{9 + 9 - 2}} = \\sqrt{\\frac{18 + 18}{16}} = \\sqrt{2{,}25} = 1{,}5$$\n\n**Steg 5 — SE for differansen.**\n\n$$SE(D) = 1{,}5\\sqrt{\\frac{1}{9} + \\frac{1}{9}} = 1{,}5\\sqrt{\\frac{2}{9}} = 1{,}5 \\times 0{,}4714 \\approx 0{,}707$$\n\n*Margkommentar: SE(D) er den typiske tilfeldige variasjonen i en slik differanse.*\n\n**Steg 6 — t.**\n\n$$t = \\frac{7{,}0 - 5{,}0}{0{,}707} = \\frac{2}{0{,}707} \\approx 2{,}83$$\n\n**Tolkning (siste ledd — alltid i ord):** differansen på 2 poeng tilsvarer omtrent **2,83 standardfeil**. Det er en betydelig forskjell relativt til den tilfeldige variasjonen. Oppgitt $p = 0{,}012$, som er mindre enn $\\alpha = 0{,}05$ — vi **forkaster $H_0$** og konkluderer at den nye metoden gir høyere skår i populasjonen. (Merk at ved et strengere $\\alpha = 0{,}01$ ville $p = 0{,}012$ *ikke* nådd grensen — da beholdt vi $H_0$.)"
+    },
+    {
+      "id": "psy1010-3-4-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-4-exc2-e",
+        "number": "3.4.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — regn t fra oppgitte varianser, gjenganger.)*\n\nTo grupper med $n_1 = n_2 = 18$ har $\\bar{x}_1 = 15$, $\\bar{x}_2 = 13$, og oppgitt varians $s_1^2 = s_2^2 = 4$. Bruk $S_p = \\sqrt{\\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$, $SE(D) = S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}$ og $t = \\frac{\\bar{x}_1-\\bar{x}_2}{SE(D)}$.\n\n**a)** Finn samlet SD $S_p$.\n**b)** Regn SE(D).\n**c)** Regn t og tolk. (Oppgitt p = 0,005.)",
+        "solution": "**a)** Med lik varians (4) i begge grupper er $S_p = \\sqrt{\\dfrac{17\\cdot 4 + 17\\cdot 4}{34}} = \\sqrt{\\dfrac{136}{34}} = \\sqrt{4} = 2{,}0$.\n\n**b)** $SE(D) = 2{,}0\\sqrt{\\dfrac{1}{18} + \\dfrac{1}{18}} = 2{,}0\\sqrt{\\dfrac{2}{18}} = 2{,}0\\sqrt{\\dfrac{1}{9}} = 2{,}0 \\times \\dfrac{1}{3} \\approx 0{,}667$.\n\n**c)** $t = \\dfrac{15 - 13}{0{,}667} = \\dfrac{2}{0{,}667} = 3{,}0$. **Tolkning:** differansen er 3 standardfeil — stor relativt til støyen. Oppgitt $p = 0{,}005 < 0{,}05$, så vi forkaster $H_0$ og konkluderer at gruppene skiller seg i populasjonen.",
+        "hints": [
+          "Med lik varians i like store grupper forenkles $S_p$ til $\\sqrt{s^2}$ — sett inn og se.",
+          "$\\sqrt{2/18} = \\sqrt{1/9} = 1/3$.",
+          "t = differanse / SE(D). Avslutt med en setning som sammenligner p mot α = 0,05."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-4-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-4-exc3-e",
+        "number": "3.4.3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T3/T2 — full sekvens fra rådata på eksamensnivå. (krevende).)*\n\nTo behandlingsgrupper med $n_1 = n_2 = 8$ måles på et bedringsmål (høyere = bedre). Rådata:\n\n- **Gruppe A:** $15, 16, 17, 18, 18, 19, 20, 21$ (oppgitt $\\bar{x}_A = 18$, $s_A^2 = 4$)\n- **Gruppe B:** $12, 13, 14, 15, 15, 16, 17, 18$ (oppgitt $\\bar{x}_B = 15$, $s_B^2 = 4$)\n\nBruk kjeden: $S_p = \\sqrt{\\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$, $SE(D) = S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}$, $t = \\frac{\\bar{x}_1-\\bar{x}_2}{SE(D)}$.\n\n**a)** Regn samlet SD $S_p$.\n**b)** Regn SE(D).\n**c)** Regn t, og sammenlign oppgitt p = 0,009 mot både α = 0,05 og α = 0,01.",
+        "solution": "**a)** Begge grupper har $s^2 = 4$, så $S_p = \\sqrt{\\dfrac{7\\cdot 4 + 7\\cdot 4}{8+8-2}} = \\sqrt{\\dfrac{56}{14}} = \\sqrt{4} = 2{,}0$.\n\n**b)** $SE(D) = 2{,}0\\sqrt{\\dfrac{1}{8} + \\dfrac{1}{8}} = 2{,}0\\sqrt{\\dfrac{2}{8}} = 2{,}0\\sqrt{0{,}25} = 2{,}0 \\times 0{,}5 = 1{,}0$.\n\n**c)** $t = \\dfrac{18 - 15}{1{,}0} = \\dfrac{3}{1{,}0} = 3{,}0$. **Tolkning:** differansen på 3 poeng tilsvarer **3 standardfeil** — stort relativt til den tilfeldige variasjonen. Oppgitt $p = 0{,}009$. Ved $\\alpha = 0{,}05$: $0{,}009 < 0{,}05$ ⟹ forkast $H_0$. Ved det strengere $\\alpha = 0{,}01$: $0{,}009 < 0{,}01$ ⟹ fortsatt forkast $H_0$ (men nå med god margin igjen — vær obs på at et resultat rett under 0,01 er skjørt). Konklusjonen holder på begge nivåer: gruppe A skårer høyere enn gruppe B i populasjonen (siden høyere er bedre, virker behandling A bedre).",
+        "hints": [
+          "Med lik varians (4) i like store grupper blir $S_p = \\sqrt{4} = 2$.",
+          "$SE(D) = S_p\\sqrt{1/n_1 + 1/n_2}$; med $n_1=n_2=8$ blir $\\sqrt{2/8} = 0{,}5$.",
+          "t = (18 − 15)/SE(D). For (c): sjekk om p ligger under *begge* α-nivåene."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-4-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-4-exc4-e",
+        "number": "3.4.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T2 — hva t ser og ikke ser. (krevende): tolkning, ikke bare regning.)*\n\nEn studie med svært store grupper ($n_1 = n_2 = 5000$) finner $\\bar{x}_1 = 50{,}2$, $\\bar{x}_2 = 50{,}0$, og en t-verdi som gir oppgitt p = 0,001.\n\n**a)** Er forskjellen statistisk signifikant ved α = 0,05?\n**b)** Betyr det at forskjellen er *viktig*? Forklar hva t «ser» og ikke ser, og koble til SE(D).",
+        "solution": "**a)** Ja. Oppgitt $p = 0{,}001 < 0{,}05$, så forskjellen er statistisk signifikant — vi forkaster $H_0$.\n\n**b)** **Men den er neppe viktig.** Den faktiske differansen er bare $50{,}2 - 50{,}0 = 0{,}2$ poeng — trivielt liten. Med enorme utvalg blir $SE(D)$ (som inneholder $\\sqrt{1/n_1 + 1/n_2}$) **svært liten**, og selv en bitteliten differanse deles på et lite tall og gir en stor t. \n\n**Hva t «ser»:** differansen *relativt til støyen*. Med lav støy (stor $n$) blir små differanser signifikante. **Hva t IKKE ser:** om differansen er praktisk betydningsfull. Signifikans ($p < \\alpha$) svarer bare på «er forskjellen trolig ekte?», ikke «er den stor nok til å bry seg om?». Dette er skillet **signifikans ≠ viktighet** (full dybde i Del 4). Man bør alltid rapportere også *effektstørrelsen* (her: den lille differansen på 0,2), ikke bare p.",
+        "hints": [
+          "For (a): sammenlign oppgitt p mot α = 0,05.",
+          "For (b): se på hvor liten selve differansen (0,2) er, og hva stor $n$ gjør med SE(D).",
+          "Nøkkel: t = differanse / SE(D); stor $n$ ⟹ liten SE(D) ⟹ selv små differanser gir stor t."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #13 — usynlig fremgangsmåte.** t-sekvensen har mange ledd; hopper du over mellomregningen, kan ikke sensor gi «riktig metode»-uttellingen, og én tastefeil feller hele svaret. Vis varians, SD, $S_p$, SE(D) og t hver for seg.\n\n**Feil #6 — SD der SE(D) skal stå.** Å sette $t = (\\bar{x}_1 - \\bar{x}_2)/SD$ i stedet for å dele på $SE(D)$ er den samme SD/SE-forvekslingen som i [kap. 3.3](/bok/psy1010/psy1010-3-3). t deler på standardfeilen *for differansen*, ikke på spredningen i én gruppe.\n\n**Avrundingskaskader.** Runder du $S_p$, så SE(D), så t, hoper feilene seg opp. **Rund bare i sluttsvaret** — hold flere desimaler underveis.\n\n**Å tolke stor t som «viktig».** En stor t betyr «usannsynlig hvis $H_0$ er sann», ikke «stor, viktig effekt». Med store $n$ blir selv trivielle differanser signifikante (signifikans ≠ viktighet)."
+    },
+    {
+      "id": "psy1010-3-4-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — t-kjeden\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-3-4-def-t-som-forhold",
+      "type": "definition",
+      "title": "t = differanse ÷ standardfeil",
+      "content": "t er et **forholdstall**: teller = observert forskjell mellom gjennomsnittene, nevner = standardfeilen for differansen (den tilfeldige variasjonen). t sier hvor mange standardfeil forskjellen utgjør. Stor $|t|$ = stor forskjell relativt til støyen."
+    },
+    {
+      "id": "psy1010-3-4-def-sp",
+      "type": "definition",
+      "title": "Samlet (poolet) standardavvik Sp",
+      "content": "$S_p$ slår sammen spredningen i begge grupper til ett felles anslag, vektet etter frihetsgradene: $S_p = \\sqrt{\\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$. Det brukes fordi t-testen antar at gruppene har lik populasjonsvarians. Ved like store grupper med lik varians blir $S_p$ ganske enkelt $\\sqrt{s^2}$."
+    },
+    {
+      "id": "psy1010-3-4-def-sed-vs-se",
+      "type": "definition",
+      "title": "SE(D) ↔ SE",
+      "content": "**SE** ([kap. 3.3](/bok/psy1010/psy1010-3-3)) er standardfeilen til *ett* gjennomsnitt. **SE(D)** er standardfeilen til *differansen* mellom to gjennomsnitt. SE(D) er alltid større enn hver enkelt gruppes SE, fordi differansen arver usikkerhet fra begge grupper."
+    },
+    {
+      "id": "psy1010-3-4-def-t-p-sammenheng",
+      "type": "definition",
+      "title": "Stor |t| ↔ liten p",
+      "content": "t og p peker motsatt vei: stor $|t|$ (langt fra 0) ⟹ liten p (resultatet ligger ute i halen, usannsynlig under $H_0$) ⟹ forkast. Liten $|t|$ (nær 0) ⟹ stor p ⟹ behold $H_0$. p leses fra t via utvalgsfordelingen (t-fordelingen)."
+    },
+    {
+      "id": "psy1010-3-4-def-signifikans-viktighet",
+      "type": "definition",
+      "title": "Signifikans ≠ viktighet",
+      "content": "En signifikant t ($p < \\alpha$) sier bare at forskjellen trolig er ekte, ikke at den er stor eller praktisk viktig. Med store utvalg blir SE(D) liten, og trivielle differanser gir signifikant t. Rapporter derfor alltid effektstørrelsen (differansens faktiske størrelse), ikke bare p."
+    },
+    {
+      "id": "psy1010-3-4-def-frihetsgrader-t",
+      "type": "definition",
+      "title": "Frihetsgrader i t-testen",
+      "content": "For en togruppe-t er frihetsgradene $n_1 + n_2 - 2$ (vi «bruker opp» ett gjennomsnitt per gruppe). Frihetsgradene bestemmer formen på t-fordelingen p leses fra: færre frihetsgrader ⟹ tykkere haler ⟹ det kreves større $|t|$ for samme p."
+    },
+    {
+      "id": "psy1010-3-4-def-rund-til-slutt",
+      "type": "definition",
+      "title": "Avrunding: rund bare til slutt",
+      "content": "Hold flere desimaler gjennom hele t-kjeden og rund først i sluttsvaret. Runder du $S_p$, SE(D) og t hver for seg, akkumuleres avrundingsfeil (en «avrundingskaskade») som kan flytte t nok til å endre konklusjonen mot p."
+    },
+    {
+      "id": "psy1010-3-4-def-hva-t-ser",
+      "type": "definition",
+      "title": "Hva t ser og ikke ser",
+      "content": "t **ser** forskjellen mellom gruppene *relativt til støyen* (SE(D)). t **ser ikke** om forskjellen er stor eller viktig i seg selv — bare om den er stor sammenlignet med tilfeldig variasjon. Derfor kan store utvalg gjøre trivielle forskjeller signifikante: forstå tallet, ikke bare regn det."
+    },
+    {
+      "id": "psy1010-3-4-def-alpha",
+      "type": "definition",
+      "title": "Signifikansnivået α",
+      "content": "$\\alpha$ er grensen p sammenlignes mot — vanligvis 0,05. Er oppgitt $p < \\alpha$, forkaster vi $H_0$; er $p \\geq \\alpha$, beholder vi den. Et strengere $\\alpha$ (0,01) krever et mer ekstremt resultat (større $|t|$) for samme konklusjon. Å bytte $\\alpha$ midt i en oppgave er et vanlig deloppgaveledd."
+    },
+    {
+      "id": "psy1010-3-4-def-h0-h1-t",
+      "type": "definition",
+      "title": "H0 og H1 i togruppe-t",
+      "content": "**$H_0$ (nullhypotesen):** de to populasjonsgjennomsnittene er like ($\\mu_1 = \\mu_2$), altså ingen ekte forskjell. **$H_1$:** de er ulike ($\\mu_1 \\neq \\mu_2$). t-testen spør hvor usannsynlig den observerte differansen er *hvis $H_0$ er sann*. Merk: hypotesene handler om populasjonene ($\\mu$), ikke om utvalgssnittene (dybde i Del 4)."
+    },
+    {
+      "id": "psy1010-3-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 3.4",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-3-4-rep-txt",
+          "type": "text",
+          "content": "**Kjeden (hvert ledd oppgis på eksamen):**\n\n1. Varians per gruppe: $s^2 = \\frac{\\sum(x-\\bar{x})^2}{n-1}$\n2. SD per gruppe: $SD = \\sqrt{s^2}$\n3. Samlet SD: $S_p = \\sqrt{\\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}$\n4. SE for differansen: $SE(D) = S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}$\n5. t: $t = \\frac{\\bar{x}_1-\\bar{x}_2}{SE(D)}$\n6. Sammenlign oppgitt p mot α → beslutning om populasjonen.\n\n**Kjernetolkning:** t = differanse målt i standardfeil. Stor $|t|$ ⟹ liten p ⟹ forkast $H_0$.\n\n**Fallgruver:** vis regningen (#13); del på SE(D), ikke SD (#6); rund til slutt; signifikans ≠ viktighet.\n\n**Framover:** hypotesene, p-tolkningen og testvalget (t vs. ANOVA vs. ANCOVA) får full dybde i Del 4."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-3-4-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\bar{x}_1, \\bar{x}_2$ | gjennomsnittene i gruppe 1 og 2 |\n| $s^2$ | varians per gruppe |\n| $SD$ | standardavvik per gruppe $= \\sqrt{s^2}$ |\n| $S_p$ | samlet (poolet) standardavvik |\n| $SE(D)$ | standardfeilen for differansen mellom gjennomsnittene |\n| $t$ | t-observator: differanse målt i standardfeil |\n| $n_1, n_2$ | utvalgsstørrelser i gruppe 1 og 2 |\n| $\\alpha$ | signifikansnivå (grensen p sammenlignes mot, ofte 0,05) |\n| $p$ | oppgitt p-verdi (dybde i Del 4) |\n\n**Formler i dette delkapitlet:**\n\n$$s^2 = \\frac{\\sum(x-\\bar{x})^2}{n-1}, \\qquad SD = \\sqrt{s^2} \\qquad \\text{(spredning per gruppe)}$$\n\n$$S_p = \\sqrt{\\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}} \\qquad \\text{(samlet SD, vektet)}$$\n\n$$SE(D) = S_p\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}} \\qquad \\text{(standardfeil for differansen)}$$\n\n$$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{SE(D)} \\qquad \\text{(differanse målt i standardfeil; stor } |t| \\Rightarrow \\text{liten } p)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

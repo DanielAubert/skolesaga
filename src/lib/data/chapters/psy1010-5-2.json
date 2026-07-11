@@ -1,0 +1,282 @@
+{
+  "id": "psy1010-5-2",
+  "courseId": "psy1010",
+  "chapterNumber": "5.2",
+  "title": "Tredjevariabler, kausalmodeller og spuriøse sammenhenger",
+  "description": "De tre kanoniske grunnene til at korrelasjon ikke er kausalitet — retningsproblem, tredjevariabel, spuriøsitet — og kausalmodell-vokabularet (konfunder, mediator, moderator) som er eksplisitt A-markør. Modellene tegnes og case-tilpasses.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "begrunne at korrelasjon ikke er kausalitet med de tre grunnene: retningsproblem, tredjevariabel og spuriøsitet",
+    "tegne og case-tilpasse konfunder, mediator og moderator på et konkret scenarios variabler",
+    "skille konfunder fra mediator (samme z, motsatt konklusjon) og lage nyskrevne spuriøse hverdagseksempler"
+  ],
+  "content": [
+    {
+      "id": "psy1010-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kjernedeloppgaven i korrelasjonsoppgaven (T1) — der karakterene faktisk skilles.** Å si «korrelasjon er ikke kausalitet» er C-nivå. A-nivå er å *begrunne* hvorfor, med kausalmodell-vokabularet: konfunder, mediator, moderator.\n\n- Kjernedeloppgavene ligger i hele 20-sett-serien. Fra 2020 er «spuriøs sammenheng + tre hverdagseksempler» en fast del (V2020–V2025), og selve kausalmodell-leddet (tegn/forklar konfunder/mediator/moderator) dukket opp i V2019, V2022, V2023, V2024 og V2025.\n- Å bruke begrepene *konfunder, mediator, moderator* uoppfordret og riktig er en eksplisitt A-markør.\n\n**Sensorregelen:** modellene skal **case-tilpasses**, ikke bare defineres. Å skrive definisjonen av en mediator uten å anvende den på scenarioets faktiske variabler gir C-tak (oppramsing uten begrunnelse). Der figur er naturlig, forventer sensor at du *tegner* (beskriver) pil-diagrammet."
+    },
+    {
+      "id": "psy1010-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 5.1](/bok/psy1010/psy1010-5-1)** (at korrelasjon er samvariasjon, ikke kausalitet, og skillet naturlig vs. påført variasjon).\n\n**Sist du var her (oppfrisket):**\n\n- En korrelasjon ($r$) sier bare at X og Y følger hverandre — ikke *hvorfor*.\n- Det finnes alltid minst tre forklaringer: X→Y, Y→X, eller en tredjevariabel $z$ som påvirker begge.\n- **Naturlig variasjon** (målt, ikke manipulert) kan aldri utelukke disse — det er derfor korrelasjonen stopper ved samvariasjon.\n\nDette kapitlet gjør de tre forklaringene presise og gir deg vokabularet til å tegne dem."
+    },
+    {
+      "id": "psy1010-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-5-2-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $r$ | korrelasjonen mellom X og Y (fra [kap. 5.1](/bok/psy1010/psy1010-5-1)) |\n| $X, Y$ | de to observerte, korrelerte variablene |\n| $z$ | en tredjevariabel som kan påvirke X og/eller Y |\n| $\\rightarrow$ | årsakspil i en kausalmodell (peker fra årsak til virkning) |\n\n**«Formlene» i dette delkapitlet er modellfigurene** — pil-diagrammene som skal kunne tegnes og leses:\n\n$$\\textbf{Konfunder:}\\quad z \\rightarrow X, \\quad z \\rightarrow Y \\qquad (z \\text{ skaper en falsk X–Y-sammenheng})$$\n\n$$\\textbf{Mediator:}\\quad X \\rightarrow z \\rightarrow Y \\qquad (z \\text{ er mekanismen X virker gjennom})$$\n\n$$\\textbf{Moderator:}\\quad z \\text{ endrer styrken på } X \\rightarrow Y \\qquad (\\text{«for hvem / når» gjelder sammenhengen})$$\n\nÅ beskrive figuren regnes som del av løsningen."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-5-2-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Byer med flere kirker har flere barer. Betyr det at kirker skaper barer? Nei — begge følger med **folketallet**: store byer har mer av alt. Folketallet er en *tredjevariabel* som skaper en samvariasjon uten at kirker og barer påvirker hverandre.\n\nDette kapitlet gir deg tre presise grunner til at korrelasjon ikke er kausalitet, og et vokabular — konfunder, mediator, moderator — for å tegne akkurat hva som foregår. ~60 min."
+    },
+    {
+      "id": "psy1010-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre grunnene til at r ≠ kausalitet (~14 min)"
+    },
+    {
+      "id": "psy1010-5-2-def-tre-grunner",
+      "type": "definition",
+      "title": "De tre kanoniske grunnene",
+      "content": "En observert korrelasjon mellom X og Y kan alltid skyldes minst én av tre ting — og en korrelasjon alene kan ikke avgjøre hvilken:\n\n1. **Retningsproblemet:** kausaliteten kan gå motsatt vei av det du antar. Kanskje det er Y som påvirker X, ikke X som påvirker Y.\n2. **Tredjevariabler:** en bakenforliggende variabel $z$ påvirker *både* X og Y, slik at de samvarierer uten å påvirke hverandre.\n3. **Spuriøs (falsk) sammenheng:** X og Y henger sammen i tallene, men det finnes ingen ekte, direkte forbindelse — samvariasjonen er tilfeldig eller helt drevet av en $z$.\n\nÅ nevne alle tre (ikke bare «det kan være en tredjevariabel») er det som løfter svaret."
+    },
+    {
+      "id": "psy1010-5-2-feilkode-gloss",
+      "type": "text",
+      "content": "> **Feilkode #3** (glosset her ved første bruk): den vanligste sensor-fellen i korrelasjonsoppgaven er **«kausal tolkning av korrelasjon»** — å lese samvariasjon som årsak. Dette kapitlet er hele vaksinen mot #3. Alle feilkodene samles i feilvaksinekapitlet i Del 8."
+    },
+    {
+      "id": "psy1010-5-2-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-2-exc1-e",
+        "number": "5.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T1 — de tre grunnene. Lett innstegsoppgave.)*\n\nEn studie finner en positiv korrelasjon mellom antall timer barn trener og hvor godt de gjør det på skolen.\n\n**a)** Gi ett eksempel på *retningsproblemet* her.\n**b)** Gi ett eksempel på en *tredjevariabel* her.",
+        "solution": "**a)** Retningsproblemet: kanskje det ikke er trening som gir bedre skoleresultater, men at barn som *lykkes på skolen* får mer overskudd og selvtillit til å trene — altså Y→X i stedet for X→Y.\n\n**b)** Tredjevariabel: *foreldrenes ressurser/oppfølging* kan påvirke begge — engasjerte foreldre legger både til rette for trening og for lekselesing. Da samvarierer trening og skoleresultat uten at det ene skaper det andre.",
+        "hints": [
+          "Retningsproblemet: snu pilen — kan Y påvirke X i stedet?",
+          "Tredjevariabel: finn noe som kan påvirke *begge* variablene samtidig.",
+          "Du trenger ikke bevise noe — bare gi et plausibelt alternativ til «trening → skole»."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Konfunder: z → X og z → Y (~13 min)"
+    },
+    {
+      "id": "psy1010-5-2-def-konfunder",
+      "type": "definition",
+      "title": "Konfunder (bakenforliggende variabel)",
+      "content": "En **konfunder** (bakenforliggende/konfunderende variabel) er en tredjevariabel $z$ som påvirker **både** X og Y. Modellen tegnes:\n\n$$z \\rightarrow X, \\qquad z \\rightarrow Y$$\n\nDa vil X og Y samvariere — men *ikke* fordi den ene påvirker den andre. Sammenhengen er (helt eller delvis) skapt av $z$. Løsningen er å **kontrollere for** $z$ (holde den konstant, eller ta den inn i en multippel regresjon, [kap. 5.4](/bok/psy1010/psy1010-5-4)): forsvinner X–Y-sammenhengen når $z$ holdes fast, var den konfundert.\n\nEksempel: is-salg (X) og drukningsulykker (Y) korrelerer — men $z$ = *varmt vær* driver begge. Kontrollerer du for temperatur, forsvinner sammenhengen."
+    },
+    {
+      "id": "psy1010-5-2-def-spurios",
+      "type": "definition",
+      "title": "Spuriøs (falsk) sammenheng",
+      "content": "En **spuriøs sammenheng** er en korrelasjon mellom X og Y der det ikke finnes noen ekte, direkte forbindelse — samvariasjonen er tilsynelatende. Oftest er den drevet av en konfunder $z$ (is-salg/drukning via vær), men den kan også være ren **tilfeldighet**: leter du i store datamengder, finner du alltid noen variabler som korrelerer uten mening (f.eks. antall filmer en skuespiller er med i og et lands strømforbruk et gitt år).\n\nSpuriøs sammenheng er *konsekvensen* av en konfunder eller tilfeldighet; konfunderen er *forklaringen*."
+    },
+    {
+      "id": "psy1010-5-2-ex-spurios",
+      "type": "example",
+      "title": "Eksempel — tre spuriøse hverdagseksempler (sjangerkravet fra 2020)",
+      "problem": "Fra og med 2020 ber eksamen ofte om «tre hverdagseksempler på spuriøse sammenhenger». Lag tre, og pek på tredjevariabelen (eller tilfeldigheten) i hver.",
+      "solution": "**1. Paraplysalg og forsinkelser i kollektivtrafikken.** Begge stiger samtidig — men ingen av dem skaper den andre. Konfunderen $z$ er **regnvær**: regn får både folk til å kjøpe paraply og busser/trikker til å bli forsinket.\n\n**2. Antall livredningsvakter på stranda og antall drukningsulykker.** De samvarierer positivt — men flere vakter *forårsaker* ikke flere drukninger. Konfunderen $z$ er **badesesongen/varmt vær**: fine dager gir både flere vakter på jobb og flere badende (og dermed flere ulykker).\n\n**3. Et rent tilfeldighetseksempel.** I en stor database finner man at antall filmer en gitt skuespiller spiller inn per år samvarierer med årlig ostekonsum i et land. Her er det **ingen** felles årsak — bare en tilfeldig samvariasjon som dukker opp når man leter gjennom mange variabler samtidig.\n\n*Poenget: de to første forklares av en konfunder, den tredje av ren tilfeldighet. Å skille disse to typene spuriøsitet er et pluss-poeng.*"
+    },
+    {
+      "id": "psy1010-5-2-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-2-exc2-e",
+        "number": "5.2.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T1 — konfunder + spuriøs, gjenganger fra 2020.)*\n\nEn avis melder: «Barn som har flere bøker hjemme, får bedre karakterer.»\n\n**a)** Tegn (beskriv) en konfundermodell for dette funnet med en konkret $z$.\n**b)** Forklar hvorfor sammenhengen kan være helt eller delvis spuriøs, og hvordan man kunne undersøkt det.",
+        "solution": "**a)** Konfundermodell: la $z$ = **foreldrenes utdanning/ressurser**. Da har vi $z \\rightarrow X$ (ressurssterke foreldre kjøper flere bøker) og $z \\rightarrow Y$ (samme foreldre følger opp skolearbeid, så barna får bedre karakterer). X (antall bøker) og Y (karakterer) samvarierer *fordi begge henger på $z$*.\n\n**b)** Sammenhengen kan være **spuriøs**: det er kanskje ikke bøkene i seg selv, men foreldrebakgrunnen, som driver karakterene. Man kunne undersøkt det ved å **kontrollere for** foreldrenes utdanning — f.eks. i en multippel regresjon ([kap. 5.4](/bok/psy1010/psy1010-5-4)) eller ved å sammenligne barn med lik foreldrebakgrunn. Krymper bok–karakter-sammenhengen mot null når $z$ holdes fast, var den i stor grad spuriøs.",
+        "hints": [
+          "Konfunder: finn én $z$ som peker på *både* antall bøker og karakterer.",
+          "Tegn de to pilene: $z \\rightarrow X$ og $z \\rightarrow Y$.",
+          "For (b): hva skjer med X–Y-sammenhengen hvis du holder $z$ konstant?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Mediator og moderator: samme z, ulik rolle (~16 min)\n\n*— naturlig pausepunkt før det finere skillet —*"
+    },
+    {
+      "id": "psy1010-5-2-def-mediator",
+      "type": "definition",
+      "title": "Mediator (mekanismen)",
+      "content": "En **mediator** er en tredjevariabel $z$ som ligger *mellom* X og Y i årsakskjeden — den er **mekanismen** X virker *gjennom*. Modellen tegnes:\n\n$$X \\rightarrow z \\rightarrow Y$$\n\nHer er sammenhengen X–Y ekte og kausal, men den *går via* $z$. Eksempel: trening (X) → bedre søvn ($z$) → bedre humør (Y). Trening virker på humøret, men mekanismen er søvnen.\n\nEn mediator **forklarer** hvorfor X påvirker Y — den forklarer ikke bort sammenhengen (slik en konfunder gjør)."
+    },
+    {
+      "id": "psy1010-5-2-def-moderator",
+      "type": "definition",
+      "title": "Moderator (for hvem / når)",
+      "content": "En **moderator** er en tredjevariabel $z$ som **endrer styrken (eller retningen)** på sammenhengen mellom X og Y — den svarer på «*for hvem*, eller *under hvilke betingelser*, gjelder sammenhengen?»\n\n$$z \\text{ endrer hvor sterkt } X \\rightarrow Y$$\n\nEksempel: sammenhengen mellom lekselengde (X) og karakter (Y) kan være sterk for yngre elever men svak for eldre — da *modererer* alder ($z$) sammenhengen. Moderatoren skaper ikke sammenhengen (som en konfunder) og formidler den ikke (som en mediator); den *justerer* den."
+    },
+    {
+      "id": "psy1010-5-2-def-konf-vs-med",
+      "type": "definition",
+      "title": "Konfunder vs. mediator — samme z, motsatt konklusjon",
+      "content": "Dette er nabobegrep-fellen quizbanken driller. Samme $z$ gir helt ulik konklusjon avhengig av rollen:\n\n- **Konfunder:** $z$ påvirker *både* X og Y ($z \\rightarrow X$, $z \\rightarrow Y$). X–Y-sammenhengen er (delvis) **falsk** — du vil *kontrollere den bort*.\n- **Mediator:** $z$ ligger *mellom* X og Y ($X \\rightarrow z \\rightarrow Y$). X–Y-sammenhengen er **ekte** — $z$ *forklarer mekanismen*, og du vil *ikke* kontrollere den bort (da forsvinner nettopp effekten du studerer).\n\nAvgjørende spørsmål: kommer $z$ *før* X (da konfunder) eller *etter* X i tid/årsak (da mediator)?"
+    },
+    {
+      "id": "psy1010-5-2-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-2-exc3-e",
+        "number": "5.2.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T1 — kausalmodell-leddet, A-markør. Case-tilpasning kreves.)*\n\nFunn: «Ungdommer med strengere skjermregler hjemme har bedre karakterer.» La X = strenghet på skjermregler, Y = karakterer.\n\n**a)** Tegn og case-tilpass en *konfunder*.\n**b)** Tegn og case-tilpass en *mediator*.\n**c)** Tegn og case-tilpass en *moderator*.",
+        "solution": "**a) Konfunder.** La $z$ = **generell foreldreoppfølging**. $z \\rightarrow X$ (engasjerte foreldre setter strengere skjermregler) og $z \\rightarrow Y$ (samme foreldre følger opp lekser → bedre karakterer). Da er skjermregler–karakter-sammenhengen delvis spuriøs: det er oppfølgingen, ikke reglene i seg selv, som driver karakterene. Man vil kontrollere for $z$.\n\n**b) Mediator.** La $z$ = **søvn**. $X \\rightarrow z \\rightarrow Y$: strengere skjermregler → mer/bedre søvn → bedre karakterer. Her er sammenhengen ekte og kausal, men *mekanismen* er søvnen. $z$ forklarer *hvordan* reglene virker.\n\n**c) Moderator.** La $z$ = **alder**. Skjermreglene virker kanskje sterkt for 12-åringer, men svakt for 17-åringer som uansett styrer egen tid. Da *endrer* alder styrken på X→Y — alder modererer sammenhengen («for hvem gjelder den?»).\n\n*Legg merke til at samme type variabel (noe med foreldre/hjem) kan spille tre helt ulike roller — det er case-tilpasningen sensor belønner.*",
+        "hints": [
+          "Konfunder: én $z$ som peker på *både* X og Y (kommer før X).",
+          "Mediator: $z$ *mellom* X og Y — mekanismen reglene virker gjennom.",
+          "Moderator: $z$ som gjør X→Y sterkere for noen og svakere for andre."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Rivaliserende hypoteser og retningsproblemet (~12 min)"
+    },
+    {
+      "id": "psy1010-5-2-def-rivaliserende",
+      "type": "definition",
+      "title": "Rivaliserende hypoteser",
+      "content": "En **rivaliserende hypotese** er en alternativ forklaring på et funn som ikke kan utelukkes med de foreliggende dataene. I naturlige (ikke-eksperimentelle) settinger er det alltid rivaliserende hypoteser — konfundere, motsatt retning, spuriøsitet — fordi ingen randomisering har jevnet dem ut. Å *nevne konkrete rivaliserende hypoteser* (ikke bare «det kan være andre forklaringer») og forklare hvorfor de ikke kan avvises, er et A-krav. En kausal slutning krever at man har utelukket de mest nærliggende rivaliserende hypotesene — noe bare et eksperiment (eller stigen i [kap. 5.4](/bok/psy1010/psy1010-5-4)) kan gjøre."
+    },
+    {
+      "id": "psy1010-5-2-l4-retning",
+      "type": "text",
+      "content": "### Kan retningsproblemet løses uten eksperiment?\n\nRetningsproblemet (går X→Y eller Y→X?) kan ikke løses av en enkelt korrelasjon. Men **longitudinelle data** — der man måler X og Y på flere tidspunkter — hjelper delvis: hvis X måles *før* Y endrer seg, kan man i det minste utelukke at Y→X (tidsrekkefølge kreves for kausalitet). Det utelukker fortsatt ikke konfundere. Full kausal kontroll krever eksperiment; men longitudinelle design er et skritt opp stigen (bro til [kap. 5.4](/bok/psy1010/psy1010-5-4))."
+    },
+    {
+      "id": "psy1010-5-2-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-5-2-exc4-e",
+        "number": "5.2.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T1 — full kausalmodell-drøfting på eksamensnivå. (krevende).)*\n\nEn tverrsnittsstudie finner $r = 0{,}45$ mellom bruk av sosiale medier (X) og ensomhet (Y) blant unge voksne.\n\n**a)** Gi *to* rivaliserende hypoteser til «sosiale medier skaper ensomhet», og navngi hvilken kausalmodell hver svarer til.\n**b)** Forklar hvorfor en tverrsnittskorrelasjon ikke kan skille mellom disse.\n**c)** Foreslå ett design som ville brakt oss nærmere en kausal konklusjon, og si hva det løser.",
+        "solution": "**a)** To rivaliserende hypoteser:\n\n- **Motsatt retning (retningsproblemet):** ensomme unge søker til sosiale medier for kontakt — altså Y→X, ikke X→Y.\n- **Konfunder:** en tredjevariabel $z$ = *sosial angst* kan drive begge ($z \\rightarrow X$: engstelige foretrekker skjermkontakt; $z \\rightarrow Y$: samme angst gir ensomhet). Da er X–Y-sammenhengen delvis spuriøs.\n\n(Alternativt kan man foreslå en **mediator**: sosiale medier → mindre ansikt-til-ansikt-tid ($z$) → ensomhet.)\n\n**b)** En tverrsnittskorrelasjon måler begge variablene *samtidig*, på naturlig variasjon. Den viser bare at X og Y samvarierer — den har ingen tidsrekkefølge og ingen randomisering, så den kan verken fastslå retning eller utelukke konfundere. Alle de rivaliserende hypotesene er forenlige med samme $r = 0{,}45$.\n\n**c)** Et **eksperiment** der deltakere tilfeldig tildeles ulik grad av sosiale-medier-bruk (påført variasjon under kontroll) ville jevnet ut konfundere via randomisering og fastslått retningen. Alternativt et **longitudinelt design** som måler X før Y: det fastslår i det minste tidsrekkefølgen (utelukker Y→X) selv om det ikke fjerner alle konfundere.",
+        "hints": [
+          "For (a): tenk gjennom motsatt retning OG en felles $z$ — koble hver til en modell.",
+          "For (b): hva mangler en tverrsnittskorrelasjon som en kausal slutning krever?",
+          "For (c): hva gir randomisering (eksperiment) som en korrelasjon ikke gir?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-5-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #3 — kausal tolkning av korrelasjon.** Hovedhjemmet for #3. Å skrive «X fører til Y» fra en korrelasjon uten å drøfte alternativene. Motgiften er dette kapitlets vokabular: nevn retningsproblem, konfunder og spuriøsitet konkret.\n\n**Å blande mediator og konfunder.** Den vanligste nabobegrep-forvekslingen. Konfunder ($z \\rightarrow X$, $z \\rightarrow Y$) gjør sammenhengen *falsk* — du kontrollerer den bort. Mediator ($X \\rightarrow z \\rightarrow Y$) *forklarer* en ekte sammenheng — du kontrollerer den *ikke* bort. Test: kommer $z$ før eller etter X?\n\n**Å definere uten å case-tilpasse.** Å skrive lærebokdefinisjonen av «moderator» uten å anvende den på scenarioets variabler gir C-tak (oppramsing uten begrunnelse). Tegn modellen *på det konkrete caset*.\n\n**Å nevne bare «en tredjevariabel».** A-kravet er å nevne *alle tre* grunnene (retning, tredjevariabel, spuriøs) og gjerne skille modellene — ikke stoppe ved én."
+    },
+    {
+      "id": "psy1010-5-2-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — kausalmodeller\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-5-2-def-fb-retningsproblem",
+      "type": "definition",
+      "title": "Retningsproblemet",
+      "content": "Kausaliteten bak en korrelasjon kan gå motsatt vei av det man antar (Y→X). En enkelt korrelasjon er symmetrisk og kan ikke fastslå hvilken variabel som påvirker den andre."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-tredjevar",
+      "type": "definition",
+      "title": "Tredjevariabel (z)",
+      "content": "En variabel som påvirker X og/eller Y og dermed kan forklare en samvariasjon. Samlebegrepet for konfundere; den grunnleggende grunnen til at korrelasjon ikke er kausalitet."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-konfunder",
+      "type": "definition",
+      "title": "Konfunder: z → X, z → Y",
+      "content": "En tredjevariabel som påvirker både X og Y og skaper en (delvis) falsk sammenheng mellom dem. Løsning: kontroller for z. Eksempel: is-salg og drukning via varmt vær."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-mediator",
+      "type": "definition",
+      "title": "Mediator: X → z → Y",
+      "content": "En tredjevariabel som ligger mellom X og Y — mekanismen X virker gjennom. Sammenhengen er ekte; z forklarer *hvordan*. Skal ikke kontrolleres bort. Eks: trening → søvn → humør."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-moderator",
+      "type": "definition",
+      "title": "Moderator: z endrer styrken",
+      "content": "En tredjevariabel som gjør X→Y sterkere eller svakere for ulike grupper/betingelser. Svarer «for hvem / når gjelder sammenhengen». Justerer den — skaper og formidler den ikke. Eks: alder."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-spurios",
+      "type": "definition",
+      "title": "Spuriøs sammenheng",
+      "content": "En tilsynelatende korrelasjon uten ekte, direkte forbindelse — drevet av en konfunder eller ren tilfeldighet. Fast eksamensledd fra 2020: gi tre hverdagseksempler."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-kontroll",
+      "type": "definition",
+      "title": "Å kontrollere for z",
+      "content": "Å holde en tredjevariabel konstant (eller ta den inn i multippel regresjon) for å se om X–Y-sammenhengen består. Forsvinner den, var den konfundert/spuriøs. Gjelder konfundere, ikke mediatorer."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-rivaliserende",
+      "type": "definition",
+      "title": "Rivaliserende hypotese",
+      "content": "En alternativ forklaring på et funn som dataene ikke kan utelukke. I naturlige settinger finnes de alltid (konfunder, motsatt retning). Å navngi konkrete rivaliserende hypoteser er et A-krav."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-tilfeldig-spurios",
+      "type": "definition",
+      "title": "Tilfeldig spuriøsitet",
+      "content": "En spuriøs sammenheng uten noen felles årsak i det hele tatt — bare et tilfeldig samsvar som dukker opp når man leter gjennom mange variabler i store datamengder. Å skille denne fra konfunder-drevet spuriøsitet er et pluss-poeng."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-longitudinell",
+      "type": "definition",
+      "title": "Longitudinelt design",
+      "content": "Måling av variablene på flere tidspunkter. Fastslår tidsrekkefølge (X målt før Y utelukker Y→X) og er et skritt mot kausal kontroll uten eksperiment — men fjerner ikke konfundere. Bro til [kap. 5.4](/bok/psy1010/psy1010-5-4)."
+    },
+    {
+      "id": "psy1010-5-2-def-fb-tidsrekkefolge",
+      "type": "definition",
+      "title": "Tidsrekkefølge som kausalkrav",
+      "content": "For at X skal kunne forårsake Y, må X komme før Y i tid. En tverrsnittskorrelasjon måler begge samtidig og oppfyller ikke dette kravet; longitudinelle data kan gjøre det."
+    },
+    {
+      "id": "psy1010-5-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 5.2",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-5-2-rep-txt",
+          "type": "text",
+          "content": "**De tre grunnene til at korrelasjon ≠ kausalitet:**\n\n1. **Retningsproblemet** — kanskje Y→X, ikke X→Y.\n2. **Tredjevariabel/konfunder** — $z \\rightarrow X$ og $z \\rightarrow Y$ (skaper falsk sammenheng).\n3. **Spuriøs sammenheng** — ingen ekte forbindelse (konfunder-drevet eller ren tilfeldighet).\n\n**De tre kausalmodellene (tegn dem):**\n\n- **Konfunder:** $z \\rightarrow X$, $z \\rightarrow Y$ — kontroller bort.\n- **Mediator:** $X \\rightarrow z \\rightarrow Y$ — mekanismen, ekte sammenheng, ikke bort.\n- **Moderator:** $z$ endrer styrken på $X \\rightarrow Y$ — «for hvem / når».\n\n**Nabobegrep-testen:** konfunder eller mediator? Kommer $z$ *før* X (konfunder) eller *etter* (mediator)?\n\n**Fallgruver:** kausal tolkning (#3); mediator/konfunder-forveksling; definere uten å case-tilpasse; nevne bare én grunn.\n\n**Framover:** [kap. 5.3](/bok/psy1010/psy1010-5-3) (regresjon og $r^2$); [kap. 5.4](/bok/psy1010/psy1010-5-4) (statistisk kontroll og stigen mot kausalitet)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

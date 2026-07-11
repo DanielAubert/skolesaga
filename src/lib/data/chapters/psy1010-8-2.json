@@ -1,0 +1,240 @@
+{
+  "id": "psy1010-8-2",
+  "courseId": "psy1010",
+  "chapterNumber": "8.2",
+  "title": "Sjanger — hypotesetestingsoppgaven",
+  "description": "Nest sikreste gjenganger som fast sekstrinnsforløp: H0/H1 med μ → trinnene med korrekt p-definisjon → tolk oppgitt p med α-skifte og halering → Type I/II på caset → power/n → HARKing-hale. Gjennomskrevet besvarelse med margkommentarer og fem nyskrevne oppgaver med varierte p-verdier.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kjøre hypotesetestingsoppgaven som et fast sekstrinnsforløp med tidsbudsjett, fra H0/H1 til HARKing-halen",
+    "definere p-verdien ordrett riktig og tolke oppgitte p-verdier ved α-skifte og enhalet halvering",
+    "anvende Type I/II-feil og power på det konkrete caset i stedet for å definere dem løsrevet"
+  ],
+  "content": [
+    {
+      "id": "psy1010-8-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningskapitlet for gjenganger nummer to.** Hypotesetestingsoppgaven — vi kaller den **T2**, den scenariobaserte oppgaven om en nullhypotesetest (T-kodene forklares i [kap. 0.1](/bok/psy1010/psy1010-0-1)) — er egen oppgave i 19 av de 29 settene i arkivet (2009–2025). Sammen med korrelasjon bærer den eksamen.\n\n- Deloppgavene følger et **fast forløp**: formuler $H_0$/$H_1$ → trinnene → tolk oppgitt p (med α-skifte og halering) → Type I/II på caset → power → ev. HARKing-hale (ny fra V2025).\n- **Trekk-fellen:** å definere p-verdien som «sannsynligheten for at $H_0$ er feil». Sensorveiledningen for H2018 har en **eksplisitt trekk-instruks** for den. Riktig p-definisjon er et sjekkpunkt i *hver* momentliste her (**feil #1** — glosset ved første bruk; hele registeret i [kap. 8.6](/bok/psy1010/psy1010-8-6) (feilvaksinen)).\n\n**Forkunnskap forutsettes:** kapitlet trener besvarelsen og *bruker* teorien fra Del 4 (og HARKing fra 7.2). Har du ikke lest dem, les dem først."
+    },
+    {
+      "id": "psy1010-8-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er et treningskapittel som forutsetter hypotesetestingsdelen: **[kap. 4.1](/bok/psy1010/psy1010-4-1)** (H0/H1 med μ, de fem trinnene, p-definisjonen, α-skifte og enhalet halvering), **[kap. 4.2](/bok/psy1010/psy1010-4-2)** (Type I/II-feil, β, power = 1 − β, n-effekten) og **[kap. 7.2](/bok/psy1010/psy1010-7-2)** (HARKing og pre-registrering). Standardfeilen $SE = SD/\\sqrt{n}$ og t-kjeden kommer fra **[kap. 3.3](/bok/psy1010/psy1010-3-3)** og **[kap. 3.4](/bok/psy1010/psy1010-3-4)**.\n\n**Sist du var her (nøkkelpunktene oppfrisket):**\n\n- Hypotesene gjelder **populasjonsgjennomsnittet $\\mu$**, aldri utvalgssnittet ($\\bar{x}$) — ellers feil #12.\n- **p-verdien:** sannsynligheten for et minst like ekstremt resultat *gitt at $H_0$ er sann* — ikke sannsynligheten for at $H_0$ er sann/feil (feil #1).\n- **Type I** = forkaste sann $H_0$ (falsk alarm, risiko $\\alpha$); **Type II** = beholde falsk $H_0$ (oversett effekt, risiko $\\beta$); **power** $= 1 - \\beta$.\n\nHer setter vi alt sammen til ett forløp under tidspress."
+    },
+    {
+      "id": "psy1010-8-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-8-2-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis (og i dybden i Del 4).\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$ | populasjonsgjennomsnitt (det hypotesene gjelder) |\n| $\\mu_0$ | den kjente normen $H_0$ setter $\\mu$ lik |\n| $\\bar{x}$ | utvalgsgjennomsnitt (det vi måler) |\n| $H_0, H_1$ | null- og alternativhypotese |\n| $\\alpha$ | signifikansnivå / Type I-risiko (ofte 0,05) |\n| $p$ | p-verdi: sannsynlighet for minst like ekstremt resultat *gitt $H_0$* |\n| $\\beta$ | Type II-risiko; $\\text{power} = 1 - \\beta$ |\n| $SE$ | standardfeil $= SD/\\sqrt{n}$ |\n| $n$ | utvalgsstørrelse |\n\n**Formler i dette delkapitlet:**\n\n$$H_0: \\mu = \\mu_0 \\qquad H_1: \\mu \\neq \\mu_0 \\;(\\text{ev. } >,\\, < \\text{ med begrunnelse})$$\n\n$$\\text{Beslutning: forkast } H_0 \\text{ hvis } p \\leq \\alpha \\qquad (\\text{enhalet } p = \\text{tohalet } p / 2)$$\n\n$$\\text{power} = 1 - \\beta \\qquad SE = \\frac{SD}{\\sqrt{n}}$$"
+        }
+      ]
+    },
+    {
+      "id": "psy1010-8-2-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Se for deg at du får hypotesetestingsoppgaven og allerede vet at du skal starte med $H_0$/$H_1$ om $\\mu$, definere p ordrett riktig, snu konklusjonen ved et strengere α, og lande Type I/II på caset. Da blir oppgaven en trygg tredjedel, ikke en felle.\n\nDette kapitlet gjør T2 til et **fast sekstrinnsforløp** med tidsbudsjett, en full gjennomskrevet besvarelse med margkommentarer, og fem øvingsoppgaver der p-verdiene varierer slik at du trener både forkastning, beholdning og vippe-tilfeller. ~50 min."
+    },
+    {
+      "id": "psy1010-8-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Sekstrinnsforløpet med tidsbudsjett (~12 min)"
+    },
+    {
+      "id": "psy1010-8-2-oppskrift",
+      "type": "text",
+      "content": "### Oppskriften: hypotesetestingsoppgaven på ~55 min\n\n**Trinn (a) — H0/H1 med μ (~8 min).** Formuler hypotesene om *populasjonsgjennomsnittet* $\\mu$, ikke utvalget. Presiser at det er $H_0$ som testes. Velg to- eller (begrunnet) enhalet.\n\n**Trinn (b) — Trinnene + korrekt p-definisjon (~12 min).** Gjør rede for de fem trinnene ([kap. 4.1](/bok/psy1010/psy1010-4-1)). Skriv p-definisjonen **ordrett riktig** — dette er trekk-feilen, så det er verdt de ekstra sekundene.\n\n**Trinn (c) — Konklusjon ved gitt α + α-skifte + halering (~12 min).** Sammenlign oppgitt p mot α. Vis hva som skjer ved et strengere α = 0,01 (vippeverdier), og hva en begrunnet enhalet test (halvert p) ville endret.\n\n**Trinn (d) — Type I/II på caset + relasjonen (~12 min).** Ikke bare definer — si hva en Type I- og en Type II-feil ville *bety i dette scenariet*, og hvordan de henger sammen via α/β-avveiningen.\n\n**Trinn (e) — Power / n (~6 min).** Forklar power = 1 − β og at større $n$ gir mindre $SE$ → høyere power (V2024-leddet).\n\n**Trinn (f) — Ev. HARKing-hale (~5 min).** Hvis oppgaven ber om det: forklar hvorfor det å endre hypotesen etter å ha sett dataene er galt, og at pre-registrering forebygger det ([kap. 7.2](/bok/psy1010/psy1010-7-2)).\n\n**Tidsbudsjett-merknad:** deltidene summerer til ~55 min *skrivetid*. Skjærer det seg, prioriter (a)–(d): hypoteser, p-definisjon og caset-tilpasset Type I/II er kjernen."
+    },
+    {
+      "id": "psy1010-8-2-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-2-exc1-e",
+        "number": "8.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T2 — hypotesetestingsoppgaven. Lett innstegsoppgave: trinn (a) og p-definisjonen.)*\n\nEn ordforrådstest er normert med befolkningssnitt $\\mu_0 = 100$. Forskere tester en gruppe som har fått et nytt leseopplegg, uten formening om retning på forhånd, og får oppgitt $p = 0{,}03$ (tohalet).\n\n**a)** Skriv $H_0$ og $H_1$ med μ-notasjon.\n**b)** Skriv en korrekt tolkning av $p = 0{,}03$.",
+        "solution": "**a)** $H_0: \\mu = 100$ (leseopplegg-gruppen skiller seg ikke fra normen i populasjonen). $H_1: \\mu \\neq 100$ (den skiller seg — i en eller annen retning; tohalet fordi ingen retning var forhåndsbegrunnet). Hypotesene gjelder $\\mu$, ikke utvalgssnittet.\n\n**b)** «$p = 0{,}03$ betyr at *hvis $H_0$ (ingen effekt) var sann*, ville vi fått et resultat minst så ekstremt som det observerte bare 3 % av gangene. Det er så sjeldent at vi forkaster $H_0$ ved α = 0,05.» — p er sannsynligheten for *dataene gitt $H_0$*, ikke sannsynligheten for at $H_0$ er sann/feil.",
+        "hints": [
+          "$H_0$ er alltid likhet ($\\mu = 100$); tohalet ⟹ $\\neq$ i $H_1$.",
+          "Korrekt p-definisjon MÅ inneholde leddet «gitt at $H_0$ er sann».",
+          "Ikke skriv «3 % sjanse for at H0 er riktig» — det er feil #1."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Trinn (c) og (d): tolke p og lande Type I/II (~14 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-8-2-tip-pdef",
+      "type": "tip",
+      "title": "p-definisjonen: sjekkpunkt i hver besvarelse",
+      "content": "Hver eneste gang du besvarer T2, kontroller at p-setningen din inneholder leddet **«gitt at $H_0$ er sann»**. Den korrekte formuleringen:\n\n> «p er sannsynligheten for et minst like ekstremt resultat som det observerte, *gitt at $H_0$ er sann*.»\n\nDe gale (som trekker — feil #1):\n\n- ❌ «p er sannsynligheten for at $H_0$ er sann/riktig.»\n- ❌ «p er sannsynligheten for at $H_0$ er feil / at $H_1$ er sann.»\n\nHele forskjellen: p er sannsynligheten for **dataene gitt hypotesen**, ikke for **hypotesen gitt dataene**."
+    },
+    {
+      "id": "psy1010-8-2-ex-margin",
+      "type": "example",
+      "title": "Gjennomskrevet besvarelse med margkommentarer — normert leseflyt-test",
+      "problem": "«En leseflyt-test ble normert med befolkningssnitt $\\mu_0 = 60$. Forskere tester i dag en gruppe voksne, uten forhåndsformening om retning, og får $\\bar{x} = 63$, oppgitt $p = 0{,}041$ (tohalet). (a) Formuler $H_0$/$H_1$. (b) Gjør rede for trinnene og definer p. (c) Konkluder ved α = 0,05 og α = 0,01, og si hva en begrunnet enhalet test ville endret. (d) Hva ville Type I- og Type II-feil bety her? (e) En kollega vil halvere utvalget — hva gjør det med power?»",
+      "solution": "**(a) Hypoteser.** $H_0: \\mu = 60$ (ingen forskjell fra normen i populasjonen). $H_1: \\mu \\neq 60$ (tohalet — ingen retning var begrunnet på forhånd). *[Margkommentar: μ, ikke $\\bar{x}$ — ellers feil #12. Presiser at $H_0$ testes.]*\n\n**(b) Trinnene + p.** (1) hypotesene over; (2) velg $\\alpha = 0{,}05$; (3) velg og utfør test mot normen via utvalgsfordelingen; (4) finn p; (5) forkast hvis $p \\leq \\alpha$. **p-definisjon:** «$p = 0{,}041$ betyr at *hvis $H_0$ var sann*, ville vi fått et resultat minst så ekstremt som $\\bar{x} = 63$ bare 4,1 % av gangene.» *[Margkommentar: ordrett «gitt at H0 er sann» — dette er trekk-feilen; her tjenes/tapes karakteren.]*\n\n**(c) Konklusjon + α-skifte + halering.** Ved $\\alpha = 0{,}05$: $0{,}041 < 0{,}05$ ⟹ **forkast $H_0$**, resultatet er (akkurat) signifikant. Ved det strengere $\\alpha = 0{,}01$: $0{,}041 > 0{,}01$ ⟹ **behold $H_0$** — en klar vippeverdi. Hadde forskerne hatt en *begrunnet* retningshypotese (f.eks. at treningen *hever* leseflyt) og gjort enhalet test, ville p vært halvparten: $0{,}041 / 2 = 0{,}0205$, fortsatt signifikant ved 0,05 men ikke ved 0,01 — og bare gyldig hvis retningen var begrunnet *før* dataene ble sett (ellers feil #11). *[Margkommentar: α-skiftet og halveringen er A-ledd; nevn at signifikans ≠ viktighet.]*\n\n**(d) Type I/II på caset.** En **Type I-feil** her: å konkludere at gruppen skiller seg fra normen når den i virkeligheten ikke gjør det — en falsk alarm (risiko $\\alpha = 0{,}05$). En **Type II-feil**: å beholde $H_0$ og overse en *ekte* forskjell i leseflyt (risiko $\\beta$). De henger sammen: senker vi $\\alpha$ til 0,01 for å unngå falsk alarm, øker $\\beta$ (vi overser lettere ekte effekter). *[Margkommentar: feilene anvendt på caset, ikke bare definert — det er A-skilleren i d-leddet.]*\n\n**(e) Power.** Å halvere utvalget gir større $SE = SD/\\sqrt{n}$ (mindre $n$ ⟹ bredere utvalgsfordeling) ⟹ ekte effekter stikker mindre tydelig fram ⟹ **lavere power** ($= 1 - \\beta$). Kollegaen sparer tid, men risikerer å overse en effekt som faktisk finnes. *[Margkommentar: koblingen n → SE → power er V2024-A-leddet.]*\n\n*C-kjernen (korrekte hypoteser, trinnene, riktig p-definisjon, riktig konklusjon ved 0,05) gir en god C. A-laget er α-skiftet, haleringen, Type I/II *anvendt på caset*, og power-resonnementet.*"
+    },
+    {
+      "id": "psy1010-8-2-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-2-exc2-e",
+        "number": "8.2.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — trinn (c): tolk oppgitt p ved α-skifte. Vippeverdi.)*\n\nEn tohalet test av et nytt konsentrasjonsråd gir oppgitt $p = 0{,}017$.\n\n**a)** Konkluder ved $\\alpha = 0{,}05$ og ved $\\alpha = 0{,}01$.\n**b)** Betyr en signifikant p at effekten er stor og viktig? Forklar.\n**c)** Forskeren hadde faktisk en begrunnet retningshypotese. Hva blir enhalet p, og hva endrer det ved α = 0,01?",
+        "solution": "**a)** Ved $\\alpha = 0{,}05$: $0{,}017 < 0{,}05$ ⟹ **forkast $H_0$** (signifikant). Ved $\\alpha = 0{,}01$: $0{,}017 > 0{,}01$ ⟹ **behold $H_0$** (ikke signifikant). En typisk vippeverdi — konklusjonen snur ved α-skiftet.\n\n**b)** **Nei.** Signifikans ($p < \\alpha$) sier bare at forskjellen trolig er ekte, ikke at den er stor eller praktisk viktig. Med stort nok utvalg blir selv en triviell forskjell signifikant (liten $SE$). Rapporter effektstørrelsen i tillegg.\n\n**c)** Enhalet $p = 0{,}017 / 2 = 0{,}0085$. Ved $\\alpha = 0{,}01$: $0{,}0085 < 0{,}01$ ⟹ nå **forkast** også ved det strenge nivået. Men dette gjelder *bare* fordi retningen var begrunnet *før* dataene ble sett — ellers er halveringen ikke tillatt (feil #11).",
+        "hints": [
+          "Sammenlign p direkte mot hvert α-nivå.",
+          "Signifikans svarer på «trolig ekte?», ikke «stor nok til å bry seg om?».",
+          "Enhalet p = tohalet p / 2 — men bare med forhåndsbegrunnet retning."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-2-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-2-exc3-e",
+        "number": "8.2.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — trinn (d): Type I/II anvendt på caset.)*\n\nEt sykehus tester om en ny screeningmetode oppdager en tilstand *oftere* enn dagens metode. $H_0$: ingen forskjell. Testen gir oppgitt $p = 0{,}12$, og de beholder $H_0$.\n\n**a)** Hva ville en Type I-feil bety i akkurat dette caset?\n**b)** Hva ville en Type II-feil bety her — og hvorfor er den ekstra alvorlig i en screeningsammenheng?\n**c)** Siden de beholdt $H_0$, hvilken av de to feilene *kan* de i prinsippet ha begått?",
+        "solution": "**a)** **Type I-feil:** å konkludere at den nye metoden er bedre (forkaste $H_0$) når den i virkeligheten ikke er det — en falsk alarm som kunne fått sykehuset til å innføre en metode uten reell gevinst.\n\n**b)** **Type II-feil:** å beholde $H_0$ og dermed overse at den nye metoden *faktisk* er bedre. I en screeningsammenheng er dette alvorlig fordi en oversett forbedring betyr at reelle tilfeller fortsatt ikke fanges opp — en tapt mulighet til å oppdage sykdom tidligere.\n\n**c)** Siden de **beholdt** $H_0$, kan de i prinsippet ha begått en **Type II-feil** (oversett en ekte effekt). En Type I-feil er kun mulig når man *forkaster* $H_0$. Med $p = 0{,}12 > 0{,}05$ var resultatet ikke signifikant — men «ikke signifikant» er ikke bevis for at metodene er like; det kan skyldes lav power (lite utvalg).",
+        "hints": [
+          "Type I = forkaste sann H0 (falsk alarm); Type II = beholde falsk H0 (oversett effekt).",
+          "Knytt hver feil til den konkrete konsekvensen i screeningcaset.",
+          "Hvilken feil er mulig avhenger av om man forkastet eller beholdt H0."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Trinn (e) og (f): power og HARKing-halen (~14 min)"
+    },
+    {
+      "id": "psy1010-8-2-def-power-harking",
+      "type": "text",
+      "content": "### Power og HARKing (repetisjon)\n\nDe to halene som løfter en T2-besvarelse fra C til A:\n\n- **Power** $= 1 - \\beta$: sannsynligheten for å oppdage en ekte effekt (forkaste en falsk $H_0$). Konvensjonen er 80 % ($\\beta = 0{,}20$). Power øker med større ekte effekt, større $n$ (mindre $SE$), og et mildere $\\alpha$. Faktoren forskeren lettest styrer er $n$ ([kap. 4.2](/bok/psy1010/psy1010-4-2)).\n- **HARKing** (*Hypothesizing After the Results are Known*): å formulere hypotesen *etter* å ha sett dataene og presentere den som forhåndssatt. Galt fordi hele p-logikken forutsetter at hypotesen kom *før* dataene. **Pre-registrering** (plan låst offentlig før datainnsamling) forebygger det ([kap. 7.2](/bok/psy1010/psy1010-7-2))."
+    },
+    {
+      "id": "psy1010-8-2-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-2-exc4-e",
+        "number": "8.2.4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — trinn (e) og (f): power og HARKing-halen, ny fra V2025.)*\n\nEt forskerteam finner ingen signifikant effekt av et nytt søvnråd ($p = 0{,}20$, $n = 25$).\n\n**a)** Foreslå én grunn til det ikke-signifikante resultatet som *ikke* er «rådet virker ikke», og koble til power.\n**b)** Teamet vil nå lete i dataene etter en undergruppe der rådet *ser ut til* å virke, og skrive at de hadde antatt akkurat den effekten på forhånd. Hva heter dette, hvorfor er det galt, og hva forebygger det?",
+        "solution": "**a)** Med bare $n = 25$ kan testen ha **lav power**: et lite utvalg gir stor $SE = SD/\\sqrt{n}$, så en ekte, men moderat effekt stikker ikke tydelig nok fram til å bli signifikant. Da er $p = 0{,}20$ forenlig med en Type II-feil (oversett effekt), ikke bevis for at rådet er virkningsløst. «Ikke signifikant» ≠ «ingen effekt».\n\n**b)** Dette er **HARKing** (*Hypothesizing After the Results are Known*) — å skreddersy hypotesen til funnene i etterkant og utgi den for å ha vært satt på forhånd. Det er galt fordi p-logikken forutsetter at hypotesen kom *før* dataene; leter man til man finner noe signifikant og later som det var planlagt, mister p-verdien sin mening (nær beslektet p-hacking). Et *eksplorativt* funn er lov — men må **merkes** som eksplorativt. **Pre-registrering** (hypotese, design og analyseplan låst offentlig før data samles inn) forebygger HARKing, fordi den tidsstemplede planen viser hva som faktisk var forhåndsbestemt.",
+        "hints": [
+          "For (a): tenk på hva lite n gjør med SE og dermed med power.",
+          "«Ikke signifikant» kan skyldes en oversett effekt (Type II), ikke bare fravær av effekt.",
+          "For (b): hypotese ETTER resultatet har et eget navn — og et eget botemiddel."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-2-exc5",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-2-exc5-e",
+        "number": "8.2.5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T2 — full mønsterklon (krevende): hele sekstrinnsforløpet.)*\n\n«En reaksjonstidstest er normert med befolkningssnitt $\\mu_0 = 500$ ms. Forskere tester $n = 64$ voksne som har fått et nytt varslingssystem; snittet er $\\bar{x} = 490$ ms, oppgitt $p = 0{,}048$ (tohalet).»\n\n**a)** Formuler $H_0$ og $H_1$ (tohalet), med μ.\n**b)** Definer p-verdien korrekt for dette resultatet.\n**c)** Konkluder ved $\\alpha = 0{,}05$ og $\\alpha = 0{,}01$, og si hva en begrunnet enhalet test (retning: systemet *senker* reaksjonstid) ville gitt.\n**d)** Hva ville Type I- og Type II-feil bety her, og hvordan henger de sammen?\n**e)** En kollega vil øke utvalget til $n = 256$ — hva gjør det med power?",
+        "solution": "**a)** $H_0: \\mu = 500$ (ingen forskjell fra normen i populasjonen). $H_1: \\mu \\neq 500$ (tohalet). Hypotesene gjelder $\\mu$, ikke $\\bar{x} = 490$.\n\n**b)** «$p = 0{,}048$ betyr at *hvis $H_0$ var sann* (systemet ikke påvirket reaksjonstid), ville vi fått et snitt minst så langt fra 500 ms som 490 ms bare 4,8 % av gangene.» p er sannsynligheten for dataene gitt $H_0$ — ikke for at $H_0$ er sann/feil.\n\n**c)** Ved $\\alpha = 0{,}05$: $0{,}048 < 0{,}05$ ⟹ **forkast $H_0$** (akkurat signifikant). Ved $\\alpha = 0{,}01$: $0{,}048 > 0{,}01$ ⟹ **behold $H_0$** — vippeverdi. Med begrunnet enhalet test: $p = 0{,}048 / 2 = 0{,}024$, signifikant ved 0,05 men fortsatt ikke ved 0,01 — og bare tillatt hvis retningen (senker reaksjonstid) var begrunnet *før* dataene (ellers feil #11).\n\n**d)** **Type I:** å konkludere at systemet endrer reaksjonstid når det i virkeligheten ikke gjør det (falsk alarm, risiko $\\alpha$). **Type II:** å beholde $H_0$ og overse en ekte effekt (risiko $\\beta$). Sammenhengen: senker vi $\\alpha$ (fra 0,05 til 0,01) for å redusere Type I-risiko, øker $\\beta$ — vi overser lettere ekte effekter. De to feiltypene byttes mot hverandre.\n\n**e)** Å øke $n$ fra 64 til 256 (en firedobling) gir mindre $SE = SD/\\sqrt{n}$: $\\sqrt{256} = 16$ mot $\\sqrt{64} = 8$, altså *halvparten* så stor $SE$ ⟹ smalere utvalgsfordeling ⟹ ekte effekter stikker tydeligere fram ⟹ **høyere power**. Kollegaens grep øker sjansen for å oppdage en reell effekt (senker $\\beta$).",
+        "hints": [
+          "Start med hypoteser om μ; p-definisjonen MÅ ha «gitt at H0 er sann».",
+          "Enhalet p = tohalet p / 2; sjekk mot begge α-nivåer.",
+          "For (e): $n$ opp ⟹ $SE = SD/\\sqrt{n}$ ned ⟹ power opp. $\\sqrt{256}=16$."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #1 — p som «sannsynligheten for at $H_0$ er feil».** Den ene feilen med eksplisitt trekk-instruks (H2018). Sjekk i *hver* besvarelse at p-setningen har leddet «gitt at $H_0$ er sann». p er sannsynligheten for dataene gitt hypotesen, ikke for hypotesen. (Feilkode #1 glosset her ved første bruk; register i [kap. 8.6](/bok/psy1010/psy1010-8-6) (feilvaksinen).)\n\n**Feil #2 — Type I/II-forveksling.** Type I = forkaste sann $H_0$ (falsk alarm); Type II = beholde falsk $H_0$ (oversett effekt). Anvend dem på caset, ikke bare definer dem.\n\n**Feil #11 — enhalet uten begrunnelse.** Å halvere p ved å velge enhalet test i etterkant, uten forhåndsbegrunnet retning.\n\n**Feil #12 — hypoteser om utvalget.** $H_0: \\bar{x} = \\mu_0$ i stedet for $H_0: \\mu = \\mu_0$. Hypotesene gjelder alltid populasjonen ($\\mu$).\n\n**«Ikke signifikant» = «ingen effekt».** Å beholde $H_0$ er fravær av bevis, ikke bevis på fravær — kan skyldes lav power (lite $n$)."
+    },
+    {
+      "id": "psy1010-8-2-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — hypotesetestingssjangeren\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-8-2-def-fb-forlop",
+      "type": "definition",
+      "title": "Sekstrinnsforløpet (T2)",
+      "content": "Fast svarrekkefølge: (a) $H_0$/$H_1$ med μ → (b) trinnene + korrekt p-definisjon → (c) konkluder ved α + α-skifte + halering → (d) Type I/II på caset → (e) power/n → (f) ev. HARKing-hale. p-definisjonen er sjekkpunkt i hvert svar."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-pdef",
+      "type": "definition",
+      "title": "Korrekt p-definisjon (trekk-feilen)",
+      "content": "p = sannsynligheten for et minst like ekstremt resultat *gitt at $H_0$ er sann*. IKKE sannsynligheten for at $H_0$ er sann/feil (feil #1 — eksplisitt trekk-instruks H2018). Sannsynlighet for dataene gitt hypotesen, ikke omvendt."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-alpha-skifte",
+      "type": "definition",
+      "title": "α-skiftet og vippeverdier",
+      "content": "En p mellom 0,01 og 0,05 (f.eks. 0,048, 0,017) gir signifikans ved α = 0,05 men ikke ved α = 0,01. Å snu konklusjonen ved α-skifte er et fast c-ledd. α velges *før* dataene ses."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-halering",
+      "type": "definition",
+      "title": "Enhalet halvering",
+      "content": "Enhalet p = tohalet p / 2 — men kun tillatt med *forhåndsbegrunnet* retning (ellers feil #11). En «mildere» test som gir signifikans lettere; nevn alltid begrunnelseskravet."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-typeI-II",
+      "type": "definition",
+      "title": "Type I/II anvendt på caset",
+      "content": "Type I = forkaste sann $H_0$ (falsk alarm, risiko α); Type II = beholde falsk $H_0$ (oversett effekt, risiko β). A-kravet i d-leddet: si hva hver feil ville *bety i scenariet*, ikke bare definer. Senket α ⟹ høyere β."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-power",
+      "type": "definition",
+      "title": "Power = 1 − β (trinn e)",
+      "content": "Sannsynligheten for å oppdage en ekte effekt. Konvensjon 80 %. Øker med større effekt, større $n$ (mindre $SE$) og mildere α. $n$ er den forskeren lettest styrer (V2024-leddet)."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-harking",
+      "type": "definition",
+      "title": "HARKing-halen (trinn f)",
+      "content": "Å formulere hypotesen *etter* å ha sett dataene og utgi den for forhåndssatt — bryter p-logikkens premiss om at hypotesen kom først. Pre-registrering (plan låst før data) forebygger det. Nytt eksamensledd fra V2025 ([kap. 7.2](/bok/psy1010/psy1010-7-2))."
+    },
+    {
+      "id": "psy1010-8-2-def-fb-mu",
+      "type": "definition",
+      "title": "μ, ikke x̄ (trinn a)",
+      "content": "Hypotesene gjelder populasjonssnittet $\\mu$ (ukjent), ikke utvalgssnittet $\\bar{x}$ (kjent). $H_0: \\bar{x} = \\mu_0$ er feil #12 — vi tester det vi ikke vet, ikke det vi har målt."
+    },
+    {
+      "id": "psy1010-8-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 8.2",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-8-2-rep-txt",
+          "type": "text",
+          "content": "**Sekstrinnsforløpet (T2), med tidsbudsjett:**\n\n- **(a) H0/H1 med μ** (~8 min) — populasjonen, ikke utvalget; presiser at $H_0$ testes.\n- **(b) Trinnene + p-definisjon** (~12 min) — p «gitt at $H_0$ er sann» ORDRETT. Trekk-feilen (#1).\n- **(c) Konkluder + α-skifte + halering** (~12 min) — vippeverdier; enhalet p = tohalet/2 (m/begrunnelse).\n- **(d) Type I/II på caset** (~12 min) — anvend, ikke bare definer; α↓ ⟹ β↑.\n- **(e) Power/n** (~6 min) — power = 1 − β; $n$↑ ⟹ $SE$↓ ⟹ power↑.\n- **(f) HARKing-hale** (~5 min) — hypotese etter data er galt; pre-registrering forebygger.\n\n**Kjernehusk:** p-definisjonen sjekkes hver gang. C-svar definerer Type I/II; A-svar anvender dem på caset.\n\n**Fallgruver:** p-feilen (#1); Type I/II-bytte (#2); enhalet uten begrunnelse (#11); hypotese om $\\bar{x}$ (#12); «ikke signifikant» = «ingen effekt».\n\n**Framover:** [kap. 8.8](/bok/psy1010/psy1010-8-8) (modellbesvarelse for hypotesetestingsoppgaven) gir en full modellbesvarelse i denne sjangeren med C-kjerne og A-lag markert."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

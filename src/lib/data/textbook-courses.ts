@@ -106,7 +106,7 @@ import {
 } from './textbook-courses-matte';
 
 // Høyskole
-import { COURSE_ECON1310, COURSE_JUS1111, COURSE_STV1100, COURSE_EXPHIL03 } from './textbook-courses-hoyskole';
+import { COURSE_ECON1310, COURSE_JUS1111, COURSE_STV1100, COURSE_EXPHIL03, COURSE_PSY1010 } from './textbook-courses-hoyskole';
 
 // VG1 fellesfag
 import {
@@ -285,6 +285,7 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_JUS1111,
   COURSE_STV1100,
   COURSE_EXPHIL03,
+  COURSE_PSY1010,
   COURSE_NATURFAG_10,
   COURSE_NAT_VG1,
   COURSE_KJEMI1,

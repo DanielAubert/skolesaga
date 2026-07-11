@@ -1,0 +1,297 @@
+{
+  "id": "psy1010-3-1",
+  "courseId": "psy1010",
+  "chapterNumber": "3.1",
+  "title": "Sentraltendens og spredning",
+  "description": "Gjennomsnitt, median og modus — og hva spriket mellom dem avslører; varians og standardavvik regnet for hånd med forståelse av hvert ledd og hvorfor vi deler på n − 1.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut gjennomsnitt, median og modus og lese fordelingens form ut av spriket mellom dem",
+    "regne ut varians og standardavvik for et utvalg med oppgitt formel og forklare hvorfor nevneren er n − 1",
+    "velge robust vs. følsomt sentral- og spredningsmål ut fra uteliggere og skjevhet, og tolke hvert tall i prosa"
+  ],
+  "content": [
+    {
+      "id": "psy1010-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er starten på bokas tyngste tall-del — men også den mest forutsigbare.**\n\n- **Deskriptiv statistikk** (gjennomsnitt, median, spredning) dukker opp i **13 av de 29 settene** (2011–2022), som regel som en tolknings- eller regnedeloppgave. Kalles «billig å vedlikeholde» — poengene sitter når teknikken sitter.\n- Fra og med 2019 spør sensor oftere om **tolkning** enn om ren utregning: du får tall oppgitt og skal forklare hva de betyr. Men fremgangsmåten for hånd er fortsatt den beste veien til å *forstå* tolkningen — derfor regner vi alt selv her.\n- Det tilbakevendende A-skillet i dette kapitlet er **hvorfor vi deler på $n-1$** (ikke $n$) når vi regner varians fra et utvalg. Det spørsmålet kommer igjen og igjen.\n\n**Sensorregelen (fra veiledningene):** vis alltid utregningen. En regnefeil med riktig framgangsmåte straffes mildt; et riktig tall uten synlig utregning kan ikke få full uttelling. Og hvert tall skal ende i en **setning om hva det betyr** — «gjennomsnittet ligger over medianen, så fordelingen er høyreskjev» — ikke bare stå der."
+    },
+    {
+      "id": "psy1010-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 1.2](/bok/psy1010/psy1010-1-2)** (variabler og de fire målenivåene) — du trenger å vite at *median* forutsetter minst ordinalnivå og *gjennomsnitt* minst intervallnivå. Ellers kan kapitlet leses uten forkunnskaper.\n\nDet eneste regnetekniske du trenger, er å **summere tall, dele, og trekke kvadratrot** — alt som går på en enkel kalkulator (tillatt hjelpemiddel på eksamen). Vi tar hvert steg sakte."
+    },
+    {
+      "id": "psy1010-3-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du får resultatene fra en hukommelsestest for en hel klasse: en lang liste med tall. Ingen kan lese mening ut av 30 rå tall. Vi trenger å **komprimere** listen til noen få tall som fanger det viktige: *Hvor ligger tyngdepunktet?* (sentraltendens) og *Hvor spredt er skårene?* (spredning).\n\nDette kapitlet bygges som tre læringsløkker: **(1)** de tre sentralmålene og når de spriker, **(2)** de enkle spredningsmålene, og **(3)** varians og standardavvik regnet for hånd. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgave, så du kan ta stoffet bit for bit.\n\n**Tidsanslag:** ~55 min lesetid. Naturlige pausepunkter er markert mellom løkkene — du kan trygt dele kapitlet over to økter."
+    },
+    {
+      "id": "psy1010-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre sentralmålene (~18 min)"
+    },
+    {
+      "id": "psy1010-3-1-def-gjennomsnitt",
+      "type": "definition",
+      "title": "Gjennomsnitt (aritmetisk middelverdi, x̄)",
+      "content": "Summen av alle verdiene delt på antall verdier:\n\n$$\\bar{x} = \\frac{\\sum x}{n}$$\n\nHer er $\\sum x$ («sum av alle x-ene») summen av observasjonene og $n$ antall observasjoner. Gjennomsnittet er tyngdepunktet i fordelingen — men det er **følsomt for uteliggere**: én ekstrem verdi drar det mye. Krever intervall- eller forholdsnivå (kap. 1.2)."
+    },
+    {
+      "id": "psy1010-3-1-def-median",
+      "type": "definition",
+      "title": "Median",
+      "content": "Den **midterste** verdien når observasjonene er sortert fra lav til høy. Ved partall antall verdier: gjennomsnittet av de to midterste. Medianen deler fordelingen i to like store halvdeler og er **robust mot uteliggere** — en enkelt ekstremverdi flytter den knapt. Krever minst ordinalnivå."
+    },
+    {
+      "id": "psy1010-3-1-def-modus",
+      "type": "definition",
+      "title": "Modus (typetall)",
+      "content": "Den verdien som forekommer **oftest**. En fordeling kan ha én modus (unimodal), to (bimodal) eller ingen entydig modus. Modus er det eneste sentralmålet som også fungerer på **nominalnivå** (f.eks. hyppigste svarkategori)."
+    },
+    {
+      "id": "psy1010-3-1-l1-spriket",
+      "type": "text",
+      "content": "### Når spriker de tre målene?\n\nI en **symmetrisk** fordeling faller gjennomsnitt, median og modus omtrent sammen. De spriker når fordelingen er **skjev**:\n\n- **Høyreskjev** (noen få høye verdier, hale mot høyre): gjennomsnitt > median. De høye verdiene drar gjennomsnittet oppover, mens medianen står nesten stille.\n- **Venstreskjev** (noen få lave verdier): gjennomsnitt < median.\n\nDerfor er selve **spriket** informasjon: ser du at gjennomsnittet ligger klart over medianen, vet du at fordelingen har en hale mot høyre — typisk for inntekt, reaksjonstid og ventetider."
+    },
+    {
+      "id": "psy1010-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1 — Tre mål på en liten, symmetrisk serie",
+      "problem": "Seks studenter løser en lesespenn-oppgave (antall ord de husker). Skårene er:\n\n$$5, \\; 6, \\; 7, \\; 7, \\; 8, \\; 9$$\n\nRegn ut gjennomsnitt, median og modus, og si hva spriket (eller mangelen på sprik) forteller.",
+      "solution": "**Gjennomsnitt.** Summen er $5+6+7+7+8+9 = 42$, og $n = 6$:\n\n$$\\bar{x} = \\frac{42}{6} = 7{,}0$$\n\n**Median.** Serien er allerede sortert. Med $n = 6$ (partall) er medianen snittet av de to midterste (3. og 4. verdi): $\\frac{7+7}{2} = 7{,}0$.\n\n**Modus.** Verdien 7 forekommer to ganger, alle andre én gang. Modus $= 7$.\n\n**Tolkning:** alle tre målene lander på 7. Det forteller at fordelingen er **symmetrisk** — ingen ekstremverdier trekker gjennomsnittet bort fra midten. Når de tre målene faller sammen, er det trygt å rapportere gjennomsnittet som «det typiske»."
+    },
+    {
+      "id": "psy1010-3-1-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-1-exc1-e",
+        "number": "3.1.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven, gjennomganger i statistikkdelen. Dette er en lett innstegsoppgave.)*\n\nFem elever bruker følgende antall minutter på en lesetest: $8, 10, 10, 12, 15$.\n\n**a)** Regn ut gjennomsnittet.\n**b)** Finn medianen.\n**c)** Finn modus.",
+        "solution": "**a)** Summen er $8+10+10+12+15 = 55$, og $n = 5$, så $\\bar{x} = \\frac{55}{5} = 11{,}0$ minutter.\n\n**b)** Sortert: $8, 10, 10, 12, 15$. Med $n = 5$ (oddetall) er medianen den midterste (3.) verdien $= 10$.\n\n**c)** Verdien 10 forekommer to ganger — modus $= 10$.\n\n**Tolkning:** gjennomsnittet (11) ligger litt over medianen (10) fordi 15-verdien drar oppover — en svak antydning til høyreskjevhet, men avviket er lite.",
+        "hints": [
+          "Gjennomsnitt: $\\bar{x} = \\sum x / n$. Summer alle fem tallene først.",
+          "Median: sorter, finn den midterste når $n$ er oddetall.",
+          "Modus: hvilken verdi ser du mer enn én gang?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Uteliggere og enkle spredningsmål (~15 min)\n\n*— naturlig pausepunkt: du kan ta resten i en ny økt —*"
+    },
+    {
+      "id": "psy1010-3-1-def-uteligger",
+      "type": "definition",
+      "title": "Uteligger (outlier)",
+      "content": "En observasjon som ligger **påfallende langt** fra resten av fordelingen. Uteliggere kan skyldes målefeil, en spesiell person eller en ekte, men sjelden, verdi. De påvirker gjennomsnittet og standardavviket sterkt, men medianen og interkvartilbredden lite. Derfor bør du alltid *sjekke for uteliggere* før du velger hvilket sentralmål du rapporterer."
+    },
+    {
+      "id": "psy1010-3-1-def-variasjonsbredde",
+      "type": "definition",
+      "title": "Variasjonsbredde (range)",
+      "content": "Forskjellen mellom største og minste verdi: $\\text{bredde} = x_{\\max} - x_{\\min}$. Det enkleste spredningsmålet, men **svært sårbart** for uteliggere — det avhenger *kun* av ytterpunktene."
+    },
+    {
+      "id": "psy1010-3-1-def-iqr",
+      "type": "definition",
+      "title": "Interkvartilbredde (IQR)",
+      "content": "Bredden på den midterste halvparten av dataene: $\\text{IQR} = Q_3 - Q_1$, der $Q_1$ er nedre kvartil (25 %-punktet) og $Q_3$ øvre kvartil (75 %-punktet). Fordi den kutter bort de 25 % laveste og 25 % høyeste, er IQR **robust mot uteliggere** — et spredningsmål som passer sammen med medianen."
+    },
+    {
+      "id": "psy1010-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2 — Én uteligger endrer bildet",
+      "problem": "Ni personer måles på reaksjonstid (i hundredels sekund):\n\n$$12, \\; 13, \\; 13, \\; 14, \\; 14, \\; 15, \\; 15, \\; 16, \\; 40$$\n\nDen siste personen ble distrahert. Regn gjennomsnitt og median, og forklar hvilket mål som beskriver «den typiske personen» best.",
+      "solution": "**Gjennomsnitt.** Summen er $12+13+13+14+14+15+15+16+40 = 152$, og $n = 9$:\n\n$$\\bar{x} = \\frac{152}{9} \\approx 16{,}9$$\n\n**Median.** Serien er sortert. Med $n = 9$ er medianen den 5. verdien $= 14$.\n\n**Variasjonsbredde.** $40 - 12 = 28$ — helt dominert av uteliggeren.\n\n**Tolkning:** gjennomsnittet (16,9) er trukket **over åtte av de ni verdiene** av den ene ekstremverdien på 40 — det beskriver ingen faktisk person godt. Medianen (14) ligger midt i klumpen av vanlige verdier og beskriver «den typiske personen» langt bedre. **Regelen:** ved uteliggere eller skjeve fordelinger rapporterer du medianen (og IQR), ikke gjennomsnittet. Det er nettopp *spriket* mellom de to (16,9 mot 14) som avslører at noe drar i fordelingen."
+    },
+    {
+      "id": "psy1010-3-1-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-1-exc2-e",
+        "number": "3.1.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven. Trener uteliggerdiagnose.)*\n\nEn gruppe på åtte personer rapporterer antall timer skjermtid en dag: $2, 3, 3, 4, 4, 5, 5, 22$.\n\n**a)** Regn ut gjennomsnitt og median.\n**b)** Hvilket sentralmål bør rapporteres, og hvorfor?\n**c)** Hva forteller spriket mellom gjennomsnitt og median om fordelingens form?",
+        "solution": "**a)** Sum $= 2+3+3+4+4+5+5+22 = 48$, $n = 8$, så $\\bar{x} = \\frac{48}{8} = 6{,}0$ timer. Median: de to midterste (4. og 5.) verdiene er $4$ og $4$, så median $= 4{,}0$.\n\n**b)** **Medianen (4,0)** bør rapporteres. Gjennomsnittet (6,0) er dratt opp av 22-verdien og ligger over sju av åtte observasjoner — det beskriver ikke den typiske personen.\n\n**c)** Gjennomsnitt (6,0) > median (4,0) betyr at fordelingen er **høyreskjev**: en hale av høye verdier (her 22) trekker gjennomsnittet oppover mens medianen står stille.",
+        "hints": [
+          "Gjennomsnitt: summer alle åtte og del på 8. Median: snittet av de to midterste når $n$ er partall.",
+          "Sammenlign hvor de to målene ligger i forhold til klumpen av vanlige verdier.",
+          "Regel: gjennomsnitt > median ⟹ hale mot høyre (høyreskjev)."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Varians og standardavvik for hånd (~22 min)"
+    },
+    {
+      "id": "psy1010-3-1-l3-intro",
+      "type": "text",
+      "content": "Median og IQR er robuste, men **standardavviket (SD)** er selve arbeidshesten i psykologisk statistikk: det ligger under z-skårer (kap. 3.2), standardfeil (kap. 3.3) og t-testen (kap. 3.4). Vi bygger det opp steg for steg.\n\nIdeen er enkel: vi vil måle hvor langt verdiene i snitt ligger fra gjennomsnittet. Vi kan ikke bare snitte avvikene $(x - \\bar{x})$ — de summerer alltid til null. Løsningen er å **kvadrere** avvikene først (så negative og positive ikke kansellerer), snitte dem (det gir **variansen**), og til slutt ta kvadratrota tilbake til den opprinnelige skalaen (det gir **standardavviket**)."
+    },
+    {
+      "id": "psy1010-3-1-thm-varians",
+      "type": "theorem",
+      "title": "Varians og standardavvik (utvalg)",
+      "content": "For et **utvalg** på $n$ observasjoner med gjennomsnitt $\\bar{x}$:\n\n$$s^2 = \\frac{\\sum (x - \\bar{x})^2}{n - 1} \\qquad\\qquad SD = \\sqrt{s^2}$$\n\n$s^2$ er **variansen** (i kvadrerte enheter) og $SD$ (også skrevet $s$) er **standardavviket** (samme enhet som målingen). Legg merke til nevneren $n - 1$, ikke $n$ — se A-skillet under."
+    },
+    {
+      "id": "psy1010-3-1-def-frihetsgrader",
+      "type": "definition",
+      "title": "Hvorfor vi deler på n − 1 (frihetsgrader)",
+      "content": "Når vi regner varians fra et **utvalg**, bruker vi utvalgets eget gjennomsnitt $\\bar{x}$ som referanse. Men $\\bar{x}$ ligger per definisjon nærmere utvalgets egne verdier enn det ukjente populasjonsgjennomsnittet $\\mu$ gjør. Derfor blir summen av kvadratavvik systematisk **litt for liten**, og hadde vi delt på $n$, ville vi *undervurdert* populasjonsvariansen. Å dele på $n - 1$ (antallet **frihetsgrader**) korrigerer for dette og gir et forventningsrett estimat. Tommelregel: **utvalg → $n-1$**. (Deler man på $n$, regner man variansen til akkurat disse tallene som en hel populasjon — ikke et estimat.) Dette er et fast A-skille på eksamen."
+    },
+    {
+      "id": "psy1010-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3 — Full utregning av s² og SD, steg for steg",
+      "problem": "Elleve elever tar en ordforrådstest (poeng). Skårene er:\n\n$$20, \\; 22, \\; 23, \\; 23, \\; 24, \\; 25, \\; 26, \\; 27, \\; 28, \\; 29, \\; 50$$\n\nBruk formlene $\\bar{x} = \\frac{\\sum x}{n}$, $s^2 = \\frac{\\sum(x-\\bar{x})^2}{n-1}$ og $SD = \\sqrt{s^2}$. Regn alle tre sentralmålene, deretter $s^2$ og $SD$, og tolk resultatet.",
+      "solution": "**Steg 1 — sentralmål.** Sum $= 297$, $n = 11$, så $\\bar{x} = \\frac{297}{11} = 27{,}0$. Median (6. verdi av 11) $= 25$. Modus $= 23$ (forekommer to ganger). *Intuisjon: gjennomsnittet (27) ligger over medianen (25) — 50-verdien drar.*\n\n**Steg 2 — avvik og kvadrerte avvik** $(x - \\bar{x})^2$ med $\\bar{x} = 27$:\n\n| $x$ | $x-\\bar{x}$ | $(x-\\bar{x})^2$ |\n|---|---|---|\n| 20 | −7 | 49 |\n| 22 | −5 | 25 |\n| 23 | −4 | 16 |\n| 23 | −4 | 16 |\n| 24 | −3 | 9 |\n| 25 | −2 | 4 |\n| 26 | −1 | 1 |\n| 27 | 0 | 0 |\n| 28 | 1 | 1 |\n| 29 | 2 | 4 |\n| 50 | 23 | 529 |\n\n*Intuisjon: legg merke til hvordan 50-verdien alene bidrar med 529 — nesten hele spredningen. Det viser hvor følsomt SD er for uteliggere.*\n\n**Steg 3 — sum av kvadratavvik.** $49+25+16+16+9+4+1+0+1+4+529 = 654$.\n\n**Steg 4 — varians** (del på $n - 1 = 10$):\n\n$$s^2 = \\frac{654}{10} = 65{,}4 \\text{ (poeng}^2)$$\n\n**Steg 5 — standardavvik** (ta kvadratrota, tilbake til poeng-skala):\n\n$$SD = \\sqrt{65{,}4} \\approx 8{,}09 \\text{ poeng}$$\n\n**Tolkning:** i snitt ligger elevene omtrent 8 poeng fra gjennomsnittet på 27 — men det tallet er blåst opp av den ene på 50. Uten uteliggeren ville spredningen vært langt mindre. At $s^2$ er i «poeng i annen» er grunnen til at vi tar kvadratrota: $SD$ er tilbake i **poeng**, som er tolkbart. Legg også merke til at vi **delte på 10, ikke 11** — dette er et utvalg, og $n-1$ gir et forventningsrett estimat av populasjonsspredningen."
+    },
+    {
+      "id": "psy1010-3-1-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-1-exc3-e",
+        "number": "3.1.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven, regn hele spredningen.)*\n\nNi deltakere skårer på en oppmerksomhetstest: $5, 5, 6, 7, 7, 7, 8, 9, 9$. Bruk $\\bar{x} = \\frac{\\sum x}{n}$, $s^2 = \\frac{\\sum(x-\\bar{x})^2}{n-1}$ og $SD = \\sqrt{s^2}$.\n\n**a)** Regn ut gjennomsnittet.\n**b)** Regn ut variansen $s^2$.\n**c)** Regn ut standardavviket $SD$, og tolk hva det betyr.",
+        "solution": "**a)** Sum $= 5+5+6+7+7+7+8+9+9 = 63$, $n = 9$, så $\\bar{x} = \\frac{63}{9} = 7{,}0$.\n\n**b)** Kvadrerte avvik fra 7: $(-2)^2, (-2)^2, (-1)^2, 0, 0, 0, 1^2, 2^2, 2^2 = 4, 4, 1, 0, 0, 0, 1, 4, 4$. Sum $= 18$. Del på $n - 1 = 8$:\n\n$$s^2 = \\frac{18}{8} = 2{,}25$$\n\n**c)** $SD = \\sqrt{2{,}25} = 1{,}5$. **Tolkning:** deltakerne ligger i gjennomsnitt 1,5 poeng fra snittet på 7 — en jevn, lite spredt fordeling uten uteliggere. Her beskriver både gjennomsnitt og SD dataene godt.",
+        "hints": [
+          "Start med $\\bar{x} = \\sum x / n$ — summen er 63.",
+          "For $s^2$: regn hvert avvik $x - 7$, kvadrer, summer, og del på $n - 1 = 8$ (ikke 9).",
+          "$SD$ er bare kvadratrota av $s^2$ — glem ikke dette siste steget."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-1-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-1-exc4-e",
+        "number": "3.1.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven på eksamensnivå. (krevende): flere sentralmål spriker, og du skal tolke.)*\n\nTi pasienter rapporterer antall dager til bedring etter en intervensjon: $4, 5, 5, 6, 6, 6, 7, 8, 9, 24$. Bruk formlene over.\n\n**a)** Regn ut gjennomsnitt, median og modus.\n**b)** Regn ut $s^2$ og $SD$.\n**c)** Drøft kort hvilket sentralmål og hvilket spredningsmål du ville rapportert, og hva $s^2$-enheten «dager²» betyr.",
+        "solution": "**a)** Sum $= 4+5+5+6+6+6+7+8+9+24 = 80$, $n = 10$, så $\\bar{x} = \\frac{80}{10} = 8{,}0$ dager. Median: de to midterste (5. og 6.) verdiene er $6$ og $6$, median $= 6{,}0$. Modus $= 6$ (tre ganger).\n\n**b)** Avvik fra $\\bar{x} = 8$: $-4, -3, -3, -2, -2, -2, -1, 0, 1, 16$. Kvadrert: $16, 9, 9, 4, 4, 4, 1, 0, 1, 256$. Sum $= 304$. Del på $n - 1 = 9$: $s^2 = \\frac{304}{9} \\approx 33{,}8$ (dager²). $SD = \\sqrt{33{,}8} \\approx 5{,}81$ dager.\n\n**c)** Gjennomsnittet (8,0) ligger over median og modus (begge 6) — fordelingen er **høyreskjev** på grunn av 24-verdien. Jeg ville rapportert **median (6) og IQR** fordi de er robuste mot denne uteliggeren; gjennomsnitt og SD er begge blåst opp av den ene sene pasienten. **«Dager²»** er en kvadrert, ikke-tolkbar enhet — derfor tar vi kvadratrota tilbake til $SD$ i dager, som lar seg lese direkte.",
+        "hints": [
+          "Regn sentralmålene først; se om de spriker (det avslører skjevhet).",
+          "For $s^2$: avvik fra 8, kvadrer, summer, del på $n - 1 = 9$.",
+          "Tenk gjennom hvorfor variansens enhet (dager²) er upraktisk — det er hele grunnen til at SD finnes."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #13 — usynlig utregning.** Du skriver bare svaret «$SD = 8{,}09$» uten mellomregning. Sensor kan da ikke gi deg «riktig metode»-uttellingen, og en liten tastefeil felles hele svaret. *Vis alltid avvikstabellen og delingen.*\n\n**Å glemme kvadratrota.** En klassiker er å regne $s^2$ og rapportere det som standardavvik. $s^2 = 65{,}4$ er variansen; $SD = \\sqrt{65{,}4} \\approx 8{,}09$. Sjekk alltid enheten: $SD$ er i poeng/dager/sekunder, $s^2$ i det samme **kvadrert**.\n\n**Å dele på $n$ i stedet for $n - 1$.** For et utvalg deler du på $n - 1$. Deler du på $n$, undervurderer du populasjonsspredningen — og du mister A-skille-poenget.\n\n**Å bruke gjennomsnitt på en skjev fordeling.** Når gjennomsnitt og median spriker tydelig, rapporter medianen (og IQR). Å oppgi gjennomsnittet for inntekt eller reaksjonstid uten kommentar er en tolkningsfeil."
+    },
+    {
+      "id": "psy1010-3-1-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — sentralmål og spredning\n\n*Dette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet. Kortene under samler kontrastene sensor tester.*"
+    },
+    {
+      "id": "psy1010-3-1-def-sentraltendens",
+      "type": "definition",
+      "title": "Sentraltendens vs. spredning",
+      "content": "**Sentraltendens** svarer på *hvor* fordelingen ligger (gjennomsnitt, median, modus). **Spredning** svarer på *hvor bredt* den er (variasjonsbredde, IQR, varians, SD). Begge trengs: to fordelinger kan ha samme gjennomsnitt men vidt ulik spredning."
+    },
+    {
+      "id": "psy1010-3-1-def-robust",
+      "type": "definition",
+      "title": "Robust vs. følsomt mål",
+      "content": "Et **robust** mål (median, IQR) endres lite av uteliggere. Et **følsomt** mål (gjennomsnitt, variasjonsbredde, SD) endres mye. Regel: median parres med IQR (robust duo), gjennomsnitt med SD (følsom duo)."
+    },
+    {
+      "id": "psy1010-3-1-def-skjevhet",
+      "type": "definition",
+      "title": "Skjevhet ↔ mål-sprik",
+      "content": "**Høyreskjev** (hale mot høyre): gjennomsnitt > median. **Venstreskjev:** gjennomsnitt < median. **Symmetrisk:** gjennomsnitt ≈ median ≈ modus. Retningen på spriket avslører formen uten at du ser figuren."
+    },
+    {
+      "id": "psy1010-3-1-def-varians-vs-sd",
+      "type": "definition",
+      "title": "Varians (s²) ↔ standardavvik (SD)",
+      "content": "**Varians** = snittet av kvadrerte avvik, i kvadrerte enheter (poeng²) — ikke direkte tolkbar. **Standardavvik** = kvadratrota av variansen, tilbake i målingens enhet (poeng) — tolkbar som «typisk avstand fra gjennomsnittet». $SD = \\sqrt{s^2}$."
+    },
+    {
+      "id": "psy1010-3-1-def-malenivaa-mal",
+      "type": "definition",
+      "title": "Målenivå ↔ tillatt sentralmål",
+      "content": "**Nominal:** kun modus. **Ordinal:** modus + median. **Intervall/forhold:** modus + median + gjennomsnitt. Regelen kobler dette kapitlet til [kap. 1.2](/bok/psy1010/psy1010-1-2): du kan ikke regne gjennomsnitt av rangeringer meningsfullt."
+    },
+    {
+      "id": "psy1010-3-1-def-avvik",
+      "type": "definition",
+      "title": "Avvik og kvadrert avvik",
+      "content": "**Avviket** er $(x - \\bar{x})$ — hvor langt en observasjon ligger fra gjennomsnittet. Avvikene summerer alltid til null, så vi **kvadrerer** dem ($(x-\\bar{x})^2$) før vi snitter. Kvadreringen gjør alle bidrag positive og straffer store avvik ekstra hardt (derfor er SD følsomt for uteliggere)."
+    },
+    {
+      "id": "psy1010-3-1-def-kvartil",
+      "type": "definition",
+      "title": "Kvartil og persentil",
+      "content": "En **kvartil** deler den sorterte fordelingen i fire like deler: $Q_1$ (25 % under), $Q_2$ = median (50 %), $Q_3$ (75 %). En **persentil** generaliserer dette til hvilken som helst prosentandel (f.eks. 90-persentilen = verdien 90 % ligger under). Kvartilene er byggeklossene i boksplottet ([kap. 3.2](/bok/psy1010/psy1010-3-2))."
+    },
+    {
+      "id": "psy1010-3-1-def-variasjonsbredde-vs-iqr",
+      "type": "definition",
+      "title": "Variasjonsbredde ↔ IQR",
+      "content": "**Variasjonsbredde** ($x_{\\max} - x_{\\min}$) bruker bare ytterpunktene og er derfor svært følsom for uteliggere. **IQR** ($Q_3 - Q_1$) kutter bort de 25 % laveste og høyeste og er robust. Ved uteliggere: rapporter IQR, ikke variasjonsbredde."
+    },
+    {
+      "id": "psy1010-3-1-def-unimodal",
+      "type": "definition",
+      "title": "Unimodal, bimodal og modus-nytte",
+      "content": "En **unimodal** fordeling har én topp (én modus), en **bimodal** har to. To tydelige topper kan avsløre at dataene egentlig er to blandede grupper. Modus er nyttigst på nominale data (hyppigste kategori) og for å beskrive formen — mindre nyttig som «det typiske tallet» på kontinuerlige mål."
+    },
+    {
+      "id": "psy1010-3-1-def-modus-median-gjennomsnitt-folsomhet",
+      "type": "definition",
+      "title": "Følsomhetsrangeringen for uteliggere",
+      "content": "Rangert etter hvor mye ett ekstremtall flytter målet: **gjennomsnitt** (mest følsomt) → **median** (nesten uberørt) → **modus** (kan være helt uberørt). Samme rangering for spredning: **variasjonsbredde og SD** følsomme, **IQR** robust. Å kjenne denne rangeringen er nøkkelen til å velge riktig mål for skjeve data."
+    },
+    {
+      "id": "psy1010-3-1-def-populasjon-vs-utvalg-sd",
+      "type": "definition",
+      "title": "Populasjonsvarians ↔ utvalgsvarians",
+      "content": "Regner du varians for en **hel populasjon** (du har alle enhetene), deler du på $N$. Regner du et **estimat** fra et utvalg, deler du på $n - 1$. Nesten alltid i psykologi har du et utvalg — derfor er $n-1$ standard. Skillet er selve grunnen til at kalkulatorer har både en «$\\sigma$»- og en «$s$»-tast."
+    },
+    {
+      "id": "psy1010-3-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 3.1",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-3-1-rep-txt",
+          "type": "text",
+          "content": "**Kjernen i dette kapitlet:**\n\n1. **Tre sentralmål:** gjennomsnitt $\\bar{x} = \\sum x / n$ (følsomt), median (robust), modus (hyppigst). De spriker ved skjevhet.\n2. **Sprik = form:** gjennomsnitt > median ⟹ høyreskjev; gjennomsnitt < median ⟹ venstreskjev.\n3. **Enkle spredningsmål:** variasjonsbredde (følsom), IQR $= Q_3 - Q_1$ (robust).\n4. **Varians og SD:** $s^2 = \\frac{\\sum(x-\\bar{x})^2}{n-1}$, $SD = \\sqrt{s^2}$. Del på $n-1$ for utvalg (frihetsgrader).\n5. **Alltid tolk:** hvert tall ender i en setning om hva det betyr for studien.\n\n**Framover:** SD er byggesteinen i z-skårer ([kap. 3.2](/bok/psy1010/psy1010-3-2)) og standardfeil ([kap. 3.3](/bok/psy1010/psy1010-3-3))."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-3-1-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $x$ | en enkelt observasjon (måleverdi) |\n| $\\bar{x}$ | utvalgsgjennomsnitt |\n| $n$ | antall observasjoner i utvalget |\n| $\\sum x$ | summen av alle observasjonene |\n| $s^2$ | utvalgsvarians (kvadrerte enheter) |\n| $SD$ (også $s$) | standardavvik (samme enhet som målingen) |\n| $Q_1, Q_3$ | nedre og øvre kvartil (25 %- og 75 %-punkt) |\n| IQR | interkvartilbredde $= Q_3 - Q_1$ |\n| $n - 1$ | frihetsgrader i utvalgsvariansen |\n\n**Formler i dette delkapitlet:**\n\n$$\\bar{x} = \\frac{\\sum x}{n} \\qquad \\text{(gjennomsnitt = tyngdepunkt; følsomt for uteliggere)}$$\n\n$$s^2 = \\frac{\\sum (x - \\bar{x})^2}{n - 1} \\qquad \\text{(varians = snitt av kvadratavvik; del på } n-1 \\text{ for utvalg)}$$\n\n$$SD = \\sqrt{s^2} \\qquad \\text{(standardavvik = typisk avstand fra snittet, i målingens enhet)}$$\n\n$$\\text{IQR} = Q_3 - Q_1 \\qquad \\text{(bredden på midterste 50 \\%; robust mot uteliggere)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

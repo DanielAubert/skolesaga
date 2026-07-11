@@ -1,0 +1,289 @@
+{
+  "id": "psy1010-3-3",
+  "courseId": "psy1010",
+  "chapterNumber": "3.3",
+  "title": "Slutningslogikken — populasjon, utvalgsfordeling og standardfeil",
+  "description": "Historien som gjør all slutningsstatistikk begripelig: fra populasjon via tilfeldig utvalgsvariasjon til utvalgsfordeling og standardfeil — og det eksamenskritiske skillet mellom standardavvik (SD) og standardfeil (SE).",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "fortelle hele slutningskjeden fra populasjon via utvalgsfordeling til standardfeil og beslutning om populasjonen",
+    "regne ut standardfeilen med SE = SD/√n og forklare √n-effekten på presisjonen",
+    "skille presist mellom standardavvik (spredning i data) og standardfeil (presisjon i gjennomsnittsestimatet)"
+  ],
+  "content": [
+    {
+      "id": "psy1010-3-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er bokas statistiske tyngdepunkt — og et fast A-skille.**\n\n- **Slutningslogikken og standardfeil** dukker opp i **9 av de 29 settene** (V2010 til V2023). I V2022 var «forklar hele logikken» en **hel oppgave** — sjangerens toppunkt.\n- Skillet **SD vs. SE** (standardavvik vs. standardfeil) er et eksplisitt differensieringsledd: kandidater som blander dem, får C; de som skiller dem presist, får A.\n\n**Kjernen du må kunne fortelle som en historie:** fra en populasjon trekker vi et tilfeldig utvalg → utvalgets gjennomsnitt avviker litt fra populasjonens → tenker vi oss uendelig mange slike utvalg, danner gjennomsnittene en *utvalgsfordeling* → dens standardavvik er *standardfeilen* → p-verdier beregnes fra denne fordelingen. Klarer du å fortelle den kjeden presist, har du selve A-poenget."
+    },
+    {
+      "id": "psy1010-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 3.1](/bok/psy1010/psy1010-3-1)** (gjennomsnitt og standardavvik — særlig at $SD$ måler spredning i data) og **[kap. 1.4](/bok/psy1010/psy1010-1-4)** (utvalg fra en populasjon, at et utvalg er en «miniatyrkopi» som aldri er helt lik populasjonen).\n\n**Sist du var her (nøkkelformler oppfrisket):**\n\n- $\\bar{x} = \\dfrac{\\sum x}{n}$ — utvalgsgjennomsnittet.\n- $SD = \\sqrt{s^2}$ — standardavviket, spredningen i selve dataene, i målingens enhet.\n- Fra 1.4: et tilfeldig utvalg speiler populasjonen, men aldri perfekt — det er nettopp denne tilfeldige variasjonen kapitlet handler om.\n\nHa spesielt $SD$ friskt i minne: dette kapitlet innfører $SE$ (standardfeil), og hele poenget er at de to **ikke** er det samme."
+    },
+    {
+      "id": "psy1010-3-3-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Tenk at du vil vite gjennomsnittshøyden til alle norske 20-åringer. Du kan ikke måle alle — du måler 100 tilfeldige og regner gjennomsnittet deres. Men hadde vennen din målt 100 *andre* 20-åringer, ville hun fått et litt annet gjennomsnitt. Og en tredje person et tredje. Ingen av dem treffer den sanne populasjonshøyden helt.\n\nDet store spørsmålet i all slutningsstatistikk er: **hvor mye bommer et enkelt utvalgsgjennomsnitt typisk?** Svaret er *standardfeilen*. Og for å forstå den, må vi tenke oss alle de mulige utvalgene som en fordeling i seg selv — *utvalgsfordelingen*. Disse to begrepene er abstrakte, men de er hele fundamentet under t-tester, konfidensintervaller og p-verdier.\n\nKapitlet bygges som to løkker: **(1)** historien fra populasjon til standardfeil, og **(2)** SD vs. SE presist, med utregning. ~60 min lesetid — del gjerne over to økter ved pausepunktet."
+    },
+    {
+      "id": "psy1010-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra populasjon til standardfeil (~30 min)"
+    },
+    {
+      "id": "psy1010-3-3-def-populasjon-utvalg",
+      "type": "definition",
+      "title": "Populasjon og (tilfeldig) utvalg",
+      "content": "**Populasjonen** er hele gruppen vi vil uttale oss om (alle norske 20-åringer). **Utvalget** er de vi faktisk måler (100 tilfeldig valgte). Populasjonens gjennomsnitt kalles $\\mu$ («my») og er *ukjent* — det er nettopp det vi vil estimere. Vi bruker utvalgets gjennomsnitt $\\bar{x}$ som beste gjetning på $\\mu$, men vet at det bommer litt på grunn av tilfeldig utvalgsvariasjon."
+    },
+    {
+      "id": "psy1010-3-3-def-utvalgsvariasjon",
+      "type": "definition",
+      "title": "Utvalgsvariasjon (samplingvariasjon)",
+      "content": "Fordi hvert utvalg er tilfeldig trukket, vil ulike utvalg gi litt ulike gjennomsnitt — selv når de kommer fra samme populasjon. Denne uunngåelige variasjonen mellom utvalg kalles **utvalgsvariasjon**. Den er ikke en feil forskeren gjør; den er en matematisk konsekvens av at man måler en del i stedet for helheten."
+    },
+    {
+      "id": "psy1010-3-3-def-utvalgsfordeling",
+      "type": "definition",
+      "title": "Utvalgsfordelingen (av gjennomsnitt)",
+      "content": "Tenk deg at du trekker *uendelig mange* utvalg av samme størrelse $n$ fra populasjonen, regner gjennomsnittet i hvert, og lager en fordeling av alle disse gjennomsnittene. Det er **utvalgsfordelingen av gjennomsnittet**. Den er en **teoretisk** fordeling — vi observerer den aldri i praksis, vi har jo bare ett utvalg. Men den er nøkkelen til slutning: den sentreres på populasjonsgjennomsnittet $\\mu$, og dens spredning forteller hvor mye et enkelt utvalgsgjennomsnitt typisk avviker fra $\\mu$."
+    },
+    {
+      "id": "psy1010-3-3-def-standardfeil",
+      "type": "definition",
+      "title": "Standardfeilen (SE)",
+      "content": "**Standardfeilen** er standardavviket i utvalgsfordelingen — altså den typiske avstanden mellom et utvalgsgjennomsnitt og populasjonsgjennomsnittet $\\mu$:\n\n$$SE = \\frac{SD}{\\sqrt{n}}$$\n\nSE måler **presisjonen** i gjennomsnittsestimatet, ikke spredningen i selve dataene. Jo større utvalg ($n$), jo mindre SE — mer data gir et mer presist estimat. (SE skrives også $s_m$ eller $s_{\\bar{x}}$.) Å kunne denne formelen uoppfordret er et A-plusspoeng."
+    },
+    {
+      "id": "psy1010-3-3-thm-se",
+      "type": "theorem",
+      "title": "SE = SD/√n og √n-effekten",
+      "content": "Standardfeilen til gjennomsnittet:\n\n$$SE = \\frac{SD}{\\sqrt{n}}$$\n\nFordi $n$ står under en **kvadratrot**, må du **firedoble** utvalget for å halvere standardfeilen. Presisjon er dyr: å gå fra $n = 25$ til $n = 100$ (fire ganger så mange deltakere) halverer bare SE. Konsekvensen (bro til power, kap. 4.2): større utvalg gir smalere utvalgsfordeling, mer presise estimater og lettere å oppdage ekte effekter."
+    },
+    {
+      "id": "psy1010-3-3-l1-sentralgrense",
+      "type": "text",
+      "content": "### Sentralgrenseteoremet — hvorfor utvalgsfordelingen blir pen\n\nEt bemerkelsesverdig resultat: **selv når populasjonen er skjev**, blir utvalgsfordelingen av gjennomsnittet tilnærmet **normal** når $n$ er stor nok (grovt sagt $n \\geq 30$). Dette er *sentralgrenseteoremet*.\n\nDet er derfor vi kan bruke normalfordelingens verktøy (68–95–99,7-regelen, ±1,96) på utvalgsgjennomsnitt selv når rådataene ikke er normale — og det er en klassisk A-markør å nevne."
+    },
+    {
+      "id": "psy1010-3-3-l1-kjeden",
+      "type": "text",
+      "content": "### Hele kjeden, ledd for ledd\n\nDette er fortellingen sensor vil høre (V2022-oppgaven ba om akkurat denne):\n\n1. Vi har en **populasjon** med et ukjent gjennomsnitt $\\mu$.\n2. Vi trekker ett **tilfeldig utvalg** og regner $\\bar{x}$.\n3. $\\bar{x}$ avviker tilfeldig fra $\\mu$ (**utvalgsvariasjon**).\n4. Tenkte gjentatte utvalg gir en **utvalgsfordeling** av gjennomsnitt, sentrert på $\\mu$.\n5. Standardavviket i den fordelingen er **standardfeilen** $SE = SD/\\sqrt{n}$.\n6. **p-verdier beregnes fra utvalgsfordelingen** (dybde i kap. 4.1): hvor ekstremt ligger vårt $\\bar{x}$ hvis $H_0$ er sann?\n7. Ut fra det tar vi en **beslutning** om populasjonen (μ), ikke om utvalget.\n\n**A-markør:** at p-verdier bygger på utvalgsfordelingen, og at slutningen alltid gjelder **populasjonen** (μ), ikke det utvalget vi tilfeldigvis målte."
+    },
+    {
+      "id": "psy1010-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1 — Regn SE og fortell historien",
+      "problem": "En normert konsentrasjonstest har standardavvik $SD = 12$ i populasjonen. En forsker trekker et tilfeldig utvalg på $n = 144$ personer. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Regn ut standardfeilen.\n**b)** Forklar i ord hva SE her betyr — og hvordan den skiller seg fra SD.",
+      "solution": "**a)** $SE = \\dfrac{12}{\\sqrt{144}} = \\dfrac{12}{12} = 1{,}0$.\n\n**b)** **SD = 12** betyr at *enkeltpersoner* i snitt ligger 12 poeng fra gjennomsnittet — det er spredningen i selve dataene, på testens poengskala. **SE = 1,0** betyr noe helt annet: at *utvalgsgjennomsnittet* typisk ligger bare 1 poeng fra det sanne populasjonsgjennomsnittet $\\mu$. \n\nMed andre ord: individene spriker mye (SD 12), men gjennomsnittet av 144 personer er et ganske presist estimat (SE 1). Det er derfor større utvalg gir tryggere konklusjoner — enkeltmålinger er støyete, men snittet av mange midler ut støyen.\n\n**Historien:** hadde forskeren trukket 144 *andre* personer, ville hun fått et litt annet gjennomsnitt. Alle disse tenkte gjennomsnittene danner utvalgsfordelingen, som er sentrert på $\\mu$ og har standardavvik $SE = 1{,}0$. 95 % av utvalgsgjennomsnittene ville ligget innenfor $\\pm 1{,}96 \\times 1{,}0 \\approx \\pm 2$ poeng fra $\\mu$."
+    },
+    {
+      "id": "psy1010-3-3-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-3-exc1-e",
+        "number": "3.3.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T3 — regne-/tolkningsoppgaven. Lett innstegsoppgave.)*\n\nEt utvalg har $SD = 8$ og $n = 64$. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Regn ut standardfeilen.\n**b)** Forklar med én setning hva tallet betyr.",
+        "solution": "**a)** $SE = \\dfrac{8}{\\sqrt{64}} = \\dfrac{8}{8} = 1{,}0$.\n\n**b)** Utvalgsgjennomsnittet ligger typisk omtrent 1 enhet fra det sanne populasjonsgjennomsnittet $\\mu$ — det er presisjonen i estimatet, ikke spredningen mellom enkeltpersoner (den er 8).",
+        "hints": [
+          "Sett inn i $SE = SD/\\sqrt{n}$. Husk at $\\sqrt{64} = 8$.",
+          "Tolk SE som «hvor mye snittet bommer», ikke «hvor spredt dataene er»."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-3-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-3-exc2-e",
+        "number": "3.3.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — √n-effekten, gjenganger i slutningsoppgavene.)*\n\nEn forsker har $SD = 10$ og vurderer to utvalgsstørrelser: $n = 25$ og $n = 100$. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Regn SE for begge.\n**b)** Hvor mange ganger større må utvalget være for å halvere SE?\n**c)** Tolk hva dette betyr for presisjonen.",
+        "solution": "**a)** $n = 25$: $SE = \\dfrac{10}{\\sqrt{25}} = \\dfrac{10}{5} = 2{,}0$. $n = 100$: $SE = \\dfrac{10}{\\sqrt{100}} = \\dfrac{10}{10} = 1{,}0$.\n\n**b)** For å halvere SE (fra 2,0 til 1,0) måtte $n$ **firedobles** (fra 25 til 100). Det følger av kvadratroten: $\\sqrt{4} = 2$.\n\n**c)** Presisjon er «dyr»: å halvere usikkerheten i estimatet krever fire ganger så mange deltakere. Fordoblet utvalg gir bare $\\sqrt{2} \\approx 1{,}41$ ganger bedre presisjon, ikke dobbelt. Dette er √n-effekten, og den forklarer hvorfor svært store utvalg gir liten ekstra gevinst per ny deltaker.",
+        "hints": [
+          "Regn $SE = 10/\\sqrt{n}$ for hver $n$.",
+          "Se på forholdet mellom de to n-verdiene: 100/25 = 4.",
+          "Koble til kvadratroten: å dele SE på 2 krever å gange $n$ med $2^2 = 4$."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — SD vs. SE presist (~25 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-3-3-l2-intro",
+      "type": "text",
+      "content": "Dette er det eksplisitte A-skillet. Feilen (#6) er å behandle SE som «bare enda et spredningsmål». De to svarer på helt forskjellige spørsmål:"
+    },
+    {
+      "id": "psy1010-3-3-def-sd-vs-se",
+      "type": "definition",
+      "title": "SD ↔ SE — det presise skillet",
+      "content": "**SD (standardavvik)** = spredningen i *dataene*: hvor mye enkeltobservasjoner avviker fra gjennomsnittet. Samme skala som målingen. Endres *ikke* systematisk av utvalgsstørrelsen — den beskriver populasjonen/dataene.\n\n**SE (standardfeil)** = spredningen i *utvalgsfordelingen*: hvor mye et utvalgsgjennomsnitt typisk avviker fra populasjonsgjennomsnittet $\\mu$. Presisjonen i estimatet. **Krymper** når $n$ vokser ($SE = SD/\\sqrt{n}$).\n\nKortversjon: **SD beskriver personene, SE beskriver hvor sikkert vi kjenner gjennomsnittet deres.**"
+    },
+    {
+      "id": "psy1010-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2 — Samme datasett, to helt ulike tall",
+      "problem": "En søvnstudie måler antall timers søvn hos $n = 36$ studenter. Standardavviket er $SD = 3{,}0$ timer, og utvalgsgjennomsnittet er $\\bar{x} = 6{,}5$ timer. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Regn ut SE.\n**b)** Forklar presist forskjellen på hva SD = 3,0 og SE-tallet betyr, og hvorfor forvekslingen er farlig.",
+      "solution": "**a)** $SE = \\dfrac{3{,}0}{\\sqrt{36}} = \\dfrac{3{,}0}{6} = 0{,}5$ timer.\n\n**b)** **SD = 3,0 timer:** studentene spriker mye — noen sover 3–4 timer, andre 9–10. Dette er den ekte, biologiske variasjonen mellom mennesker, og den forsvinner ikke om du måler flere.\n\n**SE = 0,5 timer:** *gjennomsnittet* på 6,5 timer er derimot ganske presist bestemt — det sanne populasjonssnittet $\\mu$ ligger sannsynligvis innenfor omtrent $\\pm 1{,}96 \\times 0{,}5 \\approx \\pm 1$ time (ca. 5,5–7,5 timer med 95 % sikkerhet).\n\n**Hvorfor farlig:** rapporterer du «$6{,}5 \\pm 0{,}5$» og kaller 0,5 for spredningen i søvn, feilinformerer du dramatisk — det ser ut som alle sover 6–7 timer, mens variasjonen egentlig er 3–10 timer (SD 3,0). SE beskriver estimatets presisjon; SD beskriver folk. Å bytte dem om er #6, et fast trekk-punkt."
+    },
+    {
+      "id": "psy1010-3-3-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-3-exc3-e",
+        "number": "3.3.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2/T3 — SD-vs-SE-skillet, A-skille-trening.)*\n\nEn studie måler stressnivå (skala 0–40) hos $n = 100$ deltakere: $\\bar{x} = 22$, $SD = 6$. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Regn ut SE.\n**b)** En kollega skriver: «Stressnivået varierer bare med 0,6 poeng mellom personer.» Hva har hun forvekslet?\n**c)** Skriv en korrekt setning om hva hvert av de to tallene (SD og SE) forteller.",
+        "solution": "**a)** $SE = \\dfrac{6}{\\sqrt{100}} = \\dfrac{6}{10} = 0{,}6$.\n\n**b)** Hun har forvekslet **SE (0,6)** med **SD (6)**. Variasjonen *mellom personer* er 6 poeng (SD), ikke 0,6. Tallet 0,6 er standardfeilen — hvor presist gjennomsnittet på 22 er bestemt, ikke hvor mye folk skiller seg fra hverandre. Dette er feil #6.\n\n**c)** «Enkeltpersoners stressnivå spriker med et standardavvik på 6 poeng rundt snittet på 22 (SD). Selve gjennomsnittet er derimot presist bestemt: standardfeilen er 0,6, så $\\mu$ ligger sannsynligvis nær 22 (SE).»",
+        "hints": [
+          "Regn $SE = 6/\\sqrt{100} = 6/10$ først.",
+          "Spør: beskriver 0,6 hvor mye *personer* varierer, eller hvor presist *snittet* er?",
+          "SD = spredning mellom folk; SE = presisjon i gjennomsnittsestimatet."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-3-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-3-exc4-e",
+        "number": "3.3.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T2 — «forklar hele logikken», V2022-sjangeren. (krevende): full kjede i prosa.)*\n\nEn normert arbeidsminnetest har populasjonsgjennomsnitt $\\mu = 50$ og $SD = 15$. En forsker trekker $n = 225$ personer fra en spesiell gruppe og får $\\bar{x} = 53$.\n\n**a)** Regn ut standardfeilen.\n**b)** Fortell hele slutningslogikken fra populasjon til beslutning: hvorfor avviker utvalgssnittet fra 50, hva utvalgsfordelingen er, og hva en p-verdi her ville bygge på.\n**c)** Er avviket på 3 poeng (53 mot 50) stort eller lite målt i standardfeil?",
+        "solution": "**a)** $SE = \\dfrac{15}{\\sqrt{225}} = \\dfrac{15}{15} = 1{,}0$.\n\n**b)** **Logikken:** Populasjonen har et gjennomsnitt $\\mu = 50$. Forskeren måler ikke alle, men trekker et tilfeldig utvalg på 225 og får $\\bar{x} = 53$. Utvalgssnittet avviker fra 50 dels fordi gruppen kan være reelt annerledes, dels på grunn av ren **utvalgsvariasjon** — et hvilket som helst tilfeldig utvalg treffer ikke $\\mu$ eksakt. Tenker vi oss uendelig mange slike utvalg, danner gjennomsnittene deres en **utvalgsfordeling** sentrert på $\\mu = 50$ med standardavvik $SE = 1{,}0$ (og tilnærmet normal, jf. sentralgrenseteoremet). En **p-verdi** ville spørre: *hvis $H_0$ (at gruppen har $\\mu = 50$) er sann, hvor sannsynlig er det å trekke et utvalgssnitt så langt fra 50 som 53?* Det avgjøres ved å måle 53 sin plassering i utvalgsfordelingen. Konklusjonen gjelder **populasjonen** (gruppens $\\mu$), ikke de 225 vi tilfeldigvis målte.\n\n**c)** Avviket er $53 - 50 = 3$ poeng $= 3 \\times SE$ (siden $SE = 1{,}0$). **3 standardfeil er stort** — i en normal utvalgsfordeling ligger 99,7 % innenfor ±3 SE, så et snitt 3 SE unna er svært usannsynlig hvis $\\mu$ virkelig er 50. Det peker mot at gruppen faktisk avviker fra normen (lav p-verdi).",
+        "hints": [
+          "Regn $SE = 15/\\sqrt{225}$ først ($\\sqrt{225} = 15$).",
+          "Gå gjennom kjeden i rekkefølge: populasjon → utvalg → utvalgsvariasjon → utvalgsfordeling → SE → p → beslutning om μ.",
+          "For (c): del avviket (3) på SE (1,0) — hvor mange standardfeil er det? Sammenlign med ±3-regelen."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #6 — SD forvekslet med SE.** Den vanligste og mest kostbare feilen i statistikkdelen. SD = spredning mellom personer (endres ikke av $n$); SE = presisjon i gjennomsnittet (krymper med $\\sqrt{n}$). Sjekk alltid: beskriver tallet *folk* eller *snittet*?\n\n**Feil #12 — å glemme at slutningen gjelder populasjonen (μ).** All slutningsstatistikk handler om det ukjente populasjonsgjennomsnittet $\\mu$, ikke om det utvalget du målte. Hypoteser skal formuleres om μ (kap. 4.1), ikke om $\\bar{x}$.\n\n**Å behandle utvalgsfordelingen som noe vi observerer.** Vi har bare *ett* utvalg. Utvalgsfordelingen er en **teoretisk** konstruksjon — «hva ville skjedd om vi gjentok trekningen uendelig mange ganger». Det er nettopp det som gjør slutning mulig.\n\n**Å tro at et større utvalg reduserer SD.** Nei — SD beskriver den ekte variasjonen mellom personer og endres ikke systematisk av $n$. Det er **SE** som krymper med større $n$."
+    },
+    {
+      "id": "psy1010-3-3-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — slutningslogikken\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-3-3-def-mu-vs-xbar",
+      "type": "definition",
+      "title": "μ ↔ x̄",
+      "content": "**$\\mu$ (my):** populasjonsgjennomsnittet — det sanne, ukjente tallet vi vil vite. **$\\bar{x}$:** utvalgsgjennomsnittet — vår beste, men usikre, gjetning på $\\mu$. Slutningsstatistikk handler om å bruke $\\bar{x}$ til å si noe om $\\mu$. Hypoteser formuleres alltid om $\\mu$, aldri om $\\bar{x}$."
+    },
+    {
+      "id": "psy1010-3-3-def-sentralgrense",
+      "type": "definition",
+      "title": "Sentralgrenseteoremet",
+      "content": "Utvalgsfordelingen av gjennomsnittet blir tilnærmet **normal** når $n$ er stor nok (grovt $n \\geq 30$) — **uansett** formen på populasjonsfordelingen. Derfor kan vi bruke normalfordelingens verktøy (±1,96, 95 %) på utvalgsgjennomsnitt selv om rådataene er skjeve. En klassisk A-markør."
+    },
+    {
+      "id": "psy1010-3-3-def-presisjon",
+      "type": "definition",
+      "title": "Presisjon ↔ utvalgsstørrelse",
+      "content": "Presisjonen i et gjennomsnittsestimat øker med $n$, men bare med $\\sqrt{n}$: firedobling av utvalget halverer standardfeilen. Større utvalg gir smalere utvalgsfordeling og tryggere slutninger — men med avtakende gevinst per ny deltaker."
+    },
+    {
+      "id": "psy1010-3-3-def-rot-n-effekt",
+      "type": "definition",
+      "title": "√n-effekten",
+      "content": "Fordi $SE = SD/\\sqrt{n}$, står $n$ under en kvadratrot. For å halvere SE må du **firedoble** $n$; for å tredele SE må du ni-doble. «Presisjon er dyr.» Konsekvensen: enorme utvalg gir bare marginalt bedre presisjon."
+    },
+    {
+      "id": "psy1010-3-3-def-konfidens-brolink",
+      "type": "definition",
+      "title": "±1,96 SE-intervallet",
+      "content": "I en (tilnærmet normal) utvalgsfordeling ligger 95 % av utvalgsgjennomsnittene innenfor $\\pm 1{,}96 \\times SE$ fra $\\mu$. Dette er grunnlaget for 95 %-konfidensintervall og kobler direkte til ±1,96-tallet fra [kap. 3.2](/bok/psy1010/psy1010-3-2). En A-markør å nevne."
+    },
+    {
+      "id": "psy1010-3-3-def-utvalgsfordeling-vs-datafordeling",
+      "type": "definition",
+      "title": "Datafordeling ↔ utvalgsfordeling",
+      "content": "**Datafordelingen** er fordelingen av enkeltobservasjoner (spredning = SD). **Utvalgsfordelingen** er fordelingen av *gjennomsnitt* fra tenkte gjentatte utvalg (spredning = SE). Utvalgsfordelingen er alltid smalere (SE < SD for $n > 1$) og mer normal. Å holde disse fra hverandre er kjernen i hele kapitlet."
+    },
+    {
+      "id": "psy1010-3-3-def-p-fra-utvalgsfordeling",
+      "type": "definition",
+      "title": "p-verdien bygger på utvalgsfordelingen",
+      "content": "En p-verdi (dybde kommer i Del 4) svarer på: *hvis $H_0$ er sann, hvor sannsynlig er det å få et utvalgsresultat minst så ekstremt som vårt?* Den «minst så ekstremt» måles i utvalgsfordelingen. Uten utvalgsfordelingen ingen p-verdi — derfor er dette leddet en A-markør."
+    },
+    {
+      "id": "psy1010-3-3-def-slutningsretning",
+      "type": "definition",
+      "title": "Slutningen går fra utvalg til populasjon",
+      "content": "Vi observerer utvalget ($\\bar{x}$) og *slutter* til populasjonen ($\\mu$) — aldri omvendt. Konklusjonen «gruppen skårer over normen» er en påstand om populasjonens $\\mu$, begrunnet med et utvalgsresultat og dets standardfeil. Å konkludere om utvalget alene er å bomme på hele poenget (#12)."
+    },
+    {
+      "id": "psy1010-3-3-def-utvalgsramme-brolink",
+      "type": "definition",
+      "title": "Fra utvalgskvalitet til slutningskvalitet",
+      "content": "SE forteller hvor presist gjennomsnittet er, men **bare hvis utvalget er tilfeldig trukket** (jf. [kap. 1.4](/bok/psy1010/psy1010-1-4)). Er utvalget skjevt (bekvemmelighetsutvalg, frivillighetsbias), sentreres utvalgsfordelingen på feil sted — da hjelper det ikke at SE er liten. Presisjon er ikke det samme som at estimatet treffer riktig populasjon."
+    },
+    {
+      "id": "psy1010-3-3-def-tilfeldig-vs-systematisk-avvik",
+      "type": "definition",
+      "title": "Tilfeldig utvalgsvariasjon ↔ systematisk skjevhet",
+      "content": "**Tilfeldig utvalgsvariasjon** midles ut over mange utvalg og fanges av SE — den gjør estimatet upresist, men ikke systematisk feil. **Systematisk skjevhet** (fra dårlig utvalg) forsvinner *ikke* med større $n$ og fanges ikke av SE — den gjør estimatet konsekvent feil. Større utvalg fikser det første, ikke det andre."
+    },
+    {
+      "id": "psy1010-3-3-def-standardfeil-differanse-brolink",
+      "type": "definition",
+      "title": "SE for gjennomsnitt ↔ SE for differanse",
+      "content": "Dette kapitlet gir standardfeilen til *ett* gjennomsnitt: $SE = SD/\\sqrt{n}$. Når vi sammenligner *to* grupper (kap. 3.4), trenger vi standardfeilen til *differansen* mellom gjennomsnittene, $SE(D)$ — samme idé, men for forskjellen mellom to snitt. $SE$ er byggesteinen $SE(D)$ bygger på."
+    },
+    {
+      "id": "psy1010-3-3-def-estimat-vs-parameter",
+      "type": "definition",
+      "title": "Estimat ↔ parameter",
+      "content": "En **parameter** er en sann verdi i populasjonen (f.eks. $\\mu$, populasjonens $SD$) — fast, men ukjent. Et **estimat** er tallet vi regner fra utvalget ($\\bar{x}$, utvalgets $SD$) for å gjette parameteren. Standardfeilen forteller hvor mye estimatet typisk bommer på parameteren. Skillet estimat/parameter er hele grunnen til at slutningsstatistikk finnes."
+    },
+    {
+      "id": "psy1010-3-3-def-hvorfor-teoretisk",
+      "type": "definition",
+      "title": "Hvorfor utvalgsfordelingen er teoretisk",
+      "content": "Vi trekker bare *ett* utvalg i virkeligheten, så vi ser aldri utvalgsfordelingen direkte. Den er en tankekonstruksjon: «hva ville skjedd om vi gjentok trekningen uendelig mange ganger». Nettopp fordi vi kan resonnere om denne tenkte fordelingen (og regne dens SE), kan vi si hvor mye vårt ene utvalg trolig bommer."
+    },
+    {
+      "id": "psy1010-3-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 3.3",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-3-3-rep-txt",
+          "type": "text",
+          "content": "**Kjernen — kjeden du må kunne fortelle:**\n\n1. Populasjon (ukjent $\\mu$) → trekk tilfeldig utvalg ($\\bar{x}$).\n2. $\\bar{x}$ avviker fra $\\mu$ = **utvalgsvariasjon**.\n3. Tenkte gjentatte utvalg → **utvalgsfordeling** (sentrert på $\\mu$, tilnærmet normal ved stor $n$).\n4. Standardavviket i den = **standardfeilen** $SE = SD/\\sqrt{n}$.\n5. **p-verdier** måler vårt $\\bar{x}$ mot utvalgsfordelingen.\n6. Beslutning om **populasjonen** ($\\mu$), ikke utvalget.\n\n**Det avgjørende skillet:** SD = spredning mellom personer (fast); SE = presisjon i snittet (krymper med $\\sqrt{n}$).\n\n**√n-effekten:** firedoble $n$ ⟹ halver SE. **±1,96 SE** ⟹ 95 %-intervall.\n\n**Framover:** hele denne logikken kroner seg i t-regnestykket ([kap. 3.4](/bok/psy1010/psy1010-3-4)) og hypotesetesting (Del 4)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-3-3-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$ | populasjonsgjennomsnittet (sant, ukjent) |\n| $\\bar{x}$ | utvalgsgjennomsnittet (estimat på $\\mu$) |\n| $SD$ | standardavvik — spredning i dataene (mellom personer) |\n| $SE$ (også $s_m$, $s_{\\bar{x}}$) | standardfeil — spredning i utvalgsfordelingen (presisjon i snittet) |\n| $n$ | utvalgsstørrelse |\n| ±1,96 | z-grensen for midterste 95 % i en normal utvalgsfordeling |\n\n**Formler i dette delkapitlet:**\n\n$$SE = \\frac{SD}{\\sqrt{n}} \\qquad \\text{(standardfeil = presisjonen i gjennomsnittsestimatet; krymper med } \\sqrt{n}\\text{)}$$\n\n**√n-effekten:** firedoble $n$ ⟹ halver $SE$.\n\n**95 %-intervall:** $\\bar{x} \\pm 1{,}96 \\times SE$ dekker $\\mu$ med 95 % sikkerhet (tilnærmet normal utvalgsfordeling)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

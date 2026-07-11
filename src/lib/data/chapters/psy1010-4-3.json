@@ -1,0 +1,270 @@
+{
+  "id": "psy1010-4-3",
+  "courseId": "psy1010",
+  "chapterNumber": "4.3",
+  "title": "Testvalg — t-test, ANOVA og ANCOVA",
+  "description": "«Hvilken test, og hvorfor?» — differensieringsformelen gjennom ti år, fra to grupper til fem, og kovariat-grepet sensor kaller en oppgave «ment å skille gode kandidater».",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "velge riktig test ut fra antall grupper (t-test for to, ANOVA for tre eller flere) og begrunne valget",
+    "forklare familywise error og hvorfor mange parvise t-tester ved 3+ grupper er problematisk",
+    "forklare ANCOVA og kovariat, og skille å kontrollere bort en tilleggsvariabel fra å modellere den (toveis ANOVA)"
+  ],
+  "content": [
+    {
+      "id": "psy1010-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**«Hvilken test, og hvorfor?» er differensieringsformelen gjennom ti år — spurt i 12 av settene (2014–2021). ANCOVA-leddet kaller sensor selv en oppgave «ment å skille gode kandidater» — et uttalt A/B-skille.**\n\n- Vi merker denne oppgavetypen **T6** (testvalgsoppgaven — T-kodene forklares i [kap. 0.1](/bok/psy1010/psy1010-0-1)).\n- **Kjernepoenget sensor krever:** ikke *hvilken* test, men *hvorfor*. Å velge ANOVA framfor mange t-tester uten å kunne begrunnelsen gir null — **feil #7** (vi glosser feilkodene ved første bruk; hele registeret står i kap. 8.6).\n- **Ingen ANOVA-regning kreves noensinne** — testvalget er en drøfting, ikke et regnestykke. Den ene lille talleillustrasjonen (antall parvise sammenligninger) er nettopp *illustrasjon*.\n\n**Øktmerking:** ~55 min lesetid (×1,5 ved håndskriving), tre løkker med pausepunkter."
+    },
+    {
+      "id": "psy1010-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 4.1](/bok/psy1010/psy1010-4-1)** (hypoteser, α, to-/enhalet) og **[kap. 2.3](/bok/psy1010/psy1010-2-3)** (faktorielle design, hovedeffekt og interaksjon — grunnlaget for toveis ANOVA). Fra tallsiden hjelper **[kap. 3.4](/bok/psy1010/psy1010-3-4)** (t-testen for to grupper).\n\n**Sist du var her (nøkkelbegrepene oppfrisket):**\n\n- **t-testen** sammenligner to gruppegjennomsnitt (fra 3.4).\n- **Signifikansnivået $\\alpha$** er risikoen for en falsk positiv ved *én* test (fra 4.1) — dette blir nøkkelen til hvorfor mange t-tester er farlig.\n- **Faktor, nivå og interaksjon** i faktorielle design (fra 2.3) — grunnlaget for når vi trenger toveis ANOVA.\n\nHer lærer du å velge riktig test og — viktigst — å *begrunne* valget."
+    },
+    {
+      "id": "psy1010-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra to grupper til mange: t-test og ANOVA (~20 min)"
+    },
+    {
+      "id": "psy1010-4-3-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Tenk deg at du vil vite om fire kaffemerker smaker ulikt. Du kunne sammenlignet dem to og to — merke 1 mot 2, 1 mot 3, 1 mot 4, 2 mot 3, og så videre. Men jo flere slike parvise smakstester du gjør, desto større sjanse er det for at *minst én* av dem gir et tilfeldig «treff» — akkurat som at du oftere trekker en dublett jo flere lodd du kjøper.\n\nDet er nøyaktig dette problemet som gjør at vi *ikke* kjører mange t-tester når vi har flere enn to grupper. Vi trenger én samlet test i stedet. Vi bygger begrunnelsen ledd for ledd."
+    },
+    {
+      "id": "psy1010-4-3-def-ttest",
+      "type": "definition",
+      "title": "Uparet t-test (to uavhengige grupper)",
+      "content": "Når du sammenligner gjennomsnittet i **to uavhengige grupper**, bruker du en **uparet t-test**. Den regner ut om differansen mellom de to gjennomsnittene er stor relativt til den tilfeldige variasjonen (jf. [kap. 3.4](/bok/psy1010/psy1010-3-4)).\n\nTesten er **tohalet** med mindre du har en begrunnet retningshypotese (jf. [kap. 4.1](/bok/psy1010/psy1010-4-1)). t-testen er riktig valg *bare* ved nøyaktig to grupper — ved tre eller flere trenger vi noe annet."
+    },
+    {
+      "id": "psy1010-4-3-def-familywise",
+      "type": "definition",
+      "title": "Familywise error (samlet feilrate)",
+      "content": "**Familywise error** er den samlede sannsynligheten for å begå *minst én* Type I-feil (falsk alarm) når du gjør *flere* tester på samme datasett.\n\nHver enkelt t-test har feilrisiko $\\alpha = 0{,}05$. Men gjør du mange, hoper risikoen seg opp: med 10 uavhengige tester er sjansen for minst én falsk positiv omtrent $1 - 0{,}95^{10} \\approx 0{,}40$ — altså **40 %**, ikke 5 %. Dette er kjernebegrunnelsen for hvorfor mange parvise t-tester er en dårlig idé ved flere grupper."
+    },
+    {
+      "id": "psy1010-4-3-l1-eksplosjon",
+      "type": "text",
+      "content": "**Hvorfor antallet parvise sammenligninger eksploderer.** Med $k$ grupper er antallet par $\\binom{k}{2} = \\dfrac{k(k-1)}{2}$ *(en liten talleillustrasjon — ikke noe du regner på eksamen)*:\n\n- 3 grupper → **3** par\n- 4 grupper → **6** par\n- 5 grupper → **10** par\n\nMed fem grupper (et typisk eksamenstall) blir det ti t-tester. Ti tester à 5 % risiko er *ikke* 5 % samlet risiko — den samlede (familywise) risikoen for minst én falsk alarm er da rundt 40 %. **Løsningen er én samlet test.**"
+    },
+    {
+      "id": "psy1010-4-3-def-anova",
+      "type": "definition",
+      "title": "Enveis mellomgruppe-ANOVA (tre eller flere grupper)",
+      "content": "**ANOVA** (ANalysis Of VAriance — variansanalyse) er én samlet test som sammenligner gjennomsnittene i **tre eller flere grupper** samtidig. En **enveis mellomgruppe-ANOVA** brukes når du har én uavhengig variabel med tre eller flere nivåer og uavhengige grupper.\n\n**Kjernebegrunnelsen** (det sensor krever): ANOVA holder den samlede feilraten (familywise error) på $\\alpha$ i stedet for å la den eksplodere over mange parvise t-tester. Den svarer på ett spørsmål: «er det noen forskjell et sted mellom gruppene?» — uten å blåse opp Type I-risikoen. Ingen ANOVA-regning kreves på eksamen; begrunnelsen ER poenget."
+    },
+    {
+      "id": "psy1010-4-3-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-3-exc1-e",
+        "number": "4.3.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T6 — testvalgsoppgaven. Lett innstegsoppgave: to eller flere grupper?)*\n\nEn forsker sammenligner reaksjonstid i **to** grupper (koffein vs. placebo).\n\n**a)** Hvilken test passer?\n**b)** En annen forsker sammenligner **fem** grupper (fem koffeindoser). Hvilken test bør hun bruke i stedet for fem–ti t-tester?",
+        "solution": "**a)** En **uparet t-test** — den sammenligner to uavhengige gruppegjennomsnitt.\n\n**b)** En **enveis mellomgruppe-ANOVA** — én samlet test for alle fem gruppene. Med fem grupper ville parvise t-tester bli ti stykker, og den samlede (familywise) falsk-alarm-risikoen ville blåst opp til rundt 40 % i stedet for 5 %.",
+        "hints": [
+          "To grupper ⟹ t-test.",
+          "Tre eller flere grupper ⟹ ANOVA (én samlet test).",
+          "Poenget med ANOVA er å holde den samlede feilraten nede."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-3-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-3-exc2-e",
+        "number": "4.3.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T6 — begrunnelsen ER poenget (feil #7).)*\n\nEn student skriver: «Med fem grupper kjørte jeg ti t-tester og fant to signifikante forskjeller.» \n\n**a)** Hvilken feil har studenten begått? Nevn feilkoden.\n**b)** Forklar *hvorfor* dette er et problem, med et tall.\n**c)** Hva burde studenten gjort?",
+        "solution": "**a)** **Feil #7** — mange t-tester ved tre eller flere grupper (uten å bruke ANOVA eller å kunne begrunnelsen).\n\n**b)** Hver t-test har 5 % risiko for falsk alarm. Med ti tester blir den samlede (familywise) risikoen for *minst én* falsk positiv omtrent $1 - 0{,}95^{10} \\approx 0{,}40$ — altså 40 %. De «to signifikante» funnene kan derfor lett være rene tilfeldigheter.\n\n**c)** Studenten burde kjørt **én enveis ANOVA** for å teste om det finnes forskjeller i det hele tatt, og først *deretter* — om ANOVA var signifikant — gjort planlagte oppfølgingssammenligninger med korreksjon for antall tester.",
+        "hints": [
+          "Ti t-tester ved fem grupper ⟹ hvilken feilkode?",
+          "Regn den samlede risikoen: 1 − 0,95¹⁰.",
+          "Riktig grep: én samlet test (ANOVA) først."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — ANCOVA: kovariaten som skiller kandidatene (~18 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-3-def-kovariat",
+      "type": "definition",
+      "title": "Kovariat",
+      "content": "En **kovariat** er en tilleggsvariabel som henger sammen med både den uavhengige variabelen (UV) og den avhengige (AV), og som du vil *kontrollere for* — regne bort effekten av — så den ikke forurenser sammenligningen mellom gruppene.\n\nEksempel: sammenligner du fem studieteknikker (UV) på eksamensskår (AV), kan **søvnmengde** være en kovariat hvis den både varierer mellom gruppene og påvirker skåren. Uten å ta hensyn til søvn vet du ikke om forskjellen skyldes teknikken eller søvnen."
+    },
+    {
+      "id": "psy1010-4-3-def-ancova",
+      "type": "definition",
+      "title": "ANCOVA (variansanalyse med kovariat)",
+      "content": "**ANCOVA** (ANalysis of COVAriance — kovariansanalyse) er en ANOVA som i tillegg **kontrollerer bort en eller flere kovariater**. Den «renser» AV for kovariatens innflytelse før gruppene sammenlignes — som å justere alle deltakere til samme nivå på kovariaten.\n\n**Vilkårene:** kovariaten må (i) korrelere med AV og (ii) helst være målt *før* manipulasjonen. ANCOVA øker presisjonen (reduserer uforklart støy) og fjerner en systematisk skjevhet mellom gruppene. Sensor kaller ANCOVA-leddet et oppgaveelement «ment å skille gode kandidater» — å nevne begrepet uoppfordret og forklare hva kovariaten gjør, er en klar A-markør."
+    },
+    {
+      "id": "psy1010-4-3-text-toveis",
+      "type": "text",
+      "content": "**ANCOVA vs. toveis ANOVA — samme tilleggsvariabel, ulikt grep.** Har du en tilleggsvariabel (f.eks. kjønn), kan du behandle den på to måter:\n\n- **ANCOVA:** *kontroller den bort* som kovariat — du er ikke interessert i den selv, bare i å fjerne dens forstyrrelse.\n- **Toveis ANOVA:** *modeller den* som en ekstra faktor — du vil vite om den selv har en effekt, og om den samspiller (interagerer) med hovedfaktoren (jf. [kap. 2.3](/bok/psy1010/psy1010-2-3)). Er tilleggsvariabelen en egenskap som ikke kan manipuleres (kjønn, alder), er den en **kvasi-UV**.\n\nBegge er akseptable med god begrunnelse — valget avhenger av om tilleggsvariabelen er en forstyrrelse du vil fjerne, eller et fenomen du vil studere."
+    },
+    {
+      "id": "psy1010-4-3-ex1",
+      "type": "example",
+      "title": "Eksempel — fem studieteknikker, med og uten kovariat",
+      "problem": "Fem studieteknikk-grupper (n = 20 hver) sammenlignes på eksamensskår. Forskerne oppdager at gruppene også skiller seg i gjennomsnittlig søvnmengde, og søvn påvirker skår.\n\n**a)** Hvilken test er riktig for grunnsammenligningen, og hvorfor ikke mange t-tester?\n**b)** Hva bør de gjøre for å ta hensyn til søvn, og hva heter det?",
+      "solution": "**a)** Med fem grupper er riktig valg **én enveis mellomgruppe-ANOVA**. Grunnen til å ikke kjøre ti parvise t-tester er familywise error: ti tester à 5 % gir rundt 40 % samlet risiko for minst én falsk alarm ($1 - 0{,}95^{10} \\approx 0{,}40$). ANOVA holder den samlede feilraten på α.\n\n**b)** Siden søvn henger sammen med både gruppetilhørighet (UV) og skår (AV), er den en **kovariat**. Forskerne bør bruke en **ANCOVA** — en ANOVA som kontrollerer bort søvnmengden før gruppene sammenlignes. Da isolerer de effekten av selve studieteknikken fra søvnens innflytelse. \n\n**Tolkning i ord:** ANCOVA «justerer» alle grupper til samme søvnnivå, slik at en eventuell gjenværende forskjell i skår kan tilskrives teknikken, ikke søvnen. (Alternativt kunne søvn modelleres som egen faktor i en toveis ANOVA — men her er søvn en forstyrrelse de vil *fjerne*, ikke studere, så ANCOVA passer best.)"
+    },
+    {
+      "id": "psy1010-4-3-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-3-exc3-e",
+        "number": "4.3.3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T6 — ANCOVA-leddet, uttalt A/B-skille (krevende).)*\n\nTre undervisningsmetoder sammenlignes på matteprøveskår. Elevenes sosioøkonomiske status (SES) varierer mellom klassene og påvirker skåren.\n\n**a)** Hvilken grunntest passer for de tre gruppene, og hva er begrunnelsen?\n**b)** Forskerne vil kontrollere for SES. Hva heter grepet, og hva er vilkårene for at det gir mening?\n**c)** Kunne SES i stedet behandles som en egen faktor? Hva ville det kalles, og når er det å foretrekke?",
+        "solution": "**a)** **Enveis mellomgruppe-ANOVA** — én samlet test for de tre gruppene. Begrunnelse: unngår familywise error; tre grupper ville ellers gitt tre parvise t-tester med oppblåst samlet feilrate.\n\n**b)** Grepet er en **ANCOVA** med SES som **kovariat**. Vilkårene: SES må (i) korrelere med AV (matteskår) og (ii) helst være målt før/uavhengig av manipulasjonen. ANCOVA kontrollerer bort SES-forskjellen, så en gjenværende gruppeforskjell kan tilskrives undervisningsmetoden.\n\n**c)** Ja — SES kunne modelleres som en egen faktor i en **toveis ANOVA** (SES-nivå × metode). Da er SES en **kvasi-UV** (en egenskap som ikke manipuleres). Dette er å foretrekke når man *er interessert i* SES sin egen effekt og et mulig samspill (interaksjon) med metode, ikke bare vil fjerne SES som forstyrrelse. Kontroller-bort (ANCOVA) vs. modeller (toveis ANOVA) — valget avhenger av forskningsspørsmålet.",
+        "hints": [
+          "Tre grupper ⟹ ANOVA; begrunn med familywise error.",
+          "Kovariat = tilleggsvariabel korrelert med UV og AV som kontrolleres bort.",
+          "For (c): toveis ANOVA modellerer tilleggsvariabelen; ANCOVA fjerner den. Forskningsspørsmålet avgjør."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Beslutningstreet og bedre kausal kontroll (~17 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-3-thm-beslutning",
+      "type": "theorem",
+      "title": "Beslutningstre for testvalg",
+      "content": "Spør deg gjennom disse leddene:\n\n1. **Hvor mange grupper/betingelser?**\n   - Nøyaktig **to** uavhengige grupper → **uparet t-test** (tohalet, ev. begrunnet enhalet).\n   - **Tre eller flere** grupper, én UV → **enveis mellomgruppe-ANOVA** (holder familywise error nede).\n2. **Er det en tilleggsvariabel jeg vil håndtere?**\n   - Vil *kontrollere den bort* (forstyrrelse) → legg til som **kovariat** → **ANCOVA**.\n   - Vil *studere den selv* (og et mulig samspill) → legg til som **ekstra faktor** → **toveis ANOVA** (er den ikke-manipulerbar, er den en kvasi-UV).\n\n**Alltid:** begrunn valget i prosa. Testvalget uten begrunnelse er feil #7 — begrunnelsen er poenget."
+    },
+    {
+      "id": "psy1010-4-3-text-kausal",
+      "type": "text",
+      "content": "**Bedre kausal kontroll i korrelasjonsspørsmål (V2024s «tenk selv»-variant).** Noen ganger spør oppgaven hvordan man kan komme *nærmere* en årsakskonklusjon når et ekte eksperiment ikke er mulig. Da er poenget å nevne flere veier:\n\n- **Longitudinelle design** (måle over tid) — hjelper med retningsproblemet (hva kom først).\n- **Multippel regresjon med kontrollvariabler** — statistisk kontroll for tredjevariabler (bro til [kap. 5.3](/bok/psy1010/psy1010-5-3)).\n- **Gruppesammenligninger / kvasieksperiment** — sammenligne naturlige grupper.\n- **RCT (randomisert kontrollert forsøk)** — gullstandarden, men med etisk forbehold når manipulasjon ikke er forsvarlig.\n\nEn A-besvarelse velger og begrunner ut fra caset, i stedet for å ramse alle (feil #8 — oppramsing uten begrunnelse)."
+    },
+    {
+      "id": "psy1010-4-3-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-3-exc4-e",
+        "number": "4.3.4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T6 — beslutningstreet anvendt.)*\n\nFor hvert scenario: hvilken test, og hva er begrunnelsen (én setning)?\n\n**a)** To grupper (ny app vs. gammel app) sammenlignes på læringsutbytte.\n**b)** Fire treningsprogrammer sammenlignes på kondisjon.\n**c)** Fire treningsprogrammer sammenlignes på kondisjon, men forskerne vil kontrollere bort deltakernes utgangsform (målt før studien).",
+        "solution": "**a)** **Uparet t-test** — nøyaktig to uavhengige grupper.\n\n**b)** **Enveis mellomgruppe-ANOVA** — fire grupper; én samlet test holder familywise error nede i stedet for seks parvise t-tester.\n\n**c)** **ANCOVA** med utgangsform som kovariat — utgangsformen korrelerer med AV (kondisjon) og er målt før manipulasjonen, så den kan kontrolleres bort for å isolere programmenes effekt.",
+        "hints": [
+          "Tell grupper først: to ⟹ t-test, tre+ ⟹ ANOVA.",
+          "For (b): begrunn med familywise error.",
+          "For (c): «kontrollere bort en tilleggsvariabel målt før» ⟹ kovariat ⟹ ANCOVA."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #7 — mange t-tester ved 3+ grupper, eller ANOVA uten begrunnelse.** Å kjøre parvise t-tester ved tre eller flere grupper blåser opp den samlede (familywise) feilraten. Men å bare skrive «jeg brukte ANOVA» uten å kunne *hvorfor* (familywise error) gir også lite — begrunnelsen ER poenget.\n\n**Å tro ANOVA må regnes ut.** Nei — ANOVA-regning kreves aldri på eksamen. Testvalget er en drøfting; talleillustrasjonen (antall par) er bare illustrasjon.\n\n**Å blande ANCOVA og toveis ANOVA.** ANCOVA *kontrollerer bort* en tilleggsvariabel (forstyrrelse); toveis ANOVA *modellerer den* som egen faktor (fenomen du vil studere). Samme variabel, ulikt grep — begrunn ut fra forskningsspørsmålet.\n\n**Feil #8 — oppramsing uten begrunnelse.** Å liste alle testene/metodene uten å velge og begrunne for det konkrete caset gir C-tak. Case-tilpasning er A-kravet."
+    },
+    {
+      "id": "psy1010-4-3-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — testvalg\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-4-3-def-bank-1",
+      "type": "definition",
+      "title": "Beslutningsregel: gruppeantall",
+      "content": "**To** uavhengige grupper → uparet t-test. **Tre eller flere** grupper, én UV → enveis mellomgruppe-ANOVA. Antallet grupper er første spørsmål i testvalget."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-2",
+      "type": "definition",
+      "title": "Hvorfor ikke mange t-tester",
+      "content": "Hver t-test har 5 % Type I-risiko. Mange tester på samme data blåser opp den samlede (familywise) risikoen — ti tester gir rundt 40 %. ANOVA holder den samlede feilraten på α. Dette er kjernebegrunnelsen (feil #7)."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-3",
+      "type": "definition",
+      "title": "Antall parvise sammenligninger",
+      "content": "Med $k$ grupper er antallet par $\\frac{k(k-1)}{2}$: 3→3, 4→6, 5→10. Antallet vokser raskt — derfor eksploderer den samlede feilraten. En liten illustrasjon, ikke et regnestykke for eksamen."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-4",
+      "type": "definition",
+      "title": "ANCOVA vs. toveis ANOVA",
+      "content": "Samme tilleggsvariabel, ulikt grep. **ANCOVA:** kontroller den bort som kovariat (forstyrrelse). **Toveis ANOVA:** modeller den som egen faktor (fenomen med mulig interaksjon). Valget avhenger av om du vil fjerne eller studere variabelen."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-5",
+      "type": "definition",
+      "title": "Kovariatens vilkår",
+      "content": "En kovariat må korrelere med AV og helst være målt før manipulasjonen. Da kan ANCOVA kontrollere den bort, redusere støy og fjerne en systematisk skjevhet mellom gruppene."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-6",
+      "type": "definition",
+      "title": "Kvasi-UV som faktor",
+      "content": "Behandler du en ikke-manipulerbar egenskap (kjønn, alder) som en ekstra faktor i en toveis ANOVA, er den en kvasi-UV. Da studerer du dens effekt og samspill, i stedet for å kontrollere den bort (kobling til kap. 2.3)."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-7",
+      "type": "definition",
+      "title": "Begrunnelsen er poenget",
+      "content": "Sensor honorerer *hvorfor* mer enn *hvilken*. «Jeg brukte ANOVA» uten familywise-begrunnelsen gir lite; å velge test og forklare valget for det konkrete caset er A-kravet."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-8",
+      "type": "definition",
+      "title": "Ingen ANOVA-regning",
+      "content": "Testvalgsoppgaven krever aldri at du regner ut en ANOVA eller ANCOVA. Den er en begrunnet drøfting av hvilken test som passer og hvorfor — ikke et regnestykke."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-9",
+      "type": "definition",
+      "title": "Bedre kausal kontroll uten RCT",
+      "content": "Når et ekte eksperiment er umulig, kan man nærme seg årsak via longitudinelle design (retning), multippel regresjon med kontrollvariabler (tredjevariabler), gruppesammenligninger, eller RCT med etisk forbehold. Velg og begrunn (V2024)."
+    },
+    {
+      "id": "psy1010-4-3-def-bank-10",
+      "type": "definition",
+      "title": "Uparet t-test er tohalet som standard",
+      "content": "t-testen for to grupper er tohalet med mindre en retningshypotese er begrunnet på forhånd (kobling til kap. 4.1). Å velge enhalet uten begrunnelse er feil #11."
+    },
+    {
+      "id": "psy1010-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 4.3",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-4-3-rep-txt",
+          "type": "text",
+          "content": "**Beslutningstre:** 2 grupper → uparet t-test · 3+ grupper (én UV) → enveis ANOVA · kontroller bort tilleggsvariabel → ANCOVA (kovariat) · studer tilleggsvariabel → toveis ANOVA (ekstra faktor, ev. kvasi-UV).\n\n**Kjernebegrunnelse (feil #7):** mange t-tester ved 3+ grupper blåser opp familywise error (10 tester ≈ 40 % falsk-alarm-risiko). ANOVA holder den samlede feilraten på α.\n\n**ANCOVA (A-skille):** kontroller bort kovariat korrelert med UV og AV; «renser» AV før sammenligning.\n\n**Alltid:** begrunn valget i prosa; ingen ANOVA-regning kreves.\n\n**Framover:** Del 5 tar korrelasjon og regresjon (den andre supergjengangeren)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-4-3-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol/term | Betydning |\n|---|---|\n| $\\alpha$ | signifikansnivå = Type I-risiko for én test (ofte 0,05) |\n| $k$ | antall grupper |\n| $\\binom{k}{2}$ | antall parvise sammenligninger $= \\frac{k(k-1)}{2}$ |\n| t-test | test for to gruppegjennomsnitt |\n| ANOVA | variansanalyse: samlet test for 3+ grupper |\n| ANCOVA | ANOVA med kovariat kontrollert bort |\n| UV / AV | uavhengig / avhengig variabel |\n| kovariat | tilleggsvariabel korrelert med UV og AV, kontrolleres bort |\n\n**Sammenhenger i dette delkapitlet:**\n\n$$\\text{antall par} = \\binom{k}{2} = \\frac{k(k-1)}{2} \\qquad (5 \\text{ grupper} \\to 10 \\text{ par})$$\n\n$$\\text{familywise error (10 tester)} \\approx 1 - 0{,}95^{10} \\approx 0{,}40 \\qquad (\\text{illustrasjon, ikke eksamensregning})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

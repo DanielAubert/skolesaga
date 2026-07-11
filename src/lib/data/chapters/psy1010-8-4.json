@@ -1,0 +1,212 @@
+{
+  "id": "psy1010-8-4",
+  "courseId": "psy1010",
+  "chapterNumber": "8.4",
+  "title": "Sjanger — design-, testvalgs- og måleoppgaven",
+  "description": "Diagnose-sjangrene i eksamenstrening: klassifiser et beskrevet opplegg, velg design selv, velg riktig statistisk test, og plukk måle-/utvalgsscenariet fra hverandre — med de fem vanligste fellene innfelt.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "klassifisere et beskrevet forskningsopplegg (ekte eksperiment, kvasi, N=1) med begrunnelse og foreslå forbedringer",
+    "velge et passende design ut fra forskningsspørsmålet og begrunne koblingen",
+    "diagnostisere måle-/utvalgskjeden (UV/AV, målenivå, reliabilitet/testvaliditet, utvalg) i et scenario",
+    "velge riktig statistisk test (t-test, ANOVA, ANCOVA) med begrunnelse, inkludert familywise-argumentet og kovariat-grepet"
+  ],
+  "content": [
+    {
+      "id": "psy1010-8-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Én av de fire eksamensoppgavene handler nesten alltid om design, måling og utvalg** — og deloppgavene der følger noen få faste mønstre. Dette kapitlet trener deg til å gjenkjenne mønsteret og svare i riktig rekkefølge.\n\nI boka gir vi oppgavetypene kortkoder (T1–T8, forklart i [kap. 0.1](/bok/psy1010/psy1010-0-1)). Dette kapitlet slår sammen tre av dem fordi de deler *diagnose-logikk* — du får et beskrevet forskningsopplegg og skal plukke det fra hverandre:\n\n- **T4 — designoppgaven:** klassifiser et beskrevet opplegg (ekte eksperiment? kvasi? N=1?) *eller* velg design selv ut fra forskningsspørsmålet.\n- **T5 — måle-/utvalgsoppgaven:** den faste kjeden UV/AV → målenivå → reliabilitet/validitet → utvalg.\n- **T6 — testvalgsoppgaven:** «hvilken statistisk test, og hvorfor?» — t-test / ANOVA / ANCOVA. ANCOVA-leddet er et uttalt A/B-skille (sensor kaller det «ment å skille gode kandidater»).\n\n**Vekt:** designdelen er blant de fem tingene analysen kaller «må beherskes perfekt». Testvalg-oppgaven har gått igjen i 12 av settene. Alt oppgavemateriale her er nyskrevet, men kloner de faste mønstrene tett — gjenbruk av oppgaver er dokumentert norm i emnet, så mønstertro trening er presis trening.\n\n*Tidsbruk: ~55 minutter. Tre oppskrifter med hver sin løkke; begrepsbanken nederst er repetisjon. Naturlige pausepunkter er markert.*"
+    },
+    {
+      "id": "psy1010-8-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er et *sjangerkapittel* — det setter sammen stoff du allerede har møtt, til ferdige svarforløp. Du bør ha lest:\n\n- **Design:** det ekte eksperimentet og indre/ytre validitet i [kap. 2.1](/bok/psy1010/psy1010-2-1), og kvasieksperiment, N=1 og kasusstudien i [kap. 2.4](/bok/psy1010/psy1010-2-4).\n- **Måling og utvalg:** UV/AV og målenivåer i [kap. 1.2](/bok/psy1010/psy1010-1-2), reliabilitet og testvaliditet i [kap. 1.3](/bok/psy1010/psy1010-1-3), utvalg og rekruttering i [kap. 1.4](/bok/psy1010/psy1010-1-4).\n- **Testvalg:** t-test, ANOVA og ANCOVA i [kap. 4.3](/bok/psy1010/psy1010-4-3), og faktorielle design i [kap. 2.3](/bok/psy1010/psy1010-2-3).\n- **Håndverket:** «definer — anvend på caset — begrunn» og relevansfilteret fra [kap. 0.2](/bok/psy1010/psy1010-0-2).\n\nHar du de på plass, kan du lese dette kapitlet som ren oppskrift-trening. Alle begreper glosses likevel kort ved første bruk."
+    },
+    {
+      "id": "psy1010-8-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-8-4-symbolliste-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| UV | uavhengig variabel (den som manipuleres eller deler inn gruppene) |\n| AV | avhengig variabel (den som måles) |\n| kvasi-UV | egenskap som ikke kan manipuleres (kjønn, alder, diagnose) |\n| $n$, $N$ | utvalgsstørrelse (i én gruppe / totalt) |\n| $\\alpha$ | signifikansnivå (feilrisiko per test) — dukker opp i familywise-argumentet |\n\n**«Formler» i dette delkapitlet:** dette er et drøftingskapittel — det inneholder ingen regneformler. Den ene tallillustrasjonen er antall parvise sammenligninger ved $k$ grupper:\n\n$$\\text{antall par} = \\frac{k(k-1)}{2}$$\n\nTolkning: med $k = 5$ grupper blir det $5 \\cdot 4 / 2 = 10$ parvise t-tester. Ti tester à 5 % feilrisiko gir en *samlet* (familywise) risiko langt over 5 % — derfor én samlet ANOVA i stedet. Tallet er en illustrasjon, ikke noe som regnes på eksamen."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-8-4-lokke1-intro",
+      "type": "text",
+      "content": "## Løkke 1 — Oppskrift 1: «Klassifiser og forbedre» (T4) (~18 min)\n\nDen vanligste designdeloppgaven gir deg et forskningsopplegg og ber deg: *hva slags design er dette, og hvordan kan det forbedres?* Sensor leter etter to ting: at du **klassifiserer med begrunnelse** (ikke bare setter en merkelapp), og at du **case-tilpasser** truslene og forbedringene til nettopp dette opplegget.\n\n**Fast firetrinns-oppskrift:**\n\n1. **Klassifiser** — still tre diagnosespørsmål: (i) Manipuleres en betingelse? (ii) Er deltakerne fordelt *tilfeldig* (randomisert)? (iii) Finnes en kontroll-/sammenligningsgruppe? Ekte eksperiment = ja på alle tre. Mangler randomisering (men manipulasjon finnes) → **kvasieksperiment**. Ingen manipulasjon, bare beskrivelse → ikke-eksperimentelt (kasusstudie / korrelasjon).\n2. **Begrunn klassifiseringen** med kjennetegnene du fant — ikke bare «dette er et kvasieksperiment», men *hvorfor*.\n3. **Trusler** — pek på de konkrete truslene mot indre validitet (seleksjon, historie, manglende blinding, frafall, reaktivitet) *som slår inn i akkurat dette opplegget*.\n4. **Forbedre** — foreslå konkrete grep (randomiser, legg til kontrollgruppe, blind, mål frafall) og si hva hvert grep fjerner.\n\nEt par gloss først: **indre validitet** = hvor holdbar årsaksslutningen er (skyldes effekten virkelig UV?); **ytre validitet** = hvor godt resultatet kan generaliseres. **Seleksjon** = at gruppene var ulike *før* tiltaket. **Reaktivitet** = at deltakere endrer seg fordi de vet de studeres."
+    },
+    {
+      "id": "psy1010-8-4-ex-klassifiser",
+      "type": "example",
+      "title": "Eksempel: klassifiser og forbedre (gjennomskrevet)",
+      "problem": "En kommune innfører et nytt leseprogram ved to barneskoler. To naboskoler fortsetter som før og brukes til sammenligning. Etter ett år måler forskerne leseferdighet ved alle fire skolene og finner at programskolene skårer høyere.\n\n**a)** Hva slags design er dette? Begrunn.\n**b)** Hvilke trusler mot indre validitet er de viktigste her?\n**c)** Hvordan kunne studien forbedres til et ekte eksperiment?",
+      "solution": "**a)** Dette er et **kvasieksperiment** (nærmere bestemt et felteksperiment med ikke-ekvivalente grupper). Begrunnelse med kjennetegnene: det finnes en *manipulasjon* (leseprogrammet innføres ved noen skoler) og en *sammenligningsgruppe* (naboskolene), men deltakerne er **ikke randomisert** — skolene var allerede ulike, og elevene ble ikke tilfeldig fordelt til program eller kontroll. Fravær av randomisert tilordning er nettopp det som gjør designet kvasi og ikke ekte.\n\n*(Margnotat — A-lag: å nevne «ikke-ekvivalente grupper» eksplisitt og knytte det til seleksjon løfter svaret.)*\n\n**b)** Den viktigste trusselen er **seleksjon**: programskolene kan ha vært bedre (eller dårligere) til å lese *før* programmet startet — kanskje ligger de i et område med høyere utdanningsnivå. Da vet vi ikke om forspranget skyldes programmet eller utgangsforskjeller. En annen trussel er **historie**: noe annet kan ha skjedd ved akkurat programskolene i året (ny rektor, ekstra ressurser). Legg merke til at jeg knytter hver trussel til *dette* caset — ikke bare lister dem.\n\n**c)** For å gjøre det til et ekte eksperiment må elevene (eller klassene) **randomiseres** til program eller kontroll, slik at gruppene blir jevne i utgangspunktet og seleksjonstrusselen fjernes. En **pretest** før programmet startet ville dessuten latt oss måle utgangsnivået og sjekke at gruppene var like. Randomiseringen er hovedgrepet: den fordeler alle ukjente forskjeller likt mellom gruppene.\n\n**Prosatolkning / poenget:** klassifiseringen er ikke selve svaret — den er *inngangen* til å si hva vi kan og ikke kan konkludere. Fordi designet er kvasi, kan vi ikke trekke en sikker årsaksslutning; forbedringen (randomisering) er nøyaktig det som ville tillatt den."
+    },
+    {
+      "id": "psy1010-8-4-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger T4 — klassifiser og forbedre. Trener firetrinns-oppskriften.) En bedrift lar ansatte som selv melder seg, delta i et nytt stresskurs. Etterpå sammenlignes deres selvrapporterte stress med stresset til kolleger som ikke meldte seg. Kursdeltakerne rapporterer lavere stress.\n\n**a)** Klassifiser designet med begrunnelse.\n\n**b)** Pek på den viktigste trusselen mot indre validitet i akkurat dette opplegget.\n\n**c)** Foreslå ett konkret grep som ville styrket årsaksslutningen.",
+        "solution": "**a)** Dette er et **kvasieksperiment** (ikke-ekvivalente grupper). Det finnes en manipulasjon (kurset) og en sammenligningsgruppe, men deltakerne er **ikke randomisert** — de *meldte seg selv*. Selvseleksjon i stedet for tilfeldig tilordning gjør designet kvasi.\n\n**b)** **Seleksjon (selvseleksjon):** de som melder seg på et stresskurs, kan være systematisk annerledes enn de som ikke gjør det — kanskje mer motiverte for endring, eller nettopp mer stresset i utgangspunktet. Da speiler forskjellen etterpå hvem som meldte seg, ikke nødvendigvis kursets effekt.\n\n**c)** **Randomiser** de interesserte ansatte til enten kurs nå eller venteliste (kontroll). Da fjernes selvseleksjonen: begge grupper er like motiverte, men bare den ene har fått kurset ennå. (En pretest av stressnivå før kurset ville i tillegg dokumentert utgangsnivået.)\n\n*Merk:* forskjellen er ikke «feil» funn — det kan godt hende kurset virker. Poenget er at *dette designet* ikke lar oss skille kurseffekt fra hvem som meldte seg.",
+        "hints": [
+          "Første grep: kjør de tre diagnosespørsmålene — manipulasjon? randomisering? kontrollgruppe? Se særlig på hvordan deltakerne havnet i gruppene.",
+          "«Melder seg selv» er varsellampen for selvseleksjon — en seleksjonstrussel."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-4-lokke2-intro",
+      "type": "text",
+      "content": "## Løkke 2 — Oppskrift 2: «Velg design selv» (T4) (~13 min)\n\n— naturlig pausepunkt —\n\nDen andre T4-varianten gir deg et *forskningsspørsmål* og ber deg **foreslå et passende design**. Her premierer sensor selvstendig resonnement: du skal la **forskningsspørsmålet styre designet** — den samme A-markøren du møtte i [kap. 1.1](/bok/psy1010/psy1010-1-1).\n\n**Beslutningsregel (koble spørsmål → design):**\n\n- Vil du fastslå en **årsak** og kan tilordne deltakere tilfeldig → **ekte eksperiment (RCT)** med randomisering og kontrollgruppe.\n- Vil du studere **to faktorer samtidig** (og deres samspill) → **faktorielt design** (f.eks. 2×2, [kap. 2.3](/bok/psy1010/psy1010-2-3)).\n- Kan du **ikke manipulere** UV etisk/praktisk (kjønn, en katastrofe, en diagnose) → **kvasieksperiment** med naturlige grupper, og vær ærlig om seleksjon.\n- Har du **svært få deltakere** eller vil følge én person tett → **N=1/single-subject** (f.eks. ABAB, [kap. 2.4](/bok/psy1010/psy1010-2-4)) — husk: dette er et *ekte* eksperiment, ikke en kasusstudie.\n\nBegrunn alltid *hvorfor* designet passer spørsmålet — det er der poengene ligger, ikke i selve merkelappen."
+    },
+    {
+      "id": "psy1010-8-4-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger T4 — velg design selv.) For hvert forskningsspørsmål: foreslå et passende design og begrunn kort hvorfor det passer.\n\n**a)** «Gir en ny pusteøvelse lavere prøvenervøsitet enn ingen øvelse?»\n\n**b)** «Virker et belønningsopplegg mot negativ selvsnakk hos ett enkelt barn med sterk eksamensangst?»\n\n**c)** «Er det forskjell i utbrenthet mellom sykepleiere og lærere?»",
+        "solution": "**a)** **Ekte eksperiment (RCT):** randomiser deltakerne til pusteøvelse eller kontroll (ingen øvelse), mål nervøsitet etterpå. Spørsmålet er et *årsaksspørsmål* («gir X lavere Y?»), og pusteøvelse *kan* manipuleres og tilordnes tilfeldig — da er RCT det som gir holdbar årsaksslutning.\n\n**b)** **N=1/single-subject-design (f.eks. ABAB):** med bare ett barn følger vi baseline (A) → belønning (B) → tilbake til baseline (A) → belønning (B). Reverseringene viser om selvsnakket følger tiltaket. Dette *er* et ekte eksperiment (manipulasjon + kontrollfaser), ikke en kasusstudie — barnet er sin egen kontroll.\n\n**c)** **Kvasieksperiment / gruppesammenligning med naturlige grupper:** yrke kan ikke manipuleres (kvasi-UV), så vi sammenligner eksisterende grupper. Vær ærlig om at gruppene er ikke-ekvivalente (de skiller seg på mer enn yrke), så en forskjell ikke uten videre kan tolkes kausalt.\n\n*Poenget:* i alle tre lot vi spørsmålets natur — årsak vs. beskrivelse, mange vs. én, manipulerbar vs. ikke — avgjøre designet.",
+        "hints": [
+          "Første grep: for hvert spørsmål, spør «vil jeg fastslå en årsak, og kan jeg tilordne deltakere tilfeldig?». Svaret peker mot design.",
+          "«Ett enkelt barn» → tenk N=1; «kan ikke manipuleres» (yrke, kjønn) → tenk kvasi."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-4-lokke3-intro",
+      "type": "text",
+      "content": "## Løkke 3 — Oppskrift 3: test- og målediagnosen (T5 + T6) (~18 min)\n\n— naturlig pausepunkt —\n\nDen tredje oppskriften dekker to nært beslektede oppgaver som begge er *diagnoser*: du leser et scenario og velger riktig verktøy med begrunnelse.\n\n**Målekjeden (T5) — den faste rekkefølgen:**\n\n1. **UV og AV** — hva manipuleres/deler inn (UV), hva måles (AV)? Husk kvasi-UV: kjønn og alder er ikke manipulerte UV-er.\n2. **Målenivå** — klassifiser variablene (nominal / ordinal / intervall / forhold) *med regelen*, ikke bare merkelappen ([kap. 1.2](/bok/psy1010/psy1010-1-2)).\n3. **Reliabilitet og validitet** — måler instrumentet stabilt (reliabelt), og måler det det skal (testvaliditet)? Ikke bland med indre/ytre validitet, som gjelder *studier* ([kap. 1.3](/bok/psy1010/psy1010-1-3)).\n4. **Utvalg** — hvordan er deltakerne rekruttert? Kjenn igjen bekvemmelighetsutvalget og frivillighetsbias ([kap. 1.4](/bok/psy1010/psy1010-1-4)).\n\n**Testvalget (T6) — beslutningstre etter antall grupper:**\n\n- **To uavhengige grupper** → uparet **t-test** (tohalet med mindre en retning er begrunnet på forhånd).\n- **Tre eller flere grupper** (typisk fem) → **enveis ANOVA**. Kjernebegrunnelsen sensor krever: én samlet test holder den **familywise feilraten** nede — mange parvise t-tester blåser opp den samlede risikoen for falsk funn (5 grupper → 10 par).\n- **En forstyrrende tilleggsvariabel** som korrelerer med UV og AV og skal *kontrolleres bort* → **ANCOVA** (kovariansanalyse). Dette leddet er A/B-skillet.\n\nGloss: **familywise error** = den samlede sjansen for minst én falsk positiv når du kjører mange tester. **Kovariat** = en tredjevariabel du måler og justerer for. **ANCOVA** = ANOVA som først renser bort effekten av en kovariat."
+    },
+    {
+      "id": "psy1010-8-4-ex-testvalg",
+      "type": "example",
+      "title": "Eksempel: målekjede + testvalg (gjennomskrevet)",
+      "problem": "Forskere sammenligner fem ulike studieteknikker (hver gruppe bruker sin teknikk) og måler eksamensskåre (0–100 poeng). Deltakerne er studenter som svarte på en annonse på lærestedets læringsplattform.\n\n**a)** Hva er UV og AV, og på hvilket målenivå er AV?\n**b)** Hvilken statistisk test bør brukes, og hvorfor ikke bare parvise t-tester?\n**c)** Forskerne oppdager at gruppene skiller seg i timer søvn per natt, som også henger sammen med skåren. Hva bør de gjøre, og hva heter grepet?\n**d)** Kommenter utvalget.",
+      "solution": "**a)** **UV** = studieteknikk (fem nivåer/grupper). **AV** = eksamensskåre. Skåren 0–100 behandles som **intervall** (like avstander mellom poeng, men ikke et absolutt nullpunkt for «kunnskap») — det er konvensjonen for slike sumskårer.\n\n**b)** Med **fem grupper** brukes **enveis ANOVA**, ikke mange parvise t-tester. Begrunnelsen: fem grupper gir $5\\cdot4/2 = 10$ parvise sammenligninger. Kjører du ti t-tester à 5 % feilrisiko, blir den **samlede (familywise) risikoen** for minst én falsk positiv langt over 5 %. ANOVA tester alle gruppene i én omgang og holder den samlede feilraten på α.\n\n*(Margnotat — A-lag: å nevne «familywise error» ved navn og vise 10-par-illustrasjonen er nettopp det sensor honorerer.)*\n\n**c)** Søvn er en **kovariat**: den henger sammen med både UV (gruppene skiller seg i søvn) og AV (søvn påvirker skåre). Grepet er **ANCOVA** (kovariansanalyse) — den kontrollerer *bort* søvneffekten før teknikkene sammenlignes, slik at en gjenstående forskjell lettere kan tilskrives teknikken. Dette er A/B-skillet.\n\n**d)** Deltakerne rekruttert via en annonse er et **bekvemmelighetsutvalg** med sannsynlig **frivillighetsbias** — de som svarer, er kanskje mer motiverte studenter. Det svekker den ytre validiteten: resultatet gjelder først og fremst denne typen studenter, ikke alle.\n\n**Prosatolkning:** hele oppgaven er en diagnosekjede. Poenget er ikke å pugge «ANOVA» eller «ANCOVA», men å kunne *begrunne* hvert valg ut fra scenariet — antall grupper avgjør testen, en forstyrrende kovariat utløser ANCOVA, og rekrutteringsmåten avgjør hva vi kan generalisere til."
+    },
+    {
+      "id": "psy1010-8-4-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger T6 — testvalgsdiagnosen.) For hvert scenario: hvilken statistisk test passer, og hva er kortbegrunnelsen?\n\n**a)** To grupper — den ene får en ny app, den andre ikke — sammenlignes på antall løste oppgaver.\n\n**b)** Fire aldersgrupper sammenlignes på reaksjonstid.\n\n**c)** Tre undervisningsmetoder sammenlignes på prøveresultat, men gruppene skiller seg i forkunnskaper (målt), som også påvirker resultatet.",
+        "solution": "**a)** **Uparet t-test** (tohalet). To uavhengige grupper som sammenlignes på ett kontinuerlig mål — det er t-testens standardtilfelle. Enhalet bare hvis retningen var begrunnet på forhånd.\n\n**b)** **Enveis ANOVA.** Fire grupper (mer enn to) → én samlet test i stedet for $4\\cdot3/2 = 6$ parvise t-tester, for å holde den familywise feilraten nede. (Alder er en kvasi-UV, men det endrer ikke testvalget.)\n\n**c)** **ANCOVA.** Forkunnskaper er en **kovariat** — den henger sammen med både gruppene og resultatet. ANCOVA kontrollerer den bort før metodene sammenlignes, slik at en gjenstående forskjell lettere kan tilskrives metoden. Dette er A-skillet i oppgaven.\n\n*Merk mønsteret:* antall grupper avgjør t-test vs. ANOVA; en forstyrrende, målt tredjevariabel utløser ANCOVA.",
+        "hints": [
+          "Første grep: tell gruppene. To → t-test; tre eller flere → ANOVA. Se så etter en «forstyrrende variabel som også påvirker resultatet» — den signaliserer ANCOVA.",
+          "En *målt* tilleggsvariabel som henger sammen med både UV og AV er en kovariat — den peker mot ANCOVA."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-4-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-8-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — full T4/T5-oppgave i miniatyr, alle tre oppskrifter i spill.) En forsker vil vite om en ny mindfulness-app reduserer eksamensstress hos studenter. Hun rekrutterer via en Facebook-gruppe for studenter og lar de påmeldte bruke appen i fire uker. Stress måles før og etter med en egenlaget skala (1–7 per ledd, summert).\n\n**a)** Klassifiser designet slik det er beskrevet, med begrunnelse.\n\n**b)** Pek på to trusler mot indre validitet og én mot ytre validitet, knyttet til dette caset.\n\n**c)** Foreslå et forbedret design som gir en holdbar årsaksslutning.\n\n**d)** Hvordan bør stresskalaen vurderes før den brukes?",
+        "solution": "**a)** Slik det står, er dette et **førtest–ettertest-design uten kontrollgruppe** (og med selvseleksjon) — altså *ikke* et ekte eksperiment. Begrunnelse: det finnes en manipulasjon (appen), men **ingen kontrollgruppe** og **ingen randomisering**. Alle deltakerne får appen, og de meldte seg selv.\n\n**b)** *Indre validitet:* (i) **Historie/modning** — eksamensstress kan falle av seg selv når eksamen nærmer seg eller er over, uavhengig av appen; uten kontrollgruppe kan vi ikke skille dette fra app-effekten. (ii) **Reaktivitet/forventning** — deltakere som frivillig prøver en stress-app, forventer å bli mindre stresset, og kan rapportere lavere stress av den grunn. *Ytre validitet:* **frivillighetsbias fra Facebook-utvalget** — deltakerne er selvvalgte studenter i én gruppe, så resultatet generaliserer dårlig.\n\n**c)** **Randomisert kontrollert forsøk:** rekrutter bredere, og **randomiser** deltakerne til app eller venteliste-kontroll. Mål stress før og etter i begge grupper. Kontrollgruppen fanger opp historie/modning, og randomiseringen fjerner selvseleksjonen. (Blinding er vanskelig for en app, men en aktiv kontroll — f.eks. en nøytral app — demper forventningseffekten.)\n\n**d)** Skalaen bør vurderes for **reliabilitet** (måler den stabilt? — f.eks. intern konsistens / Cronbachs α på leddene) og **testvaliditet** (måler den faktisk stress? — innholdsvaliditet: dekker leddene stress; kriterievaliditet: samsvar med et etablert stressmål). Merk at dette er *testvaliditet*, ikke indre/ytre validitet — de gjelder studien, ikke instrumentet.\n\n*Poenget:* oppgaven binder sammen design (kontrollgruppe + randomisering), måling (reliabilitet/testvaliditet på instrumentet) og utvalg (frivillighetsbias) — akkurat den diagnosekjeden T5-oppgaven belønner.",
+        "hints": [
+          "Første grep: kjør de tre diagnosespørsmålene på designet — legg merke til at det mangler både kontrollgruppe og randomisering.",
+          "Hold de to validitetsbegrepene fra hverandre: indre/ytre validitet gjelder studien; reliabilitet og testvaliditet gjelder måleinstrumentet (skalaen)."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-8-4-signal",
+      "type": "tip",
+      "title": "Hva løkkene over trente",
+      "content": "De fire oppgavene dekket alle tre oppskriftene: klassifiser-og-forbedre (oppg. 1), velg-design-selv (oppg. 2), test-/målediagnosen (oppg. 3) og en integrert T4/T5-oppgave (oppg. 4). Legg merke til at *begrunnelsen* bar poengene i alle fire — merkelappen alene (kvasi, ANOVA, ANCOVA) gir C-tak. **Definer — anvend på caset — begrunn** ([kap. 0.2](/bok/psy1010/psy1010-0-2)) er den røde tråden."
+    },
+    {
+      "id": "psy1010-8-4-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fem feil dominerer denne sjangeren. Numrene er oppslagsnumre i bokas samlede feilregister ([kap. 8.6](/bok/psy1010/psy1010-8-6)).\n\n**Feil #4 — kasusstudie forvekslet med N=1-eksperiment.** I «velg-design-selv»-svar: å foreslå en «kasusstudie» som om det var et N=1-*eksperiment*. **Vaksine:** N=1 krever manipulasjon og kontrollfaser (ABAB); ren beskrivelse av én person er kasusstudie.\n\n**Feil #5 — testvaliditet forvekslet med slutningsvaliditet.** Å svare «indre/ytre validitet» når spørsmålet gjelder om et *måleinstrument* er godt. **Vaksine:** spør «gjelder spørsmålet en studie eller en test?». Test → testvaliditet (face/innhold/kriterium/begrep).\n\n**Feil #7 — mange t-tester ved 3+ grupper, eller ANOVA uten begrunnelsen.** Å kjøre parvise t-tester ved fem grupper — eller å skrive «ANOVA» uten å kunne *hvorfor* (familywise error). Begrunnelsen ER poenget.\n\n**Feil #8 — oppramsing uten begrunnelse (remsefeilen).** Å liste alle designtrusler / alle utvalgsmetoder uten å knytte dem til caset gir **C-tak** (*C-tak* = besvarelsen kan ikke nå over C uansett hvor komplett lista er). **Vaksine:** for hvert moment, én setning om hvordan det slår inn i akkurat dette scenariet.\n\n**Feil #9 — bekvemmelighetsutvalg behandlet som representativt.** Å konkludere som om et Facebook-/forelesningsutvalg var en miniatyrkopi av populasjonen. **Vaksine:** navngi bekvemmelighetsutvalget og frivillighetsbias, og gjør generaliseringen betinget."
+    },
+    {
+      "id": "psy1010-8-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Sjangergrepene i kortform\n\n**Rene repetisjonskort — hopp trygt over ved førstegangslesing; tidsanslaget gjelder oppskriftene over.** Kortene under samler de tre oppskriftenes kjernebeslutninger som pugge-stoff."
+    },
+    {
+      "id": "psy1010-8-4-def-klassifiser",
+      "type": "definition",
+      "title": "Klassifiser-og-forbedre (oppskrift)",
+      "content": "T4-variant 1: (1) klassifiser via tre diagnosespørsmål (manipulasjon? randomisering? kontrollgruppe?), (2) begrunn med kjennetegnene, (3) case-tilpass truslene, (4) foreslå forbedringer. Merkelapp uten begrunnelse gir C-tak."
+    },
+    {
+      "id": "psy1010-8-4-def-velgdesign",
+      "type": "definition",
+      "title": "Velg-design-selv (oppskrift)",
+      "content": "T4-variant 2: la forskningsspørsmålet styre. Årsak + kan randomisere → RCT; to faktorer → faktorielt; kan ikke manipulere → kvasi; svært få/én person → N=1/ABAB. Begrunn hvorfor designet passer spørsmålet."
+    },
+    {
+      "id": "psy1010-8-4-def-malekjede",
+      "type": "definition",
+      "title": "Målekjeden (T5)",
+      "content": "Fast rekkefølge i måle-/utvalgsoppgaven: UV/AV → målenivå (med regel) → reliabilitet/testvaliditet → utvalgsdiagnose. Hold testvaliditet atskilt fra indre/ytre validitet."
+    },
+    {
+      "id": "psy1010-8-4-def-ekte-kvasi",
+      "type": "definition",
+      "title": "Ekte eksperiment ↔ kvasieksperiment",
+      "content": "Ekte = manipulasjon + randomisert tilordning + kontrollgruppe. Kvasi = manipulasjon uten randomisering (naturlige/ikke-ekvivalente grupper). Fravær av randomisering er skillet — og kilden til seleksjonstrusselen."
+    },
+    {
+      "id": "psy1010-8-4-def-kasus-n1",
+      "type": "definition",
+      "title": "Kasusstudie ↔ N=1-eksperiment",
+      "content": "N=1/single-subject = EKTE eksperiment (manipulasjon + kontrollfaser, f.eks. ABAB) på én person. Kasusstudie = beskrivende, ingen manipulasjon. Test: «manipuleres noe?» (feil #4)."
+    },
+    {
+      "id": "psy1010-8-4-def-testvalg",
+      "type": "definition",
+      "title": "Testvalget (T6)",
+      "content": "To grupper → uparet t-test; tre+ grupper → enveis ANOVA (holder familywise feilrate nede); forstyrrende målt kovariat → ANCOVA (kontrolleres bort). Alltid begrunn valget — ikke bare navngi testen."
+    },
+    {
+      "id": "psy1010-8-4-def-familywise",
+      "type": "definition",
+      "title": "Familywise error",
+      "content": "Den samlede sjansen for minst én falsk positiv når du kjører mange tester. Fem grupper → 10 parvise t-tester à 5 % risiko gir samlet risiko langt over 5 %. Derfor én ANOVA. Tallet er illustrasjon, ikke eksamensregning."
+    },
+    {
+      "id": "psy1010-8-4-def-ancova",
+      "type": "definition",
+      "title": "ANCOVA ↔ kovariat",
+      "content": "ANCOVA = ANOVA som først renser bort en kovariat (en målt tredjevariabel som henger sammen med både UV og AV). Kontrast: toveis ANOVA modellerer variabelen som egen faktor. A/B-skillet i testvalgsoppgaven."
+    },
+    {
+      "id": "psy1010-8-4-pensumkart",
+      "type": "collapsible",
+      "title": "Pensumkart og repetisjon",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-8-4-pensumkart-txt",
+          "type": "text",
+          "content": "**De tre oppskriftene i én linje hver:**\n\n1. **Klassifiser-og-forbedre (T4):** diagnosespørsmål → klassifiser med begrunnelse → case-tilpass trusler → forbedre.\n2. **Velg-design-selv (T4):** spørsmålet styrer designet (RCT / faktorielt / kvasi / N=1) — begrunn koblingen.\n3. **Test-/målediagnosen (T5+T6):** UV/AV → målenivå → reliabilitet/testvaliditet → utvalg; og to grupper → t-test, tre+ → ANOVA (familywise), kovariat → ANCOVA.\n\n**A-grep:** begrunn hvert valg (merkelapp alene = C-tak); nevn familywise error ved navn; hold testvaliditet atskilt fra indre/ytre validitet; navngi bekvemmelighetsutvalg + frivillighetsbias.\n\n**De fem fellene:** #4 (kasus/N=1), #5 (testvaliditet/slutningsvaliditet), #7 (mange t-tester / ANOVA uten begrunnelse), #8 (remsefeilen — C-tak), #9 (bekvemmelighetsutvalg som representativt). Samlet i [kap. 8.6](/bok/psy1010/psy1010-8-6).\n\n**Bygger på:** design ([kap. 2.1](/bok/psy1010/psy1010-2-1), [kap. 2.4](/bok/psy1010/psy1010-2-4), [kap. 2.3](/bok/psy1010/psy1010-2-3)), måling/utvalg ([kap. 1.2](/bok/psy1010/psy1010-1-2), [kap. 1.3](/bok/psy1010/psy1010-1-3), [kap. 1.4](/bok/psy1010/psy1010-1-4)), testvalg ([kap. 4.3](/bok/psy1010/psy1010-4-3)).\n\n**Pensumforankring:** design-, målings- og testvalgsbegrepene hos Bordens & Abbott (*Research Design and Methods*)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

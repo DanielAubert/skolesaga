@@ -1,0 +1,357 @@
+{
+  "id": "psy1010-4-1",
+  "courseId": "psy1010",
+  "chapterNumber": "4.1",
+  "title": "H0, H1 og nullhypotesetestingens trinn",
+  "description": "Å formulere hypoteser med μ-notasjon, kjøre trinnene i nullhypotesetesting — og definere p-verdien riktig: den ene feilen sensor har eksplisitt trekk-instruks for.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "formulere H0 og H1 med μ-notasjon for konkrete scenarier og skille to- fra begrunnet enhalet test",
+    "gjøre rede for de fem trinnene i nullhypotesetesting og tolke oppgitte p-verdier mot α",
+    "definere p-verdien korrekt (gitt at H0 er sann) og unngå p-verdi-feilen sensor trekker for"
+  ],
+  "content": [
+    {
+      "id": "psy1010-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er bokas viktigste enkeltkapittel — sammen med korrelasjon (Del 5). Hypotesetesting er den nest største gjengangeren: den kommer i 19 av 29 sett (2009–2025).**\n\n- Den typiske oppgaven (kalt **hypotesetestingsoppgaven** — vi merker den **T2** i boka; T-kodene forklares i [kap. 0.1](/bok/psy1010/psy1010-0-1)) ber deg formulere $H_0$ og $H_1$, gjøre rede for trinnene i en test og tolke en oppgitt p-verdi.\n- **Én feil har eksplisitt trekk-instruks i sensorveiledningen (V2018):** å definere p-verdien som «sannsynligheten for at $H_0$ er feil». Vi driller den riktige definisjonen side ved side med de gale — dette er kapitlets viktigste enkeltmoment.\n- **A-skiller** sensor ser etter: at hypotesene gjelder *populasjonsgjennomsnittet* $\\mu$ (ikke utvalget), at retningsbestemt $H_1$ er *begrunnet*, at du kan snu konklusjonen ved et strengere $\\alpha$, og at du skiller **signifikans fra viktighet**.\n\n**Øktmerking:** kapitlet er langt (~70 min lesetid, ×1,5 ved håndskriving). Det er delt i fire løkker med pausepunkter — ta gjerne én løkke per økt."
+    },
+    {
+      "id": "psy1010-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 3.3](/bok/psy1010/psy1010-3-3)** (utvalgsfordeling og standardfeil — selve motoren bak p-verdien) og **[kap. 3.4](/bok/psy1010/psy1010-3-4)** (t som differanse målt i standardfeil). Kjenner du disse, har du halve kapitlet.\n\n**Sist du var her (nøkkelformlene oppfrisket):**\n\n- $SE = \\dfrac{SD}{\\sqrt{n}}$ — standardfeilen: hvor mye et *utvalgsgjennomsnitt* typisk avviker fra populasjonssnittet (fra 3.3).\n- **Utvalgsfordelingen** er fordelingen av tenkte gjentatte utvalgsgjennomsnitt; p-verdien leses fra den (fra 3.3).\n- $t = \\dfrac{\\bar{x}_1 - \\bar{x}_2}{SE(D)}$ — differansen målt i standardfeil; stor $|t|$ ⟹ liten p (fra 3.4).\n\nHer setter vi ord på *logikken* rundt disse tallene: hva vi egentlig tester, og hva p faktisk betyr."
+    },
+    {
+      "id": "psy1010-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva vi egentlig tester: $H_0$, $H_1$ og μ (~18 min)"
+    },
+    {
+      "id": "psy1010-4-1-intro",
+      "type": "text",
+      "content": "**Hverdagsanker.** Tenk deg en rettssak. Retten starter med en antakelse: tiltalte er *uskyldig*. Bare hvis bevisene er sterke nok, forkastes den antakelsen. Man beviser aldri uskyld — man klarer enten å tilbakevise den eller ikke.\n\nNullhypotesetesting fungerer på nøyaktig samme måte. Vi starter med en «uskyldsantakelse» — at det *ikke* er noen effekt ($H_0$) — og spør: er dataene så ekstreme at antakelsen blir vanskelig å tro på? Vi beviser aldri at det er en effekt; vi klarer enten å forkaste «ingen effekt» eller ikke.\n\nDette er logikken bak hver eneste hypotesetest. Vi bygger den ledd for ledd."
+    },
+    {
+      "id": "psy1010-4-1-def-h0-h1",
+      "type": "definition",
+      "title": "Nullhypotese (H0) og alternativhypotese (H1)",
+      "content": "**Nullhypotesen $H_0$** er påstanden om at det *ikke* finnes noen effekt eller forskjell i populasjonen — «uskyldsantakelsen». Det er $H_0$ som testes.\n\n**Alternativhypotesen $H_1$** (også skrevet $H_a$) er forskerens egentlige påstand: at det *finnes* en effekt eller forskjell.\n\nHypotesene handler alltid om **populasjonsgjennomsnittet $\\mu$** (den greske bokstaven «my», uttales /myː/), ikke om utvalget vi målte. Eksempel for én gruppe mot en kjent norm $\\mu_0$:\n\n$$H_0: \\mu = \\mu_0 \\qquad H_1: \\mu \\neq \\mu_0$$\n\nVi tester altså en påstand om hele populasjonen ved hjelp av ett utvalg."
+    },
+    {
+      "id": "psy1010-4-1-mu-tekst",
+      "type": "text",
+      "content": "**Hvorfor μ og ikke utvalgssnittet?** Utvalgssnittet ($\\bar{x}$) *vet* vi allerede — vi har jo regnet det ut. Å teste en påstand om et tall vi kjenner, gir ingen mening. Poenget med en test er å slutte fra det vi ser (utvalget) til det vi ikke ser (populasjonen $\\mu$). Å formulere hypotesen om utvalget er en fast eksamensfelle (**feil #12** — vi glosser feilkodene ved første bruk; hele registeret står i kap. 8.6)."
+    },
+    {
+      "id": "psy1010-4-1-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc1-e",
+        "number": "4.1.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T2 — hypotesetestingsoppgaven. Lett innstegsoppgave: bare formulere hypotesene.)*\n\nEn konsentrasjonstest er normert slik at befolkningsgjennomsnittet er $\\mu_0 = 50$. En forsker vil undersøke om en gruppe som har fått koffein, skårer *annerledes* enn normen — uten å ha en formening om retning på forhånd.\n\n**a)** Skriv $H_0$ og $H_1$ med μ-notasjon.\n**b)** Hva er det som faktisk testes, $H_0$ eller $H_1$?",
+        "solution": "**a)** $H_0: \\mu = 50$ (koffeingruppen skiller seg ikke fra normen i populasjonen). $H_1: \\mu \\neq 50$ (den skiller seg — i en eller annen retning).\n\n**b)** Det er **$H_0$** som testes. Vi spør hvor usannsynlig det observerte resultatet er *hvis $H_0$ er sann*, og forkaster $H_0$ hvis det blir usannsynlig nok. Vi «beviser» aldri $H_1$ direkte — vi tilbakeviser $H_0$. Merk at hypotesene gjelder $\\mu$ (populasjonen), ikke utvalgssnittet.",
+        "hints": [
+          "$H_0$ er alltid likhet ($\\mu = 50$); $H_1$ er det forskeren egentlig lurer på.",
+          "«Annerledes, uten retning» ⟹ bruk $\\neq$, ikke > eller <.",
+          "Tenk rettssak: det er uskyldsantakelsen ($H_0$) som stilles for retten."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-def-en-tohalet",
+      "type": "definition",
+      "title": "Tohalet og enhalet test",
+      "content": "En **tohalet (toveis) test** har ikke-retningsbestemt $H_1: \\mu \\neq \\mu_0$ — den fanger avvik i *begge* retninger. Dette er standardvalget.\n\nEn **enhalet (enveis) test** har retningsbestemt $H_1: \\mu > \\mu_0$ (eller $<$) — den ser bare etter avvik i *én* retning. Enhalet test er mer «sjenerøs» (lettere å få signifikans), men **krever en faglig begrunnelse for retningen på forhånd** — ellers er den en felle (**feil #11**). Å velge enhalet *etter* å ha sett dataene er ikke tillatt.\n\nFor samme resultat er enhalet p **halvparten** av den tohalede: er tohalet $p = 0{,}072$, er enhalet $p = 0{,}036$."
+    },
+    {
+      "id": "psy1010-4-1-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc2-e",
+        "number": "4.1.2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T2 — en-/tohalet-skillet, differensieringsledd V2024.)*\n\nEn forsker har god teoretisk grunn til å tro at et nytt lesetreningsopplegg gir *høyere* skår enn normen $\\mu_0 = 100$, og formulerer en retningsbestemt hypotese.\n\n**a)** Skriv $H_0$ og $H_1$.\n**b)** Er dette lov? Hva må til for at en enhalet test skal være tillatt?",
+        "solution": "**a)** $H_0: \\mu = 100$ (eller $\\mu \\leq 100$). $H_1: \\mu > 100$ (opplegget gir høyere skår).\n\n**b)** Ja, dette er lov — *fordi* retningen er begrunnet i teori **før** dataene ble sett. En enhalet test krever en slik forhåndsbegrunnelse. Å velge enhalet i etterkant, bare fordi det gir en mindre p-verdi, er feil #11 (retningsbestemt $H_1$ uten begrunnelse) og trekker på eksamen.",
+        "hints": [
+          "Retning «høyere» ⟹ bruk $>$ i $H_1$.",
+          "Spørsmålet er ikke *om* det er lov, men *når* — hva rekkefølgen (begrunnelse før data) betyr.",
+          "Enhalet er tillatt kun med faglig forhåndsbegrunnelse for retningen."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Trinnene i en nullhypotesetest (~16 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-1-thm-trinn",
+      "type": "theorem",
+      "title": "De fem trinnene i nullhypotesetesting",
+      "content": "Hver hypotesetest følger de samme trinnene:\n\n1. **Formuler hypotesene** $H_0$ og $H_1$ om populasjonen ($\\mu$) — velg to- eller enhalet (sistnevnte krever begrunnelse).\n2. **Velg signifikansnivå $\\alpha$** (den greske bokstaven «alfa») — konvensjonelt $0{,}05$, av og til det strengere $0{,}01$. $\\alpha$ er hvor stor risiko for falsk alarm vi godtar.\n3. **Velg og utfør testen** (t-test, ANOVA … — hvilken kommer i [kap. 4.3](/bok/psy1010/psy1010-4-3)) og beregn testobservatoren.\n4. **Finn p-verdien** — sannsynligheten for et minst like ekstremt resultat gitt at $H_0$ er sann (leses fra utvalgsfordelingen).\n5. **Konkluder:** forkast $H_0$ hvis $p \\leq \\alpha$; behold ellers. En forkastning betyr «effekten er trolig ekte»; å beholde $H_0$ er *ikke* bevis for at effekten mangler.\n\nPå eksamen oppgis som regel p — jobben din er trinn 1, 2 og 5, og å *tolke* riktig."
+    },
+    {
+      "id": "psy1010-4-1-indirekte",
+      "type": "text",
+      "content": "**Hvorfor logikken er indirekte.** Legg merke til at vi aldri regner ut «sannsynligheten for at $H_1$ er sann». Vi antar $H_0$, ser hvor rart resultatet blir *under den antakelsen*, og forkaster $H_0$ hvis det blir rart nok. Det er en bevisføring ved selvmotsigelse: «hvis det ikke var noen effekt, ville dette resultatet vært svært usannsynlig — altså tror vi det er en effekt». Denne indirektheten er kilden til de fleste tolkningsfeilene i neste løkke."
+    },
+    {
+      "id": "psy1010-4-1-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc3-e",
+        "number": "4.1.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — gjør rede for trinnene, standardledd i 19 av 29 sett.)*\n\nEt utvalg på $n = 64$ tar en normert stresstest der befolkningssnittet er $\\mu_0 = 50$ og $SD = 8$. Utvalget får gjennomsnitt $\\bar{x} = 52$. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Formuler $H_0$ og $H_1$ (tohalet).\n**b)** Regn ut $SE$, og forklar hvorfor $SE$ er relevant her.\n**c)** Sett opp de fem trinnene og si hva som gjenstår før du kan konkludere.",
+        "solution": "**a)** $H_0: \\mu = 50$; $H_1: \\mu \\neq 50$.\n\n**b)** $SE = \\dfrac{8}{\\sqrt{64}} = \\dfrac{8}{8} = 1{,}0$. **Tolkning:** utvalgsgjennomsnitt av 64 personer varierer typisk med bare 1,0 poeng rundt $\\mu$. Den observerte differansen (52 − 50 = 2 poeng) er altså *2 standardfeil* — vi måler avviket mot hvor mye slike snitt normalt spriker. $SE$ er relevant fordi p-verdien leses fra utvalgsfordelingen, hvis spredning nettopp er $SE$.\n\n**c)** Trinnene: (1) hypotesene over; (2) velg $\\alpha$, f.eks. 0,05; (3) utfør test (her en z-/t-test mot normen); (4) finn p fra utvalgsfordelingen; (5) konkluder. Det som gjenstår, er å få p-verdien og sammenligne den mot $\\alpha$ — det gjør vi i neste løkke.",
+        "hints": [
+          "$SE = SD/\\sqrt{n}$; $\\sqrt{64} = 8$.",
+          "Avviket 52 − 50 = 2 poeng skal ses *relativt til* SE.",
+          "Trinn 4–5 (p mot α) er det som mangler før en konklusjon."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — p-verdien: den ene definisjonen som må sitte (~20 min)\n\n*— naturlig pausepunkt — dette er kapitlets viktigste del —*"
+    },
+    {
+      "id": "psy1010-4-1-def-p",
+      "type": "definition",
+      "title": "p-verdien (korrekt definisjon)",
+      "content": "**p-verdien er sannsynligheten for å få et resultat minst like ekstremt som det observerte, GITT at $H_0$ er sann.**\n\nLegg merke til den siste leddet — «gitt at $H_0$ er sann». p er en sannsynlighet regnet ut *under antakelsen om at nullhypotesen stemmer*. Den sier hvor overraskende dataene er i en verden uten effekt.\n\np er **ikke** sannsynligheten for at $H_0$ er sann, og **ikke** sannsynligheten for at $H_0$ er feil. Hypotesen er enten sann eller ikke — det er dataene som er tilfeldige, ikke hypotesen. p måler hvor rare dataene er *hvis* $H_0$ holder."
+    },
+    {
+      "id": "psy1010-4-1-warning-pverdi",
+      "type": "warning",
+      "title": "Feil #1 — den p-verdi-feilen sensor trekker for (korrekt vs. galt)",
+      "content": "Dette er bokas viktigste før/etter-drill. Sensorveiledningen for H2018 har en **eksplisitt trekk-instruks** for den gale formuleringen. Lær forskjellen utenat:\n\n**❌ GALT:** «p = 0,03 betyr at det er 3 % sannsynlig at $H_0$ er sann/riktig.»\n\n**❌ GALT:** «p = 0,03 betyr at det er 97 % sannsynlig at $H_1$ er sann.»\n\n**✔ RIKTIG:** «p = 0,03 betyr at *hvis* $H_0$ var sann, ville vi fått et resultat minst så ekstremt som dette bare 3 % av gangene. Det er så sjelden at vi forkaster $H_0$ ved α = 0,05.»\n\nHele forskjellen ligger i *hva* sannsynligheten gjelder: p er sannsynligheten for **dataene gitt hypotesen**, ikke for **hypotesen gitt dataene**. Å bytte om de to er logisk feil (som å forveksle «sannsynligheten for våte gater hvis det regner» med «sannsynligheten for regn hvis gatene er våte»)."
+    },
+    {
+      "id": "psy1010-4-1-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc4-e",
+        "number": "4.1.4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — p-definisjonen, bokas viktigste enkeltmoment.)*\n\nEn kandidat skriver: «Vi fikk p = 0,02. Det betyr at det er bare 2 % sjanse for at nullhypotesen er riktig, så vi kan være 98 % sikre på at behandlingen virker.»\n\n**a)** Hvilken feil har kandidaten gjort? Nevn feilkoden.\n**b)** Skriv en korrekt tolkning av p = 0,02.",
+        "solution": "**a)** Kandidaten har begått **feil #1** — å tolke p som sannsynligheten for at $H_0$ er sann/feil. p er ikke en sannsynlighet *for hypotesen*; den er en sannsynlighet *for dataene gitt hypotesen*. «98 % sikre på at behandlingen virker» følger heller ikke — p sier ingenting om sannsynligheten for $H_1$.\n\n**b)** **Korrekt:** «p = 0,02 betyr at *hvis $H_0$ (ingen effekt) var sann*, ville vi fått et resultat minst så ekstremt som det observerte bare 2 % av gangene. Siden 0,02 < α = 0,05, forkaster vi $H_0$ og konkluderer at det trolig er en effekt — men p tallfester ikke hvor sannsynlig hypotesen er.»",
+        "hints": [
+          "Se etter formuleringen «sjanse for at nullhypotesen er riktig».",
+          "p er sannsynligheten for *dataene* gitt $H_0$ — ikke for hypotesen.",
+          "Korrekt tolkning må inneholde leddet «gitt at $H_0$ er sann»."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Å tolke oppgitte p-verdier: α-skifte og halvering (~16 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-4-1-text-alpha",
+      "type": "text",
+      "content": "På eksamen får du som regel p oppgitt og skal *konkludere*. Regelen er enkel: **forkast $H_0$ hvis $p \\leq \\alpha$, behold ellers.** Men to grep skiller A- fra C-besvarelsene:\n\n1. **α-skiftet:** en p som ligger *mellom* 0,01 og 0,05 (f.eks. 0,048 eller 0,017) snur konklusjon når du bytter fra α = 0,05 til det strengere α = 0,01. Slike «vippeverdier» er faste deloppgaveledd.\n2. **Halveringen:** enhalet p er halvparten av tohalet. En tohalet $p = 0{,}072$ (behold ved 0,05) blir enhalet $p = 0{,}036$ (forkast ved 0,05) — men bare hvis retningen var begrunnet på forhånd.\n\nOg husk: **signifikans ≠ viktighet**. At $p < \\alpha$ sier «forskjellen er trolig ekte», ikke «forskjellen er stor eller viktig». Konvensjonsgrensen 0,05 er dessuten nettopp det — en konvensjon; 0,049 og 0,051 er praktisk talt like sterke resultater."
+    },
+    {
+      "id": "psy1010-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel — å konkludere ved to α-nivåer og ved en-/tohalet",
+      "problem": "En studie tester om en app senker eksamensangst. Tohalet test gir oppgitt $p = 0{,}017$.\n\n**a)** Konkluder ved $\\alpha = 0{,}05$ og ved $\\alpha = 0{,}01$.\n**b)** Anta i stedet at forskeren hadde en begrunnet retningshypotese (appen *senker* angst) og gjorde en enhalet test. Hva ville enhalet p bli, og hva endrer det?",
+      "solution": "**a)** Ved $\\alpha = 0{,}05$: $0{,}017 < 0{,}05$ ⟹ **forkast $H_0$** — resultatet er signifikant. Ved det strengere $\\alpha = 0{,}01$: $0{,}017 > 0{,}01$ ⟹ **behold $H_0$** — nå er det ikke signifikant. Dette er en typisk «vippeverdi»: samme data, ulik konklusjon avhengig av α-nivået vi setter *på forhånd*.\n\n**b)** Enhalet p er halvparten: $0{,}017 / 2 = 0{,}0085$. Nå er $0{,}0085 < 0{,}01$, så resultatet ville vært signifikant også ved det strenge α = 0,01. **Men** dette gjelder kun fordi retningen var begrunnet før dataene ble sett — ellers er halveringen ikke tillatt (feil #11).\n\n**Tolkning i ord:** p forteller hvor uvanlig resultatet er under $H_0$. Om vi kaller det «signifikant» avhenger av terskelen α *og* av om testen var én- eller tohalet — begge valg må gjøres før dataene ses."
+    },
+    {
+      "id": "psy1010-4-1-exc5",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc5-e",
+        "number": "4.1.5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T2 — tolk oppgitt p ved α-skifte, gjenganger.)*\n\nEn tohalet test av et nytt søvnråd gir oppgitt $p = 0{,}048$.\n\n**a)** Konkluder ved $\\alpha = 0{,}05$.\n**b)** Konkluder ved $\\alpha = 0{,}01$.\n**c)** Betyr en signifikant p her at effekten er stor og viktig? Forklar.",
+        "solution": "**a)** $0{,}048 < 0{,}05$ ⟹ **forkast $H_0$**. Resultatet er (akkurat) signifikant ved 5 %-nivået.\n\n**b)** $0{,}048 > 0{,}01$ ⟹ **behold $H_0$**. Ved det strengere nivået er resultatet ikke signifikant. Dette er en klar vippeverdi — den ligger like under 0,05 men langt over 0,01.\n\n**c)** **Nei.** Signifikans ($p < \\alpha$) sier bare at forskjellen trolig er ekte, ikke at den er stor eller praktisk viktig. En liten, uviktig effekt kan bli signifikant med stort nok utvalg (fordi $SE$ krymper med $\\sqrt{n}$, jf. [kap. 3.4](/bok/psy1010/psy1010-3-4)). Man bør derfor rapportere effektstørrelsen i tillegg til p.",
+        "hints": [
+          "Sammenlign p direkte mot hvert α-nivå.",
+          "En vippeverdi (mellom 0,01 og 0,05) snur konklusjon ved α-skiftet.",
+          "For (c): signifikans svarer på «trolig ekte?», ikke «stor nok til å bry seg om?»."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-exc6",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-4-1-exc6-e",
+        "number": "4.1.6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T2 — full mønsterklon (krevende): hypoteser, trinn, α-skifte og enhalet-drøfting.)*\n\nEn konsentrasjonstest har befolkningssnitt $\\mu_0 = 50$. Et nytt utvalg på $n = 64$ personer som har fått en pausetrening, får $\\bar{x} = 52$ med $SD = 8$. Tohalet test gir oppgitt $p = 0{,}046$. Bruk $SE = \\frac{SD}{\\sqrt{n}}$.\n\n**a)** Formuler $H_0$ og $H_1$ (tohalet), og regn $SE$.\n**b)** Gjør rede for de fem trinnene og konkluder ved $\\alpha = 0{,}05$.\n**c)** Hva ville en enhalet test (begrunnet retning: pausetrening *hever* skår) endret? Regn enhalet p og konkluder ved både 0,05 og 0,01.\n**d)** Hva må til for at den enhalede testen skal være faglig forsvarlig?",
+        "solution": "**a)** $H_0: \\mu = 50$; $H_1: \\mu \\neq 50$. $SE = \\dfrac{8}{\\sqrt{64}} = \\dfrac{8}{8} = 1{,}0$. Differansen 52 − 50 = 2 poeng er altså 2 standardfeil.\n\n**b)** Trinn: (1) hypotesene over; (2) $\\alpha = 0{,}05$; (3) test mot normen via utvalgsfordelingen (spredning $SE = 1{,}0$); (4) oppgitt $p = 0{,}046$; (5) $0{,}046 < 0{,}05$ ⟹ **forkast $H_0$**. **Tolkning:** hvis pausetreningen ikke hadde noen effekt, ville vi fått et snitt minst 2 poeng unna normen bare ~4,6 % av gangene — sjeldent nok til å tro på en ekte effekt i populasjonen.\n\n**c)** Enhalet $p = 0{,}046 / 2 = 0{,}023$. Ved $\\alpha = 0{,}05$: $0{,}023 < 0{,}05$ ⟹ forkast. Ved $\\alpha = 0{,}01$: $0{,}023 > 0{,}01$ ⟹ behold. Den enhalede testen er «mildere» og gir signifikans lettere ved 0,05, men vipper fortsatt over ved 0,01.\n\n**d)** Retningen (pausetrening *hever* skår) må være begrunnet i teori/tidligere funn **før** dataene ble sett. Velges enhalet i etterkant bare for å presse p under grensen, er det feil #11 — og halveringen er da ikke tillatt.",
+        "hints": [
+          "Start med $SE = 8/\\sqrt{64}$; se differansen relativt til den.",
+          "Enhalet p er alltid tohalet p delt på 2 — men bare med forhåndsbegrunnet retning.",
+          "For (d): nøkkelen er *rekkefølgen* — begrunnelse før data, aldri etter."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-4-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Feil #1 — p som «sannsynligheten for at $H_0$ er feil».** Den ene feilen sensor har eksplisitt trekk-instruks for (H2018). p er sannsynligheten for *dataene* gitt $H_0$, ikke for hypotesen. Se den egne før/etter-boksen over.\n\n**Feil #11 — retningsbestemt $H_1$ uten begrunnelse.** Å velge enhalet test (og halvere p) uten faglig forhåndsbegrunnelse for retningen. Enhalet er kun tillatt når retningen er begrunnet *før* dataene ble sett.\n\n**Feil #12 — hypoteser om utvalgsverdier.** Å skrive $H_0: \\bar{x} = 50$ i stedet for $H_0: \\mu = 50$. Hypotesene gjelder alltid populasjonen ($\\mu$) — utvalgssnittet kjenner vi allerede.\n\n**«Ikke signifikant» = bevis for $H_0$.** Å beholde $H_0$ betyr *ikke* at effekten er fraværende — bare at vi ikke fant sterke nok bevis. Fravær av bevis er ikke bevis på fravær.\n\n**Signifikans = viktighet.** At $p < \\alpha$ sier «trolig ekte», ikke «stor/viktig». Rapporter effektstørrelse i tillegg."
+    },
+    {
+      "id": "psy1010-4-1-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — hypotesetesting\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-4-1-def-bank-1",
+      "type": "definition",
+      "title": "H0 og H1 med μ",
+      "content": "**$H_0$:** ingen effekt i populasjonen, $\\mu = \\mu_0$ (uskyldsantakelsen, det som testes). **$H_1$ (Ha):** det finnes en effekt, $\\mu \\neq \\mu_0$ (ev. > / <). Begge gjelder **populasjonsgjennomsnittet $\\mu$**, aldri utvalgssnittet."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-2",
+      "type": "definition",
+      "title": "Signifikansnivået α",
+      "content": "$\\alpha$ er terskelen p sammenlignes mot — konvensjonelt 0,05, av og til 0,01. Det er også risikoen for en **Type I-feil** (falsk alarm — dybde i [kap. 4.2](/bok/psy1010/psy1010-4-2)). α velges *før* dataene ses; grensen er en konvensjon, ikke en naturlov."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-3",
+      "type": "definition",
+      "title": "Beslutningsregelen",
+      "content": "Forkast $H_0$ hvis $p \\leq \\alpha$; behold ellers. Å forkaste betyr «effekten er trolig ekte». Å beholde betyr *ikke* at $H_0$ er bevist — bare at bevisene ikke var sterke nok."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-4",
+      "type": "definition",
+      "title": "Utvalgsfordelingen som p bygger på",
+      "content": "p leses fra utvalgsfordelingen — fordelingen av tenkte gjentatte utvalgsgjennomsnitt (jf. [kap. 3.3](/bok/psy1010/psy1010-3-3)). Dens spredning er standardfeilen $SE$. Uten utvalgsfordelingen finnes ingen p — dette er en A-markør å nevne."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-5",
+      "type": "definition",
+      "title": "«Gitt at H0 er sann»-leddet",
+      "content": "Kjernen i p-definisjonen: p er en *betinget* sannsynlighet — sannsynligheten for dataene *forutsatt* at $H_0$ holder. Uten dette leddet blir tolkningen feil #1."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-6",
+      "type": "definition",
+      "title": "Tohalet vs. enhalet",
+      "content": "**Tohalet:** $H_1: \\mu \\neq \\mu_0$ (avvik begge veier — standard). **Enhalet:** $H_1: \\mu > \\mu_0$ eller $<$ (én retning, krever begrunnelse før data). Enhalet p = tohalet p / 2."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-7",
+      "type": "definition",
+      "title": "Vippeverdier",
+      "content": "En p mellom 0,01 og 0,05 (f.eks. 0,048, 0,017) gir signifikans ved α = 0,05 men ikke ved α = 0,01. Å snu konklusjonen ved α-skifte er et fast deloppgaveledd."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-8",
+      "type": "definition",
+      "title": "Signifikans ≠ viktighet",
+      "content": "$p < \\alpha$ sier at forskjellen trolig er ekte, ikke at den er stor eller praktisk viktig. Store utvalg gjør små, uviktige effekter signifikante (liten $SE$). Rapporter alltid effektstørrelse i tillegg."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-9",
+      "type": "definition",
+      "title": "Indirekte bevisføring",
+      "content": "Vi tester $H_0$, ikke $H_1$: antar «ingen effekt», ser om dataene blir usannsynlige under den antakelsen, og forkaster $H_0$ hvis de blir det. Vi «beviser» aldri $H_1$ direkte."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-10",
+      "type": "definition",
+      "title": "«Ikke signifikant» betyr ikke «ingen effekt»",
+      "content": "Å beholde $H_0$ er fravær av bevis, ikke bevis på fravær. En ikke-signifikant test kan skyldes en ekte, men liten effekt, eller for lite utvalg (lav power — [kap. 4.2](/bok/psy1010/psy1010-4-2))."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-11",
+      "type": "definition",
+      "title": "μ vs. x̄ i hypoteser",
+      "content": "Hypotesene handler om populasjonssnittet $\\mu$ (ukjent), ikke om utvalgssnittet $\\bar{x}$ (kjent). Å skrive $H_0: \\bar{x} = 50$ er feil #12 — vi tester det vi ikke vet, ikke det vi har målt."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-12",
+      "type": "definition",
+      "title": "Konvensjonens vilkårlighet",
+      "content": "α = 0,05 er en konvensjon, ikke en naturlov. p = 0,049 og p = 0,051 er nesten identisk sterke resultater, selv om det ene «passerer» og det andre ikke. En A-kandidat nevner dette."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-13",
+      "type": "definition",
+      "title": "Testobservator",
+      "content": "Et tall (t, F, z …) som oppsummerer hvor langt dataene ligger fra det $H_0$ forutsier, målt i standardfeil-enheter. Stor testobservator ⟹ liten p. Hvilken observator kommer an på testvalget ([kap. 4.3](/bok/psy1010/psy1010-4-3))."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-14",
+      "type": "definition",
+      "title": "Trinnene i en test",
+      "content": "1) formuler $H_0$/$H_1$ om $\\mu$; 2) velg $\\alpha$; 3) velg og utfør test; 4) finn p fra utvalgsfordelingen; 5) forkast hvis $p \\leq \\alpha$. På eksamen oppgis ofte p — tolkningen er jobben din."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-15",
+      "type": "definition",
+      "title": "p er ikke P(H0)",
+      "content": "p er **ikke** sannsynligheten for at $H_0$ er sann, og **ikke** for at den er feil. Hypotesen er sann eller ikke; det er dataene som er tilfeldige. Å bytte om «data gitt hypotese» og «hypotese gitt data» er feil #1."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-16",
+      "type": "definition",
+      "title": "Enhalet krever forhåndsbegrunnelse",
+      "content": "En enhalet test er kun tillatt når retningen er begrunnet i teori/tidligere funn *før* dataene ses. Velges den i etterkant for å presse p under grensen, er det feil #11."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-17",
+      "type": "definition",
+      "title": "Falsifiserbarhet i H0-logikken",
+      "content": "Nullhypotesetesting er et falsifiseringsapparat: vi kan forkaste (falsifisere) $H_0$, men aldri «bevise» den. Derfor beholder vi $H_0$ heller enn å akseptere den."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-18",
+      "type": "definition",
+      "title": "Effektstørrelse",
+      "content": "Et mål på hvor *stor* en effekt er (f.eks. selve differansen, eller standardiserte mål), uavhengig av utvalgsstørrelse. Supplerer p: p sier «ekte?», effektstørrelsen sier «hvor mye?»."
+    },
+    {
+      "id": "psy1010-4-1-def-bank-19",
+      "type": "definition",
+      "title": "Alfa som Type I-risiko",
+      "content": "Ved å sette α = 0,05 aksepterer vi 5 % risiko for å forkaste en sann $H_0$ (falsk alarm). Et strengere α (0,01) reduserer denne risikoen, men gjør det vanskeligere å oppdage ekte effekter (bro til [kap. 4.2](/bok/psy1010/psy1010-4-2))."
+    },
+    {
+      "id": "psy1010-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 4.1",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-4-1-rep-txt",
+          "type": "text",
+          "content": "**Trinnene:** 1) $H_0$/$H_1$ om $\\mu$ (tohalet, ev. begrunnet enhalet) → 2) velg $\\alpha$ → 3) velg/utfør test → 4) finn p fra utvalgsfordelingen → 5) forkast hvis $p \\leq \\alpha$.\n\n**p-verdien (må sitte):** sannsynligheten for et minst like ekstremt resultat **gitt at $H_0$ er sann**. IKKE sannsynligheten for at $H_0$ er sann/feil (feil #1 — trekk-instruks).\n\n**A-skiller:** hypoteser om $\\mu$ (ikke $\\bar{x}$); begrunnet enhalet (halverer p); snu konklusjon ved α-skifte (vippeverdier); signifikans ≠ viktighet; α er en konvensjon.\n\n**Framover:** [kap. 4.2](/bok/psy1010/psy1010-4-2) tar de to feiltypene (Type I/II) og power; [kap. 4.3](/bok/psy1010/psy1010-4-3) tar *hvilken* test du skal velge."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-4-1-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$ | populasjonsgjennomsnitt (det hypotesene gjelder) |\n| $\\mu_0$ | den kjente normen/verdien $H_0$ setter $\\mu$ lik |\n| $\\bar{x}$ | utvalgsgjennomsnitt (det vi måler) |\n| $H_0, H_1$ | null- og alternativhypotese ($H_1$ også skrevet $H_a$) |\n| $\\alpha$ | signifikansnivå / Type I-risiko (ofte 0,05) |\n| $p$ | p-verdi: sannsynlighet for minst like ekstremt resultat gitt $H_0$ |\n| $SE$ | standardfeil $= SD/\\sqrt{n}$ (utvalgsfordelingens spredning) |\n| $SD$ | standardavvik i utvalget |\n| $n$ | utvalgsstørrelse |\n\n**Formler i dette delkapitlet:**\n\n$$H_0: \\mu = \\mu_0 \\qquad H_1: \\mu \\neq \\mu_0 \\;(\\text{ev. } >,\\, < \\text{ med begrunnelse})$$\n\n$$SE = \\frac{SD}{\\sqrt{n}} \\qquad \\text{(standardfeilen — utvalgsfordelingens spredning, fra kap. 3.3)}$$\n\n$$\\text{Beslutning: forkast } H_0 \\text{ hvis } p \\leq \\alpha \\qquad \\text{(enhalet } p = \\text{tohalet } p / 2)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

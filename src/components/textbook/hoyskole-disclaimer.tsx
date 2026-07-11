@@ -32,8 +32,13 @@ function erJus(courseId: string, title: string): boolean {
 }
 
 function erHelse(courseId: string, title: string): boolean {
-  return /sykepl|medisin|farmako|anatomi|fysiologi|helse|psykolog/i.test(
-    `${courseId} ${title}`
+  // ^psy fanger psykologi-emnekodene (PSY1010, PSYC1201 …) der tittelen
+  // ikke inneholder «psykologi» (f.eks. «Innføring i metode»).
+  return (
+    /^psy/i.test(courseId) ||
+    /sykepl|medisin|farmako|anatomi|fysiologi|helse|psykolog|odontolog|tannlege/i.test(
+      `${courseId} ${title}`
+    )
   );
 }
 

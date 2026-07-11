@@ -375,7 +375,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | Felles avsluttende deleksamen i medisin (nasjonal, UiO) | fakta/klinisk beslutning | skjelett |
 | MFFAGPR Fagprøven for leger utdannet utenfor EU/EØS (UiO) | fakta/klinisk beslutning | skjelett |
 | PSY1000 Innføring i generell psykologi (UiO) | drøfting/fakta-hybrid | skjelett |
-| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | skjelett |
+| PSY1010 Innføring i metode (UiO) | drøfting/hybrid | **bok** (live) |
 | PSYC1201 Sosialpsykologi (UiO) | fakta-forklaring-hybrid | skjelett |
 | MRK 3481 Forbrukerpsykologi (BI) | drøfting/fakta-hybrid | skjelett |
 | SOK1002 Mikroøkonomi (NTNU) | regnefag | skjelett |

@@ -1,0 +1,317 @@
+{
+  "id": "psy1010-7-2",
+  "courseId": "psy1010",
+  "chapterNumber": "7.2",
+  "title": "Åpen vitenskap, kunnskapsoppsummering og restbegrepsbanken",
+  "description": "HARKing, pre-registrering og p-hacking — det nye programfestede stoffet — pluss review vs. meta-analyse, fagfellevurdering og restbegrepene (kappa, Likert, takeffekt, konfidensintervall, Bayes) som er billige å ha dekket.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "diagnostisere HARKing og p-hacking og forklare hvorfor de bryter hypotesetestingens logikk",
+    "forklare hvordan pre-registrering forebygger etterkant-endring og skiller konfirmerende fra eksplorative analyser",
+    "kontrastere oversiktsartikkel (review) og meta-analyse og gjøre rede for felles fallgruver",
+    "kjenne restbegrepene (Cohens kappa, Likert, sensitivitet/takeffekt, konfidensintervall, Bayes, fagfellevurdering) til flervalgsberedskap"
+  ],
+  "content": [
+    {
+      "id": "psy1010-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**To ting bor i dette kapitlet: det nyeste stoffet på eksamen, og det billigste.**\n\n- **Åpen vitenskap** (HARKing, pre-registrering, p-hacking) er *helt nytt og programfestet* — introdusert i **V2025**. Sensorveiledningen ga eksplisitt trekk for å antyde at det er greit å endre hypotesen etter at man har sett dataene, uten åpenhet. Prioritet: **kunne** (stigende).\n- **Review vs. meta-analyse** er spurt i **3 sett** (V2012, V2016 og tilbake i V2025). Et rent nabobegrep-par sensor liker å teste.\n- **Restbegrepsbanken** (kappa, Likert, sensitivitet/takeffekt, konfidensintervall, fagfellevurdering, Bayes) er *kjenne-nivå* — sjelden hovedstoff, men billig flervalgs- og deloppgavedekning. Prioritet: **kjenne**.\n- Sjangrene her er hypotesetestingsoppgaven med en åpen-vitenskap-hale (i boka **T2**) og den brede prosessoppgaven (**T8**) — se [kap. 0.1](/bok/psy1010/psy1010-0-1).\n- **Fellen:** åpen vitenskap som *honnørord* uten mekanismene, og å blande review med meta-analyse. Beslektet med feilkode **#16** (fagbegrepene mangler — oppslagsnummer i feilregisteret, samlet i [kap. 8.6](/bok/psy1010/psy1010-8-6) i eksamenstreningen, Del 8).\n\nMål: at du kan diagnostisere HARKing, forklare hvordan pre-registrering forebygger det, kontrastere review og meta-analyse, og ha restbegrepene klare til flervalg.\n\n*Tidsbruk: ~50 minutter, delt i to løkker med pausepunkt. Anslaget gjelder kjernestoffet (åpen vitenskap + review/meta); restbegrepsbanken nederst er repetisjon.*"
+    },
+    {
+      "id": "psy1010-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Åpen vitenskap-delen hviler på hypotesetestingens logikk fra Del 4 — særlig at hypotesen skal formuleres *før* dataene og at en p-verdi tolkes mot et forhåndsvalgt signifikansnivå. Del 4 bygges parallelt; er du usikker på «gitt at H0 er sann»-premisset og hva en p-verdi er, les hypotesetestingskapitlet først (Del 4, hypotesetesting og testvalg). Kappa-minieksemplet bygger på interrater-reliabilitet fra **[kap. 1.3](/bok/psy1010/psy1010-1-3)**, og konfidensintervall-setningen på standardfeil fra deskriptiv-/slutningsdelen (Del 3, slutningslogikk). Etikkforankringen deles med **[kap. 7.1](/bok/psy1010/psy1010-7-1)**."
+    },
+    {
+      "id": "psy1010-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-7-2-symbolliste-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P_o$ | Observert andel enighet mellom to bedømmere |\n| $P_c$ | Forventet enighet ved ren tilfeldighet |\n| $K$ (Cohens kappa) | Enighet korrigert for tilfeldig enighet |\n| $p$ | p-verdi — sannsynligheten for et resultat minst så ekstremt *gitt at H0 er sann* (Del 4) |\n| SE | Standardfeil — presisjonen i et estimat (Del 3) |\n\n**Formler i dette delkapitlet:**\n\n$$K = \\frac{P_o - P_c}{1 - P_c}$$\n\nCohens kappa: hvor mye to bedømmere er enige *utover* det man ville ventet ved ren tilfeldighet. $K = 1$ er perfekt enighet, $K = 0$ er enighet bare på tilfeldighetsnivå. Formelen oppgis alltid på eksamen — du skal kunne *tolke* og eventuelt sette inn i den, ikke huske den utenat.\n\n**Konfidensintervall (én setning):** et 95 %-konfidensintervall er omtrent estimatet $\\pm 1{,}96 \\cdot \\text{SE}$ — et presisjonsintervall rundt estimatet (kobling til $\\pm 1{,}96 \\leftrightarrow 95\\,\\%$ fra slutningslogikken i Del 3)."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Åpen vitenskap: HARKing, pre-registrering og p-hacking (~25 min)\n\nTenk deg at du gjetter på et kortspill *etter* at kortet er snudd, og så sier: «Jeg visste det!» Alle skjønner at det ikke teller — du så svaret først. Nøyaktig det samme problemet rammer forskning når hypotesen tilpasses dataene i etterkant. Dette er kjernen i **åpen vitenskap**, det nyeste programfestede stoffet på PSY1010-eksamen (V2025), og logikken henger direkte på hypotesetestingen fra Del 4: en p-verdi og en test *forutsetter* at hypotesen kom **før** dataene."
+    },
+    {
+      "id": "psy1010-7-2-ex-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-7-2-innsteg",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Lett innstegsoppgave.) En forsker hadde ingen hypotese på forhånd, kjørte 20 tester, fant én signifikant, og skrev så rapporten som om nettopp den hypotesen var planlagt fra start. Hva heter dette, kort?",
+        "solution": "Dette er **HARKing** — *Hypothesizing After the Results are Known* — å formulere hypotesen etter at man har sett resultatene, og presentere den som om den kom før. Å teste 20 ting og bare rapportere den signifikante er dessuten **p-hacking**. Begge undergraver at testlogikken forutsetter en hypotese *før* dataene.",
+        "hints": [
+          "Første grep: hva kalles det å lage hypotesen *etter* at man har sett tallene?",
+          "Tenk på kortspill-analogien: å 'gjette' etter at kortet er snudd."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-7-2-begrepsbank1-notis",
+      "type": "text",
+      "content": "Definisjonsboksene i denne løkka er kjernestoff *og* flashcard-stoff — les dem, men vit at de også dukker opp som repetisjonskort. Åpen vitenskap er stigende eksamensstoff, så disse begrepene er verdt å ha presise."
+    },
+    {
+      "id": "psy1010-7-2-def-harking",
+      "type": "definition",
+      "title": "HARKing",
+      "content": "*Hypothesizing After the Results are Known* — å formulere hypotesen **etter** at dataene er analysert, og presentere den som om den var satt opp på forhånd. Hvorfor det er galt: hypotesetestingen (Del 4) forutsetter at hypotesen kom *før* dataene — en p-verdi tolkes «gitt at H0 er sann», og det premisset brytes når hypotesen er skreddersydd til nettopp de tallene man fikk. Kontrast: et *eksplorativt* funn er helt lov — men da må det *merkes* som eksplorativt, ikke maskeres som en forhåndshypotese."
+    },
+    {
+      "id": "psy1010-7-2-def-preregistrering",
+      "type": "definition",
+      "title": "Pre-registrering",
+      "content": "At forskeren **låser hypotese, design og analyseplan offentlig FØR data samles inn** (f.eks. i et tidsstemplet register). Botemiddelet mot HARKing: fordi planen er tidsstemplet, kan hypotesen ikke i ettertid utgis for å ha vært der hele tiden. Skiller tydelig **konfirmerende** analyser (planlagt på forhånd) fra **eksplorative** (funn man snublet over — lov, men skal merkes)."
+    },
+    {
+      "id": "psy1010-7-2-def-phacking",
+      "type": "definition",
+      "title": "p-hacking",
+      "content": "Å **prøve seg fram til et signifikant resultat** — kjøre mange tester, dele opp utvalget, legge til/fjerne variabler eller stoppe innsamlingen når p tilfeldigvis er under 0,05 — og bare rapportere det som «traff». Problemet: med nok forsøk vil noe bli signifikant ved ren flaks, så p-verdien mister mening. Kontrast til HARKing: p-hacking er å *jakte* på et funn; HARKing er å *dikte* hypotesen rundt funnet i etterkant. De opptrer ofte sammen."
+    },
+    {
+      "id": "psy1010-7-2-def-publikasjonsskjevhet",
+      "type": "definition",
+      "title": "Publikasjonsskjevhet",
+      "content": "At **signifikante funn publiseres oftere** enn ikke-signifikante («null-funn»). Konsekvens: den *publiserte* litteraturen overdriver hvor sterke og sikre effekter er, fordi de negative resultatene forblir i skuffen. Sammen med p-hacking gir dette et systematisk for optimistisk bilde av et felt."
+    },
+    {
+      "id": "psy1010-7-2-ex-harking",
+      "type": "example",
+      "title": "Eksempel: diagnostiser HARKing og vis riktig håndtering",
+      "problem": "En forsker undersøker om en app bedrer søvn. Hovedanalysen viser ingen effekt, men hun oppdager at appen ser ut til å virke *bare for studenter under 25*. Hun vurderer å skrive rapporten som om «effekt hos unge» var hypotesen hele tiden, siden det gir en signifikant p-verdi. Diagnostiser og vis riktig håndtering.",
+      "solution": "**Diagnose:** Dette er **HARKing**. Hypotesen «effekt hos unge» ble til *etter* at hun så undergruppe-funnet, men skal presenteres som en forhåndshypotese. Å plukke nettopp den ene undergruppen av flere som ble signifikant, er dessuten **p-hacking** — med nok undergrupper blir noe signifikant ved flaks. V2025-trekket er å framstille etterkant-endringen som uproblematisk *uten åpenhet*.\n\n**Riktig håndtering:**\n1. **Rapporter ærlig:** hovedanalysen (planlagt, konfirmerende) viste *ingen* effekt. Det er hovedfunnet.\n2. **Merk undergruppe-funnet som eksplorativt:** «I en eksplorativ analyse så vi en mulig effekt hos deltakere under 25.» Eksplorative funn er *lov* — de er ofte kilden til nye hypoteser — men de skal *merkes*, ikke maskeres.\n3. **Pre-registrer en replikasjon:** lås hypotesen «effekt hos unge» offentlig og test den på nye data. Da blir den konfirmerende, og p-verdien får igjen mening.\n\n**Prosatolkning:** Poenget er ikke at forskeren gjorde noe galt ved å *oppdage* mønsteret — utforskning er en dyd. Det gale er å *skjule* at funnet kom i etterkant. Åpenhet om eksplorativt vs. konfirmerende er hele forskjellen. Et A-svar navngir HARKing/p-hacking *og* viser den åpne løsningen; et svar som antyder at etterkant-endring uten åpenhet er greit, får trekk."
+    },
+    {
+      "id": "psy1010-7-2-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-7-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger T2 — hypotesetesting med åpen-vitenskap-hale.) En forsker sier: «Jeg testet ikke bare det jeg trodde på forhånd — jeg kjørte flere analyser og rapporterte den som ble signifikant, det er jo effektivt.»\n\n**a)** Hvilke to problemer beskriver forskeren?\n\n**b)** Hvordan forebygger pre-registrering dem?",
+        "solution": "**a)** To problemer: **p-hacking** (å kjøre flere analyser og bare rapportere den signifikante — med nok forsøk blir noe signifikant ved flaks, så p mister mening) og et innslag av **HARKing** hvis den signifikante analysen presenteres som den planlagte hypotesen. Å rapportere selektivt gir også **publikasjonsskjevhet** på feltnivå.\n\n**b)** **Pre-registrering** låser hypotese og analyseplan offentlig *før* data samles inn. Da kan man ikke i etterkant fremstille en tilfeldig signifikant analyse som den planlagte, og skillet mellom konfirmerende (planlagt) og eksplorative (utforskende) analyser blir tydelig. Utforskning er fortsatt lov — men merkes som eksplorativ.",
+        "hints": [
+          "Første grep: hva kalles det å kjøre mange analyser og bare rapportere den som ble signifikant?",
+          "Tenk på hva som låses fast *før* data samles inn."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Review, meta-analyse og fagfellevurdering (~15 min)\n\n— naturlig pausepunkt —\n\nÉn studie er sjelden nok. Hvordan oppsummerer man hva et *helt felt* har funnet? To svar, som sensor liker å teste mot hverandre: en **oversiktsartikkel (review)** som tolker litteraturen kvalitativt, og en **meta-analyse** som kombinerer resultatene *statistisk* til ett samlet estimat. De besvarer samme spørsmål med ulik metode — og gir ofte samme svar."
+    },
+    {
+      "id": "psy1010-7-2-def-review",
+      "type": "definition",
+      "title": "Oversiktsartikkel (review)",
+      "content": "En **kvalitativ oppsummering** av forskningen på et felt: forfatteren leser, veier og tolker studiene og trekker en samlet konklusjon i ord. En *systematisk* review har eksplisitte, forhåndsbestemte kriterier for søk og seleksjon (hvilke studier tas med). Kontrast til meta-analyse: review *tolker*, meta-analyse *regner*."
+    },
+    {
+      "id": "psy1010-7-2-def-metaanalyse",
+      "type": "definition",
+      "title": "Meta-analyse",
+      "content": "En **statistisk kombinasjon** av resultatene fra mange studier til ett samlet effektestimat, der større/mer presise studier gjerne veier tyngre. Gir et tallfestet svar på «hvor stor er effekten samlet?». Kontrast: der en review oppsummerer *i ord*, kombinerer meta-analysen *i tall* — men begge er avhengige av kvaliteten på studiene som puttes inn."
+    },
+    {
+      "id": "psy1010-7-2-ex-reviewmeta",
+      "type": "example",
+      "title": "Eksempel: review vs. meta-analyse — likheter, forskjeller og fallgruver",
+      "problem": "En student skal forklare forskjellen på en oversiktsartikkel og en meta-analyse, og hvilke problemer begge deler. Skriv et fagforankret svar.",
+      "solution": "**Felles mål:** begge **oppsummerer et forskningsfelt** i stedet for å samle nye data — de svarer på «hva vet vi samlet?».\n\n**Forskjellen:** en **review** tolker studiene *kvalitativt* og konkluderer i ord; en **meta-analyse** kombinerer resultatene *statistisk* til ett samlet effektestimat. En systematisk review og en meta-analyse deler kravet om systematisk, forhåndsdefinert søk og seleksjon.\n\n**Felles fallgruver:**\n- **Kvalitetsvurdering:** dårlige studier inn gir dårlig oppsummering ut («garbage in, garbage out»).\n- **Epler og pærer:** å slå sammen studier som egentlig måler litt ulike ting.\n- **Publikasjonsskjevhet:** hvis bare signifikante studier er publisert, blir oppsummeringen for optimistisk (kobling til løkke 1).\n- **Manglende rapportering / seleksjons- og forskerbias:** hvilke studier som inkluderes kan farge konklusjonen.\n- **Overvekting av svake studier:** hvis vektingen ikke tar høyde for kvalitet.\n\n**Prosatolkning:** De to metodene gir *ofte samme svar* — men når de spriker, er det gjerne fordi meta-analysen tvinger fram tall der reviewen kunne skjule usikkerhet i ord (eller omvendt: en review fanger nyanser en ren tallkombinasjon mister). Et A-svar navngir *begge* metodene, kontrasterer kvalitativt/statistisk, og nevner minst ett delt problem."
+    },
+    {
+      "id": "psy1010-7-2-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-7-2-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger T8.) Et forskningsmiljø vil oppsummere all forskning på om en bestemt terapi virker.\n\n**a)** Forklar forskjellen på å gjøre dette som en review og som en meta-analyse.\n\n**b)** Nevn to problemer som rammer begge, og forklar hvorfor.",
+        "solution": "**a)** En **review** oppsummerer litteraturen *kvalitativt* — forfatteren leser, veier og tolker studiene og konkluderer i ord (en *systematisk* review har eksplisitte søk-/seleksjonskriterier). En **meta-analyse** kombinerer resultatene *statistisk* til ett samlet effektestimat, der mer presise studier veier tyngre. Kort: review *tolker*, meta-analyse *regner*.\n\n**b)** To av (med grunn):\n- **Publikasjonsskjevhet:** hvis bare studier med signifikant effekt er publisert, overdriver oppsummeringen effekten uansett metode.\n- **Kvalitetsvurdering («garbage in, garbage out»):** svake studier inn gir en svak samlet konklusjon.\n- **Epler og pærer:** å slå sammen studier som måler litt ulike ting kan gi et misvisende felles svar.",
+        "hints": [
+          "Første grep: den ene *tolker i ord*, den andre *kombinerer i tall*.",
+          "Tenk på hva som skjer hvis studiene som puttes inn er skjevt utvalgt eller av dårlig kvalitet."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-7-2-def-fagfellevurdering",
+      "type": "definition",
+      "title": "Fagfellevurdering (peer review)",
+      "content": "At uavhengige eksperter på feltet vurderer et manuskript **før publisering** — sjekker metode, analyse og konklusjoner og anbefaler antatt/revisjon/avvist. En kvalitetskontroll, men ikke feilfri: den fanger ikke all svindel eller p-hacking, og kan selv ha bias. Perifert stoff, men et fast kjenne-begrep (H2010-klyngen)."
+    },
+    {
+      "id": "psy1010-7-2-restbank-notis",
+      "type": "text",
+      "content": "## Restbegrepsbanken\n\n**Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet (åpen vitenskap + review/meta).** Denne banken samler *kjenne-nivå*-begreper som er billige å ha dekket til flervalg og småledd, men som sjelden er hovedstoff: Cohens kappa, Likert-skala og spørreskjemakonstruksjon, sensitivitet og tak-/gulveffekt, konfidensintervall og Bayes. Ett minieksempel (kappa) er regnet ut; resten er verbalt. Les banken minst én gang før eksamen, men ikke la den stjele tid fra kjernestoffet."
+    },
+    {
+      "id": "psy1010-7-2-ex-kappa",
+      "type": "example",
+      "title": "Minieksempel: regn og tolk Cohens kappa",
+      "problem": "To forskere klassifiserer uavhengig 50 intervjuutdrag som «bekymring til stede» eller «ikke». De er enige på 45 av 50. Forventet enighet ved ren tilfeldighet er $P_c = 0{,}60$. Regn ut Cohens kappa med $K = \\frac{P_o - P_c}{1 - P_c}$ og tolk.",
+      "solution": "**Steg 1 — observert enighet $P_o$:**\n$$P_o = \\frac{45}{50} = 0{,}90.$$\n*Intuisjon:* rå enighet er 90 % — ser høyt ut, men noe er flaks.\n\n**Steg 2 — forventet tilfeldig enighet:** oppgitt, $P_c = 0{,}60$.\n\n**Steg 3 — sett inn:**\n$$K = \\frac{0{,}90 - 0{,}60}{1 - 0{,}60} = \\frac{0{,}30}{0{,}40} = 0{,}75.$$\n\n**Prosatolkning (obligatorisk):** $K = 0{,}75$ betyr at forskerne er enige langt utover det tilfeldigheten alene skulle tilsi — av det «rommet» som var igjen etter at vi trakk fra flaks-enigheten, dekker de 75 %. Interrater-reliabiliteten er altså god. Merk at rå enighet (90 %) *overdriver* samstemtheten fordi «ikke bekymring» er vanlig og noe enighet ville kommet av flaks; kappa (0,75) gir det ærligere bildet. Formelen oppgis alltid — du skal tolke, ikke pugge."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-01",
+      "type": "definition",
+      "title": "Cohens kappa (kjenne)",
+      "content": "Enighet mellom to bedømmere korrigert for tilfeldig enighet: $K = (P_o - P_c)/(1 - P_c)$. $K=1$ perfekt, $K=0$ bare tilfeldighetsnivå. Formelen oppgis; tolkes ('enighet utover tilfeldighet'). Kobling til interrater-reliabilitet ([kap. 1.3](/bok/psy1010/psy1010-1-3))."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-02",
+      "type": "definition",
+      "title": "Likert-skala",
+      "content": "En vurderingsskala der deltakeren angir grad av enighet på trinn med *ankerpunkter* (f.eks. 1 = helt uenig … 5 = helt enig). Et *enkelt* Likert-ledd er strengt tatt ordinalt; en *sumskår* over flere ledd behandles etter konvensjon som intervall (kobling til målenivå, [kap. 1.2](/bok/psy1010/psy1010-1-2))."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-03",
+      "type": "definition",
+      "title": "Spørreskjemakonstruksjon",
+      "content": "Gode ledd er entydige, unngår doble spørsmål ('double-barreled'), ledende formuleringer og negasjoner som forvirrer. Ankerpunktene skal være balanserte. Målet er at leddene måler begrepet presist og likt for alle."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-04",
+      "type": "definition",
+      "title": "Sensitivitet (måleinstrument)",
+      "content": "En AVs evne til å fange opp *forskjeller* — et sensitivt mål skiller mellom deltakere som faktisk er ulike. Lav sensitivitet gjør at reelle effekter drukner. Ikke å forveksle med sensitivitet i diagnostisk testing."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-05",
+      "type": "definition",
+      "title": "Takeffekt",
+      "content": "Når mange deltakere skårer nær *maksimum* på et mål, slik at forskjeller på toppen ikke fanges — testen er for lett. Kalles *range effects* sammen med gulveffekt. Truer sensitiviteten."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-06",
+      "type": "definition",
+      "title": "Gulveffekt",
+      "content": "Speilbildet av takeffekt: mange skårer nær *minimum* fordi oppgaven er for vanskelig, så forskjeller i bunnen skjules. Også en range-effekt som svekker målets sensitivitet."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-07",
+      "type": "definition",
+      "title": "Konfidensintervall",
+      "content": "Et presisjonsintervall rundt et estimat; et 95 %-KI er omtrent estimatet $\\pm 1{,}96 \\cdot \\text{SE}$. Smalt intervall = presist estimat. Kobling til $\\pm 1{,}96 \\leftrightarrow 95\\,\\%$ og standardfeil fra slutningslogikken (Del 3)."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-08",
+      "type": "definition",
+      "title": "Bayesiansk tilnærming (kjenne)",
+      "content": "En alternativ statistikk-logikk der man oppdaterer sannsynligheter for hypoteser i lys av data (i stedet for å teste mot en fast H0 med p-verdier). Nevnt i pensum, aldri krevd regnet — vit at den *finnes* og kontrasterer p-verdi-logikken."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-09",
+      "type": "definition",
+      "title": "Review ↔ meta-analyse",
+      "content": "Begge oppsummerer et felt. Review *tolker kvalitativt* (i ord); meta-analyse *kombinerer statistisk* (ett effektestimat). Felles fallgruver: publikasjonsskjevhet, kvalitet, epler-og-pærer."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-10",
+      "type": "definition",
+      "title": "HARKing ↔ pre-registrering",
+      "content": "HARKing = hypotese laget etter at data er sett, utgitt for å ha vært der før. Pre-registrering = låse hypotese/analyseplan offentlig *før* data — botemiddelet. Eksplorative funn er lov, men skal merkes."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-11",
+      "type": "definition",
+      "title": "p-hacking ↔ publikasjonsskjevhet",
+      "content": "p-hacking = prøve seg fram til signifikans (mange tester, bare rapportere den som traff). Publikasjonsskjevhet = signifikante funn publiseres oftere. Sammen gir de et for optimistisk litteraturbilde."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-12",
+      "type": "definition",
+      "title": "Konfirmerende ↔ eksplorativ analyse",
+      "content": "Konfirmerende = planlagt (og gjerne pre-registrert) på forhånd; p-verdien beholder mening. Eksplorativ = utforskende funn i etterkant — lov, men *må merkes* som eksplorativt, ikke maskeres som forhåndshypotese."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-13",
+      "type": "definition",
+      "title": "Fagfellevurdering (peer review)",
+      "content": "Uavhengige eksperter vurderer et manuskript før publisering (metode, analyse, konklusjon). Kvalitetskontroll, men ikke feilfri — fanger ikke all p-hacking/svindel og kan ha egen bias."
+    },
+    {
+      "id": "psy1010-7-2-def-rb-14",
+      "type": "definition",
+      "title": "Range effects",
+      "content": "Fellesnavn på tak- og gulveffekt: når skårene klumper seg nær maks eller min, skjules reelle forskjeller og målets sensitivitet svekkes."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-harking-kort",
+      "type": "definition",
+      "title": "HARKing = hypotese etter resultatet",
+      "content": "Å formulere hypotesen *etter* at data er sett og utgi den for å ha vært satt på forhånd. Bryter testlogikkens 'hypotese før data'-premiss. Kontrast: eksplorativt funn (lov, men merkes)."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-phacking-kort",
+      "type": "definition",
+      "title": "p-hacking = jakte på signifikans",
+      "content": "Å prøve seg fram (mange tester, dele utvalget, stoppe når p<0,05) og bare rapportere det som traff. Kontrast: HARKing dikter *hypotesen* rundt funnet; p-hacking *jakter* på funnet. De opptrer ofte sammen."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-prereg-kort",
+      "type": "definition",
+      "title": "Pre-registrering = plan låst før data",
+      "content": "Hypotese, design og analyseplan låses offentlig og tidsstemplet *før* datainnsamling. Motmiddel mot HARKing; skiller konfirmerende fra eksplorativt."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-review-kort",
+      "type": "definition",
+      "title": "Review = kvalitativ oppsummering",
+      "content": "Tolker og veier litteraturen i ord; systematisk review har forhåndsdefinerte søk-/seleksjonskriterier. Kontrast: meta-analyse regner i tall."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-meta-kort",
+      "type": "definition",
+      "title": "Meta-analyse = statistisk kombinasjon",
+      "content": "Slår sammen studiers resultater til ett effektestimat, presise studier veier tyngre. Kontrast: review tolker i ord. Felles fallgruve: publikasjonsskjevhet."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-pubskjev-kort",
+      "type": "definition",
+      "title": "Publikasjonsskjevhet = null-funn i skuffen",
+      "content": "Signifikante funn publiseres oftere enn null-funn, så publisert litteratur overdriver effekter. Rammer både review og meta-analyse."
+    },
+    {
+      "id": "psy1010-7-2-def-fc-kappa-vs-po",
+      "type": "definition",
+      "title": "Kappa vs. rå enighet ($P_o$)",
+      "content": "Rå enighet $P_o$ overvurderer samstemthet fordi noe er flaks; kappa trekker fra forventet tilfeldig enighet $P_c$ og gir det ærligere tallet."
+    },
+    {
+      "id": "psy1010-7-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**V2025-trekket — etterkant-endring uten åpenhet framstilt som greit.** Å antyde at det er uproblematisk å endre hypotesen etter at man har sett dataene (uten å merke det som eksplorativt) gir eksplisitt trekk. Riktig: rapporter hovedanalysen ærlig, *merk* etterkant-funn som eksplorativt, pre-registrer en replikasjon.\n\n**Å blande review og meta-analyse.** Et klassisk nabobegrep-par: review *tolker kvalitativt*, meta-analyse *kombinerer statistisk*. Bland dem, og du bommer på et lettpoeng.\n\n**Åpen vitenskap som honnørord uten mekanismene (nær feilkode #16).** «Forskning bør være åpen og ærlig» gir null uten begrepene HARKing, pre-registrering, p-hacking, publikasjonsskjevhet. Navngi mekanismen.\n\n**Feilkode-gloss:** «feil #16» er et oppslagsnummer i bokas feilregister (moralprat/honnørord uten fagbegrep — samlet i [kap. 8.6](/bok/psy1010/psy1010-8-6) i eksamenstreningen, Del 8)."
+    },
+    {
+      "id": "psy1010-7-2-pensumkart",
+      "type": "collapsible",
+      "title": "Pensumkart og repetisjon",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-7-2-pensumkart-txt",
+          "type": "text",
+          "content": "**Kjernen i to setninger:** Åpen vitenskap sikrer at hypotesen kommer *før* dataene (ellers mister p-verdien mening). Review og meta-analyse oppsummerer et felt — den ene i ord, den andre i tall.\n\n**Åpen vitenskap:** HARKing (hypotese etter resultatet) · p-hacking (prøve seg fram til signifikans) · publikasjonsskjevhet (null-funn forblir upublisert) → motmiddel: **pre-registrering** (plan låst før data) + åpenhet om *konfirmerende* vs. *eksplorative* analyser. V2025-trekk: etterkant-endring uten åpenhet.\n\n**Oppsummering av felt:** review (kvalitativ tolkning; systematisk = definerte søk/seleksjon) vs. meta-analyse (statistisk kombinasjon, ett effektestimat). Felles fallgruver: publikasjonsskjevhet, kvalitet, epler-og-pærer. Fagfellevurdering = ekspertkontroll før publisering.\n\n**Restbank (kjenne):** Cohens kappa $K=(P_o-P_c)/(1-P_c)$ (formel oppgis, tolkes) · Likert (enkeltledd ordinalt, sumskår intervall) · spørreskjemakonstruksjon · sensitivitet · tak-/gulveffekt (range effects) · konfidensintervall ($\\approx$ estimat $\\pm 1{,}96\\cdot$SE) · Bayes (finnes, kontrasterer p-logikk).\n\n**A-grep:** navngi mekanismen (ikke honnørord); vis den *åpne* håndteringen av etterkant-funn; kontrastér review/meta presist.\n\n**Pensumforankring:** åpen vitenskap og kunnskapsoppsummering hos Bordens & Abbott samt forelesningene. Åpen vitenskap-stoffet er nyere enn eldre lærebokutgaver; sjekk mot studieprogrammets gjeldende pensum og forelesningsnotater for de kildene emnet faktisk bruker på dette. Dette kapitlet trener eksamenssvar, ikke fasit på pensumformuleringer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

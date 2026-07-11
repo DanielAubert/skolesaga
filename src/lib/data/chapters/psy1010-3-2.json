@@ -1,0 +1,280 @@
+{
+  "id": "psy1010-3-2",
+  "courseId": "psy1010",
+  "chapterNumber": "3.2",
+  "title": "Fordelinger, figurer og z-skårer",
+  "description": "Å lese fordelinger fra figurer — histogram, boksplott, stem-and-leaf — og normalfordelingen som parametrisk grunnmur, med z-skåren som felles målestokk for sammenligning på tvers av skalaer.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "lese av median, kvartiler, IQR og skjevhet fra histogram, boksplott og stem-and-leaf-diagram",
+    "bruke 68–95–99,7-regelen og kjenne normalfordelingen som grunnlag for parametrisk statistikk",
+    "regne og tolke z-skårer for å sammenligne verdier på tvers av ulike skalaer, og vite når prosent-tolkningen svikter"
+  ],
+  "content": [
+    {
+      "id": "psy1010-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et lett kapittel som gir trygge poeng — mest tolkning, lite regning.**\n\n- **Figuravlesning** (histogram, boksplott, stem-and-leaf) dukker opp som deloppgaver i flere sett fra 2012 og framover — du får en figur og skal lese av median, kvartiler og skjevhet.\n- **Normalfordeling og z-skårer** er i **3 av settene** (V2014, H2018, V2020) og er «kjenne til»-stoff (§7 pkt. 13) — sjelden tungt, men verdt å ha klart.\n\n**Det viktigste å ha inne:** at en **z-skåre** lar deg sammenligne verdier fra ulike skalaer, og at 68/95/99,7-regelen forteller hvor mye av en normalfordeling som ligger innenfor 1, 2 og 3 standardavvik. Hvert z-tall skal oversettes til prosa: «1,5 SD over snittet — blant de ~7 % høyeste»."
+    },
+    {
+      "id": "psy1010-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på **[kap. 3.1](/bok/psy1010/psy1010-3-1)**: du må kjenne gjennomsnitt, median, kvartiler/IQR, standardavvik og skjevhet (sprik mellom gjennomsnitt og median). Alt bygger videre på disse.\n\n**Sist du var her (oppfrisking fra 3.1):** median = midterste verdi; $Q_1$/$Q_3$ = 25 %- og 75 %-punkt; IQR $= Q_3 - Q_1$; $SD = \\sqrt{s^2}$; høyreskjev ⟹ gjennomsnitt > median. Ha disse i bakhodet — vi skal nå *lese* dem ut av figurer og bruke SD til å standardisere."
+    },
+    {
+      "id": "psy1010-3-2-intro",
+      "type": "text",
+      "content": "**Hverdagsanker:** tenk deg at du fikk 80 poeng på en matteprøve og 55 poeng på en norskprøve. Gjorde du det best i matte? Det kan du **ikke** vite før du kjenner gjennomsnittet og spredningen på hver prøve. Kanskje alle fikk høyt i matte, mens 55 var toppresultatet i norsk. For å sammenligne på tvers av ulike skalaer trenger vi en **felles målestokk** — det er nettopp det z-skåren gir.\n\nKapitlet har to løkker: **(1)** å lese fordelinger fra figurer, og **(2)** normalfordelingen og z-skåren som felles målestokk. ~45 min lesetid."
+    },
+    {
+      "id": "psy1010-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Å lese fordelinger fra figurer (~20 min)"
+    },
+    {
+      "id": "psy1010-3-2-def-frekvensfordeling",
+      "type": "definition",
+      "title": "Frekvensfordeling og histogram",
+      "content": "En **frekvensfordeling** viser hvor mange observasjoner som faller i hvert verdiintervall. Et **histogram** tegner dette som stolper der høyden = frekvensen. Formen på histogrammet avslører om fordelingen er symmetrisk, høyreskjev (hale mot høyre) eller venstreskjev, og om den er unimodal (én topp) eller bimodal (to)."
+    },
+    {
+      "id": "psy1010-3-2-def-boksplott",
+      "type": "definition",
+      "title": "Boksplott (box plot)",
+      "content": "En figur som viser fem tall: minimum, $Q_1$, median, $Q_3$ og maksimum. **Boksen** går fra $Q_1$ til $Q_3$ (rommer midterste 50 %), streken inni er **medianen**, og «værhårene» strekker seg til ytterverdiene. Uteliggere markeres ofte som egne prikker utenfor værhårene. Merk: **gjennomsnittet vises ikke** i et standard boksplott — bare median og kvartiler."
+    },
+    {
+      "id": "psy1010-3-2-def-stem-and-leaf",
+      "type": "definition",
+      "title": "Stem-and-leaf-diagram (bladdiagram)",
+      "content": "En figur som beholder de faktiske tallverdiene mens den viser formen. «Stammen» (stem) er de høye sifrene, «bladene» (leaf) er de lave. Tallene 23, 25, 27 vises som stamme **2** med blad **3 5 7**. Fordelen: du ser både formen *og* kan lese av eksakte verdier, median og spredning."
+    },
+    {
+      "id": "psy1010-3-2-l1-skjevhet",
+      "type": "text",
+      "content": "### Skjevhet i figuren\n\nFra kap. 3.1 vet du at skjevhet gir sprik mellom gjennomsnitt og median. I figurer ser du det direkte:\n\n- **Boksplott:** hvis medianstreken ligger nær $Q_1$ (nederst i boksen) og det øvre værhåret er langt, er fordelingen **høyreskjev**. Motsatt for venstreskjev.\n- **Histogram:** en lang hale mot høyre = høyreskjev.\n\nHuskeregel: **halen peker mot skjevhetens navn** — hale mot høyre = høyreskjev."
+    },
+    {
+      "id": "psy1010-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1 — Les av et boksplott",
+      "problem": "Et boksplott over skjermtid (timer per dag) i en klasse viser:\n\n- Minimum $= 1$, $Q_1 = 2$, median $= 3$, $Q_3 = 4$, og én prikk (uteligger) ved $9$.\n\n**a)** Hva er IQR?\n**b)** Er fordelingen skjev, og hvorfor vises ikke gjennomsnittet i figuren?",
+      "solution": "**a)** IQR $= Q_3 - Q_1 = 4 - 2 = 2$ timer. Den midterste halvparten av klassen ligger mellom 2 og 4 timer.\n\n**b)** Fordelingen er **høyreskjev**: medianen (3) ligger midt i boksen, men uteliggeren ved 9 strekker fordelingen langt mot høyre. **Gjennomsnittet vises ikke** fordi boksplottet er bygd på median og kvartiler (rangbaserte, robuste mål) — nettopp for å være upåvirket av slike uteliggere. Gjennomsnittet ville her ligget over medianen på grunn av 9-verdien.\n\n**Tolkning:** IQR (2 timer) forteller at kjernen av klassen er ganske samlet; uteliggeren ved 9 er én person med uvanlig høy skjermtid, ikke det typiske."
+    },
+    {
+      "id": "psy1010-3-2-exc1",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-2-exc1-e",
+        "number": "3.2.1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Eksamenssjanger T3 — figuravlesning. Lett innstegsoppgave.)*\n\nEt stem-and-leaf-diagram viser: stamme **1** med blad **2 5 8**, stamme **2** med blad **0 1 4 6**, stamme **3** med blad **2**.\n\n**a)** Skriv ut alle de åtte verdiene.\n**b)** Finn medianen.",
+        "solution": "**a)** Verdiene er: $12, 15, 18, 20, 21, 24, 26, 32$.\n\n**b)** Med $n = 8$ (partall) er medianen snittet av de to midterste (4. og 5.) verdiene: $\\frac{20 + 21}{2} = 20{,}5$.\n\n**Tolkning:** stem-and-leaf gir deg både formen (en topp rundt 20-tallet) og de eksakte tallene, så du kan regne median direkte fra figuren.",
+        "hints": [
+          "Stamme = tierplassen, blad = enerplassen: stamme 1, blad 2 ⟹ 12.",
+          "Skriv ut alle verdiene sortert før du finner medianen.",
+          "Median ved partall n: snittet av de to midterste verdiene."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-2-exc2",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-2-exc2-e",
+        "number": "3.2.2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — figuravlesning med skjevhetsdiagnose.)*\n\nTo boksplott over ventetid (minutter) sammenlignes. **Klasse A:** median 3, $Q_1 = 2$, $Q_3 = 4$, uteligger ved 9. **Klasse B:** median 4, $Q_1 = 3$, $Q_3 = 5$, ingen uteliggere.\n\n**a)** Regn IQR for begge.\n**b)** Hvilken fordeling er skjev, og hvilken vei?\n**c)** Hvilken klasse har mest samlet (minst spredt) kjerne?",
+        "solution": "**a)** Klasse A: IQR $= 4 - 2 = 2$. Klasse B: IQR $= 5 - 3 = 2$. Begge har IQR $= 2$ minutter.\n\n**b)** **Klasse A er høyreskjev** — uteliggeren ved 9 strekker fordelingen mot høyre, mens boksen er symmetrisk. Klasse B er tilnærmet symmetrisk (median midt i boksen, ingen hale).\n\n**c)** Kjernen (boksen) er like bred i begge (IQR $= 2$), så den midterste halvparten er like samlet. Men **klasse A** har totalt sett større spredning på grunn av uteliggeren — variasjonsbredden er større der.\n\n**Tolkning:** lik IQR betyr lik kjernespredning, men uteliggeren gjør klasse A mer spredt totalt. Dette illustrerer hvorfor IQR (robust) og variasjonsbredde (følsom) kan gi ulike svar.",
+        "hints": [
+          "IQR = Q3 − Q1 for hver klasse.",
+          "Skjevhet ser du av om værhåret/uteliggeren strekker seg mye til én side.",
+          "Skill mellom kjernespredning (IQR) og total spredning (variasjonsbredde) i svaret."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Normalfordelingen og z-skåren (~22 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "psy1010-3-2-def-normalfordeling",
+      "type": "definition",
+      "title": "Normalfordelingen",
+      "content": "En symmetrisk, klokkeformet fordeling der gjennomsnitt, median og modus faller sammen i midten. Den er fullstendig bestemt av to tall: gjennomsnittet (senteret) og standardavviket (bredden). Normalfordelingen er **grunnmuren for parametrisk statistikk** (z-, t- og F-tester) fordi mange psykologiske mål er tilnærmet normalfordelte, og fordi utvalgsfordelingen av gjennomsnitt blir normal når $n$ øker (kap. 3.3)."
+    },
+    {
+      "id": "psy1010-3-2-thm-empirisk-regel",
+      "type": "theorem",
+      "title": "68–95–99,7-regelen (den empiriske regelen)",
+      "content": "I en normalfordeling ligger:\n\n- ca. **68 %** av observasjonene innenfor **±1 SD** fra gjennomsnittet,\n- ca. **95 %** innenfor **±1,96 SD** (ofte avrundet til ±2 SD),\n- ca. **99,7 %** innenfor **±3 SD**.\n\nMerk det eksamenskritiske tallet: **±1,96 SD ↔ 95 %**. Det dukker opp igjen i standardfeil og p-verdier (kap. 3.3)."
+    },
+    {
+      "id": "psy1010-3-2-def-zskaare",
+      "type": "definition",
+      "title": "z-skåre (standardskåre)",
+      "content": "En z-skåre forteller **hvor mange standardavvik** en verdi ligger over (positiv z) eller under (negativ z) gjennomsnittet:\n\n$$z = \\frac{x - \\bar{x}}{SD}$$\n\nEn z-fordeling har alltid gjennomsnitt **0** og standardavvik **1**. z-skårer lar deg sammenligne verdier fra **ulike skalaer** (matte- vs. norskprøve) på felles målestokk. Viktig: standardisering **endrer ikke fordelingens form** — en skjev fordeling forblir skjev etter z-transformasjon; bare senter og skala flyttes."
+    },
+    {
+      "id": "psy1010-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2 — Sammenlign to prøver med z-skårer",
+      "problem": "Ada fikk 65 poeng på en mattetest (klassesnitt $\\bar{x} = 50$, $SD = 10$) og 27 poeng på en norsktest (klassesnitt $\\bar{x} = 20$, $SD = 4$). På hvilken test gjorde hun det relativt best? Bruk $z = \\frac{x - \\bar{x}}{SD}$.",
+      "solution": "**Matte:** $z = \\frac{65 - 50}{10} = \\frac{15}{10} = 1{,}5$.\n\n**Norsk:** $z = \\frac{27 - 20}{4} = \\frac{7}{4} = 1{,}75$.\n\n**Tolkning:** på matte ligger Ada 1,5 standardavvik over snittet; på norsk ligger hun 1,75 standardavvik over. **Relativt sett gjorde hun det best på norsktesten**, selv om råskåren (27) var lavere enn på matte (65) — fordi 27 var lenger fra sin klasses snitt målt i standardavvik.\n\nMed 68–95–99,7-regelen: $z = 1{,}5$ betyr at Ada er blant de øverste ~7 % på matte (bare ~7 % ligger over 1,5 SD i en normalfordeling), og $z = 1{,}75$ setter henne blant de øverste ~4 % på norsk. Rå poengsummer er ikke sammenlignbare på tvers av skalaer — z-skårer er."
+    },
+    {
+      "id": "psy1010-3-2-exc3",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-2-exc3-e",
+        "number": "3.2.3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Eksamenssjanger T3 — z-skåre og standardisering.)*\n\nEn IQ-test har $\\bar{x} = 100$ og $SD = 15$. En reaksjonstest har $\\bar{x} = 300$ ms og $SD = 40$ ms. Per skårer 130 på IQ-testen og 380 ms på reaksjonstesten (der *lavere* er bedre). Bruk $z = \\frac{x - \\bar{x}}{SD}$.\n\n**a)** Regn z-skåren på IQ-testen.\n**b)** Regn z-skåren på reaksjonstesten.\n**c)** Tolk begge z-verdiene i prosa, og pass på retningen (høy IQ = bra, høy reaksjonstid = dårlig).",
+        "solution": "**a)** IQ: $z = \\frac{130 - 100}{15} = \\frac{30}{15} = 2{,}0$.\n\n**b)** Reaksjon: $z = \\frac{380 - 300}{40} = \\frac{80}{40} = 2{,}0$.\n\n**c)** Begge z-verdiene er $+2{,}0$ — Per ligger 2 standardavvik over snittet på begge. **Men retningen betyr motsatt:** på IQ-testen er $z = +2$ bra (blant de øverste ~2 %). På reaksjonstesten er høy tid *dårlig*, så $z = +2$ betyr at Per er blant de **tregeste** ~2 %. Samme z-tall, motsatt vurdering — du må alltid vite hvilken retning som er «god» for målet.\n\n**Tolkning:** z standardiserer avstanden fra snittet, men sier ingenting om hvilken retning som er ønskelig. Det må tolkes ut fra hva variabelen måler.",
+        "hints": [
+          "Regn $z = (x - \\bar{x})/SD$ for hver test separat.",
+          "Begge gir samme tallverdi — poenget ligger i tolkningen.",
+          "Spør: for denne variabelen, er en høy verdi bra eller dårlig?"
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-2-exc4",
+      "type": "exercise",
+      "exercise": {
+        "id": "psy1010-3-2-exc4-e",
+        "number": "3.2.4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Eksamenssjanger T3 — z-skåre og normalantakelse. (krevende): du skal både regne og vurdere om z-tolkningen er gyldig.)*\n\nEn takstet lykketest (skala 1–7) gir $\\bar{x} = 5{,}8$ og $SD = 0{,}9$. Mange respondenter krysser av på maksimum (7).\n\n**a)** Regn z-skåren for en respondent som skårer 7.\n**b)** En kollega sier: «z = 1,3 betyr at personen er blant de øverste ~10 % — det følger av 68–95–99,7-regelen.» Er dette resonnementet holdbart her?",
+        "solution": "**a)** $z = \\frac{7 - 5{,}8}{0{,}9} = \\frac{1{,}2}{0{,}9} \\approx 1{,}33$.\n\n**b)** **Nei, resonnementet er ikke holdbart.** 68–95–99,7-regelen og prosent-tolkningen av z gjelder **bare når fordelingen er tilnærmet normal**. Her presser mange respondenter mot taket (7) — det er en **takeffekt** som gir en venstreskjev, ikke-normal fordeling. Da kan du ikke oversette z direkte til en persentil. z-tallet (1,33) er fortsatt korrekt regnet som «avstand fra snittet i SD», men prosentandelen ~10 % forutsetter normalfordeling som ikke holder.\n\n**Tolkning:** standardisering (z) er alltid lov å regne, men *prosent-tolkningen* av z hviler på normalantakelsen. Ved takeffekter, gulveffekter eller sterk skjevhet ryker den antakelsen.",
+        "hints": [
+          "Regn $z = (7 - 5{,}8)/0{,}9$ først.",
+          "Spør: hva forutsetter 68–95–99,7-regelen om fordelingens form?",
+          "En takeffekt (mange på maks) gjør fordelingen skjev — da svikter prosent-tolkningen av z."
+        ]
+      }
+    },
+    {
+      "id": "psy1010-3-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Å tro at standardisering «normaliserer» en skjev fordeling.** z-transformasjon flytter senter til 0 og skala til SD 1, men **endrer ikke formen**. En venstreskjev fordeling er like venstreskjev etter z-transformasjon. Prosent-tolkningen av z (via 68/95/99,7) krever at fordelingen *allerede* er tilnærmet normal.\n\n**Å forveksle IQR og variasjonsbredde ved avlesning.** I et boksplott er boksens bredde IQR ($Q_3 - Q_1$), ikke avstanden fra minimum til maksimum (det er variasjonsbredden, inkl. værhår/uteliggere). Les av riktig kant.\n\n**Å lete etter gjennomsnittet i et boksplott.** Boksplottet viser median og kvartiler — ikke gjennomsnitt. Ved skjevhet ligger gjennomsnittet et annet sted enn medianstreken.\n\n**Å glemme retningen når du tolker z.** $z = +2$ er bra for IQ, dårlig for reaksjonstid og feilrate. Tolk alltid ut fra hva som er ønskelig for variabelen."
+    },
+    {
+      "id": "psy1010-3-2-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank — figurer og standardisering\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.*"
+    },
+    {
+      "id": "psy1010-3-2-def-symmetri-skjevhet",
+      "type": "definition",
+      "title": "Symmetrisk ↔ skjev fordeling",
+      "content": "**Symmetrisk:** speilbilde om senteret; gjennomsnitt ≈ median ≈ modus. **Høyreskjev:** hale mot høyre, gjennomsnitt > median (inntekt, reaksjonstid). **Venstreskjev:** hale mot venstre, gjennomsnitt < median. Halen peker mot skjevhetens navn."
+    },
+    {
+      "id": "psy1010-3-2-def-parametrisk",
+      "type": "definition",
+      "title": "Hvorfor normalfordelingen er «parametrisk grunnmur»",
+      "content": "Parametriske tester (z, t, F) antar at dataene — eller utvalgsfordelingen av gjennomsnitt — er tilnærmet normale. Normalfordelingen beskrives fullt av to *parametre*: gjennomsnitt og SD. Er antakelsen brutt (sterk skjevhet, takeffekt), brukes ikke-parametriske alternativer."
+    },
+    {
+      "id": "psy1010-3-2-def-z-egenskaper",
+      "type": "definition",
+      "title": "z-fordelingens faste egenskaper",
+      "content": "Uansett hvilken råskala du starter med, har z-fordelingen alltid gjennomsnitt **0** og standardavvik **1**. z sier hvor mange SD en verdi ligger fra snittet. Formen bevares fra originalfordelingen — z endrer bare senter og skala, ikke form."
+    },
+    {
+      "id": "psy1010-3-2-def-takeffekt-gulveffekt",
+      "type": "definition",
+      "title": "Takeffekt og gulveffekt",
+      "content": "**Takeffekt:** mange respondenter samler seg på den høyeste mulige verdien (oppgaven er for lett / skalaen for kort oppover). **Gulveffekt:** samling på laveste verdi. Begge gir skjeve, ikke-normale fordelinger og bryter forutsetningen for z-prosenttolkning og parametriske tester."
+    },
+    {
+      "id": "psy1010-3-2-def-femtallssammendrag",
+      "type": "definition",
+      "title": "Femtallssammendraget",
+      "content": "De fem tallene som definerer et boksplott: minimum, $Q_1$, median, $Q_3$, maksimum. Sammen gir de senter (median), spredning (IQR og variasjonsbredde) og form (skjevhet) — uten å anta normalfordeling. Robust alternativ til gjennomsnitt ± SD."
+    },
+    {
+      "id": "psy1010-3-2-def-empirisk-regel-tall",
+      "type": "definition",
+      "title": "68–95–99,7-tallene",
+      "content": "±1 SD ↔ 68 %, ±1,96 SD ↔ 95 %, ±3 SD ↔ 99,7 % — men **kun i en normalfordeling**. Tallet ±1,96 (95 %) er det eksamenskritiske: det ligger under konfidensintervaller, standardfeil og p-verdier i kap. 3.3."
+    },
+    {
+      "id": "psy1010-3-2-def-histogram-vs-boksplott",
+      "type": "definition",
+      "title": "Histogram ↔ boksplott ↔ stem-and-leaf",
+      "content": "**Histogram:** best for å se formen (topper, haler). **Boksplott:** best for å sammenligne flere grupper (median, IQR, uteliggere side om side). **Stem-and-leaf:** beholder de eksakte verdiene og viser formen samtidig — best for små datasett. Valg av figur er kommunikasjon: velg den som svarer på spørsmålet ditt."
+    },
+    {
+      "id": "psy1010-3-2-def-uteliggermarkering",
+      "type": "definition",
+      "title": "Uteliggermarkering i boksplott",
+      "content": "En vanlig regel: verdier som ligger mer enn $1{,}5 \\times \\text{IQR}$ utenfor $Q_1$ eller $Q_3$ tegnes som egne prikker (mulige uteliggere). Værhårene strekker seg da bare til den siste verdien innenfor grensen. Slik skiller figuren mellom «vanlig spredning» og «uteligger»."
+    },
+    {
+      "id": "psy1010-3-2-def-standardisering-bruk",
+      "type": "definition",
+      "title": "Standardisering ↔ sammenligning på tvers",
+      "content": "Standardisering (z-transformasjon) gjør verdier fra ulike skalaer sammenlignbare ved å uttrykke dem i felles enhet (SD fra snittet). Uten det er 65 poeng på én test og 27 på en annen ikke direkte sammenlignbare — z løser dette."
+    },
+    {
+      "id": "psy1010-3-2-def-median-i-boksplott",
+      "type": "definition",
+      "title": "Medianstrekens plassering",
+      "content": "I et boksplott ligger medianstreken **inni boksen**. Ligger den midt i boksen, er den midterste halvparten symmetrisk. Ligger den nær $Q_1$ (nedre kant), er fordelingen høyreskjev i kjernen; nær $Q_3$, venstreskjev. Plasseringen er en rask skjevhetsdiagnose."
+    },
+    {
+      "id": "psy1010-3-2-def-verhaar",
+      "type": "definition",
+      "title": "Værhår (whiskers)",
+      "content": "Linjene som strekker seg ut fra boksen til de ytterste verdiene som ikke regnes som uteliggere. Ulik lengde på øvre og nedre værhår er et tegn på skjevhet: langt øvre værhår ⟹ hale mot høyre. Verdier utenfor værhårene tegnes som prikker (mulige uteliggere)."
+    },
+    {
+      "id": "psy1010-3-2-def-negativ-positiv-z",
+      "type": "definition",
+      "title": "Negativ ↔ positiv z-skåre",
+      "content": "**Positiv z:** verdien ligger over gjennomsnittet. **Negativ z:** under. **z = 0:** akkurat på snittet. Størrelsen (uansett fortegn) er antall SD; fortegnet er retningen. $z = -1{,}5$ betyr 1,5 SD *under* snittet."
+    },
+    {
+      "id": "psy1010-3-2-def-figurvalg",
+      "type": "definition",
+      "title": "Figurvalg som kommunikasjon",
+      "content": "Velg figur etter spørsmålet: **histogram** for å vise formen på én fordeling, **boksplott** for å sammenligne flere grupper kompakt, **stem-and-leaf** når du vil beholde de eksakte verdiene på et lite datasett. Feil figur skjuler poenget; riktig figur gjør det tydelig."
+    },
+    {
+      "id": "psy1010-3-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — pensumkart for 3.2",
+      "buttonText": "Vis pensumkart",
+      "content": [
+        {
+          "id": "psy1010-3-2-rep-txt",
+          "type": "text",
+          "content": "**Kjernen:**\n\n1. **Figurer:** histogram (form), boksplott (femtallssammendrag, sammenligning), stem-and-leaf (form + eksakte tall).\n2. **Skjevhet i figur:** halen peker mot navnet; boksplottets medianstrek og værhårlengde avslører retning.\n3. **Normalfordeling:** klokkeform, bestemt av gjennomsnitt og SD; grunnmur for parametrisk statistikk.\n4. **68–95–99,7-regelen:** ±1, ±1,96, ±3 SD — kun ved normalfordeling. Husk ±1,96 ↔ 95 %.\n5. **z-skåre:** $z = (x - \\bar{x})/SD$; gjennomsnitt 0, SD 1; sammenligner på tvers av skalaer; bevarer formen.\n\n**Framover:** ±1,96-tallet og standardiseringen leder rett inn i standardfeil og slutningslogikk ([kap. 3.3](/bok/psy1010/psy1010-3-3))."
+        }
+      ]
+    },
+    {
+      "id": "psy1010-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "psy1010-3-2-sym-txt",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $x$ | en enkelt observasjon |\n| $\\bar{x}$ | gjennomsnitt (fordelingens senter) |\n| $SD$ | standardavvik (fordelingens bredde) |\n| $z$ | standardskåre: antall SD fra snittet |\n| $Q_1, Q_3$ | nedre og øvre kvartil |\n| IQR | interkvartilbredde $= Q_3 - Q_1$ |\n| ±1,96 | z-verdien som avgrenser midterste 95 % i en normalfordeling |\n\n**Formler i dette delkapitlet:**\n\n$$z = \\frac{x - \\bar{x}}{SD} \\qquad \\text{(standardskåre: hvor mange SD verdien ligger fra snittet)}$$\n\n$$\\text{IQR} = Q_3 - Q_1 \\qquad \\text{(bredden på boksen i boksplottet)}$$\n\n**68–95–99,7-regelen (normalfordeling):** ±1 SD ↔ 68 %, ±1,96 SD ↔ 95 %, ±3 SD ↔ 99,7 %."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
