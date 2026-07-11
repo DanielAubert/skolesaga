@@ -57,7 +57,10 @@ docs/hoyskole-boker/
   studiemateriell) på kurs- og kapittelsider for `level: 'Høyskole'`, pluss
   fagspesifikke linjer (jus → «ikke juridisk rådgivning, sjekk Lovdata»;
   helse/psykologi → «ikke helseråd»). Full tekst i `/vilkar#uavhengighet`.
-  KRAV ved nytt emne: (a) registrer emnet i `institusjoner.ts` (driver
+  KRAV ved nytt emne: (0) legg til kildegrunnlag-oppføring i
+  `src/lib/data/kildegrunnlag.ts` (destillert fra EKSAMENSANALYSE §8 —
+  eksamenssett, sensorveiledninger kun der de finnes, andre kilder, ærlige
+  forbehold; vises på `/bok/<emne>/kildegrunnlag`); (a) registrer emnet i `institusjoner.ts` (driver
   institusjonsnavnet i deklarasjonen); (b) sjekk at jus-/helse-heuristikken i
   `hoyskole-disclaimer.tsx` treffer emnet — utvid den om ikke; (c) bokINNHOLD
   skal aldri fremstille seg som offisielt, godkjent eller institusjons-

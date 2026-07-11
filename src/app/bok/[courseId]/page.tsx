@@ -16,12 +16,13 @@ import {
   Laptop, Superscript, Plus,
   Radical, FunctionSquare, Target, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon, BookOpen, Layers, FileCheck
+  Waves, Activity, Hexagon, BookOpen, Layers, FileCheck, Archive
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
 import { getFlashcardDefinitionCount } from '@/lib/data/flashcard-definitions';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
+import { getKildegrunnlag } from '@/lib/data/kildegrunnlag';
 import { HoyskoleDisclaimer } from '@/components/textbook/hoyskole-disclaimer';
 import { INSTITUSJONER } from '@/app/bok/trinn/hoyere/institusjoner';
 
@@ -212,6 +213,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
     .filter((ch) => !ch.isNarrativeVersion && hasQuizQuestions(ch.id))
     .length;
   const harEksamenstrening = eksamensbankAntall >= 4;
+  const harKildegrunnlag = getKildegrunnlag(courseId) !== null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -277,6 +279,17 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                 <p className="text-sm sm:text-base">
                   <span className="font-semibold">Bygget på {hoyskoleDesc.calibration}</span>
                   <span className="text-muted-foreground"> — hvert kapittel er kalibrert mot det som faktisk gis til eksamen.</span>
+                  {harKildegrunnlag && (
+                    <>
+                      {' '}
+                      <Link
+                        href={`/bok/${courseId}/kildegrunnlag`}
+                        className={`font-medium underline ${accent.text}`}
+                      >
+                        Se hele kildegrunnlaget
+                      </Link>
+                    </>
+                  )}
                 </p>
                 {hoyskoleDesc.topics && hoyskoleDesc.topics.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1.5">
@@ -323,6 +336,16 @@ export default async function CourseOverviewPage({ params }: PageProps) {
             >
               <GraduationCap className="h-5 w-5 text-muted-foreground" />
               <span className="font-medium">Eksamenstrening</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            </Link>
+          )}
+          {harKildegrunnlag && (
+            <Link
+              href={`/bok/${courseId}/kildegrunnlag`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-input bg-background text-foreground hover:bg-muted transition-colors"
+            >
+              <Archive className="h-5 w-5 text-muted-foreground" />
+              <span className="font-medium">Kildegrunnlag</span>
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </Link>
           )}

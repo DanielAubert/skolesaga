@@ -1,0 +1,191 @@
+/**
+ * Kildegrunnlag per høyskolebok: hvilke eksamenssett, sensorveiledninger og
+ * andre kilder boka faktisk er bygget på — vist på /bok/<courseId>/kildegrunnlag.
+ *
+ * SANNFERDIGHETS-KONTRAKT (ufravikelig, fra produkteier):
+ * - Innholdet her er destillert fra bokas EKSAMENSANALYSE.md §8 «Kildeliste»
+ *   (docs/hoyskole-boker/<courseId>/) og skal stemme EKSAKT med arkivet.
+ * - Sensorveiledninger listes KUN der de faktisk finnes; hull i arkivet
+ *   (årganger uten veiledning, manglende sett) deklareres ærlig i `forbehold`.
+ * - Ingen påstander om kilder som ikke er lest.
+ *
+ * Ved ny bok (wiring-fasen i BYGGEPLAN): legg til en oppføring her — hentet
+ * fra analysens kildeliste, aldri diktet.
+ */
+
+export interface KildeGruppe {
+  tittel: string;
+  detalj: string;
+}
+
+export interface Kildegrunnlag {
+  courseId: string;
+  institusjon: string;
+  /** Kort avsnitt: hva boka er kalibrert mot. */
+  sammendrag: string;
+  eksamenssett: KildeGruppe[];
+  sensorveiledninger: KildeGruppe[];
+  andreKilder: KildeGruppe[];
+  /** Ærlige hull og forbehold i arkivet — deklareres alltid. */
+  forbehold: string[];
+  /** Når eksamensanalysen ble gjennomført. */
+  analysedato: string;
+}
+
+const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
+  exphil03: {
+    courseId: 'exphil03',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for filosofi, idé- og kunsthistorie og klassiske språk (IFIKK)',
+    sammendrag:
+      'Boka er kalibrert mot EXPHIL03s eksamensarkiv ved UiO: 40 unike oppgavesett fra vår 2017 til høst 2025 og 8 sensorveiledninger fra 2021–2025. Analysen kartla temafrekvens, oppgavesjangre og hva sensorveiledningene faktisk belønner — og boka er bygget rundt akkurat det.',
+    eksamenssett: [
+      {
+        tittel: '40 unike oppgavesett (vår 2017 – høst 2025)',
+        detalj:
+          '15 selvstudium-eksamener (skoleeksamen), 16 seminarvariant-sett og 9 utsatte prøver. Settene fra og med vår 2021 (dagens pensumregime) er lest grundig; eldre sett er brukt til sjanger- og temaregistrering.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '8 sensorveiledninger (2021–2025)',
+        detalj:
+          'H2021 (seminar), H2024 (to varianter), V2025 (tre, inkl. utsatt prøve) og H2025 (selvstudium + seminar). Disse er kjernen i analysen: de definerer vurderingspunktene per spørsmål, firepunktslisten for drøftingsdelen og terskelen for bestått.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for EXPHIL03',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform, pensumregime). Emnestatus verifisert aktiv i 2026.',
+      },
+      {
+        tittel: 'Pensumverket «Vite, være, gjøre» (VVG)',
+        detalj:
+          'Bokas tenker-galleri og kapittelhenvisninger følger pensumverket slik eksamensdokumentene navngir det. Pensumtekstene refereres (tenker, verk, begrep) — de siteres aldri i lengde.',
+      },
+    ],
+    forbehold: [
+      'Sensorveiledninger finnes i arkivet kun for årgangene 2021–2025. For eldre årganger er sensorlogikken utledet av oppgaveformuleringene alene.',
+      'Fra og med vår 2021 gjelder dagens pensum (VVG). Eldre sett har et annet tenker-galleri og er kun brukt til sjanger- og strukturlæring, ikke til temavekting.',
+      'Alle oppgaver og eksempler i boka er nyskrevne. Eksamensarkivet er brukt som mønster (sjangre, temavekting, vurderingskriterier) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
+  econ1310: {
+    courseId: 'econ1310',
+    institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot ECON1310s eksamensarkiv ved UiO: 22 ordinære eksamenssett (vår 2015 – høst 2025), 9 utsatt-eksamener og 21 sensorveiledninger/løsningsforslag. Analysen er kvantitativ der kildene tillater det — temafrekvens og oppgavevekting i boka speiler arkivet.',
+    eksamenssett: [
+      {
+        tittel: '22 ordinære eksamenssett (vår 2015 – høst 2025)',
+        detalj:
+          'Settene fra 2018–2025 (16 stk) er lest grundig oppgave for oppgave; settene fra 2015–2017 (6 stk) er skumlest for temaregistrering.',
+      },
+      {
+        tittel: '9 utsatt-eksamener (2020–2025)',
+        detalj: 'Skumlest for temaregistrering, med tilhørende sensorveiledninger der de finnes i arkivet.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '21 sensorveiledninger/løsningsforslag (2015–2025)',
+        detalj:
+          '16 sensorveiledninger for perioden vår 2018 – høst 2025 (for vår 2020 og vår 2021 i form av løsningsforslag) og 5 fra 2015–2017. Lest grundig — de definerer hva sensor belønner per oppgavetype.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for ECON1310',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform). Emnestatus verifisert aktiv i 2026.',
+      },
+    ],
+    forbehold: [
+      'Sensorveiledning for vår 2016 finnes ikke i arkivet.',
+      'To filer i arkivet (vår/høst 2021) hadde ombyttede filnavn; analysen omtaler settene etter faktisk innhold.',
+      'Alle oppgaver og tall i boka er nyskrevne. Arkivet er brukt som mønster (modeller, sjangre, temavekting) — aldri ordrett. Modelligningene er standard faglig notasjon.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
+  jus1111: {
+    courseId: 'jus1111',
+    institusjon: 'Universitetet i Oslo (UiO) — Det juridiske fakultet',
+    sammendrag:
+      'Boka er kalibrert mot JUS1111s eksamensarkiv ved UiO: 30 eksamensgjennomføringer 2011–2025 og 32 sensorveiledninger. Typetilfellene, metodekravene og feilkodene i boka er destillert fra det sensorveiledningene faktisk trekker for og belønner.',
+    eksamenssett: [
+      {
+        tittel: '30 eksamensgjennomføringer (2011–2025)',
+        detalj:
+          'Alle ordinære eksamener høst 2011 – høst 2025 pluss utsatt prøve vår 2020. Årgangene 2018–2025 er lest i sin helhet; 2011–2017 er skumlest for tema- og formatregistrering.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '32 sensorveiledninger (2011–2025)',
+        detalj:
+          'Samtlige er lest i sin helhet — inkludert delte veiledninger (del 1/del 2) for årgangene med todelt eksamen. Veiledningene er kilden til bokas sensornøkler og typiske feil.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for JUS1111',
+        detalj: 'Omskrevet sammendrag av emnesiden. Emnestatus verifisert aktiv i 2026.',
+      },
+      {
+        tittel: 'Lovdata',
+        detalj:
+          'Lovhenvisninger og domsreferanser i boka er kontrollert mot Lovdata av en egen verifikasjonsagent — inkludert lovendringer etter at eksamenssettene ble gitt (bl.a. forbrukerkjøpsloven 2024).',
+      },
+    ],
+    forbehold: [
+      'Høst 2013 mangler sensorveiledning i arkivet; den årgangen er rekonstruert fra oppgaveteksten alene.',
+      'Oppgavesettet for høst 2015 mangler i arkivet; temaene er hentet fra sensorveiledningen.',
+      'Karakterbeskrivelsene A–F i eldre veiledninger gjelder til og med 2019; fra 2020 vurderes emnet bestått/ikke bestått.',
+      'Alle praktikumsoppgaver i boka er nyskrevne (nye parter, fakta og formuleringer). Arkivet er brukt som mønster — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
+  stv1100: {
+    courseId: 'stv1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Institutt for statsvitenskap (ISV)',
+    sammendrag:
+      'Boka er kalibrert mot det tilgjengelige eksamensarkivet for STV1100 ved UiO: 10 distinkte dokumenter som dekker 2016–2025 — 7 sensorveiledninger og 3 rene oppgavesett. Arkivet er lite men rikt: veiledningene gjengir også oppgavesettene og forklarer vurderingen i detalj.',
+    eksamenssett: [
+      {
+        tittel: 'Oppgavesett for 8 gjennomføringer (2016–2025)',
+        detalj:
+          '3 rene oppgavesett (utdrag høst 2016, høst 2018 ordinær og utsatt) pluss oppgavesettene for 2019, 2020, høst 2022, 2023 og 2025 slik de gjengis i sin helhet i sensorveiledningene.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '7 sensorveiledninger (2018–2025)',
+        detalj:
+          'Høst 2018 (ordinær og utsatt), 2019, 2020, høst 2022, 2023 og 2025. Disse er kjernen i analysen — de viser hvilke momenter sensor ser etter per oppgave og hvordan drøfting vektes mot gjengivelse.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for STV1100',
+        detalj: 'Omskrevet sammendrag av emnesiden. Emnestatus verifisert aktiv i 2026.',
+      },
+      {
+        tittel: 'Pensumreferanser slik veiledningene navngir dem',
+        detalj:
+          'Grunnboka Malnes & Midgaard, «Politisk filosofi», og primærtekstene (Platon, Machiavelli, Rawls, Berlin, Pettit, Mill, Nussbaum m.fl.) refereres slik sensorveiledningene selv gjør — de siteres aldri i lengde.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har ingen sensorveiledninger for 2016, 2017, 2021 og 2024 — de årgangene inngår ikke i sensor-kalibreringen.',
+      'Ingen dokumenter i arkivet oppgir poenggrenser; karakter settes ved helhetlig skjønn, og boka sier dette der det er relevant.',
+      'Alle oppgaver og eksempler i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, vurderingsmomenter) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
+};
+
+export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {
+  return KILDEGRUNNLAG[courseId] ?? null;
+}

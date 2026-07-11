@@ -122,6 +122,14 @@ på disk; gap-fill manglende med samme prompt-mal (én fil per agent).
       skal (jus-emner → Lovdata-linje; helse-/psykologi-emner → ikke-helseråd-
       linje) — utvid heuristikken om nødvendig. Jf. README «Juridiske
       deklarasjoner».
+- [ ] **Kildegrunnlag-oppføring (produkteier-krav, sannferdighet):** legg til
+      emnet i `src/lib/data/kildegrunnlag.ts` — destillert fra
+      EKSAMENSANALYSE.md §8 «Kildeliste», ALDRI diktet. Skal stemme eksakt
+      med arkivet: eksamenssett (grundig vs. skumlest), sensorveiledninger
+      KUN der de finnes, andre kilder (emnebeskrivelse, pensumreferanser,
+      Lovdata for jus), og ærlige forbehold/hull (årganger uten veiledning,
+      manglende sett, regimeskifter). Siden rendres på
+      `/bok/<emne>/kildegrunnlag` og lenkes automatisk fra kurssiden.
 
 ## Steg 3 — Verifiseringsbølge (2 om gangen; IKKE hopp over)
 Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID

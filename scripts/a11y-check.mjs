@@ -23,6 +23,7 @@ const ROUTES = [
   ['trinn-vg1', '/bok/trinn/vg1'],
   ['kapittel', '/bok/1t/1t-1-1'],
   ['kapittel-quiz', '/bok/1t/1t-1-1/quiz'],
+  ['kildegrunnlag', '/bok/exphil03/kildegrunnlag'],
   ['quiz', '/quiz/1t-1-1'],
   ['ressurser', '/ressurser'],
   ['poengkalkulator', '/poengkalkulator'],
