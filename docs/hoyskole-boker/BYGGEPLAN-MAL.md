@@ -248,3 +248,30 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
   disk og gap-fill, aldri bygg på nytt.
 - combine-chapters (prebuild) leser alle registry-id-er — én ugyldig JSON
   knekker build; sjekk-bok.py fanger det først.
+
+## Oppgave-estetikk (gjelder ALLE bøker — web + PDF)
+
+Regler destillert fra econ1210-gjennomgangen. Forfatter-agenter skal følge dem
+når de skriver `task`; renderere (web + PDF) speiler dem så eldre innhold også
+ser pent ut.
+
+1. **Sjanger-/eksamensmetadata som egen tag, ikke inline i oppgaveteksten.**
+   En ledende parentes som `(Eksamensnivå, sjanger H — full oppgave 3.)` skal
+   IKKE stå midt i brødteksten. `src/lib/textbook/genre-tag.ts`
+   (`extractGenreTag`) trekker den ut til en liten grå «chip» over oppgaven, og
+   `GenreBadge` viser den på web. PDF-generatoren speiler samme funksjon
+   (`extractGenreTag` + `.ex-tag`). Ved ny render-flate: gjenbruk genre-tag.ts,
+   ikke skriv om regelen. GATE-regexen avgjør hva som er en sjanger-parentes.
+2. **Ikke gjenta vanskelighetsgrad inne i teksten.** En ledende `(krevende)` /
+   `(vanskelig)` / `(lett)` / `(middels)` er redundant med `difficulty`-feltet
+   (vises i oppgavehodet). Ikke skriv den i `task`; renderere stripper en
+   ledende slik parentes (`stripDiff`) for gammelt innhold.
+3. **Inline-nummerering `(1) … (2) … (3) …` (≥3 påfølgende fra (1)) settes på
+   egne linjer med tynt fete tall.** Ledeteksten før `(1)` blir en egen setning;
+   hvert punkt får egen linje (`.enum-item` / `.enum-n`, font-weight 600).
+   Unntak: hvis punktene allerede er bold-/kursivformaterte (`**(1) …**`) er det
+   forfatterens bevisste valg — la dem stå.
+
+Speilingen ligger i PDF-generatoren (`extractGenreTag`, `stripDiff`,
+`inlineEnum` i make-<emne>-pdf). Når en ny bok-PDF lages: kopier disse tre
+funksjonene + CSS-klassene `.ex-tag` / `.enum*` uendret.
