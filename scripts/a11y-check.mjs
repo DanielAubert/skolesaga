@@ -24,6 +24,7 @@ const ROUTES = [
   ['kapittel', '/bok/1t/1t-1-1'],
   ['kapittel-quiz', '/bok/1t/1t-1-1/quiz'],
   ['kildegrunnlag', '/bok/exphil03/kildegrunnlag'],
+  ['losning', '/losning/5629vg'],
   ['quiz', '/quiz/1t-1-1'],
   ['ressurser', '/ressurser'],
   ['poengkalkulator', '/poengkalkulator'],
