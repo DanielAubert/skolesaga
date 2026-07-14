@@ -65,6 +65,11 @@ def poly(pts, fill, opacity=0.18):
     p = ' '.join(f'{x:.1f},{y:.1f}' for x, y in pts)
     return f'  <polygon points="{p}" fill="{fill}" opacity="{opacity}"/>\n'
 
+def polyline(pts, color, w=2.4, dash=None):  # åpen kurve (for hyperbler/trapper)
+    d = f' stroke-dasharray="{dash}"' if dash else ''
+    p = ' '.join(f'{x:.1f},{y:.1f}' for x, y in pts)
+    return f'  <polyline points="{p}" fill="none" stroke="{color}" stroke-width="{w}"{d}/>\n'
+
 # Geometrihjelp: skjæring mellom to linjer gitt ved endepunkter
 def intersect(a1, a2, b1, b2):
     x1, y1 = a1; x2, y2 = a2; x3, y3 = b1; x4, y4 = b2
@@ -336,4 +341,118 @@ b += txt((xE+xT)/2-16, pV+30, 'eksport', '#222', 12, True)
 b += sub(xE-6, OY+18, 'x', 'E', size=12); b += sub(xT-8, OY+18, 'x', 'T', size=12)
 save('handel-eksport', b)
 
-print('\nFerdig — figurbiblioteket generert (kjerne + gjenbruks-kontekster).')
+# ================= HJELPEFIGURER (forstå oppgavene) =================
+
+# ---------- 13) KURVESKIFT (komparativ statikk: T inn) ----------
+b = header('Komparativ statikk: et tilbudsskift. Den fallende E-kurven ligger fast. Tilbudet skifter inn (opp til venstre) fra T til T-merket fordi innsatsen blir dyrere. Likevekten flytter seg fra A til A-merket: høyere pris og lavere mengde. Stiplede hjelpelinjer viser begge prisene og mengdene på aksene.')
+b += axes()
+Ts1, Ts2 = (T1[0], T1[1]-48), (T2[0], T2[1]-48)   # T' skiftet opp (dyrere innsats)
+Anew = intersect(E1, E2, Ts1, Ts2)
+b += line(E1, E2, RED)
+b += line(T1, T2, BLUE, 1.6, '5 4'); b += line(Ts1, Ts2, BLUE)
+b += txt(365, 285, 'E', RED, 16, False, True)
+b += txt(300, 60, "T'", BLUE, 15, False, True); b += txt(352, 92, 'T', BLUE, 13, False, True)
+b += hdash(A[0], A[1]); b += vdash(A[0], A[1]); b += dot(*A, '')
+b += hdash(Anew[0], Anew[1]); b += vdash(Anew[0], Anew[1]); b += dot(*Anew, '')
+b += txt(A[0]+7, A[1]+15, 'A', size=14, bold=True)
+b += txt(Anew[0]-16, Anew[1]-7, "A'", size=14, bold=True)
+b += txt(OX-30, A[1]+5, 'p*', size=13); b += sub(OX-36, Anew[1]+5, 'p', '1', size=13)
+b += txt(A[0]-6, OY+18, 'x*', size=13); b += sub(Anew[0]-8, OY+18, 'x', '1', size=13)
+save('kurveskift', b)
+
+# ---------- 14) STYKKSUBSIDIE-KILE (speil av skatt; overproduksjon) ----------
+b = header('Stykksubsidie som kile: subsidien utvider mengden til x1, større enn likevektsmengden x*. Ved x1 får selgeren p_selger (lest opp på T-kurven) mens kjøperen betaler p_kjøper (lest ned på E-kurven). Avstanden er subsidien s. Trekanten mellom likevekten A og den nye mengden er dødvektstapet — samfunnet taper selv om begge sider «vinner» (subsidie-paradokset).')
+b += axes()
+x1 = A[0] + (385 - A[0])*0.42       # ny mengde til HØYRE for x*
+pE = y_at(E1, E2, x1); pT = y_at(T1, T2, x1)
+b += poly([A, (x1, pT), (x1, pE)], ORG, 0.28)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('E', 'T')
+b += line((x1, pE), (x1, pT), '#222', 1.6)
+b += hdash(x1, pE); b += hdash(x1, pT); b += vdash(x1, (pE+pT)/2)
+b += dot(x1, pE, ''); b += dot(x1, pT, ''); b += dot(*A, 'A', -16, -4)
+b += sub(OX-52, pT+5, 'p', 'selger', size=12); b += sub(OX-54, pE+5, 'p', 'kjøper', size=12)
+b += txt(x1+7, (pE+pT)/2+4, 's', size=15, bold=True)
+b += txt(A[0]-16, OY+18, 'x*', size=13); b += sub(x1-8, OY+18, 'x', '1', size=13)
+save('stykksubsidie-kile', b)
+
+# ---------- 15) ELASTISITET LANGS EN RETT LINJE ----------
+b = header('Elastisiteten varierer langs én rett etterspørselskurve: i den øvre delen (høy pris, lav mengde) er den elastisk (tallverdi over 1), i den nedre delen (lav pris, høy mengde) er den uelastisk (tallverdi under 1), og nøyaktig i midtpunktet er den enhetselastisk (tallverdi lik 1). Stigningstallet er det samme hele veien — elastisiteten er det ikke.')
+b += axes()
+Ee1, Ee2 = (92, 52), (382, 292)
+mid = ((Ee1[0]+Ee2[0])/2, (Ee1[1]+Ee2[1])/2)
+b += line(Ee1, Ee2, RED)
+b += dot(*mid, '')
+b += txt(Ee1[0]+18, Ee1[1]+34, 'elastisk', GRN, 13, False, True)
+b += txt(Ee1[0]+18, Ee1[1]+50, '|ε| > 1', GRN, 12, True)
+b += txt(mid[0]+12, mid[1]-6, '|ε| = 1', '#222', 12, True)
+b += txt(Ee2[0]-96, Ee2[1]-30, 'uelastisk', ORG, 13, False, True)
+b += txt(Ee2[0]-96, Ee2[1]-14, '|ε| < 1', ORG, 12, True)
+b += txt(365, 288, 'E', RED, 15, False, True)
+save('elastisitet-langs-linja', b)
+
+# ---------- 16) ANLEGGSMODELLEN: TILBUD SOM TRAPPETRINN ----------
+b = header('Tilbudskurven i anleggsmodellen: hvert anlegg produserer til sin egen konstante enhetskostnad. Ordner vi anleggene fra billigst til dyrest, danner de en stigende trapp — hvert trinn er ett anlegg som slås på når prisen når enhetskostnaden. Den glatte, stigende T-kurven er trappa når anleggene er mange og små.')
+b += axes()
+costs = [252, 222, 194, 168, 144, 122]     # y (stigende pris = synkende y)
+w = 50; xk = OX + 8; trapp = [(xk, costs[0])]
+for c in costs:
+    trapp.append((xk, c)); xk += w; trapp.append((xk, c))
+b += polyline(trapp, '#7a9cc0', 2.0)        # trappa (lys blå)
+b += line((OX+8, 262), (xk, 118), BLUE, 2.4)  # glatt T-kurve gjennom trappa
+b += txt(xk-6, 132, 'T', BLUE, 16, False, True)
+b += txt(OX+70, 270, 'hvert trinn = ett anlegg', '#555', 11, True)
+save('anleggsmodell-tilbud', b)
+
+# ---------- 17) ETTERSPØRSEL FRA BETALINGSVILLIGHET ----------
+b = header('Etterspørselskurven bygges av betalingsvillighet: still kjøperne opp etter hvor mye de maksimalt vil betale, fra høyest til lavest. Hver kjøper er ett trinn — de med høy betalingsvillighet kjøper først. Den glatte, fallende E-kurven er denne trappa når kjøperne er mange.')
+b += axes()
+wtp = [86, 116, 148, 182, 214, 244]        # y stigende → synkende pris til høyre
+w = 50; xk = OX + 8; trapp = [(xk, wtp[0])]
+for c in wtp:
+    trapp.append((xk, c)); xk += w; trapp.append((xk, c))
+b += polyline(trapp, '#d19a94', 2.0)        # trappa (lys rød)
+b += line((OX+8, 78), (xk, 252), RED, 2.4)  # glatt E-kurve
+b += txt(xk-4, 260, 'E', RED, 16, False, True)
+b += txt(OX+64, 96, 'hvert trinn = én kjøpers betalingsvillighet', '#555', 10, True)
+save('etterspoersel-bv', b)
+
+# ---------- 18) NATURLIG MONOPOL (fallende GK, konstant MK) ----------
+def _px(xd): return OX + 10 + (xd-0.5)/(11-0.5)*(392-(OX+10))
+def _py(pd): return OY - pd/12.0*(OY-(YTOP+8))
+b = header('Naturlig monopol: gjennomsnittskostnaden GK faller mot den konstante marginalkostnaden MK fordi den store faste kostnaden fordeles på flere enheter. Regulatoren står i et dilemma: pris lik GK gjør bedriften selvfinansierende (punktet der E møter GK), men pris lik MK er samfunnsøkonomisk effektivt og gir underskudd (der E møter MK, under GK).')
+b += axes()
+c_, B_ = 2.0, 8.0
+gk = [(_px(x), _py(c_ + B_/x)) for x in [1,1.3,1.7,2.2,2.8,3.6,4.6,6,7.5,9,11]]
+b += polyline(gk, PUR, 2.4)
+b += line((_px(0.5), _py(c_)), (392, _py(c_)), GRN, 2.2)
+b += line((_px(0.5), _py(11-0.9*0.5)), (_px(11), _py(11-0.9*11)), RED, 2.4)
+xGK, pGK = 9.01, 2.89          # E = GK
+xMK, pMK = 10.0, 2.0           # E = MK
+b += dot(_px(xGK), _py(pGK), ''); b += dot(_px(xMK), _py(pMK), '')
+b += txt(_px(1)-2, _py(c_+B_/1)-6, 'GK', PUR, 14, False, True)
+b += txt(300, _py(c_)-8, 'MK', GRN, 14, False, True)
+b += txt(_px(4)+8, _py(11-0.9*4)-4, 'E', RED, 15, False, True)
+b += txt(_px(xGK)-4, _py(pGK)-10, 'pris = GK', PUR, 11, True)
+b += txt(_px(xMK)-2, OY+18, 'pris = MK', GRN, 11, True)
+save('naturlig-monopol', b)
+
+# ---------- 19) BUDSJETTLINJE OG INDIFFERENSKURVER ----------
+def _qx(xd): return OX + xd/11.0*(392-OX)
+def _qy(yd): return OY - yd/11.0*(OY-(YTOP+8))
+b = header('Konsumentens tilpasning: budsjettlinja viser alle kombinasjoner av gode 1 og gode 2 som forbrukeren har råd til (helning minus prisforholdet). Indifferenskurven samler kombinasjoner med lik nytte og buer inn mot origo. Det beste valget er tangeringspunktet der budsjettlinja akkurat berører den høyeste nåbare indifferenskurven.')
+b += axes('x₁', 'x₂')
+# budsjettlinje fra (0,10) til (10,0); optimum Cobb-Douglas i (5,5)
+b += line((_qx(0), _qy(10)), (_qx(10), _qy(0)), '#111', 2.2)
+# indifferenskurve x1*x2 = 25 (tangerer budsjettlinja i (5,5))
+ind = [(_qx(x), _qy(25.0/x)) for x in [2.6,3,3.5,4,4.5,5,5.6,6.3,7.2,8.3,9.6]]
+b += polyline(ind, PUR, 2.4)
+# en lavere (nåbar, men dårligere) og en høyere (unåbar) indifferenskurve, svakt
+b += polyline([(_qx(x), _qy(12.0/x)) for x in [1.4,1.8,2.4,3,4,5,6.5,8.5]], PUR, 1.3, '4 3')
+b += dot(_qx(5), _qy(5), '')
+b += txt(_qx(5)+7, _qy(5)-6, 'tilpasning', '#222', 12, True)
+b += txt(_qx(6.6), _qy(25.0/6.6)+2, 'indifferenskurve', PUR, 11, True)
+b += txt(_qx(7.2), _qy(3.2)+16, 'budsjettlinje', '#111', 11, True)
+save('budsjett-indifferens', b)
+
+print('\nFerdig — figurbiblioteket generert (kjerne + gjenbruks + hjelpefigurer).')
