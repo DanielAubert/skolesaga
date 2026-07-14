@@ -185,7 +185,7 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
   psy1010: {
-      courseId: 'psy1010',
+    courseId: 'psy1010',
     institusjon: 'Universitetet i Oslo (UiO) — Psykologisk institutt',
     sammendrag:
       'Boka er kalibrert mot PSY1010s eksamensarkiv ved UiO: 29 eksamenssett fra 2008 til 2025 (inkludert to utsatte prøver) og 10 sensorveiledninger fra 2018–2025. Emnet samkjøres med PSYC1100 (profesjonsstudiet) med identiske oppgavesett, så arkivet dekker begge. Temavekting, oppgavesjangre og tolkningskravene i boka speiler det arkivet faktisk viser.',
@@ -219,6 +219,46 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
       'Sensorveiledninger finnes kun for 2018–2025. For eldre årganger er sensorlogikken utledet av oppgaveformuleringene alene.',
       'Én arkivfil (vår 2022) har trykkfeil i dokumentoverskriften («våren 2021»); innholdet er verifisert mot riktig årgang.',
       'Alle oppgaver, caser og tall i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, vurderingskrav) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
+  econ1210: {
+    courseId: 'econ1210',
+    institusjon: 'Universitetet i Oslo (UiO) — Økonomisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot ECON1210s eksamensarkiv ved UiO: 16 ordinære eksamenssett (vår 2018 – høst 2025), 10 utsatt-eksamener og til sammen 22 sensorveiledninger. Analysen er kvantitativ der kildene tillater det — temavekting og oppgavesjangre i boka speiler hva arkivet faktisk tester og hvor tungt.',
+    eksamenssett: [
+      {
+        tittel: '16 ordinære eksamenssett (vår 2018 – høst 2025)',
+        detalj: 'Alle lest grundig, oppgave for oppgave — vår og høst hvert år fra 2018 til 2025.',
+      },
+      {
+        tittel: '10 utsatt-eksamener (2018–2025)',
+        detalj: 'Lest for tema- og formatregistrering, med tilhørende sensorveiledninger der de finnes.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '22 sensorveiledninger (2018–2025)',
+        detalj:
+          '16 for de ordinære settene (vår 2018 – høst 2025) og 6 for utsatt-eksamenene. Flere er fulle fasiter med tallsvar og figurer, andre er momentlister — begge typer er brukt til å kalibrere hva sensor belønner per oppgavetype.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for ECON1210',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform). Emnestatus verifisert aktiv i 2026.',
+      },
+      {
+        tittel: 'Pensumreferanser slik veiledningene navngir dem',
+        detalj:
+          'Krugman & Wells og CORE «The Economy — Microeconomics» (bl.a. anleggsmodellen fra kap. 8.4), samt NOU 2015:15 «Grønn skattekommisjon». Pensum refereres (forfatter, verk, modell) — det siteres aldri i lengde.',
+      },
+    ],
+    forbehold: [
+      'Utsatt-sett før 2023 mangler sensorveiledning i arkivet.',
+      'Noen eldre sett (vår 2018, høst 2020, vår 2021) oppgir ikke oppgavevekter; der er vektingen markert som ikke oppgitt.',
+      'Alle oppgaver, tall og caser i boka er nyskrevne. Arkivet er brukt som mønster (modeller, sjangre, temavekting) — aldri ordrett. Modellsammenhengene er standard faglig notasjon.',
     ],
     analysedato: 'juli 2026',
   },

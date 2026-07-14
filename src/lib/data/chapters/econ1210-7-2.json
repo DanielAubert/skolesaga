@@ -1,0 +1,306 @@
+{
+  "id": "econ1210-7-2",
+  "courseId": "econ1210",
+  "chapterNumber": "7.2",
+  "title": "Spillteori: 2×2-matrisen, Nash og fangens dilemma",
+  "description": "Beredskapspakken: sette opp spillmatrisen fra tekst, finne Nash-likevekter celle for celle, vurdere Pareto og forklare hvorfor karteller sprekker.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "sette opp en 2×2-spillmatrise fra en tekstbeskrivelse med spillere, strategier og utfall",
+    "finne Nash-likevekter ved beste-svar-metoden og gjenkjenne dominerende strategier",
+    "avgjøre om et utfall er Pareto-optimalt og forklare fangens dilemma",
+    "koble dilemmaet til prissamarbeid og forklare hvorfor karteller er ustabile"
+  ],
+  "content": [
+    {
+      "id": "econ1210-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er et **beredskapskapittel** — spillteori ligger i dvale, men står i emnebeskrivelsen og kan våkne når som helst.\n\n- Spillteori hører til bokas **sjanger M** («dvale-sjangrene»: spillteori, nåverdi, konsumentteori, handel — se kodelista i [kap. 0.1](/bok/econ1210/econ1210-0-1)).\n- Temaet var med i 4 av 16 ordinære sett (H2018, V2019, H2019, V2020), og **«Nash-likevekt» var et fast begrepsspørsmål 2018–2020**. Det har ikke vært på ordinær eksamen siden V2020 — men lav vedlikeholdskostnad gjør det billig å ha klart.\n- Den varige verdien er koblingen til **konkurransepolitikk**: fangens dilemma forklarer hvorfor prissamarbeid (kartell) er ustabilt og hvorfor konkurranselovgivning trengs. Kan du den koblingen, har du et godt svar selv om spillet ikke kommer som egen oppgave.\n\nMålet: å kunne lese en tekst, sette opp 2×2-matrisen, finne Nash-likevekter **celle for celle**, avgjøre om utfallet er Pareto-optimalt, og forklare veiene ut av dilemmaet."
+    },
+    {
+      "id": "econ1210-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet kan leses selvstendig — spillmatrisen er et eget verktøy. Det du får mest ut av å ha friskt, er ideen om **prissamarbeid og markedsmakt**: at bedrifter kan tjene mer ved å holde prisen høy sammen enn ved å konkurrere. I denne boka møter du markedsmakt i Del 5 (monopol); her forklarer vi *hvorfor* et prissamarbeid er ustabilt. Du trenger ingen regning fra tidligere kapitler.\n\n*Skrivemåte:* i en spillmatrise skriver vi utfallet i hver rute som et tallpar $(A, B)$, der $A$ er gevinsten til spilleren som velger **rad** og $B$ til spilleren som velger **kolonne**. Høyere tall er bedre."
+    },
+    {
+      "id": "econ1210-7-2-hverdagsanker",
+      "type": "text",
+      "content": "Tenk deg to bensinstasjoner rett ved hverandre. Holder *begge* prisen høy, tjener begge godt. Men hver av dem frister til å sette prisen litt lavere for å kapre den andres kunder. Problemet er at når begge tenker slik, ender begge med lav pris — og begge tjener dårligere enn om de hadde holdt sammen. Ingen av dem *ville* prisdumpingen, men hver for seg er det det lureste å gjøre.\n\nDette er **fangens dilemma**, og spillteori gir oss et enkelt bord — en 2×2-matrise — for å analysere det presist. Vi bygger opp verktøyet i tre trinn: matrisen, Nash-likevekten og Pareto-vurderingen, med en oppgave etter hvert."
+    },
+    {
+      "id": "econ1210-7-2-trinn1-tekst",
+      "type": "text",
+      "content": "## Trinn 1 — Fra tekst til 2×2-matrise (~10 min)"
+    },
+    {
+      "id": "econ1210-7-2-matrise-utledning",
+      "type": "text",
+      "content": "Et spill i denne boka har tre deler: **spillerne** (hvem velger), **strategiene** (hva hver kan velge) og **utfallene** (hva hver får, avhengig av begges valg). Med to spillere og to strategier hver får vi en **2×2-matrise** med fire ruter.\n\nOppskriften for å bygge matrisen fra en tekst:\n\n1. Finn de to spillerne. Den ene styrer **radene**, den andre **kolonnene**.\n2. Finn de to strategiene til hver — de blir rad-/kolonneoverskrifter.\n3. Fyll inn hver rute med tallparet $(\\text{radspillerens gevinst},\\ \\text{kolonnespillerens gevinst})$ for den kombinasjonen av valg.\n\nDet er lett å bytte om tallene i paret — les alltid rad-gevinsten først. En feillest matrise gir feil Nash-likevekt, så bruk et øyeblikk på å sette den opp ryddig."
+    },
+    {
+      "id": "econ1210-7-2-def-spill",
+      "type": "definition",
+      "title": "Spill (2×2)",
+      "content": "Et **spill** består av spillere, strategier for hver spiller og utfall (gevinster) som avhenger av alles valg. Med to spillere og to strategier hver settes det opp som en **2×2-matrise**: den ene spilleren velger rad, den andre kolonne, og hver rute inneholder tallparet $(\\text{radspillerens gevinst},\\ \\text{kolonnespillerens gevinst})$. Høyere tall er bedre."
+    },
+    {
+      "id": "econ1210-7-2-ex-oppsett",
+      "type": "example",
+      "title": "Eksempel 1: Sette opp matrisen fra tekst",
+      "problem": "To bensinstasjoner, A og B, velger samtidig HØY eller LAV pris. Holder begge HØY, tjener hver 10. Setter én LAV mens den andre holder HØY, kaprer prissetteren kundene og tjener 15, mens den som holdt HØY bare får 2. Holder begge LAV, tjener hver 5. Sett opp spillmatrisen.",
+      "solution": "**Spillere:** stasjon A (velger rad) og stasjon B (velger kolonne). **Strategier:** HØY eller LAV for hver.\n\n**Matrise i ord** (hver rute: (A sin gevinst, B sin gevinst)):\n\n- A HØY, B HØY: $(10, 10)$ — begge tjener godt.\n- A HØY, B LAV: $(2, 15)$ — B kaprer kundene, A taper.\n- A LAV, B HØY: $(15, 2)$ — A kaprer kundene, B taper.\n- A LAV, B LAV: $(5, 5)$ — priskrig, begge tjener dårlig.\n\nSkrevet som tabell:\n\n| A \\\\ B | B: HØY | B: LAV |\n|---|---|---|\n| **A: HØY** | $(10, 10)$ | $(2, 15)$ |\n| **A: LAV** | $(15, 2)$ | $(5, 5)$ |\n\nMatrisen er nå klar til å analyseres. Legg merke til fristelsen: uansett hva den andre gjør, frister LAV — det utforsker vi i Trinn 2."
+    },
+    {
+      "id": "econ1210-7-2-ex-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-2-e-m1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) I en spillmatrise står tallparet $(7, 3)$ i ruten der spiller A velger «Samarbeid» og spiller B velger «Bryt».\n\n**a)** Hvem sin gevinst er 7, og hvem sin er 3?\n\n**b)** Hvilken av de to spillerne velger rad, og hvilken velger kolonne, i denne boka?",
+        "solution": "**a)** 7 er radspillerens gevinst, altså **spiller A** (som velger «Samarbeid»), og 3 er kolonnespillerens gevinst, altså **spiller B** (som velger «Bryt»). Vi skriver alltid radspillerens gevinst først.\n\n**b)** Spiller A (den vi nevner først) velger **rad**; spiller B velger **kolonne**.",
+        "hints": [
+          "Rekkefølgen i tallparet er fast: radspiller først.",
+          "Ruten er navngitt ved A sin strategi (rad) og B sin strategi (kolonne)."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-2-trinn2-tekst",
+      "type": "text",
+      "content": "## Trinn 2 — Nash-likevekt: beste svar celle for celle (~15 min)"
+    },
+    {
+      "id": "econ1210-7-2-nash-utledning",
+      "type": "text",
+      "content": "En **Nash-likevekt** er et utfall der **ingen spiller kan tjene på å endre valget sitt alene**, gitt hva den andre gjør. Den korte formuleringen du alltid skal ha med: *ingen angrer på valget sitt, gitt de andres valg.*\n\nDu finner Nash-likevektene med **beste-svar-metoden**, celle for celle:\n\n1. **Radspillerens beste svar:** gå gjennom hver kolonne (hver ting den andre kan gjøre). I den kolonnen: hvilken rad gir radspilleren høyest gevinst? Marker den (sensor tegner gjerne en ring rundt tallet).\n2. **Kolonnespillerens beste svar:** gå gjennom hver rad. I den raden: hvilken kolonne gir kolonnespilleren høyest gevinst? Marker den.\n3. **Nash-likevekt** er enhver rute der *begge* tallene er markert — begge spiller sitt beste svar på den andre samtidig.\n\nEr én strategi beste svar uansett hva den andre gjør, kalles den en **dominerende strategi**. Har begge spillere en dominerende strategi, er utfallet der de møtes den eneste Nash-likevekten."
+    },
+    {
+      "id": "econ1210-7-2-def-nash",
+      "type": "definition",
+      "title": "Nash-likevekt",
+      "content": "En **Nash-likevekt** er et utfall der ingen spiller kan oppnå en høyere gevinst ved å endre sitt eget valg alene, gitt de andres valg — kort sagt: *ingen angrer, gitt de andres valg.* Den finnes ved beste-svar-metoden: marker hver spillers beste svar på hver av den andres strategier; en rute der begge svar er markert samtidig, er en Nash-likevekt. Et spill kan ha én, flere eller (i denne bokas tilfeller) alltid minst én."
+    },
+    {
+      "id": "econ1210-7-2-def-dominerende",
+      "type": "definition",
+      "title": "Dominerende strategi",
+      "content": "En **dominerende strategi** er en strategi som gir en spiller høyest gevinst **uansett** hva motspilleren velger. Har en spiller en dominerende strategi, velger hun den alltid. Har begge spillere en dominerende strategi, er ruten der de to møtes den eneste Nash-likevekten — som i fangens dilemma."
+    },
+    {
+      "id": "econ1210-7-2-ex-nash",
+      "type": "example",
+      "title": "Eksempel 2: Finne Nash-likevekten celle for celle",
+      "problem": "Bruk bensinstasjon-matrisen fra Eksempel 1. Finn radspillerens og kolonnespillerens beste svar, og bestem Nash-likevekten(e).",
+      "solution": "**Radspillerens (A) beste svar** — se på A sitt tall (det første) i hver kolonne:\n\n- Kolonne B: HØY — A får 10 (HØY) mot 15 (LAV). Beste svar: **LAV**.\n- Kolonne B: LAV — A får 2 (HØY) mot 5 (LAV). Beste svar: **LAV**.\n\nA sitt beste svar er LAV uansett — LAV er en **dominerende strategi** for A.\n\n**Kolonnespillerens (B) beste svar** — se på B sitt tall (det andre) i hver rad:\n\n- Rad A: HØY — B får 10 (HØY) mot 15 (LAV). Beste svar: **LAV**.\n- Rad A: LAV — B får 2 (HØY) mot 5 (LAV). Beste svar: **LAV**.\n\nOgså for B er LAV dominerende.\n\n**Nash-likevekt:** ruten (A LAV, B LAV) med utfall $(5, 5)$ — den eneste ruten der begge spiller sitt beste svar. Her angrer ingen: gitt at den andre holder LAV, ville et bytte til HØY gitt bare 2 i stedet for 5. **Konklusjon:** begge ender med lav pris og gevinst 5 hver, selv om (HØY, HØY) ville gitt 10 hver."
+    },
+    {
+      "id": "econ1210-7-2-ex-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-2-e-m2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — Nash-likevekt.) To selskaper velger samtidig «Invester» eller «Vent» i ny teknologi. Utfallene (radspiller, kolonnespiller):\n\n- begge Invester: $(6, 6)$\n- rad Invester, kolonne Vent: $(8, 3)$\n- rad Vent, kolonne Invester: $(3, 8)$\n- begge Vent: $(4, 4)$\n\n**a)** Sett opp matrisen som en tabell.\n\n**b)** Finn hver spillers beste svar og bestem Nash-likevekten(e).\n\n**c)** Har noen av spillerne en dominerende strategi?",
+        "solution": "**a)**\n\n| R \\\\ K | K: Invester | K: Vent |\n|---|---|---|\n| **R: Invester** | $(6, 6)$ | $(8, 3)$ |\n| **R: Vent** | $(3, 8)$ | $(4, 4)$ |\n\n**b)** *Radspiller:* mot K Invester: 6 (Invester) vs 3 (Vent) → Invester. Mot K Vent: 8 (Invester) vs 4 (Vent) → Invester. *Kolonnespiller:* mot R Invester: 6 (Invester) vs 3 (Vent) → Invester. Mot R Vent: 8 (Invester) vs 4 (Vent) → Invester. Begge svar er markert bare i ruten (Invester, Invester): **Nash-likevekt = (Invester, Invester) med $(6, 6)$**.\n\n**c)** Ja — «Invester» er en dominerende strategi for begge, siden den gir høyest gevinst uansett hva den andre gjør.",
+        "hints": [
+          "Radspiller: se på det FØRSTE tallet, kolonne for kolonne.",
+          "Kolonnespiller: se på det ANDRE tallet, rad for rad.",
+          "Nash = ruten der begge beste svar er markert samtidig."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-2-trinn3-tekst",
+      "type": "text",
+      "content": "## Trinn 3 — Pareto-vurdering og fangens dilemma (~12 min)"
+    },
+    {
+      "id": "econ1210-7-2-pareto-utledning",
+      "type": "text",
+      "content": "Nash-likevekten sier hva som *skjer* — men ikke om utfallet er *godt*. Til det bruker vi **Pareto-vurdering**. Et utfall er **Pareto-optimalt** hvis det ikke finnes et annet utfall som gjør minst én spiller bedre stilt uten å gjøre noen andre verre. Er det et utfall som er bedre for *alle* (eller bedre for én uten å skade noen), er dagens utfall *ikke* Pareto-optimalt.\n\n**Fangens dilemma** er nettopp tilfellet der Nash-likevekten *ikke* er Pareto-optimal. I bensinstasjon-spillet er Nash $(5, 5)$, men $(10, 10)$ er bedre for begge — så $(5, 5)$ er ikke Pareto-optimalt. Det er dilemmaets kjerne: **rasjonell egeninteresse fører begge til et utfall som er dårligere for begge.** Grunnen er at hver spiller, når hun ser bort fra den andre, tjener på å bryte samarbeidet (dominerende strategi LAV) — men når begge gjør det, taper begge.\n\nAdvarsel mot en vanlig sammenblanding: Nash og Pareto er to *ulike* spørsmål. Nash spør «hva blir valgt?»; Pareto spør «kunne alle fått det bedre?». Et utfall kan være Nash uten å være Pareto-optimalt (dilemmaet) — og et Pareto-optimalt utfall kan være uoppnåelig som Nash."
+    },
+    {
+      "id": "econ1210-7-2-def-pareto",
+      "type": "definition",
+      "title": "Pareto-optimalt utfall",
+      "content": "Et utfall er **Pareto-optimalt** hvis ingen kan få det bedre uten at noen andre får det verre. I fangens dilemma er Nash-likevekten *ikke* Pareto-optimal: det finnes et annet utfall (begge samarbeider) som er bedre for begge. Pareto handler om «kan alle få det bedre?», og er et annet spørsmål enn Nash («hva blir valgt?»)."
+    },
+    {
+      "id": "econ1210-7-2-def-fangens",
+      "type": "definition",
+      "title": "Fangens dilemma",
+      "content": "**Fangens dilemma** er et spill der hver spiller har en dominerende strategi om å «bryte» (ikke samarbeide), slik at Nash-likevekten blir at begge bryter — men et utfall der begge samarbeidet, ville vært bedre for begge. Nash-likevekten er altså *ikke* Pareto-optimal. Egeninteresse fører hver spiller til et utfall som er dårligere for alle."
+    },
+    {
+      "id": "econ1210-7-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De vanligste tabbene i spilloppgaver:\n\n- **Finne bare én av flere Nash-likevekter:** noen spill (koordineringsspill) har to. Sjekk *alle* fire rutene med beste-svar-metoden, ikke bare den ene du la merke til først.\n- **Blande Nash og Pareto:** å tro at en Nash-likevekt automatisk er «best». I fangens dilemma er den nettopp ikke Pareto-optimal.\n- **Lese matrisen feil (rad/kolonne):** å forveksle hvem sin gevinst som står først, eller å se på feil tall når du finner beste svar. Radspiller = første tall, kolonne for kolonne; kolonnespiller = andre tall, rad for rad.\n- **Glemme «gitt de andres valg» i definisjonen:** Nash-likevekten handler om at ingen tjener på å bryte ut *alene*. Uten den presiseringen er definisjonen upresis."
+    },
+    {
+      "id": "econ1210-7-2-ex-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-2-e-m3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — koordineringsspill med to Nash-likevekter.) To produsenter velger samtidig teknisk standard A eller B. Blir de enige om A, tjener begge 3; enige om B, tjener begge 2; velger de ulikt, taper begge og får 0. Utfall (rad, kolonne): (A,A) = $(3,3)$; (A,B) = $(0,0)$; (B,A) = $(0,0)$; (B,B) = $(2,2)$.\n\n**a)** Finn alle Nash-likevekter.\n\n**b)** Er noen av dem Pareto-optimal?\n\n**c)** Har spillet en dominerende strategi for noen?",
+        "solution": "**a)** *Radspiller:* mot K velger A: 3 (A) vs 0 (B) → A. Mot K velger B: 0 (A) vs 2 (B) → B. *Kolonnespiller:* symmetrisk — mot R=A → A, mot R=B → B. Begge beste svar er markert i **(A,A)** og i **(B,B)**. Spillet har altså **to Nash-likevekter: (A,A) og (B,B)**.\n\n**b)** (A,A) = $(3,3)$ er Pareto-optimal (ingen kan få det bedre uten at noen får det verre). (B,B) = $(2,2)$ er også teknisk Pareto-optimal (å flytte til (A,A) krever at *begge* bytter samtidig — ingen enkelt-avvik forbedrer noe), men den er dårligere for begge enn (A,A). Poenget: begge er stabile utfall, men A-standarden er den beste å koordinere seg om.\n\n**c)** Nei — ingen har en dominerende strategi. Beste svar avhenger av hva den andre gjør (A hvis den andre velger A, B hvis den andre velger B). Derfor er koordinering problemet, ikke fristelsen til å bryte.",
+        "hints": [
+          "Sjekk beste svar i alle fire rutene — koordineringsspill kan ha to Nash-likevekter.",
+          "En dominerende strategi må være beste svar UANSETT hva den andre gjør.",
+          "Pareto: finnes et utfall som er bedre for minst én uten å skade noen?"
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-2-kartell-tekst",
+      "type": "text",
+      "content": "### Koblingen til konkurransepolitikk: derfor sprekker karteller\n\nHer ligger spillteoriens varige verdi i mikroøkonomien. Et **kartell** er et prissamarbeid der bedriftene sammen holder prisen høy — som (HØY, HØY) i bensinstasjon-spillet — og deler en gevinst à la monopolutfallet. Men hver enkelt bedrift frister til å underby de andre litt og kapre markedet (bytte til LAV). Fordi «bryt» er en dominerende strategi for hver, er samarbeidet **ustabilt**: Nash-likevekten er at alle konkurrerer prisen ned. Det er derfor karteller historisk sprekker — og hvorfor prissamarbeid er *forbudt*, mens myndighetene ikke trenger å håndheve konkurranse like hardt som man skulle tro: bedriftenes egeninteresse driver dem mot konkurranse av seg selv.\n\n**Veier ut av dilemmaet:** i et **gjentatt spill** (bedriftene møtes igjen og igjen) kan samarbeid holde, fordi den som bryter kan straffes i senere runder. En enkel og robust strategi er **tit-for-tat**: start med å samarbeide, og gjør deretter det motparten gjorde forrige runde. Trusselen om gjengjeldelse gjør det dyrt å bryte, og stilltiende samarbeid kan da overleve — men det er nettopp derfor konkurransemyndighetene følger med på markeder med få, faste aktører."
+    },
+    {
+      "id": "econ1210-7-2-ex-m4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-2-e-m4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M + A — full analyse med hale.) To entreprenører skal samtidig velge SAMARBEID (holde høy pris) eller KUTT (underby) i en anbudskonkurranse. Utfall (rad, kolonne): begge SAMARBEID = $(20, 20)$; rad SAMARBEID, kolonne KUTT = $(5, 28)$; rad KUTT, kolonne SAMARBEID = $(28, 5)$; begge KUTT = $(12, 12)$.\n\n**a)** Sett opp matrisen og finn Nash-likevekten.\n\n**b)** Er utfallet Pareto-optimalt? Forklar.\n\n**c)** Forklar hvordan gjentatte anbudsrunder kan endre bildet, og koble til hvorfor prissamarbeid er forbudt.",
+        "solution": "**a)** \n\n| R \\\\ K | K: SAMARBEID | K: KUTT |\n|---|---|---|\n| **R: SAMARBEID** | $(20, 20)$ | $(5, 28)$ |\n| **R: KUTT** | $(28, 5)$ | $(12, 12)$ |\n\n*Radspiller:* mot K SAMARBEID: 20 vs 28 → KUTT. Mot K KUTT: 5 vs 12 → KUTT. KUTT dominerer. *Kolonnespiller:* symmetrisk — KUTT dominerer. **Nash-likevekt = (KUTT, KUTT) med $(12, 12)$.**\n\n**b)** Nei, utfallet er **ikke Pareto-optimalt**: (SAMARBEID, SAMARBEID) gir $(20, 20)$, som er bedre for *begge*. Dette er et fangens dilemma — hver entreprenør tjener på å underby (dominerende strategi KUTT), men når begge gjør det, ender de på 12 hver i stedet for 20 hver.\n\n**c)** I **gjentatte** anbudsrunder kan samarbeid holde: den som kutter i én runde, kan straffes med kutt fra motparten i senere runder (f.eks. tit-for-tat). Er gevinsten ved ett svik mindre enn det samlede tapet ved framtidig straff, lønner det seg å holde SAMARBEID. Slik kan bedrifter opprettholde en høy pris uten en formell avtale. **Koblingen til konkurransepolitikk:** dette er nettopp et stilltiende prissamarbeid — et kartell — som skader kundene ved at prisen holdes kunstig høy. Derfor er prissamarbeid forbudt, og konkurransemyndighetene overvåker markeder med få faste aktører der gjentatt spill kan stabilisere samarbeidet.",
+        "hints": [
+          "Finn hver spillers dominerende strategi ved beste svar i begge kolonner/rader.",
+          "Pareto: finnes en rute som er bedre for begge enn Nash-likevekten?",
+          "Gjentatt spill: hva gjør det mulig å straffe den som bryter?"
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-2-pause",
+      "type": "text",
+      "content": "— naturlig pausepunkt — *Kjernestoffet er nå gjennomgått. Resten av kapitlet er begrepsbank og repetisjon til flashcards.*"
+    },
+    {
+      "id": "econ1210-7-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1210-7-2-bb-spill",
+      "type": "definition",
+      "title": "Spillmatrisens tre deler",
+      "content": "Et spill består av **spillere** (hvem velger), **strategier** (hva hver kan velge) og **utfall** (gevinster som avhenger av alles valg). I 2×2-tilfellet velger den ene spilleren rad, den andre kolonne, og hver av de fire rutene inneholder tallparet $(\\text{radspillerens gevinst},\\ \\text{kolonnespillerens gevinst})$."
+    },
+    {
+      "id": "econ1210-7-2-bb-nash-def",
+      "type": "definition",
+      "title": "Nash-likevekt (tre formuleringer)",
+      "content": "En Nash-likevekt kan sies på tre likestilte måter: (1) et utfall der ingen kan tjene på å endre valget sitt alene; (2) et utfall der hver spiller spiller sitt beste svar på de andres valg; (3) kortversjonen: *ingen angrer, gitt de andres valg.* «Gitt de andres valg» er nøkkelen — den må alltid med."
+    },
+    {
+      "id": "econ1210-7-2-bb-bestesvar",
+      "type": "definition",
+      "title": "Beste-svar-metoden",
+      "content": "Metoden for å finne Nash-likevekter: for radspilleren, gå gjennom hver kolonne og marker raden med høyest gevinst (første tall); for kolonnespilleren, gå gjennom hver rad og marker kolonnen med høyest gevinst (andre tall). En rute der *begge* er markert, er en Nash-likevekt. Sensor tegner gjerne ringer rundt de beste svarene."
+    },
+    {
+      "id": "econ1210-7-2-bb-dominerende-strategi",
+      "type": "definition",
+      "title": "Dominerende strategi",
+      "content": "En strategi som gir høyest gevinst uansett hva motspilleren velger. Har en spiller en dominerende strategi, velges den alltid. Når begge spillere har en dominerende strategi, er ruten der de møtes den eneste Nash-likevekten — som i fangens dilemma, der «bryt» dominerer for begge."
+    },
+    {
+      "id": "econ1210-7-2-bb-pareto",
+      "type": "definition",
+      "title": "Pareto-optimalitet vs. Nash",
+      "content": "Et utfall er Pareto-optimalt hvis ingen kan få det bedre uten at noen får det verre. Nash svarer på «hva blir valgt?», Pareto på «kan alle få det bedre?». De to er ulike: i fangens dilemma er Nash-likevekten *ikke* Pareto-optimal, fordi et samarbeidsutfall ville vært bedre for alle."
+    },
+    {
+      "id": "econ1210-7-2-bb-fangensdilemma",
+      "type": "definition",
+      "title": "Fangens dilemma",
+      "content": "Et spill der «bryt» er dominerende for begge, så Nash-likevekten er at begge bryter — men et samarbeidsutfall ville vært bedre for begge. Egeninteresse fører til et utfall som er dårligere for alle. Modellen for prissamarbeid: hver bedrift frister til å underby, så kartellet er ustabilt."
+    },
+    {
+      "id": "econ1210-7-2-bb-kartell",
+      "type": "definition",
+      "title": "Kartell og kartellets ustabilitet",
+      "content": "Et **kartell** er et prissamarbeid der bedrifter sammen holder prisen høy (monopollignende gevinst). Men fordi hver bedrift frister til å underby de andre (dominerende «kutt»), er samarbeidet et fangens dilemma og dermed ustabilt. Dette forklarer hvorfor karteller sprekker, og hvorfor prissamarbeid er forbudt."
+    },
+    {
+      "id": "econ1210-7-2-bb-gjentatt",
+      "type": "definition",
+      "title": "Gjentatt spill og tit-for-tat",
+      "content": "Når spillet spilles om og om igjen (**gjentatt spill**), kan samarbeid opprettholdes fordi den som bryter kan straffes i senere runder. **Tit-for-tat** er strategien: start med å samarbeide, gjør deretter det motparten gjorde forrige runde. Trusselen om gjengjeldelse gjør svik dyrt og kan stabilisere det utfallet ett-rundes-spillet ikke klarer."
+    },
+    {
+      "id": "econ1210-7-2-bb-flere-nash",
+      "type": "definition",
+      "title": "Flere Nash-likevekter (koordinering)",
+      "content": "Noen spill har mer enn én Nash-likevekt. I et **koordineringsspill** (der begge tjener på å velge likt) er hvert av «enighetsutfallene» en Nash-likevekt — ingen dominerende strategi finnes, og problemet er å koordinere seg om det samme. Sjekk derfor alltid alle ruter med beste-svar-metoden."
+    },
+    {
+      "id": "econ1210-7-2-bb-utfallspar",
+      "type": "definition",
+      "title": "Utfallsparet (rad, kolonne)",
+      "content": "Hver rute i matrisen inneholder to tall: radspillerens gevinst først, kolonnespillerens gevinst sist. Å lese rekkefølgen riktig er avgjørende — feillest tallpar gir feil beste svar og dermed feil Nash-likevekt. Radspiller ser på første tall (kolonne for kolonne), kolonnespiller på andre tall (rad for rad)."
+    },
+    {
+      "id": "econ1210-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1210-7-2-rep-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-7-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Gi den korte formuleringen av en Nash-likevekt, og forklar hvorfor tillegget «gitt de andres valg» er nødvendig.",
+            "solution": "Kort: en Nash-likevekt er et utfall der ingen angrer på valget sitt, *gitt de andres valg*. Tillegget er nødvendig fordi Nash ikke krever at utfallet er best mulig for alle sammen — bare at ingen tjener på å endre sitt eget valg *alene*, mens de andre holder sitt fast. Uten «gitt de andres valg» ville definisjonen blitt forvekslet med Pareto-optimalitet.",
+            "hints": [
+              "Nash handler om ensidige avvik, ikke om felles forbedring."
+            ]
+          }
+        },
+        {
+          "id": "econ1210-7-2-rep-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-7-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Forklar med én setning hvorfor et kartell (prissamarbeid) er ustabilt, uttrykt som et fangens dilemma.",
+            "solution": "Hver bedrift har en dominerende strategi om å underby de andre for å kapre markedet, så selv om alle tjener mest på å holde høy pris sammen, driver egeninteressen dem mot å konkurrere prisen ned — samarbeidet er derfor ustabilt.",
+            "hints": [
+              "Hva er den dominerende strategien for hver enkelt bedrift i et prissamarbeid?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ1210-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1210-7-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nDette delkapitlet (7.2) er i hovedsak symbolfritt — spillteori analyseres med matrise og ord, ikke formler. De sentrale skrivemåtene:\n\n| Skrivemåte | Betydning |\n|---|---|\n| $(A, B)$ | utfallsparet i en rute: radspillerens gevinst $A$, kolonnespillerens gevinst $B$ |\n| rad / kolonne | de to spillernes valg — den ene styrer radene, den andre kolonnene |\n| beste svar | strategien som gir en spiller høyest gevinst, gitt motpartens valg |\n\n**Metoder i dette delkapitlet (ikke formler, men faste framgangsmåter):**\n\n- **Beste-svar-metoden:** marker radspillerens beste rad i hver kolonne (første tall) og kolonnespillerens beste kolonne i hver rad (andre tall); Nash-likevekt = rute der begge er markert.\n- **Pareto-sjekk:** finnes et annet utfall som er bedre for minst én uten å skade noen? Da er dagens utfall ikke Pareto-optimalt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

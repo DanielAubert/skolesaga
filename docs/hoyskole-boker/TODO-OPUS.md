@@ -22,7 +22,9 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 - [x] `psy1010` — **BYGGET 11. juli 2026** (41 kap, 548 quiz, 520 fc, BOKPORT OK,
       4 verifikatorer grønne, prod-curl 9/9, kildegrunnlag-side). Hybrid drøfting/tall;
       stort kull. NB: hybrid-valgene står i skjelettets §2.
-- [ ] `econ1210` — ECON1210 Mikroøkonomi 1 (UiO). Regnefag; CORE-anleggs-
+- [x] `econ1210` — **BYGGET 14. juli 2026** (41 kap, 545 quiz, 513 fc, BOKPORT OK,
+      4 verifikatorer grønne, prod-curl 10/10, kildegrunnlag + markedskryss.svg).
+      Regnefag; CORE-anleggs-
       modellen er bokstandard (IKKE standard produsentteori).
 - [ ] `tma4245` — TMA4245 Statistikk (NTNU). Størst NTNU-emne; husk eget
       Python/Monte Carlo-kapittel (fast eksamensinnslag siden 2023).

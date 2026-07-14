@@ -1,0 +1,391 @@
+{
+  "id": "econ1210-3-1",
+  "courseId": "econ1210",
+  "chapterNumber": "3.1",
+  "title": "Stykkskatt: firetrinnsmetoden og delingsformelen",
+  "description": "Skatt på selger gjennom firetrinnsmetoden: skift med nøyaktig t, ny likevekt, deling etter helningene med c/(b+c) — og dødvektstapet.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kjøre firetrinnsmetoden på en stykkskatt: skift, ny likevekt, deling og velferd",
+    "utlede og tolke delingsformelen (kjøpers andel c/(b+c), selgers andel b/(b+c)) verbalt",
+    "vise at fordelingen av en avgift er uavhengig av hvem den formelt legges på (skatteekvivalens)",
+    "beregne og forklare dødvektstapet ved en stykkskatt"
+  ],
+  "content": [
+    {
+      "id": "econ1210-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er tyngdepunktet i hele emnet.** En stykkskatt (avgift på et fast kronebeløp per enhet) er den enkeltsjangeren sensor tester oftest.\n\n- **Stykkskatt/-subsidie (sjanger E — «E» er bokas kode for stykkskatt/-subsidie-oppgaven)** er med i 15 av 16 eksamenssett (94 %) og bærer 15–30 % av poengene i settet. Den er nesten alltid en midtdel av den store markedsoppgaven.\n- I 8 av 16 sett (50 %) skal du **regne ut delingen algebraisk** — hvor stor andel av avgiften kjøper og selger bærer. Å koble delingsbrøken til kurvenes helninger er en **toppsjikt-markør** (det som skiller de aller beste besvarelsene).\n- En fast felle sensor bygger inn: at fordelingen av avgiften er **uavhengig av hvem avgiften formelt legges på** (kjøper eller selger). Klarer du å påpeke det, henter du et sikkert pluss.\n\nMålet med kapitlet: å kunne kjøre **firetrinnsmetoden** (skift → ny likevekt → deling → velferd) på autopilot, med figur i ord OG utregning. Da sitter den dyreste sjangeren i settet."
+    },
+    {
+      "id": "econ1210-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger direkte på to ting:\n\n- **[kap. 1.5](/bok/econ1210/econ1210-1-5)** — kurveskift: at et skift i tilbudskurven (T-kurven) betyr at hele kurven flytter seg, ikke en bevegelse langs den, og at ny likevekt finnes der de skiftede kurvene krysser.\n- **[kap. 2.1](/bok/econ1210/econ1210-2-1)** — velferdsgeometrien: konsumentoverskudd (KO), produsentoverskudd (PO) og samfunnsøkonomisk overskudd (SO) som arealer mellom E-kurven (etterspørsel), T-kurven (tilbud) og prisen.\n\nDu bør også være trygg på **likevektsregningen** fra [kap. 1.3](/bok/econ1210/econ1210-1-3): sette $x = a - bp$ (etterspørsel) lik $x = cp - d$ (tilbud) og løse for likevektsprisen $p^*$. Er du usikker, les det kapitlet først — vi bruker den regningen i hvert eneste eksempel her.\n\n*Skrivemåte:* $x$ er mengde, $p$ er pris. **E-kurven** er etterspørselskurven (fallende), **T-kurven** er tilbudskurven (stigende). Kurvene skrives alltid med mengde som funksjon av pris."
+    },
+    {
+      "id": "econ1210-3-1-intro",
+      "type": "text",
+      "content": "Staten legger 30 kroner i avgift på hver pakke sigaretter, eller noen kroner per liter bensin. Hvem ender egentlig opp med å betale avgiften — kjøperne, gjennom høyere pris i butikken, eller selgerne, gjennom lavere inntekt per enhet? Svaret er nesten alltid *begge deler*, men i en bestemt fordeling som markedet selv avgjør — ikke politikerne.\n\nDette kapitlet gir deg **firetrinnsmetoden**: en fast oppskrift for enhver stykkskatt-oppgave. Den består av fire trinn du kjører i samme rekkefølge hver gang:\n\n1. **Skift** — flytt riktig kurve, riktig vei, med nøyaktig avgiftsbeløpet.\n2. **Ny likevekt** — finn ny pris og mengde (figur og algebra).\n3. **Deling** — regn ut hvor mye av avgiften hver side bærer.\n4. **Velferd** — vis effektivitetstapet (dødvektstapet).\n\nVi bygger metoden opp trinn for trinn, med et gjennomregnet eksempel og øvingsoppgaver etter hvert trinn. Til slutt setter vi alt sammen på eksamensnivå.\n\n*Én avklaring før vi starter:* en **stykkskatt** er en avgift på et fast kronebeløp $t$ per enhet solgt (ikke en prosent av prisen). 30 kr per pakke, 5 kr per liter — det er en stykkskatt. Vi skriver skattesatsen som $t$ («t» for skatt/*tax*)."
+    },
+    {
+      "id": "econ1210-3-1-trinn1-tekst",
+      "type": "text",
+      "content": "## Trinn 1 — Skiftet: T-kurven opp med nøyaktig $t$ (~10 min)"
+    },
+    {
+      "id": "econ1210-3-1-trinn1-utledning",
+      "type": "text",
+      "content": "Anta at avgiften $t$ per enhet legges på **selgerne**: for hver enhet de selger, må de betale $t$ kroner til staten. I anleggsmodellen (fra [kap. 1.2](/bok/econ1210/econ1210-1-2)) betyr det at **enhetskostnaden øker med nøyaktig $t$ i hvert anlegg** — det koster nå $t$ kroner mer å levere hver enhet. Et anlegg med enhetskostnad $k$ trenger derfor prisen $k + t$ for å være lønnsomt, ikke bare $k$.\n\nDette er *mekanismen bak skiftet*, og sensor honorerer den mer enn selve pilen: fordi hvert anlegg krever $t$ kroner mer, flytter hele **T-kurven seg rett opp med nøyaktig $t$** (et parallellskift oppover). Merk deg presisjonen: skiftet er *akkurat* $t$ — ikke mer, ikke mindre. En vanlig feil er å tegne skiftet for stort eller for lite.\n\nDen nye markedsprisen $p_1$ blir høyere enn den gamle $p_0$, men selgerne får ikke beholde hele $p_1$: de må gi $t$ til staten, så **nettoprisen til selger blir $p_1 - t$**. Vi skal se at $p_1 - t$ er *lavere* enn den gamle prisen $p_0$ — selgeren taper også."
+    },
+    {
+      "id": "econ1210-3-1-def-stykkskatt",
+      "type": "definition",
+      "title": "Stykkskatt",
+      "content": "En **stykkskatt** er en avgift på et fast kronebeløp $t$ per enhet omsatt (ikke en prosentandel av prisen). Legges den på selgerne, øker enhetskostnaden med $t$ i hvert anlegg, og **T-kurven skifter opp med nøyaktig $t$**. Ny markedspris $p_1$ blir høyere, mens selgers nettopris blir $p_1 - t$."
+    },
+    {
+      "id": "econ1210-3-1-ex-trinn1",
+      "type": "example",
+      "title": "Eksempel 1: Skiftet i figur (Trinn 1)",
+      "problem": "I et marked er etterspørselen $x = 900 - 3p$ og tilbudet $x = 2p - 150$. Det innføres en avgift på $t = 25$ kroner per enhet, lagt på selgerne. Beskriv i ord hvordan skiftet ser ut i en figur, og forklar *hvorfor* T-kurven flytter seg akkurat så mye.",
+      "solution": "**Figur i ord:** Tegn diagrammet med pris $p$ langs den loddrette aksen og mengde $x$ langs den vannrette. E-kurven faller fra venstre mot høyre, T-kurven stiger. De krysser i den opprinnelige likevekten $A$; trekk stiplede hjelpelinjer fra $A$ ned til prisaksen ($p_0 = 210$) og bort til mengdeaksen ($x_0 = 270$).\n\nEtter avgiften tegner du en **ny tilbudskurve $T'$ som ligger parallelt $25$ kroner rett over den gamle T-kurven** (mål avstanden loddrett, den skal være nøyaktig 25 i hele kurvens lengde). $T'$ krysser E-kurven i et nytt punkt $B$ oppe til venstre for $A$: høyere pris, lavere mengde. Marker $p_1$ på prisaksen og $x_1$ på mengdeaksen med stiplede linjer fra $B$.\n\n**Mekanismen (hvorfor akkurat 25):** For hver enhet må selgerne nå betale 25 kr til staten. I anleggsmodellen stiger enhetskostnaden med 25 i *hvert* anlegg, så prisen som skal til for at et anlegg er lønnsomt, øker med 25 — verken mer eller mindre. Derfor er det loddrette skiftet nøyaktig $t = 25$. (Vi regner ut $p_0, p_1, x_1$ i Trinn 2.)"
+    },
+    {
+      "id": "econ1210-3-1-ex-t1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-3-1-e-t1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) En stykkskatt på $t = 40$ kroner per enhet legges på selgerne i et marked.\n\n**a)** Hvilken kurve skifter, og hvilken vei?\n\n**b)** Hvor mange kroner skifter kurven (loddrett målt)?\n\n**c)** Forklar med én setning i anleggsspråket *hvorfor* den skifter akkurat så mye.",
+        "solution": "**a)** T-kurven (tilbudskurven) skifter **opp**.\n\n**b)** Nøyaktig $t = 40$ kroner (loddrett, parallelt).\n\n**c)** Fordi selgerne nå må betale 40 kr til staten per enhet, øker enhetskostnaden med 40 i hvert anlegg, så prisen som må til for at anlegget er lønnsomt, stiger med akkurat 40.",
+        "hints": [
+          "Skatt på selger = høyere kostnad for selger = T-kurven berøres.",
+          "Skiftet er alltid akkurat lik avgiftsbeløpet — ikke røret ut fra en figur."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-3-1-trinn2-tekst",
+      "type": "text",
+      "content": "## Trinn 2 — Ny likevekt: pris og mengde (~10 min)"
+    },
+    {
+      "id": "econ1210-3-1-trinn2-utledning",
+      "type": "text",
+      "content": "Den nye T-kurven har flyttet seg opp med $t$. Algebraisk uttrykker vi det slik: den gamle tilbudskurven var $x = cp - d$, der $p$ er prisen selger *får beholde*. Nå får selger beholde $p - t$ (markedsprisen minus avgiften), så den tilbudte mengden ved markedspris $p$ blir\n\n$$x = c(p - t) - d.$$\n\nFor å finne ny likevekt setter vi etterspørsel lik tilbud:\n\n$$a - bp = c(p - t) - d.$$\n\nLøser vi for $p$, får vi den nye **markedsprisen**\n\n$$p_1 = \\frac{a + d + ct}{b + c} = p_0 + \\frac{c}{b+c}\\,t,$$\n\nder $p_0 = \\frac{a+d}{b+c}$ er den opprinnelige likevektsprisen (fra [kap. 1.3](/bok/econ1210/econ1210-1-3)). Den nye mengden finner du ved å sette $p_1$ inn i E-kurven: $x_1 = a - b p_1$. **Kontrollregn** ved å sette $p_1 - t$ inn i den opprinnelige T-kurven — du skal få samme $x_1$."
+    },
+    {
+      "id": "econ1210-3-1-ex-trinn2",
+      "type": "example",
+      "title": "Eksempel 2: Ny likevekt (Trinn 2)",
+      "problem": "Bruk markedet fra Eksempel 1: $x = 900 - 3p$, $x = 2p - 150$, $t = 25$ på selger. Regn ut den opprinnelige likevekten, den nye markedsprisen, den nye mengden og selgers nettopris.",
+      "solution": "**Opprinnelig likevekt.** Sett $900 - 3p = 2p - 150$. Da er $1050 = 5p$, så $p_0 = 210$ og $x_0 = 900 - 3\\cdot 210 = 270$. (Kontroll i T-kurven: $2\\cdot 210 - 150 = 270$. ✓)\n\n**Ny markedspris.** Selger får beholde $p - 25$, så ny tilbudt mengde er $x = 2(p - 25) - 150 = 2p - 200$. Sett lik etterspørsel: $900 - 3p = 2p - 200$, altså $1100 = 5p$, så $p_1 = 220$.\n\n**Ny mengde.** $x_1 = 900 - 3\\cdot 220 = 240$. (Kontroll: selger får $220 - 25 = 195$, og $2\\cdot 195 - 150 = 240$. ✓)\n\n**Selgers nettopris.** $p_1 - t = 220 - 25 = 195$.\n\n**Figur i ord:** I diagrammet ($p$ loddrett, $x$ vannrett) har den nye likevekten $B$ flyttet seg opp og til venstre for $A$: markedsprisen opp fra 210 til 220, mengden ned fra 270 til 240. Selgers nettopris 195 leser du av som et punkt på den *gamle* T-kurven rett under $B$ — 25 kroner lavere enn markedsprisen."
+    },
+    {
+      "id": "econ1210-3-1-ex-t2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-3-1-e-t2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — ny likevekt.) I et marked er $x = 500 - p$ og $x = p - 100$. En avgift på $t = 40$ kroner legges på selgerne.\n\n**a)** Beregn den opprinnelige likevekten $(p_0, x_0)$.\n\n**b)** Beregn ny markedspris $p_1$ og ny mengde $x_1$.\n\n**c)** Hva blir selgers nettopris?",
+        "solution": "**a)** $500 - p = p - 100 \\Rightarrow 600 = 2p \\Rightarrow p_0 = 300$, $x_0 = 500 - 300 = 200$. (Kontroll: $300 - 100 = 200$. ✓)\n\n**b)** Selger får $p - 40$, så ny tilbudt mengde er $x = (p - 40) - 100 = p - 140$. Sett lik etterspørsel: $500 - p = p - 140 \\Rightarrow 640 = 2p \\Rightarrow p_1 = 320$. Ny mengde: $x_1 = 500 - 320 = 180$. (Kontroll: $320 - 40 = 280$, og $280 - 100 = 180$. ✓)\n\n**c)** Selgers nettopris $= p_1 - t = 320 - 40 = 280$.",
+        "hints": [
+          "Sett $a - bp = c(p-t) - d$ og løs for $p$.",
+          "Ny tilbudt mengde: bytt ut $p$ med $(p-t)$ i den gamle T-kurven.",
+          "Kontrollregn alltid $x_1$ i begge funksjoner."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-3-1-trinn3-tekst",
+      "type": "text",
+      "content": "## Trinn 3 — Delingen: hvem bærer avgiften? (~15 min)"
+    },
+    {
+      "id": "econ1210-3-1-trinn3-utledning",
+      "type": "text",
+      "content": "Nå til hjertet i sjangeren. Markedsprisen steg fra $p_0$ til $p_1$, altså med $p_1 - p_0$ — det er **kjøpernes byrde** (de betaler så mye mer per enhet). Selgers nettopris falt fra $p_0$ til $p_1 - t$, altså med $p_0 - (p_1 - t) = t - (p_1 - p_0)$ — det er **selgernes byrde**. Legger du sammen de to byrdene, får du alltid nøyaktig $t$:\n\n$$\\underbrace{(p_1 - p_0)}_{\\text{kjøpers byrde}} + \\underbrace{\\big(t - (p_1 - p_0)\\big)}_{\\text{selgers byrde}} = t.$$\n\nDelingen summerer altså alltid til hele avgiften. Men *hvordan* den fordeler seg, avgjøres av kurvenes helninger. Fra Trinn 2 vet vi at $p_1 - p_0 = \\frac{c}{b+c}\\,t$. Deler vi på $t$, får vi **delingsformelen**:\n\n$$\\text{kjøpers andel} = \\frac{c}{b+c}, \\qquad \\text{selgers andel} = \\frac{b}{b+c}.$$\n\nHer er $b$ tallet i E-kurven ($x = a - bp$) og $c$ tallet i T-kurven ($x = cp - d$) — de måler hvor prisfølsom hver side er. **Tolkningen du alltid må skrive:** den **minst prisfølsomme (bratteste) siden bærer mest**. Er tilbudet svært prisfølsomt (stor $c$), bærer kjøperne mest — de kan ikke flykte fra prisøkningen like lett som selgerne kan trekke seg ut."
+    },
+    {
+      "id": "econ1210-3-1-theorem-deling",
+      "type": "theorem",
+      "title": "Delingsformelen c/(b+c)",
+      "content": "For etterspørsel $x = a - bp$ og tilbud $x = cp - d$ deles en stykkskatt (eller -subsidie) $t$ slik:\n\n$$\\text{kjøpers andel} = \\frac{c}{b+c}, \\qquad \\text{selgers andel} = \\frac{b}{b+c}, \\qquad \\text{sum} = 1.$$\n\nDen **minst prisfølsomme siden bærer mest**: jo brattere (mindre prisfølsom) den ene kurven er relativt til den andre, desto større andel av avgiften havner på den siden. Brøken skal alltid tolkes verbalt — et tall uten ord gir ikke full uttelling."
+    },
+    {
+      "id": "econ1210-3-1-ex-trinn3",
+      "type": "example",
+      "title": "Eksempel 3: Delingen med algebra og tolkning (Trinn 3)",
+      "problem": "Fortsatt markedet $x = 900 - 3p$, $x = 2p - 150$, $t = 25$. Regn ut kjøpers og selgers andel av avgiften, både direkte fra prisene og med delingsformelen, og forklar tallet med kurvenes helninger.",
+      "solution": "**Direkte fra prisene.** Kjøpers byrde: markedsprisen steg fra $p_0 = 210$ til $p_1 = 220$, altså $10$ kroner. Selgers byrde: nettoprisen falt fra $210$ til $195$, altså $15$ kroner. Sum $= 10 + 15 = 25 = t$. ✓\n\n**Med delingsformelen.** Her er $b = 3$ (E-kurven) og $c = 2$ (T-kurven). Kjøpers andel $= \\frac{c}{b+c} = \\frac{2}{5}$, selgers andel $= \\frac{b}{b+c} = \\frac{3}{5}$. Kontroll: kjøper bærer $\\frac{2}{5}\\cdot 25 = 10$ kr, selger $\\frac{3}{5}\\cdot 25 = 15$ kr. ✓\n\n**Verbal tolkning:** Selgerne bærer mest ($15$ av $25$ kr) fordi tilbudssiden er *mindre* prisfølsom enn etterspørselssiden i dette markedet. Husk at koeffisienten måler prisfølsomhet: kjøperne har $b = 3$ og selgerne $c = 2$, og jo *mindre* tallet er, desto brattere og mindre prisfølsom er den siden. Selgerne (med $c = 2$) er altså minst prisfølsomme, og bærer derfor mest. Kjøperne, som lettere reduserer kjøpene når prisen stiger, slipper unna med den minste andelen."
+    },
+    {
+      "id": "econ1210-3-1-warn-deling",
+      "type": "warning",
+      "title": "Pass på: liten koeffisient = bratt = bærer mest",
+      "content": "Koeffisienten $b$ (kjøpere) og $c$ (selgere) måler *prisfølsomhet* — hvor mye mengden endrer seg per krone. En **liten** koeffisient betyr en **bratt** kurve: mengden reagerer lite på pris. Den bratteste (minst prisfølsomme) siden bærer mest av avgiften. I delingsbrøken $\\frac{c}{b+c}$ er kjøpers andel stor når $c$ er stor — altså når *selgerne* er svært prisfølsomme (slak T), for da flykter selgerne lettest og kjøperne sitter igjen med byrden. Skriv alltid tolkningen i ord: «den minst prisfølsomme siden bærer mest»."
+    },
+    {
+      "id": "econ1210-3-1-ex-t3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-3-1-e-t3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — algebraisk deling, i 50 % av settene.) I markedet $x = 1000 - 4p$, $x = p - 50$ legges en avgift $t = 25$ på selgerne. (Likevekt: $p_0 = 210$, $x_0 = 160$; ny: $p_1 = 215$, $x_1 = 140$.)\n\n**a)** Bruk delingsformelen til å finne kjøpers og selgers andel.\n\n**b)** Hvor mange kroner bærer hver side?\n\n**c)** Forklar tallet med kurvenes prisfølsomhet.",
+        "solution": "**a)** Her er $b = 4$ (E) og $c = 1$ (T). Kjøpers andel $= \\frac{c}{b+c} = \\frac{1}{5}$, selgers andel $= \\frac{b}{b+c} = \\frac{4}{5}$.\n\n**b)** Kjøper: $\\frac{1}{5}\\cdot 25 = 5$ kr (markedsprisen steg fra 210 til 215). Selger: $\\frac{4}{5}\\cdot 25 = 20$ kr (nettoprisen falt fra 210 til $215 - 25 = 190$). Sum $= 5 + 20 = 25 = t$. ✓\n\n**c)** Selgerne bærer nesten hele avgiften ($20$ av $25$) fordi tilbudssiden er svært lite prisfølsom ($c = 1$) sammenlignet med etterspørselssiden ($b = 4$). Kjøperne trekker seg lett fra markedet når prisen stiger, så de dytter byrden over på de mindre fleksible selgerne.",
+        "hints": [
+          "Delingsformelen: kjøpers andel $= \\frac{c}{b+c}$.",
+          "$b$ er tallet i E-kurven, $c$ er tallet i T-kurven.",
+          "Minst prisfølsom (minst koeffisient) = bærer mest."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-3-1-ekvivalens-tekst",
+      "type": "text",
+      "content": "### Skatteekvivalens: spiller det noen rolle hvem avgiften legges på?\n\nEt spørsmål sensor elsker: hva om avgiften legges på *kjøperne* i stedet for selgerne? Da flytter **E-kurven ned med $t$** (kjøperne er villige til å betale $t$ mindre til selger, siden de også må ut med $t$ til staten). Resultatet blir *nøyaktig det samme*: samme mengde, samme pris til kjøper (inkludert avgift), samme nettopris til selger, samme deling. \n\n**Konklusjonen — og pluss-poenget:** fordelingen av en avgift er **helt uavhengig av hvem den formelt legges på**. Det er markedets helninger, ikke lovteksten, som bestemmer hvem som faktisk bærer byrden. Å påpeke dette er ofte verdt et eget delpoeng."
+    },
+    {
+      "id": "econ1210-3-1-ex-ekvivalens",
+      "type": "example",
+      "title": "Eksempel 4: Ekvivalens (skatt på kjøper vs. selger)",
+      "problem": "I markedet $x = 800 - 4p$, $x = 2p - 100$ legges en avgift $t = 30$. Vis at det blir likegyldig om den legges på kjøper eller selger.",
+      "solution": "**Opprinnelig likevekt:** $800 - 4p = 2p - 100 \\Rightarrow 900 = 6p \\Rightarrow p_0 = 150$, $x_0 = 200$.\n\n**Skatt på selger.** Selger får $p - 30$: $x = 2(p-30) - 100 = 2p - 160$. Likevekt: $800 - 4p = 2p - 160 \\Rightarrow 960 = 6p \\Rightarrow p_1 = 160$. Kjøper betaler markedsprisen $160$; selger beholder $160 - 30 = 130$. Mengde $x_1 = 800 - 4\\cdot 160 = 160$.\n\n**Skatt på kjøper.** Kjøper betaler prisen $p$ til selger *pluss* $30$ til staten, så etterspørselen mot selger blir $x = 800 - 4(p + 30) = 680 - 4p$. Likevekt mot uendret T-kurve: $680 - 4p = 2p - 100 \\Rightarrow 780 = 6p \\Rightarrow p = 130$ (dette er nå prisen selger får). Kjøper betaler $130 + 30 = 160$. Mengde $x_1 = 2\\cdot 130 - 100 = 160$.\n\n**Sammenligning:** I begge tilfeller ender kjøper med å betale $160$ totalt, selger med å beholde $130$, og mengden er $160$. Kjøpers byrde $= 160 - 150 = 10$ kr; selgers byrde $= 150 - 130 = 20$ kr — samme deling ($\\frac{c}{b+c} = \\frac{2}{6} = \\frac{1}{3}$ på kjøper). **Utfallet er identisk.** Hvem avgiften formelt legges på, spiller ingen rolle."
+    },
+    {
+      "id": "econ1210-3-1-trinn4-tekst",
+      "type": "text",
+      "content": "## Trinn 4 — Velferd: dødvektstapet (~15 min)"
+    },
+    {
+      "id": "econ1210-3-1-trinn4-utledning",
+      "type": "text",
+      "content": "Avgiften krymper omsatt mengde fra $x_0$ til $x_1$. For hver enhet som ikke lenger produseres mellom $x_1$ og $x_0$, var kjøpernes betalingsvillighet (høyden på E-kurven) *høyere* enn produksjonskostnaden (høyden på T-kurven) — de enhetene skapte verdi som nå går tapt. Denne tapte verdien er **dødvektstapet** (også kalt effektivitetstapet): trekanten mellom E-kurven og T-kurven fra $x_1$ til $x_0$.\n\nRegnskapet: konsumentoverskudd (KO) og produsentoverskudd (PO) faller begge. Staten får riktignok en skatteinntekt $t \\cdot x_1$, men denne inntekten er *mindre* enn det samlede fallet i KO og PO. Differansen er nettopp dødvektstrekanten. Med lineære kurver er arealet\n\n$$\\text{dødvektstap} = \\tfrac{1}{2}\\, t \\,(x_0 - x_1).$$\n\n**Et viktig poeng:** skatteinntekten er *ikke* et samfunnsøkonomisk tap — den er en overføring fra kjøpere og selgere til staten (som bruker den på noe). Bare trekanten er ekte tapt verdi."
+    },
+    {
+      "id": "econ1210-3-1-ex-trinn4",
+      "type": "example",
+      "title": "Eksempel 5: Full firetrinnsmetode på eksamensnivå (Trinn 1–4)",
+      "problem": "Marked: $x = 1200 - 5p$ (etterspørsel), $x = 3p - 200$ (tilbud). Staten innfører en avgift $t = 32$ kroner per enhet på selgerne.\n\n(a) Beregn opprinnelig likevekt.\n(b) Vis skiftet i en figur og finn ny markedspris, ny mengde og selgers nettopris.\n(c) Beregn kjøpers og selgers andel algebraisk, og tolk tallet.\n(d) Vis effektivitetstapet i figuren og beregn det.",
+      "solution": "**(a) Opprinnelig likevekt.** $1200 - 5p = 3p - 200 \\Rightarrow 1400 = 8p \\Rightarrow p_0 = 175$, $x_0 = 1200 - 5\\cdot 175 = 325$. (Kontroll: $3\\cdot 175 - 200 = 325$. ✓)\n\n**(b) Skift og ny likevekt.** Selger får $p - 32$: ny tilbudt mengde $x = 3(p - 32) - 200 = 3p - 296$. Likevekt: $1200 - 5p = 3p - 296 \\Rightarrow 1496 = 8p \\Rightarrow p_1 = 187$. Ny mengde $x_1 = 1200 - 5\\cdot 187 = 265$. Selgers nettopris $= 187 - 32 = 155$. (Kontroll: $3\\cdot 155 - 200 = 265$. ✓)\n\n*Figur i ord:* $p$ loddrett, $x$ vannrett; E fallende, T stigende, opprinnelig likevekt $A$ ved $(x_0, p_0) = (325, 175)$. Ny tilbudskurve $T'$ parallelt 32 kroner over T; ny likevekt $B$ ved $(265, 187)$ — opp og til venstre for $A$. Stiplede linjer fra $B$ gir markedsprisen 187; et punkt på gamle T rett under gir nettoprisen 155.\n\n**(c) Deling.** $b = 5$, $c = 3$. Kjøpers andel $= \\frac{c}{b+c} = \\frac{3}{8}$, selgers andel $= \\frac{5}{8}$. I kroner: kjøper $\\frac{3}{8}\\cdot 32 = 12$ (markedsprisen steg fra 175 til 187), selger $\\frac{5}{8}\\cdot 32 = 20$ (nettoprisen falt fra 175 til 155). Sum $12 + 20 = 32 = t$. ✓ *Tolkning:* selgerne bærer mest ($20$ kr) fordi tilbudssiden er minst prisfølsom ($c = 3 < b = 5$) — kjøperne kan lettere kutte forbruket og skyver dermed brorparten av byrden over på selgerne.\n\n**(d) Effektivitetstap.** Mengden falt fra 325 til 265, altså $x_0 - x_1 = 60$ enheter. *Figur i ord:* dødvektstrekanten er trekanten mellom E-kurven (øverst) og den *opprinnelige* T-kurven (nederst), fra ny mengde $x_1 = 265$ til gammel mengde $x_0 = 325$ — en trekant som «peker mot venstre» inn mot likevekten $A$. Areal: $\\frac{1}{2}\\cdot 32 \\cdot 60 = 960$. Det er verdien av de 60 enhetene som ikke lenger produseres, der kjøpernes betalingsvillighet oversteg kostnaden."
+    },
+    {
+      "id": "econ1210-3-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilkatalogen i denne boka nummererer de vanligste tabbene (#1–#12). De som rammer stykkskatt-oppgaven:\n\n- **#2 (feil kurve/retning):** å flytte E-kurven i stedet for T-kurven, eller T-kurven ned i stedet for opp. Skatt på selger = høyere kostnad = T-kurven **opp**.\n- **#3 («hvem betaler formelt»-fellen):** å tro at fordelingen avhenger av om avgiften legges på kjøper eller selger. Den gjør den **ikke** — bare helningene bestemmer delingen.\n- **#6 (tall uten tolkning):** å oppgi delingsbrøken $\\frac{c}{b+c}$ uten å si i ord *hvorfor* siden bærer den andelen den gjør.\n- **Skift ≠ $t$:** å tegne skiftet større eller mindre enn avgiften. Det er nøyaktig $t$.\n- **Glemme summen:** kjøpers byrde + selgers byrde skal alltid bli akkurat $t$ — bruk det som kontroll."
+    },
+    {
+      "id": "econ1210-3-1-ex-t4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-3-1-e-t4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E + F — velferd.) I markedet $x = 760 - 8p$, $x = 2p - 40$ legges en avgift $t = 20$ på selgerne.\n\n**a)** Beregn opprinnelig likevekt og ny likevekt.\n\n**b)** Beregn kjøpers og selgers andel med delingsformelen, og tolk.\n\n**c)** Beregn dødvektstapet og forklar hvorfor det oppstår.",
+        "solution": "**a)** Opprinnelig: $760 - 8p = 2p - 40 \\Rightarrow 800 = 10p \\Rightarrow p_0 = 80$, $x_0 = 760 - 640 = 120$. Ny: selger får $p - 20$, tilbud $x = 2(p-20) - 40 = 2p - 80$; $760 - 8p = 2p - 80 \\Rightarrow 840 = 10p \\Rightarrow p_1 = 84$, $x_1 = 760 - 672 = 88$. Nettopris $84 - 20 = 64$.\n\n**b)** $b = 8$, $c = 2$. Kjøpers andel $\\frac{2}{10} = \\frac{1}{5}$, selgers $\\frac{8}{10} = \\frac{4}{5}$. Kjøper bærer $\\frac{1}{5}\\cdot 20 = 4$ kr (pris 80→84), selger $\\frac{4}{5}\\cdot 20 = 16$ kr (netto 80→64). Sum 20. ✓ *Tolkning:* selgerne bærer nesten alt fordi tilbudet er svært lite prisfølsomt ($c = 2$) mot en meget prisfølsom etterspørsel ($b = 8$) — kjøperne flykter lett, selgerne blir sittende med byrden.\n\n**c)** Mengden falt fra 120 til 88, altså 32 enheter. Dødvektstap $= \\frac{1}{2}\\cdot 20 \\cdot 32 = 320$. Det oppstår fordi de 32 bortfalte enhetene hadde en betalingsvillighet (E-kurvens høyde) som oversteg produksjonskostnaden (T-kurvens høyde) — verdiskapende handel som avgiften stopper.",
+        "hints": [
+          "Kjør firetrinnsmetoden: skift → ny likevekt → deling → dødvektstap.",
+          "Dødvektstap $= \\frac{1}{2} t (x_0 - x_1)$.",
+          "Tolk delingen med kurvenes prisfølsomhet."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-3-1-ex-t4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-3-1-e-t4b",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E + F — full kjede.) Marked: $x = 500 - p$, $x = p - 100$. Staten legger en avgift $t = 40$ på **kjøperne**.\n\n**a)** Beregn opprinnelig likevekt.\n\n**b)** Vis at utfallet blir det samme som om avgiften var lagt på selgerne, og finn hva kjøper totalt betaler og hva selger beholder.\n\n**c)** Beregn hvor mye hver side bærer, og forklar tallet.\n\n**d)** Beregn dødvektstapet.",
+        "solution": "**a)** $500 - p = p - 100 \\Rightarrow 600 = 2p \\Rightarrow p_0 = 300$, $x_0 = 200$.\n\n**b)** *Skatt på kjøper:* etterspørselen mot selger blir $x = 500 - (p + 40) = 460 - p$. Likevekt: $460 - p = p - 100 \\Rightarrow 560 = 2p \\Rightarrow p = 280$ (prisen selger får). Kjøper betaler totalt $280 + 40 = 320$; mengde $x_1 = 280 - 100 = 180$. *Ekvivalens-sjekk:* hadde vi lagt den på selger, ville markedsprisen blitt 320 og nettoprisen 280 — identisk. Hvem den legges på, er likegyldig.\n\n**c)** Kjøpers byrde: totalt betalt steg fra 300 til 320, altså 20 kr. Selgers byrde: beholdt falt fra 300 til 280, altså 20 kr. Sum 40. ✓ Med formelen ($b = 1$, $c = 1$): begge andeler $\\frac{1}{2}$. *Tolkning:* kurvene er like prisfølsomme ($b = c = 1$), så byrden deles nøyaktig likt.\n\n**d)** Mengde falt fra 200 til 180, altså 20 enheter. Dødvektstap $= \\frac{1}{2}\\cdot 40 \\cdot 20 = 400$.",
+        "hints": [
+          "Skatt på kjøper: sett $x = a - b(p + t)$ mot uendret T-kurve.",
+          "Ekvivalens: sammenlign totalpris til kjøper og nettopris til selger med selger-varianten.",
+          "Like koeffisienter ($b = c$) gir 50/50-deling."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-3-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1210-3-1-bb-firetrinn",
+      "type": "definition",
+      "title": "Firetrinnsmetoden",
+      "content": "Bokas standardalgoritme for skatt/subsidie: **(1) Skift** riktig kurve riktig vei med nøyaktig beløpet; **(2) Ny likevekt** (pris og mengde, figur + algebra, kontrollregn i begge funksjoner); **(3) Deling** (kjøpers og selgers andel med $\\frac{c}{b+c}$ / $\\frac{b}{b+c}$, tolket verbalt); **(4) Velferd** (dødvektstapet $\\frac{1}{2}t(x_0 - x_1)$, forklart)."
+    },
+    {
+      "id": "econ1210-3-1-bb-kjopers-byrde",
+      "type": "definition",
+      "title": "Kjøpers og selgers byrde (skatteinsidens)",
+      "content": "**Skatteinsidens** er hvem som faktisk bærer en avgift. Kjøpers byrde $= p_1 - p_0$ (økningen i markedsprisen); selgers byrde $= p_0 - (p_1 - t)$ (fallet i nettoprisen). De summerer alltid til $t$. Fordelingen bestemmes av kurvenes helninger, ikke av hvem avgiften formelt legges på."
+    },
+    {
+      "id": "econ1210-3-1-bb-nettopris",
+      "type": "definition",
+      "title": "Nettopris til selger",
+      "content": "Prisen selger sitter igjen med etter å ha betalt avgiften: $p_1 - t$, der $p_1$ er den nye markedsprisen. Ved skatt på selger er nettoprisen alltid lavere enn den opprinnelige likevektsprisen $p_0$ — selger taper også, selv om skatten «bare» øker prisen kjøper betaler."
+    },
+    {
+      "id": "econ1210-3-1-bb-dodvektstap",
+      "type": "definition",
+      "title": "Dødvektstap (effektivitetstap)",
+      "content": "Den samfunnsøkonomiske verdien som går tapt fordi avgiften reduserer omsatt mengde: trekanten mellom E- og T-kurven fra ny mengde $x_1$ til gammel mengde $x_0$, med areal $\\frac{1}{2}t(x_0 - x_1)$. Oppstår fordi betalingsvilligheten for de bortfalte enhetene oversteg kostnaden. Skatteinntekten $t\\cdot x_1$ er *ikke* et tap — den er en overføring til staten."
+    },
+    {
+      "id": "econ1210-3-1-bb-skatteekvivalens",
+      "type": "definition",
+      "title": "Skatteekvivalens",
+      "content": "Prinsippet om at en stykkskatt gir nøyaktig samme utfall (mengde, priser, deling, dødvektstap) enten den legges på kjøper eller selger. Legges den på selger, skifter T-kurven opp med $t$; legges den på kjøper, skifter E-kurven ned med $t$ — men markedets helninger, ikke lovteksten, avgjør fordelingen."
+    },
+    {
+      "id": "econ1210-3-1-bb-parallellskift",
+      "type": "definition",
+      "title": "Parallellskift av T-kurven",
+      "content": "Når en stykkskatt $t$ legges på selgerne, øker enhetskostnaden med akkurat $t$ i *hvert* anlegg, så hele T-kurven flytter seg loddrett opp med nøyaktig $t$ (parallelt, samme avstand i hele lengden). Dette er mekanismen bak skiftet, som sensor honorerer mer enn selve pilen."
+    },
+    {
+      "id": "econ1210-3-1-bb-stykkskatt-vs-verdiavgift",
+      "type": "definition",
+      "title": "Stykkskatt vs. verdiavgift",
+      "content": "En **stykkskatt** er et fast kronebeløp per enhet ($t$ kr per liter, per pakke) — den flytter T-kurven parallelt opp med $t$. En **verdiavgift** (som moms) er en prosent av prisen; den dreier T-kurven i stedet for å flytte den parallelt. På ECON1210-eksamen er det stykkskatten som testes; delingsformelen $\\frac{c}{b+c}$ gjelder stykkskatt."
+    },
+    {
+      "id": "econ1210-3-1-bb-prisfolsomhet",
+      "type": "definition",
+      "title": "Prisfølsomhet (helning) i delingen",
+      "content": "Koeffisientene $b$ (kjøpere) og $c$ (selgere) måler hvor mye mengden endrer seg per krone prisendring. Liten koeffisient = bratt, lite prisfølsom kurve. I delingen bærer den **minst prisfølsomme (bratteste) siden mest**, fordi den siden vanskeligst kan trekke seg ut av markedet når prisen endres."
+    },
+    {
+      "id": "econ1210-3-1-bb-skatteinntekt",
+      "type": "definition",
+      "title": "Skatteinntekt",
+      "content": "Statens inntekt fra avgiften: $t \\cdot x_1$ (avgiftssats ganger ny omsatt mengde) — arealet av rektangelet mellom kjøpers pris og selgers nettopris opp til $x_1$. Dette er en **overføring**, ikke et samfunnsøkonomisk tap: pengene forsvinner ikke, de går fra kjøpere/selgere til staten. Bare dødvektstrekanten er ekte tapt verdi."
+    },
+    {
+      "id": "econ1210-3-1-bb-markedspris-nettopris",
+      "type": "definition",
+      "title": "Markedspris og nettopris",
+      "content": "Etter en stykkskatt på selger finnes to relevante priser: **markedsprisen $p_1$** (det kjøper betaler, avlest der E krysser den skiftede T-kurven) og **nettoprisen $p_1 - t$** (det selger sitter igjen med, avlest på den *gamle* T-kurven). Avstanden mellom dem er nøyaktig $t$, og den fordeler seg over og under $p_0$ etter delingsformelen."
+    },
+    {
+      "id": "econ1210-3-1-bb-grensetilfelle",
+      "type": "definition",
+      "title": "Grensetilfeller i delingen",
+      "content": "Ytterpunktene av delingsformelen: en **horisontal (helt slak) T-kurve** betyr uendelig prisfølsomt tilbud ($c \\to \\infty$), så $\\frac{c}{b+c} \\to 1$ og **kjøperne bærer hele avgiften**. En **vertikal (helt bratt) E-kurve** betyr null prisfølsom etterspørsel ($b = 0$), så $\\frac{c}{b+c} = 1$ og kjøperne bærer alt igjen. Generelt: en helt uelastisk side bærer hele byrden."
+    },
+    {
+      "id": "econ1210-3-1-bb-firetrinn-kontroll",
+      "type": "definition",
+      "title": "Kontrollpunktene i firetrinnsmetoden",
+      "content": "Tre raske kontroller som fanger regnefeil: (1) $x_1$ skal gi samme svar i E-kurven og i selgers tilbud (med nettopris); (2) kjøpers byrde + selgers byrde skal bli nøyaktig $t$; (3) den nye mengden $x_1$ skal være lavere enn $x_0$ (avgift krymper alltid markedet). Slår én kontroll feil, er det en regnefeil et sted."
+    },
+    {
+      "id": "econ1210-3-1-bb-mekanismen-bak-skiftet",
+      "type": "definition",
+      "title": "Mekanismen bak skiftet",
+      "content": "Sensor honorerer *begrunnelsen* for et skift mer enn selve pilen. For en stykkskatt på selger er mekanismen: avgiften øker enhetskostnaden med $t$ i hvert anlegg, så prisen som må til for at anlegget er lønnsomt stiger med $t$, og hele T-kurven flytter seg opp med $t$. Å skrive denne setningen i anleggsspråket er verdt et selvstendig poeng."
+    },
+    {
+      "id": "econ1210-3-1-bb-KO-etter-skatt",
+      "type": "definition",
+      "title": "Fall i konsumentoverskudd (KO) etter skatt",
+      "content": "Konsumentoverskuddet faller fordi kjøperne betaler en høyere markedspris $p_1$ og kjøper en mindre mengde $x_1$. Geometrisk: KO-arealet (mellom E-kurven og prisen) krymper når prislinjen løftes fra $p_0$ til $p_1$. En del av tapet blir statens skatteinntekt; en del blir dødvektstap."
+    },
+    {
+      "id": "econ1210-3-1-bb-PO-etter-skatt",
+      "type": "definition",
+      "title": "Fall i produsentoverskudd (PO) etter skatt",
+      "content": "Produsentoverskuddet faller fordi selgerne får en lavere nettopris $p_1 - t$ og selger mindre. Geometrisk: PO-arealet (mellom nettoprisen og T-kurven) krymper når nettoprislinjen synker fra $p_0$ til $p_1 - t$. Igjen blir en del skatteinntekt og en del dødvektstap."
+    },
+    {
+      "id": "econ1210-3-1-bb-velferdsregnskap",
+      "type": "definition",
+      "title": "Velferdsregnskapet ved en avgift",
+      "content": "Sammenhengen mellom bitene: $\\text{(fall i KO)} + \\text{(fall i PO)} = \\text{skatteinntekt} + \\text{dødvektstap}$. Kjøpere og selgere taper til sammen mer enn staten vinner; differansen er dødvektstrekanten. Derfor senker en avgift i et velfungerende marked alltid SO."
+    },
+    {
+      "id": "econ1210-3-1-bb-skatt-i-velfungerende-marked",
+      "type": "definition",
+      "title": "Skatt i et velfungerende marked",
+      "content": "Uten markedssvikt er frikonkurranselikevekten allerede effektiv (SO maksimert). En stykkskatt *skaper* derfor et effektivitetstap ved å trekke mengden bort fra det optimale. Kontrasten kommer i [kap. 4.1](/bok/econ1210/econ1210-4-1): mot en negativ eksternalitet *fjerner* en avgift i stedet et tap — samme verktøy, motsatt virkning avhengig av om utgangspunktet er effektivt."
+    },
+    {
+      "id": "econ1210-3-1-bb-avgiftens-motiv",
+      "type": "definition",
+      "title": "Skattens formål vs. dens virkning",
+      "content": "En stykkskatt kan ha ulike formål: skaffe staten inntekter (fiskal avgift) eller vri atferd (miljøavgift). I et velfungerende marked gir en ren fiskal avgift alltid et dødvektstap som «kostnad» ved å hente inn pengene. Størrelsen på tapet vokser med kvadratet av avgiftssatsen — små avgifter er relativt billige, store avgifter blir dyre."
+    },
+    {
+      "id": "econ1210-3-1-bb-omsatt-mengde-faller",
+      "type": "definition",
+      "title": "Hvorfor omsatt mengde alltid faller",
+      "content": "En avgift kiler inn en differanse mellom det kjøper betaler og det selger får. Ved den gamle mengden $x_0$ er kjøpers betalingsvillighet nå lavere enn det selger trenger (kostnad + avgift), så de siste enhetene blir ulønnsomme og faller bort. Ny mengde $x_1 < x_0$ alltid — det er derfor det oppstår et dødvektstap."
+    },
+    {
+      "id": "econ1210-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1210-3-1-rep-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-3-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/econ1210/econ1210-2-1)) Forklar kort hva dødvektstap er, uttrykt som et areal mellom E- og T-kurven.",
+            "solution": "Dødvektstap (effektivitetstap) er den samfunnsøkonomiske verdien som forsvinner når omsatt mengde blir lavere enn i frikonkurranselikevekten: arealet av trekanten mellom E-kurven og T-kurven over det mengdeintervallet som ikke lenger omsettes. For hver bortfalt enhet var betalingsvilligheten (E) høyere enn kostnaden (T), så trekanten måler tapt verdiskaping.",
+            "hints": [
+              "Trekant mellom E og T over det tapte mengdeintervallet."
+            ]
+          }
+        },
+        {
+          "id": "econ1210-3-1-rep-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-3-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.3](/bok/econ1210/econ1210-1-3)) Finn likevekten i markedet $x = 700 - 2p$, $x = 3p - 300$.",
+            "solution": "Sett $700 - 2p = 3p - 300 \\Rightarrow 1000 = 5p \\Rightarrow p^* = 200$, $x^* = 700 - 400 = 300$. Kontroll i T-kurven: $3\\cdot 200 - 300 = 300$. ✓",
+            "hints": [
+              "Sett E lik T, løs for $p$, kontroller i begge."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ1210-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1210-3-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (3.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $x$ | mengde (omsatt kvantum) |\n| $p$ | pris (markedspris) |\n| $a, b$ | konstant og prisfølsomhet i E-kurven $x = a - bp$ |\n| $c, d$ | prisfølsomhet og konstant i T-kurven $x = cp - d$ |\n| $t$ | stykkskatt (avgift i kroner per enhet) |\n| $p_0, x_0$ | opprinnelig likevektspris og -mengde (før avgift) |\n| $p_1, x_1$ | ny likevektspris og -mengde (etter avgift) |\n| $p_1 - t$ | nettopris til selger etter avgift |\n| KO | konsumentoverskudd |\n| PO | produsentoverskudd |\n| SO | samfunnsøkonomisk overskudd |\n\n**Formler i dette delkapitlet:**\n\n$$p_0 = \\frac{a + d}{b + c}$$\nOpprinnelig likevektspris (E lik T).\n\n$$p_1 = \\frac{a + d + ct}{b + c} = p_0 + \\frac{c}{b+c}\\,t$$\nNy markedspris etter en stykkskatt $t$ på selger.\n\n$$\\text{kjøpers andel} = \\frac{c}{b+c}, \\qquad \\text{selgers andel} = \\frac{b}{b+c}$$\nDelingsformelen: andelene summerer til 1; den minst prisfølsomme siden bærer mest.\n\n$$\\text{kjøpers byrde} + \\text{selgers byrde} = (p_1 - p_0) + \\big(p_0 - (p_1 - t)\\big) = t$$\nByrdene summerer alltid til hele avgiften.\n\n$$\\text{dødvektstap} = \\tfrac{1}{2}\\, t\\,(x_0 - x_1)$$\nEffektivitetstapet: trekanten mellom E og T fra $x_1$ til $x_0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

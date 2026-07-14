@@ -1,0 +1,267 @@
+{
+  "id": "econ1210-7-3",
+  "courseId": "econ1210",
+  "chapterNumber": "7.3",
+  "title": "Nåverdi",
+  "description": "Beredskapsformlene: diskontering, evigvarende strøm og lønnsomhetsvurdering med diskonteringstabell ved to renter.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "regne nåverdien av et fremtidig beløp og av en betalingsrekke med diskonteringstabell",
+    "forklare hvorfor beløp på ulike tidspunkter må gjøres sammenlignbare (renta som alternativkostnad)",
+    "bruke formelen for evigvarende strøm og vurdere lønnsomhet ved ulike renter"
+  ],
+  "content": [
+    {
+      "id": "econ1210-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er et **beredskapskapittel** — kort, raskt lært og raskt vedlikeholdt.\n\n- Nåverdi hører til bokas **sjanger M** («dvale-sjangrene» — se kodelista i [kap. 0.1](/bok/econ1210/econ1210-0-1)).\n- Temaet var med i 4 av 16 ordinære sett (H2018, V2019, H2019, V2021) og var **fast begrepsspørsmål 2018–2019**. Det har ikke vært på ordinær eksamen siden V2021, men er så lettlært at det er billig å ha med.\n- Da det sist kom (V2021), fikk studenten en **diskonteringstabell** og skulle vurdere om et tiltak var lønnsomt ved 3 % mot 5 % rente. Det er nettopp den varianten vi driller her.\n\nMålet: å kunne diskontere et beløp riktig, summere en betalingsrekke, bruke formelen for evigvarende strøm — og alltid ha med *hvorfor*-forklaringen når begrepet spørres."
+    },
+    {
+      "id": "econ1210-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet kan leses helt selvstendig. Det eneste du trenger, er ideen om **alternativkostnad** — verdien av det nest beste du kunne gjort med pengene. Her er alternativkostnaden renta: en krone i dag kan settes i banken og vokse, så en krone i dag er verdt mer enn en krone om et år.\n\n*Skrivemåte:* $y$ er et fremtidig beløp (utbetaling), $r$ er renta (som desimaltall, så 5 % er $r = 0{,}05$), $t$ er antall år fram i tid, og NV er nåverdien."
+    },
+    {
+      "id": "econ1210-7-3-hverdagsanker",
+      "type": "text",
+      "content": "Forestill deg at du vinner i et spill og får velge: **1000 kroner nå**, eller **1000 kroner om ett år**. De fleste velger nå — og det er økonomisk riktig. Får du pengene nå, kan du sette dem i banken til rente $r$ og ha *mer* enn 1000 om et år. Beløp på ulike tidspunkter er derfor ikke direkte sammenlignbare; vi må regne dem om til samme tidspunkt før vi kan legge dem sammen. **Nåverdi** er verktøyet: vi regner alle fremtidige beløp om til hva de er verdt *i dag*."
+    },
+    {
+      "id": "econ1210-7-3-diskontering-utledning",
+      "type": "text",
+      "content": "## Trinn 1 — Diskontering av ett beløp (~8 min)\n\nSett 1 krone i banken i dag til rente $r$. Om ett år har du $1 + r$ kroner; om to år $(1+r)^2$; om $t$ år $(1+r)^t$. Snur vi dette: for å ha $y$ kroner om $t$ år, trenger du å sette av\n\n$$\\text{NV} = \\frac{y}{(1+r)^t}$$\n\nkroner i dag. Dette er **nåverdien** av beløpet $y$ som kommer om $t$ år. Å gange en fremtidig utbetaling med faktoren $\\frac{1}{(1+r)^t}$ kalles å **diskontere** den. Faktoren er alltid mindre enn 1 (så lenge $r > 0$), og den blir mindre jo lenger fram i tid beløpet ligger og jo høyere renta er.\n\n**Hvorfor** (forklaringen sensor krever når begrepet spørres): fordi en krone i dag kan plasseres til rente $r$, er den verdt mer enn en krone senere. Renta er **alternativkostnaden** ved å binde pengene i et prosjekt i stedet for å la dem vokse i banken. Diskonteringen gjør fremtidige og nåværende beløp sammenlignbare ved å måle alt i dagens kroner."
+    },
+    {
+      "id": "econ1210-7-3-def-naverdi",
+      "type": "definition",
+      "title": "Nåverdi (NV)",
+      "content": "**Nåverdien** av et beløp $y$ som kommer om $t$ år, ved rente $r$, er $\\text{NV} = \\frac{y}{(1+r)^t}$. Den svarer på: hvor mye må jeg sette av i dag for å ha $y$ om $t$ år? Å gange med faktoren $\\frac{1}{(1+r)^t}$ kalles å **diskontere**. Nåverdi gjør beløp på ulike tidspunkter sammenlignbare ved å måle alt i dagens kroner. Renta er alternativkostnaden ved å binde pengene."
+    },
+    {
+      "id": "econ1210-7-3-ex-diskontering",
+      "type": "example",
+      "title": "Eksempel 1: Nåverdien av ett beløp",
+      "problem": "Du skal få 1000 kroner om 3 år. Renta er 5 %. Hva er nåverdien? Og hva ville den vært om beløpet kom om bare 1 år?",
+      "solution": "**Om 3 år:** $\\text{NV} = \\dfrac{1000}{(1{,}05)^3} = \\dfrac{1000}{1{,}157625} \\approx 863{,}84$ kroner.\n\n**Om 1 år:** $\\text{NV} = \\dfrac{1000}{1{,}05} \\approx 952{,}38$ kroner.\n\n**Tolkning:** 1000 kroner om 3 år er i dag verdt om lag 864 kroner — du kunne satt 864 kroner i banken nå og hatt 1000 om tre år. Jo lenger fram beløpet ligger, desto lavere er nåverdien (952 om ett år mot 864 om tre år), fordi diskonteringsfaktoren $\\frac{1}{(1{,}05)^t}$ krymper med $t$."
+    },
+    {
+      "id": "econ1210-7-3-ex-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-3-e-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Du skal få 500 kroner om 2 år, og renta er 4 %.\n\n**a)** Skriv opp formelen for nåverdien.\n\n**b)** Regn ut nåverdien.\n\n**c)** Blir nåverdien høyere eller lavere hvis renta stiger til 8 %?",
+        "solution": "**a)** $\\text{NV} = \\dfrac{y}{(1+r)^t} = \\dfrac{500}{(1{,}04)^2}$.\n\n**b)** $(1{,}04)^2 = 1{,}0816$, så $\\text{NV} = \\dfrac{500}{1{,}0816} \\approx 462{,}28$ kroner.\n\n**c)** **Lavere.** Høyere rente gir en mindre diskonteringsfaktor, så nåverdien av et fast fremtidig beløp faller. (Til sammenligning: $\\frac{500}{(1{,}08)^2} = \\frac{500}{1{,}1664} \\approx 428{,}67$.)",
+        "hints": [
+          "Diskonteringsfaktoren er $\\frac{1}{(1+r)^t}$.",
+          "Tenk på hva som skjer med nevneren når $r$ øker."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-3-rekke-utledning",
+      "type": "text",
+      "content": "## Trinn 2 — Nåverdien av en betalingsrekke og en diskonteringstabell (~10 min)\n\nDe fleste prosjekter gir en *rekke* av beløp over flere år, ikke bare ett. Da diskonterer du hvert års beløp for seg og legger sammen:\n\n$$\\text{NV} = \\frac{y_1}{(1+r)^1} + \\frac{y_2}{(1+r)^2} + \\dots + \\frac{y_n}{(1+r)^n}.$$\n\nPå eksamen får du gjerne en **diskonteringstabell** med faktoren $\\frac{1}{(1+r)^t}$ ferdig utregnet for hvert år og et par renter. Da slipper du å regne potenser; du bare ganger hvert års beløp med riktig faktor og summerer. Slik ser en tabell ut for rentene 3 % og 5 %:\n\n| År $t$ | $\\frac{1}{(1{,}03)^t}$ (3 %) | $\\frac{1}{(1{,}05)^t}$ (5 %) |\n|---|---|---|\n| 1 | 0,9709 | 0,9524 |\n| 2 | 0,9426 | 0,9070 |\n| 3 | 0,9151 | 0,8638 |\n| 4 | 0,8885 | 0,8227 |\n| 5 | 0,8626 | 0,7835 |\n| 6 | 0,8375 | 0,7462 |\n\nLegg merke til at faktorene i 5 %-kolonnen er *mindre* enn i 3 %-kolonnen for samme år: høyere rente diskonterer fremtidige beløp hardere."
+    },
+    {
+      "id": "econ1210-7-3-ex-rekke",
+      "type": "example",
+      "title": "Eksempel 2: Lønnsomhet med diskonteringstabell ved to renter",
+      "problem": "Et tiltak koster 105 kroner i dag og gir 20 kroner per år i 6 år. Bruk diskonteringstabellen over til å avgjøre om tiltaket er lønnsomt ved 3 % og ved 5 % rente.",
+      "solution": "Lønnsomt betyr at nåverdien av de fremtidige gevinstene er større enn kostnaden i dag (105).\n\n**Ved 3 %:** summér diskonteringsfaktorene for år 1–6 og gang med 20. Faktorsummen er $0{,}9709 + 0{,}9426 + 0{,}9151 + 0{,}8885 + 0{,}8626 + 0{,}8375 = 5{,}4172$. Nåverdi av gevinstene: $20 \\cdot 5{,}4172 \\approx 108{,}3$ kroner. Siden $108{,}3 > 105$, er tiltaket **lønnsomt** ved 3 %.\n\n**Ved 5 %:** faktorsummen er $0{,}9524 + 0{,}9070 + 0{,}8638 + 0{,}8227 + 0{,}7835 + 0{,}7462 = 5{,}0756$. Nåverdi: $20 \\cdot 5{,}0756 \\approx 101{,}5$ kroner. Siden $101{,}5 < 105$, er tiltaket **ulønnsomt** ved 5 %.\n\n**Hvorfor konklusjonen avhenger av renta:** ved høyere rente diskonteres de fremtidige gevinstene hardere, så nåverdien deres krymper — fra 108 til 102 kroner her. Renta er alternativkostnaden: jo mer pengene kunne vokst i banken, desto mindre attraktivt er det å binde dem i et prosjekt med gevinster langt fram i tid. Ved 5 % overstiger ikke lenger gevinsten kostnaden, og prosjektet bør droppes."
+    },
+    {
+      "id": "econ1210-7-3-ex-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-3-e-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — betalingsrekke.) Et prosjekt koster 250 kroner i dag og gir 100 kroner per år i 3 år. Bruk formelen (ikke tabell) og avgjør om det er lønnsomt ved 8 % rente.\n\n**a)** Sett opp nåverdien av gevinstene som en sum.\n\n**b)** Regn den ut (diskonteringsfaktorene ved 8 % er 0,9259, 0,8573 og 0,7938 for år 1–3).\n\n**c)** Er prosjektet lønnsomt?",
+        "solution": "**a)** $\\text{NV} = \\dfrac{100}{1{,}08} + \\dfrac{100}{(1{,}08)^2} + \\dfrac{100}{(1{,}08)^3}$.\n\n**b)** $100 \\cdot 0{,}9259 + 100 \\cdot 0{,}8573 + 100 \\cdot 0{,}7938 = 92{,}59 + 85{,}73 + 79{,}38 = 257{,}70$ kroner.\n\n**c)** **Ja, lønnsomt:** nåverdien av gevinstene (257,70) overstiger kostnaden i dag (250) med om lag 7,70 kroner. (Merk at marginen er liten — ved en høyere rente ville prosjektet fort blitt ulønnsomt.)",
+        "hints": [
+          "Diskontér hvert års beløp for seg og summér.",
+          "Sammenlign summen av gevinstenes nåverdi med kostnaden i dag."
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-3-evig-utledning",
+      "type": "text",
+      "content": "## Trinn 3 — Evigvarende strøm og lønnsomhetsvurdering (~8 min)\n\nNoen ganger gir et aktivum (en eiendom, en obligasjon, et evig veiavgifts-prosjekt) *det samme beløpet $y$ hvert år for alltid*. Da har den uendelige summen en enkel lukket form:\n\n$$\\text{NV} = \\frac{y}{r}.$$\n\nTolkningen er intuitiv: hvor stor formue $\\text{NV}$ må du ha i banken til rente $r$ for at renteinntekten $\\text{NV}\\cdot r$ skal bli nøyaktig $y$ hvert år? Svaret er $\\text{NV} = y/r$. En evig strøm på 500 kroner i året er ved 5 % rente verdt $500/0{,}05 = 10\\,000$ kroner i dag.\n\n**Lønnsomhetsregelen** (uansett om strømmen er endelig eller evig): *invester hvis nåverdien av de fremtidige gevinstene overstiger kostnaden i dag.* Fordi høyere rente gir lavere nåverdi, blir **færre prosjekter lønnsomme jo høyere renta er** — renta fungerer som en terskel prosjektene må klare."
+    },
+    {
+      "id": "econ1210-7-3-def-evig",
+      "type": "definition",
+      "title": "Evigvarende strøm",
+      "content": "En **evigvarende strøm** gir det samme beløpet $y$ hvert år for alltid. Nåverdien er $\\text{NV} = \\frac{y}{r}$ — den formuen som ved rente $r$ gir akkurat $y$ i renteinntekt hvert år. En vanlig feil er å snu brøken; det er $y$ delt på $r$, ikke omvendt."
+    },
+    {
+      "id": "econ1210-7-3-def-lonnsomhet",
+      "type": "definition",
+      "title": "Lønnsomhetsregelen (nåverdikriteriet)",
+      "content": "Et prosjekt er lønnsomt hvis **nåverdien av de fremtidige gevinstene overstiger kostnaden i dag**. Fordi høyere rente diskonterer gevinstene hardere og senker nåverdien, blir færre prosjekter lønnsomme jo høyere renta er. Renta er alternativkostnaden: den måler hva pengene ellers kunne gitt."
+    },
+    {
+      "id": "econ1210-7-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De vanligste tabbene i nåverdi-oppgaver:\n\n- **Feil eksponent:** å diskontere et beløp som kommer om 3 år med $(1+r)$ i stedet for $(1+r)^3$. Eksponenten er antallet år fram i tid.\n- **Summere udiskonterte beløp:** å legge sammen 20 + 20 + … uten å diskontere hvert år først. Uten diskontering behandler du fremtidige kroner som om de var verdt like mye som dagens — da forsvinner hele poenget.\n- **Snu brøken i evigvarende strøm:** formelen er $\\frac{y}{r}$, ikke $\\frac{r}{y}$. En strøm på 500 ved 5 % er verdt 10 000, ikke 0,0001.\n- **Mangle *hvorfor*-forklaringen:** når begrepet spørres, må du si *hvorfor* fremtidige beløp diskonteres — renta som alternativkostnad, en krone i dag verdt mer enn en krone senere. Bare tallet gir ikke full uttelling."
+    },
+    {
+      "id": "econ1210-7-3-ex-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-3-e-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — evigvarende strøm.) En eiendom gir en netto leieinntekt på 8000 kroner per år, antatt for alltid. Den er til salgs for 180 000 kroner.\n\n**a)** Hva er nåverdien av leieinntektene ved 5 % rente?\n\n**b)** Er kjøpet lønnsomt ved 5 %?\n\n**c)** Hva blir svaret ved 4 % rente?",
+        "solution": "**a)** Evigvarende strøm: $\\text{NV} = \\dfrac{y}{r} = \\dfrac{8000}{0{,}05} = 160\\,000$ kroner.\n\n**b)** **Nei.** Nåverdien av leieinntektene (160 000) er lavere enn prisen (180 000), så kjøpet er ulønnsomt ved 5 %.\n\n**c)** Ved 4 %: $\\text{NV} = \\dfrac{8000}{0{,}04} = 200\\,000$ kroner $> 180\\,000$ — nå er kjøpet **lønnsomt**. Lavere rente løfter nåverdien av en fast årlig strøm, så eiendommen blir mer verdt. Dette illustrerer hvordan lavere rente gjør flere prosjekter lønnsomme.",
+        "hints": [
+          "Evigvarende strøm: $\\text{NV} = \\frac{y}{r}$.",
+          "Lønnsomt hvis nåverdien overstiger kjøpsprisen.",
+          "Hva gjør en lavere rente med $\\frac{y}{r}$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-3-ex-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1210-7-3-e-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger M — full lønnsomhetsvurdering med ulik strøm.) Et prosjekt koster 400 kroner i dag og gir 100 kroner etter år 1, 200 etter år 2 og 300 etter år 3. Renta er 6 % (diskonteringsfaktorer: 0,9434, 0,8900, 0,8396 for år 1–3).\n\n**a)** Beregn nåverdien av gevinstene.\n\n**b)** Avgjør om prosjektet er lønnsomt.\n\n**c)** Forklar med ord hvorfor beløpene ikke bare kan legges sammen udiskontert, og hva renta representerer i regnestykket.",
+        "solution": "**a)** $\\text{NV} = 100 \\cdot 0{,}9434 + 200 \\cdot 0{,}8900 + 300 \\cdot 0{,}8396 = 94{,}34 + 178{,}00 + 251{,}88 = 524{,}22$ kroner.\n\n**b)** **Lønnsomt:** nåverdien av gevinstene (524,22) overstiger kostnaden i dag (400) med om lag 124 kroner. Prosjektet bør gjennomføres.\n\n**c)** Beløpene kommer på *ulike tidspunkter*, og en krone om tre år er verdt mindre enn en krone i dag — for en krone i dag kan settes i banken og vokse til $(1{,}06)^3$ kroner på tre år. Å summere 100 + 200 + 300 udiskontert ville behandlet alle kronene som om de kom i dag, og overvurdert prosjektet (det ga 600 udiskontert mot 524 diskontert). Renta $r = 6\\%$ representerer **alternativkostnaden** ved å binde pengene i prosjektet framfor å la dem forrentes et annet sted; den er terskelen prosjektet må slå.",
+        "hints": [
+          "Gang hvert års beløp med sin egen diskonteringsfaktor og summér.",
+          "Sammenlign nåverdien med kostnaden 400.",
+          "Hvorfor er en krone i dag verdt mer enn en krone senere?"
+        ]
+      }
+    },
+    {
+      "id": "econ1210-7-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1210-7-3-bb-naverdi",
+      "type": "definition",
+      "title": "Nåverdi og diskontering",
+      "content": "Nåverdien av et beløp $y$ om $t$ år ved rente $r$ er $\\text{NV} = \\frac{y}{(1+r)^t}$ — hvor mye du må sette av i dag for å ha $y$ om $t$ år. Å gange med faktoren $\\frac{1}{(1+r)^t}$ kalles diskontering. Faktoren er alltid under 1 og krymper med både $t$ og $r$."
+    },
+    {
+      "id": "econ1210-7-3-bb-hvorfor",
+      "type": "definition",
+      "title": "Hvorfor diskontere (renta som alternativkostnad)",
+      "content": "En krone i dag er verdt mer enn en krone senere, fordi den kan plasseres til rente $r$ og vokse. Beløp på ulike tidspunkter må derfor gjøres sammenlignbare før de kan legges sammen — vi måler alt i dagens kroner. Renta er alternativkostnaden ved å binde pengene i et prosjekt."
+    },
+    {
+      "id": "econ1210-7-3-bb-rekke",
+      "type": "definition",
+      "title": "Nåverdien av en betalingsrekke",
+      "content": "For en rekke beløp $y_1, y_2, \\dots, y_n$ over flere år er nåverdien summen av hvert års diskonterte beløp: $\\text{NV} = \\frac{y_1}{1+r} + \\frac{y_2}{(1+r)^2} + \\dots + \\frac{y_n}{(1+r)^n}$. Med en diskonteringstabell ganger du bare hvert års beløp med riktig faktor og summerer."
+    },
+    {
+      "id": "econ1210-7-3-bb-evig",
+      "type": "definition",
+      "title": "Evigvarende strøm",
+      "content": "Et fast beløp $y$ hvert år for alltid har nåverdi $\\text{NV} = \\frac{y}{r}$. Det er den formuen som ved rente $r$ gir akkurat $y$ i renteinntekt årlig. Pass på ikke å snu brøken — det er $y$ delt på $r$."
+    },
+    {
+      "id": "econ1210-7-3-bb-lonnsomhet",
+      "type": "definition",
+      "title": "Nåverdikriteriet for lønnsomhet",
+      "content": "Invester hvis nåverdien av de fremtidige gevinstene overstiger kostnaden i dag. Fordi høyere rente senker nåverdien, blir færre prosjekter lønnsomme jo høyere renta er. Konklusjonen om et grensetilfelle kan derfor snu når renta endres."
+    },
+    {
+      "id": "econ1210-7-3-bb-diskfaktor",
+      "type": "definition",
+      "title": "Diskonteringsfaktor",
+      "content": "Tallet $\\frac{1}{(1+r)^t}$ som et fremtidig beløp ganges med for å finne nåverdien. Det ligger mellom 0 og 1, faller når renta $r$ stiger og når tiden $t$ øker. På eksamen oppgis faktorene ofte i en tabell, så du slipper å regne potenser."
+    },
+    {
+      "id": "econ1210-7-3-bb-renteeffekt",
+      "type": "definition",
+      "title": "Renteøkningens virkning på nåverdien",
+      "content": "En høyere rente diskonterer fremtidige beløp hardere og senker dermed nåverdien av både enkeltbeløp, betalingsrekker og evigvarende strømmer. Praktisk konsekvens: et prosjekt som er lønnsomt ved lav rente, kan bli ulønnsomt ved høyere rente — nettopp fordi gevinstene ligger fram i tid."
+    },
+    {
+      "id": "econ1210-7-3-bb-tidsverdi",
+      "type": "definition",
+      "title": "Pengers tidsverdi",
+      "content": "Prinsippet om at penger har en tidsverdi: samme kronebeløp er mer verdt jo tidligere du får det, fordi tidlige kroner kan forrentes lenger. Dette er grunnen til at vi diskonterer, og til at man som regel foretrekker en utbetaling nå framfor samme beløp senere."
+    },
+    {
+      "id": "econ1210-7-3-bb-udiskontert-felle",
+      "type": "definition",
+      "title": "Udiskontert sum (feilen å unngå)",
+      "content": "Å legge sammen fremtidige beløp uten å diskontere overvurderer et prosjekt, fordi det behandler kroner på ulike tidspunkter som like mye verdt. Riktig framgang er alltid å diskontere hvert års beløp til nåverdi *før* du summerer og sammenligner med kostnaden i dag."
+    },
+    {
+      "id": "econ1210-7-3-bb-rente-terskel",
+      "type": "definition",
+      "title": "Renta som terskel for prosjekter",
+      "content": "Renta fungerer som en terskel: den er avkastningen pengene ellers kunne fått. Et prosjekt må gi en nåverdi av gevinster som slår kostnaden ved gjeldende rente. Stiger renta, heves terskelen, og prosjekter med gevinster langt fram i tid faller først ut."
+    },
+    {
+      "id": "econ1210-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1210-7-3-rep-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-7-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn nåverdien av 2000 kroner som kommer om 1 år ved 4 % rente.",
+            "solution": "$\\text{NV} = \\dfrac{2000}{1{,}04} \\approx 1923{,}08$ kroner. Beløpet er i dag verdt om lag 1923 kroner, siden du kunne satt 1923 i banken nå og hatt 2000 om ett år.",
+            "hints": [
+              "$\\text{NV} = \\frac{y}{1+r}$ for ett år fram."
+            ]
+          }
+        },
+        {
+          "id": "econ1210-7-3-rep-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ1210-7-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En obligasjon gir 600 kroner i året for alltid. Hva er nåverdien ved 6 % rente?",
+            "solution": "Evigvarende strøm: $\\text{NV} = \\dfrac{y}{r} = \\dfrac{600}{0{,}06} = 10\\,000$ kroner.",
+            "hints": [
+              "Evigvarende strøm: $\\frac{y}{r}$ — ikke snu brøken."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ1210-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1210-7-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (7.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $y$ | fremtidig beløp (utbetaling) |\n| $r$ | rente (desimaltall: 5 % $= 0{,}05$) |\n| $t$ | antall år fram i tid |\n| NV | nåverdi (verdien i dag) |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{NV} = \\frac{y}{(1+r)^t}$$\nNåverdien av ett beløp $y$ som kommer om $t$ år.\n\n$$\\text{NV} = \\frac{y_1}{1+r} + \\frac{y_2}{(1+r)^2} + \\dots + \\frac{y_n}{(1+r)^n}$$\nNåverdien av en betalingsrekke (summen av årlige nåverdier).\n\n$$\\text{NV} = \\frac{y}{r}$$\nNåverdien av en evigvarende strøm på $y$ per år.\n\n**Lønnsomhetsregel:** invester hvis nåverdien av gevinstene $>$ kostnaden i dag."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
