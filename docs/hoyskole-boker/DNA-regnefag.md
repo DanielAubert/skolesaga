@@ -129,6 +129,22 @@ forklaring TIL figuren, aldri i stedet for den.
   (bilder serveres fra Supabase Storage) — ellers 404 i prod.
 - Lover en caption/tip en figur («figuren i kapittel X»), skal figuren faktisk
   finnes der det loves.
+- **Figur-i-ord er et KOMPLEMENT, ALDRI en erstatning (skjerpet 14. juli 2026).**
+  For mikro-/grafiske fag er det ikke nok å beskrive standarddiagrammene i prosa
+  og nøye seg med én SVG — kjernediagrammene som gjentas gjennom hele boka SKAL
+  rendres. Ferdig, verifisert bibliotek for mikro: `scripts/hoyskolebok/
+  gen-mikrofigurer.py` (markedskryss, KO/PO/SO, stykkskatt-kile, maksimalpris,
+  monopol ×2, Pigou-eksternalitet, elastisitet — geometri regnet ut eksakt).
+- **Skreddersydd caption PER PLASSERING (fra produkteier):** hver image-blokks
+  `caption` skrives for nettopp den plasseringen — knytt figuren til kapitlets
+  eget eksempel/ramme og termbruk (f.eks. «delingsformelen $c/(b+c)$ tegnet ut»
+  der delingen står), ikke en generisk gjentakelse. `alt` beskriver figuren
+  bokstavelig for skjermleser.
+- **En figur skal bare vise det kapitlet har lært bort:** ikke plasser et
+  diagram med un-underviste elementer. Del figuren ved behov — f.eks. monopol
+  som ren tilpasning (MI=MK, $x_M$, $p_M$) i tilpasningskapitlet, og en egen
+  velferdsvariant (+ $x_{opt}$ + dødvektstap-trekant) først i velferdskapitlet.
+  Sett inn rett etter definisjonen/teoremet der konseptet innføres.
 
 ## Enhets- og konvensjonsvalg (fra studentpanel)
 
