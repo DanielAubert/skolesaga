@@ -235,4 +235,105 @@ b += txt(steep[0][0]-30, steep[0][1]+22, '(uelastisk)', RED, 11, True)
 b += txt(flat[1][0]-70, flat[1][1]+16, 'slak (elastisk)', ORG, 12, True)
 save('elastisitet', b)
 
-print('\nFerdig — 6 nye SVG-er generert.')
+# ================= GJENBRUKS-KONTEKSTER =================
+# Samme geometri som varemarkedet, men andre akser/etiketter (arbeidsmarked,
+# prisgulv, handel). Beviser DNA-prinsippet «tekst-i-bildet per kontekst».
+
+def curve_labels(dem, sup, dcol=RED, scol=BLUE, dx=(363,285), sx=(345,82)):
+    return (txt(dx[0], dx[1], dem, dcol, 13, False, True)
+            + txt(sx[0], sx[1], sup, scol, 13, False, True))
+
+# ---------- 7) ARBEIDSMARKED-KRYSS (w/N) ----------
+b = header('Arbeidsmarkedet som marked: lønn w loddrett, sysselsetting N vannrett. Fallende arbeidsetterspørsel (AE, bedriftene) og stigende arbeidstilbud (AT, arbeiderne) krysser i likevekten med lønn w-stjerne og sysselsetting N-stjerne.')
+b += axes('N', 'w')
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('AE', 'AT')
+b += hdash(A[0], A[1]); b += vdash(A[0], A[1]); b += dot(*A, '')
+b += txt(OX-34, A[1]+5, 'w*', size=14); b += txt(A[0]-6, OY+18, 'N*', size=14)
+save('arbeidsmarked-kryss', b)
+
+# ---------- 8) LØNNSSKATT-KILE (w/N) ----------
+b = header('Lønnsskatt som kile i arbeidsmarkedet: ved den nye, lavere sysselsettingen N1 betaler arbeidsgiveren w_AG (lest opp på arbeidsetterspørselen AE) mens arbeidstakeren sitter igjen med w_AT (lest ned på arbeidstilbudet AT). Den loddrette avstanden er lønnsskatten. Trekanten fram til likevekten er dødvektstapet.')
+b += axes('N', 'w')
+x1 = OX + (A[0]-OX)*0.62
+pE = y_at(E1, E2, x1); pT = y_at(T1, T2, x1)
+b += poly([(x1, pE), (x1, pT), A], ORG, 0.28)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('AE', 'AT')
+b += line((x1, pE), (x1, pT), '#222', 1.6)
+b += hdash(x1, pE); b += hdash(x1, pT); b += vdash(x1, (pE+pT)/2)
+b += dot(x1, pE, ''); b += dot(x1, pT, ''); b += dot(*A, '', 8, -6)
+b += sub(OX-46, pE+5, 'w', 'AG', size=13); b += sub(OX-44, pT+5, 'w', 'AT', size=13)
+b += txt(x1+7, (pE+pT)/2+4, 't', size=15, bold=True)
+b += sub(x1-8, OY+18, 'N', '1', size=14); b += txt(A[0]-6, OY+18, 'N*', size=14)
+save('lonnsskatt-kile', b)
+
+# ---------- 9) MINSTEPRIS (prisgulv, p/x) ----------
+b = header('Minstepris over likevekt: ved prisgulvet p_min leses etterspurt mengde x_E (kortsiden) av på E-kurven og tilbudt mengde x_T av på T-kurven. Tilbudt overstiger etterspurt — differansen er tilbudsoverskuddet. Omsatt mengde er x_E.')
+b += axes()
+pmin = A[1] - (A[1]-YTOP)*0.42       # OVER p* (mindre y)
+xE = x_at(E1, E2, pmin); xT = x_at(T1, T2, pmin)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('E', 'T')
+b += line((OX, pmin), (378, pmin), GRN, 2.0, '7 4')
+b += sub(342, pmin-7, 'p', 'min', GRN, 13)
+b += dot(*A, 'A', 6, 16); b += hdash(A[0], A[1])
+b += vdash(xE, pmin); b += vdash(xT, pmin); b += dot(xE, pmin, ''); b += dot(xT, pmin, '')
+b += line((xE, pmin+16), (xT, pmin+16), '#222', 1.2, '3 3')
+b += txt((xE+xT)/2-40, pmin+30, 'tilbudsoverskudd', '#222', 11, True)
+b += sub(xE-6, OY+18, 'x', 'E', size=13); b += sub(xT-8, OY+18, 'x', 'T', size=13)
+b += txt(OX-30, A[1]+5, 'p*', size=14)
+save('minstepris', b)
+
+# ---------- 10) MINSTELØNN (prisgulv, w/N) ----------
+b = header('Minstelønn over likevekt: ved lønnsgulvet w_min etterspør bedriftene bare N_E arbeidskraft (kortsiden), mens N_T ønsker å jobbe. Differansen N_T minus N_E er arbeidsledigheten. Sysselsettingen blir N_E.')
+b += axes('N', 'w')
+wmin = A[1] - (A[1]-YTOP)*0.42
+NE = x_at(E1, E2, wmin); NT = x_at(T1, T2, wmin)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('AE', 'AT')
+b += line((OX, wmin), (378, wmin), GRN, 2.0, '7 4')
+b += sub(340, wmin-7, 'w', 'min', GRN, 13)
+b += dot(*A, '', 6, 16); b += hdash(A[0], A[1])
+b += vdash(NE, wmin); b += vdash(NT, wmin); b += dot(NE, wmin, ''); b += dot(NT, wmin, '')
+b += line((NE, wmin+16), (NT, wmin+16), '#222', 1.2, '3 3')
+b += txt((NE+NT)/2-32, wmin+30, 'arbeidsledighet', '#222', 11, True)
+b += sub(NE-6, OY+18, 'N', 'E', size=13); b += sub(NT-8, OY+18, 'N', 'T', size=13)
+b += txt(OX-34, A[1]+5, 'w*', size=14)
+save('minstelonn', b)
+
+# ---------- 11) HANDEL: IMPORT (verdenspris under autarki) ----------
+b = header('Handelsåpning for import: innenlandsk E og T krysser i autarkiprisen p_A. Verdensprisen p_V ligger under. Ved p_V tilbyr innenlandske produsenter x_T, mens forbrukerne etterspør x_E — differansen dekkes av import. Den grønne trekanten er den samlede velferdsgevinsten ved handel.')
+b += axes()
+pV = A[1] + (OY-A[1])*0.42            # verdenspris UNDER autarki (større y)
+xT = x_at(T1, T2, pV); xE = x_at(E1, E2, pV)
+b += poly([A, (xT, pV), (xE, pV)], GRN, 0.18)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('E', 'T')
+b += line((OX, pV), (400, pV), '#111', 1.8)
+b += sub(354, pV-7, 'p', 'V', '#111', 13)
+b += dot(*A, ''); b += hdash(A[0], A[1]); b += sub(OX-34, A[1]+5, 'p', 'A', size=13)
+b += vdash(xT, pV); b += vdash(xE, pV); b += dot(xT, pV, ''); b += dot(xE, pV, '')
+b += line((xT, pV+16), (xE, pV+16), '#222', 1.2, '3 3')
+b += txt((xT+xE)/2-16, pV+30, 'import', '#222', 12, True)
+b += sub(xT-8, OY+18, 'x', 'T', size=12); b += sub(xE-6, OY+18, 'x', 'E', size=12)
+save('handel-import', b)
+
+# ---------- 12) HANDEL: EKSPORT (verdenspris over autarki) ----------
+b = header('Handelsåpning for eksport: verdensprisen p_V ligger over autarkiprisen p_A. Ved p_V etterspør innenlandske forbrukere bare x_E, mens produsentene tilbyr x_T — differansen eksporteres. Den grønne trekanten er den samlede velferdsgevinsten.')
+b += axes()
+pV = A[1] - (A[1]-YTOP)*0.42          # verdenspris OVER autarki (mindre y)
+xE = x_at(E1, E2, pV); xT = x_at(T1, T2, pV)
+b += poly([A, (xE, pV), (xT, pV)], GRN, 0.18)
+b += line(E1, E2, RED); b += line(T1, T2, BLUE)
+b += curve_labels('E', 'T')
+b += line((OX, pV), (400, pV), '#111', 1.8)
+b += sub(354, pV-7, 'p', 'V', '#111', 13)
+b += dot(*A, ''); b += hdash(A[0], A[1]); b += sub(OX-34, A[1]+16, 'p', 'A', size=13)
+b += vdash(xE, pV); b += vdash(xT, pV); b += dot(xE, pV, ''); b += dot(xT, pV, '')
+b += line((xE, pV+16), (xT, pV+16), '#222', 1.2, '3 3')
+b += txt((xE+xT)/2-16, pV+30, 'eksport', '#222', 12, True)
+b += sub(xE-6, OY+18, 'x', 'E', size=12); b += sub(xT-8, OY+18, 'x', 'T', size=12)
+save('handel-eksport', b)
+
+print('\nFerdig — figurbiblioteket generert (kjerne + gjenbruks-kontekster).')
