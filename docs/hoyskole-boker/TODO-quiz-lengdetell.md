@@ -39,6 +39,9 @@ komkult-2 (96→2%). Alle committet scoped. (Bøker med mange KORTE fasitsvar �
 kroppsoving-vg2/trening-2 — lander høyere (17–21%) pga. noStraddle, men ✅.)
 Fjern disse fra lista under etter hvert. + helseoppvekst-vg3 (96->8%). 11 bøker totalt m/høyskole. NESTE: kroppsoving-vg3, psykologi-2, komkult-3, entrebed, helseoppvekst-vg1/vg2, …
 
+## Fikset natt 15. juli (forts.) — 36 bøker totalt
+✅ tof-2 (89→15%), filosofi-etikk (88→20%). im-vg1 pågår. Bruk `split.mjs <emne> <prefix> <size>` for batching og `apply2.mjs` (import-basert, robust for multi-line options).
+
 ## Resterende flaggede filer (134) — sortert verst først
 
 | Emne | Spm | Fasit-eneste-lengst |
