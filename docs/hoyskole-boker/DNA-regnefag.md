@@ -145,6 +145,19 @@ forklaring TIL figuren, aldri i stedet for den.
   som ren tilpasning (MI=MK, $x_M$, $p_M$) i tilpasningskapitlet, og en egen
   velferdsvariant (+ $x_{opt}$ + dødvektstap-trekant) først i velferdskapitlet.
   Sett inn rett etter definisjonen/teoremet der konseptet innføres.
+- **Ber oppgaven om figur, SKAL løsningsforslaget vise figuren (skjerpet 15.
+  juli 2026, fra produkteier).** Sier oppgave-/deloppgaveteksten «forklar ved
+  hjelp av en figur», «vis i figur/diagram», «tegn figur», «skisser» e.l., er
+  et løsningsforslag som bare skriver «*Figur i ord:* …» UFULLSTENDIG — den
+  faktiske SVG-en skal inn i løsningen (rett etter delsvaret den hører til).
+  Gjelder også øvingseksamener/prøver skrevet som tekst-blokker inne i
+  `collapsible`-er (ikke bare `exercise`-objekter). Nøstede image-blokker
+  rendres (CollapsibleBlockComponent), men MÅ ha `id` og `src` som peker på en
+  fil som er lastet opp til Storage.
+- **Audit-kommando** (kjør per bok før «ferdig» for regnefag med grafisk
+  eksamen): grep alle oppgave-/prøvetekster for figur-forespørsel
+  (`ved hjelp av (en )?figur|vis .*figur|tegn figur|skisser|i diagrammet`) og
+  sjekk at løsnings-subtreet har ≥1 `image`-blokk. Manglende figur = gjøremål.
 
 ## Enhets- og konvensjonsvalg (fra studentpanel)
 

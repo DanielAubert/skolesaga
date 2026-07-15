@@ -126,6 +126,73 @@ function glossaryFor(label: string, courseId?: string): string | null {
   return book[key] ?? null;
 }
 
+/**
+ * Regel 2 + 3 (speiler PDF-generatoren, jf. BYGGEPLAN-MAL «Oppgave-estetikk»):
+ *  - Fjern en ledende, redundant vanskelighets-parentes («(krevende)» osv.) —
+ *    vanskelighetsgraden vises allerede i oppgavehodet.
+ *  - Sett inline-nummerering «(1) … (2) … (3) …» (≥3 påfølgende fra (1)) på egne
+ *    linjer med tynt fete tall, med ledeteksten som egen setning.
+ * Matte-spenn ($…$, $$…$$) beskyttes så vi aldri rører LaTeX. Bold-/kursiv-
+ * formaterte punkter («**(1) …**») er forfatterens valg og står urørt.
+ */
+const DIFF_PREFIX = /^\s*\((krevende|vanskelig|lett|middels)\)\s*/i;
+
+function protectMath(s: string): { text: string; spans: string[] } {
+  const spans: string[] = [];
+  let t = s.replace(/\$\$[\s\S]*?\$\$/g, (m) => {
+    spans.push(m);
+    return `${spans.length - 1}`;
+  });
+  t = t.replace(/\$[^$\n]+?\$/g, (m) => {
+    spans.push(m);
+    return `${spans.length - 1}`;
+  });
+  return { text: t, spans };
+}
+function restoreMath(s: string, spans: string[]): string {
+  return s.replace(/(\d+)/g, (_, i) => spans[Number(i)]);
+}
+
+function layoutInlineEnum(para: string): string | null {
+  const marks = [...para.matchAll(/\((\d+)\)\s/g)];
+  const first = marks.findIndex((m) => Number(m[1]) === 1);
+  if (first === -1) return null;
+  const run = [marks[first]];
+  for (let i = first + 1; i < marks.length; i++) {
+    if (Number(marks[i][1]) === run.length + 1) run.push(marks[i]);
+    else break;
+  }
+  if (run.length < 3) return null;
+  // La bold-/kursivformaterte opplistinger stå — forfatterens bevisste valg.
+  if (run.some((m) => /[*_]$/.test(para.slice(0, m.index!)))) return null;
+  const leadRaw = para.slice(0, run[0].index!);
+  // Vern mot falske positiver: en ekte opplisting introduseres med kolon
+  // («… følgende: (1) …»). Uten kolon i ledeteksten er «(1)(2)(3)» som oftest
+  // ord-/mattemarkører inne i løpende tekst — la dem stå.
+  if (!leadRaw.includes(':')) return null;
+  const lead = leadRaw.trim();
+  const items = run.map((m, i) => {
+    const s = m.index! + m[0].length;
+    const e = i + 1 < run.length ? run[i + 1].index! : para.length;
+    return { n: m[1], text: para.slice(s, e).trim().replace(/[;,]\s*$/, '') };
+  });
+  const lines = items.map((it) => `<span class="font-semibold">(${it.n})</span> ${it.text}`);
+  return (lead ? lead + '\n' : '') + lines.join('\n');
+}
+
+/** Rydder oppgaveteksten: fjerner redundant vanskelighets-parentes og setter
+ *  inline-nummerering på egne linjer. Ren funksjon — trygg i render. */
+export function formatTaskText(task: string): string {
+  if (!task) return task;
+  const { text, spans } = protectMath(task);
+  const stripped = text.replace(DIFF_PREFIX, '');
+  const out = stripped
+    .split(/\n\n+/)
+    .map((para) => (/\n/.test(para) ? para : layoutInlineEnum(para) ?? para))
+    .join('\n\n');
+  return restoreMath(out, spans);
+}
+
 export function extractGenreTag(task: string, courseId?: string): GenreTag | null {
   if (!task) return null;
   const trimmed = task.trimStart();

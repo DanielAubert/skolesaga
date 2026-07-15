@@ -23,7 +23,7 @@ import Link from 'next/link';
 import type { TextbookExercise } from '@/lib/types/textbook';
 import { LatexRenderer } from './latex-renderer';
 import { GenreBadge } from './genre-badge';
-import { extractGenreTag } from '@/lib/textbook/genre-tag';
+import { extractGenreTag, formatTaskText } from '@/lib/textbook/genre-tag';
 import { ImageUpload } from './image-upload';
 import { CanvasDrawing } from './canvas-drawing';
 import { SpreadsheetInput } from './spreadsheet-input';
@@ -160,7 +160,9 @@ export function TextbookExerciseItem({
   // Trekk ut evt. ledende sjanger-/drill-prefiks fra oppgaveteksten så det
   // vises som badge i stedet for støy i brødteksten. rest = tekst uten prefiks.
   const genreTag = extractGenreTag(exercise.task, courseId);
-  const taskText = genreTag ? genreTag.rest : exercise.task;
+  // Rydder resten: fjern redundant vanskelighets-parentes og sett inline-
+  // nummerering «(1)(2)(3)» på egne linjer (jf. BYGGEPLAN-MAL «Oppgave-estetikk»).
+  const taskText = formatTaskText(genreTag ? genreTag.rest : exercise.task);
 
   // Er vi i lærervisning?
   const isTeacher = user?.role === 'teacher' || user?.role === 'admin';
