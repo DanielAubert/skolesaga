@@ -9,27 +9,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kreves for full uttelling når en oppgave sier «Forklar ved hjelp av en figur»?",
-      options: ["Både en korrekt, merket figur og mekanismen forklart i ord", "Kun en pen figur", "Kun en verbal forklaring", "En figur med så mange kurver som mulig"],
+      options: ["Både en korrekt, merket figur og mekanismen forklart i ord", "En figur med så mange kurver som mulig", "En pen og fargelagt figur er nok, siden sensor ser mekanismen selv", "En ren verbal forklaring holder, for figuren er bare pynt på svaret"],
       explanation: "Sensors metaregel: figur og forklaring er én leveranse. Figur uten forklaring – eller forklaring uten figur – er et halvt svar.",
     },
     {
       question: "Hvilket tema har 100 % frekvens (er med i alle 16 ordinære sett)?",
-      options: ["FK-likevekt og kurveskift", "Spillteori", "Nåverdi", "Konsumentteori"],
+      options: ["FK-likevekt og kurveskift", "Konsumentteori", "Spillteori og Nash-likevekt, som er kjernen i alle nyere sett", "Spillteori"],
       explanation: "FK-likevekt + kurveskift og velferdsvurdering er de eneste med 100 % frekvens. Spillteori (borte siden V2020) og nåverdi (borte siden V2021) er beredskapsstoff.",
     },
     {
       question: "Hvilken tilbudsmodell bygger boka og pensum på fra og med H2024?",
-      options: ["Anleggsmodellen med konstante enhetskostnader", "U-formede gjennomsnittskostnader", "Cournot-modellen", "Nyttefunksjons-modellen"],
+      options: ["Anleggsmodellen med konstante enhetskostnader", "U-formede gjennomsnittskostnader", "Cournot-modellen der to bedrifter velger mengde samtidig", "Nyttefunksjons-modellen med avtakende marginalnytte per enhet"],
       explanation: "Fra H2024 er anleggsmodellen (CORE) pensumets tilbudsmodell. Den gamle produsentteorien med gjennomsnittskostnader er nedtonet til sekundærstoff.",
     },
     {
       question: "Eksamen er 240 minutter og vektet 10/50/40. Hvor mange minutter bør du grovt sette av til oppgave 2?",
-      options: ["Cirka 120 minutter", "Cirka 24 minutter", "Cirka 96 minutter", "Cirka 60 minutter"],
+      options: ["Cirka 120 minutter", "Cirka 24 minutter", "Cirka 24 minutter, tilsvarende den minste av de tre delvektene", "Cirka 96 minutter"],
       explanation: "50 % av 240 minutter = 120 minutter. Tiden bør følge poengene, så den store oppgaven får mest.",
     },
     {
       question: "Hva er riktig om karakterskalaen i ECON1210?",
-      options: ["C er en god og vanlig karakter, og E er laveste ståkarakter", "Bare A og B regnes som bestått", "F er beste karakter", "Det gis tallkarakter fra 1 til 6"],
+      options: ["C er en god og vanlig karakter, og E er laveste ståkarakter", "Det gis tallkarakter fra 1 til 6", "Bare A og B regnes som bestått, resten teller som stryk på eksamen", "F er beste karakter, mens A er den svakeste ståkarakteren i skalaen"],
       explanation: "Skalaen er A–F der A er best og E laveste ståkarakter. C er den vanligste og en fullt forsvarlig karakter.",
     },
     {
@@ -39,39 +39,39 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to tema roterer oppgave 3 (tema-oppgaven) mellom i nyere sett?",
-      options: ["Klimapolitikk og monopol/markedsmakt", "Nåverdi og spillteori", "Konsumentteori og handel", "Nasjonalregnskap og pengepolitikk"],
+      options: ["Klimapolitikk og monopol/markedsmakt", "Nasjonalregnskap og pengepolitikk", "Konsumentteori med budsjettlinje og internasjonal handelsgevinst", "Konsumentteori og handel"],
       explanation: "Oppgave 3 roterer mellom klima-/miljøpolitikk og monopol/markedsmakt, med arbeidsmarked og spillteori som historiske alternativer.",
     },
     {
       question: "Hva er 'lekkasje-poenget' ved et tilbudskutt?",
-      options: ["Omsatt mengde faller mindre enn produksjonsbortfallet fordi høyere pris gjør flere anlegg lønnsomme", "Staten taper skatteinntekter", "Kjøperne slutter helt å kjøpe", "Prisen faller når anlegg forsvinner"],
+      options: ["Omsatt mengde faller mindre enn produksjonsbortfallet fordi høyere pris gjør flere anlegg lønnsomme", "Staten taper skatteinntekter fordi den samlede omsatte mengden faller kraftig", "Prisen faller når anlegg forsvinner fordi restanleggene konkurrerer hardere", "Kjøperne slutter helt å kjøpe godet siden prisen presses langt over toppen"],
       explanation: "Når lønnsomme anlegg faller bort, gjør den høyere prisen tidligere ulønnsomme anlegg lønnsomme, så mengdefallet blir mindre enn bortfallet. En fast toppmarkør fra H2024.",
     },
     {
       question: "Hva er den beste lesestrategien ut fra frekvens og vekt?",
-      options: ["Prioriter Del 1–5 (marked, velferd, skatt, klima, monopol) høyest", "Pugg bare begrepene knallhardt", "Start med spillteori og nåverdi", "Les alt likt uansett frekvens"],
+      options: ["Prioriter Del 1–5 (marked, velferd, skatt, klima, monopol) høyest", "Start med spillteori og nåverdi", "Les alt like grundig uansett frekvens, slik at ingen del blir nedprioritert", "Pugg begrepene knallhardt utenat, siden definisjoner gir flest poeng på eksamen"],
       explanation: "Del 1–5 bærer det aller meste av poengene og er «må perfekt». Begrepene er «må kunne», og Del 7 (spill/nåverdi/konsument) er «bør kjenne»-beredskap.",
     },
   ],
   'econ1210-1-1': [
     {
       question: "Hva viser høyden på markedets etterspørselskurve ved en gitt mengde?",
-      options: ["Den marginale betalingsvilligheten for siste enhet", "Hvor mange enheter som selges totalt", "Selgernes marginalkostnad", "Statens skatteinntekt"],
+      options: ["Den marginale betalingsvilligheten for siste enhet", "Hvor mange enheter som selges totalt", "Hvor mange enheter som selges totalt til denne prisen", "Selgernes marginalkostnad ved å produsere siste enhet"],
       explanation: "Høyden på E-kurven ved en mengde er verdien av den siste enheten for kjøperen som får den — marginal betalingsvillighet. Dette er en fast pluss-markør.",
     },
     {
       question: "Hvordan fremkommer markedets E-kurve fra kjøpernes individuelle kurver?",
-      options: ["Ved horisontal summering av mengdene ved hver pris", "Ved å summere prisene ved hver mengde", "Ved å ta gjennomsnittet av kurvene", "Ved å multiplisere kurvene med hverandre"],
+      options: ["Ved horisontal summering av mengdene ved hver pris", "Ved å multiplisere kurvene med hverandre", "Ved å ta det enkle gjennomsnittet av kjøpernes kurver", "Ved vertikal summering av prisene ved hver enkelt mengde"],
       explanation: "For hver pris legger vi sammen hvor mye hver kjøper vil ha (mengdene, langs den vannrette aksen). Det er horisontal summering.",
     },
     {
       question: "I formen x = a − bp, hva er a?",
-      options: ["Metningsmengden: etterspurt mengde når prisen er null", "Prisfølsomheten", "Prisen der etterspurt mengde er null", "Den marginale betalingsvilligheten"],
+      options: ["Metningsmengden: etterspurt mengde når prisen er null", "Prisen der etterspurt mengde akkurat blir lik null", "Prisfølsomheten: fallet i mengde per krone prisøkning", "Den marginale betalingsvilligheten for den siste enheten"],
       explanation: "Ved p = 0 blir x = a, så a er den mengden som etterspørres når godet er gratis — metningsmengden.",
     },
     {
       question: "Prisen på et gode settes opp. Hva skjer i etterspørselsdiagrammet?",
-      options: ["Vi beveger oss langs den samme E-kurven til et nytt punkt", "Hele E-kurven skifter innover", "Hele E-kurven skifter utover", "E-kurven blir brattere"],
+      options: ["Vi beveger oss langs den samme E-kurven til et nytt punkt", "Hele E-kurven skifter innover", "Hele E-kurven skifter utover mot høyre til høyere mengder", "E-kurven blir brattere fordi kjøperne blir mer prisfølsomme"],
       explanation: "En endring i godets EGEN pris gir en bevegelse LANGS kurven, ikke et skift. Bare andre faktorer skifter selve kurven (feilkatalog #1).",
     },
     {
@@ -91,7 +91,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Prisen på et komplement (brukes sammen med godet) stiger. Hva skjer med godets E-kurve?",
-      options: ["Den skifter innover (til venstre)", "Den skifter utover (til høyre)", "Vi beveger oss langs kurven", "Ingenting"],
+      options: ["Den skifter innover (til venstre)", "Den skifter utover (til høyre)", "Vi beveger oss bare langs den samme kurven til et nytt punkt", "Vi beveger oss langs kurven"],
       explanation: "Dyrere komplement (f.eks. bensin til bil) reduserer etterspørselen etter godet ved enhver pris → skift innover.",
     },
     {
@@ -101,17 +101,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr tallet b i x = a − bp?",
-      options: ["Hvor mange enheter etterspørselen faller når prisen stiger med én krone", "Metningsmengden", "Elastisiteten", "Den marginale betalingsvilligheten"],
+      options: ["Hvor mange enheter etterspørselen faller når prisen stiger med én krone", "Den marginale betalingsvilligheten for den aller siste solgte enheten", "Elastisiteten: den prosentvise endringen i mengde per prosent prisøkning", "Metningsmengden: hvor mye som etterspørres når godet er helt gratis"],
       explanation: "b er prisfølsomheten: fallet i etterspurt mengde per krone prisøkning. Stor b gir slak kurve, liten b gir bratt kurve.",
     },
     {
       question: "Hvorfor faller etterspørselskurven mot høyre?",
-      options: ["Kjøperne rangeres etter betalingsvillighet fra høyest til lavest, så høyden synker", "Fordi tilbudet stiger", "Fordi prisen alltid stiger over tid", "Fordi staten legger på avgift"],
+      options: ["Kjøperne rangeres etter betalingsvillighet fra høyest til lavest, så høyden synker", "Fordi tilbudet stiger og presser prisen nedover langs mengdeaksen", "Fordi prisen på godet alltid stiger over tid uansett etterspørsel", "Fordi staten legger på en avgift som trekker hele kurven nedover"],
       explanation: "De enhetene som verdsettes høyest ligger til venstre; for å selge flere må prisen ned til kjøpere med lavere betalingsvillighet.",
     },
     {
       question: "På hvilken form skriver denne boka alltid etterspørsel?",
-      options: ["Mengde som funksjon av pris: x = a − bp", "Invers form: p = a − bx", "Som en andregradsfunksjon", "Som en logaritme"],
+      options: ["Mengde som funksjon av pris: x = a − bp", "Som en andregradsfunksjon", "Invers form med pris som funksjon av mengde: p = a − bx", "Invers form: p = a − bx"],
       explanation: "Vi isolerer alltid mengden x på venstre side. Den inverse formen p = ... brukes aldri som oppgaveform i faget.",
     },
     {
@@ -126,17 +126,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en typisk feil når man forklarer virkningen av et dyrere substitutt?",
-      options: ["Å si 'prisen ble høyere så etterspørselen falt' – det beskriver bevegelse langs kurven, ikke skiftet", "Å tegne aksene", "Å nevne betalingsvillighet", "Å bruke E i stedet for D"],
+      options: ["Å si 'prisen ble høyere så etterspørselen falt' – det beskriver bevegelse langs kurven, ikke skiftet", "Å bruke bokstaven E i stedet for D som navn på etterspørselskurven", "Å nevne kjøpernes betalingsvillighet når man plasserer kurven", "Å tegne og merke aksene før man begynner på selve figuren"],
       explanation: "Substituttets prisøkning gir et skift utover av godets E-kurve. Bevegelses-språket hører til godets egen prisendring (feilkatalog #1).",
     },
     {
       question: "Hva kjennetegner den individuelle etterspørselskurven sammenlignet med markedets?",
-      options: ["Markedskurven er slakere fordi mengdene legges sammen ved hver pris", "Den individuelle kurven er alltid slakere", "De er alltid identiske", "Markedskurven stiger"],
+      options: ["Markedskurven er slakere fordi mengdene legges sammen ved hver pris", "De er alltid helt identiske siden markedet består av like kjøpere", "Den individuelle kurven er alltid slakere fordi den dekker flere enheter", "Markedskurven stiger mot høyre fordi flere kjøpere kommer til ved høy pris"],
       explanation: "Ved horisontal summering blir markedskurven mer prisfølsom i absolutte tall (slakere) enn hver enkelt kjøperkurve.",
     },
     {
       question: "Hva menes med 'marginal' i marginal betalingsvillighet?",
-      options: ["Knyttet til den siste (neste) enheten", "Gjennomsnittet over alle enheter", "Den totale verdien", "Den laveste prisen i markedet"],
+      options: ["Knyttet til den siste (neste) enheten", "Gjennomsnittet over alle enheter", "Den laveste prisen som finnes i markedet ved denne mengden", "Den laveste prisen i markedet"],
       explanation: "Marginal betyr alltid 'ved siste enhet'. Marginaltenkning går igjen: marginalkostnad, marginalinntekt osv.",
     },
     {
@@ -151,19 +151,19 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er et homogent gode?",
-      options: ["Et gode der alle enhetene oppfattes som like uansett selger", "Et gode ingen vil ha", "Et gode med mange substitutter", "Et gode staten produserer"],
+      options: ["Et gode der alle enhetene oppfattes som like uansett selger", "Et gode med mange substitutter", "Et gode som ingen kjøpere vil ha selv om prisen settes svært lavt", "Et gode som har uvanlig mange nære substitutter i det samme markedet"],
       explanation: "Når enhetene er like, bryr kjøperne seg bare om prisen. Dette er en forutsetning for det senere FK-markedet.",
     },
   ],
   'econ1210-1-2': [
     {
       question: "Hvordan fremkommer markedets tilbudskurve i anleggsmodellen?",
-      options: ["Ved å rangere anleggene etter enhetskostnad, billigst først", "Ved å summere gjennomsnittskostnadene", "Ved å ta gjennomsnittsproduktiviteten", "Ved å multiplisere pris og mengde"],
+      options: ["Ved å rangere anleggene etter enhetskostnad, billigst først", "Ved å summere gjennomsnittskostnadene", "Ved å summere anleggenes gjennomsnittskostnader ved hver mengde", "Ved å ta gjennomsnittsproduktiviteten på tvers av alle anleggene"],
       explanation: "T-kurven bygges ved å stille anleggene i kø etter enhetskostnad. Høyere pris gjør flere (dyrere) anlegg lønnsomme, så kurven stiger.",
     },
     {
       question: "Hva viser høyden på T-kurven ved en gitt mengde?",
-      options: ["Marginalkostnaden – enhetskostnaden i det dyreste anlegget i drift", "Den marginale betalingsvilligheten", "Gjennomsnittskostnaden i markedet", "Statens skatteinntekt"],
+      options: ["Marginalkostnaden – enhetskostnaden i det dyreste anlegget i drift", "Den marginale betalingsvilligheten hos kjøperen av siste enhet", "Gjennomsnittskostnaden regnet over alle anlegg som er i drift", "Statens skatteinntekt fra det dyreste anlegget som er i drift"],
       explanation: "Høyden er enhetskostnaden i det dyreste anlegget som er i drift, altså marginalkostnaden for siste enhet. En fast pluss-markør.",
     },
     {
@@ -173,12 +173,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Sabotasje setter flere lønnsomme anlegg ut av spill. Hva skjer med T-kurven og hva er mekanismen?",
-      options: ["Skift innover; mekanismen er redusert antall anlegg", "Skift utover; mekanismen er lavere enhetskostnader", "Bevegelse langs kurven", "Ingenting endres"],
+      options: ["Skift innover; mekanismen er redusert antall anlegg", "Skift utover; mekanismen er lavere enhetskostnader", "Ingenting endres, fordi de tapte anleggene erstattes av tilsvarende nye", "Bevegelse langs kurven; anleggene endrer bare tilpasningen til dagens pris"],
       explanation: "Færre anlegg gir mindre kapasitet ved enhver pris → T-kurven skifter inn. Mekanismen er endret (redusert) antall anlegg, ikke endrede enhetskostnader.",
     },
     {
       question: "Strømmen blir dyrere for alle produsenter. Hvordan skifter T-kurven?",
-      options: ["Parallelt opp/inn – endrede enhetskostnader", "Utover – flere anlegg", "Innover – færre anlegg", "Den beveger seg langs kurven"],
+      options: ["Parallelt opp/inn – endrede enhetskostnader", "Den beveger seg langs kurven", "Utover mot høyre – flere anlegg blir nå lønnsomme å drive", "Innover mot venstre – færre anlegg er igjen i drift i markedet"],
       explanation: "Dyrere innsatsfaktor hever enhetskostnaden i alle anlegg → parallellskift opp. Mekanismen er endrede enhetskostnader.",
     },
     {
@@ -188,22 +188,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken forutsetning må være oppfylt for at markedets tilbudskurve skal finnes?",
-      options: ["Selgerne er pristakere (mange små tilbydere) og godet er homogent", "Det finnes bare én selger", "Prisen settes av staten", "Alle anlegg har samme enhetskostnad"],
+      options: ["Selgerne er pristakere (mange små tilbydere) og godet er homogent", "Det finnes bare én selger som setter prisen for hele markedet", "Prisen fastsettes av staten og ligger fast uansett tilbud og mengde", "Alle anlegg har nøyaktig samme enhetskostnad, ellers finnes ingen kurve"],
       explanation: "Med mange små tilbydere og et homogent gode tar hvert anlegg prisen for gitt. Én dominerende aktør gir monopol, ikke en vanlig tilbudskurve.",
     },
     {
       question: "Hva er den vanligste modell-feilen når man forklarer tilbudet etter H2024?",
-      options: ["Å utlede T-kurven fra U-formede gjennomsnittskostnader", "Å rangere anlegg etter enhetskostnad", "Å tegne p loddrett og x vannrett", "Å nevne pristaker-forutsetningen"],
+      options: ["Å utlede T-kurven fra U-formede gjennomsnittskostnader", "Å rangere anlegg etter enhetskostnad", "Å rangere anleggene etter enhetskostnad med det billigste først", "Å tegne prisen loddrett og mengden vannrett i tilbudsdiagrammet"],
       explanation: "Fasitene bruker nå anleggsmodellen. Å bruke gammel produsentteori med gjennomsnittskostnader er å bruke feil pensummodell.",
     },
     {
       question: "I x = cp − d, hva er c?",
-      options: ["Tilbudets prisfølsomhet: økning i x per krone prisøkning", "Antall anlegg", "Enhetskostnaden", "Prisen der tilbudet starter"],
+      options: ["Tilbudets prisfølsomhet: økning i x per krone prisøkning", "Prisen der tilbudet starter", "Antall anlegg som er i drift ved den gjeldende markedsprisen", "Enhetskostnaden i det dyreste anlegget som er lønnsomt å drive"],
       explanation: "c måler hvor mange enheter tilbudt mengde stiger for hver krone prisen øker. Stor c gir slak T-kurve, liten c gir bratt.",
     },
     {
       question: "Enhetskostnaden i et anlegg er konstant. Hva er da forholdet til marginalkostnaden?",
-      options: ["Enhetskostnaden er lik marginalkostnaden", "Enhetskostnaden er dobbelt så stor", "Marginalkostnaden er null", "De har ingen sammenheng"],
+      options: ["Enhetskostnaden er lik marginalkostnaden", "Enhetskostnaden er dobbelt så stor", "De har ingen fast sammenheng når enhetskostnaden holdes konstant", "Marginalkostnaden er null"],
       explanation: "Fordi kostnaden per enhet ikke endrer seg med mengden, koster den siste enheten det samme som alle andre — enhetskostnad = marginalkostnad.",
     },
     {
@@ -213,12 +213,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Prisen på selve godet stiger. Hva skjer med tilbudet?",
-      options: ["Bevegelse langs T-kurven – flere eksisterende anlegg kommer i drift", "T-kurven skifter utover", "T-kurven skifter innover", "T-kurven blir loddrett"],
+      options: ["Bevegelse langs T-kurven – flere eksisterende anlegg kommer i drift", "T-kurven skifter innover", "T-kurven blir loddrett fordi tilbudt mengde nå er fastlåst uansett prisen på godet", "Hele T-kurven skifter utover fordi produsentene ønsker å selge mer til den nye prisen"],
       explanation: "Godets egen pris gir bevegelse langs kurven, ikke skift. Flere av de eksisterende anleggene blir lønnsomme (feilkatalog #1).",
     },
     {
       question: "Hvorfor stiger tilbudskurven?",
-      options: ["Fordi høyere pris gjør stadig dyrere anlegg lønnsomme", "Fordi etterspørselen faller", "Fordi enhetskostnadene alltid synker", "Fordi staten subsidierer"],
+      options: ["Fordi høyere pris gjør stadig dyrere anlegg lønnsomme", "Fordi enhetskostnadene alltid synker", "Fordi enhetskostnadene synker med hvert nye anlegg som settes i drift i markedet", "Fordi etterspørselen faller"],
       explanation: "Anleggene er rangert etter enhetskostnad. Jo høyere pris, jo flere (dyrere) anlegg blir lønnsomme og kommer i drift.",
     },
     {
@@ -228,7 +228,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at et anlegg produserer 'for full kapasitet eller null'?",
-      options: ["Det kjører maks hvis p ≥ enhetskostnaden, ellers står det stille", "Det produserer alltid halv kapasitet", "Det tilpasser mengden gradvis til prisen", "Det produserer uansett pris"],
+      options: ["Det kjører maks hvis p ≥ enhetskostnaden, ellers står det stille", "Det tilpasser mengden gradvis til prisen", "Det tilpasser mengden gradvis oppover ettersom prisen stiger over enhetskostnaden", "Det kjører alltid på halv kapasitet for å holde igjen og presse markedsprisen oppover"],
       explanation: "Med konstant enhetskostnad finnes ikke noe optimalt mellomnivå – hver enhet gir samme overskudd/tap, så det er alt eller ingenting.",
     },
     {
@@ -238,7 +238,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er høyden på T-kurven et uttrykk for, sett fra samfunnets side?",
-      options: ["Alternativkostnaden ved å lage den siste enheten", "Kjøpernes betalingsvillighet", "Den totale profitten", "Statens inntekt"],
+      options: ["Alternativkostnaden ved å lage den siste enheten", "Kjøpernes betalingsvillighet", "Kjøpernes marginale betalingsvillighet for den siste enheten som omsettes", "Den totale profitten"],
       explanation: "Marginalkostnaden er også alternativkostnaden ved å bruke ressursene til nettopp denne enheten – viktig i velferdsanalysen senere.",
     },
     {
@@ -248,12 +248,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er den klassiske produsentteorien (gjennomsnittskostnader) bare sekundærstoff i boka?",
-      options: ["Fordi pensum og fasiter bruker anleggsmodellen fra H2024", "Fordi den er feil matematikk", "Fordi den aldri har vært pensum", "Fordi den er for enkel"],
+      options: ["Fordi pensum og fasiter bruker anleggsmodellen fra H2024", "Fordi den aldri har vært pensum", "Fordi gjennomsnittskostnadsmodellen aldri har vært en del av pensum i dette emnet", "Fordi selve matematikken i gjennomsnittskostnadene bygger på en logisk feilslutning"],
       explanation: "Fra H2024 er anleggsmodellen (CORE) pensumets tilbudsmodell. Den gamle teorien nevnes bare for å kjenne den igjen i eldre oppgaver.",
     },
     {
       question: "Hva kalles kurvene i denne boka, og hvorfor er det viktig?",
-      options: ["E-kurven (etterspørsel) og T-kurven (tilbud) – aldri D/S", "D-kurven og S-kurven", "Kostnadskurven og inntektskurven", "Det spiller ingen rolle"],
+      options: ["E-kurven (etterspørsel) og T-kurven (tilbud) – aldri D/S", "Kostnadskurven og inntektskurven", "D-kurven (demand) og S-kurven (supply), slik den engelske standarden bruker dem", "Kostnadskurven og inntektskurven, siden tilbud og etterspørsel er avledet av disse"],
       explanation: "Boka bruker konsekvent E (etterspørsel) og T (tilbud) i tråd med den norske notasjonsstandarden i emnet.",
     },
   ],
@@ -275,7 +275,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Prisen er under likevektsprisen. Hva oppstår?",
-      options: ["Etterspørselsoverskudd, og prisen presses opp", "Tilbudsoverskudd, og prisen presses ned", "Likevekt", "Kurvene skifter"],
+      options: ["Etterspørselsoverskudd, og prisen presses opp", "Tilbudsoverskudd, og prisen presses ned", "Tilbudsoverskudd, og prisen presses ned mot p* av selgerne som ikke får solgt", "Kurvene skifter"],
       explanation: "Under p* etterspørres mer enn det tilbys. Kjøperne byr opp om de knappe varene, så prisen stiger mot p*.",
     },
     {
@@ -290,22 +290,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilke to forutsetninger ligger bak fullkommen konkurranse?",
-      options: ["Mange små pristakere og et homogent gode", "Én stor selger og et unikt gode", "Statlig prissetting og monopol", "Fri etablering og reklame"],
+      options: ["Mange små pristakere og et homogent gode", "Én stor selger og et unikt gode", "Én stor selger som setter prisen, og et unikt gode uten nære substitutter", "Statlig prissetting og monopol"],
       explanation: "FK krever mange små aktører (pristakere) og et homogent gode, så ingen kan påvirke prisen og kjøperne bare bryr seg om prisen.",
     },
     {
       question: "Hvorfor bør man kontrollere likevektsmengden i begge funksjoner?",
-      options: ["For å avsløre eventuelle regnefeil", "For å finne elastisiteten", "For å bestemme skattesatsen", "Det er unødvendig"],
+      options: ["For å avsløre eventuelle regnefeil", "For å bestemme skattesatsen", "For å kunne lese av priselastisiteten direkte i selve likevektspunktet", "For å finne elastisiteten"],
       explanation: "Får du ulikt x* i de to funksjonene, er det en regnefeil et sted. Kontrollen er billig forsikring.",
     },
     {
       question: "Hva kreves for et fullt svar på 'forklar ved hjelp av en figur'?",
-      options: ["Både en fullt merket figur og mekanismen i ord", "Bare en pen figur", "Bare en verbal forklaring", "En tabell med tall"],
+      options: ["Både en fullt merket figur og mekanismen i ord", "Bare en verbal forklaring", "En pen og ryddig figur er nok, siden den taler for seg selv uten videre ord", "En tabell med tall"],
       explanation: "Sensor krever begge deler samtidig. Figur uten forklaring – eller forklaring uten figur – er halvt svar.",
     },
     {
       question: "Hva sier prismekanismen?",
-      options: ["Overskudd/underskudd av tilbud driver prisen mot p*", "Prisen settes alltid av staten", "Prisen er konstant", "Prisen følger bare etterspørselen"],
+      options: ["Overskudd/underskudd av tilbud driver prisen mot p*", "Prisen følger bare etterspørselen", "Prisen settes alltid av staten for å hindre at markedet klarerer på egen hånd", "Prisen settes alltid av staten"],
       explanation: "Tilbudsoverskudd presser prisen ned, etterspørselsoverskudd presser den opp, helt til markedet klarerer i p*.",
     },
     {
@@ -315,22 +315,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr det at markedet 'klarerer'?",
-      options: ["Alt som tilbys blir kjøpt, og alle som vil kjøpe får", "Staten griper inn", "Prisen faller til null", "Alle selgere går konkurs"],
+      options: ["Alt som tilbys blir kjøpt, og alle som vil kjøpe får", "Alle selgere går konkurs", "Staten griper inn og fordeler varene når tilbud og etterspørsel ikke stemmer", "Prisen faller helt til null slik at alle kjøperne får varen de ønsker seg gratis"],
       explanation: "Klarering skjer i likevekt: ingen varer blir stående usolgt, og ingen kjøper står uten – ved p*.",
     },
     {
       question: "I p* = (a+d)/(b+c), hva er b + c?",
-      options: ["Summen av etterspørselens og tilbudets prisfølsomhet", "Metningsmengden", "Likevektsmengden", "Skattesatsen"],
+      options: ["Summen av etterspørselens og tilbudets prisfølsomhet", "Likevektsmengden", "Metningsmengden, altså mengden som etterspørres når prisen er lik null", "Skattesatsen som legges på godet, uttrykt som summen av de to helningene b og c"],
       explanation: "b er etterspørselens prisfølsomhet, c er tilbudets. Summen b+c er markedets samlede prisfølsomhet og går igjen i delingsformelen senere.",
     },
     {
       question: "Hva viser høyden på E-kurven og T-kurven i likevektspunktet?",
-      options: ["De er like: marginal betalingsvillighet = marginalkostnad", "E er dobbelt så høy som T", "T er alltid høyest", "Begge er null"],
+      options: ["De er like: marginal betalingsvillighet = marginalkostnad", "E er dobbelt så høy som T", "T-kurven ligger alltid høyest fordi kostnadene overstiger betalingsvilligheten", "E-kurven ligger dobbelt så høyt som T-kurven fordi kjøperne verdsetter godet mest"],
       explanation: "I likevekt er betalingsvilligheten for siste enhet lik kostnaden ved den – kurvene møtes i samme høyde p*.",
     },
     {
       question: "Første punkt i figurmalen er:",
-      options: ["Merk aksene (p loddrett, x vannrett)", "Skriv konklusjonen", "Regn ut elastisiteten", "Fargelegg arealene"],
+      options: ["Merk aksene (p loddrett, x vannrett)", "Regn ut elastisiteten", "Skriv konklusjonen øverst så leseren vet hva figuren skal ende opp med å vise", "Skriv konklusjonen"],
       explanation: "Figurmalen starter alltid med merkede akser. Deretter navngis kurvene, likevekten markeres, osv.",
     },
     {
@@ -340,42 +340,42 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved en pris under p* ligger hvilken kurve lengst til høyre?",
-      options: ["E-kurven (etterspørsel)", "T-kurven (tilbud)", "Begge like langt", "Ingen av dem"],
+      options: ["E-kurven (etterspørsel)", "T-kurven (tilbud)", "T-kurven (tilbud), fordi lav pris trekker frem flere anlegg i drift", "Begge like langt"],
       explanation: "Under p* etterspørres mer enn det tilbys, så E-kurven ligger til høyre for T-kurven – etterspørselsoverskudd.",
     },
     {
       question: "Hva er den vanligste figurfeilen sensor trekker for (feilkatalog #12)?",
-      options: ["Umerket figur uten navngitte akser, kurver eller likevekt", "For mange stiplede linjer", "Å bruke E og T", "Å skrive mekanismen i ord"],
+      options: ["Umerket figur uten navngitte akser, kurver eller likevekt", "For mange stiplede linjer", "Å bruke E og T i stedet for de internasjonale symbolene D og S på kurvene", "For mange stiplede hjelpelinjer som gjør figuren rotete og vanskelig å tyde"],
       explanation: "En figur uten merkede akser, navngitte kurver (E, T) og markert likevekt regnes som umerket og gir halv uttelling.",
     },
     {
       question: "Tilbud x = 5p − 140 og etterspørsel x = 700 − 2p. Hvilken side er mest prisfølsom?",
-      options: ["Tilbudet, fordi c = 5 > b = 2", "Etterspørselen, fordi b = 2", "De er like følsomme", "Umulig å avgjøre"],
+      options: ["Tilbudet, fordi c = 5 > b = 2", "Etterspørselen, fordi b = 2", "Etterspørselen, fordi tallet b = 2 gir den brattere og dermed mer følsom kurve", "De er like følsomme"],
       explanation: "Prisfølsomheten leses av tallet foran p: c = 5 for tilbudet mot b = 2 for etterspørselen, så tilbudet reagerer sterkere (slakere kurve).",
     },
     {
       question: "Hva er likevektsbetingelsen?",
-      options: ["a − bp = cp − d (etterspurt = tilbudt)", "a + bp = cp + d", "p = a − bx", "x = 0"],
+      options: ["a − bp = cp − d (etterspurt = tilbudt)", "a + bp = cp + d", "a + bp = cp + d, der begge sider stiger med prisen i takt med hverandre", "p = a − bx"],
       explanation: "Likevekt betyr at etterspurt mengde er lik tilbudt mengde: a − bp = cp − d. Å løse den gir p*.",
     },
     {
       question: "Hva er en pristaker?",
-      options: ["En aktør som tar markedsprisen for gitt", "En aktør som setter prisen selv", "Staten", "En som aldri kjøper"],
+      options: ["En aktør som tar markedsprisen for gitt", "En aktør som setter prisen selv", "En aktør som er stor nok til å sette markedsprisen selv etter eget ønske", "En som aldri kjøper"],
       explanation: "I FK er alle pristakere – for små til å påvirke prisen. Derfor er det prismekanismen, ikke enkeltaktører, som fører markedet til likevekt.",
     },
     {
       question: "Ved p = 250 med x = 600 − 2p og x = 3p − 400: hva slags situasjon er det?",
-      options: ["Tilbudsoverskudd (tilbudt 350 > etterspurt 100)", "Etterspørselsoverskudd", "Likevekt", "Tomt marked"],
+      options: ["Tilbudsoverskudd (tilbudt 350 > etterspurt 100)", "Etterspørselsoverskudd", "Etterspørselsoverskudd, fordi etterspurt mengde overstiger den tilbudte", "Likevekt, siden prisen 250 tilfeldigvis treffer punktet der kurvene krysser"],
       explanation: "Etterspurt = 600 − 500 = 100, tilbudt = 750 − 400 = 350. Tilbudt > etterspurt, altså tilbudsoverskudd; prisen presses ned mot p* = 200.",
     },
     {
       question: "Hvorfor må man nevne mekanismen i ord når man forklarer likevekten?",
-      options: ["Fordi å bare definere 'der kurvene krysser' ikke forklarer HVORDAN den oppstår", "Fordi tall ikke teller", "Fordi figuren er forbudt", "Man trenger ikke mekanismen"],
+      options: ["Fordi å bare definere 'der kurvene krysser' ikke forklarer HVORDAN den oppstår", "Fordi tallverdiene i regnestykket ikke teller når sensor vurderer besvarelsen", "Man trenger egentlig ikke mekanismen; det holder å peke på hvor de to kurvene krysser", "Fordi en figur er strengt forbudt i dette svaret og bare ord kan brukes til forklaring"],
       explanation: "Spørres det om hvordan likevekten oppstår, må prismekanismen (over/under p*) med – ren definisjon er ikke nok.",
     },
     {
       question: "Hva forbereder nevneren b + c senere i boka?",
-      options: ["Delingsformelen c/(b+c) for skatt og subsidie", "Elastisitetsformelen alene", "Monopolprisen", "Nåverdiformelen"],
+      options: ["Delingsformelen c/(b+c) for skatt og subsidie", "Elastisitetsformelen alene", "Priselastisitetsformelen alene, som bare bruker helningen b i etterspørselen", "Nåverdiformelen"],
       explanation: "Den samme summen b+c er nevneren i delingsformelen som avgjør hvem som bærer en skatt eller subsidie.",
     },
     {
@@ -387,7 +387,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-1-4': [
     {
       question: "Hva maaler priselastisiteten i etterspoerselen?",
-      options: ["Prosentvis endring i etterspurt mengde per prosents endring i pris", "Kroneendringen i mengde per krone prisendring", "Den totale omsetningen i markedet", "Hvor bratt tilbudskurven er"],
+      options: ["Prosentvis endring i etterspurt mengde per prosents endring i pris", "Kroneendringen i mengde per krone prisendring", "Kroneendringen i etterspurt mengde per krone prisen endrer seg med", "Den totale omsetningen i markedet, altså pris ganget med solgt mengde i kroner"],
       explanation: "Elastisitet = $\\frac{\\Delta x}{\\Delta p}\\cdot\\frac{p}{x}$ — et forhold mellom prosentvise endringer, ikke absolutte kroner.",
     },
     {
@@ -397,17 +397,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et elastisitetstall paa $-2$ betyr at etterspoerselen er:",
-      options: ["Elastisk — en prisoekning paa 1 % gir om lag 2 % fall i mengde", "Uelastisk — mengden reagerer svakt", "Enhetselastisk", "Uavhengig av prisen"],
+      options: ["Elastisk — en prisoekning paa 1 % gir om lag 2 % fall i mengde", "Uelastisk — mengden reagerer svakt", "Uelastisk — mengden reagerer bare svakt på en endring i prisen på godet", "Enhetselastisk — mengden endres akkurat like mye i prosent som prisen gjør"],
       explanation: "$|\\varepsilon| = 2 > 1$ er elastisk; mengden endres mer enn prisen i prosent.",
     },
     {
       question: "Hvorfor er elastisitet og stigningstall (helning) ikke det samme?",
-      options: ["Elastisiteten inneholder ogsaa forholdet $\\frac{p}{x}$, som varierer langs kurven", "De er alltid like", "Helning maales i prosent, elastisitet i kroner", "Elastisiteten er konstant, helningen varierer"],
+      options: ["Elastisiteten inneholder ogsaa forholdet $\\frac{p}{x}$, som varierer langs kurven", "Elastisiteten er konstant langs kurven, mens det er helningen $-b$ som varierer", "Helningen måles i prosent, mens elastisiteten måles i kroner per solgte enhet", "De er alltid like, siden begge måler hvor mye mengden endrer seg med prisen"],
       explanation: "$\\varepsilon = -b\\cdot\\frac{p}{x}$: $-b$ er konstant, men $\\frac{p}{x}$ endres langs en rett linje, saa elastisiteten varierer.",
     },
     {
       question: "Hvor paa en rett, fallende E-kurve er etterspoerselen mest elastisk?",
-      options: ["Hoeyt oppe (hoey pris, liten mengde)", "Langt nede (lav pris, stor mengde)", "I midtpunktet", "Elastisiteten er lik overalt"],
+      options: ["Hoeyt oppe (hoey pris, liten mengde)", "Langt nede (lav pris, stor mengde)", "I midtpunktet paa kurven, der elastisiteten alltid er noeyaktig lik $-1$", "Elastisiteten er lik overalt"],
       explanation: "Hoeyt oppe er $\\frac{p}{x}$ stor, saa $|\\varepsilon|$ er stor (elastisk). Nederst er den liten (uelastisk).",
     },
     {
@@ -422,7 +422,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er elastisiteten et rent tall uten benevning?",
-      options: ["Fordi baade teller og nevner er prosentvise endringer", "Fordi den maales i kroner", "Fordi mengden alltid er i kilo", "Fordi prisen er konstant"],
+      options: ["Fordi baade teller og nevner er prosentvise endringer", "Fordi mengden alltid er i kilo", "Fordi den maales i kroner per solgte enhet og deler seg bort mot mengden", "Fordi mengden alltid oppgis i kilo, saa maaleenheten faller bort av seg selv"],
       explanation: "Prosent delt paa prosent gir et rent tall — derfor kan elastisiteten sammenligne markeder maalt i ulike enheter.",
     },
     {
@@ -432,7 +432,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er etterspoerselen mer elastisk paa lang sikt enn paa kort sikt?",
-      options: ["Kjoeperne rekker aa finne substitutter og endre vaner", "Prisene stiger over tid", "Tilbudet forsvinner", "Elastisiteten er alltid lik"],
+      options: ["Kjoeperne rekker aa finne substitutter og endre vaner", "Elastisiteten er alltid lik", "Tilbudet forsvinner paa lang sikt, saa kjoeperne tvinges til aa reagere sterkere", "Prisene stiger jevnt over tid, og hoeyere pris gir automatisk stoerre elastisitet"],
       explanation: "Med tid kan kjoeperne bytte energikilde, isolere, endre utstyr — flere substitutter gir stoerre $|\\varepsilon|$.",
     },
     {
@@ -442,22 +442,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr et elastisitetstall paa $-0{,}3$?",
-      options: ["Uelastisk: 1 % hoeyere pris gir bare om lag 0,3 % lavere mengde", "Elastisk: mengden faller kraftig", "Mengden oeker med prisen", "Tilbudet er uelastisk"],
+      options: ["Uelastisk: 1 % hoeyere pris gir bare om lag 0,3 % lavere mengde", "Elastisk: mengden faller kraftig", "Elastisk: 1 % hoeyere pris gir hele 3 % lavere mengde etterspurt", "Mengden oeker naar prisen oeker, siden fortegnet foran tallet er negativt"],
       explanation: "$|\\varepsilon| = 0{,}3 < 1$ er uelastisk — kjoeperne er lite prisfoelsomme.",
     },
     {
       question: "I hvilket punkt regnes elastisiteten normalt?",
-      options: ["I likevektspunktet ($p^*, x^*$)", "Der prisen er null", "Der mengden er null", "I et vilkaarlig valgt punkt"],
+      options: ["I likevektspunktet ($p^*, x^*$)", "I et vilkaarlig valgt punkt", "I punktet der prisen er null ($p = 0$)", "I punktet der mengden er null ($x = 0$)"],
       explanation: "Standard er likevektspunktet, med mindre oppgaven ber om et annet punkt.",
     },
     {
       question: "Bensin har lav priselastisitet fordi:",
-      options: ["Det finnes faa naere substitutter paa kort sikt", "Prisen alltid stiger", "Bensin er gratis", "Alle slutter aa kjoere"],
+      options: ["Det finnes faa naere substitutter paa kort sikt", "Alle slutter aa kjoere", "Prisen paa bensin stiger nesten alltid over tid", "Bensin er tilnaermet gratis, saa prisen betyr lite"],
       explanation: "Faa substitutter → uelastisk etterspoersel. Kjoeperne maa pendle uansett, saa mengden endres lite ved prisendring.",
     },
     {
       question: "Hva er enhetselastisitet?",
-      options: ["$|\\varepsilon| = 1$: like stor prosentvis endring i mengde som i pris", "$|\\varepsilon| = 0$", "$|\\varepsilon| > 1$", "Elastisiteten til tilbudet"],
+      options: ["$|\\varepsilon| = 1$: like stor prosentvis endring i mengde som i pris", "Elastisiteten til tilbudet", "Elastisiteten til tilbudet naar tilbudskurven er en rett linje gjennom origo", "$|\\varepsilon| = 0$: mengden endrer seg ikke i det hele tatt naar prisen endres"],
       explanation: "Ved $|\\varepsilon| = 1$ gir 1 % prisendring noeyaktig 1 % mengdeendring — skillet mellom elastisk og uelastisk.",
     },
     {
@@ -467,54 +467,54 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan kobler elastisitet til delingsformelen i skattekapitlet?",
-      options: ["Den minst prisfoelsomme siden baerer mest av en avgift", "Den mest prisfoelsomme siden baerer mest", "Elastisitet har ingenting med skatt aa gjoere", "Staten baerer alltid mest"],
+      options: ["Den minst prisfoelsomme siden baerer mest av en avgift", "Elastisitet har ingenting med skatt aa gjoere", "Den mest prisfoelsomme siden baerer mest av avgiften, fordi den lettere flykter", "Den mest prisfoelsomme siden baerer mest"],
       explanation: "«Den som ikke kan flykte, betaler»: er etterspoerselen uelastisk, velter avgiften over paa kjoeperne.",
     },
     {
       question: "Hva skjer med $|\\varepsilon|$ naar du beveger deg nedover en rett E-kurve?",
-      options: ["Den synker (kurven blir mindre elastisk der)", "Den stiger", "Den er konstant", "Den blir positiv"],
+      options: ["Den synker (kurven blir mindre elastisk der)", "Den blir positiv", "Den stiger (kurven blir mer elastisk nedover mot stoerre mengder)", "Den er konstant langs hele den rette kurven, uansett punkt du velger"],
       explanation: "Lavere pris og stoerre mengde gir mindre $\\frac{p}{x}$, saa $|\\varepsilon|$ synker — derfor maa punktet oppgis.",
     },
     {
       question: "Tilbudselastisiteten i anleggsmodellen forteller:",
-      options: ["Hvor mange flere anlegg som blir loennsomme naar prisen kryper opp", "Gjennomsnittsprisen i markedet", "Hvor mye kjoeperne er villige til aa betale", "Hvor stor faste kostnaden er"],
+      options: ["Hvor mange flere anlegg som blir loennsomme naar prisen kryper opp", "Hvor mye kjoeperne er villige til aa betale", "Gjennomsnittsprisen i markedet naar alle anlegg er i drift samtidig", "Hvor mye hver enkelt kjoeper maksimalt er villig til aa betale for varen"],
       explanation: "Hoey tilbudselastisitet = mange anlegg med naerliggende enhetskostnad, saa smaa prisendringer trekker mange inn.",
     },
     {
       question: "Hvorfor gir et elastisitetstall uten tolkning ikke full uttelling?",
-      options: ["Sensor krever alltid setningen om hva tallet betyr for pris og mengde", "Tallet er alltid feil", "Elastisitet teller ikke paa eksamen", "Fordi fortegnet mangler"],
+      options: ["Sensor krever alltid setningen om hva tallet betyr for pris og mengde", "Elastisitet teller ikke paa eksamen", "Et elastisitetstall er alltid feil med mindre punktet det maales i oppgis", "Elastisitet teller ikke paa eksamen, saa poenget er selve utregningen av tallet"],
       explanation: "Feil #6: den verbale tolkningen er selve poenget sensor ser etter, ikke tallet i seg selv.",
     },
   ],
   'econ1210-1-5': [
     {
       question: "Hva skiller et skift i etterspoerselskurven fra en bevegelse langs den?",
-      options: ["Bare en prisendring gir bevegelse langs kurven; alt annet skifter hele kurven", "Skift og bevegelse er det samme", "En bevegelse skjer bare ved skatt", "Et skift skjer bare naar prisen endres"],
+      options: ["Bare en prisendring gir bevegelse langs kurven; alt annet skifter hele kurven", "Skift og bevegelse langs kurven er egentlig to navn paa det samme fenomenet", "En bevegelse langs kurven skjer bare naar staten legger en avgift eller skatt paa varen", "Et skift av hele kurven skjer bare naar prisen paa selve varen endrer seg opp eller ned"],
       explanation: "Feil #1: prisendring = bevegelse langs; inntekt/preferanser/kostnader = skift av hele kurven.",
     },
     {
       question: "Ved et rent etterspoerselsskift (E ut) beveger pris og mengde seg:",
-      options: ["Samme vei (begge opp)", "Motsatt vei", "Bare prisen endres", "Bare mengden endres"],
+      options: ["Samme vei (begge opp)", "Bare mengden endres", "Motsatt vei (pris opp, mengde ned)", "Bare prisen endres"],
       explanation: "E ut → hoeyere pris OG stoerre mengde. E-skift flytter $p$ og $x$ samme vei.",
     },
     {
       question: "Ved et rent tilbudsskift (T inn) beveger pris og mengde seg:",
-      options: ["Motsatt vei (pris opp, mengde ned)", "Samme vei (begge opp)", "Begge ned", "Bare prisen endres"],
+      options: ["Motsatt vei (pris opp, mengde ned)", "Samme vei, men begge faller (ned)", "Samme vei (begge opp mot ny likevekt)", "Bare prisen endres, mengden staar stille"],
       explanation: "T inn → hoeyere pris, mindre mengde. T-skift flytter $p$ og $x$ motsatt vei.",
     },
     {
       question: "En loennsoekning i produksjonen gjoer at:",
-      options: ["T-kurven skifter innover (hoeyere enhetskostnad)", "E-kurven skifter innover", "T-kurven skifter utover", "E-kurven skifter utover"],
+      options: ["T-kurven skifter innover (hoeyere enhetskostnad)", "E-kurven skifter innover", "E-kurven skifter innover (kjoeperne vil ha mindre)", "E-kurven skifter utover (hoeyere etterspoersel i markedet)"],
       explanation: "Hoeyere enhetskostnad i alle anlegg loefter T-kurven opp/inn — faerre anlegg loennsomme ved hver pris.",
     },
     {
       question: "Hva honorerer sensor mest i en skiftoppgave?",
-      options: ["Mekanismen bak skiftet (hvorfor kurven flytter seg)", "Bare den tegnede pilen", "At figuren er fargelagt", "Antall ord i svaret"],
+      options: ["Mekanismen bak skiftet (hvorfor kurven flytter seg)", "At figuren er fargelagt", "Bare den tegnede pilen som viser hvilken vei kurven flytter seg", "At figuren er ryddig fargelagt og aksene tydelig navngitt med $p$ og $x$"],
       explanation: "«Enhetskostnaden oeker i alle anlegg» / «faerre anlegg loennsomme» teller mer enn selve pilen.",
     },
     {
       question: "Naar anlegg faller bort, faller omsatt mengde:",
-      options: ["Mindre enn bortfallet, fordi prisoekningen gjoer flere anlegg loennsomme", "Like mye som bortfallet", "Mer enn bortfallet", "Ikke i det hele tatt"],
+      options: ["Mindre enn bortfallet, fordi prisoekningen gjoer flere anlegg loennsomme", "Like mye som bortfallet", "Like mye som bortfallet, siden hvert anlegg som forsvinner tar sin mengde med seg", "Mer enn bortfallet, fordi den hoeyere prisen ogsaa skremmer bort kjoepere i tillegg"],
       explanation: "Lekkasje-poenget (feil #8): den hoeyere prisen vekker tidligere uloennsomme anlegg til live.",
     },
     {
@@ -529,57 +529,57 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem tjener naar en gruppe selgere utestenges fra markedet?",
-      options: ["De gjenvaerende selgerne (hoeyere pris)", "Kjoeperne", "De utestengte selgerne", "Staten"],
+      options: ["De gjenvaerende selgerne (hoeyere pris)", "Kjoeperne, som naa faar lavere pris", "Staten, gjennom hoeyere avgiftsinntekter", "De utestengte selgerne beholder gevinsten"],
       explanation: "Tredjeparts-poenget (feil #11 aa glemme det): gjenvaerende selgere faar den hoeyere prisen.",
     },
     {
       question: "Ved nyetablering av nye tilbydere taper:",
-      options: ["De etablerte selgerne (lavere pris)", "Kjoeperne", "De nye tilbyderne", "Ingen"],
+      options: ["De etablerte selgerne (lavere pris)", "De nye tilbyderne", "Ingen taper; alle sider stiller likt", "De nye tilbyderne som nettopp kom inn"],
       explanation: "T ut → pris ned. De etablerte taper paa den lavere prisen — et tredjeparts-poeng.",
     },
     {
       question: "Naar E og T begge skifter innover samtidig, hva er bestemt?",
-      options: ["Mengden faller; prisretningen er ubestemt", "Prisen stiger; mengden er ubestemt", "Begge stiger", "Begge er ubestemte"],
+      options: ["Mengden faller; prisretningen er ubestemt", "Prisen stiger; mengden er ubestemt", "Prisen stiger sikkert; mengderetningen er ubestemt", "Begge er ubestemte, fordi skiftene drar hver sin vei"],
       explanation: "Begge innskift krymper markedet (mengde ned, bestemt), men de drar prisen hver sin vei (ubestemt).",
     },
     {
       question: "Hvorfor gir et brattere (uelastisk) E-kurve stoerre prisutslag ved et tilbudsskift?",
-      options: ["Kjoeperne henger med nesten uansett pris, saa prisen maa endres mye for aa klarere markedet", "Fordi tilbudet forsvinner", "Fordi mengden ikke kan endres", "Fordi prisen alltid stiger"],
+      options: ["Kjoeperne henger med nesten uansett pris, saa prisen maa endres mye for aa klarere markedet", "Fordi mengden ikke kan endres", "Fordi tilbudet forsvinner helt naar E-kurven er bratt, saa prisen skyter i vaeret av seg selv", "Fordi mengden ikke kan endres i det hele tatt langs en uelastisk kurve, uansett hvordan prisen setter seg"],
       explanation: "Bratt E = lav prisfoelsomhet → prisen tar stoetet, mengden endres lite.",
     },
     {
       question: "En billigere innsatsvare foerer til at:",
-      options: ["T-kurven skifter utover (lavere enhetskostnad)", "E-kurven skifter utover", "T-kurven skifter innover", "E-kurven skifter innover"],
+      options: ["T-kurven skifter utover (lavere enhetskostnad)", "T-kurven skifter innover", "E-kurven skifter utover (hoeyere etterspoersel)", "E-kurven skifter innover (lavere etterspoersel)"],
       explanation: "Lavere enhetskostnad gjoer flere anlegg loennsomme → T ut → pris ned, mengde opp.",
     },
     {
       question: "Hvilket skift gir en dyrere substituttvare i vaart marked?",
-      options: ["E-kurven skifter utover (folk bytter til vaar vare)", "E-kurven skifter innover", "T-kurven skifter utover", "T-kurven skifter innover"],
+      options: ["E-kurven skifter utover (folk bytter til vaar vare)", "E-kurven skifter innover", "T-kurven skifter utover (lavere enhetskostnad i anleggene)", "T-kurven skifter innover (hoeyere enhetskostnad i anleggene)"],
       explanation: "Dyrere substitutt → flere velger vaar vare → oekt etterspoersel → E ut.",
     },
     {
       question: "En parallell forskyvning av hele T-kurven skyldes:",
-      options: ["En endring i enhetskostnaden som er lik i alle anlegg", "At ett anlegg endrer pris", "En prisendring paa varen", "Et etterspoerselsskift"],
+      options: ["En endring i enhetskostnaden som er lik i alle anlegg", "At ett anlegg endrer pris", "En prisendring paa selve varen som omsettes i markedet", "At bare ett enkelt anlegg endrer sin egen enhetskostnad"],
       explanation: "Loenn, energi, avgift eller sikkerhetskrav som treffer alle anlegg likt gir parallellskift.",
     },
     {
       question: "Kryssjekken: analysen din viser at pris og mengde beveger seg samme vei. Da er det:",
-      options: ["Et etterspoerselsskift (E)", "Et tilbudsskift (T)", "Alltid feil", "En bevegelse langs kurven"],
+      options: ["Et etterspoerselsskift (E)", "En bevegelse langs kurven", "Alltid et regnefeil i analysen", "Et tilbudsskift (T)"],
       explanation: "E-skift → samme vei; T-skift → motsatt vei. Stemmer ikke det, har du valgt feil kurve (feil #2).",
     },
     {
       question: "Hva maaler anleggsbortfallet i en figur?",
-      options: ["Den horisontale avstanden mellom gammel og ny T-kurve ved gammel pris", "Det faktiske mengdefallet", "Prisendringen", "Arealet under E-kurven"],
+      options: ["Den horisontale avstanden mellom gammel og ny T-kurve ved gammel pris", "Arealet under E-kurven mellom gammel og ny omsatt mengde i markedet", "Prisendringen maalt vertikalt mellom gammel og ny likevektspris i figuren", "Det faktiske mengdefallet som leses av horisontalt mellom de to likevektene"],
       explanation: "Bortfallet leses ved gammel pris; det faktiske fallet er mindre pga. lekkasjen.",
     },
     {
       question: "En helsekampanje som demper etterspoerselen gir:",
-      options: ["E inn → lavere pris, mindre mengde", "E ut → hoeyere pris", "T inn → hoeyere pris", "T ut → lavere pris"],
+      options: ["E inn → lavere pris, mindre mengde", "T inn → hoeyere pris", "T ut → lavere pris, stoerre mengde", "E ut → hoeyere pris, stoerre mengde"],
       explanation: "Faerre vil ha varen ved enhver pris → E skifter innover → pris og mengde ned.",
     },
     {
       question: "Hvorfor er det feil aa paastaa bestemt prisretning ved samtidige motstridende skift?",
-      options: ["Nettoretningen avhenger av hvilket skift som er stoerst", "Prisen endres aldri", "Mengden er alltid ubestemt", "Fordi begge skift alltid er like store"],
+      options: ["Nettoretningen avhenger av hvilket skift som er stoerst", "Fordi begge skift alltid er like store", "Mengden er alltid ubestemt, mens prisretningen tvert imot er gitt", "Prisen endres aldri naar to skift virker samtidig i motsatt retning"],
       explanation: "Dekomponer i to enkeltskift; naar de drar prisen hver sin vei, er retningen ubestemt uten mer info.",
     },
     {
@@ -589,39 +589,39 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I firespoersmaals-malen for et skift, hva er det FOERSTE du avgjoer?",
-      options: ["Hvilken kurve som skifter, og hvorfor", "Hvor mye prisen stiger", "Hvem som taper", "Hvor stort dodvektstapet er"],
+      options: ["Hvilken kurve som skifter, og hvorfor", "Hvor stort dodvektstapet er", "Hvor mange prosent prisen stiger etterpaa", "Hvor stort dodvektstapet blir i ny likevekt"],
       explanation: "Malen: (1) kurve + hvorfor, (2) retning, (3) ny likevekt, (4) vinnere/tapere.",
     },
     {
       question: "Komparativ statikk betyr aa:",
-      options: ["Sammenligne to likevekter (foer og etter et skift)", "Modellere hele tilpasningsforloepet i tid", "Regne ut dodvektstapet", "Finne elastisiteten"],
+      options: ["Sammenligne to likevekter (foer og etter et skift)", "Modellere hele tilpasningsforloepet i tid", "Modellere hele tilpasningsforloepet skritt for skritt i tid", "Finne priselastisiteten i det opprinnelige likevektspunktet"],
       explanation: "Vi sammenligner likevekt $A$ og $B$ uten aa beskrive selve overgangen.",
     },
     {
       question: "Ved samtidige skift der E skifter ut og T skifter inn, hva er bestemt?",
-      options: ["Prisen stiger; mengderetningen er ubestemt", "Mengden stiger; prisen ubestemt", "Begge stiger", "Begge faller"],
+      options: ["Prisen stiger; mengderetningen er ubestemt", "Mengden stiger; prisretningen er ubestemt", "Både pris og mengde stiger helt entydig", "Både pris og mengde faller helt entydig"],
       explanation: "Begge skift loefter prisen (bestemt opp), men drar mengden hver sin vei (ubestemt).",
     },
     {
       question: "Hva er den raskeste kontrollen paa at du har analysert et skift riktig?",
-      options: ["Sjekk om pris/mengde-moensteret passer skift-typen (E samme vei, T motsatt)", "Tell antall kurver", "Regn dodvektstapet", "Se paa fortegnet til elastisiteten"],
+      options: ["Sjekk om pris/mengde-moensteret passer skift-typen (E samme vei, T motsatt)", "Regn ut dødvektstapet og se om det ble positivt etter selve skiftet", "Se på fortegnet til etterspørselselastisiteten i den nye likevekten som oppstår", "Tell antall kurver i figuren og sjekk at du har tegnet både E og T"],
       explanation: "E-skift → $p$ og $x$ samme vei; T-skift → motsatt. Avvik avsloerer feil kurve eller retning.",
     },
     {
       question: "Hvorfor faller omsetningen mindre enn produksjonsbortfallet ved anleggsbortfall?",
-      options: ["Prisoekningen gjoer tidligere uloennsomme anlegg loennsomme, som lekker tilbake produksjon", "Kjoeperne betaler mer", "Bortfallet ble feilmaalt", "Etterspoerselen oeker"],
+      options: ["Prisoekningen gjoer tidligere uloennsomme anlegg loennsomme, som lekker tilbake produksjon", "Etterspørselen øker samtidig, slik at den tapte mengden delvis erstattes av nye kjøpere", "Bortfallet ble feilmålt, og det faktiske produksjonstapet er langt mindre enn først antatt", "Kjøperne betaler mer per enhet, så den samlede omsetningen holdes kunstig oppe"],
       explanation: "Lekkasje-poenget (fast siden H2024): mengdefall = bortfall − lekkasje, og lekkasjen er alltid positiv.",
     },
   ],
   'econ1210-1-6': [
     {
       question: "Hva er FOERSTE steg i aapningen av den store markedsoppgaven?",
-      options: ["Angi forutsetningene (pristakere, homogent gode) hvis spurt", "Regne dodvektstapet", "Tegne monopolfiguren", "Finne elastisiteten"],
+      options: ["Angi forutsetningene (pristakere, homogent gode) hvis spurt", "Tegne monopolfiguren med marginalinntekt under prislinja", "Finne etterspørselselastisiteten i den opprinnelige likevekten", "Regne ut dødvektstapet og markere trekanten i figuren"],
       explanation: "Aapningskjeden starter med forutsetningene — «billige poeng som maa sitte».",
     },
     {
       question: "Etter aa ha funnet $p^*$, hva boer du alltid gjoere?",
-      options: ["Kontrollere ved aa sette $p^*$ inn i begge funksjoner", "Gaa videre uten kontroll", "Regne elastisiteten foerst", "Tegne dodvektstapet"],
+      options: ["Kontrollere ved aa sette $p^*$ inn i begge funksjoner", "Tegne dødvektstapet inn i figuren med en gang", "Regne etterspørselselastisiteten før du gjør noe annet", "Gå videre til neste deloppgave uten å kontrollere svaret"],
       explanation: "Kontroll i begge funksjoner viser at svaret ikke er gjettet og fanger regnefeil.",
     },
     {
@@ -636,42 +636,42 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva maa foelge et elastisitetstall i en A-besvarelse?",
-      options: ["En verbal tolkning av hva tallet betyr", "Bare fortegnet", "En figur", "Ingenting mer"],
+      options: ["En verbal tolkning av hva tallet betyr", "En figur som gjentar tallet grafisk", "Bare fortegnet på tallet, uten mer tekst", "Ingenting mer enn selve verdien"],
       explanation: "Feil #6: tall uten tolkning gir ikke full uttelling.",
     },
     {
       question: "Et anleggsbortfall paa 150 gir et faktisk mengdefall paa 90. Hvorfor?",
-      options: ["Prisoekningen gjoer 60 enheters anlegg loennsomme igjen (lekkasje)", "Bortfallet ble feilmaalt", "Etterspoerselen forsvant", "Kjoeperne betaler ikke"],
+      options: ["Prisoekningen gjoer 60 enheters anlegg loennsomme igjen (lekkasje)", "Kjøperne betaler ikke den høyere prisen, så salget faller mindre", "Bortfallet ble feilmålt; det reelle tapet var egentlig bare 90", "Etterspørselen forsvant delvis, så 60 enheter ble aldri kjøpt"],
       explanation: "Lekkasje = $150 - 90 = 60$: hoeyere pris vekker tidligere uloennsomme anlegg (feil #8 aa glemme).",
     },
     {
       question: "Etter en sabotasje som fjerner anlegg, hvem er tredjeparten som tjener?",
-      options: ["De gjenvaerende produsentene (hoeyere pris)", "Kjoeperne", "Staten", "De rammede anleggene"],
+      options: ["De gjenvaerende produsentene (hoeyere pris)", "Staten, gjennom økte avgiftsinntekter", "De rammede anleggene, via forsikringsutbetaling", "Kjøperne, som nå får varen billigere"],
       explanation: "Tredjeparts-poenget (feil #11): gjenvaerende selgere faar den hoeyere prisen.",
     },
     {
       question: "En reklamekampanje som gjoer varen populaer skifter:",
-      options: ["E-kurven utover (hoeyere pris, stoerre mengde)", "E-kurven innover", "T-kurven utover", "T-kurven innover"],
+      options: ["E-kurven utover (hoeyere pris, stoerre mengde)", "E-kurven innover (lavere pris, mindre mengde)", "T-kurven innover (høyere pris, mindre mengde)", "T-kurven utover (lavere pris, større mengde)"],
       explanation: "Endret preferanse → oekt etterspoersel → E ut → pris og mengde opp.",
     },
     {
       question: "Ved nyetablering av utenlandske tilbydere skjer:",
-      options: ["T ut → pris ned; de etablerte selgerne taper", "T inn → pris opp", "E ut → pris opp", "E inn → pris ned"],
+      options: ["T ut → pris ned; de etablerte selgerne taper", "E inn → pris ned; etterspørselen krymper", "T inn → pris opp; de etablerte selgerne tjener", "E ut → pris opp; kjøperne må betale mer"],
       explanation: "Flere anlegg → T ut → lavere pris. De etablerte taper paa den lavere prisen (tredjepart).",
     },
     {
       question: "Ved samme tilbudsbortfall, hvilket marked faar stoerst prisoekning?",
-      options: ["Det med brattest (mest uelastisk) etterspoersel", "Det med slakest etterspoersel", "De faar lik prisoekning", "Det med lavest pris"],
+      options: ["Det med brattest (mest uelastisk) etterspoersel", "Det med slakest (mest elastisk) etterspørsel", "Begge marked får nøyaktig lik prisøkning", "Det med lavest opprinnelig likevektspris"],
       explanation: "Bratt/uelastisk E → kjoeperne henger med → prisen maa stige mye → stor priseffekt.",
     },
     {
       question: "Hva er kjennetegnet paa et rent tilbudsskift i pris og mengde?",
-      options: ["Pris og mengde beveger seg motsatt vei", "Pris og mengde beveger seg samme vei", "Bare prisen endres", "Bare mengden endres"],
+      options: ["Pris og mengde beveger seg motsatt vei", "Pris og mengde beveger seg samme vei", "Bare prisen endres, mengden står stille", "Bare mengden endres, prisen står stille"],
       explanation: "T ut: pris ned, mengde opp. T inn: pris opp, mengde ned. Motsatt vei.",
     },
     {
       question: "Ved to samtidige innskift (E inn + T inn), hva er sikkert?",
-      options: ["Mengden faller; prisretningen er ubestemt", "Prisen stiger; mengden ubestemt", "Begge stiger", "Ingenting er bestemt"],
+      options: ["Mengden faller; prisretningen er ubestemt", "Både pris og mengde stiger entydig", "Prisen stiger; mengderetningen er ubestemt", "Ingenting er bestemt; alt avhenger av helning"],
       explanation: "Begge krymper markedet (mengde ned), men drar prisen hver sin vei (ubestemt).",
     },
     {
@@ -681,49 +681,49 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For $x = 800 - 2p$ i likevekt $(200, 400)$, hva er $\\varepsilon$?",
-      options: ["$-1$ (enhetselastisk)", "$-2$", "$-0{,}5$", "$+1$"],
+      options: ["$-1$ (enhetselastisk)", "$-0{,}5$ (uelastisk)", "$-2$ (svært elastisk)", "$+1$ (positiv helning)"],
       explanation: "$\\varepsilon = -2\\cdot\\frac{200}{400} = -1$ — enhetselastisk.",
     },
     {
       question: "Hva er en figur uten forklaring paa eksamen?",
-      options: ["Halvt svar — sensor krever figur OG mekanisme i ord", "Fullt svar", "Bedre enn forklaring alene", "Ikke tillatt"],
+      options: ["Halvt svar — sensor krever figur OG mekanisme i ord", "Fullt svar — en tydelig figur taler for seg selv", "Ikke tillatt på eksamen uten en kildehenvisning", "Bedre enn en forklaring gitt helt uten figur"],
       explanation: "Figur uten forklaring eller forklaring uten figur er halvt svar; de er én leveranse.",
     },
   ],
   'econ1210-2-1': [
     {
       question: "Hva er samfunnsøkonomisk overskudd (SO) for en gitt mengde?",
-      options: ["Samlet betalingsvillighet minus samlede kostnader — arealet mellom E- og T-kurven fram til mengden", "Selgernes samlede inntekt $p^*\\cdot x^*$", "Arealet under prislinja ned til mengdeaksen", "Det samme som konsumentoverskuddet"],
+      options: ["Samlet betalingsvillighet minus samlede kostnader — arealet mellom E- og T-kurven fram til mengden", "Arealet under prislinja ned til mengdeaksen — rektangelet som utgjør kjøpernes samlede betaling", "Selgernes samlede inntekt $p^*\\cdot x^*$, altså pris ganger omsatt mengde i likevekt", "Det samme som konsumentoverskuddet, altså hele feltet mellom E-kurven og prislinja"],
       explanation: "SO er verdien markedet skaper: for hver enhet betalingsvillighet (E) minus kostnad (T), summert. Inntekt inkluderer kostnadene og er derfor ikke SO.",
     },
     {
       question: "Hvorfor kan SO beregnes uten å kjenne prisen?",
-      options: ["Fordi definisjonen bare bruker betalingsvillighet (E-høyden) og kostnad (T-høyden)", "Fordi prisen alltid er null i disse markedene", "Fordi KO og PO alltid er like store", "Fordi SO bare gjelder i likevekt"],
+      options: ["Fordi definisjonen bare bruker betalingsvillighet (E-høyden) og kostnad (T-høyden)", "Fordi SO per definisjon bare er definert i selve likevektspunktet der E krysser T", "Fordi konsumentoverskuddet og produsentoverskuddet alltid er nøyaktig like store", "Fordi prisen alltid er lik null i frikonkurransemarkeder med fri etablering"],
       explanation: "SO er arealet mellom kurvene; prisen deler bare kaka mellom kjøper og selger, den skaper den ikke. Dette er sensors faste plusspoeng-markør.",
     },
     {
       question: "Hva er konsumentoverskudd (KO)?",
-      options: ["Samlet betalingsvillighet minus det kjøperne faktisk betaler — arealet mellom E-kurven og prislinja", "Arealet mellom prislinja og T-kurven", "Hele kjøpernes betaling $p^*\\cdot x^*$", "Alltid større enn produsentoverskuddet"],
+      options: ["Samlet betalingsvillighet minus det kjøperne faktisk betaler — arealet mellom E-kurven og prislinja", "Alltid større enn produsentoverskuddet, fordi kjøpersiden alltid dominerer under frikonkurranse", "Hele kjøpernes samlede betaling $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekten", "Arealet mellom prislinja og T-kurven, målt opp til den omsatte mengden i selve likevekten"],
       explanation: "KO er summen av differansene mellom hver kjøpers betalingsvillighet og prisen — feltet mellom E-kurven og prislinja.",
     },
     {
       question: "Hva er produsentoverskudd (PO)?",
-      options: ["Selgernes inntekt minus samlede alternativkostnader — arealet mellom prislinja og T-kurven", "Hele selgernes inntekt $p^*\\cdot x^*$", "Arealet under T-kurven ned til mengdeaksen", "Alltid lik konsumentoverskuddet"],
+      options: ["Selgernes inntekt minus samlede alternativkostnader — arealet mellom prislinja og T-kurven", "Arealet under T-kurven ned til mengdeaksen — altså de samlede produksjonskostnadene", "Hele selgernes samlede inntekt $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekt", "Alltid nøyaktig lik konsumentoverskuddet så lenge begge kurvene er lineære"],
       explanation: "PO måles mot T-kurvens høyde (alternativkostnaden), ikke mot null. Å regne hele inntekten som overskudd glemmer produksjonskostnadene.",
     },
     {
       question: "Produsentoverskuddet måles mot hvilken målestokk?",
-      options: ["T-kurvens høyde (alternativkostnaden av siste enhet)", "Mengdeaksen (null)", "E-kurvens høyde (betalingsvilligheten)", "Den høyeste betalingsvilligheten"],
+      options: ["T-kurvens høyde (alternativkostnaden av siste enhet)", "Mengdeaksen (null), slik at hele inntekten teller", "E-kurvens høyde (kjøpernes betalingsvillighet)", "Den høyeste betalingsvilligheten i markedet"],
       explanation: "PO er inntekt utover alternativkostnaden. Måler man ned til mengdeaksen, får man inntekten, ikke overskuddet.",
     },
     {
       question: "Hva forteller høyden på E-kurven ved en gitt mengde?",
-      options: ["Marginal betalingsvillighet — hva den siste kjøperen er villig til å betale", "Marginalkostnaden ved å produsere enheten", "Markedsprisen", "Produsentoverskuddet for enheten"],
+      options: ["Marginal betalingsvillighet — hva den siste kjøperen er villig til å betale", "Marginalkostnaden — hva det koster å produsere nettopp den siste enheten", "Produsentoverskuddet som selgeren oppnår på nettopp den siste enheten", "Markedsprisen, den samme prisen som gjelder for alle omsatte enheter"],
       explanation: "E-kurvens høyde er betalingsvillighet; T-kurvens høyde er kostnad. Å blande dem er en klassisk feil i velferdsgeometrien.",
     },
     {
       question: "Hva forteller høyden på T-kurven ved en gitt mengde?",
-      options: ["Marginalkostnaden — kostnaden ved å produsere den siste enheten", "Den siste kjøperens betalingsvillighet", "Konsumentoverskuddet", "Markedsprisen uansett mengde"],
+      options: ["Marginalkostnaden — kostnaden ved å produsere den siste enheten", "Den siste kjøperens marginale betalingsvillighet for enheten", "Konsumentoverskuddet knyttet til nettopp den siste enheten", "Markedsprisen, som er den samme uansett hvilken mengde"],
       explanation: "T-kurvens høyde er enhetskostnaden i det dyreste anlegget i drift = alternativkostnaden av siste enhet.",
     },
     {
@@ -733,12 +733,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er SO størst nettopp i likevekten (der E krysser T)?",
-      options: ["Fordi det verken er uutnyttet verdi (E over T) eller ødelagt verdi (T over E) igjen", "Fordi prisen da er lavest mulig", "Fordi KO og PO da alltid er like", "Fordi produsentene da tjener mest"],
+      options: ["Fordi det verken er uutnyttet verdi (E over T) eller ødelagt verdi (T over E) igjen", "Fordi konsumentoverskuddet og produsentoverskuddet da blir nøyaktig like store", "Fordi produsentene da samlet oppnår sin aller største mulige fortjeneste i markedet", "Fordi markedsprisen da presses helt ned til det lavest mulige nivået"],
       explanation: "Til venstre for krysset lønner en enhet til seg; til høyre ødelegger den verdi. Bare i krysset er SO-trekanten maksimal.",
     },
     {
       question: "Med lineær E-kurve regnes konsumentoverskuddet som:",
-      options: ["$\\tfrac{1}{2}\\cdot x^*\\cdot(p_{\\max}-p^*)$", "$\\tfrac{1}{2}\\cdot x^*\\cdot(p^*-p_{T0})$", "$p^*\\cdot x^*$", "$\\tfrac{1}{2}\\cdot p^*\\cdot x^*$ uansett"],
+      options: ["$\\tfrac{1}{2}\\cdot x^*\\cdot(p_{\\max}-p^*)$", "$\\tfrac{1}{2}\\cdot x^*\\cdot(p^*-p_{T0})$", "$\\tfrac{1}{2}\\cdot p^*\\cdot x^*$ uansett form", "$\\tfrac{1}{2}\\cdot p^*\\cdot x^*$ uansett"],
       explanation: "KO er trekanten mellom E-kurven og prislinja; grunnlinjen er avstanden fra høyeste betalingsvillighet ned til prisen.",
     },
     {
@@ -758,42 +758,42 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I markedet $x=400-p$, $x=p$ er KO og PO like store. Hvorfor?",
-      options: ["Fordi E- og T-kurven er like bratte, så prisen ligger midt mellom høyeste betalingsvillighet og laveste kostnad", "Fordi prisen alltid deler kaka likt", "Fordi SO da er null", "Fordi tilbudet er uendelig elastisk"],
+      options: ["Fordi E- og T-kurven er like bratte, så prisen ligger midt mellom høyeste betalingsvillighet og laveste kostnad", "Fordi markedsprisen per definisjon alltid deler kaka mellom kjøper og selger i to helt like deler", "Fordi tilbudskurven er uendelig elastisk, slik at hele produsentoverskuddet forsvinner helt i den flate helningen", "Fordi samfunnsøkonomisk overskudd i akkurat denne likevekten tilfeldigvis blir nøyaktig lik null"],
       explanation: "Like bratte kurver gir speilsymmetriske trekanter. Med ulik helning blir den bratteste sidens overskudd størst.",
     },
     {
       question: "En kommentator sier «produsentoverskuddet er hele selgernes inntekt». Hva er feil?",
-      options: ["PO er bare inntekt minus alternativkostnad — arealet over T-kurven, ikke helt ned til mengdeaksen", "Ingenting, PO er nettopp hele inntekten", "PO er alltid null i frikonkurranse", "PO måles mot E-kurven, ikke T-kurven"],
+      options: ["PO er bare inntekt minus alternativkostnad — arealet over T-kurven, ikke helt ned til mengdeaksen", "PO er alltid lik null i frikonkurranse fordi all profitt på sikt konkurreres bort", "PO måles mot E-kurvens høyde og ikke mot T-kurven, og det er nettopp det som er den egentlige feilen", "Ingenting er feil — PO er nettopp hele selgernes samlede inntekt $p^*\\cdot x^*$"],
       explanation: "Inntekten er $p^*x^*$; PO er bare delen over T-kurven. Resten er produksjonskostnadene.",
     },
     {
       question: "Hva er den viktigste plusspoeng-markøren sensor honorerer i velferdsdeloppgaven?",
-      options: ["At SO kan beregnes for enhver mengde uten å kjenne prisen", "At man tegner figuren med farger", "At man alltid regner KO før PO", "At man oppgir prisen med to desimaler"],
+      options: ["At SO kan beregnes for enhver mengde uten å kjenne prisen", "At man oppgir likevektsprisen presist med to desimaler", "At man alltid regner konsumentoverskudd før produsentoverskudd", "At man tegner figuren pent med farger og skravur"],
       explanation: "SO uten pris viser at man har forstått at overskuddet er verdiskaping (E minus T), ikke noe som avhenger av prisdannelsen.",
     },
     {
       question: "SO opp til en mengde som IKKE er likevekten regnes som:",
-      options: ["Et trapes mellom E- og T-kurven (fordi kurvene ikke møtes ved den mengden)", "En trekant med spiss i likevekten", "Et rektangel $p^*\\cdot x$", "Halve inntekten"],
+      options: ["Et trapes mellom E- og T-kurven (fordi kurvene ikke møtes ved den mengden)", "Et rektangel $p^*\\cdot x$ mellom prislinja og mengdeaksen ved endepunktet", "En trekant med spissen liggende nøyaktig i selve likevektspunktet", "Halvparten av selgernes samlede inntekt ved den valgte mengden"],
       explanation: "Når arealet stopper før krysset, er begge kurvehøyder positive ved endepunktet, så figuren er et trapes, ikke en trekant.",
     },
     {
       question: "I anleggsmodellen er produsentoverskuddet:",
-      options: ["Summen over alle anlegg i drift av (markedspris − anleggets enhetskostnad)", "Summen av alle anleggenes enhetskostnader", "Prisen ganget med antall anlegg", "Alltid lik konsumentoverskuddet"],
+      options: ["Summen over alle anlegg i drift av (markedspris − anleggets enhetskostnad)", "Summen av alle anleggenes enhetskostnader", "Summen over alle anlegg i drift av (markedspris + anleggets enhetskostnad)", "Summen over alle anlegg i drift av markedsprisen ganget med anleggets enhetskostnad"],
       explanation: "De billigste anleggene bidrar mest til PO; det marginale anlegget har enhetskostnad lik prisen og bidrar med null.",
     },
     {
       question: "Hva er $p_{\\max}$ (høyeste betalingsvillighet) i figuren?",
-      options: ["Prisen der E-kurven treffer prisaksen (mengde null)", "Prisen der T-kurven treffer prisaksen", "Likevektsprisen", "Den laveste enhetskostnaden"],
+      options: ["Prisen der E-kurven treffer prisaksen (mengde null)", "Prisen der T-kurven treffer prisaksen", "Likevektsprisen der E-kurven og T-kurven krysser hverandre", "Den laveste enhetskostnaden blant alle anleggene i markedet"],
       explanation: "$p_{\\max}$ er toppen av KO-trekanten: ingen kjøper varen over denne prisen.",
     },
     {
       question: "Prislinja i markedsdiagrammet bestemmer:",
-      options: ["Fordelingen av SO mellom KO og PO — ikke den samlede størrelsen på SO", "Størrelsen på SO", "Om markedet er effektivt", "Hvor mange anlegg som finnes"],
+      options: ["Fordelingen av SO mellom KO og PO — ikke den samlede størrelsen på SO", "Hvor mange anlegg som finnes", "Hvor mange anlegg som er i drift, siden bare anlegg over prislinja produserer noe", "Om markedet er effektivt eller ikke, avhengig av hvor prislinja legges i diagrammet"],
       explanation: "Prisen deler SO-trekanten i to; den skaper ikke verdien. Derfor kan SO regnes uten pris.",
     },
     {
       question: "Verdien en enhet skaper for samfunnet er:",
-      options: ["Betalingsvillighet minus kostnad (avstanden mellom E og T)", "Prisen kjøperen betaler", "Selgerens inntekt for enheten", "Alltid lik prisen"],
+      options: ["Betalingsvillighet minus kostnad (avstanden mellom E og T)", "Selgerens inntekt for enheten", "Selgerens samlede inntekt for enheten, altså markedsprisen ganget med solgt mengde", "Prisen kjøperen faktisk betaler for enheten i markedslikevekten, ikke noe mer enn det"],
       explanation: "Prisen er en overføring mellom kjøper og selger; den verdiskapende differansen (E minus T) er det som havner i SO.",
     },
     {
@@ -808,49 +808,49 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kalles en feil definisjon av SO som «KO + PO i likevekt» en felle?",
-      options: ["Fordi den bryter sammen så snart det kommer en skatt eller subsidie (da må statens inntekt/utlegg med)", "Fordi KO og PO aldri kan legges sammen", "Fordi SO alltid er null i likevekt", "Fordi likevekt ikke finnes i praksis"],
+      options: ["Fordi den bryter sammen så snart det kommer en skatt eller subsidie (da må statens inntekt/utlegg med)", "Fordi KO og PO aldri kan legges sammen", "Fordi samfunnsoverskuddet per definisjon alltid er nøyaktig null i enhver markedslikevekt uten inngrep", "Fordi en markedslikevekt aldri oppstår i praksis, slik at KO og PO ikke lar seg regne ut i det hele tatt"],
       explanation: "Den robuste definisjonen (betalingsvillighet minus kostnad = areal mellom E og T) holder alltid; «KO+PO» gjelder bare uten inngrep (feilkatalogens feil #9).",
     },
     {
       question: "Effektivitetstap (dødvektstap) er generelt:",
-      options: ["Tapt SO når omsatt mengde avviker fra den effektive: trekanten mellom E og T over mengdeavviket", "Selgernes tapte inntekt", "Statens tapte skatteinntekt", "Forskjellen mellom KO og PO"],
+      options: ["Tapt SO når omsatt mengde avviker fra den effektive: trekanten mellom E og T over mengdeavviket", "Selgernes tapte inntekt når prisen faller, målt som arealet mellom gammel og ny prislinje", "Statens tapte skatteinntekt når omsatt mengde synker, altså avgiftssatsen ganget med mengdeavviket", "Forskjellen mellom konsumentoverskudd og produsentoverskudd i den nye markedslikevekten"],
       explanation: "Dødvekttap er verdi som forsvinner helt (ikke tilfaller kjøper, selger eller stat) fordi mengden er feil.",
     },
   ],
   'econ1210-2-2': [
     {
       question: "Effektivitetskriterium 1 («riktig mengde») sier at:",
-      options: ["Marginal betalingsvillighet = marginalkostnad (E-høyden = T-høyden)", "Alle kjøpere skal få varen", "Prisen skal være lavest mulig", "Produsentene skal tjene mest mulig"],
+      options: ["Marginal betalingsvillighet = marginalkostnad (E-høyden = T-høyden)", "Produsentene skal tjene mest mulig", "Prisen skal presses lavest mulig, slik at flest mulig enheter faktisk blir omsatt i markedet", "Alle kjøpere skal få varen, uansett hvor lav betalingsvilligheten deres er i forhold til prisen"],
       explanation: "Den siste enheten skal være verdt akkurat det den koster — oppfylt der E krysser T.",
     },
     {
       question: "Effektivitetskriterium 2 sier at:",
-      options: ["Produksjonen skjer i de billigste anleggene (alle med enhetskostnad under prisen er i drift)", "Alle anlegg skal produsere like mye", "De dyreste anleggene skal produsere først", "Alle anlegg skal ha samme enhetskostnad"],
+      options: ["Produksjonen skjer i de billigste anleggene (alle med enhetskostnad under prisen er i drift)", "De dyreste anleggene skal produsere først", "Alle anlegg i markedet skal produsere nøyaktig like mange enheter, uansett hva enhetskostnaden deres er", "Alle anlegg skal ha nøyaktig samme enhetskostnad, slik at det ikke spiller noen rolle hvilke som kjører"],
       explanation: "Mengden skal lages så billig som mulig; dyre anlegg står stille mens billige kjører.",
     },
     {
       question: "Effektivitetskriterium 3 sier at:",
-      options: ["Godene går til kjøperne med høyest betalingsvillighet", "Godene fordeles likt på alle", "Godene går til dem som kom først", "Godene går til produsentene"],
+      options: ["Godene går til kjøperne med høyest betalingsvillighet", "Godene går til dem som kom først", "Godene går til dem som melder seg først, etter et rent først-til-mølla-prinsipp uten hensyn til pris", "Godene fordeles likt på alle"],
       explanation: "Alle med betalingsvillighet over prisen kjøper, så varen havner der den verdsettes mest.",
     },
     {
       question: "Hva er effektivitetstap (dødvektstap)?",
-      options: ["Tapt SO når omsatt mengde avviker fra $x^*$ — trekanten mellom E og T over mengdeavviket", "Selgernes reduserte inntekt", "Differansen mellom KO og PO", "Statens administrasjonskostnader"],
+      options: ["Tapt SO når omsatt mengde avviker fra $x^*$ — trekanten mellom E og T over mengdeavviket", "Statens administrasjonskostnader", "Statens administrasjonskostnader ved å håndheve inngrepet som førte mengden bort fra $x^*$", "Differansen mellom konsumentoverskudd og produsentoverskudd ved den faktisk omsatte mengden"],
       explanation: "«Dødvekt» fordi verdien forsvinner helt — den tilfaller verken kjøper, selger eller stat.",
     },
     {
       question: "Ved *for lite* omsatt (mengde under $x^*$) ligger dødvekttrekanten:",
-      options: ["Til venstre for $x^*$ — de bortfalte enhetene hadde betalingsvillighet over kostnad", "Til høyre for $x^*$", "Over prislinja", "Under mengdeaksen"],
+      options: ["Til venstre for $x^*$ — de bortfalte enhetene hadde betalingsvillighet over kostnad", "Til høyre for $x^*$", "Rett over prislinja mellom gammel og ny likevektspris, der overskuddet overføres fra kjøper til selger", "Under mengdeaksen som et negativt areal, siden verdien blir borte når mengden ligger under det optimale"],
       explanation: "For lite omsatt: E over T for de manglende enhetene, verdi realiseres ikke. Trekanten ligger mellom faktisk mengde og $x^*$.",
     },
     {
       question: "Ved *for mye* omsatt (mengde over $x^*$) oppstår tap fordi:",
-      options: ["Kostnaden overstiger betalingsvilligheten for de ekstra enhetene", "Betalingsvilligheten overstiger kostnaden", "Prisen blir for lav", "KO blir negativt"],
+      options: ["Kostnaden overstiger betalingsvilligheten for de ekstra enhetene", "Betalingsvilligheten overstiger kostnaden", "Prisen presses for lavt i markedet, slik at selgerne ikke lenger får dekket enhetskostnaden sin fullt ut", "Betalingsvilligheten overstiger kostnaden for de ekstra enhetene, slik at de burde vært produsert likevel"],
       explanation: "For mye omsatt: T over E, verdi ødelegges. Dødvekttrekanten ligger til høyre for $x^*$ (som ved subsidie).",
     },
     {
       question: "Ved en bindende maksimalpris bestemmes omsatt mengde av:",
-      options: ["Den korte siden av markedet (kortside-regelen)", "Etterspurt mengde ved maksprisen", "Gjennomsnittet av tilbud og etterspørsel", "Likevektsmengden"],
+      options: ["Den korte siden av markedet (kortside-regelen)", "Gjennomsnittet av tilbud og etterspørsel", "Etterspurt mengde avlest på E-kurven ved den lave maksprisen, altså det kjøperne ønsker å kjøpe", "Etterspurt mengde ved maksprisen"],
       explanation: "Ingen kan tvinges til å selge, så omsatt mengde = det minste av tilbudt og etterspurt mengde. Å lese av E-kurven her er en klassisk feil (#7).",
     },
     {
@@ -860,22 +860,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er frikonkurranselikevekten IKKE nødvendigvis «rettferdig»?",
-      options: ["Fordi effektivitet handler om kakas størrelse, ikke om hvordan den deles", "Fordi den alltid gir monopol", "Fordi prisen alltid er for høy", "Fordi SO da er null"],
+      options: ["Fordi effektivitet handler om kakas størrelse, ikke om hvordan den deles", "Fordi prisen alltid er for høy", "Fordi samfunnsoverskuddet i frikonkurranselikevekt alltid er null og dermed ikke gagner noen som helst", "Fordi likevektsprisen alltid ligger for høyt, slik at kjøperne systematisk betaler mer enn varen er verdt"],
       explanation: "Et effektivt marked kan ha en fordeling mange vil kalle urettferdig — varen går til dem med høyest betalingsvillighet, ofte de med mest penger.",
     },
     {
       question: "Et *tilleggstap* ut over dødvekttrekanten ved makspris oppstår hvis:",
-      options: ["Rasjoneringen ikke følger betalingsvillighet (kø, loddtrekning, svartebørs)", "Prisen er for høy", "Tilbudet er elastisk", "Markedet er i likevekt"],
+      options: ["Rasjoneringen ikke følger betalingsvillighet (kø, loddtrekning, svartebørs)", "Markedet er i likevekt", "Tilbudet er svært elastisk, slik at selgerne raskt trekker seg ut og etterlater et stort udekket behov", "Prisen settes for høyt over likevekten, slik at kjøpere med lav betalingsvillighet presses ut av markedet"],
       explanation: "Da havner varen hos noen som verdsetter den lavere enn utestengte kjøpere — kriterium 3 brytes ekstra.",
     },
     {
       question: "Grunnlinjen i dødvekttrekanten måles som:",
-      options: ["Avstanden mellom E-kurven og T-kurven ved den feilaktige mengden", "Avstanden fra prislinja til mengdeaksen", "Avstanden mellom E-kurven og prislinja", "Hele likevektsprisen"],
+      options: ["Avstanden mellom E-kurven og T-kurven ved den feilaktige mengden", "Avstanden fra prislinja til mengdeaksen", "Hele likevektsprisen ganget med mengdeavviket, siden prisen bestemmer verdien som går tapt", "Avstanden mellom E-kurven og prislinja"],
       explanation: "Dødvekttap = $\\tfrac12\\cdot(\\text{gap E–T})\\cdot(\\text{mengdeavvik})$. Å regne mot prislinja i stedet for mellom kurvene er en vanlig feil.",
     },
     {
       question: "Hva menes med at de tre kriteriene er en «sjekkliste»?",
-      options: ["Ved et inngrep går man gjennom alle tre og sier hvilke som brytes", "Man rangerer dem etter viktighet", "Man velger ett av dem å bruke", "De brukes bare i lærebøker, aldri på eksamen"],
+      options: ["Ved et inngrep går man gjennom alle tre og sier hvilke som brytes", "De brukes bare i lærebøker, aldri på eksamen", "At man plukker ut ett av de tre kriteriene som passer best, og bruker bare det til å vurdere inngrepet", "Man rangerer dem etter viktighet"],
       explanation: "Sensor honorerer at kriteriene anvendes på inngrepet, ikke bare ramses opp.",
     },
     {
@@ -885,12 +885,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den effektive (samfunnsøkonomisk optimale) mengden?",
-      options: ["Mengden der marginal betalingsvillighet = marginalkostnad (E krysser T)", "Mengden der prisen er lavest", "Mengden der PO er størst", "Mengden der alle anlegg produserer"],
+      options: ["Mengden der marginal betalingsvillighet = marginalkostnad (E krysser T)", "Mengden der alle anlegg produserer", "Mengden der produsentoverskuddet er størst mulig, altså der selgerne samlet tjener aller mest", "Mengden der samtlige anlegg i markedet er i drift samtidig, uansett hvor høy enhetskostnaden er"],
       explanation: "Enhver annen mengde gir mindre SO og dermed et effektivitetstap.",
     },
     {
       question: "Ved et bindende pristak brytes typisk hvilke effektivitetskriterier?",
-      options: ["Både «riktig mengde» og (via rasjonering) «riktige kjøpere»", "Bare «billigste anlegg»", "Ingen av kriteriene", "Bare «riktige kjøpere»"],
+      options: ["Både «riktig mengde» og (via rasjonering) «riktige kjøpere»", "Bare «billigste anlegg»", "Bare «billigste anlegg» — pristaket tvinger produksjonen over på de dyreste anleggene i markedet", "Bare «riktige kjøpere»"],
       explanation: "Maksprisen gir for lite omsatt (kriterium 1) og etterspørselsoverskudd som må rasjoneres (kriterium 3).",
     },
   ],
@@ -907,12 +907,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem bærer mest av en avgift?",
-      options: ["Den minst prisfølsomme (bratteste) siden", "Den mest prisfølsomme siden", "Alltid selgeren", "Alltid den avgiften formelt legges på"],
+      options: ["Den minst prisfølsomme (bratteste) siden", "Alltid den avgiften formelt legges på", "Den mest prisfølsomme (flateste) siden, som lett kan trekke seg ut og likevel må bære mest", "Den mest prisfølsomme siden"],
       explanation: "Den siden som vanskeligst kan trekke seg ut når prisen endres (bratt kurve), sitter igjen med størstedelen av byrden.",
     },
     {
       question: "Spiller det noen rolle for fordelingen om avgiften legges på kjøper eller selger?",
-      options: ["Nei — utfallet blir identisk (skatteekvivalens)", "Ja, kjøper bærer mer hvis den legges på kjøper", "Ja, selger bærer mer hvis den legges på selger", "Ja, den formelle betaleren bærer alt"],
+      options: ["Nei — utfallet blir identisk (skatteekvivalens)", "Ja, kjøper bærer mer hvis den legges på kjøper", "Ja, kjøper bærer klart mer av byrden dersom avgiften formelt legges på kjøpersiden i markedet", "Ja, selger bærer mer hvis den legges på selger"],
       explanation: "Feilkatalog #3: fordelingen bestemmes av kurvenes helninger, ikke av hvem avgiften formelt legges på. Utfallet er identisk.",
     },
     {
@@ -927,27 +927,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er selgers nettopris etter en stykkskatt $t$ på selger?",
-      options: ["$p_1 - t$ (markedsprisen minus avgiften)", "$p_1 + t$", "$p_0$ (uendret)", "$p_1$ (markedsprisen)"],
+      options: ["$p_1 - t$ (markedsprisen minus avgiften)", "$p_1$ (markedsprisen)", "$p_1 + t$ (markedsprisen pluss avgiften, siden selger legger avgiften oppå prisen)", "$p_0$ (uendret)"],
       explanation: "Selger må gi $t$ til staten per enhet, så nettoprisen er markedsprisen $p_1$ minus $t$ — lavere enn den gamle likevektsprisen.",
     },
     {
       question: "Dødvektstapet ved en stykkskatt beregnes som:",
-      options: ["$\\frac{1}{2}t(x_0 - x_1)$", "$t \\cdot x_1$", "$\\frac{1}{2}t \\cdot x_1$", "$t(x_0 - x_1)$"],
+      options: ["$\\frac{1}{2}t(x_0 - x_1)$", "$\\frac{1}{2}t \\cdot x_1$", "$t \\cdot x_1$ (avgiftssatsen ganget med den nye, lavere omsatte mengden i markedet)", "$t(x_0 - x_1)$"],
       explanation: "Trekanten mellom E og T fra ny til gammel mengde har areal $\\frac{1}{2}t(x_0 - x_1)$. $t\\cdot x_1$ er derimot skatteinntekten.",
     },
     {
       question: "Skatteinntekten $t \\cdot x_1$ er:",
-      options: ["En overføring til staten, ikke et samfunnsøkonomisk tap", "En del av dødvektstapet", "Alltid lik dødvektstapet", "Tapt verdi for samfunnet"],
+      options: ["En overføring til staten, ikke et samfunnsøkonomisk tap", "Alltid lik dødvektstapet", "En del av dødvektstapet, siden pengene som betales inn i avgift regnes som tapt verdi", "Tapt verdi for samfunnet"],
       explanation: "Pengene forsvinner ikke — de går fra kjøpere/selgere til staten. Bare dødvektstrekanten er ekte tapt verdi.",
     },
     {
       question: "Hvorfor faller omsatt mengde alltid etter en avgift?",
-      options: ["Avgiften gjør de siste enhetene ulønnsomme (betalingsvillighet < kostnad + avgift)", "Kjøperne mister interessen", "Selgerne nekter å produsere", "Prisen blir uendelig høy"],
+      options: ["Avgiften gjør de siste enhetene ulønnsomme (betalingsvillighet < kostnad + avgift)", "Selgerne nekter å produsere", "Kjøperne mister brått interessen for varen og slutter å etterspørre den så snart avgiften innføres", "Selgerne nekter av prinsipp å produsere når det legges en avgift på varen, uansett hvor lønnsomt det er"],
       explanation: "Avgiften kiler inn mellom kjøpers pris og selgers netto; de siste enhetene der betalingsvilligheten ikke lenger dekker kostnad + avgift, faller bort.",
     },
     {
       question: "Hva er mekanismen bak T-skiftet ved en stykkskatt (anleggsspråket)?",
-      options: ["Enhetskostnaden øker med $t$ i hvert anlegg", "Antall anlegg faller", "Etterspørselen synker", "Kjøpernes betalingsvillighet stiger"],
+      options: ["Enhetskostnaden øker med $t$ i hvert anlegg", "Kjøpernes betalingsvillighet stiger", "Antall anlegg i drift faller med én gang, slik at hele T-kurven skyves innover mot venstre", "Etterspørselen synker"],
       explanation: "Hvert anlegg må ha $t$ kroner mer for å være lønnsomt, så hele T-kurven flytter parallelt opp med $t$. Denne begrunnelsen er verdt et poeng.",
     },
     {
@@ -957,17 +957,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En vanlig feil (#2) i stykkskatt-oppgaver er:",
-      options: ["Å flytte E-kurven i stedet for T-kurven ved skatt på selger", "Å regne dødvektstap som en trekant", "Å tolke delingsbrøken verbalt", "Å kontrollregne i begge funksjoner"],
+      options: ["Å flytte E-kurven i stedet for T-kurven ved skatt på selger", "Å regne dødvektstap som en trekant", "Å tolke delingsbrøken $\\frac{c}{b+c}$ verbalt i stedet for å regne den ut med tall", "Å kontrollregne resultatet i både E-funksjonen og T-funksjonen for å sjekke svaret"],
       explanation: "Skatt på selger berører selgers kostnad = T-kurven. Å skifte E i stedet, eller skifte feil vei, er feilkatalog #2.",
     },
     {
       question: "I markedet $x = 500 - p$, $x = p - 100$ ($b = c = 1$) deles en avgift:",
-      options: ["50/50 mellom kjøper og selger", "Kjøper bærer alt", "Selger bærer alt", "2/3 på kjøper"],
+      options: ["50/50 mellom kjøper og selger", "Kjøper bærer alt", "Kjøper bærer hele avgiften alene, fordi E-kurven er brattere enn T-kurven i dette markedet", "Selger bærer alt"],
       explanation: "Like koeffisienter ($b = c$) gir $\\frac{c}{b+c} = \\frac{1}{2}$ på hver side — nøyaktig lik deling.",
     },
     {
       question: "Hva regnes som en pluss-markør (toppsjikt) i en stykkskatt-oppgave?",
-      options: ["Å koble delingsbrøken til kurvenes helninger", "Å oppgi delingstallet uten forklaring", "Å tegne skiftet uten å merke akser", "Å regne bare i én funksjon"],
+      options: ["Å koble delingsbrøken til kurvenes helninger", "Å oppgi delingstallet uten forklaring", "Å tegne skiftet i figuren uten å merke aksene eller navngi de to prisene", "Å tegne skiftet uten å merke akser"],
       explanation: "Å regne delingen algebraisk OG forklare den med prisfølsomhet/helning er det som skiller de beste besvarelsene.",
     },
     {
@@ -987,12 +987,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor taper også selgeren på en skatt lagt på selger?",
-      options: ["Nettoprisen $p_1 - t$ er lavere enn den gamle prisen $p_0$", "Selger må betale hele avgiften selv", "Markedsprisen faller", "Selger mister alle kunder"],
+      options: ["Nettoprisen $p_1 - t$ er lavere enn den gamle prisen $p_0$", "Selger må betale hele avgiften selv", "Selger må betale hele avgiften $t$ selv uten å velte noe over på kjøperen", "Selger mister alle kundene sine fordi den nye prisen skremmer bort etterspørselen"],
       explanation: "Selv om markedsprisen stiger, får selger bare $p_1 - t$, som er lavere enn $p_0$. Byrden deles med kjøper.",
     },
     {
       question: "Å oppgi delingstallet $\\frac{c}{b+c}$ uten verbal tolkning er:",
-      options: ["Feilkatalog #6 — gir ikke full uttelling", "Helt greit på eksamen", "En pluss-markør", "Bare relevant for subsidier"],
+      options: ["Feilkatalog #6 — gir ikke full uttelling", "Bare relevant for subsidier", "En tydelig pluss-markør som løfter besvarelsen opp i toppsjiktet hos sensor", "Helt greit på eksamen"],
       explanation: "Sensor krever at tall tolkes med ord. Et bart tall uten forklaring av hvorfor siden bærer den andelen, gir trekk (#6).",
     },
     {
@@ -1002,22 +1002,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva bør du kontrollere for å fange regnefeil i firetrinnsmetoden?",
-      options: ["At $x_1$ gir samme svar i E og i selgers tilbud, og at byrdene summerer til $t$", "Bare at prisen steg", "At skatteinntekten er størst mulig", "At dødvektstapet er null"],
+      options: ["At $x_1$ gir samme svar i E og i selgers tilbud, og at byrdene summerer til $t$", "At skatteinntekten er størst mulig", "At dødvektstapet blir null slik at avgiften ikke gir noe effektivitetstap i markedet", "Bare at markedsprisen steg etter avgiften, uten å sjekke mengden eller byrdefordelingen"],
       explanation: "To kontroller: $x_1$ likt i begge funksjoner, og kjøpers + selgers byrde $= t$. Dessuten skal $x_1 < x_0$.",
     },
     {
       question: "I hvilken andel av eksamenssettene forekommer stykkskatt/-subsidie (sjanger E)?",
-      options: ["94 % (15 av 16 sett)", "50 %", "25 %", "100 %"],
+      options: ["94 % (15 av 16 sett)", "100 %", "Fulle 100 % (16 av 16 sett), altså i absolutt hvert eneste eksamenssett", "50 %"],
       explanation: "Sjanger E er tyngdepunktet i settet, med i 15 av 16 sett og verdt 15–30 % av poengene.",
     },
     {
       question: "Fallet i KO pluss fallet i PO ved en avgift er lik:",
-      options: ["Skatteinntekt pluss dødvektstap", "Bare skatteinntekten", "Bare dødvektstapet", "Null"],
+      options: ["Skatteinntekt pluss dødvektstap", "Bare skatteinntekten", "Bare dødvektstapet, altså trekanten med tapt overskudd som ingen part får", "Bare dødvektstapet"],
       explanation: "Velferdsregnskapet: kjøpere og selgere taper til sammen skatteinntekten (som staten får) pluss dødvektstrekanten (som ingen får).",
     },
     {
       question: "Hvorfor er nettoprisen viktig å skille fra markedsprisen?",
-      options: ["Markedsprisen er det kjøper betaler; nettoprisen er det selger beholder — de skiller seg med $t$", "De er alltid like", "Nettoprisen er høyere enn markedsprisen", "Bare markedsprisen påvirker mengden"],
+      options: ["Markedsprisen er det kjøper betaler; nettoprisen er det selger beholder — de skiller seg med $t$", "Nettoprisen er høyere enn markedsprisen", "De er alltid nøyaktig like, siden hele avgiften $t$ betales i sin helhet av staten og aldri veltes over", "Nettoprisen $p_1 - t$ er alltid høyere enn markedsprisen $p_1$ som kjøperen faktisk må betale i markedet"],
       explanation: "Markedsprisen $p_1$ (kjøpers pris, på skiftet T) og nettoprisen $p_1 - t$ (selgers pris, på gamle T) skiller seg med akkurat $t$, fordelt etter delingen.",
     },
   ],
@@ -1029,22 +1029,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor faller samfunnsøkonomisk overskudd av en subsidie i et velfungerende marked?",
-      options: ["Statens utlegg overstiger summen av KO- og PO-gevinsten", "KO faller", "PO faller", "Prisen stiger"],
+      options: ["Statens utlegg overstiger summen av KO- og PO-gevinsten", "Prisen stiger", "Konsumentoverskuddet KO faller fordi kjøperne må betale en høyere pris enn før", "Produsentoverskuddet PO faller fordi selgerne beholder mindre per solgte enhet"],
       explanation: "Subsidie-paradokset: både KO og PO stiger, men statens utlegg $s\\cdot x_1$ er større, så SO faller netto.",
     },
     {
       question: "Å påstå at subsidien øker SO fordi både KO og PO øker, er:",
-      options: ["Feilkatalog #4 — selve karakterskillet", "Riktig", "En pluss-markør", "Bare feil for skatt"],
+      options: ["Feilkatalog #4 — selve karakterskillet", "Bare feil for skatt", "Helt riktig, siden samfunnsøkonomisk overskudd nettopp er summen av KO og PO", "En pluss-markør"],
       explanation: "Dette er den klassiske fellen (#4). SO faller nettopp fordi statens utlegg overstiger de private gevinstene.",
     },
     {
       question: "Ved en subsidie ligger dødvektstrekanten:",
-      options: ["Til høyre for frikonkurransemengden $x_0$", "Til venstre for $x_0$", "Nøyaktig på $x_0$", "Over prisaksen"],
+      options: ["Til høyre for frikonkurransemengden $x_0$", "Til venstre for $x_0$", "Over prisaksen mellom gammel og ny pris, ikke langs mengdeaksen i det hele tatt", "Nøyaktig på $x_0$"],
       explanation: "Subsidien gir overproduksjon, så trekanten ligger til høyre for $x_0$ — motsatt side av skattetrekanten.",
     },
     {
       question: "Selgers nettopris ved en subsidie $s$ er:",
-      options: ["$p_1 + s$ (markedsprisen pluss tilskuddet)", "$p_1 - s$", "$p_0$", "$p_1$"],
+      options: ["$p_1 + s$ (markedsprisen pluss tilskuddet)", "$p_1 - s$", "$p_0$ (den opprinnelige likevektsprisen før subsidien ble innført i markedet)", "$p_1 - s$ (markedsprisen minus tilskuddet), altså lavere enn det kjøper betaler"],
       explanation: "Selger får markedsprisen $p_1$ fra kjøper PLUSS subsidien $s$ fra staten, altså $p_1 + s$ — høyere enn før.",
     },
     {
@@ -1054,7 +1054,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For merenhetene mellom $x_0$ og $x_1$ ved en subsidie gjelder at:",
-      options: ["Betalingsvilligheten er lavere enn produksjonskostnaden", "Betalingsvilligheten er høyere enn kostnaden", "Betalingsvillighet = kostnad", "Kostnaden er null"],
+      options: ["Betalingsvilligheten er lavere enn produksjonskostnaden", "Betalingsvilligheten er høyere enn kostnaden", "Betalingsvilligheten er høyere enn produksjonskostnaden, så enhetene skaper verdi", "Betalingsvillighet er nøyaktig lik kostnaden, slik at merenhetene er verdinøytrale"],
       explanation: "Overproduksjonen betyr at E-kurvens høyde er under T-kurvens for merenhetene — de ødelegger verdi. Det er kjernen i paradokset.",
     },
     {
@@ -1064,27 +1064,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Å regne velferden som bare KO + PO uten statens utlegg er:",
-      options: ["Feilkatalog #11 (glemt statsutlegg)", "Riktig fremgangsmåte", "Bare feil ved skatt", "En pluss-markør"],
+      options: ["Feilkatalog #11 (glemt statsutlegg)", "Riktig fremgangsmåte", "Den helt riktige fremgangsmåten, siden velferden nettopp er summen av KO og PO", "Bare feil ved skatt"],
       explanation: "Uten utlegget $s\\cdot x_1$ i regnskapet forsvinner hele paradokset — det er feil #11.",
     },
     {
       question: "Ved en subsidie i et velfungerende marked skjer det med mengden at den:",
-      options: ["Blir høyere enn den effektive ($x_1 > x_0$)", "Blir lavere enn den effektive", "Er uendret", "Blir null"],
+      options: ["Blir høyere enn den effektive ($x_1 > x_0$)", "Blir lavere enn den effektive", "Blir null fordi den fulle subsidien fjerner ethvert incentiv til å produsere godet", "Er uendret"],
       explanation: "Subsidien presser mengden opp forbi den samfunnsøkonomisk riktige $x_0$ — overproduksjon.",
     },
     {
       question: "Når kan en subsidie likevel være samfunnsøkonomisk riktig?",
-      options: ["Ved positive eksterne virkninger", "Aldri", "Alltid", "Bare når prisen er høy"],
+      options: ["Ved positive eksterne virkninger", "Bare når prisen er høy", "Alltid, fordi både konsument- og produsentoverskuddet stiger når subsidien innføres", "Alltid"],
       explanation: "Ved positive eksternaliteter produserer markedet for lite, og en subsidie kan flytte mengden mot det riktige nivået (kap. 4.1).",
     },
     {
       question: "En stykksubsidie kan best beskrives som:",
-      options: ["En negativ skatt (speilvendt firetrinnsmetode)", "En prisregulering", "Et kvotesystem", "En engangsstøtte"],
+      options: ["En negativ skatt (speilvendt firetrinnsmetode)", "En prisregulering", "Et kvotesystem som begrenser hvor mange enheter som lovlig kan produseres og selges", "En engangsstøtte"],
       explanation: "Alt fra skattekapitlet gjelder speilvendt: T ned, pris ned, mengde opp, trekant til høyre.",
     },
     {
       question: "Hvorfor stiger KO ved en subsidie?",
-      options: ["Kjøperne betaler lavere pris og kjøper mer", "Kjøperne betaler mer", "Prisen stiger", "Mengden faller"],
+      options: ["Kjøperne betaler lavere pris og kjøper mer", "Kjøperne betaler mer", "Kjøperne betaler en høyere pris etter subsidien, og det løfter konsumentoverskuddet", "Mengden faller"],
       explanation: "Lavere markedspris og høyere mengde løfter konsumentoverskuddet — men det er ikke nok til å oppveie statens utlegg.",
     },
     {
@@ -1099,12 +1099,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Effektivitetsvilkåret som en subsidie bryter er:",
-      options: ["$p = $ marginalkostnad (betalingsvillighet = kostnad for siste enhet)", "$p = $ gjennomsnittskostnad", "$p = 0$", "KO = PO"],
+      options: ["$p = $ marginalkostnad (betalingsvillighet = kostnad for siste enhet)", "$p = $ gjennomsnittskostnad", "$p = 0$ (prisen skal presses helt ned til null for at markedet skal være effektivt)", "$p = $ gjennomsnittskostnad (pris lik totalkostnad delt på antall produserte enheter)"],
       explanation: "SO er størst der E krysser T (betalingsvillighet = marginalkostnad). Subsidien presser mengden dit betalingsvillighet < kostnad.",
     },
     {
       question: "Hva bør en samfunnsøkonom påpeke om en subsidie med fordelingsformål?",
-      options: ["Fordelingsgevinsten må veies mot effektivitetstapet; kontantstøtte er ofte billigere", "At den alltid er bra", "At SO alltid øker", "At den ikke koster noe"],
+      options: ["Fordelingsgevinsten må veies mot effektivitetstapet; kontantstøtte er ofte billigere", "At den ikke koster noe", "At den i praksis ikke koster noe fordi statens utlegg bare er en omfordeling av penger", "At samfunnsøkonomisk overskudd alltid øker netto, fordi både KO og PO stiger når subsidien innføres"],
       explanation: "Subsidien har et effektivitetstap; direkte kontantstøtte oppnår ofte fordelingsmålet uten å vri prisene.",
     },
     {
@@ -1114,27 +1114,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Sensor kaller subsidie-paradokset «krevende å forstå» fordi:",
-      options: ["Det virker selvmotsigende at SO faller når begge parter tjener", "Regningen er vanskelig", "Figuren er umulig å tegne", "Det står ikke i pensum"],
+      options: ["Det virker selvmotsigende at SO faller når begge parter tjener", "Figuren er umulig å tegne", "Figuren med skiftet i T-kurven og trekanten er nesten umulig å tegne korrekt for hånd", "Selve regningen med firetrinnsmetoden er teknisk vanskelig og krever mange algebrasteg"],
       explanation: "Intuisjonen «alle vinner» kolliderer med at SO faller — nøkkelen er å se statens utlegg og overproduksjonen.",
     },
     {
       question: "Hvilket ledd i velferdsregnskapet gjør at $\\Delta$SO blir negativ?",
-      options: ["Statens utlegg $s\\cdot x_1$", "Fallet i KO", "Fallet i PO", "Skatteinntekten"],
+      options: ["Statens utlegg $s\\cdot x_1$", "Skatteinntekten", "Fallet i konsumentoverskuddet KO, som trekker det samlede overskuddet nedover", "Fallet i KO"],
       explanation: "$\\Delta\\text{SO} = \\Delta\\text{KO} + \\Delta\\text{PO} - s\\cdot x_1$; utlegget (siste ledd) er størst og trekker SO ned.",
     },
     {
       question: "Ved subsidie skifter T-kurven ned. Hva er mekanismen?",
-      options: ["Enhetskostnaden faller med $s$ i hvert anlegg", "Etterspørselen øker", "Antall anlegg faller", "Prisen settes av staten"],
+      options: ["Enhetskostnaden faller med $s$ i hvert anlegg", "Prisen settes av staten", "Etterspørselen øker fordi kjøperne får mer å rutte med når subsidien betales ut", "Antall anlegg faller"],
       explanation: "Hvert anlegg trenger $s$ kroner mindre i pris for å være lønnsomt, så hele T-kurven flytter ned med $s$.",
     },
     {
       question: "Kjøperne får en liten del av subsidien når:",
-      options: ["Etterspørselen er mer prisfølsom enn tilbudet ($b > c$)", "Tilbudet er mer prisfølsomt enn etterspørselen", "Kurvene er like bratte", "$s$ er liten"],
+      options: ["Etterspørselen er mer prisfølsom enn tilbudet ($b > c$)", "Tilbudet er mer prisfølsomt enn etterspørselen", "Tilbudet er mer prisfølsomt enn etterspørselen, slik at selgerne reagerer sterkest", "Subsidiebeløpet $s$ er lite, slik at kjøpernes andel av tilskuddet også blir liten"],
       explanation: "Kjøpers andel $\\frac{c}{b+c}$ er liten når $c$ er liten mot $b$: prisfølsomme kjøpere, lite prisfølsomme selgere fanger mesteparten.",
     },
     {
       question: "En vanlig feil er å tegne subsidiens dødvektstrekant:",
-      options: ["Til venstre for $x_0$ (som ved skatt)", "Til høyre for $x_0$", "Uten akser", "For stor"],
+      options: ["Til venstre for $x_0$ (som ved skatt)", "Til høyre for $x_0$", "Uten å tegne inn aksene, slik at figuren mangler navn på pris og mengde helt", "Uten akser"],
       explanation: "Ved subsidie ligger trekanten til HØYRE (overproduksjon). Å tegne den til venstre er å behandle den som en skatt.",
     },
     {
@@ -1144,7 +1144,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er subsidie-paradokset og «som samfunnsøkonom»-drøftingen ulike?",
-      options: ["Paradokset gjelder overproduksjon i ett marked; alternativkostnad gjelder ressursenes beste anvendelse ellers", "De er identiske", "Paradokset gjelder bare skatt", "Alternativkostnad gjelder bare monopol"],
+      options: ["Paradokset gjelder overproduksjon i ett marked; alternativkostnad gjelder ressursenes beste anvendelse ellers", "Alternativkostnad gjelder bare monopol", "De er i praksis helt identiske begreper som bare bruker to ulike navn på nøyaktig det samme fenomenet i markedet", "Alternativkostnad er kun et relevant begrep i monopoltilfeller, mens paradokset bare oppstår under frikonkurranse"],
       explanation: "Beslektet, men ulikt: paradokset er velferdsregnskapet i markedet; alternativkostnadsdrøftingen (kap. 3.5) ser på hva ressursene kunne skapt andre steder.",
     },
   ],
@@ -1161,32 +1161,32 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved makspris under likevekt oppstår:",
-      options: ["Et etterspørselsoverskudd (mangel)", "Et tilbudsoverskudd", "Ingen ubalanse", "Overproduksjon"],
+      options: ["Et etterspørselsoverskudd (mangel)", "Et tilbudsoverskudd", "Et tilbudsoverskudd, altså at selgerne vil tilby langt mer enn kjøperne etterspør", "Ingen ubalanse"],
       explanation: "Den lave prisen gir høy etterspørsel og lavt tilbud, altså mangel som må rasjoneres.",
     },
     {
       question: "Hvorfor må godet rasjoneres ved en makspris?",
-      options: ["Fordi etterspørselen overstiger tilbudet — det er ikke nok til alle", "Fordi prisen er for høy", "Fordi selgerne nekter", "Fordi tilbudet overstiger etterspørselen"],
+      options: ["Fordi etterspørselen overstiger tilbudet — det er ikke nok til alle", "Fordi tilbudet overstiger etterspørselen", "Fordi den fastsatte prisen ligger for høyt over likevekten til at noen vil kjøpe", "Fordi selgerne nekter å levere godet til den lave prisen myndighetene har bestemt"],
       explanation: "Mangel betyr at flere vil kjøpe enn det finnes; noe må avgjøre hvem som får, og modellen sier ikke hva.",
     },
     {
       question: "Tilleggstapet ved makspris oppstår når:",
-      options: ["Rasjoneringen ikke følger betalingsvillighet", "Prisen settes for lavt", "Alle får kjøpe", "Tilbudet øker"],
+      options: ["Rasjoneringen ikke følger betalingsvillighet", "Prisen settes for lavt", "Tilbudt mengde øker som følge av maksprisen og skaper et overskudd som må lagres", "Alle får kjøpe"],
       explanation: "Hvis de knappe enhetene havner hos feil kjøpere (lav betalingsvillighet), mister vi verdi utover mengdetapet.",
     },
     {
       question: "Argumentet «produsentene har lav gjennomsnittskostnad, så prisen bør tvinges ned» er:",
-      options: ["Feil — riktig mengde krever pris = marginalkostnad", "Riktig", "Et effektivitetsargument", "Bare gyldig for minstepris"],
+      options: ["Feil — riktig mengde krever pris = marginalkostnad", "Bare gyldig for minstepris", "Riktig — når gjennomsnittskostnaden er lav, bør prisen presses ned mot dette nivået", "Et effektivitetsargument"],
       explanation: "Feilkatalog #7: god fortjeneste er et fordelingspoeng, ikke et effektivitetsargument. Prisen skal reflektere marginalkostnad.",
     },
     {
       question: "En minstelønn over likevektslønnen gir:",
-      options: ["Arbeidsledighet (tilbudsoverskudd av arbeid)", "Full sysselsetting", "Mangel på arbeidskraft", "Lavere lønn"],
+      options: ["Arbeidsledighet (tilbudsoverskudd av arbeid)", "Mangel på arbeidskraft", "Lavere effektiv lønn siden bedriftene skjærer ned på øvrige goder for å kompensere", "Full sysselsetting"],
       explanation: "Flere vil jobbe enn bedriftene ansetter til den høye lønnen; differansen er ledigheten.",
     },
     {
       question: "Ved en bindende minstepris bestemmes omsatt mengde av:",
-      options: ["Etterspørselen (kortsiden)", "Tilbudet", "Minsteprisen selv", "Gjennomsnittet"],
+      options: ["Etterspørselen (kortsiden)", "Minsteprisen selv", "Gjennomsnittet av tilbudt og etterspurt mengde ved den bindende minsteprisen", "Gjennomsnittet"],
       explanation: "Ved prisgulv over likevekt er kjøperne kortsiden — de vil ha minst, og ingen kan tvinges til å kjøpe.",
     },
     {
@@ -1196,22 +1196,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Å lese omsatt mengde av E-kurven ved en makspris er:",
-      options: ["Feilkatalog #7 (glemt kortside-regelen)", "Riktig", "Bare feil ved minstepris", "En pluss-markør"],
+      options: ["Feilkatalog #7 (glemt kortside-regelen)", "Bare feil ved minstepris", "Riktig — E-kurven gir den omsatte mengden også når maksprisen er bindende", "En pluss-markør"],
       explanation: "Ved makspris er tilbudet kortsiden. Å lese den høyere etterspurte mengden overser at ingen kan tvinges til å selge.",
     },
     {
       question: "Hvilket fordelingsproblem løser modellen IKKE ved makspris?",
-      options: ["Hvem av de mange kjøperne som skal få det knappe godet", "Hvor mye som produseres", "Hva prisen blir", "Hvem som er selger"],
+      options: ["Hvem av de mange kjøperne som skal få det knappe godet", "Hvor mye som produseres", "Hvem av de aktuelle selgerne som skal levere den knappe mengden til kjøperne", "Hvor mye som samlet produseres av godet når maksprisen presser tilbudet nedover"],
       explanation: "Modellen sier at noen må gå tomhendt, men ikke hvem — rasjoneringen ligger utenfor modellen.",
     },
     {
       question: "Et alternativ til pristak som når fordelingsmålet med mindre effektivitetstap er:",
-      options: ["Direkte kontantstøtte / overføring", "Enda lavere makspris", "Forbud mot salg", "Høyere avgift"],
+      options: ["Direkte kontantstøtte / overføring", "Enda lavere makspris", "En høyere avgift på godet slik at prisen faller og de utsatte gruppene skjermes", "Forbud mot salg"],
       explanation: "Kontantstøtte lar prisen reflektere marginalkostnaden (effektiv mengde og fordeling) mens utsatte kompenseres separat.",
     },
     {
       question: "Standardcasen for prisregulering på nyere ECON1210-eksamener er:",
-      options: ["Maksimalpris på strøm/gass", "Minstepris på melk", "Husleieregulering", "Maksimalpris på billetter"],
+      options: ["Maksimalpris på strøm/gass", "Maksimalpris på billetter", "Maksimalpris på billetter til store kultur- og idrettsarrangement", "Minstepris på melk"],
       explanation: "Alle makspris-casene kom 2022 eller senere, og handler om strøm/gass etter energikrisen.",
     },
     {
@@ -1226,7 +1226,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I arbeidsmarkedet er bedriftene:",
-      options: ["Kjøpere av arbeid (fallende arbeidsetterspørsel i lønn)", "Selgere av arbeid", "Kortsiden ved makspris", "Uten betydning"],
+      options: ["Kjøpere av arbeid (fallende arbeidsetterspørsel i lønn)", "Kortsiden ved makspris", "Uten reell betydning for lønnsdannelsen, som styres helt av arbeidernes tilbud", "Kortsiden ved makspris fordi de er de eneste som kan tvinges til å levere arbeid"],
       explanation: "Bedriftene etterspør arbeid; ved minstelønn over likevekt er deres etterspørsel kortsiden som setter sysselsettingen.",
     },
     {
@@ -1236,24 +1236,24 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Selv med perfekt rasjonering faller SO ved makspris fordi:",
-      options: ["Omsatt mengde er lavere enn den effektive (mengdetap)", "Prisen er for høy", "Alle får kjøpe", "Tilbudet øker"],
+      options: ["Omsatt mengde er lavere enn den effektive (mengdetap)", "Prisen er for høy", "Prisen er satt for høyt, slik at kjøperne trekker seg ut og etterspørselen svikter", "Tilbudet øker fordi selgerne responderer på den lavere maksprisen med mer produksjon"],
       explanation: "Dødvektstrekanten fra omsatt mengde til likevektsmengde er mengdetapet, uavhengig av rasjoneringsmåte.",
     },
     {
       question: "Mangelen ved en makspris beregnes som:",
-      options: ["Etterspurt minus tilbudt mengde ved maksprisen", "Tilbudt minus etterspurt mengde", "Likevektsmengde minus tilbudt", "Maksprisen ganger mengden"],
+      options: ["Etterspurt minus tilbudt mengde ved maksprisen", "Tilbudt minus etterspurt mengde", "Maksprisen ganget med den omsatte mengden for å finne verdien av mangelen", "Likevektsmengde minus tilbudt"],
       explanation: "Etterspørselsoverskuddet er $x_D(p_{\\max}) - x_T(p_{\\max})$ — det som mangler for å dekke alle kjøpere.",
     },
     {
       question: "Hva bør et fullstendig svar om prisregulering inneholde i tillegg til effektivitetstapet?",
-      options: ["Anerkjennelse av fordelingsmotivet og et mindre vridende alternativ", "Bare regnestykket", "En moralsk fordømmelse", "Kun kortside-mengden"],
+      options: ["Anerkjennelse av fordelingsmotivet og et mindre vridende alternativ", "En moralsk fordømmelse", "Bare selve regnestykket for effektivitetstapet uten videre drøfting av motivene", "Kun kortside-mengden og prisen, siden fordelingen ligger utenfor selve modellen"],
       explanation: "Reguleringen har ofte et legitimt fordelingsformål; svaret veier dette mot tapet og peker på f.eks. kontantstøtte.",
     },
   ],
   'econ1210-3-4': [
     {
       question: "Første steg i firetrinnsmetoden er alltid å:",
-      options: ["Skifte riktig kurve riktig vei med nøyaktig beløpet", "Beregne dødvektstapet", "Finne delingen", "Regne statens inntekt"],
+      options: ["Skifte riktig kurve riktig vei med nøyaktig beløpet", "Beregne dødvektstapet", "Finne delingen mellom kjøper og selger før kurvene i det hele tatt er flyttet på", "Regne statens inntekt"],
       explanation: "Rekkefølgen er: skift → ny likevekt → deling → velferd. Skiftet kommer først, med mekanismen.",
     },
     {
@@ -1273,17 +1273,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skatteinntekten $t \\cdot x_1$ i velferdsregnskapet er:",
-      options: ["En overføring, ikke et samfunnsøkonomisk tap", "En del av dødvektstapet", "Alltid lik dødvektstapet", "Verdi som forsvinner"],
+      options: ["En overføring, ikke et samfunnsøkonomisk tap", "Alltid lik dødvektstapet", "En del av dødvektstapet, ettersom pengene forsvinner ut av markedslikevekten", "En del av dødvektstapet"],
       explanation: "Pengene går til staten, ikke ut av samfunnet. Bare dødvektstrekanten er ekte tapt verdi.",
     },
     {
       question: "En avgift og en makspris skiller seg ved at:",
-      options: ["Avgiften gir ingen mangel og gir statsinntekt; maksprisen gir mangel og rasjonering", "De er identiske", "Avgiften gir mangel", "Maksprisen gir statsinntekt"],
+      options: ["Avgiften gir ingen mangel og gir statsinntekt; maksprisen gir mangel og rasjonering", "De er i praksis helt identiske: begge kiler inn en forskjell og gir staten inntekt", "Avgiften skaper mangel og krever rasjonering, mens maksprisen klarerer markedet greit", "Maksprisen gir staten inntekt gjennom omsetningen, mens avgiften bare vrir mengden"],
       explanation: "Avgiften lar markedet klarere seg til høyere pris; maksprisen kutter til kortsiden og skaper mangel som må rasjoneres.",
     },
     {
       question: "En rask kontroll av delingen er at:",
-      options: ["Kjøpers byrde pluss selgers byrde er nøyaktig beløpet", "Prisen doblet seg", "Dødvektstapet er null", "Mengden er uendret"],
+      options: ["Kjøpers byrde pluss selgers byrde er nøyaktig beløpet", "Dødvektstapet er null", "Dødvektstapet er lik null når delingen mellom partene er regnet ut på riktig måte", "Prisen kjøperne betaler har doblet seg sammenlignet med den opprinnelige likevekten"],
       explanation: "Byrdene summerer alltid til hele skatten/subsidien — en nyttig sjekk mot regnefeil.",
     },
     {
@@ -1298,32 +1298,32 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved en subsidie ligger dødvektstrekanten:",
-      options: ["Til høyre for $x_0$ (overproduksjon)", "Til venstre for $x_0$", "På prisaksen", "Nøyaktig i likevekten"],
+      options: ["Til høyre for $x_0$ (overproduksjon)", "Til venstre for $x_0$", "Til venstre for $x_0$, siden subsidien presser mengden ned under likevekten", "Nøyaktig i likevekten"],
       explanation: "Subsidien gir for stor mengde, så trekanten ligger til høyre — motsatt av skattens.",
     },
     {
       question: "Ved makspris under likevekt bestemmes omsatt mengde av:",
-      options: ["Tilbudet (kortsiden)", "Etterspørselen", "Maksprisen", "Gjennomsnittet"],
+      options: ["Tilbudet (kortsiden)", "Etterspørselen", "Maksprisen selv, som direkte leser av den omsatte mengden på begge kurvene samtidig", "Gjennomsnittet"],
       explanation: "Kortside-regelen: ingen kan tvinges til å selge, så tilbudt mengde ved maksprisen er den bindende.",
     },
     {
       question: "Å oppgi delingsbrøken uten verbal tolkning er:",
-      options: ["Feilkatalog #6 (tall uten tolkning)", "Full uttelling", "En pluss-markør", "Bare feil ved subsidie"],
+      options: ["Feilkatalog #6 (tall uten tolkning)", "Bare feil ved subsidie", "En klar pluss-markør hos sensor som viser at man behersker regneteknikken godt", "En pluss-markør"],
       explanation: "Sensor krever ord til tallene: forklar hvorfor siden bærer den andelen den gjør.",
     },
     {
       question: "Dødvektstap ved en avgift beregnes som:",
-      options: ["$\\frac{1}{2}t(x_0 - x_1)$", "$t \\cdot x_1$", "$\\frac{1}{2}t \\cdot x_0$", "$t(x_0 - x_1)$"],
+      options: ["$\\frac{1}{2}t(x_0 - x_1)$", "$\\frac{1}{2}t \\cdot x_0$", "$t(x_0 - x_1)$, uten faktoren en halv foran mengdeendringen i beregningen", "$t(x_0 - x_1)$"],
       explanation: "Trekanten mellom E og T fra ny til gammel mengde: $\\frac{1}{2}t(x_0 - x_1)$.",
     },
     {
       question: "Selgerne bærer mest av en avgift når:",
-      options: ["Tilbudet er minst prisfølsomt (bratt T, liten $c$)", "Tilbudet er svært prisfølsomt", "Etterspørselen er bratt", "Avgiften er liten"],
+      options: ["Tilbudet er minst prisfølsomt (bratt T, liten $c$)", "Tilbudet er svært prisfølsomt", "Avgiften er liten nok til at hele beløpet naturlig havner hos selgersiden i markedet", "Etterspørselen er bratt"],
       explanation: "Den minst prisfølsomme siden kan vanskeligst trekke seg ut og bærer mest; bratt T (liten $c$) betyr høy selgerandel $\\frac{b}{b+c}$.",
     },
     {
       question: "Hvorfor faller SO ved en subsidie i et velfungerende marked?",
-      options: ["Statens utlegg overstiger KO+PO-gevinsten (overproduksjon)", "KO faller", "Prisen stiger", "Selgerne taper"],
+      options: ["Statens utlegg overstiger KO+PO-gevinsten (overproduksjon)", "Selgerne taper", "Selgerne taper på ordningen fordi subsidien presser deres netto pris nedover", "KO faller, fordi kjøperne må betale mer per enhet etter at subsidien er innført"],
       explanation: "Subsidie-paradokset: begge parter tjener, men merenhetene koster mer enn de er verdt, og utlegget er størst.",
     },
     {
@@ -1338,76 +1338,76 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Mengden endrer seg alltid slik at:",
-      options: ["Skatt krymper den, subsidie øker den", "Begge krymper den", "Begge øker den", "Ingen av dem endrer den"],
+      options: ["Skatt krymper den, subsidie øker den", "Ingen av dem endrer den", "Ingen av dem endrer mengden, fordi partene alltid velter kilen over på hverandre", "Begge krymper den"],
       explanation: "Avgift kiler inn og reduserer mengden ($x_1 < x_0$); subsidie øker den ($x_1 > x_0$).",
     },
     {
       question: "Å begrunne T-skiftet i anleggsspråket («enhetskostnaden endres i alle anlegg») er:",
-      options: ["Mekanismen sensor honorerer mer enn pilen", "Bortkastet tid", "Bare relevant for subsidie", "Feil modell"],
+      options: ["Mekanismen sensor honorerer mer enn pilen", "Bare relevant for subsidie", "Bortkastet tid, siden sensor uansett bare vurderer selve pilen i figuren", "Bortkastet tid"],
       explanation: "Sensor gir mer for begrunnelsen av skiftet enn for selve pilen i figuren.",
     },
     {
       question: "I den integrerte oppgaven (skatt vs. makspris) er hovedforskjellen at:",
-      options: ["Maksprisen skaper en mangel som må rasjoneres, avgiften ikke", "De gir samme mengde", "Avgiften skaper mangel", "Maksprisen gir statsinntekt"],
+      options: ["Maksprisen skaper en mangel som må rasjoneres, avgiften ikke", "Maksprisen gir statsinntekt", "De gir nøyaktig samme omsatte mengde, bare fordelt ulikt mellom kjøper og selger", "Avgiften skaper en mangel som må rasjoneres, mens maksprisen lar markedet klarere seg"],
       explanation: "Avgiften lar markedet klarere seg (ingen mangel); maksprisen kutter til kortsiden og etterlater et etterspørselsoverskudd.",
     },
   ],
   'econ1210-3-5': [
     {
       question: "Kjernen i «som samfunnsøkonom»-svaret på næringsstøtte er:",
-      options: ["Alternativkostnaden — ressursene kaster mer av seg andre steder", "At bedriften bør spare mer", "At staten har råd", "At arbeidsplasser alltid må reddes"],
+      options: ["Alternativkostnaden — ressursene kaster mer av seg andre steder", "At arbeidsplasser alltid må reddes", "At bedriften selv bør spare mer og kutte kostnader før den ber staten om støtte", "At staten uansett har god råd til å dekke tapet uten at det koster samfunnet noe"],
       explanation: "Subsidien senker de private kostnadene, men ikke ressursenes alternativkostnad — det er sløseriet.",
     },
     {
       question: "En subsidie til en ulønnsom bedrift endrer:",
-      options: ["De private kostnadene, men ikke alternativkostnaden", "Alternativkostnaden, men ikke de private", "Begge like mye", "Ingen av dem"],
+      options: ["De private kostnadene, men ikke alternativkostnaden", "Alternativkostnaden, men ikke de private", "Begge kostnadene like mye, siden subsidien senker hele samfunnets ressursbruk", "Alternativkostnaden, men ikke bedriftens egne private kostnader ved produksjonen"],
       explanation: "Staten dekker en del av bedriftens egne kostnader, men ressursenes verdi i beste alternative anvendelse er uendret.",
     },
     {
       question: "«Tapte arbeidsplasser» er ikke det samme som «tapt verdiskaping» fordi:",
-      options: ["Arbeidskraften frigjøres til mer produktive anvendelser", "Arbeidsplasser aldri betyr noe", "Staten alltid kompenserer", "Bedriften uansett overlever"],
+      options: ["Arbeidskraften frigjøres til mer produktive anvendelser", "Arbeidsplasser aldri betyr noe", "Staten alltid kompenserer de oppsagte fullt ut, så ingen reell verdi går tapt", "Arbeidsplasser i seg selv aldri betyr noe for verdiskapingen i samfunnsøkonomien"],
       explanation: "Ved nedleggelse forsvinner ikke arbeidskraften; den kan skape mer verdi et annet sted, så samlet verdiskaping stiger på sikt.",
     },
     {
       question: "Når kan støtte til en ulønnsom bedrift likevel forsvares?",
-      options: ["Ved en reell, upriset positiv eksternalitet", "Når bedriften er stor", "Når mange jobber der", "Aldri"],
+      options: ["Ved en reell, upriset positiv eksternalitet", "Når bedriften er stor", "Når bedriften er så stor at en nedleggelse ville rammet hele regionen hardt", "Når mange jobber der"],
       explanation: "Positive eksternaliteter (kunnskapsspredning) betyr at markedet produserer for lite; da kan støtte flytte innsatsen mot riktig nivå.",
     },
     {
       question: "Et avgiftsfritak til en ulønnsom, forurensende bedrift gir:",
-      options: ["Dobbel ineffektivitet: mer utslipp OG fastlåst ressursbruk", "Bedre miljø", "Mer effektiv produksjon", "Bare ett problem"],
+      options: ["Dobbel ineffektivitet: mer utslipp OG fastlåst ressursbruk", "Mer effektiv produksjon", "Renere miljø fordi bedriften får råd til å investere i renseteknologi", "Mer effektiv drift ettersom fritaket senker de faste kostnadene per enhet"],
       explanation: "Fritaket fjerner utslippsprisingen (mer skade) og subsidierer ulønnsom drift (fastlåste ressurser) på én gang.",
     },
     {
       question: "Å gi mest støtte til bedriftene med lavest overskudd:",
-      options: ["Premierer ofte de minst produktive og vrir ressursbruken mot dårligste anvendelser", "Er alltid god fordeling", "Øker samlet verdiskaping", "Er kostnadseffektivt"],
+      options: ["Premierer ofte de minst produktive og vrir ressursbruken mot dårligste anvendelser", "Øker samlet verdiskaping ved at flere bedrifter overlever og holder folk i arbeid", "Gir alltid den mest rettferdige fordelingen fordi de svakeste bedriftene løftes opp", "Er kostnadseffektivt fordi støtten treffer nettopp der behovet er aller størst"],
       explanation: "Lavt overskudd henger ofte sammen med lav produktivitet; å belønne det låser ressurser i de dårligste anvendelsene.",
     },
     {
       question: "En vanlig feil i denne sjangeren er å:",
-      options: ["Skrive et moralessay uten det økonomiske kjerneargumentet", "Nevne alternativkostnad", "Anerkjenne de private tapene", "Nevne unntaket"],
+      options: ["Skrive et moralessay uten det økonomiske kjerneargumentet", "Anerkjenne de private tapene", "Legge for stor vekt på alternativkostnaden og glemme de menneskelige hensynene", "Anerkjenne de private tapene grundig, men samtidig undervurdere miljøgevinsten helt"],
       explanation: "Feilkatalog #10-slektning: engasjement uten alternativkostnads-argumentet gir ikke uttelling.",
     },
     {
       question: "Hvordan skiller alternativkostnadsdrøftingen seg fra subsidie-paradokset?",
-      options: ["Paradokset gjelder ett marked; alternativkostnad gjelder ressursenes beste bruk ellers", "De er identiske", "Paradokset er verbalt, alternativkostnad er grafisk", "Alternativkostnad gjelder bare monopol"],
+      options: ["Paradokset gjelder ett marked; alternativkostnad gjelder ressursenes beste bruk ellers", "De er i praksis identiske, siden begge måler velferdstapet i det samme delmarkedet", "Alternativkostnad gjelder bare monopolmarkeder, mens paradokset gjelder frikonkurranse", "Paradokset besvares verbalt, mens alternativkostnad alltid krever en grafisk figuranalyse"],
       explanation: "Paradokset er velferdsregnskapet i markedet (overproduksjon); alternativkostnad handler om hva ressursene kunne skapt et annet sted.",
     },
     {
       question: "Den beste hjelpen til ansatte i en ulønnsom bedrift er ifølge samfunnsøkonomen:",
-      options: ["Å lette omstillingen (kompetanse, inntektssikring)", "Å subsidiere driften varig", "Å forby nedleggelse", "Å heve prisen på varen"],
+      options: ["Å lette omstillingen (kompetanse, inntektssikring)", "Å subsidiere driften varig", "Å forby nedleggelse ved lov slik at ingen ansatte kan miste jobben sin", "Å heve prisen på varen bedriften selger så inntektene og marginene bedres"],
       explanation: "Omstillingsstøtte ivaretar menneskene uten å låse ressursene i uproduktiv drift — både folk og verdiskaping vinner.",
     },
     {
       question: "«Som samfunnsøkonom»-oppgaven skal som regel besvares:",
-      options: ["Verbalt (argumentet, ikke figur/algebra)", "Med en detaljert figur", "Med full algebraisk utledning", "Med et regnestykke"],
+      options: ["Verbalt (argumentet, ikke figur/algebra)", "Med full algebraisk utledning", "Med en detaljert figur som viser tilbud, etterspørsel og velferdsarealene", "Med en detaljert figur"],
       explanation: "Oppgaven ber ofte eksplisitt om et verbalt svar; poenget er det klart formulerte økonomiske argumentet.",
     },
   ],
   'econ1210-4-1': [
     {
       question: "Hva er en ekstern virkning (eksternalitet)?",
-      options: ["En kostnad eller gevinst som rammer/tilfaller andre enn beslutningstakeren og ikke prises i markedet", "En kostnad som produsenten selv betaler for hver enhet", "En avgift staten legger på forurensende varer", "Prisforskjellen mellom to konkurrerende markeder"],
+      options: ["En kostnad eller gevinst som rammer/tilfaller andre enn beslutningstakeren og ikke prises i markedet", "En avgift staten legger på forurensende varer for å hente inn ekstra skatteinntekt", "En kostnad som produsenten selv bærer og betaler for hver eneste enhet han lager", "Prisforskjellen som oppstår mellom to konkurrerende markeder for samme type vare"],
       explanation: "Kjernen er at virkningen rammer tredjeparter og ikke prises i markedet, så beslutningstakeren ignorerer den.",
     },
     {
@@ -1422,7 +1422,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er samfunnsøkonomisk marginalkostnad (SMK)?",
-      options: ["Privat marginalkostnad (T-kurven) pluss marginal skadekostnad", "Privat marginalkostnad minus marginal skadekostnad", "Bare skaden på tredjeparter", "Etterspørselskurvens høyde"],
+      options: ["Privat marginalkostnad (T-kurven) pluss marginal skadekostnad", "Privat marginalkostnad minus marginal skadekostnad", "Etterspørselskurvens høyde ved den mengden markedet faktisk omsetter i likevekt", "Privat marginalkostnad (T-kurven) minus den marginale skadekostnaden på tredjeparter"],
       explanation: "SMK legger skaden på tredjeparter til den private kostnaden; ved konstant skade ligger den parallelt over T.",
     },
     {
@@ -1437,52 +1437,52 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En Pigou-avgift lik den marginale skaden vil",
-      options: ["fjerne dødvektstapet av eksternaliteten", "skape et nytt dødvektstap", "øke omsatt mengde", "ikke endre noe"],
+      options: ["fjerne dødvektstapet av eksternaliteten", "skape et nytt dødvektstap", "ikke endre noe siden bedriften uansett fortsetter å produsere den samme mengden", "øke omsatt mengde"],
       explanation: "Fordi utgangspunktet var ineffektivt (for mye produsert), fører avgiften mengden til optimum og fjerner tapet.",
     },
     {
       question: "Hvorfor virker en avgift ULIKT i et velfungerende marked og mot en eksternalitet?",
-      options: ["I et velfungerende marked skaper avgiften et tap; mot en eksternalitet fjerner den ett", "Avgiften virker likt i begge tilfeller", "Mot en eksternalitet skaper avgiften alltid et større tap", "I et velfungerende marked har avgiften ingen effekt"],
+      options: ["I et velfungerende marked skaper avgiften et tap; mot en eksternalitet fjerner den ett", "Avgiften virker nøyaktig likt i begge tilfeller fordi den alltid vrir mengden nedover", "Mot en eksternalitet skaper avgiften alltid et enda større tap enn i et sunt marked", "I et velfungerende marked har avgiften ingen reell effekt på mengden som omsettes"],
       explanation: "Virkningen avhenger av om utgangspunktet var effektivt: velfungerende marked = tap skapes; eksternalitet = tap fjernes.",
     },
     {
       question: "Speilbildet av en Pigou-avgift ved en POSITIV eksternalitet er",
-      options: ["en subsidie lik den marginale eksterne gevinsten", "en høyere avgift", "et forbud", "en maksimalpris"],
+      options: ["en subsidie lik den marginale eksterne gevinsten", "en høyere avgift", "et forbud mot at private aktører kan produsere for lite av det gode godet", "en høyere avgift som fanger den ekstra samfunnsverdien produksjonen skaper"],
       explanation: "Ved for lite produksjon retter en subsidie lik den eksterne gevinsten opp mengden.",
     },
     {
       question: "Kolliderer en subsidie ved positiv eksternalitet med subsidie-paradokset?",
-      options: ["Nei — paradokset gjelder kun i et velfungerende marked", "Ja — subsidie senker alltid SO", "Ja — men bare hvis skaden er stor", "Nei — fordi subsidier alltid øker SO"],
+      options: ["Nei — paradokset gjelder kun i et velfungerende marked", "Nei — fordi subsidier alltid øker SO", "Ja — enhver subsidie senker alltid samfunnsøkonomisk overskudd uansett markedstype", "Ja — men bare hvis skaden er stor"],
       explanation: "Subsidie-paradokset gjelder velfungerende markeder; ved markedssvikt kan en subsidie fjerne et tap.",
     },
     {
       question: "At avgiftsinntekten overstiger den samlede skaden betyr",
-      options: ["ikke at avgiften er for høy — satsen settes ved marginal skade", "at avgiften er for høy og bør senkes", "at avgiften er for lav", "at markedet er effektivt"],
+      options: ["ikke at avgiften er for høy — satsen settes ved marginal skade", "at avgiften er for høy og bør senkes", "at avgiften er satt for høyt og derfor bør senkes ned mot den samlede skaden", "at markedet allerede er effektivt siden staten henter inn mer enn hele skaden"],
       explanation: "Avgiften kreves inn på alle enheter, mens riktig sats bestemmes av den marginale skaden — total inntekt er irrelevant for satsen.",
     },
     {
       question: "I figuren ligger SMK-kurven (ved konstant skade)",
-      options: ["parallelt et fast beløp over T-kurven", "parallelt under T-kurven", "sammen med E-kurven", "loddrett gjennom likevekten"],
+      options: ["parallelt et fast beløp over T-kurven", "loddrett gjennom likevekten", "sammenfallende med E-kurven, ettersom skaden bæres av kjøperne i markedet", "parallelt under T-kurven"],
       explanation: "Ved konstant marginal skade er SMK bare T løftet med skadebeløpet i hele lengden.",
     },
     {
       question: "Dødvektstapet av en uregulert negativ eksternalitet er",
-      options: ["trekanten mellom SMK og E fra riktig mengde til markedsmengden", "hele arealet under E-kurven", "statens avgiftsinntekt", "trekanten mellom T og prisaksen"],
+      options: ["trekanten mellom SMK og E fra riktig mengde til markedsmengden", "trekanten mellom T og prisaksen", "hele arealet under E-kurven fram til den mengden markedet faktisk omsetter", "statens samlede avgiftsinntekt regnet som satsen multiplisert med solgt mengde"],
       explanation: "For enhetene mellom optimum og markedsmengde er SMK høyere enn E — trekanten mellom dem er tapt verdi.",
     },
     {
       question: "Hva menes med å 'internalisere' en eksternalitet?",
-      options: ["Å få beslutningstakeren til å ta inn over seg kostnaden/gevinsten for andre", "Å forby produksjonen helt", "Å flytte produksjonen til utlandet", "Å la markedet ordne opp selv"],
+      options: ["Å få beslutningstakeren til å ta inn over seg kostnaden/gevinsten for andre", "Å flytte produksjonen til utlandet", "Å forby produksjonen helt slik at den skadelige aktiviteten opphører fullstendig", "Å flytte produksjonen til utlandet slik at skaden rammer noen andre enn oss selv"],
       explanation: "En avgift/subsidie lik den eksterne virkningen får produsenten til å se den sanne samfunnskostnaden.",
     },
     {
       question: "Hvilket er et eksempel på en NEGATIV eksternalitet?",
-      options: ["CO2-utslipp fra en fabrikk", "Vaksinering", "Grunnforskning", "Birøkt og pollinering"],
+      options: ["CO2-utslipp fra en fabrikk", "Birøkt og pollinering", "Vaksinering, som beskytter både den vaksinerte og uvaksinerte i nærmiljøet mot smitte", "Grunnforskning"],
       explanation: "Utslipp påfører tredjeparter en kostnad; de tre andre gir tredjeparter en gevinst (positive).",
     },
     {
       question: "Hvilket er et eksempel på en POSITIV eksternalitet?",
-      options: ["Vaksinering som beskytter andre", "Røyk fra en vedovn", "Kø på veien", "Avrenning fra oppdrett"],
+      options: ["Vaksinering som beskytter andre", "Avrenning fra oppdrett", "Røyk fra en vedovn som plager naboene og forringer luftkvaliteten i hele nabolaget", "Røyk fra en vedovn"],
       explanation: "Vaksinen beskytter også uvaksinerte; de andre påfører tredjeparter kostnader (negative).",
     },
     {
@@ -1492,84 +1492,84 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er samfunnsøkonomisk optimum ved en eksternalitet der utslippet er null?",
-      options: ["Nei — noe utslipp er verdt kostnaden hvis betalingsvilligheten er høy nok", "Ja — alt utslipp bør elimineres", "Ja — hvis skaden er positiv", "Nei — optimum er alltid markedsmengden"],
+      options: ["Nei — noe utslipp er verdt kostnaden hvis betalingsvilligheten er høy nok", "Nei — optimum er alltid markedsmengden", "Ja — så lenge den marginale skaden er positiv, er null utslipp det eneste riktige målet", "Ja — alt utslipp bør elimineres fullstendig fordi enhver skade på naturen er uakseptabel"],
       explanation: "Optimum er der E = SMK; dette gir positiv mengde så lenge betalingsvilligheten dekker den sanne kostnaden.",
     },
     {
       question: "En vanlig feil i miljøoppgaver (feilkatalog #10) er",
-      options: ["å skrive moralessay uten mekanismen (privat vs. samfunnskostnad → for mye)", "å tegne SMK-kurven", "å beregne den riktige mengden", "å definere eksternaliteten presist"],
+      options: ["å skrive moralessay uten mekanismen (privat vs. samfunnskostnad → for mye)", "å definere eksternaliteten presist", "å tegne SMK-kurven inn i figuren fremfor å nøye seg med en verbal forklaring", "å beregne den samfunnsøkonomisk riktige mengden i stedet for å drøfte den kvalitativt"],
       explanation: "Sensor krever kjerneargumentet: markedet ser private, ikke samfunnsøkonomiske kostnader, så det produserer for mye.",
     },
     {
       question: "Hvorfor kalles en eksternalitet en form for markedssvikt?",
-      options: ["Fordi skaden/gevinsten mangler en pris, så markedet gir ineffektivt utfall", "Fordi bedriften går konkurs", "Fordi staten alltid griper inn", "Fordi prisen er for høy"],
+      options: ["Fordi skaden/gevinsten mangler en pris, så markedet gir ineffektivt utfall", "Fordi staten alltid griper inn", "Fordi bedriften til slutt går konkurs når den ikke får dekket alle kostnadene sine", "Fordi staten alltid må gripe inn og regulere markedet med avgifter og strenge forbud"],
       explanation: "Uten en pris på skaden overforbrukes den, og markedslikevekten maksimerer ikke SO — det er markedssvikt.",
     },
   ],
   'econ1210-4-2': [
     {
       question: "Hva er Grønn skattekommisjons tre kriterier for klimavirkemidler?",
-      options: ["Måloppnåelse, kostnadseffektivitet og at forurenser betaler", "Pris, mengde og teknologi", "Effektivitet, likhet og vekst", "Avgift, kvoter og forbud"],
+      options: ["Måloppnåelse, kostnadseffektivitet og at forurenser betaler", "Effektivitet, likhet og vekst", "Pris på utslipp, samlet mengde og hvilken renseteknologi bedriftene bør velge", "Effektivitet i produksjonen, likhet i fordelingen og vekst i samlet verdiskaping"],
       explanation: "NOU 2015:15 vurderer virkemidler mot måloppnåelse (styring), kostnadseffektivitet og forurenser betaler.",
     },
     {
       question: "Kjerneargumentet for hvorfor en lik utslippspris er billigst er:",
-      options: ["Lik pris → like marginale rensekostnader → billigst samlet kutt", "Lik pris tvinger alle bedrifter til å kutte like mye", "Lik pris gir staten mest inntekt", "Lik pris fjerner all forurensning"],
+      options: ["Lik pris → like marginale rensekostnader → billigst samlet kutt", "Lik pris tvinger alle bedrifter til å kutte like mye", "Lik pris tvinger alle bedriftene til å kutte nøyaktig like mange tonn utslipp hver", "Lik pris gir staten størst mulig avgiftsinntekt og dermed mest penger til klimatiltak"],
       explanation: "En felles pris får hver bedrift til å kutte alt billigere enn prisen, så rensekostnadene utjevnes og de billigste kuttene tas først.",
     },
     {
       question: "En utslippsavgift har hvilken svakhet mot de tre kriteriene?",
-      options: ["Usikker måloppnåelse — myndighetene setter prisen, ikke mengden", "Svak kostnadseffektivitet", "Forurenser betaler ikke", "Den gir ingen innovasjonsinsentiv"],
+      options: ["Usikker måloppnåelse — myndighetene setter prisen, ikke mengden", "Den gir ingen innovasjonsinsentiv", "Svak kostnadseffektivitet fordi de billigste utslippskuttene ikke blir tatt først", "At den ikke gir noe insentiv til innovasjon i renere og mer klimavennlig teknologi"],
       explanation: "Avgiften er kostnadseffektiv og lar forurenser betale, men hvor mye utslippene faller er usikkert (avhenger av rensekostnadene).",
     },
     {
       question: "Et system med omsettelige kvoter gir hvilken fordel over en avgift?",
-      options: ["Eksakt måloppnåelse — antall kvoter er utslippstaket", "Lavere kostnad for bedriftene alltid", "Ingen behov for et marked", "At forurenser slipper å betale"],
+      options: ["Eksakt måloppnåelse — antall kvoter er utslippstaket", "Lavere kostnad for bedriftene alltid", "Lavere kostnad for bedriftene i alle tilfeller fordi kvotene deles ut helt gratis", "At forurenser slipper å betale"],
       explanation: "Kvoter fastsetter mengden direkte, så utslippsmålet nås eksakt; avgiften gir usikker mengde.",
     },
     {
       question: "Svekker gratis kvotetildeling kostnadseffektiviteten?",
-      options: ["Nei — kvoten har en alternativkostnad lik kvoteprisen, så bedriften kutter like mye", "Ja — gratis kvoter gir ingen grunn til å kutte", "Ja — men bare for store bedrifter", "Nei — fordi gratis kvoter øker utslippstaket"],
+      options: ["Nei — kvoten har en alternativkostnad lik kvoteprisen, så bedriften kutter like mye", "Ja — gratis kvoter gir ingen grunn til å kutte", "Ja — men bare for de store bedriftene som mottar en stor andel av kvotene helt gratis", "Ja — gratis kvoter gir bedriften ingen grunn til å kutte siden utslippet nå er kostnadsfritt"],
       explanation: "Å bruke en gratis kvote betyr å gi avkall på å selge den; å slippe ut koster kvoteprisen uansett, så kuttet er det samme.",
     },
     {
       question: "Hva endrer gratis kvotetildeling da (i stedet for effektiviteten)?",
-      options: ["Fordelingen og kriteriet «forurenser betaler»", "Kvoteprisen", "Utslippstaket", "Bedriftenes rensekostnader"],
+      options: ["Fordelingen og kriteriet «forurenser betaler»", "Bedriftenes rensekostnader", "Kvoteprisen, som presses ned når bedriftene ikke lenger må betale for tildelingen", "Utslippstaket"],
       explanation: "Bedriftene får en verdioverføring (kvotene gratis), så forurenser betaler mindre — men effektiviteten er upåvirket.",
     },
     {
       question: "Hovedforskjellen mellom avgift og kvoter er:",
-      options: ["Avgift fastsetter prisen (usikker mengde); kvoter fastsetter mengden (usikker pris)", "Avgift er kostnadseffektiv, kvoter er ikke", "Kvoter lar forurenser slippe å betale, avgift ikke", "Avgift gir eksakt måloppnåelse, kvoter usikker"],
+      options: ["Avgift fastsetter prisen (usikker mengde); kvoter fastsetter mengden (usikker pris)", "Kvoter lar forurenser slippe å betale, avgift ikke", "Avgift er kostnadseffektiv, mens kvotesystemer aldri klarer å utjevne rensekostnadene", "Kvoter lar forurenser slippe å betale for utslippet, mens en avgift alltid krever betaling"],
       explanation: "Begge setter én pris på utslipp; forskjellen er om myndighetene fastsetter pris eller mengde.",
     },
     {
       question: "Hvorfor er direkte regulering (likt pålegg per bedrift) ofte kostnadsineffektiv?",
-      options: ["Uten kjennskap til bedriftenes rensekostnader fordeles ikke kuttene der de er billigst", "Fordi den alltid gir for lite kutt", "Fordi forurenser betaler for mye", "Fordi den gir for sterkt innovasjonsinsentiv"],
+      options: ["Uten kjennskap til bedriftenes rensekostnader fordeles ikke kuttene der de er billigst", "Fordi den gir for sterkt innovasjonsinsentiv", "Fordi forurenser da må betale langt mer per tonn enn den marginale skaden utslippet faktisk påfører samfunnet", "Fordi et likt pålegg gir bedriftene et for sterkt insentiv til å utvikle ny og dyr renseteknologi de ikke trenger"],
       explanation: "Likt pålegg gir ulike marginale rensekostnader; billige kutt står ugjort mens dyre tas — dyrere enn nødvendig.",
     },
     {
       question: "Hva er informasjonsproblemet ved direkte regulering?",
-      options: ["Myndighetene kjenner ikke hver bedrifts rensekostnader og kan ikke plassere kuttene billigst", "Bedriftene vet ikke hva de skal kutte", "Kvoteprisen er ukjent", "Staten får ikke inn nok inntekter"],
+      options: ["Myndighetene kjenner ikke hver bedrifts rensekostnader og kan ikke plassere kuttene billigst", "Bedriftene vet ikke hva de skal kutte", "Bedriftene selv vet ikke hvilke utslipp de bør kutte først, og myndighetene må derfor rangere tiltakene for dem", "Staten mangler informasjon om hvor mye avgiftsinntekter reguleringen vil gi, og kan ikke budsjettere med provenyet"],
       explanation: "En pris løser problemet automatisk: bedriften avslører kostnaden gjennom hvor mye den kutter kontra betaler.",
     },
     {
       question: "Hvorfor gir en utslippspris et sterkere innovasjonsinsentiv enn et påbud?",
-      options: ["Den belønner ethvert ekstra kutt billigere enn prisen, også etter at målet er nådd", "Den forbyr ny teknologi", "Den gir bedriftene gratis kvoter", "Den setter mengden, ikke prisen"],
+      options: ["Den belønner ethvert ekstra kutt billigere enn prisen, også etter at målet er nådd", "Den gir bedriftene gratis kvoter", "Den deler ut gratis kvoter til de mest innovative bedriftene, slik at de får finansiert forskningen på ren produksjon", "Den fastsetter den samlede utslippsmengden i stedet for prisen, og gir dermed bedriftene forutsigbar avkastning på tiltak"],
       explanation: "Med et påbud er det ingen belønning for å kutte mer enn kravet; med en pris lønner ethvert billig kutt seg.",
     },
     {
       question: "Er subsidier til grønne alternativer (f.eks. elbil) et godt klimavirkemiddel?",
-      options: ["Som regel dårlig — det vrir mot ett alternativ og forurenser betaler ikke", "Alltid best fordi det er populært", "Best fordi staten plukker riktig teknologi", "Bra fordi det gir eksakt måloppnåelse"],
+      options: ["Som regel dårlig — det vrir mot ett alternativ og forurenser betaler ikke", "Best fordi staten plukker riktig teknologi", "Det beste fordi staten da selv plukker ut den teknologien som er billigst og mest lovende for framtiden", "Alltid det beste virkemiddelet fordi tiltaket er politisk populært og gir høy oppslutning i befolkningen"],
       explanation: "Subsidien vrir mot ett alternativ også relativt til andre, billigere kutt; forurenser betaler ikke; myndighetene må plukke vinnere.",
     },
     {
       question: "Under hvilken betingelse kan en grønn subsidie likevel forsvares?",
-      options: ["Hvis alternativet selv har en positiv ekstern virkning (teknologiutvikling)", "Hvis bedriftene ber om den", "Hvis avgiften er for lav", "Aldri under noen betingelse"],
+      options: ["Hvis alternativet selv har en positiv ekstern virkning (teknologiutvikling)", "Aldri under noen betingelse", "Hvis bedriftene selv ber om subsidien og lover å bruke den til å kutte utslipp raskere enn ellers", "Hvis utslippsavgiften allerede er satt for lavt, slik at subsidien fungerer som et nødvendig supplement"],
       explanation: "Da retter subsidien opp en egen markedssvikt (teknologi-eksternaliteten), ikke klimaet, som håndteres billigere med en utslippspris.",
     },
     {
       question: "For hvilke utslipp passer en uniform (lik) utslippspris dårlig?",
-      options: ["Lokal forurensning der skaden avhenger av sted", "CO2-utslipp", "Jevnt fordelte klimagasser", "Utslipp fra store bedrifter"],
+      options: ["Lokal forurensning der skaden avhenger av sted", "Utslipp fra store bedrifter", "For globale CO2-utslipp der én lik pris treffer alle kilder likt uansett hvor de befinner seg", "Jevnt fordelte klimagasser"],
       explanation: "Der skaden varierer geografisk (avrenning, støy) blir en lik sats enten for lav eller for høy; da trengs stedstilpasning.",
     },
     {
@@ -1584,17 +1584,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med marginal rensekostnad?",
-      options: ["Kostnaden ved å kutte ett tonn til med utslipp", "Den totale kostnaden ved å rense alt", "Prisen på en kvote", "Avgiftssatsen per tonn"],
+      options: ["Kostnaden ved å kutte ett tonn til med utslipp", "Den totale kostnaden ved å rense alt", "Prisen bedriften må betale for én kvote i markedet gitt det gjeldende taket på utslipp", "Avgiftssatsen per tonn"],
       explanation: "Den varierer mellom bedrifter; kostnadseffektivt kutt utjevner de marginale rensekostnadene.",
     },
     {
       question: "Hvorfor har en gratis kvote likevel en alternativkostnad?",
-      options: ["Bruker bedriften kvoten selv, gir den avkall på å selge den til kvoteprisen", "Fordi staten krever betaling for den", "Fordi den utløper etter ett år", "Den har ingen alternativkostnad"],
+      options: ["Bruker bedriften kvoten selv, gir den avkall på å selge den til kvoteprisen", "Fordi staten krever betaling for den", "Fordi staten krever en løpende betaling for den gratis kvoten selv om den ble delt ut vederlagsfritt", "Fordi kvoten utløper etter ett år og må kjøpes på nytt, slik at bedriften pådrar seg en årlig utgift"],
       explanation: "Verdien den kunne fått ved salg er en reell kostnad ved å bruke kvoten — derfor kutter bedriften like mye.",
     },
     {
       question: "En vanlig feil i klimaoppgaven (feilkatalog #10) er:",
-      options: ["Moralessay uten mekanismen lik pris → like rensekostnader → billigst kutt", "Å bruke de tre kriteriene", "Å regne et talleksempel", "Å nevne gratiskvote-nyansen"],
+      options: ["Moralessay uten mekanismen lik pris → like rensekostnader → billigst kutt", "Å nevne gratiskvote-nyansen", "Å nevne nyansen om at også en gratis kvote har en alternativkostnad lik kvoteprisen", "Å regne et konkret talleksempel med to bedrifter som har ulike marginale rensekostnader"],
       explanation: "Sensor krever kjerneargumentet; et essay om at «vi må ta ansvar» uten mekanismen gir ikke full uttelling.",
     },
     {
@@ -1604,64 +1604,64 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En utslippsavgift på klima er i praksis:",
-      options: ["En Pigou-avgift på CO2 (pris lik marginal skade)", "En verdiavgift på prisen", "En subsidie til rene bedrifter", "Et forbud mot utslipp"],
+      options: ["En Pigou-avgift på CO2 (pris lik marginal skade)", "En subsidie til rene bedrifter", "Et direkte forbud mot utslipp over en fast grense som gjelder likt for alle bedrifter", "En verdiavgift på prisen"],
       explanation: "Avgiften internaliserer den negative eksternaliteten fra utslipp — nøyaktig Pigou-logikken fra kap. 4.1.",
     },
     {
       question: "Hva bestemmer kvoteprisen i et velfungerende kvotemarked?",
-      options: ["Handelen mellom bedrifter med ulike rensekostnader gitt taket", "Myndighetene setter den direkte", "Den er alltid null", "Den bestemmes av avgiftssatsen"],
+      options: ["Handelen mellom bedrifter med ulike rensekostnader gitt taket", "Myndighetene setter den direkte", "Den bestemmes av avgiftssatsen staten har fastsatt, som markedet bare kopierer inn i handelen", "Den bestemmes av avgiftssatsen"],
       explanation: "Bedrifter kjøper/selger til rensekostnadene utjevnes; kvoteprisen blir den felles utslippsprisen gitt det faste taket.",
     },
     {
       question: "Er samfunnsøkonomisk riktig utslippsnivå alltid null?",
-      options: ["Nei — noe utslipp er verdt kostnaden hvis nytten er høy nok", "Ja — alt utslipp bør elimineres", "Ja — hvis skaden er positiv", "Bare ved kvotesystemer"],
+      options: ["Nei — noe utslipp er verdt kostnaden hvis nytten er høy nok", "Ja — alt utslipp bør elimineres", "Ja, riktig nivå er null så lenge den marginale skaden av utslippet er positiv og over grensen", "Ja — hvis skaden er positiv"],
       explanation: "Riktig nivå balanserer nytte mot marginal skade (E = SMK); det gir positivt utslipp så lenge nytten dekker skaden.",
     },
     {
       question: "Hvorfor er strukturen (de tre kriteriene) så viktig i klimaoppgaven?",
-      options: ["Kriteriestrukturen ER sjangeren; å drøfte løst uten den er en typisk feil", "Fordi den gir flere sider tekst", "Fordi sensor bare teller kriterier", "Den er valgfri og gir ingen ekstra poeng"],
+      options: ["Kriteriestrukturen ER sjangeren; å drøfte løst uten den er en typisk feil", "Den er valgfri og gir ingen ekstra poeng", "Fordi sensor bare teller opp hvor mange kriterier som er nevnt, uten å vurdere selve innholdet", "Fordi kriteriestrukturen gir besvarelsen flere sider tekst og dermed et mer omfattende inntrykk"],
       explanation: "Sensor vurderer hvert virkemiddel systematisk mot måloppnåelse → kostnadseffektivitet → forurenser betaler.",
     },
     {
       question: "Hvorfor kan avgift og kvoter kalles «to sider av samme mynt»?",
-      options: ["Begge setter én pris på utslipp og utjevner marginale rensekostnader", "Begge gir eksakt måloppnåelse", "Begge lar forurenser slippe å betale", "Begge er direkte regulering"],
+      options: ["Begge setter én pris på utslipp og utjevner marginale rensekostnader", "Begge lar forurenser slippe å betale", "Begge gir helt eksakt måloppnåelse fordi de fastsetter både prisen og mengden utslipp samtidig", "Begge lar forurenser slippe å betale for utslippene sine, siden kostnaden veltes over på staten"],
       explanation: "De deler mekanismen (kostnadseffektiv utjevning); forskjellen er kun om man fastsetter pris eller mengde.",
     },
     {
       question: "En elbilsubsidie kan vri atferden uheldig fordi den:",
-      options: ["gjør elbil kunstig attraktiv også mot billigere kutt som kollektiv/sykkel/mindre kjøring", "gir for lite elbil", "alltid øker utslippene", "ikke koster staten noe"],
+      options: ["gjør elbil kunstig attraktiv også mot billigere kutt som kollektiv/sykkel/mindre kjøring", "alltid øker utslippene", "gir for lite elbil i markedet fordi subsidien er for lav til å endre folks kjøpsbeslutninger", "ikke koster staten noe, siden subsidien finansieres av bilkjøperne selv gjennom høyere avgifter"],
       explanation: "Den vrir mot ett bestemt alternativ i stedet for å la en utslippspris finne det billigste kuttet.",
     },
   ],
   'econ1210-4-3': [
     {
       question: "Hva betyr det at et gode er ikke-rivaliserende?",
-      options: ["Min bruk reduserer ikke det som er igjen til andre", "Ingen kan stenges ute fra godet", "Godet er gratis å produsere", "Bare én person kan bruke det"],
+      options: ["Min bruk reduserer ikke det som er igjen til andre", "Ingen kan stenges ute fra godet", "At ingen kan stenges ute fra å bruke godet, selv om de velger å ikke betale for det", "Bare én person kan bruke det"],
       explanation: "Ikke-rivalisering handler om mengden: flere kan bruke godet samtidig uten forringelse (marginalkostnad null).",
     },
     {
       question: "Hva betyr det at et gode er ikke-ekskluderbart?",
-      options: ["Ingen kan stenges ute selv om de ikke betaler", "Min bruk reduserer din", "Godet er dyrt", "Bare staten kan levere det"],
+      options: ["Ingen kan stenges ute selv om de ikke betaler", "Bare staten kan levere det", "At min bruk av godet reduserer hvor mye som er igjen til andre som vil bruke det samme", "Min bruk reduserer din"],
       explanation: "Ikke-ekskluderbarhet betyr at man ikke kan kreve betaling; det skaper gratispassasjer-problemet.",
     },
     {
       question: "Sensor godtar hvilke definisjoner av et kollektivt gode?",
-      options: ["Begge: Krugman & Wells (ikke-rivaliserende OG ikke-ekskluderbart) og CORE (kun ikke-rivaliserende)", "Bare Krugman & Wells", "Bare CORE", "Ingen — begrepet er utdatert"],
+      options: ["Begge: Krugman & Wells (ikke-rivaliserende OG ikke-ekskluderbart) og CORE (kun ikke-rivaliserende)", "Ingen — begrepet er utdatert", "Bare CORE-definisjonen som legger vekten utelukkende på at godet er ikke-rivaliserende i selve bruken", "Ingen av definisjonene, fordi begrepet kollektivt gode regnes som helt utdatert i moderne mikroøkonomi"],
       explanation: "Metaregelen er at begge godtas, helst begge nevnt; ha begge klare.",
     },
     {
       question: "Markedet leverer et kollektivt gode i",
-      options: ["for liten mengde (underforsyning)", "for stor mengde", "riktig mengde", "alltid null mengde"],
+      options: ["for liten mengde (underforsyning)", "alltid null mengde", "riktig mengde helt av seg selv uten inngrep", "alltid null mengde uansett betalingsvillighet"],
       explanation: "Gratispassasjer- og utestengningsproblemene gjør at markedet underforsyner kollektive goder.",
     },
     {
       question: "Hva er gratispassasjer-problemet?",
-      options: ["Alle håper andre betaler og sniker seg gratis med, så godet ikke produseres", "At godet blir for dyrt", "At ingen vil ha godet", "At staten tar for høy pris"],
+      options: ["Alle håper andre betaler og sniker seg gratis med, så godet ikke produseres", "At staten tar for høy pris", "At ingen egentlig vil ha godet, så det produseres ikke fordi etterspørselen er for svak", "At godet blir for dyrt å produsere fordi alle vil ha det samtidig og presser opp kostnaden"],
       explanation: "Når ingen kan stenges ute, kommer det ikke inn nok betaling — derfor må kollektive goder ofte finansieres offentlig.",
     },
     {
       question: "Hvorfor er en positiv pris på et ikke-rivaliserende gode ineffektiv?",
-      options: ["Én bruker til koster ingenting, så prisen stenger ute noen uten å spare kostnad", "Fordi prisen alltid er for lav", "Fordi godet er rivaliserende", "Fordi staten taper penger"],
+      options: ["Én bruker til koster ingenting, så prisen stenger ute noen uten å spare kostnad", "Fordi prisen alltid er for lav", "Fordi godet i praksis er rivaliserende, slik at hver ny bruker faktisk fortrenger de andre", "Fordi staten taper penger på å tilby godet gratis og må kompensere med høyere skatter ellers"],
       explanation: "Marginalkostnaden er null; utestenging av brukere med positiv betalingsvillighet er tapt verdi.",
     },
     {
@@ -1671,47 +1671,47 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken markedssvikt gir en fellesressurs?",
-      options: ["Overforbruk (allmenningens tragedie)", "Underforsyning", "Ingen svikt", "For høy pris"],
+      options: ["Overforbruk (allmenningens tragedie)", "Underforsyning", "Ingen markedssvikt oppstår ved uttak", "For høy pris som stenger ute brukere"],
       explanation: "Hver bruker ignorerer at eget uttak reduserer ressursen for andre — en negativ eksternalitet som gir overforbruk.",
     },
     {
       question: "Hva er hovedskillet mellom et kollektivt gode og en fellesressurs?",
-      options: ["Kollektivt gode er ikke-rivaliserende (for lite); fellesressurs er rivaliserende (for mye)", "De er det samme", "Fellesressurs underforsynes, kollektivt gode overforbrukes", "Bare kollektive goder er ikke-ekskluderbare"],
+      options: ["Kollektivt gode er ikke-rivaliserende (for lite); fellesressurs er rivaliserende (for mye)", "Fellesressurs underforsynes, kollektivt gode overforbrukes", "De er egentlig det samme, siden begge er ikke-ekskluderbare og finansieres offentlig av staten", "Fellesressursen underforsynes for lite, mens det kollektive godet overforbrukes og tømmes for raskt"],
       explanation: "Rivaliseringsaksen skiller dem og bestemmer om problemet er underforsyning eller overforbruk.",
     },
     {
       question: "Hvordan kan overforbruk av en fellesressurs løses?",
-      options: ["Med regulering (kvoter) eller eiendomsrett", "Med en subsidie til brukerne", "Ved å øke etterspørselen", "Ved å senke prisen"],
+      options: ["Med regulering (kvoter) eller eiendomsrett", "Med en subsidie til brukerne", "Med en subsidie til brukerne som gjør uttaket billigere og dermed mer bærekraftig over tid", "Ved å øke etterspørselen"],
       explanation: "Kvoter begrenser uttaket direkte; eiendomsrett gir eieren interesse av bærekraftig forvaltning.",
     },
     {
       question: "Hva er asymmetrisk informasjon?",
-      options: ["Den ene parten i en handel vet mer enn den andre", "Begge parter har full informasjon", "Prisen er ukjent", "Godet er ikke-rivaliserende"],
+      options: ["Den ene parten i en handel vet mer enn den andre", "Begge parter har full informasjon", "At prisen på godet er ukjent for begge parter helt til handelen faktisk er gjennomført", "Godet er ikke-rivaliserende"],
       explanation: "Rammer særlig forsikring, der kunden kjenner sin egen risiko bedre enn selskapet.",
     },
     {
       question: "Hvorfor svikter private forsikringsmarkeder ved asymmetrisk informasjon?",
-      options: ["Høyrisiko-personer melder seg mest, premien blir høy, lavrisiko trekker seg (ugunstig utvalg)", "Fordi selskapene tjener for mye", "Fordi alle er lavrisiko", "Fordi staten forbyr forsikring"],
+      options: ["Høyrisiko-personer melder seg mest, premien blir høy, lavrisiko trekker seg (ugunstig utvalg)", "Fordi selskapene tjener for mye", "Fordi alle kundene i praksis er lavrisiko, slik at selskapene ikke får dekket sine faste kostnader", "Fordi staten forbyr private forsikringsavtaler og tvinger alle over på en offentlig ordning i stedet"],
       explanation: "Ugunstig utvalg kan få markedet til å bryte sammen — et argument for obligatorisk offentlig forsikring.",
     },
     {
       question: "Hva er atferdsrisiko?",
-      options: ["At den forsikrede blir mindre forsiktig fordi han ikke bærer hele kostnaden", "At forsikringen er for dyr", "At kunden lyver om alderen", "At staten betaler for lite"],
+      options: ["At den forsikrede blir mindre forsiktig fordi han ikke bærer hele kostnaden", "At forsikringen er for dyr", "At staten betaler for lite til forsikringsordningen, slik at premiene må settes urimelig høyt", "At forsikringen blir for dyr fordi selskapet må dekke risikoen til de mest uforsiktige kundene"],
       explanation: "F.eks. råere kjøring med kaskoforsikring; motvirkes med egenandeler.",
     },
     {
       question: "Hvilken markedssvikt begrunner offentlig finansiert grunnforskning?",
-      options: ["Kollektivt gode (kunnskap er ikke-rivaliserende)", "Negativ eksternalitet", "Fellesressurs", "Markedsmakt"],
+      options: ["Kollektivt gode (kunnskap er ikke-rivaliserende)", "Negativ eksternalitet", "Negativ eksternalitet, siden forskning påfører samfunnet en kostnad andre ikke kompenseres for", "Fellesressurs"],
       explanation: "Private investerer for lite fordi de ikke kan ta betalt for hele nytten (gratispassasjerer).",
     },
     {
       question: "Hvilken markedssvikt begrunner gratis vaksinering?",
-      options: ["Positiv eksternalitet (beskytter også andre)", "Kollektivt gode", "Fellesressurs", "Asymmetrisk informasjon"],
+      options: ["Positiv eksternalitet (beskytter også andre)", "Asymmetrisk informasjon", "Kollektivt gode (ikke-rivaliserende og ikke-ekskluderbart for alle)", "Fellesressurs som overforbrukes fordi ingen kan stenges ute fra bruk"],
       explanation: "Vaksinen gir flokkbeskyttelse; privat betalingsvillighet er lavere enn samfunnsgevinsten.",
     },
     {
       question: "Hvilken markedssvikt begrunner fiskekvoter?",
-      options: ["Fellesressurs (overforbruk)", "Kollektivt gode", "Positiv eksternalitet", "Asymmetrisk informasjon"],
+      options: ["Fellesressurs (overforbruk)", "Asymmetrisk informasjon", "Asymmetrisk informasjon mellom aktørene", "Positiv eksternalitet"],
       explanation: "Fisken er rivaliserende og ikke-ekskluderbar; kvoter hindrer overfiske.",
     },
     {
@@ -1721,7 +1721,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en klassisk feil i katalog-oppgaven (sjanger K)?",
-      options: ["Å begrunne alle inngrep med «rettferdighet» i stedet for å navngi svikten", "Å navngi den presise markedssvikten", "Å gi et eksempel", "Å nevne begge definisjoner"],
+      options: ["Å begrunne alle inngrep med «rettferdighet» i stedet for å navngi svikten", "Å nevne begge lærebokdefinisjonene av godet før du drøfter virkemidlene", "Å navngi den presise markedssvikten før du foreslår et konkret statlig inngrep", "Å gi et illustrerende talleksempel som viser hvordan tapet regnes ut i praksis"],
       explanation: "Sjangeren spør om markedssvikten (effektivitetsargumentet), ikke om fordeling.",
     },
     {
@@ -1731,19 +1731,19 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kryptert strømmetjeneste (ikke-rivaliserende, ekskluderbar) er",
-      options: ["et kollektivt gode i CORE-forstand (klubbgode)", "en fellesressurs", "et rent privat gode", "et rent kollektivt gode etter Krugman & Wells"],
+      options: ["et kollektivt gode i CORE-forstand (klubbgode)", "et rent kollektivt gode etter Krugman & Wells", "en fellesressurs som er rivaliserende, men umulig å ekskludere brukere fra", "et rent privat gode"],
       explanation: "Den er ikke-rivaliserende (kollektivt i CORE), men ekskluderbar, så ikke et rent kollektivt gode etter Krugman & Wells.",
     },
   ],
   'econ1210-4-4': [
     {
       question: "Første steg i algoritmen for klimaoppgaven er å",
-      options: ["identifisere eksternaliteten og målet", "regne ut dødvektstapet", "velge en avgiftssats", "tegne monopolfiguren"],
+      options: ["identifisere eksternaliteten og målet", "regne ut dødvektstapet", "tegne monopolfiguren med MI og MK for å finne tilpasningen først", "velge en avgiftssats"],
       explanation: "Ramm inn utslippet som en negativ eksternalitet og klargjør målet før du vurderer virkemidlene.",
     },
     {
       question: "Kjerneargumentet som ALLTID skal med i klimaoppgaven er:",
-      options: ["Lik pris → like marginale rensekostnader → billigst samlet kutt", "Forurensning er skadelig for miljøet", "Staten bør bestemme alt", "Avgifter gir mest inntekt"],
+      options: ["Lik pris → like marginale rensekostnader → billigst samlet kutt", "Forurensning er skadelig for miljøet", "Staten bør bestemme alt fordi markedet aldri klarer å håndtere utslipp på egen hånd", "Forurensning er skadelig for miljøet og bør derfor stanses helt av hensyn til naturen"],
       explanation: "Uten mekanismen blir svaret et moralessay (feilkatalog #10).",
     },
     {
@@ -1753,37 +1753,37 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En lik avgift har hvilken svakhet sammenlignet med omsettelige kvoter?",
-      options: ["Usikker måloppnåelse (prisen settes, ikke mengden)", "Svakere kostnadseffektivitet", "Forurenser betaler ikke", "Ingen innovasjonsinsentiv"],
+      options: ["Usikker måloppnåelse (prisen settes, ikke mengden)", "Svakere kostnadseffektivitet", "Forurenseren betaler ikke, siden avgiften veltes helt over på kundene", "Svakere kostnadseffektivitet fordi avgiften rammer alle bedriftene ulikt"],
       explanation: "Avgiften fastsetter prisen; hvor mye utslippene faller avhenger av rensekostnadene.",
     },
     {
       question: "Svekker gratis kvotetildeling kostnadseffektiviteten?",
-      options: ["Nei — kvoten har en alternativkostnad, så bedriften kutter like mye", "Ja — gratis kvoter gir ingen grunn til å kutte", "Ja, alltid", "Nei — fordi den øker taket"],
+      options: ["Nei — kvoten har en alternativkostnad, så bedriften kutter like mye", "Ja — gratis kvoter gir ingen grunn til å kutte", "Nei — men bare fordi gratis tildeling øker det samlede utslippstaket i markedet", "Ja, alltid, fordi utdeling uten betaling fjerner hele prissignalet fra kvotemarkedet"],
       explanation: "Å bruke en gratis kvote betyr å gi avkall på å selge den; utslipp koster kvoteprisen uansett.",
     },
     {
       question: "Hva er forskjellen mellom gratis kvotetildeling og avgiftsfritak for effektiviteten?",
-      options: ["Gratis kvote bevarer utslippsprisen; avgiftsfritak fjerner den og bryter kostnadseffektiviteten", "Ingen forskjell", "Avgiftsfritak er alltid best", "Gratis kvote fjerner utslippsprisen"],
+      options: ["Gratis kvote bevarer utslippsprisen; avgiftsfritak fjerner den og bryter kostnadseffektiviteten", "Ingen forskjell for effektiviteten, siden begge bare flytter penger mellom stat og bedrift", "Gratis kvote fjerner utslippsprisen, mens avgiftsfritak beholder den for alle bedriftene", "Avgiftsfritak er alltid best fordi det sparer de fritakne bedriftene for kostnader helt"],
       explanation: "Kvoten har en alternativkostnad (pris bevart); fritak setter prisen til null for de fritatte (ulike rensekostnader).",
     },
     {
       question: "Differensierte avgiftssatser (fritak for noen bedrifter) fører til:",
-      options: ["Brutt kostnadseffektivitet — ulik pris gir ulike marginale rensekostnader", "Billigere samlet kutt", "Bedre måloppnåelse", "Sterkere innovasjonsinsentiv"],
+      options: ["Brutt kostnadseffektivitet — ulik pris gir ulike marginale rensekostnader", "Sterkere innovasjonsinsentiv", "Billigere samlet kutt, fordi de fritatte bedriftene kan bruke pengene på egen rensing", "Sterkere innovasjonsinsentiv, ettersom de fritatte får rom til å utvikle ny teknologi"],
       explanation: "Billige kutt står ugjort hos de fritatte mens dyre tas ellers — dobbel ineffektivitet.",
     },
     {
       question: "En subsidie til ett grønt alternativ (f.eks. hydrogen) er som klimavirkemiddel:",
-      options: ["som regel dårlig — vrir mot ett alternativ, forurenser betaler ikke", "alltid best", "kostnadseffektivt", "garantert måloppnåelse"],
+      options: ["som regel dårlig — vrir mot ett alternativ, forurenser betaler ikke", "garantert måloppnåelse", "garantert måloppnåelse fordi støtten sikrer at nok bedrifter bytter til hydrogen", "kostnadseffektivt siden subsidien senker prisen på det reneste alternativet direkte"],
       explanation: "Den vrir mot ett alternativ også mot andre kutt og krever at myndighetene plukker vinnere.",
     },
     {
       question: "En grønn subsidie kan likevel forsvares hvis",
-      options: ["alternativet selv har en positiv teknologi-eksternalitet markedet ikke fanger opp", "bransjen ber om den", "avgiften er upopulær", "staten trenger å bruke penger"],
+      options: ["alternativet selv har en positiv teknologi-eksternalitet markedet ikke fanger opp", "bransjen ber om den og truer med å flytte produksjonen til utlandet uten støtte", "avgiften er upopulær blant velgerne, så en subsidie blir politisk lettere å innføre", "staten trenger å bruke penger for å stimulere økonomien i en nedgangskonjunktur"],
       explanation: "Da retter subsidien opp en egen markedssvikt, ikke klimaet, som håndteres billigere med en utslippspris.",
     },
     {
       question: "En uniform nasjonal avgift passer DÅRLIG for",
-      options: ["lokal forurensning der skaden avhenger av sted", "CO2-utslipp", "jevnt fordelte klimagasser", "industriutslipp generelt"],
+      options: ["lokal forurensning der skaden avhenger av sted", "jevnt fordelte klimagasser", "CO2-utslipp, som skader like mye uansett hvor på kloden de faktisk slippes ut", "industriutslipp generelt"],
       explanation: "En lik sats blir enten for lav der skaden er stor eller for høy der den er liten; da trengs stedstilpasning.",
     },
     {
@@ -1793,34 +1793,34 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvis målet er å nå en BESTEMT utslippsmengde (f.eks. halvering), taler det for",
-      options: ["omsettelige kvoter (eksakt måloppnåelse)", "en avgift", "direkte påbud per bedrift", "en subsidie"],
+      options: ["omsettelige kvoter (eksakt måloppnåelse)", "direkte påbud per bedrift", "en avgift, som fastsetter prisen og dermed styrer utslippsmengden helt presist", "en subsidie"],
       explanation: "Kvoter fastsetter mengden direkte; avgiften gir usikker mengde.",
     },
     {
       question: "Hvorfor gir en utslippspris sterkere innovasjonsinsentiv enn et påbud?",
-      options: ["Den belønner ethvert kutt billigere enn prisen, også etter at målet er nådd", "Den forbyr ny teknologi", "Den gir gratis kvoter", "Den setter mengden"],
+      options: ["Den belønner ethvert kutt billigere enn prisen, også etter at målet er nådd", "Den forbyr ny teknologi", "Den setter mengden direkte og tvinger dermed fram innovasjon hos bedriftene", "Den gir gratis kvoter som belønner bedrifter for å ta i bruk renere løsninger"],
       explanation: "Med et påbud lønner det seg ikke å kutte mer enn kravet; med en pris lønner ethvert billig kutt seg.",
     },
     {
       question: "En vanlig feil i klimadrillen er",
-      options: ["å skrive moralessay uten kjerneargumentet (feilkatalog #10)", "å bruke de tre kriteriene", "å regne et talleksempel", "å konkludere klart"],
+      options: ["å skrive moralessay uten kjerneargumentet (feilkatalog #10)", "å bruke de tre kriteriene", "å bruke de tre kriteriene måloppnåelse, kostnadseffektivitet og innovasjon", "å regne et talleksempel som viser hvordan avgiften utjevner rensekostnadene"],
       explanation: "Sensor krever mekanismen lik pris → like rensekostnader → billigst kutt.",
     },
     {
       question: "Hva løfter en klimabesvarelse fra midt- til toppsjikt?",
-      options: ["En klar, begrunnet konklusjon som velger virkemiddel ut fra målet", "Flest mulig sider tekst", "Å unngå talleksempler", "Å ramse opp uten å konkludere"],
+      options: ["En klar, begrunnet konklusjon som velger virkemiddel ut fra målet", "Å ramse opp uten å konkludere", "Å unngå talleksempler helt for i stedet å drøfte prinsippene mer omfattende", "Å ramse opp alle virkemidlene uten å velge eller begrunne noe til slutt her"],
       explanation: "En begrunnet anbefaling (bestemt mengde→kvoter, forutsigbar pris→avgift, lokal/akutt→regulering/forbud) er A-markøren.",
     },
   ],
   'econ1210-5-1': [
     {
       question: "Hva består monopolets marginalinntekt (MI) av?",
-      options: ["En kvantumseffekt ($+p$) og en priseffekt (negativ)", "Bare prisen på den siste enheten", "Prisen ganger mengden", "Marginalkostnaden pluss et påslag"],
+      options: ["En kvantumseffekt ($+p$) og en priseffekt (negativ)", "Marginalkostnaden pluss et påslag", "Prisen ganget med mengden, altså hele bedriftens totale salgsinntekt samlet", "Bare prisen på den siste enheten"],
       explanation: "MI = kvantumseffekt (den nye enheten selges til $p$) + priseffekt (prisfallet rammer alle enhetene). Priseffekten gjør MI < p.",
     },
     {
       question: "Hvorfor er marginalinntekten lavere enn prisen for et monopol?",
-      options: ["Fordi prisen må ned på alle enhetene for å selge én mer (priseffekten)", "Fordi marginalkostnaden er høy", "Fordi monopolet betaler skatt av inntekten", "Fordi kundene forhandler ned prisen"],
+      options: ["Fordi prisen må ned på alle enhetene for å selge én mer (priseffekten)", "Fordi monopolet betaler skatt av inntekten", "Fordi marginalkostnaden er høy og trekker den oppnådde inntekten nedover", "Fordi kundene forhandler ned prisen på hver enkelt enhet monopolet vil selge"],
       explanation: "For å selge mer må monopolet sette prisen ned, og prisfallet gjelder alle enhetene — ikke bare den siste. Denne priseffekten trekker MI under p.",
     },
     {
@@ -1835,17 +1835,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor produserer et monopol for å maksimere overskuddet?",
-      options: ["Der marginalinntekt = marginalkostnad (MI = MK)", "Der pris = marginalkostnad (p = MK)", "Der marginalinntekt = pris", "Der total inntekt er størst"],
+      options: ["Der marginalinntekt = marginalkostnad (MI = MK)", "Der pris = marginalkostnad (p = MK)", "Der pris = marginalkostnad (p = MK), akkurat som en pristaker i frikonkurranse", "Der total inntekt er størst"],
       explanation: "Ved MI = MK dekker den siste enheten akkurat sin kostnad. Ved MI = p (p = MK) produserer bare en pristaker.",
     },
     {
       question: "Etter at MI = MK gir monopolmengden, hvor leser du monopolprisen?",
-      options: ["På E-kurven ved monopolmengden $x_M$", "På MI-kurven ved $x_M$", "Der MI krysser MK", "På MK-linja ved $x_M$"],
+      options: ["På E-kurven ved monopolmengden $x_M$", "På MI-kurven ved $x_M$", "Der MI krysser MK, altså i selve tilpasningspunktet for monopolet", "På MK-linja ved $x_M$"],
       explanation: "Prisen leses av E-kurven ved $x_M$ (feil #5 er å lese den av MI-kurven, som gir en for lav pris).",
     },
     {
       question: "En student leser monopolprisen der MI krysser MK. Hva blir feil?",
-      options: ["Prisen blir for lav — det tallet er marginalkostnaden, ikke markedsprisen", "Prisen blir for høy", "Mengden blir feil", "Ingenting, det er riktig metode"],
+      options: ["Prisen blir for lav — det tallet er marginalkostnaden, ikke markedsprisen", "Ingenting, det er riktig metode", "Mengden blir feil — krysningen mellom MI og MK gir en for stor produksjon", "Ingenting, det er riktig metode — der MI = MK leser du både mengde og pris"],
       explanation: "Feil #5: der MI = MK finner du bare mengden. Prisen (E-kurvens høyde ved $x_M$) ligger over MK.",
     },
     {
@@ -1860,27 +1860,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kvantumseffekten i MI-dekomponeringen?",
-      options: ["Den nye enheten selges til prisen $p$ (positiv)", "Prisfallet på alle tidligere enheter (negativ)", "Marginalkostnaden av den nye enheten", "Endringen i total kostnad"],
+      options: ["Den nye enheten selges til prisen $p$ (positiv)", "Prisfallet på alle tidligere enheter (negativ)", "Marginalkostnaden av den nye enheten, altså hva det koster å produsere den", "Marginalkostnaden av den nye enheten"],
       explanation: "Kvantumseffekten er det positive bidraget: den ekstra enheten gir inntekt lik prisen $p$.",
     },
     {
       question: "Hva er priseffekten i MI-dekomponeringen?",
-      options: ["Prisfallet ganget med antall enheter som alt ble solgt (negativ)", "Prisen på den nye enheten (positiv)", "Den totale inntekten", "Marginalkostnaden"],
+      options: ["Prisfallet ganget med antall enheter som alt ble solgt (negativ)", "Prisen på den nye enheten (positiv)", "Prisen på den nye enheten (positiv), altså inntekten fra å selge én mer", "Marginalkostnaden ved å produsere den siste enheten monopolet legger til"],
       explanation: "Priseffekten $\\frac{\\Delta p}{\\Delta x}x$ er negativ: prisfallet for å selge mer rammer alle de $x$ tidligere enhetene.",
     },
     {
       question: "Ved en mengde der MI > MK, hva bør monopolet gjøre?",
-      options: ["Produsere mer — den neste enheten gir mer inntekt enn den koster", "Produsere mindre", "Holde mengden uendret", "Sette ned prisen uten å endre mengden"],
+      options: ["Produsere mer — den neste enheten gir mer inntekt enn den koster", "Sette ned prisen uten å endre mengden", "Produsere mindre — den siste enheten koster mer i MK enn den gir i inntekt", "Sette ned prisen uten å endre mengden for å kapre litt mer av markedet her"],
       explanation: "MI > MK betyr at en enhet til øker overskuddet. Monopolet øker mengden til MI = MK.",
     },
     {
       question: "Ved en mengde der MI < MK, hva bør monopolet gjøre?",
-      options: ["Produsere mindre — den siste enheten koster mer enn den gir", "Produsere mer", "Holde mengden uendret", "Øke prisen og mengden samtidig"],
+      options: ["Produsere mindre — den siste enheten koster mer enn den gir", "Øke prisen og mengden samtidig", "Produsere mer — den neste enheten gir mer i inntekt enn den koster å lage", "Øke prisen og mengden samtidig for å hente inn den tapte marginalinntekten"],
       explanation: "MI < MK betyr at siste enhet taper penger. Monopolet kutter mengden til MI = MK.",
     },
     {
       question: "Trengs derivasjon for å finne monopoltilpasningen på ECON1210?",
-      options: ["Nei — MI-kurven finnes med regelen «dobbelt så bratt», og alt løses med lineær algebra", "Ja, MI må deriveres fra total inntekt", "Ja, MK må deriveres fra totalkostnaden", "Ja, både MI og MK må deriveres"],
+      options: ["Nei — MI-kurven finnes med regelen «dobbelt så bratt», og alt løses med lineær algebra", "Ja, MI må deriveres fra den totale inntektsfunksjonen for å finne tilpasningen", "Ja, både MI og MK må deriveres fra sine respektive total-funksjoner hver gang", "Ja, MK må deriveres fra totalkostnaden før du kan sette MI lik MK i figuren"],
       explanation: "Fasitene sier eksplisitt at derivasjon ikke forventes; MI-kurven er dobbelt så bratt som lineær E.",
     },
     {
@@ -1890,44 +1890,44 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvor krysser MI-kurven mengdeaksen for E-kurven $x = a - bp$?",
-      options: ["På halvveien i forhold til E-kurven (ved $x = a/2$)", "På samme sted som E-kurven (ved $x = a$)", "Dobbelt så langt ute som E-kurven", "I origo"],
+      options: ["På halvveien i forhold til E-kurven (ved $x = a/2$)", "På samme sted som E-kurven (ved $x = a$)", "På samme sted som E-kurven (ved $x = a$), fordi MI og E har lik helning", "Dobbelt så langt ute som E-kurven"],
       explanation: "MI har samme skjæring med prisaksen, men dobbelt helning, så den treffer mengdeaksen ved $x = a/2$ (E ved $x = a$).",
     },
     {
       question: "Hva er total inntekt (TI) for et monopol?",
-      options: ["Prisen ganger mengden, $p\\cdot x$", "Prisen minus marginalkostnaden", "Marginalinntekten ganger mengden", "Summen av marginalkostnadene"],
+      options: ["Prisen ganger mengden, $p\\cdot x$", "Marginalinntekten ganger mengden", "Summen av alle marginalkostnadene fra første til siste solgte enhet av godet", "Prisen minus marginalkostnaden"],
       explanation: "TI $= p\\cdot x$. Marginalinntekten er endringen i TI når mengden øker med én enhet.",
     },
     {
       question: "Monopolmengden er halvparten av den samfunnsøkonomisk optimale mengden (ved $p = \\text{MK}$). Hva sier det om monopolet?",
-      options: ["Monopolet holder igjen på mengden i forhold til frikonkurranse", "Monopolet produserer mer enn frikonkurranse", "Monopolet produserer akkurat riktig mengde", "Monopolet setter prisen lik marginalkostnaden"],
+      options: ["Monopolet holder igjen på mengden i forhold til frikonkurranse", "Monopolet setter prisen lik marginalkostnaden", "Monopolet produserer mer enn frikonkurranse fordi det ønsker å presse ut rivaler", "Monopolet produserer mer enn frikonkurranse"],
       explanation: "Med lineær E og konstant MK er $x_M = \\frac{a-bc}{2}$, mens optimum er $a - bc$ — monopolet begrenser mengden og tar høyere pris.",
     },
     {
       question: "Hvorfor kan ikke monopolet både selge mer OG holde prisen oppe på alle enhetene?",
-      options: ["Fordi det står overfor én fallende E-kurve for hele markedet (ingen prisdiskriminering)", "Fordi marginalkostnaden stiger", "Fordi konkurrentene senker prisen", "Fordi staten forbyr det"],
+      options: ["Fordi det står overfor én fallende E-kurve for hele markedet (ingen prisdiskriminering)", "Fordi staten forbyr det gjennom prisregulering som binder monopolet til én fast pris", "Fordi konkurrentene i markedet umiddelbart senker prisen og kaprer kundene tilbake igjen", "Fordi marginalkostnaden stiger så bratt at hver ekstra enhet blir ulønnsom å lage"],
       explanation: "Uten prisdiskriminering må monopolet ta én pris av alle, gitt av E-kurven — derfor priseffekten.",
     },
     {
       question: "Hva er et monopol?",
-      options: ["Den eneste tilbyderen av et gode uten nære substitutter", "En av mange små pristakere", "En bedrift som tar markedsprisen som gitt", "En bedrift med marginalinntekt lik prisen"],
+      options: ["Den eneste tilbyderen av et gode uten nære substitutter", "En bedrift som tar markedsprisen som gitt", "En av mange små pristakere som selger et identisk gode i et fritt marked", "En bedrift med marginalinntekt lik prisen"],
       explanation: "Monopolet er eneselger og står overfor hele markedets E-kurve, så det velger selv mengde og pris.",
     },
   ],
   'econ1210-5-2': [
     {
       question: "Mellom hvilke kurver ligger dødvektstrekanten ved monopol?",
-      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom E-kurven og MI-kurven", "Mellom MI-kurven og MK-linja", "Mellom prislinja og MK, fra 0 til $x_M$"],
+      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom prislinja og MK, fra 0 til $x_M$", "Mellom E-kurven og MI-kurven, målt fra origo og helt fram til monopolmengden $x_M$", "Mellom MI-kurven og MK-linja, fra monopolmengden $x_M$ og opp til optimum $x_{\\text{opt}}$"],
       explanation: "Tapet er verdi som forsvinner fordi mengden er lavere enn ved $p = \\text{MK}$: trekanten mellom E og MK fra $x_M$ til $x_{\\text{opt}}$. Aldri mot MI.",
     },
     {
       question: "Hvor er den samfunnsøkonomisk optimale mengden ved monopol?",
-      options: ["Der pris = marginalkostnad ($x_{\\text{opt}} = a - b\\cdot\\text{MK}$)", "Der MI = MK (monopolmengden)", "Der total inntekt er størst", "Der MI = 0"],
+      options: ["Der pris = marginalkostnad ($x_{\\text{opt}} = a - b\\cdot\\text{MK}$)", "Der MI = MK (monopolmengden)", "Der marginalinntekten er lik null (MI = 0), på toppen av total-inntektskurven", "Der den totale inntekten $p\\cdot x$ er størst, altså i toppunktet på inntektskurven"],
       explanation: "Optimum er der marginal betalingsvillighet (E) = MK, altså $p = \\text{MK}$ — samme som frikonkurranse. Monopolet stopper før dette.",
     },
     {
       question: "Hvem taper på monopolprising sammenlignet med frikonkurranse?",
-      options: ["Kjøperne — de betaler høyere pris og får mindre mengde (KO ned)", "Monopolisten — den mister overskudd", "Ingen taper", "Bare staten"],
+      options: ["Kjøperne — de betaler høyere pris og får mindre mengde (KO ned)", "Monopolisten — den mister overskudd", "Monopolisten selv — den mister overskudd fordi den holder mengden kunstig nede", "Ingen taper netto, siden monopolistens gevinst nøyaktig oppveier kjøpernes tap i markedet"],
       explanation: "Kjøperne får høyere pris og lavere mengde, så KO faller. Monopolisten vinner (PO opp).",
     },
     {
@@ -1937,27 +1937,27 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved siden av kjøperne (tap) og monopolisten (gevinst) — hvem kan også vinne på monopolprisen?",
-      options: ["Andre selgere i markedet, som får selge til den høye prisen", "Ingen andre", "Staten, gjennom skatteinntekt", "Kundene som ikke kjøper"],
+      options: ["Andre selgere i markedet, som får selge til den høye prisen", "Staten, gjennom skatteinntekt", "Ingen andre enn monopolisten selv vinner; all gevinst tilfaller den ene selgeren", "Staten, som gjennom økt skatteinntekt fra den høyere prisen henter inn ekstra proveny"],
       explanation: "Tredjeparts-poenget: andre tilbydere får den høye prisen $p_M$ uten selv å begrense mengden. Å glemme dem er feil #11.",
     },
     {
       question: "Hva viser monopolmakt seg som?",
-      options: ["Gapet mellom pris og marginalkostnad ($p_M - \\text{MK}$)", "Størrelsen på marginalkostnaden", "Den totale inntekten", "Antallet enheter som selges"],
+      options: ["Gapet mellom pris og marginalkostnad ($p_M - \\text{MK}$)", "Størrelsen på marginalkostnaden", "Antallet enheter som selges i markedet, der flere solgte enheter betyr mer makt", "Størrelsen på marginalkostnaden alene, altså hvor dyrt det er å lage siste enhet"],
       explanation: "Jo større gap mellom pris og MK, desto mer makt. En pristaker har $p = \\text{MK}$, altså null gap.",
     },
     {
       question: "Hvordan påvirker en mer elastisk (flatere) E-kurve monopolmakten?",
-      options: ["Den svekker makten — kundene flykter lettere, så gapet mellom pris og MK må krympe", "Den styrker makten — monopolet kan ta høyere pris", "Den påvirker ikke makten", "Den fjerner marginalkostnaden"],
+      options: ["Den svekker makten — kundene flykter lettere, så gapet mellom pris og MK må krympe", "Den styrker makten — monopolet kan ta høyere pris", "Den styrker makten — monopolet kan ta en enda høyere pris når kundene er prisfølsomme", "Den påvirker ikke makten i det hele tatt, siden gapet mellom pris og MK er fast uansett"],
       explanation: "Mer elastisk E betyr at priseffekten svir mer; monopolet må senke gapet mellom pris og MK.",
     },
     {
       question: "Hva gjør etterspørselen mot en dominerende aktør mer elastisk?",
-      options: ["Flere konkurrenter, bedre substitutter, økt overføringskapasitet (ny kabel)", "Færre konkurrenter", "Høyere marginalkostnad", "At staten forbyr import"],
+      options: ["Flere konkurrenter, bedre substitutter, økt overføringskapasitet (ny kabel)", "At staten forbyr import", "Færre konkurrenter og svakere substitutter, som gir kundene færre steder å gå", "Høyere marginalkostnad hos aktøren, som tvinger prisen opp og gjør kundene mer følsomme"],
       explanation: "Alt som gir kundene flere alternativer, gjør E mer elastisk og svekker markedsmakten — konkurransepolitikkens logikk.",
     },
     {
       question: "Er monopolistens gevinst en del av dødvektstapet?",
-      options: ["Nei — den er en overføring fra kjøperne til monopolisten, ikke tapt verdi", "Ja, hele gevinsten er dødvektstap", "Ja, halvparten er dødvektstap", "Ja, gevinsten er lik dødvektstapet"],
+      options: ["Nei — den er en overføring fra kjøperne til monopolisten, ikke tapt verdi", "Ja, gevinsten er lik dødvektstapet", "Ja, hele monopolistens gevinst regnes som dødvektstap for samfunnet som helhet", "Ja, monopolistens gevinst er nøyaktig like stor som og sammenfaller med dødvektstapet"],
       explanation: "Monopolistens gevinst er en overføring; bare selve trekanten (bortfalte verdiskapende enheter) er dødvektstap.",
     },
     {
@@ -1972,64 +1972,64 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan er samfunnsøkonomisk overskudd (SO) ved monopol i forhold til frikonkurranse?",
-      options: ["Mindre — SO faller med nøyaktig dødvektstrekanten", "Større — monopolet skaper mer verdi", "Nøyaktig likt", "Null"],
+      options: ["Mindre — SO faller med nøyaktig dødvektstrekanten", "Større — monopolet skaper mer verdi", "Større — monopolet skaper mer samlet verdi gjennom effektiv skala og lavere kostnad", "Nøyaktig likt"],
       explanation: "$\\text{SO}_{\\text{mono}} = \\text{SO}_{\\text{opt}} - \\text{dødvektstap}$. KO faller, PO stiger, men summen faller.",
     },
     {
       question: "Hvorfor er en bratt (lite elastisk) E-kurve gunstig for et monopol?",
-      options: ["Kundene flykter ikke ved høy pris, så et stort pris–MK-gap kan holdes", "Marginalkostnaden blir lavere", "Total inntekt blir null", "Prisen må settes lik MK"],
+      options: ["Kundene flykter ikke ved høy pris, så et stort pris–MK-gap kan holdes", "Marginalkostnaden blir lavere", "Total inntekt blir null i toppunktet, så monopolet kan sette prisen fritt uten priseffekt", "Marginalkostnaden blir lavere når etterspørselen er bratt, så overskuddet per enhet vokser"],
       explanation: "Med lite elastisk etterspørsel er priseffekten svak; monopolet kan holde en høy pris uten å miste mange kunder.",
     },
     {
       question: "En ny utenlandskabel gir kundene tilgang til import. Hva skjer med den lokale monopolistens pris?",
-      options: ["Prisen faller (mot MK), fordi etterspørselen blir mer elastisk", "Prisen stiger, fordi konkurransen øker kostnadene", "Prisen er uendret", "Prisen settes lik MI"],
+      options: ["Prisen faller (mot MK), fordi etterspørselen blir mer elastisk", "Prisen stiger, fordi konkurransen øker kostnadene", "Prisen stiger, fordi den økte konkurransen driver monopolistens kostnader oppover", "Prisen er helt uendret, siden monopolet fortsatt er eneste innenlandske tilbyder av godet"],
       explanation: "Import gir kundene et alternativ → E mer elastisk → mindre gap mellom pris og MK → lavere pris, mer mengde.",
     },
     {
       question: "Hvorfor holder monopolet mengden nede?",
-      options: ["For å holde prisen oppe på alle enhetene (unngå priseffekten på de gamle)", "Fordi marginalkostnaden er uendelig", "Fordi staten pålegger en mengdegrense", "For å maksimere prisen alene"],
+      options: ["For å holde prisen oppe på alle enhetene (unngå priseffekten på de gamle)", "Fordi staten pålegger en mengdegrense", "Fordi staten pålegger en fast mengdegrense som hindrer monopolet i å produsere mer", "Fordi marginalkostnaden er uendelig høy, slik at flere enheter aldri lønner seg å lage"],
       explanation: "Å selge de siste enhetene ville presset prisen ned på alt som selges. Derfor stopper monopolet ved $x_M < x_{\\text{opt}}$.",
     },
   ],
   'econ1210-5-3': [
     {
       question: "Hva kjennetegner et naturlig monopol?",
-      options: ["Gjennomsnittskostnaden faller med mengden, så én produsent er billigst", "Marginalkostnaden stiger bratt", "Mange små pristakere deler markedet", "Ingen faste kostnader"],
+      options: ["Gjennomsnittskostnaden faller med mengden, så én produsent er billigst", "Mange små pristakere deler markedet", "Mange små pristakere deler markedet mellom seg og konkurrerer om de samme kundene", "Det finnes ingen faste kostnader, så hver produsent starter helt likt uten oppstartsutgift"],
       explanation: "Med stor fast kostnad $B$ og lav enhetskostnad faller GK $= c + B/x$ mot $c$, så én stor produsent er billigst.",
     },
     {
       question: "Hva er den samfunnsøkonomisk optimale prisen i et naturlig monopol?",
-      options: ["Pris = marginalkostnad ($p = c$)", "Pris = gjennomsnittskostnad", "Pris der MI = MK", "Så høy pris som mulig"],
+      options: ["Pris = marginalkostnad ($p = c$)", "Pris = gjennomsnittskostnad", "Pris = gjennomsnittskostnad ($p=\\text{GK}$), så selskapet akkurat går i null", "Så høy pris som mulig"],
       explanation: "Optimum er alltid $p = \\text{MK}$. For digital avis med $c = 0$ betyr det gratis tilgang.",
     },
     {
       question: "Hvorfor gir prisen $p = c$ selskapet underskudd?",
-      options: ["Inntekten dekker bare de variable kostnadene, ikke den faste kostnaden $B$", "Fordi marginalkostnaden er for høy", "Fordi kundene ikke vil betale", "Fordi mengden blir null"],
+      options: ["Inntekten dekker bare de variable kostnadene, ikke den faste kostnaden $B$", "Fordi marginalkostnaden er for høy", "Fordi marginalkostnaden er for høy til at prisen kan dekke hver enkelt enhet", "Fordi mengden blir null når prisen presses helt ned, så det ikke kommer inn inntekt"],
       explanation: "Ved $p = c$ dekkes de variable kostnadene, men ikke $B$ — selskapet taper $B$.",
     },
     {
       question: "Når er driften av et naturlig monopol samfunnsøkonomisk lønnsom?",
-      options: ["Når konsumentoverskuddet ved $p = c$ overstiger den faste kostnaden (KO > B)", "Når selskapet går med overskudd ved $p = c$", "Når marginalkostnaden er null", "Alltid, uansett faste kostnader"],
+      options: ["Når konsumentoverskuddet ved $p = c$ overstiger den faste kostnaden (KO > B)", "Når selskapet går med overskudd ved $p = c$", "Når selskapet selv går med regnskapsmessig overskudd allerede ved prisen $p = c$", "Alltid, uansett hvor stor den faste kostnaden $B$ er, så lenge det finnes etterspørsel"],
       explanation: "Ved $p = c$ er SO = KO. Er denne verdien større enn $B$, er tjenesten verdt mer enn den koster å opprette.",
     },
     {
       question: "En nettavis har $x = 1000 - 5p$ og $c = 0$. Er driften lønnsom hvis $B = 60\\,000$?",
-      options: ["Ja — KO ved gratis tilgang er $100\\,000 > 60\\,000$", "Nei — selskapet taper penger", "Ja, fordi marginalkostnaden er null uansett B", "Nei — KO er lavere enn B"],
+      options: ["Ja — KO ved gratis tilgang er $100\\,000 > 60\\,000$", "Ja, fordi marginalkostnaden er null uansett B", "Nei — selskapet taper penger fordi inntekten ikke dekker den faste kostnaden $B$", "Nei — selskapet taper penger"],
       explanation: "KO $= \\frac{1}{2}\\cdot 200\\cdot 1000 = 100\\,000 > 60\\,000$, så driften er samfunnsøkonomisk lønnsom.",
     },
     {
       question: "Argumentet «lav gjennomsnittskostnad, så prisen bør ned til GK» er:",
-      options: ["Feil — riktig mengde krever pris = marginalkostnad, ikke gjennomsnittskostnad", "Riktig — GK er alltid optimal pris", "Riktig bare for digitale goder", "Riktig for minstepris"],
+      options: ["Feil — riktig mengde krever pris = marginalkostnad, ikke gjennomsnittskostnad", "Riktig — GK er alltid optimal pris", "Riktig for minstepris, fordi GK setter et gulv som prisen aldri bør legges under", "Riktig — gjennomsnittskostnaden GK er alltid den optimale prisen i et naturlig monopol"],
       explanation: "Feil #7: $p = \\text{GK}$ gir nullresultat men for lav mengde. Optimum er $p = \\text{MK}$.",
     },
     {
       question: "Hva gjør regulering av naturlige monopol vanskelig?",
-      options: ["Myndighetene kjenner ikke selskapets kostnader like godt som selskapet selv (informasjonsproblemet)", "Det finnes ingen reguleringsverktøy", "Faste kostnader kan ikke måles", "Etterspørselen er ukjent"],
+      options: ["Myndighetene kjenner ikke selskapets kostnader like godt som selskapet selv (informasjonsproblemet)", "Det finnes rett og slett ingen reguleringsverktøy myndighetene kan bruke mot slike selskaper", "Etterspørselen i markedet er fullstendig ukjent, så myndighetene famler i blinde om mengden", "Faste kostnader kan i praksis aldri måles nøyaktig, så prisen kan ikke fastsettes riktig"],
       explanation: "Informasjonsasymmetrien (H2018): selskapet kan overdrive kostnadene for høyere pris/subsidie.",
     },
     {
       question: "Hvordan tilpasser et uregulert naturlig monopol seg?",
-      options: ["Setter MI = MK — for lav mengde, for høy pris", "Setter pris = marginalkostnad", "Produserer den optimale mengden", "Setter pris = gjennomsnittskostnad"],
+      options: ["Setter MI = MK — for lav mengde, for høy pris", "Setter pris = gjennomsnittskostnad", "Produserer den samfunnsøkonomisk optimale mengden der prisen er lik marginalkostnaden", "Produserer den optimale mengden"],
       explanation: "Som ethvert monopol: MI = MK gir for lite mengde (høy betalingsmur) og et dødvektstap.",
     },
     {
@@ -2039,116 +2039,116 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er én produsent billigst i et naturlig monopol?",
-      options: ["To små konkurrenter måtte hver bære sin egen faste kostnad B", "Fordi én produsent har lavere marginalkostnad", "Fordi konkurranse alltid er dyrt", "Fordi staten forbyr konkurranse"],
+      options: ["To små konkurrenter måtte hver bære sin egen faste kostnad B", "Fordi én produsent har lavere marginalkostnad", "Fordi én stor produsent har en varig lavere marginalkostnad enn to mindre rivaler", "Fordi konkurranse mellom bedrifter alltid er dyrt og sløser bort ressurser i markedet"],
       explanation: "Én produsent bærer $B$ bare én gang og fordeler den på hele markedet; to konkurrenter dobler den faste kostnaden.",
     },
     {
       question: "Hva er en to-delt tariff?",
-      options: ["Et fast årsledd som dekker B, pluss en pris per enhet lik marginalkostnaden", "To ulike priser til to kundegrupper", "En avgift på både kjøper og selger", "En pris lik gjennomsnittskostnaden"],
+      options: ["Et fast årsledd som dekker B, pluss en pris per enhet lik marginalkostnaden", "To ulike priser til to kundegrupper", "To ulike priser til to atskilte kundegrupper, altså en form for prisdiskriminering", "En avgift som legges på både kjøper og selger, delt mellom de to sidene i handelen"],
       explanation: "Fastleddet dekker $B$, mens marginalprisen holdes lik $c$ — så mengden forblir effektiv og driften finansieres.",
     },
     {
       question: "Påvirker den faste kostnaden B den optimale prisen?",
-      options: ["Nei — optimal pris er $p = c$ uansett B; B avgjør bare om driften er verdt det", "Ja, høyere B gir høyere optimal pris", "Ja, B legges til marginalkostnaden", "Ja, prisen settes lik B"],
+      options: ["Nei — optimal pris er $p = c$ uansett B; B avgjør bare om driften er verdt det", "Ja, høyere B gir høyere optimal pris", "Ja, en høyere fast kostnad $B$ gir en tilsvarende høyere optimal pris på godet", "Ja, den optimale prisen settes rett og slett lik den faste kostnaden $B$ selskapet har"],
       explanation: "Optimal pris er alltid $p = \\text{MK}$. $B$ påvirker underskuddet og lønnsomhetsvilkåret, ikke prisen.",
     },
     {
       question: "En strømmetjeneste har $x = 800 - 4p$ og $c(x) = 10x + 30\\,000$. Er driften lønnsom?",
-      options: ["Ja — KO ved $p = 10$ er $72\\,200 > 30\\,000$", "Nei — selskapet taper 30 000", "Ja, fordi marginalkostnaden er lav", "Nei — KO er lavere enn B"],
+      options: ["Ja — KO ved $p = 10$ er $72\\,200 > 30\\,000$", "Ja, fordi marginalkostnaden er lav", "Ja, utelukkende fordi marginalkostnaden på 10 er lav nok til å gjøre driften billig", "Nei — selskapet taper 30 000"],
       explanation: "Optimum $p = 10$, $x = 760$; KO $= \\frac{1}{2}(200-10)\\cdot 760 = 72\\,200 > 30\\,000$. Lønnsom.",
     },
     {
       question: "Hva viser en betalingsmur på en nettavis samfunnsøkonomisk?",
-      options: ["Et dødvektstap — lesere med positiv betalingsvillighet stenges ute uten kostnad for samfunnet", "En effektiv løsning", "Et samfunnsøkonomisk overskudd", "Ingen virkning"],
+      options: ["Et dødvektstap — lesere med positiv betalingsvillighet stenges ute uten kostnad for samfunnet", "Et samfunnsøkonomisk overskudd", "En effektiv løsning — prisen dekker de faste kostnadene, og markedet klarerer uten dødvektstap for samfunnet", "Et rent samfunnsøkonomisk overskudd — avisen fanger inn betalingsvilligheten og lar den bli produsentoverskudd"],
       explanation: "Muren gir mengde under optimum; trekanten mellom E og MK fra $x_M$ til $x_{\\text{opt}}$ er tapt verdi.",
     },
     {
       question: "Hva er reguleringstriaden for et naturlig monopol?",
-      options: ["Makspris = MK, minstekvantum/leveringsplikt, eller subsidie som dekker B", "Skatt, subsidie og maksimalpris på et vanlig marked", "Forbud, avgift og kvote", "Kartell, fusjon og oppkjøp"],
+      options: ["Makspris = MK, minstekvantum/leveringsplikt, eller subsidie som dekker B", "Skatt, subsidie og maksimalpris på et vanlig marked", "Skatt på overskuddet, subsidie til nye aktører og maksimalpris satt lik gjennomsnittskostnaden GK", "Forbud mot etablering, en fast avgift per solgt enhet og en produksjonskvote som holder mengden nede"],
       explanation: "Tre grep for å bringe mengden mot optimum; alle krever at underskuddet på $B$ finansieres.",
     },
   ],
   'econ1210-5-4': [
     {
       question: "Hva kjennetegner monopolistisk konkurranse?",
-      options: ["Mange bedrifter med differensierte produkter og fri etablering", "Én selger uten konkurrenter", "Mange bedrifter med helt identiske produkter", "To store bedrifter som deler markedet"],
+      options: ["Mange bedrifter med differensierte produkter og fri etablering", "Mange bedrifter med helt identiske produkter", "Én selger uten konkurrenter som setter monopolpris og henter hele markedet med etableringshindringer", "To store bedrifter som deler markedet"],
       explanation: "Differensierte produkter gir litt markedsmakt, men fri etablering presser profitten til null på lang sikt.",
     },
     {
       question: "Hvorfor har en bedrift i monopolistisk konkurranse litt markedsmakt?",
-      options: ["Produktet er differensiert, så den mister ikke alle kundene ved litt høyere pris", "Den er eneste selger i markedet", "Den har lavest marginalkostnad", "Staten gir den enerett"],
+      options: ["Produktet er differensiert, så den mister ikke alle kundene ved litt høyere pris", "Den er eneste selger i markedet", "Staten gir den enerett gjennom patent eller lisens, slik at ingen andre lovlig kan tilby samme vare", "Den er eneste selger i markedet og møter derfor hele den samlede, fallende etterspørselskurven alene"],
       explanation: "Fordi produktene er litt ulike, beholder bedriften kundene som foretrekker akkurat dens variant — egen fallende E-kurve.",
     },
     {
       question: "Hva presser profitten til null i monopolistisk konkurranse på lang sikt?",
-      options: ["Fri etablering — nye bedrifter kommer inn til profitten er borte", "Statlig prisregulering", "At marginalkostnaden stiger", "At produktene blir identiske"],
+      options: ["Fri etablering — nye bedrifter kommer inn til profitten er borte", "At produktene blir identiske", "At marginalkostnaden stiger jevnt med produksjonen til den til slutt møter og overstiger salgsprisen helt", "At marginalkostnaden stiger"],
       explanation: "Profitt trekker inn nye bedrifter; E-kurven skifter inn og blir slakere til $p = \\text{GK}$ og profitten er null.",
     },
     {
       question: "I nullprofitt-likevekten i monopolistisk konkurranse gjelder:",
-      options: ["$p = \\text{GK}$, men fortsatt $p > \\text{MK}$ (lite effektivitetstap består)", "$p = \\text{MK}$ (full effektivitet)", "$p < \\text{MK}$", "$p = \\text{GK} = \\text{MK}$"],
+      options: ["$p = \\text{GK}$, men fortsatt $p > \\text{MK}$ (lite effektivitetstap består)", "$p = \\text{MK}$ (full effektivitet)", "$p = \\text{MK}$, altså full effektivitet akkurat som under perfekt konkurranse med fri etablering på plass", "$p < \\text{MK}$, fordi den harde konkurransen tvinger bedriftene til å selge med tap på hver marginale enhet"],
       explanation: "Fri etablering gir $p = \\text{GK}$ (null profitt), men markedsmakten holder $p$ over MK, så mengden er litt for lav.",
     },
     {
       question: "Betyr nullprofitt at monopolistisk konkurranse er effektiv som perfekt konkurranse?",
-      options: ["Nei — prisen ligger fortsatt over marginalkostnaden, så et lite tap består", "Ja, nullprofitt betyr full effektivitet", "Ja, men bare på kort sikt", "Nei — det gir større tap enn monopol"],
+      options: ["Nei — prisen ligger fortsatt over marginalkostnaden, så et lite tap består", "Ja, nullprofitt betyr full effektivitet", "Ja, men bare på kort sikt før etablering skjer; på lang sikt oppstår et betydelig dødvektstap i markedet", "Ja — når profitten er null må $p = \\text{MK}$ gjelde, og markedet oppnår full samfunnsøkonomisk effektivitet"],
       explanation: "Nullprofitt ($p = \\text{GK}$) er ikke det samme som $p = \\text{MK}$. Mengden er litt for lav; til gjengjeld får man variasjon.",
     },
     {
       question: "Hva er et kartell?",
-      options: ["En avtale mellom uavhengige produsenter om å samordne pris/produksjon som ett monopol", "En enkelt bedrift med enerett fra staten", "Mange bedrifter i fri konkurranse", "En bedrift med fallende gjennomsnittskostnad"],
+      options: ["En avtale mellom uavhengige produsenter om å samordne pris/produksjon som ett monopol", "En bedrift med fallende gjennomsnittskostnad", "En enkelt bedrift som har fått enerett fra staten og derfor lovlig kan stenge alle konkurrenter ute", "En bedrift med fallende gjennomsnittskostnad over hele markedet, slik at én produsent er billigst mulig"],
       explanation: "Kartellet lar små produsenter opptre som ett monopol: pris opp, mengde ned, dødvektstap.",
     },
     {
       question: "Hva skjer med pris og mengde når et kartell dannes?",
-      options: ["Prisen opp, mengden ned (monopolutfallet)", "Prisen ned, mengden opp", "Både pris og mengde uendret", "Prisen ned, mengden ned"],
+      options: ["Prisen opp, mengden ned (monopolutfallet)", "Både pris og mengde uendret", "Prisen ned og mengden ned samtidig, slik at både konsument- og produsentoverskudd faller i dette markedet", "Prisen ned, mengden opp"],
       explanation: "Ved å samordne seg opptrer produsentene som ett monopol — de begrenser mengden og hever prisen.",
     },
     {
       question: "Hvorfor er kartell forbudt etter konkurranseloven?",
-      options: ["Det gir monopolutfall (høyere pris, lavere mengde, dødvektstap) uten effektivitetsgevinst", "Fordi det gir for lav pris til kundene", "Fordi det øker samfunnsøkonomisk overskudd", "Fordi det senker prisen under marginalkostnaden"],
+      options: ["Det gir monopolutfall (høyere pris, lavere mengde, dødvektstap) uten effektivitetsgevinst", "Fordi det senker prisen under marginalkostnaden", "Fordi det øker det samfunnsøkonomiske overskuddet så mye at monopolisten alene sitter igjen med gevinsten", "Fordi det gir for lav pris til kundene og dermed presser ærlige konkurrenter ut av markedet med tap for alle"],
       explanation: "Prissamarbeid skader forbrukerne som et monopol, uten den effektivitetsfordelen et naturlig monopol kan ha.",
     },
     {
       question: "Hvorfor er et kartell ustabilt?",
-      options: ["Hvert medlem tjener på å bryte ut mens de andre holder den høye prisen", "Fordi staten hele tiden griper inn", "Fordi kostnadene alltid stiger", "Fordi kundene forhandler ned prisen"],
+      options: ["Hvert medlem tjener på å bryte ut mens de andre holder den høye prisen", "Fordi kundene forhandler ned prisen", "Fordi staten hele tiden griper inn med reguleringer og avgifter som gjør samarbeidet ulønnsomt for medlemmene", "Fordi staten hele tiden griper inn"],
       explanation: "Fristelsen til å jukse (selge litt mer/billigere) undergraver avtalen — fangens dilemma-strukturen.",
     },
     {
       question: "Hva er broen fra kartellets ustabilitet til spillteorien?",
-      options: ["Fangens dilemma: individuelt beste handling (jukse) gir dårligere utfall for kartellet samlet", "Nash-likevekten er alltid Pareto-optimal", "Kartellet er en koordineringslikevekt", "Kartellet har ingen kobling til spillteori"],
+      options: ["Fangens dilemma: individuelt beste handling (jukse) gir dårligere utfall for kartellet samlet", "Kartellet har ingen kobling til spillteori", "Kartellet er en ren koordineringslikevekt der ingen har noe å tjene på å avvike fra den avtalte høye prisen", "Nash-likevekten i spillet er alltid Pareto-optimal, slik at kartellet ender i det beste utfallet for alle parter"],
       explanation: "Å bryte ut er hvert medlems beste handling, men når alle gjør det ryker avtalen — akkurat fangens dilemma (kap. 7.2).",
     },
     {
       question: "Hvordan skiller monopolistisk konkurranse seg fra rent monopol?",
-      options: ["Mange bedrifter og fri etablering gir null langsiktig profitt", "Prisen er lik marginalkostnaden", "Det finnes bare én selger", "Det er ingen markedsmakt i det hele tatt"],
+      options: ["Mange bedrifter og fri etablering gir null langsiktig profitt", "Det er ingen markedsmakt i det hele tatt", "Prisen settes lik marginalkostnaden, slik at markedet blir like effektivt som under perfekt konkurranse", "Prisen er lik marginalkostnaden"],
       explanation: "Begge har $p > \\text{MK}$, men bare monopolet beholder profitten; fri etablering fjerner den i monopolistisk konkurranse.",
     },
     {
       question: "Testes Cournot- og Bertrand-modellene på ECON1210?",
-      options: ["Nei — «oligopol» dekkes av kartell-som-monopol og fangens dilemma", "Ja, begge må utledes", "Ja, Cournot men ikke Bertrand", "Ja, som hovedtema i monopoldelen"],
+      options: ["Nei — «oligopol» dekkes av kartell-som-monopol og fangens dilemma", "Ja, som hovedtema i monopoldelen", "Ja, begge modellene må utledes fullt ut med reaksjonsfunksjoner og likevektsberegning i eksamensbesvarelsen", "Ja, Cournot men ikke Bertrand"],
       explanation: "De formelle oligopolmodellene er utenfor pensum; ikke bruk tid på utledninger.",
     },
     {
       question: "Hva er en gevinst ved differensieringen i monopolistisk konkurranse?",
-      options: ["Forbrukerne får variasjon og valgmuligheter", "Prisen blir lik marginalkostnaden", "Profitten blir høyere på lang sikt", "Dødvektstapet forsvinner helt"],
+      options: ["Forbrukerne får variasjon og valgmuligheter", "Profitten blir høyere på lang sikt", "Prisen blir lik marginalkostnaden, slik at markedet oppnår full effektivitet uten noe tap for samfunnet", "Prisen blir lik marginalkostnaden"],
       explanation: "Mangfoldet av ulike varianter (kafeer, merker) har verdi i seg selv og kan forsvare det lille effektivitetstapet.",
     },
     {
       question: "Hvem taper på et kartell?",
-      options: ["Kjøperne — de betaler høyere pris og får mindre mengde", "Kartellmedlemmene", "Ingen taper", "Bare staten"],
+      options: ["Kjøperne — de betaler høyere pris og får mindre mengde", "Kartellmedlemmene", "Kartellmedlemmene selv, fordi den avtalte prisøkningen presser deres samlede salgsvolum og profitt ned", "Ingen taper"],
       explanation: "Kjøperne taper (KO ned) mens kartellmedlemmene vinner på den høye prisen; nettotapet er dødvektstrekanten.",
     },
     {
       question: "Hva skjer med en bedrifts E-kurve når nye konkurrenter etablerer seg i monopolistisk konkurranse?",
-      options: ["Den skifter inn og blir slakere (mer elastisk)", "Den skifter ut og blir brattere", "Den blir vertikal", "Den forsvinner helt"],
+      options: ["Den skifter inn og blir slakere (mer elastisk)", "Den skifter ut og blir brattere", "Den skifter ut og blir brattere, fordi bedriften nå selger til flere lojale kunder med lav priselastisitet", "Den forsvinner helt"],
       explanation: "Nye bedrifter tar kunder (E skifter inn) og gir kundene flere alternativer (E blir slakere) til profitten er null.",
     },
   ],
   'econ1210-5-5': [
     {
       question: "Hva skal alltid stå først i en monopoloppgave?",
-      options: ["MI-dekomponeringen (kvantums- og priseffekt)", "Velferdsregnskapet", "Reguleringsdrøftingen", "Konklusjonen"],
+      options: ["MI-dekomponeringen (kvantums- og priseffekt)", "Reguleringsdrøftingen", "Reguleringsdrøftingen om makspris og subsidie, slik at leseren ser hvordan tapet kan rettes opp fra starten", "Velferdsregnskapet"],
       explanation: "Fasitene starter alltid med å dele MI i kvantums- og priseffekt — å hoppe over det koster poeng.",
     },
     {
@@ -2163,12 +2163,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En student regner $x_M$ riktig men leser prisen der MI = MK. Hva blir feil?",
-      options: ["Prisen blir for lav — tallet der MI = MK er marginalkostnaden, ikke prisen", "Mengden blir for høy", "Dødvektstapet blir null", "Ingenting, det er riktig"],
+      options: ["Prisen blir for lav — tallet der MI = MK er marginalkostnaden, ikke prisen", "Ingenting, det er riktig", "Mengden blir for høy, fordi $x_M$ da leses av der marginalinntekten krysser etterspørselskurven i stedet", "Ingenting blir feil — punktet der MI = MK gir nettopp monopolprisen som skal leses av i denne oppgavetypen"],
       explanation: "Feil #5: prisen leses av E-kurven ved $x_M$, ikke der MI = MK (det gir MK).",
     },
     {
       question: "Mellom hvilke kurver går dødvektstrekanten i monopoldrillen?",
-      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom E-kurven og MI-kurven", "Mellom MI og MK", "Mellom prislinja og MK"],
+      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom E-kurven og MI-kurven", "Mellom prislinja $p_M$ og MK-linja, fordi det er marginen mellom pris og kostnad som teller som samfunnets tap", "Mellom prislinja og MK"],
       explanation: "Tapet er verdi som forsvinner fordi mengden er under $x_{\\text{opt}}$ — trekanten går mot E og MK, aldri mot MI.",
     },
     {
@@ -2178,17 +2178,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er et naturlig monopol samfunnsøkonomisk lønnsomt?",
-      options: ["Når konsumentoverskuddet ved $p = \\text{MK}$ overstiger den faste kostnaden (KO > B)", "Når selskapet går med overskudd ved $p = \\text{MK}$", "Alltid", "Når marginalkostnaden er høy"],
+      options: ["Når konsumentoverskuddet ved $p = \\text{MK}$ overstiger den faste kostnaden (KO > B)", "Når selskapet går med overskudd ved $p = \\text{MK}$", "Alltid, siden ett stort selskap med fallende gjennomsnittskostnad per definisjon er billigst for samfunnet", "Når selskapet går med regnskapsmessig overskudd allerede ved $p = \\text{MK}$, slik at ingen subsidie trengs"],
       explanation: "Ved $p = \\text{MK}$ er SO = KO; er denne verdien større enn $B$, er tjenesten verdt mer enn den koster å opprette.",
     },
     {
       question: "Hva gjør regulering av et naturlig monopol vanskelig?",
-      options: ["Informasjonsproblemet — myndighetene kjenner ikke selskapets kostnader like godt", "At det ikke finnes reguleringsverktøy", "At etterspørselen er ukjent", "At marginalkostnaden er null"],
+      options: ["Informasjonsproblemet — myndighetene kjenner ikke selskapets kostnader like godt", "At det ikke finnes reguleringsverktøy", "At etterspørselen er fullstendig ukjent, slik at myndighetene ikke kan anslå betalingsvilligheten i markedet", "At det ikke finnes reguleringsverktøy — myndighetene mangler både makspris, kvantumskrav og subsidie som grep"],
       explanation: "Selskapet kan overdrive kostnadene for å få høyere tillatt pris eller subsidie — informasjonsasymmetrien.",
     },
     {
       question: "Hvorfor er et kartell forbudt?",
-      options: ["Det gir monopolutfall (pris opp, mengde ned, dødvektstap) uten effektivitetsgevinst", "Fordi det senker prisen for mye", "Fordi det øker samfunnsøkonomisk overskudd", "Fordi det gir null profitt"],
+      options: ["Det gir monopolutfall (pris opp, mengde ned, dødvektstap) uten effektivitetsgevinst", "Fordi det øker samfunnsøkonomisk overskudd", "Fordi det øker det samlede samfunnsøkonomiske overskuddet så kraftig at bare produsentene får glede av det", "Fordi det gir null profitt til medlemmene, slik at ingen får dekket sine faste kostnader og markedet svikter"],
       explanation: "Prissamarbeid skader forbrukerne som et monopol; konkurranseloven forbyr det.",
     },
     {
@@ -2198,44 +2198,44 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva begrenser en monopolists markedsmakt?",
-      options: ["En mer elastisk E-kurve — flere konkurrenter, substitutter, ny kabel, utløpt patent", "En brattere E-kurve", "Høyere marginalkostnad", "Færre konkurrenter"],
+      options: ["En mer elastisk E-kurve — flere konkurrenter, substitutter, ny kabel, utløpt patent", "Høyere marginalkostnad", "En brattere E-kurve, fordi kundene da reagerer svakere på pris og bedriften kan holde prisen høyt over MK", "Færre konkurrenter i markedet, ettersom mindre konkurransepress gir monopolisten mer rom mellom pris og MK"],
       explanation: "Mer elastisk E → priseffekten svir mer → mindre gap mellom pris og MK → mindre makt.",
     },
     {
       question: "En nettavis har $x = 90 - p$, $\\text{MK} = 0$, $B = 3\\,000$. Er driften lønnsom?",
-      options: ["Ja — KO ved gratis tilgang er $4\\,050 > 3\\,000$", "Nei — selskapet taper penger", "Ja, uansett B", "Nei — KO er lavere enn B"],
+      options: ["Ja — KO ved gratis tilgang er $4\\,050 > 3\\,000$", "Nei — selskapet taper penger", "Nei — konsumentoverskuddet på $3\\,600$ ved gratis tilgang er lavere enn den faste kostnaden $B = 3\\,000$", "Nei — KO er lavere enn B"],
       explanation: "Optimum $p = 0$, $x = 90$; KO $= \\frac{1}{2}\\cdot 90\\cdot 90 = 4\\,050 > 3\\,000$. Lønnsom.",
     },
     {
       question: "Hvorfor er et kartell vanskelig å holde?",
-      options: ["Hvert medlem fristes til å bryte ut mens de andre holder den høye prisen", "Fordi staten hele tiden griper inn", "Fordi kostnadene stiger", "Fordi det gir for lav profitt"],
+      options: ["Hvert medlem fristes til å bryte ut mens de andre holder den høye prisen", "Fordi staten hele tiden griper inn", "Fordi staten hele tiden griper inn med kontroller og bøter som gjør at medlemmene ikke tør å holde avtalen", "Fordi det gir for lav profitt til hvert medlem, ettersom den høye prisen skremmer bort altfor mange kunder"],
       explanation: "Fristelsen til å jukse undergraver avtalen (fangens dilemma, kap. 7.2), så karteller sprekker.",
     },
     {
       question: "Hva må et figursvar i monopoldrillen navngi?",
-      options: ["Akser, E, MI (dobbelt så bratt), MK, $x_M$, $p_M$ (avlest på E) og dødvekttrekanten", "Bare E-kurven og prisen", "Bare MI og MK", "Bare monopolpunktet"],
+      options: ["Akser, E, MI (dobbelt så bratt), MK, $x_M$, $p_M$ (avlest på E) og dødvekttrekanten", "Bare E-kurven og prisen", "Bare monopolpunktet $x_M$, fordi resten av kurvene følger implisitt og ikke trenger egne navn i besvarelsen", "Bare E-kurven og prisen, siden det er skjæringspunktet mellom disse to som fullt ut bestemmer monopoltilpasningen"],
       explanation: "Uten navngitte akser, kurver, punkter og trekant er svaret halvt (feil #12).",
     },
     {
       question: "Hvem må huskes i fordelingsdelen av en monopoloppgave?",
-      options: ["Tredjepartene — andre selgere som også vinner på den høye prisen", "Bare kjøperne", "Bare monopolisten", "Bare staten"],
+      options: ["Tredjepartene — andre selgere som også vinner på den høye prisen", "Bare monopolisten", "Bare kjøperne, siden det utelukkende er de som får konsumentoverskuddet redusert av den høye monopolprisen", "Bare monopolisten selv, ettersom hele fordelingsvirkningen består i den ekstra profitten selskapet henter inn"],
       explanation: "Å glemme tredjepartene er feil #11; andre selgere får den høye prisen uten selv å begrense mengden.",
     },
   ],
   'econ1210-6-1': [
     {
       question: "I arbeidsmarkedet: hva svarer «mengde» og «pris» til?",
-      options: ["Sysselsetting $N$ og lønn $w$", "Pris $p$ og mengde $x$", "Kapital og rente", "Overskudd og skatt"],
+      options: ["Sysselsetting $N$ og lønn $w$", "Pris $p$ og mengde $x$", "Produsert mengde $x$ og produktprisen $p$ per enhet", "Overskudd og skatt"],
       explanation: "Arbeidsmarkedet er et FK-marked der mengden er sysselsettingen $N$ og prisen er lønna $w$.",
     },
     {
       question: "Hvem etterspør og hvem tilbyr arbeidskraft i arbeidsmarkedet?",
-      options: ["Bedriftene etterspør (E-kurven), arbeidstakerne tilbyr (T-kurven)", "Arbeidstakerne etterspør, bedriftene tilbyr", "Staten etterspør, bedriftene tilbyr", "Begge etterspør"],
+      options: ["Bedriftene etterspør (E-kurven), arbeidstakerne tilbyr (T-kurven)", "Arbeidstakerne etterspør, bedriftene tilbyr", "Arbeidstakerne etterspør arbeid (fallende E-kurve), bedriftene tilbyr (stigende T-kurve)", "Staten etterspør, bedriftene tilbyr"],
       explanation: "Bedriftene er kjøperne av arbeid (fallende E-kurve); arbeidstakerne er selgerne (stigende T-kurve, arbeidstilbudet).",
     },
     {
       question: "Hva tilsvarer et anleggs enhetskostnad i arbeidsmarkedet?",
-      options: ["Arbeidstakerens reservasjonslønn", "Arbeidsgiveravgiften", "Markedslønna", "Bedriftens overskudd"],
+      options: ["Arbeidstakerens reservasjonslønn", "Arbeidsgiveravgiften", "Arbeidsgiveravgiften bedriften betaler staten per ansatt", "Bedriftens overskudd"],
       explanation: "Hver arbeidstakers reservasjonslønn (laveste lønn de vil jobbe for) spiller samme rolle som et anleggs enhetskostnad: høyere markedslønn gjør flere villige.",
     },
     {
@@ -2255,17 +2255,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Et slakt (svært prisfølsomt) arbeidstilbud gir arbeidstakerne hvor mye av en lønnssubsidie?",
-      options: ["Lite — det meste lekker til arbeidsgiverne", "Alt — hele subsidien", "Nøyaktig halvparten", "Mer enn arbeidsgiverne"],
+      options: ["Lite — det meste lekker til arbeidsgiverne", "Mer enn arbeidsgiverne", "Alt — hele subsidien tilfaller alltid arbeidstakerne i sin helhet", "Alt — hele subsidien"],
       explanation: "Slakt tilbud (stor $c$) betyr at arbeidstakers andel $\\frac{b}{b+c}$ er liten; tilstrømmingen presser lønna ned og gevinsten lekker til bedriftene.",
     },
     {
       question: "Hvem bærer mest av en lønnsskatt/-subsidie i arbeidsmarkedet?",
-      options: ["Den minst prisfølsomme (bratteste) siden", "Den mest prisfølsomme siden", "Alltid arbeidsgiveren", "Alltid den skatten formelt legges på"],
+      options: ["Den minst prisfølsomme (bratteste) siden", "Alltid den skatten formelt legges på", "Den mest prisfølsomme (slakkeste) siden av markedet", "Alltid arbeidsgiveren, uansett hvor bratte kurvene er"],
       explanation: "Den siden som vanskeligst kan trekke seg ut (bratt kurve, lite prisfølsom) sitter igjen med størstedelen.",
     },
     {
       question: "Spiller det noen rolle om en lønnsskatt formelt legges på arbeidsgiver eller arbeidstaker?",
-      options: ["Nei — helningene bestemmer delingen (ekvivalens)", "Ja — den som formelt betaler bærer alt", "Ja — arbeidstaker bærer alltid mest", "Bare hvis staten bestemmer"],
+      options: ["Nei — helningene bestemmer delingen (ekvivalens)", "Ja — den som formelt betaler bærer alt", "Ja — den parten som formelt betaler skatten, bærer hele byrden alene", "Ja — arbeidstaker bærer alltid mest"],
       explanation: "Ekvivalens: markedets helninger, ikke lovteksten, avgjør hvem som faktisk bærer avgiften.",
     },
     {
@@ -2275,12 +2275,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Etter en lønnssubsidie $s$ er arbeidstakerens effektive lønn:",
-      options: ["$w_1 + s$ (markedslønn pluss støtte)", "$w_1 - s$", "$w_1$", "$w^*$ (uendret)"],
+      options: ["$w_1 + s$ (markedslønn pluss støtte)", "$w^*$ (uendret)", "$w_1 - s$ (markedslønn minus støtte som arbeidstaker taper)", "$w_1 - s$"],
       explanation: "Arbeidstakeren får markedslønna $w_1$ pluss subsidien $s$; markedslønna faller, men netto stiger med arbeidstakers andel av $s$.",
     },
     {
       question: "Etter en arbeidsgiveravgift $t$ er bedriftens totale lønnskostnad:",
-      options: ["$w_1 + t$ (markedslønn pluss avgift)", "$w_1 - t$", "$w_1$", "$w^*$"],
+      options: ["$w_1 + t$ (markedslønn pluss avgift)", "$w_1 - t$", "$w_1 - t$ (markedslønn minus avgiften bedriften slipper å betale)", "$w_1$"],
       explanation: "Bedriften betaler markedslønna $w_1$ til arbeidstaker pluss $t$ til staten, altså $w_1 + t$ totalt per time.",
     },
     {
@@ -2290,12 +2290,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er arbeidsetterspørselen (E-kurven) fallende i lønna?",
-      options: ["Verdien av det en ekstra arbeidstime produserer avtar på marginen", "Fordi arbeidstakerne blir late", "Fordi staten griper inn", "Fordi lønna alltid er fast"],
+      options: ["Verdien av det en ekstra arbeidstime produserer avtar på marginen", "Fordi arbeidstakerne blir late", "Fordi staten stadig griper inn og regulerer lønnsdannelsen nedover", "Fordi arbeidstakerne blir mindre produktive og late ved høyere lønn"],
       explanation: "Jo høyere lønn, jo færre timer lønner det seg for bedriftene å kjøpe, siden marginalverdien av arbeidskraften avtar.",
     },
     {
       question: "En lønnssubsidie gir arbeidstakerne 1/4 av gevinsten. Hva sier det om arbeidstilbudet?",
-      options: ["Det er slakt (prisfølsomt) relativt til etterspørselen", "Det er bratt (lite prisfølsomt)", "Det er vertikalt", "Det er uendret av lønn"],
+      options: ["Det er slakt (prisfølsomt) relativt til etterspørselen", "Det er bratt (lite prisfølsomt)", "Det er fullstendig vertikalt og helt uavhengig av lønnsnivået", "Det er bratt (lite prisfølsomt) sammenlignet med etterspørselen"],
       explanation: "Arbeidstakers andel $\\frac{b}{b+c} = \\frac14$ betyr $c = 3b$: tilbudet er mer prisfølsomt enn etterspørselen, så arbeidstakerne får minst.",
     },
   ],
@@ -2312,17 +2312,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nettoeffekten av en lønnsøkning på arbeidstilbudet?",
-      options: ["Ubestemt — de to effektene trekker hver sin vei", "Alltid mer arbeid", "Alltid mindre arbeid", "Alltid uendret"],
+      options: ["Ubestemt — de to effektene trekker hver sin vei", "Alltid mindre arbeid", "Alltid mindre arbeid, siden folk da har råd til å ta seg mer fritid", "Alltid mer arbeid, siden høyere lønn alltid gjør arbeid mer lønnsomt"],
       explanation: "Substitusjonseffekten (mer) og inntektseffekten (mindre) trekker mot hverandre; hvilken som dominerer varierer.",
     },
     {
       question: "Hva er alternativkostnaden av en fritime?",
-      options: ["Den tapte lønna man kunne tjent", "Prisen på en vare", "Skatten på lønn", "Ingenting — fritid er gratis"],
+      options: ["Den tapte lønna man kunne tjent", "Ingenting — fritid er gratis", "Prisen man må betale for en vare i butikken", "Prisen på en vare"],
       explanation: "Alternativkostnaden er verdien av det nest beste bruket av tiden — her lønna man kunne tjent ved å jobbe.",
     },
     {
       question: "En tilbakebøyd arbeidstilbudskurve oppstår når:",
-      options: ["Inntektseffekten dominerer ved høye lønninger", "Substitusjonseffekten alltid dominerer", "Lønna er fast", "Det er arbeidsledighet"],
+      options: ["Inntektseffekten dominerer ved høye lønninger", "Substitusjonseffekten alltid dominerer", "Lønna er fast og upåvirket av hvor mye arbeidskraft som tilbys", "Det er utbredt arbeidsledighet som presser tilbudskurven bakover"],
       explanation: "Ved høye lønninger kan inntektseffekten overta, så høyere lønn gir mindre arbeid — kurven bøyer tilbake.",
     },
     {
@@ -2337,12 +2337,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved en renteøkning er virkningen på sparingen:",
-      options: ["Ubestemt — substitusjons- og inntektseffekt trekker hver sin vei", "Alltid mer sparing", "Alltid mindre sparing", "Alltid uendret"],
+      options: ["Ubestemt — substitusjons- og inntektseffekt trekker hver sin vei", "Alltid mindre sparing", "Alltid mindre sparing, fordi man da når spannemålet med mindre innsats", "Alltid mer sparing, fordi høyere rente alltid gjør sparing mer lønnsomt"],
       explanation: "Substitusjon (sparing mer lønnsomt → mer) og inntekt (sparemålet nås lettere → mindre) trekker mot hverandre; samme struktur som arbeidstilbudet.",
     },
     {
       question: "Hvorfor blir fritid «dyrere» når lønna stiger?",
-      options: ["Alternativkostnaden per fritime — den tapte lønna — stiger", "Fritid koster mer i butikken", "Skatten på fritid øker", "Fritid blir forbudt"],
+      options: ["Alternativkostnaden per fritime — den tapte lønna — stiger", "Fritid koster mer i butikken", "Fordi staten legger en høyere skatt direkte på hver time med fritid", "Fordi fritid blir forbudt eller sterkt begrenset ved høye lønninger"],
       explanation: "Hver fritime betyr mer tapt lønn når lønna er høyere, så den relative kostnaden ved å ha fri stiger.",
     },
     {
@@ -2354,7 +2354,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-6-3': [
     {
       question: "En liten åpen økonomi er på verdensmarkedet:",
-      options: ["Pristaker (tar verdensprisen som gitt)", "Prissetter", "Monopolist", "Uten handel"],
+      options: ["Pristaker (tar verdensprisen som gitt)", "Uten handel", "Prissetter som selv bestemmer verdensmarkedsprisen", "Monopolist med full markedsmakt på verdensmarkedet"],
       explanation: "Den er for liten til å påvirke verdensprisen, så den tar verdensmarkedsprisen som gitt — akkurat som en pristaker i et FK-marked.",
     },
     {
@@ -2369,7 +2369,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved åpning for import skjer det med samfunnsøkonomisk overskudd (SO):",
-      options: ["Det stiger (gevinsttrekanten)", "Det faller", "Det er uendret", "Det blir negativt"],
+      options: ["Det stiger (gevinsttrekanten)", "Det blir negativt", "Det faller fordi produsenttapet dominerer", "Det er uendret"],
       explanation: "KO stiger mer enn PO faller, så SO stiger netto — den samlede gevinsten er gevinsttrekanten.",
     },
     {
@@ -2379,12 +2379,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved åpning for eksport (verdenspris over autarki), hva skjer med SO?",
-      options: ["Det stiger (produsentenes gevinst > konsumentenes tap)", "Det faller", "Det er uendret", "Konsumentene vinner"],
+      options: ["Det stiger (produsentenes gevinst > konsumentenes tap)", "Konsumentene vinner", "Det faller fordi konsumenttapet overstiger produsentgevinsten", "Det er uendret siden prisøkningen bare omfordeler overskuddet"],
       explanation: "Høyere pris: PO stiger, KO faller, men produsentenes gevinst overstiger konsumentenes tap, så SO stiger.",
     },
     {
       question: "Hvorfor senker en eksportrestriksjon SO?",
-      options: ["De omdirigerte enhetenes betalingsvillighet er lavere enn verdensmarkedsprisen (alternativverdien)", "Fordi produsentene tjener mer", "Fordi importen øker", "Fordi prisen stiger"],
+      options: ["De omdirigerte enhetenes betalingsvillighet er lavere enn verdensmarkedsprisen (alternativverdien)", "Fordi produsentene tjener mer", "Fordi importen av varen øker kraftig og fortrenger den innenlandske produksjonen fra det nasjonale markedet", "Fordi produsentene taper på å selge de omdirigerte enhetene innenlands til en pris under verdensmarkedsprisen"],
       explanation: "Å holde varer hjemme til lavere innenlandsk betalingsvillighet enn verdensprisen gir tapt eksportinntekt — alternativverdien overstiger den innenlandske verdien.",
     },
     {
@@ -2394,19 +2394,19 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva driver gevinsten fra internasjonal handel?",
-      options: ["Komparative fortrinn (ulik alternativkostnad)", "Absolutte fortrinn alene", "Like priser overalt", "Statlige subsidier"],
+      options: ["Komparative fortrinn (ulik alternativkostnad)", "Absolutte fortrinn alene", "Statlige subsidier som kunstig senker prisen på eksportvarer", "Like priser overalt i verden som fjerner ethvert bytteinsentiv"],
       explanation: "Land spesialiserer seg etter komparative (relative) fortrinn — lavest alternativkostnad — og bytter, så alle kan ende opp med mer.",
     },
     {
       question: "En vanlig feil i handelsoppgaven er å:",
-      options: ["Konkludere med samlet tap fordi produsentene taper ved import", "Sette innenlandsk pris lik verdensprisen", "Lese produksjon av T ved verdensprisen", "Bruke gevinsttrekanten"],
+      options: ["Konkludere med samlet tap fordi produsentene taper ved import", "Sette innenlandsk pris lik verdensprisen", "Bruke gevinsttrekanten til å måle den samlede handelsgevinsten", "Lese den innenlandske produksjonen av T-kurven ved verdensprisen"],
       explanation: "Produsenttapet oppveies av kjøpernes større gevinst (gevinsttrekanten); landet vinner samlet ved import.",
     },
   ],
   'econ1210-7-1': [
     {
       question: "Hva viser budsjettlinja for to goder?",
-      options: ["Alle kombinasjoner av de to godene forbrukeren akkurat har råd til", "Kombinasjonen som gir høyest nytte", "Alle kombinasjoner forbrukeren foretrekker likt", "Prisen på det ene godet som funksjon av det andre"],
+      options: ["Alle kombinasjoner av de to godene forbrukeren akkurat har råd til", "Prisen på det ene godet som funksjon av det andre", "Prisen på det ene godet uttrykt som en funksjon av mengden av det andre godet", "Den enkelte kombinasjonen av de to godene som gir forbrukeren aller høyest nytte"],
       explanation: "Budsjettlinja $p_1x_1+p_2x_2=M$ samler alle kombinasjoner som bruker opp hele inntekten. Hva forbrukeren *foretrekker* vises av indifferenskurvene, ikke budsjettlinja.",
     },
     {
@@ -2426,64 +2426,64 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med budsjettlinja når prisen på gode 1 stiger (inntekt og $p_2$ uendret)?",
-      options: ["Den roterer innover om det loddrette endepunktet og blir brattere", "Den parallellskiftes innover", "Den roterer om det vannrette endepunktet", "Helningen blir slakere"],
+      options: ["Den roterer innover om det loddrette endepunktet og blir brattere", "Den roterer om det vannrette endepunktet", "Den roterer innover om det vannrette endepunktet på $x_1$-aksen i stedet", "Den parallellskiftes innover uten at helningen endrer seg i det hele tatt"],
       explanation: "Bare $x_1$-endepunktet ($M/p_1$) trekkes inn; $x_2$-endepunktet står stille. Linja roterer og blir brattere — ny helning $-p_1/p_2$ øker i tallverdi.",
     },
     {
       question: "Hvilken egenskap har IKKE en indifferenskurve i pensum?",
-      options: ["Den kan krysse en annen indifferenskurve", "Den er fallende", "Den er konveks (buet mot origo)", "En kurve lenger fra origo er bedre"],
+      options: ["Den kan krysse en annen indifferenskurve", "En kurve lenger fra origo er bedre", "Den er konveks (buet mot origo) på grunn av avtakende bytteforhold", "Den er konveks (buet mot origo)"],
       explanation: "Indifferenskurver krysser ALDRI hverandre — et skjæringspunkt ville gitt to velferdsnivåer samtidig. De øvrige egenskapene stemmer.",
     },
     {
       question: "Hvor tilpasser forbrukeren seg optimalt?",
-      options: ["Der den høyest oppnåelige indifferenskurven tangerer budsjettlinja", "Der budsjettlinja krysser en indifferenskurve", "På det loddrette endepunktet", "Der to indifferenskurver møtes"],
+      options: ["Der den høyest oppnåelige indifferenskurven tangerer budsjettlinja", "Der budsjettlinja krysser en indifferenskurve", "På det loddrette endepunktet av budsjettlinja der all inntekt går til gode 2", "Der budsjettlinja bare krysser en indifferenskurve i stedet for å tangere den"],
       explanation: "Optimum er tangeringspunktet: der er indifferenskurvens helning lik budsjettlinjas helning $-p_1/p_2$.",
     },
     {
       question: "Hva er substitusjonseffekten av en prisøkning på et gode?",
-      options: ["Vridning bort fra det nå relativt dyrere godet, langs samme indifferenskurve", "Sprang til en lavere indifferenskurve fordi kjøpekraften faller", "En parallellforskyvning av budsjettlinja", "En økning i forbruket av det dyrere godet"],
+      options: ["Vridning bort fra det nå relativt dyrere godet, langs samme indifferenskurve", "Sprang til en lavere indifferenskurve fordi kjøpekraften faller", "Et sprang til en lavere indifferenskurve fordi den reelle kjøpekraften faller", "En økning i forbruket av det nå relativt dyrere godet fordi det virker mer attraktivt"],
       explanation: "Substitusjonseffekten er bevegelsen langs SAMME indifferenskurve (samme velferd) bort fra det relativt dyrere godet.",
     },
     {
       question: "Hva er inntektseffekten av en prisøkning på et gode?",
-      options: ["Endringen i forbruket fordi den reelle kjøpekraften faller (sprang til lavere indifferenskurve)", "Vridningen langs samme indifferenskurve", "At helningen på indifferenskurven endres", "At budsjettlinja blir brattere"],
+      options: ["Endringen i forbruket fordi den reelle kjøpekraften faller (sprang til lavere indifferenskurve)", "At helningen på indifferenskurven endres", "Vridningen langs den samme indifferenskurven bort fra det nå relativt dyrere godet, med uendret velferd", "At helningen på indifferenskurven i tilpasningspunktet endrer seg som følge av selve prisøkningen på godet"],
       explanation: "Inntektseffekten skyldes at pengene rekker til mindre — et sprang til en lavere indifferenskurve. Substitusjonseffekten er vridningen langs samme kurve.",
     },
     {
       question: "For et normalt gode: hvilken vei trekker substitusjons- og inntektseffekten forbruket ved en prisøkning?",
-      options: ["Begge trekker forbruket av det dyrere godet ned", "Substitusjon ned, inntekt opp", "Begge trekker forbruket opp", "Ingen av dem påvirker forbruket"],
+      options: ["Begge trekker forbruket av det dyrere godet ned", "Ingen av dem påvirker forbruket", "Begge effektene trekker forbruket av det nå dyrere godet oppover etter prisøkningen", "Substitusjon ned, inntekt opp"],
       explanation: "For et normalt gode peker begge effektene samme vei: forbruket av det dyrere godet faller.",
     },
     {
       question: "Hva slags algebra kreves for å løse konsumentteori-oppgaver på ECON1210?",
-      options: ["Ingen nyttefunksjons-algebra — alt løses grafisk og verbalt", "Derivasjon av nyttefunksjonen", "Løsning av et likningssett med nytte", "Integrasjon av indifferenskurven"],
+      options: ["Ingen nyttefunksjons-algebra — alt løses grafisk og verbalt", "Løsning av et likningssett med nytte", "Derivasjon av nyttefunksjonen for å finne marginalnytten i hvert punkt", "Integrasjon av indifferenskurven for å regne ut det samlede nyttenivået"],
       explanation: "Nyttefunksjons-algebra testes aldri. Budsjettlinje (rett linje) og indifferenskurver (tegnet kvalitativt) er alt som trengs.",
     },
     {
       question: "En støtteordning gjør et gode billigere bare opp til en viss mengde. Hva skjer med budsjettlinja?",
-      options: ["Den får en knekk: slakere der godet er subsidiert, brattere der full pris gjelder", "Den parallellskiftes utover", "Den blir en jevn, rett linje", "Den forsvinner"],
+      options: ["Den får en knekk: slakere der godet er subsidiert, brattere der full pris gjelder", "Den parallellskiftes utover fordi hele godet blir like mye billigere overalt", "Den blir en jevn, rett linje med uendret helning gjennom hele intervallet", "Den forsvinner helt fordi støtteordningen opphever betydningen av prisene"],
       explanation: "Ulik pris i to intervaller gir ulik helning — en knekk. Slak der prisen er lav, bratt der full pris gjelder.",
     },
     {
       question: "I sparemodellen (forbruk i dag mot neste år) — hva er bytteforholdet?",
-      options: ["$(1+r)$: én spart krone i dag gir $(1+r)$ kroner neste år", "$r$ alene", "$1/r$", "$p_1/p_2$"],
+      options: ["$(1+r)$: én spart krone i dag gir $(1+r)$ kroner neste år", "$r$ alene", "$1/r$: du deler renta på én for å finne hva sparingen er verdt neste år", "$r$ alene: hver spart krone i dag gir nøyaktig $r$ kroner ekstra neste år"],
       explanation: "Renta bestemmer bytteforholdet: sparer du én krone i dag, får du $(1+r)$ neste år. Det er «prisen» på forbruk i dag.",
     },
     {
       question: "Hvorfor er virkningen av en renteøkning på sparingen tvetydig for en som sparer?",
-      options: ["Substitusjonseffekten trekker mot mer sparing, inntektseffekten mot mer forbruk i dag", "Fordi renta ikke påvirker budsjettlinja", "Fordi sparing alltid øker", "Fordi indifferenskurvene krysser"],
+      options: ["Substitusjonseffekten trekker mot mer sparing, inntektseffekten mot mer forbruk i dag", "Fordi indifferenskurvene krysser hverandre og gir to mulige optimale tilpasninger", "Fordi sparing alltid øker når renta stiger, uten noen motvirkende effekt i det hele tatt", "Fordi renta ikke påvirker budsjettlinja, så tilpasningen forblir helt uendret"],
       explanation: "Framtidig forbruk blir relativt billigere (substitusjon → mer sparing), men spareren blir rikere (inntekt → mer forbruk i dag). Nettovirkningen er ubestemt.",
     },
     {
       question: "Hva menes med den relative prisen $p_1/p_2$?",
-      options: ["Hvor mange enheter av gode 2 én enhet av gode 1 «koster» — markedets bytteforhold", "Den totale utgiften på gode 1", "Inntekten delt på prisen", "Forbrukerens nytte av gode 1"],
+      options: ["Hvor mange enheter av gode 2 én enhet av gode 1 «koster» — markedets bytteforhold", "Inntekten delt på prisen på gode 1, som gir hvor mange enheter du har råd til", "Den totale utgiften på gode 1, altså prisen ganget med hvor mye du kjøper", "Forbrukerens nytte av gode 1 målt opp mot nytten av gode 2 i optimum"],
       explanation: "Den relative prisen er bytteforholdet mellom godene og bestemmer budsjettlinjas helning. En prisendring endrer den og driver substitusjonseffekten.",
     },
   ],
   'econ1210-7-2': [
     {
       question: "Hva består et spill av i denne boka?",
-      options: ["Spillere, strategier og utfall (gevinster)", "Bare en tabell med tall", "Kun to spillere uten strategier", "En etterspørsels- og en tilbudskurve"],
+      options: ["Spillere, strategier og utfall (gevinster)", "En etterspørsels- og en tilbudskurve", "Bare en tabell med tall som viser hver spillers gevinst i hver rute", "Kun to spillere uten strategier"],
       explanation: "Et spill har spillere (hvem velger), strategier (hva de kan velge) og utfall (gevinstene, avhengig av alles valg).",
     },
     {
@@ -2493,54 +2493,54 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en Nash-likevekt?",
-      options: ["Et utfall der ingen tjener på å endre valget sitt alene, gitt de andres valg", "Utfallet som er best for alle spillere", "Utfallet der begge samarbeider", "Ruten med høyest samlet gevinst"],
+      options: ["Et utfall der ingen tjener på å endre valget sitt alene, gitt de andres valg", "Utfallet der begge spillerne velger å samarbeide om felles beste løsning", "Ruten i spillmatrisen med høyest samlet gevinst summert over spillerne", "Utfallet som gir høyest mulig gevinst for alle spillere samtidig"],
       explanation: "Nash: ingen angrer, gitt de andres valg. Det er ikke det samme som det beste felles utfallet (det er Pareto).",
     },
     {
       question: "Hvordan finner du radspillerens beste svar?",
-      options: ["Se på det første tallet og velg beste rad i hver kolonne", "Se på det andre tallet i hver rad", "Summer begge tallene", "Velg alltid øverste rad"],
+      options: ["Se på det første tallet og velg beste rad i hver kolonne", "Se på det andre tallet i hver rad", "Summer begge tallene i hver rute og velg raden med høyest sum", "Velg alltid øverste rad siden den gir radspilleren mest på sikt"],
       explanation: "Radspiller ser på sitt eget (første) tall og finner beste rad for hver av motpartens kolonner. Kolonnespiller ser på andre tall, rad for rad.",
     },
     {
       question: "Hva er en dominerende strategi?",
-      options: ["En strategi som gir høyest gevinst uansett hva motparten velger", "En strategi som bare virker mot samarbeid", "Strategien med lavest risiko", "Den strategien den andre velger"],
+      options: ["En strategi som gir høyest gevinst uansett hva motparten velger", "En strategi som bare virker mot samarbeid", "En strategi som bare gir best gevinst når motparten velger å samarbeide", "Strategien med lavest risiko for tap uansett hva motparten skulle finne på"],
       explanation: "En dominerende strategi er beste svar uansett motpartens valg. Har begge en, er ruten der de møtes eneste Nash-likevekt.",
     },
     {
       question: "Hva kjennetegner fangens dilemma?",
-      options: ["Nash-likevekten (begge bryter) er ikke Pareto-optimal — samarbeid ville vært bedre for begge", "Det finnes ingen Nash-likevekt", "Nash-likevekten er alltid det beste utfallet", "Begge spillere samarbeider i likevekt"],
+      options: ["Nash-likevekten (begge bryter) er ikke Pareto-optimal — samarbeid ville vært bedre for begge", "Begge spillere velger å samarbeide i likevekt fordi det gir høyest samlet gevinst", "Nash-likevekten er alltid det beste utfallet for begge, akkurat som samarbeid", "Det finnes ingen Nash-likevekt i spillet fordi begge alltid vil endre valg"],
       explanation: "I dilemmaet dominerer «bryt» for begge, så Nash blir at begge bryter — men et samarbeidsutfall er bedre for begge. Nash er altså ikke Pareto-optimal.",
     },
     {
       question: "Hva betyr det at et utfall er Pareto-optimalt?",
-      options: ["Ingen kan få det bedre uten at noen andre får det verre", "Alle spillere har samme gevinst", "Det er en Nash-likevekt", "Summen av gevinstene er null"],
+      options: ["Ingen kan få det bedre uten at noen andre får det verre", "Alle spillere har samme gevinst", "Det er et utfall som samtidig er en Nash-likevekt i spillet", "Alle spillere ender opp med nøyaktig samme gevinst i utfallet"],
       explanation: "Pareto-optimalt = ingen forbedring mulig uten å skade noen. Nash spør «hva blir valgt?», Pareto «kan alle få det bedre?» — to ulike spørsmål.",
     },
     {
       question: "Hvorfor er et kartell (prissamarbeid) ustabilt?",
-      options: ["Hver bedrift har en dominerende strategi om å underby de andre — et fangens dilemma", "Fordi myndighetene alltid oppdager det", "Fordi prisen uansett stiger", "Fordi bedriftene ikke tjener på høy pris"],
+      options: ["Hver bedrift har en dominerende strategi om å underby de andre — et fangens dilemma", "Fordi bedriftene ikke tjener noe ekstra på høy felles pris framfor konkurransepris", "Fordi myndighetene alltid oppdager prissamarbeidet og bøtelegger bedriftene", "Fordi prisen uansett stiger av seg selv så samarbeidet blir helt overflødig"],
       explanation: "Selv om alle tjener mest på høy felles pris, frister hver til å underby (dominerende «kutt»). Egeninteressen driver dem mot konkurranse — derfor sprekker karteller.",
     },
     {
       question: "Hvordan kan samarbeid opprettholdes i et gjentatt spill?",
-      options: ["Den som bryter kan straffes i senere runder (f.eks. tit-for-tat)", "Ved at reglene endres hver runde", "Ved at gevinstene dobles", "Ved at Nash-likevekten forsvinner"],
+      options: ["Den som bryter kan straffes i senere runder (f.eks. tit-for-tat)", "Ved at Nash-likevekten forsvinner", "Ved at spillereglene endres for hver runde så ingen rekker å svike", "Ved at Nash-likevekten forsvinner helt når spillet gjentas mange ganger"],
       explanation: "Når spillet gjentas, gjør trusselen om straff i framtidige runder svik dyrt. Tit-for-tat (start samarbeid, gjør så det motparten gjorde sist) kan stabilisere samarbeidet.",
     },
     {
       question: "Hvor mange Nash-likevekter kan et koordineringsspill ha?",
-      options: ["To (hvert «enighetsutfall» er en Nash-likevekt)", "Ingen", "Alltid nøyaktig én", "Fire"],
+      options: ["To (hvert «enighetsutfall» er en Nash-likevekt)", "Alltid nøyaktig én", "Alltid nøyaktig én, siden hvert spill har en entydig likevektsløsning", "Ingen, fordi ingen ruter oppfyller beste-svar-kravet for begge spillerne"],
       explanation: "I et koordineringsspill der begge tjener på å velge likt, er begge enighetsutfallene Nash-likevekter. Derfor må du sjekke alle ruter med beste-svar-metoden.",
     },
   ],
   'econ1210-7-3': [
     {
       question: "Hva er nåverdien av et beløp $y$ som kommer om $t$ år ved rente $r$?",
-      options: ["$\\frac{y}{(1+r)^t}$", "$y(1+r)^t$", "$\\frac{y}{r}$", "$y-rt$"],
+      options: ["$\\frac{y}{(1+r)^t}$", "$\\frac{y}{r}$", "$y-rt$: beløpet minus renta ganget med antall år trukket fra", "$y(1+r)^t$"],
       explanation: "Nåverdien er $\\frac{y}{(1+r)^t}$ — hvor mye du må sette av i dag for å ha $y$ om $t$ år. Å gange med $\\frac{1}{(1+r)^t}$ kalles å diskontere.",
     },
     {
       question: "Hvorfor diskonterer vi fremtidige beløp?",
-      options: ["Fordi en krone i dag kan plasseres til rente $r$ og er verdt mer enn en krone senere", "Fordi framtidige beløp alltid er usikre", "Fordi inflasjonen alltid er høy", "Fordi banker tar gebyr"],
+      options: ["Fordi en krone i dag kan plasseres til rente $r$ og er verdt mer enn en krone senere", "Fordi inflasjonen alltid er høy og spiser opp kjøpekraften av framtidige kroner", "Fordi framtidige beløp alltid er usikre og dermed må reduseres for risiko", "Fordi banker tar gebyr for å oppbevare pengene fram til beløpet utbetales"],
       explanation: "En krone i dag kan forrentes, så den er verdt mer enn en krone senere. Renta er alternativkostnaden ved å binde pengene; diskontering gjør beløp sammenlignbare i dagens kroner.",
     },
     {
@@ -2550,79 +2550,79 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva skjer med nåverdien av et fast fremtidig beløp når renta stiger?",
-      options: ["Den blir lavere (hardere diskontering)", "Den blir høyere", "Den er uendret", "Den blir negativ"],
+      options: ["Den blir lavere (hardere diskontering)", "Den blir negativ", "Den er uendret siden renta ikke inngår i selve nåverdiberegningen", "Den blir høyere"],
       explanation: "Høyere rente gir mindre diskonteringsfaktor, så nåverdien faller. Derfor kan et prosjekt som er lønnsomt ved lav rente bli ulønnsomt ved høyere rente.",
     },
     {
       question: "Når er et prosjekt lønnsomt etter nåverdikriteriet?",
-      options: ["Når nåverdien av de fremtidige gevinstene overstiger kostnaden i dag", "Når gevinstene summerer til mer enn null udiskontert", "Når det varer lenge", "Når renta er lav"],
+      options: ["Når nåverdien av de fremtidige gevinstene overstiger kostnaden i dag", "Når renta er lav slik at kostnaden i dag automatisk blir liten nok", "Når prosjektet varer lenge nok til at summen av gevinstene blir stor", "Når gevinstene summerer til mer enn null udiskontert over hele perioden"],
       explanation: "Lønnsomt = nåverdien av gevinstene > kostnaden i dag. Fordi høyere rente senker nåverdien, blir færre prosjekter lønnsomme jo høyere renta er.",
     },
     {
       question: "Hvordan finner du nåverdien av en betalingsrekke over flere år?",
-      options: ["Diskonter hvert års beløp for seg og legg sammen", "Legg sammen alle beløpene udiskontert", "Diskonter bare det siste beløpet", "Del summen på antall år"],
+      options: ["Diskonter hvert års beløp for seg og legg sammen", "Legg sammen alle beløpene udiskontert", "Diskonter bare det siste beløpet siden det ligger lengst fram i tid", "Diskonter bare det siste beløpet"],
       explanation: "Hvert års beløp diskonteres med sin egen faktor $\\frac{1}{(1+r)^t}$, og så summeres. Å summere udiskontert overvurderer prosjektet.",
     },
     {
       question: "Hva er en diskonteringsfaktor?",
-      options: ["Tallet $\\frac{1}{(1+r)^t}$ som et fremtidig beløp ganges med", "Renta ganget med antall år", "Beløpet delt på renta", "Summen av alle beløp"],
+      options: ["Tallet $\\frac{1}{(1+r)^t}$ som et fremtidig beløp ganges med", "Renta ganget med antall år", "Renta ganget med antall år, altså $r\\cdot t$ for hele perioden", "Summen av alle de framtidige beløpene før de diskonteres tilbake"],
       explanation: "Diskonteringsfaktoren $\\frac{1}{(1+r)^t}$ ligger mellom 0 og 1 og faller når $r$ eller $t$ øker. På eksamen oppgis den ofte i en tabell.",
     },
     {
       question: "En vanlig feil er å legge sammen fremtidige beløp uten å diskontere. Hva blir konsekvensen?",
-      options: ["Prosjektet overvurderes (kroner på ulike tidspunkter behandles som like mye verdt)", "Prosjektet undervurderes", "Ingenting — det gir samme svar", "Nåverdien blir negativ"],
+      options: ["Prosjektet overvurderes (kroner på ulike tidspunkter behandles som like mye verdt)", "Prosjektet undervurderes fordi framtidige kroner teller for lite i regnestykket", "Nåverdien blir negativ fordi de udiskonterte beløpene trekker summen under null", "Ingenting skjer — det gir nøyaktig samme svar som når du diskonterer riktig"],
       explanation: "Uten diskontering teller framtidige kroner like mye som dagens, så nåverdien blir for høy og prosjektet ser bedre ut enn det er.",
     },
     {
       question: "Hva representerer renta i et lønnsomhetsregnestykke?",
-      options: ["Alternativkostnaden — hva pengene ellers kunne gitt", "Statens skatteinntekt", "Prisen på godet", "Bedriftens faste kostnad"],
+      options: ["Alternativkostnaden — hva pengene ellers kunne gitt", "Bedriftens faste kostnad", "Prisen på godet som produseres, målt per enhet solgt i markedet", "Bedriftens faste kostnad som påløper uansett hvor mye som produseres"],
       explanation: "Renta er alternativkostnaden ved å binde pengene i prosjektet. Den fungerer som terskelen prosjektets gevinster må slå.",
     },
     {
       question: "Hva menes med pengers tidsverdi?",
-      options: ["Samme kronebeløp er mer verdt jo tidligere du får det", "Penger taper alltid verdi over tid uansett rente", "At alle beløp er like mye verdt", "At sene beløp er verdt mer"],
+      options: ["Samme kronebeløp er mer verdt jo tidligere du får det", "Penger taper alltid verdi over tid uansett rente", "At sene beløp er mer verdt fordi de har fått lengre tid på å vokse", "At alle beløp er like mye verdt uavhengig av når de utbetales til deg"],
       explanation: "Tidlige kroner kan forrentes lenger, så de er mer verdt. Dette er grunnen til at vi diskonterer og som regel foretrekker en utbetaling nå framfor samme beløp senere.",
     },
   ],
   'econ1210-8-1': [
     {
       question: "Hva er «malen» for et fullt oppgave 1-svar (sjanger A)?",
-      options: ["Presis definisjon + figur der naturlig + konkret eksempel + pluss-markør", "Bare en presis definisjon", "En lang drøfting av fordeler og ulemper", "Definisjon + utregning av likevekten"],
+      options: ["Presis definisjon + figur der naturlig + konkret eksempel + pluss-markør", "En lang drøfting av fordeler og ulemper uten noen klar definisjon først", "Definisjon etterfulgt av full utregning av likevektspris og likevektsmengde", "Bare en presis definisjon uten figur eller eksempel i besvarelsen"],
       explanation: "Sjanger A honoreres for definisjon, figur der det er naturlig, ett konkret eksempel og pluss-markøren («det lille ekstra»).",
     },
     {
       question: "Pluss-markøren for samfunnsøkonomisk overskudd er at det kan beregnes:",
-      options: ["for en hvilken som helst mengde uten å kjenne prisen", "bare i frikonkurranselikevekten", "bare når man kjenner både pris og mengde", "kun som KO + PO i alle situasjoner"],
+      options: ["for en hvilken som helst mengde uten å kjenne prisen", "bare når man kjenner både pris og mengde", "bare når man kjenner både pris og mengde i det aktuelle markedet", "bare i frikonkurranselikevekten der pris og mengde er entydig bestemt"],
       explanation: "SO = samlet betalingsvillighet minus samlede kostnader (arealet mellom E og T) og kan finnes for enhver mengde uten priser — nyansen fasitene har honorert tre år på rad.",
     },
     {
       question: "Høyden på markedets etterspørselskurve ved en gitt mengde er:",
-      options: ["marginal betalingsvillighet for den siste enheten", "gjennomsnittsprisen i markedet", "marginalkostnaden ved siste enhet", "den samlede betalingsvilligheten"],
+      options: ["marginal betalingsvillighet for den siste enheten", "marginalkostnaden ved siste enhet", "gjennomsnittsprisen i markedet regnet over alle solgte enheter", "den samlede betalingsvilligheten"],
       explanation: "E-kurvens høyde = marginal betalingsvillighet — pluss-markøren for E-kurve-begrepet.",
     },
     {
       question: "Høyden på markedets tilbudskurve ved en gitt mengde er:",
-      options: ["marginalkostnaden — enhetskostnaden i det dyreste anlegget i drift", "den gjennomsnittlige enhetskostnaden", "marginal betalingsvillighet", "selgernes samlede fortjeneste"],
+      options: ["marginalkostnaden — enhetskostnaden i det dyreste anlegget i drift", "marginal betalingsvillighet for den siste enheten som blir omsatt", "den gjennomsnittlige enhetskostnaden over alle anlegg som er i drift", "selgernes samlede fortjeneste fra all produksjon i det aktuelle markedet"],
       explanation: "I anleggsmodellen er T-kurvens høyde marginalkostnaden = enhetskostnaden i det dyreste anlegget som er i drift.",
     },
     {
       question: "Et fullt svar på «hva er et kollektivt gode» nevner at godet er:",
-      options: ["både ikke-rivaliserende og ikke-ekskluderbart", "kun ikke-ekskluderbart", "kun ikke-rivaliserende", "rivaliserende men ikke-ekskluderbart"],
+      options: ["både ikke-rivaliserende og ikke-ekskluderbart", "rivaliserende men ikke-ekskluderbart", "kun ikke-rivaliserende, mens man fint kan stenge enkelte ute fra godet", "kun ikke-ekskluderbart"],
       explanation: "Toppsvaret nevner begge egenskapene. (Et rivaliserende, ikke-ekskluderbart gode er derimot en fellesressurs.)",
     },
     {
       question: "Hvorfor tilbyr markedet for lite av et kollektivt gode?",
-      options: ["Gratispassasjer-problemet: ingen kan stenges ute, så alle lar andre betale", "Fordi godet er for dyrt å produsere", "Fordi etterspørselen alltid er uelastisk", "Fordi produsentene har markedsmakt"],
+      options: ["Gratispassasjer-problemet: ingen kan stenges ute, så alle lar andre betale", "Fordi etterspørselen alltid er uelastisk", "Produsentene har markedsmakt og holder mengden nede for å presse prisen opp, akkurat som et monopol", "Etterspørselen etter kollektive goder er alltid fullstendig uelastisk, så prisen kan ikke styre mengden"],
       explanation: "Når ingen kan stenges ute, lønner det seg å la andre betale — den uttrykte betalingsviljen blir for lav, og private tilbyr for lite.",
     },
     {
       question: "En ekstern virkning er en kostnad eller nytte som:",
-      options: ["påføres en tredjepart uten kompensasjon gjennom en pris", "alltid rammer produsenten selv", "kun oppstår i monopolmarkeder", "alltid gir for lav produksjon"],
+      options: ["påføres en tredjepart uten kompensasjon gjennom en pris", "alltid rammer produsenten selv", "kun kan oppstå i monopolmarkeder der én aktør har full kontroll over prisen", "alltid rammer produsenten selv gjennom høyere marginalkostnader i egen produksjon"],
       explanation: "Eksternalitet = virkning på tredjepart som ikke går via en pris. Negativ → for mye produseres; positiv → for lite.",
     },
     {
       question: "Hvorfor er monopolets marginalinntekt lavere enn prisen?",
-      options: ["Prisfallet for å selge mer gjelder alle enhetene, ikke bare den siste (priseffekten)", "Fordi monopolet har høyere kostnader", "Fordi monopolet betaler skatt", "Fordi prisen leses av MI-kurven"],
+      options: ["Prisfallet for å selge mer gjelder alle enhetene, ikke bare den siste (priseffekten)", "Fordi monopolet har høyere kostnader", "Monopolet må betale en særskatt på salget, og denne avgiften gjør at marginalinntekten havner under prisen", "Prisen leses direkte av MI-kurven ved valgt mengde, mens etterspørselskurven ligger et stykke lavere enn den"],
       explanation: "MI = kvantumseffekt (+) minus priseffekt (−); priseffekten (lavere pris på alle enheter) trekker MI under prisen.",
     },
     {
@@ -2632,12 +2632,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "SO = KO + PO gjelder:",
-      options: ["kun uten skatt, subsidie eller eksternaliteter", "alltid, uansett inngrep", "bare i monopolmarkeder", "bare ved en bindende makspris"],
+      options: ["kun uten skatt, subsidie eller eksternaliteter", "bare ved en bindende makspris", "bare i rene monopolmarkeder, der produsentoverskuddet og konsumentoverskuddet er de eneste komponentene", "alltid, uansett inngrep"],
       explanation: "Med skatt kommer statens inntekt i tillegg (SO = KO + PO + skatteinntekt). Å definere SO som «KO + PO i likevekt» uten mer er feilkatalog #9.",
     },
     {
       question: "En elastisitet oppgitt uten verbal tolkning i et begrepssvar:",
-      options: ["gir trekk — tall skal alltid tolkes med ord (feilkatalog #6)", "er alltid tilstrekkelig", "er bare et problem ved elastisitet over 1", "teller som pluss-markør"],
+      options: ["gir trekk — tall skal alltid tolkes med ord (feilkatalog #6)", "er bare et problem ved elastisitet over 1", "er bare et problem når elastisiteten er større enn 1, altså i det elastiske området av kurven", "teller som en klar pluss-markør fordi presis tallbruk regnes som et tegn på god faglig forståelse"],
       explanation: "Tolkningsplikten: «når prisen øker 1 %, endres mengden med |ε| %.» Et bart tall gir ikke full uttelling.",
     },
     {
@@ -2647,69 +2647,69 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En fellesressurs skiller seg fra et kollektivt gode ved at den er:",
-      options: ["rivaliserende, men ikke-ekskluderbar (fører til overforbruk)", "ikke-rivaliserende og ikke-ekskluderbar", "både rivaliserende og ekskluderbar", "alltid offentlig finansiert"],
+      options: ["rivaliserende, men ikke-ekskluderbar (fører til overforbruk)", "ikke-rivaliserende og ikke-ekskluderbar", "alltid offentlig finansiert, fordi bare staten kan sørge for at ressursen ikke blir overforbrukt", "både rivaliserende og ekskluderbar"],
       explanation: "Fellesressurs = rivaliserende + ikke-ekskluderbar → allmenningens tragedie (overforbruk). Kollektivt gode er ikke-rivaliserende og underforsynes.",
     },
     {
       question: "En Nash-likevekt er et strategipar der:",
-      options: ["ingen spiller kan tjene på å endre strategi alene", "begge alltid får sitt beste utfall", "utfallet alltid er Pareto-optimalt", "spillerne samarbeider åpent"],
+      options: ["ingen spiller kan tjene på å endre strategi alene", "begge alltid får sitt beste utfall", "det samlede utfallet alltid er Pareto-optimalt, altså det beste for begge parter under ett", "utfallet alltid er Pareto-optimalt"],
       explanation: "Nash: ingen kan forbedre seg ved å endre strategi alene. Den trenger ikke være Pareto-optimal — jf. fangens dilemma.",
     },
     {
       question: "Nåverdien av en betaling y om t år, med rente r, er:",
-      options: ["$\\frac{y}{(1+r)^t}$", "$y\\cdot(1+r)^t$", "$\\frac{y}{r}$", "$y\\cdot t\\cdot r$"],
+      options: ["$\\frac{y}{(1+r)^t}$", "$y\\cdot t\\cdot r$", "$\\frac{y}{r}$, som er nåverdien uansett hvor mange år $t$ det gjelder for", "$y\\cdot(1+r)^t$"],
       explanation: "NV = y/(1+r)^t (evigvarende strøm: y/r). Diskontering fordi renta er alternativkostnaden ved å binde penger.",
     },
   ],
   'econ1210-8-2': [
     {
       question: "Et nyhetsbilde om at sabotasje har slått ut produksjonsanlegg oversettes til:",
-      options: ["T-kurven inn + lekkasje-poenget", "T-kurven opp (parallellskift)", "E-kurven ut", "en stykksubsidie"],
+      options: ["T-kurven inn + lekkasje-poenget", "T-kurven opp (parallellskift)", "E-kurven ut, fordi kjøperne reagerer på nyheten ved å etterspørre mer av godet enn før", "en stykksubsidie"],
       explanation: "Anlegg ut av drift = T inn (sjanger D). Omsetningen faller mindre enn bortfallet fordi høyere pris gjør flere anlegg lønnsomme (lekkasjen).",
     },
     {
       question: "«Dyrere lønn, energi eller strengere sikkerhetskrav for alle produsenter» oversettes til:",
-      options: ["T-kurven opp (enhetskostnaden øker i hvert anlegg)", "T-kurven inn (anlegg forsvinner)", "E-kurven ned", "en makspris"],
+      options: ["T-kurven opp (enhetskostnaden øker i hvert anlegg)", "T-kurven inn (anlegg forsvinner)", "E-kurven ned, siden de høyere kostnadene gjør at kjøperne etterspør mindre av godet enn før", "E-kurven ned"],
       explanation: "En kostnadsøkning på alle anlegg gir et parallelt T-skift opp — ikke inn, som er kapasitetsbortfall.",
     },
     {
       question: "«Myndighetene setter en øvre grense på strømprisen godt under markedspris» er:",
-      options: ["en maksimalpris — omsatt mengde bestemmes av kortside-regelen", "en stykkskatt på selgerne", "et tilbudsskift innover", "en minstepris"],
+      options: ["en maksimalpris — omsatt mengde bestemmes av kortside-regelen", "en stykkskatt på selgerne", "en bindende minstepris, som holder prisen kunstig oppe og gir et tilbudsoverskudd i markedet", "en stykkskatt lagt på selgerne, som skyver tilbudskurven oppover og gir en høyere pris til kjøperne"],
       explanation: "Bindende pristak → etterspørselsoverskudd; omsatt mengde = tilbudt mengde (kortsiden), og mangelen må rasjoneres.",
     },
     {
       question: "«Staten gjør et gode billigere for folk med et tilskudd per solgt enhet» er en subsidie — hvilken felle bør nevnes?",
-      options: ["Subsidie-paradokset: SO faller uten markedssvikt, selv om KO og PO øker", "At subsidien alltid øker SO", "At subsidien er en makspris", "At T-kurven flytter opp"],
+      options: ["Subsidie-paradokset: SO faller uten markedssvikt, selv om KO og PO øker", "At subsidien alltid øker SO", "At subsidien i praksis virker som en makspris, fordi den presser prisen ned under likevektsnivået", "At tilbudskurven flytter oppover når subsidien innføres, slik at prisen til kjøperne stiger istedenfor"],
       explanation: "Uten markedssvikt gir subsidien et paradoks-tap. Med positiv eksternalitet kan den likevel være riktig — nevn hvilken situasjon som gjelder.",
     },
     {
       question: "«Hvordan kan utslippene kuttes billigst mulig?» ber om:",
-      options: ["trekriterie-rammen: avgift vs. omsettelige kvoter vs. direkte regulering", "en ren moralsk drøfting av klimaansvar", "monopolpakken", "kortside-regelen"],
+      options: ["trekriterie-rammen: avgift vs. omsettelige kvoter vs. direkte regulering", "en ren moralsk drøfting av klimaansvar", "monopolpakken med mengde fra MI = MK og pris avlest på etterspørselskurven ved den valgte mengden", "kortside-regelen, som avgjør omsatt mengde når et bindende prisinngrep skaper ubalanse i markedet"],
       explanation: "Lik pris på utslipp → like marginale rensekostnader → billigst kutt. Sjanger H, trekriterie-rammen fra kap. 4.4.",
     },
     {
       question: "«Ett enerådende selskap uten konkurrenter» oversettes til:",
-      options: ["monopolpakken: mengde fra MI = MK, pris fra E-kurven", "frikonkurranse med mange pristakere", "en fellesressurs", "et arbeidsmarked"],
+      options: ["monopolpakken: mengde fra MI = MK, pris fra E-kurven", "frikonkurranse med mange pristakere", "en fellesressurs som er rivaliserende men ikke-ekskluderbar, og som derfor står i fare for overforbruk", "en fellesressurs"],
       explanation: "Enerett = monopol (sjanger I). Prisen leses av E-kurven ved monopolmengden, aldri av MI-kurven.",
     },
     {
       question: "Den vanligste feilen når casen er uvant, er å:",
-      options: ["la innpakningen lede mot moralsk essay i stedet for modellgrepet", "regne ferdig for raskt", "bruke for mange figurer", "alltid velge monopol"],
+      options: ["la innpakningen lede mot moralsk essay i stedet for modellgrepet", "bruke for mange figurer", "regne seg ferdig altfor raskt og hoppe over mellomregningene som sensor faktisk vil se begrunnet", "bruke alt for mange figurer og diagrammer, slik at selve modellpoenget drukner i overflødige tegninger"],
       explanation: "Sensor vil ha modellgrepet (kurve, skift, velferd) først; den normative drøftingen kommer på toppen, ikke i stedet.",
     },
     {
       question: "Argumentet «produsentene tjener godt, så prisen bør tvinges ned» er feil fordi:",
-      options: ["høy profitt er et fordelingspoeng; effektiv pris krever pris = marginalkostnad", "produsentoverskudd aldri kan eksistere i modellen", "produsentene aldri tjener penger", "prisen alltid skal være null"],
+      options: ["høy profitt er et fordelingspoeng; effektiv pris krever pris = marginalkostnad", "produsentoverskudd aldri kan eksistere i modellen", "den effektive prisen alltid skal være null, slik at godet i praksis deles ut gratis til alle kjøperne", "produsentene i realiteten aldri tjener penger, fordi konkurransen alltid spiser opp hele overskuddet deres"],
       explanation: "At selskapene tjener godt (stort produsentoverskudd) er fordeling, ikke effektivitet. Riktig mengde krever pris lik marginalkostnaden — et pristak under markedsprisen gir mangel og dødvektstap.",
     },
     {
       question: "«Energiprisene steg, og staten innførte samtidig en støtteordning» bør analyseres som:",
-      options: ["to grep i rekkefølge: kostnadssjokk (T opp) og subsidie (T ned)", "ett samlet skift", "bare en subsidie", "bare en kostnadsøkning"],
+      options: ["to grep i rekkefølge: kostnadssjokk (T opp) og subsidie (T ned)", "bare en kostnadsøkning", "bare en subsidie, siden støtteordningen er det eneste tiltaket som faktisk endrer prisen i markedet her", "bare en kostnadsøkning, ettersom energiprisene er den dominerende hendelsen og støtten kan sees bort fra"],
       explanation: "Én hendelse kan skjule to grep. Analyser kostnadssjokket og støtten hver for seg, ikke som ett skift.",
     },
     {
       question: "Kjernebudskapet i aktualitetstreningen er at:",
-      options: ["innpakningen er ny hvert år, men grepene er de samme", "hvert år krever en helt ny modell", "aktuelle caser ikke kan analyseres med pensum", "man alltid skal svare med et moralsk essay"],
+      options: ["innpakningen er ny hvert år, men grepene er de samme", "aktuelle caser ikke kan analyseres med pensum", "aktuelle caser sjelden lar seg analysere med pensum, siden virkeligheten er mer sammensatt enn teorien", "man alltid skal svare med et moralsk essay"],
       explanation: "Casene bytter innramming (korona, gasskrise, sabotasje, klimasøksmål), men oversettes alltid til de faste standardgrepene.",
     },
   ],
@@ -2726,12 +2726,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I samme marked ($b = 3$, $c = 2$) legges en stykkskatt $t = 25$ på selgerne. Hva blir kjøpernes andel av avgiften, og hvorfor?",
-      options: ["$\\frac{c}{b+c} = \\frac{2}{5}$ — kjøperne bærer minst fordi etterspørselen er mest prisfølsom", "$\\frac{b}{b+c} = \\frac{3}{5}$ — kjøperne bærer mest fordi de betaler prisen", "Alltid $\\frac{1}{2}$ — avgiften deles alltid likt", "Hele avgiften, fordi den er lagt på selgerne"],
+      options: ["$\\frac{c}{b+c} = \\frac{2}{5}$ — kjøperne bærer minst fordi etterspørselen er mest prisfølsom", "$\\frac{b}{b+c} = \\frac{3}{5}$ — kjøperne bærer mest fordi de betaler prisen", "Alltid $\\frac{1}{2}$ — en stykkavgift deles alltid helt likt mellom kjøper og selger uansett elastisitet", "$\\frac{b}{b+c} = \\frac{3}{5}$ — kjøperne bærer mest fordi det er de som faktisk betaler prisen i butikken"],
       explanation: "Kjøpers andel er $\\frac{c}{b+c} = \\frac{2}{5}$. Den minst prisfølsomme (bratteste) siden bærer mest; her er tilbudet minst prisfølsomt ($c=2<b=3$), så selgerne bærer $\\frac{3}{5}$ og kjøperne bare $\\frac{2}{5}$.",
     },
     {
       question: "I øvingssettets monopol er E: $x = 240 - 2p$ (invers $p = 120 - \\tfrac{1}{2}x$, så $\\text{MI} = 120 - x$) og $\\text{MK} = 40$. Hvilken mengde og pris velger monopolet?",
-      options: ["$x_M = 80$ (fra MI = MK), $p_M = 80$ lest av E-kurven", "$x_M = 80$, $p_M = 40$ lest av MI-kurven", "$x_M = 160$, $p_M = 40$ (der E krysser MK)", "$x_M = 120$, $p_M = 60$"],
+      options: ["$x_M = 80$ (fra MI = MK), $p_M = 80$ lest av E-kurven", "$x_M = 160$, $p_M = 40$ (der E krysser MK)", "$x_M = 120$, $p_M = 60$, funnet ved å sette etterspørselen lik marginalkostnaden midt mellom de to", "$x_M = 80$, $p_M = 40$ lest av MI-kurven"],
       explanation: "MI = MK gir $120 - x = 40 \\Rightarrow x_M = 80$. Prisen leses av E-kurven (ikke MI-kurven — feilkatalog #5): $p_M = 120 - \\tfrac{1}{2}\\cdot 80 = 80$. Å lese prisen av MI gir feilaktig 40.",
     },
     {
@@ -2743,54 +2743,54 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-8-4': [
     {
       question: "I markedet x = 800 − 4p (E) og x = 2p − 100 (T) settes en subsidie s = 30 til selgerne. Ny markedspris og selgers nettopris blir:",
-      options: ["p₁ = 140 og nettopris 170 (T ned med s, deling ⅓ til kjøper, ⅔ til selger)", "p₁ = 170 og nettopris 140 (T opp med s)", "p₁ = 135 og nettopris 165 (deling ½/½)", "p₁ = 150 og nettopris 150 (subsidien endrer ingenting)"],
+      options: ["p₁ = 140 og nettopris 170 (T ned med s, deling ⅓ til kjøper, ⅔ til selger)", "p₁ = 150 og nettopris 150 (subsidien endrer ingenting)", "p₁ = 135 og nettopris 165, med en helt lik deling ½/½ av subsidien mellom kjøpere og selgere", "p₁ = 150 og nettopris 150, siden subsidien bare er en overføring og ikke endrer prisen i markedet"],
       explanation: "Subsidie skifter T NED med s: selger tilbyr ut fra p+30, x = 2(p+30)−100 = 2p−40. Likevekt 800−4p = 2p−40 gir p₁ = 140, x₁ = 240, nettopris = 140+30 = 170. Kontroll: 2·170−100 = 240. ✓ Alt. 2 flytter T feil vei (feilkode #2). Alt. 3 antar lik deling, men b = 4 ≠ c = 2. Alt. 4 overser at subsidien senker prisen.",
     },
     {
       question: "I samme marked deles subsidien slik at kjøperne bare får ⅓. Hvorfor får kjøperne en så liten andel?",
-      options: ["Fordi tilbudet er minst prisfølsomt (c = 2 < b = 4) — den bratteste, minst prisfølsomme siden får mest", "Fordi subsidien formelt gis til selgerne, ikke til kjøperne", "Fordi staten bestemmer at selgerne skal få mest", "Fordi kjøperne har lav betalingsvillighet i utgangspunktet"],
+      options: ["Fordi tilbudet er minst prisfølsomt (c = 2 < b = 4) — den bratteste, minst prisfølsomme siden får mest", "Fordi subsidien formelt gis til selgerne, ikke til kjøperne", "Fordi subsidien formelt gis til selgerne og ikke til kjøperne, så det er selgerne som mottar mest av den", "Fordi staten selv bestemmer at selgerne skal få den største andelen som en del av støtteordningens vilkår"],
       explanation: "Delingen styres av kurvenes helninger: kjøpers andel = c/(b+c) = 2/6 = ⅓. Den minst prisfølsomme siden (her tilbudet, c = 2 < b = 4) henger igjen i prisen og får/bærer mest. Alt. 2 er «hvem betaler formelt»-fellen (#3): hvem subsidien gis til, spiller ingen rolle. Alt. 3 og 4 er feil — delingen er ren helningsgeometri.",
     },
     {
       question: "En subsidie i et velfungerende marked gir høyere KO OG høyere PO. Hvorfor faller likevel samfunnsøkonomisk overskudd?",
-      options: ["Statens utlegg overstiger den samlede KO+PO-gevinsten; for merenhetene er betalingsvilligheten lavere enn kostnaden", "SO faller ikke — når både KO og PO stiger, øker SO", "Fordi prisen stiger og kjøperne taper på det", "Fordi selgerne alltid taper på en subsidie"],
+      options: ["Statens utlegg overstiger den samlede KO+PO-gevinsten; for merenhetene er betalingsvilligheten lavere enn kostnaden", "SO faller ikke — når både KO og PO stiger, øker SO", "Fordi prisen til kjøperne stiger som følge av subsidien, og kjøperne taper dermed netto på ordningen sett under ett samlet", "SO faller egentlig ikke — når både konsumentoverskuddet og produsentoverskuddet stiger, må jo også summen SO øke tilsvarende"],
       explanation: "Subsidie-paradokset (karakterskillet, feilkode #4): I eksemplet er utlegget 7 200, mens KO-gevinst (2 200) + PO-gevinst (4 400) = 6 600. Differansen 600 er dødvektstapet. Subsidien presser mengden over den effektive; for merenhetene er kjøpernes betalingsvillighet lavere enn produksjonskostnaden — verdi ødelegges. Alt. 2 er nettopp fellen #4. Alt. 3/4 er faktisk gale (prisen faller, selgerne tjener).",
     },
     {
       question: "Anlegg settes ut av drift, T skifter inn fra x = 2p−100 til x = 2p−280. Anleggsbortfallet ved gammel pris er 180 tonn, men omsatt mengde faller bare 120 tonn. Hva forklarer forskjellen?",
-      options: ["Lekkasjen: prisøkningen gjør tidligere ulønnsomme anlegg lønnsomme igjen, så de kommer inn og demper mengdefallet", "En regnefeil — mengdefallet skal være nøyaktig like stort som bortfallet", "At etterspørselen også falt samtidig", "At subsidien kompenserte for bortfallet"],
+      options: ["Lekkasjen: prisøkningen gjør tidligere ulønnsomme anlegg lønnsomme igjen, så de kommer inn og demper mengdefallet", "En regnefeil — mengdefallet skal være nøyaktig like stort som bortfallet", "At en samtidig subsidie kompenserte for anleggsbortfallet og dermed dempet det samlede fallet i den omsatte mengden", "En ren regnefeil — mengdefallet skal etter modellen være nøyaktig like stort som selve anleggsbortfallet på 180 tonn"],
       explanation: "Lekkasje-poenget (feilkode #8): bortfallet måles horisontalt ved gammel pris p₀ = 150 (200 − 20 = 180 tonn). Faktisk mengdefall er 200 − 80 = 120 tonn. Differansen (60 tonn) skyldes at den høyere prisen (150→180) gjør tidligere ulønnsomme anlegg lønnsomme. Derfor faller omsatt mengde MINDRE enn produksjonsbortfallet. Alt. 2 er selve fellen. Alt. 3/4 innfører noe oppgaven ikke sier.",
     },
     {
       question: "Utslippskvoter deles ut GRATIS i stedet for å auksjoneres. Hva blir konsekvensen for kostnadseffektiviteten og for «forurenser betaler»?",
-      options: ["Kostnadseffektiviteten er upåvirket (alternativkostnaden ved å bruke kvoten er kvoteprisen uansett); gratistildeling avgjør fordelingen og bryter «forurenser betaler»", "Gratis tildeling ødelegger kostnadseffektiviteten fordi bedriftene da renser mindre", "Gratis tildeling gjør at målet ikke lenger nås", "Gratis tildeling gir både lavere kostnadseffektivitet og mer statlige inntekter"],
+      options: ["Kostnadseffektiviteten er upåvirket (alternativkostnaden ved å bruke kvoten er kvoteprisen uansett); gratistildeling avgjør fordelingen og bryter «forurenser betaler»", "Gratis tildeling ødelegger kostnadseffektiviteten fordi bedriftene da renser mindre", "Gratis tildeling ødelegger kostnadseffektiviteten fordi bedriftene som får kvoter fritt, da velger å rense klart mindre enn før og dermed slipper billigere unna de fastsatte kravene", "Gratis tildeling gjør at det samlede utslippsmålet ikke lenger nås, siden bedriftene ikke betaler for kvotene og derfor forurenser en god del mer enn det kvotetaket egentlig tillater"],
       explanation: "Også en gratis kvote har alternativkostnad lik kvoteprisen (bedriften kan selge den), så hver bedrift renser like mye uansett — de marginale rensekostnadene utjevnes likt (kostnadseffektiviteten er intakt). Gratistildeling avgjør fordelingen og bryter «forurenser betaler» (staten mister auksjonsinntekten). Alt. 2 er gratiskvote-fellen. Alt. 3 er feil (kvotetaket, ikke tildelingen, bestemmer måloppnåelsen). Alt. 4 er selvmotsigende (gratis gir INGEN inntekter).",
     },
   ],
   'econ1210-8-5': [
     {
       question: "Ved en bindende maksimalpris (under likevektsprisen) bestemmes omsatt mengde av …",
-      options: ["tilbudet — kortside-regelen: omsatt mengde = min(tilbudt, etterspurt), og ingen kan tvinges til å selge", "etterspørselen, siden det er et etterspørselsoverskudd", "maksprisen selv, avlest rett på prisaksen", "gjennomsnittet av tilbudt og etterspurt mengde"],
+      options: ["tilbudet — kortside-regelen: omsatt mengde = min(tilbudt, etterspurt), og ingen kan tvinges til å selge", "etterspørselen, siden det er et etterspørselsoverskudd", "maksprisen selv, som avleses rett på prisaksen og direkte forteller hvilken mengde som blir omsatt i markedet", "gjennomsnittet av tilbudt og etterspurt mengde, ettersom de to sidene møtes på halvveien når prisen er bundet"],
       explanation: "Ved makspris under likevekt er tilbudt mengde mindre enn etterspurt. Siden ingen kan tvinges til å produsere med tap, er tilbudet den korte siden, og omsatt mengde = tilbudt mengde. Å lese mengden av E-kurven (etterspørselen) er nettopp feilkatalog #7 (glemt kortside-regelen).",
     },
     {
       question: "Når en storm slår ut lønnsomme kraftverk, faller omsatt mengde MINDRE enn produksjonsbortfallet fordi …",
-      options: ["den høyere prisen gjør tidligere ulønnsomme anlegg lønnsomme, så de kommer inn og demper mengdefallet (lekkasjen)", "etterspørselen alltid faller like mye som tilbudet", "prisen holder seg uendret når anlegg faller bort", "bortfallet måles langs E-kurven, ikke T-kurven"],
+      options: ["den høyere prisen gjør tidligere ulønnsomme anlegg lønnsomme, så de kommer inn og demper mengdefallet (lekkasjen)", "etterspørselen alltid faller like mye som tilbudet", "prisen holder seg helt uendret når anleggene faller bort, og det er bare selve produksjonsmengden som justeres nedover her", "etterspørselen alltid faller nøyaktig like mye som tilbudet, slik at nettoendringen i omsatt mengde blir tilsvarende mindre"],
       explanation: "Lekkasje-poenget (feilkatalog #8 å glemme): bortfallet måles horisontalt ved gammel pris, men den nye, høyere likevektsprisen trekker inn anlegg som før var ulønnsomme. Derfor faller omsetningen mindre enn selve produksjonsbortfallet. I settets tall: bortfall 200 GWh, men mengdefall bare 100 GWh.",
     },
     {
       question: "Tilbudskurven er helt horisontal (uendelig prisfølsomt tilbud, c → ∞). Hvem bærer en avgift t lagt på produsentene?",
-      options: ["Kjøperne bærer hele avgiften, fordi kjøpers andel c/(b+c) → 1 når c → ∞", "Selgerne bærer hele avgiften, siden den er lagt på dem", "Byrden deles alltid likt (halvparten hver)", "Ingen bærer avgiften; prisen er upåvirket"],
+      options: ["Kjøperne bærer hele avgiften, fordi kjøpers andel c/(b+c) → 1 når c → ∞", "Selgerne bærer hele avgiften, siden den er lagt på dem", "Byrden deles alltid helt likt, slik at kjøpere og selgere hver bærer halvparten uansett hvor bratt kurvene er", "Byrden deles alltid likt (halvparten hver)"],
       explanation: "Kjøpers andel av en avgift er c/(b+c). En horisontal T-kurve betyr c → ∞, så andelen går mot 1 — kjøperne bærer alt, og selgernes nettopris er uendret. At avgiften «legges på» produsentene, spiller ingen rolle (feilkatalog #3). Den minst prisfølsomme siden bærer mest; her er tilbudet det mest prisfølsomme, så det bærer ingenting.",
     },
     {
       question: "Hvorfor gir handel med omsettelige utslippskvoter det samlede kuttet til lavest mulig kostnad?",
-      options: ["Hver bedrift renser til marginal rensekostnad = kvoteprisen, så alle får lik marginalkostnad og de billigste kuttene tas først", "Fordi alle bedrifter tvinges til å kutte like mye hver", "Fordi kvoteprisen fastsettes politisk uavhengig av bedriftenes rensekostnader", "Fordi betalingen mellom bedriftene er en samfunnsøkonomisk besparelse i seg selv"],
+      options: ["Hver bedrift renser til marginal rensekostnad = kvoteprisen, så alle får lik marginalkostnad og de billigste kuttene tas først", "Fordi betalingen mellom bedriftene er en samfunnsøkonomisk besparelse i seg selv", "Fordi ordningen pålegger hver bedrift å kutte nøyaktig like mange tonn, slik at ingen slipper unna og den samlede byrden fordeles helt likt mellom alle deltakerne", "Fordi selve betalingen bedriftene gjør til hverandre ved kvotehandel er en reell samfunnsøkonomisk innsparing som legges til gevinsten av de faktiske utslippskuttene"],
       explanation: "Kjerneargumentet: en felles kvotepris får alle til å rense til samme marginale rensekostnad. Bedrifter som renser billig, kutter mye og selger kvoter; dyre bedrifter kjøper kvoter i stedet for å rense. De billigste kuttene tas først → billigst samlet kutt. Betalingen mellom bedriftene er en overføring, ikke en reell besparelse (besparelsen er de dyre kuttene som slippes).",
     },
     {
       question: "Svekker GRATIS tildeling av utslippskvoter kostnadseffektiviteten sammenlignet med auksjon?",
-      options: ["Nei — en gratis kvote har alternativkostnad lik kvoteprisen, så bedriftene tilpasser seg likt; tildelingen avgjør fordeling og «forurenser betaler», ikke kostnadseffektiviteten", "Ja, gratis kvoter gjør bedriftene late så marginalkostnadene blir ulike", "Ja, fordi målet (utslippstaket) ikke lenger nås ved gratis tildeling", "Nei, fordi gratis tildeling er det eneste som får forurenseren til å betale"],
+      options: ["Nei — en gratis kvote har alternativkostnad lik kvoteprisen, så bedriftene tilpasser seg likt; tildelingen avgjør fordeling og «forurenser betaler», ikke kostnadseffektiviteten", "Nei, fordi gratis tildeling er det eneste som får forurenseren til å betale", "Nei, men bare fordi gratis tildeling er den eneste tildelingsformen som faktisk får forurenseren til å betale for utslippene sine, mens auksjon i praksis lar staten bære hele miljøkostnaden i stedet", "Ja, fordi gratis tildeling gir bedriftene rett til å slippe ut mer enn før, slik at det samlede utslippstaket sprekker og selve miljømålet med ordningen ikke lenger nås uansett hvordan kvotene fordeles"],
       explanation: "Den vanligste toppsjikt-fellen: å tro at gratis kvoter ødelegger kostnadseffektiviteten. Selv en gratis kvote har alternativkostnad = kvoteprisen (bruker du den selv, kan du ikke selge den), så tilpasningen — og dermed kostnadseffektiviteten og måloppnåelsen — er lik for gratis og auksjon. Forskjellen ligger i «forurenser betaler» og fordelingen av kvoteverdien.",
     },
   ],
