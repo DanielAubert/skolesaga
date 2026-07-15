@@ -19,7 +19,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er $3^{-2}$?',
-      options: ['$\\frac{1}{9}$', '$-9$', '$-6$', '$9$'],
+      options: ["$\\frac{1}{9}$", "$-9$", "$\\frac{2}{3}$ (deler feil)", "$-6$"],
       explanation: 'Negativ eksponent betyr invers: $3^{-2} = \\frac{1}{3^2} = \\frac{1}{9}$.',
     },
     {
@@ -210,7 +210,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er diskriminanten til $x^2 + 2x + 5 = 0$?',
-      options: ['$-16$', '$16$', '$24$', '$4$'],
+      options: ["$-16$", "$16$", "$-24$ (feil ledd)", "$24$"],
       explanation: 'Diskriminant $= b^2 - 4ac = 2^2 - 4 \\cdot 1 \\cdot 5 = 4 - 20 = -16$.',
     },
     {
@@ -220,7 +220,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Løs $x^2 - 4 = 0$.',
-      options: ['$x = 2$ eller $x = -2$', '$x = 4$', '$x = 2$', '$x = 0$ eller $x = 4$'],
+      options: ["$x = 2$ eller $x = -2$", "$x = 0$ eller $x = 4$", "$x = 2$ (glemmer negativ rot)", "$x = 4$ eller $x = -4$ (ikke rot)"],
       explanation: '$x^2 = 4 \\Rightarrow x = \\pm 2$.',
     },
   ],
@@ -233,7 +233,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'I innsettingsmetoden gjør vi hva først?',
-      options: ['Uttrykker én variabel ved hjelp av den andre', 'Multipliserer likningene', 'Adderer likningene', 'Deriverer likningene'],
+      options: ["Uttrykker én variabel ved hjelp av den andre", "Multipliserer likningene", "Multipliserer de to likningene sammen ledd for ledd", "Adderer likningene direkte for å fjerne en variabel"],
       explanation: 'I innsettingsmetoden løser vi én likning for en variabel og setter dette inn i den andre.',
     },
     {
@@ -243,7 +243,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr det grafisk at et lineært likningssett har én løsning?',
-      options: ['Linjene skjærer hverandre i ett punkt', 'Linjene er parallelle', 'Linjene er sammenfallende', 'Linjene er loddrette'],
+      options: ["Linjene skjærer hverandre i ett punkt", "Linjene er sammenfallende", "Linjene er parallelle og skjærer aldri", "Linjene er sammenfallende (uendelig mange)"],
       explanation: 'Løsningen er skjæringspunktet; én løsning betyr at linjene krysser i nøyaktig ett punkt.',
     },
     {
@@ -289,7 +289,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva må vi sjekke etter å ha løst en rasjonal likning?',
-      options: ['At løsningen ikke gjør en nevner lik 0', 'At løsningen er positiv', 'At løsningen er et heltall', 'At løsningen er mindre enn 1'],
+      options: ["At løsningen ikke gjør en nevner lik 0", "At løsningen er mindre enn 1", "At løsningen alltid er et positivt tall", "At løsningen er et heltall uten desimaler"],
       explanation: 'Verdier som gjør en nevner $0$ er ikke gyldige løsninger og må forkastes.',
     },
     {
@@ -299,7 +299,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er felles nevner for $\\frac{1}{x}$ og $\\frac{1}{x+2}$?',
-      options: ['$x(x+2)$', '$x + 2$', '$x$', '$2x$'],
+      options: ["$x(x+2)$", "$x + 2$", "$2x + 2$", "$x$ alene"],
       explanation: 'Felles nevner er produktet $x(x+2)$.',
     },
     {
@@ -327,7 +327,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er det første steget når man løser et praktisk problem med likning?',
-      options: ['Sette opp en likning som beskriver situasjonen', 'Sette inn tilfeldige tall', 'Tegne en graf', 'Derivere uttrykket'],
+      options: ["Sette opp en likning som beskriver situasjonen", "Sette inn tilfeldige tall", "Tegne grafen til uttrykket før noe annet gjøres", "Derivere uttrykket for å finne et ekstremalpunkt"],
       explanation: 'Vi oversetter teksten til en matematisk likning før vi løser den.',
     },
     {
@@ -360,7 +360,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor forkaster vi ofte den negative løsningen i praktiske andregradsoppgaver?',
-      options: ['Fordi antall, lengder og priser ikke kan være negative', 'Fordi negative tall er forbudt', 'Fordi formelen bare gir én løsning', 'Fordi negative tall ikke kan kvadreres'],
+      options: ["Fordi antall, lengder og priser ikke kan være negative", "Fordi negative tall er forbudt i alle typer likninger", "Fordi andregradsformelen bare gir oss én gyldig løsning", "Fordi negative tall ikke lar seg kvadrere i slike oppgaver"],
       explanation: 'I praktiske kontekster (antall, lengde, pris) gir negative verdier ikke mening og forkastes.',
     },
   ],
@@ -383,7 +383,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En lineær funksjon har stigningstall $-2$. Hva betyr det?',
-      options: ['$y$ minker med 2 når $x$ øker med 1', '$y$ øker med 2 når $x$ øker med 1', 'Grafen er vannrett', 'Grafen går gjennom origo'],
+      options: ["$y$ minker med 2 når $x$ øker med 1", "$y$ øker med 2 når $x$ øker med 1", "$y$ øker med 2 hver gang $x$ øker med 1", "Grafen går alltid gjennom origo $(0,0)$"],
       explanation: 'Negativt stigningstall betyr at grafen synker; $-2$ gir nedgang på $2$ per steg i $x$.',
     },
     {
@@ -406,7 +406,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er $x$-koordinaten til toppunktet/bunnpunktet til $f(x) = ax^2 + bx + c$?',
-      options: ['$x = -\\frac{b}{2a}$', '$x = \\frac{b}{2a}$', '$x = -\\frac{c}{a}$', '$x = \\frac{-b}{a}$'],
+      options: ["$x = -\\frac{b}{2a}$", "$x = \\frac{b}{2a}$", "$x = \\frac{-b}{a}$ (glemt 2)", "$x = -\\frac{c}{a}$"],
       explanation: 'Symmetrilinjen og ekstremalpunktet ligger ved $x = -\\frac{b}{2a}$.',
     },
     {
@@ -416,7 +416,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvor mange nullpunkter har $f(x) = x^2 + 1$?',
-      options: ['Ingen', 'Ett', 'To', 'Tre'],
+      options: ["Ingen", "Ett", "Tre (feil grad)", "Tre"],
       explanation: '$x^2 + 1 = 0$ har ingen reell løsning, så grafen skjærer ikke $x$-aksen.',
     },
   ],
@@ -439,12 +439,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Et beløp på $1000$ kr vokser med $1{,}03^x$. Hva er verdien etter 2 år?',
-      options: ['$1060{,}90$ kr', '$1060$ kr', '$1030$ kr', '$1090$ kr'],
+      options: ["$1060{,}90$ kr", "$1060$ kr", "$1030$ kr (kun ett år)", "$1030$ kr"],
       explanation: '$1000 \\cdot 1{,}03^2 = 1000 \\cdot 1{,}0609 = 1060{,}90$ kr.',
     },
     {
       question: 'Når $b < 1$ i $f(x) = a \\cdot b^x$ (med $a > 0$), er funksjonen:',
-      options: ['Avtagende', 'Voksende', 'Konstant', 'Lineær'],
+      options: ["Avtagende", "Voksende", "Voksende (vekst)", "Konstant"],
       explanation: 'Når vekstfaktoren er mindre enn $1$, avtar funksjonsverdien (eksponentiell nedgang).',
     },
   ],
@@ -495,12 +495,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En fortegnslinje brukes til å:',
-      options: ['Vise hvor en funksjon er positiv og negativ', 'Finne stigningstallet', 'Tegne en parabel', 'Regne ut areal'],
+      options: ["Vise hvor en funksjon er positiv og negativ", "Finne stigningstallet", "Finne stigningstallet til en rett linjegraf", "Tegne en parabel ut fra to kjente nullpunkter"],
       explanation: 'Fortegnslinjer viser intervallene der funksjonen er positiv (over aksen) og negativ (under).',
     },
     {
       question: 'For hvilke $x$ er $f(x) = x^2 - 4$ negativ?',
-      options: ['$-2 < x < 2$', '$x > 2$', '$x < -2$', 'Aldri'],
+      options: ["$-2 < x < 2$", "$x < -2$", "$x > 2$ (kun høyre)", "$x > 2$"],
       explanation: 'Nullpunkter $x = \\pm 2$. Parabelen åpner opp, så den er negativ mellom nullpunktene: $-2 < x < 2$.',
     },
   ],
@@ -508,7 +508,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-3-6': [
     {
       question: 'En rasjonal funksjon er en:',
-      options: ['Brøk med polynom i teller og nevner', 'Rett linje', 'Eksponentialfunksjon', 'Logaritme'],
+      options: ["Brøk med polynom i teller og nevner", "Eksponentialfunksjon", "Eksponentialfunksjon med grunntall $b$", "Logaritmefunksjon med grunntallet $10$"],
       explanation: 'En rasjonal funksjon er $f(x) = \\frac{P(x)}{Q(x)}$ der $P$ og $Q$ er polynomer.',
     },
     {
@@ -546,17 +546,17 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: '$5000$ kr til $3\\%$ rente per år. Hvor mye etter 2 år (rentes rente)?',
-      options: ['$5304{,}50$ kr', '$5300$ kr', '$5150$ kr', '$5450$ kr'],
+      options: ["$5304{,}50$ kr", "$5300$ kr", "$5150$ kr (kun ett år)", "$5150$ kr"],
       explanation: '$5000 \\cdot 1{,}03^2 = 5000 \\cdot 1{,}0609 = 5304{,}50$ kr.',
     },
     {
       question: 'Hva er forskjellen mellom enkel rente og rentes rente?',
-      options: ['Rentes rente gir rente også på opptjente renter', 'Enkel rente er alltid høyere', 'Rentes rente regnes bare på lån', 'Det er ingen forskjell'],
+      options: ["Rentes rente gir rente også på opptjente renter", "Rentes rente regnes bare på lån", "Enkel rente gir alltid en høyere sluttverdi enn rentes rente", "Rentes rente brukes bare når man tar opp lån, ikke ved sparing"],
       explanation: 'Ved rentes rente legges rentene til kapitalen, slik at man får rente av rentene.',
     },
     {
       question: 'Renten oppgis ofte som nominell årsrente. Hva betyr nominell rente?',
-      options: ['Den oppgitte renten uten å justere for inflasjon eller rentesammensetning', 'Renten etter skatt', 'Renten justert for inflasjon', 'Renten per måned'],
+      options: ["Den oppgitte renten uten å justere for inflasjon eller rentesammensetning", "Den oppgitte renten etter at renteskatt er trukket fra av banken", "Renten som allerede er justert opp eller ned for prisstigning (inflasjon)", "Renten omregnet til en effektiv sats per måned i stedet for per år samlet"],
       explanation: 'Nominell rente er den oppgitte renten; realrenten justerer for inflasjon.',
     },
   ],
@@ -564,7 +564,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-4-2': [
     {
       question: 'Hva er nåverdien av et beløp $K$ som mottas om $n$ år ved rente $r$?',
-      options: ['$\\frac{K}{(1 + r)^n}$', '$K \\cdot (1 + r)^n$', '$\\frac{K}{1 + rn}$', '$K \\cdot (1 - r)^n$'],
+      options: ["$\\frac{K}{(1 + r)^n}$", "$K \\cdot (1 + r)^n$", "$K \\cdot (1 + r)^n$ (renter opp)", "$K \\cdot (1 - r)^n$"],
       explanation: 'Nåverdi diskonterer fremtidig beløp: $NV = \\frac{K}{(1+r)^n}$.',
     },
     {
@@ -574,12 +574,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er fremtidsverdien av $2000$ kr om 3 år ved $5\\%$ rente?',
-      options: ['$2315{,}25$ kr', '$2300$ kr', '$2100$ kr', '$2500$ kr'],
+      options: ["$2315{,}25$ kr", "$2300$ kr", "$2100$ kr (kun ett år)", "$2100$ kr"],
       explanation: '$2000 \\cdot 1{,}05^3 = 2000 \\cdot 1{,}157625 = 2315{,}25$ kr.',
     },
     {
       question: 'Hvorfor er $1000$ kr i dag verdt mer enn $1000$ kr om ett år?',
-      options: ['Fordi pengene kan settes i banken og gi rente', 'Fordi inflasjon ikke finnes', 'Fordi sedlene blir slitt', 'Fordi banken tar gebyr'],
+      options: ["Fordi pengene kan settes i banken og gi rente", "Fordi inflasjon ikke finnes", "Fordi inflasjon aldri påvirker verdien på penger", "Fordi banken alltid tar et gebyr for oppbevaring"],
       explanation: 'Penger i dag kan investeres og vokse, så de har høyere verdi enn samme beløp senere.',
     },
     {
@@ -592,12 +592,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-4-3': [
     {
       question: 'Hva er en annuitet?',
-      options: ['En serie like store betalinger over flere perioder', 'En engangsutbetaling', 'En type aksje', 'En rentesats'],
+      options: ["En serie like store betalinger over flere perioder", "En enkelt engangsutbetaling på ett gitt tidspunkt", "En type aksje som gir årlig utbytte til eieren sin", "En fast rentesats som gjelder for hele låneperioden"],
       explanation: 'En annuitet er en rekke like store inn- eller utbetalinger med faste mellomrom.',
     },
     {
       question: 'Nåverdien av en etterskuddsannuitet med beløp $B$, rente $r$, $n$ terminer er:',
-      options: ['$B \\cdot \\frac{1 - (1+r)^{-n}}{r}$', '$B \\cdot \\frac{(1+r)^n - 1}{r}$', '$B \\cdot (1+r)^n$', '$\\frac{B}{r}$'],
+      options: ["$B \\cdot \\frac{1 - (1+r)^{-n}}{r}$", "$B \\cdot (1+r)^n$ (kun ett beløp)", "$B \\cdot \\frac{(1+r)^n - 1}{r}$ (sluttverdi)", "$B \\cdot \\frac{(1+r)^n - 1}{r}$"],
       explanation: 'Nåverdiformelen for en annuitet er $NV = B \\cdot \\frac{1 - (1+r)^{-n}}{r}$.',
     },
     {
@@ -612,7 +612,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En annuitet med beløp $B$ og uendelig mange terminer kalles en:',
-      options: ['Perpetuitet', 'Obligasjon', 'Aksje', 'Diskonto'],
+      options: ["Perpetuitet", "Obligasjon", "Aksje (eierandel)", "Diskonto"],
       explanation: 'En evigvarende annuitet kalles en perpetuitet med nåverdi $\\frac{B}{r}$.',
     },
   ],
@@ -620,7 +620,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-4-4': [
     {
       question: 'Ved et annuitetslån er hva likt i alle terminer?',
-      options: ['Terminbeløpet', 'Renteandelen', 'Avdraget', 'Restgjelden'],
+      options: ["Terminbeløpet", "Renteandelen", "Renteandelen (fast)", "Restgjelden"],
       explanation: 'I et annuitetslån er det totale terminbeløpet (avdrag + rente) likt hver termin.',
     },
     {
@@ -635,7 +635,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva skjer med renteandelen av terminbeløpet utover i et annuitetslån?',
-      options: ['Den synker, mens avdraget øker', 'Den øker', 'Den er konstant', 'Den blir null umiddelbart'],
+      options: ["Den synker, mens avdraget øker", "Den blir null umiddelbart", "Den øker, mens avdraget synker", "Den er konstant gjennom hele lånet"],
       explanation: 'Etter hvert som restgjelden synker, blir renten mindre og avdraget større.',
     },
     {
@@ -648,7 +648,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-4-5': [
     {
       question: 'Hva er nettonåverdi (NNV) for et investeringsprosjekt?',
-      options: ['Nåverdien av innbetalingene minus investeringen', 'Summen av alle innbetalinger', 'Investeringen delt på levetiden', 'Renten ganget med investeringen'],
+      options: ["Nåverdien av innbetalingene minus investeringen", "Investeringen delt på levetiden", "Investeringsbeløpet fordelt jevnt utover prosjektets levetid", "Summen av alle innbetalingene uten å diskontere dem til nåtid"],
       explanation: 'NNV $=$ nåverdi av fremtidige kontantstrømmer $-$ investeringsbeløpet.',
     },
     {
@@ -663,12 +663,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Et prosjekt koster $1000$ kr og gir $1100$ kr om ett år. Ved $5\\%$ avkastningskrav, er NNV positiv?',
-      options: ['Ja, NNV $\\approx 47{,}6$ kr', 'Nei, NNV er negativ', 'NNV er nøyaktig $0$', 'NNV $= 100$ kr'],
+      options: ["Ja, NNV $\\approx 47{,}6$ kr", "Nei, NNV er negativ", "NNV er nøyaktig lik $0$ ved balanse", "NNV er nøyaktig $0$"],
       explanation: 'NNV $= \\frac{1100}{1{,}05} - 1000 = 1047{,}6 - 1000 = 47{,}6$ kr $> 0$.',
     },
     {
       question: 'Tilbakebetalingstiden (payback) måler:',
-      options: ['Hvor lang tid det tar før investeringen er tjent inn', 'Total fortjeneste', 'Internrenten', 'Skatten på prosjektet'],
+      options: ["Hvor lang tid det tar før investeringen er tjent inn", "Skatten på prosjektet", "Skattebelastningen som påløper på prosjektets overskudd", "Den totale fortjenesten prosjektet gir over hele levetiden"],
       explanation: 'Tilbakebetalingstiden er tiden til de akkumulerte innbetalingene dekker investeringen.',
     },
   ],
@@ -704,7 +704,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-5-1': [
     {
       question: 'Gjennomsnittlig vekstfart for $f$ på $[a, b]$ er:',
-      options: ['$\\frac{f(b) - f(a)}{b - a}$', '$f(b) - f(a)$', '$\\frac{f(a)}{f(b)}$', '$f\'(a)$'],
+      options: ["$\\frac{f(b) - f(a)}{b - a}$", "$\\frac{f(a)}{f(b)}$", "$f(b) - f(a)$ uten å dele på intervallengden", "$f(b) - f(a)$"],
       explanation: 'Gjennomsnittlig vekstfart er endring i $y$ delt på endring i $x$: $\\frac{f(b)-f(a)}{b-a}$.',
     },
     {
@@ -719,12 +719,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Den deriverte tolkes geometrisk som:',
-      options: ['Stigningstallet til tangenten', 'Arealet under grafen', 'Funksjonsverdien', 'Avstanden til x-aksen'],
+      options: ["Stigningstallet til tangenten", "Avstanden til x-aksen", "Den korteste avstanden fra grafen ned til x-aksen", "Arealet under grafen"],
       explanation: '$f\'(x)$ er stigningstallet til tangenten i punktet $(x, f(x))$.',
     },
     {
       question: 'Definisjonen av den deriverte er grensen av:',
-      options: ['$\\frac{f(x+h) - f(x)}{h}$ når $h \\to 0$', '$\\frac{f(x) - f(0)}{x}$', '$f(x) \\cdot h$', '$\\frac{f(x)}{h}$'],
+      options: ["$\\frac{f(x+h) - f(x)}{h}$ når $h \\to 0$", "$\\frac{f(x) - f(0)}{x}$", "$f(x) \\cdot h$ når $h$ vokser mot uendelig", "$\\frac{f(x)}{h}$ når $h$ nærmer seg tallet $1$"],
       explanation: 'Den deriverte defineres som $\\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$.',
     },
   ],
@@ -737,7 +737,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva er den deriverte av $f(x) = 5x^2 + 2x$?',
-      options: ['$10x + 2$', '$10x$', '$5x + 2$', '$7x$'],
+      options: ["$10x + 2$", "$5x + 2$", "$10x$, uten leddet fra $2x$", "$10x$"],
       explanation: 'Ledd for ledd: $(5x^2)\' = 10x$ og $(2x)\' = 2$, så $f\'(x) = 10x + 2$.',
     },
     {
@@ -770,12 +770,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Kjerneregelen brukes til å derivere:',
-      options: ['Sammensatte funksjoner', 'Konstanter', 'Summer av ledd', 'Rette linjer'],
+      options: ["Sammensatte funksjoner", "Summer av ledd", "Rene summer av flere enkeltledd", "Rette linjer på formen $ax + b$"],
       explanation: 'Kjerneregelen $(f(g(x)))\' = f\'(g(x)) \\cdot g\'(x)$ brukes på sammensatte funksjoner.',
     },
     {
       question: 'Hva er den deriverte av $f(x) = e^{2x}$?',
-      options: ['$2e^{2x}$', '$e^{2x}$', '$2e^x$', '$e^{2}$'],
+      options: ["$2e^{2x}$", "$e^{2x}$", "$2e^{x}$, med feil eksponent", "$e^{2}$"],
       explanation: 'Kjerneregelen: ytre derivert $e^{2x}$ ganget med indre derivert $2$ gir $2e^{2x}$.',
     },
     {
@@ -803,7 +803,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvordan avgjør man om et stasjonært punkt er topp- eller bunnpunkt?',
-      options: ['Med fortegnsskifte til $f\'$ eller med $f\'\'$', 'Ved å sette $x = 0$', 'Ved å regne ut $f(0)$', 'Det kan ikke avgjøres'],
+      options: ["Med fortegnsskifte til $f'$ eller med $f''$", "Ved å regne ut $f(0)$", "Ved alltid å sette inn $x = 0$ i funksjonen", "Ved å regne ut funksjonsverdien $f(0)$ i origo"],
       explanation: 'Man bruker fortegnslinje for $f\'$, eller andrederiverttesten ($f\'\' > 0$ gir bunnpunkt).',
     },
     {
@@ -816,7 +816,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-5-5': [
     {
       question: 'Optimering handler om å finne:',
-      options: ['Største eller minste verdi av en funksjon', 'Nullpunktene', 'Stigningstallet', 'Asymptotene'],
+      options: ["Største eller minste verdi av en funksjon", "Stigningstallet", "Stigningstallet til grafen i et enkelt punkt", "De horisontale og vertikale asymptotene til grafen"],
       explanation: 'Optimering søker maksimum (f.eks. størst overskudd) eller minimum (f.eks. lavest kostnad).',
     },
     {
@@ -831,12 +831,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Ved en grenseoptimal produksjon gjelder ofte at:',
-      options: ['Grenseinntekt $=$ grensekostnad', 'Inntekt $=$ kostnad', 'Pris $=$ 0', 'Kostnad er størst'],
+      options: ["Grenseinntekt $=$ grensekostnad", "Inntekt $=$ kostnad", "Samlet inntekt $=$ samlet kostnad", "Salgsprisen per enhet $=$ null i markedet"],
       explanation: 'Overskuddet er størst der grenseinntekt og grensekostnad er like ($R\' = C\'$).',
     },
     {
       question: 'Når man optimerer med en bibetingelse, kan man bruke:',
-      options: ['Innsetting eller Lagranges metode', 'Bare prøving og feiling', 'Andregradsformelen alene', 'Logaritmer'],
+      options: ["Innsetting eller Lagranges metode", "Andregradsformelen alene", "Kun andregradsformelen anvendt alene", "Logaritmer på begge sider av likningen"],
       explanation: 'Bibetingelser løses ved innsetting i målfunksjonen eller med Lagranges multiplikatormetode.',
     },
   ],
@@ -844,12 +844,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-5-6': [
     {
       question: 'Implisitt derivasjon brukes når:',
-      options: ['$y$ ikke er løst eksplisitt som funksjon av $x$', 'Funksjonen er lineær', 'Det ikke finnes noen $y$', 'Funksjonen er konstant'],
+      options: ["$y$ ikke er løst eksplisitt som funksjon av $x$", "Det ikke finnes noen $y$", "Funksjonen er en rett linje av første grad i $x$", "Det ikke finnes noen $y$-variabel i selve likningen"],
       explanation: 'Implisitt derivasjon brukes når $x$ og $y$ er knyttet i en likning uten at $y$ er isolert.',
     },
     {
       question: 'Når vi deriverer $y^2$ implisitt med hensyn på $x$, får vi:',
-      options: ['$2y \\cdot y\'$', '$2y$', '$y\'$', '$2x$'],
+      options: ["$2y \\cdot y'$", "$2y$", "$2y$, uten faktoren $y'$", "$y'$"],
       explanation: 'Kjerneregelen gir $\\frac{d}{dx}(y^2) = 2y \\cdot \\frac{dy}{dx} = 2y y\'$.',
     },
     {
@@ -864,7 +864,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Implisitt derivasjon er nyttig i økonomi for å finne:',
-      options: ['Hvordan to størrelser endrer seg i forhold til hverandre langs en kurve', 'Nullpunkter', 'Gjennomsnitt', 'Standardavvik'],
+      options: ["Hvordan to størrelser endrer seg i forhold til hverandre langs en kurve", "Nullpunktene der en enkelt funksjon alene skjærer x-aksen på grafen", "Gjennomsnittsverdien til én enkelt variabel målt over et gitt intervall", "Standardavviket som brukes som spredningsmål i en samling observasjoner"],
       explanation: 'Den brukes f.eks. på indifferens- eller isokvantkurver for å finne bytteforhold (MRS).',
     },
   ],
@@ -872,7 +872,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-5-7': [
     {
       question: 'L\'Hôpitals regel brukes ved grenseverdier av formen:',
-      options: ['$\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$', '$\\frac{1}{2}$', '$0 + 0$', '$\\frac{5}{1}$'],
+      options: ["$\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$", "$\\frac{1}{2}$", "$0 + 0$, som gir en klart definert sum lik null", "$\\frac{1}{2}$, altså en helt bestemt endelig brøk"],
       explanation: 'L\'Hôpitals regel gjelder ubestemte uttrykk som $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$.',
     },
     {
@@ -892,7 +892,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Før man bruker L\'Hôpitals regel må man sjekke at uttrykket:',
-      options: ['Faktisk er en ubestemt form', 'Er positivt', 'Er et polynom', 'Har et nullpunkt'],
+      options: ["Faktisk er en ubestemt form", "Har et nullpunkt", "At uttrykket faktisk er et polynom", "At uttrykket har minst ett nullpunkt"],
       explanation: 'Regelen gjelder kun ubestemte former; ellers gir den feil svar.',
     },
   ],
@@ -910,7 +910,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Et vendepunkt er der:',
-      options: ['Krumningen skifter fortegn', 'Funksjonen er null', 'Stigningen er null', 'Grafen skjærer x-aksen'],
+      options: ["Krumningen skifter fortegn", "Grafen skjærer x-aksen", "Stigningen $f'$ er lik null der", "Funksjonsverdien $f$ er lik null"],
       explanation: 'I et vendepunkt går grafen fra konveks til konkav eller omvendt, ofte der $f\'\' = 0$.',
     },
     {
@@ -928,7 +928,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-6-1': [
     {
       question: 'Hva er faste kostnader?',
-      options: ['Kostnader som ikke endrer seg med produsert mengde', 'Kostnader per enhet', 'Kostnader som øker med salget', 'Kostnader ved markedsføring'],
+      options: ["Kostnader som ikke endrer seg med produsert mengde", "Kostnader som øker med salget", "Kostnadene som stiger i takt med økende salgsvolum", "Kostnadene knyttet til reklame og markedsføringstiltak"],
       explanation: 'Faste kostnader er uavhengige av produksjonsmengden (f.eks. husleie).',
     },
     {
@@ -943,7 +943,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Gjennomsnittskostnaden $\\bar{C}(x)$ er definert som:',
-      options: ['$\\frac{C(x)}{x}$', '$C(x) \\cdot x$', '$C(x) - x$', '$C\'(x)$'],
+      options: ["$\\frac{C(x)}{x}$", "$C(x) \\cdot x$", "$C(x) - x$, kostnad minus antall enheter", "$C(x) - x$"],
       explanation: 'Gjennomsnittskostnad (enhetskostnad) er total kostnad delt på antall: $\\frac{C(x)}{x}$.',
     },
     {
@@ -976,7 +976,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva betyr det at overskuddet er negativt?',
-      options: ['Bedriften går med tap', 'Bedriften tjener mye', 'Inntekten er null', 'Kostnadene er null'],
+      options: ["Bedriften går med tap", "Bedriften tjener mye", "Bedriften tjener uvanlig mye penger", "Kostnadene er null"],
       explanation: 'Negativt overskudd betyr at kostnadene overstiger inntekten – altså tap.',
     },
   ],
@@ -984,12 +984,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-6-3': [
     {
       question: 'Grensekostnaden er:',
-      options: ['Den deriverte av kostnadsfunksjonen, $C\'(x)$', 'Total kostnad delt på antall', 'De faste kostnadene', 'Inntekten per enhet'],
+      options: ["Den deriverte av kostnadsfunksjonen, $C'(x)$", "Total kostnad delt på antall", "Inntekten bedriften får inn per solgte enhet", "Den totale kostnaden fordelt på antall enheter"],
       explanation: 'Grensekostnad er kostnaden ved å produsere én enhet til, altså $C\'(x)$.',
     },
     {
       question: 'Grenseinntekten er:',
-      options: ['Den deriverte av inntektsfunksjonen, $R\'(x)$', 'Total inntekt', 'Prisen ganget med kostnaden', 'De variable kostnadene'],
+      options: ["Den deriverte av inntektsfunksjonen, $R'(x)$", "Prisen ganget med kostnaden", "Den samlede totale inntekten fra hele salget", "Salgsprisen multiplisert med enhetskostnaden"],
       explanation: 'Grenseinntekt er inntekten ved å selge én enhet til, altså $R\'(x)$.',
     },
     {
@@ -999,12 +999,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Overskuddet er størst der:',
-      options: ['$R\'(x) = C\'(x)$', '$R(x) = C(x)$', '$C\'(x) = 0$', '$R(x) = 0$'],
+      options: ["$R'(x) = C'(x)$", "$R(x) = C(x)$", "$R(x) = C(x)$, inntekt lik kostnad", "$C'(x) = 0$"],
       explanation: 'Maksimalt overskudd er der grenseinntekt er lik grensekostnad.',
     },
     {
       question: 'Hva forteller grensekostnaden økonomisk?',
-      options: ['Tilnærmet kostnad ved å produsere én ekstra enhet', 'Gjennomsnittlig kostnad', 'Total fortjeneste', 'Prisen på varen'],
+      options: ["Tilnærmet kostnad ved å produsere én ekstra enhet", "Den totale fortjenesten summert over hele salget", "Den gjennomsnittlige kostnaden per produserte enhet", "Salgsprisen kunden betaler for hver enkelt vare"],
       explanation: 'Grensekostnaden anslår hvor mye kostnaden øker når produksjonen øker med én enhet.',
     },
   ],
@@ -1022,7 +1022,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Priselastisiteten måler:',
-      options: ['Prosentvis endring i mengde delt på prosentvis endring i pris', 'Total inntekt', 'Faste kostnader', 'Grensekostnaden'],
+      options: ["Prosentvis endring i mengde delt på prosentvis endring i pris", "Den samlede totale inntekten ved gitt pris og mengde", "De faste kostnadene som ikke varierer med produksjon", "Grensekostnaden ved å produsere én ekstra enhet vare"],
       explanation: 'Priselastisitet $= \\frac{\\%\\text{ endring i mengde}}{\\%\\text{ endring i pris}}$.',
     },
     {
@@ -1032,7 +1032,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvis prisen øker $10\\%$ og mengden faller $5\\%$, hva er tallverdien av elastisiteten?',
-      options: ['$0{,}5$', '$2$', '$5$', '$50$'],
+      options: ["$0{,}5$", "$50$", "$15$, summen av de to prosentene", "$2$"],
       explanation: '$\\frac{-5\\%}{10\\%} = -0{,}5$, tallverdi $0{,}5$ – altså uelastisk etterspørsel.',
     },
   ],
@@ -1040,7 +1040,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-6-5': [
     {
       question: 'Markedslikevekt oppstår der:',
-      options: ['Tilbud er lik etterspørsel', 'Prisen er høyest', 'Kostnaden er null', 'Etterspørselen er null'],
+      options: ["Tilbud er lik etterspørsel", "Etterspørselen er null", "Produsentenes samlede kostnad er lik null", "Kostnaden er null"],
       explanation: 'Likevekt er der etterspurt mengde er lik tilbudt mengde.',
     },
     {
@@ -1055,12 +1055,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hva skjer hvis prisen er over likevektsprisen?',
-      options: ['Det blir overskudd av varer (tilbud > etterspørsel)', 'Det blir mangel', 'Markedet er i balanse', 'Etterspørselen øker'],
+      options: ["Det blir overskudd av varer (tilbud > etterspørsel)", "Etterspørselen øker fordi varen fremstår attraktiv", "Det oppstår mangel på varer (etterspørsel > tilbud)", "Markedet forblir i perfekt balanse uten press"],
       explanation: 'Over likevekt tilbys mer enn det etterspørres, så det oppstår overskuddstilbud.',
     },
     {
       question: 'Konsumentoverskuddet er:',
-      options: ['Forskjellen mellom det kunder er villige til å betale og det de faktisk betaler', 'Bedriftens fortjeneste', 'De totale kostnadene', 'Prisen på varen'],
+      options: ["Forskjellen mellom det kunder er villige til å betale og det de faktisk betaler", "Summen av de totale variable og faste kostnadene ved å produsere hele mengden", "Bedriftens samlede fortjeneste etter at alle kostnadene er trukket fra salgsinntekten", "Markedsprisen på varen ganget med antall enheter som faktisk blir solgt"],
       explanation: 'Konsumentoverskudd er gevinsten kundene får ved å betale mindre enn maksimal betalingsvilje.',
     },
   ],
@@ -1083,12 +1083,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Grafen til en funksjon av to variabler er vanligvis:',
-      options: ['En flate i rommet', 'En rett linje', 'En sirkel', 'Et punkt'],
+      options: ["En flate i rommet", "En rett linje", "En rett linje i planet", "Et enkelt isolert punkt"],
       explanation: '$z = f(x, y)$ gir en todimensjonal flate i tredimensjonalt rom.',
     },
     {
       question: 'En nivåkurve viser punkter der:',
-      options: ['Funksjonen har samme verdi', 'Funksjonen er null', 'Den deriverte er null', 'Begge variablene er like'],
+      options: ["Funksjonen har samme verdi", "Begge variablene er like", "Funksjonen er lik null overalt", "Den deriverte er null"],
       explanation: 'En nivåkurve forbinder punkter $(x, y)$ med samme funksjonsverdi $f(x, y) = c$.',
     },
   ],
@@ -1111,7 +1111,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'I økonomi kalles $\\frac{\\partial Q}{\\partial L}$ ofte:',
-      options: ['Grenseproduktiviteten til arbeid', 'Total inntekt', 'Gjennomsnittskostnad', 'Priselastisiteten'],
+      options: ["Grenseproduktiviteten til arbeid", "Den totale inntekten ved salg", "Gjennomsnittskostnaden per enhet", "Priselastisiteten i etterspørsel"],
       explanation: 'Den partielle deriverte av produksjonen m.h.p. arbeid er grenseproduktiviteten til arbeid.',
     },
     {
@@ -1129,7 +1129,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Andrederiverttesten for to variabler bruker:',
-      options: ['Hesse-determinanten (diskriminanten)', 'Bare den førstederiverte', 'Konjugatsetningen', 'Integralet'],
+      options: ["Hesse-determinanten (diskriminanten)", "Konjugatsetningen for kvadrater", "Kun fortegnet til den førstederiverte", "Det bestemte integralet av $f$"],
       explanation: 'Man undersøker fortegnet til diskriminanten $D = f_{xx} f_{yy} - (f_{xy})^2$.',
     },
     {
@@ -1139,12 +1139,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvis $D < 0$ i et stasjonært punkt, er det et:',
-      options: ['Sadelpunkt', 'Maksimum', 'Minimum', 'Nullpunkt'],
+      options: ["Sadelpunkt", "Nullpunkt", "Maksimum", "Minimum"],
       explanation: 'Negativ diskriminant betyr at punktet er et sadelpunkt (verken topp eller bunn).',
     },
     {
       question: 'Hvis $D > 0$ og $f_{xx} < 0$, er punktet et:',
-      options: ['Lokalt maksimum', 'Lokalt minimum', 'Sadelpunkt', 'Vendepunkt'],
+      options: ["Lokalt maksimum", "Lokalt minimum", "Sadelpunkt", "Vendepunkt"],
       explanation: '$D > 0$ med $f_{xx} < 0$ (konkav) gir et lokalt maksimum.',
     },
   ],
@@ -1152,17 +1152,17 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-7-4': [
     {
       question: 'Lagranges multiplikatormetode brukes til:',
-      options: ['Optimering med en bibetingelse', 'Derivasjon av polynomer', 'Løse lineære likninger', 'Beregne renter'],
+      options: ["Optimering med en bibetingelse", "Derivasjon av polynomer", "Løse lineære likninger", "Beregne enkel rente"],
       explanation: 'Metoden finner ekstremalverdier av $f(x, y)$ under en bibetingelse $g(x, y) = c$.',
     },
     {
       question: 'I Lagranges metode setter vi opp funksjonen:',
-      options: ['$L = f - \\lambda(g - c)$', '$L = f \\cdot g$', '$L = f + g$', '$L = \\frac{f}{g}$'],
+      options: ["$L = f - \\lambda(g - c)$", "$L = f \\cdot (g - c)$", "$L = \\frac{f}{g - c}$", "$L = f + \\lambda g$"],
       explanation: 'Lagrangefunksjonen er $L(x, y, \\lambda) = f(x, y) - \\lambda(g(x, y) - c)$.',
     },
     {
       question: 'Symbolet $\\lambda$ i metoden kalles:',
-      options: ['Lagrangemultiplikatoren', 'Diskriminanten', 'Determinanten', 'Vekstfaktoren'],
+      options: ["Lagrangemultiplikatoren", "Diskriminanten", "Determinanten", "Vekstfaktoren"],
       explanation: '$\\lambda$ er Lagrangemultiplikatoren, som også har en økonomisk skyggepristolkning.',
     },
     {
@@ -1172,7 +1172,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En typisk økonomisk bruk av Lagrange er:',
-      options: ['Maksimere nytte under en budsjettbetingelse', 'Beregne enkel rente', 'Faktorisere polynomer', 'Tegne en rett linje'],
+      options: ["Maksimere nytte under en budsjettbetingelse", "Beregne enkel rente over en periode", "Faktorisere andregradspolynomer", "Tegne grafen til en rett linje"],
       explanation: 'Klassisk eksempel: maksimere nytte gitt at forbruket må holde seg innenfor budsjettet.',
     },
   ],
@@ -1180,7 +1180,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-7-5': [
     {
       question: 'En Cobb-Douglas-funksjon har formen:',
-      options: ['$Q = A K^{\\alpha} L^{\\beta}$', '$Q = A K + L$', '$Q = A(K + L)^2$', '$Q = \\frac{K}{L}$'],
+      options: ["$Q = A K^{\\alpha} L^{\\beta}$", "$Q = \\frac{K^{\\alpha}}{L}$", "$Q = A(K + L)^{\\alpha}$", "$Q = A K + \\alpha L$"],
       explanation: 'Cobb-Douglas: $Q = A K^{\\alpha} L^{\\beta}$ med kapital $K$ og arbeid $L$.',
     },
     {
@@ -1190,7 +1190,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Eksponentene $\\alpha$ og $\\beta$ i Cobb-Douglas tolkes som:',
-      options: ['Elastisiteter for henholdsvis kapital og arbeid', 'Totale kostnader', 'Faste kostnader', 'Renter'],
+      options: ["Elastisiteter for henholdsvis kapital og arbeid", "De totale produksjonskostnadene", "De faste kostnadene i drift", "Renten på investert kapital"],
       explanation: 'De er produksjonselastisitetene med hensyn på de respektive innsatsfaktorene.',
     },
     {
@@ -1208,7 +1208,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-8-1': [
     {
       question: 'Den antideriverte til $f(x) = 2x$ er:',
-      options: ['$x^2 + C$', '$2$', '$2x^2$', '$x^2$'],
+      options: ["$x^2 + C$", "$2 + C$", "$2x^2 + C$", "$2x^2$"],
       explanation: 'Vi reverserer derivasjon: $\\int 2x \\, dx = x^2 + C$ (med en konstant $C$).',
     },
     {
@@ -1218,7 +1218,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Hvorfor legger vi til $+ C$ i et ubestemt integral?',
-      options: ['Fordi konstanter forsvinner ved derivasjon', 'Fordi det ser penere ut', 'For å gjøre svaret positivt', 'Fordi $C$ alltid er null'],
+      options: ["Fordi konstanter forsvinner ved derivasjon", "For å sikre at resultatet blir positivt", "Fordi konstanten $C$ alltid er lik null", "Fordi svaret da alltid ser penere ut"],
       explanation: 'Mange funksjoner som skiller seg med en konstant har samme deriverte, derfor integrasjonskonstanten.',
     },
     {
@@ -1241,7 +1241,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Et bestemt integral $\\int_a^b f(x)\\,dx$ med $f(x) \\geq 0$ tolkes som:',
-      options: ['Arealet under grafen mellom $a$ og $b$', 'Stigningstallet', 'Funksjonsverdien i $b$', 'Den deriverte'],
+      options: ["Arealet under grafen mellom $a$ og $b$", "Funksjonsverdien $f(b)$ i endepunktet", "Den deriverte av $f$ i intervallet", "Stigningstallet til grafen i $a$"],
       explanation: 'Når $f \\geq 0$ gir det bestemte integralet arealet mellom grafen og $x$-aksen.',
     },
     {
@@ -1264,7 +1264,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-8-3': [
     {
       question: 'Substitusjon (variabelskifte) er nyttig når integranden inneholder:',
-      options: ['En sammensatt funksjon og dens indre deriverte', 'Bare et tall', 'En rett linje', 'En logaritme alene'],
+      options: ["En sammensatt funksjon og dens indre deriverte", "En logaritme uten indre funksjon", "Bare et konstant tall alene", "En rett linje uten kjerne"],
       explanation: 'Substitusjon er motstykket til kjerneregelen og brukes ved sammensatte funksjoner.',
     },
     {
@@ -1274,7 +1274,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Ved substitusjon $u = g(x)$ erstatter vi $dx$ med:',
-      options: ['$\\frac{du}{g\'(x)}$', '$du \\cdot g(x)$', '$g\'(x)\\,du$', '$dx$ uendret'],
+      options: ["$\\frac{du}{g'(x)}$", "$dx$ helt uendret", "$du \\cdot g(x)$", "$dx$ uendret"],
       explanation: 'Siden $du = g\'(x)\\,dx$, blir $dx = \\frac{du}{g\'(x)}$.',
     },
     {
@@ -1284,7 +1284,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Formelen for delvis integrasjon er:',
-      options: ['$\\int u\\,v\' \\, dx = uv - \\int u\'\\,v \\, dx$', '$\\int u v = u\'v\'$', '$\\int uv = \\frac{u}{v}$', '$\\int u\\,v\' = u\'v + uv\'$'],
+      options: ["$\\int u\\,v' \\, dx = uv - \\int u'\\,v \\, dx$", "$\\int u\\,v' \\, dx = \\frac{u}{v}$", "$\\int u\\,v' \\, dx = u'v + uv'$", "$\\int u\\,v' \\, dx = u'v'$"],
       explanation: 'Delvis integrasjon: $\\int u v\' dx = uv - \\int u\' v \\, dx$.',
     },
   ],
@@ -1292,12 +1292,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-8-4': [
     {
       question: 'Hvis grensekostnaden er $C\'(x)$, finner vi total kostnadsøkning ved å:',
-      options: ['Integrere grensekostnaden', 'Derivere den', 'Multiplisere med prisen', 'Dele på antallet'],
+      options: ["Integrere grensekostnaden", "Multiplisere med prisen", "Dele den på antall enheter $x$", "Derivere grensekostnaden $C'(x)$"],
       explanation: 'Integralet av grensekostnaden gir den akkumulerte (totale) kostnadsendringen.',
     },
     {
       question: 'Konsumentoverskudd kan beregnes som:',
-      options: ['Et integral av etterspørselsfunksjonen', 'Den deriverte av prisen', 'Faste kostnader', 'Prisen ganget med mengden'],
+      options: ["Et integral av etterspørselsfunksjonen", "Den deriverte av prisfunksjonen", "Prisen multiplisert med mengden", "Summen av de faste kostnadene"],
       explanation: 'Konsumentoverskudd er arealet mellom etterspørselskurven og prisen, altså et integral.',
     },
     {
@@ -1307,12 +1307,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Integralet brukes i økonomi til å gå fra grensestørrelser til:',
-      options: ['Totalstørrelser', 'Prosenter', 'Renter', 'Elastisiteter'],
+      options: ["Totalstørrelser", "Prosentandeler", "Rentekostnader", "Elastisiteter"],
       explanation: 'Integrasjon summerer opp grensestørrelser til totaler (motsatt av derivasjon).',
     },
     {
       question: 'Arealet mellom tilbuds- og etterspørselskurven opp til likevekt kan tolkes som:',
-      options: ['Samlet overskudd (konsument- + produsentoverskudd)', 'Faste kostnader', 'Skatten', 'Grensekostnaden'],
+      options: ["Samlet overskudd (konsument- + produsentoverskudd)", "Bedriftens samlede faste kostnader", "Skatteinntektene til myndighetene", "Grensekostnaden ved siste enhet"],
       explanation: 'Disse arealene (integralene) representerer konsument- og produsentoverskudd.',
     },
   ],
@@ -1320,7 +1320,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-9-1': [
     {
       question: 'En matrise er:',
-      options: ['Et rektangulært oppsett av tall i rader og kolonner', 'Et enkelt tall', 'En funksjon', 'En likning'],
+      options: ["Et rektangulært oppsett av tall i rader og kolonner", "En kontinuerlig funksjon av én variabel", "Et enkelt tall uten rader og kolonner", "En likning med ukjente på begge sider"],
       explanation: 'En matrise er et rutenett av tall ordnet i rader og kolonner.',
     },
     {
@@ -1335,7 +1335,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'For at produktet $A \\cdot B$ skal være definert må:',
-      options: ['Antall kolonner i $A$ være lik antall rader i $B$', 'Matrisene være like store', '$A$ være kvadratisk', 'Begge ha determinant 1'],
+      options: ["Antall kolonner i $A$ være lik antall rader i $B$", "Matrisene $A$ og $B$ være nøyaktig like store", "Matrisen $A$ være kvadratisk og inverterbar", "Begge matrisene ha determinant lik tallet 1"],
       explanation: 'Matrisemultiplikasjon krever at indre dimensjoner stemmer: kolonner i $A$ = rader i $B$.',
     },
     {
@@ -1368,7 +1368,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'For en $2\\times2$-matrise multipliseres den inverse med faktoren:',
-      options: ['$\\frac{1}{\\det A}$', '$\\det A$', '$\\frac{1}{2}$', '$1$'],
+      options: ["$\\frac{1}{\\det A}$", "$\\frac{1}{2}$", "$\\det A$", "$1$"],
       explanation: 'Den inverse er $\\frac{1}{\\det A} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.',
     },
   ],
@@ -1376,12 +1376,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-9-3': [
     {
       question: 'Gauss-eliminasjon brukes til å løse:',
-      options: ['Lineære likningssystem', 'Andregradslikninger', 'Integraler', 'Eksponentiallikninger'],
+      options: ["Lineære likningssystem", "Eksponentiallikninger", "Andregradslikninger med to reelle røtter", "Andregradslikninger"],
       explanation: 'Gauss-eliminasjon løser systemer av lineære likninger ved radoperasjoner.',
     },
     {
       question: 'Hvilke operasjoner er tillatt i Gauss-eliminasjon?',
-      options: ['Bytte rader, gange en rad med et tall, legge til et multiplum av en rad', 'Bytte kolonner med rader', 'Dele på null', 'Kvadrere radene'],
+      options: ["Bytte rader, gange en rad med et tall, legge til et multiplum av en rad", "Bytte kolonner med rader", "Dele en hel rad på null, sette inn en tom kolonne og fjerne konstantleddene helt", "Bytte kolonner med rader, transponere hele koeffisientmatrisen og speile diagonalen"],
       explanation: 'Tillatte radoperasjoner: ombytting, skalering og addisjon av et multiplum av en annen rad.',
     },
     {
@@ -1391,12 +1391,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Et likningssystem kan ha:',
-      options: ['Én, ingen eller uendelig mange løsninger', 'Alltid nøyaktig én løsning', 'Alltid to løsninger', 'Aldri noen løsning'],
+      options: ["Én, ingen eller uendelig mange løsninger", "Alltid nøyaktig én løsning", "Aldri noen gyldig løsning når det finnes flere ukjente", "Alltid nøyaktig én entydig løsning uansett koeffisienter"],
       explanation: 'Lineære systemer har enten én entydig løsning, ingen, eller uendelig mange.',
     },
     {
       question: 'En totalmatrise (utvidet matrise) inneholder:',
-      options: ['Koeffisientene og høyresidene', 'Bare høyresidene', 'Bare determinanten', 'Bare nullpunktene'],
+      options: ["Koeffisientene og høyresidene", "Bare determinanten", "Bare determinanten til koeffisientmatrisen", "Bare nullpunktene"],
       explanation: 'Totalmatrisen kombinerer koeffisientmatrisen med kolonnen av konstantledd.',
     },
   ],
@@ -1404,12 +1404,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-9-4': [
     {
       question: 'Cramers regel uttrykker løsningen ved hjelp av:',
-      options: ['Determinanter', 'Integraler', 'Logaritmer', 'Prosenter'],
+      options: ["Determinanter", "Integraler", "Bestemte integraler", "Logaritmer"],
       explanation: 'Cramers regel gir hver ukjente som en brøk mellom to determinanter.',
     },
     {
       question: 'I Cramers regel er $x_1 = \\frac{\\det A_1}{\\det A}$, der $A_1$ er $A$ med:',
-      options: ['Første kolonne erstattet av høyresidene', 'Første rad fjernet', 'Determinanten doblet', 'Alle tall kvadrert'],
+      options: ["Første kolonne erstattet av høyresidene", "Determinanten doblet", "Alle tallelementer opphøyd i andre potens", "Første rad fullstendig fjernet fra matrisen"],
       explanation: '$A_1$ fås ved å bytte ut kolonnen som hører til $x_1$ med konstantkolonnen.',
     },
     {
@@ -1424,7 +1424,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En typisk økonomisk anvendelse av lineære likningssystem er:',
-      options: ['Å finne markedslikevekt for flere varer samtidig', 'Å derivere en funksjon', 'Å beregne enkel rente', 'Å faktorisere et polynom'],
+      options: ["Å finne markedslikevekt for flere varer samtidig", "Å faktorisere et polynom", "Å beregne enkel rente på et innskudd over ett år", "Å faktorisere et polynom for å finne nullpunktene"],
       explanation: 'Systemer brukes f.eks. til å løse for likevektspriser i flere sammenkoblede markeder.',
     },
   ],
@@ -1442,7 +1442,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En rekursiv formel angir et ledd ved hjelp av:',
-      options: ['Det/de foregående leddet/leddene', 'Bare leddnummeret', 'En integrering', 'Determinanten'],
+      options: ["Det/de foregående leddet/leddene", "Bare leddnummeret", "Bare leddnummeret $n$ satt inn direkte", "En bestemt integrering av forrige ledd"],
       explanation: 'Rekursive følger defineres ved tidligere ledd, f.eks. $a_{n+1} = a_n + 3$.',
     },
     {
@@ -1460,7 +1460,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-10-2': [
     {
       question: 'En aritmetisk rekke har:',
-      options: ['Konstant differanse mellom påfølgende ledd', 'Konstant forhold mellom ledd', 'Ledd som dobles', 'Tilfeldige ledd'],
+      options: ["Konstant differanse mellom påfølgende ledd", "Tilfeldig valgte ledd uten fast mønster", "Konstant forhold (kvotient) mellom påfølgende ledd", "Ledd som dobles for hvert steg i rekka"],
       explanation: 'I en aritmetisk rekke er differansen $d = a_{n+1} - a_n$ konstant.',
     },
     {
@@ -1475,7 +1475,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Summen av de $n$ første leddene i en aritmetisk rekke er:',
-      options: ['$S_n = \\frac{n(a_1 + a_n)}{2}$', '$S_n = n \\cdot a_1$', '$S_n = a_1 \\cdot a_n$', '$S_n = \\frac{a_1 + a_n}{n}$'],
+      options: ["$S_n = \\frac{n(a_1 + a_n)}{2}$", "$S_n = \\frac{a_1 + a_n}{n}$", "$S_n = n \\cdot a_1$ (kun første ledd ganget)", "$S_n = a_1 \\cdot a_n$"],
       explanation: '$S_n = \\frac{n}{2}(a_1 + a_n)$ er summen av en aritmetisk rekke.',
     },
     {
@@ -1488,12 +1488,12 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
   'bi-okonomi-10-3': [
     {
       question: 'En geometrisk rekke har:',
-      options: ['Konstant forhold mellom påfølgende ledd', 'Konstant differanse', 'Ledd som legges sammen', 'Tilfeldige ledd'],
+      options: ["Konstant forhold mellom påfølgende ledd", "Ledd som legges sammen", "Ledd som legges sammen med et fast tall", "Tilfeldig valgte ledd uten fast kvotient"],
       explanation: 'I en geometrisk rekke er kvotienten $k = \\frac{a_{n+1}}{a_n}$ konstant.',
     },
     {
       question: 'Formelen for $n$-te ledd i en geometrisk følge er:',
-      options: ['$a_n = a_1 \\cdot k^{n-1}$', '$a_n = a_1 + (n-1)k$', '$a_n = a_1 \\cdot n$', '$a_n = a_1 + k$'],
+      options: ["$a_n = a_1 \\cdot k^{n-1}$", "$a_n = a_1 + (n-1)k$", "$a_n = a_1 + k$ (kun ett tillegg)", "$a_n = a_1 \\cdot n$"],
       explanation: '$a_n = a_1 \\cdot k^{n-1}$ der $k$ er kvotienten.',
     },
     {
@@ -1503,7 +1503,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'Summen av de $n$ første leddene i en geometrisk rekke (med $k \\neq 1$) er:',
-      options: ['$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$', '$S_n = \\frac{n(a_1 + a_n)}{2}$', '$S_n = a_1 \\cdot k^n$', '$S_n = a_1 + n k$'],
+      options: ["$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$", "$S_n = \\frac{n(a_1 + a_n)}{2}$", "$S_n = a_1 + n k$ (feilaktig lineær sum)", "$S_n = a_1 \\cdot k^n$ (leddet, ikke summen)"],
       explanation: 'Geometrisk sum: $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$.',
     },
     {
@@ -1531,7 +1531,7 @@ const quizData_biOkonomi: Record<string, QuizQuestion[]> = {
     },
     {
       question: 'En perpetuitet er:',
-      options: ['En evigvarende serie like betalinger', 'En engangsbetaling', 'Et lån over 10 år', 'En aksje'],
+      options: ["En evigvarende serie like betalinger", "En aksje som gir varierende utbytte", "Et annuitetslån nedbetalt over ti år", "En enkelt engangsbetaling utbetalt i dag"],
       explanation: 'En perpetuitet gir en fast betaling i all evighet.',
     },
     {
