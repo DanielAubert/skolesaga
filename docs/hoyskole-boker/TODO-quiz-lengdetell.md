@@ -30,9 +30,9 @@ BYGGEPLAN-MAL «LENGDE-TELL»; verktøy: `scripts/hoyskolebok/quiz-lengdesjekk.m
 fyldigere, plausible, faglig GALE distraktorer ≥ fasitlengde; buildmix lager
 straddle (≥1 kortere + ≥1 lengre) så fasiten havner i midten.
 
-## Fikset natt 15. juli (utover høyskole) — 24 VGS-bøker (27 totalt m/høyskole)
+## Fikset natt 15. juli — 27 VGS/ungdomsskole-bøker (30 totalt m/høyskole), ~8100 spm
 ✅ helseoppvekst-vg3 (96→8%), kroppsoving-vg3 (96→14%), psykologi-2 (96→12%),
-komkult-3 (95→12%), entrebed (94→8%), helseoppvekst-vg1 (94→11%), helseoppvekst-vg2 (94→19%), medieinfo-2 (94→21%), religion-etikk (94→24%), samfunnskunnskap (94→15%), kroppsoving-vg1 (93→14%), medieinfo-1 (93→13%), politikk-menneskerett (92→17%), sosiologi (92→33%), trening-1 (92→11%), samfokonomi-2 (91→0%), geografi (90→26%). Se også de 7 første under. MERK: multi-line options-format finnes (samfokonomi-2) — bruk quiz-apply-import.mjs (import-basert, robust) i stedet for linje-apply.
+komkult-3 (95→12%), entrebed (94→8%), helseoppvekst-vg1 (94→11%), helseoppvekst-vg2 (94→19%), medieinfo-2 (94→21%), religion-etikk (94→24%), samfunnskunnskap (94→15%), kroppsoving-vg1 (93→14%), medieinfo-1 (93→13%), politikk-menneskerett (92→17%), sosiologi (92→33%), trening-1 (92→11%), samfokonomi-2 (91→0%), geografi (90→26%), handverk-design-vg1 (90→17%), kroppsoving-9 (90→27%), kunst-9 (90→29%). Se også de 7 første under. MERK: multi-line options-format finnes (samfokonomi-2) — bruk quiz-apply-import.mjs (import-basert, robust) i stedet for linje-apply.
 ✅ komkult (98→5%), markedsforing (98→16%), trening-3 (98→9%),
 sosiologi-full (97→3%), kroppsoving-vg2 (98→17%), trening-2 (97→21%),
 komkult-2 (96→2%). Alle committet scoped. (Bøker med mange KORTE fasitsvar —
