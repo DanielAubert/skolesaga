@@ -248,13 +248,29 @@ def distinksjon(navn, tittel, left, right, rows, caption, lcolor='blue', rcolor=
                    [[r[1], r[2]] for r in rows],
                    caption, colcolors=[lcolor, rcolor])
 
-def beslutningstre(navn, tittel, gates, caption, end_yes='', ja='Ja ↓', nei='Nei →'):
-    """Vertikal kjede av ja/nei-porter. gates = [(sporsmal, nei_utfall), ...].
-    Ja fortsetter nedover; Nei grener til hoyre."""
+import re as _re
+def _split_answer(out, default='Nei'):
+    """Trekk ut grensvar-prefiks ('Ja → ...' / 'Nei → ...') fra utfallsteksten.
+    Returnerer (svar, ren_tekst). Uten prefiks: (default, out)."""
+    m = _re.match(r'^\s*(Ja|Nei)\s*(?:→|->)\s*(.*)$', out, _re.S)
+    if m:
+        return m.group(1), m.group(2).strip()
+    return default, out
+def _anscol(a): return GRN if a == 'Ja' else RED
+
+def beslutningstre(navn, tittel, gates, caption, end_yes=''):
+    """Vertikal kjede av ja/nei-porter. gates = [(spørsmål, utfall), ...].
+    Utfallet KAN prefikses med grensvaret: 'Ja → ...' eller 'Nei → ...' — da
+    labeles sidegrenen med det svaret (og hovedløpet nedover med det motsatte),
+    og prefikset fjernes fra boksteksten. Uten prefiks: sidegren = 'Nei',
+    nedover = 'Ja'. Etiketter fargelegges etter SVARET (Ja=grønn, Nei=rød),
+    uavhengig av geometri. end_yes = grønn sluttboks når hovedløpet når bunnen."""
     n = len(gates)
     tmp = SVG(10,10,'')
+    parsed = [_split_answer(g[1]) for g in gates]        # (sidesvar, ren_tekst)
+    downs = ['Nei' if side == 'Ja' else 'Ja' for side, _ in parsed]
     gdims = [box(tmp,0,0, g[0], 'yellow', maxw=230) for g in gates]
-    odims = [box(tmp,0,0, g[1], 'grey', maxw=170) for g in gates]
+    odims = [box(tmp,0,0, ot, 'grey', maxw=170) for _, ot in parsed]
     gbw = max(w for w,h in gdims)
     obw = max(w for w,h in odims)
     gap = 40
@@ -268,20 +284,23 @@ def beslutningstre(navn, tittel, gates, caption, end_yes='', ja='Ja ↓', nei='N
     s = SVG(W, H, caption)
     if tittel: s.txt(W/2, 22, tittel, 15, INK, bold=True)
     cy = hz + gdims[0][1]/2 + 4
-    for i,(q, out) in enumerate(gates):
+    for i,(q, _out) in enumerate(gates):
+        side, otext = parsed[i]; down = downs[i]
         gw, gh = box(s, colx, cy, q, 'yellow', maxw=230)
-        # nei-gren til hoyre
+        # sidegren til høyre (labelet med sidesvaret)
         s.arrow(colx+gw/2+2, cy, branchx-obw/2-2, cy, GREY, 1.6, head=7)
-        s.txt((colx+gw/2+branchx-obw/2)/2, cy-6, 'Nei', 10, RED, bold=True)
-        box(s, branchx, cy, out, 'grey', maxw=170)
+        s.txt((colx+gw/2+branchx-obw/2)/2, cy-6, side, 10, _anscol(side), bold=True)
+        box(s, branchx, cy, otext, 'grey', maxw=170)
         if i < n-1:
             y1 = cy+gh/2; y2 = cy+gh/2+gap
-            s.arrow(colx, y1+2, colx, y2-2, GRN, 2.0, head=8)
-            s.txt(colx+10, (y1+y2)/2+3, 'Ja', 10, GRN, bold=True, anchor='start')
+            s.arrow(colx, y1+2, colx, y2-2, _anscol(down), 2.0, head=8)
+            s.txt(colx+10, (y1+y2)/2+3, down, 10, _anscol(down), bold=True, anchor='start')
             cy = y2 + gdims[i+1][1]/2
     if end_yes:
         y1 = cy+gdims[-1][1]/2
-        s.arrow(colx, y1+2, colx, y1+gap-2, GRN, 2.0, head=8)
+        last_down = downs[-1]
+        s.arrow(colx, y1+2, colx, y1+gap-2, _anscol(last_down), 2.0, head=8)
+        s.txt(colx+10, y1+gap/2+3, last_down, 10, _anscol(last_down), bold=True, anchor='start')
         box(s, colx, y1+gap+endh/2, end_yes, 'green', maxw=200)
     s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
