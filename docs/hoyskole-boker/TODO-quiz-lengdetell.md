@@ -39,146 +39,105 @@ komkult-2 (96→2%). Alle committet scoped. (Bøker med mange KORTE fasitsvar �
 kroppsoving-vg2/trening-2 — lander høyere (17–21%) pga. noStraddle, men ✅.)
 Fjern disse fra lista under etter hvert. + helseoppvekst-vg3 (96->8%). 11 bøker totalt m/høyskole. NESTE: kroppsoving-vg3, psykologi-2, komkult-3, entrebed, helseoppvekst-vg1/vg2, …
 
-## Fikset natt 15. juli (forts.) — 36 bøker totalt
-✅ tof-2 (89→15%), filosofi-etikk (88→20%). im-vg1 pågår. Bruk `split.mjs <emne> <prefix> <size>` for batching og `apply2.mjs` (import-basert, robust for multi-line options).
 
-## Resterende flaggede filer (134) — sortert verst først
+## Fikset natt 15. juli (forts. med Opus) — 52 bøker denne økta, ~11 500 spm
+Alle verifisert < 35 % «eneste lengst» + `tsc` grønn, scoped committet per emne.
+Metode: `split.mjs <emne> <prefix> <size>` for batcher + `apply2.mjs` (import-basert,
+robust for multi-line options). MERK race: `buildmix.mjs` må kjøres når ALLE
+`<prefix>-out-*.json` er ferdigskrevet — kjør på nytt hvis den melder `mangler-agent > 0`.
+Med 12 agenter kan hele boka fyres av i én bølge.
 
-| Emne | Spm | Fasit-eneste-lengst |
+✅ tof-2 (89→15%), filosofi-etikk (88→20%), im-vg1 (88→20%), it (88→24%),
+komkult-1 (88→7%), musikk-10 (88→22%), psykologi-1 (88→6%), samfunnsfag-10 (88→29%),
+krle-9 (87→11%), int-engelsk (86→34%), tof (86→17%), trening (86→11%),
+biologi-2 (85→9%), frisor-blomster-vg1 (85→19%), krle-10 (85→13%), kunst-10 (85→6%),
+kunst-7 (85→23%), musikk-9 (85→17%), norsk-10 (85→19%), salg-service-vg1 (85→23%),
+kroppsoving-8 (84→10%), medieinfo (84→5%), norsk-vg2 (84→25%), geofag (83→10%),
+samfokonomi-1 (83→33%), engelsk-vg1 (82→24%), norsk-vg1 (82→18%), historie (81→13%),
+it-2 (81→8%), samfunnsfag-9 (81→19%), sikkerhetsfag (81→7%), norsk-6 (82→2%),
+norsk-9 (78→13%), norsk-vg3 (78→22%), rettslære (78→15%).
+(+ 3 høyskole + 30 VGS/ungdomsskole fikset tidligere samme natt, se seksjonene over.)
+
+## Resterende flaggede filer (72) — live-målt 15. juli, sortert verst først
+Kjør `npx tsx scripts/hoyskolebok/quiz-lengdesjekk.mjs` (uten arg) for oppdatert liste.
+NB: exphil03/jus1111/psy1010/econ1310 er store høyskole-eksamensbøker som IKKE var
+fikset (tidligere notat om «≤34 %» stemte ikke — de ligger 82–94 %). Språkfag
+(tysk/fransk/spansk) og mattebøker (s1/s2/r1/1t/2p) har mange korte fasitsvar →
+lander naturlig lavere, men flere er fortsatt > 35 %.
+
+| Emne | Størrelse | Fasit eneste lengst |
 |---|---|---|
-| komkult | 130 | 98% |
-| kroppsoving-vg2 | 295 | 98% |
-| markedsforing | 50 | 98% |
-| trening-3 | 200 | 98% |
-| sosiologi-full | 190 | 97% |
-| trening-2 | 200 | 97% |
-| helseoppvekst-vg3 | 250 | 96% |
-| komkult-2 | 200 | 96% |
-| kroppsoving-vg3 | 50 | 96% |
-| psykologi-2 | 200 | 96% |
-| komkult-3 | 200 | 95% |
-| entrebed | 480 | 94% |
-| helseoppvekst-vg1 | 275 | 94% |
-| helseoppvekst-vg2 | 290 | 94% |
-| medieinfo-2 | 200 | 94% |
-| religion-etikk | 180 | 94% |
-| samfunnskunnskap | 410 | 94% |
-| kroppsoving-vg1 | 320 | 93% |
-| medieinfo-1 | 200 | 93% |
-| politikk-menneskerett | 225 | 92% |
-| sosiologi | 51 | 92% |
-| trening-1 | 200 | 92% |
-| samfokonomi-2 | 200 | 91% |
-| geografi | 250 | 90% |
-| handverk-design-vg1 | 275 | 90% |
-| kroppsoving-9 | 200 | 90% |
-| kunst-9 | 200 | 90% |
-| it-1 | 205 | 89% |
-| kroppsoving-10 | 200 | 89% |
-| mat-og-helse-10 | 200 | 89% |
-| mat-og-helse-9 | 200 | 89% |
-| tof-2 | 220 | 89% |
-| filosofi-etikk | 235 | 88% |
-| im-vg1 | 275 | 88% |
-| it | 100 | 88% |
-| komkult-1 | 200 | 88% |
-| musikk-10 | 200 | 88% |
-| psykologi-1 | 250 | 88% |
-| samfunnsfag-10 | 200 | 88% |
-| krle-9 | 200 | 87% |
-| int-engelsk | 200 | 86% |
-| tof | 100 | 86% |
-| trening | 95 | 86% |
-| biologi-2 | 215 | 85% |
-| frisor-blomster-vg1 | 275 | 85% |
-| krle-10 | 297 | 85% |
-| krle-8 | 200 | 85% |
-| kunst-10 | 200 | 85% |
-| kunst-7 | 40 | 85% |
-| musikk-9 | 200 | 85% |
-| norsk-10 | 200 | 85% |
-| salg-service-vg1 | 275 | 85% |
-| samføkonomi | 80 | 85% |
-| kroppsoving-8 | 200 | 84% |
-| medieinfo | 100 | 84% |
-| norsk-vg2 | 210 | 84% |
-| geofag | 340 | 83% |
-| samfokonomi-1 | 40 | 83% |
-| engelsk-vg1 | 255 | 82% |
-| norsk-6 | 55 | 82% |
-| norsk-vg1 | 215 | 82% |
-| historie | 375 | 81% |
-| it-2 | 200 | 81% |
-| samfunnsfag-9 | 185 | 81% |
-| sikkerhetsfag | 240 | 81% |
-| krle-6 | 45 | 80% |
-| kroppsoving-6 | 50 | 80% |
-| musikk-7 | 40 | 80% |
-| norsk-7 | 50 | 80% |
-| psykologi | 100 | 79% |
-| restaurant-mat-vg1 | 240 | 79% |
-| økonomi-ledelse | 240 | 79% |
-| kroppsoving-5 | 40 | 78% |
-| mat-og-helse-7 | 40 | 78% |
-| norsk-9 | 200 | 78% |
-| norsk-vg3 | 320 | 78% |
-| rettslære | 345 | 78% |
-| kunst-8 | 200 | 77% |
-| samf-engelsk | 200 | 77% |
-| mat-og-helse-8 | 200 | 76% |
-| naturbruk-vg1 | 280 | 76% |
-| økonomi-drift | 240 | 76% |
-| engelsk-10 | 200 | 75% |
-| krle-7 | 40 | 73% |
-| kroppsoving-7 | 40 | 73% |
-| naturfag-vg1 | 280 | 73% |
-| norsk-5 | 75 | 73% |
-| tysk-3 | 320 | 73% |
-| engelsk-9 | 190 | 72% |
-| fransk-3 | 320 | 72% |
-| tof-1 | 225 | 72% |
-| naturfag-8 | 200 | 71% |
-| okonomistyring | 200 | 71% |
-| naturfag-9 | 200 | 70% |
-| biologi-1 | 250 | 69% |
-| kunst-5 | 45 | 69% |
-| mat-og-helse-6 | 45 | 69% |
-| musikk-6 | 45 | 69% |
-| naturfag-10 | 241 | 69% |
-| naturfag-7 | 45 | 69% |
-| norsk-8 | 212 | 69% |
-| kunst-6 | 80 | 68% |
-| samfunnsfag-7 | 40 | 68% |
-| samfunnsfag-8 | 200 | 67% |
-| tif-vg1 | 275 | 67% |
-| naturfag-6 | 50 | 66% |
-| musikk-8 | 200 | 65% |
-| bygg-anlegg-vg1 | 225 | 64% |
-| engelsk-8 | 195 | 64% |
-| regnskap-revisjon | 240 | 63% |
-| kjemi2 | 240 | 62% |
-| musikk-5 | 30 | 60% |
-| spansk-3 | 320 | 60% |
-| engelsk-7 | 45 | 58% |
-| krle-5 | 40 | 58% |
-| mat-og-helse-5 | 40 | 58% |
-| naturfag-5 | 50 | 58% |
-| tysk-2 | 320 | 58% |
-| spansk-2 | 320 | 57% |
-| fysikk | 325 | 54% |
-| kjemi1 | 170 | 54% |
-| elektro-data-vg1 | 380 | 53% |
-| samfunnsfag-6 | 45 | 53% |
-| fransk-2 | 320 | 52% |
-| s2 | 260 | 52% |
-| 1t | 275 | 44% |
-| fransk-1 | 405 | 43% |
-| s1 | 443 | 43% |
-| samfunnsfag-5 | 40 | 43% |
-| engelsk-6 | 45 | 42% |
-| r1 | 250 | 42% |
-| 2p | 175 | 41% |
-| spansk-1 | 325 | 38% |
-| tysk-1 | 325 | 35% |
+| exphil03 | (592 spm) | 94% |
+| jus1111 | (546 spm) | 87% |
+| samføkonomi | (80 spm) | 85% |
+| psy1010 | (548 spm) | 85% |
+| krle-8 | (200 spm) | 85% |
+| econ1310 | (510 spm) | 82% |
+| norsk-7 | (50 spm) | 80% |
+| musikk-7 | (40 spm) | 80% |
+| kroppsoving-6 | (50 spm) | 80% |
+| krle-6 | (45 spm) | 80% |
+| økonomi-ledelse | (240 spm) | 79% |
+| restaurant-mat-vg1 | (240 spm) | 79% |
+| psykologi | (100 spm) | 79% |
+| mat-og-helse-7 | (40 spm) | 78% |
+| kroppsoving-5 | (40 spm) | 78% |
+| samf-engelsk | (200 spm) | 77% |
+| kunst-8 | (200 spm) | 77% |
+| økonomi-drift | (240 spm) | 76% |
+| naturbruk-vg1 | (280 spm) | 76% |
+| mat-og-helse-8 | (200 spm) | 76% |
+| engelsk-10 | (200 spm) | 75% |
+| tysk-3 | (320 spm) | 73% |
+| norsk-5 | (75 spm) | 73% |
+| naturfag-vg1 | (280 spm) | 73% |
+| kroppsoving-7 | (40 spm) | 73% |
+| krle-7 | (40 spm) | 73% |
+| tof-1 | (225 spm) | 72% |
+| fransk-3 | (320 spm) | 72% |
+| engelsk-9 | (190 spm) | 72% |
+| okonomistyring | (200 spm) | 71% |
+| naturfag-8 | (200 spm) | 71% |
+| naturfag-9 | (200 spm) | 70% |
+| norsk-8 | (212 spm) | 69% |
+| naturfag-7 | (45 spm) | 69% |
+| naturfag-10 | (241 spm) | 69% |
+| musikk-6 | (45 spm) | 69% |
+| mat-og-helse-6 | (45 spm) | 69% |
+| kunst-5 | (45 spm) | 69% |
+| biologi-1 | (250 spm) | 69% |
+| samfunnsfag-7 | (40 spm) | 68% |
+| kunst-6 | (80 spm) | 68% |
+| tif-vg1 | (275 spm) | 67% |
+| samfunnsfag-8 | (200 spm) | 67% |
+| naturfag-6 | (50 spm) | 66% |
+| musikk-8 | (200 spm) | 65% |
+| engelsk-8 | (195 spm) | 64% |
+| bygg-anlegg-vg1 | (225 spm) | 64% |
+| regnskap-revisjon | (240 spm) | 63% |
+| kjemi2 | (240 spm) | 62% |
+| spansk-3 | (320 spm) | 60% |
+| musikk-5 | (30 spm) | 60% |
+| tysk-2 | (320 spm) | 58% |
+| naturfag-5 | (50 spm) | 58% |
+| mat-og-helse-5 | (40 spm) | 58% |
+| krle-5 | (40 spm) | 58% |
+| engelsk-7 | (45 spm) | 58% |
+| spansk-2 | (320 spm) | 57% |
+| kjemi1 | (170 spm) | 54% |
+| fysikk | (325 spm) | 54% |
+| samfunnsfag-6 | (45 spm) | 53% |
+| elektro-data-vg1 | (380 spm) | 53% |
+| s2 | (260 spm) | 52% |
+| fransk-2 | (320 spm) | 52% |
+| 1t | (275 spm) | 44% |
+| samfunnsfag-5 | (40 spm) | 43% |
+| s1 | (443 spm) | 43% |
+| fransk-1 | (405 spm) | 43% |
+| r1 | (250 spm) | 42% |
+| engelsk-6 | (45 spm) | 42% |
+| 2p | (175 spm) | 41% |
+| spansk-1 | (325 spm) | 38% |
+| tysk-1 | (325 spm) | 35% |
 
-**Sum: 134 filer, ~26094 spørsmål totalt.**
+**Sum: 72 filer fortsatt over terskel. 77 av 152 quiz-data-filer er nå rene (✅).**
