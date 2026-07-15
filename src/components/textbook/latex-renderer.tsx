@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import { mediaUrl } from '@/lib/media';
 
 function escapeHtml(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -126,10 +127,13 @@ function renderMixedContent(content: string): string {
   // Code (`code`)
   result = result.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">$1</code>');
 
-  // Images (![alt](url)) - max 200px on desktop for inline figures
+  // Images (![alt](url)). Lokale /images-stier rutes via mediaUrl (Supabase
+  // Storage) — samme som ImageBlockComponent — ellers 404 i prod. Figurer får
+  // lesbar bredde og sentreres.
   result = result.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
-    const sanitizedUrl = /^https?:\/\//i.test(url) || url.startsWith('/') ? url : '';
-    return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 200px; height: auto; margin: 1rem 0;" />`;
+    const ok = /^https?:\/\//i.test(url) || url.startsWith('/');
+    const sanitizedUrl = ok ? mediaUrl(url) : '';
+    return `<img src="${escapeHtml(sanitizedUrl)}" alt="${escapeHtml(alt)}" style="max-width: 420px; width: 100%; height: auto; margin: 1rem auto; display: block;" />`;
   });
 
   // Links ([text](url)) - internal chapter links (/bok/...) and external https
