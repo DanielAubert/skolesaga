@@ -30,6 +30,11 @@ BYGGEPLAN-MAL «LENGDE-TELL»; verktøy: `scripts/hoyskolebok/quiz-lengdesjekk.m
 fyldigere, plausible, faglig GALE distraktorer ≥ fasitlengde; buildmix lager
 straddle (≥1 kortere + ≥1 lengre) så fasiten havner i midten.
 
+## Fikset natt 15. juli (utover høyskole)
+✅ komkult (98→5%), markedsforing (98→16%), trening-3 (98→9%),
+sosiologi-full (97→3%), kroppsoving-vg2 (under arbeid). Alle committet scoped.
+Fjern disse fra lista under etter hvert.
+
 ## Resterende flaggede filer (134) — sortert verst først
 
 | Emne | Spm | Fasit-eneste-lengst |
