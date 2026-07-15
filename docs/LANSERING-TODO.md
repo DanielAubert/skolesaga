@@ -50,6 +50,25 @@ fullstendige løsningsforslaget måles. Én opplåsning per oppgave per uke-mete
    emnene (exphil/BI/jus/psykologi) via BYGGEKONTRAKT — verifiser-flaggene
    løses da; jus-bøker bør fagfellesjekkes ekstra.
 
+## Kjente feil (bugs å fikse)
+
+- **`\varepsilon` (elastisitet) rendrer som «|r|» på siden** (meldt 15. juli 2026,
+  sett i econ1210-1-4 på mobil). Kilden er korrekt: `$|\varepsilon| = 1$`,
+  `$|\varepsilon| > 1$` osv. KaTeX rendrer isolert riktig til `ε` (klasse
+  `mord mathnormal`, italic math-font) og `katex/dist/katex.min.css` importeres i
+  `latex-renderer.tsx` — så dette er IKKE en innholdsfeil.
+  - **Hypotese (mest sannsynlig):** KaTeX_Math-webfonten lastes ikke i prod, så
+    greske/matte-glyfer faller tilbake til systemfont der italic ε ligner «r»
+    (ASCII som 1/=/% rendrer fint, bare spesialglyfer rammes). Alternativ: ren
+    lesbarhetssvakhet ved liten italic ε på mobil.
+  - **Omfang:** `\varepsilon` i **41 kapittelfiler / 1819 forekomster**
+    (fysikk2 20, econ1210 9, tof/r1/kjemi1/fys1/bi/tif/r2). FIKS RENDERINGEN
+    ETT sted (font-innlasting), ikke 1819 kildeendringer.
+  - **Neste steg:** verifiser på deployet side (Network → lastes KaTeX_Main/Math
+    `.woff2`?), sjekk desktop vs. mobil, sammenlign `\varepsilon` vs `\epsilon`.
+    Rotårsak FØR fiks. Gjelder trolig alle greske bokstaver, ikke bare ε —
+    audit `\rho \sigma \theta \pi \mu` m.fl. samtidig.
+
 ## Aktiveringssekvens (når betalingen er klar)
 1. Sett opp Stripe/Vipps-produkter + kredittabell → erstatt de to stubbene
 2. Slå på `NEXT_PUBLIC_FASIT_MUR_ENABLED` (myk mur, mål konvertering 1–2 uker)
