@@ -30,12 +30,12 @@ BYGGEPLAN-MAL «LENGDE-TELL»; verktøy: `scripts/hoyskolebok/quiz-lengdesjekk.m
 fyldigere, plausible, faglig GALE distraktorer ≥ fasitlengde; buildmix lager
 straddle (≥1 kortere + ≥1 lengre) så fasiten havner i midten.
 
-## Fikset natt 15. juli (utover høyskole) — 7 VGS-bøker
+## Fikset natt 15. juli (utover høyskole) — 8 VGS-bøker
 ✅ komkult (98→5%), markedsforing (98→16%), trening-3 (98→9%),
 sosiologi-full (97→3%), kroppsoving-vg2 (98→17%), trening-2 (97→21%),
 komkult-2 (96→2%). Alle committet scoped. (Bøker med mange KORTE fasitsvar —
 kroppsoving-vg2/trening-2 — lander høyere (17–21%) pga. noStraddle, men ✅.)
-Fjern disse fra lista under etter hvert. NESTE: helseoppvekst-vg3 (96%).
+Fjern disse fra lista under etter hvert. + helseoppvekst-vg3 (96->8%). 11 bøker totalt m/høyskole. NESTE: kroppsoving-vg3, psykologi-2, komkult-3, entrebed, helseoppvekst-vg1/vg2, …
 
 ## Resterende flaggede filer (134) — sortert verst først
 
