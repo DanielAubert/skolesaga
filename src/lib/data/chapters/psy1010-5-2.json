@@ -49,7 +49,28 @@
       "id": "psy1010-5-2-def-tre-grunner",
       "type": "definition",
       "title": "De tre kanoniske grunnene",
-      "content": "En observert korrelasjon mellom X og Y kan alltid skyldes minst én av tre ting — og en korrelasjon alene kan ikke avgjøre hvilken:\n\n1. **Retningsproblemet:** kausaliteten kan gå motsatt vei av det du antar. Kanskje det er Y som påvirker X, ikke X som påvirker Y.\n2. **Tredjevariabler:** en bakenforliggende variabel $z$ påvirker *både* X og Y, slik at de samvarierer uten å påvirke hverandre.\n3. **Spuriøs (falsk) sammenheng:** X og Y henger sammen i tallene, men det finnes ingen ekte, direkte forbindelse — samvariasjonen er tilfeldig eller helt drevet av en $z$.\n\nÅ nevne alle tre (ikke bare «det kan være en tredjevariabel») er det som løfter svaret."
+      "content": "En observert korrelasjon mellom X og Y kan alltid skyldes minst én av tre ting — og en korrelasjon alene kan ikke avgjøre hvilken:\n\n1. **Retningsproblemet:** kausaliteten kan gå motsatt vei av det du antar. Kanskje det er Y som påvirker X, ikke X som påvirker Y.\n2. **Tredjevariabler:** en bakenforliggende variabel $z$ påvirker *både* X og Y, slik at de samvarierer uten å påvirke hverandre.\n3. **Spuriøs (falsk) sammenheng:** X og Y henger sammen i tallene, men det finnes ingen ekte, direkte forbindelse — samvariasjonen er tilfeldig eller helt drevet av en $z$.\n\nÅ nevne alle tre (ikke bare «det kan være en tredjevariabel») er det som løfter svaret. De tre pil-diagrammene under viser hver av grunnene: retningsproblemet (usikker pilretning), tredjevariabelen/konfunderen ($z$ peker på både X og Y), og den spuriøse sammenhengen (X og Y uten ekte kobling)."
+    },
+    {
+      "id": "psy1010-5-2-figur-retningsproblem",
+      "type": "image",
+      "src": "/images/textbook/psy1010/psy1010-5-2-retningsproblem.svg",
+      "alt": "Pil-diagram med to noder X og Y og en pil merket «X→Y? eller Y→X?» — retningen på årsakssammenhengen er ukjent.",
+      "caption": "1. Retningsproblemet: kausaliteten kan gå motsatt vei av det man antar — en korrelasjon peker ikke ut retningen."
+    },
+    {
+      "id": "psy1010-5-2-figur-tredjevariabel",
+      "type": "image",
+      "src": "/images/textbook/psy1010/psy1010-5-2-tredjevariabel.svg",
+      "alt": "Pil-diagram med tre noder z, X og Y der z har piler («påvirker») til både X og Y — en bakenforliggende variabel skaper samvariasjonen.",
+      "caption": "2. Tredjevariabel (konfunder): en bakenforliggende z påvirker både X og Y, så de samvarierer uten å påvirke hverandre."
+    },
+    {
+      "id": "psy1010-5-2-figur-spurios",
+      "type": "image",
+      "src": "/images/textbook/psy1010/psy1010-5-2-spurios.svg",
+      "alt": "Pil-diagram med to noder X og Y forbundet med en kant merket «ingen ekte kobling» — en tilsynelatende, spuriøs sammenheng.",
+      "caption": "3. Spuriøs sammenheng: X og Y henger sammen i tallene, men uten reell direkte forbindelse — tilfeldig eller helt drevet av en z."
     },
     {
       "id": "psy1010-5-2-feilkode-gloss",
@@ -82,7 +103,14 @@
       "id": "psy1010-5-2-def-konfunder",
       "type": "definition",
       "title": "Konfunder (bakenforliggende variabel)",
-      "content": "En **konfunder** (bakenforliggende/konfunderende variabel) er en tredjevariabel $z$ som påvirker **både** X og Y. Modellen tegnes:\n\n$$z \\rightarrow X, \\qquad z \\rightarrow Y$$\n\nDa vil X og Y samvariere — men *ikke* fordi den ene påvirker den andre. Sammenhengen er (helt eller delvis) skapt av $z$. Løsningen er å **kontrollere for** $z$ (holde den konstant, eller ta den inn i en multippel regresjon, [kap. 5.4](/bok/psy1010/psy1010-5-4)): forsvinner X–Y-sammenhengen når $z$ holdes fast, var den konfundert.\n\nEksempel: is-salg (X) og drukningsulykker (Y) korrelerer — men $z$ = *varmt vær* driver begge. Kontrollerer du for temperatur, forsvinner sammenhengen."
+      "content": "En **konfunder** (bakenforliggende/konfunderende variabel) er en tredjevariabel $z$ som påvirker **både** X og Y — figuren under viser strukturen: én pil fra $z$ til X og én fra $z$ til Y. Da vil X og Y samvariere — men *ikke* fordi den ene påvirker den andre. Sammenhengen er (helt eller delvis) skapt av $z$. Løsningen er å **kontrollere for** $z$ (holde den konstant, eller ta den inn i en multippel regresjon, [kap. 5.4](/bok/psy1010/psy1010-5-4)): forsvinner X–Y-sammenhengen når $z$ holdes fast, var den konfundert.\n\nEksempel: is-salg (X) og drukningsulykker (Y) korrelerer — men $z$ = *varmt vær* driver begge. Kontrollerer du for temperatur, forsvinner sammenhengen."
+    },
+    {
+      "id": "psy1010-5-2-figur-konfunder",
+      "type": "image",
+      "src": "/images/textbook/psy1010/psy1010-5-2-konfunder.svg",
+      "alt": "Pildiagram: boks z (varmt vær) øverst, med to piler ned til X (is-salg) og Y (drukningsulykker).",
+      "caption": "Konfunder: z (varmt vær) peker på både X og Y. X og Y samvarierer uten at den ene forårsaker den andre — kontrollerer du for z, forsvinner sammenhengen."
     },
     {
       "id": "psy1010-5-2-def-spurios",
@@ -123,7 +151,14 @@
       "id": "psy1010-5-2-def-mediator",
       "type": "definition",
       "title": "Mediator (mekanismen)",
-      "content": "En **mediator** er en tredjevariabel $z$ som ligger *mellom* X og Y i årsakskjeden — den er **mekanismen** X virker *gjennom*. Modellen tegnes:\n\n$$X \\rightarrow z \\rightarrow Y$$\n\nHer er sammenhengen X–Y ekte og kausal, men den *går via* $z$. Eksempel: trening (X) → bedre søvn ($z$) → bedre humør (Y). Trening virker på humøret, men mekanismen er søvnen.\n\nEn mediator **forklarer** hvorfor X påvirker Y — den forklarer ikke bort sammenhengen (slik en konfunder gjør)."
+      "content": "En **mediator** er en tredjevariabel $z$ som ligger *mellom* X og Y i årsakskjeden — den er **mekanismen** X virker *gjennom*. Figuren under viser den lineære kjeden $X \\rightarrow z \\rightarrow Y$. Her er sammenhengen X–Y ekte og kausal, men den *går via* $z$. Eksempel: trening (X) → bedre søvn ($z$) → bedre humør (Y). Trening virker på humøret, men mekanismen er søvnen.\n\nEn mediator **forklarer** hvorfor X påvirker Y — den forklarer ikke bort sammenhengen (slik en konfunder gjør)."
+    },
+    {
+      "id": "psy1010-5-2-figur-mediator",
+      "type": "image",
+      "src": "/images/textbook/psy1010/psy1010-5-2-mediator.svg",
+      "alt": "Pildiagram som lineær kjede: X (trening) → z (bedre søvn) → Y (bedre humør).",
+      "caption": "Mediator: z ligger mellom X og Y. Sammenhengen X→Y er ekte, men går via mekanismen z (søvn). En mediator forklarer hvorfor X virker."
     },
     {
       "id": "psy1010-5-2-def-moderator",
