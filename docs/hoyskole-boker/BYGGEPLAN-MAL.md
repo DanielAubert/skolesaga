@@ -80,7 +80,13 @@ av én agent som leser hele skjelettet.
 > erfarings-bro/vippe-caser). STUDENTPANEL BØLGE 4+5 (jf. README «Leserkrav»
 > — SKAL inn i førsteutkastet): ALLE ensartede fasitlister varierer (aldri
 > «alle a», aldri «alle felle»); distraktorer gjengir ALDRI bokas egne
-> nyanser som «galt» svar; alle exercises har utfylte hints (første hint =
+> nyanser som «galt» svar; **INGEN LENGDE-TELL: fasiten skal IKKE være det
+> lengste/mest detaljerte alternativet (skjerpet 15. juli 2026, produkteier).
+> Alle fire alternativer skal ha jevn lengde og presisjonsgrad — en student
+> som «velger det lengste» skal treffe ~25 %, ikke 77 %. Skriv distraktorene
+> like fyldige og plausible som fasiten (ikke korte avfeininger); trim heller
+> fasiten. Sjekk med scripts/hoyskolebok/quiz-lengdesjekk.mjs før ferdig.**;
+> alle exercises har utfylte hints (første hint =
 > hjemmel/formel/første grep, ALDRI konklusjonen) — unntak kun merket kald
 > bank; boka har noen «(krevende)»-merkede oppgaver + én kald bank uten hint
 > (fasit = momentliste); modellbesvarelser lander IKKE alle på samme
@@ -241,7 +247,9 @@ Redaktør per del-gruppe (3–4 agenter à 7–10 kapitler) + for JUS-fag ALLTID
 
 ## Kjente feller (fra econ1310/jus1111-løpene — les før start)
 - Flashcards genereres KUN fra toppnivå `definition`-blokker med `title`.
-- `options[0]` alltid riktig i quiz; skjelettets kvotetabell er fasit.
+- `options[0]` alltid riktig i quiz; skjelettets kvotetabell er fasit. MEN:
+  `options[0]` må IKKE være det lengste alternativet (lengde-tell) — jevn lengde
+  på alle fire; verifiser med `quiz-lengdesjekk.mjs`.
 - `chapterNumber` alltid del-basert («2.3») — aldri lineær.
 - LaTeX i JSON = `\\`; generer via python json.dump.
 - Agenter dør på sesjonsgrenser: innholdet ligger som regel på disk — mål
