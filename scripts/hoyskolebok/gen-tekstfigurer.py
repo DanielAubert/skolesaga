@@ -36,7 +36,9 @@ def _cw(ch):
     if ch.isdigit(): return 0.52
     return 0.50
 def text_w(s, fs):
-    return sum(_cw(c) for c in s) * fs
+    # 1.09 = kalibrert sikkerhetsfaktor mot ekte Georgia (bold renderer bredere
+    # enn estimatet; audit 16. juli fant avkuttet celletekst uten denne)
+    return sum(_cw(c) for c in s) * fs * 1.09
 
 def wrap(text, fs, maxw):
     """Grådig ordbryting til pikselbredde. Respekterer eksplisitte \n."""
@@ -54,6 +56,10 @@ def wrap(text, fs, maxw):
     return out or ['']
 
 def esc(s): return html.escape(str(s), quote=True)
+
+def fitW(W, tittel):
+    """Sørg for at lerretet er bredt nok for tittelen (audit: avkuttede titler)."""
+    return int(max(W, text_w(tittel, 15) + 36)) if tittel else int(W)
 
 # ---------------------------------------------------------------- SVG-primitiver
 class SVG:
@@ -153,7 +159,7 @@ def matrise(navn, tittel, col_heads, row_heads, cells, caption,
         rowh.append(pady*2 + max(len(l) for l in cand)*cellfs*1.26)
     tblw = rh_w + sum(cw)
     tblh = hh + sum(rowh)
-    W = int(tblw + 40)
+    W = fitW(tblw + 40, tittel)
     H = int(hz + tblh + 46)
     s = SVG(W, H, caption)
     ox, oy = (W-tblw)/2, hz + 6
@@ -183,7 +189,6 @@ def matrise(navn, tittel, col_heads, row_heads, cells, caption,
                     cellfs, INK, bold=hot, lh=cellfs*1.26)
             x += cw[c]
         y += rowh[r]
-    s.txt(W/2, H-16, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def caption_short(c):
@@ -200,7 +205,7 @@ def flyt_vertikal(navn, tittel, steps, caption, colors=None, gap=26, maxw=250):
     bw = max(w for w,h in dims)
     total_h = sum(h for w,h in dims) + gap*(n-1)
     hz = 30 if tittel else 8
-    W = int(bw + 60); H = int(hz + total_h + 40)
+    W = fitW(bw + 60, tittel); H = int(hz + total_h + 40)
     s = SVG(W, H, caption)
     if tittel: s.txt(W/2, 22, tittel, 15, INK, bold=True)
     cy = hz + dims[0][1]/2 + 4
@@ -212,7 +217,6 @@ def flyt_vertikal(navn, tittel, steps, caption, colors=None, gap=26, maxw=250):
             y2 = cy + h/2 + gap
             s.arrow(W/2, y1+2, W/2, y2-2, INK, 2.0, head=8)
             cy = y2 + nexth/2
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def flyt_forgren(navn, tittel, root, branches, caption, root_color='blue'):
@@ -224,7 +228,7 @@ def flyt_forgren(navn, tittel, root, branches, caption, root_color='blue'):
     nb = len(branches)
     gapx = 30
     row_w = nb*bw + (nb-1)*gapx
-    W = int(max(rd[0], row_w) + 60)
+    W = fitW(max(rd[0], row_w) + 60, tittel)
     hz = 30 if tittel else 10
     root_y = hz + rd[1]/2 + 4
     branch_y = root_y + rd[1]/2 + 52 + bh/2
@@ -237,7 +241,6 @@ def flyt_forgren(navn, tittel, root, branches, caption, root_color='blue'):
         cx = x0 + i*(bw+gapx)
         s.arrow(W/2, root_y+rd[1]/2+2, cx, branch_y-bh/2-2, INK, 1.8, head=8)
         box(s, cx, branch_y, t, c, maxw=190)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def distinksjon(navn, tittel, left, right, rows, caption, lcolor='blue', rcolor='red', midlabel=None):
@@ -276,7 +279,7 @@ def beslutningstre(navn, tittel, gates, caption, end_yes=''):
     gap = 40
     colx = 60 + gbw/2
     branchx = colx + gbw/2 + 60 + obw/2
-    W = int(branchx + obw/2 + 40)
+    W = fitW(branchx + obw/2 + 40, tittel)
     hz = 30 if tittel else 10
     endh = box(tmp,0,0, end_yes, 'green', maxw=200)[1] if end_yes else 0
     end_extra = (gap + endh) if end_yes else 0
@@ -302,7 +305,6 @@ def beslutningstre(navn, tittel, gates, caption, end_yes=''):
         s.arrow(colx, y1+2, colx, y1+gap-2, _anscol(last_down), 2.0, head=8)
         s.txt(colx+10, y1+gap/2+3, last_down, 10, _anscol(last_down), bold=True, anchor='start')
         box(s, colx, y1+gap+endh/2, end_yes, 'green', maxw=200)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def taksonomi_trapp(navn, tittel, steps, caption, colors=None):
@@ -313,7 +315,7 @@ def taksonomi_trapp(navn, tittel, steps, caption, colors=None):
     dims = [box(tmp,0,0, t, colors[i], maxw=170) for i,t in enumerate(steps)]
     bw = max(w for w,h in dims); bh = max(h for w,h in dims)
     stepx = bw + 16; stepy = bh*0.82   # bokser side om side, steg opp
-    W = int(bw + stepx*(n-1) + 60)
+    W = fitW(bw + stepx*(n-1) + 60, tittel)
     hz = 30 if tittel else 10
     H = int(hz + bh + stepy*(n-1) + 46)
     s = SVG(W, H, caption)
@@ -328,7 +330,6 @@ def taksonomi_trapp(navn, tittel, steps, caption, colors=None):
             s.arrow(prev[0]+bw/2, prev[1]-bh/2, cx-bw/2, cy+bh/2, GREY, 1.8, head=8)
         box(s, cx, cy, t, colors[i], maxw=170)
         prev = (cx, cy)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def partsforhold(navn, tittel, nodes, edges, caption):
@@ -338,7 +339,7 @@ def partsforhold(navn, tittel, nodes, edges, caption):
     dims = [box(tmp,0,0, t, c, maxw=150) for t,c in nodes]
     bw = max(w for w,h in dims); bh = max(h for w,h in dims)
     n = len(nodes); gap = 70
-    W = int(n*bw + (n-1)*gap + 60)
+    W = fitW(n*bw + (n-1)*gap + 60, tittel)
     hz = 30 if tittel else 10
     H = int(hz + bh + 70)
     s = SVG(W, H, caption)
@@ -351,7 +352,6 @@ def partsforhold(navn, tittel, nodes, edges, caption):
         if lab: s.txt((x1+x2)/2, cy-8, lab, 10, GREY)
     for i,(t,c) in enumerate(nodes):
         box(s, xs[i], cy, t, c, maxw=150)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 def argumentkart(navn, tittel, premises, conclusion, caption, prem_color='grey', concl_color='green'):
@@ -364,7 +364,7 @@ def argumentkart(navn, tittel, premises, conclusion, caption, prem_color='grey',
     gap = 20
     hz = 30 if tittel else 10
     total = sum(h for w,h in pdims)+gap*len(premises)+cd[1]
-    W = int(bw+60); H = int(hz+total+40)
+    W = fitW(bw+60, tittel); H = int(hz+total+40)
     s = SVG(W,H,caption)
     if tittel: s.txt(W/2, 22, tittel, 15, INK, bold=True)
     cy = hz + pdims[0][1]/2 + 4
@@ -379,54 +379,68 @@ def argumentkart(navn, tittel, premises, conclusion, caption, prem_color='grey',
     # siste pil med hode inn i konklusjon
     s.arrow(W/2, cy-cd[1]/2-gap+2, W/2, cy-cd[1]/2-2, INK, 2.0, head=9)
     box(s, W/2, cy, conclusion, concl_color, maxw=280)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 # ================================================================ FAMILIE C: akse
 def tidslinje(navn, tittel, markers, caption, zones=None, span=(0,10)):
     """Horisontal tidsakse. markers=[(pos, label, over?), ...] pos i [span].
-    zones=[(a,b,label,color), ...] skraverte soner."""
-    W, H = 560, 190 + (26 if tittel else 0)
-    s = SVG(W, H, caption)
+    zones=[(a,b,label,color), ...] skraverte soner. Sone-etiketter legges i eget
+    bånd HØYT over aksen (audit: de kolliderte med over-markørenes etiketter)."""
+    over_lines = [wrap(l, 11, 120) for (p,l,o) in markers if o]
+    under_lines = [wrap(l, 11, 120) for (p,l,o) in markers if not o]
+    max_over = max((len(l) for l in over_lines), default=0)
+    max_under = max((len(l) for l in under_lines), default=0)
+    zone_band = 22 if zones else 0
     hz = 30 if tittel else 8
+    ax_y = hz + zone_band + max_over*14 + 30
+    H = int(ax_y + 26 + max_under*14 + 14)
+    W = fitW(560, tittel)
+    s = SVG(W, H, caption)
     if tittel: s.txt(W/2, 22, tittel, 15, INK, bold=True)
-    ax_y = hz + 110
     ox, ex = 60, W-40
     def X(p): return ox + (p-span[0])/(span[1]-span[0])*(ex-ox)
     for (a,b,lab,col) in (zones or []):
         s.poly([(X(a),ax_y-16),(X(b),ax_y-16),(X(b),ax_y+16),(X(a),ax_y+16)],
                fill=EDGE[col], op=0.18)
-        s.txt((X(a)+X(b))/2, ax_y-24, lab, 11, EDGE[col], bold=True)
+        # sone-etikett i eget bånd øverst, ikke i markør-etikettenes sone
+        s.txt((X(a)+X(b))/2, hz + 14, lab, 11, EDGE[col], bold=True)
+        s.line((X(a)+X(b))/2, hz+18, (X(a)+X(b))/2, ax_y-18, EDGE[col], 0.9, dash='2 3')
     s.line(ox, ax_y, ex, ax_y, INK, 1.6)
     s.poly([(ex+10,ax_y),(ex+2,ax_y-4),(ex+2,ax_y+4)], fill=INK)
     for i,(p, lab, over) in enumerate(markers):
         x = X(p)
         s.line(x, ax_y-8, x, ax_y+8, INK, 1.6)
         s.raw(f'<circle cx="{x:.1f}" cy="{ax_y}" r="3.5" fill="{INK}"/>')
-        ly = ax_y-20 if over else ax_y+22
-        for j, ln in enumerate(wrap(lab, 11, 120)):
-            s.txt(x, ly + (j*14 if not over else -(len(wrap(lab,11,120))-1-j)*14), ln, 11, INK)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
+        lns = wrap(lab, 11, 120)
+        if over:
+            ly0 = ax_y - 22 - (len(lns)-1)*14
+            for j, ln in enumerate(lns): s.txt(x, ly0 + j*14, ln, 11, INK)
+        else:
+            for j, ln in enumerate(lns): s.txt(x, ax_y + 26 + j*14, ln, 11, INK)
     return navn, s.done()
 
 def spektrum(navn, tittel, left_pole, right_pole, mark_label, caption, mark_pos=0.5):
-    """Én akse med to poler og et markert balansepunkt."""
-    W, H = 540, 150 + (26 if tittel else 0)
+    """Én akse med to poler og et markert balansepunkt. Polenes tekstbredde
+    måles inn i margene (audit: poletiketter ble kappet av lerretskanten)."""
+    lw = max(text_w(l,12) for l in wrap(left_pole,12,110))
+    rw = max(text_w(l,12) for l in wrap(right_pole,12,110))
+    W = fitW(int(320 + lw + rw), tittel)
+    H = 150 + (26 if tittel else 0)
     s = SVG(W, H, caption)
     hz = 30 if tittel else 8
     if tittel: s.txt(W/2, 22, tittel, 15, INK, bold=True)
     y = hz + 70
-    ox, ex = 90, W-90
+    ox, ex = int(lw + 34), int(W - rw - 34)
     s.line(ox, y, ex, y, INK, 1.8)
     s.poly([(ox-10,y),(ox-2,y-5),(ox-2,y+5)], fill=BLUE)
     s.poly([(ex+10,y),(ex+2,y-5),(ex+2,y+5)], fill=RED)
-    s.lines(ox-14, y+4, wrap(left_pole,12,90), 12, BLUE, bold=True, anchor='end', lh=15)
-    s.lines(ex+14, y+4, wrap(right_pole,12,90), 12, RED, bold=True, anchor='start', lh=15)
+    s.lines(ox-14, y+4, wrap(left_pole,12,110), 12, BLUE, bold=True, anchor='end', lh=15)
+    s.lines(ex+14, y+4, wrap(right_pole,12,110), 12, RED, bold=True, anchor='start', lh=15)
     mx = ox + mark_pos*(ex-ox)
     s.line(mx, y-14, mx, y+14, INK, 1.6)
     s.raw(f'<circle cx="{mx:.1f}" cy="{y}" r="5" fill="{INK}"/>')
-    s.lines(mx, y-22, wrap(mark_label,12,160), 12, INK, bold=True, lh=15)
-    s.txt(W/2, H-14, caption_short(caption), 11, GREY)
+    mlns = wrap(mark_label,12,160)
+    s.lines(mx, y-22-(len(mlns)-1)*15, mlns, 12, INK, bold=True, lh=15)
     return navn, s.done()
 
 # ================================================================ FAMILIE D: plott (numpy)
@@ -438,40 +452,76 @@ def _axes(s, ox, oy, xw, yh, xlab, ylab):
     if xlab: s.txt(ox+xw+16, oy+5, xlab, 13, INK, anchor='start', ital=True)
     if ylab: s.txt(ox-8, oy-yh-16, ylab, 13, INK, ital=True)
 
-def normalfordeling(navn, tittel, caption, bands=True, mu=0, sd=1):
-    """Standard normalfordeling med 68-95-99,7-band (EKSAKT: sampler PDF)."""
+def normalfordeling(navn, tittel, caption, bands=True, mu=0, sd=1,
+                    mark=None, mark_label=None, shade=None, shade_label=None,
+                    sd2=None, kurve_labels=None, xticks=None, xlab=''):
+    """Normalfordeling (EKSAKT: sampler PDF). Utvidelser (audit 16. juli):
+    - mark/mark_label: loddrett strek ved observert verdi (f.eks. x̄ = 63)
+    - shade='right'|'left'|'both' fra mark: skravert p-hale + shade_label
+    - sd2 (+kurve_labels=(lab1,lab2)): kurve nr. 2 med annen spredning —
+      SD-vs-SE-kontrast (samme mu, smalere kurve tegnes blå)
+    - xticks: liste av (verdi, tekst) på x-aksen i stedet for ±kσ
+    - bands: 68-95-99,7-bånd (slås AV automatisk når mark/sd2 brukes)"""
     import numpy as np
+    if mark is not None or sd2 is not None: bands = False
     W, H = 500, 320 + (24 if tittel else 0)
     s = SVG(W, H, caption)
     hz = 24 if tittel else 6
     if tittel: s.txt(W/2, 20, tittel, 15, INK, bold=True)
     ox, oy = 40, H-56
     xw, yh = W-80, H-hz-90
-    lo, hi = mu-3.6*sd, mu+3.6*sd
-    xs = np.linspace(lo, hi, 240)
+    span = 3.6*sd
+    lo, hi = mu-span, mu+span
+    xs = np.linspace(lo, hi, 300)
     pdf = np.exp(-0.5*((xs-mu)/sd)**2)
-    pmax = pdf.max()
+    pmax = 1.0
     def X(x): return ox + (x-lo)/(hi-lo)*xw
     def Y(p): return oy - p/pmax*yh
     band_defs = [(1,'#2471a3','68%'),(2,'#7d3c98','95%'),(3,'#1e8449','99,7%')]
     if bands:
         for k,col,lab in reversed(band_defs):
             m = (xs>=mu-k*sd)&(xs<=mu+k*sd)
-            pts=[(X(lo),oy)]+[(X(x),Y(p)) for x,p in zip(xs[m],pdf[m])]+[(X(xs[m][-1]),oy)]
             pts=[(X(x),Y(p)) for x,p in zip(xs[m],pdf[m])]
             poly=[(X(xs[m][0]),oy)]+pts+[(X(xs[m][-1]),oy)]
             s.poly(poly, fill=col, op=0.16)
+    # skravert hale (p-verdi) fra mark
+    if mark is not None and shade:
+        tails=[]
+        if shade in ('right','both'): tails.append(xs>=mark)
+        if shade in ('left','both'):  tails.append(xs<=(2*mu-mark if shade=='both' else mark))
+        for m in tails:
+            if m.any():
+                pts=[(X(x),Y(p)) for x,p in zip(xs[m],pdf[m])]
+                poly=[(X(xs[m][0]),oy)]+pts+[(X(xs[m][-1]),oy)]
+                s.poly(poly, fill=RED, op=0.30)
+        if shade_label:
+            sx = X(mark + 0.55*sd) if shade in ('right','both') else X(mark - 0.55*sd)
+            s.txt(sx, Y(np.exp(-0.5*((mark-mu)/sd)**2))-14, shade_label, 12, RED, bold=True)
     s.polyline([(X(x),Y(p)) for x,p in zip(xs,pdf)], stroke=RED, sw=2.6)
-    _axes(s, ox, oy, xw, yh, '', '')
-    # SD-merker
-    for k in range(-3,4):
-        x=X(mu+k*sd)
-        s.line(x, oy, x, oy+5, INK, 1.2)
-        s.txt(x, oy+18, ('μ' if k==0 else f'{k:+d}σ'), 11, INK)
+    if sd2 is not None:
+        pdf2 = np.exp(-0.5*((xs-mu)/sd2)**2)
+        s.polyline([(X(x),Y(p)) for x,p in zip(xs,pdf2)], stroke=BLUE, sw=2.6)
+        if kurve_labels:
+            s.txt(X(mu+1.15*sd)+8, Y(np.exp(-0.5*1.15**2))-6, kurve_labels[0], 12, RED, bold=True, anchor='start')
+            s.txt(X(mu+1.35*sd2), Y(np.exp(-0.5*1.35**2)*1.0)-30, kurve_labels[1], 12, BLUE, bold=True, anchor='start')
+    _axes(s, ox, oy, xw, yh, xlab, '')
+    if mark is not None:
+        s.line(X(mark), oy, X(mark), Y(np.exp(-0.5*((mark-mu)/sd)**2)), INK, 1.4, dash='5 4')
+        s.txt(X(mark), oy+18, mark_label or str(mark), 11, INK, bold=True)
+    if xticks:
+        for v, t in xticks:
+            s.line(X(v), oy, X(v), oy+5, INK, 1.2)
+            s.txt(X(v), oy+18, t, 11, INK)
+    elif mark is None:
+        for k in range(-3,4):
+            x=X(mu+k*sd)
+            s.line(x, oy, x, oy+5, INK, 1.2)
+            s.txt(x, oy+18, ('μ' if k==0 else f'{k:+d}σ'), 11, INK)
     if bands:
-        for k,col,lab in band_defs:
-            s.txt(X(mu), Y(pmax*[0,0.62,0.28,0.09][k]), lab, 12, col, bold=True)
-    s.txt(W/2, H-12, caption_short(caption), 11, GREY)
+        # hver bånd-etikett ved sin egen kant (audit: de sto stablet i midten)
+        s.txt(X(mu), Y(0.58), '68%', 12, '#2471a3', bold=True)
+        s.txt(X(mu-1.5*sd), Y(0.22), '95%', 12, '#7d3c98', bold=True)
+        s.txt(X(mu+2.45*sd), Y(0.06), '99,7%', 12, '#1e8449', bold=True)
     return navn, s.done()
 
 def spredningsplott(navn, tittel, caption, r=0.7, n=60, xlab='X', ylab='Y', seed=1, reg=True):
@@ -500,11 +550,13 @@ def spredningsplott(navn, tittel, caption, r=0.7, n=60, xlab='X', ylab='Y', seed
     for xi, yi in zip(xs, ys):
         s.raw(f'<circle cx="{PX(xi):.1f}" cy="{PY(yi):.1f}" r="3.2" fill="{RED}" fill-opacity="0.72"/>')
     s.txt(ox+xw-6, oy-yh+6, f'r ≈ {r:+.2f}'.replace('.',','), 13, INK, anchor='end', bold=True)
-    s.txt(W/2, H-12, caption_short(caption), 11, GREY)
     return navn, s.done()
 
 # ================================================================ demo / validering
 def _save(outdir, navn, body):
+    # XML-valider FØR skriving (audit fant én ugyldig SVG i prod)
+    import xml.dom.minidom
+    xml.dom.minidom.parseString(body)
     with open(os.path.join(outdir, navn+'.svg'), 'w') as f: f.write(body)
     print('skrev', navn+'.svg')
 
