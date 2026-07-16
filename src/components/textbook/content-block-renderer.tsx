@@ -677,7 +677,7 @@ function ImageBlockComponent({ block }: { block: ImageBlock }) {
       />
       {block.caption && (
         <figcaption className="text-center text-sm text-muted-foreground">
-          {block.caption}
+          <LatexRenderer content={block.caption} inline />
         </figcaption>
       )}
     </figure>
@@ -718,7 +718,7 @@ function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
       </div>
       {block.caption && (
         <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
-          {block.caption}
+          <LatexRenderer content={block.caption} inline />
         </figcaption>
       )}
       {block.showCode && (
@@ -1146,7 +1146,7 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
         </div>
         {block.caption && (
           <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
-            {block.caption}
+            <LatexRenderer content={block.caption} inline />
           </figcaption>
         )}
       </figure>
@@ -1167,7 +1167,7 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
       </div>
       {block.caption && (
         <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
-          {block.caption}
+          <LatexRenderer content={block.caption} inline />
         </figcaption>
       )}
     </figure>
