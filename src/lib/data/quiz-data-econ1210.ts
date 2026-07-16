@@ -57,10 +57,10 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Hva viser høyden på markedets etterspørselskurve ved en gitt mengde?",
       options: ["Den marginale betalingsvilligheten for siste enhet", "Hvor mange enheter som selges totalt", "Hvor mange enheter som selges totalt til denne prisen", "Selgernes marginalkostnad ved å produsere siste enhet"],
-      explanation: "Høyden på E-kurven ved en mengde er verdien av den siste enheten for kjøperen som får den — marginal betalingsvillighet. Dette er en fast pluss-markør.",
+      explanation: "Høyden på etterspørselskurven ved en mengde er verdien av den siste enheten for kjøperen som får den — marginal betalingsvillighet. Dette er en fast pluss-markør.",
     },
     {
-      question: "Hvordan fremkommer markedets E-kurve fra kjøpernes individuelle kurver?",
+      question: "Hvordan fremkommer markedets etterspørselskurve fra kjøpernes individuelle kurver?",
       options: ["Ved horisontal summering av mengdene ved hver pris", "Ved å multiplisere kurvene med hverandre", "Ved å ta det enkle gjennomsnittet av kjøpernes kurver", "Ved vertikal summering av prisene ved hver enkelt mengde"],
       explanation: "For hver pris legger vi sammen hvor mye hver kjøper vil ha (mengdene, langs den vannrette aksen). Det er horisontal summering.",
     },
@@ -71,26 +71,26 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Prisen på et gode settes opp. Hva skjer i etterspørselsdiagrammet?",
-      options: ["Vi beveger oss langs den samme E-kurven til et nytt punkt", "Hele E-kurven skifter innover", "Hele E-kurven skifter utover mot høyre til høyere mengder", "E-kurven blir brattere fordi kjøperne blir mer prisfølsomme"],
+      options: ["Vi beveger oss langs den samme etterspørselskurven til et nytt punkt", "Hele etterspørselskurven skifter innover", "Hele etterspørselskurven skifter utover mot høyre til høyere mengder", "Etterspørselskurven blir brattere fordi kjøperne blir mer prisfølsomme"],
       explanation: "En endring i godets EGEN pris gir en bevegelse LANGS kurven, ikke et skift. Bare andre faktorer skifter selve kurven (feilkatalog #1).",
     },
     {
-      question: "Kjøpernes inntekt øker (vanlig gode). Hva skjer med E-kurven?",
+      question: "Kjøpernes inntekt øker (vanlig gode). Hva skjer med etterspørselskurven?",
       options: ["Den skifter utover (til høyre)", "Den skifter innover (til venstre)", "Vi beveger oss oppover langs kurven", "Ingenting endres"],
       explanation: "Høyere inntekt gir større etterspørsel ved enhver pris for et vanlig gode — hele kurven skifter utover.",
     },
     {
       question: "Etterspørselen er x = 300 − 2p. Hva er den marginale betalingsvilligheten ved x = 200?",
       options: ["50 kroner", "100 kroner", "200 kroner", "150 kroner"],
-      explanation: "200 = 300 − 2p gir 2p = 100, altså p = 50. Høyden på E-kurven ved x = 200 er 50 kroner.",
+      explanation: "200 = 300 − 2p gir 2p = 100, altså p = 50. Høyden på etterspørselskurven ved x = 200 er 50 kroner.",
     },
     {
-      question: "Prisen på et substitutt til godet stiger. Hvordan påvirkes godets E-kurve?",
+      question: "Prisen på et substitutt til godet stiger. Hvordan påvirkes godets etterspørselskurve?",
       options: ["Den skifter utover (til høyre)", "Den skifter innover (til venstre)", "Vi beveger oss langs kurven", "Kurven blir loddrett"],
       explanation: "Når substituttet blir dyrere, vender kjøpere seg mot dette godet ved enhver pris → skift utover.",
     },
     {
-      question: "Prisen på et komplement (brukes sammen med godet) stiger. Hva skjer med godets E-kurve?",
+      question: "Prisen på et komplement (brukes sammen med godet) stiger. Hva skjer med godets etterspørselskurve?",
       options: ["Den skifter innover (til venstre)", "Den skifter utover (til høyre)", "Vi beveger oss bare langs den samme kurven til et nytt punkt", "Vi beveger oss langs kurven"],
       explanation: "Dyrere komplement (f.eks. bensin til bil) reduserer etterspørselen etter godet ved enhver pris → skift innover.",
     },
@@ -127,7 +127,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er en typisk feil når man forklarer virkningen av et dyrere substitutt?",
       options: ["Å si 'prisen ble høyere så etterspørselen falt' – det beskriver bevegelse langs kurven, ikke skiftet", "Å bruke bokstaven E i stedet for D som navn på etterspørselskurven", "Å nevne kjøpernes betalingsvillighet når man plasserer kurven", "Å tegne og merke aksene før man begynner på selve figuren"],
-      explanation: "Substituttets prisøkning gir et skift utover av godets E-kurve. Bevegelses-språket hører til godets egen prisendring (feilkatalog #1).",
+      explanation: "Substituttets prisøkning gir et skift utover av godets etterspørselskurve. Bevegelses-språket hører til godets egen prisendring (feilkatalog #1).",
     },
     {
       question: "Hva kjennetegner den individuelle etterspørselskurven sammenlignet med markedets?",
@@ -159,10 +159,10 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Hvordan fremkommer markedets tilbudskurve i anleggsmodellen?",
       options: ["Ved å rangere anleggene etter enhetskostnad, billigst først", "Ved å summere gjennomsnittskostnadene", "Ved å summere anleggenes gjennomsnittskostnader ved hver mengde", "Ved å ta gjennomsnittsproduktiviteten på tvers av alle anleggene"],
-      explanation: "T-kurven bygges ved å stille anleggene i kø etter enhetskostnad. Høyere pris gjør flere (dyrere) anlegg lønnsomme, så kurven stiger.",
+      explanation: "Tilbudskurven bygges ved å stille anleggene i kø etter enhetskostnad. Høyere pris gjør flere (dyrere) anlegg lønnsomme, så kurven stiger.",
     },
     {
-      question: "Hva viser høyden på T-kurven ved en gitt mengde?",
+      question: "Hva viser høyden på tilbudskurven ved en gitt mengde?",
       options: ["Marginalkostnaden – enhetskostnaden i det dyreste anlegget i drift", "Den marginale betalingsvilligheten hos kjøperen av siste enhet", "Gjennomsnittskostnaden regnet over alle anlegg som er i drift", "Statens skatteinntekt fra det dyreste anlegget som er i drift"],
       explanation: "Høyden er enhetskostnaden i det dyreste anlegget som er i drift, altså marginalkostnaden for siste enhet. En fast pluss-markør.",
     },
@@ -172,12 +172,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Med konstant enhetskostnad lønner hver enhet seg når p ≥ enhetskostnaden, så anlegget kjører for full kapasitet – enten alt eller ingenting.",
     },
     {
-      question: "Sabotasje setter flere lønnsomme anlegg ut av spill. Hva skjer med T-kurven og hva er mekanismen?",
+      question: "Sabotasje setter flere lønnsomme anlegg ut av spill. Hva skjer med tilbudskurven og hva er mekanismen?",
       options: ["Skift innover; mekanismen er redusert antall anlegg", "Skift utover; mekanismen er lavere enhetskostnader", "Ingenting endres, fordi de tapte anleggene erstattes av tilsvarende nye", "Bevegelse langs kurven; anleggene endrer bare tilpasningen til dagens pris"],
-      explanation: "Færre anlegg gir mindre kapasitet ved enhver pris → T-kurven skifter inn. Mekanismen er endret (redusert) antall anlegg, ikke endrede enhetskostnader.",
+      explanation: "Færre anlegg gir mindre kapasitet ved enhver pris → tilbudskurven skifter inn. Mekanismen er endret (redusert) antall anlegg, ikke endrede enhetskostnader.",
     },
     {
-      question: "Strømmen blir dyrere for alle produsenter. Hvordan skifter T-kurven?",
+      question: "Strømmen blir dyrere for alle produsenter. Hvordan skifter tilbudskurven?",
       options: ["Parallelt opp/inn – endrede enhetskostnader", "Den beveger seg langs kurven", "Utover mot høyre – flere anlegg blir nå lønnsomme å drive", "Innover mot venstre – færre anlegg er igjen i drift i markedet"],
       explanation: "Dyrere innsatsfaktor hever enhetskostnaden i alle anlegg → parallellskift opp. Mekanismen er endrede enhetskostnader.",
     },
@@ -193,13 +193,13 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den vanligste modell-feilen når man forklarer tilbudet etter H2024?",
-      options: ["Å utlede T-kurven fra U-formede gjennomsnittskostnader", "Å rangere anlegg etter enhetskostnad", "Å rangere anleggene etter enhetskostnad med det billigste først", "Å tegne prisen loddrett og mengden vannrett i tilbudsdiagrammet"],
+      options: ["Å utlede tilbudskurven fra U-formede gjennomsnittskostnader", "Å rangere anlegg etter enhetskostnad", "Å rangere anleggene etter enhetskostnad med det billigste først", "Å tegne prisen loddrett og mengden vannrett i tilbudsdiagrammet"],
       explanation: "Fasitene bruker nå anleggsmodellen. Å bruke gammel produsentteori med gjennomsnittskostnader er å bruke feil pensummodell.",
     },
     {
       question: "I x = cp − d, hva er c?",
       options: ["Tilbudets prisfølsomhet: økning i x per krone prisøkning", "Prisen der tilbudet starter", "Antall anlegg som er i drift ved den gjeldende markedsprisen", "Enhetskostnaden i det dyreste anlegget som er lønnsomt å drive"],
-      explanation: "c måler hvor mange enheter tilbudt mengde stiger for hver krone prisen øker. Stor c gir slak T-kurve, liten c gir bratt.",
+      explanation: "c måler hvor mange enheter tilbudt mengde stiger for hver krone prisen øker. Stor c gir slak tilbudskurve, liten c gir bratt.",
     },
     {
       question: "Enhetskostnaden i et anlegg er konstant. Hva er da forholdet til marginalkostnaden?",
@@ -213,7 +213,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Prisen på selve godet stiger. Hva skjer med tilbudet?",
-      options: ["Bevegelse langs T-kurven – flere eksisterende anlegg kommer i drift", "T-kurven skifter innover", "T-kurven blir loddrett fordi tilbudt mengde nå er fastlåst uansett prisen på godet", "Hele T-kurven skifter utover fordi produsentene ønsker å selge mer til den nye prisen"],
+      options: ["Bevegelse langs tilbudskurven – flere eksisterende anlegg kommer i drift", "Tilbudskurven skifter innover", "Tilbudskurven blir loddrett fordi tilbudt mengde nå er fastlåst uansett prisen på godet", "Hele tilbudskurven skifter utover fordi produsentene ønsker å selge mer til den nye prisen"],
       explanation: "Godets egen pris gir bevegelse langs kurven, ikke skift. Flere av de eksisterende anleggene blir lønnsomme (feilkatalog #1).",
     },
     {
@@ -222,9 +222,9 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Anleggene er rangert etter enhetskostnad. Jo høyere pris, jo flere (dyrere) anlegg blir lønnsomme og kommer i drift.",
     },
     {
-      question: "Utenlandske produsenter får slippe inn i markedet. Hvordan skifter T-kurven?",
+      question: "Utenlandske produsenter får slippe inn i markedet. Hvordan skifter tilbudskurven?",
       options: ["Utover – økt antall anlegg", "Innover – færre anlegg", "Parallelt opp – dyrere drift", "Ingen skift"],
-      explanation: "Flere anlegg gir større kapasitet ved enhver pris → T-kurven skifter ut. Mekanismen er økt antall anlegg.",
+      explanation: "Flere anlegg gir større kapasitet ved enhver pris → tilbudskurven skifter ut. Mekanismen er økt antall anlegg.",
     },
     {
       question: "Hva menes med at et anlegg produserer 'for full kapasitet eller null'?",
@@ -234,17 +234,17 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Tilbudet er x = 3p − 150. Hva er marginalkostnaden for siste enhet ved x = 150?",
       options: ["100 kroner", "50 kroner", "150 kroner", "300 kroner"],
-      explanation: "150 = 3p − 150 gir 3p = 300, altså p = 100. Høyden på T-kurven ved x = 150 er marginalkostnaden = 100 kr.",
+      explanation: "150 = 3p − 150 gir 3p = 300, altså p = 100. Høyden på tilbudskurven ved x = 150 er marginalkostnaden = 100 kr.",
     },
     {
-      question: "Hva er høyden på T-kurven et uttrykk for, sett fra samfunnets side?",
+      question: "Hva er høyden på tilbudskurven et uttrykk for, sett fra samfunnets side?",
       options: ["Alternativkostnaden ved å lage den siste enheten", "Kjøpernes betalingsvillighet", "Kjøpernes marginale betalingsvillighet for den siste enheten som omsettes", "Den totale profitten"],
       explanation: "Marginalkostnaden er også alternativkostnaden ved å bruke ressursene til nettopp denne enheten – viktig i velferdsanalysen senere.",
     },
     {
       question: "Hva er tilbudsstart i x = cp − d?",
       options: ["Prisen p = d/c der tilbudet begynner", "Mengden ved p = 0", "Enhetskostnaden i det billigste anlegget", "Den maksimale kapasiteten"],
-      explanation: "Sett x = 0: cp = d, altså p = d/c. Under denne prisen er ingen anlegg lønnsomme, og T-kurven treffer prisaksen her.",
+      explanation: "Sett x = 0: cp = d, altså p = d/c. Under denne prisen er ingen anlegg lønnsomme, og tilbudskurven treffer prisaksen her.",
     },
     {
       question: "Hvorfor er den klassiske produsentteorien (gjennomsnittskostnader) bare sekundærstoff i boka?",
@@ -253,14 +253,14 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kalles kurvene i denne boka, og hvorfor er det viktig?",
-      options: ["E-kurven (etterspørsel) og T-kurven (tilbud) – aldri D/S", "Kostnadskurven og inntektskurven", "D-kurven (demand) og S-kurven (supply), slik den engelske standarden bruker dem", "Kostnadskurven og inntektskurven, siden tilbud og etterspørsel er avledet av disse"],
+      options: ["Etterspørselskurven (etterspørsel) og tilbudskurven (tilbud) – aldri D/S", "Kostnadskurven og inntektskurven", "D-kurven (demand) og S-kurven (supply), slik den engelske standarden bruker dem", "Kostnadskurven og inntektskurven, siden tilbud og etterspørsel er avledet av disse"],
       explanation: "Boka bruker konsekvent E (etterspørsel) og T (tilbud) i tråd med den norske notasjonsstandarden i emnet.",
     },
   ],
   'econ1210-1-3': [
     {
       question: "Hvor ligger markedslikevekten grafisk?",
-      options: ["Der E-kurven og T-kurven krysser", "Der E-kurven treffer prisaksen", "Der T-kurven treffer mengdeaksen", "I origo"],
+      options: ["Der etterspørselskurven og tilbudskurven krysser", "Der etterspørselskurven treffer prisaksen", "Der tilbudskurven treffer mengdeaksen", "I origo"],
       explanation: "Likevekten er punktet der etterspurt mengde er lik tilbudt mengde – altså der de to kurvene skjærer hverandre.",
     },
     {
@@ -324,8 +324,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "b er etterspørselens prisfølsomhet, c er tilbudets. Summen b+c er markedets samlede prisfølsomhet og går igjen i delingsformelen senere.",
     },
     {
-      question: "Hva viser høyden på E-kurven og T-kurven i likevektspunktet?",
-      options: ["De er like: marginal betalingsvillighet = marginalkostnad", "E er dobbelt så høy som T", "T-kurven ligger alltid høyest fordi kostnadene overstiger betalingsvilligheten", "E-kurven ligger dobbelt så høyt som T-kurven fordi kjøperne verdsetter godet mest"],
+      question: "Hva viser høyden på etterspørselskurven og tilbudskurven i likevektspunktet?",
+      options: ["De er like: marginal betalingsvillighet = marginalkostnad", "E er dobbelt så høy som T", "Tilbudskurven ligger alltid høyest fordi kostnadene overstiger betalingsvilligheten", "Etterspørselskurven ligger dobbelt så høyt som tilbudskurven fordi kjøperne verdsetter godet mest"],
       explanation: "I likevekt er betalingsvilligheten for siste enhet lik kostnaden ved den – kurvene møtes i samme høyde p*.",
     },
     {
@@ -340,8 +340,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved en pris under p* ligger hvilken kurve lengst til høyre?",
-      options: ["E-kurven (etterspørsel)", "T-kurven (tilbud)", "T-kurven (tilbud), fordi lav pris trekker frem flere anlegg i drift", "Begge like langt"],
-      explanation: "Under p* etterspørres mer enn det tilbys, så E-kurven ligger til høyre for T-kurven – etterspørselsoverskudd.",
+      options: ["Etterspørselskurven (etterspørsel)", "Tilbudskurven (tilbud)", "Tilbudskurven (tilbud), fordi lav pris trekker frem flere anlegg i drift", "Begge like langt"],
+      explanation: "Under p* etterspørres mer enn det tilbys, så etterspørselskurven ligger til høyre for tilbudskurven – etterspørselsoverskudd.",
     },
     {
       question: "Hva er den vanligste figurfeilen sensor trekker for (feilkatalog #12)?",
@@ -406,7 +406,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "$\\varepsilon = -b\\cdot\\frac{p}{x}$: $-b$ er konstant, men $\\frac{p}{x}$ endres langs en rett linje, saa elastisiteten varierer.",
     },
     {
-      question: "Hvor paa en rett, fallende E-kurve er etterspoerselen mest elastisk?",
+      question: "Hvor paa en rett, fallende etterspørselskurve er etterspoerselen mest elastisk?",
       options: ["Hoeyt oppe (hoey pris, liten mengde)", "Langt nede (lav pris, stor mengde)", "I midtpunktet paa kurven, der elastisiteten alltid er noeyaktig lik $-1$", "Elastisiteten er lik overalt"],
       explanation: "Hoeyt oppe er $\\frac{p}{x}$ stor, saa $|\\varepsilon|$ er stor (elastisk). Nederst er den liten (uelastisk).",
     },
@@ -471,7 +471,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "«Den som ikke kan flykte, betaler»: er etterspoerselen uelastisk, velter avgiften over paa kjoeperne.",
     },
     {
-      question: "Hva skjer med $|\\varepsilon|$ naar du beveger deg nedover en rett E-kurve?",
+      question: "Hva skjer med $|\\varepsilon|$ naar du beveger deg nedover en rett etterspørselskurve?",
       options: ["Den synker (kurven blir mindre elastisk der)", "Den blir positiv", "Den stiger (kurven blir mer elastisk nedover mot stoerre mengder)", "Den er konstant langs hele den rette kurven, uansett punkt du velger"],
       explanation: "Lavere pris og stoerre mengde gir mindre $\\frac{p}{x}$, saa $|\\varepsilon|$ synker — derfor maa punktet oppgis.",
     },
@@ -504,8 +504,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En loennsoekning i produksjonen gjoer at:",
-      options: ["T-kurven skifter innover (hoeyere enhetskostnad)", "E-kurven skifter innover", "E-kurven skifter innover (kjoeperne vil ha mindre)", "E-kurven skifter utover (hoeyere etterspoersel i markedet)"],
-      explanation: "Hoeyere enhetskostnad i alle anlegg loefter T-kurven opp/inn — faerre anlegg loennsomme ved hver pris.",
+      options: ["Tilbudskurven skifter innover (hoeyere enhetskostnad)", "Etterspørselskurven skifter innover", "Etterspørselskurven skifter innover (kjoeperne vil ha mindre)", "Etterspørselskurven skifter utover (hoeyere etterspoersel i markedet)"],
+      explanation: "Hoeyere enhetskostnad i alle anlegg loefter tilbudskurven opp/inn — faerre anlegg loennsomme ved hver pris.",
     },
     {
       question: "Hva honorerer sensor mest i en skiftoppgave?",
@@ -543,22 +543,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Begge innskift krymper markedet (mengde ned, bestemt), men de drar prisen hver sin vei (ubestemt).",
     },
     {
-      question: "Hvorfor gir et brattere (uelastisk) E-kurve stoerre prisutslag ved et tilbudsskift?",
-      options: ["Kjoeperne henger med nesten uansett pris, saa prisen maa endres mye for aa klarere markedet", "Fordi mengden ikke kan endres", "Fordi tilbudet forsvinner helt naar E-kurven er bratt, saa prisen skyter i vaeret av seg selv", "Fordi mengden ikke kan endres i det hele tatt langs en uelastisk kurve, uansett hvordan prisen setter seg"],
+      question: "Hvorfor gir et brattere (uelastisk) etterspørselskurve stoerre prisutslag ved et tilbudsskift?",
+      options: ["Kjoeperne henger med nesten uansett pris, saa prisen maa endres mye for aa klarere markedet", "Fordi mengden ikke kan endres", "Fordi tilbudet forsvinner helt naar etterspørselskurven er bratt, saa prisen skyter i vaeret av seg selv", "Fordi mengden ikke kan endres i det hele tatt langs en uelastisk kurve, uansett hvordan prisen setter seg"],
       explanation: "Bratt E = lav prisfoelsomhet → prisen tar stoetet, mengden endres lite.",
     },
     {
       question: "En billigere innsatsvare foerer til at:",
-      options: ["T-kurven skifter utover (lavere enhetskostnad)", "T-kurven skifter innover", "E-kurven skifter utover (hoeyere etterspoersel)", "E-kurven skifter innover (lavere etterspoersel)"],
+      options: ["Tilbudskurven skifter utover (lavere enhetskostnad)", "Tilbudskurven skifter innover", "Etterspørselskurven skifter utover (hoeyere etterspoersel)", "Etterspørselskurven skifter innover (lavere etterspoersel)"],
       explanation: "Lavere enhetskostnad gjoer flere anlegg loennsomme → T ut → pris ned, mengde opp.",
     },
     {
       question: "Hvilket skift gir en dyrere substituttvare i vaart marked?",
-      options: ["E-kurven skifter utover (folk bytter til vaar vare)", "E-kurven skifter innover", "T-kurven skifter utover (lavere enhetskostnad i anleggene)", "T-kurven skifter innover (hoeyere enhetskostnad i anleggene)"],
+      options: ["Etterspørselskurven skifter utover (folk bytter til vaar vare)", "Etterspørselskurven skifter innover", "Tilbudskurven skifter utover (lavere enhetskostnad i anleggene)", "Tilbudskurven skifter innover (hoeyere enhetskostnad i anleggene)"],
       explanation: "Dyrere substitutt → flere velger vaar vare → oekt etterspoersel → E ut.",
     },
     {
-      question: "En parallell forskyvning av hele T-kurven skyldes:",
+      question: "En parallell forskyvning av hele tilbudskurven skyldes:",
       options: ["En endring i enhetskostnaden som er lik i alle anlegg", "At ett anlegg endrer pris", "En prisendring paa selve varen som omsettes i markedet", "At bare ett enkelt anlegg endrer sin egen enhetskostnad"],
       explanation: "Loenn, energi, avgift eller sikkerhetskrav som treffer alle anlegg likt gir parallellskift.",
     },
@@ -569,7 +569,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva maaler anleggsbortfallet i en figur?",
-      options: ["Den horisontale avstanden mellom gammel og ny T-kurve ved gammel pris", "Arealet under E-kurven mellom gammel og ny omsatt mengde i markedet", "Prisendringen maalt vertikalt mellom gammel og ny likevektspris i figuren", "Det faktiske mengdefallet som leses av horisontalt mellom de to likevektene"],
+      options: ["Den horisontale avstanden mellom gammel og ny tilbudskurve ved gammel pris", "Arealet under etterspørselskurven mellom gammel og ny omsatt mengde i markedet", "Prisendringen maalt vertikalt mellom gammel og ny likevektspris i figuren", "Det faktiske mengdefallet som leses av horisontalt mellom de to likevektene"],
       explanation: "Bortfallet leses ved gammel pris; det faktiske fallet er mindre pga. lekkasjen.",
     },
     {
@@ -584,7 +584,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hoeyere inntekt hos kjoeperne (normal vare) gir:",
-      options: ["E-kurven skifter utover", "E-kurven skifter innover", "T-kurven skifter utover", "T-kurven skifter innover"],
+      options: ["Etterspørselskurven skifter utover", "Etterspørselskurven skifter innover", "Tilbudskurven skifter utover", "Tilbudskurven skifter innover"],
       explanation: "Oekt kjoepekraft → mer etterspoersel ved enhver pris → E ut → hoeyere pris og mengde.",
     },
     {
@@ -651,7 +651,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En reklamekampanje som gjoer varen populaer skifter:",
-      options: ["E-kurven utover (hoeyere pris, stoerre mengde)", "E-kurven innover (lavere pris, mindre mengde)", "T-kurven innover (høyere pris, mindre mengde)", "T-kurven utover (lavere pris, større mengde)"],
+      options: ["Etterspørselskurven utover (hoeyere pris, stoerre mengde)", "Etterspørselskurven innover (lavere pris, mindre mengde)", "Tilbudskurven innover (høyere pris, mindre mengde)", "Tilbudskurven utover (lavere pris, større mengde)"],
       explanation: "Endret preferanse → oekt etterspoersel → E ut → pris og mengde opp.",
     },
     {
@@ -693,7 +693,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-2-1': [
     {
       question: "Hva er samfunnsøkonomisk overskudd (SO) for en gitt mengde?",
-      options: ["Samlet betalingsvillighet minus samlede kostnader — arealet mellom E- og T-kurven fram til mengden", "Arealet under prislinja ned til mengdeaksen — rektangelet som utgjør kjøpernes samlede betaling", "Selgernes samlede inntekt $p^*\\cdot x^*$, altså pris ganger omsatt mengde i likevekt", "Det samme som konsumentoverskuddet, altså hele feltet mellom E-kurven og prislinja"],
+      options: ["Samlet betalingsvillighet minus samlede kostnader — arealet mellom etterspørsels- og tilbudskurven fram til mengden", "Arealet under prislinja ned til mengdeaksen — rektangelet som utgjør kjøpernes samlede betaling", "Selgernes samlede inntekt $p^*\\cdot x^*$, altså pris ganger omsatt mengde i likevekt", "Det samme som konsumentoverskuddet, altså hele feltet mellom etterspørselskurven og prislinja"],
       explanation: "SO er verdien markedet skaper: for hver enhet betalingsvillighet (E) minus kostnad (T), summert. Inntekt inkluderer kostnadene og er derfor ikke SO.",
     },
     {
@@ -703,28 +703,28 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er konsumentoverskudd (KO)?",
-      options: ["Samlet betalingsvillighet minus det kjøperne faktisk betaler — arealet mellom E-kurven og prislinja", "Alltid større enn produsentoverskuddet, fordi kjøpersiden alltid dominerer under frikonkurranse", "Hele kjøpernes samlede betaling $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekten", "Arealet mellom prislinja og T-kurven, målt opp til den omsatte mengden i selve likevekten"],
-      explanation: "KO er summen av differansene mellom hver kjøpers betalingsvillighet og prisen — feltet mellom E-kurven og prislinja.",
+      options: ["Samlet betalingsvillighet minus det kjøperne faktisk betaler — arealet mellom etterspørselskurven og prislinja", "Alltid større enn produsentoverskuddet, fordi kjøpersiden alltid dominerer under frikonkurranse", "Hele kjøpernes samlede betaling $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekten", "Arealet mellom prislinja og tilbudskurven, målt opp til den omsatte mengden i selve likevekten"],
+      explanation: "KO er summen av differansene mellom hver kjøpers betalingsvillighet og prisen — feltet mellom etterspørselskurven og prislinja.",
     },
     {
       question: "Hva er produsentoverskudd (PO)?",
-      options: ["Selgernes inntekt minus samlede alternativkostnader — arealet mellom prislinja og T-kurven", "Arealet under T-kurven ned til mengdeaksen — altså de samlede produksjonskostnadene", "Hele selgernes samlede inntekt $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekt", "Alltid nøyaktig lik konsumentoverskuddet så lenge begge kurvene er lineære"],
-      explanation: "PO måles mot T-kurvens høyde (alternativkostnaden), ikke mot null. Å regne hele inntekten som overskudd glemmer produksjonskostnadene.",
+      options: ["Selgernes inntekt minus samlede alternativkostnader — arealet mellom prislinja og tilbudskurven", "Arealet under tilbudskurven ned til mengdeaksen — altså de samlede produksjonskostnadene", "Hele selgernes samlede inntekt $p^*\\cdot x^*$, altså prisen ganger omsatt mengde i likevekt", "Alltid nøyaktig lik konsumentoverskuddet så lenge begge kurvene er lineære"],
+      explanation: "PO måles mot tilbudskurvens høyde (alternativkostnaden), ikke mot null. Å regne hele inntekten som overskudd glemmer produksjonskostnadene.",
     },
     {
       question: "Produsentoverskuddet måles mot hvilken målestokk?",
-      options: ["T-kurvens høyde (alternativkostnaden av siste enhet)", "Mengdeaksen (null), slik at hele inntekten teller", "E-kurvens høyde (kjøpernes betalingsvillighet)", "Den høyeste betalingsvilligheten i markedet"],
+      options: ["Tilbudskurvens høyde (alternativkostnaden av siste enhet)", "Mengdeaksen (null), slik at hele inntekten teller", "Etterspørselskurvens høyde (kjøpernes betalingsvillighet)", "Den høyeste betalingsvilligheten i markedet"],
       explanation: "PO er inntekt utover alternativkostnaden. Måler man ned til mengdeaksen, får man inntekten, ikke overskuddet.",
     },
     {
-      question: "Hva forteller høyden på E-kurven ved en gitt mengde?",
+      question: "Hva forteller høyden på etterspørselskurven ved en gitt mengde?",
       options: ["Marginal betalingsvillighet — hva den siste kjøperen er villig til å betale", "Marginalkostnaden — hva det koster å produsere nettopp den siste enheten", "Produsentoverskuddet som selgeren oppnår på nettopp den siste enheten", "Markedsprisen, den samme prisen som gjelder for alle omsatte enheter"],
-      explanation: "E-kurvens høyde er betalingsvillighet; T-kurvens høyde er kostnad. Å blande dem er en klassisk feil i velferdsgeometrien.",
+      explanation: "Etterspørselskurvens høyde er betalingsvillighet; tilbudskurvens høyde er kostnad. Å blande dem er en klassisk feil i velferdsgeometrien.",
     },
     {
-      question: "Hva forteller høyden på T-kurven ved en gitt mengde?",
+      question: "Hva forteller høyden på tilbudskurven ved en gitt mengde?",
       options: ["Marginalkostnaden — kostnaden ved å produsere den siste enheten", "Den siste kjøperens marginale betalingsvillighet for enheten", "Konsumentoverskuddet knyttet til nettopp den siste enheten", "Markedsprisen, som er den samme uansett hvilken mengde"],
-      explanation: "T-kurvens høyde er enhetskostnaden i det dyreste anlegget i drift = alternativkostnaden av siste enhet.",
+      explanation: "Tilbudskurvens høyde er enhetskostnaden i det dyreste anlegget i drift = alternativkostnaden av siste enhet.",
     },
     {
       question: "I et frikonkurransemarked uten inngrep gjelder hvilken sammenheng?",
@@ -737,14 +737,14 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Til venstre for krysset lønner en enhet til seg; til høyre ødelegger den verdi. Bare i krysset er SO-trekanten maksimal.",
     },
     {
-      question: "Med lineær E-kurve regnes konsumentoverskuddet som:",
+      question: "Med lineær etterspørselskurve regnes konsumentoverskuddet som:",
       options: ["$\\tfrac{1}{2}\\cdot x^*\\cdot(p_{\\max}-p^*)$", "$\\tfrac{1}{2}\\cdot x^*\\cdot(p^*-p_{T0})$", "$\\tfrac{1}{2}\\cdot p^*\\cdot x^*$ uansett form", "$\\tfrac{1}{2}\\cdot p^*\\cdot x^*$ uansett"],
-      explanation: "KO er trekanten mellom E-kurven og prislinja; grunnlinjen er avstanden fra høyeste betalingsvillighet ned til prisen.",
+      explanation: "KO er trekanten mellom etterspørselskurven og prislinja; grunnlinjen er avstanden fra høyeste betalingsvillighet ned til prisen.",
     },
     {
-      question: "Med lineær T-kurve regnes produsentoverskuddet som:",
+      question: "Med lineær tilbudskurve regnes produsentoverskuddet som:",
       options: ["$\\tfrac{1}{2}\\cdot x^*\\cdot(p^*-p_{T0})$", "$\\tfrac{1}{2}\\cdot x^*\\cdot(p_{\\max}-p^*)$", "$p^*\\cdot x^*$", "$\\tfrac{1}{2}\\cdot x^*\\cdot p_{\\max}$"],
-      explanation: "PO er trekanten mellom prislinja og T-kurven; $p_{T0}$ er T-kurvens startpris (0 hvis den går gjennom origo).",
+      explanation: "PO er trekanten mellom prislinja og tilbudskurven; $p_{T0}$ er tilbudskurvens startpris (0 hvis den går gjennom origo).",
     },
     {
       question: "I markedet $x=300-p$, $x=2p$ er likevekten $(p^*,x^*)=(100,200)$. Hva er SO?",
@@ -758,13 +758,13 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I markedet $x=400-p$, $x=p$ er KO og PO like store. Hvorfor?",
-      options: ["Fordi E- og T-kurven er like bratte, så prisen ligger midt mellom høyeste betalingsvillighet og laveste kostnad", "Fordi markedsprisen per definisjon alltid deler kaka mellom kjøper og selger i to helt like deler", "Fordi tilbudskurven er uendelig elastisk, slik at hele produsentoverskuddet forsvinner helt i den flate helningen", "Fordi samfunnsøkonomisk overskudd i akkurat denne likevekten tilfeldigvis blir nøyaktig lik null"],
+      options: ["Fordi etterspørsels- og tilbudskurven er like bratte, så prisen ligger midt mellom høyeste betalingsvillighet og laveste kostnad", "Fordi markedsprisen per definisjon alltid deler kaka mellom kjøper og selger i to helt like deler", "Fordi tilbudskurven er uendelig elastisk, slik at hele produsentoverskuddet forsvinner helt i den flate helningen", "Fordi samfunnsøkonomisk overskudd i akkurat denne likevekten tilfeldigvis blir nøyaktig lik null"],
       explanation: "Like bratte kurver gir speilsymmetriske trekanter. Med ulik helning blir den bratteste sidens overskudd størst.",
     },
     {
       question: "En kommentator sier «produsentoverskuddet er hele selgernes inntekt». Hva er feil?",
-      options: ["PO er bare inntekt minus alternativkostnad — arealet over T-kurven, ikke helt ned til mengdeaksen", "PO er alltid lik null i frikonkurranse fordi all profitt på sikt konkurreres bort", "PO måles mot E-kurvens høyde og ikke mot T-kurven, og det er nettopp det som er den egentlige feilen", "Ingenting er feil — PO er nettopp hele selgernes samlede inntekt $p^*\\cdot x^*$"],
-      explanation: "Inntekten er $p^*x^*$; PO er bare delen over T-kurven. Resten er produksjonskostnadene.",
+      options: ["PO er bare inntekt minus alternativkostnad — arealet over tilbudskurven, ikke helt ned til mengdeaksen", "PO er alltid lik null i frikonkurranse fordi all profitt på sikt konkurreres bort", "PO måles mot etterspørselskurvens høyde og ikke mot tilbudskurven, og det er nettopp det som er den egentlige feilen", "Ingenting er feil — PO er nettopp hele selgernes samlede inntekt $p^*\\cdot x^*$"],
+      explanation: "Inntekten er $p^*x^*$; PO er bare delen over tilbudskurven. Resten er produksjonskostnadene.",
     },
     {
       question: "Hva er den viktigste plusspoeng-markøren sensor honorerer i velferdsdeloppgaven?",
@@ -773,7 +773,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "SO opp til en mengde som IKKE er likevekten regnes som:",
-      options: ["Et trapes mellom E- og T-kurven (fordi kurvene ikke møtes ved den mengden)", "Et rektangel $p^*\\cdot x$ mellom prislinja og mengdeaksen ved endepunktet", "En trekant med spissen liggende nøyaktig i selve likevektspunktet", "Halvparten av selgernes samlede inntekt ved den valgte mengden"],
+      options: ["Et trapes mellom etterspørsels- og tilbudskurven (fordi kurvene ikke møtes ved den mengden)", "Et rektangel $p^*\\cdot x$ mellom prislinja og mengdeaksen ved endepunktet", "En trekant med spissen liggende nøyaktig i selve likevektspunktet", "Halvparten av selgernes samlede inntekt ved den valgte mengden"],
       explanation: "Når arealet stopper før krysset, er begge kurvehøyder positive ved endepunktet, så figuren er et trapes, ikke en trekant.",
     },
     {
@@ -783,7 +783,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er $p_{\\max}$ (høyeste betalingsvillighet) i figuren?",
-      options: ["Prisen der E-kurven treffer prisaksen (mengde null)", "Prisen der T-kurven treffer prisaksen", "Likevektsprisen der E-kurven og T-kurven krysser hverandre", "Den laveste enhetskostnaden blant alle anleggene i markedet"],
+      options: ["Prisen der etterspørselskurven treffer prisaksen (mengde null)", "Prisen der tilbudskurven treffer prisaksen", "Likevektsprisen der etterspørselskurven og tilbudskurven krysser hverandre", "Den laveste enhetskostnaden blant alle anleggene i markedet"],
       explanation: "$p_{\\max}$ er toppen av KO-trekanten: ingen kjøper varen over denne prisen.",
     },
     {
@@ -850,8 +850,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved en bindende maksimalpris bestemmes omsatt mengde av:",
-      options: ["Den korte siden av markedet (kortside-regelen)", "Gjennomsnittet av tilbud og etterspørsel", "Etterspurt mengde avlest på E-kurven ved den lave maksprisen, altså det kjøperne ønsker å kjøpe", "Etterspurt mengde ved maksprisen"],
-      explanation: "Ingen kan tvinges til å selge, så omsatt mengde = det minste av tilbudt og etterspurt mengde. Å lese av E-kurven her er en klassisk feil (#7).",
+      options: ["Den korte siden av markedet (kortside-regelen)", "Gjennomsnittet av tilbud og etterspørsel", "Etterspurt mengde avlest på etterspørselskurven ved den lave maksprisen, altså det kjøperne ønsker å kjøpe", "Etterspurt mengde ved maksprisen"],
+      explanation: "Ingen kan tvinges til å selge, så omsatt mengde = det minste av tilbudt og etterspurt mengde. Å lese av etterspørselskurven her er en klassisk feil (#7).",
     },
     {
       question: "I markedet $x=300-p$, $x=2p$ settes makspris 80. Selgerne tilbyr $x=160$. Effektivitetstapet er:",
@@ -870,7 +870,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Grunnlinjen i dødvekttrekanten måles som:",
-      options: ["Avstanden mellom E-kurven og T-kurven ved den feilaktige mengden", "Avstanden fra prislinja til mengdeaksen", "Hele likevektsprisen ganget med mengdeavviket, siden prisen bestemmer verdien som går tapt", "Avstanden mellom E-kurven og prislinja"],
+      options: ["Avstanden mellom etterspørselskurven og tilbudskurven ved den feilaktige mengden", "Avstanden fra prislinja til mengdeaksen", "Hele likevektsprisen ganget med mengdeavviket, siden prisen bestemmer verdien som går tapt", "Avstanden mellom etterspørselskurven og prislinja"],
       explanation: "Dødvekttap = $\\tfrac12\\cdot(\\text{gap E–T})\\cdot(\\text{mengdeavvik})$. Å regne mot prislinja i stedet for mellom kurvene er en vanlig feil.",
     },
     {
@@ -897,8 +897,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-3-1': [
     {
       question: "En stykkskatt på $t$ kroner per enhet legges på selgerne. Hvilken kurve skifter, og hvor mye?",
-      options: ["T-kurven opp med nøyaktig $t$", "E-kurven ned med nøyaktig $t$", "T-kurven ned med nøyaktig $t$", "E-kurven opp med nøyaktig $t$"],
-      explanation: "Skatt på selger øker enhetskostnaden med $t$ i hvert anlegg, så T-kurven flytter seg parallelt opp med akkurat $t$.",
+      options: ["Tilbudskurven opp med nøyaktig $t$", "Etterspørselskurven ned med nøyaktig $t$", "Tilbudskurven ned med nøyaktig $t$", "Etterspørselskurven opp med nøyaktig $t$"],
+      explanation: "Skatt på selger øker enhetskostnaden med $t$ i hvert anlegg, så tilbudskurven flytter seg parallelt opp med akkurat $t$.",
     },
     {
       question: "For $x = a - bp$ og $x = cp - d$: hva er kjøpernes andel av en stykkskatt?",
@@ -947,22 +947,22 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er mekanismen bak T-skiftet ved en stykkskatt (anleggsspråket)?",
-      options: ["Enhetskostnaden øker med $t$ i hvert anlegg", "Kjøpernes betalingsvillighet stiger", "Antall anlegg i drift faller med én gang, slik at hele T-kurven skyves innover mot venstre", "Etterspørselen synker"],
-      explanation: "Hvert anlegg må ha $t$ kroner mer for å være lønnsomt, så hele T-kurven flytter parallelt opp med $t$. Denne begrunnelsen er verdt et poeng.",
+      options: ["Enhetskostnaden øker med $t$ i hvert anlegg", "Kjøpernes betalingsvillighet stiger", "Antall anlegg i drift faller med én gang, slik at hele tilbudskurven skyves innover mot venstre", "Etterspørselen synker"],
+      explanation: "Hvert anlegg må ha $t$ kroner mer for å være lønnsomt, så hele tilbudskurven flytter parallelt opp med $t$. Denne begrunnelsen er verdt et poeng.",
     },
     {
-      question: "En helt horisontal (uendelig prisfølsom) T-kurve betyr at:",
+      question: "En helt horisontal (uendelig prisfølsom) tilbudskurve betyr at:",
       options: ["Kjøperne bærer hele avgiften", "Selgerne bærer hele avgiften", "Byrden deles 50/50", "Ingen bærer avgiften"],
       explanation: "Med $c \\to \\infty$ går kjøpers andel $\\frac{c}{b+c} \\to 1$: en fullstendig prisfølsom tilbudsside skyver hele byrden over på kjøperne.",
     },
     {
       question: "En vanlig feil (#2) i stykkskatt-oppgaver er:",
-      options: ["Å flytte E-kurven i stedet for T-kurven ved skatt på selger", "Å regne dødvektstap som en trekant", "Å tolke delingsbrøken $\\frac{c}{b+c}$ verbalt i stedet for å regne den ut med tall", "Å kontrollregne resultatet i både E-funksjonen og T-funksjonen for å sjekke svaret"],
-      explanation: "Skatt på selger berører selgers kostnad = T-kurven. Å skifte E i stedet, eller skifte feil vei, er feilkatalog #2.",
+      options: ["Å flytte etterspørselskurven i stedet for tilbudskurven ved skatt på selger", "Å regne dødvektstap som en trekant", "Å tolke delingsbrøken $\\frac{c}{b+c}$ verbalt i stedet for å regne den ut med tall", "Å kontrollregne resultatet i både E-funksjonen og T-funksjonen for å sjekke svaret"],
+      explanation: "Skatt på selger berører selgers kostnad = tilbudskurven. Å skifte E i stedet, eller skifte feil vei, er feilkatalog #2.",
     },
     {
       question: "I markedet $x = 500 - p$, $x = p - 100$ ($b = c = 1$) deles en avgift:",
-      options: ["50/50 mellom kjøper og selger", "Kjøper bærer alt", "Kjøper bærer hele avgiften alene, fordi E-kurven er brattere enn T-kurven i dette markedet", "Selger bærer alt"],
+      options: ["50/50 mellom kjøper og selger", "Kjøper bærer alt", "Kjøper bærer hele avgiften alene, fordi etterspørselskurven er brattere enn tilbudskurven i dette markedet", "Selger bærer alt"],
       explanation: "Like koeffisienter ($b = c$) gir $\\frac{c}{b+c} = \\frac{1}{2}$ på hver side — nøyaktig lik deling.",
     },
     {
@@ -997,8 +997,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Dersom du legger skatten på kjøper i stedet for selger, skifter:",
-      options: ["E-kurven ned med $t$", "T-kurven opp med $t$", "E-kurven opp med $t$", "Ingen kurve"],
-      explanation: "Kjøper er villig til å betale $t$ mindre til selger (siden de også må ut med $t$ til staten), så E-kurven flytter ned med $t$ — samme sluttresultat.",
+      options: ["Etterspørselskurven ned med $t$", "Tilbudskurven opp med $t$", "Etterspørselskurven opp med $t$", "Ingen kurve"],
+      explanation: "Kjøper er villig til å betale $t$ mindre til selger (siden de også må ut med $t$ til staten), så etterspørselskurven flytter ned med $t$ — samme sluttresultat.",
     },
     {
       question: "Hva bør du kontrollere for å fange regnefeil i firetrinnsmetoden?",
@@ -1023,9 +1023,9 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   ],
   'econ1210-3-2': [
     {
-      question: "En stykksubsidie $s$ til selgerne får T-kurven til å:",
+      question: "En stykksubsidie $s$ til selgerne får tilbudskurven til å:",
       options: ["Skifte ned med nøyaktig $s$", "Skifte opp med nøyaktig $s$", "Bli brattere", "Stå stille"],
-      explanation: "Subsidien senker enhetskostnaden med $s$ i hvert anlegg, så T-kurven flytter parallelt ned med akkurat $s$.",
+      explanation: "Subsidien senker enhetskostnaden med $s$ i hvert anlegg, så tilbudskurven flytter parallelt ned med akkurat $s$.",
     },
     {
       question: "Hvorfor faller samfunnsøkonomisk overskudd av en subsidie i et velfungerende marked?",
@@ -1055,7 +1055,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "For merenhetene mellom $x_0$ og $x_1$ ved en subsidie gjelder at:",
       options: ["Betalingsvilligheten er lavere enn produksjonskostnaden", "Betalingsvilligheten er høyere enn kostnaden", "Betalingsvilligheten er høyere enn produksjonskostnaden, så enhetene skaper verdi", "Betalingsvillighet er nøyaktig lik kostnaden, slik at merenhetene er verdinøytrale"],
-      explanation: "Overproduksjonen betyr at E-kurvens høyde er under T-kurvens for merenhetene — de ødelegger verdi. Det er kjernen i paradokset.",
+      explanation: "Overproduksjonen betyr at etterspørselskurvens høyde er under tilbudskurvens for merenhetene — de ødelegger verdi. Det er kjernen i paradokset.",
     },
     {
       question: "I markedet $x = 900 - 3p$, $x = p - 100$ med $s = 40$: hvor stor del får kjøperne?",
@@ -1114,7 +1114,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Sensor kaller subsidie-paradokset «krevende å forstå» fordi:",
-      options: ["Det virker selvmotsigende at SO faller når begge parter tjener", "Figuren er umulig å tegne", "Figuren med skiftet i T-kurven og trekanten er nesten umulig å tegne korrekt for hånd", "Selve regningen med firetrinnsmetoden er teknisk vanskelig og krever mange algebrasteg"],
+      options: ["Det virker selvmotsigende at SO faller når begge parter tjener", "Figuren er umulig å tegne", "Figuren med skiftet i tilbudskurven og trekanten er nesten umulig å tegne korrekt for hånd", "Selve regningen med firetrinnsmetoden er teknisk vanskelig og krever mange algebrasteg"],
       explanation: "Intuisjonen «alle vinner» kolliderer med at SO faller — nøkkelen er å se statens utlegg og overproduksjonen.",
     },
     {
@@ -1123,9 +1123,9 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "$\\Delta\\text{SO} = \\Delta\\text{KO} + \\Delta\\text{PO} - s\\cdot x_1$; utlegget (siste ledd) er størst og trekker SO ned.",
     },
     {
-      question: "Ved subsidie skifter T-kurven ned. Hva er mekanismen?",
+      question: "Ved subsidie skifter tilbudskurven ned. Hva er mekanismen?",
       options: ["Enhetskostnaden faller med $s$ i hvert anlegg", "Prisen settes av staten", "Etterspørselen øker fordi kjøperne får mer å rutte med når subsidien betales ut", "Antall anlegg faller"],
-      explanation: "Hvert anlegg trenger $s$ kroner mindre i pris for å være lønnsomt, så hele T-kurven flytter ned med $s$.",
+      explanation: "Hvert anlegg trenger $s$ kroner mindre i pris for å være lønnsomt, så hele tilbudskurven flytter ned med $s$.",
     },
     {
       question: "Kjøperne får en liten del av subsidien når:",
@@ -1195,8 +1195,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Ved $p = 300$ er tilbud $= 2\\cdot300-200 = 400$, kortsiden. Etterspørsel er 800, men bare 400 finnes.",
     },
     {
-      question: "Å lese omsatt mengde av E-kurven ved en makspris er:",
-      options: ["Feilkatalog #7 (glemt kortside-regelen)", "Bare feil ved minstepris", "Riktig — E-kurven gir den omsatte mengden også når maksprisen er bindende", "En pluss-markør"],
+      question: "Å lese omsatt mengde av etterspørselskurven ved en makspris er:",
+      options: ["Feilkatalog #7 (glemt kortside-regelen)", "Bare feil ved minstepris", "Riktig — etterspørselskurven gir den omsatte mengden også når maksprisen er bindende", "En pluss-markør"],
       explanation: "Ved makspris er tilbudet kortsiden. Å lese den høyere etterspurte mengden overser at ingen kan tvinges til å selge.",
     },
     {
@@ -1257,7 +1257,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Rekkefølgen er: skift → ny likevekt → deling → velferd. Skiftet kommer først, med mekanismen.",
     },
     {
-      question: "Ved subsidie på selger flytter T-kurven:",
+      question: "Ved subsidie på selger flytter tilbudskurven:",
       options: ["Ned med nøyaktig $s$", "Opp med nøyaktig $s$", "Ingen retning", "Ned med $\\frac{c}{b+c}s$"],
       explanation: "Subsidie senker enhetskostnaden med $s$ i hvert anlegg → T ned med $s$. Skift er alltid hele beløpet, ikke andelen.",
     },
@@ -1328,8 +1328,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Skatt på kjøper flytter:",
-      options: ["E-kurven ned med $t$", "T-kurven opp med $t$", "E-kurven opp med $t$", "T-kurven ned med $t$"],
-      explanation: "Kjøper er villig til å betale $t$ mindre til selger, så E-kurven skifter ned — samme sluttresultat som skatt på selger.",
+      options: ["Etterspørselskurven ned med $t$", "Tilbudskurven opp med $t$", "Etterspørselskurven opp med $t$", "Tilbudskurven ned med $t$"],
+      explanation: "Kjøper er villig til å betale $t$ mindre til selger, så etterspørselskurven skifter ned — samme sluttresultat som skatt på selger.",
     },
     {
       question: "Statens utlegg ved en subsidie er:",
@@ -1422,7 +1422,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er samfunnsøkonomisk marginalkostnad (SMK)?",
-      options: ["Privat marginalkostnad (T-kurven) pluss marginal skadekostnad", "Privat marginalkostnad minus marginal skadekostnad", "Etterspørselskurvens høyde ved den mengden markedet faktisk omsetter i likevekt", "Privat marginalkostnad (T-kurven) minus den marginale skadekostnaden på tredjeparter"],
+      options: ["Privat marginalkostnad (tilbudskurven) pluss marginal skadekostnad", "Privat marginalkostnad minus marginal skadekostnad", "Etterspørselskurvens høyde ved den mengden markedet faktisk omsetter i likevekt", "Privat marginalkostnad (tilbudskurven) minus den marginale skadekostnaden på tredjeparter"],
       explanation: "SMK legger skaden på tredjeparter til den private kostnaden; ved konstant skade ligger den parallelt over T.",
     },
     {
@@ -1462,12 +1462,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I figuren ligger SMK-kurven (ved konstant skade)",
-      options: ["parallelt et fast beløp over T-kurven", "loddrett gjennom likevekten", "sammenfallende med E-kurven, ettersom skaden bæres av kjøperne i markedet", "parallelt under T-kurven"],
+      options: ["parallelt et fast beløp over tilbudskurven", "loddrett gjennom likevekten", "sammenfallende med etterspørselskurven, ettersom skaden bæres av kjøperne i markedet", "parallelt under tilbudskurven"],
       explanation: "Ved konstant marginal skade er SMK bare T løftet med skadebeløpet i hele lengden.",
     },
     {
       question: "Dødvektstapet av en uregulert negativ eksternalitet er",
-      options: ["trekanten mellom SMK og E fra riktig mengde til markedsmengden", "trekanten mellom T og prisaksen", "hele arealet under E-kurven fram til den mengden markedet faktisk omsetter", "statens samlede avgiftsinntekt regnet som satsen multiplisert med solgt mengde"],
+      options: ["trekanten mellom SMK og E fra riktig mengde til markedsmengden", "trekanten mellom T og prisaksen", "hele arealet under etterspørselskurven fram til den mengden markedet faktisk omsetter", "statens samlede avgiftsinntekt regnet som satsen multiplisert med solgt mengde"],
       explanation: "For enhetene mellom optimum og markedsmengde er SMK høyere enn E — trekanten mellom dem er tapt verdi.",
     },
     {
@@ -1487,8 +1487,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Den private marginalkostnaden i figuren tilsvarer",
-      options: ["T-kurven", "SMK-kurven", "E-kurven", "prisaksen"],
-      explanation: "T-kurven er produsentens egen (private) kostnad; SMK legger skaden på tredjeparter oppå den.",
+      options: ["Tilbudskurven", "SMK-kurven", "Etterspørselskurven", "prisaksen"],
+      explanation: "Tilbudskurven er produsentens egen (private) kostnad; SMK legger skaden på tredjeparter oppå den.",
     },
     {
       question: "Er samfunnsøkonomisk optimum ved en eksternalitet der utslippet er null?",
@@ -1829,8 +1829,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Pristakeren kan selge alt til markedsprisen uten å presse prisen — ingen priseffekt — så MI = p.",
     },
     {
-      question: "Hvor bratt er MI-kurven i forhold til en lineær E-kurve?",
-      options: ["Dobbelt så bratt, med samme skjæring på prisaksen", "Like bratt som E-kurven", "Halvparten så bratt", "Dobbelt så bratt, men skjærer prisaksen dobbelt så høyt"],
+      question: "Hvor bratt er MI-kurven i forhold til en lineær etterspørselskurve?",
+      options: ["Dobbelt så bratt, med samme skjæring på prisaksen", "Like bratt som etterspørselskurven", "Halvparten så bratt", "Dobbelt så bratt, men skjærer prisaksen dobbelt så høyt"],
       explanation: "For lineær E treffer MI-kurven prisaksen i samme punkt som E, men faller dobbelt så bratt.",
     },
     {
@@ -1840,13 +1840,13 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Etter at MI = MK gir monopolmengden, hvor leser du monopolprisen?",
-      options: ["På E-kurven ved monopolmengden $x_M$", "På MI-kurven ved $x_M$", "Der MI krysser MK, altså i selve tilpasningspunktet for monopolet", "På MK-linja ved $x_M$"],
-      explanation: "Prisen leses av E-kurven ved $x_M$ (feil #5 er å lese den av MI-kurven, som gir en for lav pris).",
+      options: ["På etterspørselskurven ved monopolmengden $x_M$", "På MI-kurven ved $x_M$", "Der MI krysser MK, altså i selve tilpasningspunktet for monopolet", "På MK-linja ved $x_M$"],
+      explanation: "Prisen leses av etterspørselskurven ved $x_M$ (feil #5 er å lese den av MI-kurven, som gir en for lav pris).",
     },
     {
       question: "En student leser monopolprisen der MI krysser MK. Hva blir feil?",
       options: ["Prisen blir for lav — det tallet er marginalkostnaden, ikke markedsprisen", "Ingenting, det er riktig metode", "Mengden blir feil — krysningen mellom MI og MK gir en for stor produksjon", "Ingenting, det er riktig metode — der MI = MK leser du både mengde og pris"],
-      explanation: "Feil #5: der MI = MK finner du bare mengden. Prisen (E-kurvens høyde ved $x_M$) ligger over MK.",
+      explanation: "Feil #5: der MI = MK finner du bare mengden. Prisen (etterspørselskurvens høyde ved $x_M$) ligger over MK.",
     },
     {
       question: "Et monopol har $x = 120 - 2p$ og $\\text{MK} = 20$. Hva er monopolmengden?",
@@ -1856,7 +1856,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Et monopol har $x = 120 - 2p$ og $\\text{MK} = 20$, så $x_M = 40$. Hva er monopolprisen?",
       options: ["$p_M = 40$", "$p_M = 20$", "$p_M = 60$", "$p_M = 30$"],
-      explanation: "Pris fra E-kurven ved $x_M = 40$: $p_M = 60 - \\frac{1}{2}\\cdot 40 = 40$. (Ikke 20 — det er MK.)",
+      explanation: "Pris fra etterspørselskurven ved $x_M = 40$: $p_M = 60 - \\frac{1}{2}\\cdot 40 = 40$. (Ikke 20 — det er MK.)",
     },
     {
       question: "Hva er kvantumseffekten i MI-dekomponeringen?",
@@ -1889,8 +1889,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "$p = 90 - x$, MI $= 90 - 2x$. MI = MK: $x_M = 40$. Pris fra E: $p_M = 90 - 40 = 50$.",
     },
     {
-      question: "Hvor krysser MI-kurven mengdeaksen for E-kurven $x = a - bp$?",
-      options: ["På halvveien i forhold til E-kurven (ved $x = a/2$)", "På samme sted som E-kurven (ved $x = a$)", "På samme sted som E-kurven (ved $x = a$), fordi MI og E har lik helning", "Dobbelt så langt ute som E-kurven"],
+      question: "Hvor krysser MI-kurven mengdeaksen for etterspørselskurven $x = a - bp$?",
+      options: ["På halvveien i forhold til etterspørselskurven (ved $x = a/2$)", "På samme sted som etterspørselskurven (ved $x = a$)", "På samme sted som etterspørselskurven (ved $x = a$), fordi MI og E har lik helning", "Dobbelt så langt ute som etterspørselskurven"],
       explanation: "MI har samme skjæring med prisaksen, men dobbelt helning, så den treffer mengdeaksen ved $x = a/2$ (E ved $x = a$).",
     },
     {
@@ -1905,19 +1905,19 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan ikke monopolet både selge mer OG holde prisen oppe på alle enhetene?",
-      options: ["Fordi det står overfor én fallende E-kurve for hele markedet (ingen prisdiskriminering)", "Fordi staten forbyr det gjennom prisregulering som binder monopolet til én fast pris", "Fordi konkurrentene i markedet umiddelbart senker prisen og kaprer kundene tilbake igjen", "Fordi marginalkostnaden stiger så bratt at hver ekstra enhet blir ulønnsom å lage"],
-      explanation: "Uten prisdiskriminering må monopolet ta én pris av alle, gitt av E-kurven — derfor priseffekten.",
+      options: ["Fordi det står overfor én fallende etterspørselskurve for hele markedet (ingen prisdiskriminering)", "Fordi staten forbyr det gjennom prisregulering som binder monopolet til én fast pris", "Fordi konkurrentene i markedet umiddelbart senker prisen og kaprer kundene tilbake igjen", "Fordi marginalkostnaden stiger så bratt at hver ekstra enhet blir ulønnsom å lage"],
+      explanation: "Uten prisdiskriminering må monopolet ta én pris av alle, gitt av etterspørselskurven — derfor priseffekten.",
     },
     {
       question: "Hva er et monopol?",
       options: ["Den eneste tilbyderen av et gode uten nære substitutter", "En bedrift som tar markedsprisen som gitt", "En av mange små pristakere som selger et identisk gode i et fritt marked", "En bedrift med marginalinntekt lik prisen"],
-      explanation: "Monopolet er eneselger og står overfor hele markedets E-kurve, så det velger selv mengde og pris.",
+      explanation: "Monopolet er eneselger og står overfor hele markedets etterspørselskurve, så det velger selv mengde og pris.",
     },
   ],
   'econ1210-5-2': [
     {
       question: "Mellom hvilke kurver ligger dødvektstrekanten ved monopol?",
-      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom prislinja og MK, fra 0 til $x_M$", "Mellom E-kurven og MI-kurven, målt fra origo og helt fram til monopolmengden $x_M$", "Mellom MI-kurven og MK-linja, fra monopolmengden $x_M$ og opp til optimum $x_{\\text{opt}}$"],
+      options: ["Mellom etterspørselskurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom prislinja og MK, fra 0 til $x_M$", "Mellom etterspørselskurven og MI-kurven, målt fra origo og helt fram til monopolmengden $x_M$", "Mellom MI-kurven og MK-linja, fra monopolmengden $x_M$ og opp til optimum $x_{\\text{opt}}$"],
       explanation: "Tapet er verdi som forsvinner fordi mengden er lavere enn ved $p = \\text{MK}$: trekanten mellom E og MK fra $x_M$ til $x_{\\text{opt}}$. Aldri mot MI.",
     },
     {
@@ -1946,7 +1946,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Jo større gap mellom pris og MK, desto mer makt. En pristaker har $p = \\text{MK}$, altså null gap.",
     },
     {
-      question: "Hvordan påvirker en mer elastisk (flatere) E-kurve monopolmakten?",
+      question: "Hvordan påvirker en mer elastisk (flatere) etterspørselskurve monopolmakten?",
       options: ["Den svekker makten — kundene flykter lettere, så gapet mellom pris og MK må krympe", "Den styrker makten — monopolet kan ta høyere pris", "Den styrker makten — monopolet kan ta en enda høyere pris når kundene er prisfølsomme", "Den påvirker ikke makten i det hele tatt, siden gapet mellom pris og MK er fast uansett"],
       explanation: "Mer elastisk E betyr at priseffekten svir mer; monopolet må senke gapet mellom pris og MK.",
     },
@@ -1962,7 +1962,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Setter et monopol prisen «så høyt som mulig»?",
-      options: ["Nei — det maksimerer overskuddet, ikke prisen", "Ja, alltid maksimalt høy pris", "Ja, helt opp til betalingsvilligheten til den siste kunden", "Ja, prisen settes lik E-kurvens toppunkt"],
+      options: ["Nei — det maksimerer overskuddet, ikke prisen", "Ja, alltid maksimalt høy pris", "Ja, helt opp til betalingsvilligheten til den siste kunden", "Ja, prisen settes lik etterspørselskurvens toppunkt"],
       explanation: "En enda høyere pris ville solgt for lite til å lønne seg. Monopolet stopper der MI = MK.",
     },
     {
@@ -1976,7 +1976,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "$\\text{SO}_{\\text{mono}} = \\text{SO}_{\\text{opt}} - \\text{dødvektstap}$. KO faller, PO stiger, men summen faller.",
     },
     {
-      question: "Hvorfor er en bratt (lite elastisk) E-kurve gunstig for et monopol?",
+      question: "Hvorfor er en bratt (lite elastisk) etterspørselskurve gunstig for et monopol?",
       options: ["Kundene flykter ikke ved høy pris, så et stort pris–MK-gap kan holdes", "Marginalkostnaden blir lavere", "Total inntekt blir null i toppunktet, så monopolet kan sette prisen fritt uten priseffekt", "Marginalkostnaden blir lavere når etterspørselen er bratt, så overskuddet per enhet vokser"],
       explanation: "Med lite elastisk etterspørsel er priseffekten svak; monopolet kan holde en høy pris uten å miste mange kunder.",
     },
@@ -2077,12 +2077,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor har en bedrift i monopolistisk konkurranse litt markedsmakt?",
       options: ["Produktet er differensiert, så den mister ikke alle kundene ved litt høyere pris", "Den er eneste selger i markedet", "Staten gir den enerett gjennom patent eller lisens, slik at ingen andre lovlig kan tilby samme vare", "Den er eneste selger i markedet og møter derfor hele den samlede, fallende etterspørselskurven alene"],
-      explanation: "Fordi produktene er litt ulike, beholder bedriften kundene som foretrekker akkurat dens variant — egen fallende E-kurve.",
+      explanation: "Fordi produktene er litt ulike, beholder bedriften kundene som foretrekker akkurat dens variant — egen fallende etterspørselskurve.",
     },
     {
       question: "Hva presser profitten til null i monopolistisk konkurranse på lang sikt?",
       options: ["Fri etablering — nye bedrifter kommer inn til profitten er borte", "At produktene blir identiske", "At marginalkostnaden stiger jevnt med produksjonen til den til slutt møter og overstiger salgsprisen helt", "At marginalkostnaden stiger"],
-      explanation: "Profitt trekker inn nye bedrifter; E-kurven skifter inn og blir slakere til $p = \\text{GK}$ og profitten er null.",
+      explanation: "Profitt trekker inn nye bedrifter; etterspørselskurven skifter inn og blir slakere til $p = \\text{GK}$ og profitten er null.",
     },
     {
       question: "I nullprofitt-likevekten i monopolistisk konkurranse gjelder:",
@@ -2140,7 +2140,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Kjøperne taper (KO ned) mens kartellmedlemmene vinner på den høye prisen; nettotapet er dødvektstrekanten.",
     },
     {
-      question: "Hva skjer med en bedrifts E-kurve når nye konkurrenter etablerer seg i monopolistisk konkurranse?",
+      question: "Hva skjer med en bedrifts etterspørselskurve når nye konkurrenter etablerer seg i monopolistisk konkurranse?",
       options: ["Den skifter inn og blir slakere (mer elastisk)", "Den skifter ut og blir brattere", "Den skifter ut og blir brattere, fordi bedriften nå selger til flere lojale kunder med lav priselastisitet", "Den forsvinner helt"],
       explanation: "Nye bedrifter tar kunder (E skifter inn) og gir kundene flere alternativer (E blir slakere) til profitten er null.",
     },
@@ -2164,11 +2164,11 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "En student regner $x_M$ riktig men leser prisen der MI = MK. Hva blir feil?",
       options: ["Prisen blir for lav — tallet der MI = MK er marginalkostnaden, ikke prisen", "Ingenting, det er riktig", "Mengden blir for høy, fordi $x_M$ da leses av der marginalinntekten krysser etterspørselskurven i stedet", "Ingenting blir feil — punktet der MI = MK gir nettopp monopolprisen som skal leses av i denne oppgavetypen"],
-      explanation: "Feil #5: prisen leses av E-kurven ved $x_M$, ikke der MI = MK (det gir MK).",
+      explanation: "Feil #5: prisen leses av etterspørselskurven ved $x_M$, ikke der MI = MK (det gir MK).",
     },
     {
       question: "Mellom hvilke kurver går dødvektstrekanten i monopoldrillen?",
-      options: ["Mellom E-kurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom E-kurven og MI-kurven", "Mellom prislinja $p_M$ og MK-linja, fordi det er marginen mellom pris og kostnad som teller som samfunnets tap", "Mellom prislinja og MK"],
+      options: ["Mellom etterspørselskurven og MK-linja, fra $x_M$ til $x_{\\text{opt}}$", "Mellom etterspørselskurven og MI-kurven", "Mellom prislinja $p_M$ og MK-linja, fordi det er marginen mellom pris og kostnad som teller som samfunnets tap", "Mellom prislinja og MK"],
       explanation: "Tapet er verdi som forsvinner fordi mengden er under $x_{\\text{opt}}$ — trekanten går mot E og MK, aldri mot MI.",
     },
     {
@@ -2198,7 +2198,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva begrenser en monopolists markedsmakt?",
-      options: ["En mer elastisk E-kurve — flere konkurrenter, substitutter, ny kabel, utløpt patent", "Høyere marginalkostnad", "En brattere E-kurve, fordi kundene da reagerer svakere på pris og bedriften kan holde prisen høyt over MK", "Færre konkurrenter i markedet, ettersom mindre konkurransepress gir monopolisten mer rom mellom pris og MK"],
+      options: ["En mer elastisk etterspørselskurve — flere konkurrenter, substitutter, ny kabel, utløpt patent", "Høyere marginalkostnad", "En brattere etterspørselskurve, fordi kundene da reagerer svakere på pris og bedriften kan holde prisen høyt over MK", "Færre konkurrenter i markedet, ettersom mindre konkurransepress gir monopolisten mer rom mellom pris og MK"],
       explanation: "Mer elastisk E → priseffekten svir mer → mindre gap mellom pris og MK → mindre makt.",
     },
     {
@@ -2213,7 +2213,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må et figursvar i monopoldrillen navngi?",
-      options: ["Akser, E, MI (dobbelt så bratt), MK, $x_M$, $p_M$ (avlest på E) og dødvekttrekanten", "Bare E-kurven og prisen", "Bare monopolpunktet $x_M$, fordi resten av kurvene følger implisitt og ikke trenger egne navn i besvarelsen", "Bare E-kurven og prisen, siden det er skjæringspunktet mellom disse to som fullt ut bestemmer monopoltilpasningen"],
+      options: ["Akser, E, MI (dobbelt så bratt), MK, $x_M$, $p_M$ (avlest på E) og dødvekttrekanten", "Bare etterspørselskurven og prisen", "Bare monopolpunktet $x_M$, fordi resten av kurvene følger implisitt og ikke trenger egne navn i besvarelsen", "Bare etterspørselskurven og prisen, siden det er skjæringspunktet mellom disse to som fullt ut bestemmer monopoltilpasningen"],
       explanation: "Uten navngitte akser, kurver, punkter og trekant er svaret halvt (feil #12).",
     },
     {
@@ -2230,8 +2230,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvem etterspør og hvem tilbyr arbeidskraft i arbeidsmarkedet?",
-      options: ["Bedriftene etterspør (E-kurven), arbeidstakerne tilbyr (T-kurven)", "Arbeidstakerne etterspør, bedriftene tilbyr", "Arbeidstakerne etterspør arbeid (fallende E-kurve), bedriftene tilbyr (stigende T-kurve)", "Staten etterspør, bedriftene tilbyr"],
-      explanation: "Bedriftene er kjøperne av arbeid (fallende E-kurve); arbeidstakerne er selgerne (stigende T-kurve, arbeidstilbudet).",
+      options: ["Bedriftene etterspør (etterspørselskurven), arbeidstakerne tilbyr (tilbudskurven)", "Arbeidstakerne etterspør, bedriftene tilbyr", "Arbeidstakerne etterspør arbeid (fallende etterspørselskurve), bedriftene tilbyr (stigende tilbudskurve)", "Staten etterspør, bedriftene tilbyr"],
+      explanation: "Bedriftene er kjøperne av arbeid (fallende etterspørselskurve); arbeidstakerne er selgerne (stigende tilbudskurve, arbeidstilbudet).",
     },
     {
       question: "Hva tilsvarer et anleggs enhetskostnad i arbeidsmarkedet?",
@@ -2239,12 +2239,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Hver arbeidstakers reservasjonslønn (laveste lønn de vil jobbe for) spiller samme rolle som et anleggs enhetskostnad: høyere markedslønn gjør flere villige.",
     },
     {
-      question: "En lønnssubsidie til arbeidstakerne flytter arbeidstilbudet (T-kurven) hvordan?",
+      question: "En lønnssubsidie til arbeidstakerne flytter arbeidstilbudet (tilbudskurven) hvordan?",
       options: ["Ned med nøyaktig $s$", "Opp med nøyaktig $s$", "Ingen retning", "Ned med $\\frac{c}{b+c}s$"],
       explanation: "Subsidien senker reservasjonslønna, så arbeidstilbudet skifter parallelt ned med hele $s$.",
     },
     {
-      question: "En arbeidsgiveravgift $t$ på bedriftene flytter arbeidsetterspørselen (E-kurven) hvordan?",
+      question: "En arbeidsgiveravgift $t$ på bedriftene flytter arbeidsetterspørselen (etterspørselskurven) hvordan?",
       options: ["Ned med nøyaktig $t$", "Opp med nøyaktig $t$", "Ned med $\\frac{b}{b+c}t$", "Ingen retning"],
       explanation: "Bedriftene er villige til å betale $t$ mindre i lønn, så arbeidsetterspørselen skifter parallelt ned med $t$.",
     },
@@ -2289,7 +2289,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
       explanation: "Minstelønn er en minstepris i arbeidsmarkedet: gir tilbudsoverskudd (arbeidsledighet), og omsatt mengde bestemmes av etterspørselen etter kortside-regelen.",
     },
     {
-      question: "Hvorfor er arbeidsetterspørselen (E-kurven) fallende i lønna?",
+      question: "Hvorfor er arbeidsetterspørselen (etterspørselskurven) fallende i lønna?",
       options: ["Verdien av det en ekstra arbeidstime produserer avtar på marginen", "Fordi arbeidstakerne blir late", "Fordi staten stadig griper inn og regulerer lønnsdannelsen nedover", "Fordi arbeidstakerne blir mindre produktive og late ved høyere lønn"],
       explanation: "Jo høyere lønn, jo færre timer lønner det seg for bedriftene å kjøpe, siden marginalverdien av arbeidskraften avtar.",
     },
@@ -2365,7 +2365,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Etter åpning for import, hva skjer med innenlandsk produksjon og forbruk?",
       options: ["Produksjon faller, forbruk øker", "Produksjon øker, forbruk faller", "Begge øker", "Begge faller"],
-      explanation: "Lavere pris gjør at innenlandsk produksjon faller (T-kurven) og forbruket øker (E-kurven); differansen importeres.",
+      explanation: "Lavere pris gjør at innenlandsk produksjon faller (tilbudskurven) og forbruket øker (etterspørselskurven); differansen importeres.",
     },
     {
       question: "Ved åpning for import skjer det med samfunnsøkonomisk overskudd (SO):",
@@ -2399,7 +2399,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En vanlig feil i handelsoppgaven er å:",
-      options: ["Konkludere med samlet tap fordi produsentene taper ved import", "Sette innenlandsk pris lik verdensprisen", "Bruke gevinsttrekanten til å måle den samlede handelsgevinsten", "Lese den innenlandske produksjonen av T-kurven ved verdensprisen"],
+      options: ["Konkludere med samlet tap fordi produsentene taper ved import", "Sette innenlandsk pris lik verdensprisen", "Bruke gevinsttrekanten til å måle den samlede handelsgevinsten", "Lese den innenlandske produksjonen av tilbudskurven ved verdensprisen"],
       explanation: "Produsenttapet oppveies av kjøpernes større gevinst (gevinsttrekanten); landet vinner samlet ved import.",
     },
   ],
@@ -2598,12 +2598,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Høyden på markedets etterspørselskurve ved en gitt mengde er:",
       options: ["marginal betalingsvillighet for den siste enheten", "marginalkostnaden ved siste enhet", "gjennomsnittsprisen i markedet regnet over alle solgte enheter", "den samlede betalingsvilligheten"],
-      explanation: "E-kurvens høyde = marginal betalingsvillighet — pluss-markøren for E-kurve-begrepet.",
+      explanation: "Etterspørselskurvens høyde = marginal betalingsvillighet — pluss-markøren for etterspørselskurve-begrepet.",
     },
     {
       question: "Høyden på markedets tilbudskurve ved en gitt mengde er:",
       options: ["marginalkostnaden — enhetskostnaden i det dyreste anlegget i drift", "marginal betalingsvillighet for den siste enheten som blir omsatt", "den gjennomsnittlige enhetskostnaden over alle anlegg som er i drift", "selgernes samlede fortjeneste fra all produksjon i det aktuelle markedet"],
-      explanation: "I anleggsmodellen er T-kurvens høyde marginalkostnaden = enhetskostnaden i det dyreste anlegget som er i drift.",
+      explanation: "I anleggsmodellen er tilbudskurvens høyde marginalkostnaden = enhetskostnaden i det dyreste anlegget som er i drift.",
     },
     {
       question: "Et fullt svar på «hva er et kollektivt gode» nevner at godet er:",
@@ -2627,8 +2627,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Ved monopolets tilpasning finner man mengden der MI = MK og leser prisen av:",
-      options: ["på E-kurven ved monopolmengden", "på MI-kurven ved monopolmengden", "på MK-kurven", "midt mellom E og MI"],
-      explanation: "Prisen leses alltid av E-kurven, aldri MI-kurven (feilkatalog #5). MI brukes bare til å finne mengden.",
+      options: ["på etterspørselskurven ved monopolmengden", "på MI-kurven ved monopolmengden", "på MK-kurven", "midt mellom E og MI"],
+      explanation: "Prisen leses alltid av etterspørselskurven, aldri MI-kurven (feilkatalog #5). MI brukes bare til å finne mengden.",
     },
     {
       question: "SO = KO + PO gjelder:",
@@ -2642,8 +2642,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Konsumentoverskudd (KO) er arealet:",
-      options: ["mellom E-kurven og prisen", "mellom prisen og T-kurven", "under hele E-kurven", "mellom E- og T-kurven"],
-      explanation: "KO = betalingsvillighet minus det kjøperne faktisk betaler = arealet mellom E-kurven og prisen. (Arealet mellom pris og T er PO.)",
+      options: ["mellom etterspørselskurven og prisen", "mellom prisen og tilbudskurven", "under hele etterspørselskurven", "mellom etterspørsels- og tilbudskurven"],
+      explanation: "KO = betalingsvillighet minus det kjøperne faktisk betaler = arealet mellom etterspørselskurven og prisen. (Arealet mellom pris og T er PO.)",
     },
     {
       question: "En fellesressurs skiller seg fra et kollektivt gode ved at den er:",
@@ -2664,12 +2664,12 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
   'econ1210-8-2': [
     {
       question: "Et nyhetsbilde om at sabotasje har slått ut produksjonsanlegg oversettes til:",
-      options: ["T-kurven inn + lekkasje-poenget", "T-kurven opp (parallellskift)", "E-kurven ut, fordi kjøperne reagerer på nyheten ved å etterspørre mer av godet enn før", "en stykksubsidie"],
+      options: ["Tilbudskurven inn + lekkasje-poenget", "Tilbudskurven opp (parallellskift)", "Etterspørselskurven ut, fordi kjøperne reagerer på nyheten ved å etterspørre mer av godet enn før", "en stykksubsidie"],
       explanation: "Anlegg ut av drift = T inn (sjanger D). Omsetningen faller mindre enn bortfallet fordi høyere pris gjør flere anlegg lønnsomme (lekkasjen).",
     },
     {
       question: "«Dyrere lønn, energi eller strengere sikkerhetskrav for alle produsenter» oversettes til:",
-      options: ["T-kurven opp (enhetskostnaden øker i hvert anlegg)", "T-kurven inn (anlegg forsvinner)", "E-kurven ned, siden de høyere kostnadene gjør at kjøperne etterspør mindre av godet enn før", "E-kurven ned"],
+      options: ["Tilbudskurven opp (enhetskostnaden øker i hvert anlegg)", "Tilbudskurven inn (anlegg forsvinner)", "Etterspørselskurven ned, siden de høyere kostnadene gjør at kjøperne etterspør mindre av godet enn før", "Etterspørselskurven ned"],
       explanation: "En kostnadsøkning på alle anlegg gir et parallelt T-skift opp — ikke inn, som er kapasitetsbortfall.",
     },
     {
@@ -2689,8 +2689,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "«Ett enerådende selskap uten konkurrenter» oversettes til:",
-      options: ["monopolpakken: mengde fra MI = MK, pris fra E-kurven", "frikonkurranse med mange pristakere", "en fellesressurs som er rivaliserende men ikke-ekskluderbar, og som derfor står i fare for overforbruk", "en fellesressurs"],
-      explanation: "Enerett = monopol (sjanger I). Prisen leses av E-kurven ved monopolmengden, aldri av MI-kurven.",
+      options: ["monopolpakken: mengde fra MI = MK, pris fra etterspørselskurven", "frikonkurranse med mange pristakere", "en fellesressurs som er rivaliserende men ikke-ekskluderbar, og som derfor står i fare for overforbruk", "en fellesressurs"],
+      explanation: "Enerett = monopol (sjanger I). Prisen leses av etterspørselskurven ved monopolmengden, aldri av MI-kurven.",
     },
     {
       question: "Den vanligste feilen når casen er uvant, er å:",
@@ -2731,8 +2731,8 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I øvingssettets monopol er E: $x = 240 - 2p$ (invers $p = 120 - \\tfrac{1}{2}x$, så $\\text{MI} = 120 - x$) og $\\text{MK} = 40$. Hvilken mengde og pris velger monopolet?",
-      options: ["$x_M = 80$ (fra MI = MK), $p_M = 80$ lest av E-kurven", "$x_M = 160$, $p_M = 40$ (der E krysser MK)", "$x_M = 120$, $p_M = 60$, funnet ved å sette etterspørselen lik marginalkostnaden midt mellom de to", "$x_M = 80$, $p_M = 40$ lest av MI-kurven"],
-      explanation: "MI = MK gir $120 - x = 40 \\Rightarrow x_M = 80$. Prisen leses av E-kurven (ikke MI-kurven — feilkatalog #5): $p_M = 120 - \\tfrac{1}{2}\\cdot 80 = 80$. Å lese prisen av MI gir feilaktig 40.",
+      options: ["$x_M = 80$ (fra MI = MK), $p_M = 80$ lest av etterspørselskurven", "$x_M = 160$, $p_M = 40$ (der E krysser MK)", "$x_M = 120$, $p_M = 60$, funnet ved å sette etterspørselen lik marginalkostnaden midt mellom de to", "$x_M = 80$, $p_M = 40$ lest av MI-kurven"],
+      explanation: "MI = MK gir $120 - x = 40 \\Rightarrow x_M = 80$. Prisen leses av etterspørselskurven (ikke MI-kurven — feilkatalog #5): $p_M = 120 - \\tfrac{1}{2}\\cdot 80 = 80$. Å lese prisen av MI gir feilaktig 40.",
     },
     {
       question: "For samme monopol er samfunnsøkonomisk optimal mengde $x_{\\text{opt}} = 160$ (der $p = \\text{MK} = 40$), monopolmengden 80 og $p_M = 80$. Hvor stort er dødvektstapet?",
@@ -2771,7 +2771,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Ved en bindende maksimalpris (under likevektsprisen) bestemmes omsatt mengde av …",
       options: ["tilbudet — kortside-regelen: omsatt mengde = min(tilbudt, etterspurt), og ingen kan tvinges til å selge", "etterspørselen, siden det er et etterspørselsoverskudd", "maksprisen selv, som avleses rett på prisaksen og direkte forteller hvilken mengde som blir omsatt i markedet", "gjennomsnittet av tilbudt og etterspurt mengde, ettersom de to sidene møtes på halvveien når prisen er bundet"],
-      explanation: "Ved makspris under likevekt er tilbudt mengde mindre enn etterspurt. Siden ingen kan tvinges til å produsere med tap, er tilbudet den korte siden, og omsatt mengde = tilbudt mengde. Å lese mengden av E-kurven (etterspørselen) er nettopp feilkatalog #7 (glemt kortside-regelen).",
+      explanation: "Ved makspris under likevekt er tilbudt mengde mindre enn etterspurt. Siden ingen kan tvinges til å produsere med tap, er tilbudet den korte siden, og omsatt mengde = tilbudt mengde. Å lese mengden av etterspørselskurven (etterspørselen) er nettopp feilkatalog #7 (glemt kortside-regelen).",
     },
     {
       question: "Når en storm slår ut lønnsomme kraftverk, faller omsatt mengde MINDRE enn produksjonsbortfallet fordi …",
@@ -2781,7 +2781,7 @@ const quizData_econ1210: Record<string, QuizQuestion[]> = {
     {
       question: "Tilbudskurven er helt horisontal (uendelig prisfølsomt tilbud, c → ∞). Hvem bærer en avgift t lagt på produsentene?",
       options: ["Kjøperne bærer hele avgiften, fordi kjøpers andel c/(b+c) → 1 når c → ∞", "Selgerne bærer hele avgiften, siden den er lagt på dem", "Byrden deles alltid helt likt, slik at kjøpere og selgere hver bærer halvparten uansett hvor bratt kurvene er", "Byrden deles alltid likt (halvparten hver)"],
-      explanation: "Kjøpers andel av en avgift er c/(b+c). En horisontal T-kurve betyr c → ∞, så andelen går mot 1 — kjøperne bærer alt, og selgernes nettopris er uendret. At avgiften «legges på» produsentene, spiller ingen rolle (feilkatalog #3). Den minst prisfølsomme siden bærer mest; her er tilbudet det mest prisfølsomme, så det bærer ingenting.",
+      explanation: "Kjøpers andel av en avgift er c/(b+c). En horisontal tilbudskurve betyr c → ∞, så andelen går mot 1 — kjøperne bærer alt, og selgernes nettopris er uendret. At avgiften «legges på» produsentene, spiller ingen rolle (feilkatalog #3). Den minst prisfølsomme siden bærer mest; her er tilbudet det mest prisfølsomme, så det bærer ingenting.",
     },
     {
       question: "Hvorfor gir handel med omsettelige utslippskvoter det samlede kuttet til lavest mulig kostnad?",
