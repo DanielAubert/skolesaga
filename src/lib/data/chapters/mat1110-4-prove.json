@@ -1,0 +1,291 @@
+{
+  "id": "mat1110-4-prove",
+  "courseId": "mat1110",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Multiple integraler",
+  "description": "Fire prøver som dekker hele Del 4 — dobbeltintegral over kurveavgrenset område, polar og variabelskifte, trippelintegral i sylinder og kule, og uegentlige integraler med koordinatvalg. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 165,
+  "competenceGoals": [
+    "løse dobbelt- og trippelintegral over kurve-/flateavgrensede områder under tidspress",
+    "velge koordinatsystem etter symmetri, løse skjæringen og føre med riktig volumelement",
+    "avgjøre konvergens av uegentlige multiple integraler med voksende kompakter og eksplisitt lim"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "Fire prøver som dekker hele Del 4 (dobbeltintegral kurveavgrenset, polar/variabelskifte, trippel i sylinder/kule, og uegentlig). Til sammen **~35–45 min hver** — **kan trygt deles over flere kvelder, én prøve per økt**. Regn med penn og papir under tidspress. Løs alltid **skjæringen** først, skriv **området som ulikheter**, bruk **riktig volumelement** ($r$, $\\rho^2\\sin\\varphi$, Jacobi), **faktoriser** når du kan, før uegentlige med **lim** (aldri «sett inn $\\infty$»), og oppgi **eksakte** svar. Fasit med full utregning ligger som utvidbare løsninger under hver oppgave; en **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 4.A | Dobbeltintegral over kurveavgrenset område (4.1) | ~40 min |\n| 4.B | Polar og variabelskifte, ellipse (4.2) | ~35 min |\n| 4.C | Trippelintegral: sylinder og kule (4.3) | ~45 min |\n| 4.D | Uegentlig + koordinatvalg (4.4–4.5) | ~45 min |"
+    },
+    {
+      "id": "mat1110-4-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 4: [kap. 4.1](/bok/mat1110/mat1110-4-1) (dobbeltintegral, skjæring), [kap. 4.2](/bok/mat1110/mat1110-4-2) (polar, Jacobi), [kap. 4.3](/bok/mat1110/mat1110-4-3) (sylinder, kule), [kap. 4.4](/bok/mat1110/mat1110-4-4) (uegentlig) og drillen i [kap. 4.5](/bok/mat1110/mat1110-4-5). Løs først uten fasit; sjekk deretter føringen — det er der eksamenspoengene ligger."
+    },
+    {
+      "id": "mat1110-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Dobbeltintegral kurveavgrenset (4.A, ~40 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1110-4-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 4.A — Dobbeltintegral over kurveavgrenset område.** Tre oppgaver, ~40 min. Løs skjæringen først, og skriv området som eksplisitte ulikheter før oppsett."
+        },
+        {
+          "id": "mat1110-4-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\displaystyle\\iint_A (x + 2y)\\,dA$ over rektangelet $A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le 1\\}$.",
+            "solution": "$$\\int_0^2\\!\\int_0^1 (x + 2y)\\,dy\\,dx = \\int_0^2 \\big[xy + y^2\\big]_0^1 dx = \\int_0^2 (x + 1)\\,dx = \\Big[\\tfrac{x^2}{2} + x\\Big]_0^2 = 2 + 2 = 4.$$\n\n**Svar:** $4$.",
+            "hints": [
+              "Rektangel: integrer $y$ innerst fra $0$ til $1$.",
+              "$\\int_0^1(x+2y)\\,dy = x + 1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $A$ være området avgrenset av $y = x^2$ og $y = 2x$. Regn ut $\\iint_A x\\,dA$.",
+            "solution": "**Skjæring:** $x^2 = 2x \\Rightarrow x(x-2) = 0 \\Rightarrow x = 0,\\ 2$. Linjen $2x$ er øverst, så $A = \\{0\\le x\\le 2,\\ x^2\\le y\\le 2x\\}$.\n$$\\int_0^2\\!\\int_{x^2}^{2x} x\\,dy\\,dx = \\int_0^2 x(2x - x^2)\\,dx = \\int_0^2 (2x^2 - x^3)\\,dx = \\Big[\\tfrac{2x^3}{3} - \\tfrac{x^4}{4}\\Big]_0^2 = \\tfrac{16}{3} - 4 = \\tfrac43.$$\n\n**Svar:** $\\dfrac43$.",
+            "hints": [
+              "Skjæring $x^2 = 2x$ gir $x = 0$ og $x = 2$.",
+              "Indre: $\\int_{x^2}^{2x} x\\,dy = x(2x - x^2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Regn ut $\\displaystyle\\int_0^1\\!\\int_x^1 e^{y^2}\\,dy\\,dx$ ved å bytte integrasjonsrekkefølge.",
+            "solution": "$e^{y^2}$ har ingen elementær antiderivert i $y$ ⇒ snu. Området $\\{0\\le x\\le 1,\\ x\\le y\\le 1\\}$ = $\\{0\\le y\\le 1,\\ 0\\le x\\le y\\}$:\n$$\\int_0^1\\!\\int_0^y e^{y^2}\\,dx\\,dy = \\int_0^1 y\\,e^{y^2}\\,dy = \\tfrac12\\big[e^{y^2}\\big]_0^1 = \\tfrac12(e - 1).$$\n(Substitusjon $u = y^2$.) **Svar:** $\\dfrac{e-1}{2}$.",
+            "hints": [
+              "Snu til $\\{0\\le y\\le 1,\\ 0\\le x\\le y\\}$ så $e^{y^2}$ blir konstant i $x$.",
+              "$\\int_0^y e^{y^2}dx = y e^{y^2}$; bruk $u = y^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p1-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Regnet rektangel-integralet i oppgave 1 til $4$\n- ☐ Løste skjæringen $x^2 = 2x$ og skrev området som ulikheter i oppgave 2\n- ☐ Fikk $\\tfrac43$ i oppgave 2\n- ☐ Så at $e^{y^2}$ krevde bytte av rekkefølge i oppgave 3\n- ☐ Fikk $\\tfrac{e-1}{2}$ eksakt (ikke desimaltilnærming) i oppgave 3"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Polar og variabelskifte (4.B, ~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1110-4-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 4.B — Polar og variabelskifte.** Tre oppgaver, ~35 min. Gjenkjenn sirkelsymmetri, bytt til polar med faktoren $r$, eller sett opp et ellipseskifte med Jacobideterminant."
+        },
+        {
+          "id": "mat1110-4-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\displaystyle\\iint_A (x^2 + y^2)\\,dA$ over skiven $A: x^2 + y^2 \\le 4$.",
+            "solution": "Sirkelsymmetri ⇒ polar. Integrand $r^2$, $A = \\{0\\le r\\le 2,\\ 0\\le\\theta\\le 2\\pi\\}$, faktor $r$:\n$$\\int_0^{2\\pi}\\!\\int_0^2 r^2\\cdot r\\,dr\\,d\\theta = 2\\pi\\Big[\\tfrac{r^4}{4}\\Big]_0^2 = 2\\pi\\cdot 4 = 8\\pi.$$\n\n**Svar:** $8\\pi$.",
+            "hints": [
+              "$x^2+y^2 = r^2$; husk faktoren $r$ ⇒ $r^3$.",
+              "$\\int_0^2 r^3\\,dr = 4$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\displaystyle\\iint_A \\frac{1}{x^2+y^2}\\,dA$ over ringen $A: 1 \\le x^2+y^2 \\le 4$.",
+            "solution": "Radiell ⇒ polar. Integrand $\\tfrac{1}{r^2}$, ring $A = \\{1\\le r\\le 2,\\ 0\\le\\theta\\le 2\\pi\\}$, faktor $r$ ⇒ $\\tfrac1r$:\n$$\\int_0^{2\\pi}\\!\\int_1^2 \\frac{1}{r}\\,dr\\,d\\theta = 2\\pi\\big[\\ln r\\big]_1^2 = 2\\pi\\ln 2.$$\n\n**Svar:** $2\\pi\\ln 2$ (eksakt).",
+            "hints": [
+              "$1/(x^2+y^2) = 1/r^2$; ganget faktoren $r$ blir det $1/r$.",
+              "$\\int_1^2 \\tfrac1r dr = \\ln 2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Bruk et variabelskifte til å regne $\\displaystyle\\iint_D \\Big(\\tfrac{x^2}{9} + \\tfrac{y^2}{4}\\Big)\\,dx\\,dy$ over ellipsen $D: \\tfrac{x^2}{9} + \\tfrac{y^2}{4} \\le 1$.",
+            "solution": "$a = 3,\\ b = 2$. **Skifte:** $x = 3r\\cos\\theta,\\ y = 2r\\sin\\theta$, som gir $\\tfrac{x^2}{9}+\\tfrac{y^2}{4} = r^2$ og område $S = \\{0\\le r\\le 1,\\ 0\\le\\theta\\le 2\\pi\\}$.\n**Jacobideterminant:** $\\det\\begin{pmatrix} 3\\cos\\theta & -3r\\sin\\theta \\\\ 2\\sin\\theta & 2r\\cos\\theta\\end{pmatrix} = 6r\\cos^2\\theta + 6r\\sin^2\\theta = 6r$, absoluttverdi $6r$.\n$$\\iint_D \\Big(\\tfrac{x^2}{9}+\\tfrac{y^2}{4}\\Big)\\,dx\\,dy = \\int_0^{2\\pi}\\!\\int_0^1 r^2\\cdot 6r\\,dr\\,d\\theta = 2\\pi\\cdot 6\\int_0^1 r^3\\,dr = 12\\pi\\cdot\\tfrac14 = 3\\pi.$$\n\n**Svar:** $3\\pi$ (eksakt).",
+            "hints": [
+              "$a=3,\\ b=2$; integranden blir $r^2$ etter skiftet.",
+              "Jacobi $= ab\\,r = 6r$ (med absoluttverdi); integrand $\\times$ Jacobi $= 6r^3$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p2-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Byttet til polar og husket faktoren $r$ i alle tre oppgavene\n- ☐ Fikk $8\\pi$ i oppgave 1\n- ☐ Fikk $2\\pi\\ln 2$ i oppgave 2 (så at $\\tfrac1r$ gir logaritme)\n- ☐ Satte opp ellipseskiftet med Jacobideterminant $6r$ og absoluttverdi i oppgave 3\n- ☐ Fikk $3\\pi$ eksakt i oppgave 3"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Trippelintegral sylinder og kule (4.C, ~45 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1110-4-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 4.C — Trippelintegral: sylinder og kule.** Tre oppgaver, ~45 min. Velg system etter symmetri, løs skjæringen, og bruk riktig volumelement ($r$ eller $\\rho^2\\sin\\varphi$)."
+        },
+        {
+          "id": "mat1110-4-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn volumet av kula $x^2 + y^2 + z^2 \\le 4$ i kulekoordinater.",
+            "solution": "Kuleform ⇒ kule, radius $2$. $V = \\{0\\le\\rho\\le 2,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le 2\\pi\\}$, volumelement $\\rho^2\\sin\\varphi$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^2 \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\Big[\\tfrac{\\rho^3}{3}\\Big]_0^2 = 4\\pi\\cdot\\tfrac83 = \\tfrac{32\\pi}{3}.$$\n\n**Svar:** $\\dfrac{32\\pi}{3}$ (stemmer med $\\tfrac43\\pi\\cdot 8$).",
+            "hints": [
+              "Faktoriser: $\\theta$-del $2\\pi$, $\\varphi$-del $\\int_0^\\pi\\sin\\varphi = 2$, $\\rho$-del $\\int_0^2\\rho^2$.",
+              "$\\int_0^2\\rho^2 d\\rho = \\tfrac83$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\displaystyle\\iiint_V z\\,dV$ over sylinderen $V: x^2 + y^2 \\le 1,\\ 0 \\le z \\le 2$.",
+            "solution": "Sylinder, integrand $z$ (uavhengig av $r,\\theta$) ⇒ faktoriser:\n$$\\int_0^{2\\pi}\\!\\int_0^1\\!\\int_0^2 z\\cdot r\\,dz\\,dr\\,d\\theta = \\Big(\\int_0^{2\\pi}d\\theta\\Big)\\Big(\\int_0^1 r\\,dr\\Big)\\Big(\\int_0^2 z\\,dz\\Big) = 2\\pi\\cdot\\tfrac12\\cdot 2 = 2\\pi.$$\n\n**Svar:** $2\\pi$.",
+            "hints": [
+              "Integrand $z$ separerer fra $r$ og $\\theta$ ⇒ produkt.",
+              "$\\int_0^1 r\\,dr = \\tfrac12$, $\\int_0^2 z\\,dz = 2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn volumet av kroppen avgrenset nedenfra av paraboloiden $z = x^2 + y^2$ og ovenfra av $z = 2 - x^2 - y^2$.",
+            "solution": "Sylinder: nedre $z = r^2$, øvre $z = 2 - r^2$. **Skjæring:** $r^2 = 2 - r^2 \\Rightarrow 2r^2 = 2 \\Rightarrow r = 1$ (og $z = 1$).\n$V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 1,\\ r^2\\le z\\le 2 - r^2\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^1 r\\big((2 - r^2) - r^2\\big)\\,dr\\,d\\theta = 2\\pi\\int_0^1 (2r - 2r^3)\\,dr = 2\\pi\\Big[r^2 - \\tfrac{r^4}{2}\\Big]_0^1 = 2\\pi\\cdot\\tfrac12 = \\pi.$$\n\n**Svar:** $\\pi$ (eksakt).",
+            "hints": [
+              "Skjæring: $r^2 = 2 - r^2$ gir $r = 1$.",
+              "Indre ($z$): $\\int_{r^2}^{2-r^2} r\\,dz = r(2 - 2r^2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p3-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Brukte riktig volumelement ($\\rho^2\\sin\\varphi$ i kule, $r$ i sylinder)\n- ☐ Regnet kulevolumet til $\\tfrac{32\\pi}{3}$ i oppgave 1\n- ☐ Faktoriserte og fikk $2\\pi$ i oppgave 2\n- ☐ Løste skjæringen $r = 1$ i oppgave 3\n- ☐ Fikk $\\pi$ eksakt i oppgave 3"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Uegentlig og koordinatvalg (4.D, ~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1110-4-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 4.D — Uegentlig integral og koordinatvalg.** Tre oppgaver, ~45 min. Velg kompakt etter symmetrien, regn over $K_R$/$K_a$, og ta grensen eksplisitt — aldri «sett inn $\\infty$». Konkluder konvergens eller divergens."
+        },
+        {
+          "id": "mat1110-4-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Avgjør om $\\displaystyle\\iint_{\\mathbb{R}^2}\\frac{1}{(1+x^2+y^2)^2}\\,dA$ konvergerer, og finn verdien.",
+            "solution": "Radiell ⇒ skiver $K_R$, polar. Integrand $\\tfrac{1}{(1+r^2)^2}$, faktor $r$:\n$$\\iint_{K_R} = \\int_0^{2\\pi}\\!\\int_0^R \\frac{r}{(1+r^2)^2}\\,dr\\,d\\theta = 2\\pi\\cdot\\tfrac12\\Big[-\\tfrac{1}{1+r^2}\\Big]_0^R = \\pi\\Big(1 - \\tfrac{1}{1+R^2}\\Big).$$\n(Substitusjon $u = 1+r^2$.) **Lim-føring:** $\\lim_{R\\to\\infty}\\pi\\big(1 - \\tfrac{1}{1+R^2}\\big) = \\pi$.\n\n**Konvergerer**, verdi $\\pi$.",
+            "hints": [
+              "Radiell ⇒ polar over $K_R$; $\\int \\tfrac{r}{(1+r^2)^2}dr$ med $u = 1+r^2$.",
+              "$\\tfrac{1}{1+R^2}\\to 0$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Avgjør om $\\displaystyle\\iint_A \\frac{1}{x^2+y^2}\\,dA$ over $A: x^2+y^2 \\ge 1$ konvergerer.",
+            "solution": "Radiell ⇒ skiver, polar. Integrand $\\tfrac{1}{r^2}$, faktor $r$ ⇒ $\\tfrac1r$, $A\\cap K_R = \\{1\\le r\\le R\\}$:\n$$\\int_0^{2\\pi}\\!\\int_1^R \\frac1r\\,dr\\,d\\theta = 2\\pi\\big[\\ln r\\big]_1^R = 2\\pi\\ln R.$$\n**Lim-føring:** $\\lim_{R\\to\\infty} 2\\pi\\ln R = \\infty$.\n\n**Divergerer.**",
+            "hints": [
+              "$1/(x^2+y^2)\\cdot r = 1/r$, hvis integral er $\\ln r$.",
+              "$\\ln R \\to \\infty$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p4o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-prove-p4o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Koordinatvalg-kjede.) Avgjør om $\\displaystyle\\iiint_{\\mathbb{R}^3} e^{-\\sqrt{x^2+y^2+z^2}}\\,dV$ konvergerer, og finn verdien.",
+            "solution": "Integranden er radiell i **rommet** ($\\rho = \\sqrt{x^2+y^2+z^2}$) ⇒ velg **kulekoordinater** over kula $K_a = \\{\\rho \\le a\\}$, deretter $a \\to \\infty$. Integrand $e^{-\\rho}$, volumelement $\\rho^2\\sin\\varphi$:\n$$\\iiint_{K_a} e^{-\\rho}\\,dV = \\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^a e^{-\\rho}\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\int_0^a \\rho^2 e^{-\\rho}\\,d\\rho.$$\n**Grensen** ($a\\to\\infty$): $\\int_0^\\infty \\rho^2 e^{-\\rho}\\,d\\rho = 2$ (delvis integrasjon to ganger). Altså\n$$\\iiint_{\\mathbb{R}^3} e^{-\\sqrt{x^2+y^2+z^2}}\\,dV = 2\\pi\\cdot 2\\cdot 2 = 8\\pi.$$\n\n**Konvergerer**, verdi $8\\pi$. (Kjeden: radiell-i-rommet ⇒ kule ⇒ faktoriser ⇒ lim.)",
+            "hints": [
+              "Radiell i rommet ⇒ kulekoordinater over $K_a$, ikke polar.",
+              "Faktoriser $\\theta$ ($2\\pi$) og $\\varphi$ ($2$); $\\int_0^\\infty\\rho^2 e^{-\\rho}d\\rho = 2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-prove-p4-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Førte grensen eksplisitt med $\\lim_{R\\to\\infty}$ (ikke «sett inn $\\infty$»)\n- ☐ Fikk konvergens til $\\pi$ i oppgave 1\n- ☐ Så at $\\tfrac{1}{x^2+y^2}$ gir $\\ln R$ og divergerer i oppgave 2\n- ☐ Valgte kulekoordinater fordi integranden var radiell i rommet i oppgave 3\n- ☐ Fikk konvergens til $8\\pi$ i oppgave 3"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

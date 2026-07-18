@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Hva er andreordens Taylor-polynom til $f$ rundt $a$ i to variable?",
+    "options": [
+      "$f(a) + \\nabla f(a)\\cdot h + \\tfrac12\\, h^T H(a)\\, h$",
+      "$f(a) + \\nabla f(a)\\cdot h + h^T H(a)\\, h$",
+      "$f(a) + H(a)\\cdot h + \\tfrac12\\,\\nabla f(a)\\cdot h$",
+      "$\\nabla f(a)\\cdot h + \\tfrac12\\, h^T H(a)\\, h$"
+    ],
+    "explanation": "Konstant + gradientledd + Hesse-ledd med faktor $\\tfrac12$ — flervariabel-analogen til $f(a)+f'(a)h+\\tfrac12 f''(a)h^2$."
+  },
+  {
+    "question": "Hva blir andreordensleddet utskrevet i to variable?",
+    "options": [
+      "$\\tfrac12(f_{xx}h_1^2 + 2 f_{xy}h_1 h_2 + f_{yy}h_2^2)$",
+      "$\\tfrac12(f_{xx}h_1^2 + f_{xy}h_1 h_2 + f_{yy}h_2^2)$",
+      "$f_{xx}h_1^2 + f_{xy}h_1 h_2 + f_{yy}h_2^2$ uten noen faktor $\\tfrac12$ foran uttrykket",
+      "$\\tfrac12(f_{xx}h_1 + f_{xy}h_2 + f_{yy})$"
+    ],
+    "explanation": "Den kvadratiske formen har faktor $\\tfrac12$ foran og faktor $2$ på det blandede leddet (fordi $H$ er symmetrisk)."
+  },
+  {
+    "question": "Hvor skal gradienten og Hesse-matrisen evalueres i Taylor-formelen?",
+    "options": [
+      "I utviklingspunktet $a$",
+      "I punktet $(x,y)$ vi tilnærmer i",
+      "I origo, uansett utviklingspunkt",
+      "I et stasjonært punkt til $f$"
+    ],
+    "explanation": "Alle deriverte regnes i utviklingspunktet $a$ — det er der tilnærmingen forankres."
+  },
+  {
+    "question": "Hva skjer med Taylor-utviklingen i et stasjonært punkt?",
+    "options": [
+      "Førsteordensleddet forsvinner, og bare $f(a) + \\tfrac12 h^T H h$ står igjen",
+      "Andreordensleddet forsvinner, og bare tangentplanet står igjen",
+      "Hele polynomet blir null",
+      "Restleddet i utviklingen blir eksakt lik null i akkurat det stasjonære punktet"
+    ],
+    "explanation": "Siden $\\nabla f(a)=0$, faller gradientleddet bort, og Hesse-leddet bestemmer punkttypen."
+  },
+  {
+    "question": "Hva er den vanligste regnefeilen i andreordens Taylor?",
+    "options": [
+      "Å glemme faktoren $\\tfrac12$ på andreordensleddet",
+      "Å bruke gradienten i stedet for Hesse-matrisen",
+      "Å regne førsteordensleddet med feil fortegn",
+      "Å utvikle funksjonen rundt feil variabel i stedet for rundt utviklingspunktet $a$"
+    ],
+    "explanation": "Faktoren $\\tfrac12$ arves fra $\\tfrac12 f''(a)(x-a)^2$ og glemmes ofte."
+  },
+  {
+    "question": "For $f(x,y) = e^x\\cos y$ rundt $(0,0)$, hva er Taylor-polynomet?",
+    "options": [
+      "$1 + x + \\tfrac12 x^2 - \\tfrac12 y^2$",
+      "$1 + x + \\tfrac12 x^2 + \\tfrac12 y^2$",
+      "$1 + x - \\tfrac12 x^2 - \\tfrac12 y^2$",
+      "$x + \\tfrac12 x^2 - \\tfrac12 y^2$"
+    ],
+    "explanation": "$f(0,0)=1$, $\\nabla f=(1,0)$, $H=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}$ gir $1+x+\\tfrac12 x^2-\\tfrac12 y^2$."
+  },
+  {
+    "question": "Hva forteller Hesse-leddet i et stasjonært punkt om punkttypen?",
+    "options": [
+      "Er den kvadratiske formen alltid positiv, er punktet et minimum; skifter den fortegn, et sadelpunkt",
+      "Er gradientleddet positivt, er punktet et maksimum",
+      "Punktet er alltid et sadelpunkt uansett fortegn",
+      "Hesse-leddet sier ingenting om typen; man må alltid gå tilbake og bruke gradienten i stedet"
+    ],
+    "explanation": "Fortegnsanalysen av $h^T H h$ er nettopp annenderiverttesten fra kap. 3.1."
+  },
+  {
+    "question": "Hvorfor er Taylor-polynomet bare en god tilnærming nær utviklingspunktet?",
+    "options": [
+      "Fordi restleddet vokser når $|h|$ øker",
+      "Fordi gradienten endrer fortegn langt unna",
+      "Fordi Hesse-matrisen ikke er definert langt unna",
+      "Fordi polynomet er eksakt bare i origo"
+    ],
+    "explanation": "Restleddet går mot null raskere enn $|h|^2$ når $h\\to 0$, men vokser når du fjerner deg fra $a$."
+  },
+  {
+    "question": "Hvis $f$ er et andregradspolynom, hva er andreordens Taylor-polynom rundt et punkt?",
+    "options": [
+      "Eksakt lik $f$ selv, uten restledd",
+      "En tilnærming med et lite restledd",
+      "Bare den lineære delen av $f$",
+      "Alltid null i utviklingspunktet"
+    ],
+    "explanation": "Et polynom av grad $\\le 2$ har ingen høyereordens ledd, så $P_2 = f$ eksakt."
+  },
+  {
+    "question": "Hva er førsteordens (lineære) Taylor-tilnærming også kjent som?",
+    "options": [
+      "Lineariseringen / tangentplanet fra kap. 2.1",
+      "Hesse-leddet fra kap. 3.1",
+      "Den kvadratiske formen $h^T H h$",
+      "Restleddet i Taylor-formelen, altså feilen mellom polynomet og selve funksjonen"
+    ],
+    "explanation": "$f(a)+\\nabla f(a)\\cdot h$ er nettopp tangentplanet — den beste lineære tilnærmingen."
+  }
+]

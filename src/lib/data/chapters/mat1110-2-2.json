@@ -1,0 +1,370 @@
+{
+  "id": "mat1110-2-2",
+  "courseId": "mat1110",
+  "chapterNumber": "2.2",
+  "title": "Jacobi-matrisen, kjerneregelen på matriseform og linearisering",
+  "description": "Den deriverte som matrise: F' av partiellderiverte, kjerneregelen som matriseprodukt, og lineariseringen som beste lineære avbildning — fundamentet for funksjonsteoremene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp Jacobi-matrisen til en vektorfunksjon med rad i lik gradienten til komponent i",
+    "bruke kjerneregelen på matriseform med faktorene i riktig rekkefølge og riktig evalueringspunkt",
+    "linearisere en vektorfunksjon og bruke det til anslag",
+    "regne Jacobideterminanten og avgjøre hvor en funksjon er lokalt inverterbar"
+  ],
+  "content": [
+    {
+      "id": "mat1110-2-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Inngangen til den faste åpningssjangeren i det nye regimet.**\n\n- Jacobi-matrisen $F'$ er selve verktøyet bak **sjanger D** — omvendt/implisitt funksjonsteorem, som er **3/3 i V2025** (alle tre settene åpner med et funksjonsteorem, [kap. 2.3](/bok/mat1110/mat1110-2-3)). Behersker du $F'$, $\\det F'$ og kjerneregelen her, er du klar for den delen.\n- Formelsamlingen gir kjerneregelen på både matrise- og komponentform, og lineariseringen som $T_aF(x)=F'(a)(x-a)+F(a)$. Deriverbarhet via **kontinuerlige partiellderiverte** er teoremveien fasit bruker.\n- $\\det F'$ (Jacobideterminanten) dukker opp igjen to steder: som varsel om **lokal inverterbarhet** i funksjonsteoremet ([kap. 2.3](/bok/mat1110/mat1110-2-3)) og som **variabelskifte-faktor** i multiple integraler ([kap. 4.2](/bok/mat1110/mat1110-4-2)).\n\n**Prioritet: kunne** — verktøyet for perfekt-sjangeren D. Den vanligste tabben er transponert Jacobi-matrise; hold **rad $i$ = $\\nabla F_i$** klart."
+    },
+    {
+      "id": "mat1110-2-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bygger på partiellderiverte og gradient fra [kap. 2.1](/bok/mat1110/mat1110-2-1) — hver rad i Jacobi-matrisen *er* en gradient. Og på [kap. 1.4](/bok/mat1110/mat1110-1-4): en lineæravbildning $\\leftrightarrow$ en matrise, det er nettopp den koblingen $F'$ utnytter (den deriverte *er* en lineæravbildning). Jacobi-matrisen i $\\mathbb{R}^2$ er introdusert *(MAT1100 kap. 5.6 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)*, men vi bygger den fra grunnen her."
+    },
+    {
+      "id": "mat1110-2-2-motiv",
+      "type": "text",
+      "content": "For en funksjon av én variabel er den deriverte $f'(a)$ ett tall — stigningstallet til tangenten. For en funksjon $F$ som tar inn flere tall og gir ut flere tall, kan ikke den deriverte være ett tall; den blir en **matrise**. Den heter **Jacobi-matrisen** $F'(a)$, og den spiller nøyaktig samme rolle: den er den beste *lineære* tilnærmingen til $F$ nær $a$.\n\nNår vi først har $F$ som en matrise, blir to ting elegante. Å derivere en **sammensetning** blir et **matriseprodukt** (kjerneregelen), og spørsmålet om $F$ har en lokal invers avgjøres av om matrisen $F'(a)$ er inverterbar — altså av $\\det F'(a)$. Det er dette som gjør Jacobi til fundamentet under funksjonsteoremene i [kap. 2.3](/bok/mat1110/mat1110-2-3). Vi bygger stoffet i fem løkker: (1) Jacobi-matrisen, (2) deriverbarhet, (3) kjerneregelen på matriseform, (4) linearisering, (5) Jacobideterminanten og lokal inverterbarhet."
+    },
+    {
+      "id": "mat1110-2-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Jacobi-matrisen (~12 min)"
+    },
+    {
+      "id": "mat1110-2-2-def-vektorfunk",
+      "type": "definition",
+      "title": "Vektorfunksjon (vektorvaluert funksjon)",
+      "content": "En funksjon som tar inn flere tall og gir ut flere tall: $F:\\mathbb{R}^n\\to\\mathbb{R}^m$. Vi skriver $F(x)=(F_1(x),\\dots,F_m(x))$. For eksempel er $F(x,y)=(x+y,\\ xy)$ en avbildning $\\mathbb{R}^2\\to\\mathbb{R}^2$. Når $m=1$ er $F$ en vanlig funksjon (skalarfelt); når $n=1$ er det en parametrisert kurve."
+    },
+    {
+      "id": "mat1110-2-2-def-komponent",
+      "type": "definition",
+      "title": "Komponentfunksjoner",
+      "content": "De $m$ vanlige (skalar-)funksjonene $F_1,\\dots,F_m$ som utgjør en vektorfunksjon $F$. Hver $F_i:\\mathbb{R}^n\\to\\mathbb{R}$ har sin egen gradient $\\nabla F_i$. Å derivere $F$ betyr å derivere hver komponent — og samle resultatene i én matrise."
+    },
+    {
+      "id": "mat1110-2-2-def-jacobi",
+      "type": "definition",
+      "title": "Jacobi-matrisen $F'(x)$",
+      "content": "Matrisen av alle partiellderiverte til en vektorfunksjon, ordnet slik at **rad $i$ er gradienten $\\nabla F_i$**:\n\n$$F'(x)=\\begin{pmatrix}\\dfrac{\\partial F_1}{\\partial x_1}&\\cdots&\\dfrac{\\partial F_1}{\\partial x_n}\\\\ \\vdots& &\\vdots\\\\ \\dfrac{\\partial F_m}{\\partial x_1}&\\cdots&\\dfrac{\\partial F_m}{\\partial x_n}\\end{pmatrix}.$$\n\nFor $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ er $F'$ en $m\\times n$-matrise. **Kritisk regel:** rad = komponentfunksjon, søyle = variabel. Bytter du om (transponerer), får du kjerneregelen til å bryte sammen."
+    },
+    {
+      "id": "mat1110-2-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Jacobi-matrisen",
+      "problem": "La $F(x,y)=(x+y,\\ xy)$. Finn Jacobi-matrisen $F'(x,y)$.",
+      "solution": "Komponentene er $F_1=x+y$ og $F_2=xy$. Vi regner hver gradient og legger den som en rad.\n\n**Rad 1** ($\\nabla F_1$): $\\dfrac{\\partial F_1}{\\partial x}=1$, $\\dfrac{\\partial F_1}{\\partial y}=1$.\n\n**Rad 2** ($\\nabla F_2$): $\\dfrac{\\partial F_2}{\\partial x}=y$, $\\dfrac{\\partial F_2}{\\partial y}=x$.\n\nSamlet:\n$$F'(x,y)=\\begin{pmatrix}1&1\\\\ y&x\\end{pmatrix}.$$\n\n**Konklusjon:** Rad $i$ er $\\nabla F_i$ — nettopp slik føringsstandarden krever."
+    },
+    {
+      "id": "mat1110-2-2-l1x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-l1x1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $F(x,y)=(x^2-y,\\ x+y^2)$. Finn Jacobi-matrisen $F'(x,y)$.",
+        "solution": "$F_1=x^2-y$ gir rad $\\nabla F_1=(2x,\\ -1)$. $F_2=x+y^2$ gir rad $\\nabla F_2=(1,\\ 2y)$. Altså\n$$F'(x,y)=\\begin{pmatrix}2x&-1\\\\ 1&2y\\end{pmatrix}.$$\n\nHver rad er gradienten til én komponentfunksjon.",
+        "hints": [
+          "Rad 1 er $\\nabla F_1$, rad 2 er $\\nabla F_2$.",
+          "Søyle 1 er $\\partial/\\partial x$, søyle 2 er $\\partial/\\partial y$ — ikke bytt om."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Deriverbarhet (~8 min)"
+    },
+    {
+      "id": "mat1110-2-2-def-c1",
+      "type": "definition",
+      "title": "$C^1$ (kontinuerlig deriverbar)",
+      "content": "En funksjon er $C^1$ på et område hvis alle de partiellderiverte finnes **og er kontinuerlige** der. Nesten alle funksjoner du møter på eksamen (polynomer, $e^x$, $\\sin$, $\\cos$, kvotienter der nevneren ikke er null) er $C^1$ på definisjonsområdet sitt."
+    },
+    {
+      "id": "mat1110-2-2-def-derivkrit",
+      "type": "definition",
+      "title": "Deriverbarhetskriteriet ($C^1\\Rightarrow$ deriverbar)",
+      "content": "Teoremveien fasit bruker for å slå fast deriverbarhet: **er $F$ av klasse $C^1$ nær $a$ (kontinuerlige partiellderiverte), så er $F$ deriverbar i $a$**, og den deriverte er Jacobi-matrisen $F'(a)$. Merk skillet: at partiellderivertene bare *finnes* er ikke nok — de må være kontinuerlige. På eksamen skriver du gjerne «$F$ er $C^1$, altså deriverbar»."
+    },
+    {
+      "id": "mat1110-2-2-def-linbeste",
+      "type": "definition",
+      "title": "Jacobi som beste lineære tilnærming",
+      "content": "At $F$ er deriverbar i $a$ betyr presist at $F'(a)$ er den lineæravbildningen som tilnærmer $F$ best nær $a$:\n\n$$F(x)=F(a)+F'(a)(x-a)+r(x),\\qquad \\frac{|r(x)|}{|x-a|}\\to0.$$\n\nDette er hvorfor $F'(a)$ *er* «den deriverte»: den fanger hele førsteordens oppførselen til $F$ i punktet. Alt annet i kapitlet følger av dette."
+    },
+    {
+      "id": "mat1110-2-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Kjerneregelen på matriseform (~13 min)"
+    },
+    {
+      "id": "mat1110-2-2-def-sammensetning",
+      "type": "definition",
+      "title": "Sammensetning av avbildninger",
+      "content": "Å bruke én avbildning etter en annen: $(G\\circ F)(x)=G(F(x))$. Her sender $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ punktet videre til $G:\\mathbb{R}^m\\to\\mathbb{R}^p$, så $G\\circ F:\\mathbb{R}^n\\to\\mathbb{R}^p$. Rekkefølgen teller: $F$ virker først, $G$ etterpå."
+    },
+    {
+      "id": "mat1110-2-2-def-kjerne-matrise",
+      "type": "definition",
+      "title": "Kjerneregelen (matriseform)",
+      "content": "Den deriverte av en sammensetning er **produktet** av de deriverte matrisene, evaluert i riktig punkt:\n\n$$(G\\circ F)'(a)=G'\\big(F(a)\\big)\\,F'(a).$$\n\n**Rekkefølgen er hele poenget** — matriseprodukt er ikke kommutativt. $G'$ evalueres i bildepunktet $F(a)$, $F'$ i $a$, og $G'(F(a))$ står til **venstre**. Dette generaliserer én-variabel-kjerneregelen $(g\\circ f)'=g'(f)\\cdot f'$."
+    },
+    {
+      "id": "mat1110-2-2-def-kjerne-komponent",
+      "type": "definition",
+      "title": "Kjerneregelen (komponentform)",
+      "content": "Samme regel skrevet ut ledd for ledd: for $h=g\\circ F$ med $F=(F_1,\\dots,F_m)$ er\n\n$$\\frac{\\partial h}{\\partial x_j}=\\sum_{i=1}^{m}\\frac{\\partial g}{\\partial y_i}\\,\\frac{\\partial F_i}{\\partial x_j}.$$\n\nDette er nettopp $(i,j)$-elementet i matriseproduktet $G'(F)\\,F'$. Formelsamlingen gir begge former; matriseformen er raskest når alt er lineært satt opp."
+    },
+    {
+      "id": "mat1110-2-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Kjerneregelen som matriseprodukt",
+      "problem": "La $F(u,v)=(u^2+v,\\ uv)$ og $G(x,y)=(x+y,\\ x-y)$. Finn $(G\\circ F)'(u,v)$ med kjerneregelen, og evaluér i $(u,v)=(1,1)$.",
+      "solution": "**Jacobi-matrisene hver for seg.** $F_1=u^2+v$, $F_2=uv$ gir\n$$F'(u,v)=\\begin{pmatrix}2u&1\\\\ v&u\\end{pmatrix}.$$\n$G_1=x+y$, $G_2=x-y$ gir den konstante\n$$G'(x,y)=\\begin{pmatrix}1&1\\\\ 1&-1\\end{pmatrix}.$$\n\n**Matriseprodukt** (i riktig rekkefølge, $G'$ til venstre; her er $G'$ konstant så evalueringspunktet spiller ingen rolle for $G'$):\n$$(G\\circ F)'=G'\\big(F(u,v)\\big)\\,F'(u,v)=\\begin{pmatrix}1&1\\\\ 1&-1\\end{pmatrix}\\begin{pmatrix}2u&1\\\\ v&u\\end{pmatrix}=\\begin{pmatrix}2u+v&u+1\\\\ 2u-v&1-u\\end{pmatrix}.$$\n\n**Evaluér i $(1,1)$:** $\\begin{pmatrix}3&2\\\\ 1&0\\end{pmatrix}$.\n\n**Kontroll** (direkte): $G\\circ F=(u^2+v+uv,\\ u^2+v-uv)$, og deriverer man dette direkte får man samme matrise ✓.\n\n**Konklusjon:** $(G\\circ F)'(1,1)=\\begin{pmatrix}3&2\\\\ 1&0\\end{pmatrix}$."
+    },
+    {
+      "id": "mat1110-2-2-l3x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-l3x1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(t)=(t^2,\\ t^3)$ (en kurve $\\mathbb{R}\\to\\mathbb{R}^2$) og $g(x,y)=x^2+y$. Bruk kjerneregelen til å finne $\\dfrac{d}{dt}\\,g(F(t))$.",
+        "solution": "Her er $g$ skalar, så $g'(x,y)=\\nabla g=(2x,\\ 1)$ (en $1\\times2$-matrise), og $F'(t)=\\begin{pmatrix}2t\\\\ 3t^2\\end{pmatrix}$ (en $2\\times1$-matrise).\n\nKjerneregelen: $\\dfrac{d}{dt}g(F(t))=\\nabla g\\big(F(t)\\big)\\cdot F'(t)$. Med $x=t^2,\\ y=t^3$ er $\\nabla g(F(t))=(2t^2,\\ 1)$, så\n$$\\dfrac{d}{dt}g(F(t))=(2t^2,\\ 1)\\begin{pmatrix}2t\\\\ 3t^2\\end{pmatrix}=2t^2\\cdot2t+1\\cdot3t^2=4t^3+3t^2.$$\n\n**Kontroll:** $g(F(t))=(t^2)^2+t^3=t^4+t^3$, og $\\dfrac{d}{dt}(t^4+t^3)=4t^3+3t^2$ ✓.",
+        "hints": [
+          "$g$ skalar $\\Rightarrow$ $g'=\\nabla g$ som radvektor; $F'$ er en søylevektor.",
+          "Evaluér $\\nabla g$ i $F(t)$ *før* du ganger med $F'(t)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Linearisering på vektorform (~8 min)"
+    },
+    {
+      "id": "mat1110-2-2-def-linvektor",
+      "type": "definition",
+      "title": "Linearisering (vektorform)",
+      "content": "Den beste affine tilnærmingen til en vektorfunksjon nær $a$, med Jacobi-matrisen i rollen som stigningstall:\n\n$$F(x)\\approx F(a)+F'(a)(x-a).$$\n\nFormelsamlingen skriver dette $T_aF(x)=F'(a)(x-a)+F(a)$. Dette er $\\mathbb{R}^m$-versjonen av tangentplanet fra [kap. 2.1](/bok/mat1110/mat1110-2-1): $F(a)$ er «høyden», $F'(a)(x-a)$ er den lineære korreksjonen."
+    },
+    {
+      "id": "mat1110-2-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Linearisering av en vektorfunksjon",
+      "problem": "La $F(x,y)=(x^2+y^2,\\ x^2-y^2)$. Bruk lineariseringen i $(1,1)$ til å anslå $F(1{,}1;\\ 0{,}9)$.",
+      "solution": "**Verdien og Jacobi i utviklingspunktet:** $F(1,1)=(2,\\ 0)$ og\n$$F'(x,y)=\\begin{pmatrix}2x&2y\\\\ 2x&-2y\\end{pmatrix}\\ \\Rightarrow\\ F'(1,1)=\\begin{pmatrix}2&2\\\\ 2&-2\\end{pmatrix}.$$\n\n**Forskyvning:** $(x-a,\\ y-b)=(0{,}1;\\ -0{,}1)$. Da er\n$$F(1{,}1;\\ 0{,}9)\\approx\\begin{pmatrix}2\\\\ 0\\end{pmatrix}+\\begin{pmatrix}2&2\\\\ 2&-2\\end{pmatrix}\\begin{pmatrix}0{,}1\\\\ -0{,}1\\end{pmatrix}=\\begin{pmatrix}2\\\\ 0\\end{pmatrix}+\\begin{pmatrix}0\\\\ 0{,}4\\end{pmatrix}=\\begin{pmatrix}2\\\\ 0{,}4\\end{pmatrix}.$$\n\nEksakt er $F(1{,}1;\\ 0{,}9)=(1{,}21+0{,}81,\\ 1{,}21-0{,}81)=(2{,}02;\\ 0{,}4)$, så anslaget treffer godt.\n\n**Konklusjon:** $F(1{,}1;\\ 0{,}9)\\approx(2;\\ 0{,}4)$."
+    },
+    {
+      "id": "mat1110-2-2-l3x2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-l3x2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x,y)=(xy,\\ x+y)$. Bruk lineariseringen i $(2,1)$ til å anslå $F(2{,}1;\\ 0{,}9)$.",
+        "solution": "$F(2,1)=(2,\\ 3)$. Jacobi: $F'(x,y)=\\begin{pmatrix}y&x\\\\ 1&1\\end{pmatrix}$, så $F'(2,1)=\\begin{pmatrix}1&2\\\\ 1&1\\end{pmatrix}$.\n\nForskyvning $(0{,}1;\\ -0{,}1)$:\n$$F(2{,}1;\\ 0{,}9)\\approx\\begin{pmatrix}2\\\\ 3\\end{pmatrix}+\\begin{pmatrix}1&2\\\\ 1&1\\end{pmatrix}\\begin{pmatrix}0{,}1\\\\ -0{,}1\\end{pmatrix}=\\begin{pmatrix}2\\\\ 3\\end{pmatrix}+\\begin{pmatrix}-0{,}1\\\\ 0\\end{pmatrix}=\\begin{pmatrix}1{,}9\\\\ 3\\end{pmatrix}.$$\n\n**Konklusjon:** $F(2{,}1;\\ 0{,}9)\\approx(1{,}9;\\ 3)$ (eksakt $(1{,}89;\\ 3)$).",
+        "hints": [
+          "$F'(x,y)=\\begin{pmatrix}y&x\\\\ 1&1\\end{pmatrix}$; evaluér i $(2,1)$.",
+          "$F(a)+F'(a)\\cdot(x-a)$ med forskyvning $(0{,}1;-0{,}1)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Jacobideterminanten og lokal inverterbarhet (~10 min)"
+    },
+    {
+      "id": "mat1110-2-2-def-jacdet",
+      "type": "definition",
+      "title": "Jacobideterminanten $\\det F'$",
+      "content": "Determinanten til Jacobi-matrisen, definert når $F'$ er kvadratisk ($n=m$). Den måler hvordan $F$ **strekker areal/volum** lokalt, og forteller om $F$ er lokalt inverterbar. Notasjon: $\\det F'(a)$, av og til skrevet $\\dfrac{\\partial(F_1,\\dots,F_n)}{\\partial(x_1,\\dots,x_n)}$."
+    },
+    {
+      "id": "mat1110-2-2-def-lokinv",
+      "type": "definition",
+      "title": "Lokal inverterbarhet ($\\det F'\\ne0$)",
+      "content": "Er $F$ av klasse $C^1$ og $\\det F'(a)\\ne0$, så har $F$ en lokal invers nær $a$ (dette er omvendt funksjonsteorem, [kap. 2.3](/bok/mat1110/mat1110-2-3)). Geometrisk: $F'(a)$ er en inverterbar matrise, så avbildningen «kollapser» ikke rommet nær $a$. Punktet der $\\det F'(a)\\ne0$ kalles et **regulært** punkt."
+    },
+    {
+      "id": "mat1110-2-2-def-funkavh",
+      "type": "definition",
+      "title": "Funksjonell avhengighet ($\\det F'\\equiv0$)",
+      "content": "Er $\\det F'\\equiv0$ på et helt område, er komponentene $F_1,\\dots,F_n$ **funksjonelt avhengige** der: én av dem kan uttrykkes ved de andre, så $F$ presser rommet ned i lavere dimensjon og kan ikke være lokalt inverterbar. Dette er en eldre sjanger R (kjennskap) — vi bruker det mest som kontrast til det regulære tilfellet."
+    },
+    {
+      "id": "mat1110-2-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor er $F$ lokalt inverterbar?",
+      "problem": "La $F(x,y)=(x^2-y,\\ x+y^2)$. Regn $\\det F'$ og avgjør hvor $F$ er lokalt inverterbar.",
+      "solution": "Fra oppgave 1 (eller ny utregning) er $F'(x,y)=\\begin{pmatrix}2x&-1\\\\ 1&2y\\end{pmatrix}$.\n\n**Determinanten:**\n$$\\det F'=(2x)(2y)-(-1)(1)=4xy+1.$$\n\n**Regulære punkter:** $\\det F'\\ne0\\iff 4xy+1\\ne0\\iff xy\\ne-\\tfrac14$.\n\nIfølge omvendt funksjonsteorem (kap. 2.3) er $F$ **lokalt inverterbar i ethvert punkt der $xy\\ne-\\tfrac14$**, og singulær (mister lokal invers) langs hyperbelen $xy=-\\tfrac14$.\n\n**Konklusjon:** Lokalt inverterbar overalt unntatt på kurven $4xy+1=0$."
+    },
+    {
+      "id": "mat1110-2-2-l5x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-l5x1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x,y)=(x^2+y,\\ y^2+x)$. Regn $\\det F'$ og avgjør hvor $F$ er lokalt inverterbar.",
+        "solution": "$F_1=x^2+y$ gir rad $(2x,\\ 1)$; $F_2=y^2+x$ gir rad $(1,\\ 2y)$. Altså $F'=\\begin{pmatrix}2x&1\\\\ 1&2y\\end{pmatrix}$.\n\n$$\\det F'=(2x)(2y)-1\\cdot1=4xy-1.$$\n\nInverterbar lokalt $\\iff 4xy-1\\ne0\\iff xy\\ne\\tfrac14$.\n\n**Konklusjon:** $F$ er lokalt inverterbar overalt unntatt på kurven $xy=\\tfrac14$ (der $\\det F'=0$).",
+        "hints": [
+          "Sett opp $F'$ (rad = gradient) og regn $2\\times2$-determinanten.",
+          "Lokal inverterbarhet $\\iff\\det F'\\ne0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Transponert Jacobi-matrise.** Rad $i$ skal være $\\nabla F_i$ (komponent $i$), søyle $j$ er $\\partial/\\partial x_j$. Bytter du rader og søyler, blir kjerneregelen feil.\n- **Feil rekkefølge i kjerneregelen.** $(G\\circ F)'=G'(F(a))\\,F'(a)$ — $G'$ til **venstre**. Matriseprodukt er ikke kommutativt, så $F'G'$ er som regel feil (eller udefinert).\n- **Glemme å evaluere $G'$ i $F(a)$.** Den ytre deriverte tas i bildepunktet $F(a)$, ikke i $a$.\n- **«Deriverbar fordi partiellderivertene finnes».** Teoremet krever at de er **kontinuerlige** ($C^1$). Skriv «$F$ er $C^1$, altså deriverbar».\n- **Jacobideterminant på ikke-kvadratisk matrise.** $\\det F'$ er bare definert når $n=m$. For $F:\\mathbb{R}^2\\to\\mathbb{R}^3$ finnes ingen Jacobideterminant.\n- **Tro at $\\det F'\\ne0$ gir *global* invers.** Det gir bare en **lokal** invers nær punktet — se [kap. 2.3](/bok/mat1110/mat1110-2-3)."
+    },
+    {
+      "id": "mat1110-2-2-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje"
+    },
+    {
+      "id": "mat1110-2-2-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-p1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $F(x,y)=(3x-2y,\\ x+4y)$ (en lineæravbildning). Finn $F'(x,y)$ og forklar hvorfor den er konstant.",
+        "solution": "$F_1=3x-2y$ gir rad $(3,\\ -2)$; $F_2=x+4y$ gir rad $(1,\\ 4)$. Altså\n$$F'(x,y)=\\begin{pmatrix}3&-2\\\\ 1&4\\end{pmatrix}.$$\nDen er konstant fordi $F$ selv er **lineær**: en lineæravbildning $x\\mapsto Ax$ har $F'=A$ overalt. Her er $F'$ nettopp koeffisientmatrisen (jf. [kap. 1.4](/bok/mat1110/mat1110-1-4)).",
+        "hints": [
+          "Rad = gradient til komponentfunksjonen.",
+          "For en lineær $F(x)=Ax$ er den deriverte $A$ i ethvert punkt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-p2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x,y)=(e^x\\cos y,\\ e^x\\sin y)$. **a)** Finn $F'(x,y)$. **b)** Regn $\\det F'$ og avgjør hvor $F$ er lokalt inverterbar.",
+        "solution": "**a)** $F_1=e^x\\cos y$ gir rad $(e^x\\cos y,\\ -e^x\\sin y)$. $F_2=e^x\\sin y$ gir rad $(e^x\\sin y,\\ e^x\\cos y)$. Altså\n$$F'=\\begin{pmatrix}e^x\\cos y&-e^x\\sin y\\\\ e^x\\sin y&e^x\\cos y\\end{pmatrix}.$$\n\n**b)** $\\det F'=e^x\\cos y\\cdot e^x\\cos y-(-e^x\\sin y)(e^x\\sin y)=e^{2x}(\\cos^2y+\\sin^2y)=e^{2x}$.\n\nSiden $e^{2x}>0$ for **alle** $(x,y)$, er $F$ lokalt inverterbar overalt. (Den er likevel ikke *globalt* injektiv, fordi $y$ og $y+2\\pi$ gir samme bilde — en fin illustrasjon av at lokal $\\ne$ global.)",
+        "hints": [
+          "Deriver $e^x\\cos y$ mhp. $x$ (uendret trig) og mhp. $y$ (deriver cosinus).",
+          "Bruk $\\cos^2y+\\sin^2y=1$ når du forenkler determinanten."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-2-p3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $F(u,v)=(u+v,\\ u^2+v^2)$ og $G(x,y)=(xy,\\ x-y)$. Finn $(G\\circ F)'(u,v)$ med kjerneregelen, evaluert i $(u,v)=(1,2)$.",
+        "solution": "**Jacobi-matrisene:** $F'(u,v)=\\begin{pmatrix}1&1\\\\ 2u&2v\\end{pmatrix}$ og $G'(x,y)=\\begin{pmatrix}y&x\\\\ 1&-1\\end{pmatrix}$.\n\n**Evaluér innerst:** $F(1,2)=(3,\\ 5)$, så $G'$ skal tas i $(x,y)=(3,5)$: $G'(3,5)=\\begin{pmatrix}5&3\\\\ 1&-1\\end{pmatrix}$. Og $F'(1,2)=\\begin{pmatrix}1&1\\\\ 2&4\\end{pmatrix}$.\n\n**Matriseprodukt** ($G'$ til venstre):\n$$(G\\circ F)'(1,2)=\\begin{pmatrix}5&3\\\\ 1&-1\\end{pmatrix}\\begin{pmatrix}1&1\\\\ 2&4\\end{pmatrix}=\\begin{pmatrix}5+6&5+12\\\\ 1-2&1-4\\end{pmatrix}=\\begin{pmatrix}11&17\\\\ -1&-3\\end{pmatrix}.$$\n\n**Konklusjon:** $(G\\circ F)'(1,2)=\\begin{pmatrix}11&17\\\\ -1&-3\\end{pmatrix}$. (Det avgjørende poenget: $G'$ evalueres i bildepunktet $F(1,2)=(3,5)$, ikke i $(1,2)$.)",
+        "hints": [
+          "Regn $F(1,2)$ først — $G'$ skal evalueres der.",
+          "$(G\\circ F)'=G'(F(a))\\,F'(a)$; $G'$ står til venstre i produktet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-2-2-bb-gradspesial",
+      "type": "definition",
+      "title": "Gradient som spesialtilfelle ($m=1$)",
+      "content": "Når $F$ har bare én komponent ($m=1$), er Jacobi-matrisen én rad — nemlig gradienten skrevet som radvektor: $F'=\\nabla F$. Slik henger [kap. 2.1](/bok/mat1110/mat1110-2-1) og dette kapitlet sammen: gradienten er Jacobi-matrisen til et skalarfelt."
+    },
+    {
+      "id": "mat1110-2-2-bb-kvadratisk",
+      "type": "definition",
+      "title": "Kvadratisk Jacobi ($n=m$)",
+      "content": "$\\det F'$ og lokal inverterbarhet gir bare mening når Jacobi-matrisen er kvadratisk, altså når $F:\\mathbb{R}^n\\to\\mathbb{R}^n$. For $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ med $n\\ne m$ finnes ingen determinant; da snakker man i stedet om rang av $F'$."
+    },
+    {
+      "id": "mat1110-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-2-2-r1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) Finn gradienten til $f(x,y)=x^2y+y^3$ og skriv den som første rad i en tenkt Jacobi-matrise.",
+            "solution": "$\\nabla f=(2xy,\\ x^2+3y^2)$. Som rad i en Jacobi-matrise: $(2xy\\ \\ x^2+3y^2)$ — nettopp fordi rad $i$ i $F'$ er $\\nabla F_i$.",
+            "hints": [
+              "$f_x=2xy$, $f_y=x^2+3y^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-2-r2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.4](/bok/mat1110/mat1110-1-4)) Hva er standardmatrisen til lineæravbildningen $T(x,y)=(2x+y,\\ x-3y)$?",
+            "solution": "Søylene er bildene av standardbasisvektorene, eller like enkelt: koeffisientene radvis. $A=\\begin{pmatrix}2&1\\\\ 1&-3\\end{pmatrix}$. Dette er også $T'$ (Jacobi), konstant fordi $T$ er lineær.",
+            "hints": [
+              "Les koeffisientene: rad 1 fra $2x+y$, rad 2 fra $x-3y$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-2-r3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.3](/bok/mat1110/mat1110-1-3)) Er $A=\\begin{pmatrix}2&1\\\\ 1&2\\end{pmatrix}$ inverterbar? Hva blir $\\det A$?",
+            "solution": "$\\det A=2\\cdot2-1\\cdot1=3\\ne0$, så $A$ er **inverterbar**. (På samme måte avgjør $\\det F'\\ne0$ om Jacobi-matrisen — og dermed $F$ lokalt — er inverterbar.)",
+            "hints": [
+              "$\\det\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}=ad-bc$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-2-2-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ | Vektorfunksjon (tar inn $n$ tall, gir ut $m$) |\n| $F_1,\\dots,F_m$ | Komponentfunksjonene til $F$ |\n| $F'(x)$ | Jacobi-matrisen — rad $i$ = $\\nabla F_i$ |\n| $\\det F'$ | Jacobideterminanten (krever $n=m$) |\n| $G\\circ F$ | Sammensetning: $F$ først, så $G$ |\n| $C^1$ | Kontinuerlig deriverbar (partiellderiverte finnes og er kontinuerlige) |\n| $T_aF$ | Linearisering av $F$ i $a$ |\n\n**Formler i dette delkapitlet:**\n\n$$F'(x)=\\begin{pmatrix}\\partial F_1/\\partial x_1&\\cdots&\\partial F_1/\\partial x_n\\\\ \\vdots&&\\vdots\\\\ \\partial F_m/\\partial x_1&\\cdots&\\partial F_m/\\partial x_n\\end{pmatrix}$$\nJacobi-matrisen: rad $i$ = $\\nabla F_i$, søyle $j$ = $\\partial/\\partial x_j$.\n\n$$(G\\circ F)'(a)=G'\\big(F(a)\\big)\\,F'(a)$$\nKjerneregelen (matriseform) — $G'$ til venstre, evaluert i $F(a)$.\n\n$$\\frac{\\partial h}{\\partial x_j}=\\sum_i\\frac{\\partial g}{\\partial y_i}\\frac{\\partial F_i}{\\partial x_j}$$\nKjerneregelen (komponentform) — samme regel ledd for ledd.\n\n$$T_aF(x)=F(a)+F'(a)(x-a)$$\nLinearisering på vektorform (beste affine tilnærming nær $a$).\n\n$$\\det F'(a)\\ne0\\ \\Rightarrow\\ F\\text{ lokalt inverterbar nær }a$$\nJacobideterminanten som varsel om lokal inverterbarhet (regulært punkt).\n\n**$C^1\\Rightarrow$ deriverbar:** kontinuerlige partiellderiverte medfører deriverbarhet, med $F'(a)$ som den deriverte."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

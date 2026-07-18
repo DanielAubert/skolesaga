@@ -1,0 +1,351 @@
+{
+  "id": "mat1110-5-5",
+  "courseId": "mat1110",
+  "chapterNumber": "5.5",
+  "title": "Stokes' teorem og curl",
+  "description": "∮ F·dr = ∬ curl F·n dS — den nyeste sjangeren (konte 2025): regn curl F, gjenkjenn et alt utregnet felt, og la randbidrag som forsvinner falle bort.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne curl til et vektorfelt og bruke Stokes' teorem",
+    "koble randkurvens orientering til normalen med høyrehåndsregelen",
+    "gjenkjenne curl som et alt utregnet felt og la randbidrag der F=0 falle bort",
+    "se Greens teorem som et spesialtilfelle av Stokes i planet"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Stokes' teorem** (sjanger **M**) er den **aller nyeste** sjangeren i pensum. Den har **0 forekomster** i de 20 ordinære settene, men dukket opp på **konte-eksamen V2025 (1 av 3 sett)** — så den er innenfor det nye regimet, om enn på tynnere grunnlag enn Gauss. Vurdér den slik: **den lave rå-frekvensen betyr ikke at den er trygg å hoppe over**, for V2025-regimet veier tyngst mot V2026, men den er *mindre* etablert enn fluks/Gauss (som traff 3/3). Prioritet: **kunne** (behersk metoden, men den er ikke det aller viktigste). Offisiell fasit finnes (V2025 konte).\n\n- **Fasitens grep:** regn $\\operatorname{curl}\\mathbf F$, **gjenkjenn at det er lik et alt utregnet vektorfelt**, og bruk at bidraget fra deler av randkurven **forsvinner** der $\\mathbf F=\\mathbf 0$.\n- **Orientering (høyrehåndsregel):** normalen $\\mathbf n$ og randkurvens retning $C$ henger sammen — krøll høyre hånds fingre langs $C$, så peker tommelen langs $\\mathbf n$.\n- **Rød tråd:** Greens teorem er Stokes i planet; konservativt felt $\\Rightarrow\\operatorname{curl}\\mathbf F=\\mathbf 0$.\n\n**Viktig forbehold:** V2022-formelsamlingen inneholder **ikke** Stokes' teorem — du må kunne det **utenat**."
+    },
+    {
+      "id": "mat1110-5-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bygger på divergensteoremet og fluks fra **[kap. 5.4](/bok/mat1110/mat1110-5-4)** (Stokes er den andre store integralsatsen) og linjeintegral fra **[kap. 5.2](/bok/mat1110/mat1110-5-2)** (venstre side av Stokes er et linjeintegral). Kryssproduktet fra **[kap. 5.1](/bok/mat1110/mat1110-5-1)** brukes i $\\operatorname{curl}$.\n\n**Sist du var her.** Linjeintegral: $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\int_a^b\\mathbf F(\\mathbf r(t))\\cdot\\mathbf r'(t)\\,dt$. Fluks: $\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=\\iint_R\\mathbf F(\\boldsymbol{\\phi})\\cdot(\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v)\\,du\\,dv$. Greens teorem (kap. 5.2): $\\oint_C P\\,dx+Q\\,dy=\\iint_A(\\partial_x Q-\\partial_y P)\\,dA$ — som vi nå ser er Stokes i planet."
+    },
+    {
+      "id": "mat1110-5-5-motiv",
+      "type": "text",
+      "content": "Der divergensteoremet knytter et *volum*integral til fluks gjennom en lukket flate, knytter **Stokes' teorem** et *flate*integral til et linjeintegral rundt flatens rand. Det lar deg bytte et vanskelig linjeintegral rundt en kurve mot et fluksintegral av **curl** gjennom en flate den spenner opp — eller omvendt.\n\n**Curl** $\\operatorname{curl}\\mathbf F$ måler feltets lokale «virvling» (rotasjon). Det virkelig nyttige på eksamen er å regne $\\operatorname{curl}\\mathbf F$ og **kjenne igjen** at det er et felt du allerede har fluksen til — da er linjeintegralet gratis. Vi går i to løkker: (1) curl og Stokes' teorem, (2) gjenkjenningsgrepet og randbidrag som forsvinner."
+    },
+    {
+      "id": "mat1110-5-5-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Curl og Stokes' teorem (~22 min)"
+    },
+    {
+      "id": "mat1110-5-5-def-curl",
+      "type": "definition",
+      "title": "Curl (virvling)",
+      "content": "**Curl** til $\\mathbf F=(F_1,F_2,F_3)$ er vektorfeltet\n$$\\operatorname{curl}\\mathbf F=\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\ F_1&F_2&F_3\\end{vmatrix}=\\Big(\\frac{\\partial F_3}{\\partial y}-\\frac{\\partial F_2}{\\partial z},\\;\\frac{\\partial F_1}{\\partial z}-\\frac{\\partial F_3}{\\partial x},\\;\\frac{\\partial F_2}{\\partial x}-\\frac{\\partial F_1}{\\partial y}\\Big).$$\nDet måler feltets lokale rotasjon: peker curl langs en akse, virvler feltet rundt den aksen. Regnes greiest som en $3\\times3$-determinant."
+    },
+    {
+      "id": "mat1110-5-5-th-stokes",
+      "type": "theorem",
+      "title": "Stokes' teorem",
+      "content": "La $S$ være en orientert flate med enhetsnormal $\\mathbf n$ og positivt orientert randkurve $C=\\partial S$ (høyrehåndsregelen). For et $C^1$-felt $\\mathbf F$:\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS.$$\nSirkulasjonen av $\\mathbf F$ rundt randen er lik fluksen av $\\operatorname{curl}\\mathbf F$ gjennom flaten. (Formelsamlingens V2022-utgave mangler dette — kunn det utenat.)"
+    },
+    {
+      "id": "mat1110-5-5-def-hoyrehand",
+      "type": "definition",
+      "title": "Høyrehåndsregelen (orientering)",
+      "content": "Normalen $\\mathbf n$ og randens gjennomløpsretning $C$ må henge sammen: krøll høyre hånds fingre i kurvens retning, så peker **tommelen** langs $\\mathbf n$. For en flate i $xy$-planet med oppadrettet normal $\\mathbf n=\\mathbf k$ betyr det at randen gjennomløpes **mot klokka** sett ovenfra. Feil kobling gir feil fortegn."
+    },
+    {
+      "id": "mat1110-5-5-ex-curl",
+      "type": "example",
+      "title": "Eksempel 1: Stokes på en disk i planet",
+      "problem": "La $\\mathbf F=(-y,\\,x,\\,z)$ og $C$ være enhetssirkelen $x^2+y^2=1$ i planet $z=0$, orientert mot klokka sett ovenfra. Bruk Stokes' teorem til å regne $\\oint_C\\mathbf F\\cdot d\\mathbf r$.",
+      "solution": "**Curl:**\n$$\\operatorname{curl}\\mathbf F=\\Big(\\partial_y z-\\partial_z x,\\;\\partial_z(-y)-\\partial_x z,\\;\\partial_x x-\\partial_y(-y)\\Big)=(0-0,\\;0-0,\\;1-(-1))=(0,0,2).$$\n\n**Velg flaten** $S$ = disken $x^2+y^2\\le1$ i $z=0$, med oppadrettet normal $\\mathbf n=\\mathbf k$ (høyrehåndsregelen: mot klokka $\\leftrightarrow$ oppover — stemmer med orienteringen).\n\n**Fluks av curl:** $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=(0,0,2)\\cdot(0,0,1)=2$ (konstant). Ved den geometriske snarveien (plan flate, konstant integrand):\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S 2\\,dS=2\\cdot\\text{Areal}(S)=2\\cdot\\pi\\cdot1^2=2\\pi.$$\n\n**Kontroll (direkte):** $\\mathbf r(t)=(\\cos t,\\sin t,0)$, $\\mathbf F=(-\\sin t,\\cos t,0)$, $\\mathbf r'=(-\\sin t,\\cos t,0)$, $\\mathbf F\\cdot\\mathbf r'=\\sin^2t+\\cos^2t=1$, $\\int_0^{2\\pi}1\\,dt=2\\pi$. Stemmer. **Svar:** $2\\pi$."
+    },
+    {
+      "id": "mat1110-5-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — curl.) Regn $\\operatorname{curl}\\mathbf F$ for **a)** $\\mathbf F=(z,x,y)$ og **b)** $\\mathbf F=(x,y,z)$.",
+        "solution": "**a)** $\\operatorname{curl}\\mathbf F=(\\partial_y y-\\partial_z x,\\;\\partial_z z-\\partial_x y,\\;\\partial_x x-\\partial_y z)=(1-0,\\;1-0,\\;1-0)=(1,1,1).$\n\n**b)** $\\operatorname{curl}\\mathbf F=(\\partial_y z-\\partial_z y,\\;\\partial_z x-\\partial_x z,\\;\\partial_x y-\\partial_y x)=(0,0,0)=\\mathbf 0.$ (Feltet er konservativt — curl er null.)",
+        "hints": [
+          "Bruk determinantformen med $\\mathbf i,\\mathbf j,\\mathbf k$ i øverste rad.",
+          "I b) avhenger hver komponent bare av sin egen variabel — curl blir null."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Stokes på en disk.) La $\\mathbf F=(-3y,\\,3x,\\,z^2)$ og $C$ være sirkelen $x^2+y^2=4$ i planet $z=0$, mot klokka sett ovenfra. Regn $\\oint_C\\mathbf F\\cdot d\\mathbf r$ med Stokes.",
+        "solution": "**Curl:** $\\operatorname{curl}\\mathbf F=(\\partial_y(z^2)-\\partial_z(3x),\\;\\partial_z(-3y)-\\partial_x(z^2),\\;\\partial_x(3x)-\\partial_y(-3y))=(0,0,3+3)=(0,0,6).$\n\nVelg $S$ = disken $x^2+y^2\\le4$, $z=0$, oppadrettet $\\mathbf n=\\mathbf k$ (høyrehåndsregel stemmer med mot-klokka). Fluks av curl:\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S 6\\,dS=6\\cdot\\text{Areal}=6\\cdot\\pi\\cdot2^2=24\\pi.$$\n**Svar:** $24\\pi$.",
+        "hints": [
+          "Regn $\\operatorname{curl}\\mathbf F$; bare $z$-komponenten trengs når $\\mathbf n=\\mathbf k$.",
+          "Disken har areal $\\pi\\cdot2^2$; fluks $=6\\cdot$ areal."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Gjenkjenn curl-feltet, la randbidrag forsvinne (~18 min)"
+    },
+    {
+      "id": "mat1110-5-5-def-gjenkjenn",
+      "type": "definition",
+      "title": "Gjenkjenn curl som et alt utregnet felt",
+      "content": "Regimets hovedgrep: regn $\\operatorname{curl}\\mathbf F$, og **kjenn igjen** at det er lik et vektorfelt $\\mathbf G$ du allerede har fluksen til gjennom flaten $S$. Da er $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\mathbf G\\cdot\\mathbf n\\,dS$ — et fluksintegral du har regnet i et tidligere delpunkt. Delpunkt-kjeding satt i system."
+    },
+    {
+      "id": "mat1110-5-5-def-randbidrag",
+      "type": "definition",
+      "title": "Randbidrag som forsvinner",
+      "content": "Er randkurven $C$ satt sammen av flere linjestykker, og $\\mathbf F=\\mathbf 0$ på noen av dem, faller bidraget fra de stykkene bort: $\\int_{\\text{stykke}}\\mathbf F\\cdot d\\mathbf r=0$ der $\\mathbf F=\\mathbf 0$. Da bidrar bare de stykkene der $\\mathbf F\\ne\\mathbf 0$ — ofte bare ett. Sjekk feltet på hvert randstykke."
+    },
+    {
+      "id": "mat1110-5-5-def-konservativ-curl",
+      "type": "definition",
+      "title": "Konservativt felt har curl null",
+      "content": "Er $\\mathbf F$ konservativt ($\\mathbf F=\\nabla\\varphi$), er $\\operatorname{curl}\\mathbf F=\\operatorname{curl}(\\nabla\\varphi)=\\mathbf 0$ overalt. Da gir Stokes $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\mathbf 0\\cdot\\mathbf n\\,dS=0$ rundt enhver lukket kurve — samme konklusjon som fundamentalteoremet i kap. 5.2."
+    },
+    {
+      "id": "mat1110-5-5-ex-gjenkjenn",
+      "type": "example",
+      "title": "Eksempel 2: Stokes ved gjenkjenning av curl-feltet",
+      "problem": "La $\\mathbf F=(z,\\,x,\\,y)$ og $S$ være øvre halvkuleflate $x^2+y^2+z^2=1$, $z\\ge0$, med utadrettet (oppadrettet) normal, og rand $C$ = ekvatorsirkelen $x^2+y^2=1$, $z=0$. Bruk Stokes til å regne $\\oint_C\\mathbf F\\cdot d\\mathbf r$.",
+      "solution": "**Curl:** $\\operatorname{curl}\\mathbf F=(\\partial_y y-\\partial_z x,\\;\\partial_z z-\\partial_x y,\\;\\partial_x x-\\partial_y z)=(1,1,1)$ (konstant).\n\n**Nøkkelobservasjon:** Ved Stokes er $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S(1,1,1)\\cdot\\mathbf n\\,dS$. Men fluksen av det konstante feltet $(1,1,1)$ gjennom halvkuleflaten er lettest å regne over den **flate** randkurven-flaten (disken $x^2+y^2\\le1$, $z=0$) — for Stokes gir samme svar for enhver flate med samme rand $C$.\n\n**Velg disken** $S'$: $x^2+y^2\\le1$, $z=0$, oppadrettet $\\mathbf n=\\mathbf k$. Da $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=(1,1,1)\\cdot(0,0,1)=1$, og\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_{S'}1\\,dS=1\\cdot\\text{Areal}=\\pi\\cdot1^2=\\pi.$$\n\n**Kontroll (direkte over ekvator):** $\\mathbf r(t)=(\\cos t,\\sin t,0)$, $\\mathbf F=(z,x,y)=(0,\\cos t,\\sin t)$, $\\mathbf r'=(-\\sin t,\\cos t,0)$, $\\mathbf F\\cdot\\mathbf r'=0\\cdot(-\\sin t)+\\cos t\\cdot\\cos t+\\sin t\\cdot0=\\cos^2t$, $\\int_0^{2\\pi}\\cos^2t\\,dt=\\pi$. Stemmer. **Svar:** $\\pi$. Poenget: vi byttet den krumme halvkulen mot den flate disken med samme rand — Stokes tillater det."
+    },
+    {
+      "id": "mat1110-5-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Randbidrag som forsvinner.) La $\\mathbf F=(y,\\,-x,\\,0)$ og $C$ være randen (mot klokka sett ovenfra) av kvadratet $0\\le x\\le2$, $0\\le y\\le2$ i planet $z=0$. Bruk Stokes til å regne $\\oint_C\\mathbf F\\cdot d\\mathbf r$.",
+        "solution": "**Curl:** $\\operatorname{curl}\\mathbf F=(\\partial_y 0-\\partial_z(-x),\\;\\partial_z y-\\partial_x 0,\\;\\partial_x(-x)-\\partial_y y)=(0,0,-1-1)=(0,0,-2).$\n\nFlaten $S$ = kvadratet, $z=0$, oppadrettet $\\mathbf n=\\mathbf k$. Fluks av curl:\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S(0,0,-2)\\cdot(0,0,1)\\,dS=\\iint_S(-2)\\,dS=-2\\cdot\\text{Areal}=-2\\cdot(2\\cdot2)=-8.$$\n**Svar:** $-8$. (Det negative fortegnet stemmer: feltet $(y,-x)$ virvler *med* klokka, mot orienteringen.)",
+        "hints": [
+          "Regn $\\operatorname{curl}\\mathbf F$; $z$-komponenten er $-2$.",
+          "Kvadratets areal er $4$; fluks $=-2\\cdot4$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Gjenkjenning + kontroll.) La $\\mathbf F=(2y,\\,3z,\\,x)$ og $S$ være disken $x^2+y^2\\le1$ i planet $z=0$, oppadrettet normal, med rand $C$ mot klokka. **a)** Regn $\\operatorname{curl}\\mathbf F$. **b)** Bruk Stokes til å finne $\\oint_C\\mathbf F\\cdot d\\mathbf r$.",
+        "solution": "**a)** $\\operatorname{curl}\\mathbf F=(\\partial_y x-\\partial_z(3z),\\;\\partial_z(2y)-\\partial_x x,\\;\\partial_x(3z)-\\partial_y(2y))=(0-3,\\;0-1,\\;0-2)=(-3,-1,-2).$\n\n**b)** Med oppadrettet $\\mathbf n=\\mathbf k$ er $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=(-3,-1,-2)\\cdot(0,0,1)=-2$ (konstant). Ved Stokes:\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S(-2)\\,dS=-2\\cdot\\text{Areal}=-2\\cdot\\pi\\cdot1^2=-2\\pi.$$\n**Svar:** (a) $(-3,-1,-2)$, (b) $-2\\pi$. Bare $z$-komponenten av curl teller når normalen er $\\mathbf k$ — de to andre komponentene bidrar ikke til fluksen gjennom en vannrett disk.",
+        "hints": [
+          "Regn curl som determinant.",
+          "Med $\\mathbf n=\\mathbf k$ trenger du bare $z$-komponenten av curl.",
+          "Fluks $=(\\operatorname{curl}\\mathbf F)_z\\cdot$ areal."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil orientering.** $\\mathbf n$ og randens retning $C$ må kobles med høyrehåndsregelen. For en vannrett flate med $\\mathbf n=\\mathbf k$ er randen mot klokka; feil kobling gir feil fortegn.\n- **Regnefeil i $\\operatorname{curl}\\mathbf F$.** Bruk determinantformen konsekvent; det er lett å bytte om ledd. Sjekk: et konservativt felt (som $(x,y,z)$) skal gi $\\operatorname{curl}=\\mathbf 0$.\n- **Ikke gjenkjenne curl-feltet.** Regner du curl og ser at det er et felt du alt har fluksen til, er linjeintegralet gratis — ikke start på nytt.\n- **Glemme at randbidrag forsvinner.** Der $\\mathbf F=\\mathbf 0$ på et randstykke, bidrar det stykket ingenting. Sjekk feltet på hvert stykke.\n- **Bruke feil flate.** Stokes gir samme svar for enhver flate med samme rand $C$ — velg den enkleste (ofte en flat disk i stedet for en krum kuppel)."
+    },
+    {
+      "id": "mat1110-5-5-pulje",
+      "type": "text",
+      "content": "## Blandede eksamensoppgaver"
+    },
+    {
+      "id": "mat1110-5-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Gjengivelse.) Skriv opp Stokes' teorem og forklar høyrehåndsregelen med én setning.",
+        "solution": "Stokes' teorem: $\\displaystyle\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS$ for en orientert flate $S$ med rand $C=\\partial S$. Høyrehåndsregelen: krøller du høyre hånds fingre i randkurvens retning, peker tommelen langs normalen $\\mathbf n$ — det er den koblingen mellom orientering av $C$ og $S$ teoremet krever.",
+        "hints": [
+          "Venstre side er et linjeintegral, høyre side fluks av curl.",
+          "Fingre langs $C$, tommel langs $\\mathbf n$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Green som spesialtilfelle av Stokes.) Vis at Greens teorem $\\oint_C P\\,dx+Q\\,dy=\\iint_A(\\partial_x Q-\\partial_y P)\\,dA$ følger av Stokes for et plant felt $\\mathbf F=(P,Q,0)$ i $xy$-planet.",
+        "solution": "Ta $\\mathbf F=(P(x,y),\\,Q(x,y),\\,0)$ og la $S=A$ være et område i $xy$-planet med oppadrettet normal $\\mathbf n=\\mathbf k$. **Curl:**\n$$\\operatorname{curl}\\mathbf F=(\\partial_y 0-\\partial_z Q,\\;\\partial_z P-\\partial_x 0,\\;\\partial_x Q-\\partial_y P)=(0,\\,0,\\,\\partial_x Q-\\partial_y P),$$\nsiden $P,Q$ ikke avhenger av $z$. Da er $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=(\\partial_x Q-\\partial_y P)$. Stokes gir\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_A(\\partial_x Q-\\partial_y P)\\,dA.$$\nVenstre side er $\\oint_C P\\,dx+Q\\,dy$ (siden $z$-komponenten er null), så vi har nettopp **Greens teorem**. Green er altså Stokes anvendt på en flat flate i planet.",
+        "hints": [
+          "Sett $\\mathbf F=(P,Q,0)$ og regn curl; bare $z$-komponenten overlever.",
+          "Med $\\mathbf n=\\mathbf k$ blir høyre side dobbeltintegralet i Green."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Curl null.) La $\\mathbf F=(2x,\\,2y,\\,2z)$. **a)** Regn $\\operatorname{curl}\\mathbf F$. **b)** Hva er $\\oint_C\\mathbf F\\cdot d\\mathbf r$ rundt enhver lukket kurve? Begrunn med Stokes.",
+        "solution": "**a)** $\\operatorname{curl}\\mathbf F=(\\partial_y(2z)-\\partial_z(2y),\\;\\partial_z(2x)-\\partial_x(2z),\\;\\partial_x(2y)-\\partial_y(2x))=(0,0,0)=\\mathbf 0.$\n\n**b)** Siden $\\operatorname{curl}\\mathbf F=\\mathbf 0$, gir Stokes $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\mathbf 0\\cdot\\mathbf n\\,dS=0$ for enhver flate $S$ med rand $C$ — altså **null** rundt enhver lukket kurve. (Feltet er konservativt med potensial $\\varphi=x^2+y^2+z^2$.)",
+        "hints": [
+          "Regn curl; feltet er en gradient.",
+          "Curl null $\\Rightarrow$ fluks av curl er null $\\Rightarrow$ sirkulasjon null."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-5-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-5-5-bb-curl-tolkning",
+      "type": "definition",
+      "title": "Curl som rotasjon",
+      "content": "$\\operatorname{curl}\\mathbf F$ i et punkt peker langs rotasjonsaksen til feltets lokale virvling, med lengde proporsjonal med virvlingsstyrken. En liten «padleåre» plassert i feltet ville rotere raskest om denne aksen. Er curl null, er feltet **virvelfritt**."
+    },
+    {
+      "id": "mat1110-5-5-bb-sirkulasjon-stokes",
+      "type": "definition",
+      "title": "Sirkulasjon = fluks av curl",
+      "content": "Stokes tolkes slik: sirkulasjonen av $\\mathbf F$ langs randen $C$ (venstre side) er lik den totale virvlingen ($\\operatorname{curl}\\mathbf F$) som «passerer gjennom» flaten $S$ (høyre side). Virvlingen inni summeres til netto sirkulasjon langs kanten."
+    },
+    {
+      "id": "mat1110-5-5-bb-flateuavhengig",
+      "type": "definition",
+      "title": "Flateuavhengighet",
+      "content": "Stokes gir **samme** verdi for enhver flate $S$ med samme randkurve $C$ (så lenge $\\mathbf F$ er glatt på alle). Derfor kan du bytte en krum flate (kuppel) mot den enkleste flate disken med samme rand — et sentralt regnegrep."
+    },
+    {
+      "id": "mat1110-5-5-bb-green-spesialtilfelle",
+      "type": "definition",
+      "title": "Green som spesialtilfelle",
+      "content": "Greens teorem er Stokes anvendt på et plant felt $\\mathbf F=(P,Q,0)$ over en flate i $xy$-planet med $\\mathbf n=\\mathbf k$: da er $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=\\partial_x Q-\\partial_y P$, og Stokes reduseres til Green. Samme idé, én dimensjon lavere."
+    },
+    {
+      "id": "mat1110-5-5-bb-curl-determinant",
+      "type": "definition",
+      "title": "Curl som determinant",
+      "content": "Regn $\\operatorname{curl}\\mathbf F$ som $3\\times3$-determinanten med $\\mathbf i,\\mathbf j,\\mathbf k$ i øverste rad, $\\partial_x,\\partial_y,\\partial_z$ i midten og $F_1,F_2,F_3$ nederst. Dette gir automatisk riktig rekkefølge på de seks leddene og reduserer fortegnsfeil."
+    },
+    {
+      "id": "mat1110-5-5-bb-to-integralsatser",
+      "type": "definition",
+      "title": "De to store integralsatsene",
+      "content": "Divergensteoremet (kap. 5.4) og Stokes' teorem er vektoranalysens to store satser. Begge generaliserer analysens fundamentalteorem: **divergens** knytter volum til lukket flate, **Stokes** knytter flate til randkurve. Green er 2D-versjonen av begge."
+    },
+    {
+      "id": "mat1110-5-5-bb-virvelfritt",
+      "type": "definition",
+      "title": "Virvelfritt felt",
+      "content": "Et felt med $\\operatorname{curl}\\mathbf F=\\mathbf 0$ overalt er **virvelfritt**. På et enkeltsammenhengende område er dette ekvivalent med at feltet er konservativt (har et potensial), og da er all sirkulasjon null. Curl-testen er 3D-versjonen av $\\partial_y P=\\partial_x Q$ fra kap. 5.2."
+    },
+    {
+      "id": "mat1110-5-5-bb-randbidrag-kort",
+      "type": "definition",
+      "title": "Randstykker med $\\mathbf F=\\mathbf 0$",
+      "content": "Når randkurven består av flere linjestykker, sjekk feltet på hvert: der $\\mathbf F=\\mathbf 0$, er $\\int\\mathbf F\\cdot d\\mathbf r=0$ og stykket faller bort. Ofte gjenstår bare ett bidragende stykke — dette er konte-V2025-grepet."
+    },
+    {
+      "id": "mat1110-5-5-bb-formelsamling-stokes",
+      "type": "definition",
+      "title": "Stokes mangler i formelsamlingen",
+      "content": "V2022-formelsamlingen inneholder **ikke** Stokes' teorem (og heller ikke divergensteoremet). Begge må kunnes **utenat**. Sammen med orienteringsregelen (høyrehåndsregelen) er dette det du må ha klart før eksamen."
+    },
+    {
+      "id": "mat1110-5-5-bb-vannrett-disk",
+      "type": "definition",
+      "title": "Vannrett flate: bare $z$-komponenten av curl teller",
+      "content": "Er flaten en vannrett disk med $\\mathbf n=\\mathbf k$, er $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n$ bare **$z$-komponenten** av curl. De to andre komponentene bidrar ikke — så du trenger ofte ikke regne dem. Fluksen blir $(\\operatorname{curl}\\mathbf F)_z\\cdot\\text{areal}$ når den er konstant."
+    },
+    {
+      "id": "mat1110-5-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-5-5-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-5-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.2) Regn $\\oint_C\\mathbf F\\cdot d\\mathbf r$ direkte for $\\mathbf F=(-y,x,0)$ langs enhetssirkelen $\\mathbf r(t)=(\\cos t,\\sin t,0)$, $0\\le t\\le2\\pi$.",
+            "solution": "$\\mathbf F=(-\\sin t,\\cos t,0)$, $\\mathbf r'=(-\\sin t,\\cos t,0)$, $\\mathbf F\\cdot\\mathbf r'=\\sin^2t+\\cos^2t=1$. $\\oint_C=\\int_0^{2\\pi}1\\,dt=2\\pi$.",
+            "hints": [
+              "Sett inn parametriseringen og regn $\\mathbf F\\cdot\\mathbf r'$.",
+              "Integranden forenkler til $1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-5-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-5-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.3) Regn fluksen av $\\mathbf F=(0,0,2)$ gjennom disken $x^2+y^2\\le1$, $z=0$, oppadrettet, med snarveien.",
+            "solution": "Plan disk, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=2$, areal $=\\pi$. Fluks $=2\\cdot\\pi=2\\pi$.",
+            "hints": [
+              "$\\mathbf F\\cdot\\mathbf k=2$.",
+              "Fluks $=2\\cdot$ areal."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-5-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-5-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.1) Regn kryssproduktet $(\\partial_x,\\partial_y,\\partial_z)\\times(F_1,F_2,F_3)$ symbolsk for $\\mathbf F=(y,0,0)$, altså $\\operatorname{curl}\\mathbf F$.",
+            "solution": "$\\operatorname{curl}\\mathbf F=(\\partial_y 0-\\partial_z 0,\\;\\partial_z y-\\partial_x 0,\\;\\partial_x 0-\\partial_y y)=(0,0,-1).$ Feltet $(y,0,0)$ har konstant virvling $-1$ om $z$-aksen.",
+            "hints": [
+              "Bruk determinantformen.",
+              "Bare $z$-komponenten blir forskjellig fra null."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-5-sym",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-5-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{curl}\\mathbf F$ | Curl (virvling), $=\\nabla\\times\\mathbf F$ |\n| $\\nabla\\times\\mathbf F$ | Samme som curl (kryssprodukt med nabla) |\n| $S$ | Orientert flate |\n| $C=\\partial S$ | Randkurven til $S$ |\n| $\\mathbf n$ | Enhetsnormal på $S$ |\n| $\\oint_C\\mathbf F\\cdot d\\mathbf r$ | Sirkulasjon (linjeintegral rundt $C$) |\n\n**Formler i dette delkapitlet:**\n\n$$\\operatorname{curl}\\mathbf F=\\nabla\\times\\mathbf F=\\Big(\\partial_y F_3-\\partial_z F_2,\\;\\partial_z F_1-\\partial_x F_3,\\;\\partial_x F_2-\\partial_y F_1\\Big)$$\nCurl av et vektorfelt (determinantform).\n\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS$$\nStokes' teorem (høyrehåndsregelen kobler $C$ og $\\mathbf n$).\n\n$$\\mathbf F=\\nabla\\varphi\\;\\Rightarrow\\;\\operatorname{curl}\\mathbf F=\\mathbf 0$$\nKonservativt felt er virvelfritt (kobling til kap. 5.2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,404 @@
+{
+  "id": "mat1110-3-2",
+  "courseId": "mat1110",
+  "chapterNumber": "3.2",
+  "title": "Lagrange, ∇g = 0-sjekk og ekstremalverdisetningen",
+  "description": "Betinget optimering med Lagranges metode: sjekk ∇g = 0-tilfellet, del i tilfeller, evaluer alle kandidater, og begrunn eksistens med ekstremalverdisetningen på en kompakt mengde.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp og løse Lagranges betingelse ∇f = λ∇g med bibetingelse, inkludert ∇g = 0-sjekken",
+    "dele i tilfeller for å finne alle kandidatpunkter og evaluere f i hver",
+    "begrunne eksistens av min/maks med ekstremalverdisetningen på en eksplisitt kompakt mengde, og vurdere når begrunnelse ikke kreves"
+  ],
+  "content": [
+    {
+      "id": "mat1110-3-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Betinget optimering med Lagranges metode er en stigende sjanger — og den var med i alle tre V2025-settene.**\n\n- **Sjanger F** — «Lagrange / betinget optimering» — er i **12 av 20 arkiverte sett (60 %)**, og **3/3 i V2025**. Den kommer typisk som O2 eller O3, ofte rett etter fri optimering (kap. 3.1).\n- Tre føringsgrep skiller full uttelling fra halv. (1) **$\\nabla g = 0$-sjekken**: undersøk om det finnes punkter på bibetingelsen der $\\nabla g = 0$ — de er ekstra kandidater Lagrange-likningene kan overse. (2) **Evaluer $f$ i alle kandidater** før du konkluderer — min/maks leses av til slutt. (3) **Eksistens** begrunnes med **ekstremalverdisetningen** på en eksplisitt kompakt (lukket + begrenset) mengde.\n- Fasiten sier også ærlig **når eksistensbegrunnelse ikke kreves** — les oppgaveteksten, så du ikke bruker dyr tid på noe som ikke gir poeng. Offisiell fasit finnes for alle tre V2025-settene.\n\n**Prioritet: høyeste.** Målet er at du fører Lagrange fullstendig: $\\nabla g = 0$-sjekk, tilfelledeling, alle kandidater evaluert, eksistens begrunnet der det trengs."
+    },
+    {
+      "id": "mat1110-3-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på gradienten fra [kap. 2.1](/bok/mat1110/mat1110-2-1) og på fri optimering fra [kap. 3.1](/bok/mat1110/mat1110-3-1): Lagrange er verktøyet for ekstremum *med en bibetingelse*, mens 3.1 dekker det frie tilfellet. Formelsamlingen gir Lagranges multiplikatormetode.\n\n**Sist du var her (fra [kap. 2.1](/bok/mat1110/mat1110-2-1)):** gradienten $\\nabla g$ står alltid **normalt på nivåkurven** $g = c$. Det er hele den geometriske grunnen til Lagranges metode — når $\\nabla f$ og $\\nabla g$ er parallelle, kan ikke $f$ vokse videre langs bibetingelsen."
+    },
+    {
+      "id": "mat1110-3-2-motiv",
+      "type": "text",
+      "content": "Ofte vil vi ikke ha det største av $f$ over *alt*, men det største under en **bibetingelse** — den korteste avstanden fra et punkt til en kurve, den billigste produksjonen på en gitt budsjettlinje, den varmeste temperaturen langs en sirkel. Da kan vi ikke bare sette $\\nabla f = 0$, for det stasjonære punktet ligger vanligvis ikke på bibetingelsen.\n\nLagranges metode løser dette elegant: i et betinget ekstremum må gradienten $\\nabla f$ peke i samme retning som normalen $\\nabla g$ til bibetingelsen — ellers kunne vi flyttet oss langs kurven og økt $f$. Vi lærer metoden i tre løkker: (1) Lagranges betingelse og hvordan man løser likningene, (2) $\\nabla g = 0$-sjekken og tilfelledeling som fanger *alle* kandidater, og (3) eksistensbegrunnelse med ekstremalverdisetningen. Hver løkke går **teori → eksempel → oppgave**."
+    },
+    {
+      "id": "mat1110-3-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Lagranges betingelse (~18 min)"
+    },
+    {
+      "id": "mat1110-3-2-def-bibet",
+      "type": "definition",
+      "title": "Bibetingelse (bånd)",
+      "content": "Likningen $g(x,y) = c$ som løsningene må ligge på — den «bånd­legger» hvilke punkter som er lov. Å optimere $f$ *under* bibetingelsen $g = c$ betyr å finne det største og minste $f$ tar når $(x,y)$ bare får bevege seg langs kurven (eller flaten) $g = c$. Bibetingelsen er ofte en sirkel, en ellipse, et plan eller en kuleflate."
+    },
+    {
+      "id": "mat1110-3-2-def-lagbet",
+      "type": "definition",
+      "title": "Lagranges betingelse",
+      "content": "Kravet som må gjelde i et betinget ekstremum der $\\nabla g \\ne 0$: gradienten til $f$ er et multiplum av gradienten til $g$,\n\n$$\\nabla f = \\lambda \\nabla g,$$\n\nsammen med selve bibetingelsen $g = c$. Geometrisk betyr det at nivåkurvene til $f$ og $g$ **tangerer** hverandre i ekstremalpunktet. Dette gir et likningssystem: én likning per variabel pluss bibetingelsen."
+    },
+    {
+      "id": "mat1110-3-2-def-mult",
+      "type": "definition",
+      "title": "Lagrangemultiplikatoren $\\lambda$",
+      "content": "Proporsjonalitetsfaktoren i $\\nabla f = \\lambda\\nabla g$. Den er en hjelpestørrelse vi som regel **eliminerer** underveis for å finne kandidatpunktene — men den har også en tolkning: $\\lambda$ måler hvor mye den optimale $f$-verdien ville endret seg om vi flyttet bibetingelsen litt ($c \\to c + \\Delta c$). I de fleste eksamensoppgaver er det punktene og $f$-verdiene som etterspørres, ikke $\\lambda$ selv."
+    },
+    {
+      "id": "mat1110-3-2-def-normal",
+      "type": "definition",
+      "title": "Gradienten er normal til nivåkurven",
+      "content": "Den geometriske kjensgjerningen Lagrange hviler på: $\\nabla g(a,b)$ står vinkelrett på nivåkurven $g = c$ gjennom punktet. Derfor, hvis $\\nabla f$ *ikke* er parallell med $\\nabla g$, har $\\nabla f$ en komponent langs kurven, og vi kan bevege oss langs bibetingelsen og øke (eller minke) $f$ — da er vi ikke i et ekstremum. Ekstremum krever altså at $\\nabla f \\parallel \\nabla g$."
+    },
+    {
+      "id": "mat1110-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Lagrange på en sirkel",
+      "problem": "Finn største og minste verdi av $f(x,y) = xy$ på sirkelen $x^2 + y^2 = 8$, og begrunn at ekstremalverdiene antas.",
+      "solution": "Her er $g(x,y) = x^2 + y^2$ og $c = 8$. Sirkelen er **lukket og begrenset**, altså kompakt, og $f$ er kontinuerlig — så ifølge **ekstremalverdisetningen** antar $f$ både største og minste verdi på den. Eksistensen er dermed sikret.\n\n**$\\nabla g = 0$-sjekk:** $\\nabla g = (2x, 2y) = 0$ bare i origo, og $0^2 + 0^2 = 0 \\ne 8$, så origo ligger **ikke** på sirkelen. Dermed er $\\nabla g \\ne 0$ overalt på bibetingelsen, og Lagrange gjelder i alle kandidatpunkter.\n\n**Lagranges betingelse** $\\nabla f = \\lambda\\nabla g$:\n$$y = \\lambda\\cdot 2x, \\qquad x = \\lambda\\cdot 2y, \\qquad x^2 + y^2 = 8.$$\nSett den første inn i den andre: $x = 2\\lambda(2\\lambda x) = 4\\lambda^2 x$, altså $x(1 - 4\\lambda^2) = 0$. Enten $x = 0$ (da gir første likning $y = 0$, men $(0,0)$ er ikke på sirkelen — forkastes), eller $4\\lambda^2 = 1 \\Rightarrow \\lambda = \\pm\\tfrac12$.\n\n- $\\lambda = \\tfrac12$: da er $y = x$. Bibetingelsen: $2x^2 = 8 \\Rightarrow x = \\pm 2$. Punkter $(2,2)$ og $(-2,-2)$, med $f = 4$.\n- $\\lambda = -\\tfrac12$: da er $y = -x$. Bibetingelsen: $2x^2 = 8 \\Rightarrow x = \\pm 2$. Punkter $(2,-2)$ og $(-2,2)$, med $f = -4$.\n\n**Evaluer $f$ i alle kandidater:** verdiene er $4, 4, -4, -4$.\n\n**Konklusjon:** største verdi er $f = 4$ (i $(2,2)$ og $(-2,-2)$), minste verdi er $f = -4$ (i $(2,-2)$ og $(-2,2)$)."
+    },
+    {
+      "id": "mat1110-3-2-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn største og minste verdi av $f(x,y) = x + 2y$ på sirkelen $x^2 + y^2 = 5$.",
+        "solution": "$g = x^2+y^2,\\ c = 5$. Sirkelen er kompakt og $f$ kontinuerlig ⇒ ekstremalverdisetningen sikrer eksistens. $\\nabla g = (2x,2y) = 0$ bare i origo, som ikke er på sirkelen ⇒ Lagrange gjelder.\n\n$$1 = 2\\lambda x, \\quad 2 = 2\\lambda y, \\quad x^2+y^2 = 5.$$\nAltså $x = \\tfrac{1}{2\\lambda},\\ y = \\tfrac{1}{\\lambda}$, så $y = 2x$. Bibetingelsen: $x^2 + 4x^2 = 5 \\Rightarrow x^2 = 1 \\Rightarrow x = \\pm 1$. Kandidater $(1,2)$ med $f = 5$ og $(-1,-2)$ med $f = -5$.\n\n**Største verdi $5$ i $(1,2)$, minste verdi $-5$ i $(-1,-2)$.**",
+        "hints": [
+          "Sett opp $\\nabla f = \\lambda\\nabla g$: $1 = 2\\lambda x,\\ 2 = 2\\lambda y$.",
+          "Del likningene for å få $y = 2x$, sett inn i bibetingelsen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — $\\nabla g = 0$-sjekken og tilfelledeling (~20 min)"
+    },
+    {
+      "id": "mat1110-3-2-def-gradg0",
+      "type": "definition",
+      "title": "$\\nabla g = 0$-sjekken",
+      "content": "Det obligatoriske første steget: Lagranges betingelse forutsetter $\\nabla g \\ne 0$, så du må sjekke om noen punkter på bibetingelsen har $\\nabla g = 0$. To utfall: enten ligger et slikt punkt **på** bibetingelsen (da er det en **ekstra kandidat** som må evalueres direkte, siden Lagrange-likningene kan overse det), eller så ligger det **ikke** på den (da forkastes det, og Lagrange gjelder overalt). Å hoppe over denne sjekken er en typisk feil."
+    },
+    {
+      "id": "mat1110-3-2-def-singular",
+      "type": "definition",
+      "title": "Singulært punkt på bibetingelsen",
+      "content": "Et punkt på $g = c$ der $\\nabla g = 0$ — typisk en spiss (cusp) eller et selvskjæringspunkt på kurven. Der har kurven ingen entydig tangent, så Lagranges «nivåkurvene tangerer»-argument bryter sammen. Slike punkter må testes **direkte** ved å sette dem inn i $f$, fordi $\\nabla f = \\lambda\\nabla g$ ikke kan oppfylles når $\\nabla g = 0$ (med mindre også $\\nabla f = 0$)."
+    },
+    {
+      "id": "mat1110-3-2-def-tilfelle",
+      "type": "definition",
+      "title": "Tilfelledeling",
+      "content": "Teknikken for å finne **alle** løsninger av Lagrange-likningene: når et produkt må være null (f.eks. $x(y - \\lambda) = 0$), deler du i tilfeller — «$x = 0$» og «$y = \\lambda$» — og forfølger hver gren for seg. Deler du i stedet på $x$, mister du grenen $x = 0$. Hver gren kan gi egne kandidatpunkter, og du må samle dem alle før du evaluerer $f$."
+    },
+    {
+      "id": "mat1110-3-2-def-kandidat",
+      "type": "definition",
+      "title": "Kandidatpunkt",
+      "content": "Et punkt som *kan* være et betinget ekstremum, funnet enten fra Lagrange-likningene eller fra $\\nabla g = 0$-sjekken. Å finne kandidatene er bare halve jobben: du må **evaluere $f$ i hver** og sammenligne verdiene. Den største verdien blant kandidatene er maksimum, den minste er minimum (forutsatt at eksistens er sikret)."
+    },
+    {
+      "id": "mat1110-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tilfelledeling",
+      "problem": "Finn største og minste verdi av $f(x,y) = x^2 y$ på sirkelen $x^2 + y^2 = 3$.",
+      "solution": "$g = x^2+y^2,\\ c = 3$. Kompakt bibetingelse ⇒ ekstremalverdisetningen gir eksistens. $\\nabla g = (2x,2y) = 0$ bare i origo, ikke på sirkelen ⇒ Lagrange gjelder.\n\n**Lagrange:** $\\nabla f = (2xy,\\ x^2)$, så\n$$2xy = 2\\lambda x, \\qquad x^2 = 2\\lambda y, \\qquad x^2 + y^2 = 3.$$\nFørste likning: $2x(y - \\lambda) = 0$ — **tilfelledeling**:\n\n**Tilfelle A ($x = 0$):** bibetingelsen gir $y^2 = 3 \\Rightarrow y = \\pm\\sqrt3$. Kandidater $(0, \\sqrt3)$ og $(0, -\\sqrt3)$, begge med $f = 0$.\n\n**Tilfelle B ($y = \\lambda$):** sett inn i andre likning: $x^2 = 2y\\cdot y = 2y^2$. Bibetingelsen: $2y^2 + y^2 = 3 \\Rightarrow y^2 = 1 \\Rightarrow y = \\pm 1$, og $x^2 = 2$. Kandidater $(\\pm\\sqrt2, 1)$ med $f = 2\\cdot 1 = 2$, og $(\\pm\\sqrt2, -1)$ med $f = 2\\cdot(-1) = -2$.\n\n**Evaluer $f$ i alle:** $0, 0, 2, 2, -2, -2$.\n\n**Konklusjon:** største verdi $f = 2$ (i $(\\pm\\sqrt2, 1)$), minste verdi $f = -2$ (i $(\\pm\\sqrt2, -1)$). Hadde vi delt på $x$ i første likning, ville vi mistet tilfelle A."
+    },
+    {
+      "id": "mat1110-3-2-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn største og minste verdi av $f(x,y) = xy$ på ellipsen $\\tfrac{x^2}{4} + y^2 = 1$.",
+        "solution": "$g = \\tfrac{x^2}{4} + y^2,\\ c = 1$. Ellipsen er kompakt ⇒ eksistens via ekstremalverdisetningen. $\\nabla g = (\\tfrac{x}{2}, 2y) = 0$ bare i origo, ikke på ellipsen ⇒ Lagrange gjelder.\n\n$$y = \\lambda\\cdot\\tfrac{x}{2}, \\qquad x = \\lambda\\cdot 2y, \\qquad \\tfrac{x^2}{4}+y^2 = 1.$$\nSett første inn i andre: $x = 2\\lambda\\cdot\\tfrac{\\lambda x}{2} = \\lambda^2 x \\Rightarrow x(1-\\lambda^2) = 0$. Tilfelle $x=0$ gir $y=0$, ikke på ellipsen — forkastes. Så $\\lambda = \\pm 1$.\n\n- $\\lambda = 1$: $y = \\tfrac{x}{2}$, bibetingelse $\\tfrac{x^2}{4} + \\tfrac{x^2}{4} = 1 \\Rightarrow x^2 = 2,\\ x = \\pm\\sqrt2$. Punkter $(\\sqrt2, \\tfrac{\\sqrt2}{2}), (-\\sqrt2, -\\tfrac{\\sqrt2}{2})$, $f = 1$.\n- $\\lambda = -1$: $y = -\\tfrac{x}{2}$, samme $x = \\pm\\sqrt2$. Punkter med $f = -1$.\n\n**Største verdi $1$, minste verdi $-1$.**",
+        "hints": [
+          "$\\nabla g = (x/2,\\ 2y)$; sett opp $\\nabla f = \\lambda\\nabla g$.",
+          "Eliminer $\\lambda$: $x(1-\\lambda^2)=0$ gir $\\lambda=\\pm1$; sett inn i ellipselikningen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Ekstremalverdisetningen og eksistens (~18 min)"
+    },
+    {
+      "id": "mat1110-3-2-def-lukket",
+      "type": "definition",
+      "title": "Lukket mengde",
+      "content": "En mengde som inneholder hele sin egen rand — alle randpunkter er med. En sirkel $x^2+y^2 = 8$ er lukket (randen *er* mengden); en fylt skive $x^2+y^2 \\le 4$ er lukket (kanten er med); mens $x^2+y^2 < 4$ (streng ulikhet) **ikke** er lukket, fordi randsirkelen mangler. Lukkethet er den ene av de to betingelsene for kompakthet."
+    },
+    {
+      "id": "mat1110-3-2-def-begrenset",
+      "type": "definition",
+      "title": "Begrenset mengde",
+      "content": "En mengde som får plass inne i en tilstrekkelig stor sirkel — den strekker seg ikke uendelig langt i noen retning. En sirkel eller en fylt skive er begrenset; et helt plan, en linje eller en hyperbel er **ikke** begrenset. Begrensethet er den andre betingelsen for kompakthet."
+    },
+    {
+      "id": "mat1110-3-2-def-kompakt",
+      "type": "definition",
+      "title": "Kompakt mengde",
+      "content": "En mengde som er **både lukket og begrenset** samtidig. Sirkler, ellipser, fylte skiver, kuleflater og lukkede rektangler er kompakte; plan, linjer, hyperbler og åpne områder er det ikke. Kompakthet er nøyaktig det ekstremalverdisetningen krever for å garantere at en kontinuerlig funksjon antar både største og minste verdi."
+    },
+    {
+      "id": "mat1110-3-2-thm-evt",
+      "type": "theorem",
+      "title": "Ekstremalverdisetningen",
+      "content": "En **kontinuerlig** funksjon $f$ på en **kompakt** (lukket og begrenset) mengde $K$ antar både sin største og sin minste verdi et sted i $K$. Dette er eksistensgarantien: den sier *at* et maksimum og et minimum finnes, slik at det gir mening å lete etter dem blant kandidatpunktene. Uten kompakthet kan garantien svikte — på et ubegrenset område kan $f$ vokse uten grense, og da finnes ingen største verdi. Teoremet **navngis** når det bærer eksistensargumentet."
+    },
+    {
+      "id": "mat1110-3-2-def-narkreves",
+      "type": "definition",
+      "title": "Når eksistensbegrunnelse ikke kreves",
+      "content": "Noen oppgaver ber bare om å *finne* kandidatpunktene eller regner eksistensen som opplagt (f.eks. «finn punktet på sirkelen nærmest origo»). Da forventer ikke fasiten et eget kompakthetsargument, og å bruke tid på det gir ikke ekstra poeng. Regelen: begrunn eksistens når oppgaven ber om «vis at maksimum antas» eller når mengden *ikke* åpenbart er kompakt — ellers les hva teksten faktisk spør om."
+    },
+    {
+      "id": "mat1110-3-2-def-Kkonstr",
+      "type": "definition",
+      "title": "Konstruksjon av kompakt mengde $K$",
+      "content": "Grepet når bibetingelsen selv er ubegrenset (en hel linje eller kurve), men du likevel vil garantere at et minimum finnes: skjær bibetingelsen med en sublevel-mengde, $K = \\{g = c,\\ f \\le M\\}$ for en passende $M$. Er $K$ ikke-tom, lukket og begrenset, gir ekstremalverdisetningen at minimum antas i $K$ — og utenfor $K$ er $f > M$, så det globale minimumet ligger i $K$. Dette er standardtrikket når den naturlige bibetingelsen ikke er kompakt."
+    },
+    {
+      "id": "mat1110-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Når ekstremalverdisetningen ikke gjelder direkte",
+      "problem": "Finn den minste verdien av $f(x,y,z) = x^2 + y^2 + z^2$ under bibetingelsen $x + y + z = 6$. Har $f$ en største verdi under samme bibetingelse?",
+      "solution": "Bibetingelsen $g = x+y+z = 6$ er et **plan** — lukket, men **ikke begrenset**, altså ikke kompakt. Ekstremalverdisetningen gjelder derfor ikke uten videre, og vi må tenke oss om.\n\n**$\\nabla g = 0$-sjekk:** $\\nabla g = (1,1,1) \\ne 0$ overalt, så Lagrange gjelder i hele planet.\n\n**Lagrange:** $\\nabla f = (2x,2y,2z) = \\lambda(1,1,1)$ gir $x = y = z = \\tfrac{\\lambda}{2}$. Bibetingelsen: $3x = 6 \\Rightarrow x = 2$. Eneste kandidat $(2,2,2)$, med $f = 12$.\n\n**Minimum:** $f$ måler kvadrert avstand fra origo til planet, og langs planet vokser $f$ ubegrenset når vi går utover — så $(2,2,2)$ gir det **minste** $f = 12$. For å gjøre eksistensen vanntett kan vi skjære med $K = \\{x+y+z = 6,\\ f \\le 100\\}$, som er kompakt (lukket + begrenset), og som inneholder $(2,2,2)$; utenfor $K$ er $f > 100 > 12$.\n\n**Største verdi:** finnes **ikke** — $f \\to \\infty$ når $(x,y,z)$ går utover i planet. Her ville et forsøk på å oppgi et maksimum vært feil. Dette illustrerer hvorfor kompakthet betyr noe: uten den kan et ekstremum mangle."
+    },
+    {
+      "id": "mat1110-3-2-l3a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $f(x,y) = x^2 + y^2$ har en minste og/eller en største verdi under bibetingelsen $xy = 1$. Finn de(n) som finnes.",
+        "solution": "Bibetingelsen $xy = 1$ er en **hyperbel** — lukket, men ikke begrenset, altså ikke kompakt. $\\nabla g = (y, x)$; $\\nabla g = 0$ bare i origo, som ikke er på hyperbelen ($0 \\ne 1$) ⇒ Lagrange gjelder.\n\n$$2x = \\lambda y, \\qquad 2y = \\lambda x, \\qquad xy = 1.$$\nGang første med $x$ og andre med $y$: $2x^2 = \\lambda xy = \\lambda$ og $2y^2 = \\lambda xy = \\lambda$, så $x^2 = y^2$. Med $xy = 1 > 0$ har $x,y$ samme fortegn ⇒ $x = y$, og $x^2 = 1 \\Rightarrow (1,1)$ og $(-1,-1)$, begge med $f = 2$.\n\n**Minste verdi $f = 2$** (antas i $(1,1)$ og $(-1,-1)$; sikres av $K = \\{xy=1,\\ f\\le 100\\}$ kompakt). **Største verdi finnes ikke:** langs hyperbelen går $f = x^2 + y^2 \\to \\infty$ når $x \\to \\infty$.",
+        "hints": [
+          "Hyperbel er ikke begrenset — vent med å påstå både maks og min.",
+          "Gang Lagrange-likningene med $x$ og $y$ for å få $x^2 = y^2$; bruk $xy=1>0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Hoppe over $\\nabla g = 0$-sjekken.** Da kan du miste et kandidatpunkt (et singulært punkt på bibetingelsen) eller feilbruke Lagrange der den ikke gjelder. Sjekk alltid først.\n- **Dele i stedet for å dele i tilfeller.** Deler du på $x$ i $x(y-\\lambda) = 0$, mister du grenen $x = 0$. Gjør tilfelledeling og forfølg hver gren.\n- **Ikke evaluere $f$ i alle kandidater.** Min og maks leses av ved å sammenligne $f$-verdiene i *alle* kandidatpunkter — ikke gjett ut fra $\\lambda$.\n- **Påstå min/maks uten kompakthet.** Ekstremalverdisetningen krever lukket **og** begrenset. På et plan eller en hyperbel kan et maksimum rett og slett mangle.\n- **Begrunne eksistens når det ikke kreves.** Leser du oppgaven, ser du ofte at eksistens er opplagt eller ikke etterspurt — da er kompakthetsargumentet bortkastet tid.\n- **Regnefeil i elimineringen av $\\lambda$.** Eliminér $\\lambda$ ryddig (del likningene eller gang med variablene) — slurv her gir feil kandidater."
+    },
+    {
+      "id": "mat1110-3-2-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Gjør $\\nabla g = 0$-sjekken, del i tilfeller, evaluer $f$ i alle kandidater, og begrunn eksistens der oppgaven ber om det."
+    },
+    {
+      "id": "mat1110-3-2-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn største og minste verdi av $f(x,y) = x + y$ på sirkelen $x^2 + y^2 = 2$.",
+        "solution": "Kompakt sirkel ⇒ eksistens. $\\nabla g = (2x,2y) = 0$ bare i origo, ikke på sirkelen ⇒ Lagrange.\n$$1 = 2\\lambda x,\\quad 1 = 2\\lambda y,\\quad x^2+y^2 = 2.$$\nDe to første gir $x = y$. Bibetingelse: $2x^2 = 2 \\Rightarrow x = \\pm 1$. Kandidater $(1,1)$ med $f = 2$ og $(-1,-1)$ med $f = -2$.\n\n**Største verdi $2$, minste verdi $-2$.**",
+        "hints": [
+          "$1 = 2\\lambda x$ og $1 = 2\\lambda y$ gir $x = y$.",
+          "Sett $x=y$ inn i $x^2+y^2=2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn største og minste verdi av $f(x,y) = 3x + 4y$ på sirkelen $x^2 + y^2 = 25$.",
+        "solution": "Kompakt ⇒ eksistens; $\\nabla g = 0$ bare i origo (ikke på sirkelen). $3 = 2\\lambda x,\\ 4 = 2\\lambda y$ ⇒ $\\tfrac{x}{3} = \\tfrac{y}{4}$, altså $y = \\tfrac{4}{3}x$. Bibetingelse: $x^2 + \\tfrac{16}{9}x^2 = 25 \\Rightarrow \\tfrac{25}{9}x^2 = 25 \\Rightarrow x^2 = 9,\\ x = \\pm 3$. Kandidater $(3,4)$ med $f = 25$ og $(-3,-4)$ med $f = -25$.\n\n**Største verdi $25$, minste verdi $-25$.** (Dette er lengden $\\sqrt{3^2+4^2} = 5$ ganger radien $5$.)",
+        "hints": [
+          "$3 = 2\\lambda x,\\ 4 = 2\\lambda y$ gir $y = \\tfrac43 x$.",
+          "Sett inn i sirkelen; svaret er $\\pm|\\nabla f|\\cdot r = \\pm 5\\cdot 5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn punktene på sirkelen $x^2 + y^2 = 8$ der $f(x,y) = x^2 + 4y$ er størst og minst.",
+        "solution": "Kompakt ⇒ eksistens. $\\nabla g = (2x,2y)=0$ bare i origo, ikke på sirkelen. $\\nabla f = (2x, 4)$:\n$$2x = 2\\lambda x,\\qquad 4 = 2\\lambda y,\\qquad x^2+y^2 = 8.$$\nFørste: $2x(1-\\lambda) = 0$ — **tilfelledeling**.\n\n**A ($x = 0$):** $y^2 = 8 \\Rightarrow y = \\pm 2\\sqrt2$. Kandidater $(0, 2\\sqrt2)$ med $f = 8\\sqrt2$ og $(0,-2\\sqrt2)$ med $f = -8\\sqrt2$.\n\n**B ($\\lambda = 1$):** $4 = 2y \\Rightarrow y = 2$, og $x^2 = 8 - 4 = 4 \\Rightarrow x = \\pm 2$. Kandidater $(\\pm 2, 2)$ med $f = 4 + 8 = 12$.\n\n**Evaluer:** $8\\sqrt2 \\approx 11{,}3$; $-8\\sqrt2 \\approx -11{,}3$; $12$. Største $f = 12$ i $(\\pm 2, 2)$; minste $f = -8\\sqrt2$ i $(0, -2\\sqrt2)$.",
+        "hints": [
+          "Første likning $2x(1-\\lambda)=0$ krever tilfelledeling: $x=0$ eller $\\lambda=1$.",
+          "Regn $f$ i alle fire kandidatene og sammenlign — $8\\sqrt2\\approx 11{,}3 < 12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En rektangulær eske uten lokk skal ha overflate $12$ (bunn + fire sider). Finn de indre kandidatene til maksimalt volum $V = xyz$ under bibetingelsen $xy + 2xz + 2yz = 12$ (med $x,y,z > 0$), og angi volumet.",
+        "solution": "$g = xy + 2xz + 2yz = 12$, $f = xyz$. $\\nabla f = (yz, xz, xy)$, $\\nabla g = (y + 2z,\\ x + 2z,\\ 2x + 2y)$:\n$$yz = \\lambda(y+2z),\\quad xz = \\lambda(x+2z),\\quad xy = \\lambda(2x+2y).$$\nGang likning 1 med $x$, likning 2 med $y$: $xyz = \\lambda x(y+2z) = \\lambda y(x+2z)$, så $x(y+2z) = y(x+2z) \\Rightarrow 2xz = 2yz \\Rightarrow x = y$ (siden $z>0$). Gang likning 1 med $x$ og likning 3 med $z$: $xyz = \\lambda x(y+2z) = \\lambda z(2x+2y)$. Med $x = y$: $x(x + 2z) = z(4x) \\Rightarrow x^2 + 2xz = 4xz \\Rightarrow x^2 = 2xz \\Rightarrow x = 2z$.\n\nSå $x = y = 2z$. Bibetingelse: $xy + 2xz + 2yz = 4z^2 + 4z^2 + 4z^2 = 12z^2 = 12 \\Rightarrow z = 1$, $x = y = 2$. Volum $V = 2\\cdot 2\\cdot 1 = 4$.\n\n**Kandidat $(x,y,z) = (2,2,1)$ med volum $4$.** (Dette er maksimalt volum; eksistens av maks for et positivt volum under fast overflate er geometrisk klar.)",
+        "hints": [
+          "$\\nabla f = (yz, xz, xy)$; gang likningene med passende variabler for å eliminere $\\lambda$.",
+          "Vis først $x=y$, deretter $x=2z$; sett inn i bibetingelsen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-2-p5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, $\\nabla g = 0$-kandidat.) Finn den minste avstanden fra origo til kurven $y^2 = (x-1)^3$. Bruk at det er nok å minimere $f(x,y) = x^2 + y^2$ (kvadrert avstand), og vær nøye med $\\nabla g = 0$-sjekken.",
+        "solution": "Skriv bibetingelsen $g(x,y) = y^2 - (x-1)^3 = 0$. Kurven finnes bare for $x \\ge 1$ (ellers er $(x-1)^3 < 0$).\n\n**$\\nabla g = 0$-sjekk:** $\\nabla g = (-3(x-1)^2,\\ 2y)$. Dette er null når $x = 1$ **og** $y = 0$. Punktet $(1,0)$ ligger på kurven ($0 = 0^3$ ✓), og er en **spiss (cusp)** der $\\nabla g = 0$ — altså en ekstra kandidat vi må teste direkte.\n\n**Lagrange (der $\\nabla g \\ne 0$):** $\\nabla f = (2x, 2y) = \\lambda(-3(x-1)^2,\\ 2y)$. Andre komponent: $2y = 2\\lambda y \\Rightarrow y(1-\\lambda) = 0$. Er $y = 0$: da kurven $\\Rightarrow (x-1)^3 = 0 \\Rightarrow x = 1$, altså punktet $(1,0)$ igjen. Er $\\lambda = 1$: første komponent $2x = -3(x-1)^2 \\Rightarrow 3(x-1)^2 + 2x = 0 \\Rightarrow 3x^2 - 4x + 3 = 0$, med diskriminant $16 - 36 < 0$ — **ingen reell løsning**.\n\n**Eneste kandidat er $(1,0)$**, funnet nettopp gjennom $\\nabla g = 0$-sjekken. Kurven er ubegrenset, men på grenen $x \\ge 1$ er $f(x) = x^2 + (x-1)^3$ voksende ($f'(x) = 2x + 3(x-1)^2 > 0$), så minimum ligger ved $x = 1$; formelt sikret av $K = \\{g = 0,\\ f \\le 2\\}$ kompakt. Minste kvadrerte avstand er $f(1,0) = 1$, altså **minste avstand $= 1$**.",
+        "hints": [
+          "Skriv $g = y^2-(x-1)^3$; finn hvor $\\nabla g = 0$ og sjekk om det punktet ligger på kurven.",
+          "Lagrange gir ingen reell løsning utenom $y=0$; det eneste kandidatpunktet er cusp-en $(1,0)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-3-2-bb-betinget",
+      "type": "definition",
+      "title": "Betinget optimering",
+      "content": "Å finne største og minste verdi av en funksjon $f$ når variablene er bundet av en bibetingelse $g = c$ — i motsetning til fri optimering (kap. 3.1), der variablene beveger seg fritt. Metoden er Lagrange (eller innsetting av bibetingelsen), og kandidatene ligger alltid *på* bibetingelsen, ikke der $\\nabla f = 0$."
+    },
+    {
+      "id": "mat1110-3-2-bb-innsetting",
+      "type": "definition",
+      "title": "Innsettingsmetoden (alternativ til Lagrange)",
+      "content": "Når bibetingelsen lett kan løses for én variabel, kan du sette den inn i $f$ og optimere den resulterende en-variabel-funksjonen direkte — uten Lagrange. F.eks. gir $y = 4 - x$ på en linje at $f(x,y) = f(x, 4-x)$, en vanlig en-variabel-oppgave. Fasiten honorerer denne veien når den er ryddig; Lagrange er det generelle verktøyet når innsetting blir vrient."
+    },
+    {
+      "id": "mat1110-3-2-bb-tangens",
+      "type": "definition",
+      "title": "Tangenskravet (geometrisk Lagrange)",
+      "content": "Den geometriske tolkningen av $\\nabla f = \\lambda\\nabla g$: i et betinget ekstremum **tangerer** en nivåkurve til $f$ bibetingelseskurven $g = c$. Skar de hverandre i stedet, ville $f$ ha ulike verdier på hver side, og vi kunne økt $f$ ved å gå litt langs bibetingelsen. Tangens er derfor ekstremal-signaturen."
+    },
+    {
+      "id": "mat1110-3-2-bb-flerebi",
+      "type": "definition",
+      "title": "Flere bibetingelser (kjennskap)",
+      "content": "Med to bibetingelser $g_1 = c_1$ og $g_2 = c_2$ (f.eks. skjæringen mellom to flater, en kurve i rommet) blir Lagrange-betingelsen $\\nabla f = \\lambda_1\\nabla g_1 + \\lambda_2\\nabla g_2$ — gradienten til $f$ ligger i planet utspent av de to normalene. Prinsippet er det samme; dette er kjennskapsstoff her."
+    },
+    {
+      "id": "mat1110-3-2-bb-eliminer",
+      "type": "definition",
+      "title": "Eliminering av $\\lambda$",
+      "content": "Kjernen i regnearbeidet: Lagrangemultiplikatoren $\\lambda$ er en hjelpevariabel du fjerner for å få rene likninger i $x$ og $y$. Vanlige grep er å **dele** to av likningene på hverandre (da forsvinner $\\lambda$) eller å **gange** hver likning med en passende variabel og sette uttrykk for $\\lambda\\,g_i$ lik hverandre. Gjør dette ryddig — slurv her er en hyppig kilde til feil kandidater."
+    },
+    {
+      "id": "mat1110-3-2-bb-avstand",
+      "type": "definition",
+      "title": "Avstand og kvadrert avstand",
+      "content": "Et vanlig triks i optimeringsoppgaver: for å minimere avstanden $\\sqrt{x^2+y^2}$ fra origo holder det å minimere den **kvadrerte** avstanden $x^2 + y^2$, siden kvadratrot er en voksende funksjon og de to har ekstremum i samme punkt. Kvadrert avstand er polynomisk og gir enklere derivasjon — bruk den, og ta rota til slutt hvis oppgaven ber om selve avstanden."
+    },
+    {
+      "id": "mat1110-3-2-bb-aktiv",
+      "type": "definition",
+      "title": "Global ekstremverdi på bibetingelsen",
+      "content": "Fordi bibetingelsen $g = c$ (når den er kompakt) er en avgrenset mengde uten «indre» i vanlig forstand, er alle kandidatene randpunkter, og den største/minste $f$-verdien blant kandidatene er automatisk den **globale** ekstremverdien på bibetingelsen — så lenge eksistens er sikret av ekstremalverdisetningen. Da trengs ingen ekstra lokal/global-analyse."
+    },
+    {
+      "id": "mat1110-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-3-2-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1110/mat1110-3-1)) Finn de stasjonære punktene til $f(x,y) = x^2 + y^2 - 2x - 4y$ (fri optimering, ingen bibetingelse).",
+            "solution": "$f_x = 2x - 2 = 0 \\Rightarrow x = 1$; $f_y = 2y - 4 = 0 \\Rightarrow y = 2$. Eneste stasjonære punkt $(1,2)$. (Hesse $\\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$, $D=4>0$, $f_{xx}>0$ ⇒ lokalt minimum.) Merk kontrasten til Lagrange: her er punktet der $\\nabla f = 0$, ikke på en bibetingelse.",
+            "hints": [
+              "Sett $\\nabla f = 0$ uten bibetingelse."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-2-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) Regn gradienten $\\nabla g$ til $g(x,y) = x^2 + y^2$ i punktet $(1,2)$, og bekreft at den står normalt på sirkelen $x^2+y^2 = 5$ der.",
+            "solution": "$\\nabla g = (2x, 2y)$, så $\\nabla g(1,2) = (2,4)$. Denne peker radielt utover fra origo gjennom $(1,2)$ — nettopp normalt på sirkelen $x^2+y^2=5$ (tangenten der er vinkelrett på radius). Det er denne normal-egenskapen Lagrange utnytter.",
+            "hints": [
+              "$\\nabla g = (2x,2y)$; radialvektoren står normalt på sirkelen."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-2-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-2-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/mat1110/mat1110-3-1)) Forklar kort hvorfor et ekstremum på en bibetingelse *ikke* trenger å ha $\\nabla f = 0$.",
+            "solution": "$\\nabla f = 0$ karakteriserer ekstremum når vi kan bevege oss fritt i alle retninger. På en bibetingelse er vi låst til kurven $g = c$; da holder det at $f$ ikke kan vokse *langs kurven*, altså at $\\nabla f$ ikke har noen komponent langs kurven — det vil si $\\nabla f \\parallel \\nabla g$. Gradienten $\\nabla f$ kan derfor godt være forskjellig fra null i et betinget ekstremum.",
+            "hints": [
+              "Tenk på hvilke retninger du får lov å bevege deg i når du er bundet til $g=c$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-3-2-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $g(x,y) = c$ | Bibetingelsen (båndet) løsningene må ligge på |\n| $\\nabla f,\\ \\nabla g$ | Gradientene til mål- og bibetingelsesfunksjonen |\n| $\\lambda$ | Lagrangemultiplikatoren |\n| $\\nabla f = \\lambda\\nabla g$ | Lagranges betingelse |\n| $K$ | En kompakt (lukket + begrenset) mengde |\n| kompakt | Lukket **og** begrenset samtidig |\n\n**Lagranges metode (oppskrift):**\n$$1)\\ \\nabla g = 0\\text{-sjekk} \\quad 2)\\ \\nabla f = \\lambda\\nabla g,\\ g = c \\quad 3)\\ \\text{tilfelledeling → alle kandidater} \\quad 4)\\ \\text{evaluer } f \\quad 5)\\ \\text{eksistens (EVT)}.$$\n\n**Ekstremalverdisetningen:** en kontinuerlig $f$ på en kompakt mengde antar både største og minste verdi.\n\n**Kompakthet:** lukket (randen med) **og** begrenset (får plass i en sirkel). Sirkel/ellipse/skive/kuleflate er kompakte; plan/linje/hyperbel er ikke.\n\n**Ubegrenset bibetingelse:** garanter minimum via $K = \\{g = c,\\ f \\le M\\}$ kompakt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

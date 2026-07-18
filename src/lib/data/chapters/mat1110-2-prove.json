@@ -1,0 +1,147 @@
+{
+  "id": "mat1110-2-prove",
+  "courseId": "mat1110",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Flervariabel differensiering og Jacobi",
+  "description": "Fire prøver som dekker hele Del 2 — partiellderiverte og tangentplan, Jacobi og kjerneregel, og omvendt/implisitt funksjonsteorem med forutsetningssjekk og delpunkt-kjeding.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "løse eksamensrettede oppgaver på partiellderiverte, gradient, tangentplan og linearisering",
+    "regne Jacobi-matrise, determinant og kjerneregel og avgjøre lokal inverterbarhet",
+    "bruke omvendt og implisitt funksjonsteorem med korrekt forutsetningssjekk, teoremnavning og delpunkt-kjeding"
+  ],
+  "content": [
+    {
+      "id": "mat1110-2-prove-tip",
+      "type": "tip",
+      "title": "Slik bruker du disse prøvene",
+      "content": "**Fire prøver som dekker hele Del 2 (kap. 2.1–2.3), à ~30–45 min — kan trygt deles over flere kvelder, én prøve per økt.**\n\n- **Prøve 1 (2.A, ~30 min):** partiellderiverte, gradient, tangentplan og lineær anslag ([kap. 2.1](/bok/mat1110/mat1110-2-1)).\n- **Prøve 2 (2.B, ~35 min):** Jacobi-matrise, kjerneregel på matriseform, $\\det F'$ og lokal inverterbarhet ([kap. 2.2](/bok/mat1110/mat1110-2-2)).\n- **Prøve 3 (2.C, ~45 min):** implisitt funksjonsteorem — forutsetningssjekk og $g'$, én likning og flate ([kap. 2.3](/bok/mat1110/mat1110-2-3), sjanger D).\n- **Prøve 4 (2.D, ~45 min):** omvendt funksjonsteorem koblet til invers matrise — eksistens + Jacobi til den omvendte ([kap. 2.3](/bok/mat1110/mat1110-2-3) + [1.3](/bok/mat1110/mat1110-1-3), sjanger D).\n\nSkriv fullstendige løsninger etter **føringsstandarden**: begrunn alle svar, **navngi teoremet** der du bruker det, gjør forutsetningssjekken *i rekkefølge*, og gi **eksakte** svar (ingen desimaltilnærming). Regn selv før du åpner fasiten. Etter hver fasit står en avkryssbar selvdiagnose — bruk den til å se hva du bør repetere. Tidsanslagene er skrivetid; legg på ~50 % om du regner for hånd."
+    },
+    {
+      "id": "mat1110-2-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 2: partiellderiverte og gradient ([kap. 2.1](/bok/mat1110/mat1110-2-1)), Jacobi-matrisen, kjerneregelen og $\\det F'$ ([kap. 2.2](/bok/mat1110/mat1110-2-2)), og omvendt/implisitt funksjonsteorem ([kap. 2.3](/bok/mat1110/mat1110-2-3)). Prøve 4 gjenbruker $2\\times2$-inversen fra [kap. 1.3](/bok/mat1110/mat1110-1-3). Har du jobbet deg gjennom løkkene i disse kapitlene, er du klar."
+    },
+    {
+      "id": "mat1110-2-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 — 2.A: Partiell, gradient og tangentplan (~30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1110-2-prove-p1a-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-prove-p1a",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $f(x,y)=x^2y+2y^2$.\n\n**a)** Finn de partiellderiverte og gradienten $\\nabla f(2,1)$.\n\n**b)** Finn den retningsderiverte i $(2,1)$ i retning av $v=(3,-4)$.\n\n**c)** Finn tangentplanet til grafen $z=f(x,y)$ over $(2,1)$, og bruk lineariseringen til å anslå $f(2{,}05;\\ 0{,}98)$.",
+            "solution": "**a)** $f_x=2xy$ og $f_y=x^2+4y$. I $(2,1)$: $f_x(2,1)=2\\cdot2\\cdot1=4$ og $f_y(2,1)=4+4=8$. Altså $\\nabla f(2,1)=(4,8)$.\n\n**b)** Enhetsvektor: $|v|=\\sqrt{3^2+(-4)^2}=5$, så $u=\\left(\\tfrac35,-\\tfrac45\\right)$. Da\n$$D_uf(2,1)=\\nabla f(2,1)\\cdot u=(4,8)\\cdot\\left(\\tfrac35,-\\tfrac45\\right)=\\frac{12-32}{5}=-4.$$\nDen retningsderiverte er $-4$ (funksjonen avtar i denne retningen).\n\n**c)** $f(2,1)=4+2=6$. Tangentplanet:\n$$z=6+4(x-2)+8(y-1)=4x+8y-10.$$\nAnslag i $(2{,}05;\\ 0{,}98)$, med forskyvning $(0{,}05;\\ -0{,}02)$:\n$$T f=6+4\\cdot0{,}05+8\\cdot(-0{,}02)=6+0{,}2-0{,}16=6{,}04=\\tfrac{151}{25}.$$\n**Konklusjon:** $\\nabla f(2,1)=(4,8)$; $D_uf=-4$; tangentplan $z=4x+8y-10$; anslag $f(2{,}05;\\ 0{,}98)\\approx\\tfrac{151}{25}$ (eksakt verdi $6{,}039\\ldots$, så anslaget treffer godt).",
+            "hints": [
+              "**a)** $f_x=2xy$, $f_y=x^2+4y$ — sett inn $(2,1)$ til slutt.",
+              "**b)** Del $v$ på $|v|=5$ FØR prikkproduktet.",
+              "**c)** Tangentplan $z=f(a,b)+f_x(x-a)+f_y(y-b)$; sett inn forskyvningen $(0{,}05;-0{,}02)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-prove-p1-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1**\n\n☐ Jeg regnet partiellderivertene riktig og satte sammen gradienten.\n\n☐ Jeg **normaliserte** retningsvektoren før prikkproduktet (ikke brukte $v$ direkte).\n\n☐ Jeg satte opp tangentplanet på formen $f(a)+f_x(x-a)+f_y(y-b)$.\n\n☐ Jeg oppga anslaget som **eksakt** verdi, ikke bare en desimal.\n\n*Bommet på noe? Repeter løkke 1–3 i [kap. 2.1](/bok/mat1110/mat1110-2-1).*"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 — 2.B: Jacobi, kjerneregel og det F' (~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1110-2-prove-p2a-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-prove-p2a",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $F(u,v)=(u^2v,\\ u+v^3)$.\n\n**a)** Finn Jacobi-matrisen $F'(u,v)$ og $\\det F'$.\n\n**b)** Avgjør om $F$ er lokalt inverterbar i $(1,1)$.\n\n**c)** La $G(x,y)=(x+y,\\ x-y)$. Bruk kjerneregelen til å finne $(G\\circ F)'(1,1)$.",
+            "solution": "**a)** $F_1=u^2v$ gir rad $(2uv,\\ u^2)$; $F_2=u+v^3$ gir rad $(1,\\ 3v^2)$. Altså\n$$F'(u,v)=\\begin{pmatrix}2uv&u^2\\\\ 1&3v^2\\end{pmatrix},\\qquad \\det F'=2uv\\cdot3v^2-u^2\\cdot1=6uv^3-u^2.$$\n\n**b)** I $(1,1)$: $F'(1,1)=\\begin{pmatrix}2&1\\\\ 1&3\\end{pmatrix}$ og $\\det F'(1,1)=6\\cdot1-1=5\\ne0$. Ifølge omvendt funksjonsteorem er $F$ **lokalt inverterbar** i $(1,1)$.\n\n**c)** $G$ er lineær, så $G'(x,y)=\\begin{pmatrix}1&1\\\\ 1&-1\\end{pmatrix}$ (konstant). Kjerneregelen gir $(G\\circ F)'(1,1)=G'\\big(F(1,1)\\big)\\,F'(1,1)$ med $G'$ til venstre:\n$$(G\\circ F)'(1,1)=\\begin{pmatrix}1&1\\\\ 1&-1\\end{pmatrix}\\begin{pmatrix}2&1\\\\ 1&3\\end{pmatrix}=\\begin{pmatrix}2+1&1+3\\\\ 2-1&1-3\\end{pmatrix}=\\begin{pmatrix}3&4\\\\ 1&-2\\end{pmatrix}.$$\n**Konklusjon:** $F'(u,v)=\\left(\\begin{smallmatrix}2uv&u^2\\\\ 1&3v^2\\end{smallmatrix}\\right)$, $\\det F'=6uv^3-u^2$; lokalt inverterbar i $(1,1)$ (det $=5$); $(G\\circ F)'(1,1)=\\left(\\begin{smallmatrix}3&4\\\\ 1&-2\\end{smallmatrix}\\right)$.",
+            "hints": [
+              "**a)** Rad $i$ = $\\nabla F_i$; regn $2\\times2$-determinanten.",
+              "**b)** Lokalt inverterbar $\\iff\\det F'\\ne0$ — navngi teoremet.",
+              "**c)** $(G\\circ F)'=G'(F(a))\\,F'(a)$; $G'$ er konstant her og står til venstre."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-prove-p2-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2**\n\n☐ Jeg bygde Jacobi-matrisen med rad $i$ = $\\nabla F_i$ (ikke transponert).\n\n☐ Jeg begrunnet lokal inverterbarhet med $\\det F'\\ne0$ og **navnga** teoremet.\n\n☐ Jeg satte $G'$ til **venstre** i kjerneregel-produktet og i riktig rekkefølge.\n\n*Bommet på noe? Repeter løkke 1, 3 og 5 i [kap. 2.2](/bok/mat1110/mat1110-2-2).*"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 — 2.C: Implisitt funksjonsteorem (~45 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1110-2-prove-p3a-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-prove-p3a",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**a)** Vis at likningen $x^3+y^2+xy=3$ definerer $y$ som en funksjon $g(x)$ nær $(1,1)$, og finn $g'(1)$. Gjør forutsetningssjekken eksplisitt og i rekkefølge.\n\n**b)** Likningen $x^2z+yz^2=2$ definerer en flate gjennom $(1,1,1)$. Vis at den nær punktet er grafen til $z=g(x,y)$, og finn $g_x(1,1)$ og $g_y(1,1)$.",
+            "solution": "**a)** Sett $f(x,y)=x^3+y^2+xy-3=0$.\n\n*Forutsetningssjekk (i rekkefølge):*\n1. $f(1,1)=1+1+1-3=0$ ✓ (punktet ligger på kurven).\n2. $\\dfrac{\\partial f}{\\partial y}=2y+x$, så $\\dfrac{\\partial f}{\\partial y}(1,1)=2+1=3\\ne0$ ✓.\n\n**Ifølge implisitt funksjonsteorem** finnes en entydig glatt $y=g(x)$ nær $x=1$ med $g(1)=1$.\n\n*Derivasjon:* $\\dfrac{\\partial f}{\\partial x}=3x^2+y$, så $\\dfrac{\\partial f}{\\partial x}(1,1)=3+1=4$. Da\n$$g'(1)=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}=-\\frac{4}{3}.$$\n\n**b)** Sett $F(x,y,z)=x^2z+yz^2-2=0$.\n\n*Forutsetningssjekk:* $F(1,1,1)=1+1-2=0$ ✓; $\\dfrac{\\partial F}{\\partial z}=x^2+2yz$, så $\\dfrac{\\partial F}{\\partial z}(1,1,1)=1+2=3\\ne0$ ✓. Ifølge implisitt funksjonsteorem er flaten nær $(1,1,1)$ grafen til $z=g(x,y)$.\n\n*Partiellderiverte:* $F_x=2xz\\Rightarrow F_x(1,1,1)=2$; $F_y=z^2\\Rightarrow F_y(1,1,1)=1$. Da\n$$g_x(1,1)=-\\frac{F_x}{F_z}=-\\frac{2}{3},\\qquad g_y(1,1)=-\\frac{F_y}{F_z}=-\\frac{1}{3}.$$\n**Konklusjon:** (a) $g'(1)=-\\tfrac43$; (b) $g_x(1,1)=-\\tfrac23$, $g_y(1,1)=-\\tfrac13$. (Merk minustegnet begge steder.)",
+            "hints": [
+              "**a)** Sjekk $f(1,1)=0$, så $\\partial f/\\partial y(1,1)\\ne0$ — i den rekkefølgen — før du deriverer.",
+              "**a)** $g'=-\\dfrac{\\partial_x f}{\\partial_y f}$; ikke glem minustegnet.",
+              "**b)** $g_x=-F_x/F_z$, $g_y=-F_y/F_z$ — samme nevner $F_z=x^2+2yz$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-prove-p3-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 3**\n\n☐ Jeg gjorde forutsetningssjekken $f(a,b)=0$ og $\\partial f/\\partial y\\ne0$ **eksplisitt og i rekkefølge**.\n\n☐ Jeg **navnga** implisitt funksjonsteorem der jeg begrunnet at $g$ finnes.\n\n☐ Jeg fikk **minustegnet** riktig i $g'$ og i $g_x,g_y$.\n\n☐ Alle svar er eksakte brøker, ikke desimaltall.\n\n*Bommet på forutsetningssjekken? Den er halve poenget — repeter løkke 2–3 i [kap. 2.3](/bok/mat1110/mat1110-2-3).*"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 — 2.D: Omvendt funksjonsteorem + invers matrise (~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1110-2-prove-p4a-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-prove-p4a",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $F(x,y)=(x^2-y^2,\\ 2xy)$.\n\n**a)** Vis at $F$ er lokalt inverterbar nær $(2,1)$, og navngi teoremet du bruker.\n\n**b)** Finn $F'(2,1)$ og regn ut den inverse matrisen $F'(2,1)^{-1}$.\n\n**c)** Skriv opp Jacobi-matrisen til den lokale inversen $G$ i punktet $F(2,1)$, og forklar hvorfor delpunkt (c) gjenbruker svaret fra (b).",
+            "solution": "**a)** $F$ er $C^1$ (polynomkomponenter). Jacobi-matrisen er\n$$F'(x,y)=\\begin{pmatrix}2x&-2y\\\\ 2y&2x\\end{pmatrix},\\qquad F'(2,1)=\\begin{pmatrix}4&-2\\\\ 2&4\\end{pmatrix}.$$\n$\\det F'(2,1)=4\\cdot4-(-2)\\cdot2=16+4=20\\ne0$. **Ifølge omvendt funksjonsteorem** er $F$ dermed lokalt inverterbar nær $(2,1)$.\n\n**b)** Med $2\\times2$-inversformelen (fra [kap. 1.3](/bok/mat1110/mat1110-1-3)):\n$$F'(2,1)^{-1}=\\frac{1}{20}\\begin{pmatrix}4&2\\\\ -2&4\\end{pmatrix}=\\begin{pmatrix}\\tfrac15&\\tfrac{1}{10}\\\\[2pt] -\\tfrac{1}{10}&\\tfrac15\\end{pmatrix}.$$\n\n**c)** Bildepunktet er $F(2,1)=(2^2-1^2,\\ 2\\cdot2\\cdot1)=(3,4)$. Omvendt funksjonsteorem gir at Jacobi til den omvendte er den inverse matrisen fra (b):\n$$G'(3,4)=F'(2,1)^{-1}=\\begin{pmatrix}\\tfrac15&\\tfrac{1}{10}\\\\[2pt] -\\tfrac{1}{10}&\\tfrac15\\end{pmatrix}.$$\nDelpunkt (c) gjenbruker (b) fordi teoremet sier $G'(F(a))=F'(a)^{-1}$ — inversen du alt regnet **er** svaret. Å regne noe nytt her ville vært bortkastet tid.\n\n**Konklusjon:** Lokalt inverterbar (det $=20$); $F'(2,1)^{-1}=\\left(\\begin{smallmatrix}1/5&1/10\\\\ -1/10&1/5\\end{smallmatrix}\\right)$; $G'(3,4)$ er den samme matrisen. Dette er nøyaktig delpunkt-kjedingen konten O1a$\\to$O1b belønner.",
+            "hints": [
+              "**a)** Regn $F'(2,1)$ og sjekk $\\det\\ne0$; navngi omvendt funksjonsteorem.",
+              "**b)** $2\\times2$-invers: bytt diagonalen, skift fortegn på hjørnene, del på $\\det=20$.",
+              "**c)** $G'$ tas i $F(2,1)=(3,4)$ og er lik $F'(2,1)^{-1}$ — ikke regn på nytt."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-prove-p4-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 4**\n\n☐ Jeg regnet $\\det F'(2,1)\\ne0$ og **navnga** omvendt funksjonsteorem.\n\n☐ Jeg brukte $2\\times2$-inversformelen riktig (fortegn på hjørnene, delt på $\\det$).\n\n☐ Jeg evaluerte $G'$ i **bildepunktet** $F(2,1)=(3,4)$, ikke i $(2,1)$.\n\n☐ Jeg **gjenbrukte** inversen fra (b) i (c) i stedet for å regne på nytt.\n\n*Bommet på kjedingen eller evalueringspunktet? Repeter løkke 1 i [kap. 2.3](/bok/mat1110/mat1110-2-3) og invers-metoden i [kap. 1.3](/bok/mat1110/mat1110-1-3).*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

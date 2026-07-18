@@ -1,0 +1,462 @@
+{
+  "id": "mat1110-3-1",
+  "courseId": "mat1110",
+  "chapterNumber": "3.1",
+  "title": "Stasjonære punkter og Hesse-klassifisering",
+  "description": "Løs ∇f = 0 ved substitusjon til én variabel, sett opp Hesse-matrisen eksplisitt, og klassifiser med annenderiverttesten — fast delpunkt i alle regimer.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne alle stasjonære punkter ved å løse ∇f = 0 og redusere til én variabel uten å miste løsninger",
+    "sette opp Hesse-matrisen eksplisitt og klassifisere med annenderiverttesten (D-testen)",
+    "gjenkjenne når testen svikter (D = 0) og skille lokale fra globale ekstremum"
+  ],
+  "content": [
+    {
+      "id": "mat1110-3-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Å finne og klassifisere stasjonære punkter er et fast delpunkt som dukker opp i alle regimer — også i det nye.**\n\n- **Sjanger E** — analysens kode for «stasjonære punkter + Hesse-klassifisering» — forekommer i **12 av 20 arkiverte sett (60 %)**, og var med i **alle tre V2025-settene (3/3)**. Dette er billige, mekaniske poeng du ikke har råd til å miste.\n- To ting avgjør uttellingen. For det første må du **redusere $\\nabla f = 0$ substitusjonsvis til én variabel** uten å miste løsninger — det er her folk taper punkter. For det andre krever sensor at du **setter opp Hesse-matrisen eksplisitt** før du konkluderer; en påstand «dette er et minimum» uten synlig annenderiverttest gir ikke full uttelling («begrunn alle svar»).\n- Offisiell fasit finnes for alle tre V2025-settene, så føringsstandarden her er godt dokumentert.\n\n**Prioritet: høyeste.** Målet er at du løser $\\nabla f = 0$ trygt, setter opp Hesse hver gang og klassifiserer riktig med annenderiverttesten."
+    },
+    {
+      "id": "mat1110-3-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på partiellderivasjon og gradienten fra [kap. 2.1](/bok/mat1110/mat1110-2-1): du må kunne regne $\\nabla f = (f_x, f_y)$ og de andreordens partiellderiverte $f_{xx}, f_{yy}, f_{xy}$. Intuisjonen om ekstremalpunkter i én variabel — at den deriverte er null i topp- og bunnpunkter — kommer fra [Funksjonsdrøfting](/bok/r1/r1-4-6); her løfter vi den til to variable.\n\nAt de blandede andreordens partiellderiverte er like, $f_{xy} = f_{yx}$ (Clairauts setning), forutsettes fra [kap. 2.1](/bok/mat1110/mat1110-2-1) — det er derfor Hesse-matrisen blir symmetrisk."
+    },
+    {
+      "id": "mat1110-3-1-motiv",
+      "type": "text",
+      "content": "I én variabel finner vi topp- og bunnpunkter ved å sette $f'(x) = 0$ og bruke fortegnet til $f''$. I to variable er ideen den samme, men to ting blir nye: gradienten $\\nabla f$ må være **nullvektoren** (ikke bare ett tall), og «andrederivert-testen» blir en **matrise** — Hesse-matrisen — fordi krumningen nå avhenger av retningen du beveger deg i.\n\nVi lærer teknikken i tre løkker: (1) finn de stasjonære punktene ved å løse $\\nabla f = 0$ og redusere til én variabel, (2) klassifiser hvert punkt med Hesse-matrisen og annenderiverttesten, og (3) håndter grensetilfellet $D = 0$. Hver løkke går **teori → gjennomregnet eksempel → øvingsoppgaver**."
+    },
+    {
+      "id": "mat1110-3-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Stasjonære punkter og reduksjon til én variabel (~16 min)"
+    },
+    {
+      "id": "mat1110-3-1-def-stasj",
+      "type": "definition",
+      "title": "Stasjonært punkt",
+      "content": "Et punkt der funksjonen «flater ut» i alle retninger — tangentplanet er vannrett. Formelt er $(a,b)$ et **stasjonært punkt** for $f$ når gradienten er nullvektoren der:\n\n$$\\nabla f(a,b) = (f_x(a,b),\\, f_y(a,b)) = (0,0).$$\n\nEt lokalt maksimum eller minimum i det indre av definisjonsområdet er alltid et stasjonært punkt — men ikke omvendt: et stasjonært punkt kan også være et **sadelpunkt**. Derfor må hvert stasjonært punkt klassifiseres etterpå."
+    },
+    {
+      "id": "mat1110-3-1-def-kritisk",
+      "type": "definition",
+      "title": "Kritisk punkt",
+      "content": "Fellesnavnet på punkter som er kandidater til å være ekstremalpunkter: enten et **stasjonært punkt** ($\\nabla f = 0$) eller et punkt der $\\nabla f$ ikke finnes. For de glatte funksjonene i dette kapitlet finnes gradienten overalt, så «kritisk punkt» og «stasjonært punkt» er her det samme. Å lete etter ekstremalverdier starter alltid med å finne alle kritiske punkter."
+    },
+    {
+      "id": "mat1110-3-1-def-subst",
+      "type": "definition",
+      "title": "Reduksjon til én variabel (substitusjon)",
+      "content": "Standardgrepet for å løse likningssystemet $\\nabla f = 0$: bruk den ene likningen til å uttrykke den ene variabelen ved den andre, og **sett inn** i den andre likningen. Da står du igjen med én likning i én ukjent, som ofte blir en potenslikning (typisk $x = x^4 \\Rightarrow x(x^3-1)=0$). Den vanligste feilen i hele sjangeren er å **miste løsninger** her — deler du på en variabel, mister du tilfellet der den er null, så faktoriser i stedet."
+    },
+    {
+      "id": "mat1110-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Finn de stasjonære punktene",
+      "problem": "Finn alle stasjonære punkter til $f(x,y) = x^3 + y^3 - 9xy$.",
+      "solution": "Vi setter opp $\\nabla f = 0$:\n\n$$f_x = 3x^2 - 9y = 0, \\qquad f_y = 3y^2 - 9x = 0.$$\n\nForenkler: $x^2 = 3y$ og $y^2 = 3x$. Fra den første er $y = \\tfrac{x^2}{3}$. **Sett inn** i den andre:\n\n$$\\left(\\tfrac{x^2}{3}\\right)^2 = 3x \\;\\Longrightarrow\\; \\tfrac{x^4}{9} = 3x \\;\\Longrightarrow\\; x^4 = 27x \\;\\Longrightarrow\\; x(x^3 - 27) = 0.$$\n\nAltså $x = 0$ eller $x^3 = 27 \\Rightarrow x = 3$. (Merk: vi **faktoriserte** i stedet for å dele på $x$ — ellers hadde vi mistet $x=0$.) Tilhørende $y = \\tfrac{x^2}{3}$: for $x=0$ blir $y=0$; for $x=3$ blir $y = \\tfrac{9}{3} = 3$.\n\n**Konklusjon:** de stasjonære punktene er $(0,0)$ og $(3,3)$. Klassifiseringen kommer i Løkke 2."
+    },
+    {
+      "id": "mat1110-3-1-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn alle stasjonære punkter til $f(x,y) = x^2 + y^2 - 4x + 6y + 3$.",
+        "solution": "$$f_x = 2x - 4 = 0 \\Rightarrow x = 2, \\qquad f_y = 2y + 6 = 0 \\Rightarrow y = -3.$$\n\nHer er likningene allerede adskilte, så vi trenger ingen substitusjon. **Eneste stasjonære punkt:** $(2,-3)$.",
+        "hints": [
+          "Sett $f_x = 0$ og $f_y = 0$ hver for seg.",
+          "Her inneholder $f_x$ bare $x$ og $f_y$ bare $y$ — løs direkte."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle stasjonære punkter til $f(x,y) = x^4 + y^4 - 4xy$.",
+        "solution": "$$f_x = 4x^3 - 4y = 0 \\Rightarrow y = x^3, \\qquad f_y = 4y^3 - 4x = 0 \\Rightarrow x = y^3.$$\n\nSett $y = x^3$ inn i $x = y^3$: $x = (x^3)^3 = x^9$, altså $x^9 - x = 0 \\Rightarrow x(x^8 - 1) = 0$. Reelle løsninger: $x = 0,\\ x = 1,\\ x = -1$. Tilhørende $y = x^3$: $(0,0),\\ (1,1),\\ (-1,-1)$.\n\n**Stasjonære punkter:** $(0,0),\\ (1,1),\\ (-1,-1)$.",
+        "hints": [
+          "Uttrykk $y$ ved $x$ fra $f_x=0$ og sett inn i $f_y=0$.",
+          "$x = x^9$ gir $x(x^8-1)=0$ — faktoriser, ikke del på $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Hesse-matrisen og annenderiverttesten (~18 min)"
+    },
+    {
+      "id": "mat1110-3-1-def-2ndpart",
+      "type": "definition",
+      "title": "Andreordens partiellderiverte",
+      "content": "De partiellderiverte av de partiellderiverte. For $f(x,y)$ har vi fire: $f_{xx}$ (deriver to ganger mhp. $x$), $f_{yy}$ (to ganger mhp. $y$), og de to **blandede** $f_{xy}$ og $f_{yx}$. For alle funksjonene her er $f_{xy} = f_{yx}$ (Clairauts setning), så vi trenger bare regne én av dem. Disse fire tallene måler krumningen til $f$."
+    },
+    {
+      "id": "mat1110-3-1-def-hesse",
+      "type": "definition",
+      "title": "Hesse-matrisen",
+      "content": "Kvadratmatrisen av de andreordens partiellderiverte — flervariabel-analogen til den andrederiverte $f''(x)$. For $f(x,y)$ er den\n\n$$H = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{xy} & f_{yy}\\end{pmatrix}.$$\n\nDen er **symmetrisk** fordi $f_{xy} = f_{yx}$. Hesse-matrisen skal **settes opp eksplisitt** i hvert stasjonært punkt før du klassifiserer — det er et uttrykt sensorkrav, ikke en formalitet."
+    },
+    {
+      "id": "mat1110-3-1-def-D",
+      "type": "definition",
+      "title": "Diskriminanten $D$ (Hesse-determinanten)",
+      "content": "Determinanten til Hesse-matrisen, som avgjør klassifiseringen:\n\n$$D = \\det H = f_{xx}f_{yy} - f_{xy}^{\\,2}.$$\n\nI formelsamlingen står den som $D = AC - B^2$ med $A = f_{xx}$, $B = f_{xy}$, $C = f_{yy}$. Fortegnet til $D$ (og til $f_{xx}$) i det stasjonære punktet forteller hvilken type punkt det er."
+    },
+    {
+      "id": "mat1110-3-1-thm-2dt",
+      "type": "theorem",
+      "title": "Annenderiverttesten",
+      "content": "La $(a,b)$ være et stasjonært punkt for $f$, og sett $D = f_{xx}f_{yy} - f_{xy}^{\\,2}$ evaluert i $(a,b)$. Da gjelder:\n\n- $D < 0$: $(a,b)$ er et **sadelpunkt** (verken maks eller min).\n- $D > 0$ og $f_{xx} > 0$: $(a,b)$ er et **lokalt minimum**.\n- $D > 0$ og $f_{xx} < 0$: $(a,b)$ er et **lokalt maksimum**.\n- $D = 0$: testen er **inkonklusiv** — den avgjør ingenting, og du må undersøke punktet på annen måte.\n\n(Når $D > 0$ har $f_{xx}$ og $f_{yy}$ alltid samme fortegn, så du kan like gjerne lese av $f_{yy}$.)"
+    },
+    {
+      "id": "mat1110-3-1-def-sadel",
+      "type": "definition",
+      "title": "Sadelpunkt",
+      "content": "Et stasjonært punkt som verken er topp eller bunn: funksjonen stiger i én retning og synker i en annen — som en fjellovergang eller en hestesal. Kjennetegnet i annenderiverttesten er $D < 0$. Standardeksempelet er $f(x,y) = x^2 - y^2$ i origo: en dal langs $x$-aksen, en topp langs $y$-aksen."
+    },
+    {
+      "id": "mat1110-3-1-def-lokmin",
+      "type": "definition",
+      "title": "Lokalt minimum og lokalt maksimum",
+      "content": "Et **lokalt minimum** er et punkt der $f$ er minst i en liten omegn rundt punktet; et **lokalt maksimum** der $f$ er størst lokalt. «Lokalt» betyr *i nærheten* — det utelukker ikke at funksjonen tar enda lavere/høyere verdier langt unna. Å avgjøre om et lokalt ekstremum også er **globalt** krever et eget argument (kap. 3.2)."
+    },
+    {
+      "id": "mat1110-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifiser de stasjonære punktene",
+      "problem": "Klassifiser de stasjonære punktene $(0,0)$ og $(3,3)$ til $f(x,y) = x^3 + y^3 - 9xy$ fra Eksempel 1.",
+      "solution": "Vi trenger de andreordens partiellderiverte:\n\n$$f_{xx} = 6x, \\qquad f_{yy} = 6y, \\qquad f_{xy} = -9.$$\n\nHesse-matrisen er $H = \\begin{pmatrix} 6x & -9 \\\\ -9 & 6y\\end{pmatrix}$, og $D = f_{xx}f_{yy} - f_{xy}^2 = 36xy - 81$.\n\n**Punkt $(0,0)$:** $H = \\begin{pmatrix} 0 & -9 \\\\ -9 & 0\\end{pmatrix}$, $D = 36\\cdot 0 - 81 = -81 < 0$. Ifølge annenderiverttesten er $(0,0)$ et **sadelpunkt**.\n\n**Punkt $(3,3)$:** $H = \\begin{pmatrix} 18 & -9 \\\\ -9 & 18\\end{pmatrix}$, $D = 36\\cdot 9 - 81 = 324 - 81 = 243 > 0$, og $f_{xx} = 18 > 0$. Altså er $(3,3)$ et **lokalt minimum**, med verdi $f(3,3) = 27 + 27 - 81 = -27$.\n\n**Konklusjon:** $(0,0)$ sadelpunkt, $(3,3)$ lokalt minimum med $f = -27$."
+    },
+    {
+      "id": "mat1110-3-1-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Klassifiser det stasjonære punktet $(2,-3)$ til $f(x,y) = x^2 + y^2 - 4x + 6y + 3$ (fra oppgave 1).",
+        "solution": "$$f_{xx} = 2,\\quad f_{yy} = 2,\\quad f_{xy} = 0 \\;\\Rightarrow\\; H = \\begin{pmatrix} 2 & 0 \\\\ 0 & 2\\end{pmatrix},\\quad D = 2\\cdot 2 - 0 = 4 > 0.$$\n\nSiden $D > 0$ og $f_{xx} = 2 > 0$, er $(2,-3)$ et **lokalt minimum**. Verdi: $f(2,-3) = 4 + 9 - 8 - 18 + 3 = -10$.",
+        "hints": [
+          "Regn $f_{xx}, f_{yy}, f_{xy}$ og sett opp Hesse-matrisen.",
+          "$D = f_{xx}f_{yy} - f_{xy}^2$; les av fortegnet til $D$ og $f_{xx}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-l2b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Klassifiser alle de stasjonære punktene $(0,0),(1,1),(-1,-1)$ til $f(x,y) = x^4 + y^4 - 4xy$ (fra oppgave 2).",
+        "solution": "$$f_{xx} = 12x^2,\\quad f_{yy} = 12y^2,\\quad f_{xy} = -4,\\qquad D = 144x^2y^2 - 16.$$\n\n**$(0,0)$:** $H = \\begin{pmatrix} 0 & -4 \\\\ -4 & 0\\end{pmatrix}$, $D = -16 < 0$ ⇒ **sadelpunkt**.\n\n**$(1,1)$:** $H = \\begin{pmatrix} 12 & -4 \\\\ -4 & 12\\end{pmatrix}$, $D = 144 - 16 = 128 > 0$, $f_{xx} = 12 > 0$ ⇒ **lokalt minimum**, $f(1,1) = 1+1-4 = -2$.\n\n**$(-1,-1)$:** $H = \\begin{pmatrix} 12 & -4 \\\\ -4 & 12\\end{pmatrix}$, $D = 128 > 0$, $f_{xx} > 0$ ⇒ **lokalt minimum**, $f(-1,-1) = -2$.\n\n**Konklusjon:** $(0,0)$ sadel; $(1,1)$ og $(-1,-1)$ lokale minima med $f = -2$.",
+        "hints": [
+          "$f_{xx}=12x^2,\\ f_{yy}=12y^2,\\ f_{xy}=-4$.",
+          "Sett opp Hesse i hvert punkt; i origo blir $D=-16<0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Grensetilfellet $D = 0$ (~10 min)"
+    },
+    {
+      "id": "mat1110-3-1-def-Dnull",
+      "type": "definition",
+      "title": "Det inkonklusive tilfellet $D = 0$",
+      "content": "Når $D = 0$ i et stasjonært punkt, **svikter annenderiverttesten** — den kan ikke skille mellom minimum, maksimum og sadel. Da må du undersøke funksjonen direkte, for eksempel ved å se på fortegnet til $f(x,y) - f(a,b)$ langs ulike retninger gjennom punktet. Å konkludere «minimum fordi $f_{xx} > 0$» når $D = 0$ er en klassisk feil: testen gjelder rett og slett ikke."
+    },
+    {
+      "id": "mat1110-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Når testen svikter",
+      "problem": "Vis at både $g(x,y) = x^4 + y^4$ og $h(x,y) = x^4 - y^4$ har $D = 0$ i origo, men at origo er et minimum for $g$ og et sadelpunkt for $h$.",
+      "solution": "For $g$: $g_x = 4x^3,\\ g_y = 4y^3$, så $(0,0)$ er stasjonært. $g_{xx} = 12x^2,\\ g_{yy} = 12y^2,\\ g_{xy} = 0$, alle null i origo, så $H = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0\\end{pmatrix}$ og $D = 0$. Testen sier ingenting. Men **direkte**: $g(x,y) = x^4 + y^4 \\ge 0 = g(0,0)$ for alle $(x,y)$, med likhet bare i origo — altså et (globalt, og dermed lokalt) **minimum**.\n\nFor $h$: samme regning gir også $D = 0$ i origo. Men langs $x$-aksen er $h(x,0) = x^4 > 0$, og langs $y$-aksen er $h(0,y) = -y^4 < 0$. Funksjonen stiger i én retning og synker i en annen — origo er et **sadelpunkt**.\n\n**Poeng:** samme $D = 0$, motsatt konklusjon. Derfor er $D = 0$ ekte inkonklusivt, og du må se på funksjonen selv."
+    },
+    {
+      "id": "mat1110-3-1-l3a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Funksjonen $f(x,y) = x^2 y^2$ har et stasjonært punkt i origo. Vis at $D = 0$ der, og avgjør typen ved å se på funksjonsverdiene.",
+        "solution": "$f_x = 2xy^2,\\ f_y = 2x^2 y$, begge null i $(0,0)$ ⇒ stasjonært. $f_{xx} = 2y^2,\\ f_{yy} = 2x^2,\\ f_{xy} = 4xy$, alle null i origo ⇒ $H = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0\\end{pmatrix}$, $D = 0$ (**inkonklusiv**).\n\nDirekte: $f(x,y) = x^2y^2 = (xy)^2 \\ge 0 = f(0,0)$ for alle $(x,y)$. Altså er origo et **lokalt (og globalt) minimum**. (Faktisk er hele akse-korset $xy = 0$ minimumspunkter.)",
+        "hints": [
+          "Regn $\\nabla f$ og de andreordens partiellderiverte; sjekk at alle blir null i origo.",
+          "Når $D=0$: se på fortegnet til $f(x,y)-f(0,0)$. Her er $f=(xy)^2\\ge 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Hesse i tre variable og definitthet (kjennskap) (~8 min)"
+    },
+    {
+      "id": "mat1110-3-1-l4-txt",
+      "type": "text",
+      "content": "Annenderiverttesten generaliserer til funksjoner av flere variable, men da holder det ikke å se på én determinant. For $f(x,y,z)$ er Hesse-matrisen en $3\\times 3$-matrise, og klassifiseringen skjer via **definittheten** til denne matrisen — som avgjøres av fortegnene til egenverdiene. Dette er kjennskapsstoff her (en bro til egenverdiene i Del 6); i to variable trenger du bare $D$ og $f_{xx}$."
+    },
+    {
+      "id": "mat1110-3-1-def-definit",
+      "type": "definition",
+      "title": "Positiv og negativ definit Hesse-matrise",
+      "content": "En symmetrisk matrise $H$ er **positiv definit** når alle egenverdiene er positive, og **negativ definit** når alle er negative. I et stasjonært punkt gir en positiv definit Hesse et **lokalt minimum**, en negativ definit Hesse et **lokalt maksimum**, og en matrise med både positive og negative egenverdier et **sadelpunkt**. I to variable svarer «positiv definit» nøyaktig til $D > 0,\\ f_{xx} > 0$."
+    },
+    {
+      "id": "mat1110-3-1-def-kvadform",
+      "type": "definition",
+      "title": "Hesse-leddet (kvadratisk form)",
+      "content": "Uttrykket $\\tfrac12\\,(x-a)^T H (x-a)$ som beskriver hvordan $f$ krummer i nærheten av et stasjonært punkt — andreordensleddet i Taylor-utviklingen (kap. 3.3). Er denne kvadratiske formen positiv for alle retninger, ligger grafen som en skål (minimum); er den negativ, som en kuppel (maksimum); skifter den fortegn, er punktet et sadelpunkt. Annenderiverttesten er kortversjonen av denne analysen."
+    },
+    {
+      "id": "mat1110-3-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Mistede stasjonære punkter i substitusjonssteget.** Når du reduserer $\\nabla f = 0$ til én variabel, **faktoriser** ($x^4 = 27x \\Rightarrow x(x^3-27)=0$) i stedet for å dele på $x$ — deler du, mister du $x = 0$.\n- **Klassifisering uten Hesse-matrise.** Sensor krever at Hesse-matrisen settes opp **eksplisitt** i hvert punkt før konklusjon. «Dette er et minimum» uten synlig annenderiverttest gir ikke full uttelling.\n- **Feil fortegnsregel.** $D > 0$ *og* $f_{xx} > 0$ gir minimum; $D > 0$ *og* $f_{xx} < 0$ gir maksimum; $D < 0$ gir alltid sadel (uansett $f_{xx}$).\n- **$D = 0$ behandlet som avgjort.** Da svikter testen — du kan ikke konkludere fra $f_{xx}$ alene, men må se på funksjonsverdiene direkte.\n- **Lokalt forvekslet med globalt.** Annenderiverttesten gir bare *lokal* informasjon. Globale ekstremum krever et eget argument (kap. 3.2)."
+    },
+    {
+      "id": "mat1110-3-1-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Sett alltid opp Hesse-matrisen eksplisitt og begrunn klassifiseringen med annenderiverttesten, slik sensor krever på sjanger E."
+    },
+    {
+      "id": "mat1110-3-1-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn og klassifiser det stasjonære punktet til $f(x,y) = x^2 + xy + y^2 - 4x - 2y$.",
+        "solution": "$$f_x = 2x + y - 4 = 0, \\qquad f_y = x + 2y - 2 = 0.$$\n\nFra den første: $y = 4 - 2x$. Sett inn: $x + 2(4-2x) - 2 = 0 \\Rightarrow -3x + 6 = 0 \\Rightarrow x = 2,\\ y = 0$. Eneste stasjonære punkt $(2,0)$.\n\n$f_{xx} = 2,\\ f_{yy} = 2,\\ f_{xy} = 1 \\Rightarrow H = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2\\end{pmatrix},\\ D = 4 - 1 = 3 > 0,\\ f_{xx} > 0$. **Lokalt minimum** i $(2,0)$, $f(2,0) = 4 + 0 + 0 - 8 - 0 = -4$.",
+        "hints": [
+          "Løs $\\nabla f=0$ ved å uttrykke $y$ ved $x$ fra den ene likningen.",
+          "$D = f_{xx}f_{yy}-f_{xy}^2 = 4-1 = 3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Uten å regne ferdig klassifiseringen: et stasjonært punkt har Hesse-matrise $H = \\begin{pmatrix} -3 & 2 \\\\ 2 & -5\\end{pmatrix}$. Hvilken type punkt er det?",
+        "solution": "$D = (-3)(-5) - 2^2 = 15 - 4 = 11 > 0$, og $f_{xx} = -3 < 0$. Ifølge annenderiverttesten er punktet et **lokalt maksimum**.",
+        "hints": [
+          "Regn $D = f_{xx}f_{yy}-f_{xy}^2$.",
+          "$D>0$ med $f_{xx}<0$ betyr maksimum."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn og klassifiser alle stasjonære punkter til $f(x,y) = x^3 - 3x + y^3 - 3y$.",
+        "solution": "$f_x = 3x^2 - 3 = 0 \\Rightarrow x = \\pm 1$; $f_y = 3y^2 - 3 = 0 \\Rightarrow y = \\pm 1$. Fire stasjonære punkter: $(1,1), (1,-1), (-1,1), (-1,-1)$.\n\n$f_{xx} = 6x,\\ f_{yy} = 6y,\\ f_{xy} = 0 \\Rightarrow H = \\begin{pmatrix} 6x & 0 \\\\ 0 & 6y\\end{pmatrix},\\ D = 36xy$.\n\n- $(1,1)$: $D = 36 > 0,\\ f_{xx} = 6 > 0$ ⇒ **lokalt minimum**, $f = 1-3+1-3 = -4$.\n- $(-1,-1)$: $D = 36 > 0,\\ f_{xx} = -6 < 0$ ⇒ **lokalt maksimum**, $f = -1+3-1+3 = 4$.\n- $(1,-1)$ og $(-1,1)$: $D = -36 < 0$ ⇒ **sadelpunkter**.\n\n**Konklusjon:** min i $(1,1)$, maks i $(-1,-1)$, sadler i $(1,-1)$ og $(-1,1)$.",
+        "hints": [
+          "Likningene er adskilte: $x=\\pm 1$ og $y=\\pm 1$ uavhengig ⇒ fire punkter.",
+          "Hesse er diagonal; $D = 36xy$ skifter fortegn med produktet $xy$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn og klassifiser de stasjonære punktene til $f(x,y) = x^3 - 3x^2 + y^2$.",
+        "solution": "$f_x = 3x^2 - 6x = 3x(x-2) = 0 \\Rightarrow x = 0$ eller $x = 2$; $f_y = 2y = 0 \\Rightarrow y = 0$. Stasjonære punkter $(0,0)$ og $(2,0)$.\n\n$f_{xx} = 6x - 6,\\ f_{yy} = 2,\\ f_{xy} = 0 \\Rightarrow D = (6x-6)\\cdot 2$.\n\n- $(0,0)$: $f_{xx} = -6,\\ D = -12 < 0$ ⇒ **sadelpunkt**.\n- $(2,0)$: $f_{xx} = 6,\\ D = 12 > 0,\\ f_{xx} > 0$ ⇒ **lokalt minimum**, $f(2,0) = 8 - 12 + 0 = -4$.",
+        "hints": [
+          "Faktoriser $f_x = 3x(x-2)$ for å få begge $x$-verdiene.",
+          "$D = (6x-6)\\cdot 2$; sjekk fortegnet i hvert punkt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p5",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger E.) Finn og klassifiser alle stasjonære punkter til $f(x,y) = x^3 + 3xy^2 - 15x - 12y$.",
+        "solution": "$$f_x = 3x^2 + 3y^2 - 15 = 0 \\Rightarrow x^2 + y^2 = 5, \\qquad f_y = 6xy - 12 = 0 \\Rightarrow xy = 2.$$\n\nFra $x^2 + y^2 = 5$ og $xy = 2$: $(x+y)^2 = 5 + 4 = 9 \\Rightarrow x+y = \\pm 3$, og $(x-y)^2 = 5 - 4 = 1 \\Rightarrow x - y = \\pm 1$. De fire kombinasjonene gir\n$$(2,1),\\ (1,2),\\ (-1,-2),\\ (-2,-1).$$\n\n$f_{xx} = 6x,\\ f_{yy} = 6x,\\ f_{xy} = 6y \\Rightarrow D = (6x)^2 - (6y)^2 = 36(x^2 - y^2)$.\n\n- $(2,1)$: $D = 36(4-1) = 108 > 0,\\ f_{xx} = 12 > 0$ ⇒ **lokalt minimum**, $f = 8 + 6 - 30 - 12 = -28$.\n- $(-2,-1)$: $D = 108 > 0,\\ f_{xx} = -12 < 0$ ⇒ **lokalt maksimum**, $f = -8 - 6 + 30 + 12 = 28$.\n- $(1,2)$ og $(-1,-2)$: $D = 36(1-4) = -108 < 0$ ⇒ **sadelpunkter**.\n\n**Konklusjon:** min $-28$ i $(2,1)$, maks $28$ i $(-2,-1)$, sadler i $(1,2)$ og $(-1,-2)$.",
+        "hints": [
+          "Skriv likningene som $x^2+y^2=5$ og $xy=2$, og bruk $(x\\pm y)^2 = x^2+y^2 \\pm 2xy$.",
+          "$f_{xx}=f_{yy}=6x$ og $f_{xy}=6y$, så $D = 36(x^2-y^2)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-p6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-1-p6",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Bestem konstanten $a$ slik at $f(x,y) = x^2 + axy + 4y^2$ har et lokalt minimum (ikke sadelpunkt) i origo, og angi hvilke $a$ som gir sadelpunkt.",
+        "solution": "Origo er stasjonært for alle $a$ (siden $f_x = 2x + ay$ og $f_y = ax + 8y$ begge er null i $(0,0)$). Hesse-matrisen er konstant: $H = \\begin{pmatrix} 2 & a \\\\ a & 8\\end{pmatrix}$, $D = 16 - a^2$.\n\n- **Lokalt minimum:** krever $D > 0$ og $f_{xx} = 2 > 0$. $D > 0 \\Leftrightarrow a^2 < 16 \\Leftrightarrow -4 < a < 4$.\n- **Sadelpunkt:** $D < 0 \\Leftrightarrow a^2 > 16 \\Leftrightarrow a < -4$ eller $a > 4$.\n- **Grensetilfellene** $a = \\pm 4$ gir $D = 0$ (inkonklusivt); da er $f = (x \\pm 2y)^2 \\ge 0$, altså fremdeles et minimum (men langs en hel linje).\n\n**Svar:** minimum for $-4 < a < 4$ (og svakt minimum ved $a = \\pm 4$); sadelpunkt for $|a| > 4$.",
+        "hints": [
+          "Hesse er konstant her: $H = \\begin{pmatrix} 2 & a \\\\ a & 8\\end{pmatrix}$.",
+          "Minimum krever $D = 16 - a^2 > 0$; sadel krever $D < 0$. Sjekk grensen $a=\\pm 4$ separat."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-3-1-bb-gradlik",
+      "type": "definition",
+      "title": "Gradientlikningen $\\nabla f = 0$",
+      "content": "Betingelsen som gir de stasjonære punktene: både $f_x = 0$ og $f_y = 0$ samtidig. Dette er et **likningssystem**, ofte ikke-lineært, og løses vanligvis ved å uttrykke den ene variabelen ved den andre og substituere. Løsningene er kandidatene til lokale ekstremum og sadelpunkter."
+    },
+    {
+      "id": "mat1110-3-1-bb-globalt",
+      "type": "definition",
+      "title": "Globalt (absolutt) ekstremum",
+      "content": "Den aller største eller minste verdien $f$ tar på hele definisjonsområdet — i motsetning til et *lokalt* ekstremum, som bare er størst/minst i en liten omegn. Annenderiverttesten avgjør bare det lokale; for globale ekstremum trenger du enten en kompaktehtsbetraktning (ekstremalverdisetningen, kap. 3.2) eller en direkte ulikhet."
+    },
+    {
+      "id": "mat1110-3-1-bb-clairaut",
+      "type": "definition",
+      "title": "Clairauts setning",
+      "content": "Resultatet som sier at rekkefølgen på blandet partiellderivasjon ikke betyr noe når de andreordens partiellderiverte er kontinuerlige: $f_{xy} = f_{yx}$. Det er grunnen til at Hesse-matrisen er **symmetrisk**, og til at du bare trenger å regne den blandede deriverte én gang."
+    },
+    {
+      "id": "mat1110-3-1-bb-tangentplan-vann",
+      "type": "definition",
+      "title": "Vannrett tangentplan",
+      "content": "Den geometriske tolkningen av et stasjonært punkt: tangentplanet til grafen $z = f(x,y)$ er horisontalt (parallelt med $xy$-planet). Det skjer nettopp når $\\nabla f = 0$, siden tangentplanets helning i $x$- og $y$-retning er $f_x$ og $f_y$."
+    },
+    {
+      "id": "mat1110-3-1-bb-det2",
+      "type": "definition",
+      "title": "Determinant av en $2\\times 2$-matrise",
+      "content": "Tallet $\\det\\begin{pmatrix} a & b \\\\ c & d\\end{pmatrix} = ad - bc$. For Hesse-matrisen $\\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{xy} & f_{yy}\\end{pmatrix}$ gir dette nettopp diskriminanten $D = f_{xx}f_{yy} - f_{xy}^{\\,2}$ (siden de to blandede elementene er like). Det er dette ene tallet annenderiverttesten hviler på."
+    },
+    {
+      "id": "mat1110-3-1-bb-symmetrisk",
+      "type": "definition",
+      "title": "Symmetrisk matrise",
+      "content": "En kvadratmatrise som er lik sin egen speiling om hoveddiagonalen — element $(i,j)$ er lik element $(j,i)$. Hesse-matrisen er alltid symmetrisk fordi $f_{xy} = f_{yx}$ (Clairaut). En viktig konsekvens er at alle egenverdiene er reelle, slik at definitthetsanalysen i flere variable er meningsfull."
+    },
+    {
+      "id": "mat1110-3-1-bb-ekstpunkt",
+      "type": "definition",
+      "title": "Ekstremalpunkt og ekstremalverdi",
+      "content": "**Ekstremalpunktet** er *stedet* $(a,b)$ der funksjonen er størst eller minst; **ekstremalverdien** er selve *tallet* $f(a,b)$. En oppgave som ber om «største verdi» vil ha ekstremalverdien, mens «hvor antas maksimum» vil ha punktet — les nøye hva som etterspørres, og oppgi begge når du er i tvil."
+    },
+    {
+      "id": "mat1110-3-1-bb-krumning",
+      "type": "definition",
+      "title": "Krumning og fortegnet til $f_{xx}$",
+      "content": "$f_{xx}(a,b)$ måler hvordan grafen krummer i $x$-retningen: positiv betyr «bøyd oppover som en dal», negativ «bøyd nedover som en topp». Når $D > 0$ har $f_{xx}$ og $f_{yy}$ samme fortegn og bestemmer sammen om det stasjonære punktet er en bunn ($f_{xx} > 0$) eller en topp ($f_{xx} < 0$). Ved $D < 0$ krummer flaten motsatt vei i to retninger — et sadelpunkt."
+    },
+    {
+      "id": "mat1110-3-1-bb-indre",
+      "type": "definition",
+      "title": "Indre punkt",
+      "content": "Et punkt som ligger *inne i* definisjonsområdet, med litt plass til alle kanter — i motsetning til et randpunkt. Annenderiverttesten gjelder bare indre stasjonære punkter: der kan funksjonen bevege seg fritt i alle retninger. På randen av et område brukes i stedet Lagrange eller direkte parametrisering (kap. 3.2)."
+    },
+    {
+      "id": "mat1110-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-3-1-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Funksjonsdrøfting](/bok/r1/r1-4-6)) Finn og klassifiser ekstremalpunktene til én-variabel-funksjonen $g(x) = x^3 - 3x$ ved hjelp av $g'$ og $g''$.",
+            "solution": "$g'(x) = 3x^2 - 3 = 0 \\Rightarrow x = \\pm 1$. $g''(x) = 6x$. I $x=1$: $g''(1) = 6 > 0$ ⇒ lokalt minimum, $g(1) = -2$. I $x=-1$: $g''(-1) = -6 < 0$ ⇒ lokalt maksimum, $g(-1) = 2$. Dette er én-variabel-versjonen av annenderiverttesten.",
+            "hints": [
+              "Sett $g'(x)=0$ og bruk fortegnet til $g''$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-1-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) Regn $\\nabla f$ og de tre andreordens partiellderiverte $f_{xx}, f_{yy}, f_{xy}$ for $f(x,y) = x^2 y + 3y^2$.",
+            "solution": "$\\nabla f = (2xy,\\ x^2 + 6y)$. $f_{xx} = 2y,\\ f_{yy} = 6,\\ f_{xy} = 2x$. (Merk $f_{xy} = f_{yx} = 2x$ — Clairaut.)",
+            "hints": [
+              "Deriver $f_x = 2xy$ videre mhp. $x$ og mhp. $y$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-1-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) Forklar hvorfor gradienten er nullvektoren i et lokalt ekstremum i det indre av definisjonsområdet.",
+            "solution": "I et lokalt ekstremum har hver av en-variabel-funksjonene $x \\mapsto f(x,b)$ og $y \\mapsto f(a,y)$ et ekstremum i henholdsvis $x=a$ og $y=b$. Fra én-variabel-teori er da $f_x(a,b) = 0$ og $f_y(a,b) = 0$, altså $\\nabla f(a,b) = (0,0)$. Punktet er derfor stasjonært.",
+            "hints": [
+              "Frys den ene variabelen og bruk at en-variabel-funksjonen har ekstremum der."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-3-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\nabla f$ | Gradienten $(f_x, f_y)$ |\n| $f_x, f_y$ | Førsteordens partiellderiverte |\n| $f_{xx}, f_{yy}$ | Rene andreordens partiellderiverte |\n| $f_{xy}$ | Blandet andreordens partiellderivert ($= f_{yx}$) |\n| $H$ | Hesse-matrisen $\\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{xy} & f_{yy}\\end{pmatrix}$ |\n| $D$ | Hesse-determinanten $f_{xx}f_{yy} - f_{xy}^2$ |\n| $(a,b)$ | Et stasjonært punkt |\n\n**Stasjonære punkter:** løs $\\nabla f = 0$, dvs. $f_x = 0$ og $f_y = 0$ samtidig — reduser til én variabel ved substitusjon (faktoriser, ikke del).\n\n**Hesse-matrisen (sett alltid opp eksplisitt):**\n$$H = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{xy} & f_{yy}\\end{pmatrix}, \\qquad D = f_{xx}f_{yy} - f_{xy}^{\\,2}.$$\n\n**Annenderiverttesten:**\n$$D < 0 \\Rightarrow \\text{sadel}, \\quad D > 0,\\ f_{xx} > 0 \\Rightarrow \\text{lok. min}, \\quad D > 0,\\ f_{xx} < 0 \\Rightarrow \\text{lok. maks}, \\quad D = 0 \\Rightarrow \\text{inkonklusiv}.$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

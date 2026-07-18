@@ -1,0 +1,259 @@
+{
+  "id": "mat1110-3-prove",
+  "courseId": "mat1110",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Optimering",
+  "description": "Fire prøver som dekker hele Del 3 — stasjonære punkter og Hesse, Lagrange med tilfelledeling, eksistensbegrunnelse med ekstremalverdisetningen, og kombinert global optimering på lukket område. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 170,
+  "competenceGoals": [
+    "løse sammensatte optimeringsoppgaver (fri, betinget og kombinert) under tidspress",
+    "føre løsninger etter sensorstandarden med eksplisitt Hesse, ∇g = 0-sjekk og evaluering av alle kandidater",
+    "begrunne eksistens av ekstremum med ekstremalverdisetningen på en eksplisitt kompakt mengde"
+  ],
+  "content": [
+    {
+      "id": "mat1110-3-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 3",
+      "content": "Fire prøver som dekker hele Del 3 (stasjonære + Hesse, Lagrange, eksistensbegrunnelse, og kombinert global optimering). Til sammen **~35–50 min hver** — **kan trygt deles over flere kvelder, én prøve per økt**. Regn med penn og papir under tidspress. Sett alltid opp **Hesse-matrisen eksplisitt**, gjør **$\\nabla g = 0$-sjekken**, evaluer $f$ i **alle** kandidater, og oppgi **eksakte** svar. Fasit med full utregning ligger som utvidbare løsninger under hver oppgave; en **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 3.A | Stasjonære punkter + Hesse (3.1) | ~35 min |\n| 3.B | Lagrange med tilfelledeling (3.2) | ~45 min |\n| 3.C | Eksistens via ekstremalverdisetningen (3.2) | ~40 min |\n| 3.D | Kombinert: globale ekstremum på lukket område (3.1–3.4) | ~50 min |"
+    },
+    {
+      "id": "mat1110-3-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 3: [kap. 3.1](/bok/mat1110/mat1110-3-1) (stasjonære + Hesse), [kap. 3.2](/bok/mat1110/mat1110-3-2) (Lagrange + ekstremalverdisetningen), [kap. 3.3](/bok/mat1110/mat1110-3-3) (Taylor) og drillen i [kap. 3.4](/bok/mat1110/mat1110-3-4). Løs først uten fasit; sjekk deretter føringen — det er der eksamenspoengene ligger."
+    },
+    {
+      "id": "mat1110-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Stasjonære punkter og Hesse (3.A, ~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1110-3-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 3.A — Stasjonære punkter + Hesse.** Tre oppgaver, ~35 min. Sett opp Hesse-matrisen eksplisitt i hvert punkt og begrunn klassifiseringen med annenderiverttesten."
+        },
+        {
+          "id": "mat1110-3-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn og klassifiser det stasjonære punktet til $f(x,y) = x^2 + y^2 + 2x - 4y + 1$.",
+            "solution": "$f_x = 2x + 2 = 0 \\Rightarrow x = -1$; $f_y = 2y - 4 = 0 \\Rightarrow y = 2$. Stasjonært punkt $(-1, 2)$.\n$f_{xx} = 2,\\ f_{yy} = 2,\\ f_{xy} = 0 \\Rightarrow H = \\begin{pmatrix} 2 & 0 \\\\ 0 & 2\\end{pmatrix},\\ D = 4 > 0,\\ f_{xx} > 0$ ⇒ **lokalt minimum**, $f(-1,2) = 1 + 4 - 2 - 8 + 1 = -4$.",
+            "hints": [
+              "Sett $\\nabla f = 0$; likningene er adskilte.",
+              "$D = 4 > 0$ med $f_{xx} > 0$ gir minimum."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn og klassifiser alle stasjonære punkter til $f(x,y) = x^3 - 12x + y^2$.",
+            "solution": "$f_x = 3x^2 - 12 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = \\pm 2$; $f_y = 2y = 0 \\Rightarrow y = 0$. Stasjonære punkter $(2,0)$ og $(-2,0)$.\n$f_{xx} = 6x,\\ f_{yy} = 2,\\ f_{xy} = 0,\\ D = 12x$.\n- $(2,0)$: $D = 24 > 0,\\ f_{xx} = 12 > 0$ ⇒ **lokalt minimum**, $f(2,0) = 8 - 24 = -16$.\n- $(-2,0)$: $D = -24 < 0$ ⇒ **sadelpunkt**.",
+            "hints": [
+              "$f_x = 3x^2 - 12$ gir $x = \\pm 2$; $f_y = 2y$ gir $y = 0$.",
+              "$D = 12x$ skifter fortegn med $x$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn og klassifiser alle stasjonære punkter til $f(x,y) = x^4 - 2x^2 + y^2$.",
+            "solution": "$f_x = 4x^3 - 4x = 4x(x^2 - 1) = 0 \\Rightarrow x = 0,\\ x = \\pm 1$; $f_y = 2y = 0 \\Rightarrow y = 0$. Tre stasjonære punkter: $(0,0),\\ (1,0),\\ (-1,0)$.\n$f_{xx} = 12x^2 - 4,\\ f_{yy} = 2,\\ f_{xy} = 0,\\ D = (12x^2 - 4)\\cdot 2$.\n- $(0,0)$: $f_{xx} = -4,\\ D = -8 < 0$ ⇒ **sadelpunkt**.\n- $(\\pm 1, 0)$: $f_{xx} = 8,\\ D = 16 > 0,\\ f_{xx} > 0$ ⇒ **lokale minima**, $f = 1 - 2 = -1$.\n\nDette er en «dobbel brønn»: to like dype minima i $(\\pm 1, 0)$ og en sadel imellom i origo.",
+            "hints": [
+              "Faktoriser $f_x = 4x(x^2-1)$ for å få alle tre $x$-verdiene.",
+              "$D = 2(12x^2 - 4)$; sjekk fortegnet i $x = 0$ og $x = \\pm 1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p1-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Satte opp Hesse-matrisen eksplisitt i hvert punkt\n- ☐ Fikk lokalt minimum $(-1,2)$ med $f = -4$ i oppgave 1\n- ☐ Klassifiserte $(2,0)$ som minimum og $(-2,0)$ som sadel i oppgave 2\n- ☐ Faktoriserte $4x(x^2-1) = 0$ og fant alle tre punktene i oppgave 3\n- ☐ Kjente igjen dobbelt-minimum-strukturen (to minima + én sadel) i oppgave 3"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Lagrange med tilfelledeling (3.B, ~45 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1110-3-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 3.B — Lagrange.** Tre oppgaver, ~45 min. Gjør $\\nabla g = 0$-sjekken, del i tilfeller, og evaluer $f$ i alle kandidater. Begrunn eksistens der mengden er kompakt."
+        },
+        {
+          "id": "mat1110-3-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn største og minste verdi av $f(x,y) = xy$ på sirkelen $x^2 + y^2 = 18$.",
+            "solution": "$g = x^2 + y^2,\\ c = 18$. Sirkelen er kompakt og $f$ kontinuerlig ⇒ **ekstremalverdisetningen** sikrer eksistens. $\\nabla g = (2x, 2y) = 0$ bare i origo, som ikke er på sirkelen ⇒ Lagrange gjelder overalt.\n\n$$y = 2\\lambda x,\\qquad x = 2\\lambda y,\\qquad x^2 + y^2 = 18.$$\nSett første inn i andre: $x = 2\\lambda(2\\lambda x) = 4\\lambda^2 x \\Rightarrow x(1 - 4\\lambda^2) = 0$. Tilfellet $x = 0$ gir $y = 0$, ikke på sirkelen — forkastes. Så $\\lambda = \\pm\\tfrac12$.\n- $\\lambda = \\tfrac12$: $y = x$, bibetingelse $2x^2 = 18 \\Rightarrow x = \\pm 3$. Punkter $(3,3),(-3,-3)$, $f = 9$.\n- $\\lambda = -\\tfrac12$: $y = -x$, $x = \\pm 3$. Punkter $(3,-3),(-3,3)$, $f = -9$.\n\n**Største verdi $9$, minste verdi $-9$.**",
+            "hints": [
+              "$\\nabla f = \\lambda\\nabla g$: $y = 2\\lambda x,\\ x = 2\\lambda y$.",
+              "Eliminer: $x(1 - 4\\lambda^2) = 0$ gir $\\lambda = \\pm\\tfrac12$, altså $y = \\pm x$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn punktet på linjen $3x + 4y = 25$ som ligger nærmest origo, og angi avstanden. (Minimer kvadrert avstand $f = x^2 + y^2$.)",
+            "solution": "$g = 3x + 4y = 25$. $\\nabla g = (3,4) \\ne 0$ overalt ⇒ Lagrange gjelder. $\\nabla f = (2x, 2y)$:\n$$2x = 3\\lambda,\\qquad 2y = 4\\lambda,\\qquad 3x + 4y = 25.$$\nAltså $x = \\tfrac{3\\lambda}{2},\\ y = 2\\lambda$. Sett inn: $3\\cdot\\tfrac{3\\lambda}{2} + 4\\cdot 2\\lambda = \\tfrac{9\\lambda}{2} + 8\\lambda = \\tfrac{25\\lambda}{2} = 25 \\Rightarrow \\lambda = 2$. Da $x = 3,\\ y = 4$.\n\nEneste kandidat $(3,4)$, med $f = 9 + 16 = 25$. Linjen er ubegrenset, men $f \\to \\infty$ utover, så dette er **minimum** (sikret av $K = \\{3x+4y=25,\\ f \\le 25\\}$ kompakt). Det finnes **ingen største verdi**. **Nærmeste punkt $(3,4)$, avstand $\\sqrt{25} = 5$.**",
+            "hints": [
+              "$2x = 3\\lambda,\\ 2y = 4\\lambda$ gir $x = \\tfrac{3\\lambda}{2},\\ y = 2\\lambda$.",
+              "Sett inn i linjelikningen og løs for $\\lambda$; en linje er ubegrenset, så bare minimum finnes."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn største og minste verdi av $f(x,y,z) = x + 2y + 2z$ på kuleflaten $x^2 + y^2 + z^2 = 9$.",
+            "solution": "Kuleflaten er kompakt ⇒ **ekstremalverdisetningen** gir eksistens. $\\nabla g = (2x,2y,2z) = 0$ bare i origo, ikke på kula ⇒ Lagrange gjelder.\n$$1 = 2\\lambda x,\\quad 2 = 2\\lambda y,\\quad 2 = 2\\lambda z.$$\nAltså $x = \\tfrac{1}{2\\lambda},\\ y = z = \\tfrac{1}{\\lambda}$, så $y = z = 2x$. Bibetingelse: $x^2 + 4x^2 + 4x^2 = 9x^2 = 9 \\Rightarrow x = \\pm 1$.\n- $x = 1$: $(1, 2, 2)$, $f = 1 + 4 + 4 = 9$.\n- $x = -1$: $(-1, -2, -2)$, $f = -9$.\n\n**Største verdi $9$ (i $(1,2,2)$), minste verdi $-9$ (i $(-1,-2,-2)$).** (Merk: dette er $|(1,2,2)|\\cdot r = 3\\cdot 3 = 9$.)",
+            "hints": [
+              "De tre likningene gir $y = z = 2x$.",
+              "Sett inn i kuleflaten: $9x^2 = 9$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p2-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Gjorde $\\nabla g = 0$-sjekken i alle tre oppgavene\n- ☐ Delte riktig i tilfeller ($\\lambda = \\pm\\tfrac12$) og fikk $\\pm 9$ i oppgave 1\n- ☐ Fant nærmeste punkt $(3,4)$ og avstand $5$ i oppgave 2, og så at det ikke finnes noen største verdi\n- ☐ Fikk $y = z = 2x$ og svaret $\\pm 9$ i oppgave 3\n- ☐ Oppga eksakte verdier og begrunnet eksistens der mengden var kompakt"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Eksistens via ekstremalverdisetningen (3.C, ~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1110-3-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 3.C — Eksistensbegrunnelse.** To oppgaver, ~40 min. Her er tyngdepunktet **eksistensargumentet**: navngi ekstremalverdisetningen, og konstruer eksplisitt en kompakt (ikke-tom, lukket, begrenset) mengde når bibetingelsen selv er ubegrenset."
+        },
+        {
+          "id": "mat1110-3-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at $f(x,y) = xy$ antar både en største og en minste verdi på ellipsen $x^2 + 4y^2 = 4$, og finn dem.",
+            "solution": "**Eksistens:** ellipsen $x^2 + 4y^2 = 4$ er **lukket** (randen er hele mengden) og **begrenset** ($|x| \\le 2,\\ |y| \\le 1$), altså **kompakt**. $f = xy$ er kontinuerlig. Ifølge **ekstremalverdisetningen** antar $f$ derfor både sin største og sin minste verdi på ellipsen. (Det er dette eksistensargumentet oppgaven ber om.)\n\n**Finn verdiene:** $g = x^2 + 4y^2$, $\\nabla g = (2x, 8y) = 0$ bare i origo, ikke på ellipsen ⇒ Lagrange gjelder.\n$$y = 2\\lambda x,\\qquad x = 8\\lambda y,\\qquad x^2 + 4y^2 = 4.$$\nSett første inn i andre: $x = 8\\lambda(2\\lambda x) = 16\\lambda^2 x \\Rightarrow x(1 - 16\\lambda^2) = 0$. $x = 0$ gir $y = 0$, ikke på ellipsen — forkastes. Så $\\lambda = \\pm\\tfrac14$.\n- $\\lambda = \\tfrac14$: $y = \\tfrac{x}{2}$, bibetingelse $x^2 + 4\\cdot\\tfrac{x^2}{4} = 2x^2 = 4 \\Rightarrow x = \\pm\\sqrt2,\\ y = \\pm\\tfrac{\\sqrt2}{2}$. Da $f = xy = \\sqrt2\\cdot\\tfrac{\\sqrt2}{2} = 1$.\n- $\\lambda = -\\tfrac14$: $y = -\\tfrac{x}{2}$, $f = -1$.\n\n**Største verdi $1$, minste verdi $-1$.**",
+            "hints": [
+              "Eksistens: vis at ellipsen er lukket og begrenset, og navngi ekstremalverdisetningen.",
+              "Lagrange: eliminer $\\lambda$ via $x(1 - 16\\lambda^2) = 0$; $\\lambda = \\pm\\tfrac14$ gir $y = \\pm\\tfrac{x}{2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn den minste verdien av $f(x,y) = x^2 + y^2$ på hyperbelen $xy = 4$. Begrunn eksistensen ved å konstruere en eksplisitt kompakt mengde, og forklar hvorfor det ikke finnes noen største verdi.",
+            "solution": "$g = xy = 4$. **$\\nabla g = 0$-sjekk:** $\\nabla g = (y, x) = 0$ bare i origo, som ikke er på hyperbelen ($0 \\ne 4$) ⇒ Lagrange gjelder.\n\n**Eksistensbegrunnelse:** hyperbelen er lukket, men **ikke begrenset**, så ekstremalverdisetningen gjelder ikke direkte. Konstruer i stedet $K = \\{xy = 4,\\ x^2 + y^2 \\le 20\\}$. Denne er **ikke-tom** (punktet $(2,2)$ har $f = 8 \\le 20$), **lukket** og **begrenset** (ligger i skiven med radius $\\sqrt{20}$), altså **kompakt**. Ifølge ekstremalverdisetningen antar $f$ sitt minimum på $K$; og utenfor $K$ er $f > 20 > 8$, så det globale minimumet ligger i $K$.\n\n**Finn minimum:** $\\nabla f = (2x, 2y) = \\lambda(y, x)$:\n$$2x = \\lambda y,\\qquad 2y = \\lambda x,\\qquad xy = 4.$$\nGang første med $x$ og andre med $y$: $2x^2 = \\lambda xy = 4\\lambda$ og $2y^2 = \\lambda xy = 4\\lambda$, så $x^2 = y^2$. Med $xy = 4 > 0$ har $x, y$ samme fortegn ⇒ $x = y$, og $x^2 = 4 \\Rightarrow (2,2)$ og $(-2,-2)$, begge med $f = 8$.\n\n**Minste verdi $f = 8$** (i $(2,2)$ og $(-2,-2)$). **Ingen største verdi:** langs hyperbelen kan $x \\to \\infty$ (og $y = 4/x \\to 0$), så $f = x^2 + y^2 \\to \\infty$.",
+            "hints": [
+              "$\\nabla g = 0$ bare i origo (ikke på hyperbelen); hyperbelen er ubegrenset, så konstruer $K = \\{xy=4,\\ f \\le M\\}$.",
+              "Gang Lagrange-likningene med $x$ og $y$ for å få $x^2 = y^2$; bruk $xy = 4 > 0$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p3-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Viste at ellipsen er lukket og begrenset, og **navnga** ekstremalverdisetningen i oppgave 1\n- ☐ Fikk største/minste verdi $\\pm 1$ på ellipsen\n- ☐ Konstruerte en eksplisitt kompakt mengde $K = \\{xy=4,\\ f \\le M\\}$ i oppgave 2\n- ☐ Argumenterte for at minimum ligger i $K$ (utenfor er $f > M$)\n- ☐ Forklarte hvorfor hyperbelen ikke gir noen største verdi"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Globale ekstremum på lukket område (3.D, ~50 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1110-3-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 3.D — Kombinert optimering.** To oppgaver, ~50 min. Finn de globale ekstremalverdiene på et **lukket område** ved å kombinere indre stasjonære punkter (Hesse) med randen (Lagrange/innsetting), og **sammenlign alle** kandidatverdiene til slutt."
+        },
+        {
+          "id": "mat1110-3-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn de globale ekstremalverdiene til $f(x,y) = x^2 + y^2 - 2x - 4y$ på den fylte skiven $x^2 + y^2 \\le 9$.",
+            "solution": "**Indre:** $\\nabla f = (2x - 2,\\ 2y - 4) = 0 \\Rightarrow (1, 2)$, som ligger inne i skiven ($1 + 4 = 5 < 9$). $H = \\begin{pmatrix} 2 & 0 \\\\ 0 & 2\\end{pmatrix},\\ D = 4 > 0,\\ f_{xx} > 0$ ⇒ lokalt minimum, $f(1,2) = 1 + 4 - 2 - 8 = -5$.\n\n**Rand** $x^2 + y^2 = 9$: her er $x^2 + y^2 = 9$, så $f = 9 - 2x - 4y$. Vi optimerer $-2x - 4y$ på sirkelen med Lagrange (eller geometri): $\\nabla(-2x-4y) = (-2,-4) = \\mu(2x, 2y) \\Rightarrow x = -\\tfrac{1}{\\mu},\\ y = -\\tfrac{2}{\\mu}$, altså $y = 2x$. Bibetingelse: $x^2 + 4x^2 = 9 \\Rightarrow x = \\pm\\tfrac{3}{\\sqrt5}$.\n- $x = \\tfrac{3}{\\sqrt5},\\ y = \\tfrac{6}{\\sqrt5}$: $f = 9 - 2\\cdot\\tfrac{3}{\\sqrt5} - 4\\cdot\\tfrac{6}{\\sqrt5} = 9 - \\tfrac{30}{\\sqrt5} = 9 - 6\\sqrt5 \\approx -4{,}42$.\n- $x = -\\tfrac{3}{\\sqrt5},\\ y = -\\tfrac{6}{\\sqrt5}$: $f = 9 + 6\\sqrt5 \\approx 22{,}42$.\n\n**Sammenlign** alle kandidater: $-5$ (indre), $9 - 6\\sqrt5 \\approx -4{,}42$ og $9 + 6\\sqrt5$ (rand). Siden $-5 < 9 - 6\\sqrt5$, er **global minimum $-5$ i $(1,2)$**, og **global maksimum $9 + 6\\sqrt5$ i $\\left(-\\tfrac{3}{\\sqrt5}, -\\tfrac{6}{\\sqrt5}\\right)$**.",
+            "hints": [
+              "Indre: $\\nabla f = 0$ gir $(1,2)$; sjekk at det ligger inne i skiven.",
+              "På randen er $x^2+y^2 = 9$, så $f = 9 - 2x - 4y$; optimer det på sirkelen ($y = 2x$)."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn de globale ekstremalverdiene til $f(x,y) = 2x^2 + y^2 - 2y$ på den fylte skiven $x^2 + y^2 \\le 4$.",
+            "solution": "**Indre:** $\\nabla f = (4x,\\ 2y - 2) = 0 \\Rightarrow (0, 1)$, inne i skiven ($1 < 4$). $H = \\begin{pmatrix} 4 & 0 \\\\ 0 & 2\\end{pmatrix},\\ D = 8 > 0,\\ f_{xx} > 0$ ⇒ lokalt minimum, $f(0,1) = 0 + 1 - 2 = -1$.\n\n**Rand** $x^2 + y^2 = 4$: sett $x^2 = 4 - y^2$ inn, $y \\in [-2, 2]$: $f = 2(4 - y^2) + y^2 - 2y = -y^2 - 2y + 8 = -(y+1)^2 + 9$. Maksimum ved $y = -1$: $f = 9$ (med $x^2 = 3,\\ x = \\pm\\sqrt3$). Endepunkter: $y = 2 \\Rightarrow f = 8 - 4 - 4 = 0$ (i $(0,2)$); $y = -2 \\Rightarrow f = 8 - 4 + 4 = 8$ (i $(0,-2)$).\n\n**Sammenlign:** $-1$ (indre); $9,\\ 0,\\ 8$ (rand). **Global minimum $-1$ i $(0,1)$; global maksimum $9$ i $(\\pm\\sqrt3, -1)$.**",
+            "hints": [
+              "Indre stasjonært $(0,1)$; på randen sett $x^2 = 4 - y^2$ inn.",
+              "Rand: $f = -(y+1)^2 + 9$ på $[-2,2]$; toppen er $y = -1$, sjekk endepunktene."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-prove-p4-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Behandlet indre (Hesse) og rand hver for seg i begge oppgavene\n- ☐ Sjekket at det indre stasjonære punktet faktisk ligger inne i skiven\n- ☐ Fikk global min $-5$ og global maks $9 + 6\\sqrt5$ i oppgave 1\n- ☐ Fikk global min $-1$ og global maks $9$ i oppgave 2\n- ☐ Sammenlignet **alle** kandidatverdiene til slutt før jeg konkluderte"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,269 @@
+{
+  "id": "mat1110-3-4",
+  "courseId": "mat1110",
+  "chapterNumber": "3.4",
+  "title": "Drill: optimeringspakken — Hesse og Lagrange på eksamensnivå",
+  "description": "De to optimeringssjangrene drillet sammen: fri optimering med Hesse og betinget med Lagrange (inkl. ∇g = 0-sjekk og eksistensbegrunnelse) — faste O2–O3-delpunkter i alle regimer.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjenne igjen om en oppgave krever fri, betinget eller kombinert (global på lukket område) optimering, og velge riktig algoritme",
+    "føre Lagrange fullstendig med ∇g = 0-sjekk, tilfelledeling og evaluering av alle kandidater",
+    "finne globale ekstremum på et lukket område ved å kombinere indre Hesse-analyse og rand-Lagrange"
+  ],
+  "content": [
+    {
+      "id": "mat1110-3-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningsleiren for optimering — de to sjangrene E og F drillet sammen til automatikk.**\n\n- **Sjanger E** (stasjonære + Hesse) er i **12 av 20 sett (60 %)**, og **sjanger F** (Lagrange) i **12 av 20 (60 %), 3/3 i V2025**. De kommer som faste O2–O3-delpunkter i alle regimer, ofte etter hverandre.\n- **Variantkatalogen** du må kjenne igjen: (1) klassifiser stasjonære punkter (fri), (2) Lagrange på kurve/flate med tilfelledeling, (3) eksistens via ekstremalverdisetningen på en kompakt mengde, (4) **kombinert** — globale ekstremum på et lukket område (indre stasjonære + rand via Lagrange).\n- Føringspoengene sensor teller: eksplisitt **Hesse-oppsett**, **$\\nabla g = 0$-sjekk**, alle **kandidater evaluert**, **eksistensbegrunnelse** der den kreves, og **eksakte svar**.\n\n**Prioritet: høyeste.** Ingen ny teori — bare mengdetrening på [kap. 3.1–3.2](/bok/mat1110/mat1110-3-1)."
+    },
+    {
+      "id": "mat1110-3-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 3 så langt: stasjonære punkter og Hesse-klassifisering ([kap. 3.1](/bok/mat1110/mat1110-3-1)) og Lagrange med $\\nabla g = 0$-sjekk og ekstremalverdisetningen ([kap. 3.2](/bok/mat1110/mat1110-3-2)). Alt her forutsettes lært — dette kapitlet trener bruken under tidspress. Gradient og andreordens partiellderiverte kommer fra [kap. 2.1](/bok/mat1110/mat1110-2-1)."
+    },
+    {
+      "id": "mat1110-3-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — optimeringspakken\n\nAvgjør først **hvilken type** oppgave du har, og følg riktig algoritme:\n\n**A. Fri optimering** (ingen bibetingelse, hele planet):\n1. Løs $\\nabla f = 0$; **reduser til én variabel** ved substitusjon (faktoriser, ikke del).\n2. List **alle** stasjonære punkter.\n3. Sett opp **Hesse-matrisen eksplisitt** i hvert punkt; klassifiser med $D = f_{xx}f_{yy} - f_{xy}^2$.\n\n**B. Betinget optimering** (bibetingelse $g = c$):\n1. **$\\nabla g = 0$-sjekk** — er det et slikt punkt på bibetingelsen, blir det en ekstra kandidat.\n2. Sett opp $\\nabla f = \\lambda\\nabla g$ og $g = c$.\n3. **Tilfelledeling** → finn alle kandidater.\n4. **Evaluer $f$** i hver kandidat.\n5. Begrunn eksistens med **ekstremalverdisetningen** når mengden er kompakt (og oppgaven ber om det).\n\n**C. Globalt på lukket område** (f.eks. en fylt skive $x^2+y^2 \\le r^2$):\n1. **Indre** stasjonære punkter (bruk A, behold bare de som ligger *inne* i området).\n2. **Randen** (bruk B: Lagrange eller parametrisering av kanten).\n3. Ta med eventuelle **hjørner**.\n4. **Sammenlign** $f$ i alle kandidatene — største er global maks, minste er global min."
+    },
+    {
+      "id": "mat1110-3-4-def-fri",
+      "type": "definition",
+      "title": "Fri optimering (algoritme)",
+      "content": "Å finne ekstremum uten bibetingelse, over hele planet: løs $\\nabla f = 0$ (reduser til én variabel ved substitusjon), list alle stasjonære punkter, og klassifiser hvert med Hesse-matrisen og annenderiverttesten. Kandidatene er nettopp de stasjonære punktene — der gradienten er nullvektoren."
+    },
+    {
+      "id": "mat1110-3-4-def-betinget",
+      "type": "definition",
+      "title": "Betinget optimering (algoritme)",
+      "content": "Å finne ekstremum under en bibetingelse $g = c$: gjør $\\nabla g = 0$-sjekken, sett opp $\\nabla f = \\lambda\\nabla g$ med $g = c$, del i tilfeller for å finne alle kandidater, evaluer $f$ i hver, og begrunn eksistens med ekstremalverdisetningen når mengden er kompakt. Kandidatene ligger på bibetingelsen, ikke der $\\nabla f = 0$."
+    },
+    {
+      "id": "mat1110-3-4-def-globalt",
+      "type": "definition",
+      "title": "Globalt ekstremum på et lukket område (algoritme)",
+      "content": "Å finne den aller største og minste verdien på et lukket område (f.eks. en fylt skive): kombiner de to metodene. Finn (1) indre stasjonære punkter med Hesse, (2) randens kandidater med Lagrange eller parametrisering, og (3) eventuelle hjørner — og **sammenlign $f$ i alle**. Den største verdien er global maks, den minste er global min. Her trengs ingen annenderivert-test på randkandidatene; sammenligningen avgjør."
+    },
+    {
+      "id": "mat1110-3-4-def-rand",
+      "type": "definition",
+      "title": "Randanalyse",
+      "content": "Behandlingen av kanten på et lukket område som en egen bibetingelse. For skiven $x^2 + y^2 \\le r^2$ er randen sirkelen $x^2 + y^2 = r^2$, og du finner randkandidatene enten med Lagrange eller ved å sette $y^2 = r^2 - x^2$ inn og optimere en en-variabel-funksjon på $[-r, r]$ (husk endepunktene). Randen glemmes ofte — den er halve svaret i globalt-på-område-oppgaver."
+    },
+    {
+      "id": "mat1110-3-4-def-kandidatliste",
+      "type": "definition",
+      "title": "Kandidatliste",
+      "content": "Den samlede lista over alle punkter som kan være ekstremum — indre stasjonære, randkandidater, hjørner og eventuelle $\\nabla g = 0$-punkter. Poenget er å **samle alle** før du sammenligner: den globale ekstremverdien er den største/minste $f$-verdien i hele lista. Å glemme én kandidat (typisk en rand eller et $\\nabla g = 0$-punkt) er den vanligste feilen i sammensatte optimeringsoppgaver."
+    },
+    {
+      "id": "mat1110-3-4-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — Lagrange med $\\nabla g = 0$-kandidat og eksistensbegrunnelse",
+      "problem": "Finn den minste avstanden fra origo til kurven $y^2 = (x-2)^3$. (Det holder å minimere kvadrert avstand $f(x,y) = x^2 + y^2$.)",
+      "solution": "Skriv bibetingelsen som $g(x,y) = y^2 - (x-2)^3 = 0$. Kurven finnes bare for $x \\ge 2$ (ellers er $(x-2)^3 < 0$ og $y^2$ kan ikke være det).\n\n**Steg 1 — $\\nabla g = 0$-sjekk.** $\\nabla g = \\big(-3(x-2)^2,\\ 2y\\big)$. Dette er nullvektoren når $x = 2$ **og** $y = 0$. Punktet $(2,0)$ ligger på kurven ($0 = 0^3$ ✓) — det er en **spiss (cusp)** der $\\nabla g = 0$, altså en ekstra kandidat vi må teste direkte.\n*Sensor: at du gjør $\\nabla g = 0$-sjekken og fanger cusp-en er et selvstendig føringspoeng — mange hopper over den og mister kandidatpunktet.*\n\n**Steg 2 — Lagrange der $\\nabla g \\ne 0$.** $\\nabla f = (2x, 2y) = \\lambda\\big(-3(x-2)^2,\\ 2y\\big)$. Andre komponent: $2y = 2\\lambda y \\Rightarrow y(1 - \\lambda) = 0$.\n- Er $y = 0$: kurven gir $(x-2)^3 = 0 \\Rightarrow x = 2$ — samme punkt $(2,0)$.\n- Er $\\lambda = 1$: første komponent $2x = -3(x-2)^2 \\Rightarrow 3(x-2)^2 + 2x = 0 \\Rightarrow 3x^2 - 10x + 12 = 0$, med diskriminant $100 - 144 < 0$ — **ingen reell løsning**.\n\n*Sensor: Lagrange gir altså ingen ny kandidat her; hele svaret hviler på $\\nabla g = 0$-punktet. Vis dette eksplisitt.*\n\n**Steg 3 — eneste kandidat $(2,0)$, med eksistensbegrunnelse.** Kurven er ubegrenset (går mot $x \\to \\infty$), så vi kan ikke bruke ekstremalverdisetningen direkte. **Konstruer en kompakt mengde:** på grenen $x \\ge 2$ er $f(x) = x^2 + (x-2)^3$ med $f'(x) = 2x + 3(x-2)^2 > 0$, så $f$ vokser utover. La $K = \\{g = 0,\\ f \\le 4\\}$ — denne er ikke-tom (inneholder $(2,0)$ med $f = 4$), lukket og begrenset, altså **kompakt**. Ifølge **ekstremalverdisetningen** antar $f$ sitt minimum på $K$, og utenfor $K$ er $f > 4$, så det globale minimumet ligger i $K$.\n\n**Steg 4 — svar.** Minste kvadrerte avstand er $f(2,0) = 4$, altså **minste avstand $= \\sqrt{4} = 2$**, antatt i punktet $(2,0)$.\n*Sensor: eksakt svar ($2$, ikke en desimaltilnærming), verbal konklusjon, og eksistensen ryddig begrunnet — full uttelling.*"
+    },
+    {
+      "id": "mat1110-3-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil (hele optimeringspakken under tidspress)",
+      "content": "Fellene fra [kap. 3.1](/bok/mat1110/mat1110-3-1) og [kap. 3.2](/bok/mat1110/mat1110-3-2) slår hardest når klokka går:\n\n- **Mister stasjonære punkter** i substitusjonssteget ($\\nabla f = 0$ redusert til én variabel) — sjekk alle røtter, også $x=0$.\n- **Klassifiserer uten å sette opp Hesse-matrisen** eksplisitt. Sensor krever oppsettet, ikke bare fortegnet.\n- **Glemmer randen** i «globalt på lukket område»-oppgaver: indre stasjonære punkter (Hesse) MÅ suppleres med randen (Lagrange/parametrisering) og hjørnene.\n- **Hopper over $\\nabla g = 0$-sjekken** i Lagrange og mister et kandidatpunkt eller en tilfelledeling.\n- **Hevder min/maks uten kompakthet** — ekstremalverdisetningen krever lukket *og* begrenset mengde; begrunn bare når oppgaven ber om det.\n- **Sammenligner ikke alle kandidatverdiene** til slutt: største $f$-verdi = maks, minste = min. Regn $f$ i hvert kandidatpunkt før du konkluderer.\n- **Desimaltilnærming** i stedet for eksakt svar (behold $9+6\\sqrt5$, ikke $22{,}4$)."
+    },
+    {
+      "id": "mat1110-3-4-drill",
+      "type": "text",
+      "content": "## Drilloppgaver — hele variantkatalogen\n\nHver oppgave er merket med hvilken variant den trener. Sett alltid opp Hesse eksplisitt, gjør $\\nabla g = 0$-sjekken, og evaluer $f$ i alle kandidater."
+    },
+    {
+      "id": "mat1110-3-4-d1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant A — fri.) Finn og klassifiser det stasjonære punktet til $f(x,y) = x^2 + y^2 - 6x + 2y$.",
+        "solution": "$f_x = 2x - 6 = 0 \\Rightarrow x = 3$; $f_y = 2y + 2 = 0 \\Rightarrow y = -1$. Stasjonært punkt $(3,-1)$.\n$f_{xx} = 2,\\ f_{yy} = 2,\\ f_{xy} = 0 \\Rightarrow H = \\begin{pmatrix} 2 & 0 \\\\ 0 & 2\\end{pmatrix},\\ D = 4 > 0,\\ f_{xx} > 0$ ⇒ **lokalt minimum**, $f(3,-1) = 9 + 1 - 18 - 2 = -10$.",
+        "hints": [
+          "Sett $\\nabla f = 0$; likningene er adskilte.",
+          "$D = 4 > 0$ og $f_{xx} > 0$ gir minimum."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant B — Lagrange.) Finn største og minste verdi av $f(x,y) = 2x + y$ på sirkelen $x^2 + y^2 = 5$.",
+        "solution": "Kompakt sirkel ⇒ eksistens. $\\nabla g = (2x,2y) = 0$ bare i origo, ikke på sirkelen. $2 = 2\\lambda x,\\ 1 = 2\\lambda y \\Rightarrow x = 2y$. Bibetingelse: $4y^2 + y^2 = 5 \\Rightarrow y^2 = 1,\\ y = \\pm 1$. Kandidater $(2,1)$ med $f = 5$ og $(-2,-1)$ med $f = -5$.\n\n**Største verdi $5$, minste verdi $-5$.**",
+        "hints": [
+          "$2 = 2\\lambda x,\\ 1 = 2\\lambda y$ gir $x = 2y$.",
+          "Sett inn i sirkelen: $5y^2 = 5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant A — fri, to punkter.) Finn og klassifiser de stasjonære punktene til $f(x,y) = x^3 + y^3 - 6xy$.",
+        "solution": "$f_x = 3x^2 - 6y = 0 \\Rightarrow y = \\tfrac{x^2}{2}$; $f_y = 3y^2 - 6x = 0 \\Rightarrow x = \\tfrac{y^2}{2}$. Sett inn: $x = \\tfrac{1}{2}\\big(\\tfrac{x^2}{2}\\big)^2 = \\tfrac{x^4}{8} \\Rightarrow x^4 = 8x \\Rightarrow x(x^3 - 8) = 0$, så $x = 0$ eller $x = 2$. Punkter $(0,0)$ og $(2,2)$.\n$f_{xx} = 6x,\\ f_{yy} = 6y,\\ f_{xy} = -6,\\ D = 36xy - 36$.\n- $(0,0)$: $D = -36 < 0$ ⇒ **sadelpunkt**.\n- $(2,2)$: $D = 144 - 36 = 108 > 0,\\ f_{xx} = 12 > 0$ ⇒ **lokalt minimum**, $f(2,2) = 8 + 8 - 24 = -8$.",
+        "hints": [
+          "Reduser $\\nabla f = 0$ ved å sette $y = x^2/2$ inn; faktoriser $x(x^3-8)=0$.",
+          "$D = 36xy - 36$; sjekk fortegnet i hvert punkt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant B — begrunnelse ikke kreves.) Finn punktet på sirkelen $x^2 + y^2 = 4$ som ligger nærmest punktet $(3,0)$. (Eksistens er opplagt — sirkelen er kompakt og avstanden kontinuerlig — så du trenger ikke et eget eksistensargument.)",
+        "solution": "Minimer kvadrert avstand $f(x,y) = (x-3)^2 + y^2$ på $g = x^2 + y^2 = 4$. $\\nabla g = (2x,2y) = 0$ bare i origo, ikke på sirkelen. $\\nabla f = (2(x-3),\\ 2y)$:\n$$2(x-3) = 2\\lambda x,\\qquad 2y = 2\\lambda y,\\qquad x^2+y^2 = 4.$$\nAndre likning: $y(1-\\lambda) = 0$. Er $y = 0$: $x = \\pm 2$, punkter $(2,0)$ og $(-2,0)$. Er $\\lambda = 1$: første likning $2(x-3) = 2x \\Rightarrow -6 = 0$, umulig. Så kandidatene er $(2,0)$ med $f = 1$ og $(-2,0)$ med $f = 25$.\n\n**Nærmest:** $(2,0)$, i avstand $\\sqrt{1} = 1$. (Og lengst unna: $(-2,0)$, avstand $5$.) Merk at vi ikke brukte tid på eksistensbegrunnelse — oppgaven ba ikke om det.",
+        "hints": [
+          "Minimer $(x-3)^2 + y^2$ på sirkelen; $\\nabla g = 0$ bare i origo (ikke på sirkelen).",
+          "$y(1-\\lambda)=0$: $y=0$ gir $x=\\pm 2$; $\\lambda=1$ gir motsigelse."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant B — tilfelledeling.) Finn største og minste verdi av $f(x,y) = x^2 - y^2$ på sirkelen $x^2 + y^2 = 4$.",
+        "solution": "Kompakt ⇒ eksistens. $\\nabla g = 0$ bare i origo (ikke på sirkelen). $\\nabla f = (2x, -2y)$:\n$$2x = 2\\lambda x,\\qquad -2y = 2\\lambda y,\\qquad x^2+y^2 = 4.$$\nFørste: $x(1-\\lambda) = 0$; andre: $y(1+\\lambda) = 0$ — **tilfelledeling**.\n- $\\lambda = 1$: andre likning krever $y = 0$, så $x = \\pm 2$. Punkter $(\\pm 2, 0)$ med $f = 4$.\n- $\\lambda = -1$: første likning krever $x = 0$, så $y = \\pm 2$. Punkter $(0, \\pm 2)$ med $f = -4$.\n\n**Største verdi $4$ (i $(\\pm 2,0)$), minste verdi $-4$ (i $(0,\\pm 2)$).**",
+        "hints": [
+          "Begge Lagrange-likningene er produkter: $x(1-\\lambda)=0$ og $y(1+\\lambda)=0$.",
+          "$\\lambda=1$ tvinger $y=0$; $\\lambda=-1$ tvinger $x=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant B — tre variable.) Finn største og minste verdi av $f(x,y,z) = x + y + z$ på kuleflaten $x^2 + y^2 + z^2 = 3$.",
+        "solution": "Kuleflaten er kompakt ⇒ eksistens via ekstremalverdisetningen. $\\nabla g = (2x,2y,2z) = 0$ bare i origo, ikke på kula. $\\nabla f = (1,1,1)$:\n$$1 = 2\\lambda x,\\quad 1 = 2\\lambda y,\\quad 1 = 2\\lambda z \\Rightarrow x = y = z = \\tfrac{1}{2\\lambda}.$$\nBibetingelse: $3x^2 = 3 \\Rightarrow x = \\pm 1$. Kandidater $(1,1,1)$ med $f = 3$ og $(-1,-1,-1)$ med $f = -3$.\n\n**Største verdi $3$, minste verdi $-3$.**",
+        "hints": [
+          "Alle tre likningene gir $x = y = z$.",
+          "Sett inn i kuleflaten: $3x^2 = 3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d7-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant B — $\\nabla g = 0$-kandidat.) Finn den minste verdien av $f(x,y) = x^2 + y^2$ på kurven $y^2 = x^3$ (som finnes for $x \\ge 0$). Vær nøye med $\\nabla g = 0$-sjekken.",
+        "solution": "Skriv $g(x,y) = y^2 - x^3 = 0$. **$\\nabla g = 0$-sjekk:** $\\nabla g = (-3x^2,\\ 2y) = (0,0)$ når $x = 0,\\ y = 0$. Punktet $(0,0)$ ligger på kurven ($0 = 0^3$ ✓) — en **cusp** der $\\nabla g = 0$, altså en kandidat.\n\n**Lagrange:** $\\nabla f = (2x, 2y) = \\lambda(-3x^2,\\ 2y)$. Andre komponent: $y(1-\\lambda) = 0$. $y = 0 \\Rightarrow x^3 = 0 \\Rightarrow x = 0$ (origo igjen). $\\lambda = 1 \\Rightarrow 2x = -3x^2 \\Rightarrow x(3x + 2) = 0 \\Rightarrow x = 0$ (eller $x = -\\tfrac23 < 0$, ikke på kurven). Alle veier fører til $(0,0)$.\n\n**Eneste kandidat $(0,0)$.** På grenen $x \\ge 0$ er $f(x) = x^2 + x^3$ voksende ($f'(x) = 2x + 3x^2 \\ge 0$), så minimum ligger ved $x = 0$; sikret av $K = \\{g = 0,\\ f \\le 1\\}$ kompakt. **Minste verdi $f(0,0) = 0$.**",
+        "hints": [
+          "Skriv $g = y^2 - x^3$; sjekk hvor $\\nabla g = 0$ og om det ligger på kurven.",
+          "Origo (cusp) er eneste kandidat; $f = x^2+x^3$ vokser for $x\\ge 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d8-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant C — kombinert indre + rand.) Finn de globale ekstremalverdiene til $f(x,y) = x^2 + 2y^2 - 2x$ på den fylte skiven $x^2 + y^2 \\le 4$.",
+        "solution": "**Indre:** $\\nabla f = (2x - 2,\\ 4y) = 0 \\Rightarrow (1, 0)$, som ligger inne i skiven ($1 < 4$). $H = \\begin{pmatrix} 2 & 0 \\\\ 0 & 4\\end{pmatrix},\\ D = 8 > 0,\\ f_{xx} > 0$ ⇒ lokalt minimum, $f(1,0) = 1 - 2 = -1$.\n\n**Rand** $x^2+y^2 = 4$: sett $y^2 = 4 - x^2$ inn, $x \\in [-2,2]$: $f = x^2 + 2(4-x^2) - 2x = -x^2 - 2x + 8$. Deriver: $-2x - 2 = 0 \\Rightarrow x = -1$, $f = -1 + 2 + 8 = 9$ (i $(-1, \\pm\\sqrt3)$). Endepunkter: $x = 2$ gir $f(2,0) = 0$; $x = -2$ gir $f(-2,0) = 8$.\n\n**Sammenlign** alle kandidater: $-1$ (indre), $9,\\ 0,\\ 8$ (rand). **Global minimum $-1$ i $(1,0)$; global maksimum $9$ i $(-1, \\pm\\sqrt3)$.**",
+        "hints": [
+          "Behandle indre (Hesse) og rand (sett $y^2 = 4-x^2$) hver for seg.",
+          "På randen: $f = -x^2 - 2x + 8$ på $[-2,2]$; sjekk vertekset $x=-1$ og endepunktene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d9-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant C — kombinert.) Finn de globale ekstremalverdiene til $f(x,y) = 2x^2 + y^2 - 4y$ på den fylte skiven $x^2 + y^2 \\le 9$.",
+        "solution": "**Indre:** $\\nabla f = (4x,\\ 2y - 4) = 0 \\Rightarrow (0, 2)$, inne i skiven ($4 < 9$). $H = \\begin{pmatrix} 4 & 0 \\\\ 0 & 2\\end{pmatrix},\\ D = 8 > 0,\\ f_{xx} > 0$ ⇒ minimum, $f(0,2) = 0 + 4 - 8 = -4$.\n\n**Rand** $x^2 + y^2 = 9$: sett $x^2 = 9 - y^2$, $y \\in [-3,3]$: $f = 2(9-y^2) + y^2 - 4y = -y^2 - 4y + 18$. Deriver: $-2y - 4 = 0 \\Rightarrow y = -2$, $f = -4 + 8 + 18 = 22$ (i $(\\pm\\sqrt5, -2)$). Endepunkter: $y = 3$ gir $f = -9 - 12 + 18 = -3$ (i $(0,3)$); $y = -3$ gir $f = -9 + 12 + 18 = 21$ (i $(0,-3)$).\n\n**Sammenlign:** $-4$ (indre); $22,\\ -3,\\ 21$ (rand). **Global minimum $-4$ i $(0,2)$; global maksimum $22$ i $(\\pm\\sqrt5, -2)$.**",
+        "hints": [
+          "Indre stasjonært $(0,2)$; på randen sett $x^2 = 9-y^2$.",
+          "Rand: $f = -y^2 - 4y + 18$ på $[-3,3]$; verteks $y=-2$ gir maks."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d10-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant A — fire punkter.) Finn og klassifiser de stasjonære punktene til $f(x,y) = x^3 - 3x + y^3 - 3y$.",
+        "solution": "$f_x = 3x^2 - 3 = 0 \\Rightarrow x = \\pm 1$; $f_y = 3y^2 - 3 = 0 \\Rightarrow y = \\pm 1$. Fire punkter $(\\pm 1, \\pm 1)$. $f_{xx} = 6x,\\ f_{yy} = 6y,\\ f_{xy} = 0,\\ D = 36xy$.\n- $(1,1)$: $D = 36 > 0,\\ f_{xx} = 6 > 0$ ⇒ **min**, $f = -4$.\n- $(-1,-1)$: $D = 36 > 0,\\ f_{xx} = -6 < 0$ ⇒ **maks**, $f = 4$.\n- $(1,-1),\\ (-1,1)$: $D = -36 < 0$ ⇒ **sadler**.",
+        "hints": [
+          "Adskilte likninger: $x=\\pm 1$ og $y=\\pm 1$ ⇒ fire punkter.",
+          "$D = 36xy$ skifter fortegn med produktet $xy$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-d11-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-4-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant B — parametervariant.) For hvilke verdier av konstanten $k > 0$ er den største verdien av $f(x,y) = x + y$ på sirkelen $x^2 + y^2 = k$ lik $6$?",
+        "solution": "Kompakt sirkel ⇒ eksistens. $1 = 2\\lambda x,\\ 1 = 2\\lambda y \\Rightarrow x = y$. Bibetingelse: $2x^2 = k \\Rightarrow x = \\pm\\sqrt{k/2}$. Største verdi antas i $(\\sqrt{k/2},\\ \\sqrt{k/2})$: $f = 2\\sqrt{k/2} = \\sqrt{2k}$.\n\nKrev $\\sqrt{2k} = 6 \\Rightarrow 2k = 36 \\Rightarrow k = 18$.\n\n**Svar: $k = 18$.** (Kontroll: på $x^2+y^2 = 18$ er maks $\\sqrt{2\\cdot 18} = 6$ ✓.)",
+        "hints": [
+          "Maks av $x+y$ på $x^2+y^2=k$ er $\\sqrt{2k}$ (antatt der $x=y$).",
+          "Sett $\\sqrt{2k} = 6$ og løs for $k$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-3-4-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet (og i [kap. 3.1–3.2](/bok/mat1110/mat1110-3-1)).*\n\n| Symbol | Betydning |\n|---|---|\n| $\\nabla f = 0$ | Betingelsen for stasjonære punkter (fri optimering) |\n| $H,\\ D$ | Hesse-matrisen og dens determinant $f_{xx}f_{yy}-f_{xy}^2$ |\n| $\\nabla f = \\lambda\\nabla g$ | Lagranges betingelse (betinget optimering) |\n| $g = c$ | Bibetingelsen |\n| $K$ | Kompakt (lukket + begrenset) mengde for eksistens |\n| $x^2+y^2 \\le r^2$ | Fylt skive — et lukket område (indre + rand) |\n\n**A — Fri:** $\\nabla f = 0$ (reduser til én variabel) → Hesse i hvert punkt → $D$-test.\n\n**B — Betinget:** $\\nabla g = 0$-sjekk → $\\nabla f = \\lambda\\nabla g,\\ g = c$ → tilfelledeling → evaluer $f$ → eksistens (ekstremalverdisetningen).\n\n**C — Globalt på lukket område:** indre stasjonære (Hesse) + rand (Lagrange/parametrisering) + hjørner → sammenlign alle $f$-verdier.\n\n**Annenderiverttesten:** $D<0$ sadel; $D>0,\\ f_{xx}>0$ min; $D>0,\\ f_{xx}<0$ maks; $D=0$ inkonklusiv."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

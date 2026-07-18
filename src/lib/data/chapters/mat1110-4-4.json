@@ -1,0 +1,356 @@
+{
+  "id": "mat1110-4-4",
+  "courseId": "mat1110",
+  "chapterNumber": "4.4",
+  "title": "Uegentlige multiple integraler: konvergens via voksende kompakter",
+  "description": "Definér en voksende følge kompakter, regn integralet over hver, og ta grensen — konvergensteknikken for uegentlige dobbelt- og trippelintegral.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "definere uegentlige multiple integraler som grenser over en voksende følge kompakter",
+    "føre lim-beregningen eksplisitt (aldri «sette inn ∞») og avgjøre konvergens vs. divergens",
+    "velge kompakter etter symmetrien og regne radielle uegentlige integraler i polar/kulekoordinater"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Uegentlige multiple integraler er gjennomgangstemaet der du må vise konvergens skikkelig — med grenseføring, ikke ved å «sette inn $\\infty$».**\n\n- **Sjanger H** — uegentlig dobbelt-/trippelintegral med konvergens — er sjeldnere i rå frekvens (**~3 av 20 sett**), men **gjennomgående**: teknikken dukker opp på tvers av regimene, og det finnes offisiell fasit (V2025 prøve, der $\\tfrac12\\ln n \\to \\infty$ ga divergens). 2018 O1b brukte samme grep i kulekoordinater over uendelig rom.\n- Ett grep avgjør alt: definer en **voksende følge kompakter** $K_n \\nearrow \\mathbb{R}^2$ (bokser eller skiver etter geometrien), regn integralet over hver, og **ta grensen**. Å skrive «sett inn $\\infty$» uten grenseføring er en byggefeil hos sensor.\n- Velg kompakten etter **symmetrien**: skiver $K_R$ for radielle integrander (så du kan regne i polar/kule), bokser $K_n$ ellers.\n\n**Prioritet: kunne.** Målet er at du fører $\\iint_A f = \\lim_{n\\to\\infty}\\iint_{A\\cap K_n} f$ ryddig, og avgjør konvergens vs. divergens fra grenseverdien."
+    },
+    {
+      "id": "mat1110-4-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette bygger på hele Del 4 så langt: dobbeltintegral over område ([kap. 4.1](/bok/mat1110/mat1110-4-1)), polar og variabelskifte ([kap. 4.2](/bok/mat1110/mat1110-4-2)) og trippelintegral i kule-/sylinderkoordinater ([kap. 4.3](/bok/mat1110/mat1110-4-3)) — for radielle integrander regner vi alltid over en skive $K_R$ eller kule i polar/kule og lar $R \\to \\infty$. Grensebegrepet for følger *(MAT1100 kap. 2.3 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)* forutsettes: du må kunne regne $\\lim_{n\\to\\infty}$ av et uttrykk.\n\n*Sist du var her (kap. 4.2):* $\\int r\\,e^{-r^2}\\,dr$ løses med $u = r^2$, og for en sirkelsymmetrisk integrand er $\\iint = \\int_0^{2\\pi}\\!\\int_0^R (\\cdots)\\,r\\,dr\\,d\\theta$ — nå med $R \\to \\infty$."
+    },
+    {
+      "id": "mat1110-4-4-motiv",
+      "type": "text",
+      "content": "Til nå har områdene vært **avgrensede** og integrandene **endelige**. Men noen ganger vil vi integrere over **hele planet** $\\mathbb{R}^2$ (uendelig område), eller over et område der integranden **sprenger** mot uendelig i et punkt. Da er ikke integralet definert direkte — vi må nærme oss det som en **grense**.\n\nGrepet er alltid det samme: velg en **voksende følge av avgrensede biter** som til slutt fyller hele området, regn integralet over hver bit, og ta grensen. Konvergerer grensen til et endelig tall, sier vi integralet **konvergerer** til den verdien; går den mot $\\infty$, **divergerer** det. Vi går gjennom to løkker: **(1)** definisjonen og et konvergent eksempel, og **(2)** et divergent eksempel og det tredimensjonale tilfellet. Hver løkke: **teori → eksempel → oppgaver**."
+    },
+    {
+      "id": "mat1110-4-4-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Voksende kompakter og lim-føring (~14 min)"
+    },
+    {
+      "id": "mat1110-4-4-def-uegentlig",
+      "type": "definition",
+      "title": "Uegentlig multiple integral",
+      "content": "Et dobbelt- eller trippelintegral der **området er ubegrenset** (f.eks. hele $\\mathbb{R}^2$) eller **integranden er ubegrenset** (sprenger mot $\\infty$ i et punkt). Slike integraler er ikke definert på vanlig måte; de gis mening som en **grense** av integraler over avgrensede biter. Om grensen finnes og er endelig, konvergerer integralet; ellers divergerer det."
+    },
+    {
+      "id": "mat1110-4-4-def-kompakt",
+      "type": "definition",
+      "title": "Voksende følge kompakter",
+      "content": "En følge av **avgrensede, lukkede** områder $K_1 \\subseteq K_2 \\subseteq K_3 \\subseteq \\cdots$ som til slutt dekker hele integrasjonsområdet, skrevet $K_n \\nearrow \\mathbb{R}^2$. Typiske valg er **skiver** $K_R = \\{x^2 + y^2 \\le R^2\\}$ (for radielle integrander) eller **bokser** $K_n = \\{|x| \\le n,\\ |y| \\le n\\}$. Hver $K_n$ er avgrenset, så integralet over den er et vanlig (egentlig) integral."
+    },
+    {
+      "id": "mat1110-4-4-def-limdef",
+      "type": "definition",
+      "title": "Definisjonen via grense",
+      "content": "Verdien av det uegentlige integralet er grensen av integralene over de voksende kompaktene:\n\n$$\\iint_A f\\,dA = \\lim_{n\\to\\infty}\\iint_{A\\cap K_n} f\\,dA.$$\n\nDu regner altså først et helt vanlig integral over $A \\cap K_n$ (som gir et uttrykk i $n$ eller $R$), og tar deretter grensen. Er integranden ikke-negativ, gir alle rimelige valg av kompakter samme grense."
+    },
+    {
+      "id": "mat1110-4-4-def-limforing",
+      "type": "definition",
+      "title": "Lim-føring (aldri «sett inn $\\infty$»)",
+      "content": "Regelen for hvordan konvergens vises: regn integralet over $K_R$ som et endelig uttrykk, og **ta så grensen** $R \\to \\infty$ eksplisitt. Å bare «sette inn $\\infty$» i en antiderivert er en byggefeil — $\\infty$ er ikke et tall du kan sette inn. Skriv $\\lim_{R\\to\\infty}(\\cdots)$ og regn grensen. Det er halve uttellingen i sjanger H."
+    },
+    {
+      "id": "mat1110-4-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Et konvergent integral over hele planet",
+      "problem": "Avgjør om $\\displaystyle\\iint_{\\mathbb{R}^2}\\frac{1}{(1+x^2+y^2)^2}\\,dA$ konvergerer, og finn i så fall verdien.",
+      "solution": "Integranden er **radiell** (avhenger bare av $x^2+y^2$), så vi velger **skiver** $K_R = \\{x^2+y^2 \\le R^2\\}$ og regner i **polar** (kap. 4.2). Med $x^2+y^2 = r^2$ og $dA = r\\,dr\\,d\\theta$:\n$$\\iint_{K_R}\\frac{dA}{(1+x^2+y^2)^2} = \\int_0^{2\\pi}\\!\\int_0^{R}\\frac{r}{(1+r^2)^2}\\,dr\\,d\\theta.$$\n\n**Indre integral** (substitusjon $u = 1+r^2$, $du = 2r\\,dr$, grenser $u: 1 \\to 1+R^2$):\n$$\\int_0^{R}\\frac{r}{(1+r^2)^2}\\,dr = \\tfrac12\\int_1^{1+R^2} u^{-2}\\,du = \\tfrac12\\Big[-\\tfrac1u\\Big]_1^{1+R^2} = \\tfrac12\\Big(1 - \\tfrac{1}{1+R^2}\\Big).$$\n\nGanget med $\\int_0^{2\\pi}d\\theta = 2\\pi$: integralet over $K_R$ er $2\\pi\\cdot\\tfrac12\\big(1 - \\tfrac{1}{1+R^2}\\big) = \\pi\\big(1 - \\tfrac{1}{1+R^2}\\big)$.\n\n**Ta grensen** (lim-føring, aldri «sett inn $\\infty$»):\n$$\\iint_{\\mathbb{R}^2}\\frac{dA}{(1+x^2+y^2)^2} = \\lim_{R\\to\\infty}\\pi\\Big(1 - \\tfrac{1}{1+R^2}\\Big) = \\pi\\,(1 - 0) = \\pi.$$\n\n**Konklusjon:** integralet **konvergerer**, med verdi $\\pi$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-4-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $\\displaystyle\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)}\\,dA$ konvergerer, og finn verdien.",
+        "solution": "Radiell integrand ⇒ skiver $K_R$, polar. $\\iint_{K_R} e^{-(x^2+y^2)}\\,dA = \\int_0^{2\\pi}\\!\\int_0^R e^{-r^2} r\\,dr\\,d\\theta = 2\\pi\\cdot\\big[-\\tfrac12 e^{-r^2}\\big]_0^R = \\pi(1 - e^{-R^2})$.\n\n**Grense:** $\\lim_{R\\to\\infty}\\pi(1 - e^{-R^2}) = \\pi(1 - 0) = \\pi$.\n\n**Konvergerer**, verdi $\\pi$. (Dette er Gauss-integralet, grunnlaget for normalfordelingen.)",
+        "hints": [
+          "Radiell ⇒ polar over $K_R$, med faktoren $r$.",
+          "$\\int_0^R r e^{-r^2}dr = \\tfrac12(1 - e^{-R^2})$; ta $\\lim_{R\\to\\infty}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $\\displaystyle\\iint_A \\frac{1}{(x^2+y^2)^{3/2}}\\,dA$ over $A: x^2+y^2 \\ge 1$ (utenfor enhetssirkelen) konvergerer, og finn verdien.",
+        "solution": "Radiell, ubegrenset område ⇒ skiver, men nå starter $r$ på $1$: $A \\cap K_R = \\{1 \\le r \\le R,\\ 0\\le\\theta\\le 2\\pi\\}$. Integrand $\\tfrac{1}{r^3}$; med faktoren $r$:\n$$\\int_0^{2\\pi}\\!\\int_1^R \\frac{1}{r^3}\\cdot r\\,dr\\,d\\theta = 2\\pi\\int_1^R r^{-2}\\,dr = 2\\pi\\Big[-\\tfrac1r\\Big]_1^R = 2\\pi\\Big(1 - \\tfrac1R\\Big).$$\n\n**Grense:** $\\lim_{R\\to\\infty} 2\\pi(1 - \\tfrac1R) = 2\\pi$.\n\n**Konvergerer**, verdi $2\\pi$.",
+        "hints": [
+          "$(x^2+y^2)^{3/2} = r^3$; med faktoren $r$ blir integranden $r^{-2}$.",
+          "$\\int_1^R r^{-2}dr = 1 - \\tfrac1R \\to 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Divergens og det tredimensjonale tilfellet (~14 min)"
+    },
+    {
+      "id": "mat1110-4-4-def-konvdiv",
+      "type": "definition",
+      "title": "Konvergens og divergens",
+      "content": "Utfallet av grenseprosessen. Går $\\lim_{n\\to\\infty}\\iint_{A\\cap K_n} f$ mot et **endelig tall**, **konvergerer** integralet til den verdien. Går den mot $\\infty$ (eller finnes ikke), **divergerer** det. For radielle integrander avgjøres utfallet ofte av eksponenten: jo raskere integranden avtar mot uendelig (eller jo mildere singulariteten), desto lettere konvergerer det."
+    },
+    {
+      "id": "mat1110-4-4-def-valgkompakt",
+      "type": "definition",
+      "title": "Valg av kompakt etter symmetrien",
+      "content": "Kompaktene skal velges så integralet over hver blir enkelt. For en **radiell** integrand ($x^2+y^2$) velger vi **skiver** $K_R$ og regner i polar/kule — da faktoriserer $\\theta$-delen. For et rektangulært mønster velger vi **bokser** $K_n$. Poenget er at følgen skal vokse mot *hele* området; ellers får du ikke hele integralet."
+    },
+    {
+      "id": "mat1110-4-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Et divergent integral",
+      "problem": "Avgjør om $\\displaystyle\\iint_A \\frac{1}{x^2+y^2}\\,dA$ over $A: x^2+y^2 \\ge 1$ konvergerer.",
+      "solution": "Radiell ⇒ skiver $K_R$, polar. $A \\cap K_R = \\{1 \\le r \\le R,\\ 0\\le\\theta\\le 2\\pi\\}$; integrand $\\tfrac{1}{r^2}$, med faktoren $r$:\n$$\\int_0^{2\\pi}\\!\\int_1^R \\frac{1}{r^2}\\cdot r\\,dr\\,d\\theta = 2\\pi\\int_1^R \\frac{1}{r}\\,dr = 2\\pi\\big[\\ln r\\big]_1^R = 2\\pi\\ln R.$$\n\n**Ta grensen:**\n$$\\lim_{R\\to\\infty} 2\\pi\\ln R = \\infty.$$\n\n**Konklusjon:** integralet **divergerer**. (Merk: faktoren $r$ gjør integranden $\\tfrac{1}{r}$, hvis integral er $\\ln r$ — det vokser uten grense. Sammenlign med Eksempel 2-oppgaven i Løkke 1, der eksponenten $3/2$ ga konvergens.)"
+    },
+    {
+      "id": "mat1110-4-4-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $\\displaystyle\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)/2}\\,dA$ konvergerer, og finn verdien.",
+        "solution": "Radiell ⇒ polar over $K_R$. Integrand $e^{-r^2/2}$:\n$$\\int_0^{2\\pi}\\!\\int_0^R e^{-r^2/2} r\\,dr\\,d\\theta = 2\\pi\\big[-e^{-r^2/2}\\big]_0^R = 2\\pi\\big(1 - e^{-R^2/2}\\big).$$\n\n**Grense:** $\\lim_{R\\to\\infty} 2\\pi(1 - e^{-R^2/2}) = 2\\pi$.\n\n**Konvergerer**, verdi $2\\pi$.",
+        "hints": [
+          "$\\int r e^{-r^2/2}dr = -e^{-r^2/2}$ (sett $u = r^2/2$).",
+          "Grensen av $e^{-R^2/2}$ er $0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-l2b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om trippelintegralet $\\displaystyle\\iiint_{\\mathbb{R}^3} e^{-\\rho}\\,dV$ (der $\\rho = \\sqrt{x^2+y^2+z^2}$) konvergerer, og finn verdien.",
+        "solution": "Radiell i rommet ⇒ kule over kula $K_\\rho = \\{\\rho \\le a\\}$, deretter $a \\to \\infty$. Med $dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$:\n$$\\iiint_{K_a} e^{-\\rho}\\,dV = \\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^{a} e^{-\\rho}\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\int_0^{a}\\rho^2 e^{-\\rho}\\,d\\rho.$$\n\nNår $a\\to\\infty$ er $\\int_0^\\infty \\rho^2 e^{-\\rho}\\,d\\rho = 2$ (delvis integrasjon to ganger, eller $\\Gamma(3) = 2!$). Altså\n$$\\iiint_{\\mathbb{R}^3} e^{-\\rho}\\,dV = 2\\pi\\cdot 2\\cdot 2 = 8\\pi.$$\n\n**Konvergerer**, verdi $8\\pi$.",
+        "hints": [
+          "Kulekoordinater: faktoriser $\\theta$ ($2\\pi$), $\\varphi$ ($\\int_0^\\pi\\sin\\varphi = 2$), $\\rho$.",
+          "$\\int_0^\\infty \\rho^2 e^{-\\rho}d\\rho = 2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **«Sette inn $\\infty$»** i stedet for å ta en grense. $\\infty$ er ikke et tall — skriv $\\lim_{R\\to\\infty}(\\cdots)$ og regn grensen. Dette er halve uttellingen.\n- **Velge en kompakt som ikke vokser mot hele området.** Følgen $K_n$ må til slutt dekke *alt* — ellers fanger du bare en del av integralet.\n- **Glemme faktoren $r$ (eller $\\rho^2\\sin\\varphi$)** i polar-/kuleoppsettet — samme felle som i 4.2–4.3, og den ødelegger konvergensvurderingen.\n- **Konkludere konvergens uten å regne grensen.** «Integranden går mot $0$» er ikke nok; grensen av integralet må regnes (jf. at $\\tfrac{1}{x^2+y^2}$ divergerer selv om integranden $\\to 0$).\n- **Feil håndtering av singularitet i et indre punkt.** Sprenger integranden i origo, må kompaktene *utelate* en liten skive rundt punktet og la den krympe.\n- **Desimaltilnærming.** Behold $\\pi$, $2\\pi$, $8\\pi$ eksakt."
+    },
+    {
+      "id": "mat1110-4-4-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nVelg kompakt etter symmetrien, regn integralet over $K_R$ (eller $K_n$), og ta grensen eksplisitt. Konkluder konvergens eller divergens. Eksakte svar."
+    },
+    {
+      "id": "mat1110-4-4-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-p1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $\\displaystyle\\iint_{\\mathbb{R}^2} e^{-2(x^2+y^2)}\\,dA$ konvergerer, og finn verdien.",
+        "solution": "Radiell ⇒ polar over $K_R$. $\\int_0^{2\\pi}\\!\\int_0^R e^{-2r^2} r\\,dr\\,d\\theta = 2\\pi\\big[-\\tfrac14 e^{-2r^2}\\big]_0^R = \\tfrac{\\pi}{2}(1 - e^{-2R^2})$.\n\n**Grense:** $\\lim_{R\\to\\infty}\\tfrac{\\pi}{2}(1 - e^{-2R^2}) = \\tfrac{\\pi}{2}$.\n\n**Konvergerer**, verdi $\\dfrac{\\pi}{2}$.",
+        "hints": [
+          "$\\int r e^{-2r^2}dr = -\\tfrac14 e^{-2r^2}$ (sett $u = 2r^2$).",
+          "$e^{-2R^2}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-p2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $\\displaystyle\\iint_A \\frac{1}{x^2+y^2}\\,dA$ over $A: x^2+y^2 \\le 1$ (enhetsskiven, singularitet i origo) konvergerer.",
+        "solution": "Integranden sprenger i origo. Bruk kompakter som **utelater** en liten skive: $K_\\varepsilon = \\{\\varepsilon \\le r \\le 1\\}$, og la $\\varepsilon \\to 0^+$. Polar, integrand $\\tfrac{1}{r^2}$, faktor $r$:\n$$\\int_0^{2\\pi}\\!\\int_\\varepsilon^1 \\frac{1}{r}\\,dr\\,d\\theta = 2\\pi\\big[\\ln r\\big]_\\varepsilon^1 = 2\\pi(0 - \\ln\\varepsilon) = -2\\pi\\ln\\varepsilon.$$\n\n**Grense:** $\\lim_{\\varepsilon\\to 0^+}(-2\\pi\\ln\\varepsilon) = +\\infty$.\n\n**Divergerer.** (Singulariteten i origo er for sterk — $\\tfrac1r$ har divergerende integral også nær $0$.)",
+        "hints": [
+          "Singularitet i origo ⇒ utelat en skive $r\\ge\\varepsilon$ og la $\\varepsilon\\to 0$.",
+          "$\\int_\\varepsilon^1 \\tfrac1r dr = -\\ln\\varepsilon \\to \\infty$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-p3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $\\displaystyle\\iint_A \\frac{1}{(x^2+y^2)^{3/2}}\\,dA$ over enhetsskiven $A: 0 < x^2+y^2 \\le 1$ (singularitet i origo) konvergerer.",
+        "solution": "Utelat en liten skive: $K_\\varepsilon = \\{\\varepsilon \\le r \\le 1\\}$. Integrand $\\tfrac{1}{r^3}$, faktor $r$ ⇒ $r^{-2}$:\n$$\\int_0^{2\\pi}\\!\\int_\\varepsilon^1 r^{-2}\\,dr\\,d\\theta = 2\\pi\\Big[-\\tfrac1r\\Big]_\\varepsilon^1 = 2\\pi\\Big(-1 + \\tfrac1\\varepsilon\\Big).$$\n\n**Grense:** $\\lim_{\\varepsilon\\to 0^+} 2\\pi\\big(\\tfrac1\\varepsilon - 1\\big) = +\\infty$.\n\n**Divergerer.** (Nær origo er denne integranden enda sterkere singulær enn i oppgave 6.)",
+        "hints": [
+          "Samme integrand som i Løkke 1 oppg. 2, men nå singulær i origo, ikke uendelig område.",
+          "$\\int_\\varepsilon^1 r^{-2}dr = \\tfrac1\\varepsilon - 1 \\to \\infty$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-4-p4",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H.) Avgjør om $\\displaystyle\\iiint_{\\mathbb{R}^3}\\frac{1}{(1+x^2+y^2+z^2)^2}\\,dV$ konvergerer, og finn verdien.",
+        "solution": "Radiell i rommet ⇒ kule over $K_a = \\{\\rho \\le a\\}$, $a\\to\\infty$. Integrand $\\tfrac{1}{(1+\\rho^2)^2}$, volumelement $\\rho^2\\sin\\varphi$:\n$$\\iiint_{K_a} = \\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^a \\frac{\\rho^2}{(1+\\rho^2)^2}\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\int_0^a \\frac{\\rho^2}{(1+\\rho^2)^2}\\,d\\rho.$$\n\nFor $\\rho$-integralet: skriv $\\tfrac{\\rho^2}{(1+\\rho^2)^2} = \\tfrac{1}{1+\\rho^2} - \\tfrac{1}{(1+\\rho^2)^2}$. Da\n$$\\int_0^a\\frac{\\rho^2}{(1+\\rho^2)^2}\\,d\\rho = \\Big[\\arctan\\rho\\Big]_0^a - \\int_0^a\\frac{d\\rho}{(1+\\rho^2)^2}.$$\nStandardresultatet $\\int_0^a\\frac{d\\rho}{(1+\\rho^2)^2} = \\tfrac12\\arctan a + \\tfrac{a}{2(1+a^2)}$ gir\n$$\\int_0^a\\frac{\\rho^2}{(1+\\rho^2)^2}\\,d\\rho = \\arctan a - \\tfrac12\\arctan a - \\tfrac{a}{2(1+a^2)} = \\tfrac12\\arctan a - \\tfrac{a}{2(1+a^2)}.$$\n\n**Grense** ($a\\to\\infty$): $\\arctan a \\to \\tfrac{\\pi}{2}$ og $\\tfrac{a}{2(1+a^2)} \\to 0$, så $\\rho$-integralet $\\to \\tfrac12\\cdot\\tfrac{\\pi}{2} = \\tfrac{\\pi}{4}$.\n\nAltså $\\iiint_{\\mathbb{R}^3} = 2\\pi\\cdot 2\\cdot\\tfrac{\\pi}{4} = \\pi^2$.\n\n**Konvergerer**, verdi $\\pi^2$ (eksakt).",
+        "hints": [
+          "Kule: faktoriser $\\theta$ ($2\\pi$) og $\\varphi$ ($2$); gjenstår $\\int_0^\\infty\\tfrac{\\rho^2}{(1+\\rho^2)^2}d\\rho$.",
+          "Skriv $\\tfrac{\\rho^2}{(1+\\rho^2)^2} = \\tfrac{1}{1+\\rho^2} - \\tfrac{1}{(1+\\rho^2)^2}$ og bruk $\\arctan$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-4-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-4-4-bb-kompaktmengde",
+      "type": "definition",
+      "title": "Kompakt mengde",
+      "content": "En mengde som er både **lukket** (inneholder sin egen rand) og **begrenset** (får plass innenfor en stor nok kule). Hver $K_n$ i den voksende følgen er kompakt, og over en kompakt mengde er integralet av en kontinuerlig funksjon alltid endelig (egentlig). Det er derfor vi bygger det uegentlige integralet som en grense av integraler over kompakter."
+    },
+    {
+      "id": "mat1110-4-4-bb-KR",
+      "type": "definition",
+      "title": "Skiver $K_R$",
+      "content": "Kompaktene $K_R = \\{x^2 + y^2 \\le R^2\\}$ — voksende sirkelskiver med radius $R$. Riktig valg når integranden er **radiell** (avhenger av $x^2+y^2$), fordi de passer polarkoordinatene: $A \\cap K_R$ blir bare $\\{0 \\le r \\le R,\\ \\ldots\\}$, og $\\theta$-delen faktoriseres. La deretter $R \\to \\infty$."
+    },
+    {
+      "id": "mat1110-4-4-bb-Kn",
+      "type": "definition",
+      "title": "Bokser $K_n$",
+      "content": "Kompaktene $K_n = \\{|x| \\le n,\\ |y| \\le n\\}$ — voksende kvadrater. Riktig valg når integranden eller området har et rektangulært mønster (produkt av funksjoner i $x$ og $y$ hver for seg). Da faktoriserer integralet i to endimensjonale uegentlige integraler. La deretter $n \\to \\infty$."
+    },
+    {
+      "id": "mat1110-4-4-bb-singularitet",
+      "type": "definition",
+      "title": "Singularitet i et indre punkt",
+      "content": "Et punkt der integranden sprenger mot $\\infty$ (typisk origo, der $\\tfrac{1}{x^2+y^2} \\to \\infty$). Da lager vi kompakter som **utelater en liten skive** rundt punktet, $\\{r \\ge \\varepsilon\\}$, og lar $\\varepsilon \\to 0^+$. Konvergens avgjøres av hvor sterk singulariteten er — akkurat som for uendelig område, men grensen går den andre veien."
+    },
+    {
+      "id": "mat1110-4-4-bb-ikkeneg",
+      "type": "definition",
+      "title": "Ikke-negativ integrand",
+      "content": "Er $f \\ge 0$ overalt, er integralene over $K_n$ **voksende** i $n$, så grensen finnes alltid (endelig eller $+\\infty$) og er **uavhengig av hvilken voksende følge** man velger (skiver eller bokser gir samme svar). Dette er grunnen til at vi trygt kan velge den kompaktfølgen som gjør regningen enklest når integranden er positiv."
+    },
+    {
+      "id": "mat1110-4-4-bb-polarkobling",
+      "type": "definition",
+      "title": "Kobling til polar og kule",
+      "content": "Den praktiske broen: for en radiell integrand regner vi over en skive $K_R$ (2D) eller kule $K_a$ (3D) i polar/kulekoordinater, får et uttrykk i $R$ (eller $a$), og tar grensen. Faktoren $r$ (eller $\\rho^2\\sin\\varphi$) fra kap. 4.2–4.3 må være med — det er den som avgjør om det radielle integralet konvergerer."
+    },
+    {
+      "id": "mat1110-4-4-bb-grensefolge",
+      "type": "definition",
+      "title": "Grenseverdi av en følge",
+      "content": "Tallet et uttrykk $a_n$ nærmer seg når $n \\to \\infty$ — verktøyet vi bruker på integralet over $K_n$. Konvergens av det uegentlige integralet er rett og slett konvergens av følgen $\\iint_{A\\cap K_n} f$. Standardgrenser vi bruker: $e^{-R^2} \\to 0$, $\\tfrac1R \\to 0$, $\\arctan R \\to \\tfrac{\\pi}{2}$, mens $\\ln R \\to \\infty$."
+    },
+    {
+      "id": "mat1110-4-4-bb-terskel",
+      "type": "definition",
+      "title": "Konvergensterskel (eksponenten avgjør)",
+      "content": "For radielle integraler avhenger utfallet av **eksponenten**. Over et uendelig område konvergerer $\\iint \\tfrac{1}{(x^2+y^2)^p}$ når integranden avtar raskt nok ($p$ stor); nær en singularitet i origo konvergerer den når $p$ er liten nok. Grensetilfellet $\\tfrac{1}{x^2+y^2}$ ($p=1$) divergerer begge veier fordi det gir integralet $\\ln r$. Regn alltid grensen — «integranden $\\to 0$» er ikke bevis for konvergens."
+    },
+    {
+      "id": "mat1110-4-4-bb-gaussverdi",
+      "type": "definition",
+      "title": "Gauss-integralet i planet",
+      "content": "Det viktigste konvergente eksempelet: $\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)}\\,dA = \\pi$. Det regnes rett i polar (skiver $K_R$, $\\lim_{R\\to\\infty}$), og fra det følger det berømte $\\int_{-\\infty}^\\infty e^{-x^2}\\,dx = \\sqrt\\pi$ ved å faktorisere planintegralet — fundamentet for normalfordelingen i statistikk."
+    },
+    {
+      "id": "mat1110-4-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-4-4-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/mat1110/mat1110-4-2)) Regn $\\displaystyle\\int_0^R r\\,e^{-r^2}\\,dr$ og ta deretter $\\lim_{R\\to\\infty}$.",
+            "solution": "$\\int_0^R r e^{-r^2}dr = \\big[-\\tfrac12 e^{-r^2}\\big]_0^R = \\tfrac12(1 - e^{-R^2})$. Grense: $\\lim_{R\\to\\infty}\\tfrac12(1 - e^{-R^2}) = \\tfrac12$.",
+            "hints": [
+              "Sett $u = r^2$; $e^{-R^2}\\to 0$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-4-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.3](/bok/mat1110/mat1110-4-3)) Hva er volumelementets faktor i kulekoordinater, og hva er $\\int_0^\\pi \\sin\\varphi\\,d\\varphi$?",
+            "solution": "Faktoren er $\\rho^2\\sin\\varphi$. $\\int_0^\\pi \\sin\\varphi\\,d\\varphi = [-\\cos\\varphi]_0^\\pi = 2$.",
+            "hints": [
+              "$dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$; $\\int_0^\\pi\\sin\\varphi\\,d\\varphi = 2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-4-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Grensebegrepet) Regn $\\lim_{R\\to\\infty}\\big(1 - \\tfrac{1}{1+R^2}\\big)$ og $\\lim_{R\\to\\infty}\\ln R$.",
+            "solution": "$\\lim_{R\\to\\infty}(1 - \\tfrac{1}{1+R^2}) = 1 - 0 = 1$ (konvergerer). $\\lim_{R\\to\\infty}\\ln R = \\infty$ (divergerer). Den første gir et konvergent integral, den andre et divergent.",
+            "hints": [
+              "$\\tfrac{1}{1+R^2}\\to 0$, mens $\\ln R$ vokser uten grense."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-4-4-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $K_n,\\ K_R$ | Voksende kompakter (bokser eller skiver) |\n| $K_n \\nearrow \\mathbb{R}^2$ | Følgen vokser mot hele planet |\n| $A \\cap K_n$ | Den avgrensede biten av $A$ inne i $K_n$ |\n| $\\lim_{n\\to\\infty}$ | Grenseprosessen som definerer integralet |\n| $\\varepsilon$ | Radien på en liten utelatt skive rundt en singularitet |\n\n**Definisjonen (uegentlig multiple integral):**\n$$\\iint_A f\\,dA = \\lim_{n\\to\\infty}\\iint_{A\\cap K_n} f\\,dA.$$\n\n**Skiver for radiell integrand:**\n$$K_R = \\{x^2+y^2 \\le R^2\\}, \\qquad \\iint_{K_R} = \\int_0^{2\\pi}\\!\\int_0^R (\\cdots)\\,r\\,dr\\,d\\theta, \\quad R\\to\\infty.$$\n\n**Singularitet i origo:** utelat $\\{r \\ge \\varepsilon\\}$ og la $\\varepsilon \\to 0^+$.\n\n**Nyttige grenser:** $e^{-R^2}\\to 0$, $\\tfrac1R\\to 0$, $\\arctan R \\to \\tfrac{\\pi}{2}$, $\\ln R \\to \\infty$.\n\n**Standardverdier:** $\\displaystyle\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)}\\,dA = \\pi$, $\\displaystyle\\int_0^\\infty \\rho^2 e^{-\\rho}\\,d\\rho = 2$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

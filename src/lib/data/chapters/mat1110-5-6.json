@@ -1,0 +1,248 @@
+{
+  "id": "mat1110-5-6",
+  "courseId": "mat1110",
+  "chapterNumber": "5.6",
+  "title": "Drill: vektoranalyse-kjeden O6a–c",
+  "description": "Regimets tyngste sluttoppgave drillet som helhet: parametrisert flate → fluks gjennom plan delflate → div F + trippelintegral → fluks gjennom krum delflate via divergensteoremet (evt. Stokes-innslag), med fortegns- og orienteringskontroll hele veien.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "gjennomføre hele den kjedede O6-oppgaven med fluks, divergensteorem og trippelintegral",
+    "fastsette og kontrollere at alle normaler peker ut av volumet",
+    "gjenbruke delsvar mellom deloppgavene (delpunkt-kjeding)",
+    "håndtere Stokes-varianten med curl og høyrehåndsregelen"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-6-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette drillkapitlet trener **den kjedede O6-oppgaven** — regimets tyngste og dyreste sluttoppgave, **3 av 3** i V2025. Sjangeren er **K + L (+ M)** samlet: en parametrisert flate, fluks gjennom en plan delflate, $\\operatorname{div}\\mathbf F$ + trippelintegral, og fluks gjennom en krum delflate via divergensteoremet — noen ganger med et Stokes-innslag.\n\n- **Delpunktene er kjedet:** fasiten gjenbruker eksplisitt O6a (plan fluks) og O6b (trippelintegral) i O6c (krum fluks $=$ O6b $-$ O6a).\n- **Fortegns- og orienteringskontroll hele veien:** alle normaler ut av $V$; høyrehåndsregel i Stokes-varianten. Én fortegnsfeil tidlig forplanter seg gjennom hele kjeden.\n- **Tidsfelle:** kjeden er tung. Planlegg tiden — du har ca. **24 min per deloppgave** på den avsluttende eksamenen.\n\nAlt teoristoffet er dekket i kap. 5.1–5.5; her er det ren drill på eksamensnivå."
+    },
+    {
+      "id": "mat1110-5-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 5: parametrisering og $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ **[kap. 5.1](/bok/mat1110/mat1110-5-1)**, fluks og geometrisk snarvei **[kap. 5.3](/bok/mat1110/mat1110-5-3)**, divergensteoremet **[kap. 5.4](/bok/mat1110/mat1110-5-4)**, Stokes **[kap. 5.5](/bok/mat1110/mat1110-5-5)**, og trippelintegral **[kap. 4.3](/bok/mat1110/mat1110-4-3)**. Dette er et rent drillkapittel — teorien forutsettes kjent.\n\n**Sist du var her — nøkkelformlene samlet:**\n\n$$\\text{Fluks: }\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=\\iint_R\\mathbf F(\\boldsymbol{\\phi})\\cdot(\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v)\\,du\\,dv$$\n$$\\text{Snarvei (plan flate): }\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=(\\mathbf F\\cdot\\mathbf n)\\cdot\\text{areal}$$\n$$\\operatorname{div}\\mathbf F=\\partial_x F_1+\\partial_y F_2+\\partial_z F_3,\\qquad \\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS$$\n$$\\text{Krum delflate: }\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS$$\n$$\\text{Stokes: }\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS$$"
+    },
+    {
+      "id": "mat1110-5-6-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — O6-kjeden steg for steg\n\nEn typisk O6-oppgave gir et vektorfelt $\\mathbf F$ og et solid $V$ hvis rand består av en **enkel plan del** $T_2$ (topplokk/bunn) og en **krum del** $T_1$ (paraboloide, kjegle, sylinder-side, sfære). Slik føres den:\n\n**1. Parametriser flaten(e) og fastsett normalretningen.** Regn $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ der du trenger en parametrisering, og kontroller at den peker som oppgitt $\\mathbf n$ (ut av $V$). Bytt fortegn ellers.\n\n**2. Fluks gjennom den plane/enkle delen $T_2$** — bruk den geometriske snarveien når normalen er konstant og $\\mathbf F\\cdot\\mathbf n$ konstant: $\\int_{T_2}=(\\mathbf F\\cdot\\mathbf n)\\cdot\\text{areal}$.\n\n**3. $\\operatorname{div}\\mathbf F$ + trippelintegral over $V$** i riktige koordinater (sylinder/kule). Løs skjæringen først, skriv ulikhetene, faktorisér når integranden separerer.\n\n**4. Fluks gjennom den krumme delen** $T_1=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}$ — **navngi divergensteoremet**.\n\n**5. Kontroller at alle $\\mathbf n$ peker ut av $V$** (topp opp, bunn ned, side utover).\n\n**6. Stokes-variant:** regn $\\operatorname{curl}\\mathbf F$, gjenkjenn at det er et alt utregnet felt, og la randbidrag der $\\mathbf F=\\mathbf 0$ falle bort (høyrehåndsregel for orientering)."
+    },
+    {
+      "id": "mat1110-5-6-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: full O6a–c-kjede",
+      "problem": "La $\\mathbf F=(x,\\,y,\\,z)$ og $V$ være det solide området inne i sylinderen $x^2+y^2\\le4$ mellom $z=0$ og $z=3$. **a)** Regn fluksen ut gjennom topplokket $z=3$. **b)** Regn $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **c)** Bruk divergensteoremet til å finne fluksen ut gjennom den krumme sideflaten.",
+      "solution": "**a) Fluks gjennom topplokket $T_2$ (sensor: fastsett normalretning + snarvei).** Lokket er disken $z=3$, $x^2+y^2\\le4$. Utadrettet normal peker **oppover**: $\\mathbf n=\\mathbf k$. På lokket er $\\mathbf F\\cdot\\mathbf n=F_3=z=3$ (konstant) — *geometrisk snarvei* siden flaten er plan og integranden konstant. Arealet er $\\pi\\cdot2^2=4\\pi$:\n$$\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=3\\cdot4\\pi=12\\pi.$$\n*(Margnotat: her gir sensor uttelling for å (i) fastsette $\\mathbf n=\\mathbf k$ eksplisitt og (ii) bruke snarveien i stedet for full parametrisering.)*\n\n**b) $\\operatorname{div}\\mathbf F$ + trippelintegral (sensor: riktig volumelement, eksakt svar).** $\\operatorname{div}\\mathbf F=1+1+1=3$ (konstant). Sylinderkoordinater, $dV=r\\,dz\\,dr\\,d\\theta$, med $0\\le\\theta\\le2\\pi$, $0\\le r\\le2$, $0\\le z\\le3$:\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=3\\iiint_V dV=3\\int_0^{2\\pi}\\!\\!\\int_0^2\\!\\!\\int_0^3 r\\,dz\\,dr\\,d\\theta=3\\cdot 2\\pi\\cdot\\Big[\\tfrac{r^2}{2}\\Big]_0^2\\cdot 3=3\\cdot2\\pi\\cdot2\\cdot3=36\\pi.$$\n*(Margnotat: faktoren $r$ i $dV$ er føringspoenget; konstant divergens $\\Rightarrow$ $3\\cdot\\text{volum}$, volum $=\\pi\\cdot2^2\\cdot3=12\\pi$.)*\n\n**c) Krum sideflate via divergensteoremet (sensor: navngi teoremet, gjenbruk delsvar, kontroller normaler).** Randen er $\\partial V=T_1\\cup T_2\\cup T_{\\text{bunn}}$: krum sideflate $T_1$, topplokk $T_2$, og bunn. Fluks gjennom bunnen $z=0$: utadrettet $\\mathbf n=-\\mathbf k$, $\\mathbf F\\cdot\\mathbf n=-z=0$ der $z=0$ — altså $0$.\n\n**Ifølge divergensteoremet** er $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\int_{T_1}+\\int_{T_2}+\\int_{\\text{bunn}}$, så\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}-\\int_{\\text{bunn}}=36\\pi-12\\pi-0=24\\pi.$$\n*(Margnotat: (c) gjenbruker (b) $=36\\pi$ og (a) $=12\\pi$ direkte — delpunkt-kjeding. Normalkontroll: topp opp, bunn ned, side ut — alle ut av $V$.)*\n\n**Svar:** (a) $12\\pi$, (b) $36\\pi$, (c) $24\\pi$."
+    },
+    {
+      "id": "mat1110-5-6-pulje",
+      "type": "text",
+      "content": "## Drilloppgaver på eksamensnivå"
+    },
+    {
+      "id": "mat1110-5-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Komplett kjede — paraboloide.) La $\\mathbf F=(2x,\\,2y,\\,2z)$ og $V$ være området mellom paraboloiden $z=x^2+y^2$ og planet $z=1$. **a)** Fluks ut gjennom topplokket $z=1$. **b)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **c)** Fluks ut gjennom paraboloide-delen via divergensteoremet.",
+        "solution": "**a)** Topplokk $z=1$, $x^2+y^2\\le1$, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=2z=2$ (konstant), areal $=\\pi$. Fluks $=2\\cdot\\pi=2\\pi$.\n\n**b)** $\\operatorname{div}\\mathbf F=2+2+2=6$. Volum mellom paraboloide og $z=1$: skjæring $r^2=1\\Rightarrow r=1$. $\\text{Vol}=\\int_0^{2\\pi}\\int_0^1(1-r^2)r\\,dr\\,d\\theta=2\\pi[\\tfrac{r^2}{2}-\\tfrac{r^4}{4}]_0^1=2\\pi\\cdot\\tfrac14=\\tfrac\\pi2$. Så $\\iiint\\operatorname{div}\\mathbf F\\,dV=6\\cdot\\tfrac\\pi2=3\\pi$.\n\n**c)** Ifølge divergensteoremet: $\\int_{T_1}=\\iiint\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}=3\\pi-2\\pi=\\pi.$\n**Svar:** (a) $2\\pi$, (b) $3\\pi$, (c) $\\pi$.",
+        "hints": [
+          "Topplokk: $\\mathbf F\\cdot\\mathbf k=2z=2$; snarvei.",
+          "Skjæring $r=1$; volum $\\tfrac\\pi2$; $\\operatorname{div}\\mathbf F=6$.",
+          "(c) $=$ (b) $-$ (a)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Komplett kjede — kjegle/sylinder-felt.) La $\\mathbf F=(xz,\\,yz,\\,z^2)$ og $V$ være det solide området inne i sylinderen $x^2+y^2\\le1$ mellom $z=0$ og $z=2$. **a)** Fluks ut gjennom topplokket $z=2$. **b)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **c)** Fluks ut gjennom sideflaten via divergensteoremet.",
+        "solution": "**a)** Topplokk $z=2$, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=F_3=z^2=4$ (konstant på $z=2$), areal $=\\pi$. Fluks $=4\\cdot\\pi=4\\pi$.\n\n**b)** $\\operatorname{div}\\mathbf F=\\partial_x(xz)+\\partial_y(yz)+\\partial_z(z^2)=z+z+2z=4z$. Sylinder, $dV=r\\,dz\\,dr\\,d\\theta$:\n$$\\iiint_V 4z\\,dV=\\int_0^{2\\pi}\\!\\!\\int_0^1\\!\\!\\int_0^2 4z\\,r\\,dz\\,dr\\,d\\theta=2\\pi\\cdot\\Big[\\tfrac{r^2}{2}\\Big]_0^1\\cdot\\Big[2z^2\\Big]_0^2=2\\pi\\cdot\\tfrac12\\cdot8=8\\pi.$$\n\n**c)** Bunn $z=0$: $\\mathbf n=-\\mathbf k$, $\\mathbf F\\cdot\\mathbf n=-z^2=0$. Ifølge divergensteoremet: $\\int_{T_1}=\\iiint\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}-\\int_{\\text{bunn}}=8\\pi-4\\pi-0=4\\pi.$\n**Svar:** (a) $4\\pi$, (b) $8\\pi$, (c) $4\\pi$.",
+        "hints": [
+          "Topplokk: $F_3=z^2=4$ på $z=2$.",
+          "$\\operatorname{div}\\mathbf F=4z$; faktorisér $z$- og $r$-integralene.",
+          "Bunn gir $0$; (c) $=$ (b) $-$ (a) $-$ bunn."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Komplett kjede — halvkule.) La $\\mathbf F=(x,\\,0,\\,z)$ og $V$ være det solide halvkuleområdet $x^2+y^2+z^2\\le9$, $z\\ge0$. **a)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **b)** Fluks ut gjennom den flate bunnen $z=0$. **c)** Fluks ut gjennom den krumme halvkuleflaten via divergensteoremet.",
+        "solution": "**a)** $\\operatorname{div}\\mathbf F=\\partial_x x+\\partial_y 0+\\partial_z z=1+0+1=2$. Volum av halvkula med radius $3$: $\\tfrac12\\cdot\\tfrac43\\pi\\cdot3^3=\\tfrac12\\cdot36\\pi=18\\pi$. Så $\\iiint\\operatorname{div}\\mathbf F\\,dV=2\\cdot18\\pi=36\\pi$.\n\n**b)** Bunn $z=0$: utadrettet $\\mathbf n=-\\mathbf k$, $\\mathbf F\\cdot\\mathbf n=(x,0,0)\\cdot(0,0,-1)=0$. Fluks $=0$.\n\n**c)** Ifølge divergensteoremet: $\\int_{T_1}=\\iiint\\operatorname{div}\\mathbf F\\,dV-\\int_{\\text{bunn}}=36\\pi-0=36\\pi.$\n**Svar:** (a) $36\\pi$, (b) $0$, (c) $36\\pi$.",
+        "hints": [
+          "$\\operatorname{div}\\mathbf F=2$; halvkulevolum $=\\tfrac12\\cdot\\tfrac43\\pi\\cdot27$.",
+          "På bunnen er $z=0$, så $\\mathbf F\\cdot\\mathbf n=-z=0$.",
+          "(c) $=$ (a) $-$ (b)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Delferdighet — plan fluks-snarvei.) Regn fluksen av $\\mathbf F=(x,y,4z)$ ut gjennom topplokket $z=2$, $x^2+y^2\\le9$, oppadrettet.",
+        "solution": "Plan disk, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=F_3=4z=8$ (på $z=2$), areal $=\\pi\\cdot3^2=9\\pi$. Fluks $=8\\cdot9\\pi=72\\pi$.",
+        "hints": [
+          "$F_3=4z=8$ på lokket.",
+          "Fluks $=8\\cdot$ areal."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Delferdighet — divergens + volum.) La $\\mathbf F=(3x,\\,y,\\,z)$ og $V$ sylinderen $x^2+y^2\\le1$, $0\\le z\\le4$. Regn $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$.",
+        "solution": "$\\operatorname{div}\\mathbf F=3+1+1=5$ (konstant). Volum $=\\pi\\cdot1^2\\cdot4=4\\pi$. Så $\\iiint\\operatorname{div}\\mathbf F\\,dV=5\\cdot4\\pi=20\\pi$.",
+        "hints": [
+          "Konstant divergens $\\Rightarrow \\operatorname{div}\\mathbf F\\cdot$ volum.",
+          "Sylindervolum $\\pi r^2 h$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Delferdighet — bunnflatens fortegn.) La $\\mathbf F=(x,y,z+1)$. Regn fluksen ut gjennom bunnen $z=0$, $x^2+y^2\\le4$, av et solid som ligger over $z=0$ (utadrettet normal).",
+        "solution": "Bunnen ligger nederst, så utadrettet normal peker **nedover**: $\\mathbf n=-\\mathbf k$. På $z=0$ er $\\mathbf F=(x,y,1)$, så $\\mathbf F\\cdot\\mathbf n=(x,y,1)\\cdot(0,0,-1)=-1$ (konstant). Areal $=\\pi\\cdot2^2=4\\pi$. Fluks $=-1\\cdot4\\pi=-4\\pi$.\n**Svar:** $-4\\pi$. (Merk: her er $F_3=z+1=1$ på bunnen, *ikke* null — så bunnfluksen bidrar.)",
+        "hints": [
+          "Utadrettet normal på en bunn peker ned: $\\mathbf n=-\\mathbf k$.",
+          "$\\mathbf F\\cdot\\mathbf n=-F_3=-(z+1)=-1$ på $z=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Stokes-variant.) La $\\mathbf F=(-2y,\\,2x,\\,z^3)$ og $C$ være sirkelen $x^2+y^2=4$ i planet $z=1$, orientert mot klokka sett ovenfra. **a)** Regn $\\operatorname{curl}\\mathbf F$. **b)** Bruk Stokes til å finne $\\oint_C\\mathbf F\\cdot d\\mathbf r$.",
+        "solution": "**a)** $\\operatorname{curl}\\mathbf F=(\\partial_y(z^3)-\\partial_z(2x),\\;\\partial_z(-2y)-\\partial_x(z^3),\\;\\partial_x(2x)-\\partial_y(-2y))=(0,\\,0,\\,2+2)=(0,0,4).$\n\n**b)** Velg flaten $S$ = disken $x^2+y^2\\le4$ i planet $z=1$, oppadrettet $\\mathbf n=\\mathbf k$ (høyrehåndsregel stemmer med mot-klokka). $\\operatorname{curl}\\mathbf F\\cdot\\mathbf n=(0,0,4)\\cdot(0,0,1)=4$ (konstant). Areal $=\\pi\\cdot2^2=4\\pi$:\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S 4\\,dS=4\\cdot4\\pi=16\\pi.$$\n**Svar:** (a) $(0,0,4)$, (b) $16\\pi$. Bare $z$-komponenten av curl teller for den vannrette disken.",
+        "hints": [
+          "Regn curl som determinant; $z$-komponent $=4$.",
+          "Med $\\mathbf n=\\mathbf k$: fluks $=(\\operatorname{curl}\\mathbf F)_z\\cdot$ areal."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Full kjede med faktorisering.) La $\\mathbf F=(x,\\,y,\\,z^2)$ og $V$ sylinderen $x^2+y^2\\le1$, $0\\le z\\le2$. **a)** Fluks ut gjennom topplokket $z=2$. **b)** Fluks ut gjennom bunnen $z=0$. **c)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **d)** Fluks ut gjennom sideflaten via divergensteoremet.",
+        "solution": "**a)** Topplokk $z=2$, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=F_3=z^2=4$, areal $=\\pi$. Fluks $=4\\pi$.\n\n**b)** Bunn $z=0$, $\\mathbf n=-\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=-z^2=0$. Fluks $=0$.\n\n**c)** $\\operatorname{div}\\mathbf F=1+1+2z=2+2z$. Sylinder: $\\iiint_V(2+2z)r\\,dz\\,dr\\,d\\theta=\\int_0^{2\\pi}\\int_0^1\\int_0^2(2+2z)r\\,dz\\,dr\\,d\\theta$. Indre: $\\int_0^2(2+2z)\\,dz=[2z+z^2]_0^2=4+4=8$. Så $=2\\pi\\cdot[\\tfrac{r^2}{2}]_0^1\\cdot8=2\\pi\\cdot\\tfrac12\\cdot8=8\\pi.$\n\n**d)** Ifølge divergensteoremet: $\\int_{T_1}=8\\pi-4\\pi-0=4\\pi.$\n**Svar:** (a) $4\\pi$, (b) $0$, (c) $8\\pi$, (d) $4\\pi$.",
+        "hints": [
+          "Topp: $F_3=z^2=4$; bunn: $-z^2=0$.",
+          "$\\operatorname{div}\\mathbf F=2+2z$; regn $z$-integralet $=8$ først.",
+          "(d) $=$ (c) $-$ topp $-$ bunn."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-6-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Total fluks via Gauss.) La $\\mathbf F=(x^3,\\,y^3,\\,z^3)$ og $V$ enhetskula $x^2+y^2+z^2\\le1$. Sett opp (uten å regne ut det siste integralet fullt) den totale fluksen ut av kuleflaten ved divergensteoremet, og forklar hvorfor direkte flateintegral er mye tyngre.",
+        "solution": "$\\operatorname{div}\\mathbf F=3x^2+3y^2+3z^2=3(x^2+y^2+z^2)=3\\rho^2$ i kulekoordinater. Ifølge divergensteoremet:\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V 3\\rho^2\\,dV=\\int_0^{2\\pi}\\!\\!\\int_0^{\\pi}\\!\\!\\int_0^1 3\\rho^2\\cdot\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta.$$\nDette faktoriserer: $\\big(\\int_0^{2\\pi}d\\theta\\big)\\big(\\int_0^\\pi\\sin\\varphi\\,d\\varphi\\big)\\big(\\int_0^1 3\\rho^4\\,d\\rho\\big)=2\\pi\\cdot2\\cdot\\tfrac35=\\tfrac{12\\pi}{5}.$ Direkte flateintegral ville krevd å parametrisere kuleflaten og regne $\\mathbf F\\cdot\\mathbf n$ med $\\mathbf F=(x^3,y^3,z^3)$ — et mye mer arbeidskrevende integral. **Svar:** $\\tfrac{12\\pi}{5}$.",
+        "hints": [
+          "$\\operatorname{div}\\mathbf F=3\\rho^2$ i kulekoordinater.",
+          "$dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$; faktorisér de tre integralene.",
+          "$\\int_0^\\pi\\sin\\varphi\\,d\\varphi=2$, $\\int_0^1 3\\rho^4\\,d\\rho=\\tfrac35$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnsfeil tidlig som forplanter seg.** En feil normalretning i (a) forplanter seg gjennom hele kjeden via $T_1=\\iiint\\operatorname{div}\\mathbf F\\,dV-T_2$. Kontroller normalene *før* du regner videre.\n- **Regne den krumme delflaten direkte.** Det er nesten alltid tyngre enn $\\iiint\\operatorname{div}\\mathbf F\\,dV-T_2$. Bruk teoremet.\n- **Ikke gjenbruke delsvar.** (c) skal gjenbruke (a) og (b) — ikke regn dem på nytt.\n- **Glemme bunnflaten.** En sylinder har topp *og* bunn i tillegg til siden. Sjekk om bunnfluksen er null (den er det bare når $F_3=0$ på $z=0$).\n- **Glemme faktoren $r$ / $\\rho^2\\sin\\varphi$** i trippelintegralets volumelement.\n- **Feil orientering i Stokes-varianten.** Høyrehåndsregel: mot klokka $\\leftrightarrow$ oppadrettet normal.\n- **Tidsfelle.** Kjeden er tung; hold ca. 24 min per deloppgave og skriv eksakte svar."
+    },
+    {
+      "id": "mat1110-5-6-bb",
+      "type": "text",
+      "content": "## Begrepsbank — O6-kjedens nøkkelgrep\n\n*Flashcard-/repetisjonsstoff — de fem grepene du må ha automatisert. Definisjonene ligger i kap. 5.1–5.5.*"
+    },
+    {
+      "id": "mat1110-5-6-bb-kjede",
+      "type": "definition",
+      "title": "O6-kjedens fire steg",
+      "content": "(1) Plan fluks $T_2$ med snarvei; (2) $\\operatorname{div}\\mathbf F$ + trippelintegral over $V$; (3) krum fluks $T_1=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-T_2$ (divergensteoremet); (4) Stokes-variant ved behov. Delpunktene er kjedet — (3) gjenbruker (1) og (2)."
+    },
+    {
+      "id": "mat1110-5-6-bb-normalkontroll",
+      "type": "definition",
+      "title": "Normalkontroll: alle ut av $V$",
+      "content": "Topplokk $\\to$ opp ($\\mathbf k$), bunn $\\to$ ned ($-\\mathbf k$), krum sideflate $\\to$ radielt ut. Kontroller retningen på *hver* delflate før du setter tall inn i $T_1=\\iiint\\operatorname{div}\\mathbf F\\,dV-T_2$; ett feil fortegn ødelegger hele kjeden."
+    },
+    {
+      "id": "mat1110-5-6-bb-snarvei",
+      "type": "definition",
+      "title": "Snarvei for den plane delen",
+      "content": "Den plane delflaten $T_2$ har konstant normal. Er $\\mathbf F\\cdot\\mathbf n$ konstant på den, er fluksen bare $(\\mathbf F\\cdot\\mathbf n)\\cdot\\text{areal}$ — ingen parametrisering nødvendig. Dette er det raske delsvaret som mates inn i krum-delflate-formelen."
+    },
+    {
+      "id": "mat1110-5-6-bb-bunn-null",
+      "type": "definition",
+      "title": "Når bunnfluksen er null",
+      "content": "Fluksen gjennom en bunn $z=0$ (utadrettet $\\mathbf n=-\\mathbf k$) er $-F_3|_{z=0}\\cdot\\text{areal}$. Den er **null** presis når $F_3=0$ på $z=0$ (f.eks. $F_3=z$ eller $z^2$), men **ikke** null når $F_3$ har et konstantledd (f.eks. $F_3=z+1$)."
+    },
+    {
+      "id": "mat1110-5-6-bb-faktorisering",
+      "type": "definition",
+      "title": "Faktorisering av trippelintegralet",
+      "content": "Separerer integranden i $V$ ($r$-del $\\times$ $z$-del $\\times$ $\\theta$-del), regnes trippelintegralet som et produkt av enkeltintegraler. Det sparer mye arbeid — særlig med konstant eller separabel divergens."
+    },
+    {
+      "id": "mat1110-5-6-sym",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-6-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares i kap. 5.1–5.5.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf F$ | Vektorfelt i rommet |\n| $V$ | Solid; $\\partial V$ dens lukkede rand |\n| $T_1$ | Krum delflate (ukjent fluks) |\n| $T_2$ | Plan delflate (topplokk/bunn) |\n| $\\mathbf n$ | Utadrettet enhetsnormal |\n| $\\operatorname{div}\\mathbf F$ | Divergens, $\\partial_x F_1+\\partial_y F_2+\\partial_z F_3$ |\n| $\\operatorname{curl}\\mathbf F$ | Curl (Stokes-variant) |\n| $dV$ | Volumelement ($r\\,dz\\,dr\\,d\\theta$ / $\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$) |\n\n**Formler brukt i drillen:**\n\n$$\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=(\\mathbf F\\cdot\\mathbf n)\\cdot\\text{areal}\\quad(\\text{plan flate})$$\nGeometrisk snarvei.\n\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS$$\nDivergensteoremet.\n\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS$$\nKrum delflate (kjeden).\n\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS$$\nStokes' teorem (variant)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

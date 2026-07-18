@@ -1,0 +1,466 @@
+{
+  "id": "mat1110-1-2",
+  "courseId": "mat1110",
+  "chapterNumber": "1.2",
+  "title": "Basis, lineær uavhengighet, nullrom, søylerom og rang",
+  "description": "Fra radreduksjon til de sentrale underromsbegrepene: skriv vektorene som søyler, reduser, konkluder «radekvivalent med Iₙ ⇒ basis» — slik fasiten gjør.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om vektorer er lineært uavhengige og om de danner en basis, ved å skrive dem som søyler og radredusere",
+    "finne en basis for nullrommet og for søylerommet til en matrise, og bestemme rangen",
+    "bruke rang–nullitet-setningen og utvide et uavhengig sett til en basis"
+  ],
+  "content": [
+    {
+      "id": "mat1110-1-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er selve kjernen i sjanger A — den mest lønnsomme lineær-algebra-sjangeren på emnet.**\n\n- «Avgjør om vektorene danner en basis», «finn en basis for nullrommet/søylerommet», «finn rangen» er alle **sjanger A** (radreduksjonsoppgaver), til stede i **14 av 20 sett (70 %)** og fast blant åpningsdelpunktene i V2025-regimet.\n- Sensors faste grep: skriv vektorene som **søyler**, radreduser, og konkluder med et **navngitt kriterium** — «radekvivalent med $I_n$ ⇒ søylene er en basis». Selve konklusjonssetningen gir uttelling, ikke bare tallene.\n- Én felle premieres om du unngår den: basis for **søylerommet** skal leses fra pivotsøylene i **originalmatrisen**, aldri fra trappeformen.\n\n**Prioritet: høyeste.** Alt her løses med radreduksjonen fra [kap. 1.1](/bok/mat1110/mat1110-1-1) — nå lærer du å tolke pivotene."
+    },
+    {
+      "id": "mat1110-1-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Alt bygger på radreduksjon til trappeform fra [kap. 1.1](/bok/mat1110/mat1110-1-1) — du skal telle pivoter og lese av frie variabler. Vektorbegrepet i $\\mathbb{R}^3$ (koordinater, addisjon, skalering) hentes fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1). Ingen ny regneteknikk innføres; alt nytt er *tolkningen* av trappeformen."
+    },
+    {
+      "id": "mat1110-1-2-motiv",
+      "type": "text",
+      "content": "I kap. 1.1 løste vi likningssystemer. Nå spør vi mer strukturelle spørsmål: Er disse vektorene «uavhengige», eller er én av dem overflødig? Hvor mange retninger spenner de ut? Hvilke input gir null ut? Svarene på alt dette leses av **samme** trappeform — pivotene og de frie variablene forteller historien.\n\nBegrepene basis, nullrom, søylerom og rang er språket resten av lineær algebra (og funksjonsteoremene i Del 2) er skrevet i. Vi bygger dem i fem løkker: (1) lineær kombinasjon og uavhengighet, (2) basis og dimensjon, (3) nullrom, (4) søylerom og rang, (5) utvidelse til basis. Hver løkke: teori → eksempel → øvingsoppgave."
+    },
+    {
+      "id": "mat1110-1-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Lineær kombinasjon, spenn og uavhengighet (~12 min)"
+    },
+    {
+      "id": "mat1110-1-2-def-linkomb",
+      "type": "definition",
+      "title": "Lineær kombinasjon",
+      "content": "En vektor bygget av andre vektorer ved skalering og addisjon. En lineær kombinasjon av $v_1,\\dots,v_k$ er et uttrykk\n\n$$c_1 v_1 + c_2 v_2 + \\cdots + c_k v_k,$$\n\nder $c_1,\\dots,c_k$ er tall (skalarer). Å spørre «kan $w$ skrives som en lineær kombinasjon av $v_1,\\dots,v_k$?» er nøyaktig å spørre om likningssystemet $c_1 v_1+\\cdots+c_k v_k = w$ er løsbart."
+    },
+    {
+      "id": "mat1110-1-2-def-spenn",
+      "type": "definition",
+      "title": "Spenn (span)",
+      "content": "**Alle** vektorene du kan lage som lineære kombinasjoner av en gitt samling. Spennet til $v_1,\\dots,v_k$, skrevet $\\operatorname{sp}\\{v_1,\\dots,v_k\\}$, er mengden av alle $c_1v_1+\\cdots+c_kv_k$. Geometrisk er det linjen, planet eller rommet vektorene «fyller ut» gjennom origo."
+    },
+    {
+      "id": "mat1110-1-2-def-underrom",
+      "type": "definition",
+      "title": "Underrom",
+      "content": "En delmengde $U\\subseteq\\mathbb{R}^n$ som er lukket under addisjon og skalering, og inneholder nullvektoren. Konkret: hvis $u,w\\in U$, så ligger både $u+w$ og $cu$ i $U$. Spennet til en vektorsamling er alltid et underrom, og nullrom og søylerom (under) er de to viktigste eksemplene."
+    },
+    {
+      "id": "mat1110-1-2-def-uavhengig",
+      "type": "definition",
+      "title": "Lineær uavhengighet",
+      "content": "Vektorene $v_1,\\dots,v_k$ er **lineært uavhengige** når den eneste måten å få $c_1v_1+\\cdots+c_kv_k=0$ på, er den trivielle $c_1=\\cdots=c_k=0$. Ingen av vektorene kan da skrives ved de andre — ingen er «overflødig». Test: skriv dem som søyler i en matrise og radreduser; uavhengighet betyr at **hver søyle får et pivot**."
+    },
+    {
+      "id": "mat1110-1-2-def-avhengig",
+      "type": "definition",
+      "title": "Lineær avhengighet",
+      "content": "Det motsatte: det finnes tall $c_1,\\dots,c_k$ som **ikke** alle er null, med $c_1v_1+\\cdots+c_kv_k=0$. Da kan minst én vektor uttrykkes ved de andre og er overflødig. I trappeformen viser dette seg som minst én søyle **uten** pivot (en fri variabel)."
+    },
+    {
+      "id": "mat1110-1-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Uavhengig eller avhengig?",
+      "problem": "Avgjør om (a) $v_1=(1,2,1),\\,v_2=(2,3,0),\\,v_3=(1,1,1)$ og (b) $w_1=(1,2,1),\\,w_2=(2,1,3),\\,w_3=(3,3,4)$ er lineært uavhengige.",
+      "solution": "**a)** Skriv vektorene som **søyler** og radreduser:\n$$\\left[\\begin{array}{ccc}1&2&1\\\\2&3&1\\\\1&0&1\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&1\\\\0&-1&-1\\\\0&-2&0\\end{array}\\right]\\overset{\\;III-2II\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&1\\\\0&-1&-1\\\\0&0&2\\end{array}\\right]$$\nTre pivoter, én i hver søyle ⇒ **lineært uavhengige**.\n\n**b)** Her er $w_3=w_1+w_2$ (sjekk: $(1,2,1)+(2,1,3)=(3,3,4)$), så vi venter avhengighet:\n$$\\left[\\begin{array}{ccc}1&2&3\\\\2&1&3\\\\1&3&4\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&-3&-3\\\\0&1&1\\end{array}\\right]\\overset{\\;III+\\tfrac13 II\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&-3&-3\\\\0&0&0\\end{array}\\right]$$\nBare to pivoter, tredje søyle uten pivot ⇒ **lineært avhengige**. Relasjonen er $w_1+w_2-w_3=0$."
+    },
+    {
+      "id": "mat1110-1-2-w1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-w1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om vektorene $u_1=(1,0,2),\\ u_2=(0,1,1),\\ u_3=(2,1,5)$ er lineært uavhengige.",
+        "solution": "Skriv som søyler og radreduser:\n$$\\left[\\begin{array}{ccc}1&0&2\\\\0&1&1\\\\2&1&5\\end{array}\\right]\\overset{\\;III-2I\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&2\\\\0&1&1\\\\0&1&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&2\\\\0&1&1\\\\0&0&0\\end{array}\\right]$$\nBare to pivoter (søyle 3 uten pivot) ⇒ **lineært avhengige**. Faktisk er $u_3=2u_1+u_2$.",
+        "hints": [
+          "Skriv vektorene som søyler i en $3\\times3$-matrise.",
+          "Uavhengig ⇔ hver søyle får et pivot. En nullrad avslører en avhengighet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Basis, dimensjon og basiskriteriet (~12 min)"
+    },
+    {
+      "id": "mat1110-1-2-def-basis",
+      "type": "definition",
+      "title": "Basis",
+      "content": "Et **minste mulige** sett vektorer som spenner ut et rom — presist: vektorer som både er lineært uavhengige **og** spenner ut hele rommet. En basis for $\\mathbb{R}^n$ eller for et underrom gir «koordinatakser»: hver vektor i rommet skrives på nøyaktig én måte som lineær kombinasjon av basisvektorene."
+    },
+    {
+      "id": "mat1110-1-2-def-dimensjon",
+      "type": "definition",
+      "title": "Dimensjon",
+      "content": "Antall vektorer i en basis. Dette tallet er det samme uansett hvilken basis man velger, og måler «hvor mange frihetsgrader» rommet har. $\\mathbb{R}^n$ har dimensjon $n$; en linje gjennom origo har dimensjon 1, et plan gjennom origo dimensjon 2."
+    },
+    {
+      "id": "mat1110-1-2-def-standardbasis",
+      "type": "definition",
+      "title": "Standardbasisen",
+      "content": "Den enkleste basisen for $\\mathbb{R}^n$: enhetsvektorene $e_1=(1,0,\\dots,0),\\ e_2=(0,1,0,\\dots,0),\\ \\dots,\\ e_n$. Koordinatene til en vektor mht. standardbasisen er nettopp tallene i vektoren. Andre baser gir andre koordinater for samme vektor."
+    },
+    {
+      "id": "mat1110-1-2-thm-kriterium",
+      "type": "theorem",
+      "title": "Basiskriteriet for $n$ vektorer i $\\mathbb{R}^n$",
+      "content": "For $n$ vektorer i $\\mathbb{R}^n$ er følgende ekvivalent: (1) de danner en basis; (2) matrisen med vektorene som søyler er **radekvivalent med $I_n$**; (3) determinanten er $\\ne 0$. Konklusjonssetningen sensor vil se, er nettopp «matrisen er radekvivalent med $I_n$, altså danner søylene en basis». Har man *færre* enn $n$ uavhengige vektorer, spenner de bare ut et underrom av lavere dimensjon."
+    },
+    {
+      "id": "mat1110-1-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Danner vektorene en basis for $\\mathbb{R}^3$?",
+      "problem": "Avgjør om $v_1=(1,1,0),\\,v_2=(0,1,1),\\,v_3=(1,0,1)$ danner en basis for $\\mathbb{R}^3$. Hvis ikke, finn dimensjonen til spennet og en basis for det.",
+      "solution": "Skriv som søyler og radreduser:\n$$\\left[\\begin{array}{ccc}1&0&1\\\\1&1&0\\\\0&1&1\\end{array}\\right]\\overset{\\;II-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-1\\\\0&1&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-1\\\\0&0&2\\end{array}\\right]$$\nTre pivoter ⇒ matrisen er radekvivalent med $I_3$ ⇒ **vektorene danner en basis for $\\mathbb{R}^3$** (dimensjon 3). (Determinantsjekk: $\\det\\ne0$ siden alle pivoter er ikke-null.)"
+    },
+    {
+      "id": "mat1110-1-2-w2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-w2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Danner $v_1=(1,2,1),\\,v_2=(2,4,3),\\,v_3=(3,6,4)$ en basis for $\\mathbb{R}^3$? Hvis ikke, oppgi dimensjonen til spennet og en basis for spennet.",
+        "solution": "$$\\left[\\begin{array}{ccc}1&2&3\\\\2&4&6\\\\1&3&4\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&0&0\\\\0&1&1\\end{array}\\right]\\overset{\\;II\\leftrightarrow III\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&1&1\\\\0&0&0\\end{array}\\right]$$\nBare **to** pivoter (søyle 1 og 2) ⇒ ikke basis for $\\mathbb{R}^3$. Spennet har **dimensjon 2**, og en basis for det er de opprinnelige vektorene i pivotsøylene: $\\{v_1,v_2\\}=\\{(1,2,1),(2,4,3)\\}$. (Her er $v_2=2v_1+$... nei: $v_3=v_1+v_2$; sjekk $(1,2,1)+(2,4,3)=(3,6,4)$ ✓.)",
+        "hints": [
+          "Radreduser med vektorene som søyler; tell pivotene.",
+          "Dimensjonen til spennet = antall pivoter. Basis for spennet = originalvektorene i pivotsøylene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Nullrom (~10 min)"
+    },
+    {
+      "id": "mat1110-1-2-def-nullrom",
+      "type": "definition",
+      "title": "Nullrom $N(A)$",
+      "content": "Mengden av alle input som avbildes til null: $N(A)=\\{x:Ax=0\\}$. Det er nettopp løsningsmengden til det **homogene** systemet fra kap. 1.1. En basis for nullrommet finnes ved å radredusere $A$, sette hver fri variabel til en parameter, og lese ut retningsvektorene — én basisvektor per fri variabel."
+    },
+    {
+      "id": "mat1110-1-2-def-nullitet",
+      "type": "definition",
+      "title": "Nullitet",
+      "content": "Dimensjonen til nullrommet, altså **antall frie variabler** i $Ax=0$. Nullitet $0$ betyr at bare $x=0$ løser systemet (søylene er uavhengige); positiv nullitet betyr ikke-trivielle løsninger."
+    },
+    {
+      "id": "mat1110-1-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Basis for nullrommet",
+      "problem": "Finn en basis for nullrommet til $A=\\left[\\begin{array}{cccc}1&2&0&1\\\\0&0&1&2\\end{array}\\right]$.",
+      "solution": "Matrisen er allerede på redusert trappeform. Pivoter i søyle 1 og 3 ⇒ $x_1,x_3$ bundne; $x_2,x_4$ **frie**. Fra radene: $x_1=-2x_2-x_4$ og $x_3=-2x_4$. Sett $x_2=s,\\ x_4=t$:\n$$x=(x_1,x_2,x_3,x_4)=s\\,(-2,1,0,0)+t\\,(-1,0,-2,1).$$\n**Basis for $N(A)$:** $\\{(-2,1,0,0),\\,(-1,0,-2,1)\\}$; nulliteten er 2. (Kontroll: $A(-2,1,0,0)^T=(0,0)^T$ ✓, $A(-1,0,-2,1)^T=(0,0)^T$ ✓.)"
+    },
+    {
+      "id": "mat1110-1-2-w3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-w3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn en basis for nullrommet til $A=\\left[\\begin{array}{cccc}1&3&-1&2\\\\2&6&-1&5\\end{array}\\right]$ og oppgi nulliteten.",
+        "solution": "$$\\left[\\begin{array}{cccc}1&3&-1&2\\\\2&6&-1&5\\end{array}\\right]\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{cccc}1&3&-1&2\\\\0&0&1&1\\end{array}\\right]\\overset{\\;I+II\\;}{\\sim}\\left[\\begin{array}{cccc}1&3&0&3\\\\0&0&1&1\\end{array}\\right]$$\nPivoter i søyle 1,3 ⇒ $x_2,x_4$ frie. $x_1=-3x_2-3x_4,\\ x_3=-x_4$. Sett $x_2=s,x_4=t$:\n$$x=s\\,(-3,1,0,0)+t\\,(-3,0,-1,1).$$\n**Basis:** $\\{(-3,1,0,0),(-3,0,-1,1)\\}$; **nullitet 2**.",
+        "hints": [
+          "Radreduser til redusert trappeform; de frie variablene er søylene uten pivot.",
+          "Én basisvektor per fri variabel: sett den frie til 1, de andre frie til 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Søylerom, rang og rang–nullitet (~12 min)"
+    },
+    {
+      "id": "mat1110-1-2-def-soylerom",
+      "type": "definition",
+      "title": "Søylerom $\\operatorname{Col}(A)$",
+      "content": "Spennet av søylene i $A$ — alle vektorer på formen $Ax$. En basis for søylerommet er **de opprinnelige søylene i $A$ som svarer til pivotposisjonene** i trappeformen. **Merk fellen:** du finner *hvilke* søyler ved å radredusere, men basisvektorene er søylene fra **originalmatrisen**, ikke fra trappeformen (radreduksjon endrer søylerommet)."
+    },
+    {
+      "id": "mat1110-1-2-def-rang",
+      "type": "definition",
+      "title": "Rang",
+      "content": "Antall pivoter i trappeformen til $A$. Rangen er samtidig dimensjonen til søylerommet (og til radrommet). Den måler hvor mange «uavhengige retninger» søylene til sammen dekker."
+    },
+    {
+      "id": "mat1110-1-2-thm-rangnullitet",
+      "type": "theorem",
+      "title": "Rang–nullitet-setningen",
+      "content": "For en $m\\times n$-matrise $A$ gjelder\n\n$$\\operatorname{rang}(A)+\\dim N(A)=n\\quad(\\text{antall søyler}).$$\n\nHver søyle er enten en pivotsøyle (bidrar til rangen) eller svarer til en fri variabel (bidrar til nulliteten) — aldri begge. Setningen er en gratis kontroll: har du regnet rang $2$ av en matrise med $4$ søyler, må nulliteten være $2$."
+    },
+    {
+      "id": "mat1110-1-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Søylerom, rang og nullitet",
+      "problem": "For $A=\\left[\\begin{array}{cccc}1&2&1&3\\\\2&4&3&7\\\\1&2&2&4\\end{array}\\right]$: finn rangen, en basis for søylerommet, og verifiser rang–nullitet-setningen.",
+      "solution": "$$\\left[\\begin{array}{cccc}1&2&1&3\\\\2&4&3&7\\\\1&2&2&4\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&1&3\\\\0&0&1&1\\\\0&0&1&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&1&3\\\\0&0&1&1\\\\0&0&0&0\\end{array}\\right]$$\nPivoter i **søyle 1 og 3** ⇒ $\\operatorname{rang}(A)=2$. En basis for søylerommet er de tilhørende **originalsøylene**: $\\{(1,2,1),\\,(1,3,2)\\}$ (søyle 1 og søyle 3 i $A$ — *ikke* i trappeformen).\n\nSøyle 2 og 4 er frie ⇒ nullitet 2. Kontroll: $\\operatorname{rang}+\\dim N=2+2=4=$ antall søyler ✓."
+    },
+    {
+      "id": "mat1110-1-2-w4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-w4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A=\\left[\\begin{array}{cccc}1&-1&2&1\\\\2&-2&5&3\\\\1&-1&1&0\\end{array}\\right]$: finn rangen og en basis for søylerommet.",
+        "solution": "$$\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc}1&-1&2&1\\\\0&0&1&1\\\\0&0&-1&-1\\end{array}\\right]\\overset{\\;III+II\\;}{\\sim}\\left[\\begin{array}{cccc}1&-1&2&1\\\\0&0&1&1\\\\0&0&0&0\\end{array}\\right]$$\nPivoter i søyle 1 og 3 ⇒ $\\operatorname{rang}(A)=2$. Basis for søylerommet = originalsøyle 1 og 3: $\\{(1,2,1),\\,(2,5,1)\\}$. (Søyle 2 er $-1\\times$ søyle 1, derfor ikke pivot.)",
+        "hints": [
+          "Radreduser og noter hvilke søyler som får pivot.",
+          "Ta basis for søylerommet fra de tilsvarende søylene i ORIGINAL-$A$, ikke i trappeformen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Utvide et uavhengig sett til en basis (~9 min)"
+    },
+    {
+      "id": "mat1110-1-2-def-utvid",
+      "type": "definition",
+      "title": "Utvidelse til basis",
+      "content": "Ethvert lineært uavhengig sett i $\\mathbb{R}^n$ kan **fylles opp** til en basis ved å legge til flere vektorer. Praktisk grep: sett de gitte vektorene som de første søylene, føy på standardbasisvektorene $e_1,\\dots,e_n$, radreduser, og behold de opprinnelige pluss de $e_i$-ene som får nye pivoter — til du har $n$ pivoter."
+    },
+    {
+      "id": "mat1110-1-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Utvid til en basis for $\\mathbb{R}^3$",
+      "problem": "Vektorene $a_1=(1,1,1)$ og $a_2=(1,2,3)$ er uavhengige. Utvid $\\{a_1,a_2\\}$ til en basis for $\\mathbb{R}^3$.",
+      "solution": "Sett $a_1,a_2$ som søyler og føy på standardbasisen $e_1,e_2,e_3$; radreduser og plukk pivotsøyler:\n$$\\left[\\begin{array}{cc|ccc}1&1&1&0&0\\\\1&2&0&1&0\\\\1&3&0&0&1\\end{array}\\right]\\overset{\\;II-I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccccc}1&1&1&0&0\\\\0&1&-1&1&0\\\\0&2&-1&0&1\\end{array}\\right]\\overset{\\;III-2II\\;}{\\sim}\\left[\\begin{array}{ccccc}1&1&1&0&0\\\\0&1&-1&1&0\\\\0&0&1&-2&1\\end{array}\\right]$$\nPivoter dukker opp i søyle 1, 2 og 3. Søyle 3 er $e_1$. Altså gir $\\{a_1,a_2,e_1\\}=\\{(1,1,1),(1,2,3),(1,0,0)\\}$ tre pivoter ⇒ **en basis for $\\mathbb{R}^3$**."
+    },
+    {
+      "id": "mat1110-1-2-w5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-w5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vektoren $a=(2,1,-1)$ er uavhengig (én ikke-null-vektor). Utvid $\\{a\\}$ til en basis for $\\mathbb{R}^3$ ved å legge til standardbasisvektorer.",
+        "solution": "Sett $a$ først, føy på $e_1,e_2,e_3$ og radreduser til vi har tre pivoter:\n$$\\left[\\begin{array}{cccc}2&1&0&0\\\\1&0&1&0\\\\-1&0&0&1\\end{array}\\right]\\overset{\\;II-\\tfrac12 I,\\ III+\\tfrac12 I\\;}{\\sim}\\left[\\begin{array}{cccc}2&1&0&0\\\\0&-\\tfrac12&1&0\\\\0&\\tfrac12&0&1\\end{array}\\right]\\overset{\\;III+II\\;}{\\sim}\\left[\\begin{array}{cccc}2&1&0&0\\\\0&-\\tfrac12&1&0\\\\0&0&1&1\\end{array}\\right]$$\nPivoter i søyle 1 (=$a$), søyle 2 (=$e_1$) og søyle 3 (=$e_2$) — tre pivoter, så vi stopper. **En basis:** $\\{(2,1,-1),(1,0,0),(0,1,0)\\}$. (Kontroll: $\\det\\left[\\begin{smallmatrix}2&1&0\\\\1&0&1\\\\-1&0&0\\end{smallmatrix}\\right]=-1\\ne0$.)",
+        "hints": [
+          "Sett $a$ som første søyle og føy på $e_1,e_2,e_3$; radreduser.",
+          "Behold $a$ og de $e_i$-ene som gir nye pivoter, til du har tre pivoter totalt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Basis for søylerommet lest fra trappeformen.** Pivotene forteller *hvilke* søyler, men basisvektorene er de tilsvarende søylene i **originalmatrisen** $A$ — radreduksjon endrer søylerommet.\n- **Nullrom og søylerom forvekslet.** Nullrom = frie variabler (løsning av $Ax=0$); søylerom = pivotsøyler (spennet av søylene). De lever i ulike rom når $A$ ikke er kvadratisk.\n- **Glemt konklusjonssetningen.** «Tre pivoter» er ikke svaret; skriv «radekvivalent med $I_3$, altså danner søylene en basis».\n- **Dimensjon forvekslet med antall vektorer.** Fem avhengige vektorer i $\\mathbb{R}^3$ spenner høyst dimensjon 3; antall vektorer $\\ne$ dimensjon.\n- **Vektorer som rader i stedet for søyler.** Uavhengighet testes med vektorene som *søyler* (så pivot-per-søyle betyr uavhengig)."
+    },
+    {
+      "id": "mat1110-1-2-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje"
+    },
+    {
+      "id": "mat1110-1-2-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-p1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Er $(1,0,0),(0,2,0),(0,0,3)$ en basis for $\\mathbb{R}^3$? Begrunn med et kriterium.",
+        "solution": "Som søyler danner de $\\left[\\begin{array}{ccc}1&0&0\\\\0&2&0\\\\0&0&3\\end{array}\\right]$, en diagonalmatrise med tre ikke-null pivoter. Den er radekvivalent med $I_3$ (skaler radene), altså $\\det=6\\ne0$. **Ja**, de danner en basis for $\\mathbb{R}^3$.",
+        "hints": [
+          "En diagonalmatrise med ikke-null diagonal er radekvivalent med $I_n$.",
+          "Determinanten er produktet av diagonalelementene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-p2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Hva er rangen og nulliteten til $A=\\left[\\begin{array}{ccc}1&2&3\\\\2&4&6\\end{array}\\right]$?",
+        "solution": "$\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&0&0\\end{array}\\right]$. Ett pivot ⇒ **rang 1**. Antall søyler er 3, så nullitet $=3-1=2$ (rang–nullitet). Søyle 2 og 3 er frie.",
+        "hints": [
+          "Radreduser og tell pivotene.",
+          "Bruk rang $+$ nullitet $=$ antall søyler."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-p3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $U=\\operatorname{sp}\\{(1,1,0,0),(0,1,1,0),(1,2,1,0)\\}$. Finn $\\dim U$ og en basis for $U$.",
+        "solution": "Skriv vektorene som søyler og radreduser:\n$$\\left[\\begin{array}{ccc}1&0&1\\\\1&1&2\\\\0&1&1\\\\0&0&0\\end{array}\\right]\\overset{\\;II-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&1\\\\0&1&1\\\\0&0&0\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&1\\\\0&0&0\\\\0&0&0\\end{array}\\right]$$\nPivoter i søyle 1 og 2 ⇒ $\\dim U=2$. Basis: originalsøyle 1 og 2, altså $\\{(1,1,0,0),(0,1,1,0)\\}$. (Tredje vektor er summen av de to.)",
+        "hints": [
+          "Vektorene som søyler; tell pivotene for dimensjonen.",
+          "Basis = originalvektorene i pivotsøylene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-p4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) For $A=\\left[\\begin{array}{cccc}1&2&1&1\\\\2&4&3&4\\\\1&2&2&3\\end{array}\\right]$: (a) finn rang og en basis for søylerommet, (b) finn en basis for nullrommet, (c) bekreft rang–nullitet.",
+        "solution": "**a)** $\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&1&1\\\\0&0&1&2\\\\0&0&1&2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&1&1\\\\0&0&1&2\\\\0&0&0&0\\end{array}\\right]$. Pivoter i søyle 1 og 3 ⇒ **rang 2**; basis for søylerommet = originalsøyle 1 og 3: $\\{(1,2,1),(1,3,2)\\}$.\n\n**b)** Rydd over pivotet i søyle 3: $\\overset{\\;I-II\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&0&-1\\\\0&0&1&2\\\\0&0&0&0\\end{array}\\right]$. Frie: $x_2,x_4$. $x_1=-2x_2+x_4,\\ x_3=-2x_4$. Basis for $N(A)$: $\\{(-2,1,0,0),(1,0,-2,1)\\}$.\n\n**c)** $\\operatorname{rang}+\\dim N=2+2=4=$ antall søyler ✓.",
+        "hints": [
+          "Én radreduksjon gir alt: pivotene → rang/søylerom, de frie variablene → nullrom.",
+          "Søylerombasis fra ORIGINAL, nullrombasis fra de frie variablene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-2-p5",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Teori, sjanger R.) Forklar hvorfor fire vektorer i $\\mathbb{R}^3$ aldri kan være lineært uavhengige.",
+        "solution": "Skriver vi de fire vektorene som søyler, får vi en $3\\times4$-matrise. Trappeformen har høyst **3** pivoter (én per rad, og det er bare tre rader). Med fire søyler må da minst én søyle mangle pivot ⇒ minst én fri variabel ⇒ det finnes en ikke-triviell relasjon $c_1v_1+\\cdots+c_4v_4=0$. Altså er de lineært **avhengige**. Generelt: mer enn $n$ vektorer i $\\mathbb{R}^n$ er alltid avhengige, fordi antall pivoter aldri overstiger antall rader $n$.",
+        "hints": [
+          "Skriv vektorene som søyler og tenk på hvor mange pivoter en $3\\times4$-matrise kan ha.",
+          "Antall pivoter $\\le$ antall rader."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-1-2-bb-koord",
+      "type": "definition",
+      "title": "Koordinater mht. en basis",
+      "content": "Tallene $(c_1,\\dots,c_n)$ i den entydige framstillingen $v=c_1u_1+\\cdots+c_nu_n$ av en vektor $v$ i en basis $\\{u_1,\\dots,u_n\\}$. At framstillingen er entydig, er selve poenget med en basis — den fungerer som et koordinatsystem."
+    },
+    {
+      "id": "mat1110-1-2-bb-radrom",
+      "type": "definition",
+      "title": "Radrom",
+      "content": "Spennet av **radene** i $A$. Radrommet har samme dimensjon som søylerommet — nemlig rangen — selv om de to rommene generelt består av ulike vektorer. En basis for radrommet er de ikke-null radene i trappeformen."
+    },
+    {
+      "id": "mat1110-1-2-bb-trivielt",
+      "type": "definition",
+      "title": "Trivielt underrom",
+      "content": "Underrommet $\\{0\\}$ som bare inneholder nullvektoren, med dimensjon $0$. Det er nullrommet til en inverterbar matrise: da har $Ax=0$ kun trivialløsningen."
+    },
+    {
+      "id": "mat1110-1-2-bb-maksimalt",
+      "type": "definition",
+      "title": "Maksimalt uavhengig sett",
+      "content": "Et lineært uavhengig sett i et rom som ikke kan utvides med flere vektorer fra rommet uten å bli avhengig. Et slikt sett er nettopp en basis for rommet, og størrelsen er dimensjonen."
+    },
+    {
+      "id": "mat1110-1-2-bb-endeligdim",
+      "type": "definition",
+      "title": "Endeligdimensjonalt rom",
+      "content": "Et rom som har en basis med et endelig antall vektorer — som $\\mathbb{R}^n$ og alle dets underrom. All teorien i dette kapitlet gjelder slike rom; dimensjonen er da et veldefinert, endelig tall."
+    },
+    {
+      "id": "mat1110-1-2-bb-spennende",
+      "type": "definition",
+      "title": "Spennende sett (generatormengde)",
+      "content": "En samling vektorer hvis spenn er hele rommet — de «genererer» rommet, men trenger ikke være uavhengige. Et spennende sett kan ha overflødige vektorer; fjerner man dem til settet blir uavhengig, sitter man igjen med en basis."
+    },
+    {
+      "id": "mat1110-1-2-bb-fullrang",
+      "type": "definition",
+      "title": "Full rang",
+      "content": "En matrise har **full rang** når rangen er så stor som mulig — lik det minste av antall rader og søyler. For en kvadratisk $n\\times n$-matrise betyr full rang ($=n$) at den er inverterbar (kap. 1.3): alle søyler er pivotsøyler, nullrommet er trivielt."
+    },
+    {
+      "id": "mat1110-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-1-2-r1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/mat1110/mat1110-1-1)) Radreduser $\\left[\\begin{array}{ccc}1&2&1\\\\2&5&3\\\\0&1&2\\end{array}\\right]$ til trappeform og oppgi antall pivoter.",
+            "solution": "$\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&1\\\\0&1&1\\\\0&1&2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&1\\\\0&1&1\\\\0&0&1\\end{array}\\right]$. **Tre pivoter.**",
+            "hints": [
+              "Nuller ut første søyle, deretter andre."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-2-r2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [r2-5-1](/bok/r2/r2-5-1)) Er vektorene $(1,0,0)$ og $(2,0,0)$ i $\\mathbb{R}^3$ parallelle? Hva betyr det for uavhengighet?",
+            "solution": "Ja, $(2,0,0)=2\\cdot(1,0,0)$, så de er parallelle. To parallelle vektorer er alltid lineært **avhengige** — den ene er et multiplum av den andre.",
+            "hints": [
+              "Er den ene et tall ganger den andre?"
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-2-r3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/mat1110/mat1110-1-1)) Løs det homogene systemet $x+2y+3z=0,\\ 2x+4y+6z=0$. Hva slags mengde er løsningen?",
+            "solution": "$\\overset{\\;II-2I\\;}{\\sim}$ gir bare $x+2y+3z=0$; $y,z$ frie. $x=-2y-3z$, så løsningen er $y(-2,1,0)+z(-3,0,1)$ — et **plan** gjennom origo (dimensjon 2). Dette planet er nettopp nullrommet.",
+            "hints": [
+              "To frie variabler gir et to-parameters løsningsplan."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-1-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-1-2-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $c_1v_1+\\cdots+c_kv_k$ | Lineær kombinasjon av vektorene |\n| $\\operatorname{sp}\\{v_1,\\dots,v_k\\}$ | Spennet — alle lineære kombinasjoner |\n| $\\mathbb{R}^n$ | Rommet av $n$-tupler; har dimensjon $n$ |\n| $e_1,\\dots,e_n$ | Standardbasisen (enhetsvektorene) |\n| $N(A)$ | Nullrom: $\\{x:Ax=0\\}$ |\n| $\\operatorname{Col}(A)$ | Søylerom: spennet av søylene i $A$ |\n| $\\operatorname{rang}(A)$ | Antall pivoter $=\\dim\\operatorname{Col}(A)$ |\n| $\\dim U$ | Dimensjon: antall vektorer i en basis for $U$ |\n| $I_n$ | Identitetsmatrisen $n\\times n$ |\n\n**Basiskriteriet ($n$ vektorer i $\\mathbb{R}^n$):**\n\n$$\\text{basis}\\iff\\text{søyle-matrisen radekvivalent med }I_n\\iff\\det\\ne0.$$\n\n**Nullrombasis:** radreduser $A$, sett hver fri variabel $=$ parameter, les retningsvektorene (én per fri variabel).\n\n**Søylerombasis:** de **originale** søylene i $A$ ved pivotposisjonene (aldri fra trappeformen).\n\n**Rang–nullitet-setningen:**\n\n$$\\operatorname{rang}(A)+\\dim N(A)=n\\ (\\text{antall søyler}).$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,427 @@
+{
+  "id": "mat1110-5-1",
+  "courseId": "mat1110",
+  "chapterNumber": "5.1",
+  "title": "Parametrisering av kurver og flater; det fundamentale vektorproduktet",
+  "description": "Parametriser kurver og flater, regn ϕ_u × ϕ_v, og les av flateelement og normalretning — grunnlaget for alle flate- og fluksintegral.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "parametrisere kurver og flater og regne hastighet, fart og buelengde",
+    "regne det fundamentale vektorproduktet ϕ_u × ϕ_v og lese av flateelement og normalvektor",
+    "velge fortegn på enhetsnormalen etter oppgitt orientering",
+    "gjenkjenne og bruke standardparametriseringene for graf, sylinder, kule og plan disk"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er **grunnverktøyet** for hele Del 5 — parametrisering av kurver og flater og det fundamentale vektorproduktet $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$. Alt av flate- og fluksintegral (sjanger **K**), Gauss' divergensteorem (**L**) og Stokes (**M**) hviler på at du kan sette opp $\\boldsymbol{\\phi}(u,v)$, regne $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ og lese av flateelement og normalretning.\n\n- **Regimemerke:** vektoranalyse-kjeden er *det nye tyngdepunktet* — fluks + Gauss traff **3 av 3** V2025-sett og Stokes **1 av 3** (konte). Rå-frekvensen i de gamle settene er lav, men det nyeste kullet veier tyngst for prognosen mot V2026. Grunnteknikken her må derfor sitte automatisk.\n- **Sensorkrav:** fasiten regner $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ **hver gang** og sjekker at den peker som oppgitt normal $n$ (bytter fortegn ellers). Den kontrollen skal være synlig.\n- **Buelengde** av en romkurve er en eldre sjanger (**R**, 2004/2005) — enkel, men grei å ha med som sikre poeng.\n\n«Sjanger K/L/M» er analysens koder for flateintegral/fluks, divergensteorem og Stokes; de forklares grundig i hvert sitt kapittel senere. Her legger vi bare fundamentet."
+    },
+    {
+      "id": "mat1110-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på partiellderivasjon og gradient fra **[kap. 2.1](/bok/mat1110/mat1110-2-1)** — du skal derivere en vektorfunksjon komponentvis. Fra videregående trenger du **[Kryssproduktet](/bok/r2/r2-5-4)** (det er selve motoren i $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$) og **[Vektorer i tre dimensjoner](/bok/r2/r2-5-1)** (vektorregning i $\\mathbb{R}^3$).\n\n**Sist du var her (kryssproduktet).** For $\\mathbf a=(a_1,a_2,a_3)$ og $\\mathbf b=(b_1,b_2,b_3)$ er\n$$\\mathbf a\\times\\mathbf b=(a_2b_3-a_3b_2,\\;a_3b_1-a_1b_3,\\;a_1b_2-a_2b_1),$$\nen vektor som står **vinkelrett** på både $\\mathbf a$ og $\\mathbf b$, med lengde $|\\mathbf a||\\mathbf b|\\sin\\theta$ (arealet av parallellogrammet de spenner ut). Rekkefølgen bestemmer retningen: $\\mathbf b\\times\\mathbf a=-\\,\\mathbf a\\times\\mathbf b$. Grensebegrepet for integraler bygger på enkeltintegralet fra *(MAT1100 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)*."
+    },
+    {
+      "id": "mat1110-5-1-motivasjon",
+      "type": "text",
+      "content": "For å integrere **langs en kurve** eller **over en flate** må vi først beskrive kurven og flaten med parametere — gjøre dem om til bilder av et enkelt intervall eller et flatt $(u,v)$-område. Da blir buelengde, flateareal og fluks vanlige dobbelt- og enkeltintegral vi allerede kan regne.\n\nDen ene størrelsen som går igjen i *alt* av flateintegral er **det fundamentale vektorproduktet** $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$. Den gir på én gang (i) en normalvektor til flaten, (ii) flateelementet $dS=|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv$, og (iii) retningen vi måler fluks i. Lærer du å sette den opp trygt, har du nøkkelen til resten av delen.\n\nKapitlet går i tre løkker: (1) parametriserte kurver og buelengde, (2) parametriserte flater og $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$, (3) standardparametriseringene du møter på eksamen. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1110-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Parametriserte kurver og buelengde (~15 min)"
+    },
+    {
+      "id": "mat1110-5-1-def-romkurve",
+      "type": "definition",
+      "title": "Parametrisering av en kurve",
+      "content": "En **parametrisering** av en kurve er en vektorfunksjon som sveiper ut kurven når parameteren $t$ løper gjennom et intervall:\n$$\\mathbf r(t)=(x(t),\\,y(t),\\,z(t)),\\qquad a\\le t\\le b.$$\nHver verdi av $t$ gir ett punkt på kurven. En sirkel med radius $a$ i $xy$-planet parametriseres for eksempel ved $\\mathbf r(t)=(a\\cos t,\\,a\\sin t,\\,0)$, $0\\le t\\le 2\\pi$."
+    },
+    {
+      "id": "mat1110-5-1-def-hastighet",
+      "type": "definition",
+      "title": "Hastighet og fart",
+      "content": "Deriverer vi parametriseringen komponentvis, får vi **hastighetsvektoren** — tangent til kurven i retning økende $t$:\n$$\\mathbf r'(t)=(x'(t),\\,y'(t),\\,z'(t)).$$\nLengden $|\\mathbf r'(t)|=\\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}$ kalles **farten**. Farten er akkurat den faktoren som gjør om ændring i parameter til ændring i buelengde."
+    },
+    {
+      "id": "mat1110-5-1-def-buelengde",
+      "type": "definition",
+      "title": "Buelengde",
+      "content": "Lengden av kurven fra $t=a$ til $t=b$ er integralet av farten:\n$$L=\\int_a^b |\\mathbf r'(t)|\\,dt \\quad(\\text{formelsamlingen}).$$\nIntuisjonen: over et lite parameterintervall $dt$ tilbakelegger vi buestykket $|\\mathbf r'(t)|\\,dt$ (fart $\\times$ tid); summerer vi alle bidragene, får vi hele lengden."
+    },
+    {
+      "id": "mat1110-5-1-ex-buelengde",
+      "type": "example",
+      "title": "Eksempel 1: Buelengde av en skruelinje",
+      "problem": "Finn lengden av skruelinjen $\\mathbf r(t)=(2\\cos t,\\,2\\sin t,\\,t)$ for $0\\le t\\le 2\\pi$.",
+      "solution": "**Hastighet:** $\\mathbf r'(t)=(-2\\sin t,\\,2\\cos t,\\,1)$.\n\n**Fart:** $|\\mathbf r'(t)|=\\sqrt{(-2\\sin t)^2+(2\\cos t)^2+1^2}=\\sqrt{4\\sin^2 t+4\\cos^2 t+1}=\\sqrt{4+1}=\\sqrt5.$\n\nFarten er konstant. **Buelengde:**\n$$L=\\int_0^{2\\pi}\\sqrt5\\,dt=2\\pi\\sqrt5.$$\nKurven gjør én omdreining (omkrets $2\\pi\\cdot2=4\\pi$) samtidig som den stiger $2\\pi$ i høyden; Pythagoras på én vinding gir $\\sqrt{(4\\pi)^2+(2\\pi)^2}=2\\pi\\sqrt5$, som stemmer. **Svar:** $L=2\\pi\\sqrt5$."
+    },
+    {
+      "id": "mat1110-5-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — ren buelengde.) Finn lengden av kurven $\\mathbf r(t)=(3\\cos t,\\,3\\sin t,\\,4t)$ for $0\\le t\\le\\pi$.",
+        "solution": "$\\mathbf r'(t)=(-3\\sin t,\\,3\\cos t,\\,4)$, så farten er $|\\mathbf r'(t)|=\\sqrt{9\\sin^2 t+9\\cos^2 t+16}=\\sqrt{9+16}=\\sqrt{25}=5.$ Konstant fart gir\n$$L=\\int_0^{\\pi}5\\,dt=5\\pi.$$",
+        "hints": [
+          "Deriver komponentvis og bruk $\\sin^2t+\\cos^2t=1$ i farten.",
+          "Farten blir konstant — da er $L=$ fart $\\times$ (lengden av $t$-intervallet)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) Finn lengden av kurven $\\mathbf r(t)=(\\cos t,\\,\\sin t,\\,t)$ for $0\\le t\\le 2\\pi$.",
+        "solution": "$\\mathbf r'(t)=(-\\sin t,\\,\\cos t,\\,1)$, fart $|\\mathbf r'(t)|=\\sqrt{\\sin^2t+\\cos^2t+1}=\\sqrt2.$ Da blir\n$$L=\\int_0^{2\\pi}\\sqrt2\\,dt=2\\pi\\sqrt2.$$",
+        "hints": [
+          "Farten er konstant her også.",
+          "$L=\\sqrt2\\cdot 2\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Parametriserte flater og det fundamentale vektorproduktet (~25 min)"
+    },
+    {
+      "id": "mat1110-5-1-def-flate",
+      "type": "definition",
+      "title": "Parametrisering av en flate",
+      "content": "En **flate** beskrives med *to* parametere — en vektorfunksjon av $(u,v)$ som løper over et flatt område $R$ i $uv$-planet:\n$$\\boldsymbol{\\phi}(u,v)=(x(u,v),\\,y(u,v),\\,z(u,v)),\\qquad (u,v)\\in R.$$\nHolder vi $v$ fast og varierer $u$, får vi en **parameterkurve** på flaten; tangenten til den er $\\boldsymbol{\\phi}_u$. Tilsvarende gir fast $u$ tangenten $\\boldsymbol{\\phi}_v$. Disse to tangentvektorene spenner ut tangentplanet i punktet."
+    },
+    {
+      "id": "mat1110-5-1-def-fvp",
+      "type": "definition",
+      "title": "Det fundamentale vektorproduktet $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$",
+      "content": "Kryssproduktet av de to tangentvektorene til flaten kalles det **fundamentale vektorproduktet**:\n$$\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v.$$\nDet står **vinkelrett** på flaten (er altså en normalvektor), og lengden er arealet av det lille parallellogrammet tangentvektorene spenner ut. Dette éne uttrykket gir både normalretning, flateelement og fluksretning — derfor «fundamentalt». Regn det ut **hver gang**."
+    },
+    {
+      "id": "mat1110-5-1-def-ds",
+      "type": "definition",
+      "title": "Flateelement $dS$",
+      "content": "Arealet av en liten flatebit svarende til $du\\,dv$ er lengden av det fundamentale vektorproduktet:\n$$dS=|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv.$$\nDette er flateelementet i **skalare** flateintegral (areal, masse). Merk **absoluttverdien**: i skalarintegral teller bare størrelsen, ikke retningen."
+    },
+    {
+      "id": "mat1110-5-1-def-enhetsnormal",
+      "type": "definition",
+      "title": "Enhetsnormal og fortegnsvalg",
+      "content": "Enhetsnormalen til flaten er det fundamentale vektorproduktet normalisert, med et **fortegnsvalg**:\n$$\\mathbf n=\\pm\\frac{\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v}{|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|}.$$\nEn flate har to sider, så normalen kan peke to veier. Oppgaven sier hvilken («utadrettet», «oppadrettet» …). **Regel:** regn $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$, sjekk hvilken vei den peker, og **bytt fortegn** hvis den peker motsatt av den oppgitte retningen. Denne sjekken er sensorkrav i alle fluksoppgaver."
+    },
+    {
+      "id": "mat1110-5-1-def-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgen $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ mot $\\boldsymbol{\\phi}_v\\times\\boldsymbol{\\phi}_u$",
+      "content": "Kryssproduktet er **antikommutativt**: bytter du rekkefølgen på tangentvektorene, snur normalen:\n$$\\boldsymbol{\\phi}_v\\times\\boldsymbol{\\phi}_u=-\\,(\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v).$$\nDette er den vanligste kilden til feil normalretning. Hold en fast rekkefølge, regn ut, og korriger fortegnet *bevisst* etter den oppgitte orienteringen — ikke ved å bytte rekkefølge tilfeldig."
+    },
+    {
+      "id": "mat1110-5-1-utledning-graf",
+      "type": "text",
+      "content": "### Grafparametrisering — en utledning verdt å kunne\n\nEn flate gitt som graf $z=g(x,y)$ parametriseres enklest med $(x,y)$ selv:\n$$\\boldsymbol{\\phi}(x,y)=(x,\\,y,\\,g(x,y)).$$\nTangentvektorene blir $\\boldsymbol{\\phi}_x=(1,0,g_x)$ og $\\boldsymbol{\\phi}_y=(0,1,g_y)$. **Intuisjon:** å gå én enhet i $x$ løfter deg $g_x$ i høyden; å gå én enhet i $y$ løfter deg $g_y$. Kryssproduktet blir da\n$$\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-g_x,\\,-g_y,\\,1).$$\n**Intuisjon:** $z$-komponenten er $+1$, så denne normalen peker **oppover** (positiv $z$-retning); vil du ha den nedadrettede, bytter du fortegn. Dette éne resultatet dekker alle graf-flater."
+    },
+    {
+      "id": "mat1110-5-1-ex-graf",
+      "type": "example",
+      "title": "Eksempel 2: Fundamentalt vektorprodukt for en paraboloide",
+      "problem": "Flaten er $z=x^2+y^2$ for $0\\le z\\le4$. Parametriser den som graf, regn $\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y$, og finn den **oppadrettede** enhetsnormalen.",
+      "solution": "**Parametrisering (graf):** $\\boldsymbol{\\phi}(x,y)=(x,\\,y,\\,x^2+y^2)$, med $(x,y)$ i disken $x^2+y^2\\le4$ (siden $z=x^2+y^2\\le4$).\n\n**Tangentvektorer:** $\\boldsymbol{\\phi}_x=(1,0,2x)$, $\\boldsymbol{\\phi}_y=(0,1,2y)$.\n\n**Fundamentalt vektorprodukt:**\n$$\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\1&0&2x\\\\0&1&2y\\end{vmatrix}=(-2x,\\,-2y,\\,1).$$\n\n**Fortegnskontroll:** $z$-komponenten er $+1>0$, så denne peker oppover — nettopp den oppgitte retningen. Ingen fortegnsbytte nødvendig.\n\n**Enhetsnormal:** $|\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y|=\\sqrt{4x^2+4y^2+1}$, så\n$$\\mathbf n=\\frac{(-2x,\\,-2y,\\,1)}{\\sqrt{4x^2+4y^2+1}}.$$\n**Svar:** oppadrettet enhetsnormal er $\\mathbf n=\\dfrac{(-2x,-2y,1)}{\\sqrt{4x^2+4y^2+1}}$, og $dS=\\sqrt{4x^2+4y^2+1}\\,dx\\,dy$."
+    },
+    {
+      "id": "mat1110-5-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sylinderflate.) Parametriser sideflaten av sylinderen $x^2+y^2=4$, $0\\le z\\le5$, ved $\\boldsymbol{\\phi}(\\theta,z)=(2\\cos\\theta,\\,2\\sin\\theta,\\,z)$. Regn $\\boldsymbol{\\phi}_\\theta\\times\\boldsymbol{\\phi}_z$ og avgjør om den peker ut fra eller inn mot aksen.",
+        "solution": "$\\boldsymbol{\\phi}_\\theta=(-2\\sin\\theta,\\,2\\cos\\theta,\\,0)$ og $\\boldsymbol{\\phi}_z=(0,0,1)$. Kryssproduktet:\n$$\\boldsymbol{\\phi}_\\theta\\times\\boldsymbol{\\phi}_z=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\-2\\sin\\theta&2\\cos\\theta&0\\\\0&0&1\\end{vmatrix}=(2\\cos\\theta,\\,2\\sin\\theta,\\,0).$$\nDette er $2\\,(\\cos\\theta,\\sin\\theta,0)$ — samme retning som posisjonsvektoren i $xy$-planet, altså **radielt utover** fra $z$-aksen. Lengden er $|\\boldsymbol{\\phi}_\\theta\\times\\boldsymbol{\\phi}_z|=2$, så $dS=2\\,d\\theta\\,dz$.",
+        "hints": [
+          "Deriver $\\boldsymbol{\\phi}$ med hensyn på $\\theta$ og på $z$ hver for seg.",
+          "Sammenlign kryssproduktet med $(\\cos\\theta,\\sin\\theta,0)$ — peker den samme vei, er den utadrettet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kuleflate.) Kuleflaten med radius $3$ parametriseres ved $\\boldsymbol{\\phi}(\\varphi,\\theta)=(3\\sin\\varphi\\cos\\theta,\\,3\\sin\\varphi\\sin\\theta,\\,3\\cos\\varphi)$. Vis at flateelementet er $dS=9\\sin\\varphi\\,d\\varphi\\,d\\theta$.",
+        "solution": "Regn tangentvektorene:\n$$\\boldsymbol{\\phi}_\\varphi=(3\\cos\\varphi\\cos\\theta,\\,3\\cos\\varphi\\sin\\theta,\\,-3\\sin\\varphi),\\quad \\boldsymbol{\\phi}_\\theta=(-3\\sin\\varphi\\sin\\theta,\\,3\\sin\\varphi\\cos\\theta,\\,0).$$\nKryssproduktet $\\boldsymbol{\\phi}_\\varphi\\times\\boldsymbol{\\phi}_\\theta$ har lengde $9\\sin\\varphi$ (standardregning; retningen er radiell, $9\\sin\\varphi\\cdot\\hat{\\mathbf r}$). Med $0\\le\\varphi\\le\\pi$ er $\\sin\\varphi\\ge0$, så\n$$dS=|\\boldsymbol{\\phi}_\\varphi\\times\\boldsymbol{\\phi}_\\theta|\\,d\\varphi\\,d\\theta=9\\sin\\varphi\\,d\\varphi\\,d\\theta.$$\nGenerelt gir kuleflate med radius $a$ elementet $a^2\\sin\\varphi\\,d\\varphi\\,d\\theta$; her $a=3$ gir $9\\sin\\varphi$.",
+        "hints": [
+          "Bruk kuleparametriseringen og deriver med hensyn på $\\varphi$ og $\\theta$.",
+          "For en kule med radius $a$ er $|\\boldsymbol{\\phi}_\\varphi\\times\\boldsymbol{\\phi}_\\theta|=a^2\\sin\\varphi$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Standardparametriseringene (~15 min)"
+    },
+    {
+      "id": "mat1110-5-1-standard-intro",
+      "type": "text",
+      "content": "På eksamen går fire flater igjen. Her er parametriseringen og det ferdige fundamentale vektorproduktet for hver — lær mønsteret, så slipper du å utlede fra grunnen hver gang. Fortegnet justeres alltid etter oppgitt orientering."
+    },
+    {
+      "id": "mat1110-5-1-def-std-graf",
+      "type": "definition",
+      "title": "Standard: graf $z=g(x,y)$",
+      "content": "For en flate gitt som graf over $xy$-planet:\n$$\\boldsymbol{\\phi}(x,y)=(x,y,g(x,y)),\\qquad \\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-g_x,-g_y,1),\\qquad dS=\\sqrt{1+g_x^2+g_y^2}\\,dx\\,dy.$$\nDen oppgitte formen peker **oppover** ($+z$); vil du ha nedadrettet, bruk minustegn."
+    },
+    {
+      "id": "mat1110-5-1-def-std-sylinder",
+      "type": "definition",
+      "title": "Standard: sylinderflate radius $a$",
+      "content": "For sideflaten av en sylinder med radius $a$ om $z$-aksen:\n$$\\boldsymbol{\\phi}(\\theta,z)=(a\\cos\\theta,\\,a\\sin\\theta,\\,z),\\qquad \\boldsymbol{\\phi}_\\theta\\times\\boldsymbol{\\phi}_z=(a\\cos\\theta,\\,a\\sin\\theta,\\,0),\\qquad dS=a\\,d\\theta\\,dz.$$\nVektoren peker **radielt utover**; det er den utadrettede normalen for sylinderen."
+    },
+    {
+      "id": "mat1110-5-1-def-std-kule",
+      "type": "definition",
+      "title": "Standard: kuleflate radius $a$",
+      "content": "For en kuleflate med radius $a$:\n$$\\boldsymbol{\\phi}(\\varphi,\\theta)=(a\\sin\\varphi\\cos\\theta,\\,a\\sin\\varphi\\sin\\theta,\\,a\\cos\\varphi),\\qquad dS=a^2\\sin\\varphi\\,d\\varphi\\,d\\theta,$$\nmed $0\\le\\varphi\\le\\pi$, $0\\le\\theta\\le2\\pi$. Det fundamentale vektorproduktet $\\boldsymbol{\\phi}_\\varphi\\times\\boldsymbol{\\phi}_\\theta$ peker **radielt utover** (utadrettet)."
+    },
+    {
+      "id": "mat1110-5-1-def-std-disk",
+      "type": "definition",
+      "title": "Standard: plan disk $z=c$",
+      "content": "En flat, horisontal disk $x^2+y^2\\le a^2$ i høyden $z=c$ parametriseres med polarkoordinater:\n$$\\boldsymbol{\\phi}(r,\\theta)=(r\\cos\\theta,\\,r\\sin\\theta,\\,c),\\qquad \\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta=(0,0,r),\\qquad dS=r\\,dr\\,d\\theta.$$\nNormalen $(0,0,r)$ peker **oppover**. For en plan flate med konstant normal gjelder den geometriske snarveien i [kap. 5.3](/bok/mat1110/mat1110-5-3)."
+    },
+    {
+      "id": "mat1110-5-1-ex-disk",
+      "type": "example",
+      "title": "Eksempel 3: Plan disk og tangentplan",
+      "problem": "Betrakt disken $x^2+y^2\\le9$ i planet $z=2$, parametrisert ved $\\boldsymbol{\\phi}(r,\\theta)=(r\\cos\\theta,\\,r\\sin\\theta,\\,2)$, $0\\le r\\le3$. Finn $\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta$, flateelementet, og den oppadrettede enhetsnormalen.",
+      "solution": "**Tangentvektorer:** $\\boldsymbol{\\phi}_r=(\\cos\\theta,\\,\\sin\\theta,\\,0)$, $\\boldsymbol{\\phi}_\\theta=(-r\\sin\\theta,\\,r\\cos\\theta,\\,0)$.\n\n**Fundamentalt vektorprodukt:**\n$$\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta=\\big(\\sin\\theta\\cdot0-0\\cdot r\\cos\\theta,\\;0\\cdot(-r\\sin\\theta)-\\cos\\theta\\cdot0,\\;\\cos\\theta\\cdot r\\cos\\theta-\\sin\\theta\\cdot(-r\\sin\\theta)\\big)=(0,\\,0,\\,r).$$\n\n**Fortegnskontroll:** $z$-komponent $r\\ge0$ — peker oppover, som ønsket. **Flateelement:** $dS=|(0,0,r)|\\,dr\\,d\\theta=r\\,dr\\,d\\theta$ (kjent fra polarkoordinater). **Enhetsnormal:** $\\mathbf n=(0,0,1)=\\mathbf k$ — konstant, fordi disken er flat og horisontal. At normalen er konstant er nettopp det som gir den geometriske snarveien i fluksregning."
+    },
+    {
+      "id": "mat1110-5-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kjegle.) Kjeglen $z=\\sqrt{x^2+y^2}$ for $0\\le z\\le2$ parametriseres ved $\\boldsymbol{\\phi}(r,\\theta)=(r\\cos\\theta,\\,r\\sin\\theta,\\,r)$. Regn $\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta$ og finn flateelementet $dS$.",
+        "solution": "$\\boldsymbol{\\phi}_r=(\\cos\\theta,\\sin\\theta,1)$, $\\boldsymbol{\\phi}_\\theta=(-r\\sin\\theta,r\\cos\\theta,0)$.\n$$\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta=(-r\\cos\\theta,\\,-r\\sin\\theta,\\,r).$$\nLengde: $|\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta|=\\sqrt{r^2\\cos^2\\theta+r^2\\sin^2\\theta+r^2}=\\sqrt{2r^2}=r\\sqrt2$ (for $r\\ge0$). Dermed\n$$dS=r\\sqrt2\\,dr\\,d\\theta.$$",
+        "hints": [
+          "Deriver kjegleparametriseringen med hensyn på $r$ og $\\theta$.",
+          "$|\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta|$ blir $\\sqrt2\\,r$ — kjeglens flateelement."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Fortegnsvalg — sensorkravet.) Paraboloiden $z=x^2+y^2$, $0\\le z\\le4$, avgrenser et område. Finn den **utadrettede** enhetsnormalen på selve paraboloideflaten (den som peker *bort* fra området inne i paraboloiden).",
+        "solution": "Graf-parametrisering $\\boldsymbol{\\phi}(x,y)=(x,y,x^2+y^2)$ gir $\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-2x,-2y,1)$ med $z$-komponent $+1$ — altså **oppover**. Men området ligger *inne i* paraboloiden (over flaten), så en normal som peker oppover peker **inn i** området. Utadrettet betyr bort fra området, altså nedover/utover. Vi må **bytte fortegn**:\n$$\\mathbf n=\\frac{(2x,\\,2y,\\,-1)}{\\sqrt{4x^2+4y^2+1}}.$$\nDette er nettopp sjekken sensor krever: regn $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$, avgjør hvilken vei den peker relativt til den oppgitte orienteringen, og korriger fortegnet. Her forplanter en glemt fortegnskorreksjon seg videre til feil fluks i [kap. 5.4](/bok/mat1110/mat1110-5-4).",
+        "hints": [
+          "Regn først $\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y$ og se på fortegnet til $z$-komponenten.",
+          "Området ligger over flaten — en oppadrettet normal peker inn i området, så utadrettet krever fortegnsbytte."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil rekkefølge i kryssproduktet.** $\\boldsymbol{\\phi}_v\\times\\boldsymbol{\\phi}_u=-\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ — bytter du rekkefølge, snur normalen, og fluksen får feil fortegn.\n- **Ikke sjekke normalretningen.** Regn alltid ut hvilken vei $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ peker og sammenlign med den oppgitte $\\mathbf n$. Sensor gjør denne kontrollen — gjør den synlig.\n- **Glemme absoluttverdien i $dS$.** I skalarintegral (areal, masse) er $dS=|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv$. (I fluks skal fortegnet derimot beholdes — se kap. 5.3.)\n- **Feil domene for $(u,v)$.** Parametriser flaten *og* finn hvilket område parameterne løper over. For $z=x^2+y^2\\le4$ er domenet disken $x^2+y^2\\le4$, ikke hele planet.\n- **Blande $\\varphi$-grensene på en kule.** Hele kula har $0\\le\\varphi\\le\\pi$; øvre halvkule har $0\\le\\varphi\\le\\pi/2$."
+    },
+    {
+      "id": "mat1110-5-1-pulje",
+      "type": "text",
+      "content": "## Blandede eksamensoppgaver"
+    },
+    {
+      "id": "mat1110-5-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) Skriv opp det fundamentale vektorproduktet og flateelementet $dS$ for en graf-flate $z=g(x,y)$.",
+        "solution": "$$\\boldsymbol{\\phi}(x,y)=(x,y,g(x,y)),\\qquad \\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-g_x,-g_y,1),\\qquad dS=\\sqrt{1+g_x^2+g_y^2}\\,dx\\,dy.$$\nNormalen peker oppover ($z$-komponent $+1$).",
+        "hints": [
+          "Bruk $\\boldsymbol{\\phi}=(x,y,g)$ og deriver.",
+          "$dS$ er lengden av $\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Buelengde med variabel fart.) Finn lengden av kurven $\\mathbf r(t)=\\big(\\tfrac{1}{3}(2t+1)^{3/2},\\,t,\\,0\\big)$ for $0\\le t\\le4$.",
+        "solution": "$\\mathbf r'(t)=\\big((2t+1)^{1/2},\\,1,\\,0\\big)$, så farten er\n$$|\\mathbf r'(t)|=\\sqrt{(2t+1)+1}=\\sqrt{2t+2}=\\sqrt2\\,\\sqrt{t+1}.$$\nDa\n$$L=\\int_0^4\\sqrt2\\,\\sqrt{t+1}\\,dt=\\sqrt2\\cdot\\Big[\\tfrac23(t+1)^{3/2}\\Big]_0^4=\\sqrt2\\cdot\\tfrac23\\big(5^{3/2}-1\\big)=\\tfrac{2\\sqrt2}{3}\\big(5\\sqrt5-1\\big).$$\n**Svar (eksakt):** $L=\\dfrac{2\\sqrt2}{3}(5\\sqrt5-1)$.",
+        "hints": [
+          "Deriv ér komponentvis; $\\tfrac{d}{dt}\\tfrac13(2t+1)^{3/2}=(2t+1)^{1/2}$.",
+          "Farten blir $\\sqrt{2t+2}$ — substituer eller integrer $\\sqrt{t+1}$ direkte. Hold svaret eksakt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Fluks-forberedelse.) Halvkuleflaten $x^2+y^2+z^2=4$, $z\\ge0$, parametriseres i kulekoordinater med radius $2$. **a)** Skriv opp $\\boldsymbol{\\phi}(\\varphi,\\theta)$ og domenet. **b)** Finn den utadrettede enhetsnormalen i punktet der $\\varphi=\\tfrac{\\pi}{2}$, $\\theta=0$ (altså punktet $(2,0,0)$).",
+        "solution": "**a)** $\\boldsymbol{\\phi}(\\varphi,\\theta)=(2\\sin\\varphi\\cos\\theta,\\,2\\sin\\varphi\\sin\\theta,\\,2\\cos\\varphi)$ med domene $0\\le\\varphi\\le\\tfrac{\\pi}{2}$ (øvre halvkule), $0\\le\\theta\\le2\\pi$.\n\n**b)** Det fundamentale vektorproduktet $\\boldsymbol{\\phi}_\\varphi\\times\\boldsymbol{\\phi}_\\theta$ har lengde $4\\sin\\varphi$ og peker radielt utover, dvs. i retning posisjonsvektoren $\\boldsymbol{\\phi}$. Utadrettet enhetsnormal er derfor\n$$\\mathbf n=\\frac{\\boldsymbol{\\phi}}{|\\boldsymbol{\\phi}|}=\\tfrac12(2\\sin\\varphi\\cos\\theta,\\,2\\sin\\varphi\\sin\\theta,\\,2\\cos\\varphi)=(\\sin\\varphi\\cos\\theta,\\,\\sin\\varphi\\sin\\theta,\\,\\cos\\varphi).$$\nI punktet $\\varphi=\\tfrac{\\pi}{2}$, $\\theta=0$: $\\mathbf n=(1,0,0)$ — peker rett ut langs $x$-aksen fra $(2,0,0)$, som stemmer med «utadrettet».",
+        "hints": [
+          "Øvre halvkule kutter $\\varphi$-intervallet ved $\\pi/2$.",
+          "For en kule sentrert i origo er den utadrettede normalen bare posisjonsvektoren delt på radien."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-5-1-bb-kryssprodukt",
+      "type": "definition",
+      "title": "Kryssproduktet (repetisjon)",
+      "content": "For $\\mathbf a,\\mathbf b\\in\\mathbb{R}^3$ er $\\mathbf a\\times\\mathbf b$ en vektor vinkelrett på begge, med lengde $|\\mathbf a||\\mathbf b|\\sin\\theta$ (parallellogramarealet). Antikommutativ: $\\mathbf b\\times\\mathbf a=-\\mathbf a\\times\\mathbf b$. Regnes greiest som en $3\\times3$-determinant med $\\mathbf i,\\mathbf j,\\mathbf k$ i øverste rad."
+    },
+    {
+      "id": "mat1110-5-1-bb-tangentplan",
+      "type": "definition",
+      "title": "Tangentplan fra $\\boldsymbol{\\phi}_u,\\boldsymbol{\\phi}_v$",
+      "content": "Tangentplanet til en parametrisert flate i et punkt spennes ut av de to tangentvektorene $\\boldsymbol{\\phi}_u$ og $\\boldsymbol{\\phi}_v$, med normalvektor $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$. Planets likning: $(\\mathbf x-\\boldsymbol{\\phi}(u_0,v_0))\\cdot(\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v)=0$."
+    },
+    {
+      "id": "mat1110-5-1-bb-regular",
+      "type": "definition",
+      "title": "Regulær (glatt) parametrisering",
+      "content": "En parametrisering er **regulær** i et punkt der $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v\\ne\\mathbf 0$ — da har flaten et veldefinert tangentplan og en normalvektor der. I singulære punkter (f.eks. kjeglespissen) er kryssproduktet null og normalen udefinert."
+    },
+    {
+      "id": "mat1110-5-1-bb-orientert",
+      "type": "definition",
+      "title": "Orientert flate",
+      "content": "En **orientert** flate har et konsekvent valg av hvilken side normalen peker mot («utadrettet», «oppadrettet»). Fluks måles alltid relativt til en orientering. En Möbius-strimmel kan ikke orienteres — men alle flatene på eksamen kan."
+    },
+    {
+      "id": "mat1110-5-1-bb-parameterkurve",
+      "type": "definition",
+      "title": "Parameterkurve på en flate",
+      "content": "Holder du én parameter fast på $\\boldsymbol{\\phi}(u,v)$ og varierer den andre, sveiper du ut en **parameterkurve** som ligger på flaten. Tangenten til $u$-kurven er $\\boldsymbol{\\phi}_u$; til $v$-kurven er $\\boldsymbol{\\phi}_v$. Disse to gir tangentplanet."
+    },
+    {
+      "id": "mat1110-5-1-bb-flateareal",
+      "type": "definition",
+      "title": "Flateareal",
+      "content": "Arealet av en parametrisert flate er det skalare flateintegralet av $1$: $\\text{Areal}=\\displaystyle\\iint_R|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv$. Utregnes videre i [kap. 5.3](/bok/mat1110/mat1110-5-3)."
+    },
+    {
+      "id": "mat1110-5-1-bb-tangentlinje",
+      "type": "definition",
+      "title": "Tangentlinje til en kurve",
+      "content": "Tangentlinjen til kurven $\\mathbf r(t)$ i punktet $\\mathbf r(t_0)$ har retningsvektor $\\mathbf r'(t_0)$ (hastighetsvektoren) og likning $\\mathbf x=\\mathbf r(t_0)+s\\,\\mathbf r'(t_0)$. Er $\\mathbf r'(t_0)=\\mathbf 0$, er punktet singulært og tangenten udefinert."
+    },
+    {
+      "id": "mat1110-5-1-bb-domene",
+      "type": "definition",
+      "title": "Parameterdomenet $R$",
+      "content": "Å parametrisere en flate krever *både* uttrykket $\\boldsymbol{\\phi}(u,v)$ *og* området $R$ parameterne løper over. For grafen $z=x^2+y^2$ opp til $z=4$ er domenet disken $x^2+y^2\\le4$; for øvre halvkule er $0\\le\\varphi\\le\\pi/2$. Feil domene gir feil integrasjonsgrenser."
+    },
+    {
+      "id": "mat1110-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-5-1-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kryssproduktet, R2 5.4) Regn ut $(1,2,0)\\times(0,1,3)$.",
+            "solution": "$$(1,2,0)\\times(0,1,3)=(2\\cdot3-0\\cdot1,\\;0\\cdot0-1\\cdot3,\\;1\\cdot1-2\\cdot0)=(6,\\,-3,\\,1).$$",
+            "hints": [
+              "Bruk $3\\times3$-determinanten med $\\mathbf i,\\mathbf j,\\mathbf k$ øverst."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-1-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Finn gradienten $\\nabla g$ til $g(x,y)=x^2+y^2$, og forklar hvordan den henger sammen med $\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-g_x,-g_y,1)$ for graf-flaten $z=g$.",
+            "solution": "$\\nabla g=(2x,2y)$. Graf-normalen $(-g_x,-g_y,1)=(-2x,-2y,1)$ har nettopp de negative partiellderiverte i de to første komponentene — den «heller» motsatt av gradienten til $g$, som forventet: der $g$ vokser bratt, tipper flatenormalen tilsvarende.",
+            "hints": [
+              "Deriv ér $g$ partielt.",
+              "Sett $g_x,g_y$ inn i normaluttrykket."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-1-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra R2 5.1/5.3) Vektorene $\\mathbf a=(2,0,1)$ og $\\mathbf b=(1,3,1)$ spenner ut et parallellogram. Finn arealet.",
+            "solution": "Arealet er $|\\mathbf a\\times\\mathbf b|$. $\\mathbf a\\times\\mathbf b=(0\\cdot1-1\\cdot3,\\;1\\cdot1-2\\cdot1,\\;2\\cdot3-0\\cdot1)=(-3,-1,6)$. Lengde: $\\sqrt{9+1+36}=\\sqrt{46}$.",
+            "hints": [
+              "Parallellogramareal $=|\\mathbf a\\times\\mathbf b|$.",
+              "Regn kryssproduktet først, så lengden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf r(t)$ | Parametrisering av en kurve, $a\\le t\\le b$ |\n| $\\mathbf r'(t)$ | Hastighetsvektor (tangent til kurven) |\n| $|\\mathbf r'(t)|$ | Fart — lengden av hastighetsvektoren |\n| $L$ | Buelengde av kurven |\n| $\\boldsymbol{\\phi}(u,v)$ | Parametrisering av en flate |\n| $\\boldsymbol{\\phi}_u,\\boldsymbol{\\phi}_v$ | Tangentvektorer (partiellderiverte av $\\boldsymbol{\\phi}$) |\n| $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ | Det fundamentale vektorproduktet (normalvektor) |\n| $dS$ | Flateelement, $=|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv$ |\n| $\\mathbf n$ | Enhetsnormal, $=\\pm\\dfrac{\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v}{|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|}$ |\n| $g(x,y)$ | Høydefunksjon for en graf-flate $z=g$ |\n| $a$ | Radius (sylinder/kule) |\n| $\\varphi,\\theta$ | Vinkelparametere på en kule ($\\varphi$ fra nordpolen, $\\theta$ om aksen) |\n\n**Formler i dette delkapitlet:**\n\n$$L=\\int_a^b|\\mathbf r'(t)|\\,dt$$\nBuelengde — integralet av farten.\n\n$$\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(-g_x,-g_y,1),\\qquad dS=\\sqrt{1+g_x^2+g_y^2}\\,dx\\,dy$$\nGraf-flate $z=g(x,y)$ — oppadrettet normal.\n\n$$\\boldsymbol{\\phi}(\\theta,z)=(a\\cos\\theta,a\\sin\\theta,z),\\qquad \\boldsymbol{\\phi}_\\theta\\times\\boldsymbol{\\phi}_z=(a\\cos\\theta,a\\sin\\theta,0),\\qquad dS=a\\,d\\theta\\,dz$$\nSylinderflate radius $a$ — utadrettet normal.\n\n$$\\boldsymbol{\\phi}(\\varphi,\\theta)=(a\\sin\\varphi\\cos\\theta,a\\sin\\varphi\\sin\\theta,a\\cos\\varphi),\\qquad dS=a^2\\sin\\varphi\\,d\\varphi\\,d\\theta$$\nKuleflate radius $a$ — utadrettet normal (radiell).\n\n$$dS=|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|\\,du\\,dv,\\qquad \\mathbf n=\\pm\\frac{\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v}{|\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v|}$$\nFlateelement og enhetsnormal med fortegnsvalg etter oppgitt orientering."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

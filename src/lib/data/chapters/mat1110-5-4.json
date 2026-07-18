@@ -1,0 +1,399 @@
+{
+  "id": "mat1110-5-4",
+  "courseId": "mat1110",
+  "chapterNumber": "5.4",
+  "title": "Gauss' divergensteorem (3D fluks)",
+  "description": "∭ div F dV = ∯ F·n dS — regimeskiftets signaturoppgave: finn fluks gjennom en krum delflate ved å trekke den plane delen fra volumintegralet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne divergensen til et vektorfelt og bruke Gauss' divergensteorem",
+    "finne fluks gjennom en krum delflate via ∭div F dV minus den plane delen",
+    "kontrollere at alle normaler peker ut av volumet på begge delflatene",
+    "navngi teoremet og gjenbruke delsvar i den kjedede O6-oppgaven"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Gauss' divergensteorem** (sjanger **L**) er regimeskiftets signaturoppgave. Den er **ny**: aldri før 2025 (rå-frekvens **1 av 20**), men traff **3 av 3** V2025-sett. At det nyeste kullet veier tyngst gjør dette til **høyeste prioritet** tross den lave historiske frekvensen — dette er det nye tyngdepunktet. Offisiell fasit finnes for alle tre V2025-settene.\n\n- **Hovedgrepet** er ikke å regne flateintegralet direkte, men å finne fluks gjennom en **krum delflate** $T_1$ ved\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS,$$\nder $T_2$ er den enkle plane delen (ofte regnet med snarveien fra kap. 5.3). V2025 ordinær O6c: $3\\cdot\\tfrac{8\\pi}{5}-4\\pi=\\tfrac{4\\pi}{5}$.\n- **Alle normaler må peke UT av $V$** — på både $T_1$ og $T_2$. En fortegnsfeil på $T_2$ forplanter seg til $T_1$-svaret.\n- **Navngi teoremet** («ifølge divergensteoremet …») og **gjenbruk delsvar** ($T_2$-fluksen og trippelintegralet er ofte alt regnet i tidligere delpunkter).\n\n**Viktig forbehold:** V2022-utgaven av den utdelte formelsamlingen inneholder **ikke** divergensteoremet — du må kunne det **utenat**. Sjekk om nyere formelsamling er utvidet."
+    },
+    {
+      "id": "mat1110-5-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bygger på fluks og fortegnskontroll fra **[kap. 5.3](/bok/mat1110/mat1110-5-3)** og trippelintegral i sylinder-/kulekoordinater fra **[kap. 4.3](/bok/mat1110/mat1110-4-3)** (divergensteoremet gjør fluks om til et trippelintegral). Partiellderivasjon fra **[kap. 2.1](/bok/mat1110/mat1110-2-1)** til $\\operatorname{div}\\mathbf F$.\n\n**Sist du var her.** Fluks: $\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=\\iint_R\\mathbf F(\\boldsymbol{\\phi})\\cdot(\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v)\\,du\\,dv$, med geometrisk snarvei for plane flater. Trippelintegral: volumelement $dV=r\\,dz\\,dr\\,d\\theta$ (sylinder) / $dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$ (kule); løs skjæringen og beskriv området med ulikheter først."
+    },
+    {
+      "id": "mat1110-5-4-motiv",
+      "type": "text",
+      "content": "Å regne fluks gjennom en **krum** flate direkte er ofte tungt. Gauss' divergensteorem gir en snarvei: for en *lukket* flate som omslutter et volum $V$, er den totale utadrettede fluksen lik trippelintegralet av divergensen over $V$. Divergensen $\\operatorname{div}\\mathbf F$ måler hvor mye feltet «sprer seg» (kilder minus sluk) i hvert punkt — summerer vi det over hele volumet, får vi netto utstrømning gjennom randen.\n\nDet virkelig kraftige grepet — og eksamensregimets kjerne — er å bruke dette *baklengs*: vil du ha fluks gjennom en vanskelig krum delflate, regner du trippelintegralet (lett) og den enkle plane fluksen (snarvei), og trekker fra. Vi går i to løkker: (1) divergens og selve teoremet, (2) krum-delflate-teknikken med delpunkt-kjeding."
+    },
+    {
+      "id": "mat1110-5-4-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Divergens og divergensteoremet (~22 min)"
+    },
+    {
+      "id": "mat1110-5-4-def-div",
+      "type": "definition",
+      "title": "Divergens",
+      "content": "**Divergensen** til et vektorfelt $\\mathbf F=(F_1,F_2,F_3)$ er skalaren\n$$\\operatorname{div}\\mathbf F=\\frac{\\partial F_1}{\\partial x}+\\frac{\\partial F_2}{\\partial y}+\\frac{\\partial F_3}{\\partial z}.$$\nDen måler feltets lokale «utspredning»: positiv divergens = kilde (feltet strømmer ut), negativ = sluk (feltet strømmer inn). For $\\mathbf F=(x,y,z)$ er $\\operatorname{div}\\mathbf F=1+1+1=3$."
+    },
+    {
+      "id": "mat1110-5-4-th-gauss",
+      "type": "theorem",
+      "title": "Gauss' divergensteorem",
+      "content": "La $V$ være et solid med lukket, stykkevis glatt rand $\\partial V$ og **utadrettet** enhetsnormal $\\mathbf n$. For et $C^1$-felt $\\mathbf F$:\n$$\\iiint_V \\operatorname{div}\\mathbf F\\,dV=\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS.$$\nTeoremet knytter trippelintegralet av divergensen til den totale utadrettede fluksen gjennom hele randen. **Alle** normaler på $\\partial V$ må peke **ut av** $V$. (Formelsamlingens V2022-utgave inneholder ikke dette — kunn det utenat.)"
+    },
+    {
+      "id": "mat1110-5-4-ex-div",
+      "type": "example",
+      "title": "Eksempel 1: Total fluks ut av en ball",
+      "problem": "Regn den totale fluksen av $\\mathbf F=(x,\\,y,\\,z)$ ut gjennom kuleflaten $x^2+y^2+z^2=1$ (utadrettet), ved hjelp av divergensteoremet.",
+      "solution": "**Divergens:** $\\operatorname{div}\\mathbf F=\\partial_x x+\\partial_y y+\\partial_z z=1+1+1=3$ (konstant).\n\n**Ifølge divergensteoremet** er fluksen ut av kuleflaten lik trippelintegralet av divergensen over kula $V$:\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V 3\\,dV=3\\cdot\\text{Vol}(V).$$\n\nVolumet av enhetskula er $\\tfrac43\\pi\\cdot1^3=\\tfrac43\\pi$, så\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=3\\cdot\\tfrac43\\pi=4\\pi.$$\n**Svar:** $4\\pi$. (Å regne fluksen direkte over kuleflaten gir det samme, men er mer arbeid — teoremet er snarveien.)"
+    },
+    {
+      "id": "mat1110-5-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — divergens.) Regn $\\operatorname{div}\\mathbf F$ for **a)** $\\mathbf F=(2x,\\,3y,\\,z)$ og **b)** $\\mathbf F=(y,\\,z,\\,x)$.",
+        "solution": "**a)** $\\operatorname{div}\\mathbf F=\\partial_x(2x)+\\partial_y(3y)+\\partial_z(z)=2+3+1=6.$\n\n**b)** $\\operatorname{div}\\mathbf F=\\partial_x(y)+\\partial_y(z)+\\partial_z(x)=0+0+0=0.$ (Et divergensfritt felt.)",
+        "hints": [
+          "Deriv ér hver komponent med hensyn på sin egen variabel og legg sammen.",
+          "I b) avhenger ingen komponent av sin egen variabel."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Total fluks via Gauss.) Regn den totale fluksen av $\\mathbf F=(x,y,z)$ ut gjennom randen av sylinderen $V:\\ x^2+y^2\\le4$, $0\\le z\\le5$.",
+        "solution": "$\\operatorname{div}\\mathbf F=3$. Ifølge divergensteoremet:\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V 3\\,dV=3\\cdot\\text{Vol}(V).$$\nSylinderens volum: $\\text{Vol}=\\pi\\cdot2^2\\cdot5=20\\pi$. Dermed fluks $=3\\cdot20\\pi=60\\pi$.\n**Svar:** $60\\pi$.",
+        "hints": [
+          "$\\operatorname{div}\\mathbf F$ er konstant, så trippelintegralet er $\\operatorname{div}\\mathbf F\\cdot$ volum.",
+          "Sylindervolum $=\\pi r^2 h$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Ikke-konstant divergens.) Regn den totale fluksen av $\\mathbf F=(x^2,\\,y^2,\\,z^2)$ ut gjennom randen av terningen $V=[0,1]^3$.",
+        "solution": "$\\operatorname{div}\\mathbf F=2x+2y+2z$. Ifølge divergensteoremet:\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V(2x+2y+2z)\\,dV=\\int_0^1\\!\\!\\int_0^1\\!\\!\\int_0^1(2x+2y+2z)\\,dx\\,dy\\,dz.$$\nVed symmetri er $\\iiint 2x\\,dV=\\iiint 2y\\,dV=\\iiint 2z\\,dV=2\\cdot\\tfrac12=1$ (siden $\\int_0^1 2x\\,dx=1$ og de andre integrerer til $1$). Sum: $1+1+1=3$.\n**Svar:** $3$.",
+        "hints": [
+          "Divergensen er ikke konstant her — sett opp trippelintegralet.",
+          "Bruk symmetri: hvert av de tre leddene gir $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Fluks gjennom en krum delflate (regimets signaturgrep) (~28 min)"
+    },
+    {
+      "id": "mat1110-5-4-def-krum",
+      "type": "definition",
+      "title": "Fluks gjennom en krum delflate",
+      "content": "Del randen av $V$ i en **enkel plan del** $T_2$ (topplokk, bunn) og en **krum del** $T_1$ (paraboloide, kjegle, sfære). Divergensteoremet gir den totale fluksen; da er fluksen gjennom den krumme delen:\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS.$$\nMan regner altså det lette trippelintegralet og den enkle plane fluksen, og trekker fra — i stedet for det tunge integralet over den krumme flaten. **Alle** normaler utadrettet."
+    },
+    {
+      "id": "mat1110-5-4-def-normalkontroll",
+      "type": "definition",
+      "title": "Normalretningskontroll på delflatene",
+      "content": "På begge delflatene skal $\\mathbf n$ peke **ut av** $V$. På et topplokk peker den oppover ($+\\mathbf k$); på en bunn nedover ($-\\mathbf k$); på en krum sideflate radielt/utover. En fortegnsfeil på $T_2$ forplanter seg direkte til $T_1$-svaret via minustegnet i formelen — derfor er kontrollen kritisk og skal være synlig."
+    },
+    {
+      "id": "mat1110-5-4-ex-krum",
+      "type": "example",
+      "title": "Eksempel 2: Fluks gjennom en paraboloide via divergensteoremet",
+      "problem": "La $\\mathbf F=(2x,\\,2y,\\,z)$ og $V$ være området mellom paraboloiden $z=x^2+y^2$ og planet $z=9$ (altså $x^2+y^2\\le z\\le9$). **a)** Regn fluksen ut gjennom topplokket $T_2$ ($z=9$). **b)** Regn $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **c)** Bruk divergensteoremet til å finne fluksen ut gjennom den krumme paraboloide-delen $T_1$.",
+      "solution": "**a)** Topplokket $T_2$: disken $z=9$, $x^2+y^2\\le9$, utadrettet normal $\\mathbf n=\\mathbf k$ (oppover). På lokket er $\\mathbf F\\cdot\\mathbf n=F_3=z=9$ (konstant). Geometrisk snarvei — arealet er $\\pi\\cdot3^2=9\\pi$:\n$$\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=9\\cdot9\\pi=81\\pi.$$\n\n**b)** $\\operatorname{div}\\mathbf F=\\partial_x(2x)+\\partial_y(2y)+\\partial_z(z)=2+2+1=5$ (konstant). Området beskrives i sylinderkoordinater: $0\\le\\theta\\le2\\pi$, $0\\le r\\le3$, $r^2\\le z\\le9$ (mellom paraboloide og lokk). Volumet:\n$$\\text{Vol}(V)=\\int_0^{2\\pi}\\!\\!\\int_0^3\\!\\!\\int_{r^2}^{9}r\\,dz\\,dr\\,d\\theta=\\int_0^{2\\pi}\\!\\!\\int_0^3 (9-r^2)\\,r\\,dr\\,d\\theta=2\\pi\\Big[\\tfrac{9r^2}{2}-\\tfrac{r^4}{4}\\Big]_0^3=2\\pi\\Big(\\tfrac{81}{2}-\\tfrac{81}{4}\\Big)=2\\pi\\cdot\\tfrac{81}{4}=\\tfrac{81\\pi}{2}.$$\nDermed\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=5\\cdot\\tfrac{81\\pi}{2}=\\tfrac{405\\pi}{2}.$$\n\n**c)** Randen er $\\partial V=T_1\\cup T_2$ (krum paraboloide + topplokk), begge med utadrettet normal. Ifølge divergensteoremet er $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS+\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS$, så\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=\\tfrac{405\\pi}{2}-81\\pi=\\tfrac{405\\pi}{2}-\\tfrac{162\\pi}{2}=\\tfrac{243\\pi}{2}.$$\n**Svar:** (a) $81\\pi$, (b) $\\tfrac{405\\pi}{2}$, (c) $\\tfrac{243\\pi}{2}$. Delpunktene er kjedet: (c) gjenbruker (a) og (b) direkte."
+    },
+    {
+      "id": "mat1110-5-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Krum delflate — paraboloide.) La $\\mathbf F=(x,y,z)$ og $V$ være området mellom paraboloiden $z=x^2+y^2$ og planet $z=4$. **a)** Fluks ut gjennom topplokket $z=4$. **b)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **c)** Fluks ut gjennom paraboloide-delen via divergensteoremet.",
+        "solution": "**a)** Topplokk $z=4$, $x^2+y^2\\le4$, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=z=4$, areal $=\\pi\\cdot2^2=4\\pi$. Fluks $=4\\cdot4\\pi=16\\pi$.\n\n**b)** $\\operatorname{div}\\mathbf F=3$. Volum mellom paraboloide og $z=4$: $\\int_0^{2\\pi}\\int_0^2(4-r^2)r\\,dr\\,d\\theta=2\\pi[2r^2-\\tfrac{r^4}{4}]_0^2=2\\pi(8-4)=8\\pi$. Så $\\iiint\\operatorname{div}\\mathbf F\\,dV=3\\cdot8\\pi=24\\pi$.\n\n**c)** Ifølge divergensteoremet: $\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=24\\pi-16\\pi=8\\pi$.\n**Svar:** (a) $16\\pi$, (b) $24\\pi$, (c) $8\\pi$.",
+        "hints": [
+          "Topplokket: snarvei $\\mathbf F\\cdot\\mathbf n=z=4$ konstant.",
+          "Skjæring $r=2$; volum $\\int(4-r^2)r\\,dr\\,d\\theta=8\\pi$.",
+          "(c) $=$ (b) $-$ (a)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krum delflate — halvkule.) La $\\mathbf F=(x,y,z)$ og $V$ være det solide halvkuleområdet $x^2+y^2+z^2\\le4$, $z\\ge0$. **a)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **b)** Fluks ut gjennom den flate bunnen $z=0$, $x^2+y^2\\le4$. **c)** Fluks ut gjennom den krumme halvkuleflaten via divergensteoremet.",
+        "solution": "**a)** $\\operatorname{div}\\mathbf F=3$. Volumet av halvkula med radius $2$: $\\tfrac12\\cdot\\tfrac43\\pi\\cdot2^3=\\tfrac12\\cdot\\tfrac{32\\pi}{3}=\\tfrac{16\\pi}{3}$. Så $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=3\\cdot\\tfrac{16\\pi}{3}=16\\pi$.\n\n**b)** Bunnen $z=0$: utadrettet normal peker **nedover**, $\\mathbf n=-\\mathbf k$. På bunnen er $\\mathbf F=(x,y,0)$, så $\\mathbf F\\cdot\\mathbf n=(x,y,0)\\cdot(0,0,-1)=0$. Fluks gjennom bunnen $=0$.\n\n**c)** Randen er halvkuleflate $T_1$ + bunn $T_2$. Ifølge divergensteoremet:\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=16\\pi-0=16\\pi.$$\n**Svar:** (a) $16\\pi$, (b) $0$, (c) $16\\pi$. Merk normalretningen på bunnen: den peker *ned* (ut av $V$), ikke opp.",
+        "hints": [
+          "Halvkulevolum $=\\tfrac12\\cdot\\tfrac43\\pi a^3$.",
+          "På bunnen peker utadrettet normal nedover; $\\mathbf F\\cdot(-\\mathbf k)=-z=0$ der $z=0$.",
+          "(c) $=$ (a) $-$ (b)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil normalretning på delflatene.** $\\mathbf n$ må peke **ut av** $V$ på både $T_1$ og $T_2$. En fortegnsfeil på det plane lokket $T_2$ forplanter seg rett til $T_1$-svaret via minustegnet.\n- **Ikke navngi teoremet.** Skriv «ifølge divergensteoremet …». Ubegrunnet bruk gir ikke full uttelling.\n- **Regne $T_1$ direkte.** Å parametrisere den krumme flaten og integrere er tungt; poenget er å ta $\\iiint\\operatorname{div}\\mathbf F\\,dV-T_2$.\n- **Ikke gjenbruke delsvar.** $T_2$-fluksen og trippelintegralet er ofte alt regnet i (a) og (b) — sett dem inn i (c).\n- **Regnefeil i $\\operatorname{div}\\mathbf F$.** Deriver hver komponent med hensyn på **sin egen** variabel: $\\partial_x F_1+\\partial_y F_2+\\partial_z F_3$.\n- **Glemme at bunnens normal peker ned.** På en bunnflate er utadrettet $\\mathbf n=-\\mathbf k$, så $\\mathbf F\\cdot\\mathbf n=-F_3$ der."
+    },
+    {
+      "id": "mat1110-5-4-pulje",
+      "type": "text",
+      "content": "## Blandede eksamensoppgaver"
+    },
+    {
+      "id": "mat1110-5-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Gjengivelse.) Skriv opp Gauss' divergensteorem og forklar med én setning hvilken retning normalen må peke.",
+        "solution": "$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS.$$\nNormalen $\\mathbf n$ må peke **ut av** volumet $V$ overalt på randen $\\partial V$ (utadrettet), ellers snur fortegnet på fluksintegralet.",
+        "hints": [
+          "Teoremet knytter trippelintegral av divergens til utadrettet fluks.",
+          "Retningen: alltid ut av $V$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Full eksamensklone — kjeglelokk.) La $\\mathbf F=(x,\\,y,\\,2z)$ og $V$ være området inne i sylinderen $x^2+y^2\\le1$, $0\\le z\\le3$. **a)** Fluks ut gjennom topplokket $z=3$. **b)** Fluks ut gjennom bunnen $z=0$. **c)** $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$. **d)** Fluks ut gjennom den krumme sideflaten via divergensteoremet.",
+        "solution": "**a)** Topplokk $z=3$, $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=F_3=2z=6$, areal $=\\pi\\cdot1^2=\\pi$. Fluks $=6\\pi$.\n\n**b)** Bunn $z=0$, utadrettet $\\mathbf n=-\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=-F_3=-2z=0$ (siden $z=0$). Fluks $=0$.\n\n**c)** $\\operatorname{div}\\mathbf F=1+1+2=4$. Volum $=\\pi\\cdot1^2\\cdot3=3\\pi$, så $\\iiint\\operatorname{div}\\mathbf F\\,dV=4\\cdot3\\pi=12\\pi$.\n\n**d)** Randen er sideflate $T_1$ + topplokk + bunn. Ifølge divergensteoremet:\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-(\\text{topp}+\\text{bunn})=12\\pi-(6\\pi+0)=6\\pi.$$\n**Svar:** (a) $6\\pi$, (b) $0$, (c) $12\\pi$, (d) $6\\pi$.",
+        "hints": [
+          "Topp: $\\mathbf F\\cdot\\mathbf k=2z=6$; bunn: $\\mathbf F\\cdot(-\\mathbf k)=-2z=0$.",
+          "$\\operatorname{div}\\mathbf F=4$; sylindervolum $3\\pi$.",
+          "(d) $=$ (c) $-$ (topp $+$ bunn)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Divergensfritt felt.) La $\\mathbf F=(y,\\,z,\\,x)$ og $V$ et vilkårlig solid. Hva er den totale fluksen ut av $\\partial V$? Begrunn.",
+        "solution": "$\\operatorname{div}\\mathbf F=\\partial_x(y)+\\partial_y(z)+\\partial_z(x)=0+0+0=0.$ Feltet er **divergensfritt**. Ifølge divergensteoremet er da\n$$\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V 0\\,dV=0$$\nfor **ethvert** solid $V$ — netto utadrettet fluks er alltid null for et divergensfritt felt.",
+        "hints": [
+          "Regn $\\operatorname{div}\\mathbf F$ først.",
+          "Er divergensen null overalt, er trippelintegralet null uansett $V$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-4-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-5-4-bb-divtolkning",
+      "type": "definition",
+      "title": "Divergens som kilde/sluk",
+      "content": "$\\operatorname{div}\\mathbf F$ i et punkt måler netto utstrømning per volum akkurat der: positiv = **kilde** (feltet oppstår), negativ = **sluk** (feltet forsvinner), null = **divergensfritt** (like mye inn som ut). Trippelintegralet summerer disse lokale bidragene til netto fluks gjennom randen."
+    },
+    {
+      "id": "mat1110-5-4-bb-lukketflate",
+      "type": "definition",
+      "title": "Lukket flate",
+      "content": "Divergensteoremet krever en **lukket** flate — en som fullstendig omslutter et volum (som en kuleflate eller randen av en sylinder med topp og bunn). En åpen flate (bare en paraboloide-hette) må lukkes med et lokk før teoremet kan brukes."
+    },
+    {
+      "id": "mat1110-5-4-bb-utadrettet-rand",
+      "type": "definition",
+      "title": "Utadrettet randnormal",
+      "content": "På hele $\\partial V$ skal normalen peke **ut av** $V$: oppover på topplokk, nedover på bunn, radielt ut på krumme sideflater. Teoremet gjelder bare med denne konvensjonen — motsatt normal snur fortegnet."
+    },
+    {
+      "id": "mat1110-5-4-bb-delflate",
+      "type": "definition",
+      "title": "Deling i $T_1$ og $T_2$",
+      "content": "Randen deles ofte i en **krum del** $T_1$ (den du vil finne) og en **enkel plan del** $T_2$ (topplokk/bunn, regnet med snarveien). Da: $\\int_{T_1}=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}$. Dette er regimets signaturgrep."
+    },
+    {
+      "id": "mat1110-5-4-bb-konstant-div",
+      "type": "definition",
+      "title": "Konstant divergens",
+      "content": "Er $\\operatorname{div}\\mathbf F$ **konstant** (som for $\\mathbf F=(x,y,z)$ med $\\operatorname{div}=3$), forenkles trippelintegralet til $\\operatorname{div}\\mathbf F\\cdot\\text{Vol}(V)$ — da trenger du bare volumet, ikke et fullt integral."
+    },
+    {
+      "id": "mat1110-5-4-bb-gjenbruk",
+      "type": "definition",
+      "title": "Delpunkt-kjeding i O6",
+      "content": "Den kjedede O6-oppgaven er bygget slik at (c) gjenbruker (a) (den plane fluksen) og (b) (trippelintegralet). Å se og bruke koblingen — $\\int_{T_1}=(b)-(a)$ — premieres av sensor og sparer mye tid."
+    },
+    {
+      "id": "mat1110-5-4-bb-navngi",
+      "type": "definition",
+      "title": "Navngi teoremet",
+      "content": "Sensorregelen «begrunn alle svar» betyr at du skal skrive «**ifølge divergensteoremet** …» der du bruker det. Ubegrunnet overgang fra fluks til trippelintegral gir ikke full uttelling, selv om tallet er riktig."
+    },
+    {
+      "id": "mat1110-5-4-bb-volumelement",
+      "type": "definition",
+      "title": "Volumelement i trippelintegralet",
+      "content": "Trippelintegralet $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$ regnes med riktig volumelement etter symmetrien: $dV=r\\,dz\\,dr\\,d\\theta$ (sylinder), $dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$ (kule). Løs skjæringen og skriv ulikhetene før oppsett — akkurat som i kap. 4.3."
+    },
+    {
+      "id": "mat1110-5-4-bb-nabla",
+      "type": "definition",
+      "title": "Divergens som $\\nabla\\cdot\\mathbf F$",
+      "content": "Divergensen skrives også som prikkproduktet av nabla-operatoren med feltet: $\\operatorname{div}\\mathbf F=\\nabla\\cdot\\mathbf F$, der $\\nabla=(\\partial_x,\\partial_y,\\partial_z)$. Dette er samme sum $\\partial_x F_1+\\partial_y F_2+\\partial_z F_3$, bare på operatornotasjon."
+    },
+    {
+      "id": "mat1110-5-4-bb-teoremtolkning",
+      "type": "definition",
+      "title": "Fysisk tolkning av teoremet",
+      "content": "Divergensteoremet sier: **total kildestyrke inne i $V$** (venstre side) er lik **netto utstrømning gjennom randen** (høyre side). Alt feltet som «oppstår» inni må komme ut et sted — regnskapet balanserer over den lukkede randen."
+    },
+    {
+      "id": "mat1110-5-4-bb-C1",
+      "type": "definition",
+      "title": "Forutsetning: $\\mathbf F$ glatt i hele $V$",
+      "content": "Teoremet krever at $\\mathbf F$ er $C^1$ (har kontinuerlige partiellderiverte) i **hele** $V$, inkludert eventuelle indre punkter. Har feltet en singularitet inni (f.eks. $\\mathbf F=\\mathbf r/|\\mathbf r|^3$ i origo), gjelder ikke teoremet direkte."
+    },
+    {
+      "id": "mat1110-5-4-bb-stykkevis-glatt",
+      "type": "definition",
+      "title": "Stykkevis glatt rand",
+      "content": "Randen $\\partial V$ kan være **stykkevis glatt** — satt sammen av flere glatte biter (topplokk + bunn + sideflate). Teoremet gjelder så lenge bitene til sammen danner en lukket flate og hver har utadrettet normal."
+    },
+    {
+      "id": "mat1110-5-4-bb-2d-analog",
+      "type": "definition",
+      "title": "2D-analogen: Greens fluksform",
+      "content": "Divergensteoremet i planet er Greens teorem på **normalform**: $\\oint_C\\mathbf F\\cdot\\mathbf n\\,ds=\\iint_A(\\partial_x P+\\partial_y Q)\\,dA$. Gauss er den tredimensjonale versjonen — samme idé, ett dimensjon opp."
+    },
+    {
+      "id": "mat1110-5-4-bb-metodevalg",
+      "type": "definition",
+      "title": "Når bruke Gauss kontra direkte",
+      "content": "Bruk divergensteoremet når (i) flaten er **lukket** og du vil ha total fluks, eller (ii) du vil ha fluks gjennom en **krum** delflate (regn trippelintegral minus plan del). Regn direkte bare når flaten er enkel og åpen og teoremet ikke sparer arbeid."
+    },
+    {
+      "id": "mat1110-5-4-bb-topp-snarvei",
+      "type": "definition",
+      "title": "Topplokk med snarvei",
+      "content": "Den plane delen $T_2$ (et vannrett topplokk) regnes nesten alltid med den geometriske snarveien fra kap. 5.3: konstant normal $\\mathbf k$, $\\mathbf F\\cdot\\mathbf n=F_3$ konstant, fluks $=F_3\\cdot\\text{areal}$. Dette er det raske delsvaret som mates inn i krum-delflate-formelen."
+    },
+    {
+      "id": "mat1110-5-4-bb-formelsamling",
+      "type": "definition",
+      "title": "Formelsamlingen mangler teoremet",
+      "content": "Den utdelte V2022-formelsamlingen inneholder **verken** divergensteoremet eller Stokes' teorem. Du må kunne begge **utenat** til eksamen. Sjekk om en nyere formelsamling er utvidet — men planlegg for at den ikke er det."
+    },
+    {
+      "id": "mat1110-5-4-bb-skjaering-forst",
+      "type": "definition",
+      "title": "Løs skjæringen først",
+      "content": "Før trippelintegralet settes opp: finn hvor de to flatene møtes. For paraboloide $z=x^2+y^2$ og lokk $z=9$ gir $r^2=9\\Rightarrow r=3$ — grensen for $r$. Uten skjæringen gjetter du grensene, som er en klassisk feil (jf. kap. 4.3)."
+    },
+    {
+      "id": "mat1110-5-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-5-4-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.3) Regn fluksen av $\\mathbf F=(x,y,5)$ ut gjennom disken $z=1$, $x^2+y^2\\le9$ (oppadrettet) med den geometriske snarveien.",
+            "solution": "Plan disk, konstant $\\mathbf n=\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=F_3=5$, areal $=\\pi\\cdot3^2=9\\pi$. Fluks $=5\\cdot9\\pi=45\\pi$.",
+            "hints": [
+              "$\\mathbf F\\cdot\\mathbf k=$ tredje komponent $=5$.",
+              "Fluks $=$ konstant $\\times$ areal."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-4-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 4.3) Finn volumet av området mellom paraboloiden $z=x^2+y^2$ og planet $z=4$ i sylinderkoordinater.",
+            "solution": "Skjæring: $r^2=4\\Rightarrow r=2$. Området: $0\\le\\theta\\le2\\pi$, $0\\le r\\le2$, $r^2\\le z\\le4$. Volum $=\\int_0^{2\\pi}\\int_0^2\\int_{r^2}^4 r\\,dz\\,dr\\,d\\theta=\\int_0^{2\\pi}\\int_0^2(4-r^2)r\\,dr\\,d\\theta=2\\pi[2r^2-\\tfrac{r^4}{4}]_0^2=2\\pi(8-4)=8\\pi.$",
+            "hints": [
+              "Løs skjæringen $r^2=4$ først.",
+              "Indre integral i $z$ gir $(4-r^2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-4-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Regn de tre partiellderiverte $\\partial_x,\\partial_y,\\partial_z$ som trengs i $\\operatorname{div}\\mathbf F$ for $\\mathbf F=(xy,\\,yz,\\,zx)$.",
+            "solution": "$\\partial_x(xy)=y$, $\\partial_y(yz)=z$, $\\partial_z(zx)=x$. Divergensen er summen: $\\operatorname{div}\\mathbf F=y+z+x=x+y+z$.",
+            "hints": [
+              "Deriv ér hver komponent med hensyn på sin egen variabel.",
+              "Legg de tre sammen for divergensen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-4-sym",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-4-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{div}\\mathbf F$ | Divergens, $=\\partial_x F_1+\\partial_y F_2+\\partial_z F_3$ |\n| $V$ | Solid (tredimensjonalt område) |\n| $\\partial V$ | Randflaten til $V$ (lukket) |\n| $\\mathbf n$ | Utadrettet enhetsnormal |\n| $\\oiint_{\\partial V}$ | Fluks over en lukket flate |\n| $T_1$ | Krum delflate (den ukjente fluksen) |\n| $T_2$ | Enkel plan delflate (topplokk/bunn) |\n| $dV$ | Volumelement ($r\\,dz\\,dr\\,d\\theta$ / $\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$) |\n\n**Formler i dette delkapitlet:**\n\n$$\\operatorname{div}\\mathbf F=\\frac{\\partial F_1}{\\partial x}+\\frac{\\partial F_2}{\\partial y}+\\frac{\\partial F_3}{\\partial z}$$\nDivergens av et vektorfelt.\n\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\oiint_{\\partial V}\\mathbf F\\cdot\\mathbf n\\,dS$$\nGauss' divergensteorem (utadrettet normal).\n\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS$$\nFluks gjennom krum delflate (regimets signaturgrep).\n\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\operatorname{div}\\mathbf F\\cdot\\text{Vol}(V)\\quad(\\operatorname{div}\\mathbf F\\text{ konstant})$$\nForenkling ved konstant divergens."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
