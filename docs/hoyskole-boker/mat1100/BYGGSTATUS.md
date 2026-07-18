@@ -9,9 +9,12 @@
   quiz-data-mat1100.ts 570 spm, institusjoner.ts/uio), quiz-staging slettet,
   kildegrunnlag.ts-oppføring lagt til (sannferdig: løsningsforslag, IKKE
   «sensorveiledninger»), `npx tsc --noEmit` grønn.
-- **Steg 3 (verifiseringsbølge): PÅGÅR.** V1 (Del 0–2) og V2 (Del 3–4) kjører;
-  V3 (Del 5–6) og V4 (Del 7) i kø. Kjent sjekkpunkt til V3: prøve 5.B-matrisen
-  har kolonnesummer 1,0/0,5 — verifiser at case-teksten forklarer lekkasjen.
-- **Gjenstår:** V1–V4-fikser, sjekk-bok.py-port, SVG-opplasting
+- **Steg 3 (verifiseringsbølge): PÅGÅR.** V1 (Del 0–2) FERDIG grønn (0 regnefeil,
+  14 lenkefikser, terminologi-harmonisering). V2 (Del 3–4) FERDIG grønn (1
+  regnefeil fikset i 4-2: 8,72→9,06; brukket oppgavetekst i 4-7 ryddet; 2 skjulte
+  «Prioritet: **perfekt**» normalisert). V3 (Del 5–6) og V4 (Del 7) KJØRER NÅ.
+  Kjent sjekkpunkt til V3: prøve 5.B-matrisen har kolonnesummer 1,0/0,5 —
+  verifisere at case-teksten forklarer lekkasjen.
+- **Gjenstår:** V3+V4-fikser, sjekk-bok.py-port, SVG-opplasting
   (upload-media-storage.ts), npm run build, prod-curl PORT=3061, sluttcommit.
 - **Kjente avvik:** ingen røde porter så langt.
