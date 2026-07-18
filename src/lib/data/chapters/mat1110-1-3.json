@@ -294,7 +294,7 @@
         "number": "9",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Eksamensnivå, kjedet.) La $A=\\begin{pmatrix}1&1&0\\\\1&2&1\\\\0&1&2\\end{pmatrix}$ med invers $A^{-1}=\\begin{pmatrix}3&-2&1\\\\-2&2&-1\\\\1&-1&1\\end{pmatrix}$ (Eksempel 2). (a) Løs $Ax=(1,0,0)^T$. (b) Løs $Ay=(0,1,1)^T$. (c) Hva er $A^{-1}$ganger søylene til $I_3$?",
+        "task": "(Eksamensnivå, kjedet.) La $A=\\begin{pmatrix}1&1&0\\\\1&2&1\\\\0&1&2\\end{pmatrix}$ med invers $A^{-1}=\\begin{pmatrix}3&-2&1\\\\-2&2&-1\\\\1&-1&1\\end{pmatrix}$ (Eksempel 2).\n\n**a)** Løs $Ax=(1,0,0)^T$.\n\n**b)** Løs $Ay=(0,1,1)^T$.\n\n**c)** Hva er $A^{-1}$ganger søylene til $I_3$?",
         "solution": "**a)** $x=A^{-1}(1,0,0)^T=$ **første søyle** i $A^{-1}$ $=(3,-2,1)$.\n\n**b)** $y=A^{-1}(0,1,1)^T=\\begin{pmatrix}3&-2&1\\\\-2&2&-1\\\\1&-1&1\\end{pmatrix}\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}=(-2+1,\\,2-1,\\,-1+1)^T=(-1,1,0)$.\n\n**c)** $A^{-1}$ ganger søyle $j$ i $I_3$ (altså $e_j$) plukker ut **søyle $j$ i $A^{-1}$**. Det er nettopp hvorfor $A^{-1}I_3=A^{-1}$: å løse $Ax=e_j$ gir $j$-te søyle av inversen. Dette er hele ideen bak $[A\\,|\\,I]$-metoden — vi løser $Ax=e_j$ for alle $j$ samtidig.",
         "hints": [
           "$A^{-1}e_j$ = søyle $j$ i $A^{-1}$.",
@@ -311,7 +311,7 @@
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Teori.) Vis at hvis $A$ og $B$ er inverterbare $n\\times n$-matriser, så er $AB$ inverterbar med $(AB)^{-1}=B^{-1}A^{-1}$.",
-        "solution": "Vi gjetter at inversen er $B^{-1}A^{-1}$ og verifiserer definisjonen $XY=I$:\n$$(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=A I A^{-1}=AA^{-1}=I.$$\nSiden $AB$ er kvadratisk og har en høyreinvers, er den inverterbar, og den entydige inversen er $(AB)^{-1}=B^{-1}A^{-1}$. **Rekkefølgen snur** — samme logikk som å ta på og av sokker og sko: det siste du gjør, angrer du først. (Determinantsjekk: $\\det(AB)=\\det A\\det B\\ne0$ bekrefter inverterbarheten uavhengig.)",
+        "solution": "Vi gjetter at inversen er $B^{-1}A^{-1}$ og kontrollerer definisjonen $XY=I$:\n$$(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=A I A^{-1}=AA^{-1}=I.$$\nSiden $AB$ er kvadratisk og har en høyreinvers, er den inverterbar, og den entydige inversen er $(AB)^{-1}=B^{-1}A^{-1}$. **Rekkefølgen snur** — samme logikk som å ta på og av sokker og sko: det siste du gjør, angrer du først. (Determinantsjekk: $\\det(AB)=\\det A\\det B\\ne0$ bekrefter inverterbarheten uavhengig.)",
         "hints": [
           "Prøv $B^{-1}A^{-1}$ og gang ut $(AB)(B^{-1}A^{-1})$.",
           "Bruk assosiativitet og $BB^{-1}=I$; se at rekkefølgen må snu."

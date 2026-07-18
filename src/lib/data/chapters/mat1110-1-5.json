@@ -6,7 +6,7 @@
   "description": "Hele radreduksjons-repertoaret på eksamensnivå: basisavgjørelse, invers via [A|I], nullrom/rang og parameterløsbarhet — den faste O1-åpningen i det nye regimet, drillet til automatikk med merket føring.",
   "estimatedMinutes": 90,
   "competenceGoals": [
-    "kjenne igjen hvilken av sjanger A-variantene en oppgave er, og stille opp riktig matrise",
+    "kjenne igjen hvilken av sjanger A-variantene (sjanger A = radreduksjons-, basis- og inversoppgaven, eksamens faste åpningsoppgave) en oppgave er, og stille opp riktig matrise",
     "løse basis-, invers-, nullrom/rang- og parameterløsbarhetsoppgaver raskt med merket føring",
     "kjede delpunkter ved å gjenbruke en utregnet invers og konkludere med navngitte kriterier"
   ],
@@ -33,6 +33,12 @@
       "title": "Gjennomregnet O1-case (basis + invers kjedet) — med sensornotater",
       "problem": "La $A=\\begin{pmatrix}1&2&0\\\\2&5&1\\\\0&1&2\\end{pmatrix}$.\n\n**a)** Vis at $A$ er inverterbar og finn $A^{-1}$.\n**b)** Bruk (a) til å løse $Ax=(1,1,1)^T$.\n**c)** Danner søylene i $A$ en basis for $\\mathbb{R}^3$?",
       "solution": "**a)** Radreduser $[A\\,|\\,I_3]$:\n$$\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\2&5&1&0&1&0\\\\0&1&2&0&0&1\\end{array}\\right]\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&-2&1&0\\\\0&1&2&0&0&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&-2&1&0\\\\0&0&1&2&-1&1\\end{array}\\right]$$\n$$\\overset{\\;II-III,\\ I-2II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&0&0&9&-4&2\\\\0&1&0&-4&2&-1\\\\0&0&1&2&-1&1\\end{array}\\right]$$\n*Sensor: hver radoperasjon er merket over $\\sim$ — det er her føringspoengene ligger.* Venstre halvdel ble $I_3$, altså er $A$ **inverterbar** (radekvivalent med $I_3$), og\n$$A^{-1}=\\begin{pmatrix}9&-4&2\\\\-4&2&-1\\\\2&-1&1\\end{pmatrix}.$$\n*Sensor: konklusjonssetningen «radekvivalent med $I_3$ ⇒ inverterbar» gir uttelling, ikke bare tallene.*\n\n**b)** Gjenbruk inversen: $x=A^{-1}(1,1,1)^T=\\begin{pmatrix}9-4+2\\\\-4+2-1\\\\2-1+1\\end{pmatrix}=\\begin{pmatrix}7\\\\-3\\\\2\\end{pmatrix}$. *Sensor: her premieres at du bruker inversen fra (a) i stedet for å radredusere på nytt — vis koblingen eksplisitt.* Kontroll: $1\\cdot7+2\\cdot(-3)+0\\cdot2=1$ ✓.\n\n**c)** Siden $A$ er inverterbar (fra a), er søylene radekvivalente med $I_3$, altså **danner de en basis for $\\mathbb{R}^3$** (inverterbarhetsteoremet, punkt 4). *Sensor: ikke regn på nytt — (a) har allerede avgjort dette; bare siter kriteriet.*"
+    },
+    {
+      "id": "mat1110-1-5-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De samme tabbene går igjen på hver sjanger A-oppgave. Samlet, så du kjenner dem igjen under tidspress:\n\n- **Umerkede radoperasjoner.** Hvert $\\sim$ skal ha operasjonen skrevet over seg ($II-2I$, $III+I$). Uten merking mister du føringspoengene sensor teller — også når svaret er riktig.\n- **Søylerom-fellen.** Basis for søylerommet er **originalsøylene** i $A$ ved pivotposisjonene, aldri søylene fra trappeformen. Radoperasjoner bevarer radrommet, men endrer søylerommet. Finn *hvilke* søyler ved reduksjon, men hent selve vektorene fra $A$.\n- **Feil oppsett.** Oppsettet bestemmes av spørsmålet: basis/uavhengighet → vektorene som søyler; invers → $[A\\,|\\,I_n]$; løse/løsbarhet → $[A\\,|\\,b]$; rang/nullrom → $A$ alene. Feil matrise gir feil svar uansett hvor pent du regner.\n- **«Ingen løsning» uten å sjekke høyresiden.** Når pivotet blir null i en parameteroppgave, avgjør høyresiden i den kritiske raden utfallet: er den $0$, blir det uendelig mange løsninger, ikke ingen. Les alltid av høyresiden før du konkluderer.\n- **Glemt delpunkt-gjenbruk.** En invers regnet i (a) er ment brukt i (b) og (c). Regn tunge ting én gang, gjenbruk resultatet og vis koblingen — å radredusere på nytt koster tid og signaliserer at du ikke så strukturen.\n- **Manglende konklusjonssetning.** Tallene alene gir ikke full uttelling. Skriv det navngitte kriteriet: «radekvivalent med $I_n$, altså inverterbar», «nullrad uten motsigelse, altså uendelig mange løsninger».\n- **Fortegnsfeil i reduksjonen.** Én fortegnsbom forplanter seg gjennom hele radreduksjonen. Kontroller et delsvar ved å sette det inn i $Ax=b$."
     },
     {
       "id": "mat1110-1-5-drill",

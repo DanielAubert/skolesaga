@@ -1,0 +1,356 @@
+{
+  "id": "mat1110-6-5",
+  "courseId": "mat1110",
+  "chapterNumber": "6.5",
+  "title": "Kontraksjon, fikspunkt og Newtons metode i flere variable",
+  "description": "Vis kontraksjon via norm/egenverdi < 1, iterér mot fikspunktet, og kjør Newtons metode for systemer — teoritunge innslag fra 2018 og 2021.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "vise at en avbildning er en kontraksjon ved at en matrisenorm eller spektralradiusen er mindre enn 1",
+    "bruke fikspunktprinsippet til å konkludere med et entydig fikspunkt og at iterasjonen konvergerer",
+    "utføre ett–to steg av Newtons metode for et system ved hjelp av Jacobi-matrisen"
+  ],
+  "content": [
+    {
+      "id": "mat1110-6-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Teoritungt innslag som dukker opp i de mest krevende settene.**\n\n- **Kontraksjon, fikspunkt og Newtons metode (sjanger P)** — å vise at en avbildning er en kontraksjon, konkludere med et entydig fikspunkt, og kjøre Newtons metode for et system — dukker opp i **3 av 20 arkiverte sett** (2018, 2021), i teoritunge sett.\n- Fasitens grep: kontraksjon vises ved at **operatornormen eller den største egenverdien i tallverdi er $<1$** (2018 O4c: $F(x)=Ax$ er kontraksjon fordi begge $|\\lambda|<1$); fikspunkt-iterasjonen konvergerer da mot det entydige fikspunktet (2021 O3d).\n- Dette temaet ble **ikke testet i V2025** og har lav frekvens, men det er teoriaktuelt og kobler egenverdier (kap. 6.1) til flervariabel derivasjon (kap. 2.2).\n- Ingen offisiell fasit i arkivet (⚠️) — metoden er faglig standard.\n\n**Prioritet: kjenne (lav frekvens, teoriaktuelt).** Målet er at du kan begrunne kontraksjon med et normargument og kjøre ett–to Newton-steg for hånd."
+    },
+    {
+      "id": "mat1110-6-5-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet knytter sammen to tidligere tema: egenverdier fra [kap. 6.1](/bok/mat1110/mat1110-6-1) (vi bruker at $|\\lambda|<1$ gir kontraksjon) og Jacobi-matrisen fra [kap. 2.2](/bok/mat1110/mat1110-2-2) (Newton-steget bruker $(F'(x))^{-1}$). Inversregning fra [kap. 1.3](/bok/mat1110/mat1110-1-3) trengs for Newton-steget.\n\n**Sist du var her:** egenverdiene løses fra $\\det(\\lambda I - A)=0$ (kap. 6.1); Jacobi-matrisen $F'$ har rad $i$ lik $\\nabla F_i$ (kap. 2.2). Formelsamlingen gir Newtons metode $x_{n+1} = x_n - (F'(x_n))^{-1}F(x_n)$."
+    },
+    {
+      "id": "mat1110-6-5-motiv",
+      "type": "text",
+      "content": "Mange likninger kan ikke løses eksakt, men de kan løses **iterativt**: gjett en løsning, forbedre gjetningen, gjenta. To slike metoder står i pensum. **Fikspunkt-iterasjon** skriver likningen som $x = F(x)$ og gjentar $z_{n+1} = F(z_n)$ — den konvergerer dersom $F$ er en **kontraksjon** (trekker punkter nærmere hverandre). **Newtons metode** lineariserer med Jacobi-matrisen og konvergerer raskt nær en løsning.\n\nDen sentrale teoretiske ideen er kontraksjonsprinsippet: en kontraksjon har nøyaktig ett fikspunkt, og iterasjonen finner det uansett startpunkt. Vi bygger dette i tre løkker: (1) kontraksjon og hvordan man beviser den via norm/egenverdi; (2) fikspunktprinsippet og iterasjon; (3) Newtons metode for systemer, ett steg for hånd."
+    },
+    {
+      "id": "mat1110-6-5-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Kontraksjon og kontraksjonsbeviset (~14 min)"
+    },
+    {
+      "id": "mat1110-6-5-def-kontraksjon",
+      "type": "definition",
+      "title": "Kontraksjon",
+      "content": "En avbildning $F$ er en **kontraksjon** hvis den trekker alle punktpar nærmere hverandre med en fast faktor $K<1$:\n\n$$|F(x) - F(y)| \\le K\\,|x - y| \\quad\\text{for alle } x,y,\\qquad 0\\le K<1.$$\n\nTallet $K$ er **kontraksjonsfaktoren**. Kravet $K<1$ er strengt: $K=1$ (bevarer avstand) er ikke nok. Kontraksjoner «klemmer» rommet sammen, og det er derfor de har et entydig fikspunkt."
+    },
+    {
+      "id": "mat1110-6-5-def-spektralradius",
+      "type": "definition",
+      "title": "Spektralradius",
+      "content": "**Spektralradiusen** til en matrise $A$ er den største tallverdien blant egenverdiene, $\\rho(A) = \\max_i |\\lambda_i|$. For en lineær avbildning $F(x)=Ax$ styrer spektralradiusen langtidsoppførselen: er $\\rho(A)<1$, krymper $A^n$ mot null, og $F$ er (i en passende norm) en kontraksjon."
+    },
+    {
+      "id": "mat1110-6-5-def-norm",
+      "type": "definition",
+      "title": "Indusert matrisenorm (operatornorm)",
+      "content": "En **operatornorm** $\\|A\\|$ måler hvor mye $A$ maksimalt strekker en vektor: $\\|A\\| = \\max_{x\\ne 0}\\dfrac{|Ax|}{|x|}$. Da er $|Ax|\\le \\|A\\|\\,|x|$. Er $\\|A\\|<1$ for **en** slik norm, er $F(x)=Ax$ en kontraksjon med $K=\\|A\\|$. Radsum- og søylesumnormene er lette å regne og gir ofte $\\|A\\|<1$ direkte."
+    },
+    {
+      "id": "mat1110-6-5-thm-kontrbevis",
+      "type": "theorem",
+      "title": "Kontraksjonsbeviset for en lineær avbildning",
+      "content": "For $F(x)=Ax$ er $|F(x)-F(y)| = |A(x-y)| \\le \\|A\\|\\,|x-y|$. Altså:\n\n- finner du **én** matrisenorm med $\\|A\\|<1$, er $F$ en kontraksjon med $K=\\|A\\|$; eller\n- er **spektralradiusen** $\\rho(A)<1$ (alle $|\\lambda_i|<1$), er $F$ en kontraksjon i en passende norm.\n\nTo gyldige normvalg. Feiler det ene (en norm gir $\\|A\\|\\ge 1$), prøv det andre — egenverdiene avgjør til slutt."
+    },
+    {
+      "id": "mat1110-6-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Vis at en lineæravbildning er en kontraksjon",
+      "problem": "Vis at $F(x) = Ax$ med $A=\\begin{pmatrix} 0{,}5 & 0{,}2 \\\\ 0{,}1 & 0{,}4\\end{pmatrix}$ er en kontraksjon.",
+      "solution": "Vi bruker egenverdikriteriet. **Egenverdier:** $\\operatorname{tr}A = 0{,}9$, $\\det A = 0{,}5\\cdot0{,}4 - 0{,}2\\cdot0{,}1 = 0{,}2 - 0{,}02 = 0{,}18$, så\n$$\\lambda^2 - 0{,}9\\lambda + 0{,}18 = 0 \\Rightarrow \\lambda = \\frac{0{,}9\\pm\\sqrt{0{,}81-0{,}72}}{2} = \\frac{0{,}9\\pm 0{,}3}{2},$$\naltså $\\lambda_1 = 0{,}6$ og $\\lambda_2 = 0{,}3$.\n\nBegge oppfyller $|\\lambda|<1$, så **spektralradiusen** er $\\rho(A) = 0{,}6 < 1$. Da er $F(x)=Ax$ en kontraksjon (i en passende norm): $|F(x)-F(y)| = |A(x-y)|$ krymper med faktor $<1$.\n\n**Konklusjon:** $F$ er en kontraksjon fordi begge egenverdier har tallverdi $<1$. (Bekreftelse med søylesumnormen: største søylesum er $0{,}5+0{,}1 = 0{,}6 < 1$, så $\\|A\\|_1 = 0{,}6$ — samme faktor.)"
+    },
+    {
+      "id": "mat1110-6-5-l1e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-l1e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $F(x)=Ax$ med $A=\\begin{pmatrix} 0{,}3 & 0{,}3 \\\\ 0{,}2 & 0{,}4\\end{pmatrix}$ er en kontraksjon, og oppgi en kontraksjonsfaktor.",
+        "solution": "**Søylesumnormen** er raskest her: søylesummene er $0{,}3+0{,}2 = 0{,}5$ og $0{,}3+0{,}4 = 0{,}7$, så $\\|A\\|_1 = 0{,}7 < 1$. Dermed er $F$ en kontraksjon med faktor $K = 0{,}7$: $|A(x-y)| \\le 0{,}7\\,|x-y|$.\n\n(Kontroll med egenverdier: $\\operatorname{tr}A = 0{,}7$, $\\det A = 0{,}12 - 0{,}06 = 0{,}06$, $\\lambda^2 - 0{,}7\\lambda + 0{,}06 = 0 \\Rightarrow \\lambda = 0{,}6$ og $0{,}1$, begge $<1$ — bekrefter kontraksjon.)\n\n**Konklusjon:** $F$ er en kontraksjon, $K=0{,}7$ (fra søylesumnormen).",
+        "hints": [
+          "Regn søylesummene til $A$; er den største $<1$, er $\\|A\\|_1<1$.",
+          "Kontraksjonsfaktoren kan tas lik denne normen. Egenverdiene bekrefter."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Fikspunkt og fikspunktiterasjon (~14 min)"
+    },
+    {
+      "id": "mat1110-6-5-def-fikspunkt",
+      "type": "definition",
+      "title": "Fikspunkt",
+      "content": "Et **fikspunkt** for $F$ er et punkt $x^*$ som avbildes på seg selv: $F(x^*) = x^*$. Å løse likningen $x = F(x)$ er nettopp å finne et fikspunkt. Mange likninger $g(x)=0$ kan skrives om til fikspunktform $x = F(x)$ på flere måter, og valget av $F$ avgjør om iterasjonen konvergerer."
+    },
+    {
+      "id": "mat1110-6-5-def-iterasjon",
+      "type": "definition",
+      "title": "Fikspunktiterasjon",
+      "content": "**Fikspunktiterasjonen** starter med en gjetning $z_0$ og gjentar\n\n$$z_{n+1} = F(z_n).$$\n\nHvis $F$ er en kontraksjon, konvergerer følgen $z_0, z_1, z_2,\\dots$ mot fikspunktet uansett startpunkt. Hvert steg reduserer avstanden til fikspunktet med (minst) faktoren $K$, så konvergensen er geometrisk rask."
+    },
+    {
+      "id": "mat1110-6-5-thm-banach",
+      "type": "theorem",
+      "title": "Fikspunktprinsippet (kontraksjonsprinsippet)",
+      "content": "En kontraksjon $F$ på et fullstendig rom har **nøyaktig ett** fikspunkt $x^*$, og fikspunktiterasjonen $z_{n+1}=F(z_n)$ konvergerer mot $x^*$ fra ethvert startpunkt. Feilen avtar geometrisk: $|z_n - x^*| \\le K^n\\,|z_0 - x^*|$. Dette er hele grunnen til at kontraksjon er verdt å vise — det garanterer både eksistens, entydighet og en konvergent metode."
+    },
+    {
+      "id": "mat1110-6-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Fikspunkt og iterasjon",
+      "problem": "$F(x,y) = (0{,}5x + 0{,}5,\\ 0{,}5y + 1)$. Vis at $F$ er en kontraksjon, finn fikspunktet, og forklar at iterasjonen konvergerer mot det.",
+      "solution": "**Kontraksjon.** $F$ er affin med lineærdel $A = \\begin{pmatrix} 0{,}5 & 0 \\\\ 0 & 0{,}5\\end{pmatrix}$. Egenverdiene er $0{,}5$ og $0{,}5$ (diagonal), så $\\rho(A) = 0{,}5 < 1$ — $F$ er en kontraksjon med $K = 0{,}5$.\n\n**Fikspunkt.** Løs $F(x,y) = (x,y)$ komponentvis:\n$$x = 0{,}5x + 0{,}5 \\Rightarrow 0{,}5x = 0{,}5 \\Rightarrow x = 1,\\qquad y = 0{,}5y + 1 \\Rightarrow 0{,}5y = 1 \\Rightarrow y = 2.$$\nAltså fikspunkt $(x^*,y^*) = (1,2)$.\n\n**Konvergens.** Ved fikspunktprinsippet er $(1,2)$ det **entydige** fikspunktet, og iterasjonen $z_{n+1} = F(z_n)$ konvergerer mot det uansett start. (Kontroll fra $z_0=(0,0)$: $z_1 = (0{,}5,\\ 1)$, $z_2 = (0{,}75,\\ 1{,}5)$, $z_3 = (0{,}875,\\ 1{,}75)$ — på vei mot $(1,2)$, avstanden halveres hvert steg.)\n\n**Konklusjon:** entydig fikspunkt $(1,2)$, og iterasjonen konvergerer dit."
+    },
+    {
+      "id": "mat1110-6-5-l2e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-l2e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$F(x,y) = (0{,}25x + 3,\\ 0{,}25y - 6)$. Vis at $F$ er en kontraksjon og finn det entydige fikspunktet.",
+        "solution": "**Kontraksjon.** Lineærdelen er $A = 0{,}25 I$, med egenverdier $0{,}25$ (dobbel), så $\\rho(A) = 0{,}25 < 1$ — kontraksjon med $K = 0{,}25$.\n\n**Fikspunkt.** Løs $F(x,y)=(x,y)$:\n$$x = 0{,}25x + 3 \\Rightarrow 0{,}75x = 3 \\Rightarrow x = 4,\\qquad y = 0{,}25y - 6 \\Rightarrow 0{,}75y = -6 \\Rightarrow y = -8.$$\n\n**Konklusjon:** Ved fikspunktprinsippet har $F$ det entydige fikspunktet $(4,\\ -8)$, og fikspunktiterasjonen konvergerer mot det fra ethvert startpunkt.",
+        "hints": [
+          "Lineærdelen $0{,}25 I$ har spektralradius $0{,}25<1$ ⇒ kontraksjon.",
+          "Løs $x=0{,}25x+3$ og $y=0{,}25y-6$ hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Newtons metode for systemer (~14 min)"
+    },
+    {
+      "id": "mat1110-6-5-def-newton",
+      "type": "definition",
+      "title": "Newtons metode for system",
+      "content": "For å løse $F(x) = 0$ der $F:\\mathbb{R}^n\\to\\mathbb{R}^n$, lineariserer Newtons metode med Jacobi-matrisen $F'$ og iterer:\n\n$$x_{n+1} = x_n - \\bigl(F'(x_n)\\bigr)^{-1} F(x_n)$$\n\n(formelen er utdelt). I hvert steg løser man egentlig det lineære systemet $F'(x_n)\\,\\Delta = -F(x_n)$ og setter $x_{n+1} = x_n + \\Delta$. Nær en løsning konvergerer metoden svært raskt."
+    },
+    {
+      "id": "mat1110-6-5-def-jacobinewton",
+      "type": "definition",
+      "title": "Jacobi-matrisen i Newton-steget",
+      "content": "Newton-steget krever **Jacobi-matrisen** $F'(x)$ (rad $i$ = $\\nabla F_i$, fra kap. 2.2), evaluert i det aktuelle punktet $x_n$, og deretter dens invers. For $2\\times2$-systemer regnes inversen med den vanlige formelen $\\tfrac{1}{\\det}\\begin{pmatrix} d & -b \\\\ -c & a\\end{pmatrix}$. Er $F'(x_n)$ singulær, stopper metoden — velg da et annet startpunkt."
+    },
+    {
+      "id": "mat1110-6-5-thm-newtonkonv",
+      "type": "theorem",
+      "title": "Konvergens av Newtons metode (kjennskap)",
+      "content": "Nær en enkel løsning (der $F'$ er inverterbar) konvergerer Newtons metode **kvadratisk**: antall korrekte siffer omtrent dobles for hvert steg. Til gjengjeld kan et dårlig startpunkt gi divergens — metoden er lokal. I praksis holder ett–to steg for å komme nær løsningen når startpunktet er rimelig."
+    },
+    {
+      "id": "mat1110-6-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Ett Newton-steg for et system",
+      "problem": "Utfør ett steg av Newtons metode på systemet $F(x,y) = (x^2 + y^2 - 4,\\ x - y)$ fra startpunktet $(x_0,y_0) = \\left(\\tfrac32,\\tfrac32\\right)$.",
+      "solution": "**Jacobi-matrisen:** $F'(x,y) = \\begin{pmatrix} 2x & 2y \\\\ 1 & -1\\end{pmatrix}$.\n\n**Evaluer i $(\\tfrac32,\\tfrac32)$:** $F(\\tfrac32,\\tfrac32) = \\left(\\tfrac94 + \\tfrac94 - 4,\\ 0\\right) = \\left(\\tfrac12,\\ 0\\right)$ og $F'(\\tfrac32,\\tfrac32) = \\begin{pmatrix} 3 & 3 \\\\ 1 & -1\\end{pmatrix}$.\n\n**Invers:** $\\det = 3\\cdot(-1) - 3\\cdot1 = -6$, så $\\bigl(F'\\bigr)^{-1} = \\tfrac{1}{-6}\\begin{pmatrix} -1 & -3 \\\\ -1 & 3\\end{pmatrix} = \\begin{pmatrix} \\tfrac16 & \\tfrac12 \\\\ \\tfrac16 & -\\tfrac12\\end{pmatrix}$.\n\n**Newton-steget:**\n$$\\begin{pmatrix} x_1 \\\\ y_1\\end{pmatrix} = \\begin{pmatrix} \\tfrac32 \\\\ \\tfrac32\\end{pmatrix} - \\begin{pmatrix} \\tfrac16 & \\tfrac12 \\\\ \\tfrac16 & -\\tfrac12\\end{pmatrix}\\begin{pmatrix} \\tfrac12 \\\\ 0\\end{pmatrix} = \\begin{pmatrix} \\tfrac32 \\\\ \\tfrac32\\end{pmatrix} - \\begin{pmatrix} \\tfrac{1}{12} \\\\ \\tfrac{1}{12}\\end{pmatrix} = \\begin{pmatrix} \\tfrac{17}{12} \\\\ \\tfrac{17}{12}\\end{pmatrix}.$$\n\n**Konklusjon:** $(x_1,y_1) = \\left(\\tfrac{17}{12},\\tfrac{17}{12}\\right) \\approx (1{,}417,\\ 1{,}417)$ — nærmere den eksakte løsningen $(\\sqrt2,\\sqrt2) \\approx (1{,}414,\\ 1{,}414)$."
+    },
+    {
+      "id": "mat1110-6-5-l3e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-l3e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Utfør ett steg av Newtons metode på $F(x,y) = (x^2 - y,\\ x + y^2 - 3)$ fra startpunktet $(1,1)$. Oppgi svaret eksakt.",
+        "solution": "**Jacobi:** $F'(x,y) = \\begin{pmatrix} 2x & -1 \\\\ 1 & 2y\\end{pmatrix}$.\n\n**Evaluer i $(1,1)$:** $F(1,1) = (1-1,\\ 1+1-3) = (0,\\ -1)$ og $F'(1,1) = \\begin{pmatrix} 2 & -1 \\\\ 1 & 2\\end{pmatrix}$.\n\n**Invers:** $\\det = 2\\cdot2 - (-1)\\cdot1 = 5$, så $\\bigl(F'\\bigr)^{-1} = \\tfrac15\\begin{pmatrix} 2 & 1 \\\\ -1 & 2\\end{pmatrix}$.\n\n**Newton-steget:**\n$$\\begin{pmatrix} x_1 \\\\ y_1\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1\\end{pmatrix} - \\tfrac15\\begin{pmatrix} 2 & 1 \\\\ -1 & 2\\end{pmatrix}\\begin{pmatrix} 0 \\\\ -1\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1\\end{pmatrix} - \\tfrac15\\begin{pmatrix} -1 \\\\ -2\\end{pmatrix} = \\begin{pmatrix} 1 + \\tfrac15 \\\\ 1 + \\tfrac25\\end{pmatrix} = \\begin{pmatrix} \\tfrac65 \\\\ \\tfrac75\\end{pmatrix}.$$\n\n**Konklusjon:** $(x_1,y_1) = \\left(\\tfrac65,\\ \\tfrac75\\right)$ (eksakt).",
+        "hints": [
+          "Regn $F'(x,y)$ og evaluer $F$ og $F'$ i $(1,1)$.",
+          "Bruk $x_1 = x_0 - (F')^{-1}F$; regn $2\\times2$-inversen med $\\tfrac1{\\det}\\begin{pmatrix} d & -b \\\\ -c & a\\end{pmatrix}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Hevde kontraksjon uten normargument.** Det holder ikke å si «avbildningen ser sammentrekkende ut». Vis at en matrisenorm eller den største $|\\lambda|$ er $<1$.\n- **Anta at fikspunktet finnes uten kontraksjonsbevis.** Eksistens og entydighet følger *av* kontraksjonsprinsippet — det må først etableres at $F$ er en kontraksjon.\n- **Regnefeil i $(F'(x_n))^{-1}$.** Newton-steget bruker inversen av Jacobi-matrisen evaluert i riktig punkt; sjekk $\\det \\ne 0$ og bruk $2\\times2$-formelen nøye.\n- **Velge en norm der $K\\ge 1$ og gi opp.** Én norm kan gi $\\|A\\|\\ge 1$ mens en annen gir $<1$. Egenverdikriteriet ($\\rho(A)<1$) avgjør til slutt — prøv en annen norm.\n- **Evaluere Jacobi i feil punkt.** $F'$ skal evalueres i det gjeldende iterasjonspunktet $x_n$, ikke i startgjetningen hver gang."
+    },
+    {
+      "id": "mat1110-6-5-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Begrunn kontraksjon med norm/egenverdi, og før Newton-steget med eksakt invers."
+    },
+    {
+      "id": "mat1110-6-5-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $F(x)=Ax$ er en kontraksjon når $A=\\begin{pmatrix} 0{,}4 & 0 \\\\ 0 & 0{,}6\\end{pmatrix}$.",
+        "solution": "$A$ er diagonal, så egenverdiene er diagonalinngangene $0{,}4$ og $0{,}6$. Spektralradiusen er $\\rho(A) = 0{,}6 < 1$, så $F$ er en **kontraksjon** med faktor $K = 0{,}6$.\n\n**Konklusjon:** ja, kontraksjon fordi begge egenverdier har tallverdi $<1$.",
+        "hints": [
+          "Diagonalmatrise: egenverdiene er diagonalinngangene.",
+          "Kontraksjon krever største $|\\lambda|<1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn fikspunktet til $F(x)=0{,}5x + 3$ (én variabel) og forklar hvorfor iterasjonen konvergerer.",
+        "solution": "**Fikspunkt:** $x = 0{,}5x + 3 \\Rightarrow 0{,}5x = 3 \\Rightarrow x = 6$.\n\n**Konvergens:** $F$ har konstant «lineærdel» $0{,}5$, altså $|F(x)-F(y)| = 0{,}5|x-y|$ — en kontraksjon med $K=0{,}5<1$. Ved fikspunktprinsippet er $x^*=6$ entydig, og iterasjonen $z_{n+1}=0{,}5 z_n + 3$ konvergerer mot $6$ fra ethvert start.\n\n**Konklusjon:** fikspunkt $6$; konvergent fordi $F$ er en kontraksjon ($K=0{,}5$).",
+        "hints": [
+          "Løs $x=0{,}5x+3$.",
+          "Stigningstallet $0{,}5$ er kontraksjonsfaktoren."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$F(x)=Ax$ med $A=\\begin{pmatrix} 0{,}2 & 0{,}5 \\\\ 0{,}1 & 0{,}2\\end{pmatrix}$. Vis at $F$ er en kontraksjon ved å bruke en matrisenorm.",
+        "solution": "**Radsumnormen** $\\|A\\|_\\infty$ er største radsum: rad 1 gir $0{,}2 + 0{,}5 = 0{,}7$, rad 2 gir $0{,}1 + 0{,}2 = 0{,}3$. Største er $0{,}7$, så $\\|A\\|_\\infty = 0{,}7 < 1$.\n\nDermed $|A(x-y)| \\le 0{,}7\\,|x-y|$ (i den tilhørende normen), og $F$ er en **kontraksjon** med $K = 0{,}7$.\n\n(Kontroll: egenverdiene løser $\\lambda^2 - 0{,}4\\lambda + (0{,}04-0{,}05) = \\lambda^2 - 0{,}4\\lambda - 0{,}01 = 0$, som gir $\\lambda \\approx 0{,}42$ og $\\approx -0{,}02$ — begge $<1$ i tallverdi, bekrefter kontraksjon.)\n\n**Konklusjon:** kontraksjon med $K = 0{,}7$ (radsumnormen).",
+        "hints": [
+          "Radsumnormen er den største summen av tallverdiene i en rad.",
+          "Er den $<1$, er avbildningen en kontraksjon med den faktoren."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$F(x,y) = (0{,}5y + 1,\\ 0{,}5x + 1)$.\n\n**a)** Vis at $F$ er en kontraksjon.\n\n**b)** Finn det entydige fikspunktet.",
+        "solution": "**a)** Lineærdelen er $A = \\begin{pmatrix} 0 & 0{,}5 \\\\ 0{,}5 & 0\\end{pmatrix}$. Egenverdier: $\\det(\\lambda I - A) = \\lambda^2 - 0{,}25 = 0 \\Rightarrow \\lambda = \\pm 0{,}5$. Spektralradius $\\rho(A) = 0{,}5 < 1$, så $F$ er en **kontraksjon** ($K=0{,}5$). (Også: radsumnorm $=0{,}5<1$.)\n\n**b)** Løs $F(x,y)=(x,y)$: $x = 0{,}5y + 1$ og $y = 0{,}5x + 1$. Sett inn den første i den andre: $y = 0{,}5(0{,}5y + 1) + 1 = 0{,}25y + 1{,}5 \\Rightarrow 0{,}75y = 1{,}5 \\Rightarrow y = 2$, og $x = 0{,}5\\cdot2 + 1 = 2$.\n\n**Konklusjon:** kontraksjon med $K=0{,}5$; entydig fikspunkt $(2,2)$.",
+        "hints": [
+          "(a) Finn egenverdiene til lineærdelen $\\begin{pmatrix} 0 & 0{,}5 \\\\ 0{,}5 & 0\\end{pmatrix}$.",
+          "(b) Løs likningssystemet $x=0{,}5y+1,\\ y=0{,}5x+1$ ved innsetting."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-5-p5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Utfør ett Newton-steg på $F(x,y) = (x^2 + y - 3,\\ xy - 2)$ fra startpunktet $(1,2)$. Oppgi svaret eksakt.",
+        "solution": "**Jacobi:** $F'(x,y) = \\begin{pmatrix} 2x & 1 \\\\ y & x\\end{pmatrix}$.\n\n**Evaluer i $(1,2)$:** $F(1,2) = (1 + 2 - 3,\\ 1\\cdot2 - 2) = (0,\\ 0)$.\n\nSiden $F(1,2) = (0,0)$, er $(1,2)$ **allerede en eksakt løsning** av systemet — Newton-steget gir $\\begin{pmatrix} x_1 \\\\ y_1\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 2\\end{pmatrix} - (F')^{-1}\\begin{pmatrix} 0 \\\\ 0\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 2\\end{pmatrix}$ (uansett Jacobi, siden $F=0$).\n\n(Kontroll at $F'$ er inverterbar her: $F'(1,2)=\\begin{pmatrix} 2 & 1 \\\\ 2 & 1\\end{pmatrix}$, $\\det = 0$ — Jacobi er faktisk singulær i dette punktet, men fordi $F=0$ trenger vi ikke inversen; punktet er en løsning.)\n\n**Konklusjon:** $(x_1,y_1) = (1,2)$ — startpunktet var allerede en løsning, så Newton står stille.",
+        "hints": [
+          "Evaluer $F(1,2)$ først — hva blir det?",
+          "Er $F(x_0)=0$, står Newton-iterasjonen stille: $x_1 = x_0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-5-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-6-5-bb-K",
+      "type": "definition",
+      "title": "Kontraksjonsfaktor $K$",
+      "content": "Tallet $0\\le K<1$ i kontraksjonsulikheten $|F(x)-F(y)|\\le K|x-y|$. Jo mindre $K$, desto raskere konvergerer fikspunktiterasjonen ($|z_n-x^*|\\le K^n|z_0-x^*|$). For en lineær avbildning kan $K$ tas lik en matrisenorm $\\|A\\|<1$ eller lik spektralradiusen."
+    },
+    {
+      "id": "mat1110-6-5-bb-fullstendig",
+      "type": "definition",
+      "title": "Fullstendig rom",
+      "content": "Et rom er **fullstendig** når enhver «konvergent-aktig» følge (Cauchy-følge) faktisk har en grense i rommet. $\\mathbb{R}^n$ er fullstendig, så kontraksjonsprinsippet gjelder alltid der. Fullstendigheten er det som garanterer at fikspunktiterasjonens grense virkelig eksisterer i rommet."
+    },
+    {
+      "id": "mat1110-6-5-bb-radsumnorm",
+      "type": "definition",
+      "title": "Rad- og søylesumnorm",
+      "content": "To lettregnede operatornormer: **radsumnormen** $\\|A\\|_\\infty$ er den største summen av tallverdiene i en rad, og **søylesumnormen** $\\|A\\|_1$ er den største slike søylesummen. Begge oppfyller $|Ax|\\le\\|A\\|\\,|x|$ i sin norm, så er en av dem $<1$, har du vist kontraksjon uten å regne egenverdier."
+    },
+    {
+      "id": "mat1110-6-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-6-5-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-5-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/mat1110/mat1110-6-1)) Finn egenverdiene til $A=\\begin{pmatrix} 0{,}3 & 0 \\\\ 0 & 0{,}7\\end{pmatrix}$ og avgjør om $\\rho(A)<1$.",
+            "solution": "Diagonalmatrise: egenverdiene er $0{,}3$ og $0{,}7$. Spektralradiusen er $\\rho(A) = 0{,}7 < 1$. Dermed er $F(x)=Ax$ en kontraksjon — nettopp kriteriet vi bruker i dette kapitlet.",
+            "hints": [
+              "Diagonalinngangene er egenverdiene."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-5-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-5-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/mat1110/mat1110-2-2)) Finn Jacobi-matrisen til $F(x,y) = (x^2 y,\\ x + y^2)$.",
+            "solution": "$F'(x,y) = \\begin{pmatrix} \\partial_x(x^2 y) & \\partial_y(x^2 y) \\\\ \\partial_x(x+y^2) & \\partial_y(x+y^2)\\end{pmatrix} = \\begin{pmatrix} 2xy & x^2 \\\\ 1 & 2y\\end{pmatrix}$. Dette er matrisen Newton-steget bruker.",
+            "hints": [
+              "Rad $i$ er gradienten til komponent $i$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-5-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-5-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.3](/bok/mat1110/mat1110-1-3)) Finn inversen til $\\begin{pmatrix} 2 & -1 \\\\ 1 & 2\\end{pmatrix}$.",
+            "solution": "$\\det = 2\\cdot2 - (-1)\\cdot1 = 5$, så inversen er $\\tfrac15\\begin{pmatrix} 2 & 1 \\\\ -1 & 2\\end{pmatrix}$. Slike $2\\times2$-inverser er kjernen i hvert Newton-steg.",
+            "hints": [
+              "$2\\times2$-inversformel: $\\tfrac{1}{\\det}\\begin{pmatrix} d & -b \\\\ -c & a\\end{pmatrix}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-6-5-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F$ | Avbildning (evt. $F(x)=Ax$ eller affin) |\n| $K$ | Kontraksjonsfaktor ($0\\le K<1$) |\n| $\\rho(A)$ | Spektralradius $=\\max_i|\\lambda_i|$ |\n| $\\|A\\|$ | Operatornorm (rad-/søylesum) |\n| $x^*$ | Fikspunkt: $F(x^*)=x^*$ |\n| $z_{n+1}=F(z_n)$ | Fikspunktiterasjon |\n| $F'(x)$ | Jacobi-matrise |\n| $(F'(x_n))^{-1}$ | Invers Jacobi i Newton-steget |\n\n**Kontraksjon:** $|F(x)-F(y)|\\le K|x-y|$, $K<1$. For $F(x)=Ax$: hold hvis $\\|A\\|<1$ eller $\\rho(A)<1$.\n\n**Fikspunktprinsippet:** kontraksjon ⇒ entydig fikspunkt $x^*$; $z_{n+1}=F(z_n)\\to x^*$, med $|z_n-x^*|\\le K^n|z_0-x^*|$.\n\n**Newtons metode:** $x_{n+1} = x_n - (F'(x_n))^{-1}F(x_n)$ (formelsamlingen).\n\n**Rad-/søylesumnorm:** største rad- hhv. søylesum av tallverdiene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

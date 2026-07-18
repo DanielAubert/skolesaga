@@ -1,0 +1,304 @@
+{
+  "id": "mat1110-6-prove",
+  "courseId": "mat1110",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Beredskap — egenverdier og potensrekker",
+  "description": "Fire prøver som dekker hele Del 6 — egenverdier og lim Aⁿv, potensrekkers konvergens og sum, kontraksjon og Newton, og pensumkrav-tverrsnittet Taylor flervariabel + differensiallikninger. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "løse sammensatte oppgaver i egenverdier, langtidsgrenser, potensrekker, kontraksjon/Newton og differensiallikninger under tidspress",
+    "føre løsninger etter sensorstandarden med navngitte teoremer, egenvektordekomponering og eksakte svar",
+    "vurdere egen mestring av beredskapsdelen med selvdiagnose"
+  ],
+  "content": [
+    {
+      "id": "mat1110-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "Fire prøver som dekker hele beredskapsdelen (egenverdier + $\\lim A^n v$, potensrekker, kontraksjon/Newton, og pensumkrav-tverrsnittet Taylor + differensiallikninger). Til sammen **~30–45 min hver** — **kan trygt deles over flere kvelder, én prøve per økt**. Regn med penn og papir; før løsningene etter sensorstandarden (navngi teoremer, merk radoperasjoner over $\\sim$, oppgi **eksakte** svar). Fasit med full utregning ligger som utvidbare løsninger under hver oppgave, og en **avkryssbar selvdiagnose** avslutter hver prøve.\n\n**Ærlig om regimet:** temaene her var historisk ryggrad (egenverdier ~70 %, potensrekker ~85 %), men **0/3 i V2025** — hold dem som beredskap. Taylor flervariabel og differensiallikninger er **ikke arkivbelagt** (0 forekomster), tatt med som pensumdekning.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 6.A | Egenverdier + $\\lim A^n v$ / Markov (6.1–6.2) | ~40 min |\n| 6.B | Potensrekker: konvergensområde + sum (6.3–6.4) | ~45 min |\n| 6.C | Kontraksjon + Newton (6.5) | ~30 min |\n| 6.D | Taylor flervariabel + differensiallikninger (3.3 + 6.6) | ~35 min |"
+    },
+    {
+      "id": "mat1110-6-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 6: [kap. 6.1](/bok/mat1110/mat1110-6-1) (egenverdier), [kap. 6.2](/bok/mat1110/mat1110-6-2) (diagonalisering, $\\lim A^n v$), [kap. 6.3](/bok/mat1110/mat1110-6-3) (konvergens), [kap. 6.4](/bok/mat1110/mat1110-6-4) (summering), [kap. 6.5](/bok/mat1110/mat1110-6-5) (kontraksjon/Newton), [kap. 6.6](/bok/mat1110/mat1110-6-6) (differensiallikninger). Prøve 6.D bruker i tillegg [kap. 3.3](/bok/mat1110/mat1110-3-3) (Taylor i flere variable). Løs først uten fasit; sjekk deretter føringen — det er der eksamenspoengene ligger."
+    },
+    {
+      "id": "mat1110-6-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Egenverdier og lim Aⁿv (6.A, ~40 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1110-6-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 6.A — Egenverdier og langtidsgrense.** Tre oppgaver, ~40 min. Bruk radreduksjon for egenvektorene og egenvektordekomponering for grensen. Kontroller med spor og determinant."
+        },
+        {
+          "id": "mat1110-6-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn egenverdiene og en egenvektor for hver til $A=\\begin{pmatrix} 4 & 2 \\\\ 1 & 3\\end{pmatrix}$, og kontroller mot spor og determinant.",
+            "solution": "$\\det(\\lambda I - A) = (\\lambda-4)(\\lambda-3) - (-2)(-1) = \\lambda^2 - 7\\lambda + 12 - 2 = \\lambda^2 - 7\\lambda + 10 = (\\lambda-2)(\\lambda-5)$.\n\n**Egenverdier:** $\\lambda_1 = 2,\\ \\lambda_2 = 5$. Kontroll: $\\operatorname{tr}A = 7 = 2+5$ ✓, $\\det A = 4\\cdot3-2\\cdot1 = 10 = 2\\cdot5$ ✓.\n\n**$\\lambda=5$:** $A-5I=\\begin{pmatrix} -1 & 2 \\\\ 1 & -2\\end{pmatrix}\\overset{\\;II+I\\;}{\\sim}\\begin{pmatrix} -1 & 2 \\\\ 0 & 0\\end{pmatrix}$, egenvektor $(2,1)$.\n\n**$\\lambda=2$:** $A-2I=\\begin{pmatrix} 2 & 2 \\\\ 1 & 1\\end{pmatrix}\\overset{\\;I-2II\\;}{\\sim}\\begin{pmatrix} 0 & 0 \\\\ 1 & 1\\end{pmatrix}$, egenvektor $(1,-1)$.\n\n**Svar:** $\\lambda=2$ med $(1,-1)$; $\\lambda=5$ med $(2,1)$.",
+            "hints": [
+              "$\\det(\\lambda I - A) = \\lambda^2 - (\\operatorname{tr}A)\\lambda + \\det A$; faktoriser.",
+              "For hver egenverdi: radreduser $A-\\lambda I$ og les av nullrommet."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En Markov-prosess har overgangsmatrise $A=\\begin{pmatrix} 0{,}6 & 0{,}3 \\\\ 0{,}4 & 0{,}7\\end{pmatrix}$ (søylesum $1$) og start $x_0=(1,0)^T$. Bestem $\\lim_{n\\to\\infty} A^n x_0$ ved egenvektordekomponering.",
+            "solution": "**Egenverdier.** $\\operatorname{tr}A = 1{,}3$, $\\det A = 0{,}42 - 0{,}12 = 0{,}3$: $\\lambda^2 - 1{,}3\\lambda + 0{,}3 = (\\lambda-1)(\\lambda-0{,}3)=0$, så $\\lambda=1,\\ 0{,}3$ (stokastisk matrise har alltid $\\lambda=1$).\n\n**Egenvektorer.** $\\lambda=1$: $A-I=\\begin{pmatrix} -0{,}4 & 0{,}3 \\\\ 0{,}4 & -0{,}3\\end{pmatrix}$ gir $0{,}4v_1 = 0{,}3v_2$, egenvektor $(3,4)$. $\\lambda=0{,}3$: $A-0{,}3I=\\begin{pmatrix} 0{,}3 & 0{,}3 \\\\ 0{,}4 & 0{,}4\\end{pmatrix}$ gir $v_1=-v_2$, egenvektor $(1,-1)$.\n\n**Dekomponer** $(1,0)$: $c_1(3,4)+c_2(1,-1)=(1,0)$: $3c_1+c_2=1,\\ 4c_1-c_2=0 \\Rightarrow c_2=4c_1,\\ 7c_1=1$, så $c_1=\\tfrac17,\\ c_2=\\tfrac47$.\n\n$A^n x_0 = \\tfrac17\\cdot1^n(3,4) + \\tfrac47(0{,}3)^n(1,-1)$. Andre ledd $\\to 0$:\n$$\\lim_{n\\to\\infty} A^n x_0 = \\tfrac17(3,4) = \\left(\\tfrac37,\\ \\tfrac47\\right).$$\n\n**Svar:** langtidsfordelingen er $\\left(\\tfrac37,\\tfrac47\\right)$ — den stasjonære fordelingen, uavhengig av start.",
+            "hints": [
+              "Finn $\\lambda=1$-egenvektoren og $0{,}3$-egenvektoren.",
+              "Dekomponer $x_0$ i egenvektorene; bare $\\lambda=1$-leddet overlever grensen."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $A$ være diagonaliserbar med egenverdier $1$, $\\tfrac13$ og $-\\tfrac12$ og egenvektorer $v_1,v_2,v_3$. En starttilstand er $w = 2v_1 - 3v_2 + v_3$. (a) Skriv $A^n w$. (b) Finn $\\lim_{n\\to\\infty} A^n w$. (c) Er $A$ en kontraksjon? Begrunn.",
+            "solution": "**a)** Siden $A^n v_i = \\lambda_i^n v_i$:\n$$A^n w = 2\\cdot1^n v_1 - 3\\left(\\tfrac13\\right)^n v_2 + \\left(-\\tfrac12\\right)^n v_3 = 2v_1 - 3\\left(\\tfrac13\\right)^n v_2 + \\left(-\\tfrac12\\right)^n v_3.$$\n\n**b)** Leddene med $|\\lambda|<1$ dør ut ($\\left(\\tfrac13\\right)^n\\to 0$ og $\\left(-\\tfrac12\\right)^n\\to 0$), mens $\\lambda=1$-leddet overlever:\n$$\\lim_{n\\to\\infty} A^n w = 2v_1.$$\n\n**c)** Spektralradiusen er $\\rho(A) = \\max\\{1,\\tfrac13,\\tfrac12\\} = 1$, **ikke** $<1$. Egenverdien $1$ gjør at $A$ bevarer $v_1$-komponenten uendret, så $A$ er **ikke en kontraksjon** (en kontraksjon krever $\\rho(A)<1$).\n\n**Svar:** (a) som over; (b) $2v_1$; (c) nei, fordi $\\rho(A)=1$.",
+            "hints": [
+              "(a) $A^n v_i = \\lambda_i^n v_i$ — behandle hvert ledd for seg.",
+              "(c) Kontraksjon krever at alle $|\\lambda|<1$; her er $\\lambda=1$ med."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p1-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Fant egenverdiene $2$ og $5$ og kontrollerte mot spor/determinant\n- ☐ Leste egenvektorene av ved radreduksjon (ikke gjetting)\n- ☐ Dekomponerte $x_0$ i egenvektorbasis og lot $|\\lambda|<1$-leddet dø ut\n- ☐ Fikk langtidsfordelingen $\\left(\\tfrac37,\\tfrac47\\right)$\n- ☐ Begrunnet at $\\rho(A)=1$ betyr at $A$ ikke er en kontraksjon"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Potensrekker: konvergens og sum (6.B, ~45 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1110-6-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 6.B — Potensrekker.** Tre oppgaver, ~45 min. Husk endepunktsjekken på konvergensområdet, og nevn at leddvis regning gjelder for $|x|<R$."
+        },
+        {
+          "id": "mat1110-6-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn konvergensområdet til $\\sum_{n=1}^\\infty \\dfrac{x^n}{n\\,4^n}$ (husk begge endepunkter).",
+            "solution": "**Radius.** $a_n = \\tfrac{1}{n\\,4^n}$: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{n\\,4^n}{(n+1)4^{n+1}} = \\dfrac{n}{4(n+1)} \\to \\dfrac14$, så $\\tfrac1R = \\tfrac14$, altså $R=4$. Konvergens for $|x|<4$.\n\n**$x=4$:** leddet blir $\\dfrac{4^n}{n\\,4^n} = \\dfrac1n$ — **harmonisk rekke**, **divergerer**.\n\n**$x=-4$:** leddet blir $\\dfrac{(-4)^n}{n\\,4^n} = \\dfrac{(-1)^n}{n}$ — **alternerende harmonisk**, **konvergerer** (Leibniz).\n\n**Svar:** konvergensområdet er $[-4,\\ 4)$.",
+            "hints": [
+              "Finn $R$ med forholdstesten på koeffisientene.",
+              "Sett $x=4$ (harmonisk) og $x=-4$ (alternerende) og avgjør hver for seg."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn en lukket sum for $f(x)=\\sum_{n=1}^\\infty n\\,x^{n}$ på $|x|<1$, og bruk den til å regne $\\sum_{n=1}^\\infty \\dfrac{n}{3^n}$.",
+            "solution": "**Lukket sum.** Start fra $\\sum_{n=0}^\\infty x^n = \\tfrac{1}{1-x}$ og **deriver leddvis** (lovlig for $|x|<1$): $\\sum_{n=1}^\\infty n\\,x^{n-1} = \\dfrac{1}{(1-x)^2}$. Gang med $x$:\n$$f(x) = \\sum_{n=1}^\\infty n\\,x^n = \\frac{x}{(1-x)^2},\\qquad |x|<1.$$\n\n**Tallrekkesum.** Leddet $\\dfrac{n}{3^n} = n\\left(\\tfrac13\\right)^n$, så sett inn $x=\\tfrac13$ (i konvergensområdet):\n$$\\sum_{n=1}^\\infty \\frac{n}{3^n} = \\frac{\\tfrac13}{\\left(1-\\tfrac13\\right)^2} = \\frac{\\tfrac13}{\\left(\\tfrac23\\right)^2} = \\frac{\\tfrac13}{\\tfrac49} = \\frac13\\cdot\\frac94 = \\frac34.$$\n\n**Svar:** $f(x) = \\dfrac{x}{(1-x)^2}$; $\\displaystyle\\sum_{n=1}^\\infty \\frac{n}{3^n} = \\frac34$.",
+            "hints": [
+              "Deriver den geometriske rekka leddvis og gang med $x$.",
+              "Leddet er $n(\\tfrac13)^n$, så sett $x=\\tfrac13$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $f(x)=\\sum_{n=1}^\\infty \\dfrac{x^n}{n}$. (a) Finn konvergensområdet. (b) Vis ved leddvis derivasjon at $f(x)=-\\ln(1-x)$. (c) Regn $\\sum_{n=1}^\\infty \\dfrac{1}{n\\,2^n}$.",
+            "solution": "**a)** $a_n=\\tfrac1n$: $\\left|\\tfrac{a_{n+1}}{a_n}\\right| = \\tfrac{n}{n+1}\\to 1$, så $R=1$. Endepunkt $x=1$: harmonisk, divergerer; $x=-1$: alternerende, konvergerer. **Konvergensområde $[-1,1)$.**\n\n**b)** Deriver leddvis (for $|x|<1$): $f'(x) = \\sum_{n=1}^\\infty x^{n-1} = \\dfrac{1}{1-x}$. Integrer tilbake: $f(x) = -\\ln(1-x) + C$. Fra $f(0)=0$: $C=0$. Altså $f(x) = -\\ln(1-x)$.\n\n**c)** Leddet $\\dfrac{1}{n\\,2^n} = \\dfrac{(1/2)^n}{n}$, og $x=\\tfrac12 \\in [-1,1)$, så\n$$\\sum_{n=1}^\\infty \\frac{1}{n\\,2^n} = -\\ln\\!\\left(1-\\tfrac12\\right) = -\\ln\\tfrac12 = \\ln 2.$$\n\n**Svar:** (a) $[-1,1)$; (b) $-\\ln(1-x)$; (c) $\\ln 2$.",
+            "hints": [
+              "(b) Deriver leddvis til den geometriske rekka, integrer tilbake, bestem $C$ fra $x=0$.",
+              "(c) Sett $x=\\tfrac12$ i den lukkede summen."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p2-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Fant $R=4$ og sjekket **begge** endepunkter (fikk $[-4,4)$)\n- ☐ Gjenkjente harmonisk (divergent) og alternerende harmonisk (konvergent) i endepunktene\n- ☐ Deriverte den geometriske rekka leddvis for å summere $\\sum n x^n$\n- ☐ Fikk $\\sum \\tfrac{n}{3^n} = \\tfrac34$ ved innsetting\n- ☐ Nevnte at leddvis derivasjon gjelder for $|x|<R$, og bestemte integrasjonskonstanten"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Kontraksjon og Newtons metode (6.C, ~30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1110-6-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 6.C — Kontraksjon og Newton.** Tre oppgaver, ~30 min. Begrunn kontraksjon med norm eller egenverdi, og før Newton-steget med eksakt invers."
+        },
+        {
+          "id": "mat1110-6-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Vis at $F(x)=Ax$ med $A=\\begin{pmatrix} 0{,}3 & 0{,}4 \\\\ 0{,}2 & 0{,}1\\end{pmatrix}$ er en kontraksjon, og oppgi en kontraksjonsfaktor.",
+            "solution": "**Radsumnormen** er raskest: radsummene er $0{,}3+0{,}4 = 0{,}7$ og $0{,}2+0{,}1 = 0{,}3$. Største er $0{,}7$, så $\\|A\\|_\\infty = 0{,}7 < 1$.\n\nDermed $|A(x-y)| \\le 0{,}7\\,|x-y|$, og $F$ er en **kontraksjon** med faktor $K=0{,}7$.\n\n(Kontroll med egenverdier: $\\operatorname{tr}A = 0{,}4$, $\\det A = 0{,}03 - 0{,}08 = -0{,}05$; $\\lambda^2 - 0{,}4\\lambda - 0{,}05 = 0$ gir $\\lambda \\approx 0{,}5$ og $\\approx -0{,}1$, begge $<1$ i tallverdi.)\n\n**Svar:** kontraksjon, $K=0{,}7$ (radsumnormen).",
+            "hints": [
+              "Regn radsummene av tallverdiene; er den største $<1$, er $\\|A\\|_\\infty<1$.",
+              "Kontraksjonsfaktoren kan tas lik denne normen."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$F(x,y) = (0{,}5x + 2,\\ 0{,}25y + 3)$. (a) Vis at $F$ er en kontraksjon. (b) Finn det entydige fikspunktet og forklar at iterasjonen konvergerer mot det.",
+            "solution": "**a)** Lineærdelen er $A=\\begin{pmatrix} 0{,}5 & 0 \\\\ 0 & 0{,}25\\end{pmatrix}$, diagonal med egenverdier $0{,}5$ og $0{,}25$. Spektralradius $\\rho(A) = 0{,}5 < 1$, så $F$ er en **kontraksjon** med $K=0{,}5$.\n\n**b)** Løs $F(x,y)=(x,y)$ komponentvis: $x = 0{,}5x + 2 \\Rightarrow 0{,}5x = 2 \\Rightarrow x = 4$; $y = 0{,}25y + 3 \\Rightarrow 0{,}75y = 3 \\Rightarrow y = 4$. Fikspunkt $(4,4)$.\n\nVed **fikspunktprinsippet** er $(4,4)$ det entydige fikspunktet, og iterasjonen $z_{n+1}=F(z_n)$ konvergerer mot det fra ethvert startpunkt (feilen avtar med faktor $\\le 0{,}5$ per steg).\n\n**Svar:** kontraksjon med $K=0{,}5$; entydig fikspunkt $(4,4)$.",
+            "hints": [
+              "(a) Lineærdelen er diagonal; spektralradius er største diagonalinngang.",
+              "(b) Løs $x=0{,}5x+2$ og $y=0{,}25y+3$ hver for seg."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Utfør ett steg av Newtons metode på systemet $F(x,y) = (x^2 - y - 1,\\ x^2 + y^2 - 4)$ fra startpunktet $(1,1)$. Oppgi svaret eksakt.",
+            "solution": "**Jacobi:** $F'(x,y) = \\begin{pmatrix} 2x & -1 \\\\ 2x & 2y\\end{pmatrix}$.\n\n**Evaluer i $(1,1)$:** $F(1,1) = (1-1-1,\\ 1+1-4) = (-1,\\ -2)$ og $F'(1,1) = \\begin{pmatrix} 2 & -1 \\\\ 2 & 2\\end{pmatrix}$.\n\n**Invers:** $\\det = 2\\cdot2 - (-1)\\cdot2 = 6$, så $\\bigl(F'\\bigr)^{-1} = \\tfrac16\\begin{pmatrix} 2 & 1 \\\\ -2 & 2\\end{pmatrix}$.\n\n**Newton-steget:**\n$$\\begin{pmatrix} x_1 \\\\ y_1\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1\\end{pmatrix} - \\tfrac16\\begin{pmatrix} 2 & 1 \\\\ -2 & 2\\end{pmatrix}\\begin{pmatrix} -1 \\\\ -2\\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1\\end{pmatrix} - \\tfrac16\\begin{pmatrix} -4 \\\\ -2\\end{pmatrix} = \\begin{pmatrix} 1 + \\tfrac23 \\\\ 1 + \\tfrac13\\end{pmatrix} = \\begin{pmatrix} \\tfrac53 \\\\ \\tfrac43\\end{pmatrix}.$$\n\n**Svar:** $(x_1,y_1) = \\left(\\tfrac53,\\ \\tfrac43\\right)$ (eksakt).",
+            "hints": [
+              "Regn $F'(x,y)$ og evaluer $F,F'$ i $(1,1)$.",
+              "Bruk $x_1 = x_0 - (F')^{-1}F$; regn $2\\times2$-inversen nøye."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p3-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Begrunnet kontraksjon med en matrisenorm $<1$ (ikke bare «ser sammentrekkende ut»)\n- ☐ Fant fikspunktet $(4,4)$ og påberopte fikspunktprinsippet for entydighet/konvergens\n- ☐ Regnet Jacobi-matrisen og evaluerte den i riktig punkt\n- ☐ Regnet $2\\times2$-inversen korrekt ($\\det = 6$)\n- ☐ Fikk Newton-steget $\\left(\\tfrac53,\\tfrac43\\right)$ eksakt"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Taylor flervariabel og differensiallikninger (6.D, ~35 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1110-6-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 6.D — Pensumkrav-tverrsnitt.** Tre oppgaver, ~35 min. Disse temaene er **ikke arkivbelagt** (0 forekomster i 22 sett) — tatt med som pensumdekning. Bruk standardmetodene: Taylor med gradient og Hesse (kap. 3.3), separasjon og integrerende faktor (kap. 6.6)."
+        },
+        {
+          "id": "mat1110-6-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn andreordens Taylor-polynom til $f(x,y) = e^{x}\\cos y$ rundt $(0,0)$.",
+            "solution": "Andreordens Taylor: $f(a+h)\\approx f(a) + \\nabla f(a)\\cdot h + \\tfrac12 h^T H(a) h$ (kap. 3.3).\n\n**Verdi:** $f(0,0) = e^0\\cos 0 = 1$.\n\n**Gradient:** $f_x = e^x\\cos y$, $f_y = -e^x\\sin y$; i $(0,0)$: $\\nabla f(0,0) = (1,\\ 0)$.\n\n**Hesse:** $f_{xx} = e^x\\cos y$, $f_{xy} = -e^x\\sin y$, $f_{yy} = -e^x\\cos y$; i $(0,0)$: $H(0,0) = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1\\end{pmatrix}$.\n\n**Sett sammen** med $h=(x,y)$: $\\tfrac12 h^T H h = \\tfrac12(x^2\\cdot 1 + 2xy\\cdot 0 + y^2\\cdot(-1)) = \\tfrac12(x^2 - y^2)$. Altså\n$$T_2(x,y) = 1 + x + \\tfrac12\\left(x^2 - y^2\\right).$$\n\n**Svar:** $T_2(x,y) = 1 + x + \\dfrac{x^2 - y^2}{2}$. (Kontroll: langs $y=0$ er $T_2 = 1 + x + \\tfrac{x^2}{2}$, som er Maclaurin-polynomet til $e^x$ ✓.)",
+            "hints": [
+              "Regn $f(0,0)$, $\\nabla f(0,0)$ og Hesse-matrisen $H(0,0)$.",
+              "Andreordensleddet er $\\tfrac12 h^T H h$ med $h=(x,y)$; husk faktoren $\\tfrac12$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs det separable initialverdiproblemet $y' = xy^2,\\ y(0) = 1$.",
+            "solution": "Separabel med $f(x)=x$, $g(y)=y^2$. **Konstantløsning** $y\\equiv 0$ passer ikke $y(0)=1$.\n\n**Separer og integrer** (for $y\\ne 0$): $\\dfrac{dy}{y^2} = x\\,dx \\Rightarrow -\\dfrac1y = \\dfrac{x^2}{2} + C \\Rightarrow \\dfrac1y = -\\dfrac{x^2}{2} - C$.\n\n**Initialverdi** $y(0)=1$: $\\dfrac11 = -0 - C \\Rightarrow C = -1$. Altså $\\dfrac1y = 1 - \\dfrac{x^2}{2} = \\dfrac{2-x^2}{2}$, så\n$$y = \\frac{2}{2 - x^2}.$$\n\n**Verifikasjon:** $y' = \\dfrac{2\\cdot 2x}{(2-x^2)^2} = \\dfrac{4x}{(2-x^2)^2}$, og $xy^2 = x\\cdot\\dfrac{4}{(2-x^2)^2} = \\dfrac{4x}{(2-x^2)^2}$ ✓; $y(0)=1$ ✓.\n\n**Svar:** $y(x) = \\dfrac{2}{2 - x^2}$ (gyldig nær $x=0$, der $2-x^2>0$).",
+            "hints": [
+              "Separer $\\tfrac{dy}{y^2} = x\\,dx$ og integrer.",
+              "Løs for $y$ og bruk $y(0)=1$ til å bestemme konstanten."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p4o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-prove-p4o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs det lineære initialverdiproblemet $y' + y = 2,\\ y(0) = 5$ med integrerende faktor, og kontroller ved innsetting.",
+            "solution": "Lineær med $p(x)=1$, $q(x)=2$. **Integrerende faktor:** $\\mu = e^{\\int 1\\,dx} = e^{x}$.\n\n**Gang gjennom:** $(e^{x}y)' = 2e^{x}$. **Integrer:** $e^{x}y = 2e^{x} + C$, så $y = 2 + C e^{-x}$.\n\n**Bestem $C$** fra $y(0)=5$: $5 = 2 + C \\Rightarrow C = 3$. Altså $y = 2 + 3e^{-x}$.\n\n**Verifikasjon:** $y' = -3e^{-x}$, og $y' + y = -3e^{-x} + 2 + 3e^{-x} = 2$ ✓; $y(0)=2+3=5$ ✓.\n\n**Svar:** $y(x) = 2 + 3e^{-x}$ — nærmer seg likevekten $2$ når $x\\to\\infty$.",
+            "hints": [
+              "Integrerende faktor $\\mu = e^x$; venstresiden blir $(e^x y)'$.",
+              "Integrer $\\int 2e^x\\,dx = 2e^x$, del på $e^x$, og bruk $y(0)=5$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-prove-p4-chk",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Regnet gradient og Hesse-matrise og husket faktoren $\\tfrac12$ på andreordensleddet\n- ☐ Fikk $T_2 = 1 + x + \\tfrac12(x^2 - y^2)$\n- ☐ Separerte $y'=xy^2$ riktig og bestemte konstanten fra initialverdien\n- ☐ Brukte integrerende faktor $e^x$ på den lineære likningen\n- ☐ Kontrollerte begge løsninger ved innsetting"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-6-prove-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i delens teorikapitler.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\det(\\lambda I - A) = 0$ | Egenverdibetingelsen (karakteristisk likning) |\n| $\\lambda$ | Egenverdi |\n| $Av = \\lambda v$ | Egenvektor-relasjonen |\n| $A = PDP^{-1}$ | Diagonalisering ($P$ = egenvektorsøyler, $D$ = diagonal av egenverdier) |\n| $\\lim\\limits_{n\\to\\infty} A^n v$ | Grensetilstand for en Markov-kjede |\n| $\\sum\\limits_{n=0}^{\\infty} a_n x^n$ | Potensrekke |\n| $\\rho$ | Konvergensradius |\n\n**Potenser via diagonalisering:** $A^n = PD^nP^{-1}$. **Konvergensradius:** $\\dfrac{1}{\\rho} = \\lim\\limits_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|$; endepunktene $x = \\pm\\rho$ må sjekkes hver for seg.\n\nFull formelliste finnes i delens teorikapitler [kap. 6.1](/bok/mat1110/mat1110-6-1)–[kap. 6.6](/bok/mat1110/mat1110-6-6)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

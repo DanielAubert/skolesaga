@@ -262,6 +262,49 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+
+  mat1110: {
+    courseId: 'mat1110',
+    institusjon: 'Universitetet i Oslo (UiO) — Matematisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot MAT1110s eksamensarkiv ved UiO: 22 oppgavesett fra 2004 til 2025 (ordinære sett samt tre V2025-sett) og de tre offisielle løsningsforslagene som finnes — alle fra V2025. Analysen dokumenterer regimeskiftet 2025 (vektoranalyse inn, egenverdier og potensrekker ut), og boka er bygget rundt begge regimer: det nye som hovedspor, det gamle som beredskap.',
+    eksamenssett: [
+      {
+        tittel: '5 eksamenssett lest grundig (2018–2025)',
+        detalj:
+          'Ordinær 2025, 2024, 2022, 2019 og 2018, oppgave for oppgave, sammen med den utdelte formelsamlingen (lest i sin helhet). I tillegg prøveeksamen og kontinuasjonseksamen V2025.',
+      },
+      {
+        tittel: '15 eldre sett kartlagt oppgave for oppgave (2004–2017, 2021)',
+        detalj:
+          'Brukt til temaregistrering per deloppgave — grunnlaget for frekvenstallene i boka (dobbeltintegral 95 %, potensrekker 85 %, egenverdier 70 % osv.).',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '3 offisielle løsningsforslag (alle V2025)',
+        detalj:
+          'Ordinær eksamen 30. mai 2025, kontinuasjon 12. august 2025 og prøveeksamen mai 2025 — fulle fasiter. Disse definerer føringsstandarden boka lærer bort (merkede radoperasjoner, teoremnavn, fortegns- og orienteringskontroll, eksakte svar).',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for MAT1110',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, vurderingsform: midtsemestereksamen 1/3 + avsluttende eksamen 2/3, obligatoriske innleveringer).',
+      },
+      {
+        tittel: 'Utdelt formelsamling',
+        detalj: 'Formelsamlingen som deles ut på eksamen (vedlagt 2022-settet) er lest i sin helhet — boka skiller konsekvent mellom det formelsamlingen gir og det som må kunnes.',
+      },
+    ],
+    forbehold: [
+      'Offisielle løsningsforslag finnes kun for de tre V2025-settene. For eldre sett (egenverdier, potensrekker, kontraksjon, variabelskifte) er metodekravene utledet fra oppgavetekstene og faglig etablert standard — ikke sensor-verifisert.',
+      'Arkivet mangler ordinære sett for 2020 og 2023, og inneholder ingen midtsemestereksamener — midtveissimuleringen i boka er kalibrert på pensumvinduet, ikke på dokumentert oppgavefordeling.',
+      'Regimeskiftet 2025 (vektoranalyse inn, egenverdier/potensrekker ut) hviler på ett årskull (tre V2025-sett) og må reverifiseres mot første framtidige ordinære sett.',
+      'Alle oppgaver, tall og caser i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, føringsstandard) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {
