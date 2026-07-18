@@ -1,0 +1,519 @@
+{
+  "id": "mat1100-1-1",
+  "courseId": "mat1100",
+  "chapterNumber": "1.1",
+  "title": "Komplekse tall: regning, polarform og geometri",
+  "description": "Kartesisk og polar form begge veier med kvadrantdisiplin — ferdigheten som åpner hvert eneste midtveissett.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne med komplekse tall på kartesisk form (addisjon, multiplikasjon, divisjon ved konjugering) og bruke konjugat og modulus trygt",
+    "gå begge veier mellom kartesisk form og polarform med riktig kvadrant og redusert argument",
+    "bruke Eulers formel og regne med multiplikasjon og divisjon i polarform",
+    "kjenne igjen og skissere geometriske mengder i det komplekse planet (sirkel, skive, midtnormal, halvplan, ringområde)"
+  ],
+  "content": [
+    {
+      "id": "mat1100-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Komplekse tall er det mest testede enkelttemaet i hele MAT1100.** På midtveiseksamen (flervalg i oktober, 1/3 av karakteren) er komplekse tall alene **30 % av spørsmålene** — 138 spørsmål talt opp i H2012–H2018 — og settet *åpner alltid* med to polarform-spørsmål (begge veier). På slutteksamen inngår de i **sjanger G** i 10 av 21 sett.\n\nEt par ord om kodene du vil møte i boka:\n\n- **Sjanger G** er MAT1100-arkivets navn på komplekse tall-oppgavene på slutteksamen (begrunnet langsvar med full føring).\n- **Midtveis, flervalg (MV)** er oktoberprøven: fem svaralternativer, ingen gjettestraff, ca. 6 minutter per spørsmål. Feilalternativene er ikke tilfeldige — de er bygget på de vanligste regnefeilene (feil kvadrant, glemt rot i modulus, uredusert vinkel). Derfor er tempo og presisjon alt her.\n\nDette kapitlet bygger *regneferdigheten* som åpner hvert midtveissett: kartesisk regning, polarform begge veier med kvadrantdisiplin, og geometriske mengder i planet. Alt skal sitte raskt.\n\n*Frekvenstallene er talt opp i MAT1100-arkivet (21 slutteksamener H2003–H2023, 16 midtveiseksamener H2003–H2018). Arkivet stopper i 2023 — nyere sett kan ha justert bildet.*"
+    },
+    {
+      "id": "mat1100-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er bokas første kapittel, så alt bygges opp fra grunnen. Du trenger likevel to ting fra videregående friskt i minne:\n\n- **Andregradslikninger:** [ABC-formelen](/bok/1t/1t-2-3) og [Fullstendig kvadrat](/bok/1t/1t-2-4) — vi bruker dem straks vi løser komplekse likninger (kap. 1.3), og fullstendig kvadrat forklarer hvorfor $\\sqrt{-1}$ dukker opp.\n- **Vinkler og eksakte verdier:** [Enhetssirkelen og trigonometriske definisjoner](/bok/r2/r2-4-2) og [Radianer og vinkelmål](/bok/r2/r2-4-1). Polarform er ren enhetssirkel-tenkning: et komplekst tall er et punkt, og argumentet er vinkelen til punktet. Kan du at $\\cos(\\pi/4)=\\sin(\\pi/4)=\\tfrac{\\sqrt2}{2}$ og hvor $\\pi/2$, $\\pi$, $3\\pi/2$ ligger, er du klar.\n\nAlt annet — hva $i$ er, hvordan vi regner — bygger vi her."
+    },
+    {
+      "id": "mat1100-1-1-intro",
+      "type": "text",
+      "content": "Da du lærte andregradslikninger, møtte du likninger som $x^2 = -1$ og fikk beskjed om at «de har ingen løsning». Det stemmer så lenge vi holder oss til de reelle tallene. Men matematikere fant tidlig ut at hvis vi *later som* det finnes et tall $i$ med $i^2 = -1$ og regner videre etter vanlige regler, får vi et tallsystem som er både konsistent og enormt nyttig — de **komplekse tallene** $\\mathbb{C}$.\n\nTenk på et komplekst tall som et *punkt i et plan* (akkurat som et koordinatpar): den reelle delen langs den vannrette aksen, den imaginære langs den loddrette. Da blir all regning geometri, og geometrien er nøkkelen til de årvisse midtveisspørsmålene.\n\nKapitlet er fire korte **læringsløkker** — teori, gjennomregnet eksempel, så oppgaver du løser før du går videre:\n\n1. Kartesisk regning: $+$, $-$, $\\times$, $\\div$ og konjugat (**~12 min**)\n2. Polarform begge veier med kvadrantdisiplin (**~18 min** — kjernen i kapitlet)\n3. Eulers formel (**~8 min**)\n4. Geometriske mengder i planet (**~12 min**)\n\nSamlet lesetid er ~50 min; regner du for hånd, gang med ca. 1,5. Ta gjerne pause mellom løkke 2 og 3."
+    },
+    {
+      "id": "mat1100-1-1-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Kartesisk regning (~12 min)"
+    },
+    {
+      "id": "mat1100-1-1-def-komplekst-tall",
+      "type": "definition",
+      "title": "Komplekst tall og imaginærenheten",
+      "content": "Et **komplekst tall** er et tall vi kan skrive som en reell del pluss en imaginær del. Formelt: vi innfører **imaginærenheten** $i$ definert ved\n$$i^2 = -1,$$\nog et komplekst tall er da et uttrykk $z = a + bi$ der $a$ og $b$ er reelle tall. Mengden av alle slike tall kalles $\\mathbb{C}$. De reelle tallene er med som spesialtilfellet $b = 0$. Denne skrivemåten $a + bi$ heter **kartesisk form** (eller normalform)."
+    },
+    {
+      "id": "mat1100-1-1-def-real-imag",
+      "type": "definition",
+      "title": "Realdel og imaginærdel",
+      "content": "For $z = a + bi$ kaller vi $a$ **realdelen** og $b$ **imaginærdelen**:\n$$\\operatorname{Re}(z) = a, \\qquad \\operatorname{Im}(z) = b.$$\nMerk at imaginærdelen $\\operatorname{Im}(z) = b$ er et *reelt* tall — det er tallet foran $i$, ikke $bi$. Er $a = 0$ (og $b \\ne 0$), kalles $z$ **rent imaginært**; er $b = 0$, er $z$ reelt."
+    },
+    {
+      "id": "mat1100-1-1-l1-addsub",
+      "type": "text",
+      "content": "**Addisjon og subtraksjon** gjøres ledd for ledd — reell del for seg, imaginær del for seg, akkurat som å legge sammen vektorer:\n$$(a+bi) + (c+di) = (a+c) + (b+d)i.$$\n**Multiplikasjon** følger vanlig parentesregning, du bruker bare $i^2 = -1$ til slutt:\n$$(a+bi)(c+di) = ac + adi + bci + bd\\,i^2 = (ac - bd) + (ad + bc)i.$$"
+    },
+    {
+      "id": "mat1100-1-1-def-konjugat",
+      "type": "definition",
+      "title": "Konjugat $\\bar{z}$",
+      "content": "Den **konjugerte** til $z = a + bi$ er tallet med motsatt fortegn på imaginærdelen:\n$$\\bar{z} = a - bi.$$\nGeometrisk er $\\bar{z}$ speilingen av $z$ om den reelle aksen. Nøkkelegenskapen — den vi bruker hele tiden — er at et tall ganget med sin konjugerte blir *reelt*:\n$$z\\bar{z} = (a+bi)(a-bi) = a^2 + b^2.$$"
+    },
+    {
+      "id": "mat1100-1-1-def-modulus",
+      "type": "definition",
+      "title": "Modulus $|z|$",
+      "content": "**Modulus** (eller absoluttverdi) til $z = a + bi$ er avstanden fra $z$ til origo i planet:\n$$|z| = \\sqrt{a^2 + b^2}.$$\nDen er alltid et reelt tall $\\ge 0$ — **aldri negativ**. Sammenhengen med konjugatet er $|z|^2 = z\\bar{z}$. Pass på forskjellen på $|z|^2$ (et reelt tall) og $z^2$ (et komplekst tall) — de er ikke det samme."
+    },
+    {
+      "id": "mat1100-1-1-l1-divisjon",
+      "type": "text",
+      "content": "**Divisjon** er trikset der konjugatet virkelig lønner seg. Vi vil ikke ha $i$ i nevneren, så vi **utvider med den konjugerte av nevneren**. Da blir nevneren reell ($z\\bar z = |z|^2$), og resten er kartesisk regning:\n$$\\frac{a+bi}{c+di} = \\frac{(a+bi)(c-di)}{(c+di)(c-di)} = \\frac{(a+bi)(c-di)}{c^2+d^2}.$$"
+    },
+    {
+      "id": "mat1100-1-1-ex-divisjon",
+      "type": "example",
+      "title": "Eksempel 1: Divisjon ved konjugering",
+      "problem": "Skriv $\\dfrac{2+3i}{1-2i}$ på kartesisk form $a+bi$.",
+      "solution": "**Utvid med konjugatet av nevneren**, som er $\\overline{1-2i} = 1+2i$:\n$$\\frac{2+3i}{1-2i} = \\frac{(2+3i)(1+2i)}{(1-2i)(1+2i)}.$$\n\n**Nevneren** blir reell:\n$$(1-2i)(1+2i) = 1^2 + 2^2 = 5.$$\n\n**Telleren** ganges ut ledd for ledd:\n$$(2+3i)(1+2i) = 2 + 4i + 3i + 6i^2 = 2 + 7i - 6 = -4 + 7i.$$\n\nDermed:\n$$\\frac{2+3i}{1-2i} = \\frac{-4+7i}{5} = -\\frac{4}{5} + \\frac{7}{5}i.$$\n\n**Konklusjon:** Realdelen er $-\\tfrac45$ og imaginærdelen $\\tfrac75$, altså $\\boxed{-\\tfrac45 + \\tfrac75 i}$."
+    },
+    {
+      "id": "mat1100-1-1-exc-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger G — grunnleggende kompleks regning, byggeklossen i alle G-oppgaver.) La $z = 3 + 2i$ og $w = 1 - 4i$.\n\n**a)** Regn ut $z + w$.\n\n**b)** Regn ut $zw$.\n\n**c)** Skriv opp $\\bar{z}$ og regn ut $|z|$.",
+        "solution": "**a)** Ledd for ledd: $z + w = (3+1) + (2-4)i = 4 - 2i$.\n\n**b)** Gang ut og bruk $i^2 = -1$:\n$$zw = (3+2i)(1-4i) = 3 - 12i + 2i - 8i^2 = 3 - 10i + 8 = 11 - 10i.$$\n\n**c)** Konjugatet er $\\bar z = 3 - 2i$. Modulus: $|z| = \\sqrt{3^2 + 2^2} = \\sqrt{13}$.\n\n**Svar:** $z+w = 4-2i$, $\\;zw = 11-10i$, $\\;\\bar z = 3-2i$, $\\;|z| = \\sqrt{13}$.",
+        "hints": [
+          "Legg sammen realdeler for seg og imaginærdeler for seg.",
+          "I produktet: husk $i^2=-1$ til slutt.",
+          "$|z|=\\sqrt{a^2+b^2}$ — alltid rot, aldri negativt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-exc-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger G — divisjon ved konjugering.) Skriv $\\dfrac{5}{2+i}$ på formen $a + bi$.",
+        "solution": "**Utvid med konjugatet av nevneren**, $\\overline{2+i} = 2-i$:\n$$\\frac{5}{2+i} = \\frac{5(2-i)}{(2+i)(2-i)}.$$\n\n**Nevneren:** $(2+i)(2-i) = 2^2 + 1^2 = 5$.\n\n**Telleren:** $5(2-i) = 10 - 5i$.\n\nDermed $\\dfrac{5}{2+i} = \\dfrac{10-5i}{5} = 2 - i$.\n\n**Konklusjon:** $\\dfrac{5}{2+i} = \\boxed{2 - i}$.",
+        "hints": [
+          "Gang teller og nevner med den konjugerte av nevneren.",
+          "Nevneren blir $c^2+d^2$, et reelt tall."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Polarform begge veier (~18 min)"
+    },
+    {
+      "id": "mat1100-1-1-l2-intro",
+      "type": "text",
+      "content": "Dette er kapitlets kjerne og det som åpner hvert midtveissett. Idéen: i stedet for å beskrive punktet $z$ med koordinatene $(a, b)$, beskriver vi det med **avstanden til origo** ($r = |z|$) og **vinkelen** det danner med den positive reelle aksen ($\\theta$). Da blir potenser og røtter (kap. 1.2) nesten gratis.\n\n**Gyllen regel (fasitpraksis):** *tegn alltid punktet i planet før du fastsetter argumentet.* Kvadranten forteller deg hvilken vinkel som er riktig — en blind $\\arctan$ på lommeregneren gir ofte feil kvadrant. Dette er den enkeltfeilen som koster flest midtveispoeng."
+    },
+    {
+      "id": "mat1100-1-1-def-argument",
+      "type": "definition",
+      "title": "Argument $\\arg(z)$",
+      "content": "**Argumentet** til $z \\ne 0$ er vinkelen $\\theta$ (målt mot klokka fra den positive reelle aksen) til punktet $z$ i planet. Det er bestemt bare opp til hele omdreininger, så vi skriver $\\arg(z) = \\theta + 2k\\pi$ for heltall $k$. Det entydige argumentet i intervallet $(-\\pi, \\pi]$ (noen bruker $[0, 2\\pi)$) kalles **hovedargumentet** $\\operatorname{Arg}(z)$. Sammenhengen med koordinatene: $\\tan\\theta = b/a$ — men *kvadranten avgjør hvilken av de to vinkelløsningene som gjelder*."
+    },
+    {
+      "id": "mat1100-1-1-def-polarform",
+      "type": "definition",
+      "title": "Polarform $re^{i\\theta}$",
+      "content": "**Polarformen** til et komplekst tall $z$ med modulus $r = |z|$ og argument $\\theta$ er\n$$z = re^{i\\theta} = r(\\cos\\theta + i\\sin\\theta).$$\nHer er $r \\ge 0$ avstanden til origo og $\\theta$ vinkelen. Formen $r(\\cos\\theta + i\\sin\\theta)$ og eksponentialformen $re^{i\\theta}$ betyr nøyaktig det samme (se Eulers formel, løkke 3). Polarform gjør multiplikasjon, potenser og røtter enkelt fordi *modulusene ganges og argumentene legges sammen*."
+    },
+    {
+      "id": "mat1100-1-1-warn-argument",
+      "type": "warning",
+      "title": "Argumentkonvensjon — les én gang",
+      "content": "Argumentet er bare bestemt opp til $2\\pi$. To vaner sparer deg for feil gjennom hele boka:\n\n- **Reduser alltid mod $2\\pi$** (legg til/trekk fra hele $2\\pi$ til du lander i standardintervallet). $\\theta = 9\\pi/4$ og $\\theta = \\pi/4$ er samme retning.\n- **Modulus er aldri negativ.** Ser du «$r = -2$», er noe galt — flytt minustegnet inn som en vinkel på $\\pi$ i stedet: $-2 = 2e^{i\\pi}$.\n\nVi bruker hovedargument i $(-\\pi, \\pi]$ når vi må velge ett, men oppgir gjerne svar med den vinkelen som er lettest å lese (f.eks. $3\\pi/4$)."
+    },
+    {
+      "id": "mat1100-1-1-l2-kart-til-polar",
+      "type": "text",
+      "content": "### Fra kartesisk til polar\n\nOppskrift (gjelder alltid):\n\n1. **Tegn punktet** $z = a + bi$ og noter hvilken kvadrant det ligger i.\n2. **Finn modulus:** $r = \\sqrt{a^2 + b^2}$.\n3. **Finn argument:** bruk $\\tan\\theta = b/a$ *sammen med kvadranten* fra steg 1 for å velge riktig $\\theta$.\n4. Skriv $z = re^{i\\theta}$."
+    },
+    {
+      "id": "mat1100-1-1-ex-kart-polar",
+      "type": "example",
+      "title": "Eksempel 2: Kartesisk til polar med kvadrantdisiplin",
+      "problem": "Skriv $z = -2 + 2i$ på polarform.",
+      "solution": "**Steg 1 — tegn punktet.** Realdelen er $-2$ (til venstre), imaginærdelen $+2$ (opp), så $z$ ligger i **andre kvadrant**.\n\n**Steg 2 — modulus:**\n$$r = \\sqrt{(-2)^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}.$$\n\n**Steg 3 — argument.** Referansevinkelen fra $\\tan\\theta = |b|/|a| = 2/2 = 1$ er $\\pi/4$. Men punktet ligger i **andre kvadrant**, så det riktige argumentet er\n$$\\theta = \\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}.$$\n(Hadde vi brukt $\\arctan(2/{-2}) = \\arctan(-1) = -\\pi/4$ blindt, ville vi landet i fjerde kvadrant — feil. Figuren hindrer nettopp dette.)\n\n**Steg 4 — svar:**\n$$z = 2\\sqrt{2}\\,e^{\\,3\\pi i/4} = 2\\sqrt{2}\\left(\\cos\\tfrac{3\\pi}{4} + i\\sin\\tfrac{3\\pi}{4}\\right).$$\n\n**Kontroll:** $2\\sqrt2\\cos\\tfrac{3\\pi}{4} = 2\\sqrt2\\cdot(-\\tfrac{\\sqrt2}{2}) = -2$ og $2\\sqrt2\\sin\\tfrac{3\\pi}{4} = 2$. Stemmer med $z = -2+2i$."
+    },
+    {
+      "id": "mat1100-1-1-img-polarform",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-1-polarform-punkt.svg",
+      "alt": "Det komplekse planet med punktet z = -2 + 2i i andre kvadrant. En blå linje fra origo til punktet viser modulus r = 2 rot 2, og en rød bue viser argumentet theta = 135 grader (3 pi/4) målt fra den positive reelle aksen.",
+      "caption": "$z = -2+2i$ i andre kvadrant: modulus $r = 2\\sqrt2$ (blå), argument $\\theta = 3\\pi/4 = 135^\\circ$ (rød bue). Tegn alltid punktet før du fastsetter argumentet."
+    },
+    {
+      "id": "mat1100-1-1-l2-figur-i-ord",
+      "type": "text",
+      "content": "*Figur i ord:* Punktet ligger oppe til venstre (andre kvadrant), like langt til venstre som opp. Linjen fra origo til punktet har lengde $2\\sqrt2 \\approx 2{,}83$, og den peker $135^\\circ$ mot klokka fra den positive reelle aksen — altså $45^\\circ$ *før* den negative reelle aksen."
+    },
+    {
+      "id": "mat1100-1-1-exc-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — polarform, åpner hvert midtveissett.) Skriv følgende tall på polarform $re^{i\\theta}$, og tegn hvert punkt først.\n\n**a)** $z = 1 + i$.\n\n**b)** $w = -\\sqrt{3} - i$.",
+        "solution": "**a)** Punktet $1+i$ ligger i **første kvadrant**. Modulus: $r = \\sqrt{1^2+1^2} = \\sqrt2$. Referansevinkel $\\tan\\theta = 1/1 = 1 \\Rightarrow \\pi/4$, og i første kvadrant er dette allerede riktig: $\\theta = \\pi/4$.\n$$z = \\sqrt2\\,e^{\\,\\pi i/4}.$$\n\n**b)** Punktet $-\\sqrt3 - i$ ligger i **tredje kvadrant** (begge deler negative). Modulus: $r = \\sqrt{3 + 1} = 2$. Referansevinkel: $\\tan\\theta = |{-1}|/|{-\\sqrt3}| = 1/\\sqrt3 \\Rightarrow \\pi/6$. I tredje kvadrant er argumentet $\\theta = \\pi + \\pi/6 = 7\\pi/6$ (eller like gyldig $-5\\pi/6$).\n$$w = 2\\,e^{\\,7\\pi i/6}.$$\n\n**Svar:** $z = \\sqrt2\\,e^{\\pi i/4}$ og $w = 2\\,e^{7\\pi i/6}$.",
+        "hints": [
+          "Modulus først: $r=\\sqrt{a^2+b^2}$.",
+          "Finn referansevinkelen fra $\\tan\\theta=|b|/|a|$, så juster etter kvadranten.",
+          "Tredje kvadrant: legg $\\pi$ til referansevinkelen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-l2-polar-til-kart",
+      "type": "text",
+      "content": "### Fra polar til kartesisk\n\nDenne veien er ren innsetting: har du $z = re^{i\\theta}$, regner du\n$$a = r\\cos\\theta, \\qquad b = r\\sin\\theta,$$\nog skriver $z = a + bi$. Her lønner det seg å kunne de eksakte verdiene for standardvinklene ($\\pi/6, \\pi/4, \\pi/3, \\pi/2$ osv.)."
+    },
+    {
+      "id": "mat1100-1-1-ex-polar-kart",
+      "type": "example",
+      "title": "Eksempel 3: Polar til kartesisk",
+      "problem": "Skriv $z = 4e^{\\,2\\pi i/3}$ på kartesisk form.",
+      "solution": "**Modulus** $r = 4$, **argument** $\\theta = 2\\pi/3$ (andre kvadrant).\n\n**Realdel:**\n$$a = 4\\cos\\tfrac{2\\pi}{3} = 4\\cdot\\left(-\\tfrac12\\right) = -2.$$\n\n**Imaginærdel:**\n$$b = 4\\sin\\tfrac{2\\pi}{3} = 4\\cdot\\tfrac{\\sqrt3}{2} = 2\\sqrt3.$$\n\n**Konklusjon:** $z = -2 + 2\\sqrt3\\,i$. (Realdelen ble negativ og imaginærdelen positiv, som stemmer med andre kvadrant.)"
+    },
+    {
+      "id": "mat1100-1-1-exc-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — polar til kartesisk.) Skriv $z = 6\\,e^{\\,-\\pi i/6}$ på kartesisk form $a + bi$.",
+        "solution": "Her er $r = 6$ og $\\theta = -\\pi/6$ (fjerde kvadrant: like under den positive reelle aksen).\n\n**Realdel:** $a = 6\\cos(-\\tfrac{\\pi}{6}) = 6\\cdot\\tfrac{\\sqrt3}{2} = 3\\sqrt3.$\n\n**Imaginærdel:** $b = 6\\sin(-\\tfrac{\\pi}{6}) = 6\\cdot(-\\tfrac12) = -3.$\n\n**Konklusjon:** $z = 3\\sqrt3 - 3i$. Positiv realdel og negativ imaginærdel — fjerde kvadrant, som forventet.",
+        "hints": [
+          "Sett inn $a=r\\cos\\theta$, $b=r\\sin\\theta$.",
+          "$\\cos$ er en partallsfunksjon: $\\cos(-\\theta)=\\cos\\theta$; $\\sin(-\\theta)=-\\sin\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Eulers formel (~8 min)"
+    },
+    {
+      "id": "mat1100-1-1-def-euler",
+      "type": "definition",
+      "title": "Eulers formel",
+      "content": "Broen mellom eksponentialform og trigonometrisk form er **Eulers formel**:\n$$e^{i\\theta} = \\cos\\theta + i\\sin\\theta.$$\nDet er derfor $re^{i\\theta}$ og $r(\\cos\\theta + i\\sin\\theta)$ er samme tall. Formelen forklarer også regneregelen for polarform: siden $e^{i\\alpha}\\cdot e^{i\\beta} = e^{i(\\alpha+\\beta)}$, blir\n$$r_1 e^{i\\alpha}\\cdot r_2 e^{i\\beta} = r_1 r_2\\, e^{i(\\alpha+\\beta)}$$\n— *moduluser ganges, argumenter legges sammen*. Spesialtilfellet $\\theta = \\pi$ gir den berømte identiteten $e^{i\\pi} = -1$."
+    },
+    {
+      "id": "mat1100-1-1-ex-euler",
+      "type": "example",
+      "title": "Eksempel 4: Multiplikasjon i polarform",
+      "problem": "Bruk polarform til å regne ut produktet $(1+i)(\\sqrt3 + i)$.",
+      "solution": "**Skriv hver faktor på polarform.**\n\n$1+i$: modulus $\\sqrt2$, argument $\\pi/4$ (første kvadrant). Altså $\\sqrt2\\,e^{\\pi i/4}$.\n\n$\\sqrt3 + i$: modulus $\\sqrt{3+1}=2$, referansevinkel $\\tan\\theta = 1/\\sqrt3 \\Rightarrow \\pi/6$, første kvadrant. Altså $2\\,e^{\\pi i/6}$.\n\n**Gang modulusene, legg sammen argumentene:**\n$$(1+i)(\\sqrt3+i) = \\sqrt2\\cdot 2\\; e^{\\,i(\\pi/4 + \\pi/6)} = 2\\sqrt2\\, e^{\\,5\\pi i/12}.$$\n(Her er $\\pi/4 + \\pi/6 = 3\\pi/12 + 2\\pi/12 = 5\\pi/12$.)\n\n**Kontroll ved direkte utregning:** $(1+i)(\\sqrt3+i) = \\sqrt3 + i + \\sqrt3\\,i + i^2 = (\\sqrt3 - 1) + (\\sqrt3+1)i$. Modulus av dette er $\\sqrt{(\\sqrt3-1)^2 + (\\sqrt3+1)^2} = \\sqrt{(4-2\\sqrt3)+(4+2\\sqrt3)} = \\sqrt8 = 2\\sqrt2$ — stemmer med modulusen over.\n\n**Konklusjon:** $(1+i)(\\sqrt3+i) = 2\\sqrt2\\,e^{\\,5\\pi i/12}$."
+    },
+    {
+      "id": "mat1100-1-1-exc-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — Eulers formel og regning i polarform.)\n\n**a)** Bruk $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ til å skrive $3e^{\\,i\\pi}$ og $2e^{\\,i\\pi/2}$ på kartesisk form.\n\n**b)** Regn ut $\\dfrac{4e^{\\,i\\,2\\pi/3}}{2e^{\\,i\\,\\pi/6}}$ og skriv svaret på polarform.",
+        "solution": "**a)** $3e^{i\\pi} = 3(\\cos\\pi + i\\sin\\pi) = 3(-1 + 0i) = -3$. Og $2e^{i\\pi/2} = 2(\\cos\\tfrac{\\pi}{2} + i\\sin\\tfrac{\\pi}{2}) = 2(0 + i) = 2i$.\n\n**b)** Ved divisjon *deles modulusene og argumentene trekkes fra*:\n$$\\frac{4e^{i\\,2\\pi/3}}{2e^{i\\,\\pi/6}} = \\frac{4}{2}\\,e^{\\,i(2\\pi/3 - \\pi/6)} = 2\\,e^{\\,i(4\\pi/6 - \\pi/6)} = 2\\,e^{\\,i\\,\\pi/2}.$$\n\n**Svar:** (a) $-3$ og $2i$; (b) $2e^{i\\pi/2}$ (som er $2i$).",
+        "hints": [
+          "Sett $\\theta=\\pi$ og $\\theta=\\pi/2$ inn i Eulers formel.",
+          "Ved divisjon: del modulusene, trekk argumentene fra hverandre."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-lokke4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Geometriske mengder i planet (~12 min)"
+    },
+    {
+      "id": "mat1100-1-1-l4-intro",
+      "type": "text",
+      "content": "Det siste midtveisspørsmålet om komplekse tall er ofte en **mengde**: «skisser alle $z$ som oppfyller ...». Nøkkelen er å lese $|z - a|$ som *avstanden fra $z$ til punktet $a$*. Da oversetter hver betingelse seg til en kjent geometrisk figur."
+    },
+    {
+      "id": "mat1100-1-1-def-sirkel",
+      "type": "definition",
+      "title": "Sirkel $|z-a| = r$",
+      "content": "Likningen $|z - a| = r$ (med $r > 0$) beskriver alle punkter med **avstand nøyaktig $r$ til $a$** — altså en **sirkel** med sentrum i $a$ og radius $r$. Spesialtilfellet $|z| = r$ er en sirkel om origo; $|z| = 1$ er **enhetssirkelen**."
+    },
+    {
+      "id": "mat1100-1-1-def-skive",
+      "type": "definition",
+      "title": "Åpen skive $|z-a| < r$",
+      "content": "Ulikheten $|z - a| < r$ beskriver alle punkter med **avstand mindre enn $r$ til $a$** — det **indre** av sirkelen, en **åpen skive**. «Åpen» betyr at randsirkelen $|z-a| = r$ *ikke* er med (tegnes stiplet). Med $\\le$ er randen med (**lukket** skive, heltrukken rand). Motsatt vei gir $|z - a| > r$ alt utenfor."
+    },
+    {
+      "id": "mat1100-1-1-def-midtnormal",
+      "type": "definition",
+      "title": "Midtnormal $|z-a| = |z-b|$",
+      "content": "Likningen $|z - a| = |z - b|$ beskriver alle punkter som ligger **like langt fra $a$ som fra $b$**. Det er nøyaktig **midtnormalen** til linjestykket mellom $a$ og $b$ (den rette linjen som står vinkelrett på $ab$ gjennom midtpunktet)."
+    },
+    {
+      "id": "mat1100-1-1-def-halvplan",
+      "type": "definition",
+      "title": "Halvplan (Re/Im-betingelse)",
+      "content": "Betingelser på realdel eller imaginærdel gir **halvplan**. For eksempel er $\\operatorname{Re}(z) > 0$ hele høyre halvplan, $\\operatorname{Im}(z) \\le 1$ alt på eller under den vannrette linjen $b = 1$. Randen (den loddrette/vannrette linjen) er med ved $\\ge/\\le$, ikke med ved $>/<$."
+    },
+    {
+      "id": "mat1100-1-1-def-annulus",
+      "type": "definition",
+      "title": "Ringområde (annulus)",
+      "content": "En **dobbelt** avstandsbetingelse som $r_1 < |z - a| \\le r_2$ beskriver et **ringområde** (annulus): alt mellom to konsentriske sirkler om $a$. Den indre randen ($|z-a| = r_1$) er med bare dersom ulikheten der er $\\le$; den ytre ($|z-a| = r_2$) tilsvarende. Tegn med og uten som heltrukken/stiplet sirkel."
+    },
+    {
+      "id": "mat1100-1-1-ex-mengde",
+      "type": "example",
+      "title": "Eksempel 5: Skisser en mengde",
+      "problem": "Skisser mengden av alle $z$ med $1 < |z - i| \\le 2$, og beskriv den med ord.",
+      "solution": "**Les betingelsen som avstand.** $|z - i|$ er avstanden fra $z$ til punktet $i$ (som ligger i $(0,1)$ i planet). Vi vil ha alle punkter hvis avstand til $i$ er *større enn 1* og *høyst 2*.\n\n**Oversett til geometri.** Dette er et **ringområde** med sentrum i $i$:\n- indre grense: sirkelen $|z - i| = 1$ (radius 1) — **ikke med** ($>$, tegnes stiplet),\n- ytre grense: sirkelen $|z - i| = 2$ (radius 2) — **med** ($\\le$, tegnes heltrukken).\n\n**Beskrivelse med ord:** ringen (annulus) mellom to sirkler om $i$; den ytre randsirkelen hører med, den indre ikke."
+    },
+    {
+      "id": "mat1100-1-1-img-annulus",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-1-annulus.svg",
+      "alt": "Det komplekse planet med et ringområde sentrert i punktet i. En stiplet rød indre sirkel med radius 1 (ikke inkludert) og en heltrukken blå ytre sirkel med radius 2 (inkludert). Området mellom sirklene er skyggelagt.",
+      "caption": "Ringområdet $1 < |z-i| \\le 2$: sentrum i $i$, indre sirkel (radius 1) stiplet fordi den er ekskludert, ytre sirkel (radius 2) heltrukken fordi den er med."
+    },
+    {
+      "id": "mat1100-1-1-exc-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — geometrisk mengde, det avsluttende midtveisspørsmålet.) Beskriv med ord hvilken geometrisk figur hver mengde er, og angi om randen er med.\n\n**a)** $|z - 3| = 2$.\n\n**b)** $\\operatorname{Re}(z) \\ge 1$.\n\n**c)** $|z + 2i| < 3$.",
+        "solution": "**a)** $|z - 3|$ er avstanden til punktet $3$ (på den reelle aksen). $|z-3| = 2$ er derfor **sirkelen** med sentrum i $3$ og radius $2$. Randen *er* figuren (en likhet), så den er med.\n\n**b)** $\\operatorname{Re}(z) \\ge 1$ er **halvplanet** til høyre for den loddrette linjen $\\operatorname{Re}(z) = 1$, medregnet linjen selv (fordi $\\ge$).\n\n**c)** $|z + 2i| = |z - (-2i)|$ er avstanden til punktet $-2i$. $< 3$ gir den **åpne skiven** med sentrum i $-2i$ og radius $3$ — randsirkelen er *ikke* med (stiplet).\n\n**Svar:** (a) sirkel, sentrum $3$, radius $2$, rand med; (b) lukket høyre halvplan fra linjen $\\operatorname{Re}(z)=1$; (c) åpen skive, sentrum $-2i$, radius $3$, rand ikke med.",
+        "hints": [
+          "Les $|z-a|$ som «avstanden fra $z$ til $a$».",
+          "$|z+2i| = |z-(-2i)|$ — sentrum er $-2i$, ikke $2i$.",
+          "$<$/$>$ gir åpen (stiplet) rand; $\\le$/$\\ge$/$=$ gir rand med."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-exc-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G, eksamensklone.) Betrakt mengden $M = \\{\\, z \\in \\mathbb{C} : |z - 1| = |z + i| \\,\\}$.\n\n**a)** Vis ved regning at $M$ er en rett linje, og finn likningen for linjen i planet ($x, y$-koordinater).\n\n**b)** Hvilket kjent geometrisk begrep er $M$ i forhold til punktene $1$ og $-i$?",
+        "solution": "**a)** Skriv $z = x + iy$. Da er\n$$|z - 1| = |(x-1) + iy| = \\sqrt{(x-1)^2 + y^2}, \\qquad |z + i| = |x + (y+1)i| = \\sqrt{x^2 + (y+1)^2}.$$\nSett dem like og kvadrer begge sider (begge er $\\ge 0$, så det er lov):\n$$(x-1)^2 + y^2 = x^2 + (y+1)^2.$$\nGang ut ledd for ledd:\n$$x^2 - 2x + 1 + y^2 = x^2 + y^2 + 2y + 1.$$\nTrekk $x^2 + y^2 + 1$ fra på begge sider:\n$$-2x = 2y \\;\\Longrightarrow\\; y = -x.$$\n**Konklusjon:** $M$ er den rette linjen $y = -x$.\n\n**b)** Betingelsen $|z-1| = |z+i|$ sier at $z$ ligger like langt fra $1$ (punktet $(1,0)$) som fra $-i$ (punktet $(0,-1)$). Derfor er $M$ **midtnormalen** til linjestykket mellom $1$ og $-i$. (Kontroll: midtpunktet $(\\tfrac12, -\\tfrac12)$ ligger på $y = -x$, og linjen står vinkelrett på retningen fra $(1,0)$ til $(0,-1)$.)",
+        "hints": [
+          "Sett $z=x+iy$ og skriv begge modulusene som kvadratrøtter.",
+          "Kvadrer begge sider for å bli kvitt røttene; $x^2$ og $y^2$ stryker.",
+          "$|z-a|=|z-b|$ = punkter like langt fra $a$ og $b$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-exc-hard",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-1-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G, eksamensklone — kombinerer polarform og geometri.) La $z = -1 - \\sqrt3\\, i$.\n\n**a)** Skriv $z$ på polarform (tegn punktet først).\n\n**b)** Regn ut $|z|^2$ og $z\\bar z$, og forklar hvorfor de er like.\n\n**c)** Ligger $z$ inne i, på, eller utenfor sirkelen $|w| = 2$?",
+        "solution": "**a)** Punktet $-1 - \\sqrt3\\,i$ har negativ realdel og negativ imaginærdel → **tredje kvadrant**. Modulus:\n$$r = \\sqrt{(-1)^2 + (-\\sqrt3)^2} = \\sqrt{1 + 3} = 2.$$\nReferansevinkel: $\\tan\\theta = \\sqrt3/1 \\Rightarrow \\pi/3$. I tredje kvadrant blir argumentet $\\theta = \\pi + \\pi/3 = 4\\pi/3$ (eller $-2\\pi/3$). Altså\n$$z = 2\\,e^{\\,4\\pi i/3}.$$\n\n**b)** $|z|^2 = 2^2 = 4$. Og $z\\bar z = (-1-\\sqrt3 i)(-1+\\sqrt3 i) = (-1)^2 - (\\sqrt3 i)^2 = 1 - 3i^2 = 1 + 3 = 4$. De er like fordi $z\\bar z = a^2 + b^2 = |z|^2$ per definisjon av modulus — konjugatproduktet *er* modulus i annen.\n\n**c)** Siden $|z| = 2$ er nøyaktig lik radien, ligger $z$ **på** sirkelen $|w| = 2$.\n\n**Svar:** (a) $2e^{4\\pi i/3}$; (b) begge er $4$, fordi $z\\bar z = |z|^2$; (c) på sirkelen.",
+        "hints": [
+          "Tredje kvadrant: begge koordinater negative — legg $\\pi$ til referansevinkelen.",
+          "$z\\bar z = a^2+b^2$; sammenlign med $|z|^2$.",
+          "Sammenlign $|z|$ med radien 2."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Dette er feilene midtveis-distraktorene er bygget for å fange. Kjenn dem igjen:\n\n- **Argument i feil kvadrant.** $\\arctan(b/a)$ på lommeregneren gir bare en vinkel i $(-\\pi/2, \\pi/2)$ — den bryr seg ikke om kvadranten. *Tegn punktet først*, så velger du riktig av de to kandidatvinklene.\n- **Negativ modulus godtatt.** $|z| \\ge 0$ alltid. Får du «$r = -3$», flytt fortegnet inn som en vinkel: $-3 = 3e^{i\\pi}$.\n- **Vinkel ikke redusert mod $2\\pi$.** $\\theta = 11\\pi/4$ skal skrives $3\\pi/4$ (trekk fra $2\\pi$).\n- **Blande $|z|^2$ og $z^2$.** $|z|^2 = a^2+b^2$ er reelt; $z^2 = (a^2-b^2) + 2abi$ er komplekst. De er ikke det samme.\n- **Dividere uten å konjugere.** Ved $\\frac{z}{w}$ må du utvide med $\\bar w$ for å få en reell nevner — ellers står $i$ igjen i nevneren."
+    },
+    {
+      "id": "mat1100-1-1-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i kortform for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-1-1-bb-kartesisk",
+      "type": "definition",
+      "title": "Kartesisk form",
+      "content": "Skrivemåten $z = a + bi$ med reell del $a$ og imaginær del $b$. Kalles også normalform eller rektangulær form. Motstykket er polarform $re^{i\\theta}$."
+    },
+    {
+      "id": "mat1100-1-1-bb-kompleksplan",
+      "type": "definition",
+      "title": "Det komplekse planet (Argand-diagram)",
+      "content": "Planet der $z = a+bi$ tegnes som punktet $(a, b)$: reell del langs den vannrette aksen, imaginær del langs den loddrette. Gjør all kompleks regning geometrisk — addisjon blir vektoraddisjon, modulus blir avstand til origo, argument blir vinkel."
+    },
+    {
+      "id": "mat1100-1-1-bb-sum",
+      "type": "definition",
+      "title": "Sum og differens",
+      "content": "$(a+bi) \\pm (c+di) = (a\\pm c) + (b\\pm d)i$. Regnes ledd for ledd — realdel for seg, imaginærdel for seg — akkurat som vektoraddisjon i planet."
+    },
+    {
+      "id": "mat1100-1-1-bb-produkt",
+      "type": "definition",
+      "title": "Produkt",
+      "content": "$(a+bi)(c+di) = (ac - bd) + (ad + bc)i$. Gang ut som vanlige parenteser og bruk $i^2 = -1$. I polarform: gang modulusene og legg sammen argumentene."
+    },
+    {
+      "id": "mat1100-1-1-bb-divisjon",
+      "type": "definition",
+      "title": "Divisjon (konjugering)",
+      "content": "$\\dfrac{z}{w} = \\dfrac{z\\bar w}{w\\bar w} = \\dfrac{z\\bar w}{|w|^2}$. Utvid med den konjugerte av nevneren for å få reell nevner. I polarform: del modulusene og trekk argumentene fra hverandre."
+    },
+    {
+      "id": "mat1100-1-1-bb-konjugatregler",
+      "type": "definition",
+      "title": "Regneregler for konjugat",
+      "content": "$\\overline{z+w} = \\bar z + \\bar w$, $\\;\\overline{zw} = \\bar z\\,\\bar w$, $\\;\\overline{\\bar z} = z$. Videre: $z + \\bar z = 2\\operatorname{Re}(z)$ og $z - \\bar z = 2i\\operatorname{Im}(z)$. Et tall er reelt nøyaktig når $z = \\bar z$."
+    },
+    {
+      "id": "mat1100-1-1-bb-hovedargument",
+      "type": "definition",
+      "title": "Hovedargument $\\operatorname{Arg}(z)$",
+      "content": "Den entydige verdien av argumentet i intervallet $(-\\pi, \\pi]$ (noen bruker $[0, 2\\pi)$). Alle argumenter er $\\operatorname{Arg}(z) + 2k\\pi$. Brukes når man må velge én bestemt vinkel."
+    },
+    {
+      "id": "mat1100-1-1-bb-reduksjon",
+      "type": "definition",
+      "title": "Reduksjon mod $2\\pi$",
+      "content": "Å legge til eller trekke fra hele multipla av $2\\pi$ til vinkelen ligger i standardintervallet. Siden en full omdreining er $2\\pi$, peker $\\theta$ og $\\theta + 2k\\pi$ i samme retning. Uunnværlig når man regner potenser (kap. 1.2)."
+    },
+    {
+      "id": "mat1100-1-1-bb-modulusregler",
+      "type": "definition",
+      "title": "Modulusregler",
+      "content": "$|zw| = |z|\\,|w|$, $\\;\\left|\\dfrac{z}{w}\\right| = \\dfrac{|z|}{|w|}$, $\\;|z^n| = |z|^n$ og $|\\bar z| = |z|$. Modulus «fordeler seg» over produkt og kvotient — grunnlaget for de Moivre (kap. 1.2)."
+    },
+    {
+      "id": "mat1100-1-1-bb-mod-kvadrat",
+      "type": "definition",
+      "title": "$|z|^2 = z\\bar z$",
+      "content": "Modulus i annen er lik tallet ganget med sin konjugerte: $|z|^2 = z\\bar z = a^2 + b^2$, et reelt tall. Dette er trikset bak divisjon (reell nevner) og bak at $\\tfrac1z = \\tfrac{\\bar z}{|z|^2}$."
+    },
+    {
+      "id": "mat1100-1-1-bb-rent-imaginar",
+      "type": "definition",
+      "title": "Rent imaginært og rent reelt tall",
+      "content": "$z$ er **rent imaginært** når $\\operatorname{Re}(z) = 0$ (ligger på den imaginære aksen), og **rent reelt** når $\\operatorname{Im}(z) = 0$ (ligger på den reelle aksen). $z$ er reelt nøyaktig når $z = \\bar z$, og rent imaginært nøyaktig når $z = -\\bar z$."
+    },
+    {
+      "id": "mat1100-1-1-bb-enhetssirkel",
+      "type": "definition",
+      "title": "Enhetssirkelen $|z| = 1$",
+      "content": "Alle komplekse tall med modulus 1: $z = e^{i\\theta} = \\cos\\theta + i\\sin\\theta$. Disse tallene endrer bare *retning*, ikke størrelse, ved multiplikasjon — å gange med $e^{i\\theta}$ er en rotasjon $\\theta$ om origo."
+    },
+    {
+      "id": "mat1100-1-1-bb-trekantulikhet",
+      "type": "definition",
+      "title": "Trekantulikheten",
+      "content": "$|z + w| \\le |z| + |w|$ for alle komplekse $z, w$. Geometrisk: den korteste veien mellom to punkter er den rette — en «omvei» via to vektorer kan aldri bli kortere enn den direkte avstanden. Likhet nøyaktig når $z$ og $w$ peker samme vei."
+    },
+    {
+      "id": "mat1100-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-1-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbb{C}$ | Mengden av komplekse tall |\n| $i$ | Imaginærenheten, $i^2 = -1$ |\n| $z = a+bi$ | Komplekst tall på kartesisk form |\n| $\\operatorname{Re}(z) = a$ | Realdelen (et reelt tall) |\n| $\\operatorname{Im}(z) = b$ | Imaginærdelen (et reelt tall, uten $i$) |\n| $\\bar z = a-bi$ | Konjugatet — speiling om reell akse |\n| $\\lvert z\\rvert = \\sqrt{a^2+b^2}$ | Modulus — avstand til origo, alltid $\\ge 0$ |\n| $\\arg(z) = \\theta$ | Argumentet — vinkel fra positiv reell akse |\n| $\\operatorname{Arg}(z)$ | Hovedargument i $(-\\pi,\\pi]$ |\n| $re^{i\\theta}$ | Polarform: modulus $r$, argument $\\theta$ |\n| $\\operatorname{Re}(z)\\gtrless c$ | Halvplan-betingelse |\n| $\\lvert z-a\\rvert$ | Avstanden fra $z$ til punktet $a$ |\n\n**Formler i dette delkapitlet:**\n\n$$z = a + bi, \\qquad i^2 = -1$$\nKomplekst tall på kartesisk form; imaginærenheten.\n\n$$(a+bi)(c+di) = (ac-bd) + (ad+bc)i$$\nProdukt — gang ut og bruk $i^2=-1$.\n\n$$\\bar z = a - bi, \\qquad z\\bar z = a^2 + b^2 = |z|^2$$\nKonjugat og sammenhengen med modulus.\n\n$$\\frac{z}{w} = \\frac{z\\bar w}{|w|^2}$$\nDivisjon: utvid med konjugatet av nevneren.\n\n$$|z| = \\sqrt{a^2 + b^2}$$\nModulus — avstanden til origo.\n\n$$z = re^{i\\theta} = r(\\cos\\theta + i\\sin\\theta)$$\nPolarform; $r=|z|$, $\\theta = \\arg z$.\n\n$$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$$\nEulers formel — broen mellom eksponential- og trigonometrisk form.\n\n$$r_1 e^{i\\alpha}\\cdot r_2 e^{i\\beta} = r_1 r_2\\,e^{i(\\alpha+\\beta)}$$\nMultiplikasjon i polarform: gang modulus, legg sammen argument.\n\n$$|z - a| = r,\\quad |z-a| < r,\\quad |z-a|=|z-b|$$\nSirkel, åpen skive og midtnormal — de geometriske mengdene i planet."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-1-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-1-rep-oppg-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Enhetssirkelen (r2)](/bok/r2/r2-4-2)) Skriv opp de eksakte verdiene av $\\cos\\theta$ og $\\sin\\theta$ for $\\theta = \\tfrac{\\pi}{4}$, $\\tfrac{\\pi}{2}$ og $\\pi$.",
+            "solution": "$\\cos\\tfrac{\\pi}{4} = \\sin\\tfrac{\\pi}{4} = \\tfrac{\\sqrt2}{2}$. $\\;\\cos\\tfrac{\\pi}{2} = 0$, $\\sin\\tfrac{\\pi}{2} = 1$. $\\;\\cos\\pi = -1$, $\\sin\\pi = 0$. Disse trengs når du går mellom polar og kartesisk form.",
+            "hints": [
+              "Tenk på enhetssirkelen: $(\\cos\\theta,\\sin\\theta)$ er punktet på sirkelen ved vinkel $\\theta$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-1-rep-oppg-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Radianer og vinkelmål (r2)](/bok/r2/r2-4-1)) Gjør om $135^\\circ$ og $210^\\circ$ til radianer.",
+            "solution": "Bruk $180^\\circ = \\pi$. $135^\\circ = 135\\cdot\\tfrac{\\pi}{180} = \\tfrac{3\\pi}{4}$. $\\;210^\\circ = 210\\cdot\\tfrac{\\pi}{180} = \\tfrac{7\\pi}{6}$. Dette er nettopp argumentene til $-2+2i$ og $-\\sqrt3 - i$ fra kapitlet.",
+            "hints": [
+              "Multipliser gradtallet med $\\pi/180$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-1-rep-oppg-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [ABC-formelen (1t)](/bok/1t/1t-2-3)) Løs $x^2 - 4x + 3 = 0$ med abc-formelen.",
+            "solution": "$x = \\dfrac{4 \\pm \\sqrt{16 - 12}}{2} = \\dfrac{4 \\pm 2}{2}$, altså $x = 3$ eller $x = 1$. (Her er diskriminanten positiv; i kap. 1.3 møter vi negativ diskriminant, som gir komplekse røtter.)",
+            "hints": [
+              "$x=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}$ med $a=1,b=-4,c=3$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-1-rep-oppg-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Fullstendig kvadrat (1t)](/bok/1t/1t-2-4)) Skriv $x^2 + 6x + 13$ på formen $(x + p)^2 + q$. Hva forteller $q > 0$ deg om reelle nullpunkter?",
+            "solution": "$x^2 + 6x + 13 = (x+3)^2 - 9 + 13 = (x+3)^2 + 4$. Siden $(x+3)^2 \\ge 0$, er uttrykket alltid $\\ge 4 > 0$ — det har **ingen reelle nullpunkter**. (Det har derimot to komplekse, som vi finner i kap. 1.3.)",
+            "hints": [
+              "Halver koeffisienten foran $x$: $6/2 = 3$, så $(x+3)^2$.",
+              "Juster konstantleddet: $(x+3)^2 = x^2+6x+9$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

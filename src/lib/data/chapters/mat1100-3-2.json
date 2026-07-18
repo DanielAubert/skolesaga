@@ -1,0 +1,428 @@
+{
+  "id": "mat1100-3-2",
+  "courseId": "mat1100",
+  "chapterNumber": "3.2",
+  "title": "Derivasjonsteknikk: kjerneregel-tårn, logaritmisk derivasjon og invers funksjon",
+  "description": "Regneferdigheten bak 14 % av midtveis: dype kjerneregel-sammensetninger, logaritmisk derivasjon og den årvisse «derivert av omvendt funksjon i punkt».",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "derivere dype kjerneregel-sammensetninger i flere lag systematisk utenfra og inn",
+    "utlede og bruke de deriverte av arcsin, arccos og arctan",
+    "bruke logaritmisk derivasjon på uttrykk av typen $f(x)^{g(x)}$",
+    "finne den deriverte av en omvendt funksjon i et punkt med $(f^{-1})'(b)=1/f'(a)$ ved å finne $a$ først"
+  ],
+  "content": [
+    {
+      "id": "mat1100-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er regnetreningskapitlet: 14 % av midtveiseksamen er ren derivasjonsteknikk.**\n\n- **Derivasjonsteknikk** = **14 % av midtveisspørsmålene**: dype kjerneregel-sammensetninger, logaritmisk derivasjon og — nesten hvert år — **derivert av omvendt funksjon i et punkt**.\n- **Inverse funksjoner og definisjonsmengder** er ytterligere ~4 % av midtveis.\n- Teknikken her bærer dessuten funksjonsdrøfting, relaterte rater og fundamentalteorem-oppgavene på slutteksamen.\n\nKoder jeg bruker: **(Midtveis, flervalg)** = midtveisformatet, ~6 min per spørsmål. **(Eksamenssjanger K/M/J)** dukker opp senere; her er teknikken verktøyet de bygger på.\n\n**Den årvisse fella å passe på:** for $(f^{-1})'(b)$ skal du dele på $f'(a)$ der $f(a)=b$ — *ikke* på $f'(b)$. Oppskriften «finn $a$ først» er hele nøkkelen, og vi driller den i løkke 4.\n\n*Dette kapitlet tar ~55 minutter å lese. Det er delt i fem løkker med tidsanslag — du kan trygt ta en pause mellom løkkene.*"
+    },
+    {
+      "id": "mat1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet forutsetter grensedefinisjonen fra **[kap. 3.1](/bok/mat1100/mat1100-3-1)** (så du vet *hvorfor* reglene gjelder) og hele regelbanken fra videregående: [Kjerneregelen](/bok/r1/r1-4-3), [Produktregelen og kvotientregelen](/bok/r1/r1-4-4), [Derivasjon av omvendte funksjoner](/bok/r1/r1-4-5), [Omvendte funksjoner](/bok/r1/r1-2-2) og [Derivasjon av trigonometriske funksjoner](/bok/r2/r2-4-9).\n\n**Sist du var her (oppfriskning):** kjerneregelen sier $(f\\circ g)'(x)=f'(g(x))\\cdot g'(x)$ — deriver ytre funksjon, behold den indre, gang med den indres deriverte. Produktregelen: $(uv)'=u'v+uv'$. Disse er de to arbeidshestene i hele kapitlet."
+    },
+    {
+      "id": "mat1100-3-2-intro",
+      "type": "text",
+      "content": "På videregående lærte du derivasjonsreglene. På universitetet får du bruk for dem i tyngre kombinasjoner — funksjoner pakket inn i hverandre i tre–fire lag, uttrykk med variabel både i grunntall og eksponent, og omvendte funksjoner du bare kjenner gjennom likningen de løser. Alt løses med de samme reglene, men systematisk.\n\nHverdagsankeret for kjerneregelen: tenk deg tannhjul. Et lite hjul driver et større, som driver et enda større. Endrer du farten på det innerste, forplanter effekten seg utover — ganget opp for hvert hjul. Kjerneregelen er akkurat denne kjeden av «gang med».\n\nKapitlet har fem løkker: (1) regelbanken og kjerneregel-tårn, (2) de inverse trigonometriske funksjonene, (3) logaritmisk derivasjon, (4) derivert av omvendt funksjon i et punkt, (5) implisitt derivasjon og andrederiverte. Hver løkke: teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Regelbanken og kjerneregel-tårn (~12 min)"
+    },
+    {
+      "id": "mat1100-3-2-def-kjerneregel",
+      "type": "definition",
+      "title": "Kjerneregelen",
+      "content": "Regelen for å derivere en funksjon pakket inne i en annen (en *sammensetning*). Er $y=f(g(x))$, så er\n\n$$\\frac{dy}{dx}=f'(g(x))\\cdot g'(x).$$\n\nI ord: deriver den **ytre** funksjonen (behold den indre urørt), og gang med den **indres** deriverte. Kjerneregelen er den mest brukte regelen på hele eksamen — nesten hvert sammensatt uttrykk trenger den."
+    },
+    {
+      "id": "mat1100-3-2-def-produktregel",
+      "type": "definition",
+      "title": "Produktregelen",
+      "content": "For et produkt av to funksjoner: $(u\\cdot v)'=u'v+uv'$. Deriver den første og behold den andre, pluss behold den første og deriver den andre. Utvides til tre faktorer ledd for ledd: $(uvw)'=u'vw+uv'w+uvw'$."
+    },
+    {
+      "id": "mat1100-3-2-def-kvotientregel",
+      "type": "definition",
+      "title": "Kvotientregelen",
+      "content": "For en brøk: $\\left(\\dfrac{u}{v}\\right)'=\\dfrac{u'v-uv'}{v^2}$. Merk rekkefølgen i telleren (deriver-teller ganger nevner *minus* teller ganger deriver-nevner) og fortegnet — bytter du om, får du feil fortegn. Nevneren kvadreres alltid."
+    },
+    {
+      "id": "mat1100-3-2-tarn-tekst",
+      "type": "text",
+      "content": "### Kjerneregel-tårn — utenfra og inn\n\nNår funksjonen er sammensatt i flere lag, $f(g(h(x)))$, deriverer du **ett lag om gangen, utenfra og inn**, og ganger sammen alle lagene:\n\n$$\\frac{d}{dx}f(g(h(x)))=f'(g(h(x)))\\cdot g'(h(x))\\cdot h'(x).$$\n\nStrategi: identifiser lagene før du starter (ytterst, mellom, innerst), deriver det ytterste med de to indre urørt, så det mellomste, så det innerste. Den vanligste feilen er å *miste et lag* — en manglende faktor gir feil svar og trekk."
+    },
+    {
+      "id": "mat1100-3-2-ex-tarn",
+      "type": "example",
+      "title": "Eksempel 1: Kjerneregel-tårn i tre lag",
+      "problem": "Deriver $f(x)=\\sin\\!\\big(\\sqrt{x^2+1}\\big)$.",
+      "solution": "Vi identifiserer lagene: ytterst $\\sin(\\cdot)$, i midten $\\sqrt{\\cdot}$, innerst $x^2+1$.\n\n**Lag for lag (utenfra og inn):**\n- Ytre: $\\dfrac{d}{du}\\sin u=\\cos u$, med $u=\\sqrt{x^2+1}$ ⇒ faktor $\\cos\\!\\big(\\sqrt{x^2+1}\\big)$.\n- Mellom: $\\dfrac{d}{dw}\\sqrt{w}=\\dfrac{1}{2\\sqrt{w}}$, med $w=x^2+1$ ⇒ faktor $\\dfrac{1}{2\\sqrt{x^2+1}}$.\n- Innerst: $\\dfrac{d}{dx}(x^2+1)=2x$ ⇒ faktor $2x$.\n\n**Gang sammen:**\n$$f'(x)=\\cos\\!\\big(\\sqrt{x^2+1}\\big)\\cdot\\frac{1}{2\\sqrt{x^2+1}}\\cdot 2x=\\frac{x\\cos\\!\\big(\\sqrt{x^2+1}\\big)}{\\sqrt{x^2+1}}.$$\n\n**Konklusjon:** $\\boxed{f'(x)=\\dfrac{x\\cos\\!\\big(\\sqrt{x^2+1}\\big)}{\\sqrt{x^2+1}}}$. De tre faktorene $2x$ og $2$ i nevneren forkortet mot hverandre."
+    },
+    {
+      "id": "mat1100-3-2-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalgstema — her som langsvar; letteste innstegsoppgave.) Deriver $f(x)=(3x+2)^5$ med kjerneregelen.",
+        "solution": "Ytre funksjon: $u^5$ med $u=3x+2$. Indre: $3x+2$ med derivert $3$.\n$$f'(x)=5(3x+2)^4\\cdot 3=15(3x+2)^4.$$\n**Konklusjon:** $\\boxed{f'(x)=15(3x+2)^4}$. Faktoren $3$ (den indres deriverte) er lett å glemme — det er den kjerneregelen legger til.",
+        "hints": [
+          "Ytre funksjon er «noe opphøyd i 5». Deriver den først, med parentesen urørt.",
+          "Gang så med den deriverte av det som står inni parentesen.",
+          "Den indres deriverte er $(3x+2)'=3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-oppg-tarn3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-tarn3-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg.) Deriver $g(x)=\\ln\\!\\big(\\cos(x^3)\\big)$ ved å behandle tre lag utenfra og inn.",
+        "solution": "Lagene: ytterst $\\ln(\\cdot)$, i midten $\\cos(\\cdot)$, innerst $x^3$.\n- Ytre: $(\\ln u)'=1/u$, $u=\\cos(x^3)$ ⇒ $\\dfrac{1}{\\cos(x^3)}$.\n- Mellom: $(\\cos w)'=-\\sin w$, $w=x^3$ ⇒ $-\\sin(x^3)$.\n- Innerst: $(x^3)'=3x^2$.\n\nGang sammen:\n$$g'(x)=\\frac{1}{\\cos(x^3)}\\cdot(-\\sin(x^3))\\cdot 3x^2=-3x^2\\,\\frac{\\sin(x^3)}{\\cos(x^3)}=-3x^2\\tan(x^3).$$\n**Konklusjon:** $\\boxed{g'(x)=-3x^2\\tan(x^3)}$.",
+        "hints": [
+          "Tre lag: logaritme ytterst, cosinus i midten, $x^3$ innerst.",
+          "Deriver ett lag av gangen og gang faktorene sammen — mist ikke $3x^2$.",
+          "$\\dfrac{\\sin}{\\cos}=\\tan$ forenkler svaret."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De inverse trigonometriske funksjonene (~12 min)"
+    },
+    {
+      "id": "mat1100-3-2-arctan-utledning",
+      "type": "text",
+      "content": "### Utledning av $\\arctan'$ via invers-regelen\n\nDe inverse trig-funksjonene deriveres enklest ved å bruke at de *er* inverser. La $y=\\arctan x$. Det betyr $\\tan y=x$. Deriver begge sider mhp. $x$ (venstre med kjerneregelen):\n$$\\frac{d}{dx}\\tan y=\\frac{d}{dx}x\\ \\Longrightarrow\\ (1+\\tan^2 y)\\,y'=1.$$\nSiden $\\tan y=x$ er $1+\\tan^2 y=1+x^2$, så\n$$y'=\\frac{1}{1+x^2}.$$\nSamme metode gir $\\arcsin$ og $\\arccos$ (bruk $\\cos y=\\sqrt{1-\\sin^2 y}$ på hovedgrenen der $\\cos y>0$)."
+    },
+    {
+      "id": "mat1100-3-2-def-arctan",
+      "type": "definition",
+      "title": "Den deriverte av $\\arctan$",
+      "content": "$$\\frac{d}{dx}\\arctan x=\\frac{1}{1+x^2}.$$\n\nDefinert for alle reelle $x$ (nevneren er aldri null). Dette er den mest brukte av de inverse trig-deriverte — den dukker opp både i drøfting og i integrasjon (den er antiderivert til $1/(1+x^2)$)."
+    },
+    {
+      "id": "mat1100-3-2-def-arcsin",
+      "type": "definition",
+      "title": "Den deriverte av $\\arcsin$",
+      "content": "$$\\frac{d}{dx}\\arcsin x=\\frac{1}{\\sqrt{1-x^2}},\\qquad -1<x<1.$$\n\nMerk definisjonsmengden: uttrykket er bare definert for $|x|<1$, og den deriverte «blåser opp» mot $\\pm 1$ (vertikale tangenter i endepunktene)."
+    },
+    {
+      "id": "mat1100-3-2-def-arccos",
+      "type": "definition",
+      "title": "Den deriverte av $\\arccos$",
+      "content": "$$\\frac{d}{dx}\\arccos x=-\\frac{1}{\\sqrt{1-x^2}},\\qquad -1<x<1.$$\n\nSamme uttrykk som $\\arcsin$, men med **motsatt fortegn**. Det speiler at $\\arcsin x+\\arccos x=\\pi/2$ er konstant, så de deriverte må kansellere."
+    },
+    {
+      "id": "mat1100-3-2-ex-arctan",
+      "type": "example",
+      "title": "Eksempel 2: Kjerneregel med arctan",
+      "problem": "Deriver $h(x)=\\arctan(3x^2)$.",
+      "solution": "Ytre: $\\arctan(u)$ med $u=3x^2$ ⇒ $\\dfrac{1}{1+u^2}=\\dfrac{1}{1+9x^4}$. Indre: $(3x^2)'=6x$.\n$$h'(x)=\\frac{1}{1+(3x^2)^2}\\cdot 6x=\\frac{6x}{1+9x^4}.$$\n**Konklusjon:** $\\boxed{h'(x)=\\dfrac{6x}{1+9x^4}}$. Legg merke til at $(3x^2)^2=9x^4$, ikke $9x^2$."
+    },
+    {
+      "id": "mat1100-3-2-oppg-arcsin",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-arcsin-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg.) Deriver $f(x)=\\arcsin(2x)$, og angi for hvilke $x$ svaret er definert.",
+        "solution": "Ytre: $\\arcsin(u)$, $u=2x$ ⇒ $\\dfrac{1}{\\sqrt{1-u^2}}=\\dfrac{1}{\\sqrt{1-4x^2}}$. Indre: $(2x)'=2$.\n$$f'(x)=\\frac{2}{\\sqrt{1-4x^2}}.$$\nDefinert når $1-4x^2>0$, altså $|x|<\\tfrac12$.\n**Konklusjon:** $\\boxed{f'(x)=\\dfrac{2}{\\sqrt{1-4x^2}}}$ for $-\\tfrac12<x<\\tfrac12$.",
+        "hints": [
+          "Bruk $\\arcsin'(u)=\\frac{1}{\\sqrt{1-u^2}}$ med $u=2x$, og gang med $u'$.",
+          "$u^2=(2x)^2=4x^2$.",
+          "Definisjonsmengden krever at uttrykket under rota er positivt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Logaritmisk derivasjon (~12 min)"
+    },
+    {
+      "id": "mat1100-3-2-def-log-derivasjon",
+      "type": "definition",
+      "title": "Logaritmisk derivasjon",
+      "content": "En teknikk for uttrykk med **variabel i eksponenten**, $f(x)^{g(x)}$, eller store produkter/brøker. Oppskrift: ta $\\ln$ på begge sider, bruk logaritmereglene til å trekke ned eksponenten, deriver implisitt, og gang til slutt tilbake med funksjonen selv. For $y=f(x)^{g(x)}$:\n\n$$\\ln y=g(x)\\ln f(x)\\ \\Rightarrow\\ \\frac{y'}{y}=g'(x)\\ln f(x)+g(x)\\frac{f'(x)}{f(x)}\\ \\Rightarrow\\ y'=y\\Big(\\cdots\\Big).$$\n\nDet siste steget — å gange tilbake med $y=f(x)^{g(x)}$ — er lett å glemme, men helt nødvendig."
+    },
+    {
+      "id": "mat1100-3-2-ex-logderiv",
+      "type": "example",
+      "title": "Eksempel 3: $x^{\\sin x}$ med logaritmisk derivasjon",
+      "problem": "Deriver $y=x^{\\sin x}$ for $x>0$.",
+      "solution": "Verken potensregelen (eksponenten er ikke konstant) eller eksponentialregelen (grunntallet er ikke konstant) gjelder — vi må logaritmere.\n\n**Ta $\\ln$ på begge sider:**\n$$\\ln y=\\sin x\\cdot \\ln x.$$\n\n**Deriver implisitt** (venstre med kjerneregelen $\\frac{d}{dx}\\ln y=y'/y$, høyre med produktregelen):\n$$\\frac{y'}{y}=\\cos x\\cdot\\ln x+\\sin x\\cdot\\frac{1}{x}.$$\n\n**Gang tilbake med $y=x^{\\sin x}$:**\n$$y'=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right).$$\n\n**Konklusjon:** $\\boxed{y'=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\dfrac{\\sin x}{x}\\right)}$. Glemmer du å gange med $y$ til slutt, får du bare halve svaret."
+    },
+    {
+      "id": "mat1100-3-2-oppg-logderiv",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-logderiv-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg.) Deriver $y=x^{\\cos x}$ for $x>0$ med logaritmisk derivasjon.",
+        "solution": "**Logaritmer:** $\\ln y=\\cos x\\cdot\\ln x$.\n**Deriver implisitt** (produktregel til høyre):\n$$\\frac{y'}{y}=-\\sin x\\cdot\\ln x+\\cos x\\cdot\\frac{1}{x}.$$\n**Gang tilbake med $y=x^{\\cos x}$:**\n$$y'=x^{\\cos x}\\left(\\frac{\\cos x}{x}-\\sin x\\,\\ln x\\right).$$\n**Konklusjon:** $\\boxed{y'=x^{\\cos x}\\left(\\dfrac{\\cos x}{x}-\\sin x\\,\\ln x\\right)}$.",
+        "hints": [
+          "Ta $\\ln$ på begge sider og bruk at $\\ln(x^{\\cos x})=\\cos x\\ln x$.",
+          "Deriver $\\cos x\\cdot\\ln x$ med produktregelen.",
+          "Ikke glem å gange svaret med $y=x^{\\cos x}$ helt til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Derivert av omvendt funksjon i et punkt (~12 min)"
+    },
+    {
+      "id": "mat1100-3-2-th-invers",
+      "type": "theorem",
+      "title": "Den deriverte av en omvendt funksjon",
+      "content": "**Setning.** La $f$ være deriverbar og strengt monoton, med $f(a)=b$ og $f'(a)\\ne 0$. Da er den omvendte $f^{-1}$ deriverbar i $b$, og\n\n$$\\big(f^{-1}\\big)'(b)=\\frac{1}{f'(a)}\\qquad\\text{der } f(a)=b.$$\n\n**Idé:** speiler du grafen om linja $y=x$, blir tangentens stigningstall $m$ til $1/m$. Formelt: deriver $f\\big(f^{-1}(x)\\big)=x$ med kjerneregelen: $f'\\big(f^{-1}(x)\\big)\\cdot(f^{-1})'(x)=1$, sett $x=b$ og bruk $f^{-1}(b)=a$."
+    },
+    {
+      "id": "mat1100-3-2-finn-a-forst",
+      "type": "text",
+      "content": "### Oppskriften «finn $a$ først»\n\nDette er den årvisse midtveisoppgaven, og hele poenget er at du skal dele på $f'(a)$ — **ikke** på $f'(b)$. Rekkefølgen er alltid:\n\n1. Du får $b$ og skal finne $(f^{-1})'(b)$.\n2. **Finn $a$** ved å løse $f(a)=b$ (ofte ser du løsningen ved inspeksjon — prøv små heltall).\n3. Regn $f'(a)$.\n4. Svar: $(f^{-1})'(b)=1/f'(a)$.\n\nHopper du over trinn 2 og setter $b$ rett inn i $f'$, får du den vanligste fella på hele midtveis."
+    },
+    {
+      "id": "mat1100-3-2-ex-invers",
+      "type": "example",
+      "title": "Eksempel 4: $(f^{-1})'$ i et punkt (årviss midtveistype)",
+      "problem": "La $f(x)=x^3+2x-1$. Funksjonen er strengt voksende (så den er inverterbar). Finn $(f^{-1})'(2)$.",
+      "solution": "Her er $b=2$. Vi bruker $(f^{-1})'(2)=1/f'(a)$ der $f(a)=2$.\n\n**Trinn 1 — finn $a$:** Løs $f(a)=2$, altså $a^3+2a-1=2$, dvs. $a^3+2a-3=0$. Prøv $a=1$: $1+2-3=0$. ✓ Så $a=1$ (og siden $f$ er strengt voksende, er dette den eneste løsningen).\n\n**Trinn 2 — regn $f'(a)$:** $f'(x)=3x^2+2$, så $f'(1)=3+2=5$.\n\n**Trinn 3 — sett sammen:**\n$$\\big(f^{-1}\\big)'(2)=\\frac{1}{f'(1)}=\\frac{1}{5}.$$\n\n**Konklusjon:** $\\boxed{(f^{-1})'(2)=\\tfrac15}$. Merk fella: hadde vi satt inn $b=2$ i $f'$, fått $f'(2)=14$ og svart $1/14$, ville det vært galt — vi må bruke $a=1$, ikke $b=2$."
+    },
+    {
+      "id": "mat1100-3-2-oppg-invers",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-invers-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — den årvisse typen.) La $f(x)=x^5+x^3+2x$. Den er strengt voksende. Finn $(f^{-1})'(4)$.",
+        "solution": "$b=4$. Vi bruker $(f^{-1})'(4)=1/f'(a)$ der $f(a)=4$.\n\n**Finn $a$:** $a^5+a^3+2a=4$. Prøv $a=1$: $1+1+2=4$. ✓ Så $a=1$ (eneste løsning, $f$ strengt voksende).\n\n**Regn $f'(a)$:** $f'(x)=5x^4+3x^2+2$, så $f'(1)=5+3+2=10$.\n\n**Sett sammen:**\n$$\\big(f^{-1}\\big)'(4)=\\frac{1}{f'(1)}=\\frac{1}{10}.$$\n**Konklusjon:** $\\boxed{(f^{-1})'(4)=\\tfrac{1}{10}}$. (Fella $1/f'(4)$ ville gitt $1/(5\\cdot256+3\\cdot16+2)=1/1330$ — helt feil.)",
+        "hints": [
+          "Du skal dele på $f'(a)$, ikke $f'(4)$ — finn $a$ først ved å løse $f(a)=4$.",
+          "Prøv små heltall: passer $a=1$?",
+          "Deriver $f$, sett inn $a$, og ta den omvendte brøken."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Implisitt derivasjon og andrederiverte (~7 min)"
+    },
+    {
+      "id": "mat1100-3-2-def-implisitt",
+      "type": "definition",
+      "title": "Implisitt derivasjon",
+      "content": "En metode for å finne $y'$ når $y$ er bundet til $x$ av en likning man ikke (lett) kan løse for $y$, som $x^2+xy+y^2=7$. Man deriverer *hele likningen* mhp. $x$, behandler $y$ som en funksjon av $x$ (så $\\frac{d}{dx}y^n=n y^{n-1}y'$ etter kjerneregelen), og løser til slutt for $y'$. Uunnværlig for relaterte rater (kap. 3.6) og for tangent til implisitte kurver."
+    },
+    {
+      "id": "mat1100-3-2-ex-implisitt",
+      "type": "example",
+      "title": "Eksempel 5: Implisitt derivasjon",
+      "problem": "Finn $y'$ (uttrykt ved $x$ og $y$) når $x^2+xy+y^2=7$.",
+      "solution": "Deriver hvert ledd mhp. $x$, husk kjerneregel på $y$-ledd og **produktregel** på $xy$:\n$$\\frac{d}{dx}x^2=2x,\\quad \\frac{d}{dx}(xy)=1\\cdot y+x\\cdot y'=y+xy',\\quad \\frac{d}{dx}y^2=2yy',\\quad \\frac{d}{dx}7=0.$$\nSamlet:\n$$2x+y+xy'+2yy'=0.$$\nSamle $y'$-leddene: $y'(x+2y)=-(2x+y)$, så\n$$y'=-\\frac{2x+y}{x+2y}.$$\n**Konklusjon:** $\\boxed{y'=-\\dfrac{2x+y}{x+2y}}$. Den vanligste feilen er å glemme faktoren $y'$ på $y$-leddene (kjerneregelen)."
+    },
+    {
+      "id": "mat1100-3-2-def-andrederivert",
+      "type": "definition",
+      "title": "Andrederiverte",
+      "content": "Deriverer du den deriverte en gang til, får du **andrederiverten** $f''(x)=\\dfrac{d}{dx}f'(x)$. Den måler hvordan stigningen endrer seg — altså grafens *krumning*: $f''>0$ betyr konveks (buer oppover), $f''<0$ konkav. Andrederiverten er verktøyet for vendepunkter og konveksitet i funksjonsdrøfting (kap. 3.5)."
+    },
+    {
+      "id": "mat1100-3-2-oppg-andrederiv",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-2-oppg-andrederiv-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg.) Finn $f''(x)$ når $f(x)=x^4-\\sin x$.",
+        "solution": "Førstederiverte: $f'(x)=4x^3-\\cos x$. Deriver en gang til:\n$$f''(x)=12x^2-(-\\sin x)=12x^2+\\sin x.$$\n**Konklusjon:** $\\boxed{f''(x)=12x^2+\\sin x}$. Pass på fortegnet: $(-\\cos x)'=+\\sin x$.",
+        "hints": [
+          "Deriver $f$ én gang for å få $f'(x)$.",
+          "Deriver $f'(x)$ igjen. Husk $(\\cos x)'=-\\sin x$, så $(-\\cos x)'=+\\sin x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regne $1/f'(b)$ i stedet for $1/f'(a)$** i omvendt-funksjon-oppgaver. Du må *finne $a$ først* fra $f(a)=b$ og dele på $f'(a)$. Dette er den årvisse midtveisfella.\n- **Miste et lag i kjerneregel-tårn.** Hver «skall» gir en faktor — teller du dem ikke, mangler du en faktor og får trekk.\n- **Glemme å gange tilbake med $f(x)$** etter logaritmisk derivasjon. $\\frac{y'}{y}=(\\cdots)$ er ikke svaret; $y'=y\\cdot(\\cdots)$ er.\n- **Glemme kjernefaktoren $y'$** på $y$-leddene ved implisitt derivasjon. $\\frac{d}{dx}y^2=2yy'$, ikke $2y$.\n- **Bruke potensregelen på $x^{\\sin x}$.** Potensregelen $(x^n)'=nx^{n-1}$ gjelder bare når eksponenten er *konstant*. Variabel eksponent krever logaritmisk derivasjon.\n- **Feil fortegn i kvotientregelen.** Telleren er $u'v-uv'$ (i den rekkefølgen), ikke $uv'-u'v$."
+    },
+    {
+      "id": "mat1100-3-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-3-2-bb-sammensatt",
+      "type": "definition",
+      "title": "Sammensatt funksjon (ytre og indre)",
+      "content": "En funksjon på formen $f(g(x))$, der $g$ (den *indre*) mates inn i $f$ (den *ytre*). Å identifisere ytre og indre funksjon er første steg før kjerneregelen brukes. I et tårn $f(g(h(x)))$ er det tre lag, og hvert lag gir sin faktor."
+    },
+    {
+      "id": "mat1100-3-2-bb-invers-funksjon",
+      "type": "definition",
+      "title": "Omvendt (invers) funksjon",
+      "content": "$f^{-1}$ er funksjonen som «reverserer» $f$: $f^{-1}(b)=a$ nettopp når $f(a)=b$. Grafisk er $y=f^{-1}(x)$ speilingen av $y=f(x)$ om linja $y=x$. Den finnes bare når $f$ er én-til-én (injektiv)."
+    },
+    {
+      "id": "mat1100-3-2-bb-monotoni-invers",
+      "type": "definition",
+      "title": "Monotoni sikrer invertibilitet",
+      "content": "En strengt voksende (eller strengt avtakende) funksjon er automatisk én-til-én, og har derfor en omvendt funksjon. Derfor sier oppgavene «$f$ er strengt voksende» før de spør om $f^{-1}$ — det garanterer at inversen finnes. Ofte vises monotoni ved at $f'(x)>0$ overalt."
+    },
+    {
+      "id": "mat1100-3-2-bb-def-invers",
+      "type": "definition",
+      "title": "Definisjons- og verdimengde for invers",
+      "content": "Inversen bytter om på definisjons- og verdimengde: $D_{f^{-1}}=V_f$ og $V_{f^{-1}}=D_f$. Derfor må inverse trig-funksjoner ha *restringert* definisjonsmengde (se hovedgren), slik at den opprinnelige funksjonen er én-til-én."
+    },
+    {
+      "id": "mat1100-3-2-bb-hovedgren",
+      "type": "definition",
+      "title": "Hovedgren for arcsin/arccos",
+      "content": "Fordi $\\sin$ og $\\cos$ ikke er én-til-én, defineres inversene på en *restringert* gren: $\\arcsin:[-1,1]\\to[-\\pi/2,\\pi/2]$ og $\\arccos:[-1,1]\\to[0,\\pi]$. Det er derfor $\\cos y>0$ på arcsin-grenen — det gir det positive fortegnet i $\\arcsin'$."
+    },
+    {
+      "id": "mat1100-3-2-bb-exp",
+      "type": "definition",
+      "title": "Den deriverte av $e^x$ og $a^x$",
+      "content": "$\\dfrac{d}{dx}e^x=e^x$ (funksjonen er sin egen deriverte), og for generelt grunntall $\\dfrac{d}{dx}a^x=a^x\\ln a$. Merk: dette gjelder *konstant* grunntall og variabel eksponent — motsatt av potensregelen."
+    },
+    {
+      "id": "mat1100-3-2-bb-ln",
+      "type": "definition",
+      "title": "Den deriverte av $\\ln x$ og $\\log_a x$",
+      "content": "$\\dfrac{d}{dx}\\ln x=\\dfrac{1}{x}$ (for $x>0$), og $\\dfrac{d}{dx}\\log_a x=\\dfrac{1}{x\\ln a}$. Uttrykket $\\frac{1}{x}$ er grunnen til at logaritmisk derivasjon gir $y'/y$ når man deriverer $\\ln y$."
+    },
+    {
+      "id": "mat1100-3-2-bb-potensregel",
+      "type": "definition",
+      "title": "Generell potensregel",
+      "content": "$\\dfrac{d}{dx}x^n=n x^{n-1}$ for enhver konstant reell $n$ (også negative og brøk: $\\sqrt{x}=x^{1/2}$, $1/x=x^{-1}$). Krav: eksponenten $n$ må være konstant. Er den en funksjon av $x$, gjelder ikke regelen — bruk logaritmisk derivasjon."
+    },
+    {
+      "id": "mat1100-3-2-bb-tan",
+      "type": "definition",
+      "title": "Den deriverte av $\\tan x$",
+      "content": "$\\dfrac{d}{dx}\\tan x=\\dfrac{1}{\\cos^2 x}=1+\\tan^2 x$. De to formene er like ($\\sec^2 x$). Den andre formen, $1+\\tan^2 x$, er nøkkelen i utledningen av $\\arctan'$."
+    },
+    {
+      "id": "mat1100-3-2-bb-sincos",
+      "type": "definition",
+      "title": "Den deriverte av $\\sin$ og $\\cos$",
+      "content": "$\\dfrac{d}{dx}\\sin x=\\cos x$ og $\\dfrac{d}{dx}\\cos x=-\\sin x$ (minustegnet er lett å miste). De brukes i nesten hvert eksempel i kapitlet, og kombinert med kjerneregelen gir de $\\frac{d}{dx}\\sin(u)=\\cos(u)\\,u'$ osv. To derivasjoner tar deg tilbake med fortegnsskifte: $(\\sin x)''=-\\sin x$."
+    },
+    {
+      "id": "mat1100-3-2-bb-krumning",
+      "type": "definition",
+      "title": "Konveks og konkav (krumning)",
+      "content": "$f$ er *konveks* på et intervall der $f''\\ge 0$ (grafen buer oppover, ligger over sine tangenter) og *konkav* der $f''\\le 0$. Et *vendepunkt* er der krumningen skifter (fortegnsskifte i $f''$). Dette utnyttes fullt ut i funksjonsdrøftingen (kap. 3.5)."
+    },
+    {
+      "id": "mat1100-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-3-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-2-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1100/mat1100-3-1)) Hva er forskjellen på når du kan bruke derivasjonsreglene og når du må bruke grensedefinisjonen?",
+            "solution": "Bruk **reglene** når du bare skal regne ut den deriverte av en formel som gjelder i et helt intervall rundt punktet (raskt og lovlig). Bruk **grensedefinisjonen** når du skal *avgjøre eller bevise* deriverbarhet — typisk i skjøtepunkter eller punkter der formelverket ikke gjelder. Kort: «deriver» = reglene; «vis/avgjør om deriverbar» = definisjonen.",
+            "hints": [
+              "Tenk på hvilket ord oppgaven bruker: «deriver» eller «vis at deriverbar»."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-2-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1100/mat1100-3-1)) Finn tangentlikningen til $f(x)=x^2$ i $x=1$.",
+            "solution": "$f(1)=1$ og $f'(x)=2x$ gir $f'(1)=2$. Tangent: $y=f(1)+f'(1)(x-1)=1+2(x-1)=2x-1$. **Svar:** $\\boxed{y=2x-1}$.",
+            "hints": [
+              "Bruk $y=f(a)+f'(a)(x-a)$ med $a=1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-2-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/mat1100/mat1100-2-2)) Regn $\\lim_{x\\to 0}\\dfrac{e^x-1}{x}$ og forklar koblingen til derivasjon.",
+            "solution": "Standardgrense: $\\lim_{x\\to 0}\\frac{e^x-1}{x}=1$. Den er differansekvotienten til $e^x$ i $0$: $\\frac{e^{0+h}-e^0}{h}=\\frac{e^h-1}{h}$, så grensen $1$ er $(e^x)'|_{x=0}=e^0=1$.",
+            "hints": [
+              "Skriv $\\frac{e^h-1}{h}$ som en differansekvotient for $e^x$ i punktet $0$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-2-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra videregående, [kjerneregelen](/bok/r1/r1-4-3)) Deriver $f(x)=e^{2x}\\cos x$ med produkt- og kjerneregel.",
+            "solution": "Produktregel med $u=e^{2x}$ ($u'=2e^{2x}$ via kjerneregel) og $v=\\cos x$ ($v'=-\\sin x$): $f'(x)=2e^{2x}\\cos x+e^{2x}(-\\sin x)=e^{2x}(2\\cos x-\\sin x)$. **Svar:** $\\boxed{f'(x)=e^{2x}(2\\cos x-\\sin x)}$.",
+            "hints": [
+              "Produktregel: deriver $e^{2x}$ (kjerneregel gir faktor $2$) og $\\cos x$ hver for seg.",
+              "Faktoriser ut $e^{2x}$ til slutt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-3-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(g(x))$ | Sammensatt funksjon (ytre $f$, indre $g$) |\n| $(f\\circ g)'$ | Den deriverte av en sammensetning (kjerneregel) |\n| $f^{-1}$ | Omvendt (invers) funksjon |\n| $(f^{-1})'(b)$ | Den deriverte av inversen i punktet $b$ |\n| $\\arctan,\\ \\arcsin,\\ \\arccos$ | Inverse trigonometriske funksjoner |\n| $y'$ | Den deriverte, ofte ved implisitt derivasjon |\n| $f''$ | Andrederiverten (krumning) |\n| $\\ln$ | Naturlig logaritme (brukt i logaritmisk derivasjon) |\n\n**Formler i dette delkapitlet:**\n\n$$(f(g(x)))'=f'(g(x))\\cdot g'(x)$$\nKjerneregelen — deriver ytre, gang med indres deriverte.\n\n$$(uv)'=u'v+uv',\\qquad \\left(\\tfrac{u}{v}\\right)'=\\frac{u'v-uv'}{v^2}$$\nProdukt- og kvotientregelen.\n\n$$\\frac{d}{dx}\\arctan x=\\frac{1}{1+x^2},\\quad \\frac{d}{dx}\\arcsin x=\\frac{1}{\\sqrt{1-x^2}},\\quad \\frac{d}{dx}\\arccos x=-\\frac{1}{\\sqrt{1-x^2}}$$\nDe inverse trig-deriverte (siste to for $|x|<1$).\n\n$$y=f(x)^{g(x)}\\ \\Rightarrow\\ \\ln y=g\\ln f\\ \\Rightarrow\\ y'=y\\left(g'\\ln f+g\\frac{f'}{f}\\right)$$\nLogaritmisk derivasjon — husk å gange tilbake med $y$.\n\n$$\\big(f^{-1}\\big)'(b)=\\frac{1}{f'(a)}\\quad\\text{der } f(a)=b$$\nDerivert av omvendt funksjon i et punkt — finn $a$ først.\n\n$$\\frac{d}{dx}e^x=e^x,\\quad \\frac{d}{dx}\\ln x=\\frac{1}{x},\\quad \\frac{d}{dx}x^n=nx^{n-1}\\ (n\\text{ konstant})$$\nStandardderiverte brukt gjennom kapitlet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

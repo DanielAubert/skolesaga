@@ -1,0 +1,102 @@
+[
+  {
+    "question": "En funksjon $f$ er begrenset på $[0,3]$ og kontinuerlig unntatt i to punkter, der den har hopp. Er $f$ integrerbar?",
+    "options": [
+      "Ja — begrenset med endelig mange diskontinuiteter er nok (arbeidsteorem 1)",
+      "Nei — integrerbarhet krever at funksjonen er kontinuerlig i hvert eneste punkt",
+      "Nei — to hopp gjør Darboux-kriteriet umulig å oppfylle",
+      "Bare hvis hoppene er like store i begge punktene"
+    ],
+    "explanation": "Arbeidsteorem 1 krever begrenset + endelig mange diskontinuiteter — begge oppfylt. Fellen er å tro at kontinuitet er nødvendig; den er bare tilstrekkelig."
+  },
+  {
+    "question": "Hva sier Darboux-kriteriet at må gjelde for at $f$ skal være integrerbar?",
+    "options": [
+      "Under- og oversummen kan bringes vilkårlig nær hverandre",
+      "Under- og oversummen er nøyaktig like for enhver partisjon",
+      "Funksjonen har en antiderivert som kan skrives med formler",
+      "Alle Riemann-summer gir det samme heltallet"
+    ],
+    "explanation": "Integrerbarhet betyr at gapet $\\overline{S}(P)-\\underline{S}(P)$ kan gjøres mindre enn enhver $\\varepsilon$. De trenger ikke være helt like for en enkelt partisjon."
+  },
+  {
+    "question": "Er $f(x)=1/x$ (med $f(0)=0$) Riemann-integrerbar på $[0,1]$?",
+    "options": [
+      "Nei — den er ubegrenset nær $0$, så et premiss svikter",
+      "Ja — den er kontinuerlig på $(0,1]$ og det holder",
+      "Ja — verdien $f(0)=0$ gjør den integrerbar",
+      "Nei — men bare fordi den ikke er monoton der"
+    ],
+    "explanation": "$1/x\\to\\infty$ når $x\\to0^+$, så $f$ er ikke begrenset. Arbeidsteoremene krever begrensethet; dette er et uegentlig integral (kap. 4.6)."
+  },
+  {
+    "question": "Hvilken sum undervurderer alltid arealet under grafen til en positiv funksjon?",
+    "options": [
+      "Nedre trappesum (minste verdi på hver bit)",
+      "Øvre trappesum (største verdi på hver bit)",
+      "Gjennomsnittet av under- og oversum",
+      "Riemann-summen med tilfeldig valgte punkter"
+    ],
+    "explanation": "Nedre trappesum bruker minste verdi $m_i$ på hver bit og ligger derfor under det sanne arealet; oversummen ligger over."
+  },
+  {
+    "question": "Grensen $\\lim_{n\\to\\infty}\\sum_{i=1}^n \\frac{1}{n}\\left(\\frac{i}{n}\\right)^2$ er lik hvilket integral?",
+    "options": [
+      "$\\int_0^1 x^2\\,dx$",
+      "$\\int_0^1 x\\,dx$",
+      "$\\int_0^n x^2\\,dx$",
+      "$\\int_1^n \\frac{x^2}{n}\\,dx$"
+    ],
+    "explanation": "Bredde $\\tfrac1n$ gir $[0,1]$, punkt $\\tfrac in=x$, høyde $(i/n)^2=x^2$. Summen er en Riemann-sum for $\\int_0^1 x^2\\,dx$."
+  },
+  {
+    "question": "En monoton (voksende) funksjon på et lukket, begrenset intervall er alltid:",
+    "options": [
+      "integrerbar, selv om den har hopp",
+      "kontinuerlig i hvert punkt",
+      "deriverbar overalt",
+      "ubegrenset i minst ett punkt"
+    ],
+    "explanation": "Byggesteins-teoremet: monotone funksjoner er integrerbare. Gapet mellom trappesummene teleskoperer til $(f(b)-f(a))\\Delta x\\to0$. En monoton funksjon kan godt ha hopp."
+  },
+  {
+    "question": "Hvilket premiss er felles for begge arbeidsteoremene om integrerbarhet?",
+    "options": [
+      "Funksjonen må være begrenset på intervallet",
+      "Funksjonen må være kontinuerlig på intervallet",
+      "Funksjonen må ha en kjent antiderivert",
+      "Funksjonen må være deriverbar på intervallet"
+    ],
+    "explanation": "Begge teoremene krever begrensethet. Det ene legger til «endelig mange diskontinuiteter», det andre «stykkevis monoton» — men begrensethet må alltid sjekkes."
+  },
+  {
+    "question": "Du vet at $\\int_0^2 f=5$ og $\\int_2^7 f=-1$. Hva er $\\int_0^7 f$?",
+    "options": [
+      "$4$",
+      "$6$",
+      "$-5$",
+      "$5$"
+    ],
+    "explanation": "Intervalladditivitet: $\\int_0^7 f=\\int_0^2 f+\\int_2^7 f=5+(-1)=4$."
+  },
+  {
+    "question": "Dirichlet-funksjonen ($1$ på rasjonale, $0$ på irrasjonale tall) er ikke integrerbar fordi:",
+    "options": [
+      "hver bit har både verdien $0$ og $1$, så gapet lukkes aldri",
+      "den er ubegrenset i alle punkter i intervallet",
+      "den mangler en antiderivert på formelform",
+      "den er kontinuerlig overalt, men ikke deriverbar i noe eneste punkt i intervallet"
+    ],
+    "explanation": "På enhver bit er $m_i=0$ og $M_i=1$, så $\\underline{S}=0$ og $\\overline{S}=(b-a)$ uansett partisjon. Gapet lukkes aldri — den er begrenset, men ikke integrerbar."
+  },
+  {
+    "question": "Hvis $3\\le f(x)\\le 8$ for alle $x\\in[2,5]$, hva kan du si om $\\int_2^5 f$?",
+    "options": [
+      "Den ligger mellom $9$ og $24$",
+      "Den er nøyaktig $16{,}5$",
+      "Den ligger mellom $3$ og $8$",
+      "Den kan ikke avgrenses uten formelen for $f$"
+    ],
+    "explanation": "Monotoni av integralet med bredde $5-2=3$: $3\\cdot3\\le\\int_2^5 f\\le 8\\cdot3$, altså $9\\le\\int_2^5 f\\le 24$."
+  }
+]

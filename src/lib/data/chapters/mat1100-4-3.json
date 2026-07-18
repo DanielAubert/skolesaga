@@ -1,0 +1,422 @@
+{
+  "id": "mat1100-4-3",
+  "courseId": "mat1100",
+  "chapterNumber": "4.3",
+  "title": "Substitusjon og delvis integrasjon",
+  "description": "De to arbeidshestene i 95 %-sjangeren, med føringsstandarden fasit krever: substitusjonsboks med nye grenser, og dokumentert u/v'-valg.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "løse integraler med substitusjon ved å gjenkjenne mønsteret «indre funksjon · dens deriverte» og føre substitusjonsboks med nye grenser",
+    "kjenne igjen og bruke klassiker-katalogen (u=x², sin x, √x, 1/x, ln x, arctan x) og arcsin-/arctan-målformene",
+    "løse integraler med delvis integrasjon med dokumentert u/v'-valg (LIATE), inkludert ensom funksjon, gjentatt og rundtur",
+    "konstruere et integral som løses med en gitt substitusjon og verifisere svaret"
+  ],
+  "content": [
+    {
+      "id": "mat1100-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er slutteksamenens arbeidshest. Substitusjon og delvis integrasjon står i praksis i hvert eneste sett.**\n\n- **Sjanger E** — integrasjonsteknikk-kjeder — er med i **20 av 21 slutteksamener**, typisk med 2–4 delpunkter per sett. Kildegrunnlaget: 21 slutteksamener H2003–H2023 (18 løsningsforslag) + 16 midtveiseksamener; arkivet stopper i 2023.\n- Klassikerne fra arkivet: $u=x^2$ mot en $\\sqrt{1-x^4}$-nevner (arcsin-form), $u=\\arctan x$, $u=\\sin x$, $u=\\sqrt{x}$, $u=1/x$; delvis for produkter og «ensomme» funksjoner ($\\ln$, $\\arctan$).\n- Hjemmeeksamensvarianten «konstruer selv et integral som løses med substitusjonen $u=\\dots$» — der fasit regner *baklengs* fra $du$.\n\nSjangerkoden: **(Eksamenssjanger E)** = integrasjonsteknikk (substitusjon, delvis, og kjeder av dem) på begrunnet langsvar.\n\n**Føringsstandarden som gir og tar poeng:** enhver substitusjon skal bokføres i en **egen boks** — $u$, $du/dx$, $dx$, og (i bestemte integraler) **de nye grensene**. Å glemme grenseskiftet er den mest dokumenterte føringsfeilen. Delvis integrasjon skal ha et **dokumentert valg** av $u$ og $v'$. Prioritet: høyeste (nivå «perfekt» i skjelettet)."
+    },
+    {
+      "id": "mat1100-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bruker fundamentalteoremet fra **[kap. 4.2](/bok/mat1100/mat1100-4-2)** (du evaluerer bestemte integraler med antiderivert + grenser) og kjerneregelen/produktregelen fra **[kap. 3.2](/bok/mat1100/mat1100-3-2)** — substitusjon er kjerneregelen baklengs, delvis integrasjon er produktregelen baklengs. Fra videregående er broene [Variabelskifte (substitusjon)](/bok/r2/r2-3-1) og [Delvis integrasjon](/bok/r2/r2-3-2).\n\n**Sist du var her (oppfriskning):**\n\n- **Kjerneregelen:** $\\big(f(g(x))\\big)'=f'(g(x))\\,g'(x)$. Ser du et produkt «$f'(g(x))$ ganger $g'(x)$» i en integrand, kan du integrere det ved å reversere kjerneregelen — det *er* substitusjon.\n- **Produktregelen:** $(uv)'=u'v+uv'$. Integrerer du begge sider og flytter om, får du delvis integrasjon.\n\n*Dette kapitlet er på 60 minutter — lengre enn de fleste. Det er delt i fem løkker med to naturlige pausepunkter markert underveis. Ta gjerne substitusjon (løkke 1–3) én økt og delvis integrasjon (løkke 4–5) en annen.*"
+    },
+    {
+      "id": "mat1100-4-3-intro",
+      "type": "text",
+      "content": "De fleste integraler kan du ikke slå opp direkte i antiderivert-tabellen. Trikset er å *forvandle* dem til noe som står i tabellen. Du har to hovedverktøy, og de er speilbilder av de to derivasjonsreglene du kan best:\n\n- **Substitusjon** reverserer kjerneregelen. Den bytter variabel slik at en tungvint integrand blir enkel — som å bytte til et koordinatsystem der problemet er rett fram.\n- **Delvis integrasjon** reverserer produktregelen. Den flytter en derivasjon fra én faktor til en annen, og gjør et produkt du ikke kan integrere om til ett du kan.\n\nNesten alt annet i Del 4 er disse to, eventuelt kjedet sammen. Vi bygger dem opp i fem **læringsløkker**: (1) substitusjonens grunnidé, (2) føringsboksen og grenseskifte, (3) klassiker-katalogen med arcsin-/arctan-formene, (4) delvis integrasjon og LIATE, (5) de fire delvis-variantene (ensom funksjon, gjentatt, rundtur, konstruksjon). Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Substitusjonens grunnidé (~11 min)"
+    },
+    {
+      "id": "mat1100-4-3-def-substitusjon",
+      "type": "definition",
+      "title": "Substitusjon (variabelskifte)",
+      "content": "Metoden som reverserer kjerneregelen. Ser integranden ut som $f(g(x))\\cdot g'(x)$, setter du $u=g(x)$, og integralet forenkles:\n\n$$\\int f(g(x))\\,g'(x)\\,dx=\\int f(u)\\,du.$$\n\nDu bytter altså hele integralet fra $x$-verden til $u$-verden. Er den nye integranden $\\int f(u)\\,du$ noe du kjenner fra tabellen, er du nesten ferdig — det gjenstår bare å sette $u=g(x)$ tilbake (ubestemt) eller skifte grensene (bestemt)."
+    },
+    {
+      "id": "mat1100-4-3-def-gjenkjenning",
+      "type": "definition",
+      "title": "Gjenkjenningsregelen «indre funksjon · dens deriverte»",
+      "content": "Signalet på at substitusjon vil virke: integranden inneholder en **indre funksjon** og (opp til en konstant) **dens deriverte** som faktor. For eksempel i $\\int 2x\\cos(x^2)\\,dx$ er den indre funksjonen $x^2$ og dens deriverte $2x$ — som står der som faktor. Sett $u=$ (den indre funksjonen). Mangler du bare en konstant faktor, kan du justere den; mangler du en hel $x$-potens, er substitusjonen som regel feil valg."
+    },
+    {
+      "id": "mat1100-4-3-ex-sub1",
+      "type": "example",
+      "title": "Eksempel 1: Grunnleggende substitusjon",
+      "problem": "Regn ut $\\displaystyle\\int 2x\\cos(x^2)\\,dx$.",
+      "solution": "Gjenkjenningsregelen: den indre funksjonen er $x^2$, og dens deriverte $2x$ står som faktor. Vi setter $u=x^2$.\n\n**Substitusjonsboks:**\n\n| Størrelse | Uttrykk |\n|---|---|\n| $u$ | $x^2$ |\n| $du/dx$ | $2x$ |\n| $du$ | $2x\\,dx$ |\n\nLegg merke til at hele biten $2x\\,dx$ i integralet *er* $du$:\n$$\\int \\cos(x^2)\\cdot\\underbrace{2x\\,dx}_{=\\,du}=\\int \\cos u\\,du=\\sin u+C.$$\n\n**Tilbakesubstitusjon** ($u=x^2$):\n$$=\\sin(x^2)+C.$$\n\n**Kontroll:** deriver $\\sin(x^2)$ med kjerneregelen: $\\cos(x^2)\\cdot 2x$ — nettopp integranden. **Svar:** $\\boxed{\\sin(x^2)+C}$"
+    },
+    {
+      "id": "mat1100-4-3-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger E — her i letteste innstegsform: indre funksjon og dens deriverte står klart.) Regn ut $\\displaystyle\\int 3x^2\\,e^{x^3}\\,dx$.",
+        "solution": "Gjenkjenningsregelen: indre funksjon $x^3$, dens deriverte $3x^2$ står som faktor. Sett $u=x^3$.\n\n**Substitusjonsboks:**\n\n| Størrelse | Uttrykk |\n|---|---|\n| $u$ | $x^3$ |\n| $du/dx$ | $3x^2$ |\n| $du$ | $3x^2\\,dx$ |\n\n$$\\int e^{x^3}\\cdot\\underbrace{3x^2\\,dx}_{=\\,du}=\\int e^{u}\\,du=e^{u}+C=e^{x^3}+C.$$\n\n**Kontroll:** $\\frac{d}{dx}e^{x^3}=e^{x^3}\\cdot 3x^2$. ✓ **Svar:** $\\boxed{e^{x^3}+C}$",
+        "hints": [
+          "Hva er den indre funksjonen i $e^{x^3}$, og står dens deriverte som faktor?",
+          "Sett $u=x^3$; da er $du=3x^2\\,dx$ — akkurat den andre faktoren.",
+          "Husk å substituere tilbake til $x$ og skrive $+C$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Føringsboksen og grenseskifte (~12 min)"
+    },
+    {
+      "id": "mat1100-4-3-def-boks",
+      "type": "definition",
+      "title": "Substitusjonsboksen (føringsstandard)",
+      "content": "Den obligatoriske føringen for enhver substitusjon: en liten boks der du fører opp\n\n$$u=g(x),\\qquad \\frac{du}{dx}=g'(x),\\qquad du=g'(x)\\,dx,$$\n\nog — for et **bestemt** integral — de **nye grensene** ($x=a\\Rightarrow u=g(a)$, $x=b\\Rightarrow u=g(b)$). Sensor leter etter denne boksen. Uten den kan et riktig svar likevel trekkes for manglende føring, og et grenseskifte som ikke er dokumentert er den vanligste feilen i sjangeren. **Vis boksen i hvert eneste substitusjonsløsningsforslag.**"
+    },
+    {
+      "id": "mat1100-4-3-def-grenseskifte",
+      "type": "definition",
+      "title": "Grenseskifte ved bestemt integral",
+      "content": "Bytter du variabel i et *bestemt* integral, må grensene bytte med. Nedre grense $x=a$ blir $u=g(a)$, og øvre $x=b$ blir $u=g(b)$:\n\n$$\\int_{x=a}^{x=b} f(g(x))g'(x)\\,dx=\\int_{u=g(a)}^{u=g(b)} f(u)\\,du.$$\n\nDa slipper du å substituere tilbake — du setter bare inn de nye grensene i $u$. **Glemt grenseskifte** (regne videre med de gamle $x$-grensene i $u$-verden) er den dokumenterte gjengangerfeilen. Alternativt kan du beholde $x$-grensene *hvis* du substituerer tilbake til $x$ først — men da må boksen si det."
+    },
+    {
+      "id": "mat1100-4-3-def-tilbake",
+      "type": "definition",
+      "title": "Tilbakesubstitusjon (ubestemt integral)",
+      "content": "I et *ubestemt* integral finnes ingen grenser å bytte, så du må til slutt uttrykke svaret i den opprinnelige variabelen: regn ferdig i $u$, og **sett så $u=g(x)$ tilbake**. Et svar som blir stående i $u$ er ufullstendig. (I bestemte integraler slipper du dette hvis du har skiftet grensene — velg den ene eller den andre veien, ikke bland.)"
+    },
+    {
+      "id": "mat1100-4-3-ex-arcsin",
+      "type": "example",
+      "title": "Eksempel 2: Bestemt integral med grenseskifte (arcsin-form)",
+      "problem": "Beregn $\\displaystyle\\int_0^{1/2}\\frac{x}{\\sqrt{1-x^4}}\\,dx$.",
+      "solution": "Skriv $x^4=(x^2)^2$, så nevneren er $\\sqrt{1-(x^2)^2}$ — det roper på arcsin-formen med indre funksjon $x^2$. Telleren $x$ er (opp til konstant) dens deriverte. Sett $u=x^2$.\n\n**Substitusjonsboks (med nye grenser):**\n\n| Størrelse | Uttrykk |\n|---|---|\n| $u$ | $x^2$ |\n| $du/dx$ | $2x$ |\n| $du$ | $2x\\,dx\\ \\Rightarrow\\ x\\,dx=\\tfrac12\\,du$ |\n| nedre grense | $x=0\\ \\Rightarrow\\ u=0$ |\n| øvre grense | $x=\\tfrac12\\ \\Rightarrow\\ u=\\tfrac14$ |\n\nBytt hele integralet til $u$ (bruk $x\\,dx=\\tfrac12\\,du$ og $x^4=u^2$):\n$$\\int_0^{1/2}\\frac{x\\,dx}{\\sqrt{1-x^4}}=\\int_{0}^{1/4}\\frac{\\tfrac12\\,du}{\\sqrt{1-u^2}}=\\frac12\\int_0^{1/4}\\frac{du}{\\sqrt{1-u^2}}.$$\n\nAntiderivert er $\\arcsin u$ (tabellen):\n$$=\\frac12\\Big[\\arcsin u\\Big]_0^{1/4}=\\frac12\\big(\\arcsin\\tfrac14-\\arcsin 0\\big)=\\frac12\\arcsin\\tfrac14.$$\n\n**Konklusjon:** $\\displaystyle\\int_0^{1/2}\\frac{x}{\\sqrt{1-x^4}}\\,dx=\\frac12\\arcsin\\frac14\\approx 0{,}126$. Merk grenseskiftet $0\\to0$, $\\tfrac12\\to\\tfrac14$ i boksen — uten det ville svaret vært galt. **Svar:** $\\boxed{\\tfrac12\\arcsin\\tfrac14}$"
+    },
+    {
+      "id": "mat1100-4-3-oppg-sub-bestemt",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-sub-bestemt-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — bestemt integral, husk grenseskiftet i boksen.) Beregn $\\displaystyle\\int_0^{1}\\frac{x}{1+x^2}\\,dx$.",
+        "solution": "Indre funksjon $1+x^2$, deriverte $2x$; telleren $x$ er halvparten. Sett $u=1+x^2$.\n\n**Substitusjonsboks (med nye grenser):**\n\n| Størrelse | Uttrykk |\n|---|---|\n| $u$ | $1+x^2$ |\n| $du/dx$ | $2x$ |\n| $du$ | $2x\\,dx\\ \\Rightarrow\\ x\\,dx=\\tfrac12\\,du$ |\n| nedre grense | $x=0\\ \\Rightarrow\\ u=1$ |\n| øvre grense | $x=1\\ \\Rightarrow\\ u=2$ |\n\n$$\\int_0^1\\frac{x\\,dx}{1+x^2}=\\int_1^2\\frac{\\tfrac12\\,du}{u}=\\frac12\\Big[\\ln|u|\\Big]_1^2=\\frac12(\\ln 2-\\ln 1)=\\frac12\\ln 2.$$\n\n**Konklusjon:** $\\boxed{\\tfrac12\\ln 2}$ (om lag $0{,}347$). Legg merke til at grensene ble $1$ og $2$ i $u$ — ikke $0$ og $1$.",
+        "hints": [
+          "Sett $u=1+x^2$; da er $x\\,dx=\\tfrac12\\,du$.",
+          "Skift grensene: $x=0\\Rightarrow u=1$, $x=1\\Rightarrow u=2$.",
+          "Integranden blir $\\tfrac12\\cdot\\tfrac1u$, med antiderivert $\\tfrac12\\ln|u|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du har nå substitusjonens kjerne: gjenkjenn indre funksjon · deriverte, før boksen, skift grensene. Neste løkke er katalogen over de fem klassikerne fra arkivet. Ta gjerne en pause her.*"
+    },
+    {
+      "id": "mat1100-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Klassiker-katalogen og arcsin-/arctan-formene (~13 min)"
+    },
+    {
+      "id": "mat1100-4-3-l3-intro",
+      "type": "text",
+      "content": "Arkivet gjenbruker de samme fem substitusjonene år etter år. Kjenner du dem igjen på formen, sparer du dyrebar tid. To spesielle målformer er verdt å pugge, fordi de fører rett til $\\arcsin$ og $\\arctan$."
+    },
+    {
+      "id": "mat1100-4-3-def-arcsin-form",
+      "type": "definition",
+      "title": "arcsin-formen",
+      "content": "Målformen\n\n$$\\int\\frac{du}{\\sqrt{1-u^2}}=\\arcsin u+C.$$\n\nSignalet: en nevner $\\sqrt{1-(\\text{noe})^2}$. Sett $u=(\\text{det noe})$, og hvis dens deriverte står i telleren, lander du på arcsin. Klassikeren fra arkivet er $\\sqrt{1-x^4}=\\sqrt{1-(x^2)^2}$ med $u=x^2$."
+    },
+    {
+      "id": "mat1100-4-3-def-arctan-form",
+      "type": "definition",
+      "title": "arctan-formen",
+      "content": "Målformen\n\n$$\\int\\frac{du}{1+u^2}=\\arctan u+C.$$\n\nSignalet: en nevner $1+(\\text{noe})^2$ uten reelle røtter. Sett $u=(\\text{det noe})$. For eksempel gir $\\int\\frac{x^2}{1+x^6}\\,dx$ med $u=x^3$ resultatet $\\tfrac13\\arctan(x^3)+C$. Denne formen dukker også opp fra fullført kvadrat i [kap. 4.4](/bok/mat1100/mat1100-4-4)."
+    },
+    {
+      "id": "mat1100-4-3-def-klassiker-x2",
+      "type": "definition",
+      "title": "Klassikeren $u=x^2$",
+      "content": "Brukes når integranden inneholder $x^2$ inni og en enslig $x$ som faktor (den halve deriverte). Da gjør $u=x^2$, $du=2x\\,dx$ integralet enkelt. Typiske mål: $\\int x\\,e^{x^2}\\,dx=\\tfrac12 e^{x^2}+C$, og arcsin-klassikeren $\\int\\frac{x}{\\sqrt{1-x^4}}\\,dx$."
+    },
+    {
+      "id": "mat1100-4-3-def-klassiker-sin",
+      "type": "definition",
+      "title": "Klassikeren $u=\\sin x$",
+      "content": "Brukes når integranden er en potens av $\\sin x$ ganger $\\cos x$ (eller omvendt med $u=\\cos x$). Da er $du=\\cos x\\,dx$. Eksempel: $\\int\\sin^3 x\\cos x\\,dx=\\tfrac{\\sin^4 x}{4}+C$. Tommelregel: er det et oddetalls antall av den ene trig-funksjonen, spar én til $du$ og substituer."
+    },
+    {
+      "id": "mat1100-4-3-def-klassiker-sqrt",
+      "type": "definition",
+      "title": "Klassikeren $u=\\sqrt{x}$",
+      "content": "Brukes når $\\sqrt{x}$ opptrer inni en funksjon. Da er $u=\\sqrt{x}$, $du=\\tfrac{1}{2\\sqrt x}\\,dx$, altså $\\tfrac{dx}{\\sqrt x}=2\\,du$. Eksempel: $\\int\\frac{e^{\\sqrt x}}{\\sqrt x}\\,dx=2e^{\\sqrt x}+C$. Denne er også startsteget i kjeden $\\int e^{\\sqrt x}\\,dx$ (substituer, så delvis) i [kap. 4.5](/bok/mat1100/mat1100-4-5)."
+    },
+    {
+      "id": "mat1100-4-3-def-klassiker-sinx-detalj",
+      "type": "definition",
+      "title": "Klassikeren $u=\\ln x$",
+      "content": "Brukes når $\\ln x$ opptrer sammen med sin egen deriverte $\\tfrac1x$. Da er $u=\\ln x$, $du=\\tfrac{dx}{x}$. Eksempel: $\\int\\frac{(\\ln x)^2}{x}\\,dx=\\tfrac{(\\ln x)^3}{3}+C$, og $\\int\\frac{dx}{x\\ln x}=\\ln|\\ln x|+C$. Signalet er en faktor $\\tfrac1x$ ved siden av et $\\ln x$-uttrykk."
+    },
+    {
+      "id": "mat1100-4-3-ex-katalog",
+      "type": "example",
+      "title": "Eksempel 3: To klassikere på rappen",
+      "problem": "Regn ut **a)** $\\displaystyle\\int\\sin^3 x\\cos x\\,dx$ og **b)** $\\displaystyle\\int\\frac{e^{\\sqrt{x}}}{\\sqrt{x}}\\,dx$.",
+      "solution": "**a)** Klassikeren $u=\\sin x$. Boks: $u=\\sin x$, $du=\\cos x\\,dx$ — og $\\cos x\\,dx$ står der.\n$$\\int\\sin^3 x\\,\\underbrace{\\cos x\\,dx}_{=\\,du}=\\int u^3\\,du=\\frac{u^4}{4}+C=\\frac{\\sin^4 x}{4}+C.$$\nKontroll: $\\frac{d}{dx}\\tfrac{\\sin^4 x}{4}=\\sin^3 x\\cos x$. ✓\n\n**b)** Klassikeren $u=\\sqrt{x}$. Boks: $u=\\sqrt x$, $du=\\tfrac{1}{2\\sqrt x}\\,dx\\Rightarrow \\tfrac{dx}{\\sqrt x}=2\\,du$.\n$$\\int e^{\\sqrt x}\\cdot\\underbrace{\\frac{dx}{\\sqrt x}}_{=\\,2\\,du}=\\int e^{u}\\cdot 2\\,du=2e^{u}+C=2e^{\\sqrt x}+C.$$\nKontroll: $\\frac{d}{dx}2e^{\\sqrt x}=2e^{\\sqrt x}\\cdot\\tfrac{1}{2\\sqrt x}=\\tfrac{e^{\\sqrt x}}{\\sqrt x}$. ✓\n\n**Svar:** $\\boxed{\\text{a) }\\tfrac{\\sin^4 x}{4}+C,\\quad \\text{b) }2e^{\\sqrt x}+C}$"
+    },
+    {
+      "id": "mat1100-4-3-oppg-katalog",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-katalog-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — kjenn igjen klassikeren.) Regn ut\n\n**a)** $\\displaystyle\\int\\frac{(\\ln x)^2}{x}\\,dx$,\n\n**b)** $\\displaystyle\\int\\frac{x^2}{1+x^6}\\,dx$.",
+        "solution": "**a)** Klassikeren $u=\\ln x$. Boks: $u=\\ln x$, $du=\\tfrac{dx}{x}$.\n$$\\int(\\ln x)^2\\cdot\\underbrace{\\frac{dx}{x}}_{=\\,du}=\\int u^2\\,du=\\frac{u^3}{3}+C=\\frac{(\\ln x)^3}{3}+C.$$\n\n**b)** Arctan-formen: skriv $x^6=(x^3)^2$, indre funksjon $x^3$. Boks: $u=x^3$, $du=3x^2\\,dx\\Rightarrow x^2\\,dx=\\tfrac13\\,du$.\n$$\\int\\frac{x^2\\,dx}{1+(x^3)^2}=\\int\\frac{\\tfrac13\\,du}{1+u^2}=\\frac13\\arctan u+C=\\frac13\\arctan(x^3)+C.$$\n\n**Konklusjon:** $\\boxed{\\text{a) }\\tfrac{(\\ln x)^3}{3}+C,\\quad \\text{b) }\\tfrac13\\arctan(x^3)+C}$.",
+        "hints": [
+          "(a): en faktor $\\tfrac1x$ ved siden av $\\ln x$ → sett $u=\\ln x$.",
+          "(b): $1+x^6=1+(x^3)^2$ → arctan-formen med $u=x^3$.",
+          "I (b) er $x^2\\,dx=\\tfrac13\\,du$ — juster konstanten."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Delvis integrasjon og LIATE (~12 min)"
+    },
+    {
+      "id": "mat1100-4-3-def-delvis",
+      "type": "definition",
+      "title": "Delvis integrasjon (formelen)",
+      "content": "Reverseringen av produktregelen. Fra $(uv)'=u'v+uv'$ integrerer vi og flytter om:\n\n$$\\int u\\,v'\\,dx=uv-\\int u'\\,v\\,dx.$$\n\nDu velger én faktor som $u$ (den du vil **derivere**) og den andre som $v'$ (den du vil **integrere**). Målet er at det nye integralet $\\int u'v\\,dx$ blir *enklere* enn det du startet med. Brukes på produkter der substitusjon ikke biter — typisk polynom ganger $e^x$, $\\sin x$, $\\ln x$ eller $\\arctan x$."
+    },
+    {
+      "id": "mat1100-4-3-def-liate",
+      "type": "definition",
+      "title": "LIATE-regelen (valg av $u$/$v'$)",
+      "content": "Tommelregelen for hvilken faktor som skal være $u$ (deriveres). Velg $u$ som den funksjonstypen som kommer **først** i lista **L-I-A-T-E**:\n\n- **L** — Logaritmer ($\\ln x$)\n- **I** — Inverse trig ($\\arctan x$, $\\arcsin x$)\n- **A** — Algebraiske (polynomer, $x^n$)\n- **T** — Trigonometriske ($\\sin x$, $\\cos x$)\n- **E** — Eksponentielle ($e^x$)\n\nDen andre faktoren blir $v'$. Idéen: $u$ bør bli *enklere* når den deriveres (et polynom faller i grad; $\\ln x$ blir $\\tfrac1x$), og $v'$ bør være lett å integrere. **Dokumenter valget** i løsningen — sensor vil se hvorfor du valgte som du gjorde."
+    },
+    {
+      "id": "mat1100-4-3-ex-delvis1",
+      "type": "example",
+      "title": "Eksempel 4: Delvis integrasjon med dokumentert valg",
+      "problem": "Regn ut $\\displaystyle\\int x\\,e^{x}\\,dx$.",
+      "solution": "Integranden er et produkt av et polynom ($x$) og en eksponentialfunksjon ($e^x$). LIATE: **A** (algebraisk) kommer før **E** (eksponentiell), så $u=x$ og $v'=e^x$.\n\n**Dokumentert valg (LIATE):**\n\n| Velg | Funksjon | Gir |\n|---|---|---|\n| $u=x$ | derivér | $u'=1$ |\n| $v'=e^x$ | integrér | $v=e^x$ |\n\nSett inn i formelen $\\int uv'=uv-\\int u'v$:\n$$\\int x\\,e^x\\,dx=x\\,e^x-\\int 1\\cdot e^x\\,dx=x e^x-e^x+C=(x-1)e^x+C.$$\n\nDet nye integralet $\\int e^x\\,dx$ er *enklere* enn det opprinnelige — det er tegnet på at valget var riktig. Hadde vi valgt motsatt ($u=e^x$, $v'=x$), ville $\\int u'v=\\int e^x\\tfrac{x^2}{2}\\,dx$ blitt *verre*.\n\n**Kontroll:** $\\frac{d}{dx}(x-1)e^x=e^x+(x-1)e^x=x e^x$. ✓ **Svar:** $\\boxed{(x-1)e^x+C}$"
+    },
+    {
+      "id": "mat1100-4-3-oppg-delvis",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-delvis-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — delvis integrasjon, dokumenter valget.) Regn ut $\\displaystyle\\int x\\cos x\\,dx$.",
+        "solution": "Produkt av polynom ($x$) og trig ($\\cos x$). LIATE: **A** før **T**, så $u=x$, $v'=\\cos x$.\n\n**Dokumentert valg (LIATE):**\n\n| Velg | Funksjon | Gir |\n|---|---|---|\n| $u=x$ | derivér | $u'=1$ |\n| $v'=\\cos x$ | integrér | $v=\\sin x$ |\n\n$$\\int x\\cos x\\,dx=x\\sin x-\\int 1\\cdot\\sin x\\,dx=x\\sin x-(-\\cos x)+C=x\\sin x+\\cos x+C.$$\n\n**Kontroll:** $\\frac{d}{dx}(x\\sin x+\\cos x)=\\sin x+x\\cos x-\\sin x=x\\cos x$. ✓ **Konklusjon:** $\\boxed{x\\sin x+\\cos x+C}$.",
+        "hints": [
+          "Polynom ganger trig: LIATE sier $u=$ polynomet (A før T).",
+          "$u=x\\Rightarrow u'=1$; $v'=\\cos x\\Rightarrow v=\\sin x$.",
+          "Pass fortegnet: $\\int\\sin x\\,dx=-\\cos x$, så $-\\int\\sin x=+\\cos x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du har nå selve delvis-formelen og LIATE. Siste løkke samler de fire variantene som skiller karakterene: ensom funksjon, gjentatt, rundtur og konstruksjon. Ta gjerne en pause her.*"
+    },
+    {
+      "id": "mat1100-4-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — De fire delvis-variantene (~12 min)"
+    },
+    {
+      "id": "mat1100-4-3-def-ensom",
+      "type": "definition",
+      "title": "«Ensom funksjon»-trikset ($v'=1$)",
+      "content": "Brukes på funksjoner du ikke har en direkte antiderivert til, men som blir enkle å *derivere*: $\\ln x$, $\\arctan x$, $\\arcsin x$. Trikset: skriv funksjonen som et produkt med $1$, og velg $v'=1$ (så $v=x$) og $u=$ funksjonen. Da er $\\int f(x)\\,dx=\\int f(x)\\cdot 1\\,dx=x f(x)-\\int x f'(x)\\,dx$, og det nye integralet er ofte rett fram. Standardeksemplet er $\\int\\ln x\\,dx$."
+    },
+    {
+      "id": "mat1100-4-3-def-gjentatt",
+      "type": "definition",
+      "title": "Gjentatt delvis integrasjon",
+      "content": "Når én runde ikke er nok. For $\\int x^2 e^x\\,dx$ senker første runde graden fra $x^2$ til $x$; en runde til senker til en konstant, og da er du ferdig. Regelen: hver runde med $u=$ polynom faller polynomet ett hakk i grad — gjenta til det forsvinner. Hold styr på fortegnene; en tabelloppstilling («tabular integration») kan hjelpe, men to ryddige runder holder på eksamen."
+    },
+    {
+      "id": "mat1100-4-3-def-rundtur",
+      "type": "definition",
+      "title": "Rundtur-varianten ($e^x\\sin x$)",
+      "content": "Når to runder bringer deg *tilbake til det opprinnelige integralet*. For $\\int e^x\\sin x\\,dx$ gir to delvis-runder en ligning $I=(\\text{ledd})-I$, som du **løser algebraisk** for $I$. Nøkkelen: velg samme type faktor ($u$) begge runder (ikke bytt rolle midtveis), så integralet kommer tilbake med et fortegn du kan flytte over. Resultatet er $\\int e^x\\sin x\\,dx=\\tfrac{e^x(\\sin x-\\cos x)}{2}+C$."
+    },
+    {
+      "id": "mat1100-4-3-def-konstruksjon",
+      "type": "definition",
+      "title": "Konstruksjonsvarianten (regn baklengs fra $du$)",
+      "content": "Hjemmeeksamensvarianten: «konstruer et integral som løses naturlig med substitusjonen $u=\\dots$, og løs det.» Du bygger integralet *baklengs*: velg en $u$, regn $du=u'(x)\\,dx$, og sett sammen en integrand på formen $f(u)\\cdot u'(x)$ som er interessant men løsbar. Deretter løser du det du selv laget — og **verifiserer ved å derivere** (i åpne oppgaver er verifikasjon av at kravet er oppfylt et fasitkrav)."
+    },
+    {
+      "id": "mat1100-4-3-ex-ensom",
+      "type": "example",
+      "title": "Eksempel 5: Ensom funksjon og rundtur",
+      "problem": "Regn ut **a)** $\\displaystyle\\int\\ln x\\,dx$ og **b)** $\\displaystyle\\int e^{x}\\sin x\\,dx$.",
+      "solution": "**a) Ensom funksjon.** $\\ln x$ har ingen tabellantiderivert, men er lett å derivere. Skriv $\\ln x=\\ln x\\cdot 1$ og velg $u=\\ln x$, $v'=1$.\n\n| Velg | Gir |\n|---|---|\n| $u=\\ln x$ | $u'=\\tfrac1x$ |\n| $v'=1$ | $v=x$ |\n\n$$\\int\\ln x\\,dx=x\\ln x-\\int x\\cdot\\frac1x\\,dx=x\\ln x-\\int 1\\,dx=x\\ln x-x+C.$$\nKontroll: $\\frac{d}{dx}(x\\ln x-x)=\\ln x+1-1=\\ln x$. ✓\n\n**b) Rundtur.** Kall integralet $I=\\int e^x\\sin x\\,dx$. Velg $u=\\sin x$, $v'=e^x$ (behold denne rollefordelingen begge runder).\nRunde 1: $I=e^x\\sin x-\\int e^x\\cos x\\,dx$.\nRunde 2 på $\\int e^x\\cos x\\,dx$ med $u=\\cos x$, $v'=e^x$: $\\int e^x\\cos x\\,dx=e^x\\cos x-\\int e^x(-\\sin x)\\,dx=e^x\\cos x+I$.\nSett inn:\n$$I=e^x\\sin x-\\big(e^x\\cos x+I\\big)=e^x\\sin x-e^x\\cos x-I.$$\nLøs for $I$: $2I=e^x(\\sin x-\\cos x)$, så\n$$I=\\frac{e^x(\\sin x-\\cos x)}{2}+C.$$\nKontroll: deriver — $\\frac12\\big(e^x(\\sin x-\\cos x)+e^x(\\cos x+\\sin x)\\big)=\\frac12\\cdot 2e^x\\sin x=e^x\\sin x$. ✓\n\n**Svar:** $\\boxed{\\text{a) }x\\ln x-x+C,\\quad \\text{b) }\\tfrac{e^x(\\sin x-\\cos x)}{2}+C}$"
+    },
+    {
+      "id": "mat1100-4-3-oppg-gjentatt",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-gjentatt-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — gjentatt delvis.) Regn ut $\\displaystyle\\int x^2 e^{x}\\,dx$.",
+        "solution": "Produkt av polynom og $e^x$: LIATE gir $u=x^2$, $v'=e^x$. Graden på $x^2$ krever to runder.\n\n**Runde 1** ($u=x^2$, $v'=e^x\\Rightarrow v=e^x$, $u'=2x$):\n$$\\int x^2 e^x\\,dx=x^2 e^x-\\int 2x\\,e^x\\,dx=x^2 e^x-2\\int x e^x\\,dx.$$\n\n**Runde 2** på $\\int x e^x\\,dx$ (fra Eksempel 4: $=(x-1)e^x$):\n$$=x^2 e^x-2\\big((x-1)e^x\\big)+C=x^2 e^x-2x e^x+2e^x+C=(x^2-2x+2)e^x+C.$$\n\n**Kontroll:** $\\frac{d}{dx}(x^2-2x+2)e^x=(2x-2)e^x+(x^2-2x+2)e^x=x^2 e^x$. ✓ **Konklusjon:** $\\boxed{(x^2-2x+2)e^x+C}$.",
+        "hints": [
+          "LIATE: $u=x^2$ (polynomet), $v'=e^x$.",
+          "Første runde senker $x^2$ til $2x$ — men du sitter igjen med $\\int x e^x$.",
+          "Gjenbruk resultatet $\\int x e^x\\,dx=(x-1)e^x$ fra Eksempel 4."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-oppg-konstruksjon",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-3-oppg-konstruksjon-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — konstruksjonsvarianten, hjemmeeksamensstil.) Konstruer et bestemt integral som løses naturlig med substitusjonen $u=\\ln x$, og løs det. (Åpen oppgave: du velger selv integranden, men den skal *kreve* nettopp denne substitusjonen, og du skal verifisere svaret.)",
+        "solution": "**Konstruksjon (regn baklengs fra $du$):** med $u=\\ln x$ er $du=\\tfrac{dx}{x}$. Jeg vil ha en integrand på formen $f(\\ln x)\\cdot\\tfrac1x$. Velger jeg $f(u)=u$, får jeg integranden $\\tfrac{\\ln x}{x}$ — den *krever* $u=\\ln x$ (et $\\ln x$ ved siden av sin egen deriverte $\\tfrac1x$). Jeg velger grensene $x=1$ til $x=e$, så $u$ løper pent fra $0$ til $1$.\n\n**Det konstruerte integralet:** $\\displaystyle\\int_1^{e}\\frac{\\ln x}{x}\\,dx$.\n\n**Løsning med boks (nye grenser):**\n\n| Størrelse | Uttrykk |\n|---|---|\n| $u$ | $\\ln x$ |\n| $du$ | $\\tfrac{dx}{x}$ |\n| nedre grense | $x=1\\Rightarrow u=0$ |\n| øvre grense | $x=e\\Rightarrow u=1$ |\n\n$$\\int_1^e\\frac{\\ln x}{x}\\,dx=\\int_0^1 u\\,du=\\Big[\\tfrac{u^2}{2}\\Big]_0^1=\\frac12.$$\n\n**Verifikasjon** (kravet: løses den *naturlig* med $u=\\ln x$?): ja — integranden er $\\ln x\\cdot\\tfrac1x$, altså «funksjon av $\\ln x$» ganger dens deriverte, som er nøyaktig gjenkjenningsmønsteret. Og svaret kontrolleres ved at $\\frac{d}{dx}\\tfrac{(\\ln x)^2}{2}=\\ln x\\cdot\\tfrac1x=\\tfrac{\\ln x}{x}$. ✓\n\n**Konklusjon:** integralet $\\int_1^e\\frac{\\ln x}{x}\\,dx=\\tfrac12$. (Andre gyldige svar finnes — for eksempel $\\int_1^e\\frac{(\\ln x)^2}{x}\\,dx=\\tfrac13$ — så lenge integranden inneholder $\\tfrac1x$ ved siden av et $\\ln x$-uttrykk og du verifiserer.) $\\boxed{\\int_1^e\\tfrac{\\ln x}{x}\\,dx=\\tfrac12}$",
+        "hints": [
+          "Start fra $u=\\ln x$ og regn $du=\\tfrac{dx}{x}$ — bygg en integrand som inneholder $\\tfrac1x$.",
+          "En integrand $f(\\ln x)\\cdot\\tfrac1x$ er den du er ute etter; velg en enkel $f$.",
+          "Velg grenser som gir pene $u$-verdier, f.eks. $x=1\\to e$ gir $u=0\\to1$. Husk å verifisere ved derivasjon."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å skifte grenser ved substitusjon i et bestemt integral.** Den mest dokumenterte føringsfeilen: du bytter til $u$, men regner videre med de gamle $x$-grensene. Skift dem i boksen, eller substituer tilbake til $x$ først.\n- **Substitusjon uten boksføring.** Et riktig svar kan trekkes for manglende føring. Vis $u$, $du/dx$, $dx$ og (bestemt) de nye grensene hver gang.\n- **Feil fortegn i delvis integrasjon.** Formelen er $uv-\\int u'v$ — minus, ikke pluss. Og pass $\\int\\sin x=-\\cos x$.\n- **Velge $u$/$v'$ slik at integralet blir verre — og ikke snu.** Blir $\\int u'v$ mer komplisert enn du startet med, har du valgt feil vei. Bruk LIATE og bytt hvis nødvendig.\n- **Glemme å substituere tilbake i et ubestemt integral.** Svaret må stå i den opprinnelige variabelen $x$, ikke i $u$.\n- **Glemme $+C$ i ubestemte integraler.** Fast føringstrekk."
+    },
+    {
+      "id": "mat1100-4-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er noen kjernebegreper fra kapitlet samlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-4-3-bb-klassiker-1x",
+      "type": "definition",
+      "title": "Klassikeren $u=1/x$",
+      "content": "Brukes når $1/x$ (eller $1/x^2$) opptrer sammen med en funksjon av $1/x$. Da er $u=\\tfrac1x$, $du=-\\tfrac{1}{x^2}\\,dx$ — merk minustegnet. Eksempel: $\\int\\frac{e^{1/x}}{x^2}\\,dx=-e^{1/x}+C$. Fellen er å glemme minustegnet i $du$."
+    },
+    {
+      "id": "mat1100-4-3-bb-klassiker-arctan",
+      "type": "definition",
+      "title": "Klassikeren $u=\\arctan x$",
+      "content": "Brukes når $\\arctan x$ opptrer sammen med sin egen deriverte $\\tfrac{1}{1+x^2}$. Da er $u=\\arctan x$, $du=\\tfrac{dx}{1+x^2}$. Eksempel: $\\int\\frac{\\arctan x}{1+x^2}\\,dx=\\tfrac{(\\arctan x)^2}{2}+C$. Signalet er en nevner $1+x^2$ ved siden av et $\\arctan x$-uttrykk."
+    },
+    {
+      "id": "mat1100-4-3-bb-konstant",
+      "type": "definition",
+      "title": "Integrasjonskonstanten $+C$",
+      "content": "Den vilkårlige konstanten som må stå på et **ubestemt** integral, fordi alle antideriverte skiller seg med en konstant ($\\tfrac{d}{dx}C=0$). Å glemme $+C$ er et fast føringstrekk. I **bestemte** integraler skrives ikke $+C$ — der kanselleres den i differansen $F(b)-F(a)$."
+    },
+    {
+      "id": "mat1100-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-4-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $u=g(x)$ | Den nye variabelen i en substitusjon (indre funksjon) |\n| $du=g'(x)\\,dx$ | Bytte av differensial |\n| nye grenser | $x=a\\Rightarrow u=g(a)$, $x=b\\Rightarrow u=g(b)$ |\n| $u,\\ v'$ | Faktor som deriveres / integreres i delvis integrasjon |\n| LIATE | Prioritetsliste for valg av $u$: Log–Invers–Algebra–Trig–Eksp |\n| $I$ | Navn på integralet i rundtur-varianten (løses algebraisk) |\n| $+C$ | Integrasjonskonstanten (ubestemte integraler) |\n\n**Formler i dette delkapitlet:**\n\n$$\\int f(g(x))\\,g'(x)\\,dx=\\int f(u)\\,du\\quad(u=g(x))$$\nSubstitusjon (reversert kjerneregel).\n\n$$\\int_{a}^{b} f(g(x))g'(x)\\,dx=\\int_{g(a)}^{g(b)} f(u)\\,du$$\nBestemt integral med grenseskifte.\n\n$$\\int u\\,v'\\,dx=uv-\\int u'\\,v\\,dx$$\nDelvis integrasjon (reversert produktregel).\n\n$$\\int\\frac{du}{\\sqrt{1-u^2}}=\\arcsin u+C,\\qquad \\int\\frac{du}{1+u^2}=\\arctan u+C$$\narcsin- og arctan-målformene.\n\n$$\\int\\ln x\\,dx=x\\ln x-x+C$$\nEnsom funksjon ($v'=1$).\n\n$$\\int e^{x}\\sin x\\,dx=\\tfrac{e^{x}(\\sin x-\\cos x)}{2}+C$$\nRundtur-varianten."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-4-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-4-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-3-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/mat1100/mat1100-4-2)) Regn ut $\\int_0^1 (4x^3+1)\\,dx$ med fundamentalteoremet.",
+            "solution": "Antiderivert $x^4+x$; $[x^4+x]_0^1=(1+1)-(0)=2$. **Svar:** $2$. (Grunnferdigheten du trenger i hvert bestemt integral etter substitusjon.)",
+            "hints": [
+              "Integrer ledd for ledd, sett inn grensene."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-3-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/mat1100/mat1100-3-2)) Deriver $y=\\sin(x^2)$ — og forklar hvorfor det henger sammen med substitusjon.",
+            "solution": "$y'=\\cos(x^2)\\cdot 2x$ (kjerneregelen). Nettopp fordi den deriverte har formen «funksjon av $x^2$ ganger $2x$», kan $\\int 2x\\cos(x^2)\\,dx$ løses med $u=x^2$ — substitusjon er kjerneregelen baklengs.",
+            "hints": [
+              "Kjerneregelen: deriver ytre, gang med indres deriverte."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-3-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/mat1100/mat1100-3-2)) Deriver $y=x e^x$ med produktregelen — og koble til delvis integrasjon.",
+            "solution": "$y'=e^x+x e^x=(x+1)e^x$. Delvis integrasjon er produktregelen integrert: siden $(x e^x)'=e^x+x e^x$, gir integrasjon $x e^x=\\int e^x+\\int x e^x$, altså $\\int x e^x=x e^x-\\int e^x$.",
+            "hints": [
+              "$(uv)'=u'v+uv'$ med $u=x$, $v=e^x$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-3-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.2](/bok/mat1100/mat1100-4-2)) Hva er $\\int \\frac{1}{1+x^2}\\,dx$ og $\\int\\frac{1}{\\sqrt{1-x^2}}\\,dx$?",
+            "solution": "$\\int\\frac{dx}{1+x^2}=\\arctan x+C$ og $\\int\\frac{dx}{\\sqrt{1-x^2}}=\\arcsin x+C$. Dette er nettopp de to målformene substitusjonene i dette kapitlet sikter mot.",
+            "hints": [
+              "Les antiderivert-tabellen baklengs fra $(\\arctan x)'$ og $(\\arcsin x)'$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

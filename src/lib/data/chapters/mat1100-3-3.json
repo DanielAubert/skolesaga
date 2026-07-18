@@ -1,0 +1,442 @@
+{
+  "id": "mat1100-3-3",
+  "courseId": "mat1100",
+  "chapterNumber": "3.3",
+  "title": "Drill: signaturoppgaven — kontinuitet og deriverbarhet i ett punkt",
+  "description": "Slutteksamenens teoritunge sluttoppgave: x^k·sin/cos(1/x^m)-familien, skviseargumentet, grensedefinisjonen og oscillasjonsfellen — emnets tydeligste karakterskiller.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "vise kontinuitet i et punkt med skvis der begrensetheten uttales eksplisitt",
+    "avgjøre deriverbarhet i et punkt via differansekvotienten, aldri via derivertformelen",
+    "gjenkjenne oscillasjonsfellen: en funksjon kan være deriverbar selv om grensen av den deriverte ikke finnes",
+    "bruke grense-av-derivert-setningen riktig og bestemme skjøteparametre ved et likningssystem"
+  ],
+  "content": [
+    {
+      "id": "mat1100-3-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er slutteksamenens tydeligste karakterskille — og emnets viktigste enkeltkapittel.**\n\n- **Signaturoppgaven** (kontinuitet/deriverbarhet i ett punkt) er med i **10 av 21 slutteksamener**, og i **5 av de 6 siste årene**. Oscillasjonsfamilien $x^k\\sin(1/x^m)$ / $x^k\\cos(1/x^m)$ gikk igjen **fire år på rad (2020–2023)**.\n- «$\\lim f'$ finnes ikke, men $f$ er likevel deriverbar» var **eksplisitt fasitadvarsel i 2020** og **egen bevisdeloppgave i 2021**.\n- **Skjøteparameter-varianten** (ukjente $a,b,c$) var oppgave i 2019, og **integrerbarhets-påbygget** samme år.\n\nKoder: **(Eksamenssjanger H)** = kontinuitet/deriverbarhet i ett punkt, signaturoppgaven. **(H+I)** = med teoribevis-kobling (sjanger I = eksistens-/teoribevis).\n\n**Regelen som skiller topp fra midt (les to ganger):** en funksjon kan være **deriverbar** i et punkt selv om $\\lim_{x\\to a}f'(x)$ **ikke finnes**. Å konkludere «ikke deriverbar» fordi den deriverte oscillerer rundt punktet, er *den* fella fasitene advarer mot. Deriverbarhet avgjøres alltid av differansekvotienten $\\lim_{h\\to 0}\\frac{f(h)-f(0)}{h}$ — aldri av derivertformelen.\n\n*Dette drillkapitlet tar ~90 minutter. Det er ett langt treningsløp, men **kan trygt deles over flere kvelder** — ta gjerne én seksjon (A–F) per økt. Pausepunkter er markert underveis.*"
+    },
+    {
+      "id": "mat1100-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet fletter sammen tre tidligere kapitler, og du bør ha dem friskt i minne:\n\n- **[Kap. 3.1](/bok/mat1100/mat1100-3-1)** — grensedefinisjonen av den deriverte og ensidige deriverte (selve verktøyet).\n- **[Kap. 2.2](/bok/mat1100/mat1100-2-2)** — skviseteoremet og standardgrenser (bærer kontinuitetsdelen).\n- **[Kap. 2.4](/bok/mat1100/mat1100-2-4)** — kontinuitet i punkt og ensidige grenser.\n\n**Sist du var her (oppfriskning), tre formler du trenger nå:**\n\n$$f'(a)=\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}\\quad\\text{(grensedefinisjonen)}$$\n$$-|x|^k\\le x^k\\cos(1/x^m)\\le |x|^k\\quad\\text{(skvis, fordi }|\\cos|\\le 1)$$\n$$f\\text{ kontinuerlig i }a:\\ \\lim_{x\\to a}f(x)=f(a).$$"
+    },
+    {
+      "id": "mat1100-3-3-intro",
+      "type": "text",
+      "content": "Hverdagsankeret: tenk deg en gitarstreng som svinger raskere og raskere jo nærmere du kommer et punkt, men med mindre og mindre utslag. Svingningene blir uendelig hurtige, men amplituden dør ut. Slik oppfører oscillasjonsfamilien $x^k\\sin(1/x^m)$ seg nær $0$: $\\sin(1/x^m)$ svinger vilt, men $x^k$ demper utslaget mot null. Spørsmålet på eksamen er alltid: *hvor sterk må dempingen ($k$) være* for at funksjonen skal bli kontinuerlig, deriverbar, eller ha kontinuerlig derivert?\n\nDette er et **drillkapittel**. Struktur: først løsningsoppskriften og eksponent-regnskapet, så seks seksjoner (A–F) som hver borer inn i én del av signaturoppgaven med gjennomregnede eksempler og oppgaver, så en fullstendig gjennomregnet eksamenscase med sensor-margnotater, og til slutt en oppgavebank på eksamensnivå. Alt følger føringsstandarden: teoremer navngis, begrensethet uttales, konklusjoner skrives ut."
+    },
+    {
+      "id": "mat1100-3-3-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (algoritmen)\n\nMøter du en signaturoppgave om et punkt $a$ (nesten alltid $a=0$), følg denne rekkefølgen:\n\n1. **Kontinuitet i punktet.** Vis $\\lim_{x\\to a}f(x)=f(a)$. For oscillasjonsfamilien: bruk **skvis** og *uttal begrensetheten* ($|\\sin(1/x^m)|\\le 1$ eller $|\\cos(1/x^m)|\\le 1$). For skjøter: regn de ensidige grensene hver for seg.\n2. **Deriverbarhet i punktet.** Sett opp differansekvotienten $\\displaystyle\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}$ og avgjør med skvis / standardgrenser. **Aldri via derivertformelen.**\n3. **Sjekk oscillasjonsfellen.** Skal du si noe om $f'$ *rundt* punktet: regn $f'(x)$ for $x\\ne a$ og undersøk $\\lim_{x\\to a}f'(x)$. Finnes den ikke, er $f'$ *diskontinuerlig* i $a$ — men det endrer **ikke** at $f$ er deriverbar (det avgjorde trinn 2).\n4. **Grense-av-derivert-setningen** (motsatt vei) kan brukes til å *bekrefte* $f'(a)$ *når* $\\lim_{x\\to a}f'(x)$ finnes — aldri til å nekte deriverbarhet når den ikke finnes.\n5. **Skjøteparametre:** sett opp kontinuitets- og derivertlikninger i hvert skjøtepunkt og løs systemet.\n6. **Integrerbarhet:** bruk et av de to teoremene (begrenset + endelig mange diskontinuiteter, eller begrenset + stykkevis monoton) — uten å regne integralet."
+    },
+    {
+      "id": "mat1100-3-3-def-signaturoppgaven",
+      "type": "definition",
+      "title": "Signaturoppgaven (sjanger H)",
+      "content": "Slutteksamenens teoritunge oppgave om **kontinuitet og deriverbarhet i ett punkt**, nesten alltid $x=0$. Den ber deg typisk (a) vise kontinuitet, (b) avgjøre deriverbarhet, (c) avgjøre om den deriverte er kontinuerlig. Det som testes er ikke regnestyrke, men om du bruker *riktig verktøy*: grensedefinisjonen (ikke derivertformelen) og skvis med uttalt begrensethet."
+    },
+    {
+      "id": "mat1100-3-3-def-familie",
+      "type": "definition",
+      "title": "Oscillasjonsfamilien $x^k\\,\\mathrm{trig}(1/x^m)$",
+      "content": "Familien av funksjoner $f(x)=x^k\\sin(1/x^m)$ eller $x^k\\cos(1/x^m)$ for $x\\ne 0$, med $f(0)=0$, der $k,m>0$. Nær $0$ svinger trig-faktoren uendelig raskt, mens $x^k$ demper amplituden. Hvor sterk dempingen er (størrelsen på $k$ i forhold til $m$) avgjør nøyaktig hvilke glatthetsegenskaper $f$ får — se eksponent-regnskapet nedenfor."
+    },
+    {
+      "id": "mat1100-3-3-km-tabell",
+      "type": "text",
+      "content": "## Eksponent-regnskapet: $k$ mot $m$\n\nFor familien $f(x)=x^k\\,\\mathrm{trig}(1/x^m)$ med $f(0)=0$ avgjøres alt av tre terskler. La oss utlede dem én gang, så leser du dem av resten av kapitlet.\n\n**Kontinuitet i $0$:** $|f(x)|=|x|^k\\,|\\mathrm{trig}(1/x^m)|\\le |x|^k\\to 0$ nettopp når $k>0$. Så $f$ er kontinuerlig i $0$ for alle $k>0$.\n\n**Deriverbar i $0$:** differansekvotienten er $\\dfrac{f(h)-f(0)}{h}=\\dfrac{h^k\\,\\mathrm{trig}(1/h^m)}{h}=h^{k-1}\\,\\mathrm{trig}(1/h^m)$. Dette klemmes mot $0$ (via $|h|^{k-1}$) nettopp når $k-1>0$, altså $k>1$. Er $k=1$, står $\\mathrm{trig}(1/h^m)$ igjen og oscillerer — ingen grense, ikke deriverbar.\n\n**$f'$ kontinuerlig i $0$:** for $x\\ne 0$ er $f'(x)=k x^{k-1}\\mathrm{trig}(1/x^m)\\mp m x^{k-m-1}\\mathrm{trig}^\\ast(1/x^m)$. Andreleddet har eksponent $k-m-1$; det dør ut nettopp når $k-m-1>0$, altså $k>m+1$. (Førsteleddet krever bare $k>1$.)\n\n**Oppsummert (terskeltabell):**\n\n| Egenskap | Betingelse |\n|---|---|\n| Kontinuerlig i $0$ | $k>0$ |\n| Deriverbar i $0$ | $k>1$ |\n| $f'$ kontinuerlig i $0$ (klasse $C^1$) | $k>m+1$ |\n\n**Konkrete tilfeller (etterregnet numerisk):**\n\n| Funksjon | $k$ | $m$ | Kont.? | Deriverbar? | $f'$ kont.? |\n|---|---|---|---|---|---|\n| $x\\sin(1/x)$ | $1$ | $1$ | ja ($1>0$) | **nei** ($1\\not>1$) | – |\n| $x^2\\sin(1/x)$ | $2$ | $1$ | ja | ja ($2>1$) | **nei** ($2\\not>2$) |\n| $x^3\\cos(1/x^2)$ | $3$ | $2$ | ja | ja | **nei** ($3\\not>3$) |\n| $x^4\\sin(1/x^2)$ | $4$ | $2$ | ja | ja | **ja** ($4>3$) |\n\nLegg merke til mønsteret: å være deriverbar krever bare litt mer demping enn å være kontinuerlig, men å ha *kontinuerlig* derivert krever mye mer (du må slå både $k>1$ og $k>m+1$). Nettopp gapet mellom kolonne 2 og 3 er oscillasjonsfellen."
+    },
+    {
+      "id": "mat1100-3-3-seksjonA",
+      "type": "text",
+      "content": "## Seksjon A — Kontinuitet med skvis (~12 min)"
+    },
+    {
+      "id": "mat1100-3-3-def-skvis",
+      "type": "definition",
+      "title": "Skviseteoremet (med uttalt begrensethet)",
+      "content": "Er $g(x)\\le f(x)\\le h(x)$ nær $a$, og $\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L$, så er $\\lim_{x\\to a}f(x)=L$. I signaturoppgaven brukes det slik: fordi $|\\cos(1/x^m)|\\le 1$ (begrensetheten **skal uttales**), er $-|x|^k\\le x^k\\cos(1/x^m)\\le |x|^k$, og begge ytterrammer går mot $0$. Konklusjon: $\\lim_{x\\to 0}x^k\\cos(1/x^m)=0$. Å hoppe over å nevne begrensetheten er et fast fasittrekk."
+    },
+    {
+      "id": "mat1100-3-3-exA",
+      "type": "example",
+      "title": "Eksempel A: Kontinuitet via skvis",
+      "problem": "La $f(x)=x^2\\sin(1/x)$ for $x\\ne 0$ og $f(0)=0$. Vis at $f$ er kontinuerlig i $0$.",
+      "solution": "Vi må vise $\\lim_{x\\to 0}f(x)=f(0)=0$.\n\n**Uttal begrensetheten:** For alle $x\\ne 0$ er $|\\sin(1/x)|\\le 1$. Ganger vi med $x^2\\ge 0$:\n$$-x^2\\le x^2\\sin(1/x)\\le x^2.$$\n\n**Skvis:** $\\lim_{x\\to 0}(-x^2)=0$ og $\\lim_{x\\to 0}x^2=0$. Etter **skviseteoremet** er da\n$$\\lim_{x\\to 0}x^2\\sin(1/x)=0=f(0).$$\n\n**Konklusjon:** $f$ er kontinuerlig i $0$. $\\boxed{\\lim_{x\\to 0}f(x)=0=f(0)}$"
+    },
+    {
+      "id": "mat1100-3-3-oppgA",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgA-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger H — kontinuitetsdelen.) La $f(x)=x^2\\cos(1/x^2)$ for $x\\ne 0$ og $f(0)=0$. Vis at $f$ er kontinuerlig i $0$, og uttal begrensetheten eksplisitt.",
+        "solution": "Vi viser $\\lim_{x\\to 0}f(x)=f(0)=0$.\n\n**Begrensethet:** $|\\cos(1/x^2)|\\le 1$ for alle $x\\ne 0$. Ganger med $x^2\\ge 0$:\n$$-x^2\\le x^2\\cos(1/x^2)\\le x^2.$$\n**Skvis:** begge ytterrammer $\\pm x^2\\to 0$ når $x\\to 0$. Etter skviseteoremet er $\\lim_{x\\to 0}x^2\\cos(1/x^2)=0=f(0)$.\n**Konklusjon:** $f$ er kontinuerlig i $0$. $\\boxed{\\text{Kontinuerlig, ved skvis med }|\\cos|\\le 1.}$",
+        "hints": [
+          "Start med begrensetheten $|\\cos(\\text{hva som helst})|\\le 1$.",
+          "Gang ulikheten med $x^2$ (som er $\\ge 0$, så retningen bevares) for å ramme inn $f$.",
+          "Bruk skviseteoremet og sammenlign med $f(0)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-pauseA",
+      "type": "text",
+      "content": "*— naturlig pausepunkt (slutt seksjon A) —*"
+    },
+    {
+      "id": "mat1100-3-3-seksjonB",
+      "type": "text",
+      "content": "## Seksjon B — Deriverbarhet via differansekvotienten (~15 min)"
+    },
+    {
+      "id": "mat1100-3-3-def-diffkvotient",
+      "type": "definition",
+      "title": "Deriverbarhet i punkt via differansekvotienten",
+      "content": "For å avgjøre om $f$ er deriverbar i $a$, setter du opp $\\displaystyle\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}$ og avgjør om grensen finnes. **Dette er den eneste gyldige metoden** når formelverket ikke gjelder i punktet. For oscillasjonsfamilien i $a=0$ blir differansekvotienten $h^{k-1}\\,\\mathrm{trig}(1/h^m)$: den klemmes mot $0$ hvis $k>1$ (da er $f'(0)=0$), og oscillerer uten grense hvis $k=1$ (da er $f$ ikke deriverbar)."
+    },
+    {
+      "id": "mat1100-3-3-exB",
+      "type": "example",
+      "title": "Eksempel B: Deriverbarhet — to utfall side om side",
+      "problem": "Avgjør deriverbarhet i $0$ for (i) $g(x)=x\\sin(1/x)$ og (ii) $f(x)=x^2\\sin(1/x)$ (begge med verdi $0$ i $0$).",
+      "solution": "**(i) $g(x)=x\\sin(1/x)$, $k=1$:** Differansekvotient med $g(0)=0$:\n$$\\frac{g(h)-g(0)}{h}=\\frac{h\\sin(1/h)}{h}=\\sin(1/h).$$\nNår $h\\to 0$ svinger $\\sin(1/h)$ mellom $-1$ og $1$ uten å nærme seg noe tall — grensen **finnes ikke**. Altså er $g$ **ikke deriverbar** i $0$. (Merk: her er begrunnelsen at *differansekvotienten* oscillerer — det er den gyldige måten å konkludere «ikke deriverbar» på.)\n\n**(ii) $f(x)=x^2\\sin(1/x)$, $k=2$:** Differansekvotient med $f(0)=0$:\n$$\\frac{f(h)-f(0)}{h}=\\frac{h^2\\sin(1/h)}{h}=h\\sin(1/h).$$\nUttal begrensetheten $|\\sin(1/h)|\\le 1$: $-|h|\\le h\\sin(1/h)\\le |h|$. **Skvis** gir $\\lim_{h\\to 0}h\\sin(1/h)=0$. Altså er $f$ **deriverbar** i $0$ med $f'(0)=0$.\n\n**Konklusjon:** ett steg mer demping ($k=1\\to k=2$) er akkurat det som skiller «ikke deriverbar» fra «deriverbar med $f'(0)=0$». $\\boxed{g\\text{ ikke deriverbar};\\quad f'(0)=0}$"
+    },
+    {
+      "id": "mat1100-3-3-oppgB",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgB-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — deriverbarhetsdelen.) La $f(x)=x^3\\cos(1/x^2)$ for $x\\ne 0$ og $f(0)=0$. Avgjør om $f$ er deriverbar i $0$ ved å bruke differansekvotienten, og oppgi $f'(0)$ hvis den finnes.",
+        "solution": "Differansekvotient med $f(0)=0$:\n$$\\frac{f(h)-f(0)}{h}=\\frac{h^3\\cos(1/h^2)}{h}=h^2\\cos(1/h^2).$$\n**Uttal begrensetheten** $|\\cos(1/h^2)|\\le 1$: $-h^2\\le h^2\\cos(1/h^2)\\le h^2$. Begge ytterrammer $\\to 0$, så **skvis** gir\n$$\\lim_{h\\to 0}h^2\\cos(1/h^2)=0.$$\n**Konklusjon:** grensen finnes, så $f$ er **deriverbar** i $0$ med $\\boxed{f'(0)=0}$. (I terskeltabellen: $k=3>1$, så deriverbar — som ventet.)",
+        "hints": [
+          "Sett opp differansekvotienten $\\frac{f(h)-f(0)}{h}$ og forenkl med $f(0)=0$.",
+          "Én potens av $h$ forkortes bort; hva står igjen foran cosinusen?",
+          "Uttal $|\\cos|\\le 1$ og bruk skvis. Ikke deriver formelen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-seksjonC",
+      "type": "text",
+      "content": "## Seksjon C — Oscillasjonsfellen: $x^2\\sin(1/x)$ helt ut (~15 min)"
+    },
+    {
+      "id": "mat1100-3-3-def-oscillasjonsfelle",
+      "type": "definition",
+      "title": "Oscillasjonsfellen (kjernefellen)",
+      "content": "Fella som skiller toppkarakteren: en funksjon kan være **deriverbar** i $a$ *selv om* $\\lim_{x\\to a}f'(x)$ **ikke finnes**. Den deriverte er da bare *diskontinuerlig* i $a$. Deriverbarhet avgjøres av differansekvotienten (trinn 2), ikke av oppførselen til $f'$ rundt punktet. Å skrive «ikke deriverbar fordi $\\lim f'$ ikke finnes» er direkte galt — det var eksplisitt fasitadvarsel i 2020."
+    },
+    {
+      "id": "mat1100-3-3-exC",
+      "type": "example",
+      "title": "Eksempel C: $x^2\\sin(1/x)$ — deriverbar overalt, men $f'$ diskontinuerlig i 0",
+      "problem": "La $f(x)=x^2\\sin(1/x)$ for $x\\ne 0$ og $f(0)=0$. Vis at $f$ er deriverbar for alle $x$, finn $f'$, og avgjør om $f'$ er kontinuerlig i $0$.",
+      "solution": "**Deriverbar i $0$:** fra Eksempel B (ii) er $f'(0)=0$ (differansekvotienten $h\\sin(1/h)\\to 0$ ved skvis).\n\n**Deriverbar for $x\\ne 0$:** her gjelder formelverket (produkt- og kjerneregel):\n$$f'(x)=2x\\sin(1/x)+x^2\\cos(1/x)\\cdot\\left(-\\frac{1}{x^2}\\right)=2x\\sin(1/x)-\\cos(1/x).$$\nSå $f$ er deriverbar overalt, med\n$$f'(x)=\\begin{cases}2x\\sin(1/x)-\\cos(1/x), & x\\ne 0\\\\[2pt] 0, & x=0.\\end{cases}$$\n\n**Er $f'$ kontinuerlig i $0$?** Vi må sjekke $\\lim_{x\\to 0}f'(x)$. Første ledd: $|2x\\sin(1/x)|\\le 2|x|\\to 0$ (skvis). Andre ledd: $\\cos(1/x)$ **oscillerer** mellom $-1$ og $1$ og har *ingen grense* når $x\\to 0$. Summen har derfor ingen grense:\n$$\\lim_{x\\to 0}f'(x)\\ \\text{finnes ikke.}$$\n\n**Konklusjon:** $f$ er deriverbar overalt (også i $0$, med $f'(0)=0$), men $f'$ er **diskontinuerlig** i $0$ fordi $\\lim_{x\\to 0}f'(x)$ ikke finnes. Dette er oscillasjonsfellen i renform: manglende grense for $f'$ motsier *ikke* at $f$ er deriverbar — deriverbarheten ble avgjort av differansekvotienten. $\\boxed{f'(0)=0,\\ \\text{men } f' \\text{ diskontinuerlig i } 0}$"
+    },
+    {
+      "id": "mat1100-3-3-oppgC",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgC-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H+I — kjernefellen.) En medstudents utkast konkluderer: «$f(x)=x^2\\sin(1/x)$ (med $f(0)=0$) er ikke deriverbar i $0$, fordi $f'(x)=2x\\sin(1/x)-\\cos(1/x)$ ikke har noen grense når $x\\to 0$.» Forklar presist hva som er feil, og gi det korrekte svaret med begrunnelse.",
+        "solution": "**Feilen:** konklusjonen bruker feil kriterium. Deriverbarhet i $0$ avgjøres av differansekvotienten $\\lim_{h\\to 0}\\frac{f(h)-f(0)}{h}$, ikke av om $\\lim_{x\\to 0}f'(x)$ finnes. At den *deriverte funksjonen* $f'$ mangler grense i $0$, betyr bare at $f'$ er diskontinuerlig der — det er fullt forenlig med at $f$ er deriverbar.\n\n**Korrekt svar:** differansekvotienten er $\\frac{h^2\\sin(1/h)}{h}=h\\sin(1/h)$, og siden $|\\sin(1/h)|\\le 1$ gir skvis $-|h|\\le h\\sin(1/h)\\le|h|$, altså $\\lim_{h\\to 0}h\\sin(1/h)=0$. Derfor **er** $f$ deriverbar i $0$ med $f'(0)=0$. Det medstudenten korrekt har observert, er at $f'$ er *diskontinuerlig* i $0$ — en helt annen (og sann) påstand.\n\n**Konklusjon:** $f$ er deriverbar i $0$ ($f'(0)=0$); $f'$ er diskontinuerlig i $0$. $\\boxed{\\text{Deriverbar — fella er å blande } \\lim f' \\text{ med differansekvotienten.}}$",
+        "hints": [
+          "Hvilket kriterium avgjør deriverbarhet i et punkt — differansekvotienten eller grensen av $f'$?",
+          "Regn differansekvotienten $\\frac{f(h)-f(0)}{h}$ ut og bruk skvis.",
+          "Skill de to påstandene: «$f$ deriverbar i $0$» og «$f'$ kontinuerlig i $0$» er ikke det samme."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-pauseC",
+      "type": "text",
+      "content": "*— naturlig pausepunkt (slutt seksjon C — du har nå sett kjernefellen) —*"
+    },
+    {
+      "id": "mat1100-3-3-seksjonD",
+      "type": "text",
+      "content": "## Seksjon D — Grense-av-derivert-setningen (~13 min)"
+    },
+    {
+      "id": "mat1100-3-3-th-gad",
+      "type": "theorem",
+      "title": "Grense-av-derivert-setningen",
+      "content": "**Setning.** La $f$ være kontinuerlig i $a$ og deriverbar i et punktert intervall rundt $a$. Hvis $\\lim_{x\\to a}f'(x)=b$ **finnes**, så er $f$ deriverbar i $a$ og $f'(a)=b$ (og da er $f'$ automatisk kontinuerlig i $a$).\n\n**Bevisskisse (via MVT).** For $h\\ne 0$ gir middelverdisetningen på intervallet mellom $a$ og $a+h$ et punkt $c_h$ mellom dem med $\\frac{f(a+h)-f(a)}{h}=f'(c_h)$. Når $h\\to 0$ tvinges $c_h\\to a$, så $f'(c_h)\\to b$. Altså går differansekvotienten mot $b$, dvs. $f'(a)=b$. (Alternativt følger det ved L'Hôpital på $\\frac{f(x)-f(a)}{x-a}$, som er formen $[0/0]$.) Dette var eksamensbevis i 2021. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-3-3-gad-nar",
+      "type": "text",
+      "content": "### Når gjelder hvert kriterium?\n\nDette er selve poenget — og grensen mot fella:\n\n- **Finnes $\\lim_{x\\to a}f'(x)$?** Da, og bare da, kan du bruke setningen til å *lese av* $f'(a)$. Det er en snarvei som sparer deg for differansekvotienten.\n- **Finnes ikke $\\lim_{x\\to a}f'(x)$?** Da sier setningen **ingenting** — verken at $f$ er eller ikke er deriverbar. Setningen har en *hvis*, ikke en *hvis og bare hvis*. Du må tilbake til differansekvotienten (seksjon B). Å bruke «$\\lim f'$ finnes ikke» som argument for «ikke deriverbar» er nettopp misbruket setningen ikke tillater."
+    },
+    {
+      "id": "mat1100-3-3-exD",
+      "type": "example",
+      "title": "Eksempel D: Snarveien når grensen finnes",
+      "problem": "La $f(x)=\\begin{cases}x^2\\ln x, & x>0\\\\ 0, & x\\le 0\\end{cases}$. Bruk grense-av-derivert-setningen til å finne $f'(0)$.",
+      "solution": "$f$ er kontinuerlig i $0$: for $x\\to 0^+$ er $x^2\\ln x\\to 0$ (veksthierarkiet fra kap. 2.2, $x^2$ slår $\\ln x$), og fra venstre er $f\\equiv 0$. Så $\\lim_{x\\to 0}f(x)=0=f(0)$.\n\n**Grense av $f'$:** for $x>0$ er $f'(x)=2x\\ln x+x^2\\cdot\\frac1x=2x\\ln x+x$. Begge ledd $\\to 0$ når $x\\to 0^+$ (igjen veksthierarkiet). For $x<0$ er $f'(x)=0$. Altså $\\lim_{x\\to 0}f'(x)=0$ — grensen **finnes**.\n\n**Setningen gjelder:** siden $f$ er kontinuerlig i $0$ og $\\lim_{x\\to 0}f'(x)=0$, er $f$ deriverbar i $0$ med $f'(0)=0$.\n\n**Konklusjon:** $\\boxed{f'(0)=0}$. Her var snarveien lovlig fordi grensen fantes — motsatt av oscillasjonsfamilien, der den ikke gjør det og vi må bruke differansekvotienten."
+    },
+    {
+      "id": "mat1100-3-3-oppgD",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgD-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — teorikobling.) Forklar med én setning hvorfor grense-av-derivert-setningen *ikke* kan brukes til å avgjøre deriverbarheten til $f(x)=x^2\\sin(1/x)$ i $0$, og hvilket verktøy du må bruke i stedet.",
+        "solution": "Setningen krever at $\\lim_{x\\to 0}f'(x)$ *finnes*, men for $x^2\\sin(1/x)$ er $f'(x)=2x\\sin(1/x)-\\cos(1/x)$, som ikke har noen grense i $0$ (cosinus-leddet oscillerer) — da sier setningen ingenting, og du må avgjøre deriverbarheten med **differansekvotienten** $\\lim_{h\\to 0}\\frac{f(h)-f(0)}{h}=\\lim_{h\\to 0}h\\sin(1/h)=0$ (som viser at $f$ *er* deriverbar). **Konklusjon:** $\\boxed{\\text{Setningens forutsetning svikter; bruk differansekvotienten.}}$",
+        "hints": [
+          "Hvilken forutsetning i setningen er det som svikter for $x^2\\sin(1/x)$?",
+          "Setningen er en «hvis», ikke en «hvis og bare hvis» — hva følger når forutsetningen ikke holder?",
+          "Fall tilbake på differansekvotienten fra seksjon B."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-seksjonE",
+      "type": "text",
+      "content": "## Seksjon E — Skjøteparameter-varianten (~13 min)"
+    },
+    {
+      "id": "mat1100-3-3-def-skjoteparam",
+      "type": "definition",
+      "title": "Skjøteparameter-varianten",
+      "content": "En variant der funksjonen har ukjente konstanter ($a,b,c$) i bitene, og du skal bestemme dem slik at $f$ blir kontinuerlig / deriverbar / $C^1$ i skjøtepunktet. Metode: hver glatthetsbetingelse i skjøtepunktet gir én likning — kontinuitet (verdiene matcher), deriverbarhet (de ensidige deriverte matcher), $C^1$/to ganger deriverbar (andrederiverte matcher). Antall betingelser skal matche antall ukjente. Løs likningssystemet."
+    },
+    {
+      "id": "mat1100-3-3-exE",
+      "type": "example",
+      "title": "Eksempel E: Tre ukjente, tre betingelser",
+      "problem": "Bestem $a,b,c$ slik at $f(x)=\\begin{cases}a x^2+b x+c, & x\\le 0\\\\ e^{x}, & x>0\\end{cases}$ blir **to ganger deriverbar** i $x=0$.",
+      "solution": "«To ganger deriverbar i $0$» gir tre matchbetingelser i skjøtepunktet: verdi, førstederivert og andrederivert skal stemme fra begge sider. Venstre bit har $f(x)=ax^2+bx+c$ med $f'(x)=2ax+b$, $f''(x)=2a$; høyre bit $e^x$ med alle deriverte lik $e^x$.\n\n**Betingelse 1 — kontinuitet ($f(0)$):** $a\\cdot0+b\\cdot0+c=e^{0}\\Rightarrow c=1.$\n\n**Betingelse 2 — førstederivert ($f'(0)$):** $2a\\cdot0+b=e^{0}\\Rightarrow b=1.$\n\n**Betingelse 3 — andrederivert ($f''(0)$):** $2a=e^{0}\\Rightarrow a=\\tfrac12.$\n\n**Kontroll:** med $a=\\tfrac12,b=1,c=1$ er venstre bit $\\tfrac12x^2+x+1$ — nettopp andregrads-Taylorpolynomet til $e^x$ i $0$, så bitene møtes glatt til andre orden. **Konklusjon:** $\\boxed{a=\\tfrac12,\\ b=1,\\ c=1}$."
+    },
+    {
+      "id": "mat1100-3-3-oppgE",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgE-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — skjøteparameter.) Bestem $a$ og $b$ slik at $f(x)=\\begin{cases}a x+b, & x\\le 2\\\\ x^2, & x>2\\end{cases}$ blir **deriverbar** i $x=2$.",
+        "solution": "Deriverbar i $2$ krever to matchbetingelser i skjøtepunktet: verdi og førstederivert. Venstre bit: $f(x)=ax+b$, $f'(x)=a$. Høyre bit: $x^2$, $f'(x)=2x$.\n\n**Kontinuitet ($f(2)$):** $a\\cdot 2+b=2^2=4\\Rightarrow 2a+b=4.$\n**Førstederivert ($f'(2)$):** $a=2\\cdot 2=4\\Rightarrow a=4.$\n\nSett $a=4$ inn: $2\\cdot4+b=4\\Rightarrow b=-4.$\n\n**Kontroll:** $f(x)=4x-4$ for $x\\le2$ gir $f(2)=4$ og stigning $4$; $x^2$ gir $f(2)=4$ og $f'(2)=4$ — matcher. **Konklusjon:** $\\boxed{a=4,\\ b=-4}$.",
+        "hints": [
+          "To krav i skjøten: samme verdi og samme stigning fra begge sider.",
+          "Derivertbetingelsen $a=2x$ i $x=2$ gir $a$ direkte.",
+          "Sett $a$ inn i kontinuitetslikningen for å finne $b$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-pauseE",
+      "type": "text",
+      "content": "*— naturlig pausepunkt (slutt seksjon E) —*"
+    },
+    {
+      "id": "mat1100-3-3-seksjonF",
+      "type": "text",
+      "content": "## Seksjon F — Integrerbarhets-påbygget (~9 min)"
+    },
+    {
+      "id": "mat1100-3-3-def-integ1",
+      "type": "definition",
+      "title": "Integrerbarhet: begrenset + endelig mange diskontinuiteter",
+      "content": "**Teorem.** En funksjon som er *begrenset* på et lukket, begrenset intervall $[a,b]$ og har *endelig mange* diskontinuitetspunkter der, er Riemann-integrerbar på $[a,b]$. I signaturoppgaven brukes det til å konkludere integrerbarhet *uten* å regne integralet: pek på at $f$ er begrenset (ofte fordi $|f|\\le$ en konstant via begrensetheten til trig-faktoren) og at den er kontinuerlig unntatt i høyst ett punkt."
+    },
+    {
+      "id": "mat1100-3-3-def-integ2",
+      "type": "definition",
+      "title": "Integrerbarhet: begrenset + stykkevis monoton",
+      "content": "**Teorem (alternativ).** En funksjon som er *begrenset* og *stykkevis monoton* på $[a,b]$ er integrerbar. Begge teoremene godtas i fasit; velg det som passer funksjonen. For en oscillerende funksjon som $\\sin(1/x)$ er «begrenset + endelig mange diskontinuiteter» oftest enklest, siden den ikke er monoton nær $0$."
+    },
+    {
+      "id": "mat1100-3-3-exF",
+      "type": "example",
+      "title": "Eksempel F: Integrerbar uten å regne integralet",
+      "problem": "La $g(x)=\\sin(1/x)$ for $x\\in(0,1]$ og $g(0)=0$. Vis at $g$ er integrerbar på $[0,1]$.",
+      "solution": "**Begrenset:** for alle $x$ er $|g(x)|=|\\sin(1/x)|\\le 1$ (og $g(0)=0$), så $g$ er begrenset på $[0,1]$.\n\n**Diskontinuiteter:** for $x>0$ er $g$ sammensatt av kontinuerlige funksjoner ($\\sin$ og $1/x$), altså kontinuerlig. Det eneste mulige diskontinuitetspunktet er $x=0$ (der $\\sin(1/x)$ oscillerer). Det er **ett** punkt — altså endelig mange.\n\n**Teorem:** en begrenset funksjon på $[0,1]$ med endelig mange diskontinuiteter er integrerbar. **Konklusjon:** $g$ er integrerbar på $[0,1]$, uten at vi trenger å beregne integralet. $\\boxed{\\text{Integrerbar (begrenset + én diskontinuitet).}}$"
+    },
+    {
+      "id": "mat1100-3-3-oppgF",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppgF-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — integrerbarhets-påbygg.) La $f(x)=\\cos(1/x^2)$ for $x\\in(0,1]$ og $f(0)=0$. Avgjør om $f$ er integrerbar på $[0,1]$, og begrunn med et navngitt teorem.",
+        "solution": "**Begrenset:** $|f(x)|=|\\cos(1/x^2)|\\le 1$ for alle $x\\in(0,1]$, og $f(0)=0$. Så $f$ er begrenset.\n**Diskontinuiteter:** for $x>0$ er $f$ en sammensetning av kontinuerlige funksjoner, altså kontinuerlig; eneste mulige bruddpunkt er $x=0$ — ett punkt, endelig mange.\n**Teorem (begrenset + endelig mange diskontinuiteter):** da er $f$ integrerbar på $[0,1]$.\n**Konklusjon:** $\\boxed{f \\text{ er integrerbar på } [0,1].}$",
+        "hints": [
+          "Er $f$ begrenset? Bruk at $|\\cos|\\le 1$.",
+          "Hvor mange punkter kan $f$ være diskontinuerlig i? Tell dem.",
+          "Navngi teoremet «begrenset + endelig mange diskontinuiteter»."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-case-intro",
+      "type": "text",
+      "content": "## Gjennomregnet eksamenscase (med sensor-margnotater)\n\nNå setter vi alt sammen slik en slutteksamensoppgave faktisk ser ut — tre kjedede delpunkter. Margnotatene (*i kursiv*) er poengene sensor ser etter."
+    },
+    {
+      "id": "mat1100-3-3-case",
+      "type": "example",
+      "title": "Eksamenscase: $f(x)=x^3\\cos(1/x^2)$",
+      "problem": "La $f(x)=x^3\\cos(1/x^2)$ for $x\\ne 0$ og $f(0)=0$.\n\n**a)** Vis at $f$ er kontinuerlig i $0$.\n\n**b)** Avgjør om $f$ er deriverbar i $0$.\n\n**c)** Er $f'$ kontinuerlig i $0$? Begrunn.",
+      "solution": "**a) Kontinuitet i $0$.**\n$|\\cos(1/x^2)|\\le 1$ for alle $x\\ne 0$ (*sensor: begrensetheten skal uttales*), så\n$$-|x|^3\\le x^3\\cos(1/x^2)\\le |x|^3.$$\nBegge ytterrammer $\\to 0$ når $x\\to 0$, så ved **skviseteoremet** er $\\lim_{x\\to 0}f(x)=0=f(0)$. Altså er $f$ kontinuerlig i $0$. *(Poeng: navngitt skvis + uttalt begrensethet + sammenlignet med $f(0)$.)*\n\n**b) Deriverbarhet i $0$.**\nDifferansekvotienten med $f(0)=0$ (*sensor: må bruke differansekvotient, ikke derivertformel*):\n$$\\frac{f(h)-f(0)}{h}=\\frac{h^3\\cos(1/h^2)}{h}=h^2\\cos(1/h^2).$$\nUttal $|\\cos(1/h^2)|\\le 1$: $-h^2\\le h^2\\cos(1/h^2)\\le h^2$, og skvis gir grensen $0$. Altså er $f$ **deriverbar** i $0$ med $f'(0)=0$. *(Poeng: differansekvotient satt opp, skvis navngitt, $f'(0)$ oppgitt.)*\n\n**c) Er $f'$ kontinuerlig i $0$?**\nFor $x\\ne 0$ gir produkt- og kjerneregel:\n$$f'(x)=3x^2\\cos(1/x^2)+x^3\\cdot\\big(-\\sin(1/x^2)\\big)\\cdot\\big(-2x^{-3}\\big)=3x^2\\cos(1/x^2)+2\\sin(1/x^2).$$\nGrensen $x\\to 0$: første ledd $\\to 0$ ($|3x^2\\cos|\\le 3x^2$, skvis), men **andre ledd $2\\sin(1/x^2)$ oscillerer** mellom $-2$ og $2$ uten grense. Derfor finnes ikke $\\lim_{x\\to 0}f'(x)$, og $f'$ er **diskontinuerlig** i $0$.\n\n*Sensor-margnotat (kritisk):* Legg merke til at (c) **ikke** rokker ved (b). $f$ er deriverbar i $0$ (avgjort i b via differansekvotienten); $f'$ er bare diskontinuerlig der. Å skrive «$f$ er ikke deriverbar fordi $\\lim f'$ ikke finnes» er nettopp fella fasitene advarer mot, og gir trekk selv om resten er riktig.\n\n**Samlet konklusjon:** $f$ er kontinuerlig og deriverbar i $0$ med $f'(0)=0$, men $f'$ er diskontinuerlig i $0$. $\\boxed{(k,m)=(3,2):\\ \\text{deriverbar, ikke } C^1.}$"
+    },
+    {
+      "id": "mat1100-3-3-bank-intro",
+      "type": "text",
+      "content": "## Oppgavebank på eksamensnivå\n\nNå varierer vi $k$, $m$, sin/cos, skjøtetype og spørsmålsstilling — nettopp slik settene gjør. Bruk løsningsoppskriften og terskeltabellen aktivt."
+    },
+    {
+      "id": "mat1100-3-3-oppg-b1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppg-b1-ex",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger H — full trippel.) La $f(x)=x^4\\sin(1/x^2)$ for $x\\ne 0$, $f(0)=0$.\n\n**a)** Vis at $f$ er kontinuerlig i $0$.\n\n**b)** Vis at $f$ er deriverbar i $0$ og finn $f'(0)$.\n\n**c)** Er $f'$ kontinuerlig i $0$?",
+        "solution": "**a)** $|\\sin(1/x^2)|\\le 1\\Rightarrow -|x|^4\\le f(x)\\le |x|^4$; skvis gir $\\lim_{x\\to 0}f(x)=0=f(0)$. Kontinuerlig.\n\n**b)** Differansekvotient: $\\frac{h^4\\sin(1/h^2)}{h}=h^3\\sin(1/h^2)$; $|h^3\\sin|\\le|h|^3\\to 0$, skvis ⇒ $f'(0)=0$. Deriverbar.\n\n**c)** For $x\\ne 0$: $f'(x)=4x^3\\sin(1/x^2)+x^4\\cos(1/x^2)\\cdot(-2x^{-3})=4x^3\\sin(1/x^2)-2x\\cos(1/x^2)$. Begge ledd er begrenset av $4|x|^3$ hhv. $2|x|$, som $\\to 0$. Så $\\lim_{x\\to 0}f'(x)=0=f'(0)$: $f'$ **er** kontinuerlig i $0$. (I tabellen: $k=4>m+1=3$ ⇒ $C^1$.) **Konklusjon:** $\\boxed{\\text{Kontinuerlig, deriverbar (}f'(0)=0\\text{), og } f' \\text{ kontinuerlig.}}$",
+        "hints": [
+          "(a) skvis med $|\\sin|\\le 1$ og $|x|^4$.",
+          "(b) differansekvotienten blir $h^3\\sin(1/h^2)$ — klem den.",
+          "(c) her er dempingen sterkere ($k=4,m=2$): sjekk om begge leddene i $f'$ går mot 0. Sammenlign med $k>m+1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-oppg-b2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppg-b2-ex",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — variert $k=1$.) La $f(x)=x\\cos(1/x)$ for $x\\ne 0$, $f(0)=0$.\n\n**a)** Er $f$ kontinuerlig i $0$?\n\n**b)** Er $f$ deriverbar i $0$? Begrunn nøye via differansekvotienten.",
+        "solution": "**a)** $|x\\cos(1/x)|\\le|x|\\to 0$ (skvis med $|\\cos|\\le 1$), så $\\lim_{x\\to 0}f(x)=0=f(0)$: **kontinuerlig**.\n\n**b)** Differansekvotient med $f(0)=0$: $\\frac{h\\cos(1/h)}{h}=\\cos(1/h)$. Når $h\\to 0$ svinger $\\cos(1/h)$ mellom $-1$ og $1$ og nærmer seg ikke noe tall — grensen **finnes ikke**. Altså er $f$ **ikke deriverbar** i $0$. (Merk: konklusjonen «ikke deriverbar» hviler her på at *differansekvotienten selv* oscillerer — den gyldige begrunnelsen — ikke på oppførselen til noen derivertformel. I tabellen: $k=1\\not>1$.) **Konklusjon:** $\\boxed{\\text{Kontinuerlig, men ikke deriverbar (differansekvotienten oscillerer).}}$",
+        "hints": [
+          "(a) Klem $|x\\cos(1/x)|$ mellom $\\pm|x|$.",
+          "(b) Sett opp differansekvotienten — hva forkortes, og hva står igjen?",
+          "Hvis differansekvotienten *selv* oscillerer uten grense, er det den gyldige grunnen til «ikke deriverbar»."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-oppg-b3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppg-b3-ex",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H — skjøteparameter, tre ukjente.) Bestem $a,b,c$ slik at $f(x)=\\begin{cases}\\cos x, & x\\le 0\\\\ a x^2+b x+c, & x>0\\end{cases}$ blir to ganger deriverbar i $x=0$.",
+        "solution": "«To ganger deriverbar i $0$»: verdi, førstederivert og andrederivert skal matche i skjøten. Venstre: $\\cos x$ med $f'=-\\sin x$, $f''=-\\cos x$. Høyre: $ax^2+bx+c$ med $f'=2ax+b$, $f''=2a$.\n\n**Verdi ($f(0)$):** $\\cos 0=c\\Rightarrow c=1.$\n**Førstederivert:** $-\\sin 0=b\\Rightarrow b=0.$\n**Andrederivert:** $-\\cos 0=2a\\Rightarrow -1=2a\\Rightarrow a=-\\tfrac12.$\n\n**Kontroll:** høyre bit $-\\tfrac12x^2+1$ er andregrads-Taylorpolynomet til $\\cos x$ i $0$ — bitene møtes glatt til andre orden. **Konklusjon:** $\\boxed{a=-\\tfrac12,\\ b=0,\\ c=1}$.",
+        "hints": [
+          "Tre betingelser i skjøten: verdi, $f'$ og $f''$ matcher fra begge sider.",
+          "Regn $f',f''$ av $\\cos x$ i $0$: verdiene $1,0,-1$.",
+          "Hver betingelse gir én likning — løs for $c$, så $b$, så $a$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-oppg-b4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-3-oppg-b4-ex",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger H+I — begrepskobling, uten ny regning.) Avgjør om hver påstand er sann eller usann for $f(x)=x^2\\sin(1/x)$ (med $f(0)=0$), og begrunn kort:\n\n**a)** «$f$ er kontinuerlig i $0$.»\n\n**b)** «$f$ er deriverbar i $0$.»\n\n**c)** «$f$ er kontinuerlig deriverbar ($C^1$) i $0$.»\n\n**d)** «Fordi $\\lim_{x\\to0}f'(x)$ ikke finnes, er $f$ ikke deriverbar i $0$.»",
+        "solution": "**a) Sann.** Skvis: $|f(x)|\\le x^2\\to 0=f(0)$.\n\n**b) Sann.** Differansekvotienten $h\\sin(1/h)\\to 0$ (skvis), så $f'(0)=0$.\n\n**c) Usann.** $f'(x)=2x\\sin(1/x)-\\cos(1/x)$ har ingen grense i $0$ (cosinus oscillerer), så $f'$ er diskontinuerlig i $0$ — $f$ er deriverbar, men ikke $C^1$. (Tabellen: $k=2\\not>m+1=2$.)\n\n**d) Usann — dette er kjernefella.** At $\\lim_{x\\to 0}f'(x)$ ikke finnes, betyr bare at $f'$ er diskontinuerlig; det avgjør ikke deriverbarheten. Deriverbarheten ble fastslått i (b) via differansekvotienten, og $f$ **er** deriverbar. Grense-av-derivert-setningen har en «hvis», ikke en «hvis og bare hvis».\n\n**Konklusjon:** sann, sann, usann, usann. $\\boxed{f \\text{ er deriverbar men ikke } C^1;\\ \\text{påstand (d) er fella.}}$",
+        "hints": [
+          "(a),(b): bruk skvis og differansekvotient som før.",
+          "(c): $C^1$ betyr at $f'$ er kontinuerlig — sjekk grensen av $f'$.",
+          "(d): hvilket kriterium avgjør deriverbarhet? Er setningen en toveis-ekvivalens?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Konkludere «ikke deriverbar» fordi $\\lim_{x\\to a}f'(x)$ ikke finnes.** Dette er *kjernefella* og eksplisitt fasitadvarsel. Manglende grense for $f'$ betyr bare at $f'$ er diskontinuerlig — deriverbarhet avgjøres av differansekvotienten. En deriverbar funksjon kan ha diskontinuerlig derivert ($x^2\\sin(1/x)$).\n- **Derivere formelen i stedet for differansekvotienten.** I punktet der formelverket ikke gjelder, må deriverbarhet vises med $\\lim_{h\\to 0}\\frac{f(h)-f(0)}{h}$.\n- **Skviseargument uten å uttale begrensetheten.** Du *må* skrive $|\\sin(1/x^m)|\\le 1$ (eller $|\\cos|\\le 1$) — det er der klemma kommer fra, og sensor ser etter det.\n- **Hoppe over én ensidig grense i et skjøtepunkt.** Både kontinuitet og deriverbarhet i en skjøt krever at *begge* sider regnes hver for seg.\n- **Blande betingelsene i parametervarianten.** Kontinuitet matcher *verdier*, deriverbarhet matcher *førstederiverte*, $C^1$/to-ganger matcher *andrederiverte* — ikke bland dem.\n- **Bruke grense-av-derivert-setningen «baklengs».** Den sier: grensen finnes ⇒ deriverbar. Den sier *ikke*: grensen finnes ikke ⇒ ikke deriverbar."
+    },
+    {
+      "id": "mat1100-3-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDe siste kjernebegrepene, samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-3-3-bb-begrensethet",
+      "type": "definition",
+      "title": "Begrensethet ($|\\sin|\\le 1$, $|\\cos|\\le 1$)",
+      "content": "Kjernen i skvisargumentet: uansett hva argumentet er, ligger $\\sin$ og $\\cos$ mellom $-1$ og $1$. Derfor kan en vilt oscillerende $\\sin(1/x^m)$ likevel klemmes, fordi den *aldri* blir større enn $1$ i tallverdi. Uttalt begrensethet er det som gjør skvis mulig — og det sensor krever eksplisitt."
+    },
+    {
+      "id": "mat1100-3-3-bb-disk-derivert",
+      "type": "definition",
+      "title": "Diskontinuerlig derivert",
+      "content": "En derivert $f'$ som eksisterer i hvert punkt, men ikke er en kontinuerlig funksjon. $x^2\\sin(1/x)$ er standardeksemplet: $f'$ finnes overalt (også $f'(0)=0$), men $f'$ hopper/oscillerer rundt $0$ og har ingen grense der. At en derivert kan være diskontinuerlig, er hele grunnlaget for oscillasjonsfellen."
+    },
+    {
+      "id": "mat1100-3-3-bb-c1",
+      "type": "definition",
+      "title": "Kontinuerlig deriverbar (klasse $C^1$)",
+      "content": "En funksjon er $C^1$ på et intervall hvis den er deriverbar *og* den deriverte $f'$ er kontinuerlig. Deriverbar er svakere: $x^2\\sin(1/x)$ er deriverbar overalt, men *ikke* $C^1$ (fordi $f'$ er diskontinuerlig i $0$). For familien: $C^1$ i $0$ krever $k>m+1$, mens deriverbar bare krever $k>1$."
+    },
+    {
+      "id": "mat1100-3-3-bb-mvt",
+      "type": "definition",
+      "title": "Middelverdisetningen (som verktøy her)",
+      "content": "$f$ kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$ ⇒ det finnes $c\\in(a,b)$ med $f'(c)=\\frac{f(b)-f(a)}{b-a}$. I dette kapitlet er den motoren i beviset for grense-av-derivert-setningen: den kobler differansekvotienten til en verdi av $f'$ i et mellomliggende punkt $c_h\\to a$."
+    },
+    {
+      "id": "mat1100-3-3-bb-demping",
+      "type": "definition",
+      "title": "Amplitude-demping (rollen til $x^k$)",
+      "content": "I familien $x^k\\,\\mathrm{trig}(1/x^m)$ er $\\mathrm{trig}(1/x^m)$ en vill svingning med konstant amplitude $1$, mens faktoren $x^k$ *demper* amplituden mot $0$ når $x\\to 0$. Jo større $k$, desto sterkere demping og desto glattere blir funksjonen i $0$. Hele eksponent-regnskapet handler om når dempingen er sterk nok til kontinuitet ($k>0$), deriverbarhet ($k>1$) eller kontinuerlig derivert ($k>m+1$)."
+    },
+    {
+      "id": "mat1100-3-3-bb-riemann",
+      "type": "definition",
+      "title": "Riemann-integrerbar",
+      "content": "En begrenset funksjon på $[a,b]$ er Riemann-integrerbar hvis øvre og nedre Riemann-sum nærmer seg samme tall når inndelingen finmasker. På eksamen bruker du sjelden definisjonen direkte — du påberoper deg i stedet et av de to teoremene (begrenset + endelig mange diskontinuiteter, eller begrenset + stykkevis monoton) og slipper å regne integralet."
+    },
+    {
+      "id": "mat1100-3-3-bb-ensidig-skjot",
+      "type": "definition",
+      "title": "Ensidige grenser i skjøtepunkt",
+      "content": "I et skjøtepunkt beskrives funksjonen av ulike formler på hver side, så både grenser og deriverte må regnes *ensidig* og deretter sammenlignes. Kontinuitet krever at venstre- og høyregrensen (og funksjonsverdien) er like; deriverbarhet krever i tillegg at venstre- og høyrederiverten er like."
+    },
+    {
+      "id": "mat1100-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-3-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $x^k\\,\\mathrm{trig}(1/x^m)$ | Oscillasjonsfamilien ($\\mathrm{trig}=\\sin$ eller $\\cos$) |\n| $k$ | Dempingseksponenten (grunntallet) |\n| $m$ | Oscillasjonseksponenten (i argumentet) |\n| $f'(0)$ | Den deriverte i $0$, funnet via differansekvotienten |\n| $\\lim_{x\\to 0}f'(x)$ | Grensen av derivertfunksjonen (kan mangle!) |\n| $C^1$ | Kontinuerlig deriverbar (deriverbar + $f'$ kontinuerlig) |\n| $c_h$ | Mellomliggende MVT-punkt i bevisskissen |\n\n**Formler og terskler i dette kapitlet:**\n\n$$-|x|^k\\le x^k\\,\\mathrm{trig}(1/x^m)\\le |x|^k$$\nSkvisrammen (fordi $|\\mathrm{trig}|\\le 1$) — bærer kontinuitet og deriverbarhet.\n\n$$\\frac{f(h)-f(0)}{h}=h^{k-1}\\,\\mathrm{trig}(1/h^m)$$\nDifferansekvotienten for familien — avgjør deriverbarhet (grense finnes ⇔ $k>1$).\n\n$$\\text{Kont.: } k>0,\\qquad \\text{Deriverbar: } k>1,\\qquad C^1:\\ k>m+1$$\nEksponent-regnskapets tre terskler.\n\n$$\\lim_{x\\to a}f'(x)=b \\ \\text{finnes}\\ \\Rightarrow\\ f'(a)=b$$\nGrense-av-derivert-setningen — én vei kun (aldri baklengs).\n\n$$\\frac{f(a+h)-f(a)}{h}=f'(c_h),\\ c_h\\to a$$\nMVT-steget i bevisskissen for setningen over.\n\n**Integrerbarhet:** begrenset + endelig mange diskontinuiteter ⇒ integrerbar; begrenset + stykkevis monoton ⇒ integrerbar."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

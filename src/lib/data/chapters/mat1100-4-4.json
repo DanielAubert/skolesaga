@@ -1,0 +1,343 @@
+{
+  "id": "mat1100-4-4",
+  "courseId": "mat1100",
+  "chapterNumber": "4.4",
+  "title": "Delbrøkoppspalting og fullført kvadrat",
+  "description": "Rasjonale integrander: polynomdivisjon, delbrøk med gjentatte og irreduserbare faktorer, og fullført kvadrat mot arctan-formen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "utføre polynomdivisjon når tellergraden er minst nevnergraden, før delbrøkoppspalting",
+    "spalte en rasjonal brøk i delbrøker med distinkte lineære, gjentatte lineære og irreduserbare kvadratiske faktorer, og bestemme koeffisientene",
+    "fullføre kvadratet i en irreduserbar kvadratisk nevner og integrere til arctan-formen med riktig faktor",
+    "bruke splitteteknikken for (ax+b)/(x²+px+q) til å dele integralet i en ln-del og en arctan-del, styrt av diskriminanttesten"
+  ],
+  "content": [
+    {
+      "id": "mat1100-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rasjonale integrander — brøker med polynomer — er en fast del av slutteksamenens integrasjonssjanger.**\n\n- **Sjanger E** — integrasjonsteknikk — er med i **20 av 21 slutteksamener**. Denne teknikkfamilien (delbrøk og fullført kvadrat) er en av de faste variantene. Kildegrunnlaget: 21 slutteksamener H2003–H2023 (18 løsningsforslag) + 16 midtveiseksamener; arkivet stopper i 2023.\n- Dokumenterte former: delbrøk med **gjentatt** lineær faktor ($\\tfrac{1}{x^2(x+1)}$-typen) og med **irreduserbar** kvadratisk faktor; fullført kvadrat mot arctan; og kombinasjonsformen $\\tfrac{ax+b}{x^2+px+q}$ splittet i en ln-del og en arctan-del — som var eksamensoppgave **2023**.\n\nSjangerkoden: **(Eksamenssjanger E)** = integrasjonsteknikk på begrunnet langsvar (her: rasjonale integrander).\n\n**Den strategiske avgjørelsen:** før du regner, sjekk to ting — (1) er tellergraden $\\ge$ nevnergraden? Da **polynomdivisjon først**. (2) Har nevneren reelle røtter (diskriminant $\\ge 0$)? Da **delbrøk**; hvis ikke ($<0$), **fullført kvadrat → arctan**. Prioritet: høyeste (nivå «perfekt» i skjelettet)."
+    },
+    {
+      "id": "mat1100-4-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bruker antideriverte og substitusjon fra **[kap. 4.3](/bok/mat1100/mat1100-4-3)** (særlig arctan-målformen og $\\int\\tfrac1x\\,dx=\\ln|x|$) og faktorisering fra **[kap. 1.3](/bok/mat1100/mat1100-1-3)** (å finne røttene i nevneren). Fra videregående er broene [Delbrøkoppspalting](/bok/r2/r2-3-3) og [Fullstendig kvadrat](/bok/1t/1t-2-4).\n\n**Sist du var her (oppfriskning):**\n\n- **Fullført kvadrat** ([1t](/bok/1t/1t-2-4)): $x^2+px+q=\\left(x+\\tfrac{p}{2}\\right)^2+\\left(q-\\tfrac{p^2}{4}\\right)$. Vi bruker det til å skrive en nevner uten reelle røtter som «$(\\text{noe})^2+(\\text{positivt tall})$».\n- **Diskriminanten** $D=p^2-4q$ avgjør om $x^2+px+q$ har reelle røtter ($D\\ge0$) eller ikke ($D<0$).\n- **De to grunnintegralene:** $\\int\\tfrac1x\\,dx=\\ln|x|+C$ og $\\int\\tfrac{dx}{1+x^2}=\\arctan x+C$. Hele kapitlet handler om å komme tilbake til disse to.\n\n*Dette kapitlet er på 55 minutter og har ett naturlig pausepunkt markert underveis (etter delbrøk-grunnlaget).*"
+    },
+    {
+      "id": "mat1100-4-4-intro",
+      "type": "text",
+      "content": "Hva gjør du med et integral som $\\int\\frac{4x+5}{x^2+4x+5}\\,dx$? Nevneren er et andregradspolynom, telleren et førstegradspolynom — og ingen substitusjon eller delvis integrasjon biter direkte. Svaret er en egen liten verktøykasse for **rasjonale funksjoner** (brøker der teller og nevner er polynomer). Idéen er alltid den samme: *bryt den vanskelige brøken ned i biter du kjenner integralet til* — enten $\\tfrac1x$-biter (som gir $\\ln$) eller $\\tfrac{1}{1+x^2}$-biter (som gir $\\arctan$).\n\nTre teknikker, valgt etter formen på nevneren:\n\n- **Polynomdivisjon** — først, hvis telleren har like høy eller høyere grad enn nevneren.\n- **Delbrøkoppspalting** — når nevneren har reelle røtter (kan faktoriseres).\n- **Fullført kvadrat → arctan** — når nevneren *ikke* har reelle røtter.\n\nVi bygger dem opp i fire **læringsløkker**: (1) polynomdivisjon, (2) delbrøk med distinkte lineære faktorer, (3) gjentatte og irreduserbare faktorer, (4) fullført kvadrat og splitteteknikken. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-4-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Polynomdivisjon først (~11 min)"
+    },
+    {
+      "id": "mat1100-4-4-def-rasjonal",
+      "type": "definition",
+      "title": "Rasjonal funksjon (ekte og uekte brøk)",
+      "content": "En brøk der både teller og nevner er polynomer, $\\dfrac{P(x)}{Q(x)}$. Den er en **ekte brøk** når tellergraden er *lavere* enn nevnergraden (f.eks. $\\tfrac{x+1}{x^2+3}$), og en **uekte brøk** når tellergraden er $\\ge$ nevnergraden (f.eks. $\\tfrac{x^2}{x^2+1}$). Delbrøkoppspalting krever en *ekte* brøk — derfor må uekte brøker først gjøres om med polynomdivisjon."
+    },
+    {
+      "id": "mat1100-4-4-def-polynomdivisjon",
+      "type": "definition",
+      "title": "Polynomdivisjon (når tellergrad $\\ge$ nevnergrad)",
+      "content": "Første steg for en *uekte* brøk. Du deler teller på nevner og får\n\n$$\\frac{P(x)}{Q(x)}=(\\text{polynom})+\\frac{R(x)}{Q(x)},$$\n\nder restbrøken $\\tfrac{R(x)}{Q(x)}$ er *ekte* (restgraden er lavere enn nevnergraden). Polynomdelen integreres direkte, restbrøken med delbrøk eller fullført kvadrat. **Hopp aldri over dette steget når graden krever det** — delbrøk på en uekte brøk gir feil."
+    },
+    {
+      "id": "mat1100-4-4-ex-divisjon",
+      "type": "example",
+      "title": "Eksempel 1: Polynomdivisjon før integrasjon",
+      "problem": "Regn ut $\\displaystyle\\int\\frac{x^2}{x^2+1}\\,dx$.",
+      "solution": "Telleren $x^2$ har samme grad som nevneren $x^2+1$ — brøken er *uekte*, så vi deler først. Her ser vi divisjonen direkte ved å legge til og trekke fra $1$ i telleren:\n$$\\frac{x^2}{x^2+1}=\\frac{(x^2+1)-1}{x^2+1}=1-\\frac{1}{x^2+1}.$$\n\nNå er hvert ledd et grunnintegral:\n$$\\int\\frac{x^2}{x^2+1}\\,dx=\\int 1\\,dx-\\int\\frac{1}{x^2+1}\\,dx=x-\\arctan x+C.$$\n\n**Kontroll:** $\\frac{d}{dx}(x-\\arctan x)=1-\\frac{1}{1+x^2}=\\frac{x^2}{1+x^2}$. ✓ **Svar:** $\\boxed{x-\\arctan x+C}$"
+    },
+    {
+      "id": "mat1100-4-4-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-4-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger E — her i letteste innstegsform: bare polynomdivisjonen.) Regn ut $\\displaystyle\\int\\frac{x^2+3}{x^2+1}\\,dx$.",
+        "solution": "Telleren og nevneren har samme grad — uekte brøk. Skriv om telleren:\n$$\\frac{x^2+3}{x^2+1}=\\frac{(x^2+1)+2}{x^2+1}=1+\\frac{2}{x^2+1}.$$\n\nIntegrer ledd for ledd:\n$$\\int\\frac{x^2+3}{x^2+1}\\,dx=\\int 1\\,dx+2\\int\\frac{dx}{x^2+1}=x+2\\arctan x+C.$$\n\n**Kontroll:** $\\frac{d}{dx}(x+2\\arctan x)=1+\\frac{2}{1+x^2}=\\frac{x^2+3}{x^2+1}$. ✓ **Svar:** $\\boxed{x+2\\arctan x+C}$",
+        "hints": [
+          "Samme grad i teller og nevner ⇒ del først (uekte brøk).",
+          "Skriv $x^2+3=(x^2+1)+2$ for å dele ut.",
+          "$\\int\\frac{dx}{x^2+1}=\\arctan x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Delbrøk: distinkte lineære faktorer (~12 min)"
+    },
+    {
+      "id": "mat1100-4-4-def-delbrok",
+      "type": "definition",
+      "title": "Delbrøkoppspalting (grunnidéen)",
+      "content": "Å skrive en *ekte* rasjonal brøk som en **sum av enklere brøker**, én for hver faktor i nevneren. Da blir hver bit et grunnintegral. For eksempel:\n\n$$\\frac{1}{(x-1)(x+2)}=\\frac{A}{x-1}+\\frac{B}{x+2}.$$\n\nMetoden speiler faktoriseringen fra [kap. 1.3](/bok/mat1100/mat1100-1-3): først faktoriser nevneren, så lag ett ledd per faktor, så bestem tellerne $A,B,\\dots$."
+    },
+    {
+      "id": "mat1100-4-4-def-distinkte",
+      "type": "definition",
+      "title": "Distinkte lineære faktorer (ansatsen)",
+      "content": "Når nevneren faktoriserer i *ulike* førstegradsfaktorer $(x-r_1)(x-r_2)\\cdots$, er ansatsen ett konstant-ledd per faktor:\n\n$$\\frac{P(x)}{(x-r_1)(x-r_2)}=\\frac{A}{x-r_1}+\\frac{B}{x-r_2}.$$\n\nHvert ledd integreres til en logaritme: $\\int\\tfrac{A}{x-r}\\,dx=A\\ln|x-r|+C$. Så en brøk med bare distinkte lineære faktorer gir en *sum av logaritmer*."
+    },
+    {
+      "id": "mat1100-4-4-def-koeffisient",
+      "type": "definition",
+      "title": "Koeffisientbestemmelse (innsetting + sammenligning)",
+      "content": "To måter å finne $A,B,\\dots$ etter at du har multiplisert opp med nevneren:\n\n- **Innsetting av røtter** (raskest): sett $x$ lik en rot av nevneren, så forsvinner alle ledd unntatt ett, og konstanten faller ut direkte.\n- **Sammenligning av koeffisienter:** samle ledd etter potens av $x$ og krev at koeffisientene stemmer på begge sider.\n\nInnsetting er raskest for lineære faktorer; sammenligning trengs for gjentatte og kvadratiske ledd. Ofte kombineres de."
+    },
+    {
+      "id": "mat1100-4-4-ex-distinkt",
+      "type": "example",
+      "title": "Eksempel 2: Distinkte lineære faktorer",
+      "problem": "Regn ut $\\displaystyle\\int\\frac{dx}{(x-1)(x+2)}$.",
+      "solution": "Nevneren er allerede faktorisert i to *ulike* lineære faktorer. Ansats:\n$$\\frac{1}{(x-1)(x+2)}=\\frac{A}{x-1}+\\frac{B}{x+2}.$$\n\n**Bestem $A,B$ ved innsetting.** Multipliser opp med $(x-1)(x+2)$:\n$$1=A(x+2)+B(x-1).$$\n- Sett $x=1$: $1=A(3)+0\\Rightarrow A=\\tfrac13$.\n- Sett $x=-2$: $1=0+B(-3)\\Rightarrow B=-\\tfrac13$.\n\n**Integrer hver bit:**\n$$\\int\\frac{dx}{(x-1)(x+2)}=\\frac13\\int\\frac{dx}{x-1}-\\frac13\\int\\frac{dx}{x+2}=\\frac13\\ln|x-1|-\\frac13\\ln|x+2|+C.$$\n\nDette kan samles som $\\tfrac13\\ln\\left|\\tfrac{x-1}{x+2}\\right|+C$. **Konklusjon:** $\\boxed{\\tfrac13\\ln|x-1|-\\tfrac13\\ln|x+2|+C}$"
+    },
+    {
+      "id": "mat1100-4-4-oppg-distinkt",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-4-oppg-distinkt-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — distinkte lineære faktorer.) Regn ut $\\displaystyle\\int\\frac{x+7}{(x-1)(x+3)}\\,dx$.",
+        "solution": "Ansats med ett ledd per faktor:\n$$\\frac{x+7}{(x-1)(x+3)}=\\frac{A}{x-1}+\\frac{B}{x+3}.$$\n\nMultipliser opp: $x+7=A(x+3)+B(x-1)$.\n- $x=1$: $8=A(4)\\Rightarrow A=2$.\n- $x=-3$: $4=B(-4)\\Rightarrow B=-1$.\n\n**Integrer:**\n$$\\int\\frac{x+7}{(x-1)(x+3)}\\,dx=2\\int\\frac{dx}{x-1}-\\int\\frac{dx}{x+3}=2\\ln|x-1|-\\ln|x+3|+C.$$\n\n**Kontroll (innsetting):** deriverer man $2\\ln|x-1|-\\ln|x+3|$ får man $\\tfrac{2}{x-1}-\\tfrac{1}{x+3}=\\tfrac{2(x+3)-(x-1)}{(x-1)(x+3)}=\\tfrac{x+7}{(x-1)(x+3)}$. ✓ **Konklusjon:** $\\boxed{2\\ln|x-1|-\\ln|x+3|+C}$.",
+        "hints": [
+          "Ett konstant-ledd per lineær faktor: $\\tfrac{A}{x-1}+\\tfrac{B}{x+3}$.",
+          "Multipliser opp og sett $x=1$ og $x=-3$ for å plukke ut $A$ og $B$.",
+          "Hver bit gir en logaritme: $\\int\\tfrac{A}{x-r}\\,dx=A\\ln|x-r|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-4-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du har nå grunnmønsteret: polynomdivisjon ved behov, så delbrøk med ett ledd per lineær faktor. Neste løkke tar de to vanskeligere faktortypene (gjentatt og irreduserbar). Ta gjerne en pause her.*"
+    },
+    {
+      "id": "mat1100-4-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Gjentatte og irreduserbare faktorer (~11 min)"
+    },
+    {
+      "id": "mat1100-4-4-def-gjentatt",
+      "type": "definition",
+      "title": "Gjentatt lineær faktor (ledd for hver potens)",
+      "content": "Når en lineær faktor opptrer i **flere potenser**, trenger du ett ledd for *hver* potens opp til den høyeste. For $(x-r)^2$ i nevneren:\n\n$$\\frac{P(x)}{(x-r)^2\\,\\cdots}=\\frac{A}{x-r}+\\frac{B}{(x-r)^2}+\\cdots.$$\n\nFor $\\tfrac{1}{x^2(x+1)}$ blir det $\\tfrac{A}{x}+\\tfrac{B}{x^2}+\\tfrac{C}{x+1}$. Å hoppe over $\\tfrac{A}{x}$-leddet (bare ta med $\\tfrac{B}{x^2}$) er en dokumentert felle. Leddet $\\tfrac{B}{(x-r)^2}$ integreres til $-\\tfrac{B}{x-r}$, ikke en logaritme."
+    },
+    {
+      "id": "mat1100-4-4-def-irreduserbar",
+      "type": "definition",
+      "title": "Irreduserbar kvadratisk faktor ($(Bx+C)$-ansatsen)",
+      "content": "En kvadratisk faktor uten reelle røtter (som $x^2+1$) kan ikke brytes ned videre. Da må telleren i delbrøken være **lineær**, ikke bare en konstant:\n\n$$\\frac{P(x)}{(x^2+px+q)\\,\\cdots}=\\frac{Bx+C}{x^2+px+q}+\\cdots.$$\n\n**Fellen** er å bruke $\\tfrac{A}{x^2+px+q}$ (konstant teller) — det gir for få frihetsgrader og feil svar. Riktig ansats er alltid $\\tfrac{Bx+C}{x^2+px+q}$ over et irreduserbart kvadratisk ledd."
+    },
+    {
+      "id": "mat1100-4-4-def-irr-andregrad",
+      "type": "definition",
+      "title": "Irreduserbart andregradspolynom (diskriminant $<0$)",
+      "content": "Et andregradspolynom $x^2+px+q$ er **irreduserbart** over de reelle tallene når diskriminanten $D=p^2-4q<0$ — da har det ingen reelle røtter og kan ikke faktoriseres i reelle lineære faktorer. Sjekk alltid $D$ først: $D\\ge0$ ⇒ faktoriser og bruk delbrøk; $D<0$ ⇒ la faktoren stå, og bruk enten $(Bx+C)$-ansats eller fullført kvadrat."
+    },
+    {
+      "id": "mat1100-4-4-ex-gjentatt",
+      "type": "example",
+      "title": "Eksempel 3: Gjentatt lineær faktor",
+      "problem": "Regn ut $\\displaystyle\\int\\frac{dx}{x^2(x+1)}$.",
+      "solution": "Nevneren har den gjentatte faktoren $x^2$ og den enkle $x+1$. Ansats med ett ledd for *hver potens* av $x$:\n$$\\frac{1}{x^2(x+1)}=\\frac{A}{x}+\\frac{B}{x^2}+\\frac{C}{x+1}.$$\n\nMultipliser opp med $x^2(x+1)$:\n$$1=A\\,x(x+1)+B(x+1)+C\\,x^2.$$\n- $x=0$: $1=B(1)\\Rightarrow B=1$.\n- $x=-1$: $1=C(1)\\Rightarrow C=1$.\n- Sammenlign $x^2$-koeffisienten: venstre side har $0$, høyre har $A+C$, så $A+C=0\\Rightarrow A=-1$.\n\n**Integrer hver bit** (merk: $\\tfrac{B}{x^2}$ gir *ikke* en logaritme):\n$$\\int\\frac{dx}{x^2(x+1)}=\\int\\left(\\frac{-1}{x}+\\frac{1}{x^2}+\\frac{1}{x+1}\\right)dx=-\\ln|x|-\\frac{1}{x}+\\ln|x+1|+C.$$\n\n**Konklusjon:** $\\boxed{-\\ln|x|-\\dfrac{1}{x}+\\ln|x+1|+C}$ (kan samles som $\\ln\\left|\\tfrac{x+1}{x}\\right|-\\tfrac1x+C$). Legg merke til $\\tfrac{A}{x}$-leddet — glemmer du det, blir svaret galt."
+    },
+    {
+      "id": "mat1100-4-4-oppg-gjentatt",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-4-oppg-gjentatt-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — gjentatt faktor, husk ledd for hver potens.) Regn ut $\\displaystyle\\int\\frac{3x+2}{x^2(x+1)}\\,dx$.",
+        "solution": "Samme nevner som eksempelet, med en lineær teller. Ansats:\n$$\\frac{3x+2}{x^2(x+1)}=\\frac{A}{x}+\\frac{B}{x^2}+\\frac{C}{x+1}.$$\n\nMultipliser opp: $3x+2=A\\,x(x+1)+B(x+1)+C\\,x^2$.\n- $x=0$: $2=B(1)\\Rightarrow B=2$.\n- $x=-1$: $3(-1)+2=-1=C(1)\\Rightarrow C=-1$.\n- $x^2$-koeffisient: $0=A+C\\Rightarrow A=1$.\n\n**Integrer:**\n$$\\int\\frac{3x+2}{x^2(x+1)}\\,dx=\\int\\left(\\frac{1}{x}+\\frac{2}{x^2}-\\frac{1}{x+1}\\right)dx=\\ln|x|-\\frac{2}{x}-\\ln|x+1|+C.$$\n\n**Kontroll:** $\\tfrac1x+\\tfrac{2}{x^2}\\cdot(\\ldots)$ — deriverer man $\\ln|x|-\\tfrac2x-\\ln|x+1|$ får man $\\tfrac1x+\\tfrac{2}{x^2}-\\tfrac{1}{x+1}$, som samles til $\\tfrac{3x+2}{x^2(x+1)}$. ✓ **Konklusjon:** $\\boxed{\\ln|x|-\\dfrac{2}{x}-\\ln|x+1|+C}$.",
+        "hints": [
+          "Tre ledd: $\\tfrac{A}{x}+\\tfrac{B}{x^2}+\\tfrac{C}{x+1}$ — ett for hver potens av $x$.",
+          "Sett $x=0$ og $x=-1$ for $B$ og $C$; sammenlign $x^2$-koeffisienten for $A$.",
+          "$\\int\\tfrac{B}{x^2}\\,dx=-\\tfrac{B}{x}$, ikke en logaritme."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Fullført kvadrat og splitteteknikken (~11 min)"
+    },
+    {
+      "id": "mat1100-4-4-def-fullfort",
+      "type": "definition",
+      "title": "Fullført kvadrat",
+      "content": "Å skrive et andregradsuttrykk uten reelle røtter som «kvadrat pluss positiv konstant»:\n\n$$x^2+px+q=\\left(x+\\tfrac{p}{2}\\right)^2+\\left(q-\\tfrac{p^2}{4}\\right).$$\n\nNår $q-\\tfrac{p^2}{4}>0$ (altså $D<0$), er dette på formen $(x+a)^2+k^2$, og integralet $\\int\\tfrac{dx}{(x+a)^2+k^2}$ blir en arctan. For eksempel $x^2+4x+13=(x+2)^2+9$."
+    },
+    {
+      "id": "mat1100-4-4-def-arctan-fullfort",
+      "type": "definition",
+      "title": "arctan-formen fra fullført kvadrat",
+      "content": "Etter fullført kvadrat er grunnintegralet:\n\n$$\\int\\frac{dx}{(x+a)^2+k^2}=\\frac{1}{k}\\arctan\\!\\left(\\frac{x+a}{k}\\right)+C.$$\n\nSubstitusjonen bak er $u=\\tfrac{x+a}{k}$. **Merk faktoren $\\tfrac1k$** foran — den kommer fra $k$-en i nevneren og glemmes lett. For $\\int\\tfrac{dx}{(x+2)^2+9}$ er $k=3$, så svaret er $\\tfrac13\\arctan\\tfrac{x+2}{3}+C$."
+    },
+    {
+      "id": "mat1100-4-4-def-splitt",
+      "type": "definition",
+      "title": "Splitteteknikken for $\\frac{ax+b}{x^2+px+q}$",
+      "content": "Når telleren er lineær og nevneren irreduserbar kvadratisk, splitter du telleren i to biter: en som er et **multiplum av nevnerens deriverte** (gir en ln-del), og en **konstant** (gir en arctan-del):\n\n$$\\frac{ax+b}{x^2+px+q}=\\underbrace{\\frac{a}{2}\\cdot\\frac{2x+p}{x^2+px+q}}_{\\to\\ \\ln}+\\underbrace{\\frac{(\\text{konstant})}{x^2+px+q}}_{\\to\\ \\arctan}.$$\n\nNevnerens deriverte er $2x+p$; du skriver telleren $ax+b$ som $\\tfrac{a}{2}(2x+p)+(\\text{rest})$. Ln-delen kommer fra $\\int\\tfrac{f'}{f}=\\ln|f|$, arctan-delen fra fullført kvadrat. Dette var eksamensoppgave 2023."
+    },
+    {
+      "id": "mat1100-4-4-def-diskriminanttest",
+      "type": "definition",
+      "title": "Diskriminanttesten (strategivalg)",
+      "content": "Den avgjørende sjekken *før* du velger metode på en kvadratisk nevner: regn diskriminanten $D=p^2-4q$.\n\n- $D\\ge 0$: nevneren har reelle røtter ⇒ **faktoriser og bruk delbrøk**.\n- $D<0$: ingen reelle røtter ⇒ **fullført kvadrat** (og splitteteknikken hvis telleren er lineær).\n\nÅ velge feil strategi (delbrøk på et irreduserbart ledd, eller arctan på noe som faktoriserer) er tidssluk og gir feil. Diskriminanttesten tar fem sekunder og styrer resten."
+    },
+    {
+      "id": "mat1100-4-4-ex-fullfort",
+      "type": "example",
+      "title": "Eksempel 4: Ren fullført kvadrat",
+      "problem": "Regn ut $\\displaystyle\\int\\frac{dx}{x^2+4x+13}$.",
+      "solution": "**Diskriminanttest:** $D=4^2-4\\cdot13=16-52=-36<0$ — ingen reelle røtter, så fullført kvadrat.\n\n**Fullført kvadrat:** $x^2+4x+13=(x+2)^2+(13-4)=(x+2)^2+9=(x+2)^2+3^2$.\n\n**Arctan-formen** med $a=2$, $k=3$:\n$$\\int\\frac{dx}{(x+2)^2+3^2}=\\frac13\\arctan\\!\\left(\\frac{x+2}{3}\\right)+C.$$\n\n**Kontroll:** $\\frac{d}{dx}\\tfrac13\\arctan\\tfrac{x+2}{3}=\\tfrac13\\cdot\\tfrac{1}{1+((x+2)/3)^2}\\cdot\\tfrac13=\\tfrac{1}{9+(x+2)^2}=\\tfrac{1}{x^2+4x+13}$. ✓ **Svar:** $\\boxed{\\tfrac13\\arctan\\tfrac{x+2}{3}+C}$"
+    },
+    {
+      "id": "mat1100-4-4-ex-splitt",
+      "type": "example",
+      "title": "Eksempel 5: Splitteteknikken (ln-del + arctan-del)",
+      "problem": "Regn ut $\\displaystyle\\int\\frac{4x+5}{x^2+4x+5}\\,dx$.",
+      "solution": "**Diskriminanttest:** $D=4^2-4\\cdot5=16-20=-4<0$ — irreduserbar nevner, så splitteteknikken (lineær teller over irreduserbar kvadratisk nevner).\n\n**Splitt telleren.** Nevnerens deriverte er $(x^2+4x+5)'=2x+4$. Skriv $4x+5$ som et multiplum av $2x+4$ pluss en konstant:\n$$4x+5=2(2x+4)+(5-8)=2(2x+4)-3.$$\n\nDermed splittes integralet i to:\n$$\\int\\frac{4x+5}{x^2+4x+5}\\,dx=2\\int\\frac{2x+4}{x^2+4x+5}\\,dx-3\\int\\frac{dx}{x^2+4x+5}.$$\n\n**Ln-delen** ($\\int\\tfrac{f'}{f}=\\ln|f|$, her er $f=x^2+4x+5>0$):\n$$2\\int\\frac{2x+4}{x^2+4x+5}\\,dx=2\\ln(x^2+4x+5).$$\n\n**Arctan-delen** (fullført kvadrat: $x^2+4x+5=(x+2)^2+1$, $k=1$):\n$$-3\\int\\frac{dx}{(x+2)^2+1}=-3\\arctan(x+2).$$\n\n**Sett sammen:**\n$$\\int\\frac{4x+5}{x^2+4x+5}\\,dx=2\\ln(x^2+4x+5)-3\\arctan(x+2)+C.$$\n\n**Konklusjon:** $\\boxed{2\\ln(x^2+4x+5)-3\\arctan(x+2)+C}$. Nøkkelgrepet: del telleren i «$\\tfrac{a}{2}\\cdot$ nevnerens deriverte» (ln) pluss «konstant» (arctan)."
+    },
+    {
+      "id": "mat1100-4-4-oppg-splitt",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-4-oppg-splitt-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — splitteteknikken, 2023-formen.) Regn ut $\\displaystyle\\int\\frac{2x+3}{x^2+2x+5}\\,dx$.",
+        "solution": "**Diskriminanttest:** $D=2^2-4\\cdot5=4-20=-16<0$ — irreduserbar, så splitteteknikken.\n\n**Splitt telleren.** Nevnerens deriverte: $(x^2+2x+5)'=2x+2$. Skriv $2x+3=(2x+2)+1$:\n$$\\int\\frac{2x+3}{x^2+2x+5}\\,dx=\\int\\frac{2x+2}{x^2+2x+5}\\,dx+\\int\\frac{dx}{x^2+2x+5}.$$\n\n**Ln-delen:** $\\int\\frac{2x+2}{x^2+2x+5}\\,dx=\\ln(x^2+2x+5)$ (telleren er nøyaktig nevnerens deriverte).\n\n**Arctan-delen:** fullført kvadrat $x^2+2x+5=(x+1)^2+4=(x+1)^2+2^2$, så $k=2$:\n$$\\int\\frac{dx}{(x+1)^2+2^2}=\\frac12\\arctan\\!\\left(\\frac{x+1}{2}\\right).$$\n\n**Sett sammen:**\n$$\\int\\frac{2x+3}{x^2+2x+5}\\,dx=\\ln(x^2+2x+5)+\\frac12\\arctan\\!\\left(\\frac{x+1}{2}\\right)+C.$$\n\n**Konklusjon:** $\\boxed{\\ln(x^2+2x+5)+\\tfrac12\\arctan\\tfrac{x+1}{2}+C}$. Merk faktoren $\\tfrac12$ foran arctan (fra $k=2$).",
+        "hints": [
+          "Diskriminanten er negativ ⇒ splitteteknikken, ikke delbrøk.",
+          "Nevnerens deriverte er $2x+2$; skriv $2x+3=(2x+2)+1$.",
+          "Fullført kvadrat: $x^2+2x+5=(x+1)^2+4$, så $k=2$ og arctan-delen får faktor $\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Delbrøk uten polynomdivisjon når graden krever det.** Er brøken uekte (tellergrad $\\ge$ nevnergrad), del først. Delbrøk-ansatsen forutsetter en ekte brøk.\n- **Glemme ledd for hver potens av en gjentatt faktor.** For $(x-r)^2$ trengs *både* $\\tfrac{A}{x-r}$ og $\\tfrac{B}{(x-r)^2}$. Å ta med bare det ene gir feil svar.\n- **Bruke $\\tfrac{A}{x^2+px+q}$ i stedet for $\\tfrac{Bx+C}{x^2+px+q}$.** Over et irreduserbart kvadratisk ledd må telleren være *lineær* — konstant teller gir for få frihetsgrader.\n- **Fortegnsfeil i fullført kvadrat.** $x^2+4x+13=(x+2)^2+9$ — sjekk ved å gange ut $(x+2)^2=x^2+4x+4$ og legge til $9$.\n- **Glemme faktoren $\\tfrac1k$ i arctan-formen.** $\\int\\tfrac{dx}{(x+a)^2+k^2}=\\tfrac1k\\arctan\\tfrac{x+a}{k}$ — ikke bare $\\arctan(x+a)$.\n- **Glemme $+C$.** Fast føringstrekk i ubestemte integraler."
+    },
+    {
+      "id": "mat1100-4-4-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er noen kjernebegreper fra kapitlet samlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-4-4-bb-nevnerderivert",
+      "type": "definition",
+      "title": "Nevnerens deriverte (ln-delen i splitteteknikken)",
+      "content": "Grunnfaktumet bak ln-delen: $\\int\\dfrac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. I splitteteknikken skriver du telleren som et multiplum av nevnerens deriverte $f'=2x+p$ nettopp for å utnytte dette — da blir den biten en logaritme, og resten en arctan. Å kjenne igjen «telleren er (nesten) nevnerens deriverte» sparer mye arbeid."
+    },
+    {
+      "id": "mat1100-4-4-bb-grunnintegral-ln",
+      "type": "definition",
+      "title": "Grunnintegralet $\\int\\frac{dx}{x}=\\ln|x|$",
+      "content": "Målformen for alle lineære delbrøk-ledd. Enhver $\\tfrac{A}{x-r}$ integreres til $A\\ln|x-r|+C$. Absoluttverdien er nødvendig fordi argumentet kan være negativt. Dette er den ene av de to «endestasjonene» i kapitlet — delbrøk med lineære faktorer lander alltid her."
+    },
+    {
+      "id": "mat1100-4-4-bb-grunnintegral-arctan",
+      "type": "definition",
+      "title": "Grunnintegralet $\\int\\frac{dx}{1+x^2}=\\arctan x$",
+      "content": "Den andre «endestasjonen». Alle irreduserbare kvadratiske nevnere føres tilbake til denne via fullført kvadrat: $\\int\\tfrac{dx}{(x+a)^2+k^2}=\\tfrac1k\\arctan\\tfrac{x+a}{k}+C$. Sammen med $\\ln|x|$ dekker disse to grunnintegralene alt du trenger for rasjonale integrander."
+    },
+    {
+      "id": "mat1100-4-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-4-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\tfrac{P(x)}{Q(x)}$ | Rasjonal funksjon (ekte: $\\deg P<\\deg Q$) |\n| $D=p^2-4q$ | Diskriminanten til $x^2+px+q$ |\n| $\\tfrac{A}{x-r}$ | Delbrøk-ledd for en lineær faktor |\n| $\\tfrac{Bx+C}{x^2+px+q}$ | Delbrøk-ledd for irreduserbar kvadratisk faktor |\n| $(x+\\tfrac p2)^2+(q-\\tfrac{p^2}4)$ | Fullført kvadrat |\n| $f'(x)=2x+p$ | Nevnerens deriverte (ln-delen i splitt) |\n| $+C$ | Integrasjonskonstanten |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{P(x)}{Q(x)}=(\\text{polynom})+\\frac{R(x)}{Q(x)}\\quad(\\deg R<\\deg Q)$$\nPolynomdivisjon (uekte → ekte brøk).\n\n$$\\frac{1}{(x-r_1)(x-r_2)}=\\frac{A}{x-r_1}+\\frac{B}{x-r_2}$$\nDelbrøk, distinkte lineære faktorer.\n\n$$\\frac{P(x)}{x^2(x+1)}=\\frac{A}{x}+\\frac{B}{x^2}+\\frac{C}{x+1}$$\nGjentatt lineær faktor (ledd for hver potens).\n\n$$\\int\\frac{dx}{x}=\\ln|x|+C,\\qquad \\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$$\nLn-endestasjonen.\n\n$$\\int\\frac{dx}{(x+a)^2+k^2}=\\frac1k\\arctan\\!\\left(\\frac{x+a}{k}\\right)+C$$\narctan fra fullført kvadrat.\n\n$$\\frac{ax+b}{x^2+px+q}=\\frac{a}{2}\\cdot\\frac{2x+p}{x^2+px+q}+\\frac{\\text{konst}}{x^2+px+q}$$\nSplitteteknikken: ln-del + arctan-del."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-4-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-4-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-4-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [1t](/bok/1t/1t-2-4)) Fullfør kvadratet i $x^2+6x+13$.",
+            "solution": "$x^2+6x+13=(x+3)^2+(13-9)=(x+3)^2+4$. Kontroll: $(x+3)^2=x^2+6x+9$, pluss $4$ gir $x^2+6x+13$. ✓ (Formen $(x+3)^2+2^2$ er klar for arctan.)",
+            "hints": [
+              "Halver koeffisienten foran $x$: $6/2=3$, og korriger konstanten."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-4-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.3](/bok/mat1100/mat1100-1-3)) Har $x^2+2x+5$ reelle røtter? Bruk diskriminanten.",
+            "solution": "$D=2^2-4\\cdot5=4-20=-16<0$, så $x^2+2x+5$ har *ingen* reelle røtter — det er irreduserbart. Da kan det ikke faktoriseres i reelle lineære faktorer, og et integral med denne nevneren løses med fullført kvadrat, ikke delbrøk.",
+            "hints": [
+              "Regn $D=p^2-4q$ og sjekk fortegnet."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-4-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.3](/bok/mat1100/mat1100-4-3)) Regn ut $\\int\\frac{2x}{x^2+1}\\,dx$ ved å se at telleren er nevnerens deriverte.",
+            "solution": "Telleren $2x$ er nøyaktig $(x^2+1)'$, så $\\int\\frac{2x}{x^2+1}\\,dx=\\ln(x^2+1)+C$ (formen $\\int\\tfrac{f'}{f}=\\ln|f|$; her er $x^2+1>0$ så absoluttverdi er unødvendig). Dette er selve ln-delen i splitteteknikken.",
+            "hints": [
+              "Er telleren lik nevnerens deriverte? Da er integralet $\\ln|\\text{nevner}|$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-4-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.3](/bok/mat1100/mat1100-4-3)) Hva er $\\int\\frac{dx}{x-4}$ og $\\int\\frac{dx}{(x-4)^2}$?",
+            "solution": "$\\int\\frac{dx}{x-4}=\\ln|x-4|+C$ (lineært ledd → logaritme), mens $\\int\\frac{dx}{(x-4)^2}=-\\frac{1}{x-4}+C$ (potens $-2$ → potensregelen, *ikke* logaritme). Forskjellen er nettopp hvorfor gjentatte faktorer trenger egne ledd.",
+            "hints": [
+              "Bare potensen $-1$ gir logaritme; $(x-4)^{-2}$ integreres med potensregelen."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

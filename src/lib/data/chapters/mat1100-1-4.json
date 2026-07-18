@@ -1,0 +1,393 @@
+{
+  "id": "mat1100-1-4",
+  "courseId": "mat1100",
+  "chapterNumber": "1.4",
+  "title": "Drill: komplekse tall i midtveistempo",
+  "description": "Hele komplekstall-repertoaret som flervalg på klokka — 30 % av midtveis skal sitte på under 6 minutter per oppgave.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "skrive komplekse tall mellom kartesisk og polar form med kvadrantdisiplin i midtveistempo",
+    "regne høye potenser og alle n-te røtter med de Moivre og redusere argumentet mod 2π",
+    "løse komplekse likninger og faktorisere og rekonstruere reelle polynomer med konjugatrotsetningen",
+    "gjenkjenne geometriske mengder fra modulusuttrykk og velge raskeste løsningsvei under tidspress"
+  ],
+  "content": [
+    {
+      "id": "mat1100-1-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet driller hele 30 %-blokken som åpner hver midtveiseksamen.** Komplekse tall er $30\\ \\%$ av alle midtveisspørsmål (138 talt opp H2012–H2018) og det mest testede enkelttemaet i emnet — polarform begge veier åpner *alltid* settet, og de Moivre-potens, $n$-te røtter, komplekse likninger, polynomrekonstruksjon og geometriske mengder følger tett etter. Prioritet: **høyeste** (nivå «perfekt»). På slutteksamen inngår stoffet i sjanger G ($10/21$ sett).\n\n**Om kodene** (forklares her, brukes gjennom kapitlet):\n- **MV** = *midtveisrepertoaret* — flervalg med $5$ alternativer, ingen gjettestraff, ca. $6$ minutter per spørsmål. Oppgaver merket «(Midtveis, flervalg)» trener denne formen.\n- **Sjanger G** = *komplekse tall* på slutteksamen — begrunnet langsvar (vis rot, faktoriser, rekonstruer). Merket «(Sjanger G — …)».\n\n**Slik jobber du med drillen (90 min, del gjerne over to økter):**\n1. Les de seks tempo-oppskriftene (~10 min).\n2. Arbeid deg gjennom den gjennomregnede midtveisblokken (~15 min) — *— naturlig pausepunkt —*.\n3. Ta flervalgsoppgavene på klokka, ~6 min hver (~50 min).\n4. Avslutt med langsvarvariantene som trener slutteksamensføringen (~15 min).\n\n*Kilde til frekvenstallene: arkivet med 21 slutteksamener (H2003–H2023, 18 med løsningsforslag) og 16 midtveiseksamener (H2003–H2018). Arkivet stopper i 2023 — nyere sett kan ha justert bildet.*"
+    },
+    {
+      "id": "mat1100-1-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Denne drillen forutsetter hele Del 1. Du bør ha regnet gjennom [kap. 1.1](/bok/mat1100/mat1100-1-1) (kartesisk og polar form, geometriske mengder), [kap. 1.2](/bok/mat1100/mat1100-1-2) (de Moivre, potenser og $n$-te røtter) og [kap. 1.3](/bok/mat1100/mat1100-1-3) (komplekse likninger, konjugatrotsetningen og faktorisering). Trenger du å friske opp eksakte vinkelverdier, se [Enhetssirkelen](/bok/r2/r2-4-2). Her regner du ikke noe nytt — du drilles i å velge raskeste vei under tidspress."
+    },
+    {
+      "id": "mat1100-1-4-oppskrift",
+      "type": "text",
+      "content": "## De seks tempo-oppskriftene (~10 min)\n\nHele 30 %-blokken løses med seks faste oppskrifter. Kjenner du igjen formen, vet du våpenet — det er dette som skiller en som rekker settet fra en som setter seg fast.\n\n**1. Polarform (kartesisk → polar).** Tegn punktet grovt → avgjør **kvadrant** → regn $r = \\sqrt{a^2+b^2}$ → finn $\\theta$ fra kvadranten (bruk $\\arctan(b/a)$ som *referansevinkel*, aldri blindt). Svar $r e^{i\\theta}$.\n\n**2. Potens (de Moivre).** Skriv $z = r e^{i\\theta}$ først → $z^n = r^n e^{in\\theta}$ → **reduser vinkelen mod $2\\pi$** → tilbake til $a+ib$ hvis oppgaven ber om det.\n\n**3. $n$-te røtter.** $z^n = w$ har nøyaktig $n$ røtter: $|z| = |w|^{1/n}$ og $\\arg z = \\dfrac{\\arg w + 2k\\pi}{n}$, $k = 0,1,\\dots,n-1$. De ligger **jevnt fordelt på en sirkel** med radius $|w|^{1/n}$. Glem aldri $2k\\pi$-leddet.\n\n**4. Likning.** Andregradslikning med reelle koeffisienter → **abc-formelen**; er diskriminanten negativ, blir røttene et konjugatpar. Formen $z^n = w$ → oppskrift 3. Kvadratrot av et komplekst tall → polarform eller ansatsen $(x+iy)^2 = w$.\n\n**5. Rekonstruksjon.** Reelt polynom av lavest grad fra oppgitte røtter: ta med **den konjugerte** til hver komplekse rot, multipliser konjugatparene til reelle kvadratiske faktorer $(z-z_0)(z-\\bar{z_0}) = z^2 - 2\\,\\mathrm{Re}(z_0)\\,z + |z_0|^2$, gang ut.\n\n**6. Mengde.** Oversett $|z - a|$ til **avstanden fra $z$ til punktet $a$**: $|z-a| = r$ er en sirkel, $|z-a| < r$ en åpen skive, $|z-a| = |z-b|$ midtnormalen mellom $a$ og $b$, og Re/Im-betingelser gir halvplan/striper."
+    },
+    {
+      "id": "mat1100-1-4-ex-midtveisblokk",
+      "type": "example",
+      "title": "Gjennomregnet midtveisblokk — sju spørsmål med sensor-margnotater",
+      "problem": "Sju flervalgsspørsmål i midtveistempo — ett av hver hovedtype. Prøv hvert på ~$1{,}5$ minutt før du leser løsningen. Alle svar med $5$ alternativer, som på eksamen.\n\n**1 (polarform).** Skriv $z = -1 + \\sqrt{3}\\,i$ på polarform $re^{i\\theta}$.\n**A)** $2e^{i\\pi/3}$  **B)** $2e^{i2\\pi/3}$  **C)** $\\sqrt{2}\\,e^{i2\\pi/3}$  **D)** $2e^{-i\\pi/3}$  **E)** $2e^{i5\\pi/6}$\n\n**2 (potens).** Regn ut $(\\sqrt{3} + i)^6$.\n**A)** $64$  **B)** $64i$  **C)** $-64$  **D)** $-64i$  **E)** $64e^{i\\pi/6}$\n\n**3 ($n$-te rot).** Hvilket tall er en fjerderot av $-4$?\n**A)** $1 + 2i$  **B)** $-1 + i$  **C)** $2$  **D)** $-2i$  **E)** $\\sqrt{2}$\n\n**4 (likning).** Løs $z^2 + 4z + 13 = 0$.\n**A)** $-2 \\pm 3i$  **B)** $2 \\pm 3i$  **C)** $-4 \\pm 6i$  **D)** $-2 \\pm 9i$  **E)** $3 \\pm 2i$\n\n**5 (rekonstruksjon).** Et reelt polynom av lavest mulig grad har røttene $3$ og $2 - i$. Hvilket er det?\n**A)** $z^2 - 5z + 6$  **B)** $z^3 - 7z^2 + 17z - 15$  **C)** $z^3 - 5z^2 + 11z - 15$  **D)** $(z-3)(z-2+i)$  **E)** $z^3 - 7z^2 + 15z - 17$\n\n**6 (mengde).** Hvilken mengde beskriver $|z - (1+i)| = 2$?\n**A)** en linje  **B)** en åpen skive med radius $2$  **C)** en sirkel om $1+i$ med radius $2$  **D)** en sirkel om $-1-i$ med radius $2$  **E)** en sirkel om $1+i$ med radius $4$\n\n**7 (teori).** Hvilket utsagn er sant for **alle** komplekse tall $z$?\n**A)** $z^2 = |z|^2$  **B)** $z \\cdot \\bar{z} = |z|^2$  **C)** $z + \\bar{z} = 2\\,\\mathrm{Im}\\,z$  **D)** $\\bar{z} = -z$  **E)** $|z|^2 = z^2$",
+      "solution": "**1 → B, $2e^{i2\\pi/3}$.** $r = \\sqrt{(-1)^2 + (\\sqrt3)^2} = \\sqrt{4} = 2$. Punktet $(-1,\\sqrt3)$ ligger i **andre kvadrant**; referansevinkelen er $\\arctan(\\sqrt3/1) = \\pi/3$, så $\\theta = \\pi - \\pi/3 = 2\\pi/3$. *Margnotat:* **A** ($e^{i\\pi/3}$) er kvadrantfellen — $\\arctan$ brukt blindt gir vinkelen i første kvadrant; **D** speiler til fjerde kvadrant; **C** har feil $r$ (glemt kvadratroten trukket helt ut).\n\n**2 → C, $-64$.** $\\sqrt3 + i = 2e^{i\\pi/6}$, så $(\\sqrt3+i)^6 = 2^6 e^{i6\\cdot\\pi/6} = 64\\,e^{i\\pi} = -64$. *Margnotat:* **A** ($64$) glemmer at $e^{i\\pi} = -1$; **E** har ikke multiplisert vinkelen med $6$; **B/D** blander real- og imaginærakse.\n\n**3 → B, $-1+i$.** $-4 = 4e^{i\\pi}$, så fjerderøttene er $4^{1/4}e^{i(\\pi + 2k\\pi)/4} = \\sqrt2\\,e^{i(\\pi/4 + k\\pi/2)}$, altså $1+i,\\ -1+i,\\ -1-i,\\ 1-i$. Kontroll: $(-1+i)^2 = -2i$, og $(-2i)^2 = -4$. ✓ *Margnotat:* **C** ($2$) og **E** ($\\sqrt2$) er reelle tall som frister fordi $\\sqrt2$ er *modulusen* — men modulus alene er ikke en rot; **A** og **D** har riktig «smak» men gir ikke $-4$ i fjerde potens.\n\n**4 → A, $-2 \\pm 3i$.** Diskriminant $16 - 52 = -36$, så $z = \\dfrac{-4 \\pm \\sqrt{-36}}{2} = \\dfrac{-4 \\pm 6i}{2} = -2 \\pm 3i$. *Margnotat:* **C** glemmer å dele på $2a$; **D** tar $\\sqrt{-36} = 9i$ (regnefeil); **B** mister fortegnet på realdelen.\n\n**5 → B, $z^3 - 7z^2 + 17z - 15$.** Konjugatrotsetningen: siden koeffisientene er reelle, er også $2+i$ rot. Konjugatparet gir $(z-(2-i))(z-(2+i)) = z^2 - 4z + 5$. Gang med $(z-3)$: $z^3 - 7z^2 + 17z - 15$. *Margnotat:* **D** glemmer den konjugerte roten (bare grad $2$, ikke reelt); **C** har brukt $2+i$ som «dobbeltrot» uten $3$; **A** overser den komplekse roten helt.\n\n**6 → C, sirkel om $1+i$ med radius $2$.** $|z - (1+i)|$ er avstanden fra $z$ til punktet $1+i$; at den er lik $2$ gir en sirkel. *Margnotat:* **D** har byttet fortegn på sentrum (feil at $|z-a|$ måler til $-a$); **E** forveksler radius med diameter; **B** gjør likhet om til ulikhet.\n\n**7 → B, $z\\bar{z} = |z|^2$.** Med $z = a+ib$ er $z\\bar z = (a+ib)(a-ib) = a^2 + b^2 = |z|^2$. *Margnotat:* **A/E** ($z^2 = |z|^2$) gjelder bare når $z$ er reell; **C** skal være $2\\,\\mathrm{Re}\\,z$, ikke $2\\,\\mathrm{Im}\\,z$; **D** gjelder bare for rent imaginære $z$.\n\n**Fasitbokstavene i blokken: B, C, B, A, B, C, B** — legg merke til at riktig svar *aldri* systematisk er samme bokstav. På midtveis er posisjonen tilfeldig; la aldri et mønster styre gjettingen."
+    },
+    {
+      "id": "mat1100-1-4-drill-tekst",
+      "type": "text",
+      "content": "## Flervalgsdrill på klokka (~50 min)\n\nSett $6$ minutter per oppgave. Målet er ikke bare riktig svar, men *raskeste vei* — kjenn igjen formen, velg oppskrift, før bare det du trenger. Signalboksen etter hver løsning sier hva oppgaven testet."
+    },
+    {
+      "id": "mat1100-1-4-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — polarform.) Skriv $z = 4 - 4i$ på polarform.\n\n**A)** $4\\sqrt2\\,e^{i\\pi/4}$\n**B)** $4\\sqrt2\\,e^{-i\\pi/4}$\n**C)** $8\\,e^{-i\\pi/4}$\n**D)** $4\\sqrt2\\,e^{i3\\pi/4}$\n**E)** $4\\,e^{-i\\pi/4}$",
+        "solution": "**Riktig: B, $4\\sqrt2\\,e^{-i\\pi/4}$.** $r = \\sqrt{4^2 + (-4)^2} = \\sqrt{32} = 4\\sqrt2$. Punktet $(4,-4)$ ligger i fjerde kvadrant, referansevinkel $\\arctan(4/4) = \\pi/4$, så $\\theta = -\\pi/4$ (eller $7\\pi/4$ redusert mod $2\\pi$). \n\n*Feller:* **A** glemmer fortegnet på vinkelen (setter punktet i første kvadrant); **C** regner $r = 4+4$ i stedet for kvadratsummen; **E** glemmer $\\sqrt2$-faktoren i modulusen. \n\n**Signal:** kvadrantdisiplin — tegn punktet før du fastsetter $\\theta$.",
+        "hints": [
+          "$r = \\sqrt{a^2+b^2}$; hvilken kvadrant ligger $(4,-4)$ i?",
+          "Referansevinkelen er $\\arctan(|b|/|a|)$, men fortegnet bestemmes av kvadranten."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — polarform.) Skriv $z = -5i$ på polarform.\n\n**A)** $5\\,e^{i\\pi/2}$\n**B)** $5i\\,e^{-i\\pi/2}$\n**C)** $-5\\,e^{i\\pi/2}$\n**D)** $5\\,e^{-i\\pi/2}$\n**E)** $\\sqrt5\\,e^{-i\\pi/2}$",
+        "solution": "**Riktig: D, $5\\,e^{-i\\pi/2}$.** $|{-5i}| = 5$, og $-5i$ peker rett ned langs den negative imaginæraksen, altså $\\theta = -\\pi/2$ (eller $3\\pi/2$). \n\n*Feller:* **A** peker rett opp (feil fortegn); **C** bruker en negativ modulus, som ikke er tillatt — modulus er alltid $\\ge 0$; **E** forveksler $5$ med $\\sqrt5$. \n\n**Signal:** rene akse-tall — les av vinkelen direkte, ikke via $\\arctan$ (som er udefinert her).",
+        "hints": [
+          "Hvor på aksene ligger $-5i$?",
+          "Modulus er aldri negativ; flytt fortegnet inn i vinkelen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — de Moivre-potens.) Regn ut $(1+i)^{10}$.\n\n**A)** $32i$\n**B)** $-32i$\n**C)** $32$\n**D)** $1024i$\n**E)** $-32$",
+        "solution": "**Riktig: A, $32i$.** $1+i = \\sqrt2\\,e^{i\\pi/4}$, så $(1+i)^{10} = (\\sqrt2)^{10} e^{i10\\pi/4} = 32\\,e^{i5\\pi/2}$. Reduser vinkelen: $5\\pi/2 - 2\\pi = \\pi/2$, så svaret er $32e^{i\\pi/2} = 32i$. \n\n*Feller:* **B** glemmer å redusere ($e^{i5\\pi/2}$ feillest som $-i$); **D** regner $(\\sqrt2)^{10}$ som $2^{10}$; **C/E** mister imaginærdelen. \n\n**Signal:** vinkelreduksjon mod $2\\pi$ ved høye potenser.",
+        "hints": [
+          "Skriv $1+i$ på polarform først; $(\\sqrt2)^{10} = 2^5$.",
+          "$5\\pi/2$ er samme vinkel som hva, redusert mod $2\\pi$?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — de Moivre-potens.) Regn ut $(1 - \\sqrt3\\,i)^9$.\n\n**A)** $512$\n**B)** $256$\n**C)** $-512$\n**D)** $512i$\n**E)** $-512i$",
+        "solution": "**Riktig: C, $-512$.** $1 - \\sqrt3\\,i = 2e^{-i\\pi/3}$ (modulus $\\sqrt{1+3} = 2$, fjerde kvadrant). Da er $(1-\\sqrt3 i)^9 = 2^9 e^{-i9\\pi/3} = 512\\,e^{-i3\\pi}$. Reduser: $-3\\pi \\equiv -\\pi \\pmod{2\\pi}$, så $512e^{-i\\pi} = -512$. \n\n*Feller:* **A** glemmer at $e^{-i3\\pi} = -1$; **B** regner $2^9$ feil; **D/E** legger til en imaginærdel som ikke er der. \n\n**Signal:** tidsfellen — polarform gir svaret på tre linjer der utmultiplisering tar evigheter.",
+        "hints": [
+          "Modulusen til $1-\\sqrt3 i$ er $2$; vinkelen er $-\\pi/3$.",
+          "$-9\\pi/3 = -3\\pi$; hva er $e^{-i3\\pi}$?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — modulus.) Hva er $\\left|\\dfrac{3+4i}{1-2i}\\right|$?\n\n**A)** $1$\n**B)** $\\dfrac{5}{3}$\n**C)** $\\sqrt{10}$\n**D)** $5$\n**E)** $\\sqrt5$",
+        "solution": "**Riktig: E, $\\sqrt5$.** Modulus av en kvotient er kvotienten av modulusene: $\\left|\\frac{3+4i}{1-2i}\\right| = \\frac{|3+4i|}{|1-2i|} = \\frac{\\sqrt{9+16}}{\\sqrt{1+4}} = \\frac{5}{\\sqrt5} = \\sqrt5$. \n\n*Feller:* **D** glemmer nevnerens modulus; **B** deler realdelene ($3/1$… nesten); **C** legger sammen $|z|^2$-verdiene i stedet for å dele. \n\n**Signal:** regn aldri ut kvotienten når bare modulusen spørres — $|z_1/z_2| = |z_1|/|z_2|$.",
+        "hints": [
+          "$|z_1/z_2| = |z_1|/|z_2|$ — du trenger ikke dele tallene.",
+          "$|3+4i| = 5$ og $|1-2i| = \\sqrt5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — $n$-te rot.) Hvilket tall er en tredjerot av $8i$?\n\n**A)** $2i$\n**B)** $\\sqrt3 + i$\n**C)** $2$\n**D)** $1 + \\sqrt3\\,i$\n**E)** $8i$",
+        "solution": "**Riktig: B, $\\sqrt3 + i$.** $8i = 8e^{i\\pi/2}$, så tredjerøttene er $8^{1/3}e^{i(\\pi/2 + 2k\\pi)/3} = 2e^{i(\\pi/6 + 2k\\pi/3)}$: $2e^{i\\pi/6} = \\sqrt3 + i$, $2e^{i5\\pi/6} = -\\sqrt3 + i$ og $2e^{i3\\pi/2} = -2i$. Kontroll: $(\\sqrt3+i)^3 = 8e^{i\\pi/2} = 8i$. ✓ \n\n*Feller:* **A** ($2i$) har riktig modulus $2$ men feil vinkel; **D** ($1+\\sqrt3 i$) har vinkel $\\pi/3$, ikke $\\pi/6$; **C** er en reell felle. \n\n**Signal:** modulus $|w|^{1/3}$ og vinkel $(\\arg w + 2k\\pi)/3$ — begge må stemme.",
+        "hints": [
+          "$8i = 8e^{i\\pi/2}$; røttenes modulus er $8^{1/3} = 2$.",
+          "Del vinkelen $\\pi/2$ på $3$: $\\pi/6$. Hvilket tall har modulus $2$ og vinkel $\\pi/6$?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — $n$-te rot, teori.) Ligningen $z^6 = 64$ har løsninger som alle har samme modulus. Hvilken?\n\n**A)** $64$\n**B)** $6$\n**C)** $8$\n**D)** $2$\n**E)** $\\sqrt6$",
+        "solution": "**Riktig: D, $2$.** Alle sjetterøttene har modulus $|z| = 64^{1/6} = (2^6)^{1/6} = 2$. De ligger jevnt fordelt på sirkelen $|z| = 2$ med vinkelavstand $2\\pi/6 = \\pi/3$. \n\n*Feller:* **A** tar modulusen til $w$ selv; **C** regner $64^{1/2}$; **B** forveksler antall røtter ($6$) med modulusen. \n\n**Signal:** $n$-te røtter av $w$ har alle modulus $|w|^{1/n}$.",
+        "hints": [
+          "Modulusen til en $n$-te rot er $|w|^{1/n}$.",
+          "$64 = 2^6$, så $64^{1/6} = ?$"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — kompleks kvadratrot.) Løs $z^2 = -8 + 6i$.\n\n**A)** $\\pm(1 + 3i)$\n**B)** $\\pm(3 + i)$\n**C)** $\\pm(3 - i)$\n**D)** $\\pm(1 - 3i)$\n**E)** $\\pm(2 + 3i)$",
+        "solution": "**Riktig: A, $\\pm(1+3i)$.** Sett $z = x + iy$: $z^2 = x^2 - y^2 + 2xyi = -8 + 6i$ gir $x^2 - y^2 = -8$ og $2xy = 6 \\Rightarrow xy = 3$. Fra $y = 3/x$: $x^2 - 9/x^2 = -8$, altså $x^4 + 8x^2 - 9 = 0$, som gir $x^2 = 1$ (den positive roten). Da $x = \\pm1$, $y = \\pm3$, med samme fortegn siden $xy = 3 > 0$: $z = \\pm(1+3i)$. Kontroll: $(1+3i)^2 = 1 + 6i - 9 = -8+6i$. ✓ \n\n*Feller:* **D** har feil fortegnskobling ($xy > 0$ krever samme fortegn); **B/C** løser $z^2 = 8 - 6i$-varianten. \n\n**Signal:** $2xy$ = imaginærdelen fastsetter fortegnsparingen.",
+        "hints": [
+          "Sett $z = x+iy$ og sammenlign real- og imaginærdel: $x^2 - y^2 = -8$, $2xy = 6$.",
+          "Siden $xy = 3 > 0$, har $x$ og $y$ samme fortegn."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — likning.) Løs $z^2 - 6z + 25 = 0$.\n\n**A)** $6 \\pm 8i$\n**B)** $-3 \\pm 4i$\n**C)** $3 \\pm 4i$\n**D)** $3 \\pm 8i$\n**E)** $6 \\pm 4i$",
+        "solution": "**Riktig: C, $3 \\pm 4i$.** Diskriminant $36 - 100 = -64$, så $z = \\dfrac{6 \\pm \\sqrt{-64}}{2} = \\dfrac{6 \\pm 8i}{2} = 3 \\pm 4i$. \n\n*Feller:* **A** glemmer å dele på $2a$; **B** mister fortegnet på realdelen; **D** tar $\\sqrt{-64} = 16i$ (regnefeil). \n\n**Signal:** negativ diskriminant → konjugatpar; husk $/2a$.",
+        "hints": [
+          "Bruk abc: $z = \\frac{6 \\pm \\sqrt{36-100}}{2}$.",
+          "$\\sqrt{-64} = 8i$, og hele telleren deles på $2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — rekonstruksjon.) Et reelt polynom av lavest mulig grad har røttene $-1$ og $3i$. Hvilket er det?\n\n**A)** $z^2 + z + 9$\n**B)** $(z+1)(z-3i)$\n**C)** $z^3 - z^2 + 9z - 9$\n**D)** $z^3 + z^2 + 3z + 3$\n**E)** $z^3 + z^2 + 9z + 9$",
+        "solution": "**Riktig: E, $z^3 + z^2 + 9z + 9$.** Reelle koeffisienter ⇒ også $\\overline{3i} = -3i$ er rot. Konjugatparet gir $(z-3i)(z+3i) = z^2 + 9$. Gang med $(z+1)$: $z^3 + z^2 + 9z + 9$. \n\n*Feller:* **B** glemmer den konjugerte roten (ikke reelt, feil grad); **D** bruker $(z^2+3)$ i stedet for $(z^2+9)$ — $|3i|^2 = 9$, ikke $3$; **C** har feil fortegn i det lineære leddet. \n\n**Signal:** hver kompleks rot drar sin konjugerte med seg; $(z-bi)(z+bi) = z^2 + b^2$.",
+        "hints": [
+          "Reelle koeffisienter ⇒ $-3i$ er også rot.",
+          "$(z-3i)(z+3i) = z^2 + 9$; gang med $(z+1)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — argument-dobling.) En kvadratrot av det komplekse tallet $w$ har argument $\\pi/6$. Hva er argumentet til $w$?\n\n**A)** $\\pi/12$\n**B)** $\\pi/3$\n**C)** $2\\pi/3$\n**D)** $\\pi/6$\n**E)** $-\\pi/6$",
+        "solution": "**Riktig: B, $\\pi/3$.** Er $z$ en kvadratrot av $w$, så er $w = z^2$, og $\\arg w = 2\\arg z = 2 \\cdot \\pi/6 = \\pi/3$. Argumentet **multipliseres** med rotindeksen når man går fra rot til tall. \n\n*Feller:* **A** deler i stedet for å gange (blander retningen); **D** glemmer doblingen helt; **C** dobler feil ($\\pi/6 \\to 2\\pi/3$ svarer til fjerdedobling). \n\n**Signal:** rot → tall multipliserer vinkelen; tall → rot deler den.",
+        "hints": [
+          "Er $z$ kvadratrot av $w$, er $w = z^2$.",
+          "$\\arg(z^2) = 2\\arg z$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — polarform.) Skriv $z = -2 + 2\\sqrt3\\,i$ på polarform.\n\n**A)** $4e^{i\\pi/3}$\n**B)** $2e^{i2\\pi/3}$\n**C)** $4e^{-i2\\pi/3}$\n**D)** $4e^{i2\\pi/3}$\n**E)** $4e^{i5\\pi/6}$",
+        "solution": "**Riktig: D, $4e^{i2\\pi/3}$.** $r = \\sqrt{(-2)^2 + (2\\sqrt3)^2} = \\sqrt{4 + 12} = 4$. Punktet $(-2, 2\\sqrt3)$ ligger i andre kvadrant, referansevinkel $\\arctan(2\\sqrt3/2) = \\arctan(\\sqrt3) = \\pi/3$, så $\\theta = \\pi - \\pi/3 = 2\\pi/3$. \n\n*Feller:* **A** legger punktet i første kvadrant (kvadrantfellen); **C** speiler til nedre halvplan; **B** har feil $r$. \n\n**Signal:** andre kvadrant ⇒ $\\theta = \\pi - $ referansevinkel.",
+        "hints": [
+          "$r = \\sqrt{4+12}$. Hvilken kvadrant?",
+          "Referansevinkel $\\arctan(\\sqrt3) = \\pi/3$; i andre kvadrant blir $\\theta = \\pi - \\pi/3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — geometrisk mengde.) Hvilken mengde i planet beskriver $|z - 1| = |z + 3|$?\n\n**A)** den vertikale linjen $\\mathrm{Re}\\,z = -1$\n**B)** den vertikale linjen $\\mathrm{Re}\\,z = 1$\n**C)** en sirkel om $1$ med radius $3$\n**D)** den horisontale linjen $\\mathrm{Im}\\,z = -1$\n**E)** punktet $z = -1$",
+        "solution": "**Riktig: A, linjen $\\mathrm{Re}\\,z = -1$.** $|z-1| = |z-(-3)|$ er mengden av punkter like langt fra $1$ og fra $-3$ — altså **midtnormalen** på strekningen mellom dem. Begge punktene ligger på realaksen, i $1$ og $-3$; midtpunktet er $-1$, og midtnormalen står loddrett, så mengden er den vertikale linjen $\\mathrm{Re}\\,z = -1$. \n\n*Feller:* **B** tar midtpunktet med feil fortegn; **C** leser $=$ som en sirkel; **E** glemmer at midtnormalen er en hel linje. \n\n**Signal:** $|z-a| = |z-b|$ er alltid midtnormalen mellom $a$ og $b$.",
+        "hints": [
+          "$|z-a| = |z-b|$ betyr «like langt fra $a$ som fra $b$».",
+          "Midtpunktet mellom $1$ og $-3$ er $-1$; normalen står loddrett på realaksen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-langsvar-tekst",
+      "type": "text",
+      "content": "## Langsvarvarianter — slutteksamensføring (~15 min)\n\nPå slutteksamen (sjanger G) holder det ikke å krysse av: hvert steg må begrunnes, og **ubegrunnet svar gir $0$ poeng selv om det er riktig**. Her fører du fullt ut. — naturlig pausepunkt før du starter —"
+    },
+    {
+      "id": "mat1100-1-4-ex-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — vis rot og faktoriser.) La $p(z) = z^3 - 4z^2 + 9z - 10$. Vis at $z_0 = 1 + 2i$ er en rot, og finn både den reelle og den komplekse faktoriseringen av $p$.",
+        "solution": "**Vis at $1+2i$ er rot.** Regn $p(1+2i)$ ledd for ledd. Først potensene: $(1+2i)^2 = 1 + 4i + 4i^2 = -3 + 4i$, og $(1+2i)^3 = (1+2i)(-3+4i) = -3 + 4i - 6i + 8i^2 = -11 - 2i$. Da\n$$p(1+2i) = (-11 - 2i) - 4(-3 + 4i) + 9(1 + 2i) - 10 = -11 - 2i + 12 - 16i + 9 + 18i - 10 = 0.$$\nAltså er $1+2i$ en rot. ✓\n\n**Konjugatrotsetningen.** $p$ har reelle koeffisienter, så den konjugerte $\\bar{z_0} = 1 - 2i$ er også rot. Konjugatparet multipliseres til en reell kvadratisk faktor:\n$$(z - (1+2i))(z - (1-2i)) = z^2 - 2\\,\\mathrm{Re}(z_0)\\,z + |z_0|^2 = z^2 - 2z + 5.$$\n\n**Finn den siste faktoren ved polynomdivisjon.** $p(z) : (z^2 - 2z + 5) = z - 2$ (rest $0$). Kontroll ved innsetting: $(z-2)(z^2 - 2z + 5) = z^3 - 2z^2 + 5z - 2z^2 + 4z - 10 = z^3 - 4z^2 + 9z - 10 = p(z)$. ✓\n\n**Reell faktorisering:**\n$$p(z) = (z - 2)(z^2 - 2z + 5).$$\n**Kompleks faktorisering:**\n$$p(z) = (z - 2)\\,(z - (1+2i))\\,(z - (1-2i)).$$\nBegge kreves for full uttelling; den tredje (reelle) roten er $z = 2$.",
+        "hints": [
+          "Regn $(1+2i)^2$ og $(1+2i)^3$ først, sett så inn i $p$.",
+          "Reelle koeffisienter ⇒ $1-2i$ er også rot; konjugatparet gir $z^2 - 2z + 5$.",
+          "Del $p(z)$ på $z^2 - 2z + 5$ for å finne den siste lineære faktoren."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G / MV — potens, full føring.) Regn ut $(-1 + i)^{12}$ og skriv svaret på formen $a + ib$. Vis føringen.",
+        "solution": "**Polarform først.** $|-1 + i| = \\sqrt{(-1)^2 + 1^2} = \\sqrt2$. Punktet $(-1, 1)$ ligger i andre kvadrant, referansevinkel $\\arctan(1/1) = \\pi/4$, så $\\arg(-1+i) = \\pi - \\pi/4 = 3\\pi/4$. Altså $-1 + i = \\sqrt2\\,e^{i3\\pi/4}$.\n\n**de Moivre.**\n$$(-1+i)^{12} = (\\sqrt2)^{12}\\,e^{i\\cdot 12 \\cdot 3\\pi/4} = 2^6\\,e^{i9\\pi} = 64\\,e^{i9\\pi}.$$\n\n**Reduser vinkelen mod $2\\pi$.** $9\\pi = 8\\pi + \\pi \\equiv \\pi \\pmod{2\\pi}$, så $e^{i9\\pi} = e^{i\\pi} = -1$.\n\n**Konklusjon.** $(-1+i)^{12} = 64 \\cdot (-1) = -64 = -64 + 0i.$",
+        "hints": [
+          "Skriv $-1+i$ på polarform: modulus $\\sqrt2$, argument $3\\pi/4$.",
+          "$(\\sqrt2)^{12} = 2^6 = 64$; vinkelen blir $12 \\cdot 3\\pi/4 = 9\\pi$.",
+          "Reduser $9\\pi$ mod $2\\pi$ før du konkluderer."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-ex-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-16",
+        "number": "16",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — $n$-te røtter med figur.) Finn alle tredjerøttene til $27i$, skriv dem på formen $a + ib$, og marker dem i det komplekse planet.",
+        "solution": "**Polarform av $27i$.** $27i = 27\\,e^{i\\pi/2}$ (modulus $27$, argument $\\pi/2$).\n\n**Rotformelen.** Tredjerøttene $z_k$ oppfyller $|z_k| = 27^{1/3} = 3$ og\n$$\\arg z_k = \\frac{\\pi/2 + 2k\\pi}{3}, \\qquad k = 0, 1, 2.$$\n- $k = 0$: $\\arg = \\pi/6$, $\\ z_0 = 3e^{i\\pi/6} = 3\\left(\\tfrac{\\sqrt3}{2} + \\tfrac12 i\\right) = \\dfrac{3\\sqrt3}{2} + \\dfrac{3}{2}i$.\n- $k = 1$: $\\arg = \\pi/6 + 2\\pi/3 = 5\\pi/6$, $\\ z_1 = 3e^{i5\\pi/6} = -\\dfrac{3\\sqrt3}{2} + \\dfrac{3}{2}i$.\n- $k = 2$: $\\arg = \\pi/6 + 4\\pi/3 = 3\\pi/2$, $\\ z_2 = 3e^{i3\\pi/2} = -3i$.\n\nDe tre røttene ligger jevnt fordelt (vinkelavstand $2\\pi/3 = 120^\\circ$) på sirkelen med radius $3$:",
+        "hints": [
+          "Skriv $27i = 27e^{i\\pi/2}$; røttenes modulus er $27^{1/3} = 3$.",
+          "Vinklene er $\\frac{\\pi/2 + 2k\\pi}{3}$ for $k = 0,1,2$ — pass på $2k\\pi$-leddet.",
+          "Bruk eksakte verdier $\\cos(\\pi/6) = \\sqrt3/2$, $\\sin(\\pi/6) = 1/2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-img-rotter-27i",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-4-rotter-27i.svg",
+      "alt": "Tre tredjerøtter av 27i jevnt fordelt på en sirkel med radius 3 i det komplekse planet.",
+      "caption": "De tre tredjerøttene $z_0, z_1, z_2$ av $27i$, jevnt fordelt med $120^\\circ$ mellomrom på sirkelen $|z| = 3$."
+    },
+    {
+      "id": "mat1100-1-4-ex-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-4-ex-17",
+        "number": "17",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G / MV — geometrisk mengde med figur.) Skisser mengden $M = \\{\\, z \\in \\mathbb{C} : 1 \\le |z - i| < 2 \\,\\}$ i planet, og beskriv den med ord.",
+        "solution": "**Oversett avstanden.** $|z - i|$ er avstanden fra $z$ til punktet $i = (0,1)$. Betingelsen $1 \\le |z - i| < 2$ sier at avstanden er minst $1$ og mindre enn $2$.\n\n**Beskrivelse.** Mengden er en **ring (annulus)** med sentrum i $i$: alle punkter som ligger mellom sirkelen med radius $1$ og sirkelen med radius $2$ om $i$. \n- Den indre randen $|z - i| = 1$ er **med** (ulikheten er $\\ge 1$) — tegnes heltrukket.\n- Den ytre randen $|z - i| = 2$ er **ikke med** ($< 2$) — tegnes stiplet.",
+        "hints": [
+          "$|z - i|$ er avstanden fra $z$ til punktet $i$.",
+          "To ulikheter mellom to radier gir en ring; sjekk hvilke rander som er med ($\\le$ vs. $<$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-4-img-mengde",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-4-mengde.svg",
+      "alt": "En ring i det komplekse planet mellom radius 1 og radius 2 om punktet i.",
+      "caption": "Ringen $1 \\le |z - i| < 2$: indre rand heltrukket (med), ytre rand stiplet (ikke med), sentrum $i$."
+    },
+    {
+      "id": "mat1100-1-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil på klokka",
+      "content": "- **Tidsfellen.** Å multiplisere $(1-\\sqrt3 i)^9$ ut for hånd tar minutter du ikke har; polarform gir svaret på tre linjer. Ser du en høy potens, en $n$-te rot eller et produkt/kvotient av flere faktorer — bytt til polarform *først*.\n- **Kvadrantfellen.** $\\arctan(b/a)$ gir alltid en vinkel i første/fjerde kvadrant. Tegn punktet og legg til $\\pi$ (eller bruk $\\pi - $ referansevinkel) når det ligger i andre/tredje kvadrant.\n- **$2k\\pi$-fellen.** Glemmer du $2k\\pi$-leddet i rotformelen, finner du bare én av $n$ røtter. Alle $n$ røttene ligger jevnt fordelt på sirkelen — sjekk at du har dem alle.\n- **Reduksjonsfellen.** Ved høye potenser gir $e^{in\\theta}$ ofte en vinkel over $2\\pi$. Reduser *før* du oversetter tilbake til $a + ib$, ellers roter du fortegn.\n- **Konjugatfellen.** Ved rekonstruksjon av reelt polynom: hver kompleks rot drar sin konjugerte med seg. Glemmer du den, får du feil grad.\n- **Negativ modulus.** $r = |z|$ er alltid $\\ge 0$. Et «$-5e^{i\\theta}$»-svar er alltid feil ført — flytt fortegnet inn i vinkelen ($-1 = e^{i\\pi}$)."
+    },
+    {
+      "id": "mat1100-1-4-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Formelkort til drillen\n\n*Repetisjonsstoff — de fem oppskriftene i kortform for rask puggeøkt. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder selve drillen.*"
+    },
+    {
+      "id": "mat1100-1-4-def-polarpotens",
+      "type": "definition",
+      "title": "Polarform og de Moivre",
+      "content": "Et komplekst tall skrives på polarform ved modulus og argument, og potenser regnes ved å opphøye modulusen og multiplisere vinkelen:\n$$z = re^{i\\theta} = r(\\cos\\theta + i\\sin\\theta), \\qquad z^n = r^n e^{in\\theta}.$$\nHer er $r = |z| \\ge 0$ og $\\theta = \\arg z$. Ved høye potenser **reduseres** $n\\theta$ mod $2\\pi$ før svaret oversettes tilbake til $a + ib$."
+    },
+    {
+      "id": "mat1100-1-4-def-rotter",
+      "type": "definition",
+      "title": "$n$-te røtter",
+      "content": "Ligningen $z^n = w$ (med $w \\ne 0$) har nøyaktig $n$ løsninger, jevnt fordelt på en sirkel. De har alle samme modulus, og vinklene skiller seg med $2\\pi/n$:\n$$|z_k| = |w|^{1/n}, \\qquad \\arg z_k = \\frac{\\arg w + 2k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1.$$\n$2k\\pi$-leddet er det som gir alle $n$ røttene — uten det finner du bare én."
+    },
+    {
+      "id": "mat1100-1-4-def-konjugatrot",
+      "type": "definition",
+      "title": "Konjugatrotsetningen",
+      "content": "Har et polynom **reelle** koeffisienter og $z_0$ er en rot, så er også den konjugerte $\\bar{z_0}$ en rot. Konjugatparet gir en reell kvadratisk faktor:\n$$(z - z_0)(z - \\bar{z_0}) = z^2 - 2\\,\\mathrm{Re}(z_0)\\,z + |z_0|^2.$$\nDette er nøkkelen både til faktorisering (fra kjent rot) og til rekonstruksjon (fra oppgitte røtter). Merk: setningen gjelder **ikke** for polynomer med komplekse koeffisienter."
+    },
+    {
+      "id": "mat1100-1-4-def-moduluskonjugat",
+      "type": "definition",
+      "title": "Modulus- og konjugatregler",
+      "content": "Modulusen måler avstanden fra origo, og konjugatet speiler om realaksen. De sentrale identitetene som skiller riktig fra galt i teorispørsmål:\n$$z\\bar{z} = |z|^2, \\qquad |z_1 z_2| = |z_1|\\,|z_2|, \\qquad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}.$$\nMerk at $z^2 \\ne |z|^2$ når $z$ ikke er reell, og at $z + \\bar{z} = 2\\,\\mathrm{Re}\\,z$ (ikke $\\mathrm{Im}$)."
+    },
+    {
+      "id": "mat1100-1-4-def-mengder",
+      "type": "definition",
+      "title": "Geometriske mengder fra modulus",
+      "content": "Uttrykk med $|z - a|$ leses som **avstand** fra $z$ til punktet $a$, og oversettes direkte til geometri:\n$$|z - a| = r \\ \\text{(sirkel)}, \\quad |z - a| < r \\ \\text{(åpen skive)}, \\quad |z - a| = |z - b| \\ \\text{(midtnormal)}.$$\nRe/Im-betingelser gir halvplan eller striper. To ulikheter mellom to radier om samme punkt gir en ring (annulus); sjekk alltid om randen er med ($\\le$) eller ikke ($<$)."
+    },
+    {
+      "id": "mat1100-1-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-1-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $z$ | Komplekst tall, $z = a + ib$ |\n| $a = \\mathrm{Re}\\,z$ | Realdel |\n| $b = \\mathrm{Im}\\,z$ | Imaginærdel |\n| $i$ | Imaginær enhet, $i^2 = -1$ |\n| $\\bar{z}$ | Konjugatet, $\\bar{z} = a - ib$ |\n| $|z|$ | Modulus, $|z| = \\sqrt{a^2 + b^2} \\ge 0$ |\n| $\\arg z$ | Argument (vinkel), redusert mod $2\\pi$ |\n| $r$ | Modulus i polarform, $r = |z|$ |\n| $\\theta$ | Argument i polarform |\n| $re^{i\\theta}$ | Polarform |\n| $z_k$ | Den $k$-te $n$-te roten, $k = 0, \\dots, n-1$ |\n\n**Formler i dette kapitlet:**\n\n$$z = re^{i\\theta} = r(\\cos\\theta + i\\sin\\theta)$$\nPolarform: modulus $r$ og argument $\\theta$.\n\n$$z^n = r^n e^{in\\theta}$$\nde Moivres formel: opphøy modulusen, multipliser vinkelen, reduser mod $2\\pi$.\n\n$$|z_k| = |w|^{1/n}, \\qquad \\arg z_k = \\frac{\\arg w + 2k\\pi}{n}$$\n$n$-te røtter av $w$: $n$ stykker jevnt fordelt på sirkelen $|z| = |w|^{1/n}$.\n\n$$z = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\nabc-formelen; negativ diskriminant gir et konjugatpar som røtter.\n\n$$(z - z_0)(z - \\bar{z_0}) = z^2 - 2\\,\\mathrm{Re}(z_0)\\,z + |z_0|^2$$\nKonjugatparets reelle kvadratiske faktor.\n\n$$z\\bar{z} = |z|^2, \\qquad |z_1 z_2| = |z_1||z_2|, \\qquad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}$$\nModulus- og konjugatregler.\n\n$$|z - a| = r,\\quad |z - a| < r,\\quad |z - a| = |z - b|$$\nGeometriske mengder: sirkel, åpen skive, midtnormal."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,307 @@
+{
+  "id": "mat1100-4-5",
+  "courseId": "mat1100",
+  "chapterNumber": "4.5",
+  "title": "Drill: integrasjonsteknikk-kjeder",
+  "description": "Sjangeren som står i 20 av 21 slutteksamener: velge riktig teknikk, kjede to–tre teknikker i samme integral, og føre alt slik fasit gjør.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "velge riktig integrasjonsteknikk ut fra beslutningstreet og reklassifisere resten etter hvert grep",
+    "kjede substitusjon, delvis integrasjon, delbrøk og fullført kvadrat i samme integral med full føringsstandard",
+    "konstruere et integral som krever en bestemt teknikk-kjede og løse det"
+  ],
+  "content": [
+    {
+      "id": "mat1100-4-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Integrasjonsteknikk (sjanger E) er slutteksamenens arbeidshest — den står i 20 av 21 sett, som regel med 2–4 delpunkter per sett.**\n\n- Sjanger **E** = *integrasjonsteknikk-kjeder*: velg riktig teknikk (substitusjon, delvis, delbrøk, fullført kvadrat), og *kjed* dem når ett integral krever to–tre grep etter hverandre.\n- Poengene sitter i **føringen** like mye som i svaret: sensorregelen er «ubegrunnet svar = 0». Substitusjonsboks med nye grenser, dokumentert $u$/$v'$-valg og en verbal konklusjonssetning er det som skiller full score fra halv.\n\nDenne drillen tar deg gjennom beslutningstreet, ett gjennomregnet eksamenscase med margnotater om føringspoengene, og 12 oppgaver på eksamensnivå — kjedeoppgaver, alle fire teknikkene, både bestemte og ubestemte integraler, og én konstruksjonsoppgave.\n\n**Slik jobber du med drillen (90 min — del gjerne over to økter):**\n1. Les beslutningstreet og eksamenscaset (~$20$ min). *— naturlig pausepunkt —*\n2. Ta de bestemte og ubestemte oppgavene med full føring (~$45$ min).\n3. Avslutt med kjede- og konstruksjonsoppgavene (~$25$ min).\n\n*Kilde til frekvenstallene: arkivet med $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag) og $16$ midtveiseksamener (H2003–H2018). Arkivet stopper i 2023 — nyere sett kan ha justert bildet.*"
+    },
+    {
+      "id": "mat1100-4-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Drillen forutsetter hele teknikk-repertoaret fra tidligere i Del 4: [kap. 4.2](/bok/mat1100/mat1100-4-2) (fundamentalteoremet og antiderivert-tabellen), [kap. 4.3](/bok/mat1100/mat1100-4-3) (substitusjon med boksføring og nye grenser, delvis integrasjon med $u$/$v'$-valg), og [kap. 4.4](/bok/mat1100/mat1100-4-4) (delbrøkoppspalting og fullført kvadrat mot arctan-formen). Her lærer du ikke nye teknikker — du drilles i å *velge* riktig teknikk og *kjede* dem under føringsstandarden.\n\n**Sist du var her — de fire teknikkene i kortform:**\n\n$$\\int f(g(x))g'(x)\\,dx \\;\\overset{u=g(x)}{=}\\; \\int f(u)\\,du \\qquad(\\text{substitusjon})$$\n$$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx \\qquad(\\text{delvis integrasjon})$$\n$$\\int\\frac{dx}{(x+p)^2+q^2}=\\frac1q\\arctan\\frac{x+p}{q}+C \\qquad(\\text{fullført kvadrat})$$"
+    },
+    {
+      "id": "mat1100-4-5-oppskrift",
+      "type": "text",
+      "content": "## Beslutningstreet for integrasjon (~10 min)\n\nMøter du et integral du ikke ser svaret på med én gang, gå gjennom treet i rekkefølge. **Nøkkelgrepet er steg 7:** etter hvert grep klassifiserer du *resten* på nytt — det er dette som gjør en oppgave til en kjede.\n\n**Steg 1 — Forenkle/splitt.** Gang ut, splitt en sum, forkort. Ofte forsvinner problemet.\n\n**Steg 2 — Direkte antiderivert?** Står svaret i tabellen ($x^n$, $e^x$, $\\sin x$, $1/x$, $\\frac{1}{1+x^2}$, $\\frac{1}{\\sqrt{1-x^2}}$)? Skriv det.\n\n**Steg 3 — «Indre funksjon · dens deriverte»?** Ser du et uttrykk $g(x)$ og (nesten) $g'(x)$ som faktor? → **substitusjon** $u=g(x)$. Typisk: $\\int x\\,e^{x^2}dx$, $\\int\\frac{g'}{g}dx$, rotuttrykk.\n\n**Steg 4 — Produkt eller «ensom» funksjon?** Et produkt av ulike typer ($x\\cdot e^x$, $x\\cdot\\cos x$) eller en ensom $\\ln x$/$\\arctan x$ → **delvis integrasjon**. Velg $u$ etter **LIATE** (Logaritme, Invers trig, Algebra, Trig, Eksponential — det som står først blir $u$).\n\n**Steg 5 — Rasjonal funksjon?** Sjekk graden: teller ≥ nevner → **polynomdivisjon** først. Så: reelle røtter i nevner → **delbrøk**; ingen reelle røtter → **fullført kvadrat** mot arctan.\n\n**Steg 6 — Rot?** $\\sqrt{x}$, $\\sqrt[3]{x}$ i uttrykket → prøv **substitusjon** $u=\\sqrt{x}$ (rydder roten bort).\n\n**Steg 7 — Reklassifiser resten (kjeding).** Etter et grep: er integralet ferdig? Hvis ikke — start på steg 1 igjen med det du sitter igjen med. En substitusjon ender ofte i et delvis-integral, og et delvis-integral kan ende i en ny substitusjon.\n\n**Føringsdisiplin gjennom hele treet:** substitusjon bokføres ($u$, $du$, $dx$, **nye grenser**); delvis-valget skrives ($u=\\dots,\\ v'=\\dots$); hvert bestemt integral avsluttes med markert sluttsvar og en verbal konklusjon."
+    },
+    {
+      "id": "mat1100-4-5-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — kjede substitusjon → delvis, med sensor-margnotater",
+      "problem": "Beregn det bestemte integralet\n$$\\int_0^{\\pi^2}\\cos\\sqrt{x}\\,dx.$$\nDette er en typisk E-kjede: substitusjonen rydder roten bort, og resten løses med delvis integrasjon.",
+      "solution": "**Steg 1–3 — velg våpen.** Roten $\\sqrt{x}$ inne i $\\cos$ (steg 6) roper på substitusjonen $u=\\sqrt{x}$.\n\n**Substitusjonsboks** *(margnotat: dette er første føringspoeng — boksen med nye grenser må stå):*\n$$u=\\sqrt{x},\\qquad \\frac{du}{dx}=\\frac{1}{2\\sqrt{x}}=\\frac{1}{2u}\\;\\Rightarrow\\; dx=2u\\,du.$$\n$$\\text{Nye grenser: } x=0\\Rightarrow u=0,\\qquad x=\\pi^2\\Rightarrow u=\\pi.$$\nDa blir\n$$\\int_0^{\\pi^2}\\cos\\sqrt{x}\\,dx=\\int_0^{\\pi}\\cos(u)\\cdot 2u\\,du=2\\int_0^{\\pi}u\\cos u\\,du.$$\n\n**Steg 7 — reklassifiser.** Vi sitter igjen med $\\int u\\cos u\\,du$: et produkt av algebra ($u$) og trig ($\\cos u$) → **delvis integrasjon**.\n\n**Delvis** *(margnotat: andre føringspoeng — $u$/$v'$-valget skal skrives eksplisitt):* LIATE gir $u_{\\text{del}}=u$ (algebra før trig), $v'=\\cos u$:\n$$u_{\\text{del}}=u,\\quad u_{\\text{del}}'=1,\\qquad v'=\\cos u,\\quad v=\\sin u.$$\n$$\\int u\\cos u\\,du=u\\sin u-\\int \\sin u\\,du=u\\sin u+\\cos u.$$\n\n**Sett inn grensene** *(margnotat: tredje føringspoeng — de nye grensene $0$ til $\\pi$, ikke $0$ til $\\pi^2$):*\n$$2\\Big[u\\sin u+\\cos u\\Big]_0^{\\pi}=2\\Big[(\\pi\\cdot 0+\\cos\\pi)-(0+\\cos 0)\\Big]=2\\big[(-1)-(1)\\big]=-4.$$\n\n**Konklusjon** *(margnotat: fjerde føringspoeng — verbal konklusjonssetning med markert svar):*\n$$\\int_0^{\\pi^2}\\cos\\sqrt{x}\\,dx=-4.$$\n\n*Sensorpoengene i denne oppgaven sitter i de fire margnotatene: boksen, det dokumenterte $u$/$v'$-valget, riktige nye grenser, og konklusjonen. Riktig sluttsvar uten disse gir langt fra full uttelling.*"
+    },
+    {
+      "id": "mat1100-4-5-drill-tekst",
+      "type": "text",
+      "content": "## Oppgaver på eksamensnivå (~45 min)\n\nFør hver oppgave med full føringsstandard — boks ved substitusjon, dokumentert $u$/$v'$-valg ved delvis, markert sluttsvar og konklusjon. Signalboksen etter hver løsning sier hvilken teknikk (eller kjede) oppgaven testet. *— naturlig pausepunkt før du starter —*"
+    },
+    {
+      "id": "mat1100-4-5-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger E — substitusjon, bestemt.) Beregn $\\displaystyle\\int_0^1 x\\,e^{x^2}\\,dx$.",
+        "solution": "**Velg våpen.** «Indre funksjon $x^2$ · (nesten) dens deriverte $x$» (steg 3) → substitusjon.\n\n**Boks:** $u=x^2,\\ du=2x\\,dx\\Rightarrow x\\,dx=\\tfrac12\\,du$. Nye grenser: $x=0\\Rightarrow u=0$, $x=1\\Rightarrow u=1$.\n$$\\int_0^1 x e^{x^2}\\,dx=\\frac12\\int_0^1 e^{u}\\,du=\\frac12\\big[e^{u}\\big]_0^1=\\frac12(e-1).$$\n**Konklusjon:** $\\displaystyle\\int_0^1 x e^{x^2}\\,dx=\\frac{e-1}{2}.$\n\n**Signal:** ren substitusjon «indre · derivert»; faktoren $\\tfrac12$ fra $du=2x\\,dx$ må med.",
+        "hints": [
+          "Se etter $g(x)=x^2$ og faktoren $x\\approx g'(x)$.",
+          "Boks: $u=x^2$, $du=2x\\,dx$, og bytt grensene til $0$ og $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger E — delvis, «ensom funksjon», bestemt.) Beregn $\\displaystyle\\int_1^e \\ln x\\,dx$.",
+        "solution": "**Velg våpen.** En ensom $\\ln x$ (steg 4) → delvis med trikset $v'=1$.\n\n**Delvis:** $u=\\ln x,\\ u'=\\tfrac1x$; $v'=1,\\ v=x$.\n$$\\int \\ln x\\,dx=x\\ln x-\\int x\\cdot\\frac1x\\,dx=x\\ln x-x.$$\nGrenser:\n$$\\big[x\\ln x-x\\big]_1^e=(e\\cdot 1-e)-(0-1)=0-(-1)=1.$$\n**Konklusjon:** $\\displaystyle\\int_1^e\\ln x\\,dx=1.$\n\n**Signal:** ensom $\\ln x$ integreres delvis med $v'=1$; samme triks gjelder $\\arctan x$, $\\arccos x$.",
+        "hints": [
+          "En ensom $\\ln x$ integreres delvis med $v'=1$.",
+          "$u=\\ln x$, $v=x$: $\\int\\ln x\\,dx=x\\ln x-\\int 1\\,dx$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — delvis, bestemt.) Beregn $\\displaystyle\\int_0^1 x\\,e^{-2x}\\,dx$.",
+        "solution": "**Velg våpen.** Produkt algebra $\\times$ eksponential (steg 4) → delvis. LIATE: $u=x$ (algebra før eksponential).\n\n**Delvis:** $u=x,\\ u'=1$; $v'=e^{-2x},\\ v=-\\tfrac12 e^{-2x}$.\n$$\\int x e^{-2x}\\,dx=-\\frac{x}{2}e^{-2x}+\\frac12\\int e^{-2x}\\,dx=-\\frac{x}{2}e^{-2x}-\\frac14 e^{-2x}.$$\nGrenser $0$ til $1$:\n$$\\Big[-\\frac{x}{2}e^{-2x}-\\frac14 e^{-2x}\\Big]_0^1=\\Big(-\\frac12 e^{-2}-\\frac14 e^{-2}\\Big)-\\Big(0-\\frac14\\Big)=\\frac14-\\frac{3}{4}e^{-2}.$$\n**Konklusjon:** $\\displaystyle\\int_0^1 x e^{-2x}\\,dx=\\frac14-\\frac{3}{4e^{2}}.$\n\n**Signal:** $x\\cdot e^{ax}$ → delvis med $u=x$; pass fortegnet i $v=-\\tfrac12 e^{-2x}$.",
+        "hints": [
+          "Produkt $x\\cdot e^{-2x}$ → delvis, $u=x$.",
+          "$v'=e^{-2x}\\Rightarrow v=-\\tfrac12 e^{-2x}$; hold styr på fortegnene."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — substitusjon mot arctan-form, ubestemt.) Beregn $\\displaystyle\\int \\frac{e^{x}}{1+e^{2x}}\\,dx$.",
+        "solution": "**Velg våpen.** Skriv $e^{2x}=(e^x)^2$: nevneren er $1+(e^x)^2$, og telleren $e^x$ er den deriverte av $e^x$ (steg 3) → substitusjon $u=e^x$.\n\n**Boks:** $u=e^{x},\\ du=e^{x}\\,dx$.\n$$\\int\\frac{e^{x}}{1+e^{2x}}\\,dx=\\int\\frac{du}{1+u^2}=\\arctan u+C.$$\n**Tilbakesubstituer** (ubestemt integral):\n$$=\\arctan(e^{x})+C.$$\n**Konklusjon:** $\\displaystyle\\int\\frac{e^{x}}{1+e^{2x}}\\,dx=\\arctan(e^{x})+C.$\n\n**Signal:** gjenkjenn $\\frac{1}{1+u^2}$-formen etter substitusjon; husk tilbakesubstitusjon i ubestemt integral.",
+        "hints": [
+          "Skriv $e^{2x}=(e^x)^2$ og sett $u=e^x$.",
+          "$\\int\\frac{du}{1+u^2}=\\arctan u$; substituer tilbake til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — delbrøk, bestemt.) Beregn $\\displaystyle\\int_2^3 \\frac{dx}{x^2-x}$.",
+        "solution": "**Velg våpen.** Rasjonal, nevner $x^2-x=x(x-1)$ har to reelle røtter (steg 5) → delbrøk.\n\n**Delbrøk:** $\\dfrac{1}{x(x-1)}=\\dfrac{A}{x}+\\dfrac{B}{x-1}$. $1=A(x-1)+Bx$. $x=0\\Rightarrow A=-1$; $x=1\\Rightarrow B=1$.\n$$\\int\\frac{dx}{x^2-x}=\\int\\Big(\\frac{1}{x-1}-\\frac1x\\Big)dx=\\ln|x-1|-\\ln|x|=\\ln\\left|\\frac{x-1}{x}\\right|.$$\nGrenser $2$ til $3$:\n$$\\Big[\\ln\\tfrac{x-1}{x}\\Big]_2^3=\\ln\\tfrac23-\\ln\\tfrac12=\\ln\\frac{2/3}{1/2}=\\ln\\frac43.$$\n**Konklusjon:** $\\displaystyle\\int_2^3\\frac{dx}{x^2-x}=\\ln\\frac43.$\n\n**Signal:** faktoriser nevneren først; to reelle røtter → delbrøk med to ledd.",
+        "hints": [
+          "Faktoriser $x^2-x=x(x-1)$ og sett opp $\\frac{A}{x}+\\frac{B}{x-1}$.",
+          "$A=-1,\\ B=1$; integrer hvert ledd til en $\\ln$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — fullført kvadrat, ubestemt.) Beregn $\\displaystyle\\int \\frac{dx}{x^2+4x+5}$.",
+        "solution": "**Velg våpen.** Rasjonal; diskriminanten $4^2-4\\cdot5=-4<0$ → ingen reelle røtter (steg 5) → **fullført kvadrat** mot arctan.\n\n**Fullfør kvadratet:** $x^2+4x+5=(x+2)^2+1$.\n$$\\int\\frac{dx}{(x+2)^2+1}=\\arctan(x+2)+C$$\n(direkte arctan-form med $q=1$; substitusjonen $u=x+2$ er triviell).\n**Konklusjon:** $\\displaystyle\\int\\frac{dx}{x^2+4x+5}=\\arctan(x+2)+C.$\n\n**Signal:** negativ diskriminant → fullført kvadrat, ikke delbrøk; svaret er en arctan.",
+        "hints": [
+          "Sjekk diskriminanten: negativ → fullført kvadrat.",
+          "$x^2+4x+5=(x+2)^2+1$; gjenkjenn arctan-formen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — KJEDE substitusjon → delvis roundtrip, ubestemt.) Beregn $\\displaystyle\\int \\sin(\\ln x)\\,dx$.",
+        "solution": "**Steg 6 → substitusjon.** $\\ln x$ inne i $\\sin$ → $u=\\ln x$.\n\n**Boks:** $u=\\ln x,\\ x=e^{u},\\ dx=e^{u}\\,du$.\n$$\\int\\sin(\\ln x)\\,dx=\\int \\sin(u)\\,e^{u}\\,du.$$\n**Steg 7 — reklassifiser.** $\\int e^{u}\\sin u\\,du$ er en **rundtur-delvis**: integrer delvis to ganger til det opprinnelige integralet dukker opp igjen. Med $I=\\int e^{u}\\sin u\\,du$:\n$$I=e^{u}\\sin u-\\int e^{u}\\cos u\\,du=e^{u}\\sin u-\\Big(e^{u}\\cos u+\\int e^{u}\\sin u\\,du\\Big)=e^{u}(\\sin u-\\cos u)-I.$$\nSå $2I=e^{u}(\\sin u-\\cos u)$, altså $I=\\tfrac12 e^{u}(\\sin u-\\cos u)$.\n**Tilbakesubstituer** $u=\\ln x$, $e^{u}=x$:\n$$\\int\\sin(\\ln x)\\,dx=\\frac{x}{2}\\big(\\sin(\\ln x)-\\cos(\\ln x)\\big)+C.$$\n**Konklusjon (markert svar):** $\\displaystyle\\int\\sin(\\ln x)\\,dx=\\frac{x}{2}\\big(\\sin(\\ln x)-\\cos(\\ln x)\\big)+C.$\n\n**Signal:** kjede — substitusjon rydder $\\ln$ bort, og $\\int e^u\\sin u\\,du$ løses med rundtur-delvis (flytt $I$ over).",
+        "hints": [
+          "Substituer $u=\\ln x$ ($x=e^u$, $dx=e^u\\,du$) først.",
+          "Da får du $\\int e^u\\sin u\\,du$ — rundtur-delvis: integrer delvis to ganger.",
+          "Kall integralet $I$, og løs likningen $2I=e^u(\\sin u-\\cos u)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — KJEDE substitusjon → fullført kvadrat, bestemt.) Beregn $\\displaystyle\\int_0^{\\pi/2}\\frac{\\cos x}{\\sin^2 x-2\\sin x+2}\\,dx$.",
+        "solution": "**Steg 3 → substitusjon.** Nevneren er et andregradsuttrykk i $\\sin x$, og telleren $\\cos x$ er nettopp $\\frac{d}{dx}\\sin x$ → $u=\\sin x$.\n\n**Boks:** $u=\\sin x,\\ du=\\cos x\\,dx$. Nye grenser: $x=0\\Rightarrow u=0$; $x=\\tfrac\\pi2\\Rightarrow u=1$.\n$$\\int_0^{\\pi/2}\\frac{\\cos x}{\\sin^2 x-2\\sin x+2}\\,dx=\\int_0^{1}\\frac{du}{u^2-2u+2}.$$\n**Steg 7 — reklassifiser.** $u^2-2u+2$ har diskriminant $4-8<0$ → **fullført kvadrat**: $u^2-2u+2=(u-1)^2+1$.\n$$\\int_0^{1}\\frac{du}{(u-1)^2+1}=\\big[\\arctan(u-1)\\big]_0^{1}=\\arctan 0-\\arctan(-1)=0-\\Big(-\\frac\\pi4\\Big)=\\frac\\pi4.$$\n**Konklusjon:** $\\displaystyle\\int_0^{\\pi/2}\\frac{\\cos x}{\\sin^2 x-2\\sin x+2}\\,dx=\\frac{\\pi}{4}.$\n\n**Signal:** kjede — substitusjon $u=\\sin x$ først, så negativ diskriminant → fullført kvadrat → arctan. Grensene byttes med substitusjonen.",
+        "hints": [
+          "Sett $u=\\sin x$ (telleren $\\cos x$ er $du$); bytt grensene til $0$ og $1$.",
+          "Nevneren $u^2-2u+2=(u-1)^2+1$ → arctan-form.",
+          "$\\int_0^1\\frac{du}{(u-1)^2+1}=[\\arctan(u-1)]_0^1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — substitusjon, trigonometrisk, bestemt.) Beregn $\\displaystyle\\int_0^{\\pi/2}\\sin^2 x\\cos x\\,dx$.",
+        "solution": "**Velg våpen.** «Indre $\\sin x$ · dens deriverte $\\cos x$» (steg 3) → $u=\\sin x$.\n\n**Boks:** $u=\\sin x,\\ du=\\cos x\\,dx$. Nye grenser: $x=0\\Rightarrow u=0$; $x=\\tfrac\\pi2\\Rightarrow u=1$.\n$$\\int_0^{\\pi/2}\\sin^2 x\\cos x\\,dx=\\int_0^{1}u^2\\,du=\\Big[\\frac{u^3}{3}\\Big]_0^1=\\frac13.$$\n**Konklusjon:** $\\displaystyle\\int_0^{\\pi/2}\\sin^2 x\\cos x\\,dx=\\frac13.$\n\n**Signal:** $\\sin^n x\\cos x$ (eller $\\cos^n x\\sin x$) → substitusjon; potensen faller på $u$.",
+        "hints": [
+          "$u=\\sin x$, $du=\\cos x\\,dx$; grensene blir $0$ og $1$.",
+          "Integralet blir $\\int_0^1 u^2\\,du$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger E — delvis, invers trig, bestemt.) Beregn $\\displaystyle\\int_0^1 \\arctan x\\,dx$.",
+        "solution": "**Velg våpen.** Ensom $\\arctan x$ (steg 4) → delvis med $v'=1$ (LIATE: invers trig blir $u$).\n\n**Delvis:** $u=\\arctan x,\\ u'=\\dfrac{1}{1+x^2}$; $v'=1,\\ v=x$.\n$$\\int\\arctan x\\,dx=x\\arctan x-\\int\\frac{x}{1+x^2}\\,dx.$$\nDet siste integralet er «indre · derivert» ($\\tfrac{d}{dx}(1+x^2)=2x$): $\\int\\frac{x}{1+x^2}\\,dx=\\tfrac12\\ln(1+x^2)$.\n$$\\int\\arctan x\\,dx=x\\arctan x-\\frac12\\ln(1+x^2).$$\nGrenser $0$ til $1$:\n$$\\Big[x\\arctan x-\\tfrac12\\ln(1+x^2)\\Big]_0^1=\\Big(1\\cdot\\frac\\pi4-\\frac12\\ln 2\\Big)-0=\\frac\\pi4-\\frac{\\ln 2}{2}.$$\n**Konklusjon:** $\\displaystyle\\int_0^1\\arctan x\\,dx=\\frac\\pi4-\\frac{\\ln 2}{2}.$\n\n**Signal:** liten kjede i delvis — restintegralet $\\int\\frac{x}{1+x^2}dx$ er selv en substitusjon.",
+        "hints": [
+          "Ensom $\\arctan x$ → delvis med $v'=1$.",
+          "Restintegralet $\\int\\frac{x}{1+x^2}dx=\\tfrac12\\ln(1+x^2)$ (substitusjon)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — KJEDE substitusjon → delvis, bestemt, konstruksjonssvar-forberedelse.) Beregn $\\displaystyle\\int_0^{\\sqrt{\\pi}} x^3\\cos(x^2)\\,dx$.",
+        "solution": "**Steg 3 → substitusjon.** Skriv $x^3=x^2\\cdot x$: indre $x^2$ og en faktor $x\\approx\\tfrac12(x^2)'$ → $u=x^2$.\n\n**Boks:** $u=x^2,\\ du=2x\\,dx\\Rightarrow x\\,dx=\\tfrac12\\,du$. Nye grenser: $x=0\\Rightarrow u=0$; $x=\\sqrt\\pi\\Rightarrow u=\\pi$.\n$$\\int_0^{\\sqrt\\pi} x^3\\cos(x^2)\\,dx=\\int_0^{\\sqrt\\pi}x^2\\cos(x^2)\\cdot x\\,dx=\\frac12\\int_0^{\\pi}u\\cos u\\,du.$$\n**Steg 7 — reklassifiser.** $\\int u\\cos u\\,du$ → delvis: $u_{\\text{del}}=u$, $v'=\\cos u$, $v=\\sin u$:\n$$\\int u\\cos u\\,du=u\\sin u+\\cos u.$$\nGrenser $0$ til $\\pi$:\n$$\\frac12\\Big[u\\sin u+\\cos u\\Big]_0^{\\pi}=\\frac12\\big[(0+\\cos\\pi)-(0+\\cos 0)\\big]=\\frac12(-1-1)=-1.$$\n**Konklusjon:** $\\displaystyle\\int_0^{\\sqrt\\pi} x^3\\cos(x^2)\\,dx=-1.$\n\n**Signal:** kjede — splitt $x^3=x^2\\cdot x$, substituer $u=x^2$, så delvis. Dette mønsteret ($x^{2k+1}\\cdot f(x^2)$) er ryggraden i konstruksjonsoppgaven under.",
+        "hints": [
+          "Splitt $x^3=x^2\\cdot x$ og sett $u=x^2$ (faktoren $x$ blir $\\tfrac12\\,du$).",
+          "Etter substitusjon: $\\tfrac12\\int_0^\\pi u\\cos u\\,du$ → delvis.",
+          "$\\int u\\cos u\\,du=u\\sin u+\\cos u$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-5-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger E — KONSTRUKSJON.) Konstruer et bestemt integral som *krever både substitusjon og delvis integrasjon* å løse, og løs det med full føring. (Fasit gir ett mulig svar — dine tall kan avvike, men kjeden må være ekte: en substitusjon som rydder en indre funksjon bort, etterfulgt av et delvis-integral.)",
+        "solution": "**Idé (regn baklengs fra kjeden).** Mønsteret $\\int x^{2k+1}f(x^2)\\,dx$ tvinger fram substitusjon $u=x^2$ og deretter delvis når $f$ er $\\sin$, $\\cos$ eller $e^{u}$. Vi *konstruerer* et slikt integral.\n\n**Konstruert oppgave:** $\\displaystyle\\int_0^1 x^3 e^{x^2}\\,dx.$\n\n**Løsning — substitusjon (boks):** $u=x^2,\\ du=2x\\,dx\\Rightarrow x\\,dx=\\tfrac12\\,du$. Nye grenser: $0\\to 0$, $1\\to 1$.\n$$\\int_0^1 x^3 e^{x^2}\\,dx=\\frac12\\int_0^1 u\\,e^{u}\\,du.$$\n**Reklassifiser → delvis:** $u_{\\text{del}}=u,\\ v'=e^{u},\\ v=e^{u}$:\n$$\\int u e^{u}\\,du=u e^{u}-\\int e^{u}\\,du=(u-1)e^{u}.$$\nGrenser:\n$$\\frac12\\big[(u-1)e^{u}\\big]_0^1=\\frac12\\big[(0)-(-1)\\big]=\\frac12.$$\n**Konklusjon:** $\\displaystyle\\int_0^1 x^3 e^{x^2}\\,dx=\\frac12.$\n\n*Hvorfor kjeden er ekte:* substitusjonen $u=x^2$ alene gir $\\tfrac12\\int u e^u\\,du$, som *ikke* er en tabellantiderivert — det krever delvis. Bytter du $e^{x^2}$ mot $\\sin(x^2)$ eller $\\cos(x^2)$, får du samme struktur (jf. oppgave 11). En akseptabel konstruksjon *må* etterlate et delvis-integral etter substitusjonen; $\\int x e^{x^2}dx$ (bare substitusjon) teller altså ikke.",
+        "hints": [
+          "Tenk baklengs: hvilken form tvinger fram *begge* teknikkene? Prøv $\\int x^{2k+1}f(x^2)\\,dx$.",
+          "Sett $f=e^{(\\cdot)}$ og $2k+1=3$: $\\int_0^1 x^3 e^{x^2}dx$. Substituer $u=x^2$ → $\\tfrac12\\int u e^u\\,du$ → delvis.",
+          "Sjekk at substitusjonen alene ikke løser det (ellers er det ingen kjede)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-5-warn",
+      "type": "warning",
+      "title": "Typiske feil på klokka",
+      "content": "- **Gi opp etter første teknikk.** Den vanligste tabben i E-kjeder: du gjør substitusjonen, ser at det ikke er ferdig, og stopper. Steg 7 er poenget — *reklassifiser resten* og kjør treet på nytt. En substitusjon som ender i $\\int u\\cos u\\,du$ er ikke feil, den er *halvferdig*.\n- **Miste faktoren i overgangen.** Faktoren $\\tfrac12$ fra $du=2x\\,dx$, eller $2u\\,du$ fra $dx=2u\\,du$, forsvinner lett når du bytter teknikk midt i. Skriv boksen fullstendig.\n- **Glemme å bytte grensene.** Bestemt integral + substitusjon = **nye grenser** i boksen. Regner du videre med de gamle grensene ($0$ til $\\pi^2$ i stedet for $0$ til $\\pi$), blir svaret feil selv med riktig antiderivert. (Alternativt: bytt tilbake til $x$ før du setter inn — men da må du faktisk bytte tilbake.)\n- **Feil $u$/$v'$-valg i delvis.** Velger du $u$ slik at integralet blir *verre*, snu valget. LIATE er tommelregelen: Logaritme, Invers trig, Algebra, Trig, Eksponential — det tidligste blir $u$.\n- **Rundtur-delvis uten å flytte $I$ over.** Ved $\\int e^u\\sin u\\,du$ dukker det opprinnelige integralet opp igjen; da løser du en *likning* i $I$, du integrerer ikke i det uendelige.\n- **Glemme tilbakesubstitusjon / $+C$.** I ubestemt integral: bytt tilbake til $x$, og skriv $+C$."
+    },
+    {
+      "id": "mat1100-4-5-formelkort-tekst",
+      "type": "text",
+      "content": "## Formelkort til drillen\n\n*Repetisjonsstoff — teknikkene i kortform for rask puggeøkt. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder selve drillen.*"
+    },
+    {
+      "id": "mat1100-4-5-bb-beslutningstre",
+      "type": "definition",
+      "title": "Beslutningstreet for integrasjon",
+      "content": "Rekkefølgen når svaret ikke er åpenbart: (1) forenkle/splitt; (2) direkte antiderivert? (3) «indre · derivert» → substitusjon; (4) produkt/ensom funksjon → delvis; (5) rasjonal → divisjon/delbrøk/fullført kvadrat; (6) rot → substitusjon $u=\\sqrt{x}$; (7) reklassifiser resten (kjeding). Steg 7 er det som skiller enkle integraler fra kjeder."
+    },
+    {
+      "id": "mat1100-4-5-bb-substitusjonsboks",
+      "type": "definition",
+      "title": "Substitusjonsboksen",
+      "content": "Føringskravet ved substitusjon: skriv opp $u=g(x)$, $\\dfrac{du}{dx}$ (eller $du$), $dx$ uttrykt ved $du$, og — i bestemt integral — de **nye grensene**. Da er $\\int f(g(x))g'(x)\\,dx=\\int f(u)\\,du$. I ubestemt integral: husk tilbakesubstitusjon til $x$."
+    },
+    {
+      "id": "mat1100-4-5-bb-liate",
+      "type": "definition",
+      "title": "LIATE-regelen for delvis integrasjon",
+      "content": "Tommelregel for hvilken faktor som blir $u$ i $\\int u v'=uv-\\int u'v$: velg $u$ som den funksjonen som kommer først i rekken **L**ogaritme, **I**nvers trig, **A**lgebra (potenser), **T**rig, **E**ksponential. Da blir $u'$ enklere og $v'$ lett å integrere. Ensomme $\\ln x$/$\\arctan x$ integreres med $v'=1$."
+    },
+    {
+      "id": "mat1100-4-5-bb-rundtur",
+      "type": "definition",
+      "title": "Rundtur-delvis",
+      "content": "Når to gangers delvis integrasjon gir det opprinnelige integralet $I$ tilbake (typisk $\\int e^{ax}\\sin bx\\,dx$, $\\int e^{ax}\\cos bx\\,dx$): samle leddene og løs den lineære likningen i $I$ i stedet for å integrere videre. Eksempel: $2I=e^{u}(\\sin u-\\cos u)\\Rightarrow I=\\tfrac12 e^{u}(\\sin u-\\cos u)$."
+    },
+    {
+      "id": "mat1100-4-5-bb-kjede",
+      "type": "definition",
+      "title": "Teknikk-kjede",
+      "content": "Et integral der ett grep ikke er nok: etter første teknikk står du igjen med et nytt integral som krever en annen teknikk. Typiske kjeder: substitusjon → delvis ($\\int\\cos\\sqrt{x}\\,dx$), substitusjon → fullført kvadrat ($u=\\sin x$ mot en irreduserbar nevner), delvis → substitusjon (restintegralet). Nøkkelen er å *reklassifisere resten* etter hvert grep."
+    },
+    {
+      "id": "mat1100-4-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-4-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\int f\\,dx$ | Ubestemt integral (antiderivert, $+C$) |\n| $\\int_a^b f\\,dx$ | Bestemt integral fra $a$ til $b$ |\n| $u=g(x)$ | Substitusjonsvariabel |\n| $du=g'(x)\\,dx$ | Differensialen i substitusjonsboksen |\n| $u,\\ v'$ | Faktorvalget i delvis integrasjon (LIATE) |\n| $+C$ | Integrasjonskonstant (ubestemt integral) |\n| LIATE | Rekkefølge for $u$-valg: Log, Invers trig, Algebra, Trig, Eksp. |\n\n**Formler i dette kapitlet:**\n\n$$\\int f(g(x))\\,g'(x)\\,dx=\\int f(u)\\,du\\qquad(u=g(x))$$\nSubstitusjon (med nye grenser i bestemt integral).\n\n$$\\int u\\,v'\\,dx=uv-\\int u'\\,v\\,dx$$\nDelvis integrasjon; $u$-valg etter LIATE.\n\n$$\\int\\frac{dx}{(x+p)^2+q^2}=\\frac1q\\arctan\\frac{x+p}{q}+C$$\nFullført kvadrat mot arctan (irreduserbar kvadratisk nevner).\n\n$$\\frac{P(x)}{(x-r_1)(x-r_2)}=\\frac{A}{x-r_1}+\\frac{B}{x-r_2}$$\nDelbrøk ved distinkte reelle røtter.\n\n$$2I=e^{u}(\\sin u-\\cos u)\\;\\Rightarrow\\; I=\\tfrac12 e^{u}(\\sin u-\\cos u)$$\nRundtur-delvis: løs likningen i $I$."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-4-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 4.2–4.4)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-4-5-rep-text",
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nFem korte oppgaver fra forkunnskapskapitlene — sjekk at teknikkgrunnlaget sitter før du kaster deg på kjedene.\n\n**a)** (substitusjon, [4.3](/bok/mat1100/mat1100-4-3)) $\\displaystyle\\int \\frac{3x^2}{x^3+1}\\,dx$.\n**b)** (substitusjon, bestemt, [4.3](/bok/mat1100/mat1100-4-3)) $\\displaystyle\\int_0^1 \\frac{x}{x^2+1}\\,dx$.\n**c)** (delvis, [4.3](/bok/mat1100/mat1100-4-3)) $\\displaystyle\\int x\\,e^{x}\\,dx$.\n**d)** (delbrøk, [4.4](/bok/mat1100/mat1100-4-4)) $\\displaystyle\\int \\frac{dx}{x^2-1}$.\n**e)** (FTC + kjerneregel, [4.2](/bok/mat1100/mat1100-4-2)) $\\displaystyle\\frac{d}{dx}\\int_1^{x^2}\\sin t\\,dt$.\n\n**Fasit.**\n**a)** «$g'/g$»-form med $g=x^3+1$: $\\int\\frac{3x^2}{x^3+1}dx=\\ln|x^3+1|+C$.\n**b)** $u=x^2+1$, $du=2x\\,dx$: $\\tfrac12\\int_1^2\\frac{du}{u}=\\tfrac12\\ln 2$.\n**c)** Delvis $u=x$, $v'=e^x$: $\\int x e^x dx=(x-1)e^x+C$.\n**d)** Delbrøk $\\frac{1}{(x-1)(x+1)}=\\frac{1/2}{x-1}-\\frac{1/2}{x+1}$: $\\tfrac12\\ln\\left|\\frac{x-1}{x+1}\\right|+C$.\n**e)** FTC + kjerneregel: $\\frac{d}{dx}\\int_1^{x^2}\\sin t\\,dt=\\sin(x^2)\\cdot 2x=2x\\sin(x^2)$ — kjernefaktoren $2x$ må med."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,371 @@
+{
+  "id": "mat1100-4-1",
+  "courseId": "mat1100",
+  "chapterNumber": "4.1",
+  "title": "Riemann-integralet og integrerbarhet",
+  "description": "Integralet bygget fra trappesummer, og de to integrerbarhetsteoremene som gir poeng uten regning.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bygge opp det bestemte integralet fra nedre og øvre trappesummer og forklare Darboux-kriteriet for integrerbarhet",
+    "avgjøre om en funksjon er integrerbar ved hjelp av de to arbeidsteoremene (begrenset + endelig mange diskontinuiteter; begrenset + stykkevis monoton), med teoremet navngitt",
+    "bruke lineæritet, intervalladditivitet og monotoni av integralet",
+    "gjenkjenne en Riemann-sum som et bestemt integral"
+  ],
+  "content": [
+    {
+      "id": "mat1100-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir deg poeng du kan hente *uten å regne ut integralet* — bare ved å avgjøre at det finnes.**\n\n- **Integrerbarhetsteori** hører til teoribevis-sjangeren og er en del av **9 av 21 slutteksamener** (kildegrunnlaget er 21 slutteksamener H2003–H2023 med 18 løsningsforslag, pluss 16 midtveiseksamener; arkivet stopper i 2023).\n- Det tydeligste enkeltbelegget: i 2019 var integrerbarhet et *påbygg* til signaturoppgaven, der **begge** de to arbeidsteoremene under ble godtatt i fasit.\n- Å *gjenkjenne en Riemann-sum som et integral* forekom så tidlig som 2004.\n\nSjangerkoden jeg bruker: **(Eksamenssjanger I)** = eksistens- og teoribevis (her: bevis/begrunn at et integral finnes). Noen oppgaver bygger videre på **(Eksamenssjanger H)** = kontinuitet/deriverbarhet i ett punkt (signaturoppgaven) — der integrerbarhet av en spesiell funksjon er sluttspørsmålet.\n\n**Prioritet: kunne.** Du skal ikke bevise Darboux-kriteriet fra bunnen på eksamen, men du skal kunne *formulere* det og — viktigst — bruke de to arbeidsteoremene til å avgjøre integrerbarhet på sekunder, med teoremet navngitt. Det er der de billige poengene sitter."
+    },
+    {
+      "id": "mat1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på kontinuitet og de store eksistenssetningene fra **[kap. 2.4](/bok/mat1100/mat1100-2-4)** — særlig hva det vil si at en funksjon er kontinuerlig på et intervall, og at kontinuerlige funksjoner på lukkede, begrensede intervaller oppfører seg pent. Fra videregående trenger du bildet av integralet som et areal bygget fra rektangler: [Bestemt integral som grenseverdi](/bok/r2/r2-2-4).\n\n**Sist du var her (oppfriskning):** to nøkkelbegreper vi bruker konstant.\n\n- En funksjon er **kontinuerlig i et punkt** $a$ når $\\lim_{x\\to a}f(x)=f(a)$ — ingen hopp, ingen hull.\n- Det bestemte integralet $\\int_a^b f(x)\\,dx$ er (fra R2) *arealet* under grafen mellom $x=a$ og $x=b$, der areal under $x$-aksen teller negativt. I dette kapitlet ser vi presist *hvordan* det arealet defineres — og for hvilke funksjoner definisjonen i det hele tatt gir et tall."
+    },
+    {
+      "id": "mat1100-4-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du kjører bil og fartsmåleren viser farten hvert sekund. Vil du vite hvor langt du har kjørt, kan du gange fart med tid i hvert lite tidsintervall og legge sammen. Jo finere du deler tiden, desto bedre blir anslaget — og i grensen får du den nøyaktige strekningen. Det er *nøyaktig* denne ideen som ligger bak det bestemte integralet: strekning er arealet under fartskurven, og arealet bygges opp av tynne søyler som blir tynnere og tynnere.\n\nMen her lurer et spørsmål de fleste hopper over: *finnes* dette arealet alltid? For pene funksjoner, ja. For noen ekle funksjoner — nei. Dette kapitlet gjør to ting. Først bygger vi integralet skikkelig, fra **trappesummer**, så vi vet hva det betyr. Deretter får du **to arbeidsteoremer** som avgjør integrerbarhet på et blunk, uten å regne ut noe som helst. Det siste er ren eksamensgull.\n\nKapitlet går i fire korte **læringsløkker**: (1) trappesummer og selve definisjonen, (2) de to integrerbarhetsteoremene, (3) regnereglene for integralet, (4) et ekte ikke-integrerbart eksempel og hvordan du kjenner igjen en Riemann-sum. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Trappesummer og definisjonen av integralet (~13 min)"
+    },
+    {
+      "id": "mat1100-4-1-def-partisjon",
+      "type": "definition",
+      "title": "Partisjon (inndeling av intervallet)",
+      "content": "En oppdeling av intervallet $[a,b]$ i mindre biter. Vi velger delepunkter\n\n$$a=x_0<x_1<x_2<\\dots<x_n=b,$$\n\nog kaller samlingen $P=\\{x_0,x_1,\\dots,x_n\\}$ en **partisjon**. Hver bit $[x_{i-1},x_i]$ har bredde $\\Delta x_i=x_i-x_{i-1}$. Trappesummene bygges over en partisjon: jo finere partisjonen er (jo mindre bitene), desto bedre fanger trappene arealet."
+    },
+    {
+      "id": "mat1100-4-1-def-nedre",
+      "type": "definition",
+      "title": "Nedre trappesum (undersum)",
+      "content": "Den samlede høyden av rektangler som ligger *helt under* grafen. På hver bit $[x_{i-1},x_i]$ velger vi den **minste** funksjonsverdien $m_i=\\inf_{[x_{i-1},x_i]}f$ og bygger et rektangel med den høyden. Summen er\n\n$$\\underline{S}(P)=\\sum_{i=1}^{n} m_i\\,\\Delta x_i.$$\n\nDenne summen *undervurderer* arealet — den ligger alltid $\\le$ det sanne arealet."
+    },
+    {
+      "id": "mat1100-4-1-def-ovre",
+      "type": "definition",
+      "title": "Øvre trappesum (oversum)",
+      "content": "Den samlede høyden av rektangler som *dekker* grafen. På hver bit velger vi den **største** verdien $M_i=\\sup_{[x_{i-1},x_i]}f$:\n\n$$\\overline{S}(P)=\\sum_{i=1}^{n} M_i\\,\\Delta x_i.$$\n\nDenne summen *overvurderer* arealet — den ligger alltid $\\ge$ det sanne arealet. For enhver partisjon er dermed $\\underline{S}(P)\\le \\overline{S}(P)$: det sanne arealet er klemt mellom under- og oversummen."
+    },
+    {
+      "id": "mat1100-4-1-l1-forklar",
+      "type": "text",
+      "content": "### Klem arealet mellom trappene\n\nIdeen er en klemmanøver. Under- og oversummen fanger arealet fra hver sin side:\n\n$$\\underline{S}(P)\\;\\le\\;(\\text{sant areal})\\;\\le\\;\\overline{S}(P).$$\n\nGjør vi partisjonen finere, stiger undersummene og synker oversummene — gapet mellom dem krymper. Hvis gapet kan gjøres **så lite vi bare vil**, klemmes det ett eneste tall inn mellom alle undersummer og alle oversummer. Det tallet *er* integralet. Klarer vi ikke å lukke gapet, finnes ikke noe entydig areal, og funksjonen er ikke integrerbar."
+    },
+    {
+      "id": "mat1100-4-1-def-integrerbar",
+      "type": "definition",
+      "title": "Riemann-/Darboux-integrerbar",
+      "content": "En begrenset funksjon $f$ på $[a,b]$ er **integrerbar** når under- og oversummene kan bringes vilkårlig nær hverandre. Presist (Darboux-kriteriet): for enhver toleranse $\\varepsilon>0$ finnes en partisjon $P$ med\n\n$$\\overline{S}(P)-\\underline{S}(P)<\\varepsilon.$$\n\nDa presses nøyaktig ett tall inn mellom alle under- og oversummer. Kriteriet er *hva integrerbarhet betyr* — men på eksamen bruker du det sjelden direkte; du bruker teoremene i løkke 2, som er utledet fra det."
+    },
+    {
+      "id": "mat1100-4-1-def-bestemt-integral",
+      "type": "definition",
+      "title": "Det bestemte integralet",
+      "content": "Det entydige tallet som klemmes inn mellom alle undersummer og alle oversummer når $f$ er integrerbar:\n\n$$\\int_a^b f(x)\\,dx=\\sup_P \\underline{S}(P)=\\inf_P \\overline{S}(P).$$\n\nGeometrisk er det arealet mellom grafen og $x$-aksen fra $a$ til $b$, med areal under aksen regnet negativt. Symbolet $\\int$ er et langstrakt «S» for «sum»: en kontinuerlig sum av uendelig tynne søyler $f(x)\\,dx$."
+    },
+    {
+      "id": "mat1100-4-1-ex-trappe-x",
+      "type": "example",
+      "title": "Eksempel 1: Trappesummer for $f(x)=x$ på $[0,2]$",
+      "problem": "Del $[0,2]$ i $n$ like biter og regn ut nedre og øvre trappesum for $f(x)=x$. Vis at begge går mot $2$ når $n\\to\\infty$, altså at $\\int_0^2 x\\,dx=2$.",
+      "solution": "Hver bit har bredde $\\Delta x=\\tfrac{2}{n}$, og delepunktene er $x_i=\\tfrac{2i}{n}$. Siden $f(x)=x$ er **voksende**, ligger minste verdi på hver bit i venstre endepunkt og største i høyre.\n\n**Nedre trappesum** (venstre endepunkter $x_{i-1}=\\tfrac{2(i-1)}{n}$):\n$$\\underline{S}=\\sum_{i=1}^{n}\\frac{2(i-1)}{n}\\cdot\\frac{2}{n}=\\frac{4}{n^2}\\sum_{i=1}^{n}(i-1)=\\frac{4}{n^2}\\cdot\\frac{(n-1)n}{2}=2\\cdot\\frac{n-1}{n}.$$\n\n**Øvre trappesum** (høyre endepunkter $x_i=\\tfrac{2i}{n}$):\n$$\\overline{S}=\\sum_{i=1}^{n}\\frac{2i}{n}\\cdot\\frac{2}{n}=\\frac{4}{n^2}\\cdot\\frac{n(n+1)}{2}=2\\cdot\\frac{n+1}{n}.$$\n\n**Klem og grense:** for hver $n$ er $\\underline{S}=2\\cdot\\frac{n-1}{n}\\le 2\\le 2\\cdot\\frac{n+1}{n}=\\overline{S}$, og gapet er $\\overline{S}-\\underline{S}=\\frac{4}{n}\\to 0$. Begge summene klemmes mot $2$:\n$$\\lim_{n\\to\\infty}\\underline{S}=\\lim_{n\\to\\infty}\\overline{S}=2.$$\n\n**Konklusjon:** det entydige tallet mellom under- og oversummene er $2$, så $\\int_0^2 x\\,dx=2$. (Kontroll: arealet er en trekant med grunnlinje $2$ og høyde $2$, altså $\\tfrac12\\cdot2\\cdot2=2$.) **Svar:** $\\boxed{\\int_0^2 x\\,dx=2}$"
+    },
+    {
+      "id": "mat1100-4-1-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-1-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I — her i letteste innstegsform: bare trappesummen for én grov partisjon.) La $f(x)=x^2$ på $[0,2]$, og del intervallet i de **to** bitene $[0,1]$ og $[1,2]$.\n\n**a)** Finn nedre trappesum $\\underline{S}$ (bruk minste verdi på hver bit).\n\n**b)** Finn øvre trappesum $\\overline{S}$ (bruk største verdi på hver bit).\n\n**c)** Mellom hvilke to tall vet du da at $\\int_0^2 x^2\\,dx$ ligger?",
+        "solution": "Funksjonen $f(x)=x^2$ er voksende på $[0,2]$, så på hver bit ligger minste verdi i venstre endepunkt og største i høyre. Begge bitene har bredde $\\Delta x=1$.\n\n**a)** Minste verdier: på $[0,1]$ er $m_1=f(0)=0$; på $[1,2]$ er $m_2=f(1)=1$. Nedre trappesum:\n$$\\underline{S}=0\\cdot 1+1\\cdot 1=1.$$\n\n**b)** Største verdier: på $[0,1]$ er $M_1=f(1)=1$; på $[1,2]$ er $M_2=f(2)=4$. Øvre trappesum:\n$$\\overline{S}=1\\cdot 1+4\\cdot 1=5.$$\n\n**c)** Det sanne arealet klemmes mellom under- og oversummen, så\n$$1\\le \\int_0^2 x^2\\,dx\\le 5.$$\n**Konklusjon:** integralet ligger mellom $1$ og $5$. (Med finere partisjon lukkes gapet mot fasit $\\tfrac{8}{3}\\approx 2{,}67$.) $\\boxed{1\\le \\int_0^2 x^2\\,dx\\le 5}$",
+        "hints": [
+          "Voksende funksjon: minste verdi er alltid i venstre endepunkt av biten, største i høyre.",
+          "Regn $f(0),f(1),f(2)$ og sett inn. Begge biter har bredde $1$.",
+          "Undersummen er en nedre grense og oversummen en øvre grense for integralet."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De to integrerbarhetsteoremene (~12 min)"
+    },
+    {
+      "id": "mat1100-4-1-l2-intro",
+      "type": "text",
+      "content": "Trappesummer er tunge å regne på. Heldigvis trenger du dem nesten aldri: tre teoremer avgjør integrerbarhet med ett blikk. Det første er en byggestein; de to siste er **arbeidshestene** du bruker på eksamen. Poenget med alle tre: du slår fast at et integral *finnes* uten å regne det ut."
+    },
+    {
+      "id": "mat1100-4-1-th-monoton",
+      "type": "theorem",
+      "title": "Monotone funksjoner er integrerbare (byggesteinen)",
+      "content": "**Setning.** Er $f$ **monoton** (voksende eller avtagende) på $[a,b]$, så er $f$ integrerbar der.\n\n**Bevisidé (skisse).** Del $[a,b]$ i $n$ like biter med bredde $\\Delta x=\\tfrac{b-a}{n}$. For en voksende funksjon er største verdi på hver bit i høyre endepunkt og minste i venstre, så gapet mellom øvre og nedre trappesum *teleskoperer*:\n$$\\overline{S}-\\underline{S}=\\sum_{i=1}^n\\big(f(x_i)-f(x_{i-1})\\big)\\Delta x=\\big(f(b)-f(a)\\big)\\Delta x=\\big(f(b)-f(a)\\big)\\frac{b-a}{n}.$$\nDette går mot $0$ når $n\\to\\infty$, så Darboux-kriteriet er oppfylt. $\\blacksquare$\n\nMerk: en monoton funksjon kan ha hopp, men aldri *for mange* — den er likevel integrerbar. Det peker rett mot det neste teoremet."
+    },
+    {
+      "id": "mat1100-4-1-th-arbeid1",
+      "type": "theorem",
+      "title": "Arbeidsteorem 1: begrenset + endelig mange diskontinuiteter",
+      "content": "**Setning.** Er $f$ **begrenset** på $[a,b]$ og kontinuerlig der, unntatt i **endelig mange** punkter, så er $f$ integrerbar på $[a,b]$.\n\nSpesialtilfellet er det viktigste: en funksjon som er **kontinuerlig på hele** $[a,b]$ (null unntakspunkter) er integrerbar. Men teoremet tåler også et endelig antall hopp — en stykkevis kontinuerlig funksjon er integrerbar. Begge premissene må sjekkes: funksjonen må være *begrenset*, og bruddene må være *endelig mange*. Dette teoremet var ett av to godtatte svar på integrerbarhets-påbygget i 2019."
+    },
+    {
+      "id": "mat1100-4-1-th-arbeid2",
+      "type": "theorem",
+      "title": "Arbeidsteorem 2: begrenset + stykkevis monoton",
+      "content": "**Setning.** Er $f$ **begrenset** og **stykkevis monoton** på $[a,b]$ (intervallet kan deles i endelig mange biter der $f$ er monoton på hver), så er $f$ integrerbar på $[a,b]$.\n\nDette er ofte det raskeste verktøyet når funksjonen svinger opp og ned et endelig antall ganger, eller når kontinuitet er tungvint å argumentere for men monotoni er åpenbar. **Begge arbeidsteoremene ble godtatt i fasit** — velg det som er lettest å begrunne for den konkrete funksjonen, og navngi det du bruker."
+    },
+    {
+      "id": "mat1100-4-1-def-begrenset",
+      "type": "definition",
+      "title": "Begrenset funksjon",
+      "content": "En funksjon er **begrenset** på $[a,b]$ når verdiene holder seg innenfor et fast bånd: det finnes et tall $K$ slik at $|f(x)|\\le K$ for alle $x$ i intervallet. Begrensethet er en *forutsetning i begge arbeidsteoremene* — en ubegrenset funksjon (som $1/x$ nær $0$) faller utenfor og krever den uegentlige teorien i [kap. 4.6](/bok/mat1100/mat1100-4-6). Sjekk alltid dette premisset før du siterer et teorem."
+    },
+    {
+      "id": "mat1100-4-1-def-sprang",
+      "type": "definition",
+      "title": "Sprangdiskontinuitet (hopp)",
+      "content": "Et punkt der venstre- og høyregrensen begge finnes, men er ulike, slik at grafen «hopper». For eksempel har $f(x)=\\lfloor x\\rfloor$ (heltallsdelen) et hopp i hvert heltall. Sprangdiskontinuiteter er «snille» brudd: så lenge de er *endelig mange* og funksjonen er begrenset, ødelegger de ikke integrerbarheten (arbeidsteorem 1)."
+    },
+    {
+      "id": "mat1100-4-1-def-stykkevis-kont",
+      "type": "definition",
+      "title": "Stykkevis kontinuerlig funksjon",
+      "content": "En funksjon som er kontinuerlig på hele $[a,b]$ bortsett fra i endelig mange punkter, der den har hopp (og er begrenset). Grafen består av endelig mange kontinuerlige «stykker». Etter arbeidsteorem 1 er enhver stykkevis kontinuerlig funksjon integrerbar — dette dekker de aller fleste funksjonene du møter."
+    },
+    {
+      "id": "mat1100-4-1-def-stykkevis-mono",
+      "type": "definition",
+      "title": "Stykkevis monoton funksjon",
+      "content": "En funksjon der $[a,b]$ kan deles i endelig mange delintervaller slik at $f$ er monoton (voksende eller avtagende) på hvert. En glatt kurve med endelig mange topp- og bunnpunkter er stykkevis monoton. Etter arbeidsteorem 2 er den integrerbar (når den er begrenset) — nyttig når monotoni er lettere å se enn kontinuitet."
+    },
+    {
+      "id": "mat1100-4-1-ex-avgjor",
+      "type": "example",
+      "title": "Eksempel 2: Avgjør integrerbarhet uten å regne",
+      "problem": "$f$ er begrenset på $[0,3]$ og kontinuerlig overalt unntatt i $x=1$ og $x=2$, der den har hopp. Forklar hvorfor $f$ er integrerbar på $[0,3]$, med henvisning til et teorem.",
+      "solution": "Vi sjekker premissene i **arbeidsteorem 1** (begrenset + endelig mange diskontinuiteter):\n\n1. **Begrenset:** gitt i oppgaven — det finnes et bånd $|f(x)|\\le K$ på $[0,3]$. ✓\n2. **Endelig mange diskontinuiteter:** funksjonen er kontinuerlig unntatt i $x=1$ og $x=2$ — altså *to* bruddpunkter, som er endelig mange. ✓\n\nBegge premissene er oppfylt, så etter **arbeidsteorem 1** er $f$ integrerbar på $[0,3]$.\n\n**Konklusjon:** $f$ er integrerbar på $[0,3]$ fordi den er begrenset og har bare endelig mange (to) diskontinuiteter — arbeidsteorem 1. Merk at vi *ikke* trenger å vite hva integralet er lik, bare at det finnes; og at kontinuitet i hvert punkt ikke kreves. $\\boxed{f\\text{ er integrerbar på }[0,3]}$"
+    },
+    {
+      "id": "mat1100-4-1-oppg-avgjor2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-1-oppg-avgjor2-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — avgjør integrerbarhet med navngitt teorem.) Avgjør for hver funksjon om den er integrerbar på det oppgitte intervallet, og navngi teoremet du bruker.\n\n**a)** $f(x)=\\lfloor x\\rfloor$ (heltallsdelen) på $[0,4]$.\n\n**b)** $g(x)=\\arctan(x^2)$ på $[-5,5]$.\n\n**c)** $h(x)=\\dfrac{1}{x}$ på $[0,1]$ (med $h(0)$ definert som $0$).",
+        "solution": "**a)** $f(x)=\\lfloor x\\rfloor$ er begrenset på $[0,4]$ (verdiene er $0,1,2,3,4$, så $|f|\\le 4$) og har hopp bare i $x=1,2,3,4$ — endelig mange. Etter **arbeidsteorem 1** (begrenset + endelig mange diskontinuiteter) er $f$ integrerbar. (Den er også voksende, så byggesteins-teoremet om monotone funksjoner gir samme svar.)\n\n**b)** $g(x)=\\arctan(x^2)$ er kontinuerlig på hele $[-5,5]$ (sammensetning av kontinuerlige funksjoner) og dermed begrenset der. Med *null* unntakspunkter gir **arbeidsteorem 1** (spesialtilfellet: kontinuerlig ⇒ integrerbar) at $g$ er integrerbar.\n\n**c)** $h(x)=1/x$ er **ikke begrenset** på $[0,1]$: $h(x)\\to+\\infty$ når $x\\to 0^+$, uansett hvordan vi definerer $h(0)$. Premisset om begrensethet svikter, så arbeidsteoremene gjelder ikke, og $h$ er **ikke** (Riemann-)integrerbar på $[0,1]$. Slike integraler behandles som *uegentlige* i [kap. 4.6](/bok/mat1100/mat1100-4-6).\n\n**Konklusjon:** (a) integrerbar (arbeidsteorem 1 / monoton), (b) integrerbar (kontinuerlig), (c) ikke integrerbar — ubegrenset. $\\boxed{\\text{a) ja, b) ja, c) nei}}$",
+        "hints": [
+          "Sjekk alltid to ting før du siterer et teorem: er funksjonen *begrenset*, og hvor mange *diskontinuiteter* har den?",
+          "I (c): hva skjer med $1/x$ når $x\\to 0^+$? Er verdiene innenfor et fast bånd?",
+          "Navngi teoremet eksplisitt — «arbeidsteorem 1» eller «kontinuerlig ⇒ integrerbar»."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Regnereglene for integralet (~10 min)"
+    },
+    {
+      "id": "mat1100-4-1-l3-intro",
+      "type": "text",
+      "content": "Når integralene *finnes*, adlyder de tre regler du bruker hele tiden i Del 4. De lar deg splitte opp, flytte ut konstanter og sammenligne integraler — grunnlaget for både sammenligningstesten (kap. 4.6) og all føring."
+    },
+    {
+      "id": "mat1100-4-1-def-linear",
+      "type": "definition",
+      "title": "Lineæritet av integralet",
+      "content": "Integralet av en sum er summen av integralene, og konstanter kan flyttes utenfor:\n\n$$\\int_a^b\\big(\\alpha f(x)+\\beta g(x)\\big)\\,dx=\\alpha\\int_a^b f(x)\\,dx+\\beta\\int_a^b g(x)\\,dx.$$\n\nDette lar deg **splitte** en integrand i enklere biter og behandle hver for seg — det første grepet i nesten alle integrasjonsoppgaver. (Gjelder når begge integralene på høyre side finnes.)"
+    },
+    {
+      "id": "mat1100-4-1-def-additiv",
+      "type": "definition",
+      "title": "Intervalladditivitet",
+      "content": "Deler du integrasjonsområdet i to, legges bitene sammen: for $a<c<b$ er\n\n$$\\int_a^b f(x)\\,dx=\\int_a^c f(x)\\,dx+\\int_c^b f(x)\\,dx.$$\n\nUunnværlig for **stykkevis definerte** funksjoner: integrer hver formel på sitt eget delintervall og legg sammen. Konvensjonene $\\int_a^a f=0$ og $\\int_b^a f=-\\int_a^b f$ gjør regelen gyldig uansett rekkefølge på grensene."
+    },
+    {
+      "id": "mat1100-4-1-def-monotoni",
+      "type": "definition",
+      "title": "Monotoni av integralet",
+      "content": "Ligger den ene grafen over den andre, er integralet større: hvis $f(x)\\le g(x)$ for alle $x$ i $[a,b]$, så\n\n$$\\int_a^b f(x)\\,dx\\le \\int_a^b g(x)\\,dx.$$\n\nSpesialtilfelle: er $m\\le f(x)\\le M$ på hele $[a,b]$, så er $m(b-a)\\le \\int_a^b f\\le M(b-a)$. Dette er *motoren* i sammenligningstesten for uegentlige integraler ([kap. 4.6](/bok/mat1100/mat1100-4-6)): klem integranden mellom to funksjoner du kjenner integralet til."
+    },
+    {
+      "id": "mat1100-4-1-ex-regler",
+      "type": "example",
+      "title": "Eksempel 3: Bruk reglene til å avgrense et integral",
+      "problem": "Du vet at $2\\le f(x)\\le 5$ for alle $x\\in[1,4]$, men ikke formelen for $f$. Bruk regnereglene til å avgrense $\\int_1^4 f(x)\\,dx$, og til å avgjøre om $f$ er integrerbar (gitt at $f$ er kontinuerlig).",
+      "solution": "**Integrerbarhet:** $f$ er kontinuerlig på det lukkede intervallet $[1,4]$, og dermed begrenset der (verdiene ligger i $[2,5]$). Etter **arbeidsteorem 1** (kontinuerlig ⇒ integrerbar) finnes $\\int_1^4 f(x)\\,dx$.\n\n**Avgrensning (monotoni av integralet):** siden $2\\le f(x)\\le 5$ på hele $[1,4]$, gir monotoniregelen med konstantfunksjonene $2$ og $5$:\n$$\\int_1^4 2\\,dx\\le \\int_1^4 f(x)\\,dx\\le \\int_1^4 5\\,dx.$$\nKonstantintegralene er areal av rektangler med bredde $4-1=3$:\n$$2\\cdot 3\\le \\int_1^4 f(x)\\,dx\\le 5\\cdot 3\\quad\\Longrightarrow\\quad 6\\le \\int_1^4 f(x)\\,dx\\le 15.$$\n\n**Konklusjon:** integralet finnes (kontinuerlig funksjon) og ligger mellom $6$ og $15$, uten at vi kjenner $f$. $\\boxed{6\\le \\int_1^4 f(x)\\,dx\\le 15}$"
+    },
+    {
+      "id": "mat1100-4-1-oppg-regler",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-1-oppg-regler-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — regnereglene i bruk.) Anta at $\\int_0^2 f(x)\\,dx=5$ og $\\int_2^6 f(x)\\,dx=-3$, og at $\\int_0^6 g(x)\\,dx=4$.\n\n**a)** Finn $\\int_0^6 f(x)\\,dx$.\n\n**b)** Finn $\\int_0^6\\big(3f(x)-2g(x)\\big)\\,dx$ — men bare deloppgave (a) gir nok informasjon direkte; forklar hva du trenger.",
+        "solution": "**a)** Intervalladditivitet med delepunkt $c=2$:\n$$\\int_0^6 f(x)\\,dx=\\int_0^2 f(x)\\,dx+\\int_2^6 f(x)\\,dx=5+(-3)=2.$$\n\n**b)** Lineæritet gir\n$$\\int_0^6\\big(3f-2g\\big)\\,dx=3\\int_0^6 f\\,dx-2\\int_0^6 g\\,dx.$$\nFra (a) er $\\int_0^6 f=2$, og $\\int_0^6 g=4$ er oppgitt, så\n$$=3\\cdot 2-2\\cdot 4=6-8=-2.$$\n(Vi trengte nettopp resultatet fra (a) — et eksempel på at slutteksamens delpunkter kjedes: senere svar bygger på tidligere.)\n\n**Konklusjon:** (a) $\\int_0^6 f=2$; (b) $\\int_0^6(3f-2g)=-2$. $\\boxed{2\\text{ og }-2}$",
+        "hints": [
+          "I (a): del $[0,6]$ ved $x=2$ og legg sammen — intervalladditivitet.",
+          "I (b): flytt konstantene $3$ og $-2$ ut og splitt summen — lineæritet.",
+          "Sett inn tallet fra (a) for $\\int_0^6 f$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Et ikke-integrerbart eksempel og Riemann-summer (~10 min)"
+    },
+    {
+      "id": "mat1100-4-1-l4-intro",
+      "type": "text",
+      "content": "Hittil har alt vært integrerbart. For balansens skyld: her er en funksjon som *ikke* er det — den viser hvorfor Darboux-kriteriet ikke er en formalitet. Deretter snur vi på det: en **Riemann-sum** er en trappesum med fritt valgt høyde, og å kjenne den igjen som et integral er en egen eksamensferdighet."
+    },
+    {
+      "id": "mat1100-4-1-ex-riemann-gjenkjenn",
+      "type": "example",
+      "title": "Eksempel 4: Kjenn igjen en Riemann-sum som et integral",
+      "problem": "Regn ut grensen ved å kjenne den igjen som et integral: $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\frac{1}{n}\\left(\\frac{i}{n}\\right)^2.$",
+      "solution": "Vi leser summen som en trappesum over $[0,1]$. Sammenlign med en Riemann-sum $\\sum f(x_i)\\,\\Delta x$:\n\n- **Bredden** $\\Delta x=\\tfrac{1}{n}$ ⇒ intervallet $[0,1]$ delt i $n$ like biter.\n- **Punktene** $x_i=\\tfrac{i}{n}$ løper fra $\\tfrac1n$ opp til $1$ (høyre endepunkter).\n- **Høyden** $\\left(\\tfrac{i}{n}\\right)^2=(x_i)^2$ ⇒ integranden er $f(x)=x^2$.\n\nAltså er summen en Riemann-sum for $\\int_0^1 x^2\\,dx$, og siden $x^2$ er kontinuerlig (arbeidsteorem 1) finnes integralet, så grensen *er* integralet:\n$$\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\frac{1}{n}\\left(\\frac{i}{n}\\right)^2=\\int_0^1 x^2\\,dx=\\left[\\frac{x^3}{3}\\right]_0^1=\\frac{1}{3}.$$\n\n(Antideriverten kommer i [kap. 4.2](/bok/mat1100/mat1100-4-2); her er poenget *gjenkjennelsen*.)\n\n**Konklusjon:** grensen er $\\tfrac13$. Grepet: les av bredde ($\\tfrac1n\\Rightarrow$ intervall), punkt ($\\tfrac in\\Rightarrow x$) og høyde ($\\Rightarrow f$). $\\boxed{\\tfrac13}$"
+    },
+    {
+      "id": "mat1100-4-1-oppg-riemann",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-1-oppg-riemann-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I / gjenkjenning — forekom 2004.) Kjenn igjen grensen som et bestemt integral og skriv den som $\\int_a^b f(x)\\,dx$ (du trenger ikke regne ut integralet):\n\n$$\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\frac{1}{n}\\cdot\\frac{1}{1+\\left(\\frac{i}{n}\\right)^2}.$$",
+        "solution": "Vi identifiserer de tre delene av en Riemann-sum $\\sum f(x_i)\\Delta x$ over $[0,1]$:\n\n- **Bredde:** $\\Delta x=\\tfrac1n$ ⇒ intervallet er $[0,1]$ delt i $n$ like biter.\n- **Punkt:** $x_i=\\tfrac in$ (høyre endepunkter).\n- **Høyde:** $\\dfrac{1}{1+(i/n)^2}=\\dfrac{1}{1+x_i^2}$ ⇒ integranden er $f(x)=\\dfrac{1}{1+x^2}$.\n\nFunksjonen $f(x)=\\tfrac{1}{1+x^2}$ er kontinuerlig på $[0,1]$, så integralet finnes (arbeidsteorem 1), og grensen er lik det:\n$$\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\frac{1}{n}\\cdot\\frac{1}{1+(i/n)^2}=\\int_0^1\\frac{dx}{1+x^2}.$$\n\n**Konklusjon:** grensen er $\\displaystyle\\int_0^1\\frac{dx}{1+x^2}$. (Den er lik $\\arctan 1=\\tfrac{\\pi}{4}$ — men gjenkjennelsen var oppgaven.) $\\boxed{\\int_0^1\\frac{dx}{1+x^2}}$",
+        "hints": [
+          "Skriv en generell Riemann-sum $\\sum f(x_i)\\,\\Delta x$ og match faktor for faktor.",
+          "$\\tfrac1n$ er bredden $\\Delta x$; hva blir da intervallet og punktene $x_i$?",
+          "Erstatt $\\tfrac in$ med $x$ i det som er igjen — det gir integranden $f(x)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Tro at integrerbarhet krever kontinuitet.** En begrenset funksjon med endelig mange hopp er fullt integrerbar (arbeidsteorem 1). Kontinuitet er *tilstrekkelig*, ikke *nødvendig*.\n- **Påstå integrerbarhet uten å navngi teoremet.** «Den ser pen ut» gir null. Skriv hvilket teorem du bruker og at premissene er oppfylt (begrenset? endelig mange brudd? / stykkevis monoton?).\n- **Blande «begrenset» og «kontinuerlig» i premissene.** Begge arbeidsteoremene krever *begrenset*. Glemmer du å sjekke begrensethet, kan du feilaktig «bevise» at $1/x$ er integrerbar på $[0,1]$ (det er den ikke).\n- **Glemme at ubegrensede funksjoner faller utenfor.** Har integranden en vertikal asymptote i intervallet, er det et *uegentlig* integral (kap. 4.6), ikke et vanlig Riemann-integral.\n- **Sette $h=0$-tankegang på trappesummer.** Det er *grensen* $n\\to\\infty$ (uendelig fine biter) som gir integralet, ikke én fast partisjon."
+    },
+    {
+      "id": "mat1100-4-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er noen kjernebegreper fra kapitlet samlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-4-1-bb-riemann-sum",
+      "type": "definition",
+      "title": "Riemann-sum",
+      "content": "En sum $\\sum_{i=1}^n f(\\xi_i)\\,\\Delta x_i$ der $\\xi_i$ er et *fritt valgt* punkt i biten $[x_{i-1},x_i]$ (ikke nødvendigvis der $f$ er størst eller minst). For en integrerbar funksjon går enhver slik sum mot $\\int_a^b f$ når bitene krymper — uansett hvordan punktene velges. Å *gjenkjenne* en gitt sum som en Riemann-sum (les av bredde, punkt, høyde) er en egen eksamensferdighet."
+    },
+    {
+      "id": "mat1100-4-1-bb-dirichlet",
+      "type": "definition",
+      "title": "Dirichlet-funksjonen (ikke-integrerbar)",
+      "content": "Standardeksemplet på en funksjon som *ikke* er Riemann-integrerbar: $D(x)=1$ hvis $x$ er rasjonal, $D(x)=0$ hvis $x$ er irrasjonal, på $[0,1]$. Den er begrenset, men på *hver* bit finnes både rasjonale og irrasjonale tall, så minste verdi er alltid $0$ og største alltid $1$. Dermed er $\\underline{S}(P)=0$ og $\\overline{S}(P)=1$ for *enhver* partisjon — gapet lukkes aldri, og Darboux-kriteriet svikter. Du trenger den bare som *kjennskap*: et bevis på at begrensethet alene ikke holder."
+    },
+    {
+      "id": "mat1100-4-1-bb-gjennomsnitt",
+      "type": "definition",
+      "title": "Gjennomsnittsverdi (middelverdi) av en funksjon",
+      "content": "Den «flate høyden» som gir samme areal som funksjonen over intervallet:\n\n$$\\bar f=\\frac{1}{b-a}\\int_a^b f(x)\\,dx.$$\n\nGeometrisk: gjør du grafen om til et rektangel med samme areal og bredde $b-a$, er $\\bar f$ høyden. For en kontinuerlig funksjon antas denne verdien faktisk i et punkt — det er *middelverdisetningen for integraler*, som blir bevismotoren i [kap. 4.2](/bok/mat1100/mat1100-4-2)."
+    },
+    {
+      "id": "mat1100-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-4-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $P=\\{x_0,\\dots,x_n\\}$ | Partisjon: delepunkter $a=x_0<\\dots<x_n=b$ |\n| $\\Delta x_i$ | Bredden $x_i-x_{i-1}$ av bit nr. $i$ |\n| $m_i,\\;M_i$ | Minste ($\\inf$) og største ($\\sup$) verdi av $f$ på bit $i$ |\n| $\\underline{S}(P)$ | Nedre trappesum (undersum) |\n| $\\overline{S}(P)$ | Øvre trappesum (oversum) |\n| $\\int_a^b f(x)\\,dx$ | Det bestemte integralet — arealet mellom under- og oversummer |\n| $\\inf,\\;\\sup$ | Største nedre / minste øvre grense (fra kap. 2.3) |\n| $\\xi_i$ | Fritt valgt punkt i bit $i$ (Riemann-sum) |\n| $\\bar f$ | Gjennomsnittsverdien $\\frac{1}{b-a}\\int_a^b f$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\underline{S}(P)=\\sum_{i=1}^{n} m_i\\,\\Delta x_i,\\qquad \\overline{S}(P)=\\sum_{i=1}^{n} M_i\\,\\Delta x_i$$\nNedre og øvre trappesum over en partisjon $P$.\n\n$$\\overline{S}(P)-\\underline{S}(P)<\\varepsilon\\ \\text{(for en }P\\text{)}\\;\\Longleftrightarrow\\; f\\text{ integrerbar}$$\nDarboux-kriteriet: gapet kan gjøres vilkårlig lite.\n\n$$\\int_a^b f=\\sup_P \\underline{S}(P)=\\inf_P \\overline{S}(P)$$\nDet bestemte integralet som det entydige klemte tallet.\n\n$$\\int_a^b(\\alpha f+\\beta g)=\\alpha\\int_a^b f+\\beta\\int_a^b g$$\nLineæritet.\n\n$$\\int_a^b f=\\int_a^c f+\\int_c^b f\\qquad(a<c<b)$$\nIntervalladditivitet.\n\n$$f\\le g\\text{ på }[a,b]\\;\\Rightarrow\\;\\int_a^b f\\le\\int_a^b g$$\nMonotoni av integralet.\n\n$$\\bar f=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$$\nGjennomsnittsverdien av $f$ over $[a,b]$."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-4-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-1-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/mat1100/mat1100-2-4)) Hva vil det si at $f$ er kontinuerlig i et punkt $a$, uttrykt med en grense?",
+            "solution": "$f$ er kontinuerlig i $a$ når $\\lim_{x\\to a}f(x)=f(a)$ — grensen finnes *og* er lik funksjonsverdien. Det utelukker hopp, hull og vertikale asymptoter i $a$. I dette kapitlet er kontinuitet (i alle punkter unntatt endelig mange) den vanligste inngangen til arbeidsteorem 1.",
+            "hints": [
+              "Tre ting må stemme: grensen finnes, $f(a)$ finnes, og de er like."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-1-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/mat1100/mat1100-2-4)) Ekstremverdisetningen sier at en kontinuerlig funksjon på et lukket, begrenset intervall antar en største og en minste verdi. Hvorfor er dette relevant for begrepet «begrenset» i dette kapitlet?",
+            "solution": "Antar $f$ en største verdi $M$ og en minste verdi $m$ på $[a,b]$, ligger alle verdier i båndet $[m,M]$, altså $|f(x)|\\le\\max(|m|,|M|)$. Dermed er en kontinuerlig funksjon på et lukket, begrenset intervall automatisk **begrenset** — nettopp premisset arbeidsteoremene krever. Det er derfor «kontinuerlig på $[a,b]$» alene gir integrerbarhet.",
+            "hints": [
+              "Største og minste verdi gir et øvre og et nedre bånd for funksjonsverdiene."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-1-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.4](/bok/mat1100/mat1100-2-4)) Gi et eksempel på en funksjon som er begrenset på $(0,1)$, men *ikke* antar sin største verdi der. Hvorfor bryter ikke det med ekstremverdisetningen?",
+            "solution": "For eksempel $f(x)=x$ på det *åpne* intervallet $(0,1)$: verdiene ligger i $(0,1)$, så $f$ er begrenset, men den antar aldri verdien $1$ (den nås bare i grensen). Dette bryter ikke ekstremverdisetningen, fordi setningen krever et **lukket** intervall $[a,b]$ — på åpne intervaller kan supremum mangle som funksjonsverdi. Poenget: forutsetningene i setningene må sjekkes, ikke antas.",
+            "hints": [
+              "Bruk et åpent intervall og en funksjon som «streber mot» en verdi den aldri når.",
+              "Ekstremverdisetningen har en forutsetning om intervalltypen."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-4-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-4-1-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/mat1100/mat1100-2-4)) Er en sammensetning av to kontinuerlige funksjoner kontinuerlig? Bruk det til å avgjøre om $x\\mapsto \\arctan(x^2)$ er integrerbar på $[-3,3]$.",
+            "solution": "Ja: en sammensetning av kontinuerlige funksjoner er kontinuerlig. Her er $x\\mapsto x^2$ kontinuerlig og $\\arctan$ kontinuerlig, så $\\arctan(x^2)$ er kontinuerlig på hele $[-3,3]$. Da er den også begrenset der, og etter arbeidsteorem 1 (kontinuerlig ⇒ integrerbar) er den **integrerbar** på $[-3,3]$.",
+            "hints": [
+              "Kontinuitet arver seg gjennom sammensetning.",
+              "Kontinuerlig på et lukket intervall ⇒ begrenset ⇒ integrerbar."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

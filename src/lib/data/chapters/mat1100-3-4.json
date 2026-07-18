@@ -1,0 +1,438 @@
+{
+  "id": "mat1100-3-4",
+  "courseId": "mat1100",
+  "chapterNumber": "3.4",
+  "title": "Middelverdisetningen, Rolle og bevis med hjelpefunksjon",
+  "description": "Rolle- og MVT-bevisene med hjelpefunksjon — den stigende bevissjangeren på slutteksamen (3 av 6 siste år).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "formulere Rolles teorem og middelverdisetningen presist og tolke dem geometrisk",
+    "føre bevis med hjelpefunksjon: konstruere en passende g, sjekke forutsetningene eksplisitt, navngi Rolle og konkludere",
+    "bruke korollarene (konstant-kriteriet, samme-derivert-kriteriet, konveksitet) og middelverdisetningen som ulikhetsmaskin"
+  ],
+  "content": [
+    {
+      "id": "mat1100-3-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den stigende bevissjangeren på slutteksamen — og et sikkert teorispørsmål på midtveis.**\n\n- **Bevis med hjelpefunksjon (sjanger I — eksistens- og teoribevis):** middelverdisetningen (MVT) og Rolle er brukt i 4 av 21 slutteksamener, men **3 av de 6 siste årene** — trenden er stigende. Korollar-varianten «samme derivert + felles punkt $\\Rightarrow$ samme funksjon» var egen deloppgave i 2023. *Sjanger I betyr en oppgave der du skal bevise at noe *finnes* (et punkt $c$, en løsning) — ikke regne ut et tall.*\n- **Formuleringen (midtveis, flervalg):** MVT/Rolle som teoriutsagn er ca. **3 %** av midtveisspørsmålene — distraktorene bytter om forutsetningene eller blander Rolle og MVT. Her testes at du kan setningen *ordrett*.\n\nArkivet stopper i 2023, men retningen er tydelig: kan du hjelpefunksjonsmalen — konstruer $g$, sjekk forutsetningene, navngi Rolle, konkluder — henter du poeng de fleste taper. Sensorregelen «ubegrunnet svar = 0» er ekstra hard her: et bevis uten eksplisitt forutsetningssjekk gir trekk selv om ideen er riktig."
+    },
+    {
+      "id": "mat1100-3-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 2.4](/bok/mat1100/mat1100-2-4)** (ekstremverdisetningen — den bærer Rolle-beviset) og **[kap. 3.1](/bok/mat1100/mat1100-3-1)** (den deriverte som grense av differansekvotienten, og «deriverbar $\\Rightarrow$ kontinuerlig»). Fra videregående er det nyttig å ha [Funksjonsdrøfting (R1)](/bok/r1/r1-4-6) i minne — sammenhengen mellom fortegnet til $f'$ og om $f$ vokser eller avtar.\n\n**Sist du var her (oppfriskning):**\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h} \\qquad (\\text{den deriverte, kap. 3.1})$$\n\n$$\\text{Kontinuerlig på lukket } [a,b] \\Rightarrow f \\text{ antar en største og en minste verdi} \\quad (\\text{ekstremverdisetningen, kap. 2.4})$$"
+    },
+    {
+      "id": "mat1100-3-4-intro",
+      "type": "text",
+      "content": "Kjør bil fra Oslo til Lillehammer — 180 km på nøyaktig 2 timer. Snittfarten er 90 km/t. Da *må* speedometeret ha vist nøyaktig 90 km/t i minst ett øyeblikk underveis, selv om du bremset og akselererte. Det er hele middelverdisetningen i én setning: et sted er den momentane endringsraten lik gjennomsnittsraten.\n\nI dette kapitlet gjør vi den intuisjonen om til et presist verktøy. Vi bygger stoffet som fem små **læringsløkker**: (1) Rolles teorem, (2) middelverdisetningen, (3) hjelpefunksjonsmalen — malen bak nesten alle eksistensbevis, (4) korollarene som følger av MVT, og (5) MVT brukt som ulikhetsmaskin. Hver løkke går teori $\\to$ eksempel $\\to$ oppgave, så du kan jobbe deg gjennom bit for bit."
+    },
+    {
+      "id": "mat1100-3-4-l1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Rolles teorem (~10 min)"
+    },
+    {
+      "id": "mat1100-3-4-l1-teori",
+      "type": "text",
+      "content": "Rolle er byggeklossen alt annet hviler på. Ideen er geometrisk: hvis en glatt kurve starter og slutter i **samme høyde**, må den snu et sted — og der er tangenten vannrett.\n\n**Bevisidé (verdt å kunne):** $f$ er kontinuerlig på $[a,b]$, så etter **ekstremverdisetningen** (kap. 2.4) antar $f$ både en største og en minste verdi. Er begge antatt i endepunktene, er $f$ konstant og $f' = 0$ overalt. Ellers antas et ekstremum i et *indre* punkt $c$, og der er $f'(c) = 0$ (en deriverbar funksjon har vannrett tangent i indre topp-/bunnpunkt — Fermats observasjon)."
+    },
+    {
+      "id": "mat1100-3-4-def-rolle",
+      "type": "definition",
+      "title": "Rolles teorem",
+      "content": "Snur kurven tilbake til samme høyde, finnes et punkt med vannrett tangent. Presist: er $f$ **kontinuerlig på** $[a,b]$, **deriverbar på** $(a,b)$ og $f(a) = f(b)$, så finnes minst én $c \\in (a,b)$ med\n\n$$f'(c) = 0.$$\n\nAlle tre forutsetningene trengs — faller én bort (f.eks. deriverbarhet), kan konklusjonen svikte ($f(x)=|x|$ på $[-1,1]$)."
+    },
+    {
+      "id": "mat1100-3-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Rolle anvendt",
+      "problem": "La $f(x) = x^2 - 4x + 3$ på intervallet $[1, 3]$. Vis at Rolles teorem gjelder, og finn en $c$ som teoremet garanterer.",
+      "solution": "**Forutsetningssjekk (må gjøres eksplisitt):**\n- $f$ er et polynom, altså **kontinuerlig på** $[1,3]$. ✓\n- $f$ er **deriverbar på** $(1,3)$ (polynom). ✓\n- Endepunktverdiene: $f(1) = 1 - 4 + 3 = 0$ og $f(3) = 9 - 12 + 3 = 0$, så $f(1) = f(3)$. ✓\n\nAlle tre forutsetningene til **Rolles teorem** er oppfylt, så det finnes minst én $c \\in (1,3)$ med $f'(c) = 0$.\n\n**Finn $c$:** $f'(x) = 2x - 4$. Løs $f'(c) = 0$:\n$$2c - 4 = 0 \\;\\Rightarrow\\; c = 2.$$\n\nOg $c = 2 \\in (1,3)$. **Svar:** $c = 2$ oppfyller Rolle. (Geometrisk: parabelens toppunkt ligger midt mellom de to nullpunktene.)"
+    },
+    {
+      "id": "mat1100-3-4-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger I — eksistensbevis, lett innstegsoppgave.) La $f(x) = x^2 - 6x + 8$ på $[2, 4]$.\n\n**a)** Vis at forutsetningene til Rolles teorem er oppfylt.\n\n**b)** Finn en $c \\in (2,4)$ med $f'(c) = 0$.",
+        "solution": "**a)** $f$ er et polynom, derfor kontinuerlig på $[2,4]$ og deriverbar på $(2,4)$. Endepunktene: $f(2) = 4 - 12 + 8 = 0$ og $f(4) = 16 - 24 + 8 = 0$, så $f(2) = f(4)$. Alle tre forutsetningene til Rolles teorem er oppfylt.\n\n**b)** $f'(x) = 2x - 6$. Løs $2c - 6 = 0 \\Rightarrow c = 3 \\in (2,4)$. **Svar:** $c = 3$.",
+        "hints": [
+          "Rolle krever tre ting: kontinuerlig på det lukkede intervallet, deriverbar på det åpne, og like endepunktverdier. Sjekk hver for seg.",
+          "Regn ut $f(2)$ og $f(4)$ og se om de er like.",
+          "Konklusjonen finner du ved å løse $f'(c)=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-l2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Middelverdisetningen (~12 min)"
+    },
+    {
+      "id": "mat1100-3-4-l2-teori",
+      "type": "text",
+      "content": "Middelverdisetningen (MVT) er Rolle uten kravet om like endepunkter. Geometrisk: et sted er **tangenten parallell med sekanten** gjennom endepunktene $(a, f(a))$ og $(b, f(b))$. Sekantens stigning er gjennomsnittsraten $\\frac{f(b)-f(a)}{b-a}$; MVT sier at denne raten treffes momentant i et indre punkt.\n\n**Bevisidé (via hjelpefunksjon — første møte med malen):** trekk sekanten fra $f$. Sett\n\n$$g(x) = f(x) - \\left[ f(a) + \\frac{f(b)-f(a)}{b-a}(x-a) \\right].$$\n\nDa er $g(a) = g(b) = 0$, og $g$ arver kontinuitet/deriverbarhet fra $f$. **Rolle** gir en $c$ med $g'(c) = 0$, altså $f'(c) - \\frac{f(b)-f(a)}{b-a} = 0$ — som er nettopp MVT."
+    },
+    {
+      "id": "mat1100-3-4-def-mvt",
+      "type": "definition",
+      "title": "Middelverdisetningen (MVT)",
+      "content": "Et sted er den momentane raten lik gjennomsnittsraten. Presist: er $f$ **kontinuerlig på** $[a,b]$ og **deriverbar på** $(a,b)$, så finnes minst én $c \\in (a,b)$ med\n\n$$f'(c) = \\frac{f(b) - f(a)}{b - a}.$$\n\nRolle er spesialtilfellet $f(a) = f(b)$ (da er høyresiden $0$)."
+    },
+    {
+      "id": "mat1100-3-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: MVT anvendt",
+      "problem": "La $f(x) = \\ln x$ på $[1, e]$. Finn en $c$ som middelverdisetningen garanterer.",
+      "solution": "**Forutsetningssjekk:** $\\ln x$ er kontinuerlig på $[1,e]$ og deriverbar på $(1,e)$ (definert og glatt for $x>0$). ✓ Forutsetningene til **MVT** er oppfylt.\n\n**Sekantstigningen (gjennomsnittsraten):**\n$$\\frac{f(e) - f(1)}{e - 1} = \\frac{1 - 0}{e - 1} = \\frac{1}{e-1}.$$\n\n**Sett $f'(c)$ lik dette:** $f'(x) = \\frac{1}{x}$, så\n$$\\frac{1}{c} = \\frac{1}{e-1} \\;\\Rightarrow\\; c = e - 1 \\approx 1{,}718.$$\n\nOg $c = e-1 \\in (1, e)$. **Svar:** $c = e - 1$."
+    },
+    {
+      "id": "mat1100-3-4-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l2-e1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) La $f(x) = \\sqrt{x}$ på $[1, 4]$. Finn en $c \\in (1,4)$ som middelverdisetningen garanterer.",
+        "solution": "**Forutsetningssjekk:** $\\sqrt{x}$ er kontinuerlig på $[1,4]$ og deriverbar på $(1,4)$. ✓\n\n**Sekantstigning:** $\\dfrac{f(4)-f(1)}{4-1} = \\dfrac{2 - 1}{3} = \\dfrac{1}{3}$.\n\n**Sett $f'(c)=\\frac{1}{3}$:** $f'(x) = \\dfrac{1}{2\\sqrt{x}}$, så $\\dfrac{1}{2\\sqrt{c}} = \\dfrac{1}{3} \\Rightarrow 2\\sqrt{c} = 3 \\Rightarrow \\sqrt{c} = \\tfrac{3}{2} \\Rightarrow c = \\tfrac{9}{4} = 2{,}25.$\n\n$c = \\tfrac{9}{4} \\in (1,4)$. **Svar:** $c = \\tfrac{9}{4}$.",
+        "hints": [
+          "Regn først sekantstigningen $\\frac{f(b)-f(a)}{b-a}$ med $a=1,\\,b=4$.",
+          "Deriver $\\sqrt{x}$: $f'(x)=\\frac{1}{2\\sqrt{x}}$.",
+          "Sett $f'(c)$ lik sekantstigningen og løs for $c$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (du har nå Rolle og MVT; resten er bevisteknikk bygget på dem) —"
+    },
+    {
+      "id": "mat1100-3-4-l3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Hjelpefunksjonsmalen (~15 min)"
+    },
+    {
+      "id": "mat1100-3-4-l3-teori",
+      "type": "text",
+      "content": "Nå kommer den viktigste ferdigheten i kapitlet. Mange eksamensoppgaver har formen: «$f$ oppfyller [noen betingelser]. Vis at det finnes $c$ med [en likning i $f$, $f'$, $f''$].» Du ser sjelden *hvilken* funksjon du skal bruke Rolle på — du må **konstruere en hjelpefunksjon** $g$ selv.\n\n**Malen (følg den slavisk):**\n\n1. **Konstruer** $g$ slik at $g'(c) = 0$ blir nøyaktig likningen du skal vise. Vanlige valg: $g = f - f'$, $g(x) = f(x) - x$, $g(x) = e^{-x}f(x)$, $g(x) = e^{kx}f(x)$, eller sekant-trekket fra MVT.\n2. **Vis like verdier** i to punkter: $g(a) = g(b)$ (ofte begge $= 0$).\n3. **Sjekk forutsetningene eksplisitt:** $g$ kontinuerlig på $[a,b]$, deriverbar på $(a,b)$. Skriv det ut — sensor krever det.\n4. **Navngi Rolle** og konkluder: det finnes $c$ med $g'(c) = 0$.\n5. **Regn ut $g'(c) = 0$** og vis at det er likningen du var bedt om.\n\nHvordan gjetter du $g$? Se på likningen du skal vise, og spør: «hvilken funksjon har *dette* som sin deriverte?» Skal du vise $f'(c) = f(c)$, merk at $\\frac{d}{dx}[e^{-x}f(x)] = e^{-x}(f'(x) - f(x))$ — den er $0$ nettopp når $f' = f$. Derfor $g = e^{-x}f$."
+    },
+    {
+      "id": "mat1100-3-4-def-hjelpefunksjon",
+      "type": "definition",
+      "title": "Hjelpefunksjon (bevisteknikk)",
+      "content": "En funksjon $g$ du selv **konstruerer** for å kunne bruke Rolle (eller MVT) på et eksistensbevis. Du velger $g$ slik at ligningen $g'(c)=0$ blir akkurat påstanden du skal vise, og slik at $g$ har like verdier i to punkter. Typiske valg: $g = f - f'$, $g(x)=f(x)-x$, $g(x)=e^{-x}f(x)$. Trikset er å lese påstanden baklengs: hvilken funksjon har den som derivert?"
+    },
+    {
+      "id": "mat1100-3-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hjelpefunksjon med $g = f - f'$",
+      "problem": "$f$ er to ganger deriverbar på $[0,1]$ med $f(0) = f'(0)$ og $f(1) = f'(1)$. Vis at det finnes $c \\in (0,1)$ med $f'(c) = f''(c)$.",
+      "solution": "**1. Konstruer $g$.** Vi skal vise $f'(c) - f''(c) = 0$. Sett\n$$g(x) = f(x) - f'(x).$$\nDa er $g'(x) = f'(x) - f''(x)$, så $g'(c) = 0$ er nøyaktig påstanden.\n\n**2. Like verdier:** $g(0) = f(0) - f'(0) = 0$ (gitt) og $g(1) = f(1) - f'(1) = 0$ (gitt). Altså $g(0) = g(1)$.\n\n**3. Forutsetningssjekk:** $f$ er to ganger deriverbar, så $f$ og $f'$ er begge deriverbare (dermed kontinuerlige). Da er $g = f - f'$ **kontinuerlig på** $[0,1]$ og **deriverbar på** $(0,1)$. ✓\n\n**4. Rolle:** forutsetningene til **Rolles teorem** er oppfylt for $g$, så det finnes $c \\in (0,1)$ med $g'(c) = 0$.\n\n**5. Konkluder:** $g'(c) = f'(c) - f''(c) = 0$, altså\n$$\\boxed{f'(c) = f''(c)} \\quad \\text{for en } c \\in (0,1).$$"
+    },
+    {
+      "id": "mat1100-3-4-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l3-e1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — hjelpefunksjon med eksponentialfaktor.) $f$ er deriverbar på $[0,1]$ med $f(0) = f(1) = 0$. Vis at det finnes $c \\in (0,1)$ med $f'(c) = 2f(c)$.",
+        "solution": "**1. Konstruer $g$.** Vi skal vise $f'(c) - 2f(c) = 0$. Legg merke til at $\\frac{d}{dx}[e^{-2x}f(x)] = e^{-2x}(f'(x) - 2f(x))$. Sett derfor\n$$g(x) = e^{-2x} f(x).$$\n\n**2. Like verdier:** $g(0) = e^{0}f(0) = 0$ og $g(1) = e^{-2}f(1) = 0$. Altså $g(0) = g(1)$.\n\n**3. Forutsetningssjekk:** $e^{-2x}$ og $f$ er begge deriverbare, så produktet $g$ er kontinuerlig på $[0,1]$ og deriverbart på $(0,1)$. ✓\n\n**4. Rolle:** det finnes $c \\in (0,1)$ med $g'(c) = 0$.\n\n**5. Konkluder:** $g'(c) = e^{-2c}\\big(f'(c) - 2f(c)\\big) = 0$. Siden $e^{-2c} \\neq 0$, må $f'(c) - 2f(c) = 0$, altså $f'(c) = 2f(c)$ for en $c \\in (0,1)$.",
+        "hints": [
+          "Skal du vise $f'(c)=2f(c)$, let etter en $g$ der $g'$ inneholder $f'-2f$. Prøv $g(x)=e^{-2x}f(x)$.",
+          "Sjekk at $g(0)=g(1)=0$ ved å sette inn.",
+          "Etter Rolle: del likningen $g'(c)=0$ på $e^{-2c}$, som aldri er null."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l3-e2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I — Rolle brukt to ganger, krevende.) $f$ er to ganger deriverbar og $f(1) = f(3) = f(5)$. Vis at det finnes en $c \\in (1,5)$ med $f''(c) = 0$.",
+        "solution": "**Rolle på $[1,3]$:** $f$ er kontinuerlig på $[1,3]$, deriverbar på $(1,3)$, og $f(1) = f(3)$. Rolle gir en $c_1 \\in (1,3)$ med $f'(c_1) = 0$.\n\n**Rolle på $[3,5]$:** tilsvarende gir $f(3) = f(5)$ en $c_2 \\in (3,5)$ med $f'(c_2) = 0$.\n\n**Rolle på $f'$ over $[c_1, c_2]$:** nå har vi $f'(c_1) = f'(c_2) = 0$. Funksjonen $f'$ er deriverbar (fordi $f$ er to ganger deriverbar), altså kontinuerlig på $[c_1,c_2]$ og deriverbar på $(c_1,c_2)$. Rolle anvendt på $f'$ gir en $c \\in (c_1, c_2) \\subseteq (1,5)$ med\n$$(f')'(c) = f''(c) = 0.$$\n\n**Konklusjon:** det finnes $c \\in (1,5)$ med $f''(c) = 0$.",
+        "hints": [
+          "Tre like verdier gir to intervaller — bruk Rolle på hvert.",
+          "Da har $f'$ to nullpunkter. Hva sier Rolle om $f'$ mellom dem?",
+          "Rolle på $f'$ gir et punkt der $f''=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-l4-tekst",
+      "type": "text",
+      "content": "## Løkke 4 — Korollarene fra MVT (~10 min)"
+    },
+    {
+      "id": "mat1100-3-4-l4-teori",
+      "type": "text",
+      "content": "Middelverdisetningen er motoren bak flere setninger du bruker uten å tenke over det. Alle følger av MVT på et delintervall.\n\n**Konstant-kriteriet:** er $f'(x) = 0$ for alle $x$ i et intervall, er $f$ konstant der. (Bevis: for to punkter $x_1 < x_2$ gir MVT $f(x_2) - f(x_1) = f'(c)(x_2 - x_1) = 0$.)\n\n**Samme-derivert-kriteriet:** har $f$ og $h$ samme deriverte på et intervall, skiller de seg bare med en konstant: $f - h$ har derivert $0$, altså konstant. Kjenner du i tillegg *én* felles verdi, er $f = h$.\n\n**Konveksitet:** $f$ er konveks på et intervall $\\Leftrightarrow$ $f'$ er voksende der (og hvis $f''$ finnes: $f'' \\ge 0$). Dette ble brukt i et eksamensbevis i 2023."
+    },
+    {
+      "id": "mat1100-3-4-def-kor-konstant",
+      "type": "definition",
+      "title": "Korollar: konstant-kriteriet",
+      "content": "Er den deriverte null overalt på et intervall, står funksjonen stille. Presist: er $f'(x) = 0$ for alle $x$ i et intervall $I$, så er $f$ **konstant** på $I$. Følger av MVT: for $x_1 < x_2$ i $I$ er $f(x_2) - f(x_1) = f'(c)(x_2 - x_1) = 0$. Merk at intervall-forutsetningen er nødvendig — på en union av atskilte intervaller kan konstanten være ulik på hver del."
+    },
+    {
+      "id": "mat1100-3-4-def-kor-samme",
+      "type": "definition",
+      "title": "Korollar: samme-derivert-kriteriet",
+      "content": "To funksjoner med samme derivert er parallelle — de skiller seg bare med en konstant. Presist: er $f'(x) = h'(x)$ for alle $x$ i et intervall, så er $f(x) = h(x) + K$ for en konstant $K$. Deler de i tillegg **én felles verdi** ($f(x_0) = h(x_0)$ for én $x_0$), er $K = 0$ og $f \\equiv h$. Dette er argumentet bak «to antideriverte skiller seg med en konstant» og var eksamensdeloppgave i 2023."
+    },
+    {
+      "id": "mat1100-3-4-def-konveks",
+      "type": "definition",
+      "title": "Konveks funksjon (via $f'$)",
+      "content": "En funksjon bøyer «oppover» — grafen ligger under enhver sekant og over enhver tangent. Presist er $f$ **konveks** på et intervall når $f'$ er **voksende** der; er $f$ to ganger deriverbar, tilsvarer det $f''(x) \\ge 0$. Ekvivalensen «$f$ konveks $\\Leftrightarrow$ $f'$ voksende» hviler på MVT og ble brukt i et eksamensbevis i 2023."
+    },
+    {
+      "id": "mat1100-3-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Samme-derivert-kriteriet i praksis",
+      "problem": "Vis at $\\arctan x + \\arctan\\frac{1}{x}$ er konstant for $x > 0$, og finn konstanten.",
+      "solution": "Sett $h(x) = \\arctan x + \\arctan\\frac{1}{x}$ for $x > 0$.\n\n**Deriver:**\n$$h'(x) = \\frac{1}{1+x^2} + \\frac{-1/x^2}{1 + (1/x)^2} = \\frac{1}{1+x^2} - \\frac{1/x^2}{(x^2+1)/x^2} = \\frac{1}{1+x^2} - \\frac{1}{x^2+1} = 0.$$\n\n**Konstant-kriteriet:** $h'(x) = 0$ på hele intervallet $(0, \\infty)$, som er et intervall, så $h$ er **konstant** der.\n\n**Finn konstanten** ved å sette inn ett bekvemt punkt, $x = 1$:\n$$h(1) = \\arctan 1 + \\arctan 1 = \\frac{\\pi}{4} + \\frac{\\pi}{4} = \\frac{\\pi}{2}.$$\n\n**Konklusjon:** $\\arctan x + \\arctan\\frac{1}{x} = \\dfrac{\\pi}{2}$ for alle $x > 0$. (Merk kravet $x>0$: for $x<0$ gir samme regning konstanten $-\\pi/2$, fordi $(0,\\infty)$ og $(-\\infty,0)$ er to atskilte intervaller.)"
+    },
+    {
+      "id": "mat1100-3-4-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l4-e1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — korollarbruk.) Vis at $\\arcsin x + \\arccos x$ er konstant på $(-1, 1)$, og finn konstanten.",
+        "solution": "Sett $h(x) = \\arcsin x + \\arccos x$.\n\n**Deriver:** $h'(x) = \\dfrac{1}{\\sqrt{1-x^2}} + \\left(-\\dfrac{1}{\\sqrt{1-x^2}}\\right) = 0$ for alle $x \\in (-1,1)$.\n\n**Konstant-kriteriet:** $h'(x) = 0$ på intervallet $(-1,1)$, så $h$ er konstant.\n\n**Finn konstanten** med $x = 0$: $h(0) = \\arcsin 0 + \\arccos 0 = 0 + \\dfrac{\\pi}{2} = \\dfrac{\\pi}{2}$.\n\n**Konklusjon:** $\\arcsin x + \\arccos x = \\dfrac{\\pi}{2}$ på $(-1,1)$.",
+        "hints": [
+          "Deriver summen og se om de to leddene kansellerer.",
+          "Er den deriverte 0 på hele intervallet, er funksjonen konstant.",
+          "Sett inn $x=0$ for å finne konstantens verdi."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-l5-tekst",
+      "type": "text",
+      "content": "## Løkke 5 — MVT som ulikhetsmaskin (~8 min)"
+    },
+    {
+      "id": "mat1100-3-4-l5-teori",
+      "type": "text",
+      "content": "MVT er også et kraftig verktøy for å bevise ulikheter. Nøkkelen: fra $f(b) - f(a) = f'(c)(b-a)$ kan du **avgrense** høyresiden hvis du kjenner grenser for $f'$.\n\n**Ulikhetsmalen:** er $m \\le f'(x) \\le M$ på intervallet, gir MVT\n$$m(b-a) \\le f(b) - f(a) \\le M(b-a).$$\n\nSpesialtilfellet $|f'(x)| \\le K$ gir **Lipschitz-ulikheten**\n$$|f(b) - f(a)| \\le K\\,|b - a|.$$\n\nDette er «en funksjon med begrenset derivert kan ikke endre seg fortere enn $K$»."
+    },
+    {
+      "id": "mat1100-3-4-def-ulikhet",
+      "type": "definition",
+      "title": "MVT som ulikhetsmaskin (Lipschitz)",
+      "content": "Har den deriverte en øvre skranke, kan funksjonen ikke endre seg fortere enn den. Presist: er $|f'(x)| \\le K$ på et intervall, så gjelder $|f(b) - f(a)| \\le K\\,|b-a|$ for alle $a, b$ der. Utledes fra MVT: $|f(b)-f(a)| = |f'(c)|\\,|b-a| \\le K|b-a|$. Med tosidige skranker $m \\le f' \\le M$ fås $m(b-a) \\le f(b)-f(a) \\le M(b-a)$ for $a<b$."
+    },
+    {
+      "id": "mat1100-3-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Ulikhet via MVT",
+      "problem": "Vis at $e^a(b - a) < e^b - e^a < e^b(b-a)$ for alle $a < b$.",
+      "solution": "La $f(x) = e^x$ på $[a,b]$. Den er kontinuerlig og deriverbar overalt, så **MVT** gir en $c \\in (a,b)$ med\n$$\\frac{e^b - e^a}{b - a} = f'(c) = e^c.$$\n\n**Avgrens $e^c$:** eksponentialfunksjonen er strengt voksende, og $a < c < b$, så\n$$e^a < e^c < e^b.$$\n\n**Gang opp med** $(b-a) > 0$ (bevarer ulikheten):\n$$e^a(b-a) < e^c(b-a) = e^b - e^a < e^b(b-a).$$\n\n**Konklusjon:** ulikheten gjelder for alle $a < b$. (Geometrisk: sekantstigningen mellom to punkter på $e^x$-grafen ligger mellom tangentstigningene i endepunktene.)"
+    },
+    {
+      "id": "mat1100-3-4-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-4-l5-e1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — ulikhet via MVT.) Vis at $|\\arctan b - \\arctan a| \\le |b - a|$ for alle reelle $a, b$.",
+        "solution": "La $f(x) = \\arctan x$. Den er deriverbar på hele $\\mathbb{R}$ med $f'(x) = \\dfrac{1}{1 + x^2}$.\n\n**Skranke for $f'$:** siden $1 + x^2 \\ge 1$, er $0 < \\dfrac{1}{1+x^2} \\le 1$, altså $|f'(x)| \\le 1$ overalt.\n\n**Lipschitz via MVT:** for $a \\neq b$ gir MVT en $c$ mellom dem med $\\arctan b - \\arctan a = f'(c)(b-a)$, så\n$$|\\arctan b - \\arctan a| = |f'(c)|\\,|b-a| \\le 1 \\cdot |b-a| = |b - a|.$$\nFor $a = b$ er ulikheten triviell ($0 \\le 0$).\n\n**Konklusjon:** $|\\arctan b - \\arctan a| \\le |b-a|$ for alle $a, b$.",
+        "hints": [
+          "Deriver $\\arctan x$ og finn en øvre skranke $K$ for $|f'(x)|$.",
+          "$1+x^2 \\ge 1$, så $\\frac{1}{1+x^2}\\le 1$.",
+          "Bruk $|f(b)-f(a)| = |f'(c)||b-a|$ fra MVT."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Forutsetningene ikke sjekket eksplisitt.** Å bruke Rolle uten å skrive «$f$ er kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$» gir trekk selv når det er «opplagt». Skriv det hver gang.\n- **Setningen ikke navngitt.** Sensor vil se ordet «Rolle» eller «middelverdisetningen» der det bærer argumentet (ubegrunnet $\\Rightarrow$ 0).\n- **Hjelpefunksjon uten verifikasjon av like endepunktverdier.** Du *må* vise $g(a) = g(b)$ — ellers gjelder ikke Rolle.\n- **Blande Rolle og MVT.** Rolle krever *like* endepunktverdier og gir $f'(c) = 0$; MVT krever ingenting om endepunktene og gir $f'(c) = \\frac{f(b)-f(a)}{b-a}$. Distraktorene på midtveis bytter nettopp disse.\n- **Konstant-kriteriet brukt på en union av intervaller.** $f' = 0$ gir konstant *på hvert intervall for seg* — konstanten kan være ulik på atskilte deler av definisjonsmengden.\n- **Glemme at deriverbarhet kreves på det *åpne* intervallet.** $f(x) = |x|$ på $[-1,1]$ har $f(-1) = f(1)$ men ingen $c$ med $f'(c) = 0$ — fordi $f$ ikke er deriverbar i $0$."
+    },
+    {
+      "id": "mat1100-3-4-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i eksamensrettet kortform — teoremnavn og forutsetninger er «flashcard-gull» for midtveis-teorispørsmålene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-3-4-bb-stasjonaert",
+      "type": "definition",
+      "title": "Stasjonært (kritisk) punkt",
+      "content": "Et punkt $c$ der $f'(c) = 0$. Rolle og MVT garanterer eksistensen av slike punkter under gitte forutsetninger. I et indre punkt der en deriverbar funksjon har lokalt ekstremum, er punktet nødvendigvis stasjonært (Fermats observasjon) — men ikke omvendt ($f(x)=x^3$ i $0$)."
+    },
+    {
+      "id": "mat1100-3-4-bb-fermat",
+      "type": "definition",
+      "title": "Fermats setning (indre ekstremum)",
+      "content": "Har en **deriverbar** funksjon et lokalt maksimum eller minimum i et **indre** punkt $c$, så er $f'(c) = 0$. Dette er byggeklossen i beviset for Rolle: ekstremverdisetningen gir et ekstremum, og Fermat gir vannrett tangent der. Gjelder ikke i endepunkter."
+    },
+    {
+      "id": "mat1100-3-4-bb-ekstremverdi",
+      "type": "definition",
+      "title": "Ekstremverdisetningen (repetisjon)",
+      "content": "Er $f$ kontinuerlig på et **lukket, begrenset** intervall $[a,b]$, antar $f$ både en største og en minste verdi på intervallet (kap. 2.4). Dette er eksistensgarantien Rolle-beviset hviler på — uten den kunne kurven mangle et topp-/bunnpunkt å bruke Fermat på."
+    },
+    {
+      "id": "mat1100-3-4-bb-sekant",
+      "type": "definition",
+      "title": "Sekantlinje og sekantstigning",
+      "content": "Sekanten gjennom $(a, f(a))$ og $(b, f(b))$ har stigningstall $\\dfrac{f(b)-f(a)}{b-a}$ — den gjennomsnittlige endringsraten over $[a,b]$. MVT sier at et sted er tangentstigningen $f'(c)$ lik denne sekantstigningen."
+    },
+    {
+      "id": "mat1100-3-4-bb-gjsnitt",
+      "type": "definition",
+      "title": "Gjennomsnittlig endringsrate",
+      "content": "Endring i funksjonsverdi delt på endring i $x$: $\\dfrac{f(b)-f(a)}{b-a}$. Lik sekantstigningen. MVT knytter den til den momentane raten $f'(c)$ i et indre punkt."
+    },
+    {
+      "id": "mat1100-3-4-bb-lukket",
+      "type": "definition",
+      "title": "Lukket intervall $[a,b]$",
+      "content": "Intervallet som **inkluderer** endepunktene $a$ og $b$. Rolle og MVT krever at $f$ er kontinuerlig på det *lukkede* intervallet — det sikrer veldefinerte endepunktverdier og lar ekstremverdisetningen virke."
+    },
+    {
+      "id": "mat1100-3-4-bb-apent",
+      "type": "definition",
+      "title": "Åpent intervall $(a,b)$",
+      "content": "Intervallet **uten** endepunktene. Rolle og MVT krever at $f$ er deriverbar på det *åpne* intervallet — punktet $c$ leveres alltid som et indre punkt. At deriverbarhet ikke kreves i selve endepunktene, er avgjørende (f.eks. $\\sqrt{x}$ på $[0,1]$, ikke deriverbar i $0$)."
+    },
+    {
+      "id": "mat1100-3-4-bb-kontinuerlig",
+      "type": "definition",
+      "title": "Kontinuerlig på et intervall",
+      "content": "$f$ er kontinuerlig i hvert punkt av intervallet (i endepunktene ensidig). Dette er den svakere av de to forutsetningene i MVT/Rolle — den kreves på hele det lukkede intervallet, mens deriverbarhet bare kreves i det indre."
+    },
+    {
+      "id": "mat1100-3-4-bb-deriverbar",
+      "type": "definition",
+      "title": "Deriverbar på et intervall",
+      "content": "$f'(x)$ eksisterer i hvert indre punkt av intervallet. Deriverbarhet er sterkere enn kontinuitet (deriverbar $\\Rightarrow$ kontinuerlig, kap. 3.1). MVT og Rolle krever deriverbarhet på det *åpne* intervallet $(a,b)$."
+    },
+    {
+      "id": "mat1100-3-4-bb-forutsetning",
+      "type": "definition",
+      "title": "Forutsetningssjekk (Rolle/MVT)",
+      "content": "Den obligatoriske kontrollen før en setning brukes: (i) $f$ kontinuerlig på $[a,b]$; (ii) $f$ deriverbar på $(a,b)$; (iii) for Rolle i tillegg $f(a)=f(b)$. I hjelpefunksjonsbevis gjøres sjekken på $g$, ikke på $f$. Uten eksplisitt sjekk gir sensor trekk."
+    },
+    {
+      "id": "mat1100-3-4-bb-kor-konveks2",
+      "type": "definition",
+      "title": "$f'$ voksende $\\Leftrightarrow$ $f$ konveks",
+      "content": "En to ganger deriverbar funksjon er konveks på et intervall nøyaktig når $f'' \\ge 0$ der (ekvivalent: $f'$ voksende). Konkav tilsvarer $f'' \\le 0$. Ekvivalensen bevises med MVT og var et eksamensbevis i 2023; den er også fundamentet for konveksitetsdrøfting i [kap. 3.5](/bok/mat1100/mat1100-3-5)."
+    },
+    {
+      "id": "mat1100-3-4-bb-konkav",
+      "type": "definition",
+      "title": "Konkav funksjon",
+      "content": "En funksjon som bøyer «nedover» — grafen ligger over enhver sekant og under enhver tangent. $f$ er konkav på et intervall når $f'$ er avtakende der; er $f$ to ganger deriverbar, tilsvarer det $f''(x) \\le 0$. $f$ konkav $\\Leftrightarrow$ $-f$ konveks."
+    },
+    {
+      "id": "mat1100-3-4-bb-cauchy",
+      "type": "definition",
+      "title": "Cauchys middelverdisetning (kjenne)",
+      "content": "En generalisering av MVT for to funksjoner: er $f, g$ kontinuerlige på $[a,b]$ og deriverbare på $(a,b)$, finnes $c$ med $\\big(f(b)-f(a)\\big)g'(c) = \\big(g(b)-g(a)\\big)f'(c)$. Den er teorien bak L'Hôpitals regel (kap. 2.2). *Sjelden på eksamen — «kjenne til».*"
+    },
+    {
+      "id": "mat1100-3-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-3-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-4-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1100/mat1100-3-1)) Bruk grensedefinisjonen av den deriverte til å finne $f'(2)$ når $f(x)=x^2$.",
+            "solution": "$f'(2)=\\lim_{h\\to 0}\\dfrac{(2+h)^2-4}{h}=\\lim_{h\\to 0}\\dfrac{4+4h+h^2-4}{h}=\\lim_{h\\to 0}(4+h)=4.$",
+            "hints": [
+              "Sett opp $\\lim_{h\\to0}\\frac{f(2+h)-f(2)}{h}$ og forkort $h$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-4-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/mat1100/mat1100-2-4)) Hva sier ekstremverdisetningen, og hvilke to forutsetninger krever den?",
+            "solution": "Er $f$ kontinuerlig på et **lukket og begrenset** intervall $[a,b]$, antar $f$ både en største og en minste verdi på intervallet. De to forutsetningene er (i) kontinuitet og (ii) at intervallet er lukket og begrenset. Faller én bort, kan ekstremum mangle (f.eks. $1/x$ på $(0,1]$).",
+            "hints": [
+              "Tenk på hva som kan gå galt på et åpent eller ubegrenset intervall."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-4-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Funksjonsdrøfting (R1)](/bok/r1/r1-4-6)) Funksjonen $g(x)=x^3-3x$ har $g'(x)=3x^2-3$. Sett opp fortegnslinjen for $g'$ og avgjør hvor $g$ vokser og avtar.",
+            "solution": "$g'(x)=3x^2-3=3(x-1)(x+1)$, med nullpunkter $x=\\pm 1$. Fortegn: $g'>0$ for $x<-1$ (voksende), $g'<0$ for $-1<x<1$ (avtakende), $g'>0$ for $x>1$ (voksende). Lokalt maksimum i $x=-1$, lokalt minimum i $x=1$.",
+            "hints": [
+              "Faktoriser $g'$ og finn nullpunktene.",
+              "Test fortegnet i hvert delintervall."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-4-rep-e4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1100/mat1100-3-1)) Forklar hvorfor $f(x)=|x|$ ikke er deriverbar i $x=0$, og hva det betyr for Rolle på $[-1,1]$.",
+            "solution": "Differansekvotienten $\\frac{|h|-0}{h}$ er $+1$ for $h>0$ og $-1$ for $h<0$, så grensen finnes ikke i $0$ — $f$ er ikke deriverbar der. På $[-1,1]$ er $f(-1)=f(1)=1$, men Rolle gjelder *ikke*, fordi deriverbarhet på $(-1,1)$ svikter i $0$. Og ganske riktig: det finnes ingen $c$ med $f'(c)=0$.",
+            "hints": [
+              "Regn ensidige differansekvotienter i $0$.",
+              "Rolle krever deriverbarhet i *hele* det åpne intervallet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-3-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $[a,b]$ | Lukket intervall (inkluderer endepunktene) |\n| $(a,b)$ | Åpent intervall (uten endepunktene) |\n| $f'(c)$ | Den deriverte i $c$ — momentan endringsrate / tangentstigning |\n| $f''$ | Andrederiverte (styrer konveksitet) |\n| $\\dfrac{f(b)-f(a)}{b-a}$ | Sekantstigning / gjennomsnittlig endringsrate |\n| $g$ | Hjelpefunksjon (konstrueres for å bruke Rolle) |\n| $c$ | Punktet setningen garanterer, alltid i $(a,b)$ |\n| $K$ | Skranke for $|f'|$ i Lipschitz-ulikheten |\n\n**Formler i dette delkapitlet:**\n\n$$f(a) = f(b),\\ f \\text{ kont. på } [a,b],\\ \\text{deriverbar på } (a,b) \\;\\Rightarrow\\; \\exists\\, c \\in (a,b):\\ f'(c) = 0$$\nRolles teorem.\n\n$$f \\text{ kont. på } [a,b],\\ \\text{deriverbar på } (a,b) \\;\\Rightarrow\\; \\exists\\, c \\in (a,b):\\ f'(c) = \\frac{f(b)-f(a)}{b-a}$$\nMiddelverdisetningen.\n\n$$g(x) = f(x) - \\Big[f(a) + \\tfrac{f(b)-f(a)}{b-a}(x-a)\\Big]$$\nSekant-hjelpefunksjonen som beviser MVT fra Rolle.\n\n$$f'(x) = 0 \\text{ på et intervall} \\;\\Rightarrow\\; f \\text{ konstant der}$$\nKonstant-kriteriet.\n\n$$f' = h' \\text{ på et intervall} \\;\\Rightarrow\\; f = h + K;\\quad (+\\ \\text{felles punkt}) \\Rightarrow f \\equiv h$$\nSamme-derivert-kriteriet.\n\n$$|f'(x)| \\le K \\;\\Rightarrow\\; |f(b)-f(a)| \\le K\\,|b-a|$$\nMVT som ulikhetsmaskin (Lipschitz)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

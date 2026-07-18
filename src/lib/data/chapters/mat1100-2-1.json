@@ -1,0 +1,480 @@
+{
+  "id": "mat1100-2-1",
+  "courseId": "mat1100",
+  "chapterNumber": "2.1",
+  "title": "Grenseverdier og ε-δ-definisjonen",
+  "description": "Den presise grensedefinisjonen med kvantordisiplin, negasjon og det kvantitative δ-valget — midtveisens teorispørsmål og slutteksamens ε-δ-bevis.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive ε-δ-definisjonen av grenseverdi i full kvantorform og lese den riktig",
+    "finne δ som funksjon av ε for lineære og enkle ikke-lineære funksjoner med min-grepet",
+    "negere grensedefinisjonen og bruke negasjonen til å vise at en grense ikke finnes",
+    "avgjøre kontinuitet i et punkt ved hjelp av de tre kravene"
+  ],
+  "content": [
+    {
+      "id": "mat1100-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her lærer du den presise grensedefinisjonen — teorien bak alle grenseoppgaver.** To roller på eksamen:\n\n- **Midtveis (flervalg):** ε-δ- og definisjonsteori er **7 % av midtveisspørsmålene**. Distraktorene er bygget på ett triks: de bytter om på kvantorene («for alle»/«det finnes») eller lar ε og δ bytte rolle. Kjenner du definisjonen ordrett, ser du fella på sekunder.\n- **Slutteksamen (langsvar):** ε-δ-bevis er én av arketypene i teoribevis-sjangeren (teoribevis dukker opp i om lag **13 av 21 slutteksamener H2003–H2023**). Her må du føre et fullt bevis med kvantorer og et konkret δ-valg.\n\n**Prioritet: kunne.** Dette er ikke det mest testede temaet i antall poeng, men det er billig å sikre på midtveis og gir deg språket resten av Del 2 bygger på. Regneteknikken (L'Hôpital, standardgrenser) kommer i [kap. 2.2](/bok/mat1100/mat1100-2-2) — her handler alt om *presisjon*: kvantorer i riktig rekkefølge, og et δ du faktisk kan skrive ned.\n\n*(Frekvenstallene er talt opp i MAT1100-arkivet: 21 slutteksamener H2003–H2023 og 16 midtveiseksamener H2003–H2018. Arkivet stopper i 2023.)*"
+    },
+    {
+      "id": "mat1100-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Du bør ha en intuitiv følelse for hva en grenseverdi er — «$f(x)$ nærmer seg $L$ når $x$ nærmer seg $a$» — fra [Grenseverdi (R1)](/bok/r1/r1-3-1). Her gjør vi den intuisjonen *presis*. Den eneste regneteknikken du trenger, er trygg algebraisk forenkling av brøk- og faktoruttrykk; vil du friske opp, se [Rasjonale uttrykk (1T)](/bok/1t/1t-1-6).\n\nDu trenger **ikke** derivasjon eller L'Hôpital her — det kommer i [kap. 2.2](/bok/mat1100/mat1100-2-2). Kapitlet står på egne bein fra grunnintuisjonen."
+    },
+    {
+      "id": "mat1100-2-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du stiller inn en gammel radio. Du vet ikke den eksakte frekvensen til kanalen, men du vet at *jo nærmere* du vrir knappen mot riktig punkt, *desto renere* blir lyden. En grenseverdi er akkurat denne ideen gjort matematisk presis: uansett hvor liten støy (feilmargin) du krever, finnes det et lite nok område rundt punktet der lyden (funksjonsverdien) holder seg innenfor kravet.\n\nUtfordringen er at «nærmer seg» er upresist. Matematikken trenger en definisjon en datamaskin kunne sjekke. Det er **ε-δ-definisjonen** (epsilon-delta): den oversetter «nærmer seg» til to konkrete tall og to kvantorer. Dette kapitlet bygger den opp bit for bit, i små læringsløkker — teori, gjennomregnet eksempel, så en oppgave — slik at du kan ta pauser underveis.\n\n> **Tidsbruk (~55 min lesetid; ×1,5 hvis du skriver alt for hånd).** Sju korte løkker. Naturlige pausepunkter er markert. Tallene i parentes er lesetid for kjernestoffet — begrepsbanken til slutt er repetisjon og teller ikke med."
+    },
+    {
+      "id": "mat1100-2-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Den presise definisjonen (~10 min)"
+    },
+    {
+      "id": "mat1100-2-1-l1-intro",
+      "type": "text",
+      "content": "La oss oversette radioeksempelet. Kravet ditt til renhet kaller vi $\\varepsilon$ (epsilon) — en liten positiv **feilmargin** rundt grenseverdien $L$. Din del av avtalen er å finne et lite område rundt $a$ — en radius $\\delta$ (delta) — slik at *hver* $x$ i det området (bortsett fra $a$ selv) gir en $f(x)$ innenfor $\\varepsilon$ av $L$. Klarer du det **uansett hvor lite $\\varepsilon$ er**, sier vi at grensen er $L$."
+    },
+    {
+      "id": "mat1100-2-1-def-grense",
+      "type": "definition",
+      "title": "Grenseverdi (ε-δ-definisjonen)",
+      "content": "At funksjonen $f$ har grenseverdi $L$ når $x$ går mot $a$ betyr, presist: for enhver feilmargin finnes det et nærhetskrav som tvinger $f(x)$ innenfor marginen. I full kvantorform:\n\n$$\\lim_{x\\to a} f(x) = L \\iff \\forall \\varepsilon > 0\\; \\exists \\delta > 0 \\;\\text{slik at}\\; 0 < |x - a| < \\delta \\Rightarrow |f(x) - L| < \\varepsilon.$$\n\nLes det som en samtale: *motstanderen* velger $\\varepsilon > 0$ (hvor nær $L$ du må komme); *du* svarer med $\\delta > 0$ (hvor nær $a$ du trenger å være). Betingelsen $0 < |x-a|$ betyr at vi ser bort fra $x = a$ selv — grensen handler om oppførselen *rundt* $a$, ikke *i* $a$."
+    },
+    {
+      "id": "mat1100-2-1-def-kvantor",
+      "type": "definition",
+      "title": "Kvantorrekkefølgen ∀ε ∃δ",
+      "content": "Rekkefølgen på kvantorene er hele poenget. Definisjonen sier **$\\forall \\varepsilon\\, \\exists \\delta$**: *først* gis $\\varepsilon$, *deretter* velger du $\\delta$. Derfor har du lov til å la $\\delta$ avhenge av $\\varepsilon$ — det er nettopp det du gjør når du skriver $\\delta = \\varepsilon/3$.\n\nBytter du rekkefølgen til $\\exists \\delta\\, \\forall \\varepsilon$ («det finnes én $\\delta$ som funker for alle $\\varepsilon$»), får du et helt annet — og nesten alltid galt — utsagn. Dette byttet er den vanligste distraktoren i flervalgsspørsmål om definisjonen."
+    },
+    {
+      "id": "mat1100-2-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Lese definisjonen riktig",
+      "problem": "Hvilket av disse utsagnene er den korrekte definisjonen av $\\lim_{x\\to 2} f(x) = 5$?\n\n**a)** $\\forall \\varepsilon > 0\\; \\exists \\delta > 0:\\; 0 < |x-2| < \\delta \\Rightarrow |f(x)-5| < \\varepsilon.$\n\n**b)** $\\exists \\delta > 0\\; \\forall \\varepsilon > 0:\\; 0 < |x-2| < \\delta \\Rightarrow |f(x)-5| < \\varepsilon.$\n\n**c)** $\\forall \\varepsilon > 0\\; \\exists \\delta > 0:\\; 0 < |f(x)-5| < \\delta \\Rightarrow |x-2| < \\varepsilon.$",
+      "solution": "**Riktig er a).**\n\n**b)** er feil fordi kvantorrekkefølgen er snudd: den påstår at *én og samme* $\\delta$ virker for *alle* $\\varepsilon$. Det ville tvinge $f$ til å være konstant lik 5 nær $x=2$ — altfor sterkt.\n\n**c)** er feil fordi $\\varepsilon$ og $\\delta$ har byttet rolle: her styrer $\\delta$ nærheten til $L$ og $\\varepsilon$ nærheten til $a$. Definisjonen skal ha $\\varepsilon$ på funksjonssiden ($|f(x)-L|<\\varepsilon$) og $\\delta$ på $x$-siden ($|x-a|<\\delta$).\n\n**Konklusjon:** Bare a) har både riktig kvantorrekkefølge ($\\forall\\varepsilon\\,\\exists\\delta$) og riktig rollefordeling. Svar: **a)**."
+    },
+    {
+      "id": "mat1100-2-1-ex-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — «MV» er midtveisrepertoaret: flervalgsspørsmål du bør klare på under 6 minutter.) I definisjonen $\\lim_{x\\to a} f(x) = L$, hvilken størrelse velges *først*, og hvilken velges som svar på den?",
+        "solution": "Feilmarginen $\\varepsilon$ velges **først** (av «motstanderen»). Nærhetsradien $\\delta$ velges **etterpå**, som svar — og har derfor lov til å avhenge av $\\varepsilon$. Rekkefølgen er $\\forall\\varepsilon\\,\\exists\\delta$: for alle $\\varepsilon$ finnes en $\\delta$.\n\n**Konklusjon:** $\\varepsilon$ først, $\\delta$ som svar.",
+        "hints": [
+          "Les kvantorene fra venstre: hvilken står først, $\\forall\\varepsilon$ eller $\\exists\\delta$?",
+          "Den som kommer sist, får lov til å avhenge av den som kom først."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Finne δ som funksjon av ε (~10 min)"
+    },
+    {
+      "id": "mat1100-2-1-l2-intro",
+      "type": "text",
+      "content": "Å *kjenne* definisjonen er én ting; å *bruke* den er å faktisk finne en $\\delta$ som virker. For rette linjer er dette rent regnestykke: du løser ulikheten $|f(x)-L| < \\varepsilon$ for $|x-a|$."
+    },
+    {
+      "id": "mat1100-2-1-def-deltaeps",
+      "type": "definition",
+      "title": "δ som funksjon av ε",
+      "content": "Å «finne $\\delta(\\varepsilon)$» betyr å gi en oppskrift som produserer en brukbar $\\delta$ for enhver $\\varepsilon$. Fremgangsmåten: start med kravet $|f(x)-L| < \\varepsilon$, regn det om til en betingelse på $|x-a|$, og les av hvor liten $\\delta$ må være. For en lineær funksjon $f(x) = mx + b$ blir $|f(x)-L| = |m|\\,|x-a|$, så kravet $|m|\\,|x-a| < \\varepsilon$ gir direkte $\\delta = \\varepsilon/|m|$."
+    },
+    {
+      "id": "mat1100-2-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: δ(ε) for en lineær funksjon",
+      "problem": "Bruk definisjonen til å vise at $\\lim_{x\\to 2}(3x - 1) = 5$. Angi et konkret $\\delta$ som funksjon av $\\varepsilon$.",
+      "solution": "Vi har $f(x) = 3x-1$, $a = 2$, $L = 5$. La $\\varepsilon > 0$ være gitt.\n\n**Regn om kravet.** Vi undersøker avstanden $|f(x)-L|$:\n$$|f(x) - 5| = |3x - 1 - 5| = |3x - 6| = 3|x - 2|.$$\n\n**Velg δ.** Vi vil ha $3|x-2| < \\varepsilon$, altså $|x-2| < \\varepsilon/3$. Sett derfor\n$$\\boxed{\\delta = \\frac{\\varepsilon}{3}}.$$\n\n**Verifiser.** Anta $0 < |x-2| < \\delta = \\varepsilon/3$. Da er $|f(x)-5| = 3|x-2| < 3\\cdot \\dfrac{\\varepsilon}{3} = \\varepsilon.$\n\n**Konklusjon:** For enhver $\\varepsilon > 0$ virker $\\delta = \\varepsilon/3$, så per definisjonen er $\\lim_{x\\to 2}(3x-1) = 5$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I — eksistens- og teoribevis; sjangerbokstaven «I» merker oppgaver der du skal *bevise* noe, ikke bare regne. Her: et kort ε-δ-bevis for en linje.) Vis med definisjonen at $\\lim_{x\\to 3}(2x + 1) = 7$, og angi $\\delta$ som funksjon av $\\varepsilon$.",
+        "solution": "La $\\varepsilon > 0$ være gitt. Med $f(x) = 2x+1$, $a=3$, $L=7$:\n$$|f(x)-7| = |2x + 1 - 7| = |2x - 6| = 2|x-3|.$$\n\n**Velg $\\delta = \\varepsilon/2$.** Anta $0 < |x-3| < \\delta$. Da er\n$$|f(x)-7| = 2|x-3| < 2\\cdot \\frac{\\varepsilon}{2} = \\varepsilon.$$\n\n**Konklusjon:** For enhver $\\varepsilon>0$ virker $\\delta = \\varepsilon/2$, så $\\lim_{x\\to 3}(2x+1) = 7$. $\\blacksquare$",
+        "hints": [
+          "Regn ut $|f(x)-L|$ og faktoriser ut $|x-a|$.",
+          "Koeffisienten foran $x$ bestemmer nevneren i $\\delta$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Bevismalen for ikke-lineære funksjoner (~12 min)"
+    },
+    {
+      "id": "mat1100-2-1-l3-intro",
+      "type": "text",
+      "content": "For krumme funksjoner er $|f(x)-L|$ ikke lenger bare en konstant ganger $|x-a|$. Da får $|x-a|$ selskap av en faktor som *også* varierer med $x$ (typisk $|x + \\text{noe}|$). Trikset er å **avgrense den plagsomme faktoren** på et lite kontrollintervall, og så velge $\\delta$ som det minste av to krav."
+    },
+    {
+      "id": "mat1100-2-1-def-mingrepet",
+      "type": "definition",
+      "title": "ε-δ-bevismalen (min-grepet)",
+      "content": "For en ikke-lineær $f$ følger beviset tre faste steg:\n\n1. **Faktoriser** $|f(x)-L|$ slik at $|x-a|$ kommer eksplisitt ut, ved siden av en «forstyrrende» faktor $|g(x)|$.\n2. **Avgrens** forstyrrelsen: krev først $|x-a| < 1$ (et vilkårlig kontrollintervall). Da ligger $x$ i et bånd rundt $a$, og du kan finne en konstant $K$ med $|g(x)| \\le K$ der.\n3. **Velg** $\\delta = \\min\\!\\left(\\dfrac{\\varepsilon}{K},\\, 1\\right)$. Det lille tallet 1 sikrer at avgrensningen fra steg 2 gjelder; $\\varepsilon/K$ sikrer selve $\\varepsilon$-kravet.\n\nBåde $\\delta \\le 1$ og $\\delta \\le \\varepsilon/K$ holder samtidig, så begge kravene er oppfylt. Å glemme $\\min(\\cdot, 1)$-grepet er den vanligste feilen i slike bevis."
+    },
+    {
+      "id": "mat1100-2-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Full ε-δ-mal for en andregradsfunksjon",
+      "problem": "Vis med definisjonen at $\\lim_{x\\to 1}(3x^2 + 1) = 4$.",
+      "solution": "Her er $f(x) = 3x^2 + 1$, $a = 1$, $L = 4$. La $\\varepsilon > 0$ være gitt.\n\n**Steg 1 — faktoriser.**\n$$|f(x) - 4| = |3x^2 + 1 - 4| = |3x^2 - 3| = 3|x^2 - 1| = 3\\,|x-1|\\,|x+1|.$$\nHer er $|x-1|$ det vi kontrollerer, og $|x+1|$ den forstyrrende faktoren.\n\n**Steg 2 — avgrens forstyrrelsen.** Krev først $|x-1| < 1$. Da er $0 < x < 2$, så $1 < x+1 < 3$, og dermed $|x+1| < 3$. Med $K = 3\\cdot 3 = 9$ får vi\n$$|f(x)-4| = 3|x-1|\\,|x+1| < 9\\,|x-1| \\quad\\text{når } |x-1| < 1.$$\n\n**Steg 3 — velg δ.**\n$$\\boxed{\\delta = \\min\\!\\left(\\frac{\\varepsilon}{9},\\, 1\\right)}.$$\n\n**Verifiser.** Anta $0 < |x-1| < \\delta$. Fordi $\\delta \\le 1$ gjelder avgrensningen $|x+1| < 3$, og fordi $\\delta \\le \\varepsilon/9$ er\n$$|f(x)-4| < 9|x-1| < 9\\cdot \\frac{\\varepsilon}{9} = \\varepsilon.$$\n\n**Konklusjon:** For enhver $\\varepsilon > 0$ virker $\\delta = \\min(\\varepsilon/9, 1)$, så $\\lim_{x\\to 1}(3x^2+1) = 4$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — eksistens- og teoribevis.) Vis med definisjonen at $\\lim_{x\\to 2} x^2 = 4$. Bruk min-grepet og angi $\\delta$ eksplisitt.",
+        "solution": "La $\\varepsilon > 0$ være gitt; $f(x)=x^2$, $a=2$, $L=4$.\n\n**Steg 1 — faktoriser.**\n$$|x^2 - 4| = |x-2|\\,|x+2|.$$\n\n**Steg 2 — avgrens.** Krev $|x-2| < 1$, altså $1 < x < 3$. Da er $3 < x+2 < 5$, så $|x+2| < 5$. Dermed $|x^2-4| < 5|x-2|$ på dette båndet ($K = 5$).\n\n**Steg 3 — velg $\\delta = \\min(\\varepsilon/5,\\, 1)$.** Anta $0 < |x-2| < \\delta$. Siden $\\delta \\le 1$ gjelder $|x+2|<5$, og siden $\\delta \\le \\varepsilon/5$:\n$$|x^2 - 4| < 5|x-2| < 5\\cdot \\frac{\\varepsilon}{5} = \\varepsilon.$$\n\n**Konklusjon:** $\\delta = \\min(\\varepsilon/5, 1)$ virker for enhver $\\varepsilon>0$, så $\\lim_{x\\to 2}x^2 = 4$. $\\blacksquare$",
+        "hints": [
+          "Faktoriser $|x^2-4| = |x-2||x+2|$; $|x+2|$ er forstyrrelsen.",
+          "Krev $|x-2|<1$ og finn en øvre skranke for $|x+2|$ på intervallet $(1,3)$.",
+          "Sett $\\delta = \\min(\\varepsilon/K, 1)$ med den $K$-en du fant."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Ensidige og uendelige grenser (~8 min)"
+    },
+    {
+      "id": "mat1100-2-1-l4-intro",
+      "type": "text",
+      "content": "Noen ganger nærmer $x$ seg bare fra én side, eller $x$ (eventuelt $f(x)$) vokser uten grense. Definisjonen tilpasses ved å endre nøyaktig én bit av kvantorutsagnet. — *naturlig pausepunkt: du har nå de tre kjernegrepene (definisjon, δ(ε), min-malen). Resten er varianter.*"
+    },
+    {
+      "id": "mat1100-2-1-def-ensidig",
+      "type": "definition",
+      "title": "Ensidige grenser",
+      "content": "En **høyregrense** ser bare på $x > a$: $\\lim_{x\\to a^+} f(x) = L$ betyr $\\forall \\varepsilon>0\\,\\exists \\delta>0: a < x < a+\\delta \\Rightarrow |f(x)-L|<\\varepsilon$. En **venstregrense** ($x\\to a^-$) bruker $a-\\delta < x < a$ i stedet. Den tosidige grensen finnes **hvis og bare hvis** begge ensidige grenser finnes og er like: $\\lim_{x\\to a} f = L \\iff \\lim_{x\\to a^-} f = \\lim_{x\\to a^+} f = L$."
+    },
+    {
+      "id": "mat1100-2-1-def-mot-uendelig",
+      "type": "definition",
+      "title": "Grense når x → ∞",
+      "content": "Når $x$ vokser uten grense: $\\lim_{x\\to\\infty} f(x) = L$ betyr at $f(x)$ kan tvinges vilkårlig nær $L$ ved å gjøre $x$ stor nok. I kvantorform byttes nærhetskravet $|x-a|<\\delta$ ut med et *størrelseskrav*:\n$$\\forall \\varepsilon > 0\\; \\exists N: \\; x > N \\Rightarrow |f(x) - L| < \\varepsilon.$$\nGeometrisk: linjen $y = L$ er en **horisontal asymptote** til grafen."
+    },
+    {
+      "id": "mat1100-2-1-def-uendelig-verdi",
+      "type": "definition",
+      "title": "Uendelig grense (f(x) → ∞)",
+      "content": "Når funksjonsverdien vokser uten grense: $\\lim_{x\\to a} f(x) = \\infty$ betyr at $f(x)$ kan gjøres vilkårlig stor ved å velge $x$ nær nok $a$. Her byttes feilmarginen $\\varepsilon$ ut med en *terskel* $M$:\n$$\\forall M > 0\\; \\exists \\delta > 0: \\; 0 < |x-a| < \\delta \\Rightarrow f(x) > M.$$\nMerk: dette er ikke en «grense» i vanlig forstand ($\\infty$ er ikke et tall) — det er en presis måte å si at grafen har en **vertikal asymptote** $x=a$."
+    },
+    {
+      "id": "mat1100-2-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ensidige grenser avgjør eksistens",
+      "problem": "La $f(x) = \\dfrac{|x|}{x}$ for $x \\ne 0$. Finn de ensidige grensene i $0$, og avgjør om $\\lim_{x\\to 0} f(x)$ finnes.",
+      "solution": "For $x > 0$ er $|x| = x$, så $f(x) = x/x = 1$. For $x < 0$ er $|x| = -x$, så $f(x) = -x/x = -1$.\n\n**Høyregrense:** $\\lim_{x\\to 0^+} f(x) = 1.$\n**Venstregrense:** $\\lim_{x\\to 0^-} f(x) = -1.$\n\nDe to ensidige grensene er **ulike** ($1 \\ne -1$).\n\n**Konklusjon:** Siden $\\lim_{x\\to 0^-} f \\ne \\lim_{x\\to 0^+} f$, finnes ikke den tosidige grensen $\\lim_{x\\to 0} f(x)$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — MV.) Hvilken av de fire betingelsene er den korrekte definisjonen av $\\lim_{x\\to\\infty} f(x) = L$?",
+        "solution": "Den korrekte er: $\\forall \\varepsilon>0\\;\\exists N:\\; x > N \\Rightarrow |f(x)-L| < \\varepsilon$.\n\nGrensen mot uendelig erstatter nærhetskravet på $x$ (som ikke gir mening når $x\\to\\infty$) med et *størrelseskrav* $x > N$, mens $\\varepsilon$-kravet på funksjonssiden er uendret. Distraktorer som setter $|x| < \\delta$ eller bytter $\\varepsilon$ mot $N$ er feil.\n\n**Konklusjon:** «for alle $\\varepsilon$ finnes en $N$ slik at $x>N$ tvinger $|f(x)-L|<\\varepsilon$».",
+        "hints": [
+          "Hva slags krav kan du stille til $x$ når $x$ skal bli uendelig stor? Ikke $|x-a|<\\delta$.",
+          "$\\varepsilon$ sitter fortsatt på funksjonssiden $|f(x)-L|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Negasjon: å vise at en grense IKKE er L (~8 min)"
+    },
+    {
+      "id": "mat1100-2-1-l5-intro",
+      "type": "text",
+      "content": "For å vise at et utsagn er *usant*, negerer du det. Å negere en kvantorformel følger en mekanisk regel: hver $\\forall$ blir $\\exists$, hver $\\exists$ blir $\\forall$, og den innerste ulikheten snus. Dette er selve motoren bak midtveis-distraktorene — kan du negasjonen, gjennomskuer du dem alle."
+    },
+    {
+      "id": "mat1100-2-1-def-negasjon",
+      "type": "definition",
+      "title": "Negasjon av grensedefinisjonen",
+      "content": "Utsagnet «$\\lim_{x\\to a} f(x) = L$» er $\\forall\\varepsilon\\,\\exists\\delta: (0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon)$. Negasjonen snur alle kvantorer og bryter implikasjonen:\n\n$$\\lim_{x\\to a} f(x) \\ne L \\iff \\exists \\varepsilon > 0\\; \\forall \\delta > 0\\; \\exists x:\\; \\big(0 < |x-a| < \\delta \\;\\text{og}\\; |f(x)-L| \\ge \\varepsilon\\big).$$\n\nI ord: **det finnes én fast feilmargin $\\varepsilon$** slik at uansett hvor liten $\\delta$ du prøver, finnes det et $x$ innenfor $\\delta$ av $a$ som likevel bommer på $L$ med minst $\\varepsilon$. Regel: $\\forall \\leftrightarrow \\exists$, og «$\\Rightarrow$ mindre enn» blir «og større enn eller lik»."
+    },
+    {
+      "id": "mat1100-2-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Bruke negasjonen",
+      "problem": "La $f(x) = \\dfrac{|x|}{x}$ (som i eksempel 4). Bruk negasjonen til å vise at $\\lim_{x\\to 0} f(x) \\ne 1$.",
+      "solution": "Vi skal finne én $\\varepsilon > 0$ slik at det for hver $\\delta$ finnes et $x$ med $0<|x|<\\delta$ og $|f(x)-1| \\ge \\varepsilon$.\n\n**Velg $\\varepsilon = 1$.** La $\\delta > 0$ være vilkårlig. Velg et negativt $x$ i intervallet, for eksempel $x = -\\delta/2$ (som oppfyller $0 < |x| < \\delta$). For dette $x$ er $f(x) = -1$, så\n$$|f(x) - 1| = |-1 - 1| = 2 \\ge 1 = \\varepsilon.$$\n\nDette virker for **enhver** $\\delta$, så negasjonen er oppfylt.\n\n**Konklusjon:** Med $\\varepsilon = 1$ bommer et venstresidig $x$ alltid på $L=1$ med minst $\\varepsilon$. Altså er $\\lim_{x\\to 0} f(x) \\ne 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg-trening — MV.) Hva er den korrekte negasjonen av $\\lim_{x\\to a} f(x) = L$?",
+        "solution": "$$\\exists \\varepsilon > 0\\; \\forall \\delta > 0\\; \\exists x:\\; 0 < |x-a| < \\delta \\;\\text{og}\\; |f(x)-L| \\ge \\varepsilon.$$\n\nHver kvantor er byttet ($\\forall\\varepsilon \\to \\exists\\varepsilon$, $\\exists\\delta \\to \\forall\\delta$), og konklusjonen $|f(x)-L|<\\varepsilon$ er snudd til $|f(x)-L|\\ge\\varepsilon$. Distraktorer som beholder rekkefølgen $\\forall\\varepsilon\\,\\exists\\delta$ eller bruker streng ulikhet $>\\varepsilon$ i stedet for $\\ge$ er feil.\n\n**Konklusjon:** «Det finnes en $\\varepsilon$ slik at for alle $\\delta$ finnes en $x$ nær $a$ som bommer med minst $\\varepsilon$.»",
+        "hints": [
+          "Negasjonsregel: bytt hver $\\forall$ med $\\exists$ og omvendt, fra venstre mot høyre.",
+          "Den innerste «$<\\varepsilon$» blir «$\\ge \\varepsilon$» — ikke «$>\\varepsilon$»."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Kontinuitet i et punkt (~7 min)"
+    },
+    {
+      "id": "mat1100-2-1-l6-intro",
+      "type": "text",
+      "content": "Grenseverdien handler om oppførselen *rundt* $a$ og ignorerer $f(a)$. Kontinuitet er kravet om at de to henger sammen: grensen skal finnes **og** treffe funksjonsverdien. Det er en vanlig felle å tro at like ensidige grenser alene gir kontinuitet — man glemmer å sjekke $f(a)$."
+    },
+    {
+      "id": "mat1100-2-1-def-kontinuitet",
+      "type": "definition",
+      "title": "Kontinuitet i et punkt",
+      "content": "$f$ er **kontinuerlig i $a$** dersom tre ting holder samtidig:\n\n1. $f(a)$ er definert,\n2. $\\lim_{x\\to a} f(x)$ finnes, og\n3. de er like: $\\lim_{x\\to a} f(x) = f(a)$.\n\nAlle tre kreves. Grensen kan finnes uten at $f$ er kontinuerlig (om $f(a)$ mangler eller har «feil» verdi) — da har grafen et hull eller et hopp i $a$. Med ε-δ direkte: $\\forall\\varepsilon>0\\,\\exists\\delta>0: |x-a|<\\delta \\Rightarrow |f(x)-f(a)|<\\varepsilon$ (merk: her tillates $x=a$, siden $|f(a)-f(a)|=0<\\varepsilon$ uansett)."
+    },
+    {
+      "id": "mat1100-2-1-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Sjekk kontinuitet i et skjøtepunkt",
+      "problem": "La $f(x) = \\begin{cases} x + 1, & x \\le 1 \\\\ 3x - 1, & x > 1 \\end{cases}$. Er $f$ kontinuerlig i $x = 1$?",
+      "solution": "Vi sjekker de tre kravene i $a = 1$.\n\n**1. Funksjonsverdien:** $x=1$ hører til øvre gren, så $f(1) = 1 + 1 = 2$.\n\n**2. Ensidige grenser:**\n$$\\lim_{x\\to 1^-} f(x) = \\lim_{x\\to 1^-}(x+1) = 2, \\qquad \\lim_{x\\to 1^+} f(x) = \\lim_{x\\to 1^+}(3x-1) = 2.$$\nBegge er 2, så $\\lim_{x\\to 1} f(x) = 2$ finnes.\n\n**3. Sammenlign:** $\\lim_{x\\to 1} f(x) = 2 = f(1)$. ✓\n\n**Konklusjon:** Alle tre kravene holder, så $f$ er **kontinuerlig i $x=1$**. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I — teoribevis/analyse.) La $g(x) = \\dfrac{x^2 - 9}{x - 3}$ for $x \\ne 3$, og $g(3) = 5$. Er $g$ kontinuerlig i $x = 3$? Begrunn med de tre kravene.",
+        "solution": "**1. Funksjonsverdien** er gitt: $g(3) = 5$. ✓ (definert)\n\n**2. Grensen.** For $x \\ne 3$ forkorter vi:\n$$g(x) = \\frac{x^2-9}{x-3} = \\frac{(x-3)(x+3)}{x-3} = x + 3.$$\nDermed $\\lim_{x\\to 3} g(x) = 3 + 3 = 6$. ✓ (finnes)\n\n**3. Sammenlign:** $\\lim_{x\\to 3} g(x) = 6$, men $g(3) = 5$. Disse er **ulike**.\n\n**Konklusjon:** Grensen finnes, men treffer ikke funksjonsverdien ($6 \\ne 5$), så $g$ er **ikke kontinuerlig i $x=3$**. Dette er en hevbar diskontinuitet: hadde vi satt $g(3)=6$, ville $g$ vært kontinuerlig. $\\blacksquare$",
+        "hints": [
+          "Forkort brøken for $x\\ne 3$ — telleren faktoriseres.",
+          "Sammenlign grensen du får med den oppgitte verdien $g(3)=5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-l7-head",
+      "type": "text",
+      "content": "## Løkke 7 — Grenseregler og entydighet (~... siste løkke)"
+    },
+    {
+      "id": "mat1100-2-1-l7-intro",
+      "type": "text",
+      "content": "I praksis regner du sjelden grenser direkte fra definisjonen — du bruker **grensereglene**, som lar deg dele opp et sammensatt uttrykk. Definisjonen er garantien for at reglene er lovlige."
+    },
+    {
+      "id": "mat1100-2-1-def-grenseregler",
+      "type": "definition",
+      "title": "Grenseregler (sum, produkt, kvotient)",
+      "content": "Anta $\\lim_{x\\to a} f(x) = L$ og $\\lim_{x\\to a} g(x) = M$. Da gjelder:\n\n$$\\lim_{x\\to a}\\big(f(x)+g(x)\\big) = L + M, \\qquad \\lim_{x\\to a}\\big(f(x)\\,g(x)\\big) = L\\,M,$$\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\frac{L}{M} \\quad (\\text{forutsatt } M \\ne 0).$$\n\n**Bevisidé for summen:** gitt $\\varepsilon>0$, bruk definisjonen på hver funksjon med margin $\\varepsilon/2$: velg $\\delta_f$ så $|f-L|<\\varepsilon/2$ og $\\delta_g$ så $|g-M|<\\varepsilon/2$, og sett $\\delta = \\min(\\delta_f,\\delta_g)$. Trekantulikheten gir $|(f+g)-(L+M)| \\le |f-L| + |g-M| < \\varepsilon/2 + \\varepsilon/2 = \\varepsilon$."
+    },
+    {
+      "id": "mat1100-2-1-def-entydig",
+      "type": "definition",
+      "title": "Entydighet av grensen",
+      "content": "En grenseverdi er **entydig**: hvis $\\lim_{x\\to a} f(x) = L$ og $\\lim_{x\\to a} f(x) = L'$, så er $L = L'$. En funksjon kan ikke nærme seg to forskjellige tall samtidig. (Bevisidé: var $L \\ne L'$, kunne vi velge $\\varepsilon = |L-L'|/2$ og få $f(x)$ innenfor $\\varepsilon$ av *begge* — umulig, siden de to $\\varepsilon$-båndene ikke overlapper.) På dette nivået trenger du bare *kjenne* resultatet."
+    },
+    {
+      "id": "mat1100-2-1-ex7",
+      "type": "example",
+      "title": "Eksempel 7: Regne med grensereglene",
+      "problem": "Beregn $\\lim_{x\\to 2}\\dfrac{x^2 + 3x}{x + 1}$ med grensereglene, og angi hvilke regler du bruker.",
+      "solution": "Vi bruker at $\\lim_{x\\to 2} x = 2$ (grunngrensen) og bygger opp:\n\n**Teller:** produkt- og sumregelen gir $\\lim_{x\\to 2}(x^2 + 3x) = 2^2 + 3\\cdot 2 = 4 + 6 = 10.$\n\n**Nevner:** sumregelen gir $\\lim_{x\\to 2}(x+1) = 2 + 1 = 3 \\ne 0.$\n\n**Kvotientregelen** (lovlig siden nevnergrensen $3 \\ne 0$):\n$$\\lim_{x\\to 2}\\frac{x^2+3x}{x+1} = \\frac{10}{3}.$$\n\n**Konklusjon:** $\\lim_{x\\to 2}\\dfrac{x^2+3x}{x+1} = \\dfrac{10}{3}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-1-ex-l7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I — teoribevis.) Anta $\\lim_{x\\to a} f(x) = L$ og $\\lim_{x\\to a} g(x) = M$. Skisser et ε-δ-bevis for sumregelen $\\lim_{x\\to a}(f(x)+g(x)) = L+M$.",
+        "solution": "La $\\varepsilon > 0$ være gitt.\n\n**Del opp marginen.** Bruk grensen for $f$ med margin $\\varepsilon/2$: det finnes $\\delta_1>0$ med\n$$0 < |x-a| < \\delta_1 \\Rightarrow |f(x)-L| < \\tfrac{\\varepsilon}{2}.$$\nBruk grensen for $g$ tilsvarende: det finnes $\\delta_2>0$ med $0<|x-a|<\\delta_2 \\Rightarrow |g(x)-M|<\\tfrac{\\varepsilon}{2}$.\n\n**Velg $\\delta = \\min(\\delta_1, \\delta_2)$.** Anta $0<|x-a|<\\delta$. Da gjelder *begge* ulikhetene, og med **trekantulikheten**:\n$$|(f(x)+g(x)) - (L+M)| = |(f(x)-L) + (g(x)-M)| \\le |f(x)-L| + |g(x)-M| < \\tfrac{\\varepsilon}{2} + \\tfrac{\\varepsilon}{2} = \\varepsilon.$$\n\n**Konklusjon:** For enhver $\\varepsilon>0$ virker $\\delta = \\min(\\delta_1,\\delta_2)$, så $\\lim_{x\\to a}(f+g) = L+M$. $\\blacksquare$",
+        "hints": [
+          "Bruk definisjonen på $f$ og $g$ hver for seg — men med margin $\\varepsilon/2$, ikke $\\varepsilon$.",
+          "La $\\delta$ være det minste av de to $\\delta$-ene, så begge ulikhetene gjelder samtidig.",
+          "Trekantulikheten $|u+v|\\le|u|+|v|$ binder det sammen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kvantorrekkefølgen byttet.** $\\forall\\varepsilon\\,\\exists\\delta$ (riktig) er *ikke* det samme som $\\exists\\delta\\,\\forall\\varepsilon$. Den siste påstår at én $\\delta$ virker for alle $\\varepsilon$ — nesten alltid galt. Dette er midtveisens hyppigste distraktor.\n- **ε og δ i byttet rolle.** $\\varepsilon$ hører til funksjonssiden ($|f(x)-L|<\\varepsilon$), $\\delta$ til $x$-siden ($|x-a|<\\delta$). Distraktorer bytter disse.\n- **Glemme $\\min(\\cdot, 1)$-grepet.** Uten kontrollintervallet $|x-a|<1$ kan du ikke avgrense den forstyrrende faktoren, og $\\delta$ blir ugyldig.\n- **Forveksle «grensen finnes» med «funksjonsverdien finnes».** Grensen ignorerer $f(a)$; kontinuitet krever i tillegg at $f(a)$ er definert *og* lik grensen.\n- **Tro at like ensidige grenser alene gir kontinuitet.** De gir at *grensen* finnes, men du må fortsatt sjekke at den er lik $f(a)$."
+    },
+    {
+      "id": "mat1100-2-1-bank-head",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene under samler symbolene og finbegrepene fra kapitlet i eksamensrettet kortform."
+    },
+    {
+      "id": "mat1100-2-1-bb-epsilon",
+      "type": "definition",
+      "title": "Epsilon (ε) — feilmarginen",
+      "content": "$\\varepsilon > 0$ er den *tillatte feilen* på funksjonssiden: hvor nær $L$ vi krever at $f(x)$ skal komme. I definisjonen velges $\\varepsilon$ først, av «motstanderen». Jo mindre $\\varepsilon$, desto strengere kravet."
+    },
+    {
+      "id": "mat1100-2-1-bb-delta",
+      "type": "definition",
+      "title": "Delta (δ) — nærhetsradien",
+      "content": "$\\delta > 0$ er *nærhetskravet* på $x$-siden: hvor nær $a$ vi må holde oss for å innfri $\\varepsilon$-kravet. $\\delta$ velges *etter* $\\varepsilon$ og har lov til å avhenge av det (skrives ofte $\\delta(\\varepsilon)$)."
+    },
+    {
+      "id": "mat1100-2-1-bb-punktert",
+      "type": "definition",
+      "title": "Punktert omegn (0 < |x − a|)",
+      "content": "Betingelsen $0 < |x-a| < \\delta$ beskriver et intervall rundt $a$ *med $a$ selv fjernet*. Grensen handler om hvordan $f$ oppfører seg når $x$ nærmer seg $a$, ikke om $f(a)$ — derfor punkteringen $0 < |x-a|$."
+    },
+    {
+      "id": "mat1100-2-1-bb-grense-vs-verdi",
+      "type": "definition",
+      "title": "Grenseverdi vs. funksjonsverdi",
+      "content": "$\\lim_{x\\to a} f(x)$ er tallet $f(x)$ *nærmer seg*; $f(a)$ er tallet $f$ *faktisk gir* i $a$. De kan være ulike (hull/hopp) eller den ene kan mangle. Kontinuitet er nettopp kravet om at de finnes og er like."
+    },
+    {
+      "id": "mat1100-2-1-bb-tosidig",
+      "type": "definition",
+      "title": "Kriteriet: venstregrense = høyregrense",
+      "content": "Den tosidige grensen finnes hvis og bare hvis begge ensidige grenser finnes og er like: $\\lim_{x\\to a} f = L \\iff \\lim_{x\\to a^-}f = \\lim_{x\\to a^+}f = L$. Ulike ensidige grenser ⇒ ingen tosidig grense (hoppdiskontinuitet)."
+    },
+    {
+      "id": "mat1100-2-1-bb-hevbar",
+      "type": "definition",
+      "title": "Hevbar diskontinuitet",
+      "content": "Et punkt der grensen finnes, men $f(a)$ mangler eller har «feil» verdi — grafen har et enkelt *hull*. Diskontinuiteten kan «heves» ved å (om)definere $f(a)$ lik grensen. Eksempel: $\\frac{x^2-9}{x-3}$ i $x=3$."
+    },
+    {
+      "id": "mat1100-2-1-bb-hopp",
+      "type": "definition",
+      "title": "Hoppdiskontinuitet",
+      "content": "Et punkt der begge ensidige grenser finnes, men er *ulike*. Grafen «hopper». Den tosidige grensen finnes ikke, så $f$ kan ikke være kontinuerlig der — uansett hvordan $f(a)$ settes. Eksempel: $\\frac{|x|}{x}$ i $x=0$."
+    },
+    {
+      "id": "mat1100-2-1-bb-horisontal",
+      "type": "definition",
+      "title": "Horisontal asymptote",
+      "content": "Linjen $y = L$ er horisontal asymptote til $f$ dersom $\\lim_{x\\to\\infty} f(x) = L$ eller $\\lim_{x\\to -\\infty} f(x) = L$. Grafen legger seg inntil linjen langt ute. Definisjonen bruker størrelseskravet $x > N$ i stedet for $|x-a|<\\delta$."
+    },
+    {
+      "id": "mat1100-2-1-bb-vertikal",
+      "type": "definition",
+      "title": "Vertikal asymptote",
+      "content": "Linjen $x = a$ er vertikal asymptote dersom $f(x)\\to\\pm\\infty$ når $x\\to a$ (fra minst én side). Definisjonen bruker en terskel $M$: for enhver $M$ finnes $\\delta$ slik at $0<|x-a|<\\delta \\Rightarrow f(x) > M$ (eller $< -M$)."
+    },
+    {
+      "id": "mat1100-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-2-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Grenseverdi (R1)](/bok/r1/r1-3-1)) Regn ut $\\lim_{x\\to 3}(x^2 - 2x)$ ved innsetting, og forklar hvorfor innsetting er lov her.",
+            "solution": "$\\lim_{x\\to 3}(x^2 - 2x) = 3^2 - 2\\cdot 3 = 9 - 6 = 3.$ Innsetting er lov fordi $x^2 - 2x$ er et polynom, og polynomer er kontinuerlige overalt — grensen er dermed lik funksjonsverdien.\n\n**Svar:** $3$.",
+            "hints": [
+              "Polynomer er kontinuerlige, så $\\lim_{x\\to a} p(x) = p(a)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Rasjonale uttrykk (1T)](/bok/1t/1t-1-6)) Forkort $\\dfrac{x^2 - 4}{x - 2}$ for $x \\ne 2$, og finn $\\lim_{x\\to 2}\\dfrac{x^2-4}{x-2}$.",
+            "solution": "$\\dfrac{x^2-4}{x-2} = \\dfrac{(x-2)(x+2)}{x-2} = x+2$ for $x\\ne 2$. Dermed $\\lim_{x\\to 2}\\dfrac{x^2-4}{x-2} = \\lim_{x\\to 2}(x+2) = 4.$\n\n**Svar:** $4$. (Uttrykket er $[0/0]$ ved direkte innsetting; forkorting fjerner den felles faktoren.)",
+            "hints": [
+              "Faktoriser telleren som en konjugatsetning.",
+              "Den felles faktoren $(x-2)$ forkortes bort."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Grenseverdi (R1)](/bok/r1/r1-3-1)) La $h(x) = \\dfrac{x-1}{\\sqrt{x}-1}$ for $x \\ne 1$, $x > 0$. Finn $\\lim_{x\\to 1} h(x)$ ved å utnytte $x - 1 = (\\sqrt{x}-1)(\\sqrt{x}+1)$.",
+            "solution": "For $x \\ne 1$: $h(x) = \\dfrac{(\\sqrt{x}-1)(\\sqrt{x}+1)}{\\sqrt{x}-1} = \\sqrt{x}+1.$ Dermed $\\lim_{x\\to 1} h(x) = \\sqrt{1}+1 = 2.$\n\n**Svar:** $2$.",
+            "hints": [
+              "Skriv $x-1$ som et produkt med $\\sqrt{x}-1$ som faktor.",
+              "Forkort, og sett inn $x=1$ i det som står igjen."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-1-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Grenseverdi (R1)](/bok/r1/r1-3-1)) Avgjør om $\\lim_{x\\to 0}\\dfrac{1}{x}$ finnes, og begrunn med de ensidige grensene.",
+            "solution": "Fra høyre: $\\lim_{x\\to 0^+}\\frac{1}{x} = +\\infty$. Fra venstre: $\\lim_{x\\to 0^-}\\frac{1}{x} = -\\infty$. De ensidige «grensene» er ulike (og uendelige), så den tosidige grensen **finnes ikke**. Grafen har en vertikal asymptote $x=0$.\n\n**Svar:** Grensen finnes ikke.",
+            "hints": [
+              "Sjekk fortegnet på $1/x$ når $x$ er liten positiv, og når $x$ er liten negativ."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-2-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\lim_{x\\to a} f(x) = L$ | Grenseverdien til $f$ når $x$ går mot $a$ er $L$ |\n| $\\varepsilon$ (epsilon) | Feilmargin på funksjonssiden, $\\varepsilon>0$ — velges først |\n| $\\delta$ (delta) | Nærhetsradius på $x$-siden, $\\delta>0$ — velges etter $\\varepsilon$ |\n| $\\forall$ | «for alle» (allkvantor) |\n| $\\exists$ | «det finnes» (eksistenskvantor) |\n| $0 < |x-a| < \\delta$ | $x$ ligger i punktert $\\delta$-omegn om $a$ ($x\\ne a$) |\n| $\\lim_{x\\to a^-}$, $\\lim_{x\\to a^+}$ | venstre- og høyregrense |\n| $\\lim_{x\\to\\infty} f = L$ | horisontal asymptote $y=L$ |\n| $\\lim_{x\\to a} f = \\infty$ | vertikal asymptote $x=a$ |\n| $L, M$ | grenseverdier til $f$ og $g$ |\n| $K$ | øvre skranke for forstyrrende faktor i min-grepet |\n| $\\blacksquare$ | slutt på bevis |\n\n**Formler i dette delkapitlet:**\n\n$$\\lim_{x\\to a} f(x) = L \\iff \\forall\\varepsilon>0\\;\\exists\\delta>0:\\; 0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$$\nε-δ-definisjonen av grenseverdi.\n\n$$\\lim_{x\\to a} f(x) \\ne L \\iff \\exists\\varepsilon>0\\;\\forall\\delta>0\\;\\exists x:\\; 0<|x-a|<\\delta \\;\\text{og}\\; |f(x)-L|\\ge\\varepsilon$$\nNegasjonen — kvantorene snudd, ulikheten snudd.\n\n$$\\delta = \\min\\!\\left(\\frac{\\varepsilon}{K},\\, 1\\right)$$\nMin-grepet: 1-en sikrer avgrensningen, $\\varepsilon/K$ sikrer $\\varepsilon$-kravet.\n\n$$\\lim_{x\\to a} f = L \\iff \\lim_{x\\to a^-} f = \\lim_{x\\to a^+} f = L$$\nTosidig grense = begge ensidige grenser like.\n\n$$f \\text{ kontinuerlig i } a \\iff \\lim_{x\\to a} f(x) = f(a)\\ (\\text{og begge sider finnes})$$\nKontinuitet i et punkt.\n\n$$\\lim(f+g)=L+M,\\quad \\lim(fg)=LM,\\quad \\lim\\frac{f}{g}=\\frac{L}{M}\\ (M\\ne 0)$$\nGrensereglene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

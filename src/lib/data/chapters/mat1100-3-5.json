@@ -1,0 +1,425 @@
+{
+  "id": "mat1100-3-5",
+  "courseId": "mat1100",
+  "chapterNumber": "3.5",
+  "title": "Funksjonsdrøfting: fortegnsskjema, asymptoter og konveksitet",
+  "description": "Komplett drøfting med dokumentert fortegnsskjema og fullstendige asymptoteargumenter — inkludert midtveisgjengangeren skråasymptote til x·e^(k/x)-familien.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke fortegnsskjema for f' og f'' til å drøfte monotoni, lokale og globale ekstrema, konveksitet og vendepunkter",
+    "finne vertikale, horisontale og skråasymptoter med fullstendig grensebegrunnelse, inkludert x·e^(k/x)-familien",
+    "gjennomføre en komplett funksjonsdrøfting og tolke den kvalitative varianten fra grafen til f'"
+  ],
+  "content": [
+    {
+      "id": "mat1100-3-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Drøfting gir poeng på begge prøvene — og skråasymptoten er en nesten årlig midtveisgjenganger.**\n\n- **Drøfting (sjanger K — funksjonsdrøfting):** ca. **12 %** av midtveisspørsmålene. Faste innslag: **skråasymptoten til $x\\,e^{k/x}$-familien** (nesten hvert år) og konveksitet/vendepunkt-spørsmål. På slutteksamen egen oppgave i **9 av 21** sett, og teknikken ligger implisitt i mange flere.\n- **Kvalitativ variant:** «gitt grafen til $f'$, skisser $f$ og $f''$» dukket opp i 2009. Konveksitet ble dessuten brukt i et bevis i 2023 («konveks $\\Rightarrow f'$ voksende»).\n\nSensor krever **dokumentert fortegnsskjema** — en konklusjon om monotoni eller konveksitet uten tegnet/beskrevet fortegnslinje gir trekk (ubegrunnet $\\Rightarrow$ 0). Og asymptoter må begrunnes med *grenser*, ikke bare påstås. Arkivet stopper i 2023, men skråasymptote-familien har vært så stabil at den er verdt å ha på fingrene."
+    },
+    {
+      "id": "mat1100-3-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 3.2](/bok/mat1100/mat1100-3-2)** (derivasjonsteknikk — du deriverer $f$ og $f''$ hele tiden) og **[kap. 2.2](/bok/mat1100/mat1100-2-2)** (grenser og L'Hôpital — asymptoter er grenseregning). Fra videregående støtter vi oss på [Funksjonsdrøfting (R1)](/bok/r1/r1-4-6), [Rasjonale funksjoner (1T)](/bok/1t/1t-3-7) og [Fortegnslinjer (1T)](/bok/1t/1t-4-3).\n\n**Sist du var her (oppfriskning):**\n\n$$f' > 0 \\text{ på et intervall} \\Rightarrow f \\text{ voksende der;} \\qquad f' < 0 \\Rightarrow f \\text{ avtakende} \\quad (\\text{R1})$$\n\n$$\\lim_{x\\to\\infty}\\frac{1}{x^p} = 0 \\ (p>0), \\qquad \\lim_{x\\to 0^+}\\frac{1}{x} = +\\infty \\quad (\\text{grenseverktøy, kap. 2.2})$$"
+    },
+    {
+      "id": "mat1100-3-5-intro",
+      "type": "text",
+      "content": "Å «drøfte en funksjon» er å tegne det fullstendige portrettet: hvor vokser og avtar den, hvor har den topp- og bunnpunkter, hvordan krummer den, og hva skjer i det uendelige og ved bruddpunkter. Verktøyene er $f'$ (fart) og $f''$ (krumning), og **dokumentasjonen** er fortegnsskjemaet.\n\nVi bygger stoffet i seks løkker: (1) fortegnsskjema for $f'$ og monotoni, (2) globale ekstremalpunkter med randsjekk, (3) konveksitet og vendepunkter via $f''$, (4) vertikale og horisontale asymptoter, (5) skråasymptoter — inkludert midtveisgjengangeren $x\\,e^{k/x}$, og (6) en full drøfting satt sammen, pluss den kvalitative varianten fra graf av $f'$."
+    },
+    {
+      "id": "mat1100-3-5-l1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Fortegnsskjema og monotoni (~8 min)"
+    },
+    {
+      "id": "mat1100-3-5-l1-teori",
+      "type": "text",
+      "content": "Fortegnet til $f'$ forteller om $f$ vokser eller avtar. **Fremgangsmåten:** finn nullpunktene og bruddpunktene til $f'$, sett dem på en tallinje, og bestem fortegnet til $f'$ i hvert delintervall (test ett punkt, eller les av faktorene). Der $f'$ skifter fra $+$ til $-$ har $f$ et **lokalt maksimum**; fra $-$ til $+$ et **lokalt minimum**.\n\nDette fortegnsskjemaet *er* føringen sensor vil se — ikke bare et hjelpemiddel du sletter unna."
+    },
+    {
+      "id": "mat1100-3-5-def-fortegnsskjema",
+      "type": "definition",
+      "title": "Fortegnsskjema (fortegnslinje)",
+      "content": "En tallinje der du markerer nullpunktene og bruddpunktene til $f'$ (eller $f''$) og noterer funksjonens fortegn i hvert delintervall. Fra fortegnsskjemaet for $f'$ leser du monotoni og lokale ekstrema; fra fortegnsskjemaet for $f''$ leser du konveksitet og vendepunkter. Skjemaet er den forventede **dokumentasjonen** — en drøftingskonklusjon uten det gir trekk."
+    },
+    {
+      "id": "mat1100-3-5-def-lokalt-ekstrem",
+      "type": "definition",
+      "title": "Lokalt ekstremalpunkt",
+      "content": "Et punkt der $f$ er større (lokalt maksimum) eller mindre (lokalt minimum) enn i alle nærliggende punkter. I et indre punkt er $f'=0$ eller $f'$ udefinert (kritisk punkt). **Førstederiverttesten:** skifter $f'$ fortegn $+\\to-$ i punktet, er det et lokalt maksimum; $-\\to+$ gir lokalt minimum; intet fortegnsskifte gir ingen av delene ($f(x)=x^3$ i $0$)."
+    },
+    {
+      "id": "mat1100-3-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fortegnsskjema for monotoni",
+      "problem": "Bestem hvor $g(x) = 2x^3 - 9x^2 + 12x$ vokser og avtar, og finn de lokale ekstremalpunktene.",
+      "solution": "**Deriver:** $g'(x) = 6x^2 - 18x + 12 = 6(x^2 - 3x + 2) = 6(x-1)(x-2)$.\n\n**Nullpunkter:** $x = 1$ og $x = 2$.\n\n**Fortegnsskjema for $g'$** (test fortegnet til $(x-1)(x-2)$):\n\n| Intervall | $(x-1)$ | $(x-2)$ | $g'$ | $g$ |\n|---|---|---|---|---|\n| $x<1$ | $-$ | $-$ | $+$ | voksende |\n| $1<x<2$ | $+$ | $-$ | $-$ | avtakende |\n| $x>2$ | $+$ | $+$ | $+$ | voksende |\n\n**Les av:** $g'$ skifter $+\\to-$ i $x=1$ $\\Rightarrow$ **lokalt maksimum**, $g(1) = 2 - 9 + 12 = 5$. $g'$ skifter $-\\to+$ i $x=2$ $\\Rightarrow$ **lokalt minimum**, $g(2) = 16 - 36 + 24 = 4$.\n\n**Svar:** voksende på $(-\\infty,1)$ og $(2,\\infty)$, avtakende på $(1,2)$; lokalt maks $(1,5)$, lokalt min $(2,4)$."
+    },
+    {
+      "id": "mat1100-3-5-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K, lett innstegsoppgave.) La $f(x) = x^3 - 12x$. Sett opp fortegnsskjemaet for $f'$ og finn de lokale ekstremalpunktene.",
+        "solution": "$f'(x) = 3x^2 - 12 = 3(x-2)(x+2)$, nullpunkter $x = \\pm 2$.\n\n**Fortegnsskjema:** $f'>0$ for $x<-2$ (voksende), $f'<0$ for $-2<x<2$ (avtakende), $f'>0$ for $x>2$ (voksende).\n\n$f'$ skifter $+\\to-$ i $x=-2$: lokalt maksimum, $f(-2) = -8+24 = 16$. $f'$ skifter $-\\to+$ i $x=2$: lokalt minimum, $f(2) = 8-24 = -16$.\n\n**Svar:** lokalt maks $(-2, 16)$, lokalt min $(2, -16)$.",
+        "hints": [
+          "Deriver og faktoriser $f'$ for å finne nullpunktene.",
+          "Sett nullpunktene på en tallinje og bestem fortegnet i hvert delintervall.",
+          "Fortegnsskifte $+\\to-$ betyr topp, $-\\to+$ betyr bunn."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-l2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Globale ekstremalpunkter og randsjekk (~8 min)"
+    },
+    {
+      "id": "mat1100-3-5-l2-teori",
+      "type": "text",
+      "content": "Et **lokalt** ekstremum er størst/minst i sitt nabolag; et **globalt** (absolutt) ekstremum er størst/minst på *hele* intervallet. På et lukket, begrenset intervall $[a,b]$ garanterer ekstremverdisetningen (kap. 2.4) at begge finnes — og de antas enten i et kritisk punkt eller i et **randpunkt**.\n\n**Fremgangsmåte (lukket intervall):** regn $f$ i (i) alle kritiske punkter inni intervallet og (ii) begge endepunktene $a$ og $b$. Den største verdien er globalt maksimum, den minste globalt minimum. Å hoppe over endepunktene er en dokumentert felle."
+    },
+    {
+      "id": "mat1100-3-5-def-globalt-ekstrem",
+      "type": "definition",
+      "title": "Globalt (absolutt) ekstremalpunkt",
+      "content": "Punktet der $f$ antar sin største (globalt maksimum) eller minste (globalt minimum) verdi på *hele* det aktuelle intervallet. På et lukket, begrenset intervall finnes begge (ekstremverdisetningen) og antas i et kritisk punkt **eller et endepunkt** — derfor må endepunktene alltid regnes med. Et globalt ekstremum er alltid lokalt, men ikke omvendt."
+    },
+    {
+      "id": "mat1100-3-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Globale ekstrema med randsjekk",
+      "problem": "Finn globalt maksimum og minimum for $f(x) = x^3 - 3x$ på $[-2, 3]$.",
+      "solution": "**Kritiske punkter:** $f'(x) = 3x^2 - 3 = 3(x-1)(x+1) = 0 \\Rightarrow x = \\pm 1$, begge inni $[-2,3]$.\n\n**Regn $f$ i kritiske punkter OG endepunkter:**\n$$f(-2) = -8 + 6 = -2, \\quad f(-1) = -1 + 3 = 2, \\quad f(1) = 1 - 3 = -2, \\quad f(3) = 27 - 9 = 18.$$\n\n**Sammenlign:** største verdi er $f(3) = 18$, minste er $-2$ (antatt både i $x=-2$ og $x=1$).\n\n**Konklusjon:** globalt maksimum $18$ i **endepunktet** $x=3$; globalt minimum $-2$ i $x=-2$ og $x=1$. Merk: det lokale maksimumet i $x=-1$ (verdi $2$) er *ikke* globalt — endepunktet slår det. Nettopp derfor må randen sjekkes."
+    },
+    {
+      "id": "mat1100-3-5-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l2-e1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Finn globalt maksimum og minimum for $f(x) = x^3 - 12x + 5$ på $[0, 3]$.",
+        "solution": "**Kritiske punkter:** $f'(x) = 3x^2 - 12 = 3(x-2)(x+2) = 0 \\Rightarrow x = \\pm 2$. Bare $x = 2$ ligger i $[0,3]$ ($x=-2$ forkastes).\n\n**Regn $f$ i $x=2$ og endepunktene:**\n$$f(0) = 5, \\quad f(2) = 8 - 24 + 5 = -11, \\quad f(3) = 27 - 36 + 5 = -4.$$\n\n**Sammenlign:** største er $f(0) = 5$, minste er $f(2) = -11$.\n\n**Konklusjon:** globalt maksimum $5$ i endepunktet $x=0$; globalt minimum $-11$ i $x=2$.",
+        "hints": [
+          "Finn de kritiske punktene, men forkast dem som faller utenfor $[0,3]$.",
+          "Regn $f$ i det gjenværende kritiske punktet og i begge endepunktene.",
+          "Største og minste av disse verdiene er de globale ekstrema."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (du kan nå monotoni og ekstrema; neste halvdel er krumning og asymptoter) —"
+    },
+    {
+      "id": "mat1100-3-5-l3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Konveksitet og vendepunkter (~10 min)"
+    },
+    {
+      "id": "mat1100-3-5-l3-teori",
+      "type": "text",
+      "content": "Andrederiverten $f''$ styrer **krumningen**. $f'' > 0$ betyr at $f'$ vokser — grafen krummer oppover, **konveks**. $f'' < 0$ gir **konkav** (krummer nedover). Et **vendepunkt** er der krumningen skifter.\n\n**Kritisk presisering (dokumentert felle):** $f''(c) = 0$ er *ikke nok* for vendepunkt — $f''$ må faktisk **skifte fortegn** i $c$. $f(x) = x^4$ har $f''(0) = 0$, men $f'' = 12x^2 \\ge 0$ overalt, så ingen krumningsendring — $x=0$ er *ikke* vendepunkt. Sett derfor alltid opp fortegnsskjema for $f''$."
+    },
+    {
+      "id": "mat1100-3-5-def-konveks",
+      "type": "definition",
+      "title": "Konveks og konkav (via $f''$)",
+      "content": "$f$ er **konveks** på et intervall når grafen krummer oppover — presist $f'' \\ge 0$ (og $f'$ voksende). $f$ er **konkav** når den krummer nedover, $f'' \\le 0$. På et konvekst intervall ligger grafen over hver tangent og under hver sekant; konkavt er motsatt. Sammenhengen med $f'$ hviler på middelverdisetningen ([kap. 3.4](/bok/mat1100/mat1100-3-4))."
+    },
+    {
+      "id": "mat1100-3-5-def-vendepunkt",
+      "type": "definition",
+      "title": "Vendepunkt (med fortegnsskifte-krav)",
+      "content": "Et punkt der krumningen skifter — fra konveks til konkav eller omvendt. Nødvendig betingelse: $f''(c) = 0$ (eller $f''$ udefinert). **Tilstrekkelig:** $f''$ må i tillegg **skifte fortegn** i $c$. Bare $f''(c)=0$ holder ikke — $x^4$ i $0$ har $f''=0$ uten fortegnsskifte og er ikke vendepunkt. Verifiser alltid med fortegnsskjema for $f''$."
+    },
+    {
+      "id": "mat1100-3-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Konveksitet og vendepunkter",
+      "problem": "Bestem hvor $f(x) = \\dfrac{x}{x^2+1}$ er konveks/konkav, og finn vendepunktene.",
+      "solution": "**Deriver to ganger** (kvotient- og kjerneregel, kap. 3.2):\n$$f'(x) = \\frac{1-x^2}{(x^2+1)^2}, \\qquad f''(x) = \\frac{2x(x^2-3)}{(x^2+1)^3}.$$\n\n**Nullpunkter for $f''$:** telleren $2x(x^2-3) = 0 \\Rightarrow x = 0,\\ x = \\pm\\sqrt{3}$. Nevneren er alltid positiv.\n\n**Fortegnsskjema for $f''$** (fortegnet styres av $2x(x^2-3)$):\n\n| Intervall | fortegn $f''$ | krumning |\n|---|---|---|\n| $x < -\\sqrt{3}$ | $-$ | konkav |\n| $-\\sqrt{3} < x < 0$ | $+$ | konveks |\n| $0 < x < \\sqrt{3}$ | $-$ | konkav |\n| $x > \\sqrt{3}$ | $+$ | konveks |\n\n**Vendepunkter:** $f''$ skifter fortegn i alle tre nullpunktene, så $x = -\\sqrt{3},\\ 0,\\ \\sqrt{3}$ er vendepunkter. Verdier: $f(0)=0$, $f(\\pm\\sqrt{3}) = \\pm\\dfrac{\\sqrt{3}}{4}$.\n\n**Konklusjon:** konveks på $(-\\sqrt{3}, 0)$ og $(\\sqrt{3}, \\infty)$; konkav på $(-\\infty, -\\sqrt{3})$ og $(0, \\sqrt{3})$; vendepunkter i $x = -\\sqrt{3},\\, 0,\\, \\sqrt{3}$."
+    },
+    {
+      "id": "mat1100-3-5-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l3-e1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — inkludert vendepunkt-fellen.) La $f(x) = x^4 - 6x^2$. Finn intervallene der $f$ er konveks/konkav og alle vendepunkter. Sjekk nøye om alle nullpunkter for $f''$ virkelig er vendepunkter.",
+        "solution": "$f'(x) = 4x^3 - 12x$, $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$.\n\n**Nullpunkter for $f''$:** $x = \\pm 1$.\n\n**Fortegnsskjema for $f''$:** $f''>0$ for $x<-1$ (konveks), $f''<0$ for $-1<x<1$ (konkav), $f''>0$ for $x>1$ (konveks).\n\n$f''$ skifter fortegn i begge nullpunktene, så begge er ekte vendepunkter: $x=-1$ (verdi $f(-1)=1-6=-5$) og $x=1$ (verdi $-5$).\n\n**Konklusjon:** konveks på $(-\\infty,-1)$ og $(1,\\infty)$, konkav på $(-1,1)$; vendepunkter $(-1,-5)$ og $(1,-5)$. (Her ga alle $f''$-nullpunkter fortegnsskifte — men sjekken må alltid gjøres.)",
+        "hints": [
+          "Deriver to ganger og faktoriser $f''$.",
+          "Sett opp fortegnsskjema for $f''$ og se etter fortegnsskifte i hvert nullpunkt.",
+          "Bare et nullpunkt *med* fortegnsskifte er et vendepunkt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-l4-tekst",
+      "type": "text",
+      "content": "## Løkke 4 — Vertikale og horisontale asymptoter (~8 min)"
+    },
+    {
+      "id": "mat1100-3-5-l4-teori",
+      "type": "text",
+      "content": "En **asymptote** er en rett linje grafen nærmer seg. **Vertikale** ($x = a$) oppstår der funksjonen «eksploderer»: kandidatene er punkter der nevneren går mot $0$ mens telleren ikke gjør det. Bekreft med en ensidig grense mot $\\pm\\infty$. **Viktig:** er $f$ **kontinuerlig på hele $\\mathbb{R}$**, finnes ingen vertikale asymptoter — og det bør du si uttrykkelig når det gjelder.\n\n**Horisontale** ($y = L$) finner du via $\\lim_{x\\to\\pm\\infty} f(x) = L$. De to sidene kan gi ulike verdier."
+    },
+    {
+      "id": "mat1100-3-5-def-vertikal",
+      "type": "definition",
+      "title": "Vertikal asymptote",
+      "content": "En loddrett linje $x = a$ som grafen nærmer seg fordi $\\lim_{x\\to a^{\\pm}} f(x) = \\pm\\infty$. Kandidater: punkter der nevneren $\\to 0$ men telleren $\\neq 0$ (eller $\\ln$-argument $\\to 0^+$ osv.). Bekreftes med en ensidig grense. Er $f$ kontinuerlig på hele $\\mathbb{R}$, finnes ingen — dette skal uttales i drøftingen."
+    },
+    {
+      "id": "mat1100-3-5-def-horisontal",
+      "type": "definition",
+      "title": "Horisontal asymptote",
+      "content": "En vannrett linje $y = L$ som grafen nærmer seg når $x \\to +\\infty$ eller $x \\to -\\infty$, altså $\\lim_{x\\to\\pm\\infty} f(x) = L$. Grensene mot $+\\infty$ og $-\\infty$ kan gi forskjellige $L$ (f.eks. $\\arctan x$: $\\pm\\pi/2$). Begrunnelsen *må* være en grenseberegning, ikke bare en påstand."
+    },
+    {
+      "id": "mat1100-3-5-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Vertikale og horisontale asymptoter",
+      "problem": "Finn alle vertikale og horisontale asymptoter for $f(x) = \\dfrac{3x^2}{x^2 - 4}$.",
+      "solution": "**Vertikale:** nevneren $x^2 - 4 = 0 \\Rightarrow x = \\pm 2$, og telleren $3x^2$ er $\\neq 0$ der. Sjekk grensene:\n$$\\lim_{x\\to 2^+}\\frac{3x^2}{x^2-4} = +\\infty, \\qquad \\lim_{x\\to 2^-} = -\\infty,$$\ntilsvarende i $x=-2$. Altså **vertikale asymptoter $x = 2$ og $x = -2$**.\n\n**Horisontale:** del på høyeste potens:\n$$\\lim_{x\\to\\pm\\infty}\\frac{3x^2}{x^2-4} = \\lim_{x\\to\\pm\\infty}\\frac{3}{1 - 4/x^2} = 3.$$\nAltså **horisontal asymptote $y = 3$** (begge sider).\n\n**Konklusjon:** vertikale asymptoter $x = \\pm 2$, horisontal asymptote $y = 3$."
+    },
+    {
+      "id": "mat1100-3-5-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l4-e1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) La $f(x) = \\arctan(x^2)$.\n\n**a)** Har $f$ vertikale asymptoter? Begrunn.\n\n**b)** Finn eventuelle horisontale asymptoter.",
+        "solution": "**a)** $x^2$ er kontinuerlig på hele $\\mathbb{R}$ og $\\arctan$ er kontinuerlig overalt, så $f = \\arctan(x^2)$ er **kontinuerlig på hele $\\mathbb{R}$**. En funksjon uten bruddpunkter kan ikke gå mot $\\pm\\infty$ i et endelig punkt, så $f$ har **ingen vertikale asymptoter**.\n\n**b)** $\\lim_{x\\to\\pm\\infty} \\arctan(x^2)$: når $x\\to\\pm\\infty$ er $x^2 \\to +\\infty$, og $\\lim_{u\\to\\infty}\\arctan u = \\dfrac{\\pi}{2}$. Altså $\\lim_{x\\to\\pm\\infty} f(x) = \\dfrac{\\pi}{2}$.\n\n**Horisontal asymptote $y = \\dfrac{\\pi}{2}$** (begge sider).",
+        "hints": [
+          "Er funksjonen kontinuerlig på hele $\\mathbb{R}$? Da kan den ikke ha vertikale asymptoter — og det bør du si uttrykkelig.",
+          "For horisontale: regn $\\lim_{x\\to\\pm\\infty} f(x)$.",
+          "Sett $u = x^2 \\to \\infty$ og bruk grensen for $\\arctan u$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-l5-tekst",
+      "type": "text",
+      "content": "## Løkke 5 — Skråasymptoter (~10 min)"
+    },
+    {
+      "id": "mat1100-3-5-l5-teori",
+      "type": "text",
+      "content": "En **skråasymptote** $y = ax + b$ (med $a \\neq 0$) oppstår når grafen nærmer seg en skrå linje. To standardmetoder:\n\n**1. Polynomdivisjon** (for rasjonale funksjoner med tellergrad = nevnergrad $+1$): del ut, så er kvotienten (grad 1) skråasymptoten og resten $\\to 0$.\n\n**2. Rekkeutvikling** (for $x\\,e^{k/x}$-familien — midtveisgjengangeren): bruk $e^{k/x} = 1 + \\dfrac{k}{x} + \\dfrac{k^2}{2x^2} + \\cdots$, så\n$$x\\,e^{k/x} = x\\left(1 + \\frac{k}{x} + \\frac{k^2}{2x^2} + \\cdots\\right) = x + k + \\frac{k^2}{2x} + \\cdots.$$\nLeddene $x + k$ er skråasymptoten $y = x + k$; resten $\\to 0$. **Merk fellen:** asymptoten er $y = x + k$, *ikke* bare $y = x$ — konstantleddet $k$ er hele poenget."
+    },
+    {
+      "id": "mat1100-3-5-def-skraasymptote",
+      "type": "definition",
+      "title": "Skråasymptote",
+      "content": "En skrå linje $y = ax + b$ ($a \\neq 0$) grafen nærmer seg når $x \\to \\pm\\infty$, altså $\\lim_{x\\to\\pm\\infty}\\big(f(x) - (ax+b)\\big) = 0$. Finnes for rasjonale funksjoner med tellergrad én mer enn nevnergrad (via polynomdivisjon), og for $x\\,e^{k/x}$-familien der utviklingen gir $y = x + k$. En funksjon kan ikke ha både horisontal og skråasymptote på samme side."
+    },
+    {
+      "id": "mat1100-3-5-def-utvikling",
+      "type": "definition",
+      "title": "Utviklingen $x\\,e^{k/x} = x + k + \\tfrac{k^2}{2x} + \\cdots$",
+      "content": "Midtveisgjengangeren: fra rekken $e^{u} = 1 + u + \\tfrac{u^2}{2} + \\cdots$ med $u = k/x$ får man $x\\,e^{k/x} = x + k + \\tfrac{k^2}{2x} + \\cdots$. De to første leddene gir skråasymptoten $y = x + k$; resten går mot $0$. Den vanligste feilen er å svare $y = x$ og glemme konstantleddet $k$."
+    },
+    {
+      "id": "mat1100-3-5-ex5",
+      "type": "example",
+      "title": "Eksempel 5: To veier til skråasymptoten",
+      "problem": "Finn skråasymptoten til (a) $f(x) = \\dfrac{2x^2 - 3x + 1}{x - 2}$ og (b) $g(x) = x\\,e^{3/x}$.",
+      "solution": "**(a) Polynomdivisjon:** del $2x^2 - 3x + 1$ på $x - 2$:\n$$\\frac{2x^2 - 3x + 1}{x-2} = 2x + 1 + \\frac{3}{x-2}.$$\nRestleddet $\\dfrac{3}{x-2} \\to 0$ når $x \\to \\pm\\infty$, så skråasymptoten er $y = 2x + 1$.\n\n**(b) Rekkeutvikling:** med $k = 3$,\n$$x\\,e^{3/x} = x\\left(1 + \\frac{3}{x} + \\frac{9}{2x^2} + \\cdots\\right) = x + 3 + \\frac{9}{2x} + \\cdots.$$\nRestleddet $\\dfrac{9}{2x} + \\cdots \\to 0$, så skråasymptoten er $y = x + 3$.\n\n**Kontroll (b):** $\\lim_{x\\to\\infty}\\big(x e^{3/x} - (x+3)\\big) = 0$ ✓. **Svar:** (a) $y = 2x+1$; (b) $y = x + 3$ — *ikke* $y = x$."
+    },
+    {
+      "id": "mat1100-3-5-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l5-e1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K + MV — skråasymptote-familien.) Finn skråasymptoten til $f(x) = x\\,e^{5/x}$ når $x \\to +\\infty$. Pass på konstantleddet.",
+        "solution": "Bruk $e^{5/x} = 1 + \\dfrac{5}{x} + \\dfrac{25}{2x^2} + \\cdots$:\n$$f(x) = x\\,e^{5/x} = x\\left(1 + \\frac{5}{x} + \\frac{25}{2x^2} + \\cdots\\right) = x + 5 + \\frac{25}{2x} + \\cdots.$$\nRestleddet $\\to 0$, så skråasymptoten er $y = x + 5$.\n\n**Kontroll:** $\\lim_{x\\to\\infty}\\big(x e^{5/x} - (x+5)\\big) = 0$. **Svar:** $y = x + 5$ (ikke $y = x$).",
+        "hints": [
+          "Bruk rekken $e^{u} = 1 + u + \\frac{u^2}{2}+\\cdots$ med $u = 5/x$.",
+          "Gang inn $x$ og les av leddene som *ikke* går mot 0.",
+          "Konstantleddet er $k = 5$ — det hører med i asymptoten."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-l6-tekst",
+      "type": "text",
+      "content": "## Løkke 6 — Full drøfting og den kvalitative varianten (~11 min)"
+    },
+    {
+      "id": "mat1100-3-5-l6-teori",
+      "type": "text",
+      "content": "En komplett drøfting samler alt: definisjonsmengde, $f'$ (monotoni + ekstrema), $f''$ (konveksitet + vendepunkter), og alle asymptoter. Rekkefølgen under er en trygg sjekkliste. Til slutt ser vi på den **kvalitative** varianten: gitt grafen til $f'$, hva sier den om $f$ og $f''$?"
+    },
+    {
+      "id": "mat1100-3-5-def-def-mengde",
+      "type": "definition",
+      "title": "Definisjonsmengde og bruddpunkt",
+      "content": "Definisjonsmengden er alle $x$ der $f(x)$ er definert. **Bruddpunkter** (der nevner $= 0$, $\\ln$-argument $\\le 0$, e.l.) er kandidatene til vertikale asymptoter og må identifiseres *først* i en drøfting. En funksjon definert og kontinuerlig på hele $\\mathbb{R}$ har ingen bruddpunkter og dermed ingen vertikale asymptoter."
+    },
+    {
+      "id": "mat1100-3-5-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Full drøfting",
+      "problem": "Drøft $f(x) = \\dfrac{x^2}{x - 1}$ fullstendig: definisjonsmengde, monotoni og ekstrema, konveksitet, og alle asymptoter.",
+      "solution": "**Definisjonsmengde:** alle $x \\neq 1$ (nevner $\\neq 0$). Bruddpunkt $x = 1$.\n\n**Førstederiverte:** med kvotientregelen\n$$f'(x) = \\frac{2x(x-1) - x^2}{(x-1)^2} = \\frac{x^2 - 2x}{(x-1)^2} = \\frac{x(x-2)}{(x-1)^2}.$$\nNullpunkter $x = 0, 2$; nevneren $>0$ (unntatt $x=1$).\n\n**Fortegnsskjema $f'$:** $f'>0$ for $x<0$, $f'<0$ for $0<x<1$, $f'<0$ for $1<x<2$, $f'>0$ for $x>2$.\n$f'$ skifter $+\\to-$ i $x=0$: **lokalt maks** $f(0) = 0$. $f'$ skifter $-\\to+$ i $x=2$: **lokalt min** $f(2) = 4$.\n\n**Andrederiverte:** $f''(x) = \\dfrac{2}{(x-1)^3}$. Aldri $0$, så **ingen vendepunkter**. Fortegn: $f''<0$ for $x<1$ (konkav), $f''>0$ for $x>1$ (konveks).\n\n**Asymptoter:** vertikal $x = 1$ (nevner $\\to 0$, teller $\\to 1 \\neq 0$; $\\lim_{x\\to 1^+} = +\\infty$, $\\lim_{x\\to 1^-} = -\\infty$). Skrå: polynomdivisjon gir\n$$\\frac{x^2}{x-1} = x + 1 + \\frac{1}{x-1},$$\nså skråasymptote $y = x + 1$ (restleddet $\\to 0$). Ingen horisontal (grafen går mot $\\pm\\infty$).\n\n**Samlet:** voksende på $(-\\infty,0)$ og $(2,\\infty)$, avtakende på $(0,1)$ og $(1,2)$; lokalt maks $(0,0)$, lokalt min $(2,4)$; konkav for $x<1$, konveks for $x>1$; vertikal asymptote $x=1$, skråasymptote $y=x+1$."
+    },
+    {
+      "id": "mat1100-3-5-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-3-5-l6-e1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K — kvalitativ variant fra 2009-typen, krevende.) Grafen til den deriverte $f'$ er en parabel med nullpunkter i $x = -1$ og $x = 3$ som åpner *oppover* (altså $f'(x) < 0$ mellom røttene og $f'(x) > 0$ utenfor).\n\n**a)** Hvor vokser og avtar $f$, og hvor har $f$ lokale ekstremalpunkter?\n\n**b)** Hva kan du si om konveksiteten til $f$? (Hint: hva er $f''$ når $f'$ er en oppover-vendt parabel?)",
+        "solution": "**a)** Fortegnet til $f'$ leses direkte av parabelen: $f' > 0$ for $x < -1$ og $x > 3$ (voksende), $f' < 0$ for $-1 < x < 3$ (avtakende). $f'$ skifter $+\\to-$ i $x = -1$: **lokalt maksimum**. $f'$ skifter $-\\to+$ i $x = 3$: **lokalt minimum**.\n\n**b)** $f''$ er stigningen til $f'$. En oppover-vendt parabel avtar til sitt bunnpunkt og stiger etterpå; bunnpunktet ligger midt mellom røttene, i $x = 1$. Altså er $f' $ avtakende for $x < 1$ ($f'' < 0$, $f$ **konkav**) og voksende for $x > 1$ ($f'' > 0$, $f$ **konveks**). $x = 1$ er et **vendepunkt** for $f$ (der $f''$ skifter fortegn).\n\n**Konklusjon:** $f$ har lokalt maks i $x=-1$, lokalt min i $x=3$, er konkav for $x<1$, konveks for $x>1$, med vendepunkt i $x=1$.",
+        "hints": [
+          "Grafen til $f'$ gir fortegnet til $f'$ direkte — les av hvor den er over/under $x$-aksen.",
+          "$f''$ er stigningstallet til $f'$: der $f'$-grafen stiger er $f''>0$.",
+          "Bunnpunktet til den oppover-vendte parabelen ligger midt mellom røttene."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-3-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Konklusjon uten fortegnsskjema.** «$f$ er voksende her» eller «konveks der» uten tegnet/beskrevet fortegnslinje er føringstrekk. Skjemaet *er* dokumentasjonen.\n- **Asymptote uten grenseføring.** En asymptote skal begrunnes med en grense ($\\lim_{x\\to a^{\\pm}}$ eller $\\lim_{x\\to\\pm\\infty}$), ikke bare påstås.\n- **Glemme å begrunne fravær av vertikale asymptoter.** Er $f$ kontinuerlig på hele $\\mathbb{R}$, skal du *si* at det ikke finnes vertikale asymptoter — ikke bare hoppe over dem.\n- **Vendepunkt fra $f''(c)=0$ alene.** $f''$ må *skifte fortegn*. $x^4$ i $0$ er moteksempelet: $f''(0)=0$ uten vendepunkt.\n- **Skråasymptote $y = x$ i stedet for $y = x + k$.** For $x\\,e^{k/x}$ er konstantleddet $k$ med — den dokumenterte midtveisfellen.\n- **Globale ekstrema uten randsjekk.** På et lukket intervall kan det største/minste ligge i et endepunkt. Regn alltid $f$ i endepunktene også."
+    },
+    {
+      "id": "mat1100-3-5-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-3-5-bb-monotoni",
+      "type": "definition",
+      "title": "Voksende og avtakende (monotoni)",
+      "content": "$f$ er **voksende** på et intervall der $f'(x) > 0$, og **avtakende** der $f'(x) < 0$. Konstant der $f' = 0$ på hele intervallet. Sammenhengen følger av middelverdisetningen. Monotoni brukes til å skille lokale ekstrema (fortegnsskifte i $f'$) og til å vise «nøyaktig én løsning» sammen med skjæringssetningen."
+    },
+    {
+      "id": "mat1100-3-5-bb-kritisk",
+      "type": "definition",
+      "title": "Kritisk punkt",
+      "content": "Et indre punkt der $f'(x) = 0$ eller $f'$ er udefinert. Kritiske punkter er kandidatene til lokale ekstrema, men ikke alle er ekstrema ($f(x)=x^3$ har kritisk punkt i $0$ uten ekstremum). Avgjør med førstederiverttesten (fortegnsskifte) eller andrederiverttesten."
+    },
+    {
+      "id": "mat1100-3-5-bb-andrederiverttest",
+      "type": "definition",
+      "title": "Andrederiverttesten",
+      "content": "En test for lokale ekstrema i et kritisk punkt $c$ (der $f'(c)=0$): er $f''(c) > 0$, er $c$ et lokalt **minimum** (konveks); er $f''(c) < 0$, et lokalt **maksimum** (konkav). Er $f''(c) = 0$, er testen inkonklusiv — bruk førstederiverttesten (fortegnsskjema for $f'$) i stedet."
+    },
+    {
+      "id": "mat1100-3-5-bb-randpunkt",
+      "type": "definition",
+      "title": "Randpunkt (endepunkt-ekstremum)",
+      "content": "Et endepunkt $a$ eller $b$ av definisjonsintervallet. På et lukket intervall kan globalt maksimum/minimum ligge i et randpunkt uten at $f'=0$ der. Derfor må $f$ alltid evalueres i endepunktene i tillegg til de kritiske punktene når globale ekstrema søkes."
+    },
+    {
+      "id": "mat1100-3-5-bb-forstederiverttest",
+      "type": "definition",
+      "title": "Førstederiverttesten",
+      "content": "Testen som klassifiserer et kritisk punkt ut fra hvordan $f'$ skifter fortegn: $+\\to-$ gir lokalt **maksimum**, $-\\to+$ gir lokalt **minimum**, og *intet* fortegnsskifte gir verken maks eller min (et terrassepunkt, som $x^3$ i $0$). Den fungerer alltid — også når andrederiverttesten er inkonklusiv ($f''(c)=0$) — og er selve avlesningen fra fortegnsskjemaet for $f'$."
+    },
+    {
+      "id": "mat1100-3-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-3-5-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-5-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Fortegnslinjer (1T)](/bok/1t/1t-4-3)) Sett opp fortegnslinjen for uttrykket $(x+2)(x-3)$ og angi hvor det er positivt.",
+            "solution": "Nullpunkter $x=-2$ og $x=3$. Fortegn: positivt for $x<-2$ (begge faktorer negative), negativt for $-2<x<3$, positivt for $x>3$. Altså positivt for $x<-2$ og $x>3$.",
+            "hints": [
+              "Finn nullpunktene og test fortegnet i hvert delintervall."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-5-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-5-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Rasjonale funksjoner (1T)](/bok/1t/1t-3-7)) Hvor har $f(x)=\\dfrac{x+1}{x-4}$ bruddpunkt, og hva blir den vertikale asymptoten?",
+            "solution": "Nevneren $x-4=0$ i $x=4$, og telleren $x+1=5\\neq 0$ der, så $x=4$ er bruddpunkt og vertikal asymptote.",
+            "hints": [
+              "Bruddpunkt der nevner = 0 (og teller ikke)."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-5-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-5-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/mat1100/mat1100-2-2)) Regn $\\lim_{x\\to\\infty}\\dfrac{5x^2-1}{2x^2+3x}$.",
+            "solution": "Del teller og nevner på $x^2$: $\\dfrac{5 - 1/x^2}{2 + 3/x} \\to \\dfrac{5}{2}$ når $x\\to\\infty$. Grensen er $\\tfrac{5}{2}$ — dette gir også den horisontale asymptoten $y=\\tfrac{5}{2}$.",
+            "hints": [
+              "Del på høyeste potens av $x$.",
+              "Leddene $1/x$ og $1/x^2$ går mot 0."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-3-5-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-3-5-rep-e4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Funksjonsdrøfting (R1)](/bok/r1/r1-4-6)) Funksjonen $h(x)=x^2 e^{-x}$ har $h'(x)=(2x-x^2)e^{-x}$. Finn de lokale ekstremalpunktene.",
+            "solution": "$h'(x)=x(2-x)e^{-x}$, og $e^{-x}>0$ alltid, så nullpunkter i $x=0$ og $x=2$. Fortegn: $h'<0$ for $x<0$, $h'>0$ for $0<x<2$, $h'<0$ for $x>2$. Lokalt minimum i $x=0$ ($h(0)=0$), lokalt maksimum i $x=2$ ($h(2)=4e^{-2}\\approx 0{,}54$).",
+            "hints": [
+              "$e^{-x}$ er alltid positiv, så fortegnet styres av $x(2-x)$.",
+              "Fortegnsskifte $-\\to+$ er bunn, $+\\to-$ er topp."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-3-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-3-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f'$ | Førstederiverte — styrer monotoni og lokale ekstrema |\n| $f''$ | Andrederiverte — styrer konveksitet og vendepunkter |\n| $D_f$ | Definisjonsmengden til $f$ |\n| $y = L$ | Horisontal asymptote |\n| $x = a$ | Vertikal asymptote |\n| $y = ax + b$ | Skråasymptote |\n| $k$ | Konstant i $x\\,e^{k/x}$; gir asymptote $y = x + k$ |\n\n**Formler og kriterier i dette delkapitlet:**\n\n$$f'>0 \\Rightarrow \\text{voksende}, \\qquad f'<0 \\Rightarrow \\text{avtakende}$$\nMonotoni fra fortegnet til $f'$.\n\n$$f'' > 0 \\Rightarrow \\text{konveks}, \\qquad f'' < 0 \\Rightarrow \\text{konkav}$$\nKrumning fra fortegnet til $f''$.\n\n$$f''(c)=0 \\text{ OG } f'' \\text{ skifter fortegn i } c \\;\\Rightarrow\\; \\text{vendepunkt i } c$$\nVendepunkt krever fortegnsskifte, ikke bare $f''=0$.\n\n$$\\lim_{x\\to a^{\\pm}} f(x) = \\pm\\infty \\;\\Rightarrow\\; \\text{vertikal asymptote } x=a$$\n$$\\lim_{x\\to\\pm\\infty} f(x) = L \\;\\Rightarrow\\; \\text{horisontal asymptote } y=L$$\n\n$$x\\,e^{k/x} = x + k + \\frac{k^2}{2x} + \\cdots \\;\\Rightarrow\\; \\text{skråasymptote } y = x + k$$\nMidtveisgjengangeren — husk konstantleddet $k$.\n\n$$\\frac{\\text{polynom}}{\\text{polynom}} = (ax+b) + \\frac{\\text{rest}}{\\text{nevner}} \\;\\Rightarrow\\; \\text{skråasymptote } y=ax+b$$\nSkråasymptote via polynomdivisjon (restleddet $\\to 0$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

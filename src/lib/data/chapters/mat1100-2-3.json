@@ -1,0 +1,391 @@
+{
+  "id": "mat1100-2-3",
+  "courseId": "mat1100",
+  "chapterNumber": "2.3",
+  "title": "Følger: rekursjon, fikspunkt og monoton + begrenset",
+  "description": "Følgekonvergens med kompletthetsaksiomets arbeidsform: rekursive følger analyseres med fikspunkt, monotoni og begrensethet.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "finne grensen til rasjonale og rotfølger med potensdeling og konjugattriks",
+    "formulere kompletthetsaksiomet «monoton + begrenset ⇒ konvergent» presist",
+    "analysere rekursive følger med fikspunkt, monotoni- og begrensethetsbevis før L = g(L) brukes",
+    "konstruere følger med gitte egenskaper og verifisere alle kravene eksplisitt"
+  ],
+  "content": [
+    {
+      "id": "mat1100-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Følger er 9 % av midtveisspørsmålene** — rasjonale følger, konjugattriks-følger og rekursive følger med fikspunktanalyse (fast innslag fra 2014), pluss teoremet «monoton + begrenset ⇒ konvergent» som teoriutsagn. På slutteksamen dukker følger opp i **3 av 21 sett**, oftest som en konstruksjons- eller rekursjonsoppgave — inkludert de **åpne** «konstruer en følge som …»-oppgavene.\n\n**Prioritet: kunne.** Sensorregelen du må internalisere: for en rekursiv følge $a_{n+1}=g(a_n)$ er det **ikke nok** å løse $L=g(L)$. Å anta at grensen finnes og bare regne ut fikspunktet gir **0 poeng uten begrunnelse**. Du må først bevise at følgen *konvergerer* — via monotoni og begrensethet — og *deretter* bruke $L=g(L)$.\n\nOg for åpne oppgaver: et eksempel **uten verifikasjon av alle kravene** er ikke et fullt svar. Oppgir du en følge som er «begrenset, men ikke konvergent», må du vise *begge* egenskapene eksplisitt.\n\n*(Frekvenstall fra MAT1100-arkivet: 21 slutteksamener H2003–H2023, 16 midtveiseksamener H2003–H2018. Arkivet stopper i 2023.)*"
+    },
+    {
+      "id": "mat1100-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Følgegrensen speiler ε-δ-definisjonen fra [kap. 2.1](/bok/mat1100/mat1100-2-1) — nå med en indeks $N$ i stedet for en $\\delta$. Konjugattrikset og grenseteknikken kommer fra [kap. 2.2](/bok/mat1100/mat1100-2-2). Selve rekursjonsnotasjonen $a_{n+1}=g(a_n)$ er kjent fra [Følger og tallmønstre (R2)](/bok/r2/r2-1-1) og [Rekursive sammenhenger og programmering (R2)](/bok/r2/r2-1-7).\n\n**Sist du var her (oppfrisking):** en *rekursiv* følge gir hvert ledd ut fra det forrige ($a_{n+1}=g(a_n)$), mens en *eksplisitt* følge gir $a_n$ direkte som formel i $n$. Konjugattrikset $\\sqrt A-\\sqrt B=\\frac{A-B}{\\sqrt A+\\sqrt B}$ brukes her på følger."
+    },
+    {
+      "id": "mat1100-2-3-intro",
+      "type": "text",
+      "content": "Sett 1000 kroner i banken til fast rente og la dem stå. Saldoen danner en **følge**: ett tall per år, hvert bygget på fjorårets. Vil den vokse uten grense, eller nærme seg et tak? Slike spørsmål — særlig for følger der hvert ledd lages av det forrige — er kjernen i dette kapitlet.\n\nEn følge $(a_n)$ er rett og slett en uendelig liste med tall $a_1, a_2, a_3, \\dots$. Vi spør om den **konvergerer**: nærmer tallene seg ett bestemt tall $L$? For eksplisitte følger regner vi grensen som før. Men for **rekursive** følger — der vi ikke har noen formel for $a_n$, bare regelen $a_{n+1}=g(a_n)$ — trenger vi et helt eget verktøy: *kompletthetsaksiomet*, i arbeidsformen «monoton + begrenset ⇒ konvergent».\n\nKapitlet går i fem løkker. Den fjerde (rekursiv fikspunktanalyse) er selve eksamenskjernen; de andre bygger opp til den.\n\n> **Tidsbruk (~50 min lesetid; ×1,5 for hånd).** Fem løkker med markerte pausepunkter."
+    },
+    {
+      "id": "mat1100-2-3-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Følgegrensen (~8 min)"
+    },
+    {
+      "id": "mat1100-2-3-l1-intro",
+      "type": "text",
+      "content": "Definisjonen av følgegrense er ε-δ-definisjonen med én endring: siden $n$ bare tar heltallsverdier, erstatter vi «nær nok $a$» med «langt nok ut i følgen» — altså en indeksterskel $N$."
+    },
+    {
+      "id": "mat1100-2-3-def-folge",
+      "type": "definition",
+      "title": "Følge",
+      "content": "En **følge** $(a_n)_{n\\ge 1}$ er en uendelig ordnet liste av tall $a_1, a_2, a_3, \\dots$, altså en funksjon fra de naturlige tallene inn i $\\mathbb{R}$. En følge kan gis **eksplisitt** (formel for $a_n$, f.eks. $a_n = 1/n$) eller **rekursivt** (et startledd pluss en regel $a_{n+1} = g(a_n)$)."
+    },
+    {
+      "id": "mat1100-2-3-def-folgegrense",
+      "type": "definition",
+      "title": "Følgegrense (N-definisjonen)",
+      "content": "Følgen $(a_n)$ **konvergerer mot $L$**, skrevet $\\lim_{n\\to\\infty} a_n = L$, dersom leddene til slutt ligger vilkårlig nær $L$. I full form:\n$$\\lim_{n\\to\\infty} a_n = L \\iff \\forall \\varepsilon > 0\\; \\exists N: \\; n > N \\Rightarrow |a_n - L| < \\varepsilon.$$\nDette speiler ε-δ-definisjonen fra [kap. 2.1](/bok/mat1100/mat1100-2-1): $\\varepsilon$ er samme feilmargin, men $\\delta$ er byttet med en **indeksterskel $N$** — «fra og med ledd nummer $N$ er alle leddene innenfor $\\varepsilon$». En følge som ikke konvergerer, sier vi **divergerer**."
+    },
+    {
+      "id": "mat1100-2-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Grense av en eksplisitt følge",
+      "problem": "Finn $\\lim_{n\\to\\infty}\\dfrac{2n+1}{n+3}$.",
+      "solution": "Dette er en rasjonal følge; formen ved innsetting er $[\\infty/\\infty]$. **Del på høyeste potens av $n$** i teller og nevner:\n$$\\frac{2n+1}{n+3} = \\frac{2 + 1/n}{1 + 3/n}.$$\nNår $n\\to\\infty$ går $1/n\\to 0$ og $3/n\\to 0$, så\n$$\\lim_{n\\to\\infty}\\frac{2n+1}{n+3} = \\frac{2 + 0}{1 + 0} = 2.$$\n\n**Konklusjon:** Følgen konvergerer mot $2$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-3-ex-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — «MV» er midtveisrepertoaret: flervalg du bør klare på under 6 minutter.) Finn $\\lim_{n\\to\\infty}\\dfrac{3n^2 - n}{2n^2 + 5}$.",
+        "solution": "Del på høyeste potens $n^2$:\n$$\\frac{3n^2 - n}{2n^2 + 5} = \\frac{3 - 1/n}{2 + 5/n^2} \\to \\frac{3 - 0}{2 + 0} = \\frac{3}{2}.$$\n\n**Svar:** $\\dfrac{3}{2}$.",
+        "hints": [
+          "Del teller og nevner på $n^2$ (høyeste potens).",
+          "Ledd med $1/n$ og $1/n^2$ går mot 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-3-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Rotfølger og konjugattrikset (~8 min)"
+    },
+    {
+      "id": "mat1100-2-3-l2-intro",
+      "type": "text",
+      "content": "En følge som $\\sqrt{n^2+n} - n$ er en $\\infty - \\infty$-form. Akkurat som for funksjoner i [kap. 2.2](/bok/mat1100/mat1100-2-2) bruker du konjugattrikset — men her deler du på høyeste potens av $n$ etterpå."
+    },
+    {
+      "id": "mat1100-2-3-def-konjfolge",
+      "type": "definition",
+      "title": "Konjugattrikset for følger",
+      "content": "For en rotdifferanse $\\sqrt{A_n} - \\sqrt{B_n}$ (formen $\\infty-\\infty$): gang med den konjugerte $\\dfrac{\\sqrt{A_n}+\\sqrt{B_n}}{\\sqrt{A_n}+\\sqrt{B_n}}$. Da blir telleren $A_n - B_n$ uten rot, og du kan dele på høyeste potens av $n$:\n$$\\sqrt{A_n} - \\sqrt{B_n} = \\frac{A_n - B_n}{\\sqrt{A_n} + \\sqrt{B_n}}.$$\nDette er samme grep som for funksjonsgrenser, tilpasset heltallsindeksen $n$."
+    },
+    {
+      "id": "mat1100-2-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Konjugattrikset på en følge",
+      "problem": "Finn $\\lim_{n\\to\\infty}\\left(\\sqrt{n^2 + n} - n\\right)$.",
+      "solution": "**Form:** $\\sqrt{n^2+n}\\to\\infty$ og $n\\to\\infty$, altså $\\infty-\\infty$.\n\n**Konjugattrikset.** Gang med $\\dfrac{\\sqrt{n^2+n}+n}{\\sqrt{n^2+n}+n}$:\n$$\\sqrt{n^2+n} - n = \\frac{(n^2+n) - n^2}{\\sqrt{n^2+n}+n} = \\frac{n}{\\sqrt{n^2+n}+n}.$$\n\n**Del på $n$** (og $\\sqrt{n^2}=n$ for $n>0$):\n$$\\frac{n}{\\sqrt{n^2+n}+n} = \\frac{1}{\\sqrt{1 + 1/n} + 1} \\to \\frac{1}{\\sqrt{1}+1} = \\frac{1}{2}.$$\n\n**Konklusjon:** $\\lim_{n\\to\\infty}\\left(\\sqrt{n^2+n} - n\\right) = \\dfrac{1}{2}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-3-ex-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg-trening — MV.) Finn $\\lim_{n\\to\\infty}\\left(\\sqrt{n^2 + 3n} - n\\right)$.",
+        "solution": "Konjugattrikset:\n$$\\sqrt{n^2+3n} - n = \\frac{(n^2+3n) - n^2}{\\sqrt{n^2+3n}+n} = \\frac{3n}{\\sqrt{n^2+3n}+n}.$$\nDel på $n$: $\\dfrac{3}{\\sqrt{1+3/n}+1} \\to \\dfrac{3}{1+1} = \\dfrac{3}{2}.$\n\n**Svar:** $\\dfrac{3}{2}$.",
+        "hints": [
+          "Gang med den konjugerte $\\sqrt{n^2+3n}+n$.",
+          "Telleren blir $3n$; del så på $n$ og la $3/n\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-3-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Monoton + begrenset ⇒ konvergent (~10 min)"
+    },
+    {
+      "id": "mat1100-2-3-l3-intro",
+      "type": "text",
+      "content": "For eksplisitte følger regner du grensen. Men for rekursive følger har du ingen formel å sette inn — du vet ikke engang om grensen *finnes*. Da redder **kompletthetsaksiomet** deg: det garanterer konvergens ut fra to egenskaper du *kan* sjekke, uten å kjenne grensen på forhånd."
+    },
+    {
+      "id": "mat1100-2-3-thm-monoton",
+      "type": "theorem",
+      "title": "Monoton + begrenset ⇒ konvergent",
+      "content": "**Kompletthetsaksiomet (monoton konvergens):** En følge som er både **monoton** og **begrenset**, konvergerer.\n\nPresist: er $(a_n)$ **voksende** ($a_{n+1}\\ge a_n$ for alle $n$) og **oppad begrenset** (det finnes $M$ med $a_n\\le M$ for alle $n$), så konvergerer $(a_n)$ mot et tall $L\\le M$. Tilsvarende: **avtakende + nedad begrenset** ⇒ konvergent.\n\nDette er selve poenget: teoremet gir deg konvergens **uten at du kjenner grensen**. Derfor kan du trygt sette opp $L=g(L)$ *etterpå* — grensen finnes garantert. Uten både monotoni og begrensethet gjelder ingenting (f.eks. er $a_n=(-1)^n$ begrenset, men ikke monoton, og divergerer)."
+    },
+    {
+      "id": "mat1100-2-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Begrunne konvergens uten å kjenne grensen",
+      "problem": "En følge er voksende: $a_1 < a_2 < a_3 < \\cdots$, og hvert ledd oppfyller $a_n < 5$. Kan vi si noe om konvergens?",
+      "solution": "Følgen er **voksende** (gitt) og **oppad begrenset** av $M = 5$ (gitt: $a_n < 5$ for alle $n$).\n\nEtter kompletthetsaksiomet (monoton + begrenset ⇒ konvergent) **konvergerer** følgen mot et tall $L$, og siden alle ledd er $< 5$ må $L \\le 5$.\n\n**Konklusjon:** Følgen konvergerer, og grensen $L$ oppfyller $L\\le 5$ — selv om vi ikke har noen formel for $a_n$ og ikke kjenner den eksakte verdien av $L$. Nettopp dette er styrken i teoremet. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-3-ex-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — MV.) Hvilket av utsagnene er den korrekte, presise formen av kompletthetsaksiomet?",
+        "solution": "Riktig: **«En følge som er både monoton og begrenset, konvergerer.»**\n\nBegge egenskapene kreves. En følge som bare er begrenset (som $(-1)^n$) trenger ikke konvergere; en følge som bare er monoton (som $a_n=n$) trenger ikke konvergere. Det er kombinasjonen som garanterer en grense — uten at grensen må kjennes på forhånd.\n\n**Konklusjon:** monoton **og** begrenset ⇒ konvergent.",
+        "hints": [
+          "Tenk på $a_n=(-1)^n$ (begrenset, ikke monoton) og $a_n=n$ (monoton, ikke begrenset).",
+          "Trengs én eller begge egenskapene?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-3-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Rekursive følger: fikspunktanalyse (~14 min, eksamenskjernen)"
+    },
+    {
+      "id": "mat1100-2-3-l4-intro",
+      "type": "text",
+      "content": "Nå kobler vi alt sammen. En rekursiv følge $a_{n+1}=g(a_n)$ analyseres i en fast rekkefølge: (1) *finn kandidatgrensen* fra fikspunktlikningen $L=g(L)$ — dette gir en peiling; (2) *bevis at følgen faktisk konvergerer* ved monotoni + begrensethet; (3) *først da* konkluder at grensen er kandidaten. Steg 2 er det sensor krever, og det studenter oftest hopper over. — *naturlig pausepunkt før eksamenskjernen.*"
+    },
+    {
+      "id": "mat1100-2-3-def-fikspunkt",
+      "type": "definition",
+      "title": "Fikspunkt (L = g(L))",
+      "content": "Et **fikspunkt** for funksjonen $g$ er et tall $L$ med $g(L)=L$ — et punkt som ikke flyttes av $g$. Hvis en rekursiv følge $a_{n+1}=g(a_n)$ konvergerer mot $L$ (og $g$ er kontinuerlig), må $L$ være et fikspunkt, fordi da går både $a_n$ og $a_{n+1}$ mot $L$, så $L=g(L)$.\n\n**Advarsel:** dette gir bare *kandidater*. Et fikspunkt er den *mulige* grensen — men bare hvis følgen faktisk konvergerer. Å løse $L=g(L)$ *uten* konvergensbevis er den dokumenterte hovedfeilen (gir 0 uten begrunnelse)."
+    },
+    {
+      "id": "mat1100-2-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Full fikspunktanalyse med konvergensbevis",
+      "problem": "Følgen er gitt ved $a_1 = 1$ og $a_{n+1} = \\sqrt{2a_n + 3}$. Vis at følgen er voksende og oppad begrenset, og finn grensen.",
+      "solution": "Vi følger den faste oppskriften.\n\n**Steg 1 — kandidatgrense (fikspunkt).** Antar vi (foreløpig) at grensen $L$ finnes, må $L = \\sqrt{2L+3}$. Kvadrer: $L^2 = 2L + 3$, altså $L^2 - 2L - 3 = 0$, som faktoriseres $(L-3)(L+1)=0$. Røttene er $L=3$ og $L=-1$. Følgen har bare positive ledd (kvadratrot), så $L=-1$ forkastes. **Kandidat: $L = 3$.** (Dette er foreløpig bare en peiling — vi må bevise konvergens.)\n\n**Steg 2a — oppad begrenset ($a_n < 3$), ved induksjon.** Grunntrinn: $a_1 = 1 < 3$. ✓ Induksjonssteg: anta $a_n < 3$. Da\n$$a_{n+1} = \\sqrt{2a_n + 3} < \\sqrt{2\\cdot 3 + 3} = \\sqrt{9} = 3.$$\nSå $a_{n+1} < 3$. Ved induksjon er $a_n < 3$ for alle $n$. ✓ (begrenset)\n\n**Steg 2b — voksende ($a_{n+1} > a_n$).** Vi ser på fortegnet til $a_{n+1}^2 - a_n^2 = (2a_n + 3) - a_n^2 = -(a_n^2 - 2a_n - 3) = -(a_n-3)(a_n+1)$. For $-1 < a_n < 3$ (som gjelder, siden $a_n\\ge a_1=1>-1$ og $a_n<3$) er $(a_n-3)<0$ og $(a_n+1)>0$, så produktet $(a_n-3)(a_n+1)<0$, og dermed $a_{n+1}^2 - a_n^2 > 0$. Siden begge ledd er positive, gir dette $a_{n+1} > a_n$. ✓ (voksende)\n\n**Steg 3 — konkluder.** Følgen er voksende og oppad begrenset, så etter kompletthetsaksiomet **konvergerer** den. Da — og først nå — er grensen fikspunktet: $L = 3$.\n\n**Konklusjon:** Følgen er voksende og begrenset av 3, konvergerer, og $\\lim_{n\\to\\infty} a_n = 3$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-3-ex-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I — «I» merker eksistens- og teoribevis: her skal du *bevise* konvergens, ikke bare regne fikspunktet.) Følgen er gitt ved $a_1 = 0$ og $a_{n+1} = \\sqrt{a_n + 2}$. Vis at følgen er voksende og oppad begrenset av 2, og finn grensen.",
+        "solution": "**Steg 1 — kandidatgrense.** Antar $L$ finnes: $L = \\sqrt{L+2}$, kvadrer: $L^2 = L+2$, altså $L^2 - L - 2 = 0 = (L-2)(L+1)$. Røtter $L=2$, $L=-1$; leddene er positive, så $L=-1$ forkastes. **Kandidat: $L=2$.**\n\n**Steg 2a — begrenset ($a_n < 2$), induksjon.** Grunntrinn: $a_1 = 0 < 2$. ✓ Steg: anta $a_n < 2$. Da $a_{n+1} = \\sqrt{a_n+2} < \\sqrt{2+2} = \\sqrt 4 = 2$. Ved induksjon $a_n < 2$ for alle $n$. ✓\n\n**Steg 2b — voksende.** Se på $a_{n+1}^2 - a_n^2 = (a_n + 2) - a_n^2 = -(a_n^2 - a_n - 2) = -(a_n-2)(a_n+1)$. For $-1 < a_n < 2$ er $(a_n-2)<0$ og $(a_n+1)>0$, så produktet er negativt og $a_{n+1}^2 - a_n^2 > 0$. Begge positive ⇒ $a_{n+1} > a_n$. ✓\n\n**Steg 3 — konkluder.** Voksende + oppad begrenset ⇒ (kompletthetsaksiomet) konvergent. Grensen er fikspunktet: $L = 2$.\n\n**Konklusjon:** $\\lim_{n\\to\\infty} a_n = 2$. $\\blacksquare$",
+        "hints": [
+          "Steg 1: løs $L=\\sqrt{L+2}$ ved å kvadrere; forkast den negative roten.",
+          "Steg 2a: vis $a_n<2$ ved induksjon — bruk at $\\sqrt{\\cdot}$ er voksende.",
+          "Steg 2b: sammenlign $a_{n+1}^2$ og $a_n^2$; faktoriser $-(a_n-2)(a_n+1)$.",
+          "Først etter konvergensbeviset har du lov til å sette grensen lik fikspunktet."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-3-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Åpne konstruksjonsoppgaver (~10 min)"
+    },
+    {
+      "id": "mat1100-2-3-l5-intro",
+      "type": "text",
+      "content": "En egen slutteksamenssjanger ber deg *konstruere* en følge med gitte egenskaper: «angi en følge som er begrenset, men ikke konvergent». Her er sensorregelen streng: **eksempelet alene er ikke nok — du må verifisere hver egenskap eksplisitt.** Et eksempel uten verifikasjon regnes ikke som fullt svar."
+    },
+    {
+      "id": "mat1100-2-3-def-begrenset",
+      "type": "definition",
+      "title": "Begrenset følge",
+      "content": "En følge $(a_n)$ er **begrenset** dersom det finnes et tall $M$ slik at $|a_n|\\le M$ for alle $n$ — alle leddene ligger i intervallet $[-M, M]$. Er den bare $a_n\\le M$, er den *oppad* begrenset; er den $a_n\\ge m$, *nedad* begrenset. En konvergent følge er alltid begrenset, men en begrenset følge trenger ikke konvergere."
+    },
+    {
+      "id": "mat1100-2-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Konstruer og verifiser BEGGE egenskaper",
+      "problem": "Angi en følge som er begrenset, men ikke konvergent, og verifiser begge egenskapene.",
+      "solution": "**Konstruksjon.** La $a_n = (-1)^n$, altså følgen $-1, 1, -1, 1, \\dots$\n\n**Verifikasjon 1 — begrenset.** For alle $n$ er $|a_n| = |(-1)^n| = 1 \\le 1$. Følgen er dermed begrenset (med $M=1$). ✓\n\n**Verifikasjon 2 — ikke konvergent.** Anta for motsigelse at $a_n \\to L$. Med $\\varepsilon = 1$ måtte det finnes $N$ slik at $|a_n - L| < 1$ for alle $n > N$. Men blant slike $n$ finnes både ledd lik $1$ og ledd lik $-1$, så vi måtte ha både $|1 - L| < 1$ og $|-1 - L| < 1$. Trekantulikheten gir da\n$$2 = |1 - (-1)| \\le |1 - L| + |L - (-1)| < 1 + 1 = 2,$$\naltså $2 < 2$ — selvmotsigelse. Følgen konvergerer ikke. ✓\n\n**Konklusjon:** $a_n = (-1)^n$ er begrenset (av 1) og divergent. Begge egenskaper er verifisert — det er dét som kreves for fullt svar. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-3-ex-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger I — konstruksjon med verifikasjon.) Angi en følge som er voksende, men ikke konvergent, og verifiser begge egenskapene.",
+        "solution": "**Konstruksjon.** La $a_n = n$, altså $1, 2, 3, 4, \\dots$\n\n**Verifikasjon 1 — voksende.** For alle $n$ er $a_{n+1} - a_n = (n+1) - n = 1 > 0$, så $a_{n+1} > a_n$. Følgen er (strengt) voksende. ✓\n\n**Verifikasjon 2 — ikke konvergent.** Følgen er ikke oppad begrenset: for enhver skranke $M$ finnes et $n > M$ med $a_n = n > M$. En konvergent følge må være begrenset, så en ubegrenset følge kan ikke konvergere. (Faktisk $a_n\\to\\infty$.) ✓\n\n**Konklusjon:** $a_n = n$ er voksende og divergent (mot $\\infty$). Begge egenskaper er verifisert. $\\blacksquare$\n\n*Merk sammenhengen med kompletthetsaksiomet: denne følgen er monoton, men mangler begrensethet — nettopp derfor svikter konvergensen. Det viser hvorfor teoremet krever begge deler.*",
+        "hints": [
+          "Trenger du en voksende følge uten tak? Den enkleste er $a_n=n$.",
+          "Vis $a_{n+1}-a_n>0$ for voksende.",
+          "For divergens: en konvergent følge er alltid begrenset — så vis at følgen er ubegrenset."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Løse $L=g(L)$ uten konvergensbevis.** Å anta at grensen finnes og bare regne fikspunktet gir **0 uten begrunnelse**. Bevis konvergens (monoton + begrenset) *først*, deretter $L=g(L)$.\n- **Glemme å verifisere begge egenskaper i åpne oppgaver.** «Begrenset, men ikke konvergent» krever at du viser *både* begrensetheten *og* divergensen eksplisitt. Eksempel uten verifikasjon = ikke fullt svar.\n- **Godta et fikspunkt utenfor følgens verdiområde.** Ved $L=\\sqrt{2L+3}$ gir kvadrering også $L=-1$, som må forkastes fordi leddene er positive. Sjekk alltid at kandidaten er forenlig med følgen.\n- **Blande følgegrense og funksjonsgrense.** Følgegrensen bruker indeksterskel $N$ (heltall $n$), ikke $\\delta$ (reelle $x$). $\\lim_{n\\to\\infty}\\sin(n\\pi)=0$, men $\\lim_{x\\to\\infty}\\sin(x\\pi)$ finnes ikke.\n- **Anta at monoton alene, eller begrenset alene, gir konvergens.** Begge kreves. $(-1)^n$ er begrenset, ikke konvergent; $a_n=n$ er monoton, ikke konvergent."
+    },
+    {
+      "id": "mat1100-2-3-bank-head",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene samler følgebegrepene i eksamensrettet kortform."
+    },
+    {
+      "id": "mat1100-2-3-bb-konvergent",
+      "type": "definition",
+      "title": "Konvergent følge",
+      "content": "En følge $(a_n)$ som nærmer seg ett bestemt tall $L$: for enhver $\\varepsilon>0$ ligger alle ledd fra en viss indeks $N$ innenfor $\\varepsilon$ av $L$. Skrives $\\lim_{n\\to\\infty}a_n=L$. En konvergent følge er alltid begrenset."
+    },
+    {
+      "id": "mat1100-2-3-bb-divergent",
+      "type": "definition",
+      "title": "Divergent følge",
+      "content": "En følge som ikke konvergerer mot noe reelt tall — enten fordi den vokser uten grense ($a_n\\to\\pm\\infty$) eller fordi den svinger uten å falle til ro (som $(-1)^n$)."
+    },
+    {
+      "id": "mat1100-2-3-bb-monoton",
+      "type": "definition",
+      "title": "Monoton følge",
+      "content": "En følge som er enten **voksende** ($a_{n+1}\\ge a_n$ for alle $n$) eller **avtakende** ($a_{n+1}\\le a_n$). Monotoni er den ene av de to forutsetningene i kompletthetsaksiomet."
+    },
+    {
+      "id": "mat1100-2-3-bb-kompletthet",
+      "type": "definition",
+      "title": "Kompletthetsaksiomet",
+      "content": "Grunnegenskapen ved $\\mathbb{R}$ som gir at «monoton + begrenset ⇒ konvergent». Den lar deg fastslå at en grense *finnes* uten å regne den ut — helt sentralt for rekursive følger. Speiler at $\\mathbb{R}$ ikke har «hull»."
+    },
+    {
+      "id": "mat1100-2-3-bb-supinf",
+      "type": "definition",
+      "title": "Supremum og infimum",
+      "content": "**Supremum** ($\\sup$) er den minste øvre skranken til en mengde/følge; **infimum** ($\\inf$) den største nedre. En voksende, oppad begrenset følge konvergerer nettopp mot sitt supremum. Brukes i begrensethetsargumenter."
+    },
+    {
+      "id": "mat1100-2-3-bb-rekursiv",
+      "type": "definition",
+      "title": "Rekursiv følge",
+      "content": "En følge gitt ved et startledd og en regel $a_{n+1}=g(a_n)$ som lager hvert ledd av det forrige. Har ingen direkte formel for $a_n$ — analyseres med fikspunkt + monotoni + begrensethet."
+    },
+    {
+      "id": "mat1100-2-3-bb-eksplisitt",
+      "type": "definition",
+      "title": "Eksplisitt følge",
+      "content": "En følge gitt ved en direkte formel for $a_n$ som funksjon av $n$ (f.eks. $a_n=(2n+1)/(n+3)$). Grensen finnes ved vanlig grenseteknikk: del på høyeste potens, konjugat, osv."
+    },
+    {
+      "id": "mat1100-2-3-bb-grenseregler-folge",
+      "type": "definition",
+      "title": "Grenseregler for følger",
+      "content": "Konvergerer $a_n\\to A$ og $b_n\\to B$, så $a_n+b_n\\to A+B$, $a_nb_n\\to AB$ og $a_n/b_n\\to A/B$ (om $B\\ne0$). Samme struktur som grensereglene for funksjoner i [kap. 2.1](/bok/mat1100/mat1100-2-1)."
+    },
+    {
+      "id": "mat1100-2-3-bb-skvis-folge",
+      "type": "definition",
+      "title": "Skvis for følger",
+      "content": "Er $b_n\\le a_n\\le c_n$ fra en viss indeks, og $b_n,c_n\\to L$, så $a_n\\to L$. Brukes på oscillerende ledd via $|\\sin|\\le1$/$|\\cos|\\le1$ — begrensetheten uttales. F.eks. $\\frac{\\sin n}{n}\\to 0$."
+    },
+    {
+      "id": "mat1100-2-3-bb-kandidat-vs-grense",
+      "type": "definition",
+      "title": "Fikspunktkandidat vs. faktisk grense",
+      "content": "Fikspunktlikningen $L=g(L)$ gir bare *mulige* grenser. En kandidat blir den faktiske grensen **kun hvis** følgen er bevist konvergent (monoton + begrenset). Å hoppe over dette beviset er hovedfeilen på eksamen."
+    },
+    {
+      "id": "mat1100-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-2-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Følger og tallmønstre (R2)](/bok/r2/r2-1-1)) En følge er gitt eksplisitt ved $a_n = \\dfrac{1}{n}$. Skriv de fire første leddene, og hva nærmer følgen seg?",
+            "solution": "$a_1 = 1$, $a_2 = \\tfrac12$, $a_3 = \\tfrac13$, $a_4 = \\tfrac14$. Leddene minker mot 0: $\\lim_{n\\to\\infty}\\tfrac1n = 0$.\n\n**Svar:** $1, \\tfrac12, \\tfrac13, \\tfrac14, \\dots \\to 0$.",
+            "hints": [
+              "Sett inn $n=1,2,3,4$.",
+              "Store $n$ gir liten $1/n$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Rekursive sammenhenger og programmering (R2)](/bok/r2/r2-1-7)) En følge er gitt rekursivt ved $a_1 = 2$ og $a_{n+1} = 3a_n - 1$. Regn ut $a_2$ og $a_3$.",
+            "solution": "$a_2 = 3a_1 - 1 = 3\\cdot 2 - 1 = 5.$ $a_3 = 3a_2 - 1 = 3\\cdot 5 - 1 = 14.$\n\n**Svar:** $a_2 = 5$, $a_3 = 14$. (Denne følgen vokser uten grense — den er verken oppad begrenset eller konvergent.)",
+            "hints": [
+              "Sett $a_1$ inn i regelen for å få $a_2$, deretter $a_2$ inn for $a_3$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/mat1100/mat1100-2-2)) Bruk konjugattrikset til å finne $\\lim_{n\\to\\infty}\\left(\\sqrt{n+1} - \\sqrt{n}\\right)$.",
+            "solution": "Gang med den konjugerte $\\sqrt{n+1}+\\sqrt n$:\n$$\\sqrt{n+1} - \\sqrt n = \\frac{(n+1) - n}{\\sqrt{n+1}+\\sqrt n} = \\frac{1}{\\sqrt{n+1}+\\sqrt n}.$$\nNevneren $\\to\\infty$, så brøken $\\to 0$.\n\n**Svar:** $0$.",
+            "hints": [
+              "Konjugert av $\\sqrt{n+1}-\\sqrt n$ er $\\sqrt{n+1}+\\sqrt n$.",
+              "Telleren blir 1, nevneren vokser uten grense."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-3-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1100/mat1100-2-1)) Forklar kort forskjellen på $\\delta$ i funksjonsgrensen og $N$ i følgegrensen.",
+            "solution": "I funksjonsgrensen $\\lim_{x\\to a}f(x)=L$ er $\\delta$ en *nærhetsradius* på den reelle aksen: $x$ skal ligge innenfor $\\delta$ av $a$. I følgegrensen $\\lim_{n\\to\\infty}a_n=L$ er $N$ en *indeksterskel*: alle ledd fra og med nummer $N$ skal være nær $L$. Fordi $n$ bare er heltall og går mot $\\infty$, gir «nær $a$» ingen mening — man krever i stedet «langt nok ut i følgen».\n\n**Svar:** $\\delta$ = avstand på $x$-aksen; $N$ = plass i rekkefølgen.",
+            "hints": [
+              "Hva slags verdier tar $n$ mot $\\infty$, sammenlignet med $x\\to a$?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-2-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $(a_n)$ | en følge: $a_1, a_2, a_3, \\dots$ |\n| $\\lim_{n\\to\\infty} a_n = L$ | følgen konvergerer mot $L$ |\n| $N$ | indeksterskel i følgedefinisjonen (svarer til $\\delta$) |\n| $a_{n+1} = g(a_n)$ | rekursiv regel: neste ledd fra forrige |\n| $L = g(L)$ | fikspunktlikningen (kandidatgrense) |\n| $M$ | øvre skranke ($a_n \\le M$) |\n| $m$ | nedre skranke ($a_n \\ge m$) |\n| $\\sup$, $\\inf$ | minste øvre / største nedre skranke |\n| $a_{n+1}\\ge a_n$ | voksende følge |\n| $a_{n+1}\\le a_n$ | avtakende følge |\n| $\\blacksquare$ | slutt på bevis |\n\n**Formler i dette delkapitlet:**\n\n$$\\lim_{n\\to\\infty} a_n = L \\iff \\forall\\varepsilon>0\\;\\exists N:\\; n>N \\Rightarrow |a_n - L| < \\varepsilon$$\nFølgegrensen (N-definisjonen) — speiler ε-δ med indeksterskel.\n\n$$\\text{monoton} + \\text{begrenset} \\Rightarrow \\text{konvergent}$$\nKompletthetsaksiomet — gir konvergens uten å kjenne grensen.\n\n$$L = g(L)$$\nFikspunktlikningen: kandidatgrense for $a_{n+1}=g(a_n)$ (kun gyldig etter konvergensbevis).\n\n$$\\sqrt{A_n} - \\sqrt{B_n} = \\frac{A_n - B_n}{\\sqrt{A_n} + \\sqrt{B_n}}$$\nKonjugattrikset for rotfølger.\n\n$$b_n \\le a_n \\le c_n,\\ b_n,c_n\\to L \\ \\Rightarrow\\ a_n\\to L$$\nSkvis for følger."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

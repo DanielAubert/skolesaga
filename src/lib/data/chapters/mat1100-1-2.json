@@ -1,0 +1,482 @@
+{
+  "id": "mat1100-1-2",
+  "courseId": "mat1100",
+  "chapterNumber": "1.2",
+  "title": "de Moivre: potenser og n-te røtter",
+  "description": "Høye potenser og n-te røtter via polarform — de årvisse midtveisspørsmålene nummer to og tre.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke de Moivres formel til å regne ut høye potenser av komplekse tall med korrekt reduksjon av argumentet mod 2π",
+    "finne alle n-te røtter av et komplekst tall og beskrive dem som jevnt fordelte punkter på en sirkel",
+    "løse baklengsvarianten: gå fra en oppgitt rot til tallet selv ved å multiplisere argumentet med rotindeksen"
+  ],
+  "content": [
+    {
+      "id": "mat1100-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Etter polarform-åpningen kommer midtveissettets spørsmål **nummer to og tre** nesten alltid her: en **høy potens** (typen $z^{38}$ med vinkelreduksjon) og et **n-te-rot-spørsmål**. Begge er del av 30 %-komplekstall-blokken. På slutteksamen inngår de i **sjanger G** (arkivets navn på komplekse tall-oppgaver med full føring). Argument-doblingsvarianten («en kvadratrot har argument $\\pi/3$, hva er argumentet til $z$?») har vært egen oppgave.\n\nHvorfor er dette gull? Fordi polarform gjør det som ser fryktelig ut ($(1-i)^{14}$) til tre linjer. Uten polarform må du gange ut fjorten faktorer — den klassiske **tidsfellen** på midtveis.\n\nDette er et **perfekt**-kapittel: det skal sitte automatisk og raskt. To korte løkker (de Moivre-potens, n-te røtter) og én kort baklengsvariant.\n\n*Frekvensene er fra MAT1100-arkivet (21 slutteksamener H2003–H2023, 16 midtveiseksamener H2003–H2018); arkivet stopper i 2023.*"
+    },
+    {
+      "id": "mat1100-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Alt bygger på forrige kapittel:\n\n- **[Kap. 1.1 — Komplekse tall: regning, polarform og geometri](/bok/mat1100/mat1100-1-1)** — du må kunne skrive et tall på polarform $re^{i\\theta}$ *begge veier* med riktig kvadrant. Alt i dette kapitlet starter med å sette tallet på polarform.\n- **[Trigonometriske formler (r2)](/bok/r2/r2-4-6)** — de eksakte verdiene for standardvinklene ($\\pi/6, \\pi/4, \\pi/3, \\pi/2, \\dots$) trenger du når du skal tilbake til kartesisk form til slutt.\n\n*Sist du var her (kap. 1.1):* polarform er $z = re^{i\\theta}$ med $r = |z| = \\sqrt{a^2+b^2}$ og $\\theta = \\arg z$; **moduluser ganges og argumenter legges sammen** ved multiplikasjon; og argumentet **reduseres mod $2\\pi$**. Nettopp disse tre reglene er hele dette kapitlet."
+    },
+    {
+      "id": "mat1100-1-2-intro",
+      "type": "text",
+      "content": "Forrige kapittel viste at multiplikasjon i polarform betyr «gang modulusene, legg sammen argumentene». Hva skjer da når vi ganger et tall med seg selv mange ganger? Modulusen opphøyes, og argumentet *multipliseres* — det er **de Moivres formel**, og den gjør høye potenser og røtter til enkle regnestykker.\n\nKapitlet har to hovedløkker og en kort avslutning:\n\n1. de Moivre: høye potenser (**~15 min**)\n2. n-te røtter — jevnt fordelt på en sirkel (**~18 min**)\n3. Baklengsvarianten: fra rot til tall (**~10 min**)\n\nSamlet ~45 min lesetid; gang med ca. 1,5 for håndregning."
+    },
+    {
+      "id": "mat1100-1-2-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — de Moivre: høye potenser (~15 min)"
+    },
+    {
+      "id": "mat1100-1-2-thm-demoivre",
+      "type": "theorem",
+      "title": "de Moivres formel",
+      "content": "For $z = re^{i\\theta}$ og et helt tall $n$ gjelder\n$$z^n = \\left(re^{i\\theta}\\right)^n = r^n e^{in\\theta} = r^n\\left(\\cos n\\theta + i\\sin n\\theta\\right).$$\nMed ord: **modulusen opphøyes i $n$, og argumentet multipliseres med $n$.** Formelen følger direkte av multiplikasjonsregelen ($e^{i\\alpha}e^{i\\beta}=e^{i(\\alpha+\\beta)}$) brukt $n$ ganger. Den er verktøyet for alle høypotens-spørsmål."
+    },
+    {
+      "id": "mat1100-1-2-def-potens-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift for høye potenser",
+      "content": "For å regne ut $z^n$ når $n$ er stor:\n1. **Skriv $z$ på polarform** $re^{i\\theta}$ (tegn punktet, finn $r$ og $\\theta$).\n2. **Opphøy modulusen** i $n$: $r^n$.\n3. **Multipliser argumentet** med $n$: $n\\theta$, og **reduser mod $2\\pi$** til en lesbar vinkel.\n4. **Tilbake til kartesisk** ($a+bi$) hvis oppgaven ber om det.\n\nDet er steg 3 — reduksjonen mod $2\\pi$ — som skiller riktig svar fra distraktorene på midtveis."
+    },
+    {
+      "id": "mat1100-1-2-ex-potens",
+      "type": "example",
+      "title": "Eksempel 1: Høy potens med de Moivre",
+      "problem": "Regn ut $(1-i)^{14}$ og skriv svaret på formen $a+bi$.",
+      "solution": "**Steg 1 — polarform.** Punktet $1-i$ ligger i fjerde kvadrant. Modulus $r=\\sqrt{1^2+(-1)^2}=\\sqrt2$, argument $\\theta=-\\pi/4$. Altså $1-i=\\sqrt2\\,e^{-i\\pi/4}$.\n\n**Steg 2 — modulus opphøyd:** $r^{14}=(\\sqrt2)^{14}=2^{7}=128.$\n\n**Steg 3 — argument multiplisert:**\n$$14\\theta = 14\\cdot\\left(-\\tfrac{\\pi}{4}\\right) = -\\tfrac{14\\pi}{4} = -\\tfrac{7\\pi}{2}.$$\nReduser mod $2\\pi$: $-\\tfrac{7\\pi}{2} + 4\\pi = -\\tfrac{7\\pi}{2}+\\tfrac{8\\pi}{2}=\\tfrac{\\pi}{2}.$\n\n**Steg 4 — tilbake til kartesisk:**\n$$(1-i)^{14}=128\\,e^{i\\pi/2}=128(\\cos\\tfrac{\\pi}{2}+i\\sin\\tfrac{\\pi}{2})=128(0+i)=128i.$$\n\n**Konklusjon:** $(1-i)^{14}=\\boxed{128i}$. (Merk hvor mye arbeid steg 3 sparer: uten reduksjon ville $-7\\pi/2$ vært håpløst å lese av.)"
+    },
+    {
+      "id": "mat1100-1-2-exc-l1-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger G — de Moivre, innsteg.) La $z=2e^{i\\pi/6}$. Regn ut $z^2$ på polarform.",
+        "solution": "de Moivre med $n=2$: modulusen opphøyes ($2^2=4$) og argumentet dobles ($2\\cdot\\tfrac{\\pi}{6}=\\tfrac{\\pi}{3}$).\n\n$$z^2=\\left(2e^{i\\pi/6}\\right)^2=4\\,e^{i\\pi/3}.$$\n\n**Konklusjon:** $z^2=4e^{i\\pi/3}$. (Ingen reduksjon nødvendig her — argumentet $\\pi/3$ ligger allerede i standardintervallet.)",
+        "hints": [
+          "Modulus: $2^2$. Argument: $2\\cdot\\pi/6$.",
+          "de Moivre: $(re^{i\\theta})^n=r^n e^{in\\theta}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-exc-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger G — de Moivre.) Regn ut $(1+i)^{8}$.\n\n*Tips: start med polarformen til $1+i$ fra kap. 1.1.*",
+        "solution": "**Polarform:** $1+i=\\sqrt2\\,e^{i\\pi/4}$ (første kvadrant, $r=\\sqrt2$, $\\theta=\\pi/4$).\n\n**de Moivre:** modulus $r^8=(\\sqrt2)^8=2^4=16$; argument $8\\cdot\\tfrac{\\pi}{4}=2\\pi$, som reduseres til $0$.\n\nDermed $(1+i)^8=16\\,e^{i\\cdot 0}=16(\\cos 0+i\\sin 0)=16$.\n\n**Konklusjon:** $(1+i)^8=16$ (et rent reelt tall).",
+        "hints": [
+          "Skriv $1+i=\\sqrt2 e^{i\\pi/4}$.",
+          "Modulus: $(\\sqrt2)^8=2^4$. Argument: $8\\cdot\\pi/4=2\\pi\\equiv 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-exc-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — de Moivre med kvadrant.) Regn ut $(\\sqrt3+i)^{6}$ og skriv svaret på kartesisk form.",
+        "solution": "**Polarform:** $\\sqrt3+i$ ligger i første kvadrant. $r=\\sqrt{3+1}=2$, referansevinkel $\\tan\\theta=1/\\sqrt3\\Rightarrow\\pi/6$, så $\\theta=\\pi/6$. Altså $\\sqrt3+i=2e^{i\\pi/6}$.\n\n**de Moivre:** modulus $2^6=64$; argument $6\\cdot\\tfrac{\\pi}{6}=\\pi$.\n\n$$(\\sqrt3+i)^6=64\\,e^{i\\pi}=64(\\cos\\pi+i\\sin\\pi)=64(-1)=-64.$$\n\n**Konklusjon:** $(\\sqrt3+i)^6=-64$.",
+        "hints": [
+          "$r=2$, $\\theta=\\pi/6$.",
+          "Argument blir $6\\cdot\\pi/6=\\pi$, og $e^{i\\pi}=-1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-exc-l1c",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — potens som krever vinkelreduksjon.) Regn ut $\\left(\\dfrac{-1+i}{\\sqrt2}\\right)^{10}$.",
+        "solution": "**Polarform.** Tallet $\\dfrac{-1+i}{\\sqrt2}$ har modulus $\\dfrac{|-1+i|}{\\sqrt2}=\\dfrac{\\sqrt2}{\\sqrt2}=1$ (det ligger på enhetssirkelen). Punktet $-1+i$ er i andre kvadrant med argument $3\\pi/4$. Altså er tallet $e^{i\\,3\\pi/4}$.\n\n**de Moivre:** modulus $1^{10}=1$; argument $10\\cdot\\tfrac{3\\pi}{4}=\\tfrac{30\\pi}{4}=\\tfrac{15\\pi}{2}$.\n\n**Reduser mod $2\\pi$:** $\\tfrac{15\\pi}{2}-6\\pi=\\tfrac{15\\pi}{2}-\\tfrac{12\\pi}{2}=\\tfrac{3\\pi}{2}$.\n\n$$\\left(\\tfrac{-1+i}{\\sqrt2}\\right)^{10}=e^{i\\,3\\pi/2}=\\cos\\tfrac{3\\pi}{2}+i\\sin\\tfrac{3\\pi}{2}=-i.$$\n\n**Konklusjon:** svaret er $-i$. (Modulus 1 hele veien fordi tallet ligger på enhetssirkelen — bare retningen endres.)",
+        "hints": [
+          "Sjekk modulusen først: her er den $1$ (enhetssirkelen).",
+          "Argument $10\\cdot 3\\pi/4=15\\pi/2$; trekk fra $6\\pi$ for å redusere."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — n-te røtter jevnt på en sirkel (~18 min)"
+    },
+    {
+      "id": "mat1100-1-2-l2-intro",
+      "type": "text",
+      "content": "Nå snur vi de Moivre: i stedet for å opphøye, skal vi trekke rot. Spørsmålet «finn alle $z$ med $z^n = w$» har **nøyaktig $n$ løsninger**, og de har en vakker geometri: de ligger jevnt fordelt på en sirkel. Nøkkelen — og den vanligste fellen — er $2k\\pi$-leddet som gir *alle* røttene, ikke bare én."
+    },
+    {
+      "id": "mat1100-1-2-thm-nrot",
+      "type": "theorem",
+      "title": "n-te røtter av et komplekst tall",
+      "content": "La $w = \\rho\\,e^{i\\varphi} \\ne 0$. Likningen $z^n = w$ har **nøyaktig $n$ forskjellige løsninger**:\n$$z_k = \\rho^{1/n}\\,e^{\\,i(\\varphi + 2k\\pi)/n}, \\qquad k = 0, 1, \\dots, n-1.$$\nAlle har **samme modulus** $\\rho^{1/n}$ (den reelle $n$-te rota av $|w|$), så de ligger på en sirkel med denne radien. Argumentene starter i $\\varphi/n$ og øker med **$2\\pi/n$** for hvert steg — røttene ligger derfor **jevnt fordelt** som hjørnene i en regulær $n$-kant. $2k\\pi$-leddet er det som gir alle $n$ røttene: uten det finner du bare $z_0$."
+    },
+    {
+      "id": "mat1100-1-2-def-rot-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift for n-te røtter",
+      "content": "For å løse $z^n = w$:\n1. **Skriv $w$ på polarform** $\\rho e^{i\\varphi}$.\n2. **Radius:** regn den reelle $n$-te rota $\\rho^{1/n}$ — alle røttene har denne modulusen.\n3. **Startvinkel:** $\\varphi/n$.\n4. **Legg til $2\\pi/n$** gjentatte ganger for å få de resterende røttene ($k=0,\\dots,n-1$).\n5. Skriv om til kartesisk form hvis spurt, og gjerne marker dem i planet."
+    },
+    {
+      "id": "mat1100-1-2-ex-rot",
+      "type": "example",
+      "title": "Eksempel 2: Tredjerøtter markert på sirkelen",
+      "problem": "Finn alle tredjerøttene til $-8i$ og marker dem i det komplekse planet.",
+      "solution": "**Steg 1 — polarform av $w=-8i$.** Punktet ligger rett ned på den imaginære aksen: $\\rho=8$, $\\varphi=-\\pi/2$. Altså $w=8e^{-i\\pi/2}$.\n\n**Steg 2 — radius:** $\\rho^{1/3}=8^{1/3}=2$. Alle tre røttene har modulus $2$.\n\n**Steg 3 — startvinkel:** $\\varphi/3 = \\dfrac{-\\pi/2}{3}=-\\dfrac{\\pi}{6}$.\n\n**Steg 4 — legg til $2\\pi/3$:**\n$$\\theta_0=-\\tfrac{\\pi}{6},\\qquad \\theta_1=-\\tfrac{\\pi}{6}+\\tfrac{2\\pi}{3}=\\tfrac{\\pi}{2},\\qquad \\theta_2=-\\tfrac{\\pi}{6}+\\tfrac{4\\pi}{3}=\\tfrac{7\\pi}{6}.$$\n\n**Røttene** (modulus $2$):\n$$z_0=2e^{-i\\pi/6}=\\sqrt3-i,\\quad z_1=2e^{i\\pi/2}=2i,\\quad z_2=2e^{i\\,7\\pi/6}=-\\sqrt3-i.$$\n(Kartesisk: $2\\cos(-\\tfrac{\\pi}{6})=\\sqrt3$, $2\\sin(-\\tfrac{\\pi}{6})=-1$, osv.)\n\n**Kontroll:** de tre argumentene $-30^\\circ, 90^\\circ, 210^\\circ$ ligger $120^\\circ=2\\pi/3$ fra hverandre — jevnt fordelt, som teoremet lover."
+    },
+    {
+      "id": "mat1100-1-2-img-rotter",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-2-tredjerotter-8i.svg",
+      "alt": "Det komplekse planet med en stiplet sirkel med radius 2 om origo. Tre punkter (tredjerøttene av -8i) er markert på sirkelen: rot 3 minus i nede til høyre, 2i på toppen, og minus rot 3 minus i nede til venstre. De ligger 120 grader fra hverandre.",
+      "caption": "De tre tredjerøttene til $-8i$ ligger jevnt fordelt (120° fra hverandre) på sirkelen med radius $2$: $\\sqrt3-i$, $2i$ og $-\\sqrt3-i$."
+    },
+    {
+      "id": "mat1100-1-2-l2-figur-i-ord",
+      "type": "text",
+      "content": "*Figur i ord:* Tegn en sirkel med radius $2$ om origo. Sett det første punktet $30^\\circ$ *under* den positive reelle aksen ($\\sqrt3-i$), og gå så $120^\\circ$ mot klokka to ganger: neste rot står rett opp ($2i$), den siste nede til venstre ($-\\sqrt3-i$). De tre danner en likesidet trekant."
+    },
+    {
+      "id": "mat1100-1-2-exc-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger G — n-te røtter, marker i planet.) Finn alle **fjerderøttene** til $-16$ og marker dem i det komplekse planet.",
+        "solution": "**Steg 1 — polarform av $w=-16$.** Ligger på den negative reelle aksen: $\\rho=16$, $\\varphi=\\pi$. Altså $w=16e^{i\\pi}$.\n\n**Steg 2 — radius:** $16^{1/4}=2$. Alle fire har modulus $2$.\n\n**Steg 3 — startvinkel:** $\\varphi/4=\\pi/4$.\n\n**Steg 4 — legg til $2\\pi/4=\\pi/2$:**\n$$\\theta_0=\\tfrac{\\pi}{4},\\;\\theta_1=\\tfrac{3\\pi}{4},\\;\\theta_2=\\tfrac{5\\pi}{4},\\;\\theta_3=\\tfrac{7\\pi}{4}.$$\n\n**Røttene** (modulus $2$):\n$$z_0=2e^{i\\pi/4}=\\sqrt2+\\sqrt2\\,i,\\quad z_1=2e^{i3\\pi/4}=-\\sqrt2+\\sqrt2\\,i,$$\n$$z_2=2e^{i5\\pi/4}=-\\sqrt2-\\sqrt2\\,i,\\quad z_3=2e^{i7\\pi/4}=\\sqrt2-\\sqrt2\\,i.$$\n\nDe fire ligger $90^\\circ$ fra hverandre — hjørnene i et kvadrat.\n\n**Figur i ord:** en sirkel med radius $2$ om origo, med røtter i de fire «klokkeslettene» $45^\\circ, 135^\\circ, 225^\\circ, 315^\\circ$ (ett i hver kvadrant).",
+        "hints": [
+          "$-16=16e^{i\\pi}$; radius $16^{1/4}=2$.",
+          "Startvinkel $\\pi/4$, deretter steg på $2\\pi/4=\\pi/2$.",
+          "Husk alle fire $k=0,1,2,3$ — ikke bare den første."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-img-fjerderotter",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-1-2-fjerderotter-16.svg",
+      "alt": "Det komplekse planet med en stiplet sirkel med radius 2 om origo. Fire punkter (fjerderøttene av -16) er markert i de fire kvadrantene ved 45, 135, 225 og 315 grader, jevnt fordelt som hjørnene i et kvadrat.",
+      "caption": "Fjerderøttene til $-16$: fire punkter jevnt fordelt (90° fra hverandre) på sirkelen med radius $2$, ett i hver kvadrant."
+    },
+    {
+      "id": "mat1100-1-2-exc-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G, eksamensklone.) Løs likningen $z^3 = 27$ og oppgi løsningene både på polarform og kartesisk form.",
+        "solution": "**Steg 1 — polarform av $w=27$.** Positivt reelt tall: $\\rho=27$, $\\varphi=0$. Altså $w=27e^{i\\cdot 0}$.\n\n**Steg 2 — radius:** $27^{1/3}=3$.\n\n**Steg 3–4 — vinkler:** start $0$, steg $2\\pi/3$:\n$$\\theta_0=0,\\quad \\theta_1=\\tfrac{2\\pi}{3},\\quad \\theta_2=\\tfrac{4\\pi}{3}.$$\n\n**Røttene på polarform:** $z_0=3e^{i0}$, $z_1=3e^{i2\\pi/3}$, $z_2=3e^{i4\\pi/3}$.\n\n**Kartesisk:**\n$$z_0=3,\\qquad z_1=3\\left(-\\tfrac12+\\tfrac{\\sqrt3}{2}i\\right)=-\\tfrac32+\\tfrac{3\\sqrt3}{2}i,\\qquad z_2=-\\tfrac32-\\tfrac{3\\sqrt3}{2}i.$$\n\n**Konklusjon:** de tre kubikkrøttene av $27$ er $3$, $-\\tfrac32+\\tfrac{3\\sqrt3}{2}i$ og $-\\tfrac32-\\tfrac{3\\sqrt3}{2}i$. Bare én er reell ($3$); de to andre er et konjugatpar. **Merk:** den reelle rota alene er *ikke* fullt svar — likningen har tre løsninger.",
+        "hints": [
+          "$27=27e^{i0}$; radius $27^{1/3}=3$.",
+          "Vinkler $0,\\;2\\pi/3,\\;4\\pi/3$.",
+          "Den reelle rota $z=3$ er bare én av tre — ta med konjugatparet."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Baklengsvarianten: fra rot til tall (~10 min)"
+    },
+    {
+      "id": "mat1100-1-2-l3-intro",
+      "type": "text",
+      "content": "En egen midtveisvariant snur oppgaven: du får *en rot* og skal finne *tallet*. Da ganges argumentet med rotindeksen (og modulusen opphøyes). Dette er samme de Moivre, bare brukt motsatt vei."
+    },
+    {
+      "id": "mat1100-1-2-def-baklengs",
+      "type": "definition",
+      "title": "Baklengsvarianten (rot til tall)",
+      "content": "Er $w$ en **$n$-te rot** av $z$ (altså $w^n = z$), så finner du $z$ ved de Moivre på $w$:\n$$|z| = |w|^n, \\qquad \\arg z = n\\cdot\\arg w.$$\nSpesielt for en **kvadratrot** ($n=2$): argumentet **dobles**. Har en kvadratrot av $z$ argument $\\pi/3$, har $z$ argument $2\\pi/3$. Pass på: $z$ har alltid to kvadratrøtter — den andre har argument $\\pi/3+\\pi$, men gir samme $z$ ved dobling ($2\\pi/3+2\\pi$)."
+    },
+    {
+      "id": "mat1100-1-2-ex-baklengs",
+      "type": "example",
+      "title": "Eksempel 3: Argument-dobling",
+      "problem": "Et komplekst tall $w$ er en kvadratrot av $z$, og $w$ har modulus $3$ og argument $\\pi/3$. Finn $z$ på polar- og kartesisk form.",
+      "solution": "$w$ er kvadratrot av $z$, så $z = w^2$. Bruk de Moivre med $n=2$:\n\n**Modulus:** $|z| = |w|^2 = 3^2 = 9$.\n\n**Argument:** $\\arg z = 2\\cdot\\arg w = 2\\cdot\\tfrac{\\pi}{3} = \\tfrac{2\\pi}{3}$.\n\n**Polarform:** $z = 9\\,e^{i\\,2\\pi/3}$.\n\n**Kartesisk:** $z = 9\\left(\\cos\\tfrac{2\\pi}{3}+i\\sin\\tfrac{2\\pi}{3}\\right)=9\\left(-\\tfrac12+\\tfrac{\\sqrt3}{2}i\\right)=-\\tfrac92+\\tfrac{9\\sqrt3}{2}i.$\n\n**Konklusjon:** $z = 9e^{i2\\pi/3} = -\\tfrac92+\\tfrac{9\\sqrt3}{2}i$."
+    },
+    {
+      "id": "mat1100-1-2-exc-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg-varianten skrevet ut — baklengs de Moivre.) En femterot $w$ av et tall $z$ har modulus $2$ og argument $\\pi/10$. Finn $z$ på polarform.",
+        "solution": "$w$ er femterot av $z$, altså $w^5 = z$. de Moivre med $n=5$:\n\n**Modulus:** $|z| = |w|^5 = 2^5 = 32$.\n\n**Argument:** $\\arg z = 5\\cdot\\arg w = 5\\cdot\\tfrac{\\pi}{10} = \\tfrac{\\pi}{2}$.\n\n**Konklusjon:** $z = 32\\,e^{i\\pi/2}$ (som er $32i$ på kartesisk form).",
+        "hints": [
+          "$w^5=z$, så bruk de Moivre på $w$ med $n=5$.",
+          "Modulus $2^5$; argument $5\\cdot\\pi/10$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-exc-hard",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-1-2-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger G, eksamensklone — kombinasjon.)\n\n**a)** Skriv $-2 - 2\\sqrt3\\,i$ på polarform.\n\n**b)** Bruk svaret til å regne ut $(-2-2\\sqrt3\\,i)^{5}$ på polarform.\n\n**c)** Hvor mange løsninger har likningen $z^{5} = -2-2\\sqrt3\\,i$, og hva er modulusen til hver?",
+        "solution": "**a)** Punktet $-2-2\\sqrt3\\,i$ har begge deler negative → **tredje kvadrant**. Modulus $r=\\sqrt{(-2)^2+(-2\\sqrt3)^2}=\\sqrt{4+12}=\\sqrt{16}=4$. Referansevinkel $\\tan\\theta=\\tfrac{2\\sqrt3}{2}=\\sqrt3\\Rightarrow\\pi/3$, så i tredje kvadrant $\\theta=\\pi+\\pi/3=4\\pi/3$. Altså\n$$-2-2\\sqrt3\\,i = 4\\,e^{i\\,4\\pi/3}.$$\n\n**b)** de Moivre: modulus $4^5=1024$; argument $5\\cdot\\tfrac{4\\pi}{3}=\\tfrac{20\\pi}{3}$. Reduser mod $2\\pi$: $\\tfrac{20\\pi}{3}-6\\pi=\\tfrac{20\\pi}{3}-\\tfrac{18\\pi}{3}=\\tfrac{2\\pi}{3}$. Altså\n$$(-2-2\\sqrt3\\,i)^5 = 1024\\,e^{i\\,2\\pi/3}.$$\n\n**c)** Likningen $z^5 = w$ har **nøyaktig 5 løsninger** (én per $k=0,\\dots,4$). Hver har modulus $|w|^{1/5} = 4^{1/5} = 4^{0{,}2}$, altså den reelle femterota av $4$ — samme radius for alle fem, jevnt fordelt $72^\\circ$ fra hverandre.\n\n**Konklusjon:** (a) $4e^{i4\\pi/3}$; (b) $1024e^{i2\\pi/3}$; (c) 5 løsninger, hver med modulus $4^{1/5}$.",
+        "hints": [
+          "Tredje kvadrant: $r=4$, referansevinkel $\\pi/3$, argument $4\\pi/3$.",
+          "(b) $5\\cdot 4\\pi/3=20\\pi/3$; trekk fra $6\\pi$.",
+          "(c) $z^n=w$ har alltid $n$ røtter, alle med modulus $|w|^{1/n}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-1-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme $2k\\pi$-leddet.** Da finner du bare $z_0$ og mister de andre røttene. En $n$-te-rot-oppgave har *alltid* $n$ svar.\n- **Glemme å redusere vinkelen** ved høye potenser. $14\\theta$ eller $10\\theta$ må reduseres mod $2\\pi$ til noe lesbart før du går til kartesisk form.\n- **Feil $n$-te rot av modulusen.** Radien er $\\rho^{1/n}$ (den *reelle* $n$-te rota av $|w|$), ikke $\\rho/n$.\n- **Dele argumentet uten $2k\\pi$ først.** I $z_k=\\rho^{1/n}e^{i(\\varphi+2k\\pi)/n}$ må $2k\\pi$ *inn før* du deler på $n$ — ellers får alle røttene samme vinkel.\n- **Oppgi bare den reelle rota.** Likninger som $z^3=27$ har også komplekse løsninger; den reelle alene er ikke fullt svar."
+    },
+    {
+      "id": "mat1100-1-2-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-1-2-bb-modulus-potens",
+      "type": "definition",
+      "title": "Modulus ved potens",
+      "content": "$|z^n| = |z|^n$: modulusen til en potens er potensen av modulusen. Følger av de Moivre — modulusdelen $r^n$. Uunnværlig for å sjekke størrelsen på svaret raskt."
+    },
+    {
+      "id": "mat1100-1-2-bb-argument-potens",
+      "type": "definition",
+      "title": "Argument ved potens",
+      "content": "$\\arg(z^n) = n\\cdot\\arg(z)$ (mod $2\\pi$): argumentet til en potens er $n$ ganger argumentet. Dette er den «geometriske» halvdelen av de Moivre — potensering er gjentatt rotasjon."
+    },
+    {
+      "id": "mat1100-1-2-bb-vinkelavstand",
+      "type": "definition",
+      "title": "Vinkelavstand mellom røtter",
+      "content": "De $n$ røttene av $z^n=w$ ligger med **konstant vinkelavstand $2\\pi/n$** rundt sirkelen. De danner hjørnene i en regulær $n$-kant med sentrum i origo. Kjenner du én rot, får du resten ved å rotere $2\\pi/n$."
+    },
+    {
+      "id": "mat1100-1-2-bb-rot-radius",
+      "type": "definition",
+      "title": "Radius til rotsirkelen",
+      "content": "Alle $n$-te røtter av $w$ har **samme modulus** $|w|^{1/n}$ — den reelle $n$-te rota av $|w|$. Derfor ligger de på én sirkel om origo med denne radien."
+    },
+    {
+      "id": "mat1100-1-2-bb-enhetsrotter",
+      "type": "definition",
+      "title": "Enhetsrøttene",
+      "content": "Løsningene av $z^n = 1$: $z_k = e^{i\\,2k\\pi/n}$, $k=0,\\dots,n-1$. De ligger jevnt på **enhetssirkelen** (modulus $1$), med $z_0=1$ alltid blant dem. For $n=2$: $\\pm1$; for $n=4$: $1, i, -1, -i$."
+    },
+    {
+      "id": "mat1100-1-2-bb-kvadratrot",
+      "type": "definition",
+      "title": "Kvadratrot av et komplekst tall",
+      "content": "$z^2=w$ har **to** løsninger: $\\pm\\sqrt{|w|}\\,e^{i\\varphi/2}$ der $\\varphi=\\arg w$. De er hverandres motsatte (ligger diametralt på sirkelen). Brukes i abc-formelen med komplekse koeffisienter (kap. 1.3)."
+    },
+    {
+      "id": "mat1100-1-2-bb-konjugat-potens",
+      "type": "definition",
+      "title": "Konjugat og potens",
+      "content": "$\\overline{z^n} = (\\bar z)^n$: å konjugere en potens er det samme som å opphøye konjugatet. Geometrisk: konjugering speiler om reell akse, og en speiling av røttene er igjen røttene til det konjugerte tallet."
+    },
+    {
+      "id": "mat1100-1-2-bb-demoivre-trig",
+      "type": "definition",
+      "title": "de Moivre for trigonometri",
+      "content": "Ved å sette $r=1$ og sammenligne real- og imaginærdel i $(\\cos\\theta+i\\sin\\theta)^n=\\cos n\\theta+i\\sin n\\theta$ får man formler for $\\cos n\\theta$ og $\\sin n\\theta$. F.eks. $\\cos 2\\theta=\\cos^2\\theta-\\sin^2\\theta$ og $\\sin 2\\theta=2\\sin\\theta\\cos\\theta$ fra $n=2$."
+    },
+    {
+      "id": "mat1100-1-2-bb-antall-rotter",
+      "type": "definition",
+      "title": "Antall røtter",
+      "content": "$z^n = w$ (med $w\\ne 0$) har **nøyaktig $n$ forskjellige løsninger** i $\\mathbb{C}$. Dette er et spesialtilfelle av algebraens fundamentalteorem: et polynom av grad $n$ har $n$ røtter med multiplisitet (mer i kap. 1.3)."
+    },
+    {
+      "id": "mat1100-1-2-bb-startvinkel",
+      "type": "definition",
+      "title": "Startvinkel",
+      "content": "Den første rota ($k=0$) av $z^n=w=\\rho e^{i\\varphi}$ har argument $\\varphi/n$ — argumentet til $w$ delt på $n$. De øvrige følger ved å legge til $2\\pi/n$."
+    },
+    {
+      "id": "mat1100-1-2-bb-reell-negativ-rot",
+      "type": "definition",
+      "title": "Røtter av et reelt negativt tall",
+      "content": "$z^n = -a$ (med $a>0$) har ingen reell løsning når $n$ er partall, men alltid $n$ komplekse. Røttene er $a^{1/n}e^{i(\\pi+2k\\pi)/n}$ — jevnt fordelt, men ingen ligger på den positive reelle aksen."
+    },
+    {
+      "id": "mat1100-1-2-bb-polar-repetisjon",
+      "type": "definition",
+      "title": "Polarform (repetisjon)",
+      "content": "$z = re^{i\\theta}=r(\\cos\\theta+i\\sin\\theta)$, $r=|z|$, $\\theta=\\arg z$. Grunnlaget for alt i dette kapitlet: potens og rot er lette i polarform, tunge i kartesisk form."
+    },
+    {
+      "id": "mat1100-1-2-bb-reduksjon-rep",
+      "type": "definition",
+      "title": "Reduksjon mod $2\\pi$ (repetisjon)",
+      "content": "Trekk fra eller legg til hele $2\\pi$ til vinkelen ligger i standardintervallet. Kritisk etter potensering: $n\\theta$ blir fort stor, men peker i samme retning som en liten vinkel."
+    },
+    {
+      "id": "mat1100-1-2-bb-multiplikasjon-rep",
+      "type": "definition",
+      "title": "Multiplikasjon i polarform (repetisjon)",
+      "content": "$r_1e^{i\\alpha}\\cdot r_2 e^{i\\beta}=r_1r_2 e^{i(\\alpha+\\beta)}$. de Moivre er nettopp denne regelen brukt $n$ ganger på samme faktor."
+    },
+    {
+      "id": "mat1100-1-2-bb-geometrisk-tolkning",
+      "type": "definition",
+      "title": "Geometrisk tolkning av potens",
+      "content": "Å opphøye i $n$ betyr å skalere lengden ($r\\to r^n$) og rotere vinkelen ($\\theta\\to n\\theta$). Ligger $z$ på enhetssirkelen ($r=1$), er $z^n$ en ren rotasjon uten skalering."
+    },
+    {
+      "id": "mat1100-1-2-bb-diametral",
+      "type": "definition",
+      "title": "Motsatte røtter",
+      "content": "For partall $n$ kommer røttene i par som ligger **diametralt** ($\\theta$ og $\\theta+\\pi$): hvis $z_0$ er rot, er $-z_0$ det også. For kvadratrot er dette de to $\\pm$-løsningene."
+    },
+    {
+      "id": "mat1100-1-2-bb-demoivre-kort",
+      "type": "definition",
+      "title": "de Moivres formel (kort)",
+      "content": "$(re^{i\\theta})^n = r^n e^{in\\theta}$. Hele kapitlets motor: potensering skalerer modulusen ($r\\to r^n$) og roterer argumentet ($\\theta\\to n\\theta$). Gjelder for alle hele $n$, også negative (da blir $r^n<1$ når $r>1$)."
+    },
+    {
+      "id": "mat1100-1-2-bb-primitiv",
+      "type": "definition",
+      "title": "Primitiv enhetsrot",
+      "content": "En $n$-te enhetsrot $\\zeta$ er **primitiv** dersom potensene $\\zeta^0,\\zeta^1,\\dots,\\zeta^{n-1}$ gir *alle* de $n$ enhetsrøttene. F.eks. er $i$ en primitiv fjerderot av $1$ (fordi $i,i^2,i^3,i^4$ gir $i,-1,-i,1$), mens $-1$ ikke er det."
+    },
+    {
+      "id": "mat1100-1-2-bb-sum-rotter",
+      "type": "definition",
+      "title": "Sum av alle n-te røtter",
+      "content": "For $n\\ge 2$ er **summen av alle $n$-te røtter av et tall lik $0$**. Geometrisk: røttene ligger symmetrisk fordelt rundt origo som hjørnene i en regulær $n$-kant, så «tyngdepunktet» deres er origo. Nyttig kontroll på at du har funnet riktige røtter."
+    },
+    {
+      "id": "mat1100-1-2-bb-i-potenser",
+      "type": "definition",
+      "title": "Potenser av $i$",
+      "content": "$i$ har en syklus med periode $4$: $i^1=i$, $i^2=-1$, $i^3=-i$, $i^4=1$, og så gjentar det seg. For å regne $i^k$ ser du på resten når $k$ deles på $4$. Dette er de Moivre for det spesielle tallet $i=e^{i\\pi/2}$."
+    },
+    {
+      "id": "mat1100-1-2-bb-rot-omvendt",
+      "type": "definition",
+      "title": "n-te rot som omvendt operasjon",
+      "content": "Å ta $n$-te rot er å reversere potensering: der potens *multipliserer* argumentet med $n$, *deler* rota det på $n$ — men $2k\\pi$-leddet må inn før delingen, og det er grunnen til at det blir $n$ svar i stedet for ett."
+    },
+    {
+      "id": "mat1100-1-2-bb-tilbake-kartesisk",
+      "type": "definition",
+      "title": "Tilbake til kartesisk form",
+      "content": "Etter en potens- eller rotutregning står svaret på polarform $re^{i\\theta}$. Skriv det på $a+bi$ ved $a=r\\cos\\theta$, $b=r\\sin\\theta$ — men bare når oppgaven ber om det. Ofte er polarform det ryddigste sluttsvaret, særlig ved flere røtter."
+    },
+    {
+      "id": "mat1100-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-1-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $z = re^{i\\theta}$ | Polarform: modulus $r$, argument $\\theta$ |\n| $z^n$ | $n$-te potens av $z$ |\n| $r^n$ | Modulusen opphøyd i $n$ (modulus til $z^n$) |\n| $n\\theta$ | Argumentet multiplisert med $n$ |\n| $w = \\rho e^{i\\varphi}$ | Tallet vi tar $n$-te rot av |\n| $\\rho^{1/n}$ | Radius til rotsirkelen (reell $n$-te rot av $|w|$) |\n| $z_k$ | Den $k$-te av $n$ røtter, $k=0,\\dots,n-1$ |\n| $2\\pi/n$ | Vinkelavstand mellom nabo-røtter |\n| $e^{i\\,2k\\pi/n}$ | Enhetsrøttene ($z^n=1$) |\n\n**Formler i dette delkapitlet:**\n\n$$z^n = (re^{i\\theta})^n = r^n e^{in\\theta} = r^n(\\cos n\\theta + i\\sin n\\theta)$$\nde Moivres formel — modulus opphøyes, argument multipliseres.\n\n$$|z^n| = |z|^n, \\qquad \\arg(z^n) = n\\,\\arg z \\pmod{2\\pi}$$\nModulus- og argumentregel ved potens.\n\n$$z_k = \\rho^{1/n}\\,e^{\\,i(\\varphi + 2k\\pi)/n}, \\quad k = 0,1,\\dots,n-1$$\nDe $n$ røttene av $z^n = \\rho e^{i\\varphi}$ — samme modulus, vinkler $2\\pi/n$ fra hverandre.\n\n$$z_k = e^{\\,i\\,2k\\pi/n}, \\quad k = 0,\\dots,n-1$$\nEnhetsrøttene ($z^n = 1$): jevnt fordelt på enhetssirkelen.\n\n$$|z| = |w|^n, \\qquad \\arg z = n\\,\\arg w \\quad (\\text{når } w^n = z)$$\nBaklengsvarianten — fra en rot $w$ til tallet $z$."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-1-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-1-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-2-rep-oppg-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/mat1100/mat1100-1-1)) Skriv $-1-i$ på polarform.",
+            "solution": "Tredje kvadrant: $r=\\sqrt{1+1}=\\sqrt2$, referansevinkel $\\pi/4$, argument $\\pi+\\pi/4=5\\pi/4$ (eller $-3\\pi/4$). Altså $-1-i=\\sqrt2\\,e^{i5\\pi/4}$.",
+            "hints": [
+              "Begge koordinater negative → tredje kvadrant; legg $\\pi$ til referansevinkelen $\\pi/4$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-2-rep-oppg-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Trigonometriske formler (r2)](/bok/r2/r2-4-6)) Hva er de eksakte verdiene av $\\cos\\tfrac{2\\pi}{3}$ og $\\sin\\tfrac{2\\pi}{3}$?",
+            "solution": "$\\cos\\tfrac{2\\pi}{3}=-\\tfrac12$ og $\\sin\\tfrac{2\\pi}{3}=\\tfrac{\\sqrt3}{2}$ (andre kvadrant: cosinus negativ, sinus positiv). Disse bruker du når du går fra polar til kartesisk etter en potens- eller rotutregning.",
+            "hints": [
+              "$2\\pi/3=120^\\circ$ ligger i andre kvadrant."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-2-rep-oppg-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/mat1100/mat1100-1-1)) Bruk multiplikasjonsregelen i polarform til å regne ut $\\left(2e^{i\\pi/6}\\right)\\left(3e^{i\\pi/3}\\right)$.",
+            "solution": "Gang modulusene ($2\\cdot3=6$) og legg sammen argumentene ($\\pi/6+\\pi/3=\\pi/6+2\\pi/6=\\pi/2$): svaret er $6e^{i\\pi/2}=6i$. Dette er akkurat mønsteret de Moivre generaliserer.",
+            "hints": [
+              "Modulus ganges, argument legges sammen."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-1-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-1-2-rep-oppg-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/mat1100/mat1100-1-1)) Regn ut $(1+i)^2$ direkte (uten polarform), og sjekk mot de Moivre.",
+            "solution": "Direkte: $(1+i)^2=1+2i+i^2=2i$. Med de Moivre: $1+i=\\sqrt2 e^{i\\pi/4}$, så $(1+i)^2=2e^{i\\pi/2}=2i$. Samme svar — de Moivre er bare raskere for høye potenser.",
+            "hints": [
+              "Direkte: kvadrer parentesen og bruk $i^2=-1$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

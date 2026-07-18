@@ -1,0 +1,493 @@
+{
+  "id": "mat1100-2-2",
+  "courseId": "mat1100",
+  "chapterNumber": "2.2",
+  "title": "Grenseteknikk: standardgrenser, L'Hôpital og alle ubestemte former",
+  "description": "Regneverktøyet for 16 % av midtveis: alle sju ubestemte former, konjugattriks, logaritmetriks og veksthierarkiet — med [0/0]-disiplinen sensor krever.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "gjenkjenne og markere de sju ubestemte formene og skrive dem om til [0/0] eller [∞/∞]",
+    "bruke L'Hôpitals regel med eksplisitt formmarkering før hver anvendelse",
+    "løse potensformene 1^∞, 0^0 og ∞^0 med logaritmetrikset og eksponentiere tilbake",
+    "velge standardgrense, veksthierarki eller skvis når L'Hôpital ikke hjelper"
+  ],
+  "content": [
+    {
+      "id": "mat1100-2-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er regneverktøyet for 16 % av midtveis.** Grenser med L'Hôpital og standardgrenser er **2–3 flervalgsspørsmål per midtveissett** (samlet 16 % av spørsmålene) og dekker alle de sju ubestemte formene. På slutteksamen er grenser egen (del)oppgave i **6 av 21 sett**, og L'Hôpital dukker dessuten opp som kjedet verktøy inne i FTC- og signaturoppgaver.\n\n**Prioritet: kunne (men tempoet må være perfekt på midtveis).** Sensor krever én bestemt disiplin: **den ubestemte formen skal markeres eksplisitt** — $[0/0]$ eller $[\\infty/\\infty]$ — *før hver eneste* L'Hôpital-anvendelse. Gjentar du L'Hôpital, markerer du på nytt. Å bruke L'Hôpital på et uttrykk som ikke er ubestemt, gir trekk selv om svaret blir riktig.\n\nDe seks andre ubestemte formene ($0\\cdot\\infty$, $\\infty-\\infty$, $1^\\infty$, $0^0$, $\\infty^0$) løses ikke direkte — du **skriver dem om** til $[0/0]$ eller $[\\infty/\\infty]$ først. Denne omskrivingskatalogen er kjernen i kapitlet.\n\n*(Frekvenstall fra MAT1100-arkivet: 21 slutteksamener H2003–H2023, 16 midtveiseksamener H2003–H2018. Arkivet stopper i 2023.)*"
+    },
+    {
+      "id": "mat1100-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Du bør ha grensespråket fra [kap. 2.1](/bok/mat1100/mat1100-2-1) — hva det vil si at en grense finnes. L'Hôpital deriverer teller og nevner, så du trenger trygg derivasjonsteknikk fra [Derivasjonsregler (R1)](/bok/r1/r1-4-1). Logaritmetrikset for potensformene ($1^\\infty$, $0^0$, $\\infty^0$) bruker logaritmereglene fra [Potenser og logaritmer (R1)](/bok/r1/r1-1-2).\n\n**Sist du var her (oppfrisking):** $\\dfrac{d}{dx}\\ln x = \\dfrac{1}{x}$, $\\dfrac{d}{dx}e^x = e^x$, og logaritmeloven $\\ln(a^b) = b\\ln a$ — de tre du bruker mest i dette kapitlet."
+    },
+    {
+      "id": "mat1100-2-2-intro",
+      "type": "text",
+      "content": "Sett $x=0$ inn i $\\dfrac{\\sin x}{x}$ og du får $\\dfrac{0}{0}$ — et uttrykk uten mening. Men grafen forteller at brøken nærmer seg 1. Slike **ubestemte former** er der grensen er interessant: svaret avhenger av *hvor fort* teller og nevner går mot sine grenseverdier, ikke bare hva de går mot.\n\nDet finnes nøyaktig sju ubestemte former:\n$$\\frac{0}{0},\\quad \\frac{\\infty}{\\infty},\\quad 0\\cdot\\infty,\\quad \\infty-\\infty,\\quad 1^\\infty,\\quad 0^0,\\quad \\infty^0.$$\nStrategien er alltid den samme: **gjør formen om til $[0/0]$ eller $[\\infty/\\infty]$**, for det er de eneste to L'Hôpital takler direkte. Dette kapitlet går gjennom omskrivingen for hver form, i små løkker — teori, gjennomregnet eksempel, oppgave.\n\n> **Tidsbruk (~60 min lesetid; ×1,5 for hånd).** Sju løkker med markerte pausepunkter. Tallene i parentes er lesetid for kjernestoffet."
+    },
+    {
+      "id": "mat1100-2-2-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Standardgrensene (~8 min)"
+    },
+    {
+      "id": "mat1100-2-2-l1-intro",
+      "type": "text",
+      "content": "Noen grenser er så vanlige at du bør kjenne svaret uten regning — de er *raskere* enn L'Hôpital og bør sitte til midtveis. De viktigste kommer fra trigonometri nær null."
+    },
+    {
+      "id": "mat1100-2-2-def-std-sin",
+      "type": "definition",
+      "title": "Standardgrensen sin x / x",
+      "content": "Den mest brukte standardgrensen:\n$$\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1.$$\nDen sier at $\\sin x \\approx x$ for små $x$ (i radianer!). To nære slektninger følger: $\\lim_{x\\to 0}\\dfrac{x}{\\sin x} = 1$ og $\\lim_{x\\to 0}\\dfrac{\\tan x}{x} = 1$. Og for cosinus: $\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^2} = \\dfrac{1}{2}$. Disse gir ofte svaret på tre linjer der L'Hôpital ville krevd flere runder."
+    },
+    {
+      "id": "mat1100-2-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Standardgrense slår L'Hôpital",
+      "problem": "Beregn $\\lim_{x\\to 0}\\dfrac{\\sin 5x}{3x}$.",
+      "solution": "Ved innsetting: $\\dfrac{\\sin 0}{0} = [0/0]$ — ubestemt.\n\n**Trikk: lag $\\sin(\\text{noe})/(\\text{samme noe})$.** Utvid med 5 i teller og nevner:\n$$\\frac{\\sin 5x}{3x} = \\frac{\\sin 5x}{5x}\\cdot \\frac{5x}{3x} = \\frac{\\sin 5x}{5x}\\cdot \\frac{5}{3}.$$\nNår $x\\to 0$ går $5x\\to 0$, så $\\dfrac{\\sin 5x}{5x}\\to 1$ (standardgrensen).\n\n$$\\lim_{x\\to 0}\\frac{\\sin 5x}{3x} = 1\\cdot \\frac{5}{3} = \\frac{5}{3}.$$\n\n**Konklusjon:** $\\lim_{x\\to 0}\\dfrac{\\sin 5x}{3x} = \\dfrac{5}{3}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — «MV» er midtveisrepertoaret: flervalg du bør klare på under 6 minutter.) Beregn $\\lim_{x\\to 0}\\dfrac{\\sin 2x}{x}$ med standardgrensen.",
+        "solution": "Innsetting gir $[0/0]$. Skriv $\\dfrac{\\sin 2x}{x} = \\dfrac{\\sin 2x}{2x}\\cdot 2$. Når $x\\to 0$ er $2x\\to 0$, så $\\dfrac{\\sin 2x}{2x}\\to 1$.\n$$\\lim_{x\\to 0}\\frac{\\sin 2x}{x} = 1\\cdot 2 = 2.$$\n\n**Svar:** $2$.",
+        "hints": [
+          "Lag formen $\\sin(\\text{arg})/(\\text{samme arg})$ ved å gange med det som mangler.",
+          "$\\sin(2x)/(2x)\\to 1$; faktoren du ganget med blir igjen."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Veksthierarkiet (~7 min)"
+    },
+    {
+      "id": "mat1100-2-2-l2-intro",
+      "type": "text",
+      "content": "Når $x\\to\\infty$ konkurrerer logaritmer, potenser og eksponentialer om å vokse raskest. Rangeringen er fast og avgjør mange grenser *uten* regning."
+    },
+    {
+      "id": "mat1100-2-2-def-vekst",
+      "type": "definition",
+      "title": "Veksthierarkiet",
+      "content": "For $x\\to\\infty$ vokser funksjonene i denne rekkefølgen, fra tregest til raskest:\n$$\\ln x \\;\\ll\\; x^p \\;\\ll\\; e^x \\qquad (p>0).$$\nTegnet $\\ll$ betyr «vokser mye tregere enn». Konsekvens: i en brøk vinner alltid den raskest voksende, så\n$$\\lim_{x\\to\\infty}\\frac{\\ln x}{x^p} = 0, \\qquad \\lim_{x\\to\\infty}\\frac{x^p}{e^x} = 0, \\qquad \\lim_{x\\to\\infty}\\frac{e^x}{x^p} = \\infty.$$\nSer du en slik brøk, kan du lese av svaret direkte i stedet for å bruke L'Hôpital flere ganger."
+    },
+    {
+      "id": "mat1100-2-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Veksthierarkiet gir svaret",
+      "problem": "Beregn $\\lim_{x\\to\\infty}\\dfrac{3x^2 + \\ln x}{e^x}$.",
+      "solution": "Ved innsetting: $[\\infty/\\infty]$ — ubestemt.\n\n**Bruk hierarkiet i stedet for L'Hôpital.** Del opp:\n$$\\frac{3x^2 + \\ln x}{e^x} = 3\\cdot\\frac{x^2}{e^x} + \\frac{\\ln x}{e^x}.$$\nFørste ledd: $\\dfrac{x^2}{e^x}\\to 0$ (potens $\\ll$ eksponential). Andre ledd: $\\dfrac{\\ln x}{e^x}\\to 0$ (enda tydeligere, siden $\\ln x \\ll x^2 \\ll e^x$).\n\n$$\\lim_{x\\to\\infty}\\frac{3x^2+\\ln x}{e^x} = 3\\cdot 0 + 0 = 0.$$\n\n**Konklusjon:** Eksponentialen i nevneren dominerer alt i telleren, så grensen er $0$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg-trening — MV.) Bruk veksthierarkiet: $\\lim_{x\\to\\infty}\\dfrac{\\ln x}{x} = ?$",
+        "solution": "Formen er $[\\infty/\\infty]$. Fra hierarkiet $\\ln x \\ll x$, så nevneren vokser mye raskere:\n$$\\lim_{x\\to\\infty}\\frac{\\ln x}{x} = 0.$$\n\n**Svar:** $0$.",
+        "hints": [
+          "Hvem vokser raskest, $\\ln x$ eller $x$?",
+          "Den raskest voksende står i nevneren ⇒ brøken går mot 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — L'Hôpital med disiplin: [0/0] og [∞/∞] (~10 min)"
+    },
+    {
+      "id": "mat1100-2-2-l3-intro",
+      "type": "text",
+      "content": "L'Hôpitals regel er hovedverktøyet, men den har en streng bruksanvisning: den gjelder **bare** for de to formene $[0/0]$ og $[\\infty/\\infty]$, og du må **markere formen før hver anvendelse**. Dette er ren fasitpraksis — sensor trekker for L'Hôpital uten formsjekk."
+    },
+    {
+      "id": "mat1100-2-2-thm-lhopital",
+      "type": "theorem",
+      "title": "L'Hôpitals regel",
+      "content": "Anta at $\\lim_{x\\to a}\\dfrac{f(x)}{g(x)}$ gir den ubestemte formen $[0/0]$ eller $[\\infty/\\infty]$, at $f$ og $g$ er deriverbare nær $a$ (med $g'\\ne 0$), og at $\\lim_{x\\to a}\\dfrac{f'(x)}{g'(x)}$ finnes. Da er\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\lim_{x\\to a}\\frac{f'(x)}{g'(x)}.$$\n**Regler for bruk:** (1) Sjekk og **skriv ned** at formen er $[0/0]$ eller $[\\infty/\\infty]$ *før* du deriverer. (2) Deriver teller og nevner **hver for seg** — dette er *ikke* kvotientregelen. (3) Er resultatet igjen ubestemt, marker på nytt og bruk regelen én gang til. (4) Gjelder også $a=\\pm\\infty$."
+    },
+    {
+      "id": "mat1100-2-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: L'Hôpital brukt to ganger, med markering hver gang",
+      "problem": "Beregn $\\lim_{x\\to 0}\\dfrac{e^x - 1 - x}{x^2}$.",
+      "solution": "**Sjekk formen.** Innsetting: teller $e^0 - 1 - 0 = 0$, nevner $0$. Form $[0/0]$ — L'Hôpital lovlig.\n\n**Første anvendelse.** Deriver teller og nevner hver for seg:\n$$\\lim_{x\\to 0}\\frac{e^x - 1 - x}{x^2} = \\lim_{x\\to 0}\\frac{e^x - 1}{2x}.$$\n\n**Sjekk formen på nytt.** Innsetting: teller $e^0 - 1 = 0$, nevner $0$. Igjen $[0/0]$ — L'Hôpital lovlig en gang til.\n\n**Andre anvendelse.**\n$$\\lim_{x\\to 0}\\frac{e^x - 1}{2x} = \\lim_{x\\to 0}\\frac{e^x}{2} = \\frac{e^0}{2} = \\frac{1}{2}.$$\n\n**Konklusjon:** $\\lim_{x\\to 0}\\dfrac{e^x-1-x}{x^2} = \\dfrac{1}{2}$. (Merk: formen ble markert $[0/0]$ begge ganger — det er fasitkravet.) $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger — langsvar med føring; her: full L'Hôpital-føring med formmarkering.) Beregn $\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^2}$ med L'Hôpital, og marker formen hver gang.",
+        "solution": "**Form:** innsetting gir $\\dfrac{1-\\cos 0}{0} = \\dfrac{0}{0} = [0/0]$. L'Hôpital lovlig.\n\n**Første anvendelse:**\n$$\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2} = \\lim_{x\\to 0}\\frac{\\sin x}{2x}.$$\n\n**Sjekk form på nytt:** $\\dfrac{\\sin 0}{0} = [0/0]$. L'Hôpital lovlig igjen (eller bruk standardgrensen $\\sin x/x\\to 1$).\n\n**Andre anvendelse:**\n$$\\lim_{x\\to 0}\\frac{\\sin x}{2x} = \\lim_{x\\to 0}\\frac{\\cos x}{2} = \\frac{\\cos 0}{2} = \\frac{1}{2}.$$\n\n**Konklusjon:** $\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^2} = \\dfrac{1}{2}$ — nettopp standardgrensen fra løkke 1. $\\blacksquare$",
+        "hints": [
+          "Sjekk at formen er $[0/0]$ før du deriverer — skriv det ned.",
+          "Etter første derivasjon får du $\\sin x/(2x)$, som fortsatt er $[0/0]$: marker og deriver igjen (eller bruk standardgrensen)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Formen 0·∞: flytt til nevner (~8 min)"
+    },
+    {
+      "id": "mat1100-2-2-l4-intro",
+      "type": "text",
+      "content": "Et produkt $f\\cdot g$ der $f\\to 0$ og $g\\to\\infty$ er ubestemt: nullfaktoren drar mot 0, uendelighetsfaktoren mot $\\infty$. L'Hôpital takler ikke produkter direkte — du **flytter den ene faktoren ned i nevneren** som sin resiprok, og får $[0/0]$ eller $[\\infty/\\infty]$."
+    },
+    {
+      "id": "mat1100-2-2-def-0inf",
+      "type": "definition",
+      "title": "0·∞-formen (omskriving)",
+      "content": "Har du $\\lim f(x)g(x)$ med $f\\to 0$ og $g\\to\\infty$ (formen $0\\cdot\\infty$), skriv om til en brøk ved å sende én faktor ned som resiprok:\n$$f\\cdot g = \\frac{f}{1/g} \\;\\;[0/0] \\qquad\\text{eller}\\qquad f\\cdot g = \\frac{g}{1/f}\\;\\;[\\infty/\\infty].$$\nVelg den varianten som gir enklest derivasjon. **Ikke** deriver produktet direkte — det er den vanligste feilen her."
+    },
+    {
+      "id": "mat1100-2-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: 0·∞ flyttet til nevner",
+      "problem": "Beregn $\\lim_{x\\to 0^+} x\\ln x$.",
+      "solution": "**Form:** $x\\to 0^+$ gir $x\\to 0$ og $\\ln x\\to -\\infty$, altså $0\\cdot\\infty$ — ubestemt.\n\n**Omskriv til brøk.** Send $x$ ned som $1/x$:\n$$x\\ln x = \\frac{\\ln x}{1/x}.$$\nNå: teller $\\ln x\\to -\\infty$, nevner $1/x\\to +\\infty$, form $[\\infty/\\infty]$ — L'Hôpital lovlig.\n\n**L'Hôpital.** $\\dfrac{d}{dx}\\ln x = 1/x$, $\\dfrac{d}{dx}(1/x) = -1/x^2$:\n$$\\lim_{x\\to 0^+}\\frac{\\ln x}{1/x} = \\lim_{x\\to 0^+}\\frac{1/x}{-1/x^2} = \\lim_{x\\to 0^+}(-x) = 0.$$\n\n**Konklusjon:** $\\lim_{x\\to 0^+} x\\ln x = 0$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger — langsvar med føring.) Beregn $\\lim_{x\\to\\infty} x\\left(e^{1/x} - 1\\right)$ ved å skrive $0\\cdot\\infty$ som en brøk.",
+        "solution": "**Form:** $x\\to\\infty$, mens $e^{1/x} - 1\\to e^0 - 1 = 0$. Altså $\\infty\\cdot 0$ — ubestemt.\n\n**Omskriv.** Send $x$ ned som $1/x$:\n$$x(e^{1/x}-1) = \\frac{e^{1/x}-1}{1/x}.$$\nInnsetting: teller $\\to 0$, nevner $\\to 0$, form $[0/0]$ — L'Hôpital lovlig.\n\n**L'Hôpital.** La $u = 1/x$. Deriver: $\\dfrac{d}{dx}(e^{1/x}-1) = e^{1/x}\\cdot(-1/x^2)$, $\\dfrac{d}{dx}(1/x) = -1/x^2$:\n$$\\lim_{x\\to\\infty}\\frac{e^{1/x}\\cdot(-1/x^2)}{-1/x^2} = \\lim_{x\\to\\infty} e^{1/x} = e^0 = 1.$$\n\n**Konklusjon:** $\\lim_{x\\to\\infty} x(e^{1/x}-1) = 1$. $\\blacksquare$",
+        "hints": [
+          "Faktoren som går mot $\\infty$ ($x$) sendes ned som $1/x$ i nevneren.",
+          "Etter derivasjon forkortes $-1/x^2$ i teller og nevner mot hverandre."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Formen ∞−∞: fellesnevner eller konjugattriks (~10 min)"
+    },
+    {
+      "id": "mat1100-2-2-l5-intro",
+      "type": "text",
+      "content": "En differanse $f - g$ der begge går mot $\\infty$ er ubestemt: hvem vinner avgjør svaret. To standardgrep gjør den om til en brøk: **fellesnevner** (for brøkdifferanser) og **konjugattrikset** (for rotdifferanser). — *naturlig pausepunkt: du har nå L'Hôpital, standardgrensene og de to «produkt/differanse»-omskrivingene. Resten er potensformene.*"
+    },
+    {
+      "id": "mat1100-2-2-def-infinf",
+      "type": "definition",
+      "title": "∞−∞-formen (omskriving)",
+      "content": "Formen $\\infty - \\infty$ gir ingen mening direkte — du samler til én brøk først:\n\n- **Brøkdifferanse** ($\\frac1x - \\frac{1}{\\sin x}$-typen): sett på fellesnevner, så får du $[0/0]$.\n- **Rotdifferanse** ($\\sqrt{\\cdots} - \\sqrt{\\cdots}$ eller $\\sqrt{\\cdots} - x$): gang med den **konjugerte** over seg selv. $\\sqrt{A} - \\sqrt{B} = \\dfrac{A - B}{\\sqrt{A}+\\sqrt{B}}$ fjerner rottegnet i telleren."
+    },
+    {
+      "id": "mat1100-2-2-def-konjugat",
+      "type": "definition",
+      "title": "Konjugattrikset",
+      "content": "For et rotuttrykk $\\sqrt{A} - \\sqrt{B}$: gang teller og nevner med den konjugerte $\\sqrt{A}+\\sqrt{B}$. Da gir kvadratsetningen $(\\sqrt A-\\sqrt B)(\\sqrt A+\\sqrt B)=A-B$:\n$$\\sqrt{A} - \\sqrt{B} = \\frac{(\\sqrt A - \\sqrt B)(\\sqrt A + \\sqrt B)}{\\sqrt A + \\sqrt B} = \\frac{A - B}{\\sqrt A + \\sqrt B}.$$\nDifferansen av røtter blir en vanlig brøk der du kan dele på høyeste potens. Trikset går igjen for følger i [kap. 2.3](/bok/mat1100/mat1100-2-3)."
+    },
+    {
+      "id": "mat1100-2-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Konjugattrikset på ∞−∞",
+      "problem": "Beregn $\\lim_{x\\to\\infty}\\left(\\sqrt{x^2 + 4x} - x\\right)$ med full føring.",
+      "solution": "**Form:** $\\sqrt{x^2+4x}\\to\\infty$ og $x\\to\\infty$, altså $\\infty - \\infty$ — ubestemt.\n\n**Konjugattrikset.** Gang med $\\dfrac{\\sqrt{x^2+4x}+x}{\\sqrt{x^2+4x}+x}$:\n$$\\sqrt{x^2+4x} - x = \\frac{(x^2 + 4x) - x^2}{\\sqrt{x^2+4x}+x} = \\frac{4x}{\\sqrt{x^2+4x}+x}.$$\n\n**Del på høyeste potens $x$** (og $\\sqrt{x^2}=x$ for $x>0$):\n$$\\frac{4x}{\\sqrt{x^2+4x}+x} = \\frac{4}{\\sqrt{1 + 4/x} + 1}.$$\n\nNår $x\\to\\infty$ går $4/x\\to 0$, så nevneren $\\to \\sqrt{1} + 1 = 2$:\n$$\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+4x} - x\\right) = \\frac{4}{2} = 2.$$\n\n**Konklusjon:** Grensen er $2$. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger — langsvar med føring.) Beregn $\\lim_{x\\to 0}\\left(\\dfrac{1}{x} - \\dfrac{1}{\\sin x}\\right)$ ved fellesnevner og L'Hôpital.",
+        "solution": "**Form:** $\\dfrac1x\\to\\pm\\infty$ og $\\dfrac{1}{\\sin x}\\to\\pm\\infty$, altså $\\infty - \\infty$ — ubestemt.\n\n**Fellesnevner:**\n$$\\frac1x - \\frac1{\\sin x} = \\frac{\\sin x - x}{x\\sin x}.$$\nInnsetting: teller $\\sin 0 - 0 = 0$, nevner $0$. Form $[0/0]$ — L'Hôpital lovlig.\n\n**Første L'Hôpital.** $\\dfrac{d}{dx}(\\sin x - x) = \\cos x - 1$; $\\dfrac{d}{dx}(x\\sin x) = \\sin x + x\\cos x$:\n$$\\lim_{x\\to 0}\\frac{\\cos x - 1}{\\sin x + x\\cos x}.$$\n**Sjekk form:** teller $\\cos 0 - 1 = 0$, nevner $\\sin 0 + 0 = 0$. Igjen $[0/0]$ — marker og bruk regelen på nytt.\n\n**Andre L'Hôpital.** $\\dfrac{d}{dx}(\\cos x - 1) = -\\sin x$; $\\dfrac{d}{dx}(\\sin x + x\\cos x) = \\cos x + \\cos x - x\\sin x = 2\\cos x - x\\sin x$:\n$$\\lim_{x\\to 0}\\frac{-\\sin x}{2\\cos x - x\\sin x} = \\frac{-\\sin 0}{2\\cos 0 - 0} = \\frac{0}{2} = 0.$$\n\n**Konklusjon:** $\\lim_{x\\to 0}\\left(\\dfrac1x - \\dfrac1{\\sin x}\\right) = 0$. $\\blacksquare$",
+        "hints": [
+          "Samle de to brøkene på fellesnevner $x\\sin x$.",
+          "Telleren $\\sin x - x$ og nevneren $x\\sin x$ gir $[0/0]$ — L'Hôpital, og sjekk formen på nytt etterpå.",
+          "Du må bruke L'Hôpital to ganger; marker $[0/0]$ hver gang."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Potensformene 1^∞, 0^0, ∞^0: logaritmetrikset (~12 min)"
+    },
+    {
+      "id": "mat1100-2-2-l6-intro",
+      "type": "text",
+      "content": "De tre siste ubestemte formene har alle en variabel *både* i grunntall og eksponent: $f(x)^{g(x)}$. Du kan ikke sette inn og se svaret. Grepet er å ta logaritmen, regne grensen av **eksponenten** (som blir en $0\\cdot\\infty$-form du allerede kan), og til slutt **eksponentiere tilbake**. Å glemme det siste steget er en klassisk feil."
+    },
+    {
+      "id": "mat1100-2-2-def-logtriks",
+      "type": "definition",
+      "title": "Logaritmetrikset (1^∞, 0^0, ∞^0)",
+      "content": "For en grense $\\lim f(x)^{g(x)}$ med ubestemt potensform ($1^\\infty$, $0^0$ eller $\\infty^0$): sett $y = f(x)^{g(x)}$ og ta $\\ln$:\n$$\\ln y = g(x)\\ln f(x).$$\nHøyresiden er en $0\\cdot\\infty$-form — regn den ut (flytt til nevner, L'Hôpital). Får du $\\lim \\ln y = A$, må du **eksponentiere tilbake**:\n$$\\lim f(x)^{g(x)} = e^{A}.$$\nSvaret er $e$ opphøyd i grenseverdien til logaritmen — ikke $A$ selv."
+    },
+    {
+      "id": "mat1100-2-2-def-egrense",
+      "type": "definition",
+      "title": "Tallet e som grense",
+      "content": "De klassiske $e$-grensene er $1^\\infty$-former løst med logaritmetrikset:\n$$\\lim_{x\\to\\infty}\\left(1 + \\frac{1}{x}\\right)^x = e, \\qquad \\lim_{x\\to 0}(1 + x)^{1/x} = e.$$\nMer generelt: $\\lim_{x\\to 0}(1 + kx)^{1/x} = e^{k}$. Kjenner du dette mønsteret, går flervalgsvarianten på sekunder — men pass på hvilken $k$ som står, det er distraktorfella ($e$ mot $e^3$)."
+    },
+    {
+      "id": "mat1100-2-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: 1^∞ via logaritmetrikset",
+      "problem": "Beregn $\\lim_{x\\to 0^+}(1 + 3x)^{1/x}$.",
+      "solution": "**Form:** grunntall $1 + 3x\\to 1$, eksponent $1/x\\to +\\infty$. Form $1^\\infty$ — ubestemt.\n\n**Ta logaritmen.** Sett $y = (1+3x)^{1/x}$. Da\n$$\\ln y = \\frac1x\\ln(1 + 3x) = \\frac{\\ln(1+3x)}{x}.$$\nInnsetting: $\\dfrac{\\ln 1}{0} = \\dfrac{0}{0} = [0/0]$ — L'Hôpital lovlig.\n\n**L'Hôpital.** $\\dfrac{d}{dx}\\ln(1+3x) = \\dfrac{3}{1+3x}$, $\\dfrac{d}{dx}x = 1$:\n$$\\lim_{x\\to 0^+}\\frac{\\ln(1+3x)}{x} = \\lim_{x\\to 0^+}\\frac{3/(1+3x)}{1} = \\frac{3}{1} = 3.$$\nAltså $\\lim \\ln y = 3$.\n\n**Eksponentier tilbake.**\n$$\\lim_{x\\to 0^+}(1+3x)^{1/x} = e^{3}.$$\n\n**Konklusjon:** Grensen er $e^3$ (ikke $3$ og ikke $e$ — logaritmegrensen var 3, svaret er $e$ opphøyd i 3). $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger — langsvar med føring.) Beregn $\\lim_{x\\to 0^+} x^{x}$ (formen $0^0$) med logaritmetrikset.",
+        "solution": "**Form:** grunntall $x\\to 0^+$, eksponent $x\\to 0$. Form $0^0$ — ubestemt.\n\n**Ta logaritmen.** Sett $y = x^x$. Da $\\ln y = x\\ln x$.\n\n**Regn grensen av eksponenten.** Dette er $0\\cdot\\infty$; send $x$ ned (som i eksempel 4):\n$$\\lim_{x\\to 0^+} x\\ln x = \\lim_{x\\to 0^+}\\frac{\\ln x}{1/x} \\;\\;[\\infty/\\infty] \\overset{\\text{L'H}}{=} \\lim_{x\\to 0^+}\\frac{1/x}{-1/x^2} = \\lim_{x\\to 0^+}(-x) = 0.$$\nAltså $\\lim \\ln y = 0$.\n\n**Eksponentier tilbake.**\n$$\\lim_{x\\to 0^+} x^x = e^{0} = 1.$$\n\n**Konklusjon:** $\\lim_{x\\to 0^+} x^x = 1$. $\\blacksquare$",
+        "hints": [
+          "Sett $y=x^x$ og ta $\\ln$: $\\ln y = x\\ln x$.",
+          "$x\\ln x$ er $0\\cdot\\infty$ — send $x$ ned som $1/x$ og bruk L'Hôpital (grensen er 0).",
+          "Husk å eksponentiere tilbake: svaret er $e^0$, ikke $0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-l7-head",
+      "type": "text",
+      "content": "## Løkke 7 — Når L'Hôpital IKKE hjelper (~5 min)"
+    },
+    {
+      "id": "mat1100-2-2-l7-intro",
+      "type": "text",
+      "content": "L'Hôpital er ikke alltid veien. Noen ganger går den i **sirkel** (du kommer tilbake til utgangspunktet), og noen ganger blir uttrykket *verre* av å derivere. Da bytter du til standardgrenser eller **skviseteoremet**."
+    },
+    {
+      "id": "mat1100-2-2-thm-skvis",
+      "type": "theorem",
+      "title": "Skviseteoremet (for grenser)",
+      "content": "Hvis $h(x) \\le f(x) \\le H(x)$ nær $a$, og $\\lim_{x\\to a} h(x) = \\lim_{x\\to a} H(x) = L$, så er også $\\lim_{x\\to a} f(x) = L$. Funksjonen klemmes mellom to som har samme grense. Typisk bruk: et oscillerende ledd avgrenses med $|\\sin(\\cdot)|\\le 1$ eller $|\\cos(\\cdot)|\\le 1$ — **begrensetheten må uttales eksplisitt** i føringen. (Fullversjonen med oscillasjon drilles i signaturoppgaven, [kap. 3.3](/bok/mat1100/mat1100-3-3).)"
+    },
+    {
+      "id": "mat1100-2-2-ex7",
+      "type": "example",
+      "title": "Eksempel 7: L'Hôpital i sirkel — bruk noe annet",
+      "problem": "Beregn $\\lim_{x\\to\\infty}\\dfrac{x + \\sin x}{x}$. Hva skjer om du prøver L'Hôpital?",
+      "solution": "**Prøv L'Hôpital.** Formen er $[\\infty/\\infty]$. Derivasjon gir $\\dfrac{1 + \\cos x}{1} = 1 + \\cos x$, som **ikke har noen grense** når $x\\to\\infty$ (svinger mellom 0 og 2). L'Hôpital feiler: forutsetningen «$\\lim f'/g'$ finnes» er ikke oppfylt, så regelen sier ingenting.\n\n**Bruk algebra i stedet.** Del opp:\n$$\\frac{x + \\sin x}{x} = 1 + \\frac{\\sin x}{x}.$$\nMed skviseteoremet: $-\\dfrac{1}{x} \\le \\dfrac{\\sin x}{x} \\le \\dfrac{1}{x}$ fordi $|\\sin x|\\le 1$. Begge skranker $\\to 0$, så $\\dfrac{\\sin x}{x}\\to 0$.\n\n$$\\lim_{x\\to\\infty}\\frac{x+\\sin x}{x} = 1 + 0 = 1.$$\n\n**Konklusjon:** Grensen er $1$. L'Hôpital var blindveien; oppdeling + skvis ga svaret. $\\blacksquare$"
+    },
+    {
+      "id": "mat1100-2-2-ex-l7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger — langsvar med føring; skviseteoremet.) Beregn $\\lim_{x\\to 0} x^2\\sin\\!\\left(\\dfrac{1}{x}\\right)$. Uttal begrensetheten eksplisitt.",
+        "solution": "L'Hôpital hjelper ikke: $\\sin(1/x)$ svinger uendelig raskt nær 0. Bruk **skvis**.\n\n**Begrensethet (uttalt eksplisitt):** for alle $x\\ne 0$ er $\\left|\\sin\\dfrac1x\\right| \\le 1$. Multipliser med $x^2 \\ge 0$:\n$$-x^2 \\le x^2\\sin\\!\\left(\\frac1x\\right) \\le x^2.$$\n\n**Klem.** Både $-x^2\\to 0$ og $x^2\\to 0$ når $x\\to 0$. Etter skviseteoremet ligger $x^2\\sin(1/x)$ mellom dem, så\n$$\\lim_{x\\to 0} x^2\\sin\\!\\left(\\frac1x\\right) = 0.$$\n\n**Konklusjon:** Grensen er $0$. $\\blacksquare$",
+        "hints": [
+          "$\\sin(1/x)$ er begrenset: $|\\sin(1/x)|\\le 1$. Skriv det ned.",
+          "Multipliser ulikheten $-1\\le\\sin(1/x)\\le 1$ med $x^2$.",
+          "Begge skranker $\\pm x^2$ går mot 0 ⇒ skvis."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **L'Hôpital uten å markere/sjekke formen.** Regelen gjelder *bare* $[0/0]$ og $[\\infty/\\infty]$. Marker formen før *hver* anvendelse — gjentatt bruk krever ny markering. Manglende markering gir føringstrekk.\n- **L'Hôpital på et ikke-ubestemt uttrykk.** Er formen f.eks. $[2/0]$ eller $[3/1]$, er L'Hôpital ugyldig — svaret blir feil. Sjekk alltid ved innsetting først.\n- **Glemme å eksponentiere tilbake.** Etter logaritmetrikset er svaret $e^{A}$, ikke logaritmegrensen $A$. Klassisk $0^0$-/$1^\\infty$-tabbe.\n- **Derivere produktet i $0\\cdot\\infty$.** Skriv om til en brøk *først*; ikke bruk produktregelen på $f\\cdot g$ og kall det L'Hôpital.\n- **Regne langt der veksthierarkiet gir svaret.** Ser du $\\ln x / x^p$, $x^p/e^x$ o.l., les av $0$ direkte i stedet for flere L'Hôpital-runder.\n- **$e$ mot $e^3$ i flervalg.** I $(1+kx)^{1/x}\\to e^k$ er det $k$ som avgjør. Les grensen av eksponentleddet nøye."
+    },
+    {
+      "id": "mat1100-2-2-bank-head",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene samler formene og verktøyene i eksamensrettet kortform."
+    },
+    {
+      "id": "mat1100-2-2-bb-ubestemt-form",
+      "type": "definition",
+      "title": "Ubestemt form",
+      "content": "En grenseform der innsetting gir et meningsløst symbol — svaret avhenger av *hvor fort* leddene går mot sine grenser. De sju er $\\frac00,\\ \\frac\\infty\\infty,\\ 0\\cdot\\infty,\\ \\infty-\\infty,\\ 1^\\infty,\\ 0^0,\\ \\infty^0$. Alle løses ved å skrive om til $[0/0]$ eller $[\\infty/\\infty]$."
+    },
+    {
+      "id": "mat1100-2-2-bb-00",
+      "type": "definition",
+      "title": "[0/0]-formen",
+      "content": "Teller og nevner går begge mot 0. En av de to formene L'Hôpital takler direkte. Marker $[0/0]$ før du deriverer teller og nevner hver for seg."
+    },
+    {
+      "id": "mat1100-2-2-bb-infinf-form",
+      "type": "definition",
+      "title": "[∞/∞]-formen",
+      "content": "Teller og nevner går begge mot $\\pm\\infty$. Den andre formen L'Hôpital takler direkte. Ofte enklere å angripe med veksthierarkiet når leddene er $\\ln$, potens og $e^x$."
+    },
+    {
+      "id": "mat1100-2-2-bb-1inf",
+      "type": "definition",
+      "title": "1^∞-formen",
+      "content": "Grunntall $\\to 1$, eksponent $\\to\\infty$. Ubestemt fordi «nesten 1» opphøyd i «uendelig» kan bli hva som helst. Løses med logaritmetrikset; gir ofte $e^k$."
+    },
+    {
+      "id": "mat1100-2-2-bb-0-0",
+      "type": "definition",
+      "title": "0^0-formen",
+      "content": "Grunntall $\\to 0^+$, eksponent $\\to 0$. Ubestemt. Ta $\\ln$: $\\ln y = g\\ln f$ blir $0\\cdot\\infty$; regn ut og eksponentier tilbake. Eksempel: $x^x\\to 1$."
+    },
+    {
+      "id": "mat1100-2-2-bb-inf0",
+      "type": "definition",
+      "title": "∞^0-formen",
+      "content": "Grunntall $\\to\\infty$, eksponent $\\to 0$. Ubestemt. Samme logaritmetriks: $\\ln y = g\\ln f$ blir $0\\cdot\\infty$. Eksempel: $x^{1/x}\\to 1$."
+    },
+    {
+      "id": "mat1100-2-2-bb-tan-std",
+      "type": "definition",
+      "title": "Standardgrensen tan x / x",
+      "content": "$\\lim_{x\\to 0}\\dfrac{\\tan x}{x} = 1$, siden $\\tan x = \\dfrac{\\sin x}{\\cos x}$ og $\\dfrac{\\sin x}{x}\\to 1$, $\\cos x\\to 1$. Slektning av $\\sin x/x$-grensen."
+    },
+    {
+      "id": "mat1100-2-2-bb-cos-std",
+      "type": "definition",
+      "title": "Standardgrensen (1−cos x)/x²",
+      "content": "$\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^2} = \\dfrac12$. Følger av to L'Hôpital-runder eller av $1-\\cos x = 2\\sin^2(x/2)$. Dukker opp i mange Taylor-nære grenser."
+    },
+    {
+      "id": "mat1100-2-2-bb-sirkulaer",
+      "type": "definition",
+      "title": "Når L'Hôpital ikke hjelper",
+      "content": "To situasjoner: (1) derivasjonen går i *sirkel* tilbake til utgangspunktet; (2) $\\lim f'/g'$ finnes ikke (oscillasjon). Da bruker du standardgrenser, algebra eller skvis i stedet. Sjekk alltid at $\\lim f'/g'$ faktisk finnes."
+    },
+    {
+      "id": "mat1100-2-2-bb-naturlig-log",
+      "type": "definition",
+      "title": "Naturlig logaritme (regler brukt)",
+      "content": "$\\ln$ er den inverse av $e^x$. Sentrale regler i dette kapitlet: $\\ln(a^b) = b\\ln a$ (drar eksponenten ned — motoren i logaritmetrikset), $\\ln 1 = 0$, og $\\dfrac{d}{dx}\\ln x = \\dfrac1x$."
+    },
+    {
+      "id": "mat1100-2-2-bb-skvis-bank",
+      "type": "definition",
+      "title": "Skviseteoremet",
+      "content": "Klem $f$ mellom to funksjoner med samme grense $L$: $h\\le f\\le H$ og $h,H\\to L$ gir $f\\to L$. Brukes på oscillerende ledd via $|\\sin|\\le 1$ / $|\\cos|\\le 1$ — begrensetheten skal uttales."
+    },
+    {
+      "id": "mat1100-2-2-bb-standardgrense-e",
+      "type": "definition",
+      "title": "e-grensen generelt",
+      "content": "$\\lim_{x\\to 0}(1+kx)^{1/x} = e^{k}$ og $\\lim_{x\\to\\infty}\\left(1+\\frac{k}{x}\\right)^x = e^k$. Kjenn mønsteret utenat til midtveis; les $k$ nøye ($e$ mot $e^3$)."
+    },
+    {
+      "id": "mat1100-2-2-bb-eksponentier-tilbake",
+      "type": "definition",
+      "title": "Eksponentiere tilbake",
+      "content": "Sluttsteget i logaritmetrikset: har du funnet $\\lim\\ln y = A$, er den søkte grensen $e^{A}$ — ikke $A$. Å stoppe ved $A$ er den hyppigste potensform-feilen."
+    },
+    {
+      "id": "mat1100-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-2-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Derivasjonsregler (R1)](/bok/r1/r1-4-1)) Deriver $f(x) = \\ln(1 + 3x)$.",
+            "solution": "Kjerneregelen: ytre $\\ln u$ deriveres til $1/u$, indre $u = 1+3x$ deriveres til 3.\n$$f'(x) = \\frac{1}{1+3x}\\cdot 3 = \\frac{3}{1+3x}.$$\n**Svar:** $f'(x) = \\dfrac{3}{1+3x}$ — nettopp den deriverte du trenger i logaritmetrikset (eksempel 6).",
+            "hints": [
+              "Kjerneregelen: $(\\ln u)' = u'/u$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Potenser og logaritmer (R1)](/bok/r1/r1-1-2)) Skriv $\\ln\\!\\left(x^x\\right)$ enklere med logaritmelovene.",
+            "solution": "Loven $\\ln(a^b) = b\\ln a$ gir $\\ln(x^x) = x\\ln x$. Dette er akkurat omskrivingen logaritmetrikset bygger på: potensen $x^x$ blir produktet $x\\ln x$.\n\n**Svar:** $\\ln(x^x) = x\\ln x$.",
+            "hints": [
+              "Bruk $\\ln(a^b) = b\\ln a$ med $a=x$, $b=x$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1100/mat1100-2-1)) Forklar hvorfor $\\lim_{x\\to 2}\\dfrac{x^2-4}{x-2}$ ikke kan regnes ved rein innsetting, og finn grensen.",
+            "solution": "Innsetting gir $\\dfrac{0}{0}$ — en ubestemt form, så grensen kan ikke leses direkte. Forkort i stedet: $\\dfrac{x^2-4}{x-2} = \\dfrac{(x-2)(x+2)}{x-2} = x+2$ for $x\\ne 2$, som gir grensen $2+2 = 4$.\n\n**Svar:** $4$. (Alternativt L'Hôpital: $\\dfrac{2x}{1}\\to 4$.)",
+            "hints": [
+              "Sett inn $x=2$ og se hvilken form du får.",
+              "Faktoriser telleren og forkort."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-2-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-2-2-r4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Derivasjonsregler (R1)](/bok/r1/r1-4-1)) Deriver $g(x) = e^{1/x}$.",
+            "solution": "Kjerneregelen: ytre $e^u$ deriveres til $e^u$, indre $u = 1/x = x^{-1}$ deriveres til $-x^{-2} = -1/x^2$.\n$$g'(x) = e^{1/x}\\cdot\\left(-\\frac{1}{x^2}\\right) = -\\frac{e^{1/x}}{x^2}.$$\n**Svar:** $g'(x) = -\\dfrac{e^{1/x}}{x^2}$ — den deriverte i oppgave 4.",
+            "hints": [
+              "$(e^u)' = e^u\\cdot u'$ med $u = 1/x$.",
+              "$\\dfrac{d}{dx}(1/x) = -1/x^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1100-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-2-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $[0/0]$, $[\\infty/\\infty]$ | ubestemte former L'Hôpital takler direkte (markeres før hver bruk) |\n| $0\\cdot\\infty,\\ \\infty-\\infty$ | ubestemte former som skrives om til en brøk |\n| $1^\\infty,\\ 0^0,\\ \\infty^0$ | ubestemte potensformer (logaritmetrikset) |\n| $\\ll$ | «vokser mye tregere enn» (veksthierarkiet) |\n| $y = f(x)^{g(x)}$ | potensuttrykk der man tar $\\ln y = g\\ln f$ |\n| $e^{A}$ | svaret etter logaritmetrikset, $A = \\lim\\ln y$ |\n| $\\sqrt A+\\sqrt B$ | den konjugerte til $\\sqrt A-\\sqrt B$ |\n| $h\\le f\\le H$ | skvis-ulikheten |\n| $\\blacksquare$ | slutt på bevis |\n\n**Formler i dette delkapitlet:**\n\n$$\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1,\\quad \\lim_{x\\to 0}\\frac{\\tan x}{x}=1,\\quad \\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}=\\frac12$$\nStandardgrensene nær null.\n\n$$\\ln x \\ll x^p \\ll e^x \\quad (p>0)$$\nVeksthierarkiet: eksponential slår potens slår logaritme.\n\n$$\\lim_{x\\to a}\\frac{f}{g} = \\lim_{x\\to a}\\frac{f'}{g'} \\quad (\\text{form } [0/0] \\text{ eller } [\\infty/\\infty])$$\nL'Hôpitals regel — marker formen før hver bruk.\n\n$$\\sqrt A - \\sqrt B = \\frac{A-B}{\\sqrt A + \\sqrt B}$$\nKonjugattrikset for rotdifferanser.\n\n$$\\ln y = g(x)\\ln f(x),\\qquad \\lim f^{g} = e^{\\lim \\ln y}$$\nLogaritmetrikset for potensformene, med eksponentiering tilbake.\n\n$$\\lim_{x\\to 0}(1+kx)^{1/x} = e^{k}$$\n$e$-grensen (les $k$ nøye — $e$ mot $e^3$).\n\n$$h\\le f\\le H,\\ h,H\\to L \\ \\Rightarrow\\ f\\to L$$\nSkviseteoremet — uttal begrensetheten $|\\sin|\\le 1$ / $|\\cos|\\le 1$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

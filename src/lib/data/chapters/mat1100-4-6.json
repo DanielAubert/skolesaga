@@ -1,0 +1,363 @@
+{
+  "id": "mat1100-4-6",
+  "courseId": "mat1100",
+  "chapterNumber": "4.6",
+  "title": "Uegentlige integraler: konvergens med navngitt sammenligning",
+  "description": "81 %-sjangeren: avgjøre konvergens med sammenligningstest eller GS-test — alltid med navngitt p-integral og lim-føring.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "definere og regne uegentlige integraler av type 1 og type 2 med eksplisitt lim-notasjon",
+    "bruke p-integralene som referansefamilie med riktige speilvendte kriterier i 0 og uendelig",
+    "avgjøre konvergens med direkte sammenligningstest og GS-testen, med navngitt p-integral og splitting ved flere singulariteter"
+  ],
+  "content": [
+    {
+      "id": "mat1100-4-6-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Uegentlige integraler (sjanger F) står i 17 av 21 slutteksamener — det er 81 % av settene.**\n\n- Sjanger **F** = *avgjøre konvergens* av et uegentlig integral, som regel uten å regne det ut. To likestilte metoder honoreres: **direkte sammenligningstest** og **grensesammenligningstesten (GS-testen)**.\n- Fasitkravet som gir poengene: sammenligningsobjektet **navngis eksplisitt** som et konvergent eller divergent **$p$-integral**, og all direkte beregning føres med **$\\lim$-notasjon** — aldri «sett inn $\\infty$».\n\nKapitlet er bygget som fem læringsløkker: definisjonene med lim-føring → $p$-integralene som referansefamilie → direkte sammenligning → GS-testen → integraler med to singulariteter. Prioritet: **perfekt**.\n\n*Kilde til frekvenstallene: arkivet med $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag). Arkivet stopper i 2023 — nyere sett kan ha justert bildet.*"
+    },
+    {
+      "id": "mat1100-4-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Kapitlet bygger på grenseteknikken i [kap. 2.2](/bok/mat1100/mat1100-2-2) (grenser mot $\\infty$, veksthierarkiet $\\ln x\\ll x^p\\ll e^x$) og integrasjonsteknikkene i [kap. 4.3](/bok/mat1100/mat1100-4-3)–[4.5](/bok/mat1100/mat1100-4-5) (substitusjon og delvis, som du trenger for de direkte beregningene).\n\n**Sist du var her — to grep du får bruk for:** en grense mot $\\infty$ avgjøres ofte av det **dominerende leddet** (høyeste potens teller), og antideriverten av $x^{-p}$ er $\\dfrac{x^{1-p}}{1-p}$ når $p\\neq 1$, og $\\ln x$ når $p=1$."
+    },
+    {
+      "id": "mat1100-4-6-anker",
+      "type": "text",
+      "content": "Tenk deg at du fyller opp et uendelig langt basseng: hver ekstra meter mot høyre legger til litt mer vann. Spørsmålet er om det *totale* vannvolumet blir endelig eller vokser uten grense. Det er akkurat det et **uegentlig integral** måler — arealet under en kurve som strekker seg uendelig langt, eller som skyter mot uendelig ved et endepunkt.\n\nVi kan ikke bare «sette inn $\\infty$» i en antiderivert — $\\infty$ er ikke et tall. I stedet integrerer vi opp til en endelig grense og lar grensen løpe. Hele kapitlet handler om to spørsmål: *konvergerer* integralet (endelig verdi), eller *divergerer* det — og hvordan avgjøre det raskt med en navngitt sammenligning."
+    },
+    {
+      "id": "mat1100-4-6-l1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Definisjonene med lim-føring (~10 min)\n\nDet finnes to måter et integral kan være uegentlig på. Begge defineres via en **grense**."
+    },
+    {
+      "id": "mat1100-4-6-def-type1",
+      "type": "definition",
+      "title": "Uegentlig integral av type 1 (ubegrenset intervall)",
+      "content": "Et integral over et uendelig langt intervall regnes som en grense av vanlige integraler:\n$$\\int_a^{\\infty} f(x)\\,dx=\\lim_{R\\to\\infty}\\int_a^{R} f(x)\\,dx.$$\nFinnes grensen som et endelig tall, sier vi at integralet **konvergerer** (mot den verdien); ellers **divergerer** det. Tilsvarende $\\int_{-\\infty}^{b}f=\\lim_{R\\to-\\infty}\\int_R^b f$. Merk: $R$ er et tall som vokser — vi setter aldri inn $\\infty$ direkte."
+    },
+    {
+      "id": "mat1100-4-6-def-type2",
+      "type": "definition",
+      "title": "Uegentlig integral av type 2 (singularitet i endepunkt)",
+      "content": "Når integranden vokser mot $\\pm\\infty$ ved et endepunkt, kutter vi like ved og tar grensen:\n$$\\int_a^{b} f(x)\\,dx=\\lim_{t\\to a^{+}}\\int_t^{b} f(x)\\,dx\\quad(\\text{singularitet i }a),\\qquad \\int_a^{b} f=\\lim_{t\\to b^{-}}\\int_a^{t} f\\quad(\\text{singularitet i }b).$$\nKonvergens/divergens avgjøres som i type 1. En integrand som er *ubegrenset* nær et endepunkt kan likevel ha endelig areal — det er nettopp det type 2 avklarer."
+    },
+    {
+      "id": "mat1100-4-6-def-konvergens",
+      "type": "definition",
+      "title": "Konvergens og divergens",
+      "content": "Et uegentlig integral **konvergerer** dersom grensen i definisjonen finnes og er et endelig tall — da har integralet en veldefinert verdi. Det **divergerer** dersom grensen er $\\pm\\infty$ eller ikke finnes. På eksamen er selve *avgjørelsen* (konvergerer/divergerer, med begrunnelse) ofte hele poenget — verdien spørres ikke alltid om."
+    },
+    {
+      "id": "mat1100-4-6-def-singularitet",
+      "type": "definition",
+      "title": "Singularitet",
+      "content": "Et punkt der integranden ikke er begrenset (vokser mot $\\pm\\infty$). For $\\int_a^b f$ er endepunktene $a$ og $b$ mulige singulariteter, og for uendelige intervaller er «$\\infty$» det. **Første steg i enhver F-oppgave:** identifiser ALLE singulariteter og uendelige endepunkter før du velger metode — overser du én, blir avgjørelsen feil."
+    },
+    {
+      "id": "mat1100-4-6-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F — direkte beregning, lett innstegsoppgave.) Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{4}}$ konvergerer, og finn i så fall verdien. Før med lim-notasjon.",
+        "solution": "**Type 1** (uendelig øvre grense). Bruk definisjonen:\n$$\\int_1^{\\infty}x^{-4}\\,dx=\\lim_{R\\to\\infty}\\int_1^{R}x^{-4}\\,dx=\\lim_{R\\to\\infty}\\Big[\\frac{x^{-3}}{-3}\\Big]_1^{R}=\\lim_{R\\to\\infty}\\Big(-\\frac{1}{3R^{3}}+\\frac13\\Big)=\\frac13.$$\nGrensen er endelig, så integralet **konvergerer**, med verdi $\\tfrac13$.\n\n**Konklusjon:** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{4}}=\\frac13$ (konvergerer).\n\n*Merk lim-føringen: vi integrerte opp til $R$ og lot $R\\to\\infty$ — aldri «satt inn $\\infty$».*",
+        "hints": [
+          "Type 1: skriv $\\lim_{R\\to\\infty}\\int_1^R x^{-4}\\,dx$.",
+          "Antiderivert $\\frac{x^{-3}}{-3}$; leddet $\\frac{1}{3R^3}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-ex-directcomp0",
+      "type": "example",
+      "title": "Direkte beregning med lim-føring — type 2",
+      "problem": "Avgjør om $\\displaystyle\\int_0^{1}\\ln x\\,dx$ konvergerer, og finn i så fall verdien.",
+      "solution": "**Identifiser singulariteten.** $\\ln x\\to-\\infty$ når $x\\to 0^{+}$, så nedre endepunkt $0$ er en type 2-singularitet.\n\n**Lim-føring.** Kutt ved $t>0$ og la $t\\to 0^{+}$:\n$$\\int_0^{1}\\ln x\\,dx=\\lim_{t\\to 0^{+}}\\int_t^{1}\\ln x\\,dx.$$\nAntiderivert (delvis, $v'=1$): $\\int\\ln x\\,dx=x\\ln x-x$. Dermed\n$$\\int_t^{1}\\ln x\\,dx=\\big[x\\ln x-x\\big]_t^{1}=(0-1)-(t\\ln t-t)=-1-t\\ln t+t.$$\n**Ta grensen.** $t\\ln t\\to 0$ når $t\\to 0^{+}$ (veksthierarkiet / $[0\\cdot\\infty]$), og $t\\to 0$:\n$$\\lim_{t\\to 0^{+}}\\big(-1-t\\ln t+t\\big)=-1.$$\nGrensen er endelig, så integralet **konvergerer** med verdi $-1$.\n\n**Konklusjon:** $\\displaystyle\\int_0^{1}\\ln x\\,dx=-1$. En integrand som er *ubegrenset* nær $0$ har altså endelig areal — det er type 2-poenget."
+    },
+    {
+      "id": "mat1100-4-6-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F — direkte beregning, type 2.) Avgjør om $\\displaystyle\\int_0^{1}x^{-2/3}\\,dx$ konvergerer, og finn eventuelt verdien. Før med lim.",
+        "solution": "**Singularitet:** $x^{-2/3}\\to\\infty$ når $x\\to 0^{+}$ → type 2 i nedre endepunkt.\n$$\\int_0^{1}x^{-2/3}\\,dx=\\lim_{t\\to 0^{+}}\\int_t^{1}x^{-2/3}\\,dx=\\lim_{t\\to 0^{+}}\\Big[3x^{1/3}\\Big]_t^{1}=\\lim_{t\\to 0^{+}}\\big(3-3t^{1/3}\\big)=3.$$\nEndelig grense → **konvergerer**, verdi $3$.\n\n**Konklusjon:** $\\displaystyle\\int_0^{1}x^{-2/3}\\,dx=3$. (Legg merke til: eksponenten er $p=\\tfrac23<1$ — dette er et konvergent $p$-integral av 0-typen, som vi navngir i neste løkke.)",
+        "hints": [
+          "Type 2 i $0$: $\\lim_{t\\to 0^+}\\int_t^1 x^{-2/3}\\,dx$.",
+          "Antiderivert $3x^{1/3}$; leddet $3t^{1/3}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-l2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — $p$-integralene som referansefamilie (~10 min)\n\nTo standardintegraler er *målestokken* alle sammenligninger bruker. Lær kriteriene utenat — og lær å begrunne dem, for fasit vil se navnet «$p$-integral» med riktig konklusjon."
+    },
+    {
+      "id": "mat1100-4-6-def-pinf",
+      "type": "definition",
+      "title": "$p$-integralet ved uendelig",
+      "content": "Referanseintegralet på uendelig intervall:\n$$\\int_1^{\\infty}\\frac{dx}{x^{p}}\\ \\text{konvergerer}\\iff p>1,\\qquad \\text{divergerer}\\iff p\\le 1.$$\nBegrunnelse: for $p\\ne 1$ er $\\int_1^{R}x^{-p}\\,dx=\\dfrac{R^{1-p}-1}{1-p}$; når $R\\to\\infty$ går $R^{1-p}\\to 0$ nettopp når $1-p<0$, altså $p>1$. For $p=1$ er integralet $\\ln R\\to\\infty$ (divergens). Grensetilfellet $p=1$ divergerer."
+    },
+    {
+      "id": "mat1100-4-6-def-p0",
+      "type": "definition",
+      "title": "$p$-integralet ved $0$ (speilingen)",
+      "content": "Referanseintegralet med singularitet i $0$:\n$$\\int_0^{1}\\frac{dx}{x^{p}}\\ \\text{konvergerer}\\iff p<1,\\qquad \\text{divergerer}\\iff p\\ge 1.$$\n**Kriteriet er speilvendt** av uendelig-tilfellet. Begrunnelse: $\\int_t^{1}x^{-p}\\,dx=\\dfrac{1-t^{1-p}}{1-p}$; når $t\\to 0^{+}$ går $t^{1-p}\\to 0$ nettopp når $1-p>0$, altså $p<1$. Nær $0$ tåler vi altså *sterkere* singularitet enn nær $\\infty$ — men bare hvis $p<1$."
+    },
+    {
+      "id": "mat1100-4-6-warn-speiling",
+      "type": "warning",
+      "title": "p-kriteriene er speilvendt i 0 og ∞",
+      "content": "Den vanligste F-fellen: bruke feil retning på $p$-kriteriet. Hold dem fra hverandre:\n- På **$\\infty$**: $\\int_1^{\\infty}x^{-p}$ konvergerer når $p>1$ (integranden må dø *fort nok*).\n- I **$0$**: $\\int_0^{1}x^{-p}$ konvergerer når $p<1$ (singulariteten må være *mild nok*).\n\nEksempel: $\\int_1^{\\infty}\\frac{dx}{\\sqrt{x}}$ ($p=\\tfrac12$) **divergerer**, mens $\\int_0^{1}\\frac{dx}{\\sqrt{x}}$ ($p=\\tfrac12$) **konvergerer** — samme integrand, motsatt skjebne, fordi endepunktet er ulikt."
+    },
+    {
+      "id": "mat1100-4-6-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger F — $p$-integral, navngi.) Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{dx}{\\sqrt{x}}$ konvergerer.",
+        "solution": "Skriv om: $\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$, altså et **$p$-integral ved uendelig med $p=\\tfrac12$**. Siden $p=\\tfrac12\\le 1$, **divergerer** integralet.\n\n*Kontroll med lim:* $\\lim_{R\\to\\infty}\\big[2\\sqrt{x}\\big]_1^{R}=\\lim_{R\\to\\infty}(2\\sqrt{R}-2)=\\infty$. ✓\n\n**Konklusjon:** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{\\sqrt{x}}$ **divergerer** (divergent $p$-integral, $p=\\tfrac12\\le 1$).",
+        "hints": [
+          "Skriv $\\frac{1}{\\sqrt x}=x^{-1/2}$ og les av $p$.",
+          "På $\\infty$: konvergens krever $p>1$; her er $p=\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-l3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Direkte sammenligningstest (~12 min)\n\nDe fleste F-oppgaver har integrander du *ikke* kan antiderivere pent. Da avgjør du konvergens ved å **klemme** integranden mot et $p$-integral du kjenner."
+    },
+    {
+      "id": "mat1100-4-6-def-direkte",
+      "type": "definition",
+      "title": "Direkte sammenligningstest",
+      "content": "Anta $0\\le f(x)\\le g(x)$ for alle $x$ på intervallet. Da:\n$$\\int g\\ \\text{konvergerer}\\ \\Rightarrow\\ \\int f\\ \\text{konvergerer};\\qquad \\int f\\ \\text{divergerer}\\ \\Rightarrow\\ \\int g\\ \\text{divergerer}.$$\nMed ord: et mindre positivt areal enn et endelig areal er endelig; et større areal enn et uendelig areal er uendelig. **Retningen betyr alt:** for å vise *konvergens* klemmer du integranden *oppover* mot noe konvergent; for *divergens* klemmer du *nedover* mot noe divergent."
+    },
+    {
+      "id": "mat1100-4-6-def-uttalt",
+      "type": "definition",
+      "title": "Uttalt begrensethet i klemmen",
+      "content": "Sensorkravet i en direkte sammenligning: skriv ulikheten $0\\le f\\le g$ *eksplisitt*, og begrunn den — typisk ved at en trigonometrisk faktor er begrenset ($|\\sin x|\\le 1$, $|\\cos x|\\le 1$, $0\\le\\sin^2 x\\le 1$) eller ved at et ledd er positivt. En påstand «$f\\le g$» uten begrunnelse er ikke full uttelling."
+    },
+    {
+      "id": "mat1100-4-6-ex-direkte",
+      "type": "example",
+      "title": "Direkte sammenligning — vis konvergens",
+      "problem": "Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{\\sin^2 x}{x^{2}}\\,dx$ konvergerer.",
+      "solution": "**Singularitet:** kun $\\infty$ (integranden er begrenset og kontinuerlig på $[1,\\infty)$).\n\n**Klem oppover (uttalt begrensethet).** For alle $x$ er $0\\le\\sin^2 x\\le 1$, så\n$$0\\le \\frac{\\sin^2 x}{x^{2}}\\le \\frac{1}{x^{2}}.$$\n**Navngi sammenligningsintegralet.** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{2}}$ er et **konvergent $p$-integral** ($p=2>1$).\n\n**Konkluder (direkte sammenligningstest).** Integranden vår er klemt mellom $0$ og en konvergent integrand, så etter direkte sammenligningstest **konvergerer** $\\displaystyle\\int_1^{\\infty}\\frac{\\sin^2 x}{x^{2}}\\,dx$.\n\n*Legg merke til de tre føringspoengene: den uttalte ulikheten $0\\le\\sin^2x\\le 1$, det navngitte konvergente $p$-integralet, og konklusjonssetningen med testens navn.*"
+    },
+    {
+      "id": "mat1100-4-6-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F — direkte sammenligning.) Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{2+\\sin x}{x^{3}}\\,dx$ konvergerer.",
+        "solution": "**Singularitet:** kun $\\infty$.\n\n**Klem oppover.** Siden $|\\sin x|\\le 1$ er $2+\\sin x\\le 3$, og telleren er positiv ($2+\\sin x\\ge 1>0$). Altså\n$$0<\\frac{2+\\sin x}{x^{3}}\\le\\frac{3}{x^{3}}.$$\n**Navngi:** $\\displaystyle\\int_1^{\\infty}\\frac{3}{x^{3}}\\,dx=3\\int_1^{\\infty}x^{-3}\\,dx$ er $3\\times$ et **konvergent $p$-integral** ($p=3>1$), altså konvergent.\n\n**Konkluder:** ved direkte sammenligningstest **konvergerer** $\\displaystyle\\int_1^{\\infty}\\frac{2+\\sin x}{x^{3}}\\,dx$.",
+        "hints": [
+          "Bruk $|\\sin x|\\le 1$ til å klemme telleren: $2+\\sin x\\le 3$.",
+          "Sammenlign med $\\frac{3}{x^3}$ — navngi det konvergente $p$-integralet ($p=3$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F — direkte sammenligning, type 2.) Avgjør om $\\displaystyle\\int_0^{1}\\frac{e^{x}}{\\sqrt{x}}\\,dx$ konvergerer.",
+        "solution": "**Singularitet:** $\\frac{e^{x}}{\\sqrt{x}}\\to\\infty$ når $x\\to 0^{+}$ → type 2 i $0$.\n\n**Klem oppover.** På $[0,1]$ er $e^{x}\\le e^{1}=e$ (voksende), og $\\frac{1}{\\sqrt x}>0$, så\n$$0<\\frac{e^{x}}{\\sqrt{x}}\\le\\frac{e}{\\sqrt{x}}=e\\,x^{-1/2}.$$\n**Navngi:** $\\displaystyle\\int_0^{1}x^{-1/2}\\,dx$ er et **konvergent $p$-integral av 0-typen** ($p=\\tfrac12<1$).\n\n**Konkluder:** ved direkte sammenligningstest **konvergerer** $\\displaystyle\\int_0^{1}\\frac{e^{x}}{\\sqrt{x}}\\,dx$.\n\n*Her var det avgjørende å bruke 0-kriteriet ($p<1$), ikke $\\infty$-kriteriet.*",
+        "hints": [
+          "Singulariteten er i $0$; bruk at $e^x\\le e$ på $[0,1]$.",
+          "Sammenlign med $\\frac{e}{\\sqrt x}$ — konvergent $p$-integral av 0-typen ($p=\\tfrac12<1$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-l4-tekst",
+      "type": "text",
+      "content": "## Løkke 4 — Grensesammenligningstesten (GS-testen) (~12 min)\n\nNår en ren ulikhet er tungvinn å få til, er GS-testen ofte raskere: du sammenligner *veksten* av to integrander ved å ta grensen av forholdet."
+    },
+    {
+      "id": "mat1100-4-6-def-gs",
+      "type": "definition",
+      "title": "Grensesammenligningstesten (GS-testen)",
+      "content": "La $f,g>0$ og sett $L=\\displaystyle\\lim_{x\\to\\infty}\\frac{f(x)}{g(x)}$ (tilsvarende ved en type 2-singularitet). Dersom $0<L<\\infty$ (en endelig, positiv grense), har $\\int f$ og $\\int g$ **samme skjebne** — begge konvergerer eller begge divergerer. Da holder det å avgjøre $\\int g$, som velges til et $p$-integral."
+    },
+    {
+      "id": "mat1100-4-6-def-dominant",
+      "type": "definition",
+      "title": "Valg av $g$ fra dominant ledd",
+      "content": "I GS-testen velger du $g$ ved å beholde bare de **dominerende leddene** i teller og nevner (høyeste potenser). Eksempel: for $f=\\dfrac{x+1}{x^{3}+2x}$ dominerer $x$ oppe og $x^{3}$ nede, så $f\\sim\\dfrac{x}{x^{3}}=\\dfrac{1}{x^{2}}$ → velg $g=\\dfrac{1}{x^{2}}$. Da blir $L$ automatisk endelig og positiv."
+    },
+    {
+      "id": "mat1100-4-6-ex-gs",
+      "type": "example",
+      "title": "GS-testen — konvergens",
+      "problem": "Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{3x^{2}-1}{x^{4}+x+1}\\,dx$ konvergerer.",
+      "solution": "**Singularitet:** kun $\\infty$; integranden er positiv for $x\\ge 1$.\n\n**Velg $g$ fra dominant ledd.** Teller $\\sim 3x^{2}$, nevner $\\sim x^{4}$, så $f\\sim\\dfrac{3x^{2}}{x^{4}}=\\dfrac{3}{x^{2}}$. Velg $g=\\dfrac{1}{x^{2}}$.\n\n**Regn grensen.**\n$$L=\\lim_{x\\to\\infty}\\frac{f(x)}{g(x)}=\\lim_{x\\to\\infty}\\frac{3x^{2}-1}{x^{4}+x+1}\\cdot x^{2}=\\lim_{x\\to\\infty}\\frac{3x^{4}-x^{2}}{x^{4}+x+1}=3.$$\nSiden $0<L=3<\\infty$, har $\\int f$ og $\\int g$ samme skjebne.\n\n**Navngi og konkluder.** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{2}}$ er et **konvergent $p$-integral** ($p=2>1$). Etter **GS-testen** konvergerer derfor $\\displaystyle\\int_1^{\\infty}\\frac{3x^{2}-1}{x^{4}+x+1}\\,dx$."
+    },
+    {
+      "id": "mat1100-4-6-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F — GS-test, konvergens.) Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{x+2}{x^{3}+1}\\,dx$ konvergerer.",
+        "solution": "**Singularitet:** kun $\\infty$; positiv integrand.\n\n**Dominant ledd:** teller $\\sim x$, nevner $\\sim x^{3}$, så $f\\sim\\dfrac{x}{x^{3}}=\\dfrac{1}{x^{2}}$. Velg $g=x^{-2}$.\n$$L=\\lim_{x\\to\\infty}\\frac{x+2}{x^{3}+1}\\cdot x^{2}=\\lim_{x\\to\\infty}\\frac{x^{3}+2x^{2}}{x^{3}+1}=1.$$\n$0<L=1<\\infty$, så samme skjebne som $\\displaystyle\\int_1^{\\infty}x^{-2}\\,dx$, et **konvergent $p$-integral** ($p=2>1$).\n\n**Konkluder:** ved GS-testen **konvergerer** $\\displaystyle\\int_1^{\\infty}\\frac{x+2}{x^{3}+1}\\,dx$.",
+        "hints": [
+          "Behold dominerende ledd: $\\frac{x}{x^3}=\\frac{1}{x^2}$ → $g=x^{-2}$.",
+          "Regn $L=\\lim f/g$; navngi det konvergente $p$-integralet ($p=2$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F — GS-test, divergens.) Avgjør om $\\displaystyle\\int_1^{\\infty}\\frac{dx}{\\sqrt{x^{2}+5}}$ konvergerer.",
+        "solution": "**Singularitet:** kun $\\infty$; positiv integrand.\n\n**Dominant ledd:** $\\sqrt{x^{2}+5}\\sim\\sqrt{x^{2}}=x$, så $f\\sim\\dfrac{1}{x}$. Velg $g=\\dfrac{1}{x}$.\n$$L=\\lim_{x\\to\\infty}\\frac{1/\\sqrt{x^{2}+5}}{1/x}=\\lim_{x\\to\\infty}\\frac{x}{\\sqrt{x^{2}+5}}=\\lim_{x\\to\\infty}\\frac{1}{\\sqrt{1+5/x^{2}}}=1.$$\n$0<L=1<\\infty$, så samme skjebne som $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x}$, et **divergent $p$-integral** ($p=1$).\n\n**Konkluder:** ved GS-testen **divergerer** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{\\sqrt{x^{2}+5}}$.\n\n*GS-testen viser divergens like gjerne som konvergens — sammenligningsintegralet var her det divergente $p$-integralet med $p=1$.*",
+        "hints": [
+          "$\\sqrt{x^2+5}\\sim x$, så $g=\\frac1x$.",
+          "$L=\\lim x/\\sqrt{x^2+5}=1$; $\\int_1^\\infty \\frac{dx}{x}$ er divergent ($p=1$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-l5-tekst",
+      "type": "text",
+      "content": "## Løkke 5 — To singulariteter: splitting (~9 min)\n\nNoen integraler er uegentlige i *begge* ender. Da splitter du ved et mellompunkt og krever at **hvert** stykke konvergerer — ett divergent stykke smitter over på hele."
+    },
+    {
+      "id": "mat1100-4-6-def-splitting",
+      "type": "definition",
+      "title": "Splitting ved flere singulariteter",
+      "content": "Har integralet uegentlighet i mer enn ett punkt (f.eks. singularitet i $0$ *og* uendelig øvre grense), deler du ved et endelig mellompunkt $c$:\n$$\\int_0^{\\infty} f=\\int_0^{c} f+\\int_c^{\\infty} f.$$\nHele integralet **konvergerer** kun hvis **begge** delene konvergerer. Divergerer én del, divergerer helheten. Derfor må ALLE singulariteter identifiseres først."
+    },
+    {
+      "id": "mat1100-4-6-def-absolutt",
+      "type": "definition",
+      "title": "Absolutt konvergens (kjennskap)",
+      "content": "Et integral $\\int f$ er **absolutt konvergent** dersom $\\int|f|$ konvergerer. Absolutt konvergens medfører (vanlig) konvergens — nyttig når $f$ skifter fortegn, for da kan sammenligningstestene (som krever positiv integrand) brukes på $|f|$. Dette er «kjenne»-stoff i MAT1100: godt å vite, sjelden krevd i sin fulle form."
+    },
+    {
+      "id": "mat1100-4-6-ex-split",
+      "type": "example",
+      "title": "To singulariteter — splitting",
+      "problem": "Avgjør om $\\displaystyle\\int_0^{\\infty}\\frac{dx}{\\sqrt{x}\\,(1+x)}$ konvergerer.",
+      "solution": "**Identifiser ALLE singulariteter.** Integranden $\\dfrac{1}{\\sqrt{x}(1+x)}$ er uegentlig i **to** ender: type 2 i $x=0$ (der $\\frac{1}{\\sqrt x}\\to\\infty$) og type 1 ved $\\infty$. Splitt ved $x=1$:\n$$\\int_0^{\\infty}\\frac{dx}{\\sqrt{x}(1+x)}=\\int_0^{1}\\frac{dx}{\\sqrt{x}(1+x)}+\\int_1^{\\infty}\\frac{dx}{\\sqrt{x}(1+x)}.$$\n**Stykke 1 (nær $0$):** når $x\\to 0^{+}$ er $1+x\\to 1$, så $f\\sim\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$. GS mot $g=x^{-1/2}$ gir $L=\\lim_{x\\to0^+}\\frac{1}{1+x}=1$. Sammenligning er **konvergent $p$-integral av 0-typen** ($p=\\tfrac12<1$) → stykke 1 konvergerer.\n**Stykke 2 (mot $\\infty$):** $f\\sim\\dfrac{1}{\\sqrt{x}\\cdot x}=x^{-3/2}$. GS mot $g=x^{-3/2}$ gir $L=\\lim_{x\\to\\infty}\\frac{x}{1+x}=1$. Sammenligning er **konvergent $p$-integral** ($p=\\tfrac32>1$) → stykke 2 konvergerer.\n**Konkluder:** begge stykker konvergerer, så hele integralet **konvergerer**.\n\n*(For den nysgjerrige: substitusjonen $u=\\sqrt{x}$ gir faktisk verdien $\\int_0^{\\infty}\\frac{2\\,du}{1+u^{2}}=2\\cdot\\frac{\\pi}{2}=\\pi$ — men på eksamen var *avgjørelsen* med de to navngitte $p$-integralene poenget.)*"
+    },
+    {
+      "id": "mat1100-4-6-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger F — to singulariteter.) Avgjør om $\\displaystyle\\int_0^{\\infty}\\frac{e^{-x}}{\\sqrt{x}}\\,dx$ konvergerer. Identifiser begge uegentlighetene.",
+        "solution": "**Identifiser ALLE singulariteter.** Type 2 i $x=0$ ($\\frac{1}{\\sqrt x}\\to\\infty$) og type 1 ved $\\infty$. Splitt ved $x=1$.\n\n**Stykke 1 ($0$ til $1$):** på $[0,1]$ er $e^{-x}\\le 1$, så $0<\\dfrac{e^{-x}}{\\sqrt{x}}\\le\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$. Direkte sammenligning med **konvergent $p$-integral av 0-typen** ($p=\\tfrac12<1$) → konvergerer.\n\n**Stykke 2 ($1$ til $\\infty$):** for $x\\ge 1$ er $\\dfrac{1}{\\sqrt{x}}\\le 1$, så $0<\\dfrac{e^{-x}}{\\sqrt{x}}\\le e^{-x}$. Og $\\displaystyle\\int_1^{\\infty}e^{-x}\\,dx=\\lim_{R\\to\\infty}\\big[-e^{-x}\\big]_1^{R}=e^{-1}$ konvergerer → stykke 2 konvergerer (direkte sammenligning).\n\n**Konkluder:** begge stykker konvergerer, så $\\displaystyle\\int_0^{\\infty}\\frac{e^{-x}}{\\sqrt{x}}\\,dx$ **konvergerer**.",
+        "hints": [
+          "To singulariteter: $0$ (type 2) og $\\infty$ (type 1). Splitt ved $x=1$.",
+          "Nær $0$: $e^{-x}\\le 1$ → sammenlign med $x^{-1/2}$ (konvergent, $p<1$).",
+          "Mot $\\infty$: $\\frac{1}{\\sqrt x}\\le 1$ → sammenlign med $e^{-x}$ (konvergent)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-4-6-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger F — direkte beregning, type 2 i øvre endepunkt.) Avgjør om $\\displaystyle\\int_0^{2}\\frac{dx}{\\sqrt{2-x}}$ konvergerer, og finn eventuelt verdien. Før med lim.",
+        "solution": "**Singularitet:** $\\frac{1}{\\sqrt{2-x}}\\to\\infty$ når $x\\to 2^{-}$ → type 2 i øvre endepunkt.\n$$\\int_0^{2}\\frac{dx}{\\sqrt{2-x}}=\\lim_{t\\to 2^{-}}\\int_0^{t}(2-x)^{-1/2}\\,dx.$$\nAntiderivert (substitusjon $u=2-x$, $du=-dx$): $\\int(2-x)^{-1/2}\\,dx=-2\\sqrt{2-x}$. Dermed\n$$\\lim_{t\\to 2^{-}}\\big[-2\\sqrt{2-x}\\big]_0^{t}=\\lim_{t\\to 2^{-}}\\big(-2\\sqrt{2-t}+2\\sqrt{2}\\big)=2\\sqrt{2}.$$\nEndelig grense → **konvergerer**, verdi $2\\sqrt{2}$.\n\n**Konklusjon:** $\\displaystyle\\int_0^{2}\\frac{dx}{\\sqrt{2-x}}=2\\sqrt{2}$.",
+        "hints": [
+          "Singulariteten er i $x=2$: $\\lim_{t\\to 2^-}\\int_0^t (2-x)^{-1/2}dx$.",
+          "Antiderivert $-2\\sqrt{2-x}$ (sub $u=2-x$); $\\sqrt{2-t}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-4-6-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil (sjanger F)",
+      "content": "- **«Sett inn $\\infty$».** $\\infty$ er ikke et tall — du kan ikke sette det inn i en antiderivert. Skriv alltid $\\lim_{R\\to\\infty}\\int_a^R$ (eller $\\lim_{t\\to a^+}$ ved type 2). Manglende lim-notasjon er et dokumentert føringstrekk.\n- **Konvergenspåstand uten navngitt sammenligning.** «Integranden går mot $0$» holder *ikke* — $\\frac1x\\to 0$, men $\\int_1^\\infty\\frac{dx}{x}$ divergerer. Sammenligningsobjektet må navngis som konvergent/divergent $p$-integral.\n- **Overse en singularitet.** $\\int_0^{\\infty}\\frac{dx}{\\sqrt x(1+x)}$ er uegentlig i *både* $0$ og $\\infty$. Identifiser ALLE først, splitt, og krev at hvert stykke konvergerer.\n- **Feil ulikhetsretning.** Vil du vise *konvergens*, klem integranden *oppover* mot noe konvergent. Vil du vise *divergens*, klem *nedover* mot noe divergent. Å overvurdere integranden når du prøver å vise konvergens beviser ingenting.\n- **$p$-kriteriene speilvendt.** På $\\infty$: konvergens $\\iff p>1$. I $0$: konvergens $\\iff p<1$. Bland dem aldri.\n- **GS-test uten $0<L<\\infty$.** Testen gjelder bare når grensen av forholdet er endelig OG positiv. Blir $L=0$ eller $L=\\infty$, må du velge et annet $g$ (eller bruke direkte sammenligning)."
+    },
+    {
+      "id": "mat1100-4-6-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet i løkkene.*"
+    },
+    {
+      "id": "mat1100-4-6-bb-navngi",
+      "type": "definition",
+      "title": "Navngi sammenligningen (fasitkravet)",
+      "content": "I hvert løsningsforslag for sjanger F skal sammenligningsintegralet nevnes eksplisitt som et **konvergent** eller **divergent $p$-integral**, med $p$-verdien og kriteriet ($p>1$ på $\\infty$, $p<1$ i $0$). Konklusjonssetningen navngir testen: «ved direkte sammenligningstest …» eller «ved GS-testen …». Dette er der poengene sitter."
+    },
+    {
+      "id": "mat1100-4-6-bb-limforing",
+      "type": "definition",
+      "title": "Lim-føringen",
+      "content": "Standardoppsettet for direkte beregning: erstatt den uegentlige grensen med en variabel ($R$ eller $t$), regn det egentlige integralet, og ta grensen til slutt. $\\int_a^{\\infty}f=\\lim_{R\\to\\infty}\\int_a^R f$; $\\int_a^b f=\\lim_{t\\to a^+}\\int_t^b f$ ved singularitet i $a$."
+    },
+    {
+      "id": "mat1100-4-6-bb-strategivalg",
+      "type": "definition",
+      "title": "Strategivalg for F-oppgaver",
+      "content": "(1) Identifiser alle singulariteter/uendelige endepunkter. (2) Kan integranden antideriveres pent? → direkte beregning med lim. (3) Ellers: gir en enkel ulikhet en klem? → direkte sammenligning. (4) Ellers: ta grensen av forholdet mot dominant ledd → GS-testen. (5) Flere singulariteter → splitt og krev at hvert stykke konvergerer."
+    },
+    {
+      "id": "mat1100-4-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-4-6-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\int_a^{\\infty} f\\,dx$ | Uegentlig integral, type 1 (uendelig intervall) |\n| $\\int_a^b f\\,dx$ (sing.) | Uegentlig integral, type 2 (singularitet i endepunkt) |\n| $\\lim_{R\\to\\infty}$ | Grense i lim-føringen (type 1) |\n| $\\lim_{t\\to a^{+}}$ | Grense i lim-føringen (type 2) |\n| $p$-integral | Referanseintegralet $\\int x^{-p}$ |\n| $L=\\lim f/g$ | Forholdsgrensen i GS-testen |\n| $\\int\\lvert f\\rvert$ | Absoluttintegralet (absolutt konvergens) |\n\n**Formler i dette kapitlet:**\n\n$$\\int_a^{\\infty} f\\,dx=\\lim_{R\\to\\infty}\\int_a^{R} f\\,dx,\\qquad \\int_a^{b} f\\,dx=\\lim_{t\\to a^{+}}\\int_t^{b} f\\,dx$$\nDefinisjonene (type 1 og type 2) — alltid via lim.\n\n$$\\int_1^{\\infty}\\frac{dx}{x^{p}}\\ \\text{konv.}\\iff p>1,\\qquad \\int_0^{1}\\frac{dx}{x^{p}}\\ \\text{konv.}\\iff p<1$$\n$p$-integralene (referansefamilien, speilvendte kriterier).\n\n$$0\\le f\\le g:\\quad \\textstyle\\int g\\ \\text{konv.}\\Rightarrow\\int f\\ \\text{konv.};\\quad \\int f\\ \\text{div.}\\Rightarrow\\int g\\ \\text{div.}$$\nDirekte sammenligningstest.\n\n$$L=\\lim\\frac{f}{g},\\ 0<L<\\infty\\ \\Rightarrow\\ \\textstyle\\int f,\\int g\\ \\text{samme skjebne}$$\nGS-testen (velg $g$ fra dominant ledd)."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-4-6-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 2.2 og 4.3–4.5)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-4-6-rep-text",
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nGrensene og antiderivertene du støtter deg på i F-oppgaver.\n\n**a)** ([2.2](/bok/mat1100/mat1100-2-2)) $\\displaystyle\\lim_{x\\to\\infty}\\frac{2x^2-1}{x^2+3x}$.\n**b)** ([2.2](/bok/mat1100/mat1100-2-2)) $\\displaystyle\\lim_{t\\to 0^{+}} t\\ln t$.\n**c)** ([4.3](/bok/mat1100/mat1100-4-3)) $\\displaystyle\\int x^{-3}\\,dx$.\n**d)** ([4.3](/bok/mat1100/mat1100-4-3)) $\\displaystyle\\int e^{-x}\\,dx$.\n\n**Fasit.**\n**a)** Del på $x^2$: $\\frac{2-1/x^2}{1+3/x}\\to 2$.\n**b)** $[0\\cdot(-\\infty)]$: skriv $\\frac{\\ln t}{1/t}$, L'Hôpital → $\\frac{1/t}{-1/t^2}=-t\\to 0$. Så $t\\ln t\\to 0$.\n**c)** $\\int x^{-3}dx=\\frac{x^{-2}}{-2}+C=-\\frac{1}{2x^2}+C$.\n**d)** $\\int e^{-x}dx=-e^{-x}+C$.\n\n*(b) er nøkkelgrensen bak $\\int_0^1\\ln x\\,dx=-1$; (c)–(d) er antiderivertene i de fleste direkte F-beregningene.*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

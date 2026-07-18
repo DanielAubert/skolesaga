@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hvor mange ubestemte former finnes det?",
+    "options": [
+      "Sju: $\\tfrac00,\\tfrac\\infty\\infty,0\\cdot\\infty,\\infty-\\infty,1^\\infty,0^0,\\infty^0$",
+      "Fire, altså de fire brøk- og differanseformene bygget på null og uendelig sammen",
+      "To, ettersom bare $[0/0]$ og $[\\infty/\\infty]$ i det hele tatt regnes som ubestemte",
+      "Fem, altså de fire brøkformene pluss potensformen $1^\\infty$ regnet med som den femte"
+    ],
+    "explanation": "Det er nøyaktig sju ubestemte former. L'Hôpital takler direkte bare $[0/0]$ og $[\\infty/\\infty]$; de fem andre skrives om til en av disse."
+  },
+  {
+    "question": "Hvilke to former kan L'Hôpital brukes direkte på?",
+    "options": [
+      "$[0/0]$ og $[\\infty/\\infty]$",
+      "$0\\cdot\\infty$ og $\\infty-\\infty$",
+      "$1^\\infty$ og $0^0$",
+      "Alle sju formene"
+    ],
+    "explanation": "L'Hôpital gjelder kun de to brøkformene $[0/0]$ og $[\\infty/\\infty]$. De øvrige må først skrives om til én av disse."
+  },
+  {
+    "question": "$\\lim_{x\\to0}\\dfrac{\\sin x}{x}=?$",
+    "options": [
+      "$1$",
+      "$0$",
+      "$\\infty$",
+      "Finnes ikke"
+    ],
+    "explanation": "Dette er standardgrensen: $\\sin x\\approx x$ for små $x$ (radianer), så brøken går mot 1."
+  },
+  {
+    "question": "$\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}=?$",
+    "options": [
+      "$\\tfrac12$",
+      "$\\tfrac13$",
+      "$\\tfrac14$",
+      "$1$"
+    ],
+    "explanation": "Standardgrensen $(1-\\cos x)/x^2\\to 1/2$. To L'Hôpital-runder gir samme svar: $\\sin x/(2x)\\to\\cos x/2\\to 1/2$."
+  },
+  {
+    "question": "$\\lim_{x\\to0^+}(1+3x)^{1/x}=?$",
+    "options": [
+      "$e^3$",
+      "$e^2$",
+      "$e$",
+      "$3$"
+    ],
+    "explanation": "Formen er $1^\\infty$. Logaritmetrikset: $\\ln y=\\ln(1+3x)/x\\to 3$, så svaret er $e^3$ — ikke $e$ (feil $k$) og ikke 3 (glemt eksponentiering)."
+  },
+  {
+    "question": "Hva må gjøres FØR hver L'Hôpital-anvendelse?",
+    "options": [
+      "Markere eksplisitt at formen er $[0/0]$ eller $[\\infty/\\infty]$",
+      "Forkorte hele brøken helt ned til den ikke lenger er en ubestemt form",
+      "Sette inn grenseverdien direkte i det allerede ferdig deriverte uttrykket",
+      "Bruke kvotientregelen på hele brøken $f/g$ før man begynner å derivere den"
+    ],
+    "explanation": "Sensorkrav: formen markeres før hver bruk, også ved gjentatt anvendelse. L'Hôpital på et ikke-ubestemt uttrykk gir trekk."
+  },
+  {
+    "question": "Ved L'Hôpital på $f/g$, hva deriverer du?",
+    "options": [
+      "Teller og nevner hver for seg, altså $f'/g'$",
+      "Hele brøken samlet, med kvotientregelen",
+      "Bare telleren $f$, mens nevneren står urørt",
+      "Produktet $f\\cdot g$ ved hjelp av produktregelen"
+    ],
+    "explanation": "L'Hôpital er $\\lim f/g=\\lim f'/g'$ — teller og nevner derivert separat. Dette er IKKE kvotientregelen."
+  },
+  {
+    "question": "Veksthierarkiet for $x\\to\\infty$ er (tregest til raskest):",
+    "options": [
+      "$\\ln x\\ll x^p\\ll e^x$",
+      "$e^x\\ll x^p\\ll\\ln x$",
+      "$x^p\\ll\\ln x\\ll e^x$",
+      "$\\ln x\\ll e^x\\ll x^p$"
+    ],
+    "explanation": "Logaritme vokser tregest, eksponential raskest. Derfor $\\ln x/x^p\\to0$, $x^p/e^x\\to0$, $e^x/x^p\\to\\infty$."
+  },
+  {
+    "question": "$\\lim_{x\\to\\infty}\\dfrac{\\ln x}{x}=?$",
+    "options": [
+      "$0$",
+      "$1$",
+      "$\\infty$",
+      "$e$"
+    ],
+    "explanation": "Fra hierarkiet $\\ln x\\ll x$: nevneren vokser mye raskere, så brøken går mot 0."
+  },
+  {
+    "question": "For formen $0\\cdot\\infty$ i $\\lim f\\cdot g$, hva gjør du?",
+    "options": [
+      "Flytter en faktor til nevner som resiprok, får $[0/0]$ eller $[\\infty/\\infty]$",
+      "Deriverer produktet direkte med produktregelen og kaller resultatet for L'Hôpital",
+      "Setter rett og slett bare inn grenseverdien og leser av det ferdige svaret med en gang",
+      "Tar logaritmen av hele produktet allerede før man i det hele tatt begynner å regne"
+    ],
+    "explanation": "$f\\cdot g=f/(1/g)$ eller $g/(1/f)$ gir en brøk L'Hôpital takler. Å derivere produktet direkte er en klassisk feil."
+  },
+  {
+    "question": "$\\lim_{x\\to0^+}x\\ln x=?$",
+    "options": [
+      "$0$",
+      "$-\\infty$",
+      "$1$",
+      "$-1$"
+    ],
+    "explanation": "Form $0\\cdot\\infty$. Skriv $\\ln x/(1/x)$, form $[\\infty/\\infty]$; L'Hôpital gir $\\frac{1/x}{-1/x^2}=-x\\to 0$."
+  },
+  {
+    "question": "Konjugattrikset skriver $\\sqrt A-\\sqrt B$ om til:",
+    "options": [
+      "$\\dfrac{A-B}{\\sqrt A+\\sqrt B}$",
+      "$\\dfrac{A+B}{\\sqrt A-\\sqrt B}$",
+      "$\\sqrt{A-B}$",
+      "$\\dfrac{\\sqrt A-\\sqrt B}{A-B}$"
+    ],
+    "explanation": "Gang med den konjugerte $\\sqrt A+\\sqrt B$: telleren blir $(\\sqrt A)^2-(\\sqrt B)^2=A-B$, rottegnet forsvinner der."
+  },
+  {
+    "question": "$\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+4x}-x\\right)=?$",
+    "options": [
+      "$2$",
+      "$0$",
+      "$4$",
+      "$\\infty$"
+    ],
+    "explanation": "Form $\\infty-\\infty$. Konjugat gir $\\frac{4x}{\\sqrt{x^2+4x}+x}=\\frac{4}{\\sqrt{1+4/x}+1}\\to 4/2=2$."
+  },
+  {
+    "question": "Etter logaritmetrikset finner du $\\lim\\ln y=A$. Hva er den søkte grensen?",
+    "options": [
+      "$e^{A}$",
+      "$A$",
+      "$\\ln A$",
+      "$1/A$"
+    ],
+    "explanation": "Svaret er $e$ opphøyd i logaritmegrensen: $\\lim f^g=e^{A}$. Å stoppe ved $A$ er den vanligste potensform-feilen."
+  },
+  {
+    "question": "$\\lim_{x\\to0^+}x^x=?$ (formen $0^0$)",
+    "options": [
+      "$1$",
+      "$0$",
+      "$e$",
+      "Finnes ikke"
+    ],
+    "explanation": "$\\ln y=x\\ln x\\to 0$, så $x^x\\to e^0=1$."
+  },
+  {
+    "question": "$\\lim_{x\\to\\infty}x^{1/x}=?$ (formen $\\infty^0$)",
+    "options": [
+      "$1$",
+      "$\\infty$",
+      "$e$",
+      "$0$"
+    ],
+    "explanation": "$\\ln y=\\frac{\\ln x}{x}\\to 0$ (veksthierarkiet), så $x^{1/x}\\to e^0=1$."
+  },
+  {
+    "question": "Hvorfor feiler L'Hôpital på $\\lim_{x\\to\\infty}\\dfrac{x+\\sin x}{x}$?",
+    "options": [
+      "$\\lim f'/g'=\\lim(1+\\cos x)$ finnes ikke — forutsetningen svikter",
+      "Formen er ikke ubestemt, så L'Hôpital gjelder ikke i dette tilfellet",
+      "Man kan ikke derivere $\\sin x$ på en entydig måte når $x\\to\\infty$",
+      "Svaret som L'Hôpital gir blir uendelig i stedet for et endelig tall"
+    ],
+    "explanation": "Etter derivasjon blir det $1+\\cos x$, som svinger mellom 0 og 2 uten grense. L'Hôpital krever at $\\lim f'/g'$ finnes. Del i stedet: $1+\\sin x/x\\to 1$."
+  },
+  {
+    "question": "Skviseteoremet krever at...",
+    "options": [
+      "$h\\le f\\le H$ nær $a$, der $h$ og $H$ har samme grense $L$",
+      "At funksjonen $f$ er deriverbar i en hel omegn rundt punktet $a$",
+      "At funksjonen $f$ kan skrives som en brøk med kjent teller og nevner",
+      "At skrankene $h$ og $H$ har to forskjellige grenser i punktet $a$"
+    ],
+    "explanation": "Klemmer $f$ mellom to funksjoner med felles grense $L$, så $f\\to L$. Brukes på oscillerende ledd via $|\\sin|\\le1$."
+  },
+  {
+    "question": "$\\lim_{x\\to0}x^2\\sin(1/x)=?$",
+    "options": [
+      "$0$",
+      "$1$",
+      "Finnes ikke",
+      "$\\infty$"
+    ],
+    "explanation": "$|\\sin(1/x)|\\le 1$ gir $-x^2\\le x^2\\sin(1/x)\\le x^2$; begge skranker $\\to 0$, så skvis gir 0. L'Hôpital hjelper ikke her."
+  },
+  {
+    "question": "$\\lim_{x\\to0}\\dfrac{\\sin 5x}{3x}=?$",
+    "options": [
+      "$\\tfrac53$",
+      "$1$",
+      "$\\tfrac35$",
+      "$5$"
+    ],
+    "explanation": "Skriv $\\frac{\\sin 5x}{5x}\\cdot\\frac{5}{3}\\to 1\\cdot\\frac53=\\frac53$."
+  },
+  {
+    "question": "$\\lim_{x\\to0}\\dfrac{e^x-1-x}{x^2}=?$",
+    "options": [
+      "$\\tfrac12$",
+      "$\\tfrac13$",
+      "$\\tfrac14$",
+      "$1$"
+    ],
+    "explanation": "Form $[0/0]$; L'Hôpital gir $\\frac{e^x-1}{2x}$, igjen $[0/0]$; ny L'Hôpital gir $\\frac{e^x}{2}\\to 1/2$. Marker formen begge ganger."
+  },
+  {
+    "question": "$\\lim_{x\\to\\infty}x(e^{1/x}-1)=?$",
+    "options": [
+      "$1$",
+      "$0$",
+      "$\\infty$",
+      "$e$"
+    ],
+    "explanation": "Form $\\infty\\cdot 0$. Skriv $\\frac{e^{1/x}-1}{1/x}$, form $[0/0]$; L'Hôpital gir $\\frac{e^{1/x}(-1/x^2)}{-1/x^2}=e^{1/x}\\to 1$."
+  },
+  {
+    "question": "Hvilket triks løser formen $\\infty-\\infty$ for en brøkdifferanse som $\\frac1x-\\frac1{\\sin x}$?",
+    "options": [
+      "Sette de to brøkene på fellesnevner, slik at du får formen $[0/0]$",
+      "Ta logaritmen av hele differansen og deretter regne på selve eksponentleddet",
+      "Bruke veksthierarkiet helt direkte på hvert av de to leddene i differansen",
+      "Konjugattrikset, altså å gange og dele med en passende kvadratrotskonjugert"
+    ],
+    "explanation": "Fellesnevner samler til én brøk: $\\frac{\\sin x-x}{x\\sin x}$, som er $[0/0]$ og angripes med L'Hôpital."
+  },
+  {
+    "question": "Hva er den vanligste feilen med potensformene $1^\\infty,0^0,\\infty^0$?",
+    "options": [
+      "Å glemme å eksponentiere tilbake — svare $A$ i stedet for $e^A$",
+      "Å sette de to leddene på en felles nevner før man regner videre",
+      "Å markere den ubestemte formen $[0/0]$ før hver L'Hôpital-runde",
+      "Å bruke en standardgrense i stedet for å skrive om potensen først"
+    ],
+    "explanation": "Etter logaritmetrikset gir $\\lim\\ln y=A$ svaret $e^A$. Å stoppe ved $A$ er den typiske tabben."
+  },
+  {
+    "question": "$\\lim_{x\\to0}\\dfrac{\\tan x}{x}=?$",
+    "options": [
+      "$1$",
+      "$0$",
+      "$\\tfrac12$",
+      "$\\infty$"
+    ],
+    "explanation": "$\\tan x=\\sin x/\\cos x$, så $\\frac{\\tan x}{x}=\\frac{\\sin x}{x}\\cdot\\frac{1}{\\cos x}\\to 1\\cdot 1=1$."
+  }
+]

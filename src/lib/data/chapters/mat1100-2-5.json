@@ -1,0 +1,378 @@
+{
+  "id": "mat1100-2-5",
+  "courseId": "mat1100",
+  "chapterNumber": "2.5",
+  "title": "Drill: grensetempo for midtveis",
+  "description": "Grenser, følger og definisjonsspørsmål i flervalgstempo — midtblokken på midtveiseksamen på under 6 minutter per oppgave.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "klassifisere en grense i riktig ubestemt form og velge raskeste løsningsvei under tidspress",
+    "regne grenser i alle sju ubestemte former, konjugat- og rasjonale følger og rekursive følger med fikspunkt",
+    "gjenkjenne kvantor- og negasjonsspørsmål om grensedefinisjonen og unngå L'Hôpital-refleksen"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Denne drillen dekker midtblokken på midtveiseksamen — grenser, følger og definisjonsteori — til sammen omtrent en tredjedel av settet.**\n\n- **Grenser / L'Hôpital:** $16\\ \\%$ av midtveisspørsmålene ($2$–$3$ per sett, dekker alle de sju ubestemte formene).\n- **Følger:** $9\\ \\%$ (rasjonale, konjugat­trikset, rekursive med fikspunkt).\n- **ε-δ / definisjonsteori:** $7\\ \\%$ (kvantorspørsmål og negasjoner).\n\nPrioritet: **kunne** faglig, men **perfekt på tempo** — dette er flervalg (**MV**, midtveisrepertoaret: $5$ alternativer, ingen gjettestraff, ca. $6$ min per spørsmål). Målet er ikke å regne langt, men å *kjenne igjen formen og velge raskeste våpen*.\n\n**Slik jobber du med drillen (90 min — del gjerne over to økter):**\n1. Les beslutningstreet og oppskriftene (~$10$ min).\n2. Arbeid deg gjennom den gjennomregnede midtveisblokken (~$15$ min) — *— naturlig pausepunkt —*.\n3. Ta de $14$ flervalgsoppgavene på klokka, ~$6$ min hver (~$50$ min).\n4. Avslutt med langsvarvariantene som trener slutteksamensføringen (~$15$ min).\n\n*Kilde til frekvenstallene: arkivet med $16$ midtveiseksamener (H2003–H2018) og $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag). Arkivet stopper i 2023 — nyere sett kan ha justert bildet.*",
+      "id": "mat1100-2-5-tip-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** Drillen forutsetter hele grense- og følgeteorien fra tidligere i Del 2: [kap. 2.1](/bok/mat1100/mat1100-2-1) (grensedefinisjonen, kvantorer og negasjon), [kap. 2.2](/bok/mat1100/mat1100-2-2) (standardgrenser, L'Hôpital med $[0/0]$-disiplin, alle sju ubestemte former, konjugat- og logaritmetrikset) og [kap. 2.3](/bok/mat1100/mat1100-2-3) (følgegrense, konjugattrikset for rotfølger, fikspunktanalyse av rekursive følger). Her regner du ikke noe nytt — du drilles i å velge riktig verktøy under tidspress.",
+      "id": "mat1100-2-5-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "## Beslutningstreet (~10 min)\n\nHver grense løses ved å klassifisere *formen* først og velge våpen deretter. Følg treet:\n\n**Steg 1 — sett inn.** Får du et tall? Ferdig. Får du en **ubestemt form**, gå videre.\n\n**Steg 2 — klassifiser formen.** De sju ubestemte formene er $[0/0]$, $[\\infty/\\infty]$, $[0\\cdot\\infty]$, $[\\infty-\\infty]$, $[1^\\infty]$, $[0^0]$ og $[\\infty^0]$.\n\n**Steg 3 — velg våpen:**\n- $[0/0]$: standardgrense ($\\frac{\\sin x}{x}\\to 1$, $\\frac{e^x-1}{x}\\to 1$, $\\frac{1-\\cos x}{x^2}\\to\\frac12$), forkorting/faktorisering, konjugat ved rotuttrykk — eller L'Hôpital.\n- $[\\infty/\\infty]$: del på høyeste potens, eller bruk **veksthierarkiet** $\\ln x \\ll x^p \\ll e^x$ — eller L'Hôpital.\n- $[0\\cdot\\infty]$: flytt den ene faktoren i nevner slik at du får $[0/0]$ eller $[\\infty/\\infty]$.\n- $[\\infty-\\infty]$: felles­nevner, eller **konjugattriks** ved rotdifferanser.\n- $[1^\\infty]$, $[0^0]$, $[\\infty^0]$: ta $\\ln$, regn grensen av $\\ln$, og **eksponensier tilbake** til slutt.\n\n**Steg 4 — for følger:** rasjonal $\\to$ del på høyeste $n$-potens; rotdifferanse $\\to$ konjugat; rekursiv $a_{n+1}=g(a_n)\\to$ fikspunkt ($L=g(L)$) $+$ monotoni $+$ begrensethet.\n\n**Disiplinregelen (fasitpraksis):** markér den ubestemte formen eksplisitt — $[0/0]$ eller $[\\infty/\\infty]$ — **før** hver L'Hôpital-anvendelse; gjentatt bruk krever ny markering.",
+      "id": "mat1100-2-5-oppskrift"
+    },
+    {
+      "type": "example",
+      "title": "Gjennomregnet midtveisblokk — seks spørsmål med margnotater",
+      "problem": "Seks flervalgsspørsmål i midtveistempo — to grenser, én følge, ett kvantorspørsmål, ett teoriutsagn og én rekursjon. Prøv hvert på ~$1{,}5$ min før du leser løsningen. Alle med $5$ alternativer, som på eksamen.\n\n**1 (grense, $[0/0]$).** $\\displaystyle\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2} = ?$\n**A)** $0$  **B)** $\\tfrac12$  **C)** $1$  **D)** $2$  **E)** eksisterer ikke\n\n**2 (grense, $[1^\\infty]$).** $\\displaystyle\\lim_{x\\to\\infty}\\left(1-\\frac{2}{x}\\right)^{x} = ?$\n**A)** $1$  **B)** $e^{2}$  **C)** $e^{-1}$  **D)** $e^{-2}$  **E)** $0$\n\n**3 (følge, konjugat).** $\\displaystyle\\lim_{n\\to\\infty}\\left(\\sqrt{n^2+6n}-n\\right) = ?$\n**A)** $3$  **B)** $6$  **C)** $0$  **D)** $\\infty$  **E)** eksisterer ikke\n\n**4 (kvantorspørsmål).** Hvilket utsagn er den korrekte definisjonen av $\\displaystyle\\lim_{x\\to a} f(x) = L$?\n**A)** Det finnes $\\varepsilon>0$ slik at for alle $\\delta>0$: $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$\n**B)** For alle $\\delta>0$ finnes $\\varepsilon>0$ slik at $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$\n**C)** For alle $\\varepsilon>0$ finnes $\\delta>0$ slik at $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$\n**D)** For alle $\\varepsilon>0$ finnes $\\delta>0$ slik at $|x-a|<\\varepsilon \\Rightarrow |f(x)-L|<\\delta$\n**E)** Det finnes $\\delta>0$ slik at for alle $\\varepsilon>0$: $|f(x)-L|<\\varepsilon$\n\n**5 (teoriutsagn).** Hvilket utsagn er **sant** for alle reelle følger?\n**A)** En begrenset følge konvergerer\n**B)** En voksende følge konvergerer\n**C)** En følge som er både voksende og begrenset ovenfra, konvergerer\n**D)** En konvergent følge er voksende\n**E)** En følge som ikke er begrenset, konvergerer ikke mot noe punkt, men kan ha to grenser\n\n**6 (rekursjon).** Følgen er gitt ved $a_1=1$, $a_{n+1}=\\sqrt{2a_n+3}$, og den kan vises å være voksende og begrenset. Hva er grensen?\n**A)** $3$  **B)** $-1$  **C)** $1$  **D)** $\\sqrt{5}$  **E)** grensen finnes ikke",
+      "solution": "**1 → B, $\\tfrac12$.** Standardgrensen $\\frac{1-\\cos x}{x^2}\\to\\frac12$ (eller L'Hôpital to ganger på $[0/0]$). *Margnotat:* **A** ($0$) setter bare inn i telleren; **C** forveksler med $\\frac{\\sin x}{x}\\to 1$; **D** glemmer kvadratet i nevneren.\n\n**2 → D, $e^{-2}$.** Formen er $[1^\\infty]$: $\\ln\\!\\left(1-\\tfrac2x\\right)^x = x\\ln\\!\\left(1-\\tfrac2x\\right)\\to x\\cdot\\left(-\\tfrac2x\\right)=-2$, så grensen er $e^{-2}$. *Margnotat:* **B** ($e^2$) glemmer minustegnet; **C** ($e^{-1}$) mister faktoren $2$; **A** behandler $1^\\infty$ som $1$ (den vanligste fellen).\n\n**3 → A, $3$.** Konjugattrikset: $\\sqrt{n^2+6n}-n=\\dfrac{6n}{\\sqrt{n^2+6n}+n}\\to\\dfrac{6n}{2n}=3$. *Margnotat:* **B** ($6$) glemmer å dele på $2$ i nevneren; **C** ($0$) tror $\\infty-\\infty=0$; **D** setter inn uten å konjugere.\n\n**4 → C.** Riktig kvantorrekkefølge: *for alle* $\\varepsilon$ *finnes* $\\delta$, med betingelsen $0<|x-a|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$. *Margnotat:* **A/E** bytter kvantorrekkefølgen («det finnes $\\varepsilon$ …»); **B** lar $\\delta$ komme før $\\varepsilon$; **D** bytter rollene til $\\varepsilon$ og $\\delta$. Distraktorene er nøyaktig de dokumenterte midtveisfellene.\n\n**5 → C.** Nettopp kompletthetsaksiomets arbeidsform: *voksende og begrenset ovenfra $\\Rightarrow$ konvergent*. *Margnotat:* **A** er galt ($(-1)^n$ er begrenset, men divergerer); **B** er galt ($a_n=n$ er voksende, men ubegrenset); **D** er galt (en konvergent følge trenger ikke være monoton); **E** er galt (en grense er entydig når den finnes).\n\n**6 → A, $3$.** Fikspunkt: $L=\\sqrt{2L+3}\\Rightarrow L^2=2L+3\\Rightarrow L^2-2L-3=(L-3)(L+1)=0$, så $L=3$ eller $L=-1$. Følgen er positiv, så grensen er $L=3$. *Margnotat:* **B** ($-1$) er den forkastede fikspunktroten (utenfor følgens verdiområde); **D** er bare $a_2=\\sqrt5$; **C** er startverdien.\n\n**Fasitbokstavene i blokken: B, D, A, C, C, A** — riktig svar er *ikke* systematisk samme bokstav. På midtveis er posisjonen tilfeldig; la aldri et mønster styre gjettingen.",
+      "id": "mat1100-2-5-ex-midtveisblokk"
+    },
+    {
+      "type": "text",
+      "content": "## Flervalgsdrill på klokka (~50 min)\n\nSett $6$ minutter per oppgave. Klassifiser formen, velg våpen, før bare det du trenger. Signalboksen etter hver løsning sier hva oppgaven testet. — naturlig pausepunkt før du starter —",
+      "id": "mat1100-2-5-drill-tekst"
+    },
+    {
+      "id": "mat1100-2-5-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — $[0/0]$.) $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin 5x}{\\sin 2x} = ?$\n\n**A)** $1$\n**B)** $\\tfrac25$\n**C)** $\\tfrac52$\n**D)** $5$\n**E)** $0$",
+        "solution": "**Riktig: C, $\\tfrac52$.** Formen er $[0/0]$. Bruk $\\sin(kx)\\approx kx$ nær $0$ (eller utvid med $x$): $\\dfrac{\\sin 5x}{\\sin 2x}=\\dfrac{\\sin 5x}{5x}\\cdot\\dfrac{2x}{\\sin 2x}\\cdot\\dfrac{5x}{2x}\\to 1\\cdot 1\\cdot\\dfrac52=\\dfrac52$.\n\n*Feller:* **B** ($\\tfrac25$) inverterer forholdet; **A** ($1$) tror begge $\\to x$ og forkorter til $1$; **D** ($5$) glemmer nevnerfaktoren $2$.\n\n**Signal:** standardgrensen $\\frac{\\sin(kx)}{kx}\\to 1$ — forholdet mellom argumentene bestemmer svaret.",
+        "hints": [
+          "Formen er $[0/0]$; bruk $\\frac{\\sin(kx)}{kx}\\to 1$.",
+          "Skriv $\\frac{\\sin 5x}{\\sin 2x}=\\frac{\\sin 5x}{5x}\\cdot\\frac{2x}{\\sin 2x}\\cdot\\frac{5}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — $[0/0]$.) $\\displaystyle\\lim_{x\\to 0}\\frac{e^{2x}-1}{x} = ?$\n\n**A)** $2$\n**B)** $1$\n**C)** $\\tfrac12$\n**D)** $0$\n**E)** $\\infty$",
+        "solution": "**Riktig: A, $2$.** Formen er $[0/0]$. Standardgrensen $\\frac{e^u-1}{u}\\to 1$ med $u=2x$: $\\dfrac{e^{2x}-1}{x}=2\\cdot\\dfrac{e^{2x}-1}{2x}\\to 2\\cdot 1=2$ (eller L'Hôpital: $\\frac{2e^{2x}}{1}\\to 2$).\n\n*Feller:* **B** ($1$) glemmer kjerneregel-faktoren $2$ (bruker $\\frac{e^x-1}{x}$-formen direkte); **C** inverterer faktoren; **D** setter inn i telleren alene.\n\n**Signal:** $\\frac{e^{kx}-1}{x}\\to k$ — kjerneregel-faktoren $k$ må med.",
+        "hints": [
+          "$[0/0]$; bruk $\\frac{e^u-1}{u}\\to 1$ med $u=2x$.",
+          "Skriv $\\frac{e^{2x}-1}{x}=2\\cdot\\frac{e^{2x}-1}{2x}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — $[\\infty/\\infty]$.) $\\displaystyle\\lim_{x\\to\\infty}\\frac{2x^2+3x}{5x^2-1} = ?$\n\n**A)** $0$\n**B)** $2$\n**C)** $\\infty$\n**D)** $\\tfrac25$\n**E)** $-3$",
+        "solution": "**Riktig: D, $\\tfrac25$.** Formen er $[\\infty/\\infty]$. Del teller og nevner på høyeste potens $x^2$: $\\dfrac{2+3/x}{5-1/x^2}\\to\\dfrac{2}{5}$.\n\n*Feller:* **B** ($2$) glemmer nevnerens ledende koeffisient $5$; **C** ($\\infty$) tror telleren dominerer; **A** ($0$) tror nevneren dominerer; **E** blander inn lavere ledd.\n\n**Signal:** samme grad i teller og nevner $\\Rightarrow$ grensen er forholdet mellom de ledende koeffisientene.",
+        "hints": [
+          "Del på høyeste potens $x^2$.",
+          "Ledende koeffisienter: $2$ og $5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — $[\\infty/\\infty]$, veksthierarki.) $\\displaystyle\\lim_{x\\to\\infty}\\frac{(\\ln x)^2}{x} = ?$\n\n**A)** $\\infty$\n**B)** $0$\n**C)** $1$\n**D)** $2$\n**E)** eksisterer ikke",
+        "solution": "**Riktig: B, $0$.** Veksthierarkiet $\\ln x \\ll x^p \\ll e^x$: enhver potens av $\\ln x$ vokser langsommere enn $x$, så $\\dfrac{(\\ln x)^2}{x}\\to 0$. (L'Hôpital to ganger gir samme svar, men er unødvendig.)\n\n*Feller:* **A** ($\\infty$) tror $(\\ln x)^2$ vokser fortest; **C/D** gjetter et endelig tall $\\ne 0$; **E** tror grensen ikke finnes.\n\n**Signal:** veksthierarkiet gir svaret direkte — $x$ slår enhver potens av $\\ln x$.",
+        "hints": [
+          "Bruk veksthierarkiet $\\ln x \\ll x^p$.",
+          "Nevneren $x$ vokser fortere enn $(\\ln x)^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — $[0\\cdot\\infty]$.) $\\displaystyle\\lim_{x\\to 0^+} x^2\\ln x = ?$\n\n**A)** $-\\infty$\n**B)** $-1$\n**C)** $1$\n**D)** eksisterer ikke\n**E)** $0$",
+        "solution": "**Riktig: E, $0$.** Formen er $[0\\cdot(-\\infty)]$. Flytt $x^2$ i nevner: $x^2\\ln x=\\dfrac{\\ln x}{1/x^2}$, form $[-\\infty/\\infty]$. L'Hôpital: $\\dfrac{1/x}{-2/x^3}=-\\dfrac{x^2}{2}\\to 0$. (Eller: veksthierarkiet — $x^2$ dør fortere enn $\\ln x$ vokser.)\n\n*Feller:* **A** ($-\\infty$) lar $\\ln x\\to-\\infty$ dominere; **B** gjetter et negativt tall; **C** overser fortegnet på $\\ln x$ nær $0$.\n\n**Signal:** $[0\\cdot\\infty]$ omskrives til brøk før L'Hôpital; potensen slår logaritmen.",
+        "hints": [
+          "Skriv $x^2\\ln x=\\frac{\\ln x}{1/x^2}$ for å få $[\\infty/\\infty]$.",
+          "$x^2$ går mot $0$ fortere enn $\\ln x$ går mot $-\\infty$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — $[\\infty-\\infty]$.) $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+4x}-x\\right) = ?$\n\n**A)** $0$\n**B)** $4$\n**C)** $2$\n**D)** $\\infty$\n**E)** $1$",
+        "solution": "**Riktig: C, $2$.** Formen er $[\\infty-\\infty]$. Konjugattrikset: $\\sqrt{x^2+4x}-x=\\dfrac{(x^2+4x)-x^2}{\\sqrt{x^2+4x}+x}=\\dfrac{4x}{\\sqrt{x^2+4x}+x}\\to\\dfrac{4x}{2x}=2$.\n\n*Feller:* **A** ($0$) tror $\\infty-\\infty=0$; **B** ($4$) glemmer å dele på $2$ i nevneren; **D** setter inn uten å konjugere.\n\n**Signal:** rotdifferanse $\\Rightarrow$ multipliser med den konjugerte; nevneren blir $\\approx 2x$.",
+        "hints": [
+          "Multipliser med $\\frac{\\sqrt{x^2+4x}+x}{\\sqrt{x^2+4x}+x}$.",
+          "Telleren blir $4x$, nevneren $\\approx 2x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — $[1^\\infty]$.) $\\displaystyle\\lim_{x\\to 0}(1+2x)^{1/x} = ?$\n\n**A)** $e^{2}$\n**B)** $e$\n**C)** $1$\n**D)** $\\infty$\n**E)** $\\sqrt{e}$",
+        "solution": "**Riktig: A, $e^{2}$.** Formen er $[1^\\infty]$. Ta $\\ln$: $\\ln(1+2x)^{1/x}=\\dfrac{\\ln(1+2x)}{x}\\to\\dfrac{2}{1}=2$ (standardgrensen $\\frac{\\ln(1+u)}{u}\\to 1$ med $u=2x$). Eksponensier tilbake: grensen er $e^{2}$.\n\n*Feller:* **B** ($e$) glemmer faktoren $2$; **C** ($1$) behandler $1^\\infty$ som $1$; **D** tror uttrykket sprenger.\n\n**Signal:** $[1^\\infty]$ løses med $\\ln$ + eksponensiering; husk kjerneregel-faktoren.",
+        "hints": [
+          "$[1^\\infty]$: ta $\\ln$ og bruk $\\frac{\\ln(1+u)}{u}\\to 1$.",
+          "$\\frac{\\ln(1+2x)}{x}\\to 2$, så svaret er $e^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — $[0^0]$.) $\\displaystyle\\lim_{x\\to 0^+} x^{x} = ?$\n\n**A)** $0$\n**B)** $\\infty$\n**C)** $e$\n**D)** eksisterer ikke\n**E)** $1$",
+        "solution": "**Riktig: E, $1$.** Formen er $[0^0]$. Ta $\\ln$: $\\ln(x^x)=x\\ln x$, form $[0\\cdot(-\\infty)]$, som $\\to 0$ (oppgave 5-typen). Eksponensier tilbake: $x^x\\to e^{0}=1$.\n\n*Feller:* **A** ($0$) lar basen $\\to 0$ styre; **B** lar eksponenten dra mot $\\infty$; **C** ($e$) forveksler med en $e$-grense.\n\n**Signal:** $[0^0]$, $[1^\\infty]$ og $[\\infty^0]$ løses alle med $\\ln$ + eksponensiering.",
+        "hints": [
+          "Ta $\\ln$: $\\ln(x^x)=x\\ln x$.",
+          "$x\\ln x\\to 0$, så $x^x\\to e^0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — $[\\infty^0]$.) $\\displaystyle\\lim_{x\\to\\infty} x^{1/x} = ?$\n\n**A)** $\\infty$\n**B)** $1$\n**C)** $0$\n**D)** $e$\n**E)** eksisterer ikke",
+        "solution": "**Riktig: B, $1$.** Formen er $[\\infty^0]$. Ta $\\ln$: $\\ln(x^{1/x})=\\dfrac{\\ln x}{x}\\to 0$ (veksthierarkiet). Eksponensier tilbake: $x^{1/x}\\to e^{0}=1$.\n\n*Feller:* **A** ($\\infty$) lar basen dominere; **C** ($0$) lar eksponenten $\\to 0$ dra alt til $0$; **D** ($e$) forveksler med $(1+1/x)^x$.\n\n**Signal:** $[\\infty^0]$ via $\\ln$; $\\frac{\\ln x}{x}\\to 0$ er nøkkelen.",
+        "hints": [
+          "Ta $\\ln$: $\\ln(x^{1/x})=\\frac{\\ln x}{x}$.",
+          "$\\frac{\\ln x}{x}\\to 0$, så svaret er $e^0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — følge.) $\\displaystyle\\lim_{n\\to\\infty}\\frac{3n^2+n}{n^2+5} = ?$\n\n**A)** $0$\n**B)** $1$\n**C)** $\\infty$\n**D)** $3$\n**E)** $\\tfrac35$",
+        "solution": "**Riktig: D, $3$.** Rasjonal følge: del på høyeste potens $n^2$: $\\dfrac{3+1/n}{1+5/n^2}\\to 3$.\n\n*Feller:* **B** ($1$) forkorter feil; **E** ($\\tfrac35$) blander inn nevnerkonstanten $5$; **A/C** tror teller eller nevner dominerer.\n\n**Signal:** følge med samme grad oppe og nede $\\Rightarrow$ forhold mellom ledende koeffisienter.",
+        "hints": [
+          "Del på $n^2$.",
+          "Ledende koeffisienter: $3$ og $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — følge, konjugat.) $\\displaystyle\\lim_{n\\to\\infty}\\left(\\sqrt{n^2+8n}-n\\right) = ?$\n\n**A)** $8$\n**B)** $0$\n**C)** $4$\n**D)** $\\infty$\n**E)** $2$",
+        "solution": "**Riktig: C, $4$.** Konjugattrikset: $\\sqrt{n^2+8n}-n=\\dfrac{8n}{\\sqrt{n^2+8n}+n}\\to\\dfrac{8n}{2n}=4$.\n\n*Feller:* **A** ($8$) glemmer å dele på $2$; **B** ($0$) tror $\\infty-\\infty=0$; **D** setter inn uten å konjugere.\n\n**Signal:** rotdifferanse-følge $\\Rightarrow$ konjugat; grensen blir halve koeffisienten foran $n$ under roten.",
+        "hints": [
+          "Multipliser med den konjugerte.",
+          "Telleren blir $8n$, nevneren $\\approx 2n$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — rekursiv følge.) Følgen $a_1=1$, $a_{n+1}=\\sqrt{a_n+2}$ er voksende og begrenset. Hva er grensen?\n\n**A)** $2$\n**B)** $-1$\n**C)** $1$\n**D)** $\\sqrt{2}$\n**E)** grensen finnes ikke",
+        "solution": "**Riktig: A, $2$.** Følgen konvergerer (voksende og begrenset), så grensen $L$ oppfyller fikspunktlikningen $L=\\sqrt{L+2}\\Rightarrow L^2=L+2\\Rightarrow L^2-L-2=(L-2)(L+1)=0$, så $L=2$ eller $L=-1$. Følgen er positiv, så $L=2$.\n\n*Feller:* **B** ($-1$) er den forkastede roten (negativ, utenfor verdiområdet); **C** er startverdien $a_1$; **D** er $a_2=\\sqrt{3}$-forveksling.\n\n**Signal:** rekursiv følge $\\Rightarrow$ sett $L=g(L)$; velg roten som ligger i følgens verdiområde.",
+        "hints": [
+          "Sett $L=\\sqrt{L+2}$ og kvadrer.",
+          "$L^2-L-2=0$ har røttene $2$ og $-1$; hvilken er positiv?"
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveis, flervalg — negasjon.) Hva er den korrekte **negasjonen** av «$\\displaystyle\\lim_{x\\to a} f(x) = L$»?\n\n**A)** For alle $\\varepsilon>0$ finnes $\\delta>0$ slik at $0<|x-a|<\\delta$ og $|f(x)-L|\\ge\\varepsilon$\n**B)** Det finnes $\\varepsilon>0$ slik at for alle $\\delta>0$ er $|f(x)-L|<\\varepsilon$ for en $x$ med $0<|x-a|<\\delta$\n**C)** For alle $\\delta>0$ finnes $\\varepsilon>0$ slik at $|f(x)-L|\\ge\\varepsilon$\n**D)** Det finnes $\\varepsilon>0$ slik at for alle $\\delta>0$ finnes en $x$ med $0<|x-a|<\\delta$ og $|f(x)-L|\\ge\\varepsilon$\n**E)** Det finnes $\\varepsilon>0$ og $\\delta>0$ slik at $|f(x)-L|\\ge\\varepsilon$ for alle $x$",
+        "solution": "**Riktig: D.** Definisjonen er «$\\forall\\varepsilon>0\\ \\exists\\delta>0\\ \\forall x:\\ 0<|x-a|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$». Negasjonen snur hver kvantor og negerer kjernen: «$\\exists\\varepsilon>0\\ \\forall\\delta>0\\ \\exists x:\\ 0<|x-a|<\\delta$ **og** $|f(x)-L|\\ge\\varepsilon$» — nettopp D.\n\n*Feller:* **A** beholder «for alle $\\varepsilon$» (glemmer å snu første kvantor); **B** negerer ikke ulikheten ($<$ i stedet for $\\ge$); **C** dropper $x$-betingelsen; **E** gjør $\\delta$ eksistensiell, som er feil.\n\n**Signal:** negasjon = snu $\\forall\\leftrightarrow\\exists$ i rekkefølge og bytt $<$ mot $\\ge$.",
+        "hints": [
+          "Definisjonen er $\\forall\\varepsilon\\,\\exists\\delta\\,\\forall x(\\dots<\\varepsilon)$.",
+          "Negasjonen blir $\\exists\\varepsilon\\,\\forall\\delta\\,\\exists x(\\dots\\ge\\varepsilon)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Midtveis, flervalg — L'Hôpital-fellen.) $\\displaystyle\\lim_{x\\to\\infty}\\frac{x+\\sin x}{x} = ?$\n\n**A)** eksisterer ikke\n**B)** $0$\n**C)** $2$\n**D)** $\\infty$\n**E)** $1$",
+        "solution": "**Riktig: E, $1$.** Ikke bruk L'Hôpital her! Del i stedet: $\\dfrac{x+\\sin x}{x}=1+\\dfrac{\\sin x}{x}$. Siden $|\\sin x|\\le 1$, går $\\dfrac{\\sin x}{x}\\to 0$ (skvis: $-\\frac1x\\le\\frac{\\sin x}{x}\\le\\frac1x$), så grensen er $1+0=1$.\n\n*Feller:* **A** (eksisterer ikke) er **L'Hôpital-refleksen**: deriverer man teller og nevner får man $\\frac{1+\\cos x}{1}$, som *ikke* har noen grense — men det betyr **ikke** at den opprinnelige grensen ikke finnes. L'Hôpital gjelder bare når den nye grensen finnes; her svikter den, og man må gå tilbake til omskriving/skvis.\n\n**Signal:** L'Hôpital er ikke alltid svaret — når den deriverte kvotienten oscillerer, bruk skvis/omskriving.",
+        "hints": [
+          "Ikke deriver — del i stedet: $\\frac{x+\\sin x}{x}=1+\\frac{\\sin x}{x}$.",
+          "$|\\sin x|\\le 1$ gir $\\frac{\\sin x}{x}\\to 0$ ved skvis."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "content": "## Langsvarvarianter — slutteksamensføring (~15 min)\n\nPå slutteksamen (og i teoribevis-sjangeren) holder det ikke å krysse av: hvert steg må begrunnes, og **ubegrunnet svar gir $0$ poeng selv om det er riktig**. Her fører du fullt ut. — naturlig pausepunkt før du starter —",
+      "id": "mat1100-2-5-langsvar-tekst"
+    },
+    {
+      "id": "mat1100-2-5-ex-15",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-15",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Langsvar — konjugattriks, full føring.) Beregn $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+x}-\\sqrt{x^2-x}\\right)$ med full føring.",
+        "solution": "**Klassifiser formen.** Begge røttene vokser mot $\\infty$, så uttrykket har formen $[\\infty-\\infty]$ — ubestemt.\n\n**Konjugattriks.** Multipliser med den konjugerte $\\dfrac{\\sqrt{x^2+x}+\\sqrt{x^2-x}}{\\sqrt{x^2+x}+\\sqrt{x^2-x}}$:\n$$\\sqrt{x^2+x}-\\sqrt{x^2-x}=\\frac{(x^2+x)-(x^2-x)}{\\sqrt{x^2+x}+\\sqrt{x^2-x}}=\\frac{2x}{\\sqrt{x^2+x}+\\sqrt{x^2-x}}.$$\n\n**Del på $x$ (bruk $x=\\sqrt{x^2}$ for $x>0$).**\n$$\\frac{2x}{\\sqrt{x^2+x}+\\sqrt{x^2-x}}=\\frac{2}{\\sqrt{1+1/x}+\\sqrt{1-1/x}}.$$\n\n**Ta grensen.** Når $x\\to\\infty$ går $1/x\\to 0$, så nevneren $\\to\\sqrt1+\\sqrt1=2$:\n$$\\lim_{x\\to\\infty}\\frac{2}{\\sqrt{1+1/x}+\\sqrt{1-1/x}}=\\frac{2}{2}=1.$$\n\n**Konklusjon:** $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+x}-\\sqrt{x^2-x}\\right)=1.$",
+        "hints": [
+          "Formen er $[\\infty-\\infty]$; multipliser med den konjugerte summen.",
+          "Telleren kollapser til $2x$.",
+          "Del teller og nevner på $x$ og la $1/x\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-16",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-16",
+        "number": "16",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Langsvar — logaritmetriks, full føring.) Beregn $\\displaystyle\\lim_{x\\to 0}(1+3x)^{1/x}$ med full føring.",
+        "solution": "**Klassifiser formen.** Når $x\\to 0$ går basen $1+3x\\to 1$ og eksponenten $1/x\\to\\pm\\infty$, så formen er $[1^\\infty]$ — ubestemt.\n\n**Ta logaritmen.** La $y=(1+3x)^{1/x}$. Da\n$$\\ln y=\\frac{1}{x}\\ln(1+3x)=\\frac{\\ln(1+3x)}{x}.$$\n\n**Grensen av $\\ln y$** har formen $[0/0]$. Bruk standardgrensen $\\dfrac{\\ln(1+u)}{u}\\to 1$ med $u=3x$:\n$$\\frac{\\ln(1+3x)}{x}=3\\cdot\\frac{\\ln(1+3x)}{3x}\\to 3\\cdot 1=3.$$\n(Alternativt L'Hôpital på $[0/0]$: $\\frac{3/(1+3x)}{1}\\to 3$.)\n\n**Eksponensier tilbake.** Siden $\\ln y\\to 3$, er\n$$y=e^{\\ln y}\\to e^{3}.$$\n\n**Konklusjon:** $\\displaystyle\\lim_{x\\to 0}(1+3x)^{1/x}=e^{3}.$",
+        "hints": [
+          "Formen er $[1^\\infty]$: sett $y=(1+3x)^{1/x}$ og ta $\\ln$.",
+          "$\\ln y=\\frac{\\ln(1+3x)}{x}\\to 3$ (kjerneregel-faktoren $3$).",
+          "Husk å eksponensiere tilbake: svaret er $e^3$, ikke $3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-2-5-ex-17",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-2-5-ex-17",
+        "number": "17",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Langsvar — rekursiv følge, full føring.) La $a_1=2$ og $a_{n+1}=\\sqrt{3a_n+4}$. Vis at følgen er voksende og begrenset ovenfra av $4$, og finn grensen.",
+        "solution": "**Kandidatgrense (fikspunkt).** Dersom følgen konvergerer mot $L$, må $L=\\sqrt{3L+4}$, altså $L^2=3L+4$, $L^2-3L-4=(L-4)(L+1)=0$. Røttene er $L=4$ og $L=-1$; følgen er positiv, så den eneste mulige grensen er $L=4$. Vi viser nå at følgen faktisk konvergerer.\n\n**Begrenset ovenfra ($a_n<4$) ved induksjon.** Basis: $a_1=2<4$. ✓ Induksjonssteg: anta $a_n<4$. Da\n$$a_{n+1}=\\sqrt{3a_n+4}<\\sqrt{3\\cdot 4+4}=\\sqrt{16}=4.$$\nSå $a_{n+1}<4$. Ved induksjon er $a_n<4$ for alle $n$.\n\n**Voksende ($a_{n+1}>a_n$).** Siden alle ledd er positive, kan vi sammenligne kvadratene: vi vil vise $a_{n+1}^2>a_n^2$, altså $3a_n+4>a_n^2$, det vil si $a_n^2-3a_n-4<0$, altså $(a_n-4)(a_n+1)<0$. Dette holder nettopp når $-1<a_n<4$, og vi har allerede vist $0<a_n<4$. Altså er $a_{n+1}>a_n$ for alle $n$ — følgen er (strengt) voksende.\n\n**Konklusjon (kompletthetsaksiomet).** Følgen er voksende og begrenset ovenfra, så etter «monoton + begrenset $\\Rightarrow$ konvergent» konvergerer den. Grensen må oppfylle fikspunktlikningen, og den eneste tillatte roten er\n$$\\lim_{n\\to\\infty} a_n = 4.$$\n\n*(Kontroll: $a_1=2,\\ a_2=\\sqrt{10}\\approx 3{,}16,\\ a_3\\approx 3{,}67,\\ a_4\\approx 3{,}87$ — stiger mot $4$.)*",
+        "hints": [
+          "Finn kandidatgrensen fra $L=\\sqrt{3L+4}$ først.",
+          "Vis $a_n<4$ ved induksjon: hvis $a_n<4$, er $\\sqrt{3a_n+4}<\\sqrt{16}=4$.",
+          "For voksenhet: sammenlign $a_{n+1}^2$ med $a_n^2$ og faktoriser $a_n^2-3a_n-4$."
+        ]
+      }
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil på klokka",
+      "content": "- **Tidsfellen.** Å regne langt der en standardgrense, veksthierarkiet eller konjugattrikset gir svaret på to linjer, koster minutter du ikke har. Klassifiser formen *først*, velg raskeste våpen.\n- **L'Hôpital-refleksen.** L'Hôpital gjelder **bare** når den nye grensen $\\frac{f'}{g'}$ finnes. For $\\frac{x+\\sin x}{x}$ oscillerer $\\frac{1+\\cos x}{1}$ — da må du tilbake til omskriving/skvis, ikke konkludere «finnes ikke».\n- **Glemme $[0/0]$-markeringen.** Marker den ubestemte formen eksplisitt før *hver* L'Hôpital-bruk (fasitpraksis; gjentatt bruk = ny markering). L'Hôpital på et ikke-ubestemt uttrykk gir feil svar.\n- **Ikke eksponensiere tilbake.** Ved $[1^\\infty]$, $[0^0]$, $[\\infty^0]$ regner du grensen av $\\ln y$ — men svaret er $e^{(\\text{den grensen})}$, ikke grensen selv.\n- **Kvantorrekkefølgen.** «For alle $\\varepsilon$ finnes $\\delta$» $\\ne$ «det finnes $\\varepsilon$ for alle $\\delta$». Negasjon snur rekkefølgen og bytter $<$ mot $\\ge$.\n- **Fikspunkt uten konvergensbevis.** $L=g(L)$ gir bare *kandidater*. På slutteksamen kreves monotoni + begrensethet (eller et annet konvergensargument) før du får bruke fikspunktet; på midtveis er konvergensen ofte oppgitt.\n- **Feil fikspunktrot.** $L=g(L)$ har gjerne to røtter — velg den som ligger i følgens verdiområde (forkast f.eks. den negative).",
+      "id": "mat1100-2-5-warn-typiske-feil"
+    },
+    {
+      "type": "text",
+      "content": "## Formelkort til drillen\n\n*Repetisjonsstoff — oppskriftene i kortform for rask puggeøkt. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder selve drillen.*",
+      "id": "mat1100-2-5-begrepsbank-tekst"
+    },
+    {
+      "type": "definition",
+      "title": "De sju ubestemte formene",
+      "content": "Formene der innsetting ikke gir svar, og som krever omskriving eller L'Hôpital: $[0/0]$, $[\\infty/\\infty]$, $[0\\cdot\\infty]$, $[\\infty-\\infty]$, $[1^\\infty]$, $[0^0]$ og $[\\infty^0]$. De tre siste (potensformene) løses alltid ved å ta $\\ln$, regne grensen av logaritmen, og eksponensiere tilbake.",
+      "id": "mat1100-2-5-bb-ubestemte"
+    },
+    {
+      "type": "definition",
+      "title": "Standardgrensene",
+      "content": "De faste $[0/0]$-grensene du bør kjenne utenat: $\\dfrac{\\sin x}{x}\\to 1$, $\\dfrac{e^x-1}{x}\\to 1$, $\\dfrac{\\ln(1+x)}{x}\\to 1$ og $\\dfrac{1-\\cos x}{x^2}\\to\\dfrac12$ (alle når $x\\to 0$). Med en kjerneregel-faktor: $\\dfrac{\\sin(kx)}{x}\\to k$, $\\dfrac{e^{kx}-1}{x}\\to k$.",
+      "id": "mat1100-2-5-bb-standardgrenser"
+    },
+    {
+      "type": "definition",
+      "title": "Veksthierarkiet",
+      "content": "Rangeringen av veksthastighet når $x\\to\\infty$: $\\ln x \\ll x^p \\ll e^x$ (for enhver potens $p>0$). Enhver potens av $x$ slår enhver potens av $\\ln x$, og $e^x$ slår enhver potens av $x$. Gir $[\\infty/\\infty]$-grenser direkte uten L'Hôpital.",
+      "id": "mat1100-2-5-bb-veksthierarki"
+    },
+    {
+      "type": "definition",
+      "title": "Beslutningstreet for grenser",
+      "content": "Rekkefølgen under tidspress: (1) sett inn — ubestemt? (2) klassifiser formen; (3) velg våpen (standardgrense / forkorting / konjugat / logaritme / L'Hôpital / veksthierarki / skvis). Marker $[0/0]$ eller $[\\infty/\\infty]$ eksplisitt før hver L'Hôpital-bruk.",
+      "id": "mat1100-2-5-bb-beslutningstre"
+    },
+    {
+      "type": "definition",
+      "title": "Fikspunktmetoden for rekursive følger",
+      "content": "For $a_{n+1}=g(a_n)$: (1) finn kandidatgrensene fra $L=g(L)$; (2) vis at følgen er monoton (ofte ved induksjon); (3) vis at den er begrenset; (4) konkluder med «monoton + begrenset $\\Rightarrow$ konvergent» og velg fikspunktroten i følgens verdiområde. Fikspunktlikningen alene er ikke et konvergensbevis.",
+      "id": "mat1100-2-5-bb-fikspunkt"
+    },
+    {
+      "id": "mat1100-2-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-2-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\lim_{x\\to a} f(x)$ | Funksjonsgrense når $x\\to a$ |\n| $\\lim_{n\\to\\infty} a_n$ | Følgegrense |\n| $[0/0], [\\infty/\\infty]$ | Ubestemte kvotientformer (markeres før L'Hôpital) |\n| $[0\\cdot\\infty], [\\infty-\\infty]$ | Ubestemte produkt-/differanseformer |\n| $[1^\\infty], [0^0], [\\infty^0]$ | Ubestemte potensformer (løses via $\\ln$) |\n| $\\ll$ | «vokser langsommere enn» (veksthierarkiet) |\n| $a_{n+1}=g(a_n)$ | Rekursiv følge |\n| $L=g(L)$ | Fikspunktlikning (kandidatgrenser) |\n| $\\forall,\\ \\exists$ | «for alle», «det finnes» (kvantorer) |\n| $\\varepsilon,\\ \\delta$ | Toleranse og terskel i grensedefinisjonen |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{\\sin x}{x}\\to 1,\\quad \\frac{e^x-1}{x}\\to 1,\\quad \\frac{\\ln(1+x)}{x}\\to 1,\\quad \\frac{1-\\cos x}{x^2}\\to\\frac12 \\quad (x\\to 0)$$\nStandardgrensene ($[0/0]$).\n\n$$\\ln x \\ll x^p \\ll e^x \\quad (x\\to\\infty)$$\nVeksthierarkiet.\n\n$$\\sqrt{A}-\\sqrt{B}=\\frac{A-B}{\\sqrt{A}+\\sqrt{B}}$$\nKonjugattrikset for rotdifferanser ($[\\infty-\\infty]$).\n\n$$\\lim (\\text{base})^{\\text{eksp}} = e^{\\lim(\\text{eksp}\\cdot\\ln(\\text{base}))}$$\nPotensformene $[1^\\infty], [0^0], [\\infty^0]$: ta $\\ln$, regn grensen, eksponensier tilbake.\n\n$$a_{n+1}=g(a_n),\\quad L=g(L)$$\nRekursiv følge og fikspunktlikning (kandidatgrenser; krever monotoni + begrensethet for konvergens)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
